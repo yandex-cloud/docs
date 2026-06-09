@@ -5,7 +5,7 @@ Deletes the specified cluster.
 ## HTTP request
 
 ```
-DELETE https://ytsaurus.{{ api-host }}/ytsaurus/v1/clusters/{clusterId}
+DELETE https://ytsaurus.api.cloud.yandex.net/ytsaurus/v1/clusters/{clusterId}
 ```
 
 ## Path parameters

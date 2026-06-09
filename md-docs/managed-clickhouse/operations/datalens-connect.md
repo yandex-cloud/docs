@@ -1,21 +1,21 @@
-# Подключение к кластеру {{ CH }} из {{ datalens-name }}
+# Подключение к кластеру ClickHouse® из DataLens
 
-[{{ datalens-full-name }}](../../datalens/concepts/index.md) — это сервис для [бизнес-аналитики](../../glossary/business-analytics.md). Сервис позволяет загружать и обрабатывать данные, визуализировать их для анализа и проверки гипотез. Он может помочь вам при принятии маркетинговых решений для вашего продукта.
+[Yandex DataLens](../../datalens/concepts/index.md) — это сервис для [бизнес-аналитики](../../glossary/business-analytics.md). Сервис позволяет загружать и обрабатывать данные, визуализировать их для анализа и проверки гипотез. Он может помочь вам при принятии маркетинговых решений для вашего продукта.
 
-Чтобы использовать существующий кластер в качестве источника данных для {{ datalens-name }}:
-1. [Активируйте {{ datalens-full-name }}](#activate-datalens).
-1. [Разрешите доступ из {{ datalens-name }} к кластеру](#allow-access).
-1. [Создайте подключение к кластеру в {{ datalens-name }}](#create-connector).
+Чтобы использовать существующий кластер в качестве источника данных для DataLens:
+1. [Активируйте Yandex DataLens](#activate-datalens).
+1. [Разрешите доступ из DataLens к кластеру](#allow-access).
+1. [Создайте подключение к кластеру в DataLens](#create-connector).
 
-## Активировать {{ datalens-name }} {#activate-datalens}
+## Активировать DataLens {#activate-datalens}
 
-Подключить кластер к {{ datalens-name }} внутри облака можно только, если {{ datalens-name }} активирован в том же каталоге, что и кластер.
+Подключить кластер к DataLens внутри облака можно только, если DataLens активирован в том же каталоге, что и кластер.
 
-Если {{ datalens-name }} активирован в другом каталоге, кластер можно подключить как внешний ресурс при условии, что к кластеру есть публичный доступ. [Подробнее о подключении из другого каталога](../../datalens/operations/connection/create-clickhouse.md).
+Если DataLens активирован в другом каталоге, кластер можно подключить как внешний ресурс при условии, что к кластеру есть публичный доступ. [Подробнее о подключении из другого каталога](../../datalens/operations/connection/create-clickhouse.md).
 
 {% note alert "Ограничение" %}
 
-В облаке можно создать только один экземпляр {{ datalens-name }}.
+В облаке можно создать только один экземпляр DataLens.
 
 {% endnote %}
 
@@ -23,17 +23,17 @@
 
 - Консоль управления {#console}
 
-    1. В [консоли управления]({{ link-console-main }}) перейдите на страницу каталога.
-    1. Перейдите в сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_datalens }}**.
+    1. В [консоли управления](https://console.yandex.cloud) перейдите на страницу каталога.
+    1. Перейдите в сервис **DataLens**.
     1. Нажмите кнопку **Активировать DataLens**.
 
 {% endlist %}
 
-Экземпляр {{ datalens-name }} будет активирован в выбранном каталоге.
+Экземпляр DataLens будет активирован в выбранном каталоге.
 
-## Разрешить доступ из {{ datalens-name }} к кластеру {#allow-access}
+## Разрешить доступ из DataLens к кластеру {#allow-access}
 
-Чтобы {{ datalens-name }} мог подключаться к кластеру и работать с данными в нем, включите опцию **{{ ui-key.yacloud.mdb.forms.additional-field-datalens }}** при [создании кластера](cluster-create.md) или [изменении его настроек](update.md#change-additional-settings).
+Чтобы DataLens мог подключаться к кластеру и работать с данными в нем, включите опцию **Доступ из DataLens** при [создании кластера](cluster-create.md) или [изменении его настроек](update.md#change-additional-settings).
 
 ## Создать подключение к кластеру {#create-connector}
 
@@ -41,15 +41,15 @@
 
 - Консоль управления {#console}
 
-  1. Убедитесь, что сервис **{{ datalens-name }}** [активирован](#activate-datalens) в нужном каталоге и доступ к кластеру из него [разрешен](#allow-access).
-  1. Перейдите в сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-clickhouse }}**.
-  1. Нажмите на имя нужного кластера и выберите вкладку **{{ ui-key.yacloud.clickhouse.cluster.switch_datalens }}**.
-  1. Нажмите кнопку **{{ ui-key.yacloud.mdb.datalens.button-action_new-connection }}**.
+  1. Убедитесь, что сервис **DataLens** [активирован](#activate-datalens) в нужном каталоге и доступ к кластеру из него [разрешен](#allow-access).
+  1. Перейдите в сервис **Managed Service for&nbsp;ClickHouse**.
+  1. Нажмите на имя нужного кластера и выберите вкладку **DataLens**.
+  1. Нажмите кнопку **Создать подключение**.
 
-     {% cut "У меня нет кнопки «{{ ui-key.yacloud.mdb.datalens.button-action_new-connection }}»" %}
+     {% cut "У меня нет кнопки «Создать подключение»" %}
 
      
-     Если вместо кнопки **{{ ui-key.yacloud.mdb.datalens.button-action_new-connection }}** вы видите сообщение «{{ ui-key.yacloud.mdb.datalens.label_activate-datalens-title }}», значит вы либо еще не активировали {{ datalens-name }}, либо подключили его в другом каталоге. Чтобы подключить кластер к экземпляру {{ datalens-name }} из другого каталога, воспользуйтесь [инструкцией](../../datalens/operations/connection/create-clickhouse.md) в документации {{ datalens-name }}.
+     Если вместо кнопки **Создать подключение** вы видите сообщение «DataLens ещё не активирован», значит вы либо еще не активировали DataLens, либо подключили его в другом каталоге. Чтобы подключить кластер к экземпляру DataLens из другого каталога, воспользуйтесь [инструкцией](../../datalens/operations/connection/create-clickhouse.md) в документации DataLens.
 
 
      {% endcut %}
@@ -66,7 +66,7 @@
 * Визуализировать датасеты с помощью [чартов](../../datalens/concepts/chart/index.md) и [дашбордов](../../datalens/concepts/dashboard.md).
 
 
-См. также: [пример визуализации данных из {{ CH }}](../../tutorials/datalens/data-from-ch-visualization.md).
+См. также: [пример визуализации данных из ClickHouse®](../../tutorials/datalens/data-from-ch-visualization.md).
 
 
 ## Просмотреть список подключений кластера {#connectors-list}
@@ -75,13 +75,13 @@
 
 - Консоль управления {#console}
 
-  1. В [консоли управления]({{ link-console-main }}) выберите каталог, в котором находится кластер.
-  1. Перейдите в сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-clickhouse }}**.
-  1. Нажмите на имя нужного кластера и выберите вкладку **{{ ui-key.yacloud.clickhouse.cluster.switch_datalens }}**.
+  1. В [консоли управления](https://console.yandex.cloud) выберите каталог, в котором находится кластер.
+  1. Перейдите в сервис **Managed Service for&nbsp;ClickHouse**.
+  1. Нажмите на имя нужного кластера и выберите вкладку **DataLens**.
 
      {% cut "Моего подключения нет в списке" %}
 
-     Если нужного подключения нет в списке, значит кластер подключен к {{ datalens-name }} как внешний источник. [Подробнее о работе {{ datalens-name }}](../../datalens/index.md).
+     Если нужного подключения нет в списке, значит кластер подключен к DataLens как внешний источник. [Подробнее о работе DataLens](../../datalens/index.md).
 
      {% endcut %} 
 
@@ -93,14 +93,14 @@
 
 - Консоль управления {#console}
 
-  1. В [консоли управления]({{ link-console-main }}) выберите каталог, в котором находится кластер.
-  1. Перейдите в сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-clickhouse }}**.
-  1. Нажмите на имя нужного кластера и выберите вкладку **{{ ui-key.yacloud.clickhouse.cluster.switch_datalens }}**.
+  1. В [консоли управления](https://console.yandex.cloud) выберите каталог, в котором находится кластер.
+  1. Перейдите в сервис **Managed Service for&nbsp;ClickHouse**.
+  1. Нажмите на имя нужного кластера и выберите вкладку **DataLens**.
   1. Выберите подключение из списка.
 
      {% cut "Моего подключения нет в списке" %}
 
-     Если нужного подключения нет в списке, значит кластер подключен к {{ datalens-name }} как внешний источник. [Подробнее о работе {{ datalens-name }}](../../datalens/index.md).
+     Если нужного подключения нет в списке, значит кластер подключен к DataLens как внешний источник. [Подробнее о работе DataLens](../../datalens/index.md).
 
      {% endcut %} 
 
@@ -116,14 +116,14 @@
 
 - Консоль управления {#console}
 
-  1. В [консоли управления]({{ link-console-main }}) выберите каталог, в котором находится кластер.
-  1. Перейдите в сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-clickhouse }}**.
-  1. Нажмите на имя нужного кластера и выберите вкладку **{{ ui-key.yacloud.clickhouse.cluster.switch_datalens }}**.
+  1. В [консоли управления](https://console.yandex.cloud) выберите каталог, в котором находится кластер.
+  1. Перейдите в сервис **Managed Service for&nbsp;ClickHouse**.
+  1. Нажмите на имя нужного кластера и выберите вкладку **DataLens**.
   1. Выберите подключение из списка.
 
      {% cut "Моего подключения нет в списке" %}
 
-     Если нужного подключения нет в списке, значит кластер подключен к {{ datalens-name }} как внешний источник. [Подробнее о работе {{ datalens-name }}](../../datalens/index.md).
+     Если нужного подключения нет в списке, значит кластер подключен к DataLens как внешний источник. [Подробнее о работе DataLens](../../datalens/index.md).
 
      {% endcut %} 
 
@@ -138,10 +138,10 @@
 
 - Консоль управления {#console}
 
-  В [консоли управления]({{ link-console-main }}) при [создании](#create-connector) или [изменении](#update-connector) подключения к кластеру:
+  В [консоли управления](https://console.yandex.cloud) при [создании](#create-connector) или [изменении](#update-connector) подключения к кластеру:
   1. Задайте имя подключения.
   1. Выберите вкладку **Выбрать в каталоге**.
-  1. Выберите кластер и его хост из выпадающих списков, либо [создайте новый кластер](cluster-create.md) в каталоге с {{ datalens-name }}, нажав на кнопку **Создать новый**.
+  1. Выберите кластер и его хост из выпадающих списков, либо [создайте новый кластер](cluster-create.md) в каталоге с DataLens, нажав на кнопку **Создать новый**.
   1. Выберите пользователя из выпадающего списка.
   1. Введите пароль этого пользователя.
 
@@ -149,12 +149,12 @@
 
 {% endlist %}
 
-{% cut "Кластер и {{ datalens-name }} находятся в разных каталогах" %}
+{% cut "Кластер и DataLens находятся в разных каталогах" %}
 
-Если кластер и {{ datalens-name }} находятся в разных каталогах, используйте настройки из [инструкции](../../datalens/operations/connection/create-clickhouse.md) в документации {{ datalens-name }}.
+Если кластер и DataLens находятся в разных каталогах, используйте настройки из [инструкции](../../datalens/operations/connection/create-clickhouse.md) в документации DataLens.
 
 {% endcut %}
 
 Если для пользователя задана [настройка **Read only**](cluster-users.md#setting-readonly), убедитесь, что значение настройки — `0` или `2`. В противном случае подключение работать не будет.
 
-_{{ CH }} является зарегистрированным товарным знаком [ClickHouse, Inc](https://clickhouse.com)._
+_ClickHouse® является зарегистрированным товарным знаком [ClickHouse, Inc](https://clickhouse.com)._

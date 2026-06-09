@@ -9,21 +9,21 @@
 
 - Консоль управления {#console}
 
-    1. Перейдите на [страницу каталога]({{ link-console-main }}).
-    1. Перейдите в сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-mongodb }}**.
-    1. Нажмите на имя нужного кластера и выберите вкладку **{{ ui-key.yacloud.mongodb.cluster.switch_hosts }}**.
-    1. Нажмите на значок ![options](../../_assets/console-icons/ellipsis.svg) в строке `PRIMARY` хоста и выберите пункт **{{ ui-key.yacloud.mongodb.hosts.action_stepdown-host }}**.
+    1. Перейдите на [страницу каталога](https://console.yandex.cloud).
+    1. Перейдите в сервис **Yandex StoreDoc**.
+    1. Нажмите на имя нужного кластера и выберите вкладку **Хосты**.
+    1. Нажмите на значок ![options](../../_assets/console-icons/ellipsis.svg) в строке `PRIMARY` хоста и выберите пункт **Сменить мастер**.
 
 - CLI {#cli}
 
-    Если у вас еще нет интерфейса командной строки {{ yandex-cloud }} (CLI), [установите и инициализируйте его](../../cli/quickstart.md#install).
+    Если у вас еще нет интерфейса командной строки Yandex Cloud (CLI), [установите и инициализируйте его](../../cli/quickstart.md#install).
 
     По умолчанию используется каталог, указанный при [создании](../../cli/operations/profile/profile-create.md) профиля CLI. Чтобы изменить каталог по умолчанию, используйте команду `yc config set folder-id <идентификатор_каталога>`. Также для любой команды вы можете указать другой каталог с помощью параметров `--folder-name` или `--folder-id`. Если вы обращаетесь к ресурсу по имени, поиск будет выполнен в каталоге по умолчанию. Если вы обращаетесь к ресурсу по идентификатору, поиск будет выполнен глобально — во всех каталогах с учетом прав доступа.
 
     Чтобы переключить первичную реплику в кластере, выполните команду:
 
     ```bash
-    {{ yc-mdb-mg }} hosts stepdown <имя_текущей_первичной_реплики> \
+    yc managed-mongodb hosts stepdown <имя_текущей_первичной_реплики> \
        --name=<имя_кластера>
     ```
 
@@ -37,14 +37,14 @@
         export IAM_TOKEN="<IAM-токен>"
         ```
 
-    1. Воспользуйтесь методом [Cluster.StepdownHosts](../api-ref/Cluster/stepdownHosts.md) и выполните запрос, например, с помощью {{ api-examples.rest.tool }}:
+    1. Воспользуйтесь методом [Cluster.StepdownHosts](../api-ref/Cluster/stepdownHosts.md) и выполните запрос, например, с помощью [cURL](https://curl.se/):
 
         ```bash
         curl \
             --request POST \
             --header "Authorization: Bearer $IAM_TOKEN" \
             --header "Content-Type: application/json" \
-            --url 'https://{{ api-host-mdb }}/managed-mongodb/v1/clusters/<идентификатор_кластера>:stepdownHosts' \
+            --url 'https://mdb.api.cloud.yandex.net/managed-mongodb/v1/clusters/<идентификатор_кластера>:stepdownHosts' \
             --data '{
                      "hostNames": [
                         "<имя_текущей_первичной_реплики>"
@@ -72,7 +72,7 @@
        
        Далее предполагается, что содержимое репозитория находится в директории `~/cloudapi/`.
 
-    1. Воспользуйтесь вызовом [ClusterService.StepdownHosts](../api-ref/grpc/Cluster/stepdownHosts.md) и выполните запрос, например, с помощью {{ api-examples.grpc.tool }}:
+    1. Воспользуйтесь вызовом [ClusterService.StepdownHosts](../api-ref/grpc/Cluster/stepdownHosts.md) и выполните запрос, например, с помощью [gRPCurl](https://github.com/fullstorydev/grpcurl):
 
         ```bash
         grpcurl \
@@ -87,7 +87,7 @@
                     "<имя_текущей_первичной_реплики>"
                  ]
                 }' \
-            {{ api-host-mdb }}:{{ port-https }} \
+            mdb.api.cloud.yandex.net:443 \
             yandex.cloud.mdb.mongodb.v1.ClusterService.StepdownHosts
         ```    
 

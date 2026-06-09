@@ -1,35 +1,35 @@
-# История изменений в {{ sf-full-name }}
+# История изменений в Yandex Cloud Functions
 
 ## Апрель 2026 {#april-2026}
 
 ### Исправления и улучшения {#fixes-improvements}
 
 * Исправлена ошибка `Too many files to list`, которая возникала из-за большого количества файлов в функции и не позволяла изменить версию функции или открыть редактор в консоли управления.
-* Параметр `batch_cutoff` для триггеров в {{ TF }} теперь опциональный, а `terraform plan` больше не предлагает задать нулевые значения для настроек группирования.
+* Параметр `batch_cutoff` для триггеров в Terraform теперь опциональный, а `terraform plan` больше не предлагает задать нулевые значения для настроек группирования.
 
 ## Март 2026 {#march-2026}
 
 ### Обновления {#updates}
 
-* Добавлена передача параметров сервиса метаданных функции в аудитные логи {{ at-name }}.
+* Добавлена передача параметров сервиса метаданных функции в аудитные логи Audit Trails.
 
 ### Исправления и улучшения {#fixes-improvements}
 
 * Исправлена ошибка, из-за которой после релиза новой версии среды выполнения вызов функции мог обрабатываться экземпляром с устаревшей версией среди выполнения.
 
-* Исправлена работа триггера для {{ container-registry-name }}, который срабатывает при изменении тегов Docker-образов: теперь в сообщении от триггера передается имя добавленного или удаленного тега.
-* Исправлены аудитные логи {{ at-name }} триггеров для {{ objstorage-name }} и {{ yds-name }}: устранены ошибки proto-валидации в полях `request_parameters.rule` и `details.trigger_rule`.
+* Исправлена работа триггера для Container Registry, который срабатывает при изменении тегов Docker-образов: теперь в сообщении от триггера передается имя добавленного или удаленного тега.
+* Исправлены аудитные логи Audit Trails триггеров для Object Storage и Data Streams: устранены ошибки proto-валидации в полях `request_parameters.rule` и `details.trigger_rule`.
 
 ## Февраль 2026 {#february-2026}
 
 ### Обновления {#updates}
 
-* Добавлена поддержка сервиса {{ sf-name }} в [калькуляторе цен](https://yandex.cloud/ru/prices).
+* Добавлена поддержка сервиса Cloud Functions в [калькуляторе цен](https://yandex.cloud/ru/prices).
 
 ### Исправления и улучшения {#fixes-improvements}
 
 * Исправлена работа асинхронного обработчика в Python 3.14.
-* Исправлено вычисление [метрик](metrics.md) {{ monitoring-name }}.
+* Исправлено вычисление [метрик](metrics.md) Monitoring.
 
 ## Ноябрь 2025 {#november-2025}
 
@@ -80,7 +80,7 @@
 
 ### Обновления {#updates}
 
-* Добавлена поддержка параметра `concurrency` в CLI, API и {{ TF }}.
+* Добавлена поддержка параметра `concurrency` в CLI, API и Terraform.
 
 ### Исправления и улучшения {#fixes-improvements}
 
@@ -94,26 +94,26 @@
 
 ### Исправления и улучшения {#fixes-improvements}
 
-* Исправлена ошибка импорта `yandex_function_scaling_policy` в {{ TF }}.
+* Исправлена ошибка импорта `yandex_function_scaling_policy` в Terraform.
 * Удалено требование для [пользовательской сети](concepts/networking.md#user-network) иметь подсеть в зоне доступности `ru-central1-c` в связи с [выводом этой зоны из эксплуатации](../overview/concepts/region.md).
 
 ## Март 2024 {#march-2024}
 
 ### Обновления {#updates}
 
-* Добавлена поддержка редактирования всех параметров триггеров в {{ TF }}.
-* [Монтирование бакетов {{ objstorage-full-name }}](concepts/mounting.md) в функцию перешло на [стадию General Availability](../overview/concepts/launch-stages.md).
+* Добавлена поддержка редактирования всех параметров триггеров в Terraform.
+* [Монтирование бакетов Yandex Object Storage](concepts/mounting.md) в функцию перешло на [стадию General Availability](../overview/concepts/launch-stages.md).
 
 ### Исправления и улучшения {#fixes-improvements}
 
-* Максимальный размер группы в [триггере для {{ message-queue-full-name }}](concepts/trigger/ymq-trigger.md) увеличен до 1000 сообщений.
+* Максимальный размер группы в [триггере для Yandex Message Queue](concepts/trigger/ymq-trigger.md) увеличен до 1000 сообщений.
 
 ## Январь — февраль 2024 {#jan-feb-2024}
 
 ### Обновления {#updates}
 
-* Добавлена поддержка [монтирования бакетов {{ objstorage-full-name }}](concepts/mounting.md) в функцию в CLI и {{ TF }}.
-* Добавлена поддержка настроек логирования для функции в {{ TF }}.
+* Добавлена поддержка [монтирования бакетов Yandex Object Storage](concepts/mounting.md) в функцию в CLI и Terraform.
+* Добавлена поддержка настроек логирования для функции в Terraform.
 
 ### Исправления и улучшения {#fixes-improvements}
 

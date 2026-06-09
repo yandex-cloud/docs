@@ -7,7 +7,7 @@ or scheduled (starting and finishing at specified time).
 ## HTTP request
 
 ```
-POST https://video.{{ api-host }}/video/v1/streams
+POST https://video.api.cloud.yandex.net/video/v1/streams
 ```
 
 ## Body parameters {#yandex.cloud.video.v1.CreateStreamRequest}

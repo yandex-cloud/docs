@@ -5,7 +5,7 @@ Creates origin group.
 ## HTTP request
 
 ```
-POST https://cdn.{{ api-host }}/cdn/v1/originGroups
+POST https://cdn.api.cloud.yandex.net/cdn/v1/originGroups
 ```
 
 ## Body parameters {#yandex.cloud.cdn.v1.CreateOriginGroupRequest}

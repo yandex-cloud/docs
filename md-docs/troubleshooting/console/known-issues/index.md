@@ -1,3 +1,3 @@
-## Решения для известных проблем {{ console-name }} {#known-issues-resolving}
+## Решения для известных проблем Cloud Console {#known-issues-resolving}
 
-* [Устранение ошибки подключения к {{ console-name }}](console-connection-timeout.md)
+* [Устранение ошибки подключения к Cloud Console](console-connection-timeout.md)

@@ -14,15 +14,15 @@
 
 {% endnote %}
 
-Чтобы перенести облако в другую организацию, у вас должна быть [роль](../../security/index.md#resource-manager-clouds-owner) `{{ roles-cloud-owner }}` на переносимое облако и [роль](../../../organization/security/index.md#organization-manager-organizations-owner) `{{ roles-organization-owner }}` на организацию, в которую вы это облако собираетесь перенести. Подробнее о назначении ролей см. в разделах [Назначить роль на облако](set-access-bindings.md#access-to-user) и [Назначить роль на организацию](../../../organization/security/index.md#add-role).
+Чтобы перенести облако в другую организацию, у вас должна быть [роль](../../security/index.md#resource-manager-clouds-owner) `resource-manager.clouds.owner` на переносимое облако и [роль](../../../organization/security/index.md#organization-manager-organizations-owner) `organization-manager.organizations.owner` на организацию, в которую вы это облако собираетесь перенести. Подробнее о назначении ролей см. в разделах [Назначить роль на облако](set-access-bindings.md#access-to-user) и [Назначить роль на организацию](../../../organization/security/index.md#add-role).
 
 {% list tabs group=instructions %}
 
 - Консоль управления {#console}
 
-  1. В [консоли управления]({{ link-console-main }}) на панели сверху нажмите ![image](../../../_assets/console-icons/layout-side-content-left.svg) или ![image](../../../_assets/console-icons/chevron-down.svg) и выберите нужное облако.
-  1. В правом верхнем углу нажмите кнопку ![***](../../../_assets/console-icons/ellipsis.svg) и выберите **{{ ui-key.yacloud.component.console-dashboard.button_action-change-org }}**.
-  1. Выберите новую организацию из списка и нажмите **{{ ui-key.yacloud.iam.cloud.change-org.button_change }}**.
+  1. В [консоли управления](https://console.yandex.cloud) на панели сверху нажмите ![image](../../../_assets/console-icons/layout-side-content-left.svg) или ![image](../../../_assets/console-icons/chevron-down.svg) и выберите нужное облако.
+  1. В правом верхнем углу нажмите кнопку ![***](../../../_assets/console-icons/ellipsis.svg) и выберите **Изменить организацию**.
+  1. Выберите новую организацию из списка и нажмите **Изменить**.
 
 - API {#api}
 
@@ -32,4 +32,4 @@
 
 ## См. также {#see-also}
 
-* [{#T}](../../../organization/operations/leave-organization.md)
+* [Покинуть организацию](../../../organization/operations/leave-organization.md)

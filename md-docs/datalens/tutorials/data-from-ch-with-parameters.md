@@ -9,10 +9,10 @@
 * поработаете с формулами и визуализацией в чарте с помощью параметров;
 * поменяете значение параметра на дашборде с помощью селекторов с ручным вводом.
 
-В качестве источника данных будет использовано прямое подключение к демонстрационной базе данных {{ CH }}.
+В качестве источника данных будет использовано прямое подключение к демонстрационной базе данных ClickHouse®.
 
 
-Для визуализации и исследования данных [подготовьте {{ datalens-short-name }} к работе](#before-you-begin), затем выполните следующие шаги:
+Для визуализации и исследования данных [подготовьте DataLens к работе](#before-you-begin), затем выполните следующие шаги:
 
 
 1. [Создайте подключение](#create-connection).
@@ -27,30 +27,30 @@
 
 ## Перед началом работы {#before-you-begin}
 
-Чтобы начать работать с {{ datalens-short-name }}:
+Чтобы начать работать с DataLens:
 
 
 {% list tabs group=datalens_user %}
 
 - Новый пользователь {#new}
 
-  1. [Войдите]({{ link-passport-login }}) в ваш аккаунт на Яндексе. Если у вас еще нет аккаунта, [создайте](https://yandex.ru/support/passport/authorization/registration.html) его.
-  1. Откройте [главную страницу]({{ link-datalens-main-promo }}) {{ datalens-short-name }}.
+  1. [Войдите](https://passport.yandex.ru/auth) в ваш аккаунт на Яндексе. Если у вас еще нет аккаунта, [создайте](https://yandex.ru/support/passport/authorization/registration.html) его.
+  1. Откройте [главную страницу](https://datalens.ru/promo) DataLens.
   1. Нажмите **Начать в облаке**.
   1. Подтвердите, что ознакомились с [Условиями использования](https://yandex.ru/legal/cloud_termsofuse/?lang=ru) и принимаете их и нажмите кнопку **Войти**.
 
-- Уже использую {{ yandex-cloud }} {#already}
+- Уже использую Yandex Cloud {#already}
 
-  1. [Войдите]({{ link-passport-login }}) в ваш аккаунт на Яндексе.
-  1. Откройте [главную страницу]({{ link-datalens-main-promo }}) {{ datalens-short-name }}.
+  1. [Войдите](https://passport.yandex.ru/auth) в ваш аккаунт на Яндексе.
+  1. Откройте [главную страницу](https://datalens.ru/promo) DataLens.
   1. Нажмите **Начать в облаке**.
   1. Выберите один из вариантов:
 
-     * Если у вас уже есть организация, выберите ее в выпадающем меню на вкладке **Организации** и нажмите **{{ datalens-short-name }}**.
+     * Если у вас уже есть организация, выберите ее в выпадающем меню на вкладке **Организации** и нажмите **DataLens**.
 
        {% note info %}
 
-       Для активации экземпляра {{ datalens-short-name }} пользователю нужна роль `admin` или `owner`. Подробнее про роли см. в разделе [{#T}](../../organization/security/index.md).
+       Для активации экземпляра DataLens пользователю нужна роль `admin` или `owner`. Подробнее про роли см. в разделе [Управление доступом в Yandex Identity Hub](../../organization/security/index.md).
 
        {% endnote %}
 
@@ -58,16 +58,16 @@
 
 {% endlist %}
 
-Если у вас возник технический вопрос по работе сервиса, обратитесь в [службу поддержки]({{ link-console-support }}) {{ yandex-cloud }}. Чтобы спросить совета, обсудить решение вашей задачи или лучшие практики работы сервиса, напишите в чат [{{ datalens-short-name }}](https://t.me/YandexDataLens) в Telegram.
+Если у вас возник технический вопрос по работе сервиса, обратитесь в [службу поддержки](https://center.yandex.cloud/support) Yandex Cloud. Чтобы спросить совета, обсудить решение вашей задачи или лучшие практики работы сервиса, напишите в чат [DataLens](https://t.me/YandexDataLens) в Telegram.
 
 
 ## Создайте подключение {#create-connection}
 
 {% note warning %}
 
-Если вы работаете с новой объектной моделью {{ datalens-short-name }}, включающей [воркбуки и коллекции](../workbooks-collections/index.md):
+Если вы работаете с новой объектной моделью DataLens, включающей [воркбуки и коллекции](../workbooks-collections/index.md):
 
-1. Перейдите на [главную страницу]({{ link-datalens-main-skip-promo }}) {{ datalens-short-name }}. На панели слева выберите ![collections](../../_assets/console-icons/rectangles-4.svg) **Коллекции и воркбуки**.
+1. Перейдите на [главную страницу](https://datalens.ru/?skipPromo=true) DataLens. На панели слева выберите ![collections](../../_assets/console-icons/rectangles-4.svg) **Коллекции и воркбуки**.
 1. Откройте воркбук, в правом верхнем углу нажмите **Создать** и выберите нужный объект.
 
 Продолжайте инструкцию с шага 3.
@@ -76,7 +76,7 @@
 
 
 
-1. Перейдите на [страницу подключений]({{ link-datalens-main }}/connections).
+1. Перейдите на [страницу подключений](https://datalens.ru/connections).
 1. Нажмите кнопку **Создать подключение**.
 
 
@@ -335,9 +335,9 @@
 
 #### См. также {#see-also}
 
-* [{#T}](../concepts/parameters.md)
-* [{#T}](../operations/dashboard/add-parameters.md)
-* [{#T}](../operations/chart/add-parameter-chart.md)
-* [{#T}](../dataset/create-dataset.md#add-parameters)
+* [Параметры в Yandex DataLens](../concepts/parameters.md)
+* [Добавление параметров на дашборд в Yandex DataLens](../operations/dashboard/add-parameters.md)
+* [Добавление параметра в чарт Yandex DataLens](../operations/chart/add-parameter-chart.md)
+* [Добавить параметры](../dataset/create-dataset.md#add-parameters)
 
-_{{ CH }} является зарегистрированным товарным знаком [ClickHouse, Inc](https://clickhouse.com)._
+_ClickHouse® является зарегистрированным товарным знаком [ClickHouse, Inc](https://clickhouse.com)._

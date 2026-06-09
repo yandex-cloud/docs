@@ -6,7 +6,7 @@ This method starts an operation that can be cancelled by another operation.
 ## HTTP request
 
 ```
-PATCH https://compute.{{ api-host }}/compute/v1/instanceGroups/{instanceGroupId}
+PATCH https://compute.api.cloud.yandex.net/compute/v1/instanceGroups/{instanceGroupId}
 ```
 
 ## Path parameters

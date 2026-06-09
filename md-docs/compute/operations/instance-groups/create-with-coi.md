@@ -1,23 +1,23 @@
-# Создать группу ВМ с {{ coi }} в {{ compute-name }}
+# Создать группу ВМ с Container Optimized Image в Compute Cloud
 
-# Создать группу ВМ с {{ coi }}
+# Создать группу ВМ с Container Optimized Image
 
 
-Для запуска нескольких экземпляров сервиса в Docker-контейнерах вы можете создать группу виртуальных машин на базе образа [{{ coi }}](../../../cos/concepts/index.md). В такой группе обновлять Docker-контейнер можно с помощью метаданных ВМ используя [COI или Docker Compose спецификацию](../../../cos/concepts/coi-specifications.md).
+Для запуска нескольких экземпляров сервиса в Docker-контейнерах вы можете создать группу виртуальных машин на базе образа [Container Optimized Image](../../../cos/concepts/index.md). В такой группе обновлять Docker-контейнер можно с помощью метаданных ВМ используя [COI или Docker Compose спецификацию](../../../cos/concepts/coi-specifications.md).
 
 {% note alert %}
 
-Создавая группы ВМ, учитывайте [лимиты](../../concepts/limits.md). Чтобы не нарушить работу компонента {{ ig-name }}, не изменяйте и не удаляйте вручную созданные им ресурсы: [целевую группу](../../../network-load-balancer/concepts/target-resources.md) {{ network-load-balancer-name }}, ВМ и диски. Вместо этого измените или удалите группу полностью.
+Создавая группы ВМ, учитывайте [лимиты](../../concepts/limits.md). Чтобы не нарушить работу компонента Instance Groups, не изменяйте и не удаляйте вручную созданные им ресурсы: [целевую группу](../../../network-load-balancer/concepts/target-resources.md) Network Load Balancer, ВМ и диски. Вместо этого измените или удалите группу полностью.
 
 {% endnote %}
 
-Все операции в {{ ig-name }} выполняются от имени сервисного аккаунта. Если сервисного аккаунта нет, [создайте его](../../../iam/operations/sa/create.md).
+Все операции в Instance Groups выполняются от имени сервисного аккаунта. Если сервисного аккаунта нет, [создайте его](../../../iam/operations/sa/create.md).
 
 Чтобы иметь возможность создавать, обновлять и удалять ВМ в группе [назначьте](../../../iam/operations/sa/assign-role-for-sa.md) сервисному аккаунту роль [compute.editor](../../security/index.md#compute-editor).
 
-Чтобы создать группу ВМ на базе {{ coi }}:
+Чтобы создать группу ВМ на базе Container Optimized Image:
 
-1. Если у вас еще нет интерфейса командной строки {{ yandex-cloud }} (CLI), [установите и инициализируйте его](../../../cli/quickstart.md#install).
+1. Если у вас еще нет интерфейса командной строки Yandex Cloud (CLI), [установите и инициализируйте его](../../../cli/quickstart.md#install).
 
 1. По умолчанию используется каталог, указанный при [создании](../../../cli/operations/profile/profile-create.md) профиля CLI. Чтобы изменить каталог по умолчанию, используйте команду `yc config set folder-id <идентификатор_каталога>`. Также для любой команды вы можете указать другой каталог с помощью параметров `--folder-name` или `--folder-id`. Если вы обращаетесь к ресурсу по имени, поиск будет выполнен в каталоге по умолчанию. Если вы обращаетесь к ресурсу по идентификатору, поиск будет выполнен глобально — во всех каталогах с учетом прав доступа.
 
@@ -28,7 +28,7 @@
    - CLI {#cli}
 
      ```bash
-     {{ yc-compute-ig }} create --help
+     yc compute instance-group create --help
      ```
 
    {% endlist %}
@@ -49,9 +49,9 @@
 
 1. Создайте YAML-файл с именем, например, `specification.yaml`.
 
-1. Узнайте идентификатор последней версии [публичного образа](../images-with-pre-installed-software/get-list.md) {{ coi }}.
+1. Узнайте идентификатор последней версии [публичного образа](../images-with-pre-installed-software/get-list.md) Container Optimized Image.
    
-   Образ {{ coi }} в реестре [{{ container-registry-name }}](../../../container-registry/index.md) может обновляться и меняться в соответствии с релизами. При этом образ на [виртуальной машине](../../concepts/vm.md) не обновится автоматически до последней версии. Чтобы создать [группу ВМ](../../concepts/instance-groups/index.md) с последней версией {{ coi }}, необходимо самостоятельно проверить ее наличие:
+   Образ Container Optimized Image в реестре [Container Registry](../../../container-registry/index.md) может обновляться и меняться в соответствии с релизами. При этом образ на [виртуальной машине](../../concepts/vm.md) не обновится автоматически до последней версии. Чтобы создать [группу ВМ](../../concepts/instance-groups/index.md) с последней версией Container Optimized Image, необходимо самостоятельно проверить ее наличие:
    
    {% list tabs group=instructions %}
    
@@ -69,12 +69,12 @@
      ...
      ```
    
-   - {{ marketplace-full-name }} {#marketplace}
+   - Yandex Cloud Marketplace {#marketplace}
    
-     1. Перейдите на страницу {{ marketplace-name }} и выберите образ с нужной конфигурацией:
-        * [{{ coi }}](https://yandex.cloud/ru/marketplace/products/yc/container-optimized-image).
-        * [{{ coi }} GPU](https://yandex.cloud/ru/marketplace/products/yc/container-optimized-image-gpu).
-     1. В блоке **{{ ui-key.yacloud_components.marketplace.label_product-ids }}** скопируйте значение `image_id`.
+     1. Перейдите на страницу Cloud Marketplace и выберите образ с нужной конфигурацией:
+        * [Container Optimized Image](https://yandex.cloud/ru/marketplace/products/yc/container-optimized-image).
+        * [Container Optimized Image GPU](https://yandex.cloud/ru/marketplace/products/yc/container-optimized-image-gpu).
+     1. В блоке **Идентификаторы продукта** скопируйте значение `image_id`.
    
    {% endlist %}
 
@@ -125,7 +125,7 @@
            spec:
              containers:
                - name: nginx
-                 image: {{ registry }}/mirror/nginx:1.17.4-alpine
+                 image: cr.yandex/mirror/nginx:1.17.4-alpine
                  securityContext:
                    privileged: false
                  tty: false
@@ -150,7 +150,7 @@
      * `mode` — режим доступа к диску:
          * `READ_ONLY` — доступ на чтение.
          * `READ_WRITE` — доступ на чтение и запись.
-     * `image_id` — идентификатор публичного образа {{ coi }}.
+     * `image_id` — идентификатор публичного образа Container Optimized Image.
      * `type_id` — тип диска.
      * `size` — размер диска. Должен быть не менее 30 ГБ.
      * `network_id` — идентификатор сети `default-net`.
@@ -171,7 +171,7 @@
          size: 3
      allocation_policy:
        zones:
-         - zone_id: {{ region-id }}-a
+         - zone_id: ru-central1-a
            instance_tags_pool:
            - first
            - second
@@ -214,7 +214,7 @@
            spec:
              containers:
                - name: nginx
-                 image: {{ registry }}/mirror/nginx:1.17.4-alpine
+                 image: cr.yandex/mirror/nginx:1.17.4-alpine
                  securityContext:
                    privileged: false
                  tty: false
@@ -227,7 +227,7 @@
          size: 3
      allocation_policy:
        zones:
-          - zone_id: {{ region-id }}-a
+          - zone_id: ru-central1-a
             instance_tags_pool:
             - first
             - second
@@ -247,15 +247,15 @@
    - CLI {#cli}
 
      ```bash
-     {{ yc-compute-ig }} create --file specification.yaml
+     yc compute instance-group create --file specification.yaml
      ```
 
      Команда создаст группу из трех однотипных ВМ со следующими характеристиками:
      * С именем `container-optimized-group`.
-     * Из последней версии публичного образа {{ coi }}.
-     * С запущенным Docker-контейнером на основе `{{ registry }}/mirror/nginx:1.17.4-alpine`.
+     * Из последней версии публичного образа Container Optimized Image.
+     * С запущенным Docker-контейнером на основе `cr.yandex/mirror/nginx:1.17.4-alpine`.
      * В сети `default-net`.
-     * В зоне доступности `{{ region-id }}-a`.
+     * В зоне доступности `ru-central1-a`.
      * С 2 vCPU и 2 ГБ RAM.
      * С сетевым HDD-диском объемом 32 ГБ.
 

@@ -1,58 +1,58 @@
-# Пошаговые инструкции для {{ container-registry-name }}
+# Пошаговые инструкции для Container Registry
 
-Чтобы работать с Docker-образами, [настройте Docker](configure-docker.md) и [аутентифицируйтесь в {{ container-registry-name }}](authentication.md).
+Чтобы работать с Docker-образами, [настройте Docker](configure-docker.md) и [аутентифицируйтесь в Container Registry](authentication.md).
 
 ## Управление Docker-образом {#docker-images}
 
-* [{#T}](docker-image/docker-image-list.md)
-* [{#T}](docker-image/docker-image-create.md)
-* [{#T}](docker-image/docker-image-push.md)
-* [{#T}](docker-image/docker-image-pull.md)
-* [{#T}](docker-image/docker-image-delete.md)
+* [Получить информацию об имеющихся Docker-образах](docker-image/docker-image-list.md)
+* [Создать Docker-образ](docker-image/docker-image-create.md)
+* [Загрузить Docker-образ в реестр](docker-image/docker-image-push.md)
+* [Скачать Docker-образ из реестра](docker-image/docker-image-pull.md)
+* [Удалить Docker-образ из реестра](docker-image/docker-image-delete.md)
 
 ## Управление Helm-чартом {#helm-charts}
 
-* [{#T}](helm-chart/helm-chart-list.md)
-* [{#T}](helm-chart/helm-chart-push.md)
-* [{#T}](helm-chart/helm-chart-pull.md)
-* [{#T}](helm-chart/helm-chart-delete.md)
+* [Получить информацию об имеющихся Helm-чартах](helm-chart/helm-chart-list.md)
+* [Загрузить Helm-чарт в реестр](helm-chart/helm-chart-push.md)
+* [Скачать Helm-чарт из реестра](helm-chart/helm-chart-pull.md)
+* [Удалить Helm-чарт из реестра](helm-chart/helm-chart-delete.md)
 
 ## Управление реестром {#registry}
 
-* [{#T}](registry/registry-list.md)
-* [{#T}](registry/registry-create.md)
-* [{#T}](registry/registry-access.md)
-* [{#T}](registry/registry-update.md)
-* [{#T}](registry/registry-permissions-get.md)
-* [{#T}](registry/registry-delete.md)
+* [Получить информацию об имеющихся реестрах](registry/registry-list.md)
+* [Создать реестр](registry/registry-create.md)
+* [Настроить доступ к реестру](registry/registry-access.md)
+* [Изменить реестр](registry/registry-update.md)
+* [Получить информацию о политике доступа к реестру](registry/registry-permissions-get.md)
+* [Удалить реестр](registry/registry-delete.md)
 
 ## Управление репозиторием {#repository}
 
-* [{#T}](repository/repository-list.md)
-* [{#T}](repository/repository-create.md)
+* [Получить информацию об имеющихся репозиториях](repository/repository-list.md)
+* [Создать репозиторий](repository/repository-create.md)
 
 ## Управление политиками автоматического удаления Docker-образов {#lifecycle-policy}
 
-* [{#T}](lifecycle-policy/lifecycle-policy-list.md)
-* [{#T}](lifecycle-policy/lifecycle-policy-create.md)
-* [{#T}](lifecycle-policy/lifecycle-policy-update.md)
-* [{#T}](lifecycle-policy/lifecycle-policy-dry-run.md)
-* [{#T}](lifecycle-policy/lifecycle-policy-delete.md)
+* [Получить информацию о политиках удаления](lifecycle-policy/lifecycle-policy-list.md)
+* [Создать политику удаления](lifecycle-policy/lifecycle-policy-create.md)
+* [Изменить политику удаления](lifecycle-policy/lifecycle-policy-update.md)
+* [Протестировать политику удаления](lifecycle-policy/lifecycle-policy-dry-run.md)
+* [Удалить политику удаления](lifecycle-policy/lifecycle-policy-delete.md)
 
 ## Сканирование Docker-образа на наличие уязвимостей {#scanning}
 
-* [{#T}](scanning-docker-image.md)
+* [Сканирование Docker-образа на наличие уязвимостей](scanning-docker-image.md)
 
 ## Создание триггера для реестра {#trigger}
 
-* [{#T}](trigger-create.md)
+* [Создание триггера для реестра](trigger-create.md)
 
 ## Работа с ролями {#roles}
 
-* [{#T}](roles/grant.md)
-* [{#T}](roles/get-assigned-roles.md)
-* [{#T}](roles/revoke.md)
+* [Назначить роль на ресурс](roles/grant.md)
+* [Просмотреть роли на ресурс](roles/get-assigned-roles.md)
+* [Отозвать роль на ресурс](roles/revoke.md)
 
-## Работа с {{ coi }} {#coi}
+## Работа с Container Optimized Image {#coi}
 
-Подробнее о том, как работать с образом {{ coi }}, читайте в документации [{{ cos-name }}](../../cos/index.md).
+Подробнее о том, как работать с образом Container Optimized Image, читайте в документации [Container Solution](../../cos/index.md).

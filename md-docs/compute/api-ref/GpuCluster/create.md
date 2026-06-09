@@ -5,7 +5,7 @@ Creates a GPU cluster in the specified folder.
 ## HTTP request
 
 ```
-POST https://compute.{{ api-host }}/compute/v1/gpuClusters
+POST https://compute.api.cloud.yandex.net/compute/v1/gpuClusters
 ```
 
 ## Body parameters {#yandex.cloud.compute.v1.CreateGpuClusterRequest}

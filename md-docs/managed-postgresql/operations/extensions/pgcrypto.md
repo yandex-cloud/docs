@@ -1,18 +1,18 @@
-# Использование pgcrypto в {{ mpg-name }}
+# Использование pgcrypto в Managed Service for PostgreSQL
 
-Расширение [pgcrypto]({{ pg-docs }}/static/pgcrypto.html) предоставляет криптографические функции, которые позволяют администраторам баз данных хранить определенные столбцы данных в зашифрованном виде.
+Расширение [pgcrypto](https://www.postgresql.org/docs/current/static/pgcrypto.html) предоставляет криптографические функции, которые позволяют администраторам баз данных хранить определенные столбцы данных в зашифрованном виде.
 
-## Установить расширение pgcrypto в кластер {{ PG }} {#pgcrypto-install}
+## Установить расширение pgcrypto в кластер PostgreSQL {#pgcrypto-install}
 
 [Добавьте расширение](cluster-extensions.md#update-extensions) `pgcrypto` к базе данных.
 
 {% note warning %}
 
-Установка расширения `pgcrypto` приведет к последовательной перезагрузке {{ PG }} на всех хостах кластера.
+Установка расширения `pgcrypto` приведет к последовательной перезагрузке PostgreSQL на всех хостах кластера.
 
 {% endnote %}
 
-Подробнее о расширении `pgcrypto` см. в [официальной документации]({{ pg-docs }}/static/pgcrypto.html).
+Подробнее о расширении `pgcrypto` см. в [официальной документации](https://www.postgresql.org/docs/current/static/pgcrypto.html).
 
 ## Примеры использования
 

@@ -5,7 +5,7 @@ Returns a report table for the specified test.
 ## HTTP request
 
 ```
-GET https://loadtesting.{{ api-host }}/loadtesting/api/v1/reports/{testId}/table
+GET https://loadtesting.api.cloud.yandex.net/loadtesting/api/v1/reports/{testId}/table
 ```
 
 ## Path parameters

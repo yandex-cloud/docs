@@ -5,7 +5,7 @@ Retrieves the list of containers in the specified folder.
 ## HTTP request
 
 ```
-GET https://serverless-containers.{{ api-host }}/containers/v1/containers
+GET https://serverless-containers.api.cloud.yandex.net/containers/v1/containers
 ```
 
 ## Query parameters {#yandex.cloud.serverless.containers.v1.ListContainersRequest}

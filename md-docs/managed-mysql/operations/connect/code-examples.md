@@ -1,9 +1,9 @@
-# Примеры кода для подключения к кластеру {{ MY }}
+# Примеры кода для подключения к кластеру MySQL®
 
 ## Примеры строк подключения {#connection-string}
 
 **Примеры для Linux проверялись в следующем окружении:**
-* Виртуальная машина в {{ yandex-cloud }} с Ubuntu 20.04 LTS.
+* Виртуальная машина в Yandex Cloud с Ubuntu 20.04 LTS.
 * Bash: `5.0.16`.
 * Python: `3.8.2`; pip3: `20.0.2`.
 * PHP: `7.4.3`.
@@ -18,7 +18,7 @@
 * PowerShell: `5.1.19041`.
 * cURL: `7.55.1 WinSSL`.
 
-Подключиться к {{ MY }}-хостам в публичном доступе можно только с использованием SSL-сертификата.
+Подключиться к MySQL®-хостам в публичном доступе можно только с использованием SSL-сертификата.
 
 ### Go
 
@@ -48,8 +48,8 @@ go get github.com/go-sql-driver/mysql
   )
 
   const (
-    host     = "<FQDN_любого_хоста_{{ MY }}>"
-    port     = {{ port-mmy }}
+    host     = "<FQDN_любого_хоста_MySQL®>"
+    port     = 3306
     user     = "<имя_пользователя>"
     password = "<пароль_пользователя>"
     dbname   = "<имя_БД>"
@@ -92,7 +92,7 @@ go get github.com/go-sql-driver/mysql
   }
   ```
 
-  При этом способе подключения в коде необходимо указывать полный путь к сертификату `root.crt` для {{ MY }} в переменной `ca`.
+  При этом способе подключения в коде необходимо указывать полный путь к сертификату `root.crt` для MySQL® в переменной `ca`.
 
 - Подключение без SSL {#without-ssl}
 
@@ -108,8 +108,8 @@ go get github.com/go-sql-driver/mysql
   )
 
   const (
-    host     = "<FQDN_любого_хоста_{{ MY }}>"
-    port     = {{ port-mmy }}
+    host     = "<FQDN_любого_хоста_MySQL®>"
+    port     = 3306
     user     = "<имя_пользователя>"
     password = "<пароль_пользователя>"
     dbname   = "<имя_БД>"
@@ -149,7 +149,7 @@ go get github.com/go-sql-driver/mysql
 go run connect.go
 ```
 
-При успешном подключении к кластеру и выполнении тестового запроса будет выведена версия {{ MY }}.
+При успешном подключении к кластеру и выполнении тестового запроса будет выведена версия MySQL®.
 
 ### Java
 
@@ -161,12 +161,12 @@ go run connect.go
     sudo apt update && sudo apt install --yes default-jdk maven
     ```
 
-1. Добавьте SSL-сертификат в хранилище доверенных сертификатов Java (Java Key Store), чтобы драйвер {{ MY }} мог использовать этот сертификат при защищенном подключении к хостам кластера. При этом задайте пароль в параметре `-storepass` для защиты хранилища:
+1. Добавьте SSL-сертификат в хранилище доверенных сертификатов Java (Java Key Store), чтобы драйвер MySQL® мог использовать этот сертификат при защищенном подключении к хостам кластера. При этом задайте пароль в параметре `-storepass` для защиты хранилища:
 
     ```bash
     cd ~/.mysql && \
     sudo keytool -importcert \
-                 -alias {{ crt-alias }} \
+                 -alias YandexCA \
                  -file root.crt \
                  -keystore YATrustStore \
                  -storepass <пароль_хранилища_сертификатов> \
@@ -272,7 +272,7 @@ go run connect.go
 
   public class App {
     public static void main(String[] args) {
-      String DB_URL     = "jdbc:mysql://<FQDN_любого_хоста_{{ MY }}>:{{ port-mmy }}/<имя_БД>?useSSL=true";
+      String DB_URL     = "jdbc:mysql://<FQDN_любого_хоста_MySQL®>:3306/<имя_БД>?useSSL=true";
       String DB_USER    = "<имя_пользователя>";
       String DB_PASS    = "<пароль_пользователя>";
 
@@ -293,7 +293,7 @@ go run connect.go
   }
   ```
 
-  В этом коде необходимо указывать полный путь к хранилищу сертификатов `YATrustStore` для драйвера {{ MY }} в свойстве `javax.net.ssl.trustStore`.
+  В этом коде необходимо указывать полный путь к хранилищу сертификатов `YATrustStore` для драйвера MySQL® в свойстве `javax.net.ssl.trustStore`.
 
 - Подключение без SSL {#without-ssl}
 
@@ -306,7 +306,7 @@ go run connect.go
 
   public class App {
     public static void main(String[] args) {
-      String DB_URL     = "jdbc:mysql://<FQDN_любого_хоста_{{ MY }}>:{{ port-mmy }}/<имя_БД>?useSSL=false";
+      String DB_URL     = "jdbc:mysql://<FQDN_любого_хоста_MySQL®>:3306/<имя_БД>?useSSL=false";
       String DB_USER    = "<имя_пользователя>";
       String DB_PASS    = "<пароль_пользователя>";
 
@@ -335,7 +335,7 @@ mvn clean package && \
 java -jar target/app-0.1.0-jar-with-dependencies.jar
 ```
 
-При успешном подключении к кластеру и выполнении тестового запроса будет выведена версия {{ MY }}.
+При успешном подключении к кластеру и выполнении тестового запроса будет выведена версия MySQL®.
 
 ### Node.js
 
@@ -358,8 +358,8 @@ npm install mysql2
   const mysql = require('mysql2');
   
   const config = {
-    host     : '<FQDN_любого_хоста_{{ MY }}>',
-    port     : {{ port-mmy }},
+    host     : '<FQDN_любого_хоста_MySQL®>',
+    port     : 3306,
     user     : '<имя_пользователя>',
     password : '<пароль_пользователя>',
     database : '<имя_БД>',
@@ -378,7 +378,7 @@ npm install mysql2
     })
   ```
 
-  При этом способе подключения в коде необходимо указывать полный путь к сертификату `root.crt` для {{ MY }} в переменной `ca`.
+  При этом способе подключения в коде необходимо указывать полный путь к сертификату `root.crt` для MySQL® в переменной `ca`.
 
 - Подключение без SSL {#without-ssl}
 
@@ -389,8 +389,8 @@ npm install mysql2
   const mysql = require('mysql2');
   
   const config = {
-    host     : '<FQDN_любого_хоста_{{ MY }}>',
-    port     : {{ port-mmy }},
+    host     : '<FQDN_любого_хоста_MySQL®>',
+    port     : 3306,
     user     : '<имя_пользователя>',
     password : '<пароль_пользователя>',
     database : '<имя_БД>',
@@ -415,7 +415,7 @@ npm install mysql2
 node app.js
 ```
 
-При успешном подключении к кластеру и выполнении тестового запроса будет выведена версия {{ MY }}.
+При успешном подключении к кластеру и выполнении тестового запроса будет выведена версия MySQL®.
 
 ### ODBC
 
@@ -427,7 +427,7 @@ wget https://dev.mysql.com/get/Downloads/Connector-ODBC/8.0/mysql-connector-odbc
 sudo dpkg -i mysql-connector-odbc_8.0.21-1ubuntu20.04_amd64.deb
 ```
 
-Драйвер {{ MY }} Connector/ODBC будет автоматически зарегистрирован в файле `/etc/odbcinst.ini`. Актуальная версия драйвера: [mysql-connector-odbc](https://dev.mysql.com/downloads/connector/odbc/).
+Драйвер MySQL® Connector/ODBC будет автоматически зарегистрирован в файле `/etc/odbcinst.ini`. Актуальная версия драйвера: [mysql-connector-odbc](https://dev.mysql.com/downloads/connector/odbc/).
 
 Настройки подключения необходимо задать в файле `/etc/odbc.ini`.
 
@@ -440,16 +440,16 @@ sudo dpkg -i mysql-connector-odbc_8.0.21-1ubuntu20.04_amd64.deb
   ```ini
   [mysql]
   Driver=MySQL ODBC 8.0 Unicode Driver
-  SERVER=<FQDN_любого_хоста_{{ MY }}>
+  SERVER=<FQDN_любого_хоста_MySQL®>
   UID=<имя_пользователя>
   PWD=<пароль_пользователя>
   DATABASE=<имя_БД>
-  PORT={{ port-mmy }}
+  PORT=3306
   SSLCA=/home/<домашняя_директория>/.mysql/root.crt
   SSLVERIFY=1
   ```
 
-  При этом способе подключения в файле `/etc/odbc.ini` необходимо указывать полный путь к сертификату `root.crt` для {{ MY }} в параметре `SSLCA`.
+  При этом способе подключения в файле `/etc/odbc.ini` необходимо указывать полный путь к сертификату `root.crt` для MySQL® в параметре `SSLCA`.
 
 - Подключение без SSL {#without-ssl}
 
@@ -458,11 +458,11 @@ sudo dpkg -i mysql-connector-odbc_8.0.21-1ubuntu20.04_amd64.deb
   ```ini
   [mysql]
   Driver=MySQL ODBC 8.0 Unicode Driver
-  SERVER=<FQDN_любого_хоста_{{ MY }}>
+  SERVER=<FQDN_любого_хоста_MySQL®>
   UID=<имя_пользователя>
   PWD=<пароль_пользователя>
   DATABASE=<имя_БД>
-  PORT={{ port-mmy }}
+  PORT=3306
   ```
 
 {% endlist %}
@@ -477,7 +477,7 @@ isql -v mysql
 
 После подключения к СУБД выполните команду `SELECT version();`.
 
-При успешном подключении к кластеру и выполнении тестового запроса будет выведена версия {{ MY }}.
+При успешном подключении к кластеру и выполнении тестового запроса будет выведена версия MySQL®.
 
 ### PHP
 
@@ -499,7 +499,7 @@ sudo apt update && apt install --yes php php-mysql
 
       $conn->options(MYSQLI_OPT_SSL_VERIFY_SERVER_CERT, true);
       $conn->ssl_set(NULL, NULL, '/home/<домашняя_директория>/.mysql/root.crt', NULL, NULL);
-      $conn->real_connect('<FQDN_любого_хоста_{{ MY }}>', '<имя_пользователя>', '<пароль_пользователя>', '<имя_БД>', {{ port-mmy }}, NULL, MYSQLI_CLIENT_SSL);
+      $conn->real_connect('<FQDN_любого_хоста_MySQL®>', '<имя_пользователя>', '<пароль_пользователя>', '<имя_БД>', 3306, NULL, MYSQLI_CLIENT_SSL);
 
       $q = $conn->query('SELECT version()');
       $result = $q->fetch_row();
@@ -510,7 +510,7 @@ sudo apt update && apt install --yes php php-mysql
   ?>
   ```
 
-  При этом способе подключения в коде необходимо указывать полный путь к сертификату `root.crt` для {{ MY }} в методе `ssl_set`.
+  При этом способе подключения в коде необходимо указывать полный путь к сертификату `root.crt` для MySQL® в методе `ssl_set`.
 
 - Подключение без SSL {#without-ssl}
 
@@ -521,7 +521,7 @@ sudo apt update && apt install --yes php php-mysql
       $conn = mysqli_init();
 
       $conn->options(MYSQLI_OPT_SSL_VERIFY_SERVER_CERT, false);
-      $conn->real_connect('<FQDN_любого_хоста_{{ MY }}>', '<имя_пользователя>', '<пароль_пользователя>', '<имя_БД>', {{ port-mmy }}, NULL, NULL);
+      $conn->real_connect('<FQDN_любого_хоста_MySQL®>', '<имя_пользователя>', '<пароль_пользователя>', '<имя_БД>', 3306, NULL, NULL);
 
       $q = $conn->query('SELECT version()');
       $result = $q->fetch_row();
@@ -542,7 +542,7 @@ sudo apt update && apt install --yes php php-mysql
 php connect.php
 ```
 
-При успешном подключении к кластеру и выполнении тестового запроса будет выведена версия {{ MY }}.
+При успешном подключении к кластеру и выполнении тестового запроса будет выведена версия MySQL®.
 
 ### Python
 
@@ -563,8 +563,8 @@ pip3 install mysqlclient
   import MySQLdb
   
   conn = MySQLdb.connect(
-        host="<FQDN_любого_хоста_{{ MY }}>",
-        port={{ port-mmy }},
+        host="<FQDN_любого_хоста_MySQL®>",
+        port=3306,
         db="<имя_БД>",
         user="<имя_пользователя>",
         passwd="<пароль_пользователя>",
@@ -586,8 +586,8 @@ pip3 install mysqlclient
   import MySQLdb
   
   conn = MySQLdb.connect(
-        host="<FQDN_любого_хоста_{{ MY }}>",
-        port={{ port-mmy }},
+        host="<FQDN_любого_хоста_MySQL®>",
+        port=3306,
         db="<имя_БД>",
         user="<имя_пользователя>",
         passwd="<пароль_пользователя>")
@@ -610,7 +610,7 @@ pip3 install mysqlclient
 python3 connect.py
 ```
 
-При успешном подключении к кластеру и выполнении тестового запроса будет выведена версия {{ MY }}.
+При успешном подключении к кластеру и выполнении тестового запроса будет выведена версия MySQL®.
 
 ### Ruby
 
@@ -630,8 +630,8 @@ sudo apt update && sudo apt install --yes ruby ruby-mysql2
   require "mysql2"
 
   conn = Mysql2::Client.new(
-          :host => "<FQDN_любого_хоста_{{ MY }}>",
-          :port => {{ port-mmy }},
+          :host => "<FQDN_любого_хоста_MySQL®>",
+          :port => 3306,
           :database => "<имя_БД>",
           :username => "<имя_пользователя>",
           :password => "<пароль_пользователя>",
@@ -655,8 +655,8 @@ sudo apt update && sudo apt install --yes ruby ruby-mysql2
   require "mysql2"
 
   conn = Mysql2::Client.new(
-          :host => "<FQDN_любого_хоста_{{ MY }}>",
-          :port => {{ port-mmy }},
+          :host => "<FQDN_любого_хоста_MySQL®>",
+          :port => 3306,
           :database => "<имя_БД>",
           :username => "<имя_пользователя>",
           :password => "<пароль_пользователя>")
@@ -680,4 +680,4 @@ sudo apt update && sudo apt install --yes ruby ruby-mysql2
 ruby connect.rb
 ```
 
-При успешном подключении к кластеру и выполнении тестового запроса будет выведена версия {{ MY }}.
+При успешном подключении к кластеру и выполнении тестового запроса будет выведена версия MySQL®.

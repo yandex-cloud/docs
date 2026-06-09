@@ -213,8 +213,8 @@
 
 #### См. также {#see-also}
 
-* [{#T}](create.md)
-* [{#T}](push.md)
-* [{#T}](pull.md)
-* [{#T}](../../concepts/lifecycle-policy.md)
-* [{#T}](../../tutorials/lifecycle-policy-examples.md)
+* [Создать Python-пакет](create.md)
+* [Загрузить Python-пакет в локальный реестр Cloud Registry](push.md)
+* [Скачать Python-пакет из реестра Cloud Registry](pull.md)
+* [Политика жизненного цикла в Yandex Cloud Registry](../../concepts/lifecycle-policy.md)
+* [Настройка политик жизненного цикла](../../tutorials/lifecycle-policy-examples.md)

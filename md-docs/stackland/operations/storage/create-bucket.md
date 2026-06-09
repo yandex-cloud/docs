@@ -41,7 +41,7 @@
               read: true
               list: false
 
-          В этом случае объекты будут доступны для чтения без аутентификации по ссылке вида `https://storage.sys.{{ cluster-domain }}/<название_бакета>/<название_объекта>`.
+          В этом случае объекты будут доступны для чтения без аутентификации по ссылке вида `https://storage.sys.<домен кластера>/<название_бакета>/<название_объекта>`.
 
       {% endlist %}
 
@@ -84,4 +84,4 @@
 ## Что дальше {#what-next}
 
 * [Создайте ключ доступа](create-accesskey.md) для работы с бакетом через S3 API.
-* Узнайте больше о [ресурсной модели {{ objstorage-name }}](../../concepts/components/storage.md#resource-model).
+* Узнайте больше о [ресурсной модели Object Storage](../../concepts/components/storage.md#resource-model).

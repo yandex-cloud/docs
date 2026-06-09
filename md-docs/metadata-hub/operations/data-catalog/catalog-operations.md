@@ -12,11 +12,11 @@
 
 - Консоль управления {#console}
 
-    1. В [консоли управления]({{ link-console-main }}) выберите [каталог ресурсов](../../../resource-manager/concepts/resources-hierarchy.md#folder), в котором создан каталог метаданных.
-    1. [Перейдите](../../../console/operations/select-service.md#select-service) в сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_metadata-hub }}**.
-    1. На панели слева выберите ![image](../../../_assets/console-icons/folder-magnifier.svg) **{{ ui-key.yacloud.iam.folder.dashboard.label_data-catalog }}**.
+    1. В [консоли управления](https://console.yandex.cloud) выберите [каталог ресурсов](../../../resource-manager/concepts/resources-hierarchy.md#folder), в котором создан каталог метаданных.
+    1. [Перейдите](../../../console/operations/select-service.md#select-service) в сервис **Yandex MetaData Hub**.
+    1. На панели слева выберите ![image](../../../_assets/console-icons/folder-magnifier.svg) **Data Catalog**.
     1. В открывшемся списке выберите каталог метаданных, для которого вы хотите получить список операций.
-    1. На панели слева выберите ![image](../../../_assets/console-icons/list-check.svg) **{{ ui-key.yacloud.data-catalog.label_ingestion-tab-operations }}**.
+    1. На панели слева выберите ![image](../../../_assets/console-icons/list-check.svg) **Операции**.
 
 {% endlist %}
 
@@ -30,8 +30,8 @@
 
 Нажмите на заголовок нужной колонки:
 
-* **{{ ui-key.yacloud.common.started-at }}** — сортировка по дате и времени начала операции в порядке возрастания;
-* **{{ ui-key.yacloud.common.updated-at }}** — сортировка по дате и времени изменения каталога в порядке возрастания.
+* **Дата начала** — сортировка по дате и времени начала операции в порядке возрастания;
+* **Дата изменения** — сортировка по дате и времени изменения каталога в порядке возрастания.
 
 Второе нажатие на тот же заголовок сменит направление сортировки. Третье нажатие отменит сортировку.
 
@@ -46,4 +46,4 @@
     * Чтобы отобразить скрытые колонки, отметьте их.
     * Чтобы изменить порядок колонок, слева от названия колонки нажмите ![image](../../../_assets/console-icons/grip.svg) и перетяните колонку вверх или вниз на нужную позицию в списке.
 
-1. Нажмите кнопку **{{ ui-key.yacloud.common.apply }}**.
+1. Нажмите кнопку **Применить**.

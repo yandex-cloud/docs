@@ -5,7 +5,7 @@ Creates a ARL profile in the specified folder using the data specified in the re
 ## HTTP request
 
 ```
-POST https://smartwebsecurity.{{ api-host }}/smartwebsecurity/v1/advancedRateLimiterProfiles
+POST https://smartwebsecurity.api.cloud.yandex.net/smartwebsecurity/v1/advancedRateLimiterProfiles
 ```
 
 ## Body parameters {#yandex.cloud.smartwebsecurity.v1.advanced_rate_limiter.CreateAdvancedRateLimiterProfileRequest}

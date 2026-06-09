@@ -1,8 +1,8 @@
-# Создать SAML-приложение в {{ org-full-name }} для интеграции с Selectel
+# Создать SAML-приложение в Yandex Identity Hub для интеграции с Selectel
 
 [Selectel](https://selectel.ru/) — это провайдер облачной инфраструктуры и услуг дата-центров, предоставляющий выделенные серверы, облачные платформы и сервисы хранения данных. Selectel поддерживает SAML-аутентификацию для обеспечения безопасного единого входа пользователей организации.
 
-Чтобы пользователи вашей [организации](../../../organization/concepts/organization.md) могли аутентифицироваться в Selectel с помощью технологии единого входа по стандарту [SAML](https://ru.wikipedia.org/wiki/SAML), создайте [SAML-приложение](../../../organization/concepts/applications.md#saml) в {{ org-full-name }} и настройте его на стороне {{ org-full-name }} и на стороне Selectel.
+Чтобы пользователи вашей [организации](../../../organization/concepts/organization.md) могли аутентифицироваться в Selectel с помощью технологии единого входа по стандарту [SAML](https://ru.wikipedia.org/wiki/SAML), создайте [SAML-приложение](../../../organization/concepts/applications.md#saml) в Yandex Identity Hub и настройте его на стороне Yandex Identity Hub и на стороне Selectel.
 
 Управлять SAML-приложениями может пользователь, которому назначена [роль](../../../organization/security/index.md#organization-manager-samlApplications-admin) `organization-manager.samlApplications.admin` или выше.
 
@@ -16,25 +16,25 @@
 
 {% list tabs group=instructions %}
 
-- Интерфейс {{ cloud-center }} {#cloud-center}
+- Интерфейс Cloud Center {#cloud-center}
 
-    1. Войдите в сервис [{{ org-full-name }}]({{ link-org-cloud-center }}).
-    1. На панели слева выберите ![shapes-4](../../../_assets/console-icons/shapes-4.svg) **{{ ui-key.yacloud_org.pages.apps }}**.
-    1. В правом верхнем углу страницы нажмите ![Circles3Plus](../../../_assets/console-icons/circles-3-plus.svg) **{{ ui-key.yacloud_org.action.applications.components.create-app }}** и в открывшемся окне:
-        1. Выберите метод единого входа **{{ ui-key.yacloud_org.organization.apps.AppCreateForm.saml-title_kyofk }}**.
-        1. В поле **{{ ui-key.yacloud_org.organization.apps.AppCreateForm.field-name_1VbM1 }}** задайте имя создаваемого приложения: `selectel-app`.
-        1. (Опционально) В поле **{{ ui-key.yacloud_org.organization.apps.AppCreateForm.field-description_kzkNB }}** задайте описание приложения.
+    1. Войдите в сервис [Yandex Identity Hub](https://center.yandex.cloud/organization).
+    1. На панели слева выберите ![shapes-4](../../../_assets/console-icons/shapes-4.svg) **Приложения**.
+    1. В правом верхнем углу страницы нажмите ![Circles3Plus](../../../_assets/console-icons/circles-3-plus.svg) **Создать приложение** и в открывшемся окне:
+        1. Выберите метод единого входа **SAML (Security Assertion Markup Language)**.
+        1. В поле **Имя** задайте имя создаваемого приложения: `selectel-app`.
+        1. (Опционально) В поле **Описание** задайте описание приложения.
         1. (Опционально) Добавьте [метки](../../../resource-manager/concepts/labels.md):
-            1. Нажмите **{{ ui-key.yacloud.component.label-set.button_add-label }}**.
+            1. Нажмите **Добавить метку**.
             1. Введите метку в формате `ключ: значение`.
             1. Нажмите **Enter**.
-        1. Нажмите **{{ ui-key.yacloud_org.organization.apps.AppCreateForm.create-app-submit_myxPn }}**.
+        1. Нажмите **Создать приложение**.
 
 {% endlist %}
 
 ## Настройте интеграцию {#setup-integration}
 
-Чтобы настроить интеграцию Selectel с созданным SAML-приложением в {{ org-full-name }}, выполните настройки на стороне Selectel и на стороне {{ org-full-name }}.
+Чтобы настроить интеграцию Selectel с созданным SAML-приложением в Yandex Identity Hub, выполните настройки на стороне Selectel и на стороне Yandex Identity Hub.
 
 ### Настройте SAML-приложение на стороне Selectel {#setup-sp}
 
@@ -50,12 +50,12 @@
 1. В левой панели в блоке **Управление доступом** выберите раздел **Федерации**.
 1. Нажмите кнопку **Добавить федерацию**.
 
-Далее настройте связь между Selectel и {{ org-full-name }}:
+Далее настройте связь между Selectel и Yandex Identity Hub:
 
-1. Войдите в сервис [{{ org-full-name }}]({{ link-org-cloud-center }}).
-1. На панели слева выберите ![shapes-4](../../../_assets/console-icons/shapes-4.svg) **{{ ui-key.yacloud_org.pages.apps }}** и выберите нужное SAML-приложение.
-1. На вкладке **{{ ui-key.yacloud_org.organization.apps.AppPageLayout.overview_b5LJQ }}** в блоке **{{ ui-key.yacloud_org.application.overview.idp_section_title }}** скопируйте значения полей **{{ ui-key.yacloud_org.application.overview.saml_field_issuer }}** и **{{ ui-key.yacloud_org.application.overview.saml_field_login }}**.
-1. На вкладке **{{ ui-key.yacloud_org.organization.apps.AppPageLayout.overview_b5LJQ }}** в блоке **{{ ui-key.yacloud_org.application.overview.certificate_section_title }}** нажмите на кнопку **{{ ui-key.yacloud_org.application.overview.certificate_action_download_cert }}** и сохраните файл на своем устройстве.
+1. Войдите в сервис [Yandex Identity Hub](https://center.yandex.cloud/organization).
+1. На панели слева выберите ![shapes-4](../../../_assets/console-icons/shapes-4.svg) **Приложения** и выберите нужное SAML-приложение.
+1. На вкладке **Обзор** в блоке **Конфигурация поставщика удостоверений (IdP)** скопируйте значения полей **Issuer / IdP EntityID** и **Login URL**.
+1. На вкладке **Обзор** в блоке **Сертификат приложения** нажмите на кнопку **Скачать сертификат** и сохраните файл на своем устройстве.
 1. Вернитесь в Selectel, после чего в меню **Создание федерации**:
     1. В поле **Имя** задайте имя федерации.
     1. (Опционально) В поле **Описание** задайте описание федерации.
@@ -69,20 +69,20 @@
     1. Нажмите кнопку **Добавить**, затем кнопку **Завершить добавление федерации**.
     1. На странице созданной федерации скопируйте значение поля **Идентификатор**.
 
-### Настройте SAML-приложение на стороне {{ org-full-name }} {#setup-idp}
+### Настройте SAML-приложение на стороне Yandex Identity Hub {#setup-idp}
 
 #### Настройте эндпоинты поставщика услуг {#sp-endpoints}
 
 {% list tabs group=instructions %}
 
-- Интерфейс {{ cloud-center }} {#cloud-center}
+- Интерфейс Cloud Center {#cloud-center}
 
-    1. Войдите в сервис [{{ org-full-name }}]({{ link-org-cloud-center }}).
-    1. На панели слева выберите ![shapes-4](../../../_assets/console-icons/shapes-4.svg) **{{ ui-key.yacloud_org.pages.apps }}** и выберите нужное SAML-приложение.
-    1. Справа сверху нажмите ![pencil](../../../_assets/console-icons/pencil.svg) **{{ ui-key.yacloud.common.edit }}** и в открывшемся окне:  
-        1. В поле **{{ ui-key.yacloud_org.organization.apps.SamlAppEditForm.field-sp-entity-id_snAsX }}** укажите адрес `https://api.selectel.ru/v1/federations/saml/<federation_id>`, где `federation_id` — идентификатор федерации, который вы скопировали в конце прошлого этапа.
-        1. В поле **{{ ui-key.yacloud_org.organization.apps.SamlAppEditForm.field-acs-urls_eQcJr }}** укажите адрес `https://api.selectel.ru/v1/auth/federations/<federation_id>/saml/acs`.
-        1. Нажмите **{{ ui-key.yacloud.common.save }}**.
+    1. Войдите в сервис [Yandex Identity Hub](https://center.yandex.cloud/organization).
+    1. На панели слева выберите ![shapes-4](../../../_assets/console-icons/shapes-4.svg) **Приложения** и выберите нужное SAML-приложение.
+    1. Справа сверху нажмите ![pencil](../../../_assets/console-icons/pencil.svg) **Редактировать** и в открывшемся окне:  
+        1. В поле **SP EntityID** укажите адрес `https://api.selectel.ru/v1/federations/saml/<federation_id>`, где `federation_id` — идентификатор федерации, который вы скопировали в конце прошлого этапа.
+        1. В поле **ACS URL** укажите адрес `https://api.selectel.ru/v1/auth/federations/<federation_id>/saml/acs`.
+        1. Нажмите **Сохранить**.
 
 {% endlist %}
 
@@ -91,16 +91,16 @@
 Если при настройке федерации вы отметили чекбокс **Подписывать запросы аутентификации**, необходимо настроить проверку цифровой подписи:
 
 1. [Скачайте сертификат Selectel](https://docs.selectel.ru/access-control/federations/certificates/#download-certificate-for-request-verification).
-1. В SAML-приложении в правом верхнем углу нажмите ![pencil](../../../_assets/console-icons/pencil.svg) **{{ ui-key.yacloud.common.edit }}** и в открывшемся окне активируйте опцию **{{ ui-key.yacloud_org.application.overview.saml_field_request_signing_enabled }}**.
-1. Нажмите кнопку **{{ ui-key.yacloud_org.entity.certificate.action.add }}**.
+1. В SAML-приложении в правом верхнем углу нажмите ![pencil](../../../_assets/console-icons/pencil.svg) **Редактировать** и в открывшемся окне активируйте опцию **Принимать только подписанные запросы**.
+1. Нажмите кнопку **Добавить сертификат**.
 1. Выберите способ добавления сертификата:
-    * Чтобы добавить сертификат в виде файла, нажмите **{{ ui-key.yacloud_components.fileinput.button_attach-file }}** и укажите путь к нему.
-    * Чтобы вставить скопированное содержимое сертификата, выберите способ **{{ ui-key.yacloud_org.component.form-file-upload.method.manual }}** и вставьте содержимое.
-1. Нажмите **{{ ui-key.yacloud.common.add }}**, затем нажмите **{{ ui-key.yacloud.common.save }}**.
+    * Чтобы добавить сертификат в виде файла, нажмите **Прикрепить файл** и укажите путь к нему.
+    * Чтобы вставить скопированное содержимое сертификата, выберите способ **Текст** и вставьте содержимое.
+1. Нажмите **Добавить**, затем нажмите **Сохранить**.
 
 ### Добавьте пользователей {#add-users}
 
-Чтобы пользователи вашей организации могли аутентифицироваться в Selectel с помощью SAML-приложения {{ org-full-name }}, необходимо явно добавить в ваше SAML-приложение нужных пользователей и/или [группы пользователей](../../../organization/concepts/groups.md). Также необходимо явно добавить пользователей в Selectel.
+Чтобы пользователи вашей организации могли аутентифицироваться в Selectel с помощью SAML-приложения Yandex Identity Hub, необходимо явно добавить в ваше SAML-приложение нужных пользователей и/или [группы пользователей](../../../organization/concepts/groups.md). Также необходимо явно добавить пользователей в Selectel.
 
 #### Добавьте пользователей в SAML-приложение {#add-users-idp}
 
@@ -112,24 +112,24 @@
 
 {% list tabs group=instructions %}
 
-- Интерфейс {{ cloud-center }} {#cloud-center}
+- Интерфейс Cloud Center {#cloud-center}
 
-    1. Войдите в сервис [{{ org-full-name }}]({{ link-org-cloud-center }}).
-    1. На панели слева выберите ![shapes-4](../../../_assets/console-icons/shapes-4.svg) **{{ ui-key.yacloud_org.pages.apps }}** и выберите нужное приложение.
-    1. Перейдите на вкладку **{{ ui-key.yacloud_org.organization.apps.AppPageLayout.assignments_kKzJS }}**.
-    1. Нажмите ![person-plus](../../../_assets/console-icons/person-plus.svg) **{{ ui-key.yacloud_org.organization.apps.AppAssignmentsPage.action_add-assignments }}**.
+    1. Войдите в сервис [Yandex Identity Hub](https://center.yandex.cloud/organization).
+    1. На панели слева выберите ![shapes-4](../../../_assets/console-icons/shapes-4.svg) **Приложения** и выберите нужное приложение.
+    1. Перейдите на вкладку **Пользователи и группы**.
+    1. Нажмите ![person-plus](../../../_assets/console-icons/person-plus.svg) **Добавить пользователей**.
     1. В открывшемся окне выберите нужного пользователя или группу пользователей.
-    1. Нажмите **{{ ui-key.yacloud.common.add }}**.
+    1. Нажмите **Добавить**.
 
 {% endlist %}
 
 #### Добавьте пользователей в Selectel {#add-users-sp}
 
-Перед тем как добавить пользователя в Selectel, скопируйте его ID из сервиса {{ org-full-name }}:
+Перед тем как добавить пользователя в Selectel, скопируйте его ID из сервиса Yandex Identity Hub:
 
-1. Войдите в сервис [{{ org-full-name }}]({{ link-org-cloud-center }}).
-1. На панели слева выберите ![person](../../../_assets/console-icons/person.svg) **{{ ui-key.yacloud_org.pages.users }}**. Найдите в списке пользователя, которого хотите добавить в Selectel.
-1. Скопируйте значение в столбце **{{ ui-key.yacloud_org.entity.user.caption.username }}**.
+1. Войдите в сервис [Yandex Identity Hub](https://center.yandex.cloud/organization).
+1. На панели слева выберите ![person](../../../_assets/console-icons/person.svg) **Пользователи**. Найдите в списке пользователя, которого хотите добавить в Selectel.
+1. Скопируйте значение в столбце **Имя пользователя**.
 
 После чего добавьте пользователя в аккаунт Selectel:
 
@@ -157,7 +157,7 @@
 1. Перейдите по ссылке из письма, после чего откроется страница аутентификации.
 1. В поле **ID федерации** введите ID федерации.
 1. Нажмите кнопку **Войти**.
-1. На странице аутентификации {{ yandex-cloud }} укажите адрес электронной почты и пароль пользователя. Пользователь должен быть добавлен в приложение или состоять в группе, добавленной в приложение.
-1. После успешной аутентификации на стороне {{ org-full-name }} вы будете перенаправлены на страницу входа в Selectel. Введите свое полное имя в поле **ФИО**.
+1. На странице аутентификации Yandex Cloud укажите адрес электронной почты и пароль пользователя. Пользователь должен быть добавлен в приложение или состоять в группе, добавленной в приложение.
+1. После успешной аутентификации на стороне Yandex Identity Hub вы будете перенаправлены на страницу входа в Selectel. Введите свое полное имя в поле **ФИО**.
 1. Нажмите кнопку **Войти**.
 1. Убедитесь, что вы аутентифицировались в Selectel.

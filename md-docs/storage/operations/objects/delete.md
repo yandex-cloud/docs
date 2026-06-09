@@ -24,14 +24,14 @@
 
 - Консоль управления {#console}
 
-  1. В [консоли управления]({{ link-console-main }}) выберите каталог.
-  1. Перейдите в сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_storage }}**.
+  1. В [консоли управления](https://console.yandex.cloud) выберите каталог.
+  1. Перейдите в сервис **Object Storage**.
   1. Выберите бакет, где хранится удаляемый объект.
-  1. На панели слева выберите ![image](../../../_assets/console-icons/folder-tree.svg) **{{ ui-key.yacloud.storage.bucket.switch_files }}**.
-  1. Чтобы видеть все версии объектов в списке, справа от поля поиска объекта в бакете, включите опцию **{{ ui-key.yacloud.storage.bucket.switch_file-versions }}**.
-  1. Чтобы удалить один объект, нажмите ![image](../../../_assets/console-icons/ellipsis.svg) → **{{ ui-key.yacloud.common.delete }}**.
+  1. На панели слева выберите ![image](../../../_assets/console-icons/folder-tree.svg) **Объекты**.
+  1. Чтобы видеть все версии объектов в списке, справа от поля поиска объекта в бакете, включите опцию **Показать версии**.
+  1. Чтобы удалить один объект, нажмите ![image](../../../_assets/console-icons/ellipsis.svg) → **Удалить**.
 
-     Чтобы выполнить это же действие с несколькими объектами, отметьте их в списке и нажмите кнопку **{{ ui-key.yacloud.common.delete }}** в нижней части экрана.
+     Чтобы выполнить это же действие с несколькими объектами, отметьте их в списке и нажмите кнопку **Удалить** в нижней части экрана.
 
      {% note info %}
 
@@ -39,7 +39,7 @@
 
      {% endnote %}
 
-  1. В открывшемся окне нажмите кнопку **{{ ui-key.yacloud.common.delete }}**.
+  1. В открывшемся окне нажмите кнопку **Удалить**.
 
   В консоли управления информация о количестве объектов в бакете и занятом месте обновляется с задержкой в несколько минут.
 
@@ -49,9 +49,9 @@
   
   {% endnote %}
 
-- {{ yandex-cloud }} CLI {#cli}
+- Yandex Cloud CLI {#cli}
 
-  Если у вас еще нет интерфейса командной строки {{ yandex-cloud }} (CLI), [установите и инициализируйте его](../../../cli/quickstart.md#install).
+  Если у вас еще нет интерфейса командной строки Yandex Cloud (CLI), [установите и инициализируйте его](../../../cli/quickstart.md#install).
 
   По умолчанию используется каталог, указанный при [создании](../../../cli/operations/profile/profile-create.md) профиля CLI. Чтобы изменить каталог по умолчанию, используйте команду `yc config set folder-id <идентификатор_каталога>`. Также для любой команды вы можете указать другой каталог с помощью параметров `--folder-name` или `--folder-id`. Если вы обращаетесь к ресурсу по имени, поиск будет выполнен в каталоге по умолчанию. Если вы обращаетесь к ресурсу по идентификатору, поиск будет выполнен глобально — во всех каталогах с учетом прав доступа.
 
@@ -116,7 +116,7 @@
 
   ```bash
   aws s3api delete-object \
-    --endpoint-url https://{{ s3-storage-host }} \
+    --endpoint-url https://storage.yandexcloud.net \
     --bucket <имя_бакета> \
     --key <ключ_объекта>
   ```
@@ -131,7 +131,7 @@
 
       ```bash
       aws s3api delete-objects \
-        --endpoint-url=https://{{ s3-storage-host }} \
+        --endpoint-url=https://storage.yandexcloud.net \
         --bucket <имя_бакета> \
         --delete '{"Objects":[{"Key":"<ключ_объекта_1>"},{"Key":"<ключ_объекта_2>"},...,{"Key":"<ключ_объекта_n>"}]}'
       ```
@@ -140,7 +140,7 @@
 
       ```powershell
       aws s3api delete-objects `
-        --endpoint-url=https://{{ s3-storage-host }} `
+        --endpoint-url=https://storage.yandexcloud.net `
         --bucket <имя_бакета> `
         --delete '{\"Objects\":[{\"Key\":\"<ключ_объекта_1>\"},{\"Key\":\"<ключ_объекта_2>\"},...,{\"Key\":\"<ключ_объекта_n>\"}]}'
       ```
@@ -177,10 +177,10 @@
 
       ```bash
       aws s3api list-objects \
-        --endpoint-url https://{{ s3-storage-host }} \
+        --endpoint-url https://storage.yandexcloud.net \
         --bucket <имя_бакета> \
         --query '<запрос>' \
-        --output text | xargs -I {} aws s3api delete-object --endpoint-url https://{{ s3-storage-host }} --bucket <имя_бакета> --key {}
+        --output text | xargs -I {} aws s3api delete-object --endpoint-url https://storage.yandexcloud.net --bucket <имя_бакета> --key {}
       ```
 
       Где:
@@ -191,21 +191,21 @@
 
       ```bash
       aws s3api list-objects \
-        --endpoint-url https://{{ s3-storage-host }} \
+        --endpoint-url https://storage.yandexcloud.net \
         --bucket sample-bucket \
         --query 'Contents[?starts_with(Key, `screenshots/20231002`) == `true`].[Key]' \
-        --output text | xargs -I {} aws s3api delete-object --endpoint-url https://{{ s3-storage-host }} --bucket sample-bucket --key {}
+        --output text | xargs -I {} aws s3api delete-object --endpoint-url https://storage.yandexcloud.net --bucket sample-bucket --key {}
       ```
 
   * **PowerShell**:
 
       ```powershell
       Foreach($x in (aws s3api list-objects `
-        --endpoint-url https://{{ s3-storage-host }} `
+        --endpoint-url https://storage.yandexcloud.net `
         --bucket <имя_бакета> `
         --query '<запрос>' `
         --output text)) `
-        {aws s3api delete-object --endpoint-url https://{{ s3-storage-host }} --bucket <имя_бакета> --key $x}
+        {aws s3api delete-object --endpoint-url https://storage.yandexcloud.net --bucket <имя_бакета> --key $x}
       ```
 
       Где:
@@ -216,39 +216,39 @@
 
       ```powershell
       Foreach($x in (aws s3api list-objects `
-        --endpoint-url https://{{ s3-storage-host }} `
+        --endpoint-url https://storage.yandexcloud.net `
         --bucket sample-bucket `
         --query 'Contents[?starts_with(Key, `screenshots/20231002`) == `true`].[Key]' `
         --output text)) `
-        {aws s3api delete-object --endpoint-url https://{{ s3-storage-host }} --bucket sample-bucket --key $x}
+        {aws s3api delete-object --endpoint-url https://storage.yandexcloud.net --bucket sample-bucket --key $x}
       ```
 
-- {{ TF }} {#tf}
+- Terraform {#tf}
 
   {% note info %}
   
-  Если вы работаете с {{ objstorage-name }} через {{ TF }} от имени [сервисного аккаунта](../../../iam/concepts/users/service-accounts.md), [назначьте](../../../iam/operations/sa/assign-role-for-sa.md) сервисному аккаунту нужную [роль](../../security/index.md#roles-list), например `storage.admin`, на каталог, в котором будут создаваться ресурсы.
+  Если вы работаете с Object Storage через Terraform от имени [сервисного аккаунта](../../../iam/concepts/users/service-accounts.md), [назначьте](../../../iam/operations/sa/assign-role-for-sa.md) сервисному аккаунту нужную [роль](../../security/index.md#roles-list), например `storage.admin`, на каталог, в котором будут создаваться ресурсы.
   
   {% endnote %}
 
-  [{{ TF }}](https://www.terraform.io/) позволяет быстро создать облачную инфраструктуру в {{ yandex-cloud }} и управлять ею с помощью файлов конфигураций. В файлах конфигураций хранится описание инфраструктуры на языке HCL (HashiCorp Configuration Language). При изменении файлов конфигураций {{ TF }} автоматически определяет, какая часть вашей конфигурации уже развернута, что следует добавить или удалить.
+  [Terraform](https://www.terraform.io/) позволяет быстро создать облачную инфраструктуру в Yandex Cloud и управлять ею с помощью файлов конфигураций. В файлах конфигураций хранится описание инфраструктуры на языке HCL (HashiCorp Configuration Language). При изменении файлов конфигураций Terraform автоматически определяет, какая часть вашей конфигурации уже развернута, что следует добавить или удалить.
   
-  {{ TF }} распространяется под лицензией [Business Source License](https://github.com/hashicorp/terraform/blob/main/LICENSE), а [провайдер {{ yandex-cloud }} для {{ TF }}](https://github.com/yandex-cloud/terraform-provider-yandex) — под лицензией [MPL-2.0](https://www.mozilla.org/en-US/MPL/2.0/).
+  Terraform распространяется под лицензией [Business Source License](https://github.com/hashicorp/terraform/blob/main/LICENSE), а [провайдер Yandex Cloud для Terraform](https://github.com/yandex-cloud/terraform-provider-yandex) — под лицензией [MPL-2.0](https://www.mozilla.org/en-US/MPL/2.0/).
   
-  Подробную информацию о ресурсах провайдера смотрите в документации на сайте [{{ TF }}](https://www.terraform.io/docs/providers/yandex/index.html) или в [зеркале]({{ tf-docs-link }}).
+  Подробную информацию о ресурсах провайдера смотрите в документации на сайте [Terraform](https://www.terraform.io/docs/providers/yandex/index.html) или в [зеркале](../../../terraform/index.md).
 
   
-  Если у вас еще нет {{ TF }}, [установите его и настройте провайдер {{ yandex-cloud }}](../../../tutorials/infrastructure-management/terraform-quickstart.md#install-terraform).
+  Если у вас еще нет Terraform, [установите его и настройте провайдер Yandex Cloud](../../../tutorials/infrastructure-management/terraform-quickstart.md#install-terraform).
   
   
-  Чтобы управлять инфраструктурой с помощью {{ TF }} от имени сервисного аккаунта или пользовательских аккаунтов: аккаунта на Яндексе, федеративного аккаунта и локального пользователя, [аутентифицируйтесь](../../../terraform/authentication.md) соответствующим способом.
+  Чтобы управлять инфраструктурой с помощью Terraform от имени сервисного аккаунта или пользовательских аккаунтов: аккаунта на Яндексе, федеративного аккаунта и локального пользователя, [аутентифицируйтесь](../../../terraform/authentication.md) соответствующим способом.
 
 
 
-  Чтобы удалить объект из бакета, созданный с помощью {{ TF }}:
-  1. Откройте файл конфигурации {{ TF }} и удалите фрагмент с описанием объекта.
+  Чтобы удалить объект из бакета, созданный с помощью Terraform:
+  1. Откройте файл конфигурации Terraform и удалите фрагмент с описанием объекта.
 
-     {% cut "Пример описания объекта в конфигурации {{ TF }}" %}
+     {% cut "Пример описания объекта в конфигурации Terraform" %}
 
      ```hcl
      ...
@@ -285,7 +285,7 @@
          terraform plan
          ```
       
-         В терминале будет выведен список ресурсов с параметрами. На этом этапе изменения не будут внесены. Если в конфигурации есть ошибки, {{ TF }} на них укажет.
+         В терминале будет выведен список ресурсов с параметрами. На этом этапе изменения не будут внесены. Если в конфигурации есть ошибки, Terraform на них укажет.
       1. Примените изменения конфигурации:
       
          ```bash
@@ -294,7 +294,7 @@
       
       1. Подтвердите изменения: введите в терминале слово `yes` и нажмите **Enter**.
 
-     Проверить изменения можно в [консоли управления]({{ link-console-main }}).
+     Проверить изменения можно в [консоли управления](https://console.yandex.cloud).
 
 - API {#api}
 
@@ -329,9 +329,9 @@
   
   {% endnote %}
 
-- {{ yandex-cloud }} CLI {#cli}
+- Yandex Cloud CLI {#cli}
 
-  Если у вас еще нет интерфейса командной строки {{ yandex-cloud }} (CLI), [установите и инициализируйте его](../../../cli/quickstart.md#install).
+  Если у вас еще нет интерфейса командной строки Yandex Cloud (CLI), [установите и инициализируйте его](../../../cli/quickstart.md#install).
 
   По умолчанию используется каталог, указанный при [создании](../../../cli/operations/profile/profile-create.md) профиля CLI. Чтобы изменить каталог по умолчанию, используйте команду `yc config set folder-id <идентификатор_каталога>`. Также для любой команды вы можете указать другой каталог с помощью параметров `--folder-name` или `--folder-id`. Если вы обращаетесь к ресурсу по имени, поиск будет выполнен в каталоге по умолчанию. Если вы обращаетесь к ресурсу по идентификатору, поиск будет выполнен глобально — во всех каталогах с учетом прав доступа.
 
@@ -421,7 +421,7 @@
   1. Получите информацию о блокировке версии объекта:
 
      ```bash
-     aws --endpoint-url=https://{{ s3-storage-host }} \
+     aws --endpoint-url=https://storage.yandexcloud.net \
        s3api head-object \
        --bucket <имя_бакета> \
        --key <ключ_объекта> \
@@ -461,7 +461,7 @@
   1. Если установлена временная управляемая блокировка (`"ObjectLockMode": "GOVERNANCE"`) и у вас есть роль `storage.admin`, удалите версию объекта:
 
      ```bash
-     aws --endpoint-url=https://{{ s3-storage-host }} \
+     aws --endpoint-url=https://storage.yandexcloud.net \
        s3api delete-object \
        --bucket <имя_бакета> \
        --key <ключ_объекта> \

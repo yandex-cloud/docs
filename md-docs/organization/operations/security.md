@@ -1,8 +1,8 @@
-# Управление доступом в {{ org-full-name }}
+# Управление доступом в Yandex Identity Hub
 
-* [{#T}](add-org-admin.md)
-* [{#T}](add-role.md)
-* [{#T}](groups-access-binding.md)
-* [{#T}](org-list-bindings.md)
-* [{#T}](revoke-role.md)
-* [{#T}](view-subject-access-bindings.md)
+* [Назначить пользователя администратором организации](add-org-admin.md)
+* [Назначить роль пользователю](add-role.md)
+* [Назначить роль группе пользователей](groups-access-binding.md)
+* [Посмотреть роли, назначенные в организации](org-list-bindings.md)
+* [Отозвать роль у пользователя](revoke-role.md)
+* [Просмотреть список доступов субъекта](view-subject-access-bindings.md)

@@ -1,13 +1,13 @@
-# Резервное копирование в {{ objstorage-full-name }} с помощью Veritas Backup Exec
+# Резервное копирование в Yandex Object Storage с помощью Veritas Backup Exec
 
-{{ objstorage-full-name }} можно использовать для резервного копирования и восстановления данных с помощью утилиты Veritas Backup Exec.
+Yandex Object Storage можно использовать для резервного копирования и восстановления данных с помощью утилиты Veritas Backup Exec.
 
-Чтобы настроить резервное копирование в {{ objstorage-name }} с помощью Veritas Backup Exec:
+Чтобы настроить резервное копирование в Object Storage с помощью Veritas Backup Exec:
 
 1. [Подготовьте облако к работе](#before-begin).
 1. [Создайте бакет](#create-bucket).
 1. [Настройте сервисный аккаунт](#configure-service-account).
-1. [Создайте облачный инстанс на {{ objstorage-full-name }}](#new-becloudinstance).
+1. [Создайте облачный инстанс на Yandex Object Storage](#new-becloudinstance).
 1. [Настройте облачное хранилище](#setup-cloud).
 1. [Добавьте резервируемый сервер](#add-source).
 1. [Задайте настройки резервного копирования](#add-target).
@@ -17,11 +17,11 @@
 
 ## Перед началом работы {#before-begin}
 
-Зарегистрируйтесь в {{ yandex-cloud }} и создайте [платежный аккаунт](../../billing/concepts/billing-account.md):
-1. Перейдите в [консоль управления]({{ link-console-main }}), затем войдите в {{ yandex-cloud }} или зарегистрируйтесь.
-1. На странице **[{{ ui-key.yacloud_billing.billing.label_service }}]({{ link-console-billing }})** убедитесь, что у вас подключен платежный аккаунт, и он находится в [статусе](../../billing/concepts/billing-account-statuses.md) `ACTIVE` или `TRIAL_ACTIVE`. Если платежного аккаунта нет, [создайте его](../../billing/quickstart/index.md) и [привяжите](../../billing/operations/pin-cloud.md) к нему облако.
+Зарегистрируйтесь в Yandex Cloud и создайте [платежный аккаунт](../../billing/concepts/billing-account.md):
+1. Перейдите в [консоль управления](https://console.yandex.cloud), затем войдите в Yandex Cloud или зарегистрируйтесь.
+1. На странице **[Yandex Cloud Billing](https://center.yandex.cloud/billing/accounts)** убедитесь, что у вас подключен платежный аккаунт, и он находится в [статусе](../../billing/concepts/billing-account-statuses.md) `ACTIVE` или `TRIAL_ACTIVE`. Если платежного аккаунта нет, [создайте его](../../billing/quickstart/index.md) и [привяжите](../../billing/operations/pin-cloud.md) к нему облако.
 
-Если у вас есть активный платежный аккаунт, вы можете создать или выбрать [каталог](../../resource-manager/concepts/resources-hierarchy.md#folder), в котором будет работать ваша инфраструктура, на [странице облака]({{ link-console-cloud }}).
+Если у вас есть активный платежный аккаунт, вы можете создать или выбрать [каталог](../../resource-manager/concepts/resources-hierarchy.md#folder), в котором будет работать ваша инфраструктура, на [странице облака](https://console.yandex.cloud/cloud).
 
 [Подробнее об облаках и каталогах](../../resource-manager/concepts/resources-hierarchy.md).
 
@@ -31,9 +31,9 @@
 
 * плата за хранение данных;
 * плата за операции с данными;
-* плата за исходящий трафик из {{ yandex-cloud }} в интернет.
+* плата за исходящий трафик из Yandex Cloud в интернет.
 
-[Подробнее о тарифах {{ objstorage-full-name }}](../../storage/pricing.md#prices).
+[Подробнее о тарифах Yandex Object Storage](../../storage/pricing.md#prices).
 
 ## Создайте бакет {#create-bucket}
 
@@ -41,25 +41,25 @@
 
 - Консоль управления {#console}
 
-  1. В [консоли управления]({{ link-console-main }}) {{ yandex-cloud }} выберите [каталог](../../resource-manager/concepts/resources-hierarchy.md#folder), в котором будете выполнять операции.
-  1. На странице каталога нажмите ![plus](../../_assets/console-icons/plus.svg) **{{ ui-key.yacloud.iam.folder.dashboard.button_add }}** и выберите **{{ ui-key.yacloud.iam.folder.dashboard.value_storage }}**.
-  1. В поле **{{ ui-key.yacloud.storage.bucket.settings.field_name }}** укажите имя [бакета](../../storage/concepts/bucket.md) в соответствии с [правилами именования](../../storage/concepts/bucket.md#naming).
-  1. В полях **{{ ui-key.yacloud.storage.bucket.settings.field_access-read }}**, **{{ ui-key.yacloud.storage.bucket.settings.field_access-list }}** и **{{ ui-key.yacloud.storage.bucket.settings.field_access-config-read }}** выберите `{{ ui-key.yacloud.storage.bucket.settings.access_value_private }}`.
+  1. В [консоли управления](https://console.yandex.cloud) Yandex Cloud выберите [каталог](../../resource-manager/concepts/resources-hierarchy.md#folder), в котором будете выполнять операции.
+  1. На странице каталога нажмите ![plus](../../_assets/console-icons/plus.svg) **Создать ресурс** и выберите **Бакет**.
+  1. В поле **Имя** укажите имя [бакета](../../storage/concepts/bucket.md) в соответствии с [правилами именования](../../storage/concepts/bucket.md#naming).
+  1. В полях **Чтение объектов**, **Чтение списка объектов** и **Чтение настроек** выберите `С авторизацией`.
   1. Укажите максимальный размер бакета в ГБ.
-  1. Нажмите **{{ ui-key.yacloud.storage.buckets.create.button_create }}**.
+  1. Нажмите **Создать бакет**.
 
 {% endlist %}
 
 ## Настройте сервисный аккаунт {#configure-service-account}
 
-Резервное копирование в {{ objstorage-name }} выполняется от имени [сервисного аккаунта](../../iam/concepts/users/service-accounts.md). Если у вас еще нет сервисного аккаунта, [создайте](../../iam/operations/sa/create.md) его.
+Резервное копирование в Object Storage выполняется от имени [сервисного аккаунта](../../iam/concepts/users/service-accounts.md). Если у вас еще нет сервисного аккаунта, [создайте](../../iam/operations/sa/create.md) его.
 
 Чтобы настроить сервисный аккаунт:
 
 1. [Назначьте](../../iam/operations/sa/assign-role-for-sa.md) сервисному аккаунту [роль](../../storage/security/index.md#storage-admin) `storage.admin`.
 1. [Создайте](../../iam/operations/authentication/manage-access-keys.md#create-access-key) статические ключи доступа. Сразу сохраните идентификатор и секретный ключ. После того, как вы закроете окно, параметры закрытого ключа будут недоступны.
 
-## Создайте облачный инстанс на {{ objstorage-full-name }} {#new-becloudinstance}
+## Создайте облачный инстанс на Yandex Object Storage {#new-becloudinstance}
 
 1. Запустите Backup Exec Management Command Line Interface и выполните команду:
 
@@ -69,7 +69,7 @@
 
 1. Последовательно введите параметры облачного инстанса:
     * `Provider:` — `compatible-with-s3`.
-    * `ServiceHost:` — `{{ s3-storage-host }}`.
+    * `ServiceHost:` — `storage.yandexcloud.net`.
     * `SslMode:` — `disabled`.
     * `Name:` — `cloud`.
 
@@ -79,7 +79,7 @@
     cmdlet New-BECloudInstance at command pipeline position 1
     Supply values for the following parameters:
       Provider: compatible-with-s3
-      ServiceHost: {{ s3-storage-host }}
+      ServiceHost: storage.yandexcloud.net
       SslMode: disabled
       Name: cloud
 
@@ -87,7 +87,7 @@
     Name        : cloud
     Id          : 12436533-a39e-4df6-81db-f836********
     Provider    : compatible-with-s3
-    ServiceHost : {{ s3-storage-host }}
+    ServiceHost : storage.yandexcloud.net
     SslMode     : Disabled
     UrlStyle    : Path
     HttpPort    : 80
@@ -141,8 +141,8 @@
 
 - Консоль управления {#console}
 
-  1. В [консоли управления]({{ link-console-main }}) перейдите в каталог, где находится бакет с резервными копиями.
-  1. Перейдите в сервис **{{ objstorage-short-name }}**.
+  1. В [консоли управления](https://console.yandex.cloud) перейдите в каталог, где находится бакет с резервными копиями.
+  1. Перейдите в сервис **Object Storage**.
   1. Откройте бакет с резервными копиями и убедитесь, что все нужные файлы были скопированы.
 
 {% endlist %}

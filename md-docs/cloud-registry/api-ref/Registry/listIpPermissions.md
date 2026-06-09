@@ -5,7 +5,7 @@ List ip permissions for the specified registry.
 ## HTTP request
 
 ```
-GET https://registry.{{ api-host }}/cloud-registry/v1/registries/{registryId}:listIpPermissions
+GET https://registry.api.cloud.yandex.net/cloud-registry/v1/registries/{registryId}:listIpPermissions
 ```
 
 ## Path parameters

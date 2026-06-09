@@ -6,7 +6,7 @@ Running instance will be restarted during this operation.
 ## HTTP request
 
 ```
-POST https://compute.{{ api-host }}/compute/v1/instances/{instanceId}:relocate
+POST https://compute.api.cloud.yandex.net/compute/v1/instances/{instanceId}:relocate
 ```
 
 ## Path parameters

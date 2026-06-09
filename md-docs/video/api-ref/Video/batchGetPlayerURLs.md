@@ -6,7 +6,7 @@ This is more efficient than making multiple GetPlayerURL requests when retrievin
 ## HTTP request
 
 ```
-POST https://video.{{ api-host }}/video/v1/videos:batchGetPlayerURLs
+POST https://video.api.cloud.yandex.net/video/v1/videos:batchGetPlayerURLs
 ```
 
 ## Body parameters {#yandex.cloud.video.v1.BatchGetVideoPlayerURLsRequest}

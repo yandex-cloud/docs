@@ -1,6 +1,6 @@
 # Object Storage API, REST совместимый с Amazon S3: DeleteBucketEncryption
 
-Убирает шифрование бакета. Подробнее о шифровании бакета читайте в разделе [{#T}](../../../concepts/encryption.md).
+Убирает шифрование бакета. Подробнее о шифровании бакета читайте в разделе [Шифрование в Object Storage](../../../concepts/encryption.md).
 
 Подробнее о подготовке к работе с API и общем виде запроса см. в разделе [Как пользоваться S3 API](../../index.md).
 
@@ -28,17 +28,17 @@ DELETE /{bucket}?encryption HTTP/2
 
 ### Коды ответов {#response-codes}
 
-Перечень возможных ответов смотрите в разделе [{#T}](../response-codes.md).
+Перечень возможных ответов смотрите в разделе [Ответы](../response-codes.md).
 
 #### Связанные статьи {#related-articles}
 
-* [{#T}](../../../concepts/bucket.md)
+* [Бакет в Object Storage](../../../concepts/bucket.md)
 
 * [Прекращение шифрования бакета](../../../operations/buckets/encrypt.md#del)
 
 #### См. также {#see-also}
 
-* [{#T}](../../s3-api-quickstart.md)
+* [Начало работы с AWS S3 API в Yandex Object Storage](../../s3-api-quickstart.md)
 
 * [Отладка запросов с помощью утилиты AWS CLI](../../signing-requests.md#debugging)
 

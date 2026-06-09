@@ -1,6 +1,6 @@
 # Включить требование двухфакторной аутентификации
 
-Вы можете запретить аутентификацию в {{ yandex-cloud }} всем пользователям вашей организации с [аккаунтом на Яндексе](../../iam/concepts/users/accounts.md#passport), у которых не настроена [двухфакторная аутентификация](https://yandex.ru/support/passport/authorization/twofa.html).
+Вы можете запретить аутентификацию в Yandex Cloud всем пользователям вашей организации с [аккаунтом на Яндексе](../../iam/concepts/users/accounts.md#passport), у которых не настроена [двухфакторная аутентификация](https://yandex.ru/support/passport/authorization/twofa.html).
 
 {% note warning %}
 
@@ -12,19 +12,19 @@
 
 {% list tabs group=instructions %}
 
-- Интерфейс {{ cloud-center }} {#cloud-center}
+- Интерфейс Cloud Center {#cloud-center}
 
-  1. Войдите в сервис [{{ org-full-name }}]({{ link-org-cloud-center }}) с учетной записью администратора или владельца организации.
+  1. Войдите в сервис [Yandex Identity Hub](https://center.yandex.cloud/organization) с учетной записью администратора или владельца организации.
 
       При необходимости [переключитесь](manage-organizations.md#switch-to-another-org) на нужную организацию.
 
-  1. На панели слева выберите ![shield](../../_assets/console-icons/shield.svg) **{{ ui-key.yacloud_org.pages.oslogin.title }}**.
-  1. Перейдите на вкладку **{{ ui-key.yacloud_org.organization.security-settings.SecuritySettingsPageLayout.tab_other_kJgk8 }}**, в блоке **{{ ui-key.yacloud_org.organization.security-settings.OtherSecuritySettingsForm.auth_settings_1RoAM }}** включите опцию **{{ ui-key.yacloud_org.organization.security-settings.OtherSecuritySettingsForm.required_mfa_6P4xN }}**.
+  1. На панели слева выберите ![shield](../../_assets/console-icons/shield.svg) **Настройки безопасности**.
+  1. Перейдите на вкладку **Другие параметры**, в блоке **Настройки аутентификации** включите опцию **Требовать включения второго фактора аутентификации для пользователей с аккаунтом на Яндексе**.
 
 {% endlist %}
 
 #### См. также {#see-also}
 
-* [{#T}](os-login-access.md)
-* [{#T}](enable-refresh-tokens.md)
-* [{#T}](hide-user-info.md)
+* [Включить доступ по OS Login](os-login-access.md)
+* [Включить возможность использования refresh-токенов в Yandex Cloud CLI](enable-refresh-tokens.md)
+* [Запретить пользователям просматривать информацию о членах организации](hide-user-info.md)

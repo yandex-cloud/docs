@@ -5,7 +5,7 @@ Lists access bindings for the filesystem.
 ## HTTP request
 
 ```
-GET https://compute.{{ api-host }}/compute/v1/filesystems/{resourceId}:listAccessBindings
+GET https://compute.api.cloud.yandex.net/compute/v1/filesystems/{resourceId}:listAccessBindings
 ```
 
 ## Path parameters

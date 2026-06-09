@@ -5,7 +5,7 @@ Creates a new GitLab instance in the specified folder.
 ## HTTP request
 
 ```
-POST https://gitlab.{{ api-host }}/gitlab/v1/instances
+POST https://gitlab.api.cloud.yandex.net/gitlab/v1/instances
 ```
 
 ## Body parameters {#yandex.cloud.gitlab.v1.CreateInstanceRequest}

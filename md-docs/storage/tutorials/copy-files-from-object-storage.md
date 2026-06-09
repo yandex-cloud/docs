@@ -1,12 +1,12 @@
-# Использование {{ objstorage-name }} в {{ dataproc-name }}
+# Использование Object Storage в Yandex Data Processing
 
-# Использование {{ objstorage-full-name }} в {{ dataproc-name }}
+# Использование Yandex Object Storage в Yandex Data Processing
 
-В этом разделе рассмотрены различные способы доступа к объектам из [бакетов](../concepts/bucket.md) {{ objstorage-name }} для процессов, запущенных на кластерах {{ dataproc-name }}.
+В этом разделе рассмотрены различные способы доступа к объектам из [бакетов](../concepts/bucket.md) Object Storage для процессов, запущенных на кластерах Yandex Data Processing.
 
 {% note info %}
 
-[Настройте сеть кластера](../../data-proc/tutorials/configure-network.md) перед настройкой доступа к сервисам {{ yandex-cloud }} и интернет-ресурсам.
+[Настройте сеть кластера](../../data-proc/tutorials/configure-network.md) перед настройкой доступа к сервисам Yandex Cloud и интернет-ресурсам.
 
 {% endnote %}
 
@@ -17,9 +17,9 @@
 
 ## DistCp {#distcp}
 
-Для копирования файлов из {{ objstorage-name }} в HDFS используйте утилиту [DistCp](https://hadoop.apache.org/docs/current/hadoop-distcp/DistCp.html). Она предназначена для копирования данных как внутри кластера, так и между кластерами и внешними хранилищами.
+Для копирования файлов из Object Storage в HDFS используйте утилиту [DistCp](https://hadoop.apache.org/docs/current/hadoop-distcp/DistCp.html). Она предназначена для копирования данных как внутри кластера, так и между кластерами и внешними хранилищами.
 
-Для аутентификации в {{ objstorage-name }} можно использовать один из подходов:
+Для аутентификации в Object Storage можно использовать один из подходов:
 
 1. Использовать [IAM-токен сервисного аккаунта](../../iam/operations/iam-token/create-for-sa.md) кластера.
 1. Использовать [CredentialProvider](https://hadoop.apache.org/docs/current/hadoop-project-dist/hadoop-common/CredentialProviderAPI.html).
@@ -27,26 +27,26 @@
 
 ### Доступ в S3 с аутентификацией через IAM-токен сервисного аккаунта кластера {#s3-access-using-iam}
 
-1. При создании кластера укажите [сервисный аккаунт](../../iam/operations/sa/create.md#create-sa). Если кластер уже создан, добавьте сервисный аккаунт с помощью кнопки **{{ ui-key.yacloud.mdb.clusters.button_action-edit }}** в консоли управления.
+1. При создании кластера укажите [сервисный аккаунт](../../iam/operations/sa/create.md#create-sa). Если кластер уже создан, добавьте сервисный аккаунт с помощью кнопки **Редактировать** в консоли управления.
 
     Сервисному аккаунту должны быть [назначены роли](../../iam/operations/sa/assign-role-for-sa.md):
 
     * [dataproc.agent](../../data-proc/security/index.md#dataproc-agent) — чтобы сервисный аккаунт мог получать информацию о состоянии хостов кластера, [заданиях](../../data-proc/concepts/jobs.md) и [лог-группах](../../logging/concepts/log-group.md).
     * [dataproc.provisioner](../../data-proc/security/index.md#dataproc-provisioner) — чтобы сервисный аккаунт мог взаимодействовать с автоматически масштабируемой группой ВМ. Тогда будет доступно [автомасштабирование подкластеров](../../data-proc/concepts/autoscaling.md).
-    * [resource-manager.auditor](../../resource-manager/security/index.md#resource-manager-auditor) и выше на каталог, в котором нужно создать кластер {{ dataproc-name }} — для подключения к кластеру с помощью [{{ oslogin }}](../../organization/concepts/os-login.md).
+    * [resource-manager.auditor](../../resource-manager/security/index.md#resource-manager-auditor) и выше на каталог, в котором нужно создать кластер Yandex Data Processing — для подключения к кластеру с помощью [OS Login](../../organization/concepts/os-login.md).
     
     {% note tip %}
     
     Чтобы ограничить права сервисного аккаунта кластера (его IAM-токен доступен при выполнении заданий):
     
-    1. Укажите отдельный сервисный аккаунт для автомасштабирования подкластеров при [создании](../../data-proc/operations/cluster-create.md) или [изменении кластера](../../data-proc/operations/cluster-update.md) через интерфейсы {{ yandex-cloud }} CLI, {{ TF }} или API.
+    1. Укажите отдельный сервисный аккаунт для автомасштабирования подкластеров при [создании](../../data-proc/operations/cluster-create.md) или [изменении кластера](../../data-proc/operations/cluster-update.md) через интерфейсы Yandex Cloud CLI, Terraform или API.
     1. Назначьте роль `dataproc.provisioner` только этому аккаунту.
     
     {% endnote %}
 
 1. У сервисного аккаунта должен быть доступ к нужному бакету. Для этого выдайте сервисному аккаунту права в [ACL бакета](../concepts/acl.md), либо роль `storage.viewer` или `storage.editor`.
 
-    Подробнее про эти роли см. в [документации {{ objstorage-name }}](../security/index.md).
+    Подробнее про эти роли см. в [документации Object Storage](../security/index.md).
 
 > Например, получите список файлов, находящихся в публичном бакете `yc-mdb-examples` по пути `dataproc/example01/set01`. Для этого [подключитесь](../../data-proc/operations/connect.md) к кластеру и выполните команду:
 >
@@ -66,7 +66,7 @@
 
 ### Копирование с использованием CredentialProvider {#copying-via-credentialprovider}
 
-Чтобы воспользоваться провайдером для хранения секретов, разместите эти секреты в компонентах, которым нужен доступ к {{ objstorage-name }}. Для этого можно воспользоваться [JCEKS](https://docs.oracle.com/javase/8/docs/technotes/guides/security/crypto/CryptoSpec.html) (Java Cryptography Extension KeyStore). 
+Чтобы воспользоваться провайдером для хранения секретов, разместите эти секреты в компонентах, которым нужен доступ к Object Storage. Для этого можно воспользоваться [JCEKS](https://docs.oracle.com/javase/8/docs/technotes/guides/security/crypto/CryptoSpec.html) (Java Cryptography Extension KeyStore). 
 В примере вы создадите файл с секретами, который затем разместите в HDFS:
 
 1. Укажите статический и секретный ключи, например:
@@ -86,11 +86,11 @@
     hdfs dfs -put /home/jack/yc.jceks /user/root/
     ```
 
-1. Скопируйте файл из {{ objstorage-name }} непосредственно в HDFS:
+1. Скопируйте файл из Object Storage непосредственно в HDFS:
 
     ```bash
     hadoop distcp \
-           -D fs.s3a.bucket.dataproc-examples.endpoint={{ s3-storage-host }} \
+           -D fs.s3a.bucket.dataproc-examples.endpoint=storage.yandexcloud.net \
            -D hadoop.security.credential.provider.path=jceks://hdfs/user/root/yc.jceks \
            -update \
            -skipcrccheck \
@@ -109,13 +109,13 @@
 
 ```bash
 hadoop distcp \
-       -D fs.s3a.bucket.dataproc-examples.endpoint={{ s3-storage-host }} \
+       -D fs.s3a.bucket.dataproc-examples.endpoint=storage.yandexcloud.net \
        -D hadoop.security.credential.provider.path=jceks://hdfs/user/root/yc.jceks \
        -update \
        -skipcrccheck \
        -numListstatusThreads 10 \
        s3a://yc-mdb-examples/dataproc/example01/set01 \
-       hdfs://rc1b-dataproc-m-d31bs470ivkyrz60.{{ dns-zone }}/user/root/datasets/set01/
+       hdfs://rc1b-dataproc-m-d31bs470ivkyrz60.mdb.yandexcloud.net/user/root/datasets/set01/
 ```
 
 ### Копирование файлов с передачей ключей в аргументах {#copying-files-by-passing-keys-in-arguments}
@@ -124,30 +124,30 @@ hadoop distcp \
 
 ```bash
 hadoop distcp \
-       -D fs.s3a.bucket.dataproc-examples.endpoint={{ s3-storage-host }} \
+       -D fs.s3a.bucket.dataproc-examples.endpoint=storage.yandexcloud.net \
        -D fs.s3a.bucket.dataproc-examples.access.key=<статический_ключ> \
        -D fs.s3a.bucket.dataproc-examples.secret.key=<секретный_ключ> \
        -update \
        -skipcrccheck \
        -numListstatusThreads 10 \
        s3a://yc-mdb-examples/dataproc/example01/set01 \
-       hdfs://rc1b-dataproc-m-d31bs470ivkyrz60.{{ dns-zone }}/user/root/datasets/set01/
+       hdfs://rc1b-dataproc-m-d31bs470ivkyrz60.mdb.yandexcloud.net/user/root/datasets/set01/
 ```
 
 
-## Оптимизация чтения файлов из {{ objstorage-name }} {#s3-read-optimize}
+## Оптимизация чтения файлов из Object Storage {#s3-read-optimize}
 
 Способ чтения данных из бакета определяется [настройкой](https://hadoop.apache.org/docs/stable/hadoop-aws/tools/hadoop-aws/performance.html#Improving_data_input_performance_through_fadvise) `fs.s3a.experimental.input.fadvise`. Ее значение зависит от версии используемого образа:
 
 * В образах версий `1.0`—`1.4` по умолчанию используется значение `sequential`. Оно подходит для операций последовательного чтения файлов, но для произвольного работает медленно. Если вы чаще используете произвольный доступ к файлам, добавьте в свойства компонентов кластера или укажите в настройках задания значение `random`.
 * В образе версии `2.0` по умолчанию используется значение `normal`: работа с файлами происходит в последовательном режиме, но если приложение выполняет операции произвольного доступа, режим автоматически переключается на `random`.
 
-Подробнее об используемых версиях компонентов см. в разделе [{#T}](../../data-proc/concepts/environment.md).
+Подробнее об используемых версиях компонентов см. в разделе [Среда исполнения](../../data-proc/concepts/environment.md).
 
 
-## Оптимизация записи файлов в {{ objstorage-name }} {#s3-write-optimize}
+## Оптимизация записи файлов в Object Storage {#s3-write-optimize}
 
-Чтобы увеличить скорость записи файлов в {{ objstorage-name }}, вы можете:
+Чтобы увеличить скорость записи файлов в Object Storage, вы можете:
 
 * [использовать коммиттеры S3A](#s3a-committers);
 * [задать настройки Apache Hadoop](#s3-write-optimize-hadoop);
@@ -171,13 +171,13 @@ hadoop distcp \
 | `magic`       | MapReduce, Spark | Нет (запись напрямую в S3) | Не поддерживается                   | Максимальная    |
 | `partitioned` | Spark            | Да^*^                      | Замена и дополнение партиций        | Обычная         |
 
-^*^ В режимах `directory` и `partitioned` не производится проверка на фактическое наличие HDFS для хранения промежуточных данных. При этом часть заданий могут успешно отрабатывать без HDFS, однако в сложных заданиях могут возникнуть проблемы, проявляющиеся в виде ошибок «файл не найден» или неполной записи результатов задания в {{ objstorage-name }}.
+^*^ В режимах `directory` и `partitioned` не производится проверка на фактическое наличие HDFS для хранения промежуточных данных. При этом часть заданий могут успешно отрабатывать без HDFS, однако в сложных заданиях могут возникнуть проблемы, проявляющиеся в виде ошибок «файл не найден» или неполной записи результатов задания в Object Storage.
 
 Чтобы включить коммиттеры S3A, задайте значения следующих [настроек](../../data-proc/concepts/settings-list.md):
 
 * `core:fs.s3a.committer.magic.enabled : true`, если задания будут использовать режим `magic`.
 * `core:fs.s3a.committer.name` — используемый режим по умолчанию: `directory`, `magic` или `partitioned`.
-* `core:fs.s3a.committer.staging.abort.pending.uploads : false` для Hadoop 3.2.2 в составе [образа {{ dataproc-name }}](../../data-proc/concepts/environment.md#current-images) версии 2.0 или `core:fs.s3a.committer.abort.pending.uploads : false` для Hadoop 3.3.2 в составе образа 2.1, если несколько параллельно работающих заданий выполняют запись в одну и ту же таблицу.
+* `core:fs.s3a.committer.staging.abort.pending.uploads : false` для Hadoop 3.2.2 в составе [образа Yandex Data Processing](../../data-proc/concepts/environment.md#current-images) версии 2.0 или `core:fs.s3a.committer.abort.pending.uploads : false` для Hadoop 3.3.2 в составе образа 2.1, если несколько параллельно работающих заданий выполняют запись в одну и ту же таблицу.
 * `core:mapreduce.outputcommitter.factory.scheme.s3a : org.apache.hadoop.fs.s3a.commit.S3ACommitterFactory`.
 * `spark:spark.hadoop.fs.s3a.committer.name` — используемый режим по умолчанию: `directory`, `magic` или `partitioned`.
 * `spark:spark.sql.parquet.output.committer.class : org.apache.spark.internal.io.cloud.BindingParquetOutputCommitter`.
@@ -189,32 +189,32 @@ hadoop distcp \
 
 Используемый режим работы коммиттеров S3A может переопределяться для конкретного задания путем установки настроек `fs.s3a.committer.name` и `spark.hadoop.fs.s3a.committer.name` в необходимое значение (`directory`, `magic` или `partitioned`).
 
-Не следует менять значение по умолчанию для настройки `spark.hadoop.mapreduce.fileoutputcommitter.algorithm.version`, поскольку {{ objstorage-full-name }} не поддерживает атомарные переименования каталогов.
+Не следует менять значение по умолчанию для настройки `spark.hadoop.mapreduce.fileoutputcommitter.algorithm.version`, поскольку Yandex Object Storage не поддерживает атомарные переименования каталогов.
 
 ### Настройки Apache Hadoop {#s3-write-optimize-hadoop}
 
-Способ записи данных в бакет {{ objstorage-name }} определяется настройкой `core:fs.s3a.fast.upload`. Ее значение зависит от версии используемого образа:
+Способ записи данных в бакет Object Storage определяется настройкой `core:fs.s3a.fast.upload`. Ее значение зависит от версии используемого образа:
 
 * В образах версий `1.0`—`1.4` по умолчанию используется значение `false` для экономии RAM. Укажите для этой настройки значение `true` в свойствах компонентов кластера или настройках задания. Это ускорит запись в бакет больших файлов и предотвратит переполнение хранилищ узлов.
 * В образе версии `2.0` настройка `fs.s3a.fast.upload` включена по умолчанию.
 
-При необходимости укажите значения [других настроек](https://hadoop.apache.org/docs/r2.10.0/hadoop-aws/tools/hadoop-aws/index.html), отвечающих за режим записи в {{ objstorage-name }}:
+При необходимости укажите значения [других настроек](https://hadoop.apache.org/docs/r2.10.0/hadoop-aws/tools/hadoop-aws/index.html), отвечающих за режим записи в Object Storage:
 
-* `fs.s3a.committer.threads` — количество потоков, выполняющих фиксацию изменений в {{ objstorage-name }} в конце работы задания.
-* `fs.s3a.connection.maximum` — количество разрешенных соединений с {{ objstorage-name }}.
-* `fs.s3a.connection.timeout` — максимальное время ожидания соединения с {{ objstorage-name }} в миллисекундах.
+* `fs.s3a.committer.threads` — количество потоков, выполняющих фиксацию изменений в Object Storage в конце работы задания.
+* `fs.s3a.connection.maximum` — количество разрешенных соединений с Object Storage.
+* `fs.s3a.connection.timeout` — максимальное время ожидания соединения с Object Storage в миллисекундах.
 * `fs.s3a.fast.upload.active.blocks` — максимальное количество блоков в одном потоке вывода.
 * `fs.s3a.fast.upload.buffer` — тип буфера, используемого для временного хранения загружаемых данных:
     * `disk` — данные сохраняются в каталог, указанный в настройке `fs.s3a.buffer.dir`;
     * `array` — используются массивы в куче JVM;
     * `bytebuffer` — используется RAM вне кучи JVM.
-* `fs.s3a.max.total.tasks` — размер очереди операций над бакетом {{ objstorage-name }}, которые не могут быть запущены из-за исчерпания рабочих потоков.
+* `fs.s3a.max.total.tasks` — размер очереди операций над бакетом Object Storage, которые не могут быть запущены из-за исчерпания рабочих потоков.
 * `fs.s3a.multipart.size` — размер кусков (chunk) в байтах, на которые будут разбиты данные при копировании или выгрузке в бакет.
 * `fs.s3a.threads.max` — количество рабочих потоков в менеджере загрузок (AWS Transfer Manager).
 
 {% note info %}
 
-Большие значения этих параметров могут привести к увеличению потребления вычислительных ресурсов на хостах кластера {{ dataproc-name }}.
+Большие значения этих параметров могут привести к увеличению потребления вычислительных ресурсов на хостах кластера Yandex Data Processing.
 
 {% endnote %}
 
@@ -222,7 +222,7 @@ hadoop distcp \
 
 ### Настройки Apache Spark {#s3-write-optimize-spark}
 
-При доступе к данным в {{ objstorage-name }} из заданий Spark рекомендовано использовать значение `true` для настройки `spark.sql.hive.metastorePartitionPruning`.
+При доступе к данным в Object Storage из заданий Spark рекомендовано использовать значение `true` для настройки `spark.sql.hive.metastorePartitionPruning`.
 
 При работе с данными в формате Parquet в заданиях Spark рекомендованы настройки:
 
@@ -242,15 +242,15 @@ hadoop distcp \
 * `spark.sql.orc.filterPushdown : true`
 * `spark.sql.orc.splits.include.file.footer : true`
 
-Задания, создающие или обновляющие большое количество (сотни и тысячи) партиций в таблицах, могут тратить много времени на актуализацию записей о партициях в [кластере {{ metastore-full-name }}](../../metadata-hub/concepts/metastore.md). Для ускорения этого процесса увеличьте значения следующих настроек:
+Задания, создающие или обновляющие большое количество (сотни и тысячи) партиций в таблицах, могут тратить много времени на актуализацию записей о партициях в [кластере Apache Hive™ Metastore](../../metadata-hub/concepts/metastore.md). Для ускорения этого процесса увеличьте значения следующих настроек:
 
-* `hive:datanucleus.connectionPool.maxPoolSize` — максимальный размер пула соединений к БД {{ metastore-name }}.
-* `hive:hive.metastore.fshandler.threads` — количество рабочих потоков, выполняющих фоновые операции с файловой системой {{ metastore-name }}.
-* `spark:spark.sql.addPartitionInBatch.size` — количество партиций, актуализируемых за один вызов {{ metastore-name }}. Оптимальное значение — `10 × <значение_настройки_hive:hive.metastore.fshandler.threads>` или выше.
+* `hive:datanucleus.connectionPool.maxPoolSize` — максимальный размер пула соединений к БД Apache Hive™ Metastore.
+* `hive:hive.metastore.fshandler.threads` — количество рабочих потоков, выполняющих фоновые операции с файловой системой Apache Hive™ Metastore.
+* `spark:spark.sql.addPartitionInBatch.size` — количество партиций, актуализируемых за один вызов Apache Hive™ Metastore. Оптимальное значение — `10 × <значение_настройки_hive:hive.metastore.fshandler.threads>` или выше.
 
 {% note info %}
 
-Чрезмерно большие значения перечисленных параметров могут привести к исчерпанию системных ресурсов {{ metastore-name }}. Большой размер пула соединений к БД {{ metastore-name }} может потребовать изменения настроек и увеличения объема вычислительных ресурсов кластера.
+Чрезмерно большие значения перечисленных параметров могут привести к исчерпанию системных ресурсов Apache Hive™ Metastore. Большой размер пула соединений к БД Apache Hive™ Metastore может потребовать изменения настроек и увеличения объема вычислительных ресурсов кластера.
 
 {% endnote %}
 
@@ -258,9 +258,9 @@ hadoop distcp \
 
 ## Использование s3fs {#s3fs}
 
-`s3fs` позволяет монтировать бакеты {{ objstorage-name }} посредством Fuse. Более подробно об использовании утилиты можно узнать на странице [s3fs](../tools/s3fs.md).
+`s3fs` позволяет монтировать бакеты Object Storage посредством Fuse. Более подробно об использовании утилиты можно узнать на странице [s3fs](../tools/s3fs.md).
 
-## Использование {{ objstorage-name }} в Spark {#objstorage-spark}
+## Использование Object Storage в Spark {#objstorage-spark}
 
 {% list tabs %}
 
@@ -271,7 +271,7 @@ hadoop distcp \
   * С использованием JCEKS:
 
     ```scala
-    sc.hadoopConfiguration.set("fs.s3a.endpoint", "{{ s3-storage-host }}");
+    sc.hadoopConfiguration.set("fs.s3a.endpoint", "storage.yandexcloud.net");
     sc.hadoopConfiguration.set("fs.s3a.signing-algorithm", "");
     sc.hadoopConfiguration.set("fs.s3a.aws.credentials.provider", "org.apache.hadoop.fs.s3a.SimpleAWSCredentialsProvider");
     sc.hadoopConfiguration.set("hadoop.security.credential.provider.path", "jceks://hdfs/<путь_к_файлу_JCEKS>");
@@ -280,14 +280,14 @@ hadoop distcp \
   * По ключу доступа и секрету:
 
     ```scala
-    sc.hadoopConfiguration.set("fs.s3a.endpoint", "{{ s3-storage-host }}");
+    sc.hadoopConfiguration.set("fs.s3a.endpoint", "storage.yandexcloud.net");
     sc.hadoopConfiguration.set("fs.s3a.signing-algorithm", "");
     sc.hadoopConfiguration.set("fs.s3a.aws.credentials.provider", "org.apache.hadoop.fs.s3a.SimpleAWSCredentialsProvider");
     sc.hadoopConfiguration.set("fs.s3a.access.key","<ключ_доступа>");
     sc.hadoopConfiguration.set("fs.s3a.secret.key","<секрет_бакета>");
     ```
 
-  После этого можно читать файл из {{ objstorage-name }}:
+  После этого можно читать файл из Object Storage:
 
   ```scala
   val sqlContext = new org.apache.spark.sql.SQLContext(sc)
@@ -298,10 +298,10 @@ hadoop distcp \
 
   Выберите способ доступа:
 
-  * Доступ к объектам {{ objstorage-name }} c использованием JCEKS:
+  * Доступ к объектам Object Storage c использованием JCEKS:
 
     ```python
-    sc._jsc.hadoopConfiguration().set("fs.s3a.endpoint", "{{ s3-storage-host }}")
+    sc._jsc.hadoopConfiguration().set("fs.s3a.endpoint", "storage.yandexcloud.net")
     sc._jsc.hadoopConfiguration().set("fs.s3a.signing-algorithm", "")
     sc._jsc.hadoopConfiguration().set("fs.s3a.aws.credentials.provider", "org.apache.hadoop.fs.s3a.SimpleAWSCredentialsProvider")
     sc._jsc.hadoopConfiguration().set("hadoop.security.credential.provider.path", "jceks://hdfs/<путь_к_файлу_JCEKS>")
@@ -310,14 +310,14 @@ hadoop distcp \
   * Доступ по ключу доступа и секрету бакета:
 
     ```python
-    sc._jsc.hadoopConfiguration().set("fs.s3a.endpoint", "{{ s3-storage-host }}")
+    sc._jsc.hadoopConfiguration().set("fs.s3a.endpoint", "storage.yandexcloud.net")
     sc._jsc.hadoopConfiguration().set("fs.s3a.signing-algorithm", "")
     sc._jsc.hadoopConfiguration().set("fs.s3a.aws.credentials.provider", "org.apache.hadoop.fs.s3a.SimpleAWSCredentialsProvider")
     sc._jsc.hadoopConfiguration().set("fs.s3a.access.key","<ключ_доступа>")
     sc._jsc.hadoopConfiguration().set("fs.s3a.secret.key","<секрет_бакета>")
     ```
 
-  Получив доступ, вы можете читать файл напрямую из {{ objstorage-name }}:
+  Получив доступ, вы можете читать файл напрямую из Object Storage:
 
   ```python
   from pyspark.sql import SQLContext
@@ -328,4 +328,4 @@ hadoop distcp \
 
 {% endlist %}
 
-Подробнее см. на странице [{#T}](../../data-proc/concepts/settings-list.md#spark-settings).
+Подробнее см. на странице [Настройки Spark для работы с Yandex Object Storage](../../data-proc/concepts/settings-list.md#spark-settings).

@@ -5,7 +5,7 @@ Updates the specified Greenplum® cluster.
 ## HTTP request
 
 ```
-PATCH https://{{ api-host-mdb }}/managed-greenplum/v1/clusters/{clusterId}
+PATCH https://mdb.api.cloud.yandex.net/managed-greenplum/v1/clusters/{clusterId}
 ```
 
 ## Path parameters

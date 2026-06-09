@@ -1,11 +1,11 @@
-# Создание сайта на WordPress с кластером базы данных {{ MY }} с помощью консоли управления
+# Создание сайта на WordPress с кластером базы данных MySQL® с помощью консоли управления
 
-Чтобы создать инфраструктуру для [сайта на WordPress с кластером базы данных {{ MY }}](index.md) с помощью консоли управления {{ yandex-cloud }}:
+Чтобы создать инфраструктуру для [сайта на WordPress с кластером базы данных MySQL®](index.md) с помощью консоли управления Yandex Cloud:
 
-Чтобы настроить сайт на WordPress с кластером {{ MY }}:
+Чтобы настроить сайт на WordPress с кластером MySQL®:
 1. [Подготовьте облако к работе](#before-you-begin).
 1. [Создайте ВМ для WordPress](#create-vm).
-1. [Создайте кластер БД {{ MY }}](#create-cluster).
+1. [Создайте кластер БД MySQL®](#create-cluster).
 1. [Настройте веб-сервер Nginx](#configure-nginx).
 1. [Установите WordPress и дополнительные компоненты](#install-wordpress).
 1. [Завершите настройку WordPress](#configure-wordpress).
@@ -16,21 +16,21 @@
 
 ## Подготовьте облако к работе {#before-you-begin}
 
-Зарегистрируйтесь в {{ yandex-cloud }} и создайте [платежный аккаунт](../../../billing/concepts/billing-account.md):
-1. Перейдите в [консоль управления]({{ link-console-main }}), затем войдите в {{ yandex-cloud }} или зарегистрируйтесь.
-1. На странице **[{{ ui-key.yacloud_billing.billing.label_service }}]({{ link-console-billing }})** убедитесь, что у вас подключен платежный аккаунт, и он находится в [статусе](../../../billing/concepts/billing-account-statuses.md) `ACTIVE` или `TRIAL_ACTIVE`. Если платежного аккаунта нет, [создайте его](../../../billing/quickstart/index.md) и [привяжите](../../../billing/operations/pin-cloud.md) к нему облако.
+Зарегистрируйтесь в Yandex Cloud и создайте [платежный аккаунт](../../../billing/concepts/billing-account.md):
+1. Перейдите в [консоль управления](https://console.yandex.cloud), затем войдите в Yandex Cloud или зарегистрируйтесь.
+1. На странице **[Yandex Cloud Billing](https://center.yandex.cloud/billing/accounts)** убедитесь, что у вас подключен платежный аккаунт, и он находится в [статусе](../../../billing/concepts/billing-account-statuses.md) `ACTIVE` или `TRIAL_ACTIVE`. Если платежного аккаунта нет, [создайте его](../../../billing/quickstart/index.md) и [привяжите](../../../billing/operations/pin-cloud.md) к нему облако.
 
-Если у вас есть активный платежный аккаунт, вы можете создать или выбрать [каталог](../../../resource-manager/concepts/resources-hierarchy.md#folder), в котором будет работать ваша инфраструктура, на [странице облака]({{ link-console-cloud }}).
+Если у вас есть активный платежный аккаунт, вы можете создать или выбрать [каталог](../../../resource-manager/concepts/resources-hierarchy.md#folder), в котором будет работать ваша инфраструктура, на [странице облака](https://console.yandex.cloud/cloud).
 
 [Подробнее об облаках и каталогах](../../../resource-manager/concepts/resources-hierarchy.md).
 
 ### Необходимые платные ресурсы {#paid-resources}
 
-* Виртуальная машина: использование вычислительных ресурсов, хранилища, публичного IP-адреса и операционной системы (см. [тарифы {{ compute-name }}](../../../compute/pricing.md)).
+* Виртуальная машина: использование вычислительных ресурсов, хранилища, публичного IP-адреса и операционной системы (см. [тарифы Compute Cloud](../../../compute/pricing.md)).
 
-* Кластер {{ mmy-name }}: выделенные хостам вычислительные ресурсы, объем хранилища и резервных копий (см. [тарифы {{ mmy-name }}](../../pricing.md)).
-* Публичные IP-адреса, если для хостов кластера включен публичный доступ (см. [тарифы {{ vpc-name }}](../../../vpc/pricing.md)).
-* Публичные [DNS-запросы](../../../glossary/dns.md) и [зоны DNS](../../../dns/concepts/dns-zone.md) (см. [тарифы {{ dns-name }}](../../../dns/pricing.md)).
+* Кластер Managed Service for MySQL®: выделенные хостам вычислительные ресурсы, объем хранилища и резервных копий (см. [тарифы Managed Service for MySQL®](../../pricing.md)).
+* Публичные IP-адреса, если для хостов кластера включен публичный доступ (см. [тарифы Virtual Private Cloud](../../../vpc/pricing.md)).
+* Публичные [DNS-запросы](../../../glossary/dns.md) и [зоны DNS](../../../dns/concepts/dns-zone.md) (см. [тарифы Cloud DNS](../../../dns/pricing.md)).
 
 ## Создайте ВМ для WordPress {#create-vm}
 
@@ -40,51 +40,51 @@
 
 - Консоль управления {#console}
 
-  1. На странице [каталога](../../../resource-manager/concepts/resources-hierarchy.md#folder) в [консоли управления]({{ link-console-main }}) нажмите кнопку ![plus](../../../_assets/console-icons/plus.svg) **{{ ui-key.yacloud.iam.folder.dashboard.button_add }}** и выберите `{{ ui-key.yacloud.iam.folder.dashboard.value_compute }}`.
-  1. В блоке **{{ ui-key.yacloud.compute.instances.create.section_image }}** выберите один из публичных образов: [Debian 11](https://yandex.cloud/ru/marketplace/products/yc/debian-11), [Ubuntu 20.04 LTS](https://yandex.cloud/ru/marketplace/products/yc/ubuntu-20-04-lts) или [CentOS 7](https://yandex.cloud/ru/marketplace/products/yc/centos-7).
-  1. В блоке **{{ ui-key.yacloud.k8s.node-groups.create.section_allocation-policy }}** выберите [зону доступности](../../../overview/concepts/geo-scope.md), в которой будет находиться ВМ. Если вы не знаете, какая зона доступности вам нужна, оставьте выбранную по умолчанию.
-  1. В блоке **{{ ui-key.yacloud.compute.instances.create.section_platform }}** перейдите на вкладку `{{ ui-key.yacloud.component.compute.resources.label_tab-custom }}` и укажите необходимую [платформу](../../../compute/concepts/vm-platforms.md), количество vCPU и объем RAM:
+  1. На странице [каталога](../../../resource-manager/concepts/resources-hierarchy.md#folder) в [консоли управления](https://console.yandex.cloud) нажмите кнопку ![plus](../../../_assets/console-icons/plus.svg) **Создать ресурс** и выберите `Виртуальная машина`.
+  1. В блоке **Образ загрузочного диска** выберите один из публичных образов: [Debian 11](https://yandex.cloud/ru/marketplace/products/yc/debian-11), [Ubuntu 20.04 LTS](https://yandex.cloud/ru/marketplace/products/yc/ubuntu-20-04-lts) или [CentOS 7](https://yandex.cloud/ru/marketplace/products/yc/centos-7).
+  1. В блоке **Расположение** выберите [зону доступности](../../../overview/concepts/geo-scope.md), в которой будет находиться ВМ. Если вы не знаете, какая зона доступности вам нужна, оставьте выбранную по умолчанию.
+  1. В блоке **Вычислительные ресурсы** перейдите на вкладку `Своя конфигурация` и укажите необходимую [платформу](../../../compute/concepts/vm-platforms.md), количество vCPU и объем RAM:
 
-      * **{{ ui-key.yacloud.component.compute.resources.field_platform }}** — `Intel Ice Lake`.
-      * **{{ ui-key.yacloud.component.compute.resources.field_cores }}** — `2`.
-      * **{{ ui-key.yacloud.component.compute.resources.field_core-fraction }}** — `20%`.
-      * **{{ ui-key.yacloud.component.compute.resources.field_memory }}** — `2 {{ ui-key.yacloud.common.units.label_gigabyte }}`.
+      * **Платформа** — `Intel Ice Lake`.
+      * **vCPU** — `2`.
+      * **Гарантированная доля vCPU** — `20%`.
+      * **RAM** — `2 ГБ`.
   
-  1. В блоке **{{ ui-key.yacloud.compute.instances.create.section_network }}**:
+  1. В блоке **Сетевые настройки**:
 
-      * В поле **{{ ui-key.yacloud.component.compute.network-select.field_subnetwork }}** выберите сеть и подсеть, к которым нужно подключить ВМ. Если нужной [сети](../../../vpc/concepts/network.md#network) или [подсети](../../../vpc/concepts/network.md#subnet) еще нет, [создайте их](../../../vpc/operations/subnet-create.md).
-      * В поле **{{ ui-key.yacloud.component.compute.network-select.field_external }}** оставьте значение `{{ ui-key.yacloud.component.compute.network-select.switch_auto }}`, чтобы назначить ВМ случайный внешний IP-адрес из пула {{ yandex-cloud }}, или выберите статический адрес из списка, если вы зарезервировали его заранее.
+      * В поле **Подсеть** выберите сеть и подсеть, к которым нужно подключить ВМ. Если нужной [сети](../../../vpc/concepts/network.md#network) или [подсети](../../../vpc/concepts/network.md#subnet) еще нет, [создайте их](../../../vpc/operations/subnet-create.md).
+      * В поле **Публичный IP-адрес** оставьте значение `Автоматически`, чтобы назначить ВМ случайный внешний IP-адрес из пула Yandex Cloud, или выберите статический адрес из списка, если вы зарезервировали его заранее.
 
-  1. В блоке **{{ ui-key.yacloud.compute.instances.create.section_access }}** выберите вариант **{{ ui-key.yacloud.compute.instance.access-method.label_oslogin-control-ssh-option-title }}** и укажите данные для доступа на ВМ:
+  1. В блоке **Доступ** выберите вариант **SSH-ключ** и укажите данные для доступа на ВМ:
 
-      * В поле **{{ ui-key.yacloud.compute.instances.create.field_user }}** введите имя пользователя, например: `yc-user`. Не используйте имя `root` или другие имена, зарезервированные ОС. Для выполнения операций, требующих прав суперпользователя, используйте команду `sudo`.
-      * В поле **{{ ui-key.yacloud.compute.instances.create.field_key }}** выберите SSH-ключ, сохраненный в вашем профиле [пользователя организации](../../../organization/concepts/membership.md).
+      * В поле **Логин** введите имя пользователя, например: `yc-user`. Не используйте имя `root` или другие имена, зарезервированные ОС. Для выполнения операций, требующих прав суперпользователя, используйте команду `sudo`.
+      * В поле **SSH-ключ** выберите SSH-ключ, сохраненный в вашем профиле [пользователя организации](../../../organization/concepts/membership.md).
         
         Если в вашем профиле нет сохраненных SSH-ключей или вы хотите добавить новый ключ:
         
-        1. Нажмите кнопку **{{ ui-key.yacloud.compute.instances.create.button_add-ssh-key }}**.
+        1. Нажмите кнопку **Добавить ключ**.
         1. Задайте имя SSH-ключа.
         1. Выберите вариант:
         
-            * `{{ ui-key.yacloud_components.ssh-key-add-dialog.value_radio-manual }}` — вставьте содержимое открытого [SSH](../../../glossary/ssh-keygen.md)-ключа. Пару SSH-ключей необходимо [создать](../../../compute/operations/vm-connect/ssh.md#creating-ssh-keys) самостоятельно.
-            * `{{ ui-key.yacloud_components.ssh-key-add-dialog.value_radio-upload }}` — загрузите открытую часть SSH-ключа. Пару SSH-ключей необходимо создать самостоятельно.
-            * `{{ ui-key.yacloud_components.ssh-key-add-dialog.value_radio-generate }}` — автоматическое создание пары SSH-ключей.
+            * `Ввести вручную` — вставьте содержимое открытого [SSH](../../../glossary/ssh-keygen.md)-ключа. Пару SSH-ключей необходимо [создать](../../../compute/operations/vm-connect/ssh.md#creating-ssh-keys) самостоятельно.
+            * `Загрузить из файла` — загрузите открытую часть SSH-ключа. Пару SSH-ключей необходимо создать самостоятельно.
+            * `Сгенерировать ключ` — автоматическое создание пары SSH-ключей.
             
               При добавлении сгенерированного SSH-ключа будет создан и загружен архив с парой ключей. В ОС на базе Linux или macOS распакуйте архив в папку `/home/<имя_пользователя>/.ssh`. В ОС Windows распакуйте архив в папку `C:\Users\<имя_пользователя>/.ssh`. Дополнительно вводить открытый ключ в консоли управления не требуется.
         
-        1. Нажмите кнопку **{{ ui-key.yacloud.common.add }}**.
+        1. Нажмите кнопку **Добавить**.
         
         SSH-ключ будет добавлен в ваш профиль пользователя организации. Если в организации [отключена](../../../organization/operations/os-login-access.md) возможность добавления пользователями SSH-ключей в свои профили, добавленный открытый SSH-ключ будет сохранен только в профиле пользователя внутри создаваемого ресурса.
 
-  1. В блоке **{{ ui-key.yacloud.compute.instances.create.section_base }}** задайте имя ВМ: `wp-mysql-tutorial-web`.
+  1. В блоке **Общая информация** задайте имя ВМ: `wp-mysql-tutorial-web`.
 
       { % note alert %}
 
-      IP-адрес и [имя хоста (FQDN)](../../../compute/concepts/network.md#hostname) для подключения к ВМ назначается ей при создании. Если вы выбрали вариант `{{ ui-key.yacloud.component.compute.network-select.switch_none }}` в поле **{{ ui-key.yacloud.component.compute.network-select.field_external }}**, вы не сможете обращаться к ВМ из интернета.
+      IP-адрес и [имя хоста (FQDN)](../../../compute/concepts/network.md#hostname) для подключения к ВМ назначается ей при создании. Если вы выбрали вариант `Без адреса` в поле **Публичный IP-адрес**, вы не сможете обращаться к ВМ из интернета.
 
       {% endnote %}
 
-  1. Нажмите **{{ ui-key.yacloud.compute.instances.create.button_create }}**.
+  1. Нажмите **Создать ВМ**.
 
 {% endlist %}
 
@@ -92,32 +92,32 @@
 
 При создании ВМ назначается публичный IP-адрес и имя хоста (FQDN). Эти данные можно использовать для доступа по SSH.
 
-## Создайте кластер БД {{ MY }} {#create-cluster}
+## Создайте кластер БД MySQL® {#create-cluster}
 
-Чтобы создать кластер БД {{ MY }}:
+Чтобы создать кластер БД MySQL®:
 
 {% list tabs group=instructions %}
 
 - Консоль управления {#console}
 
-  1. На странице каталога в [консоли управления]({{ link-console-main }}) нажмите кнопку ![plus](../../../_assets/console-icons/plus.svg) **{{ ui-key.yacloud.iam.folder.dashboard.button_add }}** и выберите **{{ ui-key.yacloud.iam.folder.dashboard.value_managed-mysql }}**.
-  1. В поле **{{ ui-key.yacloud.mdb.forms.base_field_name }}** введите имя: `wp-mysql-tutorial-db-cluster`.
-  1. В блоке **{{ ui-key.yacloud.mdb.forms.section_resource }}** выберите `s3-c2-m8`.
-  1. В блоке **{{ ui-key.yacloud.mdb.forms.section_disk }}** укажите `10 {{ ui-key.yacloud.common.units.label_gigabyte }}`.
-  1. В блоке **{{ ui-key.yacloud.mdb.forms.section_database }}**:
-     * В поле **{{ ui-key.yacloud.mdb.forms.database_field_name }}** введите `wp-mysql-tutorial-db`.
-     * В поле **{{ ui-key.yacloud.mdb.forms.database_field_user-login }}** введите `wordpress`.
-     * В поле **{{ ui-key.yacloud.mdb.forms.database_field_user-password }}** введите пароль, который вы будете использовать для доступа к БД.
-  1. В блоке **{{ ui-key.yacloud.mdb.forms.section_network }}** выберите сеть, к которой будет подключен кластер.
+  1. На странице каталога в [консоли управления](https://console.yandex.cloud) нажмите кнопку ![plus](../../../_assets/console-icons/plus.svg) **Создать ресурс** и выберите **Кластер MySQL**.
+  1. В поле **Имя кластера** введите имя: `wp-mysql-tutorial-db-cluster`.
+  1. В блоке **Класс хоста** выберите `s3-c2-m8`.
+  1. В блоке **Размер хранилища** укажите `10 ГБ`.
+  1. В блоке **База данных**:
+     * В поле **Имя БД** введите `wp-mysql-tutorial-db`.
+     * В поле **Имя пользователя** введите `wordpress`.
+     * В поле **Пароль** введите пароль, который вы будете использовать для доступа к БД.
+  1. В блоке **Сетевые настройки** выберите сеть, к которой будет подключен кластер.
 
 
-  1. В блоке **{{ ui-key.yacloud.mdb.forms.section_host }}** добавьте еще два [хоста](../../concepts/instance-types.md) в других зонах доступности. При создании хостов не включайте для них **{{ ui-key.yacloud.mdb.hosts.dialog.field_public_ip }}**.
+  1. В блоке **Хосты** добавьте еще два [хоста](../../concepts/instance-types.md) в других зонах доступности. При создании хостов не включайте для них **Публичный доступ**.
 
 
-  1. В блоке **{{ ui-key.yacloud.mdb.forms.section_settings }}** нажмите кнопку **{{ ui-key.yacloud.mdb.forms.button_configure-settings }}**.
+  1. В блоке **Настройки СУБД** нажмите кнопку **Настроить**.
 
-     В поле **default_authentication_plugin** выберите пункт `mysql_native_password` и нажмите кнопку **{{ ui-key.yacloud.component.mdb.settings.popup_settings-submit }}**.
-  1. Нажмите кнопку **{{ ui-key.yacloud.mdb.forms.button_create }}**.
+     В поле **default_authentication_plugin** выберите пункт `mysql_native_password` и нажмите кнопку **Сохранить**.
+  1. Нажмите кнопку **Создать кластер**.
 
 {% endlist %}
 
@@ -126,7 +126,7 @@
 ## Настройте веб-сервер Nginx {#configure-nginx}
 
 После того как ВМ `wp-mysql-tutorial-web` перейдет в статус `RUNNING`:
-1. В блоке **{{ ui-key.yacloud.compute.instance.overview.section_network }}** на странице ВМ в [консоли управления]({{ link-console-main }}) найдите публичный IP-адрес ВМ.
+1. В блоке **Сеть** на странице ВМ в [консоли управления](https://console.yandex.cloud) найдите публичный IP-адрес ВМ.
 1. [Подключитесь](../../../compute/operations/vm-connect/ssh.md) к ВМ по протоколу SSH. Для этого можно использовать утилиту `ssh` в Linux и macOS и программу [PuTTY](https://www.chiark.greenend.org.uk/~sgtatham/putty/) для Windows.
 
    Рекомендуемый способ аутентификации при подключении по SSH — с помощью пары ключей. Не забудьте настроить использование созданной пары ключей: закрытый ключ должен соответствовать открытому ключу, переданному на ВМ.
@@ -367,17 +367,17 @@
 1. Перейдите к блоку конфигурации подключения к кластеру `wp-mysql-tutorial-db-cluster`:
 
    ```php
-   // ** {{ MY }} settings - You can get this info from your web host. ** //
+   // ** MySQL® settings - You can get this info from your web host. ** //
    /** The name of the database for WordPress. */
 
    define( 'DB_NAME', '<DB_NAME>' );
-   /** {{ MY }} database username. */
+   /** MySQL® database username. */
    define( 'DB_USER', '<DB_USER>' );
 
-   /** {{ MY }} database password. */
+   /** MySQL® database password. */
    define( 'DB_PASSWORD', '<DB_PASSWORD>' );
 
-   /** {{ MY }} hostname. */
+   /** MySQL® hostname. */
    define( 'DB_HOST', '<DB_HOST>' );
    ```
 
@@ -385,24 +385,24 @@
    * `<DB_NAME>` — имя БД `wp-mysql-tutorial-db`.
    * `<DB_USER>` — имя пользователя `wordpress`.
    * `<DB_PASSWORD>` — пароль, заданный при создании кластера БД.
-   * `<DB_HOST>` — имя хоста {{ MY }} вида `XXXX-XXXXXXXXXX.{{ dns-zone }}`.
+   * `<DB_HOST>` — имя хоста MySQL® вида `XXXX-XXXXXXXXXX.mdb.yandexcloud.net`.
 
-     Чтобы узнать FQDN хоста {{ MY }}:
+     Чтобы узнать FQDN хоста MySQL®:
 
 	 {% list tabs group=instructions %}
 
 	 - Консоль управления {#console}
 
-	   1. Перейдите на страницу кластера {{ MY }} в [консоли управления]({{ link-console-main }}).
-       1. На вкладке **{{ ui-key.yacloud.mysql.cluster.switch_databases }}** рядом с БД нажмите значок ![image](../../../_assets/options.svg) → **{{ ui-key.yacloud.mdb.clusters.button_action-connect }}**.
-       1. Найдите строчку `mysql --host=ХХХХ-ХХХХХХХХХХ.{{ dns-zone }}`, где `ХХХХ-ХХХХХХХХХХ.{{ dns-zone }}` — это FQDN хоста с ролью `MASTER`.
+	   1. Перейдите на страницу кластера MySQL® в [консоли управления](https://console.yandex.cloud).
+       1. На вкладке **Базы данных** рядом с БД нажмите значок ![image](../../../_assets/options.svg) → **Подключиться**.
+       1. Найдите строчку `mysql --host=ХХХХ-ХХХХХХХХХХ.mdb.yandexcloud.net`, где `ХХХХ-ХХХХХХХХХХ.mdb.yandexcloud.net` — это FQDN хоста с ролью `MASTER`.
 
      - CLI {#cli}
 
        [Получите список хостов](../../operations/hosts.md#list) и скопируйте `NAME` хоста с ролью `MASTER`:
 
        ```bash
-       yc managed-mysql host list --cluster-name <имя_кластера_{{ MY }}>
+       yc managed-mysql host list --cluster-name <имя_кластера_MySQL®>
        ```
 
        
@@ -410,8 +410,8 @@
        +------------------------+----------------------+---------+--------+-------------------+-----------+
        |           NAME         |      CLUSTER ID      |  ROLE   | HEALTH |      ZONE ID      | PUBLIC IP |
        +------------------------+----------------------+---------+--------+-------------------+-----------+
-       | rc1a-...{{ dns-zone }} | c9quhb1l32unm1sdn0in | MASTER  | ALIVE  | {{ region-id }}-a | false     |
-       | rc1b-...{{ dns-zone }} | c9quhb1l32unm1sdn0in | REPLICA | ALIVE  | {{ region-id }}-b | false     |
+       | rc1a-...mdb.yandexcloud.net | c9quhb1l32unm1sdn0in | MASTER  | ALIVE  | ru-central1-a | false     |
+       | rc1b-...mdb.yandexcloud.net | c9quhb1l32unm1sdn0in | REPLICA | ALIVE  | ru-central1-b | false     |
        +------------------------+----------------------+---------+--------+-------------------+-----------+
        ```
 
@@ -440,7 +440,7 @@
 
 ## Завершите настройку WordPress {#configure-wordpress}
 
-1. В блоке **{{ ui-key.yacloud.compute.instance.overview.section_network }}** на странице ВМ в [консоли управления]({{ link-console-main }}) найдите публичный IP-адрес ВМ.
+1. В блоке **Сеть** на странице ВМ в [консоли управления](https://console.yandex.cloud) найдите публичный IP-адрес ВМ.
 1. Перейдите по адресу ВМ в браузере.
 1. Выберите язык и нажмите кнопку **Продолжить**.
 1. Заполните информацию для доступа к сайту:
@@ -454,7 +454,7 @@
 
 ## Настройте DNS {#configure-dns}
 
-Если у вас есть зарегистрированное доменное имя, воспользуйтесь сервисом {{ dns-name }} для управления доменом.
+Если у вас есть зарегистрированное доменное имя, воспользуйтесь сервисом Cloud DNS для управления доменом.
 
 В инструкции ниже описана настройка DNS для доменного имени `example.com`.
 
@@ -465,13 +465,13 @@
 - Консоль управления {#console}
 
    Чтобы добавить [публичную зону DNS](../../../dns/concepts/dns-zone.md#public-zones):
-   1. Перейдите в сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_dns }}** в [каталоге](../../../resource-manager/concepts/resources-hierarchy.md#folder), где требуется создать [зону DNS](../../../dns/concepts/dns-zone.md).
-   1. Нажмите кнопку **{{ ui-key.yacloud.dns.button_zone-create }}**.
+   1. Перейдите в сервис **Cloud DNS** в [каталоге](../../../resource-manager/concepts/resources-hierarchy.md#folder), где требуется создать [зону DNS](../../../dns/concepts/dns-zone.md).
+   1. Нажмите кнопку **Создать зону**.
    1. Задайте настройки зоны DNS:
-      * **{{ ui-key.yacloud.dns.label_zone }}** — `example.com.`. Или укажите ваш зарегистрированный домен.
-      * **{{ ui-key.yacloud.common.type }}** — `{{ ui-key.yacloud.dns.label_public }}`.
-      * **{{ ui-key.yacloud.common.name }}** — `example-zone-1`.
-   1. Нажмите кнопку **{{ ui-key.yacloud.common.create }}**.
+      * **Зона** — `example.com.`. Или укажите ваш зарегистрированный домен.
+      * **Тип** — `Публичная`.
+      * **Имя** — `example-zone-1`.
+   1. Нажмите кнопку **Создать**.
 
 {% endlist %}
 
@@ -483,32 +483,32 @@
 
 - Консоль управления {#console}
 
-   1. В блоке **{{ ui-key.yacloud.compute.instance.overview.section_network }}** на странице [виртуальной машины](../../../compute/concepts/vm.md) в [консоли управления]({{ link-console-main }}) найдите [публичный IP-адрес](../../../vpc/concepts/address.md#public-addresses) ВМ.
+   1. В блоке **Сеть** на странице [виртуальной машины](../../../compute/concepts/vm.md) в [консоли управления](https://console.yandex.cloud) найдите [публичный IP-адрес](../../../vpc/concepts/address.md#public-addresses) ВМ.
    1. Создайте запись [типа А](../../../dns/concepts/resource-record.md#a):
-      * Откройте раздел **{{ ui-key.yacloud.iam.folder.dashboard.label_dns }}** в каталоге, где находится зона DNS `example.com`.
+      * Откройте раздел **Cloud DNS** в каталоге, где находится зона DNS `example.com`.
       * Выберите зону DNS `example.com` из списка.
-      * Нажмите кнопку **{{ ui-key.yacloud.dns.button_record-set-create }}**.
+      * Нажмите кнопку **Создать запись**.
       * Задайте параметры записи:
-         * **{{ ui-key.yacloud.common.name }}** — оставьте пустым.
-         * **{{ ui-key.yacloud.common.type }}** — оставьте значение `А`.
-         * **{{ ui-key.yacloud.dns.label_records }}** — введите публичный адрес вашей ВМ.
-         * **{{ ui-key.yacloud.dns.label_form-ttl }}** (время кеширования записи) — оставьте значение по умолчанию.
-      * Нажмите кнопку **{{ ui-key.yacloud.common.create }}**.
+         * **Имя** — оставьте пустым.
+         * **Тип** — оставьте значение `А`.
+         * **Значение** — введите публичный адрес вашей ВМ.
+         * **TTL (в секундах)** (время кеширования записи) — оставьте значение по умолчанию.
+      * Нажмите кнопку **Создать**.
    1. Создайте запись [типа CNAME](../../../dns/concepts/resource-record.md#cname):
       * Выберите зону DNS `example.com` из списка.
-      * Нажмите кнопку **{{ ui-key.yacloud.dns.button_record-set-create }}**.
+      * Нажмите кнопку **Создать запись**.
       * Задайте параметры записи:
-         * **{{ ui-key.yacloud.common.name }}** — `www`.
-         * **{{ ui-key.yacloud.common.type }}** — выберите значение `CNAME`.
-         * **{{ ui-key.yacloud.dns.label_records }}** — введите `example.com`.
-         * **{{ ui-key.yacloud.dns.label_form-ttl }}** (время кеширования записи) — оставьте значение по умолчанию.
-      * Нажмите кнопку **{{ ui-key.yacloud.common.create }}**.
+         * **Имя** — `www`.
+         * **Тип** — выберите значение `CNAME`.
+         * **Значение** — введите `example.com`.
+         * **TTL (в секундах)** (время кеширования записи) — оставьте значение по умолчанию.
+      * Нажмите кнопку **Создать**.
 
 {% endlist %}
 
 ### Делегируйте доменное имя {#delegate-domain}
 
-Делегирование — это перенос ответственности с серверов регистратора на ваши серверы. Для домена создаются ресурсные записи [типа NS](../../../dns/concepts/resource-record.md#ns) (`ns1.{{ dns-ns-host-sld }}` и `ns2.{{ dns-ns-host-sld }}`).
+Делегирование — это перенос ответственности с серверов регистратора на ваши серверы. Для домена создаются ресурсные записи [типа NS](../../../dns/concepts/resource-record.md#ns) (`ns1.yandexcloud.net` и `ns2.yandexcloud.net`).
 
 Чтобы делегировать домен, укажите для него DNS-серверы в личном кабинете регистратора.
 
@@ -523,8 +523,8 @@ dig +short NS example.com
 Результат:
 
 ```text
-ns2.{{ dns-ns-host-sld }}.
-ns1.{{ dns-ns-host-sld }}.
+ns2.yandexcloud.net.
+ns1.yandexcloud.net.
 ```
 
 ## Проверьте работу сайта {#test-site}
@@ -539,11 +539,11 @@ ns1.{{ dns-ns-host-sld }}.
 
 Чтобы перестать платить за созданные ресурсы:
 1. [Удалите](../../../dns/operations/zone-delete.md) зону DNS.
-1. [Удалите](../../operations/cluster-delete.md) кластер {{ MY }}.
+1. [Удалите](../../operations/cluster-delete.md) кластер MySQL®.
 1. [Удалите](../../../compute/operations/vm-control/vm-delete.md) ВМ.
 
 Если вы зарезервировали для ВМ статический публичный IP-адрес, [удалите его](../../../vpc/operations/address-delete.md).
 
 #### См. также {#see-also}
 
-* [{#T}](terraform.md)
+* [Создание сайта на WordPress с кластером базы данных MySQL® с помощью Terraform](terraform.md)

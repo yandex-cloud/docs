@@ -1,11 +1,11 @@
 # Реализация отказоустойчивых сценариев для сетевых виртуальных машин
 
 
-В {{ yandex-cloud }} можно развернуть облачную инфраструктуру с использованием виртуальных машин (далее сетевых ВМ), выполняющих функции межсетевого экранирования, сетевой безопасности и маршрутизации трафика. С помощью [статической маршрутизации](../../vpc/concepts/routing.md) трафик из подсетей направляется на сетевые ВМ. 
+В Yandex Cloud можно развернуть облачную инфраструктуру с использованием виртуальных машин (далее сетевых ВМ), выполняющих функции межсетевого экранирования, сетевой безопасности и маршрутизации трафика. С помощью [статической маршрутизации](../../vpc/concepts/routing.md) трафик из подсетей направляется на сетевые ВМ. 
 
 Для обеспечения высокой доступности можно развернуть несколько сетевых ВМ в разных [зонах доступности](../../overview/concepts/geo-scope.md) и настроить автоматическое переключение исходящего из подсетей трафика с одной сетевой ВМ на другую с помощью [модуля route-switcher](https://github.com/yandex-cloud-examples/yc-route-switcher/tree/main).
 
-В этом практическом руководстве показан пример использования модуля route-switcher для обеспечения отказоустойчивости [NAT-инстанса](https://yandex.cloud/ru/marketplace/products/yc/nat-instance-ubuntu-18-04-lts) — сетевой ВМ с преднастроенными правилами маршрутизации и трансляции IP-адресов. NAT-инстансы используются для организации доступа в интернет виртуальных машин и других облачных ресурсов, размещенных в {{ yandex-cloud }}.
+В этом практическом руководстве показан пример использования модуля route-switcher для обеспечения отказоустойчивости [NAT-инстанса](https://yandex.cloud/ru/marketplace/products/yc/nat-instance-ubuntu-18-04-lts) — сетевой ВМ с преднастроенными правилами маршрутизации и трансляции IP-адресов. NAT-инстансы используются для организации доступа в интернет виртуальных машин и других облачных ресурсов, размещенных в Yandex Cloud.
 
 В примере на схеме NAT-инстанс `NAT-A` является основным для исходящего в интернет трафика, а `NAT-B` — резервным.
 
@@ -16,9 +16,9 @@
    | Название элемента | Описание |
    | ----------- | ----------- |
    | NAT-A, NAT-B | NAT-инстансы, обеспечивающие доступ облачных ресурсов в интернет с помощью трансляции внутренних IP-адресов ресурсов в публичные IP-адреса NAT-инстансов |
-   | VPC: demo | Сеть {{ vpc-name }} |
-   | private-a | Подсеть в зоне `{{ region-id }}-a` для размещения ресурсов, которым требуется доступ в интернет |
-   | public-a, public-b | Подсети в зонах `{{ region-id }}-a` и `{{ region-id }}-b`, в которых располагаются NAT-инстансы |
+   | VPC: demo | Сеть Virtual Private Cloud |
+   | private-a | Подсеть в зоне `ru-central1-a` для размещения ресурсов, которым требуется доступ в интернет |
+   | public-a, public-b | Подсети в зонах `ru-central1-a` и `ru-central1-b`, в которых располагаются NAT-инстансы |
    | public ip a, public ip b | Публичные IP-адреса NAT-инстансов |
    | NLB | Внутренний сетевой балансировщик для работы модуля route-switcher, осуществляет проверку доступности NAT-инстансов с помощью проверок состояния на порт TCP 22 |
 
@@ -50,11 +50,11 @@
  
 ## Подготовьте облако к работе {#prepare-cloud}
 
-Зарегистрируйтесь в {{ yandex-cloud }} и создайте [платежный аккаунт](../../billing/concepts/billing-account.md):
-1. Перейдите в [консоль управления]({{ link-console-main }}), затем войдите в {{ yandex-cloud }} или зарегистрируйтесь.
-1. На странице **[{{ ui-key.yacloud_billing.billing.label_service }}]({{ link-console-billing }})** убедитесь, что у вас подключен платежный аккаунт, и он находится в [статусе](../../billing/concepts/billing-account-statuses.md) `ACTIVE` или `TRIAL_ACTIVE`. Если платежного аккаунта нет, [создайте его](../../billing/quickstart/index.md) и [привяжите](../../billing/operations/pin-cloud.md) к нему облако.
+Зарегистрируйтесь в Yandex Cloud и создайте [платежный аккаунт](../../billing/concepts/billing-account.md):
+1. Перейдите в [консоль управления](https://console.yandex.cloud), затем войдите в Yandex Cloud или зарегистрируйтесь.
+1. На странице **[Yandex Cloud Billing](https://center.yandex.cloud/billing/accounts)** убедитесь, что у вас подключен платежный аккаунт, и он находится в [статусе](../../billing/concepts/billing-account-statuses.md) `ACTIVE` или `TRIAL_ACTIVE`. Если платежного аккаунта нет, [создайте его](../../billing/quickstart/index.md) и [привяжите](../../billing/operations/pin-cloud.md) к нему облако.
 
-Если у вас есть активный платежный аккаунт, вы можете создать или выбрать [каталог](../../resource-manager/concepts/resources-hierarchy.md#folder), в котором будет работать ваша инфраструктура, на [странице облака]({{ link-console-cloud }}).
+Если у вас есть активный платежный аккаунт, вы можете создать или выбрать [каталог](../../resource-manager/concepts/resources-hierarchy.md#folder), в котором будет работать ваша инфраструктура, на [странице облака](https://console.yandex.cloud/cloud).
 
 [Подробнее об облаках и каталогах](../../resource-manager/concepts/resources-hierarchy.md).
 
@@ -62,25 +62,25 @@
 
 В стоимость поддержки инфраструктуры входит:
 
-* плата за постоянно работающие ВМ (см. [тарифы {{ compute-full-name }}](../../compute/pricing.md));
-* плата за использование {{ network-load-balancer-name }} (см. [тарифы {{ network-load-balancer-full-name }}](../../network-load-balancer/pricing.md));
-* плата за использование публичных IP-адресов и исходящий трафик (см. [тарифы {{ vpc-full-name }}](../../vpc/pricing.md));
-* плата за использование функции (см. [тарифы {{ sf-full-name }}](../../functions/pricing.md));
+* плата за постоянно работающие ВМ (см. [тарифы Yandex Compute Cloud](../../compute/pricing.md));
+* плата за использование Network Load Balancer (см. [тарифы Yandex Network Load Balancer](../../network-load-balancer/pricing.md));
+* плата за использование публичных IP-адресов и исходящий трафик (см. [тарифы Yandex Virtual Private Cloud](../../vpc/pricing.md));
+* плата за использование функции (см. [тарифы Yandex Cloud Functions](../../functions/pricing.md));
 
 ## Настройте профиль CLI {#setup-profile}
 
-1. Если у вас еще нет интерфейса командной строки {{ yandex-cloud }}, [установите](../../cli/quickstart.md) его и авторизуйтесь от имени пользователя.
+1. Если у вас еще нет интерфейса командной строки Yandex Cloud, [установите](../../cli/quickstart.md) его и авторизуйтесь от имени пользователя.
 1. Создайте сервисный аккаунт:
 
    {% list tabs group=instructions %}
 
    - Консоль управления {#console}
 
-      1. В [консоли управления]({{ link-console-main }}) выберите каталог, в котором хотите создать сервисный аккаунт.
-      1. Перейдите в сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_iam }}**.
-      1. Нажмите кнопку **{{ ui-key.yacloud.iam.folder.service-accounts.button_add }}**.
+      1. В [консоли управления](https://console.yandex.cloud) выберите каталог, в котором хотите создать сервисный аккаунт.
+      1. Перейдите в сервис **Identity and Access Management**.
+      1. Нажмите кнопку **Создать сервисный аккаунт**.
       1. Введите имя сервисного аккаунта, например, `sa-terraform`.
-      1. Нажмите кнопку **{{ ui-key.yacloud.iam.folder.service-account.popup-robot_button_add }}**.
+      1. Нажмите кнопку **Создать**.
 
    - CLI {#cli}
 
@@ -115,10 +115,10 @@
 
    - Консоль управления {#console}
 
-      1. На [стартовой странице]({{ link-console-main }}) консоли управления выберите каталог.
-      1. Перейдите на вкладку ![image](../../_assets/console-icons/persons-lock.svg) **{{ ui-key.yacloud.common.resource-acl.label_access-bindings }}**.
-      1. Найдите аккаунт `sa-terraform` в списке и нажмите значок ![image](../../_assets/options.svg) → ![image](../../_assets/console-icons/pencil.svg) **{{ ui-key.yacloud_components.acl.action.edit-roles }}**.
-      1. В открывшемся диалоге нажмите кнопку ![image](../../_assets/console-icons/plus.svg) **{{ ui-key.yacloud.component.acl.update-dialog.button_add-role }}** и выберите роль `admin`.
+      1. На [стартовой странице](https://console.yandex.cloud) консоли управления выберите каталог.
+      1. Перейдите на вкладку ![image](../../_assets/console-icons/persons-lock.svg) **Права доступа**.
+      1. Найдите аккаунт `sa-terraform` в списке и нажмите значок ![image](../../_assets/options.svg) → ![image](../../_assets/console-icons/pencil.svg) **Изменить роли**.
+      1. В открывшемся диалоге нажмите кнопку ![image](../../_assets/console-icons/plus.svg) **Добавить роль** и выберите роль `admin`.
 
    - CLI {#cli}
 
@@ -196,7 +196,7 @@
 
 ## Подготовьте среду для развертывания ресурсов {#setup-environment}
 
-1. [Установите {{ TF }}](../infrastructure-management/terraform-quickstart.md#install-terraform).
+1. [Установите Terraform](../infrastructure-management/terraform-quickstart.md#install-terraform).
 1. Установите [Git](https://ru.wikipedia.org/wiki/Git) с помощью команды:
 
    ```bash
@@ -247,13 +247,13 @@
 
 ## Разверните ресурсы {#create-resources}
 
-1. Выполните инициализацию {{ TF }}: 
+1. Выполните инициализацию Terraform: 
 
    ```bash
    terraform init
    ```
 
-1. Проверьте конфигурацию {{ TF }}-файлов:
+1. Проверьте конфигурацию Terraform-файлов:
 
    ```bash
    terraform validate
@@ -290,8 +290,8 @@
 
    - Консоль управления {#console}
 
-      1. В [консоли управления]({{ link-console-main }}) выберите нужный в каталог.
-      1. Перейдите в сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_load-balancer }}** и перейдите на страницу сетевого балансировщика `route-switcher-lb-...`.
+      1. В [консоли управления](https://console.yandex.cloud) выберите нужный в каталог.
+      1. Перейдите в сервис **Network Load Balancer** и перейдите на страницу сетевого балансировщика `route-switcher-lb-...`.
       1. Раскройте целевую группу и убедитесь, что состояния целевых ресурсов имеет статус `Healthy`. 
 
    {% endlist %}
@@ -321,10 +321,10 @@
 
    - Консоль управления {#console}
   
-      1. В [консоли управления]({{ link-console-main }}) выберите нужный в каталог.
-      1. Перейдите в сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_compute }}**.
+      1. В [консоли управления](https://console.yandex.cloud) выберите нужный в каталог.
+      1. Перейдите в сервис **Compute Cloud**.
       1. В списке ВМ выберите `test-vm`.
-      1. Перейдите на вкладку ![image](../../_assets/console-icons/terminal.svg) **{{ ui-key.yacloud.compute.instance.switch_console }}**.
+      1. Перейдите на вкладку ![image](../../_assets/console-icons/terminal.svg) **Серийная консоль**.
       1. Дождитесь полной загрузки операционной системы.
 
    {% endlist %}
@@ -370,10 +370,10 @@
 
    - Консоль управления {#console}
 
-      1. В [консоли управления]({{ link-console-main }}) выберите нужный в каталог.
-      1. Перейдите в сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_compute }}**.
-      1. Выберите ВМ `nat-a` в списке, нажмите значок ![image](../../_assets/options.svg) и выберите **{{ ui-key.yacloud.common.stop }}**.
-      1. В открывшемся окне нажмите кнопку **{{ ui-key.yacloud.compute.instances.popup-confirm_button_stop }}**.
+      1. В [консоли управления](https://console.yandex.cloud) выберите нужный в каталог.
+      1. Перейдите в сервис **Compute Cloud**.
+      1. Выберите ВМ `nat-a` в списке, нажмите значок ![image](../../_assets/options.svg) и выберите **Остановить**.
+      1. В открывшемся окне нажмите кнопку **Остановить**.
 
    - CLI {#cli}
 
@@ -412,10 +412,10 @@
 
    - Консоль управления {#console}
 
-      1. В [консоли управления]({{ link-console-main }}) выберите нужный в каталог.
-      1. Перейдите в сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_compute }}**.
-      1. Выберите ВМ `nat-a` в списке, нажмите значок ![image](../../_assets/options.svg) и выберите **{{ ui-key.yacloud.common.stop }}**.
-      1. В открывшемся окне нажмите кнопку **{{ ui-key.yacloud.compute.instances.popup-confirm_button_start }}**.
+      1. В [консоли управления](https://console.yandex.cloud) выберите нужный в каталог.
+      1. Перейдите в сервис **Compute Cloud**.
+      1. Выберите ВМ `nat-a` в списке, нажмите значок ![image](../../_assets/options.svg) и выберите **Остановить**.
+      1. В открывшемся окне нажмите кнопку **Запустить**.
 
    - CLI {#cli}
 
@@ -457,6 +457,6 @@
   
   {% note warning %}
 
-  {{ TF }} удалит все ресурсы **без возможности восстановления**: сети, подсети, виртуальные машины, балансировщик и т.д.
+  Terraform удалит все ресурсы **без возможности восстановления**: сети, подсети, виртуальные машины, балансировщик и т.д.
 
   {% endnote %}

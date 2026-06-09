@@ -1,8 +1,8 @@
-# Шифрование данных с помощью SDK {{ yandex-cloud }}
+# Шифрование данных с помощью SDK Yandex Cloud
 
-С {{ kms-full-name }} можно работать с помощью SDK {{ yandex-cloud }}. Реализация SDK есть на [Java](https://github.com/yandex-cloud/java-sdk), [Go](https://github.com/yandex-cloud/go-sdk), [Python](https://github.com/yandex-cloud/python-sdk) и [Node.js](https://github.com/yandex-cloud/nodejs-sdk).
+С Yandex Key Management Service можно работать с помощью SDK Yandex Cloud. Реализация SDK есть на [Java](https://github.com/yandex-cloud/java-sdk), [Go](https://github.com/yandex-cloud/go-sdk), [Python](https://github.com/yandex-cloud/python-sdk) и [Node.js](https://github.com/yandex-cloud/nodejs-sdk).
 
-SDK {{ yandex-cloud }} наиболее удобен для шифрования данных небольшого размера (ограничение на размер открытого текста – 32 КБ). Для шифрования данных большего объема рекомендуется использовать [AWS Encryption SDK](../../../kms/tutorials/encrypt/aws-encryption-sdk.md) или [Google Tink](../../../kms/tutorials/encrypt/google-tink.md). Они шифруют данные [по схеме envelope encryption](../../../kms/concepts/envelope.md).
+SDK Yandex Cloud наиболее удобен для шифрования данных небольшого размера (ограничение на размер открытого текста – 32 КБ). Для шифрования данных большего объема рекомендуется использовать [AWS Encryption SDK](../../../kms/tutorials/encrypt/aws-encryption-sdk.md) или [Google Tink](../../../kms/tutorials/encrypt/google-tink.md). Они шифруют данные [по схеме envelope encryption](../../../kms/concepts/envelope.md).
 
 ## Добавление зависимостей {#dependency}
 
@@ -35,11 +35,11 @@ SDK {{ yandex-cloud }} наиболее удобен для шифрования
 ## Аутентификация {#auth}
 
 Аутентифицироваться можно с помощью:
-* [сервисного аккаунта, привязанного к виртуальной машине {{ yandex-cloud }}](#vm);
+* [сервисного аккаунта, привязанного к виртуальной машине Yandex Cloud](#vm);
 * [произвольного сервисного аккаунта](#sa);
 * [пользовательского аккаунта](#yandex-acc).
 
-### Аутентификация с сервисным аккаунтом, привязанным к виртуальной машине {{ yandex-cloud }} {#vm}
+### Аутентификация с сервисным аккаунтом, привязанным к виртуальной машине Yandex Cloud {#vm}
 
 {% list tabs group=programming_language %}
 
@@ -63,7 +63,7 @@ SDK {{ yandex-cloud }} наиболее удобен для шифрования
 
 ### Аутентификация с произвольным сервисным аккаунтом {#sa}
 
-В `key.json` должен содержаться авторизованный ключ сервисного аккаунта. Как создать авторизованный ключ читайте в разделе [{#T}](../../../iam/operations/authentication/manage-authorized-keys.md#create-authorized-key).
+В `key.json` должен содержаться авторизованный ключ сервисного аккаунта. Как создать авторизованный ключ читайте в разделе [Создать авторизованный ключ](../../../iam/operations/authentication/manage-authorized-keys.md#create-authorized-key).
 
 {% list tabs group=programming_language %}
 
@@ -100,7 +100,7 @@ SDK {{ yandex-cloud }} наиболее удобен для шифрования
 
 {% endnote %}
 
-Переменная `token` — это ваш [IAM-токен](../../../iam/concepts/authorization/iam-token.md). Подробнее о получении IAM-токена читайте в документации [{{ iam-full-name }}](../../../iam/operations/iam-token/create.md).
+Переменная `token` — это ваш [IAM-токен](../../../iam/concepts/authorization/iam-token.md). Подробнее о получении IAM-токена читайте в документации [Yandex Identity and Access Management](../../../iam/operations/iam-token/create.md).
 
 {% list tabs group=programming_language %}
 
@@ -129,7 +129,7 @@ SDK {{ yandex-cloud }} наиболее удобен для шифрования
 {% endnote %}
 
 Используйте методы `encrypt` и `decrypt` для шифрования и расшифрования данных. В коде используются следующие переменные: 
-* `endpoint` – `{{ api-host }}:443`.
+* `endpoint` – `api.cloud.yandex.net:443`.
 * `keyId` – идентификатор [ключа KMS](../../../kms/concepts/key.md).
 * `plaintext` – открытый текст (не более 32 КБ).
 * `ciphertext` – шифртекст.
@@ -203,6 +203,6 @@ SDK {{ yandex-cloud }} наиболее удобен для шифрования
 
 #### См. также {#see-also}
 
-* [{{ yandex-cloud }} Java SDK](https://github.com/yandex-cloud/java-sdk).
-* [Примеры работы с {{ kms-short-name }} с помощью Java SDK](https://github.com/yandex-cloud/java-sdk/tree/master/java-sdk-examples/src/main/java/yandex/cloud/sdk/examples/kms).
-* [{{ yandex-cloud }} Go SDK](https://github.com/yandex-cloud/go-sdk).
+* [Yandex Cloud Java SDK](https://github.com/yandex-cloud/java-sdk).
+* [Примеры работы с KMS с помощью Java SDK](https://github.com/yandex-cloud/java-sdk/tree/master/java-sdk-examples/src/main/java/yandex/cloud/sdk/examples/kms).
+* [Yandex Cloud Go SDK](https://github.com/yandex-cloud/go-sdk).

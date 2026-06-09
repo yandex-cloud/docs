@@ -5,7 +5,7 @@ Retrieves the list of ClickHouse Database resources in the specified cluster.
 ## HTTP request
 
 ```
-GET https://{{ api-host-mdb }}/managed-clickhouse/v1/clusters/{clusterId}/databases
+GET https://mdb.api.cloud.yandex.net/managed-clickhouse/v1/clusters/{clusterId}/databases
 ```
 
 ## Path parameters

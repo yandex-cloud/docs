@@ -1,12 +1,12 @@
-# Удаление {{ unified-agent-full-name }}
+# Удаление Unified Agent
 
-Способ удаления {{ unified-agent-short-name }} зависит от способа установки.
+Способ удаления Unified Agent зависит от способа установки.
 
 {% list tabs group=unified_agent %}
 
 - Docker-образ {#docker}
 
-  1. Посмотрите идентификатор контейнера {{ unified-agent-short-name }}:
+  1. Посмотрите идентификатор контейнера Unified Agent:
    
       ```bash
       sudo docker ps
@@ -26,7 +26,7 @@
   
 - deb-пакет {#deb}
 
-  1. Остановите {{ unified-agent-short-name }}:
+  1. Остановите Unified Agent:
    
       ```bash
       sudo service unified-agent stop
@@ -46,7 +46,7 @@
 
 - Бинарный файл {#binary}
 
-  1. Посмотрите номер процесса {{ unified-agent-short-name }} и расположение файла `unified_agent` и файла конфигурации `*.yml`:
+  1. Посмотрите номер процесса Unified Agent и расположение файла `unified_agent` и файла конфигурации `*.yml`:
    
       ```bash
       ps aux | grep unified_agent
@@ -60,7 +60,7 @@
       ```
       В этом примере номер процесса — `1068`.
 
-  1. Остановите процесс {{ unified-agent-short-name }}:
+  1. Остановите процесс Unified Agent:
 
      ```bash
       sudo kill <номер_процесса>
@@ -80,17 +80,17 @@
 
 - При создании ВМ {#vm}
 
-  При этом способе установки на ВМ копируется бинарный файл `unified_agent` и файл конфигурации по умолчанию `config.yml`. Поэтому {{ unified-agent-short-name }} удаляется так же, как и бинарный файл. 
+  При этом способе установки на ВМ копируется бинарный файл `unified_agent` и файл конфигурации по умолчанию `config.yml`. Поэтому Unified Agent удаляется так же, как и бинарный файл. 
  
-  Информация об установленном {{ unified-agent-short-name }} сохраняется в метаданных ВМ. При удалении {{ unified-agent-short-name }} метаданные не обновляются автоматически, но вы можете сделать это вручную.
+  Информация об установленном Unified Agent сохраняется в метаданных ВМ. При удалении Unified Agent метаданные не обновляются автоматически, но вы можете сделать это вручную.
 
   {% note info %}
 
-  Информация в метаданных не влияет на работу {{ unified-agent-short-name }}, обновлять ее необязательно.
+  Информация в метаданных не влияет на работу Unified Agent, обновлять ее необязательно.
 
   {% endnote %}
 
-  Чтобы удалить информацию о {{ unified-agent-short-name }} из метаданных:
+  Чтобы удалить информацию о Unified Agent из метаданных:
 
   1. [Получите IAM-токен для сервисного аккаунта вашей ВМ](../../../../iam/operations/iam-token/create-for-sa.md#via-cli).
    
@@ -108,13 +108,13 @@
 
   1. Посмотрите метаданные:
    
-     1. В [консоли управления]({{ link-console-main }}) перейдите в сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_compute }}**.
+     1. В [консоли управления](https://console.yandex.cloud) перейдите в сервис **Compute Cloud**.
 
-     1. На панели слева выберите ![image](../../../../_assets/console-icons/server.svg) **{{ ui-key.yacloud.compute.instances_jsoza }}**.
+     1. На панели слева выберите ![image](../../../../_assets/console-icons/server.svg) **Виртуальные машины**.
    
-     1. Выберите ВМ и перейдите на вкладку **{{ ui-key.yacloud.common.overview }}**.
+     1. Выберите ВМ и перейдите на вкладку **Обзор**.
   
-     1. Убедитесь, что в блоке **{{ ui-key.yacloud.compute.instance.overview.section_monitoring }}** напротив параметра **{{ ui-key.yacloud.compute.instance.overview.field_ua-enabled }}** теперь установлено `нет`.
+     1. Убедитесь, что в блоке **Мониторинг** напротив параметра **Агент для поставки метрик** теперь установлено `нет`.
    
 
 {% endlist %}

@@ -5,7 +5,7 @@ Deletes the specified userpool.
 ## HTTP request
 
 ```
-DELETE https://organization-manager.{{ api-host }}/organization-manager/v1/idp/userpools/{userpoolId}
+DELETE https://organization-manager.api.cloud.yandex.net/organization-manager/v1/idp/userpools/{userpoolId}
 ```
 
 ## Path parameters

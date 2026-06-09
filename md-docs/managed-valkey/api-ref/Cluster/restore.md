@@ -5,7 +5,7 @@ Creates a new Redis cluster using the specified backup.
 ## HTTP request
 
 ```
-POST https://{{ api-host-mdb }}/managed-redis/v1/clusters:restore
+POST https://mdb.api.cloud.yandex.net/managed-redis/v1/clusters:restore
 ```
 
 ## Body parameters {#yandex.cloud.mdb.redis.v1.RestoreClusterRequest}

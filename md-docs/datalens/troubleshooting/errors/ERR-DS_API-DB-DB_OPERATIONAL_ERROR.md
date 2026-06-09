@@ -1,4 +1,4 @@
-# [{{ datalens-full-name }}] Ошибка на стороне БД
+# [Yandex DataLens] Ошибка на стороне БД
 
 `ERR.DS_API.DB.DB_OPERATIONAL_ERROR`
 

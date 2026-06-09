@@ -1,4 +1,4 @@
-# Управлять результатами сканирования в {{ dspm-name }}
+# Управлять результатами сканирования в DSPM
 
 {% note info %}
 
@@ -18,20 +18,20 @@
 
 {% list tabs group=instructions %}
 
-- Интерфейс {{ sd-name }} {#cloud-sd}
+- Интерфейс Security Deck {#cloud-sd}
 
-  1. Перейдите в сервис [{{ sd-full-name }}]({{ link-sd-main }}).
-  1. На панели слева выберите ![Database-Magnifier](../../../_assets/console-icons/database-magnifier.svg) **{{ ui-key.yacloud_org.security-center.label_dspm }}** и перейдите на вкладку **{{ ui-key.yacloud_org.security-center.dspm.title_scans }}**.
+  1. Перейдите в сервис [Yandex Security Deck](https://center.yandex.cloud/security/).
+  1. На панели слева выберите ![Database-Magnifier](../../../_assets/console-icons/database-magnifier.svg) **Контроль данных** и перейдите на вкладку **История сканирований**.
   1. Выберите сканирование.
-  1. На вкладке **{{ ui-key.yacloud_org.security-center.dspm.scan_results-title }}** отобразятся чувствительные данные, если они были найдены при сканировании. Информация о каждом найденном объекте представлена в следующих столбцах:
+  1. На вкладке **Результаты** отобразятся чувствительные данные, если они были найдены при сканировании. Информация о каждом найденном объекте представлена в следующих столбцах:
 
-     * `{{ ui-key.yacloud_org.dspm.scan.label_data-type }}` — категория поиска, к которой принадлежат данные. Например, `FULL-NAME-RU-ML` — полное имя.
-     * `{{ ui-key.yacloud_org.dspm.scan.label_found-occurrence }}` — чувствительные данные, которые удалось найти.
-     * `{{ ui-key.yacloud_org.dspm.scan.scan-issue_data-source }}` — имя источника данных;
-     * `{{ ui-key.yacloud_org.dspm.scan.results_resource-name }}` — имя ресурса, в котором были найдены данные;
-     * `{{ ui-key.yacloud_org.dspm.scan.scan-issue_object-path }}` — путь до файла, в котором были найдены данные.
+     * `Тип данных` — категория поиска, к которой принадлежат данные. Например, `FULL-NAME-RU-ML` — полное имя.
+     * `Найденное вхождение` — чувствительные данные, которые удалось найти.
+     * `Источник данных` — имя источника данных;
+     * `Ресурс` — имя ресурса, в котором были найдены данные;
+     * `Расположение объекта` — путь до файла, в котором были найдены данные.
 
-     Информацию о найденных чувствительных данных также можно получить, выбрав ![alerts](../../../_assets/security-deck/alerts.svg) **{{ ui-key.yacloud_org.security-center.label_alerts }}** на панели слева.
+     Информацию о найденных чувствительных данных также можно получить, выбрав ![alerts](../../../_assets/security-deck/alerts.svg) **Алерты** на панели слева.
 
 {% endlist %}
 
@@ -41,22 +41,22 @@
 
 {% note info %}
 
-Файл может содержать не более 10 000 записей о найденных чувствительных данных. Для выгрузки большего числа записей используйте [экспорт](#export) в {{ objstorage-name }}.
+Файл может содержать не более 10 000 записей о найденных чувствительных данных. Для выгрузки большего числа записей используйте [экспорт](#export) в Object Storage.
 
 {% endnote %}
 
 {% list tabs group=instructions %}
 
-- Интерфейс {{ sd-name }} {#cloud-sd}
+- Интерфейс Security Deck {#cloud-sd}
 
-  1. Перейдите в сервис [{{ sd-full-name }}]({{ link-sd-main }}).
-  1. На панели слева выберите ![Database-Magnifier](../../../_assets/console-icons/database-magnifier.svg) **{{ ui-key.yacloud_org.security-center.label_dspm }}** и перейдите на вкладку **{{ ui-key.yacloud_org.security-center.dspm.title_scans }}**.
-  1. Справа от сканирования нажмите ![image](../../../_assets/console-icons/ellipsis.svg) и выберите ![image](../../../_assets/console-icons/arrow-shape-down-to-line.svg) **{{ ui-key.yacloud_org.dspm.scan.action_download-results }}**.
+  1. Перейдите в сервис [Yandex Security Deck](https://center.yandex.cloud/security/).
+  1. На панели слева выберите ![Database-Magnifier](../../../_assets/console-icons/database-magnifier.svg) **Контроль данных** и перейдите на вкладку **История сканирований**.
+  1. Справа от сканирования нажмите ![image](../../../_assets/console-icons/ellipsis.svg) и выберите ![image](../../../_assets/console-icons/arrow-shape-down-to-line.svg) **Скачать результаты**.
 
-     Вы также можете перейти на страницу сканирования, нажать **{{ ui-key.yacloud_org.common.more }}** ![image](../../../_assets/console-icons/chevron-down.svg) и выбрать ![image](../../../_assets/console-icons/arrow-shape-down-to-line.svg) **{{ ui-key.yacloud_org.dspm.scan.action_download-results }}**.
+     Вы также можете перейти на страницу сканирования, нажать **Ещё** ![image](../../../_assets/console-icons/chevron-down.svg) и выбрать ![image](../../../_assets/console-icons/arrow-shape-down-to-line.svg) **Скачать результаты**.
 
-  1. В поле **{{ ui-key.yacloud_components.security.dspm.header_scan_result_sensitive_data }}** укажите, как отображать имена, контактные данные и другую личную информацию.
-  1. Нажмите **{{ ui-key.yacloud_components.security.dspm.action_button_apply }}**.
+  1. В поле **Отображение чувствительных данных** укажите, как отображать имена, контактные данные и другую личную информацию.
+  1. Нажмите **Скачать файл**.
 
 {% endlist %}
 
@@ -66,27 +66,27 @@
 
 {% list tabs group=instructions %}
 
-- Интерфейс {{ sd-name }} {#cloud-sd}
+- Интерфейс Security Deck {#cloud-sd}
 
-  1. Перейдите в сервис [{{ sd-full-name }}]({{ link-sd-main }}).
-  1. На панели слева выберите ![Database-Magnifier](../../../_assets/console-icons/database-magnifier.svg) **{{ ui-key.yacloud_org.security-center.label_dspm }}** и перейдите на вкладку **{{ ui-key.yacloud_org.security-center.dspm.title_scans }}**.
-  1. Справа от сканирования нажмите ![image](../../../_assets/console-icons/ellipsis.svg) и выберите ![image](../../../_assets/console-icons/folder-arrow-up-in.svg) **{{ ui-key.yacloud_org.dspm.scan.action_export-results }}**.
+  1. Перейдите в сервис [Yandex Security Deck](https://center.yandex.cloud/security/).
+  1. На панели слева выберите ![Database-Magnifier](../../../_assets/console-icons/database-magnifier.svg) **Контроль данных** и перейдите на вкладку **История сканирований**.
+  1. Справа от сканирования нажмите ![image](../../../_assets/console-icons/ellipsis.svg) и выберите ![image](../../../_assets/console-icons/folder-arrow-up-in.svg) **Экспортировать результаты**.
 
-     Вы также можете перейти на страницу сканирования, нажать **{{ ui-key.yacloud_org.common.more }}** ![image](../../../_assets/console-icons/chevron-down.svg) и выбрать ![image](../../../_assets/console-icons/folder-arrow-up-in.svg) **{{ ui-key.yacloud_org.dspm.scan.action_export-results }}**.
+     Вы также можете перейти на страницу сканирования, нажать **Ещё** ![image](../../../_assets/console-icons/chevron-down.svg) и выбрать ![image](../../../_assets/console-icons/folder-arrow-up-in.svg) **Экспортировать результаты**.
 
   1. В открывшемся окне задайте настройки экспорта:
   
-     * В поле **{{ ui-key.yacloud_org.security.dspm.label_field-bucket_3mM6u }}** выберите бакет, в котором будут сохранены результаты.
-     * В поле **{{ ui-key.yacloud_org.security.dspm.field_bucket-path_5qRqM }}** задайте [префикс](../../../storage/concepts/object.md#folder) объекта, в который будут сохранены результаты.
-     * В поле **{{ ui-key.yacloud_org.security.dspm.field_file-name_kWRPK }}** задайте имя файла, в который будут сохранены результаты. Файлу будет автоматически присвоено расширение `.csv`.
-     * В поле **{{ ui-key.yacloud_org.security.dspm.field_service-account_rTeXv }}** выберите сервисный аккаунт, которому назначены [роли](../../../iam/concepts/access-control/roles.md) `storage.uploader` на выбранный бакет и `kms.keys.encrypter` на [ключ шифрования](../../../kms/concepts/key.md), если бакет [зашифрован](../../../storage/concepts/encryption.md).
-     * Нажмите кнопку **{{ ui-key.yacloud_components.security.dspm.action_export_with_validation }}**, чтобы экспортировать результаты с проверкой параметров.
+     * В поле **Бакет** выберите бакет, в котором будут сохранены результаты.
+     * В поле **Путь в бакете** задайте [префикс](../../../storage/concepts/object.md#folder) объекта, в который будут сохранены результаты.
+     * В поле **Имя файла** задайте имя файла, в который будут сохранены результаты. Файлу будет автоматически присвоено расширение `.csv`.
+     * В поле **Сервисный аккаунт** выберите сервисный аккаунт, которому назначены [роли](../../../iam/concepts/access-control/roles.md) `storage.uploader` на выбранный бакет и `kms.keys.encrypter` на [ключ шифрования](../../../kms/concepts/key.md), если бакет [зашифрован](../../../storage/concepts/encryption.md).
+     * Нажмите кнопку **Проверить и экспортировать**, чтобы экспортировать результаты с проверкой параметров.
 
-       Если у выбранного сервисного аккаунта окажется недостаточно прав для выполнения операции, на вкладке **{{ ui-key.yacloud_org.security.dspm.tab_issues_title_hLQN2 }}** отобразится информация об этом.
+       Если у выбранного сервисного аккаунта окажется недостаточно прав для выполнения операции, на вкладке **Проверка параметров** отобразится информация об этом.
 
-       Разверните блок с информацией об отсутствующих ролях, выберите сервисный аккаунт и нажмите ![list-check](../../../_assets/console-icons/list-check.svg) **{{ ui-key.yacloud_org.security.dspm.ScanForm.table_action_assign_roles_bw4am }}**, чтобы предоставить этому сервисному аккаунту недостающие права. Затем повторно нажмите кнопку **{{ ui-key.yacloud_components.security.dspm.action_export_with_validation }}**.
+       Разверните блок с информацией об отсутствующих ролях, выберите сервисный аккаунт и нажмите ![list-check](../../../_assets/console-icons/list-check.svg) **Назначить роли**, чтобы предоставить этому сервисному аккаунту недостающие права. Затем повторно нажмите кнопку **Проверить и экспортировать**.
 
-     Вы также можете экспортировать результаты без проверки параметров, нажав кнопку **{{ ui-key.yacloud_components.security.dspm.action_button_export_without_validation }}**. Если у выбранного сервисного аккаунта окажется недостаточно прав для выполнения операции, вы увидите ошибку.
+     Вы также можете экспортировать результаты без проверки параметров, нажав кнопку **Экспортировать без проверки**. Если у выбранного сервисного аккаунта окажется недостаточно прав для выполнения операции, вы увидите ошибку.
 
 {% endlist %}
 
@@ -94,15 +94,15 @@
 
 {% list tabs group=instructions %}
 
-- Интерфейс {{ sd-name }} {#cloud-sd}
+- Интерфейс Security Deck {#cloud-sd}
 
-  1. Перейдите в сервис [{{ sd-full-name }}]({{ link-sd-main }}).
-  1. На панели слева выберите ![Database-Magnifier](../../../_assets/console-icons/database-magnifier.svg) **{{ ui-key.yacloud_org.security-center.label_dspm }}** и перейдите на вкладку **{{ ui-key.yacloud_org.security-center.dspm.title_scans }}**.
-  1. Выберите сканирование и перейдите на вкладку **{{ ui-key.yacloud_org.security-center.dspm.scan-issues-title }}**.
+  1. Перейдите в сервис [Yandex Security Deck](https://center.yandex.cloud/security/).
+  1. На панели слева выберите ![Database-Magnifier](../../../_assets/console-icons/database-magnifier.svg) **Контроль данных** и перейдите на вкладку **История сканирований**.
+  1. Выберите сканирование и перейдите на вкладку **Сообщения и ошибки**.
 
-     Информацию об ошибках сканирования также можно получить, выбрав ![alerts](../../../_assets/security-deck/alerts.svg) **{{ ui-key.yacloud_org.security-center.label_alerts }}** на панели слева.
+     Информацию об ошибках сканирования также можно получить, выбрав ![alerts](../../../_assets/security-deck/alerts.svg) **Алерты** на панели слева.
 
-  Подробнее про ошибки сканирования см. на странице [{#T}](../../diagnostics/dspm-diagnostics.md).
+  Подробнее про ошибки сканирования см. на странице [Диагностика ошибок в работе модуля контроля данных (DSPM)](../../diagnostics/dspm-diagnostics.md).
 
 {% endlist %}
 
@@ -110,13 +110,13 @@
 
 {% list tabs group=instructions %}
 
-- Интерфейс {{ sd-name }} {#cloud-sd}
+- Интерфейс Security Deck {#cloud-sd}
 
-  1. Перейдите в сервис [{{ sd-full-name }}]({{ link-sd-main }}).
-  1. На панели слева выберите ![Database-Magnifier](../../../_assets/console-icons/database-magnifier.svg) **{{ ui-key.yacloud_org.security-center.label_dspm }}** и перейдите на вкладку **{{ ui-key.yacloud_org.security-center.dspm.title_scans }}**.
-  1. Справа от сканирования нажмите ![image](../../../_assets/console-icons/ellipsis.svg) и выберите ![image](../../../_assets/console-icons/trash-bin.svg) **{{ ui-key.yacloud.common.delete }}**.
+  1. Перейдите в сервис [Yandex Security Deck](https://center.yandex.cloud/security/).
+  1. На панели слева выберите ![Database-Magnifier](../../../_assets/console-icons/database-magnifier.svg) **Контроль данных** и перейдите на вкладку **История сканирований**.
+  1. Справа от сканирования нажмите ![image](../../../_assets/console-icons/ellipsis.svg) и выберите ![image](../../../_assets/console-icons/trash-bin.svg) **Удалить**.
 
-     Вы также можете перейти на страницу сканирования, нажать **{{ ui-key.yacloud_org.common.more }}** ![image](../../../_assets/console-icons/chevron-down.svg) и выбрать ![image](../../../_assets/console-icons/trash-bin.svg) **{{ ui-key.yacloud.common.delete }}**.
+     Вы также можете перейти на страницу сканирования, нажать **Ещё** ![image](../../../_assets/console-icons/chevron-down.svg) и выбрать ![image](../../../_assets/console-icons/trash-bin.svg) **Удалить**.
 
   1. В открывшемся окне подтвердите удаление.
 

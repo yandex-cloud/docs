@@ -1,43 +1,43 @@
-# Источники данных {{ TF }}
+# Источники данных Terraform
 
-[Источники данных (Data Sources)](https://developer.hashicorp.com/terraform/language/data-sources) {{ TF }} позволяют получать актуальную информацию о существующих облачных ресурсах и использовать эти данные в конфигурации вашей инфраструктуры.
+[Источники данных (Data Sources)](https://developer.hashicorp.com/terraform/language/data-sources) Terraform позволяют получать актуальную информацию о существующих облачных ресурсах и использовать эти данные в конфигурации вашей инфраструктуры.
 
-С помощью [{{ TF }}-провайдера {{ yandex-cloud }}]({{ tf-docs-link }}) вы можете получить информацию о различных облачных ресурсах: [виртуальных машинах](../../compute/concepts/vm.md), [дисках](../../compute/concepts/disk.md), [облачных сетях](../../vpc/concepts/network.md) и других облачных ресурсах.
+С помощью [Terraform-провайдера Yandex Cloud](../../terraform/index.md) вы можете получить информацию о различных облачных ресурсах: [виртуальных машинах](../../compute/concepts/vm.md), [дисках](../../compute/concepts/disk.md), [облачных сетях](../../vpc/concepts/network.md) и других облачных ресурсах.
 
 Источники данных доступны только для чтения — это гарантирует, что вы не измените внешние ресурсы.
 
-Получим с помощью источников данных {{ TF }} идентификатора образа [Ubuntu 22.04 LTS](https://yandex.cloud/ru/marketplace/products/yc/ubuntu-22-04-lts) из {{ marketplace-name }}.
+Получим с помощью источников данных Terraform идентификатора образа [Ubuntu 22.04 LTS](https://yandex.cloud/ru/marketplace/products/yc/ubuntu-22-04-lts) из Cloud Marketplace.
 
-Чтобы получить идентификатор образа `Ubuntu 22.04 LTS` с помощью {{ TF }}:
+Чтобы получить идентификатор образа `Ubuntu 22.04 LTS` с помощью Terraform:
 
 1. [Подготовьте облако к работе](#before-you-begin).
-1. [Установите и настройте {{ TF }}](#prepare-terraform).
+1. [Установите и настройте Terraform](#prepare-terraform).
 1. [Опишите источник данных](#prepare-plan).
 1. [Проверьте результат](#check).
 
 ## Подготовьте облако к работе {#before-you-begin}
 
-Зарегистрируйтесь в {{ yandex-cloud }} и создайте [платежный аккаунт](../../billing/concepts/billing-account.md):
-1. Перейдите в [консоль управления]({{ link-console-main }}), затем войдите в {{ yandex-cloud }} или зарегистрируйтесь.
-1. На странице **[{{ ui-key.yacloud_billing.billing.label_service }}]({{ link-console-billing }})** убедитесь, что у вас подключен платежный аккаунт, и он находится в [статусе](../../billing/concepts/billing-account-statuses.md) `ACTIVE` или `TRIAL_ACTIVE`. Если платежного аккаунта нет, [создайте его](../../billing/quickstart/index.md) и [привяжите](../../billing/operations/pin-cloud.md) к нему облако.
+Зарегистрируйтесь в Yandex Cloud и создайте [платежный аккаунт](../../billing/concepts/billing-account.md):
+1. Перейдите в [консоль управления](https://console.yandex.cloud), затем войдите в Yandex Cloud или зарегистрируйтесь.
+1. На странице **[Yandex Cloud Billing](https://center.yandex.cloud/billing/accounts)** убедитесь, что у вас подключен платежный аккаунт, и он находится в [статусе](../../billing/concepts/billing-account-statuses.md) `ACTIVE` или `TRIAL_ACTIVE`. Если платежного аккаунта нет, [создайте его](../../billing/quickstart/index.md) и [привяжите](../../billing/operations/pin-cloud.md) к нему облако.
 
-Если у вас есть активный платежный аккаунт, вы можете создать или выбрать [каталог](../../resource-manager/concepts/resources-hierarchy.md#folder), в котором будет работать ваша инфраструктура, на [странице облака]({{ link-console-cloud }}).
+Если у вас есть активный платежный аккаунт, вы можете создать или выбрать [каталог](../../resource-manager/concepts/resources-hierarchy.md#folder), в котором будет работать ваша инфраструктура, на [странице облака](https://console.yandex.cloud/cloud).
 
 [Подробнее об облаках и каталогах](../../resource-manager/concepts/resources-hierarchy.md).
 
-## Установите и настройте {{ TF }} {#prepare-terraform}
+## Установите и настройте Terraform {#prepare-terraform}
 
-## Установите и настройте {{ TF }} {#prepare-terraform}
+## Установите и настройте Terraform {#prepare-terraform}
 
-### Установите {{ TF }} {#install-terraform}
+### Установите Terraform {#install-terraform}
 
 {% list tabs group=operating_system %}
 
 - Windows {#windows}
 
   Используйте один из способов:
-  * [Скачайте дистрибутив {{ TF }}](https://www.terraform.io/downloads.html) и установите его согласно [инструкции](https://learn.hashicorp.com/tutorials/terraform/install-cli?in=terraform/aws-get-started).
-  * Установите {{ TF }} с помощью пакетного менеджера [Chocolatey](https://chocolatey.org/install), используя команду:
+  * [Скачайте дистрибутив Terraform](https://www.terraform.io/downloads.html) и установите его согласно [инструкции](https://learn.hashicorp.com/tutorials/terraform/install-cli?in=terraform/aws-get-started).
+  * Установите Terraform с помощью пакетного менеджера [Chocolatey](https://chocolatey.org/install), используя команду:
 
     ```bash
     choco install terraform
@@ -45,13 +45,13 @@
 
 - Linux {#linux}
 
-  [Скачайте дистрибутив {{ TF }}](https://www.terraform.io/downloads.html) и установите его согласно [инструкции](https://learn.hashicorp.com/tutorials/terraform/install-cli?in=terraform/aws-get-started).
+  [Скачайте дистрибутив Terraform](https://www.terraform.io/downloads.html) и установите его согласно [инструкции](https://learn.hashicorp.com/tutorials/terraform/install-cli?in=terraform/aws-get-started).
 
 - macOS {#macos}
 
   Используйте один из способов:
-  * [Скачайте дистрибутив {{ TF }}](https://www.terraform.io/downloads.html) и установите его согласно [инструкции](https://learn.hashicorp.com/tutorials/terraform/install-cli?in=terraform/aws-get-started).
-  * Установите {{ TF }} с помощью пакетного менеджера [Homebrew](https://brew.sh), используя команду:
+  * [Скачайте дистрибутив Terraform](https://www.terraform.io/downloads.html) и установите его согласно [инструкции](https://learn.hashicorp.com/tutorials/terraform/install-cli?in=terraform/aws-get-started).
+  * Установите Terraform с помощью пакетного менеджера [Homebrew](https://brew.sh), используя команду:
 
     ```bash
     brew install terraform
@@ -61,11 +61,11 @@
 
 ### Получите данные для аутентификации {#get-credentials}
 
-Чтобы управлять инфраструктурой {{ yandex-cloud }} с помощью {{ TF }}, используйте [сервисный аккаунт](../../iam/concepts/users/service-accounts.md). Это позволит гибко настраивать права доступа к ресурсам.
+Чтобы управлять инфраструктурой Yandex Cloud с помощью Terraform, используйте [сервисный аккаунт](../../iam/concepts/users/service-accounts.md). Это позволит гибко настраивать права доступа к ресурсам.
 
-Также вы можете использовать {{ TF }} от имени [аккаунта на Яндексе](../../iam/concepts/users/accounts.md#passport), [федеративного](../../iam/concepts/users/accounts.md#saml-federation) или [локального](../../iam/concepts/users/accounts.md#local) пользователя, однако этот способ является менее безопасным. Подробности см. в конце раздела.
+Также вы можете использовать Terraform от имени [аккаунта на Яндексе](../../iam/concepts/users/accounts.md#passport), [федеративного](../../iam/concepts/users/accounts.md#saml-federation) или [локального](../../iam/concepts/users/accounts.md#local) пользователя, однако этот способ является менее безопасным. Подробности см. в конце раздела.
 
-1. Если у вас еще нет интерфейса командной строки {{ yandex-cloud }}, [установите](../../cli/quickstart.md#install) его.
+1. Если у вас еще нет интерфейса командной строки Yandex Cloud, [установите](../../cli/quickstart.md#install) его.
 
 1. Настройте профиль CLI для выполнения операций от имени сервисного аккаунта:
 
@@ -157,7 +157,7 @@
     
     {% note info %}
     
-    [Время жизни](../../iam/concepts/authorization/iam-token.md#lifetime) IAM-токена — не больше {{ iam-token-lifetime }}, но рекомендуется запрашивать его чаще, например каждый час.
+    [Время жизни](../../iam/concepts/authorization/iam-token.md#lifetime) IAM-токена — не больше 12 часов, но рекомендуется запрашивать его чаще, например каждый час.
     
     Для автоматического перевыпуска IAM-токена можно использовать скрипт `export IAM_TOKEN=$(yc iam create-token)`.
     
@@ -171,7 +171,7 @@
 
 {% endnote %}
 
-Если у вас еще нет интерфейса командной строки {{ yandex-cloud }} (CLI), [установите и инициализируйте его](../../cli/quickstart.md#install).
+Если у вас еще нет интерфейса командной строки Yandex Cloud (CLI), [установите и инициализируйте его](../../cli/quickstart.md#install).
 
 По умолчанию используется каталог, указанный при [создании](../../cli/operations/profile/profile-create.md) профиля CLI. Чтобы изменить каталог по умолчанию, используйте команду `yc config set folder-id <идентификатор_каталога>`. Также для любой команды вы можете указать другой каталог с помощью параметров `--folder-name` или `--folder-id`. Если вы обращаетесь к ресурсу по имени, поиск будет выполнен в каталоге по умолчанию. Если вы обращаетесь к ресурсу по идентификатору, поиск будет выполнен глобально — во всех каталогах с учетом прав доступа.
 
@@ -214,7 +214,7 @@
 
 {% note info %}
 
-[Время жизни](../../iam/concepts/authorization/iam-token.md#lifetime) IAM-токена — не больше {{ iam-token-lifetime }}, но рекомендуется запрашивать его чаще, например каждый час.
+[Время жизни](../../iam/concepts/authorization/iam-token.md#lifetime) IAM-токена — не больше 12 часов, но рекомендуется запрашивать его чаще, например каждый час.
 
 Для автоматического перевыпуска IAM-токена можно использовать скрипт `export IAM_TOKEN=$(yc iam create-token)`.
 
@@ -222,16 +222,16 @@
 
 {% endcut %}
 
-### Создайте файл конфигурации {{ TF }} {#configure-terraform}
+### Создайте файл конфигурации Terraform {#configure-terraform}
 
-1. Создайте директорию с произвольным названием, например `cloud-terraform`. В ней будут храниться конфигурационные файлы {{ TF }}.
+1. Создайте директорию с произвольным названием, например `cloud-terraform`. В ней будут храниться конфигурационные файлы Terraform.
 1. Создайте в этой директории конфигурационный файл с расширением `.tf`, например `example.tf`.
 
 ### Настройте провайдер {#configure-provider}
 
 {% note info %}
 
-Настройки применимы для {{ TF }} `0.13` и более поздних версий. Рекомендуется использовать последнюю стабильную версию {{ TF }}.
+Настройки применимы для Terraform `0.13` и более поздних версий. Рекомендуется использовать последнюю стабильную версию Terraform.
 
 {% endnote %}
 
@@ -259,7 +259,7 @@
 
    - Linux/macOS {#linux-macos}
 
-     Откройте файл конфигурации {{ TF }} CLI:
+     Откройте файл конфигурации Terraform CLI:
 
      ```bash
      nano ~/.terraformrc
@@ -273,7 +273,7 @@
 
    - Windows {#windows}
 
-     Откройте файл конфигурации {{ TF }} CLI `terraform.rc` в папке `%APPDATA%` вашего пользователя.
+     Откройте файл конфигурации Terraform CLI `terraform.rc` в папке `%APPDATA%` вашего пользователя.
 
      Чтобы узнать абсолютный путь к папке `%APPDATA%`, выполните команду `echo %APPDATA%` для cmd или `$env:APPDATA` для PowerShell.
 
@@ -316,12 +316,12 @@
 
    Где:
    * `source` — глобальный [адрес источника](https://www.terraform.io/docs/language/providers/requirements.html#source-addresses) провайдера.
-   * `required_version` — минимальная версия {{ TF }}, с которой совместим провайдер.
+   * `required_version` — минимальная версия Terraform, с которой совместим провайдер.
    * `provider` — название провайдера.
    * `zone` — [зона доступности](../../overview/concepts/geo-scope.md), в которой по умолчанию будут создаваться все облачные ресурсы.
 1. Выполните команду `terraform init` в папке с конфигурационным файлом `.tf`. Эта команда инициализирует провайдеров, указанных в конфигурационных файлах, и позволяет работать с ресурсами и источниками данных провайдера.
 
-Если провайдер не установился, создайте обращение в [поддержку]({{ link-console-support }}) с именем и версией провайдера.
+Если провайдер не установился, создайте обращение в [поддержку](https://center.yandex.cloud/support) с именем и версией провайдера.
 
 Если вы использовали файл `.terraform.lock.hcl`, перед инициализацией выполните команду `terraform providers lock`, указав адрес зеркала, откуда будет загружаться провайдер, и платформы, на которых будет использоваться конфигурация:
 
@@ -336,15 +336,15 @@ terraform providers lock -net-mirror=https://terraform-mirror.yandexcloud.net -p
   * `linux_amd64` — 64-bit Linux.
   * `darwin_arm64` — 64-bit macOS.
 
-Если вы использовали [модули {{ TF }}](terraform-modules.md), сначала выполните `terraform init`, затем удалите lock-файл, а затем выполните команду `terraform providers lock`.
+Если вы использовали [модули Terraform](terraform-modules.md), сначала выполните `terraform init`, затем удалите lock-файл, а затем выполните команду `terraform providers lock`.
 
-Более подробную информацию о команде `terraform providers lock` см. в [документации {{ TF }}](https://developer.hashicorp.com/terraform/cli/commands/providers/lock).
+Более подробную информацию о команде `terraform providers lock` см. в [документации Terraform](https://developer.hashicorp.com/terraform/cli/commands/providers/lock).
 
 ## Опишите источник данных {#prepare-plan}
 
 {% note tip %}
 
-Источники данных определяются в коде {{ TF }} с использованием блока `data`.
+Источники данных определяются в коде Terraform с использованием блока `data`.
 
 {% endnote %}
 
@@ -367,7 +367,7 @@ terraform providers lock -net-mirror=https://terraform-mirror.yandexcloud.net -p
     * `output "resource_active"` — выходная переменная, которая содержит информацию о текущем идентификаторе образа для указанного семейства:
         * `value` — возвращаемое значение.
 
-    Более подробно о параметрах источника данных `yandex_compute_image` см. в [документации провайдера]({{ tf-provider-datasources-link }}/compute_image).
+    Более подробно о параметрах источника данных `yandex_compute_image` см. в [документации провайдера](../../terraform/data-sources/compute_image.md).
 
 1. Создайте ресурсы:
 
@@ -390,7 +390,7 @@ terraform providers lock -net-mirror=https://terraform-mirror.yandexcloud.net -p
        terraform plan
        ```
     
-       В терминале будет выведен список ресурсов с параметрами. На этом этапе изменения не будут внесены. Если в конфигурации есть ошибки, {{ TF }} на них укажет.
+       В терминале будет выведен список ресурсов с параметрами. На этом этапе изменения не будут внесены. Если в конфигурации есть ошибки, Terraform на них укажет.
     1. Примените изменения конфигурации:
     
        ```bash
@@ -399,7 +399,7 @@ terraform providers lock -net-mirror=https://terraform-mirror.yandexcloud.net -p
     
     1. Подтвердите изменения: введите в терминале слово `yes` и нажмите **Enter**.
 
-    {{ TF }} создаст все требуемые ресурсы и отобразит значения выходных переменных в терминале.
+    Terraform создаст все требуемые ресурсы и отобразит значения выходных переменных в терминале.
 
 ## Проверьте результат {#check}
 
@@ -431,7 +431,7 @@ resource "yandex_compute_disk" "boot-disk" {
 
 ## См. также {#see-also}
 
-* [Начало работы с {{ TF }}](terraform-quickstart.md).
-* [Загрузка состояний {{ TF }} в {{ objstorage-name }}](terraform-state-storage.md).
-* [Блокировка состояний {{ TF }} с помощью {{ ydb-name }}](terraform-state-lock.md).
-* [Использование модулей {{ yandex-cloud }} в {{ TF }}](terraform-modules.md).
+* [Начало работы с Terraform](terraform-quickstart.md).
+* [Загрузка состояний Terraform в Object Storage](terraform-state-storage.md).
+* [Блокировка состояний Terraform с помощью Managed Service for YDB](terraform-state-lock.md).
+* [Использование модулей Yandex Cloud в Terraform](terraform-modules.md).

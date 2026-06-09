@@ -8,7 +8,7 @@ The schedule is deleted only after all snapshot creations and deletions triggere
 ## HTTP request
 
 ```
-DELETE https://compute.{{ api-host }}/compute/v1/snapshotSchedules/{snapshotScheduleId}
+DELETE https://compute.api.cloud.yandex.net/compute/v1/snapshotSchedules/{snapshotScheduleId}
 ```
 
 ## Path parameters

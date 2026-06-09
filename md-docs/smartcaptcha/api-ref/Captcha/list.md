@@ -5,7 +5,7 @@ Retrieves the list of Captcha resources in the specified folder.
 ## HTTP request
 
 ```
-GET https://smartcaptcha.{{ api-host }}/smartcaptcha/v1/captchas
+GET https://smartcaptcha.api.cloud.yandex.net/smartcaptcha/v1/captchas
 ```
 
 ## Query parameters {#yandex.cloud.smartcaptcha.v1.ListCaptchasRequest}

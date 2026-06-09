@@ -9,5 +9,5 @@
 
 #### См. также {#see-also}
 
-* [{#T}](../data/connect-to-s3.md)
-* [{#T}](../data/connect-to-clickhouse.md)
+* [Подключение к S3 с помощью библиотеки boto3](../data/connect-to-s3.md)
+* [Подключение к базе данных ClickHouse®](../data/connect-to-clickhouse.md)

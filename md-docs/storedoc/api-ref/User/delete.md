@@ -5,7 +5,7 @@ Deletes the specified MongoDB user.
 ## HTTP request
 
 ```
-DELETE https://{{ api-host-mdb }}/managed-mongodb/v1/clusters/{clusterId}/users/{userName}
+DELETE https://mdb.api.cloud.yandex.net/managed-mongodb/v1/clusters/{clusterId}/users/{userName}
 ```
 
 ## Path parameters

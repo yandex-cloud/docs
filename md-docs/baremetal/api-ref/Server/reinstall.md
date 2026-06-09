@@ -7,7 +7,7 @@ Reinstalls the specified server.
 ## HTTP request
 
 ```
-POST https://baremetal.{{ api-host }}/baremetal/v1alpha/servers/{serverId}:reinstall
+POST https://baremetal.api.cloud.yandex.net/baremetal/v1alpha/servers/{serverId}:reinstall
 ```
 
 ## Path parameters

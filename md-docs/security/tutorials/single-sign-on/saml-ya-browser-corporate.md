@@ -1,8 +1,8 @@
-# Создать SAML-приложение в {{ org-full-name }} для интеграции с консолью управления Яндекс Браузера для организаций
+# Создать SAML-приложение в Yandex Identity Hub для интеграции с консолью управления Яндекс Браузера для организаций
 
 [Яндекс Браузер для организаций](https://browser.yandex.ru/corp/) — это корпоративный браузер, основанный на последней версии стандартного браузера и доработанный с учетом потребностей бизнеса и акцентом на информационную безопасность. Для централизованного администрирования браузера используется [консоль управления](https://browser.yandex.ru/corp/builds). Консоль управления поддерживает SAML-аутентификацию для обеспечения безопасного единого входа пользователей организации.
 
-Чтобы пользователи вашей [организации](../../../organization/concepts/organization.md) могли аутентифицироваться в консоли управления Яндекс Браузера для организаций с помощью технологии единого входа по стандарту [SAML](https://ru.wikipedia.org/wiki/SAML), создайте [SAML-приложение](../../../organization/concepts/applications.md#saml) в {{ org-full-name }} и настройте его на стороне {{ org-full-name }} и на стороне Яндекс Браузера для организаций.
+Чтобы пользователи вашей [организации](../../../organization/concepts/organization.md) могли аутентифицироваться в консоли управления Яндекс Браузера для организаций с помощью технологии единого входа по стандарту [SAML](https://ru.wikipedia.org/wiki/SAML), создайте [SAML-приложение](../../../organization/concepts/applications.md#saml) в Yandex Identity Hub и настройте его на стороне Yandex Identity Hub и на стороне Яндекс Браузера для организаций.
 
 Управлять SAML-приложениями может пользователь, которому назначена [роль](../../../organization/security/index.md#organization-manager-samlApplications-admin) `organization-manager.samlApplications.admin` или выше.
 
@@ -16,41 +16,41 @@
 
 {% list tabs group=instructions %}
 
-- Интерфейс {{ cloud-center }} {#cloud-center}
+- Интерфейс Cloud Center {#cloud-center}
 
-    1. Войдите в сервис [{{ org-full-name }}]({{ link-org-cloud-center }}).
-    1. На панели слева выберите ![shapes-4](../../../_assets/console-icons/shapes-4.svg) **{{ ui-key.yacloud_org.pages.apps }}**.
-    1. В правом верхнем углу страницы нажмите ![Circles3Plus](../../../_assets/console-icons/circles-3-plus.svg) **{{ ui-key.yacloud_org.action.applications.components.create-app }}** и в открывшемся окне:
-        1. Выберите метод единого входа **{{ ui-key.yacloud_org.organization.apps.AppCreateForm.saml-title_kyofk }}**.
-        1. В поле **{{ ui-key.yacloud_org.organization.apps.AppCreateForm.field-name_1VbM1 }}** задайте имя создаваемого приложения: `browser-cloud`.
-        1. (Опционально) В поле **{{ ui-key.yacloud_org.organization.apps.AppCreateForm.field-description_kzkNB }}** задайте описание приложения.
+    1. Войдите в сервис [Yandex Identity Hub](https://center.yandex.cloud/organization).
+    1. На панели слева выберите ![shapes-4](../../../_assets/console-icons/shapes-4.svg) **Приложения**.
+    1. В правом верхнем углу страницы нажмите ![Circles3Plus](../../../_assets/console-icons/circles-3-plus.svg) **Создать приложение** и в открывшемся окне:
+        1. Выберите метод единого входа **SAML (Security Assertion Markup Language)**.
+        1. В поле **Имя** задайте имя создаваемого приложения: `browser-cloud`.
+        1. (Опционально) В поле **Описание** задайте описание приложения.
         1. (Опционально) Добавьте [метки](../../../resource-manager/concepts/labels.md):
-            1. Нажмите **{{ ui-key.yacloud.component.label-set.button_add-label }}**.
+            1. Нажмите **Добавить метку**.
             1. Введите метку в формате `ключ: значение`.
             1. Нажмите **Enter**.
-        1. Нажмите **{{ ui-key.yacloud_org.organization.apps.AppCreateForm.create-app-submit_myxPn }}**.
+        1. Нажмите **Создать приложение**.
 
 {% endlist %}
 
 ## Настройте интеграцию {#setup-integration}
 
-Чтобы интегрировать Яндекс Браузер для организаций с созданным SAML-приложением в {{ org-full-name }}, выполните настройки на стороне {{ org-full-name }} и на стороне Яндекс Браузера для организаций.
+Чтобы интегрировать Яндекс Браузер для организаций с созданным SAML-приложением в Yandex Identity Hub, выполните настройки на стороне Yandex Identity Hub и на стороне Яндекс Браузера для организаций.
 
-### Настройте SAML-приложение на стороне {{ org-full-name }} {#setup-idp}
+### Настройте SAML-приложение на стороне Yandex Identity Hub {#setup-idp}
 
 #### Настройте эндпоинты поставщика услуг {#sp-endpoints}
 
 {% list tabs group=instructions %}
 
-- Интерфейс {{ cloud-center }} {#cloud-center}
+- Интерфейс Cloud Center {#cloud-center}
 
-  1. Войдите в сервис [{{ org-full-name }}]({{ link-org-cloud-center }}).
-  1. На панели слева выберите ![shapes-4](../../../_assets/console-icons/shapes-4.svg) **{{ ui-key.yacloud_org.pages.apps }}** и выберите нужное SAML-приложение.
-  1. Справа сверху нажмите ![pencil](../../../_assets/console-icons/pencil.svg) **{{ ui-key.yacloud.common.edit }}** и в открывшемся окне:  
-      1. В поле **{{ ui-key.yacloud_org.organization.apps.SamlAppEditForm.field-sp-entity-id_snAsX }}** укажите `browser.yandex.ru`.
-      1. В поле **{{ ui-key.yacloud_org.organization.apps.SamlAppEditForm.field-acs-urls_eQcJr }}** укажите адрес в формате `https://<домен_консоли>/corp/api/sso/saml/callback` (например, `https://browser.yandex.ru/corp/api/sso/saml/callback`).
-      1. В поле **{{ ui-key.yacloud_org.organization.apps.SamlAppEditForm.field-signature-mode_ipXQ7 }}** выберите значение `{{ ui-key.yacloud_org.organization.apps.SamlAppEditForm.signature-mode-response_x7SKD }}`.
-      1. Нажмите **{{ ui-key.yacloud.common.save }}**.
+  1. Войдите в сервис [Yandex Identity Hub](https://center.yandex.cloud/organization).
+  1. На панели слева выберите ![shapes-4](../../../_assets/console-icons/shapes-4.svg) **Приложения** и выберите нужное SAML-приложение.
+  1. Справа сверху нажмите ![pencil](../../../_assets/console-icons/pencil.svg) **Редактировать** и в открывшемся окне:  
+      1. В поле **SP EntityID** укажите `browser.yandex.ru`.
+      1. В поле **ACS URL** укажите адрес в формате `https://<домен_консоли>/corp/api/sso/saml/callback` (например, `https://browser.yandex.ru/corp/api/sso/saml/callback`).
+      1. В поле **Режим подписи** выберите значение `Response`.
+      1. Нажмите **Сохранить**.
 
 {% endlist %}
 
@@ -66,11 +66,11 @@
 
 {% list tabs group=instructions %}
 
-- Интерфейс {{ cloud-center }} {#cloud-center}
+- Интерфейс Cloud Center {#cloud-center}
 
-    1. Войдите в сервис [{{ org-full-name }}]({{ link-org-cloud-center }}).
-    1. На панели слева выберите ![shapes-4](../../../_assets/console-icons/shapes-4.svg) **{{ ui-key.yacloud_org.pages.apps }}** и выберите нужное приложение.
-    1. Перейдите на вкладку **{{ ui-key.yacloud_org.organization.apps.AppPageLayout.attributes_to71e }}**.
+    1. Войдите в сервис [Yandex Identity Hub](https://center.yandex.cloud/organization).
+    1. На панели слева выберите ![shapes-4](../../../_assets/console-icons/shapes-4.svg) **Приложения** и выберите нужное приложение.
+    1. Перейдите на вкладку **Атрибуты**.
     1. Отредактируйте атрибуты пользователей:
 
         1. Атрибут `givenname` замените на `firstName`.
@@ -87,13 +87,13 @@
 
 {% list tabs group=instructions %}
 
-- Интерфейс {{ cloud-center }} {#cloud-center}
+- Интерфейс Cloud Center {#cloud-center}
 
-    1. Войдите в сервис [{{ org-full-name }}]({{ link-org-cloud-center }}).
-    1. На панели слева выберите ![shapes-4](../../../_assets/console-icons/shapes-4.svg) **{{ ui-key.yacloud_org.pages.apps }}** и выберите нужное SAML-приложение.
-    1. На вкладке **{{ ui-key.yacloud_org.organization.apps.AppPageLayout.overview_b5LJQ }}** в блоке **{{ ui-key.yacloud_org.application.overview.idp_section_title }}** в поле **{{ ui-key.yacloud_org.application.overview.saml_field_login }}** скопируйте URL-адрес точки входа (Login URL).
-    1. В блоке **{{ ui-key.yacloud_org.application.overview.oauth_service_section_title }}** в поле **{{ ui-key.yacloud_org.application.overview.saml_field_sp_entity }}** скопируйте уникальный идентификатор поставщика услуг.
-    1. В блоке **{{ ui-key.yacloud_org.application.overview.certificate_section_title }}** нажмите на кнопку **{{ ui-key.yacloud_org.application.overview.certificate_action_download_cert }}** и сохраните сертификат подписи токенов формата X.509 на своем устройстве.
+    1. Войдите в сервис [Yandex Identity Hub](https://center.yandex.cloud/organization).
+    1. На панели слева выберите ![shapes-4](../../../_assets/console-icons/shapes-4.svg) **Приложения** и выберите нужное SAML-приложение.
+    1. На вкладке **Обзор** в блоке **Конфигурация поставщика удостоверений (IdP)** в поле **Login URL** скопируйте URL-адрес точки входа (Login URL).
+    1. В блоке **Конфигурация поставщика услуг (SP)** в поле **SP EntityID** скопируйте уникальный идентификатор поставщика услуг.
+    1. В блоке **Сертификат приложения** нажмите на кнопку **Скачать сертификат** и сохраните сертификат подписи токенов формата X.509 на своем устройстве.
 
 {% endlist %}
 
@@ -112,25 +112,25 @@
 1. Войдите в [консоль управления](https://browser.yandex.ru/corp/builds) Яндекс Браузера для организаций.
 1. Перейдите в раздел настроек **SSO**.
 1. Укажите данные:
-    * **Домен** — [домен](../../../organization/concepts/domains.md) в {{ org-full-name }}.
+    * **Домен** — [домен](../../../organization/concepts/domains.md) в Yandex Identity Hub.
     * **SP Entity ID** — уникальный идентификатор поставщика услуг, полученный на предыдущем шаге.
     * **Single sign-on service URL** — URL-адрес точки входа, полученный на предыдущем шаге.
     * **Signing certificate** — укажите **сертификат подписи токенов** формата X.509, сохраненный ранее.
 1. Сохраните настройки.
 1. Нажмите **Скачать сертификат**.
 1. (Опционально) Настройте проверку подписи:
-   1. Войдите в сервис [{{ org-full-name }}]({{ link-org-cloud-center }}).
-   1. На панели слева выберите ![shapes-4](../../../_assets/console-icons/shapes-4.svg) **{{ ui-key.yacloud_org.pages.apps }}** и выберите нужное SAML-приложение.
-   1. Нажмите ![pencil](../../../_assets/console-icons/pencil.svg) **{{ ui-key.yacloud.common.edit }}**.
-   1. Включите опцию **{{ ui-key.yacloud_org.application.overview.saml_field_request_signing_enabled }}** и нажмите **{{ ui-key.yacloud_org.organization.apps.SamlAppEditForm.EncryptResponseSection.add-cert-action }}**.
+   1. Войдите в сервис [Yandex Identity Hub](https://center.yandex.cloud/organization).
+   1. На панели слева выберите ![shapes-4](../../../_assets/console-icons/shapes-4.svg) **Приложения** и выберите нужное SAML-приложение.
+   1. Нажмите ![pencil](../../../_assets/console-icons/pencil.svg) **Редактировать**.
+   1. Включите опцию **Принимать только подписанные запросы** и нажмите **Добавить сертификат**.
    1. В открывшемся окне прикрепите файл сертификата, который был скачан в консоли управления Яндекс браузера.
-   1. Нажмите кнопку **{{ ui-key.yacloud.common.add }}**.
+   1. Нажмите кнопку **Добавить**.
 1. В консоли управления Яндекс Браузера для организаций включите опцию **Аутентификация по SSO/SAML**.
 1. Дождитесь подтверждения домена. Чтобы проверить статус, перейдите в раздел настроек **SSO**.
 
 ### Добавьте пользователей {#add-users}
 
-Чтобы пользователи вашей организации могли аутентифицироваться в консоли управления Яндекс Браузера для организаций с помощью SAML-приложения {{ org-full-name }}, необходимо явно добавить в ваше SAML-приложение нужных пользователей и/или [группы пользователей](../../../organization/concepts/groups.md). Также нужно добавить нужных пользователей в качестве администраторов в консоли управления Яндекс Браузера для организаций.
+Чтобы пользователи вашей организации могли аутентифицироваться в консоли управления Яндекс Браузера для организаций с помощью SAML-приложения Yandex Identity Hub, необходимо явно добавить в ваше SAML-приложение нужных пользователей и/или [группы пользователей](../../../organization/concepts/groups.md). Также нужно добавить нужных пользователей в качестве администраторов в консоли управления Яндекс Браузера для организаций.
 
 {% note info %}
 
@@ -142,14 +142,14 @@
 
 {% list tabs group=instructions %}
 
-- Интерфейс {{ cloud-center }} {#cloud-center}
+- Интерфейс Cloud Center {#cloud-center}
 
-    1. Войдите в сервис [{{ org-full-name }}]({{ link-org-cloud-center }}).
-    1. На панели слева выберите ![shapes-4](../../../_assets/console-icons/shapes-4.svg) **{{ ui-key.yacloud_org.pages.apps }}** и выберите нужное приложение.
-    1. Перейдите на вкладку **{{ ui-key.yacloud_org.organization.apps.AppPageLayout.assignments_kKzJS }}**.
-    1. Нажмите ![person-plus](../../../_assets/console-icons/person-plus.svg) **{{ ui-key.yacloud_org.organization.apps.AppAssignmentsPage.action_add-assignments }}**.
+    1. Войдите в сервис [Yandex Identity Hub](https://center.yandex.cloud/organization).
+    1. На панели слева выберите ![shapes-4](../../../_assets/console-icons/shapes-4.svg) **Приложения** и выберите нужное приложение.
+    1. Перейдите на вкладку **Пользователи и группы**.
+    1. Нажмите ![person-plus](../../../_assets/console-icons/person-plus.svg) **Добавить пользователей**.
     1. В открывшемся окне выберите нужного пользователя или группу пользователей.
-    1. Нажмите **{{ ui-key.yacloud.common.add }}**.
+    1. Нажмите **Добавить**.
 
 {% endlist %}
 
@@ -168,5 +168,5 @@
 1. В браузере перейдите на страницу входа в консоль управления Яндекс Браузера для организаций.
 1. Если вы были авторизованы ранее, выйдите из профиля.
 1. На странице аутентификации нажмите **Войти через SSO**.
-1. На странице аутентификации {{ yandex-cloud }} укажите адрес электронной почты и пароль пользователя. Пользователь должен быть добавлен в приложение или состоять в группе, добавленной в приложение. Также он должен быть одним из администраторов консоли управления.
+1. На странице аутентификации Yandex Cloud укажите адрес электронной почты и пароль пользователя. Пользователь должен быть добавлен в приложение или состоять в группе, добавленной в приложение. Также он должен быть одним из администраторов консоли управления.
 1. Убедитесь, что вы аутентифицировались в консоли управления Яндекс Браузера.

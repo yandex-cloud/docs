@@ -156,4 +156,4 @@ instance_template:
 
 ## Примеры использования {#examples}
 
-* [{#T}](../../../tutorials/updating-under-load.md)
+* [Обновление группы виртуальных машин под нагрузкой](../../../tutorials/updating-under-load.md)

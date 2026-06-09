@@ -1,12 +1,12 @@
-# Релизы {{ org-sync-agent-name }}
+# Релизы Yandex Identity Hub Sync Agent
 
 ## Текущая версия {#latest-release}
 
 ### Версия 0.46.0 (18.05.26) {#version0.46.0}
 
-#### Изменения в {{ org-sync-agent-name }} {#changes-version0.46.0}
+#### Изменения в Yandex Identity Hub Sync Agent {#changes-version0.46.0}
 
-* Добавлена возможность отправки логов в {{ cloud-logging-full-name }}: секция `logger.cloud_logger` с указанием `log_group_id`. В каждое сообщение добавляется `agent_id` для фильтрации.
+* Добавлена возможность отправки логов в Yandex Cloud Logging: секция `logger.cloud_logger` с указанием `log_group_id`. В каждое сообщение добавляется `agent_id` для фильтрации.
 * Добавлена поддержка записи логов в Windows Event Log в секции `logger.event_log`. Функция работает только в Windows. На других платформах эта конфигурация игнорируется с предупреждением.
 * Добавлены параметры `--install-eventlog` и `--uninstall-eventlog` для регистрации источника Windows Event Log из конфигурации `logger.event_log.source`. Для запуска требуются права администратора.
 * Добавлена аутентификация Kerberos по `keytab` для подключений к LDAP и DRSR.
@@ -27,7 +27,7 @@
 
 ### Версия 0.45.0 (27.04.26) {#version0.45.0}
 
-#### Изменения в {{ org-sync-agent-name }} {#changes-version0.45.0}
+#### Изменения в Yandex Identity Hub Sync Agent {#changes-version0.45.0}
 
 * Исправлены проблемы с преждевременным завершением `dry-run` при использовании `use_session_api: true`.
 * Исправлено зависание агента при остановке процесса `password writeback`.
@@ -49,7 +49,7 @@
 
 ### Версия 0.44.0 (20.04.26) {#version0.44.0}
 
-#### Изменения в {{ org-sync-agent-name }} {#changes-version0.44.0}
+#### Изменения в Yandex Identity Hub Sync Agent {#changes-version0.44.0}
 
 * Исправлена ошибка, вызывавшая зависание при завершении процесса синхронизации.
 
@@ -69,7 +69,7 @@
 
 ### Версия 0.43.0 (16.04.26) {#version0.43.0}
 
-#### Изменения в {{ org-sync-agent-name }} {#changes-version0.43.0}
+#### Изменения в Yandex Identity Hub Sync Agent {#changes-version0.43.0}
 
 * Добавлен режим `dry-run` для просмотра изменений без их применения.
 * Пользователи без пароля теперь создаются со сгенерированным паролем.
@@ -90,7 +90,7 @@
 
 ### Версия 0.42.0 (09.04.26) {#version0.42.0}
 
-#### Изменения в {{ org-sync-agent-name }} {#changes-version0.42.0}
+#### Изменения в Yandex Identity Hub Sync Agent {#changes-version0.42.0}
 
 * Добавлено свойство `objectSid` для сопоставления в поле `EmployeeId`.
 
@@ -109,7 +109,7 @@
 
 ### Версия 0.41.0 (13.03.26) {#version0.41.0}
 
-#### Изменения в {{ org-sync-agent-name }} {#changes-version0.41.0}
+#### Изменения в Yandex Identity Hub Sync Agent {#changes-version0.41.0}
 
 * При полной синхронизации список членов групп, попадающих под фильтр, получается через LDAP.
 
@@ -128,9 +128,9 @@
 
 ### Версия 0.40.0 (10.03.26) {#version0.40.0}
 
-#### Изменения в {{ org-sync-agent-name }} {#changes-version0.40.0}
+#### Изменения в Yandex Identity Hub Sync Agent {#changes-version0.40.0}
 
-* Добавлена возможность получения IAM-токена из сервиса метаданных для обращения к API {{ org-full-name }}.
+* Добавлена возможность получения IAM-токена из сервиса метаданных для обращения к API Yandex Identity Hub.
 
 {% cut "Контрольные суммы" %}
 
@@ -147,7 +147,7 @@
 
 ### Версия 0.39.0 (27.02.26) {#version0.39.0}
 
-#### Изменения в {{ org-sync-agent-name }} {#changes-version0.39.0}
+#### Изменения в Yandex Identity Hub Sync Agent {#changes-version0.39.0}
 
 * Добавлена настройка `use_session_api` для запуска нескольких агентов одновременно.  
 
@@ -172,7 +172,7 @@
 
 ### Версия 0.38.0 (08.12.25) {#version0.38.0}
 
-#### Изменения в {{ org-full-name }} sync agent {#changes-version0.38.0}
+#### Изменения в Yandex Identity Hub sync agent {#changes-version0.38.0}
 
 * Исправлен некорректный парсинг объектов AD при наличии неизвестных атрибутов.
 
@@ -193,7 +193,7 @@
 
 ### Версия 0.37.0 (28.11.25) {#version0.37.0}
 
-#### Изменения в {{ org-full-name }} sync agent {#changes-version0.37.0}
+#### Изменения в Yandex Identity Hub sync agent {#changes-version0.37.0}
 
 * Значение `replacement_domain` теперь подставляется независимо от того, соответствует ли домен в UPN домену в фильтре.
 

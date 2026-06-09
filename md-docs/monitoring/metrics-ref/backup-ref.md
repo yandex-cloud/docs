@@ -1,18 +1,18 @@
-# Метрики {{ backup-full-name }}
+# Метрики Yandex Cloud Backup
 
-В этом разделе описаны метрики сервиса [{{ backup-name }}](../../backup/index.md), поставляемые в {{ monitoring-name }}.
+В этом разделе описаны метрики сервиса [Cloud Backup](../../backup/index.md), поставляемые в Monitoring.
 
 Имя метрики пишется в метку `name`.
 
-Общие метки для всех метрик сервиса {{ backup-name }}:
+Общие метки для всех метрик сервиса Cloud Backup:
 
 #|
 || **Метка** | **Значение** ||
 || service | Идентификатор сервиса: `backup`. ||
-|| resource_id | Идентификатор [виртуальной машины](../../compute/concepts/vm.md) в [{{ compute-name }}](../../compute/index.md) или [сервера {{ baremetal-name }}](../../baremetal/concepts/servers.md) в [{{ baremetal-full-name }}](../../baremetal/index.md). ||
-|| resource_name | Имя ВМ {{ compute-name }} или сервера {{ baremetal-name }}. ||
+|| resource_id | Идентификатор [виртуальной машины](../../compute/concepts/vm.md) в [Compute Cloud](../../compute/index.md) или [сервера BareMetal](../../baremetal/concepts/servers.md) в [Yandex BareMetal](../../baremetal/index.md). ||
+|| resource_name | Имя ВМ Compute Cloud или сервера BareMetal. ||
 || resource_type | Тип ресурса. Возможные значения:
-* `vm` — ВМ {{ compute-name }} или сервер {{ baremetal-name }}.
+* `vm` — ВМ Compute Cloud или сервер BareMetal.
 * `backup` — [резервная копия](../../backup/concepts/backup.md). ||
 |#
 
@@ -22,15 +22,15 @@
 || **Имя метрики**
 **Тип, единицы измерения** | **Описание** ||
 || `agent_alive`
-`DGAUGE` | Индикатор активности [агента {{ backup-name }}](../../backup/concepts/agent.md). Возможные значения:
+`DGAUGE` | Индикатор активности [агента Cloud Backup](../../backup/concepts/agent.md). Возможные значения:
 * `1` — агент работает.
 * `0` — агент неактивен. Резервные копии не создаются, требуется вмешательство. ||
 || `agent_version_available`
-`DGAUGE` | Индикатор доступности новой версии агента {{ backup-name }}. Возможные значения:
+`DGAUGE` | Индикатор доступности новой версии агента Cloud Backup. Возможные значения:
 * `1` — доступно обновление.
 * `0` — используется актуальная версия. ||
 || `protected`
-`DGAUGE`, штуки | Количество ВМ {{ compute-name }} и серверов {{ baremetal-name }}, защищенных {{ backup-name }}. ||
+`DGAUGE`, штуки | Количество ВМ Compute Cloud и серверов BareMetal, защищенных Cloud Backup. ||
 || `BackupError`
 `DGAUGE`, штуки | Количество ошибок при создании резервных копий. Дополнительные метки:
 * `action` — тип действия.

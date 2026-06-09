@@ -5,7 +5,7 @@ Retrieves a list of access bindings for the specified MySQL cluster.
 ## HTTP request
 
 ```
-GET https://{{ api-host-mdb }}/managed-mysql/v1/clusters/{resourceId}:listAccessBindings
+GET https://mdb.api.cloud.yandex.net/managed-mysql/v1/clusters/{resourceId}:listAccessBindings
 ```
 
 ## Path parameters

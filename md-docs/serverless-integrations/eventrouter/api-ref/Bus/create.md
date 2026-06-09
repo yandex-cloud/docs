@@ -5,7 +5,7 @@ Creates a bus in the specified folder.
 ## HTTP request
 
 ```
-POST https://serverless-eventrouter.{{ api-host }}/eventrouter/v1/buses
+POST https://serverless-eventrouter.api.cloud.yandex.net/eventrouter/v1/buses
 ```
 
 ## Body parameters {#yandex.cloud.serverless.eventrouter.v1.CreateBusRequest}

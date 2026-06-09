@@ -1,15 +1,15 @@
-# Работа с метриками в {{ monium-name }}
+# Работа с метриками в Monium
 
 ## Поставка метрик {#working-with-metrics}
 
-* [{#T}](unified-agent/linux_metrics.md)
-* [{#T}](unified-agent/pull_prometheus.md)
-* [{#T}](unified-agent/haproxy.md)
-* [{#T}](unified-agent/non-yc.md)
-* [{#T}](metric/add.md)
+* [Поставка системных метрик Linux](unified-agent/linux_metrics.md)
+* [Поставка метрик пользовательских приложений](unified-agent/pull_prometheus.md)
+* [Поставка метрик HAProxy и других сторонних приложений](unified-agent/haproxy.md)
+* [Поставка метрик с хостов вне Yandex Cloud](unified-agent/non-yc.md)
+* [Запись пользовательских метрик через API](metric/add.md)
 
 ## Экспорт метрик {#export-metrics}
 
-* [{#T}](metric/list.md)
-* [{#T}](metric/get.md)
-* [{#T}](metric/prometheusExport.md)
+* [Получение списка метрик](metric/list.md)
+* [Выгрузка метрик](metric/get.md)
+* [Экспорт метрик в формате Prometheus](metric/prometheusExport.md)

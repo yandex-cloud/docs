@@ -5,7 +5,7 @@ Lists instances that belongs to the specified host group.
 ## HTTP request
 
 ```
-GET https://compute.{{ api-host }}/compute/v1/hostGroups/{hostGroupId}/instances
+GET https://compute.api.cloud.yandex.net/compute/v1/hostGroups/{hostGroupId}/instances
 ```
 
 ## Path parameters

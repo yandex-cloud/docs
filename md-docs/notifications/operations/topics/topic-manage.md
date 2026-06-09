@@ -6,15 +6,15 @@
 
 - Консоль управления {#console}
 
-  1. В [консоли управления]({{ link-console-main }}) выберите каталог, в котором находится топик.
-  1. Перейдите в сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_cns }}**.
-  1. Слева выберите раздел **{{ ui-key.yacloud.cns.local.label_topics_vhBR3 }}**.
+  1. В [консоли управления](https://console.yandex.cloud) выберите каталог, в котором находится топик.
+  1. Перейдите в сервис **Cloud Notification Service**.
+  1. Слева выберите раздел **Топики**.
   1. Выберите топик.
-  1. Справа вверху нажмите кнопку ![image](../../../_assets/edit.svg) **{{ ui-key.yacloud.common.edit }}**.
-  1. Измените имя топика. Имя топика должно быть уникальным в {{ cns-name }}.
-  1. В разделе **{{ ui-key.yacloud.cns.section_logging }}** включите или отключите **{{ ui-key.yacloud.cns.field_logging }}**.
+  1. Справа вверху нажмите кнопку ![image](../../../_assets/edit.svg) **Редактировать**.
+  1. Измените имя топика. Имя топика должно быть уникальным в Cloud Notification Service.
+  1. В разделе **Логирование** включите или отключите **Запись логов**.
   1. Измените лог-группу или создайте новую.
-  1. Нажмите **{{ ui-key.yacloud.common.save-changes }}**.
+  1. Нажмите **Сохранить изменения**.
 
 - AWS CLI {#aws-cli}
 
@@ -58,10 +58,10 @@
 
 - Консоль управления {#console}
 
-  1. В [консоли управления]({{ link-console-main }}) выберите каталог, в котором находится топик.
-  1. Перейдите в сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_cns }}**.
-  1. Слева выберите раздел **{{ ui-key.yacloud.cns.local.label_topics_vhBR3 }}**.
-  1. Напротив нужного топика нажмите ![image](../../../_assets/console-icons/ellipsis.svg) и выберите **{{ ui-key.yacloud.common.delete }}**.
+  1. В [консоли управления](https://console.yandex.cloud) выберите каталог, в котором находится топик.
+  1. Перейдите в сервис **Cloud Notification Service**.
+  1. Слева выберите раздел **Топики**.
+  1. Напротив нужного топика нажмите ![image](../../../_assets/console-icons/ellipsis.svg) и выберите **Удалить**.
   1. Подтвердите удаление.
 
 - AWS CLI {#aws-cli}

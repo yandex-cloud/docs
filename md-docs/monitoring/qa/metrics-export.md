@@ -2,21 +2,21 @@
 
 #### Как добавить метрику RAM на виртуальной машине? {#add-metrics-ram}
 
-Сервис {{ compute-full-name }} не может измерить потребление vRAM внутри гостевой операционной системы: для сервиса потребление памяти ВМ всегда одинаковое — то, которое выделено в момент ее запуска.
+Сервис Yandex Compute Cloud не может измерить потребление vRAM внутри гостевой операционной системы: для сервиса потребление памяти ВМ всегда одинаковое — то, которое выделено в момент ее запуска.
 
 Вы можете самостоятельно настроить сбор пользовательских метрик [через API](../operations/metric/add.md), а для Linux-совместимых ОС — с помощью [агента для поставки системных метрик](../operations/unified-agent/linux_metrics.md). Агент позволяет собирать статистику использования большинства системных ресурсов: процессор, память, сеть, диск.
 
 #### Как добавить метрику места на диске виртуальной машины? {#add-metrics-space}
 
-{{ monitoring-name }} не имеет доступа к гостевым ОС, поэтому такой метрики нет.
+Monitoring не имеет доступа к гостевым ОС, поэтому такой метрики нет.
 
-Вы можете самостоятельно настроить сбор пользовательских метрик [](../operations/metric/add.md), а для Linux-совместимых ОС — с помощью [агента для поставки системных метрик](../operations/unified-agent/linux_metrics.md). Агент позволяет собирать статистику использования большинства системных ресурсов: процессор, память, сеть, диск.
+Вы можете самостоятельно настроить сбор пользовательских метрик [Запись пользовательских метрик через API](../operations/metric/add.md), а для Linux-совместимых ОС — с помощью [агента для поставки системных метрик](../operations/unified-agent/linux_metrics.md). Агент позволяет собирать статистику использования большинства системных ресурсов: процессор, память, сеть, диск.
 
 #### Как собирать свои метрики из приложения? {#collect-1st-party}
 
-[{{ unified-agent-full-name }}](../operations/unified-agent/pull_prometheus.md) поддерживает сбор метрик в формате {{ prometheus-name }} и конвертацию метрик в формат {{ monitoring-name }}. Таким образом, при помощи {{ unified-agent-short-name }} можно собирать метрики любых приложений, предоставляющих метрики в формате {{ prometheus-name }}.
+[Yandex Unified Agent](../operations/unified-agent/pull_prometheus.md) поддерживает сбор метрик в формате Prometheus и конвертацию метрик в формат Monitoring. Таким образом, при помощи Unified Agent можно собирать метрики любых приложений, предоставляющих метрики в формате Prometheus.
 
-Воспользуйтесь [клиентской библиотекой](https://prometheus.io/docs/instrumenting/clientlibs/) для языка программирования, на котором написано ваше приложение, и передавайте метрики в {{ monitoring-name }} в формате {{ prometheus-name }}.
+Воспользуйтесь [клиентской библиотекой](https://prometheus.io/docs/instrumenting/clientlibs/) для языка программирования, на котором написано ваше приложение, и передавайте метрики в Monitoring в формате Prometheus.
 
 {% list tabs group=programming_language %}
 
@@ -47,33 +47,33 @@
 {% endlist %}
 
 Примеры приведены в следующих разделах документации:
-* [{#T}](../operations/unified-agent/pull_prometheus.md).
-* [{#T}](../operations/unified-agent/haproxy.md).
+* [Поставка метрик пользовательских приложений](../operations/unified-agent/pull_prometheus.md).
+* [Поставка метрик HAProxy и других сторонних приложений](../operations/unified-agent/haproxy.md).
 
-#### Можно ли поставлять в {{ monitoring-name }} метрики кластера {{ managed-k8s-full-name }}? {#collect-k8s}
+#### Можно ли поставлять в Monitoring метрики кластера Yandex Managed Service for Kubernetes? {#collect-k8s}
 
 Да, для этого используйте приложение [Metrics Provider](https://yandex.cloud/ru/marketplace/products/yc/metric-provider). Чтобы установить его, [воспользуйтесь инструкцией](../../managed-kubernetes/operations/applications/metrics-provider.md).
 
-#### Как поставлять в {{ monitoring-name }} метрики сторонних приложений? {#collect-3rd-party}
+#### Как поставлять в Monitoring метрики сторонних приложений? {#collect-3rd-party}
 
-Для поставки в {{ monitoring-name }} метрик сторонних приложений используется {{ unified-agent-short-name }}, в котором сконфигурирован вход `metrics_pull`. {{ unified-agent-short-name }} периодически опрашивает напрямую стороннее приложение, если оно поддерживает метрики в формате {{ prometheus-name }}, или специальное приложение-экспортер, реализующее интеграцию с {{ prometheus-name }}.
+Для поставки в Monitoring метрик сторонних приложений используется Unified Agent, в котором сконфигурирован вход `metrics_pull`. Unified Agent периодически опрашивает напрямую стороннее приложение, если оно поддерживает метрики в формате Prometheus, или специальное приложение-экспортер, реализующее интеграцию с Prometheus.
 
-В разделе [{#T}](../operations/unified-agent/haproxy.md) приведен пример настройки поставки метрик HAProxy.
+В разделе [Поставка метрик HAProxy и других сторонних приложений](../operations/unified-agent/haproxy.md) приведен пример настройки поставки метрик HAProxy.
 
-#### Как поставлять метрики с хостов вне {{ yandex-cloud }}? {#collect-external}
+#### Как поставлять метрики с хостов вне Yandex Cloud? {#collect-external}
 
-Настройте [авторизованные ключи сервисных аккаунтов](../operations/unified-agent/non-yc.md) для передачи метрик в {{ monitoring-name }} через {{ unified-agent-short-name }}.
+Настройте [авторизованные ключи сервисных аккаунтов](../operations/unified-agent/non-yc.md) для передачи метрик в Monitoring через Unified Agent.
 
-Используйте эту методику и для отправки метрик с ВМ {{ yandex-cloud }} без привязанного сервисного аккаунта.
+Используйте эту методику и для отправки метрик с ВМ Yandex Cloud без привязанного сервисного аккаунта.
 
 #### Как посмотреть список метрик? {#metrics-list}
 
-Для этого откройте раздел **{{ ui-key.yacloud_monitoring.aside-navigation.menu-item.explorer.title }}** и выберите нужный сервис.
+Для этого откройте раздел **Метрики** и выберите нужный сервис.
 
 Чтобы получить полный список метрик, принадлежащих определенному облаку и каталогу, воспользуйтесь [инструкцией по запросу к API](../operations/metric/list.md).
 
-#### Можно ли экспортировать метрики в формате {{ prometheus-name }}? {#export-prometheus}
+#### Можно ли экспортировать метрики в формате Prometheus? {#export-prometheus}
 
-Для экспорта метрик в формате {{ prometheus-name }} воспользуйтесь методом [prometheusMetrics](../api-ref/MetricsData/prometheusMetrics.md).
+Для экспорта метрик в формате Prometheus воспользуйтесь методом [prometheusMetrics](../api-ref/MetricsData/prometheusMetrics.md).
 
 Пример настройки экспорта описан в [документации](../operations/metric/prometheusExport.md).

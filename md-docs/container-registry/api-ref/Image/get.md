@@ -6,7 +6,7 @@ To get the list of available Image resources, make a [List](list.md#List) reques
 ## HTTP request
 
 ```
-GET https://container-registry.{{ api-host }}/container-registry/v1/images/{imageId}
+GET https://container-registry.api.cloud.yandex.net/container-registry/v1/images/{imageId}
 ```
 
 ## Path parameters

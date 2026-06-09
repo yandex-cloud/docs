@@ -2,7 +2,7 @@
 
 {% note info %}
 
-Функциональность находится на стадии [Preview](../../../overview/concepts/launch-stages.md). Чтобы получить доступ, обратитесь в [техническую поддержку]({{ link-console-support }}) или к вашему аккаунт-менеджеру.
+Функциональность находится на стадии [Preview](../../../overview/concepts/launch-stages.md). Чтобы получить доступ, обратитесь в [техническую поддержку](https://center.yandex.cloud/support) или к вашему аккаунт-менеджеру.
 
 {% endnote %}
 
@@ -14,15 +14,15 @@
 
 {% list tabs group=instructions %}
 
-- Интерфейс {{ cloud-center }} {#cloud-center}
+- Интерфейс Cloud Center {#cloud-center}
 
   1. Откройте расследование.
-  1. Нажмите **{{ ui-key.yacloud_org.security.siem.InvestigationPageLayout.newQuery_mzeBV }}**.
+  1. Нажмите **Новый запрос**.
   1. В редакторе запросов введите KQL-запрос или выберите шаблон.
 
   {% note tip %}
 
-  Используйте подсказку в редакторе: {{ ui-key.yacloud_org.security.ycdr.query-placeholder_auE1D }}.
+  Используйте подсказку в редакторе: Введите запрос, используя синтаксис KQL, или выберите шаблон запроса.
 
   {% endnote %}
 
@@ -34,7 +34,7 @@
 
 {% list tabs group=instructions %}
 
-- Интерфейс {{ cloud-center }} {#cloud-center}
+- Интерфейс Cloud Center {#cloud-center}
 
   1. Откройте расследование с нужным запросом.
   1. Выберите вкладку с запросом.
@@ -50,17 +50,17 @@
 
 {% list tabs group=instructions %}
 
-- Интерфейс {{ cloud-center }} {#cloud-center}
+- Интерфейс Cloud Center {#cloud-center}
 
   1. Нажмите на селектор периода рядом с кнопкой запуска.
   1. Выберите один из пресетов:
-     * {{ ui-key.yacloud_org.security.ycdr.preset_last_5_minutes_s5Gq5 }};
-     * {{ ui-key.yacloud_org.security.ycdr.preset_last_30_minutes_s5Gq5 }};
-     * {{ ui-key.yacloud_org.security.ycdr.preset_last_1_hour_s5Gq5 }};
-     * {{ ui-key.yacloud_org.security.ycdr.preset_last_3_hours_s5Gq5 }};
-     * {{ ui-key.yacloud_org.security.ycdr.preset_last_6_hours_s5Gq5 }};
-     * {{ ui-key.yacloud_org.security.ycdr.preset_last_12_hours_s5Gq5 }};
-     * {{ ui-key.yacloud_org.security.ycdr.preset_last_day_s5Gq5 }}.
+     * Последние 5 минут;
+     * Последние 30 минут;
+     * Последний час;
+     * Последние 3 часа;
+     * Последние 6 часов;
+     * Последние 12 часов;
+     * Последний день.
 
   Или выберите произвольный период:
 
@@ -68,7 +68,7 @@
   1. Выберите произвольный период.
   1. Укажите дату и время начала периода.
   1. Укажите дату и время окончания периода.
-  1. Нажмите **{{ ui-key.yacloud.common.apply }}**.
+  1. Нажмите **Применить**.
 
 {% endlist %}
 
@@ -78,13 +78,13 @@
 
 {% list tabs group=instructions %}
 
-- Интерфейс {{ cloud-center }} {#cloud-center}
+- Интерфейс Cloud Center {#cloud-center}
 
   1. Убедитесь, что запрос введен в редакторе.
   1. Выберите временной период.
   1. Нажмите кнопку запуска запроса.
 
-  После запуска запрос переходит в статус **{{ ui-key.yacloud_org.security.siem.cell-result-running_4S3Mi }}**. По завершении результаты отображаются в таблице и на гистограмме.
+  После запуска запрос переходит в статус **Выполняется**. По завершении результаты отображаются в таблице и на гистограмме.
 
   {% note info %}
   
@@ -100,10 +100,10 @@
 
 {% list tabs group=instructions %}
 
-- Интерфейс {{ cloud-center }} {#cloud-center}
+- Интерфейс Cloud Center {#cloud-center}
 
   1. Во время выполнения запроса нажмите кнопку остановки.
-  1. Запрос перейдет в статус **{{ ui-key.yacloud_org.security.siem.cell-result-canceled_fqtbJ }}**.
+  1. Запрос перейдет в статус **Остановлен**.
 
 {% endlist %}
 
@@ -113,7 +113,7 @@
 
 {% list tabs group=instructions %}
 
-- Интерфейс {{ cloud-center }} {#cloud-center}
+- Интерфейс Cloud Center {#cloud-center}
 
   1. Нажмите на название запроса на вкладке.
   1. Введите новое название.
@@ -127,10 +127,10 @@
 
 {% list tabs group=instructions %}
 
-- Интерфейс {{ cloud-center }} {#cloud-center}
+- Интерфейс Cloud Center {#cloud-center}
 
   1. Нажмите правой кнопкой мыши на вкладку запроса.
-  1. Выберите **{{ ui-key.yacloud_org.security.siem.action_delete_wM5k5 }}**.
+  1. Выберите **Удалить**.
   1. Подтвердите удаление.
 
   {% note warning %}
@@ -147,10 +147,10 @@
 
 {% list tabs group=instructions %}
 
-- Интерфейс {{ cloud-center }} {#cloud-center}
+- Интерфейс Cloud Center {#cloud-center}
 
   1. Откройте запрос.
-  1. В меню действий выберите **{{ ui-key.yacloud_org.security.siem.cell-result-action-share_i1khy }}**.
+  1. В меню действий выберите **Поделиться**.
   1. Скопируйте ссылку на запрос.
 
   Ссылка содержит текст запроса и выбранный период. Получатель сможет открыть запрос в своем расследовании.
@@ -163,19 +163,19 @@
 
 {% list tabs group=instructions %}
 
-- Интерфейс {{ cloud-center }} {#cloud-center}
+- Интерфейс Cloud Center {#cloud-center}
 
   1. Выполните запрос.
   1. В таблице результатов нажмите на значок настройки столбцов.
   1. Выберите поля, которые хотите отображать.
   1. Измените порядок полей перетаскиванием.
-  1. Нажмите **{{ ui-key.yacloud.common.apply }}**.
+  1. Нажмите **Применить**.
 
 {% endlist %}
 
 #### См. также {#see-also}
 
-* [{#T}](../../concepts/investigations.md).
-* [{#T}](../../concepts/queries.md).
-* [{#T}](work-with-templates.md).
-* [{#T}](query-history.md).
+* [Расследования](../../concepts/investigations.md).
+* [Запросы](../../concepts/queries.md).
+* [Работа с шаблонами запросов](work-with-templates.md).
+* [История запросов](query-history.md).

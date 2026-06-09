@@ -1,6 +1,6 @@
 # Строка запроса
 
-Строка запроса находится в разделах **{{ ui-key.yacloud_monitoring.aside-navigation.menu-item.dashboards.title }}**, **{{ ui-key.yacloud_monitoring.aside-navigation.menu-item.alerts.title }}** и **{{ ui-key.yacloud_monitoring.aside-navigation.menu-item.explorer.title }}** и позволяет указать параметры для построения графиков.
+Строка запроса находится в разделах **Дашборды**, **Алерты** и **Метрики** и позволяет указать параметры для построения графиков.
 
 Вы можете ввести запрос в токенизированном или текстовом режиме.
 

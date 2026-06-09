@@ -5,7 +5,7 @@ Creates an OAuth application in the specified organization.
 ## HTTP request
 
 ```
-POST https://organization-manager.{{ api-host }}/organization-manager/v1/idp/application/oauth/applications
+POST https://organization-manager.api.cloud.yandex.net/organization-manager/v1/idp/application/oauth/applications
 ```
 
 ## Body parameters {#yandex.cloud.organizationmanager.v1.idp.application.oauth.CreateApplicationRequest}

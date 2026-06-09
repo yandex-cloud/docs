@@ -1,48 +1,48 @@
-# Управлять тарификацией {{ org-full-name }}
+# Управлять тарификацией Yandex Identity Hub
 
-Подключение пользователей {{ org-full-name }} к внешним приложениям [тарифицируется](../pricing.md#rules). [Управлять тарификацией](../pricing.md#pricing-management) сервиса {{ org-full-name }} вы можете через [интерфейс {{ cloud-center }}]({{ link-org-cloud-center }}).
+Подключение пользователей Yandex Identity Hub к внешним приложениям [тарифицируется](../pricing.md#rules). [Управлять тарификацией](../pricing.md#pricing-management) сервиса Yandex Identity Hub вы можете через [интерфейс Cloud Center](https://center.yandex.cloud/organization).
 
-## Привязать платежный аккаунт к {{ org-full-name }} {#add-billing-account}
+## Привязать платежный аккаунт к Yandex Identity Hub {#add-billing-account}
 
-По умолчанию для [организации](../concepts/organization.md) {{ org-full-name }} установлен нетарифицируемый лимит подключений в 15 пользователей, которые могут аутентифицироваться во внешних приложениях в течение календарного месяца. Чтобы использовать тарифицируемые возможности сервиса и [изменить](#modify-limit) этот лимит подключений, привяжите [платежный аккаунт](../../billing/concepts/billing-account.md) к {{ org-full-name }}:
+По умолчанию для [организации](../concepts/organization.md) Yandex Identity Hub установлен нетарифицируемый лимит подключений в 15 пользователей, которые могут аутентифицироваться во внешних приложениях в течение календарного месяца. Чтобы использовать тарифицируемые возможности сервиса и [изменить](#modify-limit) этот лимит подключений, привяжите [платежный аккаунт](../../billing/concepts/billing-account.md) к Yandex Identity Hub:
 
 {% list tabs group=instructions %}
 
-- Интерфейс {{ cloud-center }} {#cloud-center}
+- Интерфейс Cloud Center {#cloud-center}
 
-  1. Войдите в сервис [{{ org-full-name }}]({{ link-org-cloud-center }}).
+  1. Войдите в сервис [Yandex Identity Hub](https://center.yandex.cloud/organization).
 
       {% note info %}
       
-      Чтобы привязать платежный аккаунт к {{ org-full-name }}, необходимы следующие роли:
+      Чтобы привязать платежный аккаунт к Yandex Identity Hub, необходимы следующие роли:
       
-      * [роль](../security/index.md#organization-manager-idpInstances-billingAdmin) `organization-manager.idpInstances.billingAdmin` или выше на организацию {{ org-full-name }}.
+      * [роль](../security/index.md#organization-manager-idpInstances-billingAdmin) `organization-manager.idpInstances.billingAdmin` или выше на организацию Yandex Identity Hub.
       * [роль](../../billing/security/index.md#billing-accounts-editor) `billing.accounts.editor` или выше на платежный аккаунт.
       
       {% endnote %}
 
-  1. На панели слева выберите ![credit-card](../../_assets/console-icons/credit-card.svg) **{{ ui-key.yacloud_org.pages.organization-billing }}**.
+  1. На панели слева выберите ![credit-card](../../_assets/console-icons/credit-card.svg) **Управление тарифом**.
   1. Чтобы впервые привязать платежный аккаунт:
   
-      1. В правом верхнем углу нажмите кнопку **{{ ui-key.yacloud_org.organization.billing.layout.bind_account_action }}** и в открывшемся окне:
+      1. В правом верхнем углу нажмите кнопку **Привязать аккаунт** и в открывшемся окне:
 
           1. В списке платежных аккаунтов выберите нужный.
 
-              Если у вас нет платежного аккаунта или вы хотите создать новый, нажмите кнопку **{{ ui-key.yacloud_org.billing.accounts.dialog_button_create }}** и создайте новый платежный аккаунт по инструкции [{#T}](../../billing/operations/create-new-account.md).
-          1. Нажмите кнопку **{{ ui-key.yacloud_billing.billing.account.bind-cloud.button_bind }}**.
+              Если у вас нет платежного аккаунта или вы хотите создать новый, нажмите кнопку **Создать аккаунт** и создайте новый платежный аккаунт по инструкции [Создать новый платежный аккаунт](../../billing/operations/create-new-account.md).
+          1. Нажмите кнопку **Привязать**.
 
-  1. Чтобы изменить привязанный к {{ org-full-name }} платежный аккаунт:
+  1. Чтобы изменить привязанный к Yandex Identity Hub платежный аккаунт:
 
-      1. В правом верхнем углу нажмите кнопку **{{ ui-key.yacloud_org.organization.billing.layout.change_account_action }}** и в открывшемся окне:
+      1. В правом верхнем углу нажмите кнопку **Изменить аккаунт** и в открывшемся окне:
 
           1. В списке платежных аккаунтов выберите нужный.
 
-              Если вы хотите создать новый платежный аккаунт, нажмите кнопку **{{ ui-key.yacloud_org.billing.accounts.dialog_button_create }}** и создайте новый платежный аккаунт по инструкции [{#T}](../../billing/operations/create-new-account.md).
-          1. Нажмите кнопку **{{ ui-key.yacloud_billing.billing.account.bind-cloud.button_bind }}**.
+              Если вы хотите создать новый платежный аккаунт, нажмите кнопку **Создать аккаунт** и создайте новый платежный аккаунт по инструкции [Создать новый платежный аккаунт](../../billing/operations/create-new-account.md).
+          1. Нажмите кнопку **Привязать**.
 
 {% endlist %}
 
-В результате нужный платежный аккаунт будет привязан к {{ org-full-name }}, и вы сможете пользоваться тарифицируемыми возможностями {{ org-full-name }} и управлять ими.
+В результате нужный платежный аккаунт будет привязан к Yandex Identity Hub, и вы сможете пользоваться тарифицируемыми возможностями Yandex Identity Hub и управлять ими.
 
 ## Посмотреть статистику расходования лимита {#view-stats}
 
@@ -50,9 +50,9 @@
 
 {% list tabs group=instructions %}
 
-- Интерфейс {{ cloud-center }} {#cloud-center}
+- Интерфейс Cloud Center {#cloud-center}
 
-  1. Войдите в сервис [{{ org-full-name }}]({{ link-org-cloud-center }}).
+  1. Войдите в сервис [Yandex Identity Hub](https://center.yandex.cloud/organization).
 
       {% note info %}
       
@@ -60,10 +60,10 @@
       
       {% endnote %}
 
-  1. На панели слева выберите ![credit-card](../../_assets/console-icons/credit-card.svg) **{{ ui-key.yacloud_org.pages.organization-billing }}**.
-  1. В блоке **{{ ui-key.yacloud_org.organization.billing.LoggedUsersBlock.title }}** вы можете увидеть текущий размер лимита и его расходование.
+  1. На панели слева выберите ![credit-card](../../_assets/console-icons/credit-card.svg) **Управление тарифом**.
+  1. В блоке **Пользователи, выполнившие вход во внешние приложения** вы можете увидеть текущий размер лимита и его расходование.
 
-      Разверните блок **{{ ui-key.yacloud_org.organization.billing.LoggedUsersBlock.title }}**, чтобы посмотреть список пользователей, расходующих лимит подключений в текущем месяце. В списке указаны имена и идентификаторы пользователей, а также даты и время, когда эти пользователи впервые в текущем месяце аутентифицировались во внешних приложениях.
+      Разверните блок **Пользователи, выполнившие вход во внешние приложения**, чтобы посмотреть список пользователей, расходующих лимит подключений в текущем месяце. В списке указаны имена и идентификаторы пользователей, а также даты и время, когда эти пользователи впервые в текущем месяце аутентифицировались во внешних приложениях.
 
       {% note tip %}
 
@@ -79,9 +79,9 @@
 
 {% list tabs group=instructions %}
 
-- Интерфейс {{ cloud-center }} {#cloud-center}
+- Интерфейс Cloud Center {#cloud-center}
 
-  1. Войдите в сервис [{{ org-full-name }}]({{ link-org-cloud-center }}).
+  1. Войдите в сервис [Yandex Identity Hub](https://center.yandex.cloud/organization).
 
       {% note info %}
       
@@ -89,21 +89,21 @@
       
       {% endnote %}
 
-  1. На панели слева выберите ![credit-card](../../_assets/console-icons/credit-card.svg) **{{ ui-key.yacloud_org.pages.organization-billing }}**.
-  1. Если ваш [платежный аккаунт](../../billing/concepts/billing-account.md) еще не привязан к {{ org-full-name }}, [привяжите](#add-billing-account) его, чтобы иметь возможность использовать тарифицируемые возможности сервиса.
-  1. Нажмите кнопку **{{ ui-key.yacloud_org.organization.billing.ChangeLimitsBlock.change_limit_action }}** и в открывшемся окне:
+  1. На панели слева выберите ![credit-card](../../_assets/console-icons/credit-card.svg) **Управление тарифом**.
+  1. Если ваш [платежный аккаунт](../../billing/concepts/billing-account.md) еще не привязан к Yandex Identity Hub, [привяжите](#add-billing-account) его, чтобы иметь возможность использовать тарифицируемые возможности сервиса.
+  1. Нажмите кнопку **Изменить лимит** и в открывшемся окне:
 
       1. Чтобы увеличить лимит подключений:
       
-          1. В поле **{{ ui-key.yacloud_org.organization.billing.UpdateLimitDialog.new_limit }}** увеличьте лимит подключений и нажмите кнопку **{{ ui-key.yacloud_org.organization.billing.UpdateLimitDialog.action }}**.
+          1. В поле **Новый лимит** увеличьте лимит подключений и нажмите кнопку **Перейти к оплате**.
 
               Дополнительные пользователи сверх нетарифицируемого лимита будут [тарифицироваться](../pricing.md#rules).
-          1. В открывшемся окне проверьте оплачиваемую сумму и нажмите кнопку **{{ ui-key.yacloud_org.organization.billing.UpdateLimitDialog.confirm_action }}**, чтобы подтвердить оплату.
+          1. В открывшемся окне проверьте оплачиваемую сумму и нажмите кнопку **Оплатить**, чтобы подтвердить оплату.
 
               Необходимая сумма будет списана с вашего платежного аккаунта, а лимит подключений — изменен сразу после оплаты.
       1. Чтобы уменьшить лимит подключений:
 
-          1. В поле **{{ ui-key.yacloud_org.organization.billing.UpdateLimitDialog.new_limit }}** уменьшите лимит подключений и нажмите кнопку **{{ ui-key.yacloud_org.organization.billing.UpdateLimitDialog.downgrade_action }}**.
+          1. В поле **Новый лимит** уменьшите лимит подключений и нажмите кнопку **Сохранить**.
 
               Уже оплаченные подключения продолжат действовать до конца текущего месяца, а внесенные изменения вступят в силу, начиная с первого числа следующего месяца.
 
@@ -117,4 +117,4 @@
 
 #### См. также {#see-also}
 
-* [{#T}](../pricing.md)
+* [Правила тарификации в Yandex Identity Hub](../pricing.md)

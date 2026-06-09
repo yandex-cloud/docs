@@ -1,10 +1,10 @@
-# Метрики {{ mgl-full-name }}
+# Метрики Yandex Managed Service for GitLab
 
-В этом разделе описаны метрики сервиса [{{ mgl-name }}](../../managed-gitlab/index.md), поставляемые в {{ monitoring-name }}.
+В этом разделе описаны метрики сервиса [Managed Service for GitLab](../../managed-gitlab/index.md), поставляемые в Monium Metrics.
 
 Имя метрики пишется в метку `name`.
 
-Общие метки для всех метрик сервиса {{ mgl-name }}:
+Общие метки для всех метрик сервиса Managed Service for GitLab:
 
 | Метка     |   Значение                                     |
 |-----------|------------------------------------------------|
@@ -18,7 +18,7 @@
 Общая метка для метрик дисков — `mountpoint` (точка монтирования). Возможные значения:
 
 * `/` — системный диск.
-* `/place/gitlab` — диск {{ GL }}.
+* `/place/gitlab` — диск GitLab.
 
 Метрики дисков:
 

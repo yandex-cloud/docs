@@ -4,116 +4,116 @@
 
 ## Базы данных {#databases}
 
-* [{#T}](datalake.md)
-* [{#T}](datamart.md)
-* [{#T}](olap.md)
-* [{#T}](oltp.md)
-* [{#T}](sql.md)
-* [{#T}](cluster.md)
-* [{#T}](relational-databases.md)
-* [{#T}](columnar-databases.md)
+* [Data Lake](datalake.md)
+* [Data Mart](datamart.md)
+* [OLAP](olap.md)
+* [OLTP](oltp.md)
+* [SQL](sql.md)
+* [Кластер](cluster.md)
+* [Реляционные базы данных](relational-databases.md)
+* [Что такое колоночные базы данных](columnar-databases.md)
 
 ## Аналитика {#analytics}
 
-* [{#T}](data-analytics.md)
-* [{#T}](business-analytics.md)
-* [{#T}](end-to-end-analytics.md)
+* [Аналитика данных](data-analytics.md)
+* [Что такое бизнес-аналитика](business-analytics.md)
+* [Что такое сквозная аналитика](end-to-end-analytics.md)
 
 ## Искусственный интеллект {#ai}
 
-* [{#T}](ml-models.md)
-* [{#T}](chat-bot.md)
-* [{#T}](llm.md)
-* [{#T}](mcp.md)
-* [{#T}](nlp.md)
-* [{#T}](deep-learning.md)
+* [Модели машинного обучения](ml-models.md)
+* [Чат-бот с искусственным интеллектом](chat-bot.md)
+* [Большая языковая модель (LLM)](llm.md)
+* [MCP-сервер](mcp.md)
+* [Обработка естественного языка (NLP)](nlp.md)
+* [Глубокое обучение (Deep Learning)](deep-learning.md)
 
 ## Облачные вычисления и сервера {#servers}
 
-* [{#T}](backup.md)
-* [{#T}](vm.md)
-* [{#T}](gpu.md)
-* [{#T}](cloud-server.md)
-* [{#T}](sla.md)
-* [{#T}](lamp-and-lemp.md)
-* [{#T}](virtualization.md)
-* [{#T}](containerization.md)
+* [Бэкап: что такое резервное копирование данных](backup.md)
+* [Виртуальная машина](vm.md)
+* [Графический процессор (GPU)](gpu.md)
+* [Облачный сервер](cloud-server.md)
+* [Соглашение об уровне обслуживания (SLA)](sla.md)
+* [Стеки LAMP и LEMP](lamp-and-lemp.md)
+* [Что такое виртуализация](virtualization.md)
+* [Что такое контейнеризация](containerization.md)
 
 ## Хранение и обработка данных {#data}
 
-* [{#T}](bigdata.md)
-* [{#T}](datavault.md)
-* [{#T}](s3.md)
-* [{#T}](snapshot.md)
-* [{#T}](sharding.md)
+* [Big Data](bigdata.md)
+* [Data Vault](datavault.md)
+* [S3](s3.md)
+* [Снапшот](snapshot.md)
+* [Шардирование](sharding.md)
 
 ## Речевые технологии {#speech}
 
-* [{#T}](transcribation.md)
+* [Транскрибация](transcribation.md)
 
 ## Интернет вещей {#iot}
 
-* [{#T}](mqtt-server.md)
-* [{#T}](qos.md)
+* [MQTT-сервер](mqtt-server.md)
+* [QoS](qos.md)
 
 ## Управление проектами и задачами {#task-management}
 
-* [{#T}](backlog.md)
-* [{#T}](vcs.md)
-* [{#T}](ci-cd.md)
-* [{#T}](sprints.md)
-* [{#T}](kanban.md)
+* [Бэклог](backlog.md)
+* [Система контроля версий](vcs.md)
+* [CI/CD](ci-cd.md)
+* [Спринт](sprints.md)
+* [Что такое Kanban-доска](kanban.md)
 
 ## Сети и доставка контента {#networks}
 
 ### Сетевые протоколы и технологии передачи данных {#network-protocols}
 
-* [{#T}](cdn.md)
-* [{#T}](dhcp.md)
-* [{#T}](dns.md)
-* [{#T}](fqdn.md)
-* [{#T}](tcp-ip.md)
-* [{#T}](vlan.md)
-* [{#T}](vpn.md)
+* [Content Delivery Network (сеть распространения контента)](cdn.md)
+* [Протокол конфигурации динамического хоста (DHCP)](dhcp.md)
+* [Domain Name System (DNS)](dns.md)
+* [Полное доменное имя (FQDN)](fqdn.md)
+* [Технология TCP/IP](tcp-ip.md)
+* [Virtual Local Area Network (VLAN)](vlan.md)
+* [Виртуальные частные сети (VPN)](vpn.md)
 
 ### Веб‑протоколы и API {#web-protocols-api}
 
-* [{#T}](rest-api.md)
-* [{#T}](soap.md)
-* [{#T}](grpc.md)
-* [{#T}](cors.md)
-* [{#T}](openapi.md)
+* [REST API: для чего нужен и как работает](rest-api.md)
+* [Протокол SOAP: что это и как работает](soap.md)
+* [gRPC](grpc.md)
+* [CORS и принцип одинакового источника](cors.md)
+* [OpenAPI](openapi.md)
 
 ### Идентификация и адресация в сети {#identity-addressing}
 
-* [{#T}](url.md)
-* [{#T}](fqdn.md)
+* [Uniform Resource Locator (URL)](url.md)
+* [Полное доменное имя (FQDN)](fqdn.md)
 
 ### Механизмы взаимодействия и обмена данными {#interaction-mechanisms}
 
-* [{#T}](webhook.md)
-* [{#T}](cookie.md)
+* [Вебхук](webhook.md)
+* [Cookie](cookie.md)
 
 ### Инструменты и среды работы {#tools-environments}
 
-* [{#T}](cli.md)
+* [Обзор CLI: все о командной строке и ее возможностях](cli.md)
 
 ### Мониторинг и наблюдаемость систем {#monitoring-observability}
 
-* [{#T}](observability.md)
+* [Observability](observability.md)
 
 ## Безопасность {#security}
 
-* [{#T}](control-plane.md)
-* [{#T}](sasl.md)
-* [{#T}](tls.md)
-* [{#T}](waf.md)
-* [{#T}](ssl-certificate.md)
-* [{#T}](ipsec.md)
-* [{#T}](ddos.md)
-* [{#T}](jwt.md)
-* [{#T}](sso.md)
-* [{#T}](ssh-keygen.md)
+* [Control Plane и Data Plane](control-plane.md)
+* [SASL: фреймворк аутентификации и защиты данных](sasl.md)
+* [Введение в TLS: обзор принципов и основных характеристик](tls.md)
+* [Введение в WAF (Web Application Firewall)](waf.md)
+* [Зачем нужны SSL-сертификаты](ssl-certificate.md)
+* [Обзор IPsec: принципы и применение в сетевой безопасности](ipsec.md)
+* [Что такое DDoS-атаки и как от них защититься](ddos.md)
+* [JSON Web Token (JWT)](jwt.md)
+* [Технология единого входа (SSO)](sso.md)
+* [Протокол SSH и аутентификация с помощью ключей](ssh-keygen.md)
 
 # Облачная терминология
 

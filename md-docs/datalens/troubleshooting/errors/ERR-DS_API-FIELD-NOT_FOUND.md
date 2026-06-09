@@ -1,4 +1,4 @@
-# [{{ datalens-full-name }}] Unknown field
+# [Yandex DataLens] Unknown field
 
 `ERR.DS_API.FIELD.NOT_FOUND`
 

@@ -5,7 +5,7 @@ Retrieves the list of agents in the specified folder.
 ## HTTP request
 
 ```
-GET https://loadtesting.{{ api-host }}/loadtesting/api/v1/agent
+GET https://loadtesting.api.cloud.yandex.net/loadtesting/api/v1/agent
 ```
 
 ## Query parameters {#yandex.cloud.loadtesting.api.v1.ListAgentsRequest}

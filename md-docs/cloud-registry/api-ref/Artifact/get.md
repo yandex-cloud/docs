@@ -6,7 +6,7 @@ To get the list of available artifact resources, make [RegistryService.ListArtif
 ## HTTP request
 
 ```
-GET https://registry.{{ api-host }}/cloud-registry/v1/artifacts/{artifactId}
+GET https://registry.api.cloud.yandex.net/cloud-registry/v1/artifacts/{artifactId}
 ```
 
 ## Path parameters

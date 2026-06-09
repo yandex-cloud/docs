@@ -8,7 +8,7 @@ The schedule is disabled only after all snapshot creations and deletions trigger
 ## HTTP request
 
 ```
-POST https://compute.{{ api-host }}/compute/v1/snapshotSchedules/{snapshotScheduleId}:disable
+POST https://compute.api.cloud.yandex.net/compute/v1/snapshotSchedules/{snapshotScheduleId}:disable
 ```
 
 ## Path parameters

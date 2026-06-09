@@ -103,13 +103,13 @@ Yandex Cloud CDN позволяет организовать доставку к
 
  - [Редактирование изображений для сайтов с помощью Thumbor](tutorials/thumbor.md)
 
-### Интеграция L7-балансировщика с CDN и {{ objstorage-name }}
+### Интеграция L7-балансировщика с CDN и Object Storage
 
  - [Обзор](tutorials/cdn-storage-integration/index.md)
 
  - [Консоль управления, CLI и API](tutorials/cdn-storage-integration/console.md)
 
- - [{{ TF }}](tutorials/cdn-storage-integration/terraform.md)
+ - [Terraform](tutorials/cdn-storage-integration/terraform.md)
 
  - [Сине-зеленое и канареечное развертывание версий сервиса](tutorials/blue-green-canary-deployment.md)
 
@@ -119,17 +119,17 @@ Yandex Cloud CDN позволяет организовать доставку к
 
  - [Консоль управления, CLI, API](tutorials/protected-access-to-content/console.md)
 
- - [{{ TF }}](tutorials/protected-access-to-content/terraform.md)
+ - [Terraform](tutorials/protected-access-to-content/terraform.md)
 
- - [Миграция в {{ cdn-full-name }} из стороннего CDN-провайдера](tutorials/migrate-to-yc-cdn.md)
+ - [Миграция в Yandex Cloud CDN из стороннего CDN-провайдера](tutorials/migrate-to-yc-cdn.md)
 
-### Настройка хостинга статического сайта в бакете {{ objstorage-full-name }} с доступом через {{ cdn-full-name }}
+### Настройка хостинга статического сайта в бакете Yandex Object Storage с доступом через Yandex Cloud CDN
 
  - [Обзор](tutorials/cdn-hosting/index.md)
 
  - [Консоль управления, CLI, API](tutorials/cdn-hosting/console.md)
 
- - [{{ TF }}](tutorials/cdn-hosting/terraform.md)
+ - [Terraform](tutorials/cdn-hosting/terraform.md)
 
 ## Концепции
 
@@ -315,7 +315,7 @@ Yandex Cloud CDN позволяет организовать доставку к
 
  - [update](cli-ref/v0/resource/update.md)
 
- - [Справочник {{ TF }}](tf-ref.md)
+ - [Справочник Terraform](tf-ref.md)
 
 ## Справочник API
 
@@ -535,11 +535,11 @@ Yandex Cloud CDN позволяет организовать доставку к
 
  - [GetProviderCName](api-ref/Resource/getProviderCName.md)
 
- - [Метрики {{ monitoring-name }}](metrics-yc.md)
+ - [Метрики Monitoring](metrics-yc.md)
 
  - [Логи запросов](logs-ref.md)
 
- - [Аудитные логи {{ at-name }}](at-ref.md)
+ - [Аудитные логи Audit Trails](at-ref.md)
 
  - [История изменений](release-notes.md)
 

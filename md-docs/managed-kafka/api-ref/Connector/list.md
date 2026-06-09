@@ -5,7 +5,7 @@ Retrieves the list of Apache Kafka® connectors in a cluster.
 ## HTTP request
 
 ```
-GET https://{{ api-host-mdb }}/managed-kafka/v1/clusters/{clusterId}/connectors
+GET https://mdb.api.cloud.yandex.net/managed-kafka/v1/clusters/{clusterId}/connectors
 ```
 
 ## Path parameters

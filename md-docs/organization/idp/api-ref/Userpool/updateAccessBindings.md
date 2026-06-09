@@ -5,7 +5,7 @@ Updates access bindings for the specified userpool.
 ## HTTP request
 
 ```
-PATCH https://organization-manager.{{ api-host }}/organization-manager/v1/idp/userpools/{resourceId}:updateAccessBindings
+PATCH https://organization-manager.api.cloud.yandex.net/organization-manager/v1/idp/userpools/{resourceId}:updateAccessBindings
 ```
 
 ## Path parameters

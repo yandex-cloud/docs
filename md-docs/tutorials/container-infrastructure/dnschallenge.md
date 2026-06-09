@@ -1,9 +1,9 @@
-# Проверка DNS Challenge для сертификатов {{ lets-encrypt }} в {{ managed-k8s-full-name }}
+# Проверка DNS Challenge для сертификатов Let's Encrypt® в Yandex Managed Service for Kubernetes
 
-# Проверка DNS Challenge для сертификатов {{ lets-encrypt }}
+# Проверка DNS Challenge для сертификатов Let's Encrypt®
 
 
-Чтобы добавить возможность пройти проверку DNS Challenge при выписывании [сертификатов {{ lets-encrypt }}](../../certificate-manager/concepts/managed-certificate.md):
+Чтобы добавить возможность пройти проверку DNS Challenge при выписывании [сертификатов Let's Encrypt®](../../certificate-manager/concepts/managed-certificate.md):
 
 1. [Создайте сертификат](#create-cert).
 1. [Проверьте результат](#check-result).
@@ -15,10 +15,10 @@
 
 В стоимость поддержки описываемого решения входят:
 
-* Плата за кластер {{ managed-k8s-name }}: использование мастера и исходящий трафик (см. [тарифы {{ managed-k8s-name }}](../../managed-kubernetes/pricing.md)).
-* Плата за узлы кластера (ВМ): использование вычислительных ресурсов, операционной системы и хранилища (см. [тарифы {{ compute-name }}](../../compute/pricing.md)).
-* Плата за публичный IP-адрес, если он назначен узлам кластера (см. [тарифы {{ vpc-name }}](../../vpc/pricing.md#prices-public-ip)).
-* Плата за DNS-зону и DNS-запросы (см. [тарифы {{ dns-name }}](../../dns/pricing.md)).
+* Плата за кластер Managed Service for Kubernetes: использование мастера и исходящий трафик (см. [тарифы Managed Service for Kubernetes](../../managed-kubernetes/pricing.md)).
+* Плата за узлы кластера (ВМ): использование вычислительных ресурсов, операционной системы и хранилища (см. [тарифы Compute Cloud](../../compute/pricing.md)).
+* Плата за публичный IP-адрес, если он назначен узлам кластера (см. [тарифы Virtual Private Cloud](../../vpc/pricing.md#prices-public-ip)).
+* Плата за DNS-зону и DNS-запросы (см. [тарифы Cloud DNS](../../dns/pricing.md)).
 
 
 ## Перед началом работы {#before-begin}
@@ -34,9 +34,9 @@
      --output key.json
    ```
 
-1. [Зарегистрируйте публичную доменную зону и делегируйте домен](../../dns/operations/zone-create-public.md). Сертификат {{ lets-encrypt }} будет выписан для домена в этой зоне с прохождением [проверки DNS-01](https://letsencrypt.org/ru/docs/challenge-types/#проверка-dns-01).
+1. [Зарегистрируйте публичную доменную зону и делегируйте домен](../../dns/operations/zone-create-public.md). Сертификат Let's Encrypt® будет выписан для домена в этой зоне с прохождением [проверки DNS-01](https://letsencrypt.org/ru/docs/challenge-types/#проверка-dns-01).
 
-1. [Создайте группы безопасности](../../managed-kubernetes/operations/connect/security-groups.md) для кластера {{ managed-k8s-name }} и входящих в него групп узлов.
+1. [Создайте группы безопасности](../../managed-kubernetes/operations/connect/security-groups.md) для кластера Managed Service for Kubernetes и входящих в него групп узлов.
 
     {% note warning %}
     
@@ -47,22 +47,22 @@
 1. [Добавьте](../../vpc/operations/security-group-add-rule.md) в группы безопасности следующие правила:
    
      * В [группу безопасности кластера](../../managed-kubernetes/operations/connect/security-groups.md#rules-master) добавьте правило для исходящего трафика, которое разрешает проверку сертификатов через веб-хук cert-manager:
-       * **{{ ui-key.yacloud.vpc.network.security-groups.forms.field_sg-rule-port-range }}** — `10250`.
-       * **{{ ui-key.yacloud.vpc.network.security-groups.forms.field_sg-rule-protocol }}** — `{{ ui-key.yacloud.common.label_tcp }}`.
-       * **{{ ui-key.yacloud.vpc.network.security-groups.forms.field_sg-rule-destination }}** — `{{ ui-key.yacloud.vpc.network.security-groups.forms.value_sg-rule-destination-cidr }}`.
-       * **{{ ui-key.yacloud.vpc.network.security-groups.forms.field_sg-rule-cidr-blocks }}** — `0.0.0.0/0`.
+       * **Диапазон портов** — `10250`.
+       * **Протокол** — `TCP`.
+       * **Назначение** — `CIDR`.
+       * **CIDR блоки** — `0.0.0.0/0`.
      * В [группу безопасности группы узлов](../../managed-kubernetes/operations/connect/security-groups.md#rules-internal-nodegroup) добавьте правило для исходящего трафика, которое разрешает подключение к серверам Let's Encrypt® для выпуска сертификатов:
-       * **{{ ui-key.yacloud.vpc.network.security-groups.forms.field_sg-rule-port-range }}** — `443`.
-       * **{{ ui-key.yacloud.vpc.network.security-groups.forms.field_sg-rule-protocol }}** — `{{ ui-key.yacloud.common.label_tcp }}`.
-       * **{{ ui-key.yacloud.vpc.network.security-groups.forms.field_sg-rule-destination }}** — `{{ ui-key.yacloud.vpc.network.security-groups.forms.value_sg-rule-destination-cidr }}`.
-       * **{{ ui-key.yacloud.vpc.network.security-groups.forms.field_sg-rule-cidr-blocks }}** — `0.0.0.0/0`.
-1. [Создайте кластер {{ managed-k8s-name }}](../../managed-kubernetes/operations/kubernetes-cluster/kubernetes-cluster-create.md) и [группу узлов](../../managed-kubernetes/operations/node-group/node-group-create.md) любой подходящей конфигурации. При создании укажите группы безопасности, подготовленные ранее.
+       * **Диапазон портов** — `443`.
+       * **Протокол** — `TCP`.
+       * **Назначение** — `CIDR`.
+       * **CIDR блоки** — `0.0.0.0/0`.
+1. [Создайте кластер Managed Service for Kubernetes](../../managed-kubernetes/operations/kubernetes-cluster/kubernetes-cluster-create.md) и [группу узлов](../../managed-kubernetes/operations/node-group/node-group-create.md) любой подходящей конфигурации. При создании укажите группы безопасности, подготовленные ранее.
 
-1. [Установите kubectl]({{ k8s-docs }}/tasks/tools/install-kubectl) и [настройте его на работу с созданным кластером](../../managed-kubernetes/operations/connect/index.md#kubectl-connect).
+1. [Установите kubectl](https://kubernetes.io/ru/docs/tasks/tools/install-kubectl) и [настройте его на работу с созданным кластером](../../managed-kubernetes/operations/connect/index.md#kubectl-connect).
 
 ## Создайте сертификат {#create-cert}
 
-1. Установите приложение cert-manager c плагином {{ dns-full-name }} ACME webhook [по инструкции](../../managed-kubernetes/operations/applications/cert-manager-cloud-dns.md).
+1. Установите приложение cert-manager c плагином Yandex Cloud DNS ACME webhook [по инструкции](../../managed-kubernetes/operations/applications/cert-manager-cloud-dns.md).
 
     При установке укажите сервисный аккаунт и авторизованный ключ, которые были созданы [перед началом работы](#before-begin).
 
@@ -77,14 +77,14 @@
    spec:
      secretName: example-com-secret
      issuerRef:
-       # ClusterIssuer, созданный вместе с {{ dns-full-name }} ACME webhook
+       # ClusterIssuer, созданный вместе с Yandex Cloud DNS ACME webhook
        name: yc-clusterissuer
        kind: ClusterIssuer
      dnsNames:
        - <доменное_имя>
    ```
 
-1. Передайте сертификат в кластер {{ managed-k8s-name }}:
+1. Передайте сертификат в кластер Managed Service for Kubernetes:
 
    ```bash
    kubectl apply -f certificate.yaml
@@ -131,6 +131,6 @@
 
 Некоторые ресурсы платные. Чтобы за них не списывалась плата, удалите ресурсы, которые вы больше не будете использовать:
 
-1. [Удалите кластер {{ managed-k8s-name }}](../../managed-kubernetes/operations/kubernetes-cluster/kubernetes-cluster-delete.md).
+1. [Удалите кластер Managed Service for Kubernetes](../../managed-kubernetes/operations/kubernetes-cluster/kubernetes-cluster-delete.md).
 1. [Удалите публичную доменную зону](../../dns/operations/zone-delete.md).
 1. [Удалите сервисный аккаунт](../../iam/operations/sa/delete.md).

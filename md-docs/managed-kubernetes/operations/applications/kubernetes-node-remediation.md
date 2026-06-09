@@ -1,6 +1,6 @@
 # Установка Kubernetes Node Remediation
 
-[Kubernetes Node Remediation](https://www.medik8s.io/) — это набор операторов {{ k8s }}, которые обеспечивают автоматическое восстановление неисправных узлов кластера {{ managed-k8s-name }} и высокую доступность для stateful-нагрузок.
+[Kubernetes Node Remediation](https://www.medik8s.io/) — это набор операторов Kubernetes, которые обеспечивают автоматическое восстановление неисправных узлов кластера Managed Service for Kubernetes и высокую доступность для stateful-нагрузок.
 
 Решение состоит из двух контроллеров:
 
@@ -9,11 +9,11 @@
 
 ## Перед началом работы {#before-you-begin}
 
-1. Если у вас еще нет интерфейса командной строки {{ yandex-cloud }} (CLI), [установите и инициализируйте его](../../../cli/quickstart.md#install).
+1. Если у вас еще нет интерфейса командной строки Yandex Cloud (CLI), [установите и инициализируйте его](../../../cli/quickstart.md#install).
 
    По умолчанию используется каталог, указанный при [создании](../../../cli/operations/profile/profile-create.md) профиля CLI. Чтобы изменить каталог по умолчанию, используйте команду `yc config set folder-id <идентификатор_каталога>`. Также для любой команды вы можете указать другой каталог с помощью параметров `--folder-name` или `--folder-id`. Если вы обращаетесь к ресурсу по имени, поиск будет выполнен в каталоге по умолчанию. Если вы обращаетесь к ресурсу по идентификатору, поиск будет выполнен глобально — во всех каталогах с учетом прав доступа.
 
-1. [Убедитесь](../connect/security-groups.md), что группы безопасности для кластера {{ managed-k8s-name }} и его групп узлов настроены корректно. Если отсутствует какое-либо из правил — [добавьте](../../../vpc/operations/security-group-add-rule.md) его.
+1. [Убедитесь](../connect/security-groups.md), что группы безопасности для кластера Managed Service for Kubernetes и его групп узлов настроены корректно. Если отсутствует какое-либо из правил — [добавьте](../../../vpc/operations/security-group-add-rule.md) его.
 
     {% note warning %}
     
@@ -21,18 +21,18 @@
     
     {% endnote %}
 
-1. [Установите kubectl]({{ k8s-docs }}/tasks/tools/install-kubectl) и [настройте его на работу с созданным кластером](../connect/index.md#kubectl-connect).
+1. [Установите kubectl](https://kubernetes.io/ru/docs/tasks/tools/install-kubectl) и [настройте его на работу с созданным кластером](../connect/index.md#kubectl-connect).
 
-## Установка с помощью {{ marketplace-full-name }} {#marketplace-install}
+## Установка с помощью Yandex Cloud Marketplace {#marketplace-install}
 
-1. В [консоли управления]({{ link-console-main }}) выберите каталог.
-1. Перейдите в сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-kubernetes }}**.
-1. Нажмите на имя нужного кластера и выберите вкладку ![image](../../../_assets/console-icons/shopping-cart.svg) **{{ ui-key.yacloud.k8s.cluster.switch_marketplace }}**.
-1. В разделе **{{ ui-key.yacloud.marketplace-v2.label_available-products }}** выберите [Kubernetes Node Remediation](https://yandex.cloud/ru/marketplace/products/yc/kubernetes-node-remediation) и нажмите кнопку **{{ ui-key.yacloud.marketplace-v2.button_k8s-product-use }}**.
+1. В [консоли управления](https://console.yandex.cloud) выберите каталог.
+1. Перейдите в сервис **Managed Service for&nbsp;Kubernetes**.
+1. Нажмите на имя нужного кластера и выберите вкладку ![image](../../../_assets/console-icons/shopping-cart.svg) **Marketplace**.
+1. В разделе **Доступные для установки приложения** выберите [Kubernetes Node Remediation](https://yandex.cloud/ru/marketplace/products/yc/kubernetes-node-remediation) и нажмите кнопку **Перейти к установке**.
 1. Задайте настройки приложения:
    * **Пространство имен** — создайте новое [пространство имен](../../concepts/index.md#namespace) (например, `remediation-space`). Если вы оставите пространство имен по умолчанию, Kubernetes Node Remediation может работать некорректно.
    * **Название приложения** — укажите название приложения.
-1. Нажмите кнопку **{{ ui-key.yacloud.k8s.cluster.marketplace.button_install }}**.
+1. Нажмите кнопку **Установить**.
 1. Дождитесь перехода приложения в статус `Deployed`.
 1. [Создайте ресурс `NodeHealthCheck`](#create-resource).
 
@@ -42,8 +42,8 @@
 1. Для установки [Helm-чарта](https://helm.sh/docs/topics/charts/) с Kubernetes Node Remediation выполните команду:
 
    ```bash
-   helm pull oci://{{ mkt-k8s-key.yc_kubernetes-node-remediation.helmChart.name }} \
-     --version {{ mkt-k8s-key.yc_kubernetes-node-remediation.helmChart.tag }} \
+   helm pull oci://cr.yandex/yc-marketplace/yandex-cloud/medik8s/kubernetes-node-remediation/chart/kubernetes-node-remediation \
+     --version 1.0.1 \
      --untar && \
    helm install \
      --namespace <пространство_имен> \

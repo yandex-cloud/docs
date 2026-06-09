@@ -5,7 +5,7 @@ Updates the specified gateway.
 ## HTTP request
 
 ```
-PATCH https://vpc.{{ api-host }}/vpc/v1/gateways/{gatewayId}
+PATCH https://vpc.api.cloud.yandex.net/vpc/v1/gateways/{gatewayId}
 ```
 
 ## Path parameters

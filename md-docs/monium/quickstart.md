@@ -1,15 +1,15 @@
-# Как начать работать с {{ monium-name }}
+# Как начать работать с Monium
 
-{{ monium-name }} — платформа для сбора [метрик](metrics/overview.md), [логов](logs/quickstart.md) и [трейсов](traces/index.md) из {{ yandex-cloud }}, других облаков или вашей инфраструктуры.
+Monium — платформа для сбора [метрик](metrics/overview.md), [логов](logs/quickstart.md) и [трейсов](traces/index.md) из Yandex Cloud, других облаков или вашей инфраструктуры.
 
-Эта инструкция поможет передать телеметрию из вашего или демонстрационного приложения через [OTel Collector](https://opentelemetry.io/docs/) и просмотреть ее в {{ monium-name }}. 
+Эта инструкция поможет передать телеметрию из вашего или демонстрационного приложения через [OTel Collector](https://opentelemetry.io/docs/) и просмотреть ее в Monium. 
 
 Чтобы начать работу с телеметрией приложения:
 
 1. [Подготовьте облако к работе](#before-begin).
 1. [Создайте сервисный аккаунт и API-ключ](#create-ca-key).
 1. [Настройте приложение](#setup-app).
-1. [Просмотрите данные в {{ monium-name }}](#view-telemetry).
+1. [Просмотрите данные в Monium](#view-telemetry).
 
 ## Подготовьте облако к работе {#before-begin}
 
@@ -17,10 +17,10 @@
 
 - Консоль управления {#console}
 
-  1. Войдите в [консоль управления]({{ link-console-main }}) или зарегистрируйтесь. Если вы еще не зарегистрированы, перейдите в консоль управления и следуйте инструкциям.
-  1. На странице [**{{ ui-key.yacloud.component.navigation-menu.label_billing }}**]({{ link-console-billing }}) убедитесь, что у вас подключен [платежный аккаунт](../billing/concepts/billing-account.md) и он находится в статусе `ACTIVE` или `TRIAL_ACTIVE`. Если платежного аккаунта нет, [создайте его](../billing/quickstart/index.md#create_billing_account).
+  1. Войдите в [консоль управления](https://console.yandex.cloud) или зарегистрируйтесь. Если вы еще не зарегистрированы, перейдите в консоль управления и следуйте инструкциям.
+  1. На странице [**Yandex Cloud Billing**](https://center.yandex.cloud/billing/accounts) убедитесь, что у вас подключен [платежный аккаунт](../billing/concepts/billing-account.md) и он находится в статусе `ACTIVE` или `TRIAL_ACTIVE`. Если платежного аккаунта нет, [создайте его](../billing/quickstart/index.md#create_billing_account).
   
-      Если у вас есть активный платежный аккаунт, вы можете создать или выбрать [каталог](../resource-manager/concepts/resources-hierarchy.md#folder), в котором будет работать ваша инфраструктура, на [странице облака]({{ link-console-cloud }}).
+      Если у вас есть активный платежный аккаунт, вы можете создать или выбрать [каталог](../resource-manager/concepts/resources-hierarchy.md#folder), в котором будет работать ваша инфраструктура, на [странице облака](https://console.yandex.cloud/cloud).
   
       [Подробнее об облаках и каталогах](../resource-manager/concepts/resources-hierarchy.md).
 
@@ -32,21 +32,21 @@
 
 - Консоль управления {#console}
 
-  1. В [консоли управления]({{ link-console-main }}) перейдите в каталог, в котором будет храниться телеметрия.
-  1. Перейдите в сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_iam }}**.
-  1. Нажмите кнопку **{{ ui-key.yacloud.iam.folder.service-accounts.button_add }}**.
+  1. В [консоли управления](https://console.yandex.cloud) перейдите в каталог, в котором будет храниться телеметрия.
+  1. Перейдите в сервис **Identity and Access Management**.
+  1. Нажмите кнопку **Создать сервисный аккаунт**.
   1. Введите имя сервисного аккаунта, например `monium-sa`.
-  1. Нажмите кнопку ![image](../_assets/console-icons/plus.svg) **{{ ui-key.yacloud_components.acl.button.add-role }}** и добавьте [роль](security/index.md#monium-telemetry-writer) `monium.telemetry.writer`.
+  1. Нажмите кнопку ![image](../_assets/console-icons/plus.svg) **Добавить роль** и добавьте [роль](security/index.md#monium-telemetry-writer) `monium.telemetry.writer`.
   
       Если вы планируете передавать только некоторые типы данных, вместо `monium.telemetry.writer` выберите одну или несколько ролей с более узкими наборами разрешений: `monium.metrics.writer`, `monium.logs.writer`, `monium.traces.writer`.
-  1. Нажмите кнопку **{{ ui-key.yacloud.iam.folder.service-account.popup-robot_button_add }}**.
+  1. Нажмите кнопку **Создать**.
   1. В открывшемся списке выберите созданный сервисный аккаунт.
-  1. На панели сверху нажмите кнопку ![image](../_assets/console-icons/plus.svg) **{{ ui-key.yacloud.iam.folder.service-account.overview.button_create-key-popup }}** и выберите пункт **{{ ui-key.yacloud.iam.folder.service-account.overview.button_create_api_key }}**.
-  1. Выберите **{{ ui-key.yacloud.iam.folder.service-account.overview.field_key-scope }}** — `yc.monium.telemetry.write`.
+  1. На панели сверху нажмите кнопку ![image](../_assets/console-icons/plus.svg) **Создать новый ключ** и выберите пункт **Создать API-ключ**.
+  1. Выберите **Область действия** — `yc.monium.telemetry.write`.
   
       Если вы планируете передавать только некоторые типы данных, вместо `yc.monium.telemetry.write` выберите одну или несколько более узких [областей действия](../iam/concepts/authorization/api-key.md#scoped-api-keys): `yc.monium.metrics.write`, `yc.monium.logs.write`, `yc.monium.traces.write`.
-  1. (Опционально) Укажите **{{ ui-key.yacloud.iam.folder.service-account.overview.field_key-expires-at }}** создаваемого API-ключа.
-  1. Нажмите кнопку **{{ ui-key.yacloud.iam.folder.service-account.overview.popup-key_button_create }}**.
+  1. (Опционально) Укажите **Срок действия** создаваемого API-ключа.
+  1. Нажмите кнопку **Создать**.
   1. Сохраните полученный секретный ключ — он понадобится на следующем шаге.
   
       После закрытия окна повторно посмотреть секретный ключ будет нельзя.
@@ -56,22 +56,22 @@
 
 ## Настройте приложение {#setup-app}
 
-В {{ monium-name }} телеметрия организована в иерархии «проект → кластер → сервис». Данные для каждой пары «сервис-кластер» распределяются по отдельным шардам.
+В Monium телеметрия организована в иерархии «проект → кластер → сервис». Данные для каждой пары «сервис-кластер» распределяются по отдельным шардам.
 
-Способ настройки вашего приложения зависит от того, настроена в нем телеметрия или не настроена. Если телеметрия в приложении уже настроена, [задайте параметры подключения к {{ monium-name }}](#monium-connect). Если телеметрия еще не настроена или если у вас нет приложения, [выполните полную настройку](#otel-settings).
+Способ настройки вашего приложения зависит от того, настроена в нем телеметрия или не настроена. Если телеметрия в приложении уже настроена, [задайте параметры подключения к Monium](#monium-connect). Если телеметрия еще не настроена или если у вас нет приложения, [выполните полную настройку](#otel-settings).
 
-### Укажите параметры подключения к {{ monium-name }}, если телеметрия в вашем приложении уже настроена {#monium-connect}
+### Укажите параметры подключения к Monium, если телеметрия в вашем приложении уже настроена {#monium-connect}
 
-Если у вас есть приложение и в нем ранее уже была настроена отправка телеметрии, укажите параметры, необходимые для подключения к {{ monium-name }}:
+Если у вас есть приложение и в нем ранее уже была настроена отправка телеметрии, укажите параметры, необходимые для подключения к Monium:
 
 * Авторизация — [API-ключ](#create-ca-key).
-* Эндпоинт — `{{ api-host-monium }}:443`.
+* Эндпоинт — `ingest.monium.yandex.cloud:443`.
 * В заголовке: параметр `x-monium-project=folder__<идентификатор_каталога>`.
 * В атрибутах ресурса `OTEL_RESOURCE_ATTRIBUTES`: `cluster` или `deployment.name` и `service` или `service.name`.
 
 {% cut "Приоритет атрибутов при записи данных" %}
 
-Все метрики, логи, трейсы в {{ monium-name }} имеют обязательные метки `project`, `cluster` и `service`. Эти метки формируют ключ шарда.
+Все метрики, логи, трейсы в Monium имеют обязательные метки `project`, `cluster` и `service`. Эти метки формируют ключ шарда.
 
 При поставке телеметрии в формате OpenTelemetry значения ключевых атрибутов назначаются по следующим приоритетам:
 
@@ -101,11 +101,11 @@
 
   1. Установите переменные окружения:
      
-     * `MONIUM_PROJECT` — имя проекта {{ monium-name }}.
+     * `MONIUM_PROJECT` — имя проекта Monium.
 
        По умолчанию при создании облака и каталога создаются два проекта: `cloud__<идентификатор_облака>` и `folder__<идентификатор_каталога>`. Также можно [создать другие проекты](collector/project.md#project-create).
      
-       Для тестирования работы с {{ monium-name }} можно указать проект каталога, например, `folder__{{ folder-id-example }}`.
+       Для тестирования работы с Monium можно указать проект каталога, например, `folder__b1g86q4m5vej********`.
        
        При вводе вручную учитывайте, что после `folder` следуют два нижних подчеркивания.
      
@@ -119,9 +119,9 @@
 
   1. [Установите](https://opentelemetry.io/docs/collector/installation/) OTel Collector.
 
-     Данные можно отправлять в {{ monium-name }} без агента, напрямую из OpenTelemetry SDK.
+     Данные можно отправлять в Monium без агента, напрямую из OpenTelemetry SDK.
 
-  1. В файле [конфигурации](https://opentelemetry.io/docs/collector/configuration/) `otel-collector.yaml` настройте передачу данных в {{ monium-name }}.
+  1. В файле [конфигурации](https://opentelemetry.io/docs/collector/configuration/) `otel-collector.yaml` настройте передачу данных в Monium.
   
         Пример минимальной конфигурации `otel-collector.yaml`:
 
@@ -136,10 +136,10 @@
           cumulativetodelta:
           batch:
 
-        exporters:       # Подключение к {{ monium-name }}
+        exporters:       # Подключение к Monium
           otlp/monium:
             compression: zstd
-            endpoint: {{ api-host-monium }}:443
+            endpoint: ingest.monium.yandex.cloud:443
             headers:
               Authorization: "Api-Key ${env:MONIUM_API_KEY}"
               x-monium-project: "${env:MONIUM_PROJECT}"
@@ -160,7 +160,7 @@
               exporters: [ otlp/monium ]
         ```
 
-  1. Установите переменные окружения для распределения данных по шардам в {{ monium-name }}:
+  1. Установите переменные окружения для распределения данных по шардам в Monium:
      * `OTEL_SERVICE_NAME` — имя вашего приложения или сервиса.
      * (Опционально) `OTEL_RESOURCE_ATTRIBUTES="cluster=my-cluster"` — имя инсталляции, в которой работает приложение (например, боевое и тестовое окружение). По умолчанию `cluster=default`.
   
@@ -168,9 +168,9 @@
 
 - Демонстрационное приложение {#demo-app}
 
-  В этом примере вы установите демонстрационное приложение [Spring PetClinic](https://github.com/spring-projects/spring-petclinic) и настроите отправку телеметрии в {{ monium-name }}. 
+  В этом примере вы установите демонстрационное приложение [Spring PetClinic](https://github.com/spring-projects/spring-petclinic) и настроите отправку телеметрии в Monium. 
   
-  Для установки демонстрационного приложения вы можете временно создать [виртуальную машину](../compute/concepts/vm.md) {{ compute-full-name }}. Подробнее о создании подходящей виртуальной машины читайте в разделе [{#T}](../compute/operations/vm-create/create-linux-vm.md).
+  Для установки демонстрационного приложения вы можете временно создать [виртуальную машину](../compute/concepts/vm.md) Yandex Compute Cloud. Подробнее о создании подходящей виртуальной машины читайте в разделе [Создать виртуальную машину из публичного образа Linux](../compute/operations/vm-create/create-linux-vm.md).
   
   Ниже приведены примеры команд для установки демонстрационного приложения в ОС Linux Ubuntu.
   
@@ -180,7 +180,7 @@
   
   Для корректной работы демонстрационного приложения на ВМ или сервере должен быть разрешен _входящий трафик_ на TCP-портах `4317`, `4318` и `8080`.
   
-  При использовании виртуальной машины {{ compute-name }} [создайте](../vpc/operations/security-group-create.md) и [привяжите](../compute/operations/vm-control/vm-change-security-groups-set.md) к ней [группу безопасности](../vpc/concepts/security-groups.md), разрешающую указанные типы трафика.
+  При использовании виртуальной машины Compute Cloud [создайте](../vpc/operations/security-group-create.md) и [привяжите](../compute/operations/vm-control/vm-change-security-groups-set.md) к ней [группу безопасности](../vpc/concepts/security-groups.md), разрешающую указанные типы трафика.
   
   {% endnote %}
 
@@ -196,7 +196,7 @@
       wget https://github.com/open-telemetry/opentelemetry-collector-releases/releases/download/v0.144.0/otelcol_0.144.0_linux_amd64.tar.gz
       tar xvf otelcol_0.144.0_linux_amd64.tar.gz
       ```
-  1. Задайте переменные окружения, содержащие данные для аутентификации агента в {{ monium-name }}:
+  1. Задайте переменные окружения, содержащие данные для аутентификации агента в Monium:
   
       ```bash
       export MONIUM_PROJECT=folder__<идентификатор_каталога>
@@ -205,7 +205,7 @@
   
       Где:
   
-      * `<идентификатор_каталога>` — [идентификатор каталога](../resource-manager/operations/folder/get-id.md), в котором будет расположен [проект](concepts/glossary.md#project) {{ monium-name }}.
+      * `<идентификатор_каталога>` — [идентификатор каталога](../resource-manager/operations/folder/get-id.md), в котором будет расположен [проект](concepts/glossary.md#project) Monium.
       * `<api_ключ>` — [API-ключ](../iam/concepts/authorization/api-key.md) сервисного аккаунта.
   
           [Сервисному аккаунту](../iam/concepts/users/service-accounts.md) должна быть назначена [роль](security/index.md#monium-telemetry-writer) `monium.telemetry.writer` или более гранулярные роли для записи метрик, логов или трейсов. Для API-ключа должна быть выбрана [область действия](../iam/concepts/authorization/api-key.md#scoped-api-keys) `yc.monium.telemetry.write` или более узкие области действия для записи метрик, логов или трейсов.
@@ -221,7 +221,7 @@
       exporters:
         otlp_grpc/monium:
           compression: zstd
-          endpoint: {{ api-host-monium }}:443
+          endpoint: ingest.monium.yandex.cloud:443
           headers:
             Authorization: "Api-Key ${env:MONIUM_API_KEY}"
             x-monium-project: "${env:MONIUM_PROJECT}"
@@ -308,19 +308,19 @@
 
 {% endlist %}
 
-После завершения настройки приложения [просмотрите телеметрию в {{ monium-name }}](#view-telemetry).
+После завершения настройки приложения [просмотрите телеметрию в Monium](#view-telemetry).
 
-## Просмотрите данные в {{ monium-name }} {#view-telemetry}
+## Просмотрите данные в Monium {#view-telemetry}
 
 {% list tabs group=instructions %}
 
-- Интерфейс {{ monium-name }} {#console}
+- Интерфейс Monium {#console}
 
-  1. На главной странице [{{ monium-name }}]({{ link-monium }}) слева выберите раздел с нужным типом данных:
+  1. На главной странице [Monium](https://monium.yandex.cloud) слева выберите раздел с нужным типом данных:
 
       {% list tabs group=monium_telemetry_type %}
 
-      - {{ ui-key.yacloud_monitoring.aside-navigation.menu-item.explorer.title }} {#metrics}
+      - Метрики {#metrics}
 
         1. Вверху на шкале времени задайте временной промежуток поиска данных.
         1. В строке поиска введите запрос для поиска данных телеметрии:
@@ -331,9 +331,9 @@
             * `cluster = <имя_кластера>` — выберите имя инсталляции, в которой запущено ваше приложение. Если кластер не задан, то по умолчанию `cluster = default`.
             * `service = <имя_сервиса>` — имя вашего приложения или сервиса. Может передаваться в переменной окружения `OTEL_SERVICE_NAME`.
             
-              Если нужных меток нет в подсказках, их можно ввести вручную. Но, скорее всего, в систему не поступали данные с такими метками. Решение возможных проблем см. в разделе [{#T}](collector/troubleshooting.md).
+              Если нужных меток нет в подсказках, их можно ввести вручную. Но, скорее всего, в систему не поступали данные с такими метками. Решение возможных проблем см. в разделе [Устранение неполадок при поставке данных](collector/troubleshooting.md).
         
-        1. Нажмите **{{ ui-key.yacloud_monitoring.querystring.action.execute-query }}** или **{{ ui-key.yacloud_monitoring.querystring.button.apply-and-parse }}**.
+        1. Нажмите **Выполнить запрос** или **Выполнить**.
         
             На странице будут отображены данные, соответствующие запросу.
 
@@ -341,7 +341,7 @@
 
         Подробнее о [работе с метриками](metrics/metric-explorer.md).
 
-      - {{ ui-key.yacloud_monitoring.aside-navigation.menu-item.logs.title }} {#logs}
+      - Логи {#logs}
 
         1. Вверху на шкале времени задайте временной промежуток поиска данных.
         1. В строке поиска введите запрос для поиска данных телеметрии:
@@ -352,9 +352,9 @@
             * `cluster = <имя_кластера>` — выберите имя инсталляции, в которой запущено ваше приложение. Если кластер не задан, то по умолчанию `cluster = default`.
             * `service = <имя_сервиса>` — имя вашего приложения или сервиса. Может передаваться в переменной окружения `OTEL_SERVICE_NAME`.
             
-              Если нужных меток нет в подсказках, их можно ввести вручную. Но, скорее всего, в систему не поступали данные с такими метками. Решение возможных проблем см. в разделе [{#T}](collector/troubleshooting.md).
+              Если нужных меток нет в подсказках, их можно ввести вручную. Но, скорее всего, в систему не поступали данные с такими метками. Решение возможных проблем см. в разделе [Устранение неполадок при поставке данных](collector/troubleshooting.md).
         
-        1. Нажмите **{{ ui-key.yacloud_monitoring.querystring.action.execute-query }}** или **{{ ui-key.yacloud_monitoring.querystring.button.apply-and-parse }}**.
+        1. Нажмите **Выполнить запрос** или **Выполнить**.
         
             На странице будут отображены данные, соответствующие запросу.
 
@@ -362,7 +362,7 @@
 
         Подробнее о [работе с логами](logs/logs-explorer.md).
 
-      - {{ ui-key.yacloud_monitoring.aside-navigation.menu-item.traces.title }} {#traces}
+      - Трейсы {#traces}
 
         1. Вверху на шкале времени задайте временной промежуток поиска данных.
         1. В строке поиска введите запрос для поиска данных телеметрии:
@@ -373,9 +373,9 @@
             * `cluster = <имя_кластера>` — выберите имя инсталляции, в которой запущено ваше приложение. Если кластер не задан, то по умолчанию `cluster = default`.
             * `service = <имя_сервиса>` — имя вашего приложения или сервиса. Может передаваться в переменной окружения `OTEL_SERVICE_NAME`.
             
-              Если нужных меток нет в подсказках, их можно ввести вручную. Но, скорее всего, в систему не поступали данные с такими метками. Решение возможных проблем см. в разделе [{#T}](collector/troubleshooting.md).
+              Если нужных меток нет в подсказках, их можно ввести вручную. Но, скорее всего, в систему не поступали данные с такими метками. Решение возможных проблем см. в разделе [Устранение неполадок при поставке данных](collector/troubleshooting.md).
         
-        1. Нажмите **{{ ui-key.yacloud_monitoring.querystring.action.execute-query }}** или **{{ ui-key.yacloud_monitoring.querystring.button.apply-and-parse }}**.
+        1. Нажмите **Выполнить запрос** или **Выполнить**.
         
             На странице будут отображены данные, соответствующие запросу.
 
@@ -385,13 +385,13 @@
 
       {% endlist %}
 
-  1. Чтобы посмотреть информацию о шарде с данными, слева выберите **{{ ui-key.yacloud_monitoring.aside-navigation.menu-item.shards.title }}** и затем шард с названием вашего сервиса.
+  1. Чтобы посмотреть информацию о шарде с данными, слева выберите **Шарды** и затем шард с названием вашего сервиса.
 
 {% endlist %}
 
 {% note info %}
 
-Учитывайте, что данные в {{ monium-name }} появляются не сразу, а с задержкой, поскольку Otel Collector начинает отправку данных через 60 секунд.
+Учитывайте, что данные в Monium появляются не сразу, а с задержкой, поскольку Otel Collector начинает отправку данных через 60 секунд.
 
 {% endnote %}
 

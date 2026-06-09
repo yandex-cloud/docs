@@ -1,6 +1,6 @@
 # Сеть
 
-Сетевая инфраструктура {{ baremetal-full-name }} включает публичные и приватные сети, которые обеспечивают связность серверов с интернетом и между собой.
+Сетевая инфраструктура Yandex BareMetal включает публичные и приватные сети, которые обеспечивают связность серверов с интернетом и между собой.
 
 ![baremetal-network](../../_assets/baremetal/baremetal-network.svg)
 
@@ -8,21 +8,21 @@
 
 [Публичная сеть](public-network.md) — это сеть с доступом в интернет, к которой физически подключены все серверы. В публичной сети доступны [эфемерные](public-network.md#ephemeral-public-subnet) и [выделенные](public-network.md#public-subnet) публичные подсети.
 
-Подробнее о публичной сети читайте в разделе [{#T}](public-network.md).
+Подробнее о публичной сети читайте в разделе [Публичная сеть](public-network.md).
 
 ## Приватная сеть {#private-network}
 
 [Приватная сеть](private-network.md) — это локальная сеть, к которой подключены все серверы одного [пула](servers.md#server-pools). В приватной сети доступны [приватные подсети](private-network.md#private-subnet), [виртуальные сегменты сети (VRF)](private-network.md#vrf-segment) и [приватные соединения с облачными сетями](private-network.md#private-connection-to-vpc).
 
-Подробнее о приватной сети читайте в разделе [{#T}](private-network.md).
+Подробнее о приватной сети читайте в разделе [Приватная сеть](private-network.md).
 
 ## MAC-адреса сетевых интерфейсов {#mac-addresses}
 
-MAC-адреса сетевых интерфейсов сервера {{ baremetal-name }} вы можете [посмотреть](../operations/servers/get-info.md) на странице с информацией о сервере в блоке **{{ ui-key.yacloud.baremetal.title_section-network-interfaces }}**.
+MAC-адреса сетевых интерфейсов сервера BareMetal вы можете [посмотреть](../operations/servers/get-info.md) на странице с информацией о сервере в блоке **Сетевые интерфейсы**.
 
 ## Таблица маршрутизации сервера {#routing-table}
 
-В операционной системе сервера {{ baremetal-name }} должна быть настроена [таблица маршрутизации](https://ru.wikipedia.org/wiki/Таблица_маршрутизации), устанавливающая маршруты для трафика одновременно в [публичной](#public-network) и [приватной](#private-network) сетях.
+В операционной системе сервера BareMetal должна быть настроена [таблица маршрутизации](https://ru.wikipedia.org/wiki/Таблица_маршрутизации), устанавливающая маршруты для трафика одновременно в [публичной](#public-network) и [приватной](#private-network) сетях.
 
 Особенности настройки таблицы маршрутизации зависят от используемой операционной системы, но основываться таблица маршрутизации сервера должна на следующем примере:
 
@@ -33,32 +33,32 @@ MAC-адреса сетевых интерфейсов сервера {{ baremet
 192.168.0.0/16 via <сетевой_интерфейс_в_приватной_сети>
 ```
 
-## Особенности тарификации сетевого трафика в {{ baremetal-full-name }} при взаимодействии с другими сервисами {{ yandex-cloud }} {#traffic-pricing-pecs}
+## Особенности тарификации сетевого трафика в Yandex BareMetal при взаимодействии с другими сервисами Yandex Cloud {#traffic-pricing-pecs}
 
-### {{ vpc-full-name }} {#vpc-traffic}
+### Yandex Virtual Private Cloud {#vpc-traffic}
 
-Трафик, передаваемый из {{ vpc-full-name }} на публичные адреса сервиса {{ baremetal-full-name }}, классифицируется как исходящий трафик, и к нему применяются [правила тарификации {{ vpc-short-name }}](../../vpc/pricing.md#prices-traffic).
+Трафик, передаваемый из Yandex Virtual Private Cloud на публичные адреса сервиса Yandex BareMetal, классифицируется как исходящий трафик, и к нему применяются [правила тарификации VPC](../../vpc/pricing.md#prices-traffic).
 
 {% note info %}
 
-Если вам необходимо передавать большие объемы данных между {{ vpc-full-name }} и {{ baremetal-full-name }}, используйте сервис [{{ interconnect-full-name }}](../../interconnect/index.md).
+Если вам необходимо передавать большие объемы данных между Yandex Virtual Private Cloud и Yandex BareMetal, используйте сервис [Yandex Cloud Interconnect](../../interconnect/index.md).
 
-Трафик между приватными адресами {{ baremetal-full-name }} и {{ vpc-full-name }}, передаваемый в обоих направлениях через {{ interconnect-full-name }}, не тарифицируется.
+Трафик между приватными адресами Yandex BareMetal и Yandex Virtual Private Cloud, передаваемый в обоих направлениях через Yandex Cloud Interconnect, не тарифицируется.
 
 {% endnote %}
 
-### {{ objstorage-full-name }} {#storage-traffic}
+### Yandex Object Storage {#storage-traffic}
 
-Трафик, передаваемый между {{ baremetal-full-name }} и сервисом {{ objstorage-full-name }}, не тарифицируется независимо от направления, в соответствии с [правилами тарификации {{ objstorage-name }}](../../storage/pricing.md#prices-traffic).
+Трафик, передаваемый между Yandex BareMetal и сервисом Yandex Object Storage, не тарифицируется независимо от направления, в соответствии с [правилами тарификации Object Storage](../../storage/pricing.md#prices-traffic).
 
-### {{ backup-full-name }} {#backup-traffic}
+### Yandex Cloud Backup {#backup-traffic}
 
-Трафик, передаваемый между {{ baremetal-full-name }} и сервисом [{{ backup-full-name }}](../../backup/index.md), не тарифицируется.
+Трафик, передаваемый между Yandex BareMetal и сервисом [Yandex Cloud Backup](../../backup/index.md), не тарифицируется.
 
 #### См. также {#see-also}
 
-* [{#T}](public-network.md)
-* [{#T}](private-network.md)
-* [{#T}](dhcp.md)
-* [{#T}](mc-lag.md)
-* [{#T}](network-restrictions.md)
+* [Публичная сеть](public-network.md)
+* [Приватная сеть](private-network.md)
+* [Сервис DHCP в сети Yandex BareMetal](dhcp.md)
+* [Резервирование сетевого подключения BareMetal с помощью технологии MC-LAG](mc-lag.md)
+* [Ограничения в сетях BareMetal](network-restrictions.md)

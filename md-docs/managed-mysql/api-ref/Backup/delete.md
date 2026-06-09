@@ -5,7 +5,7 @@ Deletes the specified MySQL cluster backup.
 ## HTTP request
 
 ```
-DELETE https://{{ api-host-mdb }}/managed-mysql/v1/backups/{backupId}
+DELETE https://mdb.api.cloud.yandex.net/managed-mysql/v1/backups/{backupId}
 ```
 
 ## Path parameters

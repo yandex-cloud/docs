@@ -1,14 +1,14 @@
-# Запуск PySpark-задания с помощью {{ maf-full-name }}
+# Запуск PySpark-задания с помощью Yandex Managed Service for Apache Airflow™
 
-# Запуск PySpark-задания с помощью {{ maf-full-name }}
+# Запуск PySpark-задания с помощью Yandex Managed Service for Apache Airflow™
 
 {% note warning %}
 
-Руководство тестировалось на кластерах с версией {{ AF }} ниже 3.0.
+Руководство тестировалось на кластерах с версией Apache Airflow™ ниже 3.0.
 
 {% endnote %}
 
-С помощью кластера {{ maf-full-name }} можно автоматизировать работу с [сервисом {{ msp-full-name }}](../../managed-spark/index.md), включая создание кластеров {{ msp-full-name }}, запуск заданий и другие операции. Для этого создайте DAG — [направленный ациклический граф задач](../concepts/index.md) (DAG). Используя DAG, кластер {{ AF }} автоматически выполнит все необходимые действия по работе с {{ msp-full-name }}.
+С помощью кластера Yandex Managed Service for Apache Airflow™ можно автоматизировать работу с [сервисом Yandex Managed Service for Apache Spark™](../../managed-spark/index.md), включая создание кластеров Yandex Managed Service for Apache Spark™, запуск заданий и другие операции. Для этого создайте DAG — [направленный ациклический граф задач](../concepts/index.md) (DAG). Используя DAG, кластер Apache Airflow™ автоматически выполнит все необходимые действия по работе с Yandex Managed Service for Apache Spark™.
 
 Такой подход позволяет:
 * Выполнять задания по расписанию для создания отчетов и снимков данных, обслуживания, обновления метрик и т. п.
@@ -16,7 +16,7 @@
 * Быстро обрабатывать большие объемы данных без необходимости платить за постоянную инфраструктуру с ресурсами большой мощности.
 
 В этом руководстве показан пример использования простого DAG, включающего в себя:
-1. Создание кластера {{ msp-full-name }}.
+1. Создание кластера Yandex Managed Service for Apache Spark™.
 1. Запуск PySpark-задания: запись сообщений в лог.
 1. Удаление кластера.
 
@@ -31,17 +31,17 @@
 
 {% note info %}
 
-Создаваемый кластер {{ msp-full-name }} не использует S3-хранилище [{{ objstorage-full-name }}](../../storage/concepts/index.md) и глобальный каталог [{{ metastore-name }}](../../metadata-hub/concepts/metastore.md). В такой конфигурации кластер {{ msp-full-name }} может работать только с данными в памяти. Для работы с постоянными базами и таблицами, а также для долговременного хранения результатов подключите внешнее хранилище {{ objstorage-name }} и, при необходимости, кластер {{ metastore-name }} для управления метаданными. Подробнее см. в руководстве [{#T}](../../managed-spark/tutorials/airflow-automation.md).
+Создаваемый кластер Yandex Managed Service for Apache Spark™ не использует S3-хранилище [Yandex Object Storage](../../storage/concepts/index.md) и глобальный каталог [Apache Hive™ Metastore](../../metadata-hub/concepts/metastore.md). В такой конфигурации кластер Yandex Managed Service for Apache Spark™ может работать только с данными в памяти. Для работы с постоянными базами и таблицами, а также для долговременного хранения результатов подключите внешнее хранилище Object Storage и, при необходимости, кластер Apache Hive™ Metastore для управления метаданными. Подробнее см. в руководстве [Автоматизация работы с помощью Yandex Managed Service for Apache Airflow™](../../managed-spark/tutorials/airflow-automation.md).
 
 {% endnote %}
 
 
 ## Необходимые платные ресурсы {#paid-resources}
 
-* Кластер {{ maf-name }}: вычислительные ресурсы компонентов кластера (см. [тарифы {{ maf-name }}](../pricing.md)).
-* Бакет {{ objstorage-name }}: использование хранилища и выполнение операций с данными (см. [тарифы {{ objstorage-name }}](../../storage/pricing.md)).
-* Сервис {{ cloud-logging-full-name }}: объем записываемых данных и время их хранения (см. [тарифы {{ cloud-logging-name }}](../../logging/pricing.md)).
-* Кластер {{ msp-full-name }}: вычислительные ресурсы компонентов кластера (см. [тарифы {{ msp-full-name }}](../../managed-spark/pricing.md)).
+* Кластер Managed Service for Apache Airflow™: вычислительные ресурсы компонентов кластера (см. [тарифы Managed Service for Apache Airflow™](../pricing.md)).
+* Бакет Object Storage: использование хранилища и выполнение операций с данными (см. [тарифы Object Storage](../../storage/pricing.md)).
+* Сервис Yandex Cloud Logging: объем записываемых данных и время их хранения (см. [тарифы Cloud Logging](../../logging/pricing.md)).
+* Кластер Yandex Managed Service for Apache Spark™: вычислительные ресурсы компонентов кластера (см. [тарифы Yandex Managed Service for Apache Spark™](../../managed-spark/pricing.md)).
 
 
 ## Подготовьте инфраструктуру {#infra}
@@ -58,10 +58,10 @@
 
 1. [Создайте сервисный аккаунт](../../iam/operations/sa/create.md) `integration-agent` со следующими ролями:
 
-   * [{{ roles.maf.integrationProvider }}](../../iam/roles-reference.md#managed-airflow-integrationProvider) — чтобы кластер {{ AF }} мог [взаимодействовать с другими ресурсами](../concepts/impersonation.md).
-   * [managed-spark.editor](../../iam/roles-reference.md#managed-spark-editor) — чтобы управлять кластером {{ msp-full-name }} из DAG.
-   * [iam.serviceAccounts.user](../../iam/roles-reference.md#iam-serviceAccounts-user) — чтобы выбрать сервисный аккаунт `integration-agent` при создании кластера {{ msp-full-name }}.
-   * [{{ roles-vpc-user }}](../../iam/roles-reference.md#vpc-user) — чтобы использовать в кластере {{ AF }} [подсеть {{ vpc-full-name }}](../../vpc/concepts/network.md#subnet).
+   * [managed-airflow.integrationProvider](../../iam/roles-reference.md#managed-airflow-integrationProvider) — чтобы кластер Apache Airflow™ мог [взаимодействовать с другими ресурсами](../concepts/impersonation.md).
+   * [managed-spark.editor](../../iam/roles-reference.md#managed-spark-editor) — чтобы управлять кластером Yandex Managed Service for Apache Spark™ из DAG.
+   * [iam.serviceAccounts.user](../../iam/roles-reference.md#iam-serviceAccounts-user) — чтобы выбрать сервисный аккаунт `integration-agent` при создании кластера Yandex Managed Service for Apache Spark™.
+   * [vpc.user](../../iam/roles-reference.md#vpc-user) — чтобы использовать в кластере Apache Airflow™ [подсеть Yandex Virtual Private Cloud](../../vpc/concepts/network.md#subnet).
    * [logging.editor](../../iam/roles-reference.md#logging-editor) — чтобы работать с лог-группами.
    * [logging.reader](../../iam/roles-reference.md#logging-reader) — чтобы читать логи.
    * [mdb.viewer](../../iam/roles-reference.md#mdb-viewer) — чтобы получать статусы операций.
@@ -74,12 +74,12 @@
 
    Вместе с ней будут автоматически созданы три подсети в разных зонах доступности и группа безопасности.
 
-1. [Создайте кластер {{ maf-name }}](../operations/cluster-create.md) с параметрами:
+1. [Создайте кластер Managed Service for Apache Airflow™](../operations/cluster-create.md) с параметрами:
 
    * **Сервисный аккаунт** — `integration-agent`.
-   * **Зона доступности** — `{{ region-id }}-a`.
+   * **Зона доступности** — `ru-central1-a`.
    * **Сеть** — `datalake-network`.
-   * **Подсеть** — `datalake-network-{{ region-id }}-a`.
+   * **Подсеть** — `datalake-network-ru-central1-a`.
    * **Группа безопасности** — группа по умолчанию в сети `datalake-network`.
    * **Имя бакета** — имя созданного ранее бакета.
 
@@ -91,7 +91,7 @@
 1. Выводит количество строк в созданном DataFrame.
 1. Выводит первые пять строк в табличном виде. 
 
-Скрипт будет храниться в бакете {{ objstorage-name }}.
+Скрипт будет храниться в бакете Object Storage.
 
 Подготовьте файл скрипта:
 
@@ -116,9 +116,9 @@
 
 DAG будет состоять из нескольких вершин, которые формируют цепочку последовательных действий:
 
-1. {{ maf-name }} создает временный кластер {{ msp-full-name }} с настройками, заданными в DAG.
-1. Когда кластер {{ msp-full-name }} готов, запускается задание PySpark.
-1. После выполнения задания временный кластер {{ msp-full-name }} удаляется.
+1. Managed Service for Apache Airflow™ создает временный кластер Yandex Managed Service for Apache Spark™ с настройками, заданными в DAG.
+1. Когда кластер Yandex Managed Service for Apache Spark™ готов, запускается задание PySpark.
+1. После выполнения задания временный кластер Yandex Managed Service for Apache Spark™ удаляется.
 
 Чтобы подготовить DAG:
 
@@ -151,7 +151,7 @@ DAG будет состоять из нескольких вершин, кото
 
 
    @task
-   # 1 этап: создание кластера {{ msp-full-name }}
+   # 1 этап: создание кластера Yandex Managed Service for Apache Spark™
    def create_cluster(yc_hook, cluster_spec):
        spark_client = yc_hook.sdk.wrappers.Spark()
        spark_client.create_cluster(cluster_spec)
@@ -178,7 +178,7 @@ DAG будет состоять из нескольких вершин, кото
 
 
    @task(trigger_rule="all_done")
-   # 3 этап: удаление кластера {{ msp-full-name }}
+   # 3 этап: удаление кластера Yandex Managed Service for Apache Spark™
    def delete_cluster(yc_hook, cluster_id):
        if cluster_id:
            spark_client = yc_hook.sdk.wrappers.Spark()
@@ -221,10 +221,10 @@ DAG будет состоять из нескольких вершин, кото
 
    Где:
 
-   * `FOLDER_ID` — идентификатор каталога, в котором будет создан кластер {{ msp-full-name }}.
-   * `SERVICE_ACCOUNT_ID` — идентификатор сервисного аккаунта, который будет использоваться для создания кластера {{ msp-full-name }}.
-   * `SUBNET_IDS` — идентификатор подсети `datalake-network-{{ region-id }}-a`.
-   * `SECURITY_GROUP_IDS` — идентификатор группы безопасности для кластера {{ msp-full-name }}.
+   * `FOLDER_ID` — идентификатор каталога, в котором будет создан кластер Yandex Managed Service for Apache Spark™.
+   * `SERVICE_ACCOUNT_ID` — идентификатор сервисного аккаунта, который будет использоваться для создания кластера Yandex Managed Service for Apache Spark™.
+   * `SUBNET_IDS` — идентификатор подсети `datalake-network-ru-central1-a`.
+   * `SECURITY_GROUP_IDS` — идентификатор группы безопасности для кластера Yandex Managed Service for Apache Spark™.
    * `JOB_NAME` — имя задания PySpark.
    * `JOB_SCRIPT` — путь к файлу с заданием PySpark в бакете.
    * `JOB_ARGS` — аргументы задания PySpark.
@@ -232,8 +232,8 @@ DAG будет состоять из нескольких вершин, кото
 
    {% endcut %}
 
-1. Загрузите DAG в кластер {{ AF }}: создайте в бакете папку `dags` и загрузите в нее файл `dag.py`.
-1. Откройте [веб-интерфейс {{ AF }}](../operations/af-interfaces.md#web-gui).
+1. Загрузите DAG в кластер Apache Airflow™: создайте в бакете папку `dags` и загрузите в нее файл `dag.py`.
+1. Откройте [веб-интерфейс Apache Airflow™](../operations/af-interfaces.md#web-gui).
 1. Убедитесь, что в разделе **DAGs** появился новый DAG `example_spark`.
 
    Загрузка DAG-файла из бакета может занять несколько минут.
@@ -242,7 +242,7 @@ DAG будет состоять из нескольких вершин, кото
 
 ## Проверьте результат {#check-out}
 
-1. В [веб-интерфейсе {{ AF }}](../operations/af-interfaces.md#web-gui) нажмите на название DAG `example_spark` и отслеживайте выполнение задач.
+1. В [веб-интерфейсе Apache Airflow™](../operations/af-interfaces.md#web-gui) нажмите на название DAG `example_spark` и отслеживайте выполнение задач.
 1. Дождитесь, когда все три задачи в DAG перейдут в статус **Success**. 
 1. Перейдите на вкладку `Graph`.
 1. В открывшемся графе нажмите на задачу `run_spark_job` и перейдите на вкладку `Logs`.
@@ -266,7 +266,7 @@ DAG будет состоять из нескольких вершин, кото
 
 {% note info %}
 
-В [консоли управления]({{ link-console-main }}) вы можете следить за созданием кластера {{ msp-full-name }}, выполнением задания PySpark и удалением кластера.
+В [консоли управления](https://console.yandex.cloud) вы можете следить за созданием кластера Yandex Managed Service for Apache Spark™, выполнением задания PySpark и удалением кластера.
 
 {% endnote %}
 
@@ -275,8 +275,8 @@ DAG будет состоять из нескольких вершин, кото
 Некоторые ресурсы платные. Удалите ресурсы, которые вы больше не будете использовать, чтобы не платить за них:
 
 1. [Сервисный аккаунт](../../iam/operations/sa/delete.md).
-1. [Бакет {{ objstorage-name }}](../../storage/operations/buckets/delete.md).
-1. [Кластер {{ AF }}](../operations/cluster-delete.md).
+1. [Бакет Object Storage](../../storage/operations/buckets/delete.md).
+1. [Кластер Apache Airflow™](../operations/cluster-delete.md).
 1. [Группу безопасности](../../vpc/operations/security-group-delete.md), созданную по умолчанию в сети `datalake-network`.
 1. [Облачные подсети](../../vpc/operations/subnet-delete.md), созданные по умолчанию в сети `datalake-network`.
 1. [Облачную сеть](../../vpc/operations/network-delete.md) `datalake-network`.

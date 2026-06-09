@@ -6,16 +6,16 @@
 
 - Консоль управления {#console}
 
-  1. В [консоли управления]({{ link-console-main }}) выберите каталог, где находится адрес.
-  1. Перейдите в сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_vpc }}**.
-  1. На панели слева выберите ![image](../../_assets/console-icons/map-pin.svg) **{{ ui-key.yacloud.vpc.switch_addresses }}**.
-  1. Нажмите значок ![image](../../_assets/console-icons/ellipsis.svg) в строке адреса, который требуется переместить, и выберите **{{ ui-key.yacloud.common.move }}**.
+  1. В [консоли управления](https://console.yandex.cloud) выберите каталог, где находится адрес.
+  1. Перейдите в сервис **Virtual Private Cloud**.
+  1. На панели слева выберите ![image](../../_assets/console-icons/map-pin.svg) **Публичные IP-адреса**.
+  1. Нажмите значок ![image](../../_assets/console-icons/ellipsis.svg) в строке адреса, который требуется переместить, и выберите **Переместить**.
   1. В открывшемся окне выберите каталог назначения.
-  1. Нажмите **{{ ui-key.yacloud.common.move }}**.
+  1. Нажмите **Переместить**.
 
 - CLI {#cli}
 
-  Если у вас еще нет интерфейса командной строки {{ yandex-cloud }} (CLI), [установите и инициализируйте его](../../cli/quickstart.md#install).
+  Если у вас еще нет интерфейса командной строки Yandex Cloud (CLI), [установите и инициализируйте его](../../cli/quickstart.md#install).
 
   По умолчанию используется каталог, указанный при [создании](../../cli/operations/profile/profile-create.md) профиля CLI. Чтобы изменить каталог по умолчанию, используйте команду `yc config set folder-id <идентификатор_каталога>`. Также для любой команды вы можете указать другой каталог с помощью параметров `--folder-name` или `--folder-id`. Если вы обращаетесь к ресурсу по имени, поиск будет выполнен в каталоге по умолчанию. Если вы обращаетесь к ресурсу по идентификатору, поиск будет выполнен глобально — во всех каталогах с учетом прав доступа.
 
@@ -77,7 +77,7 @@
       created_at: "2022-10-10T05:38:43Z"
       external_ipv4_address:
         address: 51.250.68.195
-        zone_id: {{ region-id }}-a
+        zone_id: ru-central1-a
         requirements: {}
       used: true
       type: EXTERNAL
@@ -135,4 +135,4 @@
 
 #### См. также {#see-also}
 
-* [{#T}](../../compute/operations/vm-control/vm-transferring-public-ip.md)
+* [Перенести публичный IP-адрес от одной ВМ на другую](../../compute/operations/vm-control/vm-transferring-public-ip.md)

@@ -1,53 +1,53 @@
 # Федеративные запросы к данным
 
-{{ yq-full-name }} — это интерактивный сервис для бессерверного анализа данных. С его помощью можно обрабатывать информацию из различных хранилищ без необходимости создания выделенного кластера. Поддерживается работа с хранилищами данных [{{ objstorage-full-name }}](../../storage/index.md), [{{ mpg-full-name }}](../../managed-postgresql/index.md), [{{ mch-full-name }}](../../managed-clickhouse/index.md).
+Yandex Query — это интерактивный сервис для бессерверного анализа данных. С его помощью можно обрабатывать информацию из различных хранилищ без необходимости создания выделенного кластера. Поддерживается работа с хранилищами данных [Yandex Object Storage](../../storage/index.md), [Yandex Managed Service for PostgreSQL](../../managed-postgresql/index.md), [Yandex Managed Service for ClickHouse®](../../managed-clickhouse/index.md).
 
 Данные из этих систем можно обрабатывать как по отдельности, так и в рамках одного общего запроса — такие запросы называются _федеративными_.
 
 В этом руководстве вы создадите три отдельных хранилища данных: покупатели, купленные товары и даты покупок. С помощью федеративного запроса из ячейки ноутбука вы сможете получить данные из всех хранилищ одновременно.
 
 1. [Подготовьте инфраструктуру](#infra).
-1. [Начните работу в {{ yq-name }}](#yq-begin).
-1. [Подключитесь к данным {{ objstorage-name }}](#storage-connect).
-1. [Подключитесь к данным {{ mch-name }}](#ch-connect).
-1. [Подключитесь к данным {{ mpg-name }}](#pg-connect).
+1. [Начните работу в Query](#yq-begin).
+1. [Подключитесь к данным Object Storage](#storage-connect).
+1. [Подключитесь к данным Managed Service for ClickHouse®](#ch-connect).
+1. [Подключитесь к данным Managed Service for PostgreSQL](#pg-connect).
 1. [Выполните федеративный запрос](#federated_query).
 
 Если созданные ресурсы вам больше не нужны, [удалите их](#clear-out).
 
 Ноутбук с примерами также доступен на [GitHub](https://github.com/yandex-cloud-examples/yc-yq-datasphere-examples).
 
-<a href="{{ link-datasphere-main }}/import-ipynb?path=https://raw.githubusercontent.com/yandex-cloud-examples/yc-yq-datasphere-examples/main/Working%20with%20Yandex%20Query%20in%20DataSphere.ipynb"><img src="https://storage.yandexcloud.net/datasphere-assets/datasphere_badge_v2_ru.svg" 
-  alt="Открыть в {{ ml-platform-name }}"/></a>
+<a href="https://datasphere.yandex.cloud/import-ipynb?path=https://raw.githubusercontent.com/yandex-cloud-examples/yc-yq-datasphere-examples/main/Working%20with%20Yandex%20Query%20in%20DataSphere.ipynb"><img src="https://storage.yandexcloud.net/datasphere-assets/datasphere_badge_v2_ru.svg" 
+  alt="Открыть в DataSphere"/></a>
 
 
 ## Перед началом работы {#before-you-begin}
 
-Перед началом работы нужно зарегистрироваться в {{ yandex-cloud }}, настроить [сообщество](../concepts/community.md) и привязать к нему [платежный аккаунт](../../billing/concepts/billing-account.md):
-1. [На главной странице {{ ml-platform-name }}]({{ link-datasphere-main }}) нажмите **Попробовать бесплатно** и выберите аккаунт для входа — Яндекс ID или рабочий аккаунт в федерации (SSO).
-1. Выберите [организацию {{ org-full-name }}](../../organization/index.md), в которой вы будете работать в {{ yandex-cloud }}.
+Перед началом работы нужно зарегистрироваться в Yandex Cloud, настроить [сообщество](../concepts/community.md) и привязать к нему [платежный аккаунт](../../billing/concepts/billing-account.md):
+1. [На главной странице DataSphere](https://datasphere.yandex.cloud) нажмите **Попробовать бесплатно** и выберите аккаунт для входа — Яндекс ID или рабочий аккаунт в федерации (SSO).
+1. Выберите [организацию Yandex Identity Hub](../../organization/index.md), в которой вы будете работать в Yandex Cloud.
 1. [Создайте сообщество](../operations/community/create.md).
-1. [Привяжите платежный аккаунт](../operations/community/link-ba.md) к сообществу {{ ml-platform-name }}, в котором вы будете работать. Убедитесь, что у вас подключен платежный аккаунт, и он находится в [статусе](../../billing/concepts/billing-account-statuses.md) `ACTIVE` или `TRIAL_ACTIVE`. Если платежного аккаунта нет, создайте его в интерфейсе {{ ml-platform-name }}.
+1. [Привяжите платежный аккаунт](../operations/community/link-ba.md) к сообществу DataSphere, в котором вы будете работать. Убедитесь, что у вас подключен платежный аккаунт, и он находится в [статусе](../../billing/concepts/billing-account-statuses.md) `ACTIVE` или `TRIAL_ACTIVE`. Если платежного аккаунта нет, создайте его в интерфейсе DataSphere.
 
 
 ### Необходимые платные ресурсы {#paid-resources}
 
-* Проект {{ ml-platform-name }}: использование вычислительных ресурсов и хранилища (см. [тарифы {{ ml-platform-name }}](../pricing.md)).
-* Кластер {{ mpg-name }}: выделенные хостам вычислительные ресурсы, объем хранилища и резервных копий (см. [тарифы {{ mpg-name }}](../../managed-postgresql/pricing.md)).
-* Кластер {{ mch-name }}: выделенные хостам вычислительные ресурсы, объем хранилища и резервных копий (см. [тарифы {{ mch-name }}](../../managed-clickhouse/pricing.md)).
-* Бакет {{ objstorage-name }}: использование хранилища и выполнение операций с данными (см. [тарифы {{ objstorage-name }}](../../storage/pricing.md)).
-* Сервис {{ yq-name }}: объем считанных данных при исполнении запросов (см. [тарифы {{ yq-name }}](../../query/pricing.md)).
+* Проект DataSphere: использование вычислительных ресурсов и хранилища (см. [тарифы DataSphere](../pricing.md)).
+* Кластер Managed Service for PostgreSQL: выделенные хостам вычислительные ресурсы, объем хранилища и резервных копий (см. [тарифы Managed Service for PostgreSQL](../../managed-postgresql/pricing.md)).
+* Кластер Managed Service for ClickHouse®: выделенные хостам вычислительные ресурсы, объем хранилища и резервных копий (см. [тарифы Managed Service for ClickHouse®](../../managed-clickhouse/pricing.md)).
+* Бакет Object Storage: использование хранилища и выполнение операций с данными (см. [тарифы Object Storage](../../storage/pricing.md)).
+* Сервис Query: объем считанных данных при исполнении запросов (см. [тарифы Query](../../query/pricing.md)).
 
 
 ## Подготовьте инфраструктуру {#infra}
 
-Войдите в [консоль управления]({{ link-console-main }}) {{ yandex-cloud }} и выберите организацию, в которой вы работаете с {{ ml-platform-name }}. На странице [**{{ ui-key.yacloud_billing.billing.label_service }}**]({{ link-console-billing }}) убедитесь, что у вас подключен платежный аккаунт.
+Войдите в [консоль управления](https://console.yandex.cloud) Yandex Cloud и выберите организацию, в которой вы работаете с DataSphere. На странице [**Yandex Cloud Billing**](https://center.yandex.cloud/billing/accounts) убедитесь, что у вас подключен платежный аккаунт.
 
-Если у вас есть активный платежный аккаунт, на [странице облака]({{ link-console-cloud }}) вы можете создать или выбрать каталог, в котором будет работать ваша инфраструктура.
+Если у вас есть активный платежный аккаунт, на [странице облака](https://console.yandex.cloud/cloud) вы можете создать или выбрать каталог, в котором будет работать ваша инфраструктура.
 
 {% note info %}
 
-Если вы работаете с {{ yandex-cloud }} через [федерацию удостоверений](../../organization/concepts/add-federation.md), вам может быть недоступна платежная информация. В этом случае обратитесь к администратору вашей организации в {{ yandex-cloud }}.
+Если вы работаете с Yandex Cloud через [федерацию удостоверений](../../organization/concepts/add-federation.md), вам может быть недоступна платежная информация. В этом случае обратитесь к администратору вашей организации в Yandex Cloud.
 
 {% endnote %}
 
@@ -57,43 +57,43 @@
 
 - Консоль управления {#console}
 
-   1. В [консоли управления]({{ link-console-main }}) выберите облако и нажмите кнопку ![create](../../_assets/console-icons/plus.svg)**{{ ui-key.yacloud.component.console-dashboard.button_action-create-folder }}**.
+   1. В [консоли управления](https://console.yandex.cloud) выберите облако и нажмите кнопку ![create](../../_assets/console-icons/plus.svg)**Создать каталог**.
    1. Введите имя каталога, например `data-folder`.
-   1. Нажмите кнопку **{{ ui-key.yacloud.iam.cloud.folders-create.button_create }}**.
+   1. Нажмите кнопку **Создать**.
 
 {% endlist %}
 
-### Создайте сервисный аккаунт для проекта {{ ml-platform-name }} {#create-sa}
+### Создайте сервисный аккаунт для проекта DataSphere {#create-sa}
 
 {% list tabs group=instructions %}
 
 - Консоль управления {#console}
 
-  1. В [консоли управления]({{ link-console-main }}) перейдите в каталог `data-folder`.
-  1. [Перейдите]( ../../console/operations/select-service.md#select-service) в сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_iam }}**.
-  1. Нажмите кнопку **{{ ui-key.yacloud.iam.folder.service-accounts.button_add }}**.
+  1. В [консоли управления](https://console.yandex.cloud) перейдите в каталог `data-folder`.
+  1. [Перейдите]( ../../console/operations/select-service.md#select-service) в сервис **Identity and Access Management**.
+  1. Нажмите кнопку **Создать сервисный аккаунт**.
   1. Введите имя [сервисного аккаунта](../../iam/concepts/users/service-accounts.md), например `yq-sa`.
-  1. Нажмите **{{ ui-key.yacloud.iam.folder.service-account.label_add-role }}** и назначьте сервисному аккаунту роли:
-     * `yq.editor` — для отправки запросов {{ yq-name }}.
-     * `storage.viewer` — для просмотра содержимого бакета и объектов {{ objstorage-name }}.
-     * `managed-clickhouse.viewer` — для просмотра содержимого кластера {{ mch-name }}.
-     * `managed-postgresql.viewer` — для просмотра содержимого кластера {{ mpg-name }}.
-  1. Нажмите кнопку **{{ ui-key.yacloud.iam.folder.service-account.popup-robot_button_add }}**.
+  1. Нажмите **Добавить роль** и назначьте сервисному аккаунту роли:
+     * `yq.editor` — для отправки запросов Query.
+     * `storage.viewer` — для просмотра содержимого бакета и объектов Object Storage.
+     * `managed-clickhouse.viewer` — для просмотра содержимого кластера Managed Service for ClickHouse®.
+     * `managed-postgresql.viewer` — для просмотра содержимого кластера Managed Service for PostgreSQL.
+  1. Нажмите кнопку **Создать**.
 
 {% endlist %}
 
 ### Добавьте сервисный аккаунт в проект {#sa-to-project}
 
-Чтобы сервисный аккаунт мог запускать проект {{ ml-platform-name }}, добавьте его в список участников проекта. 
+Чтобы сервисный аккаунт мог запускать проект DataSphere, добавьте его в список участников проекта. 
 
-1. Выберите нужный проект в своем сообществе или на [главной странице]({{ link-datasphere-main }}) {{ ml-platform-name }} во вкладке **{{ ui-key.yc-ui-datasphere.main-page.recent-projects }}**.
-1. На вкладке **{{ ui-key.yc-ui-datasphere.project-page.tab.members }}** нажмите **{{ ui-key.yc-ui-datasphere.common.add-member }}**.
-1. Выберите аккаунт `yq-sa` и нажмите **{{ ui-key.yc-ui-datasphere.common.add }}**.
+1. Выберите нужный проект в своем сообществе или на [главной странице](https://datasphere.yandex.cloud) DataSphere во вкладке **Недавние проекты**.
+1. На вкладке **Участники** нажмите **Добавить участника**.
+1. Выберите аккаунт `yq-sa` и нажмите **Добавить**.
 1. Измените роль сервисного аккаунта на **Editor**.
 
 ### Создайте авторизованный ключ для сервисного аккаунта {#create-key}
 
-Чтобы сервисный аккаунт мог отправлять запросы {{ yq-name }}, создайте [авторизованный ключ](../../iam/concepts/authorization/key.md).
+Чтобы сервисный аккаунт мог отправлять запросы Query, создайте [авторизованный ключ](../../iam/concepts/authorization/key.md).
 
 {% note info %}
 
@@ -105,13 +105,13 @@
 
 - Консоль управления {#console}
 
-  1. В [консоли управления]({{ link-console-main }}) перейдите в каталог `data-folder`.
-  1. [Перейдите]( ../../console/operations/select-service.md#select-service) в сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_iam }}**.
-  1. На панели слева выберите ![FaceRobot](../../_assets/console-icons/face-robot.svg) **{{ ui-key.yacloud.iam.label_service-accounts }}**.
+  1. В [консоли управления](https://console.yandex.cloud) перейдите в каталог `data-folder`.
+  1. [Перейдите]( ../../console/operations/select-service.md#select-service) в сервис **Identity and Access Management**.
+  1. На панели слева выберите ![FaceRobot](../../_assets/console-icons/face-robot.svg) **Сервисные аккаунты**.
   1. В открывшемся списке выберите сервисный аккаунт `yq-sa`.
-  1. Нажмите кнопку **{{ ui-key.yacloud.iam.folder.service-account.overview.button_create-key-popup }}** на верхней панели и выберите пункт **{{ ui-key.yacloud.iam.folder.service-account.overview.button_create_key }}**.
-  1. Выберите алгоритм шифрования и нажмите **{{ ui-key.yacloud.iam.folder.service-account.overview.popup-key_button_create }}**.
-  1. Нажмите **{{ ui-key.yacloud.iam.folder.service-account.overview.action_download-keys-file }}**.
+  1. Нажмите кнопку **Создать новый ключ** на верхней панели и выберите пункт **Создать авторизованный ключ**.
+  1. Выберите алгоритм шифрования и нажмите **Создать**.
+  1. Нажмите **Скачать файл с ключами**.
 
 {% endlist %}
 
@@ -119,30 +119,30 @@
 
 Чтобы получить авторизованный ключ из ноутбука, создайте [секрет](../concepts/secrets.md) с содержимым файла авторизованного ключа.
 
-1. Выберите нужный проект в своем сообществе или на [главной странице]({{ link-datasphere-main }}) {{ ml-platform-name }} во вкладке **{{ ui-key.yc-ui-datasphere.main-page.recent-projects }}**.
-1. В блоке **{{ ui-key.yc-ui-datasphere.project-page.project-resources }}** нажмите ![secret](../../_assets/console-icons/shield-check.svg)**{{ ui-key.yc-ui-datasphere.resources.secret }}**.
-1. Нажмите **{{ ui-key.yc-ui-datasphere.common.create }}**.
-1. В поле **{{ ui-key.yc-ui-datasphere.secret.name }}** задайте имя секрета — `yq_access_key`.
-1. В поле **{{ ui-key.yc-ui-datasphere.secret.content }}** вставьте полное содержимое скачанного файла с авторизированным ключом.
-1. Нажмите **{{ ui-key.yc-ui-datasphere.common.create }}**.
+1. Выберите нужный проект в своем сообществе или на [главной странице](https://datasphere.yandex.cloud) DataSphere во вкладке **Недавние проекты**.
+1. В блоке **Ресурсы проекта** нажмите ![secret](../../_assets/console-icons/shield-check.svg)**Секрет**.
+1. Нажмите **Создать**.
+1. В поле **Имя** задайте имя секрета — `yq_access_key`.
+1. В поле **Значение** вставьте полное содержимое скачанного файла с авторизированным ключом.
+1. Нажмите **Создать**.
 
 ### Создайте ноутбук {#create-notebook}
 
-Запросы к базе данных {{ mpg-name }} через {{ yq-name }} будут отправляться из ноутбука.
+Запросы к базе данных Managed Service for PostgreSQL через Query будут отправляться из ноутбука.
 
-1. Выберите нужный проект в своем сообществе или на [главной странице]({{ link-datasphere-main }}) {{ ml-platform-name }} во вкладке **{{ ui-key.yc-ui-datasphere.main-page.recent-projects }}**.
-1. Нажмите кнопку **{{ ui-key.yc-ui-datasphere.project-page.project-card.go-to-jupyter }}** и дождитесь окончания загрузки.
+1. Выберите нужный проект в своем сообществе или на [главной странице](https://datasphere.yandex.cloud) DataSphere во вкладке **Недавние проекты**.
+1. Нажмите кнопку **Открыть проект в JupyterLab** и дождитесь окончания загрузки.
 1. На верхней панели нажмите **File** и выберите **New** ⟶ **Notebook**.
 1. Выберите ядро и нажмите **Select**.
 
-## Начните работу в {{ yq-name }} {#yq-begin}
+## Начните работу в Query {#yq-begin}
 
-Пакет `yandex_query_magic` предоставляет _magic commands_ для работы в {{ jlab }}. Установите его для отправки запросов в {{ yq-name }}. Скопируйте код в ячейки ноутбука `yq-storage.ipynb`:
+Пакет `yandex_query_magic` предоставляет _magic commands_ для работы в Jupyter. Установите его для отправки запросов в Query. Скопируйте код в ячейки ноутбука `yq-storage.ipynb`:
 
-1. Откройте проект {{ ml-platform-name }}:
+1. Откройте проект DataSphere:
    
-   1. Выберите нужный проект в своем сообществе или на [главной странице]({{ link-datasphere-main }}) {{ ml-platform-name }} во вкладке **{{ ui-key.yc-ui-datasphere.main-page.recent-projects }}**.
-   1. Нажмите кнопку **{{ ui-key.yc-ui-datasphere.project-page.project-card.go-to-jupyter }}** и дождитесь окончания загрузки.
+   1. Выберите нужный проект в своем сообществе или на [главной странице](https://datasphere.yandex.cloud) DataSphere во вкладке **Недавние проекты**.
+   1. Нажмите кнопку **Открыть проект в JupyterLab** и дождитесь окончания загрузки.
    1. Откройте вкладку с ноутбуком.
 
 1. Установите пакет `yandex_query_magic`:
@@ -165,30 +165,30 @@
     %yq_settings --folder-id <идентификатор_каталога> --env-auth yq_access_key
     ```
 
-1. Выполните тестовый запрос к {{ yq-name }}:
+1. Выполните тестовый запрос к Query:
 
     ```sql
     %yq select "Hello, world!"
     ```
 
-## Подключитесь к данным {{ objstorage-name }} {#storage-connect}
+## Подключитесь к данным Object Storage {#storage-connect}
 
-Для работы с данными {{ objstorage-name }} вам понадобится бакет с таблицей, [подключение](../../query/concepts/glossary.md#connection) {{ yq-name }} и [привязка](../../query/concepts/glossary.md#binding) к данным.
+Для работы с данными Object Storage вам понадобится бакет с таблицей, [подключение](../../query/concepts/glossary.md#connection) Query и [привязка](../../query/concepts/glossary.md#binding) к данным.
 
 ### Создайте бакет с данными {#storage-data}
 
-[Бакет](../../storage/concepts/bucket.md) {{ objstorage-name }} будет содержать даты покупок.
+[Бакет](../../storage/concepts/bucket.md) Object Storage будет содержать даты покупок.
 
 {% list tabs group=instructions %}
 
 - Консоль управления {#console}
 
-  1. В [консоли управления]({{ link-console-main }}) перейдите в каталог `data-folder`.
-  1. [Перейдите]( ../../console/operations/select-service.md#select-service) в сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_storage }}**.
-  1. Справа сверху нажмите кнопку **{{ ui-key.yacloud.storage.buckets.button_create }}**.
-  1. В поле **{{ ui-key.yacloud.storage.bucket.settings.field_name }}** укажите имя бакета.
-  1. В полях **{{ ui-key.yacloud.storage.bucket.settings.field_access-read }}**, **{{ ui-key.yacloud.storage.bucket.settings.field_access-list }}** и **{{ ui-key.yacloud.storage.bucket.settings.field_access-config-read }}** выберите **{{ ui-key.yacloud.storage.bucket.settings.access_value_private }}**.
-  1. Нажмите кнопку **{{ ui-key.yacloud.storage.buckets.create.button_create }}**.
+  1. В [консоли управления](https://console.yandex.cloud) перейдите в каталог `data-folder`.
+  1. [Перейдите]( ../../console/operations/select-service.md#select-service) в сервис **Object Storage**.
+  1. Справа сверху нажмите кнопку **Создать бакет**.
+  1. В поле **Имя** укажите имя бакета.
+  1. В полях **Чтение объектов**, **Чтение списка объектов** и **Чтение настроек** выберите **С авторизацией**.
+  1. Нажмите кнопку **Создать бакет**.
   1. Создайте файл `visits.csv` и поместите в него таблицу с датами покупок:
 
      ```text
@@ -197,31 +197,31 @@
      2024-05-15 13:13:00|2|1
      ```
 
-  1. Перейдите в созданный бакет и нажмите **{{ ui-key.yacloud.storage.bucket.button_upload }}**.
+  1. Перейдите в созданный бакет и нажмите **Загрузить**.
   1. В появившемся окне выберите файл `visits.csv` и нажмите кнопку **Открыть**.
-  1. Нажмите кнопку **{{ ui-key.yacloud.storage.button_upload }}**.
+  1. Нажмите кнопку **Загрузить**.
 
 {% endlist %}
 
-### Создайте подключение к {{ objstorage-name }} {#yq-storage}
+### Создайте подключение к Object Storage {#yq-storage}
 
 {% list tabs group=instructions %}
 
 - Консоль управления {#console}
   
-  1. В [консоли управления]({{ link-console-main }}) перейдите в каталог `data-folder`.
-  1. [Перейдите]( ../../console/operations/select-service.md#select-service) в сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_yq_ru }}**.
-  1. На панели слева выберите **{{ ui-key.yql.yq-ide-aside.connections.tab-text }}**.
-  1. Нажмите кнопку ![info](../../_assets/console-icons/plus.svg)**{{ ui-key.yql.yq-connection-form.action_create-new }}**.
+  1. В [консоли управления](https://console.yandex.cloud) перейдите в каталог `data-folder`.
+  1. [Перейдите]( ../../console/operations/select-service.md#select-service) в сервис **Yandex Query**.
+  1. На панели слева выберите **Соединения**.
+  1. Нажмите кнопку ![info](../../_assets/console-icons/plus.svg)**Создать**.
   1. Введите имя соединения, например `storage-connection`.
-  1. Выберите тип соединения **{{ ui-key.yql.yq-connection.action_object-storage }}** и укажите **{{ ui-key.yql.yq-connection-form.connection-type-parameters.section-title }}**.
-  1. В поле **{{ ui-key.yql.yq-connection-form.bucket-auth.input-label }}** выберите `{{ ui-key.yql.yq-connection-form.private.button-text }}` и задайте параметры:
+  1. Выберите тип соединения **Object Storage** и укажите **Параметры типа соединения**.
+  1. В поле **Аутентификация бакета** выберите `Приватный` и задайте параметры:
 
-     * **{{ ui-key.yql.yq-connection-form.cloud.input-label }}** — `data-folder`.
-     * **{{ ui-key.yql.yq-connection-form.bucket.input-label }}** — выберите созданный бакет.
-     * **{{ ui-key.yql.yq-connection-form.service-account.input-label }}** — `yq-sa`.
+     * **Облако и каталог** — `data-folder`.
+     * **Бакет** — выберите созданный бакет.
+     * **Сервисный аккаунт** — `yq-sa`.
   
-  1. Нажмите кнопку **{{ ui-key.yql.yq-connection-form.create.button-text }}**.
+  1. Нажмите кнопку **Создать**.
 
 {% endlist %}
 
@@ -235,33 +235,33 @@
 
 - Консоль управления {#console}
 
-  1. В [консоли управления]({{ link-console-main }}) выберите каталог `data-folder`.
-  1. [Перейдите]( ../../console/operations/select-service.md#select-service) в сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_yq_ru }}**.
-  1. На панели слева выберите **{{ ui-key.yql.yq-ide-aside.bindings.tab-text }}**.
-  1. Нажмите кнопку ![info](../../_assets/console-icons/plus.svg) **{{ ui-key.yql.yq-binding-add.create-binding.button-text }}**.
-  1. В блоке **{{ ui-key.yql.yq-binding-form.connection-parameters.title }}**:
+  1. В [консоли управления](https://console.yandex.cloud) выберите каталог `data-folder`.
+  1. [Перейдите]( ../../console/operations/select-service.md#select-service) в сервис **Yandex Query**.
+  1. На панели слева выберите **Привязки**.
+  1. Нажмите кнопку ![info](../../_assets/console-icons/plus.svg) **Создать**.
+  1. В блоке **Параметры соединения**:
 
-     * **{{ ui-key.yql.yq-binding-form.connection-type.title }}** — выберите **{{ ui-key.yql.yq-connection.action_object-storage }}**.
-     * **{{ ui-key.yql.yq-binding-form.connection.title }}** — выберите `storage-connection`.
+     * **Тип** — выберите **Object Storage**.
+     * **Соединение** — выберите `storage-connection`.
 
-  1. В блоке **{{ ui-key.yql.yq-binding-form.binding-parameters.title }}**:
+  1. В блоке **Параметры привязки к данным**:
   
      1. Введите имя привязки, например `visits`.
-     1. В поле **{{ ui-key.yql.yq-binding-form.binding-path-pattern.title }}** укажите [путь к таблице](../../query/sources-and-sinks/object-storage.md#path_format) в бакете — `/visits.csv`.
+     1. В поле **Путь** укажите [путь к таблице](../../query/sources-and-sinks/object-storage.md#path_format) в бакете — `/visits.csv`.
   
-  1. В блоке **{{ ui-key.yql.yq-binding-form.binding-format-settings.title }}**:
+  1. В блоке **Настройки формата**:
      
-     * **{{ ui-key.yql.yq-binding-form.binding-format.title }}** — выберите `csv_with_names`.
-     * **{{ ui-key.yql.yq-binding-form.binding-format-settings-delimiter.title }}** — `|`.
+     * **Формат** — выберите `csv_with_names`.
+     * **Разделитель {%secondary%}(необязательно){%secondary%}** — `|`.
 
-  1. В блоке **{{ ui-key.yql.yq-binding-form.binding-fields.title }}** добавьте три колонки со следующими именами и типами данных:
+  1. В блоке **Колонки** добавьте три колонки со следующими именами и типами данных:
 
      * `date` — `DATETIME`.
      * `person_id` — `INT32`.
      * `items_id` — `INT32`.
   
-  1. Чтобы проверить корректность указанных данных, нажмите кнопку **{{ ui-key.yql.yq-binding-form.binding-preview.button-text }}**. Внизу должна появиться ваша таблица.
-  1. Нажмите кнопку **{{ ui-key.yql.yq-binding-form.binding-create.button-text }}**.
+  1. Чтобы проверить корректность указанных данных, нажмите кнопку **Предпросмотр**. Внизу должна появиться ваша таблица.
+  1. Нажмите кнопку **Создать**.
 
 {% endlist %}
 
@@ -271,48 +271,48 @@
 %yq SELECT * FROM visits LIMIT 100;
 ```
 
-## Подключитесь к данным {{ mch-name }} {#ch-connect}
+## Подключитесь к данным Managed Service for ClickHouse® {#ch-connect}
 
-Для работы с данными {{ mch-name }} вам понадобится кластер с таблицей и подключение {{ yq-name }}.
+Для работы с данными Managed Service for ClickHouse® вам понадобится кластер с таблицей и подключение Query.
 
-### Создайте кластер {{ mch-name }} {#cluster-ch}
+### Создайте кластер Managed Service for ClickHouse® {#cluster-ch}
 
-Для отправки запросов подойдет любой рабочий кластер {{ mch-name }} со включенной опцией **{{ ui-key.yacloud.mdb.forms.additional-field-yandex-query_ru }}**.
+Для отправки запросов подойдет любой рабочий кластер Managed Service for ClickHouse® со включенной опцией **Доступ из Yandex Query**.
 
 {% list tabs group=instructions %}
 
 - Консоль управления {#console}
 
-  1. В [консоли управления]({{ link-console-main }}) выберите каталог `data-folder`.
-  1. [Перейдите]( ../../console/operations/select-service.md#select-service) в сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-clickhouse }}**.
-  1. Нажмите кнопку **{{ ui-key.yacloud.mdb.clusters.button_create }}**.
-  1. Введите имя кластера в поле **{{ ui-key.yacloud.mdb.forms.base_field_name }}**, например `clickhouse`.
+  1. В [консоли управления](https://console.yandex.cloud) выберите каталог `data-folder`.
+  1. [Перейдите]( ../../console/operations/select-service.md#select-service) в сервис **Managed Service for&nbsp;ClickHouse**.
+  1. Нажмите кнопку **Создать кластер**.
+  1. Введите имя кластера в поле **Имя кластера**, например `clickhouse`.
 
-  1. В блоке **{{ ui-key.yacloud.mdb.forms.section_settings }}**:
+  1. В блоке **Настройки СУБД**:
 
-      * В поле **{{ ui-key.yacloud.mdb.forms.database_field_sql-user-management }}** выберите из выпадающего списка **{{ ui-key.yacloud.common.enabled }}**.
-      * Укажите **{{ ui-key.yacloud.mdb.forms.database_field_user-login }}** и **{{ ui-key.yacloud.mdb.forms.database_field_user-password }}**.
+      * В поле **Управление пользователями через SQL** выберите из выпадающего списка **Включено**.
+      * Укажите **Имя пользователя** и **Пароль**.
 
-  1. В блоке **{{ ui-key.yacloud.mdb.forms.section_service-settings }}**:
+  1. В блоке **Сервисные настройки**:
 
       * Выберите сервисный аккаунт `yq-sa`.
-      * Включите опции **{{ ui-key.yacloud.mdb.forms.additional-field-yandex-query_ru }}** и **Доступ из консоли управления**.
+      * Включите опции **Доступ из Yandex Query** и **Доступ из консоли управления**.
 
   1. Остальные настройки можно оставить по умолчанию.
-  1. Нажмите кнопку **{{ ui-key.yacloud.mdb.forms.button_create }}**.
+  1. Нажмите кнопку **Создать кластер**.
 
 {% endlist %}
 
 ### Создайте таблицу {#ch-data}
 
-Таблица {{ mch-name }} будет содержать названия товаров.
+Таблица Managed Service for ClickHouse® будет содержать названия товаров.
 
 {% list tabs group=instructions %}
 
 - Консоль управления {#console}
 
-  1. В [консоли управления]({{ link-console-main }}), откройте страницу кластера `clickhouse` и перейдите на вкладку **SQL**.
-  1. Введите **{{ ui-key.yacloud.mdb.forms.database_field_user-login }}** и **{{ ui-key.yacloud.mdb.forms.database_field_user-password }}**, указанные при создании кластера.
+  1. В [консоли управления](https://console.yandex.cloud), откройте страницу кластера `clickhouse` и перейдите на вкладку **SQL**.
+  1. Введите **Имя пользователя** и **Пароль**, указанные при создании кластера.
   1. В окно ввода справа последовательно выполните SQL-запросы:
 
      ```sql
@@ -331,25 +331,25 @@
 
 {% endlist %}
 
-### Создайте подключение к {{ mch-name }} {#yq-ch}
+### Создайте подключение к Managed Service for ClickHouse® {#yq-ch}
 
 {% list tabs group=instructions %}
 
 - Консоль управления {#console}
   
-  1. В [консоли управления]({{ link-console-main }}) выберите каталог `data-folder`.
-  1. [Перейдите]( ../../console/operations/select-service.md#select-service) в сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_yq_ru }}**.
-  1. На панели слева выберите **{{ ui-key.yql.yq-ide-aside.connections.tab-text }}**.
-  1. Нажмите кнопку ![info](../../_assets/console-icons/plus.svg)**{{ ui-key.yql.yq-connection-form.action_create-new }}**.
+  1. В [консоли управления](https://console.yandex.cloud) выберите каталог `data-folder`.
+  1. [Перейдите]( ../../console/operations/select-service.md#select-service) в сервис **Yandex Query**.
+  1. На панели слева выберите **Соединения**.
+  1. Нажмите кнопку ![info](../../_assets/console-icons/plus.svg)**Создать**.
   1. Введите имя соединения, например `clickhouse`.
-  1. Выберите тип соединения **{{ ui-key.yql.yq-connection.action_clickhouse }}**.
-  1. В блоке **{{ ui-key.yql.yq-connection-form.connection-type-parameters.section-title }}**:
+  1. Выберите тип соединения **Managed Service for ClickHouse**.
+  1. В блоке **Параметры типа соединения**:
 
-     * **{{ ui-key.yql.yq-connection-form.cluster.input-label }}** — выберите ранее созданный кластер `clickhouse`.
-     * **{{ ui-key.yql.yq-connection-form.service-account.input-label }}** — выберите сервисный аккаунт `yq-sa`.
-     * Введите **{{ ui-key.yql.yq-connection-form.login.input-label }}** и **{{ ui-key.yql.yq-connection-form.password.input-label }}**, указанные при создании кластера.
+     * **Кластер** — выберите ранее созданный кластер `clickhouse`.
+     * **Сервисный аккаунт** — выберите сервисный аккаунт `yq-sa`.
+     * Введите **Логин** и **Пароль**, указанные при создании кластера.
 
-  1. Нажмите кнопку **{{ ui-key.yql.yq-connection-form.create.button-text }}**.
+  1. Нажмите кнопку **Создать**.
 
 {% endlist %}
 
@@ -359,41 +359,41 @@
 %yq SELECT * FROM clickhouse.items
 ```
 
-## Подключитесь к данным {{ mpg-name }} {#pg-connect}
+## Подключитесь к данным Managed Service for PostgreSQL {#pg-connect}
 
-Для работы с данными {{ mpg-name }} вам понадобится кластер с таблицей и подключение {{ yq-name }}.
+Для работы с данными Managed Service for PostgreSQL вам понадобится кластер с таблицей и подключение Query.
 
-### Создайте кластер {{ mpg-name }} {#cluster-pg}
+### Создайте кластер Managed Service for PostgreSQL {#cluster-pg}
 
-Для отправки запросов подойдет любой рабочий кластер {{ mpg-name }} со включенной опцией **{{ ui-key.yacloud.mdb.forms.additional-field-yandex-query_ru }}**.
+Для отправки запросов подойдет любой рабочий кластер Managed Service for PostgreSQL со включенной опцией **Доступ из Yandex Query**.
 
 {% list tabs group=instructions %}
 
 - Консоль управления {#console}
 
-  1. В [консоли управления]({{ link-console-main }}) выберите каталог `data-folder`.
-  1. [Перейдите]( ../../console/operations/select-service.md#select-service) в сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-postgresql }}**.
-  1. Нажмите кнопку **{{ ui-key.yacloud.mdb.clusters.button_create }}**.
-  1. Введите имя кластера в поле **{{ ui-key.yacloud.mdb.forms.base_field_name }}**, например `postgresql`.
-  1. В блоке **{{ ui-key.yacloud.mdb.forms.section_database }}**:
-     * Укажите **{{ ui-key.yacloud.mdb.forms.database_field_name }}**, например `db1`.
-     * Укажите **{{ ui-key.yacloud.mdb.forms.database_field_user-login }}** и **{{ ui-key.yacloud.mdb.forms.database_field_user-password }}**.
-  1. В блоке **{{ ui-key.yacloud.mdb.forms.section_service-settings }}** включите опции **{{ ui-key.yacloud.mdb.forms.additional-field-yandex-query_ru }}** и **Доступ из консоли управления**.
+  1. В [консоли управления](https://console.yandex.cloud) выберите каталог `data-folder`.
+  1. [Перейдите]( ../../console/operations/select-service.md#select-service) в сервис **Managed Service for&nbsp;PostgreSQL**.
+  1. Нажмите кнопку **Создать кластер**.
+  1. Введите имя кластера в поле **Имя кластера**, например `postgresql`.
+  1. В блоке **База данных**:
+     * Укажите **Имя БД**, например `db1`.
+     * Укажите **Имя пользователя** и **Пароль**.
+  1. В блоке **Сервисные настройки** включите опции **Доступ из Yandex Query** и **Доступ из консоли управления**.
   1. Остальные настройки можно оставить по умолчанию.
-  1. Нажмите кнопку **{{ ui-key.yacloud.mdb.forms.button_create }}**.
+  1. Нажмите кнопку **Создать кластер**.
 
 {% endlist %}
 
 ### Создайте таблицу {#table-pg}
 
-Таблица {{ mpg-name }} будет содержать имена покупателей.
+Таблица Managed Service for PostgreSQL будет содержать имена покупателей.
 
 {% list tabs group=instructions %}
 
 - Консоль управления {#console}
 
-  1. В [консоли управления]({{ link-console-main }}), откройте страницу кластера `postgresql` и перейдите на вкладку **SQL**.
-  1. Введите **{{ ui-key.yacloud.mdb.forms.database_field_user-login }}** и **{{ ui-key.yacloud.mdb.forms.database_field_user-password }}**, указанные при создании кластера.
+  1. В [консоли управления](https://console.yandex.cloud), откройте страницу кластера `postgresql` и перейдите на вкладку **SQL**.
+  1. Введите **Имя пользователя** и **Пароль**, указанные при создании кластера.
   1. В окно ввода справа последовательно выполните SQL-запросы:
 
      ```sql
@@ -410,26 +410,26 @@
 
 {% endlist %}
 
-### Создайте подключение к {{ mpg-name }} {#yq-pg}
+### Создайте подключение к Managed Service for PostgreSQL {#yq-pg}
 
 {% list tabs group=instructions %}
 
 - Консоль управления {#console}
   
-  1. В [консоли управления]({{ link-console-main }}) выберите каталог `data-folder`.
-  1. [Перейдите]( ../../console/operations/select-service.md#select-service) в сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_yq_ru }}**.
-  1. На панели слева выберите **{{ ui-key.yql.yq-ide-aside.connections.tab-text }}**.
-  1. Нажмите кнопку ![info](../../_assets/console-icons/plus.svg)**{{ ui-key.yql.yq-connection-form.action_create-new }}**.
+  1. В [консоли управления](https://console.yandex.cloud) выберите каталог `data-folder`.
+  1. [Перейдите]( ../../console/operations/select-service.md#select-service) в сервис **Yandex Query**.
+  1. На панели слева выберите **Соединения**.
+  1. Нажмите кнопку ![info](../../_assets/console-icons/plus.svg)**Создать**.
   1. Введите имя соединения, например `postgresql`.
-  1. Выберите тип соединения **{{ ui-key.yql.yq-connection.action_postgersql }}**.
-  1. В блоке **{{ ui-key.yql.yq-connection-form.connection-type-parameters.section-title }}**:
+  1. Выберите тип соединения **Managed Service for PostgreSQL**.
+  1. В блоке **Параметры типа соединения**:
 
-     * **{{ ui-key.yql.yq-connection-form.cluster.input-label }}** — выберите ранее созданный кластер `postgresql`.
-     * **{{ ui-key.yql.yq-connection-form.service-account.input-label }}** — `yq-sa`.
-     * **{{ ui-key.yql.yq-connection-form.database.input-label }}** — `db1`.
-     * Введите **{{ ui-key.yql.yq-connection-form.login.input-label }}** и **{{ ui-key.yql.yq-connection-form.password.input-label }}**, указанные при создании кластера.
+     * **Кластер** — выберите ранее созданный кластер `postgresql`.
+     * **Сервисный аккаунт** — `yq-sa`.
+     * **База данных** — `db1`.
+     * Введите **Логин** и **Пароль**, указанные при создании кластера.
 
-  1. Нажмите кнопку **{{ ui-key.yql.yq-connection-form.create.button-text }}**.
+  1. Нажмите кнопку **Создать**.
 
 {% endlist %}
 
@@ -441,7 +441,7 @@
 
 ## Выполните федеративный запрос {#federate-query}
 
-Работа с федеративными источниками данных (межсервисная аналитика) ничем не отличается от работы с обычными источниками данных. К внешним источникам данных, таким как таблицы в БД и данные в {{ objstorage-name }}, можно одновременно обращаться из запроса и выполнять над ними любые допустимые языком YQL операции.
+Работа с федеративными источниками данных (межсервисная аналитика) ничем не отличается от работы с обычными источниками данных. К внешним источникам данных, таким как таблицы в БД и данные в Object Storage, можно одновременно обращаться из запроса и выполнять над ними любые допустимые языком YQL операции.
 
 Чтобы совместить и получить данные из всех трех таблиц, выполните федеративный запрос в ячейке ноутбука:
 
@@ -463,8 +463,8 @@ FROM visits AS v
 Чтобы перестать платить за созданные ресурсы:
 
 * [удалите бакет](../../storage/operations/buckets/delete.md);
-* [удалите кластер](../../managed-clickhouse/operations/cluster-delete.md) {{ mch-name }};
-* [удалите кластер](../../managed-postgresql/operations/cluster-delete.md) {{ mpg-name }};
+* [удалите кластер](../../managed-clickhouse/operations/cluster-delete.md) Managed Service for ClickHouse®;
+* [удалите кластер](../../managed-postgresql/operations/cluster-delete.md) Managed Service for PostgreSQL;
 * [удалите проект](../operations/projects/delete.md).
 
-_{{ CH }} является зарегистрированным товарным знаком [ClickHouse, Inc](https://clickhouse.com)._
+_ClickHouse® является зарегистрированным товарным знаком [ClickHouse, Inc](https://clickhouse.com)._

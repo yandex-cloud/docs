@@ -5,7 +5,7 @@ Lists existing access bindings for the specified bus.
 ## HTTP request
 
 ```
-GET https://serverless-eventrouter.{{ api-host }}/eventrouter/v1/connectors/{resourceId}:listAccessBindings
+GET https://serverless-eventrouter.api.cloud.yandex.net/eventrouter/v1/connectors/{resourceId}:listAccessBindings
 ```
 
 ## Path parameters

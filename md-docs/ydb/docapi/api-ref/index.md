@@ -1,6 +1,6 @@
 # Все методы
 
-{{ ydb-name }} HTTP API предоставляет следующие методы:
+Managed Service for YDB HTTP API предоставляет следующие методы:
 
 ## Работа с таблицами {#scheme}
 

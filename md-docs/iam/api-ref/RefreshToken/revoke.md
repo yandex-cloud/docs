@@ -5,7 +5,7 @@ Revoke Refresh Tokens. Several Refresh Tokens can be revoked by one request.
 ## HTTP request
 
 ```
-POST https://iam.{{ api-host }}/iam/v1/refreshTokens:revoke
+POST https://iam.api.cloud.yandex.net/iam/v1/refreshTokens:revoke
 ```
 
 ## Body parameters {#yandex.cloud.iam.v1.RevokeRefreshTokenRequest}

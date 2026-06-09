@@ -1,10 +1,10 @@
-# Справочник метрик {{ monitoring-full-name }}
+# Справочник метрик Yandex Monitoring
 
-В этом разделе описаны метрики сервиса {{ lockbox-name }}, поставляемые в [{{ monitoring-name }}](../monitoring/index.md).
+В этом разделе описаны метрики сервиса Yandex Lockbox, поставляемые в [Monitoring](../monitoring/index.md).
 
 Имя метрики пишется в метку `name`.
 
-Общие метки для всех метрик {{ lockbox-name }}:
+Общие метки для всех метрик Yandex Lockbox:
 
 | Метка | Значение |
 | --- | --- |

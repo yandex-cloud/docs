@@ -1,4 +1,4 @@
-# Публичные материалы о {{ mch-full-name }}
+# Публичные материалы о Yandex Managed Service for ClickHouse®
 
 ## Статьи, анонсы и видео {#articles}
 
@@ -6,7 +6,7 @@
 
 ### 2025: Статьи {#article-2025}
 
-* Прирост производительности управляемых сервисов по работе с данными {{ yandex-cloud }}. 
+* Прирост производительности управляемых сервисов по работе с данными Yandex Cloud. 
 
   * [Статья](https://yandex.cloud/ru/blog/performance-gains).
 
@@ -14,17 +14,17 @@
 
   * [Статья](https://yandex.cloud/ru/blog/data-warehouse-guide).
 
-* {{ CH }}: рассказываем о колоночной СУБД для аналитики больших данных.
+* ClickHouse®: рассказываем о колоночной СУБД для аналитики больших данных.
 
   * [Статья](https://yandex.cloud/ru/blog/clickhouse-overview).
 
 ### 2023: Data Open Source Day {#data-open-source-day-2023}
 
-* СУБД {{ CH }}.
+* СУБД ClickHouse®.
 
   * [Запись трансляции](https://www.youtube.com/live/aXflVfvoLdU?feature=share&t=15670).
 
-### 2022: {{ yandex-cloud }} {#yc-2022}
+### 2022: Yandex Cloud {#yc-2022}
 
 * Про людей. Жизнь SRE в облаке.
 
@@ -42,25 +42,25 @@
 
   * [Запись трансляции](https://www.youtube.com/watch?v=cddm8I0UgjU).
 
-### 2020: {{ yandex-cloud }} {#yc-2020}
+### 2020: Yandex Cloud {#yc-2020}
 
-* Что нового в платформе {{ mch-name }}: практическое применение.
+* Что нового в платформе Managed Service for ClickHouse®: практическое применение.
 
   * [Запись трансляции](https://www.youtube.com/watch?v=kt0beqON9A0).
 
-### 2019: {{ yandex-cloud }} {#yc-2019}
+### 2019: Yandex Cloud {#yc-2019}
 
-* Что нового в платформе баз данных {{ yandex-cloud }}.
+* Что нового в платформе баз данных Yandex Cloud.
 
   * [Запись трансляции](https://www.youtube.com/watch?v=5OcUo3J4Wdc).
 
-* Внутреннее устройство платформы баз данных в {{ yandex-cloud }}.
+* Внутреннее устройство платформы баз данных в Yandex Cloud.
 
   * [Запись трансляции](https://www.youtube.com/watch?v=Cwdg425a_cw).
 
 ### 2019: Статьи {#article-2019}
 
-* Как устроены сервисы управляемых баз данных в {{ yandex-cloud }}.
+* Как устроены сервисы управляемых баз данных в Yandex Cloud.
 
   * [Текст статьи](https://habr.com/ru/companies/yandex/articles/477860/).
 
@@ -70,4 +70,4 @@
 
   * [Запись трансляции](https://www.youtube.com/watch?v=xyMN1EA9p5Y).
 
-_{{ CH }} является зарегистрированным товарным знаком [ClickHouse, Inc](https://clickhouse.com)._
+_ClickHouse® является зарегистрированным товарным знаком [ClickHouse, Inc](https://clickhouse.com)._

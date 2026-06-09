@@ -2,25 +2,25 @@
 
 Указанные примеры отправки запроса работают только с [нодами из Docker-образа](../../concepts/deploy/index.md#docker-node). Чтобы отправить запрос в [ноду из модели](../../concepts/deploy/index.md#models-node), установите [Triton Client](https://github.com/triton-inference-server/client).
 
-Отправлять запросы в ноду могут пользователи и [сервисные аккаунты](../../../iam/concepts/users/service-accounts.md) с минимальной ролью в проекте `{{ roles-datasphere-project-developer }}`. Сервисный аккаунт также должен находиться в том же каталоге, что и нода.
+Отправлять запросы в ноду могут пользователи и [сервисные аккаунты](../../../iam/concepts/users/service-accounts.md) с минимальной ролью в проекте `datasphere.community-projects.developer`. Сервисный аккаунт также должен находиться в том же каталоге, что и нода.
 
 {% list tabs %}
 
-- Интерфейс {{ ml-platform-full-name }}
+- Интерфейс Yandex DataSphere
 
-  Отправьте тестовый запрос в [ноду](../../concepts/deploy/index.md#node) из интерфейса {{ ml-platform-name }}:
-  1. Выберите нужный проект в своем сообществе или на [главной странице]({{ link-datasphere-main }}) {{ ml-platform-name }} во вкладке **{{ ui-key.yc-ui-datasphere.main-page.recent-projects }}**.
-  1. В блоке **{{ ui-key.yc-ui-datasphere.project-page.project-resources }}** выберите **{{ ui-key.yc-ui-datasphere.resources.node }}**.
+  Отправьте тестовый запрос в [ноду](../../concepts/deploy/index.md#node) из интерфейса DataSphere:
+  1. Выберите нужный проект в своем сообществе или на [главной странице](https://datasphere.yandex.cloud) DataSphere во вкладке **Недавние проекты**.
+  1. В блоке **Ресурсы проекта** выберите **Нода**.
   1. Выберите ноду, к которой нужно отправить запрос.
-  1. Перейдите на вкладку **{{ ui-key.yc-ui-datasphere.node-page.tab.request }}**.
-  1. В блоке **{{ ui-key.yc-ui-datasphere.node-page.request.create-test-request }}** в поле **{{ ui-key.yc-ui-datasphere.common.input }}** введите входные переменные запроса в формате `{"a":2,"b":3}` и нажмите кнопку **{{ ui-key.yc-ui-datasphere.common.execute }}**.
-  1. Посмотрите результат обработки запроса в блоке **{{ ui-key.yc-ui-datasphere.common.response }}**.
+  1. Перейдите на вкладку **Запрос**.
+  1. В блоке **Создать тестовый запрос** в поле **Входные значения** введите входные переменные запроса в формате `{"a":2,"b":3}` и нажмите кнопку **Выполнить**.
+  1. Посмотрите результат обработки запроса в блоке **Ответ**.
   
   {% note info %}
   
-  В блоке **{{ ui-key.yc-ui-datasphere.node-page.request.curl }}** приведены примеры запросов в ноду для утилит cURL и gRPCurl.
+  В блоке **cURL** приведены примеры запросов в ноду для утилит cURL и gRPCurl.
   
-  В блоке **{{ ui-key.yc-ui-datasphere.node-page.request.server-response }}** приведены коды и описание ответов ноды.
+  В блоке **Ответ сервера** приведены коды и описание ответов ноды.
   
   {% endnote %}
 
@@ -32,7 +32,7 @@
      --header "Authorization: Bearer <IAM-токен>" \
      --header "x-folder-id: <идентификатор_каталога>" \
      --data '<входные_переменные>' \
-     {{ ds-node-endpoint }}:443
+     node-api.datasphere.yandexcloud.net:443
   ```
   
   Где:
@@ -65,7 +65,7 @@
      --header "x-folder-id: <идентификатор_каталога>" \
      --request <метод> \
      --data '<входные_переменные>' \
-     https://{{ ds-node-endpoint }}/
+     https://node-api.datasphere.yandexcloud.net/
   ```
   
   Где:

@@ -5,7 +5,7 @@ Sets access bindings for the specified PostgreSQL cluster.
 ## HTTP request
 
 ```
-POST https://{{ api-host-mdb }}/managed-postgresql/v1/clusters/{resourceId}:setAccessBindings
+POST https://mdb.api.cloud.yandex.net/managed-postgresql/v1/clusters/{resourceId}:setAccessBindings
 ```
 
 ## Path parameters

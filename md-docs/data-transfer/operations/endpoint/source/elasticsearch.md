@@ -1,37 +1,37 @@
-# Передача данных из эндпоинта-источника {{ ES }}
+# Передача данных из эндпоинта-источника Elasticsearch
 
 
-С помощью сервиса {{ data-transfer-full-name }} вы можете переносить данные поиска и аналитики из базы {{ ES }} и реализовывать различные сценарии переноса, обработки и трансформации данных. Для реализации трансфера:
+С помощью сервиса Yandex Data Transfer вы можете переносить данные поиска и аналитики из базы Elasticsearch и реализовывать различные сценарии переноса, обработки и трансформации данных. Для реализации трансфера:
 
 1. [Ознакомьтесь с возможными сценариями передачи данных](#scenarios).
-1. [Подготовьте базу данных {{ ES }}](#prepare) к трансферу.
-1. [Настройте эндпоинт-источник](#endpoint-settings) в {{ data-transfer-full-name }}.
+1. [Подготовьте базу данных Elasticsearch](#prepare) к трансферу.
+1. [Настройте эндпоинт-источник](#endpoint-settings) в Yandex Data Transfer.
 1. [Настройте один из поддерживаемых приемников данных](#supported-targets).
 1. [Создайте](../../transfer.md#create) и [запустите](../../transfer.md#activate) трансфер.
 1. Выполняйте необходимые действия по работе с базой и [контролируйте трансфер](../../monitoring.md).
 1. При возникновении проблем, [воспользуйтесь готовыми решениями](#troubleshooting) по их устранению.
 
-## Сценарии передачи данных из {{ ES }} {#scenarios}
+## Сценарии передачи данных из Elasticsearch {#scenarios}
 
 Миграция — перенос данных из одного хранилища в другое. Часто это перенос базы из устаревших локальных баз в управляемые облачные.
 
-* [Миграция со сменой типа хранилища из {{ ES }} в {{ OS }}](../../../tutorials/mes-to-mos.md)
+* [Миграция со сменой типа хранилища из Elasticsearch в OpenSearch](../../../tutorials/mes-to-mos.md)
 
-Подробное описание возможных сценариев передачи данных в {{ data-transfer-full-name }} читайте в разделе [Практические руководства](../../../tutorials/index.md).
+Подробное описание возможных сценариев передачи данных в Yandex Data Transfer читайте в разделе [Практические руководства](../../../tutorials/index.md).
 
 ## Подготовка базы данных источника {#prepare}
 
 {% note info %}
 
-Версии {{ ES }} ниже 7.x не поддерживаются.
+Версии Elasticsearch ниже 7.x не поддерживаются.
 
 {% endnote %}
 
-Если вы не планируете использовать для подключения к внешнему кластеру [сервис {{ interconnect-name }}](../../../../interconnect/concepts/index.md) или [VPN](../../../../glossary/vpn.md), разрешите подключения к такому кластеру из интернета с [IP-адресов, используемых сервисом {{ data-transfer-name }}](../../../../overview/concepts/public-ips.md#virtual-private-cloud}).
+Если вы не планируете использовать для подключения к внешнему кластеру [сервис Cloud Interconnect](../../../../interconnect/concepts/index.md) или [VPN](../../../../glossary/vpn.md), разрешите подключения к такому кластеру из интернета с [IP-адресов, используемых сервисом Data Transfer](../../../../overview/concepts/public-ips.md#virtual-private-cloud}).
 
 Подробнее о настройке сети для работы с внешними ресурсами читайте в [концепции](../../../concepts/network.md#source-external).
 
-## Настройка эндпоинта-источника {{ ES }} {#endpoint-settings}
+## Настройка эндпоинта-источника Elasticsearch {#endpoint-settings}
 
 При [создании](../index.md#create) или [изменении](../index.md#update) эндпоинта вы можете задать:
 
@@ -46,26 +46,26 @@
 
 - Консоль управления {#console}
 
-    * **{{ ui-key.yc-data-transfer.data-transfer.console.form.elasticsearch.console.form.elasticsearch.OnPremiseElasticSearch.addresses.title }}** — нажмите на значок ![image](../../../../_assets/console-icons/plus.svg), чтобы добавить новый узел с данными. Для каждого узла укажите:
+    * **Узлы с данными** — нажмите на значок ![image](../../../../_assets/console-icons/plus.svg), чтобы добавить новый узел с данными. Для каждого узла укажите:
 
-    * **{{ ui-key.yc-data-transfer.data-transfer.console.form.elasticsearch.console.form.elasticsearch.OnPremiseElasticSearchHostPort.host.title }}** — IP-адрес или FQDN хоста с ролью `DATA`, к которому необходимо подключиться.
+    * **Хост** — IP-адрес или FQDN хоста с ролью `DATA`, к которому необходимо подключиться.
 
-    * **{{ ui-key.yc-data-transfer.data-transfer.console.form.elasticsearch.console.form.elasticsearch.OnPremiseElasticSearchHostPort.port.title }}** — номер порта, который сервис {{ data-transfer-name }} будет использовать для подключения к хосту с ролью `DATA`.
+    * **Порт** — номер порта, который сервис Data Transfer будет использовать для подключения к хосту с ролью `DATA`.
 
-    * **{{ ui-key.yc-data-transfer.data-transfer.console.form.elasticsearch.console.form.elasticsearch.OnPremiseElasticSearch.ssl_enabled.title }}** — выберите, если используется безопасное соединение SSL.
+    * **SSL** — выберите, если используется безопасное соединение SSL.
 
-    * **{{ ui-key.yc-data-transfer.data-transfer.console.form.elasticsearch.console.form.elasticsearch.OnPremiseElasticSearch.ca_certificate.title }}** — загрузите файл сертификата или добавьте его содержимое в текстовом виде, если требуется шифрование передаваемых данных, например, для соответствия требованиям PCI DSS.
+    * **Сертификат CA** — загрузите файл сертификата или добавьте его содержимое в текстовом виде, если требуется шифрование передаваемых данных, например, для соответствия требованиям PCI DSS.
 
-    * **{{ ui-key.yc-data-transfer.data-transfer.console.form.elasticsearch.console.form.elasticsearch.OnPremiseElasticSearch.subnet_id.title }}** — выберите или [создайте](../../../../vpc/operations/subnet-create.md) подсеть в нужной [зоне доступности](../../../../overview/concepts/geo-scope.md).
+    * **Идентификатор подсети** — выберите или [создайте](../../../../vpc/operations/subnet-create.md) подсеть в нужной [зоне доступности](../../../../overview/concepts/geo-scope.md).
       Если значение в этом поле задано для обоих эндпоинтов, то обе подсети должны быть размещены в одной зоне доступности.
 
-   * **{{ ui-key.yc-data-transfer.data-transfer.console.form.elasticsearch.console.form.elasticsearch.ElasticSearchConnection.user.title }}** — укажите имя пользователя, под которым сервис {{ data-transfer-name }} будет подключаться к кластеру.
+   * **Пользователь** — укажите имя пользователя, под которым сервис Data Transfer будет подключаться к кластеру.
 
-   * **{{ ui-key.yc-data-transfer.data-transfer.console.form.elasticsearch.console.form.elasticsearch.ElasticSearchConnection.password.title }}** — укажите пароль пользователя для доступа к кластеру.
+   * **Пароль** — укажите пароль пользователя для доступа к кластеру.
 
-   * **{{ ui-key.yc-data-transfer.data-transfer.console.form.elasticsearch.console.form.elasticsearch.ElasticSearchConnection.security_groups.title }}** — выберите облачную сеть для размещения эндпоинта и группы безопасности для сетевого трафика.
+   * **Группы безопасности** — выберите облачную сеть для размещения эндпоинта и группы безопасности для сетевого трафика.
 
-     Это позволит применить к ВМ и кластерам в выбранной сети указанные правила групп безопасности без изменения настроек этих ВМ и кластеров. Подробнее читайте в разделе [{#T}](../../../concepts/network.md).
+     Это позволит применить к ВМ и кластерам в выбранной сети указанные правила групп безопасности без изменения настроек этих ВМ и кластеров. Подробнее читайте в разделе [Сеть в Yandex Data Transfer](../../../concepts/network.md).
 
 {% endlist %}
 
@@ -75,7 +75,7 @@
 
 - Консоль управления {#console}
 
-    * **{{ ui-key.yc-data-transfer.data-transfer.console.form.elasticsearch.console.form.elasticsearch.ElasticSearchSource.dump_index_with_mapping.title }}** — выберите эту опцию, чтобы перенести типы данных с источника на приемник до начала трансфера. Если опция отключена, а схема индекса на приемнике не задана, то типы данных на приемнике будут определяться автоматически в процессе трансфера.
+    * **Перенести индекс с сопоставлением типов** — выберите эту опцию, чтобы перенести типы данных с источника на приемник до начала трансфера. Если опция отключена, а схема индекса на приемнике не задана, то типы данных на приемнике будут определяться автоматически в процессе трансфера.
 
     {% note warning %}
     
@@ -90,14 +90,14 @@
 
 Настройте эндпоинт-приемник:
 
-* [{{ OS }}](../target/opensearch.md);
-* [{{ CH }}](../target/clickhouse.md);
-* [{{ GP }}](../target/greenplum.md);
-* [{{ ydb-full-name }}](../target/yandex-database.md);
-* [{{ objstorage-full-name }}](../target/object-storage.md);
-* [{{ KF }}](../target/kafka.md);
-* [{{ DS }}](../target/data-streams.md);
+* [OpenSearch](../target/opensearch.md);
+* [ClickHouse®](../target/clickhouse.md);
+* [Greenplum®](../target/greenplum.md);
+* [Yandex Managed Service for YDB](../target/yandex-database.md);
+* [Yandex Object Storage](../target/object-storage.md);
+* [Apache Kafka®](../target/kafka.md);
+* [YDS](../target/data-streams.md);
 
-Полный список поддерживаемых источников и приемников в {{ data-transfer-full-name }} читайте в разделе [Доступные трансферы](../../../transfer-matrix.md).
+Полный список поддерживаемых источников и приемников в Yandex Data Transfer читайте в разделе [Доступные трансферы](../../../transfer-matrix.md).
 
 После настройки источника и приемника данных [создайте и запустите трансфер](../../transfer.md#create).

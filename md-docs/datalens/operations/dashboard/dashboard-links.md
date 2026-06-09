@@ -1,4 +1,4 @@
-# Настройка связей на дашборде в {{ datalens-full-name }}
+# Настройка связей на дашборде в Yandex DataLens
 
 
 Чтобы настроить [связи](../../dashboard/link.md#alias) между виджетами:
@@ -6,7 +6,7 @@
 
 {% note warning %}
 
-Если вы работаете с новой объектной моделью {{ datalens-short-name }}, включающей [воркбуки и коллекции](../../workbooks-collections/index.md):
+Если вы работаете с новой объектной моделью DataLens, включающей [воркбуки и коллекции](../../workbooks-collections/index.md):
 
 1. На панели слева выберите ![collections](../../../_assets/console-icons/rectangles-4.svg) **Коллекции и воркбуки**.
 1. Откройте нужный воркбук и выберите объект.

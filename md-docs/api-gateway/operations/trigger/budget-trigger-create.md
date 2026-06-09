@@ -30,32 +30,32 @@
 
 - Консоль управления {#console}
 
-    1. В [консоли управления]({{ link-console-main }}) перейдите в каталог, в котором хотите создать триггер.
+    1. В [консоли управления](https://console.yandex.cloud) перейдите в каталог, в котором хотите создать триггер.
 
-    1. Перейдите в сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_api-gateway }}**.
+    1. Перейдите в сервис **API Gateway**.
 
-    1. На панели слева выберите ![image](../../../_assets/console-icons/gear-play.svg) **{{ ui-key.yacloud.serverless-functions.switch_list-triggers }}**.
+    1. На панели слева выберите ![image](../../../_assets/console-icons/gear-play.svg) **Триггеры**.
 
-    1. Нажмите кнопку **{{ ui-key.yacloud.serverless-functions.triggers.list.button_create }}**.
+    1. Нажмите кнопку **Создать триггер**.
 
-    1. В блоке **{{ ui-key.yacloud.serverless-functions.triggers.form.section_base }}**:
+    1. В блоке **Базовые параметры**:
 
        * Введите имя и описание триггера.
-       * В поле **{{ ui-key.yacloud.serverless-functions.triggers.form.field_type }}** выберите `{{ ui-key.yacloud.serverless-functions.triggers.form.label_billing-budget }}`.
-       * В поле **{{ ui-key.yacloud.serverless-functions.triggers.form.field_invoke }}** выберите `{{ ui-key.yacloud.serverless-functions.triggers.form.label_gateway-broadcast }}`.
+       * В поле **Тип** выберите `Бюджет`.
+       * В поле **Запускаемый ресурс** выберите `API-шлюз`.
 
-    1. В блоке **{{ ui-key.yacloud.serverless-functions.triggers.form.section_billing-budget }}** выберите платежный аккаунт и бюджет. Можно выбрать **{{ ui-key.yacloud.serverless-functions.triggers.form.label_any-budget }}**.
+    1. В блоке **Настройки бюджета** выберите платежный аккаунт и бюджет. Можно выбрать **Все бюджеты**.
 
-    1. В блоке **{{ ui-key.yacloud.serverless-functions.triggers.form.section_gateway-broadcast }}**:
-       * В поле **{{ ui-key.yacloud.serverless-functions.triggers.form.field_api-gateway }}** выберите API-шлюз.
-       * В поле **{{ ui-key.yacloud.serverless-functions.triggers.form.field_gateway-path }}** укажите путь в OpenAPI-спецификации. Через WebSocket-соединения, которые установлены по этому пути, будут отправляться сообщения.
-       * В поле **{{ ui-key.yacloud.serverless-functions.triggers.form.field_function_service-account }}** выберите [сервисный аккаунт](../../../iam/concepts/users/service-accounts.md), от имени которого в WebSocket-соединения будут отправляться сообщения.
+    1. В блоке **Настройки API-шлюза**:
+       * В поле **API-шлюз** выберите API-шлюз.
+       * В поле **Путь** укажите путь в OpenAPI-спецификации. Через WebSocket-соединения, которые установлены по этому пути, будут отправляться сообщения.
+       * В поле **Сервисный аккаунт** выберите [сервисный аккаунт](../../../iam/concepts/users/service-accounts.md), от имени которого в WebSocket-соединения будут отправляться сообщения.
 
-    1. Нажмите кнопку **{{ ui-key.yacloud.serverless-functions.triggers.form.button_create-trigger }}**.
+    1. Нажмите кнопку **Создать триггер**.
 
 - CLI {#cli}
 
-    Если у вас еще нет интерфейса командной строки {{ yandex-cloud }} (CLI), [установите и инициализируйте его](../../../cli/quickstart.md#install).
+    Если у вас еще нет интерфейса командной строки Yandex Cloud (CLI), [установите и инициализируйте его](../../../cli/quickstart.md#install).
 
     По умолчанию используется каталог, указанный при [создании](../../../cli/operations/profile/profile-create.md) профиля CLI. Чтобы изменить каталог по умолчанию, используйте команду `yc config set folder-id <идентификатор_каталога>`. Также для любой команды вы можете указать другой каталог с помощью параметров `--folder-name` или `--folder-id`. Если вы обращаетесь к ресурсу по имени, поиск будет выполнен в каталоге по умолчанию. Если вы обращаетесь к ресурсу по идентификатору, поиск будет выполнен глобально — во всех каталогах с учетом прав доступа.
 
@@ -111,5 +111,5 @@
 
 ## См. также {#see-also}
 
-* [Триггер для бюджетов, который вызывает функцию {{ sf-name }}](../../../functions/operations/trigger/budget-trigger-create.md)
-* [{#T}](../../../serverless-containers/operations/budget-trigger-create.md)
+* [Триггер для бюджетов, который вызывает функцию Cloud Functions](../../../functions/operations/trigger/budget-trigger-create.md)
+* [Создать триггер для бюджетов, который вызывает контейнер Serverless Containers](../../../serverless-containers/operations/budget-trigger-create.md)

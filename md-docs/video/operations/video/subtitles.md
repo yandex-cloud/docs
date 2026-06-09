@@ -12,17 +12,17 @@
 
 {% list tabs group=instructions %}
 
-- Интерфейс {{ video-name }} {#console}
+- Интерфейс Cloud Video {#console}
 
-  1. Откройте [главную страницу]({{ link-video-main }}) {{ video-name }}.
+  1. Откройте [главную страницу](https://video.yandex.cloud/) Cloud Video.
   1. Выберите канал.
-  1. На вкладке ![image](../../../_assets/console-icons/circle-play.svg) **{{ ui-key.yacloud_video.videos.title_videos }}** в строке с нужным видео нажмите ![image](../../../_assets/console-icons/ellipsis.svg) и выберите ![image](../../../_assets/console-icons/pencil-to-square.svg) **{{ ui-key.yacloud_video.common.action_edit }}**.
-  1. В блоке **{{ ui-key.yacloud_video.videos.label_subtitles }}** нажмите ![image](../../../_assets/console-icons/plus.svg) **{{ ui-key.yacloud_video.common.action_add }}**.
+  1. На вкладке ![image](../../../_assets/console-icons/circle-play.svg) **Видео** в строке с нужным видео нажмите ![image](../../../_assets/console-icons/ellipsis.svg) и выберите ![image](../../../_assets/console-icons/pencil-to-square.svg) **Редактировать**.
+  1. В блоке **Субтитры** нажмите ![image](../../../_assets/console-icons/plus.svg) **Добавить**.
   1. Выберите способ добавления субтитров:
 
-     * ![image](../../../_assets/console-icons/magic-wand.svg) **{{ ui-key.yacloud_video.videos.action_generate-subtitles }}** — чтобы автоматически сгенерировать субтитры на основе анализа видео. В открывшемся окне укажите исходный язык видео и языки, для которых нужно создать субтитры, и нажмите **{{ ui-key.yacloud_video.videos.action_generate-subtitles }}**.
+     * ![image](../../../_assets/console-icons/magic-wand.svg) **Сгенерировать** — чтобы автоматически сгенерировать субтитры на основе анализа видео. В открывшемся окне укажите исходный язык видео и языки, для которых нужно создать субтитры, и нажмите **Сгенерировать**.
 
-     * ![image](../../../_assets/console-icons/arrow-up-from-line.svg) **{{ ui-key.yacloud_video.common.upload }}** — чтобы загрузить субтитры из файла. В открывшемся окне укажите язык субтитров, выберите файл с субтитрами и дождитесь его загрузки. Нажмите **{{ ui-key.yacloud_video.common.action_create }}**.
+     * ![image](../../../_assets/console-icons/arrow-up-from-line.svg) **Загрузить** — чтобы загрузить субтитры из файла. В открывшемся окне укажите язык субтитров, выберите файл с субтитрами и дождитесь его загрузки. Нажмите **Создать**.
 
         {% note info %}
         
@@ -30,7 +30,7 @@
         
         {% endnote %}
      
-  1. Нажмите **{{ ui-key.yacloud_video.common.action_accept }}**.
+  1. Нажмите **Сохранить**.
 
 - API {#api}
 
@@ -45,16 +45,16 @@
 
 {% list tabs group=instructions %}
 
-- Интерфейс {{ video-name }} {#console}
+- Интерфейс Cloud Video {#console}
 
-  1. Откройте [главную страницу]({{ link-video-main }}) {{ video-name }}.
+  1. Откройте [главную страницу](https://video.yandex.cloud/) Cloud Video.
   1. Выберите канал.
-  1. На вкладке ![image](../../../_assets/console-icons/circle-play.svg) **{{ ui-key.yacloud_video.videos.title_videos }}** в строке с нужным видео нажмите ![image](../../../_assets/console-icons/ellipsis.svg) и выберите ![image](../../../_assets/console-icons/pencil-to-square.svg) **{{ ui-key.yacloud_video.common.action_edit }}**.
-  1. В блоке **{{ ui-key.yacloud_video.videos.label_subtitles }}** выберите способ изменения:
+  1. На вкладке ![image](../../../_assets/console-icons/circle-play.svg) **Видео** в строке с нужным видео нажмите ![image](../../../_assets/console-icons/ellipsis.svg) и выберите ![image](../../../_assets/console-icons/pencil-to-square.svg) **Редактировать**.
+  1. В блоке **Субтитры** выберите способ изменения:
 
-     * Чтобы изменить субтитры, загруженные из файла, справа от названия нажмите ![image](../../../_assets/console-icons/ellipsis.svg) и выберите ![image](../../../_assets/console-icons/arrows-rotate-right.svg) **{{ ui-key.yacloud_video.videos.action_subtitles_upload_again }}**. В открывшемся окне укажите язык субтитров, выберите файл с субтитрами и дождитесь его загрузки. Нажмите **{{ ui-key.yacloud_video.common.action_create }}**.
+     * Чтобы изменить субтитры, загруженные из файла, справа от названия нажмите ![image](../../../_assets/console-icons/ellipsis.svg) и выберите ![image](../../../_assets/console-icons/arrows-rotate-right.svg) **Загрузить заново**. В открывшемся окне укажите язык субтитров, выберите файл с субтитрами и дождитесь его загрузки. Нажмите **Создать**.
 
-     * Чтобы изменить сгенерированные субтитры, нажмите ![image](../../../_assets/console-icons/plus.svg) **{{ ui-key.yacloud_video.common.action_add }}** и выберите ![image](../../../_assets/console-icons/magic-wand.svg) **{{ ui-key.yacloud_video.videos.action_generate-subtitles }}**. В открывшемся окне укажите языки, для которых нужно изменить субтитры, и нажмите **{{ ui-key.yacloud_video.videos.action_generate-subtitles }}**.
+     * Чтобы изменить сгенерированные субтитры, нажмите ![image](../../../_assets/console-icons/plus.svg) **Добавить** и выберите ![image](../../../_assets/console-icons/magic-wand.svg) **Сгенерировать**. В открывшемся окне укажите языки, для которых нужно изменить субтитры, и нажмите **Сгенерировать**.
 
         {% note info %}
         
@@ -62,7 +62,7 @@
         
         {% endnote %}
 
-  1. Нажмите **{{ ui-key.yacloud_video.common.action_accept }}**.
+  1. Нажмите **Сохранить**.
 
 - API {#api}
 
@@ -75,12 +75,12 @@
 
 {% list tabs group=instructions %}
 
-- Интерфейс {{ video-name }} {#console}
+- Интерфейс Cloud Video {#console}
 
-  1. Откройте [главную страницу]({{ link-video-main }}) {{ video-name }}.
+  1. Откройте [главную страницу](https://video.yandex.cloud/) Cloud Video.
   1. Выберите канал.
-  1. На вкладке ![video](../../../_assets/console-icons/circle-play.svg) **{{ ui-key.yacloud_video.videos.title_videos }}** выберите видео.
-  1. В блоке **{{ ui-key.yacloud_video.videos.label_subtitles }}** нажмите ![image](../../../_assets/console-icons/arrow-down-to-line.svg) справа от названия файла субтитров, который нужно скачать.
+  1. На вкладке ![video](../../../_assets/console-icons/circle-play.svg) **Видео** выберите видео.
+  1. В блоке **Субтитры** нажмите ![image](../../../_assets/console-icons/arrow-down-to-line.svg) справа от названия файла субтитров, который нужно скачать.
 
 {% endlist %}
 
@@ -89,13 +89,13 @@
 
 {% list tabs group=instructions %}
 
-- Интерфейс {{ video-name }} {#console}
+- Интерфейс Cloud Video {#console}
 
-  1. Откройте [главную страницу]({{ link-video-main }}) {{ video-name }}.
+  1. Откройте [главную страницу](https://video.yandex.cloud/) Cloud Video.
   1. Выберите канал.
-  1. На вкладке ![image](../../../_assets/console-icons/circle-play.svg) **{{ ui-key.yacloud_video.videos.title_videos }}** в строке с нужным видео нажмите ![image](../../../_assets/console-icons/ellipsis.svg) и выберите ![image](../../../_assets/console-icons/pencil-to-square.svg) **{{ ui-key.yacloud_video.common.action_edit }}**.
-  1. В блоке **{{ ui-key.yacloud_video.videos.label_subtitles }}** справа от названия нужного файла субтитров нажмите ![image](../../../_assets/console-icons/ellipsis.svg) и выберите ![image](../../../_assets/console-icons/trash-bin.svg) **{{ ui-key.yacloud_video.common.action_delete }}**.
-  1. Нажмите **{{ ui-key.yacloud_video.common.action_accept }}**.
+  1. На вкладке ![image](../../../_assets/console-icons/circle-play.svg) **Видео** в строке с нужным видео нажмите ![image](../../../_assets/console-icons/ellipsis.svg) и выберите ![image](../../../_assets/console-icons/pencil-to-square.svg) **Редактировать**.
+  1. В блоке **Субтитры** справа от названия нужного файла субтитров нажмите ![image](../../../_assets/console-icons/ellipsis.svg) и выберите ![image](../../../_assets/console-icons/trash-bin.svg) **Удалить**.
+  1. Нажмите **Сохранить**.
 
 - API {#api}
 

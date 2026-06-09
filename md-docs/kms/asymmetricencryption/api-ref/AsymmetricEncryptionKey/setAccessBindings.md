@@ -5,7 +5,7 @@ Sets access bindings for the key.
 ## HTTP request
 
 ```
-POST https://{{ api-host-kms }}/kms/v1/asymmetricEncryptionKeys/{resourceId}:setAccessBindings
+POST https://kms.api.cloud.yandex.net/kms/v1/asymmetricEncryptionKeys/{resourceId}:setAccessBindings
 ```
 
 ## Path parameters

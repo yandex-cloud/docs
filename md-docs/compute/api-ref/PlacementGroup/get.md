@@ -6,7 +6,7 @@ To get the list of all available placement groups, make a [List](list.md#List) r
 ## HTTP request
 
 ```
-GET https://compute.{{ api-host }}/compute/v1/placementGroups/{placementGroupId}
+GET https://compute.api.cloud.yandex.net/compute/v1/placementGroups/{placementGroupId}
 ```
 
 ## Path parameters

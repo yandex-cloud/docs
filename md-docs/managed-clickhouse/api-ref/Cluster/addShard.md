@@ -6,7 +6,7 @@ Deprecated. Use **AddShards** instead.
 ## HTTP request
 
 ```
-POST https://{{ api-host-mdb }}/managed-clickhouse/v1/clusters/{clusterId}/shards
+POST https://mdb.api.cloud.yandex.net/managed-clickhouse/v1/clusters/{clusterId}/shards
 ```
 
 ## Path parameters

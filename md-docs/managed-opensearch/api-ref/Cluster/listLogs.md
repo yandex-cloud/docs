@@ -6,7 +6,7 @@ For detailed description, see the [Logs](https://yandex.cloud/ru/yandex-mdb-guid
 ## HTTP request
 
 ```
-GET https://{{ api-host-mdb }}/managed-opensearch/v1/clusters/{clusterId}:logs
+GET https://mdb.api.cloud.yandex.net/managed-opensearch/v1/clusters/{clusterId}:logs
 ```
 
 ## Path parameters

@@ -6,7 +6,7 @@ specified [Compute Cloud instance](../../../concepts/vm-connection.md#os).
 ## HTTP request
 
 ```
-GET https://backup.{{ api-host }}/backup/v1/backups/{computeInstanceId}/archives
+GET https://backup.api.cloud.yandex.net/backup/v1/backups/{computeInstanceId}/archives
 ```
 
 ## Path parameters

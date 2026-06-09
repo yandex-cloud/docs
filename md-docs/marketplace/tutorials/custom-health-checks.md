@@ -1,22 +1,22 @@
-# Проверка состояния приложений в кластере {{ managed-k8s-full-name }} с помощью L7-балансировщика {{ alb-full-name }}
+# Проверка состояния приложений в кластере Yandex Managed Service for Kubernetes с помощью L7-балансировщика Yandex Application Load Balancer
 
-Вы можете автоматически проверять работоспособность приложений, которые развернуты в кластере {{ managed-k8s-name }} с помощью [Ingress-контроллера {{ alb-name }}](../../application-load-balancer/tools/k8s-ingress-controller/index.md).
+Вы можете автоматически проверять работоспособность приложений, которые развернуты в кластере Managed Service for Kubernetes с помощью [Ingress-контроллера Application Load Balancer](../../application-load-balancer/tools/k8s-ingress-controller/index.md).
 
 {% note tip %}
 
-Вместо ALB Ingress-контроллера и Gateway API рекомендуется использовать новый контроллер [{{ yandex-cloud }} Gwin](../../application-load-balancer/tools/gwin/index.md).
+Вместо ALB Ingress-контроллера и Gateway API рекомендуется использовать новый контроллер [Yandex Cloud Gwin](../../application-load-balancer/tools/gwin/index.md).
 
 {% endnote %}
 
-Ingress-контроллер, установленный в кластер, разворачивает [L7-балансировщик](../../application-load-balancer/concepts/application-load-balancer.md) со всеми необходимыми ресурсами {{ alb-name }}, основываясь на конфигурации созданных вами ресурсов [Ingress](../../managed-kubernetes/alb-ref/ingress.md) и [HttpBackendGroup](../../managed-kubernetes/alb-ref/http-backend-group.md).
+Ingress-контроллер, установленный в кластер, разворачивает [L7-балансировщик](../../application-load-balancer/concepts/application-load-balancer.md) со всеми необходимыми ресурсами Application Load Balancer, основываясь на конфигурации созданных вами ресурсов [Ingress](../../managed-kubernetes/alb-ref/ingress.md) и [HttpBackendGroup](../../managed-kubernetes/alb-ref/http-backend-group.md).
 
 L7-балансировщик автоматически проверяет работоспособность приложения в кластере. В зависимости от результатов проверки L7-балансировщик открывает или закрывает внешний трафик к бэкенду (ресурсу [Service](../../managed-kubernetes/alb-ref/service-for-ingress.md)). Подробнее см. в [Проверки состояния](../../application-load-balancer/concepts/backend-group.md#health-checks).
 
-По умолчанию Ingress-контроллер {{ alb-name }} принимает от L7-балансировщика запросы для проверок состояния приложения на TCP-порт `10501` и проверяет работоспособность подов [kube-proxy](https://kubernetes.io/docs/reference/command-line-tools-reference/kube-proxy/) на каждом узле кластера. Суть проверки состояния заключается в том, что когда kube-proxy работоспособен, то даже если приложение в конкретном поде не отвечает, {{ k8s }} перенаправит трафик в другой под с этим приложением или на другой узел.
+По умолчанию Ingress-контроллер Application Load Balancer принимает от L7-балансировщика запросы для проверок состояния приложения на TCP-порт `10501` и проверяет работоспособность подов [kube-proxy](https://kubernetes.io/docs/reference/command-line-tools-reference/kube-proxy/) на каждом узле кластера. Суть проверки состояния заключается в том, что когда kube-proxy работоспособен, то даже если приложение в конкретном поде не отвечает, Kubernetes перенаправит трафик в другой под с этим приложением или на другой узел.
 
 С помощью этого руководства вы настроите собственные проверки состояния приложения в параметрах ресурса [HttpBackendGroup](../../managed-kubernetes/alb-ref/http-backend-group.md) и откроете для этих проверок отдельный порт на узлах кластера в параметрах ресурса [Service](../../managed-kubernetes/alb-ref/service-for-ingress.md) типа `NodePort`.
 
-Результат проверок состояния приложения можно будет посмотреть в [консоли управления]({{ link-console-main }}).
+Результат проверок состояния приложения можно будет посмотреть в [консоли управления](https://console.yandex.cloud).
 
 {% note info %}
 
@@ -24,7 +24,7 @@ L7-балансировщик автоматически проверяет ра
 
 {% endnote %}
 
-Чтобы развернуть приложение в кластере {{ managed-k8s-name }} и настроить к нему доступ и проверки состояния через L7-балансировщик {{ alb-name }}:
+Чтобы развернуть приложение в кластере Managed Service for Kubernetes и настроить к нему доступ и проверки состояния через L7-балансировщик Application Load Balancer:
 
 1. [Подготовьте облако к работе](#before-begin).
 1. [Создайте Docker-образ](#docker-image).
@@ -40,12 +40,12 @@ L7-балансировщик автоматически проверяет ра
 
 В стоимость поддержки описываемого решения входят:
 
-* Плата за DNS-зону и DNS-запросы (см. [тарифы {{ dns-name }}](../../dns/pricing.md)).
-* Плата за кластер {{ managed-k8s-name }}: использование мастера и исходящий трафик (см. [тарифы {{ managed-k8s-name }}](../../managed-kubernetes/pricing.md)).
-* Плата за узлы кластера (ВМ): использование вычислительных ресурсов, операционной системы и хранилища (см. [тарифы {{ compute-name }}](../../compute/pricing.md)).
-* Плата за использование вычислительных ресурсов L7-балансировщика (см. [тарифы {{ alb-name }}](../../application-load-balancer/pricing.md)).
-* Плата за публичные IP-адреса для узлов кластера и L7-балансировщика (см. [тарифы {{ vpc-name }}](../../vpc/pricing.md#prices-public-ip)).
-* Плата за [использование хранилища](../../container-registry/pricing.md) {{ container-registry-name }}.
+* Плата за DNS-зону и DNS-запросы (см. [тарифы Cloud DNS](../../dns/pricing.md)).
+* Плата за кластер Managed Service for Kubernetes: использование мастера и исходящий трафик (см. [тарифы Managed Service for Kubernetes](../../managed-kubernetes/pricing.md)).
+* Плата за узлы кластера (ВМ): использование вычислительных ресурсов, операционной системы и хранилища (см. [тарифы Compute Cloud](../../compute/pricing.md)).
+* Плата за использование вычислительных ресурсов L7-балансировщика (см. [тарифы Application Load Balancer](../../application-load-balancer/pricing.md)).
+* Плата за публичные IP-адреса для узлов кластера и L7-балансировщика (см. [тарифы Virtual Private Cloud](../../vpc/pricing.md#prices-public-ip)).
+* Плата за [использование хранилища](../../container-registry/pricing.md) Container Registry.
 
 
 ## Подготовьте облако к работе {#before-begin}
@@ -56,11 +56,11 @@ L7-балансировщик автоматически проверяет ра
 
 - Вручную {#manual}
 
-   1. [Создайте группы безопасности](../../managed-kubernetes/operations/connect/security-groups.md) для кластера {{ managed-k8s-name }} и входящих в него групп узлов.
+   1. [Создайте группы безопасности](../../managed-kubernetes/operations/connect/security-groups.md) для кластера Managed Service for Kubernetes и входящих в него групп узлов.
 
-      Также [настройте](../../application-load-balancer/tools/k8s-ingress-controller/security-groups.md) группы безопасности, необходимые для работы {{ alb-name }}.
+      Также [настройте](../../application-load-balancer/tools/k8s-ingress-controller/security-groups.md) группы безопасности, необходимые для работы Application Load Balancer.
 
-      Приложение будет доступно на узлах кластера {{ managed-k8s-name }} на порте `30080`. Проверка состояния приложения будет доступна на порте `30081`. Убедитесь, что эти порты открыты для L7-балансировщика в группе безопасности группы узлов. Вы также можете [сделать эти порты доступными из интернета](../../managed-kubernetes/operations/connect/security-groups.md#rules-nodes).
+      Приложение будет доступно на узлах кластера Managed Service for Kubernetes на порте `30080`. Проверка состояния приложения будет доступна на порте `30081`. Убедитесь, что эти порты открыты для L7-балансировщика в группе безопасности группы узлов. Вы также можете [сделать эти порты доступными из интернета](../../managed-kubernetes/operations/connect/security-groups.md#rules-nodes).
 
       {% note warning %}
       
@@ -68,15 +68,15 @@ L7-балансировщик автоматически проверяет ра
       
       {% endnote %}
 
-   1. [Создайте кластер](../../managed-kubernetes/operations/kubernetes-cluster/kubernetes-cluster-create.md) {{ managed-k8s-name }}. При создании укажите группы безопасности, подготовленные ранее.
+   1. [Создайте кластер](../../managed-kubernetes/operations/kubernetes-cluster/kubernetes-cluster-create.md) Managed Service for Kubernetes. При создании укажите группы безопасности, подготовленные ранее.
       
-      Если вы планируете работать с кластером в пределах сети {{ yandex-cloud }}, выделять кластеру публичный IP-адрес не нужно. Для подключений извне предоставьте кластеру публичный адрес.
+      Если вы планируете работать с кластером в пределах сети Yandex Cloud, выделять кластеру публичный IP-адрес не нужно. Для подключений извне предоставьте кластеру публичный адрес.
    1. [Создайте группу узлов](../../managed-kubernetes/operations/node-group/node-group-create.md). Выделите ей публичный адрес, чтобы предоставить доступ в интернет и возможность скачивать Docker-образы и компоненты. Укажите группы безопасности, подготовленные ранее.
-   1. [Создайте реестр](../../container-registry/operations/registry/registry-create.md) {{ container-registry-full-name }}.
+   1. [Создайте реестр](../../container-registry/operations/registry/registry-create.md) Yandex Container Registry.
 
-- {{ TF }} {#tf}
+- Terraform {#tf}
 
-   1. Если у вас еще нет {{ TF }}, [установите его](../../tutorials/infrastructure-management/terraform-quickstart.md#install-terraform).
+   1. Если у вас еще нет Terraform, [установите его](../../tutorials/infrastructure-management/terraform-quickstart.md#install-terraform).
    1. [Получите данные для аутентификации](../../tutorials/infrastructure-management/terraform-quickstart.md#get-credentials). Вы можете добавить их в переменные окружения или указать далее в файле с настройками провайдера.
    1. [Настройте и инициализируйте провайдер](../../tutorials/infrastructure-management/terraform-quickstart.md#configure-provider). Чтобы не создавать конфигурационный файл с настройками провайдера вручную, [скачайте его](https://github.com/yandex-cloud-examples/yc-terraform-provider-settings/blob/main/provider.tf).
    1. Поместите конфигурационный файл в отдельную рабочую директорию и [укажите значения параметров](../../tutorials/infrastructure-management/terraform-quickstart.md#configure-provider). Если данные для аутентификации не были добавлены в переменные окружения, укажите их в конфигурационном файле.
@@ -86,24 +86,24 @@ L7-балансировщик автоматически проверяет ра
 
       * [сеть](../../vpc/concepts/network.md#network);
       * [подсеть](../../vpc/concepts/network.md#subnet);
-      * [группы безопасности](../../vpc/concepts/security-groups.md), необходимые для кластера и группы узлов {{ managed-k8s-name }}, а также для балансировщика {{ alb-name }};
-      * сервисный аккаунт, необходимый для работы кластера {{ k8s }};
-      * кластер {{ k8s }};
-      * группа узлов {{ k8s }};
-      * реестр {{ container-registry-full-name }}.
+      * [группы безопасности](../../vpc/concepts/security-groups.md), необходимые для кластера и группы узлов Managed Service for Kubernetes, а также для балансировщика Application Load Balancer;
+      * сервисный аккаунт, необходимый для работы кластера Kubernetes;
+      * кластер Kubernetes;
+      * группа узлов Kubernetes;
+      * реестр Yandex Container Registry.
 
    1. Укажите в файле `k8s-custom-health-checks.tf`:
 
       * `folder_id` — идентификатор облачного каталога как в настройках провайдера.
-      * `k8s_version` — версия {{ k8s }}. Доступные версии перечислены в разделе [{#T}](../../managed-kubernetes/concepts/release-channels-and-updates.md).
+      * `k8s_version` — версия Kubernetes. Доступные версии перечислены в разделе [Релизные каналы](../../managed-kubernetes/concepts/release-channels-and-updates.md).
 
-   1. Проверьте корректность файлов конфигурации {{ TF }} с помощью команды:
+   1. Проверьте корректность файлов конфигурации Terraform с помощью команды:
 
       ```bash
       terraform validate
       ```
 
-      Если в файлах конфигурации есть ошибки, {{ TF }} на них укажет.
+      Если в файлах конфигурации есть ошибки, Terraform на них укажет.
 
    1. Создайте необходимую инфраструктуру:
 
@@ -125,38 +125,38 @@ L7-балансировщик автоматически проверяет ра
          1. Подтвердите изменение ресурсов.
          1. Дождитесь завершения операции.
 
-      В указанном каталоге будут созданы все требуемые ресурсы. Проверить появление ресурсов и их настройки можно в [консоли управления]({{ link-console-main }}).
+      В указанном каталоге будут созданы все требуемые ресурсы. Проверить появление ресурсов и их настройки можно в [консоли управления](https://console.yandex.cloud).
 
 {% endlist %}
 
 {% note warning %}
 
-Не изменяйте и не удаляйте ресурсы {{ vpc-name }}, которые используются кластером {{ managed-k8s-name }}. Это может привести к некорректной работе кластера и невозможности его последующего удаления.
+Не изменяйте и не удаляйте ресурсы Virtual Private Cloud, которые используются кластером Managed Service for Kubernetes. Это может привести к некорректной работе кластера и невозможности его последующего удаления.
 
 {% endnote %}
 
-### Установите Ingress-контроллер {{ alb-name }} {#install-alb-ingress-controller}
+### Установите Ingress-контроллер Application Load Balancer {#install-alb-ingress-controller}
 
-Установите приложение [ALB Ingress Controller](https://yandex.cloud/ru/marketplace/products/yc/alb-ingress-controller) согласно [инструкции](../../managed-kubernetes/operations/applications/alb-ingress-controller.md) в отдельном пространстве имен `yc-alb`. Далее в этом пространстве имен будут созданы все нужные ресурсы {{ k8s }}.
+Установите приложение [ALB Ingress Controller](https://yandex.cloud/ru/marketplace/products/yc/alb-ingress-controller) согласно [инструкции](../../managed-kubernetes/operations/applications/alb-ingress-controller.md) в отдельном пространстве имен `yc-alb`. Далее в этом пространстве имен будут созданы все нужные ресурсы Kubernetes.
 
 ### Установите дополнительные зависимости {#prepare}
 
-1. Если у вас еще нет интерфейса командной строки {{ yandex-cloud }} (CLI), [установите и инициализируйте его](../../cli/quickstart.md#install).
+1. Если у вас еще нет интерфейса командной строки Yandex Cloud (CLI), [установите и инициализируйте его](../../cli/quickstart.md#install).
 
    По умолчанию используется каталог, указанный при [создании](../../cli/operations/profile/profile-create.md) профиля CLI. Чтобы изменить каталог по умолчанию, используйте команду `yc config set folder-id <идентификатор_каталога>`. Также для любой команды вы можете указать другой каталог с помощью параметров `--folder-name` или `--folder-id`. Если вы обращаетесь к ресурсу по имени, поиск будет выполнен в каталоге по умолчанию. Если вы обращаетесь к ресурсу по идентификатору, поиск будет выполнен глобально — во всех каталогах с учетом прав доступа.
 
-1. [Установите kubectl]({{ k8s-docs }}/tasks/tools/install-kubectl) и [настройте его на работу с созданным кластером](../../managed-kubernetes/operations/connect/index.md#kubectl-connect).
+1. [Установите kubectl](https://kubernetes.io/ru/docs/tasks/tools/install-kubectl) и [настройте его на работу с созданным кластером](../../managed-kubernetes/operations/connect/index.md#kubectl-connect).
 
-   Если для кластера не предоставлен публичный адрес и `kubectl` настроен через внутренний адрес кластера, выполняйте команды `kubectl` на ВМ {{ yandex-cloud }}, находящейся в одной сети с кластером.
+   Если для кластера не предоставлен публичный адрес и `kubectl` настроен через внутренний адрес кластера, выполняйте команды `kubectl` на ВМ Yandex Cloud, находящейся в одной сети с кластером.
 
 1. [Установите Docker](https://docs.docker.com/get-docker/).
-1. [Аутентифицируйтесь в {{ container-registry-full-name }}](../../container-registry/operations/authentication.md#cred-helper) с помощью Docker Credential helper.
+1. [Аутентифицируйтесь в Yandex Container Registry](../../container-registry/operations/authentication.md#cred-helper) с помощью Docker Credential helper.
 
 ## Создайте Docker-образ {#docker-image}
 
 Исходные файлы для создания Docker-образа размещены в репозитории [yc-mk8s-alb-ingress-health-checks](https://github.com/yandex-cloud-examples/yc-mk8s-alb-ingress-health-checks).
 
-Docker-образ будет создан из файла `app/Dockerfile` и будет содержать код тестового приложения из файла `app/healthchecktest.go`. Из полученного Docker-образа вы [развернете приложение в кластере {{ managed-k8s-name }}](#test-app).
+Docker-образ будет создан из файла `app/Dockerfile` и будет содержать код тестового приложения из файла `app/healthchecktest.go`. Из полученного Docker-образа вы [развернете приложение в кластере Managed Service for Kubernetes](#test-app).
 
 Приложение будет отвечать на HTTP-запросы следующим образом в зависимости от порта пода:
 * `80` — возвращать в теле ответа path-параметры запроса, например `/test-path`. Это основная функциональность приложения, которая будет доступна через L7-балансировщик.
@@ -172,11 +172,11 @@ Docker-образ будет создан из файла `app/Dockerfile` и б
    ```
 
 1. В терминале перейдите в корень директории с репозиторием.
-1. Получите идентификатор реестра {{ container-registry-name }}. Его можно [запросить вместе со списком реестров](../../container-registry/operations/registry/registry-list.md#registry-list) в каталоге.
+1. Получите идентификатор реестра Container Registry. Его можно [запросить вместе со списком реестров](../../container-registry/operations/registry/registry-list.md#registry-list) в каталоге.
 1. В переменную окружения добавьте название Docker-образа, который будет создан:
 
    ```bash
-   export TEST_IMG={{ registry }}/<идентификатор_реестра>/example-app1:latest
+   export TEST_IMG=cr.yandex/<идентификатор_реестра>/example-app1:latest
    ```
 
 1. Соберите Docker-образ:
@@ -195,14 +195,14 @@ Docker-образ будет создан из файла `app/Dockerfile` и б
 
    Если не получается загрузить образ, выполните следующие действия:
 
-   * Убедитесь, что вы [аутентифицировались в {{ container-registry-name }}](../../container-registry/operations/authentication.md#cred-helper) с помощью Docker Credential helper.
+   * Убедитесь, что вы [аутентифицировались в Container Registry](../../container-registry/operations/authentication.md#cred-helper) с помощью Docker Credential helper.
    * [Настройте доступ к реестру](../../container-registry/operations/registry/registry-access.md) — предоставьте разрешение PUSH на загрузку Docker-образов для IP-адреса вашего компьютера.
 
 ## Разверните тестовое приложение {#test-app}
 
 Соберите тестовое приложение из созданного Docker-образа и конфигурационного файла [app/testapp.yaml](https://github.com/yandex-cloud-examples/yc-mk8s-alb-ingress-health-checks/blob/main/app/testapp.yaml).
 
-Файл содержит описание {{ k8s }}-ресурсов: `Deployment` и `Service` типа `NodePort`.
+Файл содержит описание Kubernetes-ресурсов: `Deployment` и `Service` типа `NodePort`.
 
 Ресурс `Service` содержит описание портов, через которые приложение будет доступно на узлах кластера:
 * `spec.ports.name: http` — порт для доступа к основной функциональности приложения. `80` на поде и `30080` на узле.
@@ -240,7 +240,7 @@ Docker-образ будет создан из файла `app/Dockerfile` и б
    yc-alb-ingress-controller-hc-***   1/1     Running   0          11m
    ```
 
-1. Протестируйте функциональность приложения, указав в запросе IP-адрес узла кластера {{ managed-k8s-name }}. Вы можете узнать IP-адрес узла в [консоли управления]({{ link-console-main }}).
+1. Протестируйте функциональность приложения, указав в запросе IP-адрес узла кластера Managed Service for Kubernetes. Вы можете узнать IP-адрес узла в [консоли управления](https://console.yandex.cloud).
 
    * Основная функциональность:
 
@@ -286,7 +286,7 @@ Docker-образ будет создан из файла `app/Dockerfile` и б
 
 - Вручную {#manual}
 
-   1. [Зарезервируйте статический публичный IP-адрес](../../vpc/operations/get-static-ip.md) для балансировщика {{ alb-name }}.
+   1. [Зарезервируйте статический публичный IP-адрес](../../vpc/operations/get-static-ip.md) для балансировщика Application Load Balancer.
 
    1. [Зарегистрируйте публичную доменную зону и делегируйте домен](../../dns/operations/zone-create-public.md).
    
@@ -303,7 +303,7 @@ Docker-образ будет создан из файла `app/Dockerfile` и б
       <домен> has address <IP-адрес>
       ```
 
-- {{ TF }} {#tf}
+- Terraform {#tf}
 
    1. Расположите файл конфигурации [address-for-k8s-health-checks.tf](https://github.com/yandex-cloud-examples/yc-mk8s-alb-ingress-health-checks/blob/main/terraform-manifests/address-for-k8s-health-checks.tf) в той же рабочей директории, где находится файл `k8s-custom-health-checks.tf`.
 
@@ -315,13 +315,13 @@ Docker-образ будет создан из файла `app/Dockerfile` и б
       * [A-запись](../../dns/concepts/resource-record.md#a) для этой зоны, чтобы привязать зарезервированный IP-адрес к делегированному домену.
 
 
-   1. Проверьте корректность файлов конфигурации {{ TF }} с помощью команды:
+   1. Проверьте корректность файлов конфигурации Terraform с помощью команды:
 
       ```bash
       terraform validate
       ```
 
-      Если в файлах конфигурации есть ошибки, {{ TF }} на них укажет.
+      Если в файлах конфигурации есть ошибки, Terraform на них укажет.
 
    1. Создайте необходимую инфраструктуру:
 
@@ -343,7 +343,7 @@ Docker-образ будет создан из файла `app/Dockerfile` и б
          1. Подтвердите изменение ресурсов.
          1. Дождитесь завершения операции.
 
-      В указанном каталоге будут созданы все требуемые ресурсы. Проверить появление ресурсов и их настройки можно в [консоли управления]({{ link-console-main }}).
+      В указанном каталоге будут созданы все требуемые ресурсы. Проверить появление ресурсов и их настройки можно в [консоли управления](https://console.yandex.cloud).
 
    1. Убедитесь, что A-запись добавилась:
 
@@ -361,7 +361,7 @@ Docker-образ будет создан из файла `app/Dockerfile` и б
 
 ## Создайте ресурсы Ingress и HttpBackendGroup {#create-ingress}
 
-На основании ресурсов [Ingress](../../managed-kubernetes/alb-ref/ingress.md) и [HttpBackendGroup](../../managed-kubernetes/alb-ref/http-backend-group.md) Ingress-контроллер развернет [L7-балансировщик](../../application-load-balancer/concepts/application-load-balancer.md) со всеми необходимыми ресурсами {{ alb-name }}.
+На основании ресурсов [Ingress](../../managed-kubernetes/alb-ref/ingress.md) и [HttpBackendGroup](../../managed-kubernetes/alb-ref/http-backend-group.md) Ingress-контроллер развернет [L7-балансировщик](../../application-load-balancer/concepts/application-load-balancer.md) со всеми необходимыми ресурсами Application Load Balancer.
 
 Конфигурационные файлы `ingress.yaml` и `httpbackendgroup.yaml` для указанных ресурсов расположены в репозитории [yc-mk8s-alb-ingress-health-checks](https://github.com/yandex-cloud-examples/yc-mk8s-alb-ingress-health-checks).
 
@@ -371,8 +371,8 @@ Docker-образ будет создан из файла `app/Dockerfile` и б
 
 1. В файле `ingress.yaml` укажите следующие значения для аннотаций:
 
-   * `ingress.alb.yc.io/subnets` — одна или несколько подсетей, в которых будет расположен L7-балансировщик {{ alb-name }}.
-   * `ingress.alb.yc.io/security-groups` — одна или несколько [групп безопасности](../../application-load-balancer/concepts/application-load-balancer.md#security-groups) для балансировщика. Если параметр не задан, используется группа безопасности по умолчанию. Хотя бы одна из групп безопасности должна разрешать исходящее TCP-соединение к порту `10501` в подсети группы узлов {{ managed-k8s-name }} или в ее группу безопасности.
+   * `ingress.alb.yc.io/subnets` — одна или несколько подсетей, в которых будет расположен L7-балансировщик Application Load Balancer.
+   * `ingress.alb.yc.io/security-groups` — одна или несколько [групп безопасности](../../application-load-balancer/concepts/application-load-balancer.md#security-groups) для балансировщика. Если параметр не задан, используется группа безопасности по умолчанию. Хотя бы одна из групп безопасности должна разрешать исходящее TCP-соединение к порту `10501` в подсети группы узлов Managed Service for Kubernetes или в ее группу безопасности.
    * `ingress.alb.yc.io/external-ipv4-address` — предоставление публичного доступа к балансировщику из интернета. Укажите зарезервированный ранее статический публичный IP-адрес.
 
 1. В этом же файле `ingress.yaml` укажите делегированный домен в параметре `spec.rules.host`.
@@ -387,17 +387,17 @@ Docker-образ будет создан из файла `app/Dockerfile` и б
 
    Чтобы отслеживать создание балансировщика и убедиться в отсутствии ошибок, откройте логи пода, в котором запущен процесс создания:
 
-   1. В [консоли управления]({{ link-console-main }}) перейдите на страницу каталога.
-   1. Перейдите в сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-kubernetes }}**.
-   1. Нажмите на имя нужного кластера и на панели слева выберите **{{ ui-key.yacloud.k8s.cluster.switch_workloads }}**.
+   1. В [консоли управления](https://console.yandex.cloud) перейдите на страницу каталога.
+   1. Перейдите в сервис **Managed Service for&nbsp;Kubernetes**.
+   1. Нажмите на имя нужного кластера и на панели слева выберите **Рабочая нагрузка**.
    1. Выберите под `yc-alb-ingress-controller-*` (не `yc-alb-ingress-controller-hc-*`), в котором запущен процесс создания ресурсов.
-   1. На странице пода перейдите на вкладку **{{ ui-key.yacloud.k8s.workloads.label_tab-logs }}**.
+   1. На странице пода перейдите на вкладку **Логи**.
 
       В режиме реального времени записываются и отображаются логи о создании балансировщика. Если возникла ошибка во время создания, она появится в логах.
 
    {% note warning %}
    
-   Не изменяйте и не удаляйте балансировщик нагрузки и его дочерние ресурсы, созданные с помощью {{ managed-k8s-name }}, через интерфейсы {{ yandex-cloud }} (консоль управления, {{ TF }}, CLI и API). Это может привести к некорректной работе кластера.
+   Не изменяйте и не удаляйте балансировщик нагрузки и его дочерние ресурсы, созданные с помощью Managed Service for Kubernetes, через интерфейсы Yandex Cloud (консоль управления, Terraform, CLI и API). Это может привести к некорректной работе кластера.
    
    {% endnote %}
 
@@ -436,7 +436,7 @@ Docker-образ будет создан из файла `app/Dockerfile` и б
 
    {% note info %}
    
-   Если ресурс недоступен по указанному URL, то [убедитесь](../../managed-kubernetes/operations/connect/security-groups.md), что группы безопасности для кластера {{ managed-k8s-name }} и его групп узлов настроены корректно. Если отсутствует какое-либо из правил — [добавьте его](../../vpc/operations/security-group-add-rule.md).
+   Если ресурс недоступен по указанному URL, то [убедитесь](../../managed-kubernetes/operations/connect/security-groups.md), что группы безопасности для кластера Managed Service for Kubernetes и его групп узлов настроены корректно. Если отсутствует какое-либо из правил — [добавьте его](../../vpc/operations/security-group-add-rule.md).
    
    {% endnote %}
 
@@ -446,9 +446,9 @@ Docker-образ будет создан из файла `app/Dockerfile` и б
 
    - Консоль управления {#console}
 
-      1. В [консоли управления]({{ link-console-main }}) перейдите на страницу каталога.
-      1. Перейдите в сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_application-load-balancer }}**.
-      1. Нажмите на имя нужного балансировщика и на панели слева выберите **{{ ui-key.yacloud.alb.label_healthchecks }}**.
+      1. В [консоли управления](https://console.yandex.cloud) перейдите на страницу каталога.
+      1. Перейдите в сервис **Application Load Balancer**.
+      1. Нажмите на имя нужного балансировщика и на панели слева выберите **Проверки состояния**.
       1. Проверьте состояние целевых ресурсов. Если они в статусе `HEALTHY`, значит, приложение доступно и работает.
 
    {% endlist %}
@@ -457,13 +457,13 @@ Docker-образ будет создан из файла `app/Dockerfile` и б
 
 Некоторые ресурсы платные. Удалите ресурсы, которые вы больше не будете использовать, чтобы не платить за них:
 
-1. [L7-балансировщик](../../application-load-balancer/operations/application-load-balancer-delete.md) {{ alb-name }}.
-1. [HTTP-роутер](../../application-load-balancer/operations/http-router-delete.md) {{ alb-name }}.
-1. [Группу бэкендов](../../application-load-balancer/operations/backend-group-delete.md) {{ alb-name }}.
-1. [Целевую группу](../../application-load-balancer/operations/target-group-delete.md) {{ alb-name }}.
-1. [Группу узлов](../../managed-kubernetes/operations/node-group/node-group-delete.md) {{ managed-k8s-name }}.
-1. [Кластер](../../managed-kubernetes/operations/kubernetes-cluster/kubernetes-cluster-delete.md) {{ managed-k8s-name }}.
-1. [Реестр](../../container-registry/operations/registry/registry-delete.md) {{ container-registry-name }}.
-1. [Публичную доменную зону](../../dns/operations/zone-delete.md) {{ dns-name }}.
-1. [Группы безопасности](../../vpc/operations/security-group-delete.md) {{ vpc-name }}.
-1. [Статический публичный IP-адрес](../../vpc/operations/address-delete.md) {{ vpc-name }}.
+1. [L7-балансировщик](../../application-load-balancer/operations/application-load-balancer-delete.md) Application Load Balancer.
+1. [HTTP-роутер](../../application-load-balancer/operations/http-router-delete.md) Application Load Balancer.
+1. [Группу бэкендов](../../application-load-balancer/operations/backend-group-delete.md) Application Load Balancer.
+1. [Целевую группу](../../application-load-balancer/operations/target-group-delete.md) Application Load Balancer.
+1. [Группу узлов](../../managed-kubernetes/operations/node-group/node-group-delete.md) Managed Service for Kubernetes.
+1. [Кластер](../../managed-kubernetes/operations/kubernetes-cluster/kubernetes-cluster-delete.md) Managed Service for Kubernetes.
+1. [Реестр](../../container-registry/operations/registry/registry-delete.md) Container Registry.
+1. [Публичную доменную зону](../../dns/operations/zone-delete.md) Cloud DNS.
+1. [Группы безопасности](../../vpc/operations/security-group-delete.md) Virtual Private Cloud.
+1. [Статический публичный IP-адрес](../../vpc/operations/address-delete.md) Virtual Private Cloud.

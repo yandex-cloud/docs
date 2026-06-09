@@ -21,9 +21,9 @@
 
     - Консоль управления {#console}
 
-      1. В [консоли управления]({{ link-console-main }}) на панели сверху нажмите ![image](../../../_assets/console-icons/layout-side-content-left.svg) или ![image](../../../_assets/console-icons/chevron-down.svg) и выберите нужный [каталог](../../../resource-manager/concepts/resources-hierarchy.md#folder).
-      1. Перейдите в сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_iam }}**.
-      1. Нажмите кнопку **{{ ui-key.yacloud.iam.folder.service-accounts.button_add }}**.
+      1. В [консоли управления](https://console.yandex.cloud) на панели сверху нажмите ![image](../../../_assets/console-icons/layout-side-content-left.svg) или ![image](../../../_assets/console-icons/chevron-down.svg) и выберите нужный [каталог](../../../resource-manager/concepts/resources-hierarchy.md#folder).
+      1. Перейдите в сервис **Identity and Access Management**.
+      1. Нажмите кнопку **Создать сервисный аккаунт**.
       1. Введите имя сервисного аккаунта.
       
          Требования к формату имени:
@@ -34,7 +34,7 @@
       
          Имя сервисного аккаунта должно быть уникальным в рамках облака.
       
-      1. Нажмите кнопку **{{ ui-key.yacloud.iam.folder.service-account.popup-robot_button_add }}**.
+      1. Нажмите кнопку **Создать**.
 
     - CLI {#cli}
 
@@ -86,17 +86,17 @@
         
         Чтобы назначить сервисному аккаунту роль на облако или каталог:
     
-        1. В [консоли управления]({{ link-console-main }}) на панели сверху нажмите ![image](../../../_assets/console-icons/layout-side-content-left.svg) или ![image](../../../_assets/console-icons/chevron-down.svg) и выберите облако или каталог.
-        1. Перейдите на вкладку **{{ ui-key.yacloud.common.resource-acl.label_access-bindings }}**.
-        1. Нажмите кнопку **{{ ui-key.yacloud.common.resource-acl.button_configure-access }}**.
-        1. В открывшемся окне выберите раздел **{{ ui-key.yacloud_components.acl.label.service-accounts }}**.
+        1. В [консоли управления](https://console.yandex.cloud) на панели сверху нажмите ![image](../../../_assets/console-icons/layout-side-content-left.svg) или ![image](../../../_assets/console-icons/chevron-down.svg) и выберите облако или каталог.
+        1. Перейдите на вкладку **Права доступа**.
+        1. Нажмите кнопку **Настроить доступ**.
+        1. В открывшемся окне выберите раздел **Сервисные аккаунты**.
         1. Выберите нужный сервисный аккаунт из списка или воспользуйтесь поиском.
-        1. Нажмите кнопку ![image](../../../_assets/console-icons/plus.svg) **{{ ui-key.yacloud_components.acl.button.add-role }}** и выберите роль из списка или воспользуйтесь поиском.
-        1. Нажмите кнопку **{{ ui-key.yacloud_components.acl.action.apply }}**.
+        1. Нажмите кнопку ![image](../../../_assets/console-icons/plus.svg) **Добавить роль** и выберите роль из списка или воспользуйтесь поиском.
+        1. Нажмите кнопку **Сохранить**.
     
     - CLI {#cli}
     
-      Если у вас еще нет интерфейса командной строки {{ yandex-cloud }} (CLI), [установите и инициализируйте его](../../../cli/quickstart.md#install).
+      Если у вас еще нет интерфейса командной строки Yandex Cloud (CLI), [установите и инициализируйте его](../../../cli/quickstart.md#install).
     
       По умолчанию используется каталог, указанный при [создании](../../../cli/operations/profile/profile-create.md) профиля CLI. Чтобы изменить каталог по умолчанию, используйте команду `yc config set folder-id <идентификатор_каталога>`. Также для любой команды вы можете указать другой каталог с помощью параметров `--folder-name` или `--folder-id`. Если вы обращаетесь к ресурсу по имени, поиск будет выполнен в каталоге по умолчанию. Если вы обращаетесь к ресурсу по идентификатору, поиск будет выполнен глобально — во всех каталогах с учетом прав доступа.
     
@@ -112,12 +112,12 @@
     
       * `<категория_ресурса>` — `cloud`, чтобы назначить роль на облако, или `folder`, чтобы назначить роль на каталог.
       * `<имя_или_идентификатор_ресурса>` — имя или идентификатор ресурса, на который назначается роль.
-      * `--role` — идентификатор роли, например `{{ roles-viewer }}`.
+      * `--role` — идентификатор роли, например `viewer`.
       * `--subject serviceAccount` — идентификатор сервисного аккаунта, которому назначается роль.
     
-      Например, чтобы назначить сервисному аккаунту роль `{{ roles-viewer }}` на [каталог](../../../resource-manager/concepts/resources-hierarchy.md#folder) `my-folder`:
+      Например, чтобы назначить сервисному аккаунту роль `viewer` на [каталог](../../../resource-manager/concepts/resources-hierarchy.md#folder) `my-folder`:
     
-      1. Выберите роль, которую хотите назначить сервисному аккаунту. Описание ролей можно найти в документации {{ iam-full-name }} в [справочнике ролей {{ yandex-cloud }}](../../../iam/roles-reference.md).
+      1. Выберите роль, которую хотите назначить сервисному аккаунту. Описание ролей можно найти в документации Yandex Identity and Access Management в [справочнике ролей Yandex Cloud](../../../iam/roles-reference.md).
       
       1. Узнайте идентификатор сервисного аккаунта по его имени:
       
@@ -150,7 +150,7 @@
           +----------------------+------------------+-----------------+
           ```
       
-      1. Назначьте роль `{{ roles-viewer }}` сервисному аккаунту `my-robot`, используя его идентификатор:
+      1. Назначьте роль `viewer` сервисному аккаунту `my-robot`, используя его идентификатор:
       
           ```bash
           yc resource-manager folder add-access-binding my-folder \
@@ -158,12 +158,12 @@
             --subject serviceAccount:aje6o61dvog2********
           ```
     
-    - {{ TF }} {#tf}
+    - Terraform {#tf}
     
-      Если у вас еще нет {{ TF }}, [установите его и настройте провайдер {{ yandex-cloud }}](../../../tutorials/infrastructure-management/terraform-quickstart.md#install-terraform).
+      Если у вас еще нет Terraform, [установите его и настройте провайдер Yandex Cloud](../../../tutorials/infrastructure-management/terraform-quickstart.md#install-terraform).
       
       
-      Чтобы управлять инфраструктурой с помощью {{ TF }} от имени сервисного аккаунта или пользовательских аккаунтов: аккаунта на Яндексе, федеративного аккаунта и локального пользователя, [аутентифицируйтесь](../../../terraform/authentication.md) соответствующим способом.
+      Чтобы управлять инфраструктурой с помощью Terraform от имени сервисного аккаунта или пользовательских аккаунтов: аккаунта на Яндексе, федеративного аккаунта и локального пользователя, [аутентифицируйтесь](../../../terraform/authentication.md) соответствующим способом.
     
       1. Опишите в конфигурационном файле параметры ресурсов, которые необходимо создать:
     
@@ -179,10 +179,10 @@
     
          Где:
          * `folder_id` — [идентификатор каталога](../../../resource-manager/operations/folder/get-id.md). Обязательный параметр.
-         * `role` — назначаемая роль. Описание ролей можно найти в документации {{ iam-full-name }} в [справочнике ролей {{ yandex-cloud }}](../../../iam/roles-reference.md). Обязательный параметр.
+         * `role` — назначаемая роль. Описание ролей можно найти в документации Yandex Identity and Access Management в [справочнике ролей Yandex Cloud](../../../iam/roles-reference.md). Обязательный параметр.
          * `member` — [идентификатор](../../../iam/operations/sa/get-id.md) сервисного аккаунта, которому назначается роль. Указывается в виде `serviceAccount:<идентификатор_сервисного_аккаунта>`. Обязательный параметр.
     
-         Более подробную информацию о ресурсах, которые вы можете создать с помощью {{ TF }}, см. в [документации провайдера]({{ tf-provider-link }}).
+         Более подробную информацию о ресурсах, которые вы можете создать с помощью Terraform, см. в [документации провайдера](../../../terraform/index.md).
     
       1. Проверьте корректность конфигурационных файлов.
     
@@ -193,7 +193,7 @@
             terraform plan
             ```
     
-         Если конфигурация описана верно, в терминале отобразится список создаваемых ресурсов и их параметров. Если в конфигурации есть ошибки, {{ TF }} на них укажет.
+         Если конфигурация описана верно, в терминале отобразится список создаваемых ресурсов и их параметров. Если в конфигурации есть ошибки, Terraform на них укажет.
     
       1. Разверните облачные ресурсы.
     
@@ -205,7 +205,7 @@
     
          1. Подтвердите создание ресурсов: введите в терминал слово `yes` и нажмите **Enter**.
     
-         После этого в указанном каталоге будут созданы все требуемые ресурсы. Проверить создание ресурса можно в [консоли управления]({{ link-console-main }}) или с помощью команды [CLI](../../../cli/quickstart.md):
+         После этого в указанном каталоге будут созданы все требуемые ресурсы. Проверить создание ресурса можно в [консоли управления](https://console.yandex.cloud) или с помощью команды [CLI](../../../cli/quickstart.md):
     
          ```bash
          yc resource-manager folder list-access-bindings <имя_или_идентификатор_каталога>
@@ -215,9 +215,9 @@
     
       Чтобы назначить сервисному аккаунту роль на облако или каталог, воспользуйтесь методом REST API `updateAccessBindings` для ресурса [Cloud](../../../resource-manager/api-ref/Cloud/index.md) или [Folder](../../../resource-manager/api-ref/Folder/index.md):
       
-      1. Выберите роль, которую хотите назначить сервисному аккаунту. Описание ролей можно найти в документации {{ iam-full-name }} в [справочнике ролей {{ yandex-cloud }}](../../../iam/roles-reference.md).
+      1. Выберите роль, которую хотите назначить сервисному аккаунту. Описание ролей можно найти в документации Yandex Identity and Access Management в [справочнике ролей Yandex Cloud](../../../iam/roles-reference.md).
       1. [Узнайте](../../../resource-manager/operations/folder/get-id.md) ID каталога с сервисными аккаунтами.
-      1. [Получите](../../../iam/operations/iam-token/create.md) IAM-токен для аутентификации в API {{ yandex-cloud }}.
+      1. [Получите](../../../iam/operations/iam-token/create.md) IAM-токен для аутентификации в API Yandex Cloud.
       1. Получите список сервисных аккаунтов в каталоге, чтобы узнать их идентификаторы:
       
           ```bash
@@ -225,7 +225,7 @@
           export IAM_TOKEN=CggaATEVAgA...
           curl \
             --header "Authorization: Bearer ${IAM_TOKEN}" \
-            "https://iam.{{ api-host }}/iam/v1/serviceAccounts?folderId=${FOLDER_ID}"
+            "https://iam.api.cloud.yandex.net/iam/v1/serviceAccounts?folderId=${FOLDER_ID}"
           ```
       
           Результат:
@@ -245,7 +245,7 @@
           }
           ```
       
-      1. Сформируйте тело запроса, например в файле `body.json`. В свойстве `action` укажите `ADD`, в свойстве `roleId` — нужную роль, например `{{ roles-editor }}`, а в свойстве `subject` — тип `serviceAccount` и идентификатор сервисного аккаунта:
+      1. Сформируйте тело запроса, например в файле `body.json`. В свойстве `action` укажите `ADD`, в свойстве `roleId` — нужную роль, например `editor`, а в свойстве `subject` — тип `serviceAccount` и идентификатор сервисного аккаунта:
       
           **body.json:**
           ```json
@@ -272,7 +272,7 @@
            --header "Content-Type: application/json" \
            --header "Authorization: Bearer ${IAM_TOKEN}" \
            --data '@body.json' \
-           "https://resource-manager.{{ api-host }}/resource-manager/v1/folders/${FOLDER_ID}:updateAccessBindings"
+           "https://resource-manager.api.cloud.yandex.net/resource-manager/v1/folders/${FOLDER_ID}:updateAccessBindings"
          ```
     
     {% endlist %}
@@ -281,31 +281,31 @@
     
     Права доступа наследуются от организации ко всем созданным в ней ресурсам. Например, если сервисному аккаунту назначить роль на организацию, этот сервисный аккаунт получит нужные разрешения на все ресурсы всех облаков этой организации.
     
-    Чтобы предоставить сервисному аккаунту права доступа к организации, необходима роль не ниже `{{ roles-organization-admin }}`.
+    Чтобы предоставить сервисному аккаунту права доступа к организации, необходима роль не ниже `organization-manager.admin`.
     
     {% list tabs group=instructions %}
     
-    - Интерфейс {{ cloud-center }} {#cloud-center}
+    - Интерфейс Cloud Center {#cloud-center}
     
-      1. Войдите в сервис [{{ org-full-name }}]({{ link-org-cloud-center }}) с учетной записью администратора или владельца организации.
+      1. Войдите в сервис [Yandex Identity Hub](https://center.yandex.cloud/organization) с учетной записью администратора или владельца организации.
     
-      1. На панели слева выберите ![persons-lock](../../../_assets/console-icons/persons-lock.svg) **{{ ui-key.yacloud_org.pages.acl }}**.
+      1. На панели слева выберите ![persons-lock](../../../_assets/console-icons/persons-lock.svg) **Права доступа**.
     
-      1. В фильтре **{{ ui-key.yacloud_components.acl-filters.placeholder.account-type-filter }}** выберите `{{ ui-key.yacloud_components.acl.label.service-accounts }}`.
+      1. В фильтре **Тип аккаунта** выберите `Сервисные аккаунты`.
     
-      1. Если у нужного сервисного аккаунта уже есть хотя бы одна роль, в строке с этим аккаунтом нажмите значок ![icon-context-menu](../../../_assets/console-icons/ellipsis.svg) и выберите **{{ ui-key.yacloud_components.acl.action.assign-roles }}**.
+      1. Если у нужного сервисного аккаунта уже есть хотя бы одна роль, в строке с этим аккаунтом нажмите значок ![icon-context-menu](../../../_assets/console-icons/ellipsis.svg) и выберите **Назначить роли**.
     
-          Если нужного сервисного аккаунта нет в списке, в правом верхнем углу страницы нажмите кнопку **{{ ui-key.yacloud_components.acl.action.assign-roles }}**. В открывшемся окне перейдите в раздел **{{ ui-key.yacloud_components.acl.label.service-accounts }}** и выберите аккаунт из списка или воспользуйтесь поиском.
+          Если нужного сервисного аккаунта нет в списке, в правом верхнем углу страницы нажмите кнопку **Назначить роли**. В открывшемся окне перейдите в раздел **Сервисные аккаунты** и выберите аккаунт из списка или воспользуйтесь поиском.
     
-      1. Нажмите кнопку ![plus](../../../_assets/console-icons/plus.svg) **{{ ui-key.yacloud_components.acl.action.add-role }}** и выберите [роль](../../../iam/concepts/access-control/roles.md), которую хотите назначить сервисному аккаунту. Вы можете назначить несколько ролей.
+      1. Нажмите кнопку ![plus](../../../_assets/console-icons/plus.svg) **Добавить роль** и выберите [роль](../../../iam/concepts/access-control/roles.md), которую хотите назначить сервисному аккаунту. Вы можете назначить несколько ролей.
     
-          Описание доступных ролей можно найти в документации {{ iam-full-name }} в [справочнике ролей {{ yandex-cloud }}](../../../iam/roles-reference.md).
+          Описание доступных ролей можно найти в документации Yandex Identity and Access Management в [справочнике ролей Yandex Cloud](../../../iam/roles-reference.md).
     
-      1. Нажмите кнопку **{{ ui-key.yacloud.common.save }}**.
+      1. Нажмите кнопку **Сохранить**.
     
     - CLI {#cli}
     
-      Если у вас еще нет интерфейса командной строки {{ yandex-cloud }} (CLI), [установите и инициализируйте его](../../../cli/quickstart.md#install).
+      Если у вас еще нет интерфейса командной строки Yandex Cloud (CLI), [установите и инициализируйте его](../../../cli/quickstart.md#install).
     
       По умолчанию используется каталог, указанный при [создании](../../../cli/operations/profile/profile-create.md) профиля CLI. Чтобы изменить каталог по умолчанию, используйте команду `yc config set folder-id <идентификатор_каталога>`. Также для любой команды вы можете указать другой каталог с помощью параметров `--folder-name` или `--folder-id`. Если вы обращаетесь к ресурсу по имени, поиск будет выполнен в каталоге по умолчанию. Если вы обращаетесь к ресурсу по идентификатору, поиск будет выполнен глобально — во всех каталогах с учетом прав доступа.
     
@@ -319,12 +319,12 @@
     
       Где:
       * `<имя_или_идентификатор_организации>` — техническое название или [идентификатор](../../../organization/operations/organization-get-id.md) организации.
-      * `--role` — идентификатор роли, например `{{ roles-viewer }}`.
+      * `--role` — идентификатор роли, например `viewer`.
       * `--subject serviceAccount` — идентификатор сервисного аккаунта, которому назначается роль.
     
-      Например, чтобы назначить сервисному аккаунту роль `{{ roles-viewer }}` на организацию `MyOrg`:
+      Например, чтобы назначить сервисному аккаунту роль `viewer` на организацию `MyOrg`:
     
-      1. Выберите роль, которую хотите назначить сервисному аккаунту. Описание ролей можно найти в документации {{ iam-full-name }} в [справочнике ролей {{ yandex-cloud }}](../../../iam/roles-reference.md).
+      1. Выберите роль, которую хотите назначить сервисному аккаунту. Описание ролей можно найти в документации Yandex Identity and Access Management в [справочнике ролей Yandex Cloud](../../../iam/roles-reference.md).
     
       1. Получите список доступных вам организаций, чтобы узнать их идентификаторы и технические названия:
     
@@ -375,7 +375,7 @@
           +----------------------+------------------+-----------------+
           ```
     
-      1. Назначьте сервисному аккаунту `my-robot` роль `{{ roles-viewer }}` на организацию с идентификатором `bpf1smsil5q0********`:
+      1. Назначьте сервисному аккаунту `my-robot` роль `viewer` на организацию с идентификатором `bpf1smsil5q0********`:
     
           ```bash
           yc organization-manager organization add-access-binding bpf1smsil5q0******** \
@@ -383,12 +383,12 @@
             --subject serviceAccount:aje6o61dvog2********
           ```
     
-    - {{ TF }} {#tf}
+    - Terraform {#tf}
     
-      Если у вас еще нет {{ TF }}, [установите его и настройте провайдер {{ yandex-cloud }}](../../../tutorials/infrastructure-management/terraform-quickstart.md#install-terraform).
+      Если у вас еще нет Terraform, [установите его и настройте провайдер Yandex Cloud](../../../tutorials/infrastructure-management/terraform-quickstart.md#install-terraform).
       
       
-      Чтобы управлять инфраструктурой с помощью {{ TF }} от имени сервисного аккаунта или пользовательских аккаунтов: аккаунта на Яндексе, федеративного аккаунта и локального пользователя, [аутентифицируйтесь](../../../terraform/authentication.md) соответствующим способом.
+      Чтобы управлять инфраструктурой с помощью Terraform от имени сервисного аккаунта или пользовательских аккаунтов: аккаунта на Яндексе, федеративного аккаунта и локального пользователя, [аутентифицируйтесь](../../../terraform/authentication.md) соответствующим способом.
     
       1. Опишите в конфигурационном файле параметры ресурсов, которые необходимо создать:
     
@@ -406,10 +406,10 @@
     
          Где:
          * `organization_id` — [идентификатор](../../../organization/operations/organization-get-id.md) организации. Обязательный параметр.
-         * `role` — назначаемая роль. Описание ролей можно найти в документации {{ iam-full-name }} в [справочнике ролей {{ yandex-cloud }}](../../../iam/roles-reference.md). Для каждой роли можно использовать только один `yandex_organization manager_organization_iam_binding`. Обязательный параметр.
+         * `role` — назначаемая роль. Описание ролей можно найти в документации Yandex Identity and Access Management в [справочнике ролей Yandex Cloud](../../../iam/roles-reference.md). Для каждой роли можно использовать только один `yandex_organization manager_organization_iam_binding`. Обязательный параметр.
          * `members` — [идентификатор](../../../iam/operations/sa/get-id.md) сервисного аккаунта, которому назначается роль. Указывается в виде `serviceAccount:<идентификатор_сервисного_аккаунта>`. Обязательный параметр.
     
-         Более подробную информацию о ресурсах, которые вы можете создать с помощью {{ TF }}, см. в [документации провайдера]({{ tf-provider-link }}).
+         Более подробную информацию о ресурсах, которые вы можете создать с помощью Terraform, см. в [документации провайдера](../../../terraform/index.md).
     
       1. Проверьте корректность конфигурационных файлов.
         
@@ -420,7 +420,7 @@
             terraform plan
             ```
     
-         Если конфигурация описана верно, в терминале отобразится список назначенных ролей. Если в конфигурации есть ошибки, {{ TF }} на них укажет.
+         Если конфигурация описана верно, в терминале отобразится список назначенных ролей. Если в конфигурации есть ошибки, Terraform на них укажет.
      
       1. Разверните облачные ресурсы.
       
@@ -432,7 +432,7 @@
     
          1. Подтвердите создание ресурсов: введите в терминал слово `yes` и нажмите **Enter**.
     	 
-         После этого в указанной организации будут созданы все требуемые ресурсы. Проверить создание ресурса можно в [консоли управления]({{ link-console-main }}) или с помощью команды [CLI](../../../cli/quickstart.md):
+         После этого в указанной организации будут созданы все требуемые ресурсы. Проверить создание ресурса можно в [консоли управления](https://console.yandex.cloud) или с помощью команды [CLI](../../../cli/quickstart.md):
     
          ```bash
          yc organization-manager organization list-access-bindings <имя_или_идентификатор_организации>
@@ -442,9 +442,9 @@
     
       Чтобы назначить сервисному аккаунту роль на организацию, воспользуйтесь методом REST API [updateAccessBindings](../../../organization/api-ref/Organization/updateAccessBindings.md) для ресурса [Organization](../../../organization/api-ref/Organization/index.md):
     
-      1. Выберите роль, которую хотите назначить сервисному аккаунту. Описание ролей можно найти в документации {{ iam-full-name }} в [справочнике ролей {{ yandex-cloud }}](../../../iam/roles-reference.md).
+      1. Выберите роль, которую хотите назначить сервисному аккаунту. Описание ролей можно найти в документации Yandex Identity and Access Management в [справочнике ролей Yandex Cloud](../../../iam/roles-reference.md).
       1. [Узнайте](../../../resource-manager/operations/folder/get-id.md) ID каталога с сервисными аккаунтами.
-      1. [Получите](../../../iam/operations/iam-token/create.md) IAM-токен для аутентификации в API {{ yandex-cloud }}.
+      1. [Получите](../../../iam/operations/iam-token/create.md) IAM-токен для аутентификации в API Yandex Cloud.
       1. Получите список сервисных аккаунтов в каталоге, чтобы узнать их идентификаторы:
     
           ```bash
@@ -452,7 +452,7 @@
           export IAM_TOKEN=CggaATEVAgA...
           curl \
             --header "Authorization: Bearer ${IAM_TOKEN}" \
-            "https://iam.{{ api-host }}/iam/v1/serviceAccounts?folderId=${FOLDER_ID}"
+            "https://iam.api.cloud.yandex.net/iam/v1/serviceAccounts?folderId=${FOLDER_ID}"
           ```
     
           Результат:
@@ -479,7 +479,7 @@
           curl \
             --header "Authorization: Bearer ${IAM_TOKEN}" \
             --request GET \
-            "https://organization-manager.{{ api-host }}/organization-manager/v1/organizations"
+            "https://organization-manager.api.cloud.yandex.net/organization-manager/v1/organizations"
           ```
     
           Результат:
@@ -497,7 +497,7 @@
           }
           ```
     
-      1. Сформируйте тело запроса, например в файле `body.json`. В свойстве `action` укажите `ADD`, в свойстве `roleId` — нужную роль, например `{{ roles-viewer }}`, а в свойстве `subject` — тип `serviceAccount` и идентификатор сервисного аккаунта:
+      1. Сформируйте тело запроса, например в файле `body.json`. В свойстве `action` укажите `ADD`, в свойстве `roleId` — нужную роль, например `viewer`, а в свойстве `subject` — тип `serviceAccount` и идентификатор сервисного аккаунта:
     
           **body.json:**
     
@@ -526,7 +526,7 @@
             --header "Authorization: Bearer ${IAM_TOKEN}" \
             --data '@body.json' \
             --request POST \
-            "https://organization-manager.{{ api-host }}/organization-manager/v1/organizations/${ORGANIZATION_ID}:updateAccessBindings"
+            "https://organization-manager.api.cloud.yandex.net/organization-manager/v1/organizations/${ORGANIZATION_ID}:updateAccessBindings"
           ```
     
     {% endlist %}
@@ -538,10 +538,10 @@
     - Консоль управления {#console}
 
       1. Перейдите в каталог, которому принадлежит сервисный аккаунт.
-      1. В списке сервисов выберите **{{ ui-key.yacloud.iam.folder.dashboard.label_iam }}**.
-      1. На панели слева выберите ![FaceRobot](../../../_assets/console-icons/face-robot.svg) **{{ ui-key.yacloud.iam.label_service-accounts }}** и выберите нужный сервисный аккаунт.
-      1. Нажмите кнопку **{{ ui-key.yacloud.iam.folder.service-account.overview.button_create-key-popup }}** на верхней панели.
-      1. Выберите пункт **{{ ui-key.yacloud.iam.folder.service-account.overview.button_create_service-account-key }}**.
+      1. В списке сервисов выберите **Identity and Access Management**.
+      1. На панели слева выберите ![FaceRobot](../../../_assets/console-icons/face-robot.svg) **Сервисные аккаунты** и выберите нужный сервисный аккаунт.
+      1. Нажмите кнопку **Создать новый ключ** на верхней панели.
+      1. Выберите пункт **Создать статический ключ доступа**.
       1. Задайте описание ключа, чтобы потом было проще найти его в консоли управления.
       1. Сохраните идентификатор и секретный ключ.
 
@@ -594,22 +594,22 @@
     {% endlist %}
 
 1. Установите [AWS CLI](https://aws.amazon.com/ru/cli/).
-1. Настройте окружение AWS CLI: Запустите команду `aws configure` и последовательно введите сохраненные ранее идентификатор ключа и секретный ключ. Для значения региона используйте `{{ region-id }}`:
+1. Настройте окружение AWS CLI: Запустите команду `aws configure` и последовательно введите сохраненные ранее идентификатор ключа и секретный ключ. Для значения региона используйте `ru-central1`:
 
     ```bash
     aws configure
     AWS Access Key ID [None]: AKIAIOSFODNN********
     AWS Secret Access Key [None]: wJalr********/*******/bPxRfiCYEX********
-    Default region name [None]: {{ region-id }}
+    Default region name [None]: ru-central1
     Default output format [None]:
     ```
 
     В результате будут созданы файлы `~/.aws/credentials` и `~/.aws/config` (`C:\Users\USERNAME\.aws\credentials` и `C:\Users\USERNAME\.aws\config` в Windows).
-1. Проверьте корректность настройки, запустив команду листинга таблиц в [созданной](../../operations/manage-databases.md) ранее БД. В качестве значения `--endpoint` укажите Document API эндпоинт, доступный на вкладке **{{ ui-key.yacloud.common.overview }}** вашей базы данных в [консоли управления]({{ link-console-main }}).
+1. Проверьте корректность настройки, запустив команду листинга таблиц в [созданной](../../operations/manage-databases.md) ранее БД. В качестве значения `--endpoint` укажите Document API эндпоинт, доступный на вкладке **Обзор** вашей базы данных в [консоли управления](https://console.yandex.cloud).
 
     ```bash
     aws dynamodb list-tables \
-    --endpoint {{ ydb.aws-ep }}
+    --endpoint https://docapi.serverless.yandexcloud.net/ru-central1/b1gia87mbaom********/etnudu2n9ri3********
     ```
 
     Результат:

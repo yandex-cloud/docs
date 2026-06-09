@@ -6,7 +6,7 @@ To get the list of available desktop groups, make a [List](list.md#List) request
 ## HTTP request
 
 ```
-GET https://clouddesktops.{{ api-host }}/cloud-desktop/v1/desktopGroups/{desktopGroupId}
+GET https://clouddesktops.api.cloud.yandex.net/cloud-desktop/v1/desktopGroups/{desktopGroupId}
 ```
 
 ## Path parameters

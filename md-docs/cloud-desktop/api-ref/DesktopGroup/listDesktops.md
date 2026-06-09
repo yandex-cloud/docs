@@ -5,7 +5,7 @@ Retrieves the list of desktops resources.
 ## HTTP request
 
 ```
-GET https://clouddesktops.{{ api-host }}/cloud-desktop/v1/desktopGroups/{desktopGroupId}/desktops
+GET https://clouddesktops.api.cloud.yandex.net/cloud-desktop/v1/desktopGroups/{desktopGroupId}/desktops
 ```
 
 ## Path parameters

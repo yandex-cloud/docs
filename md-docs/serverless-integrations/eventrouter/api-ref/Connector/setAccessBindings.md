@@ -5,7 +5,7 @@ Sets access bindings for the connector.
 ## HTTP request
 
 ```
-POST https://serverless-eventrouter.{{ api-host }}/eventrouter/v1/connectors/{resourceId}:setAccessBindings
+POST https://serverless-eventrouter.api.cloud.yandex.net/eventrouter/v1/connectors/{resourceId}:setAccessBindings
 ```
 
 ## Path parameters

@@ -21,7 +21,7 @@
    
      {% note info %}
    
-     [Время жизни](../../../iam/concepts/authorization/iam-token.md#lifetime) IAM-токена — не больше {{ iam-token-lifetime }}.
+     [Время жизни](../../../iam/concepts/authorization/iam-token.md#lifetime) IAM-токена — не больше 12 часов.
    
      {% endnote %}
    
@@ -59,7 +59,7 @@
           cloud-registry
 
       [cloud-registry]
-      repository = https://{{ cloud-registry }}/pypi/<идентификатор_реестра>/legacy/
+      repository = https://registry.yandexcloud.net/pypi/<идентификатор_реестра>/legacy/
       username = iam
       password = <IAM-токен>
       ```
@@ -72,7 +72,7 @@
           cloud-registry
 
       [cloud-registry]
-      repository = https://{{ cloud-registry }}/pypi/<идентификатор_реестра>/legacy/
+      repository = https://registry.yandexcloud.net/pypi/<идентификатор_реестра>/legacy/
       username = api_key
       password = <API-ключ>
       ```

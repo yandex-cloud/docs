@@ -1,12 +1,12 @@
-# Подключение к кластеру {{ SPQR }}
+# Подключение к кластеру Sharded PostgreSQL
 
-К хостам кластера {{ mspqr-name }} можно подключиться:
+К хостам кластера Managed Service for Sharded PostgreSQL можно подключиться:
 
 * Через интернет, если вы настроили публичный доступ для нужного хоста. К таким хостам подключиться можно только с использованием SSL-соединения.
 
-* С виртуальных машин {{ yandex-cloud }}, расположенных в той же [облачной сети](../../vpc/concepts/network.md). Если к хосту нет публичного доступа, для подключения с таких виртуальных машин необязательно использовать SSL-соединение.
+* С виртуальных машин Yandex Cloud, расположенных в той же [облачной сети](../../vpc/concepts/network.md). Если к хосту нет публичного доступа, для подключения с таких виртуальных машин необязательно использовать SSL-соединение.
 
-Подключение возможно ко всем [типам хостов](../concepts/index.md): `INFRA`, `ROUTER`, `COORDINATOR`, хосты {{ PG }}-кластера. Подключение выполняется через порт `{{ port-mpg }}`. К хостам типа `COORDINATOR`, а также к консоли администратора {{ SPQR }} необходимо подключаться от имени пользователя `spqr-console` к базе данных `spqr-console`. Консоль администратора позволяет настроить правила шардирования. Подробнее см. в [документации SPQR](https://pg-sharding.tech/welcome/get_started).
+Подключение возможно ко всем [типам хостов](../concepts/index.md): `INFRA`, `ROUTER`, `COORDINATOR`, хосты PostgreSQL-кластера. Подключение выполняется через порт `6432`. К хостам типа `COORDINATOR`, а также к консоли администратора Sharded PostgreSQL необходимо подключаться от имени пользователя `spqr-console` к базе данных `spqr-console`. Консоль администратора позволяет настроить правила шардирования. Подробнее см. в [документации SPQR](https://pg-sharding.tech/welcome/get_started).
 
 
 ## Настройка групп безопасности {#configuring-security-groups}
@@ -19,41 +19,41 @@
 
 - Через интернет {#internet}
 
-    [Настройте все группы безопасности](../../vpc/operations/security-group-add-rule.md) кластера так, чтобы они разрешали входящий трафик с любых IP-адресов на порт `{{ port-mpg }}`. Для этого создайте следующее правило для входящего трафика:
+    [Настройте все группы безопасности](../../vpc/operations/security-group-add-rule.md) кластера так, чтобы они разрешали входящий трафик с любых IP-адресов на порт `6432`. Для этого создайте следующее правило для входящего трафика:
 
-    * **{{ ui-key.yacloud.vpc.network.security-groups.forms.field_sg-rule-port-range }}** — `{{ port-mpg }}`.
-    * **{{ ui-key.yacloud.vpc.network.security-groups.forms.field_sg-rule-protocol }}** — `{{ ui-key.yacloud.common.label_tcp }}`.
-    * **{{ ui-key.yacloud.vpc.network.security-groups.forms.field_sg-rule-source }}** — `{{ ui-key.yacloud.vpc.network.security-groups.forms.value_sg-rule-destination-cidr }}`.
-    * **{{ ui-key.yacloud.vpc.network.security-groups.forms.field_sg-rule-cidr-blocks }}** — `0.0.0.0/0`.
+    * **Диапазон портов** — `6432`.
+    * **Протокол** — `TCP`.
+    * **Источник** — `CIDR`.
+    * **CIDR блоки** — `0.0.0.0/0`.
 
     Если в общей группе безопасности кластера и шардов настроены правила для подключения роутера к хостам шарда, дополнительная настройка групп безопасности для доступа к кластеру через интернет не требуется.
 
-- С ВМ в {{ yandex-cloud }} {#cloud}
+- С ВМ в Yandex Cloud {#cloud}
 
-    1. [Настройте все группы безопасности](../../vpc/operations/security-group-add-rule.md) кластера так, чтобы они разрешали входящий трафик из группы безопасности, в которой находится ВМ, на порт `{{ port-mpg }}`. Для этого создайте в этих группах следующее правило для входящего трафика:
+    1. [Настройте все группы безопасности](../../vpc/operations/security-group-add-rule.md) кластера так, чтобы они разрешали входящий трафик из группы безопасности, в которой находится ВМ, на порт `6432`. Для этого создайте в этих группах следующее правило для входящего трафика:
 
-        * **{{ ui-key.yacloud.vpc.network.security-groups.forms.field_sg-rule-port-range }}** — `{{ port-mpg }}`.
-        * **{{ ui-key.yacloud.vpc.network.security-groups.forms.field_sg-rule-protocol }}** — `{{ ui-key.yacloud.common.label_tcp }}`.
-        * **{{ ui-key.yacloud.vpc.network.security-groups.forms.field_sg-rule-source }}** — `{{ ui-key.yacloud.vpc.network.security-groups.forms.value_sg-rule-destination-sg }}`.
-        * **{{ ui-key.yacloud.vpc.network.security-groups.forms.field_sg-rule-sg-type }}** — если кластер и ВМ находятся в одной и той же группе безопасности, выберите значение `{{ ui-key.yacloud.vpc.network.security-groups.forms.value_sg-rule-sg-type-self }}` (`Self`). В противном случае укажите группу безопасности ВМ.
+        * **Диапазон портов** — `6432`.
+        * **Протокол** — `TCP`.
+        * **Источник** — `Группа безопасности`.
+        * **Группа безопасности** — если кластер и ВМ находятся в одной и той же группе безопасности, выберите значение `Текущая` (`Self`). В противном случае укажите группу безопасности ВМ.
 
     1. [Настройте группу безопасности](../../vpc/operations/security-group-add-rule.md), в которой находится ВМ так, чтобы можно было подключаться к ВМ и был разрешен трафик между ВМ и хостами кластера.
 
         Пример правил для ВМ:
 
         * Для входящего трафика:
-            * **{{ ui-key.yacloud.vpc.network.security-groups.forms.field_sg-rule-port-range }}** — `22`.
-            * **{{ ui-key.yacloud.vpc.network.security-groups.forms.field_sg-rule-protocol }}** — `{{ ui-key.yacloud.common.label_tcp }}`.
-            * **{{ ui-key.yacloud.vpc.network.security-groups.forms.field_sg-rule-source }}** — `{{ ui-key.yacloud.vpc.network.security-groups.forms.value_sg-rule-destination-cidr }}`.
-            * **{{ ui-key.yacloud.vpc.network.security-groups.forms.field_sg-rule-cidr-blocks }}** — `0.0.0.0/0`.
+            * **Диапазон портов** — `22`.
+            * **Протокол** — `TCP`.
+            * **Источник** — `CIDR`.
+            * **CIDR блоки** — `0.0.0.0/0`.
 
             Это правило позволяет [подключаться](../../compute/operations/vm-connect/ssh.md#vm-connect) к ВМ по протоколу [SSH](../../glossary/ssh-keygen.md).
 
         * Для исходящего трафика:
-            * **{{ ui-key.yacloud.vpc.network.security-groups.forms.field_sg-rule-port-range }}** — `{{ port-any }}`.
-            * **{{ ui-key.yacloud.vpc.network.security-groups.forms.field_sg-rule-protocol }}** — `{{ ui-key.yacloud.vpc.network.security-groups.forms.value_any }}` (`Any`).
-            * **{{ ui-key.yacloud.vpc.network.security-groups.forms.field_sg-rule-destination }}** — `{{ ui-key.yacloud.vpc.network.security-groups.forms.value_sg-rule-destination-cidr }}`.
-                * **{{ ui-key.yacloud.vpc.network.security-groups.forms.field_sg-rule-cidr-blocks }}** — `0.0.0.0/0`.
+            * **Диапазон портов** — `0-65535`.
+            * **Протокол** — `Любой` (`Any`).
+            * **Назначение** — `CIDR`.
+                * **CIDR блоки** — `0.0.0.0/0`.
 
             Это правило разрешает любой исходящий трафик, что позволяет не только подключаться к кластеру, но и устанавливать на ВМ необходимые для этого сертификаты и утилиты.
 
@@ -70,7 +70,7 @@
 
 ## Получение SSL-сертификата {#get-ssl-cert}
 
-Хосты {{ SPQR }} с публичным доступом поддерживают только шифрованные соединения. Чтобы использовать их, получите SSL-сертификат:
+Хосты Sharded PostgreSQL с публичным доступом поддерживают только шифрованные соединения. Чтобы использовать их, получите SSL-сертификат:
 
 {% list tabs group=operating_system %}
 
@@ -78,7 +78,7 @@
 
    ```bash
    mkdir -p ~/.postgresql && \
-   wget "{{ crt-web-path }}" \
+   wget "https://storage.yandexcloud.net/cloud-certs/CA.pem" \
         --output-document ~/.postgresql/root.crt && \
    chmod 0655 ~/.postgresql/root.crt
    ```
@@ -88,7 +88,7 @@
 - Windows (PowerShell) {#windows}
 
    ```powershell
-   mkdir $HOME\.postgresql; curl.exe -o $HOME\.postgresql\root.crt {{ crt-web-path }}
+   mkdir $HOME\.postgresql; curl.exe -o $HOME\.postgresql\root.crt https://storage.yandexcloud.net/cloud-certs/CA.pem
    ```
 
    Сертификат будет сохранен в файле `$HOME\.postgresql\root.crt`.
@@ -97,15 +97,15 @@
 
 {% endlist %}
 
-## FQDN хоста {{ SPQR }} {#fqdn}
+## FQDN хоста Sharded PostgreSQL {#fqdn}
 
 Для подключения к хосту потребуется его [FQDN](../../glossary/fqdn.md) — доменное имя.
 
 FQDN можно посмотреть в консоли управления:
 
 1. Перейдите на страницу кластера.
-1. Перейдите в раздел **{{ ui-key.yacloud.mdb.cluster.hosts.label_title }}**.
-1. Скопируйте значение в столбце **{{ ui-key.yacloud.mdb.cluster.hosts.host_column_name }}**.
+1. Перейдите в раздел **Хосты**.
+1. Скопируйте значение в столбце **FQDN хоста**.
 
 ## Подключение с помощью Bash {#bash}
 
@@ -123,7 +123,7 @@ sudo apt update && sudo apt install --yes postgresql-client
 
         ```bash
         psql "host=<FQDN_хоста> \
-              port={{ port-mpg }} \
+              port=6432 \
               sslmode=disable \
               dbname=<имя_БД> \
               user=<имя_пользователя> \
@@ -146,7 +146,7 @@ sudo apt update && sudo apt install --yes postgresql-client
 
         ```bash
         psql "host=<FQDN_хоста> \
-              port={{ port-mpg }} \
+              port=6432 \
               sslmode=verify-full \
               dbname=<имя_БД> \
               user=<имя_пользователя> \
@@ -165,20 +165,20 @@ sudo apt update && sudo apt install --yes postgresql-client
 
 {% endlist %}
 
-## Подключение из {{ pgadmin }} {#connection-pgadmin}
+## Подключение из pgAdmin 4 {#connection-pgadmin}
 
-Подключение проверялось для [{{ pgadmin }}](https://www.pgadmin.org) версии 9.1 в Windows 10.
+Подключение проверялось для [pgAdmin 4](https://www.pgadmin.org) версии 9.1 в Windows 10.
 
-Подключаться из {{ pgadmin }} можно только к хостам кластера в публичном доступе с [использованием SSL-сертификата](#get-ssl-cert).
+Подключаться из pgAdmin 4 можно только к хостам кластера в публичном доступе с [использованием SSL-сертификата](#get-ssl-cert).
 
 Создайте новое подключение к серверу:
 
 1. Выберите в меню **Object** → **Register** → **Server...**
-1. На вкладке **General** в поле **Name** укажите имя, под которым кластер будет отображаться в интерфейсе {{ pgadmin }}. Имя может быть любым.
+1. На вкладке **General** в поле **Name** укажите имя, под которым кластер будет отображаться в интерфейсе pgAdmin 4. Имя может быть любым.
 1. На вкладке **Connection** укажите параметры подключения:
 
     * **Host name/address** — [FQDN хоста](#fqdn);
-    * **Port** — `{{ port-mpg }}`;
+    * **Port** — `6432`;
     * **Maintenance database** — имя БД для подключения;
     * **Username** — имя пользователя, от имени которого выполняется подключение;
     * **Password** — пароль пользователя.

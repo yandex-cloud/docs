@@ -5,7 +5,7 @@ Commits the result of a password writeback operation.
 ## HTTP request
 
 ```
-POST https://organization-manager.{{ api-host }}/organization-manager/v1/idp/users:commitPassword
+POST https://organization-manager.api.cloud.yandex.net/organization-manager/v1/idp/users:commitPassword
 ```
 
 ## Body parameters {#yandex.cloud.organizationmanager.v1.idp.CommitPasswordRequest}

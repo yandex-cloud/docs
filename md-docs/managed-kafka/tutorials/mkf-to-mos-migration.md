@@ -1,9 +1,9 @@
-# Поставка данных в {{ mos-full-name }} с помощью {{ data-transfer-full-name }}
+# Поставка данных в Yandex Managed Service for OpenSearch с помощью Yandex Data Transfer
 
-# Поставка данных очереди из {{ KF }} в {{ OS }} с помощью {{ data-transfer-full-name }}
+# Поставка данных очереди из Apache Kafka® в OpenSearch с помощью Yandex Data Transfer
 
 
-В кластер {{ mos-full-name }} можно в реальном времени поставлять данные из топиков {{ KF }}.
+В кластер Yandex Managed Service for OpenSearch можно в реальном времени поставлять данные из топиков Apache Kafka®.
 
 Чтобы запустить поставку данных:
 
@@ -17,9 +17,9 @@
 
 ## Необходимые платные ресурсы {#paid-resources}
 
-* Кластер {{ mkf-name }}: использование выделенных хостам вычислительных ресурсов и объем хранилища (см. [тарифы {{ mkf-name }}](../pricing.md)).
-* Кластер {{ mos-name }}: использование вычислительных ресурсов, объем хранилища и резервных копий (см. [тарифы {{ mos-name }}](../../managed-opensearch/pricing.md)).
-* Публичные IP-адреса, если для хостов кластеров включен публичный доступ (см. [тарифы {{ vpc-full-name }}](../../vpc/pricing.md)).
+* Кластер Managed Service for Apache Kafka®: использование выделенных хостам вычислительных ресурсов и объем хранилища (см. [тарифы Managed Service for Apache Kafka®](../pricing.md)).
+* Кластер Managed Service for OpenSearch: использование вычислительных ресурсов, объем хранилища и резервных копий (см. [тарифы Managed Service for OpenSearch](../../managed-opensearch/pricing.md)).
+* Публичные IP-адреса, если для хостов кластеров включен публичный доступ (см. [тарифы Yandex Virtual Private Cloud](../../vpc/pricing.md)).
 
 
 ## Перед началом работы {#before-you-begin}
@@ -32,17 +32,17 @@
 
         {% note info %}
         
-        Публичный доступ к хостам кластера нужен, если вы планируете подключаться к кластеру через интернет. Этот вариант подключения более простой, и его рекомендуется использовать для прохождения руководства. К хостам без публичного доступа тоже можно подключиться, но только с виртуальных машин {{ yandex-cloud }}, расположенных в той же облачной сети, что и кластер.
+        Публичный доступ к хостам кластера нужен, если вы планируете подключаться к кластеру через интернет. Этот вариант подключения более простой, и его рекомендуется использовать для прохождения руководства. К хостам без публичного доступа тоже можно подключиться, но только с виртуальных машин Yandex Cloud, расположенных в той же облачной сети, что и кластер.
         
         {% endnote %}
 
-        1. [Создайте кластер-источник {{ mkf-name }}](../operations/cluster-create.md) любой подходящей конфигурации. Для подключения к кластеру с локальной машины пользователя, а не из облачной сети {{ yandex-cloud }}, включите публичный доступ к кластеру при его создании.
+        1. [Создайте кластер-источник Managed Service for Apache Kafka®](../operations/cluster-create.md) любой подходящей конфигурации. Для подключения к кластеру с локальной машины пользователя, а не из облачной сети Yandex Cloud, включите публичный доступ к кластеру при его создании.
 
         1. [Создайте в кластере-источнике топик](../operations/cluster-topics.md#create-topic) с именем `sensors`.
 
         1. [Создайте в кластере-источнике пользователя](../operations/cluster-accounts.md#create-account) с именем `mkf-user` и правами доступа `ACCESS_ROLE_PRODUCER` и `ACCESS_ROLE_CONSUMER` к созданному топику.
 
-        1. [Создайте кластер-приемник {{ mos-name }}](../../managed-opensearch/operations/cluster-create.md#create-cluster) любой подходящей конфигурации со следующими настройками:
+        1. [Создайте кластер-приемник Managed Service for OpenSearch](../../managed-opensearch/operations/cluster-create.md#create-cluster) любой подходящей конфигурации со следующими настройками:
 
             * В той же зоне доступности, что и кластер-источник.
             * С публичным доступом к хостам с ролью `DATA`.
@@ -51,13 +51,13 @@
         
         1. Для подключения к кластерам с локальной машины пользователя, настройте группы безопасности:
 
-            * [{{ mkf-name }}](../operations/connect/index.md#configuring-security-groups).
-            * [{{ mos-name }}](../../managed-opensearch/operations/connect/index.md#security-groups).
+            * [Managed Service for Apache Kafka®](../operations/connect/index.md#configuring-security-groups).
+            * [Managed Service for OpenSearch](../../managed-opensearch/operations/connect/index.md#security-groups).
 
 
-    - {{ TF }} {#tf}
+    - Terraform {#tf}
 
-        1. Если у вас еще нет {{ TF }}, [установите его](../../tutorials/infrastructure-management/terraform-quickstart.md#install-terraform).
+        1. Если у вас еще нет Terraform, [установите его](../../tutorials/infrastructure-management/terraform-quickstart.md#install-terraform).
         1. [Получите данные для аутентификации](../../tutorials/infrastructure-management/terraform-quickstart.md#get-credentials). Вы можете добавить их в переменные окружения или указать далее в файле с настройками провайдера.
         1. [Настройте и инициализируйте провайдер](../../tutorials/infrastructure-management/terraform-quickstart.md#configure-provider). Чтобы не создавать конфигурационный файл с настройками провайдера вручную, [скачайте его](https://github.com/yandex-cloud-examples/yc-terraform-provider-settings/blob/main/provider.tf).
         1. Поместите конфигурационный файл в отдельную рабочую директорию и [укажите значения параметров](../../tutorials/infrastructure-management/terraform-quickstart.md#configure-provider). Если данные для аутентификации не были добавлены в переменные окружения, укажите их в конфигурационном файле.
@@ -67,28 +67,28 @@
 
             * [сеть](../../vpc/concepts/network.md#network);
             * [подсеть](../../vpc/concepts/network.md#subnet);
-            * [группа безопасности](../../vpc/concepts/security-groups.md) и правила, необходимые для подключения к кластерам {{ mkf-name }} и {{ mos-name }};
-            * кластер-источник {{ mkf-name }};
-            * топик {{ KF }} с именем `sensors`;
-            * пользователь {{ KF }} `mkf-user` с правами доступа `ACCESS_ROLE_PRODUCER`, `ACCESS_ROLE_CONSUMER` к топику `sensors`;
-            * кластер-приемник {{ mos-name }};
+            * [группа безопасности](../../vpc/concepts/security-groups.md) и правила, необходимые для подключения к кластерам Managed Service for Apache Kafka® и Managed Service for OpenSearch;
+            * кластер-источник Managed Service for Apache Kafka®;
+            * топик Apache Kafka® с именем `sensors`;
+            * пользователь Apache Kafka® `mkf-user` с правами доступа `ACCESS_ROLE_PRODUCER`, `ACCESS_ROLE_CONSUMER` к топику `sensors`;
+            * кластер-приемник Managed Service for OpenSearch;
             * трансфер.
 
         1. Укажите в файле `data-transfer-mkf-mos.tf` переменные:
 
-            * `kf_version` — версия {{ KF }} в кластере-источнике;
+            * `kf_version` — версия Apache Kafka® в кластере-источнике;
             * `kf_user_password` — пароль пользователя `mkf-user`;
-            * `os_version` — версия {{ OS }} в кластере-приемнике;
+            * `os_version` — версия OpenSearch в кластере-приемнике;
             * `os_user_password` — пароль пользователя `admin`;
             * `transfer_enabled` — значение `0`, чтобы не создавать трансфер до [создания эндпоинтов вручную](#prepare-transfer).
 
-        1. Проверьте корректность файлов конфигурации {{ TF }} с помощью команды:
+        1. Проверьте корректность файлов конфигурации Terraform с помощью команды:
 
             ```bash
             terraform validate
             ```
 
-            Если в файлах конфигурации есть ошибки, {{ TF }} на них укажет.
+            Если в файлах конфигурации есть ошибки, Terraform на них укажет.
 
         1. Создайте необходимую инфраструктуру:
 
@@ -110,19 +110,19 @@
                1. Подтвердите изменение ресурсов.
                1. Дождитесь завершения операции.
 
-            В указанном каталоге будут созданы все требуемые ресурсы. Проверить появление ресурсов и их настройки можно в [консоли управления]({{ link-console-main }}).
+            В указанном каталоге будут созданы все требуемые ресурсы. Проверить появление ресурсов и их настройки можно в [консоли управления](https://console.yandex.cloud).
 
     {% endlist %}
 
 1. Установите утилиты:
 
-    - [kafkacat](https://github.com/edenhill/kcat) — для чтения и записи данных в топики {{ KF }}.
+    - [kafkacat](https://github.com/edenhill/kcat) — для чтения и записи данных в топики Apache Kafka®.
 
         ```bash
         sudo apt update && sudo apt install --yes kafkacat
         ```
 
-        Убедитесь, что можете с ее помощью [подключиться к кластеру-источнику {{ mkf-name }} через SSL](../operations/connect/clients.md#bash-zsh).
+        Убедитесь, что можете с ее помощью [подключиться к кластеру-источнику Managed Service for Apache Kafka® через SSL](../operations/connect/clients.md#bash-zsh).
 
     - [jq](https://stedolan.github.io/jq/) — для потоковой обработки JSON-файлов.
 
@@ -132,7 +132,7 @@
 
 ## Подготовьте тестовые данные {#prepare-data}
 
-Пусть в качестве сообщения в топик {{ KF }} `sensors` кластера-источника поступают данные от сенсоров автомобиля в формате JSON.
+Пусть в качестве сообщения в топик Apache Kafka® `sensors` кластера-источника поступают данные от сенсоров автомобиля в формате JSON.
 
 Создайте локально файл `sample.json` с тестовыми данными:
 
@@ -180,37 +180,37 @@
 
 {% note tip %}
 
-Вы можете поставлять данные в кластер {{ mos-name }} от имени пользователя `admin`, имеющего роль `superuser`, но безопаснее для каждой задачи создавать отдельных пользователей с ограниченными привилегиями. Подробнее см. в разделе [{#T}](../../managed-opensearch/operations/cluster-users.md).
+Вы можете поставлять данные в кластер Managed Service for OpenSearch от имени пользователя `admin`, имеющего роль `superuser`, но безопаснее для каждой задачи создавать отдельных пользователей с ограниченными привилегиями. Подробнее см. в разделе [Управление пользователями OpenSearch](../../managed-opensearch/operations/cluster-users.md).
 
 {% endnote %}
 
-1. [Создайте роль]({{ os.docs }}/security-plugin/access-control/users-roles/#create-roles) с привилегиями `create_index` и `write` для всех индексов (`*`).
+1. [Создайте роль](https://opensearch.org/docs/latest/security-plugin/access-control/users-roles/#create-roles) с привилегиями `create_index` и `write` для всех индексов (`*`).
 
 1. [Создайте пользователя](../../managed-opensearch/operations/cluster-users.md) и назначьте ему эту роль.
 
 ## Подготовьте и активируйте трансфер {#prepare-transfer}
 
-1. [Создайте эндпоинт](../../data-transfer/operations/endpoint/index.md#create) для [источника `{{ KF }}`](../../data-transfer/operations/endpoint/source/kafka.md):
+1. [Создайте эндпоинт](../../data-transfer/operations/endpoint/index.md#create) для [источника `Apache Kafka®`](../../data-transfer/operations/endpoint/source/kafka.md):
 
-    **{{ ui-key.yc-data-transfer.data-transfer.console.form.kafka.console.form.kafka.KafkaSource.title }}**:
+    **Параметры эндпоинта**:
 
-    * **{{ ui-key.yc-data-transfer.data-transfer.console.form.kafka.console.form.kafka.KafkaSource.connection.title }}**:
+    * **Настройки подключения**:
 
-        * **{{ ui-key.yc-data-transfer.data-transfer.console.form.kafka.console.form.kafka.KafkaSourceConnection.connection_type.title }}** — `{{ ui-key.yc-data-transfer.data-transfer.console.form.kafka.console.form.kafka.KafkaConnectionType.managed.title }}`.
+        * **Тип подключения** — `Кластер Managed Service for Apache Kafka`.
 
-            * **{{ ui-key.yc-data-transfer.data-transfer.console.form.kafka.console.form.kafka.ManagedKafka.cluster_id.title }}** — выберите кластер-источник из списка.
+            * **Кластер Managed Service for Apache Kafka** — выберите кластер-источник из списка.
 
-            * **{{ ui-key.yc-data-transfer.data-transfer.console.form.kafka.console.form.kafka.ManagedKafka.auth.title }}** — **{{ ui-key.yc-data-transfer.data-transfer.console.form.kafka.console.form.kafka.ManagedKafkaAuth.sasl.title }}**.
+            * **Аутентификация** — **SASL**.
 
-                * **{{ ui-key.yc-data-transfer.data-transfer.console.form.kafka.console.form.kafka.ManagedKafkaSASLAuth.user.title }}** — `mkf-user`.
-                * **{{ ui-key.yc-data-transfer.data-transfer.console.form.kafka.console.form.kafka.ManagedKafkaSASLAuth.password.title }}** — укажите пароль пользователя.
+                * **Имя пользователя** — `mkf-user`.
+                * **Пароль** — укажите пароль пользователя.
 
-        * **{{ ui-key.yc-data-transfer.data-transfer.console.form.kafka.console.form.kafka.KafkaTargetTopicSettings.topic.title }}** — `sensors`.
+        * **Полное имя топика** — `sensors`.
 
-    * **{{ ui-key.yc-data-transfer.data-transfer.console.form.kafka.console.form.kafka.KafkaSource.advanced_settings.title }}** → **{{ ui-key.yc-data-transfer.data-transfer.console.form.kafka.console.form.kafka.KafkaSourceAdvancedSettings.converter.title }}**:
+    * **Расширенные настройки** → **Правила конвертации**:
 
-        * **{{ ui-key.yc-data-transfer.data-transfer.console.form.kafka.console.form.kafka.KafkaSourceAdvancedSettings.converter.title }}** — `json`.
-            * **{{ ui-key.yc-data-transfer.data-transfer.console.form.common.console.form.common.ConvertRecordOptions.data_schema.title }}** — `{{ ui-key.yc-data-transfer.data-transfer.console.form.common.console.form.common.DataSchema.json_fields.title }}`.
+        * **Правила конвертации** — `json`.
+            * **Схема данных** — `JSON-спецификация`.
 
                 Вставьте схему данных в формате JSON:
 
@@ -260,17 +260,17 @@
 
                 {% endcut %}
 
-1. [Создайте эндпоинт](../../data-transfer/operations/endpoint/index.md#create) для [приемника `{{ OS }}`](../../data-transfer/operations/endpoint/target/opensearch.md):
+1. [Создайте эндпоинт](../../data-transfer/operations/endpoint/index.md#create) для [приемника `OpenSearch`](../../data-transfer/operations/endpoint/target/opensearch.md):
 
-    **{{ ui-key.yc-data-transfer.data-transfer.console.form.opensearch.console.form.opensearch.OpenSearchTarget.title }}** → **{{ ui-key.yc-data-transfer.data-transfer.console.form.opensearch.console.form.opensearch.OpenSearchTarget.connection.title }}**:
+    **Параметры эндпоинта** → **Настройки подключения**:
 
-    * **{{ ui-key.yc-data-transfer.data-transfer.console.form.opensearch.console.form.opensearch.OpenSearchConnection.connection_type.title }}** — `{{ ui-key.yc-data-transfer.data-transfer.console.form.opensearch.console.form.opensearch.OpenSearchConnectionType.mdb_cluster_id.title }}`.
+    * **Тип подключения** — `Кластер Managed Service for OpenSearch`.
 
-        * **{{ ui-key.yc-data-transfer.data-transfer.console.form.opensearch.console.form.opensearch.OpenSearchConnectionType.mdb_cluster_id.title }}** — выберите кластер-приемник из списка.
+        * **Кластер Managed Service for OpenSearch** — выберите кластер-приемник из списка.
 
-    * **{{ ui-key.yc-data-transfer.data-transfer.console.form.opensearch.console.form.opensearch.OpenSearchConnection.user.title }}** — укажите имя пользователя.
+    * **Пользователь** — укажите имя пользователя.
 
-    * **{{ ui-key.yc-data-transfer.data-transfer.console.form.opensearch.console.form.opensearch.OpenSearchConnection.password.title }}** — укажите пароль пользователя.
+    * **Пароль** — укажите пароль пользователя.
 
 1. Создайте трансфер:
 
@@ -278,10 +278,10 @@
 
     - Вручную {#manual}
 
-        1. [Создайте трансфер](../../data-transfer/operations/transfer.md#create) типа **_{{ ui-key.yc-data-transfer.data-transfer.console.form.transfer.console.form.transfer.TransferType.increment.title }}_**, использующий созданные эндпоинты.
-        1. [Активируйте трансфер](../../data-transfer/operations/transfer.md#activate) и дождитесь его перехода в статус **{{ ui-key.yacloud.data-transfer.label_connector-status-RUNNING }}**.
+        1. [Создайте трансфер](../../data-transfer/operations/transfer.md#create) типа **_Репликация_**, использующий созданные эндпоинты.
+        1. [Активируйте трансфер](../../data-transfer/operations/transfer.md#activate) и дождитесь его перехода в статус **Реплицируется**.
 
-    - {{ TF }} {#tf}
+    - Terraform {#tf}
 
         1. Укажите в файле `data-transfer-mkf-mos.tf` переменные:
 
@@ -289,13 +289,13 @@
             * `target_endpoint_id` — идентификатор эндпоинта для приемника;
             * `transfer_enabled` — значение `1` для создания трансфера.
 
-        1. Проверьте корректность файлов конфигурации {{ TF }} с помощью команды:
+        1. Проверьте корректность файлов конфигурации Terraform с помощью команды:
 
             ```bash
             terraform validate
             ```
 
-            Если в файлах конфигурации есть ошибки, {{ TF }} на них укажет.
+            Если в файлах конфигурации есть ошибки, Terraform на них укажет.
 
         1. Создайте необходимую инфраструктуру:
 
@@ -317,15 +317,15 @@
                1. Подтвердите изменение ресурсов.
                1. Дождитесь завершения операции.
 
-        1. Трансфер активируется автоматически. Дождитесь его перехода в статус **{{ ui-key.yacloud.data-transfer.label_connector-status-RUNNING }}**.
+        1. Трансфер активируется автоматически. Дождитесь его перехода в статус **Реплицируется**.
 
     {% endlist %}
 
 ## Проверьте работоспособность трансфера {#verify-transfer}
 
-Убедитесь, что в кластер {{ mos-name }} переносятся данные из топика кластера-источника {{ mkf-name }}:
+Убедитесь, что в кластер Managed Service for OpenSearch переносятся данные из топика кластера-источника Managed Service for Apache Kafka®:
 
-1. Отправьте данные из файла `sample.json` в топик `sensors` {{ mkf-name }} с помощью утилит `jq` и `kafkacat`:
+1. Отправьте данные из файла `sample.json` в топик `sensors` Managed Service for Apache Kafka® с помощью утилит `jq` и `kafkacat`:
 
     ```bash
     jq -rc . sample.json | kafkacat -P \
@@ -336,12 +336,12 @@
        -X sasl.mechanisms=SCRAM-SHA-512 \
        -X sasl.username="mkf-user" \
        -X sasl.password="<пароль_пользователя_в_кластере-источнике>" \
-       -X ssl.ca.location={{ crt-local-dir }}{{ crt-local-file }} -Z
+       -X ssl.ca.location=/usr/local/share/ca-certificates/Yandex/YandexInternalRootCA.crt -Z
     ```
 
-    Подробнее о настройке SSL-сертификата и работе с `kafkacat` см. в разделе [{#T}](../operations/connect/clients.md).
+    Подробнее о настройке SSL-сертификата и работе с `kafkacat` см. в разделе [Подключение к кластеру Apache Kafka® из приложений](../operations/connect/clients.md).
 
-1. Проверьте, что индекс `sensors` кластера {{ mos-name }} содержит отправленные данные:
+1. Проверьте, что индекс `sensors` кластера Managed Service for OpenSearch содержит отправленные данные:
 
     {% list tabs group=programming_language %}
 
@@ -354,12 +354,12 @@
             --user <имя_пользователя_в_кластере-приемнике>:<пароль_пользователя_в_кластере-приемнике> \
             --cacert ~/.opensearch/root.crt \
             --header 'Content-Type: application/json' \
-            --request GET 'https://<идентификатор_хоста_{{ OS }}_с_ролью_DATA>.rw.{{ dns-zone }}:{{ port-mos }}/sensors/_search?pretty'
+            --request GET 'https://<идентификатор_хоста_OpenSearch_с_ролью_DATA>.rw.mdb.yandexcloud.net:9200/sensors/_search?pretty'
         ```
 
-    - {{ OS }} Dashboards {#opensearch}
+    - OpenSearch Dashboards {#opensearch}
 
-        1. [Подключитесь](../../managed-opensearch/operations/connect/clients.md#dashboards) к кластеру-приемнику с помощью {{ OS }} Dashboards.
+        1. [Подключитесь](../../managed-opensearch/operations/connect/clients.md#dashboards) к кластеру-приемнику с помощью OpenSearch Dashboards.
         1. Выберите общий тенант `Global`.
         1. Откройте панель управления, нажав на значок ![os-dashboards-sandwich](../../_assets/console-icons/bars.svg).
         1. В разделе **OpenSearch Dashboards** выберите **Discover**.
@@ -385,16 +385,16 @@
 
    - Вручную {#manual}
 
-       1. [Удалите кластер {{ mos-name }}](../../managed-opensearch/operations/cluster-delete.md).
-       1. [Удалите кластер {{ mkf-name }}](../operations/cluster-delete.md).
+       1. [Удалите кластер Managed Service for OpenSearch](../../managed-opensearch/operations/cluster-delete.md).
+       1. [Удалите кластер Managed Service for Apache Kafka®](../operations/cluster-delete.md).
 
-   - С помощью {{ TF }} {#tf}
+   - С помощью Terraform {#tf}
 
        1. В терминале перейдите в директорию с планом инфраструктуры.
        
            {% note warning %}
        
-           Убедитесь, что в директории нет {{ TF }}-манифестов с ресурсами, которые вы хотите сохранить. {{ TF }} удаляет все ресурсы, которые были созданы с помощью манифестов в текущей директории.
+           Убедитесь, что в директории нет Terraform-манифестов с ресурсами, которые вы хотите сохранить. Terraform удаляет все ресурсы, которые были созданы с помощью манифестов в текущей директории.
        
            {% endnote %}
        
@@ -408,6 +408,6 @@
        
            1. Подтвердите удаление ресурсов и дождитесь завершения операции.
        
-           Все ресурсы, которые были описаны в {{ TF }}-манифестах, будут удалены.
+           Все ресурсы, которые были описаны в Terraform-манифестах, будут удалены.
 
    {% endlist %}

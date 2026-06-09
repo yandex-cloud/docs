@@ -5,7 +5,7 @@ Updates the specified PostgreSQL database.
 ## HTTP request
 
 ```
-PATCH https://{{ api-host-mdb }}/managed-postgresql/v1/clusters/{clusterId}/databases/{databaseName}
+PATCH https://mdb.api.cloud.yandex.net/managed-postgresql/v1/clusters/{clusterId}/databases/{databaseName}
 ```
 
 ## Path parameters

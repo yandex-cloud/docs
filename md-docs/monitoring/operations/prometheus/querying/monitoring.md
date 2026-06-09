@@ -1,31 +1,31 @@
-# Чтение и визуализация метрик в {{ monitoring-name }}
+# Чтение и визуализация метрик в Monitoring
 
-На основе метрик {{ prometheus-name }} можно построить графики:
+На основе метрик Prometheus можно построить графики:
 
-* В разделе **{{ ui-key.yacloud_monitoring.aside-navigation.menu-item.explorer.title }}** — для быстрого просмотра состояния ресурсов.
-* В разделе **{{ ui-key.yacloud_monitoring.aside-navigation.menu-item.dashboards.title }}** — для периодического мониторинга определенных показателей.
+* В разделе **Метрики** — для быстрого просмотра состояния ресурсов.
+* В разделе **Дашборды** — для периодического мониторинга определенных показателей.
 
 {% note tip %}
 
-Чтобы перенести дашборды из существующих инсталляций {{ grafana-name }}, воспользуйтесь [скриптом импорта](https://github.com/yandex-cloud-examples/yc-monitoring-dashboard-importer). Он автоматизирует процесс и позволяет избежать ошибок при ручном переносе конфигураций.
+Чтобы перенести дашборды из существующих инсталляций Grafana, воспользуйтесь [скриптом импорта](https://github.com/yandex-cloud-examples/yc-monitoring-dashboard-importer). Он автоматизирует процесс и позволяет избежать ошибок при ручном переносе конфигураций.
 
 {% endnote %}
 
-## Добавление графиков в {{ monitoring-name }} {#prometheus-metrics}
+## Добавление графиков в Monitoring {#prometheus-metrics}
 
 {% list tabs group=instructions %}
 
 - Консоль управления {#console}
 
-  1. Если вы еще не используете {{ managed-prometheus-name }}, настройте [запись метрик](../ingestion/index.md).
-  1. Откройте [главную страницу сервиса]({{ link-monitoring }}).
-  1. Слева выберите раздел **{{ ui-key.yacloud_monitoring.aside-navigation.menu-item.explorer.title }}**.
-  1. Вверху в списке **Источник данных** выберите **{{ prometheus-name }}**.
+  1. Если вы еще не используете Yandex Managed Service for Prometheus®, настройте [запись метрик](../ingestion/index.md).
+  1. Откройте [главную страницу сервиса](https://monitoring.yandex.cloud).
+  1. Слева выберите раздел **Метрики**.
+  1. Вверху в списке **Источник данных** выберите **Prometheus**.
   1. Выберите воркспейс. Если воркспейс только один, он будет выбран по умолчанию.
   1. Выберите или установите свой временной интервал для отображения данных на графике. Если по выбранному интервалу нельзя построить график, система изменит его автоматически и покажет сообщение об этом.
   1. В строке запроса введите параметры отображения метрик на языке [PromQL](https://prometheus.io/docs/prometheus/latest/querying/basics/).
-  1. Чтобы отобразить на графике несколько линий, нажмите кнопку **{{ ui-key.yacloud_monitoring.querystring.action.add-query }}** и введите новый запрос.
-  1. Нажмите кнопку **{{ ui-key.yacloud_monitoring.querystring.action.execute-query }}** или сочетание клавиш **Cmd/Ctrl + Enter**.
+  1. Чтобы отобразить на графике несколько линий, нажмите кнопку **Добавить запрос** и введите новый запрос.
+  1. Нажмите кнопку **Выполнить запрос** или сочетание клавиш **Cmd/Ctrl + Enter**.
 
   {% note info %}
 
@@ -37,39 +37,39 @@
 
 ## Добавление графиков на дашборд {#prometheus-dashboard}
 
-Вы можете добавить графики на дашборд из раздела **{{ ui-key.yacloud_monitoring.aside-navigation.menu-item.explorer.title }}** или в разделе **{{ ui-key.yacloud_monitoring.aside-navigation.menu-item.dashboards.title }}**.
+Вы можете добавить графики на дашборд из раздела **Метрики** или в разделе **Дашборды**.
 
-Добавление графика из раздела **{{ ui-key.yacloud_monitoring.aside-navigation.menu-item.explorer.title }}**:
+Добавление графика из раздела **Метрики**:
 
 {% list tabs group=instructions %}
 
 - Консоль управления {#console}
 
-  1. [Постройте график](#prometheus-metrics) по метрикам {{ prometheus-name }}.
-  1. Справа вверху нажмите кнопку **{{ ui-key.yacloud_monitoring.wizard.wizard.mx.save-as }}**.
+  1. [Постройте график](#prometheus-metrics) по метрикам Prometheus.
+  1. Справа вверху нажмите кнопку **Добавить на дашборд**.
   1. Введите название графика.
   1. Выберите облако и каталог.
   1. Выберите существующий дашборд или создайте новый.
   1. Выберите один из вариантов добавления графика:
-     * **{{ ui-key.yacloud_monitoring.component.add-to-dashboard-form.action.add }}** — остаться в разделе **{{ ui-key.yacloud_monitoring.aside-navigation.menu-item.explorer.title }}**.
-     * **{{ ui-key.yacloud_monitoring.component.add-to-dashboard-form.action.add-and-go }}** — перейти в раздел **{{ ui-key.yacloud_monitoring.aside-navigation.menu-item.dashboards.title }}**. График в **{{ ui-key.yacloud_monitoring.aside-navigation.menu-item.explorer.title }}** не сохранится.
+     * **Добавить** — остаться в разделе **Метрики**.
+     * **Добавить и перейти к дашборду** — перейти в раздел **Дашборды**. График в **Метрики** не сохранится.
 
 {% endlist %}
 
-Добавление графика в разделе **{{ ui-key.yacloud_monitoring.aside-navigation.menu-item.dashboards.title }}**:
+Добавление графика в разделе **Дашборды**:
 
 {% list tabs group=instructions %}
 
 - Консоль управления {#console}
 
-  1. Откройте [главную страницу сервиса]({{ link-monitoring }}).
-  1. Выберите раздел **{{ ui-key.yacloud_monitoring.aside-navigation.menu-item.dashboards.title }}**.
+  1. Откройте [главную страницу сервиса](https://monitoring.yandex.cloud).
+  1. Выберите раздел **Дашборды**.
   1. Выберите существующий дашборд или [создайте новый](../../dashboard/create.md).
-  1. Справа вверху нажмите ![image](../../../../_assets/console-icons/plus.svg) и выберите **{{ ui-key.yacloud_monitoring.dashboard.widget-placeholder.add-graph }}**.
-  1. Вверху в списке **Источник данных** выберите **{{ prometheus-name }}**.
+  1. Справа вверху нажмите ![image](../../../../_assets/console-icons/plus.svg) и выберите **График**.
+  1. Вверху в списке **Источник данных** выберите **Prometheus**.
   1. Выберите воркспейс. Если воркспейс только один, он будет выбран по умолчанию.
   1. Выберите временной интервал для отображения данных на графике. Если по выбранному интервалу нельзя построить график, система изменит его автоматически и покажет сообщение об этом.
   1. В строке запроса введите параметры отображения метрик на языке [PromQL](https://prometheus.io/docs/prometheus/latest/querying/basics/).
-  1. Справа вверху нажмите ![image](../../../../_assets/console-icons/floppy-disk.svg) **{{ ui-key.yacloud_monitoring.actions.common.save }}**. График будет добавлен на дашборд.
+  1. Справа вверху нажмите ![image](../../../../_assets/console-icons/floppy-disk.svg) **Сохранить**. График будет добавлен на дашборд.
 
 {% endlist %}

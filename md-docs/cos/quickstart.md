@@ -1,62 +1,62 @@
-# Создание ВМ с {{ coi }}
+# Создание ВМ с Container Optimized Image
 
-Создайте виртуальную машину из образа [{{ coi }}](concepts/index.md) и запустите на ней [Docker-контейнер](https://yandex.cloud/ru/blog/posts/2022/03/docker-containers).
+Создайте виртуальную машину из образа [Container Optimized Image](concepts/index.md) и запустите на ней [Docker-контейнер](https://yandex.cloud/ru/blog/posts/2022/03/docker-containers).
 
 ## Перед началом работы {#before-you-begin}
 
-Если нужный Docker-образ загружен в {{ container-registry-name }}, то создайте [сервисный аккаунт](../iam/operations/sa/create.md) с ролью [{{ roles-cr-puller }}](../container-registry/security/index.md#choosing-roles) на используемый реестр. От его имени ВМ на базе {{ coi }} будет скачивать из реестра Docker-образ.
+Если нужный Docker-образ загружен в Container Registry, то создайте [сервисный аккаунт](../iam/operations/sa/create.md) с ролью [container-registry.images.puller](../container-registry/security/index.md#choosing-roles) на используемый реестр. От его имени ВМ на базе Container Optimized Image будет скачивать из реестра Docker-образ.
 
-## Создайте ВМ с Docker-контейнером на базе образа {{ coi }} {#create-vm}
+## Создайте ВМ с Docker-контейнером на базе образа Container Optimized Image {#create-vm}
 
 {% list tabs group=instructions %}
 
 - Консоль управления {#console}
 
-  1. В [консоли управления]({{ link-console-main }}) выберите [каталог](../resource-manager/concepts/resources-hierarchy.md#folder), в котором будет создана ВМ.
-  1. В списке сервисов выберите **{{ ui-key.yacloud.iam.folder.dashboard.label_compute }}**.
-  1. На панели слева выберите ![image](../_assets/console-icons/server.svg) **{{ ui-key.yacloud.compute.instances_jsoza }}**.
-  1. Нажмите кнопку **{{ ui-key.yacloud.compute.instances.button_create }}**.
-  1. В блоке **{{ ui-key.yacloud.compute.instances.create.section_image }}** перейдите на вкладку **{{ ui-key.yacloud.compute.instances.create.image_value_coi }}**.
-  1. Нажмите кнопку **{{ ui-key.yacloud.compute.instances.create.image_coi_label_empty-button }}**.
-  1. В открывшемся окне **{{ ui-key.yacloud.compute.instances.create.section_coi }}** задайте параметры, используя подсказки:
+  1. В [консоли управления](https://console.yandex.cloud) выберите [каталог](../resource-manager/concepts/resources-hierarchy.md#folder), в котором будет создана ВМ.
+  1. В списке сервисов выберите **Compute Cloud**.
+  1. На панели слева выберите ![image](../_assets/console-icons/server.svg) **Виртуальные машины**.
+  1. Нажмите кнопку **Создать виртуальную машину**.
+  1. В блоке **Образ загрузочного диска** перейдите на вкладку **Container Solution**.
+  1. Нажмите кнопку **Настроить**.
+  1. В открывшемся окне **Настройка Docker-контейнера** задайте параметры, используя подсказки:
 
-      1. Укажите **{{ ui-key.yacloud.compute.instances.create.field_coi-image }}**, на основе которого будет запущен Docker-контейнер на ВМ.
-      1. Выберите значение поля **{{ ui-key.yacloud.compute.instances.create.field_coi-restart-policy }}** для Docker-контейнера:
+      1. Укажите **Docker-образ**, на основе которого будет запущен Docker-контейнер на ВМ.
+      1. Выберите значение поля **Политика перезапуска** для Docker-контейнера:
 
-          * `{{ ui-key.yacloud.compute.instances.create.value_coi-restart-always }}` — всегда перезапускать Docker-контейнер при его остановке.
-          * `{{ ui-key.yacloud.compute.instances.create.value_coi-restart-on-failure }}` — перезапускать Docker-контейнер, только если он завершил работу с ненулевым кодом возврата.
-          * `{{ ui-key.yacloud.compute.instances.create.value_coi-restart-never }}` — не перезапускать Docker-контейнер автоматически.
+          * `Always` — всегда перезапускать Docker-контейнер при его остановке.
+          * `On-Failure` — перезапускать Docker-контейнер, только если он завершил работу с ненулевым кодом возврата.
+          * `Never` — не перезапускать Docker-контейнер автоматически.
 
       1. При необходимости заполните остальные поля.
-      1. Нажмите кнопку **{{ ui-key.yacloud.common.apply }}**.
+      1. Нажмите кнопку **Применить**.
 
   1. Настройте остальные параметры ВМ по [инструкции](../compute/operations/vm-create/create-linux-vm.md).
 
 - CLI {#cli}
 
-  Если у вас еще нет интерфейса командной строки {{ yandex-cloud }} (CLI), [установите и инициализируйте его](../cli/quickstart.md#install).
+  Если у вас еще нет интерфейса командной строки Yandex Cloud (CLI), [установите и инициализируйте его](../cli/quickstart.md#install).
 
   По умолчанию используется каталог, указанный при [создании](../cli/operations/profile/profile-create.md) профиля CLI. Чтобы изменить каталог по умолчанию, используйте команду `yc config set folder-id <идентификатор_каталога>`. Также для любой команды вы можете указать другой каталог с помощью параметров `--folder-name` или `--folder-id`. Если вы обращаетесь к ресурсу по имени, поиск будет выполнен в каталоге по умолчанию. Если вы обращаетесь к ресурсу по идентификатору, поиск будет выполнен глобально — во всех каталогах с учетом прав доступа.
 
-  1. Посмотрите описание команды CLI для создания ВМ на базе образа {{ coi }}:
+  1. Посмотрите описание команды CLI для создания ВМ на базе образа Container Optimized Image:
 
      ```bash
      yc compute instance create-with-container --help
      ```
 
-  1. Создайте ВМ с образом {{ coi }}:
+  1. Создайте ВМ с образом Container Optimized Image:
 
      ```bash
      yc compute instance create-with-container \
        --name my-vm \
-       --zone {{ region-id }}-b \
+       --zone ru-central1-b \
        --ssh-key ssh-key.pub \
        --service-account-name my-robot \
        --platform standard-v3 \
        --create-boot-disk size=30 \
        --public-ip \
        --container-name=my-app \
-       --container-image={{ registry }}/mirror/ubuntu:24.04 \
+       --container-image=cr.yandex/mirror/ubuntu:24.04 \
        --container-command=sleep \
        --container-arg="1000" \
        --container-env='"KEY-GROUP={key1:value1,key2:value2,key3:value3}"',KEY4=VALUE4,KEY5=VALUE5 \
@@ -71,8 +71,8 @@
      * `--create-boot-disk size` — размер загрузочного диска.
 
         Чтобы узнать минимальный размер загрузочного диска, необходимый для установки образа, выполните команду:
-        * `yc compute image get-latest-from-family container-optimized-image --folder-id standard-images` — если устанавливаете образ {{ coi }};
-        * `yc compute image get-latest-from-family container-optimized-image-gpu --folder-id standard-images` — если устанавливаете образ {{ coi }} GPU.
+        * `yc compute image get-latest-from-family container-optimized-image --folder-id standard-images` — если устанавливаете образ Container Optimized Image;
+        * `yc compute image get-latest-from-family container-optimized-image-gpu --folder-id standard-images` — если устанавливаете образ Container Optimized Image GPU.
         
         Минимальный размер загрузочного диска указан в параметре `min_disk_size`.
 
@@ -97,11 +97,11 @@
      ...
      ```
 
-     После создания ВМ появится в списке ВМ в разделе **{{ ui-key.yacloud.iam.folder.dashboard.label_compute }}** в [консоли управления]({{ link-console-main }}). Подробнее о работе с ВМ читайте в [пошаговых инструкциях](../compute/operations/index.md).
+     После создания ВМ появится в списке ВМ в разделе **Compute Cloud** в [консоли управления](https://console.yandex.cloud). Подробнее о работе с ВМ читайте в [пошаговых инструкциях](../compute/operations/index.md).
 
 {% endlist %}
 
 #### Что дальше {#what-is-next}
 
-* Прочитайте подробное описание [образа {{ coi }}](concepts/index.md).
-* Посмотрите, что еще можно делать с образом {{ coi }} в [пошаговых инструкциях](tutorials/index.md).
+* Прочитайте подробное описание [образа Container Optimized Image](concepts/index.md).
+* Посмотрите, что еще можно делать с образом Container Optimized Image в [пошаговых инструкциях](tutorials/index.md).

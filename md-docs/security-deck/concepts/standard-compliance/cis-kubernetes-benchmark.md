@@ -1,4 +1,4 @@
-# Требования стандарта CIS Benchmark™ для {{ k8s }}
+# Требования стандарта CIS Benchmark™ для Kubernetes
 
 {% note info %}
 
@@ -6,7 +6,7 @@
 
 {% endnote %}
 
-Этот набор правил содержит рекомендации стандарта [CIS {{ k8s }} Benchmark](https://www.cisecurity.org/benchmark/kubernetes), помогающие обеспечить безопасную работу компонентов, запущенных на узлах {{ k8s }}.
+Этот набор правил содержит рекомендации стандарта [CIS Kubernetes Benchmark](https://www.cisecurity.org/benchmark/kubernetes), помогающие обеспечить безопасную работу компонентов, запущенных на узлах Kubernetes.
 
 Набор содержит только автоматические проверки, соответствующие разделу `4. Worker Nodes`:
 

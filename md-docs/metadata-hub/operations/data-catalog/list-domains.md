@@ -12,11 +12,11 @@
 
 - Консоль управления {#console}
 
-  1. В [консоли управления]({{ link-console-main }}) выберите [каталог ресурсов](../../../resource-manager/concepts/resources-hierarchy.md#folder), в котором создан каталог метаданных.
-  1. [Перейдите](../../../console/operations/select-service.md#select-service) в сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_metadata-hub }}**.
-  1. Hа панели слева выберите ![image](../../../_assets/console-icons/folder-magnifier.svg) **{{ ui-key.yacloud.iam.folder.dashboard.label_data-catalog }}**.
+  1. В [консоли управления](https://console.yandex.cloud) выберите [каталог ресурсов](../../../resource-manager/concepts/resources-hierarchy.md#folder), в котором создан каталог метаданных.
+  1. [Перейдите](../../../console/operations/select-service.md#select-service) в сервис **Yandex MetaData Hub**.
+  1. Hа панели слева выберите ![image](../../../_assets/console-icons/folder-magnifier.svg) **Data Catalog**.
   1. В открывшемся списке выберите каталог метаданных, в котором созданы домены.
-  1. На панели слева выберите ![image](../../../_assets/console-icons/globe.svg) **{{ ui-key.yacloud.data-catalog.label_domains }}**.
+  1. На панели слева выберите ![image](../../../_assets/console-icons/globe.svg) **Домены**.
 
 {% endlist %}
 
@@ -26,7 +26,7 @@
 
 Чтобы найти домены, введите идентификатор или имя домена в поисковой строке над списком доменов.
 
-Чтобы отсортировать домены по имени, нажмите на заголовок колонки **{{ ui-key.yacloud.common.name }}**. Домены будут отсортированы в алфавитном порядке. Второе нажатие на тот же заголовок сменит направление сортировки. Третье нажатие отменит сортировку.
+Чтобы отсортировать домены по имени, нажмите на заголовок колонки **Имя**. Домены будут отсортированы в алфавитном порядке. Второе нажатие на тот же заголовок сменит направление сортировки. Третье нажатие отменит сортировку.
 
 Чтобы настроить отображение колонок:
 
@@ -37,4 +37,4 @@
     * Чтобы отобразить скрытые колонки, отметьте их.
     * Чтобы изменить порядок колонок, слева от названия колонки нажмите ![image](../../../_assets/console-icons/grip.svg) и перетяните колонку вверх или вниз на нужную позицию в списке.
 
-1. Нажмите кнопку **{{ ui-key.yacloud.common.apply }}**.
+1. Нажмите кнопку **Применить**.

@@ -5,7 +5,7 @@ Creates new reseller-served customer.
 ## HTTP request
 
 ```
-POST https://billing.{{ api-host }}/billing/v1/customers:createResellerServedCustomer
+POST https://billing.api.cloud.yandex.net/billing/v1/customers:createResellerServedCustomer
 ```
 
 ## Body parameters {#yandex.cloud.billing.v1.CreateResellerServedCustomerRequest}

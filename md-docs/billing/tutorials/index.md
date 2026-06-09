@@ -1,5 +1,5 @@
-# Практические руководства {{ billing-name }}
+# Практические руководства Yandex Cloud Billing
 
-* [{#T}](serverless-trigger-budget-vm.md)
-* [{#T}](serverless-trigger-budget-queue-vm-tg.md)
-* [{#T}](billing-resource-detailing.md)
+* [Создание триггера для бюджетов, который вызывает функцию Cloud Functions для остановки ВМ](serverless-trigger-budget-vm.md)
+* [Создание триггеров, которые вызывают функции Cloud Functions для остановки ВМ и отправки уведомлений в Telegram](serverless-trigger-budget-queue-vm-tg.md)
+* [Анализ поресурсной детализации расходов с помощью Yandex Object Storage](billing-resource-detailing.md)

@@ -1,10 +1,10 @@
-# Настройка логирования для L7-балансировщика {{ alb-full-name }} с помощью Ingress-контроллера
+# Настройка логирования для L7-балансировщика Yandex Application Load Balancer с помощью Ingress-контроллера
 
-Вы можете задать настройки логирования для [L7-балансировщиков](../../application-load-balancer/concepts/application-load-balancer.md), созданных с помощью [Ingress-контроллеров](https://kubernetes.io/docs/concepts/services-networking/ingress-controllers/) {{ alb-name }} в кластере {{ managed-k8s-name }}.
+Вы можете задать настройки логирования для [L7-балансировщиков](../../application-load-balancer/concepts/application-load-balancer.md), созданных с помощью [Ingress-контроллеров](https://kubernetes.io/docs/concepts/services-networking/ingress-controllers/) Application Load Balancer в кластере Managed Service for Kubernetes.
 
 {% note tip %}
 
-Вместо ALB Ingress-контроллера и Gateway API рекомендуется использовать новый контроллер [{{ yandex-cloud }} Gwin](../../application-load-balancer/tools/gwin/index.md).
+Вместо ALB Ingress-контроллера и Gateway API рекомендуется использовать новый контроллер [Yandex Cloud Gwin](../../application-load-balancer/tools/gwin/index.md).
 
 {% endnote %}
 
@@ -28,19 +28,19 @@
 
 В стоимость поддержки описываемого решения входят:
 
-* Плата за DNS-зону и DNS-запросы (см. [тарифы {{ dns-name }}](../../dns/pricing.md)).
-* Плата за кластер {{ managed-k8s-name }}: использование мастера и исходящий трафик (см. [тарифы {{ managed-k8s-name }}](../../managed-kubernetes/pricing.md)).
-* Плата за узлы кластера (ВМ): использование вычислительных ресурсов, операционной системы и хранилища (см. [тарифы {{ compute-name }}](../../compute/pricing.md)).
-* Плата за использование вычислительных ресурсов каждого L7-балансировщика (см. [тарифы {{ alb-name }}](../../application-load-balancer/pricing.md)).
-* Плата за публичные IP-адреса для узлов кластера и L7-балансировщиков (см. [тарифы {{ vpc-name }}](../../vpc/pricing.md#prices-public-ip)).
-* Плата за сервис {{ cloud-logging-name }}: запись и хранение данных (см. [тарифы {{ cloud-logging-name }}](../../logging/pricing.md)).
+* Плата за DNS-зону и DNS-запросы (см. [тарифы Cloud DNS](../../dns/pricing.md)).
+* Плата за кластер Managed Service for Kubernetes: использование мастера и исходящий трафик (см. [тарифы Managed Service for Kubernetes](../../managed-kubernetes/pricing.md)).
+* Плата за узлы кластера (ВМ): использование вычислительных ресурсов, операционной системы и хранилища (см. [тарифы Compute Cloud](../../compute/pricing.md)).
+* Плата за использование вычислительных ресурсов каждого L7-балансировщика (см. [тарифы Application Load Balancer](../../application-load-balancer/pricing.md)).
+* Плата за публичные IP-адреса для узлов кластера и L7-балансировщиков (см. [тарифы Virtual Private Cloud](../../vpc/pricing.md#prices-public-ip)).
+* Плата за сервис Cloud Logging: запись и хранение данных (см. [тарифы Cloud Logging](../../logging/pricing.md)).
 
 
 ## Перед началом работы {#before-begin}
 
 ### Подготовьте инфраструктуру {#deploy-infrastructure}
 
-Если у вас еще нет интерфейса командной строки {{ yandex-cloud }} (CLI), [установите и инициализируйте его](../../cli/quickstart.md#install).
+Если у вас еще нет интерфейса командной строки Yandex Cloud (CLI), [установите и инициализируйте его](../../cli/quickstart.md#install).
 
 По умолчанию используется каталог, указанный при [создании](../../cli/operations/profile/profile-create.md) профиля CLI. Чтобы изменить каталог по умолчанию, используйте команду `yc config set folder-id <идентификатор_каталога>`. Также для любой команды вы можете указать другой каталог с помощью параметров `--folder-name` или `--folder-id`. Если вы обращаетесь к ресурсу по имени, поиск будет выполнен в каталоге по умолчанию. Если вы обращаетесь к ресурсу по идентификатору, поиск будет выполнен глобально — во всех каталогах с учетом прав доступа.
 
@@ -48,16 +48,16 @@
 
 - Вручную {#manual}
 
-    1. [Создайте сервисные аккаунты](../../iam/operations/sa/create.md) для кластера {{ managed-k8s-name }}:
+    1. [Создайте сервисные аккаунты](../../iam/operations/sa/create.md) для кластера Managed Service for Kubernetes:
 
-        * Сервисный аккаунт для ресурсов с [ролями](../../managed-kubernetes/security/index.md#yc-api) `k8s.clusters.agent` и `vpc.publicAdmin` на [каталог](../../resource-manager/concepts/resources-hierarchy.md#folder), в котором создается [кластер {{ managed-k8s-name }}](../../managed-kubernetes/concepts/index.md#kubernetes-cluster).
-        * Сервисный аккаунт для узлов с ролью [{{ roles-cr-puller }}](../../container-registry/security/index.md#container-registry-images-puller) на каталог с [реестром](../../container-registry/concepts/registry.md) Docker-образов. От его имени узлы будут скачивать из реестра необходимые Docker-образы.
-        * Сервисный аккаунт для работы Ingress-контроллера {{ alb-name }} с ролями:
+        * Сервисный аккаунт для ресурсов с [ролями](../../managed-kubernetes/security/index.md#yc-api) `k8s.clusters.agent` и `vpc.publicAdmin` на [каталог](../../resource-manager/concepts/resources-hierarchy.md#folder), в котором создается [кластер Managed Service for Kubernetes](../../managed-kubernetes/concepts/index.md#kubernetes-cluster).
+        * Сервисный аккаунт для узлов с ролью [container-registry.images.puller](../../container-registry/security/index.md#container-registry-images-puller) на каталог с [реестром](../../container-registry/concepts/registry.md) Docker-образов. От его имени узлы будут скачивать из реестра необходимые Docker-образы.
+        * Сервисный аккаунт для работы Ingress-контроллера Application Load Balancer с ролями:
 
-            * [{{ roles-alb-editor }}](../../application-load-balancer/security/index.md#alb-editor) — для создания необходимых ресурсов.
-            * [{{ roles-vpc-public-admin }}](../../vpc/security/index.md#vpc-public-admin) — для управления [внешней связностью](../../vpc/security/index.md#roles-list).
-            * [certificate-manager.certificates.downloader](../../certificate-manager/security/index.md#certificate-manager-certificates-downloader) — для работы с сертификатами, зарегистрированными в сервисе [{{ certificate-manager-full-name }}](../../certificate-manager/index.md).
-            * [compute.viewer](../../compute/security/index.md#compute-viewer) — для использования узлов кластера {{ managed-k8s-name }} в [целевых группах](../../application-load-balancer/concepts/target-group.md) балансировщика.
+            * [alb.editor](../../application-load-balancer/security/index.md#alb-editor) — для создания необходимых ресурсов.
+            * [vpc.publicAdmin](../../vpc/security/index.md#vpc-public-admin) — для управления [внешней связностью](../../vpc/security/index.md#roles-list).
+            * [certificate-manager.certificates.downloader](../../certificate-manager/security/index.md#certificate-manager-certificates-downloader) — для работы с сертификатами, зарегистрированными в сервисе [Yandex Certificate Manager](../../certificate-manager/index.md).
+            * [compute.viewer](../../compute/security/index.md#compute-viewer) — для использования узлов кластера Managed Service for Kubernetes в [целевых группах](../../application-load-balancer/concepts/target-group.md) балансировщика.
 
         Вы можете использовать один и тот же сервисный аккаунт для всех операций.
 
@@ -71,9 +71,9 @@
 
         Данные ключа необходимы для [установки](#install-alb-ingress-controller) приложения ALB Ingress Controller.
 
-    1. [Создайте группы безопасности](../../managed-kubernetes/operations/connect/security-groups.md) для кластера {{ managed-k8s-name }} и входящих в него групп узлов.
+    1. [Создайте группы безопасности](../../managed-kubernetes/operations/connect/security-groups.md) для кластера Managed Service for Kubernetes и входящих в него групп узлов.
 
-        Также [настройте](../../application-load-balancer/tools/k8s-ingress-controller/security-groups.md) группы безопасности, необходимые для работы {{ alb-name }}.
+        Также [настройте](../../application-load-balancer/tools/k8s-ingress-controller/security-groups.md) группы безопасности, необходимые для работы Application Load Balancer.
 
         {% note warning %}
         
@@ -81,21 +81,21 @@
         
         {% endnote %}
 
-    1. [Создайте кластер](../../managed-kubernetes/operations/kubernetes-cluster/kubernetes-cluster-create.md#kubernetes-cluster-create) {{ managed-k8s-name }}. При создании задайте настройки:
+    1. [Создайте кластер](../../managed-kubernetes/operations/kubernetes-cluster/kubernetes-cluster-create.md#kubernetes-cluster-create) Managed Service for Kubernetes. При создании задайте настройки:
 
         * Укажите ранее созданные сервисный аккаунт для ресурсов и группы безопасности.
-        * Если вы планируете работать с кластером в пределах сети {{ yandex-cloud }}, выделять кластеру публичный IP-адрес не нужно. Для подключений извне предоставьте кластеру публичный адрес.
+        * Если вы планируете работать с кластером в пределах сети Yandex Cloud, выделять кластеру публичный IP-адрес не нужно. Для подключений извне предоставьте кластеру публичный адрес.
 
     1. [Создайте группу узлов](../../managed-kubernetes/operations/node-group/node-group-create.md). При создании задайте настройки:
 
         * Укажите ранее созданные сервисный аккаунт для узлов и группы безопасности.
         * Выделите публичный IP-адрес, чтобы предоставить группе узлов доступ в интернет и возможность скачивать Docker-образы и компоненты.
 
-    1. [Создайте пользовательскую лог-группу {{ cloud-logging-name }}](../../logging/operations/create-group.md).
+    1. [Создайте пользовательскую лог-группу Cloud Logging](../../logging/operations/create-group.md).
 
-- {{ TF }} {#tf}
+- Terraform {#tf}
 
-    1. Если у вас еще нет {{ TF }}, [установите его](../infrastructure-management/terraform-quickstart.md#install-terraform).
+    1. Если у вас еще нет Terraform, [установите его](../infrastructure-management/terraform-quickstart.md#install-terraform).
     1. [Получите данные для аутентификации](../infrastructure-management/terraform-quickstart.md#get-credentials). Вы можете добавить их в переменные окружения или указать далее в файле с настройками провайдера.
     1. [Настройте и инициализируйте провайдер](../infrastructure-management/terraform-quickstart.md#configure-provider). Чтобы не создавать конфигурационный файл с настройками провайдера вручную, [скачайте его](https://github.com/yandex-cloud-examples/yc-terraform-provider-settings/blob/main/provider.tf).
     1. Поместите конфигурационный файл в отдельную рабочую директорию и [укажите значения параметров](../infrastructure-management/terraform-quickstart.md#configure-provider). Если данные для аутентификации не были добавлены в переменные окружения, укажите их в конфигурационном файле.
@@ -106,10 +106,10 @@
 
         * [Сеть](../../vpc/concepts/network.md#network).
         * [Подсеть](../../vpc/concepts/network.md#subnet).
-        * Кластер {{ managed-k8s-name }}.
-        * [Группы безопасности](../../vpc/concepts/security-groups.md), которые содержат [необходимые правила](../../managed-kubernetes/operations/connect/security-groups.md) для кластера {{ managed-k8s-name }} и входящих в него групп узлов.
+        * Кластер Managed Service for Kubernetes.
+        * [Группы безопасности](../../vpc/concepts/security-groups.md), которые содержат [необходимые правила](../../managed-kubernetes/operations/connect/security-groups.md) для кластера Managed Service for Kubernetes и входящих в него групп узлов.
 
-            [Часть правил](../../application-load-balancer/tools/k8s-ingress-controller/security-groups.md) необходима для работы {{ alb-name }}.
+            [Часть правил](../../application-load-balancer/tools/k8s-ingress-controller/security-groups.md) необходима для работы Application Load Balancer.
 
             {% note warning %}
             
@@ -117,27 +117,27 @@
             
             {% endnote %}
 
-        * [Сервисный аккаунт](../../iam/concepts/users/service-accounts.md) для ресурсов и узлов {{ managed-k8s-name }}.
-        * Сервисный аккаунт для работы Ingress-контроллера {{ alb-name }}.
-        * [Пользовательская лог-группа](../../logging/concepts/log-group.md) {{ cloud-logging-name }}.
+        * [Сервисный аккаунт](../../iam/concepts/users/service-accounts.md) для ресурсов и узлов Managed Service for Kubernetes.
+        * Сервисный аккаунт для работы Ingress-контроллера Application Load Balancer.
+        * [Пользовательская лог-группа](../../logging/concepts/log-group.md) Cloud Logging.
         * [Авторизованный ключ](../../iam/concepts/authorization/key.md) для сервисного аккаунта Ingress-контроллера.
         * Создание локального файла `key.json` с данными авторизованного ключа. Данные ключа необходимы для [установки](#install-alb-ingress-controller) приложения ALB Ingress Controller.
 
     1. Укажите в файле `k8s-and-registry-for-alb.tf`:
 
         * [Идентификатор каталога](../../resource-manager/operations/folder/get-id.md).
-        * [Версию {{ k8s }}](../../managed-kubernetes/concepts/release-channels-and-updates.md) для кластера и групп узлов {{ managed-k8s-name }}.
-        * Имя сервисного аккаунта для ресурсов и узлов {{ k8s }}.
-        * Имя сервисного аккаунта для работы Ingress-контроллера {{ alb-name }}.
-        * Имя пользовательской лог-группы {{ cloud-logging-name }}.
+        * [Версию Kubernetes](../../managed-kubernetes/concepts/release-channels-and-updates.md) для кластера и групп узлов Managed Service for Kubernetes.
+        * Имя сервисного аккаунта для ресурсов и узлов Kubernetes.
+        * Имя сервисного аккаунта для работы Ingress-контроллера Application Load Balancer.
+        * Имя пользовательской лог-группы Cloud Logging.
 
-    1. Проверьте корректность файлов конфигурации {{ TF }} с помощью команды:
+    1. Проверьте корректность файлов конфигурации Terraform с помощью команды:
 
         ```bash
         terraform validate
         ```
 
-        Если в файлах конфигурации есть ошибки, {{ TF }} на них укажет.
+        Если в файлах конфигурации есть ошибки, Terraform на них укажет.
 
     1. Создайте необходимую инфраструктуру:
 
@@ -159,23 +159,23 @@
            1. Подтвердите изменение ресурсов.
            1. Дождитесь завершения операции.
 
-        В указанном каталоге будут созданы все требуемые ресурсы. Проверить появление ресурсов и их настройки можно в [консоли управления]({{ link-console-main }}).
+        В указанном каталоге будут созданы все требуемые ресурсы. Проверить появление ресурсов и их настройки можно в [консоли управления](https://console.yandex.cloud).
 
 {% endlist %}
 
-### Подготовьтесь к работе с кластером {{ managed-k8s-name }} {#prepare-k8s-cluster}
+### Подготовьтесь к работе с кластером Managed Service for Kubernetes {#prepare-k8s-cluster}
 
-1. [Установите kubectl]({{ k8s-docs }}/tasks/tools/install-kubectl) и [настройте его на работу с созданным кластером](../../managed-kubernetes/operations/connect/index.md#kubectl-connect).
+1. [Установите kubectl](https://kubernetes.io/ru/docs/tasks/tools/install-kubectl) и [настройте его на работу с созданным кластером](../../managed-kubernetes/operations/connect/index.md#kubectl-connect).
 
-   Если для кластера не предоставлен публичный адрес и `kubectl` настроен через внутренний адрес кластера, выполняйте команды `kubectl` на ВМ {{ yandex-cloud }}, находящейся в одной сети с кластером.
+   Если для кластера не предоставлен публичный адрес и `kubectl` настроен через внутренний адрес кластера, выполняйте команды `kubectl` на ВМ Yandex Cloud, находящейся в одной сети с кластером.
 
-1. [Установите менеджер пакетов {{ k8s }} Helm](https://helm.sh/ru/docs/intro/install).
+1. [Установите менеджер пакетов Kubernetes Helm](https://helm.sh/ru/docs/intro/install).
 
 ### Зарегистрируйте доменную зону {#register-domain}
 
 [Зарегистрируйте публичную доменную зону и делегируйте домен](../../dns/operations/zone-create-public.md).
 
-### Установите Ingress-контроллер {{ alb-name }} {#install-alb-ingress-controller}
+### Установите Ingress-контроллер Application Load Balancer {#install-alb-ingress-controller}
 
 Установите приложение [ALB Ingress Controller](https://yandex.cloud/ru/marketplace/products/yc/alb-ingress-controller) согласно [инструкции](../../managed-kubernetes/operations/applications/alb-ingress-controller.md). При установке используйте данные ключа `key.json` из раздела [Подготовьте инфраструктуру](#deploy-infrastructure).
 
@@ -302,7 +302,7 @@
 
 ## Создайте ресурсы Ingress {#create-ingress}
 
-Создайте три ресурса [Ingress](https://kubernetes.io/docs/concepts/services-networking/ingress/), из которых Ingress-контроллер {{ alb-name }} создаст три балансировщика с нужными обработчиками и HTTP-роутерами.
+Создайте три ресурса [Ingress](https://kubernetes.io/docs/concepts/services-networking/ingress/), из которых Ingress-контроллер Application Load Balancer создаст три балансировщика с нужными обработчиками и HTTP-роутерами.
 
 1. Создайте файл `ingress.yaml` и укажите в нем настройки балансировщиков и доменное имя:
 
@@ -378,7 +378,7 @@
 
     Где:
 
-    * `ingress.alb.yc.io/group-name` — имя группы. Ресурсы Ingress объединяются в группы, каждая из которых обслуживается отдельным L7-балансировщиком {{ alb-name }}.
+    * `ingress.alb.yc.io/group-name` — имя группы. Ресурсы Ingress объединяются в группы, каждая из которых обслуживается отдельным L7-балансировщиком Application Load Balancer.
     * `ingress.alb.yc.io/subnets` — одна или несколько [подсетей](../../vpc/concepts/network.md#subnet), в которых будет расположен балансировщик.
     * `ingress.alb.yc.io/security-groups` — одна или несколько [групп безопасности](../../application-load-balancer/concepts/application-load-balancer.md#security-groups) для балансировщика. Если параметр не задан, используется группа безопасности по умолчанию.
     * `ingress.alb.yc.io/external-ipv4-address` — предоставление публичного доступа к балансировщику из интернета. Укажите [заранее полученный IP-адрес](../../vpc/operations/get-static-ip.md) либо установите значение `auto`, чтобы получить новый.
@@ -439,7 +439,7 @@
         * `m` — минуты.
         * `h` — часы.
 
-    Подробное описание настроек ресурса Ingress см. в статье [{#T}](../../managed-kubernetes/alb-ref/ingress.md).
+    Подробное описание настроек ресурса Ingress см. в статье [Поля и аннотации ресурса Ingress](../../managed-kubernetes/alb-ref/ingress.md).
 
 1. Создайте ресурсы Ingress:
 
@@ -528,18 +528,18 @@
 
 - Вручную {#manual}
 
-    1. [Удалите кластер {{ managed-k8s-name }}](../../managed-kubernetes/operations/kubernetes-cluster/kubernetes-cluster-delete.md).
+    1. [Удалите кластер Managed Service for Kubernetes](../../managed-kubernetes/operations/kubernetes-cluster/kubernetes-cluster-delete.md).
     1. Если вы зарезервировали для кластера публичный статический IP-адрес, [удалите его](../../vpc/operations/address-delete.md).
     1. [Удалите сервисные аккаунты](../../iam/operations/sa/delete.md).
     1. [Удалите лог-группу](../../logging/operations/delete-group.md).
 
-- {{ TF }} {#tf}
+- Terraform {#tf}
 
     1. В терминале перейдите в директорию с планом инфраструктуры.
     
         {% note warning %}
     
-        Убедитесь, что в директории нет {{ TF }}-манифестов с ресурсами, которые вы хотите сохранить. {{ TF }} удаляет все ресурсы, которые были созданы с помощью манифестов в текущей директории.
+        Убедитесь, что в директории нет Terraform-манифестов с ресурсами, которые вы хотите сохранить. Terraform удаляет все ресурсы, которые были созданы с помощью манифестов в текущей директории.
     
         {% endnote %}
     
@@ -553,6 +553,6 @@
     
         1. Подтвердите удаление ресурсов и дождитесь завершения операции.
     
-        Все ресурсы, которые были описаны в {{ TF }}-манифестах, будут удалены.
+        Все ресурсы, которые были описаны в Terraform-манифестах, будут удалены.
 
 {% endlist %}

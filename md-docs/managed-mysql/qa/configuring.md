@@ -1,4 +1,4 @@
-# Настройки параметров {{ MY }}
+# Настройки параметров MySQL®
 
 * [Как задать часовой пояс (time zone)?](#time-zone)
 
@@ -16,7 +16,7 @@
 
 Часовой пояс задается в виде смещения от UTC. Например, для Москвы: `'+03:00'`. Названия часовых поясов не поддерживаются.
 
-Подробнее см. в [документации {{ MY }}](https://dev.mysql.com/doc/refman/5.7/en/time-zone-support.html#time-zone-variables).
+Подробнее см. в [документации MySQL®](https://dev.mysql.com/doc/refman/5.7/en/time-zone-support.html#time-zone-variables).
 
 #### Как установить режим SQL (sql_mode)? {#sql-mode}
 
@@ -30,13 +30,13 @@
 
 #### Как отключить строгий режим Innodb? {#innodb-strict-mode}
 
-По умолчанию [строгий режим Innodb](../concepts/settings-list.md#setting-strict-mode) включен. Если отключать режим средствами {{ MY }}, возникнет ошибка:
+По умолчанию [строгий режим Innodb](../concepts/settings-list.md#setting-strict-mode) включен. Если отключать режим средствами MySQL®, возникнет ошибка:
 
 ```text
 Mysql query error: (1227) Access denied; you need (at least one of) the SYSTEM_VARIABLES_ADMIN or SESSION_VARIABLES_ADMIN privilege(s) for this operation (400)
 ```
 
-Чтобы отключить строгий режим, измените значение параметра `innodb_strict_mode` с помощью [интерфейсов {{ yandex-cloud }}](../operations/update.md#change-mysql-config). Также убедитесь, что в вашей конфигурации не осталось команды, отключающей строгий режим, например `$connection–>queryExecute("SET innodb_strict_mode=0");`.
+Чтобы отключить строгий режим, измените значение параметра `innodb_strict_mode` с помощью [интерфейсов Yandex Cloud](../operations/update.md#change-mysql-config). Также убедитесь, что в вашей конфигурации не осталось команды, отключающей строгий режим, например `$connection–>queryExecute("SET innodb_strict_mode=0");`.
 
 #### Как изменить набор символов и правила их сравнения (CHARACTER SET, COLLATE)? {#character-collate}
 
@@ -44,4 +44,4 @@ Mysql query error: (1227) Access denied; you need (at least one of) the SYSTEM_V
 
 #### Как настроить другие параметры? {#params}
 
-Настройки {{ MY }}, доступные для изменения, перечислены в [документации](../concepts/settings-list.md). Изменить их значения можно в одном из доступных интерфейсов: консоль управления, CLI, API или {{ TF }}. Для этого воспользуйтесь инструкцией в разделе [Изменение кластера](../operations/update.md#change-mysql-config).
+Настройки MySQL®, доступные для изменения, перечислены в [документации](../concepts/settings-list.md). Изменить их значения можно в одном из доступных интерфейсов: консоль управления, CLI, API или Terraform. Для этого воспользуйтесь инструкцией в разделе [Изменение кластера](../operations/update.md#change-mysql-config).

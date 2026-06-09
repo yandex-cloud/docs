@@ -1,4 +1,4 @@
-# [{{ datalens-full-name }}] Source avatar title conflicts with another avatar
+# [Yandex DataLens] Source avatar title conflicts with another avatar
 
 `ERR.DS_API.AVATAR.TITLE.CONFLICT`
 

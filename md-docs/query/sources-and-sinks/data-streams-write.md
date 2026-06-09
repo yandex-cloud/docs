@@ -1,8 +1,8 @@
-# Запись данных в {{ yds-full-name }}
+# Запись данных в Yandex Data Streams
 
-[{{ yds-full-name }}](../../data-streams/concepts/index.md) это сервис, позволяющий передавать потоки данных сразу нескольким приложениям для обработки, при этом каждое приложение обрабатывает такие данные независимо от другого.
+[Yandex Data Streams](../../data-streams/concepts/index.md) это сервис, позволяющий передавать потоки данных сразу нескольким приложениям для обработки, при этом каждое приложение обрабатывает такие данные независимо от другого.
 
-Пример записи данных в формате `JSON` в {{ yds-full-name }}.
+Пример записи данных в формате `JSON` в Yandex Data Streams.
 
 ```sql
 INSERT INTO yds.`output_stream`
@@ -24,17 +24,17 @@ FROM
 
 ## Настройка соединения {#connect}
 
-Для чтения данных из {{ yds-full-name }} необходимо:
-1. [Перейти](../../console/operations/select-service.md#select-service) в сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_yq_ru }}** в раздел **{{ ui-key.yql.yq-ide-aside.connections.tab-text }}** и нажать кнопку **{{ ui-key.yql.yq-connection-form.action_create-new }}**.
-1. В открывшемся окне в поле **{{ ui-key.yql.yq-connection-form.connection-name.input-label }}** указать название соединения с {{ yds-full-name }}.
-1. В выпадающем поле **{{ ui-key.yql.yq-connection-form.connection-type.input-label }}** выбрать `{{ ui-key.yql.yq-connection.action_datastreams }}`.
-1. В выпадающем поле **{{ ui-key.yql.yq-connection-form.database.input-label }}** выбрать базу данных {{ ydb-full-name }}, где ранее был создан поток {{ yds-full-name }}.
-1. В поле **{{ ui-key.yql.yq-connection-form.service-account.input-label }}** выбрать сервисный аккаунт, который будет использоваться для чтения данных, или создать новый, выдав ему права [`yds.writer`](../../data-streams/security/index.md).
-1. Создать соединение, нажав кнопку **{{ ui-key.yql.yq-connection-form.create.button-text }}**.
+Для чтения данных из Yandex Data Streams необходимо:
+1. [Перейти](../../console/operations/select-service.md#select-service) в сервис **Yandex Query** в раздел **Соединения** и нажать кнопку **Создать**.
+1. В открывшемся окне в поле **Имя** указать название соединения с Yandex Data Streams.
+1. В выпадающем поле **Тип** выбрать `Data Streams`.
+1. В выпадающем поле **База данных** выбрать базу данных Yandex Managed Service for YDB, где ранее был создан поток Yandex Data Streams.
+1. В поле **Сервисный аккаунт** выбрать сервисный аккаунт, который будет использоваться для чтения данных, или создать новый, выдав ему права [`yds.writer`](../../data-streams/security/index.md).
+1. Создать соединение, нажав кнопку **Создать**.
 
 ## Модель данных
 
-Данные через {{ yds-full-name }} передаются в бинарном виде. Запись данных выполняется с помощью SQL-выражений и в общем случае выглядит следующим образом:
+Данные через Yandex Data Streams передаются в бинарном виде. Запись данных выполняется с помощью SQL-выражений и в общем случае выглядит следующим образом:
 
 ```sql
 INSERT INTO <соединение>.<имя_потока>
@@ -45,13 +45,13 @@ FROM
 
 Где:
 
-- `<соединение>` — название соединения с потоком данных {{ yds-short-name }}, созданного в предыдущем пункте.
-- `<имя_потока>` — название потока данных в {{ yds-short-name }}.
-- `<запрос>` — запрос-источник данных {{ yq-full-name }}.
+- `<соединение>` — название соединения с потоком данных Data Streams, созданного в предыдущем пункте.
+- `<имя_потока>` — название потока данных в Data Streams.
+- `<запрос>` — запрос-источник данных Yandex Query.
 
 ## Пример записи данных
 
-Пример запроса для чтения данных из {{ yds-full-name }} и записи результатов в {{ yds-full-name }}.
+Пример запроса для чтения данных из Yandex Data Streams и записи результатов в Yandex Data Streams.
 
 ```sql
 $data = 
@@ -96,14 +96,14 @@ FROM
 
 |Поле|Тип|Описание|
 |--|---|---|
-|`yds`| |Название соединения с {{ yds-full-name }}|
+|`yds`| |Название соединения с Yandex Data Streams|
 |`input_stream`| |Название потока-источника данных в SQL-запросе|
 |`output_stream`| |Название потока-приемника данных в SQL-запросе|
 |`host`|Строка|Строковый параметр запроса|
 |`count`|Целое|Численный параметр запроса|
 |`raw`|Строка|Формат данных. На данный поддерживается только формат `raw` - сырые данные|
 
-Результаты обработки записываются в выходной поток {{ yds-full-name }}. Для удобства обработки этих данных, данные преобразовываются в формат `JSON`, это выполняется с помощью конструкции:
+Результаты обработки записываются в выходной поток Yandex Data Streams. Для удобства обработки этих данных, данные преобразовываются в формат `JSON`, это выполняется с помощью конструкции:
 
 ```sql
     ToBytes(Unwrap(Json::SerializeJson(Yson::From(
@@ -114,10 +114,10 @@ FROM
     ))))
 ```
 
-В документации языка YQL доступно детальное описание модулей [Yson]({{ ydb.docs }}/yql/reference/udf/list/yson), [Json]({{ ydb.docs }}/yql/reference/types/json) и [его функций]({{ ydb.docs }}/yql/reference/builtins/json), [<|"key": value|>]({{ ydb.docs }}/yql/reference/builtins/struct).
+В документации языка YQL доступно детальное описание модулей [Yson](https://ydb.tech/docs/ru//yql/reference/udf/list/yson), [Json](https://ydb.tech/docs/ru//yql/reference/types/json) и [его функций](https://ydb.tech/docs/ru//yql/reference/builtins/json), [<|"key": value|>](https://ydb.tech/docs/ru//yql/reference/builtins/struct).
 
 ## Поддерживаемые форматы записи
 
-В {{ yds-short-name }} можно выполнять запись только в виде байтового потока, который интепретируется на принимающей стороне. 
+В Data Streams можно выполнять запись только в виде байтового потока, который интепретируется на принимающей стороне. 
 
-Настройки форматов файлов и алгоритмов сжатия при записи в {{ yds-short-name }} не применяются.
+Настройки форматов файлов и алгоритмов сжатия при записи в Data Streams не применяются.

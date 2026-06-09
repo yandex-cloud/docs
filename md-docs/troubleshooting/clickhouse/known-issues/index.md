@@ -1,1 +1,1 @@
-## Решения для известных проблем {{ mch-name }} {#known-issues-resolving}
+## Решения для известных проблем Managed Service for ClickHouse® {#known-issues-resolving}

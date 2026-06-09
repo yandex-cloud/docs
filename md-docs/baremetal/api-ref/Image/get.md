@@ -6,7 +6,7 @@ To get the list of available Image resources, make a [List](list.md#List) reques
 ## HTTP request
 
 ```
-GET https://baremetal.{{ api-host }}/baremetal/v1alpha/images/{imageId}
+GET https://baremetal.api.cloud.yandex.net/baremetal/v1alpha/images/{imageId}
 ```
 
 ## Path parameters

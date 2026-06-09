@@ -31,4 +31,4 @@ module "vpc" {
 
 ## См. также {#see-also}
 
-![](../../_assets/overview/solution-library-icon.svg)[Модули Terraform от {{ yandex-cloud }}](https://github.com/terraform-yc-modules)
+![](../../_assets/overview/solution-library-icon.svg)[Модули Terraform от Yandex Cloud](https://github.com/terraform-yc-modules)

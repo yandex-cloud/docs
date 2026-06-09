@@ -1,8 +1,8 @@
 # Управление источниками трафика
 
-{{ sws-name }} позволяет настраивать правила обработки запросов в зависимости от источника трафика. Например, можно отдельно обрабатывать запросы из сети Tor, VPN, анонимных сетей, от публичных прокси или из определенных стран.
+Smart Web Security позволяет настраивать правила обработки запросов в зависимости от источника трафика. Например, можно отдельно обрабатывать запросы из сети Tor, VPN, анонимных сетей, от публичных прокси или из определенных стран.
 
-Для этого используются предустановленные [списки IP-адресов](../../../smartwebsecurity/concepts/lists.md) {{ yandex-cloud }}. Они содержат IP-адреса и сети, объединенные по определенному признаку, например по принадлежности к Tor или VPN. Списки поддерживает сервис и регулярно обновляет их.
+Для этого используются предустановленные [списки IP-адресов](../../../smartwebsecurity/concepts/lists.md) Yandex Cloud. Они содержат IP-адреса и сети, объединенные по определенному признаку, например по принадлежности к Tor или VPN. Списки поддерживает сервис и регулярно обновляет их.
 
 В этом руководстве описана настройка распространенных правил фильтрации трафика по его источнику.
 
@@ -19,10 +19,10 @@
 
 ## Необходимые платные ресурсы {#paid-resources}
 
-* Плата за количество запросов в сервис {{ sws-name }} по тарифам из раздела [{#T}](../../../smartwebsecurity/pricing.md).
+* Плата за количество запросов в сервис Smart Web Security по тарифам из раздела [Правила тарификации для Yandex Smart Web Security](../../../smartwebsecurity/pricing.md).
 * Плата за инфраструктуру защищаемого ресурса в зависимости от его расположения.
 
-Руководство предполагает, что у вас уже есть настроенный веб-ресурс в инфраструктуре {{ yandex-cloud }}. Если веб-ресурс находится в другой инфраструктуре, подключите его к прокси-серверу по руководству [{#T}](../../../smartwebsecurity/tutorials/sws-basic-protection.md).
+Руководство предполагает, что у вас уже есть настроенный веб-ресурс в инфраструктуре Yandex Cloud. Если веб-ресурс находится в другой инфраструктуре, подключите его к прокси-серверу по руководству [Базовая настройка защиты в Smart Web Security](../../../smartwebsecurity/tutorials/sws-basic-protection.md).
 
 ## Создайте профиль безопасности {#profile-create}
 
@@ -32,26 +32,26 @@
 
 - Консоль управления {#console}
 
-  1. В [консоли управления]({{ link-console-main }}) выберите каталог, в котором находятся защищаемые ресурсы.
-  1. Перейдите в сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_smartwebsecurity }}**.
-  1. На панели слева выберите ![image](../../../_assets/smartwebsecurity/profiles.svg) **{{ ui-key.yacloud.smart-web-security.title_profiles }}**.
-  1. Нажмите **{{ ui-key.yacloud.smart-web-security.action_empty }}** и выберите **{{ ui-key.yacloud.smart-web-security.title_default-template }}**.
+  1. В [консоли управления](https://console.yandex.cloud) выберите каталог, в котором находятся защищаемые ресурсы.
+  1. Перейдите в сервис **Smart Web Security**.
+  1. На панели слева выберите ![image](../../../_assets/smartwebsecurity/profiles.svg) **Профили безопасности**.
+  1. Нажмите **Создать профиль** и выберите **По преднастроенному шаблону**.
 
       Преднастроенный профиль содержит:
       
-      * [базовое правило](../../../smartwebsecurity/concepts/rules.md#base-rules) по умолчанию, включенное для всего трафика с [типом действия](../../../smartwebsecurity/concepts/rules.md#rule-action) `{{ ui-key.yacloud.smart-web-security.overview.cell_sec-action-allow }}`;
-      * [правило Smart Protection](../../../smartwebsecurity/concepts/rules.md#smart-protection-rules) `sp-rule-1`, включенное для всего трафика, с типом действия `{{ ui-key.yacloud.smart-web-security.overview.cell_mode-full }}`.
+      * [базовое правило](../../../smartwebsecurity/concepts/rules.md#base-rules) по умолчанию, включенное для всего трафика с [типом действия](../../../smartwebsecurity/concepts/rules.md#rule-action) `Разрешить`;
+      * [правило Smart Protection](../../../smartwebsecurity/concepts/rules.md#smart-protection-rules) `sp-rule-1`, включенное для всего трафика, с типом действия `Полная защита`.
    
   1. Введите имя профиля, например `sources-manage`.
 
   1. Включите тестовый режим для правила Smart Protection `sp-rule-1`:
-     1. Для опции **{{ ui-key.yacloud.smart-web-security.form.label_default-action }}** выберите `{{ ui-key.yacloud.smart-web-security.form.label_action-allow }}`.
-     1. Напротив правила `sp-rule-1` нажмите ![image](../../../_assets/console-icons/ellipsis.svg) и выберите **{{ ui-key.yacloud.smart-web-security.overview.action_edit-profile }}**.
-     1. Включите опцию **{{ ui-key.yacloud.smart-web-security.overview.column_dry-run-rule }}**.
-     1. Нажмите **{{ ui-key.yacloud.common.save-changes }}**.
+     1. Для опции **Действие для базового правила по умолчанию** выберите `Разрешить`.
+     1. Напротив правила `sp-rule-1` нажмите ![image](../../../_assets/console-icons/ellipsis.svg) и выберите **Редактировать**.
+     1. Включите опцию **Только логирование**.
+     1. Нажмите **Сохранить изменения**.
 
-  1. В разделе **{{ ui-key.yacloud.component.disallow-data-processing.title_ml-model-training }}** оставьте включенным согласие об использовании информации об HTTP-запросах для улучшения моделей машинного обучения. Иначе в сервис {{ sws-name }} не будут поступать данные для расследования инцидентов безопасности.
-  1. Нажмите **{{ ui-key.yacloud.common.create }}**.
+  1. В разделе **Обучение ML-моделей** оставьте включенным согласие об использовании информации об HTTP-запросах для улучшения моделей машинного обучения. Иначе в сервис Smart Web Security не будут поступать данные для расследования инцидентов безопасности.
+  1. Нажмите **Создать**.
 
 {% endlist %}
 
@@ -65,22 +65,22 @@
 - Консоль управления {#console}
 
   1. Откройте созданный ранее профиль безопасности.
-  1. Нажмите кнопку ![image](../../../_assets/console-icons/plus.svg) **{{ ui-key.yacloud.smart-web-security.form.button_add-rule }}**.
+  1. Нажмите кнопку ![image](../../../_assets/console-icons/plus.svg) **Добавить правило**.
   1. Введите имя правила, например `traffic-sources-rule`.
-  1. Включите опцию **{{ ui-key.yacloud.smart-web-security.overview.column_dry-run-rule }}**.
+  1. Включите опцию **Только логирование**.
   1. Задайте приоритет выше, чем у правил Smart Protection. Например, `9100`.
   1. Укажите параметры правила:
-     * **{{ ui-key.yacloud.smart-web-security.overview.column_type }}** — `{{ ui-key.yacloud.smart-web-security.overview.label_base-rule }}`;
+     * **Тип** — `Базовое`;
      * **Трафик** — `При условии`;
-     * **{{ ui-key.yacloud.smart-web-security.overview.column_rule-conditions }}** — `{{ ui-key.yacloud.component.condition-column.condition_name-ip-range }}`;
+     * **Условия** — `IP`;
      * **Условия на IP** — `IP принадлежит списку`.
-  1. Для списка `is_tor` выберите действие `{{ ui-key.yacloud.smart-web-security.form.label_action-deny }}`.
-  1. Создайте отдельное правило или добавьте дополнительное условие для списков `is_proxy` и `is_anonymous` с действием `{{ ui-key.yacloud.smart-web-security.overview.cell_sec-action-captcha }}`.
-  1. Нажмите **{{ ui-key.yacloud.common.add }}**.
+  1. Для списка `is_tor` выберите действие `Запретить`.
+  1. Создайте отдельное правило или добавьте дополнительное условие для списков `is_proxy` и `is_anonymous` с действием `Показать капчу`.
+  1. Нажмите **Добавить**.
 
 {% endlist %}
 
-Такой набор правил помогает сразу блокировать трафик из Tor и отдельно проверять запросы из публичных прокси и анонимных сетей через {{ captcha-name }}.
+Такой набор правил помогает сразу блокировать трафик из Tor и отдельно проверять запросы из публичных прокси и анонимных сетей через SmartCaptcha.
 
 ## Настройте правило для VPN-трафика {#configure-vpn-rules}
 
@@ -90,7 +90,7 @@
 
 {% note warning %}
 
-Определение VPN-трафика основано на базе IP-адресов {{ yandex-cloud }} и не гарантирует полной точности. Возможны ложноположительные и ложноотрицательные срабатывания. Принимайте решение о блокировке VPN-трафика с учетом бизнес-сценариев, поскольку часть реальных пользователей может использовать VPN.
+Определение VPN-трафика основано на базе IP-адресов Yandex Cloud и не гарантирует полной точности. Возможны ложноположительные и ложноотрицательные срабатывания. Принимайте решение о блокировке VPN-трафика с учетом бизнес-сценариев, поскольку часть реальных пользователей может использовать VPN.
 
 {% endnote %}
 
@@ -98,21 +98,21 @@
 
 - Консоль управления {#console}
 
-  1. В профиле безопасности нажмите кнопку ![image](../../../_assets/console-icons/plus.svg) **{{ ui-key.yacloud.smart-web-security.form.button_add-rule }}**.
+  1. В профиле безопасности нажмите кнопку ![image](../../../_assets/console-icons/plus.svg) **Добавить правило**.
   1. Введите имя правила, например `vpn-traffic-rule`.
-  1. Включите опцию **{{ ui-key.yacloud.smart-web-security.overview.column_dry-run-rule }}**.
+  1. Включите опцию **Только логирование**.
   1. Задайте приоритет так, чтобы правило выполнялось в нужном порядке относительно других правил по спискам.
   1. Укажите параметры правила:
-     * **{{ ui-key.yacloud.smart-web-security.overview.column_type }}** — `{{ ui-key.yacloud.smart-web-security.overview.label_base-rule }}`;
+     * **Тип** — `Базовое`;
      * **Трафик** — `При условии`;
-     * **{{ ui-key.yacloud.smart-web-security.overview.column_rule-conditions }}** — `{{ ui-key.yacloud.component.condition-column.condition_name-ip-range }}`;
+     * **Условия** — `IP`;
      * **Условия на IP** — `IP принадлежит списку`.
   1. Выберите список `is_vpn` или `is_ml_vpn`.
   1. Выберите действие для VPN-трафика:
-     * `{{ ui-key.yacloud.smart-web-security.form.label_action-allow }}` — если VPN-трафик допустим.
-     * `{{ ui-key.yacloud.smart-web-security.form.label_action-deny }}` — если VPN-трафик нужно блокировать.
-     * `{{ ui-key.yacloud.smart-web-security.overview.cell_sec-action-captcha }}` — если нужна дополнительная проверка.
-  1. Нажмите **{{ ui-key.yacloud.common.add }}**.
+     * `Разрешить` — если VPN-трафик допустим.
+     * `Запретить` — если VPN-трафик нужно блокировать.
+     * `Показать капчу` — если нужна дополнительная проверка.
+  1. Нажмите **Добавить**.
 
 {% endlist %}
 
@@ -124,21 +124,21 @@
 
 - Консоль управления {#console}
 
-  1. В профиле безопасности нажмите кнопку ![image](../../../_assets/console-icons/plus.svg) **{{ ui-key.yacloud.smart-web-security.form.button_add-rule }}**.
+  1. В профиле безопасности нажмите кнопку ![image](../../../_assets/console-icons/plus.svg) **Добавить правило**.
   1. Введите имя правила, например `geo-traffic-rule`.
-  1. Включите опцию **{{ ui-key.yacloud.smart-web-security.overview.column_dry-run-rule }}**.
+  1. Включите опцию **Только логирование**.
   1. Задайте приоритет выше, чем у правил Smart Protection, но с учетом уже созданных правил по спискам.
   1. Укажите параметры правила:
-     * **{{ ui-key.yacloud.smart-web-security.overview.column_type }}** — `{{ ui-key.yacloud.smart-web-security.overview.label_base-rule }}`;
+     * **Тип** — `Базовое`;
      * **Трафик** — `При условии`;
-     * **{{ ui-key.yacloud.smart-web-security.overview.column_rule-conditions }}** — `{{ ui-key.yacloud.component.condition-column.condition_name-ip-range }}`;
+     * **Условия** — `IP`;
      * **Условия на IP** — `IP принадлежит региону` или `IP не принадлежит региону`.
   1. Выберите нужные страны по двухбуквенному коду. Например, `RU`, `KZ`, `BY`.
   1. Выберите действие:
-     * `{{ ui-key.yacloud.smart-web-security.form.label_action-allow }}` — чтобы разрешить трафик;
-     * `{{ ui-key.yacloud.smart-web-security.form.label_action-deny }}` — чтобы блокировать трафик;
-     * `{{ ui-key.yacloud.smart-web-security.overview.cell_sec-action-captcha }}` — чтобы отправлять запросы в {{ captcha-name }}.
-  1. Нажмите **{{ ui-key.yacloud.common.add }}**.
+     * `Разрешить` — чтобы разрешить трафик;
+     * `Запретить` — чтобы блокировать трафик;
+     * `Показать капчу` — чтобы отправлять запросы в SmartCaptcha.
+  1. Нажмите **Добавить**.
 
 {% endlist %}
 
@@ -153,25 +153,25 @@
 * затем правила по регионам;
 * после этого правила Smart Protection и другие общие правила.
 
-Подробнее о порядке выполнения правил — [{#T}](../../../smartwebsecurity/concepts/rules.md#rules-order).
+Подробнее о порядке выполнения правил — [Общие принципы работы правил](../../../smartwebsecurity/concepts/rules.md#rules-order).
 
 ## Проверьте правила в режиме логирования {#dry-run}
 
-Оставьте новые правила в режиме **{{ ui-key.yacloud.smart-web-security.overview.column_dry-run-rule }}** на несколько дней. За это время:
+Оставьте новые правила в режиме **Только логирование** на несколько дней. За это время:
 
 * проверьте, какие запросы попадают под правила;
 * оцените долю легитимного трафика;
 * скорректируйте списки, регионы и действия.
 
-Для анализа используйте логи и мониторинг сервиса. Подробнее в разделах [{#T}](../../../smartwebsecurity/operations/configure-logging.md) и [{#T}](../../../smartwebsecurity/operations/monitoring.md).
+Для анализа используйте логи и мониторинг сервиса. Подробнее в разделах [Настроить логирование через Smart Web Security](../../../smartwebsecurity/operations/configure-logging.md) и [Мониторинг в Smart Web Security](../../../smartwebsecurity/operations/monitoring.md).
 
 ## Включите рабочий режим {#production}
 
-После тестирования отключите для правил опцию **{{ ui-key.yacloud.smart-web-security.overview.column_dry-run-rule }}**. После этого продолжайте следить за работой правил и при необходимости корректировать их.
+После тестирования отключите для правил опцию **Только логирование**. После этого продолжайте следить за работой правил и при необходимости корректировать их.
 
 #### См. также {#see-also}
 
-* [{#T}](../../../smartwebsecurity/concepts/lists.md)
-* [{#T}](../../../smartwebsecurity/concepts/conditions.md)
-* [{#T}](../../../smartwebsecurity/concepts/botes.md)
-* [{#T}](../../../smartwebsecurity/tutorials/sws-basic-protection.md)
+* [Списки](../../../smartwebsecurity/concepts/lists.md)
+* [Условия](../../../smartwebsecurity/concepts/conditions.md)
+* [Управление роботизированным трафиком](../../../smartwebsecurity/concepts/botes.md)
+* [Базовая настройка защиты в Smart Web Security](../../../smartwebsecurity/tutorials/sws-basic-protection.md)

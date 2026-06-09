@@ -6,7 +6,7 @@ To get the list of available Redis User resources, make a [List](../../../manage
 ## HTTP request
 
 ```
-GET https://{{ api-host-mdb }}/managed-redis/v1/clusters/{clusterId}/users/{userName}
+GET https://mdb.api.cloud.yandex.net/managed-redis/v1/clusters/{clusterId}/users/{userName}
 ```
 
 ## Path parameters

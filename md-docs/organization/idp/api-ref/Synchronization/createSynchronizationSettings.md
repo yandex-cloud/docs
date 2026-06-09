@@ -5,7 +5,7 @@ Creates synchronization settings for a subject container.
 ## HTTP request
 
 ```
-POST https://organization-manager.{{ api-host }}/organization-manager/v1/idp/synchronization-settings
+POST https://organization-manager.api.cloud.yandex.net/organization-manager/v1/idp/synchronization-settings
 ```
 
 ## Body parameters {#yandex.cloud.organizationmanager.v1.idp.CreateSynchronizationSettingsRequest}

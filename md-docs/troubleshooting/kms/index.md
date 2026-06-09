@@ -1,7 +1,7 @@
-# Решения для {{ kms-name }}
+# Решения для Key Management Service
 
-## Примеры конфигураций и сценариев {{ kms-name }} {#configuration-examples}
+## Примеры конфигураций и сценариев Key Management Service {#configuration-examples}
 
-## Решения для известных проблем {{ kms-name }} {#known-issues-resolving}
+## Решения для известных проблем Key Management Service {#known-issues-resolving}
 
-* [{{ kms-short-name }}-ключи продолжают тарифицироваться после удаления](known-issues/kms-keys-are-charged-in-billing-after-deletion.md)
+* [KMS-ключи продолжают тарифицироваться после удаления](known-issues/kms-keys-are-charged-in-billing-after-deletion.md)

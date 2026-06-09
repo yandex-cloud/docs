@@ -5,7 +5,7 @@ Revokes permission to access a database from a user in a cluster.
 ## HTTP request
 
 ```
-POST https://{{ api-host-mdb }}/managed-mysql/v1/clusters/{clusterId}/users/{userName}:revokePermission
+POST https://mdb.api.cloud.yandex.net/managed-mysql/v1/clusters/{clusterId}/users/{userName}:revokePermission
 ```
 
 ## Path parameters

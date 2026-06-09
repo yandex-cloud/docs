@@ -5,7 +5,7 @@ Deletes the specified cloud.
 ## HTTP request
 
 ```
-DELETE https://resource-manager.{{ api-host }}/resource-manager/v1/clouds/{cloudId}
+DELETE https://resource-manager.api.cloud.yandex.net/resource-manager/v1/clouds/{cloudId}
 ```
 
 ## Path parameters

@@ -3,7 +3,7 @@
 ## HTTP request
 
 ```
-GET https://{{ api-host-certmanager }}/certificate-manager/v1/certificates/{certificateId}/versions
+GET https://certificate-manager.api.cloud.yandex.net/certificate-manager/v1/certificates/{certificateId}/versions
 ```
 
 ## Path parameters

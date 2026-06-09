@@ -1,4 +1,4 @@
-# [{{ datalens-full-name }}] Window function has no aggregated expressions among its arguments
+# [Yandex DataLens] Window function has no aggregated expressions among its arguments
 
 `ERR.DS_API.FORMULA.VALIDATION.WIN_FUNC.NO_AGG`
 

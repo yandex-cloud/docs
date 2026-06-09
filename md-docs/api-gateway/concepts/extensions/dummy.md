@@ -6,7 +6,7 @@
 
 ## Поддерживаемые параметры {#parameters}
 
-В таблице ниже перечислены параметры, специфичные для API-шлюза сервиса {{ api-gw-short-name }}. Описание остальных параметров читайте в [спецификации OpenAPI 3.0](https://github.com/OAI/OpenAPI-Specification).
+В таблице ниже перечислены параметры, специфичные для API-шлюза сервиса API Gateway. Описание остальных параметров читайте в [спецификации OpenAPI 3.0](https://github.com/OAI/OpenAPI-Specification).
 
 Параметр | Тип | Описание 
 ----|----|----
@@ -40,6 +40,6 @@ x-yc-apigateway-integration:
 
 ## Примеры использования {#examples}
 
-* [{#T}](../../tutorials/api-gw-sws-integration.md)
-* [{#T}](../../tutorials/api-gw-websocket.md)
-* [{#T}](../../tutorials/slack-bot-serverless.md)
+* [Защита API Gateway при помощи интеграции с Smart Web Security](../../tutorials/api-gw-sws-integration.md)
+* [Работа с API-шлюзом по протоколу WebSocket](../../tutorials/api-gw-websocket.md)
+* [Как создать чат-бот для Slack](../../tutorials/slack-bot-serverless.md)

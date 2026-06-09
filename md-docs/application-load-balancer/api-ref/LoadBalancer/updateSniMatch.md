@@ -7,7 +7,7 @@ This request does not allow to update [TlsListener.defaultHandler](get.md#yandex
 ## HTTP request
 
 ```
-POST https://alb.{{ api-host }}/apploadbalancer/v1/loadBalancers/{loadBalancerId}:updateSniMatch
+POST https://alb.api.cloud.yandex.net/apploadbalancer/v1/loadBalancers/{loadBalancerId}:updateSniMatch
 ```
 
 ## Path parameters

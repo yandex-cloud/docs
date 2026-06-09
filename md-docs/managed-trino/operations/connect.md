@@ -1,123 +1,123 @@
-# Подключение к кластеру {{ TR }}
+# Подключение к кластеру Trino
 
-В этом разделе представлены настройки для подключения к кластеру {{ mtr-name }} с помощью [инструментов командной строки](#cli-tools), из [графических IDE](#connection-ide) и [WebSQL](#websql). О подключении из кода вашего приложения см. [Примеры строк подключения](#connection-strings).
+В этом разделе представлены настройки для подключения к кластеру Managed Service for Trino с помощью [инструментов командной строки](#cli-tools), из [графических IDE](#connection-ide) и [WebSQL](#websql). О подключении из кода вашего приложения см. [Примеры строк подключения](#connection-strings).
 
-Подключаться к кластеру {{ mtr-name }}, у которого включен [приватный доступ](../concepts/network.md#private-endpoint), можно только из той сети, в которой расположен кластер.
+Подключаться к кластеру Managed Service for Trino, у которого включен [приватный доступ](../concepts/network.md#private-endpoint), можно только из той сети, в которой расположен кластер.
 
 {% note info %}
 
-Если для подключения требуется указывать порт, используйте порт `{{ port-https }}`.
+Если для подключения требуется указывать порт, используйте порт `443`.
 
 {% endnote %}
 
 ## Настройка групп безопасности {#configuring-security-groups}
 
-[Группы безопасности](../../vpc/concepts/security-groups.md) не ограничивают входящий трафик кластера {{ mtr-name }} и не влияют на доступность веб-интерфейса {{ TR }}. Настраивать правила для входящего трафика не нужно.
+[Группы безопасности](../../vpc/concepts/security-groups.md) не ограничивают входящий трафик кластера Managed Service for Trino и не влияют на доступность веб-интерфейса Trino. Настраивать правила для входящего трафика не нужно.
 
 Вы можете использовать группы безопасности, чтобы задавать правила для исходящего трафика, например при настройке нового [каталога](../concepts/index.md#catalog).
 
-Чтобы подключаться к кластеру {{ TR }} с виртуальной машины в {{ yandex-cloud }}, настройте группу безопасности ВМ, с которой будет происходить подключение. Пример правил для ВМ:
+Чтобы подключаться к кластеру Trino с виртуальной машины в Yandex Cloud, настройте группу безопасности ВМ, с которой будет происходить подключение. Пример правил для ВМ:
 
 * Для входящего трафика:
 
-    * **{{ ui-key.yacloud.vpc.network.security-groups.forms.field_sg-rule-port-range }}** — `{{ port-ssh }}`.
-    * **{{ ui-key.yacloud.vpc.network.security-groups.forms.field_sg-rule-protocol }}** — `{{ ui-key.yacloud.common.label_tcp }}`.
-    * **{{ ui-key.yacloud.vpc.network.security-groups.forms.field_sg-rule-source }}** — `{{ ui-key.yacloud.vpc.network.security-groups.forms.value_sg-rule-destination-cidr }}`.
-    * **{{ ui-key.yacloud.vpc.network.security-groups.forms.field_sg-rule-cidr-blocks }}** — `0.0.0.0/0`.
+    * **Диапазон портов** — `22`.
+    * **Протокол** — `TCP`.
+    * **Источник** — `CIDR`.
+    * **CIDR блоки** — `0.0.0.0/0`.
 
     Это правило позволяет подключаться к ВМ по протоколу [SSH](../../glossary/ssh-keygen.md).
 
 * Для исходящего трафика:
 
-    * **{{ ui-key.yacloud.vpc.network.security-groups.forms.field_sg-rule-protocol }}** — `{{ ui-key.yacloud.vpc.network.security-groups.forms.value_any }}` (`Any`).
-    * **{{ ui-key.yacloud.vpc.network.security-groups.forms.field_sg-rule-port-range }}** — `{{ port-any }}`.
-    * **{{ ui-key.yacloud.vpc.network.security-groups.forms.field_sg-rule-destination }}** — `{{ ui-key.yacloud.vpc.network.security-groups.forms.value_sg-rule-destination-cidr }}`.
-    * **{{ ui-key.yacloud.vpc.network.security-groups.forms.field_sg-rule-cidr-blocks }}** — `0.0.0.0/0`.
+    * **Протокол** — `Любой` (`Any`).
+    * **Диапазон портов** — `0-65535`.
+    * **Назначение** — `CIDR`.
+    * **CIDR блоки** — `0.0.0.0/0`.
 
     Это правило разрешает любой исходящий трафик, что позволяет не только подключаться к кластеру, но и устанавливать на ВМ необходимые для этого утилиты.
 
-### Группы безопасности для работы с {{ GP }} {#security-groups-for-greenplum}
+### Группы безопасности для работы с Greenplum® {#security-groups-for-greenplum}
 
-Для подключения к кластеру {{ GP }} [коннектор](../concepts/greenplum-connector.md) {{ TR }} использует протокол GPFDIST:
+Для подключения к кластеру Greenplum® [коннектор](../concepts/greenplum-connector.md) Trino использует протокол GPFDIST:
 
-* Координаторы и воркеры {{ TR }} выполняют запросы к мастеру {{ GP }} через TCP-порт `{{ port-mgp }}`.
-* Сегменты {{ GP }} передают данные на воркеры {{ TR }} через TCP-порт GPFDIST.
+* Координаторы и воркеры Trino выполняют запросы к мастеру Greenplum® через TCP-порт `6432`.
+* Сегменты Greenplum® передают данные на воркеры Trino через TCP-порт GPFDIST.
 
-Данные, передающиеся по протоколу GPFDIST между кластерами {{ GP }} и {{ TR }}, не шифруются. Чтобы обеспечить безопасное подключение, настройте группы безопасности [на стороне {{ mgp-name }}](#configuring-security-groups-greenplum) и (опционально) [на стороне {{ mtr-name }}](#configuring-security-groups-trino).
+Данные, передающиеся по протоколу GPFDIST между кластерами Greenplum® и Trino, не шифруются. Чтобы обеспечить безопасное подключение, настройте группы безопасности [на стороне Yandex MPP Analytics for PostgreSQL](#configuring-security-groups-greenplum) и (опционально) [на стороне Managed Service for Trino](#configuring-security-groups-trino).
 
-Если {{ GP }} взаимодействует с другими кластерами или другими сущностями внутри пользовательской сети, то для них нужно отдельно настроить правила группы безопасности.
+Если Greenplum® взаимодействует с другими кластерами или другими сущностями внутри пользовательской сети, то для них нужно отдельно настроить правила группы безопасности.
 
-#### Настройка на стороне {{ GP }} {#configuring-security-groups-greenplum}
+#### Настройка на стороне Greenplum® {#configuring-security-groups-greenplum}
 
 {% list tabs group=traffic %}
 
 - Входящий трафик {#incoming}
 
-    * Правило для трафика внутри кластера {{ GP }}:
+    * Правило для трафика внутри кластера Greenplum®:
 
-        * **{{ ui-key.yacloud.vpc.network.security-groups.forms.field_sg-rule-port-range }}** — `{{ port-any }}`.
-        * **{{ ui-key.yacloud.vpc.network.security-groups.forms.field_sg-rule-protocol }}** — `{{ ui-key.yacloud.vpc.network.security-groups.forms.value_any }}` (`Any`).
-        * **{{ ui-key.yacloud.vpc.network.security-groups.forms.field_sg-rule-source }}** — `{{ ui-key.yacloud.vpc.network.security-groups.forms.field_sg-rule-sg-type }}`.
-        * **{{ ui-key.yacloud.vpc.network.security-groups.forms.field_sg-rule-sg-type }}** — `{{ ui-key.yacloud.vpc.network.security-groups.forms.value_sg-rule-sg-type-self }}` (`Self`).
+        * **Диапазон портов** — `0-65535`.
+        * **Протокол** — `Любой` (`Any`).
+        * **Источник** — `Группа безопасности`.
+        * **Группа безопасности** — `Текущая` (`Self`).
 
-    * Правило для подключения из кластера {{ TR }}:
+    * Правило для подключения из кластера Trino:
 
-        * **{{ ui-key.yacloud.vpc.network.security-groups.forms.field_sg-rule-port-range }}** — `{{ port-mgp }}`.
-        * **{{ ui-key.yacloud.vpc.network.security-groups.forms.field_sg-rule-protocol }}** — `{{ ui-key.yacloud.common.label_tcp }}`.
-        * **{{ ui-key.yacloud.vpc.network.security-groups.forms.field_sg-rule-source }}** — `{{ ui-key.yacloud.vpc.network.security-groups.forms.field_sg-rule-sg-type }}`.
-        * **{{ ui-key.yacloud.vpc.network.security-groups.forms.field_sg-rule-sg-type }}** — укажите группу безопасности кластера {{ TR }}.
+        * **Диапазон портов** — `6432`.
+        * **Протокол** — `TCP`.
+        * **Источник** — `Группа безопасности`.
+        * **Группа безопасности** — укажите группу безопасности кластера Trino.
 
 - Исходящий трафик {#outgoing}
 
-    * Правило для трафика внутри кластера {{ GP }}:
+    * Правило для трафика внутри кластера Greenplum®:
 
-        * **{{ ui-key.yacloud.vpc.network.security-groups.forms.field_sg-rule-port-range }}** — `{{ port-any }}`.
-        * **{{ ui-key.yacloud.vpc.network.security-groups.forms.field_sg-rule-protocol }}** — `{{ ui-key.yacloud.vpc.network.security-groups.forms.value_any }}` (`Any`).
-        * **{{ ui-key.yacloud.vpc.network.security-groups.forms.field_sg-rule-source }}** — `{{ ui-key.yacloud.vpc.network.security-groups.forms.field_sg-rule-sg-type }}`.
-        * **{{ ui-key.yacloud.vpc.network.security-groups.forms.field_sg-rule-sg-type }}** — `{{ ui-key.yacloud.vpc.network.security-groups.forms.value_sg-rule-sg-type-self }}` (`Self`).
+        * **Диапазон портов** — `0-65535`.
+        * **Протокол** — `Любой` (`Any`).
+        * **Источник** — `Группа безопасности`.
+        * **Группа безопасности** — `Текущая` (`Self`).
 
-    * Правило для подключения к кластеру {{ TR }}:
+    * Правило для подключения к кластеру Trino:
 
-        * **{{ ui-key.yacloud.vpc.network.security-groups.forms.field_sg-rule-port-range }}** — `0-65535`.
-        * **{{ ui-key.yacloud.vpc.network.security-groups.forms.field_sg-rule-protocol }}** — `{{ ui-key.yacloud.common.label_tcp }}`.
-        * **{{ ui-key.yacloud.vpc.network.security-groups.forms.field_sg-rule-source }}** — `{{ ui-key.yacloud.vpc.network.security-groups.forms.field_sg-rule-sg-type }}`.
-        * **{{ ui-key.yacloud.vpc.network.security-groups.forms.field_sg-rule-sg-type }}** — укажите группу безопасности кластера {{ TR }}.
+        * **Диапазон портов** — `0-65535`.
+        * **Протокол** — `TCP`.
+        * **Источник** — `Группа безопасности`.
+        * **Группа безопасности** — укажите группу безопасности кластера Trino.
 
 {% endlist %}
 
-#### Настройка на стороне {{ mtr-name }} {#configuring-security-groups-trino}
+#### Настройка на стороне Managed Service for Trino {#configuring-security-groups-trino}
 
-Правила групп безопасности на стороне {{ TR }} настраиваются зеркально правилам на стороне {{ GP }}. Настройка правил для кластера {{ TR }} является опциональной, но позволяет дополнительно обезопасить кластер.
+Правила групп безопасности на стороне Trino настраиваются зеркально правилам на стороне Greenplum®. Настройка правил для кластера Trino является опциональной, но позволяет дополнительно обезопасить кластер.
 
 {% list tabs group=traffic %}
 
 - Входящий трафик {#incoming}
 
-  Правило для приема данных от сегментов {{ GP }}:
+  Правило для приема данных от сегментов Greenplum®:
 
-    * **{{ ui-key.yacloud.vpc.network.security-groups.forms.field_sg-rule-port-range }}** — `0-65535`.
-    * **{{ ui-key.yacloud.vpc.network.security-groups.forms.field_sg-rule-protocol }}** — `{{ ui-key.yacloud.common.label_tcp }}`.
-    * **{{ ui-key.yacloud.vpc.network.security-groups.forms.field_sg-rule-source }}** — `{{ ui-key.yacloud.vpc.network.security-groups.forms.field_sg-rule-sg-type }}`.
-    * **{{ ui-key.yacloud.vpc.network.security-groups.forms.field_sg-rule-sg-type }}** — укажите группу безопасности кластера {{ GP }}.
+    * **Диапазон портов** — `0-65535`.
+    * **Протокол** — `TCP`.
+    * **Источник** — `Группа безопасности`.
+    * **Группа безопасности** — укажите группу безопасности кластера Greenplum®.
 
 - Исходящий трафик {#outgoing}
 
-  Правило для подключения к мастеру {{ GP }}:
+  Правило для подключения к мастеру Greenplum®:
 
-    * **{{ ui-key.yacloud.vpc.network.security-groups.forms.field_sg-rule-port-range }}** — `{{ port-mgp }}`.
-    * **{{ ui-key.yacloud.vpc.network.security-groups.forms.field_sg-rule-protocol }}** — `{{ ui-key.yacloud.common.label_tcp }}`.
-    * **{{ ui-key.yacloud.vpc.network.security-groups.forms.field_sg-rule-source }}** — `{{ ui-key.yacloud.vpc.network.security-groups.forms.field_sg-rule-sg-type }}`.
-    * **{{ ui-key.yacloud.vpc.network.security-groups.forms.field_sg-rule-sg-type }}** — укажите группу безопасности кластера {{ GP }}.
+    * **Диапазон портов** — `6432`.
+    * **Протокол** — `TCP`.
+    * **Источник** — `Группа безопасности`.
+    * **Группа безопасности** — укажите группу безопасности кластера Greenplum®.
 
 {% endlist %}
 
 ## Инструменты командной строки {#cli-tools}
 
-### {{ TR }} CLI {#trino-cli}
+### Trino CLI {#trino-cli}
 
-Если у вас еще нет интерфейса командной строки {{ TR }}, установите его по [инструкции на официальном сайте {{ TR }}](https://trino.io/docs/current/client/cli.html#installation).
+Если у вас еще нет интерфейса командной строки Trino, установите его по [инструкции на официальном сайте Trino](https://trino.io/docs/current/client/cli.html#installation).
 
-Чтобы подключиться к кластеру {{ mtr-name }}:
+Чтобы подключиться к кластеру Managed Service for Trino:
 
 1. Создайте [IAM-токен](../../iam/concepts/authorization/iam-token.md) и поместите его в переменную окружения `TRINO_PASSWORD`:
 
@@ -125,9 +125,9 @@
    export TRINO_PASSWORD=$(yc iam create-token)
    ```
 
-   IAM-токен, хранящийся в переменной `TRINO_PASSWORD`, служит паролем для подключения к кластеру {{ mtr-name }}. Чтобы использовать его, укажите при подключении флаг `--password`.
+   IAM-токен, хранящийся в переменной `TRINO_PASSWORD`, служит паролем для подключения к кластеру Managed Service for Trino. Чтобы использовать его, укажите при подключении флаг `--password`.
 
-1. Подключитесь к кластеру {{ mtr-name }}:
+1. Подключитесь к кластеру Managed Service for Trino:
 
    ```bash
    ./trino c-<идентификатор_кластера>.trino.yandexcloud.net --user iam --password
@@ -152,14 +152,14 @@
 - DataGrip {#datagrip}
 
   1. Создайте источник данных:
-     1. Выберите в меню **File** → **New** → **Data Source** → **{{ TR }}**.
+     1. Выберите в меню **File** → **New** → **Data Source** → **Trino**.
      1. Введите имя источника данных.
      1. Укажите параметры подключения на вкладке **General**:
         * **Host** — `c-<идентификатор_кластера>.trino.yandexcloud.net`.
 
-            Если вы подключаетесь к кластеру {{ mtr-name }} через [сервисное подключение](../concepts/network.md#сервисное-подключение-private-endpoint), то в качестве адреса хоста укажите `c-<идентификатор_кластера>.trino.pe.yandexcloud.net`.
+            Если вы подключаетесь к кластеру Managed Service for Trino через [сервисное подключение](../concepts/network.md#сервисное-подключение-private-endpoint), то в качестве адреса хоста укажите `c-<идентификатор_кластера>.trino.pe.yandexcloud.net`.
 
-        * **Port** — `{{ port-https }}`.
+        * **Port** — `443`.
         * **User** — `iam`.
         * **Password** — созданный ранее IAM-токен.
   1. Нажмите ссылку **Test Connection** для проверки подключения. При успешном подключении будет выведен статус подключения, информация о СУБД и драйвере.
@@ -169,14 +169,14 @@
 
   1. Создайте новое соединение с БД:
      1. Выберите в меню **База данных** пункт **Новое соединение**.
-     1. Выберите из списка **{{ TR }}**.
+     1. Выберите из списка **Trino**.
      1. Нажмите кнопку **Далее**.
      1. Укажите параметры подключения на вкладке **Главное**:
         * **Хост** — `c-<идентификатор_кластера>.trino.yandexcloud.net`.
 
-            Если вы подключаетесь к кластеру {{ mtr-name }} через [сервисное подключение](../concepts/network.md#сервисное-подключение-private-endpoint), то в качестве адреса хоста укажите `c-<идентификатор_кластера>.trino.pe.yandexcloud.net`.
+            Если вы подключаетесь к кластеру Managed Service for Trino через [сервисное подключение](../concepts/network.md#сервисное-подключение-private-endpoint), то в качестве адреса хоста укажите `c-<идентификатор_кластера>.trino.pe.yandexcloud.net`.
 
-        * **Порт** — `{{ port-https }}`.
+        * **Порт** — `443`.
         * В блоке **Аутентификация** укажите:
             * Имя пользователя — `iam`;
             * Пароль пользователя — созданный ранее IAM-токен.
@@ -187,18 +187,18 @@
 
 ## WebSQL {#websql}
 
-1. Перейдите на [страницу каталога]({{ link-console-main }}).
-1. Перейдите в сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-trino }}**.
-1. Откройте ваш кластер {{ mtr-name }}.
-1. Перейдите в раздел **{{ ui-key.yacloud.mdb.cluster.switch_explore-websql }}**.
-1. Нажмите кнопку **{{ ui-key.yacloud.mdb.cluster.websql-connections.action_go-to-websql }}**.
+1. Перейдите на [страницу каталога](https://console.yandex.cloud).
+1. Перейдите в сервис **Managed Service for&nbsp;Trino**.
+1. Откройте ваш кластер Managed Service for Trino.
+1. Перейдите в раздел **WebSQL**.
+1. Нажмите кнопку **Перейти в WebSQL**.
 1. В открывшемся редакторе SQL-запросов выполните запрос:
 
    ```sql
    SELECT version() AS version;
    ```
 
-   В ответе на запрос будет информация о версии {{ TR }}.
+   В ответе на запрос будет информация о версии Trino.
 
 ## Примеры строк подключения {#connection-strings}
 
@@ -238,7 +238,7 @@
 
       def get_version():
           auth = BasicAuthentication(username='iam', password=IAM_TOKEN)
-          with closing(connect(host=COORDINATOR_URL, port={{ port-https }}, auth=auth, request_timeout=TIMEOUT)) as conn:
+          with closing(connect(host=COORDINATOR_URL, port=443, auth=auth, request_timeout=TIMEOUT)) as conn:
               with closing(conn.cursor()) as cur:
                   cur.execute('SELECT version() as version')
                   rows = cur.fetchall()
@@ -250,7 +250,7 @@
 
      Идентификатор кластера можно запросить со [списком кластеров в каталоге](cluster-list.md#list-clusters).
 
-     Если вы подключаетесь к кластеру {{ mtr-name }} через [сервисное подключение](../concepts/network.md#сервисное-подключение-private-endpoint), то в качестве адреса хоста укажите `c-<идентификатор_кластера>.trino.pe.yandexcloud.net`.
+     Если вы подключаетесь к кластеру Managed Service for Trino через [сервисное подключение](../concepts/network.md#сервисное-подключение-private-endpoint), то в качестве адреса хоста укажите `c-<идентификатор_кластера>.trino.pe.yandexcloud.net`.
 
   1. Подключение:
 
@@ -397,7 +397,7 @@
 
       Идентификатор кластера можно запросить со [списком кластеров в каталоге](cluster-list.md#list-clusters).
 
-      Если вы подключаетесь к кластеру {{ mtr-name }} через [сервисное подключение](../concepts/network.md#сервисное-подключение-private-endpoint), то в качестве адреса хоста укажите `c-<идентификатор_кластера>.trino.pe.yandexcloud.net`.
+      Если вы подключаетесь к кластеру Managed Service for Trino через [сервисное подключение](../concepts/network.md#сервисное-подключение-private-endpoint), то в качестве адреса хоста укажите `c-<идентификатор_кластера>.trino.pe.yandexcloud.net`.
 
   1. Сборка и подключение:
 
@@ -449,7 +449,7 @@
 
     Идентификатор кластера можно запросить со [списком кластеров в каталоге](cluster-list.md#list-clusters).
 
-    Если вы подключаетесь к кластеру {{ mtr-name }} через [сервисное подключение](../concepts/network.md#сервисное-подключение-private-endpoint), то в качестве адреса хоста укажите `c-<идентификатор_кластера>.trino.pe.yandexcloud.net`.
+    Если вы подключаетесь к кластеру Managed Service for Trino через [сервисное подключение](../concepts/network.md#сервисное-подключение-private-endpoint), то в качестве адреса хоста укажите `c-<идентификатор_кластера>.trino.pe.yandexcloud.net`.
 
 {% endlist %}
 

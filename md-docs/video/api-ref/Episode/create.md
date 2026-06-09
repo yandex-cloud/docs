@@ -7,7 +7,7 @@ time boundaries, and access rights.
 ## HTTP request
 
 ```
-POST https://video.{{ api-host }}/video/v1/episodes
+POST https://video.api.cloud.yandex.net/video/v1/episodes
 ```
 
 ## Body parameters {#yandex.cloud.video.v1.CreateEpisodeRequest}

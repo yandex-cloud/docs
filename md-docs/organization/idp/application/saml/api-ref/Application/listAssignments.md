@@ -5,7 +5,7 @@ Lists assignments for the specified SAML application.
 ## HTTP request
 
 ```
-GET https://organization-manager.{{ api-host }}/organization-manager/v1/idp/application/saml/applications/{applicationId}:listAssignments
+GET https://organization-manager.api.cloud.yandex.net/organization-manager/v1/idp/application/saml/applications/{applicationId}:listAssignments
 ```
 
 ## Path parameters

@@ -5,9 +5,9 @@
 
 Чтобы расширить возможности протокола IPsec, используется протокол [GRE](https://ru.wikipedia.org/wiki/GRE_(протокол)), настроенный поверх IPsec. Протокол GRE инкапсулирует сетевые пакеты в IP-пакеты, что позволяет передавать по IPsec-протоколу любой трафик.
 
-В этом примере вы создадите защищенный туннель по протоколу GRE поверх IPsec между двумя виртуальными маршрутизаторами [Cisco CSR 1000v](https://yandex.cloud/ru/marketplace/products/yc/cisco-csr), расположенными в {{ yandex-cloud }} в разных [виртуальных сетях](../../vpc/concepts/network.md) и [зонах доступности](../../overview/concepts/geo-scope.md). 
+В этом примере вы создадите защищенный туннель по протоколу GRE поверх IPsec между двумя виртуальными маршрутизаторами [Cisco CSR 1000v](https://yandex.cloud/ru/marketplace/products/yc/cisco-csr), расположенными в Yandex Cloud в разных [виртуальных сетях](../../vpc/concepts/network.md) и [зонах доступности](../../overview/concepts/geo-scope.md). 
 
-Поскольку {{ yandex-cloud }} использует [NAT](https://ru.wikipedia.org/wiki/NAT), а GRE-протокол не предусматривает использование портов, настройка IPSEC приводится в режиме NAT-T ([NAT Traversal](https://ru.wikipedia.org/wiki/NAT_traversal)). Этот режим обеспечивает возможность трансляции адресов маршрутизаторов через NAT при использовании туннеля GRE поверх IPsec. Благодаря этому описанная в примере настройка туннеля подходит как для облачной инфраструктуры в {{ yandex-cloud }}, так и для удаленных ресурсов, находящихся за устройством, которое осуществляет NAT-трансляцию. 
+Поскольку Yandex Cloud использует [NAT](https://ru.wikipedia.org/wiki/NAT), а GRE-протокол не предусматривает использование портов, настройка IPSEC приводится в режиме NAT-T ([NAT Traversal](https://ru.wikipedia.org/wiki/NAT_traversal)). Этот режим обеспечивает возможность трансляции адресов маршрутизаторов через NAT при использовании туннеля GRE поверх IPsec. Благодаря этому описанная в примере настройка туннеля подходит как для облачной инфраструктуры в Yandex Cloud, так и для удаленных ресурсов, находящихся за устройством, которое осуществляет NAT-трансляцию. 
 
 Чтобы настроить защищенный туннель между двумя виртуальными маршрутизаторами:
 
@@ -24,11 +24,11 @@
 
 ## Перед началом работы {#before-you-begin}
 
-Зарегистрируйтесь в {{ yandex-cloud }} и создайте [платежный аккаунт](../../billing/concepts/billing-account.md):
-1. Перейдите в [консоль управления]({{ link-console-main }}), затем войдите в {{ yandex-cloud }} или зарегистрируйтесь.
-1. На странице **[{{ ui-key.yacloud_billing.billing.label_service }}]({{ link-console-billing }})** убедитесь, что у вас подключен платежный аккаунт, и он находится в [статусе](../../billing/concepts/billing-account-statuses.md) `ACTIVE` или `TRIAL_ACTIVE`. Если платежного аккаунта нет, [создайте его](../../billing/quickstart/index.md) и [привяжите](../../billing/operations/pin-cloud.md) к нему облако.
+Зарегистрируйтесь в Yandex Cloud и создайте [платежный аккаунт](../../billing/concepts/billing-account.md):
+1. Перейдите в [консоль управления](https://console.yandex.cloud), затем войдите в Yandex Cloud или зарегистрируйтесь.
+1. На странице **[Yandex Cloud Billing](https://center.yandex.cloud/billing/accounts)** убедитесь, что у вас подключен платежный аккаунт, и он находится в [статусе](../../billing/concepts/billing-account-statuses.md) `ACTIVE` или `TRIAL_ACTIVE`. Если платежного аккаунта нет, [создайте его](../../billing/quickstart/index.md) и [привяжите](../../billing/operations/pin-cloud.md) к нему облако.
 
-Если у вас есть активный платежный аккаунт, вы можете создать или выбрать [каталог](../../resource-manager/concepts/resources-hierarchy.md#folder), в котором будет работать ваша инфраструктура, на [странице облака]({{ link-console-cloud }}).
+Если у вас есть активный платежный аккаунт, вы можете создать или выбрать [каталог](../../resource-manager/concepts/resources-hierarchy.md#folder), в котором будет работать ваша инфраструктура, на [странице облака](https://console.yandex.cloud/cloud).
 
 [Подробнее об облаках и каталогах](../../resource-manager/concepts/resources-hierarchy.md).
 
@@ -42,8 +42,8 @@
 
 В стоимость поддержки инфраструктуры входит:
 
-* плата за диски и постоянно запущенные ВМ (см. [тарифы {{ compute-full-name }}](../../compute/pricing.md));
-* плата за использование внешнего IP-адреса (см. [тарифы {{ vpc-full-name }}](../../vpc/pricing.md#prices-public-ip)).
+* плата за диски и постоянно запущенные ВМ (см. [тарифы Yandex Compute Cloud](../../compute/pricing.md));
+* плата за использование внешнего IP-адреса (см. [тарифы Yandex Virtual Private Cloud](../../vpc/pricing.md#prices-public-ip)).
 
 ## Создайте пару ключей SSH {#create-ssh-keys}
 
@@ -51,7 +51,7 @@
 
 {% note info %}
 
-В публичных образах Linux, предоставляемых {{ yandex-cloud }}, возможность подключения по протоколу SSH с использованием логина и пароля по умолчанию отключена.
+В публичных образах Linux, предоставляемых Yandex Cloud, возможность подключения по протоколу SSH с использованием логина и пароля по умолчанию отключена.
 
 {% endnote %}
 
@@ -118,21 +118,21 @@
 
 ## Создайте каталоги {#create-folders}
 
-Для тестирования туннелирования между двумя разными виртуальными сетями расположите ресурсы в {{ yandex-cloud }} в разных каталогах. Чтобы создать новый каталог:
+Для тестирования туннелирования между двумя разными виртуальными сетями расположите ресурсы в Yandex Cloud в разных каталогах. Чтобы создать новый каталог:
 
 {% list tabs group=instructions %}
 
 - Консоль управления {#console}
 
-   1. В [консоли управления]({{ link-console-main }}) выберите [облако](../../resource-manager/concepts/resources-hierarchy.md#cloud) и справа сверху нажмите кнопку ![image](../../_assets/console-icons/ellipsis.svg) → ![image](../../_assets/console-icons/plus.svg) **{{ ui-key.yacloud.component.console-dashboard.button_action-create-folder }}**.
+   1. В [консоли управления](https://console.yandex.cloud) выберите [облако](../../resource-manager/concepts/resources-hierarchy.md#cloud) и справа сверху нажмите кнопку ![image](../../_assets/console-icons/ellipsis.svg) → ![image](../../_assets/console-icons/plus.svg) **Создать каталог**.
    1. Введите имя [каталога](../../resource-manager/concepts/resources-hierarchy.md#folder): `site-d`.
    1. При желании, добавьте описание каталога.
-   1. Выберите опцию **{{ ui-key.yacloud.iam.cloud.folders-create.field_default-net }}**. 
-   1. Нажмите кнопку **{{ ui-key.yacloud.iam.cloud.folders-create.button_create }}**.
+   1. Выберите опцию **Создать сеть по умолчанию**. 
+   1. Нажмите кнопку **Создать**.
 
 - CLI {#cli}
 
-   Если у вас еще нет интерфейса командной строки {{ yandex-cloud }} (CLI), [установите и инициализируйте его](../../cli/quickstart.md#install).
+   Если у вас еще нет интерфейса командной строки Yandex Cloud (CLI), [установите и инициализируйте его](../../cli/quickstart.md#install).
 
    Создайте каталог:
    ```bash
@@ -145,12 +145,12 @@
 
    Чтобы создать каталог, воспользуйтесь методом REST API [create](../../resource-manager/api-ref/Folder/create.md) для ресурса [Folder](../../resource-manager/api-ref/Folder/index.md) или вызовом gRPC API [FolderService/Create](../../resource-manager/api-ref/grpc/Folder/create.md).
 
-- {{ TF }} {#tf}
+- Terraform {#tf}
 
-   Если у вас еще нет {{ TF }}, [установите его и настройте провайдер {{ yandex-cloud }}](../infrastructure-management/terraform-quickstart.md#install-terraform).
+   Если у вас еще нет Terraform, [установите его и настройте провайдер Yandex Cloud](../infrastructure-management/terraform-quickstart.md#install-terraform).
    
    
-   Чтобы управлять инфраструктурой с помощью {{ TF }} от имени сервисного аккаунта или пользовательских аккаунтов: аккаунта на Яндексе, федеративного аккаунта и локального пользователя, [аутентифицируйтесь](../../terraform/authentication.md) соответствующим способом.
+   Чтобы управлять инфраструктурой с помощью Terraform от имени сервисного аккаунта или пользовательских аккаунтов: аккаунта на Яндексе, федеративного аккаунта и локального пользователя, [аутентифицируйтесь](../../terraform/authentication.md) соответствующим способом.
 
    1. Опишите в конфигурационном файле параметры ресурсов, которые необходимо создать:
 
@@ -162,7 +162,7 @@
       }
       ```
 
-      Более подробную информацию о параметрах ресурса `yandex_resourcemanager_folder` в {{ TF }}, см. в [документации провайдера]({{ tf-provider-resources-link }}/resourcemanager_folder).
+      Более подробную информацию о параметрах ресурса `yandex_resourcemanager_folder` в Terraform, см. в [документации провайдера](../../terraform/resources/resourcemanager_folder.md).
 
    1. Проверьте корректность конфигурационных файлов.
 
@@ -186,7 +186,7 @@
          terraform plan
          ```
 
-         Если конфигурация описана верно, в терминале отобразится список создаваемых ресурсов и их параметров. Если в конфигурации есть ошибки, {{ TF }} на них укажет. 
+         Если конфигурация описана верно, в терминале отобразится список создаваемых ресурсов и их параметров. Если в конфигурации есть ошибки, Terraform на них укажет. 
 
    1. Разверните облачные ресурсы.
 
@@ -198,7 +198,7 @@
 
       1. Подтвердите создание ресурсов: введите в терминал слово `yes` и нажмите **Enter**.
 
-      После этого в указанном облаке будет создан каталог. Проверить появление каталога и его настройки можно в [консоли управления]({{ link-console-main }}) или с помощью команды [CLI](../../cli/quickstart.md):
+      После этого в указанном облаке будет создан каталог. Проверить появление каталога и его настройки можно в [консоли управления](https://console.yandex.cloud) или с помощью команды [CLI](../../cli/quickstart.md):
 
       ```
       yc resource-manager cloud list
@@ -216,46 +216,46 @@
 
 - Консоль управления {#console}
 
-  1. В [консоли управления]({{ link-console-main }}) выберите каталог `site-d`.
-  1. Нажмите кнопку ![image](../../_assets/console-icons/plus.svg) **{{ ui-key.yacloud.iam.folder.dashboard.button_add }}** и выберите ![image](../../_assets/console-icons/cpu.svg) **{{ ui-key.yacloud.iam.folder.dashboard.value_compute }}**.
-  1. В блоке **{{ ui-key.yacloud.compute.instances.create.section_image }}** в поле **{{ ui-key.yacloud.compute.instances.create.placeholder_search_marketplace-product }}** введите `Cisco CSR` и выберите публичный образ [Cisco CSR](https://yandex.cloud/ru/marketplace/products/yc/cisco-csr).
-  1. В блоке **{{ ui-key.yacloud.k8s.node-groups.create.section_allocation-policy }}** выберите [зону доступности](../../overview/concepts/geo-scope.md) `{{ region-id }}-d`.
-  1. В блоке **{{ ui-key.yacloud.compute.instances.create.section_platform }}** перейдите на вкладку `{{ ui-key.yacloud.component.compute.resources.label_tab-custom }}` и укажите необходимую [платформу](../../compute/concepts/vm-platforms.md), количество vCPU и объем RAM:
+  1. В [консоли управления](https://console.yandex.cloud) выберите каталог `site-d`.
+  1. Нажмите кнопку ![image](../../_assets/console-icons/plus.svg) **Создать ресурс** и выберите ![image](../../_assets/console-icons/cpu.svg) **Виртуальная машина**.
+  1. В блоке **Образ загрузочного диска** в поле **Поиск продукта** введите `Cisco CSR` и выберите публичный образ [Cisco CSR](https://yandex.cloud/ru/marketplace/products/yc/cisco-csr).
+  1. В блоке **Расположение** выберите [зону доступности](../../overview/concepts/geo-scope.md) `ru-central1-d`.
+  1. В блоке **Вычислительные ресурсы** перейдите на вкладку `Своя конфигурация` и укажите необходимую [платформу](../../compute/concepts/vm-platforms.md), количество vCPU и объем RAM:
 
-      * **{{ ui-key.yacloud.component.compute.resources.field_platform }}** — `Intel Ice Lake`.
-      * **{{ ui-key.yacloud.component.compute.resources.field_cores }}** — `2`.
-      * **{{ ui-key.yacloud.component.compute.resources.field_core-fraction }}** — `100%`.
-      * **{{ ui-key.yacloud.component.compute.resources.field_memory }}** — `4 {{ ui-key.yacloud.common.units.label_gigabyte }}`.
+      * **Платформа** — `Intel Ice Lake`.
+      * **vCPU** — `2`.
+      * **Гарантированная доля vCPU** — `100%`.
+      * **RAM** — `4 ГБ`.
 
-  1. В блоке **{{ ui-key.yacloud.compute.instances.create.section_network }}**:
+  1. В блоке **Сетевые настройки**:
 
-      * В поле **{{ ui-key.yacloud.component.compute.network-select.field_subnetwork }}** выберите сеть и подсеть, к которым нужно подключить ВМ.
-      * В поле **{{ ui-key.yacloud.component.compute.network-select.field_external }}** оставьте значение `{{ ui-key.yacloud.component.compute.network-select.switch_auto }}`, чтобы назначить ВМ случайный внешний IP-адрес из пула {{ yandex-cloud }}, или выберите статический адрес из списка, если вы зарезервировали его заранее.
+      * В поле **Подсеть** выберите сеть и подсеть, к которым нужно подключить ВМ.
+      * В поле **Публичный IP-адрес** оставьте значение `Автоматически`, чтобы назначить ВМ случайный внешний IP-адрес из пула Yandex Cloud, или выберите статический адрес из списка, если вы зарезервировали его заранее.
 
-  1. В блоке **{{ ui-key.yacloud.compute.instances.create.section_access }}** выберите вариант **{{ ui-key.yacloud.compute.instance.access-method.label_oslogin-control-ssh-option-title }}** и укажите данные для доступа на ВМ:
+  1. В блоке **Доступ** выберите вариант **SSH-ключ** и укажите данные для доступа на ВМ:
 
-      * В поле **{{ ui-key.yacloud.compute.instances.create.field_user }}** введите имя пользователя. Не используйте имя `root` или другие имена, зарезервированные ОС. Для выполнения операций, требующих прав суперпользователя, используйте команду `sudo`.
-      * В поле **{{ ui-key.yacloud.compute.instances.create.field_key }}** выберите SSH-ключ, сохраненный в вашем профиле [пользователя организации](../../organization/concepts/membership.md).
+      * В поле **Логин** введите имя пользователя. Не используйте имя `root` или другие имена, зарезервированные ОС. Для выполнения операций, требующих прав суперпользователя, используйте команду `sudo`.
+      * В поле **SSH-ключ** выберите SSH-ключ, сохраненный в вашем профиле [пользователя организации](../../organization/concepts/membership.md).
         
         Если в вашем профиле нет сохраненных SSH-ключей или вы хотите добавить новый ключ:
         
-        1. Нажмите кнопку **{{ ui-key.yacloud.compute.instances.create.button_add-ssh-key }}**.
+        1. Нажмите кнопку **Добавить ключ**.
         1. Задайте имя SSH-ключа.
         1. Выберите вариант:
         
-            * `{{ ui-key.yacloud_components.ssh-key-add-dialog.value_radio-manual }}` — вставьте содержимое открытого [SSH](../../glossary/ssh-keygen.md)-ключа. Пару SSH-ключей необходимо [создать](../../compute/operations/vm-connect/ssh.md#creating-ssh-keys) самостоятельно.
-            * `{{ ui-key.yacloud_components.ssh-key-add-dialog.value_radio-upload }}` — загрузите открытую часть SSH-ключа. Пару SSH-ключей необходимо создать самостоятельно.
-            * `{{ ui-key.yacloud_components.ssh-key-add-dialog.value_radio-generate }}` — автоматическое создание пары SSH-ключей.
+            * `Ввести вручную` — вставьте содержимое открытого [SSH](../../glossary/ssh-keygen.md)-ключа. Пару SSH-ключей необходимо [создать](../../compute/operations/vm-connect/ssh.md#creating-ssh-keys) самостоятельно.
+            * `Загрузить из файла` — загрузите открытую часть SSH-ключа. Пару SSH-ключей необходимо создать самостоятельно.
+            * `Сгенерировать ключ` — автоматическое создание пары SSH-ключей.
             
               При добавлении сгенерированного SSH-ключа будет создан и загружен архив с парой ключей. В ОС на базе Linux или macOS распакуйте архив в папку `/home/<имя_пользователя>/.ssh`. В ОС Windows распакуйте архив в папку `C:\Users\<имя_пользователя>/.ssh`. Дополнительно вводить открытый ключ в консоли управления не требуется.
         
-        1. Нажмите кнопку **{{ ui-key.yacloud.common.add }}**.
+        1. Нажмите кнопку **Добавить**.
         
         SSH-ключ будет добавлен в ваш профиль пользователя организации. Если в организации [отключена](../../organization/operations/os-login-access.md) возможность добавления пользователями SSH-ключей в свои профили, добавленный открытый SSH-ключ будет сохранен только в профиле пользователя внутри создаваемого ресурса.
 
-  1. В блоке **{{ ui-key.yacloud.compute.instances.create.section_base }}** задайте имя ВМ: `cisco-router-d`.
-  1. В блоке **{{ ui-key.yacloud.compute.instances.create.section_additional }}** включите опцию `{{ ui-key.yacloud.compute.instance.overview.field_serial-port-enable }}`.
-  1. Нажмите кнопку **{{ ui-key.yacloud.compute.instances.create.button_create }}**.
+  1. В блоке **Общая информация** задайте имя ВМ: `cisco-router-d`.
+  1. В блоке **Дополнительно** включите опцию `Доступ к серийной консоли`.
+  1. Нажмите кнопку **Создать ВМ**.
 
   Создание ВМ может занять несколько минут. Когда ВМ перейдет в статус `RUNNING`, вы сможете пользоваться серийной консолью.
 
@@ -267,10 +267,10 @@
 
 - Консоль управления {#console}
   
-   1. В [консоли управления]({{ link-console-main }}) перейдите в каталог с созданной ВМ.
-   1. Перейдите в сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_compute }}**.
+   1. В [консоли управления](https://console.yandex.cloud) перейдите в каталог с созданной ВМ.
+   1. Перейдите в сервис **Compute Cloud**.
    1. В списке ВМ выберите `cisco-router-d`.
-   1. Перейдите на вкладку ![image](../../_assets/console-icons/terminal.svg) **{{ ui-key.yacloud.compute.instance.switch_console }}** и нажмите кнопку **{{ ui-key.yacloud.compute.instance.console.connect }}**.
+   1. Перейдите на вкладку ![image](../../_assets/console-icons/terminal.svg) **Серийная консоль** и нажмите кнопку **Подключиться**.
    1. Дождитесь полной загрузки операционной системы.
    1. Чтобы перейти в привилегированный режим, выполните в серийной консоли команду:
 
@@ -395,7 +395,7 @@
 
 ### Создайте и настройте вторую ВМ с Cisco Cloud Services Router {#create-second-vm}
 
-1. В каталоге `site-b` создайте ВМ `cisco-router-b` по вышеописанной схеме. В качестве зоны доступности выберите **{{ region-id }}-b**.
+1. В каталоге `site-b` создайте ВМ `cisco-router-b` по вышеописанной схеме. В качестве зоны доступности выберите **ru-central1-b**.
 1. Настройте ВМ так же, как ВМ `cisco-router-d`.
 
 ## Настройте IPsec-протоколы {#ipsec-setup}

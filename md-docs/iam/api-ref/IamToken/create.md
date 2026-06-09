@@ -5,7 +5,7 @@ Create an IAM token for the specified identity.
 ## HTTP request
 
 ```
-POST https://iam.{{ api-host }}/iam/v1/tokens
+POST https://iam.api.cloud.yandex.net/iam/v1/tokens
 ```
 
 ## Body parameters {#yandex.cloud.iam.v1.CreateIamTokenRequest}

@@ -2,13 +2,13 @@
 
 {% list tabs group=instructions %}
 
-- Интерфейс {{ video-name }} {#console}
+- Интерфейс Cloud Video {#console}
 
-  1. Откройте [главную страницу]({{ link-video-main }}) {{ video-name }}.
+  1. Откройте [главную страницу](https://video.yandex.cloud/) Cloud Video.
   1. Выберите канал.
-  1. На вкладке ![image](../../../_assets/console-icons/bars-play.svg) **{{ ui-key.yacloud_video.playlists.title_playlists }}** в строке с нужным плейлистом нажмите ![image](../../../_assets/console-icons/ellipsis.svg) и выберите **{{ ui-key.yacloud_video.common.action_edit }}**.
+  1. На вкладке ![image](../../../_assets/console-icons/bars-play.svg) **Плейлисты** в строке с нужным плейлистом нажмите ![image](../../../_assets/console-icons/ellipsis.svg) и выберите **Редактировать**.
   1. Измените название и описание плейлиста.
-  1. В блоке **{{ ui-key.yacloud_video.playlists.title_playlists-video-list }}**:
+  1. В блоке **Порядок воспроизведения**:
 
      * Чтобы удалить видео или трансляцию из плейлиста, нажмите ![image](../../../_assets/console-icons/trash-bin.svg) в нужной строке.
 
@@ -20,20 +20,20 @@
 
        {% endnote %}
 
-     * Чтобы добавить видео или завершенную трансляцию в плейлист, нажмите **{{ ui-key.yacloud_video.playlists.action_add-playlist-video }}**. В открывшемся окне:
+     * Чтобы добавить видео или завершенную трансляцию в плейлист, нажмите **Добавить видео**. В открывшемся окне:
 
-       1. На вкладке **{{ ui-key.yacloud_video.playlists.switch_video-select }}** или **{{ ui-key.yacloud_video.playlists.switch_stream-select }}** выберите нужные видео или трансляции.
+       1. На вкладке **Видео** или **Трансляции** выберите нужные видео или трансляции.
 
           В плейлистах будут доступны к просмотру только видео с [постоянными ссылками](../../concepts/videos.md#permanent-link).
 
-       1. Нажмите **{{ ui-key.yacloud_video.common.action_add }}**.
-  1. В списке **{{ ui-key.yacloud_video.presets.label_style-preset }}** выберите [шаблон](../../concepts/presets.md) оформления плеера из доступных в канале или создайте новый.
-  1. Нажмите **{{ ui-key.yacloud_video.common.action_accept }}**.
+       1. Нажмите **Добавить**.
+  1. В списке **Шаблон плеера** выберите [шаблон](../../concepts/presets.md) оформления плеера из доступных в канале или создайте новый.
+  1. Нажмите **Сохранить**.
 
 {% endlist %}
 
 #### См. также {#see-also}
 
-* [Плейлисты в {{ video-name }}](../../concepts/playlists.md)
-* [{#T}](get-link.md)
-* [{#T}](delete.md)
+* [Плейлисты в Cloud Video](../../concepts/playlists.md)
+* [Получить код вставки или ссылку на плейлист](get-link.md)
+* [Удалить плейлист](delete.md)

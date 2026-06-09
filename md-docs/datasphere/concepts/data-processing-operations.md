@@ -1,27 +1,27 @@
 # Вычисления на кластерах Apache Spark™
 
-Для работы с кластерами {{ dataproc-name }} требуется предварительная настройка проекта, см. подробнее в [концепции](data-processing.md#settings).
+Для работы с кластерами Yandex Data Processing требуется предварительная настройка проекта, см. подробнее в [концепции](data-processing.md#settings).
 
-Все кластеры {{ dataproc-name }} вне зависимости от варианта развертывания тарифицируются по [правилам сервиса {{ dataproc-full-name }}](../../data-proc/pricing.md). Все кластеры, доступные в проекте, можно посмотреть в разделе **{{ ui-key.yc-ui-datasphere.project-page.project-resources }}** ⟶ ![image](../../_assets/data-processing/data-processing.svg) **{{ ui-key.yc-ui-datasphere.resources.dataProc }}** на странице проекта.
+Все кластеры Yandex Data Processing вне зависимости от варианта развертывания тарифицируются по [правилам сервиса Yandex Data Processing](../../data-proc/pricing.md). Все кластеры, доступные в проекте, можно посмотреть в разделе **Ресурсы проекта** ⟶ ![image](../../_assets/data-processing/data-processing.svg) **Yandex Data&nbsp;Processing** на странице проекта.
 
 {% note warning %}
 
-Используя кластер, развернутый в сервисе {{ dataproc-name }}, вы управляете его жизненным циклом самостоятельно. Даже если на нем нет вычислений, кластер не будет удален и продолжит тарифицироваться.
+Используя кластер, развернутый в сервисе Yandex Data Processing, вы управляете его жизненным циклом самостоятельно. Даже если на нем нет вычислений, кластер не будет удален и продолжит тарифицироваться.
 
 {% endnote %}
 
-{{ ml-platform-name }} поддерживает работу с кластерами {{ dataproc-name }} при помощи:
+DataSphere поддерживает работу с кластерами Yandex Data Processing при помощи:
 
  * [коннектора Spark](#spark-with-existing-cluster);
  * [Livy-сессии](#livy-sessions).
 
 ## Коннекторы Spark {#spark-with-existing-cluster}
 
-[Коннектор Spark](spark-connector.md) — это специальный ресурс, который хранит настройки подключения к кластерам {{ dataproc-name }}. Настройки подключения к кластеру задаются при [создании коннектора Spark](../operations/data/spark-connectors.md#create). Выбранные кластеры подключаются или создаются при запуске вычислений в ячейке.
+[Коннектор Spark](spark-connector.md) — это специальный ресурс, который хранит настройки подключения к кластерам Yandex Data Processing. Настройки подключения к кластеру задаются при [создании коннектора Spark](../operations/data/spark-connectors.md#create). Выбранные кластеры подключаются или создаются при запуске вычислений в ячейке.
 
 Коннектор Spark может быть [опубликован](../operations/data/spark-connectors.md#create) в сообществе для использования в других проектах. Изменение настроек коннектора Spark применится для всех проектов, в которых он используется.
 
-Для корректной интеграции с {{ ml-platform-name }} через коннектор Spark развернутый кластер {{ dataproc-name }} должен иметь [версию образа](../../data-proc/concepts/environment.md) не ниже `2.0` с включенными сервисами `LIVY`, `SPARK` и `YARN`.
+Для корректной интеграции с DataSphere через коннектор Spark развернутый кластер Yandex Data Processing должен иметь [версию образа](../../data-proc/concepts/environment.md) не ниже `2.0` с включенными сервисами `LIVY`, `SPARK` и `YARN`.
 
 Подробнее о работе с коннекторами Spark см. в [инструкции](../operations/data/spark-connectors.md).
 
@@ -42,15 +42,15 @@
    print("Pi is roughly %f" % (4.0 * count / NUM_SAMPL))
    ```
 1. Выберите ячейку с кодом и запустите вычисления.
-1. В открывшемся окне **{{ ui-key.yc-ui-datasphere.open-project.select-configuration }}** перейдите на вкладку **{{ ui-key.yc-ui-datasphere.open-project.with-dataproc-cluster }}**.
+1. В открывшемся окне **Конфигурации ВМ ноутбука** перейдите на вкладку **Для кластера Yandex Data&nbsp;Processing**.
 1. Выберите конфигурацию вычислительных ресурсов и коннектор Spark.
-1. Нажмите кнопку **{{ ui-key.yc-ui-datasphere.common.select }}**.
+1. Нажмите кнопку **Выбрать**.
 
-Коннектор и конфигурация окружения задаются вручную только при первом запуске вычисления. Все последующие вычисления в этом ноутбуке будут производиться на созданной при первом запуске ВМ. Кластер {{ dataproc-name }} подключается к ней при помощи коннектора Spark.
+Коннектор и конфигурация окружения задаются вручную только при первом запуске вычисления. Все последующие вычисления в этом ноутбуке будут производиться на созданной при первом запуске ВМ. Кластер Yandex Data Processing подключается к ней при помощи коннектора Spark.
 
 ### Синхронизация окружения Python с кластером {#synchronization}
 
-При работе с Python Spark через {{ ml-platform-name }} нет необходимости вручную переносить виртуальное окружение. В кластере {{ dataproc-name }} есть возможность изменить базовый состав PyPI пакетов с помощью виртуального окружения:
+При работе с Python Spark через DataSphere нет необходимости вручную переносить виртуальное окружение. В кластере Yandex Data Processing есть возможность изменить базовый состав PyPI пакетов с помощью виртуального окружения:
 
 1. Установите библиотеку `catboost`:
 
@@ -60,27 +60,27 @@
 
 1. После завершения установки на верхней панели выберите **Kernel** ⟶ **Restart kernel...**. Если установка прошла без [ошибок](../troubleshooting/troubles-with-spark.md), виртуальное окружение будет автоматически создано и доступно в Spark-сессии c помощью переменной `spark`.
 
-Для синхронизации окружения в настройках коннектора Spark в блоке **{{ ui-key.yc-ui-datasphere.spark-connector.s3-settings }}** должны быть указаны идентификатор [статического ключа](../../iam/concepts/authorization/access-key.md) доступа для бакета и [секрет](secrets.md), содержащий сам статический ключ доступа.
+Для синхронизации окружения в настройках коннектора Spark в блоке **Настройки S3** должны быть указаны идентификатор [статического ключа](../../iam/concepts/authorization/access-key.md) доступа для бакета и [секрет](secrets.md), содержащий сам статический ключ доступа.
 
 {% note warning %}
 
-Синхронизация окружения Python работает в тестовом режиме. Чтобы разрешить синхронизацию окружения, в настройках коннектора Spark в блоке **{{ ui-key.yc-ui-datasphere.spark-connector.spark-settings }}** укажите параметр `.options` = `venv`.
+Синхронизация окружения Python работает в тестовом режиме. Чтобы разрешить синхронизацию окружения, в настройках коннектора Spark в блоке **Настройки Spark** укажите параметр `.options` = `venv`.
 
 {% endnote %}
 
 ## Livy-сессии {#livy-sessions}
 
-Для корректной интеграции с {{ ml-platform-name }} через Livy-сессии развернутый кластер {{ dataproc-name }} должен иметь [версию образа](../../data-proc/concepts/environment.md) не ниже `2.0` с включенными сервисами `LIVY`, `SPARK`, `YARN` и `HDFS`.
+Для корректной интеграции с DataSphere через Livy-сессии развернутый кластер Yandex Data Processing должен иметь [версию образа](../../data-proc/concepts/environment.md) не ниже `2.0` с включенными сервисами `LIVY`, `SPARK`, `YARN` и `HDFS`.
 
 {% note info %}
 
-Чтобы получить из кластера {{ dataproc-name }} данные больше 100 МБ, используйте [коннектор S3](../operations/data/s3-connectors.md).
+Чтобы получить из кластера Yandex Data Processing данные больше 100 МБ, используйте [коннектор S3](../operations/data/s3-connectors.md).
 
 {% endnote %}
 
 ### Вычислительные сессии {#session}
 
-В кластере {{ dataproc-name }} ваш код выполняется в [сессиях](https://livy.incubator.apache.org/docs/latest/rest-api.html#session). Сессия хранит промежуточное состояние до тех пор, пока вы не удалите ее или кластер. У каждого кластера есть сессия по умолчанию. Ее идентификатор равен идентификатору проекта.
+В кластере Yandex Data Processing ваш код выполняется в [сессиях](https://livy.incubator.apache.org/docs/latest/rest-api.html#session). Сессия хранит промежуточное состояние до тех пор, пока вы не удалите ее или кластер. У каждого кластера есть сессия по умолчанию. Ее идентификатор равен идентификатору проекта.
 
 Для управления сессиями используйте следующие команды:
 * `%create_livy_session --cluster <имя_кластера> --id <идентификатор_сессии>` — создание сессии;
@@ -100,10 +100,10 @@
 
 | Параметр                     | Тип      | Описание                                   |
 |------------------------------|----------|--------------------------------------------|
-| `--cluster`                  | `string` | Идентификатор или имя кластера {{ dataproc-name }} |
+| `--cluster`                  | `string` | Идентификатор или имя кластера Yandex Data Processing |
 | `--id`                       | `string` | Идентификатор сессии, произвольная строка. Если не указан, то формируется автоматически |
 | `--conf`                     | `string` | Свойства конфигурации Spark                |
-| `--proxyUser`                | `string` | Логин пользователя операционной системы кластера {{ dataproc-name }}, от имени которого будет выполняться задание. По умолчанию `spark` |
+| `--proxyUser`                | `string` | Логин пользователя операционной системы кластера Yandex Data Processing, от имени которого будет выполняться задание. По умолчанию `spark` |
 | `--jars`                     | `string` | Библиотеки Java для использования в сессии |
 | `--files`                    | `string` | Файлы для использования в сессии           |
 | `--pyFiles`                  | `string` | Python-файлы для использования в сессии    |
@@ -121,9 +121,9 @@
 
 Подробнее о параметрах livy-сессии см. в [официальной документации](https://livy.incubator.apache.org/docs/latest/rest-api.html).
 
-### Ограничения сессий {{ dataproc-name }} {#restrictions}
+### Ограничения сессий Yandex Data Processing {#restrictions}
 
-{{ ml-platform-name }} использует системные переменные для работы с кластером {{ dataproc-name }}. Не переопределяйте значения следующих переменных:
+DataSphere использует системные переменные для работы с кластером Yandex Data Processing. Не переопределяйте значения следующих переменных:
 * `sc`
 * `spark`
 * `HiveContext`
@@ -138,7 +138,7 @@
 * `spark.yarn.maxAppAttempts`
 * `spark.yarn.submit.waitAppCompletion`
 
-Чтобы задать дополнительные библиотеки для сессии Spark, используйте параметры `spark.driver.extraClassPath` и `spark.executor.extraClassPath`, а сами библиотеки разместите на всех узлах во время создания кластера {{ dataproc-name }} с помощью скриптов инициализации. Пути к используемым библиотекам должны совпадать на всех узлах кластера.
+Чтобы задать дополнительные библиотеки для сессии Spark, используйте параметры `spark.driver.extraClassPath` и `spark.executor.extraClassPath`, а сами библиотеки разместите на всех узлах во время создания кластера Yandex Data Processing с помощью скриптов инициализации. Пути к используемым библиотекам должны совпадать на всех узлах кластера.
 
 ### Запуск Python-кода в кластере {#run-code}
 
@@ -150,12 +150,12 @@
 
 Где:
 
-* `--cluster` — кластер {{ dataproc-name }}, на котором будут производиться вычисления. Может быть:
+* `--cluster` — кластер Yandex Data Processing, на котором будут производиться вычисления. Может быть:
   * Именем кластера, созданного через интерфейс ноутбука.
   * HTTP-ссылкой на внутренний IP-адрес хоста `masternode`, например `http://10.0.0.8:8998/`.
-* `--session` — идентификатор вычислительной сессии. Если параметр пропущен, используется сессия кластера {{ dataproc-name }} по умолчанию.
-* `--variables` — переменная, импортированная из {{ ml-platform-name }} в кластер {{ dataproc-name }}. Поддерживаемые типы: `bool`, `int`, `float`, `str`, `pandas.DataFrame` (преобразовывается в Spark DataFrame в кластере).
-* `--return_variables` — переменная, которая будет экспортирована из кластера {{ dataproc-name }} в {{ ml-platform-name }}. Поддерживаемые типы: `bool`, `int`, `float`, `str`, `pandas.DataFrame` (преобразованный Spark DataFrame).
+* `--session` — идентификатор вычислительной сессии. Если параметр пропущен, используется сессия кластера Yandex Data Processing по умолчанию.
+* `--variables` — переменная, импортированная из DataSphere в кластер Yandex Data Processing. Поддерживаемые типы: `bool`, `int`, `float`, `str`, `pandas.DataFrame` (преобразовывается в Spark DataFrame в кластере).
+* `--return_variables` — переменная, которая будет экспортирована из кластера Yandex Data Processing в DataSphere. Поддерживаемые типы: `bool`, `int`, `float`, `str`, `pandas.DataFrame` (преобразованный Spark DataFrame).
 
 ### Пример использования вычислительных сессий с пользовательскими параметрами {#example-custom-sessions}
 
@@ -192,7 +192,7 @@
 
 ### Работа с библиотекой Spark SQL {#sql}
 
-{{ ml-platform-name }} может работать с библиотекой Spark SQL. Например, следующий запрос вернет все записи в таблице `animals`, созданной в кластере `cluster test-dataproc-cluster`:
+DataSphere может работать с библиотекой Spark SQL. Например, следующий запрос вернет все записи в таблице `animals`, созданной в кластере `cluster test-dataproc-cluster`:
 
 ```python
 #!spark --cluster test-dataproc-cluster --return_variables df
@@ -207,5 +207,5 @@ df
 
 ## См. также {#see-also}
 
-* [{#T}](../tutorials/data-processing-integration.md)
-* [{#T}](spark-connector.md)
+* [Интеграция с сервисом Yandex Data Processing](../tutorials/data-processing-integration.md)
+* [Коннектор Spark](spark-connector.md)

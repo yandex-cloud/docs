@@ -1,20 +1,20 @@
-# Управление базами данных в {{ mch-name }}
+# Управление базами данных в Managed Service for ClickHouse®
 
-{{ mch-name }} позволяет управлять базами данных кластера двумя способами:
+Managed Service for ClickHouse® позволяет управлять базами данных кластера двумя способами:
 
-* С помощью стандартных интерфейсов {{ yandex-cloud }} (CLI, [API](../../glossary/rest-api.md), консоль управления). Способ подходит, если вы хотите создавать и удалять базы данных кластера, используя возможности сервиса {{ mch-full-name }}.
-* С помощью SQL-запросов к кластеру. Способ подходит, если вы хотите использовать уже существующее у вас решение для создания и управления базами данных или если вам требуется поддержка {{ MY }} баз данных в {{ mch-name }}.
+* С помощью стандартных интерфейсов Yandex Cloud (CLI, [API](../../glossary/rest-api.md), консоль управления). Способ подходит, если вы хотите создавать и удалять базы данных кластера, используя возможности сервиса Yandex Managed Service for ClickHouse®.
+* С помощью SQL-запросов к кластеру. Способ подходит, если вы хотите использовать уже существующее у вас решение для создания и управления базами данных или если вам требуется поддержка MySQL® баз данных в Managed Service for ClickHouse®.
 
 ## Управление базами данных через SQL {#sql-database-management}
 
-Чтобы включить управление, выберите опции **{{ ui-key.yacloud.mdb.forms.database_field_sql-user-management }}** и **{{ ui-key.yacloud.mdb.forms.database_field_sql-database-management }}** при [создании](cluster-create.md) или [изменении настроек](update.md#SQL-management) кластера.
+Чтобы включить управление, выберите опции **Управление пользователями через SQL** и **Управление базами данных через SQL** при [создании](cluster-create.md) или [изменении настроек](update.md#SQL-management) кластера.
 
 В кластере с включенным управлением базами данных через SQL:
 
-* Управление базами данных и [пользователями](cluster-users.md#sql-user-management) через стандартные интерфейсы {{ yandex-cloud }} (CLI, API, консоль управления) недоступно.
-* Невозможно включить управление пользователями и базами данных с помощью стандартных интерфейсов {{ yandex-cloud }}.
-* Существующие пользователи, настройки пользователей и базы данных, созданные с помощью стандартных интерфейсов {{ yandex-cloud }}, будут сохранены.
-* Управление осуществляется с помощью учетной записи `admin`. Пароль для нее задается при выборе опций **{{ ui-key.yacloud.mdb.forms.database_field_sql-user-management }}** и **{{ ui-key.yacloud.mdb.forms.database_field_sql-database-management }}**.
+* Управление базами данных и [пользователями](cluster-users.md#sql-user-management) через стандартные интерфейсы Yandex Cloud (CLI, API, консоль управления) недоступно.
+* Невозможно включить управление пользователями и базами данных с помощью стандартных интерфейсов Yandex Cloud.
+* Существующие пользователи, настройки пользователей и базы данных, созданные с помощью стандартных интерфейсов Yandex Cloud, будут сохранены.
+* Управление осуществляется с помощью учетной записи `admin`. Пароль для нее задается при выборе опций **Управление пользователями через SQL** и **Управление базами данных через SQL**.
 
 ## Получить список баз данных в кластере {#list-db}
 
@@ -22,20 +22,20 @@
 
 - Консоль управления {#console}
 
-  1. В [консоли управления]({{ link-console-main }}) выберите каталог, в котором находится кластер.
-  1. Перейдите в сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-clickhouse }}**.
-  1. Нажмите на имя нужного кластера, затем выберите вкладку **{{ ui-key.yacloud.clickhouse.cluster.switch_databases }}**.
+  1. В [консоли управления](https://console.yandex.cloud) выберите каталог, в котором находится кластер.
+  1. Перейдите в сервис **Managed Service for&nbsp;ClickHouse**.
+  1. Нажмите на имя нужного кластера, затем выберите вкладку **Базы данных**.
 
 - CLI {#cli}
 
-  Если у вас еще нет интерфейса командной строки {{ yandex-cloud }} (CLI), [установите и инициализируйте его](../../cli/quickstart.md#install).
+  Если у вас еще нет интерфейса командной строки Yandex Cloud (CLI), [установите и инициализируйте его](../../cli/quickstart.md#install).
 
   По умолчанию используется каталог, указанный при [создании](../../cli/operations/profile/profile-create.md) профиля CLI. Чтобы изменить каталог по умолчанию, используйте команду `yc config set folder-id <идентификатор_каталога>`. Также для любой команды вы можете указать другой каталог с помощью параметров `--folder-name` или `--folder-id`. Если вы обращаетесь к ресурсу по имени, поиск будет выполнен в каталоге по умолчанию. Если вы обращаетесь к ресурсу по идентификатору, поиск будет выполнен глобально — во всех каталогах с учетом прав доступа.
 
   Чтобы получить список баз данных в кластере, выполните команду:
 
   ```bash
-  {{ yc-mdb-ch }} database list \
+  yc managed-clickhouse database list \
      --cluster-name=<имя_кластера>
   ```
 
@@ -49,13 +49,13 @@
       export IAM_TOKEN="<IAM-токен>"
       ```
 
-  1. Воспользуйтесь методом [Database.List](../api-ref/Database/list.md) и выполните запрос, например, с помощью {{ api-examples.rest.tool }}:
+  1. Воспользуйтесь методом [Database.List](../api-ref/Database/list.md) и выполните запрос, например, с помощью [cURL](https://curl.se/):
 
       ```bash
       curl \
         --request GET \
         --header "Authorization: Bearer $IAM_TOKEN" \
-        --url 'https://{{ api-host-mdb }}/managed-clickhouse/v1/clusters/<идентификатор_кластера>/databases'
+        --url 'https://mdb.api.cloud.yandex.net/managed-clickhouse/v1/clusters/<идентификатор_кластера>/databases'
       ```
 
       Идентификатор кластера можно запросить со [списком кластеров в каталоге](cluster-list.md#list-clusters).
@@ -77,7 +77,7 @@
      ```
      
      Далее предполагается, что содержимое репозитория находится в директории `~/cloudapi/`.
-  1. Воспользуйтесь вызовом [DatabaseService.List](../api-ref/grpc/Database/list.md) и выполните запрос, например, с помощью {{ api-examples.grpc.tool }}:
+  1. Воспользуйтесь вызовом [DatabaseService.List](../api-ref/grpc/Database/list.md) и выполните запрос, например, с помощью [gRPCurl](https://github.com/fullstorydev/grpcurl):
 
       ```bash
       grpcurl \
@@ -89,7 +89,7 @@
         -d '{
               "cluster_id": "<идентификатор_кластера>"
             }' \
-        {{ api-host-mdb }}:{{ port-https }} \
+        mdb.api.cloud.yandex.net:443 \
         yandex.cloud.mdb.clickhouse.v1.DatabaseService.List
       ```
 
@@ -112,7 +112,7 @@
 
 {% note info %}
 
-В каждом кластере вы можете создать не более {{ all-mdb.max-databases }} баз данных.
+В каждом кластере вы можете создать не более 1000 баз данных.
 
 {% endnote %}
 
@@ -122,11 +122,11 @@
 
 - Консоль управления {#console}
 
-  1. В [консоли управления]({{ link-console-main }}) выберите каталог, в котором находится кластер.
-  1. Перейдите в сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-clickhouse }}**.
+  1. В [консоли управления](https://console.yandex.cloud) выберите каталог, в котором находится кластер.
+  1. Перейдите в сервис **Managed Service for&nbsp;ClickHouse**.
   1. Нажмите на имя нужного кластера.
-  1. Выберите вкладку **{{ ui-key.yacloud.clickhouse.cluster.switch_databases }}**.
-  1. Нажмите кнопку **{{ ui-key.yacloud.mdb.cluster.databases.action_add-database }}**.
+  1. Выберите вкладку **Базы данных**.
+  1. Нажмите кнопку **Создать базу данных**.
   1. Укажите имя базы данных.
 
       {% note info %}
@@ -144,18 +144,18 @@
 
       Движок задается при создании базы данных и не может быть изменен для этой базы.
 
-  1. Нажмите кнопку **{{ ui-key.yacloud.clickhouse.cluster.databases.popup-add_button_add }}**.
+  1. Нажмите кнопку **Создать**.
 
 - CLI {#cli}
 
-  Если у вас еще нет интерфейса командной строки {{ yandex-cloud }} (CLI), [установите и инициализируйте его](../../cli/quickstart.md#install).
+  Если у вас еще нет интерфейса командной строки Yandex Cloud (CLI), [установите и инициализируйте его](../../cli/quickstart.md#install).
 
   По умолчанию используется каталог, указанный при [создании](../../cli/operations/profile/profile-create.md) профиля CLI. Чтобы изменить каталог по умолчанию, используйте команду `yc config set folder-id <идентификатор_каталога>`. Также для любой команды вы можете указать другой каталог с помощью параметров `--folder-name` или `--folder-id`. Если вы обращаетесь к ресурсу по имени, поиск будет выполнен в каталоге по умолчанию. Если вы обращаетесь к ресурсу по идентификатору, поиск будет выполнен глобально — во всех каталогах с учетом прав доступа.
 
   Выполните команду создания БД, задав имя новой базы:
 
   ```bash
-  {{ yc-mdb-ch }} database create <имя_БД> \
+  yc managed-clickhouse database create <имя_БД> \
      --cluster-name=<имя_кластера> \
      --engine=<движок_БД>
   ```
@@ -178,12 +178,12 @@
 
   Имя кластера можно запросить со [списком кластеров в каталоге](cluster-list.md#list-clusters).
 
-  {{ mch-short-name }} запустит операцию создания базы данных.
+  Managed Service for ClickHouse® запустит операцию создания базы данных.
 
 
-- {{ TF }} {#tf}
+- Terraform {#tf}
 
-    1. Откройте актуальный конфигурационный файл {{ TF }} с планом инфраструктуры.
+    1. Откройте актуальный конфигурационный файл Terraform с планом инфраструктуры.
 
         О том, как создать такой файл, см. в разделе [Создание кластера](cluster-create.md).
 
@@ -214,7 +214,7 @@
         
         {% endnote %}
 
-        Если кластер создается с помощью {{ TF }} одновременно с созданием БД, то в ресурсе `yandex_mdb_clickhouse_database` вместо идентификатора кластера укажите ссылку на имя создаваемого кластера:
+        Если кластер создается с помощью Terraform одновременно с созданием БД, то в ресурсе `yandex_mdb_clickhouse_database` вместо идентификатора кластера укажите ссылку на имя создаваемого кластера:
 
         ```hcl
 
@@ -231,14 +231,14 @@
 
     1. Проверьте корректность настроек.
 
-        1. В командной строке перейдите в каталог, в котором расположены актуальные конфигурационные файлы {{ TF }} с планом инфраструктуры.
+        1. В командной строке перейдите в каталог, в котором расположены актуальные конфигурационные файлы Terraform с планом инфраструктуры.
         1. Выполните команду:
         
            ```bash
            terraform validate
            ```
         
-           Если в файлах конфигурации есть ошибки, {{ TF }} на них укажет.
+           Если в файлах конфигурации есть ошибки, Terraform на них укажет.
 
     1. Подтвердите изменение ресурсов.
 
@@ -260,7 +260,7 @@
            1. Подтвердите изменение ресурсов.
            1. Дождитесь завершения операции.
 
-    Подробнее см. в [документации провайдера {{ TF }}]({{ tf-provider-resources-link }}/mdb_clickhouse_database).
+    Подробнее см. в [документации провайдера Terraform](../../terraform/resources/mdb_clickhouse_database.md).
 
 
 - REST API {#api}
@@ -271,14 +271,14 @@
       export IAM_TOKEN="<IAM-токен>"
       ```
 
-  1. Воспользуйтесь методом [Database.Create](../api-ref/Database/create.md) и выполните запрос, например, с помощью {{ api-examples.rest.tool }}:
+  1. Воспользуйтесь методом [Database.Create](../api-ref/Database/create.md) и выполните запрос, например, с помощью [cURL](https://curl.se/):
 
       ```bash
       curl \
           --request POST \
           --header "Authorization: Bearer $IAM_TOKEN" \
           --header "Content-Type: application/json" \
-          --url 'https://{{ api-host-mdb }}/managed-clickhouse/v1/clusters/<идентификатор_кластера>/databases' \
+          --url 'https://mdb.api.cloud.yandex.net/managed-clickhouse/v1/clusters/<идентификатор_кластера>/databases' \
           --data '{
                     "databaseSpec": {
                       "name": "<имя_базы_данных>",
@@ -327,7 +327,7 @@
      ```
      
      Далее предполагается, что содержимое репозитория находится в директории `~/cloudapi/`.
-  1. Воспользуйтесь вызовом [DatabaseService.Create](../api-ref/grpc/Database/create.md) и выполните запрос, например, с помощью {{ api-examples.grpc.tool }}:
+  1. Воспользуйтесь вызовом [DatabaseService.Create](../api-ref/grpc/Database/create.md) и выполните запрос, например, с помощью [gRPCurl](https://github.com/fullstorydev/grpcurl):
 
       ```bash
       grpcurl \
@@ -343,7 +343,7 @@
                   "engine": "<движок_базы_данных>"
                 }
               }' \
-          {{ api-host-mdb }}:{{ port-https }} \
+          mdb.api.cloud.yandex.net:443 \
           yandex.cloud.mdb.clickhouse.v1.DatabaseService.Create
       ```
 
@@ -387,7 +387,7 @@
       
       {% endnote %}
 
-  Подробнее о создании баз данных см. в [документации {{ CH }}]({{ ch.docs }}{{ lang }}/sql-reference/statements/create/database).
+  Подробнее о создании баз данных см. в [документации ClickHouse®](https://clickhouse.com/docs/ru/sql-reference/statements/create/database).
 
 {% endlist %}
 
@@ -397,30 +397,30 @@
 
 - Консоль управления {#console}
 
-  1. В [консоли управления]({{ link-console-main }}) выберите каталог, в котором находится кластер.
-  1. Перейдите в сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-clickhouse }}**.
-  1. Нажмите на имя нужного кластера и выберите вкладку **{{ ui-key.yacloud.clickhouse.cluster.switch_databases }}**.
-  1. Нажмите на значок ![image](../../_assets/console-icons/ellipsis.svg) в строке нужной БД и выберите пункт **{{ ui-key.yacloud.mdb.cluster.databases.button_action-remove }}**.
+  1. В [консоли управления](https://console.yandex.cloud) выберите каталог, в котором находится кластер.
+  1. Перейдите в сервис **Managed Service for&nbsp;ClickHouse**.
+  1. Нажмите на имя нужного кластера и выберите вкладку **Базы данных**.
+  1. Нажмите на значок ![image](../../_assets/console-icons/ellipsis.svg) в строке нужной БД и выберите пункт **Удалить**.
 
 - CLI {#cli}
 
-  Если у вас еще нет интерфейса командной строки {{ yandex-cloud }} (CLI), [установите и инициализируйте его](../../cli/quickstart.md#install).
+  Если у вас еще нет интерфейса командной строки Yandex Cloud (CLI), [установите и инициализируйте его](../../cli/quickstart.md#install).
 
   По умолчанию используется каталог, указанный при [создании](../../cli/operations/profile/profile-create.md) профиля CLI. Чтобы изменить каталог по умолчанию, используйте команду `yc config set folder-id <идентификатор_каталога>`. Также для любой команды вы можете указать другой каталог с помощью параметров `--folder-name` или `--folder-id`. Если вы обращаетесь к ресурсу по имени, поиск будет выполнен в каталоге по умолчанию. Если вы обращаетесь к ресурсу по идентификатору, поиск будет выполнен глобально — во всех каталогах с учетом прав доступа.
 
   Чтобы удалить базу данных, выполните команду:
 
   ```bash
-  {{ yc-mdb-ch }} database delete <имя_БД> \
+  yc managed-clickhouse database delete <имя_БД> \
      --cluster-name=<имя_кластера>
   ```
 
   Имя кластера можно запросить со [списком кластеров в каталоге](cluster-list.md#list-clusters).
 
 
-- {{ TF }} {#tf}
+- Terraform {#tf}
 
-    1. Откройте актуальный конфигурационный файл {{ TF }} с планом инфраструктуры.
+    1. Откройте актуальный конфигурационный файл Terraform с планом инфраструктуры.
 
         О том, как создать такой файл, см. в разделе [Создание кластера](cluster-create.md).
 
@@ -428,14 +428,14 @@
 
     1. Проверьте корректность настроек.
 
-        1. В командной строке перейдите в каталог, в котором расположены актуальные конфигурационные файлы {{ TF }} с планом инфраструктуры.
+        1. В командной строке перейдите в каталог, в котором расположены актуальные конфигурационные файлы Terraform с планом инфраструктуры.
         1. Выполните команду:
         
            ```bash
            terraform validate
            ```
         
-           Если в файлах конфигурации есть ошибки, {{ TF }} на них укажет.
+           Если в файлах конфигурации есть ошибки, Terraform на них укажет.
 
     1. Подтвердите изменение ресурсов.
 
@@ -457,7 +457,7 @@
            1. Подтвердите изменение ресурсов.
            1. Дождитесь завершения операции.
 
-    Подробнее см. в [документации провайдера {{ TF }}]({{ tf-provider-resources-link }}/mdb_clickhouse_database).
+    Подробнее см. в [документации провайдера Terraform](../../terraform/resources/mdb_clickhouse_database.md).
 
 
 - REST API {#api}
@@ -468,13 +468,13 @@
       export IAM_TOKEN="<IAM-токен>"
       ```
 
-  1. Воспользуйтесь методом [Database.Delete](../api-ref/Database/delete.md) и выполните запрос, например, с помощью {{ api-examples.rest.tool }}:
+  1. Воспользуйтесь методом [Database.Delete](../api-ref/Database/delete.md) и выполните запрос, например, с помощью [cURL](https://curl.se/):
 
       ```bash
       curl \
           --request DELETE \
           --header "Authorization: Bearer $IAM_TOKEN" \
-          --url 'https://{{ api-host-mdb }}/managed-clickhouse/v1/clusters/<идентификатор_кластера>/databases/<имя_БД>'
+          --url 'https://mdb.api.cloud.yandex.net/managed-clickhouse/v1/clusters/<идентификатор_кластера>/databases/<имя_БД>'
       ```
 
       Идентификатор кластера можно запросить со [списком кластеров в каталоге](cluster-list.md#list-clusters), а имя БД — со [списком БД в кластере](#list-db).
@@ -496,7 +496,7 @@
      ```
      
      Далее предполагается, что содержимое репозитория находится в директории `~/cloudapi/`.
-  1. Воспользуйтесь вызовом [DatabaseService.Delete](../api-ref/grpc/Database/delete.md) и выполните запрос, например, с помощью {{ api-examples.grpc.tool }}:
+  1. Воспользуйтесь вызовом [DatabaseService.Delete](../api-ref/grpc/Database/delete.md) и выполните запрос, например, с помощью [gRPCurl](https://github.com/fullstorydev/grpcurl):
 
       ```bash
       grpcurl \
@@ -509,7 +509,7 @@
                 "cluster_id": "<идентификатор_кластера>",
                 "database_name": "<имя_БД>"
               }' \
-          {{ api-host-mdb }}:{{ port-https }} \
+          mdb.api.cloud.yandex.net:443 \
           yandex.cloud.mdb.clickhouse.v1.DatabaseService.Delete
       ```
 
@@ -526,7 +526,7 @@
       DROP DATABASE <имя_БД>;
       ```
 
-  Подробнее об удалении объектов см. в [документации {{ CH }}]({{ ch.docs }}{{ lang }}/sql-reference/statements/drop).
+  Подробнее об удалении объектов см. в [документации ClickHouse®](https://clickhouse.com/docs/ru/sql-reference/statements/drop).
 
 {% endlist %}
 
@@ -536,4 +536,4 @@
 
 {% endnote %}
 
-_{{ CH }} является зарегистрированным товарным знаком [ClickHouse, Inc](https://clickhouse.com)._
+_ClickHouse® является зарегистрированным товарным знаком [ClickHouse, Inc](https://clickhouse.com)._

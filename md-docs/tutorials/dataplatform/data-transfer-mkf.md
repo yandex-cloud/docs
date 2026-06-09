@@ -1,22 +1,22 @@
-# Перенос данных между кластерами {{ mkf-name }} с помощью {{ data-transfer-name }}
+# Перенос данных между кластерами Managed Service for Apache Kafka® с помощью Data Transfer
 
-# Миграция данных между кластерами {{ KF }} с помощью {{ data-transfer-full-name }}
+# Миграция данных между кластерами Apache Kafka® с помощью Yandex Data Transfer
 
 
-Данные из топиков {{ KF }} можно переносить из одного кластера {{ KF }} в другой в реальном времени. В том числе поддерживаются следующие виды миграции:
+Данные из топиков Apache Kafka® можно переносить из одного кластера Apache Kafka® в другой в реальном времени. В том числе поддерживаются следующие виды миграции:
 
-* Между разными версиями {{ KF }} — например, можно перенести топики из версии 2.8 в версию 3.1.
+* Между разными версиями Apache Kafka® — например, можно перенести топики из версии 2.8 в версию 3.1.
 * Между разными зонами доступности — можно [перенести кластер с одним хостом](../../managed-kafka/operations/host-migration.md#one-host) из одной зоны в другую.
 
-Зеркалирование кластеров {{ KF }} позволяет:
+Зеркалирование кластеров Apache Kafka® позволяет:
 
-* выполнить настройку репликации топиков в интерфейсе Консоли управления или в {{ TF }};
+* выполнить настройку репликации топиков в интерфейсе Консоли управления или в Terraform;
 * следить за процессом переноса с помощью [мониторинга трансфера](../../data-transfer/operations/monitoring.md);
 * обойтись без создания промежуточной [виртуальной машины](../../glossary/vm.md) или разрешения доступа к вашему кластеру-приемнику из интернета.
 
 {% note info %}
 
-В данном практическом руководстве описан сценарий миграции данных между кластерами {{ mkf-name }}.
+В данном практическом руководстве описан сценарий миграции данных между кластерами Managed Service for Apache Kafka®.
 
 {% endnote %}
 
@@ -30,9 +30,9 @@
 
 ## Необходимые платные ресурсы {#paid-resources}
 
-* Кластеры {{ mkf-name }}: выделенные хостам вычислительные ресурсы, объем хранилища и резервных копий (см. [тарифы {{ mkf-name }}](../../managed-kafka/pricing.md)).
-* Публичные IP-адреса, если для хостов кластеров включен публичный доступ (см. [тарифы {{ vpc-name }}](../../vpc/pricing.md)).
-* Каждый трансфер: использование вычислительных ресурсов и количество переданных строк данных (см. [тарифы {{ data-transfer-name }}](../../data-transfer/pricing.md)).
+* Кластеры Managed Service for Apache Kafka®: выделенные хостам вычислительные ресурсы, объем хранилища и резервных копий (см. [тарифы Managed Service for Apache Kafka®](../../managed-kafka/pricing.md)).
+* Публичные IP-адреса, если для хостов кластеров включен публичный доступ (см. [тарифы Virtual Private Cloud](../../vpc/pricing.md)).
+* Каждый трансфер: использование вычислительных ресурсов и количество переданных строк данных (см. [тарифы Data Transfer](../../data-transfer/pricing.md)).
 
 
 ## Перед началом работы {#before-you-begin}
@@ -43,11 +43,11 @@
 
    - Вручную {#manual}
 
-       1. [Создайте кластер-источник и кластер-приемник {{ mkf-name }}](../../managed-kafka/operations/cluster-create.md) любой подходящей конфигурации с публичным доступом из интернета.
+       1. [Создайте кластер-источник и кластер-приемник Managed Service for Apache Kafka®](../../managed-kafka/operations/cluster-create.md) любой подходящей конфигурации с публичным доступом из интернета.
 
             {% note info %}
             
-            Публичный доступ к хостам кластера нужен, если вы планируете подключаться к кластеру через интернет. Этот вариант подключения более простой, и его рекомендуется использовать для прохождения руководства. К хостам без публичного доступа тоже можно подключиться, но только с виртуальных машин {{ yandex-cloud }}, расположенных в той же облачной сети, что и кластер.
+            Публичный доступ к хостам кластера нужен, если вы планируете подключаться к кластеру через интернет. Этот вариант подключения более простой, и его рекомендуется использовать для прохождения руководства. К хостам без публичного доступа тоже можно подключиться, но только с виртуальных машин Yandex Cloud, расположенных в той же облачной сети, что и кластер.
             
             {% endnote %}
 
@@ -55,9 +55,9 @@
        1. [Создайте в кластере-источнике пользователя](../../managed-kafka/operations/cluster-accounts.md#create-account) с правами доступа `ACCESS_ROLE_PRODUCER`, `ACCESS_ROLE_CONSUMER` к созданному топику.
        1. [Создайте в кластере-приемнике пользователя](../../managed-kafka/operations/cluster-accounts.md#create-account) с правами доступа `ACCESS_ROLE_PRODUCER`, `ACCESS_ROLE_CONSUMER` ко всем топикам.
 
-   - {{ TF }} {#tf}
+   - Terraform {#tf}
 
-       1. Если у вас еще нет {{ TF }}, [установите его](../infrastructure-management/terraform-quickstart.md#install-terraform).
+       1. Если у вас еще нет Terraform, [установите его](../infrastructure-management/terraform-quickstart.md#install-terraform).
        1. [Получите данные для аутентификации](../infrastructure-management/terraform-quickstart.md#get-credentials). Вы можете добавить их в переменные окружения или указать далее в файле с настройками провайдера.
        1. [Настройте и инициализируйте провайдер](../infrastructure-management/terraform-quickstart.md#configure-provider). Чтобы не создавать конфигурационный файл с настройками провайдера вручную, [скачайте его](https://github.com/yandex-cloud-examples/yc-terraform-provider-settings/blob/main/provider.tf).
        1. Поместите конфигурационный файл в отдельную рабочую директорию и [укажите значения параметров](../infrastructure-management/terraform-quickstart.md#configure-provider). Если данные для аутентификации не были добавлены в переменные окружения, укажите их в конфигурационном файле.
@@ -68,30 +68,30 @@
 
            * [сеть](../../vpc/concepts/network.md#network);
            * [подсеть](../../vpc/concepts/network.md#subnet);
-           * [группа безопасности](../../vpc/concepts/security-groups.md) и правило, необходимое для подключения к кластеру {{ mkf-name }};
-           * кластер-источник {{ mkf-name }} с публичным доступом из интернета;
-           * топик {{ KF }} для кластера-источника;
-           * пользователь {{ KF }} для кластера-источника;
-           * кластер-приемник {{ mkf-name }};
-           * топик {{ KF }} для кластера-приемника;
-           * пользователь {{ KF }} для кластера-приемника;
+           * [группа безопасности](../../vpc/concepts/security-groups.md) и правило, необходимое для подключения к кластеру Managed Service for Apache Kafka®;
+           * кластер-источник Managed Service for Apache Kafka® с публичным доступом из интернета;
+           * топик Apache Kafka® для кластера-источника;
+           * пользователь Apache Kafka® для кластера-источника;
+           * кластер-приемник Managed Service for Apache Kafka®;
+           * топик Apache Kafka® для кластера-приемника;
+           * пользователь Apache Kafka® для кластера-приемника;
            * трансфер.
 
        1. Укажите в файле `data-transfer-mkf-mkf.tf` значения параметров:
 
-           * `source_kf_version` — версия {{ KF }} в кластере-источнике;
-           * `source_user_name` — имя пользователя для подключения к топику {{ KF }};
+           * `source_kf_version` — версия Apache Kafka® в кластере-источнике;
+           * `source_user_name` — имя пользователя для подключения к топику Apache Kafka®;
            * `source_user_password` — пароль пользователя;
-           * `target_kf_version` — версия {{ KF }} в кластере-приемнике;
+           * `target_kf_version` — версия Apache Kafka® в кластере-приемнике;
            * `transfer_enabled` — значение `0`, чтобы не создавать трансфер до [создания эндпоинта-приемника и эндпоинта-источника вручную](#prepare-transfer).
 
-       1. Проверьте корректность файлов конфигурации {{ TF }} с помощью команды:
+       1. Проверьте корректность файлов конфигурации Terraform с помощью команды:
 
            ```bash
            terraform validate
            ```
 
-           Если в файлах конфигурации есть ошибки, {{ TF }} на них укажет.
+           Если в файлах конфигурации есть ошибки, Terraform на них укажет.
 
        1. Создайте необходимую инфраструктуру:
 
@@ -113,11 +113,11 @@
               1. Подтвердите изменение ресурсов.
               1. Дождитесь завершения операции.
 
-           В указанном каталоге будут созданы все требуемые ресурсы. Проверить появление ресурсов и их настройки можно в [консоли управления]({{ link-console-main }}).
+           В указанном каталоге будут созданы все требуемые ресурсы. Проверить появление ресурсов и их настройки можно в [консоли управления](https://console.yandex.cloud).
 
    {% endlist %}
 
-   В созданный топик {{ KF }} `sensors` кластера-источника будут поступать тестовые данные от сенсоров автомобиля в формате JSON, например:
+   В созданный топик Apache Kafka® `sensors` кластера-источника будут поступать тестовые данные от сенсоров автомобиля в формате JSON, например:
 
    ```json
    {
@@ -135,13 +135,13 @@
 
 1. Установите утилиты:
 
-    - [kafkacat](https://github.com/edenhill/kcat) — для чтения и записи данных в топики {{ KF }}.
+    - [kafkacat](https://github.com/edenhill/kcat) — для чтения и записи данных в топики Apache Kafka®.
 
         ```bash
         sudo apt update && sudo apt install --yes kafkacat
         ```
 
-        Убедитесь, что можете с ее помощью [подключиться к кластеру-источнику {{ mkf-name }} через SSL](../../managed-kafka/operations/connect/clients.md#bash-zsh).
+        Убедитесь, что можете с ее помощью [подключиться к кластеру-источнику Managed Service for Apache Kafka® через SSL](../../managed-kafka/operations/connect/clients.md#bash-zsh).
 
     - [jq](https://stedolan.github.io/jq/) — для потоковой обработки JSON-файлов.
 
@@ -153,25 +153,25 @@
 
 1. [Создайте эндпоинт для приемника](../../data-transfer/operations/endpoint/index.md#create):
 
-    * **{{ ui-key.yacloud.data-transfer.forms.label-database_type }}** — `Kafka`.
-    * **{{ ui-key.yc-data-transfer.data-transfer.console.form.kafka.console.form.kafka.KafkaTarget.title }}**:
+    * **Тип базы данных** — `Kafka`.
+    * **Параметры эндпоинта**:
 
-       * **{{ ui-key.yc-data-transfer.data-transfer.console.form.kafka.console.form.kafka.KafkaTarget.connection.title }}** — `{{ ui-key.yc-data-transfer.data-transfer.console.form.kafka.console.form.kafka.KafkaConnectionType.managed.title }}`.
+       * **Настройки подключения** — `Кластер Managed Service for Apache Kafka`.
 
           Выберите кластер-приемник из списка и укажите настройки подключения к нему.
 
-       * **{{ ui-key.yc-data-transfer.data-transfer.console.form.kafka.console.form.kafka.KafkaTargetConnection.topic_settings.title }}**:
-          * **{{ ui-key.yc-data-transfer.data-transfer.console.form.kafka.console.form.kafka.KafkaTargetTopic.topic_name.title }}** — `measurements`.
+       * **Топик**:
+          * **Полное имя топика** — `measurements`.
 
 1. [Создайте эндпоинт для источника](../../data-transfer/operations/endpoint/index.md#create):
 
-    * **{{ ui-key.yacloud.data-transfer.forms.label-database_type }}** — `Kafka`.
-    * **{{ ui-key.yc-data-transfer.data-transfer.console.form.kafka.console.form.kafka.KafkaSource.title }}**:
-       * **{{ ui-key.yc-data-transfer.data-transfer.console.form.kafka.console.form.kafka.KafkaSourceConnection.connection_type.title }}** — `{{ ui-key.yc-data-transfer.data-transfer.console.form.kafka.console.form.kafka.KafkaConnectionType.managed.title }}`.
+    * **Тип базы данных** — `Kafka`.
+    * **Параметры эндпоинта**:
+       * **Тип подключения** — `Кластер Managed Service for Apache Kafka`.
 
           Выберите кластер-источник из списка и укажите настройки подключения к нему.
 
-       * **{{ ui-key.yc-data-transfer.data-transfer.console.form.kafka.console.form.kafka.KafkaSourceConnection.topic_name.title }}** — `sensors`.
+       * **Полное имя топика** — `sensors`.
 
 1. Создайте трансфер:
 
@@ -179,10 +179,10 @@
 
     - Вручную {#manual}
 
-        1. [Создайте трансфер](../../data-transfer/operations/transfer.md#create) типа {{ dt-type-repl }}, использующий созданные эндпоинты.
+        1. [Создайте трансфер](../../data-transfer/operations/transfer.md#create) типа **Репликация**, использующий созданные эндпоинты.
         1. [Активируйте](../../data-transfer/operations/transfer.md#activate) его.
 
-    - {{ TF }} {#tf}
+    - Terraform {#tf}
 
         1. Укажите в файле `data-transfer-mkf-mkf.tf` значения параметров:
 
@@ -190,13 +190,13 @@
             * `target_endpoint_id` — значение идентификатора эндпоинта для приемника;
             * `transfer_enabled` – значение `1` для создания трансфера.
 
-        1. Проверьте корректность файлов конфигурации {{ TF }} с помощью команды:
+        1. Проверьте корректность файлов конфигурации Terraform с помощью команды:
 
             ```bash
             terraform validate
             ```
 
-            Если в файлах конфигурации есть ошибки, {{ TF }} на них укажет.
+            Если в файлах конфигурации есть ошибки, Terraform на них укажет.
 
         1. Создайте необходимую инфраструктуру:
 
@@ -224,8 +224,8 @@
 
 ## Проверьте работоспособность трансфера {#verify-transfer}
 
-1. Дождитесь перехода трансфера в статус {{ dt-status-repl }}.
-1. Убедитесь, что в топик кластера-приемника переносятся данные из топика кластера-источника {{ mkf-name }}:
+1. Дождитесь перехода трансфера в статус **Реплицируется**.
+1. Убедитесь, что в топик кластера-приемника переносятся данные из топика кластера-источника Managed Service for Apache Kafka®:
 
     1. Создайте файл `sample.json` с тестовыми данными:
 
@@ -267,7 +267,7 @@
         }
         ```
 
-    1. Отправьте данные из файла `sample.json` в топик `sensors` кластера-источника {{ mkf-name }} с помощью утилит `jq` и `kafkacat`:
+    1. Отправьте данные из файла `sample.json` в топик `sensors` кластера-источника Managed Service for Apache Kafka® с помощью утилит `jq` и `kafkacat`:
 
         ```bash
         jq -rc . sample.json | kafkacat -P \
@@ -278,12 +278,12 @@
            -X sasl.mechanisms=SCRAM-SHA-512 \
            -X sasl.username="<имя_пользователя_в_кластере-источнике>" \
            -X sasl.password="<пароль_пользователя_в_кластере-источнике>" \
-           -X ssl.ca.location={{ crt-local-dir }}{{ crt-local-file }} -Z
+           -X ssl.ca.location=/usr/local/share/ca-certificates/Yandex/YandexInternalRootCA.crt -Z
         ```
 
-        Данные отправляются от имени [созданного пользователя](#prepare-source). Подробнее о настройке SSL-сертификата и работе с `kafkacat` см. в разделе [{#T}](../../managed-kafka/operations/connect/clients.md).
+        Данные отправляются от имени [созданного пользователя](#prepare-source). Подробнее о настройке SSL-сертификата и работе с `kafkacat` см. в разделе [Подключение к кластеру Apache Kafka® из приложений](../../managed-kafka/operations/connect/clients.md).
 
-    1. Убедитесь, что в кластер-приемник {{ mkf-name }} перенеслись данные из кластера-источника, с помощью утилиты `kafkacat`:
+    1. Убедитесь, что в кластер-приемник Managed Service for Apache Kafka® перенеслись данные из кластера-источника, с помощью утилиты `kafkacat`:
 
         ```bash
         kafkacat -C \
@@ -293,7 +293,7 @@
                  -X sasl.mechanisms=SCRAM-SHA-512 \
                  -X sasl.username="<имя_пользователя_в_кластере-приемнике>" \
                  -X sasl.password="<пароль_пользователя_в_кластере-приемнике>" \
-                 -X ssl.ca.location={{ crt-local-dir }}{{ crt-local-file }} -Z -K:
+                 -X ssl.ca.location=/usr/local/share/ca-certificates/Yandex/YandexInternalRootCA.crt -Z -K:
         ```
 
 ## Удалите созданные ресурсы {#clear-out}
@@ -314,15 +314,15 @@
 
    - Вручную {#manual}
 
-       [Удалите кластеры {{ mkf-name }}](../../managed-kafka/operations/cluster-delete.md).
+       [Удалите кластеры Managed Service for Apache Kafka®](../../managed-kafka/operations/cluster-delete.md).
 
-   - {{ TF }} {#tf}
+   - Terraform {#tf}
 
        1. В терминале перейдите в директорию с планом инфраструктуры.
        
            {% note warning %}
        
-           Убедитесь, что в директории нет {{ TF }}-манифестов с ресурсами, которые вы хотите сохранить. {{ TF }} удаляет все ресурсы, которые были созданы с помощью манифестов в текущей директории.
+           Убедитесь, что в директории нет Terraform-манифестов с ресурсами, которые вы хотите сохранить. Terraform удаляет все ресурсы, которые были созданы с помощью манифестов в текущей директории.
        
            {% endnote %}
        
@@ -336,6 +336,6 @@
        
            1. Подтвердите удаление ресурсов и дождитесь завершения операции.
        
-           Все ресурсы, которые были описаны в {{ TF }}-манифестах, будут удалены.
+           Все ресурсы, которые были описаны в Terraform-манифестах, будут удалены.
 
    {% endlist %}

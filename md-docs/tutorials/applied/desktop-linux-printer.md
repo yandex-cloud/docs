@@ -1,7 +1,7 @@
-# Настройка печати с {{ cloud-desktop-full-name }} на локальный принтер в Linux
+# Настройка печати с Yandex Cloud Desktop на локальный принтер в Linux
 
 
-Это руководство поможет настроить печать файлов из [{{ cloud-desktop-full-name }}](../../cloud-desktop/index.md) на принтер, подключенный к локальной машине под управлением Linux. Решение основано на использовании общего каталога: задания на печать из облачной среды сохраняются в общий каталог, а локальная система перехватывает их и направляет на физический принтер.
+Это руководство поможет настроить печать файлов из [Yandex Cloud Desktop](../../cloud-desktop/index.md) на принтер, подключенный к локальной машине под управлением Linux. Решение основано на использовании общего каталога: задания на печать из облачной среды сохраняются в общий каталог, а локальная система перехватывает их и направляет на физический принтер.
 
 {% note info %}
 
@@ -9,7 +9,7 @@
 
 {% endnote %}
 
-Чтобы настроить печать с рабочего стола {{ cloud-desktop-name }} на локальном принтере в Linux:
+Чтобы настроить печать с рабочего стола Cloud Desktop на локальном принтере в Linux:
 
 1. [Подготовьте облако к работе](#before-you-begin).
 1. [Подготовьте инфраструктуру](#create-infrastructure).
@@ -22,11 +22,11 @@
 
 ## Перед началом работы {#before-you-begin}
 
-Зарегистрируйтесь в {{ yandex-cloud }} и создайте [платежный аккаунт](../../billing/concepts/billing-account.md):
-1. Перейдите в [консоль управления]({{ link-console-main }}), затем войдите в {{ yandex-cloud }} или зарегистрируйтесь.
-1. На странице **[{{ ui-key.yacloud_billing.billing.label_service }}]({{ link-console-billing }})** убедитесь, что у вас подключен платежный аккаунт, и он находится в [статусе](../../billing/concepts/billing-account-statuses.md) `ACTIVE` или `TRIAL_ACTIVE`. Если платежного аккаунта нет, [создайте его](../../billing/quickstart/index.md) и [привяжите](../../billing/operations/pin-cloud.md) к нему облако.
+Зарегистрируйтесь в Yandex Cloud и создайте [платежный аккаунт](../../billing/concepts/billing-account.md):
+1. Перейдите в [консоль управления](https://console.yandex.cloud), затем войдите в Yandex Cloud или зарегистрируйтесь.
+1. На странице **[Yandex Cloud Billing](https://center.yandex.cloud/billing/accounts)** убедитесь, что у вас подключен платежный аккаунт, и он находится в [статусе](../../billing/concepts/billing-account-statuses.md) `ACTIVE` или `TRIAL_ACTIVE`. Если платежного аккаунта нет, [создайте его](../../billing/quickstart/index.md) и [привяжите](../../billing/operations/pin-cloud.md) к нему облако.
 
-Если у вас есть активный платежный аккаунт, вы можете создать или выбрать [каталог](../../resource-manager/concepts/resources-hierarchy.md#folder), в котором будет работать ваша инфраструктура, на [странице облака]({{ link-console-cloud }}).
+Если у вас есть активный платежный аккаунт, вы можете создать или выбрать [каталог](../../resource-manager/concepts/resources-hierarchy.md#folder), в котором будет работать ваша инфраструктура, на [странице облака](https://console.yandex.cloud/cloud).
 
 [Подробнее об облаках и каталогах](../../resource-manager/concepts/resources-hierarchy.md).
 
@@ -35,8 +35,8 @@
 
 В стоимость поддержки инфраструктуры входят:
 
-* Плата за использование вычислительных ресурсов, дисков и исходящий трафик рабочего стола (см. [тарифы {{ cloud-desktop-full-name }}](../../cloud-desktop/pricing.md)).
-* Плата за время использования [NAT-шлюза](../../vpc/concepts/gateways.md) и исходящий через него трафик (см. [тарифы {{ vpc-full-name }}](../../vpc/pricing.md)).
+* Плата за использование вычислительных ресурсов, дисков и исходящий трафик рабочего стола (см. [тарифы Yandex Cloud Desktop](../../cloud-desktop/pricing.md)).
+* Плата за время использования [NAT-шлюза](../../vpc/concepts/gateways.md) и исходящий через него трафик (см. [тарифы Yandex Virtual Private Cloud](../../vpc/pricing.md)).
 
 
 ## Подготовьте инфраструктуру {#create-infrastructure}

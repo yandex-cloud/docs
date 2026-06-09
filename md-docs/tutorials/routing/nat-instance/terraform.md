@@ -1,7 +1,7 @@
-# Маршрутизация через NAT-инстанс с помощью {{ TF }}
+# Маршрутизация через NAT-инстанс с помощью Terraform
 
 
-Чтобы настроить [маршрутизацию через NAT-инстанс](index.md) с помощью {{ TF }}:
+Чтобы настроить [маршрутизацию через NAT-инстанс](index.md) с помощью Terraform:
 
 1. [Подготовьте облако к работе](#before-you-begin).
 1. [Создайте инфраструктуру](#deploy).
@@ -11,11 +11,11 @@
 
 ## Перед началом работы {#before-you-begin}
 
-Зарегистрируйтесь в {{ yandex-cloud }} и создайте [платежный аккаунт](../../../billing/concepts/billing-account.md):
-1. Перейдите в [консоль управления]({{ link-console-main }}), затем войдите в {{ yandex-cloud }} или зарегистрируйтесь.
-1. На странице **[{{ ui-key.yacloud_billing.billing.label_service }}]({{ link-console-billing }})** убедитесь, что у вас подключен платежный аккаунт, и он находится в [статусе](../../../billing/concepts/billing-account-statuses.md) `ACTIVE` или `TRIAL_ACTIVE`. Если платежного аккаунта нет, [создайте его](../../../billing/quickstart/index.md) и [привяжите](../../../billing/operations/pin-cloud.md) к нему облако.
+Зарегистрируйтесь в Yandex Cloud и создайте [платежный аккаунт](../../../billing/concepts/billing-account.md):
+1. Перейдите в [консоль управления](https://console.yandex.cloud), затем войдите в Yandex Cloud или зарегистрируйтесь.
+1. На странице **[Yandex Cloud Billing](https://center.yandex.cloud/billing/accounts)** убедитесь, что у вас подключен платежный аккаунт, и он находится в [статусе](../../../billing/concepts/billing-account-statuses.md) `ACTIVE` или `TRIAL_ACTIVE`. Если платежного аккаунта нет, [создайте его](../../../billing/quickstart/index.md) и [привяжите](../../../billing/operations/pin-cloud.md) к нему облако.
 
-Если у вас есть активный платежный аккаунт, вы можете создать или выбрать [каталог](../../../resource-manager/concepts/resources-hierarchy.md#folder), в котором будет работать ваша инфраструктура, на [странице облака]({{ link-console-cloud }}).
+Если у вас есть активный платежный аккаунт, вы можете создать или выбрать [каталог](../../../resource-manager/concepts/resources-hierarchy.md#folder), в котором будет работать ваша инфраструктура, на [странице облака](https://console.yandex.cloud/cloud).
 
 [Подробнее об облаках и каталогах](../../../resource-manager/concepts/resources-hierarchy.md).
 
@@ -24,21 +24,21 @@
 
 В стоимость поддержки NAT-инстанса входят:
 
-* плата за постоянно запущенные ВМ (см. [тарифы {{ compute-full-name }}](../../../compute/pricing.md));
-* плата за использование динамического или статического внешнего IP-адреса (см. [тарифы {{ vpc-full-name }}](../../../vpc/pricing.md)).
+* плата за постоянно запущенные ВМ (см. [тарифы Yandex Compute Cloud](../../../compute/pricing.md));
+* плата за использование динамического или статического внешнего IP-адреса (см. [тарифы Yandex Virtual Private Cloud](../../../vpc/pricing.md)).
 
 
 ## Создайте инфраструктуру {#deploy}
 
-[{{ TF }}](https://www.terraform.io/) позволяет быстро создать облачную инфраструктуру в {{ yandex-cloud }} и управлять ею с помощью файлов конфигураций. В файлах конфигураций хранится описание инфраструктуры на языке HCL (HashiCorp Configuration Language). При изменении файлов конфигураций {{ TF }} автоматически определяет, какая часть вашей конфигурации уже развернута, что следует добавить или удалить.
+[Terraform](https://www.terraform.io/) позволяет быстро создать облачную инфраструктуру в Yandex Cloud и управлять ею с помощью файлов конфигураций. В файлах конфигураций хранится описание инфраструктуры на языке HCL (HashiCorp Configuration Language). При изменении файлов конфигураций Terraform автоматически определяет, какая часть вашей конфигурации уже развернута, что следует добавить или удалить.
 
-{{ TF }} распространяется под лицензией [Business Source License](https://github.com/hashicorp/terraform/blob/main/LICENSE), а [провайдер {{ yandex-cloud }} для {{ TF }}](https://github.com/yandex-cloud/terraform-provider-yandex) — под лицензией [MPL-2.0](https://www.mozilla.org/en-US/MPL/2.0/).
+Terraform распространяется под лицензией [Business Source License](https://github.com/hashicorp/terraform/blob/main/LICENSE), а [провайдер Yandex Cloud для Terraform](https://github.com/yandex-cloud/terraform-provider-yandex) — под лицензией [MPL-2.0](https://www.mozilla.org/en-US/MPL/2.0/).
 
-Подробную информацию о ресурсах провайдера смотрите в документации на сайте [{{ TF }}](https://www.terraform.io/docs/providers/yandex/index.html) или в [зеркале]({{ tf-docs-link }}).
+Подробную информацию о ресурсах провайдера смотрите в документации на сайте [Terraform](https://www.terraform.io/docs/providers/yandex/index.html) или в [зеркале](../../../terraform/index.md).
 
-Чтобы создать инфраструктуру с помощью {{ TF }}:
+Чтобы создать инфраструктуру с помощью Terraform:
 
-1. [Установите {{ TF }}](../../infrastructure-management/terraform-quickstart.md#install-terraform), [получите данные для аутентификации](../../infrastructure-management/terraform-quickstart.md#get-credentials) и укажите источник для установки провайдера {{ yandex-cloud }} (раздел [{#T}](../../infrastructure-management/terraform-quickstart.md#configure-provider), шаг 1).
+1. [Установите Terraform](../../infrastructure-management/terraform-quickstart.md#install-terraform), [получите данные для аутентификации](../../infrastructure-management/terraform-quickstart.md#get-credentials) и укажите источник для установки провайдера Yandex Cloud (раздел [Настройте провайдер](../../infrastructure-management/terraform-quickstart.md#configure-provider), шаг 1).
 1. Подготовьте файл с описанием инфраструктуры:
 
     {% list tabs group=infrastructure_description %}
@@ -118,14 +118,14 @@
           
           resource "yandex_vpc_subnet" "public-subnet" {
             name           = local.subnet_name1
-            zone           = "{{ region-id }}-a"
+            zone           = "ru-central1-a"
             network_id     = yandex_vpc_network.my-vpc.id
             v4_cidr_blocks = ["192.168.1.0/24"]
           }
           
           resource "yandex_vpc_subnet" "private-subnet" {
             name           = local.subnet_name2
-            zone           = "{{ region-id }}-a"
+            zone           = "ru-central1-a"
             network_id     = yandex_vpc_network.my-vpc.id
             v4_cidr_blocks = ["192.168.2.0/24"]
             route_table_id = yandex_vpc_route_table.nat-instance-route.id
@@ -182,7 +182,7 @@
           resource "yandex_compute_disk" "boot-disk-ubuntu" {
             name     = "boot-disk-ubuntu"
             type     = "network-hdd"
-            zone     = "{{ region-id }}-a"
+            zone     = "ru-central1-a"
             size     = "20"
             image_id = yandex_compute_image.ubuntu-1804-lts.id
           }
@@ -190,7 +190,7 @@
           resource "yandex_compute_disk" "boot-disk-nat" {
             name     = "boot-disk-nat"
             type     = "network-hdd"
-            zone     = "{{ region-id }}-a"
+            zone     = "ru-central1-a"
             size     = "20"
             image_id = yandex_compute_image.nat-instance-ubuntu.id
           }
@@ -200,7 +200,7 @@
           resource "yandex_compute_instance" "test-vm" {
             name        = local.vm_test_name
             platform_id = "standard-v3"
-            zone        = "{{ region-id }}-a"
+            zone        = "ru-central1-a"
           
             resources {
               core_fraction = 20
@@ -227,7 +227,7 @@
           resource "yandex_compute_instance" "nat-instance" {
             name        = local.vm_nat_name
             platform_id = "standard-v3"
-            zone        = "{{ region-id }}-a"
+            zone        = "ru-central1-a"
           
             resources {
               core_fraction = 20
@@ -279,22 +279,22 @@
 
     {% endlist %}
 
-    Более подробную информацию о параметрах используемых ресурсов в {{ TF }} см. в документации провайдера:
+    Более подробную информацию о параметрах используемых ресурсов в Terraform см. в документации провайдера:
 
-    * [Сеть](../../../vpc/concepts/network.md#network) — [yandex_vpc_network]({{ tf-provider-resources-link }}/vpc_network).
-    * [Подсети](../../../vpc/concepts/network.md#subnet) — [yandex_vpc_subnet]({{ tf-provider-resources-link }}/vpc_subnet).
-    * [Группы безопасности](../../../vpc/concepts/security-groups.md) — [yandex_vpc_security_group]({{ tf-provider-resources-link }}/vpc_security_group).
-    * [Образ](../../../compute/concepts/image.md) — [yandex_compute_image]({{ tf-provider-resources-link }}/compute_image).
-    * [Диск](../../../compute/concepts/disk.md) — [yandex_compute_disk]({{ tf-provider-resources-link }}/compute_disk).
-    * [Виртуальная машина](../../../compute/concepts/vm.md) — [yandex_compute_instance]({{ tf-provider-resources-link }}/compute_instance).
-    * [Таблица маршрутизации](../../../vpc/concepts/routing.md#rt-vpc) — [yandex_vpc_route_table]({{ tf-provider-resources-link }}/vpc_route_table)
+    * [Сеть](../../../vpc/concepts/network.md#network) — [yandex_vpc_network](../../../terraform/resources/vpc_network.md).
+    * [Подсети](../../../vpc/concepts/network.md#subnet) — [yandex_vpc_subnet](../../../terraform/resources/vpc_subnet.md).
+    * [Группы безопасности](../../../vpc/concepts/security-groups.md) — [yandex_vpc_security_group](../../../terraform/resources/vpc_security_group.md).
+    * [Образ](../../../compute/concepts/image.md) — [yandex_compute_image](../../../terraform/resources/compute_image.md).
+    * [Диск](../../../compute/concepts/disk.md) — [yandex_compute_disk](../../../terraform/resources/compute_disk.md).
+    * [Виртуальная машина](../../../compute/concepts/vm.md) — [yandex_compute_instance](../../../terraform/resources/compute_instance.md).
+    * [Таблица маршрутизации](../../../vpc/concepts/routing.md#rt-vpc) — [yandex_vpc_route_table](../../../terraform/resources/vpc_route_table.md)
 
 1. В файле `nat-instance.auto.tfvars` задайте пользовательские параметры:
 
     * `folder_id` — [идентификатор каталога](../../../resource-manager/operations/folder/get-id.md).
     * `vm_user` — имя пользователя ВМ.
     * `vm_user_nat` — имя пользователя ВМ с NAT.
-    * `ssh_key_path` — путь к файлу с открытым SSH-ключом для аутентификации пользователя на ВМ. Подробнее см. [{#T}](../../../compute/operations/vm-connect/ssh.md#creating-ssh-keys).
+    * `ssh_key_path` — путь к файлу с открытым SSH-ключом для аутентификации пользователя на ВМ. Подробнее см. [Создание пары ключей SSH](../../../compute/operations/vm-connect/ssh.md#creating-ssh-keys).
 
 1. Создайте ресурсы:
 
@@ -317,7 +317,7 @@
        terraform plan
        ```
     
-       В терминале будет выведен список ресурсов с параметрами. На этом этапе изменения не будут внесены. Если в конфигурации есть ошибки, {{ TF }} на них укажет.
+       В терминале будет выведен список ресурсов с параметрами. На этом этапе изменения не будут внесены. Если в конфигурации есть ошибки, Terraform на них укажет.
     1. Примените изменения конфигурации:
     
        ```bash
@@ -392,7 +392,7 @@
        terraform plan
        ```
     
-       В терминале будет выведен список ресурсов с параметрами. На этом этапе изменения не будут внесены. Если в конфигурации есть ошибки, {{ TF }} на них укажет.
+       В терминале будет выведен список ресурсов с параметрами. На этом этапе изменения не будут внесены. Если в конфигурации есть ошибки, Terraform на них укажет.
     1. Примените изменения конфигурации:
     
        ```bash
@@ -403,4 +403,4 @@
 
 #### См. также {#see-also}
 
-* [{#T}](console.md)
+* [Маршрутизация через NAT-инстанс с помощью консоли управления](console.md)

@@ -5,7 +5,7 @@ Retrieves the list of serverless resources connected to any network from the spe
 ## HTTP request
 
 ```
-GET https://serverless-functions.{{ api-host }}/functions/v1/networks/connections
+GET https://serverless-functions.api.cloud.yandex.net/functions/v1/networks/connections
 ```
 
 ## Query parameters {#yandex.cloud.serverless.functions.v1.ListConnectedResourcesRequest}

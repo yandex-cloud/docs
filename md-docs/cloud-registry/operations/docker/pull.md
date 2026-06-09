@@ -1,4 +1,4 @@
-# Скачать Docker-образ из реестра {{ cloud-registry-name }}
+# Скачать Docker-образ из реестра Cloud Registry
 
 Для скачивания [Docker-образа](../../concepts/artifacts/docker.md) необходима [роль](../../security/index.md#cloud-registry-artifacts-puller) `cloud-registry.artifacts.puller` или выше.
 
@@ -13,7 +13,7 @@
      * Используя **тег**:
 
        ```bash
-       docker pull {{ cloud-registry }}/<идентификатор_реестра>/ubuntu:hello
+       docker pull registry.yandexcloud.net/<идентификатор_реестра>/ubuntu:hello
        ```
 
        Результат:
@@ -25,13 +25,13 @@
        a5bdc6303093: Already exists
        e9055237d68d: Already exists
        Digest: sha256:035ac8e1bd9c49871a2fd76ccb3c4b0f84e7eee775919ccd345337ec********
-       Status: Downloaded newer image for {{ cloud-registry }}/crpd50616s9a********/ubuntu:hello
+       Status: Downloaded newer image for registry.yandexcloud.net/crpd50616s9a********/ubuntu:hello
        ```
 
      * Используя **хеш**:
 
        ```bash
-       docker pull {{ cloud-registry }}/<идентификатор_реестра>/ubuntu@sha256:035ac8e1bd9c49871a2fd76
+       docker pull registry.yandexcloud.net/<идентификатор_реестра>/ubuntu@sha256:035ac8e1bd9c49871a2fd76
        ```
 
        Результат:
@@ -43,7 +43,7 @@
        ...
        e9055237d68d: Already exists
        Digest: sha256:035ac8e1bd9c49871a2fd76ccb3c4b0f84e7eee775919ccd345337ec********
-       Status: Downloaded newer image for {{ cloud-registry }}/crpd50616s9a********/ubuntu@sha256:035ac8e1bd9c49871a2fd76ccb3c4b0f84e7eee775919ccd345337ec********
+       Status: Downloaded newer image for registry.yandexcloud.net/crpd50616s9a********/ubuntu@sha256:035ac8e1bd9c49871a2fd76ccb3c4b0f84e7eee775919ccd345337ec********
        ```
 
        Обратите внимание, что в данном случае Docker-образ будет скачан без тега. В поле `TAG` будет указано `<none>`.
@@ -57,7 +57,7 @@
 
      ```text
      REPOSITORY                                  TAG     IMAGE ID      CREATED       SIZE
-     {{ cloud-registry }}/crpd50616s9a********/ubuntu       <none>  50ff********  24 hours ago  86.7MB
+     registry.yandexcloud.net/crpd50616s9a********/ubuntu       <none>  50ff********  24 hours ago  86.7MB
      ubuntu                                      latest  1d9c********  2 weeks ago   86.7MB
      ```
 

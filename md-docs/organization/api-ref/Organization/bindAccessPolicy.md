@@ -5,7 +5,7 @@ Binds the access policy template to the organization.
 ## HTTP request
 
 ```
-POST https://organization-manager.{{ api-host }}/organization-manager/v1/organizations/{resourceId}:bindAccessPolicy
+POST https://organization-manager.api.cloud.yandex.net/organization-manager/v1/organizations/{resourceId}:bindAccessPolicy
 ```
 
 ## Path parameters

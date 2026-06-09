@@ -1,6 +1,6 @@
 # Настройка контроллера сетевых политик Calico
 
-[Calico](https://www.projectcalico.org/) — это плагин для {{ k8s }} с открытым исходным кодом, с помощью которого можно управлять сетевыми политиками {{ k8s }}. Calico расширяет стандартные возможности [сетевых политик](../concepts/network-policy.md) {{ k8s }}, что позволяет:
+[Calico](https://www.projectcalico.org/) — это плагин для Kubernetes с открытым исходным кодом, с помощью которого можно управлять сетевыми политиками Kubernetes. Calico расширяет стандартные возможности [сетевых политик](../concepts/network-policy.md) Kubernetes, что позволяет:
 * Применять политики к любому объекту: [поду](../concepts/index.md#pod), контейнеру, [виртуальной машине](../../compute/concepts/vm.md) или интерфейсу.
 * Указывать в правилах политики конкретное действие: запретить, разрешить, логировать.
 * Указывать в качестве цели или источника: порт, диапазон портов, протоколы, HTTP- и ICMP-атрибуты, [IP-адрес](../../vpc/concepts/address.md) или [подсеть](../../vpc/concepts/network.md#subnet) и другие объекты.
@@ -25,11 +25,11 @@
 
          {% note warning %}
          
-         Не изменяйте и не удаляйте ресурсы {{ vpc-name }}, которые используются кластером {{ managed-k8s-name }}. Это может привести к некорректной работе кластера и невозможности его последующего удаления.
+         Не изменяйте и не удаляйте ресурсы Virtual Private Cloud, которые используются кластером Managed Service for Kubernetes. Это может привести к некорректной работе кластера и невозможности его последующего удаления.
          
          {% endnote %}
 
-     1. [Создайте группы безопасности](connect/security-groups.md) для кластера {{ managed-k8s-name }} и входящих в него групп узлов.
+     1. [Создайте группы безопасности](connect/security-groups.md) для кластера Managed Service for Kubernetes и входящих в него групп узлов.
 
         {% note warning %}
         
@@ -37,30 +37,30 @@
         
         {% endnote %}
 
-     1. [Создайте кластер {{ managed-k8s-name }}](kubernetes-cluster/kubernetes-cluster-create.md) и [группу узлов](node-group/node-group-create.md) любой подходящей конфигурации. При создании укажите сеть, подсеть и группы безопасности, подготовленные заранее. Также в кластере задействуйте контроллер сетевых политик Calico:
-        * В консоли управления, выбрав опцию **{{ ui-key.yacloud.k8s.clusters.create.field_network-policy }}**.
+     1. [Создайте кластер Managed Service for Kubernetes](kubernetes-cluster/kubernetes-cluster-create.md) и [группу узлов](node-group/node-group-create.md) любой подходящей конфигурации. При создании укажите сеть, подсеть и группы безопасности, подготовленные заранее. Также в кластере задействуйте контроллер сетевых политик Calico:
+        * В консоли управления, выбрав опцию **Включить сетевые политики**.
         * С помощью CLI, указав флаг `--enable-network-policy`.
         * С помощью метода [create](../managed-kubernetes/api-ref/Cluster/create.md) для ресурса [Cluster](../managed-kubernetes/api-ref/Cluster/index.md).
 
-   - {{ TF }} {#tf}
+   - Terraform {#tf}
 
-     1. Если у вас еще нет {{ TF }}, [установите его](../../tutorials/infrastructure-management/terraform-quickstart.md#install-terraform).
+     1. Если у вас еще нет Terraform, [установите его](../../tutorials/infrastructure-management/terraform-quickstart.md#install-terraform).
      1. [Получите данные для аутентификации](../../tutorials/infrastructure-management/terraform-quickstart.md#get-credentials). Вы можете добавить их в переменные окружения или указать далее в файле с настройками провайдера.
      1. [Настройте и инициализируйте провайдер](../../tutorials/infrastructure-management/terraform-quickstart.md#configure-provider). Чтобы не создавать конфигурационный файл с настройками провайдера вручную, [скачайте его](https://github.com/yandex-cloud-examples/yc-terraform-provider-settings/blob/main/provider.tf).
      1. Поместите конфигурационный файл в отдельную рабочую директорию и [укажите значения параметров](../../tutorials/infrastructure-management/terraform-quickstart.md#configure-provider). Если данные для аутентификации не были добавлены в переменные окружения, укажите их в конфигурационном файле.
 
-     1. Скачайте в ту же рабочую директорию файл конфигурации [кластера {{ managed-k8s-name }}](../concepts/index.md#kubernetes-cluster) [k8s-calico.tf](https://github.com/yandex-cloud-examples/yc-mk8s-calico/blob/main/k8s-calico.tf). В файле описаны:
+     1. Скачайте в ту же рабочую директорию файл конфигурации [кластера Managed Service for Kubernetes](../concepts/index.md#kubernetes-cluster) [k8s-calico.tf](https://github.com/yandex-cloud-examples/yc-mk8s-calico/blob/main/k8s-calico.tf). В файле описаны:
         * [Сеть](../../vpc/operations/network-create.md) и подсеть.
 
             {% note warning %}
             
-            Не изменяйте и не удаляйте ресурсы {{ vpc-name }}, которые используются кластером {{ managed-k8s-name }}. Это может привести к некорректной работе кластера и невозможности его последующего удаления.
+            Не изменяйте и не удаляйте ресурсы Virtual Private Cloud, которые используются кластером Managed Service for Kubernetes. Это может привести к некорректной работе кластера и невозможности его последующего удаления.
             
             {% endnote %}
 
-        * Кластер {{ managed-k8s-name }}.
-        * [Сервисный аккаунт](../../iam/concepts/users/service-accounts.md), необходимый для работы кластера {{ managed-k8s-name }} и [группы узлов](../concepts/index.md#node-group).
-        * [Группы безопасности](../../vpc/concepts/security-groups.md), которые содержат [необходимые правила](connect/security-groups.md) для кластера {{ managed-k8s-name }} и входящих в него групп узлов.
+        * Кластер Managed Service for Kubernetes.
+        * [Сервисный аккаунт](../../iam/concepts/users/service-accounts.md), необходимый для работы кластера Managed Service for Kubernetes и [группы узлов](../concepts/index.md#node-group).
+        * [Группы безопасности](../../vpc/concepts/security-groups.md), которые содержат [необходимые правила](connect/security-groups.md) для кластера Managed Service for Kubernetes и входящих в него групп узлов.
 
             {% note warning %}
             
@@ -70,17 +70,17 @@
 
      1. Укажите в файле конфигурации:
         * [Идентификатор каталога](../../resource-manager/operations/folder/get-id.md).
-        * [Версию {{ k8s }}](../concepts/release-channels-and-updates.md) для кластера {{ managed-k8s-name }} и групп узлов.
-        * CIDR кластера {{ managed-k8s-name }}.
-        * Имя сервисного аккаунта кластера {{ managed-k8s-name }}.
+        * [Версию Kubernetes](../concepts/release-channels-and-updates.md) для кластера Managed Service for Kubernetes и групп узлов.
+        * CIDR кластера Managed Service for Kubernetes.
+        * Имя сервисного аккаунта кластера Managed Service for Kubernetes.
      1. Выполните команду `terraform init` в директории с конфигурационными файлами. Эта команда инициализирует провайдер, указанный в конфигурационных файлах, и позволяет работать с ресурсами и источниками данных провайдера.
-     1. Проверьте корректность файлов конфигурации {{ TF }} с помощью команды:
+     1. Проверьте корректность файлов конфигурации Terraform с помощью команды:
 
         ```bash
         terraform validate
         ```
 
-        Если в файлах конфигурации есть ошибки, {{ TF }} на них укажет.
+        Если в файлах конфигурации есть ошибки, Terraform на них укажет.
      1. Создайте необходимую инфраструктуру:
 
         1. Выполните команду для просмотра планируемых изменений:
@@ -101,11 +101,11 @@
            1. Подтвердите изменение ресурсов.
            1. Дождитесь завершения операции.
 
-        В указанном каталоге будут созданы все требуемые ресурсы. Проверить появление ресурсов и их настройки можно в [консоли управления]({{ link-console-main }}).
+        В указанном каталоге будут созданы все требуемые ресурсы. Проверить появление ресурсов и их настройки можно в [консоли управления](https://console.yandex.cloud).
 
         {% note warning "Ограничения по времени" %}
         
-        Провайдер {{ TF }} ограничивает время на выполнение операций с кластером и группой узлов {{ managed-k8s-name }}:
+        Провайдер Terraform ограничивает время на выполнение операций с кластером и группой узлов Managed Service for Kubernetes:
         
         * создание и изменение кластера — 30 минут;
         * создание и изменение группы узлов — 60 минут;
@@ -136,13 +136,13 @@
 
    {% endlist %}
 
-1. [Установите kubectl]({{ k8s-docs }}/tasks/tools/install-kubectl) и [настройте его на работу с созданным кластером](connect/index.md#kubectl-connect).
+1. [Установите kubectl](https://kubernetes.io/ru/docs/tasks/tools/install-kubectl) и [настройте его на работу с созданным кластером](connect/index.md#kubectl-connect).
 
-1. [Создайте пространство имен](kubernetes-cluster/kubernetes-cluster-namespace-create.md) `policy-test` в кластере {{ managed-k8s-name }}.
+1. [Создайте пространство имен](kubernetes-cluster/kubernetes-cluster-namespace-create.md) `policy-test` в кластере Managed Service for Kubernetes.
 
 ## Создайте сервис nginx {#create-pod}
 
-1. Создайте под с веб-сервером nginx в [пространстве имен](../concepts/index.md#namespace) `policy-test`. Используйте объект API {{ k8s }} [Deployment](https://kubernetes.io/docs/concepts/workloads/controllers/deployment/):
+1. Создайте под с веб-сервером nginx в [пространстве имен](../concepts/index.md#namespace) `policy-test`. Используйте объект API Kubernetes [Deployment](https://kubernetes.io/docs/concepts/workloads/controllers/deployment/):
 
    ```bash
    kubectl create deployment --namespace=policy-test nginx --image=nginx
@@ -154,7 +154,7 @@
    deployment.apps/nginx created
    ```
 
-1. Запустите под с nginx как сервис {{ k8s }}:
+1. Запустите под с nginx как сервис Kubernetes:
 
    ```bash
    kubectl expose --namespace=policy-test deployment nginx --port=80
@@ -308,7 +308,7 @@ networkpolicy.networking.k8s.io/deny created
 
    {% note info %}
 
-   Сетевые политики разрешат трафик от подов с [{{ k8s }}-меткой](../concepts/index.md#node-labels) `run: access` к подам с {{ k8s }}-меткой `app: nginx`. Метки автоматически добавляются утилитой kubectl и основаны на имени ресурса.
+   Сетевые политики разрешат трафик от подов с [Kubernetes-меткой](../concepts/index.md#node-labels) `run: access` к подам с Kubernetes-меткой `app: nginx`. Метки автоматически добавляются утилитой kubectl и основаны на имени ресурса.
 
    {% endnote %}
 
@@ -362,7 +362,7 @@ networkpolicy.networking.k8s.io/deny created
 
 ### Проверьте, что сетевая изоляция для других подов работает {#check-isolation}
 
-В созданных сетевых политиках `access-nginx` разрешено подключаться подам с {{ k8s }}-меткой `run: access`.
+В созданных сетевых политиках `access-nginx` разрешено подключаться подам с Kubernetes-меткой `run: access`.
 1. Создайте под без метки `run: access`:
 
    ```bash
@@ -422,16 +422,16 @@ networkpolicy.networking.k8s.io/deny created
 
 - Вручную {#manual}
 
-  1. [Удалите кластер {{ managed-k8s-name }}](kubernetes-cluster/kubernetes-cluster-delete.md).
-  1. Если вы зарезервировали для кластера {{ managed-k8s-name }} публичный статический IP-адрес, [удалите его](../../vpc/operations/address-delete.md).
+  1. [Удалите кластер Managed Service for Kubernetes](kubernetes-cluster/kubernetes-cluster-delete.md).
+  1. Если вы зарезервировали для кластера Managed Service for Kubernetes публичный статический IP-адрес, [удалите его](../../vpc/operations/address-delete.md).
 
-- {{ TF }} {#tf}
+- Terraform {#tf}
 
   1. В терминале перейдите в директорию с планом инфраструктуры.
   
       {% note warning %}
   
-      Убедитесь, что в директории нет {{ TF }}-манифестов с ресурсами, которые вы хотите сохранить. {{ TF }} удаляет все ресурсы, которые были созданы с помощью манифестов в текущей директории.
+      Убедитесь, что в директории нет Terraform-манифестов с ресурсами, которые вы хотите сохранить. Terraform удаляет все ресурсы, которые были созданы с помощью манифестов в текущей директории.
   
       {% endnote %}
   
@@ -445,6 +445,6 @@ networkpolicy.networking.k8s.io/deny created
   
       1. Подтвердите удаление ресурсов и дождитесь завершения операции.
   
-      Все ресурсы, которые были описаны в {{ TF }}-манифестах, будут удалены.
+      Все ресурсы, которые были описаны в Terraform-манифестах, будут удалены.
 
 {% endlist %}

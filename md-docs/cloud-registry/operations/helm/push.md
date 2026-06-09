@@ -1,10 +1,10 @@
 # Загрузить Helm-чарт в реестр
 
-Вы можете загрузить [Helm-чарт](https://helm.sh/docs/topics/charts/) в [реестр](../../concepts/registry.md) {{ cloud-registry-name }}. В {{ cloud-registry-name }} Helm-чарты хранятся как [Docker-образы](../../concepts/artifacts/docker.md).
+Вы можете загрузить [Helm-чарт](https://helm.sh/docs/topics/charts/) в [реестр](../../concepts/registry.md) Cloud Registry. В Cloud Registry Helm-чарты хранятся как [Docker-образы](../../concepts/artifacts/docker.md).
 
 {% note info %}
 
-Если вы используете Helm версии ниже 3.7.1, при обновлении до более новой версии повторно загрузите чарты в реестр {{ cloud-registry-name }}.
+Если вы используете Helm версии ниже 3.7.1, при обновлении до более новой версии повторно загрузите чарты в реестр Cloud Registry.
 
 {% endnote %}
 
@@ -28,13 +28,13 @@
      export HELM_EXPERIMENTAL_OCI=1
      ```
 
-  1. Аутентифицируйте свой клиент Helm в реестре {{ cloud-registry-name }} с помощью IAM-токена:
+  1. Аутентифицируйте свой клиент Helm в реестре Cloud Registry с помощью IAM-токена:
 
      1. [Получите IAM-токен](../../../iam/operations/iam-token/create.md).
      1. Выполните команду:
 
         ```bash
-        helm registry login {{ cloud-registry }} -u iam
+        helm registry login registry.yandexcloud.net -u iam
         Password: <IAM-токен>
         ```
 
@@ -74,16 +74,16 @@
      Successfully packaged chart and saved it to: <путь>/<имя_Helm-чарта>-<версия>.tgz
      ```
 
-  1. Загрузите Helm-чарт в {{ cloud-registry-name }}:
+  1. Загрузите Helm-чарт в Cloud Registry:
 
      ```bash
-     helm push <имя_Helm-чарта>-<версия>.tgz oci://{{ cloud-registry }}/<идентификатор_реестра>
+     helm push <имя_Helm-чарта>-<версия>.tgz oci://registry.yandexcloud.net/<идентификатор_реестра>
      ```
 
      Результат:
 
      ```text
-     Pushed: {{ cloud-registry }}/crp3h07fgv9b********/<имя_Helm-чарта>:<версия>
+     Pushed: registry.yandexcloud.net/crp3h07fgv9b********/<имя_Helm-чарта>:<версия>
      Digest: <SHA256...>
      ```
 
@@ -119,16 +119,16 @@
      Successfully packaged chart and saved it to: C:/my-chart-3.11.2.tgz
      ```
 
-  1. Загрузите Helm-чарт в {{ cloud-registry-name }}:
+  1. Загрузите Helm-чарт в Cloud Registry:
 
      ```bash
-     helm push my-chart-3.11.2.tgz oci://{{ cloud-registry }}/<идентификатор_реестра>
+     helm push my-chart-3.11.2.tgz oci://registry.yandexcloud.net/<идентификатор_реестра>
      ```
 
      Результат:
 
      ```text
-     Pushed: {{ cloud-registry }}/crp3h07fgv9b********/my-chart:3.11.2
+     Pushed: registry.yandexcloud.net/crp3h07fgv9b********/my-chart:3.11.2
      Digest: sha256:dc44a4e8b686b043b8a88f77ef9dcb998116fab422e8c892a2370da0********
      ```
 

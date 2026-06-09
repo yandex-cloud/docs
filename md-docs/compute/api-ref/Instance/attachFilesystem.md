@@ -8,7 +8,7 @@ For details, see [documentation](../../operations/filesystem/attach-to-vm.md).
 ## HTTP request
 
 ```
-POST https://compute.{{ api-host }}/compute/v1/instances/{instanceId}:attachFilesystem
+POST https://compute.api.cloud.yandex.net/compute/v1/instances/{instanceId}:attachFilesystem
 ```
 
 ## Path parameters

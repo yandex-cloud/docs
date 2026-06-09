@@ -5,7 +5,7 @@ Returns the private key for the specified certificate.
 ## HTTP request
 
 ```
-GET https://private-ca.certificate-manager.{{ api-host }}/privateca/v1/privateCertificates/{certificateId}:getPrivateKey
+GET https://private-ca.certificate-manager.api.cloud.yandex.net/privateca/v1/privateCertificates/{certificateId}:getPrivateKey
 ```
 
 ## Path parameters

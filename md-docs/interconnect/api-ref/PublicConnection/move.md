@@ -5,7 +5,7 @@ Moves the specified PublicConnection to another folder.
 ## HTTP request
 
 ```
-POST https://cic.{{ api-host }}/cic/v1/publicConnections/{publicConnectionId}:move
+POST https://cic.api.cloud.yandex.net/cic/v1/publicConnections/{publicConnectionId}:move
 ```
 
 ## Path parameters

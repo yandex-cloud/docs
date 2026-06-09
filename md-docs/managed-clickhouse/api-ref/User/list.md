@@ -5,7 +5,7 @@ Retrieves the list of ClickHouse User resources in the specified cluster.
 ## HTTP request
 
 ```
-GET https://{{ api-host-mdb }}/managed-clickhouse/v1/clusters/{clusterId}/users
+GET https://mdb.api.cloud.yandex.net/managed-clickhouse/v1/clusters/{clusterId}/users
 ```
 
 ## Path parameters

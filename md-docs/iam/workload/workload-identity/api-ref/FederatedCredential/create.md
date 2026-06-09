@@ -5,7 +5,7 @@ Creates a federated credential for the specified service account.
 ## HTTP request
 
 ```
-POST https://iam.{{ api-host }}/iam/v1/workload/federatedCredentials
+POST https://iam.api.cloud.yandex.net/iam/v1/workload/federatedCredentials
 ```
 
 ## Body parameters {#yandex.cloud.iam.v1.workload.CreateFederatedCredentialRequest}

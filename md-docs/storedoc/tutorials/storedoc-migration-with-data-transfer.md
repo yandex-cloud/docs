@@ -1,32 +1,32 @@
-# Миграция коллекций из {{ MG }} в {{ mmg-name }}
+# Миграция коллекций из MongoDB в Yandex StoreDoc
 
-# Миграция коллекций из {{ MG }} в {{ mmg-name }}
+# Миграция коллекций из MongoDB в Yandex StoreDoc
 
 
-Чтобы перенести коллекции, хранящиеся в стороннем кластере {{ MG }}, в кластер {{ mmg-name }}, нужно непосредственно перенести данные, запретить запись в старые базы данных и переключить нагрузку на кластер в {{ yandex-cloud }}.
+Чтобы перенести коллекции, хранящиеся в стороннем кластере MongoDB, в кластер Yandex StoreDoc, нужно непосредственно перенести данные, запретить запись в старые базы данных и переключить нагрузку на кластер в Yandex Cloud.
 
 
 ## Необходимые платные ресурсы {#paid-resources}
 
-* Кластер {{ mmg-name }}: выделенные хостам вычислительные ресурсы, объем хранилища и резервных копий (см. [тарифы {{ mmg-name }}](../pricing.md)).
-* Публичные IP-адреса, если для хостов кластера включен публичный доступ (см. [тарифы {{ vpc-name }}](../../vpc/pricing.md)).
-* Каждый трансфер: использование вычислительных ресурсов и количество переданных строк данных (см. [тарифы {{ data-transfer-name }}](../../data-transfer/pricing.md)).
+* Кластер Yandex StoreDoc: выделенные хостам вычислительные ресурсы, объем хранилища и резервных копий (см. [тарифы Yandex StoreDoc](../pricing.md)).
+* Публичные IP-адреса, если для хостов кластера включен публичный доступ (см. [тарифы Virtual Private Cloud](../../vpc/pricing.md)).
+* Каждый трансфер: использование вычислительных ресурсов и количество переданных строк данных (см. [тарифы Data Transfer](../../data-transfer/pricing.md)).
 
 
 ## Перед началом работы {#before-you-begin}
 
 Убедитесь, что к хостам кластера-источника можно подключиться из интернета.
 
-## Миграция данных с использованием сервиса {{ data-transfer-full-name }} {#data-transfer}
+## Миграция данных с использованием сервиса Yandex Data Transfer {#data-transfer}
 
-# Миграция данных с использованием сервиса {{ data-transfer-full-name }} {#data-transfer}
+# Миграция данных с использованием сервиса Yandex Data Transfer {#data-transfer}
 
 1. [Подготовьте кластер-источник](../../data-transfer/operations/prepare.md#source-mg).
 1. [Подготовьте кластер-приемник](../../data-transfer/operations/prepare.md#target-mg).
 1. [Создайте эндпоинт для источника](../../data-transfer/operations/endpoint/index.md#create) со следующими параметрами:
    
-   * **{{ ui-key.yacloud.data-transfer.forms.label-database_type }}** — `MongoDB`.
-   * **{{ ui-key.yc-data-transfer.data-transfer.console.form.mongo.console.form.mongo.MongoSource.title }}** → **{{ ui-key.yc-data-transfer.data-transfer.console.form.mongo.console.form.mongo.MongoSource.connection.title }}** — `{{ ui-key.yc-data-transfer.data-transfer.console.form.mongo.console.form.mongo.MongoConnectionType.on_premise.title }}`.
+   * **Тип базы данных** — `MongoDB`.
+   * **Параметры эндпоинта** → **Настройки подключения** — `Пользовательская инсталляция`.
    
        Укажите параметры подключения к кластеру-источнику.
    
@@ -37,11 +37,11 @@
    {% endnote %}
 1. [Создайте эндпоинт для приемника](../../data-transfer/operations/endpoint/index.md#create) со следующими параметрами:
    
-   * **{{ ui-key.yacloud.data-transfer.forms.label-database_type }}** — `MongoDB`.
-   * **{{ ui-key.yc-data-transfer.data-transfer.console.form.mongo.console.form.mongo.MongoTarget.title }}** → **{{ ui-key.yc-data-transfer.data-transfer.console.form.mongo.console.form.mongo.MongoTarget.connection.title }}** — `{{ ui-key.yc-data-transfer.data-transfer.console.form.mongo.console.form.mongo.MongoConnectionType.mdb_cluster_id.title }}`.
+   * **Тип базы данных** — `MongoDB`.
+   * **Параметры эндпоинта** → **Настройки подключения** — `Кластер Yandex StoreDoc`.
    
        Укажите идентификатор кластера-приемника.
-1. [Создайте трансфер](../../data-transfer/operations/transfer.md#create) типа _{{ dt-type-copy-repl }}_, использующий созданные эндпоинты.
+1. [Создайте трансфер](../../data-transfer/operations/transfer.md#create) типа _**Копирование и репликация**_, использующий созданные эндпоинты.
    
    Чтобы ускорить копирование больших коллекций (более 1 ГБ), включите [параллельное копирование](../../data-transfer/concepts/sharded.md) в настройках трансфера. Укажите два [воркера](../../data-transfer/concepts/index.md#worker) или больше. Коллекция разделится на указанное количество частей, которые будут копироваться параллельно.
    
@@ -53,10 +53,10 @@
    
    {% endnote %}
 1. [Активируйте трансфер](../../data-transfer/operations/transfer.md#activate).
-1. Дождитесь перехода трансфера в статус {{ dt-status-repl }}.
+1. Дождитесь перехода трансфера в статус **Реплицируется**.
 1. Переведите кластер-источник в режим <q>только чтение</q> и переключите нагрузку на кластер-приемник.
 1. На странице [мониторинга трансфера](../../data-transfer/operations/monitoring.md) дождитесь снижения до нуля характеристики **Maximum data transfer delay**. Это значит, что на кластер-приемник перенесены все изменения, произошедшие в кластере-источнике после завершения копирования данных.
-1. [Деактивируйте](../../data-transfer/operations/transfer.md#deactivate) трансфер и дождитесь его перехода в статус {{ dt-status-stopped }}.
+1. [Деактивируйте](../../data-transfer/operations/transfer.md#deactivate) трансфер и дождитесь его перехода в статус **Остановлен**.
 
     Подробнее о статусах трансфера см. в разделе [Жизненный цикл трансфера](../../data-transfer/concepts/transfer-lifecycle.md#statuses).
 
@@ -73,7 +73,7 @@
 
 ### Настройте кластер-источник {#source-setup}
   
-1. Подключитесь к хосту `mongos` кластера-источника {{ MG }} с помощью утилиты mongosh.
+1. Подключитесь к хосту `mongos` кластера-источника MongoDB с помощью утилиты mongosh.
 1. Создайте базу данных `db1`.
 1. Создайте пользователя с правами владельца базы данных `db1` и авторизуйтесь под его именем:
 
@@ -122,13 +122,13 @@
 
 - Нешардированный кластер-приемник {#non-sharded}
 
-  1. [Создайте кластер](../operations/cluster-create.md) {{ mmg-name }} любой подходящей конфигурации.
+  1. [Создайте кластер](../operations/cluster-create.md) Yandex StoreDoc любой подходящей конфигурации.
   1. [Создайте базу данных](../operations/databases.md#add-db) `db1`.
   1. [Создайте пользователя](../operations/cluster-users.md#adduser) `user_transfer` с ролью [`readWrite`](../concepts/users-and-roles.md#readWrite) на созданную базу.
   
 - Шардированный кластер-приемник {#sharded}
 
-  1. [Создайте кластер](../operations/cluster-create.md) {{ mmg-name }} любой подходящей конфигурации. В кластере должно быть не менее двух хостов.
+  1. [Создайте кластер](../operations/cluster-create.md) Yandex StoreDoc любой подходящей конфигурации. В кластере должно быть не менее двух хостов.
   1. [Включите шардирование](../operations/shards.md).
   1. [Создайте базу данных](../operations/databases.md#add-db) `db1`.
   1. [Создайте пользователя](../operations/cluster-users.md#adduser) `user_transfer` с ролью [`readWrite`](../concepts/users-and-roles.md#readWrite) на созданную базу и ролью [`mdbShardingManager`](../concepts/users-and-roles.md#mdbShardingManager) на служебную базу `admin`.
@@ -143,48 +143,48 @@
 - Нешардированный кластер-приемник {#non-sharded}
 
   1. [Создайте эндпоинт для кластера-источника](../../data-transfer/operations/endpoint/index.md#create):
-      * **{{ ui-key.yacloud.data-transfer.forms.label-database_type }}** — `{{ MG }}`.
-      * **{{ ui-key.yc-data-transfer.data-transfer.console.form.mongo.console.form.mongo.MongoSource.connection.title }}** — `{{ ui-key.yc-data-transfer.data-transfer.console.form.mongo.console.form.mongo.MongoConnectionType.on_premise.title }}`.
-        * **{{ ui-key.yc-data-transfer.data-transfer.console.form.mongo.console.form.mongo.OnPremiseMongo.ca_certificate.title }}** — загрузите файл сертификата, если при подключении к кластеру-источнику требуется шифрование.
+      * **Тип базы данных** — `MongoDB`.
+      * **Настройки подключения** — `Пользовательская инсталляция`.
+        * **Сертификат CA** — загрузите файл сертификата, если при подключении к кластеру-источнику требуется шифрование.
         * **Список хостов** — укажите FQDN хостов кластера-источника.
-        * **{{ ui-key.yc-data-transfer.data-transfer.console.form.mongo.console.form.mongo.OnPremiseMongo.port.title }}** — укажите порт для подключения к хостам.
-        * **{{ ui-key.yc-data-transfer.data-transfer.console.form.mongo.console.form.mongo.MongoConnection.auth_source.title }}** — `db1`.
-        * **{{ ui-key.yc-data-transfer.data-transfer.console.form.mongo.console.form.mongo.MongoConnection.user.title }}** — `user1`.
-        * **{{ ui-key.yc-data-transfer.data-transfer.console.form.mongo.console.form.mongo.MongoConnection.raw_password.title }}** — укажите пароль пользователя `user1`.
+        * **Порт** — укажите порт для подключения к хостам.
+        * **Источник аутентификации** — `db1`.
+        * **Пользователь** — `user1`.
+        * **Пароль** — укажите пароль пользователя `user1`.
   1. [Создайте эндпоинт для кластера-приемника](../../data-transfer/operations/endpoint/index.md#create):
-      * **{{ ui-key.yacloud.data-transfer.forms.label-database_type }}** — `{{ MG }}`.
-      * **{{ ui-key.yc-data-transfer.data-transfer.console.form.mongo.console.form.mongo.MongoTarget.connection.title }}** — `Кластер MDB`.
+      * **Тип базы данных** — `MongoDB`.
+      * **Настройки подключения** — `Кластер MDB`.
         * Укажите идентификатор кластера-приемника.
-        * **{{ ui-key.yc-data-transfer.data-transfer.console.form.mongo.console.form.mongo.MongoConnection.user.title }}** — `user_transfer`.
-        * **{{ ui-key.yc-data-transfer.data-transfer.console.form.mongo.console.form.mongo.MongoConnection.raw_password.title }}** — укажите пароль пользователя `user_transfer`.
-        * **{{ ui-key.yc-data-transfer.data-transfer.console.form.mongo.console.form.mongo.MongoTarget.cleanup_policy.title }}** — `{{ ui-key.yc-data-transfer.data-transfer.console.form.common.console.form.common.CleanupPolicy.DROP.title }}`.
+        * **Пользователь** — `user_transfer`.
+        * **Пароль** — укажите пароль пользователя `user_transfer`.
+        * **Политика очистки** — `Drop`.
   1. [Создайте трансфер](../../data-transfer/operations/transfer.md#create):
-     * **{{ ui-key.yc-data-transfer.data-transfer.console.form.transfer.console.form.transfer.Transfer.type.title }}** — {{ dt-type-copy-repl }}.
-     * **{{ ui-key.yacloud.data-transfer.forms.label_source-type }}** — выберите созданный эндпоинт для кластера-источника.
-     * **{{ ui-key.yacloud.data-transfer.forms.label_target-type }}** — выберите созданный эндпоинт для кластера-приемника.
+     * **Тип трансфера** — **Копирование и репликация**.
+     * **Источник** — выберите созданный эндпоинт для кластера-источника.
+     * **Приёмник** — выберите созданный эндпоинт для кластера-приемника.
 
 - Шардированный кластер-приемник {#sharded}
 
   1. [Создайте эндпоинт для кластера-источника](../../data-transfer/operations/endpoint/index.md#create):
-      * **{{ ui-key.yacloud.data-transfer.forms.label-database_type }}** — `{{ MG }}`.
-      * **{{ ui-key.yc-data-transfer.data-transfer.console.form.mongo.console.form.mongo.MongoSource.connection.title }}** — `{{ ui-key.yc-data-transfer.data-transfer.console.form.mongo.console.form.mongo.MongoConnectionType.on_premise.title }}`.
-        * **{{ ui-key.yc-data-transfer.data-transfer.console.form.mongo.console.form.mongo.OnPremiseMongo.ca_certificate.title }}** — загрузите файл сертификата, если при подключении к кластеру-источнику требуется шифрование.
+      * **Тип базы данных** — `MongoDB`.
+      * **Настройки подключения** — `Пользовательская инсталляция`.
+        * **Сертификат CA** — загрузите файл сертификата, если при подключении к кластеру-источнику требуется шифрование.
         * **Список хостов** — укажите FQDN хостов кластера-источника.
-        * **{{ ui-key.yc-data-transfer.data-transfer.console.form.mongo.console.form.mongo.OnPremiseMongo.port.title }}** — укажите порт для подключения к хостам.
-        * **{{ ui-key.yc-data-transfer.data-transfer.console.form.mongo.console.form.mongo.MongoConnection.auth_source.title }}** — `db1`.
-        * **{{ ui-key.yc-data-transfer.data-transfer.console.form.mongo.console.form.mongo.MongoConnection.user.title }}** — `user1`.
-        * **{{ ui-key.yc-data-transfer.data-transfer.console.form.mongo.console.form.mongo.MongoConnection.raw_password.title }}** — укажите пароль пользователя `user1`.
+        * **Порт** — укажите порт для подключения к хостам.
+        * **Источник аутентификации** — `db1`.
+        * **Пользователь** — `user1`.
+        * **Пароль** — укажите пароль пользователя `user1`.
   1. [Создайте эндпоинт для кластера-приемника](../../data-transfer/operations/endpoint/index.md#create):
-      * **{{ ui-key.yacloud.data-transfer.forms.label-database_type }}** — `{{ MG }}`.
-      * **{{ ui-key.yc-data-transfer.data-transfer.console.form.mongo.console.form.mongo.MongoTarget.connection.title }}** — `Кластер MDB`.
+      * **Тип базы данных** — `MongoDB`.
+      * **Настройки подключения** — `Кластер MDB`.
          * Укажите идентификатор кластера-приемника.
-         * **{{ ui-key.yc-data-transfer.data-transfer.console.form.mongo.console.form.mongo.MongoConnection.user.title }}** — `user_transfer`.
-         * **{{ ui-key.yc-data-transfer.data-transfer.console.form.mongo.console.form.mongo.MongoConnection.raw_password.title }}** — укажите пароль пользователя `user_transfer`.
-         * **{{ ui-key.yc-data-transfer.data-transfer.console.form.mongo.console.form.mongo.MongoTarget.cleanup_policy.title }}** — `{{ ui-key.yc-data-transfer.data-transfer.console.form.common.console.form.common.CleanupPolicy.DISABLED.title }}` или `{{ ui-key.yc-data-transfer.data-transfer.console.form.common.console.form.common.CleanupPolicy.TRUNCATE.title }}`.
+         * **Пользователь** — `user_transfer`.
+         * **Пароль** — укажите пароль пользователя `user_transfer`.
+         * **Политика очистки** — `Не очищать` или `Truncate`.
   1. [Создайте трансфер](../../data-transfer/operations/transfer.md#create):
-      * **{{ ui-key.yc-data-transfer.data-transfer.console.form.transfer.console.form.transfer.Transfer.type.title }}** — {{ dt-type-copy-repl }}.
-      * **{{ ui-key.yacloud.data-transfer.forms.label_source-type }}** — выберите созданный эндпоинт для кластера-источника.
-      * **{{ ui-key.yacloud.data-transfer.forms.label_target-type }}** — выберите созданный эндпоинт для кластера-приемника.
+      * **Тип трансфера** — **Копирование и репликация**.
+      * **Источник** — выберите созданный эндпоинт для кластера-источника.
+      * **Приёмник** — выберите созданный эндпоинт для кластера-приемника.
 
 {% endlist %}
 
@@ -195,7 +195,7 @@
 - Нешардированный кластер-приемник {#non-sharded}
 
   1. [Активируйте](../../data-transfer/operations/transfer.md#activate) созданный трансфер.
-  1. Дождитесь перехода трансфера в статус {{ dt-status-repl }}.
+  1. Дождитесь перехода трансфера в статус **Реплицируется**.
   1. Переведите кластер-источник в режим <q>только чтение</q> и переключите нагрузку на кластер-приемник.
   1. На странице [мониторинга трансфера](../../data-transfer/operations/monitoring.md) дождитесь снижения до нуля характеристики **Maximum data transfer delay**. Это значит, что на кластер-приемник перенесены все изменения, произошедшие в кластере-источнике после завершения копирования данных.
   1. [Подключитесь](../operations/connect/index.md) к кластеру-приемнику.
@@ -213,7 +213,7 @@
 - Шардированный кластер-приемник {#sharded}
 
   1. [Активируйте](../../data-transfer/operations/transfer.md#activate) созданный трансфер.
-  1. Дождитесь перехода трансфера в статус {{ dt-status-repl }}.
+  1. Дождитесь перехода трансфера в статус **Реплицируется**.
   1. Переведите кластер-источник в режим <q>только чтение</q> и переключите нагрузку на кластер-приемник.
   1. На странице [мониторинга трансфера](../../data-transfer/operations/monitoring.md) дождитесь снижения до нуля характеристики **Maximum data transfer delay**. Это значит, что на кластер-приемник перенесены все изменения, произошедшие в кластере-источнике после завершения копирования данных.
   1. [Подключитесь](../operations/connect/index.md) к кластеру-приемнику.
@@ -260,10 +260,10 @@
 
 Некоторые ресурсы платные. Чтобы за них не списывалась плата, удалите ресурсы, которые вы больше не будете использовать:
 
-1. [Деактивируйте](../../data-transfer/operations/transfer.md#deactivate) трансфер и дождитесь его перехода в статус {{ dt-status-stopped }}.
+1. [Деактивируйте](../../data-transfer/operations/transfer.md#deactivate) трансфер и дождитесь его перехода в статус **Остановлен**.
 
-    Подробнее о жизненном цикле трансфера читайте в [документации {{ data-transfer-full-name }}](../../data-transfer/concepts/transfer-lifecycle.md).
+    Подробнее о жизненном цикле трансфера читайте в [документации Yandex Data Transfer](../../data-transfer/concepts/transfer-lifecycle.md).
 
 1. [Удалите](../../data-transfer/operations/transfer.md#delete) остановленный трансфер.
 1. [Удалите эндпоинты для источника и приемника](../../data-transfer/operations/endpoint/index.md#delete).
-1. [Удалите созданный кластер {{ mmg-name }}](../operations/cluster-delete.md).
+1. [Удалите созданный кластер Yandex StoreDoc](../operations/cluster-delete.md).

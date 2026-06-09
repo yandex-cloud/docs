@@ -1,8 +1,8 @@
 # Настройки СУБД
 
-В сервисе {{ mgp-name }} можно задать настройки, которые относятся к СУБД. Часть настроек задается [на уровне кластера](#dbms-cluster-settings), часть — на уровне внешних источников данных: [S3](#s3-settings), [JDBC](#jdbc-settings), [HDFS](#hdfs-settings), [Hive](#hive-settings).
+В сервисе Yandex MPP Analytics for PostgreSQL можно задать настройки, которые относятся к СУБД. Часть настроек задается [на уровне кластера](#dbms-cluster-settings), часть — на уровне внешних источников данных: [S3](#s3-settings), [JDBC](#jdbc-settings), [HDFS](#hdfs-settings), [Hive](#hive-settings).
 
-Метки рядом с названием настройки позволяют определить, с помощью какого интерфейса задается значение этой настройки: консоль управления, CLI, [API](../../glossary/rest-api.md), SQL или Terraform. Метка {{ tag-all }} указывает, что поддерживаются все перечисленные интерфейсы.
+Метки рядом с названием настройки позволяют определить, с помощью какого интерфейса задается значение этой настройки: консоль управления, CLI, [API](../../glossary/rest-api.md), SQL или Terraform. Метка <code><b><small>Все интерфейсы</small></b></code> указывает, что поддерживаются все перечисленные интерфейсы.
 
 В зависимости от выбранного интерфейса одна и та же настройка будет представлена по-разному. Например, **max_connections** в консоли управления соответствует:
 
@@ -25,7 +25,7 @@
 
 Раздел содержит информацию о конфигурационных параметрах СУБД, доступных для редактирования силами пользователя, а также тех параметрах по умолчанию, которые пользователь не может редактировать.
 
-Некоторые параметры для сервиса {{ mgp-name }} отличаются от приведенных в [официальной документации](https://cloudberry.apache.org/docs/config-params-guc-list/), в частности:
+Некоторые параметры для сервиса Yandex MPP Analytics for PostgreSQL отличаются от приведенных в [официальной документации](https://cloudberry.apache.org/docs/config-params-guc-list/), в частности:
 
 - отличаются возможные (граничные) значения;
 - отличаются значения по умолчанию;
@@ -35,15 +35,15 @@
 
 Контекст параметра определяет, на каком уровне и в каком интерфейсе параметр может быть определен.
 
-Для {{ mgp-name }} используются следующие контексты параметров:
+Для Yandex MPP Analytics for PostgreSQL используются следующие контексты параметров:
 
 | Контекст | Позволяет задавать параметр через `SET` | Требует перезапуска | Описание | Интерфейс |
 | --- | --- | --- | --- | --- |
-| `user` | Да | Нет | Эти параметры можно задать для кластера или в рамках сессии с помощью команды `SET`. Любой пользователь может изменить значение параметра для своей сессии. Изменения на уровне кластера повлияют на существующие сессии только в том случае, если с помощью команды `SET` не было установлено локальное для сессии значение. | {{ tag-con }} {{ tag-cli }} {{ tag-tf }} {{ tag-api }} |
-| `backend` | Да ^*^ | Нет | Эти параметры можно задать для кластера или для конкретной сессии в пакете запроса на подключение (например, через переменную окружения `PGOPTIONS` в `libpq`). | {{ tag-con }} {{ tag-cli }} {{ tag-tf }} {{ tag-api }} |
-| `sighup` | Нет | Нет | Эти параметры можно задать только для кластера. | {{ tag-con }} {{ tag-cli }} {{ tag-tf }} {{ tag-api }} |
-| `superuser` | Нет | Нет | Эти параметры можно задать только для кластера. | {{ tag-con }} {{ tag-cli }} {{ tag-tf }} {{ tag-api }} |
-| `postmaster` | Нет | Да | Эти параметры можно задать только для кластера. | {{ tag-con }} {{ tag-cli }} {{ tag-tf }} {{ tag-api }} |
+| `user` | Да | Нет | Эти параметры можно задать для кластера или в рамках сессии с помощью команды `SET`. Любой пользователь может изменить значение параметра для своей сессии. Изменения на уровне кластера повлияют на существующие сессии только в том случае, если с помощью команды `SET` не было установлено локальное для сессии значение. | <code><b><small>Консоль управления</small></b></code> <code><b><small>CLI</small></b></code> <code><b><small>Terraform</small></b></code> <code><b><small>API</small></b></code> |
+| `backend` | Да ^*^ | Нет | Эти параметры можно задать для кластера или для конкретной сессии в пакете запроса на подключение (например, через переменную окружения `PGOPTIONS` в `libpq`). | <code><b><small>Консоль управления</small></b></code> <code><b><small>CLI</small></b></code> <code><b><small>Terraform</small></b></code> <code><b><small>API</small></b></code> |
+| `sighup` | Нет | Нет | Эти параметры можно задать только для кластера. | <code><b><small>Консоль управления</small></b></code> <code><b><small>CLI</small></b></code> <code><b><small>Terraform</small></b></code> <code><b><small>API</small></b></code> |
+| `superuser` | Нет | Нет | Эти параметры можно задать только для кластера. | <code><b><small>Консоль управления</small></b></code> <code><b><small>CLI</small></b></code> <code><b><small>Terraform</small></b></code> <code><b><small>API</small></b></code> |
+| `postmaster` | Нет | Да | Эти параметры можно задать только для кластера. | <code><b><small>Консоль управления</small></b></code> <code><b><small>CLI</small></b></code> <code><b><small>Terraform</small></b></code> <code><b><small>API</small></b></code> |
 
 ^*^ Любой пользователь может изменить такие настройки для своей сессии, однако после запуска сессии эти настройки уже не меняются. Новые значения, определенные на уровне кластера, будут применяться только к сессиям, запущенным после применения.
 
@@ -552,29 +552,29 @@ ALTER DATABASE mytest SET gp_default_storage_options = 'orientation=column, comp
 
 Доступны следующие настройки:
 
-* **Access Key**{#setting-access-key} {{ tag-con }} {{ tag-cli }} {{ tag-api }}
+* **Access Key**{#setting-access-key} <code><b><small>Консоль управления</small></b></code> <code><b><small>CLI</small></b></code> <code><b><small>API</small></b></code>
 
     Публичный ключ доступа к S3-хранилищу.
 
-* **Secret Key**{#setting-secret-key} {{ tag-con }} {{ tag-cli }} {{ tag-api }}
+* **Secret Key**{#setting-secret-key} <code><b><small>Консоль управления</small></b></code> <code><b><small>CLI</small></b></code> <code><b><small>API</small></b></code>
 
     Секретный ключ доступа к S3-хранилищу.
 
-* **Fast Upload**{#setting-fast-upload} {{ tag-con }} {{ tag-cli }} {{ tag-api }}
+* **Fast Upload**{#setting-fast-upload} <code><b><small>Консоль управления</small></b></code> <code><b><small>CLI</small></b></code> <code><b><small>API</small></b></code>
 
     Управляет быстрой загрузкой больших файлов в S3-хранилище. Если настройка выключена, PXF формирует файлы на диске перед отправкой в S3-хранилище. Если настройка включена, PXF формирует файлы в оперативной памяти (если ее не хватает, то записывает на диск).
 
     По умолчанию быстрая загрузка включена.
 
-* **Endpoint**{#setting-endpoint} {{ tag-con }} {{ tag-cli }} {{ tag-api }}
+* **Endpoint**{#setting-endpoint} <code><b><small>Консоль управления</small></b></code> <code><b><small>CLI</small></b></code> <code><b><small>API</small></b></code>
 
-    Адрес S3-хранилища. Значение для {{ objstorage-full-name }} — `{{ s3-storage-host }}`. Это значение используется по умолчанию.
+    Адрес S3-хранилища. Значение для Yandex Object Storage — `storage.yandexcloud.net`. Это значение используется по умолчанию.
 
 ## Настройки внешнего источника данных JDBC {#jdbc-settings}
 
 Доступны следующие настройки:
 
-* **Driver**{#setting-driver} {{ tag-con }} {{ tag-cli }} {{ tag-api }}
+* **Driver**{#setting-driver} <code><b><small>Консоль управления</small></b></code> <code><b><small>CLI</small></b></code> <code><b><small>API</small></b></code>
 
     Класс JDBC-драйвера в Java. Возможные значения:
 
@@ -587,63 +587,63 @@ ALTER DATABASE mytest SET gp_default_storage_options = 'orientation=column, comp
     * `net.snowflake.client.jdbc.SnowflakeDriver`
     * `io.trino.jdbc.TrinoDriver`
 
-* **Url**{#setting-url} {{ tag-con }} {{ tag-cli }} {{ tag-api }}
+* **Url**{#setting-url} <code><b><small>Консоль управления</small></b></code> <code><b><small>CLI</small></b></code> <code><b><small>API</small></b></code>
 
     URL базы данных. Примеры:
 
-    * `jdbc:mysql://mysqlhost:{{ port-mmy }}/testdb` — для локальной БД {{ MY }}.
-    * `jdbc:postgresql://c-<идентификатор_кластера>.rw.{{ dns-zone }}:{{ port-mpg }}/db1` — для кластера {{ mpg-full-name }}. Адрес содержит [особый FQDN](../../managed-postgresql/operations/connect/fqdn.md#special-fqdns) мастера в кластере.
+    * `jdbc:mysql://mysqlhost:3306/testdb` — для локальной БД MySQL®.
+    * `jdbc:postgresql://c-<идентификатор_кластера>.rw.mdb.yandexcloud.net:6432/db1` — для кластера Yandex Managed Service for PostgreSQL. Адрес содержит [особый FQDN](../../managed-postgresql/operations/connect/fqdn.md#special-fqdns) мастера в кластере.
     * `jdbc:oracle:thin:@host.example:1521:orcl` — для БД Oracle.
 
-* **User**{#setting-user} {{ tag-con }} {{ tag-cli }} {{ tag-api }}
+* **User**{#setting-user} <code><b><small>Консоль управления</small></b></code> <code><b><small>CLI</small></b></code> <code><b><small>API</small></b></code>
 
     Имя пользователя, владельца БД.
 
-* **Password**{#setting-password} {{ tag-con }} {{ tag-cli }} {{ tag-api }}
+* **Password**{#setting-password} <code><b><small>Консоль управления</small></b></code> <code><b><small>CLI</small></b></code> <code><b><small>API</small></b></code>
 
     Пароль пользователя БД.
 
-* **Statement Batch Size**{#setting-statement-batch-size} {{ tag-con }} {{ tag-cli }} {{ tag-api }}
+* **Statement Batch Size**{#setting-statement-batch-size} <code><b><small>Консоль управления</small></b></code> <code><b><small>CLI</small></b></code> <code><b><small>API</small></b></code>
 
     Количество строк в пакете для чтения из внешней таблицы.
 
     Значение по умолчанию — `100`.
 
-* **Statement Fetch Size**{#setting-statement-fetch-size} {{ tag-con }} {{ tag-cli }} {{ tag-api }}
+* **Statement Fetch Size**{#setting-statement-fetch-size} <code><b><small>Консоль управления</small></b></code> <code><b><small>CLI</small></b></code> <code><b><small>API</small></b></code>
 
     Количество строк, которые нужно поместить в буфер при чтении из внешней таблицы.
 
     Значение по умолчанию — `1000`.
 
-* **Statement Query Timeout**{#setting-statement-query-timeout} {{ tag-con }} {{ tag-cli }} {{ tag-api }}
+* **Statement Query Timeout**{#setting-statement-query-timeout} <code><b><small>Консоль управления</small></b></code> <code><b><small>CLI</small></b></code> <code><b><small>API</small></b></code>
 
     Время (в секундах), в течение которого драйвер JDBC ожидает выполнения операции чтения или записи.
 
     Значение по умолчанию — `60`.
 
-* **Pool Enabled**{#setting-pool-enabled} {{ tag-con }} {{ tag-cli }} {{ tag-api }}
+* **Pool Enabled**{#setting-pool-enabled} <code><b><small>Консоль управления</small></b></code> <code><b><small>CLI</small></b></code> <code><b><small>API</small></b></code>
 
     Определяет, используется ли пул подключений JDBC. По умолчанию используется.
 
-* **Pool Maximum Size**{#setting-pool-maximum-size} {{ tag-con }} {{ tag-cli }} {{ tag-api }}
+* **Pool Maximum Size**{#setting-pool-maximum-size} <code><b><small>Консоль управления</small></b></code> <code><b><small>CLI</small></b></code> <code><b><small>API</small></b></code>
 
     Максимальное количество подключений к серверу базы данных.
 
     Значение по умолчанию — `5`.
 
-* **Pool Connection Timeout**{#setting-pool-connection-timeout} {{ tag-con }} {{ tag-cli }} {{ tag-api }}
+* **Pool Connection Timeout**{#setting-pool-connection-timeout} <code><b><small>Консоль управления</small></b></code> <code><b><small>CLI</small></b></code> <code><b><small>API</small></b></code>
 
     Максимальное время (в миллисекундах) для ожидания подключения из пула.
 
     Значение по умолчанию — `30000`.
 
-* **Pool Idle Timeout**{#setting-pool-idle-timeout} {{ tag-con }} {{ tag-cli }} {{ tag-api }}
+* **Pool Idle Timeout**{#setting-pool-idle-timeout} <code><b><small>Консоль управления</small></b></code> <code><b><small>CLI</small></b></code> <code><b><small>API</small></b></code>
 
     Максимальное время (в миллисекундах), по истечении которого неактивное соединение считается простаивающим.
 
     Значение по умолчанию — `30000`.
 
-* **Pool Minimum Idle**{#setting-pool-minimum-idle} {{ tag-con }} {{ tag-cli }} {{ tag-api }}
+* **Pool Minimum Idle**{#setting-pool-minimum-idle} <code><b><small>Консоль управления</small></b></code> <code><b><small>CLI</small></b></code> <code><b><small>API</small></b></code>
 
     Минимальное количество простаивающих подключений в пуле.
 
@@ -653,7 +653,7 @@ ALTER DATABASE mytest SET gp_default_storage_options = 'orientation=column, comp
 
 Доступны следующие настройки:
 
-* **Core**{#setting-core} {{ tag-con }} {{ tag-api }}
+* **Core**{#setting-core} <code><b><small>Консоль управления</small></b></code> <code><b><small>API</small></b></code>
 
     Настройки файловой системы и правил безопасности.
 
@@ -667,7 +667,7 @@ ALTER DATABASE mytest SET gp_default_storage_options = 'orientation=column, comp
 
         Правила сопоставления участников Kerberos с учетными записями пользователей операционной системы.
 
-* **Kerberos**{#setting-kerberos} {{ tag-con }} {{ tag-api }}
+* **Kerberos**{#setting-kerberos} <code><b><small>Консоль управления</small></b></code> <code><b><small>API</small></b></code>
 
     Настройки сетевого протокола аутентификации Kerberos.
 
@@ -699,29 +699,29 @@ ALTER DATABASE mytest SET gp_default_storage_options = 'orientation=column, comp
 
         Содержимое keytab-файла в кодировке Base64.
 
-* **User Impersonation**{#setting-user-impersonation} {{ tag-con }} {{ tag-api }}
+* **User Impersonation**{#setting-user-impersonation} <code><b><small>Консоль управления</small></b></code> <code><b><small>API</small></b></code>
 
-    Определяет, можно ли аутентифицироваться во внешнем файловом хранилище или СУБД от лица пользователя {{ mgp-name }}.
+    Определяет, можно ли аутентифицироваться во внешнем файловом хранилище или СУБД от лица пользователя Yandex MPP Analytics for PostgreSQL.
 
     По умолчанию аутентификация запрещена.
 
-* **Username**{#setting-username} {{ tag-con }} {{ tag-api }}
+* **Username**{#setting-username} <code><b><small>Консоль управления</small></b></code> <code><b><small>API</small></b></code>
 
     Имя пользователя, с помощью которого выполняется подключение к внешнему файловому хранилищу или СУБД, если аутентификация от имени другого пользователя отключена.
 
-* **Sasl Connection Retries**{#setting-sasl-connection-retries} {{ tag-con }} {{ tag-api }}
+* **Sasl Connection Retries**{#setting-sasl-connection-retries} <code><b><small>Консоль управления</small></b></code> <code><b><small>API</small></b></code>
 
     Максимальное количество повторных попыток PXF выполнить запрос на подключение SASL, если возникла ошибка `GSS initiate failed`.
 
     Значение по умолчанию — `5`.
 
-* **ZK Hosts**{#setting-zk-hosts} {{ tag-con }} {{ tag-api }}
+* **ZK Hosts**{#setting-zk-hosts} <code><b><small>Консоль управления</small></b></code> <code><b><small>API</small></b></code>
 
     Хосты серверов ZooKeeper. Значения указываются в формате `<адрес>:<порт>`.
 
     Подробнее см. в [документации Apache Hadoop](https://hadoop.apache.org/docs/stable/hadoop-project-dist/hadoop-common/core-default.xml).
 
-* **Dfs**{#setting-dfs} {{ tag-con }} {{ tag-api }}
+* **Dfs**{#setting-dfs} <code><b><small>Консоль управления</small></b></code> <code><b><small>API</small></b></code>
 
     Настройки распределенной файловой системы.
 
@@ -743,7 +743,7 @@ ALTER DATABASE mytest SET gp_default_storage_options = 'orientation=column, comp
 
         Список логических имен HDFS-служб. Имена могут быть произвольными, разделяются запятыми.
 
-* **Yarn**{#setting-yarn} {{ tag-con }} {{ tag-api }}
+* **Yarn**{#setting-yarn} <code><b><small>Консоль управления</small></b></code> <code><b><small>API</small></b></code>
 
     Настройки службы ResourceManager, которая отслеживает ресурсы в кластере и планирует запуск приложений (например, заданий MapReduce).
 
@@ -771,7 +771,7 @@ ALTER DATABASE mytest SET gp_default_storage_options = 'orientation=column, comp
 
 Доступны следующие настройки:
 
-* **Core**{#setting-core} {{ tag-con }} {{ tag-api }}
+* **Core**{#setting-core} <code><b><small>Консоль управления</small></b></code> <code><b><small>API</small></b></code>
 
     Настройки файловой системы и правил безопасности.
 
@@ -785,7 +785,7 @@ ALTER DATABASE mytest SET gp_default_storage_options = 'orientation=column, comp
 
         Правила сопоставления участников Kerberos с учетными записями пользователей операционной системы.
 
-* **Kerberos**{#setting-kerberos} {{ tag-con }} {{ tag-api }}
+* **Kerberos**{#setting-kerberos} <code><b><small>Консоль управления</small></b></code> <code><b><small>API</small></b></code>
 
     Настройки сетевого протокола аутентификации Kerberos.
 
@@ -817,40 +817,40 @@ ALTER DATABASE mytest SET gp_default_storage_options = 'orientation=column, comp
 
         Содержимое keytab-файла в кодировке Base64.
 
-* **User Impersonation**{#setting-user-impersonation} {{ tag-con }} {{ tag-api }}
+* **User Impersonation**{#setting-user-impersonation} <code><b><small>Консоль управления</small></b></code> <code><b><small>API</small></b></code>
 
-    Определяет, можно ли аутентифицироваться во внешнем файловом хранилище или СУБД от лица пользователя {{ mgp-name }}.
+    Определяет, можно ли аутентифицироваться во внешнем файловом хранилище или СУБД от лица пользователя Yandex MPP Analytics for PostgreSQL.
 
     По умолчанию аутентификация запрещена.
 
-* **Username**{#setting-username} {{ tag-con }} {{ tag-api }}
+* **Username**{#setting-username} <code><b><small>Консоль управления</small></b></code> <code><b><small>API</small></b></code>
 
     Имя пользователя, с помощью которого выполняется подключение к внешнему файловому хранилищу или СУБД, если аутентификация от имени другого пользователя отключена.
 
-* **Sasl Connection Retries**{#setting-sasl-connection-retries} {{ tag-con }} {{ tag-api }}
+* **Sasl Connection Retries**{#setting-sasl-connection-retries} <code><b><small>Консоль управления</small></b></code> <code><b><small>API</small></b></code>
 
     Максимальное количество повторных попыток PXF выполнить запрос на подключение SASL, если возникла ошибка `GSS initiate failed`.
 
     Значение по умолчанию — `5`.
 
-* **ZK Hosts**{#setting-zk-hosts} {{ tag-con }} {{ tag-api }}
+* **ZK Hosts**{#setting-zk-hosts} <code><b><small>Консоль управления</small></b></code> <code><b><small>API</small></b></code>
 
     Хосты серверов ZooKeeper. Значения указываются в формате `<адрес>:<порт>`.
 
     Подробнее см. в [документации Apache Hadoop](https://hadoop.apache.org/docs/stable/hadoop-project-dist/hadoop-common/core-default.xml).
 
-* **Ppd**{#setting-ppd} {{ tag-con }} {{ tag-api }}
+* **Ppd**{#setting-ppd} <code><b><small>Консоль управления</small></b></code> <code><b><small>API</small></b></code>
 
     Определяет, включено ли выталкивание предикатов (predicate pushdown) для запросов к внешним таблицам. По умолчанию включено.
 
-* **Metastore Uris**{#setting-metastore-uris} {{ tag-con }} {{ tag-api }}
+* **Metastore Uris**{#setting-metastore-uris} <code><b><small>Консоль управления</small></b></code> <code><b><small>API</small></b></code>
 
     Список URI, разделенных запятыми. Чтобы запросить метаданные, внешняя СУБД подключается к Metastore по одному из этих URI.
 
-* **Metastore Kerberos Principal**{#setting-metastore-kerberos-principal} {{ tag-con }} {{ tag-api }}
+* **Metastore Kerberos Principal**{#setting-metastore-kerberos-principal} <code><b><small>Консоль управления</small></b></code> <code><b><small>API</small></b></code>
 
     Участник службы для сервера Metastore Thrift.
 
-* **Auth Kerberos Principal**{#setting-auth-kerberos-principal} {{ tag-con }} {{ tag-api }}
+* **Auth Kerberos Principal**{#setting-auth-kerberos-principal} <code><b><small>Консоль управления</small></b></code> <code><b><small>API</small></b></code>
 
     Участник сервера Kerberos.

@@ -5,7 +5,7 @@ Updates the specified ClickHouse user.
 ## HTTP request
 
 ```
-PATCH https://{{ api-host-mdb }}/managed-clickhouse/v1/clusters/{clusterId}/users/{userName}
+PATCH https://mdb.api.cloud.yandex.net/managed-clickhouse/v1/clusters/{clusterId}/users/{userName}
 ```
 
 ## Path parameters

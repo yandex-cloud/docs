@@ -7,7 +7,7 @@ Reboots the specified server.
 ## HTTP request
 
 ```
-POST https://baremetal.{{ api-host }}/baremetal/v1alpha/servers/{serverId}:reboot
+POST https://baremetal.api.cloud.yandex.net/baremetal/v1alpha/servers/{serverId}:reboot
 ```
 
 ## Path parameters

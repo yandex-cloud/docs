@@ -26,11 +26,11 @@ GROUP BY                                -- CASE проверяет список 
                                         -- через псевдоним, указанный с помощью AS.
 ```
 
-Рассмотрите пример в блоке справа и нажмите кнопку ![run](../../_assets/console-icons/play-fill.svg) **{{ ui-key.yql.yq-query-actions.run-query.button-text }}**.
-Результат выполнения запроса отобразится на вкладке **{{ ui-key.yql.yq-query-results.result.tab-text }}** в виде таблицы или схемы.
+Рассмотрите пример в блоке справа и нажмите кнопку ![run](../../_assets/console-icons/play-fill.svg) **Выполнить**.
+Результат выполнения запроса отобразится на вкладке **Результат** в виде таблицы или схемы.
 
 #### См. также {#see-also}
 
-* Оператор [SELECT]({{ ydb.docs }}/yql/reference/syntax/select)
-* Оператор [GROUP BY]({{ ydb.docs }}/yql/reference/syntax/group_by)
-* Оператор [CASE]({{ ydb.docs }}/yql/reference/syntax/expressions#case)
+* Оператор [SELECT](https://ydb.tech/docs/ru//yql/reference/syntax/select)
+* Оператор [GROUP BY](https://ydb.tech/docs/ru//yql/reference/syntax/group_by)
+* Оператор [CASE](https://ydb.tech/docs/ru//yql/reference/syntax/expressions#case)

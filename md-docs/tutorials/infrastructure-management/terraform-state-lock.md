@@ -1,23 +1,23 @@
-# Блокировка состояний {{ TF }} с помощью {{ ydb-full-name }}
+# Блокировка состояний Terraform с помощью Yandex Managed Service for YDB
 
 
-[{{ TF }}](https://www.terraform.io/) позволяет быстро создать облачную инфраструктуру в {{ yandex-cloud }} и управлять ею с помощью файлов конфигураций. В файлах конфигураций хранится описание инфраструктуры на языке HCL (HashiCorp Configuration Language). При изменении файлов конфигураций {{ TF }} автоматически определяет, какая часть вашей конфигурации уже развернута, что следует добавить или удалить.
+[Terraform](https://www.terraform.io/) позволяет быстро создать облачную инфраструктуру в Yandex Cloud и управлять ею с помощью файлов конфигураций. В файлах конфигураций хранится описание инфраструктуры на языке HCL (HashiCorp Configuration Language). При изменении файлов конфигураций Terraform автоматически определяет, какая часть вашей конфигурации уже развернута, что следует добавить или удалить.
 
-{{ TF }} распространяется под лицензией [Business Source License](https://github.com/hashicorp/terraform/blob/main/LICENSE), а [провайдер {{ yandex-cloud }} для {{ TF }}](https://github.com/yandex-cloud/terraform-provider-yandex) — под лицензией [MPL-2.0](https://www.mozilla.org/en-US/MPL/2.0/).
+Terraform распространяется под лицензией [Business Source License](https://github.com/hashicorp/terraform/blob/main/LICENSE), а [провайдер Yandex Cloud для Terraform](https://github.com/yandex-cloud/terraform-provider-yandex) — под лицензией [MPL-2.0](https://www.mozilla.org/en-US/MPL/2.0/).
 
 
-Подробнее о {{ TF }} [читайте в документации](terraform-quickstart.md#install-terraform).
+Подробнее о Terraform [читайте в документации](terraform-quickstart.md#install-terraform).
 
-Чтобы управлять инфраструктурой могли несколько пользователей одновременно, состояния {{ TF }} можно [автоматически загружать и хранить в {{ objstorage-full-name }}](terraform-state-storage.md).
+Чтобы управлять инфраструктурой могли несколько пользователей одновременно, состояния Terraform можно [автоматически загружать и хранить в Yandex Object Storage](terraform-state-storage.md).
 
-Когда несколько пользователей одновременно работают с одним состоянием, загруженным в {{ objstorage-name }}, возможны конфликты. Чтобы предотвратить их, вы можете развернуть базу данных в [{{ ydb-full-name }}](../../ydb/index.md) и использовать ее для механизма блокировок, встроенного в {{ TF }} (state locking). При каждом изменении инфраструктуры через {{ TF }} состояние будет автоматически блокироваться, пока изменение не применится.
+Когда несколько пользователей одновременно работают с одним состоянием, загруженным в Object Storage, возможны конфликты. Чтобы предотвратить их, вы можете развернуть базу данных в [Yandex Managed Service for YDB](../../ydb/index.md) и использовать ее для механизма блокировок, встроенного в Terraform (state locking). При каждом изменении инфраструктуры через Terraform состояние будет автоматически блокироваться, пока изменение не применится.
 
-Чтобы настроить хранение состояний {{ TF }} в {{ objstorage-name }} и их блокировку с помощью {{ ydb-name }}:
+Чтобы настроить хранение состояний Terraform в Object Storage и их блокировку с помощью Managed Service for YDB:
 1. [Подготовьте облако к работе](#before-you-begin).
 1. [Создайте сервисный аккаунт и статический ключ доступа](#create-service-account).
 1. [Создайте бакет](#create-service-account).
-1. [Создайте БД {{ ydb-name }}](#db-create).
-1. [Установите и настройте {{ TF }}](#prepare-terraform).
+1. [Создайте БД Managed Service for YDB](#db-create).
+1. [Установите и настройте Terraform](#prepare-terraform).
 1. [Настройте бэкенд](#set-up-backend).
 1. [Разверните конфигурацию](#deploy).
 1. [Проверьте сохраненное состояние](#check-condition).
@@ -27,25 +27,25 @@
 
 ## Подготовьте облако к работе {#before-you-begin}
 
-Зарегистрируйтесь в {{ yandex-cloud }} и создайте [платежный аккаунт](../../billing/concepts/billing-account.md):
-1. Перейдите в [консоль управления]({{ link-console-main }}), затем войдите в {{ yandex-cloud }} или зарегистрируйтесь.
-1. На странице **[{{ ui-key.yacloud_billing.billing.label_service }}]({{ link-console-billing }})** убедитесь, что у вас подключен платежный аккаунт, и он находится в [статусе](../../billing/concepts/billing-account-statuses.md) `ACTIVE` или `TRIAL_ACTIVE`. Если платежного аккаунта нет, [создайте его](../../billing/quickstart/index.md) и [привяжите](../../billing/operations/pin-cloud.md) к нему облако.
+Зарегистрируйтесь в Yandex Cloud и создайте [платежный аккаунт](../../billing/concepts/billing-account.md):
+1. Перейдите в [консоль управления](https://console.yandex.cloud), затем войдите в Yandex Cloud или зарегистрируйтесь.
+1. На странице **[Yandex Cloud Billing](https://center.yandex.cloud/billing/accounts)** убедитесь, что у вас подключен платежный аккаунт, и он находится в [статусе](../../billing/concepts/billing-account-statuses.md) `ACTIVE` или `TRIAL_ACTIVE`. Если платежного аккаунта нет, [создайте его](../../billing/quickstart/index.md) и [привяжите](../../billing/operations/pin-cloud.md) к нему облако.
 
-Если у вас есть активный платежный аккаунт, вы можете создать или выбрать [каталог](../../resource-manager/concepts/resources-hierarchy.md#folder), в котором будет работать ваша инфраструктура, на [странице облака]({{ link-console-cloud }}).
+Если у вас есть активный платежный аккаунт, вы можете создать или выбрать [каталог](../../resource-manager/concepts/resources-hierarchy.md#folder), в котором будет работать ваша инфраструктура, на [странице облака](https://console.yandex.cloud/cloud).
 
 [Подробнее об облаках и каталогах](../../resource-manager/concepts/resources-hierarchy.md).
 
 ### Необходимые платные ресурсы {#paid-resources}
 
-В стоимость поддержки инфраструктуры для работы с состояниями {{ TF }} входят:
-* Плата за хранение данных (см. [тарифы {{ objstorage-name }}](../../storage/pricing.md#prices-storage)).
-* Плата за выполнение запросов к БД (см. [тарифы {{ ydb-name }}](../../ydb/pricing/serverless.md)).
+В стоимость поддержки инфраструктуры для работы с состояниями Terraform входят:
+* Плата за хранение данных (см. [тарифы Object Storage](../../storage/pricing.md#prices-storage)).
+* Плата за выполнение запросов к БД (см. [тарифы Managed Service for YDB](../../ydb/pricing/serverless.md)).
 
-В стоимость поддержки инфраструктуры, разворачиваемой через {{ TF }} в этом руководстве в качестве примера, входят:
-* Плата за постоянно запущенную [виртуальную машину](../../compute/concepts/vm.md) (см. [тарифы {{ compute-full-name }}](../../compute/pricing.md)).
-* Плата за использование динамического [публичного IP-адреса](../../vpc/concepts/address.md#public-addresses) (см. [тарифы {{ vpc-full-name }}](../../vpc/pricing.md)).
+В стоимость поддержки инфраструктуры, разворачиваемой через Terraform в этом руководстве в качестве примера, входят:
+* Плата за постоянно запущенную [виртуальную машину](../../compute/concepts/vm.md) (см. [тарифы Yandex Compute Cloud](../../compute/pricing.md)).
+* Плата за использование динамического [публичного IP-адреса](../../vpc/concepts/address.md#public-addresses) (см. [тарифы Yandex Virtual Private Cloud](../../vpc/pricing.md)).
 
-Если вы разворачиваете ресурсы других сервисов {{ yandex-cloud }}, стоимость изменится в соответствии с [тарифами](https://yandex.cloud/ru/prices) этих сервисов.
+Если вы разворачиваете ресурсы других сервисов Yandex Cloud, стоимость изменится в соответствии с [тарифами](https://yandex.cloud/ru/prices) этих сервисов.
 
 ## Создайте сервисный аккаунт и статический ключ доступа {#create-service-account}
 
@@ -54,9 +54,9 @@
 
 ## Создайте бакет {#create-service-account}
 
-[Создайте бакет](../../storage/operations/buckets/create.md) с ограниченным доступом. В нем будет храниться файл состояния {{ TF }}.
+[Создайте бакет](../../storage/operations/buckets/create.md) с ограниченным доступом. В нем будет храниться файл состояния Terraform.
 
-## Создайте базу данных {{ ydb-name }} {#db-create}
+## Создайте базу данных Managed Service for YDB {#db-create}
 
 [Создайте](../../ydb/operations/manage-databases.md#create-db-serverless) [Serverless](../../ydb/concepts/resources.md#serverless) [БД](../../ydb/concepts/resources.md#database) с именем `state-lock-db`.
 
@@ -66,8 +66,8 @@
 
 - Консоль управления {#console}
 
-  1. В [консоли управления]({{ link-console-main }}) выберите каталог, в котором находится ваша БД.
-  1. Перейдите в сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_ydb }}**.
+  1. В [консоли управления](https://console.yandex.cloud) выберите каталог, в котором находится ваша БД.
+  1. Перейдите в сервис **Managed Service for&nbsp;YDB**.
   1. В списке БД выберите `state-lock-db`.
   1. Перейдите на вкладку **Навигация**.
   1. В правом верхнем углу нажмите **Создать** и выберите **Таблица**.
@@ -108,19 +108,19 @@
 
 {% endlist %}
 
-## Установите и настройте {{ TF }} {#prepare-terraform}
+## Установите и настройте Terraform {#prepare-terraform}
 
-## Установите и настройте {{ TF }} {#prepare-terraform}
+## Установите и настройте Terraform {#prepare-terraform}
 
-### Установите {{ TF }} {#install-terraform}
+### Установите Terraform {#install-terraform}
 
 {% list tabs group=operating_system %}
 
 - Windows {#windows}
 
   Используйте один из способов:
-  * [Скачайте дистрибутив {{ TF }}](https://www.terraform.io/downloads.html) и установите его согласно [инструкции](https://learn.hashicorp.com/tutorials/terraform/install-cli?in=terraform/aws-get-started).
-  * Установите {{ TF }} с помощью пакетного менеджера [Chocolatey](https://chocolatey.org/install), используя команду:
+  * [Скачайте дистрибутив Terraform](https://www.terraform.io/downloads.html) и установите его согласно [инструкции](https://learn.hashicorp.com/tutorials/terraform/install-cli?in=terraform/aws-get-started).
+  * Установите Terraform с помощью пакетного менеджера [Chocolatey](https://chocolatey.org/install), используя команду:
 
     ```bash
     choco install terraform
@@ -128,13 +128,13 @@
 
 - Linux {#linux}
 
-  [Скачайте дистрибутив {{ TF }}](https://www.terraform.io/downloads.html) и установите его согласно [инструкции](https://learn.hashicorp.com/tutorials/terraform/install-cli?in=terraform/aws-get-started).
+  [Скачайте дистрибутив Terraform](https://www.terraform.io/downloads.html) и установите его согласно [инструкции](https://learn.hashicorp.com/tutorials/terraform/install-cli?in=terraform/aws-get-started).
 
 - macOS {#macos}
 
   Используйте один из способов:
-  * [Скачайте дистрибутив {{ TF }}](https://www.terraform.io/downloads.html) и установите его согласно [инструкции](https://learn.hashicorp.com/tutorials/terraform/install-cli?in=terraform/aws-get-started).
-  * Установите {{ TF }} с помощью пакетного менеджера [Homebrew](https://brew.sh), используя команду:
+  * [Скачайте дистрибутив Terraform](https://www.terraform.io/downloads.html) и установите его согласно [инструкции](https://learn.hashicorp.com/tutorials/terraform/install-cli?in=terraform/aws-get-started).
+  * Установите Terraform с помощью пакетного менеджера [Homebrew](https://brew.sh), используя команду:
 
     ```bash
     brew install terraform
@@ -144,11 +144,11 @@
 
 ### Получите данные для аутентификации {#get-credentials}
 
-Чтобы управлять инфраструктурой {{ yandex-cloud }} с помощью {{ TF }}, используйте [сервисный аккаунт](../../iam/concepts/users/service-accounts.md). Это позволит гибко настраивать права доступа к ресурсам.
+Чтобы управлять инфраструктурой Yandex Cloud с помощью Terraform, используйте [сервисный аккаунт](../../iam/concepts/users/service-accounts.md). Это позволит гибко настраивать права доступа к ресурсам.
 
-Также вы можете использовать {{ TF }} от имени [аккаунта на Яндексе](../../iam/concepts/users/accounts.md#passport), [федеративного](../../iam/concepts/users/accounts.md#saml-federation) или [локального](../../iam/concepts/users/accounts.md#local) пользователя, однако этот способ является менее безопасным. Подробности см. в конце раздела.
+Также вы можете использовать Terraform от имени [аккаунта на Яндексе](../../iam/concepts/users/accounts.md#passport), [федеративного](../../iam/concepts/users/accounts.md#saml-federation) или [локального](../../iam/concepts/users/accounts.md#local) пользователя, однако этот способ является менее безопасным. Подробности см. в конце раздела.
 
-1. Если у вас еще нет интерфейса командной строки {{ yandex-cloud }}, [установите](../../cli/quickstart.md#install) его.
+1. Если у вас еще нет интерфейса командной строки Yandex Cloud, [установите](../../cli/quickstart.md#install) его.
 
 1. Настройте профиль CLI для выполнения операций от имени сервисного аккаунта:
 
@@ -240,7 +240,7 @@
     
     {% note info %}
     
-    [Время жизни](../../iam/concepts/authorization/iam-token.md#lifetime) IAM-токена — не больше {{ iam-token-lifetime }}, но рекомендуется запрашивать его чаще, например каждый час.
+    [Время жизни](../../iam/concepts/authorization/iam-token.md#lifetime) IAM-токена — не больше 12 часов, но рекомендуется запрашивать его чаще, например каждый час.
     
     Для автоматического перевыпуска IAM-токена можно использовать скрипт `export IAM_TOKEN=$(yc iam create-token)`.
     
@@ -254,7 +254,7 @@
 
 {% endnote %}
 
-Если у вас еще нет интерфейса командной строки {{ yandex-cloud }} (CLI), [установите и инициализируйте его](../../cli/quickstart.md#install).
+Если у вас еще нет интерфейса командной строки Yandex Cloud (CLI), [установите и инициализируйте его](../../cli/quickstart.md#install).
 
 По умолчанию используется каталог, указанный при [создании](../../cli/operations/profile/profile-create.md) профиля CLI. Чтобы изменить каталог по умолчанию, используйте команду `yc config set folder-id <идентификатор_каталога>`. Также для любой команды вы можете указать другой каталог с помощью параметров `--folder-name` или `--folder-id`. Если вы обращаетесь к ресурсу по имени, поиск будет выполнен в каталоге по умолчанию. Если вы обращаетесь к ресурсу по идентификатору, поиск будет выполнен глобально — во всех каталогах с учетом прав доступа.
 
@@ -297,7 +297,7 @@
 
 {% note info %}
 
-[Время жизни](../../iam/concepts/authorization/iam-token.md#lifetime) IAM-токена — не больше {{ iam-token-lifetime }}, но рекомендуется запрашивать его чаще, например каждый час.
+[Время жизни](../../iam/concepts/authorization/iam-token.md#lifetime) IAM-токена — не больше 12 часов, но рекомендуется запрашивать его чаще, например каждый час.
 
 Для автоматического перевыпуска IAM-токена можно использовать скрипт `export IAM_TOKEN=$(yc iam create-token)`.
 
@@ -305,16 +305,16 @@
 
 {% endcut %}
 
-### Создайте файл конфигурации {{ TF }} {#configure-terraform}
+### Создайте файл конфигурации Terraform {#configure-terraform}
 
-1. Создайте директорию с произвольным названием, например `cloud-terraform`. В ней будут храниться конфигурационные файлы {{ TF }}.
+1. Создайте директорию с произвольным названием, например `cloud-terraform`. В ней будут храниться конфигурационные файлы Terraform.
 1. Создайте в этой директории конфигурационный файл с расширением `.tf`, например `example.tf`.
 
 ### Настройте провайдер {#configure-provider}
 
 {% note info %}
 
-Настройки применимы для {{ TF }} `0.13` и более поздних версий. Рекомендуется использовать последнюю стабильную версию {{ TF }}.
+Настройки применимы для Terraform `0.13` и более поздних версий. Рекомендуется использовать последнюю стабильную версию Terraform.
 
 {% endnote %}
 
@@ -342,7 +342,7 @@
 
    - Linux/macOS {#linux-macos}
 
-     Откройте файл конфигурации {{ TF }} CLI:
+     Откройте файл конфигурации Terraform CLI:
 
      ```bash
      nano ~/.terraformrc
@@ -356,7 +356,7 @@
 
    - Windows {#windows}
 
-     Откройте файл конфигурации {{ TF }} CLI `terraform.rc` в папке `%APPDATA%` вашего пользователя.
+     Откройте файл конфигурации Terraform CLI `terraform.rc` в папке `%APPDATA%` вашего пользователя.
 
      Чтобы узнать абсолютный путь к папке `%APPDATA%`, выполните команду `echo %APPDATA%` для cmd или `$env:APPDATA` для PowerShell.
 
@@ -399,12 +399,12 @@
 
    Где:
    * `source` — глобальный [адрес источника](https://www.terraform.io/docs/language/providers/requirements.html#source-addresses) провайдера.
-   * `required_version` — минимальная версия {{ TF }}, с которой совместим провайдер.
+   * `required_version` — минимальная версия Terraform, с которой совместим провайдер.
    * `provider` — название провайдера.
    * `zone` — [зона доступности](../../overview/concepts/geo-scope.md), в которой по умолчанию будут создаваться все облачные ресурсы.
 1. Выполните команду `terraform init` в папке с конфигурационным файлом `.tf`. Эта команда инициализирует провайдеров, указанных в конфигурационных файлах, и позволяет работать с ресурсами и источниками данных провайдера.
 
-Если провайдер не установился, создайте обращение в [поддержку]({{ link-console-support }}) с именем и версией провайдера.
+Если провайдер не установился, создайте обращение в [поддержку](https://center.yandex.cloud/support) с именем и версией провайдера.
 
 Если вы использовали файл `.terraform.lock.hcl`, перед инициализацией выполните команду `terraform providers lock`, указав адрес зеркала, откуда будет загружаться провайдер, и платформы, на которых будет использоваться конфигурация:
 
@@ -419,27 +419,27 @@ terraform providers lock -net-mirror=https://terraform-mirror.yandexcloud.net -p
   * `linux_amd64` — 64-bit Linux.
   * `darwin_arm64` — 64-bit macOS.
 
-Если вы использовали [модули {{ TF }}](terraform-modules.md), сначала выполните `terraform init`, затем удалите lock-файл, а затем выполните команду `terraform providers lock`.
+Если вы использовали [модули Terraform](terraform-modules.md), сначала выполните `terraform init`, затем удалите lock-файл, а затем выполните команду `terraform providers lock`.
 
-Более подробную информацию о команде `terraform providers lock` см. в [документации {{ TF }}](https://developer.hashicorp.com/terraform/cli/commands/providers/lock).
+Более подробную информацию о команде `terraform providers lock` см. в [документации Terraform](https://developer.hashicorp.com/terraform/cli/commands/providers/lock).
 
 ## Настройте бэкенд {#set-up-backend}
 
 {% note info %}
 
-Настройки бэкенда применимы для {{ TF }} `1.6.3` и более поздних версий.
+Настройки бэкенда применимы для Terraform `1.6.3` и более поздних версий.
 
 {% endnote %}
 
 {% note warning %}
 
-Начиная с {{ TF }} версии `1.11`, блокировка состояния через [Document API](../../ydb/docapi/api-ref/index.md) объявлена устаревшей и будет удалена в одной из ближайших минорных  версий. Если вы используете {{ TF }} версии `1.11` и выше, следите за официальными обновлениями в [документации {{ TF }}](https://developer.hashicorp.com/terraform/language/backend/s3).
+Начиная с Terraform версии `1.11`, блокировка состояния через [Document API](../../ydb/docapi/api-ref/index.md) объявлена устаревшей и будет удалена в одной из ближайших минорных  версий. Если вы используете Terraform версии `1.11` и выше, следите за официальными обновлениями в [документации Terraform](https://developer.hashicorp.com/terraform/language/backend/s3).
 
 Для пользователей [OpenTofu](https://opentofu.org/) оба механизма блокировки поддерживаются и не планируются к удалению.    
 
 {% endnote %}   
 
-Чтобы сохранить состояние {{ TF }} в {{ objstorage-name }} и активировать блокировку состояний:
+Чтобы сохранить состояние Terraform в Object Storage и активировать блокировку состояний:
 1. Добавьте в переменные окружения идентификатор ключа и секретный ключ, [полученные ранее](#create-service-account):
 
    {% list tabs group=programming_language %}
@@ -473,19 +473,19 @@ terraform providers lock -net-mirror=https://terraform-mirror.yandexcloud.net -p
 
      backend "s3" {
        endpoints = {
-         s3       = "https://{{ s3-storage-host }}"
+         s3       = "https://storage.yandexcloud.net"
          dynamodb = "<эндпоинт_Document_API_БД>"
        }
        bucket            = "<имя_бакета>"
-       region            = "{{ region-id }}"
+       region            = "ru-central1"
        key               = "<путь_к_файлу_состояния_в_бакете>/<имя_файла_состояния>.tfstate"
 
        dynamodb_table = "<имя_таблицы>"
 
        skip_region_validation      = true
        skip_credentials_validation = true
-       skip_requesting_account_id  = true # Необходимая опция {{ TF }} для версии 1.6.1 и старше.
-       skip_s3_checksum            = true # Необходимая опция при описании бэкенда для {{ TF }} версии 1.6.3 и старше.
+       skip_requesting_account_id  = true # Необходимая опция Terraform для версии 1.6.1 и старше.
+       skip_s3_checksum            = true # Необходимая опция при описании бэкенда для Terraform версии 1.6.3 и старше.
      }
    }
 
@@ -498,11 +498,11 @@ terraform providers lock -net-mirror=https://terraform-mirror.yandexcloud.net -p
 
    Где:
    * `bucket` — имя [бакета](../../storage/concepts/bucket.md).
-   * `dynamodb` — Document API базы данных, в формате `https://docapi.serverless.yandexcloud.net/{{ region-id }}/b1gia87mbaom********`:
-   * `key` — ключ объекта в бакете: путь и имя к файлу состояния {{ TF }} в бакете.
+   * `dynamodb` — Document API базы данных, в формате `https://docapi.serverless.yandexcloud.net/ru-central1/b1gia87mbaom********`:
+   * `key` — ключ объекта в бакете: путь и имя к файлу состояния Terraform в бакете.
    * `dynamodb_table` — имя таблицы.
 
-   Подробнее о бэкенде для хранения состояний читайте на [сайте {{ TF }}](https://www.terraform.io/docs/backends/types/s3.html).
+   Подробнее о бэкенде для хранения состояний читайте на [сайте Terraform](https://www.terraform.io/docs/backends/types/s3.html).
 1. В папке с конфигурационным файлом выполните команду:
 
     ```bash
@@ -512,7 +512,7 @@ terraform providers lock -net-mirror=https://terraform-mirror.yandexcloud.net -p
 
 ## Разверните конфигурацию {#deploy}
 
-В этом примере будет создана ВМ `terraform-vm`, которая будет подключена к [подсети](../../vpc/concepts/network.md#subnet) `subnet-1` в [зоне доступности](../../overview/concepts/geo-scope.md) `{{ region-id }}-d`. Подсеть будет принадлежать облачной [сети](../../vpc/concepts/network.md#network) `network-1`.
+В этом примере будет создана ВМ `terraform-vm`, которая будет подключена к [подсети](../../vpc/concepts/network.md#subnet) `subnet-1` в [зоне доступности](../../overview/concepts/geo-scope.md) `ru-central1-d`. Подсеть будет принадлежать облачной [сети](../../vpc/concepts/network.md#network) `network-1`.
 
 У ВМ будет: 2 ядра и 4 ГБ оперативной памяти и она автоматически получит публичный и [приватный IP-адреса](../../vpc/concepts/address.md#internal-addresses) из диапазона `192.168.10.0/24` в подсети `subnet-1`. На ВМ будет установлена операционная система Ubuntu и размещена публичная часть ключа для доступа по [SSH](../../glossary/ssh-keygen.md).
 1. Сохраните следующую конфигурацию в отдельном файле `example-vm.tf` в папке с файлом конфигурации бэкенда:
@@ -525,7 +525,7 @@ terraform providers lock -net-mirror=https://terraform-mirror.yandexcloud.net -p
    resource "yandex_compute_disk" "boot-disk" {
      name     = "boot-disk"
      type     = "network-hdd"
-     zone     = "{{ region-id }}-d"
+     zone     = "ru-central1-d"
      size     = "20"
      image_id = yandex_compute_image.ubuntu_2004.id
    }
@@ -558,7 +558,7 @@ terraform providers lock -net-mirror=https://terraform-mirror.yandexcloud.net -p
 
    resource "yandex_vpc_subnet" "subnet-1" {
      name           = "subnet1"
-     zone           = "{{ region-id }}-d"
+     zone           = "ru-central1-d"
      network_id     = yandex_vpc_network.network-1.id
      v4_cidr_blocks = ["192.168.10.0/24"]
    }
@@ -581,22 +581,22 @@ terraform providers lock -net-mirror=https://terraform-mirror.yandexcloud.net -p
 
 ## Проверьте сохраненное состояние {#check-condition}
 
-Убедитесь, что файл состояния загружен в [{{ objstorage-full-name }}](../../storage/index.md):
+Убедитесь, что файл состояния загружен в [Yandex Object Storage](../../storage/index.md):
 
 {% list tabs group=instructions %}
 
 - Консоль управления {#console}
 
-  1. Откройте [консоль управления]({{ link-console-main }}) и выберите [каталог](../../resource-manager/concepts/resources-hierarchy.md#folder), в котором находится созданный [бакет](../../storage/concepts/bucket.md).
-  1. Перейдите в сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_storage }}**.
-  1. В списке бакетов выберите тот, в котором должно было сохраниться состояние {{ TF }}.
+  1. Откройте [консоль управления](https://console.yandex.cloud) и выберите [каталог](../../resource-manager/concepts/resources-hierarchy.md#folder), в котором находится созданный [бакет](../../storage/concepts/bucket.md).
+  1. Перейдите в сервис **Object Storage**.
+  1. В списке бакетов выберите тот, в котором должно было сохраниться состояние Terraform.
   1. Убедитесь, что в бакете появился файл состояния.
 
 {% endlist %}
 
 ## Проверьте блокировку состояния {#check-state-lock}
 
-Попробуйте изменить инфраструктуру одновременно с другим пользователем. Если все работает, {{ TF }} вернет следующее сообщение после выполнения команды `terraform apply`:
+Попробуйте изменить инфраструктуру одновременно с другим пользователем. Если все работает, Terraform вернет следующее сообщение после выполнения команды `terraform apply`:
 
 ```text
 member Error: Error acquiring the state lock
@@ -611,7 +611,7 @@ member   Version:   1.4.2
 member   Created:   <...>
 member   Info:
 
-member {{ TF }} acquires a state lock to protect the state from being written
+member Terraform acquires a state lock to protect the state from being written
 member by multiple users at the same time. Please resolve the issue above and try
 member again. For most commands, you can disable locking with the "-lock=false"
 member flag, but this is not recommended.
@@ -626,7 +626,7 @@ member flag, but this is not recommended.
 
 ## См. также {#see-also}
 
-* [Начало работы с {{ TF }}](terraform-quickstart.md).
-* [Загрузка состояний {{ TF }} в {{ objstorage-name }}](terraform-state-storage.md).
-* [Использование модулей {{ yandex-cloud }} в {{ TF }}](terraform-modules.md).
-* [Источники данных {{ TF }}](terraform-data-sources.md).
+* [Начало работы с Terraform](terraform-quickstart.md).
+* [Загрузка состояний Terraform в Object Storage](terraform-state-storage.md).
+* [Использование модулей Yandex Cloud в Terraform](terraform-modules.md).
+* [Источники данных Terraform](terraform-data-sources.md).

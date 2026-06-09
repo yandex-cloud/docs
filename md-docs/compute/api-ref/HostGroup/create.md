@@ -5,7 +5,7 @@ Creates a host group in the specified folder.
 ## HTTP request
 
 ```
-POST https://compute.{{ api-host }}/compute/v1/hostGroups
+POST https://compute.api.cloud.yandex.net/compute/v1/hostGroups
 ```
 
 ## Body parameters {#yandex.cloud.compute.v1.CreateHostGroupRequest}

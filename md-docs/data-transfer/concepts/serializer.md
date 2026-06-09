@@ -2,16 +2,16 @@
 
 Сериализация — процесс преобразования объекта данных в битовую последовательность во время передачи в приемники, которые работают с <q>сырыми</q> данными. К таким приемникам относятся:
 
-* [{{ objstorage-name }}](#serializer-s3)
-* [Очереди сообщений {{ KF }} и {{ yds-full-name }}](#serializer-message-queue)
+* [Object Storage](#serializer-s3)
+* [Очереди сообщений Apache Kafka® и Yandex Data Streams](#serializer-message-queue)
 
 Сериализацию можно настроить во время [создания](../operations/endpoint/index.md#create) или [изменения](../operations/endpoint/index.md#update) эндпоинта-приемника.
 
-## Сериализация при поставке в {{ objstorage-name }} {#serializer-s3}
+## Сериализация при поставке в Object Storage {#serializer-s3}
 
-При поставке в {{ objstorage-name }} вы можете выбрать **{{ ui-key.yc-data-transfer.data-transfer.console.form.object_storage.console.form.object_storage.ObjectStorageTarget.output_format.title }}**: `{{ ui-key.yc-data-transfer.data-transfer.console.form.object_storage.console.form.object_storage.ObjectStorageSerializationFormatUI.OBJECT_STORAGE_SERIALIZATION_FORMAT_JSON.title }}`, `{{ ui-key.yc-data-transfer.data-transfer.console.form.object_storage.console.form.object_storage.ObjectStorageSerializationFormatUI.OBJECT_STORAGE_SERIALIZATION_FORMAT_CSV.title }}`, `PARQUET` или `{{ ui-key.yc-data-transfer.data-transfer.console.form.object_storage.console.form.object_storage.ObjectStorageSerializationFormatUI.OBJECT_STORAGE_SERIALIZATION_FORMAT_RAW.title }}`. Для `{{ ui-key.yc-data-transfer.data-transfer.console.form.object_storage.console.form.object_storage.ObjectStorageSerializationFormatUI.OBJECT_STORAGE_SERIALIZATION_FORMAT_JSON.title }}` доступна настройка **{{ ui-key.yc-data-transfer.data-transfer.console.form.object_storage.console.form.object_storage.ObjectStorageTarget.any_as_string.title }}**.
+При поставке в Object Storage вы можете выбрать **Выходной формат**: `JSON`, `CSV`, `PARQUET` или `Сырые данные`. Для `JSON` доступна настройка **Преобразовать комплексные значения в строки**.
 
-Выходной формат данных зависит не только от выбора настройки **{{ ui-key.yc-data-transfer.data-transfer.console.form.object_storage.console.form.object_storage.ObjectStorageTarget.output_format.title }}**, но и от типа и настроек правил конвертации эндпоинта-источника.
+Выходной формат данных зависит не только от выбора настройки **Выходной формат**, но и от типа и настроек правил конвертации эндпоинта-источника.
 
 Ниже представлены различия выходных данных при отсутствии правил конвертации для эндпоинта-источника.
 
@@ -21,7 +21,7 @@
 
 {% endnote %}
 
-### {{ yds-full-name }} {#yds}
+### Yandex Data Streams {#yds}
 
 Входные данные — два сообщения:
 
@@ -34,21 +34,21 @@ Text string
 
 {% list tabs %}
 
-- {{ ui-key.yc-data-transfer.data-transfer.console.form.object_storage.console.form.object_storage.ObjectStorageSerializationFormatUI.OBJECT_STORAGE_SERIALIZATION_FORMAT_JSON.title }}
+- JSON
 
     ```text
     {"data":"Text string","partition":<ключ_сегмента>,"seq_no":<порядковый_номер_сообщения>,"topic":"<имя_потока>","write_time":"<дата_и_время_записи_данных>"}
     {"data":"{\"device_id\":\"iv9\",\"speed\":5}","partition":<ключ_сегмента>,"seq_no":<порядковый_номер_сообщения>,"topic":"<имя_потока>","write_time":"<дата_и_время_записи_данных>"}
     ```
 
-- {{ ui-key.yc-data-transfer.data-transfer.console.form.object_storage.console.form.object_storage.ObjectStorageSerializationFormatUI.OBJECT_STORAGE_SERIALIZATION_FORMAT_CSV.title }}
+- CSV
 
     ```text
     <имя_потока>,<ключ_сегмента>,<порядковый_номер_сообщения>,<дата_и_время_записи_данных>,Text string
     <имя_потока>,<ключ_сегмента>,<порядковый_номер_сообщения>,<дата_и_время_записи_данных>,"{""device_id"":""iv9"",""speed"":5}"
     ```
 
-- {{ ui-key.yc-data-transfer.data-transfer.console.form.object_storage.console.form.object_storage.ObjectStorageSerializationFormatUI.OBJECT_STORAGE_SERIALIZATION_FORMAT_RAW.title }}
+- Сырые данные
 
     ```text
     Text string
@@ -57,7 +57,7 @@ Text string
 
 {% endlist %}
 
-### {{ mpg-name }} {#pg}
+### Managed Service for PostgreSQL {#pg}
 
 Входные данные — таблица:
 
@@ -70,21 +70,21 @@ Text string
 
 {% list tabs %}
 
-- {{ ui-key.yc-data-transfer.data-transfer.console.form.object_storage.console.form.object_storage.ObjectStorageSerializationFormatUI.OBJECT_STORAGE_SERIALIZATION_FORMAT_JSON.title }}
+- JSON
 
     ```text
     {"device_id":"iv9","speed":5}
     {"device_id":"rhi","speed":10}
     ```
 
-- {{ ui-key.yc-data-transfer.data-transfer.console.form.object_storage.console.form.object_storage.ObjectStorageSerializationFormatUI.OBJECT_STORAGE_SERIALIZATION_FORMAT_CSV.title }}
+- CSV
 
     ```text
     iv9,5,
     rhi,10,
     ````
 
-- {{ ui-key.yc-data-transfer.data-transfer.console.form.object_storage.console.form.object_storage.ObjectStorageSerializationFormatUI.OBJECT_STORAGE_SERIALIZATION_FORMAT_RAW.title }}
+- Сырые данные
 
     Не поддерживается.
 
@@ -94,20 +94,20 @@ Text string
 
 При поставке в очередь сообщений вы можете использовать сериализацию двух типов:
 
-* [{{ ui-key.yc-data-transfer.data-transfer.console.form.common.console.form.common.Serializer.serializer_auto.title }}](#auto)
-* [{{ ui-key.yc-data-transfer.data-transfer.console.form.common.console.form.common.Serializer.serializer_debezium.title }}](#debezium)
+* [Auto](#auto)
+* [Debezium](#debezium)
 
-### {{ ui-key.yc-data-transfer.data-transfer.console.form.common.console.form.common.Serializer.serializer_auto.title }} {#auto}
+### Auto {#auto}
 
 Автоматический выбор настроек сериализации в зависимости от типа источника.
 
-### {{ ui-key.yc-data-transfer.data-transfer.console.form.common.console.form.common.Serializer.serializer_debezium.title }} {#debezium}
+### Debezium {#debezium}
 
 Сериализация [Debezium](https://debezium.io/) с возможностью настройки ее параметров:
 
 * **dt.add.original.type.info** — определяет, добавлять ли информацию об исходных типах данных, чтобы восстановить их тип после переноса.
 
-    Исключение — типы данных даты и времени {{ PG }} `with time zone`. Информацию о часовом поясе восстановить невозможно.
+    Исключение — типы данных даты и времени PostgreSQL `with time zone`. Информацию о часовом поясе восстановить невозможно.
 
     Значение по умолчанию — `false`.
 
@@ -115,7 +115,7 @@ Text string
 
     Значение по умолчанию — `0` байт (пакетирование отключено). Рекомендуемое значение — `1048576` байт (1 МБ). Ненулевое значение включает пакетирование.
 
-    Настройка актуальна, если используется JSON-сериализация со {{ schema-registry-name }} (см. параметры **key.converter** и **value.converter**). При использовании {{ schema-registry-name }} сообщения, приходящие в очередь, могут стать очень маленькими. Пакетирование в таком случае позволяет увеличить пропускную способность очередей.
+    Настройка актуальна, если используется JSON-сериализация со Schema Registry (см. параметры **key.converter** и **value.converter**). При использовании Schema Registry сообщения, приходящие в очередь, могут стать очень маленькими. Пакетирование в таком случае позволяет увеличить пропускную способность очередей.
 
     При включенном пакетировании в одно сообщение очереди помещаются последовательно несколько логических сообщений в формате [Confluent wire format](https://docs.confluent.io/cloud/current/sr/fundamentals/serdes-develop/index.html#wire-format). Данные, сериализованные таким образом, можно однозначно декодировать.
 
@@ -129,7 +129,7 @@ Text string
 
     {% endnote %}
 
-* **dt.mysql.timezone** — часовой пояс для типов данных даты и времени {{ MY }} в формате [IANA](https://www.iana.org/time-zones).
+* **dt.mysql.timezone** — часовой пояс для типов данных даты и времени MySQL® в формате [IANA](https://www.iana.org/time-zones).
 
     Значение по умолчанию — `UTC`.
 
@@ -188,12 +188,12 @@ Text string
 
     Чтобы сохранять полную транзитивную совместимость при добавлении и удалении опциональных полей в схеме ключа:
 
-    1. Выберите в пространстве имен {{ schema-registry-name }} политику проверки совместимости `Optional-friendly`.
-    1. В настройках сериализации эндпоинта-приемника {{ mkf-name }} [задайте настройку](../operations/endpoint/target/kafka.md#serializer) **key.converter.dt.json.generate.closed.content.schema** — `true`.
+    1. Выберите в пространстве имен Schema Registry политику проверки совместимости `Optional-friendly`.
+    1. В настройках сериализации эндпоинта-приемника Managed Service for Apache Kafka® [задайте настройку](../operations/endpoint/target/kafka.md#serializer) **key.converter.dt.json.generate.closed.content.schema** — `true`.
 
     Чтобы сохранять полную транзитивную совместимость при добавлении и удалении опциональных полей в схеме значения:
 
-    1. Выберите в пространстве имен {{ schema-registry-name }} политику проверки совместимости `Optional-friendly`.
+    1. Выберите в пространстве имен Schema Registry политику проверки совместимости `Optional-friendly`.
     1. В настройках сериализации эндпоинта-приемника [задайте настройку](../operations/endpoint/target/kafka.md#serializer) **value.converter.dt.json.generate.closed.content.schema** — `true`.    
 
 * **key.converter.basic.auth.user.info** и **value.converter.basic.auth.user.info** — имя пользователя и пароль для аутентификации в Confluent Schema Registry для ключей и значений при использовании конвертера `io.confluent.connect.json.JsonSchemaConverter`.
@@ -204,9 +204,9 @@ Text string
 
     Если значение настройки не указано, SSL-сертификат не проверяется.
 
-* **tombstones.on.delete** — определяет, будет ли Debezium генерировать tombstone-маркеры удаления для топиков {{ KF }}.
+* **tombstones.on.delete** — определяет, будет ли Debezium генерировать tombstone-маркеры удаления для топиков Apache Kafka®.
 
-    Tombstone-маркеры записываются в лог кластера-источника {{ KF }} во время удаления сообщений из топика. Они указывают на записи в логе, которые хранят предыдущие значения удаленных сообщений.
+    Tombstone-маркеры записываются в лог кластера-источника Apache Kafka® во время удаления сообщений из топика. Они указывают на записи в логе, которые хранят предыдущие значения удаленных сообщений.
 
     Если [политика очистки лога](../../managed-kafka/concepts/settings-list.md#settings-topic-cleanup-policy) в кластере-источнике установлена в режим `Compact` или `CompactAndDelete`, во время сжатия лога будут удалены все записи, на которые указывают tombstone-маркеры.
 
@@ -220,8 +220,8 @@ Text string
 
 ## Примеры использования {#examples}
 
-* [{#T}](../tutorials/mkf-to-mch.md)
-* [{#T}](../tutorials/mkf-to-mpg.md)
-* [{#T}](../tutorials/yds-to-clickhouse.md)
-* [{#T}](../tutorials/yds-to-objstorage.md)
-* [{#T}](../tutorials/data-ingestion.md)
+* [Поставка данных из очереди Apache Kafka® в ClickHouse®](../tutorials/mkf-to-mch.md)
+* [Поставка данных из очереди Apache Kafka® в PostgreSQL](../tutorials/mkf-to-mpg.md)
+* [Поставка данных из очереди YDS в ClickHouse®](../tutorials/yds-to-clickhouse.md)
+* [Поставка данных из очереди в Yandex Object Storage с помощью Yandex Data Transfer](../tutorials/yds-to-objstorage.md)
+* [Ввод данных в системы хранения](../tutorials/data-ingestion.md)

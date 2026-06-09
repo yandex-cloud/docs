@@ -1,6 +1,6 @@
-# Техническое обслуживание кластера {{ maf-full-name }}
+# Техническое обслуживание кластера Yandex Managed Service for Apache Airflow™
 
-Вы можете управлять [техническим обслуживанием](../concepts/maintenance.md) кластера {{ maf-name }}.
+Вы можете управлять [техническим обслуживанием](../concepts/maintenance.md) кластера Managed Service for Apache Airflow™.
 
 ## Получить список обслуживаний {#list-maintenance}
 
@@ -8,11 +8,11 @@
 
 - Консоль управления {#console}
 
-  1. Перейдите на [страницу каталога]({{ link-console-main }}).
-  1. Перейдите в сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-airflow }}**.
-  1. Нажмите на имя нужного кластера и выберите вкладку **{{ ui-key.yacloud.mdb.maintenance.title_maintenance }}**.
+  1. Перейдите на [страницу каталога](https://console.yandex.cloud).
+  1. Перейдите в сервис **Managed Service for&nbsp;Apache&nbsp;Airflow™**.
+  1. Нажмите на имя нужного кластера и выберите вкладку **Обслуживание**.
 
-  Чтобы просмотреть обслуживания с определенным статусом, нажмите кнопку **{{ ui-key.yacloud.mdb.maintenance.label_task-status }}** над списком обслуживаний и в выпадающем меню выберите нужный статус. Чтобы найти конкретное обслуживание, введите его идентификатор или имя задания в поле над списком обслуживаний.
+  Чтобы просмотреть обслуживания с определенным статусом, нажмите кнопку **Статус** над списком обслуживаний и в выпадающем меню выберите нужный статус. Чтобы найти конкретное обслуживание, введите его идентификатор или имя задания в поле над списком обслуживаний.
 
 {% endlist %}
 
@@ -22,17 +22,17 @@
 
 - Консоль управления {#console}
 
-  1. Перейдите на [страницу каталога]({{ link-console-main }}).
-  1. Перейдите в сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-airflow }}**.
-  1. Нажмите на имя нужного кластера и выберите вкладку **{{ ui-key.yacloud.mdb.maintenance.title_maintenance }}**.
+  1. Перейдите на [страницу каталога](https://console.yandex.cloud).
+  1. Перейдите в сервис **Managed Service for&nbsp;Apache&nbsp;Airflow™**.
+  1. Нажмите на имя нужного кластера и выберите вкладку **Обслуживание**.
   1. Нажмите на идентификатор нужного обслуживания.
-  1. Нажмите ссылку **{{ ui-key.yacloud.mdb.maintenance.label_task-logs }}**.
+  1. Нажмите ссылку **Логи задания**.
 
 {% endlist %}
 
 ## Перенести запланированное обслуживание {#postpone-planned-maintenance}
 
-Обслуживания в статусе **{{ ui-key.yacloud.mdb.maintenance.label_task-status-planned }}** назначены на определенную дату и время, которые указаны в столбце **{{ ui-key.yacloud.mdb.maintenance.label_task-start-time }}**. При необходимости их можно перенести на новую дату и время.
+Обслуживания в статусе **Запланировано** назначены на определенную дату и время, которые указаны в столбце **Дата начала**. При необходимости их можно перенести на новую дату и время.
 
 Чтобы перенести обслуживание на новую дату и время:
 
@@ -40,21 +40,21 @@
 
 - Консоль управления {#console}
 
-  1. Перейдите на [страницу каталога]({{ link-console-main }}).
-  1. Перейдите в сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-airflow }}**.
-  1. Нажмите на имя нужного кластера и выберите вкладку **{{ ui-key.yacloud.mdb.maintenance.title_maintenance }}**.
-  1. Нажмите на значок ![image](../../_assets/console-icons/ellipsis.svg) в строке обслуживания со статусом **{{ ui-key.yacloud.mdb.maintenance.label_task-status-planned }}**.
-  1. В выпадающем меню выберите ![image](../../_assets/console-icons/arrow-uturn-cw-right.svg) **{{ ui-key.yacloud.mdb.maintenance.action_change-task-time }}**.
+  1. Перейдите на [страницу каталога](https://console.yandex.cloud).
+  1. Перейдите в сервис **Managed Service for&nbsp;Apache&nbsp;Airflow™**.
+  1. Нажмите на имя нужного кластера и выберите вкладку **Обслуживание**.
+  1. Нажмите на значок ![image](../../_assets/console-icons/ellipsis.svg) в строке обслуживания со статусом **Запланировано**.
+  1. В выпадающем меню выберите ![image](../../_assets/console-icons/arrow-uturn-cw-right.svg) **Перенести**.
   1. В открывшемся окне:
 
-      * Чтобы перенести обслуживание вперед на следующее окно обслуживания, нажмите **{{ ui-key.yacloud.component.maintenance-alert.value_next-available-window }}** и затем **{{ ui-key.yacloud.component.maintenance-alert.button_reschedule }}**.
-      * Чтобы перенести обслуживание вперед или назад на определенную дату и время по UTC, нажмите **{{ ui-key.yacloud.component.maintenance-alert.value_specific-time }}**, затем выберите новую дату и время и нажмите **{{ ui-key.yacloud.component.maintenance-alert.button_reschedule }}**.
+      * Чтобы перенести обслуживание вперед на следующее окно обслуживания, нажмите **На следующее окно** и затем **Перенести**.
+      * Чтобы перенести обслуживание вперед или назад на определенную дату и время по UTC, нажмите **Выбрать дату (UTC)**, затем выберите новую дату и время и нажмите **Перенести**.
 
 {% endlist %}
 
 ## Провести запланированное обслуживание немедленно {#exec-planned-maintenance}
 
-Обслуживание со статусом **{{ ui-key.yacloud.mdb.maintenance.label_task-status-planned }}** при необходимости можно провести немедленно, не дожидаясь момента, указанного в столбце **{{ ui-key.yacloud.mdb.maintenance.label_task-start-time }}**.
+Обслуживание со статусом **Запланировано** при необходимости можно провести немедленно, не дожидаясь момента, указанного в столбце **Дата начала**.
 
 Чтобы провести запланированное обслуживание кластера немедленно:
 
@@ -62,11 +62,11 @@
 
 - Консоль управления {#console}
 
-  1. Перейдите на [страницу каталога]({{ link-console-main }}).
-  1. Перейдите в сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-airflow }}**.
-  1. Нажмите на имя нужного кластера и выберите вкладку **{{ ui-key.yacloud.mdb.maintenance.title_maintenance }}**.
+  1. Перейдите на [страницу каталога](https://console.yandex.cloud).
+  1. Перейдите в сервис **Managed Service for&nbsp;Apache&nbsp;Airflow™**.
+  1. Нажмите на имя нужного кластера и выберите вкладку **Обслуживание**.
   1. Нажмите на значок ![image](../../_assets/console-icons/ellipsis.svg) в строке нужного обслуживания.
-  1. В выпадающем меню выберите ![image](../../_assets/console-icons/triangle-right.svg) **{{ ui-key.yacloud.mdb.maintenance.action_exec-task-now }}**.
+  1. В выпадающем меню выберите ![image](../../_assets/console-icons/triangle-right.svg) **Провести сейчас**.
 
 {% endlist %}
 
@@ -84,31 +84,31 @@
 
 - Консоль управления {#console}
 
-  1. Перейдите на [страницу каталога]({{ link-console-main }}).
-  1. Перейдите в сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-airflow }}**.
-  1. Нажмите на имя нужного кластера и выберите вкладку **{{ ui-key.yacloud.mdb.maintenance.title_maintenance }}**.
-  1. Нажмите кнопку ![image](../../_assets/console-icons/calendar.svg) **{{ ui-key.yacloud.mdb.maintenance.action_maintenance-window-setup }}**.
+  1. Перейдите на [страницу каталога](https://console.yandex.cloud).
+  1. Перейдите в сервис **Managed Service for&nbsp;Apache&nbsp;Airflow™**.
+  1. Нажмите на имя нужного кластера и выберите вкладку **Обслуживание**.
+  1. Нажмите кнопку ![image](../../_assets/console-icons/calendar.svg) **Настроить окно обслуживания**.
   1. В открывшемся окне:
   
-     * Чтобы разрешить проведение технического обслуживания в любое время, выберите пункт **{{ ui-key.yacloud.mdb.forms.value_maintenance-type-anytime }}** (по умолчанию).
-     * Чтобы разрешить проведение технического обслуживания раз в неделю в определенное время суток, выберите пункт **{{ ui-key.yacloud.mdb.forms.value_maintenance-type-weekly }}** и укажите день недели и час по UTC.
+     * Чтобы разрешить проведение технического обслуживания в любое время, выберите пункт **В любое время** (по умолчанию).
+     * Чтобы разрешить проведение технического обслуживания раз в неделю в определенное время суток, выберите пункт **По расписанию** и укажите день недели и час по UTC.
 
 - CLI {#cli}
 
-  Если у вас еще нет интерфейса командной строки {{ yandex-cloud }} (CLI), [установите и инициализируйте его](../../cli/quickstart.md#install).
+  Если у вас еще нет интерфейса командной строки Yandex Cloud (CLI), [установите и инициализируйте его](../../cli/quickstart.md#install).
 
   По умолчанию используется каталог, указанный при [создании](../../cli/operations/profile/profile-create.md) профиля CLI. Чтобы изменить каталог по умолчанию, используйте команду `yc config set folder-id <идентификатор_каталога>`. Также для любой команды вы можете указать другой каталог с помощью параметров `--folder-name` или `--folder-id`. Если вы обращаетесь к ресурсу по имени, поиск будет выполнен в каталоге по умолчанию. Если вы обращаетесь к ресурсу по идентификатору, поиск будет выполнен глобально — во всех каталогах с учетом прав доступа.
 
   1. Посмотрите описание команды CLI для изменения окна обслуживания:
 
       ```bash
-      {{ yc-mdb-af }} cluster update --help
+      yc managed-airflow cluster update --help
       ```
 
   1. Выполните команду:
 
       ```bash
-      {{ yc-mdb-af }} cluster update <имя_или_идентификатор_кластера> \
+      yc managed-airflow cluster update <имя_или_идентификатор_кластера> \
           --maintenance-window type=<тип_технического_обслуживания>,`
                               `day=<день_недели>,`
                               `hour=<час_дня>
@@ -125,9 +125,9 @@
 
       Имя и идентификатор кластера можно [получить со списком кластеров в каталоге](cluster-list.md#list-clusters).
 
-- {{ TF }} {#tf}
+- Terraform {#tf}
 
-  1. Откройте актуальный конфигурационный файл {{ TF }} с планом инфраструктуры.
+  1. Откройте актуальный конфигурационный файл Terraform с планом инфраструктуры.
 
       Инструкция по созданию файла описана в разделе [Создание кластера](cluster-create.md).
 
@@ -157,14 +157,14 @@
 
   1. Проверьте корректность настроек.
 
-      1. В командной строке перейдите в каталог, в котором расположены актуальные конфигурационные файлы {{ TF }} с планом инфраструктуры.
+      1. В командной строке перейдите в каталог, в котором расположены актуальные конфигурационные файлы Terraform с планом инфраструктуры.
       1. Выполните команду:
       
          ```bash
          terraform validate
          ```
       
-         Если в файлах конфигурации есть ошибки, {{ TF }} на них укажет.
+         Если в файлах конфигурации есть ошибки, Terraform на них укажет.
 
   1. Подтвердите изменение ресурсов.
 
@@ -194,7 +194,7 @@
       export IAM_TOKEN="<IAM-токен>"
       ```
 
-  1. Воспользуйтесь методом [Cluster.Update](../api-ref/Cluster/update.md) и выполните запрос, например с помощью {{ api-examples.rest.tool }}:
+  1. Воспользуйтесь методом [Cluster.Update](../api-ref/Cluster/update.md) и выполните запрос, например с помощью [cURL](https://curl.se/):
 
      {% note warning %}
      
@@ -207,7 +207,7 @@
        --request PATCH \
        --header "Authorization: Bearer $IAM_TOKEN" \
        --header "Content-Type: application/json" \
-       --url 'https://{{ api-host-airflow }}/managed-airflow/v1/clusters/<идентификатор_кластера>' \
+       --url 'https://airflow.api.cloud.yandex.net/managed-airflow/v1/clusters/<идентификатор_кластера>' \
        --data '{
                  "updateMask": "maintenanceWindow",
                  "maintenanceWindow": {
@@ -253,7 +253,7 @@
      
      Далее предполагается, что содержимое репозитория находится в директории `~/cloudapi/`.
 
-  1. Воспользуйтесь вызовом [ClusterService.Update](../api-ref/grpc/Cluster/update.md) и выполните запрос, например с помощью {{ api-examples.grpc.tool }}:
+  1. Воспользуйтесь вызовом [ClusterService.Update](../api-ref/grpc/Cluster/update.md) и выполните запрос, например с помощью [gRPCurl](https://github.com/fullstorydev/grpcurl):
 
      {% note warning %}
      
@@ -295,7 +295,7 @@
                }
              }
            }' \
-       {{ api-host-airflow }}:{{ port-https }} \
+       airflow.api.cloud.yandex.net:443 \
        yandex.cloud.airflow.v1.ClusterService.Update
      ```
 

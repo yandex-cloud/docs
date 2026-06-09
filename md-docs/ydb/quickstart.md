@@ -1,21 +1,21 @@
-# Как начать работать с {{ ydb-name }}
+# Как начать работать с Managed Service for YDB
 
-В этой инструкции вы создадите базу данных [{{ ydb-short-name }}](https://ydb.tech/{{ lang }}) в {{ yandex-cloud }} и выполните простой запрос к ней с помощью [консоли управления]({{ link-console-main }}) {{ yandex-cloud }} или инструментов командной строки.
+В этой инструкции вы создадите базу данных [YDB](https://ydb.tech/ru) в Yandex Cloud и выполните простой запрос к ней с помощью [консоли управления](https://console.yandex.cloud) Yandex Cloud или инструментов командной строки.
 
-Для работы с БД в {{ ydb-full-name }} также доступны:
-* [{{ ydb-short-name }} SDK]({{ ydb.docs }}/reference/ydb-sdk/).
-* [{{ ydb-short-name }} CLI]({{ ydb.docs }}/reference/ydb-cli/).
+Для работы с БД в Yandex Managed Service for YDB также доступны:
+* [YDB SDK](https://ydb.tech/docs/ru//reference/ydb-sdk/).
+* [YDB CLI](https://ydb.tech/docs/ru//reference/ydb-cli/).
 * [AWS SDK](docapi/tools/aws-sdk/index.md).
 * [AWS CLI](docapi/tools/aws-cli/index.md).
 
 ## Перед началом работы {#before-you-begin}
 
-1. Перейдите в [консоль управления]({{ link-console-main }}), затем войдите в {{ yandex-cloud }} или зарегистрируйтесь, если вы еще не зарегистрированы.
+1. Перейдите в [консоль управления](https://console.yandex.cloud), затем войдите в Yandex Cloud или зарегистрируйтесь, если вы еще не зарегистрированы.
 1. Если у вас еще нет каталога, создайте его:
 
-   1. В [консоли управления]({{ link-console-main }}) на панели сверху нажмите ![image](../_assets/console-icons/layout-side-content-left.svg) или ![image](../_assets/console-icons/chevron-down.svg) и выберите нужное [облако](../resource-manager/concepts/resources-hierarchy.md#cloud).
+   1. В [консоли управления](https://console.yandex.cloud) на панели сверху нажмите ![image](../_assets/console-icons/layout-side-content-left.svg) или ![image](../_assets/console-icons/chevron-down.svg) и выберите нужное [облако](../resource-manager/concepts/resources-hierarchy.md#cloud).
    1. Справа от названия облака нажмите ![image](../_assets/console-icons/ellipsis.svg).
-   1. Выберите ![image](../_assets/console-icons/plus.svg) **{{ ui-key.yacloud.component.console-dashboard.button_action-create-folder }}**.
+   1. Выберите ![image](../_assets/console-icons/plus.svg) **Создать каталог**.
    
       ![create-folder1](../_assets/resource-manager/create-folder-1.png)
    
@@ -26,8 +26,8 @@
        * первый символ — буква, последний — не дефис.
    
    1. (Опционально) Введите описание каталога.
-   1. Выберите опцию **{{ ui-key.yacloud.iam.cloud.folders-create.field_default-net }}**. Будет создана [сеть](../vpc/concepts/network.md#network) с подсетями в каждой зоне доступности. Также в этой сети будет создана [группа безопасности по умолчанию](../vpc/concepts/security-groups.md#default-security-group), внутри которой весь сетевой трафик разрешен.
-   1. Нажмите кнопку **{{ ui-key.yacloud.iam.cloud.folders-create.button_create }}**.
+   1. Выберите опцию **Создать сеть по умолчанию**. Будет создана [сеть](../vpc/concepts/network.md#network) с подсетями в каждой зоне доступности. Также в этой сети будет создана [группа безопасности по умолчанию](../vpc/concepts/security-groups.md#default-security-group), внутри которой весь сетевой трафик разрешен.
+   1. Нажмите кнопку **Создать**.
    
       ![create-folder2](../_assets/resource-manager/create-folder-2.png)
 
@@ -47,25 +47,25 @@
 
 - Консоль управления {#console}
 
-  1. В [консоли управления]({{ link-console-main }}) выберите каталог, в котором будет создана БД.
-  1. Перейдите в сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_ydb }}**.
-  1. Нажмите кнопку **{{ ui-key.yacloud.ydb.databases.button_create }}**.
-  1. Введите **{{ ui-key.yacloud.ydb.forms.label_field_name }}** БД. Требования к имени:
+  1. В [консоли управления](https://console.yandex.cloud) выберите каталог, в котором будет создана БД.
+  1. Перейдите в сервис **Managed Service for&nbsp;YDB**.
+  1. Нажмите кнопку **Создать базу данных**.
+  1. Введите **Имя** БД. Требования к имени:
 
      * длина — от 3 до 63 символов;
      * может содержать строчные буквы латинского алфавита, цифры и дефисы;
      * первый символ — буква, последний — не дефис.
 
-  1. В блоке **{{ ui-key.yacloud.ydb.forms.label_field_database-type }}** выберите опцию `{{ ui-key.yacloud.ydb.forms.label_serverless-type }}`.
+  1. В блоке **Тип базы данных** выберите опцию `Serverless`.
   
-      Вы можете оставить параметры по умолчанию для создаваемой БД и [изменить](operations/manage-databases.md#update-db-serverless) их позже. Подробнее о параметрах БД читайте в разделе [{#T}](operations/manage-databases.md#create-db-serverless).
-  1. Нажмите кнопку **{{ ui-key.yacloud.ydb.forms.button_create-database }}**.
+      Вы можете оставить параметры по умолчанию для создаваемой БД и [изменить](operations/manage-databases.md#update-db-serverless) их позже. Подробнее о параметрах БД читайте в разделе [Создать Serverless базу данных](operations/manage-databases.md#create-db-serverless).
+  1. Нажмите кнопку **Создать базу данных**.
 
   Дождитесь запуска БД. В процессе создания БД будет иметь статус `Provisioning`, а когда станет готова к использованию — статус сменится на `Running`.
 
-- {{ yandex-cloud }} CLI {#cli}
+- Yandex Cloud CLI {#cli}
 
-  1. Если у вас еще нет интерфейса командной строки {{ yandex-cloud }} (CLI), [установите и инициализируйте его](../cli/quickstart.md#install).
+  1. Если у вас еще нет интерфейса командной строки Yandex Cloud (CLI), [установите и инициализируйте его](../cli/quickstart.md#install).
   1. Создайте базу данных:
 
       ```bash
@@ -83,10 +83,10 @@
       created_at: "2022-05-30T07:26:44Z"
       name: test
       status: PROVISIONING
-      endpoint: {{ ydb.ep-serverless }}/?database=/{{ region-id }}/b1gia87mbaom********/etn95g8jk8g0********
+      endpoint: grpcs://ydb.serverless.yandexcloud.net:2135/?database=/ru-central1/b1gia87mbaom********/etn95g8jk8g0********
       serverless_database:
         storage_size_limit: "53687091200"
-      location_id: {{ region-id }}
+      location_id: ru-central1
       backup_config:
         backup_settings:
         - name: daily
@@ -96,11 +96,11 @@
                 hours: 17
           backup_time_to_live: 172800s
           type: SYSTEM
-      document_api_endpoint: {{ ydb.document-api-endpoint }}/{{ region-id }}/b1gia87mbaom********/etn95g8jk8g0********
+      document_api_endpoint: https://docapi.serverless.yandexcloud.net/ru-central1/b1gia87mbaom********/etn95g8jk8g0********
       monitoring_config: {}
       ```
 
-      Будет создана база с параметрами по умолчанию. Вы сможете [изменить](operations/manage-databases.md#update-db-serverless) параметры позже. Подробнее о параметрах БД читайте в разделе [{#T}](operations/manage-databases.md#create-db-serverless).
+      Будет создана база с параметрами по умолчанию. Вы сможете [изменить](operations/manage-databases.md#update-db-serverless) параметры позже. Подробнее о параметрах БД читайте в разделе [Создать Serverless базу данных](operations/manage-databases.md#create-db-serverless).
   1. Проверьте статус созданной БД:
 
      ```bash
@@ -119,50 +119,50 @@
 
 - Консоль управления {#console}
 
-  1. В [консоли управления]({{ link-console-main }}) выберите каталог, в котором будет создана БД.
-  1. Перейдите в сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_ydb }}**.
-  1. Нажмите кнопку **{{ ui-key.yacloud.ydb.databases.button_create }}**.
-  1. Введите **{{ ui-key.yacloud.ydb.forms.label_field_name }}** БД. Требования к имени:
+  1. В [консоли управления](https://console.yandex.cloud) выберите каталог, в котором будет создана БД.
+  1. Перейдите в сервис **Managed Service for&nbsp;YDB**.
+  1. Нажмите кнопку **Создать базу данных**.
+  1. Введите **Имя** БД. Требования к имени:
 
      * длина — от 3 до 63 символов;
      * может содержать строчные буквы латинского алфавита, цифры и дефисы;
      * первый символ — буква, последний — не дефис.
 
-  1. В блоке **{{ ui-key.yacloud.ydb.forms.label_field_database-type }}** выберите опцию `{{ ui-key.yacloud.ydb.forms.label_dedicated-type }}`.
-  1. В блоке **{{ ui-key.yacloud.ydb.forms.label_section-compute }}** выберите тип и количество [вычислительных ресурсов](concepts/resources.md#resource-presets).
-  1. В блоке **{{ ui-key.yacloud.ydb.forms.label_section-storage }}** выберите тип диска и количество [групп хранения](concepts/resources.md#storage-groups), определяющее суммарный объем хранилища.
-  1. В блоке **{{ ui-key.yacloud.ydb.forms.label_section-network }}** настройте параметры сети:
-     1. (Опционально) В поле **{{ ui-key.yacloud.ydb.forms.field_public-ips }}** выберите опцию **{{ ui-key.yacloud.ydb.forms.label_text-public-ips }}**, если вы планируете отправлять запросы к БД не только из сети {{ yandex-cloud }}, но и через интернет.
+  1. В блоке **Тип базы данных** выберите опцию `Dedicated`.
+  1. В блоке **Вычислительные ресурсы** выберите тип и количество [вычислительных ресурсов](concepts/resources.md#resource-presets).
+  1. В блоке **Группы хранения** выберите тип диска и количество [групп хранения](concepts/resources.md#storage-groups), определяющее суммарный объем хранилища.
+  1. В блоке **Сеть** настройте параметры сети:
+     1. (Опционально) В поле **Публичные IP-адреса** выберите опцию **Присвоить**, если вы планируете отправлять запросы к БД не только из сети Yandex Cloud, но и через интернет.
 
         {% note warning %}
         
-        Потребление исходящего интернет-трафика для баз {{ ydb-name }} с внешними IP-адресами учитывается по [действующим тарифам](../vpc/pricing.md).
+        Потребление исходящего интернет-трафика для баз Managed Service for YDB с внешними IP-адресами учитывается по [действующим тарифам](../vpc/pricing.md).
         
-        Начисления за исходящий интернет-трафик, возникшие в результате использования {{ ydb-name }}, будут компенсированы грантами.
+        Начисления за исходящий интернет-трафик, возникшие в результате использования Managed Service for YDB, будут компенсированы грантами.
         
         {% endnote %}
 
-     1. Выберите существующую сеть из списка **{{ ui-key.yacloud.ydb.forms.field_network }}** или создайте новую:
-        1. Нажмите кнопку **{{ ui-key.yacloud.common.create }}**.
-        1. В открывшемся окне укажите **{{ ui-key.yacloud.vpc.networks.create.field_name }}** новой сети.
-        1. (Опционально) Выберите опцию **{{ ui-key.yacloud.vpc.networks.create.field_is-default }}**. Подсети в каждой зоне доступности будут созданы автоматически.
-        1. Нажмите кнопку **{{ ui-key.yacloud.vpc.networks.create.button_create }}**.
-     1. В блоке **{{ ui-key.yacloud.ydb.forms.field_subnetworks }}** для каждой [зоны доступности](../overview/concepts/geo-scope.md) выберите подсеть или создайте новую:
-        1. Нажмите кнопку **{{ ui-key.yacloud.common.create }}**.
-        1. В открывшемся окне укажите **{{ ui-key.yacloud.vpc.subnetworks.create.field_name }}** новой подсети.
-        1. (Опционально) Введите **{{ ui-key.yacloud.vpc.subnetworks.create.field_description }}** подсети.
-        1. Выберите из списка **{{ ui-key.yacloud.vpc.subnetworks.create.field_zone }}** нужную зону.
-        1. Задайте адрес подсети в формате [**{{ ui-key.yacloud.vpc.subnetworks.create.field_ip }}**](https://ru.wikipedia.org/wiki/Бесклассовая_адресация).
-        1. Нажмите кнопку **{{ ui-key.yacloud.vpc.subnetworks.create.button_create }}**.
+     1. Выберите существующую сеть из списка **Облачная сеть** или создайте новую:
+        1. Нажмите кнопку **Создать**.
+        1. В открывшемся окне укажите **Имя** новой сети.
+        1. (Опционально) Выберите опцию **Создать подсети**. Подсети в каждой зоне доступности будут созданы автоматически.
+        1. Нажмите кнопку **Создать сеть**.
+     1. В блоке **Подсети** для каждой [зоны доступности](../overview/concepts/geo-scope.md) выберите подсеть или создайте новую:
+        1. Нажмите кнопку **Создать**.
+        1. В открывшемся окне укажите **Имя** новой подсети.
+        1. (Опционально) Введите **Описание** подсети.
+        1. Выберите из списка **Зона доступности** нужную зону.
+        1. Задайте адрес подсети в формате [**CIDR**](https://ru.wikipedia.org/wiki/Бесклассовая_адресация).
+        1. Нажмите кнопку **Создать подсеть**.
 
-     Настойки блока **{{ ui-key.yacloud.ydb.forms.label_section-network }}** нельзя изменить после создания БД.
-  1. Нажмите кнопку **{{ ui-key.yacloud.ydb.forms.button_create-database }}**.
+     Настойки блока **Сеть** нельзя изменить после создания БД.
+  1. Нажмите кнопку **Создать базу данных**.
 
      Дождитесь запуска БД. В процессе создания БД будет иметь статус `Provisioning`, а когда станет готова к использованию — статус сменится на `Running`.
 
-- {{ yandex-cloud }} CLI {#cli}
+- Yandex Cloud CLI {#cli}
 
-  1. Если у вас еще нет интерфейса командной строки {{ yandex-cloud }} (CLI), [установите и инициализируйте его](../cli/quickstart.md#install).
+  1. Если у вас еще нет интерфейса командной строки Yandex Cloud (CLI), [установите и инициализируйте его](../cli/quickstart.md#install).
 
   1. При необходимости создайте облачную [сеть](../vpc/operations/network-create.md) и [подсети](../vpc/operations/subnet-create.md) для каждой [зоны доступности](../overview/concepts/geo-scope.md).
   1. Создайте базу данных:
@@ -179,13 +179,13 @@
 
       Где:
 
-      * `--resource-preset STR` — конфигурация вычислительных ресурсов узла. Возможные значения перечислены в колонке **Имя конфигурации** в таблице раздела [{#T}](concepts/resources.md#resource-presets).
+      * `--resource-preset STR` — конфигурация вычислительных ресурсов узла. Возможные значения перечислены в колонке **Имя конфигурации** в таблице раздела [База данных на выделенных ресурсах (Dedicated)](concepts/resources.md#resource-presets).
       * `--storage STR` — тип носителя и количество [групп хранения](concepts/resources.md#storage-groups) в формате `type=<тип_носителя>,groups=<количество_групп_хранения>`. Для типа `ssd` одна группа хранения вмещает 100 ГБ данных.
       * `--public-ip` — флаг назначения публичных IP-адресов. Без этого флага вы не сможете подключиться к создаваемой базе данных из интернета.
       * `--network-name STR` — имя облачной сети, в которой будет создана база данных. Может быть указана сеть `default`.
       * `--async` — флаг асинхронного создания БД.
 
-      Подробнее о параметрах БД читайте в разделе [{#T}](operations/manage-databases.md#create-db-serverless).
+      Подробнее о параметрах БД читайте в разделе [Создать Serverless базу данных](operations/manage-databases.md#create-db-serverless).
 
       Результат:
 
@@ -196,7 +196,7 @@
       created_at: "2022-05-31T10:10:12Z"
       name: test-ded
       status: PROVISIONING
-      endpoint: {{ ydb.ep-dedicated }}/?database=/{{ region-id }}/b1gia87mbaom********/etnk1u65e4sh********
+      endpoint: grpcs://lb.etnk1u65e4sh********.ydb.mdb.yandexcloud.net:2135/?database=/ru-central1/b1gia87mbaom********/etnk1u65e4sh********
       resource_preset_id: medium
       storage_config:
         storage_options:
@@ -228,7 +228,7 @@
         - e9b72lv142k4********
         assign_public_ips: true
       assign_public_ips: true
-      location_id: {{ region-id }}
+      location_id: ru-central1
       backup_config:
         backup_settings:
         - name: daily
@@ -259,17 +259,17 @@
 
 - Консоль управления {#console}
 
-  1. В [консоли управления]({{ link-console-main }}) выберите каталог, в котором находится нужная БД.
-  1. Перейдите в сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_ydb }}**.
+  1. В [консоли управления](https://console.yandex.cloud) выберите каталог, в котором находится нужная БД.
+  1. Перейдите в сервис **Managed Service for&nbsp;YDB**.
   1. Выберите созданную ранее БД.
-  1. Перейдите на вкладку **{{ ui-key.yacloud.ydb.database.switch_browse }}**.
-  1. Нажмите кнопку **{{ ui-key.yacloud.ydb.browse.button_sql-query }}** и введите текст запроса:
+  1. Перейдите на вкладку **Навигация**.
+  1. Нажмите кнопку **Новый SQL-запрос** и введите текст запроса:
 
      ```yql
      SELECT 1;
      ```
 
-  1. Нажмите кнопку **{{ ui-key.yacloud.ydb.sql.button_run }}**.
+  1. Нажмите кнопку **Выполнить**.
 
      Ниже будет отображен результат выполнения запроса:
 
@@ -278,12 +278,12 @@
      0 1
      ```
 
-- {{ ydb-short-name }} CLI {#cli}
+- YDB CLI {#cli}
 
-  1. Если у вас еще нет интерфейса командной строки {{ yandex-cloud }} (CLI), [установите и инициализируйте его](../cli/quickstart.md#install).
+  1. Если у вас еще нет интерфейса командной строки Yandex Cloud (CLI), [установите и инициализируйте его](../cli/quickstart.md#install).
 
-  1. Чтобы управлять вашими БД из командной строки, [установите]({{ ydb.docs }}/reference/ydb-cli/install) {{ ydb-short-name }} CLI.
-  1. Для аутентификации {{ ydb-short-name }} CLI в {{ yandex-cloud }} получите [IAM-токен](../iam/concepts/authorization/iam-token.md) и экспортируйте его в переменную окружения:
+  1. Чтобы управлять вашими БД из командной строки, [установите](https://ydb.tech/docs/ru//reference/ydb-cli/install) YDB CLI.
+  1. Для аутентификации YDB CLI в Yandex Cloud получите [IAM-токен](../iam/concepts/authorization/iam-token.md) и экспортируйте его в переменную окружения:
 
      ```bash
      export IAM_TOKEN=`yc iam create-token`
@@ -299,18 +299,18 @@
 
      ```text
      ...
-     endpoint: {{ ydb.ep-serverless }}/?database=/{{ region-id }}/b1gia87mbaom********/etnudu2n9ri3********
+     endpoint: grpcs://ydb.serverless.yandexcloud.net:2135/?database=/ru-central1/b1gia87mbaom********/etnudu2n9ri3********
      ...
      ```
 
-     Здесь часть строки `{{ ydb.ep-serverless }}` содержит эндпоинт, а `/{{ region-id }}/b1gia87mbaom********/etnudu2n9ri3********` — путь БД.
+     Здесь часть строки `grpcs://ydb.serverless.yandexcloud.net:2135` содержит эндпоинт, а `/ru-central1/b1gia87mbaom********/etnudu2n9ri3********` — путь БД.
 
   1. Выполните запрос к созданной ранее БД, используя полученные значения эндпоинта и пути БД:
   
      ```bash
      ydb \
-       --endpoint {{ ydb.ep-serverless }} \
-       --database /{{ region-id }}/b1gia87mbaom********/etnudu2n9ri3******** \
+       --endpoint grpcs://ydb.serverless.yandexcloud.net:2135 \
+       --database /ru-central1/b1gia87mbaom********/etnudu2n9ri3******** \
        yql -s "SELECT 1;"
      ```
 
@@ -330,4 +330,4 @@
 
 * Узнайте подробнее о [работе с БД](operations/index.md).
 * Изучите [концепции сервиса](concepts/index.md).
-* Ознакомьтесь с языком запросов [YQL]({{ ydb.docs }}/yql/reference/).
+* Ознакомьтесь с языком запросов [YQL](https://ydb.tech/docs/ru//yql/reference/).

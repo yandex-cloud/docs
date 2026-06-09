@@ -1,18 +1,18 @@
-# Пошаговые инструкции для {{ at-full-name }}
+# Пошаговые инструкции для Yandex Audit Trails
 
-* [{#T}](create-trail.md)
-* [{#T}](manage-trail.md)
-* [{#T}](prepare-spec.md)
-* [{#T}](error.md)
+* [Создание трейла для загрузки аудитных логов](create-trail.md)
+* [Управление трейлом](manage-trail.md)
+* [Подготовка спецификации трейла](prepare-spec.md)
+* [Обработка ошибок](error.md)
 
 ## Управление правами доступа к трейлу {#rule-access-rights}
 
-* [{#T}](role-list.md)
-* [{#T}](role-add.md)
-* [{#T}](role-revoke.md)
+* [Посмотреть роли, назначенные на трейл](role-list.md)
+* [Назначить роли на трейл](role-add.md)
+* [Отозвать роли, назначенные на трейл](role-revoke.md)
 
 ## Получение дополнительной информации {#get-additional-info}
 
-* [{#T}](get-list.md)
-* [{#T}](get-info.md)
-* [{#T}](operation-logs.md)
+* [Получить список трейлов](get-list.md)
+* [Получить информацию о трейле](get-info.md)
+* [Посмотреть операции с ресурсами сервиса Yandex Audit Trails](operation-logs.md)

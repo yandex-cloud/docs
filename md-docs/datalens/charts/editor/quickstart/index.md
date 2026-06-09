@@ -2,6 +2,6 @@
 
 Ниже приведены ссылки на пошаговые инструкции для создания [чарта **Таблица**](../widgets/table.md) на основе разных [источников данных](../sources.md):
 
-* [{#T}](from-dataset.md)
-* [{#T}](from-database.md)
-* [{#T}](from-api-connector.md)
+* [Создание таблицы на основе датасета](from-dataset.md)
+* [Создание таблицы на основе SQL-запроса](from-database.md)
+* [Создание таблицы через API](from-api-connector.md)

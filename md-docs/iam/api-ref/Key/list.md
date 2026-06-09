@@ -5,7 +5,7 @@ Retrieves the list of Key resources for the specified service account.
 ## HTTP request
 
 ```
-GET https://iam.{{ api-host }}/iam/v1/keys
+GET https://iam.api.cloud.yandex.net/iam/v1/keys
 ```
 
 ## Query parameters {#yandex.cloud.iam.v1.ListKeysRequest}

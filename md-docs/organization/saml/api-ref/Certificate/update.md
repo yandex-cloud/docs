@@ -5,7 +5,7 @@ Updates the specified certificate.
 ## HTTP request
 
 ```
-PATCH https://organization-manager.{{ api-host }}/organization-manager/v1/saml/certificates/{certificateId}
+PATCH https://organization-manager.api.cloud.yandex.net/organization-manager/v1/saml/certificates/{certificateId}
 ```
 
 ## Path parameters

@@ -5,7 +5,7 @@ Returns information about specified host type.
 ## HTTP request
 
 ```
-GET https://compute.{{ api-host }}/compute/v1/hostTypes/{hostTypeId}
+GET https://compute.api.cloud.yandex.net/compute/v1/hostTypes/{hostTypeId}
 ```
 
 ## Path parameters

@@ -5,7 +5,7 @@ Retrieves the list of rules in the specified folder.
 ## HTTP request
 
 ```
-GET https://serverless-eventrouter.{{ api-host }}/eventrouter/v1/rules
+GET https://serverless-eventrouter.api.cloud.yandex.net/eventrouter/v1/rules
 ```
 
 ## Query parameters {#yandex.cloud.serverless.eventrouter.v1.ListRulesRequest}

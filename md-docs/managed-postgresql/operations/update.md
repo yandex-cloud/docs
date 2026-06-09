@@ -1,10 +1,10 @@
-# Изменение настроек кластера {{ PG }}
+# Изменение настроек кластера PostgreSQL
 
 После создания кластера вы можете:
 
 * [Изменить класс хостов](#change-resource-preset).
 
-* [Настроить серверы](#change-postgresql-config) согласно [документации {{ PG }}](https://www.postgresql.org/docs/current/runtime-config.html).
+* [Настроить серверы](#change-postgresql-config) согласно [документации PostgreSQL](https://www.postgresql.org/docs/current/runtime-config.html).
 
 * [Изменить дополнительные настройки кластера](#change-additional-settings).
 
@@ -24,7 +24,7 @@
 
 Подробнее о других изменениях кластера:
 
-* [Обновление версии {{ PG }}](cluster-version-update.md).
+* [Обновление версии PostgreSQL](cluster-version-update.md).
 
 * [Управление дисковым пространством](storage-space.md).
 
@@ -34,7 +34,7 @@
 
 {% note info %}
 
-Некоторые настройки {{ PG }} [зависят от выбранного класса хостов](../concepts/settings-list.md#settings-instance-dependent).
+Некоторые настройки PostgreSQL [зависят от выбранного класса хостов](../concepts/settings-list.md#settings-instance-dependent).
 
 {% endnote %}
 
@@ -51,14 +51,14 @@
 
 - Консоль управления {#console}
 
-  1. Перейдите в сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-postgresql }}**.
-  1. Выберите кластер и нажмите кнопку ![image](../../_assets/console-icons/pencil.svg) **{{ ui-key.yacloud.mdb.clusters.button_action-edit }}** на панели сверху.
-  1. В блоке **{{ ui-key.yacloud.mdb.forms.section_resource }}** выберите нужный класс для хостов {{ PG }}.
-  1. Нажмите кнопку **{{ ui-key.yacloud.mdb.forms.button_edit }}**.
+  1. Перейдите в сервис **Managed Service for&nbsp;PostgreSQL**.
+  1. Выберите кластер и нажмите кнопку ![image](../../_assets/console-icons/pencil.svg) **Редактировать** на панели сверху.
+  1. В блоке **Класс хоста** выберите нужный класс для хостов PostgreSQL.
+  1. Нажмите кнопку **Сохранить изменения**.
 
 - CLI {#cli}
 
-  Если у вас еще нет интерфейса командной строки {{ yandex-cloud }} (CLI), [установите и инициализируйте его](../../cli/quickstart.md#install).
+  Если у вас еще нет интерфейса командной строки Yandex Cloud (CLI), [установите и инициализируйте его](../../cli/quickstart.md#install).
 
   По умолчанию используется каталог, указанный при [создании](../../cli/operations/profile/profile-create.md) профиля CLI. Чтобы изменить каталог по умолчанию, используйте команду `yc config set folder-id <идентификатор_каталога>`. Также для любой команды вы можете указать другой каталог с помощью параметров `--folder-name` или `--folder-id`. Если вы обращаетесь к ресурсу по имени, поиск будет выполнен в каталоге по умолчанию. Если вы обращаетесь к ресурсу по идентификатору, поиск будет выполнен глобально — во всех каталогах с учетом прав доступа.
 
@@ -67,22 +67,22 @@
   1. Посмотрите описание команды CLI для изменения кластера:
 
       ```bash
-      {{ yc-mdb-pg }} cluster update --help
+      yc managed-postgresql cluster update --help
       ```
 
   1. Запросите список доступных классов хостов (в колонке `ZONE IDS` указаны зоны доступности, в которых можно выбрать соответствующий класс):
 
      
      ```bash
-     {{ yc-mdb-pg }} resource-preset list
+     yc managed-postgresql resource-preset list
      ```
 
      ```text
      +-----------+--------------------------------+-------+----------+
      |    ID     |            ZONE IDS            | CORES |  MEMORY  |
      +-----------+--------------------------------+-------+----------+
-     | s1.micro  | {{ region-id }}-a, {{ region-id }}-b,  |     2 | 8.0 GB   |
-     |           | {{ region-id }}-d                  |       |          |
+     | s1.micro  | ru-central1-a, ru-central1-b,  |     2 | 8.0 GB   |
+     |           | ru-central1-d                  |       |          |
      | ...                                                           |
      +-----------+--------------------------------+-------+----------+
      ```
@@ -91,21 +91,21 @@
   1. Укажите нужный класс в команде изменения кластера:
 
       ```bash
-      {{ yc-mdb-pg }} cluster update <имя_или_идентификатор_кластера> \
+      yc managed-postgresql cluster update <имя_или_идентификатор_кластера> \
           --resource-preset <идентификатор_класса_хостов>
       ```
 
-      {{ mpg-short-name }} запустит операцию изменения класса хостов для кластера.
+      Managed Service for PostgreSQL запустит операцию изменения класса хостов для кластера.
 
-- {{ TF }} {#tf}
+- Terraform {#tf}
 
-  1. Откройте актуальный конфигурационный файл {{ TF }} с планом инфраструктуры.
+  1. Откройте актуальный конфигурационный файл Terraform с планом инфраструктуры.
 
       О том, как создать такой файл, см. в разделе [Создание кластера](cluster-create.md).
 
-      Полный список доступных для изменения полей конфигурации кластера {{ mpg-name }} см. в [документации провайдера {{ TF }}]({{ tf-provider-mpg }}).
+      Полный список доступных для изменения полей конфигурации кластера Managed Service for PostgreSQL см. в [документации провайдера Terraform](../../terraform/resources/mdb_postgresql_cluster.md).
 
-  1. Измените в описании кластера {{ mpg-name }} значение атрибута `resource_preset_id` в блоке `config.resources`:
+  1. Измените в описании кластера Managed Service for PostgreSQL значение атрибута `resource_preset_id` в блоке `config.resources`:
 
       ```hcl
       resource "yandex_mdb_postgresql_cluster" "<имя_кластера>" {
@@ -121,14 +121,14 @@
 
   1. Проверьте корректность настроек.
 
-      1. В командной строке перейдите в каталог, в котором расположены актуальные конфигурационные файлы {{ TF }} с планом инфраструктуры.
+      1. В командной строке перейдите в каталог, в котором расположены актуальные конфигурационные файлы Terraform с планом инфраструктуры.
       1. Выполните команду:
       
          ```bash
          terraform validate
          ```
       
-         Если в файлах конфигурации есть ошибки, {{ TF }} на них укажет.
+         Если в файлах конфигурации есть ошибки, Terraform на них укажет.
 
   1. Подтвердите изменение ресурсов.
 
@@ -152,7 +152,7 @@
 
       {% note warning "Ограничения по времени" %}
       
-      Провайдер {{ TF }} ограничивает время на выполнение операций с кластером {{ mpg-name }}:
+      Провайдер Terraform ограничивает время на выполнение операций с кластером Managed Service for PostgreSQL:
       
       * создание, в том числе путем восстановления из резервной копии, — 30 минут;
       * изменение — 60 минут;
@@ -187,7 +187,7 @@
      export IAM_TOKEN="<IAM-токен>"
      ```
 
-  1. Воспользуйтесь методом [Cluster.Update](../api-ref/Cluster/update.md) и выполните запрос, например, с помощью {{ api-examples.rest.tool }}:
+  1. Воспользуйтесь методом [Cluster.Update](../api-ref/Cluster/update.md) и выполните запрос, например, с помощью [cURL](https://curl.se/):
 
      {% note warning %}
      
@@ -200,7 +200,7 @@
        --request PATCH \
        --header "Authorization: Bearer $IAM_TOKEN" \
        --header "Content-Type: application/json" \
-       --url 'https://{{ api-host-mdb }}/managed-postgresql/v1/clusters/<идентификатор_кластера>' \
+       --url 'https://mdb.api.cloud.yandex.net/managed-postgresql/v1/clusters/<идентификатор_кластера>' \
        --data '{
                  "updateMask": "configSpec.resources.resourcePresetId",
                  "configSpec": {
@@ -238,7 +238,7 @@
      ```
      
      Далее предполагается, что содержимое репозитория находится в директории `~/cloudapi/`.
-  1. Воспользуйтесь вызовом [ClusterService.Update](../api-ref/grpc/Cluster/update.md) и выполните запрос, например, с помощью {{ api-examples.grpc.tool }}:
+  1. Воспользуйтесь вызовом [ClusterService.Update](../api-ref/grpc/Cluster/update.md) и выполните запрос, например, с помощью [gRPCurl](https://github.com/fullstorydev/grpcurl):
 
      {% note warning %}
      
@@ -281,7 +281,7 @@
                }
              }
            }' \
-       {{ api-host-mdb }}:{{ port-https }} \
+       mdb.api.cloud.yandex.net:443 \
        yandex.cloud.mdb.postgresql.v1.ClusterService.Update
      ```
 
@@ -299,14 +299,14 @@
 
 {% endlist %}
 
-## Изменить настройки {{ PG }} {#change-postgresql-config}
+## Изменить настройки PostgreSQL {#change-postgresql-config}
 
 Вы можете изменить настройки СУБД для хостов вашего кластера.
 
 {% note warning %}
 
-* Вы не можете менять настройки {{ PG }} с помощью команд SQL.
-* Некоторые настройки {{ PG }} [зависят от выбранного класса хостов или размера хранилища](../concepts/settings-list.md#settings-instance-dependent).
+* Вы не можете менять настройки PostgreSQL с помощью команд SQL.
+* Некоторые настройки PostgreSQL [зависят от выбранного класса хостов или размера хранилища](../concepts/settings-list.md#settings-instance-dependent).
 
 {% endnote %}
 
@@ -314,52 +314,52 @@
 
 - Консоль управления {#console}
 
-  1. Перейдите в сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-postgresql }}**.
-  1. Выберите кластер и нажмите кнопку ![image](../../_assets/console-icons/pencil.svg) **{{ ui-key.yacloud.mdb.clusters.button_action-edit }}** на панели сверху.
-  1. Измените [настройки {{ PG }}](../concepts/settings-list.md), нажав кнопку **{{ ui-key.yacloud.mdb.forms.button_configure-settings }}** в блоке **{{ ui-key.yacloud.mdb.forms.section_settings }}**.
-  1. Нажмите кнопку **{{ ui-key.yacloud.component.mdb.settings.popup_settings-submit }}**.
-  1. Нажмите кнопку **{{ ui-key.yacloud.mdb.forms.button_edit }}**.
+  1. Перейдите в сервис **Managed Service for&nbsp;PostgreSQL**.
+  1. Выберите кластер и нажмите кнопку ![image](../../_assets/console-icons/pencil.svg) **Редактировать** на панели сверху.
+  1. Измените [настройки PostgreSQL](../concepts/settings-list.md), нажав кнопку **Настроить** в блоке **Настройки СУБД**.
+  1. Нажмите кнопку **Сохранить**.
+  1. Нажмите кнопку **Сохранить изменения**.
 
 - CLI {#cli}
 
-  Если у вас еще нет интерфейса командной строки {{ yandex-cloud }} (CLI), [установите и инициализируйте его](../../cli/quickstart.md#install).
+  Если у вас еще нет интерфейса командной строки Yandex Cloud (CLI), [установите и инициализируйте его](../../cli/quickstart.md#install).
 
   По умолчанию используется каталог, указанный при [создании](../../cli/operations/profile/profile-create.md) профиля CLI. Чтобы изменить каталог по умолчанию, используйте команду `yc config set folder-id <идентификатор_каталога>`. Также для любой команды вы можете указать другой каталог с помощью параметров `--folder-name` или `--folder-id`. Если вы обращаетесь к ресурсу по имени, поиск будет выполнен в каталоге по умолчанию. Если вы обращаетесь к ресурсу по идентификатору, поиск будет выполнен глобально — во всех каталогах с учетом прав доступа.
 
-  Чтобы изменить [настройки {{ PG }}](../concepts/settings-list.md):
+  Чтобы изменить [настройки PostgreSQL](../concepts/settings-list.md):
 
   1. Посмотрите полный список настроек, установленных для кластера:
 
      ```bash
-     {{ yc-mdb-pg }} cluster get <имя_или_идентификатор_кластера> --full
+     yc managed-postgresql cluster get <имя_или_идентификатор_кластера> --full
      ```
 
   1. Посмотрите описание команды CLI для изменения конфигурации кластера:
 
       ```bash
-      {{ yc-mdb-pg }} cluster update-config --help
+      yc managed-postgresql cluster update-config --help
       ```
 
   1. Установите нужные значения параметров:
 
-      Все поддерживаемые параметры перечислены в [формате запроса для метода update](../api-ref/Cluster/update.md), в поле `postgresqlConfig_<версия_{{ PG }}>`. Чтобы указать имя параметра в вызове CLI, преобразуйте его имя из вида <q>lowerCamelCase</q> в <q>snake_case</q>, например, параметр `maxPreparedTransactions` из запроса к API преобразуется в `max_prepared_transactions` для команды CLI:
+      Все поддерживаемые параметры перечислены в [формате запроса для метода update](../api-ref/Cluster/update.md), в поле `postgresqlConfig_<версия_PostgreSQL>`. Чтобы указать имя параметра в вызове CLI, преобразуйте его имя из вида <q>lowerCamelCase</q> в <q>snake_case</q>, например, параметр `maxPreparedTransactions` из запроса к API преобразуется в `max_prepared_transactions` для команды CLI:
 
       ```bash
-      {{ yc-mdb-pg }} cluster update-config <имя_или_идентификатор_кластера> \
+      yc managed-postgresql cluster update-config <имя_или_идентификатор_кластера> \
          --set <имя_параметра_1>=<значение_1>,<имя_параметра_2>=<значение_2>,...
       ```
 
-      {{ mpg-short-name }} запустит операцию по изменению настроек кластера.
+      Managed Service for PostgreSQL запустит операцию по изменению настроек кластера.
 
-- {{ TF }} {#tf}
+- Terraform {#tf}
 
-    1. Откройте актуальный конфигурационный файл {{ TF }} с планом инфраструктуры.
+    1. Откройте актуальный конфигурационный файл Terraform с планом инфраструктуры.
 
         О том, как создать такой файл, см. в разделе [Создание кластера](cluster-create.md).
 
-        Полный список доступных для изменения полей конфигурации кластера {{ mpg-name }} см. в [документации провайдера {{ TF }}]({{ tf-provider-mpg }}).
+        Полный список доступных для изменения полей конфигурации кластера Managed Service for PostgreSQL см. в [документации провайдера Terraform](../../terraform/resources/mdb_postgresql_cluster.md).
 
-    1. Измените в описании кластера {{ mpg-short-name }} значения параметров в блоке `config.postgresql_config`. Если такого блока нет — создайте его.
+    1. Измените в описании кластера Managed Service for PostgreSQL значения параметров в блоке `config.postgresql_config`. Если такого блока нет — создайте его.
 
         ```hcl
         resource "yandex_mdb_postgresql_cluster" "<имя_кластера>" {
@@ -378,14 +378,14 @@
 
     1. Проверьте корректность настроек.
 
-        1. В командной строке перейдите в каталог, в котором расположены актуальные конфигурационные файлы {{ TF }} с планом инфраструктуры.
+        1. В командной строке перейдите в каталог, в котором расположены актуальные конфигурационные файлы Terraform с планом инфраструктуры.
         1. Выполните команду:
         
            ```bash
            terraform validate
            ```
         
-           Если в файлах конфигурации есть ошибки, {{ TF }} на них укажет.
+           Если в файлах конфигурации есть ошибки, Terraform на них укажет.
 
     1. Подтвердите изменение ресурсов.
 
@@ -409,7 +409,7 @@
 
         {% note warning "Ограничения по времени" %}
         
-        Провайдер {{ TF }} ограничивает время на выполнение операций с кластером {{ mpg-name }}:
+        Провайдер Terraform ограничивает время на выполнение операций с кластером Managed Service for PostgreSQL:
         
         * создание, в том числе путем восстановления из резервной копии, — 30 минут;
         * изменение — 60 минут;
@@ -444,7 +444,7 @@
      export IAM_TOKEN="<IAM-токен>"
      ```
 
-  1. Воспользуйтесь методом [Cluster.Update](../api-ref/Cluster/update.md) и выполните запрос, например, с помощью {{ api-examples.rest.tool }}:
+  1. Воспользуйтесь методом [Cluster.Update](../api-ref/Cluster/update.md) и выполните запрос, например, с помощью [cURL](https://curl.se/):
 
      {% note warning %}
      
@@ -457,11 +457,11 @@
        --request PATCH \
        --header "Authorization: Bearer $IAM_TOKEN" \
        --header "Content-Type: application/json" \
-       --url 'https://{{ api-host-mdb }}/managed-postgresql/v1/clusters/<идентификатор_кластера>' \
+       --url 'https://mdb.api.cloud.yandex.net/managed-postgresql/v1/clusters/<идентификатор_кластера>' \
        --data '{
-                 "updateMask": "configSpec.postgresqlConfig_<версия_{{ PG }}>.<настройка_1>,...,configSpec.postgresqlConfig_<версия_{{ PG }}>.<настройка_N>",
+                 "updateMask": "configSpec.postgresqlConfig_<версия_PostgreSQL>.<настройка_1>,...,configSpec.postgresqlConfig_<версия_PostgreSQL>.<настройка_N>",
                  "configSpec": {
-                   "postgresqlConfig_<версия_{{ PG }}>": {
+                   "postgresqlConfig_<версия_PostgreSQL>": {
                      "<настройка_1>": "<значение_1>",
                      "<настройка_2>": "<значение_2>",
                      ...
@@ -475,11 +475,11 @@
 
      * `updateMask` — перечень изменяемых параметров в одну строку через запятую.
 
-       В данном случае перечислите все изменяемые настройки {{ PG }}.
+       В данном случае перечислите все изменяемые настройки PostgreSQL.
 
-     * `configSpec.postgresqlConfig_<версия_{{ PG }}>` — набор настроек {{ PG }}. Укажите каждую настройку на отдельной строке через запятую.
+     * `configSpec.postgresqlConfig_<версия_PostgreSQL>` — набор настроек PostgreSQL. Укажите каждую настройку на отдельной строке через запятую.
 
-       Список версий {{ PG }}, доступных для параметра, см. в [описании метода](../api-ref/Cluster/update.md#yandex.cloud.mdb.postgresql.v1.UpdateClusterRequest). Описание и возможные значения настроек см. в разделе [{#T}](../concepts/settings-list.md#dbms-cluster-settings).
+       Список версий PostgreSQL, доступных для параметра, см. в [описании метода](../api-ref/Cluster/update.md#yandex.cloud.mdb.postgresql.v1.UpdateClusterRequest). Описание и возможные значения настроек см. в разделе [Настройки на уровне кластера](../concepts/settings-list.md#dbms-cluster-settings).
 
      Идентификатор кластера можно запросить со [списком кластеров в каталоге](cluster-list.md#list-clusters).
 
@@ -500,7 +500,7 @@
      ```
      
      Далее предполагается, что содержимое репозитория находится в директории `~/cloudapi/`.
-  1. Воспользуйтесь вызовом [ClusterService.Update](../api-ref/grpc/Cluster/update.md) и выполните запрос, например, с помощью {{ api-examples.grpc.tool }}:
+  1. Воспользуйтесь вызовом [ClusterService.Update](../api-ref/grpc/Cluster/update.md) и выполните запрос, например, с помощью [gRPCurl](https://github.com/fullstorydev/grpcurl):
 
      {% note warning %}
      
@@ -534,14 +534,14 @@
              "cluster_id": "<идентификатор_кластера>",
              "update_mask": {
                "paths": [
-                 "config_spec.postgresql_config_<версия_{{ PG }}>.<настройка_1>",
-                 "config_spec.postgresql_config_<версия_{{ PG }}>.<настройка_2>",
+                 "config_spec.postgresql_config_<версия_PostgreSQL>.<настройка_1>",
+                 "config_spec.postgresql_config_<версия_PostgreSQL>.<настройка_2>",
                  ...,
-                 "config_spec.postgresql_config_<версия_{{ PG }}>.<настройка_N>"
+                 "config_spec.postgresql_config_<версия_PostgreSQL>.<настройка_N>"
                ]
              },
              "config_spec": {
-               "postgresql_config_<версия_{{ PG }}>": {
+               "postgresql_config_<версия_PostgreSQL>": {
                  "<настройка_1>": "<значение_1>",
                  "<настройка_2>": "<значение_2>",
                  ...
@@ -549,7 +549,7 @@
                }
              }
            }' \
-       {{ api-host-mdb }}:{{ port-https }} \
+       mdb.api.cloud.yandex.net:443 \
        yandex.cloud.mdb.postgresql.v1.ClusterService.Update
      ```
 
@@ -557,11 +557,11 @@
 
      * `update_mask` — перечень изменяемых параметров в виде массива строк `paths[]`.
 
-       В данном случае перечислите все изменяемые настройки {{ PG }}.
+       В данном случае перечислите все изменяемые настройки PostgreSQL.
 
-     * `config_spec.postgresql_config_<версия_{{ PG }}>` — набор настроек {{ PG }}. Укажите каждую настройку на отдельной строке через запятую.
+     * `config_spec.postgresql_config_<версия_PostgreSQL>` — набор настроек PostgreSQL. Укажите каждую настройку на отдельной строке через запятую.
 
-       Список версий {{ PG }}, доступных для параметра, см. в [описании метода](../api-ref/grpc/Cluster/create.md#yandex.cloud.mdb.postgresql.v1.ConfigSpec). Описание и возможные значения настроек см. в разделе [{#T}](../concepts/settings-list.md#dbms-cluster-settings).
+       Список версий PostgreSQL, доступных для параметра, см. в [описании метода](../api-ref/grpc/Cluster/create.md#yandex.cloud.mdb.postgresql.v1.ConfigSpec). Описание и возможные значения настроек см. в разделе [Настройки на уровне кластера](../concepts/settings-list.md#dbms-cluster-settings).
 
      Идентификатор кластера можно запросить со [списком кластеров в каталоге](cluster-list.md#list-clusters).
 
@@ -581,49 +581,49 @@
 
 - Консоль управления {#console}
 
-  1. Перейдите в сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-postgresql }}**.
-  1. Выберите кластер и нажмите кнопку ![image](../../_assets/console-icons/pencil.svg) **{{ ui-key.yacloud.mdb.clusters.button_action-edit }}** на панели сверху.
+  1. Перейдите в сервис **Managed Service for&nbsp;PostgreSQL**.
+  1. Выберите кластер и нажмите кнопку ![image](../../_assets/console-icons/pencil.svg) **Редактировать** на панели сверху.
   
   
-  1. В блоке **{{ ui-key.yacloud.postgresql.cluster.switch_diagnostics }}** включите стандартный или расширенный режим диагностики. Расширенный режим дополнительно включает сбор и анализ планов запросов.
+  1. В блоке **Диагностика производительности** включите стандартный или расширенный режим диагностики. Расширенный режим дополнительно включает сбор и анализ планов запросов.
          
-     Чтобы использовать инструмент [Диагностика производительности](performance-diagnostics.md), выберите опцию **{{ ui-key.yacloud.mdb.forms.field_diagnostics-enabled }}** и настройте **{{ ui-key.yacloud.mdb.forms.field_diagnostics-sessions-interval }}** и **{{ ui-key.yacloud.mdb.forms.field_diagnostics-statements-interval }}**. Единицы измерения обеих настроек — секунды.
+     Чтобы использовать инструмент [Диагностика производительности](performance-diagnostics.md), выберите опцию **Сбор статистики** и настройте **Интервал сбора сессий** и **Интервал сбора запросов**. Единицы измерения обеих настроек — секунды.
   
 
   1. Измените дополнительные настройки кластера:
 
-     - **{{ ui-key.yacloud.mdb.forms.backup-window-start }}** — промежуток времени, в течение которого начинается резервное копирование кластера. Время указывается по UTC в 24-часовом формате. По умолчанию — `22:00 - 23:00` UTC.
+     - **Начало резервного копирования (UTC)** — промежуток времени, в течение которого начинается резервное копирование кластера. Время указывается по UTC в 24-часовом формате. По умолчанию — `22:00 - 23:00` UTC.
      
-     - **{{ ui-key.yacloud.mdb.forms.backup-retain-period }}** — время, в течение которого нужно хранить созданные автоматически резервные копии. Если для такой копии истекает срок хранения, то она удаляется. Значение по умолчанию — {{ mpg-backup-retention }} дней. Подробнее см. в разделе [Резервные копии](../concepts/backup.md).
+     - **Срок хранения автоматических резервных копий, дней** — время, в течение которого нужно хранить созданные автоматически резервные копии. Если для такой копии истекает срок хранения, то она удаляется. Значение по умолчанию — 7 дней. Подробнее см. в разделе [Резервные копии](../concepts/backup.md).
      
          Изменение срока хранения затрагивает как новые автоматические резервные копии, так и уже существующие. Например, изначальный срок хранения был 7 дней. Оставшееся время жизни отдельной автоматической резервной копии при таком сроке — 1 день. При увеличении срока хранения до 9 дней оставшееся время жизни этой резервной копии будет уже 3 дня.
      
          Автоматические резервные копии кластера хранятся заданное количество дней, а созданные вручную — бессрочно. После удаления кластера все копии хранятся 7 дней.
      
-     - **{{ ui-key.yacloud.mdb.forms.maintenance-window-type }}** — настройки времени [технического обслуживания](../concepts/maintenance.md):
+     - **Обслуживание** — настройки времени [технического обслуживания](../concepts/maintenance.md):
      
-         * Чтобы разрешить проведение технического обслуживания в любое время, выберите пункт **{{ ui-key.yacloud.mdb.forms.value_maintenance-type-anytime }}** (по умолчанию).
-         * Чтобы указать предпочтительное время начала обслуживания, выберите пункт **{{ ui-key.yacloud.mdb.forms.value_maintenance-type-weekly }}** и укажите день недели и интервал времени по UTC. Например, можно выбрать время, когда кластер наименее загружен.
+         * Чтобы разрешить проведение технического обслуживания в любое время, выберите пункт **В любое время** (по умолчанию).
+         * Чтобы указать предпочтительное время начала обслуживания, выберите пункт **По расписанию** и укажите день недели и интервал времени по UTC. Например, можно выбрать время, когда кластер наименее загружен.
          
          Операции по техническому обслуживанию проводятся для включенных и выключенных кластеров. Они могут включать в себя: обновление СУБД, применение патчей и так далее.
      
-     - **{{ ui-key.yacloud.mdb.forms.additional-field-datalens }}** — опция разрешает анализировать данные из кластера в сервисе [{{ datalens-full-name }}](../../datalens/concepts/index.md).
+     - **Доступ из DataLens** — опция разрешает анализировать данные из кластера в сервисе [Yandex DataLens](../../datalens/concepts/index.md).
      
      
-     - **{{ ui-key.yacloud.mdb.forms.additional-field-websql-service }}** — опция разрешает [выполнять SQL-запросы](web-sql-query.md) к базам данных кластера из консоли управления {{ yandex-cloud }} с помощью сервиса {{ websql-full-name }}.
-     
-     
-     
-     
-     - **{{ ui-key.yacloud.mdb.forms.additional-field-yandex-query_ru }}** — опция разрешает выполнять YQL-запросы к базам данных кластера из сервиса [{{ yq-full-name }}](../../query/concepts/index.md).
-     
-     - **{{ ui-key.yacloud.mdb.forms.additional-field-serverless }}** — включите эту опцию, чтобы разрешить доступ к кластеру из сервиса [{{ sf-full-name }}](../../functions/concepts/index.md). Подробнее о настройке доступа см. в документации [{{ sf-name }}](../../functions/operations/database-connection.md).
+     - **Доступ из WebSQL** — опция разрешает [выполнять SQL-запросы](web-sql-query.md) к базам данных кластера из консоли управления Yandex Cloud с помощью сервиса Yandex WebSQL.
      
      
      
-     - **{{ ui-key.yacloud.postgresql.cluster.additional-field-pooling_mode }}** — выберите один из [режимов работы менеджера подключений](../concepts/pooling.md).
      
-     - **{{ ui-key.yacloud.mdb.forms.label_deletion-protection }}** — защита от удаления кластера, его баз данных и пользователей.
+     - **Доступ из Yandex Query** — опция разрешает выполнять YQL-запросы к базам данных кластера из сервиса [Yandex Query](../../query/concepts/index.md).
+     
+     - **Доступ из Serverless** — включите эту опцию, чтобы разрешить доступ к кластеру из сервиса [Yandex Cloud Functions](../../functions/concepts/index.md). Подробнее о настройке доступа см. в документации [Cloud Functions](../../functions/operations/database-connection.md).
+     
+     
+     
+     - **Режим работы менеджера подключений** — выберите один из [режимов работы менеджера подключений](../concepts/pooling.md).
+     
+     - **Защита от удаления** — защита от удаления кластера, его баз данных и пользователей.
      
          По умолчанию при создании пользователей и БД значение параметра наследуется от кластера. Значение также можно задать вручную, подробнее см. в разделах [Управление пользователями](cluster-users.md) и [Управление БД](databases.md).
          
@@ -633,7 +633,7 @@
 
 - CLI {#cli}
 
-  Если у вас еще нет интерфейса командной строки {{ yandex-cloud }} (CLI), [установите и инициализируйте его](../../cli/quickstart.md#install).
+  Если у вас еще нет интерфейса командной строки Yandex Cloud (CLI), [установите и инициализируйте его](../../cli/quickstart.md#install).
 
   По умолчанию используется каталог, указанный при [создании](../../cli/operations/profile/profile-create.md) профиля CLI. Чтобы изменить каталог по умолчанию, используйте команду `yc config set folder-id <идентификатор_каталога>`. Также для любой команды вы можете указать другой каталог с помощью параметров `--folder-name` или `--folder-id`. Если вы обращаетесь к ресурсу по имени, поиск будет выполнен в каталоге по умолчанию. Если вы обращаетесь к ресурсу по идентификатору, поиск будет выполнен глобально — во всех каталогах с учетом прав доступа.
 
@@ -642,20 +642,20 @@
     1. Посмотрите описание команды CLI для изменения кластера:
 
         ```bash
-        {{ yc-mdb-pg }} cluster update --help
+        yc managed-postgresql cluster update --help
         ```
 
     1. Выполните команду, передав список настроек, которые хотите изменить:
 
         ```bash
-        {{ yc-mdb-pg }} cluster update <имя_или_идентификатор_кластера> \
+        yc managed-postgresql cluster update <имя_или_идентификатор_кластера> \
             --backup-window-start <время_начала_резервного_копирования> \
             --backup-retain-period-days=<срок_хранения_автоматических_резервных_копий_в_днях> \
-            --datalens-access=<разрешить_доступ_из_{{ datalens-name }}> \
+            --datalens-access=<разрешить_доступ_из_DataLens> \
             --maintenance-window type=<тип_технического_обслуживания>,`
                                 `day=<день_недели>,`
                                 `hour=<час> \
-            --websql-access=<разрешить_доступ_из_{{ websql-name }}> \
+            --websql-access=<разрешить_доступ_из_WebSQL> \
             --deletion-protection \
             --connection-pooling-mode=<режим_работы_менеджера_подключений> \
             --serverless-access=<разрешить_доступ_из_Serverless_Containers> \
@@ -671,7 +671,7 @@
 
     * `--backup-retain-period-days` – срок хранения автоматических резервных копий (в днях).
 
-    * `--datalens-access` — разрешает доступ из DataLens. Значение по умолчанию — `false`. Подробнее о настройке подключения см. в разделе [Подключение к кластеру из {{ datalens-name }}](datalens-connect.md).
+    * `--datalens-access` — разрешает доступ из DataLens. Значение по умолчанию — `false`. Подробнее о настройке подключения см. в разделе [Подключение к кластеру из DataLens](datalens-connect.md).
 
     * `--maintenance-window` — настройки времени [технического обслуживания](../concepts/maintenance.md) (в т. ч. для выключенных кластеров), где `type` — тип технического обслуживания:
 
@@ -682,12 +682,12 @@
         
               > Например, `1` соответствует интервалу с `00:00` до `01:00`, `5` — с `04:00` до `05:00`.
 
-    * `--websql-access` — разрешает [выполнять SQL-запросы](web-sql-query.md) к базам данных кластера из консоли управления {{ yandex-cloud }} с помощью сервиса {{ websql-full-name }}. Значение по умолчанию — `false`.
+    * `--websql-access` — разрешает [выполнять SQL-запросы](web-sql-query.md) к базам данных кластера из консоли управления Yandex Cloud с помощью сервиса Yandex WebSQL. Значение по умолчанию — `false`.
     
     
-    * `--serverless-access` — разрешает доступ к кластеру из сервиса [{{ sf-full-name }}](../../functions/concepts/index.md). Значение по умолчанию — `false`. Подробнее о настройке доступа см. в документации [{{ sf-name }}](../../functions/operations/database-connection.md).
+    * `--serverless-access` — разрешает доступ к кластеру из сервиса [Yandex Cloud Functions](../../functions/concepts/index.md). Значение по умолчанию — `false`. Подробнее о настройке доступа см. в документации [Cloud Functions](../../functions/operations/database-connection.md).
 
-    * `--yandexquery-access` — разрешает доступ к кластеру из сервиса [{{ yq-full-name }}](../../query/concepts/index.md). Функциональность находится на стадии [Preview](../../overview/concepts/launch-stages.md) и предоставляется по запросу.
+    * `--yandexquery-access` — разрешает доступ к кластеру из сервиса [Yandex Query](../../query/concepts/index.md). Функциональность находится на стадии [Preview](../../overview/concepts/launch-stages.md) и предоставляется по запросу.
 
 
     * `--connection-pooling-mode` — указывает [режим работы менеджера подключений](../concepts/pooling.md): `SESSION`, `TRANSACTION` или `STATEMENT`.
@@ -710,15 +710,15 @@
 
     Имя кластера можно [получить со списком кластеров в каталоге](cluster-list.md#list-clusters).
 
-- {{ TF }} {#tf}
+- Terraform {#tf}
 
-  1. Откройте актуальный конфигурационный файл {{ TF }} с планом инфраструктуры.
+  1. Откройте актуальный конфигурационный файл Terraform с планом инфраструктуры.
 
       О том, как создать такой файл, см. в разделе [Создание кластера](cluster-create.md).
 
-      Полный список доступных для изменения полей конфигурации кластера {{ mpg-name }} см. в [документации провайдера {{ TF }}]({{ tf-provider-mpg }}).
+      Полный список доступных для изменения полей конфигурации кластера Managed Service for PostgreSQL см. в [документации провайдера Terraform](../../terraform/resources/mdb_postgresql_cluster.md).
 
-  1. Чтобы изменить время начала резервного копирования, добавьте к описанию кластера {{ mpg-name }} блок `config.backup_window_start`.
+  1. Чтобы изменить время начала резервного копирования, добавьте к описанию кластера Managed Service for PostgreSQL блок `config.backup_window_start`.
 
       ```hcl
       resource "yandex_mdb_postgresql_cluster" "<имя_кластера>" {
@@ -733,15 +733,15 @@
       }
       ```
 
-  1. Чтобы разрешить доступ из {{ datalens-full-name }} и [выполнение SQL-запросов из консоли управления](web-sql-query.md) с помощью {{ websql-full-name }}, измените значения соответствующих полей в блоке `config.access`:
+  1. Чтобы разрешить доступ из Yandex DataLens и [выполнение SQL-запросов из консоли управления](web-sql-query.md) с помощью Yandex WebSQL, измените значения соответствующих полей в блоке `config.access`:
 
       ```hcl
       resource "yandex_mdb_postgresql_cluster" "<имя_кластера>" {
         ...
         config {
           access {
-            data_lens = <разрешить_доступ_из_{{ datalens-name }}>
-            web_sql   = <разрешить_доступ_из_{{ websql-name }}>
+            data_lens = <разрешить_доступ_из_DataLens>
+            web_sql   = <разрешить_доступ_из_WebSQL>
             ...
         }
         ...
@@ -750,10 +750,10 @@
 
       Где:
 
-      * `data_lens` — доступ из {{ datalens-name }}: `true` или `false`.
-      * `web_sql` — выполнение SQL-запросов из консоли управления с помощью {{ websql-full-name }}: `true` или `false`.
+      * `data_lens` — доступ из DataLens: `true` или `false`.
+      * `web_sql` — выполнение SQL-запросов из консоли управления с помощью Yandex WebSQL: `true` или `false`.
 
-  1. Чтобы изменить [режим работы менеджера подключений](../concepts/pooling.md), добавьте к описанию кластера {{ mpg-name }} блок `config.pooler_config`:
+  1. Чтобы изменить [режим работы менеджера подключений](../concepts/pooling.md), добавьте к описанию кластера Managed Service for PostgreSQL блок `config.pooler_config`:
 
       ```hcl
       resource "yandex_mdb_postgresql_cluster" "<имя_кластера>" {
@@ -842,14 +842,14 @@
 
   1. Проверьте корректность настроек.
 
-      1. В командной строке перейдите в каталог, в котором расположены актуальные конфигурационные файлы {{ TF }} с планом инфраструктуры.
+      1. В командной строке перейдите в каталог, в котором расположены актуальные конфигурационные файлы Terraform с планом инфраструктуры.
       1. Выполните команду:
       
          ```bash
          terraform validate
          ```
       
-         Если в файлах конфигурации есть ошибки, {{ TF }} на них укажет.
+         Если в файлах конфигурации есть ошибки, Terraform на них укажет.
 
   1. Подтвердите изменение ресурсов.
 
@@ -873,7 +873,7 @@
 
       {% note warning "Ограничения по времени" %}
       
-      Провайдер {{ TF }} ограничивает время на выполнение операций с кластером {{ mpg-name }}:
+      Провайдер Terraform ограничивает время на выполнение операций с кластером Managed Service for PostgreSQL:
       
       * создание, в том числе путем восстановления из резервной копии, — 30 минут;
       * изменение — 60 минут;
@@ -933,11 +933,11 @@
          },
          "backupRetainPeriodDays": "<количество_дней>",
          "access": {
-           "dataLens": <разрешить_доступ_из_{{ datalens-name }}>,
-           "webSql": <разрешить_доступ_из_{{ websql-name }}>,
+           "dataLens": <разрешить_доступ_из_DataLens>,
+           "webSql": <разрешить_доступ_из_WebSQL>,
            "serverless": <разрешить_доступ_из_Cloud_Functions>,
            "dataTransfer": <разрешить_доступ_из_Data_Transfer>,
-           "yandexQuery": <разрешить_доступ_из_{{ yq-name }}>
+           "yandexQuery": <разрешить_доступ_из_Query>
          },
          "performanceDiagnostics": {
            "enabled": <активировать_сбор_статистики>,
@@ -963,7 +963,7 @@
 
        * `poolerConfig` — настройки менеджера подключений:
 
-         * `poolingMode` — режим работы менеджера подключений. Возможные значения: `SESSION`, `TRANSACTION` и `STATEMENT`. Подробнее о каждом режиме читайте в разделе [{#T}](../concepts/pooling.md).
+         * `poolingMode` — режим работы менеджера подключений. Возможные значения: `SESSION`, `TRANSACTION` и `STATEMENT`. Подробнее о каждом режиме читайте в разделе [Управление соединениями PostgreSQL](../concepts/pooling.md).
          * `poolDiscard` — должны ли клиенты терять свое состояние после каждой транзакции: `true` или `false`. Соответствует параметру [server_reset_query_always](https://www.pgbouncer.org/config.html) для менеджера подключений [PgBouncer](https://www.pgbouncer.org/usage).
 
        * `backupWindowStart` — настройки окна [резервного копирования](../concepts/backup.md).
@@ -978,13 +978,13 @@
        * `backupRetainPeriodDays` — сколько дней хранить резервную копию кластера. Возможные значения: от `7` до `60` дней.
 
        
-       * `access` — настройки доступа кластера к следующим сервисам {{ yandex-cloud }}:
+       * `access` — настройки доступа кластера к следующим сервисам Yandex Cloud:
 
-         * `dataLens` — [{{ datalens-full-name }}](../../datalens/index.md);
-         * `webSql` — [{{ websql-full-name }}](../../websql/index.md);
-         * `serverless` — [{{ sf-full-name }}](../../functions/index.md);
-         * `dataTransfer` — [{{ data-transfer-full-name }}](../../data-transfer/index.md);
-         * `yandexQuery` — [{{ yq-full-name }}](../../query/index.md).
+         * `dataLens` — [Yandex DataLens](../../datalens/index.md);
+         * `webSql` — [Yandex WebSQL](../../websql/index.md);
+         * `serverless` — [Yandex Cloud Functions](../../functions/index.md);
+         * `dataTransfer` — [Yandex Data Transfer](../../data-transfer/index.md);
+         * `yandexQuery` — [Yandex Query](../../query/index.md).
 
          Возможные значения настроек: `true` или `false`.
 
@@ -1017,14 +1017,14 @@
 
      Идентификатор кластера можно запросить со [списком кластеров в каталоге](cluster-list.md#list-clusters).
 
-  1. Воспользуйтесь методом [Cluster.Update](../api-ref/Cluster/update.md) и выполните запрос, например, с помощью {{ api-examples.rest.tool }}:
+  1. Воспользуйтесь методом [Cluster.Update](../api-ref/Cluster/update.md) и выполните запрос, например, с помощью [cURL](https://curl.se/):
 
      ```bash
      curl \
        --request PATCH \
        --header "Authorization: Bearer $IAM_TOKEN" \
        --header "Content-Type: application/json" \
-       --url 'https://{{ api-host-mdb }}/managed-postgresql/v1/clusters/<идентификатор_кластера>' \
+       --url 'https://mdb.api.cloud.yandex.net/managed-postgresql/v1/clusters/<идентификатор_кластера>' \
        --data "@body.json"
      ```
 
@@ -1097,11 +1097,11 @@
          },
          "backup_retain_period_days": "<количество_дней>",
          "access": {
-           "data_lens": <разрешить_доступ_из_{{ datalens-name }}>,
-           "web_sql": <разрешить_доступ_из_{{ websql-name }}>,
+           "data_lens": <разрешить_доступ_из_DataLens>,
+           "web_sql": <разрешить_доступ_из_WebSQL>,
            "serverless": <разрешить_доступ_из_Cloud_Functions>,
            "data_transfer": <разрешить_доступ_из_Data_Transfer>,
-           "yandex_query": <разрешить_доступ_из_{{ yq-name }}>
+           "yandex_query": <разрешить_доступ_из_Query>
          },
          "performance_diagnostics": {
            "enabled": <активировать_сбор_статистики>,
@@ -1127,7 +1127,7 @@
 
        * `pooler_config` — настройки менеджера подключений:
 
-         * `pooling_mode` — режим работы менеджера подключений. Возможные значения: `SESSION`, `TRANSACTION` и `STATEMENT`. Подробнее о каждом режиме читайте в разделе [{#T}](../concepts/pooling.md).
+         * `pooling_mode` — режим работы менеджера подключений. Возможные значения: `SESSION`, `TRANSACTION` и `STATEMENT`. Подробнее о каждом режиме читайте в разделе [Управление соединениями PostgreSQL](../concepts/pooling.md).
          * `pool_discard` — должны ли клиенты терять свое состояние после каждой транзакции: `true` или `false`. Соответствует параметру [server_reset_query_always](https://www.pgbouncer.org/config.html) для менеджера подключений [PgBouncer](https://www.pgbouncer.org/usage).
 
        * `backup_window_start` — настройки окна [резервного копирования](../concepts/backup.md).
@@ -1142,13 +1142,13 @@
        * `backup_retain_period_days` — сколько дней хранить резервную копию кластера. Возможные значения: от `7` до `60` дней.
 
        
-       * `access` — настройки доступа кластера к следующим сервисам {{ yandex-cloud }}:
+       * `access` — настройки доступа кластера к следующим сервисам Yandex Cloud:
 
-         * `data_lens` — [{{ datalens-full-name }}](../../datalens/index.md);
-         * `web_sql` — [{{ websql-full-name }}](../../websql/index.md);
-         * `serverless` — [{{ sf-full-name }}](../../functions/index.md);
-         * `data_transfer` — [{{ data-transfer-full-name }}](../../data-transfer/index.md);
-         * `yandex_query` — [{{ yq-full-name }}](../../query/index.md).
+         * `data_lens` — [Yandex DataLens](../../datalens/index.md);
+         * `web_sql` — [Yandex WebSQL](../../websql/index.md);
+         * `serverless` — [Yandex Cloud Functions](../../functions/index.md);
+         * `data_transfer` — [Yandex Data Transfer](../../data-transfer/index.md);
+         * `yandex_query` — [Yandex Query](../../query/index.md).
 
          Возможные значения настроек: `true` или `false`.
 
@@ -1181,7 +1181,7 @@
 
      Идентификатор кластера можно запросить со [списком кластеров в каталоге](cluster-list.md#list-clusters).
 
-  1. Воспользуйтесь вызовом [ClusterService.Update](../api-ref/grpc/Cluster/update.md) и выполните запрос, например, с помощью {{ api-examples.grpc.tool }}:
+  1. Воспользуйтесь вызовом [ClusterService.Update](../api-ref/grpc/Cluster/update.md) и выполните запрос, например, с помощью [gRPCurl](https://github.com/fullstorydev/grpcurl):
 
      ```bash
      grpcurl \
@@ -1191,7 +1191,7 @@
        -proto ~/cloudapi/yandex/cloud/mdb/postgresql/v1/cluster_service.proto \
        -rpc-header "Authorization: Bearer $IAM_TOKEN" \
        -d @ \
-       {{ api-host-mdb }}:{{ port-https }} \
+       mdb.api.cloud.yandex.net:443 \
        yandex.cloud.mdb.postgresql.v1.ClusterService.Update \
        < body.json
      ```
@@ -1201,32 +1201,32 @@
 {% endlist %}
 
 
-### {{ connection-manager-name }} {#conn-man}
+### Connection Manager {#conn-man}
 
-Если в кластере не включена интеграция с сервисом {{ connection-manager-name }}, включите опцию **{{ ui-key.yacloud.mdb.forms.additional-field-connman }}**. Она доступна только в [консоли управления]({{ link-console-main }}).
+Если в кластере не включена интеграция с сервисом Connection Manager, включите опцию **Использовать Connection Manager**. Она доступна только в [консоли управления](https://console.yandex.cloud).
 
 Для каждого пользователя БД будут созданы:
 
-* [Подключение](../../metadata-hub/concepts/connection-manager.md) {{ connection-manager-name }} с информацией о соединении с БД.
+* [Подключение](../../metadata-hub/concepts/connection-manager.md) Connection Manager с информацией о соединении с БД.
 
-* [Секрет {{ lockbox-name }}](../../metadata-hub/concepts/secret.md), в котором хранится пароль пользователя. Хранение паролей в сервисе {{ lockbox-name }} обеспечивает их безопасность.
+* [Секрет Yandex Lockbox](../../metadata-hub/concepts/secret.md), в котором хранится пароль пользователя. Хранение паролей в сервисе Yandex Lockbox обеспечивает их безопасность.
 
-Подключение и секрет создаются для каждого нового пользователя БД. Чтобы увидеть все подключения, на странице кластера выберите вкладку **{{ ui-key.yacloud.connection-manager.label_connections }}**.
+Подключение и секрет создаются для каждого нового пользователя БД. Чтобы увидеть все подключения, на странице кластера выберите вкладку **Подключения**.
 
-Для просмотра информации о подключении требуется роль `connection-manager.viewer`. Вы можете [настраивать доступ к подключениям в {{ connection-manager-name }}](../../metadata-hub/operations/connection-access.md).
+Для просмотра информации о подключении требуется роль `connection-manager.viewer`. Вы можете [настраивать доступ к подключениям в Connection Manager](../../metadata-hub/operations/connection-access.md).
 
 {% note info %}
 
-Использование сервиса {{ connection-manager-name }} и секретов, созданных с его помощью, не тарифицируется.
+Использование сервиса Connection Manager и секретов, созданных с его помощью, не тарифицируется.
 
 {% endnote %}
 
 
 ## Вручную переключить хост-мастер {#start-manual-failover}
 
-В отказоустойчивом кластере {{ mpg-name }} из нескольких хостов вы можете переключить роль мастера с текущего хоста-мастера на одну из реплик. После этой операции текущий хост-мастер станет хостом-репликой для нового мастера.
+В отказоустойчивом кластере Managed Service for PostgreSQL из нескольких хостов вы можете переключить роль мастера с текущего хоста-мастера на одну из реплик. После этой операции текущий хост-мастер станет хостом-репликой для нового мастера.
 
-Особенности переключения мастера в {{ mpg-name }}:
+Особенности переключения мастера в Managed Service for PostgreSQL:
 
 * Нельзя сделать мастером реплику, для которой явно указан источник потока репликации.
 * Если явно не указать имя хоста-реплики, мастер переключится на одну из кворумных реплик.
@@ -1239,35 +1239,35 @@
 
 - Консоль управления {#console}
 
-  1. Перейдите в сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-postgresql }}**.
-  1. Нажмите на имя нужного кластера и выберите вкладку ![icon-hosts.svg](../../_assets/console-icons/cube.svg) **{{ ui-key.yacloud.postgresql.cluster.switch_hosts }}**.
-  1. Нажмите кнопку ![icon-autofailover.svg](../../_assets/console-icons/shuffle.svg) **{{ ui-key.yacloud.mdb.cluster.hosts.button_manual-failover }}**.
-      * Чтобы переключить мастер на одну из кворумных реплик, оставьте опцию **{{ ui-key.yacloud.mdb.dialogs.popup-confirm-switch-master_auto }}** включенной.
-      * Чтобы переключить мастер на конкретную реплику, выключите опцию **{{ ui-key.yacloud.mdb.dialogs.popup-confirm-switch-master_auto }}** и затем выберите нужную реплику из выпадающего списка.
-  1. Нажмите кнопку **{{ ui-key.yacloud.mdb.dialogs.popup-confirm-switch-master_button }}**.
+  1. Перейдите в сервис **Managed Service for&nbsp;PostgreSQL**.
+  1. Нажмите на имя нужного кластера и выберите вкладку ![icon-hosts.svg](../../_assets/console-icons/cube.svg) **Хосты**.
+  1. Нажмите кнопку ![icon-autofailover.svg](../../_assets/console-icons/shuffle.svg) **Переключить мастер**.
+      * Чтобы переключить мастер на одну из кворумных реплик, оставьте опцию **Выбрать хост-мастер автоматически** включенной.
+      * Чтобы переключить мастер на конкретную реплику, выключите опцию **Выбрать хост-мастер автоматически** и затем выберите нужную реплику из выпадающего списка.
+  1. Нажмите кнопку **Переключить**.
 
 - CLI {#cli}
 
-  Если у вас еще нет интерфейса командной строки {{ yandex-cloud }} (CLI), [установите и инициализируйте его](../../cli/quickstart.md#install).
+  Если у вас еще нет интерфейса командной строки Yandex Cloud (CLI), [установите и инициализируйте его](../../cli/quickstart.md#install).
 
   По умолчанию используется каталог, указанный при [создании](../../cli/operations/profile/profile-create.md) профиля CLI. Чтобы изменить каталог по умолчанию, используйте команду `yc config set folder-id <идентификатор_каталога>`. Также для любой команды вы можете указать другой каталог с помощью параметров `--folder-name` или `--folder-id`. Если вы обращаетесь к ресурсу по имени, поиск будет выполнен в каталоге по умолчанию. Если вы обращаетесь к ресурсу по идентификатору, поиск будет выполнен глобально — во всех каталогах с учетом прав доступа.
 
   Выполните команду:
 
   ```bash
-  {{ yc-mdb-pg }} cluster start-failover <имя_или_идентификатор_кластера> \
+  yc managed-postgresql cluster start-failover <имя_или_идентификатор_кластера> \
       --host <имя_хоста-реплики>
   ```
 
   Имя хоста-реплики можно запросить со [списком хостов в кластере](hosts.md#list), имя кластера — со [списком кластеров в каталоге](cluster-list.md#list-clusters).
 
-- {{ TF }} {#tf}
+- Terraform {#tf}
 
-    1. Откройте актуальный конфигурационный файл {{ TF }} с планом инфраструктуры.
+    1. Откройте актуальный конфигурационный файл Terraform с планом инфраструктуры.
 
         О том, как создать такой файл, см. в разделе [Создание кластера](cluster-create.md).
 
-        Полный список доступных для изменения полей конфигурации кластера {{ mpg-name }} см. в [документации провайдера {{ TF }}]({{ tf-provider-mpg }}).
+        Полный список доступных для изменения полей конфигурации кластера Managed Service for PostgreSQL см. в [документации провайдера Terraform](../../terraform/resources/mdb_postgresql_cluster.md).
 
     1. Укажите имя хоста-реплики, на которую нужно переключиться, в параметре `host_master_name`.
 
@@ -1282,14 +1282,14 @@
 
     1. Проверьте корректность настроек.
 
-        1. В командной строке перейдите в каталог, в котором расположены актуальные конфигурационные файлы {{ TF }} с планом инфраструктуры.
+        1. В командной строке перейдите в каталог, в котором расположены актуальные конфигурационные файлы Terraform с планом инфраструктуры.
         1. Выполните команду:
         
            ```bash
            terraform validate
            ```
         
-           Если в файлах конфигурации есть ошибки, {{ TF }} на них укажет.
+           Если в файлах конфигурации есть ошибки, Terraform на них укажет.
 
     1. Подтвердите изменение ресурсов.
 
@@ -1313,7 +1313,7 @@
 
         {% note warning "Ограничения по времени" %}
         
-        Провайдер {{ TF }} ограничивает время на выполнение операций с кластером {{ mpg-name }}:
+        Провайдер Terraform ограничивает время на выполнение операций с кластером Managed Service for PostgreSQL:
         
         * создание, в том числе путем восстановления из резервной копии, — 30 минут;
         * изменение — 60 минут;
@@ -1348,14 +1348,14 @@
      export IAM_TOKEN="<IAM-токен>"
      ```
 
-  1. Воспользуйтесь методом [Cluster.StartFailover](../api-ref/Cluster/startFailover.md) и выполните запрос, например, с помощью {{ api-examples.rest.tool }}:
+  1. Воспользуйтесь методом [Cluster.StartFailover](../api-ref/Cluster/startFailover.md) и выполните запрос, например, с помощью [cURL](https://curl.se/):
 
      ```bash
      curl \
        --request POST \
        --header "Authorization: Bearer $IAM_TOKEN" \
        --header "Content-Type: application/json" \
-       --url 'https://{{ api-host-mdb }}/managed-postgresql/v1/clusters/<идентификатор_кластера>:startFailover' \
+       --url 'https://mdb.api.cloud.yandex.net/managed-postgresql/v1/clusters/<идентификатор_кластера>:startFailover' \
        --data '{
                  "hostName": "<FQDN_хоста>"
                }'
@@ -1382,7 +1382,7 @@
      ```
      
      Далее предполагается, что содержимое репозитория находится в директории `~/cloudapi/`.
-  1. Воспользуйтесь вызовом [ClusterService.StartFailover](../api-ref/grpc/Cluster/startFailover.md) и выполните запрос, например, с помощью {{ api-examples.grpc.tool }}:
+  1. Воспользуйтесь вызовом [ClusterService.StartFailover](../api-ref/grpc/Cluster/startFailover.md) и выполните запрос, например, с помощью [gRPCurl](https://github.com/fullstorydev/grpcurl):
 
      ```bash
      grpcurl \
@@ -1395,7 +1395,7 @@
              "cluster_id": "<идентификатор_кластера>",
              "host_name": "<FQDN_хоста>"
            }' \
-       {{ api-host-mdb }}:{{ port-https }} \
+       mdb.api.cloud.yandex.net:443 \
        yandex.cloud.mdb.postgresql.v1.ClusterService.StartFailover
      ```
 
@@ -1413,15 +1413,15 @@
 
 - Консоль управления {#console}
 
-    1. Перейдите в сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-postgresql }}**.
+    1. Перейдите в сервис **Managed Service for&nbsp;PostgreSQL**.
     1. Нажмите на значок ![image](../../_assets/console-icons/ellipsis.svg) справа в строке кластера, который вы хотите переместить.
-    1. Выберите пункт **{{ ui-key.yacloud.mdb.clusters.button_action-move }}**.
+    1. Выберите пункт **Переместить**.
     1. Выберите каталог, в который вы хотите переместить кластер.
-    1. Нажмите кнопку **{{ ui-key.yacloud.mdb.dialogs.popup_button_move-cluster }}**.
+    1. Нажмите кнопку **Переместить**.
 
 - CLI {#cli}
 
-    Если у вас еще нет интерфейса командной строки {{ yandex-cloud }} (CLI), [установите и инициализируйте его](../../cli/quickstart.md#install).
+    Если у вас еще нет интерфейса командной строки Yandex Cloud (CLI), [установите и инициализируйте его](../../cli/quickstart.md#install).
 
     По умолчанию используется каталог, указанный при [создании](../../cli/operations/profile/profile-create.md) профиля CLI. Чтобы изменить каталог по умолчанию, используйте команду `yc config set folder-id <идентификатор_каталога>`. Также для любой команды вы можете указать другой каталог с помощью параметров `--folder-name` или `--folder-id`. Если вы обращаетесь к ресурсу по имени, поиск будет выполнен в каталоге по умолчанию. Если вы обращаетесь к ресурсу по идентификатору, поиск будет выполнен глобально — во всех каталогах с учетом прав доступа.
 
@@ -1430,25 +1430,25 @@
     1. Посмотрите описание команды CLI для перемещения кластера:
 
         ```bash
-        {{ yc-mdb-pg }} cluster move --help
+        yc managed-postgresql cluster move --help
         ```
 
     1. Укажите каталог назначения в команде перемещения кластера:
 
         ```bash
-        {{ yc-mdb-pg }} cluster move <идентификатор_кластера> \
+        yc managed-postgresql cluster move <идентификатор_кластера> \
            --destination-folder-name=<имя_каталога_назначения>
         ```
 
         Идентификатор кластера можно получить со [списком кластеров в каталоге](cluster-list.md#list-clusters).
 
-- {{ TF }} {#tf}
+- Terraform {#tf}
 
-    1. Откройте актуальный конфигурационный файл {{ TF }} с планом инфраструктуры.
+    1. Откройте актуальный конфигурационный файл Terraform с планом инфраструктуры.
 
         О том, как создать такой файл, см. в разделе [Создание кластера](cluster-create.md).
 
-    1. Измените или добавьте в описании кластера {{ mpg-name }} значение параметра `folder_id`:
+    1. Измените или добавьте в описании кластера Managed Service for PostgreSQL значение параметра `folder_id`:
 
         ```hcl
         resource "yandex_mdb_postgresql_cluster" "<имя_кластера>" {
@@ -1459,14 +1459,14 @@
 
     1. Проверьте корректность настроек.
 
-        1. В командной строке перейдите в каталог, в котором расположены актуальные конфигурационные файлы {{ TF }} с планом инфраструктуры.
+        1. В командной строке перейдите в каталог, в котором расположены актуальные конфигурационные файлы Terraform с планом инфраструктуры.
         1. Выполните команду:
         
            ```bash
            terraform validate
            ```
         
-           Если в файлах конфигурации есть ошибки, {{ TF }} на них укажет.
+           Если в файлах конфигурации есть ошибки, Terraform на них укажет.
 
     1. Подтвердите изменение ресурсов.
 
@@ -1488,11 +1488,11 @@
            1. Подтвердите изменение ресурсов.
            1. Дождитесь завершения операции.
 
-    Подробнее см. в [документации провайдера {{ TF }}]({{ tf-provider-mpg }}).
+    Подробнее см. в [документации провайдера Terraform](../../terraform/resources/mdb_postgresql_cluster.md).
 
     {% note warning "Ограничения по времени" %}
     
-    Провайдер {{ TF }} ограничивает время на выполнение операций с кластером {{ mpg-name }}:
+    Провайдер Terraform ограничивает время на выполнение операций с кластером Managed Service for PostgreSQL:
     
     * создание, в том числе путем восстановления из резервной копии, — 30 минут;
     * изменение — 60 минут;
@@ -1527,14 +1527,14 @@
      export IAM_TOKEN="<IAM-токен>"
      ```
 
-  1. Воспользуйтесь методом [Cluster.Move](../api-ref/Cluster/move.md) и выполните запрос, например, с помощью {{ api-examples.rest.tool }}:
+  1. Воспользуйтесь методом [Cluster.Move](../api-ref/Cluster/move.md) и выполните запрос, например, с помощью [cURL](https://curl.se/):
 
      ```bash
      curl \
        --request POST \
        --header "Authorization: Bearer $IAM_TOKEN" \
        --header "Content-Type: application/json" \
-       --url 'https://{{ api-host-mdb }}/managed-postgresql/v1/clusters/<идентификатор_кластера>:move' \
+       --url 'https://mdb.api.cloud.yandex.net/managed-postgresql/v1/clusters/<идентификатор_кластера>:move' \
        --data '{
                  "destinationFolderId": "<идентификатор_каталога>"
                }'
@@ -1561,7 +1561,7 @@
      ```
      
      Далее предполагается, что содержимое репозитория находится в директории `~/cloudapi/`.
-  1. Воспользуйтесь вызовом [ClusterService.Move](../api-ref/grpc/Cluster/move.md) и выполните запрос, например, с помощью {{ api-examples.grpc.tool }}:
+  1. Воспользуйтесь вызовом [ClusterService.Move](../api-ref/grpc/Cluster/move.md) и выполните запрос, например, с помощью [gRPCurl](https://github.com/fullstorydev/grpcurl):
 
      ```bash
      grpcurl \
@@ -1574,7 +1574,7 @@
              "cluster_id": "<идентификатор_кластера>",
              "destination_folder_id": "<идентификатор_каталога>"
            }' \
-       {{ api-host-mdb }}:{{ port-https }} \
+       mdb.api.cloud.yandex.net:443 \
        yandex.cloud.mdb.postgresql.v1.ClusterService.Move
      ```
 
@@ -1597,13 +1597,13 @@
 
 - Консоль управления {#console}
 
-  1. Перейдите в сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-postgresql }}**.
-  1. Выберите кластер и нажмите кнопку ![image](../../_assets/console-icons/pencil.svg) **{{ ui-key.yacloud.mdb.clusters.button_action-edit }}** на панели сверху.
-  1. В блоке **{{ ui-key.yacloud.mdb.forms.section_network }}** выберите группы безопасности для сетевого трафика кластера.
+  1. Перейдите в сервис **Managed Service for&nbsp;PostgreSQL**.
+  1. Выберите кластер и нажмите кнопку ![image](../../_assets/console-icons/pencil.svg) **Редактировать** на панели сверху.
+  1. В блоке **Сетевые настройки** выберите группы безопасности для сетевого трафика кластера.
 
 - CLI {#cli}
 
-  Если у вас еще нет интерфейса командной строки {{ yandex-cloud }} (CLI), [установите и инициализируйте его](../../cli/quickstart.md#install).
+  Если у вас еще нет интерфейса командной строки Yandex Cloud (CLI), [установите и инициализируйте его](../../cli/quickstart.md#install).
 
   По умолчанию используется каталог, указанный при [создании](../../cli/operations/profile/profile-create.md) профиля CLI. Чтобы изменить каталог по умолчанию, используйте команду `yc config set folder-id <идентификатор_каталога>`. Также для любой команды вы можете указать другой каталог с помощью параметров `--folder-name` или `--folder-id`. Если вы обращаетесь к ресурсу по имени, поиск будет выполнен в каталоге по умолчанию. Если вы обращаетесь к ресурсу по идентификатору, поиск будет выполнен глобально — во всех каталогах с учетом прав доступа.
 
@@ -1612,23 +1612,23 @@
   1. Посмотрите описание команды CLI для изменения кластера:
 
       ```bash
-      {{ yc-mdb-pg }} cluster update --help
+      yc managed-postgresql cluster update --help
       ```
 
   1. Укажите нужные группы безопасности в команде изменения кластера:
 
       ```bash
-      {{ yc-mdb-pg }} cluster update <имя_или_идентификатор_кластера> \
+      yc managed-postgresql cluster update <имя_или_идентификатор_кластера> \
           --security-group-ids <список_идентификаторов_групп_безопасности>
       ```
 
-- {{ TF }} {#tf}
+- Terraform {#tf}
 
-  1. Откройте актуальный конфигурационный файл {{ TF }} с планом инфраструктуры.
+  1. Откройте актуальный конфигурационный файл Terraform с планом инфраструктуры.
 
       О том, как создать такой файл, см. в разделе [Создание кластера](cluster-create.md).
 
-      Полный список доступных для изменения полей конфигурации кластера {{ mpg-name }} см. в [документации провайдера {{ TF }}]({{ tf-provider-mpg }}).
+      Полный список доступных для изменения полей конфигурации кластера Managed Service for PostgreSQL см. в [документации провайдера Terraform](../../terraform/resources/mdb_postgresql_cluster.md).
 
   1. Измените значение параметра `security_group_ids` в описании кластера:
 
@@ -1641,14 +1641,14 @@
 
   1. Проверьте корректность настроек.
 
-      1. В командной строке перейдите в каталог, в котором расположены актуальные конфигурационные файлы {{ TF }} с планом инфраструктуры.
+      1. В командной строке перейдите в каталог, в котором расположены актуальные конфигурационные файлы Terraform с планом инфраструктуры.
       1. Выполните команду:
       
          ```bash
          terraform validate
          ```
       
-         Если в файлах конфигурации есть ошибки, {{ TF }} на них укажет.
+         Если в файлах конфигурации есть ошибки, Terraform на них укажет.
 
   1. Подтвердите изменение ресурсов.
 
@@ -1672,7 +1672,7 @@
 
       {% note warning "Ограничения по времени" %}
       
-      Провайдер {{ TF }} ограничивает время на выполнение операций с кластером {{ mpg-name }}:
+      Провайдер Terraform ограничивает время на выполнение операций с кластером Managed Service for PostgreSQL:
       
       * создание, в том числе путем восстановления из резервной копии, — 30 минут;
       * изменение — 60 минут;
@@ -1707,7 +1707,7 @@
      export IAM_TOKEN="<IAM-токен>"
      ```
 
-  1. Воспользуйтесь методом [Cluster.Update](../api-ref/Cluster/update.md) и выполните запрос, например, с помощью {{ api-examples.rest.tool }}:
+  1. Воспользуйтесь методом [Cluster.Update](../api-ref/Cluster/update.md) и выполните запрос, например, с помощью [cURL](https://curl.se/):
 
      {% note warning %}
      
@@ -1720,7 +1720,7 @@
        --request PATCH \
        --header "Authorization: Bearer $IAM_TOKEN" \
        --header "Content-Type: application/json" \
-       --url 'https://{{ api-host-mdb }}/managed-postgresql/v1/clusters/<идентификатор_кластера>' \
+       --url 'https://mdb.api.cloud.yandex.net/managed-postgresql/v1/clusters/<идентификатор_кластера>' \
        --data '{
                  "updateMask": "securityGroupIds",
                  "securityGroupIds": [
@@ -1759,7 +1759,7 @@
      ```
      
      Далее предполагается, что содержимое репозитория находится в директории `~/cloudapi/`.
-  1. Воспользуйтесь вызовом [ClusterService.Update](../api-ref/grpc/Cluster/update.md) и выполните запрос, например, с помощью {{ api-examples.grpc.tool }}:
+  1. Воспользуйтесь вызовом [ClusterService.Update](../api-ref/grpc/Cluster/update.md) и выполните запрос, например, с помощью [gRPCurl](https://github.com/fullstorydev/grpcurl):
 
      {% note warning %}
      
@@ -1803,7 +1803,7 @@
                "<идентификатор_группы_безопасности_N>"
              ]
            }' \
-       {{ api-host-mdb }}:{{ port-https }} \
+       mdb.api.cloud.yandex.net:443 \
        yandex.cloud.mdb.postgresql.v1.ClusterService.Update
      ```
 

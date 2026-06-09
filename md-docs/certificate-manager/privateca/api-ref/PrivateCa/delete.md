@@ -5,7 +5,7 @@ Deletes an existing Certificate Authority (CA).
 ## HTTP request
 
 ```
-DELETE https://private-ca.certificate-manager.{{ api-host }}/privateca/v1/certificateAuthorities/{certificateAuthorityId}
+DELETE https://private-ca.certificate-manager.api.cloud.yandex.net/privateca/v1/certificateAuthorities/{certificateAuthorityId}
 ```
 
 ## Path parameters

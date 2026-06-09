@@ -1,6 +1,6 @@
 # Просмотр операций с кластерами
 
-Все действия с кластерами {{ mgp-name }} сохраняются в виде списка операций. Каждой операции присваивается уникальный идентификатор.
+Все действия с кластерами Yandex MPP Analytics for PostgreSQL сохраняются в виде списка операций. Каждой операции присваивается уникальный идентификатор.
 
 ## Получить список операций {#get-operations}
 
@@ -8,20 +8,20 @@
 
 - Консоль управления {#console}
 
-  1. В [консоли управления]({{ link-console-main }}) откройте каталог, в котором находится кластер.
-  1. Перейдите в сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-greenplum }}**.
-  1. На панели слева выберите ![image](../../_assets/console-icons/cubes-3.svg) **{{ ui-key.yacloud.mdb.clusters.label_title }}**.
-  1. Выберите нужный кластер и перейдите на вкладку ![image](../../_assets/console-icons/list-check.svg) **{{ ui-key.yacloud.common.operations-key-value }}**.
+  1. В [консоли управления](https://console.yandex.cloud) откройте каталог, в котором находится кластер.
+  1. Перейдите в сервис **Yandex MPP Analytics for&nbsp;PostgreSQL**.
+  1. На панели слева выберите ![image](../../_assets/console-icons/cubes-3.svg) **Кластеры**.
+  1. Выберите нужный кластер и перейдите на вкладку ![image](../../_assets/console-icons/list-check.svg) **Операции**.
 
      В открывшемся списке отображаются операции с выбранным кластером.
 
 - CLI {#cli}
 
-  Если у вас еще нет интерфейса командной строки {{ yandex-cloud }} (CLI), [установите и инициализируйте его](../../cli/quickstart.md#install).
+  Если у вас еще нет интерфейса командной строки Yandex Cloud (CLI), [установите и инициализируйте его](../../cli/quickstart.md#install).
 
   По умолчанию используется каталог, указанный при [создании](../../cli/operations/profile/profile-create.md) профиля CLI. Чтобы изменить каталог по умолчанию, используйте команду `yc config set folder-id <идентификатор_каталога>`. Также для любой команды вы можете указать другой каталог с помощью параметров `--folder-name` или `--folder-id`. Если вы обращаетесь к ресурсу по имени, поиск будет выполнен в каталоге по умолчанию. Если вы обращаетесь к ресурсу по идентификатору, поиск будет выполнен глобально — во всех каталогах с учетом прав доступа.
 
-  Чтобы получить список операций для кластера {{ mgp-name }}, воспользуйтесь командой:
+  Чтобы получить список операций для кластера Yandex MPP Analytics for PostgreSQL, воспользуйтесь командой:
 
   ```bash
   yc managed-greenplum cluster list-operations <имя_или_идентификатор_кластера>
@@ -70,13 +70,13 @@
       export IAM_TOKEN="<IAM-токен>"
       ```
 
-  1. Воспользуйтесь методом [Cluster.ListOperations](../api-ref/Cluster/listOperations.md) и выполните запрос, например, с помощью {{ api-examples.rest.tool }}:
+  1. Воспользуйтесь методом [Cluster.ListOperations](../api-ref/Cluster/listOperations.md) и выполните запрос, например, с помощью [cURL](https://curl.se/):
 
       ```bash
       curl \
           --request GET \
           --header "Authorization: Bearer $IAM_TOKEN" \
-          --url 'https://{{ api-host-mdb }}/managed-greenplum/v1/clusters/<идентификатор_кластера>/operations'
+          --url 'https://mdb.api.cloud.yandex.net/managed-greenplum/v1/clusters/<идентификатор_кластера>/operations'
       ```
 
       Идентификатор кластера можно запросить со [списком кластеров в каталоге](#list-clusters).
@@ -99,7 +99,7 @@
      
      Далее предполагается, что содержимое репозитория находится в директории `~/cloudapi/`.
 
-  1. Воспользуйтесь вызовом [ClusterService.ListOperations](../api-ref/grpc/Cluster/listOperations.md) и выполните запрос, например, с помощью {{ api-examples.grpc.tool }}:
+  1. Воспользуйтесь вызовом [ClusterService.ListOperations](../api-ref/grpc/Cluster/listOperations.md) и выполните запрос, например, с помощью [gRPCurl](https://github.com/fullstorydev/grpcurl):
 
       ```bash
       grpcurl \
@@ -111,7 +111,7 @@
           -d '{
                 "cluster_id": "<идентификатор_кластера>"
               }' \
-          {{ api-host-mdb }}:{{ port-https }} \
+          mdb.api.cloud.yandex.net:443 \
           yandex.cloud.mdb.greenplum.v1.ClusterService.ListOperations
       ```
 
@@ -131,7 +131,7 @@
 
     - CLI {#cli}
 
-      Если у вас еще нет интерфейса командной строки {{ yandex-cloud }} (CLI), [установите и инициализируйте его](../../cli/quickstart.md#install).
+      Если у вас еще нет интерфейса командной строки Yandex Cloud (CLI), [установите и инициализируйте его](../../cli/quickstart.md#install).
 
       По умолчанию используется каталог, указанный при [создании](../../cli/operations/profile/profile-create.md) профиля CLI. Чтобы изменить каталог по умолчанию, используйте команду `yc config set folder-id <идентификатор_каталога>`. Также для любой команды вы можете указать другой каталог с помощью параметров `--folder-name` или `--folder-id`. Если вы обращаетесь к ресурсу по имени, поиск будет выполнен в каталоге по умолчанию. Если вы обращаетесь к ресурсу по идентификатору, поиск будет выполнен глобально — во всех каталогах с учетом прав доступа.
 
@@ -166,13 +166,13 @@
           export IAM_TOKEN="<IAM-токен>"
           ```
 
-      1. Воспользуйтесь методом [Operation.Get](../api-ref/Operation/get.md) и выполните запрос, например, с помощью {{ api-examples.rest.tool }}:
+      1. Воспользуйтесь методом [Operation.Get](../api-ref/Operation/get.md) и выполните запрос, например, с помощью [cURL](https://curl.se/):
 
           ```bash
           curl \
               --request GET \
               --header "Authorization: Bearer $IAM_TOKEN" \
-              --url 'https://{{ api-host-operation }}/operations/<идентификатор_операции>'
+              --url 'https://operation.api.cloud.yandex.net/operations/<идентификатор_операции>'
           ```
 
       1. Убедитесь, что запрос был выполнен успешно, изучив [ответ сервера](../api-ref/Operation/get.md#yandex.cloud.operation.Operation).
@@ -193,7 +193,7 @@
          
          Далее предполагается, что содержимое репозитория находится в директории `~/cloudapi/`.
 
-      1. Воспользуйтесь вызовом [OperationService.Get](../api-ref/grpc/Operation/get.md) и выполните запрос, например, с помощью {{ api-examples.grpc.tool }}:
+      1. Воспользуйтесь вызовом [OperationService.Get](../api-ref/grpc/Operation/get.md) и выполните запрос, например, с помощью [gRPCurl](https://github.com/fullstorydev/grpcurl):
 
           ```bash
           grpcurl \
@@ -205,7 +205,7 @@
               -d '{
                     "operation_id": "<идентификатор_операции>"
                   }' \
-              {{ api-host-operation }}:{{ port-https }} \
+              operation.api.cloud.yandex.net:443 \
               yandex.cloud.operation.OperationService.Get
           ```
 
@@ -215,6 +215,6 @@
 
 ## См. также {#see-also}
 
-* [{#T}](../../api-design-guide/concepts/about-async.md)
+* [Работа с операциями](../../api-design-guide/concepts/about-async.md)
 
 _Greenplum® и Greenplum Database® являются зарегистрированными товарными знаками или товарными знаками Broadcom Inc в США и/или других странах._

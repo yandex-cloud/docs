@@ -5,7 +5,7 @@ Get specified by id resource rule.
 ## HTTP request
 
 ```
-GET https://cdn.{{ api-host }}/cdn/v1/rules/{ruleId}
+GET https://cdn.api.cloud.yandex.net/cdn/v1/rules/{ruleId}
 ```
 
 ## Path parameters

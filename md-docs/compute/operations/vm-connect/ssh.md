@@ -6,14 +6,14 @@
 
 {% note info %}
 
-При создании ВМ с доступом по [{{ oslogin }}](os-login.md) указывайте SSH-ключи в [метаданных](../../concepts/metadata/sending-metadata.md). Так вы сможете [подключиться к ВМ по SSH](#vm-connect), даже если отключите для нее доступ по {{ oslogin }}.
+При создании ВМ с доступом по [OS Login](os-login.md) указывайте SSH-ключи в [метаданных](../../concepts/metadata/sending-metadata.md). Так вы сможете [подключиться к ВМ по SSH](#vm-connect), даже если отключите для нее доступ по OS Login.
 
 {% endnote %}
 
 Чтобы подключиться к ВМ Linux по SSH:
 
 1. [Создайте пару SSH-ключей](#creating-ssh-keys).
-1. [Скопируйте открытый ключ](#copy-key) в поле **{{ ui-key.yacloud.compute.instances.create.field_key }}** на странице создания ВМ.
+1. [Скопируйте открытый ключ](#copy-key) в поле **SSH-ключ** на странице создания ВМ.
 1. [Подключитесь к ВМ](#vm-connect).
 
 
@@ -57,12 +57,12 @@
 
 - Консоль управления {#console}
 
-  1. В [консоли управления]({{ link-console-main }}) выберите [каталог](../../../resource-manager/concepts/resources-hierarchy.md#folder), в котором будет [создана](../vm-create/create-linux-vm.md) ВМ.
-  1. Перейдите в сервис **{{ compute-name }}**.
-  1. На панели слева выберите ![image](../../../_assets/console-icons/server.svg) **{{ ui-key.yacloud.compute.instances_jsoza }}**.
-  1. Нажмите **{{ ui-key.yacloud.compute.instances.button_create }}**.
-  1. В блоке **{{ ui-key.yacloud.compute.instances.create.section_access }}** нажмите **{{ ui-key.yacloud.compute.instances.create.button_add-ssh-key }}**.
-  1. В открывшемся окне выберите `{{ ui-key.yacloud_components.ssh-key-add-dialog.value_radio-generate }}` и нажмите **{{ ui-key.yacloud.common.add }}**.
+  1. В [консоли управления](https://console.yandex.cloud) выберите [каталог](../../../resource-manager/concepts/resources-hierarchy.md#folder), в котором будет [создана](../vm-create/create-linux-vm.md) ВМ.
+  1. Перейдите в сервис **Compute Cloud**.
+  1. На панели слева выберите ![image](../../../_assets/console-icons/server.svg) **Виртуальные машины**.
+  1. Нажмите **Создать виртуальную машину**.
+  1. В блоке **Доступ** нажмите **Добавить ключ**.
+  1. В открывшемся окне выберите `Сгенерировать ключ` и нажмите **Добавить**.
   
       При добавлении сгенерированного SSH-ключа будет создан и загружен архив с парой ключей. В ОС на базе Linux или macOS распакуйте архив в папку `/home/<имя_пользователя>/.ssh`. В ОС Windows распакуйте архив в папку `C:\Users\<имя_пользователя>/.ssh`. Дополнительно вводить открытый ключ в консоли управления не требуется.
   
@@ -208,7 +208,7 @@
 
 {% endlist %}
 
-После этого вставьте открытый ключ в поле **{{ ui-key.yacloud.compute.instances.create.field_key }}** при создании ВМ через [консоль управления]({{ link-console-main }}).
+После этого вставьте открытый ключ в поле **SSH-ключ** при создании ВМ через [консоль управления](https://console.yandex.cloud).
 
 ## Подключение к ВМ {#vm-connect}
 
@@ -216,9 +216,9 @@
 
 [Группы безопасности](../../../vpc/concepts/security-groups.md) ВМ должны разрешать входящий трафик по протоколу TCP на порт 22.
 
-Для подключения необходимо указать [публичный IP-адрес](../../../vpc/concepts/address.md#public-addresses) ВМ. Публичный IP-адрес можно узнать в консоли управления, в поле **{{ ui-key.yacloud.compute.instance.overview.label_public-ipv4 }}** блока **{{ ui-key.yacloud.compute.instance.overview.section_network }}** на странице ВМ. Если вы создали ВМ только с внутренним IP-адресом, [привяжите к ней публичный IP-адрес](../vm-control/vm-attach-public-ip.md).
+Для подключения необходимо указать [публичный IP-адрес](../../../vpc/concepts/address.md#public-addresses) ВМ. Публичный IP-адрес можно узнать в консоли управления, в поле **Публичный IPv4-адрес** блока **Сеть** на странице ВМ. Если вы создали ВМ только с внутренним IP-адресом, [привяжите к ней публичный IP-адрес](../vm-control/vm-attach-public-ip.md).
 
-Также можно использовать [внутренние IP-адреса](../../../vpc/concepts/address.md#internal-addresses) и [FQDN](../../../vpc/concepts/address.md#fqdn) для установки SSH-соединения между ВМ внутри одной [облачной сети](../../../vpc/concepts/network.md#network) {{ yandex-cloud }}.
+Также можно использовать [внутренние IP-адреса](../../../vpc/concepts/address.md#internal-addresses) и [FQDN](../../../vpc/concepts/address.md#fqdn) для установки SSH-соединения между ВМ внутри одной [облачной сети](../../../vpc/concepts/network.md#network) Yandex Cloud.
 
 {% list tabs group=operating_system %}
 
@@ -234,7 +234,7 @@
   * `<имя_пользователя>` — имя учетной записи пользователя ВМ. Если ВМ создавалась через CLI, то пользователь по умолчанию — `yc-user`.
   * `<публичный_IP-адрес_ВМ>` — [публичный IP-адрес](../../../vpc/concepts/address.md#public-addresses) виртуальной машины для доступа к ней через интернет.
   
-      Публичный IP-адрес ВМ можно узнать в поле **{{ ui-key.yacloud.compute.instance.overview.label_public-ipv4 }}** сетевого интерфейса в блоке **{{ ui-key.yacloud.compute.instance.overview.section_network }}** на странице ВМ в [консоли управления]({{ link-console-main }}) или с помощью команды [YC CLI](../../../cli/quickstart.md) `yc compute instance get <имя_ВМ>`.
+      Публичный IP-адрес ВМ можно узнать в поле **Публичный IPv4-адрес** сетевого интерфейса в блоке **Сеть** на странице ВМ в [консоли управления](https://console.yandex.cloud) или с помощью команды [YC CLI](../../../cli/quickstart.md) `yc compute instance get <имя_ВМ>`.
 
   Если у вас несколько закрытых ключей, укажите нужный:
 
@@ -268,7 +268,7 @@
   * `<имя_пользователя>` — имя учетной записи пользователя ВМ. Если ВМ создавалась через CLI, то пользователь по умолчанию — `yc-user`.
   * `<публичный_IP-адрес_ВМ>` — [публичный IP-адрес](../../../vpc/concepts/address.md#public-addresses) виртуальной машины для доступа к ней через интернет.
 
-      Публичный IP-адрес ВМ можно узнать в поле **{{ ui-key.yacloud.compute.instance.overview.label_public-ipv4 }}** сетевого интерфейса в блоке **{{ ui-key.yacloud.compute.instance.overview.section_network }}** на странице ВМ в [консоли управления]({{ link-console-main }}) или с помощью команды [YC CLI](../../../cli/quickstart.md) `yc compute instance get <имя_ВМ>`.
+      Публичный IP-адрес ВМ можно узнать в поле **Публичный IPv4-адрес** сетевого интерфейса в блоке **Сеть** на странице ВМ в [консоли управления](https://console.yandex.cloud) или с помощью команды [YC CLI](../../../cli/quickstart.md) `yc compute instance get <имя_ВМ>`.
 
   Если у вас несколько закрытых ключей, укажите нужный:
 
@@ -296,7 +296,7 @@
   1. Запустите приложение PuTTY.
      1. В поле **Host Name (or IP address)** введите [публичный IP-адрес ВМ](../../../vpc/concepts/address.md#public-addresses), к которой вы хотите подключиться. Укажите порт `22` и тип соединения **SSH**.
         
-        Публичный IP-адрес ВМ можно узнать в поле **{{ ui-key.yacloud.compute.instance.overview.label_public-ipv4 }}** сетевого интерфейса в блоке **{{ ui-key.yacloud.compute.instance.overview.section_network }}** на странице ВМ в [консоли управления]({{ link-console-main }}) или с помощью команды [YC CLI](../../../cli/quickstart.md) `yc compute instance get <имя_ВМ>`.
+        Публичный IP-адрес ВМ можно узнать в поле **Публичный IPv4-адрес** сетевого интерфейса в блоке **Сеть** на странице ВМ в [консоли управления](https://console.yandex.cloud) или с помощью команды [YC CLI](../../../cli/quickstart.md) `yc compute instance get <имя_ВМ>`.
 
         ![ssh_add_ip](../../../_assets/compute/ssh-putty/ssh_add_ip.png)
 
@@ -330,17 +330,17 @@
   1. Выберите пункт меню **Saved sessions**.
   1. В списке сохраненных сессий выберите нужную сессию.
 
-- {{ cloud-shell-full-name }} {#console}
+- Yandex Cloud Shell {#console}
 
-  1. В [консоли управления]({{ link-console-main }}) на панели слева нажмите ![image](../../../_assets/console-icons/dots-9.svg) **{{ ui-key.yacloud.dashboard.DashboardPage.ServicesSection.title_ur39b }}** и выберите **{{ ui-key.yacloud.iam.folder.dashboard.label_compute }}** или найдите его с помощью строки поиска на дашборде.
+  1. В [консоли управления](https://console.yandex.cloud) на панели слева нажмите ![image](../../../_assets/console-icons/dots-9.svg) **Все сервисы** и выберите **Compute Cloud** или найдите его с помощью строки поиска на дашборде.
   1. Перейдите в ВМ, к которой хотите подключиться.
-  1. Убедитесь, что ВМ находится в статусе `Running`. Если ВМ не запущена, в правом верхнем углу нажмите ![image](../../../_assets/console-icons/play.svg) **{{ ui-key.yacloud.compute.instances.button_gr-action-start }}** и дождитесь перехода ВМ в статус `Running`.
-  1. Справа вверху нажмите ![image](../../../_assets/console-icons/terminal.svg) **{{ ui-key.yacloud.compute.instance.overview.button_action-ssh }}**.
+  1. Убедитесь, что ВМ находится в статусе `Running`. Если ВМ не запущена, в правом верхнем углу нажмите ![image](../../../_assets/console-icons/play.svg) **Запустить** и дождитесь перехода ВМ в статус `Running`.
+  1. Справа вверху нажмите ![image](../../../_assets/console-icons/terminal.svg) **Подключиться в Cloud Shell**.
   1. Введите логин пользователя. По умолчанию введен логин, указанный при создании ВМ.
   1. Вставьте содержимое или загрузите файл закрытого SSH-ключа.
-  1. Нажмите **{{ ui-key.yacloud.compute.components.SshViaPrivateKeyDialog.connect-via-private-key_6DKKe }}**.
+  1. Нажмите **Подключиться**.
   
-  Внизу откроется терминал ![image](../../../_assets/console-icons/terminal.svg) **{{ ui-key.yacloud.cloud-shell.label_service }}** с открытым подключением к ВМ по SSH.
+  Внизу откроется терминал ![image](../../../_assets/console-icons/terminal.svg) **Cloud Shell** с открытым подключением к ВМ по SSH.
   
   Чтобы закрыть подключение, нажмите ![image](../../../_assets/console-icons/xmark.svg) или используйте команду `exit`.
 
@@ -417,15 +417,15 @@
 
    Где `<публичный_IP-адрес_ВМ>` — [публичный IP-адрес](../../../vpc/concepts/address.md#public-addresses) виртуальной машины для доступа к ней через интернет.
 
-   Публичный IP-адрес ВМ можно узнать в поле **{{ ui-key.yacloud.compute.instance.overview.label_public-ipv4 }}** сетевого интерфейса в блоке **{{ ui-key.yacloud.compute.instance.overview.section_network }}** на странице ВМ в [консоли управления]({{ link-console-main }}) или с помощью команды [YC CLI](../../../cli/quickstart.md) `yc compute instance get <имя_ВМ>`.
+   Публичный IP-адрес ВМ можно узнать в поле **Публичный IPv4-адрес** сетевого интерфейса в блоке **Сеть** на странице ВМ в [консоли управления](https://console.yandex.cloud) или с помощью команды [YC CLI](../../../cli/quickstart.md) `yc compute instance get <имя_ВМ>`.
 
 #### Что дальше {#what-is-next}
 
-* [Узнайте, как работать с {{ yandex-cloud }} изнутри ВМ](auth-inside-vm.md).
+* [Узнайте, как работать с Yandex Cloud изнутри ВМ](auth-inside-vm.md).
 
 #### См. также {#see-also}
 
-* [{#T}](cloud-shell.md)
-* [{#T}](rdp.md)
-* [{#T}](powershell.md)
-* [{#T}](os-login.md)
+* [Подключиться к виртуальной машине Linux по SSH с помощью Yandex Cloud Shell](cloud-shell.md)
+* [Подключиться к виртуальной машине Windows по RDP](rdp.md)
+* [Подключиться к виртуальной машине Windows через PowerShell](powershell.md)
+* [Подключиться к виртуальной машине по OS Login](os-login.md)

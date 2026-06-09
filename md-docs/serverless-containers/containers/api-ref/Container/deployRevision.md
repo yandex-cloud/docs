@@ -5,7 +5,7 @@ Deploys a revision for the specified container.
 ## HTTP request
 
 ```
-POST https://serverless-containers.{{ api-host }}/containers/v1/revisions:deploy
+POST https://serverless-containers.api.cloud.yandex.net/containers/v1/revisions:deploy
 ```
 
 ## Body parameters {#yandex.cloud.serverless.containers.v1.DeployContainerRevisionRequest}

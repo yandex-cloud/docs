@@ -3,11 +3,11 @@
 
 ## Описание задачи {#case-description}
 
-Необходимо развернуть виртуальную машину в {{ compute-name }} из ISO-образа
+Необходимо развернуть виртуальную машину в Compute Cloud из ISO-образа
 
 ## Решение {#case-resolution}
 
-Из-за особенностей инфраструктуры {{ yandex-cloud }} развернуть виртуальную машину с образа ISO не получится — поддерживаются только следующие форматы образов жестких дисков: 
+Из-за особенностей инфраструктуры Yandex Cloud развернуть виртуальную машину с образа ISO не получится — поддерживаются только следующие форматы образов жестких дисков: 
 
 * `Qcow2`; 
 * `VMDK`;
@@ -19,8 +19,8 @@
 
 1. Установить нужную ОС на локальном гипервизоре. Для этого можно использовать [VirtualBox](https://www.virtualbox.org/) или [QEMU](https://www.qemu.org/).
 1. Подготовить свой образ диска, следуя [инструкциям из документации](../../../compute/operations/image-create/custom-image.md).
-1. [Загрузить](../../../compute/operations/image-create/upload.md) свой образ в {{ objstorage-name }}.
-1. [Создать](../../../compute/operations/image-create/upload.md#create-image) новый образ по ссылке, полученной в {{ objstorage-name }}.
+1. [Загрузить](../../../compute/operations/image-create/upload.md) свой образ в Object Storage.
+1. [Создать](../../../compute/operations/image-create/upload.md#create-image) новый образ по ссылке, полученной в Object Storage.
 1. [Развернуть](../../../compute/operations/vm-create/create-from-user-image.md) из полученного образа облачную ВМ.
 
 {% note alert %}

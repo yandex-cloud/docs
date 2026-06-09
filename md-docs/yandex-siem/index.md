@@ -1,8 +1,8 @@
-# {{ yandex-siem-full-name }}
+# Yandex SIEM
 
-Сервис {{ yandex-siem-full-name }} — это собственная SIEM-система {{ yandex-cloud }} для мониторинга и анализа событий безопасности в облачной инфраструктуре. {{ yandex-siem-full-name }} собирает данные с облачной инфраструктуры для выявления аномалий. При обнаружении аномалий {{ yandex-siem-full-name }} создает <a href="../security-deck/concepts/alerts.md">алерты</a>, указывающие на потенциальный инцидент.
+Сервис Yandex SIEM — это собственная SIEM-система Yandex Cloud для мониторинга и анализа событий безопасности в облачной инфраструктуре. Yandex SIEM собирает данные с облачной инфраструктуры для выявления аномалий. При обнаружении аномалий Yandex SIEM создает <a href="../security-deck/concepts/alerts.md">алерты</a>, указывающие на потенциальный инцидент.
 
-# {{ yandex-siem-full-name }}
+# Yandex SIEM
 
  - [Начало работы](quickstart.md)
 
@@ -48,7 +48,7 @@
 
 ## Концепции
 
- - [О сервисе {{ yandex-siem-full-name }}](concepts/index.md)
+ - [О сервисе Yandex SIEM](concepts/index.md)
 
  - [Расследования](concepts/investigations.md)
 

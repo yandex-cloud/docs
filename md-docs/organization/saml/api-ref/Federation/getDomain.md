@@ -6,7 +6,7 @@ To get the list of available domains, make a [ListDomains](listDomains.md#ListDo
 ## HTTP request
 
 ```
-GET https://organization-manager.{{ api-host }}/organization-manager/v1/saml/federations/{federationId}/domains/{domain}
+GET https://organization-manager.api.cloud.yandex.net/organization-manager/v1/saml/federations/{federationId}/domains/{domain}
 ```
 
 ## Path parameters

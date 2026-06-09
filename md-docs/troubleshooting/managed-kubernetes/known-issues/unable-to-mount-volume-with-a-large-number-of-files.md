@@ -26,6 +26,6 @@ If the volume has a lot of files then setting volume ownership could be slow...
 
 ## Решение {#issue-resolution}
 
-Причина долгого монтирования заключается в большом количестве файлов в целевой файловой системе. По умолчанию конфигурация `fsgroup` рекурсивно устанавливается при каждом монтировании тома. Подробности по ошибке приведены [на странице ее обсуждения в git-репозитории {{ k8s }}](https://github.com/kubernetes/kubernetes/issues/69699).
+Причина долгого монтирования заключается в большом количестве файлов в целевой файловой системе. По умолчанию конфигурация `fsgroup` рекурсивно устанавливается при каждом монтировании тома. Подробности по ошибке приведены [на странице ее обсуждения в git-репозитории Kubernetes](https://github.com/kubernetes/kubernetes/issues/69699).
 
 Рекомендуем настроить контекст безопасности для пода с использованием [следующей инструкции](https://kubernetes.io/docs/tasks/configure-pod-container/security-context/#configure-volume-permission-and-ownership-change-policy-for-pods).

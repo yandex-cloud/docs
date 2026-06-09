@@ -1,6 +1,6 @@
 # Инструменты разработки
 
-{{ objstorage-name }} позволяет использовать SDK, предназначенные для работы с S3 API:
+Object Storage позволяет использовать SDK, предназначенные для работы с S3 API:
 
 * [AWS SDK для Java](../aws-sdk-java.md)
 * [AWS SDK для JavaScript](../aws-sdk-js.md)

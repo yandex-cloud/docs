@@ -5,7 +5,7 @@ Lists operations for the specified TrunkConnection.
 ## HTTP request
 
 ```
-GET https://cic.{{ api-host }}/cic/v1/trunkConnections/{trunkConnectionId}/operations
+GET https://cic.api.cloud.yandex.net/cic/v1/trunkConnections/{trunkConnectionId}/operations
 ```
 
 ## Path parameters

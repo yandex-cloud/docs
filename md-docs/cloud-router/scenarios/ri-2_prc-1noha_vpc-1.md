@@ -7,11 +7,11 @@
 На схеме выше представлена сетевая топология в следующей конфигурации:
 
 * `On-Prem` клиента с двумя локальными подсетями — `subnet-c1` и `subnet-c2`.
-* Сетевое оборудование On-Prem подключается через сервис [Cloud Interconnect](../../interconnect/concepts/index.md) к сетевому оборудованию {{ yandex-cloud }}.
-* [Приватное соединение](../../interconnect/concepts/priv-con.md) `prc-m9-1` через [точку присутствия](../../interconnect/concepts/pops.md) `M9` подключается к `Routing Instance 1` в {{ yandex-cloud }}.
-* Со стороны {{ yandex-cloud }} к `RI 1` подключается виртуальная сеть `Net-1` в составе трех подсетей — `subnet-a1`, `subnet-b1` и `subnet-d1`.
-* [Приватное соединение](../../interconnect/concepts/priv-con.md) `prc-m9-2` через [точку присутствия](../../interconnect/concepts/pops.md) `M9` подключается к `Routing Instance 2` в {{ yandex-cloud }}.
-* Со стороны {{ yandex-cloud }} к `RI 2` подключается виртуальная сеть `Net-2` в составе трех подсетей — `subnet-a2`, `subnet-b2` и `subnet-d2`.
+* Сетевое оборудование On-Prem подключается через сервис [Cloud Interconnect](../../interconnect/concepts/index.md) к сетевому оборудованию Yandex Cloud.
+* [Приватное соединение](../../interconnect/concepts/priv-con.md) `prc-m9-1` через [точку присутствия](../../interconnect/concepts/pops.md) `M9` подключается к `Routing Instance 1` в Yandex Cloud.
+* Со стороны Yandex Cloud к `RI 1` подключается виртуальная сеть `Net-1` в составе трех подсетей — `subnet-a1`, `subnet-b1` и `subnet-d1`.
+* [Приватное соединение](../../interconnect/concepts/priv-con.md) `prc-m9-2` через [точку присутствия](../../interconnect/concepts/pops.md) `M9` подключается к `Routing Instance 2` в Yandex Cloud.
+* Со стороны Yandex Cloud к `RI 2` подключается виртуальная сеть `Net-2` в составе трех подсетей — `subnet-a2`, `subnet-b2` и `subnet-d2`.
 
 Таким образом, образуются две сетевые топологии (по количеству используемых `RI`):
 

@@ -5,7 +5,7 @@ Deletes a cluster.
 ## HTTP request
 
 ```
-DELETE https://{{ api-host-mdb }}/managed-mysql/v1/clusters/{clusterId}
+DELETE https://mdb.api.cloud.yandex.net/managed-mysql/v1/clusters/{clusterId}
 ```
 
 ## Path parameters

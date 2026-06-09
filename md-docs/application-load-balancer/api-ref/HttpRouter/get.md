@@ -7,7 +7,7 @@ To get the list of all available HTTP routers, make a [List](list.md#List) reque
 ## HTTP request
 
 ```
-GET https://alb.{{ api-host }}/apploadbalancer/v1/httpRouters/{httpRouterId}
+GET https://alb.api.cloud.yandex.net/apploadbalancer/v1/httpRouters/{httpRouterId}
 ```
 
 ## Path parameters

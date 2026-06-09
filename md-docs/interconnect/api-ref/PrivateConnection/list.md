@@ -5,7 +5,7 @@ Retrieves the list of PrivateConnection resources in the specified folder.
 ## HTTP request
 
 ```
-GET https://cic.{{ api-host }}/cic/v1/privateConnections
+GET https://cic.api.cloud.yandex.net/cic/v1/privateConnections
 ```
 
 ## Query parameters {#yandex.cloud.cic.v1.ListPrivateConnectionsRequest}

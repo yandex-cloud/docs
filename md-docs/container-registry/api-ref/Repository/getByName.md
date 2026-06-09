@@ -6,7 +6,7 @@ To get the list of available Repository resources, make a [List](list.md#List) r
 ## HTTP request
 
 ```
-GET https://container-registry.{{ api-host }}/container-registry/v1/repositories/{repositoryName}:byName
+GET https://container-registry.api.cloud.yandex.net/container-registry/v1/repositories/{repositoryName}:byName
 ```
 
 ## Path parameters

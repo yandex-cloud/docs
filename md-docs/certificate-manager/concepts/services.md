@@ -1,18 +1,18 @@
-# Интеграция с сервисами {{ yandex-cloud }}
+# Интеграция с сервисами Yandex Cloud
 
 
-Вы можете использовать сертификаты из {{ certificate-manager-name }} в следующих сервисах {{ yandex-cloud }}:
-* [{{ objstorage-full-name }}](#os).
-* [{{ alb-full-name }}](#alb).
-* [{{ api-gw-full-name }}](#api-gw).
-* [{{ cdn-full-name }}](#cdn).
-* [{{ sws-full-name }}](#sws).
+Вы можете использовать сертификаты из Certificate Manager в следующих сервисах Yandex Cloud:
+* [Yandex Object Storage](#os).
+* [Yandex Application Load Balancer](#alb).
+* [Yandex API Gateway](#api-gw).
+* [Yandex Cloud CDN](#cdn).
+* [Yandex Smart Web Security](#sws).
 
-Также вы можете хранить приватный ключ пользовательского сертификата в виде секрета [{{ lockbox-full-name }}](#lockbox) с помощью {{ TF }}.
+Также вы можете хранить приватный ключ пользовательского сертификата в виде секрета [Yandex Lockbox](#lockbox) с помощью Terraform.
 
-## {{ objstorage-full-name }} {#os}
+## Yandex Object Storage {#os}
 
-Если бакет используется для хостинга статического сайта, [используйте сертификат](../../storage/operations/hosting/certificate.md#cert-manager) из {{ certificate-manager-name }} для доступа к сайту по протоколу `HTTPS`. При изменении сертификата в {{ certificate-manager-name }}, он будет автоматически обновлен во всех использующих его бакетах.
+Если бакет используется для хостинга статического сайта, [используйте сертификат](../../storage/operations/hosting/certificate.md#cert-manager) из Certificate Manager для доступа к сайту по протоколу `HTTPS`. При изменении сертификата в Certificate Manager, он будет автоматически обновлен во всех использующих его бакетах.
 
 {% note warning %}
 
@@ -21,39 +21,39 @@
 
 {% endnote %}
 
-## {{ alb-full-name }} {#alb}
+## Yandex Application Load Balancer {#alb}
 
-[{{ alb-name }}](../../application-load-balancer/index.md) может обрабатывать TLS-трафик: устанавливать соединения и терминировать TLS-сессии с помощью сертификатов, добавленных в {{ certificate-manager-name }}. Сертификаты из {{ certificate-manager-name }} можно использовать в обработчиках [L7-балансировщиков](../../application-load-balancer/operations/application-load-balancer-create.md).
+[Application Load Balancer](../../application-load-balancer/index.md) может обрабатывать TLS-трафик: устанавливать соединения и терминировать TLS-сессии с помощью сертификатов, добавленных в Certificate Manager. Сертификаты из Certificate Manager можно использовать в обработчиках [L7-балансировщиков](../../application-load-balancer/operations/application-load-balancer-create.md).
 
-## {{ api-gw-full-name }} {#api-gw}
+## Yandex API Gateway {#api-gw}
 
-{{ api-gw-full-name }} позволяет объединить несколько микросервисов в единый продукт. [Микросервисы](https://yandex.cloud/ru/blog/posts/2022/03/microservice-architecture) могут быть запущены в [виртуальных машинах](../../glossary/vm.md), контейнерах или реализованы в виде функций. Вы сможете использовать домен для обращения к [API](../../glossary/rest-api.md).
+Yandex API Gateway позволяет объединить несколько микросервисов в единый продукт. [Микросервисы](https://yandex.cloud/ru/blog/posts/2022/03/microservice-architecture) могут быть запущены в [виртуальных машинах](../../glossary/vm.md), контейнерах или реализованы в виде функций. Вы сможете использовать домен для обращения к [API](../../glossary/rest-api.md).
 
 Для обеспечения TLS-соединения будет использован привязанный к домену сертификат.
 
-## {{ cdn-full-name }} {#cdn}
+## Yandex Cloud CDN {#cdn}
 
-{{ cdn-full-name }} позволяет организовать доставку контента до конечных потребителей с помощью сети распространения контента (Content Delivery Network, CDN). 
+Yandex Cloud CDN позволяет организовать доставку контента до конечных потребителей с помощью сети распространения контента (Content Delivery Network, CDN). 
 
-Для доступа к [CDN-ресурсу](../../cdn/concepts/resource.md) по протоколу HTTPS можно [использовать](../../storage/operations/hosting/certificate.md#cert-manager) сертификат из {{ certificate-manager-name }}.
+Для доступа к [CDN-ресурсу](../../cdn/concepts/resource.md) по протоколу HTTPS можно [использовать](../../storage/operations/hosting/certificate.md#cert-manager) сертификат из Certificate Manager.
 
-## {{ sws-full-name }} {#sws}
+## Yandex Smart Web Security {#sws}
 
-{{ sws-full-name }} позволяет защитить инфраструктуру от информационных угроз на прикладном уровне L7 модели [OSI](https://ru.wikipedia.org/wiki/Сетевая_модель_OSI). Например, [DDoS-атак](../../glossary/ddos.md), ботов, SQL-инъекций.
+Yandex Smart Web Security позволяет защитить инфраструктуру от информационных угроз на прикладном уровне L7 модели [OSI](https://ru.wikipedia.org/wiki/Сетевая_модель_OSI). Например, [DDoS-атак](../../glossary/ddos.md), ботов, SQL-инъекций.
 
-Для подключения [домена](../../smartwebsecurity/concepts/domain-protect.md#domain) к [прокси-серверу](../../smartwebsecurity/concepts/domain-protect.md#proxy) по протоколу HTTPS можно использовать сертификат из {{ certificate-manager-name }}.
+Для подключения [домена](../../smartwebsecurity/concepts/domain-protect.md#domain) к [прокси-серверу](../../smartwebsecurity/concepts/domain-protect.md#proxy) по протоколу HTTPS можно использовать сертификат из Certificate Manager.
 
-## {{ lockbox-full-name }} {#lockbox}
+## Yandex Lockbox {#lockbox}
 
-Вы можете хранить приватный ключ пользовательского сертификата {{ certificate-manager-name }} в {{ lockbox-name }} [с помощью {{ TF }}](../operations/import/cert-create.md#create-lockbox).
+Вы можете хранить приватный ключ пользовательского сертификата Certificate Manager в Yandex Lockbox [с помощью Terraform](../operations/import/cert-create.md#create-lockbox).
 
 ## Примеры использования {#examples}
 
-* [{#T}](../tutorials/tls-termination/index.md)
-* [{#T}](../tutorials/virtual-hosting.md)
-* [{#T}](../tutorials/gatsby-static-website.md)
+* [Терминирование TLS-соединений](../tutorials/tls-termination/index.md)
+* [Организация виртуального хостинга](../tutorials/virtual-hosting.md)
+* [Хостинг статического сайта на фреймворке Gatsby в Yandex Object Storage](../tutorials/gatsby-static-website.md)
 
 #### См. также {#see-also}
 
-* [Статический сайт в {{ objstorage-name }}](../../tutorials/web/static/index.md)
-* [{{ api-gw-full-name }}](../../api-gateway/index.md)
+* [Статический сайт в Object Storage](../../tutorials/web/static/index.md)
+* [Yandex API Gateway](../../api-gateway/index.md)

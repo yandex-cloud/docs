@@ -1,6 +1,6 @@
-# Проанализировать состояние сервера {{ baremetal-name }} с помощью утилиты HWCheck
+# Проанализировать состояние сервера BareMetal с помощью утилиты HWCheck
 
-Если в процессе работы с [сервером](../../concepts/servers.md) {{ baremetal-name }} вы столкнулись с ошибками чтения/записи данных на диски, отказом диска или [RAID](../../concepts/disks/raid.md)-массива, вы можете выполнить [диагностику сервера](../../concepts/smart-disk-analysis.md#hwcheck), которая позволит определить источник проблемы и сформирует отчет для [отправки]({{ link-console-support }}/tickets/create) в службу технической поддержки.
+Если в процессе работы с [сервером](../../concepts/servers.md) BareMetal вы столкнулись с ошибками чтения/записи данных на диски, отказом диска или [RAID](../../concepts/disks/raid.md)-массива, вы можете выполнить [диагностику сервера](../../concepts/smart-disk-analysis.md#hwcheck), которая позволит определить источник проблемы и сформирует отчет для [отправки](https://center.yandex.cloud/support/tickets/create) в службу технической поддержки.
 
 {% note info %}
 
@@ -20,7 +20,7 @@
 1. Скачайте утилиту:
 
     ```bash
-    wget https://{{ s3-storage-host }}/baremetal-support-tools/support/hwcheck
+    wget https://storage.yandexcloud.net/baremetal-support-tools/support/hwcheck
     ```
 1. Добавьте root-пользователю права на выполнение скачанного исполняемого файла:
 
@@ -109,11 +109,11 @@
     ```
 
     В результате файл с отчетом будет сохранен в текущую директорию на вашем локальном компьютере.
-1. [Создайте]({{ link-console-support }}/tickets/create) обращение в службу технической поддержки.
+1. [Создайте](https://center.yandex.cloud/support/tickets/create) обращение в службу технической поддержки.
 
     В обращении подробно опишите возникшую с сервером проблему и приложите сохраненный архив с отчетом.
 
 #### См. также {#see-also}
 
-* [{#T}](../../concepts/smart-disk-analysis.md)
-* [{#T}](switch-raid-member.md)
+* [Анализ состояния дисков серверов Yandex BareMetal](../../concepts/smart-disk-analysis.md)
+* [Заменить диск в RAID-массиве](switch-raid-member.md)

@@ -5,7 +5,7 @@ Deletes the specified shard group.
 ## HTTP request
 
 ```
-DELETE https://{{ api-host-mdb }}/managed-clickhouse/v1/clusters/{clusterId}/shardGroups/{shardGroupName}
+DELETE https://mdb.api.cloud.yandex.net/managed-clickhouse/v1/clusters/{clusterId}/shardGroups/{shardGroupName}
 ```
 
 ## Path parameters

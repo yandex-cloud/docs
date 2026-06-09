@@ -6,7 +6,7 @@ to the specified folder.
 ## HTTP request
 
 ```
-GET https://{{ api-host-mdb }}/managed-spqr/v1/clusters
+GET https://mdb.api.cloud.yandex.net/managed-spqr/v1/clusters
 ```
 
 ## Query parameters {#yandex.cloud.mdb.spqr.v1.ListClustersRequest}

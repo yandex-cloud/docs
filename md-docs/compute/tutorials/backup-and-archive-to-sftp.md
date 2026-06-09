@@ -1,6 +1,6 @@
 # Настройка SFTP-сервера на Centos 7
 
-В этом руководстве вы создадите виртуальные машины для [SFTP](https://ru.wikipedia.org/wiki/SFTP)-сервера и клиента с помощью сервиса {{ compute-short-name }}, подключитесь к ним по [SSH](../../glossary/ssh-keygen.md), создадите SFTP-пользователя и настроите резервное копирование данных.
+В этом руководстве вы создадите виртуальные машины для [SFTP](https://ru.wikipedia.org/wiki/SFTP)-сервера и клиента с помощью сервиса Compute Cloud, подключитесь к ним по [SSH](../../glossary/ssh-keygen.md), создадите SFTP-пользователя и настроите резервное копирование данных.
 
 Чтобы развернуть инфраструктуру:
 
@@ -19,11 +19,11 @@
 
 ## Подготовьте облако к работе {#before-you-begin}
 
-Зарегистрируйтесь в {{ yandex-cloud }} и создайте [платежный аккаунт](../../billing/concepts/billing-account.md):
-1. Перейдите в [консоль управления]({{ link-console-main }}), затем войдите в {{ yandex-cloud }} или зарегистрируйтесь.
-1. На странице **[{{ ui-key.yacloud_billing.billing.label_service }}]({{ link-console-billing }})** убедитесь, что у вас подключен платежный аккаунт, и он находится в [статусе](../../billing/concepts/billing-account-statuses.md) `ACTIVE` или `TRIAL_ACTIVE`. Если платежного аккаунта нет, [создайте его](../../billing/quickstart/index.md) и [привяжите](../../billing/operations/pin-cloud.md) к нему облако.
+Зарегистрируйтесь в Yandex Cloud и создайте [платежный аккаунт](../../billing/concepts/billing-account.md):
+1. Перейдите в [консоль управления](https://console.yandex.cloud), затем войдите в Yandex Cloud или зарегистрируйтесь.
+1. На странице **[Yandex Cloud Billing](https://center.yandex.cloud/billing/accounts)** убедитесь, что у вас подключен платежный аккаунт, и он находится в [статусе](../../billing/concepts/billing-account-statuses.md) `ACTIVE` или `TRIAL_ACTIVE`. Если платежного аккаунта нет, [создайте его](../../billing/quickstart/index.md) и [привяжите](../../billing/operations/pin-cloud.md) к нему облако.
 
-Если у вас есть активный платежный аккаунт, вы можете создать или выбрать [каталог](../../resource-manager/concepts/resources-hierarchy.md#folder), в котором будет работать ваша инфраструктура, на [странице облака]({{ link-console-cloud }}).
+Если у вас есть активный платежный аккаунт, вы можете создать или выбрать [каталог](../../resource-manager/concepts/resources-hierarchy.md#folder), в котором будет работать ваша инфраструктура, на [странице облака](https://console.yandex.cloud/cloud).
 
 [Подробнее об облаках и каталогах](../../resource-manager/concepts/resources-hierarchy.md).
 
@@ -31,10 +31,10 @@
 
 В стоимость поддержки инфраструктуры входят:
 
-* плата за две постоянно запущенные ВМ (см. [тарифы {{ compute-full-name }}](../pricing.md)):
+* плата за две постоянно запущенные ВМ (см. [тарифы Yandex Compute Cloud](../pricing.md)):
   * виртуальная машина для SFTP-клиента;
   * виртуальная машина для SFTP-сервера.
-* плата за использование динамического или статического внешнего IP-адреса (см. [тарифы {{ vpc-full-name }}](../../vpc/pricing.md)).
+* плата за использование динамического или статического внешнего IP-адреса (см. [тарифы Yandex Virtual Private Cloud](../../vpc/pricing.md)).
 
 ## Создайте виртуальную машину для SFTP-сервера {#create-vm-sftp-server}
 
@@ -44,61 +44,61 @@
 
 - Консоль управления {#console}
 
-  1. В [консоли управления]({{ link-console-main }}) выберите [каталог](../../resource-manager/concepts/resources-hierarchy.md#folder), в котором будет создана ВМ.
-  1. Перейдите в сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_compute }}**.
-  1. На панели слева выберите ![image](../../_assets/console-icons/server.svg) **{{ ui-key.yacloud.compute.instances_jsoza }}**.
-  1. Нажмите кнопку **{{ ui-key.yacloud.compute.instances.button_create }}**.
-  1. В блоке **{{ ui-key.yacloud.compute.instances.create.section_image }}** выберите публичный образ [CentOS 7](https://yandex.cloud/ru/marketplace/products/yc/centos-7).
-  1. В блоке **{{ ui-key.yacloud.k8s.node-groups.create.section_allocation-policy }}** выберите [зону доступности](../../overview/concepts/geo-scope.md), в которой будет находиться ВМ.
-  1. В блоке **{{ ui-key.yacloud.compute.instances.create.section_platform }}** перейдите на вкладку **{{ ui-key.yacloud.component.compute.resources.label_tab-custom }}** и укажите параметры:
+  1. В [консоли управления](https://console.yandex.cloud) выберите [каталог](../../resource-manager/concepts/resources-hierarchy.md#folder), в котором будет создана ВМ.
+  1. Перейдите в сервис **Compute Cloud**.
+  1. На панели слева выберите ![image](../../_assets/console-icons/server.svg) **Виртуальные машины**.
+  1. Нажмите кнопку **Создать виртуальную машину**.
+  1. В блоке **Образ загрузочного диска** выберите публичный образ [CentOS 7](https://yandex.cloud/ru/marketplace/products/yc/centos-7).
+  1. В блоке **Расположение** выберите [зону доступности](../../overview/concepts/geo-scope.md), в которой будет находиться ВМ.
+  1. В блоке **Вычислительные ресурсы** перейдите на вкладку **Своя конфигурация** и укажите параметры:
 
-      * **{{ ui-key.yacloud.component.compute.resources.field_platform }}** — `Intel Ice Lake`.
-      * **{{ ui-key.yacloud.component.compute.resources.field_cores }}** — `2`.
-      * **{{ ui-key.yacloud.component.compute.resources.field_core-fraction }}** — `20%`.
-      * **{{ ui-key.yacloud.component.compute.resources.field_memory }}** — `2 {{ ui-key.yacloud.common.units.label_gigabyte }}`.
+      * **Платформа** — `Intel Ice Lake`.
+      * **vCPU** — `2`.
+      * **Гарантированная доля vCPU** — `20%`.
+      * **RAM** — `2 ГБ`.
 
-  1. В блоке **{{ ui-key.yacloud.compute.instances.create.section_network }}**:
+  1. В блоке **Сетевые настройки**:
 
-      * В поле **{{ ui-key.yacloud.component.compute.network-select.field_subnetwork }}** укажите идентификатор подсети в зоне доступности создаваемой ВМ или выберите [облачную сеть](../../vpc/concepts/network.md#network) из списка.
+      * В поле **Подсеть** укажите идентификатор подсети в зоне доступности создаваемой ВМ или выберите [облачную сеть](../../vpc/concepts/network.md#network) из списка.
 
-          * У каждой сети должна быть как минимум одна [подсеть](../../vpc/concepts/network.md#subnet). Если подсети нет, создайте ее, выбрав **{{ ui-key.yacloud.component.vpc.network-select.button_create-subnetwork }}**.
-          * Если сети нет, нажмите **{{ ui-key.yacloud.component.vpc.network-select.button_create-network }}** и создайте ее:
+          * У каждой сети должна быть как минимум одна [подсеть](../../vpc/concepts/network.md#subnet). Если подсети нет, создайте ее, выбрав **Создать подсеть**.
+          * Если сети нет, нажмите **Создать сеть** и создайте ее:
 
               * В открывшемся окне укажите имя сети и выберите каталог, в котором она будет создана.
-              * (Опционально) Выберите опцию **{{ ui-key.yacloud.vpc.networks.create.field_is-default }}**, чтобы автоматически создать подсети во всех зонах доступности.
-              * Нажмите **{{ ui-key.yacloud.vpc.networks.create.button_create }}**.
+              * (Опционально) Выберите опцию **Создать подсети**, чтобы автоматически создать подсети во всех зонах доступности.
+              * Нажмите **Создать сеть**.
 
-      * В поле **{{ ui-key.yacloud.component.compute.network-select.field_external }}** выберите `{{ ui-key.yacloud.component.compute.network-select.switch_auto }}`, чтобы назначить виртуальной машине случайный внешний IP-адрес из пула {{ yandex-cloud }}. Чтобы внешний IP-адрес не изменялся после остановки виртуальной машины, [сделайте его статическим](../../vpc/operations/set-static-ip.md).
+      * В поле **Публичный IP-адрес** выберите `Автоматически`, чтобы назначить виртуальной машине случайный внешний IP-адрес из пула Yandex Cloud. Чтобы внешний IP-адрес не изменялся после остановки виртуальной машины, [сделайте его статическим](../../vpc/operations/set-static-ip.md).
 
-  1. В блоке **{{ ui-key.yacloud.compute.instances.create.section_access }}** выберите **{{ ui-key.yacloud.compute.instance.access-method.label_oslogin-control-ssh-option-title }}** и укажите данные для доступа к ВМ:
+  1. В блоке **Доступ** выберите **SSH-ключ** и укажите данные для доступа к ВМ:
 
-      * В поле **{{ ui-key.yacloud.compute.instances.create.field_user }}** введите имя пользователя, который будет создан на виртуальной машине, например `yc-user`.
-      * В поле **{{ ui-key.yacloud.compute.instances.create.field_key }}** выберите SSH-ключ, сохраненный в вашем профиле [пользователя организации](../../organization/concepts/membership.md).
+      * В поле **Логин** введите имя пользователя, который будет создан на виртуальной машине, например `yc-user`.
+      * В поле **SSH-ключ** выберите SSH-ключ, сохраненный в вашем профиле [пользователя организации](../../organization/concepts/membership.md).
         
         Если в вашем профиле нет сохраненных SSH-ключей или вы хотите добавить новый ключ:
         
-        1. Нажмите кнопку **{{ ui-key.yacloud.compute.instances.create.button_add-ssh-key }}**.
+        1. Нажмите кнопку **Добавить ключ**.
         1. Задайте имя SSH-ключа.
         1. Выберите вариант:
         
-            * `{{ ui-key.yacloud_components.ssh-key-add-dialog.value_radio-manual }}` — вставьте содержимое открытого [SSH](../../glossary/ssh-keygen.md)-ключа. Пару SSH-ключей необходимо [создать](../operations/vm-connect/ssh.md#creating-ssh-keys) самостоятельно.
-            * `{{ ui-key.yacloud_components.ssh-key-add-dialog.value_radio-upload }}` — загрузите открытую часть SSH-ключа. Пару SSH-ключей необходимо создать самостоятельно.
-            * `{{ ui-key.yacloud_components.ssh-key-add-dialog.value_radio-generate }}` — автоматическое создание пары SSH-ключей.
+            * `Ввести вручную` — вставьте содержимое открытого [SSH](../../glossary/ssh-keygen.md)-ключа. Пару SSH-ключей необходимо [создать](../operations/vm-connect/ssh.md#creating-ssh-keys) самостоятельно.
+            * `Загрузить из файла` — загрузите открытую часть SSH-ключа. Пару SSH-ключей необходимо создать самостоятельно.
+            * `Сгенерировать ключ` — автоматическое создание пары SSH-ключей.
             
               При добавлении сгенерированного SSH-ключа будет создан и загружен архив с парой ключей. В ОС на базе Linux или macOS распакуйте архив в папку `/home/<имя_пользователя>/.ssh`. В ОС Windows распакуйте архив в папку `C:\Users\<имя_пользователя>/.ssh`. Дополнительно вводить открытый ключ в консоли управления не требуется.
         
-        1. Нажмите кнопку **{{ ui-key.yacloud.common.add }}**.
+        1. Нажмите кнопку **Добавить**.
         
         SSH-ключ будет добавлен в ваш профиль пользователя организации. Если в организации [отключена](../../organization/operations/os-login-access.md) возможность добавления пользователями SSH-ключей в свои профили, добавленный открытый SSH-ключ будет сохранен только в профиле пользователя внутри создаваемого ресурса.
 
       {% note alert %}
 
-      IP-адрес и имя хоста (FQDN) для подключения к машине будут назначены ей при создании. Если вы выбрали вариант **{{ ui-key.yacloud.component.compute.network-select.switch_none }}** в поле **{{ ui-key.yacloud.component.compute.network-select.field_external }}**, вы не сможете обращаться к виртуальной машине из интернета.
+      IP-адрес и имя хоста (FQDN) для подключения к машине будут назначены ей при создании. Если вы выбрали вариант **Без адреса** в поле **Публичный IP-адрес**, вы не сможете обращаться к виртуальной машине из интернета.
 
       {% endnote %}
 
-  1. В блоке **{{ ui-key.yacloud.compute.instances.create.section_base }}** задайте имя ВМ: `sftp-server`.
-  1. Нажмите **{{ ui-key.yacloud.compute.instances.create.button_create }}**.
+  1. В блоке **Общая информация** задайте имя ВМ: `sftp-server`.
+  1. Нажмите **Создать ВМ**.
 
 {% endlist %}
 
@@ -249,7 +249,7 @@
    Your identification has been saved in /home/fuser/.ssh/id_ed25519.
    Your public key has been saved in /home/fuser/.ssh/id_ed25519.pub.
    The key fingerprint is:
-   SHA256:sXiE7EfPl8mo9mZCG+ta7fBxwdwdhbjNux63P8EIYNs fuser@ftp-server.{{ region-id }}.internal
+   SHA256:sXiE7EfPl8mo9mZCG+ta7fBxwdwdhbjNux63P8EIYNs fuser@ftp-server.ru-central1.internal
    The key's randomart image is:
    +--[ED25519 256]--+
    |             . ..|
@@ -323,7 +323,7 @@
 1. Убедитесь, что виртуальная машина SFTP-клиента доступна с SFTP-сервера, и наоборот:
 
    1. [Зайдите по SSH](../operations/vm-connect/ssh.md#vm-connect) на виртуальную машину SFTP-сервера.
-   1. Найдите публичный или внутренний IP-адрес SFTP-клиента в консоли {{ yandex-cloud }} в разделе настроек виртуальной машины. 
+   1. Найдите публичный или внутренний IP-адрес SFTP-клиента в консоли Yandex Cloud в разделе настроек виртуальной машины. 
 
       {% note warning %}
 
@@ -429,7 +429,7 @@
    * `$SFTP_SERVER` — переменная, которая автоматически принимает значение IP-адреса SFTP-сервера.
    * `backup_$(hostname)_$(date "+%Y%m%d_%H%M%S").tar.gz` — добавляет к названию архива название компьютера, а также дату и время, когда был создан архив. Это позволит не потеряться в навигации по списку резервных копий на сервере.
 
-     Например, имя архива на сервере может выглядеть так: `backup_ftp-server.{{ region-id }}.internal_20190803_180228.tar.gz`. 
+     Например, имя архива на сервере может выглядеть так: `backup_ftp-server.ru-central1.internal_20190803_180228.tar.gz`. 
 
    * `--insecure` — отключает проверку SSL сертификатов со стороны SFTP-сервера. При этом трафик в рамках SSH-сессии все равно шифруется.
    * `$SFTP_USER` — переменная, которая автоматически принимает значение SFTP-пользователя.
@@ -457,7 +457,7 @@ sudo find /etc -type f -name *.conf -print0 | sudo tar -czf backup.tar.gz --null
    sudo find /etc -type f -name *.conf -print0 | sudo tar -czf backup.tar.gz --null -T -&& curl --upload-file backup.tar.gz sftp://$SFTP_SERVER/backups/backup_$(hostname)_$(date "+%Y%m%d_%H%M%S").tar.gz --insecure --user $SFTP_USER: && sudo rm -f backup.tar.gz
    ```
 
-1. [Зайдите по SSH](../operations/vm-connect/ssh.md#vm-connect) на виртуальную машину SFTP-сервера и убедитесь, что файл вида `backup_ftp-server.{{ region-id }}.internal_20190803_180228.tar.gz` появился в домашнем каталоге SFTP-пользователя. Для этого на SFTP-сервере запустите команду:
+1. [Зайдите по SSH](../operations/vm-connect/ssh.md#vm-connect) на виртуальную машину SFTP-сервера и убедитесь, что файл вида `backup_ftp-server.ru-central1.internal_20190803_180228.tar.gz` появился в домашнем каталоге SFTP-пользователя. Для этого на SFTP-сервере запустите команду:
 
    ```bash
    sudo ls /var/sftp/backups
@@ -497,13 +497,13 @@ sudo find /etc -type f -name *.conf -print0 | sudo tar -czf backup.tar.gz --null
 
 Чтобы восстановить настройки из резервной копии:
 
-1. На SFTP-сервере в папке `/var/sftp/backups` выберите резервную копию, из которой следует восстановить конфигурационные файлы. Например, это будет `backup_ftp-server.{{ region-id }}.internal_20190803_180228.tar.gz`.
+1. На SFTP-сервере в папке `/var/sftp/backups` выберите резервную копию, из которой следует восстановить конфигурационные файлы. Например, это будет `backup_ftp-server.ru-central1.internal_20190803_180228.tar.gz`.
 
 1. [Зайдите по SSH](../operations/vm-connect/ssh.md#vm-connect) на виртуальную машину SFTP-клиента.
 1. Задайте переменную окружения для названия файла резервной копии:
 
    ```bash
-   SFTP_BACKUP='backup_ftp-server.{{ region-id }}.internal_20190803_180228.tar.gz'
+   SFTP_BACKUP='backup_ftp-server.ru-central1.internal_20190803_180228.tar.gz'
    ```
 
 1. Скачайте эту резервную копию с SFTP-сервера:

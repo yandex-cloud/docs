@@ -5,7 +5,7 @@ Sets access bindings for the trail.
 ## HTTP request
 
 ```
-POST https://audittrails.{{ api-host }}/audit-trails/v1/trails/{resourceId}:setAccessBindings
+POST https://audittrails.api.cloud.yandex.net/audit-trails/v1/trails/{resourceId}:setAccessBindings
 ```
 
 ## Path parameters

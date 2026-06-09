@@ -1,6 +1,6 @@
 # Object Storage API, REST совместимый с Amazon S3: GetBucketLifecycleConfiguration
 
-Возвращает конфигурацию жизненных циклов объектов в бакете из {{ objstorage-name }}.
+Возвращает конфигурацию жизненных циклов объектов в бакете из Object Storage.
 
 Подробнее о подготовке к работе с API и общем виде запроса см. в разделе [Как пользоваться S3 API](../../index.md).
 
@@ -37,23 +37,23 @@ GET /{bucket}?lifecycle HTTP/2
 
 ### Коды ответов {#response-codes}
 
-Если конфигурации не существует, то {{ objstorage-name }} возвращает ошибку 404 с кодом `NoSuchLifecycleConfiguration`.
+Если конфигурации не существует, то Object Storage возвращает ошибку 404 с кодом `NoSuchLifecycleConfiguration`.
 
-Перечень других возможных ответов смотрите в разделе [{#T}](../response-codes.md).
+Перечень других возможных ответов смотрите в разделе [Ответы](../response-codes.md).
 
 ### Схема данных {#response-scheme}
 
-Возвращаемые данные имеют ту же структуру, которую имеют данные, передаваемые методом [upload](upload.md). Структура описана в разделе [{#T}](xml-config.md).
+Возвращаемые данные имеют ту же структуру, которую имеют данные, передаваемые методом [upload](upload.md). Структура описана в разделе [Конфигурация жизненных циклов объектов в бакете](xml-config.md).
 
 #### Связанные статьи {#related-articles}
 
-* [{#T}](../../../concepts/lifecycles.md)
+* [Жизненные циклы объектов в бакете](../../../concepts/lifecycles.md)
 
-* [{#T}](../../../operations/buckets/lifecycles.md)
+* [Управление жизненными циклами объектов в бакете](../../../operations/buckets/lifecycles.md)
 
 #### См. также {#see-also}
 
-* [{#T}](../../s3-api-quickstart.md)
+* [Начало работы с AWS S3 API в Yandex Object Storage](../../s3-api-quickstart.md)
 
 * [Отладка запросов с помощью утилиты AWS CLI](../../signing-requests.md#debugging)
 

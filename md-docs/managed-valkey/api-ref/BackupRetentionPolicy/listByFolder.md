@@ -5,7 +5,7 @@ List all retention policies for all clusters in a folder.
 ## HTTP request
 
 ```
-GET https://{{ api-host-mdb }}/managed-redis/v1/folders/{folderId}/retention_policies
+GET https://mdb.api.cloud.yandex.net/managed-redis/v1/folders/{folderId}/retention_policies
 ```
 
 ## Path parameters

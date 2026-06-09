@@ -5,7 +5,7 @@ Deletes the specified WAF profile.
 ## HTTP request
 
 ```
-DELETE https://smartwebsecurity.{{ api-host }}/smartwebsecurity/v1/wafProfiles/{wafProfileId}
+DELETE https://smartwebsecurity.api.cloud.yandex.net/smartwebsecurity/v1/wafProfiles/{wafProfileId}
 ```
 
 ## Path parameters

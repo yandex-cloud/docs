@@ -1,6 +1,6 @@
-# Техническое обслуживание кластера {{ mgp-full-name }}
+# Техническое обслуживание кластера Yandex MPP Analytics for PostgreSQL
 
-Вы можете управлять [техническим обслуживанием](../concepts/maintenance.md) кластера {{ mgp-full-name }}.
+Вы можете управлять [техническим обслуживанием](../concepts/maintenance.md) кластера Yandex MPP Analytics for PostgreSQL.
 
 ## Получить список обслуживаний {#list-maintenance}
 
@@ -8,9 +8,9 @@
 
 - Консоль управления {#console}
 
-  1. Перейдите [на страницу каталога]({{ link-console-main }}).
-  1. Перейдите в сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-greenplum }}**.
-  1. Нажмите на имя нужного кластера и выберите вкладку ![image](../../_assets/console-icons/bars-play.svg) **{{ ui-key.yacloud.mdb.maintenance.title_maintenance }}**.
+  1. Перейдите [на страницу каталога](https://console.yandex.cloud).
+  1. Перейдите в сервис **Yandex MPP Analytics for&nbsp;PostgreSQL**.
+  1. Нажмите на имя нужного кластера и выберите вкладку ![image](../../_assets/console-icons/bars-play.svg) **Обслуживание**.
   1. (Опционально) Выберите статус обслуживания над списком обслуживаний.
 
 {% endlist %}
@@ -21,11 +21,11 @@
 
 - Консоль управления {#console}
 
-  1. Перейдите [на страницу каталога]({{ link-console-main }}).
-  1. Перейдите в сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-greenplum }}**.
-  1. Нажмите на имя нужного кластера и выберите вкладку ![image](../../_assets/console-icons/bars-play.svg) **{{ ui-key.yacloud.mdb.maintenance.title_maintenance }}**.
+  1. Перейдите [на страницу каталога](https://console.yandex.cloud).
+  1. Перейдите в сервис **Yandex MPP Analytics for&nbsp;PostgreSQL**.
+  1. Нажмите на имя нужного кластера и выберите вкладку ![image](../../_assets/console-icons/bars-play.svg) **Обслуживание**.
   1. Выберите нужное обслуживание. Откроется страница обслуживания.
-  1. Нажмите ссылку **{{ ui-key.yacloud.mdb.maintenance.label_task-logs }}**.
+  1. Нажмите ссылку **Логи задания**.
 
 {% endlist %}
 
@@ -35,24 +35,24 @@
 
 - Консоль управления {#console}
 
-  1. Перейдите [на страницу каталога]({{ link-console-main }}).
-  1. Перейдите в сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-greenplum }}**.
-  1. Нажмите на имя нужного кластера и выберите вкладку ![image](../../_assets/console-icons/bars-play.svg) **{{ ui-key.yacloud.mdb.maintenance.title_maintenance }}**.
-  1. В строке обслуживания со статусом **{{ ui-key.yacloud.mdb.maintenance.label_task-status-planned }}** нажмите на значок ![image](../../_assets/console-icons/ellipsis.svg) и выберите пункт ![image](../../_assets/console-icons/arrow-uturn-cw-right.svg) **{{ ui-key.yacloud.mdb.maintenance.action_change-task-time }}**.
+  1. Перейдите [на страницу каталога](https://console.yandex.cloud).
+  1. Перейдите в сервис **Yandex MPP Analytics for&nbsp;PostgreSQL**.
+  1. Нажмите на имя нужного кластера и выберите вкладку ![image](../../_assets/console-icons/bars-play.svg) **Обслуживание**.
+  1. В строке обслуживания со статусом **Запланировано** нажмите на значок ![image](../../_assets/console-icons/ellipsis.svg) и выберите пункт ![image](../../_assets/console-icons/arrow-uturn-cw-right.svg) **Перенести**.
   1. Выберите тип переноса запланированного обслуживания:
     
-      * **{{ ui-key.yacloud.component.maintenance-alert.value_next-available-window }}** — перенос на следующее окно обслуживания.
-      * **{{ ui-key.yacloud.component.maintenance-alert.value_specific-time }}** — перенос на конкретную дату и интервал времени по UTC.
+      * **На следующее окно** — перенос на следующее окно обслуживания.
+      * **Выбрать дату (UTC)** — перенос на конкретную дату и интервал времени по UTC.
 
         Для этого переноса выберите дату и интервал времени по UTC.
 
         Обслуживание можно перенести не более чем на две недели от первоначально запланированной даты.
   
-  1. Нажмите кнопку **{{ ui-key.yacloud.component.maintenance-alert.button_reschedule }}**.
+  1. Нажмите кнопку **Перенести**.
 
 - CLI {#cli}
 
-  Если у вас еще нет интерфейса командной строки {{ yandex-cloud }} (CLI), [установите и инициализируйте его](../../cli/quickstart.md#install).
+  Если у вас еще нет интерфейса командной строки Yandex Cloud (CLI), [установите и инициализируйте его](../../cli/quickstart.md#install).
 
   По умолчанию используется каталог, указанный при [создании](../../cli/operations/profile/profile-create.md) профиля CLI. Чтобы изменить каталог по умолчанию, используйте команду `yc config set folder-id <идентификатор_каталога>`. Также для любой команды вы можете указать другой каталог с помощью параметров `--folder-name` или `--folder-id`. Если вы обращаетесь к ресурсу по имени, поиск будет выполнен в каталоге по умолчанию. Если вы обращаетесь к ресурсу по идентификатору, поиск будет выполнен глобально — во всех каталогах с учетом прав доступа.
 
@@ -61,13 +61,13 @@
   1. Посмотрите описание команды CLI для изменения времени запланированного обслуживания:
     
       ```bash
-      {{ yc-mdb-gp }} cluster reschedule-maintenance --help
+      yc managed-greenplum cluster reschedule-maintenance --help
       ```
   
   1. Перенесите обслуживание:
     
       ```bash
-      {{ yc-mdb-gp }} cluster reschedule-maintenance <имя_или_идентификатор_кластера> \
+      yc managed-greenplum cluster reschedule-maintenance <имя_или_идентификатор_кластера> \
         --reschedule-type <тип_переноса>
       ```
     
@@ -96,14 +96,14 @@
       export IAM_TOKEN="<IAM-токен>"
       ```
   
-  1. Воспользуйтесь методом [Cluster.RescheduleMaintenance](../api-ref/Cluster/rescheduleMaintenance.md) и выполните запрос, например с помощью {{ api-examples.rest.tool }}:
+  1. Воспользуйтесь методом [Cluster.RescheduleMaintenance](../api-ref/Cluster/rescheduleMaintenance.md) и выполните запрос, например с помощью [cURL](https://curl.se/):
   
       ```bash
       curl \
         --request POST \
         --header "Authorization: Bearer $IAM_TOKEN" \
         --header "Content-Type: application/json" \
-        --url 'https://{{ api-host-mdb }}/managed-greenplum/v1/clusters/<идентификатор_кластера>:rescheduleMaintenance' \
+        --url 'https://mdb.api.cloud.yandex.net/managed-greenplum/v1/clusters/<идентификатор_кластера>:rescheduleMaintenance' \
         --data '{
                  "rescheduleType": "<тип_переноса>"
                }'
@@ -140,7 +140,7 @@
      
      Далее предполагается, что содержимое репозитория находится в директории `~/cloudapi/`.
 
-  1. Воспользуйтесь вызовом [ClusterService.RescheduleMaintenance](../api-ref/grpc/Cluster/rescheduleMaintenance.md) и выполните запрос, например с помощью {{ api-examples.grpc.tool }}:
+  1. Воспользуйтесь вызовом [ClusterService.RescheduleMaintenance](../api-ref/grpc/Cluster/rescheduleMaintenance.md) и выполните запрос, например с помощью [gRPCurl](https://github.com/fullstorydev/grpcurl):
   
       ```bash
       grpcurl \
@@ -153,7 +153,7 @@
              "cluster_id": "<идентификатор_кластера>",
              "reschedule_type": "<тип_переноса>"
             }' \
-        {{ api-host-mdb }}:{{ port-https }} \
+        mdb.api.cloud.yandex.net:443 \
         yandex.cloud.mdb.greenplum.v1.ClusterService.RescheduleMaintenance
       ```
 
@@ -180,14 +180,14 @@
 
 - Консоль управления {#console}
 
-  1. Перейдите [на страницу каталога]({{ link-console-main }}).
-  1. Перейдите в сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-greenplum }}**.
-  1. Нажмите на имя нужного кластера и выберите вкладку ![image](../../_assets/console-icons/bars-play.svg) **{{ ui-key.yacloud.mdb.maintenance.title_maintenance }}**.
-  1. В строке нужного обслуживания нажмите на значок ![image](../../_assets/console-icons/ellipsis.svg) и выберите пункт ![image](../../_assets/console-icons/triangle-right.svg) **{{ ui-key.yacloud.mdb.maintenance.action_exec-task-now }}**.
+  1. Перейдите [на страницу каталога](https://console.yandex.cloud).
+  1. Перейдите в сервис **Yandex MPP Analytics for&nbsp;PostgreSQL**.
+  1. Нажмите на имя нужного кластера и выберите вкладку ![image](../../_assets/console-icons/bars-play.svg) **Обслуживание**.
+  1. В строке нужного обслуживания нажмите на значок ![image](../../_assets/console-icons/ellipsis.svg) и выберите пункт ![image](../../_assets/console-icons/triangle-right.svg) **Провести сейчас**.
 
 - CLI {#cli}
 
-  Если у вас еще нет интерфейса командной строки {{ yandex-cloud }} (CLI), [установите и инициализируйте его](../../cli/quickstart.md#install).
+  Если у вас еще нет интерфейса командной строки Yandex Cloud (CLI), [установите и инициализируйте его](../../cli/quickstart.md#install).
 
   По умолчанию используется каталог, указанный при [создании](../../cli/operations/profile/profile-create.md) профиля CLI. Чтобы изменить каталог по умолчанию, используйте команду `yc config set folder-id <идентификатор_каталога>`. Также для любой команды вы можете указать другой каталог с помощью параметров `--folder-name` или `--folder-id`. Если вы обращаетесь к ресурсу по имени, поиск будет выполнен в каталоге по умолчанию. Если вы обращаетесь к ресурсу по идентификатору, поиск будет выполнен глобально — во всех каталогах с учетом прав доступа.
 
@@ -196,13 +196,13 @@
   1. Посмотрите описание команды CLI для изменения времени запланированного обслуживания:
     
       ```bash
-      {{ yc-mdb-gp }} cluster reschedule-maintenance --help
+      yc managed-greenplum cluster reschedule-maintenance --help
       ```
   
   1. Проведите запланированное обслуживание немедленно:
     
       ```bash
-      {{ yc-mdb-gp }} cluster reschedule-maintenance <имя_или_идентификатор_кластера> \
+      yc managed-greenplum cluster reschedule-maintenance <имя_или_идентификатор_кластера> \
         --reschedule-type immediate
       ```
     
@@ -216,14 +216,14 @@
       export IAM_TOKEN="<IAM-токен>"
       ```
   
-  1. Воспользуйтесь методом [Cluster.RescheduleMaintenance](../api-ref/Cluster/rescheduleMaintenance.md) и выполните запрос, например с помощью {{ api-examples.rest.tool }}:
+  1. Воспользуйтесь методом [Cluster.RescheduleMaintenance](../api-ref/Cluster/rescheduleMaintenance.md) и выполните запрос, например с помощью [cURL](https://curl.se/):
   
       ```bash
       curl \
         --request POST \
         --header "Authorization: Bearer $IAM_TOKEN" \
         --header "Content-Type: application/json" \
-        --url 'https://{{ api-host-mdb }}/managed-greenplum/v1/clusters/<идентификатор_кластера>:rescheduleMaintenance' \
+        --url 'https://mdb.api.cloud.yandex.net/managed-greenplum/v1/clusters/<идентификатор_кластера>:rescheduleMaintenance' \
         --data '{
                  "rescheduleType": "IMMEDIATE"
                }'
@@ -249,7 +249,7 @@
      
      Далее предполагается, что содержимое репозитория находится в директории `~/cloudapi/`.
 
-  1. Воспользуйтесь вызовом [ClusterService.RescheduleMaintenance](../api-ref/grpc/Cluster/rescheduleMaintenance.md) и выполните запрос, например с помощью {{ api-examples.grpc.tool }}:
+  1. Воспользуйтесь вызовом [ClusterService.RescheduleMaintenance](../api-ref/grpc/Cluster/rescheduleMaintenance.md) и выполните запрос, например с помощью [gRPCurl](https://github.com/fullstorydev/grpcurl):
   
       ```bash
       grpcurl \
@@ -262,7 +262,7 @@
              "cluster_id": "<идентификатор_кластера>",
              "reschedule_type": "IMMEDIATE"
            }' \
-        {{ api-host-mdb }}:{{ port-https }} \
+        mdb.api.cloud.yandex.net:443 \
         yandex.cloud.mdb.greenplum.v1.ClusterService.RescheduleMaintenance
       ```
     
@@ -278,22 +278,22 @@
 
 - Консоль управления {#console}
 
-  1. Перейдите [на страницу каталога]({{ link-console-main }}).
-  1. Перейдите в сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-greenplum }}**.
-  1. Нажмите на имя нужного кластера и выберите вкладку ![image](../../_assets/console-icons/bars-play.svg) **{{ ui-key.yacloud.mdb.maintenance.title_maintenance }}**.
-  1. В правом верхнем углу страницы нажмите кнопку ![image](../../_assets/console-icons/calendar.svg) **{{ ui-key.yacloud.mdb.maintenance.action_maintenance-window-setup }}**.
+  1. Перейдите [на страницу каталога](https://console.yandex.cloud).
+  1. Перейдите в сервис **Yandex MPP Analytics for&nbsp;PostgreSQL**.
+  1. Нажмите на имя нужного кластера и выберите вкладку ![image](../../_assets/console-icons/bars-play.svg) **Обслуживание**.
+  1. В правом верхнем углу страницы нажмите кнопку ![image](../../_assets/console-icons/calendar.svg) **Настроить окно обслуживания**.
   1. Выберите окно обслуживания:
     
-      * **{{ ui-key.yacloud.mdb.forms.value_maintenance-type-anytime }}** — обслуживание проводится в любое время.
-      * **{{ ui-key.yacloud.mdb.forms.value_maintenance-type-weekly }}** — обслуживание проводится по расписанию, в выбранный день недели и интервал времени по UTC.
+      * **В любое время** — обслуживание проводится в любое время.
+      * **По расписанию** — обслуживание проводится по расписанию, в выбранный день недели и интервал времени по UTC.
 
         Для этого типа обслуживания выберите начало окна обслуживания: день недели и интервал времени по UTC.
 
-  1. Нажмите кнопку **{{ ui-key.yacloud.mdb.dialogs.popup_button_save }}**.
+  1. Нажмите кнопку **Сохранить**.
 
 - CLI {#cli}
 
-  Если у вас еще нет интерфейса командной строки {{ yandex-cloud }} (CLI), [установите и инициализируйте его](../../cli/quickstart.md#install).
+  Если у вас еще нет интерфейса командной строки Yandex Cloud (CLI), [установите и инициализируйте его](../../cli/quickstart.md#install).
 
   По умолчанию используется каталог, указанный при [создании](../../cli/operations/profile/profile-create.md) профиля CLI. Чтобы изменить каталог по умолчанию, используйте команду `yc config set folder-id <идентификатор_каталога>`. Также для любой команды вы можете указать другой каталог с помощью параметров `--folder-name` или `--folder-id`. Если вы обращаетесь к ресурсу по имени, поиск будет выполнен в каталоге по умолчанию. Если вы обращаетесь к ресурсу по идентификатору, поиск будет выполнен глобально — во всех каталогах с учетом прав доступа.
 
@@ -302,13 +302,13 @@
   1. Посмотрите описание команды CLI для изменения настроек кластера:
     
       ```bash
-      {{ yc-mdb-gp }} cluster update --help
+      yc managed-greenplum cluster update --help
       ```
   
   1. Настройте окно технического обслуживания:
     
       ```bash
-      {{ yc-mdb-gp }} cluster update <имя_или_идентификатор_кластера> \
+      yc managed-greenplum cluster update <имя_или_идентификатор_кластера> \
         --maintenance-window type=<тип_технического_обслуживания>,`
                             `day=<день_недели>,`
                             `hour=<час_дня>
@@ -326,13 +326,13 @@
       Имя и идентификатор кластера можно получить со [списком кластеров в каталоге](cluster-list.md#list-clusters).
 
 
-- {{ TF }} {#tf}
+- Terraform {#tf}
 
-  1. Откройте актуальный конфигурационный файл {{ TF }} с планом инфраструктуры.
+  1. Откройте актуальный конфигурационный файл Terraform с планом инфраструктуры.
 
       О том, как создать такой файл, см. в разделе [Создание кластера](cluster-create.md).
 
-      Полный список доступных для изменения полей конфигурации кластера {{ mgp-name }} см. в [документации провайдера {{ TF }}]({{ tf-provider-mgp }}).
+      Полный список доступных для изменения полей конфигурации кластера Yandex MPP Analytics for PostgreSQL см. в [документации провайдера Terraform](../../terraform/resources/mdb_greenplum_cluster.md).
 
   1. Чтобы настроить [окно технического обслуживания](../concepts/maintenance.md#maintenance-window), добавьте к описанию кластера блок `maintenance_window`:
   
@@ -356,14 +356,14 @@
 
   1. Проверьте корректность настроек.
 
-      1. В командной строке перейдите в каталог, в котором расположены актуальные конфигурационные файлы {{ TF }} с планом инфраструктуры.
+      1. В командной строке перейдите в каталог, в котором расположены актуальные конфигурационные файлы Terraform с планом инфраструктуры.
       1. Выполните команду:
       
          ```bash
          terraform validate
          ```
       
-         Если в файлах конфигурации есть ошибки, {{ TF }} на них укажет.
+         Если в файлах конфигурации есть ошибки, Terraform на них укажет.
 
   1. Подтвердите изменение ресурсов.
 
@@ -387,7 +387,7 @@
 
       {% note warning "Ограничения по времени" %}
       
-      Провайдер {{ TF }} ограничивает время на выполнение всех операций с кластером {{ mgp-name }} 120 минутами.
+      Провайдер Terraform ограничивает время на выполнение всех операций с кластером Yandex MPP Analytics for PostgreSQL 120 минутами.
       
       Операции, длящиеся дольше указанного времени, прерываются.
       
@@ -419,14 +419,14 @@
       export IAM_TOKEN="<IAM-токен>"
       ```
   
-  1. Воспользуйтесь методом [Cluster.Update](../api-ref/Cluster/update.md) и выполните запрос, например с помощью {{ api-examples.rest.tool }}:
+  1. Воспользуйтесь методом [Cluster.Update](../api-ref/Cluster/update.md) и выполните запрос, например с помощью [cURL](https://curl.se/):
   
       ```bash
       curl \
         --request PATCH \
         --header "Authorization: Bearer $IAM_TOKEN" \
         --header "Content-Type: application/json" \
-        --url 'https://{{ api-host-mdb }}/managed-greenplum/v1/clusters/<идентификатор_кластера>' \
+        --url 'https://mdb.api.cloud.yandex.net/managed-greenplum/v1/clusters/<идентификатор_кластера>' \
         --data '{
                  "updateMask": "maintenanceWindow",
                  "maintenanceWindow": {
@@ -481,7 +481,7 @@
      
      Далее предполагается, что содержимое репозитория находится в директории `~/cloudapi/`.
 
-  1. Воспользуйтесь вызовом [ClusterService.Update](../api-ref/grpc/Cluster/update.md) и выполните запрос, например с помощью {{ api-examples.grpc.tool }}:
+  1. Воспользуйтесь вызовом [ClusterService.Update](../api-ref/grpc/Cluster/update.md) и выполните запрос, например с помощью [gRPCurl](https://github.com/fullstorydev/grpcurl):
   
       ```bash
       grpcurl \
@@ -504,7 +504,7 @@
                }
              }
            }' \
-        {{ api-host-mdb }}:{{ port-https }} \
+        mdb.api.cloud.yandex.net:443 \
         yandex.cloud.mdb.greenplum.v1.ClusterService.Update
       ```
     

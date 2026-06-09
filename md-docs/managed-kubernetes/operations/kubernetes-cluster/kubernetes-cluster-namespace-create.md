@@ -1,6 +1,6 @@
 # Управление пространствами имен
 
-Пространства имен в {{ k8s }} позволяют разделять ресурсы кластера между несколькими командами или проектами. Консоль управления позволяет создавать и удалять пространства имен в {{ managed-k8s-name }} без использования kubectl.
+Пространства имен в Kubernetes позволяют разделять ресурсы кластера между несколькими командами или проектами. Консоль управления позволяет создавать и удалять пространства имен в Managed Service for Kubernetes без использования kubectl.
 
 ## Создание пространства имен
 
@@ -10,10 +10,10 @@
 
 - Консоль управления {#console}
 
-  1. В [консоли управления]({{ link-console-main }}) перейдите на страницу каталога и выберите сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-kubernetes }}**.
-  1. Нажмите на имя нужного кластера и на панели слева выберите ![Namespaces](../../../_assets/console-icons/layers.svg) **{{ ui-key.yacloud.k8s.cluster.switch_namespaces }}**.
-  1. В правом верхнем углу нажмите кнопку **{{ ui-key.yacloud.common.create }}**.
-  1. В открывшемся окне введите **{{ ui-key.yacloud.k8s.namespaces.popup-add_field_name }}** пространства имен.
+  1. В [консоли управления](https://console.yandex.cloud) перейдите на страницу каталога и выберите сервис **Managed Service for&nbsp;Kubernetes**.
+  1. Нажмите на имя нужного кластера и на панели слева выберите ![Namespaces](../../../_assets/console-icons/layers.svg) **Пространства имен**.
+  1. В правом верхнем углу нажмите кнопку **Создать**.
+  1. В открывшемся окне введите **Имя** пространства имен.
 
      {% note info %}
      
@@ -21,7 +21,7 @@
      
      {% endnote %}
 
-  1. Нажмите кнопку **{{ ui-key.yacloud.common.add }}**.
+  1. Нажмите кнопку **Добавить**.
 
 {% endlist %}
 
@@ -35,9 +35,9 @@
 
 - Консоль управления {#console}
 
-  1. В [консоли управления]({{ link-console-main }}) перейдите на страницу каталога и выберите сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-kubernetes }}**.
-  1. Нажмите на имя нужного кластера и на панели слева выберите ![Namespaces](../../../_assets/console-icons/layers.svg) **{{ ui-key.yacloud.k8s.cluster.switch_namespaces }}**.
-  1. В строке пространства имен нажмите на значок ![image](../../../_assets/console-icons/ellipsis.svg) и выберите **{{ ui-key.yacloud.common.delete }}**.
+  1. В [консоли управления](https://console.yandex.cloud) перейдите на страницу каталога и выберите сервис **Managed Service for&nbsp;Kubernetes**.
+  1. Нажмите на имя нужного кластера и на панели слева выберите ![Namespaces](../../../_assets/console-icons/layers.svg) **Пространства имен**.
+  1. В строке пространства имен нажмите на значок ![image](../../../_assets/console-icons/ellipsis.svg) и выберите **Удалить**.
   1. Подтвердите действие.
 
 {% endlist %}

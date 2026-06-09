@@ -10,19 +10,19 @@ Refresh-токены автоматически добавляются в про
 
 {% list tabs group=instructions %}
 
-- Интерфейс {{ cloud-center }} {#cloud-center}
+- Интерфейс Cloud Center {#cloud-center}
 
-  1. Войдите в сервис [{{ org-full-name }}]({{ link-org-cloud-center }}) с учетной записью администратора или владельца организации.
-  1. На панели слева нажмите ![userpool](../../../_assets/console-icons/persons.svg) **{{ ui-key.yacloud_org.pages.users }}**.
+  1. Войдите в сервис [Yandex Identity Hub](https://center.yandex.cloud/organization) с учетной записью администратора или владельца организации.
+  1. На панели слева нажмите ![userpool](../../../_assets/console-icons/persons.svg) **Пользователи**.
   1. Найдите в списке нужного вам пользователя. При необходимости воспользуйтесь фильтром или поиском в верхней части экрана.
-  1. Перейдите на вкладку **{{ ui-key.yacloud_org.my-account.SecurityPageLayout.refresh_breadcrumb }}**.
-  1. (Опционально) В поле **{{ ui-key.yacloud_org.users.refresh_tokens.placeholder_client-search }}** введите имя OAuth-приложения, список refresh-токенов для которого вы хотите получить.
-  1. (Опционально) В поле **{{ ui-key.yacloud_org.users.refresh_tokens.placeholder_client-id-search }}** введите идентификатор OAuth-приложения, список refresh-токенов для которого вы хотите получить. Например: идентификатор {{ yandex-cloud }} CLI — `yc.oauth.public-sdk`.
+  1. Перейдите на вкладку **Refresh-токены**.
+  1. (Опционально) В поле **Поиск по клиенту** введите имя OAuth-приложения, список refresh-токенов для которого вы хотите получить.
+  1. (Опционально) В поле **Поиск по ID клиента** введите идентификатор OAuth-приложения, список refresh-токенов для которого вы хотите получить. Например: идентификатор Yandex Cloud CLI — `yc.oauth.public-sdk`.
   1. (Опционально) Чтобы изменить отображаемые столбцы, нажмите ![settings](../../../_assets/console-icons/gear.svg) в правом верхнем углу списка.
 
 - CLI {#cli}
 
-  Если у вас еще нет интерфейса командной строки {{ yandex-cloud }} (CLI), [установите и инициализируйте его](../../../cli/quickstart.md#install).
+  Если у вас еще нет интерфейса командной строки Yandex Cloud (CLI), [установите и инициализируйте его](../../../cli/quickstart.md#install).
 
   1. Посмотрите описание команды просмотра списка refresh-токенов:
 
@@ -34,7 +34,7 @@ Refresh-токены автоматически добавляются в про
 
       {% note info %}
 
-      Команду `yc iam refresh-token list` можно выполнять без указания дополнительных параметров-фильтров. В этом случае она выведет список всех refresh-токенов пользователя, аутентифицированного в текущий момент в {{ yandex-cloud }} CLI.
+      Команду `yc iam refresh-token list` можно выполнять без указания дополнительных параметров-фильтров. В этом случае она выведет список всех refresh-токенов пользователя, аутентифицированного в текущий момент в Yandex Cloud CLI.
 
       {% endnote %}
 
@@ -48,10 +48,10 @@ Refresh-токены автоматически добавляются в про
 
       Где:
 
-      * `--subject-id` — [идентификатор](../../../organization/operations/users-get.md) федеративного пользователя, список refresh-токенов которого вы хотите получить. Необязательный параметр. Если параметр не задан, будет выведен список refresh-токенов пользователя, аутентифицированного в данный момент в {{ yandex-cloud }} CLI.
+      * `--subject-id` — [идентификатор](../../../organization/operations/users-get.md) федеративного пользователя, список refresh-токенов которого вы хотите получить. Необязательный параметр. Если параметр не задан, будет выведен список refresh-токенов пользователя, аутентифицированного в данный момент в Yandex Cloud CLI.
 
           По умолчанию любой [федеративный пользователь](../../concepts/users/accounts.md#saml-federation) может просматривать список своих refresh-токенов. Просматривать списки refresh-токенов других пользователей могут пользователи, обладающие одной из следующих [ролей](../../concepts/access-control/roles.md) на организацию: [organization-manager.admin](../../../organization/security/index.md#organization-manager-admin), [organization-manager.viewer](../../../organization/security/index.md#organization-manager-viewer) или [iam.userAccounts.refreshTokenViewer](../../security/index.md#iam-userAccounts-refreshTokenViewer).
-      * `--client-id` — идентификатор OAuth-приложения, список refresh-токенов для которого вы хотите получить. Например: идентификатор {{ yandex-cloud }} CLI — `yc.oauth.public-sdk`. Необязательный параметр.
+      * `--client-id` — идентификатор OAuth-приложения, список refresh-токенов для которого вы хотите получить. Например: идентификатор Yandex Cloud CLI — `yc.oauth.public-sdk`. Необязательный параметр.
       * `--client-instance-info` — идентификатор версии OAuth-приложения, список refresh-токенов для которого вы хотите получить. Например: `yc/0.141.0`. Необязательный параметр.
       * `--protection-level` — [уровень защиты](../../concepts/authorization/refresh-token.md#dpop-verification) DPoP-ключа refresh-токенов, список которых вы хотите получить. Необязательный параметр. Возможные значения:
 

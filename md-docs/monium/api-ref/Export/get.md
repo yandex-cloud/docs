@@ -7,7 +7,7 @@ To get the list of all available exports, make a [List](../../../logging/api-ref
 ## HTTP request
 
 ```
-GET https://logging.{{ api-host }}/logging/v1/exports/{exportId}
+GET https://logging.api.cloud.yandex.net/logging/v1/exports/{exportId}
 ```
 
 ## Path parameters

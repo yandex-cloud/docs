@@ -1,12 +1,12 @@
 # Основные принципы
 
-API {{ yandex-cloud }} спроектированы на основе механизма [gRPC](https://grpc.io/docs/). Для описания методов и структур данных в API используется [Protocol Buffers](https://developers.google.com/protocol-buffers/docs/proto3) (proto 3).
+API Yandex Cloud спроектированы на основе механизма [gRPC](https://grpc.io/docs/). Для описания методов и структур данных в API используется [Protocol Buffers](https://developers.google.com/protocol-buffers/docs/proto3) (proto 3).
 
-Сервисы {{ yandex-cloud }} предоставляют JSON REST интерфейс, к которому можно обращаться напрямую. Поддержка REST осуществляется посредством механизма [gRPC-JSON transcoder](https://www.envoyproxy.io/docs/envoy/latest/configuration/http/http_filters/grpc_json_transcoder_filter). С его помощью сервисы {{ yandex-cloud }} преобразуют входящие HTTP-запросы в gRPC-вызовы. Результаты обработки запроса сервис преобразует в HTTP-ответ и отправляет его клиенту.
+Сервисы Yandex Cloud предоставляют JSON REST интерфейс, к которому можно обращаться напрямую. Поддержка REST осуществляется посредством механизма [gRPC-JSON transcoder](https://www.envoyproxy.io/docs/envoy/latest/configuration/http/http_filters/grpc_json_transcoder_filter). С его помощью сервисы Yandex Cloud преобразуют входящие HTTP-запросы в gRPC-вызовы. Результаты обработки запроса сервис преобразует в HTTP-ответ и отправляет его клиенту.
 
 #### Ресурсо-ориентированный подход {#resource-oriented-design}
 
-Для большинства сервисов {{ yandex-cloud }} в API используется ресурсо-ориентированный подход. Принципы такого подхода:
+Для большинства сервисов Yandex Cloud в API используется ресурсо-ориентированный подход. Принципы такого подхода:
 
 - В качестве ресурсов в API выступают [виртуальные машины](../../glossary/vm.md), диски, образы и т. д. Каждый ресурс имеет [уникальный идентификатор](resources-identification.md).
 
@@ -22,9 +22,9 @@ API {{ yandex-cloud }} спроектированы на основе механ
 
 #### Исключения для ресурсо-ориентированного подхода {#exceptions}
 
-- [API {{ objstorage-full-name }}](../../storage/s3/index.md). Его архитектура обеспечивает совместимость с Amazon S3 API, поэтому принципы API {{ objstorage-name }} не всегда совпадают с принципами ресурсо-ориентированного подхода. Подробнее читайте в документации к сервису.
-- API сервисов искусственного интеллекта [{{ ai-studio-full-name }}]({{ link-docs-ai }}ai-studio/concepts/api), [{{ speechkit-full-name }}]({{ link-docs-ai }}speechkit/concepts/api), [{{ translate-full-name }}]({{ link-docs-ai }}translate/api-ref/grpc/) и [{{ vision-full-name }}]({{ link-docs-ai }}vision/ocr/api-ref/grpc/). Их API не оперирует ресурсами {{ yandex-cloud }}, запросы не идемпотентны.
+- [API Yandex Object Storage](../../storage/s3/index.md). Его архитектура обеспечивает совместимость с Amazon S3 API, поэтому принципы API Object Storage не всегда совпадают с принципами ресурсо-ориентированного подхода. Подробнее читайте в документации к сервису.
+- API сервисов искусственного интеллекта [Yandex AI Studio](https://aistudio.yandex.ru/docs/ru/ai-studio/concepts/api), [Yandex SpeechKit](https://aistudio.yandex.ru/docs/ru/speechkit/concepts/api), [Yandex Translate](https://aistudio.yandex.ru/docs/ru/translate/api-ref/grpc/) и [Yandex Vision OCR](https://aistudio.yandex.ru/docs/ru/vision/ocr/api-ref/grpc/). Их API не оперирует ресурсами Yandex Cloud, запросы не идемпотентны.
 
 
 #### См. также {#see-also}
-- [Ссылка на .proto-спецификации API {{ yandex-cloud }}](https://github.com/yandex-cloud/cloudapi)
+- [Ссылка на .proto-спецификации API Yandex Cloud](https://github.com/yandex-cloud/cloudapi)

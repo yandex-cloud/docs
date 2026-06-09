@@ -22,7 +22,7 @@ Yandex Monitoring позволяет собирать и хранить метр
 
  - [Поставка метрик HAProxy и других сторонних приложений](operations/unified-agent/haproxy.md)
 
- - [Поставка метрик с хостов вне {{ yandex-cloud }}](operations/unified-agent/non-yc.md)
+ - [Поставка метрик с хостов вне Yandex Cloud](operations/unified-agent/non-yc.md)
 
  - [Запись пользовательских метрик через API](operations/metric/add.md)
 
@@ -140,13 +140,13 @@ Yandex Monitoring позволяет собирать и хранить метр
 
  - [Мониторинг показаний датчиков и уведомления о событиях](tutorials/monitoring.md)
 
- - [Настройка дашбордов и алертов для {{ at-name }}](tutorials/alerts-monitoring.md)
+ - [Настройка дашбордов и алертов для Audit Trails](tutorials/alerts-monitoring.md)
 
- - [Поиск проблем с производительностью кластера {{ mpg-name }}](tutorials/mpg-performance-problems.md)
+ - [Поиск проблем с производительностью кластера Managed Service for PostgreSQL](tutorials/mpg-performance-problems.md)
 
  - [Сбор метрик кластера «1С:Предприятие» на базе Linux](tutorials/collect-metrics-1c-cluster.md)
 
-## {{ managed-prometheus-name }}
+## Yandex Managed Service for Prometheus®
 
  - [Обзор](operations/prometheus/index.md)
 
@@ -174,7 +174,7 @@ Yandex Monitoring позволяет собирать и хранить метр
 
  - [Правила алертинга](operations/prometheus/alerting-rules.md)
 
- - [Чтение и запись метрик кластера {{ k8s }}](operations/prometheus/read-write-for-kubernetes.md)
+ - [Чтение и запись метрик кластера Kubernetes](operations/prometheus/read-write-for-kubernetes.md)
 
  - [Управление доступом](security/index.md)
 
@@ -218,95 +218,95 @@ Yandex Monitoring позволяет собирать и хранить метр
 
  - [Все справочники метрик](metrics-ref/index.md)
 
- - [{{ ai-studio-name }}](metrics-ref/ai-studio-ref.md)
+ - [AI Studio](metrics-ref/ai-studio-ref.md)
 
- - [{{ api-gw-name }}](metrics-ref/api-gateway-ref.md)
+ - [API Gateway](metrics-ref/api-gateway-ref.md)
 
- - [{{ alb-name }}](metrics-ref/alb-ref.md)
+ - [Application Load Balancer](metrics-ref/alb-ref.md)
 
- - [{{ at-name }}](metrics-ref/at-ref.md)
+ - [Audit Trails](metrics-ref/at-ref.md)
 
- - [{{ baremetal-name }}](metrics-ref/baremetal-ref.md)
+ - [BareMetal](metrics-ref/baremetal-ref.md)
 
- - [{{ certificate-manager-name }}](metrics-ref/certificate-manager-ref.md)
+ - [Certificate Manager](metrics-ref/certificate-manager-ref.md)
 
- - [{{ backup-name }}](metrics-ref/backup-ref.md)
+ - [Cloud Backup](metrics-ref/backup-ref.md)
 
- - [{{ cdn-name }}](metrics-ref/cdn-ref.md)
+ - [Cloud CDN](metrics-ref/cdn-ref.md)
 
- - [{{ sf-name }}](metrics-ref/functions-ref.md)
+ - [Cloud Functions](metrics-ref/functions-ref.md)
 
- - [{{ cloud-logging-name }}](metrics-ref/logging-ref.md)
+ - [Cloud Logging](metrics-ref/logging-ref.md)
 
- - [{{ cns-name }}](metrics-ref/cns-ref.md)
+ - [Cloud Notification Service](metrics-ref/cns-ref.md)
 
- - [{{ postbox-name }}](metrics-ref/postbox-ref.md)
+ - [Yandex Cloud Postbox](metrics-ref/postbox-ref.md)
 
- - [{{ compute-name }}](metrics-ref/compute-ref.md)
+ - [Compute Cloud](metrics-ref/compute-ref.md)
 
- - [{{ container-registry-name }}](metrics-ref/container-registry-ref.md)
+ - [Container Registry](metrics-ref/container-registry-ref.md)
 
- - [{{ dataproc-name }}](metrics-ref/data-processing-ref.md)
+ - [Yandex Data Processing](metrics-ref/data-processing-ref.md)
 
- - [{{ data-transfer-name }}](metrics-ref/data-transfer-ref.md)
+ - [Data Transfer](metrics-ref/data-transfer-ref.md)
 
- - [{{ dns-name }}](metrics-ref/dns-ref.md)
+ - [Cloud DNS](metrics-ref/dns-ref.md)
 
- - [{{ iam-name }}](metrics-ref/iam-ref.md)
+ - [Identity and Access Management](metrics-ref/iam-ref.md)
 
- - [{{ iot-name }}](metrics-ref/iot-core-ref.md)
+ - [Yandex IoT Core](metrics-ref/iot-core-ref.md)
 
- - [{{ kms-name }}](metrics-ref/kms-ref.md)
+ - [Key Management Service](metrics-ref/kms-ref.md)
 
- - [{{ lockbox-name }}](metrics-ref/lockbox-ref.md)
+ - [Yandex Lockbox](metrics-ref/lockbox-ref.md)
 
- - [{{ maf-name }}](metrics-ref/managed-airflow-ref.md)
+ - [Managed Service for Apache Airflow™](metrics-ref/managed-airflow-ref.md)
 
- - [{{ mkf-name }}](metrics-ref/managed-kafka-ref.md)
+ - [Managed Service for Apache Kafka®](metrics-ref/managed-kafka-ref.md)
 
- - [{{ msp-name }}](metrics-ref/managed-spark-ref.md)
+ - [Managed Service for Apache Spark™](metrics-ref/managed-spark-ref.md)
 
- - [{{ mch-name }}](metrics-ref/managed-clickhouse-ref.md)
+ - [Managed Service for ClickHouse®](metrics-ref/managed-clickhouse-ref.md)
 
- - [{{ mgp-name }}](metrics-ref/managed-greenplum-ref.md)
+ - [Yandex MPP Analytics for PostgreSQL](metrics-ref/managed-greenplum-ref.md)
 
- - [{{ mgl-name }}](metrics-ref/managed-gitlab-ref.md)
+ - [Managed Service for GitLab](metrics-ref/managed-gitlab-ref.md)
 
- - [{{ managed-k8s-name }}](metrics-ref/managed-kubernetes-ref.md)
+ - [Managed Service for Kubernetes](metrics-ref/managed-kubernetes-ref.md)
 
- - [{{ mmg-name }}](metrics-ref/managed-mongodb-ref.md)
+ - [Yandex StoreDoc](metrics-ref/managed-mongodb-ref.md)
 
- - [{{ mmy-name }}](metrics-ref/managed-mysql-ref.md)
+ - [Managed Service for MySQL®](metrics-ref/managed-mysql-ref.md)
 
- - [{{ mos-name }}](metrics-ref/managed-opensearch-ref.md)
+ - [Managed Service for OpenSearch](metrics-ref/managed-opensearch-ref.md)
 
- - [{{ mpg-name }}](metrics-ref/managed-postgresql-ref.md)
+ - [Managed Service for PostgreSQL](metrics-ref/managed-postgresql-ref.md)
 
- - [{{ mtr-name }}](metrics-ref/managed-trino-ref.md)
+ - [Managed Service for Trino](metrics-ref/managed-trino-ref.md)
 
- - [{{ mrd-name }}](metrics-ref/managed-valkey-ref.md)
+ - [Yandex Managed Service for Valkey™](metrics-ref/managed-valkey-ref.md)
 
- - [{{ ydb-name }}](metrics-ref/ydb-ref.md)
+ - [Managed Service for YDB](metrics-ref/ydb-ref.md)
 
- - [{{ myt-name }}](metrics-ref/managed-ytsaurus-ref.md)
+ - [Managed Service for YTsaurus](metrics-ref/managed-ytsaurus-ref.md)
 
- - [{{ message-queue-name }}](metrics-ref/message-queue-ref.md)
+ - [Message Queue](metrics-ref/message-queue-ref.md)
 
- - [{{ monitoring-name }}](metrics-ref/monitoring-ref.md)
+ - [Monitoring](metrics-ref/monitoring-ref.md)
 
- - [{{ network-load-balancer-name }}](metrics-ref/network-load-balancer-ref.md)
+ - [Network Load Balancer](metrics-ref/network-load-balancer-ref.md)
 
- - [{{ objstorage-name }}](metrics-ref/storage-ref.md)
+ - [Object Storage](metrics-ref/storage-ref.md)
 
- - [{{ si-name }}](metrics-ref/serverless-integrations-ref.md)
+ - [Serverless Integrations](metrics-ref/serverless-integrations-ref.md)
 
- - [{{ serverless-containers-name }}](metrics-ref/serverless-containers-ref.md)
+ - [Serverless Containers](metrics-ref/serverless-containers-ref.md)
 
- - [{{ captcha-name }}](metrics-ref/captcha-ref.md)
+ - [SmartCaptcha](metrics-ref/captcha-ref.md)
 
- - [{{ sws-name }}](metrics-ref/smartwebsecurity-ref.md)
+ - [Smart Web Security](metrics-ref/smartwebsecurity-ref.md)
 
- - [{{ unified-agent-short-name }}](metrics-ref/unifiedagent-ref.md)
+ - [Unified Agent](metrics-ref/unifiedagent-ref.md)
 
 ## Вопросы и ответы
 
@@ -324,7 +324,7 @@ Yandex Monitoring позволяет собирать и хранить метр
 
  - [Правила тарификации](pricing.md)
 
- - [Справочник {{ TF }}](tf-ref.md)
+ - [Справочник Terraform](tf-ref.md)
 
  - [История изменений](release-notes.md)
 

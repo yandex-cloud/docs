@@ -6,7 +6,7 @@ To get the list of available InstanceGroup resources, make a [List](list.md#List
 ## HTTP request
 
 ```
-GET https://compute.{{ api-host }}/compute/v1/instanceGroups/{instanceGroupId}
+GET https://compute.api.cloud.yandex.net/compute/v1/instanceGroups/{instanceGroupId}
 ```
 
 ## Path parameters

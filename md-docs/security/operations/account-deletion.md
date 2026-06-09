@@ -96,17 +96,17 @@
 
 ## Дополнительные меры {#additional-measures}
 
-Настройте {{ at-name }} на действия с сервисным аккаунтом и федеративной учетной записью, которые обладают ролью `organization-manager.organizations.owner`:
+Настройте Audit Trails на действия с сервисным аккаунтом и федеративной учетной записью, которые обладают ролью `organization-manager.organizations.owner`:
 
-1. [Настройте сбор аудитных логов с уровня организации](../../audit-trails/quickstart.md) в {{ at-full-name }}.
+1. [Настройте сбор аудитных логов с уровня организации](../../audit-trails/quickstart.md) в Yandex Audit Trails.
 
 1. [Отслеживайте](../../audit-trails/tutorials/search-events-audit-logs/index.md) как минимум следующие события (в Object Storage, лог-группе, [Managed ELK](https://github.com/yandex-cloud-examples/yc-export-auditlogs-to-elk) и [в вашем SIEM](../../audit-trails/concepts/export-siem.md)):
 
-    * Создание ключей для сервисного аккаунта (события: `{{ at-event-prefix }}.audit.iam.CreateAccessKey`, `{{ at-event-prefix }}.audit.iam.CreateKey`, `{{ at-event-prefix }}.audit.iam.CreateApiKey` и `authentication.subject_id = <идентификатор_сервисного_аккаунта>`).
+    * Создание ключей для сервисного аккаунта (события: `yandex.cloud.audit.iam.CreateAccessKey`, `yandex.cloud.audit.iam.CreateKey`, `yandex.cloud.audit.iam.CreateApiKey` и `authentication.subject_id = <идентификатор_сервисного_аккаунта>`).
     * Назначение прав доступа на сервисный аккаунт (событие: `UpdateServiceAccountAccessBindings` и `details.service_account_id = <идентификатор_сервисного_аккаунта>`).
     * Любое действие с правами `organization-manager.organizations.owner` (`.authentication.subject_id == <идентификатор_пользователя_с_данными_правами>`).
 
-Для анализа и реагирования на события в {{ at-name }} можно использовать [Managed ELK](https://github.com/yandex-cloud-examples/yc-export-auditlogs-to-elk).
+Для анализа и реагирования на события в Audit Trails можно использовать [Managed ELK](https://github.com/yandex-cloud-examples/yc-export-auditlogs-to-elk).
 
 ## Действия в случае поломки федерации {#federation-repair}
 

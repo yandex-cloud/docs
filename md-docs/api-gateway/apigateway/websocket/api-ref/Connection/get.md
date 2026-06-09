@@ -5,7 +5,7 @@ Returns the specified connection info.
 ## HTTP request
 
 ```
-GET https://apigateway-connections.{{ api-host }}/apigateways/websocket/v1/connections/{connectionId}
+GET https://apigateway-connections.api.cloud.yandex.net/apigateways/websocket/v1/connections/{connectionId}
 ```
 
 ## Path parameters

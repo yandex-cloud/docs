@@ -12,27 +12,27 @@
 
 - Консоль управления {#console}
 
-  1. В [консоли управления]({{ link-console-main }}) на панели сверху нажмите ![layout-side-content-left](../../_assets/console-icons/layout-side-content-left.svg) или ![chevron-down](../../_assets/console-icons/chevron-down.svg) и выберите нужный [каталог](../../resource-manager/concepts/resources-hierarchy.md#folder).
-  1. [Перейдите](../../console/operations/select-service.md#select-service) в сервис **{{ ui-key.yacloud.ui.constants.label_interconnect_aUMcv }}**.
-  1. На панели слева выберите ![pipeline](../../_assets/console-icons/pipeline.svg) **{{ ui-key.yacloud.interconnect.trunk-connection.trunk-connections_kBGNL }}** и нажмите кнопку **{{ ui-key.yacloud.interconnect.trunk-connection.TrunkConnectionListScreen.create-trunk-connection_oUuYo }}**. В открывшемся окне:
+  1. В [консоли управления](https://console.yandex.cloud) на панели сверху нажмите ![layout-side-content-left](../../_assets/console-icons/layout-side-content-left.svg) или ![chevron-down](../../_assets/console-icons/chevron-down.svg) и выберите нужный [каталог](../../resource-manager/concepts/resources-hierarchy.md#folder).
+  1. [Перейдите](../../console/operations/select-service.md#select-service) в сервис **Cloud Interconnect**.
+  1. На панели слева выберите ![pipeline](../../_assets/console-icons/pipeline.svg) **Транковые подключения** и нажмите кнопку **Создать транковое подключение**. В открывшемся окне:
 
-      1. В поле **{{ ui-key.yacloud.interconnect.trunk-connection.connection-capacity_tkrnE }}** задайте величину [пакета трафика](../concepts/capacity.md) для создаваемого транкового подключения.
-      1. В поле **{{ ui-key.yacloud.interconnect.trunk-connection.point-of-presence_265QN }}** выберите нужную [точку присутствия](../concepts/pops.md).
-      1. В поле **{{ ui-key.yacloud.interconnect.trunk-connection.connection-type_23Twp }}** выберите `{{ ui-key.yacloud.interconnect.trunk-connection.connection-type-single-port-direct_1QHVe }}`.
-      1. В поле **{{ ui-key.yacloud.interconnect.trunk-connection.transceiver-type_2WtM8 }}** выберите тип трансивера, который будет использоваться на стороне {{ interconnect-name }}. На вашем оборудовании должен быть совместимый трансивер.
-      1. (Опционально) В блоке **{{ ui-key.yacloud.common.section-base }}** задайте:
+      1. В поле **Ёмкость подключения** задайте величину [пакета трафика](../concepts/capacity.md) для создаваемого транкового подключения.
+      1. В поле **Точка присутствия** выберите нужную [точку присутствия](../concepts/pops.md).
+      1. В поле **Тип подключения** выберите `Прямое`.
+      1. В поле **Тип трансивера** выберите тип трансивера, который будет использоваться на стороне Cloud Interconnect. На вашем оборудовании должен быть совместимый трансивер.
+      1. (Опционально) В блоке **Общая информация** задайте:
 
-          * **{{ ui-key.yacloud.common.name }}**. Требования к имени:
+          * **Имя**. Требования к имени:
 
               * длина — от 3 до 63 символов;
               * может содержать строчные буквы латинского алфавита, цифры и дефисы;
               * первый символ — буква, последний — не дефис.
 
               Если не указать имя, подключению будет присвоено имя, идентичное [идентификатору](../../api-design-guide/concepts/resources-identification.md) этого подключения.
-          * Произвольное **{{ ui-key.yacloud.common.description }}** подключения.
-          * [**{{ ui-key.yacloud.component.label-set.label_labels }}**](../../resource-manager/concepts/labels.md) подключения.
-      1. Чтобы защитить создаваемое подключение от случайного удаления, включите опцию **{{ ui-key.yacloud.common.deletion-protection }}**.
-      1. Нажмите кнопку **{{ ui-key.yacloud.common.create }}**.
+          * Произвольное **Описание** подключения.
+          * [**Метки**](../../resource-manager/concepts/labels.md) подключения.
+      1. Чтобы защитить создаваемое подключение от случайного удаления, включите опцию **Защита от удаления**.
+      1. Нажмите кнопку **Создать**.
 
 - CLI {#cli}
 
@@ -65,7 +65,7 @@
       description: Trunk M9
       cloud_id: b1gia87mbaom********
       folder_id: b1gt6g8ht345********
-      region_id: {{ region-id }}
+      region_id: ru-central1
       created_at: "2025-03-25T10:54:46Z"
       single_port_direct_joint:
         transceiver_type: TRANSCEIVER_TYPE_10GBASE_LR
@@ -114,35 +114,35 @@
 
 - Консоль управления {#console}
 
-  1. В [консоли управления]({{ link-console-main }}) на панели сверху нажмите ![layout-side-content-left](../../_assets/console-icons/layout-side-content-left.svg) или ![chevron-down](../../_assets/console-icons/chevron-down.svg) и выберите нужный [каталог](../../resource-manager/concepts/resources-hierarchy.md#folder).
-  1. [Перейдите](../../console/operations/select-service.md#select-service) в сервис **{{ ui-key.yacloud.ui.constants.label_interconnect_aUMcv }}**.
-  1. На панели слева выберите ![pipeline](../../_assets/console-icons/pipeline.svg) **{{ ui-key.yacloud.interconnect.trunk-connection.trunk-connections_kBGNL }}** и нажмите кнопку **{{ ui-key.yacloud.interconnect.trunk-connection.TrunkConnectionListScreen.create-trunk-connection_oUuYo }}**. В открывшемся окне:
+  1. В [консоли управления](https://console.yandex.cloud) на панели сверху нажмите ![layout-side-content-left](../../_assets/console-icons/layout-side-content-left.svg) или ![chevron-down](../../_assets/console-icons/chevron-down.svg) и выберите нужный [каталог](../../resource-manager/concepts/resources-hierarchy.md#folder).
+  1. [Перейдите](../../console/operations/select-service.md#select-service) в сервис **Cloud Interconnect**.
+  1. На панели слева выберите ![pipeline](../../_assets/console-icons/pipeline.svg) **Транковые подключения** и нажмите кнопку **Создать транковое подключение**. В открывшемся окне:
 
-      1. В поле **{{ ui-key.yacloud.interconnect.trunk-connection.connection-capacity_tkrnE }}** задайте величину [пакета трафика](../concepts/capacity.md) для создаваемого транкового подключения.
-      1. В поле **{{ ui-key.yacloud.interconnect.trunk-connection.point-of-presence_265QN }}** выберите нужную [точку присутствия](../concepts/pops.md).
-      1. В поле **{{ ui-key.yacloud.interconnect.trunk-connection.connection-type_23Twp }}** выберите `{{ ui-key.yacloud.interconnect.trunk-connection.connection-type-partner_tsPPf }}` и в появившемся списке выберите нужного партнера.
+      1. В поле **Ёмкость подключения** задайте величину [пакета трафика](../concepts/capacity.md) для создаваемого транкового подключения.
+      1. В поле **Точка присутствия** выберите нужную [точку присутствия](../concepts/pops.md).
+      1. В поле **Тип подключения** выберите `Через партнёра` и в появившемся списке выберите нужного партнера.
 
           Вы можете выбрать только тех партнеров, которые подходят по емкости подключения и точке присутствия.
-      1. (Опционально) В блоке **{{ ui-key.yacloud.common.section-base }}** задайте:
+      1. (Опционально) В блоке **Общая информация** задайте:
 
-          * **{{ ui-key.yacloud.common.name }}**. Требования к имени:
+          * **Имя**. Требования к имени:
 
               * длина — от 3 до 63 символов;
               * может содержать строчные буквы латинского алфавита, цифры и дефисы;
               * первый символ — буква, последний — не дефис.
 
               Если не указать имя, подключению будет присвоено имя, идентичное [идентификатору](../../api-design-guide/concepts/resources-identification.md) этого подключения.
-          * Произвольное **{{ ui-key.yacloud.common.description }}** подключения.
-          * [**{{ ui-key.yacloud.component.label-set.label_labels }}**](../../resource-manager/concepts/labels.md) подключения.
-      1. Чтобы защитить создаваемое подключение от случайного удаления, включите опцию **{{ ui-key.yacloud.common.deletion-protection }}**.
-      1. Нажмите кнопку **{{ ui-key.yacloud.common.create }}**.
-      1. Создайте [новое обращение в поддержку]({{ link-console-support }}) для информирования партнера о созданном транковом подключении.
+          * Произвольное **Описание** подключения.
+          * [**Метки**](../../resource-manager/concepts/labels.md) подключения.
+      1. Чтобы защитить создаваемое подключение от случайного удаления, включите опцию **Защита от удаления**.
+      1. Нажмите кнопку **Создать**.
+      1. Создайте [новое обращение в поддержку](https://center.yandex.cloud/support) для информирования партнера о созданном транковом подключении.
          
          Обращение должно быть оформлено следующим образом:
          
          ```text
          Тема: [CIC] Уведомление партнера partnerID о созданном
-         транковом подключении {{ interconnect-name }}.
+         транковом подключении Cloud Interconnect.
          
          Текст обращения: Прошу уведомить партнера о параметрах созданного 
          транкового подключения trunk_id: euus5dfgchu2********
@@ -197,7 +197,7 @@
       description: Trunk M9
       cloud_id: b1gia87mbaom********
       folder_id: b1gt6g8ht345********
-      region_id: {{ region-id }}
+      region_id: ru-central1
       created_at: "2025-03-25T10:54:46Z"
       partner_joint_info:
         partner_id: partnerID
@@ -206,13 +206,13 @@
       capacity: CAPACITY_500_MBPS
       status: ACTIVE
       ```
-  1. Создайте [новое обращение в поддержку]({{ link-console-support }}) для информирования партнера о созданном транковом подключении.
+  1. Создайте [новое обращение в поддержку](https://center.yandex.cloud/support) для информирования партнера о созданном транковом подключении.
      
      Обращение должно быть оформлено следующим образом:
      
      ```text
      Тема: [CIC] Уведомление партнера partnerID о созданном
-     транковом подключении {{ interconnect-name }}.
+     транковом подключении Cloud Interconnect.
      
      Текст обращения: Прошу уведомить партнера о параметрах созданного 
      транкового подключения trunk_id: euus5dfgchu2********
@@ -236,30 +236,30 @@
 
 - Консоль управления {#console}
 
-  1. В [консоли управления]({{ link-console-main }}) на панели сверху нажмите ![layout-side-content-left](../../_assets/console-icons/layout-side-content-left.svg) или ![chevron-down](../../_assets/console-icons/chevron-down.svg) и выберите нужный [каталог](../../resource-manager/concepts/resources-hierarchy.md#folder).
-  1. [Перейдите](../../console/operations/select-service.md#select-service) в сервис **{{ ui-key.yacloud.ui.constants.label_interconnect_aUMcv }}**.
-  1. На панели слева выберите ![pipeline](../../_assets/console-icons/pipeline.svg) **{{ ui-key.yacloud.interconnect.trunk-connection.trunk-connections_kBGNL }}** и нажмите кнопку **{{ ui-key.yacloud.interconnect.trunk-connection.TrunkConnectionListScreen.create-trunk-connection_oUuYo }}**. В открывшемся окне:
+  1. В [консоли управления](https://console.yandex.cloud) на панели сверху нажмите ![layout-side-content-left](../../_assets/console-icons/layout-side-content-left.svg) или ![chevron-down](../../_assets/console-icons/chevron-down.svg) и выберите нужный [каталог](../../resource-manager/concepts/resources-hierarchy.md#folder).
+  1. [Перейдите](../../console/operations/select-service.md#select-service) в сервис **Cloud Interconnect**.
+  1. На панели слева выберите ![pipeline](../../_assets/console-icons/pipeline.svg) **Транковые подключения** и нажмите кнопку **Создать транковое подключение**. В открывшемся окне:
 
-      1. В поле **{{ ui-key.yacloud.interconnect.trunk-connection.connection-capacity_tkrnE }}** задайте величину [пакета трафика](../concepts/capacity.md) для создаваемого транкового подключения.
-      1. В поле **{{ ui-key.yacloud.interconnect.trunk-connection.point-of-presence_265QN }}** выберите нужную [точку присутствия](../concepts/pops.md).
-      1. В поле **{{ ui-key.yacloud.interconnect.trunk-connection.connection-type_23Twp }}** выберите `{{ ui-key.yacloud.interconnect.trunk-connection.connection-type-single-port-direct_1QHVe }}`.
-      1. Чтобы использовать [агрегирование](../concepts/trunk.md#lag) каналов связи с помощью [протокола LACP](https://en.wikipedia.org/wiki/Link_aggregation#Link_Aggregation_Control_Protocol), включите опцию **{{ ui-key.yacloud.interconnect.trunk-connection.connection-type-lag_nkLCb }}** и в появившемся поле **{{ ui-key.yacloud.interconnect.trunk-connection.DirectConnectionFields.ports-count_d9Zds }}** задайте количество сетевых портов, которые будут добавлены в группу агрегирования. В группу вы можете добавить до десяти сетевых портов.
-      1. В поле **{{ ui-key.yacloud.interconnect.trunk-connection.transceiver-type_2WtM8 }}** выберите тип трансивера, который будет использоваться на стороне {{ interconnect-name }}. На вашем оборудовании должен быть совместимый трансивер.
+      1. В поле **Ёмкость подключения** задайте величину [пакета трафика](../concepts/capacity.md) для создаваемого транкового подключения.
+      1. В поле **Точка присутствия** выберите нужную [точку присутствия](../concepts/pops.md).
+      1. В поле **Тип подключения** выберите `Прямое`.
+      1. Чтобы использовать [агрегирование](../concepts/trunk.md#lag) каналов связи с помощью [протокола LACP](https://en.wikipedia.org/wiki/Link_aggregation#Link_Aggregation_Control_Protocol), включите опцию **LAG** и в появившемся поле **Количество портов** задайте количество сетевых портов, которые будут добавлены в группу агрегирования. В группу вы можете добавить до десяти сетевых портов.
+      1. В поле **Тип трансивера** выберите тип трансивера, который будет использоваться на стороне Cloud Interconnect. На вашем оборудовании должен быть совместимый трансивер.
 
           При использовании агрегирования все физические порты в группе агрегирования должны использовать [трансиверы](../concepts/transceivers.md) только одного типа.
-      1. (Опционально) В блоке **{{ ui-key.yacloud.common.section-base }}** задайте:
+      1. (Опционально) В блоке **Общая информация** задайте:
 
-          * **{{ ui-key.yacloud.common.name }}**. Требования к имени:
+          * **Имя**. Требования к имени:
 
               * длина — от 3 до 63 символов;
               * может содержать строчные буквы латинского алфавита, цифры и дефисы;
               * первый символ — буква, последний — не дефис.
 
               Если не указать имя, подключению будет присвоено имя, идентичное [идентификатору](../../api-design-guide/concepts/resources-identification.md) этого подключения.
-          * Произвольное **{{ ui-key.yacloud.common.description }}** подключения.
-          * [**{{ ui-key.yacloud.component.label-set.label_labels }}**](../../resource-manager/concepts/labels.md) подключения.
-      1. Чтобы защитить создаваемое подключение от случайного удаления, включите опцию **{{ ui-key.yacloud.common.deletion-protection }}**.
-      1. Нажмите кнопку **{{ ui-key.yacloud.common.create }}**.
+          * Произвольное **Описание** подключения.
+          * [**Метки**](../../resource-manager/concepts/labels.md) подключения.
+      1. Чтобы защитить создаваемое подключение от случайного удаления, включите опцию **Защита от удаления**.
+      1. Нажмите кнопку **Создать**.
 
 - CLI {#cli}
 
@@ -296,7 +296,7 @@
       description: Trunk M9
       cloud_id: b1gia87mbaom********
       folder_id: b1gt6g8ht345********
-      region_id: {{ region-id }}
+      region_id: ru-central1
       created_at: "2025-03-25T10:54:46Z"
       lag_direct_joint:
         lag_id: 15

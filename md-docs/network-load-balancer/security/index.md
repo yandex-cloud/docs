@@ -1,4 +1,4 @@
-# Управление доступом в {{ network-load-balancer-name }}
+# Управление доступом в Network Load Balancer
 
 В этом разделе вы узнаете:
 * [на какие ресурсы можно назначить роль](#resources);
@@ -7,10 +7,10 @@
 
 ## Об управлении доступом {#about-access-control}
 
-Все операции в {{ yandex-cloud }} проверяются в сервисе [{{ iam-full-name }}](../../iam/index.md). Если у субъекта нет необходимых разрешений, сервис вернет ошибку.
+Все операции в Yandex Cloud проверяются в сервисе [Yandex Identity and Access Management](../../iam/index.md). Если у субъекта нет необходимых разрешений, сервис вернет ошибку.
 
 
-Чтобы выдать разрешения к ресурсу, [назначьте роли](../../iam/operations/roles/grant.md) на этот ресурс субъекту, который будет выполнять операции. Роли можно назначить [аккаунту на Яндексе](../../iam/concepts/users/accounts.md#passport), [сервисному аккаунту](../../iam/concepts/users/service-accounts.md), [локальному пользователю](../../iam/concepts/users/accounts.md#local), [федеративному пользователю](../../iam/concepts/federations.md), [группе пользователей](../../organization/operations/manage-groups.md), [системной группе](../../iam/concepts/access-control/system-group.md) или [публичной группе](../../iam/concepts/access-control/public-group.md). Подробнее читайте в разделе [{#T}](../../iam/concepts/access-control/index.md).
+Чтобы выдать разрешения к ресурсу, [назначьте роли](../../iam/operations/roles/grant.md) на этот ресурс субъекту, который будет выполнять операции. Роли можно назначить [аккаунту на Яндексе](../../iam/concepts/users/accounts.md#passport), [сервисному аккаунту](../../iam/concepts/users/service-accounts.md), [локальному пользователю](../../iam/concepts/users/accounts.md#local), [федеративному пользователю](../../iam/concepts/federations.md), [группе пользователей](../../organization/operations/manage-groups.md), [системной группе](../../iam/concepts/access-control/system-group.md) или [публичной группе](../../iam/concepts/access-control/public-group.md). Подробнее читайте в разделе [Как устроено управление доступом в Yandex Cloud](../../iam/concepts/access-control/index.md).
 
 Назначать роли на ресурс могут пользователи, у которых на этот ресурс есть хотя бы одна из ролей:
 
@@ -26,7 +26,7 @@
 
 ## Какие роли действуют в сервисе {#roles-list}
 
-На диаграмме показано, какие роли есть в сервисе и как они наследуют разрешения друг друга. Например, в `{{ roles-editor }}` входят все разрешения `{{ roles-viewer }}`. После диаграммы дано описание каждой роли.
+На диаграмме показано, какие роли есть в сервисе и как они наследуют разрешения друг друга. Например, в `editor` входят все разрешения `viewer`. После диаграммы дано описание каждой роли.
 
 ```mermaid
 %%{init: {"flowchart": {'defaultRenderer': 'elk'}} }%%
@@ -80,9 +80,9 @@ flowchart BT
 Пользователи с этой ролью могут:
 * просматривать список [целевых групп](../concepts/target-resources.md) и информацию о них;
 * просматривать список [сетевых балансировщиков](../concepts/index.md) и информацию о них;
-* просматривать список операций с ресурсами сервиса {{ network-load-balancer-name }};
+* просматривать список операций с ресурсами сервиса Network Load Balancer;
 * просматривать информацию об [облаке](../../resource-manager/concepts/resources-hierarchy.md#cloud) и [каталоге](../../resource-manager/concepts/resources-hierarchy.md#folder);
-* просматривать информацию о [квотах](../concepts/limits.md#load-balancer-quotas) сервиса {{ network-load-balancer-name }}.
+* просматривать информацию о [квотах](../concepts/limits.md#load-balancer-quotas) сервиса Network Load Balancer.
 
 #### load-balancer.viewer {#load-balancer-viewer}
 
@@ -91,9 +91,9 @@ flowchart BT
 Пользователи с этой ролью могут:
 * просматривать список [целевых групп](../concepts/target-resources.md) и информацию о них;
 * просматривать список [сетевых балансировщиков](../concepts/index.md) и информацию о них;
-* просматривать список операций с ресурсами сервиса {{ network-load-balancer-name }};
+* просматривать список операций с ресурсами сервиса Network Load Balancer;
 * просматривать информацию об [облаке](../../resource-manager/concepts/resources-hierarchy.md#cloud) и [каталоге](../../resource-manager/concepts/resources-hierarchy.md#folder);
-* просматривать информацию о [квотах](../concepts/limits.md#load-balancer-quotas) сервиса {{ network-load-balancer-name }}.
+* просматривать информацию о [квотах](../concepts/limits.md#load-balancer-quotas) сервиса Network Load Balancer.
 
 Включает разрешения, предоставляемые ролью `load-balancer.auditor`.
 
@@ -111,10 +111,10 @@ flowchart BT
 * просматривать список [групп безопасности](../../vpc/concepts/security-groups.md) и информацию о них;
 * просматривать информацию о [NAT-шлюзах](../../vpc/concepts/gateways.md);
 * просматривать информацию об использованных IP-адресах в подсетях, а также создавать [внутренние адреса](../../vpc/concepts/address.md#internal-addresses);
-* просматривать информацию об операциях с ресурсами сервисов {{ vpc-name }} и {{ compute-name }};
-* просматривать список операций с ресурсами сервиса {{ network-load-balancer-name }};
+* просматривать информацию об операциях с ресурсами сервисов Virtual Private Cloud и Compute Cloud;
+* просматривать список операций с ресурсами сервиса Network Load Balancer;
 * просматривать информацию об [облаке](../../resource-manager/concepts/resources-hierarchy.md#cloud) и [каталоге](../../resource-manager/concepts/resources-hierarchy.md#folder);
-* просматривать информацию о квотах сервисов [{{ network-load-balancer-name }}](../concepts/limits.md#load-balancer-quotas) и [{{ vpc-name }}](../../vpc/concepts/limits.md#vpc-quotas).
+* просматривать информацию о квотах сервисов [Network Load Balancer](../concepts/limits.md#load-balancer-quotas) и [Virtual Private Cloud](../../vpc/concepts/limits.md#vpc-quotas).
 
 Включает разрешения, предоставляемые ролями `load-balancer.viewer` и `vpc.viewer`.
 
@@ -133,10 +133,10 @@ flowchart BT
 * просматривать список [групп безопасности](../../vpc/concepts/security-groups.md) и информацию о них;
 * просматривать информацию о [NAT-шлюзах](../../vpc/concepts/gateways.md);
 * просматривать информацию об использованных IP-адресах, а также создавать [внутренние](../../vpc/concepts/address.md#internal-addresses) адреса и использовать их;
-* просматривать информацию об операциях с ресурсами сервисов {{ vpc-name }} и {{ compute-name }};
-* просматривать список операций с ресурсами сервиса {{ network-load-balancer-name }};
+* просматривать информацию об операциях с ресурсами сервисов Virtual Private Cloud и Compute Cloud;
+* просматривать список операций с ресурсами сервиса Network Load Balancer;
 * просматривать информацию об [облаке](../../resource-manager/concepts/resources-hierarchy.md#cloud) и [каталоге](../../resource-manager/concepts/resources-hierarchy.md#folder);
-* просматривать информацию о квотах сервисов [{{ network-load-balancer-name }}](../concepts/limits.md#load-balancer-quotas) и [{{ vpc-name }}](../../vpc/concepts/limits.md#vpc-quotas).
+* просматривать информацию о квотах сервисов [Network Load Balancer](../concepts/limits.md#load-balancer-quotas) и [Virtual Private Cloud](../../vpc/concepts/limits.md#vpc-quotas).
 
 Включает разрешения, предоставляемые ролью `load-balancer.privateAdmin`.
 
@@ -155,55 +155,55 @@ flowchart BT
 * просматривать список [групп безопасности](../../vpc/concepts/security-groups.md) и информацию о них;
 * просматривать информацию о [NAT-шлюзах](../../vpc/concepts/gateways.md);
 * просматривать информацию об использованных IP-адресах, а также создавать [внутренние](../../vpc/concepts/address.md#internal-addresses) и [публичные](../../vpc/concepts/address.md#public-addresses) адреса и использовать их;
-* просматривать информацию об операциях с ресурсами сервисов {{ vpc-name }} и {{ compute-name }};
-* просматривать список операций с ресурсами сервиса {{ network-load-balancer-name }};
+* просматривать информацию об операциях с ресурсами сервисов Virtual Private Cloud и Compute Cloud;
+* просматривать список операций с ресурсами сервиса Network Load Balancer;
 * просматривать информацию об [облаке](../../resource-manager/concepts/resources-hierarchy.md#cloud) и [каталоге](../../resource-manager/concepts/resources-hierarchy.md#folder);
-* просматривать информацию о квотах сервисов [{{ network-load-balancer-name }}](../concepts/limits.md#load-balancer-quotas) и [{{ vpc-name }}](../../vpc/concepts/limits.md#vpc-quotas).
+* просматривать информацию о квотах сервисов [Network Load Balancer](../concepts/limits.md#load-balancer-quotas) и [Virtual Private Cloud](../../vpc/concepts/limits.md#vpc-quotas).
 
 Включает разрешения, предоставляемые ролью `load-balancer.editor`.
 
 ### Примитивные роли {#primitive-roles}
 
-Примитивные роли позволяют пользователям совершать действия во [всех сервисах](../../overview/concepts/services.md) {{ yandex-cloud }}.
+Примитивные роли позволяют пользователям совершать действия во [всех сервисах](../../overview/concepts/services.md) Yandex Cloud.
 
-#### {{ roles-auditor }} {#auditor}
+#### auditor {#auditor}
 
 Роль `auditor` предоставляет разрешения на чтение конфигурации и метаданных любых ресурсов Yandex Cloud без возможности доступа к данным.
 
 Например, пользователи с этой ролью могут:
-* просматривать информацию о [ресурсе]({{ link-docs }}/resource-manager/concepts/resources-hierarchy);
+* просматривать информацию о [ресурсе](../../resource-manager/concepts/resources-hierarchy.md);
 * просматривать метаданные ресурса;
 * просматривать список операций с ресурсом.
 
-Роль `auditor` — наиболее безопасная роль, исключающая доступ к данным [сервисов]({{ link-docs }}/overview/concepts/services). Роль подходит для пользователей, которым необходим минимальный уровень доступа к ресурсам Yandex Cloud.
+Роль `auditor` — наиболее безопасная роль, исключающая доступ к данным [сервисов](../../overview/concepts/services.md). Роль подходит для пользователей, которым необходим минимальный уровень доступа к ресурсам Yandex Cloud.
 
-#### {{ roles-viewer }} {#viewer}
+#### viewer {#viewer}
 
-Роль `viewer` предоставляет разрешения на чтение информации о любых [ресурсах]({{ link-docs }}/resource-manager/concepts/resources-hierarchy) Yandex Cloud.
+Роль `viewer` предоставляет разрешения на чтение информации о любых [ресурсах](../../resource-manager/concepts/resources-hierarchy.md) Yandex Cloud.
 
 Включает разрешения, предоставляемые ролью `auditor`.
 
-В отличие от роли `auditor`, роль `viewer` предоставляет доступ к данным [сервисов]({{ link-docs }}/overview/concepts/services) в режиме чтения.
+В отличие от роли `auditor`, роль `viewer` предоставляет доступ к данным [сервисов](../../overview/concepts/services.md) в режиме чтения.
 
-#### {{ roles-editor }} {#editor}
+#### editor {#editor}
 
-Роль `editor` предоставляет разрешения на управление любыми [ресурсами]({{ link-docs }}/resource-manager/concepts/resources-hierarchy) Yandex Cloud, кроме назначения ролей другим пользователям, передачи прав владения [организацией]({{ link-docs }}/organization/concepts/organization) и ее удаления, а также удаления [ключей шифрования]({{ link-docs }}/kms/concepts/) Key Management Service.
+Роль `editor` предоставляет разрешения на управление любыми [ресурсами](../../resource-manager/concepts/resources-hierarchy.md) Yandex Cloud, кроме назначения ролей другим пользователям, передачи прав владения [организацией](../../organization/concepts/organization.md) и ее удаления, а также удаления [ключей шифрования](../../kms/concepts/index.md) Key Management Service.
 
 Например, пользователи с этой ролью могут создавать, изменять и удалять ресурсы.
 
 Включает разрешения, предоставляемые ролью `viewer`.
 
-#### {{ roles-admin }} {#admin}
+#### admin {#admin}
 
-Роль `admin` позволяет назначать любые роли, кроме `resource-manager.clouds.owner` и `organization-manager.organizations.owner`, а также предоставляет разрешения на управление любыми [ресурсами]({{ link-docs }}/resource-manager/concepts/resources-hierarchy) Yandex Cloud, кроме передачи прав владения [организацией]({{ link-docs }}/organization/concepts/organization) и ее удаления.
+Роль `admin` позволяет назначать любые роли, кроме `resource-manager.clouds.owner` и `organization-manager.organizations.owner`, а также предоставляет разрешения на управление любыми [ресурсами](../../resource-manager/concepts/resources-hierarchy.md) Yandex Cloud, кроме передачи прав владения [организацией](../../organization/concepts/organization.md) и ее удаления.
 
-Прежде чем назначить роль `admin` на организацию, [облако]({{ link-docs }}/resource-manager/concepts/resources-hierarchy#cloud) или [платежный аккаунт]({{ link-docs }}/billing/concepts/billing-account), ознакомьтесь с информацией о защите [привилегированных аккаунтов]({{ link-docs }}/security/standard/all#privileged-users).
+Прежде чем назначить роль `admin` на организацию, [облако](../../resource-manager/concepts/resources-hierarchy.md#cloud) или [платежный аккаунт](../../billing/concepts/billing-account.md), ознакомьтесь с информацией о защите [привилегированных аккаунтов](../../security/standard/all.md#privileged-users).
 
 Включает разрешения, предоставляемые ролью `editor`.
 
 Вместо примитивных ролей мы рекомендуем использовать роли сервисов. Такой подход позволит более гранулярно управлять доступом и обеспечить соблюдение [принципа минимальных привилегий](../../security/standard/all.md#min-privileges).
 
-Подробнее о примитивных ролях см. в [справочнике ролей {{ yandex-cloud }}](../../iam/roles-reference.md#primitive-roles).
+Подробнее о примитивных ролях см. в [справочнике ролей Yandex Cloud](../../iam/roles-reference.md#primitive-roles).
 
 ## Какие роли мне необходимы {#choosing-roles}
 
@@ -237,5 +237,5 @@ flowchart BT
 
 * [Как назначить роль](../../iam/operations/roles/grant.md).
 * [Как отозвать роль](../../iam/operations/roles/revoke.md).
-* [Подробнее об управлении доступом в {{ yandex-cloud }}](../../iam/concepts/access-control/index.md).
+* [Подробнее об управлении доступом в Yandex Cloud](../../iam/concepts/access-control/index.md).
 * [Подробнее о наследовании ролей](../../resource-manager/concepts/resources-hierarchy.md#access-rights-inheritance).

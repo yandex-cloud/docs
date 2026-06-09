@@ -5,7 +5,7 @@ Creates a regression dashboard in the specified folder.
 ## HTTP request
 
 ```
-POST https://loadtesting.{{ api-host }}/loadtesting/api/v1/regressionDashboards
+POST https://loadtesting.api.cloud.yandex.net/loadtesting/api/v1/regressionDashboards
 ```
 
 ## Body parameters {#yandex.cloud.loadtesting.api.v1.CreateRegressionDashboardRequest}

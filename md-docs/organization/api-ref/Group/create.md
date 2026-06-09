@@ -5,7 +5,7 @@ Creates a group in the specified organization.
 ## HTTP request
 
 ```
-POST https://organization-manager.{{ api-host }}/organization-manager/v1/groups
+POST https://organization-manager.api.cloud.yandex.net/organization-manager/v1/groups
 ```
 
 ## Body parameters {#yandex.cloud.organizationmanager.v1.CreateGroupRequest}

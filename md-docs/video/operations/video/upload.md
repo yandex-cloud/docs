@@ -2,7 +2,7 @@
 
 Поддерживается загрузка видео в различных форматах, например: [MP4](https://ru.wikipedia.org/wiki/MPEG-4_Part_14), [AVI](https://ru.wikipedia.org/wiki/Audio_Video_Interleave), [MKV](https://ru.wikipedia.org/wiki/Matroska), [FLV](https://ru.wikipedia.org/wiki/Flash_Video), [MOV](https://en.wikipedia.org/wiki/QuickTime_File_Format), [WebM](https://ru.wikipedia.org/wiki/WebM) и других. Вы можете [загружать](upload.md) видео как по одному файлу, так и по несколько файлов сразу.
 
-Вы можете загрузить видео с несколькими аудиодорожками или добавить их после загрузки с помощью [нейроперевода](../../concepts/videos.md#translation). Дорожки выбираются в меню [плеера](../../concepts/player.md), подробнее см. в разделе [{#T}](../player-control.md#audio).
+Вы можете загрузить видео с несколькими аудиодорожками или добавить их после загрузки с помощью [нейроперевода](../../concepts/videos.md#translation). Дорожки выбираются в меню [плеера](../../concepts/player.md), подробнее см. в разделе [Выбрать аудиодорожку](../player-control.md#audio).
 
 В сервисе действуют [ограничения](../../concepts/limits.md) на разрешение публикуемых видео.
 
@@ -10,11 +10,11 @@
 
 {% list tabs group=instructions %}
 
-- Интерфейс {{ video-name }} {#console}
+- Интерфейс Cloud Video {#console}
 
-  1. Откройте [главную страницу]({{ link-video-main }}) {{ video-name }}.
+  1. Откройте [главную страницу](https://video.yandex.cloud/) Cloud Video.
   1. Выберите канал.
-  1. На вкладке ![image](../../../_assets/console-icons/circle-play.svg) **{{ ui-key.yacloud_video.videos.title_videos }}** нажмите кнопку **{{ ui-key.yacloud_video.videos.action_create-video }}**.
+  1. На вкладке ![image](../../../_assets/console-icons/circle-play.svg) **Видео** нажмите кнопку **Загрузить видео**.
   1. На странице загрузки нажмите кнопку **Выбрать файл** и выберите видео, которое вы хотите загрузить.
 
       Поддерживается загрузка видео в различных форматах, например: [MP4](https://ru.wikipedia.org/wiki/MPEG-4_Part_14), [AVI](https://ru.wikipedia.org/wiki/Audio_Video_Interleave), [MKV](https://ru.wikipedia.org/wiki/Matroska), [FLV](https://ru.wikipedia.org/wiki/Flash_Video), [MOV](https://en.wikipedia.org/wiki/QuickTime_File_Format), [WebM](https://ru.wikipedia.org/wiki/WebM) и других.
@@ -23,8 +23,8 @@
 
       Дождитесь окончания загрузки файла.
 
-  1. Введите **{{ ui-key.yacloud_video.videos.label_title }}** видео. Название будет отображаться на всех ресурсах, где будет размещено видео.
-  1. (Опционально) В поле **{{ ui-key.yacloud_video.videos.label_description }}** укажите таймкоды к видео в формате:
+  1. Введите **Название** видео. Название будет отображаться на всех ресурсах, где будет размещено видео.
+  1. (Опционально) В поле **Описание** укажите таймкоды к видео в формате:
    
      ```
      00:00:00 Название главы 1
@@ -38,58 +38,58 @@
      
      {% endnote %}
 
-  1. В списке **{{ ui-key.yacloud_video.videos.label_accessRights }}** выберите тип доступа к видео:
+  1. В списке **Доступ** выберите тип доступа к видео:
 
-      * **{{ ui-key.yacloud_video.videos.label_access_rights-sign-url-access }}** — видео будет доступно по специальной ссылке.
+      * **По временной ссылке** — видео будет доступно по специальной ссылке.
 
         Видео по временной ссылке доступно не более 12 часов.
 
-      * **{{ ui-key.yacloud_video.videos.label_access_rights-public }}** — видео доступно неограниченное время и всем, у кого есть ссылка на видео.
+      * **Для всех пользователей** — видео доступно неограниченное время и всем, у кого есть ссылка на видео.
 
-  1. (Опционально) Чтобы добавить рекламу для видео, включите опцию **{{ ui-key.yacloud_video.videos.label_enable-ad }}**.
-  1. (Опционально) Чтобы добавить обложку для видео, в поле **{{ ui-key.yacloud_video.thumbnails.label_thumbnail }}** нажмите кнопку ![image](../../../_assets/console-icons/cloud-arrow-up-in.svg) **Выберите файл** и выберите изображение для обложки.
+  1. (Опционально) Чтобы добавить рекламу для видео, включите опцию **Включить рекламу**.
+  1. (Опционально) Чтобы добавить обложку для видео, в поле **Обложка** нажмите кнопку ![image](../../../_assets/console-icons/cloud-arrow-up-in.svg) **Выберите файл** и выберите изображение для обложки.
 
       Поддерживаются обложки в следующих форматах: [JPG](https://ru.wikipedia.org/wiki/JPEG), [PNG](https://ru.wikipedia.org/wiki/PNG) и [GIF](https://ru.wikipedia.org/wiki/GIF).
 
-  1. В списке **{{ ui-key.yacloud_video.presets.label_style-preset }}** выберите [шаблон](../../concepts/presets.md) оформления плеера из доступных в канале или создайте новый.
+  1. В списке **Шаблон плеера** выберите [шаблон](../../concepts/presets.md) оформления плеера из доступных в канале или создайте новый.
 
      Если шаблон не выбран, к видео будут применен [шаблон по умолчанию](../style-presets/set-default.md), назначенный на канал.
 
-  1. (Опционально) Чтобы добавить [суммаризацию](../../concepts/videos.md#summarization), включите опцию **{{ ui-key.yacloud_video.videos.field_summarization }}**.
-  1. (Опционально) Включите опцию **{{ ui-key.yacloud_video.videos.field_enable-decode-errors-tolerance }}**, если ваш файл поврежден или возникли [ошибки обработки](../../troubleshooting/video-processing.md).
-  1. (Опционально) Чтобы добавить [субтитры](../../concepts/videos.md#subtitles) для видео, в поле **{{ ui-key.yacloud_video.videos.label_subtitles }}** нажмите кнопку **{{ ui-key.yacloud_video.common.action_add }}**:
+  1. (Опционально) Чтобы добавить [суммаризацию](../../concepts/videos.md#summarization), включите опцию **Суммаризация**.
+  1. (Опционально) Включите опцию **Автоматически обрабатывать ошибки видеофайла**, если ваш файл поврежден или возникли [ошибки обработки](../../troubleshooting/video-processing.md).
+  1. (Опционально) Чтобы добавить [субтитры](../../concepts/videos.md#subtitles) для видео, в поле **Субтитры** нажмите кнопку **Добавить**:
      
      1. В открывшемся окне выберите язык субтитров.
      1. Нажмите кнопку **Выбрать файл** и выберите файл субтитров.
-     1. Нажмите кнопку **{{ ui-key.yacloud_video.common.action_create }}**.
+     1. Нажмите кнопку **Создать**.
      
          Дождитесь загрузки файла.
-  1. (Опционально) Чтобы добавить [нейроперевод](../../concepts/videos.md#translation) для видео, в блоке **{{ ui-key.yacloud_video.videos.label_neuro-translation }}** нажмите кнопку **{{ ui-key.yacloud_video.common.action_add }}**:
+  1. (Опционально) Чтобы добавить [нейроперевод](../../concepts/videos.md#translation) для видео, в блоке **Нейроперевод** нажмите кнопку **Добавить**:
      
      1. В открывшемся окне выберите язык видео.
      1. Выберите языки для перевода.
-     1. Нажмите **{{ ui-key.yacloud_video.common.action_create }}**.
-  1. Нажмите кнопку **{{ ui-key.yacloud_video.common.action_accept }}**.
+     1. Нажмите **Создать**.
+  1. Нажмите кнопку **Сохранить**.
 
   Откроется страница управления созданным видео. После завершения обработки видео станет доступно для просмотра.
 
   Чтобы проверить доступность видео:
 
-  1. В блоке **{{ ui-key.yacloud_video.videos.title_past-code }}** выберите вкладку `link`.
-  1. Нажмите кнопку ![copy](../../../_assets/console-icons/copy.svg) **{{ ui-key.yacloud_video.streams.action_copy-code }}**.
+  1. В блоке **Код вставки** выберите вкладку `link`.
+  1. Нажмите кнопку ![copy](../../../_assets/console-icons/copy.svg) **Скопировать**.
   1. Откройте новую страницу браузера и вставьте в адресной строке полученную ссылку.
   1. Нажмите кнопку воспроизведения.
 
 - REST API {#api}
 
-  Чтобы создать видео в {{ video-name }} с помощью API, зарегистрируйте видео на канале и затем загрузите в него видеофайл по протоколу [tus](https://tus.io/protocols/resumable-upload). В случае сбоя загрузки дозагрузите файл, продолжив загрузку с той позиции в файле, на которой произошел сбой.
+  Чтобы создать видео в Cloud Video с помощью API, зарегистрируйте видео на канале и затем загрузите в него видеофайл по протоколу [tus](https://tus.io/protocols/resumable-upload). В случае сбоя загрузки дозагрузите файл, продолжив загрузку с той позиции в файле, на которой произошел сбой.
 
   1. Зарегистрируйте видео на канале:
 
       ```bash
       curl \
         --request POST \
-        --url 'https://video.{{ api-host }}/video/v1/videos' \
+        --url 'https://video.api.cloud.yandex.net/video/v1/videos' \
         --header 'Authorization: Bearer <IAM-токен>' \
         --header 'Content-Type: application/json' \
         --data '{
@@ -104,7 +104,7 @@
       ```
 
       Где:
-      * `<IAM-токен>` — [IAM-токен](../../../iam/concepts/authorization/iam-token.md), необходимый для [аутентификации](../../api-ref/authentication.md) в {{ video-name }} API.
+      * `<IAM-токен>` — [IAM-токен](../../../iam/concepts/authorization/iam-token.md), необходимый для [аутентификации](../../api-ref/authentication.md) в Cloud Video API.
       * `<идентификатор_канала>` — идентификатор канала, в котором вы хотите создать ваше видео.
       * `<имя_видео>` — имя, которое будет присвоено видео при загрузке в канал.
       * `<размер_видеофайла>` — полученный размер загружаемого видеофайла в байтах.
@@ -173,7 +173,7 @@
       ```bash
       curl \
         --request GET \
-        --url 'https://video.{{ api-host }}/video/v1/videos/<идентификатор_видео>' \
+        --url 'https://video.api.cloud.yandex.net/video/v1/videos/<идентификатор_видео>' \
         --header 'Authorization: Bearer <IAM-токен>'
       ```
       
@@ -258,7 +258,7 @@
 
 - gRPC API {#grpc-api}
 
-  Чтобы создать видео в {{ video-name }} с помощью API, зарегистрируйте видео на канале и затем загрузите в него видеофайл по протоколу [tus](https://tus.io/protocols/resumable-upload). В случае сбоя загрузки дозагрузите файл, продолжив загрузку с той позиции в файле, на которой произошел сбой.
+  Чтобы создать видео в Cloud Video с помощью API, зарегистрируйте видео на канале и затем загрузите в него видеофайл по протоколу [tus](https://tus.io/protocols/resumable-upload). В случае сбоя загрузки дозагрузите файл, продолжив загрузку с той позиции в файле, на которой произошел сбой.
 
   1. Зарегистрируйте видео на канале:
 
@@ -274,11 +274,11 @@
           },
           "public_access": {}
         }' \
-        video.{{ api-host }}:443 yandex.cloud.video.v1.VideoService/Create
+        video.api.cloud.yandex.net:443 yandex.cloud.video.v1.VideoService/Create
       ```
 
       Где:
-      * `<IAM-токен>` — [IAM-токен](../../../iam/concepts/authorization/iam-token.md), необходимый для [аутентификации](../../api-ref/authentication.md) в {{ video-name }} API.
+      * `<IAM-токен>` — [IAM-токен](../../../iam/concepts/authorization/iam-token.md), необходимый для [аутентификации](../../api-ref/authentication.md) в Cloud Video API.
       * `<идентификатор_канала>` — идентификатор канала, в котором вы хотите создать ваше видео.
       * `<имя_видео>` — имя, которое будет присвоено видео при загрузке в канал.
       * `<размер_видеофайла>` — полученный размер загружаемого видеофайла в байтах.
@@ -348,7 +348,7 @@
       grpcurl \
         -rpc-header "Authorization: Bearer <IAM-токен>" \
         -d '{"video_id": "<идентификатор_видео>"}' \
-        video.{{ api-host }}:443 yandex.cloud.video.v1.VideoService/Get
+        video.api.cloud.yandex.net:443 yandex.cloud.video.v1.VideoService/Get
       ```
       
       Результат:
@@ -437,11 +437,11 @@
 
 {% list tabs group=instructions %}
 
-- Интерфейс {{ video-name }} {#console}
+- Интерфейс Cloud Video {#console}
 
-  1. Откройте [главную страницу]({{ link-video-main }}) {{ video-name }}.
+  1. Откройте [главную страницу](https://video.yandex.cloud/) Cloud Video.
   1. Выберите канал.
-  1. На вкладке ![image](../../../_assets/console-icons/circle-play.svg) **{{ ui-key.yacloud_video.videos.title_videos }}** нажмите кнопку **{{ ui-key.yacloud_video.videos.action_create-video }}**.
+  1. На вкладке ![image](../../../_assets/console-icons/circle-play.svg) **Видео** нажмите кнопку **Загрузить видео**.
   1. На странице загрузки нажмите кнопку **Выбрать файл** и выберите несколько видео, которые вы хотите загрузить.
 
       Поддерживается загрузка видео в различных форматах, например: [MP4](https://ru.wikipedia.org/wiki/MPEG-4_Part_14), [AVI](https://ru.wikipedia.org/wiki/Audio_Video_Interleave), [MKV](https://ru.wikipedia.org/wiki/Matroska), [FLV](https://ru.wikipedia.org/wiki/Flash_Video), [MOV](https://en.wikipedia.org/wiki/QuickTime_File_Format), [WebM](https://ru.wikipedia.org/wiki/WebM) и других.
@@ -459,4 +459,4 @@
 
 #### См. также {#see-also}
 
-[{#T}](update.md)
+[Изменить видео](update.md)

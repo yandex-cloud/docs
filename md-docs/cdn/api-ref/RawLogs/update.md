@@ -5,7 +5,7 @@ Update configuration of raw log export.
 ## HTTP request
 
 ```
-PATCH https://cdn.{{ api-host }}/cdn/v1/rawLogs/{resourceId}
+PATCH https://cdn.api.cloud.yandex.net/cdn/v1/rawLogs/{resourceId}
 ```
 
 ## Path parameters

@@ -5,7 +5,7 @@ Retrieves a list of Trino Cluster resources.
 ## HTTP request
 
 ```
-GET https://trino.{{ api-host }}/managed-trino/v1/clusters
+GET https://trino.api.cloud.yandex.net/managed-trino/v1/clusters
 ```
 
 ## Query parameters {#yandex.cloud.trino.v1.ListClustersRequest}

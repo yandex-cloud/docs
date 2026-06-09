@@ -1,6 +1,6 @@
-# Пример использования {{ message-queue-full-name }} на Laravel
+# Пример использования Yandex Message Queue на Laravel
 
-Для работы с очередями PHP-фреймворк [Laravel](https://laravel.com/) предоставляет примитив [Queue](https://laravel.com/docs/6.x/queues). В качестве брокера сообщений можно использовать {{ message-queue-name }}. 
+Для работы с очередями PHP-фреймворк [Laravel](https://laravel.com/) предоставляет примитив [Queue](https://laravel.com/docs/6.x/queues). В качестве брокера сообщений можно использовать Message Queue. 
 
 ## Установка {#install}
 
@@ -9,7 +9,7 @@
 ## Подготовка к работе {#prepare}
 
 1. [Создайте сервисный аккаунт](../../iam/operations/sa/create.md).
-1. [Назначьте роль {{ roles-editor }} сервисному аккаунту](../../iam/operations/sa/assign-role-for-sa.md).
+1. [Назначьте роль editor сервисному аккаунту](../../iam/operations/sa/assign-role-for-sa.md).
 1. [Создайте статический ключ доступа](../../iam/operations/authentication/manage-access-keys.md#create-access-key).
 
 Задайте переменные окружения:
@@ -19,13 +19,13 @@ export AWS_ACCESS_KEY_ID="<идентификатор_ключа_доступа>
 export AWS_SECRET_ACCESS_KEY="<секретный_ключ>"
 ```
 
-Создайте очередь в сервисе {{ message-queue-name }} и скопируйте ее URL.
+Создайте очередь в сервисе Message Queue и скопируйте ее URL.
 
 ## Инструкции {#sample}
 
-В этом примере создается демонстрационная задача (Job), которая суммирует два числа, и команда (Command), которая ставит задачу в очередь {{ message-queue-name }}.
+В этом примере создается демонстрационная задача (Job), которая суммирует два числа, и команда (Command), которая ставит задачу в очередь Message Queue.
 
-Чтобы использовать {{ message-queue-name }} с Laravel, выполните следующие инструкции.
+Чтобы использовать Message Queue с Laravel, выполните следующие инструкции.
 
 1. Создайте тестовый проект `mq_example`:
 
@@ -140,16 +140,16 @@ export AWS_SECRET_ACCESS_KEY="<секретный_ключ>"
 
 1. Заполните параметры в блоке `sqs`.
    
-   Чтобы получить значения для параметров `prefix` и `queue`, разделите URL вашей очереди на две части: префиксом будет служить `https://message-queue.{{ api-host }}/`, а параметром очереди `b1g8ad42m6he********/dj6000000000********` без `/` в начале.
+   Чтобы получить значения для параметров `prefix` и `queue`, разделите URL вашей очереди на две части: префиксом будет служить `https://message-queue.api.cloud.yandex.net/`, а параметром очереди `b1g8ad42m6he********/dj6000000000********` без `/` в начале.
 
    ```
    'sqs' => [
        'driver' => 'sqs',
        'key' => env('AWS_ACCESS_KEY_ID'),
        'secret' => env('AWS_SECRET_ACCESS_KEY'),
-       'prefix' => env('SQS_PREFIX', 'https://message-queue.{{ api-host }}/'),
+       'prefix' => env('SQS_PREFIX', 'https://message-queue.api.cloud.yandex.net/'),
        'queue' => env('SQS_QUEUE', 'b1g8ad42m6he********/dj6000000000********/laravel-test'),
-       'region' => env('AWS_DEFAULT_REGION', '{{ region-id }}'),
+       'region' => env('AWS_DEFAULT_REGION', 'ru-central1'),
    ],
    ```
 

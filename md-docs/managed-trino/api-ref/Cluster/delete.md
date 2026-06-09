@@ -5,7 +5,7 @@ Deletes the specified Trino Cluster resource.
 ## HTTP request
 
 ```
-DELETE https://trino.{{ api-host }}/managed-trino/v1/clusters/{clusterId}
+DELETE https://trino.api.cloud.yandex.net/managed-trino/v1/clusters/{clusterId}
 ```
 
 ## Path parameters

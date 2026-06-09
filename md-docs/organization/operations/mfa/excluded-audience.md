@@ -6,25 +6,25 @@
 
 {% list tabs group=instructions %}
 
-- Интерфейс {{ cloud-center }} {#cloud-center}
+- Интерфейс Cloud Center {#cloud-center}
 
-  1. Войдите в сервис [{{ org-full-name }}]({{ link-org-cloud-center }}).
-  1. На панели слева выберите ![shield](../../../_assets/console-icons/shield.svg) **{{ ui-key.yacloud_org.pages.securitySettings }}**.
-  1. Перейдите на вкладку **{{ ui-key.yacloud_org.organization.security-settings.MfaPolicyPageLayout.policies_title }}** и в списке политик выберите нужную. В открывшемся окне:
+  1. Войдите в сервис [Yandex Identity Hub](https://center.yandex.cloud/organization).
+  1. На панели слева выберите ![shield](../../../_assets/console-icons/shield.svg) **Настройки безопасности**.
+  1. Перейдите на вкладку **Политики MFA** и в списке политик выберите нужную. В открывшемся окне:
 
-      1. Перейдите на вкладку **{{ ui-key.yacloud_org.organization.security-settings.MfaPolicyPageLayout.tab_exclusions }}**.
+      1. Перейдите на вкладку **Исключения**.
       1. Чтобы добавить пользователя или группу пользователей в список исключений:
 
-          1. Нажмите кнопку ![person-plus](../../../_assets/console-icons/person-plus.svg) **{{ ui-key.yacloud_org.mfa-policy-exclusions.action_add-exclusion }}**.
+          1. Нажмите кнопку ![person-plus](../../../_assets/console-icons/person-plus.svg) **Добавить исключение**.
           1. В открывшемся окне выберите нужного пользователя или группу пользователей.
-          1. Нажмите кнопку **{{ ui-key.yacloud.common.add }}**.
+          1. Нажмите кнопку **Добавить**.
       1. Чтобы удалить пользователя или группу из списка исключений:
-          1. В списке пользователей и групп в строке с нужным пользователем или группой нажмите значок ![ellipsis](../../../_assets/console-icons/ellipsis.svg) и выберите ![trash-bin](../../../_assets/console-icons/trash-bin.svg) **{{ ui-key.yacloud.common.delete }}**.
+          1. В списке пользователей и групп в строке с нужным пользователем или группой нажмите значок ![ellipsis](../../../_assets/console-icons/ellipsis.svg) и выберите ![trash-bin](../../../_assets/console-icons/trash-bin.svg) **Удалить**.
           1. Подтвердите удаление.
 
 - CLI {#cli}
 
-  Если у вас еще нет интерфейса командной строки {{ yandex-cloud }} (CLI), [установите и инициализируйте его](../../../cli/quickstart.md#install).
+  Если у вас еще нет интерфейса командной строки Yandex Cloud (CLI), [установите и инициализируйте его](../../../cli/quickstart.md#install).
 
   По умолчанию используется каталог, указанный при [создании](../../../cli/operations/profile/profile-create.md) профиля CLI. Чтобы изменить каталог по умолчанию, используйте команду `yc config set folder-id <идентификатор_каталога>`. Также для любой команды вы можете указать другой каталог с помощью параметров `--folder-name` или `--folder-id`. Если вы обращаетесь к ресурсу по имени, поиск будет выполнен в каталоге по умолчанию. Если вы обращаетесь к ресурсу по идентификатору, поиск будет выполнен глобально — во всех каталогах с учетом прав доступа.
 
@@ -76,16 +76,16 @@
 
 {% list tabs group=instructions %}
 
-- Интерфейс {{ cloud-center }} {#cloud-center}
+- Интерфейс Cloud Center {#cloud-center}
 
-  1. Войдите в сервис [{{ org-full-name }}]({{ link-org-cloud-center }}).
-  1. На панели слева выберите ![shield](../../../_assets/console-icons/shield.svg) **{{ ui-key.yacloud_org.pages.securitySettings }}**.
-  1. Перейдите на вкладку **{{ ui-key.yacloud_org.organization.security-settings.MfaPolicyPageLayout.policies_title }}** и в списке политик выберите нужную.
-  1. В открывшемся окне перейдите на вкладку **{{ ui-key.yacloud_org.organization.security-settings.MfaPolicyPageLayout.tab_exclusions }}** и просмотрите список пользователей и групп, исключенных из политики.
+  1. Войдите в сервис [Yandex Identity Hub](https://center.yandex.cloud/organization).
+  1. На панели слева выберите ![shield](../../../_assets/console-icons/shield.svg) **Настройки безопасности**.
+  1. Перейдите на вкладку **Политики MFA** и в списке политик выберите нужную.
+  1. В открывшемся окне перейдите на вкладку **Исключения** и просмотрите список пользователей и групп, исключенных из политики.
 
 - CLI {#cli}
 
-  Если у вас еще нет интерфейса командной строки {{ yandex-cloud }} (CLI), [установите и инициализируйте его](../../../cli/quickstart.md#install).
+  Если у вас еще нет интерфейса командной строки Yandex Cloud (CLI), [установите и инициализируйте его](../../../cli/quickstart.md#install).
 
   По умолчанию используется каталог, указанный при [создании](../../../cli/operations/profile/profile-create.md) профиля CLI. Чтобы изменить каталог по умолчанию, используйте команду `yc config set folder-id <идентификатор_каталога>`. Также для любой команды вы можете указать другой каталог с помощью параметров `--folder-name` или `--folder-id`. Если вы обращаетесь к ресурсу по имени, поиск будет выполнен в каталоге по умолчанию. Если вы обращаетесь к ресурсу по идентификатору, поиск будет выполнен глобально — во всех каталогах с учетом прав доступа.
 
@@ -114,10 +114,10 @@
 
 #### См. также {#see-also}
 
-* [{#T}](add-users.md)
-* [{#T}](create-policy.md)
-* [{#T}](update-policy.md)
-* [{#T}](deactivate-reactivate-policy.md)
-* [{#T}](delete-policy.md)
-* [{#T}](manage-verification.md)
-* [{#T}](../../concepts/mfa.md)
+* [Применить политику MFA к пользователям](add-users.md)
+* [Создать политику MFA](create-policy.md)
+* [Изменить политику MFA](update-policy.md)
+* [Активировать и деактивировать политику MFA](deactivate-reactivate-policy.md)
+* [Удалить политику MFA](delete-policy.md)
+* [Удалить MFA-фактор и сбросить дату верификации](manage-verification.md)
+* [Многофакторная аутентификация в Yandex Identity Hub](../../concepts/mfa.md)

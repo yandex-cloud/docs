@@ -1,6 +1,6 @@
 # Инструкции по управлению подключениями
 
-В разделе ![image](../../_assets/console-icons/folder-tree.svg) [**Подключения**]({{ websql-link }}) сервиса {{ websql-full-name }} вы можете:
+В разделе ![image](../../_assets/console-icons/folder-tree.svg) [**Подключения**](https://websql.yandex.cloud) сервиса Yandex WebSQL вы можете:
 
 * [посмотреть информацию о ресурсах](view-resources-info.md);
 * [посмотреть информации об объектах в базе данных](view-db-objects-info.md);

@@ -5,7 +5,7 @@ Creates a new shard group in the specified cluster.
 ## HTTP request
 
 ```
-POST https://{{ api-host-mdb }}/managed-clickhouse/v1/clusters/{clusterId}/shardGroups
+POST https://mdb.api.cloud.yandex.net/managed-clickhouse/v1/clusters/{clusterId}/shardGroups
 ```
 
 ## Path parameters

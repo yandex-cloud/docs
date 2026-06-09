@@ -1,15 +1,15 @@
 # Установка Argo CD
 
 
-[Argo CD](https://argo-cd.readthedocs.io) — декларативный инструмент для непрерывной доставки в {{ k8s }} по модели GitOps.
+[Argo CD](https://argo-cd.readthedocs.io) — декларативный инструмент для непрерывной доставки в Kubernetes по модели GitOps.
 
 ## Перед началом работы {#before-you-begin}
 
-1. Если у вас еще нет интерфейса командной строки {{ yandex-cloud }} (CLI), [установите и инициализируйте его](../../../cli/quickstart.md#install).
+1. Если у вас еще нет интерфейса командной строки Yandex Cloud (CLI), [установите и инициализируйте его](../../../cli/quickstart.md#install).
 
    По умолчанию используется каталог, указанный при [создании](../../../cli/operations/profile/profile-create.md) профиля CLI. Чтобы изменить каталог по умолчанию, используйте команду `yc config set folder-id <идентификатор_каталога>`. Также для любой команды вы можете указать другой каталог с помощью параметров `--folder-name` или `--folder-id`. Если вы обращаетесь к ресурсу по имени, поиск будет выполнен в каталоге по умолчанию. Если вы обращаетесь к ресурсу по идентификатору, поиск будет выполнен глобально — во всех каталогах с учетом прав доступа.
 
-1. [Убедитесь](../connect/security-groups.md), что группы безопасности для кластера {{ managed-k8s-name }} и его групп узлов настроены корректно. Если отсутствует какое-либо из правил — [добавьте](../../../vpc/operations/security-group-add-rule.md) его.
+1. [Убедитесь](../connect/security-groups.md), что группы безопасности для кластера Managed Service for Kubernetes и его групп узлов настроены корректно. Если отсутствует какое-либо из правил — [добавьте](../../../vpc/operations/security-group-add-rule.md) его.
 
     {% note warning %}
     
@@ -17,18 +17,18 @@
     
     {% endnote %}
 
-1. [Установите kubectl]({{ k8s-docs }}/tasks/tools/install-kubectl) и [настройте его на работу с созданным кластером](../connect/index.md#kubectl-connect).
+1. [Установите kubectl](https://kubernetes.io/ru/docs/tasks/tools/install-kubectl) и [настройте его на работу с созданным кластером](../connect/index.md#kubectl-connect).
 
-## Установка с помощью {{ marketplace-full-name }} {#marketplace-install}
+## Установка с помощью Yandex Cloud Marketplace {#marketplace-install}
 
-1. В [консоли управления]({{ link-console-main }}) выберите каталог.
-1. Перейдите в сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-kubernetes }}**.
-1. Нажмите на имя нужного кластера и выберите вкладку ![image](../../../_assets/console-icons/shopping-cart.svg) **{{ ui-key.yacloud.k8s.cluster.switch_marketplace }}**.
-1. В разделе **{{ ui-key.yacloud.marketplace-v2.label_available-products }}** выберите [Argo CD](https://yandex.cloud/ru/marketplace/products/yc/argo-cd) и нажмите кнопку **{{ ui-key.yacloud.marketplace-v2.button_k8s-product-use }}**.
+1. В [консоли управления](https://console.yandex.cloud) выберите каталог.
+1. Перейдите в сервис **Managed Service for&nbsp;Kubernetes**.
+1. Нажмите на имя нужного кластера и выберите вкладку ![image](../../../_assets/console-icons/shopping-cart.svg) **Marketplace**.
+1. В разделе **Доступные для установки приложения** выберите [Argo CD](https://yandex.cloud/ru/marketplace/products/yc/argo-cd) и нажмите кнопку **Перейти к установке**.
 1. Задайте настройки приложения:
    * **Пространство имен** — создайте новое [пространство имен](../../concepts/index.md#namespace) (например, `argo-cd-space`). Если вы оставите пространство имен по умолчанию, Argo CD может работать некорректно.
    * **Название приложения** — укажите название приложения.
-1. Нажмите кнопку **{{ ui-key.yacloud.k8s.cluster.marketplace.button_install }}**.
+1. Нажмите кнопку **Установить**.
 1. Дождитесь перехода приложения в статус `Deployed`.
 
 ## Установка с помощью Helm-чарта {#helm-install}
@@ -37,8 +37,8 @@
 1. Для установки [Helm-чарта](https://helm.sh/docs/topics/charts/) с Argo CD выполните команду:
 
    ```bash
-   helm pull oci://{{ mkt-k8s-key.yc_argo-cd.helmChart.name }} \
-     --version {{ mkt-k8s-key.yc_argo-cd.helmChart.tag }} \
+   helm pull oci://cr.yandex/yc-marketplace/yandex-cloud/argo/chart/argo-cd \
+     --version 7.3.11-2 \
      --untar && \
    helm install \
      --namespace <пространство_имен> \
@@ -56,7 +56,7 @@
 
 ## Доступ к приложению {#application-access}
 
-Вы можете открыть приложение Argo CD через [localhost](#open-via-localhost), по [выделенному IP-адресу](#go-to-static-address) через сетевой балансировщик [{{ network-load-balancer-full-name }}](../../../network-load-balancer/index.md) или по [URL](#open-via-alb) через L7-балансировщик [{{ alb-full-name }}](../../../application-load-balancer/index.md). Первый способ проще в настройке и не требует дополнительных затрат на балансировщики. Однако через `localhost` приложение доступно, только пока активна переадресация портов, а балансировщики обеспечивают постоянный доступ к Argo CD.
+Вы можете открыть приложение Argo CD через [localhost](#open-via-localhost), по [выделенному IP-адресу](#go-to-static-address) через сетевой балансировщик [Yandex Network Load Balancer](../../../network-load-balancer/index.md) или по [URL](#open-via-alb) через L7-балансировщик [Yandex Application Load Balancer](../../../application-load-balancer/index.md). Первый способ проще в настройке и не требует дополнительных затрат на балансировщики. Однако через `localhost` приложение доступно, только пока активна переадресация портов, а балансировщики обеспечивают постоянный доступ к Argo CD.
 
 Перед тем как настроить доступ к Argo CD, получите пароль администратора (`admin`):
 
@@ -80,9 +80,9 @@ kubectl --namespace <пространство_имен> get secret argocd-initia
 
 1. Перейдите по ссылке `https://localhost:8080` и авторизуйтесь с учетными данными администратора.
 
-### Открыть приложение по выделенному IP-адресу через {{ network-load-balancer-name }}{#go-to-static-address}
+### Открыть приложение по выделенному IP-адресу через Network Load Balancer{#go-to-static-address}
 
-1. Сохраните следующую спецификацию для создания сервиса типа `LoadBalancer` в файл `load-balancer.yaml`. В результате вы создадите балансировщик [{{ network-load-balancer-name }}](../../../network-load-balancer/index.md):
+1. Сохраните следующую спецификацию для создания сервиса типа `LoadBalancer` в файл `load-balancer.yaml`. В результате вы создадите балансировщик [Network Load Balancer](../../../network-load-balancer/index.md):
 
    ```yaml
    apiVersion: v1
@@ -96,7 +96,7 @@ kubectl --namespace <пространство_имен> get secret argocd-initia
      - port: 443
        name: load-balancer-port-ssl
        targetPort: 8080
-     # {{ k8s }}-метка селектора, использованная в объекте Deployment с именем <название_приложения>-argocd-server.
+     # Kubernetes-метка селектора, использованная в объекте Deployment с именем <название_приложения>-argocd-server.
      selector:
        app.kubernetes.io/name: argocd-server
    ```
@@ -119,22 +119,22 @@ kubectl --namespace <пространство_имен> get secret argocd-initia
 
    * Консоль управления {#console}
 
-      1. В [консоли управления]({{ link-console-main }}) выберите каталог, где развернут кластер {{ managed-k8s-name }}.
-      1. Перейдите в сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_load-balancer }}**.
+      1. В [консоли управления](https://console.yandex.cloud) выберите каталог, где развернут кластер Managed Service for Kubernetes.
+      1. Перейдите в сервис **Network Load Balancer**.
 
-         В разделе **{{ ui-key.yacloud.load-balancer.network-load-balancer.label_list }}** отображен сетевой балансировщик нагрузки с префиксом `k8s` в имени и уникальным идентификатором кластера {{ k8s }} в описании.
+         В разделе **Балансировщики** отображен сетевой балансировщик нагрузки с префиксом `k8s` в имени и уникальным идентификатором кластера Kubernetes в описании.
 
-      1. Скопируйте значение поля **{{ ui-key.yacloud.load-balancer.network-load-balancer.column_ip-address }}** для нужного балансировщика.
+      1. Скопируйте значение поля **IP-адрес** для нужного балансировщика.
 
    {% endlist %}
 
 1. Перейдите по ссылке `https://<IP-адрес_балансировщика>` и авторизуйтесь с учетными данными администратора.
 
-### Открыть приложение по URL через {{ alb-name }} {#open-via-alb}
+### Открыть приложение по URL через Application Load Balancer {#open-via-alb}
 
 1. [Зарегистрируйте публичную доменную зону и делегируйте домен](../../../dns/operations/zone-create-public.md).
 
-1. Если у вас уже есть сертификат для доменной зоны, [добавьте сведения о нем](../../../certificate-manager/operations/import/cert-create.md) в сервис [{{ certificate-manager-full-name }}](../../../certificate-manager/index.md). Если нет, выпустите новый сертификат от {{ lets-encrypt }} и [добавьте](../../../certificate-manager/operations/managed/cert-create.md) его в {{ certificate-manager-name }}.
+1. Если у вас уже есть сертификат для доменной зоны, [добавьте сведения о нем](../../../certificate-manager/operations/import/cert-create.md) в сервис [Yandex Certificate Manager](../../../certificate-manager/index.md). Если нет, выпустите новый сертификат от Let's Encrypt® и [добавьте](../../../certificate-manager/operations/managed/cert-create.md) его в Certificate Manager.
 
 1. Получите идентификатор сертификата:
    
@@ -152,17 +152,17 @@ kubectl --namespace <пространство_имен> get secret argocd-initia
      +----------------------+-----------+----------------+---------------------+----------+--------+
      ```
 
-1. [Настройте](../../../application-load-balancer/tools/k8s-ingress-controller/security-groups.md) группы безопасности, необходимые для работы L7-балансировщика {{ alb-name }}.
+1. [Настройте](../../../application-load-balancer/tools/k8s-ingress-controller/security-groups.md) группы безопасности, необходимые для работы L7-балансировщика Application Load Balancer.
 
-1. [Установите Ingress-контроллер {{ alb-name }}](alb-ingress-controller.md).
+1. [Установите Ingress-контроллер Application Load Balancer](alb-ingress-controller.md).
 
    {% note tip %}
    
-   Вместо ALB Ingress-контроллера и Gateway API рекомендуется использовать новый контроллер [{{ yandex-cloud }} Gwin](../../../application-load-balancer/tools/gwin/index.md).
+   Вместо ALB Ingress-контроллера и Gateway API рекомендуется использовать новый контроллер [Yandex Cloud Gwin](../../../application-load-balancer/tools/gwin/index.md).
    
    {% endnote %}
 
-1. Для работы с L7-балансировщиком {{ alb-name }} требуется сервис типа `NodePort`, но Argo CD запускает сервер с сервисом типа `ClusterIP`. Измените тип сервиса:
+1. Для работы с L7-балансировщиком Application Load Balancer требуется сервис типа `NodePort`, но Argo CD запускает сервер с сервисом типа `ClusterIP`. Измените тип сервиса:
 
    1. Откройте файл с описанием объекта `Service`:
 
@@ -179,7 +179,7 @@ kubectl --namespace <пространство_имен> get secret argocd-initia
           ...
         ```
 
-1. L7-балансировщик {{ alb-name }} снимает TLS-шифрование с входящего трафика. Чтобы избежать бесконечного перенаправления, отключите для Argo CD перенаправление с HTTP на HTTPS:
+1. L7-балансировщик Application Load Balancer снимает TLS-шифрование с входящего трафика. Чтобы избежать бесконечного перенаправления, отключите для Argo CD перенаправление с HTTP на HTTPS:
 
    1. Откройте конфигурационный файл `argocd-cmd-params-cm`:
 
@@ -196,7 +196,7 @@ kubectl --namespace <пространство_имен> get secret argocd-initia
         ...
       ```
 
-1. Создайте файл `ingress.yaml` и укажите в нем настройки L7-балансировщика {{ alb-name }}:
+1. Создайте файл `ingress.yaml` и укажите в нем настройки L7-балансировщика Application Load Balancer:
 
     ```yaml
     apiVersion: networking.k8s.io/v1
@@ -227,7 +227,7 @@ kubectl --namespace <пространство_имен> get secret argocd-initia
                       number: 80
     ```
 
-    Подробнее о настройках см. в разделе [Настройка L7-балансировщика {{ alb-full-name }} с помощью Ingress-контроллера](../../tutorials/alb-ingress-controller.md#create-ingress-and-apps).
+    Подробнее о настройках см. в разделе [Настройка L7-балансировщика Yandex Application Load Balancer с помощью Ingress-контроллера](../../tutorials/alb-ingress-controller.md#create-ingress-and-apps).
 
 1. В директории с файлом `ingress.yaml` выполните команду:
 
@@ -235,7 +235,7 @@ kubectl --namespace <пространство_имен> get secret argocd-initia
     kubectl apply -f ingress.yaml
     ```
 
-    Будет создан ресурс `Ingress`. По его конфигурации ALB Ingress Controller автоматически развернет L7-балансировщик {{ alb-name }}.
+    Будет создан ресурс `Ingress`. По его конфигурации ALB Ingress Controller автоматически развернет L7-балансировщик Application Load Balancer.
 
 1. Убедитесь, что L7-балансировщик создан. Для этого выполните команду:
 
@@ -250,19 +250,19 @@ kubectl --namespace <пространство_имен> get secret argocd-initia
     argocd-ingress  <none>  <доменное_имя>  51.250.**.***  80, 443  15h
     ```    
 
-1. [Добавьте A-запись в зону](../../../dns/operations/resource-record-create.md) вашего домена. В поле **{{ ui-key.yacloud.dns.label_records }}** укажите публичный IP-адрес L7-балансировщика {{ alb-name }}.
+1. [Добавьте A-запись в зону](../../../dns/operations/resource-record-create.md) вашего домена. В поле **Значение** укажите публичный IP-адрес L7-балансировщика Application Load Balancer.
 
 1. Откройте в браузере ссылку `https://<доменное_имя>` и авторизуйтесь с учетными данными администратора.
 
    {% note info %}
    
-   Если ресурс недоступен по указанному URL, то [убедитесь](../connect/security-groups.md), что группы безопасности для кластера {{ managed-k8s-name }} и его групп узлов настроены корректно. Если отсутствует какое-либо из правил — [добавьте его](../../../vpc/operations/security-group-add-rule.md).
+   Если ресурс недоступен по указанному URL, то [убедитесь](../connect/security-groups.md), что группы безопасности для кластера Managed Service for Kubernetes и его групп узлов настроены корректно. Если отсутствует какое-либо из правил — [добавьте его](../../../vpc/operations/security-group-add-rule.md).
    
    {% endnote %}
 
 ## Примеры использования {#examples}
 
-* [{#T}](../../tutorials/marketplace/argo-cd.md).
+* [Интеграция с Argo CD](../../tutorials/marketplace/argo-cd.md).
 
 ## См. также {#see-also}
 

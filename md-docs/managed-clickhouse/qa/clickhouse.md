@@ -1,30 +1,30 @@
-# Вопросы о {{ CH }}
+# Вопросы о ClickHouse®
 
-* [Почему стоит использовать {{ CH }} в {{ mch-short-name }}, а не собственную установку на виртуальной машине?](#clickhouse-advantages-vm)
+* [Почему стоит использовать ClickHouse® в Managed Service for ClickHouse®, а не собственную установку на виртуальной машине?](#clickhouse-advantages-vm)
 
-* [Когда стоит использовать {{ CH }} вместо {{ PG }}?](#clickhouse-advantages-pg)
+* [Когда стоит использовать ClickHouse® вместо PostgreSQL?](#clickhouse-advantages-pg)
 
-* [Как загружать данные в {{ CH }}?](#load-data)
+* [Как загружать данные в ClickHouse®?](#load-data)
 
-* [Как загрузить в {{ CH }} очень большое количество данных?](#loadalot)
+* [Как загрузить в ClickHouse® очень большое количество данных?](#loadalot)
 
 * [Что случится с кластером, если выйдет из строя одна из нод?](#node-out)
 
-* [Можно ли развернуть кластер БД {{ CH }} в нескольких зонах доступности?](#multiple-az)
+* [Можно ли развернуть кластер БД ClickHouse® в нескольких зонах доступности?](#multiple-az)
 
-* [Как устроена репликация для {{ CH }}?](#zookeeper-access)
+* [Как устроена репликация для ClickHouse®?](#zookeeper-access)
 
-* [Почему кластер {{ CH }} занимает на 3 хоста больше, чем должен?](#why-does-a-cluster-take-up-3-hosts-more-than-it-should)
+* [Почему кластер ClickHouse® занимает на 3 хоста больше, чем должен?](#why-does-a-cluster-take-up-3-hosts-more-than-it-should)
 
-* [Как происходит удаление данных по TTL в {{ CH }}?](#how-ttl-data-processing-works)
+* [Как происходит удаление данных по TTL в ClickHouse®?](#how-ttl-data-processing-works)
 
-* [Могу ли я использовать тип данных JSON для таблиц в {{ CH }}?](#how-to-use-json)
+* [Могу ли я использовать тип данных JSON для таблиц в ClickHouse®?](#how-to-use-json)
 
 * [Почему кластер работает медленно, хотя вычислительные ресурсы использованы не до предела?](#throttling)
 
-#### Почему стоит использовать {{ CH }} в {{ mch-short-name }}, а не собственную установку на виртуальной машине? {#clickhouse-advantages-vm}
+#### Почему стоит использовать ClickHouse® в Managed Service for ClickHouse®, а не собственную установку на виртуальной машине? {#clickhouse-advantages-vm}
 
-{{ mch-short-name }} автоматизирует рутинное обслуживание БД:
+Managed Service for ClickHouse® автоматизирует рутинное обслуживание БД:
 
 * быстрое развертывание БД с необходимыми доступными ресурсами;
 
@@ -36,17 +36,17 @@
 
 * мониторинг и статистика использования БД.
 
-#### Когда стоит использовать {{ CH }} вместо {{ PG }}? {#clickhouse-advantages-pg}
+#### Когда стоит использовать ClickHouse® вместо PostgreSQL? {#clickhouse-advantages-pg}
 
-{{ CH }} поддерживает только добавление и чтение данных, так как предназначен прежде всего для [аналитики](../../glossary/data-analytics.md) (OLAP). В остальных случаях, скорее всего, удобнее использовать {{ PG }}.
+ClickHouse® поддерживает только добавление и чтение данных, так как предназначен прежде всего для [аналитики](../../glossary/data-analytics.md) (OLAP). В остальных случаях, скорее всего, удобнее использовать PostgreSQL.
 
-#### Как загружать данные в {{ CH }}? {#load-data}
+#### Как загружать данные в ClickHouse®? {#load-data}
 
-Используйте запрос `INSERT`, описанный в [документации {{ CH }}]({{ ch.docs }}{{ lang }}/sql-reference/statements/insert-into).
+Используйте запрос `INSERT`, описанный в [документации ClickHouse®](https://clickhouse.com/docs/ru/sql-reference/statements/insert-into).
 
-#### Как загрузить в {{ CH }} очень большое количество данных? {#loadalot}
+#### Как загрузить в ClickHouse® очень большое количество данных? {#loadalot}
 
-Используйте [CLI]({{ ch.docs }}{{ lang }}/interfaces/cli) для эффективного сжатия данных при передаче (рекомендуемая частота — не больше 1 команды `INSERT` в секунду).
+Используйте [CLI](https://clickhouse.com/docs/ru/interfaces/cli) для эффективного сжатия данных при передаче (рекомендуемая частота — не больше 1 команды `INSERT` в секунду).
 
 Перенос данных с физических носителей пока не поддерживается.
 
@@ -54,35 +54,35 @@
 
 Кластеры БД состоят минимум из 2 реплик, поэтому при потере одной ноды кластер продолжит работу.
 
-Данные могут потеряться только если вышла из строя нода с [нереплицируемой таблицей]({{ ch.docs }}{{ lang }}/engines/table-engines/mergetree-family/replication).
+Данные могут потеряться только если вышла из строя нода с [нереплицируемой таблицей](https://clickhouse.com/docs/ru/engines/table-engines/mergetree-family/replication).
 
-#### Можно ли развернуть кластер БД {{ CH }} в нескольких зонах доступности? {#multiple-az}
+#### Можно ли развернуть кластер БД ClickHouse® в нескольких зонах доступности? {#multiple-az}
 
 Да. Кластер БД может состоять из хостов, расположенных как в разных [зонах](../../overview/concepts/geo-scope.md), так и в разных регионах доступности.
 
-#### Как устроена репликация для {{ CH }}? {#zookeeper-access}
+#### Как устроена репликация для ClickHouse®? {#zookeeper-access}
 
-Кластеры {{ mch-short-name }} используют репликацию с помощью {{ CK }} или {{ ZK }}. В обоих случаях для обеспечения репликации и [высокой доступности](../concepts/high-availability.md) в кластере создается минимум три хоста {{ CK }} или {{ ZK }}.
+Кластеры Managed Service for ClickHouse® используют репликацию с помощью ClickHouse® Keeper или ZooKeeper. В обоих случаях для обеспечения репликации и [высокой доступности](../concepts/high-availability.md) в кластере создается минимум три хоста ClickHouse® Keeper или ZooKeeper.
 
-#### Почему кластер {{ CH }} занимает на 3 хоста больше, чем должен? {#why-does-a-cluster-take-up-3-hosts-more-than-it-should}
+#### Почему кластер ClickHouse® занимает на 3 хоста больше, чем должен? {#why-does-a-cluster-take-up-3-hosts-more-than-it-should}
 
-Когда вы создаете кластер {{ CH }} из 2 и более хостов, {{ mch-short-name }} автоматически создает 3 хоста сервиса координации ({{ CK }} или {{ ZK }}, в зависимости от выбора пользователя) для управления репликацией и высокой доступностью. Эти хосты учитываются в расчете использованной [квоты ресурсов]({{ link-console-quotas }}) в облаке и в расчете стоимости кластера. По умолчанию хосты {{ CK }} или {{ ZK }} создаются с минимальным [классом хостов](../concepts/instance-types.md).
+Когда вы создаете кластер ClickHouse® из 2 и более хостов, Managed Service for ClickHouse® автоматически создает 3 хоста сервиса координации (ClickHouse® Keeper или ZooKeeper, в зависимости от выбора пользователя) для управления репликацией и высокой доступностью. Эти хосты учитываются в расчете использованной [квоты ресурсов](https://console.yandex.cloud/cloud?section=quotas) в облаке и в расчете стоимости кластера. По умолчанию хосты ClickHouse® Keeper или ZooKeeper создаются с минимальным [классом хостов](../concepts/instance-types.md).
 
-Подробнее об использовании {{ ZK }} см. [документацию {{ CH }}]({{ ch.docs }}{{ lang }}/engines/table-engines/mergetree-family/replication).
+Подробнее об использовании ZooKeeper см. [документацию ClickHouse®](https://clickhouse.com/docs/ru/engines/table-engines/mergetree-family/replication).
 
-#### Как происходит удаление данных по TTL в {{ CH }}? {#how-ttl-data-processing-works}
+#### Как происходит удаление данных по TTL в ClickHouse®? {#how-ttl-data-processing-works}
 
-Удаление данных по [TTL]({{ ch.docs }}{{ lang }}/engines/table-engines/mergetree-family/mergetree#mergetree-table-ttl) выполняется не построчно, а либо целыми [кусками]({{ ch.docs }}{{ lang }}/engines/table-engines/mergetree-family/mergetree#table_engine-mergetree-multiple-volumes) (data parts), либо при операциях слияния.
+Удаление данных по [TTL](https://clickhouse.com/docs/ru/engines/table-engines/mergetree-family/mergetree#mergetree-table-ttl) выполняется не построчно, а либо целыми [кусками](https://clickhouse.com/docs/ru/engines/table-engines/mergetree-family/mergetree#table_engine-mergetree-multiple-volumes) (data parts), либо при операциях слияния.
 
-Удаление целыми кусками работает эффективней и потребляет меньше ресурсов сервера, но для этого значение выражения TTL и [ключ партиционирования]({{ ch.docs }}{{ lang }}/engines/table-engines/mergetree-family/custom-partitioning-key) для всех строк куска данных TTL должны совпадать или хотя бы быть одного порядка.
+Удаление целыми кусками работает эффективней и потребляет меньше ресурсов сервера, но для этого значение выражения TTL и [ключ партиционирования](https://clickhouse.com/docs/ru/engines/table-engines/mergetree-family/custom-partitioning-key) для всех строк куска данных TTL должны совпадать или хотя бы быть одного порядка.
 
-Удаление при операциях слияния потребляет больше ресурсов и выполняется либо вместе с обычными фоновыми операциями слияния, либо во время внеплановых слияний. Периодичность операций слияния определяется значением параметра `merge_with_ttl_timeout`. Этот параметр задается при [создании]({{ ch.docs }}{{ lang }}/engines/table-engines/mergetree-family/mergetree#table_engine-mergetree-creating-a-table) таблицы и указывает минимальное время в секундах перед повторным слиянием для обработки данных с истекшим TTL. По умолчанию — 14400 секунд (4 часа).
+Удаление при операциях слияния потребляет больше ресурсов и выполняется либо вместе с обычными фоновыми операциями слияния, либо во время внеплановых слияний. Периодичность операций слияния определяется значением параметра `merge_with_ttl_timeout`. Этот параметр задается при [создании](https://clickhouse.com/docs/ru/engines/table-engines/mergetree-family/mergetree#table_engine-mergetree-creating-a-table) таблицы и указывает минимальное время в секундах перед повторным слиянием для обработки данных с истекшим TTL. По умолчанию — 14400 секунд (4 часа).
 
-Рекомендуется организовывать обработку данных по TTL так, чтобы старые данные всегда удалялись целыми кусками. Для этого при создании таблиц установите для настройки [ttl_only_drop_parts]({{ ch.docs }}{{ lang }}/operations/settings/settings#ttl_only_drop_parts) значение `true`.
+Рекомендуется организовывать обработку данных по TTL так, чтобы старые данные всегда удалялись целыми кусками. Для этого при создании таблиц установите для настройки [ttl_only_drop_parts](https://clickhouse.com/docs/ru/operations/settings/settings#ttl_only_drop_parts) значение `true`.
 
-#### Могу ли я использовать тип данных JSON для таблиц в {{ CH }}? {#how-to-use-json}
+#### Могу ли я использовать тип данных JSON для таблиц в ClickHouse®? {#how-to-use-json}
 
-Да, но на данный момент JSON является экспериментальным типом данных в {{ CH }}. Чтобы разрешить создание таблиц такого типа, выполните запрос:
+Да, но на данный момент JSON является экспериментальным типом данных в ClickHouse®. Чтобы разрешить создание таблиц такого типа, выполните запрос:
 
 ```sql
 SET allow_experimental_object_type=1;
@@ -96,7 +96,7 @@ SET allow_experimental_object_type=1;
 
 {% endnote %}
 
-Подробную информацию см. в [документации {{ CH }}]({{ ch.docs }}{{ lang }}/sql-reference/data-types/newjson).
+Подробную информацию см. в [документации ClickHouse®](https://clickhouse.com/docs/ru/sql-reference/data-types/newjson).
 
 #### Почему кластер работает медленно, хотя вычислительные ресурсы использованы не до предела? {#throttling}
 
@@ -114,4 +114,4 @@ SET allow_experimental_object_type=1;
 
 Если вы используете хранилище с типом диска `network-hdd`, рассмотрите возможность перехода на `network-ssd` или `network-ssd-nonreplicated` путем [восстановления кластера](../operations/cluster-backups.md#restore) из резервной копии.
 
-_{{ CH }} является зарегистрированным товарным знаком [ClickHouse, Inc](https://clickhouse.com)._
+_ClickHouse® является зарегистрированным товарным знаком [ClickHouse, Inc](https://clickhouse.com)._

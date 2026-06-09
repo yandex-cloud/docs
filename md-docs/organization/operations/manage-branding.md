@@ -11,11 +11,11 @@
 
 {% list tabs group=instructions %}
 
-- Интерфейс {{ cloud-center }} {#cloud-center}
+- Интерфейс Cloud Center {#cloud-center}
 
-  1. Войдите в сервис [{{ org-full-name }}]({{ link-org-cloud-center }}) с учетной записью администратора или владельца организации.
-  1. На панели слева выберите ![brush](../../_assets/console-icons/brush.svg) **{{ ui-key.yacloud_org.pages.organization-branding }}**.
-  1. В блоке **{{ ui-key.yacloud_org.organization.branding.AuthBrandingForm.styleSection.title }}** настройте по отдельности темную и светлую цветовые темы:
+  1. Войдите в сервис [Yandex Identity Hub](https://center.yandex.cloud/organization) с учетной записью администратора или владельца организации.
+  1. На панели слева выберите ![brush](../../_assets/console-icons/brush.svg) **Брендирование**.
+  1. В блоке **Цвета и изображения** настройте по отдельности темную и светлую цветовые темы:
 
      {% note info %}
      
@@ -23,10 +23,10 @@
      
      {% endnote %}
 
-     1. **{{ ui-key.yacloud_org.organization.branding.AuthBrandingThemeBlock.backgroundName }}** — выберите изображение, которое будет использоваться в качестве фона страницы (до 3840×2160 px, до 4 МБ).
-     1. **{{ ui-key.yacloud_org.organization.branding.AuthBrandingThemeBlock.logoName }}** — выберите изображение, которое будет отображаться в верхней части формы (от 1920×1920 px, до 512 КБ).
-     1. **{{ ui-key.yacloud_org.organization.branding.AuthBrandingThemeBlock.faviconName }}** — выберите изображение, которое будет отображаться во вкладке браузера рядом с названием сайта (до 512×512 px, до 512 КБ).
-     1. **{{ ui-key.yacloud_org.organization.branding.AuthBrandingForm.styleSection.colorLabel }}** — выберите цвет кнопок и рамок для текстовых полей.
+     1. **Фоновое изображение** — выберите изображение, которое будет использоваться в качестве фона страницы (до 3840×2160 px, до 4 МБ).
+     1. **Логотип** — выберите изображение, которое будет отображаться в верхней части формы (от 1920×1920 px, до 512 КБ).
+     1. **Фавиконка** — выберите изображение, которое будет отображаться во вкладке браузера рядом с названием сайта (до 512×512 px, до 512 КБ).
+     1. **Основной цвет** — выберите цвет кнопок и рамок для текстовых полей.
 
      {% note tip %}
      
@@ -34,13 +34,13 @@
      
      {% endnote %}
 
-  1. В блоке **{{ ui-key.yacloud_org.organization.branding.AuthBrandingForm.loginSection.title }}**:
+  1. В блоке **Форма входа**:
 
-     1. В поле **{{ ui-key.yacloud_org.organization.branding.AuthBrandingForm.loginSection.welcomeLabel }}** введите текст, который будет отображаться под логотипом.
-     1. В поле **{{ ui-key.yacloud_org.organization.branding.AuthBrandingForm.loginSection.placeholderLabel }}** введите шаблон почты, который будет отображаться в поле ввода.
-     1. В секции **{{ ui-key.yacloud_org.organization.branding.AuthBrandingForm.loginSection.alternativeEntryLabel }}** включите или выключите вход с помощью Яндекс ID и [SSO](../../glossary/sso.md).
+     1. В поле **Приветствие** введите текст, который будет отображаться под логотипом.
+     1. В поле **Подсказка в поле для входа** введите шаблон почты, который будет отображаться в поле ввода.
+     1. В секции **Альтернативные способы входа** включите или выключите вход с помощью Яндекс ID и [SSO](../../glossary/sso.md).
 
-  1. Чтобы сбросить внесенные изменения и настроить брендирование заново, нажмите **{{ ui-key.yacloud_org.organization.branding.AuthBrandingForm.clearAllAction }}**.
-  1. Чтобы сохранить изменения, нажмите **{{ ui-key.yacloud.common.save }}**.
+  1. Чтобы сбросить внесенные изменения и настроить брендирование заново, нажмите **Сбросить все**.
+  1. Чтобы сохранить изменения, нажмите **Сохранить**.
 
 {% endlist %}

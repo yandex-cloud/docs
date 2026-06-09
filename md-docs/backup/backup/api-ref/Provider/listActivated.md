@@ -5,7 +5,7 @@ List activated providers for specified client.
 ## HTTP request
 
 ```
-GET https://backup.{{ api-host }}/backup/v1/providers
+GET https://backup.api.cloud.yandex.net/backup/v1/providers
 ```
 
 ## Query parameters {#yandex.cloud.backup.v1.ListActivatedProvidersRequest}

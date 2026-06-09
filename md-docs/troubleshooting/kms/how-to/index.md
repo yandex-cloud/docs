@@ -1,1 +1,1 @@
-## Примеры конфигураций и сценариев {{ kms-name }} {#configuration-examples}
+## Примеры конфигураций и сценариев Key Management Service {#configuration-examples}

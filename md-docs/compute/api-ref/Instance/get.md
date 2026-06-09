@@ -6,7 +6,7 @@ To get the list of available Instance resources, make a [List](list.md#List) req
 ## HTTP request
 
 ```
-GET https://compute.{{ api-host }}/compute/v1/instances/{instanceId}
+GET https://compute.api.cloud.yandex.net/compute/v1/instances/{instanceId}
 ```
 
 ## Path parameters

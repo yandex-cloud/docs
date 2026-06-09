@@ -8,9 +8,9 @@
 Чтобы получить IAM-токен:
 
 1. [Создайте](function/function-create.md) функцию. При создании первой версии функции выберите [среду выполнения](../concepts/runtime/index.md) Node.js или Python.
-1. Отключите опцию **{{ ui-key.yacloud.serverless-functions.item.editor.label_with-template }}**.
-1. Нажмите кнопку **{{ ui-key.yacloud.serverless-functions.item.editor.button_action-continue }}**.
-1. В блоке **{{ ui-key.yacloud.serverless-functions.item.editor.field_code-source }}** выберите **{{ ui-key.yacloud.serverless-functions.item.editor.value_method-zip-file }}**.
+1. Отключите опцию **Добавить файлы с примерами кода**.
+1. Нажмите кнопку **Продолжить**.
+1. В блоке **Источник кода** выберите **ZIP-архив**.
 1. Подготовьте ZIP-архив с кодом функции:
 
    {% list tabs group=programming_language %}
@@ -112,9 +112,9 @@
 
 1. [Создайте](function/version-manage.md) версию функции.
 
-   1. В поле **{{ ui-key.yacloud.serverless-functions.item.editor.field_entry }}** укажите `index.main`.
+   1. В поле **Точка входа** укажите `index.main`.
 
-   1. В блоке **{{ ui-key.yacloud.serverless-functions.item.editor.label_title-params }}** выберите сервисный аккаунт, для которого нужно получить IAM-токен, или создайте новый.
+   1. В блоке **Параметры** выберите сервисный аккаунт, для которого нужно получить IAM-токен, или создайте новый.
 
 1. [Выполните](function/function-invoke.md) функцию.
 

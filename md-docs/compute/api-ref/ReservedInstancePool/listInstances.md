@@ -5,7 +5,7 @@ Retrieves the list of instances, using the specified reserved instance pool.
 ## HTTP request
 
 ```
-GET https://compute.{{ api-host }}/compute/v1/reservedInstancePools/{reservedInstancePoolId}/instances
+GET https://compute.api.cloud.yandex.net/compute/v1/reservedInstancePools/{reservedInstancePoolId}/instances
 ```
 
 ## Path parameters

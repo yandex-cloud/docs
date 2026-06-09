@@ -6,7 +6,7 @@ To get the list of available ClickHouse Backup resources, make a [List](list.md#
 ## HTTP request
 
 ```
-GET https://{{ api-host-mdb }}/managed-clickhouse/v1/backups/{backupId}
+GET https://mdb.api.cloud.yandex.net/managed-clickhouse/v1/backups/{backupId}
 ```
 
 ## Path parameters

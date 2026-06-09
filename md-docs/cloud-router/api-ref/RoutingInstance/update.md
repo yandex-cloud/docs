@@ -6,7 +6,7 @@ Method starts an asynchronous operation that can be cancelled while it is in pro
 ## HTTP request
 
 ```
-PATCH https://cloudrouter.{{ api-host }}/cloudrouter/v1/routingInstances
+PATCH https://cloudrouter.api.cloud.yandex.net/cloudrouter/v1/routingInstances
 ```
 
 ## Body parameters {#yandex.cloud.cloudrouter.v1.UpdateRoutingInstanceRequest}

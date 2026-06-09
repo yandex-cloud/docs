@@ -2,11 +2,11 @@
 
 {% note info %}
 
-Функциональность находится на стадии [Preview](../../../overview/concepts/launch-stages.md). Чтобы получить доступ, обратитесь в [техническую поддержку]({{ link-console-support }}) или к вашему аккаунт-менеджеру.
+Функциональность находится на стадии [Preview](../../../overview/concepts/launch-stages.md). Чтобы получить доступ, обратитесь в [техническую поддержку](https://center.yandex.cloud/support) или к вашему аккаунт-менеджеру.
 
 {% endnote %}
 
-[Политики авторизации](../../concepts/access-control/access-policies.md) — это механизм контроля доступа {{ iam-full-name }}, который позволяет управлять разрешениями на выполнение определенных операций с [ресурсами {{ yandex-cloud }}](../../../overview/roles-and-resources.md). Политики авторизации создаются на основе [шаблонов](../../concepts/access-control/access-policies.md#supported-policies) и дополняют систему [ролей](../../concepts/access-control/roles.md), делая [управление доступом](../../concepts/access-control/index.md) более гибким.
+[Политики авторизации](../../concepts/access-control/access-policies.md) — это механизм контроля доступа Yandex Identity and Access Management, который позволяет управлять разрешениями на выполнение определенных операций с [ресурсами Yandex Cloud](../../../overview/roles-and-resources.md). Политики авторизации создаются на основе [шаблонов](../../concepts/access-control/access-policies.md#supported-policies) и дополняют систему [ролей](../../concepts/access-control/roles.md), делая [управление доступом](../../concepts/access-control/index.md) более гибким.
 
 Вы можете создать политику авторизации для [каталога](#folder), [облака](#cloud) или [организации](#organization).
 
@@ -27,7 +27,7 @@
 
 - CLI {#cli}
 
-  Если у вас еще нет интерфейса командной строки {{ yandex-cloud }} (CLI), [установите и инициализируйте его](../../../cli/quickstart.md#install).
+  Если у вас еще нет интерфейса командной строки Yandex Cloud (CLI), [установите и инициализируйте его](../../../cli/quickstart.md#install).
 
   1. [Получите](list.md) список поддерживаемых шаблонов политик авторизации с идентификаторами.
   1. Выполните команду:
@@ -60,7 +60,7 @@
 
 - CLI {#cli}
 
-  Если у вас еще нет интерфейса командной строки {{ yandex-cloud }} (CLI), [установите и инициализируйте его](../../../cli/quickstart.md#install).
+  Если у вас еще нет интерфейса командной строки Yandex Cloud (CLI), [установите и инициализируйте его](../../../cli/quickstart.md#install).
 
   1. [Получите](list.md) список поддерживаемых шаблонов политик авторизации с идентификаторами.
   1. Выполните команду:
@@ -93,7 +93,7 @@
 
 - CLI {#cli}
 
-  Если у вас еще нет интерфейса командной строки {{ yandex-cloud }} (CLI), [установите и инициализируйте его](../../../cli/quickstart.md#install).
+  Если у вас еще нет интерфейса командной строки Yandex Cloud (CLI), [установите и инициализируйте его](../../../cli/quickstart.md#install).
 
   1. [Получите](list.md) список поддерживаемых шаблонов политик авторизации с идентификаторами.
   1. Выполните команду:
@@ -118,13 +118,13 @@
 
 Созданная политика авторизации будет применяться к ресурсам внутри всех облаков в пределах заданной организации.
 
-Все шаблоны политик авторизации [без параметров](../../concepts/access-control/access-policies.md#fixed) назначаются на ресурсы одинаково. О том, как назначить на ресурс шаблон политики [с параметрами](../../concepts/access-control/access-policies.md#customizable), читайте в разделе [{#T}](#examples).
+Все шаблоны политик авторизации [без параметров](../../concepts/access-control/access-policies.md#fixed) назначаются на ресурсы одинаково. О том, как назначить на ресурс шаблон политики [с параметрами](../../concepts/access-control/access-policies.md#customizable), читайте в разделе [Примеры](#examples).
 
 ## Примеры {#examples}
 
 ### Создать политику авторизации для каталога на основе шаблона serverless.containers.restrictNetworkAccess {#serverless-containers-restrictNetworkAccess}
 
-[Политика](../../concepts/access-control/access-policies.md#serverless-containers-restrictNetworkAccess) `serverless.containers.restrictNetworkAccess` запрещает вызов [контейнеров](../../../serverless-containers/concepts/container.md) {{ serverless-containers-full-name }} и управление ими с любых адресов, за исключением заданных явно IP-адресов или [облачных сетей](../../../vpc/concepts/network.md#network) {{ vpc-full-name }}.
+[Политика](../../concepts/access-control/access-policies.md#serverless-containers-restrictNetworkAccess) `serverless.containers.restrictNetworkAccess` запрещает вызов [контейнеров](../../../serverless-containers/concepts/container.md) Yandex Serverless Containers и управление ими с любых адресов, за исключением заданных явно IP-адресов или [облачных сетей](../../../vpc/concepts/network.md#network) Yandex Virtual Private Cloud.
 
 Чтобы назначить шаблон политики `serverless.containers.restrictNetworkAccess` на каталог:
 
@@ -161,7 +161,7 @@
 
 #### См. также {#see-also}
 
-* [{#T}](../../concepts/access-control/access-policies.md)
-* [{#T}](list.md)
-* [{#T}](view-assigned.md)
-* [{#T}](revoke.md)
+* [Политики авторизации](../../concepts/access-control/access-policies.md)
+* [Получение списка поддерживаемых шаблонов политик авторизации](list.md)
+* [Просмотр политик авторизации, созданных для ресурса](view-assigned.md)
+* [Удаление политики авторизации](revoke.md)

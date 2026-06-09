@@ -5,7 +5,7 @@ Creates a security profile in the specified folder using the data specified in t
 ## HTTP request
 
 ```
-POST https://smartwebsecurity.{{ api-host }}/smartwebsecurity/v1/securityProfiles
+POST https://smartwebsecurity.api.cloud.yandex.net/smartwebsecurity/v1/securityProfiles
 ```
 
 ## Body parameters {#yandex.cloud.smartwebsecurity.v1.CreateSecurityProfileRequest}

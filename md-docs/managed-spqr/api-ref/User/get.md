@@ -6,7 +6,7 @@ To get the list of available SPQR User resources, make a [List](list.md#List) re
 ## HTTP request
 
 ```
-GET https://{{ api-host-mdb }}/managed-spqr/v1/clusters/{clusterId}/users/{userName}
+GET https://mdb.api.cloud.yandex.net/managed-spqr/v1/clusters/{clusterId}/users/{userName}
 ```
 
 ## Path parameters

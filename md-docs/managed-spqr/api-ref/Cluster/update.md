@@ -5,7 +5,7 @@ Updates the specified SPQR cluster.
 ## HTTP request
 
 ```
-PATCH https://{{ api-host-mdb }}/managed-spqr/v1/clusters/{clusterId}
+PATCH https://mdb.api.cloud.yandex.net/managed-spqr/v1/clusters/{clusterId}
 ```
 
 ## Path parameters

@@ -1,6 +1,6 @@
-# Остановка и запуск кластера {{ OS }}
+# Остановка и запуск кластера OpenSearch
 
-При необходимости вы можете остановить кластер {{ OS }} и запустить его заново. При остановке кластера все данные в нем сохранятся: они снова станут доступны, когда вы запустите кластер.
+При необходимости вы можете остановить кластер OpenSearch и запустить его заново. При остановке кластера все данные в нем сохранятся: они снова станут доступны, когда вы запустите кластер.
 
 
 Время работы остановленного кластера не тарифицируется: вы продолжаете платить только за объем хранилища в соответствии с [тарифом](../pricing.md).
@@ -18,10 +18,10 @@
 
 - Консоль управления {#console}
 
-    1. В [консоли управления]({{ link-console-main }}) перейдите на страницу каталога.
-    1. Перейдите в сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-opensearch }}**.
-    1. Найдите нужный кластер в списке, нажмите на значок ![options](../../_assets/console-icons/ellipsis.svg) и выберите пункт **{{ ui-key.yacloud.mdb.clusters.button_action-stop }}**.
-    1. В открывшемся диалоге подтвердите остановку кластера и нажмите кнопку **{{ ui-key.yacloud.mdb.cluster.stop-dialog.popup-confirm_button }}**.
+    1. В [консоли управления](https://console.yandex.cloud) перейдите на страницу каталога.
+    1. Перейдите в сервис **Managed Service for&nbsp;OpenSearch**.
+    1. Найдите нужный кластер в списке, нажмите на значок ![options](../../_assets/console-icons/ellipsis.svg) и выберите пункт **Остановить**.
+    1. В открывшемся диалоге подтвердите остановку кластера и нажмите кнопку **Остановить**.
 
 - REST API {#api}
 
@@ -31,13 +31,13 @@
         export IAM_TOKEN="<IAM-токен>"
         ```
 
-    1. Воспользуйтесь методом [Cluster.Stop](../api-ref/Cluster/stop.md) и выполните запрос, например, с помощью {{ api-examples.rest.tool }}:
+    1. Воспользуйтесь методом [Cluster.Stop](../api-ref/Cluster/stop.md) и выполните запрос, например, с помощью [cURL](https://curl.se/):
 
         ```bash
         curl \
             --request GET \
             --header "Authorization: Bearer $IAM_TOKEN" \
-            --url 'https://{{ api-host-mdb }}/managed-opensearch/v1/clusters/<идентификатор_кластера>:stop'
+            --url 'https://mdb.api.cloud.yandex.net/managed-opensearch/v1/clusters/<идентификатор_кластера>:stop'
         ```
 
         Идентификатор кластера можно запросить со [списком кластеров в каталоге](cluster-list.md#list-clusters).
@@ -59,7 +59,7 @@
        ```
        
        Далее предполагается, что содержимое репозитория находится в директории `~/cloudapi/`.
-    1. Воспользуйтесь вызовом [ClusterService.Stop](../api-ref/grpc/Cluster/stop.md) и выполните запрос, например, с помощью {{ api-examples.grpc.tool }}:
+    1. Воспользуйтесь вызовом [ClusterService.Stop](../api-ref/grpc/Cluster/stop.md) и выполните запрос, например, с помощью [gRPCurl](https://github.com/fullstorydev/grpcurl):
 
         ```bash
         grpcurl \
@@ -71,7 +71,7 @@
             -d '{
                   "cluster_id": "<идентификатор_кластера>"
                 }' \
-            {{ api-host-mdb }}:{{ port-https }} \
+            mdb.api.cloud.yandex.net:443 \
             yandex.cloud.mdb.opensearch.v1.ClusterService.Stop
         ```
 
@@ -89,10 +89,10 @@
 
 - Консоль управления {#console}
 
-    1. В [консоли управления]({{ link-console-main }}) перейдите на страницу каталога.
-    1. Перейдите в сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-opensearch }}**.
-    1. Найдите нужный остановленный кластер в списке, нажмите на значок ![options](../../_assets/console-icons/ellipsis.svg) и выберите пункт **{{ ui-key.yacloud.mdb.clusters.button_action-start }}**.
-    1. В открывшемся диалоге подтвердите запуск кластера нажатием на кнопку **{{ ui-key.yacloud.mdb.cluster.start-dialog.popup-confirm_button }}**.
+    1. В [консоли управления](https://console.yandex.cloud) перейдите на страницу каталога.
+    1. Перейдите в сервис **Managed Service for&nbsp;OpenSearch**.
+    1. Найдите нужный остановленный кластер в списке, нажмите на значок ![options](../../_assets/console-icons/ellipsis.svg) и выберите пункт **Запустить**.
+    1. В открывшемся диалоге подтвердите запуск кластера нажатием на кнопку **Запустить**.
 
 - REST API {#api}
 
@@ -102,13 +102,13 @@
         export IAM_TOKEN="<IAM-токен>"
         ```
 
-    1. Воспользуйтесь методом [Cluster.Start](../api-ref/Cluster/start.md) и выполните запрос, например, с помощью {{ api-examples.rest.tool }}:
+    1. Воспользуйтесь методом [Cluster.Start](../api-ref/Cluster/start.md) и выполните запрос, например, с помощью [cURL](https://curl.se/):
 
         ```bash
         curl \
             --request GET \
             --header "Authorization: Bearer $IAM_TOKEN" \
-            --url 'https://{{ api-host-mdb }}/managed-opensearch/v1/clusters/<идентификатор_кластера>:start'
+            --url 'https://mdb.api.cloud.yandex.net/managed-opensearch/v1/clusters/<идентификатор_кластера>:start'
         ```
 
         Идентификатор кластера можно запросить со [списком кластеров в каталоге](cluster-list.md#list-clusters).
@@ -130,7 +130,7 @@
        ```
        
        Далее предполагается, что содержимое репозитория находится в директории `~/cloudapi/`.
-    1. Воспользуйтесь вызовом [ClusterService.Start](../api-ref/grpc/Cluster/start.md) и выполните запрос, например, с помощью {{ api-examples.grpc.tool }}:
+    1. Воспользуйтесь вызовом [ClusterService.Start](../api-ref/grpc/Cluster/start.md) и выполните запрос, например, с помощью [gRPCurl](https://github.com/fullstorydev/grpcurl):
 
         ```bash
         grpcurl \
@@ -142,7 +142,7 @@
             -d '{
                   "cluster_id": "<идентификатор_кластера>"
                 }' \
-            {{ api-host-mdb }}:{{ port-https }} \
+            mdb.api.cloud.yandex.net:443 \
             yandex.cloud.mdb.opensearch.v1.ClusterService.Start
         ```
 

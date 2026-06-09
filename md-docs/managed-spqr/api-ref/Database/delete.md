@@ -5,7 +5,7 @@ Deletes the specified SPQR database.
 ## HTTP request
 
 ```
-DELETE https://{{ api-host-mdb }}/managed-spqr/v1/clusters/{clusterId}/databases/{databaseName}
+DELETE https://mdb.api.cloud.yandex.net/managed-spqr/v1/clusters/{clusterId}/databases/{databaseName}
 ```
 
 ## Path parameters

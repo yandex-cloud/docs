@@ -5,7 +5,7 @@ Lists existing access bindings for the specified instance group.
 ## HTTP request
 
 ```
-GET https://compute.{{ api-host }}/compute/v1/instanceGroups/{resourceId}:listAccessBindings
+GET https://compute.api.cloud.yandex.net/compute/v1/instanceGroups/{resourceId}:listAccessBindings
 ```
 
 ## Path parameters

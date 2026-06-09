@@ -6,7 +6,7 @@ This method starts an operation that can be cancelled by another operation.
 ## HTTP request
 
 ```
-POST https://compute.{{ api-host }}/compute/v1/instanceGroups
+POST https://compute.api.cloud.yandex.net/compute/v1/instanceGroups
 ```
 
 ## Body parameters {#yandex.cloud.compute.v1.instancegroup.CreateInstanceGroupRequest}

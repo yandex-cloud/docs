@@ -5,7 +5,7 @@ Deletes the specified Redis user.
 ## HTTP request
 
 ```
-DELETE https://{{ api-host-mdb }}/managed-redis/v1/clusters/{clusterId}/users/{userName}
+DELETE https://mdb.api.cloud.yandex.net/managed-redis/v1/clusters/{clusterId}/users/{userName}
 ```
 
 ## Path parameters

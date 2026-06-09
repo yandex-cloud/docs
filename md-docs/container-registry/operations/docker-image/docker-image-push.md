@@ -24,27 +24,27 @@
 
      ```text
      REPOSITORY                                  TAG     IMAGE ID      CREATED       SIZE
-     {{ registry }}/crpd50616s9a********/ubuntu       hello   50ff********  23 hours ago  86.7MB
+     cr.yandex/crpd50616s9a********/ubuntu       hello   50ff********  23 hours ago  86.7MB
      ubuntu                                      latest  1d9c********  2 weeks ago   86.7MB
      ```
 
-  1. (Опционально) Присвойте Docker-образу URL вида `{{ registry }}/<идентификатор_реестра>/<имя_Docker-образа>:<тег>`:
+  1. (Опционально) Присвойте Docker-образу URL вида `cr.yandex/<идентификатор_реестра>/<имя_Docker-образа>:<тег>`:
 
      ```bash
      docker tag ubuntu \
-     {{ registry }}/<идентификатор_реестра>/ubuntu:hello
+     cr.yandex/<идентификатор_реестра>/ubuntu:hello
      ```
 
      {% note info %}
 
-     Загрузить в {{ container-registry-name }} можно только Docker-образы с URL вида `{{ registry }}/<идентификатор_реестра>/<имя_Docker-образа>:<тег>`.
+     Загрузить в Container Registry можно только Docker-образы с URL вида `cr.yandex/<идентификатор_реестра>/<имя_Docker-образа>:<тег>`.
 
      {% endnote %}
 
   1. Загрузите необходимый Docker-образ в реестр:
 
      ```bash
-     docker push {{ registry }}/<идентификатор_реестра>/ubuntu:hello
+     docker push cr.yandex/<идентификатор_реестра>/ubuntu:hello
      ```
 
   1. Проверьте, что образ загрузился в реестр, [получив список Docker-образов в реестре](docker-image-list.md#docker-image-list).

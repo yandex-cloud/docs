@@ -6,7 +6,7 @@ Style presets define the appearance of players, including colors, spacing, borde
 ## HTTP request
 
 ```
-POST https://video.{{ api-host }}/video/v1/stylePresets
+POST https://video.api.cloud.yandex.net/video/v1/stylePresets
 ```
 
 ## Body parameters {#yandex.cloud.video.v1.CreateStylePresetRequest}

@@ -1,8 +1,8 @@
-# История изменений в {{ mgp-full-name }}
+# История изменений в Yandex MPP Analytics for PostgreSQL
 
 ## Май 2026 {#may-2026}
 
-Максимальный размер локальных дисков на одном хосте увеличен до 36 ТБ. Диски такого размера доступны для конфигураций с 16 и более ядрами на платформе Intel Ice Lake (`standard-v3`). Для создания кластеров особо большого размера может потребоваться обращение в [техническую поддержку]({{ link-console-support }}) для резервирования необходимых ресурсов.
+Максимальный размер локальных дисков на одном хосте увеличен до 36 ТБ. Диски такого размера доступны для конфигураций с 16 и более ядрами на платформе Intel Ice Lake (`standard-v3`). Для создания кластеров особо большого размера может потребоваться обращение в [техническую поддержку](https://center.yandex.cloud/support) для резервирования необходимых ресурсов.
 
 ## Март 2026 {#mar-2026}
 
@@ -22,31 +22,31 @@
 
 ## Июль 2025 {#jul-2025}
 
-Добавлена возможность [передачи логов кластера в сервис {{ cloud-logging-full-name }}](operations/mgp-to-cloud-logging.md).
+Добавлена возможность [передачи логов кластера в сервис Yandex Cloud Logging](operations/mgp-to-cloud-logging.md).
 
 
 ## Май 2025 {#may-2025}
 
-Добавлена интеграция с сервисом [{{ websql-full-name }}](operations/web-sql-query.md).
+Добавлена интеграция с сервисом [Yandex WebSQL](operations/web-sql-query.md).
 
 
 ## Апрель 2025 {#apr-2025}
 
-[Управление ресурсными группами](operations/resource-groups.md) теперь можно осуществлять с помощью CLI {{ yandex-cloud }}.
+[Управление ресурсными группами](operations/resource-groups.md) теперь можно осуществлять с помощью CLI Yandex Cloud.
 
 ## Октябрь 2024 {#oct-2024}
 
-* Значение настройки [Log statement](concepts/settings-list.md#setting-log-statement) по умолчанию изменено с `ALL` на `DDL` — в лог {{ GP }} записываются только команды SQL, которые изменяют определения структур данных (`CREATE`, `ALTER`, `DROP` и т. п.).
-* Введен новый лимит на объем памяти на каждый процесс {{ GP }}. Лимит рассчитывается по формуле `<объем RAM на хосте-сегменте> ÷ (<значение настройки Max connections> × <количество сегментов на хост>)`.
+* Значение настройки [Log statement](concepts/settings-list.md#setting-log-statement) по умолчанию изменено с `ALL` на `DDL` — в лог Greenplum® записываются только команды SQL, которые изменяют определения структур данных (`CREATE`, `ALTER`, `DROP` и т. п.).
+* Введен новый лимит на объем памяти на каждый процесс Greenplum®. Лимит рассчитывается по формуле `<объем RAM на хосте-сегменте> ÷ (<значение настройки Max connections> × <количество сегментов на хост>)`.
 
 ## Сентябрь 2024 {#sep-2024}
 
-* {{ mgp-name }} стал доступен в [регионе](../overview/concepts/region.md) Казахстан.
+* Yandex MPP Analytics for PostgreSQL стал доступен в [регионе](../overview/concepts/region.md) Казахстан.
 
-* На вкладке ![monitoring.svg](../_assets/console-icons/display-pulse.svg) **{{ ui-key.yacloud.common.monitoring }}** в консоли управления добавлены разделы **{{ ui-key.yacloud.mdb.cluster.switch_network }}** и **{{ ui-key.yacloud.greenplum.cluster.pxf.value_pxf }}** с графиками соответствующих метрик. Подробнее см. в разделе [Мониторинг состояния кластера и хостов](operations/monitoring.md).
+* На вкладке ![monitoring.svg](../_assets/console-icons/display-pulse.svg) **Мониторинг** в консоли управления добавлены разделы **Сеть** и **PXF** с графиками соответствующих метрик. Подробнее см. в разделе [Мониторинг состояния кластера и хостов](operations/monitoring.md).
 
 
-* В настройках кластера стала доступна опция **{{ ui-key.yacloud.mdb.forms.additional-field-yandex-query_ru }}** — она разрешает выполнять YQL-запросы из сервиса [{{ yq-full-name }}](../query/concepts/index.md) к базе данных в сервисе {{ mgp-name }}.
+* В настройках кластера стала доступна опция **Доступ из Yandex Query** — она разрешает выполнять YQL-запросы из сервиса [Yandex Query](../query/concepts/index.md) к базе данных в сервисе Yandex MPP Analytics for PostgreSQL.
 
 
 ## Июнь 2024 {#jun-2024}
@@ -59,16 +59,16 @@
 
 ## Январь 2024 {#jan-2024}
 
-* Доступна новая версия {{ GP }} 6.25. В ней по умолчанию доступны инструменты [интеграции с холодным хранилищем](tutorials/yezzey.md) и [командный центр](concepts/command-center.md).
+* Доступна новая версия Greenplum® 6.25. В ней по умолчанию доступны инструменты [интеграции с холодным хранилищем](tutorials/yezzey.md) и [командный центр](concepts/command-center.md).
 * Добавлена возможность самостоятельной [настройки протокола PXF](operations/pxf/settings.md) для работы с внешними таблицами. Раньше за настройкой PXF пользователям приходилось обращаться в поддержку.
 
 ## III квартал 2023 {#q3-2023}
 
 * Добавлена поддержка [инкрементных резервных копий](concepts/backup.md).
 * Добавлена возможность [резервирования](../billing/concepts/cvos.md) определенного объема ресурсов. Получить скидку до 22% могут все пользователи платформы с 1 августа 2023 года. Стоимость ресурсов не изменится на протяжении всего срока действия предложения.
-* Добавлены [метрики PXF](metrics.md#managed-greenplum-pxf-metrics) в {{ monitoring-full-name }}.
+* Добавлены [метрики PXF](metrics.md#managed-greenplum-pxf-metrics) в Yandex Monitoring.
 * Добавлены логи PXF и менеджера подключений Odyssey.
-* Добавлены [аудитные логи](at-ref.md) в сервисе {{ at-full-name }}.
+* Добавлены [аудитные логи](at-ref.md) в сервисе Yandex Audit Trails.
 
 ## II квартал 2023 {#q2-2023}
 
@@ -81,8 +81,8 @@
 
 * Добавлена возможность [расширения кластера](operations/cluster-expand.md) через CLI и API с добавлением новых хостов-сегментов и перераспределением данных по всем сегментам.
 * Добавлена возможность просмотра резервных копий кластера, восстановления из них, а также изменения публичного доступа к кластеру через CLI. Подробнее см. в разделе [Релизы YC CLI](../cli/release-notes.md#version0.100.0).
-* Добавлена функция `mdb_toolkit.table_privileges()`, позволяющая пользователю с ролью `mdb_admin` просматривать историю выдачи и отзыва привилегий в кластере. Подробнее см. в [документации {{ PG }}]({{ pg.docs.org }}/current/infoschema-table-privileges.html).
-* Добавлена функция `mdb_toolkit.gp_workfile_usage_per_query()`, позволяющая пользователю с ролью `mdb_admin` просматривать информацию об активных запросах всех пользователей. Подробнее см. в [документации {{ GP }}]({{ gp.docs.broadcom }}/7/greenplum-database/ref_guide-gp_toolkit.html#topic34).
+* Добавлена функция `mdb_toolkit.table_privileges()`, позволяющая пользователю с ролью `mdb_admin` просматривать историю выдачи и отзыва привилегий в кластере. Подробнее см. в [документации PostgreSQL](https://www.postgresql.org/docs/current/infoschema-table-privileges.html).
+* Добавлена функция `mdb_toolkit.gp_workfile_usage_per_query()`, позволяющая пользователю с ролью `mdb_admin` просматривать информацию об активных запросах всех пользователей. Подробнее см. в [документации Greenplum®](https://techdocs.broadcom.com/us/en/vmware-tanzu/data-solutions/tanzu-greenplum/7/greenplum-database/ref_guide-gp_toolkit.html#topic34).
 * Доработан алгоритм создания кластера с помощью визарда:
     * Размер кластера не может быть больше, чем `<максимальное_количество_хостов> × <максимальный_размер_диска_для_хоста>`.
     * Можно выбрать группу выделенных хостов, на которой будет создан кластер.
@@ -91,9 +91,9 @@
 ## III квартал 2022 {#q3-2022}
 
 * Добавлена возможность менять пароль для пользователя-администратора.
-* Добавлена возможность [настройки СУБД и менеджера подключений в {{ TF }}](https://github.com/yandex-cloud/terraform-provider-yandex/blob/master/CHANGELOG.md#0770-july-27-2022).
-* Добавлена поддержка расширения [postgis]({{ gp.docs.broadcom }}/5/greenplum-database/ref_guide-extensions-postGIS.html).
-* Добавлена возможность редактирования кластера и его параметров через CLI, а также возможность разрешения доступа из {{ data-transfer-full-name }}. Подробнее см. в разделе [Релизы YC CLI](../cli/release-notes.md#version0.94.0).
+* Добавлена возможность [настройки СУБД и менеджера подключений в Terraform](https://github.com/yandex-cloud/terraform-provider-yandex/blob/master/CHANGELOG.md#0770-july-27-2022).
+* Добавлена поддержка расширения [postgis](https://techdocs.broadcom.com/us/en/vmware-tanzu/data-solutions/tanzu-greenplum/5/greenplum-database/ref_guide-extensions-postGIS.html).
+* Добавлена возможность редактирования кластера и его параметров через CLI, а также возможность разрешения доступа из Yandex Data Transfer. Подробнее см. в разделе [Релизы YC CLI](../cli/release-notes.md#version0.94.0).
 * Обновлен механизм переключения мастера: бывший мастер возвращается в кластер как реплика и становится доступным для нового переключения сразу после завершения первого.
 * Добавлена функция `gp_cancel_backend` для принудительного завершения пользовательского запроса.
 * Добавлена функция `gp_terminate_backend` для принудительного завершения пользовательского соединения с БД.
@@ -101,12 +101,12 @@
 
 ## II квартал 2022 {#q2-2022}
 
-* Добавлена поддержка CLI: доступны команды `{{ yc-mdb-gp }} cluster` и `{{ yc-mdb-gp }} hosts`.
-* Добавлена возможность миграции базы данных из/в {{ mgp-name }} с помощью сервиса {{ data-transfer-full-name }}. Доступные приемники и источники приведены в [документации](../data-transfer/concepts/index.md#connectivity-matrix). Функциональность находится в стадии [Preview](../overview/concepts/launch-stages.md).
-* Добавлена поддержка расширения [pgcrypto]({{ gp.docs.broadcom }}/7/greenplum-database/ref_guide-modules-pgcrypto.html).
+* Добавлена поддержка CLI: доступны команды `yc managed-greenplum cluster` и `yc managed-greenplum hosts`.
+* Добавлена возможность миграции базы данных из/в Yandex MPP Analytics for PostgreSQL с помощью сервиса Yandex Data Transfer. Доступные приемники и источники приведены в [документации](../data-transfer/concepts/index.md#connectivity-matrix). Функциональность находится в стадии [Preview](../overview/concepts/launch-stages.md).
+* Добавлена поддержка расширения [pgcrypto](https://techdocs.broadcom.com/us/en/vmware-tanzu/data-solutions/tanzu-greenplum/7/greenplum-database/ref_guide-modules-pgcrypto.html).
 * [Оптимизировано](https://github.com/wal-g/wal-g/pull/1257) создание резервных копий за счет особой обработки append-only сегментов.
-* Добавлен модуль [diskquota]({{ gp.docs.broadcom }}/7/greenplum-database/ref_guide-modules-diskquota.html), который позволяет ограничивать схемы БД по месту на диске.
-* Реализовано автоматическое переключение на резервный мастер через [gpactivatestandby]({{ gp.docs.broadcom }}/7/greenplum-database/utility_guide-ref-gpactivatestandby.html).
+* Добавлен модуль [diskquota](https://techdocs.broadcom.com/us/en/vmware-tanzu/data-solutions/tanzu-greenplum/7/greenplum-database/ref_guide-modules-diskquota.html), который позволяет ограничивать схемы БД по месту на диске.
+* Реализовано автоматическое переключение на резервный мастер через [gpactivatestandby](https://techdocs.broadcom.com/us/en/vmware-tanzu/data-solutions/tanzu-greenplum/7/greenplum-database/utility_guide-ref-gpactivatestandby.html).
 * Добавлены настройки `max_statement_mem` и `log_statement`, доступные при создании и изменении кластера.
 * Добавлена возможность создавать кластер с нечетным количеством сегментов.
 * Минимальный размер хранилища на сетевых SSD-дисках для мастер-хоста ограничен 100 ГБ.
@@ -117,9 +117,9 @@
 
 ## I квартал 2022 {#q1-2022}
 
-* {{ mgp-full-name }} перешел в общий доступ. Теперь для него действует [соглашение об уровне обслуживания]({{ link-sla-greenplum }}) (SLA) и [правила тарификации](pricing/index.md).
+* Yandex MPP Analytics for PostgreSQL перешел в общий доступ. Теперь для него действует [соглашение об уровне обслуживания](https://yandex.ru/legal/cloud_sla_greenplum/) (SLA) и [правила тарификации](pricing/index.md).
 * Добавлен [калькулятор](https://yandex.cloud/ru/promo/dwh-calculator/index) для расчета рекомендуемой конфигурации и оценки стоимости кластера.
-* Доступна новая версия {{ GP }} 6.19 с исправлением известных ошибок. 
+* Доступна новая версия Greenplum® 6.19 с исправлением известных ошибок. 
 * Добавлена возможность скрывать содержимое внешних таблиц (external tables). 
 * Добавлена возможность изменения размера хранилища, в том числе для локальных SSD-дисков.
 * Добавлены [конфигурации](concepts/instance-types.md) `io-optimized` с увеличенным соотношением количества гигабайт RAM к количеству vCPU (8:1).

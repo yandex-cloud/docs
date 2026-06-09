@@ -1,10 +1,10 @@
-# Запуск Docker-образа на виртуальной машине с помощью {{ TF }}
+# Запуск Docker-образа на виртуальной машине с помощью Terraform
 
-Чтобы запустить [Docker-образ на ВМ](index.md) с использованием реестра [{{ container-registry-full-name }}](../../index.md) с помощью {{ TF }}:
+Чтобы запустить [Docker-образ на ВМ](index.md) с использованием реестра [Yandex Container Registry](../../index.md) с помощью Terraform:
 
 1. [Подготовьте облако к работе](#before-begin).
 1. [Создайте инфраструктуру](#deploy).
-1. [Соберите и загрузите Docker-образ в {{ container-registry-name }}](#create-image).
+1. [Соберите и загрузите Docker-образ в Container Registry](#create-image).
 1. [Загрузите Docker-образ на ВМ](#run).
 1. [Проверьте результат](#check-result).
 
@@ -13,11 +13,11 @@
 
 ## Подготовьте облако к работе {#before-begin}
 
-Зарегистрируйтесь в {{ yandex-cloud }} и создайте [платежный аккаунт](../../../billing/concepts/billing-account.md):
-1. Перейдите в [консоль управления]({{ link-console-main }}), затем войдите в {{ yandex-cloud }} или зарегистрируйтесь.
-1. На странице **[{{ ui-key.yacloud_billing.billing.label_service }}]({{ link-console-billing }})** убедитесь, что у вас подключен платежный аккаунт, и он находится в [статусе](../../../billing/concepts/billing-account-statuses.md) `ACTIVE` или `TRIAL_ACTIVE`. Если платежного аккаунта нет, [создайте его](../../../billing/quickstart/index.md) и [привяжите](../../../billing/operations/pin-cloud.md) к нему облако.
+Зарегистрируйтесь в Yandex Cloud и создайте [платежный аккаунт](../../../billing/concepts/billing-account.md):
+1. Перейдите в [консоль управления](https://console.yandex.cloud), затем войдите в Yandex Cloud или зарегистрируйтесь.
+1. На странице **[Yandex Cloud Billing](https://center.yandex.cloud/billing/accounts)** убедитесь, что у вас подключен платежный аккаунт, и он находится в [статусе](../../../billing/concepts/billing-account-statuses.md) `ACTIVE` или `TRIAL_ACTIVE`. Если платежного аккаунта нет, [создайте его](../../../billing/quickstart/index.md) и [привяжите](../../../billing/operations/pin-cloud.md) к нему облако.
 
-Если у вас есть активный платежный аккаунт, вы можете создать или выбрать [каталог](../../../resource-manager/concepts/resources-hierarchy.md#folder), в котором будет работать ваша инфраструктура, на [странице облака]({{ link-console-cloud }}).
+Если у вас есть активный платежный аккаунт, вы можете создать или выбрать [каталог](../../../resource-manager/concepts/resources-hierarchy.md#folder), в котором будет работать ваша инфраструктура, на [странице облака](https://console.yandex.cloud/cloud).
 
 [Подробнее об облаках и каталогах](../../../resource-manager/concepts/resources-hierarchy.md).
 
@@ -25,9 +25,9 @@
 ### Необходимые платные ресурсы {#paid-resources}
 
 В стоимость поддержки инфраструктуры входят:
-* плата за постоянно запущенную ВМ (см. [тарифы {{ compute-full-name }}](../../../compute/pricing.md));
-* плата за использование динамического или статического [публичного IP-адреса](../../../vpc/concepts/address.md#public-addresses) (см. [тарифы {{ vpc-full-name }}](../../../vpc/pricing.md));
-* плата за хранение Docker-образа в реестре и исходящий трафик (см. [тарифы {{ container-registry-full-name }}](../../pricing.md)).
+* плата за постоянно запущенную ВМ (см. [тарифы Yandex Compute Cloud](../../../compute/pricing.md));
+* плата за использование динамического или статического [публичного IP-адреса](../../../vpc/concepts/address.md#public-addresses) (см. [тарифы Yandex Virtual Private Cloud](../../../vpc/pricing.md));
+* плата за хранение Docker-образа в реестре и исходящий трафик (см. [тарифы Yandex Container Registry](../../pricing.md)).
 
 
 ### Создайте пару ключей SSH {#create-ssh}
@@ -149,14 +149,14 @@
 
 ## Создайте инфраструктуру {#deploy}
 
-[{{ TF }}](https://www.terraform.io/) позволяет быстро создать облачную инфраструктуру в {{ yandex-cloud }} и управлять ею с помощью файлов конфигураций. В файлах конфигураций хранится описание инфраструктуры на языке HCL (HashiCorp Configuration Language). При изменении файлов конфигураций {{ TF }} автоматически определяет, какая часть вашей конфигурации уже развернута, что следует добавить или удалить.
+[Terraform](https://www.terraform.io/) позволяет быстро создать облачную инфраструктуру в Yandex Cloud и управлять ею с помощью файлов конфигураций. В файлах конфигураций хранится описание инфраструктуры на языке HCL (HashiCorp Configuration Language). При изменении файлов конфигураций Terraform автоматически определяет, какая часть вашей конфигурации уже развернута, что следует добавить или удалить.
 
-{{ TF }} распространяется под лицензией [Business Source License](https://github.com/hashicorp/terraform/blob/main/LICENSE), а [провайдер {{ yandex-cloud }} для {{ TF }}](https://github.com/yandex-cloud/terraform-provider-yandex) — под лицензией [MPL-2.0](https://www.mozilla.org/en-US/MPL/2.0/).
+Terraform распространяется под лицензией [Business Source License](https://github.com/hashicorp/terraform/blob/main/LICENSE), а [провайдер Yandex Cloud для Terraform](https://github.com/yandex-cloud/terraform-provider-yandex) — под лицензией [MPL-2.0](https://www.mozilla.org/en-US/MPL/2.0/).
 
-Подробную информацию о ресурсах провайдера смотрите в документации на сайте [{{ TF }}](https://www.terraform.io/docs/providers/yandex/index.html) или в [зеркале]({{ tf-docs-link }}).
+Подробную информацию о ресурсах провайдера смотрите в документации на сайте [Terraform](https://www.terraform.io/docs/providers/yandex/index.html) или в [зеркале](../../../terraform/index.md).
 
-Для создания инфраструктуры c помощью {{ TF }}:
-1. [Установите {{ TF }}](../../../tutorials/infrastructure-management/terraform-quickstart.md#install-terraform), [получите данные для аутентификации](../../../tutorials/infrastructure-management/terraform-quickstart.md#get-credentials) и укажите источник для установки провайдера {{ yandex-cloud }} (раздел [{#T}](../../../tutorials/infrastructure-management/terraform-quickstart.md#configure-provider), шаг 1).
+Для создания инфраструктуры c помощью Terraform:
+1. [Установите Terraform](../../../tutorials/infrastructure-management/terraform-quickstart.md#install-terraform), [получите данные для аутентификации](../../../tutorials/infrastructure-management/terraform-quickstart.md#get-credentials) и укажите источник для установки провайдера Yandex Cloud (раздел [Настройте провайдер](../../../tutorials/infrastructure-management/terraform-quickstart.md#configure-provider), шаг 1).
 1. Подготовьте файлы с описанием инфраструктуры:
 
     {% list tabs group=infrastructure_description %}
@@ -288,27 +288,27 @@
 
     {% endlist %}
 
-    Более подробную информацию о параметрах используемых ресурсов в {{ TF }} см. в документации провайдера:
+    Более подробную информацию о параметрах используемых ресурсов в Terraform см. в документации провайдера:
 
-    * [Реестр](../../concepts/registry.md) — [yandex_container_registry]({{ tf-provider-resources-link }}/container_registry).
-    * [Сервисный аккаунт](../../../iam/concepts/users/service-accounts.md) — [yandex_iam_service_account]({{ tf-provider-resources-link }}/iam_service_account).
-    * [Привязка прав доступа к каталогу](../../../iam/concepts/access-control/index.md#access-bindings) — [yandex_resourcemanager_folder_iam_member]({{ tf-provider-resources-link }}/resourcemanager_folder_iam_member).
-    * [Сеть](../../../vpc/concepts/network.md#network) — [yandex_vpc_network]({{ tf-provider-resources-link }}/vpc_network).
-    * [Подсети](../../../vpc/concepts/network.md#subnet) — [yandex_vpc_subnet]({{ tf-provider-resources-link }}/vpc_subnet).
-    * [Диск](../../../compute/concepts/disk.md) — [yandex_compute_disk]({{ tf-provider-resources-link }}/compute_disk).
-    * [Виртуальная машина](../../../compute/concepts/vm.md) — [yandex_compute_instance]({{ tf-provider-resources-link }}/compute_instance).
+    * [Реестр](../../concepts/registry.md) — [yandex_container_registry](../../../terraform/resources/container_registry.md).
+    * [Сервисный аккаунт](../../../iam/concepts/users/service-accounts.md) — [yandex_iam_service_account](../../../terraform/resources/iam_service_account.md).
+    * [Привязка прав доступа к каталогу](../../../iam/concepts/access-control/index.md#access-bindings) — [yandex_resourcemanager_folder_iam_member](../../../terraform/resources/resourcemanager_folder_iam_member.md).
+    * [Сеть](../../../vpc/concepts/network.md#network) — [yandex_vpc_network](../../../terraform/resources/vpc_network.md).
+    * [Подсети](../../../vpc/concepts/network.md#subnet) — [yandex_vpc_subnet](../../../terraform/resources/vpc_subnet.md).
+    * [Диск](../../../compute/concepts/disk.md) — [yandex_compute_disk](../../../terraform/resources/compute_disk.md).
+    * [Виртуальная машина](../../../compute/concepts/vm.md) — [yandex_compute_instance](../../../terraform/resources/compute_instance.md).
 
 1. В блоке `locals` задайте параметры создаваемых ресурсов:
     * `zone` — [зона доступности](../../../overview/concepts/geo-scope.md), в которой будет находиться ВМ.
     * `username` — имя пользователя, который будет создан на ВМ.
-    * `ssh_key_path` — путь к файлу с открытым SSH-ключом для аутентификации пользователя на ВМ. Подробнее см. [{#T}](../../../compute/operations/vm-connect/ssh.md#creating-ssh-keys).
+    * `ssh_key_path` — путь к файлу с открытым SSH-ключом для аутентификации пользователя на ВМ. Подробнее см. [Создание пары ключей SSH](../../../compute/operations/vm-connect/ssh.md#creating-ssh-keys).
     * `target_folder_id` — [идентификатор каталога](../../../resource-manager/operations/folder/get-id.md), в котором будет находиться ВМ.
-    * `registry_name` — имя реестра {{ container-registry-name }}.
+    * `registry_name` — имя реестра Container Registry.
     * `sa_name` — имя сервисного аккаунта.
     * `network_name` — имя облачной сети.
     * `subnet_name` — имя подсети.
     * `vm_name` — имя ВМ.
-    * `image_id` — идентификатор образа, из которого будет создана ВМ. Подробнее см. [{#T}](../../../compute/operations/images-with-pre-installed-software/get-list.md).
+    * `image_id` — идентификатор образа, из которого будет создана ВМ. Подробнее см. [Получить список публичных образов](../../../compute/operations/images-with-pre-installed-software/get-list.md).
 
 1. Создайте ресурсы:
 
@@ -331,7 +331,7 @@
        terraform plan
        ```
     
-       В терминале будет выведен список ресурсов с параметрами. На этом этапе изменения не будут внесены. Если в конфигурации есть ошибки, {{ TF }} на них укажет.
+       В терминале будет выведен список ресурсов с параметрами. На этом этапе изменения не будут внесены. Если в конфигурации есть ошибки, Terraform на них укажет.
     1. Примените изменения конфигурации:
     
        ```bash
@@ -340,12 +340,12 @@
     
     1. Подтвердите изменения: введите в терминале слово `yes` и нажмите **Enter**.
 
-После создания инфраструктуры [соберите и загрузите Docker-образ в {{ container-registry-name }}](#create-image).
+После создания инфраструктуры [соберите и загрузите Docker-образ в Container Registry](#create-image).
 
 
-## Соберите и загрузите Docker-образ в {{ container-registry-name }} {#create-image}
+## Соберите и загрузите Docker-образ в Container Registry {#create-image}
 
-Пример ниже разработан для выполнения в операционных системах MacOS и Linux. Чтобы выполнить его в системе Windows, [ознакомьтесь]({{ link-docs }}/overview/concepts/console-syntax-guide) с особенностями работы с Bash в Microsoft Windows.
+Пример ниже разработан для выполнения в операционных системах MacOS и Linux. Чтобы выполнить его в системе Windows, [ознакомьтесь](../../../overview/concepts/console-syntax-guide.md) с особенностями работы с Bash в Microsoft Windows.
 
 1. Откройте терминал.
 1. Для удобства выполнения команд добавьте переменные:
@@ -374,11 +374,11 @@
       
       {% endnote %}
 
-      1. Если у вас еще нет OAuth-токена, получите его по [ссылке]({{ link-cloud-oauth }}).
+      1. Если у вас еще нет OAuth-токена, получите его по [ссылке](https://oauth.yandex.ru/authorize?response_type=token&client_id=1a6990aa636648e9b2ef855fa7bec2fb).
       1. Выполните команду:
 
           ```bash
-          echo <OAuth-токен> | docker login --username oauth --password-stdin {{ registry }}
+          echo <OAuth-токен> | docker login --username oauth --password-stdin cr.yandex
           ```
 
           Результат:
@@ -391,15 +391,15 @@
 
       {% note info %}
 
-      У IAM-токена короткое [время жизни](../../../iam/concepts/authorization/iam-token.md#lifetime) — не более  {{ iam-token-lifetime }}. Поэтому такой способ подойдет для приложений, которые будут запрашивать IAM-токен автоматически.
+      У IAM-токена короткое [время жизни](../../../iam/concepts/authorization/iam-token.md#lifetime) — не более  12 часов. Поэтому такой способ подойдет для приложений, которые будут запрашивать IAM-токен автоматически.
 
       {% endnote %}
 
-      1. [Получите](../../../iam/operations/iam-token/create.md) {{ iam-short-name }}-токен.
+      1. [Получите](../../../iam/operations/iam-token/create.md) IAM-токен.
       1. Выполните команду:
 
           ```bash
-          yc iam create-token | docker login --username iam --password-stdin {{ registry }}
+          yc iam create-token | docker login --username iam --password-stdin cr.yandex
           ```
 
           Результат:
@@ -437,7 +437,7 @@
           В конфигурационном файле `/home/<user>/.docker/config.json` должна появиться строка:
 
           ```json
-          "{{ registry }}": "yc"
+          "cr.yandex": "yc"
           ```
 
       1. Docker готов к использованию, например, для [загрузки Docker-образов](../../operations/docker-image/docker-image-push.md). При этом выполнять команду `docker login` не надо.
@@ -466,7 +466,7 @@
 1. Соберите Docker-образ:
 
     ```bash
-    docker build . -t {{ registry }}/${REGISTRY_ID}/ubuntu:hello -f .dockerfile
+    docker build . -t cr.yandex/${REGISTRY_ID}/ubuntu:hello -f .dockerfile
     ```
 
     Результат:
@@ -474,19 +474,19 @@
     ```text
     ...
     Successfully built b68ee9b6b1af
-    Successfully tagged {{ registry }}/crpmnjr98tm5********/ubuntu:hello
+    Successfully tagged cr.yandex/crpmnjr98tm5********/ubuntu:hello
     ```
 
-1. Загрузите собранный Docker-образ в {{ container-registry-name }}:
+1. Загрузите собранный Docker-образ в Container Registry:
 
     ```bash
-    docker push {{ registry }}/${REGISTRY_ID}/ubuntu:hello
+    docker push cr.yandex/${REGISTRY_ID}/ubuntu:hello
     ```
 
     Результат:
 
     ```text
-    The push refers to repository [{{ registry }}/crpc9qeoft23********/ubuntu]
+    The push refers to repository [cr.yandex/crpc9qeoft23********/ubuntu]
     cc9d18e90faa: Pushed
     0c2689e3f920: Pushed
     47dde53750b4: Pushed
@@ -505,7 +505,7 @@
     cut -f1 -d',' | \
     cut -f2 -d':' | \
     tr -d '"' | \
-    docker login --username iam --password-stdin {{ registry }}
+    docker login --username iam --password-stdin cr.yandex
     ```
 
     Результат:
@@ -523,7 +523,7 @@
 1. Скачайте Docker-образ на ВМ:
 
     ```bash
-    docker pull {{ registry }}/${REGISTRY_ID}/ubuntu:hello
+    docker pull cr.yandex/${REGISTRY_ID}/ubuntu:hello
     ```
 
     Результат:
@@ -534,8 +534,8 @@
     ba13d3bc422b: Pulling fs layer
     ...
     Digest: sha256:42068479274f1d4c7ea095482430dcba24dcfe8c23ebdf6d32305928********
-    Status: Downloaded newer image for {{ registry }}/crpc9qeoft23********/ubuntu:hello
-    {{ registry }}/crpc9qeoft23********/ubuntu:hello
+    Status: Downloaded newer image for cr.yandex/crpc9qeoft23********/ubuntu:hello
+    cr.yandex/crpc9qeoft23********/ubuntu:hello
     ```
 
 
@@ -544,7 +544,7 @@
 На ВМ запустите Docker-образ:
 
 ```bash
-docker run {{ registry }}/${REGISTRY_ID}/ubuntu:hello
+docker run cr.yandex/${REGISTRY_ID}/ubuntu:hello
 ```
 
 Результат:
@@ -580,7 +580,7 @@ Hi, I'm inside
        terraform plan
        ```
     
-       В терминале будет выведен список ресурсов с параметрами. На этом этапе изменения не будут внесены. Если в конфигурации есть ошибки, {{ TF }} на них укажет.
+       В терминале будет выведен список ресурсов с параметрами. На этом этапе изменения не будут внесены. Если в конфигурации есть ошибки, Terraform на них укажет.
     1. Примените изменения конфигурации:
     
        ```bash
@@ -591,4 +591,4 @@ Hi, I'm inside
 
 #### См. также {#see-also}
 
-* [{#T}](console.md)
+* [Запуск Docker-образа на виртуальной машине с помощью консоли управления, CLI и API](console.md)

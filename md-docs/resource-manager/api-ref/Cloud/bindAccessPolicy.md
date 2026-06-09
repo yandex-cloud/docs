@@ -5,7 +5,7 @@ Binds the access policy template to the cloud.
 ## HTTP request
 
 ```
-POST https://resource-manager.{{ api-host }}/resource-manager/v1/clouds/{resourceId}:bindAccessPolicy
+POST https://resource-manager.api.cloud.yandex.net/resource-manager/v1/clouds/{resourceId}:bindAccessPolicy
 ```
 
 ## Path parameters

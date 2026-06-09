@@ -4,33 +4,33 @@
 
 - Консоль управления {#console}
 
-  1. В [консоли управления]({{ link-console-main }}) выберите [каталог](../../resource-manager/concepts/resources-hierarchy.md#folder), в котором находится [профиль ARL](../concepts/arl.md).
-  1. Перейдите в сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_smartwebsecurity }}**.
-  1. На панели слева выберите ![image](../../_assets/smartwebsecurity/arl.svg) **{{ ui-key.yacloud.smart-web-security.arl.label_profiles }}**.
-  1. В строке с нужным профилем нажмите ![options](../../_assets/console-icons/ellipsis.svg) и выберите **{{ ui-key.yacloud.smart-web-security.overview.action_edit-profile }}**.
+  1. В [консоли управления](https://console.yandex.cloud) выберите [каталог](../../resource-manager/concepts/resources-hierarchy.md#folder), в котором находится [профиль ARL](../concepts/arl.md).
+  1. Перейдите в сервис **Smart Web Security**.
+  1. На панели слева выберите ![image](../../_assets/smartwebsecurity/arl.svg) **Профили ARL**.
+  1. В строке с нужным профилем нажмите ![options](../../_assets/console-icons/ellipsis.svg) и выберите **Редактировать**.
   1. В открывшемся окне измените параметры:
-      * **{{ ui-key.yacloud.common.name }}**.
-      * **{{ ui-key.yacloud.common.description }}**.
-      * [**{{ ui-key.yacloud.component.label-set.label_labels }}**](../../resource-manager/concepts/labels.md). Чтобы добавить новую метку, нажмите кнопку **{{ ui-key.yacloud.component.label-set.button_add-label }}**.
-      * Выберите или [создайте](template-create.md) шаблон ответа, который будет возвращаться клиенту при срабатывании любого правила в профиле. По умолчанию используется стандартный шаблон {{ yandex-cloud }}.
-  1. Нажмите кнопку **{{ ui-key.yacloud.common.save }}**.
+      * **Имя**.
+      * **Описание**.
+      * [**Метки**](../../resource-manager/concepts/labels.md). Чтобы добавить новую метку, нажмите кнопку **Добавить метку**.
+      * Выберите или [создайте](template-create.md) шаблон ответа, который будет возвращаться клиенту при срабатывании любого правила в профиле. По умолчанию используется стандартный шаблон Yandex Cloud.
+  1. Нажмите кнопку **Сохранить**.
 
-- {{ TF }} {#tf}
+- Terraform {#tf}
 
-  [{{ TF }}](https://www.terraform.io/) позволяет быстро создать облачную инфраструктуру в {{ yandex-cloud }} и управлять ею с помощью файлов конфигураций. В файлах конфигураций хранится описание инфраструктуры на языке HCL (HashiCorp Configuration Language). При изменении файлов конфигураций {{ TF }} автоматически определяет, какая часть вашей конфигурации уже развернута, что следует добавить или удалить.
+  [Terraform](https://www.terraform.io/) позволяет быстро создать облачную инфраструктуру в Yandex Cloud и управлять ею с помощью файлов конфигураций. В файлах конфигураций хранится описание инфраструктуры на языке HCL (HashiCorp Configuration Language). При изменении файлов конфигураций Terraform автоматически определяет, какая часть вашей конфигурации уже развернута, что следует добавить или удалить.
   
-  {{ TF }} распространяется под лицензией [Business Source License](https://github.com/hashicorp/terraform/blob/main/LICENSE), а [провайдер {{ yandex-cloud }} для {{ TF }}](https://github.com/yandex-cloud/terraform-provider-yandex) — под лицензией [MPL-2.0](https://www.mozilla.org/en-US/MPL/2.0/).
+  Terraform распространяется под лицензией [Business Source License](https://github.com/hashicorp/terraform/blob/main/LICENSE), а [провайдер Yandex Cloud для Terraform](https://github.com/yandex-cloud/terraform-provider-yandex) — под лицензией [MPL-2.0](https://www.mozilla.org/en-US/MPL/2.0/).
   
-  Подробную информацию о ресурсах провайдера смотрите в документации на сайте [{{ TF }}](https://www.terraform.io/docs/providers/yandex/index.html) или в [зеркале]({{ tf-docs-link }}).
+  Подробную информацию о ресурсах провайдера смотрите в документации на сайте [Terraform](https://www.terraform.io/docs/providers/yandex/index.html) или в [зеркале](../../terraform/index.md).
 
-  Если у вас еще нет {{ TF }}, [установите его и настройте провайдер {{ yandex-cloud }}](../../tutorials/infrastructure-management/terraform-quickstart.md#install-terraform).
+  Если у вас еще нет Terraform, [установите его и настройте провайдер Yandex Cloud](../../tutorials/infrastructure-management/terraform-quickstart.md#install-terraform).
   
   
-  Чтобы управлять инфраструктурой с помощью {{ TF }} от имени сервисного аккаунта или пользовательских аккаунтов: аккаунта на Яндексе, федеративного аккаунта и локального пользователя, [аутентифицируйтесь](../../terraform/authentication.md) соответствующим способом.
+  Чтобы управлять инфраструктурой с помощью Terraform от имени сервисного аккаунта или пользовательских аккаунтов: аккаунта на Яндексе, федеративного аккаунта и локального пользователя, [аутентифицируйтесь](../../terraform/authentication.md) соответствующим способом.
 
   Чтобы изменить основные параметры [профиля ARL](../concepts/arl.md):
 
-  1. Откройте файл конфигурации {{ TF }} и измените фрагмент с описанием ресурса `yandex_sws_advanced_rate_limiter_profile`:
+  1. Откройте файл конфигурации Terraform и измените фрагмент с описанием ресурса `yandex_sws_advanced_rate_limiter_profile`:
 
       ```hcl
       # Профиль ARL
@@ -63,7 +63,7 @@
       }
       ```
 
-      Более подробную информацию о параметрах ресурса `yandex_sws_advanced_rate_limiter_profile`, см. в [документации провайдера]({{ tf-provider-resources-link }}/sws_advanced_rate_limiter_profile).
+      Более подробную информацию о параметрах ресурса `yandex_sws_advanced_rate_limiter_profile`, см. в [документации провайдера](../../terraform/resources/sws_advanced_rate_limiter_profile.md).
 
   1. Примените изменения:
 
@@ -86,7 +86,7 @@
           terraform plan
           ```
        
-          В терминале будет выведен список ресурсов с параметрами. На этом этапе изменения не будут внесены. Если в конфигурации есть ошибки, {{ TF }} на них укажет.
+          В терминале будет выведен список ресурсов с параметрами. На этом этапе изменения не будут внесены. Если в конфигурации есть ошибки, Terraform на них укажет.
        1. Примените изменения конфигурации:
        
           ```bash
@@ -95,7 +95,7 @@
        
        1. Подтвердите изменения: введите в терминале слово `yes` и нажмите **Enter**.
 
-       Проверить изменение ресурсов можно в [консоли управления]({{ link-console-main }}).
+       Проверить изменение ресурсов можно в [консоли управления](https://console.yandex.cloud).
 
 - API {#api}
 
@@ -105,6 +105,6 @@
 
 ### См. также {#see-also}
 
-* [{#T}](arl-profile-delete.md)
-* [{#T}](arl-rule-add.md)
-* [{#T}](arl-rule-update.md)
+* [Удалить профиль ARL](arl-profile-delete.md)
+* [Добавить правило в профиль ARL](arl-rule-add.md)
+* [Изменить правило в профиле ARL](arl-rule-update.md)

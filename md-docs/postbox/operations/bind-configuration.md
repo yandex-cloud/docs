@@ -8,13 +8,13 @@
 
 - Консоль управления {#console}
 
-    1. В [консоли управления]({{ link-console-main }}) перейдите в каталог, в котором находятся адрес и конфигурация.
-    1. Перейдите в сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_postbox }}**.
-    1. На панели слева выберите ![image](../../_assets/console-icons/at.svg) **{{ ui-key.yacloud.postbox.label_identities }}**.
+    1. В [консоли управления](https://console.yandex.cloud) перейдите в каталог, в котором находятся адрес и конфигурация.
+    1. Перейдите в сервис **Cloud Postbox**.
+    1. На панели слева выберите ![image](../../_assets/console-icons/at.svg) **Адреса**.
     1. Выберите адрес, к которому хотите привязать конфигурацию.
-    1. Нажмите кнопку **{{ ui-key.yacloud.common.edit }}**.
+    1. Нажмите кнопку **Редактировать**.
     1. Выберите конфигурацию или [создайте новую](create-configuration.md).
-    1. Нажмите кнопку **{{ ui-key.yacloud.common.save }}**.
+    1. Нажмите кнопку **Сохранить**.
 
 - AWS CLI {#aws-cli}
 
@@ -25,7 +25,7 @@
     1. В терминале определите переменные:
 
         ```bash
-        ENDPOINT={{ postbox-endpoint }}
+        ENDPOINT=https://postbox.cloud.yandex.net
         PROFILE=<имя_профиля>
         CONFIGSET_NAME=<имя_конфигурации>
         IDENTITY=<домен>

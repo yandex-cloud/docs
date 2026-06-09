@@ -1,4 +1,4 @@
-# [{{ datalens-full-name }}] Field title conflicts with another field
+# [Yandex DataLens] Field title conflicts with another field
 
 `ERR.DS_API.FIELD.TITLE.CONFLICT`
 

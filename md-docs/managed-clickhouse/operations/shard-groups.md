@@ -1,6 +1,6 @@
-# Управление группами шардов в кластере {{ CH }}
+# Управление группами шардов в кластере ClickHouse®
 
-Вы можете сгруппировать несколько [шардов](../concepts/sharding.md) кластера {{ CH }} в _группу шардов_ и затем размещать таблицы в этой группе.
+Вы можете сгруппировать несколько [шардов](../concepts/sharding.md) кластера ClickHouse® в _группу шардов_ и затем размещать таблицы в этой группе.
 
 ## Получить список групп шардов в кластере {#list-shard-groups}
 
@@ -8,20 +8,20 @@
 
 - Консоль управления {#console}
 
-  1. В [консоли управления]({{ link-console-main }}) выберите каталог, в котором находится кластер.
-  1. Перейдите в сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-clickhouse }}**.
-  1. Нажмите на имя нужного кластера и выберите вкладку **{{ ui-key.yacloud.clickhouse.cluster.switch_shard-groups }}**.
+  1. В [консоли управления](https://console.yandex.cloud) выберите каталог, в котором находится кластер.
+  1. Перейдите в сервис **Managed Service for&nbsp;ClickHouse**.
+  1. Нажмите на имя нужного кластера и выберите вкладку **Группы шардов**.
 
 - CLI {#cli}
 
-  Если у вас еще нет интерфейса командной строки {{ yandex-cloud }} (CLI), [установите и инициализируйте его](../../cli/quickstart.md#install).
+  Если у вас еще нет интерфейса командной строки Yandex Cloud (CLI), [установите и инициализируйте его](../../cli/quickstart.md#install).
 
   По умолчанию используется каталог, указанный при [создании](../../cli/operations/profile/profile-create.md) профиля CLI. Чтобы изменить каталог по умолчанию, используйте команду `yc config set folder-id <идентификатор_каталога>`. Также для любой команды вы можете указать другой каталог с помощью параметров `--folder-name` или `--folder-id`. Если вы обращаетесь к ресурсу по имени, поиск будет выполнен в каталоге по умолчанию. Если вы обращаетесь к ресурсу по идентификатору, поиск будет выполнен глобально — во всех каталогах с учетом прав доступа.
 
   Чтобы получить список групп шардов в кластере, выполните команду:
 
   ```bash
-  {{ yc-mdb-ch }} shard-groups list \
+  yc managed-clickhouse shard-groups list \
      --cluster-name=<имя_кластера>
   ```
 
@@ -35,13 +35,13 @@
      export IAM_TOKEN="<IAM-токен>"
      ```
 
-  1. Воспользуйтесь методом [Cluster.ListShardGroups](../api-ref/Cluster/listShardGroups.md) и выполните запрос, например, с помощью {{ api-examples.rest.tool }}:
+  1. Воспользуйтесь методом [Cluster.ListShardGroups](../api-ref/Cluster/listShardGroups.md) и выполните запрос, например, с помощью [cURL](https://curl.se/):
 
      ```bash
      curl \
        --request GET \
        --header "Authorization: Bearer $IAM_TOKEN" \
-       --url 'https://{{ api-host-mdb }}/managed-clickhouse/v1/clusters/<идентификатор_кластера>/shardGroups'
+       --url 'https://mdb.api.cloud.yandex.net/managed-clickhouse/v1/clusters/<идентификатор_кластера>/shardGroups'
      ```
 
      Идентификатор кластера можно запросить со [списком кластеров в каталоге](cluster-list.md#list-clusters).
@@ -63,7 +63,7 @@
      ```
      
      Далее предполагается, что содержимое репозитория находится в директории `~/cloudapi/`.
-  1. Воспользуйтесь вызовом [ClusterService.ListShardGroups](../api-ref/grpc/Cluster/listShardGroups.md) и выполните запрос, например, с помощью {{ api-examples.grpc.tool }}:
+  1. Воспользуйтесь вызовом [ClusterService.ListShardGroups](../api-ref/grpc/Cluster/listShardGroups.md) и выполните запрос, например, с помощью [gRPCurl](https://github.com/fullstorydev/grpcurl):
 
      ```bash
      grpcurl \
@@ -75,7 +75,7 @@
        -d '{
              "cluster_id": "<идентификатор_кластера>"
            }' \
-       {{ api-host-mdb }}:{{ port-https }} \
+       mdb.api.cloud.yandex.net:443 \
        yandex.cloud.mdb.clickhouse.v1.ClusterService.ListShardGroups
      ```
 
@@ -91,21 +91,21 @@
 
 - Консоль управления {#console}
 
-  1. В [консоли управления]({{ link-console-main }}) выберите каталог, в котором находится кластер.
-  1. Перейдите в сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-clickhouse }}**.
-  1. Нажмите на имя нужного кластера и выберите вкладку **{{ ui-key.yacloud.clickhouse.cluster.switch_shard-groups }}**.
+  1. В [консоли управления](https://console.yandex.cloud) выберите каталог, в котором находится кластер.
+  1. Перейдите в сервис **Managed Service for&nbsp;ClickHouse**.
+  1. Нажмите на имя нужного кластера и выберите вкладку **Группы шардов**.
   1. Выберите группу шардов для просмотра детальной информации о ней.
 
 - CLI {#cli}
 
-  Если у вас еще нет интерфейса командной строки {{ yandex-cloud }} (CLI), [установите и инициализируйте его](../../cli/quickstart.md#install).
+  Если у вас еще нет интерфейса командной строки Yandex Cloud (CLI), [установите и инициализируйте его](../../cli/quickstart.md#install).
 
   По умолчанию используется каталог, указанный при [создании](../../cli/operations/profile/profile-create.md) профиля CLI. Чтобы изменить каталог по умолчанию, используйте команду `yc config set folder-id <идентификатор_каталога>`. Также для любой команды вы можете указать другой каталог с помощью параметров `--folder-name` или `--folder-id`. Если вы обращаетесь к ресурсу по имени, поиск будет выполнен в каталоге по умолчанию. Если вы обращаетесь к ресурсу по идентификатору, поиск будет выполнен глобально — во всех каталогах с учетом прав доступа.
 
   Чтобы получить детальную информацию о группе шардов в кластере, выполните команду:
 
   ```bash
-  {{ yc-mdb-ch }} shard-groups get \
+  yc managed-clickhouse shard-groups get \
     --cluster-name=<имя_кластера> \
     --name=<имя_группы_шардов>
   ```
@@ -120,13 +120,13 @@
      export IAM_TOKEN="<IAM-токен>"
      ```
 
-  1. Воспользуйтесь методом [Cluster.GetShardGroup](../api-ref/Cluster/getShardGroup.md) и выполните запрос, например, с помощью {{ api-examples.rest.tool }}:
+  1. Воспользуйтесь методом [Cluster.GetShardGroup](../api-ref/Cluster/getShardGroup.md) и выполните запрос, например, с помощью [cURL](https://curl.se/):
 
      ```bash
      curl \
        --request GET \
        --header "Authorization: Bearer $IAM_TOKEN" \
-       --url 'https://{{ api-host-mdb }}/managed-clickhouse/v1/clusters/<идентификатор_кластера>/shardGroups/<имя_группы_шардов>'
+       --url 'https://mdb.api.cloud.yandex.net/managed-clickhouse/v1/clusters/<идентификатор_кластера>/shardGroups/<имя_группы_шардов>'
      ```
 
      Идентификатор кластера можно запросить со [списком кластеров в каталоге](cluster-list.md#list-clusters), а имя группы шардов — со [списком групп в кластере](#list-shard-groups).
@@ -148,7 +148,7 @@
      ```
      
      Далее предполагается, что содержимое репозитория находится в директории `~/cloudapi/`.
-  1. Воспользуйтесь вызовом [ClusterService.GetShardGroup](../api-ref/grpc/Cluster/getShardGroup.md) и выполните запрос, например, с помощью {{ api-examples.grpc.tool }}:
+  1. Воспользуйтесь вызовом [ClusterService.GetShardGroup](../api-ref/grpc/Cluster/getShardGroup.md) и выполните запрос, например, с помощью [gRPCurl](https://github.com/fullstorydev/grpcurl):
 
      ```bash
      grpcurl \
@@ -161,7 +161,7 @@
              "cluster_id": "<идентификатор_кластера>",
              "shard_group_name": "<имя_группы_шардов>"
            }' \
-       {{ api-host-mdb }}:{{ port-https }} \
+       mdb.api.cloud.yandex.net:443 \
        yandex.cloud.mdb.clickhouse.v1.ClusterService.GetShardGroup
      ```
 
@@ -177,22 +177,22 @@
 
 - Консоль управления {#console}
 
-  1. В [консоли управления]({{ link-console-main }}) выберите каталог, в котором находится кластер.
-  1. Перейдите в сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-clickhouse }}**.
-  1. Нажмите на имя нужного кластера и выберите вкладку **{{ ui-key.yacloud.clickhouse.cluster.switch_shard-groups }}**.
-  1. Нажмите кнопку **{{ ui-key.yacloud.mdb.shard-groups.button_add-group }}**.
-  1. Заполните поля формы и нажмите кнопку **{{ ui-key.yacloud.common.apply }}**.
+  1. В [консоли управления](https://console.yandex.cloud) выберите каталог, в котором находится кластер.
+  1. Перейдите в сервис **Managed Service for&nbsp;ClickHouse**.
+  1. Нажмите на имя нужного кластера и выберите вкладку **Группы шардов**.
+  1. Нажмите кнопку **Создать группу шардов**.
+  1. Заполните поля формы и нажмите кнопку **Применить**.
 
 - CLI {#cli}
 
-  Если у вас еще нет интерфейса командной строки {{ yandex-cloud }} (CLI), [установите и инициализируйте его](../../cli/quickstart.md#install).
+  Если у вас еще нет интерфейса командной строки Yandex Cloud (CLI), [установите и инициализируйте его](../../cli/quickstart.md#install).
 
   По умолчанию используется каталог, указанный при [создании](../../cli/operations/profile/profile-create.md) профиля CLI. Чтобы изменить каталог по умолчанию, используйте команду `yc config set folder-id <идентификатор_каталога>`. Также для любой команды вы можете указать другой каталог с помощью параметров `--folder-name` или `--folder-id`. Если вы обращаетесь к ресурсу по имени, поиск будет выполнен в каталоге по умолчанию. Если вы обращаетесь к ресурсу по идентификатору, поиск будет выполнен глобально — во всех каталогах с учетом прав доступа.
 
   Чтобы создать группу шардов в кластере, выполните команду:
 
   ```bash
-  {{ yc-mdb-ch }} shard-groups create \
+  yc managed-clickhouse shard-groups create \
     --cluster-name=<имя_кластера> \
     --name=<имя_группы_шардов> \
     --description=<описание_группы_шардов> \
@@ -206,12 +206,12 @@
   Имена шардов можно запросить со [списком шардов в кластере](shards.md#list-shards).
 
 
-- {{ TF }} {#tf}
+- Terraform {#tf}
 
-  1. Откройте актуальный конфигурационный файл {{ TF }} с планом инфраструктуры.
+  1. Откройте актуальный конфигурационный файл Terraform с планом инфраструктуры.
 
      О том, как создать такой файл, см. в разделе [Создание кластера](cluster-create.md).
-  1. Добавьте к описанию кластера {{ mch-name }} блок описания группы шардов `shard_group`.
+  1. Добавьте к описанию кластера Managed Service for ClickHouse® блок описания группы шардов `shard_group`.
 
      ```hcl
      resource "yandex_mdb_clickhouse_cluster_v2" "<имя_кластера>" {
@@ -231,14 +231,14 @@
 
   1. Проверьте корректность настроек.
 
-     1. В командной строке перейдите в каталог, в котором расположены актуальные конфигурационные файлы {{ TF }} с планом инфраструктуры.
+     1. В командной строке перейдите в каталог, в котором расположены актуальные конфигурационные файлы Terraform с планом инфраструктуры.
      1. Выполните команду:
      
         ```bash
         terraform validate
         ```
      
-        Если в файлах конфигурации есть ошибки, {{ TF }} на них укажет.
+        Если в файлах конфигурации есть ошибки, Terraform на них укажет.
 
   1. Подтвердите изменение ресурсов.
 
@@ -260,11 +260,11 @@
         1. Подтвердите изменение ресурсов.
         1. Дождитесь завершения операции.
 
-  Подробнее см. в [документации провайдера {{ TF }}]({{ tf-provider-resources-link }}/mdb_clickhouse_cluster).
+  Подробнее см. в [документации провайдера Terraform](../../terraform/resources/mdb_clickhouse_cluster.md).
 
   {% note warning "Ограничения по времени" %}
   
-  Провайдер {{ TF }} ограничивает время на выполнение операций с кластером {{ mch-name }}:
+  Провайдер Terraform ограничивает время на выполнение операций с кластером Managed Service for ClickHouse®:
   
   * создание, в т. ч. путем восстановления из резервной копии, — 60 минут;
   * изменение — 90 минут;
@@ -300,14 +300,14 @@
      export IAM_TOKEN="<IAM-токен>"
      ```
 
-  1. Воспользуйтесь методом [Cluster.CreateShardGroup](../api-ref/Cluster/createShardGroup.md) и выполните запрос, например, с помощью {{ api-examples.rest.tool }}:
+  1. Воспользуйтесь методом [Cluster.CreateShardGroup](../api-ref/Cluster/createShardGroup.md) и выполните запрос, например, с помощью [cURL](https://curl.se/):
 
      ```bash
      curl \
        --request POST \
        --header "Authorization: Bearer $IAM_TOKEN" \
        --header "Content-Type: application/json" \
-       --url 'https://{{ api-host-mdb }}/managed-clickhouse/v1/clusters/<идентификатор_кластера>/shardGroups' \
+       --url 'https://mdb.api.cloud.yandex.net/managed-clickhouse/v1/clusters/<идентификатор_кластера>/shardGroups' \
        --data '{
                  "shardGroupName": "<имя_группы_шардов>",
                  "description": "<описание_группы_шардов>",
@@ -342,7 +342,7 @@
      ```
      
      Далее предполагается, что содержимое репозитория находится в директории `~/cloudapi/`.
-  1. Воспользуйтесь вызовом [ClusterService.CreateShardGroup](../api-ref/grpc/Cluster/createShardGroup.md) и выполните запрос, например, с помощью {{ api-examples.grpc.tool }}:
+  1. Воспользуйтесь вызовом [ClusterService.CreateShardGroup](../api-ref/grpc/Cluster/createShardGroup.md) и выполните запрос, например, с помощью [gRPCurl](https://github.com/fullstorydev/grpcurl):
 
      ```bash
      grpcurl \
@@ -359,7 +359,7 @@
                  "<шард_1>", "<шард_2>", ... "<шард_N>"
                ]
              }' \
-         {{ api-host-mdb }}:{{ port-https }} \
+         mdb.api.cloud.yandex.net:443 \
          yandex.cloud.mdb.clickhouse.v1.ClusterService.CreateShardGroup
      ```
 
@@ -381,21 +381,21 @@
 
 - Консоль управления {#console}
 
-  1. В [консоли управления]({{ link-console-main }}) выберите каталог, в котором находится кластер.
-  1. Перейдите в сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-clickhouse }}**.
-  1. Нажмите на имя нужного кластера и выберите вкладку **{{ ui-key.yacloud.clickhouse.cluster.switch_shard-groups }}**.
-  1. Нажмите на значок ![image](../../_assets/console-icons/ellipsis.svg) для нужной группы шардов и выберите пункт **{{ ui-key.yacloud.common.edit }}**.
+  1. В [консоли управления](https://console.yandex.cloud) выберите каталог, в котором находится кластер.
+  1. Перейдите в сервис **Managed Service for&nbsp;ClickHouse**.
+  1. Нажмите на имя нужного кластера и выберите вкладку **Группы шардов**.
+  1. Нажмите на значок ![image](../../_assets/console-icons/ellipsis.svg) для нужной группы шардов и выберите пункт **Редактировать**.
 
 - CLI {#cli}
 
-  Если у вас еще нет интерфейса командной строки {{ yandex-cloud }} (CLI), [установите и инициализируйте его](../../cli/quickstart.md#install).
+  Если у вас еще нет интерфейса командной строки Yandex Cloud (CLI), [установите и инициализируйте его](../../cli/quickstart.md#install).
 
   По умолчанию используется каталог, указанный при [создании](../../cli/operations/profile/profile-create.md) профиля CLI. Чтобы изменить каталог по умолчанию, используйте команду `yc config set folder-id <идентификатор_каталога>`. Также для любой команды вы можете указать другой каталог с помощью параметров `--folder-name` или `--folder-id`. Если вы обращаетесь к ресурсу по имени, поиск будет выполнен в каталоге по умолчанию. Если вы обращаетесь к ресурсу по идентификатору, поиск будет выполнен глобально — во всех каталогах с учетом прав доступа.
 
   Чтобы изменить группу шардов в кластере, выполните команду:
 
   ```bash
-  {{ yc-mdb-ch }} shard-groups update \
+  yc managed-clickhouse shard-groups update \
     --cluster-name=<имя_кластера> \
     --name=<имя_группы_шардов> \
     --description=<новое_описание_группы_шардов> \
@@ -413,12 +413,12 @@
   Имена шардов можно запросить со [списком шардов в кластере](shards.md#list-shards).
 
 
-- {{ TF }} {#tf}
+- Terraform {#tf}
 
-  1. Откройте актуальный конфигурационный файл {{ TF }} с планом инфраструктуры.
+  1. Откройте актуальный конфигурационный файл Terraform с планом инфраструктуры.
 
      О том, как создать такой файл, см. в разделе [Создание кластера](cluster-create.md).
-  1. Измените в описании кластера {{ mch-name }} блок `shard_group` с нужной группой шардов:
+  1. Измените в описании кластера Managed Service for ClickHouse® блок `shard_group` с нужной группой шардов:
 
      ```hcl
      resource "yandex_mdb_clickhouse_cluster_v2" "<имя_кластера>" {
@@ -438,14 +438,14 @@
 
   1. Проверьте корректность настроек.
 
-     1. В командной строке перейдите в каталог, в котором расположены актуальные конфигурационные файлы {{ TF }} с планом инфраструктуры.
+     1. В командной строке перейдите в каталог, в котором расположены актуальные конфигурационные файлы Terraform с планом инфраструктуры.
      1. Выполните команду:
      
         ```bash
         terraform validate
         ```
      
-        Если в файлах конфигурации есть ошибки, {{ TF }} на них укажет.
+        Если в файлах конфигурации есть ошибки, Terraform на них укажет.
 
   1. Подтвердите изменение ресурсов.
 
@@ -467,11 +467,11 @@
         1. Подтвердите изменение ресурсов.
         1. Дождитесь завершения операции.
 
-  Подробнее см. в [документации провайдера {{ TF }}]({{ tf-provider-resources-link }}/mdb_clickhouse_cluster).
+  Подробнее см. в [документации провайдера Terraform](../../terraform/resources/mdb_clickhouse_cluster.md).
 
   {% note warning "Ограничения по времени" %}
   
-  Провайдер {{ TF }} ограничивает время на выполнение операций с кластером {{ mch-name }}:
+  Провайдер Terraform ограничивает время на выполнение операций с кластером Managed Service for ClickHouse®:
   
   * создание, в т. ч. путем восстановления из резервной копии, — 60 минут;
   * изменение — 90 минут;
@@ -507,7 +507,7 @@
      export IAM_TOKEN="<IAM-токен>"
      ```
 
-  1. Воспользуйтесь методом [Cluster.updateShardGroup](../api-ref/Cluster/updateShardGroup.md) и выполните запрос, например, с помощью {{ api-examples.rest.tool }}:
+  1. Воспользуйтесь методом [Cluster.updateShardGroup](../api-ref/Cluster/updateShardGroup.md) и выполните запрос, например, с помощью [cURL](https://curl.se/):
 
      {% note warning %}
      
@@ -520,7 +520,7 @@
        --request PATCH \
        --header "Authorization: Bearer $IAM_TOKEN" \
        --header "Content-Type: application/json" \
-       --url 'https://{{ api-host-mdb }}/managed-clickhouse/v1/clusters/<идентификатор_кластера>/shardGroups/<имя_группы_шардов>' \
+       --url 'https://mdb.api.cloud.yandex.net/managed-clickhouse/v1/clusters/<идентификатор_кластера>/shardGroups/<имя_группы_шардов>' \
        --data '{
                  "updateMask": "description,shardNames",
                  "description": "<описание_группы_шардов>",
@@ -555,7 +555,7 @@
      ```
      
      Далее предполагается, что содержимое репозитория находится в директории `~/cloudapi/`.
-  1. Воспользуйтесь вызовом [ClusterService.UpdateShardGroup](../api-ref/grpc/Cluster/updateShardGroup.md) и выполните запрос, например, с помощью {{ api-examples.grpc.tool }}:
+  1. Воспользуйтесь вызовом [ClusterService.UpdateShardGroup](../api-ref/grpc/Cluster/updateShardGroup.md) и выполните запрос, например, с помощью [gRPCurl](https://github.com/fullstorydev/grpcurl):
 
      {% note warning %}
      
@@ -598,7 +598,7 @@
                "<шард_1>", "<шард_2>", ... "<шард_N>"
              ]
            }' \
-       {{ api-host-mdb }}:{{ port-https }} \
+       mdb.api.cloud.yandex.net:443 \
        yandex.cloud.mdb.clickhouse.v1.ClusterService.UpdateShardGroup
      ```
 
@@ -624,21 +624,21 @@
 
 - Консоль управления {#console}
 
-  1. В [консоли управления]({{ link-console-main }}) выберите каталог, в котором находится кластер.
-  1. Перейдите в сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-clickhouse }}**.
-  1. Нажмите на имя нужного кластера и выберите вкладку **{{ ui-key.yacloud.clickhouse.cluster.switch_shard-groups }}**.
-  1. Нажмите на значок ![image](../../_assets/console-icons/ellipsis.svg) для нужной группы шардов и выберите пункт **{{ ui-key.yacloud.common.delete }}**.
+  1. В [консоли управления](https://console.yandex.cloud) выберите каталог, в котором находится кластер.
+  1. Перейдите в сервис **Managed Service for&nbsp;ClickHouse**.
+  1. Нажмите на имя нужного кластера и выберите вкладку **Группы шардов**.
+  1. Нажмите на значок ![image](../../_assets/console-icons/ellipsis.svg) для нужной группы шардов и выберите пункт **Удалить**.
 
 - CLI {#cli}
 
-  Если у вас еще нет интерфейса командной строки {{ yandex-cloud }} (CLI), [установите и инициализируйте его](../../cli/quickstart.md#install).
+  Если у вас еще нет интерфейса командной строки Yandex Cloud (CLI), [установите и инициализируйте его](../../cli/quickstart.md#install).
 
   По умолчанию используется каталог, указанный при [создании](../../cli/operations/profile/profile-create.md) профиля CLI. Чтобы изменить каталог по умолчанию, используйте команду `yc config set folder-id <идентификатор_каталога>`. Также для любой команды вы можете указать другой каталог с помощью параметров `--folder-name` или `--folder-id`. Если вы обращаетесь к ресурсу по имени, поиск будет выполнен в каталоге по умолчанию. Если вы обращаетесь к ресурсу по идентификатору, поиск будет выполнен глобально — во всех каталогах с учетом прав доступа.
 
   Чтобы удалить группу шардов в кластере, выполните команду:
 
   ```bash
-  {{ yc-mdb-ch }} shard-groups delete \
+  yc managed-clickhouse shard-groups delete \
      --cluster-name=<имя_кластера> \
      --name=<имя_группы_шардов>
   ```
@@ -648,22 +648,22 @@
   Имя группы шардов можно запросить со [списком групп шардов в кластере](#list-shard-groups).
 
 
-- {{ TF }} {#tf}
+- Terraform {#tf}
 
-  1. Откройте актуальный конфигурационный файл {{ TF }} с планом инфраструктуры.
+  1. Откройте актуальный конфигурационный файл Terraform с планом инфраструктуры.
 
      О том, как создать такой файл, см. в разделе [Создание кластера](cluster-create.md).
-  1. Удалите из описания кластера {{ mch-name }} блок описания нужной группы шардов `shard_group`.
+  1. Удалите из описания кластера Managed Service for ClickHouse® блок описания нужной группы шардов `shard_group`.
   1. Проверьте корректность настроек.
 
-     1. В командной строке перейдите в каталог, в котором расположены актуальные конфигурационные файлы {{ TF }} с планом инфраструктуры.
+     1. В командной строке перейдите в каталог, в котором расположены актуальные конфигурационные файлы Terraform с планом инфраструктуры.
      1. Выполните команду:
      
         ```bash
         terraform validate
         ```
      
-        Если в файлах конфигурации есть ошибки, {{ TF }} на них укажет.
+        Если в файлах конфигурации есть ошибки, Terraform на них укажет.
 
   1. Введите слово `yes` и нажмите **Enter**.
 
@@ -685,11 +685,11 @@
         1. Подтвердите изменение ресурсов.
         1. Дождитесь завершения операции.
 
-  Подробнее см. в [документации провайдера {{ TF }}]({{ tf-provider-resources-link }}/mdb_clickhouse_cluster).
+  Подробнее см. в [документации провайдера Terraform](../../terraform/resources/mdb_clickhouse_cluster.md).
 
   {% note warning "Ограничения по времени" %}
   
-  Провайдер {{ TF }} ограничивает время на выполнение операций с кластером {{ mch-name }}:
+  Провайдер Terraform ограничивает время на выполнение операций с кластером Managed Service for ClickHouse®:
   
   * создание, в т. ч. путем восстановления из резервной копии, — 60 минут;
   * изменение — 90 минут;
@@ -725,13 +725,13 @@
      export IAM_TOKEN="<IAM-токен>"
      ```
 
-  1. Воспользуйтесь методом [Cluster.DeleteShardGroup](../api-ref/Cluster/deleteShardGroup.md) и выполните запрос, например, с помощью {{ api-examples.rest.tool }}:
+  1. Воспользуйтесь методом [Cluster.DeleteShardGroup](../api-ref/Cluster/deleteShardGroup.md) и выполните запрос, например, с помощью [cURL](https://curl.se/):
 
      ```bash
      curl \
        --request DELETE \
        --header "Authorization: Bearer $IAM_TOKEN" \
-       --url 'https://{{ api-host-mdb }}/managed-clickhouse/v1/clusters/<идентификатор_кластера>/shardGroups/<имя_группы_шардов>'
+       --url 'https://mdb.api.cloud.yandex.net/managed-clickhouse/v1/clusters/<идентификатор_кластера>/shardGroups/<имя_группы_шардов>'
      ```
 
      Идентификатор кластера можно запросить со [списком кластеров в каталоге](cluster-list.md#list-clusters), а имя группы шардов — со [списком групп в кластере](#list-shard-groups).
@@ -753,7 +753,7 @@
      ```
      
      Далее предполагается, что содержимое репозитория находится в директории `~/cloudapi/`.
-  1. Воспользуйтесь вызовом [ClusterService.DeleteShardGroup](../api-ref/grpc/Cluster/deleteShardGroup.md) и выполните запрос, например, с помощью {{ api-examples.grpc.tool }}:
+  1. Воспользуйтесь вызовом [ClusterService.DeleteShardGroup](../api-ref/grpc/Cluster/deleteShardGroup.md) и выполните запрос, например, с помощью [gRPCurl](https://github.com/fullstorydev/grpcurl):
 
      ```bash
      grpcurl \
@@ -766,7 +766,7 @@
              "cluster_id": "<идентификатор_кластера>",
              "shard_group_name": "<имя_группы_шардов>"
            }' \
-       {{ api-host-mdb }}:{{ port-https }} \
+       mdb.api.cloud.yandex.net:443 \
        yandex.cloud.mdb.clickhouse.v1.ClusterService.DeleteShardGroup
      ```
 
@@ -776,4 +776,4 @@
 
 {% endlist %}
 
-_{{ CH }} является зарегистрированным товарным знаком [ClickHouse, Inc](https://clickhouse.com)._
+_ClickHouse® является зарегистрированным товарным знаком [ClickHouse, Inc](https://clickhouse.com)._

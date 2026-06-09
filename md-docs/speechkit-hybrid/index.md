@@ -16,7 +16,7 @@ SpeechKit Hybrid <a href="https://reestr.digital.gov.ru/reestr/2356994/?sphrase_
 
 ## Создание демонстрационного стенда
 
- - [Создание стенда {{ sk-hybrid-name }}](quickstart.md)
+ - [Создание стенда SpeechKit Hybrid](quickstart.md)
 
  - [Поиск и устранение ошибок](quickstart-debugging.md)
 
@@ -32,11 +32,11 @@ SpeechKit Hybrid <a href="https://reestr.digital.gov.ru/reestr/2356994/?sphrase_
 
  - [Тестирование производительности](tts/testing.md)
 
-## Администрирование {{ sk-hybrid-name }}
+## Администрирование SpeechKit Hybrid
 
  - [Настройки сервиса](settings.md)
 
- - [Мониторинг сервисов {{ sk-hybrid-name }}](monitoring.md)
+ - [Мониторинг сервисов SpeechKit Hybrid](monitoring.md)
 
  - [Мониторинг Envoy](monitoring-envoy.md)
 
@@ -48,6 +48,6 @@ SpeechKit Hybrid <a href="https://reestr.digital.gov.ru/reestr/2356994/?sphrase_
 
  - [Правила тарификации](pricing.md)
 
- - [Релизы {{ sk-hybrid-name }}](release-notes.md)
+ - [Релизы SpeechKit Hybrid](release-notes.md)
 
- - [Документация Яндекс Спичкит Гибрид ({{ sk-hybrid-full-name }})](docs.md)
+ - [Документация Яндекс Спичкит Гибрид (Yandex SpeechKit Hybrid)](docs.md)

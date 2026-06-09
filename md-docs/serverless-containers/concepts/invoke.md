@@ -1,9 +1,9 @@
-# Вызов контейнера в {{ serverless-containers-name }}
+# Вызов контейнера в Serverless Containers
 
 Вызвать контейнер можно:
 * через [HTTPS](#https);
 * с помощью [триггера](#trigger);
-* с помощью [расширения {{ api-gw-full-name }}](#extension).
+* с помощью [расширения Yandex API Gateway](#extension).
 
 При вызове контейнера запускается [активная ревизия](container.md#revision).
 
@@ -11,8 +11,8 @@
 
 Вызов контейнера завершается в одном из следующих случаев:
 
-* {{ serverless-containers-name }} обработал HTTP-запрос за заданный таймаут и вернул HTTP-ответ в соответствии с [режимом работы контейнера](container.md#runtime). Таймаут включает в себя время запуска экземпляра контейнера.
-* {{ serverless-containers-name }} не успел обработать HTTP-запрос за заданный таймаут и вернул ошибку 504.
+* Serverless Containers обработал HTTP-запрос за заданный таймаут и вернул HTTP-ответ в соответствии с [режимом работы контейнера](container.md#runtime). Таймаут включает в себя время запуска экземпляра контейнера.
+* Serverless Containers не успел обработать HTTP-запрос за заданный таймаут и вернул ошибку 504.
 * Произошла инфраструктурная ошибка или ошибка инициализации, информация о которой будет передана в теле ответа.
 
 ## HTTPS {#https}
@@ -85,12 +85,12 @@
 
 При вызове контейнера с помощью триггера по [адресу, по которому вызывается контейнер](../operations/invocation-link.md), отправляется HTTP-запрос с методом POST. Тело запроса содержит JSON-описание события триггера. IP-адрес источника запроса передается так же, как и при [вызове контейнера через HTTPS](#ip). Подробнее о [триггерах](trigger/index.md).
 
-## Расширение {{ api-gw-full-name }} {#extension}
+## Расширение Yandex API Gateway {#extension}
 
-При вызове контейнера с помощью расширения {{ api-gw-name }} в контейнер передается HTTP-запрос, адресованный к API-шлюзу. В заголовке `Host` при этом указывается хост, по которому пользователь обратился к API-шлюзу, а не хост контейнера. IP-адрес источника запроса передается так же, как и при [вызове контейнера через HTTPS](#ip). Подробнее о расширении в [документации {{ api-gw-full-name }}](../../api-gateway/concepts/extensions/containers.md).
+При вызове контейнера с помощью расширения API Gateway в контейнер передается HTTP-запрос, адресованный к API-шлюзу. В заголовке `Host` при этом указывается хост, по которому пользователь обратился к API-шлюзу, а не хост контейнера. IP-адрес источника запроса передается так же, как и при [вызове контейнера через HTTPS](#ip). Подробнее о расширении в [документации Yandex API Gateway](../../api-gateway/concepts/extensions/containers.md).
 
 ## Примеры использования {#examples}
 
-* [{#T}](../tutorials/movies-database.md)
-* [{#T}](../tutorials/pg-connect.md)
-* [{#T}](../tutorials/functions-framework-to-container.md)
+* [Разработка CRUD API для сервиса фильмов](../tutorials/movies-database.md)
+* [Настройка подключения к Yandex Managed Service for PostgreSQL из контейнера Serverless Containers](../tutorials/pg-connect.md)
+* [Разработка функций в Functions Framework и их развертывание в Yandex Serverless Containers](../tutorials/functions-framework-to-container.md)

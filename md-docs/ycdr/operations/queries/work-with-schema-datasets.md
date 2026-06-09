@@ -2,13 +2,13 @@
 
 {% note info %}
 
-Функциональность находится на стадии [Preview](../../../overview/concepts/launch-stages.md). Чтобы получить доступ, обратитесь в [техническую поддержку]({{ link-console-support }}) или к вашему аккаунт-менеджеру.
+Функциональность находится на стадии [Preview](../../../overview/concepts/launch-stages.md). Чтобы получить доступ, обратитесь в [техническую поддержку](https://center.yandex.cloud/support) или к вашему аккаунт-менеджеру.
 
 {% endnote %}
 
 ## Работа со схемой базы {#database-schema}
 
-Вкладка **{{ ui-key.yacloud_org.security.ycdr.query-data-panel.tab-schema_sChm1 }}** содержит иерархическую структуру всех доступных полей в базе данных.
+Вкладка **Схема базы** содержит иерархическую структуру всех доступных полей в базе данных.
 
 ### Просмотр полей {#view-fields}
 
@@ -16,10 +16,10 @@
 
 {% list tabs group=instructions %}
 
-- Интерфейс {{ sd-name }} {#cloud-sd}
+- Интерфейс Security Deck {#cloud-sd}
 
-  1. Откройте панель **{{ ui-key.yacloud_org.security.ycdr.query-data-panel.title_xK9v2 }}**.
-  1. Перейдите на вкладку **{{ ui-key.yacloud_org.security.ycdr.query-data-panel.tab-schema_sChm1 }}**.
+  1. Откройте панель **Данные для запроса**.
+  1. Перейдите на вкладку **Схема базы**.
   1. Разверните нужные разделы, нажимая на стрелки.
 
   Для каждого поля отображается:
@@ -34,10 +34,10 @@
 
 {% list tabs group=instructions %}
 
-- Интерфейс {{ sd-name }} {#cloud-sd}
+- Интерфейс Security Deck {#cloud-sd}
 
-  1. Откройте вкладку **{{ ui-key.yacloud_org.security.ycdr.query-data-panel.tab-schema_sChm1 }}**.
-  1. Введите название в поле **{{ ui-key.yacloud_org.security.ycdr.query-data-panel.schema-search-placeholder_sSrch }}**.
+  1. Откройте вкладку **Схема базы**.
+  1. Введите название в поле **Поиск по полям**.
   1. Результаты отобразятся автоматически.
 
 {% endlist %}
@@ -48,10 +48,10 @@
 
 {% list tabs group=instructions %}
 
-- Интерфейс {{ sd-name }} {#cloud-sd}
+- Интерфейс Security Deck {#cloud-sd}
 
   1. Нажмите на нужное поле в схеме базы данных.
-  1. Выберите **{{ ui-key.yacloud_org.security.ycdr.query-data-panel.schema-insert-action_iNs1A }}**.
+  1. Выберите **Вставить в запрос**.
 
   Название поля будет добавлено в редактор запросов в позицию курсора.
 
@@ -59,7 +59,7 @@
 
 ## Работа с датасетами {#datasets}
 
-Вкладка **{{ ui-key.yacloud_org.security.ycdr.query-data-panel.tab-datasets_dSt4K }}** содержит список доступных датасетов и Lookup-таблиц.
+Вкладка **Датасеты** содержит список доступных датасетов и Lookup-таблиц.
 
 ### Просмотр датасетов {#view-datasets}
 
@@ -67,10 +67,10 @@
 
 {% list tabs group=instructions %}
 
-- Интерфейс {{ sd-name }} {#cloud-sd}
+- Интерфейс Security Deck {#cloud-sd}
 
   1. Откройте панель данных.
-  1. Перейдите на вкладку **{{ ui-key.yacloud_org.security.ycdr.query-data-panel.tab-datasets_dSt4K }}**.
+  1. Перейдите на вкладку **Датасеты**.
   1. Выберите датасет из списка.
 
   Для каждого датасета отображается:
@@ -82,16 +82,16 @@
 
 ### Lookup-таблицы {#lookup-tables}
 
-**{{ ui-key.yacloud_org.security.ycdr.query-data-panel.datasets-type-lookup_dTpLk }}** — это справочные таблицы для обогащения данных. Они отображаются в отдельном разделе на вкладке датасетов.
+**Lookup-таблица** — это справочные таблицы для обогащения данных. Они отображаются в отдельном разделе на вкладке датасетов.
 
-Чтобы просмотреть {{ ui-key.yacloud_org.security.ycdr.query-data-panel.datasets-type-lookup_dTpLk }}:
+Чтобы просмотреть Lookup-таблица:
 
 {% list tabs group=instructions %}
 
-- Интерфейс {{ sd-name }} {#cloud-sd}
+- Интерфейс Security Deck {#cloud-sd}
 
-  1. Откройте вкладку **{{ ui-key.yacloud_org.security.ycdr.query-data-panel.tab-datasets_dSt4K }}**.
-  1. Перейдите в раздел **{{ ui-key.yacloud_org.security.ycdr.query-data-panel.datasets-type-lookup_dTpLk }}**.
+  1. Откройте вкладку **Датасеты**.
+  1. Перейдите в раздел **Lookup-таблица**.
   1. Выберите таблицу из списка.
 
 {% endlist %}
@@ -102,11 +102,11 @@
 
 {% list tabs group=instructions %}
 
-- Интерфейс {{ sd-name }} {#cloud-sd}
+- Интерфейс Security Deck {#cloud-sd}
 
   1. Найдите нужный датасет.
   1. Нажмите на датасет.
-  1. Выберите **{{ ui-key.yacloud_org.security.ycdr.query-data-panel.schema-insert-action_iNs1A }}**.
+  1. Выберите **Вставить в запрос**.
 
   Название датасета будет добавлено в редактор запросов.
 
@@ -114,7 +114,7 @@
 
 #### См. также {#see-also}
 
-* [{#T}](../../concepts/investigations.md).
-* [{#T}](../../concepts/queries.md).
-* [{#T}](manage-queries.md).
-* [{#T}](work-with-templates.md).
+* [Расследования](../../concepts/investigations.md).
+* [Запросы](../../concepts/queries.md).
+* [Управление запросами](manage-queries.md).
+* [Работа с шаблонами запросов](work-with-templates.md).

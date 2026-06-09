@@ -1,37 +1,37 @@
 # Настройка групп безопасности
 
-## Группы безопасности и ограничение доступа к инстансу {{ mgl-name }} {#sg-instance}
+## Группы безопасности и ограничение доступа к инстансу Managed Service for GitLab {#sg-instance}
 
 Правила [группы безопасности](../../vpc/concepts/security-groups.md) определяют:
 
 * для каких IP-адресов доступен инстанс, в том числе доступен ли он из интернета;
-* по какому протоколу можно работать с Git-репозиториями в инстансе {{ GL }}: [SSH](../../glossary/ssh-keygen.md) или HTTPS;
-* какой сертификат можно использовать при работе по HTTPS: [сертификат Let's Encrypt]({{ gl.docs }}/omnibus/settings/ssl/#enable-the-lets-encrypt-integration) (по умолчанию) или собственный сертификат (через запрос в [техническую поддержку]({{ link-console-support }}));
-* выделен ли доступ к [{{ GL }} Container Registry]({{ gl.docs }}/ee/user/packages/container_registry/).
+* по какому протоколу можно работать с Git-репозиториями в инстансе GitLab: [SSH](../../glossary/ssh-keygen.md) или HTTPS;
+* какой сертификат можно использовать при работе по HTTPS: [сертификат Let's Encrypt](https://docs.gitlab.com/omnibus/settings/ssl/#enable-the-lets-encrypt-integration) (по умолчанию) или собственный сертификат (через запрос в [техническую поддержку](https://center.yandex.cloud/support));
+* выделен ли доступ к [GitLab Container Registry](https://docs.gitlab.com/ee/user/packages/container_registry/).
 
 {% note warning %}
 
-От настройки группы безопасности зависит работоспособность и доступность инстанса {{ mgl-name }}.
+От настройки группы безопасности зависит работоспособность и доступность инстанса Managed Service for GitLab.
 
 {% endnote %}
 
-Чтобы настроить группу безопасности инстанса {{ mgl-name }}:
+Чтобы настроить группу безопасности инстанса Managed Service for GitLab:
 1. [Добавьте](../../vpc/operations/security-group-add-rule.md) в имеющуюся группу безопасности правила для [входящего](#ingress-rules-instance) и [исходящего](#egress-rules-instance) трафика или [создайте](../../vpc/operations/security-group-create.md) новую группу с указанными правилами.
-1. Примените группу безопасности к инстансу {{ GL }} при [создании](instance/instance-create.md) или [изменении](instance/instance-update.md).
+1. Примените группу безопасности к инстансу GitLab при [создании](instance/instance-create.md) или [изменении](instance/instance-update.md).
 
-Если к инстансу не привязать отдельную группу безопасности, к нему применится группа, созданная по умолчанию в сети инстанса. Правила этой группы безопасности, добавленные для других сервисов, влияют на доступ к инстансу {{ GL }}.
+Если к инстансу не привязать отдельную группу безопасности, к нему применится группа, созданная по умолчанию в сети инстанса. Правила этой группы безопасности, добавленные для других сервисов, влияют на доступ к инстансу GitLab.
 
-Если у вас возникли проблемы с настройкой группы безопасности, обратитесь в [техническую поддержку]({{ link-console-support }}).
+Если у вас возникли проблемы с настройкой группы безопасности, обратитесь в [техническую поддержку](https://center.yandex.cloud/support).
 
 ### Правила для входящего трафика {#ingress-rules-instance}
 
 #|
 || **Зачем нужно правило** | **Настройки правила** ||
 || Для работы с Git-репозиториями по протоколу SSH. | 
-* {{ ui-key.yacloud.vpc.network.security-groups.forms.field_sg-rule-port-range }} — `{{ port-ssh }}` и `2222`. Для каждого порта создайте отдельное правило.
-* {{ ui-key.yacloud.vpc.network.security-groups.forms.field_sg-rule-protocol }} — `{{ ui-key.yacloud.common.label_tcp }}`.
-* {{ ui-key.yacloud.vpc.network.security-groups.forms.field_sg-rule-source }} — `{{ ui-key.yacloud.vpc.network.security-groups.forms.value_sg-rule-destination-cidr }}`.
-* {{ ui-key.yacloud.vpc.network.security-groups.forms.field_sg-rule-cidr-blocks }} — задайте диапазоны адресов подсетей внутри {{ yandex-cloud }} или публичные IP-адреса компьютеров в интернете, чтобы открыть доступ для подсетей и компьютеров. Примеры:
+* Диапазон портов — `22` и `2222`. Для каждого порта создайте отдельное правило.
+* Протокол — `TCP`.
+* Источник — `CIDR`.
+* CIDR блоки — задайте диапазоны адресов подсетей внутри Yandex Cloud или публичные IP-адреса компьютеров в интернете, чтобы открыть доступ для подсетей и компьютеров. Примеры:
 
    * `172.16.0.0/12`.
    * `85.32.32.22/32`.
@@ -39,35 +39,35 @@
    Чтобы разрешить трафик с любых IP-адресов, укажите `0.0.0.0/0`.
 ||
 || Для работы с Git-репозиториями по протоколу HTTPS. |
-* {{ ui-key.yacloud.vpc.network.security-groups.forms.field_sg-rule-port-range }} — `{{ port-https }}`.
-* {{ ui-key.yacloud.vpc.network.security-groups.forms.field_sg-rule-protocol }} — `{{ ui-key.yacloud.common.label_tcp }}`.
-* {{ ui-key.yacloud.vpc.network.security-groups.forms.field_sg-rule-source }} — `{{ ui-key.yacloud.vpc.network.security-groups.forms.value_sg-rule-destination-cidr }}`.
-* {{ ui-key.yacloud.vpc.network.security-groups.forms.field_sg-rule-cidr-blocks }} — задайте диапазоны адресов подсетей внутри {{ yandex-cloud }} или публичные IP-адреса компьютеров в интернете, чтобы открыть доступ для подсетей и компьютеров.
+* Диапазон портов — `443`.
+* Протокол — `TCP`.
+* Источник — `CIDR`.
+* CIDR блоки — задайте диапазоны адресов подсетей внутри Yandex Cloud или публичные IP-адреса компьютеров в интернете, чтобы открыть доступ для подсетей и компьютеров.
 ||
 || Для использования сертификата Let's Encrypt.
 
-Такой сертификат [используется по умолчанию]({{ gl.docs }}/omnibus/settings/ssl/#enable-the-lets-encrypt-integration) при работе с Git-репозиториями по протоколу HTTPS. Если вы не указываете это правило, то для работы по протоколу HTTPS добавьте собственный сертификат. Для его настройки обратитесь в [техническую поддержку]({{ link-console-support }}). |
-* {{ ui-key.yacloud.vpc.network.security-groups.forms.field_sg-rule-port-range }} — `{{ port-http }}`.
-* {{ ui-key.yacloud.vpc.network.security-groups.forms.field_sg-rule-protocol }} — `{{ ui-key.yacloud.common.label_tcp }}`.
-* {{ ui-key.yacloud.vpc.network.security-groups.forms.field_sg-rule-source }} — `{{ ui-key.yacloud.vpc.network.security-groups.forms.value_sg-rule-destination-cidr }}`.
-* {{ ui-key.yacloud.vpc.network.security-groups.forms.field_sg-rule-cidr-blocks }} — `0.0.0.0/0`.
+Такой сертификат [используется по умолчанию](https://docs.gitlab.com/omnibus/settings/ssl/#enable-the-lets-encrypt-integration) при работе с Git-репозиториями по протоколу HTTPS. Если вы не указываете это правило, то для работы по протоколу HTTPS добавьте собственный сертификат. Для его настройки обратитесь в [техническую поддержку](https://center.yandex.cloud/support). |
+* Диапазон портов — `80`.
+* Протокол — `TCP`.
+* Источник — `CIDR`.
+* CIDR блоки — `0.0.0.0/0`.
 ||
 || Для создания резервных копий инстанса. |
-* {{ ui-key.yacloud.vpc.network.security-groups.forms.field_sg-rule-port-range }} — `{{ port-https }}`.
-* {{ ui-key.yacloud.vpc.network.security-groups.forms.field_sg-rule-protocol }} — `{{ ui-key.yacloud.common.label_tcp }}`.
-* {{ ui-key.yacloud.vpc.network.security-groups.forms.field_sg-rule-source }} — `{{ ui-key.yacloud.vpc.network.security-groups.forms.value_sg-rule-destination-cidr }}`.
-* {{ ui-key.yacloud.vpc.network.security-groups.forms.field_sg-rule-cidr-blocks }} — `213.180.193.243/32`.
+* Диапазон портов — `443`.
+* Протокол — `TCP`.
+* Источник — `CIDR`.
+* CIDR блоки — `213.180.193.243/32`.
 ||
 || Для [проверки доступности ресурсов](../../network-load-balancer/concepts/health-check.md) сетевым балансировщиком. |
-* {{ ui-key.yacloud.vpc.network.security-groups.forms.field_sg-rule-port-range }} — `80`.
-* {{ ui-key.yacloud.vpc.network.security-groups.forms.field_sg-rule-protocol }} — `{{ ui-key.yacloud.common.label_tcp }}`.
-* {{ ui-key.yacloud.vpc.network.security-groups.forms.field_sg-rule-source }} — `{{ ui-key.yacloud.vpc.network.security-groups.forms.value_sg-rule-sg-type-balancer }}`.
+* Диапазон портов — `80`.
+* Протокол — `TCP`.
+* Источник — `Проверки состояния балансировщика`.
 ||
-|| Для подключения к {{ GL }} Container Registry. |
-* {{ ui-key.yacloud.vpc.network.security-groups.forms.field_sg-rule-port-range }} — `5050`.
-* {{ ui-key.yacloud.vpc.network.security-groups.forms.field_sg-rule-protocol }} — `{{ ui-key.yacloud.common.label_tcp }}`.
-* {{ ui-key.yacloud.vpc.network.security-groups.forms.field_sg-rule-source }} — `{{ ui-key.yacloud.vpc.network.security-groups.forms.value_sg-rule-destination-cidr }}`.
-* {{ ui-key.yacloud.vpc.network.security-groups.forms.field_sg-rule-cidr-blocks }} — задайте диапазоны адресов подсетей внутри {{ yandex-cloud }} или публичные IP-адреса компьютеров в интернете, чтобы открыть доступ для подсетей и компьютеров.
+|| Для подключения к GitLab Container Registry. |
+* Диапазон портов — `5050`.
+* Протокол — `TCP`.
+* Источник — `CIDR`.
+* CIDR блоки — задайте диапазоны адресов подсетей внутри Yandex Cloud или публичные IP-адреса компьютеров в интернете, чтобы открыть доступ для подсетей и компьютеров.
 
    Чтобы разрешить трафик с любых IP-адресов, укажите `0.0.0.0/0`.
 ||
@@ -75,64 +75,64 @@
 
 ### Правила для исходящего трафика {#egress-rules-instance}
 
-{{ mgl-name }} использует для работы внешние ресурсы. Если в группе безопасности инстанса вы ограничили исходящий трафик, инстанс может работать некорректно. Чтобы избежать этого, добавьте в группу безопасности следующие правила:
+Managed Service for GitLab использует для работы внешние ресурсы. Если в группе безопасности инстанса вы ограничили исходящий трафик, инстанс может работать некорректно. Чтобы избежать этого, добавьте в группу безопасности следующие правила:
 
 #|
 || **Зачем нужно правило** | **Настройки правила** ||
 || Для использования сертификата Let's Encrypt. |
-* {{ ui-key.yacloud.vpc.network.security-groups.forms.field_sg-rule-port-range }} — `{{ port-https }}`.
-* {{ ui-key.yacloud.vpc.network.security-groups.forms.field_sg-rule-protocol }} — `{{ ui-key.yacloud.common.label_tcp }}`.
-* {{ ui-key.yacloud.vpc.network.security-groups.forms.field_sg-rule-source }} — `{{ ui-key.yacloud.vpc.network.security-groups.forms.value_sg-rule-destination-cidr }}`.
-* {{ ui-key.yacloud.vpc.network.security-groups.forms.field_sg-rule-cidr-blocks }} — `0.0.0.0/0`.
+* Диапазон портов — `443`.
+* Протокол — `TCP`.
+* Источник — `CIDR`.
+* CIDR блоки — `0.0.0.0/0`.
 ||
 || Для создания резервных копий инстанса. |
-* {{ ui-key.yacloud.vpc.network.security-groups.forms.field_sg-rule-port-range }} — `{{ port-https }}`.
-* {{ ui-key.yacloud.vpc.network.security-groups.forms.field_sg-rule-protocol }} — `{{ ui-key.yacloud.common.label_tcp }}`.
-* {{ ui-key.yacloud.vpc.network.security-groups.forms.field_sg-rule-source }} — `{{ ui-key.yacloud.vpc.network.security-groups.forms.value_sg-rule-destination-cidr }}`.
-* {{ ui-key.yacloud.vpc.network.security-groups.forms.field_sg-rule-cidr-blocks }} — `213.180.193.243/32`.
+* Диапазон портов — `443`.
+* Протокол — `TCP`.
+* Источник — `CIDR`.
+* CIDR блоки — `213.180.193.243/32`.
 ||
 || Для запросов в службу [метаданных](../../compute/concepts/vm-metadata.md) при обновлении инстанса. |
-* {{ ui-key.yacloud.vpc.network.security-groups.forms.field_sg-rule-port-range }} — `80`.
-* {{ ui-key.yacloud.vpc.network.security-groups.forms.field_sg-rule-protocol }} — `{{ ui-key.yacloud.common.label_tcp }}`.
-* {{ ui-key.yacloud.vpc.network.security-groups.forms.field_sg-rule-source }} — `{{ ui-key.yacloud.vpc.network.security-groups.forms.value_sg-rule-destination-cidr }}`.
-* {{ ui-key.yacloud.vpc.network.security-groups.forms.field_sg-rule-cidr-blocks }} — `169.254.169.254/32`.
+* Диапазон портов — `80`.
+* Протокол — `TCP`.
+* Источник — `CIDR`.
+* CIDR блоки — `169.254.169.254/32`.
 ||
 || Для запросов в службу DNS. |
-* {{ ui-key.yacloud.vpc.network.security-groups.forms.field_sg-rule-port-range }} — `53`.
-* {{ ui-key.yacloud.vpc.network.security-groups.forms.field_sg-rule-protocol }} — `{{ ui-key.yacloud.common.label_udp }}`.
-* {{ ui-key.yacloud.vpc.network.security-groups.forms.field_sg-rule-source }} — `{{ ui-key.yacloud.vpc.network.security-groups.forms.value_sg-rule-destination-cidr }}`.
-* {{ ui-key.yacloud.vpc.network.security-groups.forms.field_sg-rule-cidr-blocks }} — `<второй_IP-адрес_в_подсети>/32`. Например для подсети `10.128.0.0/24` это будет CIDR `10.128.0.2/32`.
+* Диапазон портов — `53`.
+* Протокол — `UDP`.
+* Источник — `CIDR`.
+* CIDR блоки — `<второй_IP-адрес_в_подсети>/32`. Например для подсети `10.128.0.0/24` это будет CIDR `10.128.0.2/32`.
    
    Если в вашей подсети есть собственный DNS-сервер, также разрешите исходящий трафик к нему, например `IP-адрес_DNS_сервера/32`.
 ||
 || Для запросов к NTP-серверам для поддержки двухфакторной аутентификации. |
-* {{ ui-key.yacloud.vpc.network.security-groups.forms.field_sg-rule-port-range }} — `123`.
-* {{ ui-key.yacloud.vpc.network.security-groups.forms.field_sg-rule-protocol }} — `{{ ui-key.yacloud.common.label_udp }}`.
-* {{ ui-key.yacloud.vpc.network.security-groups.forms.field_sg-rule-source }} — `{{ ui-key.yacloud.vpc.network.security-groups.forms.value_sg-rule-destination-cidr }}`.
-* {{ ui-key.yacloud.vpc.network.security-groups.forms.field_sg-rule-cidr-blocks }} — `0.0.0.0/0`.
+* Диапазон портов — `123`.
+* Протокол — `UDP`.
+* Источник — `CIDR`.
+* CIDR блоки — `0.0.0.0/0`.
 ||
 || Для доступа к воркерам под управлением раннера, [созданного с помощью консоли управления](../tutorials/install-gitlab-runner.md#create-runner). |
-* {{ ui-key.yacloud.vpc.network.security-groups.forms.field_sg-rule-port-range }} — `22`.
-* {{ ui-key.yacloud.vpc.network.security-groups.forms.field_sg-rule-protocol }} — `{{ ui-key.yacloud.common.label_tcp }}`.
-* {{ ui-key.yacloud.vpc.network.security-groups.forms.field_sg-rule-source }} — `{{ ui-key.yacloud.vpc.network.security-groups.forms.value_sg-rule-destination-cidr }}`.
-* {{ ui-key.yacloud.vpc.network.security-groups.forms.field_sg-rule-cidr-blocks }} — CIDR подсети, в которой находится инстанс {{ mgl-name }} (воркеры создаются в ней же). Например `10.128.0.0/24`.
+* Диапазон портов — `22`.
+* Протокол — `TCP`.
+* Источник — `CIDR`.
+* CIDR блоки — CIDR подсети, в которой находится инстанс Managed Service for GitLab (воркеры создаются в ней же). Например `10.128.0.0/24`.
 ||
 |#
 
 ## Группы безопасности для управляемого раннера {#sg-runner}
 
-Настройка сетевого взаимодействия между {{ GL }} и управляемыми раннерами включает обязательные, рекомендуемые и опциональные настройки групп безопасности.
+Настройка сетевого взаимодействия между GitLab и управляемыми раннерами включает обязательные, рекомендуемые и опциональные настройки групп безопасности.
 
 ### Правила для входящего трафика {#ingress-rules-runner}
 
 #|
 || **Зачем нужно правило** | **Настройки правила** ||
-|| Для управления раннером с инстанса {{ GL }} по протоколу SSH.
+|| Для управления раннером с инстанса GitLab по протоколу SSH.
 Обязательное правило. |
-* {{ ui-key.yacloud.vpc.network.security-groups.forms.field_sg-rule-port-range }} — `22`.
-* {{ ui-key.yacloud.vpc.network.security-groups.forms.field_sg-rule-protocol }} — `{{ ui-key.yacloud.common.label_tcp }}`.
-* {{ ui-key.yacloud.vpc.network.security-groups.forms.field_sg-rule-source }} — `{{ ui-key.yacloud.vpc.network.security-groups.forms.value_sg-rule-destination-cidr }}`.
-* {{ ui-key.yacloud.vpc.network.security-groups.forms.field_sg-rule-cidr-blocks }} — CIDR всех подсетей, где могут запускаться раннеры.
+* Диапазон портов — `22`.
+* Протокол — `TCP`.
+* Источник — `CIDR`.
+* CIDR блоки — CIDR всех подсетей, где могут запускаться раннеры.
 Вместо CIDR вы можете указать группу безопасности, созданную для раннеров.
 ||
 |#
@@ -141,33 +141,33 @@
 
 #|
 || **Зачем нужно правило** | **Настройки правила** ||
-|| Для взаимодействия с публичным адресом инстанса {{ GL }} по протоколу HTTPS (например, для клонирования репозиториев, загрузки артефактов).
+|| Для взаимодействия с публичным адресом инстанса GitLab по протоколу HTTPS (например, для клонирования репозиториев, загрузки артефактов).
 Обязательное правило. |
-* {{ ui-key.yacloud.vpc.network.security-groups.forms.field_sg-rule-port-range }} — `443`.
-* {{ ui-key.yacloud.vpc.network.security-groups.forms.field_sg-rule-protocol }} — `{{ ui-key.yacloud.common.label_tcp }}`.
-* {{ ui-key.yacloud.vpc.network.security-groups.forms.field_sg-rule-source }} — `{{ ui-key.yacloud.vpc.network.security-groups.forms.value_sg-rule-destination-cidr }}`.
-* {{ ui-key.yacloud.vpc.network.security-groups.forms.field_sg-rule-cidr-blocks }} — публичный адрес {{ GL }}.
+* Диапазон портов — `443`.
+* Протокол — `TCP`.
+* Источник — `CIDR`.
+* CIDR блоки — публичный адрес GitLab.
 ||
 || Для доступа к реестру артефактов (например, Cloud Registry, dockerhub.io).
 Рекомендуемое правило. |
-* {{ ui-key.yacloud.vpc.network.security-groups.forms.field_sg-rule-port-range }} — `443`, `5000` или другой.
-* {{ ui-key.yacloud.vpc.network.security-groups.forms.field_sg-rule-protocol }} — `{{ ui-key.yacloud.common.label_tcp }}`.
-* {{ ui-key.yacloud.vpc.network.security-groups.forms.field_sg-rule-source }} — `{{ ui-key.yacloud.vpc.network.security-groups.forms.value_sg-rule-destination-cidr }}`.
-* {{ ui-key.yacloud.vpc.network.security-groups.forms.field_sg-rule-cidr-blocks }} — CIDR реестров, к которым предоставляется доступ. Чтобы разрешить трафик на любые IP-адреса, укажите `0.0.0.0/0`.
+* Диапазон портов — `443`, `5000` или другой.
+* Протокол — `TCP`.
+* Источник — `CIDR`.
+* CIDR блоки — CIDR реестров, к которым предоставляется доступ. Чтобы разрешить трафик на любые IP-адреса, укажите `0.0.0.0/0`.
 ||
 || Для доступа к объектным хранилищам (например, LFS, Container Registry).
 Рекомендуемое правило. |
-* {{ ui-key.yacloud.vpc.network.security-groups.forms.field_sg-rule-port-range }} — `443`.
-* {{ ui-key.yacloud.vpc.network.security-groups.forms.field_sg-rule-protocol }} — `{{ ui-key.yacloud.common.label_tcp }}`.
-* {{ ui-key.yacloud.vpc.network.security-groups.forms.field_sg-rule-source }} — `{{ ui-key.yacloud.vpc.network.security-groups.forms.value_sg-rule-destination-cidr }}`.
-* {{ ui-key.yacloud.vpc.network.security-groups.forms.field_sg-rule-cidr-blocks }} — CIDR объектных хранилищ, к которым предоставляется доступ. Чтобы разрешить трафик на любые IP-адреса, укажите `0.0.0.0/0`.
+* Диапазон портов — `443`.
+* Протокол — `TCP`.
+* Источник — `CIDR`.
+* CIDR блоки — CIDR объектных хранилищ, к которым предоставляется доступ. Чтобы разрешить трафик на любые IP-адреса, укажите `0.0.0.0/0`.
 ||
 || Для доступа к внешним ресурсам.
 Опциональное правило. |
-* {{ ui-key.yacloud.vpc.network.security-groups.forms.field_sg-rule-port-range }} — `443`, `80` или другой.
-* {{ ui-key.yacloud.vpc.network.security-groups.forms.field_sg-rule-protocol }} — `{{ ui-key.yacloud.common.label_tcp }}`.
-* {{ ui-key.yacloud.vpc.network.security-groups.forms.field_sg-rule-source }} — `{{ ui-key.yacloud.vpc.network.security-groups.forms.value_sg-rule-destination-cidr }}`.
-* {{ ui-key.yacloud.vpc.network.security-groups.forms.field_sg-rule-cidr-blocks }} — CIDR внешних ресурсов.
-Если список ресурсов не определен, можно разрешить исходящий трафик к любым адресам (CIDR — `0.0.0.0/0`) через все порты. В этом случае можно пропустить настройку рекомендуемых правил и настройку доступа из управляемого раннера к публичному адресу инстанса {{ GL }}.
+* Диапазон портов — `443`, `80` или другой.
+* Протокол — `TCP`.
+* Источник — `CIDR`.
+* CIDR блоки — CIDR внешних ресурсов.
+Если список ресурсов не определен, можно разрешить исходящий трафик к любым адресам (CIDR — `0.0.0.0/0`) через все порты. В этом случае можно пропустить настройку рекомендуемых правил и настройку доступа из управляемого раннера к публичному адресу инстанса GitLab.
 ||
 |#

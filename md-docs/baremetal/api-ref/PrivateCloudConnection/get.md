@@ -6,7 +6,7 @@ To get the list of available Private cloud connection resources, make a [List](l
 ## HTTP request
 
 ```
-GET https://baremetal.{{ api-host }}/baremetal/v1alpha/privateCloudConnections/{privateCloudConnectionId}
+GET https://baremetal.api.cloud.yandex.net/baremetal/v1alpha/privateCloudConnections/{privateCloudConnectionId}
 ```
 
 ## Path parameters

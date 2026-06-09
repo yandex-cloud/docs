@@ -5,7 +5,7 @@ Retrieves the list of snapshot schedules in the specified folder.
 ## HTTP request
 
 ```
-GET https://compute.{{ api-host }}/compute/v1/snapshotSchedules
+GET https://compute.api.cloud.yandex.net/compute/v1/snapshotSchedules
 ```
 
 ## Query parameters {#yandex.cloud.compute.v1.ListSnapshotSchedulesRequest}

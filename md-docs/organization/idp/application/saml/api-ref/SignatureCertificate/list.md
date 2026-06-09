@@ -5,7 +5,7 @@ Retrieves the list of signature certificates for the specified SAML application.
 ## HTTP request
 
 ```
-GET https://organization-manager.{{ api-host }}/organization-manager/v1/idp/application/saml/signature-certificates
+GET https://organization-manager.api.cloud.yandex.net/organization-manager/v1/idp/application/saml/signature-certificates
 ```
 
 ## Query parameters {#yandex.cloud.organizationmanager.v1.idp.application.saml.ListSignatureCertificatesRequest}

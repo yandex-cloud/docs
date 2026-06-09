@@ -1,6 +1,6 @@
 # Просмотр информации о ресурсах
 
-В разделе ![image](../../_assets/console-icons/folder-tree.svg) [**Подключения**]({{ websql-link }}) вы можете просмотреть информацию:
+В разделе ![image](../../_assets/console-icons/folder-tree.svg) [**Подключения**](https://websql.yandex.cloud) вы можете просмотреть информацию:
 
    * [о кластере управляемых БД](#view-cluster-settings);
    * [о подключении](#view-connection-settings);
@@ -8,14 +8,14 @@
 
 ## Посмотреть информацию о кластере управляемых БД {#view-cluster-settings}
 
-1. В разделе ![image](../../_assets/console-icons/folder-tree.svg) [**Подключения**]({{ websql-link }}) выберите кластер управляемых БД.
+1. В разделе ![image](../../_assets/console-icons/folder-tree.svg) [**Подключения**](https://websql.yandex.cloud) выберите кластер управляемых БД.
 1. Нажмите ![image](../../_assets/console-icons/ellipsis.svg) справа от названия кластера и выберите **Информация о кластере**.
 
 Откроется панель с настройками кластера.
 
 ## Просмотреть информацию о подключении {#view-connection-settings}
 
-1. В разделе ![image](../../_assets/console-icons/folder-tree.svg) [**Подключения**]({{ websql-link }}) выберите подключение.
+1. В разделе ![image](../../_assets/console-icons/folder-tree.svg) [**Подключения**](https://websql.yandex.cloud) выберите подключение.
 1. Нажмите ![image](../../_assets/console-icons/ellipsis.svg) справа от названия подключения и выберите **Информация о подключении**.
 
 Откроется панель с настройками подключения.
@@ -24,7 +24,7 @@
 
 ## Посмотреть информацию о БД {#view-db-settings}
 
-1. В разделе ![image](../../_assets/console-icons/folder-tree.svg) [**Подключения**]({{ websql-link }}) выберите БД.
+1. В разделе ![image](../../_assets/console-icons/folder-tree.svg) [**Подключения**](https://websql.yandex.cloud) выберите БД.
 1. Нажмите ![image](../../_assets/console-icons/ellipsis.svg) справа от названия БД и выберите **Информация о базе данных**.
 
 Откроется панель с настройками БД.

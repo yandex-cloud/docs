@@ -1,4 +1,4 @@
-# [{{ datalens-full-name }}] Unknown field found in formula
+# [Yandex DataLens] Unknown field found in formula
 
 `ERR.DS_API.FORMULA.UNKNOWN_FIELD_IN_FORMULA`
 

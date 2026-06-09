@@ -5,7 +5,7 @@ Retrieves a list of available backups for the specified Greenplum® cluster.
 ## HTTP request
 
 ```
-GET https://{{ api-host-mdb }}/managed-greenplum/v1/clusters/{clusterId}/backups
+GET https://mdb.api.cloud.yandex.net/managed-greenplum/v1/clusters/{clusterId}/backups
 ```
 
 ## Path parameters

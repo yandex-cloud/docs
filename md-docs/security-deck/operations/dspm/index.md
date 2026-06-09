@@ -1,6 +1,6 @@
-# Контроль данных ({{ dspm-name }})
+# Контроль данных (DSPM)
 
-* [{#T}](create-data-source.md).
-* [{#T}](create-scan.md).
-* [{#T}](discovery-mode.md).
-* [{#T}](work-with-results.md).
+* [Создать источник данных DSPM](create-data-source.md).
+* [Создать сканирование DSPM](create-scan.md).
+* [Управление анализом данных DSPM](discovery-mode.md).
+* [Управлять результатами сканирования в DSPM](work-with-results.md).

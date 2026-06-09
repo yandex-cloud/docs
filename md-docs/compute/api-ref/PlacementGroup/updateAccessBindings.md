@@ -5,7 +5,7 @@ Updates access bindings for the placement group.
 ## HTTP request
 
 ```
-POST https://compute.{{ api-host }}/compute/v1/placementGroups/{resourceId}:updateAccessBindings
+POST https://compute.api.cloud.yandex.net/compute/v1/placementGroups/{resourceId}:updateAccessBindings
 ```
 
 ## Path parameters

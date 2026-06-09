@@ -5,7 +5,7 @@ Creates an OpenSearch cluster in the specified folder.
 ## HTTP request
 
 ```
-POST https://{{ api-host-mdb }}/managed-opensearch/v1/clusters
+POST https://mdb.api.cloud.yandex.net/managed-opensearch/v1/clusters
 ```
 
 ## Body parameters {#yandex.cloud.mdb.opensearch.v1.CreateClusterRequest}

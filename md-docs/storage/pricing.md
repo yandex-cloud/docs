@@ -1,4 +1,4 @@
-# Правила тарификации для {{ objstorage-name }}
+# Правила тарификации для Object Storage
 
 ::: page-constructor
 blocks:
@@ -51,9 +51,9 @@ blocks:
 Все цены в рублях и тенге указаны с НДС, все цены в долларах — без НДС.
 
 
-## Из чего складывается стоимость использования {{ objstorage-short-name }} {#rules}
+## Из чего складывается стоимость использования Object Storage {#rules}
 
-Расчет стоимости использования {{ objstorage-name }} учитывает:
+Расчет стоимости использования Object Storage учитывает:
 
 * [Класс хранилища](concepts/storage-class.md).
 * Объем хранилища, занятый данными.
@@ -95,15 +95,75 @@ blocks:
 
 {% note info %}
 
-Цены на ресурсы {{ yandex-cloud }} в разных регионах различаются. Подробнее о доступных регионах см. [{#T}](../overview/concepts/region.md).
+Цены на ресурсы Yandex Cloud в разных регионах различаются. Подробнее о доступных регионах см. [Регионы](../overview/concepts/region.md).
 
-Валюта, которой можно оплачивать ресурсы, зависит от юридического лица, с которым пользователь заключил договор. Подробнее о регистрации аккаунта см. [{#T}](../billing/quickstart/index.md).
+Валюта, которой можно оплачивать ресурсы, зависит от юридического лица, с которым пользователь заключил договор. Подробнее о регистрации аккаунта см. [Регистрация аккаунта в Yandex Cloud](../billing/quickstart/index.md).
 
 {% endnote %}
 
 
-| Услуга | Цена | Ед. тарификации | Действует с | Действует до |
-| ------ | ---- | --------------- | ----------- | ------------ |
+| Услуга                                                                                                                                                    | Цена              | Ед. тарификации     | Действует с    | Действует до |
+| --------------------------------------------------------------------------------------------------------------------------------------------------------- | ----------------- | ------------------- | -------------- | ------------ |
+| Object Storage. Выгруженные записи в отчёт метаданных (S3 Inventory)                                                                                      | 0,2592 ₽          | 1 млн объектов      | 20 апреля 2026 | —            |
+| Object Storage. Количество объектов в умном хранилище                                                                                                     | Не тарифицируется | 1 тыс. объектов⋅час | —              | —            |
+| Object Storage. Ледяное хранилище, операции GET                                                                                                           | 2,3 ₽             | 10 тыс. операций    | 1 мая 2026     | —            |
+| Object Storage. Ледяное хранилище, операции HEAD                                                                                                          | 2,3 ₽             | 10 тыс. операций    | 1 мая 2026     | —            |
+| Object Storage. Ледяное хранилище, операции LIST                                                                                                          | 2,79 ₽            | 1 тыс. операций     | 1 мая 2026     | —            |
+| Object Storage. Ледяное хранилище, операции OPTIONS                                                                                                       | 2,3 ₽             | 10 тыс. операций    | 1 мая 2026     | —            |
+| Object Storage. Ледяное хранилище, операции PATCH                                                                                                         | 2,79 ₽            | 1 тыс. операций     | 1 мая 2026     | —            |
+| Object Storage. Ледяное хранилище, операции POST                                                                                                          | 2,79 ₽            | 1 тыс. операций     | 1 мая 2026     | —            |
+| Object Storage. Ледяное хранилище, операции PUT                                                                                                           | 2,79 ₽            | 1 тыс. операций     | 1 мая 2026     | —            |
+| Object Storage. Ледяное хранилище, операции TRANSITION                                                                                                    | 2,79 ₽            | 1 тыс. операций     | 1 мая 2026     | —            |
+| Object Storage. Операции DELETE                                                                                                                           | Не тарифицируется | 10 тыс. операций    | 1 января 2018  | —            |
+| Object Storage. Операции перехода в умном хранилище                                                                                                       | Не тарифицируется | 1 тыс. операций     | —              | —            |
+| Object Storage. Остаток стоимости размещения данных в ледяном хранилище при их досрочном (ранее 12 месяцев) удалении, перезаписи или частичной перезаписи | 0,00088 ₽         | ГБ × час            | 1 мая 2026     | —            |
+| Object Storage. Размещение данных в ледяном хранилище                                                                                                     | 0,00088 ₽         | ГБ × час            | 1 мая 2026     | —            |
+| Object Storage. Размещение данных в стандартном хранилище, от 0 до 720 единицы тарификации в месяц                                                        | Не тарифицируется | ГБ × час            | 1 мая 2026     | —            |
+| Object Storage. Размещение данных в стандартном хранилище, от 720 единицы тарификации в месяц                                                             | 0,0033 ₽          | ГБ × час            | 1 мая 2026     | —            |
+| Object Storage. Размещение данных в умном хранилище — Архивный доступ                                                                                     | Не тарифицируется | ГБ × час            | —              | —            |
+| Object Storage. Размещение данных в умном хранилище — Нечастый доступ                                                                                     | Не тарифицируется | ГБ × час            | —              | —            |
+| Object Storage. Размещение данных в умном хранилище — Частый доступ                                                                                       | Не тарифицируется | ГБ × час            | —              | —            |
+| Object Storage. Размещение данных в холодном хранилище                                                                                                    | 0,00176 ₽         | ГБ × час            | 1 мая 2026     | —            |
+| Object Storage. Стандартное хранилище, операции GET, от 0 до 10 единицы тарификации в месяц                                                               | Не тарифицируется | 10 тыс. операций    | 1 мая 2026     | —            |
+| Object Storage. Стандартное хранилище, операции GET, от 10 единицы тарификации в месяц                                                                    | 0,46 ₽            | 10 тыс. операций    | 1 мая 2026     | —            |
+| Object Storage. Стандартное хранилище, операции HEAD, от 0 до 10 единицы тарификации в месяц                                                              | Не тарифицируется | 10 тыс. операций    | 1 мая 2026     | —            |
+| Object Storage. Стандартное хранилище, операции HEAD, от 10 единицы тарификации в месяц                                                                   | 0,46 ₽            | 10 тыс. операций    | 1 мая 2026     | —            |
+| Object Storage. Стандартное хранилище, операции LIST, от 0 до 10 единицы тарификации в месяц                                                              | Не тарифицируется | 1 тыс. операций     | 1 мая 2026     | —            |
+| Object Storage. Стандартное хранилище, операции LIST, от 10 единицы тарификации в месяц                                                                   | 0,5692 ₽          | 1 тыс. операций     | 1 мая 2026     | —            |
+| Object Storage. Стандартное хранилище, операции OPTIONS, от 0 до 10 единицы тарификации в месяц                                                           | Не тарифицируется | 10 тыс. операций    | 1 мая 2026     | —            |
+| Object Storage. Стандартное хранилище, операции OPTIONS, от 10 единицы тарификации в месяц                                                                | 0,46 ₽            | 10 тыс. операций    | 1 мая 2026     | —            |
+| Object Storage. Стандартное хранилище, операции PATCH, от 0 до 10 единицы тарификации в месяц                                                             | Не тарифицируется | 1 тыс. операций     | 1 мая 2026     | —            |
+| Object Storage. Стандартное хранилище, операции PATCH, от 10 единицы тарификации в месяц                                                                  | 0,5692 ₽          | 1 тыс. операций     | 1 мая 2026     | —            |
+| Object Storage. Стандартное хранилище, операции POST, от 0 до 10 единицы тарификации в месяц                                                              | Не тарифицируется | 1 тыс. операций     | 1 мая 2026     | —            |
+| Object Storage. Стандартное хранилище, операции POST, от 10 единицы тарификации в месяц                                                                   | 0,5692 ₽          | 1 тыс. операций     | 1 мая 2026     | —            |
+| Object Storage. Стандартное хранилище, операции PUT, от 0 до 10 единицы тарификации в месяц                                                               | Не тарифицируется | 1 тыс. операций     | 1 мая 2026     | —            |
+| Object Storage. Стандартное хранилище, операции PUT, от 10 единицы тарификации в месяц                                                                    | 0,5692 ₽          | 1 тыс. операций     | 1 мая 2026     | —            |
+| Object Storage. Умное хранилище (архивный доступ), операции GET                                                                                           | Не тарифицируется | 10 тыс. операций    | —              | —            |
+| Object Storage. Умное хранилище (архивный доступ), операции HEAD                                                                                          | Не тарифицируется | 10 тыс. операций    | —              | —            |
+| Object Storage. Умное хранилище (архивный доступ), операции OPTIONS                                                                                       | Не тарифицируется | 10 тыс. операций    | —              | —            |
+| Object Storage. Умное хранилище (нечастый доступ), операции GET                                                                                           | Не тарифицируется | 10 тыс. операций    | —              | —            |
+| Object Storage. Умное хранилище (нечастый доступ), операции HEAD                                                                                          | Не тарифицируется | 10 тыс. операций    | —              | —            |
+| Object Storage. Умное хранилище (нечастый доступ), операции OPTIONS                                                                                       | Не тарифицируется | 10 тыс. операций    | —              | —            |
+| Object Storage. Умное хранилище (частый доступ), операции GET                                                                                             | Не тарифицируется | 10 тыс. операций    | —              | —            |
+| Object Storage. Умное хранилище (частый доступ), операции HEAD                                                                                            | Не тарифицируется | 10 тыс. операций    | —              | —            |
+| Object Storage. Умное хранилище (частый доступ), операции LIST                                                                                            | Не тарифицируется | 1 тыс. операций     | —              | —            |
+| Object Storage. Умное хранилище (частый доступ), операции OPTIONS                                                                                         | Не тарифицируется | 10 тыс. операций    | —              | —            |
+| Object Storage. Умное хранилище (частый доступ), операции PATCH                                                                                           | Не тарифицируется | 1 тыс. операций     | —              | —            |
+| Object Storage. Умное хранилище (частый доступ), операции POST                                                                                            | Не тарифицируется | 1 тыс. операций     | —              | —            |
+| Object Storage. Умное хранилище (частый доступ), операции PUT                                                                                             | Не тарифицируется | 1 тыс. операций     | —              | —            |
+| Object Storage. Холодное хранилище, операции GET                                                                                                          | 1,15 ₽            | 10 тыс. операций    | 1 мая 2026     | —            |
+| Object Storage. Холодное хранилище, операции HEAD                                                                                                         | 1,15 ₽            | 10 тыс. операций    | 1 мая 2026     | —            |
+| Object Storage. Холодное хранилище, операции LIST                                                                                                         | 1,39 ₽            | 1 тыс. операций     | 1 мая 2026     | —            |
+| Object Storage. Холодное хранилище, операции OPTIONS                                                                                                      | 1,15 ₽            | 10 тыс. операций    | 1 мая 2026     | —            |
+| Object Storage. Холодное хранилище, операции PATCH                                                                                                        | 1,39 ₽            | 1 тыс. операций     | 1 мая 2026     | —            |
+| Object Storage. Холодное хранилище, операции POST                                                                                                         | 1,39 ₽            | 1 тыс. операций     | 1 мая 2026     | —            |
+| Object Storage. Холодное хранилище, операции PUT                                                                                                          | 1,39 ₽            | 1 тыс. операций     | 1 мая 2026     | —            |
+| Object Storage. Холодное хранилище, операции TRANSITION                                                                                                   | 1,39 ₽            | 1 тыс. операций     | 1 мая 2026     | —            |
+| Исходящий трафик из Object Storage, от 0 до 100 единицы тарификации в месяц                                                                               | Не тарифицируется | ГБ                  | 1 января 2026  | —            |
+| Исходящий трафик из Object Storage, от 100 до 1024 единицы тарификации в месяц                                                                            | 1,67994 ₽         | ГБ                  | 1 января 2026  | —            |
+| Исходящий трафик из Object Storage, от 1024 до 51200 единицы тарификации в месяц                                                                          | 1,40544 ₽         | ГБ                  | 1 января 2026  | —            |
+| Исходящий трафик из Object Storage, от 51200 до 102400 единицы тарификации в месяц                                                                        | 1,3176 ₽          | ГБ                  | 1 января 2026  | —            |
+| Исходящий трафик из Object Storage, от 102400 единицы тарификации в месяц                                                                                 | 1,2627 ₽          | ГБ                  | 1 января 2026  | —            |
 
 
 
@@ -129,15 +189,15 @@ blocks:
 
 - Расчет в рублях {#prices-rub}
 
-  Например, если цена за хранение 1&nbsp;ГБ данных в стандартном хранилище в месяц составляет {{ sku|RUB|storage.bucket.used_space.standard|pricingRate.720|month|string }}, а объем хранимых данных за месяц — 23&nbsp;ГБ, то стоимость хранения за месяц составит:
+  Например, если цена за хранение 1&nbsp;ГБ данных в стандартном хранилище в месяц составляет 2,376 ₽, а объем хранимых данных за месяц — 23&nbsp;ГБ, то стоимость хранения за месяц составит:
   
-  > (23 − 1) × {{ sku|RUB|storage.bucket.used_space.standard|pricingRate.720|month|string }} = 22 × {{ sku|RUB|storage.bucket.used_space.standard|pricingRate.720|month|string }} = {% calc [currency=RUB] 22 × {{ sku|RUB|storage.bucket.used_space.standard|pricingRate.720|month|number }} %}
+  > (23 − 1) × 2,376 ₽ = 22 × 2,376 ₽ = {% calc [currency=RUB] 22 × 2.376 %}
 
 - Расчет в тенге {#prices-kzt}
 
-  Например, если цена за хранение 1&nbsp;ГБ данных в стандартном хранилище в месяц составляет {{ sku|KZT|storage.bucket.used_space.standard|pricingRate.720|month|string }}, а объем хранимых данных за месяц — 23&nbsp;ГБ, то стоимость хранения за месяц составит:
+  Например, если цена за хранение 1&nbsp;ГБ данных в стандартном хранилище в месяц составляет 11,88 ₸, а объем хранимых данных за месяц — 23&nbsp;ГБ, то стоимость хранения за месяц составит:
   
-  > (23 − 1) × {{ sku|KZT|storage.bucket.used_space.standard|pricingRate.720|month|string }} = 22 × {{ sku|KZT|storage.bucket.used_space.standard|pricingRate.720|month|string }} = {% calc [currency=KZT] round(22 × {{ sku|KZT|storage.bucket.used_space.standard|pricingRate.720|month|number }} × 100) / 100  %}
+  > (23 − 1) × 11,88 ₸ = 22 × 11,88 ₸ = {% calc [currency=KZT] round(22 × 11.88 × 100) / 100  %}
 
 {% endlist %}
 
@@ -153,35 +213,35 @@ blocks:
 
 - Расчет в рублях {#prices-rub}
 
-  Например, если цена за хранение 1&nbsp;ГБ данных в ледяном хранилище в месяц составляет {{ sku|RUB|storage.bucket.used_space.ice|month|string }}, а объект размером 3&nbsp;ГБ хранился в ледяном хранилище с 1 января по 20 сентября (8 месяцев и 20 дней), то его хранение тарифицируется следующим образом:
+  Например, если цена за хранение 1&nbsp;ГБ данных в ледяном хранилище в месяц составляет 0,6336 ₽, а объект размером 3&nbsp;ГБ хранился в ледяном хранилище с 1 января по 20 сентября (8 месяцев и 20 дней), то его хранение тарифицируется следующим образом:
   
   > С 1 января по 20 сентября суммарно
   >
-  > : _A_ = 3 × (8 + (20 / 30)) × {{ sku|RUB|storage.bucket.used_space.ice|month|string }} = (3 × 260 / 30) × {{ sku|RUB|storage.bucket.used_space.ice|month|string }} = {% calc [currency=RUB] (3 × 260 / 30) × {{ sku|RUB|storage.bucket.used_space.ice|month|number }} %}
+  > : _A_ = 3 × (8 + (20 / 30)) × 0,6336 ₽ = (3 × 260 / 30) × 0,6336 ₽ = {% calc [currency=RUB] (3 × 260 / 30) × 0.6336 %}
   >
   > 20 сентября, при удалении объекта
   >
-  > : _B_ = (3 × 12 × {{ sku|RUB|storage.bucket.used_space.ice|month|string }}) − _A_ = {% calc [currency=RUB] 3 × 12 × {{ sku|RUB|storage.bucket.used_space.ice|month|number }} %} − {% calc [currency=RUB] (3 × 260 / 30) × {{ sku|RUB|storage.bucket.used_space.ice|month|number }} %} = {% calc [currency=RUB] (3 × 12 × {{ sku|RUB|storage.bucket.used_space.ice|month|number }}) - ((3 × 260 / 30) {{ sku|RUB|storage.bucket.used_space.ice|month|number }}) %}
+  > : _B_ = (3 × 12 × 0,6336 ₽) − _A_ = {% calc [currency=RUB] 3 × 12 × 0.6336 %} − {% calc [currency=RUB] (3 × 260 / 30) × 0.6336 %} = {% calc [currency=RUB] (3 × 12 × 0.6336) - ((3 × 260 / 30) 0.6336) %}
   >
   > Итого
   >
-  > : _A_ + _B_ = {% calc [currency=RUB] ((3 × 260 / 30) × {{ sku|RUB|storage.bucket.used_space.ice|month|number }}) + ((3 × 12 × {{ sku|RUB|storage.bucket.used_space.ice|month|number }}) - ((3 × 260 / 30) {{ sku|RUB|storage.bucket.used_space.ice|month|number }})) %}
+  > : _A_ + _B_ = {% calc [currency=RUB] ((3 × 260 / 30) × 0.6336) + ((3 × 12 × 0.6336) - ((3 × 260 / 30) 0.6336)) %}
 
 - Расчет в тенге {#prices-kzt}
 
-  Например, если цена за хранение 1&nbsp;ГБ данных в ледяном хранилище в месяц составляет {{ sku|KZT|storage.bucket.used_space.ice|month|string }} , а объект размером 3&nbsp;ГБ хранился в ледяном хранилище с 1 января по 20 сентября (8 месяцев и 20 дней), то его хранение тарифицируется следующим образом:
+  Например, если цена за хранение 1&nbsp;ГБ данных в ледяном хранилище в месяц составляет 3,168 ₸ , а объект размером 3&nbsp;ГБ хранился в ледяном хранилище с 1 января по 20 сентября (8 месяцев и 20 дней), то его хранение тарифицируется следующим образом:
   
   > С 1 января по 20 сентября суммарно
   >
-  > : _A_ = 3 × (8 + (20 / 30)) × {{ sku|KZT|storage.bucket.used_space.ice|month|string }} = (3 × 260 / 30) × {{ sku|KZT|storage.bucket.used_space.ice|month|string }} = {% calc [currency=KZT] (3 × 260 / 30) × {{ sku|KZT|storage.bucket.used_space.ice|month|number }} %}
+  > : _A_ = 3 × (8 + (20 / 30)) × 3,168 ₸ = (3 × 260 / 30) × 3,168 ₸ = {% calc [currency=KZT] (3 × 260 / 30) × 3.168 %}
   >
   > 20 сентября, при удалении объекта
   >
-  > : _B_ = (3 × 12 × {{ sku|KZT|storage.bucket.used_space.ice|month|string}}) − _A_ = {% calc [currency=KZT] 3 × 12 × {{ sku|KZT|storage.bucket.used_space.ice|month|number }} %} − {% calc [currency=KZT] (3 × 260 / 30) × {{ sku|KZT|storage.bucket.used_space.ice|month|number }} %} = {% calc [currency=KZT] (3 × 12 × {{ sku|KZT|storage.bucket.used_space.ice|month|number }}) - ((3 × 260 / 30) × {{ sku|KZT|storage.bucket.used_space.ice|month|number }}) %}
+  > : _B_ = (3 × 12 × 3,168 ₸) − _A_ = {% calc [currency=KZT] 3 × 12 × 3.168 %} − {% calc [currency=KZT] (3 × 260 / 30) × 3.168 %} = {% calc [currency=KZT] (3 × 12 × 3.168) - ((3 × 260 / 30) × 3.168) %}
   >
   > Итого
   >
-  > : _A_ + _B_ = {% calc [currency=KZT] ((3 × 260 / 30) × {{ sku|KZT|storage.bucket.used_space.ice|month|number }}) + ((3 × 12 × {{ sku|KZT|storage.bucket.used_space.ice|month|number }}) - ((3 × 260 / 30) × {{ sku|KZT|storage.bucket.used_space.ice|month|number }})) %}
+  > : _A_ + _B_ = {% calc [currency=KZT] ((3 × 260 / 30) × 3.168) + ((3 × 12 × 3.168) - ((3 × 260 / 30) × 3.168)) %}
 
 {% endlist %}
 
@@ -204,15 +264,15 @@ blocks:
 
 - Расчет в рублях {#prices-rub}
 
-  Например, если цена за 10&nbsp;000 операций GET в стандартном хранилище в месяц составляет {{ sku|RUB|storage.api.get.standard|pricingRate.10|string }}, количество операций GET за месяц — 245&nbsp;000, то суммарная стоимость операций с данными за месяц составит:
+  Например, если цена за 10&nbsp;000 операций GET в стандартном хранилище в месяц составляет 0,46 ₽, количество операций GET за месяц — 245&nbsp;000, то суммарная стоимость операций с данными за месяц составит:
   
-  > ((245&nbsp;000 − 100&nbsp;000) / 10 000) × {{ sku|RUB|storage.api.get.standard|pricingRate.10|string }} = (145&nbsp;000 / 10&nbsp;000) × {{ sku|RUB|storage.api.get.standard|pricingRate.10|string }} = {% calc [currency=RUB] round(((145000 / 10000) × {{ sku|RUB|storage.api.get.standard|pricingRate.10|number }}) × 100) / 100 %}
+  > ((245&nbsp;000 − 100&nbsp;000) / 10 000) × 0,46 ₽ = (145&nbsp;000 / 10&nbsp;000) × 0,46 ₽ = {% calc [currency=RUB] round(((145000 / 10000) × 0.46) × 100) / 100 %}
 
 - Расчет в тенге {#prices-kzt}
 
-  Например, если цена за 10&nbsp;000 операций GET в стандартном хранилище в месяц составляет {{ sku|KZT|storage.api.get.standard|pricingRate.10|string }}, количество операций GET за месяц — 245&nbsp;000, то суммарная стоимость операций с данными за месяц составит:
+  Например, если цена за 10&nbsp;000 операций GET в стандартном хранилище в месяц составляет 2,3 ₸, количество операций GET за месяц — 245&nbsp;000, то суммарная стоимость операций с данными за месяц составит:
   
-  > ((245&nbsp;000 − 100&nbsp;000) / 10&nbsp;000) × {{ sku|KZT|storage.api.get.standard|pricingRate.10|string }} = (145&nbsp;000 / 10&nbsp;000) × {{ sku|KZT|storage.api.get.standard|pricingRate.10|string }} = {% calc [currency=KZT] round(((145000 / 10000) × {{ sku|KZT|storage.api.get.standard|pricingRate.10|number }}) × 100) / 100 %}
+  > ((245&nbsp;000 − 100&nbsp;000) / 10&nbsp;000) × 2,3 ₸ = (145&nbsp;000 / 10&nbsp;000) × 2,3 ₸ = {% calc [currency=KZT] round(((145000 / 10000) × 2.3) × 100) / 100 %}
 
 {% endlist %}
 
@@ -222,26 +282,26 @@ blocks:
 
 ### Исходящий трафик {#prices-traffic}
 
-При использовании сервиса оплачивается исходящий трафик из {{ yandex-cloud }} в интернет. Передача трафика между сервисами {{ yandex-cloud }}, как и входящий трафик из интернета, не тарифицируется.
+При использовании сервиса оплачивается исходящий трафик из Yandex Cloud в интернет. Передача трафика между сервисами Yandex Cloud, как и входящий трафик из интернета, не тарифицируется.
 
 Минимальная единица тарификации — 1 МБ. Период тарификации — календарный месяц.
 
-Каждый месяц первые 100 ГБ исходящего трафика для {{ objstorage-name }} не тарифицируются.
+Каждый месяц первые 100 ГБ исходящего трафика для Object Storage не тарифицируются.
 
 
 {% list tabs group=pricing %}
 
 - Расчет в рублях {#prices-rub}
 
-  Например, если цена за 1&nbsp;ГБ исходящего трафика сверх 100&nbsp;ГБ до 1&nbsp;ТБ в месяц составляет {{ sku|RUB|storage.api.network.inet.egress|pricingRate.100|string }}, а за месяц было передано 283&nbsp;ГБ исходящего трафика, то стоимость за месяц составит:
+  Например, если цена за 1&nbsp;ГБ исходящего трафика сверх 100&nbsp;ГБ до 1&nbsp;ТБ в месяц составляет 1,67994 ₽, а за месяц было передано 283&nbsp;ГБ исходящего трафика, то стоимость за месяц составит:
   
-  > (283 − 100) × {{ sku|RUB|storage.api.network.inet.egress|pricingRate.100|string }} = 183 × {{ sku|RUB|storage.api.network.inet.egress|pricingRate.100|string }} = {% calc [currency=RUB] round(183 × {{ sku|RUB|storage.api.network.inet.egress|pricingRate.100|number }} × 100) / 100 %}
+  > (283 − 100) × 1,67994 ₽ = 183 × 1,67994 ₽ = {% calc [currency=RUB] round(183 × 1.67994 × 100) / 100 %}
 
 - Расчет в тенге {#prices-kzt}
 
-  Например, если цена за 1&nbsp;ГБ исходящего трафика сверх 100&nbsp;ГБ до 1&nbsp;ТБ в месяц составляет {{ sku|KZT|storage.api.network.inet.egress|pricingRate.100|string }}, а за месяц было передано 283&nbsp;ГБ исходящего трафика, то стоимость за месяц составит:
+  Например, если цена за 1&nbsp;ГБ исходящего трафика сверх 100&nbsp;ГБ до 1&nbsp;ТБ в месяц составляет 8,3997 ₸, а за месяц было передано 283&nbsp;ГБ исходящего трафика, то стоимость за месяц составит:
   
-  > (283 − 100) × {{ sku|KZT|storage.api.network.inet.egress|pricingRate.100|string }} = 183 × {{ sku|KZT|storage.api.network.inet.egress|pricingRate.100|string }} = {% calc [currency=KZT] round((183 × {{ sku|KZT|storage.api.network.inet.egress|pricingRate.100|number }}) × 100) / 100 %}
+  > (283 − 100) × 8,3997 ₸ = 183 × 8,3997 ₸ = {% calc [currency=KZT] round((183 × 8.3997) × 100) / 100 %}
 
 {% endlist %}
 
@@ -265,17 +325,17 @@ blocks:
 
   Класс хранилища | Стоимость хранения<br>в месяц, вкл. НДС | Стоимость запросов<br>в месяц, вкл. НДС | Итого<br>в месяц, вкл. НДС
   --- | --- | --- | ---
-  `STANDARD` | {% calc [currency=RUB] 2 × {{ sku|RUB|storage.bucket.used_space.standard|pricingRate.720|month|number }} %} | {% calc [currency=RUB] (120000 - 10000) × {{ sku|RUB|storage.api.put.standard|pricingRate.10|number }} / 1000 %} | {% calc [currency=RUB] (2 × {{ sku|RUB|storage.bucket.used_space.standard|pricingRate.720|month|number }}) + ((120000 - 10000) × {{ sku|RUB|storage.api.put.standard|pricingRate.10|number }} / 1000) %}
-  `COLD` | {% calc [currency=RUB] 3 × {{ sku|RUB|storage.bucket.used_space.cold|month|number }} %} | {% calc [currency=RUB] 120000 × {{ sku|RUB|storage.api.put.cold|number }} / 1000 %} | {% calc [currency=RUB] (3 × {{ sku|RUB|storage.bucket.used_space.cold|month|number }}) + (120000 × {{ sku|RUB|storage.api.put.cold|number }} / 1000) %}
-  `ICE` | {% calc [currency=RUB] 3 × {{ sku|RUB|storage.bucket.used_space.ice|month|number }} %} | {% calc [currency=RUB] 120000 × {{ sku|RUB|storage.api.put.ice|number }} / 1000 %} | {% calc [currency=RUB] (3 × {{ sku|RUB|storage.bucket.used_space.ice|month|number }}) + (120000 × {{ sku|RUB|storage.api.put.ice|number }} / 1000) %}
+  `STANDARD` | {% calc [currency=RUB] 2 × 2.376 %} | {% calc [currency=RUB] (120000 - 10000) × 0.5692 / 1000 %} | {% calc [currency=RUB] (2 × 2.376) + ((120000 - 10000) × 0.5692 / 1000) %}
+  `COLD` | {% calc [currency=RUB] 3 × 1.2672 %} | {% calc [currency=RUB] 120000 × 1.39 / 1000 %} | {% calc [currency=RUB] (3 × 1.2672) + (120000 × 1.39 / 1000) %}
+  `ICE` | {% calc [currency=RUB] 3 × 0.6336 %} | {% calc [currency=RUB] 120000 × 2.79 / 1000 %} | {% calc [currency=RUB] (3 × 0.6336) + (120000 × 2.79 / 1000) %}
 
 - Сравнение в тенге {#prices-kzt}
 
   Класс хранилища | Стоимость хранения<br>в месяц, вкл. НДС | Стоимость запросов<br>в месяц, вкл. НДС | Итого<br>в месяц, вкл. НДС
   --- | --- | --- | ---
-  `STANDARD` | {% calc [currency=KZT] 2 × {{ sku|KZT|storage.bucket.used_space.standard|pricingRate.720|month|number }} %} | {% calc [currency=KZT] (120000 - 10000) × {{ sku|KZT|storage.api.put.standard|pricingRate.10|number }} / 1000 %} | {% calc [currency=KZT] (2 × {{ sku|KZT|storage.bucket.used_space.standard|pricingRate.720|month|number }}) + ((120000 - 10000) × {{ sku|KZT|storage.api.put.standard|pricingRate.10|number }} / 1000) %}
-  `COLD` | {% calc [currency=KZT] 3 × {{ sku|KZT|storage.bucket.used_space.cold|month|number }} %} | {% calc [currency=KZT] 120000 × {{ sku|KZT|storage.api.put.cold|number }} / 1000 %} | {% calc [currency=KZT] (3 × {{ sku|KZT|storage.bucket.used_space.cold|month|number }}) + (120000 × {{ sku|KZT|storage.api.put.cold|number }} / 1000) %}
-  `ICE` | {% calc [currency=KZT] 3 × {{ sku|KZT|storage.bucket.used_space.ice|month|number }} %} | {% calc [currency=KZT] 120000 × {{ sku|KZT|storage.api.put.ice|number }} / 1000 %} | {% calc [currency=KZT] (3 × {{ sku|KZT|storage.bucket.used_space.ice|month|number }}) + (120000 × {{ sku|KZT|storage.api.put.ice|number }} / 1000) %}
+  `STANDARD` | {% calc [currency=KZT] 2 × 11.88 %} | {% calc [currency=KZT] (120000 - 10000) × 2.846 / 1000 %} | {% calc [currency=KZT] (2 × 11.88) + ((120000 - 10000) × 2.846 / 1000) %}
+  `COLD` | {% calc [currency=KZT] 3 × 6.336 %} | {% calc [currency=KZT] 120000 × 6.95 / 1000 %} | {% calc [currency=KZT] (3 × 6.336) + (120000 × 6.95 / 1000) %}
+  `ICE` | {% calc [currency=KZT] 3 × 3.168 %} | {% calc [currency=KZT] 120000 × 13.95 / 1000 %} | {% calc [currency=KZT] (3 × 3.168) + (120000 × 13.95 / 1000) %}
 
 {% endlist %}
 
@@ -296,17 +356,17 @@ blocks:
 
   Класс хранилища | Стоимость хранения<br>в месяц, вкл. НДС | Стоимость запросов<br>в месяц, вкл. НДС | Итого<br>в месяц, вкл. НДС
   --- | --- | --- | ---
-  `STANDARD` | {% calc [currency=RUB] 19 × {{ sku|RUB|storage.bucket.used_space.standard|pricingRate.720|month|number }} %} | {% calc [currency=RUB] (150000 - 100000) × {{ sku|RUB|storage.api.get.standard|pricingRate.10|number }} / 10000 %} | {% calc [currency=RUB] (19 × {{ sku|RUB|storage.bucket.used_space.standard|pricingRate.720|month|number }}) + ((150000 - 100000) × {{ sku|RUB|storage.api.get.standard|pricingRate.10|number }} / 10000) %}
-  `COLD` | {% calc [currency=RUB] 20 × {{ sku|RUB|storage.bucket.used_space.cold|month|number }} %} | {% calc [currency=RUB] 150000 × {{ sku|RUB|storage.api.get.cold|number }} / 10000 %} | {% calc [currency=RUB] (20 × {{ sku|RUB|storage.bucket.used_space.cold|month|number }}) + (150000  × {{ sku|RUB|storage.api.get.cold|number }} / 10000) %}
-  `ICE` | {% calc [currency=RUB] 20 × {{ sku|RUB|storage.bucket.used_space.ice|month|number }} %} | {% calc [currency=RUB] 150000 × {{ sku|RUB|storage.api.get.ice|number }} / 10000 %} | {% calc [currency=RUB] (20 × {{ sku|RUB|storage.bucket.used_space.ice|month|number }}) + (150000 × {{ sku|RUB|storage.api.get.ice|number }} / 10000) %}
+  `STANDARD` | {% calc [currency=RUB] 19 × 2.376 %} | {% calc [currency=RUB] (150000 - 100000) × 0.46 / 10000 %} | {% calc [currency=RUB] (19 × 2.376) + ((150000 - 100000) × 0.46 / 10000) %}
+  `COLD` | {% calc [currency=RUB] 20 × 1.2672 %} | {% calc [currency=RUB] 150000 × 1.15 / 10000 %} | {% calc [currency=RUB] (20 × 1.2672) + (150000  × 1.15 / 10000) %}
+  `ICE` | {% calc [currency=RUB] 20 × 0.6336 %} | {% calc [currency=RUB] 150000 × 2.3 / 10000 %} | {% calc [currency=RUB] (20 × 0.6336) + (150000 × 2.3 / 10000) %}
 
 - Сравнение в тенге {#prices-kzt}
 
   Класс хранилища | Стоимость хранения<br>в месяц, вкл. НДС | Стоимость запросов<br>в месяц, вкл. НДС | Итого<br>в месяц, вкл. НДС
   --- | --- | --- | ---
-  `STANDARD` | {% calc [currency=KZT] 19 × {{ sku|KZT|storage.bucket.used_space.standard|pricingRate.720|month|number }} %} | {% calc [currency=KZT] (150000 - 100000) × {{ sku|KZT|storage.api.get.standard|pricingRate.10|number }} / 10000 %} | {% calc [currency=KZT] (19 × {{ sku|KZT|storage.bucket.used_space.standard|pricingRate.720|month|number }}) + ((150000 - 100000) × {{ sku|KZT|storage.api.get.standard|pricingRate.10|number }} / 10000) %}
-  `COLD` | {% calc [currency=KZT] 20 × {{ sku|KZT|storage.bucket.used_space.cold|month|number }} %} | {% calc [currency=KZT] 150000 × {{ sku|KZT|storage.api.get.cold|number }} / 10000 %} | {% calc [currency=KZT] (20 × {{ sku|KZT|storage.bucket.used_space.cold|month|number }}) + (150000  × {{ sku|KZT|storage.api.get.cold|number }} / 10000) %}
-  `ICE` | {% calc [currency=KZT] 20 × {{ sku|KZT|storage.bucket.used_space.ice|month|number }} %} | {% calc [currency=KZT] 150000 × {{ sku|KZT|storage.api.get.ice|number }} / 10000 %} | {% calc [currency=KZT] (20 × {{ sku|KZT|storage.bucket.used_space.ice|month|number }}) + (150000 × {{ sku|KZT|storage.api.get.ice|number }} / 10000) %}
+  `STANDARD` | {% calc [currency=KZT] 19 × 11.88 %} | {% calc [currency=KZT] (150000 - 100000) × 2.3 / 10000 %} | {% calc [currency=KZT] (19 × 11.88) + ((150000 - 100000) × 2.3 / 10000) %}
+  `COLD` | {% calc [currency=KZT] 20 × 6.336 %} | {% calc [currency=KZT] 150000 × 5.75 / 10000 %} | {% calc [currency=KZT] (20 × 6.336) + (150000  × 5.75 / 10000) %}
+  `ICE` | {% calc [currency=KZT] 20 × 3.168 %} | {% calc [currency=KZT] 150000 × 11.5 / 10000 %} | {% calc [currency=KZT] (20 × 3.168) + (150000 × 11.5 / 10000) %}
 
 {% endlist %}
 
@@ -327,17 +387,17 @@ blocks:
 
   Класс хранилища | Стоимость хранения<br>в месяц, вкл. НДС | Стоимость запросов PUT<br>в месяц, вкл. НДС | Стоимость запросов GET<br>в месяц, вкл. НДС | Итого<br>в месяц, вкл. НДС
   --- | --- | --- | --- | ---
-  `STANDARD` | {% calc [currency=RUB] 99 × {{ sku|RUB|storage.bucket.used_space.standard|pricingRate.720|month|number }} %} | {% calc [currency=RUB] 0 × {{ sku|RUB|storage.api.put.standard|pricingRate.10|number }} / 1000 %} | {% calc [currency=RUB] 0 × {{ sku|RUB|storage.api.get.standard|pricingRate.10|number }} / 10000 %} | {% calc [currency=RUB] (99 × {{ sku|RUB|storage.bucket.used_space.standard|pricingRate.720|month|number }}) + (0 × {{ sku|RUB|storage.api.put.standard|pricingRate.10|number }} / 1000) + (0 × {{ sku|RUB|storage.api.get.standard|pricingRate.10|number }} / 10000) %}
-  `COLD` | {% calc [currency=RUB] 100 × {{ sku|RUB|storage.bucket.used_space.cold|month|number }} %} | {% calc [currency=RUB] 1000 × {{ sku|RUB|storage.api.put.cold|number }} / 1000 %} | {% calc [currency=RUB] 10000 × {{ sku|RUB|storage.api.get.cold|number }} / 10000 %} | {% calc [currency=RUB] (100 × {{ sku|RUB|storage.bucket.used_space.cold|month|number }}) + (1000 × {{ sku|RUB|storage.api.put.cold|number }} / 1000) + (10000 × {{ sku|RUB|storage.api.get.cold|number }} / 10000) %}
-  `ICE` | {% calc [currency=RUB] 100 × {{ sku|RUB|storage.bucket.used_space.ice|month|number }} %} | {% calc [currency=RUB] 1000 × {{ sku|RUB|storage.api.put.ice|number }} / 1000 %} | {% calc [currency=RUB] 10000 × {{ sku|RUB|storage.api.get.ice|number }} / 10000 %} | {% calc [currency=RUB] (100 × {{ sku|RUB|storage.bucket.used_space.ice|month|number }}) + (1000 × {{ sku|RUB|storage.api.put.ice|number }} / 1000) + (10000 × {{ sku|RUB|storage.api.get.ice|number }} / 10000) %}
+  `STANDARD` | {% calc [currency=RUB] 99 × 2.376 %} | {% calc [currency=RUB] 0 × 0.5692 / 1000 %} | {% calc [currency=RUB] 0 × 0.46 / 10000 %} | {% calc [currency=RUB] (99 × 2.376) + (0 × 0.5692 / 1000) + (0 × 0.46 / 10000) %}
+  `COLD` | {% calc [currency=RUB] 100 × 1.2672 %} | {% calc [currency=RUB] 1000 × 1.39 / 1000 %} | {% calc [currency=RUB] 10000 × 1.15 / 10000 %} | {% calc [currency=RUB] (100 × 1.2672) + (1000 × 1.39 / 1000) + (10000 × 1.15 / 10000) %}
+  `ICE` | {% calc [currency=RUB] 100 × 0.6336 %} | {% calc [currency=RUB] 1000 × 2.79 / 1000 %} | {% calc [currency=RUB] 10000 × 2.3 / 10000 %} | {% calc [currency=RUB] (100 × 0.6336) + (1000 × 2.79 / 1000) + (10000 × 2.3 / 10000) %}
 
 - Сравнение в тенге {#prices-kzt}
 
   Класс хранилища | Стоимость хранения<br>в месяц, вкл. НДС | Стоимость запросов PUT<br>в месяц, вкл. НДС | Стоимость запросов GET<br>в месяц, вкл. НДС | Итого<br>в месяц, вкл. НДС
   --- | --- | --- | --- | ---
-  `STANDARD` | {% calc [currency=KZT] 99 × {{ sku|KZT|storage.bucket.used_space.standard|pricingRate.720|month|number }} %} | {% calc [currency=KZT] 0 × {{ sku|KZT|storage.api.put.standard|pricingRate.10|number }} / 1000 %} | {% calc [currency=KZT] 0 × {{ sku|KZT|storage.api.get.standard|pricingRate.10|number }} / 10000 %} | {% calc [currency=KZT] (99 × {{ sku|KZT|storage.bucket.used_space.standard|pricingRate.720|month|number }}) + (0 × {{ sku|KZT|storage.api.put.standard|pricingRate.10|number }} / 1000) + (0 × {{ sku|KZT|storage.api.get.standard|pricingRate.10|number }} / 10000) %}
-  `COLD` | {% calc [currency=KZT] 100 × {{ sku|KZT|storage.bucket.used_space.cold|month|number }} %} | {% calc [currency=KZT] 1000 × {{ sku|KZT|storage.api.put.cold|number }} / 1000 %} | {% calc [currency=KZT] 10000 × {{ sku|KZT|storage.api.get.cold|number }} / 10000 %} | {% calc [currency=KZT] (100 × {{ sku|KZT|storage.bucket.used_space.cold|month|number }}) + (1000 × {{ sku|KZT|storage.api.put.cold|number }} / 1000) + (10000 × {{ sku|KZT|storage.api.get.cold|number }} / 10000) %}
-  `ICE` | {% calc [currency=KZT] 100 × {{ sku|KZT|storage.bucket.used_space.ice|month|number }} %} | {% calc [currency=KZT] 1000 × {{ sku|KZT|storage.api.put.ice|number }} / 1000 %} | {% calc [currency=KZT] 10000 × {{ sku|KZT|storage.api.get.ice|number }} / 10000 %} | {% calc [currency=KZT] (100 × {{ sku|KZT|storage.bucket.used_space.ice|month|number }}) + (1000 × {{ sku|KZT|storage.api.put.ice|number }} / 1000) + (10000 × {{ sku|KZT|storage.api.get.ice|number }} / 10000) %}
+  `STANDARD` | {% calc [currency=KZT] 99 × 11.88 %} | {% calc [currency=KZT] 0 × 2.846 / 1000 %} | {% calc [currency=KZT] 0 × 2.3 / 10000 %} | {% calc [currency=KZT] (99 × 11.88) + (0 × 2.846 / 1000) + (0 × 2.3 / 10000) %}
+  `COLD` | {% calc [currency=KZT] 100 × 6.336 %} | {% calc [currency=KZT] 1000 × 6.95 / 1000 %} | {% calc [currency=KZT] 10000 × 5.75 / 10000 %} | {% calc [currency=KZT] (100 × 6.336) + (1000 × 6.95 / 1000) + (10000 × 5.75 / 10000) %}
+  `ICE` | {% calc [currency=KZT] 100 × 3.168 %} | {% calc [currency=KZT] 1000 × 13.95 / 1000 %} | {% calc [currency=KZT] 10000 × 11.5 / 10000 %} | {% calc [currency=KZT] (100 × 3.168) + (1000 × 13.95 / 1000) + (10000 × 11.5 / 10000) %}
 
 {% endlist %}
 
@@ -346,4 +406,4 @@ blocks:
 
 ### См. также {#see-also}
 
-[{#T}](concepts/limits.md)
+[Квоты и лимиты в Object Storage](concepts/limits.md)

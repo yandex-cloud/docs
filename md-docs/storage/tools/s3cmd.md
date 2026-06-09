@@ -12,7 +12,7 @@ S3cmd не поддерживает работу с [версиями](../concep
 ## Подготовка к работе {#before-you-begin}
 
 1. [Создайте сервисный аккаунт](../../iam/operations/sa/create.md).
-1. [Назначьте сервисному аккаунту роли](../../iam/operations/sa/assign-role-for-sa.md), которые нужны для вашего проекта, например [storage.editor](../security/index.md#storage-editor) на бакет — для работы с конкретным бакетом, или на каталог — для работы со всеми бакетами в каталоге. Подробнее о ролях см. на странице [Управление доступом с помощью {{ iam-full-name }}](../security/index.md).
+1. [Назначьте сервисному аккаунту роли](../../iam/operations/sa/assign-role-for-sa.md), которые нужны для вашего проекта, например [storage.editor](../security/index.md#storage-editor) на бакет — для работы с конкретным бакетом, или на каталог — для работы со всеми бакетами в каталоге. Подробнее о ролях см. на странице [Управление доступом с помощью Yandex Identity and Access Management](../security/index.md).
 
           
     Чтобы работать с объектами в [зашифрованном](../concepts/encryption.md) бакете, у пользователя или [сервисного аккаунта](../../iam/concepts/users/service-accounts.md) вместе с [ролью](../security/index.md#storage-configurer) `storage.configurer` должны быть следующие [роли на ключ шифрования](../../kms/operations/key-access.md):
@@ -21,13 +21,13 @@ S3cmd не поддерживает работу с [версиями](../concep
     * `kms.keys.decrypter` — для чтения ключа, [расшифровки](../../kms/security/index.md#kms-keys-decrypter) и скачивания объектов;
     * `kms.keys.encrypterDecrypter` — включает [разрешения](../../kms/security/index.md#kms-keys-encrypterDecrypter), предоставляемые ролями `kms.keys.encrypter` и `kms.keys.decrypter`.
     
-    Подробнее см. [Сервисные роли {{ kms-name }}](../../kms/security/index.md#service-roles).
+    Подробнее см. [Сервисные роли Key Management Service](../../kms/security/index.md#service-roles).
 
 
 1. [Создайте статический ключ доступа](../../iam/operations/authentication/manage-access-keys.md#create-access-key).
 
     
-    В результате вы получите данные статического ключа доступа. Для аутентификации в {{ objstorage-name }} вам понадобятся:
+    В результате вы получите данные статического ключа доступа. Для аутентификации в Object Storage вам понадобятся:
     
     * `key_id` — идентификатор статического ключа доступа;
     * `secret` — секретный ключ.
@@ -36,7 +36,7 @@ S3cmd не поддерживает работу с [версиями](../concep
 
 
 
-Авторизация статическими ключами необходима для обращения напрямую к HTTP API и поддерживается инструментами, перечисленными в разделе [{#T}](index.md).
+Авторизация статическими ключами необходима для обращения напрямую к HTTP API и поддерживается инструментами, перечисленными в разделе [Поддерживаемые инструменты](index.md).
   
 {% note info %}
 
@@ -45,7 +45,7 @@ S3cmd не поддерживает работу с [версиями](../concep
 {% endnote %}
 
 
-Статический ключ для доступа к {{ objstorage-name }} можно безопасно хранить в сервисе {{ lockbox-full-name }}. Подробнее см. [{#T}](../tutorials/static-key-in-lockbox/index.md).
+Статический ключ для доступа к Object Storage можно безопасно хранить в сервисе Yandex Lockbox. Подробнее см. [Использование секрета Yandex Lockbox для хранения статического ключа доступа](../tutorials/static-key-in-lockbox/index.md).
 
 {% note info %}
 
@@ -65,15 +65,15 @@ S3cmd не поддерживает работу с [версиями](../concep
 
 * `Access Key` — введите идентификатор ключа, [полученный ранее](#before-you-begin);
 * `Secret Key` — содержимое статического ключа, [полученное ранее](#before-you-begin);
-* `Default Region` — введите `{{ region-id }}`;
+* `Default Region` — введите `ru-central1`;
 
-   Для работы с {{ objstorage-name }} всегда указывайте регион `{{ region-id }}`. Другие значения региона могут привести к ошибке авторизации.
+   Для работы с Object Storage всегда указывайте регион `ru-central1`. Другие значения региона могут привести к ошибке авторизации.
 
-* `S3 Endpoint` — введите `{{ s3-storage-host }}`;
-* `DNS-style bucket+hostname:port template for accessing a bucket` — введите `%(bucket)s.{{ s3-storage-host }}`;
+* `S3 Endpoint` — введите `storage.yandexcloud.net`;
+* `DNS-style bucket+hostname:port template for accessing a bucket` — введите `%(bucket)s.storage.yandexcloud.net`;
 * Значения остальных параметров оставьте без изменений;
 
-Программа попытается установить соединение с {{ objstorage-name }} и получить список бакетов. В случае успеха, программа выведет `Success. Your access key and secret key worked fine :-)`.
+Программа попытается установить соединение с Object Storage и получить список бакетов. В случае успеха, программа выведет `Success. Your access key and secret key worked fine :-)`.
 
 Команда `s3cmd --configure` сохранит настройки в файле `~/.s3cfg` в формате:
 
@@ -81,9 +81,9 @@ S3cmd не поддерживает работу с [версиями](../concep
 [default]
 access_key = id
 secret_key = secretKey
-bucket_location = {{ region-id }}
-host_base = {{ s3-storage-host }}
-host_bucket = %(bucket)s.{{ s3-storage-host }}
+bucket_location = ru-central1
+host_base = storage.yandexcloud.net
+host_bucket = %(bucket)s.storage.yandexcloud.net
 ```
 
 При необходимости эти настройки можно изменить напрямую в файле. Также можно указать настройки при запуске программы с помощью соответствующих параметров.
@@ -91,12 +91,12 @@ host_bucket = %(bucket)s.{{ s3-storage-host }}
 Для корректной работы команд, управляющих хостингом статических сайтов, в конфигурационный файл необходимо вручную добавить параметр:
 
 ```text
-website_endpoint = http://%(bucket)s.{{ s3-web-host }}
+website_endpoint = http://%(bucket)s.website.yandexcloud.net
 ```
 
 ## Особенности {#specifics}
 
-- S3cmd работает с {{ objstorage-name }} как с иерархической файловой системой и ключи объектов имеют вид пути к файлу.
+- S3cmd работает с Object Storage как с иерархической файловой системой и ключи объектов имеют вид пути к файлу.
 - S3cmd не поддерживает работу с [версиями](../concepts/versioning.md) объектов. Чтобы работать с версиями объектов, используйте [AWS CLI](aws-cli.md).
 - По умолчанию S3cmd загружает объекты в стандартное хранилище. Чтобы указать [класс хранилища](../concepts/storage-class.md), при загрузке объекта используйте параметр `--storage-class`.
 - По умолчанию при загрузке объекта S3cmd может отправлять дополнительный заголовок `X-Amz-Meta-S3cmd-Attrs` с атрибутами вашего файла (права доступа, владельцы файла, временные метки). Значение заголовка сохраняется в [метаданных](../concepts/object.md#metadata) объекта. Отключить отправку атрибутов можно с помощью параметра `preserve_attrs = False` в конфигурационном файле `~/.s3cfg` или флага `--no-preserve`.

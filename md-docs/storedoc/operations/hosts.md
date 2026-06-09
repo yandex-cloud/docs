@@ -1,6 +1,6 @@
-# Управление хостами кластера {{ SD }}
+# Управление хостами кластера Yandex StoreDoc
 
-Вы можете добавлять и удалять [хосты кластера](../concepts/index.md), запускать повторную синхронизацию хостов, а также [управлять настройками {{ SD }}](update.md) для отдельных кластеров. О том, как перенести хосты кластера в другую зону доступности, читайте в [инструкции](host-migration.md).
+Вы можете добавлять и удалять [хосты кластера](../concepts/index.md), запускать повторную синхронизацию хостов, а также [управлять настройками Yandex StoreDoc](update.md) для отдельных кластеров. О том, как перенести хосты кластера в другую зону доступности, читайте в [инструкции](host-migration.md).
 
 ## Получить список хостов в кластере {#list-hosts}
 
@@ -8,21 +8,21 @@
 
 - Консоль управления {#console}
 
-  1. Перейдите на [страницу каталога]({{ link-console-main }}).
-  1. Перейдите в сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-mongodb }}**.
-  1. Нажмите на имя нужного кластера {{ mmg-name }}.
-  1. Выберите вкладку **{{ ui-key.yacloud.mdb.cluster.switch_hosts }}**.
+  1. Перейдите на [страницу каталога](https://console.yandex.cloud).
+  1. Перейдите в сервис **Yandex StoreDoc**.
+  1. Нажмите на имя нужного кластера Yandex StoreDoc.
+  1. Выберите вкладку **Хосты**.
 
 - CLI {#cli}
 
-  Если у вас еще нет интерфейса командной строки {{ yandex-cloud }} (CLI), [установите и инициализируйте его](../../cli/quickstart.md#install).
+  Если у вас еще нет интерфейса командной строки Yandex Cloud (CLI), [установите и инициализируйте его](../../cli/quickstart.md#install).
 
   По умолчанию используется каталог, указанный при [создании](../../cli/operations/profile/profile-create.md) профиля CLI. Чтобы изменить каталог по умолчанию, используйте команду `yc config set folder-id <идентификатор_каталога>`. Также для любой команды вы можете указать другой каталог с помощью параметров `--folder-name` или `--folder-id`. Если вы обращаетесь к ресурсу по имени, поиск будет выполнен в каталоге по умолчанию. Если вы обращаетесь к ресурсу по идентификатору, поиск будет выполнен глобально — во всех каталогах с учетом прав доступа.
 
-  Чтобы получить список хостов в кластере {{ mmg-name }}, выполните команду:
+  Чтобы получить список хостов в кластере Yandex StoreDoc, выполните команду:
 
   ```bash
-  {{ yc-mdb-mg }} host list \
+  yc managed-mongodb host list \
     --cluster-name <имя_кластера>
   ```
 
@@ -33,13 +33,13 @@
   +----------------------------+----------------------+--------+------------+--------------+----------+---------------+-----------+
   |           NAME             |      CLUSTER ID      |  TYPE  | SHARD NAME |     ROLE     |  HEALTH  |    ZONE ID    | PUBLIC IP |
   +----------------------------+----------------------+--------+------------+--------------+----------+---------------+-----------+
-  | rc1b...{{ dns-zone }} | c9qp71dk1q1w******** | MONGOD | rs01       | PRIMARY      | ALIVE    | {{ region-id }}-b | false     |
-  | rc1a...{{ dns-zone }} | c9qp71dk1q1w******** | MONGOD | rs01       | SECONDARY    | ALIVE    | {{ region-id }}-a | false     |
+  | rc1b...mdb.yandexcloud.net | c9qp71dk1q1w******** | MONGOD | rs01       | PRIMARY      | ALIVE    | ru-central1-b | false     |
+  | rc1a...mdb.yandexcloud.net | c9qp71dk1q1w******** | MONGOD | rs01       | SECONDARY    | ALIVE    | ru-central1-a | false     |
   +----------------------------+----------------------+--------+------------+--------------+----------+---------------+-----------+
   ```
 
 
-  Имя кластера {{ mmg-name }} можно запросить со [списком кластеров в каталоге](cluster-list.md#list-clusters).
+  Имя кластера Yandex StoreDoc можно запросить со [списком кластеров в каталоге](cluster-list.md#list-clusters).
 
 - REST API {#api}
 
@@ -49,13 +49,13 @@
        export IAM_TOKEN="<IAM-токен>"
        ```
 
-    1. Воспользуйтесь методом [Cluster.ListHosts](../api-ref/Cluster/listHosts.md) и выполните запрос, например, с помощью {{ api-examples.rest.tool }}:
+    1. Воспользуйтесь методом [Cluster.ListHosts](../api-ref/Cluster/listHosts.md) и выполните запрос, например, с помощью [cURL](https://curl.se/):
 
         ```bash
         curl \
             --request GET \
             --header "Authorization: Bearer $IAM_TOKEN" \
-            --url 'https://{{ api-host-mdb }}/managed-mongodb/v1/clusters/<идентификатор_кластера>/hosts'
+            --url 'https://mdb.api.cloud.yandex.net/managed-mongodb/v1/clusters/<идентификатор_кластера>/hosts'
         ```
 
         Идентификатор кластера можно запросить со [списком кластеров в каталоге](cluster-list.md#list-clusters).
@@ -78,7 +78,7 @@
        
        Далее предполагается, что содержимое репозитория находится в директории `~/cloudapi/`.
 
-    1. Воспользуйтесь вызовом [ClusterService.ListHosts](../api-ref/grpc/Cluster/listHosts.md) и выполните запрос, например, с помощью {{ api-examples.grpc.tool }}:
+    1. Воспользуйтесь вызовом [ClusterService.ListHosts](../api-ref/grpc/Cluster/listHosts.md) и выполните запрос, например, с помощью [gRPCurl](https://github.com/fullstorydev/grpcurl):
 
         ```bash
         grpcurl \
@@ -90,7 +90,7 @@
             -d '{
                   "cluster_id": "<идентификатор_кластера>"
                 }' \
-            {{ api-host-mdb }}:{{ port-https }} \
+            mdb.api.cloud.yandex.net:443 \
             yandex.cloud.mdb.mongodb.v1.ClusterService.ListHosts
         ```
 
@@ -102,9 +102,9 @@
 
 ## Добавить хост {#add-host}
 
-Количество хостов в кластерах {{ mmg-name }} ограничено квотами на количество CPU и объем памяти, которые доступны кластерам базы данных в вашем [облаке](../../resource-manager/concepts/resources-hierarchy.md#cloud). Чтобы проверить используемые ресурсы, откройте страницу [Квоты]({{ link-console-quotas }}) и найдите блок **{{ mmg-name }}**.
+Количество хостов в кластерах Yandex StoreDoc ограничено квотами на количество CPU и объем памяти, которые доступны кластерам базы данных в вашем [облаке](../../resource-manager/concepts/resources-hierarchy.md#cloud). Чтобы проверить используемые ресурсы, откройте страницу [Квоты](https://console.yandex.cloud/cloud?section=quotas) и найдите блок **Yandex StoreDoc**.
 
-Вы можете добавлять в кластер {{ mmg-name }} хосты разных типов. Их количество зависит от [типа шардирования](../concepts/sharding.md#shard-management):
+Вы можете добавлять в кластер Yandex StoreDoc хосты разных типов. Их количество зависит от [типа шардирования](../concepts/sharding.md#shard-management):
 
 {#hosts-table}
 
@@ -118,33 +118,33 @@
 
 - Консоль управления {#console}
 
-  Чтобы добавить хост в кластере {{ mmg-name }}:
-  1. Перейдите на [страницу каталога]({{ link-console-main }}).
-  1. Перейдите в сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-mongodb }}**.
-  1. Нажмите на имя нужного кластера {{ mmg-name }} и перейдите на вкладку **{{ ui-key.yacloud.mdb.cluster.switch_hosts }}**.
-  1. Нажмите кнопку **{{ ui-key.yacloud.mdb.cluster.hosts.action_add-host }}**.
+  Чтобы добавить хост в кластере Yandex StoreDoc:
+  1. Перейдите на [страницу каталога](https://console.yandex.cloud).
+  1. Перейдите в сервис **Yandex StoreDoc**.
+  1. Нажмите на имя нужного кластера Yandex StoreDoc и перейдите на вкладку **Хосты**.
+  1. Нажмите кнопку **Создать хост**.
   1. Укажите параметры хоста:
      * [Зону доступности](../../overview/concepts/geo-scope.md).
 
      
      * [Подсеть](../../vpc/concepts/network.md#subnet) (если нужной подсети в списке нет, создайте ее).     
 
-     * Выберите опцию **{{ ui-key.yacloud.mdb.hosts.dialog.field_public_ip }}**, если хост должен быть доступен извне {{ yandex-cloud }}.
+     * Выберите опцию **Публичный доступ**, если хост должен быть доступен извне Yandex Cloud.
 
 
-     * Тип хоста и название шарда, если в кластере {{ mmg-name }} включено шардирование.
-  1. Нажмите **{{ ui-key.yacloud.mdb.hosts.dialog.button_choose }}**.
+     * Тип хоста и название шарда, если в кластере Yandex StoreDoc включено шардирование.
+  1. Нажмите **Сохранить**.
 
 - CLI {#cli}
 
-  Если у вас еще нет интерфейса командной строки {{ yandex-cloud }} (CLI), [установите и инициализируйте его](../../cli/quickstart.md#install).
+  Если у вас еще нет интерфейса командной строки Yandex Cloud (CLI), [установите и инициализируйте его](../../cli/quickstart.md#install).
 
   По умолчанию используется каталог, указанный при [создании](../../cli/operations/profile/profile-create.md) профиля CLI. Чтобы изменить каталог по умолчанию, используйте команду `yc config set folder-id <идентификатор_каталога>`. Также для любой команды вы можете указать другой каталог с помощью параметров `--folder-name` или `--folder-id`. Если вы обращаетесь к ресурсу по имени, поиск будет выполнен в каталоге по умолчанию. Если вы обращаетесь к ресурсу по идентификатору, поиск будет выполнен глобально — во всех каталогах с учетом прав доступа.
 
-  Чтобы добавить хост в кластере {{ mmg-name }}:
+  Чтобы добавить хост в кластере Yandex StoreDoc:
 
   
-  1. Запросите список подсетей кластера {{ mmg-name }}, чтобы выбрать [подсеть](../../vpc/concepts/network.md#subnet) для нового хоста:
+  1. Запросите список подсетей кластера Yandex StoreDoc, чтобы выбрать [подсеть](../../vpc/concepts/network.md#subnet) для нового хоста:
 
      ```bash
      yc vpc subnet list
@@ -156,10 +156,10 @@
      +----------------------+-----------+-----------------------+---------------+------------------+
      |          ID          |   NAME    |       NETWORK ID      |       ZONE    |      RANGE       |
      +----------------------+-----------+-----------------------+---------------+------------------+
-     | b0cl69a2b4c6******** | default-d | enp6rq72rndgr******** | {{ region-id }}-d | [172.16.0.0/20]  |
-     | e2lkj9qwe762******** | default-b | enp6rq72rndgr******** | {{ region-id }}-b | [10.10.0.0/16]   |
-     | e9b0ph42bn96******** | a-2       | enp6rq72rndgr******** | {{ region-id }}-a | [172.16.32.0/20] |
-     | e9b9v22r88io******** | default-a | enp6rq72rndgr******** | {{ region-id }}-a | [172.16.16.0/20] |
+     | b0cl69a2b4c6******** | default-d | enp6rq72rndgr******** | ru-central1-d | [172.16.0.0/20]  |
+     | e2lkj9qwe762******** | default-b | enp6rq72rndgr******** | ru-central1-b | [10.10.0.0/16]   |
+     | e9b0ph42bn96******** | a-2       | enp6rq72rndgr******** | ru-central1-a | [172.16.32.0/20] |
+     | e9b9v22r88io******** | default-a | enp6rq72rndgr******** | ru-central1-a | [172.16.16.0/20] |
      +----------------------+-----------+-----------------------+---------------+------------------+
      ```
 
@@ -169,14 +169,14 @@
   1. Посмотрите описание команды CLI для добавления хостов:
 
      ```bash
-     {{ yc-mdb-mg }} host add --help
+     yc managed-mongodb host add --help
      ```
 
   1. Выполните команду добавления хоста:
 
       
       ```bash
-      {{ yc-mdb-mg }} host add \
+      yc managed-mongodb host add \
         --cluster-name <имя_кластера> \
         --host zone-id=<зона_доступности>,`
               `subnet-id=<идентификатор_подсети>,`
@@ -194,7 +194,7 @@
           * `zone-id` — [зона доступности](../../overview/concepts/geo-scope.md).
 
           
-          * `subnet-id` — [идентификатор подсети](../../vpc/concepts/network.md#subnet). Его необходимо указать, если в [зоне доступности](../../overview/concepts/geo-scope.md) больше одной подсети, в противном случае {{ mmg-name }} автоматически выберет единственную подсеть.
+          * `subnet-id` — [идентификатор подсети](../../vpc/concepts/network.md#subnet). Его необходимо указать, если в [зоне доступности](../../overview/concepts/geo-scope.md) больше одной подсети, в противном случае Yandex StoreDoc автоматически выберет единственную подсеть.
           * `assign-public-ip` — доступность хоста из интернета по публичному IP-адресу: `true` или `false`.
 
 
@@ -202,16 +202,16 @@
           * `secondary-delay-secs` — отставание реплики от мастера в секундах. Может быть полезно для восстановления данных в случае ошибочных операций.
           * `priority` — [приоритет назначения хоста мастером](../concepts/replication.md#master-failover).
 
-      {{ mmg-name }} запустит операцию добавления хоста.
+      Yandex StoreDoc запустит операцию добавления хоста.
 
 
-- {{ TF }} {#tf}
+- Terraform {#tf}
 
-  Чтобы добавить хост в кластере {{ mmg-name }}:
-  1. Откройте актуальный конфигурационный файл {{ TF }} с планом инфраструктуры.
+  Чтобы добавить хост в кластере Yandex StoreDoc:
+  1. Откройте актуальный конфигурационный файл Terraform с планом инфраструктуры.
 
      О том, как создать такой файл, см. в разделе [Создание кластера](cluster-create.md).
-  1. Добавьте к описанию кластера {{ mmg-name }}:
+  1. Добавьте к описанию кластера Yandex StoreDoc:
      * Ресурсы, соответствующие типу шардирования, если вы добавляете хост в шардированный кластер:
        * `resources_mongoinfra` — для стандартного шардирования.
        * `resources_mongos` и `resources_mongocfg` — для расширенного шардирования.
@@ -277,14 +277,14 @@
 
   1. Проверьте корректность настроек.
   
-     1. В командной строке перейдите в каталог, в котором расположены актуальные конфигурационные файлы {{ TF }} с планом инфраструктуры.
+     1. В командной строке перейдите в каталог, в котором расположены актуальные конфигурационные файлы Terraform с планом инфраструктуры.
      1. Выполните команду:
      
         ```bash
         terraform validate
         ```
      
-        Если в файлах конфигурации есть ошибки, {{ TF }} на них укажет.
+        Если в файлах конфигурации есть ошибки, Terraform на них укажет.
 
   1. Подтвердите изменение ресурсов.
 
@@ -306,11 +306,11 @@
         1. Подтвердите изменение ресурсов.
         1. Дождитесь завершения операции.
 
-  Подробнее см. в [документации провайдера {{ TF }}]({{ tf-provider-resources-link }}/mdb_mongodb_cluster).
+  Подробнее см. в [документации провайдера Terraform](../../terraform/resources/mdb_mongodb_cluster.md).
 
   {% note warning "Ограничения по времени" %}
   
-  Провайдер {{ TF }} ограничивает время на выполнение операций с кластером {{ mmg-name }}:
+  Провайдер Terraform ограничивает время на выполнение операций с кластером Yandex StoreDoc:
   
   * создание, в т. ч. путем восстановления из резервной копии, — 30 минут;
   * изменение — 60 минут.
@@ -344,7 +344,7 @@
       export IAM_TOKEN="<IAM-токен>"
       ```
 
-  1. Воспользуйтесь методом [Cluster.AddHosts](../api-ref/Cluster/addHosts.md) и выполните запрос, например, с помощью {{ api-examples.rest.tool }}:
+  1. Воспользуйтесь методом [Cluster.AddHosts](../api-ref/Cluster/addHosts.md) и выполните запрос, например, с помощью [cURL](https://curl.se/):
 
       
       ```bash
@@ -352,7 +352,7 @@
           --request POST \
           --header "Authorization: Bearer $IAM_TOKEN" \
           --header "Content-Type: application/json" \
-          --url 'https://{{ api-host-mdb }}/managed-mongodb/v1/clusters/<идентификатор_кластера>/hosts:batchCreate' \
+          --url 'https://mdb.api.cloud.yandex.net/managed-mongodb/v1/clusters/<идентификатор_кластера>/hosts:batchCreate' \
           --data '{
                     "hostSpecs": [
                       {
@@ -408,7 +408,7 @@
      ```
      
      Далее предполагается, что содержимое репозитория находится в директории `~/cloudapi/`.
-  1. Воспользуйтесь вызовом [ClusterService.AddHosts](../api-ref/grpc/Cluster/addHosts.md) и выполните запрос, например, с помощью {{ api-examples.grpc.tool }}:
+  1. Воспользуйтесь вызовом [ClusterService.AddHosts](../api-ref/grpc/Cluster/addHosts.md) и выполните запрос, например, с помощью [gRPCurl](https://github.com/fullstorydev/grpcurl):
 
       
       ```bash
@@ -434,7 +434,7 @@
                   }
                 ]
               }' \
-          {{ api-host-mdb }}:{{ port-https }} \
+          mdb.api.cloud.yandex.net:443 \
           yandex.cloud.mdb.mongodb.v1.ClusterService.AddHosts
       ```
 
@@ -464,7 +464,7 @@
 
 {% note warning %}
 
-Если после добавления хоста к нему невозможно [подключиться](connect/index.md), убедитесь, что [группа безопасности](../concepts/network.md#security-groups) кластера {{ mmg-name }} настроена корректно для подсети, в которую помещен хост.
+Если после добавления хоста к нему невозможно [подключиться](connect/index.md), убедитесь, что [группа безопасности](../concepts/network.md#security-groups) кластера Yandex StoreDoc настроена корректно для подсети, в которую помещен хост.
 
 {% endnote %}
 
@@ -475,7 +475,7 @@
 
 * CLI {#cli}
 
-    Если у вас еще нет интерфейса командной строки {{ yandex-cloud }} (CLI), [установите и инициализируйте его](../../cli/quickstart.md#install).
+    Если у вас еще нет интерфейса командной строки Yandex Cloud (CLI), [установите и инициализируйте его](../../cli/quickstart.md#install).
 
     По умолчанию используется каталог, указанный при [создании](../../cli/operations/profile/profile-create.md) профиля CLI. Чтобы изменить каталог по умолчанию, используйте команду `yc config set folder-id <идентификатор_каталога>`. Также для любой команды вы можете указать другой каталог с помощью параметров `--folder-name` или `--folder-id`. Если вы обращаетесь к ресурсу по имени, поиск будет выполнен в каталоге по умолчанию. Если вы обращаетесь к ресурсу по идентификатору, поиск будет выполнен глобально — во всех каталогах с учетом прав доступа.
 
@@ -483,7 +483,7 @@
 
     
     ```bash
-    {{ yc-mdb-mg }} host update \
+    yc managed-mongodb host update \
       --cluster-name <имя_кластера> \
       --host hostname=<имя_хоста>,`
             `assign-public-ip=<публичный_доступ_к_хосту>,`
@@ -508,17 +508,17 @@
         * `priority` — [приоритет назначения хоста мастером](../concepts/replication.md#master-failover).
 
 
-* {{ TF }} {#tf}
+* Terraform {#tf}
 
     Чтобы изменить параметры хоста в кластере:
 
-    1. Откройте актуальный конфигурационный файл {{ TF }} с планом инфраструктуры.
+    1. Откройте актуальный конфигурационный файл Terraform с планом инфраструктуры.
 
         Как создать такой файл, см. в разделе [Создание кластера](cluster-create.md).
 
-        Полный список доступных для изменения полей конфигурации кластера {{ mpg-name }} см. в [документации провайдера {{ TF }}]({{ tf-provider-mpg }}).
+        Полный список доступных для изменения полей конфигурации кластера Managed Service for PostgreSQL см. в [документации провайдера Terraform](../../terraform/resources/mdb_postgresql_cluster.md).
 
-    1. Измените в описании кластера {{ mpg-name }} атрибуты блока `host`, соответствующего изменяемому хосту.
+    1. Измените в описании кластера Managed Service for PostgreSQL атрибуты блока `host`, соответствующего изменяемому хосту.
 
         ```hcl
         resource "yandex_mdb_mongodb_cluster" "<имя_кластера>" {
@@ -544,14 +544,14 @@
 
     1. Проверьте корректность настроек.
 
-        1. В командной строке перейдите в каталог, в котором расположены актуальные конфигурационные файлы {{ TF }} с планом инфраструктуры.
+        1. В командной строке перейдите в каталог, в котором расположены актуальные конфигурационные файлы Terraform с планом инфраструктуры.
         1. Выполните команду:
         
            ```bash
            terraform validate
            ```
         
-           Если в файлах конфигурации есть ошибки, {{ TF }} на них укажет.
+           Если в файлах конфигурации есть ошибки, Terraform на них укажет.
 
     1. Подтвердите изменение ресурсов.
 
@@ -575,7 +575,7 @@
 
         {% note warning "Ограничения по времени" %}
         
-        Провайдер {{ TF }} ограничивает время на выполнение операций с кластером {{ mmg-name }}:
+        Провайдер Terraform ограничивает время на выполнение операций с кластером Yandex StoreDoc:
         
         * создание, в т. ч. путем восстановления из резервной копии, — 30 минут;
         * изменение — 60 минут.
@@ -609,7 +609,7 @@
         export IAM_TOKEN="<IAM-токен>"
         ```
 
-    1. Воспользуйтесь методом [Cluster.updateHosts](../api-ref/Cluster/updateHosts.md) и выполните запрос, например, с помощью {{ api-examples.rest.tool }}:
+    1. Воспользуйтесь методом [Cluster.updateHosts](../api-ref/Cluster/updateHosts.md) и выполните запрос, например, с помощью [cURL](https://curl.se/):
 
         {% note warning %}
         
@@ -623,7 +623,7 @@
           --request POST \
           --header "Authorization: Bearer $IAM_TOKEN" \
           --header "Content-Type: application/json" \
-          --url 'https://{{ api-host-mdb }}/managed-mongodb/v1/clusters/<идентификатор_кластера>/hosts:batchUpdate' \
+          --url 'https://mdb.api.cloud.yandex.net/managed-mongodb/v1/clusters/<идентификатор_кластера>/hosts:batchUpdate' \
           --data '{
                     "updateHostSpecs": [
                       {
@@ -672,7 +672,7 @@
        
        Далее предполагается, что содержимое репозитория находится в директории `~/cloudapi/`.
 
-    1. Воспользуйтесь вызовом [ClusterService/UpdateHosts](../api-ref/grpc/Cluster/updateHosts.md) и выполните запрос, например, с помощью {{ api-examples.grpc.tool }}:
+    1. Воспользуйтесь вызовом [ClusterService/UpdateHosts](../api-ref/grpc/Cluster/updateHosts.md) и выполните запрос, например, с помощью [gRPCurl](https://github.com/fullstorydev/grpcurl):
 
         {% note warning %}
         
@@ -723,7 +723,7 @@
                   }
                 ]
               }' \
-          {{ api-host-mdb }}:{{ port-https }} \
+          mdb.api.cloud.yandex.net:443 \
           yandex.cloud.mdb.mongodb.v1.ClusterService.UpdateHosts
         ```
 
@@ -749,55 +749,55 @@
 
 ## Удалить хост {#remove-host}
 
-Вы можете удалить хост `MONGOD` из кластера {{ mmg-name }}, если он не является единственным хостом. Чтобы заменить единственный хост, сначала создайте новый хост, а затем удалите старый.
+Вы можете удалить хост `MONGOD` из кластера Yandex StoreDoc, если он не является единственным хостом. Чтобы заменить единственный хост, сначала создайте новый хост, а затем удалите старый.
 
-Если хост является первичным в момент удаления, {{ mmg-name }} автоматически выберет новую первичную реплику.
+Если хост является первичным в момент удаления, Yandex StoreDoc автоматически выберет новую первичную реплику.
 
-Также в кластере {{ mmg-name }} с [включенным шардированием](shards.md#enable) допустимо удалить хосты `MONGOS`, `MONGOCFG` или `MONGOINFRA`, если их в кластере больше, чем [минимальное количество](#hosts-table), которое требуется для обеспечения работы шардирования.
+Также в кластере Yandex StoreDoc с [включенным шардированием](shards.md#enable) допустимо удалить хосты `MONGOS`, `MONGOCFG` или `MONGOINFRA`, если их в кластере больше, чем [минимальное количество](#hosts-table), которое требуется для обеспечения работы шардирования.
 
 {% list tabs group=instructions %}
 
 - Консоль управления {#console}
 
-  Чтобы удалить хост из кластера {{ mmg-name }}:
-  1. Перейдите на [страницу каталога]({{ link-console-main }}).
-  1. Перейдите в сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-mongodb }}**.
-  1. Нажмите на имя нужного кластера {{ mmg-name }} и выберите вкладку **{{ ui-key.yacloud.mdb.cluster.switch_hosts }}**.
-  1. Нажмите значок ![image](../../_assets/console-icons/ellipsis.svg) в строке нужного хоста и выберите пункт **{{ ui-key.yacloud.common.delete }}**.
-  1. В открывшемся окне отметьте опцию **Я удаляю хост** и нажмите кнопку **{{ ui-key.yacloud.mdb.cluster.hosts.popup-confirm_button }}**.
+  Чтобы удалить хост из кластера Yandex StoreDoc:
+  1. Перейдите на [страницу каталога](https://console.yandex.cloud).
+  1. Перейдите в сервис **Yandex StoreDoc**.
+  1. Нажмите на имя нужного кластера Yandex StoreDoc и выберите вкладку **Хосты**.
+  1. Нажмите значок ![image](../../_assets/console-icons/ellipsis.svg) в строке нужного хоста и выберите пункт **Удалить**.
+  1. В открывшемся окне отметьте опцию **Я удаляю хост** и нажмите кнопку **Подтвердить**.
 
 - CLI {#cli}
 
-  Если у вас еще нет интерфейса командной строки {{ yandex-cloud }} (CLI), [установите и инициализируйте его](../../cli/quickstart.md#install).
+  Если у вас еще нет интерфейса командной строки Yandex Cloud (CLI), [установите и инициализируйте его](../../cli/quickstart.md#install).
 
   По умолчанию используется каталог, указанный при [создании](../../cli/operations/profile/profile-create.md) профиля CLI. Чтобы изменить каталог по умолчанию, используйте команду `yc config set folder-id <идентификатор_каталога>`. Также для любой команды вы можете указать другой каталог с помощью параметров `--folder-name` или `--folder-id`. Если вы обращаетесь к ресурсу по имени, поиск будет выполнен в каталоге по умолчанию. Если вы обращаетесь к ресурсу по идентификатору, поиск будет выполнен глобально — во всех каталогах с учетом прав доступа.
 
-  Чтобы удалить хост из кластера {{ mmg-name }}, выполните команду:
+  Чтобы удалить хост из кластера Yandex StoreDoc, выполните команду:
 
   ```bash
-  {{ yc-mdb-mg }} host delete <имя_хоста>
+  yc managed-mongodb host delete <имя_хоста>
        --cluster-name <имя_кластера>
   ```
 
-  Имя хоста можно запросить со [списком хостов в кластере {{ mmg-name }}](#list-hosts), имя кластера — со [списком кластеров в каталоге](cluster-list.md#list-clusters).
+  Имя хоста можно запросить со [списком хостов в кластере Yandex StoreDoc](#list-hosts), имя кластера — со [списком кластеров в каталоге](cluster-list.md#list-clusters).
 
-- {{ TF }} {#tf}
+- Terraform {#tf}
 
-  Чтобы удалить хост из кластера {{ mmg-name }}:
-  1. Откройте актуальный конфигурационный файл {{ TF }} с планом инфраструктуры.
+  Чтобы удалить хост из кластера Yandex StoreDoc:
+  1. Откройте актуальный конфигурационный файл Terraform с планом инфраструктуры.
 
      О том, как создать такой файл, см. в разделе [Создание кластера](cluster-create.md).
-  1. Удалите из описания кластера {{ mmg-name }} блок `host`, соответствующий удаляемому хосту.
+  1. Удалите из описания кластера Yandex StoreDoc блок `host`, соответствующий удаляемому хосту.
   1. Проверьте корректность настроек.
 
-     1. В командной строке перейдите в каталог, в котором расположены актуальные конфигурационные файлы {{ TF }} с планом инфраструктуры.
+     1. В командной строке перейдите в каталог, в котором расположены актуальные конфигурационные файлы Terraform с планом инфраструктуры.
      1. Выполните команду:
      
         ```bash
         terraform validate
         ```
      
-        Если в файлах конфигурации есть ошибки, {{ TF }} на них укажет.
+        Если в файлах конфигурации есть ошибки, Terraform на них укажет.
 
   1. Введите слово `yes` и нажмите **Enter**.
 
@@ -819,11 +819,11 @@
         1. Подтвердите изменение ресурсов.
         1. Дождитесь завершения операции.
 
-  Подробнее см. в [документации провайдера {{ TF }}]({{ tf-provider-resources-link }}/mdb_mongodb_cluster).
+  Подробнее см. в [документации провайдера Terraform](../../terraform/resources/mdb_mongodb_cluster.md).
 
   {% note warning "Ограничения по времени" %}
   
-  Провайдер {{ TF }} ограничивает время на выполнение операций с кластером {{ mmg-name }}:
+  Провайдер Terraform ограничивает время на выполнение операций с кластером Yandex StoreDoc:
   
   * создание, в т. ч. путем восстановления из резервной копии, — 30 минут;
   * изменение — 60 минут.
@@ -856,14 +856,14 @@
       export IAM_TOKEN="<IAM-токен>"
       ```
 
-  1. Воспользуйтесь методом [Cluster.DeleteHosts](../api-ref/Cluster/deleteHosts.md) и выполните запрос, например, с помощью {{ api-examples.rest.tool }}:
+  1. Воспользуйтесь методом [Cluster.DeleteHosts](../api-ref/Cluster/deleteHosts.md) и выполните запрос, например, с помощью [cURL](https://curl.se/):
 
       ```bash
       curl \
           --request POST \
           --header "Authorization: Bearer $IAM_TOKEN" \
           --header "Content-Type: application/json" \
-          --url 'https://{{ api-host-mdb }}/managed-mongodb/v1/clusters/<идентификатор_кластера>/hosts:batchDelete' \
+          --url 'https://mdb.api.cloud.yandex.net/managed-mongodb/v1/clusters/<идентификатор_кластера>/hosts:batchDelete' \
           --data '{
                     "hostNames": [
                       "<имя_хоста>"
@@ -892,7 +892,7 @@
      ```
      
      Далее предполагается, что содержимое репозитория находится в директории `~/cloudapi/`.
-  1. Воспользуйтесь вызовом [ClusterService.DeleteHosts](../api-ref/grpc/Cluster/deleteHosts.md) и выполните запрос, например, с помощью {{ api-examples.grpc.tool }}:
+  1. Воспользуйтесь вызовом [ClusterService.DeleteHosts](../api-ref/grpc/Cluster/deleteHosts.md) и выполните запрос, например, с помощью [gRPCurl](https://github.com/fullstorydev/grpcurl):
 
       ```bash
       grpcurl \
@@ -907,7 +907,7 @@
                   "<имя_хоста>"
                 ]
               }' \
-          {{ api-host-mdb }}:{{ port-https }} \
+          mdb.api.cloud.yandex.net:443 \
           yandex.cloud.mdb.mongodb.v1.ClusterService.DeleteHosts
       ```
 
@@ -921,17 +921,17 @@
 
 ## Запустить ресинхронизацию хоста {#resetup}
 
-Чтобы повторно синхронизировать хост с остальными репликами в кластере или шарде {{ mmg-name }}, выполните операцию принудительной синхронизации. Операция применяется только к одному хосту `MONGOD` за раз и только для кластеров {{ mmg-name }} с более чем двумя репликами, независимо от класса и типа хостов. Ресинхронизация также позволяет освободить хранилище хоста от коллекций и документов, которые помечены как удаленные.
+Чтобы повторно синхронизировать хост с остальными репликами в кластере или шарде Yandex StoreDoc, выполните операцию принудительной синхронизации. Операция применяется только к одному хосту `MONGOD` за раз и только для кластеров Yandex StoreDoc с более чем двумя репликами, независимо от класса и типа хостов. Ресинхронизация также позволяет освободить хранилище хоста от коллекций и документов, которые помечены как удаленные.
 
 При выполнении этой операции:
-1. Хост перестает принимать запросы на запись. Если хост был первичной репликой (`PRIMARY`), {{ mmg-name }} попытается сделать его вторичной репликой (`SECONDARY`). В случае неудачи операция прерывается.
-1. Инстанс {{ SD }} на хосте останавливается, и все данные удаляются.
-1. Инстанс {{ SD }} снова запускается и заново скачивает данные с хостов-реплик.
-1. После синхронизации с другими репликами в кластере {{ mmg-name }} хост становится вторичной репликой.
+1. Хост перестает принимать запросы на запись. Если хост был первичной репликой (`PRIMARY`), Yandex StoreDoc попытается сделать его вторичной репликой (`SECONDARY`). В случае неудачи операция прерывается.
+1. Инстанс Yandex StoreDoc на хосте останавливается, и все данные удаляются.
+1. Инстанс Yandex StoreDoc снова запускается и заново скачивает данные с хостов-реплик.
+1. После синхронизации с другими репликами в кластере Yandex StoreDoc хост становится вторичной репликой.
 
    {% note info %}
 
-   * Во время синхронизации хост не сможет полноценно отвечать на запросы, так как на нем будет находиться только часть данных кластера {{ mmg-name }}.
+   * Во время синхронизации хост не сможет полноценно отвечать на запросы, так как на нем будет находиться только часть данных кластера Yandex StoreDoc.
    * Оценочная скорость синхронизации: от 300 ГБ в сутки.
 
    {% endnote %}
@@ -941,25 +941,25 @@
 - Консоль управления {#console}
 
   Чтобы запустить принудительную ресинхронизацию хоста:
-  1. Перейдите на [страницу каталога]({{ link-console-main }}).
-  1. Перейдите в сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-mongodb }}**.
-  1. Нажмите на имя нужного кластера {{ mmg-name }} и выберите вкладку **{{ ui-key.yacloud.mdb.cluster.switch_hosts }}**.
-  1. Нажмите значок ![image](../../_assets/console-icons/ellipsis.svg) в строке нужного хоста и выберите пункт **{{ ui-key.yacloud.mdb.clusters.button_action-resetup }}**.
+  1. Перейдите на [страницу каталога](https://console.yandex.cloud).
+  1. Перейдите в сервис **Yandex StoreDoc**.
+  1. Нажмите на имя нужного кластера Yandex StoreDoc и выберите вкладку **Хосты**.
+  1. Нажмите значок ![image](../../_assets/console-icons/ellipsis.svg) в строке нужного хоста и выберите пункт **Ресинхронизировать**.
 
 - CLI {#cli}
 
-  Если у вас еще нет интерфейса командной строки {{ yandex-cloud }} (CLI), [установите и инициализируйте его](../../cli/quickstart.md#install).
+  Если у вас еще нет интерфейса командной строки Yandex Cloud (CLI), [установите и инициализируйте его](../../cli/quickstart.md#install).
 
   По умолчанию используется каталог, указанный при [создании](../../cli/operations/profile/profile-create.md) профиля CLI. Чтобы изменить каталог по умолчанию, используйте команду `yc config set folder-id <идентификатор_каталога>`. Также для любой команды вы можете указать другой каталог с помощью параметров `--folder-name` или `--folder-id`. Если вы обращаетесь к ресурсу по имени, поиск будет выполнен в каталоге по умолчанию. Если вы обращаетесь к ресурсу по идентификатору, поиск будет выполнен глобально — во всех каталогах с учетом прав доступа.
 
   Чтобы запустить принудительную ресинхронизацию хоста, выполните команду:
 
   ```bash
-  {{ yc-mdb-mg }} hosts resetup <имя_хоста>
+  yc managed-mongodb hosts resetup <имя_хоста>
      --cluster-name <имя_кластера>
   ```
 
-  Имя хоста можно запросить со [списком хостов в каталоге](hosts.md#list-hosts). Имя кластера {{ mmg-name }} можно запросить со [списком кластеров в каталоге](cluster-list.md#list-clusters).
+  Имя хоста можно запросить со [списком хостов в каталоге](hosts.md#list-hosts). Имя кластера Yandex StoreDoc можно запросить со [списком кластеров в каталоге](cluster-list.md#list-clusters).
 
 - REST API {#api}
 
@@ -969,14 +969,14 @@
       export IAM_TOKEN="<IAM-токен>"
       ```
 
-  1. Воспользуйтесь методом [Cluster.ResetupHosts](../api-ref/Cluster/resetupHosts.md) и выполните запрос, например, с помощью {{ api-examples.rest.tool }}:
+  1. Воспользуйтесь методом [Cluster.ResetupHosts](../api-ref/Cluster/resetupHosts.md) и выполните запрос, например, с помощью [cURL](https://curl.se/):
 
       ```bash
       curl \
           --request POST \
           --header "Authorization: Bearer $IAM_TOKEN" \
           --header "Content-Type: application/json" \
-          --url 'https://{{ api-host-mdb }}/managed-mongodb/v1/clusters/<идентификатор_кластера>:resetupHosts' \
+          --url 'https://mdb.api.cloud.yandex.net/managed-mongodb/v1/clusters/<идентификатор_кластера>:resetupHosts' \
           --data '{
                     "hostNames": [
                       "<имя_хоста>"
@@ -1005,7 +1005,7 @@
      ```
      
      Далее предполагается, что содержимое репозитория находится в директории `~/cloudapi/`.
-  1. Воспользуйтесь вызовом [ClusterService.ResetupHosts](../api-ref/grpc/Cluster/resetupHosts.md) и выполните запрос, например, с помощью {{ api-examples.grpc.tool }}:
+  1. Воспользуйтесь вызовом [ClusterService.ResetupHosts](../api-ref/grpc/Cluster/resetupHosts.md) и выполните запрос, например, с помощью [gRPCurl](https://github.com/fullstorydev/grpcurl):
 
       ```bash
       grpcurl \
@@ -1020,7 +1020,7 @@
                   "<имя_хоста>"
                 ]
               }' \
-          {{ api-host-mdb }}:{{ port-https }} \
+          mdb.api.cloud.yandex.net:443 \
           yandex.cloud.mdb.mongodb.v1.ClusterService.ResetupHosts
       ```
 
@@ -1034,13 +1034,13 @@
 
 ## Перезагрузить хост {#restart}
 
-Вы можете вручную перезагрузить хост кластера {{ mmg-name }}.
+Вы можете вручную перезагрузить хост кластера Yandex StoreDoc.
 
-Перезагрузка может привести к временной недоступности кластера или [шарда](../concepts/sharding.md) {{ mmg-name }}:
+Перезагрузка может привести к временной недоступности кластера или [шарда](../concepts/sharding.md) Yandex StoreDoc:
 * Если в кластере только один хост.
 * Если хост является [первичной репликой](../concepts/replication.md).
 
-При перезагрузке первичной реплики не происходит ее автоматического переключения. Чтобы избежать недоступности кластера {{ mmg-name }}, [переключите первичную реплику](stepdown.md) кластера до ее перезагрузки.
+При перезагрузке первичной реплики не происходит ее автоматического переключения. Чтобы избежать недоступности кластера Yandex StoreDoc, [переключите первичную реплику](stepdown.md) кластера до ее перезагрузки.
 
 {% note info %}
 
@@ -1053,22 +1053,22 @@
 - Консоль управления {#console}
 
   Чтобы перезагрузить хост:
-  1. Перейдите на [страницу каталога]({{ link-console-main }}).
-  1. Перейдите в сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-mongodb }}**.
-  1. Нажмите на имя нужного кластера {{ mmg-name }} и выберите вкладку **{{ ui-key.yacloud.mdb.cluster.switch_hosts }}**.
-  1. Нажмите значок ![image](../../_assets/console-icons/ellipsis.svg) в строке нужного хоста и выберите пункт **{{ ui-key.yacloud.mdb.cluster.hosts.action_restart-host }}**.
+  1. Перейдите на [страницу каталога](https://console.yandex.cloud).
+  1. Перейдите в сервис **Yandex StoreDoc**.
+  1. Нажмите на имя нужного кластера Yandex StoreDoc и выберите вкладку **Хосты**.
+  1. Нажмите значок ![image](../../_assets/console-icons/ellipsis.svg) в строке нужного хоста и выберите пункт **Перезагрузить**.
   1. Подтвердите перезагрузку хоста.
 
 - CLI {#cli}
 
-  Если у вас еще нет интерфейса командной строки {{ yandex-cloud }} (CLI), [установите и инициализируйте его](../../cli/quickstart.md#install).
+  Если у вас еще нет интерфейса командной строки Yandex Cloud (CLI), [установите и инициализируйте его](../../cli/quickstart.md#install).
 
   По умолчанию используется каталог, указанный при [создании](../../cli/operations/profile/profile-create.md) профиля CLI. Чтобы изменить каталог по умолчанию, используйте команду `yc config set folder-id <идентификатор_каталога>`. Также для любой команды вы можете указать другой каталог с помощью параметров `--folder-name` или `--folder-id`. Если вы обращаетесь к ресурсу по имени, поиск будет выполнен в каталоге по умолчанию. Если вы обращаетесь к ресурсу по идентификатору, поиск будет выполнен глобально — во всех каталогах с учетом прав доступа.
 
   Чтобы перезагрузить хост, выполните команду:
 
   ```bash
-  {{ yc-mdb-mg }} hosts restart <имя_хоста> \
+  yc managed-mongodb hosts restart <имя_хоста> \
     --cluster-name <имя_кластера>
   ```
 
@@ -1080,14 +1080,14 @@
       export IAM_TOKEN="<IAM-токен>"
       ```
 
-  1. Воспользуйтесь методом [Cluster.RestartHosts](../api-ref/Cluster/restartHosts.md) и выполните запрос, например, с помощью {{ api-examples.rest.tool }}:
+  1. Воспользуйтесь методом [Cluster.RestartHosts](../api-ref/Cluster/restartHosts.md) и выполните запрос, например, с помощью [cURL](https://curl.se/):
 
       ```bash
       curl \
           --request POST \
           --header "Authorization: Bearer $IAM_TOKEN" \
           --header "Content-Type: application/json" \
-          --url 'https://{{ api-host-mdb }}/managed-mongodb/v1/clusters/<идентификатор_кластера>:restartHosts' \
+          --url 'https://mdb.api.cloud.yandex.net/managed-mongodb/v1/clusters/<идентификатор_кластера>:restartHosts' \
           --data '{
                     "hostNames": [
                       "<имя_хоста>"
@@ -1116,7 +1116,7 @@
      ```
      
      Далее предполагается, что содержимое репозитория находится в директории `~/cloudapi/`.
-  1. Воспользуйтесь вызовом [ClusterService.RestartHosts](../api-ref/grpc/Cluster/restartHosts.md) и выполните запрос, например, с помощью {{ api-examples.grpc.tool }}:
+  1. Воспользуйтесь вызовом [ClusterService.RestartHosts](../api-ref/grpc/Cluster/restartHosts.md) и выполните запрос, например, с помощью [gRPCurl](https://github.com/fullstorydev/grpcurl):
 
       ```bash
       grpcurl \
@@ -1131,7 +1131,7 @@
                   "<имя_хоста>"
                 ]
               }' \
-          {{ api-host-mdb }}:{{ port-https }} \
+          mdb.api.cloud.yandex.net:443 \
           yandex.cloud.mdb.mongodb.v1.ClusterService.RestartHosts
       ```
 

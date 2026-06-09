@@ -1,14 +1,14 @@
-# Предварительная настройка для подключения к кластеру {{ PG }}
+# Предварительная настройка для подключения к кластеру PostgreSQL
 
-К хостам кластера {{ mpg-short-name }} можно подключиться:
+К хостам кластера Managed Service for PostgreSQL можно подключиться:
 
 * Через интернет, если вы [настроили](../hosts.md#update) публичный доступ для нужного хоста. Через интернет можно подключиться следующими способами:
   * используя SSL-соединение;
   * используя авторизацию через IAM.
 
-* С виртуальных машин {{ yandex-cloud }}, расположенных в той же [облачной сети](../../../vpc/concepts/network.md). Если к хосту нет публичного доступа, для подключения с таких виртуальных машин необязательно использовать SSL-соединение.
+* С виртуальных машин Yandex Cloud, расположенных в той же [облачной сети](../../../vpc/concepts/network.md). Если к хосту нет публичного доступа, для подключения с таких виртуальных машин необязательно использовать SSL-соединение.
 
-* Из контейнера [{{ serverless-containers-name }}](../../../serverless-containers/concepts/index.md). Если к хосту нет публичного доступа, контейнер должен располагаться в той же облачной сети.
+* Из контейнера [Serverless Containers](../../../serverless-containers/concepts/index.md). Если к хосту нет публичного доступа, контейнер должен располагаться в той же облачной сети.
 
 
 {% note warning %}
@@ -29,37 +29,37 @@
 
   [Настройте все группы безопасности](../../../vpc/operations/security-group-add-rule.md) кластера так, чтобы они разрешали входящий трафик с любых IP-адресов на порт 6432. Для этого создайте следующее правило для входящего трафика:
 
-  * **{{ ui-key.yacloud.vpc.network.security-groups.forms.field_sg-rule-port-range }}** — `6432`.
-  * **{{ ui-key.yacloud.vpc.network.security-groups.forms.field_sg-rule-protocol }}** — `{{ ui-key.yacloud.common.label_tcp }}`.
-  * **{{ ui-key.yacloud.vpc.network.security-groups.forms.field_sg-rule-source }}** — `{{ ui-key.yacloud.vpc.network.security-groups.forms.value_sg-rule-destination-cidr }}`.
-  * **{{ ui-key.yacloud.vpc.network.security-groups.forms.field_sg-rule-cidr-blocks }}** — `0.0.0.0/0`.
+  * **Диапазон портов** — `6432`.
+  * **Протокол** — `TCP`.
+  * **Источник** — `CIDR`.
+  * **CIDR блоки** — `0.0.0.0/0`.
 
-- С ВМ в {{ yandex-cloud }} {#cloud}
+- С ВМ в Yandex Cloud {#cloud}
 
   1. [Настройте все группы безопасности](../../../vpc/operations/security-group-add-rule.md) кластера так, чтобы они разрешали входящий трафик из группы безопасности, в которой находится ВМ, на порт 6432. Для этого в этих группах создайте следующее правило для входящего трафика:
 
-     * **{{ ui-key.yacloud.vpc.network.security-groups.forms.field_sg-rule-port-range }}** — `6432`.
-     * **{{ ui-key.yacloud.vpc.network.security-groups.forms.field_sg-rule-protocol }}** — `{{ ui-key.yacloud.common.label_tcp }}`.
-     * **{{ ui-key.yacloud.vpc.network.security-groups.forms.field_sg-rule-source }}** — `{{ ui-key.yacloud.vpc.network.security-groups.forms.value_sg-rule-destination-sg }}`.
-     * **{{ ui-key.yacloud.vpc.network.security-groups.forms.field_sg-rule-sg-type }}** — если кластер и ВМ находятся в одной и той же группе безопасности, выберите значение `{{ ui-key.yacloud.vpc.network.security-groups.forms.value_sg-rule-sg-type-self }}` (`Self`). В противном случае укажите группу безопасности ВМ.
+     * **Диапазон портов** — `6432`.
+     * **Протокол** — `TCP`.
+     * **Источник** — `Группа безопасности`.
+     * **Группа безопасности** — если кластер и ВМ находятся в одной и той же группе безопасности, выберите значение `Текущая` (`Self`). В противном случае укажите группу безопасности ВМ.
 
   1. [Настройте группу безопасности](../../../vpc/operations/security-group-add-rule.md), в которой находится ВМ, так, чтобы можно было подключаться к ВМ и был разрешен трафик между ВМ и хостами кластера.
 
      Пример правил для ВМ:
 
      * Для входящего трафика:
-       * **{{ ui-key.yacloud.vpc.network.security-groups.forms.field_sg-rule-port-range }}** — `22`.
-       * **{{ ui-key.yacloud.vpc.network.security-groups.forms.field_sg-rule-protocol }}** — `{{ ui-key.yacloud.common.label_tcp }}`.
-       * **{{ ui-key.yacloud.vpc.network.security-groups.forms.field_sg-rule-source }}** — `{{ ui-key.yacloud.vpc.network.security-groups.forms.value_sg-rule-destination-cidr }}`.
-       * **{{ ui-key.yacloud.vpc.network.security-groups.forms.field_sg-rule-cidr-blocks }}** — `0.0.0.0/0`.
+       * **Диапазон портов** — `22`.
+       * **Протокол** — `TCP`.
+       * **Источник** — `CIDR`.
+       * **CIDR блоки** — `0.0.0.0/0`.
 
        Это правило позволяет [подключаться](../../../compute/operations/vm-connect/ssh.md#vm-connect) к ВМ по протоколу [SSH](../../../glossary/ssh-keygen.md).
 
      * Для исходящего трафика:
-        * **{{ ui-key.yacloud.vpc.network.security-groups.forms.field_sg-rule-port-range }}** — `{{ port-any }}`.
-        * **{{ ui-key.yacloud.vpc.network.security-groups.forms.field_sg-rule-protocol }}** — `{{ ui-key.yacloud.vpc.network.security-groups.forms.value_any }}` (`Any`).
-        * **{{ ui-key.yacloud.vpc.network.security-groups.forms.field_sg-rule-destination }}** — `{{ ui-key.yacloud.vpc.network.security-groups.forms.value_sg-rule-destination-cidr }}`.
-        * **{{ ui-key.yacloud.vpc.network.security-groups.forms.field_sg-rule-cidr-blocks }}** — `0.0.0.0/0`.
+        * **Диапазон портов** — `0-65535`.
+        * **Протокол** — `Любой` (`Any`).
+        * **Назначение** — `CIDR`.
+        * **CIDR блоки** — `0.0.0.0/0`.
 
        Это правило разрешает любой исходящий трафик, что позволяет не только подключаться к кластеру, но и устанавливать на ВМ необходимые для этого сертификаты и утилиты.
 
@@ -73,12 +73,12 @@
 
 {% endnote %}
 
-Подробнее о группах безопасности см. в разделе [{#T}](../../concepts/network.md#security-groups).
+Подробнее о группах безопасности см. в разделе [Группы безопасности](../../concepts/network.md#security-groups).
 
 
 ## Получение SSL-сертификата {#get-ssl-cert}
 
-Хосты {{ PG }} с публичным доступом поддерживают только шифрованные соединения. Чтобы использовать их, получите [SSL-сертификат](../../../glossary/ssl-certificate.md):
+Хосты PostgreSQL с публичным доступом поддерживают только шифрованные соединения. Чтобы использовать их, получите [SSL-сертификат](../../../glossary/ssl-certificate.md):
 
 {% list tabs group=operating_system %}
 
@@ -86,7 +86,7 @@
 
    ```bash
    mkdir -p ~/.postgresql && \
-   wget "{{ crt-web-path }}" \
+   wget "https://storage.yandexcloud.net/cloud-certs/CA.pem" \
         --output-document ~/.postgresql/root.crt && \
    chmod 0655 ~/.postgresql/root.crt
    ```
@@ -96,7 +96,7 @@
 - Windows (PowerShell) {#windows}
 
    ```powershell
-   mkdir $HOME\.postgresql; curl.exe -o $HOME\.postgresql\root.crt {{ crt-web-path }}
+   mkdir $HOME\.postgresql; curl.exe -o $HOME\.postgresql\root.crt https://storage.yandexcloud.net/cloud-certs/CA.pem
    ```
 
    Сертификат будет сохранен в файле `$HOME\.postgresql\root.crt`.
@@ -105,10 +105,10 @@
 
 {% endlist %}
 
-Для использования графических IDE [сохраните сертификат]({{ crt-web-path-root }}) в локальную папку и укажите путь к нему в настройках подключения.
+Для использования графических IDE [сохраните сертификат](https://storage.yandexcloud.net/cloud-certs/RootCA.pem) в локальную папку и укажите путь к нему в настройках подключения.
 
 ## Что дальше {#whats-next}
 
 * [Получите FQDN хоста](fqdn.md), к которому будете подключаться.
-* [Подключитесь](clients.md) к кластеру с помощью инструментов командной строки, из графических IDE, {{ websql-full-name }}, {{ pgadmin }}, {{ google-looker }} и Docker-контейнера.
+* [Подключитесь](clients.md) к кластеру с помощью инструментов командной строки, из графических IDE, Yandex WebSQL, pgAdmin 4, Looker Studio и Docker-контейнера.
 * [Интегрируйте](code-examples.md) подключение к кластеру в код вашего приложения.

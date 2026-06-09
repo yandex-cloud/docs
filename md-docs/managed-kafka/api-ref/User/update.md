@@ -5,7 +5,7 @@ Updates the specified Kafka user.
 ## HTTP request
 
 ```
-PATCH https://{{ api-host-mdb }}/managed-kafka/v1/clusters/{clusterId}/users/{userName}
+PATCH https://mdb.api.cloud.yandex.net/managed-kafka/v1/clusters/{clusterId}/users/{userName}
 ```
 
 ## Path parameters

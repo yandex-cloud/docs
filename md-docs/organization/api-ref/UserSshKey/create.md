@@ -3,7 +3,7 @@
 ## HTTP request
 
 ```
-POST https://organization-manager.{{ api-host }}/organization-manager/v1/userSshKeys
+POST https://organization-manager.api.cloud.yandex.net/organization-manager/v1/userSshKeys
 ```
 
 ## Body parameters {#yandex.cloud.organizationmanager.v1.CreateUserSshKeyRequest}

@@ -1,18 +1,18 @@
-# Запуск заданий {{ ml-platform-name }} Jobs
+# Запуск заданий DataSphere Jobs
 
-Вы можете удаленно запускать [задания](../../concepts/jobs/index.md) (jobs) — Python- и bash-скрипты и исполняемые бинарные файлы, которые будут выполняться на ВМ {{ ml-platform-full-name }}.
+Вы можете удаленно запускать [задания](../../concepts/jobs/index.md) (jobs) — Python- и bash-скрипты и исполняемые бинарные файлы, которые будут выполняться на ВМ Yandex DataSphere.
 
 Задания создаются и выполняются в [проектах](../../concepts/project.md), но не зависят от ноутбуков и запущенных ВМ в проекте.
 
-Для запуска задания необходимо [установить](../../../cli/quickstart.md) и сконфигурировать [интерфейс командной строки {{ yandex-cloud }}](../../../cli/index.md), чтобы с его помощью аутентифицироваться в {{ yandex-cloud }}. Также нужно установить библиотеку `datasphere` в свое окружение Python командой `pip install datasphere`.
+Для запуска задания необходимо [установить](../../../cli/quickstart.md) и сконфигурировать [интерфейс командной строки Yandex Cloud](../../../cli/index.md), чтобы с его помощью аутентифицироваться в Yandex Cloud. Также нужно установить библиотеку `datasphere` в свое окружение Python командой `pip install datasphere`.
 
-Работа с заданиями также доступна в [Visual Studio Code](https://code.visualstudio.com/) с помощью расширения [{{ ds-jobs }} Toolkit](jobs-toolkit.md).
+Работа с заданиями также доступна в [Visual Studio Code](https://code.visualstudio.com/) с помощью расширения [DataSphere Jobs Toolkit](jobs-toolkit.md).
 
-При запуске задания библиотека `datasphere` анализирует окружение, собирает зависимости кода и может передавать их в {{ ml-platform-name }} для развертывания окружения на ВМ в облаке. Чтобы избежать лишних системных зависимостей, которые могут нарушить работу задания, рекомендуем использовать виртуальное окружение [venv](https://docs.python.org/3/library/venv.html) или [conda](https://docs.conda.io/en/latest/#).
+При запуске задания библиотека `datasphere` анализирует окружение, собирает зависимости кода и может передавать их в DataSphere для развертывания окружения на ВМ в облаке. Чтобы избежать лишних системных зависимостей, которые могут нарушить работу задания, рекомендуем использовать виртуальное окружение [venv](https://docs.python.org/3/library/venv.html) или [conda](https://docs.conda.io/en/latest/#).
 
 {% note info %}
 
-Для запуска заданий {{ ml-platform-name }} используется Python [venv](https://docs.python.org/3/tutorial/venv.html). Поддерживаются версии Python 3.8–3.12. 
+Для запуска заданий DataSphere используется Python [venv](https://docs.python.org/3/tutorial/venv.html). Поддерживаются версии Python 3.8–3.12. 
 
 {% endnote %}
 
@@ -52,7 +52,7 @@
     * `name` — название задания.
     * `desc` — описание задания.
     * `cmd` — файл со скриптом и переменные для входящих данных и результатов.
-    * `env` — параметры окружения. Значение `python: auto` означает, что необходимо передавать в {{ ml-platform-name }} код и зависимости `pip`.
+    * `env` — параметры окружения. Значение `python: auto` означает, что необходимо передавать в DataSphere код и зависимости `pip`.
     * `inputs` — файл с входящими данными. Название переменной `DATA` можно изменить.
     * `outputs` — файл с результатами. Название переменной `OUTPUT` можно изменить.
     * `cloud-instance-types` — список допустимых [конфигураций вычислительных ресурсов](../../concepts/configurations.md) для запуска задания в порядке приоритета.
@@ -65,16 +65,16 @@
     datasphere project job execute -p <идентификатор_проекта> -c config.yaml
     ```
 
-    Чтобы скопировать идентификатор проекта, выберите нужный проект на [главной странице]({{ link-datasphere-main }}) {{ ml-platform-name }} и нажмите **{{ ui-key.yc-ui-datasphere.common.id }}** ![alt](../../../_assets/console-icons/copy.svg).
+    Чтобы скопировать идентификатор проекта, выберите нужный проект на [главной странице](https://datasphere.yandex.cloud) DataSphere и нажмите **ID** ![alt](../../../_assets/console-icons/copy.svg).
 
 ## Отслеживать прогресс выполнения задания {#progress}
 
 {% list tabs %}
 
-- Интерфейс {{ ml-platform-full-name }}
+- Интерфейс Yandex DataSphere
 
-  1. Выберите нужный проект в своем сообществе или на [главной странице]({{ link-datasphere-main }}) {{ ml-platform-name }} во вкладке **{{ ui-key.yc-ui-datasphere.main-page.recent-projects }}**.
-  1. Перейдите на вкладку **{{ ui-key.yc-ui-datasphere.project-page.project-jobs }}** ⟶ **{{ ui-key.yc-ui-datasphere.project-page.launch-history }}** и выберите нужное задание.
+  1. Выберите нужный проект в своем сообществе или на [главной странице](https://datasphere.yandex.cloud) DataSphere во вкладке **Недавние проекты**.
+  1. Перейдите на вкладку **DataSphere Jobs** ⟶ **История запусков** и выберите нужное задание.
   1. В верхней части страницы отобразится полоса прогресса.
 
 - Локально
@@ -91,7 +91,7 @@
 
 ## Пример {#example}
 
-Рассмотрим пример обучения модели классификации на датасете MNIST, содержащем образцы рукописных цифр. Запуск обучения в {{ ml-platform-name }} происходит удаленно, после чего файл с обученной моделью возвращается в качестве результата. Другие примеры для запуска заданий доступны в [репозитории](https://github.com/yandex-cloud-examples/yc-datasphere-jobs-examples) на GitHub.
+Рассмотрим пример обучения модели классификации на датасете MNIST, содержащем образцы рукописных цифр. Запуск обучения в DataSphere происходит удаленно, после чего файл с обученной моделью возвращается в качестве результата. Другие примеры для запуска заданий доступны в [репозитории](https://github.com/yandex-cloud-examples/yc-datasphere-jobs-examples) на GitHub.
 
 {% note warning %}
 
@@ -207,7 +207,7 @@
     datasphere project job execute -p <идентификатор_проекта> -c config.yaml
     ```
 
-    Чтобы скопировать идентификатор проекта, выберите нужный проект на [главной странице]({{ link-datasphere-main }}) {{ ml-platform-name }} и нажмите **{{ ui-key.yc-ui-datasphere.common.id }}** ![alt](../../../_assets/console-icons/copy.svg).
+    Чтобы скопировать идентификатор проекта, выберите нужный проект на [главной странице](https://datasphere.yandex.cloud) DataSphere и нажмите **ID** ![alt](../../../_assets/console-icons/copy.svg).
 
 Модель сохранится в архив `model.zip` в папке задания.
 
@@ -215,5 +215,5 @@
 
 #### См. также {#see-also}
 
-* [{#T}](../../concepts/jobs/index.md)
+* [DataSphere Jobs](../../concepts/jobs/index.md)
 * [GitHub-репозиторий](https://github.com/yandex-cloud-examples/yc-datasphere-jobs-examples) с примерами для запуска заданий

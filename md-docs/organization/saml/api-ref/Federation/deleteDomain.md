@@ -5,7 +5,7 @@ Deletes the specified domain from the federation.
 ## HTTP request
 
 ```
-DELETE https://organization-manager.{{ api-host }}/organization-manager/v1/saml/federations/{federationId}/domains/{domain}
+DELETE https://organization-manager.api.cloud.yandex.net/organization-manager/v1/saml/federations/{federationId}/domains/{domain}
 ```
 
 ## Path parameters

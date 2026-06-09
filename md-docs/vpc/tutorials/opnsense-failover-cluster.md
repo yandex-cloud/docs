@@ -1,6 +1,6 @@
-# Настройка межсетевого экрана OPNsense в режиме кластера высокой доступности на серверах {{ baremetal-full-name }}
+# Настройка межсетевого экрана OPNsense в режиме кластера высокой доступности на серверах Yandex BareMetal
 
-Предлагаемое решение позволяет настроить на [серверах](../../baremetal/concepts/servers.md) {{ baremetal-name }} периметральный межсетевой экран [OPNsense](https://opnsense.org/), который будет выступать не только основным шлюзом и [Stateful Firewall](https://en.wikipedia.org/wiki/Stateful_firewall), но и [DHCP](https://ru.wikipedia.org/wiki/DHCP)-сервером в высокодоступной конфигурации.
+Предлагаемое решение позволяет настроить на [серверах](../../baremetal/concepts/servers.md) BareMetal периметральный межсетевой экран [OPNsense](https://opnsense.org/), который будет выступать не только основным шлюзом и [Stateful Firewall](https://en.wikipedia.org/wiki/Stateful_firewall), но и [DHCP](https://ru.wikipedia.org/wiki/DHCP)-сервером в высокодоступной конфигурации.
 
 Смысл предлагаемого решения заключается в том, чтобы к интернету были подключены только серверы [межсетевого экрана](https://ru.wikipedia.org/wiki/Межсетевой_экран) OPNsense, что позволит сформировать за ними защищенный сегмент сети.
 
@@ -12,14 +12,14 @@
 
 ![opnsense-failover-cluster](../../_assets/tutorials/opnsense-failover-cluster.svg)
 
-* [Публичная сеть](../../baremetal/concepts/public-network.md) {{ baremetal-name }} [пула серверов](../../baremetal/concepts/servers.md#server-pools) `{{ region-id }}-m4`.
-* [Приватная подсеть](../../baremetal/concepts/private-network.md#private-subnet) {{ baremetal-name }} `opnsense-private-subnet-m4`.
-* Два сервера {{ baremetal-name }} в составе кластера OPNsense: `opnsense-master` и `opnsense-backup`. При написании настоящего руководства использовался межсетевой экран OPNsense версии `25.1`.
-* Один сервер {{ baremetal-name }} `vmware-esxi` с запущенной платформой [виртуализации](../../glossary/virtualization.md) VMware [ESXi](https://ru.wikipedia.org/wiki/VMware_ESXi). При написании настоящего руководства использовался гипервизор ESXi версии `7.0U3g`.
+* [Публичная сеть](../../baremetal/concepts/public-network.md) BareMetal [пула серверов](../../baremetal/concepts/servers.md#server-pools) `ru-central1-m4`.
+* [Приватная подсеть](../../baremetal/concepts/private-network.md#private-subnet) BareMetal `opnsense-private-subnet-m4`.
+* Два сервера BareMetal в составе кластера OPNsense: `opnsense-master` и `opnsense-backup`. При написании настоящего руководства использовался межсетевой экран OPNsense версии `25.1`.
+* Один сервер BareMetal `vmware-esxi` с запущенной платформой [виртуализации](../../glossary/virtualization.md) VMware [ESXi](https://ru.wikipedia.org/wiki/VMware_ESXi). При написании настоящего руководства использовался гипервизор ESXi версии `7.0U3g`.
 * На сервере `vmware-esxi` запущена [виртуальная машина](../../glossary/vm.md): `opnsense-tester-vm`. При написании настоящего руководства виртуальная машина создавались под управлением ОС [Linux Ubuntu 24.04](https://releases.ubuntu.com/24.04/) без графического пользовательского интерфейса.
 * [Инсталляционный сервер](https://ru.wikipedia.org/wiki/Инсталляционный_сервер) `jump-server`, необходимый для настройки серверов OPNsense и ESXi, при помощи которого можно обращаться к приватным IP-адресам серверов OPNsense и ESXi.
 
-    Инсталляционный сервер должен иметь [графический пользовательский интерфейс](https://ru.wikipedia.org/wiki/Графический_интерфейс_пользователя) и [браузер](https://ru.wikipedia.org/wiki/Браузер). Для упрощения настроек в настоящем руководстве в роли инсталляционного сервера будет выступать сервер {{ baremetal-name }}, загруженный в режиме восстановления и диагностики с [Rescue-CD](../../baremetal/operations/servers/rescue-boot.md).
+    Инсталляционный сервер должен иметь [графический пользовательский интерфейс](https://ru.wikipedia.org/wiki/Графический_интерфейс_пользователя) и [браузер](https://ru.wikipedia.org/wiki/Браузер). Для упрощения настроек в настоящем руководстве в роли инсталляционного сервера будет выступать сервер BareMetal, загруженный в режиме восстановления и диагностики с [Rescue-CD](../../baremetal/operations/servers/rescue-boot.md).
 
     {% note info %}
 
@@ -27,12 +27,12 @@
 
     {% endnote %}
 
-Чтобы настроить межсетевой экран OPNsense в режиме кластера высокой доступности на серверах {{ baremetal-full-name }}:
+Чтобы настроить межсетевой экран OPNsense в режиме кластера высокой доступности на серверах Yandex BareMetal:
 
 1. [Подготовьте облако к работе](#before-you-begin).
-1. [Создайте загрузочные образы в {{ baremetal-name }}](#create-images).
-1. [Создайте приватную подсеть {{ baremetal-name }}](#create-subnet).
-1. [Арендуйте серверы {{ baremetal-name }}](#rent-servers).
+1. [Создайте загрузочные образы в BareMetal](#create-images).
+1. [Создайте приватную подсеть BareMetal](#create-subnet).
+1. [Арендуйте серверы BareMetal](#rent-servers).
 1. [Настройте кластер высокой доступности OPNsense](#setup-opnsense).
 1. [Установите гипервизор и создайте виртуальную машину](#setup-esxi).
 1. [Убедитесь в работоспособности решения](#test-solution).
@@ -42,50 +42,50 @@
 
 ## Перед началом работы {#before-you-begin}
 
-Зарегистрируйтесь в {{ yandex-cloud }} и создайте [платежный аккаунт](../../billing/concepts/billing-account.md):
-1. Перейдите в [консоль управления]({{ link-console-main }}), затем войдите в {{ yandex-cloud }} или зарегистрируйтесь.
-1. На странице **[{{ ui-key.yacloud_billing.billing.label_service }}]({{ link-console-billing }})** убедитесь, что у вас подключен платежный аккаунт, и он находится в [статусе](../../billing/concepts/billing-account-statuses.md) `ACTIVE` или `TRIAL_ACTIVE`. Если платежного аккаунта нет, [создайте его](../../billing/quickstart/index.md) и [привяжите](../../billing/operations/pin-cloud.md) к нему облако.
+Зарегистрируйтесь в Yandex Cloud и создайте [платежный аккаунт](../../billing/concepts/billing-account.md):
+1. Перейдите в [консоль управления](https://console.yandex.cloud), затем войдите в Yandex Cloud или зарегистрируйтесь.
+1. На странице **[Yandex Cloud Billing](https://center.yandex.cloud/billing/accounts)** убедитесь, что у вас подключен платежный аккаунт, и он находится в [статусе](../../billing/concepts/billing-account-statuses.md) `ACTIVE` или `TRIAL_ACTIVE`. Если платежного аккаунта нет, [создайте его](../../billing/quickstart/index.md) и [привяжите](../../billing/operations/pin-cloud.md) к нему облако.
 
-Если у вас есть активный платежный аккаунт, вы можете создать или выбрать [каталог](../../resource-manager/concepts/resources-hierarchy.md#folder), в котором будет работать ваша инфраструктура, на [странице облака]({{ link-console-cloud }}).
+Если у вас есть активный платежный аккаунт, вы можете создать или выбрать [каталог](../../resource-manager/concepts/resources-hierarchy.md#folder), в котором будет работать ваша инфраструктура, на [странице облака](https://console.yandex.cloud/cloud).
 
 [Подробнее об облаках и каталогах](../../resource-manager/concepts/resources-hierarchy.md).
 
 ### Необходимые платные ресурсы {#paid-resources}
 
 В стоимость предлагаемого решения входят: 
-* плата за аренду серверов {{ baremetal-name }} (см. [тарифы {{ baremetal-full-name }}](../../baremetal/pricing.md));
-* плата за [хранение данных](../../storage/concepts/bucket.md) в {{ objstorage-name }} и [операции](../../storage/operations/index.md) с ними (см. [тарифы {{ objstorage-full-name }}](../../storage/pricing.md)).
+* плата за аренду серверов BareMetal (см. [тарифы Yandex BareMetal](../../baremetal/pricing.md));
+* плата за [хранение данных](../../storage/concepts/bucket.md) в Object Storage и [операции](../../storage/operations/index.md) с ними (см. [тарифы Yandex Object Storage](../../storage/pricing.md)).
 
-## Создайте загрузочные образы в {{ baremetal-name }} {#create-images}
+## Создайте загрузочные образы в BareMetal {#create-images}
 
-Установка межсетевого экрана OPNsense и гипервизора ESXi на серверы {{ baremetal-name }} будет выполняться из пользовательских загрузочных образов {{ baremetal-name }}, которые вы подготовите перед тем, как приступать к развертыванию инфраструктуры.
+Установка межсетевого экрана OPNsense и гипервизора ESXi на серверы BareMetal будет выполняться из пользовательских загрузочных образов BareMetal, которые вы подготовите перед тем, как приступать к развертыванию инфраструктуры.
 
-### Загрузите ISO-образы программных продуктов в {{ objstorage-full-name }} {#upload-isos}
+### Загрузите ISO-образы программных продуктов в Yandex Object Storage {#upload-isos}
 
 Для создания инфраструктуры, предусмотренной предлагаемым решением, вам потребуются [ISO-образы](https://ru.wikipedia.org/wiki/ISO-образ) с дистрибутивами для установки OPNsense и VMware ESXi на серверы.
 
 {% note info %}
 
-{{ yandex-cloud }} не предоставляет дистрибутивы этих программных продуктов, вам следует приобрести их самостоятельно.
+Yandex Cloud не предоставляет дистрибутивы этих программных продуктов, вам следует приобрести их самостоятельно.
 
 {% endnote %}
 
-Загрузите образы с дистрибутивами OPNsense и ESXi в бакет [{{ objstorage-name }}](../../storage/index.md):
+Загрузите образы с дистрибутивами OPNsense и ESXi в бакет [Object Storage](../../storage/index.md):
 
-1. Если у вас еще нет [бакета](../../storage/concepts/bucket.md) в {{ objstorage-name }}, [создайте](../../storage/operations/buckets/create.md) его с ограниченным доступом.
-1. Загрузите образы в ваш бакет, например, [через консоль управления](../../storage/operations/objects/upload.md), с помощью [AWS CLI](../../storage/tools/aws-cli.md) или [WinSCP](../../storage/tools/winscp.md). В терминах {{ objstorage-name }} загруженные файлы образов будут называться _объектами_.
-1. [Получите ссылки](../../storage/operations/objects/link-for-download.md) на загруженные образы. Используйте эти ссылки при создании загрузочных образов в {{ baremetal-name }}.
+1. Если у вас еще нет [бакета](../../storage/concepts/bucket.md) в Object Storage, [создайте](../../storage/operations/buckets/create.md) его с ограниченным доступом.
+1. Загрузите образы в ваш бакет, например, [через консоль управления](../../storage/operations/objects/upload.md), с помощью [AWS CLI](../../storage/tools/aws-cli.md) или [WinSCP](../../storage/tools/winscp.md). В терминах Object Storage загруженные файлы образов будут называться _объектами_.
+1. [Получите ссылки](../../storage/operations/objects/link-for-download.md) на загруженные образы. Используйте эти ссылки при создании загрузочных образов в BareMetal.
 
-### Создайте загрузочные образы в {{ baremetal-name }} {#create-image}
+### Создайте загрузочные образы в BareMetal {#create-image}
 
 {% list tabs group=instructions %}
 
 - Консоль управления {#console}
 
-  1. В [консоли управления]({{ link-console-main }}) выберите каталог, в котором вы планируете создавать инфраструктуру.
-  1. Перейдите в сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_baremetal }}**.
-  1. На панели слева выберите ![icon](../../_assets/console-icons/layers.svg) **{{ ui-key.yacloud.baremetal.label_images_duoXD }}**.
-  1. Нажмите кнопку **{{ ui-key.yacloud.baremetal.label_load-image }}**.
+  1. В [консоли управления](https://console.yandex.cloud) выберите каталог, в котором вы планируете создавать инфраструктуру.
+  1. Перейдите в сервис **BareMetal**.
+  1. На панели слева выберите ![icon](../../_assets/console-icons/layers.svg) **Загрузочные образы**.
+  1. Нажмите кнопку **Загрузить образ**.
   1. Введите имя для образа OPNsense. Требования к имени:
 
        * длина — от 3 до 63 символов;
@@ -93,38 +93,38 @@
        * первый символ — буква, последний — не дефис.
 
   1. (Опционально) Добавьте описание образа.
-  1. Вставьте ссылку на образ OPNsense, полученную в {{ objstorage-name }}.
-  1. Нажмите кнопку **{{ ui-key.yacloud.baremetal.label_create-image }}**.
+  1. Вставьте ссылку на образ OPNsense, полученную в Object Storage.
+  1. Нажмите кнопку **Загрузить**.
   1. Аналогичным образом создайте загрузочный образ ESXi.
 
 {% endlist %}
 
-## Создайте приватную подсеть {{ baremetal-name }} {#create-subnet}
+## Создайте приватную подсеть BareMetal {#create-subnet}
 
 {% list tabs group=instructions %}
 
 - Консоль управления {#console}
 
-  1. В [консоли управления]({{ link-console-main }}) выберите каталог, в котором вы создаете инфраструктуру.
-  1. Перейдите в сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_baremetal }}**.
-  1. На панели слева выберите ![icon](../../_assets/console-icons/nodes-right.svg) **{{ ui-key.yacloud.baremetal.label_subnetworks_uU4LH }}** и нажмите кнопку **{{ ui-key.yacloud.baremetal.label_create-subnetwork }}**.
-  1. В поле **{{ ui-key.yacloud.baremetal.field_hardware-pool-id }}** выберите пул серверов `{{ region-id }}-m4`.
-  1. В поле **{{ ui-key.yacloud.baremetal.field_name }}** задайте имя подсети: `opnsense-private-subnet-m4`.
-  1. Не включая опцию **{{ ui-key.yacloud.baremetal.title_routing-settings }}**, нажмите кнопку **{{ ui-key.yacloud.baremetal.label_create-subnetwork }}**.
+  1. В [консоли управления](https://console.yandex.cloud) выберите каталог, в котором вы создаете инфраструктуру.
+  1. Перейдите в сервис **BareMetal**.
+  1. На панели слева выберите ![icon](../../_assets/console-icons/nodes-right.svg) **Приватные подсети** и нажмите кнопку **Создать подсеть**.
+  1. В поле **Пул** выберите пул серверов `ru-central1-m4`.
+  1. В поле **Имя** задайте имя подсети: `opnsense-private-subnet-m4`.
+  1. Не включая опцию **IP-адресация и маршрутизация**, нажмите кнопку **Создать подсеть**.
 
 {% endlist %}
 
-## Арендуйте серверы {{ baremetal-name }} {#rent-servers}
+## Арендуйте серверы BareMetal {#rent-servers}
 
 {% list tabs group=instructions %}
 
 - Консоль управления {#console}
 
-  1. В [консоли управления]({{ link-console-main }}) выберите каталог, в котором вы создаете инфраструктуру.
-  1. Перейдите в сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_baremetal }}**.
-  1. Нажмите кнопку **{{ ui-key.yacloud.baremetal.label_create-server }}** и в открывшемся окне выберите вариант `{{ ui-key.yacloud_components.baremetal.StockConfigurations }}` и подходящую [конфигурацию](../../baremetal/concepts/server-configurations.md) сервера {{ baremetal-name }} в пуле серверов `{{ region-id }}-m4`.
+  1. В [консоли управления](https://console.yandex.cloud) выберите каталог, в котором вы создаете инфраструктуру.
+  1. Перейдите в сервис **BareMetal**.
+  1. Нажмите кнопку **Заказать сервер** и в открывшемся окне выберите вариант `Готовые конфигурации` и подходящую [конфигурацию](../../baremetal/concepts/server-configurations.md) сервера BareMetal в пуле серверов `ru-central1-m4`.
 
-      Для этого в фильтре в правой части окна в блоке **{{ ui-key.yacloud_components.baremetal.poolFilter }}** выберите пул серверов `{{ region-id }}-m4`.
+      Для этого в фильтре в правой части окна в блоке **Пул** выберите пул серверов `ru-central1-m4`.
 
       Для тестирования предлагаемого решения будет достаточно конфигурации с минимальными аппаратными характеристиками. Чтобы выбрать подходящую вам конфигурацию сервера, нажмите на блок с именем этой конфигурации в центральной части экрана.
 
@@ -132,7 +132,7 @@
       
       Вы можете снизить стоимость аренды сервера в некоторых конфигурациях, заказав его [сборку](../../baremetal/concepts/server-custom-configurations.md#assembly).
       
-      Чтобы воспользоваться скидкой, в блоке с нужной конфигурацией наведите курсор на **{{ ui-key.yacloud_components.baremetal.assemblyDiscountLabel }}** ![circle-info.svg](../../_assets/console-icons/circle-info.svg) и во всплывающем окне нажмите ![person-nut-hex.svg](../../_assets/console-icons/person-nut-hex.svg) **{{ ui-key.yacloud_components.baremetal.goToAssembly }}**.
+      Чтобы воспользоваться скидкой, в блоке с нужной конфигурацией наведите курсор на **Дешевле со сборкой** ![circle-info.svg](../../_assets/console-icons/circle-info.svg) и во всплывающем окне нажмите ![person-nut-hex.svg](../../_assets/console-icons/person-nut-hex.svg) **Перейти к сборке**.
       
       При заказе сервера со сборкой воспользуйтесь приведенной ниже инструкцией, чтобы задать необходимые параметры сервера. При этом сервер станет доступен вам не сразу, а после завершения сборки (в течение четырех календарных дней) и по более низкой цене.
       
@@ -140,18 +140,18 @@
 
   1. В открывшемся окне с настройками конфигурации сервера:
 
-      1. В поле **{{ ui-key.yacloud.baremetal.field_server-lease-duration }}** выберите [период](../../baremetal/concepts/servers.md#server-lease), на который вы хотите арендовать сервер: `1 день`, `1 месяц`, `3 месяца`, `6 месяцев` или `1 год`.
+      1. В поле **Период аренды** выберите [период](../../baremetal/concepts/servers.md#server-lease), на который вы хотите арендовать сервер: `1 день`, `1 месяц`, `3 месяца`, `6 месяцев` или `1 год`.
          
          По окончании указанного периода аренда сервера будет автоматически продлена на такой же период. Прервать аренду в течение указанного периода аренды нельзя, но можно [отказаться](../../baremetal/operations/servers/server-lease-cancel.md) от дальнейшего продления аренды сервера.
-      1. В блоке **{{ ui-key.yacloud.baremetal.title_section-server-product }}** выберите `{{ ui-key.yacloud.baremetal.field_choose-no-os }}`.
-      1. В блоке **{{ ui-key.yacloud.baremetal.title_section-network-interfaces }}**:
-          1. В поле **{{ ui-key.yacloud.baremetal.field_subnet-id }}** выберите созданную ранее подсеть `subnet-m3`.
-          1. В поле **{{ ui-key.yacloud.baremetal.field_needed-public-ip }}** выберите `{{ ui-key.yacloud.baremetal.label_public-ip-ephemeral }}`.
+      1. В блоке **Образ** выберите `Без операционной системы`.
+      1. В блоке **Сетевые интерфейсы**:
+          1. В поле **Приватная подсеть** выберите созданную ранее подсеть `subnet-m3`.
+          1. В поле **Публичный адрес** выберите `Из эфемерной подсети`.
 
-      1. В блоке **{{ ui-key.yacloud.baremetal.title_section-server-info }}** в поле **{{ ui-key.yacloud.baremetal.field_name }}** задайте имя сервера: `opnsense-master`.
-      1. Нажмите кнопку **{{ ui-key.yacloud.baremetal.label_create-server }}**.
-  1. Аналогичным способом арендуйте еще один сервер с именем `opnsense-backup` в пуле серверов `{{ region-id }}-m4`.
-  1. Аналогичным способом арендуйте еще два сервера в пуле серверов `{{ region-id }}-m4` — с именами `vmware-esxi` и `jump-server`. Но при настройке конфигурации этих серверов в блоке **Сетевые настройки** в поле **{{ ui-key.yacloud.baremetal.field_needed-public-ip }}** выберите `{{ ui-key.yacloud.baremetal.label_public-ip-no }}`.
+      1. В блоке **Информация о сервере** в поле **Имя** задайте имя сервера: `opnsense-master`.
+      1. Нажмите кнопку **Заказать сервер**.
+  1. Аналогичным способом арендуйте еще один сервер с именем `opnsense-backup` в пуле серверов `ru-central1-m4`.
+  1. Аналогичным способом арендуйте еще два сервера в пуле серверов `ru-central1-m4` — с именами `vmware-esxi` и `jump-server`. Но при настройке конфигурации этих серверов в блоке **Сетевые настройки** в поле **Публичный адрес** выберите `Без адреса`.
 
 {% endlist %}
 
@@ -164,7 +164,7 @@
 
 ## Настройте кластер высокой доступности OPNsense {#setup-opnsense}
 
-Настройка кластера высокой доступности включает в себя установку межсетевого экрана OPNsense на два сервера {{ baremetal-name }}, последующее создание из этих серверов кластера OPNsense и его настройку.
+Настройка кластера высокой доступности включает в себя установку межсетевого экрана OPNsense на два сервера BareMetal, последующее создание из этих серверов кластера OPNsense и его настройку.
 
 ### Установите межсетевой экран OPNsense на серверы {#opnsense-server-installation}
 
@@ -215,7 +215,7 @@
 
     {% note alert %}
 
-    В процессе установки не закрывайте и не обновляйте окно KVM-консоли. В противном случае установочный образ окажется отмонтирован от сервера {{ baremetal-name }} и установку придется начинать заново.
+    В процессе установки не закрывайте и не обновляйте окно KVM-консоли. В противном случае установочный образ окажется отмонтирован от сервера BareMetal и установку придется начинать заново.
 
     Процесс установки может занять до часа.
 
@@ -248,7 +248,7 @@
 
     {% note info %}
 
-    В зависимости от конфигурации сервера {{ baremetal-name }} он может быть оснащен сетевыми картами `Intel` или `Mellanox`. Сетевые интерфейсы на картах `Intel` ядро ОС настраивает автоматически, а для настройки сетевых интерфейсов на картах `Mellanox` могут потребоваться дополнительные действия.
+    В зависимости от конфигурации сервера BareMetal он может быть оснащен сетевыми картами `Intel` или `Mellanox`. Сетевые интерфейсы на картах `Intel` ядро ОС настраивает автоматически, а для настройки сетевых интерфейсов на картах `Mellanox` могут потребоваться дополнительные действия.
 
     {% endnote %}
 
@@ -459,7 +459,7 @@
 
     1. Узнайте MAC-адрес подключенного к приватной подсети сетевого интерфейса сервера `jump-server`.
 
-        MAC-адрес нужного сетевого интерфейса сервера {{ baremetal-name }} вы можете [посмотреть](../../baremetal/operations/servers/get-info.md) на странице с информацией о сервере `jump-server` в блоке **{{ ui-key.yacloud.baremetal.title_section-network-interfaces }}**.
+        MAC-адрес нужного сетевого интерфейса сервера BareMetal вы можете [посмотреть](../../baremetal/operations/servers/get-info.md) на странице с информацией о сервере `jump-server` в блоке **Сетевые интерфейсы**.
 
         Сохраните полученный MAC-адрес — он потребуется на следующем шаге.
     1. Определите имя подключенного к приватной подсети сетевого интерфейса сервера `jump-server` в графической оболочке SystemRescue:
@@ -968,4 +968,4 @@
 ## Как удалить созданные ресурсы {#clear-out}
 
 1. [Удалите](../../storage/operations/objects/delete.md) созданные в бакете объекты, затем [удалите](../../storage/operations/buckets/delete.md) сам бакет.
-1. Удалить серверы {{ baremetal-name }} нельзя. Вместо этого [откажитесь](../../baremetal/operations/servers/server-lease-cancel.md) от продления их аренды.
+1. Удалить серверы BareMetal нельзя. Вместо этого [откажитесь](../../baremetal/operations/servers/server-lease-cancel.md) от продления их аренды.

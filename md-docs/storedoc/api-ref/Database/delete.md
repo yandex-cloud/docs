@@ -5,7 +5,7 @@ Deletes the specified MongoDB database.
 ## HTTP request
 
 ```
-DELETE https://{{ api-host-mdb }}/managed-mongodb/v1/clusters/{clusterId}/databases/{databaseName}
+DELETE https://mdb.api.cloud.yandex.net/managed-mongodb/v1/clusters/{clusterId}/databases/{databaseName}
 ```
 
 ## Path parameters

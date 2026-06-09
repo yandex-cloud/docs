@@ -5,7 +5,7 @@ Creates a cloud in the specified organization.
 ## HTTP request
 
 ```
-POST https://resource-manager.{{ api-host }}/resource-manager/v1/clouds
+POST https://resource-manager.api.cloud.yandex.net/resource-manager/v1/clouds
 ```
 
 ## Body parameters {#yandex.cloud.resourcemanager.v1.CreateCloudRequest}

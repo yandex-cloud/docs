@@ -2,7 +2,7 @@
 
 {% note warning %}
 
-Функция доступна только при подключенной услуге [{{ interconnect-name }}](../../interconnect/index.md).
+Функция доступна только при подключенной услуге [Cloud Interconnect](../../interconnect/index.md).
 
 {% endnote %}
 

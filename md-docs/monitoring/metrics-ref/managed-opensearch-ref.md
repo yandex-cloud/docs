@@ -1,10 +1,10 @@
-# Метрики {{ mos-full-name }}
+# Метрики Yandex Managed Service for OpenSearch
 
-В этом разделе описаны метрики сервиса [{{ mos-name }}](../../managed-opensearch/index.md), поставляемые в {{ monitoring-name }}.
+В этом разделе описаны метрики сервиса [Managed Service for OpenSearch](../../managed-opensearch/index.md), поставляемые в Monitoring.
 
 Имя метрики пишется в метку `name`.
 
-Общие метки для всех метрик сервиса {{ mos-name }}: 
+Общие метки для всех метрик сервиса Managed Service for OpenSearch: 
 
 Метка | Значение
 ----|----
@@ -176,7 +176,7 @@ subcluster_name | Имя субкластера
 | `high_total`<br/>`DGAUGE`, байты | Использование оперативной памяти, тип потребления [high_total](*high_total). |
 | `hosts.ha`<br/>`DGAUGE`, штуки | Количество узлов с включенной отказоустойчивостью. |
 | `hosts.subcluster.dashboards.total`<br/>`DGAUGE`, штуки | Количество узлов в подкластере Dashboards. |
-| `hosts.subcluster.opensearch.total`<br/>`DGAUGE`, штуки | Количество узлов в подкластере {{ OS }}. |
+| `hosts.subcluster.opensearch.total`<br/>`DGAUGE`, штуки | Количество узлов в подкластере OpenSearch. |
 | `hosts.total`<br/>`DGAUGE`, штуки | Количество узлов в кластере. |
 | `huge_page_size`<br/>`DGAUGE`, байты | Использование оперативной памяти, тип потребления [huge_page_size](*huge_page_size). |
 | `huge_pages_free`<br/>`DGAUGE`, байты | Использование оперативной памяти, тип потребления [huge_pages_free](*huge_pages_free). |
@@ -325,7 +325,7 @@ subcluster_name | Имя субкластера
 | `write_merged_count`<br/>`DGAUGE`, операций/с | Количество слитых операций записи на конкретный диск в секунду. |
 | `write_time`<br/>`DGAUGE`, миллисекунды | Среднее время записи на диски. |
 
-#### Нативные метрики {{ OS }} {#managed-opensearch-system-metrics}
+#### Нативные метрики OpenSearch {#managed-opensearch-system-metrics}
 
 | Имя<br/>Тип, единицы измерения | Описание |
 | ----- | ----- |

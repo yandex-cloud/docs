@@ -1,8 +1,8 @@
-# Аутентификация в API {{ load-testing-name }}
+# Аутентификация в API Load Testing
 
 {% note warning %}
 
-С 1 июля 2026 года сервис {{ load-testing-name }} прекращает работу. Подробнее на странице [Закрытие сервиса Yandex Load Testing](../sunset.md).
+С 1 июля 2026 года сервис Load Testing прекращает работу. Подробнее на странице [Закрытие сервиса Yandex Load Testing](../sunset.md).
 
 {% endnote %}
 
@@ -17,7 +17,7 @@
 * [Инструкция](../../iam/operations/iam-token/create-for-federation.md) для федеративного аккаунта.
 * [Инструкция](../../iam/operations/iam-token/create-for-local.md) для локального аккаунта.
 
-Полученный IAM-токен указывайте при обращении к ресурсам {{ yandex-cloud }} через API. Передайте IAM-токен в заголовке `Authorization` в следующем формате:
+Полученный IAM-токен указывайте при обращении к ресурсам Yandex Cloud через API. Передайте IAM-токен в заголовке `Authorization` в следующем формате:
 
 ```yaml
 Authorization: Bearer <IAM-токен>
@@ -31,4 +31,4 @@ Authorization: Bearer ${IAM_TOKEN}
 
 #### См. также {#see-also}
 
-[{#T}](../../iam/concepts/users/accounts.md)
+[Аккаунты в Yandex Cloud](../../iam/concepts/users/accounts.md)

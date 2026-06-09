@@ -5,7 +5,7 @@ Updates desktop group properties
 ## HTTP request
 
 ```
-PATCH https://clouddesktops.{{ api-host }}/cloud-desktop/v1/desktopGroups/{desktopGroupId}
+PATCH https://clouddesktops.api.cloud.yandex.net/cloud-desktop/v1/desktopGroups/{desktopGroupId}
 ```
 
 ## Path parameters

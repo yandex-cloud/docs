@@ -1,4 +1,4 @@
-# Изменение настроек кластера {{ mgp-name }}
+# Изменение настроек кластера Yandex MPP Analytics for PostgreSQL
 
 
 После создания кластера вы можете:
@@ -19,57 +19,57 @@
 
 - Консоль управления {#console}
 
-    1. Перейдите [на страницу каталога]({{ link-console-main }}).
-    1. Перейдите в сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-greenplum }}**.
-    1. Выберите кластер и нажмите кнопку **{{ ui-key.yacloud.mdb.clusters.button_action-edit }}** в верхней части страницы.
-    1. В блоке **{{ ui-key.yacloud.mdb.forms.section_base }}** задайте новые имя и описание кластера.
-    1. Нажмите кнопку **{{ ui-key.yacloud.common.save }}**.
+    1. Перейдите [на страницу каталога](https://console.yandex.cloud).
+    1. Перейдите в сервис **Yandex MPP Analytics for&nbsp;PostgreSQL**.
+    1. Выберите кластер и нажмите кнопку **Редактировать** в верхней части страницы.
+    1. В блоке **Базовые параметры** задайте новые имя и описание кластера.
+    1. Нажмите кнопку **Сохранить**.
 
 - CLI {#cli}
 
-  Если у вас еще нет интерфейса командной строки {{ yandex-cloud }} (CLI), [установите и инициализируйте его](../../cli/quickstart.md#install).
+  Если у вас еще нет интерфейса командной строки Yandex Cloud (CLI), [установите и инициализируйте его](../../cli/quickstart.md#install).
 
   По умолчанию используется каталог, указанный при [создании](../../cli/operations/profile/profile-create.md) профиля CLI. Чтобы изменить каталог по умолчанию, используйте команду `yc config set folder-id <идентификатор_каталога>`. Также для любой команды вы можете указать другой каталог с помощью параметров `--folder-name` или `--folder-id`. Если вы обращаетесь к ресурсу по имени, поиск будет выполнен в каталоге по умолчанию. Если вы обращаетесь к ресурсу по идентификатору, поиск будет выполнен глобально — во всех каталогах с учетом прав доступа.
 
-  Чтобы изменить имя и описание кластера {{ mgp-name }}:
+  Чтобы изменить имя и описание кластера Yandex MPP Analytics for PostgreSQL:
 
   1. Посмотрите текущие имя (`name`) и описание (`description`) кластера:
 
      ```bash
-     {{ yc-mdb-gp }} cluster get <имя_или_идентификатор_кластера>
+     yc managed-greenplum cluster get <имя_или_идентификатор_кластера>
      ```
 
   1. Посмотрите описание команды CLI для изменения конфигурации кластера:
 
       ```bash
-      {{ yc-mdb-gp }} cluster update --help
+      yc managed-greenplum cluster update --help
       ```
 
   1. Задайте новое имя и описание кластера:
 
       ```bash
-      {{ yc-mdb-gp }} cluster update <имя_или_идентификатор_кластера> \
+      yc managed-greenplum cluster update <имя_или_идентификатор_кластера> \
          --new-name <новое_имя_кластера> \
          --description <новое_описание_кластера>
       ```
 
-- {{ TF }} {#tf}
+- Terraform {#tf}
 
     {% note alert %}
 
-    Не изменяйте имя кластера с помощью {{ TF }}. Это приведет к удалению существующего кластера и созданию нового.
+    Не изменяйте имя кластера с помощью Terraform. Это приведет к удалению существующего кластера и созданию нового.
 
     {% endnote %}
 
     Чтобы изменить описание кластера:
 
-    1. Откройте актуальный конфигурационный файл {{ TF }} с планом инфраструктуры.
+    1. Откройте актуальный конфигурационный файл Terraform с планом инфраструктуры.
 
         Как создать такой файл, см. в разделе [Создание кластера](cluster-create.md).
 
-        Полный список доступных для изменения полей конфигурации кластера {{ mgp-name }} см. в [документации провайдера {{ TF }}]({{ tf-provider-mgp }}).
+        Полный список доступных для изменения полей конфигурации кластера Yandex MPP Analytics for PostgreSQL см. в [документации провайдера Terraform](../../terraform/resources/mdb_greenplum_cluster.md).
 
-    1. Измените в описании кластера {{ mgp-name }} значение атрибута `description`:
+    1. Измените в описании кластера Yandex MPP Analytics for PostgreSQL значение атрибута `description`:
 
         ```hcl
         resource "yandex_mdb_greenplum_cluster" "<имя_кластера>" {
@@ -81,14 +81,14 @@
 
     1. Проверьте корректность настроек.
 
-        1. В командной строке перейдите в каталог, в котором расположены актуальные конфигурационные файлы {{ TF }} с планом инфраструктуры.
+        1. В командной строке перейдите в каталог, в котором расположены актуальные конфигурационные файлы Terraform с планом инфраструктуры.
         1. Выполните команду:
         
            ```bash
            terraform validate
            ```
         
-           Если в файлах конфигурации есть ошибки, {{ TF }} на них укажет.
+           Если в файлах конфигурации есть ошибки, Terraform на них укажет.
 
     1. Подтвердите изменение ресурсов.
 
@@ -112,7 +112,7 @@
 
         {% note warning "Ограничения по времени" %}
         
-        Провайдер {{ TF }} ограничивает время на выполнение всех операций с кластером {{ mgp-name }} 120 минутами.
+        Провайдер Terraform ограничивает время на выполнение всех операций с кластером Yandex MPP Analytics for PostgreSQL 120 минутами.
         
         Операции, длящиеся дольше указанного времени, прерываются.
         
@@ -143,7 +143,7 @@
         export IAM_TOKEN="<IAM-токен>"
         ```
 
-    1. Воспользуйтесь методом [Cluster.Update](../api-ref/Cluster/update.md) и выполните запрос, например, с помощью {{ api-examples.rest.tool }}:
+    1. Воспользуйтесь методом [Cluster.Update](../api-ref/Cluster/update.md) и выполните запрос, например, с помощью [cURL](https://curl.se/):
 
         {% note warning %}
         
@@ -156,7 +156,7 @@
             --request PATCH \
             --header "Authorization: Bearer $IAM_TOKEN" \
             --header "Content-Type: application/json" \
-            --url 'https://{{ api-host-mdb }}/managed-greenplum/v1/clusters/<идентификатор_кластера>' \
+            --url 'https://mdb.api.cloud.yandex.net/managed-greenplum/v1/clusters/<идентификатор_кластера>' \
             --data '{
                       "updateMask": "name,description",
                       "name": "<новое_имя_кластера>",
@@ -186,7 +186,7 @@
        
        Далее предполагается, что содержимое репозитория находится в директории `~/cloudapi/`.
 
-    1. Воспользуйтесь вызовом [ClusterService.Update](../api-ref/grpc/Cluster/update.md) и выполните запрос, например, с помощью {{ api-examples.grpc.tool }}:
+    1. Воспользуйтесь вызовом [ClusterService.Update](../api-ref/grpc/Cluster/update.md) и выполните запрос, например, с помощью [gRPCurl](https://github.com/fullstorydev/grpcurl):
 
         {% note warning %}
         
@@ -224,7 +224,7 @@
                   "name": "<новое_имя_кластера>",
                   "description": "<новое_описание_кластера>" 
                 }' \
-            {{ api-host-mdb }}:{{ port-https }} \
+            mdb.api.cloud.yandex.net:443 \
             yandex.cloud.mdb.greenplum.v1.ClusterService.Update
         ```
 
@@ -243,30 +243,30 @@
 
 - Консоль управления {#console}
 
-    1. Перейдите [на страницу каталога]({{ link-console-main }}).
-    1. Перейдите в сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-greenplum }}**.
-    1. Выберите кластер и нажмите кнопку **{{ ui-key.yacloud.mdb.clusters.button_action-edit }}** в верхней части страницы.
-    1. В блоке **{{ ui-key.yacloud.mdb.forms.section_network-settings }}** установите или отключите опцию **{{ ui-key.yacloud.mdb.hosts.dialog.field_public_ip }}**.
-    1. Нажмите кнопку **{{ ui-key.yacloud.common.save }}**.
+    1. Перейдите [на страницу каталога](https://console.yandex.cloud).
+    1. Перейдите в сервис **Yandex MPP Analytics for&nbsp;PostgreSQL**.
+    1. Выберите кластер и нажмите кнопку **Редактировать** в верхней части страницы.
+    1. В блоке **Сетевые настройки** установите или отключите опцию **Публичный доступ**.
+    1. Нажмите кнопку **Сохранить**.
 
 - CLI {#cli}
 
-  Если у вас еще нет интерфейса командной строки {{ yandex-cloud }} (CLI), [установите и инициализируйте его](../../cli/quickstart.md#install).
+  Если у вас еще нет интерфейса командной строки Yandex Cloud (CLI), [установите и инициализируйте его](../../cli/quickstart.md#install).
 
   По умолчанию используется каталог, указанный при [создании](../../cli/operations/profile/profile-create.md) профиля CLI. Чтобы изменить каталог по умолчанию, используйте команду `yc config set folder-id <идентификатор_каталога>`. Также для любой команды вы можете указать другой каталог с помощью параметров `--folder-name` или `--folder-id`. Если вы обращаетесь к ресурсу по имени, поиск будет выполнен в каталоге по умолчанию. Если вы обращаетесь к ресурсу по идентификатору, поиск будет выполнен глобально — во всех каталогах с учетом прав доступа.
 
-  Чтобы изменить настройку публичного доступа в кластере {{ mgp-name }}:
+  Чтобы изменить настройку публичного доступа в кластере Yandex MPP Analytics for PostgreSQL:
 
   1. Посмотрите описание команды CLI для изменения конфигурации кластера:
 
       ```bash
-      {{ yc-mdb-gp }} cluster update --help
+      yc managed-greenplum cluster update --help
       ```
 
   1. Задайте настройку публичного доступа в параметре `--assign-public-ip`:
 
       ```bash
-      {{ yc-mdb-gp }} cluster update <имя_или_идентификатор_кластера> \
+      yc managed-greenplum cluster update <имя_или_идентификатор_кластера> \
          --assign-public-ip=<разрешить_публичный_доступ_к_кластеру>
       ```
 
@@ -280,7 +280,7 @@
         export IAM_TOKEN="<IAM-токен>"
         ```
 
-    1. Воспользуйтесь методом [Cluster.Update](../api-ref/Cluster/update.md) и выполните запрос, например, с помощью {{ api-examples.rest.tool }}:
+    1. Воспользуйтесь методом [Cluster.Update](../api-ref/Cluster/update.md) и выполните запрос, например, с помощью [cURL](https://curl.se/):
 
         {% note warning %}
         
@@ -293,7 +293,7 @@
             --request PATCH \
             --header "Authorization: Bearer $IAM_TOKEN" \
             --header "Content-Type: application/json" \
-            --url 'https://{{ api-host-mdb }}/managed-greenplum/v1/clusters/<идентификатор_кластера>' \
+            --url 'https://mdb.api.cloud.yandex.net/managed-greenplum/v1/clusters/<идентификатор_кластера>' \
             --data '{
                       "updateMask": "config.assignPublicIp",
                       "config": {
@@ -330,7 +330,7 @@
        
        Далее предполагается, что содержимое репозитория находится в директории `~/cloudapi/`.
 
-    1. Воспользуйтесь вызовом [ClusterService.Update](../api-ref/grpc/Cluster/update.md) и выполните запрос, например, с помощью {{ api-examples.grpc.tool }}:
+    1. Воспользуйтесь вызовом [ClusterService.Update](../api-ref/grpc/Cluster/update.md) и выполните запрос, например, с помощью [gRPCurl](https://github.com/fullstorydev/grpcurl):
 
         {% note warning %}
         
@@ -369,7 +369,7 @@
                     "assign_public_ip": <разрешить_публичный_доступ_к_хостам_кластера> 
                   }
                 }' \
-            {{ api-host-mdb }}:{{ port-https }} \
+            mdb.api.cloud.yandex.net:443 \
             yandex.cloud.mdb.greenplum.v1.ClusterService.Update
         ```
 
@@ -403,35 +403,35 @@
 
 - Консоль управления {#console}
 
-    1. Перейдите [на страницу каталога]({{ link-console-main }}).
-    1. Перейдите в сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-greenplum }}**.
-    1. Выберите кластер и нажмите кнопку **{{ ui-key.yacloud.mdb.clusters.button_action-edit }}** на панели сверху.
+    1. Перейдите [на страницу каталога](https://console.yandex.cloud).
+    1. Перейдите в сервис **Yandex MPP Analytics for&nbsp;PostgreSQL**.
+    1. Выберите кластер и нажмите кнопку **Редактировать** на панели сверху.
     1. Измените дополнительные настройки кластера:
 
-        * **{{ ui-key.yacloud.mdb.forms.backup-window-start }}** — промежуток времени, в течение которого начинается резервное копирование кластера. Время указывается по UTC в 24-часовом формате. По умолчанию — `22:00 - 23:00` UTC.
-        * **{{ ui-key.yacloud.mdb.forms.maintenance-window-type }}** — настройки времени [технического обслуживания](../concepts/maintenance.md):
+        * **Начало резервного копирования (UTC)** — промежуток времени, в течение которого начинается резервное копирование кластера. Время указывается по UTC в 24-часовом формате. По умолчанию — `22:00 - 23:00` UTC.
+        * **Обслуживание** — настройки времени [технического обслуживания](../concepts/maintenance.md):
 
-            * Чтобы разрешить проведение технического обслуживания в любое время, выберите пункт **{{ ui-key.yacloud.mdb.forms.value_maintenance-type-anytime }}** (по умолчанию).
-            * Чтобы указать предпочтительное время начала обслуживания, выберите пункт **{{ ui-key.yacloud.mdb.forms.value_maintenance-type-weekly }}** и укажите день недели и интервал времени по UTC. Например, можно выбрать время, когда кластер наименее загружен.
+            * Чтобы разрешить проведение технического обслуживания в любое время, выберите пункт **В любое время** (по умолчанию).
+            * Чтобы указать предпочтительное время начала обслуживания, выберите пункт **По расписанию** и укажите день недели и интервал времени по UTC. Например, можно выбрать время, когда кластер наименее загружен.
             
             Операции по техническому обслуживанию проводятся для включенных и выключенных кластеров. Они могут включать в себя: обновление СУБД, применение патчей и так далее.
 
         
-        * **{{ ui-key.yacloud.mdb.forms.additional-field-datalens }}** — опция разрешает анализировать данные из кластера в сервисе [{{ datalens-full-name }}](../../datalens/concepts/index.md).
-        * **{{ ui-key.yacloud.mdb.forms.additional-field-yandex-query_ru }}** — опция разрешает выполнять YQL-запросы из сервиса [{{ yq-full-name }}](../../query/concepts/index.md) к управляемой базе данных {{ mgp-name }}.
-        * **{{ ui-key.yacloud.mdb.forms.additional-field-websql-service }}** — опция разрешает отправлять запросы к базам данных в кластере с помощью сервиса [{{ websql-full-name }}](../../websql/index.md).
+        * **Доступ из DataLens** — опция разрешает анализировать данные из кластера в сервисе [Yandex DataLens](../../datalens/concepts/index.md).
+        * **Доступ из Yandex Query** — опция разрешает выполнять YQL-запросы из сервиса [Yandex Query](../../query/concepts/index.md) к управляемой базе данных Yandex MPP Analytics for PostgreSQL.
+        * **Доступ из WebSQL** — опция разрешает отправлять запросы к базам данных в кластере с помощью сервиса [Yandex WebSQL](../../websql/index.md).
 
 
 
-        * **{{ ui-key.yacloud.mdb.forms.label_deletion-protection }}** — управляет защитой кластера от непреднамеренного удаления.
+        * **Защита от удаления** — управляет защитой кластера от непреднамеренного удаления.
 
             Включенная защита кластера от удаления не помешает подключиться к нему вручную и удалить данные.
 
-        * **{{ ui-key.yacloud.greenplum.section_cloud-storage }}** — включает [гибридное хранилище](../concepts/hybrid-storage.md).
+        * **Гибридное хранилище** — включает [гибридное хранилище](../concepts/hybrid-storage.md).
 
             Гибридное хранилище нельзя отключить после сохранения настроек кластера.
 
-            Когда гибридное хранилище включено, с помощью [расширения {{ YZ }}](extensions/yezzey.md) можно переместить часть [таблиц AO и AOCO](../concepts/tables.md) из хранилища кластера в холодное хранилище и наоборот.
+            Когда гибридное хранилище включено, с помощью [расширения Yezzey](extensions/yezzey.md) можно переместить часть [таблиц AO и AOCO](../concepts/tables.md) из хранилища кластера в холодное хранилище и наоборот.
             
             Холодное хранилище удобно, если данные таблиц нужно хранить долго, а работать с ними планируется редко. Так хранение [будет дешевле](../pricing/index.md#rules-storage).
 
@@ -443,18 +443,18 @@
             {% endnote %}
 
 
-        * **{{ ui-key.yacloud.mdb.forms.section_pooler }}** — режим работы и параметры [менеджера подключений](../concepts/pooling.md):
+        * **Менеджер подключений** — режим работы и параметры [менеджера подключений](../concepts/pooling.md):
 
-            * **{{ ui-key.yacloud.mdb.forms.label_greenplum_pool_mode }}** — `SESSION` (сессионный) или `TRANSACTION` (транзакционный, по умолчанию).
-            * **{{ ui-key.yacloud.mdb.forms.label_greenplum_pool_size }}** — количество клиентских соединений. По умолчанию — `0` (не ограничено).
-            * **{{ ui-key.yacloud.mdb.forms.label_greenplum_pool_client-idle-timeout }}** — время неактивности клиентского соединения в секундах, после которого соединение разрывается. По умолчанию — `28800`.
-            * **{{ ui-key.yacloud.mdb.forms.label_greenplum_pool_idle-in-transaction-timeout }}** — время неактивности клиентского соединения с открытой транзакцией в секундах, после которого соединение разрывается. По умолчанию — `0` (не ограничено).
+            * **Режим** — `SESSION` (сессионный) или `TRANSACTION` (транзакционный, по умолчанию).
+            * **Размер** — количество клиентских соединений. По умолчанию — `0` (не ограничено).
+            * **Тайм-аут ожидания клиента** — время неактивности клиентского соединения в секундах, после которого соединение разрывается. По умолчанию — `28800`.
+            * **Тайм-аут простоя в транзакции** — время неактивности клиентского соединения с открытой транзакцией в секундах, после которого соединение разрывается. По умолчанию — `0` (не ограничено).
 
-    1. Нажмите кнопку **{{ ui-key.yacloud.common.save }}**.
+    1. Нажмите кнопку **Сохранить**.
 
 - CLI {#cli}
 
-  Если у вас еще нет интерфейса командной строки {{ yandex-cloud }} (CLI), [установите и инициализируйте его](../../cli/quickstart.md#install).
+  Если у вас еще нет интерфейса командной строки Yandex Cloud (CLI), [установите и инициализируйте его](../../cli/quickstart.md#install).
 
   По умолчанию используется каталог, указанный при [создании](../../cli/operations/profile/profile-create.md) профиля CLI. Чтобы изменить каталог по умолчанию, используйте команду `yc config set folder-id <идентификатор_каталога>`. Также для любой команды вы можете указать другой каталог с помощью параметров `--folder-name` или `--folder-id`. Если вы обращаетесь к ресурсу по имени, поиск будет выполнен в каталоге по умолчанию. Если вы обращаетесь к ресурсу по идентификатору, поиск будет выполнен глобально — во всех каталогах с учетом прав доступа.
 
@@ -463,21 +463,21 @@
     1. Посмотрите описание команды CLI для изменения кластера:
 
         ```bash
-        {{ yc-mdb-gp }} cluster update --help
+        yc managed-greenplum cluster update --help
         ```
 
     1. Выполните команду, передав список настроек, которые хотите изменить:
 
         
         ```bash
-        {{ yc-mdb-gp }} cluster update <имя_или_идентификатор_кластера> \
+        yc managed-greenplum cluster update <имя_или_идентификатор_кластера> \
             --backup-window-start <время_начала_резервного_копирования> \
-            --datalens-access=<разрешить_доступ_из_{{ datalens-name }}> \
+            --datalens-access=<разрешить_доступ_из_DataLens> \
             --yandexquery-access=<разрешить_доступ_из_Yandex_Query> \
             --maintenance-window type=<тип_технического_обслуживания>,`
                                 `day=<день_недели>,`
                                 `hour=<час_дня> \
-            --websql-access=<разрешить_доступ_из_{{ websql-name }}> \
+            --websql-access=<разрешить_доступ_из_WebSQL> \
             --deletion-protection
         ```
 
@@ -489,11 +489,11 @@
     * `--backup-window-start` — время начала резервного копирования кластера, задается по UTC в формате `HH:MM:SS`. Если время не задано, резервное копирование начнется в 22:00 UTC.
 
     
-    * `--datalens-access` — доступ к кластеру из сервиса [{{ datalens-full-name }}](../../datalens/concepts/index.md): `true` или `false`.
+    * `--datalens-access` — доступ к кластеру из сервиса [Yandex DataLens](../../datalens/concepts/index.md): `true` или `false`.
 
-    * `--yandexquery-access` — доступ к кластеру из сервиса [{{ yq-full-name }}](../../query/concepts/index.md): `true` или `false`.
+    * `--yandexquery-access` — доступ к кластеру из сервиса [Yandex Query](../../query/concepts/index.md): `true` или `false`.
 
-    * `--websql-access` — разрешает [выполнять SQL-запросы](web-sql-query.md) к базам данных кластера из консоли управления {{ yandex-cloud }} с помощью сервиса {{ websql-full-name }}. Значение по умолчанию — `false`.
+    * `--websql-access` — разрешает [выполнять SQL-запросы](web-sql-query.md) к базам данных кластера из консоли управления Yandex Cloud с помощью сервиса Yandex WebSQL. Значение по умолчанию — `false`.
 
 
 
@@ -512,15 +512,15 @@
 
     Имя кластера можно [получить со списком кластеров в каталоге](cluster-list.md#list-clusters).
 
-- {{ TF }} {#tf}
+- Terraform {#tf}
 
-    1. Откройте актуальный конфигурационный файл {{ TF }} с планом инфраструктуры.
+    1. Откройте актуальный конфигурационный файл Terraform с планом инфраструктуры.
 
         Как создать такой файл, см. в разделе [Создание кластера](cluster-create.md).
 
-        Полный список доступных для изменения полей конфигурации кластера {{ mgp-name }} см. в [документации провайдера {{ TF }}]({{ tf-provider-mgp }}).
+        Полный список доступных для изменения полей конфигурации кластера Yandex MPP Analytics for PostgreSQL см. в [документации провайдера Terraform](../../terraform/resources/mdb_greenplum_cluster.md).
 
-    1. Измените в описании кластера {{ mgp-name }} значения нужных дополнительных настроек:
+    1. Измените в описании кластера Yandex MPP Analytics for PostgreSQL значения нужных дополнительных настроек:
 
         
         ```hcl
@@ -537,7 +537,7 @@
           }
 
           access {
-            data_lens    = <разрешить_доступ_из_{{ datalens-name }}>
+            data_lens    = <разрешить_доступ_из_DataLens>
             yandex_query = <разрешить_доступ_из_Yandex_Query>
           }
 
@@ -572,9 +572,9 @@
             * `hour` — час дня по UTC для типа `WEEKLY` в формате `HH`. Например, `21`.
 
         
-        * `access.data_lens` — доступ к кластеру из сервиса [{{ datalens-full-name }}](../../datalens/concepts/index.md): `true` или `false`.
+        * `access.data_lens` — доступ к кластеру из сервиса [Yandex DataLens](../../datalens/concepts/index.md): `true` или `false`.
 
-        * `access.yandex_query` — доступ к кластеру из сервиса [{{ yq-full-name }}](../../query/concepts/index.md): `true` или `false`.
+        * `access.yandex_query` — доступ к кластеру из сервиса [Yandex Query](../../query/concepts/index.md): `true` или `false`.
 
 
 
@@ -586,7 +586,7 @@
 
             Установите значение `true`, чтобы включить гибридное хранилище. Гибридное хранилище нельзя отключить после сохранения настроек кластера.
 
-            Когда гибридное хранилище включено, с помощью [расширения {{ YZ }}](extensions/yezzey.md) можно переместить часть [таблиц AO и AOCO](../concepts/tables.md) из хранилища кластера в холодное хранилище и наоборот.
+            Когда гибридное хранилище включено, с помощью [расширения Yezzey](extensions/yezzey.md) можно переместить часть [таблиц AO и AOCO](../concepts/tables.md) из хранилища кластера в холодное хранилище и наоборот.
             
             Холодное хранилище удобно, если данные таблиц нужно хранить долго, а работать с ними планируется редко. Так хранение [будет дешевле](../pricing/index.md#rules-storage).
 
@@ -607,14 +607,14 @@
 
     1. Проверьте корректность настроек.
 
-        1. В командной строке перейдите в каталог, в котором расположены актуальные конфигурационные файлы {{ TF }} с планом инфраструктуры.
+        1. В командной строке перейдите в каталог, в котором расположены актуальные конфигурационные файлы Terraform с планом инфраструктуры.
         1. Выполните команду:
         
            ```bash
            terraform validate
            ```
         
-           Если в файлах конфигурации есть ошибки, {{ TF }} на них укажет.
+           Если в файлах конфигурации есть ошибки, Terraform на них укажет.
 
     1. Подтвердите изменение ресурсов.
 
@@ -638,7 +638,7 @@
 
         {% note warning "Ограничения по времени" %}
         
-        Провайдер {{ TF }} ограничивает время на выполнение всех операций с кластером {{ mgp-name }} 120 минутами.
+        Провайдер Terraform ограничивает время на выполнение всех операций с кластером Yandex MPP Analytics for PostgreSQL 120 минутами.
         
         Операции, длящиеся дольше указанного времени, прерываются.
         
@@ -689,7 +689,7 @@
               "nanos": "<наносекунды>"
             },
             "access": {
-              "dataLens": <разрешить_доступ_из_{{ datalens-name }}>,
+              "dataLens": <разрешить_доступ_из_DataLens>,
               "yandexQuery": <разрешить_доступ_из_Yandex_Query>
             }
           },
@@ -733,10 +733,10 @@
                 * `nanos` — от `0` до `999999999` наносекунд.
 
             
-            * `access` — настройки доступа кластера к следующим сервисам {{ yandex-cloud }}:
+            * `access` — настройки доступа кластера к следующим сервисам Yandex Cloud:
 
-                * `dataLens` — [{{ datalens-full-name }}](../../datalens/index.md): `true` или `false`.
-                * `yandexQuery` — [{{ yq-full-name }}](../../query/concepts/index.md): `true` или `false`.
+                * `dataLens` — [Yandex DataLens](../../datalens/index.md): `true` или `false`.
+                * `yandexQuery` — [Yandex Query](../../query/concepts/index.md): `true` или `false`.
 
 
 
@@ -759,7 +759,7 @@
             * `clientIdleTimeout` — время неактивности клиентского соединения в секундах, после которого соединение разрывается.
             * `idleInTransactionTimeout` — время неактивности клиентского соединения с открытой транзакцией в секундах, после которого соединение разрывается.
 
-        * `cloudStorage.enable` — использование гибридного хранилища. Установите значение `true`, чтобы включить в кластере [расширение {{ YZ }}](https://github.com/yezzey-gp/yezzey/) от {{ yandex-cloud }}. Оно применяется, чтобы [выгрузить таблицы AO и AOCO](../tutorials/yezzey.md) с дисков кластера {{ mgp-name }} в холодное хранилище {{ objstorage-full-name }}. Так данные хранятся в служебном бакете в сжатом и зашифрованном виде. Это [более экономичный способ хранения](../../storage/pricing.md).
+        * `cloudStorage.enable` — использование гибридного хранилища. Установите значение `true`, чтобы включить в кластере [расширение Yezzey](https://github.com/yezzey-gp/yezzey/) от Yandex Cloud. Оно применяется, чтобы [выгрузить таблицы AO и AOCO](../tutorials/yezzey.md) с дисков кластера Yandex MPP Analytics for PostgreSQL в холодное хранилище Yandex Object Storage. Так данные хранятся в служебном бакете в сжатом и зашифрованном виде. Это [более экономичный способ хранения](../../storage/pricing.md).
 
             Гибридное хранилище нельзя отключить после сохранения настроек кластера.
 
@@ -771,14 +771,14 @@
             {% endnote %}
 
 
-    1. Воспользуйтесь методом [Cluster.Update](../api-ref/Cluster/update.md) и выполните запрос, например, с помощью {{ api-examples.rest.tool }}:
+    1. Воспользуйтесь методом [Cluster.Update](../api-ref/Cluster/update.md) и выполните запрос, например, с помощью [cURL](https://curl.se/):
 
         ```bash
         curl \
             --request PATCH \
             --header "Authorization: Bearer $IAM_TOKEN" \
             --header "Content-Type: application/json" \
-            --url 'https://{{ api-host-mdb }}/managed-greenplum/v1/clusters/<идентификатор_кластера>' \
+            --url 'https://mdb.api.cloud.yandex.net/managed-greenplum/v1/clusters/<идентификатор_кластера>' \
             --data "@body.json"
         ```
 
@@ -851,7 +851,7 @@
               "nanos": "<наносекунды>"
             },
             "access": {
-              "data_lens": <разрешить_доступ_из_{{ datalens-name }}>,
+              "data_lens": <разрешить_доступ_из_DataLens>,
               "yandex_query": <разрешить_доступ_из_Yandex_Query>
             }
           },
@@ -895,10 +895,10 @@
                 * `nanos` — от `0` до `999999999` наносекунд.
 
             
-            * `access` — настройки доступа кластера к следующим сервисам {{ yandex-cloud }}:
+            * `access` — настройки доступа кластера к следующим сервисам Yandex Cloud:
 
-                * `data_lens` — [{{ datalens-full-name }}](../../datalens/index.md): `true` или `false`.
-                * `yandex_query` — [{{ yq-full-name }}](../../query/concepts/index.md): `true` или `false`.
+                * `data_lens` — [Yandex DataLens](../../datalens/index.md): `true` или `false`.
+                * `yandex_query` — [Yandex Query](../../query/concepts/index.md): `true` или `false`.
 
 
 
@@ -921,7 +921,7 @@
             * `client_idle_timeout` — время неактивности клиентского соединения в секундах, после которого соединение разрывается.
             * `pool_idle_in_transaction_timeout` — время неактивности клиентского соединения с открытой транзакцией в секундах, после которого соединение разрывается.
 
-        * `cloud_storage.enable` — использование гибридного хранилища. Установите значение `true`, чтобы включить в кластере [расширение {{ YZ }}](https://github.com/yezzey-gp/yezzey/) от {{ yandex-cloud }}. Оно применяется, чтобы [выгрузить таблицы AO и AOCO](../tutorials/yezzey.md) с дисков кластера {{ mgp-name }} в холодное хранилище {{ objstorage-full-name }}. Так данные хранятся в служебном бакете в сжатом и зашифрованном виде. Это [более экономичный способ хранения](../../storage/pricing.md).
+        * `cloud_storage.enable` — использование гибридного хранилища. Установите значение `true`, чтобы включить в кластере [расширение Yezzey](https://github.com/yezzey-gp/yezzey/) от Yandex Cloud. Оно применяется, чтобы [выгрузить таблицы AO и AOCO](../tutorials/yezzey.md) с дисков кластера Yandex MPP Analytics for PostgreSQL в холодное хранилище Yandex Object Storage. Так данные хранятся в служебном бакете в сжатом и зашифрованном виде. Это [более экономичный способ хранения](../../storage/pricing.md).
 
             Гибридное хранилище нельзя отключить после сохранения настроек кластера.
 
@@ -935,7 +935,7 @@
 
         Идентификатор кластера можно запросить со [списком кластеров в каталоге](cluster-list.md#list-clusters).
 
-    1. Воспользуйтесь вызовом [ClusterService.Update](../api-ref/grpc/Cluster/update.md) и выполните запрос, например, с помощью {{ api-examples.grpc.tool }}:
+    1. Воспользуйтесь вызовом [ClusterService.Update](../api-ref/grpc/Cluster/update.md) и выполните запрос, например, с помощью [gRPCurl](https://github.com/fullstorydev/grpcurl):
 
         ```bash
         grpcurl \
@@ -945,7 +945,7 @@
             -proto ~/cloudapi/yandex/cloud/mdb/greenplum/v1/cluster_service.proto \
             -rpc-header "Authorization: Bearer $IAM_TOKEN" \
             -d @ \
-            {{ api-host-mdb }}:{{ port-https }} \
+            mdb.api.cloud.yandex.net:443 \
             yandex.cloud.mdb.greenplum.v1.ClusterService.Update \
             < body.json
         ```
@@ -962,18 +962,18 @@
 
 - Консоль управления {#console}
 
-    1. Перейдите [на страницу каталога]({{ link-console-main }}).
-    1. Перейдите в сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-greenplum }}**.
-    1. Выберите кластер и нажмите кнопку **{{ ui-key.yacloud.mdb.clusters.button_action-edit }}** на панели сверху.
-    1. В блоке **{{ ui-key.yacloud.greenplum.section_background-activities }}** измените параметры:
+    1. Перейдите [на страницу каталога](https://console.yandex.cloud).
+    1. Перейдите в сервис **Yandex MPP Analytics for&nbsp;PostgreSQL**.
+    1. Выберите кластер и нажмите кнопку **Редактировать** на панели сверху.
+    1. В блоке **Управление фоновыми процессами** измените параметры:
 
-        * **{{ ui-key.yacloud.greenplum.label-start-time }}** — время, в которое начнется выполнение операции `VACUUM`. По умолчанию — `19:00 UTC`. После завершения операции `VACUUM` запустится операция `ANALYZE`.
-        * **{{ ui-key.yacloud.greenplum.label-vacuum-timeout }}** — максимальная длительность выполнения операции `VACUUM`, в секундах. Возможные значения: от `7200` до `86399`, по умолчанию — `36000`. Когда указанное время истечет, операция `VACUUM` будет принудительно завершена.
-        * **{{ ui-key.yacloud.greenplum.label-analyze-timeout }}** — максимальная длительность выполнения операции `ANALYZE`, в секундах. Возможные значения: от `7200` до `86399`, по умолчанию — `36000`. Когда указанное время истечет, операция `ANALYZE` будет принудительно завершена.
+        * **Время старта (UTC)** — время, в которое начнется выполнение операции `VACUUM`. По умолчанию — `19:00 UTC`. После завершения операции `VACUUM` запустится операция `ANALYZE`.
+        * **Таймаут VACUUM** — максимальная длительность выполнения операции `VACUUM`, в секундах. Возможные значения: от `7200` до `86399`, по умолчанию — `36000`. Когда указанное время истечет, операция `VACUUM` будет принудительно завершена.
+        * **Таймаут ANALYZE** — максимальная длительность выполнения операции `ANALYZE`, в секундах. Возможные значения: от `7200` до `86399`, по умолчанию — `36000`. Когда указанное время истечет, операция `ANALYZE` будет принудительно завершена.
         
         Суммарная длительность операций `VACUUM` и `ANALYZE` не может превышать 24 часа.
 
-    1. Нажмите кнопку **{{ ui-key.yacloud.common.save }}**.
+    1. Нажмите кнопку **Сохранить**.
 
 - REST API {#api}
 
@@ -983,7 +983,7 @@
         export IAM_TOKEN="<IAM-токен>"
         ```
 
-    1. Воспользуйтесь методом [Cluster.Update](../api-ref/Cluster/update.md) и выполните запрос, например, с помощью {{ api-examples.rest.tool }}:
+    1. Воспользуйтесь методом [Cluster.Update](../api-ref/Cluster/update.md) и выполните запрос, например, с помощью [cURL](https://curl.se/):
 
         {% note warning %}
         
@@ -996,7 +996,7 @@
             --request PATCH \
             --header "Authorization: Bearer $IAM_TOKEN" \
             --header "Content-Type: application/json" \
-            --url 'https://{{ api-host-mdb }}/managed-greenplum/v1/clusters/<идентификатор_кластера>' \
+            --url 'https://mdb.api.cloud.yandex.net/managed-greenplum/v1/clusters/<идентификатор_кластера>' \
             --data '{
                       "updateMask": "configSpec.backgroundActivities.analyzeAndVacuum.start,configSpec.backgroundActivities.analyzeAndVacuum.analyzeTimeout,configSpec.backgroundActivities.analyzeAndVacuum.vacuumTimeout",
                       "configSpec": {
@@ -1044,7 +1044,7 @@
        ```
        
        Далее предполагается, что содержимое репозитория находится в директории `~/cloudapi/`.
-    1. Воспользуйтесь вызовом [ClusterService.Update](../api-ref/grpc/Cluster/update.md) и выполните запрос, например, с помощью {{ api-examples.grpc.tool }}:
+    1. Воспользуйтесь вызовом [ClusterService.Update](../api-ref/grpc/Cluster/update.md) и выполните запрос, например, с помощью [gRPCurl](https://github.com/fullstorydev/grpcurl):
 
         {% note warning %}
         
@@ -1096,7 +1096,7 @@
                     }
                   } 
                 }' \
-            {{ api-host-mdb }}:{{ port-https }} \
+            mdb.api.cloud.yandex.net:443 \
             yandex.cloud.mdb.greenplum.v1.ClusterService.Update
         ```
 
@@ -1119,11 +1119,11 @@
 
 ## Изменить настройки СУБД {#change-gp-settings}
 
-Вы можете изменить [глобальные настройки СУБД](../concepts/settings-list.md) вашего кластера. Перечень доступных для изменения настроек см. в разделе [{#T}](../concepts/settings-list.md).
+Вы можете изменить [глобальные настройки СУБД](../concepts/settings-list.md) вашего кластера. Перечень доступных для изменения настроек см. в разделе [Настройки СУБД](../concepts/settings-list.md).
 
 {% note info %}
 
-Для изменения настроек на уровне пользователя, в том числе тех, которые не управляются сервисом {{ mgp-name }} на уровне кластера, используйте команду:
+Для изменения настроек на уровне пользователя, в том числе тех, которые не управляются сервисом Yandex MPP Analytics for PostgreSQL на уровне кластера, используйте команду:
 
 ```sql
 ALTER ROLE <имя_роли> SET <настройка> = <значение>;
@@ -1135,7 +1135,7 @@ ALTER ROLE <имя_роли> SET <настройка> = <значение>;
 ALTER DATABASE <имя_базы_данных> SET <настройка> = <значение>;
 ```
 
-Полный список настроек см. в [документации {{ GP }}](https://techdocs.broadcom.com/us/en/vmware-tanzu/data-solutions/tanzu-greenplum/6/greenplum-database/ref_guide-config_params-guc-list.html).
+Полный список настроек см. в [документации Greenplum®](https://techdocs.broadcom.com/us/en/vmware-tanzu/data-solutions/tanzu-greenplum/6/greenplum-database/ref_guide-config_params-guc-list.html).
 
 {% endnote %}
 
@@ -1143,16 +1143,16 @@ ALTER DATABASE <имя_базы_данных> SET <настройка> = <зна
 
 - Консоль управления {#console}
 
-  1. Перейдите [на страницу каталога]({{ link-console-main }}).
-  1. Перейдите в сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-greenplum }}**.
-  1. Выберите кластер и нажмите кнопку **{{ ui-key.yacloud.mdb.clusters.button_action-edit }}** на панели сверху.
-  1. Измените [настройки СУБД](../concepts/settings-list.md), нажав кнопку **{{ ui-key.yacloud.mdb.forms.button_configure-settings }}** в блоке **{{ ui-key.yacloud.mdb.forms.section_settings }}**.
-  1. Нажмите кнопку **{{ ui-key.yacloud.component.mdb.settings.popup_settings-submit }}**.
-  1. Нажмите кнопку **{{ ui-key.yacloud.common.save }}**.
+  1. Перейдите [на страницу каталога](https://console.yandex.cloud).
+  1. Перейдите в сервис **Yandex MPP Analytics for&nbsp;PostgreSQL**.
+  1. Выберите кластер и нажмите кнопку **Редактировать** на панели сверху.
+  1. Измените [настройки СУБД](../concepts/settings-list.md), нажав кнопку **Настроить** в блоке **Настройки СУБД**.
+  1. Нажмите кнопку **Сохранить**.
+  1. Нажмите кнопку **Сохранить**.
 
 - CLI {#cli}
 
-  Если у вас еще нет интерфейса командной строки {{ yandex-cloud }} (CLI), [установите и инициализируйте его](../../cli/quickstart.md#install).
+  Если у вас еще нет интерфейса командной строки Yandex Cloud (CLI), [установите и инициализируйте его](../../cli/quickstart.md#install).
 
   По умолчанию используется каталог, указанный при [создании](../../cli/operations/profile/profile-create.md) профиля CLI. Чтобы изменить каталог по умолчанию, используйте команду `yc config set folder-id <идентификатор_каталога>`. Также для любой команды вы можете указать другой каталог с помощью параметров `--folder-name` или `--folder-id`. Если вы обращаетесь к ресурсу по имени, поиск будет выполнен в каталоге по умолчанию. Если вы обращаетесь к ресурсу по идентификатору, поиск будет выполнен глобально — во всех каталогах с учетом прав доступа.
 
@@ -1161,13 +1161,13 @@ ALTER DATABASE <имя_базы_данных> SET <настройка> = <зна
   1. Посмотрите полный список настроек, установленных для кластера:
 
      ```bash
-     {{ yc-mdb-gp }} cluster get <имя_или_идентификатор_кластера>
+     yc managed-greenplum cluster get <имя_или_идентификатор_кластера>
      ```
 
   1. Посмотрите описание команды CLI для изменения конфигурации кластера:
 
       ```bash
-      {{ yc-mdb-gp }} cluster update-config --help
+      yc managed-greenplum cluster update-config --help
       ```
 
   1. Установите нужные значения параметров:
@@ -1175,19 +1175,19 @@ ALTER DATABASE <имя_базы_данных> SET <настройка> = <зна
       Все поддерживаемые параметры перечислены в [формате запроса для метода update](../api-ref/Cluster/update.md), в поле `greenplumConfig_<версия_СУБД>`. Чтобы указать имя параметра в вызове CLI, преобразуйте его имя из вида <q>lowerCamelCase</q> в <q>snake_case</q>, например, параметр `maxConnections` из запроса к API преобразуется в `max_connections` для команды CLI:
 
       ```bash
-      {{ yc-mdb-gp }} cluster update-config <имя_или_идентификатор_кластера> \
+      yc managed-greenplum cluster update-config <имя_или_идентификатор_кластера> \
          --set <имя_параметра1>=<значение1>,<имя_параметра2>=<значение2>,...
       ```
 
-      {{ mgp-short-name }} запустит операцию по изменению настроек кластера.
+      Yandex MPP Analytics for PostgreSQL запустит операцию по изменению настроек кластера.
 
-- {{ TF }} {#tf}
+- Terraform {#tf}
 
-    1. Откройте актуальный конфигурационный файл {{ TF }} с планом инфраструктуры.
+    1. Откройте актуальный конфигурационный файл Terraform с планом инфраструктуры.
 
         Как создать такой файл, см. в разделе [Создание кластера](cluster-create.md).
 
-        Полный список доступных для изменения полей конфигурации кластера {{ mgp-name }} см. в [документации провайдера {{ TF }}]({{ tf-provider-mgp }}).
+        Полный список доступных для изменения полей конфигурации кластера Yandex MPP Analytics for PostgreSQL см. в [документации провайдера Terraform](../../terraform/resources/mdb_greenplum_cluster.md).
 
     1. Измените в описании кластера [настройки СУБД](../concepts/settings-list.md) в блоке `greenplum_config`:
 
@@ -1204,14 +1204,14 @@ ALTER DATABASE <имя_базы_данных> SET <настройка> = <зна
 
     1. Проверьте корректность настроек.
 
-        1. В командной строке перейдите в каталог, в котором расположены актуальные конфигурационные файлы {{ TF }} с планом инфраструктуры.
+        1. В командной строке перейдите в каталог, в котором расположены актуальные конфигурационные файлы Terraform с планом инфраструктуры.
         1. Выполните команду:
         
            ```bash
            terraform validate
            ```
         
-           Если в файлах конфигурации есть ошибки, {{ TF }} на них укажет.
+           Если в файлах конфигурации есть ошибки, Terraform на них укажет.
 
     1. Подтвердите изменение ресурсов.
 
@@ -1235,7 +1235,7 @@ ALTER DATABASE <имя_базы_данных> SET <настройка> = <зна
 
         {% note warning "Ограничения по времени" %}
         
-        Провайдер {{ TF }} ограничивает время на выполнение всех операций с кластером {{ mgp-name }} 120 минутами.
+        Провайдер Terraform ограничивает время на выполнение всех операций с кластером Yandex MPP Analytics for PostgreSQL 120 минутами.
         
         Операции, длящиеся дольше указанного времени, прерываются.
         
@@ -1266,7 +1266,7 @@ ALTER DATABASE <имя_базы_данных> SET <настройка> = <зна
         export IAM_TOKEN="<IAM-токен>"
         ```
 
-    1. Воспользуйтесь методом [Cluster.Update](../api-ref/Cluster/update.md) и выполните запрос, например, с помощью {{ api-examples.rest.tool }}:
+    1. Воспользуйтесь методом [Cluster.Update](../api-ref/Cluster/update.md) и выполните запрос, например, с помощью [cURL](https://curl.se/):
 
         {% note warning %}
         
@@ -1279,7 +1279,7 @@ ALTER DATABASE <имя_базы_данных> SET <настройка> = <зна
             --request PATCH \
             --header "Authorization: Bearer $IAM_TOKEN" \
             --header "Content-Type: application/json" \
-            --url 'https://{{ api-host-mdb }}/managed-greenplum/v1/clusters/<идентификатор_кластера>' \
+            --url 'https://mdb.api.cloud.yandex.net/managed-greenplum/v1/clusters/<идентификатор_кластера>' \
             --data '{
                       "updateMask": "configSpec.greenplumConfig_<версия_СУБД>.<настройка_1>,...,configSpec.greenplumConfig_<версия_СУБД>.<настройка_N>",
                       "configSpec": {
@@ -1299,9 +1299,9 @@ ALTER DATABASE <имя_базы_данных> SET <настройка> = <зна
 
             В данном случае перечислите все изменяемые настройки СУБД.
 
-        * `configSpec.greenplumConfig_<версия_СУБД>` — набор настроек СУБД. Укажите каждую настройку на отдельной строке через запятую. Описание и возможные значения настроек см. в разделе [{#T}](../concepts/settings-list.md#dbms-cluster-settings).
+        * `configSpec.greenplumConfig_<версия_СУБД>` — набор настроек СУБД. Укажите каждую настройку на отдельной строке через запятую. Описание и возможные значения настроек см. в разделе [Настройки СУБД уровня кластера](../concepts/settings-list.md#dbms-cluster-settings).
 
-            Доступные версии СУБД: {{ GP }} `6.28` и `6.29`, {{ CB }} `2.0-cb`.
+            Доступные версии СУБД: Greenplum® `6.28` и `6.29`, Apache Cloudberry™ `2.0-cb`.
 
         Идентификатор кластера можно запросить со [списком кластеров в каталоге](cluster-list.md#list-clusters).
 
@@ -1323,7 +1323,7 @@ ALTER DATABASE <имя_базы_данных> SET <настройка> = <зна
        
        Далее предполагается, что содержимое репозитория находится в директории `~/cloudapi/`.
 
-    1. Воспользуйтесь вызовом [ClusterService.Update](../api-ref/grpc/Cluster/update.md) и выполните запрос, например, с помощью {{ api-examples.grpc.tool }}:
+    1. Воспользуйтесь вызовом [ClusterService.Update](../api-ref/grpc/Cluster/update.md) и выполните запрос, например, с помощью [gRPCurl](https://github.com/fullstorydev/grpcurl):
 
         {% note warning %}
         
@@ -1372,7 +1372,7 @@ ALTER DATABASE <имя_базы_данных> SET <настройка> = <зна
                     }
                   }
                 }' \
-            {{ api-host-mdb }}:{{ port-https }} \
+            mdb.api.cloud.yandex.net:443 \
             yandex.cloud.mdb.greenplum.v1.ClusterService.Update
         ```
 
@@ -1382,9 +1382,9 @@ ALTER DATABASE <имя_базы_данных> SET <настройка> = <зна
 
             В данном случае перечислите все изменяемые настройки СУБД.
 
-        * `config_spec.greenplum_config_<версия_СУБД>` — набор настроек СУБД. Укажите каждую настройку на отдельной строке через запятую. Описание и возможные значения настроек см. в разделе [{#T}](../concepts/settings-list.md).
+        * `config_spec.greenplum_config_<версия_СУБД>` — набор настроек СУБД. Укажите каждую настройку на отдельной строке через запятую. Описание и возможные значения настроек см. в разделе [Настройки СУБД](../concepts/settings-list.md).
 
-            Доступные версии СУБД: {{ GP }} `6.28` и `6.29`, {{ CB }} `2.0-cb`.
+            Доступные версии СУБД: Greenplum® `6.28` и `6.29`, Apache Cloudberry™ `2.0-cb`.
 
         Идентификатор кластера можно запросить со [списком кластеров в каталоге](cluster-list.md#list-clusters).
 
@@ -1400,7 +1400,7 @@ ALTER DATABASE <имя_базы_данных> SET <настройка> = <зна
 * Кластер с хранилищем на локальных SSD-дисках может быть недоступен длительное время, если потребуется миграция данных на другой физический сервер.
 * Подключение по [особому FQDN](connect/fqdn.md#fqdn-master) не гарантирует стабильность соединения с БД: пользовательские сессии могут быть прерваны.
 
-Изменение класса хостов-сегментов [влияет](../concepts/instance-types.md#select-class-segment-hosts) на максимальный объем памяти, выделенный на каждый серверный процесс {{ mgp-name }}.
+Изменение класса хостов-сегментов [влияет](../concepts/instance-types.md#select-class-segment-hosts) на максимальный объем памяти, выделенный на каждый серверный процесс Yandex MPP Analytics for PostgreSQL.
 
 Рекомендуется изменять класс хостов только во время отсутствия рабочей нагрузки на кластер.
 
@@ -1408,15 +1408,15 @@ ALTER DATABASE <имя_базы_данных> SET <настройка> = <зна
 
 - Консоль управления {#console}
 
-  1. Перейдите [на страницу каталога]({{ link-console-main }}).
-  1. Перейдите в сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-greenplum }}**.
-  1. Выберите кластер и нажмите кнопку ![image](../../_assets/console-icons/pencil.svg) **{{ ui-key.yacloud.mdb.clusters.button_action-edit }}** на панели сверху.
-  1. В блоке **{{ ui-key.yacloud.mdb.forms.section_resource }}** выберите нужный класс для хостов-мастеров или хостов-сегментов {{ mgp-name }}.
-  1. Нажмите кнопку **{{ ui-key.yacloud.mdb.forms.button_edit }}**.
+  1. Перейдите [на страницу каталога](https://console.yandex.cloud).
+  1. Перейдите в сервис **Yandex MPP Analytics for&nbsp;PostgreSQL**.
+  1. Выберите кластер и нажмите кнопку ![image](../../_assets/console-icons/pencil.svg) **Редактировать** на панели сверху.
+  1. В блоке **Класс хоста** выберите нужный класс для хостов-мастеров или хостов-сегментов Yandex MPP Analytics for PostgreSQL.
+  1. Нажмите кнопку **Сохранить изменения**.
 
 - CLI {#cli}
 
-  Если у вас еще нет интерфейса командной строки {{ yandex-cloud }} (CLI), [установите и инициализируйте его](../../cli/quickstart.md#install).
+  Если у вас еще нет интерфейса командной строки Yandex Cloud (CLI), [установите и инициализируйте его](../../cli/quickstart.md#install).
 
   По умолчанию используется каталог, указанный при [создании](../../cli/operations/profile/profile-create.md) профиля CLI. Чтобы изменить каталог по умолчанию, используйте команду `yc config set folder-id <идентификатор_каталога>`. Также для любой команды вы можете указать другой каталог с помощью параметров `--folder-name` или `--folder-id`. Если вы обращаетесь к ресурсу по имени, поиск будет выполнен в каталоге по умолчанию. Если вы обращаетесь к ресурсу по идентификатору, поиск будет выполнен глобально — во всех каталогах с учетом прав доступа.
 
@@ -1425,20 +1425,20 @@ ALTER DATABASE <имя_базы_данных> SET <настройка> = <зна
   1. Посмотрите описание команды CLI для изменения кластера:
 
       ```bash
-      {{ yc-mdb-gp }} cluster update --help
+      yc managed-greenplum cluster update --help
       ```
 
   1. Запросите список доступных классов (в колонке `ZONE IDS` указаны зоны доступности, в которых можно выбрать соответствующий класс):
      * для хостов-мастеров:
 
         ```bash
-        {{ yc-mdb-gp }} resource-preset list master
+        yc managed-greenplum resource-preset list master
         ```
 
      * для хостов-сегментов:
 
         ```bash
-        {{ yc-mdb-gp }} resource-preset list segment
+        yc managed-greenplum resource-preset list segment
         ```
 
      
@@ -1446,7 +1446,7 @@ ALTER DATABASE <имя_базы_данных> SET <настройка> = <зна
      +-------------+--------------------------------+--------------------------------+-------+----------+--------------------+---------------------+
      |     ID      |            ZONE IDS            |           DISK TYPES           | CORES |  MEMORY  | HOST COUNT DIVIDER | MAX SEGMENT IN HOST |
      +-------------+--------------------------------+--------------------------------+-------+----------+--------------------+---------------------+
-     | i2.2xlarge  | {{ region-id }}-a, {{ region-id }}-b   | local-ssd,                     |    16 | 128.0 GB |                  1 |                   0 |
+     | i2.2xlarge  | ru-central1-a, ru-central1-b   | local-ssd,                     |    16 | 128.0 GB |                  1 |                   0 |
      |             |                                | network-ssd-nonreplicated      |       |          |                    |                     |
      | ...                                                                                                                                         |
      +-------------+--------------------------------+--------------------------------+-------+----------+--------------------+---------------------+
@@ -1456,22 +1456,22 @@ ALTER DATABASE <имя_базы_данных> SET <настройка> = <зна
   1. Укажите нужные классы в команде изменения кластера:
 
       ```bash
-      {{ yc-mdb-gp }} cluster update <имя_или_идентификатор_кластера> \
+      yc managed-greenplum cluster update <имя_или_идентификатор_кластера> \
           --master-config resource-id=<идентификатор_класса_хостов-мастеров> \
           --segment-config resource-id=<идентификатор_класса_хостов-сегментов>
       ```
 
-      {{ mgp-short-name }} запустит операцию изменения класса хостов для кластера.
+      Yandex MPP Analytics for PostgreSQL запустит операцию изменения класса хостов для кластера.
 
-- {{ TF }} {#tf}
+- Terraform {#tf}
 
-  1. Откройте актуальный конфигурационный файл {{ TF }} с планом инфраструктуры.
+  1. Откройте актуальный конфигурационный файл Terraform с планом инфраструктуры.
 
       Как создать такой файл, см. в разделе [Создание кластера](cluster-create.md).
 
-      Полный список доступных для изменения полей конфигурации кластера {{ mgp-name }} см. в [документации провайдера {{ TF }}]({{ tf-provider-mgp }}).
+      Полный список доступных для изменения полей конфигурации кластера Yandex MPP Analytics for PostgreSQL см. в [документации провайдера Terraform](../../terraform/resources/mdb_greenplum_cluster.md).
 
-  1. Измените в описании кластера {{ mgp-name }} значение атрибута `resource_preset_id` в блоке `master_subcluster.resources` или `segment_subcluster.resources`:
+  1. Измените в описании кластера Yandex MPP Analytics for PostgreSQL значение атрибута `resource_preset_id` в блоке `master_subcluster.resources` или `segment_subcluster.resources`:
 
       ```hcl
       resource "yandex_mdb_greenplum_cluster" "<имя_кластера>" {
@@ -1493,14 +1493,14 @@ ALTER DATABASE <имя_базы_данных> SET <настройка> = <зна
 
   1. Проверьте корректность настроек.
 
-      1. В командной строке перейдите в каталог, в котором расположены актуальные конфигурационные файлы {{ TF }} с планом инфраструктуры.
+      1. В командной строке перейдите в каталог, в котором расположены актуальные конфигурационные файлы Terraform с планом инфраструктуры.
       1. Выполните команду:
       
          ```bash
          terraform validate
          ```
       
-         Если в файлах конфигурации есть ошибки, {{ TF }} на них укажет.
+         Если в файлах конфигурации есть ошибки, Terraform на них укажет.
 
   1. Подтвердите изменение ресурсов.
 
@@ -1524,7 +1524,7 @@ ALTER DATABASE <имя_базы_данных> SET <настройка> = <зна
 
       {% note warning "Ограничения по времени" %}
       
-      Провайдер {{ TF }} ограничивает время на выполнение всех операций с кластером {{ mgp-name }} 120 минутами.
+      Провайдер Terraform ограничивает время на выполнение всех операций с кластером Yandex MPP Analytics for PostgreSQL 120 минутами.
       
       Операции, длящиеся дольше указанного времени, прерываются.
       
@@ -1555,7 +1555,7 @@ ALTER DATABASE <имя_базы_данных> SET <настройка> = <зна
         export IAM_TOKEN="<IAM-токен>"
         ```
 
-    1. Воспользуйтесь методом [Cluster.Update](../api-ref/Cluster/update.md) и выполните запрос, например, с помощью {{ api-examples.rest.tool }}:
+    1. Воспользуйтесь методом [Cluster.Update](../api-ref/Cluster/update.md) и выполните запрос, например, с помощью [cURL](https://curl.se/):
 
         {% note warning %}
         
@@ -1568,7 +1568,7 @@ ALTER DATABASE <имя_базы_данных> SET <настройка> = <зна
             --request PATCH \
             --header "Authorization: Bearer $IAM_TOKEN" \
             --header "Content-Type: application/json" \
-            --url 'https://{{ api-host-mdb }}/managed-greenplum/v1/clusters/<идентификатор_кластера>' \
+            --url 'https://mdb.api.cloud.yandex.net/managed-greenplum/v1/clusters/<идентификатор_кластера>' \
             --data '{
                       "updateMask": "masterConfig.resources.resourcePresetId,segmentConfig.resources.resourcePresetId",
                       "masterConfig": {
@@ -1610,7 +1610,7 @@ ALTER DATABASE <имя_базы_данных> SET <настройка> = <зна
        
        Далее предполагается, что содержимое репозитория находится в директории `~/cloudapi/`.
 
-    1. Воспользуйтесь вызовом [ClusterService.Update](../api-ref/grpc/Cluster/update.md) и выполните запрос, например, с помощью {{ api-examples.grpc.tool }}:
+    1. Воспользуйтесь вызовом [ClusterService.Update](../api-ref/grpc/Cluster/update.md) и выполните запрос, например, с помощью [gRPCurl](https://github.com/fullstorydev/grpcurl):
 
         {% note warning %}
         
@@ -1659,7 +1659,7 @@ ALTER DATABASE <имя_базы_данных> SET <настройка> = <зна
                     }
                   }
                 }' \
-            {{ api-host-mdb }}:{{ port-https }} \
+            mdb.api.cloud.yandex.net:443 \
             yandex.cloud.mdb.greenplum.v1.ClusterService.Update
         ```
 
@@ -1677,7 +1677,7 @@ ALTER DATABASE <имя_базы_данных> SET <настройка> = <зна
 
 ## Изменить тип диска и увеличить размер хранилища {#change-disk-size}
 
-Проверьте, что в облаке достаточно квот для увеличения хранилища. Откройте страницу [{{ ui-key.yacloud.iam.cloud.switch_quotas }}]({{ link-console-quotas }}) для облака и убедитесь, что в секции **{{ ui-key.yacloud.iam.folder.dashboard.label_mdb }}** в строке **{{ ui-key.yacloud.iam.cloud.quotas.label_quota-name-mdb.hdd.size }}** или **{{ ui-key.yacloud.iam.cloud.quotas.label_quota-name-mdb.ssd.size }}** есть квота на объем хранилищ.
+Проверьте, что в облаке достаточно квот для увеличения хранилища. Откройте страницу [Квоты](https://console.yandex.cloud/cloud?section=quotas) для облака и убедитесь, что в секции **Managed Databases** в строке **Объём HDD-хранилищ** или **Объём SSD-хранилищ** есть квота на объем хранилищ.
 
 {% list tabs group=instructions %}
 
@@ -1685,20 +1685,20 @@ ALTER DATABASE <имя_базы_данных> SET <настройка> = <зна
 
   Чтобы изменить тип диска и увеличить размер хранилища для кластера:
 
-  1. В [консоли управления]({{ link-console-main }}) перейдите в каталог с нужным кластером.
-  1. Перейдите в сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-greenplum }}**.
+  1. В [консоли управления](https://console.yandex.cloud) перейдите в каталог с нужным кластером.
+  1. Перейдите в сервис **Yandex MPP Analytics for&nbsp;PostgreSQL**.
   1. Выберите нужный кластер.
-  1. В верхней части страницы нажмите кнопку **{{ ui-key.yacloud.mdb.clusters.button_action-edit }}**.
-  1. В блоке **{{ ui-key.yacloud.mdb.forms.section_storage }}**:
+  1. В верхней части страницы нажмите кнопку **Редактировать**.
+  1. В блоке **Хранилище**:
 
       * Выберите [тип диска](../concepts/storage.md).
       * Укажите нужный размер диска.
 
-  1. Нажмите кнопку **{{ ui-key.yacloud.common.save }}**.
+  1. Нажмите кнопку **Сохранить**.
 
 - CLI {#cli}
 
-  Если у вас еще нет интерфейса командной строки {{ yandex-cloud }} (CLI), [установите и инициализируйте его](../../cli/quickstart.md#install).
+  Если у вас еще нет интерфейса командной строки Yandex Cloud (CLI), [установите и инициализируйте его](../../cli/quickstart.md#install).
 
   По умолчанию используется каталог, указанный при [создании](../../cli/operations/profile/profile-create.md) профиля CLI. Чтобы изменить каталог по умолчанию, используйте команду `yc config set folder-id <идентификатор_каталога>`. Также для любой команды вы можете указать другой каталог с помощью параметров `--folder-name` или `--folder-id`. Если вы обращаетесь к ресурсу по имени, поиск будет выполнен в каталоге по умолчанию. Если вы обращаетесь к ресурсу по идентификатору, поиск будет выполнен глобально — во всех каталогах с учетом прав доступа.
 
@@ -1707,26 +1707,26 @@ ALTER DATABASE <имя_базы_данных> SET <настройка> = <зна
   1. Посмотрите описание команды CLI для изменения кластера:
 
       ```bash
-      {{ yc-mdb-gp }} cluster update --help
+      yc managed-greenplum cluster update --help
       ```
 
   1. Укажите нужный размер хранилища для хостов-мастеров или хостов-сегментов в команде изменения кластера (размер хранилища должен быть не меньше, чем значение `disk_size` в свойствах кластера):
 
       ```bash
-      {{ yc-mdb-my }} cluster update <имя_или_идентификатор_кластера> \
+      yc managed-mysql cluster update <имя_или_идентификатор_кластера> \
          --master-config disk-size <размер_хранилища_в_гигабайтах> \
          --segment-config disk-size <размер_хранилища_в_гигабайтах>
       ```
 
-- {{ TF }} {#tf}
+- Terraform {#tf}
 
-    1. Откройте актуальный конфигурационный файл {{ TF }} с планом инфраструктуры.
+    1. Откройте актуальный конфигурационный файл Terraform с планом инфраструктуры.
 
         Как создать такой файл, см. в разделе [Создание кластера](cluster-create.md).
 
-        Полный список доступных для изменения полей конфигурации кластера {{ mgp-name }} см. в [документации провайдера {{ TF }}]({{ tf-provider-mgp }}).
+        Полный список доступных для изменения полей конфигурации кластера Yandex MPP Analytics for PostgreSQL см. в [документации провайдера Terraform](../../terraform/resources/mdb_greenplum_cluster.md).
 
-    1. Измените в описании кластера {{ mgp-name }} значения атрибутов `disk_type_id` и `disk_size` в блоке `master_subcluster.resources` или `segment_subcluster.resources`:
+    1. Измените в описании кластера Yandex MPP Analytics for PostgreSQL значения атрибутов `disk_type_id` и `disk_size` в блоке `master_subcluster.resources` или `segment_subcluster.resources`:
 
         ```hcl
         resource "yandex_mdb_greenplum_cluster" "<имя_кластера>" {
@@ -1750,14 +1750,14 @@ ALTER DATABASE <имя_базы_данных> SET <настройка> = <зна
 
     1. Проверьте корректность настроек.
 
-        1. В командной строке перейдите в каталог, в котором расположены актуальные конфигурационные файлы {{ TF }} с планом инфраструктуры.
+        1. В командной строке перейдите в каталог, в котором расположены актуальные конфигурационные файлы Terraform с планом инфраструктуры.
         1. Выполните команду:
         
            ```bash
            terraform validate
            ```
         
-           Если в файлах конфигурации есть ошибки, {{ TF }} на них укажет.
+           Если в файлах конфигурации есть ошибки, Terraform на них укажет.
 
     1. Подтвердите изменение ресурсов.
 
@@ -1781,7 +1781,7 @@ ALTER DATABASE <имя_базы_данных> SET <настройка> = <зна
 
         {% note warning "Ограничения по времени" %}
         
-        Провайдер {{ TF }} ограничивает время на выполнение всех операций с кластером {{ mgp-name }} 120 минутами.
+        Провайдер Terraform ограничивает время на выполнение всех операций с кластером Yandex MPP Analytics for PostgreSQL 120 минутами.
         
         Операции, длящиеся дольше указанного времени, прерываются.
         
@@ -1812,7 +1812,7 @@ ALTER DATABASE <имя_базы_данных> SET <настройка> = <зна
         export IAM_TOKEN="<IAM-токен>"
         ```
 
-    1. Воспользуйтесь методом [Cluster.Update](../api-ref/Cluster/update.md) и выполните запрос, например, с помощью {{ api-examples.rest.tool }}:
+    1. Воспользуйтесь методом [Cluster.Update](../api-ref/Cluster/update.md) и выполните запрос, например, с помощью [cURL](https://curl.se/):
 
         {% note warning %}
         
@@ -1825,7 +1825,7 @@ ALTER DATABASE <имя_базы_данных> SET <настройка> = <зна
             --request PATCH \
             --header "Authorization: Bearer $IAM_TOKEN" \
             --header "Content-Type: application/json" \
-            --url 'https://{{ api-host-mdb }}/managed-greenplum/v1/clusters/<идентификатор_кластера>' \
+            --url 'https://mdb.api.cloud.yandex.net/managed-greenplum/v1/clusters/<идентификатор_кластера>' \
             --data '{
                       "updateMask": "masterConfig.resources.diskTypeId,masterConfig.resources.diskSize,segmentConfig.resources.diskTypeId,segmentConfig.resources.diskSize",
                       "masterConfig": {
@@ -1872,7 +1872,7 @@ ALTER DATABASE <имя_базы_данных> SET <настройка> = <зна
        
        Далее предполагается, что содержимое репозитория находится в директории `~/cloudapi/`.
 
-    1. Воспользуйтесь вызовом [ClusterService.Update](../api-ref/grpc/Cluster/update.md) и выполните запрос, например, с помощью {{ api-examples.grpc.tool }}:
+    1. Воспользуйтесь вызовом [ClusterService.Update](../api-ref/grpc/Cluster/update.md) и выполните запрос, например, с помощью [gRPCurl](https://github.com/fullstorydev/grpcurl):
 
         {% note warning %}
         
@@ -1925,7 +1925,7 @@ ALTER DATABASE <имя_базы_данных> SET <настройка> = <зна
                     }
                   }
                 }' \
-            {{ api-host-mdb }}:{{ port-https }} \
+            mdb.api.cloud.yandex.net:443 \
             yandex.cloud.mdb.greenplum.v1.ClusterService.Update
         ```
 
@@ -1951,16 +1951,16 @@ ALTER DATABASE <имя_базы_данных> SET <настройка> = <зна
 
 - Консоль управления {#console}
 
-    1. В [консоли управления]({{ link-console-main }}) перейдите в каталог с нужным кластером.
-    1. Перейдите в сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-greenplum }}**.
+    1. В [консоли управления](https://console.yandex.cloud) перейдите в каталог с нужным кластером.
+    1. Перейдите в сервис **Yandex MPP Analytics for&nbsp;PostgreSQL**.
     1. Выберите нужный кластер.
-    1. В верхней части страницы нажмите кнопку **{{ ui-key.yacloud.mdb.clusters.button_action-edit }}**.
-    1. В поле **{{ ui-key.yacloud.mdb.forms.base_field_service-account }}** выберите сервисный аккаунт из списка или [создайте новый](../../iam/operations/sa/create.md).
-    1. Нажмите кнопку **{{ ui-key.yacloud.common.save }}**.
+    1. В верхней части страницы нажмите кнопку **Редактировать**.
+    1. В поле **Сервисный аккаунт** выберите сервисный аккаунт из списка или [создайте новый](../../iam/operations/sa/create.md).
+    1. Нажмите кнопку **Сохранить**.
 
 - CLI {#cli}
 
-    Если у вас еще нет интерфейса командной строки {{ yandex-cloud }} (CLI), [установите и инициализируйте его](../../cli/quickstart.md#install).
+    Если у вас еще нет интерфейса командной строки Yandex Cloud (CLI), [установите и инициализируйте его](../../cli/quickstart.md#install).
 
     По умолчанию используется каталог, указанный при [создании](../../cli/operations/profile/profile-create.md) профиля CLI. Чтобы изменить каталог по умолчанию, используйте команду `yc config set folder-id <идентификатор_каталога>`. Также для любой команды вы можете указать другой каталог с помощью параметров `--folder-name` или `--folder-id`. Если вы обращаетесь к ресурсу по имени, поиск будет выполнен в каталоге по умолчанию. Если вы обращаетесь к ресурсу по идентификатору, поиск будет выполнен глобально — во всех каталогах с учетом прав доступа.
 
@@ -1969,25 +1969,25 @@ ALTER DATABASE <имя_базы_данных> SET <настройка> = <зна
     1. Посмотрите описание команды CLI для изменения конфигурации кластера:
 
         ```bash
-        {{ yc-mdb-gp }} cluster update --help
+        yc managed-greenplum cluster update --help
         ```
 
     1. Укажите идентификатор нужного сервисного аккаунта:
 
         ```bash
-        {{ yc-mdb-gp }} cluster update <имя_или_идентификатор_кластера> \
+        yc managed-greenplum cluster update <имя_или_идентификатор_кластера> \
            --service-account <идентификатор_сервисного_аккаунта>
         ```
 
-- {{ TF }} {#tf}
+- Terraform {#tf}
 
-    1. Откройте актуальный конфигурационный файл {{ TF }} с планом инфраструктуры.
+    1. Откройте актуальный конфигурационный файл Terraform с планом инфраструктуры.
 
         Как создать такой файл, см. в разделе [Создание кластера](cluster-create.md).
 
-        Полный список доступных для изменения полей конфигурации кластера {{ mgp-name }} см. в [документации провайдера {{ TF }}]({{ tf-provider-mgp }}).
+        Полный список доступных для изменения полей конфигурации кластера Yandex MPP Analytics for PostgreSQL см. в [документации провайдера Terraform](../../terraform/resources/mdb_greenplum_cluster.md).
 
-    1. Измените в описании кластера {{ mgp-name }} значение атрибута `service_account_id`:
+    1. Измените в описании кластера Yandex MPP Analytics for PostgreSQL значение атрибута `service_account_id`:
 
         ```hcl
         resource "yandex_mdb_greenplum_cluster" "<имя_кластера>" {
@@ -1998,14 +1998,14 @@ ALTER DATABASE <имя_базы_данных> SET <настройка> = <зна
 
     1. Проверьте корректность настроек.
 
-        1. В командной строке перейдите в каталог, в котором расположены актуальные конфигурационные файлы {{ TF }} с планом инфраструктуры.
+        1. В командной строке перейдите в каталог, в котором расположены актуальные конфигурационные файлы Terraform с планом инфраструктуры.
         1. Выполните команду:
         
            ```bash
            terraform validate
            ```
         
-           Если в файлах конфигурации есть ошибки, {{ TF }} на них укажет.
+           Если в файлах конфигурации есть ошибки, Terraform на них укажет.
 
     1. Подтвердите изменение ресурсов.
 
@@ -2029,7 +2029,7 @@ ALTER DATABASE <имя_базы_данных> SET <настройка> = <зна
 
         {% note warning "Ограничения по времени" %}
         
-        Провайдер {{ TF }} ограничивает время на выполнение всех операций с кластером {{ mgp-name }} 120 минутами.
+        Провайдер Terraform ограничивает время на выполнение всех операций с кластером Yandex MPP Analytics for PostgreSQL 120 минутами.
         
         Операции, длящиеся дольше указанного времени, прерываются.
         
@@ -2060,7 +2060,7 @@ ALTER DATABASE <имя_базы_данных> SET <настройка> = <зна
         export IAM_TOKEN="<IAM-токен>"
         ```
 
-    1. Воспользуйтесь методом [Cluster.Update](../api-ref/Cluster/update.md) и выполните запрос, например, с помощью {{ api-examples.rest.tool }}:
+    1. Воспользуйтесь методом [Cluster.Update](../api-ref/Cluster/update.md) и выполните запрос, например, с помощью [cURL](https://curl.se/):
 
         {% note warning %}
         
@@ -2073,7 +2073,7 @@ ALTER DATABASE <имя_базы_данных> SET <настройка> = <зна
             --request PATCH \
             --header "Authorization: Bearer $IAM_TOKEN" \
             --header "Content-Type: application/json" \
-            --url 'https://{{ api-host-mdb }}/managed-greenplum/v1/clusters/<идентификатор_кластера>' \
+            --url 'https://mdb.api.cloud.yandex.net/managed-greenplum/v1/clusters/<идентификатор_кластера>' \
             --data '{
                       "updateMask": "serviceAccountId",
                       "serviceAccountId": "<идентификатор_сервисного_аккаунта>"
@@ -2108,7 +2108,7 @@ ALTER DATABASE <имя_базы_данных> SET <настройка> = <зна
        
        Далее предполагается, что содержимое репозитория находится в директории `~/cloudapi/`.
 
-    1. Воспользуйтесь вызовом [ClusterService.Update](../api-ref/grpc/Cluster/update.md) и выполните запрос, например, с помощью {{ api-examples.grpc.tool }}:
+    1. Воспользуйтесь вызовом [ClusterService.Update](../api-ref/grpc/Cluster/update.md) и выполните запрос, например, с помощью [gRPCurl](https://github.com/fullstorydev/grpcurl):
 
         {% note warning %}
         
@@ -2145,7 +2145,7 @@ ALTER DATABASE <имя_базы_данных> SET <настройка> = <зна
                   },
                   "service_account_id": "<идентификатор_сервисного_аккаунта>"
                 }' \
-            {{ api-host-mdb }}:{{ port-https }} \
+            mdb.api.cloud.yandex.net:443 \
             yandex.cloud.mdb.greenplum.v1.ClusterService.Update
         ```
 
@@ -2165,32 +2165,32 @@ ALTER DATABASE <имя_базы_данных> SET <настройка> = <зна
 
 ## Изменить настройки логирования {#change-logging}
 
-Вы можете изменить настройки [передачи логов кластера в {{ cloud-logging-full-name }}](mgp-to-cloud-logging.md).
+Вы можете изменить настройки [передачи логов кластера в Yandex Cloud Logging](mgp-to-cloud-logging.md).
 
 {% list tabs group=instructions %}
 
 - Консоль управления {#console}
 
-    1. В [консоли управления]({{ link-console-main }}) перейдите в каталог с нужным кластером.
-    1. Перейдите в сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-greenplum }}**.
+    1. В [консоли управления](https://console.yandex.cloud) перейдите в каталог с нужным кластером.
+    1. Перейдите в сервис **Yandex MPP Analytics for&nbsp;PostgreSQL**.
     1. Выберите нужный кластер.
-    1. В верхней части страницы нажмите кнопку **{{ ui-key.yacloud.mdb.clusters.button_action-edit }}**.
-    1. В блоке **{{ ui-key.yacloud.mdb.forms.section_additional }}** включите или выключите логирование с помощью опции **{{ ui-key.yacloud.logging.field_logging }}**. Если вы включили логирование, настройте его параметры:
+    1. В верхней части страницы нажмите кнопку **Редактировать**.
+    1. В блоке **Дополнительные настройки** включите или выключите логирование с помощью опции **Запись логов**. Если вы включили логирование, настройте его параметры:
 
         * Укажите место записи логов:
 
-          * **{{ ui-key.yacloud.common.folder }}** — логи будут записываться в лог-группу по умолчанию выбранного каталога.
-          * **{{ ui-key.yacloud.logging.label_group }}** — логи будут записываться в новую или выбранную из списка [лог-группу](../../logging/concepts/log-group.md).
+          * **Каталог** — логи будут записываться в лог-группу по умолчанию выбранного каталога.
+          * **Группа** — логи будут записываться в новую или выбранную из списка [лог-группу](../../logging/concepts/log-group.md).
 
         * Выберите, какие логи записывать:
 
           * **Логи командного центра** — опция включает запись логов [командного центра](../concepts/command-center.md).
           * **Логи Greenplum** — опция включает запись логов СУБД.
-    1. Нажмите кнопку **{{ ui-key.yacloud.common.save }}**.
+    1. Нажмите кнопку **Сохранить**.
 
 - CLI {#cli}
 
-    Если у вас еще нет интерфейса командной строки {{ yandex-cloud }} (CLI), [установите и инициализируйте его](../../cli/quickstart.md#install).
+    Если у вас еще нет интерфейса командной строки Yandex Cloud (CLI), [установите и инициализируйте его](../../cli/quickstart.md#install).
 
     По умолчанию используется каталог, указанный при [создании](../../cli/operations/profile/profile-create.md) профиля CLI. Чтобы изменить каталог по умолчанию, используйте команду `yc config set folder-id <идентификатор_каталога>`. Также для любой команды вы можете указать другой каталог с помощью параметров `--folder-name` или `--folder-id`. Если вы обращаетесь к ресурсу по имени, поиск будет выполнен в каталоге по умолчанию. Если вы обращаетесь к ресурсу по идентификатору, поиск будет выполнен глобально — во всех каталогах с учетом прав доступа.
 
@@ -2199,13 +2199,13 @@ ALTER DATABASE <имя_базы_данных> SET <настройка> = <зна
     1. Посмотрите описание команды CLI для изменения конфигурации кластера:
 
         ```bash
-        {{ yc-mdb-gp }} cluster update --help
+        yc managed-greenplum cluster update --help
         ```
 
     1. Укажите настройки логирования, которые вы хотите изменить, в команде изменения кластера:
 
         ```bash
-        {{ yc-mdb-gp }} cluster update <имя_или_идентификатор_кластера> \
+        yc managed-greenplum cluster update <имя_или_идентификатор_кластера> \
            --log-enabled \
            --log-command-center-enabled \
            --log-greenplum-enabled \
@@ -2224,15 +2224,15 @@ ALTER DATABASE <имя_базы_данных> SET <настройка> = <зна
 
             Укажите только одну из настроек: `--log-folder-id` либо `--log-group-id`.
 
-- {{ TF }} {#tf}
+- Terraform {#tf}
 
-    1. Откройте актуальный конфигурационный файл {{ TF }} с планом инфраструктуры.
+    1. Откройте актуальный конфигурационный файл Terraform с планом инфраструктуры.
 
         Как создать такой файл, см. в разделе [Создание кластера](cluster-create.md).
 
-        Полный список доступных для изменения полей конфигурации кластера {{ mgp-name }} см. в [документации провайдера {{ TF }}]({{ tf-provider-mgp }}).
+        Полный список доступных для изменения полей конфигурации кластера Yandex MPP Analytics for PostgreSQL см. в [документации провайдера Terraform](../../terraform/resources/mdb_greenplum_cluster.md).
 
-    1. Измените в описании кластера {{ mgp-name }} значения атрибутов в блоке `logging`:
+    1. Измените в описании кластера Yandex MPP Analytics for PostgreSQL значения атрибутов в блоке `logging`:
 
         ```hcl
         resource "yandex_mdb_greenplum_cluster" "<имя_кластера>" {
@@ -2260,14 +2260,14 @@ ALTER DATABASE <имя_базы_данных> SET <настройка> = <зна
 
     1. Проверьте корректность настроек.
 
-        1. В командной строке перейдите в каталог, в котором расположены актуальные конфигурационные файлы {{ TF }} с планом инфраструктуры.
+        1. В командной строке перейдите в каталог, в котором расположены актуальные конфигурационные файлы Terraform с планом инфраструктуры.
         1. Выполните команду:
         
            ```bash
            terraform validate
            ```
         
-           Если в файлах конфигурации есть ошибки, {{ TF }} на них укажет.
+           Если в файлах конфигурации есть ошибки, Terraform на них укажет.
 
     1. Подтвердите изменение ресурсов.
 
@@ -2291,7 +2291,7 @@ ALTER DATABASE <имя_базы_данных> SET <настройка> = <зна
 
         {% note warning "Ограничения по времени" %}
         
-        Провайдер {{ TF }} ограничивает время на выполнение всех операций с кластером {{ mgp-name }} 120 минутами.
+        Провайдер Terraform ограничивает время на выполнение всех операций с кластером Yandex MPP Analytics for PostgreSQL 120 минутами.
         
         Операции, длящиеся дольше указанного времени, прерываются.
         
@@ -2322,7 +2322,7 @@ ALTER DATABASE <имя_базы_данных> SET <настройка> = <зна
         export IAM_TOKEN="<IAM-токен>"
         ```
 
-    1. Воспользуйтесь методом [Cluster.Update](../api-ref/Cluster/update.md) и выполните запрос, например, с помощью {{ api-examples.rest.tool }}:
+    1. Воспользуйтесь методом [Cluster.Update](../api-ref/Cluster/update.md) и выполните запрос, например, с помощью [cURL](https://curl.se/):
 
         {% note warning %}
         
@@ -2335,7 +2335,7 @@ ALTER DATABASE <имя_базы_данных> SET <настройка> = <зна
             --request PATCH \
             --header "Authorization: Bearer $IAM_TOKEN" \
             --header "Content-Type: application/json" \
-            --url 'https://{{ api-host-mdb }}/managed-greenplum/v1/clusters/<идентификатор_кластера>' \
+            --url 'https://mdb.api.cloud.yandex.net/managed-greenplum/v1/clusters/<идентификатор_кластера>' \
             --data '{
                       "updateMask": "logging.enabled,logging.commandCenterEnabled,logging.greenplumEnabled,logging.poolerEnabled,logging.folderId",
                       "logging": {
@@ -2382,7 +2382,7 @@ ALTER DATABASE <имя_базы_данных> SET <настройка> = <зна
        ```
        
        Далее предполагается, что содержимое репозитория находится в директории `~/cloudapi/`.
-    1. Воспользуйтесь вызовом [ClusterService.Update](../api-ref/grpc/Cluster/update.md) и выполните запрос, например, с помощью {{ api-examples.grpc.tool }}:
+    1. Воспользуйтесь вызовом [ClusterService.Update](../api-ref/grpc/Cluster/update.md) и выполните запрос, например, с помощью [gRPCurl](https://github.com/fullstorydev/grpcurl):
 
         {% note warning %}
         
@@ -2431,7 +2431,7 @@ ALTER DATABASE <имя_базы_данных> SET <настройка> = <зна
                     "folder_id": "<идентификатор_каталога>"
                   } 
                 }' \
-            {{ api-host-mdb }}:{{ port-https }} \
+            mdb.api.cloud.yandex.net:443 \
             yandex.cloud.mdb.greenplum.v1.ClusterService.Update
         ```
 

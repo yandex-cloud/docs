@@ -5,7 +5,7 @@ updates the specified MFA enforcement
 ## HTTP request
 
 ```
-PATCH https://organization-manager.{{ api-host }}/organization-manager/v1/mfaEnforcements/{mfaEnforcementId}
+PATCH https://organization-manager.api.cloud.yandex.net/organization-manager/v1/mfaEnforcements/{mfaEnforcementId}
 ```
 
 ## Path parameters

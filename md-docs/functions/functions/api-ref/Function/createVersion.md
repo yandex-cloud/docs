@@ -5,7 +5,7 @@ Creates a version for the specified function.
 ## HTTP request
 
 ```
-POST https://serverless-functions.{{ api-host }}/functions/v1/versions
+POST https://serverless-functions.api.cloud.yandex.net/functions/v1/versions
 ```
 
 ## Body parameters {#yandex.cloud.serverless.functions.v1.CreateFunctionVersionRequest}

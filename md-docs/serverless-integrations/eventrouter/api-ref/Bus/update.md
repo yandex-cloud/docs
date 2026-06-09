@@ -5,7 +5,7 @@ Updates the specified bus.
 ## HTTP request
 
 ```
-PATCH https://serverless-eventrouter.{{ api-host }}/eventrouter/v1/buses/{busId}
+PATCH https://serverless-eventrouter.api.cloud.yandex.net/eventrouter/v1/buses/{busId}
 ```
 
 ## Path parameters

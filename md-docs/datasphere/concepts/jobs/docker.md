@@ -1,10 +1,10 @@
 # Docker-образы в заданиях
 
-По умолчанию [задания](index.md) {{ ds-jobs }} используют публичный образ `nvidia/cuda:11.8.0-cudnn8-runtime-ubuntu22.04` с предустановленным менеджером пакетов conda, Python 3.10 и другими дополнительными пакетами. Этот образ хранится в кеше {{ ml-platform-name }}, поэтому запуск заданий в окружении по умолчанию будет самым быстрым.
+По умолчанию [задания](index.md) DataSphere Jobs используют публичный образ `nvidia/cuda:11.8.0-cudnn8-runtime-ubuntu22.04` с предустановленным менеджером пакетов conda, Python 3.10 и другими дополнительными пакетами. Этот образ хранится в кеше DataSphere, поэтому запуск заданий в окружении по умолчанию будет самым быстрым.
 
 Вы также можете запускать задания на любом другом Docker-образе, указав его в секции `env` файла конфигурации задания. Это может быть:
 
-* системный образ {{ ml-platform-name }}
+* системный образ DataSphere
 
   ```text
   env:
@@ -26,7 +26,7 @@
 
 * произвольный образ из внешнего источника
 
-  Вы можете использовать любой реестр образов ([{{ container-registry-full-name }}](https://yandex.cloud/ru/services/container-registry), [Docker Hub](https://hub.docker.com/), [Docker — Private Registries](https://www.geeksforgeeks.org/docker-private-registries/) и т.п.), указав логин и пароль для доступа к образу.
+  Вы можете использовать любой реестр образов ([Yandex Container Registry](https://yandex.cloud/ru/services/container-registry), [Docker Hub](https://hub.docker.com/), [Docker — Private Registries](https://www.geeksforgeeks.org/docker-private-registries/) и т.п.), указав логин и пароль для доступа к образу.
 
   ```text
   env:
@@ -39,9 +39,9 @@
 
   Где:
 
-  * `<путь_к_образу>` — полный путь к образу в реестре контейнеров, например `{{ registry }}/b1g**********/myenv:0.1`.
-  * `<логин>` — логин для доступа к вашему реестру. Для аутентификации в {{ container-registry-full-name }} используйте [сервисный аккаунт](../../../iam/concepts/users/service-accounts.md) и [авторизованный ключ](../../../iam/concepts/authorization/key.md).
-  * `<идентификатор_секрета_проекта>` — идентификатор секрета с паролем. Секрет должен быть [создан](../../operations/data/secrets.md#create) в проекте {{ ml-platform-name }}.
+  * `<путь_к_образу>` — полный путь к образу в реестре контейнеров, например `cr.yandex/b1g**********/myenv:0.1`.
+  * `<логин>` — логин для доступа к вашему реестру. Для аутентификации в Yandex Container Registry используйте [сервисный аккаунт](../../../iam/concepts/users/service-accounts.md) и [авторизованный ключ](../../../iam/concepts/authorization/key.md).
+  * `<идентификатор_секрета_проекта>` — идентификатор секрета с паролем. Секрет должен быть [создан](../../operations/data/secrets.md#create) в проекте DataSphere.
 
   Если вы используете публичный образ, данные для аутентификации можно не указывать:
 
@@ -53,8 +53,8 @@
 
 #### См. также {#see-also}
 
-* [{#T}](index.md)
-* [{#T}](cli.md)
-* [{#T}](environment.md)
-* [{#T}](../../operations/projects/work-with-jobs.md)
+* [DataSphere Jobs](index.md)
+* [DataSphere CLI](cli.md)
+* [Среда исполнения заданий](environment.md)
+* [Запуск заданий DataSphere Jobs](../../operations/projects/work-with-jobs.md)
 * [GitHub-репозиторий](https://github.com/yandex-cloud-examples/yc-datasphere-jobs-examples) с примерами для запуска заданий

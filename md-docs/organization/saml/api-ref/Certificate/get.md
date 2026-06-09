@@ -6,7 +6,7 @@ To get the list of available certificates, make a [List](list.md#List) request.
 ## HTTP request
 
 ```
-GET https://organization-manager.{{ api-host }}/organization-manager/v1/saml/certificates/{certificateId}
+GET https://organization-manager.api.cloud.yandex.net/organization-manager/v1/saml/certificates/{certificateId}
 ```
 
 ## Path parameters

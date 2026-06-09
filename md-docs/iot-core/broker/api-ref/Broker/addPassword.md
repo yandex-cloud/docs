@@ -5,7 +5,7 @@ Adds password for the specified broker.
 ## HTTP request
 
 ```
-POST https://{{ api-host-iot-broker }}/iot-broker/v1/brokers/{brokerId}/passwords
+POST https://iot-broker.api.cloud.yandex.net/iot-broker/v1/brokers/{brokerId}/passwords
 ```
 
 ## Path parameters

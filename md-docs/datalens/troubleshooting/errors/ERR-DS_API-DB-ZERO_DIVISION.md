@@ -1,4 +1,4 @@
-# [{{ datalens-full-name }}] Division by zero
+# [Yandex DataLens] Division by zero
 
 `ERR.DS_API.DB.ZERO_DIVISION`
 

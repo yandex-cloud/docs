@@ -1,17 +1,17 @@
-# Особенности OTLP в {{ monium-name }}
+# Особенности OTLP в Monium
 
-{{ monium-name }} поддерживает прием телеметрии по протоколу [OTLP](https://opentelemetry.io/docs/specs/otlp/) (OpenTelemetry Protocol), что позволяет напрямую отправлять данные из приложений с OpenTelemetry SDK или через OpenTelemetry Collector.
+Monium поддерживает прием телеметрии по протоколу [OTLP](https://opentelemetry.io/docs/specs/otlp/) (OpenTelemetry Protocol), что позволяет напрямую отправлять данные из приложений с OpenTelemetry SDK или через OpenTelemetry Collector.
 
 ## Эндпоинты {#endpoints}
 
-{{ monium-name }} предоставляет следующие эндпоинты для приема телеметрии в формате OTLP:
+Monium предоставляет следующие эндпоинты для приема телеметрии в формате OTLP:
 
 #|
 || **Протокол** | **Эндпоинт** | **Описание** ||
-|| HTTP | `https://{{ api-host-monium }}/otlp/v1/metrics` | HTTP-эндпоинт для приема метрик ||
-|| HTTP | `https://{{ api-host-monium }}/otlp/v1/logs` | HTTP-эндпоинт для приема логов ||
-|| HTTP | `https://{{ api-host-monium }}/otlp/v1/traces` | HTTP-эндпоинт для приема трейсов ||
-|| gRPC | `{{ api-host-monium }}:443` | gRPC эндпоинт для приема всей телеметрии ||
+|| HTTP | `https://ingest.monium.yandex.cloud/otlp/v1/metrics` | HTTP-эндпоинт для приема метрик ||
+|| HTTP | `https://ingest.monium.yandex.cloud/otlp/v1/logs` | HTTP-эндпоинт для приема логов ||
+|| HTTP | `https://ingest.monium.yandex.cloud/otlp/v1/traces` | HTTP-эндпоинт для приема трейсов ||
+|| gRPC | `ingest.monium.yandex.cloud:443` | gRPC эндпоинт для приема всей телеметрии ||
 |#
 
 Эндпоинты gRPC и HTTP полностью совместимы со [спецификацией OTLP](https://opentelemetry.io/docs/specs/otlp/).
@@ -33,7 +33,7 @@ API-ключ создается для сервисного аккаунта с 
 #|
 || **Заголовок** | **Описание** | **Пример** ||
 || `Authorization` | API-ключ для аутентификации | `Api-Key AQVN...` ||
-|| `x-monium-project` | Имя проекта {{ monium-name }} | `folder__b1...` ||
+|| `x-monium-project` | Имя проекта Monium | `folder__b1...` ||
 |#
 
 ### Опциональные заголовки {#optional-headers}
@@ -46,7 +46,7 @@ API-ключ создается для сервисного аккаунта с 
 
 ## Распределение по шардам {#shard-distribution}
 
-Все метрики, логи, трейсы в {{ monium-name }} имеют обязательные метки `project`, `cluster` и `service`. Эти метки формируют ключ шарда.
+Все метрики, логи, трейсы в Monium имеют обязательные метки `project`, `cluster` и `service`. Эти метки формируют ключ шарда.
 
 При поставке телеметрии в формате OpenTelemetry значения ключевых атрибутов назначаются по следующим приоритетам:
 
@@ -68,7 +68,7 @@ API-ключ создается для сервисного аккаунта с 
 
 ## Компрессия данных {#compression}
 
-{{ monium-name }} поддерживает следующие методы компрессии:
+Monium поддерживает следующие методы компрессии:
 
 #|
 || **Метод** | **HTTP заголовок** | **gRPC** | **Рекомендация** ||
@@ -79,7 +79,7 @@ API-ключ создается для сервисного аккаунта с 
 
 ## Сопоставление типов метрик {#metric-type-mapping}
 
-В разделе приведено отображение типов данных в OpenTelemetry в типы {{ monium-name }}.
+В разделе приведено отображение типов данных в OpenTelemetry в типы Monium.
 
 ### Типы метрик OTLP {#otlp-types}
 
@@ -94,14 +94,14 @@ OpenTelemetry использует следующие типы метрик:
 || `Summary` (deprecated) | Квантили и сумма | Процентили задержки ||
 |#
 
-### Сопоставление типов {{ monium-name }} {#monium-mapping}
+### Сопоставление типов Monium {#monium-mapping}
 
-{{ monium-name }} преобразует типы OTLP в свои внутренние типы метрик в зависимости от темпоральности (temporality):
+Monium преобразует типы OTLP в свои внутренние типы метрик в зависимости от темпоральности (temporality):
 
 #### Temporality = Delta (дельта) {#delta-temporality}
 
 #|
-|| **Тип OTLP** | **Монотонность** | **Тип в {{ monium-name }}** | **Примечание** ||
+|| **Тип OTLP** | **Монотонность** | **Тип в Monium** | **Примечание** ||
 || `Gauge` | — | `GAUGE` | Мгновенное значение ||
 || `Sum` | Monotonic | `RATE` | Сумма делится на длину интервала в секундах ||
 || `Histogram` | — | `HIST_RATE` для бакетов, `GAUGE` для статистик | `name={metric}, bin={bound}` + `name={metric}.count` + `name={metric}.sum` + `name={metric}.min` + `name={metric}.max` ||
@@ -111,7 +111,7 @@ OpenTelemetry использует следующие типы метрик:
 #### Temporality = Cumulative (кумулятивная) {#cumulative-temporality}
 
 #|
-|| **Тип OTLP** | **Монотонность** | **Тип в {{ monium-name }}** | **Примечание** ||
+|| **Тип OTLP** | **Монотонность** | **Тип в Monium** | **Примечание** ||
 || `Gauge` | — | `GAUGE` | Мгновенное значение ||
 || `Sum` | Non-monotonic | `GAUGE` | Абсолютное значение счетчика ||
 || `Sum` | Monotonic | `GAUGE` | Абсолютное значение счетчика ||
@@ -124,7 +124,7 @@ OpenTelemetry использует следующие типы метрик:
 ### Кумулятивная сумма (Cumulative Sum) {#cumulative-sum-example}
 
 #|
-|| **Период** | **Инкременты** | **Сумма** | **Значение в {{ monium-name }}** | **Тип** | **Примечание** ||
+|| **Период** | **Инкременты** | **Сумма** | **Значение в Monium** | **Тип** | **Примечание** ||
 || #1 | `[1,1,1,2,2,2,3,3]` | 15 | 15 | `GAUGE` | Используется значение суммы ||
 || #2 | `[3,4,1,2,-15]` | 10 | 10 | `GAUGE` | Используется значение суммы ||
 || #3 | `[]` | 10 | 10 | `GAUGE` | Последнее значение сохраняется ||
@@ -133,7 +133,7 @@ OpenTelemetry использует следующие типы метрик:
 ### Монотонная дельта сумма (Delta Sum, Monotonic) {#delta-sum-monotonic-example}
 
 #|
-|| **Период** | **Инкременты** | **Сумма, интервал** | **Значение в {{ monium-name }}** | **Тип** | **Примечание** ||
+|| **Период** | **Инкременты** | **Сумма, интервал** | **Значение в Monium** | **Тип** | **Примечание** ||
 || #1 | `[1,1,1,2,2,2,3,3]` | `15, (0, 5]` | 3 (15 / 5) | `RATE` | Сумма делится на интервал ||
 || #2 | `[3,4,1,2]` | `10, (5, 10]` | 2 (10 / 5) | `RATE` | Сумма делится на интервал ||
 || #3 | `[]` | `0, (10, 15]` | 0 (0 / 5) | `RATE` | Нулевое значение ||
@@ -143,7 +143,7 @@ OpenTelemetry использует следующие типы метрик:
 
 ## Обработка ресурсных атрибутов {#resource-attributes}
 
-{{ monium-name }} обрабатывает ресурсные атрибуты OTLP следующим образом:
+Monium обрабатывает ресурсные атрибуты OTLP следующим образом:
 
 ### Сохраняемые атрибуты {#preserved-attributes}
 
@@ -192,15 +192,15 @@ OpenTelemetry использует следующие типы метрик:
 ### Остальные атрибуты {#other-attributes}
 
 Ресурсные атрибуты, не входящие в вышеперечисленные списки, отбрасываются.
-Все атрибуты точек данных сохраняются как метки метрик {{ monium-name }}.
+Все атрибуты точек данных сохраняются как метки метрик Monium.
 
 ## Формат данных {#data-format}
 
-{{ monium-name }} поддерживает формат **OTLP Protobuf** для всех видов телеметрии. Формат OTLP JSON в настоящее время поддерживается для логов и трейсов.
+Monium поддерживает формат **OTLP Protobuf** для всех видов телеметрии. Формат OTLP JSON в настоящее время поддерживается для логов и трейсов.
 
 ## См. также {#see-also}
 
-* [{#T}](otlp-sdk.md)
-* [{#T}](opentelemetry.md)
+* [SDK для передачи данных в формате OpenTelemetry](otlp-sdk.md)
+* [Передача данных через OpenTelemetry Collector](opentelemetry.md)
 * [Спецификация OTLP](https://opentelemetry.io/docs/specs/otlp/)
 * [OpenTelemetry Metrics](https://opentelemetry.io/docs/concepts/signals/metrics/)

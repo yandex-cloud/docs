@@ -1,9 +1,9 @@
-# Загрузка данных из {{ objstorage-full-name }} в витрину {{ CH }}
+# Загрузка данных из Yandex Object Storage в витрину ClickHouse®
 
-# Загрузка данных из {{ objstorage-full-name }} в {{ mch-full-name }} с помощью {{ data-transfer-full-name }}
+# Загрузка данных из Yandex Object Storage в Yandex Managed Service for ClickHouse® с помощью Yandex Data Transfer
 
 
-Вы можете перенести данные из {{ objstorage-full-name }} в таблицу {{ mch-name }} с помощью сервиса {{ data-transfer-name }}. Для этого:
+Вы можете перенести данные из Yandex Object Storage в таблицу Managed Service for ClickHouse® с помощью сервиса Data Transfer. Для этого:
 
 1. [Подготовьте тестовые данные](#prepare-data).
 1. [Подготовьте и активируйте трансфер](#prepare-transfer).
@@ -14,9 +14,9 @@
 
 ## Необходимые платные ресурсы {#paid-resources}
 
-* Бакет {{ objstorage-name }}: использование хранилища и выполнение операций с данными (см. [тарифы {{ objstorage-name }}](../../storage/pricing.md)).
-* Кластер {{ mch-name }}: выделенные хостам вычислительные ресурсы, объем хранилища и резервных копий (см. [тарифы {{ mch-name }}](../../managed-clickhouse/pricing.md)).
-* Публичные IP-адреса, если для хостов кластера включен публичный доступ (см. [тарифы {{ vpc-name }}](../../vpc/pricing.md)).
+* Бакет Object Storage: использование хранилища и выполнение операций с данными (см. [тарифы Object Storage](../../storage/pricing.md)).
+* Кластер Managed Service for ClickHouse®: выделенные хостам вычислительные ресурсы, объем хранилища и резервных копий (см. [тарифы Managed Service for ClickHouse®](../../managed-clickhouse/pricing.md)).
+* Публичные IP-адреса, если для хостов кластера включен публичный доступ (см. [тарифы Virtual Private Cloud](../../vpc/pricing.md)).
 
 
 ## Перед началом работы {#before-you-begin}
@@ -28,17 +28,17 @@
 
 - Вручную {#manual}
 
-    1. [Создайте кластер-приемник {{ mch-name }}](../../managed-clickhouse/operations/cluster-create.md) любой подходящей конфигурации со следующими настройками:
+    1. [Создайте кластер-приемник Managed Service for ClickHouse®](../../managed-clickhouse/operations/cluster-create.md) любой подходящей конфигурации со следующими настройками:
 
-        * **{{ ui-key.yacloud.mdb.forms.database_field_name }}** — `db1`.
-        * **{{ ui-key.yacloud.mdb.forms.database_field_user-login }}** — `user1`.
-        * **{{ ui-key.yacloud.mdb.forms.database_field_user-password }}** — `<пароль_пользователя>`.
-        * Количество хостов {{ CH }} — не меньше 2 (для включения репликации в кластере).
+        * **Имя БД** — `db1`.
+        * **Имя пользователя** — `user1`.
+        * **Пароль** — `<пароль_пользователя>`.
+        * Количество хостов ClickHouse® — не меньше 2 (для включения репликации в кластере).
         * Выделен публичный доступ к хостам кластера.
 
             {% note info %}
             
-            Публичный доступ к хостам кластера нужен, если вы планируете подключаться к кластеру через интернет. Этот вариант подключения более простой, и его рекомендуется использовать для прохождения руководства. К хостам без публичного доступа тоже можно подключиться, но только с виртуальных машин {{ yandex-cloud }}, расположенных в той же облачной сети, что и кластер.
+            Публичный доступ к хостам кластера нужен, если вы планируете подключаться к кластеру через интернет. Этот вариант подключения более простой, и его рекомендуется использовать для прохождения руководства. К хостам без публичного доступа тоже можно подключиться, но только с виртуальных машин Yandex Cloud, расположенных в той же облачной сети, что и кластер.
             
             {% endnote %}
 
@@ -46,7 +46,7 @@
     1. Если вы используете группы безопасности в кластере, убедитесь, что они [настроены правильно](../../managed-clickhouse/operations/connect/index.md#configuring-security-groups) и допускают подключение к нему.
 
 
-    1. [Создайте бакет {{ objstorage-full-name }}](../../storage/operations/buckets/create.md).
+    1. [Создайте бакет Yandex Object Storage](../../storage/operations/buckets/create.md).
 
     
     1. [Создайте сервисный аккаунт](../../iam/operations/sa/create.md#create-sa) с именем `storage-viewer` и ролью `storage.viewer`. Трансфер будет использовать его для доступа к бакету.
@@ -54,9 +54,9 @@
     1. [Создайте статический ключ доступа](../../iam/operations/authentication/manage-access-keys.md#create-access-key) для сервисного аккаунта `storage-viewer`.
 
 
-- С помощью {{ TF }} {#tf}
+- С помощью Terraform {#tf}
 
-    1. Если у вас еще нет {{ TF }}, [установите его](../../tutorials/infrastructure-management/terraform-quickstart.md#install-terraform).
+    1. Если у вас еще нет Terraform, [установите его](../../tutorials/infrastructure-management/terraform-quickstart.md#install-terraform).
     1. [Получите данные для аутентификации](../../tutorials/infrastructure-management/terraform-quickstart.md#get-credentials). Вы можете добавить их в переменные окружения или указать далее в файле с настройками провайдера.
     1. [Настройте и инициализируйте провайдер](../../tutorials/infrastructure-management/terraform-quickstart.md#configure-provider). Чтобы не создавать конфигурационный файл с настройками провайдера вручную, [скачайте его](https://github.com/yandex-cloud-examples/yc-terraform-provider-settings/blob/main/provider.tf).
     1. Поместите конфигурационный файл в отдельную рабочую директорию и [укажите значения параметров](../../tutorials/infrastructure-management/terraform-quickstart.md#configure-provider). Если данные для аутентификации не были добавлены в переменные окружения, укажите их в конфигурационном файле.
@@ -69,9 +69,9 @@
         * [подсеть](../../vpc/concepts/network.md#subnet);
         * [группа безопасности](../../vpc/concepts/security-groups.md), необходимая для подключения к кластеру;
         * сервисный аккаунт, который будет использоваться для создания бакета и дальнейшего доступа к нему;
-        * секрет {{ lockbox-name }}, в котором будет храниться статический ключ сервисного аккаунта для настройки эндпоинта-источника;
-        * бакет-источник {{ objstorage-name }};
-        * кластер-приемник {{ mch-name }};
+        * секрет Yandex Lockbox, в котором будет храниться статический ключ сервисного аккаунта для настройки эндпоинта-источника;
+        * бакет-источник Object Storage;
+        * кластер-приемник Managed Service for ClickHouse®;
         * эндпоинт для приемника;
         * трансфер.
 
@@ -79,15 +79,15 @@
 
         * `folder_id` — идентификатор облачного каталога, такой же, как в настройках провайдера.
         * `bucket_name` — имя бакета в соответствии с [правилами именования](../../storage/concepts/bucket.md#naming).
-        * `ch_password` — пароль пользователя {{ CH }}.
+        * `ch_password` — пароль пользователя ClickHouse®.
 
-    1. Проверьте корректность файлов конфигурации {{ TF }} с помощью команды:
+    1. Проверьте корректность файлов конфигурации Terraform с помощью команды:
 
         ```bash
         terraform validate
         ```
 
-        Если в файлах конфигурации есть ошибки, {{ TF }} на них укажет.
+        Если в файлах конфигурации есть ошибки, Terraform на них укажет.
 
     1. Создайте необходимую инфраструктуру:
 
@@ -109,7 +109,7 @@
            1. Подтвердите изменение ресурсов.
            1. Дождитесь завершения операции.
 
-        В указанном каталоге будут созданы все требуемые ресурсы. Проверить появление ресурсов и их настройки можно в [консоли управления]({{ link-console-main }}).
+        В указанном каталоге будут созданы все требуемые ресурсы. Проверить появление ресурсов и их настройки можно в [консоли управления](https://console.yandex.cloud).
 
 {% endlist %}
 
@@ -134,26 +134,26 @@
         7,Alex
         ```
 
-1. [Загрузите](../../storage/operations/objects/upload.md#simple) файл `demo_data1.csv` в бакет {{ objstorage-name }}.
+1. [Загрузите](../../storage/operations/objects/upload.md#simple) файл `demo_data1.csv` в бакет Object Storage.
 
 ## Подготовьте и активируйте трансфер {#prepare-transfer}
 
-1. [Создайте эндпоинт-источник](../operations/endpoint/source/object-storage.md#endpoint-settings) типа `{{ objstorage-name }}` со следующими настройками:
+1. [Создайте эндпоинт-источник](../operations/endpoint/source/object-storage.md#endpoint-settings) типа `Object Storage` со следующими настройками:
 
-    * **{{ ui-key.yacloud.data-transfer.forms.label-database_type }}** — `Object Storage`.
-    * **{{ ui-key.yc-data-transfer.data-transfer.endpoint.airbyte.s3_source.endpoint.airbyte.s3_source.S3Source.Provider.bucket.title }}** — имя бакета в {{ objstorage-name }}.
+    * **Тип базы данных** — `Object Storage`.
+    * **Бакет** — имя бакета в Object Storage.
 
     
-    * **{{ ui-key.yc-data-transfer.data-transfer.endpoint.airbyte.s3_source.endpoint.airbyte.s3_source.S3Source.Provider.aws_access_key_id.title }}** — открытая часть статического ключа сервисного аккаунта. Если вы создали инфраструктуру с помощью {{ TF }}, [скопируйте значение ключа из секрета {{ lockbox-name }}](../../lockbox/operations/secret-get-info.md#secret-contents).
-    * **{{ ui-key.yc-data-transfer.data-transfer.endpoint.airbyte.s3_source.endpoint.airbyte.s3_source.S3Source.Provider.aws_secret_access_key.title }}** — закрытая часть статического ключа сервисного аккаунта. Если вы создали инфраструктуру с помощью {{ TF }}, [скопируйте значение ключа из секрета {{ lockbox-name }}](../../lockbox/operations/secret-get-info.md#secret-contents).
+    * **Идентификатор ключа доступа AWS** — открытая часть статического ключа сервисного аккаунта. Если вы создали инфраструктуру с помощью Terraform, [скопируйте значение ключа из секрета Yandex Lockbox](../../lockbox/operations/secret-get-info.md#secret-contents).
+    * **Секретный ключ доступа AWS** — закрытая часть статического ключа сервисного аккаунта. Если вы создали инфраструктуру с помощью Terraform, [скопируйте значение ключа из секрета Yandex Lockbox](../../lockbox/operations/secret-get-info.md#secret-contents).
 
 
-    * **{{ ui-key.yc-data-transfer.data-transfer.endpoint.airbyte.s3_source.endpoint.airbyte.s3_source.S3Source.Provider.endpoint.title }}** — `https://{{ s3-storage-host }}`.
-    * **{{ ui-key.yc-data-transfer.data-transfer.console.form.object_storage.console.form.object_storage.ObjectStorageSource.ObjectStorageEventSource.SQS.region.title }}** — `{{ region-id }}`.
-    * **{{ ui-key.yc-data-transfer.data-transfer.console.form.object_storage.console.form.object_storage.ObjectStorageTarget.format.title }}** — `{{ ui-key.yc-data-transfer.data-transfer.console.form.object_storage.console.form.object_storage.ObjectStorageSource.ObjectStorageReaderFormat.csv.title }}`.
-    * **{{ ui-key.yc-data-transfer.data-transfer.console.form.object_storage.console.form.object_storage.ObjectStorageSource.ObjectStorageReaderFormat.Csv.delimiter.title }}** — знак запятой `,`.
-    * **{{ ui-key.yc-data-transfer.data-transfer.transfer.transfer.RenameTablesTransformer.rename_tables.array_item_label }}** — `table1`.
-    * **{{ ui-key.yc-data-transfer.data-transfer.console.form.object_storage.console.form.object_storage.ObjectStorageSource.result_schema.title }}** — выберите `{{ ui-key.yc-data-transfer.data-transfer.console.form.object_storage.console.form.object_storage.ObjectStorageDataSchema.data_schema.title }}` и укажите имена полей и тип данных:
+    * **Эндпоинт** — `https://storage.yandexcloud.net`.
+    * **Регион** — `ru-central1`.
+    * **Формат данных** — `CSV`.
+    * **Разделитель** — знак запятой `,`.
+    * **Таблица** — `table1`.
+    * **Схема результирующей таблицы** — выберите `Вручную` и укажите имена полей и тип данных:
 
         * `Id`: `Int64`;
         * `Name`: `UTF8`.
@@ -166,32 +166,32 @@
 
     - Вручную {#manual}
 
-        1. [Создайте эндпоинт-приемник](../operations/endpoint/target/clickhouse.md#endpoint-settings) типа `{{ CH }}` и укажите в нем параметры подключения к кластеру:
+        1. [Создайте эндпоинт-приемник](../operations/endpoint/target/clickhouse.md#endpoint-settings) типа `ClickHouse®` и укажите в нем параметры подключения к кластеру:
 
-            * **{{ ui-key.yc-data-transfer.data-transfer.console.form.clickhouse.console.form.clickhouse.ClickHouseConnection.connection_type.title }}** — `{{ ui-key.yc-data-transfer.data-transfer.console.form.clickhouse.console.form.clickhouse.ClickHouseConnectionType.managed.title }}`.
-            * **{{ ui-key.yc-data-transfer.data-transfer.console.form.clickhouse.console.form.clickhouse.ClickHouseManaged.mdb_cluster_id.title }}** — `<имя_кластера_приемника_{{ CH }}>` из выпадающего списка.
-            * **{{ ui-key.yc-data-transfer.data-transfer.console.form.clickhouse.console.form.clickhouse.ClickHouseConnection.database.title }}** — `db1`.
-            * **{{ ui-key.yc-data-transfer.data-transfer.console.form.clickhouse.console.form.clickhouse.ClickHouseCredentials.user.title }}** — `user1`.
-            * **{{ ui-key.yc-data-transfer.data-transfer.console.form.clickhouse.console.form.clickhouse.ClickHouseCredentials.password.title }}** — `<пароль_пользователя>`.
+            * **Тип подключения** — `Кластер Managed Service for ClickHouse`.
+            * **Managed кластер** — `<имя_кластера_приемника_ClickHouse®>` из выпадающего списка.
+            * **База данных** — `db1`.
+            * **Пользователь** — `user1`.
+            * **Пароль** — `<пароль_пользователя>`.
 
-        1. [Создайте трансфер](../operations/transfer.md#create) типа **_{{ ui-key.yc-data-transfer.data-transfer.console.form.transfer.console.form.transfer.TransferType.snapshot_and_increment.title }}_**, использующий созданные эндпоинты.
+        1. [Создайте трансфер](../operations/transfer.md#create) типа **_Копирование и репликация_**, использующий созданные эндпоинты.
 
-        1. [Активируйте трансфер](../operations/transfer.md#activate) и дождитесь его перехода в статус **{{ ui-key.yacloud.data-transfer.label_connector-status-RUNNING }}**.
+        1. [Активируйте трансфер](../operations/transfer.md#activate) и дождитесь его перехода в статус **Реплицируется**.
 
-    - С помощью {{ TF }} {#tf}
+    - С помощью Terraform {#tf}
 
         1. Укажите в файле `object-storage-to-clickhouse.tf` значения параметров:
 
             * `source_endpoint_id` — идентификатор эндпоинта для источника.
             * `transfer_enabled` — значение `1` для создания трансфера.
 
-        1. Проверьте корректность файлов конфигурации {{ TF }} с помощью команды:
+        1. Проверьте корректность файлов конфигурации Terraform с помощью команды:
 
             ```bash
             terraform validate
             ```
 
-            Если в файлах конфигурации есть ошибки, {{ TF }} на них укажет.
+            Если в файлах конфигурации есть ошибки, Terraform на них укажет.
 
         1. Создайте необходимую инфраструктуру:
 
@@ -213,7 +213,7 @@
                1. Подтвердите изменение ресурсов.
                1. Дождитесь завершения операции.
 
-        1. Трансфер активируется автоматически. Дождитесь его перехода в статус **{{ ui-key.yacloud.data-transfer.label_connector-status-RUNNING }}**.
+        1. Трансфер активируется автоматически. Дождитесь его перехода в статус **Реплицируется**.
 
     {% endlist %}
 
@@ -223,7 +223,7 @@
 
 ### Проверьте работу копирования {#verify-copy}
 
-1. [Подключитесь к базе данных](../../managed-clickhouse/operations/connect/clients.md) `db1` в кластере-приемнике {{ mch-name }}.
+1. [Подключитесь к базе данных](../../managed-clickhouse/operations/connect/clients.md) `db1` в кластере-приемнике Managed Service for ClickHouse®.
 
 1. Выполните запрос:
 
@@ -247,11 +247,11 @@
 
 ### Проверьте работу репликации {#verify-replication}
 
-1. [Загрузите](../../storage/operations/objects/upload.md#simple) файл `demo_data2.csv` в бакет {{ objstorage-name }}.
+1. [Загрузите](../../storage/operations/objects/upload.md#simple) файл `demo_data2.csv` в бакет Object Storage.
 
 1. Убедитесь, что данные из файла `demo_data2.csv` появились в базе данных приемника:
 
-    1. [Подключитесь к базе данных](../../managed-clickhouse/operations/connect/clients.md) `db1` в кластере-приемнике {{ mch-name }}.
+    1. [Подключитесь к базе данных](../../managed-clickhouse/operations/connect/clients.md) `db1` в кластере-приемнике Managed Service for ClickHouse®.
 
     1. Выполните запрос:
 
@@ -295,16 +295,16 @@
     - Вручную {#manual}
 
         1. [Удалите эндпоинт-приемник](../operations/endpoint/index.md#delete).
-        1. [Удалите кластер {{ mch-name }}](../../managed-clickhouse/operations/cluster-delete.md).
-        1. [Удалите бакет {{ objstorage-name }}](../../storage/operations/buckets/delete.md).
+        1. [Удалите кластер Managed Service for ClickHouse®](../../managed-clickhouse/operations/cluster-delete.md).
+        1. [Удалите бакет Object Storage](../../storage/operations/buckets/delete.md).
 
-    - С помощью {{ TF }} {#tf}
+    - С помощью Terraform {#tf}
 
         1. В терминале перейдите в директорию с планом инфраструктуры.
         
             {% note warning %}
         
-            Убедитесь, что в директории нет {{ TF }}-манифестов с ресурсами, которые вы хотите сохранить. {{ TF }} удаляет все ресурсы, которые были созданы с помощью манифестов в текущей директории.
+            Убедитесь, что в директории нет Terraform-манифестов с ресурсами, которые вы хотите сохранить. Terraform удаляет все ресурсы, которые были созданы с помощью манифестов в текущей директории.
         
             {% endnote %}
         
@@ -318,6 +318,6 @@
         
             1. Подтвердите удаление ресурсов и дождитесь завершения операции.
         
-            Все ресурсы, которые были описаны в {{ TF }}-манифестах, будут удалены.
+            Все ресурсы, которые были описаны в Terraform-манифестах, будут удалены.
 
     {% endlist %}

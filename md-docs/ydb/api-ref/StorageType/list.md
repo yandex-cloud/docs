@@ -5,7 +5,7 @@ Returns the list of available storage types.
 ## HTTP request
 
 ```
-GET https://ydb.{{ api-host }}/ydb/v1/storageTypes
+GET https://ydb.api.cloud.yandex.net/ydb/v1/storageTypes
 ```
 
 ## Query parameters {#yandex.cloud.ydb.v1.ListStorageTypesRequest}

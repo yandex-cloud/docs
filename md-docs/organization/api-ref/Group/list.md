@@ -5,7 +5,7 @@ Retrieves the list of group resources.
 ## HTTP request
 
 ```
-GET https://organization-manager.{{ api-host }}/organization-manager/v1/groups
+GET https://organization-manager.api.cloud.yandex.net/organization-manager/v1/groups
 ```
 
 ## Query parameters {#yandex.cloud.organizationmanager.v1.ListGroupsRequest}

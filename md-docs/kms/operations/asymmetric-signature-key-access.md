@@ -8,18 +8,18 @@
 
 - Консоль управления {#console}
 
-   1. В [консоли управления]({{ link-console-main }}) выберите каталог, в котором находится асимметричная ключевая пара шифрования.
-   1. Перейдите в сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_kms }}**.
-   1. На панели слева выберите ![image](../../_assets/kms/asymmetric-key.svg) **{{ ui-key.yacloud.kms.switch_asymmetric-keys }}**.
-   1. На вкладке **{{ ui-key.yacloud.kms.asymmetric-key.form.label_signature }}** нажмите на имя нужной ключевой пары.
-   1. Перейдите в раздел ![image](../../_assets/console-icons/persons.svg) **{{ ui-key.yacloud.common.resource-acl.label_access-bindings }}** и нажмите кнопку **{{ ui-key.yacloud_components.acl.action.assign-roles }}**.
+   1. В [консоли управления](https://console.yandex.cloud) выберите каталог, в котором находится асимметричная ключевая пара шифрования.
+   1. Перейдите в сервис **Key Management Service**.
+   1. На панели слева выберите ![image](../../_assets/kms/asymmetric-key.svg) **Асимметричные ключи**.
+   1. На вкладке **Подпись** нажмите на имя нужной ключевой пары.
+   1. Перейдите в раздел ![image](../../_assets/console-icons/persons.svg) **Права доступа** и нажмите кнопку **Назначить роли**.
    1. Выберите группу, пользователя или сервисный аккаунт, которым нужно предоставить доступ к ключевой паре.
-   1. Нажмите кнопку ![image](../../_assets/console-icons/plus.svg) **{{ ui-key.yacloud_components.acl.button.add-role }}** и выберите необходимые роли.
-   1. Нажмите кнопку **{{ ui-key.yacloud_components.acl.action.apply }}**.
+   1. Нажмите кнопку ![image](../../_assets/console-icons/plus.svg) **Добавить роль** и выберите необходимые роли.
+   1. Нажмите кнопку **Сохранить**.
 
 - CLI {#cli}
 
-   Если у вас еще нет интерфейса командной строки {{ yandex-cloud }} (CLI), [установите и инициализируйте его](../../cli/quickstart.md#install).
+   Если у вас еще нет интерфейса командной строки Yandex Cloud (CLI), [установите и инициализируйте его](../../cli/quickstart.md#install).
 
    По умолчанию используется каталог, указанный при [создании](../../cli/operations/profile/profile-create.md) профиля CLI. Чтобы изменить каталог по умолчанию, используйте команду `yc config set folder-id <идентификатор_каталога>`. Также для любой команды вы можете указать другой каталог с помощью параметров `--folder-name` или `--folder-id`. Если вы обращаетесь к ресурсу по имени, поиск будет выполнен в каталоге по умолчанию. Если вы обращаетесь к ресурсу по идентификатору, поиск будет выполнен глобально — во всех каталогах с учетом прав доступа.
 
@@ -76,22 +76,22 @@
            --subject group:<идентификатор_группы>
          ```
 
-- {{ TF }} {#tf}
+- Terraform {#tf}
 
-   [{{ TF }}](https://www.terraform.io/) позволяет быстро создать облачную инфраструктуру в {{ yandex-cloud }} и управлять ею с помощью файлов конфигураций. В файлах конфигураций хранится описание инфраструктуры на языке HCL (HashiCorp Configuration Language). При изменении файлов конфигураций {{ TF }} автоматически определяет, какая часть вашей конфигурации уже развернута, что следует добавить или удалить.
+   [Terraform](https://www.terraform.io/) позволяет быстро создать облачную инфраструктуру в Yandex Cloud и управлять ею с помощью файлов конфигураций. В файлах конфигураций хранится описание инфраструктуры на языке HCL (HashiCorp Configuration Language). При изменении файлов конфигураций Terraform автоматически определяет, какая часть вашей конфигурации уже развернута, что следует добавить или удалить.
    
-   {{ TF }} распространяется под лицензией [Business Source License](https://github.com/hashicorp/terraform/blob/main/LICENSE), а [провайдер {{ yandex-cloud }} для {{ TF }}](https://github.com/yandex-cloud/terraform-provider-yandex) — под лицензией [MPL-2.0](https://www.mozilla.org/en-US/MPL/2.0/).
+   Terraform распространяется под лицензией [Business Source License](https://github.com/hashicorp/terraform/blob/main/LICENSE), а [провайдер Yandex Cloud для Terraform](https://github.com/yandex-cloud/terraform-provider-yandex) — под лицензией [MPL-2.0](https://www.mozilla.org/en-US/MPL/2.0/).
    
-   Подробную информацию о ресурсах провайдера смотрите в документации на сайте [{{ TF }}](https://www.terraform.io/docs/providers/yandex/index.html) или в [зеркале]({{ tf-docs-link }}).
+   Подробную информацию о ресурсах провайдера смотрите в документации на сайте [Terraform](https://www.terraform.io/docs/providers/yandex/index.html) или в [зеркале](../../terraform/index.md).
 
-   Если у вас еще нет {{ TF }}, [установите его и настройте провайдер {{ yandex-cloud }}](../../tutorials/infrastructure-management/terraform-quickstart.md#install-terraform).
+   Если у вас еще нет Terraform, [установите его и настройте провайдер Yandex Cloud](../../tutorials/infrastructure-management/terraform-quickstart.md#install-terraform).
    
    
-   Чтобы управлять инфраструктурой с помощью {{ TF }} от имени сервисного аккаунта или пользовательских аккаунтов: аккаунта на Яндексе, федеративного аккаунта и локального пользователя, [аутентифицируйтесь](../../terraform/authentication.md) соответствующим способом.
+   Чтобы управлять инфраструктурой с помощью Terraform от имени сервисного аккаунта или пользовательских аккаунтов: аккаунта на Яндексе, федеративного аккаунта и локального пользователя, [аутентифицируйтесь](../../terraform/authentication.md) соответствующим способом.
 
-   Чтобы назначить роль на асимметричную ключевую пару электронной подписи с помощью {{ TF }}:
+   Чтобы назначить роль на асимметричную ключевую пару электронной подписи с помощью Terraform:
 
-   1. Опишите в конфигурационном файле {{ TF }} параметры ресурсов, которые необходимо создать:
+   1. Опишите в конфигурационном файле Terraform параметры ресурсов, которые необходимо создать:
 
        ```hcl
        resource "yandex_kms_asymmetric_signature_key_iam_member" "key-viewers" {
@@ -108,7 +108,7 @@
        * `role` — назначаемая [роль](../security/index.md#roles-list).
        * `member` — тип и идентификатор [субъекта](../../iam/concepts/access-control/index.md#subject), которому назначается роль. Указывается в формате `userAccount:<идентификатор_пользователя>` или `serviceAccount:<идентификатор_сервисного_аккаунта>`.
 
-       Подробнее о параметрах ресурса `yandex_kms_asymmetric_signature_key` см. в [документации провайдера]({{ tf-provider-resources-link }}/kms_asymmetric_signature_key).
+       Подробнее о параметрах ресурса `yandex_kms_asymmetric_signature_key` см. в [документации провайдера](../../terraform/resources/kms_asymmetric_signature_key.md).
 
    1. Создайте ресурсы:
 
@@ -131,7 +131,7 @@
           terraform plan
           ```
        
-          В терминале будет выведен список ресурсов с параметрами. На этом этапе изменения не будут внесены. Если в конфигурации есть ошибки, {{ TF }} на них укажет.
+          В терминале будет выведен список ресурсов с параметрами. На этом этапе изменения не будут внесены. Если в конфигурации есть ошибки, Terraform на них укажет.
        1. Примените изменения конфигурации:
        
           ```bash
@@ -140,7 +140,7 @@
        
        1. Подтвердите изменения: введите в терминале слово `yes` и нажмите **Enter**.
 
-       {{ TF }} создаст все требуемые ресурсы. Проверить появление ресурсов можно с помощью команды [CLI](../../cli/index.md):
+       Terraform создаст все требуемые ресурсы. Проверить появление ресурсов можно с помощью команды [CLI](../../cli/index.md):
 
        ```bash
        yc kms asymmetric-signature-key list-access-bindings <идентификатор_ключевой_пары>
@@ -163,14 +163,14 @@
 
 - Консоль управления {#console}
 
-   1. В [консоли управления]({{ link-console-main }}) выберите каталог, в котором находится асимметричная ключевая пара шифрования.
-   1. Перейдите в сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_kms }}**.
-   1. На панели слева выберите ![image](../../_assets/kms/asymmetric-key.svg) **{{ ui-key.yacloud.kms.switch_asymmetric-keys }}**.
-   1. На вкладке **{{ ui-key.yacloud.kms.asymmetric-key.form.label_signature }}** нажмите на имя нужной ключевой пары.
-   1. Перейдите в раздел ![image](../../_assets/console-icons/persons.svg) **{{ ui-key.yacloud.common.resource-acl.label_access-bindings }}** и нажмите кнопку **{{ ui-key.yacloud_components.acl.action.assign-roles }}**.
+   1. В [консоли управления](https://console.yandex.cloud) выберите каталог, в котором находится асимметричная ключевая пара шифрования.
+   1. Перейдите в сервис **Key Management Service**.
+   1. На панели слева выберите ![image](../../_assets/kms/asymmetric-key.svg) **Асимметричные ключи**.
+   1. На вкладке **Подпись** нажмите на имя нужной ключевой пары.
+   1. Перейдите в раздел ![image](../../_assets/console-icons/persons.svg) **Права доступа** и нажмите кнопку **Назначить роли**.
    1. Выберите группу, пользователя или сервисный аккаунт, которым нужно предоставить доступ к ключевой паре.
-   1. Нажмите кнопку ![image](../../_assets/console-icons/plus.svg) **{{ ui-key.yacloud_components.acl.button.add-role }}** и выберите необходимые роли.
-   1. Нажмите кнопку **{{ ui-key.yacloud_components.acl.action.apply }}**.
+   1. Нажмите кнопку ![image](../../_assets/console-icons/plus.svg) **Добавить роль** и выберите необходимые роли.
+   1. Нажмите кнопку **Сохранить**.
 
 - CLI {#cli}
 
@@ -180,7 +180,7 @@
    
    {% endnote %}
 
-   Если у вас еще нет интерфейса командной строки {{ yandex-cloud }} (CLI), [установите и инициализируйте его](../../cli/quickstart.md#install).
+   Если у вас еще нет интерфейса командной строки Yandex Cloud (CLI), [установите и инициализируйте его](../../cli/quickstart.md#install).
 
    По умолчанию используется каталог, указанный при [создании](../../cli/operations/profile/profile-create.md) профиля CLI. Чтобы изменить каталог по умолчанию, используйте команду `yc config set folder-id <идентификатор_каталога>`. Также для любой команды вы можете указать другой каталог с помощью параметров `--folder-name` или `--folder-id`. Если вы обращаетесь к ресурсу по имени, поиск будет выполнен в каталоге по умолчанию. Если вы обращаетесь к ресурсу по идентификатору, поиск будет выполнен глобально — во всех каталогах с учетом прав доступа.
 
@@ -250,22 +250,22 @@
         --access-binding role=<роль3>,service-account-id=<идентификатор_сервисного_аккаунта>
       ```
 
-- {{ TF }} {#tf}
+- Terraform {#tf}
 
-   [{{ TF }}](https://www.terraform.io/) позволяет быстро создать облачную инфраструктуру в {{ yandex-cloud }} и управлять ею с помощью файлов конфигураций. В файлах конфигураций хранится описание инфраструктуры на языке HCL (HashiCorp Configuration Language). При изменении файлов конфигураций {{ TF }} автоматически определяет, какая часть вашей конфигурации уже развернута, что следует добавить или удалить.
+   [Terraform](https://www.terraform.io/) позволяет быстро создать облачную инфраструктуру в Yandex Cloud и управлять ею с помощью файлов конфигураций. В файлах конфигураций хранится описание инфраструктуры на языке HCL (HashiCorp Configuration Language). При изменении файлов конфигураций Terraform автоматически определяет, какая часть вашей конфигурации уже развернута, что следует добавить или удалить.
    
-   {{ TF }} распространяется под лицензией [Business Source License](https://github.com/hashicorp/terraform/blob/main/LICENSE), а [провайдер {{ yandex-cloud }} для {{ TF }}](https://github.com/yandex-cloud/terraform-provider-yandex) — под лицензией [MPL-2.0](https://www.mozilla.org/en-US/MPL/2.0/).
+   Terraform распространяется под лицензией [Business Source License](https://github.com/hashicorp/terraform/blob/main/LICENSE), а [провайдер Yandex Cloud для Terraform](https://github.com/yandex-cloud/terraform-provider-yandex) — под лицензией [MPL-2.0](https://www.mozilla.org/en-US/MPL/2.0/).
    
-   Подробную информацию о ресурсах провайдера смотрите в документации на сайте [{{ TF }}](https://www.terraform.io/docs/providers/yandex/index.html) или в [зеркале]({{ tf-docs-link }}).
+   Подробную информацию о ресурсах провайдера смотрите в документации на сайте [Terraform](https://www.terraform.io/docs/providers/yandex/index.html) или в [зеркале](../../terraform/index.md).
 
-   Если у вас еще нет {{ TF }}, [установите его и настройте провайдер {{ yandex-cloud }}](../../tutorials/infrastructure-management/terraform-quickstart.md#install-terraform).
+   Если у вас еще нет Terraform, [установите его и настройте провайдер Yandex Cloud](../../tutorials/infrastructure-management/terraform-quickstart.md#install-terraform).
    
    
-   Чтобы управлять инфраструктурой с помощью {{ TF }} от имени сервисного аккаунта или пользовательских аккаунтов: аккаунта на Яндексе, федеративного аккаунта и локального пользователя, [аутентифицируйтесь](../../terraform/authentication.md) соответствующим способом.
+   Чтобы управлять инфраструктурой с помощью Terraform от имени сервисного аккаунта или пользовательских аккаунтов: аккаунта на Яндексе, федеративного аккаунта и локального пользователя, [аутентифицируйтесь](../../terraform/authentication.md) соответствующим способом.
 
-   Чтобы назначить несколько ролей на асимметричную ключевую пару электронной подписи с помощью {{ TF }}:
+   Чтобы назначить несколько ролей на асимметричную ключевую пару электронной подписи с помощью Terraform:
 
-   1. Опишите в конфигурационном файле {{ TF }} параметры ресурсов, которые необходимо создать:
+   1. Опишите в конфигурационном файле Terraform параметры ресурсов, которые необходимо создать:
 
        ```hcl
        # Роль 1
@@ -291,7 +291,7 @@
        * `role` — назначаемая [роль](../security/index.md#roles-list).
        * `member` — тип и идентификатор [субъекта](../../iam/concepts/access-control/index.md#subject), которому назначается роль. Указывается в формате `userAccount:<идентификатор_пользователя>` или `serviceAccount:<идентификатор_сервисного_аккаунта>`.
 
-       Подробнее о параметрах ресурса `yandex_kms_asymmetric_signature_key` см. в [документации провайдера]({{ tf-provider-resources-link }}/kms_asymmetric_signature_key).
+       Подробнее о параметрах ресурса `yandex_kms_asymmetric_signature_key` см. в [документации провайдера](../../terraform/resources/kms_asymmetric_signature_key.md).
 
    1. Создайте ресурсы:
 
@@ -314,7 +314,7 @@
           terraform plan
           ```
        
-          В терминале будет выведен список ресурсов с параметрами. На этом этапе изменения не будут внесены. Если в конфигурации есть ошибки, {{ TF }} на них укажет.
+          В терминале будет выведен список ресурсов с параметрами. На этом этапе изменения не будут внесены. Если в конфигурации есть ошибки, Terraform на них укажет.
        1. Примените изменения конфигурации:
        
           ```bash
@@ -323,7 +323,7 @@
        
        1. Подтвердите изменения: введите в терминале слово `yes` и нажмите **Enter**.
 
-       {{ TF }} создаст все требуемые ресурсы. Проверить появление ресурсов можно с помощью команды [CLI](../../cli/index.md):
+       Terraform создаст все требуемые ресурсы. Проверить появление ресурсов можно с помощью команды [CLI](../../cli/index.md):
 
        ```bash
        yc kms asymmetric-signature-key list-access-bindings <идентификатор_ключевой_пары>

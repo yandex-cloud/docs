@@ -5,7 +5,7 @@ Lists operations for the specified GPU cluster.
 ## HTTP request
 
 ```
-GET https://compute.{{ api-host }}/compute/v1/gpuClusters/{gpuClusterId}/operations
+GET https://compute.api.cloud.yandex.net/compute/v1/gpuClusters/{gpuClusterId}/operations
 ```
 
 ## Path parameters

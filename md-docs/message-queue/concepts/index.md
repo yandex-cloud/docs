@@ -1,12 +1,12 @@
-# Концепции {{ message-queue-full-name }}
+# Концепции Yandex Message Queue
 
-{{ message-queue-full-name }} — это сервис очередей сообщений, который позволяет распределенным приложениям и микросервисам взаимодействовать при помощи обмена сообщениями.
+Yandex Message Queue — это сервис очередей сообщений, который позволяет распределенным приложениям и микросервисам взаимодействовать при помощи обмена сообщениями.
 
-- [{#T}](queue.md)
-- [{#T}](message.md)
-- [{#T}](deduplication.md)
-- [{#T}](visibility-timeout.md)
-- [{#T}](long-polling.md)
-- [{#T}](dlq.md)
-- [{#T}](delay-queues.md)
-- [{#T}](limits.md)
+- [Очереди сообщений](queue.md)
+- [Сообщения](message.md)
+- [Дедупликация](deduplication.md)
+- [Таймаут видимости](visibility-timeout.md)
+- [Long Polling](long-polling.md)
+- [Что такое Dead Letter Queue (DLQ)](dlq.md)
+- [Отложенная доставка сообщений в очереди](delay-queues.md)
+- [Квоты и лимиты в Message Queue](limits.md)

@@ -1,6 +1,6 @@
-# Основы работы с {{ marketplace-name }}
+# Основы работы с Cloud Marketplace
 
-{{ managed-k8s-name }} позволяет использовать в кластерах приложения из [{{ marketplace-full-name }}](https://yandex.cloud/ru/marketplace).
+Managed Service for Kubernetes позволяет использовать в кластерах приложения из [Yandex Cloud Marketplace](https://yandex.cloud/ru/marketplace).
 
 ## Получение списка установленных приложений {#list-apps}
 
@@ -8,9 +8,9 @@
 
 - Консоль управления {#console}
 
-  1. В [консоли управления]({{ link-console-main }}) выберите каталог.
-  1. Перейдите в сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-kubernetes }}**.
-  1. Нажмите на имя нужного кластера и выберите вкладку **{{ ui-key.yacloud.k8s.cluster.switch_marketplace }}**.
+  1. В [консоли управления](https://console.yandex.cloud) выберите каталог.
+  1. Перейдите в сервис **Managed Service for&nbsp;Kubernetes**.
+  1. Нажмите на имя нужного кластера и выберите вкладку **Marketplace**.
 
 {% endlist %}
 
@@ -20,10 +20,10 @@
 
 - Консоль управления {#console}
 
-  1. В [консоли управления]({{ link-console-main }}) выберите каталог.
-  1. Перейдите в сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-kubernetes }}**.
-  1. Нажмите на имя нужного кластера и выберите вкладку **{{ ui-key.yacloud.k8s.cluster.switch_marketplace }}**.
-  1. В разделе **{{ ui-key.yacloud.k8s.cluster.marketplace.section_releases }}** нажмите на имя нужного вам приложения.
+  1. В [консоли управления](https://console.yandex.cloud) выберите каталог.
+  1. Перейдите в сервис **Managed Service for&nbsp;Kubernetes**.
+  1. Нажмите на имя нужного кластера и выберите вкладку **Marketplace**.
+  1. В разделе **Установленные приложения** нажмите на имя нужного вам приложения.
 
 {% endlist %}
 
@@ -45,18 +45,18 @@
 
 - Консоль управления {#console}
 
-  1. В [консоли управления]({{ link-console-main }}) выберите каталог.
-  1. Перейдите в сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-kubernetes }}**.
-  1. Нажмите на имя нужного кластера и выберите вкладку **{{ ui-key.yacloud.k8s.cluster.switch_marketplace }}**.
+  1. В [консоли управления](https://console.yandex.cloud) выберите каталог.
+  1. Перейдите в сервис **Managed Service for&nbsp;Kubernetes**.
+  1. Нажмите на имя нужного кластера и выберите вкладку **Marketplace**.
   1. В разделе **Доступные для установки приложения** нажмите на имя нужного вам приложения.
-  1. В открывшемся окне нажмите кнопку **{{ ui-key.yacloud.marketplace-v2.button_use }}**.
-  1. Укажите настройки приложения и нажмите кнопку **{{ ui-key.yacloud.k8s.cluster.marketplace.button_install }}**.
+  1. В открывшемся окне нажмите кнопку **Использовать**.
+  1. Укажите настройки приложения и нажмите кнопку **Установить**.
 
 {% endlist %}
 
 {% note info %}
 
-Устанавливать приложения из {{ marketplace-name }} также можно [с помощью манифестов {{ TF }}](../apply-helm-provider.md).
+Устанавливать приложения из Cloud Marketplace также можно [с помощью манифестов Terraform](../apply-helm-provider.md).
 
 {% endnote %}
 
@@ -66,12 +66,12 @@
 
 - Консоль управления {#console}
 
-  1. В [консоли управления]({{ link-console-main }}) выберите каталог.
-  1. Перейдите в сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-kubernetes }}**.
-  1. Нажмите на имя нужного кластера и выберите вкладку **{{ ui-key.yacloud.k8s.cluster.switch_marketplace }}**.
-  1. В разделе **{{ ui-key.yacloud.k8s.cluster.marketplace.section_releases }}** нажмите значок ![image](../../../_assets/console-icons/ellipsis.svg) в строке приложения, которое требуется изменить.
-  1. В открывшемся меню нажмите кнопку **{{ ui-key.yacloud.common.edit }}**.
-  1. Внесите нужные изменения и нажмите кнопку **{{ ui-key.yacloud.common.save }}**.
+  1. В [консоли управления](https://console.yandex.cloud) выберите каталог.
+  1. Перейдите в сервис **Managed Service for&nbsp;Kubernetes**.
+  1. Нажмите на имя нужного кластера и выберите вкладку **Marketplace**.
+  1. В разделе **Установленные приложения** нажмите значок ![image](../../../_assets/console-icons/ellipsis.svg) в строке приложения, которое требуется изменить.
+  1. В открывшемся меню нажмите кнопку **Редактировать**.
+  1. Внесите нужные изменения и нажмите кнопку **Сохранить**.
 
 {% endlist %}
 
@@ -81,27 +81,27 @@
 
 - Консоль управления {#console}
 
-  1. В [консоли управления]({{ link-console-main }}) выберите каталог.
-  1. Перейдите в сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-kubernetes }}**.
-  1. Нажмите на имя нужного кластера и выберите вкладку **{{ ui-key.yacloud.k8s.cluster.switch_marketplace }}**.
-  1. В разделе **{{ ui-key.yacloud.k8s.cluster.marketplace.section_releases }}** нажмите значок ![image](../../../_assets/console-icons/ellipsis.svg) в строке приложения, которое требуется удалить.
-  1. В открывшемся меню нажмите кнопку **{{ ui-key.yacloud.k8s.cluster.marketplace.button_release-uninstall }}**.
+  1. В [консоли управления](https://console.yandex.cloud) выберите каталог.
+  1. Перейдите в сервис **Managed Service for&nbsp;Kubernetes**.
+  1. Нажмите на имя нужного кластера и выберите вкладку **Marketplace**.
+  1. В разделе **Установленные приложения** нажмите значок ![image](../../../_assets/console-icons/ellipsis.svg) в строке приложения, которое требуется удалить.
+  1. В открывшемся меню нажмите кнопку **Удалить**.
 
 {% endlist %}
 
 ## Сбор статистики {#statics}
 
-Чтобы собирать статистику использования приложений, {{ marketplace-full-name }} просматривает пользовательские ресурсы во всех кластерах {{ k8s }}, в том числе [секреты](../../concepts/encryption.md#k8s-secrets-encryption) {{ k8s }}, которые имеют метку `owner: helm`. Для этого используются [сервисные аккаунты](../../../iam/concepts/users/service-accounts.md) `k8s-marketplace-analytics` и `k8s-marketplace-distributor`. Статистика собирается каждые 15 минут.
+Чтобы собирать статистику использования приложений, Yandex Cloud Marketplace просматривает пользовательские ресурсы во всех кластерах Kubernetes, в том числе [секреты](../../concepts/encryption.md#k8s-secrets-encryption) Kubernetes, которые имеют метку `owner: helm`. Для этого используются [сервисные аккаунты](../../../iam/concepts/users/service-accounts.md) `k8s-marketplace-analytics` и `k8s-marketplace-distributor`. Статистика собирается каждые 15 минут.
 
-Если вы хотите запретить сбор статистики для кластера {{ k8s }}:
+Если вы хотите запретить сбор статистики для кластера Kubernetes:
 
 {% list tabs group=instructions %}
 
 - Консоль управления {#console}
 
-  1. В [консоли управления]({{ link-console-main }}) выберите каталог.
-  1. Перейдите в сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-kubernetes }}**.
-  1. Нажмите на имя нужного кластера и выберите вкладку **{{ ui-key.yacloud.k8s.cluster.switch_marketplace }}**.
-  1. В правом верхнем углу нажмите ![image](../../../_assets/console-icons/ellipsis.svg) и выберите ![image](../../../_assets/console-icons/ban.svg) **{{ ui-key.yacloud.marketplace-v2.button_disallow-analytics-scanning }}**.
+  1. В [консоли управления](https://console.yandex.cloud) выберите каталог.
+  1. Перейдите в сервис **Managed Service for&nbsp;Kubernetes**.
+  1. Нажмите на имя нужного кластера и выберите вкладку **Marketplace**.
+  1. В правом верхнем углу нажмите ![image](../../../_assets/console-icons/ellipsis.svg) и выберите ![image](../../../_assets/console-icons/ban.svg) **Запретить Marketplace собирать статистику**.
 
 {% endlist %}

@@ -1,4 +1,4 @@
-# [{{ datalens-full-name }}] File check failed
+# [Yandex DataLens] File check failed
 
 `ERR.FILE.UNSUPPORTED_DOCUMENT`
 

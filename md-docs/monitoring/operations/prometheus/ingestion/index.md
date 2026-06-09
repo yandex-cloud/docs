@@ -7,10 +7,10 @@
 
 
 
-Если в вашем окружении есть инсталляция {{ prometheus-name }}, которая [собирает](https://prometheus.io/docs/prometheus/latest/configuration/configuration/#scrape_config) метрики, вы можете подключить {{ managed-prometheus-name }} в качестве [удаленного хранилища](https://prometheus.io/docs/prometheus/latest/storage/#remote-storage-integrations). Для этого настройте [запись](remote-write.md) метрик через Remote API. 
+Если в вашем окружении есть инсталляция Prometheus, которая [собирает](https://prometheus.io/docs/prometheus/latest/configuration/configuration/#scrape_config) метрики, вы можете подключить Yandex Managed Service for Prometheus® в качестве [удаленного хранилища](https://prometheus.io/docs/prometheus/latest/storage/#remote-storage-integrations). Для этого настройте [запись](remote-write.md) метрик через Remote API. 
 
-Иначе воспользуйтесь любым агентом для сбора метрик, поддерживающим протокол записи [Remote Write](https://prometheus.io/docs/prometheus/latest/configuration/configuration/#remote_write), например {{ prometheus-name }}, запущенным в [режиме агента](https://prometheus.io/docs/prometheus/latest/feature_flags/#prometheus-agent).
+Иначе воспользуйтесь любым агентом для сбора метрик, поддерживающим протокол записи [Remote Write](https://prometheus.io/docs/prometheus/latest/configuration/configuration/#remote_write), например Prometheus, запущенным в [режиме агента](https://prometheus.io/docs/prometheus/latest/feature_flags/#prometheus-agent).
 
-Также при развертывании ВМ Linux вы можете [установить {{ unified-agent-full-name }}](prometheus-agent.md) для сбора метрик в формате {{ prometheus-name }}.
+Также при развертывании ВМ Linux вы можете [установить Yandex Unified Agent](prometheus-agent.md) для сбора метрик в формате Prometheus.
 
 _© 2025 Linux Foundation. Все права защищены. Linux Foundation зарегистрировала товарные знаки и использует товарные знаки. Список товарных знаков Linux Foundation см. на странице [Trademark Usage](https://www.linuxfoundation.org/legal/trademark-usage)._

@@ -5,7 +5,7 @@ Converts single basic (not external) group to external. Precondition: group must
 ## HTTP request
 
 ```
-POST https://organization-manager.{{ api-host }}/organization-manager/v1/groups/{groupId}:convertToExternal
+POST https://organization-manager.api.cloud.yandex.net/organization-manager/v1/groups/{groupId}:convertToExternal
 ```
 
 ## Path parameters

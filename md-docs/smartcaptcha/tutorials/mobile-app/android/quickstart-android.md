@@ -1,19 +1,19 @@
-# {{ captcha-name }} в приложении на Android
+# SmartCaptcha в приложении на Android
 
-# {{ captcha-full-name }} в приложении на Android
+# Yandex SmartCaptcha в приложении на Android
 
-Чтобы встроить [{{ captcha-name }}](../../../index.md) в приложение на Android:
+Чтобы встроить [SmartCaptcha](../../../index.md) в приложение на Android:
 1. [Создайте JavaScript Interface](#create-js-interface).
 1. [Настройте WebView для работы с капчей](#customize-webview).
 1. [Получите результат прохождения капчи](#get-result).
 
 ## Перед началом работы {#before-begin}
 
-1. [Разместите HTML-страницу](../website.md) на своем сервере или воспользуйтесь страницей на сервере {{ yandex-cloud }} — `{{ captcha-mobile-site }}`).
+1. [Разместите HTML-страницу](../website.md) на своем сервере или воспользуйтесь страницей на сервере Yandex Cloud — `https://smartcaptcha.cloud.yandex.ru/webview`).
 1. [Создайте капчу](../../../operations/create-captcha.md).
-1. На вкладке **{{ ui-key.yacloud.common.overview }}** [получите ключи капчи](../../../operations/get-keys.md):
-   * **{{ ui-key.yacloud.smartcaptcha.label_client-key }}** — для загрузки страницы с капчей;
-   * **{{ ui-key.yacloud.smartcaptcha.label_server-key }}** — для получения результата прохождения капчи.
+1. На вкладке **Обзор** [получите ключи капчи](../../../operations/get-keys.md):
+   * **Ключ клиента** — для загрузки страницы с капчей;
+   * **Ключ сервера** — для получения результата прохождения капчи.
 
 ## Создайте JavaScript Interface {#create-js-interface}
 
@@ -51,11 +51,11 @@
 ## Получите результат прохождения капчи {#get-result}
 
 1. Сохраните токен прохождения капчи. Он вернется в методе `onGetToken(token: String)`, когда сервис обработает попытку.
-1. Для проверки токена отправьте POST-запрос на адрес `https://{{ captcha-domain }}/validate`, передав параметры в формате `x-www-form-urlencoded`:
+1. Для проверки токена отправьте POST-запрос на адрес `https://smartcaptcha.cloud.yandex.ru/validate`, передав параметры в формате `x-www-form-urlencoded`:
 
    * `secret` — [ключ сервера](../../../concepts/keys.md);
    * `token` — одноразовый токен, полученный после прохождения проверки;
-   * `ip` — IP-адрес пользователя, с которого пришел запрос на проверку токена. Этот параметр не обязателен, однако мы просим передавать IP-адрес пользователя при запросах. Это помогает улучшить качество работы {{ captcha-name }}.
+   * `ip` — IP-адрес пользователя, с которого пришел запрос на проверку токена. Этот параметр не обязателен, однако мы просим передавать IP-адрес пользователя при запросах. Это помогает улучшить качество работы SmartCaptcha.
 
    {% note info %}
 
@@ -66,7 +66,7 @@
    >Пример запроса:
    >
    >```text
-   >https://{{ captcha-domain }}/validate?secret=<ключ_сервера>&ip=<IP-адрес_пользователя>&token=<токен>
+   >https://smartcaptcha.cloud.yandex.ru/validate?secret=<ключ_сервера>&ip=<IP-адрес_пользователя>&token=<токен>
    >```
 
 1. Получите [ответ с сервера](../../../concepts/validation.md). Он содержит JSON-объект с полями `status` и `message`.

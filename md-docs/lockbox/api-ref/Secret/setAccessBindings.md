@@ -5,7 +5,7 @@ Sets access bindings for the secret.
 ## HTTP request
 
 ```
-POST https://{{ api-host-lockbox }}/lockbox/v1/secrets/{resourceId}:setAccessBindings
+POST https://lockbox.api.cloud.yandex.net/lockbox/v1/secrets/{resourceId}:setAccessBindings
 ```
 
 ## Path parameters

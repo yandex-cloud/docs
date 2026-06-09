@@ -10,16 +10,16 @@
 
 - Консоль управления {#console}
 
-  1. В [консоли управления]({{ link-console-main }}) на панели сверху нажмите ![layout-side-content-left](../../_assets/console-icons/layout-side-content-left.svg) или ![chevron-down](../../_assets/console-icons/chevron-down.svg) и выберите нужный [каталог](../../resource-manager/concepts/resources-hierarchy.md#folder).
-  1. [Перейдите](../../console/operations/select-service.md#select-service) в сервис **{{ ui-key.yacloud.ui.constants.label_interconnect_aUMcv }}**.
-  1. На панели слева выберите ![pipeline](../../_assets/console-icons/pipeline.svg) **{{ ui-key.yacloud.interconnect.trunk-connection.trunk-connections_kBGNL }}**. В открывшемся окне будет представлен список всех транковых подключений в выбранном каталоге.
+  1. В [консоли управления](https://console.yandex.cloud) на панели сверху нажмите ![layout-side-content-left](../../_assets/console-icons/layout-side-content-left.svg) или ![chevron-down](../../_assets/console-icons/chevron-down.svg) и выберите нужный [каталог](../../resource-manager/concepts/resources-hierarchy.md#folder).
+  1. [Перейдите](../../console/operations/select-service.md#select-service) в сервис **Cloud Interconnect**.
+  1. На панели слева выберите ![pipeline](../../_assets/console-icons/pipeline.svg) **Транковые подключения**. В открывшемся окне будет представлен список всех транковых подключений в выбранном каталоге.
   1. Чтобы посмотреть подробную информацию об определенном транковом подключении, нажмите на соответствующую строку в списке. В открывшемся окне приведены следующие сведения:
 
-      * На вкладке ![flag](../../_assets/console-icons/flag.svg) **{{ ui-key.yacloud.common.overview }}** — общие сведения о подключении: имя, идентификатор, статус, емкость, тип, точка присутствия, партнер {{ interconnect-name }} и тип трансивера.
-      * На вкладке ![nodes-left](../../_assets/console-icons/nodes-left.svg) **{{ ui-key.yacloud.interconnect.private-connection.private-connections_daeaR }}** — список [приватных соединений](../concepts/priv-con.md) в данном транковом подключении.
-      * На вкладке ![globe](../../_assets/console-icons/globe.svg) **{{ ui-key.yacloud.interconnect.public-connection.public-connections_7xYcV }}** — список [публичных соединений](../concepts/pub-con.md) в данном транковом подключении.
-      * На вкладке ![display-pulse](../../_assets/console-icons/display-pulse.svg) **{{ ui-key.yacloud.common.monitoring }}** — [виджеты](../../monitoring/concepts/visualization/widget.md) {{ monitoring-full-name }}, позволяющие отслеживать состояние транкового подключения.
-      * На вкладке ![list-check](../../_assets/console-icons/list-check.svg) **{{ ui-key.yacloud.common.operations-key-value }}** — список [операций](../../api-design-guide/concepts/about-async.md) с транковым подключением.
+      * На вкладке ![flag](../../_assets/console-icons/flag.svg) **Обзор** — общие сведения о подключении: имя, идентификатор, статус, емкость, тип, точка присутствия, партнер Cloud Interconnect и тип трансивера.
+      * На вкладке ![nodes-left](../../_assets/console-icons/nodes-left.svg) **Приватные соединения** — список [приватных соединений](../concepts/priv-con.md) в данном транковом подключении.
+      * На вкладке ![globe](../../_assets/console-icons/globe.svg) **Публичные соединения** — список [публичных соединений](../concepts/pub-con.md) в данном транковом подключении.
+      * На вкладке ![display-pulse](../../_assets/console-icons/display-pulse.svg) **Мониторинг** — [виджеты](../../monitoring/concepts/visualization/widget.md) Yandex Monitoring, позволяющие отслеживать состояние транкового подключения.
+      * На вкладке ![list-check](../../_assets/console-icons/list-check.svg) **Операции** — список [операций](../../api-design-guide/concepts/about-async.md) с транковым подключением.
 
 - CLI {#cli}
 
@@ -65,7 +65,7 @@
         description: Trunk M9
         cloud_id: b1gia87mbaom********
         folder_id: b1gt6g8ht345********
-        region_id: {{ region-id }}
+        region_id: ru-central1
         created_at: "2025-03-25T10:54:46Z"
         single_port_direct_joint:
           transceiver_type: TRANSCEIVER_TYPE_10GBASE_LR

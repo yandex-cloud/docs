@@ -6,7 +6,7 @@ This is useful for security purposes when the existing key may be compromised.
 ## HTTP request
 
 ```
-PATCH https://video.{{ api-host }}/video/v1/streamLines/{streamLineId}:updateStreamKey
+PATCH https://video.api.cloud.yandex.net/video/v1/streamLines/{streamLineId}:updateStreamKey
 ```
 
 ## Path parameters

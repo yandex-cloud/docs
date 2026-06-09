@@ -1,27 +1,27 @@
-# Регулярное асинхронное распознавание аудиофайлов в бакете {{ objstorage-name }}
+# Регулярное асинхронное распознавание аудиофайлов в бакете Object Storage
 
-# Регулярное распознавание аудиофайлов из {{ objstorage-full-name }}
+# Регулярное распознавание аудиофайлов из Yandex Object Storage
 
 
-В [API асинхронного распознавания]({{ link-docs-ai }}speechkit/stt/api/transcribation-api) {{ speechkit-short-name }} реализована интеграция с сервисом {{ objstorage-full-name }}. С ее помощью можно настроить автоматическое распознавание аудиофайлов [поддерживаемых форматов]({{ link-docs-ai }}speechkit/formats), регулярно загружаемых в бакет {{ objstorage-name }}. Облачная функция в сервисе {{ sf-full-name }} периодически проверяет наличие аудиофайлов в бакете и отправляет их в API {{ speechkit-short-name }} для распознавания. Результат и статус распознавания сохраняются в тот же бакет {{ objstorage-name }}.
+В [API асинхронного распознавания](https://aistudio.yandex.ru/docs/ru/speechkit/stt/api/transcribation-api) SpeechKit реализована интеграция с сервисом Yandex Object Storage. С ее помощью можно настроить автоматическое распознавание аудиофайлов [поддерживаемых форматов](https://aistudio.yandex.ru/docs/ru/speechkit/formats), регулярно загружаемых в бакет Object Storage. Облачная функция в сервисе Yandex Cloud Functions периодически проверяет наличие аудиофайлов в бакете и отправляет их в API SpeechKit для распознавания. Результат и статус распознавания сохраняются в тот же бакет Object Storage.
 
-Чтобы настроить автоматическое распознавание аудиофайлов с помощью {{ speechkit-short-name }}:
+Чтобы настроить автоматическое распознавание аудиофайлов с помощью SpeechKit:
 
-1. [Создайте облачную функцию](#create-function) для чтения файлов из бакета {{ objstorage-name }}, отправки в API и проверки статуса распознавания файлов.
+1. [Создайте облачную функцию](#create-function) для чтения файлов из бакета Object Storage, отправки в API и проверки статуса распознавания файлов.
 1. [Создайте триггер](#create-trigger) для периодического запуска облачной функции.
 1. [Проверьте работу функции](#check-function).
 
 ## Перед началом работы {#before-you-begin}
 
 1. [Создайте](../../iam/operations/sa/create.md) сервисный аккаунт с именем `asr-batch-sa`.
-1. [Назначьте](../../iam/operations/sa/assign-role-for-sa.md) сервисному аккаунту роли `storage.editor`, `{{ roles-functions-invoker }}` и `{{ roles-speechkit-stt }}` на каталог, в котором аккаунт был создан.
+1. [Назначьте](../../iam/operations/sa/assign-role-for-sa.md) сервисному аккаунту роли `storage.editor`, `functions.functionInvoker` и `ai.speechkit-stt.user` на каталог, в котором аккаунт был создан.
 1. [Создайте](../../iam/operations/authentication/manage-access-keys.md#create-access-key) статический ключ доступа для сервисного аккаунта.
 
 
 1. [Создайте](../../iam/operations/authentication/manage-api-keys.md#create-api-key) API-ключ доступа для сервисного аккаунта.
-1. [Создайте](../operations/buckets/create.md) бакет {{ objstorage-name }} с именем `asr-batch-bucket` в каталоге сервисного аккаунта.
-1. Откройте бакет `asr-batch-bucket`, нажмите кнопку **{{ ui-key.yacloud.storage.bucket.button_create }}** и укажите в поле **{{ ui-key.yacloud.storage.bucket.popup-create-folder_field_name }}** значение `input`.
-1. [Загрузите](../operations/objects/upload.md#simple) в папку `input` бакета файл `config.json` с заданным [языком распознавания]({{ link-docs-ai }}speechkit/stt/models#languages). Файл содержит только один параметр:
+1. [Создайте](../operations/buckets/create.md) бакет Object Storage с именем `asr-batch-bucket` в каталоге сервисного аккаунта.
+1. Откройте бакет `asr-batch-bucket`, нажмите кнопку **Создать папку** и укажите в поле **Имя папки** значение `input`.
+1. [Загрузите](../operations/objects/upload.md#simple) в папку `input` бакета файл `config.json` с заданным [языком распознавания](https://aistudio.yandex.ru/docs/ru/speechkit/stt/models#languages). Файл содержит только один параметр:
 
    ```json
    {
@@ -37,14 +37,14 @@
 
 ## Создайте облачную функцию {#create-function}
 
-1. В [консоли управления]({{ link-console-main }}) перейдите в каталог, в котором был создан сервисный аккаунт.
-1. Перейдите в сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_serverless-functions }}**.
-1. Нажмите кнопку **{{ ui-key.yacloud.serverless-functions.list.button_create }}** и укажите имя функции `asr-batch-function`.
-1. Нажмите кнопку **{{ ui-key.yacloud.common.create }}**.
-1. В блоке **{{ ui-key.yacloud.serverless-functions.item.editor.label_title }}** выберите среду выполнения `Python` версии `3.8` и нажмите **{{ ui-key.yacloud.serverless-functions.item.editor.button_action-continue }}**.
-1. Скачайте из репозитория {{ yandex-cloud }} [файл со скриптом](https://github.com/yandex-cloud-examples/yc-speechkit-async-recognizer/blob/main/examples/asr-batch-function/functions/main.py).
-1. В блоке **{{ ui-key.yacloud.serverless-functions.item.editor.label_title-source }}** удалите содержимое файла `index.py` и вставьте скачанный скрипт.
-1. В блоке **{{ ui-key.yacloud.serverless-functions.item.editor.label_title-source }}** создайте файл `requirements.txt` и добавьте в него код:
+1. В [консоли управления](https://console.yandex.cloud) перейдите в каталог, в котором был создан сервисный аккаунт.
+1. Перейдите в сервис **Cloud Functions**.
+1. Нажмите кнопку **Создать функцию** и укажите имя функции `asr-batch-function`.
+1. Нажмите кнопку **Создать**.
+1. В блоке **Редактор** выберите среду выполнения `Python` версии `3.8` и нажмите **Продолжить**.
+1. Скачайте из репозитория Yandex Cloud [файл со скриптом](https://github.com/yandex-cloud-examples/yc-speechkit-async-recognizer/blob/main/examples/asr-batch-function/functions/main.py).
+1. В блоке **Код функции** удалите содержимое файла `index.py` и вставьте скачанный скрипт.
+1. В блоке **Код функции** создайте файл `requirements.txt` и добавьте в него код:
 
    ```text
    boto3
@@ -53,9 +53,9 @@
    ```
 
 1. Укажите параметры запуска функции:
-   * **{{ ui-key.yacloud.serverless-functions.item.editor.field_entry }}** — `index.handler`.
-   * **{{ ui-key.yacloud.serverless-functions.item.editor.field_timeout }}** — `60`.
-   * **{{ ui-key.yacloud.forms.label_service-account-select }}** – `asr-batch-sa`.
+   * **Точка входа** — `index.handler`.
+   * **Таймаут** — `60`.
+   * **Сервисный аккаунт** – `asr-batch-sa`.
 1. Добавьте переменные окружения:
    * `S3_BUCKET` – `asr-batch-bucket`.
    * `S3_PREFIX` – `input`.
@@ -66,34 +66,34 @@
    * `API_KEY` – ID API-ключа.
    * `API_SECRET` – секрет API-ключа.
 
-1. Нажмите кнопку **{{ ui-key.yacloud.serverless-functions.item.editor.button_deploy-version }}**.
+1. Нажмите кнопку **Сохранить изменения**.
 
 ## Создайте триггер {#create-trigger}
 
-1. В [консоли управления]({{ link-console-main }}) перейдите в каталог, в котором была создана функция.
-1. Перейдите в сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_serverless-functions }}**.
-1. Выберите **{{ ui-key.yacloud.serverless-functions.switch_list-triggers }}**.
-1. Нажмите **{{ ui-key.yacloud.serverless-functions.triggers.list.button_create }}**.
+1. В [консоли управления](https://console.yandex.cloud) перейдите в каталог, в котором была создана функция.
+1. Перейдите в сервис **Cloud Functions**.
+1. Выберите **Триггеры**.
+1. Нажмите **Создать триггер**.
 1. Укажите параметры триггера:
-   * **{{ ui-key.yacloud.serverless-functions.triggers.form.field_name }}** – `asr-batch-cron`.
-   * **{{ ui-key.yacloud.serverless-functions.triggers.form.field_type }}** – `{{ ui-key.yacloud.serverless-functions.triggers.form.label_timer }}`.
-   * **{{ ui-key.yacloud.serverless-functions.triggers.form.field_invoke }}** – `{{ ui-key.yacloud.serverless-functions.triggers.form.label_function }}`.
-   * **{{ ui-key.yacloud.serverless-functions.triggers.form.field_cron-expression }}** – `{{ ui-key.yacloud.common.button_cron-1min }}`.
-   * **{{ ui-key.yacloud.serverless-functions.triggers.form.field_function }}** – `asr-batch-function`.
-   * **{{ ui-key.yacloud.serverless-functions.triggers.form.field_function-tag }}** – `$latest`.
-   * **{{ ui-key.yacloud.serverless-functions.triggers.form.field_service-account }}** – `asr-batch-sa`.
-1. Нажмите **{{ ui-key.yacloud.serverless-functions.triggers.form.button_create-trigger }}**.
+   * **Имя** – `asr-batch-cron`.
+   * **Тип** – `Таймер`.
+   * **Запускаемый ресурс** – `Функция`.
+   * **Cron-выражение** – `Каждую минуту`.
+   * **Функция** – `asr-batch-function`.
+   * **Тег версии функции** – `$latest`.
+   * **Сервисный аккаунт** – `asr-batch-sa`.
+1. Нажмите **Создать триггер**.
 
 Созданный триггер будет срабатывать ежеминутно и запускать [облачную функцию](#create-function).
 
 ## Проверьте работу функции {#check-function}
 
-1. В [консоли управления]({{ link-console-main }}) перейдите в каталог, в котором была создана функция.
-1. Перейдите в сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_storage }}** и откройте бакет `asr-batch-bucket`.
-1. [Загрузите](../operations/objects/upload.md#simple) в папку `input` аудиофайлы любого [поддерживаемого формата]({{ link-docs-ai }}speechkit/formats).
+1. В [консоли управления](https://console.yandex.cloud) перейдите в каталог, в котором была создана функция.
+1. Перейдите в сервис **Object Storage** и откройте бакет `asr-batch-bucket`.
+1. [Загрузите](../operations/objects/upload.md#simple) в папку `input` аудиофайлы любого [поддерживаемого формата](https://aistudio.yandex.ru/docs/ru/speechkit/formats).
 1. Подождите несколько минут и убедитесь, что в бакете появились папки `log` и `out`.
 1. Проверьте статус распознавания в папке `log`. Для каждого из отправленных на распознавание аудиофайлов статус сохраняется во вспомогательном файле `<имя_аудиофайла>.json` (например, `audio.mp3.json`). Если в файле содержится параметр `"done": "false"`, то процесс распознавания не завершен.
-1. Проверьте результат распознавания в папке `out`. Результат сохраняется в формате JSON в файле с именем `<имя_аудиофайла>.json` (например, `audio.mp3.json`). Подробнее о формате результата распознавания см. раздел [API асинхронного распознавания]({{ link-docs-ai }}speechkit/stt/api/transcribation-api#get-result-response).
+1. Проверьте результат распознавания в папке `out`. Результат сохраняется в формате JSON в файле с именем `<имя_аудиофайла>.json` (например, `audio.mp3.json`). Подробнее о формате результата распознавания см. раздел [API асинхронного распознавания](https://aistudio.yandex.ru/docs/ru/speechkit/stt/api/transcribation-api#get-result-response).
 
 {% note info %}
 
@@ -105,6 +105,6 @@
 #### См. также {#see-also}
 
 
-* [API v2 асинхронного распознавания]({{ link-docs-ai }}speechkit/stt/api/transcribation-api)
-* [Асинхронное распознавание аудиофайлов в формате LPCM в API v2]({{ link-docs-ai }}speechkit/stt/api/transcribation-lpcm)
-* [Асинхронное распознавание аудиофайлов в формате OggOpus в API v2]({{ link-docs-ai }}speechkit/stt/api/transcribation-ogg)
+* [API v2 асинхронного распознавания](https://aistudio.yandex.ru/docs/ru/speechkit/stt/api/transcribation-api)
+* [Асинхронное распознавание аудиофайлов в формате LPCM в API v2](https://aistudio.yandex.ru/docs/ru/speechkit/stt/api/transcribation-lpcm)
+* [Асинхронное распознавание аудиофайлов в формате OggOpus в API v2](https://aistudio.yandex.ru/docs/ru/speechkit/stt/api/transcribation-ogg)

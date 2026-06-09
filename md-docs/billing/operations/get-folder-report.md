@@ -6,18 +6,18 @@
 
 {% list tabs group=instructions %}
 
-- {{ billing-interface }} {#billing}
+- Интерфейс Yandex Cloud Billing {#billing}
 
-  1. Перейдите в сервис [**{{ billing-name }}**]({{ link-console-billing }}).
+  1. Перейдите в сервис [**Yandex Cloud Billing**](https://center.yandex.cloud/billing/accounts).
   1. Выберите аккаунт, для которого хотите получить детализацию.
-  1. На панели слева выберите ![image](../../_assets/console-icons/square-chart-column.svg) **{{ ui-key.yacloud_billing.billing.account.switch_detail }}**.
-  1. Справа вверху нажмите **Ещё** и выберите **{{ ui-key.yacloud_org.billing.account.detail.button_download-details }}**.
+  1. На панели слева выберите ![image](../../_assets/console-icons/square-chart-column.svg) **Детализация**.
+  1. Справа вверху нажмите **Ещё** и выберите **Выгрузить детализацию**.
   1. В открывшемся окне выберите:
      * Формат выгрузки — `CSV` или `PDF`.
      * Промежуток времени, за который хотите получить детализацию.
-     * Язык отображения названий продуктов — `{{ ui-key.yacloud_org.billing.account.exports.locale_value_ru-lang }}` или `{{ ui-key.yacloud_org.billing.account.exports.locale_value_en-lang }}`.
-     * Тип детализации — `{{ ui-key.yacloud_billing.billing.account.exports.label_not-include-resources }}` или `{{ ui-key.yacloud_billing.billing.account.exports.label_include-resources }}`.
-  1. Нажмите кнопку **{{ ui-key.yacloud_org.billing.account.detail.popup-export_button_download }}**.
+     * Язык отображения названий продуктов — `Русский` или `English`.
+     * Тип детализации — `Общая` или `Поресурсная`.
+  1. Нажмите кнопку **Скачать**.
 
 {% endlist %}
 
@@ -27,7 +27,7 @@
 
 1. Если у вас еще нет разделения на [каталоги](../../resource-manager/concepts/resources-hierarchy.md#folder), [создайте каталог](../../resource-manager/operations/folder/create.md). В названии каталога укажите имя проекта или клиента, который будет использовать его.
 
-1. [Создайте бакет](../../storage/operations/buckets/create.md) в сервисе {{ objstorage-full-name }}. В этом бакете {{ yandex-cloud }} будет сохранять файлы с детализацией. Вы можете сохранять детализацию в нескольких бакетах.
+1. [Создайте бакет](../../storage/operations/buckets/create.md) в сервисе Yandex Object Storage. В этом бакете Yandex Cloud будет сохранять файлы с детализацией. Вы можете сохранять детализацию в нескольких бакетах.
    
     {% note alert %}
     
@@ -56,29 +56,29 @@
      * `billing.accounts.viewer`;
      * `billing.accounts.varWithoutDiscount`.
   
-  Подробнее см. [Сервисные роли в {{ billing-name }}](../security/index.md).
+  Подробнее см. [Сервисные роли в Yandex Cloud Billing](../security/index.md).
 
 ### Настроить регулярный экспорт {#set-up-regular-download}
 
 {% list tabs group=instructions %}
 
-- {{ billing-interface }} {#billing}
+- Интерфейс Yandex Cloud Billing {#billing}
 
-  1. Перейдите в сервис [**{{ billing-name }}**]({{ link-console-billing }}).
+  1. Перейдите в сервис [**Yandex Cloud Billing**](https://center.yandex.cloud/billing/accounts).
   1. Выберите аккаунт, для которого хотите получить детализацию.
   1. Перейдите к настройке регулярного экспорта:
    
       {% list tabs %}
 
-       - Раздел {{ ui-key.yacloud_billing.billing.account.switch_detail }}
+       - Раздел Детализация
   
-         1. На панели слева выберите ![image](../../_assets/console-icons/square-chart-column.svg) **{{ ui-key.yacloud_billing.billing.account.switch_detail }}**.
-         1. Справа вверху нажмите **Ещё** и выберите **{{ ui-key.yacloud_org.billing.account.detail.button_create-periodic-export }}**.
+         1. На панели слева выберите ![image](../../_assets/console-icons/square-chart-column.svg) **Детализация**.
+         1. Справа вверху нажмите **Ещё** и выберите **Регулярный экспорт**.
 
-      - Раздел {{ ui-key.yacloud_billing.billing.account.switch_exports }}
+      - Раздел Экспорт детализации
 
-          1. На панели слева выберите ![image](../../_assets/console-icons/arrow-up-from-square.svg) **{{ ui-key.yacloud_billing.billing.account.switch_exports }}**.
-          1. Нажмите **{{ ui-key.yacloud_billing.billing.account.exports.button_create-periodic-export }}**.
+          1. На панели слева выберите ![image](../../_assets/console-icons/arrow-up-from-square.svg) **Экспорт детализации**.
+          1. Нажмите **Создать регулярный экспорт**.
 
       {% endlist %}
 
@@ -90,14 +90,14 @@
 
           - Существующий аккаунт
   
-              1. В поле **{{ ui-key.yacloud_org.billing.account.exports.column_service_account }}** укажите сервисный аккаунт.
-              1. При появлении сообщения о недостающих ролях нажмите кнопку **{{ ui-key.yacloud_org.billing.providers.button_ca-roles-update }}** и дождитесь сообщения об их добавлении.
+              1. В поле **Сервисный аккаунт** укажите сервисный аккаунт.
+              1. При появлении сообщения о недостающих ролях нажмите кнопку **Добавить роли** и дождитесь сообщения об их добавлении.
 
           - Новый аккаунт
 
-              1. В поле **{{ ui-key.yacloud_org.billing.account.exports.column_service_account }}** нажмите **{{ ui-key.yacloud_org.billing.exports.ServiceAccountAddField.addNewServiceAccount  }}**.
+              1. В поле **Сервисный аккаунт** нажмите **Создать сервисный аккаунт**.
               1. Введите имя сервисного аккаунта.
-              1. Нажмите **{{ ui-key.yacloud_org.common.save }}**.
+              1. Нажмите **Сохранить**.
           
           {% endlist %}
     
@@ -108,18 +108,18 @@
       {% endnote %}
 
      * Название папки для файла детализации. Последний символ должен быть `/`.
-     * Язык отображения названий продуктов – `{{ ui-key.yacloud_org.billing.account.exports.locale_value_ru-lang }}` или `{{ ui-key.yacloud_org.billing.account.exports.locale_value_en-lang }}`.
-     * Тип детализации — `{{ ui-key.yacloud_billing.billing.account.exports.label_not-include-resources }}` или `{{ ui-key.yacloud_billing.billing.account.exports.label_include-resources }}`.
+     * Язык отображения названий продуктов – `Русский` или `English`.
+     * Тип детализации — `Общая` или `Поресурсная`.
 
          {% note tip %}
 
-         Выбирая тип `{{ ui-key.yacloud_billing.billing.account.exports.label_include-resources }}` для регулярного экспорта детализации, вы сможете просматривать в [поле `resource_id`](#format) ресурсы сервисов {{ datalens-full-name }}, {{ tracker-full-name }} и {{ ml-platform-name }}, например [идентификаторы сообществ {{ ml-platform-name }}](../../datasphere/concepts/community.md).
+         Выбирая тип `Поресурсная` для регулярного экспорта детализации, вы сможете просматривать в [поле `resource_id`](#format) ресурсы сервисов Yandex DataLens, Яндекс Трекер и DataSphere, например [идентификаторы сообществ DataSphere](../../datasphere/concepts/community.md).
 
          {% endnote %}
 
-  1. (Опционально) Чтобы добавить данные за предыдущий период, включите опцию **{{ ui-key.yacloud_org.billing.account.exports.field_period }}**. В появившемся поле **{{ ui-key.yacloud_org.billing.account.exports.field_date }}** выберите дату, с которой вы хотите получить детализацию. Данные доступны с момента создания платежного аккаунта.
+  1. (Опционально) Чтобы добавить данные за предыдущий период, включите опцию **Экспорт данных за предыдущий период**. В появившемся поле **Загрузить отчёты начиная с** выберите дату, с которой вы хотите получить детализацию. Данные доступны с момента создания платежного аккаунта.
 
-  1. Нажмите кнопку **{{ ui-key.yacloud.common.create }}**.
+  1. Нажмите кнопку **Создать**.
 
 {% endlist %}
 
@@ -129,7 +129,7 @@
 
 {% note tip %}
 
-Файлы с детализацией из бакета автоматически не удаляются, но вы можете настроить периодическое удаление файлов. Подробнее читайте в разделе [Жизненный цикл объектов](../../storage/concepts/lifecycles.md) (в терминах {{ objstorage-name }} файлы в бакете называются _объектами_).
+Файлы с детализацией из бакета автоматически не удаляются, но вы можете настроить периодическое удаление файлов. Подробнее читайте в разделе [Жизненный цикл объектов](../../storage/concepts/lifecycles.md) (в терминах Object Storage файлы в бакете называются _объектами_).
 
 {% endnote %}
 
@@ -137,11 +137,11 @@
 
 {% list tabs group=instructions %}
 
-- {{ billing-interface }} {#billing}
+- Интерфейс Yandex Cloud Billing {#billing}
 
-  1. Перейдите в сервис [**{{ billing-name }}**]({{ link-console-billing }}).
+  1. Перейдите в сервис [**Yandex Cloud Billing**](https://center.yandex.cloud/billing/accounts).
   1. Выберите аккаунт, для которого хотите прекратить регулярный экспорт.
-  1. На панели слева выберите ![image](../../_assets/console-icons/arrow-up-from-square.svg) **{{ ui-key.yacloud_billing.billing.account.switch_exports }}**.
+  1. На панели слева выберите ![image](../../_assets/console-icons/arrow-up-from-square.svg) **Экспорт детализации**.
   1. Напротив регулярного экспорта нажмите ![image](../../_assets/console-icons/ellipsis.svg) и выберите **Удалить**.
 
 {% endlist %}
@@ -152,12 +152,12 @@
 
 {% list tabs group=instructions %}
 
-- {{ billing-interface }} {#billing}
+- Интерфейс Yandex Cloud Billing {#billing}
 
-  1. Перейдите в сервис [**{{ billing-name }}**]({{ link-console-billing }}).
+  1. Перейдите в сервис [**Yandex Cloud Billing**](https://center.yandex.cloud/billing/accounts).
   1. Выберите аккаунт, для которого хотите возобновить экспорт.
-  1. На панели слева выберите ![image](../../_assets/console-icons/arrow-up-from-square.svg) **{{ ui-key.yacloud_billing.billing.account.switch_exports }}**.
-  1. Напротив регулярного экспорта нажмите ![image](../../_assets/console-icons/ellipsis.svg) и выберите **{{ ui-key.yacloud_billing.billing.account.exports.button_resume-export }}**.
+  1. На панели слева выберите ![image](../../_assets/console-icons/arrow-up-from-square.svg) **Экспорт детализации**.
+  1. Напротив регулярного экспорта нажмите ![image](../../_assets/console-icons/ellipsis.svg) и выберите **Возобновить**.
 
 {% endlist %}
 
@@ -167,11 +167,11 @@
 
 {% list tabs group=instructions %}
 
-- {{ billing-interface }} {#billing}
+- Интерфейс Yandex Cloud Billing {#billing}
 
-  1. Перейдите в сервис [**{{ billing-name }}**]({{ link-console-billing }}).
+  1. Перейдите в сервис [**Yandex Cloud Billing**](https://center.yandex.cloud/billing/accounts).
   1. Выберите аккаунт, у которого хотите посмотреть детализацию.
-  1. На панели слева выберите ![image](../../_assets/console-icons/arrow-up-from-square.svg) **{{ ui-key.yacloud_billing.billing.account.switch_exports }}**.
+  1. На панели слева выберите ![image](../../_assets/console-icons/arrow-up-from-square.svg) **Экспорт детализации**.
   1. Выберите файл с детализацией.
 
 {% endlist %}
@@ -182,13 +182,13 @@
 
 {% list tabs group=instructions %}
 
-- {{ billing-interface }} {#billing}
+- Интерфейс Yandex Cloud Billing {#billing}
 
-  1. Перейдите в сервис [**{{ billing-name }}**]({{ link-console-billing }}).
+  1. Перейдите в сервис [**Yandex Cloud Billing**](https://center.yandex.cloud/billing/accounts).
   1. Выберите аккаунт, для которого хотите довыгрузить данные в регулярный экспорт.
-  1. На панели слева выберите ![image](../../_assets/console-icons/arrow-up-from-square.svg) **{{ ui-key.yacloud_billing.billing.account.switch_exports }}**.
-  1. Напротив нужного регулярного экспорта нажмите ![image](../../_assets/console-icons/ellipsis.svg) и выберите ![image](../../_assets/console-icons/circle-plus.svg) **{{ ui-key.yacloud_org.billing.account.exports.button_force-reexport }}**.
-  1. В поле **{{ ui-key.yacloud_org.billing.account.force-reexport.field_range }}** укажите необходимый диапазон дат и нажмите **{{ ui-key.yacloud.common.create }}**.
+  1. На панели слева выберите ![image](../../_assets/console-icons/arrow-up-from-square.svg) **Экспорт детализации**.
+  1. Напротив нужного регулярного экспорта нажмите ![image](../../_assets/console-icons/ellipsis.svg) и выберите ![image](../../_assets/console-icons/circle-plus.svg) **Довыгрузка данных**.
+  1. В поле **Период** укажите необходимый диапазон дат и нажмите **Создать**.
   1. Дождитесь сообщения о применении довыгрузки к регулярному экспорту.
 
   Данные будут выгружены при следующем обновлении регулярного экспорта.
@@ -208,18 +208,18 @@
 * `folder_id` — идентификатор каталога.
 * `folder_name` — имя каталога на момент выгрузки детализации. Значение поля может быть пустым, если вы удалили каталог до выгрузки детализации.
 * `resource_id` — (только для регулярного экспорта) идентификатор ресурса, имя ресурса или идентификатор подписки. Значение поля может быть пустым, если использование сервиса относится ко всему каталогу или не содержит ресурсов. Соответствие сервисов и значения столбца `resource_id`:
-   * {{ compute-name }} и {{ marketplace-name }} — идентификатор виртуальной машины, снимка диска, образа диска или другого ресурса, установленного через {{ marketplace-name }}.
-   * {{ objstorage-name }} — имя бакета.
-   * {{ vpc-name }} — идентификатор ресурса, работающего с входящим или исходящим трафиком.
-   * {{ kms-short-name }} — идентификатор ключа.
-   * {{ network-load-balancer-name }} — идентификатор балансировщика.
-   * {{ container-registry-short-name }} — идентификатор контейнера.
-   * {{ k8s }} и {{ dataproc-name }} — идентификатор кластера.
-   * {{ mpg-short-name }}, {{ mch-short-name }}, {{ mmg-short-name }}, {{ mmy-short-name }}, {{ mrd-short-name }} и {{ mkf-name }} — идентификатор хоста в кластере.
-   * {{ message-queue-name }} — идентификатор запроса.
-   * {{ sf-name }} — идентификатор функции.
-   * {{ monitoring-short-name }}, {{ iot-name }}, {{ speechkit-short-name }}, {{ translate-name }} и {{ vision-short-name }} — пустое значение.
-   * {{ datalens-short-name }} — идентификатор экземпляра {{ datalens-short-name }}.
+   * Compute Cloud и Cloud Marketplace — идентификатор виртуальной машины, снимка диска, образа диска или другого ресурса, установленного через Cloud Marketplace.
+   * Object Storage — имя бакета.
+   * Virtual Private Cloud — идентификатор ресурса, работающего с входящим или исходящим трафиком.
+   * KMS — идентификатор ключа.
+   * Network Load Balancer — идентификатор балансировщика.
+   * Container Registry — идентификатор контейнера.
+   * Kubernetes и Yandex Data Processing — идентификатор кластера.
+   * Managed Service for PostgreSQL, Managed Service for ClickHouse®, Yandex StoreDoc, Managed Service for MySQL®, Yandex Managed Service for Valkey™ и Managed Service for Apache Kafka® — идентификатор хоста в кластере.
+   * Message Queue — идентификатор запроса.
+   * Cloud Functions — идентификатор функции.
+   * Monitoring, Yandex IoT Core, SpeechKit, Translate и Vision OCR — пустое значение.
+   * DataLens — идентификатор экземпляра DataLens.
    * Техническая поддержка — идентификатор подписки.
 * `service_id` — идентификатор сервиса, которому принадлежит потребленный продукт.
 * `service_name` — имя сервиса, которому принадлежит потребленный продукт.
@@ -235,10 +235,10 @@
 * `volume_incentive_credit` — скидка за объем потребления продукта. Десятичный разделитель — точка.
 * `cud_credit` — скидка за [резервированное потребление](../concepts/cvos.md) ресурса. Стоимость объема потребления сверх резервированного будет равна сумме значений столбцов `cost` и `credit`. Десятичный разделитель — точка.
 * `misc_credit` — остальные виды скидок, в том числе скидки за потребление ресурсов после окончания действия гранта на знакомство с платформой, но до перехода на платную версию. Десятичный разделитель — точка.
-* `label.user_labels.<имя_метки>` — метки, проставленные ресурсам. Как управлять метками описано в разделе [{#T}](../../resource-manager/operations/manage-labels.md).
+* `label.user_labels.<имя_метки>` — метки, проставленные ресурсам. Как управлять метками описано в разделе [Управление метками](../../resource-manager/operations/manage-labels.md).
 * `locale` — язык каждой строки в выгрузке. От значения поля зависит язык столбца `sku_name`. Возможные значения: `en` и `ru`.
 * `updated_at` — дата и время последнего изменения строки в формате [Unix Timestamp](https://www.unixtimestamp.com).
-* `exported_at` — дата и время добавления строки в файл детализации в формате [ISO 8601](https://{{ lang }}.wikipedia.org/wiki/ISO_8601). Например, `2025-03-03T23:41:19Z`.
+* `exported_at` — дата и время добавления строки в файл детализации в формате [ISO 8601](https://ru.wikipedia.org/wiki/ISO_8601). Например, `2025-03-03T23:41:19Z`.
 
 {% cut "Устаревшие параметры" %}
 
@@ -252,4 +252,4 @@
 
 * [Посмотреть детализацию для облака](check-charges.md)
 
-_{{ CH }} является зарегистрированным товарным знаком [ClickHouse, Inc](https://clickhouse.com)._
+_ClickHouse® является зарегистрированным товарным знаком [ClickHouse, Inc](https://clickhouse.com)._

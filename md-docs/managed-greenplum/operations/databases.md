@@ -1,6 +1,6 @@
-# Управление базами данных в {{ mgp-name }}
+# Управление базами данных в Yandex MPP Analytics for PostgreSQL
 
-{{ mgp-name }} позволяет управлять базами данных кластера только с помощью SQL-запросов.
+Yandex MPP Analytics for PostgreSQL позволяет управлять базами данных кластера только с помощью SQL-запросов.
 
 Изменить или удалить базу данных может только ее владелец.
 
@@ -41,7 +41,7 @@
   * `TEMPLATE` — шаблон базы данных. В новую БД будет скопировано все содержимое БД, указанной в параметре `TEMPLATE`, включая таблицы с данными. Значение по умолчанию — `template1`.
   * `CONNECTION LIMIT` — максимальное число подключений.
 
-  [Подробнее о доступных параметрах в официальной документации {{ GP }}](https://techdocs.broadcom.com/us/en/vmware-tanzu/data-solutions/tanzu-greenplum/6/greenplum-database/ref_guide-sql_commands-CREATE_DATABASE.html).
+  [Подробнее о доступных параметрах в официальной документации Greenplum®](https://techdocs.broadcom.com/us/en/vmware-tanzu/data-solutions/tanzu-greenplum/6/greenplum-database/ref_guide-sql_commands-CREATE_DATABASE.html).
 
   >Например, чтобы создать базу данных `db1`, которая может обрабатывать не более 55 активных подключений, выполните команду:
   >```sql

@@ -1,12 +1,12 @@
-# Настройка хостинга статического сайта в бакете {{ objstorage-full-name }} с доступом через {{ cdn-full-name }}
+# Настройка хостинга статического сайта в бакете Yandex Object Storage с доступом через Yandex Cloud CDN
 
 
 
-Чтобы [настроить хостинг](index.md) статического сайта в бакете с доступом через CDN с помощью консоли управления {{ yandex-cloud }}, CLI или API:
+Чтобы [настроить хостинг](index.md) статического сайта в бакете с доступом через CDN с помощью консоли управления Yandex Cloud, CLI или API:
 
 1. [Подготовьте облако к работе](#before-you-begin).
-1. [Добавьте сертификат в {{ certificate-manager-name }}](#add-certificate).
-1. [Создайте бакет в {{ objstorage-name }} и загрузите файлы сайта](#create-bucket).
+1. [Добавьте сертификат в Certificate Manager](#add-certificate).
+1. [Создайте бакет в Object Storage и загрузите файлы сайта](#create-bucket).
 1. [Настройте хостинг статического сайта](#hosting).
 1. [Создайте CDN-ресурс](#create-cdn-resource).
 1. [Настройте DNS для CDN-ресурса](#configure-dns).
@@ -17,11 +17,11 @@
 
 ## Перед началом работы {#before-you-begin}
 
-Зарегистрируйтесь в {{ yandex-cloud }} и создайте [платежный аккаунт](../../../billing/concepts/billing-account.md):
-1. Перейдите в [консоль управления]({{ link-console-main }}), затем войдите в {{ yandex-cloud }} или зарегистрируйтесь.
-1. На странице **[{{ ui-key.yacloud_billing.billing.label_service }}]({{ link-console-billing }})** убедитесь, что у вас подключен платежный аккаунт, и он находится в [статусе](../../../billing/concepts/billing-account-statuses.md) `ACTIVE` или `TRIAL_ACTIVE`. Если платежного аккаунта нет, [создайте его](../../../billing/quickstart/index.md) и [привяжите](../../../billing/operations/pin-cloud.md) к нему облако.
+Зарегистрируйтесь в Yandex Cloud и создайте [платежный аккаунт](../../../billing/concepts/billing-account.md):
+1. Перейдите в [консоль управления](https://console.yandex.cloud), затем войдите в Yandex Cloud или зарегистрируйтесь.
+1. На странице **[Yandex Cloud Billing](https://center.yandex.cloud/billing/accounts)** убедитесь, что у вас подключен платежный аккаунт, и он находится в [статусе](../../../billing/concepts/billing-account-statuses.md) `ACTIVE` или `TRIAL_ACTIVE`. Если платежного аккаунта нет, [создайте его](../../../billing/quickstart/index.md) и [привяжите](../../../billing/operations/pin-cloud.md) к нему облако.
 
-Если у вас есть активный платежный аккаунт, вы можете создать или выбрать [каталог](../../../resource-manager/concepts/resources-hierarchy.md#folder), в котором будет работать ваша инфраструктура, на [странице облака]({{ link-console-cloud }}).
+Если у вас есть активный платежный аккаунт, вы можете создать или выбрать [каталог](../../../resource-manager/concepts/resources-hierarchy.md#folder), в котором будет работать ваша инфраструктура, на [странице облака](https://console.yandex.cloud/cloud).
 
 [Подробнее об облаках и каталогах](../../../resource-manager/concepts/resources-hierarchy.md).
 
@@ -29,31 +29,31 @@
 ### Необходимые платные ресурсы {#paid-resources}
 
 В стоимость поддержки инфраструктуры для сайта в бакете с доступом через CDN входят:
-* плата за исходящий трафик с CDN-серверов (см. [тарифы {{ cdn-name }}](../../../cdn/pricing.md));
-* плата за хранение данных в {{ objstorage-name }}, операции с ними и исходящий трафик (см. [тарифы {{ objstorage-name }}](../../../storage/pricing.md));
-* плата за публичные DNS-запросы и [DNS-зоны](../../../dns/concepts/dns-zone.md), если вы используете [{{ dns-full-name }}](../../../dns/index.md) (см. [тарифы {{ dns-name }}](../../../dns/pricing.md)).
+* плата за исходящий трафик с CDN-серверов (см. [тарифы Cloud CDN](../../../cdn/pricing.md));
+* плата за хранение данных в Object Storage, операции с ними и исходящий трафик (см. [тарифы Object Storage](../../../storage/pricing.md));
+* плата за публичные DNS-запросы и [DNS-зоны](../../../dns/concepts/dns-zone.md), если вы используете [Yandex Cloud DNS](../../../dns/index.md) (см. [тарифы Cloud DNS](../../../dns/pricing.md)).
 
 
-## Добавьте сертификат в {{ certificate-manager-name }} {#add-certificate}
+## Добавьте сертификат в Certificate Manager {#add-certificate}
 
-Поддерживаются сертификаты из [{{ certificate-manager-full-name }}](../../../certificate-manager/index.md). Вы можете [выпустить новый сертификат Let's Encrypt®](../../../certificate-manager/operations/managed/cert-create.md) или [загрузить собственный](../../../certificate-manager/operations/import/cert-create.md).
+Поддерживаются сертификаты из [Yandex Certificate Manager](../../../certificate-manager/index.md). Вы можете [выпустить новый сертификат Let's Encrypt®](../../../certificate-manager/operations/managed/cert-create.md) или [загрузить собственный](../../../certificate-manager/operations/import/cert-create.md).
 
 Сертификат должен находиться в том же [каталоге](../../../resource-manager/concepts/resources-hierarchy.md#folder), в котором расположен ваш CDN-ресурс.
 
 Для сертификата Let's Encrypt® пройдите [проверку прав](../../../certificate-manager/operations/managed/cert-validate.md) на домен, который указан в сертификате.
 
 
-## Создайте бакет в {{ objstorage-name }} и загрузите файлы сайта {#create-bucket}
+## Создайте бакет в Object Storage и загрузите файлы сайта {#create-bucket}
 
 {% list tabs group=instructions %}
 
 - Консоль управления {#console}
 
-  1. В [консоли управления]({{ link-console-main }}) выберите каталог.
-  1. Перейдите в сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_storage }}**.
-  1. Справа сверху нажмите кнопку **{{ ui-key.yacloud.storage.buckets.button_create }}**.
-  1. В поле **{{ ui-key.yacloud.storage.bucket.settings.field_name }}** укажите имя бакета, например `example.com`.
-  1. Нажмите кнопку **{{ ui-key.yacloud.storage.buckets.create.button_create }}**.
+  1. В [консоли управления](https://console.yandex.cloud) выберите каталог.
+  1. Перейдите в сервис **Object Storage**.
+  1. Справа сверху нажмите кнопку **Создать бакет**.
+  1. В поле **Имя** укажите имя бакета, например `example.com`.
+  1. Нажмите кнопку **Создать бакет**.
   1. На локальном компьютере создайте файл главной страницы сайта — `index.html`.
      
       {% cut "Пример файла index.html" %}
@@ -71,11 +71,11 @@
       ```
       
       {% endcut %}
-  1. На странице созданного ранее бакета нажмите кнопку ![image](../../../_assets/console-icons/arrow-up-from-line.svg) **{{ ui-key.yacloud.storage.bucket.button_upload }}** и выберите файл `index.html`.
+  1. На странице созданного ранее бакета нажмите кнопку ![image](../../../_assets/console-icons/arrow-up-from-line.svg) **Загрузить** и выберите файл `index.html`.
 
-- {{ yandex-cloud }} CLI {#cli}
+- Yandex Cloud CLI {#cli}
 
-  Если у вас еще нет интерфейса командной строки {{ yandex-cloud }} (CLI), [установите и инициализируйте его](../../../cli/quickstart.md#install).
+  Если у вас еще нет интерфейса командной строки Yandex Cloud (CLI), [установите и инициализируйте его](../../../cli/quickstart.md#install).
 
   По умолчанию используется каталог, указанный при [создании](../../../cli/operations/profile/profile-create.md) профиля CLI. Чтобы изменить каталог по умолчанию, используйте команду `yc config set folder-id <идентификатор_каталога>`. Также для любой команды вы можете указать другой каталог с помощью параметров `--folder-name` или `--folder-id`. Если вы обращаетесь к ресурсу по имени, поиск будет выполнен в каталоге по умолчанию. Если вы обращаетесь к ресурсу по идентификатору, поиск будет выполнен глобально — во всех каталогах с учетом прав доступа.
 
@@ -178,19 +178,19 @@
 
 - Консоль управления {#console}
 
-  1. В [консоли управления]({{ link-console-main }}) выберите каталог.
-  1. Перейдите в сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_storage }}** и затем в бакет, для которого хотите настроить хостинг.
-  1. На панели слева выберите ![image](../../../_assets/console-icons/wrench.svg) **{{ ui-key.yacloud.storage.bucket.switch_settings }}**.
-  1. Перейдите на вкладку **{{ ui-key.yacloud.storage.bucket.switch_general-settings }}**.
-  1. В полях **{{ ui-key.yacloud.storage.bucket.settings.field_access-read }}** и **{{ ui-key.yacloud.storage.bucket.settings.field_access-list }}** выберите `{{ ui-key.yacloud.storage.bucket.settings.access_value_public }}`.
-  1. Нажмите **{{ ui-key.yacloud.storage.bucket.website.button_save }}**.
-  1. Выберите вкладку **{{ ui-key.yacloud.storage.bucket.switch_website }}**.
-  1. В разделе **{{ ui-key.yacloud.storage.bucket.website.switch_hosting }}** в поле **{{ ui-key.yacloud.storage.bucket.website.field_index }}** укажите абсолютный путь к файлу в бакете для главной страницы сайта, например `index.html`.
-  1. Нажмите кнопку **{{ ui-key.yacloud.storage.bucket.website.button_save }}**.
+  1. В [консоли управления](https://console.yandex.cloud) выберите каталог.
+  1. Перейдите в сервис **Object Storage** и затем в бакет, для которого хотите настроить хостинг.
+  1. На панели слева выберите ![image](../../../_assets/console-icons/wrench.svg) **Настройки**.
+  1. Перейдите на вкладку **Основные**.
+  1. В полях **Чтение объектов** и **Чтение списка объектов** выберите `Для всех`.
+  1. Нажмите **Сохранить**.
+  1. Выберите вкладку **Веб-сайт**.
+  1. В разделе **Хостинг** в поле **Главная страница** укажите абсолютный путь к файлу в бакете для главной страницы сайта, например `index.html`.
+  1. Нажмите кнопку **Сохранить**.
 
-  Проверить хостинг можно, перейдя по ссылке в поле **{{ ui-key.yacloud.storage.bucket.website.field_link }}**.
+  Проверить хостинг можно, перейдя по ссылке в поле **Ссылка**.
 
-- {{ yandex-cloud }} CLI {#cli}
+- Yandex Cloud CLI {#cli}
 
   1. Задайте параметры хостинга для бакета:
 
@@ -229,18 +229,18 @@
 
 - Консоль управления {#console}
 
-  1. В [консоли управления]({{ link-console-main }}) выберите каталог.
-  1. Перейдите в сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_cdn }}**.
-  1. Нажмите кнопку **{{ ui-key.yacloud.cdn.button_resource-create }}**.
+  1. В [консоли управления](https://console.yandex.cloud) выберите каталог.
+  1. Перейдите в сервис **Cloud CDN**.
+  1. Нажмите кнопку **Создать ресурс**.
   1. Задайте основные настройки CDN-ресурса:
-      * В блоке **{{ ui-key.yacloud.cdn.label_section-content }}**:
-        * Включите **{{ ui-key.yacloud.cdn.label_access }}**.
-        * В поле **{{ ui-key.yacloud.cdn.label_content-query-type }}** выберите `{{ ui-key.yacloud.cdn.value_query-type-one-origin }}`.
-        * В поле **{{ ui-key.yacloud.cdn.label_source-type }}** выберите `{{ ui-key.yacloud.cdn.value_source-type-bucket }}`.
-        * В поле **{{ ui-key.yacloud.cdn.label_bucket }}** выберите нужный бакет из списка.
-        * Включите **{{ ui-key.yacloud.cdn.label_use-bucket-site }}**.
-        * В поле **{{ ui-key.yacloud.cdn.label_protocol }}** выберите `{{ ui-key.yacloud.common.label_http }}`.
-        * В поле **{{ ui-key.yacloud.cdn.label_personal-domain }}** укажите доменное имя, например `cdn.yandexcloud.example`.
+      * В блоке **Контент**:
+        * Включите **Доступ к контенту**.
+        * В поле **Запрос контента** выберите `Из одного источника`.
+        * В поле **Тип источника** выберите `Бакет`.
+        * В поле **Бакет** выберите нужный бакет из списка.
+        * Включите **Использовать сайт бакета**.
+        * В поле **Протокол для источников** выберите `HTTP`.
+        * В поле **Доменное имя** укажите доменное имя, например `cdn.yandexcloud.example`.
 
           {% note alert %}
 
@@ -248,26 +248,26 @@
 
           {% endnote %}
 
-      * В блоке **{{ ui-key.yacloud.cdn.label_section-additional }}**:
-        * В поле **{{ ui-key.yacloud.cdn.label_redirect }}** выберите `{{ ui-key.yacloud.cdn.value_redirect-http-to-https }}`.
-        * В поле **{{ ui-key.yacloud.cdn.label_certificate-type }}** укажите `{{ ui-key.yacloud.cdn.value_certificate-custom }}` и выберите [сертификат](#add-certificate) для доменного имени `cdn.yandexcloud.example`.
-        * В поле **{{ ui-key.yacloud.cdn.label_host-header }}** выберите `{{ ui-key.yacloud.cdn.value_host-header-custom }}` и в **{{ ui-key.yacloud.cdn.label_custom-host-header }}** укажите доменное имя источника в формате: `<имя_бакета_с_файлами>.{{ s3-web-host }}`, чтобы бакет-источник корректно отвечал на запросы CDN-серверов.
-  1. Нажмите **{{ ui-key.yacloud.common.continue }}**.
-  1. В разделах **{{ ui-key.yacloud.cdn.label_resource-cache }}**, **{{ ui-key.yacloud.cdn.label_resource-http-headers }}** и **{{ ui-key.yacloud.cdn.label_section-additional }}** оставьте настройки по умолчанию и нажмите **{{ ui-key.yacloud.cdn.button_wizard-create }}**.
+      * В блоке **Дополнительно**:
+        * В поле **Переадресация клиентов** выберите `С HTTP на HTTPS`.
+        * В поле **Тип сертификата** укажите `Сертификат из Certificate Manager` и выберите [сертификат](#add-certificate) для доменного имени `cdn.yandexcloud.example`.
+        * В поле **Заголовок Host** выберите `Свое значение` и в **Значение заголовка** укажите доменное имя источника в формате: `<имя_бакета_с_файлами>.website.yandexcloud.net`, чтобы бакет-источник корректно отвечал на запросы CDN-серверов.
+  1. Нажмите **Продолжить**.
+  1. В разделах **Кеширование**, **HTTP-заголовки и методы** и **Дополнительно** оставьте настройки по умолчанию и нажмите **Создать и продолжить**.
 
-- {{ yandex-cloud }} CLI {#cli}
+- Yandex Cloud CLI {#cli}
 
   1. Создайте группу источников:
 
       ```bash
       yc cdn origin-group create \
         --name <имя_группы_источников> \
-        --origin source=<имя_бакета_с_файлами>.{{ s3-web-host }},enabled=true
+        --origin source=<имя_бакета_с_файлами>.website.yandexcloud.net,enabled=true
       ```
 
       Где:
       * `--name` — имя группы источников.
-      * `--origin source` — доменное имя источника в формате: `<имя_бакета_с_файлами>.{{ s3-web-host }}`, например `example.com.{{ s3-web-host }}`.
+      * `--origin source` — доменное имя источника в формате: `<имя_бакета_с_файлами>.website.yandexcloud.net`, например `example.com.website.yandexcloud.net`.
 
       Результат:
 
@@ -278,7 +278,7 @@
       origins:
         - id: "27904"
           origin_group_id: "42742158888********"
-          source: example.com.{{ s3-web-host }}
+          source: example.com.website.yandexcloud.net
           enabled: true
           provider_type: ourcdn
       provider_type: ourcdn
@@ -292,7 +292,7 @@
         --origin-group-id <идентификатор_группы_источников> \
         --origin-protocol http \
         --cert-manager-ssl-cert-id <идентификатор_TLS_сертифкатоа> \
-        --host-header <имя_бакета_с_файлами>.{{ s3-web-host }}
+        --host-header <имя_бакета_с_файлами>.website.yandexcloud.net
       ```
 
       Где:
@@ -300,7 +300,7 @@
       * `--origin-group-id` — идентификатор группы источников для CDN, созданной на предыдущем шаге.
       * `--origin-protocol` — протокол, который будет использоваться для взаимодействия CDN-ресурса с источником, укажите `http`.
       * `--cert-manager-ssl-cert-id` — идентификатор TLS-сертификата, сохраненный ранее при его создании.
-      * `--host-header` — значение заголовка Host. Чтобы бакет-источник корректно отвечал на запросы CDN-серверов, укажите доменное имя источника в формате: `<имя_бакета_с_файлами>.{{ s3-web-host }}`, например `example.com.{{ s3-web-host }}`.
+      * `--host-header` — значение заголовка Host. Чтобы бакет-источник корректно отвечал на запросы CDN-серверов, укажите доменное имя источника в формате: `<имя_бакета_с_файлами>.website.yandexcloud.net`, например `example.com.website.yandexcloud.net`.
 
       {% cut "Результат" %}
 
@@ -324,7 +324,7 @@
         host_options:
           host:
             enabled: true
-            value: example.com.{{ s3-web-host }}
+            value: example.com.website.yandexcloud.net
         static_headers:
           enabled: true
         stale: {}
@@ -383,16 +383,16 @@
 
 Чтобы настроить DNS для CDN-ресурса:
 
-1. Получите доменное имя провайдера {{ cdn-name }}:
+1. Получите доменное имя провайдера Cloud CDN:
 
    {% list tabs group=instructions %}
    
    - Консоль управления {#console}
 
-     1. В [консоли управления]({{ link-console-main }}) выберите каталог.
-     1. Перейдите в сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_cdn }}**.
+     1. В [консоли управления](https://console.yandex.cloud) выберите каталог.
+     1. Перейдите в сервис **Cloud CDN**.
      1. В списке CDN-ресурсов выберите ресурс с основным доменным именем `cdn.yandexcloud.example`.
-     1. Из блока **{{ ui-key.yacloud.cdn.label_dns-settings_title }}** внизу страницы скопируйте доменное имя вида `{{ cname-example-yc }}`.
+     1. Из блока **Настройки DNS** внизу страницы скопируйте доменное имя вида `e1b83ae3********.topology.gslb.yccdn.ru`.
 
    {% endlist %}
 
@@ -400,7 +400,7 @@
 1. Создайте или измените CNAME-запись для `cdn.yandexcloud.example` так, чтобы она указывала на скопированное доменное имя:
 
    ```text
-   cdn CNAME {{ cname-example-yc }}
+   cdn CNAME e1b83ae3********.topology.gslb.yccdn.ru
    ```
 
    {% note info %}
@@ -409,32 +409,32 @@
    
    {% endnote %}
 
-   Если вы пользуетесь {{ dns-name }}, настройте запись по следующей инструкции:
+   Если вы пользуетесь Cloud DNS, настройте запись по следующей инструкции:
    
-   {% cut "Инструкция по настройке DNS-записей для {{ dns-name }}" %}
+   {% cut "Инструкция по настройке DNS-записей для Cloud DNS" %}
    
    {% list tabs group=instructions %}
    
    - Консоль управления {#console}
    
-     1. В [консоли управления]({{ link-console-main }}) выберите каталог.
-     1. Перейдите в сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_dns }}**.
+     1. В [консоли управления](https://console.yandex.cloud) выберите каталог.
+     1. Перейдите в сервис **Cloud DNS**.
      1. Если у вас нет публичной зоны DNS, создайте ее:
 
-        1. Нажмите кнопку **{{ ui-key.yacloud.dns.button_zone-create }}**.
-        1. В поле **{{ ui-key.yacloud.dns.label_zone }}** укажите доменное имя сайта с точкой в конце: `yandexcloud.example.`.
-        1. В поле **{{ ui-key.yacloud.common.type }}** выберите `{{ ui-key.yacloud.dns.label_public }}`.
-        1. В поле **{{ ui-key.yacloud.common.name }}** укажите `example-dns-zone`.
-        1. Нажмите кнопку **{{ ui-key.yacloud.common.create }}**.
+        1. Нажмите кнопку **Создать зону**.
+        1. В поле **Зона** укажите доменное имя сайта с точкой в конце: `yandexcloud.example.`.
+        1. В поле **Тип** выберите `Публичная`.
+        1. В поле **Имя** укажите `example-dns-zone`.
+        1. Нажмите кнопку **Создать**.
       
      1. Создайте в зоне CNAME-запись для `cdn.yandexcloud.example`:
 
         1. Выберите зону `example-dns-zone`.
-        1. Нажмите кнопку **{{ ui-key.yacloud.dns.button_record-set-create }}**.
-        1. В поле **{{ ui-key.yacloud.common.name }}** укажите `cdn`.
-        1. В поле **{{ ui-key.yacloud.common.type }}** укажите `CNAME`.
-        1. В поле **{{ ui-key.yacloud.dns.label_records }}** вставьте скопированное значение вида `{{ cname-example-yc }}.` с точкой на конце.
-        1. Нажмите кнопку **{{ ui-key.yacloud.common.create }}**.
+        1. Нажмите кнопку **Создать запись**.
+        1. В поле **Имя** укажите `cdn`.
+        1. В поле **Тип** укажите `CNAME`.
+        1. В поле **Значение** вставьте скопированное значение вида `e1b83ae3********.topology.gslb.yccdn.ru.` с точкой на конце.
+        1. Нажмите кнопку **Создать**.
 
    {% endlist %}
 
@@ -445,14 +445,14 @@
 
 Дождитесь обновления DNS-записей — на это может потребоваться несколько часов.
 
-Проверьте доступность сайта: откройте его по новому URL `cdn.example.com`. Должно произойти перенаправление на страницу `https://cdn.example.com`, где уже подключен TLS-сертификат из {{ certificate-manager-name }} и источником для раздачи является {{ cdn-name }}.
+Проверьте доступность сайта: откройте его по новому URL `cdn.example.com`. Должно произойти перенаправление на страницу `https://cdn.example.com`, где уже подключен TLS-сертификат из Certificate Manager и источником для раздачи является Cloud CDN.
 
 
 ## Как удалить созданные ресурсы {#clear-out}
 
 Чтобы остановить работу инфраструктуры и перестать платить за созданные ресурсы:
 
-1. Если вы создавали зону в {{ dns-name }}, то [удалите](../../../dns/operations/zone-delete.md) зону DNS `example-dns-zone`.
+1. Если вы создавали зону в Cloud DNS, то [удалите](../../../dns/operations/zone-delete.md) зону DNS `example-dns-zone`.
 1. [Удалите](../../../cdn/operations/resources/delete-resource.md) CDN-ресурс с основным доменным именем `cdn.yandexcloud.example`.
 1. [Удалите](../../../storage/operations/objects/delete.md) все объекты из бакета.
 1. [Удалите](../../../storage/operations/buckets/delete.md) бакет.
@@ -460,4 +460,4 @@
 
 #### См. также {#see-also}
 
-* [{#T}](terraform.md)
+* [Настройка хостинга статического сайта в бакете Yandex Object Storage с доступом через Yandex Cloud CDN с помощью Terraform](terraform.md)

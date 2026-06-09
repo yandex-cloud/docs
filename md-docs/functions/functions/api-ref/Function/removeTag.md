@@ -5,7 +5,7 @@ Remove a tag from the specified version of a function.
 ## HTTP request
 
 ```
-POST https://serverless-functions.{{ api-host }}/functions/v1/versions/{functionVersionId}:removeTag
+POST https://serverless-functions.api.cloud.yandex.net/functions/v1/versions/{functionVersionId}:removeTag
 ```
 
 ## Path parameters

@@ -5,7 +5,7 @@ Returns the specified shard.
 ## HTTP request
 
 ```
-GET https://{{ api-host-mdb }}/managed-clickhouse/v1/clusters/{clusterId}/shards/{shardName}
+GET https://mdb.api.cloud.yandex.net/managed-clickhouse/v1/clusters/{clusterId}/shards/{shardName}
 ```
 
 ## Path parameters

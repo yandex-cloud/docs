@@ -1,39 +1,39 @@
-# Вызов нагрузочного тестирования из {{ GL }} CI
+# Вызов нагрузочного тестирования из GitLab CI
 
 {% note warning %}
 
-С 1 июля 2026 года сервис {{ load-testing-name }} прекращает работу. Подробнее на странице [Закрытие сервиса Yandex Load Testing](../sunset.md).
+С 1 июля 2026 года сервис Load Testing прекращает работу. Подробнее на странице [Закрытие сервиса Yandex Load Testing](../sunset.md).
 
 {% endnote %}
 
-[{{ GL }}](https://about.gitlab.com/) — это сайт и система управления репозиториями кода для Git. Также {{ GL }} позволяет разработчикам вести непрерывный процесс для создания, тестирования и развертывания кода.
+[GitLab](https://about.gitlab.com/) — это сайт и система управления репозиториями кода для Git. Также GitLab позволяет разработчикам вести непрерывный процесс для создания, тестирования и развертывания кода.
 
-В этом сценарии вы добавите в пайплайн [непрерывной интеграции и непрерывной поставки (CI/CD)](https://yandex.cloud/ru/blog/posts/2022/10/ci-cd) этап вызова нагрузочного тестирования развертываемого приложения с помощью сервиса {{ load-testing-name }}. На этом этапе скрипт создаст агент тестирования, запустит тест и проверит результат тестирования.
+В этом сценарии вы добавите в пайплайн [непрерывной интеграции и непрерывной поставки (CI/CD)](https://yandex.cloud/ru/blog/posts/2022/10/ci-cd) этап вызова нагрузочного тестирования развертываемого приложения с помощью сервиса Load Testing. На этом этапе скрипт создаст агент тестирования, запустит тест и проверит результат тестирования.
 
-Чтобы добавить вызов нагрузочного тестирования из {{ GL }} CI:
+Чтобы добавить вызов нагрузочного тестирования из GitLab CI:
 1. [Подготовьте облако к работе](#before-begin).
 1. [Подготовьте инфраструктуру](#infrastructure-prepare).
 1. [Подготовьте файл с тестовыми данными](#test-file).
-1. [Создайте переменные окружения {{ GL }}](#add-variables).
+1. [Создайте переменные окружения GitLab](#add-variables).
 1. [Добавьте этап нагрузочного тестирования в файл конфигурации сценария CI](#add-loadtesting-ci).
 
 Если созданные ресурсы вам больше не нужны, [удалите их](#clear-out).
 
 ## Подготовьте облако к работе {#before-begin}
 
-Зарегистрируйтесь в {{ yandex-cloud }} и создайте [платежный аккаунт](../../billing/concepts/billing-account.md):
-1. Перейдите в [консоль управления]({{ link-console-main }}), затем войдите в {{ yandex-cloud }} или зарегистрируйтесь.
-1. На странице **[{{ ui-key.yacloud_billing.billing.label_service }}]({{ link-console-billing }})** убедитесь, что у вас подключен платежный аккаунт, и он находится в [статусе](../../billing/concepts/billing-account-statuses.md) `ACTIVE` или `TRIAL_ACTIVE`. Если платежного аккаунта нет, [создайте его](../../billing/quickstart/index.md) и [привяжите](../../billing/operations/pin-cloud.md) к нему облако.
+Зарегистрируйтесь в Yandex Cloud и создайте [платежный аккаунт](../../billing/concepts/billing-account.md):
+1. Перейдите в [консоль управления](https://console.yandex.cloud), затем войдите в Yandex Cloud или зарегистрируйтесь.
+1. На странице **[Yandex Cloud Billing](https://center.yandex.cloud/billing/accounts)** убедитесь, что у вас подключен платежный аккаунт, и он находится в [статусе](../../billing/concepts/billing-account-statuses.md) `ACTIVE` или `TRIAL_ACTIVE`. Если платежного аккаунта нет, [создайте его](../../billing/quickstart/index.md) и [привяжите](../../billing/operations/pin-cloud.md) к нему облако.
 
-Если у вас есть активный платежный аккаунт, вы можете создать или выбрать [каталог](../../resource-manager/concepts/resources-hierarchy.md#folder), в котором будет работать ваша инфраструктура, на [странице облака]({{ link-console-cloud }}).
+Если у вас есть активный платежный аккаунт, вы можете создать или выбрать [каталог](../../resource-manager/concepts/resources-hierarchy.md#folder), в котором будет работать ваша инфраструктура, на [странице облака](https://console.yandex.cloud/cloud).
 
 [Подробнее об облаках и каталогах](../../resource-manager/concepts/resources-hierarchy.md).
 
 ### Необходимые платные ресурсы {#paid-resources}
 
-1. Если [агент](../concepts/agent.md) размещается на платформе {{ yandex-cloud }}, взимается плата за вычислительные ресурсы (см. [тарифы {{ compute-full-name }}](../../compute/pricing.md)).
+1. Если [агент](../concepts/agent.md) размещается на платформе Yandex Cloud, взимается плата за вычислительные ресурсы (см. [тарифы Yandex Compute Cloud](../../compute/pricing.md)).
 
-1. Плата за хранение данных в бакете и операции с ними (см. [тарифы {{ objstorage-name }}](../../storage/pricing.md)).
+1. Плата за хранение данных в бакете и операции с ними (см. [тарифы Object Storage](../../storage/pricing.md)).
 
 ## Подготовьте инфраструктуру {#infrastructure-prepare}
 
@@ -52,7 +52,7 @@
 
 ### Настройте сеть {#network-setup}
 
-[Создайте и настройте NAT-шлюз](../../vpc/operations/create-nat-gateway.md) в подсети, где размещается цель тестирования и будет размещен агент. Это обеспечит доступ агента к сервису {{ load-testing-name }}.
+[Создайте и настройте NAT-шлюз](../../vpc/operations/create-nat-gateway.md) в подсети, где размещается цель тестирования и будет размещен агент. Это обеспечит доступ агента к сервису Load Testing.
 
 ### Настройте группу безопасности {#security-group-setup}
 
@@ -60,31 +60,31 @@
 
 1. [Создайте группу безопасности](../../vpc/operations/security-group-create.md) [агента](../concepts/agent.md) `agent-sg`.
 1. [Добавьте правила](../../vpc/operations/security-group-add-rule.md):
-   1. Правило для исходящего HTTPS-трафика к публичному API {{ load-testing-name }}:
-      * **{{ ui-key.yacloud.vpc.network.security-groups.forms.field_sg-rule-port-range }}**: `443`.
-      * **{{ ui-key.yacloud.vpc.network.security-groups.forms.field_sg-rule-protocol }}**: `{{ ui-key.yacloud.common.label_tcp }}`.
-      * **{{ ui-key.yacloud.vpc.network.security-groups.forms.field_sg-rule-destination }}**: `{{ ui-key.yacloud.vpc.network.security-groups.forms.value_sg-rule-destination-cidr }}`.
-      * **{{ ui-key.yacloud.vpc.network.security-groups.forms.field_sg-rule-cidr-blocks }}**: `0.0.0.0/0`.
+   1. Правило для исходящего HTTPS-трафика к публичному API Load Testing:
+      * **Диапазон портов**: `443`.
+      * **Протокол**: `TCP`.
+      * **Назначение**: `CIDR`.
+      * **CIDR блоки**: `0.0.0.0/0`.
 
-      Это позволит подключить агент к сервису {{ load-testing-name }}, чтобы управлять тестами из интерфейса и получать результаты тестирования.
+      Это позволит подключить агент к сервису Load Testing, чтобы управлять тестами из интерфейса и получать результаты тестирования.
    1. Правило для входящего [SSH-трафика](../../glossary/ssh-keygen.md):
-      * **{{ ui-key.yacloud.vpc.network.security-groups.forms.field_sg-rule-port-range }}**: `22`.
-      * **{{ ui-key.yacloud.vpc.network.security-groups.forms.field_sg-rule-protocol }}**: `{{ ui-key.yacloud.common.label_tcp }}`.
-      * **{{ ui-key.yacloud.vpc.network.security-groups.forms.field_sg-rule-destination }}**: `{{ ui-key.yacloud.vpc.network.security-groups.forms.value_sg-rule-destination-cidr }}`.
-      * **{{ ui-key.yacloud.vpc.network.security-groups.forms.field_sg-rule-cidr-blocks }}**: `0.0.0.0/0`.
+      * **Диапазон портов**: `22`.
+      * **Протокол**: `TCP`.
+      * **Назначение**: `CIDR`.
+      * **CIDR блоки**: `0.0.0.0/0`.
 
       Это позволит подключаться к агенту по протоколу SSH и управлять тестами из консоли или собирать отладочную информацию.
    1. Правило для исходящего трафика при подаче нагрузки к цели тестирования:
-      * **{{ ui-key.yacloud.vpc.network.security-groups.forms.field_sg-rule-port-range }}**: `{{ port-any }}`.
-      * **{{ ui-key.yacloud.vpc.network.security-groups.forms.field_sg-rule-protocol }}**: `{{ ui-key.yacloud.vpc.network.security-groups.forms.value_any }}`.
-      * **{{ ui-key.yacloud.vpc.network.security-groups.forms.field_sg-rule-destination }}**: `{{ ui-key.yacloud.vpc.network.security-groups.forms.value_sg-rule-destination-sg }}`.
-        Выберите `{{ ui-key.yacloud.vpc.network.security-groups.forms.value_sg-rule-sg-type-list }}`. Укажите [группу безопасности](../../vpc/concepts/security-groups.md), в которой находится нужная цель тестирования.
+      * **Диапазон портов**: `0-65535`.
+      * **Протокол**: `Любой`.
+      * **Назначение**: `Группа безопасности`.
+        Выберите `Из списка`. Укажите [группу безопасности](../../vpc/concepts/security-groups.md), в которой находится нужная цель тестирования.
 
       Создайте такое правило для каждой цели тестирования с уникальной группой безопасности.
 
-### Подготовьте пайплайн CI/CD в {{ GL }} для развертывания цели тестирования {#prepare-gitlab-ci}
+### Подготовьте пайплайн CI/CD в GitLab для развертывания цели тестирования {#prepare-gitlab-ci}
 
-В данном сценарии, в качестве примера цели тестирования, будем использовать приложение с [публичным IP-адресом](../../vpc/concepts/address.md#public-addresses) `51.250.103.44`. С примером построения пайплайна CI/CD в {{ GL }} вы можете ознакомиться в [статье](../../tutorials/serverless/ci-cd-serverless.md).
+В данном сценарии, в качестве примера цели тестирования, будем использовать приложение с [публичным IP-адресом](../../vpc/concepts/address.md#public-addresses) `51.250.103.44`. С примером построения пайплайна CI/CD в GitLab вы можете ознакомиться в [статье](../../tutorials/serverless/ci-cd-serverless.md).
 
 ## Подготовьте файл с тестовыми данными {#test-file}
 
@@ -106,17 +106,17 @@
 1. Сохраните тестовые данные в файл `httpjson.payload`.
 1. [Создайте](../../storage/operations/buckets/create.md) бакет и [загрузите](../../storage/operations/objects/upload.md) в него файл с тестовыми данными.
 1. Выдайте сервисному аккаунту права на чтение в бакете. Для этого отредактируйте [ACL](../../storage/concepts/acl.md) бакета:
-   1. В [консоли управления]({{ link-console-main }}) выберите каталог, в котором находится бакет.
-   1. Перейдите в сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_storage }}**.
-   1. Напротив нужного бакета нажмите ![image](../../_assets/horizontal-ellipsis.svg) и выберите **{{ ui-key.yacloud.storage.buckets.button_permissions }}**.
-   1. В открывшемся окне введите имя сервисного аккаунта, выберите права на чтение в бакете — `READ` и нажмите кнопку **{{ ui-key.yacloud.common.add }}**.
-   1. Нажмите кнопку **{{ ui-key.yacloud.common.save }}**.
+   1. В [консоли управления](https://console.yandex.cloud) выберите каталог, в котором находится бакет.
+   1. Перейдите в сервис **Object Storage**.
+   1. Напротив нужного бакета нажмите ![image](../../_assets/horizontal-ellipsis.svg) и выберите **Настроить ACL**.
+   1. В открывшемся окне введите имя сервисного аккаунта, выберите права на чтение в бакете — `READ` и нажмите кнопку **Добавить**.
+   1. Нажмите кнопку **Сохранить**.
 
    Сервисному аккаунту будут предоставлены права на чтение данных только из этого бакета.
 
-## Создайте переменные окружения {{ GL }} {#add-variables}
+## Создайте переменные окружения GitLab {#add-variables}
 
-1. На панели слева в {{ GL }} перейдите в раздел **Settings** и во всплывающем списке выберите пункт **CI/CD**.
+1. На панели слева в GitLab перейдите в раздел **Settings** и во всплывающем списке выберите пункт **CI/CD**.
 1. Нажмите кнопку **Expand** напротив пункта **Variables**.
 1. Добавьте переменные окружения с выключенной опцией защиты:
    * `SERVICE_ACCOUNT_ID` — идентификатор сервисного аккаунта `sa-loadtest`;
@@ -134,7 +134,7 @@
 
 ## Добавьте этап нагрузочного тестирования в файл конфигурации сценария CI {#add-loadtesting-ci}
 
-1. Добавьте в репозиторий вашего проекта на {{ GL }} файл конфигурации нагрузочного теста `test-config.yaml`:
+1. Добавьте в репозиторий вашего проекта на GitLab файл конфигурации нагрузочного теста `test-config.yaml`:
 
    ```yaml
    pandora:
@@ -248,10 +248,10 @@
    После сохранения файла конфигурации `.gitlab-ci.yml` запустится сценарий сборки.
 
    Подробнее результаты теста вы можете посмотреть в консоли управления:
-      1. Откройте [консоль управления]({{ link-console-main }}).
-      1. Перейдите в сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_load-testing }}**.
-      1. На панели слева выберите ![image](../../_assets/load-testing/test.svg) **{{ ui-key.yacloud.load-testing.label_tests-list }}**.
-      1. Выберите созданный тест и перейдите на вкладку **{{ ui-key.yacloud.load-testing.label_test-report }}**.
+      1. Откройте [консоль управления](https://console.yandex.cloud).
+      1. Перейдите в сервис **Load Testing**.
+      1. На панели слева выберите ![image](../../_assets/load-testing/test.svg) **Тесты**.
+      1. Выберите созданный тест и перейдите на вкладку **Результаты теста**.
 
    Логику подключения этого этапа можно сделать произвольной:
       * по коммитам в основную ветку;
@@ -271,7 +271,7 @@
 Некоторые ресурсы платные. Чтобы за них не списывалась плата, удалите ресурсы, которые вы больше не будете использовать:
 
 1. [Удалите сервисные аккаунты](../../iam/operations/sa/delete.md).
-1. [Удалите бакет {{ objstorage-name }}](../../storage/operations/buckets/delete.md).
+1. [Удалите бакет Object Storage](../../storage/operations/buckets/delete.md).
 1. Убедитесь, что удален агент тестирования, созданный скриптом. Вы можете [удалить агент](../../compute/operations/vm-control/vm-delete.md) вручную.
 1. [Удалите таблицу маршрутизации](../../vpc/operations/delete-route-table.md).
 1. [Удалите NAT-шлюз](../../vpc/operations/delete-nat-gateway.md).

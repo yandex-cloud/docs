@@ -1,6 +1,6 @@
 # Доступные команды
 
-{{ ds-nb }} позволяет использовать «магические» команды (magic commands) IPython. С их помощью можно измерять время работы программы, запускать bash-команды в отдельных ячейках, определять типы переменных и многое другое. В ноутбуках доступно большинство стандартных команд из [документации IPython](https://ipython.readthedocs.io/en/stable/interactive/magics.html). Ограничения и дополнения представлены ниже.
+DataSphere Notebook позволяет использовать «магические» команды (magic commands) IPython. С их помощью можно измерять время работы программы, запускать bash-команды в отдельных ячейках, определять типы переменных и многое другое. В ноутбуках доступно большинство стандартных команд из [документации IPython](https://ipython.readthedocs.io/en/stable/interactive/magics.html). Ограничения и дополнения представлены ниже.
 
 ## Запуск bash-команд {#bash}
 
@@ -31,7 +31,7 @@
 
 #### См. также {#see-also}
 
-* [{#T}](../operations/projects/install-dependencies.md)
-* [{#T}](configurations.md)
-* [{#T}](limits.md)
-* [{#T}](../operations/index.md)
+* [Установить зависимости](../operations/projects/install-dependencies.md)
+* [Конфигурации вычислительных ресурсов](configurations.md)
+* [Квоты и лимиты в DataSphere](limits.md)
+* [Пошаговые инструкции для DataSphere](../operations/index.md)

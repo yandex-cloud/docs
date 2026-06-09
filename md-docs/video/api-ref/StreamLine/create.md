@@ -6,7 +6,7 @@ Stream lines define the technical settings for receiving and processing video si
 ## HTTP request
 
 ```
-POST https://video.{{ api-host }}/video/v1/streamLines
+POST https://video.api.cloud.yandex.net/video/v1/streamLines
 ```
 
 ## Body parameters {#yandex.cloud.video.v1.CreateStreamLineRequest}

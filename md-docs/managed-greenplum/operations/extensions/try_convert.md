@@ -1,8 +1,8 @@
-# Использование try_convert в {{ mgp-name }}
+# Использование try_convert в Yandex MPP Analytics for PostgreSQL
 
-`try_convert` — это расширение от {{ yandex-cloud }}, которое является аналогом функции [TRY_CONVERT](https://learn.microsoft.com/ru-ru/sql/t-sql/functions/try-convert-transact-sql?view=sql-server-ver17) для преобразования данных из одного типа в другой. Расширение позволяет выполнять преобразование типов при наличии ошибок во входных данных. Без использования расширения такие преобразования выполняются в pl/pgsql, что приводит к дополнительным затратам CPU.
+`try_convert` — это расширение от Yandex Cloud, которое является аналогом функции [TRY_CONVERT](https://learn.microsoft.com/ru-ru/sql/t-sql/functions/try-convert-transact-sql?view=sql-server-ver17) для преобразования данных из одного типа в другой. Расширение позволяет выполнять преобразование типов при наличии ошибок во входных данных. Без использования расширения такие преобразования выполняются в pl/pgsql, что приводит к дополнительным затратам CPU.
 
-Расширение работает только для стандартных типов данных {{ GP }}. Чтобы использовать другие типы данных, добавьте их с помощью функции `add_type_for_try_convert`.
+Расширение работает только для стандартных типов данных Greenplum®. Чтобы использовать другие типы данных, добавьте их с помощью функции `add_type_for_try_convert`.
 
 > Например:
 > 
@@ -12,7 +12,7 @@
 
 Подробнее о расширении см. в [документации try_convert](https://github.com/open-gpdb/gpdb/tree/OPENGPDB_STABLE/contrib/try_convert).
 
-## Установить расширение try_convert в кластер {{ mgp-name }} {#extension-install}
+## Установить расширение try_convert в кластер Yandex MPP Analytics for PostgreSQL {#extension-install}
 
 1. [Подключитесь](../connect/index.md) к базе данных от имени владельца или пользователя, имеющего в базе данных разрешение `CREATE`, и выполните команду:
 

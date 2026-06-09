@@ -16,7 +16,7 @@
 
  - [Консоль управления, CLI, API](tutorials/secure-password-script/console.md)
 
- - [{{ TF }}](tutorials/secure-password-script/terraform.md)
+ - [Terraform](tutorials/secure-password-script/terraform.md)
 
  - [Развертывание Active Directory](tutorials/active-directory.md)
 
@@ -30,8 +30,8 @@
 
 ## Лицензирование
 
- - [Лицензии Microsoft в {{ yandex-cloud }}](licensing.md)
+ - [Лицензии Microsoft в Yandex Cloud](licensing.md)
 
- - [Требования к учетной записи {{ yandex-cloud }}](check-user-data.md)
+ - [Требования к учетной записи Yandex Cloud](check-user-data.md)
 
  - [Правила тарификации](pricing.md)

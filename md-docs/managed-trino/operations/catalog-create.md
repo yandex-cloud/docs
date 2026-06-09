@@ -1,85 +1,85 @@
-# Создание каталога {{ TR }}
+# Создание каталога Trino
 
-## Роли для создания каталога {{ TR }} {#roles}
+## Роли для создания каталога Trino {#roles}
 
-Для создания [каталога {{ TR }}](../concepts/index.md#catalog) с типом подключения [{{ connection-manager-name }}](../../metadata-hub/concepts/connection-manager.md) вашему аккаунту в {{ yandex-cloud }} нужна дополнительная роль [{{ roles-connection-manager-user }}](../../metadata-hub/security/connection-manager-roles.md#connection-manager-user), чтобы использовать подключения из {{ connection-manager-name }}.
+Для создания [каталога Trino](../concepts/index.md#catalog) с типом подключения [Connection Manager](../../metadata-hub/concepts/connection-manager.md) вашему аккаунту в Yandex Cloud нужна дополнительная роль [connection-manager.user](../../metadata-hub/security/connection-manager-roles.md#connection-manager-user), чтобы использовать подключения из Connection Manager.
 
-[Сервисному аккаунту](../../iam/concepts/users/service-accounts.md) кластера должны быть назначены роли [{{ roles-connection-manager-user }}](../../metadata-hub/security/connection-manager-roles.md#connection-manager-user) и [{{ roles-lockbox-payloadviewer }}](../../lockbox/security/index.md#lockbox-payloadViewer). Это даст кластеру нужные права для работы с подключениями из {{ connection-manager-name }}. Подробнее в разделе [Имперсонация](../concepts/impersonation.md).
+[Сервисному аккаунту](../../iam/concepts/users/service-accounts.md) кластера должны быть назначены роли [connection-manager.user](../../metadata-hub/security/connection-manager-roles.md#connection-manager-user) и [lockbox.payloadViewer](../../lockbox/security/index.md#lockbox-payloadViewer). Это даст кластеру нужные права для работы с подключениями из Connection Manager. Подробнее в разделе [Имперсонация](../concepts/impersonation.md).
 
-О назначении ролей читайте в [документации {{ iam-full-name }}](../../iam/operations/roles/grant.md).
+О назначении ролей читайте в [документации Yandex Identity and Access Management](../../iam/operations/roles/grant.md).
 
-## Создать каталог {{ TR }} {#create-catalog}
+## Создать каталог Trino {#create-catalog}
 
 {% list tabs group=instructions %}
 
 - Консоль управления {#console}
 
-  1. Перейдите на страницу [каталога ресурсов]({{ link-console-main }}).
-  1. Перейдите в сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-trino }}**.
+  1. Перейдите на страницу [каталога ресурсов](https://console.yandex.cloud).
+  1. Перейдите в сервис **Managed Service for&nbsp;Trino**.
   1. Нажмите на имя нужного кластера.
-  1. На панели слева выберите ![image](../../_assets/console-icons/folder-tree.svg) **{{ ui-key.yacloud.trino.title_catalogs }}**.
-  1. Нажмите кнопку **{{ ui-key.yacloud.trino.catalogs.create_action }}**.
-  1. В поле **{{ ui-key.yacloud.trino.catalogs.field_catalog-name }}** задайте имя каталога {{ TR }}.
-  1. В поле **{{ ui-key.yacloud.trino.catalogs.field_catalog-type }}** выберите тип [коннектора](../concepts/index.md#connector).
-  1. Задайте [настройки каталога {{ TR }}](#catalog-settings).
-  1. Нажмите кнопку **{{ ui-key.yacloud.common.create }}**.
+  1. На панели слева выберите ![image](../../_assets/console-icons/folder-tree.svg) **Каталоги**.
+  1. Нажмите кнопку **Создать каталог**.
+  1. В поле **Имя каталога** задайте имя каталога Trino.
+  1. В поле **Тип коннектора** выберите тип [коннектора](../concepts/index.md#connector).
+  1. Задайте [настройки каталога Trino](#catalog-settings).
+  1. Нажмите кнопку **Создать**.
 
 - CLI {#cli}
 
-    Если у вас еще нет интерфейса командной строки {{ yandex-cloud }} (CLI), [установите и инициализируйте его](../../cli/quickstart.md#install).
+    Если у вас еще нет интерфейса командной строки Yandex Cloud (CLI), [установите и инициализируйте его](../../cli/quickstart.md#install).
 
     По умолчанию используется каталог, указанный при [создании](../../cli/operations/profile/profile-create.md) профиля CLI. Чтобы изменить каталог по умолчанию, используйте команду `yc config set folder-id <идентификатор_каталога>`. Также для любой команды вы можете указать другой каталог с помощью параметров `--folder-name` или `--folder-id`. Если вы обращаетесь к ресурсу по имени, поиск будет выполнен в каталоге по умолчанию. Если вы обращаетесь к ресурсу по идентификатору, поиск будет выполнен глобально — во всех каталогах с учетом прав доступа.
 
-    1. Посмотрите описание команды CLI для создания каталога {{ TR }}:
+    1. Посмотрите описание команды CLI для создания каталога Trino:
 
         ```bash
-        {{ yc-mdb-tr }} catalog create --help
+        yc managed-trino catalog create --help
         ```
 
-    1. Посмотрите описание команды CLI для создания каталога {{ TR }} c конкретным коннектором:
+    1. Посмотрите описание команды CLI для создания каталога Trino c конкретным коннектором:
 
         ```bash
-        {{ yc-mdb-tr }} catalog create <тип_коннектора> --help
+        yc managed-trino catalog create <тип_коннектора> --help
         ```
 
-    1. Чтобы создать каталог {{ TR }}, выполните команду:
+    1. Чтобы создать каталог Trino, выполните команду:
 
         ```bash
-        {{ yc-mdb-tr }} catalog create <тип_коннектора> <имя_каталога_{{ TR }}>
+        yc managed-trino catalog create <тип_коннектора> <имя_каталога_Trino>
         ```
 
-        В команде также нужно передать настройки каталога {{ TR }}, которые зависят от типа коннектора. [Подробнее о настройках для разных типов коннекторов](#catalog-settings).
+        В команде также нужно передать настройки каталога Trino, которые зависят от типа коннектора. [Подробнее о настройках для разных типов коннекторов](#catalog-settings).
 
-- {{ TF }} {#tf}
+- Terraform {#tf}
 
-    1. Откройте актуальный конфигурационный файл {{ TF }} с планом инфраструктуры.
+    1. Откройте актуальный конфигурационный файл Terraform с планом инфраструктуры.
 
         Инструкция по созданию файла описана в разделе [Создание кластера](cluster-create.md).
 
     1. Добавьте ресурс `yandex_trino_catalog`:
 
         ```hcl
-        resource "yandex_trino_catalog" "<имя_каталога_{{ TR }}>" {
-          name        = "<имя_каталога_{{ TR }}>"
+        resource "yandex_trino_catalog" "<имя_каталога_Trino>" {
+          name        = "<имя_каталога_Trino>"
           cluster_id  = yandex_trino_cluster.<имя_кластера>.id
           <тип_коннектора> = {
-            <настройки_каталога_{{ TR }}>
+            <настройки_каталога_Trino>
           }
         }
         ```
 
-        [Подробнее о настройках каталога {{ TR }}](#catalog-settings) для разных типов коннекторов.
+        [Подробнее о настройках каталога Trino](#catalog-settings) для разных типов коннекторов.
 
     1. Проверьте корректность настроек.
 
-        1. В командной строке перейдите в каталог, в котором расположены актуальные конфигурационные файлы {{ TF }} с планом инфраструктуры.
+        1. В командной строке перейдите в каталог, в котором расположены актуальные конфигурационные файлы Terraform с планом инфраструктуры.
         1. Выполните команду:
         
            ```bash
            terraform validate
            ```
         
-           Если в файлах конфигурации есть ошибки, {{ TF }} на них укажет.
+           Если в файлах конфигурации есть ошибки, Terraform на них укажет.
 
     1. Подтвердите изменение ресурсов.
 
@@ -109,27 +109,27 @@
         export IAM_TOKEN="<IAM-токен>"
         ```
 
-    1. Воспользуйтесь методом [Catalog.Create](../api-ref/Catalog/create.md) и выполните запрос, например с помощью {{ api-examples.rest.tool }}:
+    1. Воспользуйтесь методом [Catalog.Create](../api-ref/Catalog/create.md) и выполните запрос, например с помощью [cURL](https://curl.se/):
 
         ```bash
         curl \
             --request POST \
             --header "Authorization: Bearer $IAM_TOKEN" \
             --header "Content-Type: application/json" \
-            --url 'https://{{ api-host-trino }}/managed-trino/v1/clusters/<идентификатор_кластера>/catalogs' \
+            --url 'https://trino.api.cloud.yandex.net/managed-trino/v1/clusters/<идентификатор_кластера>/catalogs' \
             --data '{
                       "catalog": {
-                        "name": "<имя_каталога_{{ TR }}>",
+                        "name": "<имя_каталога_Trino>",
                         "connector": {
                           "<тип_коннектора>": {
-                            <настройки_каталога_{{ TR }}>
+                            <настройки_каталога_Trino>
                           }
                         }
                       }
                     }'
         ```
 
-        [Подробнее о настройках каталога {{ TR }}](#catalog-settings) для разных типов коннекторов.
+        [Подробнее о настройках каталога Trino](#catalog-settings) для разных типов коннекторов.
 
         Идентификатор кластера можно запросить со [списком кластеров в каталоге](cluster-list.md#list-clusters).
 
@@ -151,7 +151,7 @@
        
        Далее предполагается, что содержимое репозитория находится в директории `~/cloudapi/`.
 
-    1. Воспользуйтесь вызовом [CatalogService.Create](../api-ref/grpc/Catalog/create.md) и выполните запрос, например с помощью {{ api-examples.grpc.tool }}:
+    1. Воспользуйтесь вызовом [CatalogService.Create](../api-ref/grpc/Catalog/create.md) и выполните запрос, например с помощью [gRPCurl](https://github.com/fullstorydev/grpcurl):
 
         ```bash
         grpcurl \
@@ -163,19 +163,19 @@
             -d '{
                   "cluster_id": "<идентификатор_кластера>",
                   "catalog": {
-                    "name": "<имя_каталога_{{ TR }}>",
+                    "name": "<имя_каталога_Trino>",
                     "connector": {
                       "<тип_коннектора>": {
-                            <настройки_каталога_{{ TR }}>
+                            <настройки_каталога_Trino>
                       }
                     }
                   }
                 }' \
-            {{ api-host-trino }}:{{ port-https }} \
+            trino.api.cloud.yandex.net:443 \
             yandex.cloud.trino.v1.CatalogService.Create
         ```
 
-        [Подробнее о настройках каталога {{ TR }}](#catalog-settings) для разных типов коннекторов.
+        [Подробнее о настройках каталога Trino](#catalog-settings) для разных типов коннекторов.
 
         Идентификатор кластера можно запросить со [списком кластеров в каталоге](cluster-list.md#list-clusters).
 
@@ -183,39 +183,39 @@
 
 {% endlist %}
 
-## Настройки каталога {{ TR }} {#catalog-settings}
+## Настройки каталога Trino {#catalog-settings}
 
-Настройки каталога {{ TR }} отличаются в зависимости от выбранного коннектора.
+Настройки каталога Trino отличаются в зависимости от выбранного коннектора.
 
 {% note info %}
 
-Коннекторы с пометкой {{ preview-stage }} находятся на стадии предварительного тестирования. Стабильность работы не гарантируется.
+Коннекторы с пометкой <code><b><small>Preview</small></b></code> находятся на стадии предварительного тестирования. Стабильность работы не гарантируется.
 
 {% endnote %}
 
-### Коннектор {{ CH }} {#ch}
+### Коннектор ClickHouse® {#ch}
 
-Выберите тип подключения — [{{ connection-manager-name }}](../../metadata-hub/concepts/connection-manager.md) или **Ручная настройка** (пользовательская инсталляция), и задайте для него нужные настройки.
+Выберите тип подключения — [Connection Manager](../../metadata-hub/concepts/connection-manager.md) или **Ручная настройка** (пользовательская инсталляция), и задайте для него нужные настройки.
 
-{{ connection-manager-name }} позволяет создавать подключения к кластеру с управляемой базой данных и к пользовательской инсталляции базы данных.
+Connection Manager позволяет создавать подключения к кластеру с управляемой базой данных и к пользовательской инсталляции базы данных.
 
-При подключении с типом {{ connection-manager-name }} любые изменения в параметрах подключения автоматически учитываются в {{ TR }}. При подключении с типом **Ручная настройка** изменения в параметрах подключения не отслеживаются в {{ TR }}. Их необходимо отслеживать и вносить вручную.
+При подключении с типом Connection Manager любые изменения в параметрах подключения автоматически учитываются в Trino. При подключении с типом **Ручная настройка** изменения в параметрах подключения не отслеживаются в Trino. Их необходимо отслеживать и вносить вручную.
 
-#### Подключение {{ connection-manager-name }} {#ch-connection-manager}
+#### Подключение Connection Manager {#ch-connection-manager}
 
 {% list tabs group=instructions %}
 
 - Консоль управления {#console}
 
-    * **Идентификатор подключения** — идентификатор подключения в {{ connection-manager-name }} для подключения к кластеру {{ CH }}.
+    * **Идентификатор подключения** — идентификатор подключения в Connection Manager для подключения к кластеру ClickHouse®.
 
         Чтобы узнать идентификатор подключения:
-        1. Перейдите на страницу [каталога ресурсов]({{ link-console-main }}).
-        1. Перейдите в сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-clickhouse }}**.
-        1. Нажмите на имя нужного кластера и перейдите на вкладку **{{ ui-key.yacloud.connection-manager.label_connections }}**.
+        1. Перейдите на страницу [каталога ресурсов](https://console.yandex.cloud).
+        1. Перейдите в сервис **Managed Service for&nbsp;ClickHouse**.
+        1. Нажмите на имя нужного кластера и перейдите на вкладку **Подключения**.
 
-    * **База данных** — имя БД в кластере {{ CH }}.
-    * **Параметры клиента** — параметры клиента {{ CH }} в формате `ключ: значение`.
+    * **База данных** — имя БД в кластере ClickHouse®.
+    * **Параметры клиента** — параметры клиента ClickHouse® в формате `ключ: значение`.
 
         {% cut "Доступные параметры" %}
         
@@ -283,33 +283,33 @@
         
         {% endcut %}
 
-    * **Дополнительные настройки** — в формате `ключ: значение`. Список доступных настроек в [официальной документации]({{ tr.docs }}/connector/clickhouse.html).
+    * **Дополнительные настройки** — в формате `ключ: значение`. Список доступных настроек в [официальной документации](https://trino.io/docs/current/connector/clickhouse.html).
 
 - CLI {#cli}
 
     Пример команды:
 
     ```bash
-    {{ yc-mdb-tr }} catalog create clickhouse <имя_каталога_{{ TR }}> \
+    yc managed-trino catalog create clickhouse <имя_каталога_Trino> \
       --cluster-id <идентификатор_кластера> \
       --connection-manager-connection-id <идентификатор_подключения> \
       --connection-manager-database <имя_БД> \
-      --connection-manager-connection-properties <список_параметров_клиента_{{ CH }}> \
+      --connection-manager-connection-properties <список_параметров_клиента_ClickHouse®> \
       --additional-properties <список_дополнительных_настроек>
     ```
 
     Где:
 
-    * `--cluster-id` — идентификатор кластера, в котором создается каталог {{ TR }}. Идентификатор кластера можно запросить со [списком кластеров](cluster-list.md#list-clusters).
-    * `--connection-manager-connection-id` — идентификатор подключения в {{ connection-manager-name }} для подключения к кластеру {{ CH }}.
+    * `--cluster-id` — идентификатор кластера, в котором создается каталог Trino. Идентификатор кластера можно запросить со [списком кластеров](cluster-list.md#list-clusters).
+    * `--connection-manager-connection-id` — идентификатор подключения в Connection Manager для подключения к кластеру ClickHouse®.
 
       Чтобы узнать идентификатор подключения:
-        1. Перейдите на страницу [каталога ресурсов]({{ link-console-main }}).
-        1. Перейдите в сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-clickhouse }}**.
-        1. Нажмите на имя нужного кластера и перейдите на вкладку **{{ ui-key.yacloud.connection-manager.label_connections }}**.   
+        1. Перейдите на страницу [каталога ресурсов](https://console.yandex.cloud).
+        1. Перейдите в сервис **Managed Service for&nbsp;ClickHouse**.
+        1. Нажмите на имя нужного кластера и перейдите на вкладку **Подключения**.   
 
-    * `--connection-manager-database` — имя БД в кластере {{ CH }}.
-    * `--connection-manager-connection-properties` — параметры клиента {{ CH }} в формате `ключ=значение`.
+    * `--connection-manager-database` — имя БД в кластере ClickHouse®.
+    * `--connection-manager-connection-properties` — параметры клиента ClickHouse® в формате `ключ=значение`.
 
         {% cut "Доступные параметры" %}
         
@@ -377,21 +377,21 @@
         
         {% endcut %}
 
-    * `additional-properties` — дополнительные настройки в формате `ключ=значение`. Список доступных настроек в [официальной документации]({{ tr.docs }}/connector/clickhouse.html).
+    * `additional-properties` — дополнительные настройки в формате `ключ=значение`. Список доступных настроек в [официальной документации](https://trino.io/docs/current/connector/clickhouse.html).
 
-- {{ TF }} {#tf}
+- Terraform {#tf}
 
     Пример конфигурации:
 
     ```hcl
-    resource "yandex_trino_catalog" "<имя_каталога_{{ TR }}>" {
+    resource "yandex_trino_catalog" "<имя_каталога_Trino>" {
       ...
       clickhouse = {
         connection_manager = {
           connection_id = "<идентификатор_подключения>"
           database      = "<имя_БД>"
           connection_properties = {
-            <список_настроек_клиента_{{ CH }}>
+            <список_настроек_клиента_ClickHouse®>
           }
         }
         additional_properties = {
@@ -403,17 +403,17 @@
 
     Где:
 
-    * `connection_manager` — настройки {{ connection-manager-name }}:
+    * `connection_manager` — настройки Connection Manager:
 
-        * `connection_id` — идентификатор подключения в {{ connection-manager-name }} для подключения к кластеру {{ CH }}.
+        * `connection_id` — идентификатор подключения в Connection Manager для подключения к кластеру ClickHouse®.
 
             Чтобы узнать идентификатор подключения:
-            1. В консоли управления перейдите на страницу [каталога ресурсов]({{ link-console-main }}).
-            1. Перейдите в сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-clickhouse }}**.
-            1. Нажмите на имя нужного кластера и перейдите на вкладку **{{ ui-key.yacloud.connection-manager.label_connections }}**.
+            1. В консоли управления перейдите на страницу [каталога ресурсов](https://console.yandex.cloud).
+            1. Перейдите в сервис **Managed Service for&nbsp;ClickHouse**.
+            1. Нажмите на имя нужного кластера и перейдите на вкладку **Подключения**.
 
-        * `database` — имя БД в кластере {{ CH }}.
-        * `connection_properties` — список настроек клиента {{ CH }} в формате `"ключ" = "значение"`.
+        * `database` — имя БД в кластере ClickHouse®.
+        * `connection_properties` — список настроек клиента ClickHouse® в формате `"ключ" = "значение"`.
 
             {% cut "Доступные параметры" %}
             
@@ -481,7 +481,7 @@
             
             {% endcut %}
 
-    * `additional_properties` — список дополнительных настроек в формате `"ключ" = "значение"`. Список доступных настроек в [официальной документации]({{ tr.docs }}/connector/clickhouse.html).
+    * `additional_properties` — список дополнительных настроек в формате `"ключ" = "значение"`. Список доступных настроек в [официальной документации](https://trino.io/docs/current/connector/clickhouse.html).
 
 - REST API {#api}
 
@@ -492,10 +492,10 @@
         --request POST \
         --header "Authorization: Bearer $IAM_TOKEN" \
         --header "Content-Type: application/json" \
-        --url 'https://{{ api-host-trino }}/managed-trino/v1/clusters/<идентификатор_кластера>/catalogs' \
+        --url 'https://trino.api.cloud.yandex.net/managed-trino/v1/clusters/<идентификатор_кластера>/catalogs' \
         --data '{
                   "catalog": {
-                    "name": "<имя_каталога_{{ TR }}>",
+                    "name": "<имя_каталога_Trino>",
                     "connector": {
                       "clickhouse": {
                         "connection": {
@@ -503,7 +503,7 @@
                             "connectionId": "<идентификатор_подключения>",
                             "database": "<имя_БД>",
                             "connectionProperties": {
-                              <список_настроек_клиента_{{ CH }}>
+                              <список_настроек_клиента_ClickHouse®>
                             }
                           }
                         },
@@ -518,17 +518,17 @@
 
     Где:
 
-    * `connectionManager` — настройки {{ connection-manager-name }}:
+    * `connectionManager` — настройки Connection Manager:
 
-        * `connectionId` — идентификатор подключения в {{ connection-manager-name }} для подключения к кластеру {{ CH }}.
+        * `connectionId` — идентификатор подключения в Connection Manager для подключения к кластеру ClickHouse®.
 
             Чтобы узнать идентификатор подключения:
-            1. В консоли управления перейдите на страницу [каталога ресурсов]({{ link-console-main }}).
-            1. Перейдите в сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-clickhouse }}**.
-            1. Нажмите на имя нужного кластера и перейдите на вкладку **{{ ui-key.yacloud.connection-manager.label_connections }}**.
+            1. В консоли управления перейдите на страницу [каталога ресурсов](https://console.yandex.cloud).
+            1. Перейдите в сервис **Managed Service for&nbsp;ClickHouse**.
+            1. Нажмите на имя нужного кластера и перейдите на вкладку **Подключения**.
 
-        * `database` — имя БД в кластере {{ CH }}.
-        * `connectionProperties` — список настроек клиента {{ CH }} в формате `"ключ": "значение"`.
+        * `database` — имя БД в кластере ClickHouse®.
+        * `connectionProperties` — список настроек клиента ClickHouse® в формате `"ключ": "значение"`.
 
             {% cut "Доступные параметры" %}
             
@@ -596,7 +596,7 @@
             
             {% endcut %}
 
-    * `additionalProperties` — список дополнительных настроек в формате `"ключ": "значение"`. Список доступных настроек в [официальной документации]({{ tr.docs }}/connector/clickhouse.html).
+    * `additionalProperties` — список дополнительных настроек в формате `"ключ": "значение"`. Список доступных настроек в [официальной документации](https://trino.io/docs/current/connector/clickhouse.html).
 
     Идентификатор кластера можно запросить со [списком кластеров в каталоге](cluster-list.md#list-clusters).
 
@@ -614,7 +614,7 @@
         -d '{
               "cluster_id": "<идентификатор_кластера>",
               "catalog": {
-                "name": "<имя_каталога_{{ TR }}>",
+                "name": "<имя_каталога_Trino>",
                 "connector": {
                   "clickhouse": {
                     "connection": {
@@ -622,7 +622,7 @@
                         "connection_id": "<идентификатор_подключения>",
                         "database": "<имя_БД>",
                         "connection_properties": {
-                          <список_настроек_клиента_{{ CH }}>
+                          <список_настроек_клиента_ClickHouse®>
                         }
                       }
                     },
@@ -633,23 +633,23 @@
                 }
               }
             }' \
-        {{ api-host-trino }}:{{ port-https }} \
+        trino.api.cloud.yandex.net:443 \
         yandex.cloud.trino.v1.CatalogService.Create
     ```
 
     Где:
 
-    * `connection_manager` — настройки {{ connection-manager-name }}:
+    * `connection_manager` — настройки Connection Manager:
 
-        * `connection_id` — идентификатор подключения в {{ connection-manager-name }} для подключения к кластеру {{ CH }}.
+        * `connection_id` — идентификатор подключения в Connection Manager для подключения к кластеру ClickHouse®.
 
             Чтобы узнать идентификатор подключения:
-            1. В консоли управления перейдите на страницу [каталога ресурсов]({{ link-console-main }}).
-            1. Перейдите в сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-clickhouse }}**.
-            1. Нажмите на имя нужного кластера и перейдите на вкладку **{{ ui-key.yacloud.connection-manager.label_connections }}**.
+            1. В консоли управления перейдите на страницу [каталога ресурсов](https://console.yandex.cloud).
+            1. Перейдите в сервис **Managed Service for&nbsp;ClickHouse**.
+            1. Нажмите на имя нужного кластера и перейдите на вкладку **Подключения**.
 
-        * `database` — имя БД в кластере {{ CH }}.
-        * `connection_properties` — список настроек клиента {{ CH }} в формате `"ключ": "значение"`.
+        * `database` — имя БД в кластере ClickHouse®.
+        * `connection_properties` — список настроек клиента ClickHouse® в формате `"ключ": "значение"`.
 
             {% cut "Доступные параметры" %}
             
@@ -717,7 +717,7 @@
             
             {% endcut %}
 
-    * `additional_properties` — список дополнительных настроек в формате `"ключ": "значение"`. Список доступных настроек в [официальной документации]({{ tr.docs }}/connector/clickhouse.html).
+    * `additional_properties` — список дополнительных настроек в формате `"ключ": "значение"`. Список доступных настроек в [официальной документации](https://trino.io/docs/current/connector/clickhouse.html).
 
     Идентификатор кластера можно запросить со [списком кластеров в каталоге](cluster-list.md#list-clusters).
 
@@ -729,17 +729,17 @@
 
 - Консоль управления {#console}
 
-    * **URL** — URL для подключения к БД {{ CH }} в формате `jdbc:clickhouse://<адрес_хоста>:<порт>/<имя_БД>`.
-    * **Имя пользователя** — имя пользователя для подключения к БД {{ CH }}.
-    * **Пароль** — пароль пользователя для подключения к БД {{ CH }}.
-    * **Дополнительные настройки** — в формате `ключ: значение`. Список доступных настроек в [официальной документации]({{ tr.docs }}/connector/clickhouse.html).
+    * **URL** — URL для подключения к БД ClickHouse® в формате `jdbc:clickhouse://<адрес_хоста>:<порт>/<имя_БД>`.
+    * **Имя пользователя** — имя пользователя для подключения к БД ClickHouse®.
+    * **Пароль** — пароль пользователя для подключения к БД ClickHouse®.
+    * **Дополнительные настройки** — в формате `ключ: значение`. Список доступных настроек в [официальной документации](https://trino.io/docs/current/connector/clickhouse.html).
 
 - CLI {#cli}
 
     Пример команды:
 
     ```bash
-    {{ yc-mdb-tr }} catalog create clickhouse <имя_каталога_{{ TR }}> \
+    yc managed-trino catalog create clickhouse <имя_каталога_Trino> \
       --cluster-id <идентификатор_кластера> \
       --on-premise-connection-url <URL_для_подключения> \
       --on-premise-user-name <имя_пользователя> \
@@ -749,18 +749,18 @@
 
     Где:
 
-    * `--cluster-id` — идентификатор кластера, в котором создается каталог {{ TR }}. Идентификатор кластера можно запросить со [списком кластеров](cluster-list.md#list-clusters).
-    * `--on-premise-connection-url` — URL для подключения к БД {{ CH }} в формате `jdbc:clickhouse://<адрес_хоста>:<порт>/<имя_БД>`
-    * `--on-premise-user-name` — имя пользователя для подключения к БД {{ CH }}.
-    * `--on-premise-password` — пароль пользователя для подключения к БД {{ CH }}.
-    * `--additional-properties` — дополнительные настройки в формате `ключ=значение`. Список доступных настроек в [официальной документации]({{ tr.docs }}/connector/clickhouse.html).
+    * `--cluster-id` — идентификатор кластера, в котором создается каталог Trino. Идентификатор кластера можно запросить со [списком кластеров](cluster-list.md#list-clusters).
+    * `--on-premise-connection-url` — URL для подключения к БД ClickHouse® в формате `jdbc:clickhouse://<адрес_хоста>:<порт>/<имя_БД>`
+    * `--on-premise-user-name` — имя пользователя для подключения к БД ClickHouse®.
+    * `--on-premise-password` — пароль пользователя для подключения к БД ClickHouse®.
+    * `--additional-properties` — дополнительные настройки в формате `ключ=значение`. Список доступных настроек в [официальной документации](https://trino.io/docs/current/connector/clickhouse.html).
 
-- {{ TF }} {#tf}
+- Terraform {#tf}
 
     Пример конфигурации:
 
     ```hcl
-    resource "yandex_trino_catalog" "<имя_каталога_{{ TR }}>" {
+    resource "yandex_trino_catalog" "<имя_каталога_Trino>" {
       ...
       clickhouse = {
         on_premise = {
@@ -779,11 +779,11 @@
 
     * `on_premise` — настройки для подключения к пользовательской инсталляции:
 
-        * `connection_url` — URL для подключения к БД {{ CH }} в формате `jdbc:clickhouse://<адрес_хоста>:<порт>/<имя_БД>`.
-        * `user_name` — имя пользователя для подключения к БД {{ CH }}.
-        * `password` — пароль пользователя для подключения к БД {{ CH }}.
+        * `connection_url` — URL для подключения к БД ClickHouse® в формате `jdbc:clickhouse://<адрес_хоста>:<порт>/<имя_БД>`.
+        * `user_name` — имя пользователя для подключения к БД ClickHouse®.
+        * `password` — пароль пользователя для подключения к БД ClickHouse®.
 
-    * `additional_properties` — список дополнительных настроек в формате `"ключ" = "значение"`. Список доступных настроек в [официальной документации]({{ tr.docs }}/connector/clickhouse.html).
+    * `additional_properties` — список дополнительных настроек в формате `"ключ" = "значение"`. Список доступных настроек в [официальной документации](https://trino.io/docs/current/connector/clickhouse.html).
 
 - REST API {#api}
 
@@ -794,10 +794,10 @@
         --request POST \
         --header "Authorization: Bearer $IAM_TOKEN" \
         --header "Content-Type: application/json" \
-        --url 'https://{{ api-host-trino }}/managed-trino/v1/clusters/<идентификатор_кластера>/catalogs' \
+        --url 'https://trino.api.cloud.yandex.net/managed-trino/v1/clusters/<идентификатор_кластера>/catalogs' \
         --data '{
                   "catalog": {
-                    "name": "<имя_каталога_{{ TR }}>",
+                    "name": "<имя_каталога_Trino>",
                     "connector": {
                       "clickhouse": {
                         "connection": {
@@ -820,11 +820,11 @@
 
     * `onPremise` — настройки для подключения к пользовательской инсталляции:
 
-        * `connectionUrl` — URL для подключения к БД {{ CH }} в формате `jdbc:clickhouse://<адрес_хоста>:<порт>/<имя_БД>`.
-        * `userName` — имя пользователя для подключения к БД {{ CH }}.
-        * `password` — пароль пользователя для подключения к БД {{ CH }}.
+        * `connectionUrl` — URL для подключения к БД ClickHouse® в формате `jdbc:clickhouse://<адрес_хоста>:<порт>/<имя_БД>`.
+        * `userName` — имя пользователя для подключения к БД ClickHouse®.
+        * `password` — пароль пользователя для подключения к БД ClickHouse®.
 
-    * `additionalProperties` — список дополнительных настроек в формате `"ключ": "значение"`. Список доступных настроек в [официальной документации]({{ tr.docs }}/connector/clickhouse.html).
+    * `additionalProperties` — список дополнительных настроек в формате `"ключ": "значение"`. Список доступных настроек в [официальной документации](https://trino.io/docs/current/connector/clickhouse.html).
 
     Идентификатор кластера можно запросить со [списком кластеров в каталоге](cluster-list.md#list-clusters).
 
@@ -842,7 +842,7 @@
         -d '{
               "cluster_id": "<идентификатор_кластера>",
               "catalog": {
-                "name": "<имя_каталога_{{ TR }}>",
+                "name": "<имя_каталога_Trino>",
                 "connector": {
                   "clickhouse": {
                     "connection": {
@@ -859,7 +859,7 @@
                 }
               }
             }' \
-        {{ api-host-trino }}:{{ port-https }} \
+        trino.api.cloud.yandex.net:443 \
         yandex.cloud.trino.v1.CatalogService.Create
     ```
 
@@ -867,11 +867,11 @@
 
     * `on_premise` — настройки для подключения к пользовательской инсталляции:
 
-        * `connection_url` — URL для подключения к БД {{ CH }} в формате `jdbc:clickhouse://<адрес_хоста>:<порт>/<имя_БД>`.
-        * `user_name` — имя пользователя для подключения к БД {{ CH }}.
-        * `password` — пароль пользователя для подключения к БД {{ CH }}.
+        * `connection_url` — URL для подключения к БД ClickHouse® в формате `jdbc:clickhouse://<адрес_хоста>:<порт>/<имя_БД>`.
+        * `user_name` — имя пользователя для подключения к БД ClickHouse®.
+        * `password` — пароль пользователя для подключения к БД ClickHouse®.
 
-    * `additional_properties` — список дополнительных настроек в формате `"ключ": "значение"`. Список доступных настроек в [официальной документации]({{ tr.docs }}/connector/clickhouse.html).
+    * `additional_properties` — список дополнительных настроек в формате `"ключ": "значение"`. Список доступных настроек в [официальной документации](https://trino.io/docs/current/connector/clickhouse.html).
 
     Идентификатор кластера можно запросить со [списком кластеров в каталоге](cluster-list.md#list-clusters).
 
@@ -883,20 +883,20 @@
 
 - Консоль управления {#console}
 
-    * **URI** — URI для подключения к кластеру {{ metastore-name }} в формате `thrift://<IP-адрес_кластера>:9083`.
+    * **URI** — URI для подключения к кластеру Apache Hive™ Metastore в формате `thrift://<IP-адрес_кластера>:9083`.
     
-        Чтобы узнать IP-адрес кластера {{ metastore-name }}:
-          1. Перейдите на страницу [каталога ресурсов]({{ link-console-main }}).
-          1. Перейдите в сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_metadata-hub }}**.
-          1. На панели слева выберите ![image](../../_assets/console-icons/database.svg) **{{ ui-key.yacloud.metastore.label_metastore }}**.
+        Чтобы узнать IP-адрес кластера Apache Hive™ Metastore:
+          1. Перейдите на страницу [каталога ресурсов](https://console.yandex.cloud).
+          1. Перейдите в сервис **Yandex MetaData Hub**.
+          1. На панели слева выберите ![image](../../_assets/console-icons/database.svg) **Metastore-сервер**.
     
         {% note warning %}
         
-        Для интеграции с сервисом {{ mtr-name }} требуется кластер {{ metastore-name }} с версией {{ metastore.integration-version }}.
+        Для интеграции с сервисом Managed Service for Trino требуется кластер Apache Hive™ Metastore с версией 3.1.
         
         {% endnote %}
     
-      * **Файловое хранилище** — тип файлового хранилища. Доступные варианты: [{{ objstorage-full-name }}](../../storage/quickstart/overview.md) и внешнее хранилище.
+      * **Файловое хранилище** — тип файлового хранилища. Доступные варианты: [Yandex Object Storage](../../storage/quickstart/overview.md) и внешнее хранилище.
     
         Для внешнего хранилища необходимо указать:
     
@@ -905,14 +905,14 @@
           * **Эндпоинт** — эндпоинт файлового хранилища, например `storage.yandexcloud.net`.
           * **Регион** — регион файлового хранилища, например `ru-central1`.
 
-    * **Дополнительные настройки** — в формате `ключ: значение`. Список доступных настроек в [официальной документации]({{ tr.docs }}/connector/delta-lake.html).
+    * **Дополнительные настройки** — в формате `ключ: значение`. Список доступных настроек в [официальной документации](https://trino.io/docs/current/connector/delta-lake.html).
 
 - CLI {#cli}
 
     Пример команды:
 
     ```bash
-    {{ yc-mdb-tr }} catalog create delta-lake <имя_каталога_{{ TR }}> \
+    yc managed-trino catalog create delta-lake <имя_каталога_Trino> \
       --cluster-id <идентификатор_кластера> \
       --metastore-hive-uri <URI_для_подключения> \
       --filesystem-native-s3 \
@@ -925,18 +925,18 @@
 
     Где:
 
-    * `--cluster-id` — идентификатор кластера, в котором создается каталог {{ TR }}. Идентификатор кластера можно запросить со [списком кластеров](cluster-list.md#list-clusters).
-    * `--metastore-hive-uri` — URI для подключения к кластеру {{ metastore-name }} в формате `thrift://<IP-адрес_кластера>:9083`.
+    * `--cluster-id` — идентификатор кластера, в котором создается каталог Trino. Идентификатор кластера можно запросить со [списком кластеров](cluster-list.md#list-clusters).
+    * `--metastore-hive-uri` — URI для подключения к кластеру Apache Hive™ Metastore в формате `thrift://<IP-адрес_кластера>:9083`.
     
-      Чтобы узнать IP-адрес кластера {{ metastore-name }}, в [консоли управления]({{ link-console-main }}) выберите сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_metadata-hub }}** и на панели слева выберите ![image](../../_assets/console-icons/database.svg) **{{ ui-key.yacloud.metastore.label_metastore }}**.
+      Чтобы узнать IP-адрес кластера Apache Hive™ Metastore, в [консоли управления](https://console.yandex.cloud) выберите сервис **Yandex MetaData Hub** и на панели слева выберите ![image](../../_assets/console-icons/database.svg) **Metastore-сервер**.
     
       {% note warning %}
       
-      Для интеграции с сервисом {{ mtr-name }} требуется кластер {{ metastore-name }} с версией {{ metastore.integration-version }}.
+      Для интеграции с сервисом Managed Service for Trino требуется кластер Apache Hive™ Metastore с версией 3.1.
       
       {% endnote %}
     
-    * `--filesystem-native-s3` — хранилище [{{ objstorage-full-name }}](../../storage/quickstart/overview.md).
+    * `--filesystem-native-s3` — хранилище [Yandex Object Storage](../../storage/quickstart/overview.md).
     * `--filesystem-external-s3-aws-access-key` — идентификатор AWS-совместимого статического ключа доступа.
     * `--filesystem-external-s3-aws-secret-key` — секретный ключ AWS-совместимого статического ключа доступа.
     * `--filesystem-external-s3-aws-endpoint` — эндпоинт файлового хранилища, например `storage.yandexcloud.net`.
@@ -944,18 +944,18 @@
     
       {% note info %}
     
-      Укажите либо флаг `--filesystem-native-s3`, чтобы использовать хранилище {{ objstorage-name }}, либо флаги группы `--filesystem-external-s3-aws`, чтобы использовать внешнее хранилище.
+      Укажите либо флаг `--filesystem-native-s3`, чтобы использовать хранилище Object Storage, либо флаги группы `--filesystem-external-s3-aws`, чтобы использовать внешнее хранилище.
     
       {% endnote %}
 
-    * `--additional-properties` — дополнительные настройки в формате `ключ=значение`. Список доступных настроек в [официальной документации]({{ tr.docs }}/connector/delta-lake.html).
+    * `--additional-properties` — дополнительные настройки в формате `ключ=значение`. Список доступных настроек в [официальной документации](https://trino.io/docs/current/connector/delta-lake.html).
 
-- {{ TF }} {#tf}
+- Terraform {#tf}
 
     Пример конфигурации:
 
     ```hcl
-    resource "yandex_trino_catalog" "<имя_каталога_{{ TR }}>" {
+    resource "yandex_trino_catalog" "<имя_каталога_Trino>" {
       ...
       delta_lake = {
         file_system = {
@@ -975,7 +975,7 @@
 
     * `file_system` — тип файлового хранилища. Доступные варианты:
     
-        * `s3` — хранилище [{{ objstorage-full-name }}](../../storage/quickstart/overview.md).
+        * `s3` — хранилище [Yandex Object Storage](../../storage/quickstart/overview.md).
         * `external_s3` — внешнее хранилище. Для него необходимо указать дополнительные параметры:
     
             * `aws_access_key` — идентификатор AWS-совместимого статического ключа доступа.
@@ -983,17 +983,17 @@
             * `aws_endpoint` — эндпоинт файлового хранилища, например `storage.yandexcloud.net`.
             * `aws_region` — регион файлового хранилища, например `ru-central1`.
     
-    * `metastore.uri` — URI для подключения к кластеру {{ metastore-name }} в формате `thrift://<IP-адрес_кластера>:9083`.
+    * `metastore.uri` — URI для подключения к кластеру Apache Hive™ Metastore в формате `thrift://<IP-адрес_кластера>:9083`.
     
-        Чтобы узнать IP-адрес кластера {{ metastore-name }}, в [консоли управления]({{ link-console-main }}) выберите сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_metadata-hub }}** и на панели слева выберите ![image](../../_assets/console-icons/database.svg) **{{ ui-key.yacloud.metastore.label_metastore }}**.
+        Чтобы узнать IP-адрес кластера Apache Hive™ Metastore, в [консоли управления](https://console.yandex.cloud) выберите сервис **Yandex MetaData Hub** и на панели слева выберите ![image](../../_assets/console-icons/database.svg) **Metastore-сервер**.
     
         {% note warning %}
         
-        Для интеграции с сервисом {{ mtr-name }} требуется кластер {{ metastore-name }} с версией {{ metastore.integration-version }}.
+        Для интеграции с сервисом Managed Service for Trino требуется кластер Apache Hive™ Metastore с версией 3.1.
         
         {% endnote %}
 
-    * `additional_properties` — список дополнительных настроек в формате `"ключ" = "значение"`. Список доступных настроек в [официальной документации]({{ tr.docs }}/connector/delta-lake.html).
+    * `additional_properties` — список дополнительных настроек в формате `"ключ" = "значение"`. Список доступных настроек в [официальной документации](https://trino.io/docs/current/connector/delta-lake.html).
 
 - REST API {#api}
 
@@ -1004,10 +1004,10 @@
         --request POST \
         --header "Authorization: Bearer $IAM_TOKEN" \
         --header "Content-Type: application/json" \
-        --url 'https://{{ api-host-trino }}/managed-trino/v1/clusters/<идентификатор_кластера>/catalogs' \
+        --url 'https://trino.api.cloud.yandex.net/managed-trino/v1/clusters/<идентификатор_кластера>/catalogs' \
         --data '{
                   "catalog": {
-                    "name": "<имя_каталога_{{ TR }}>",
+                    "name": "<имя_каталога_Trino>",
                     "connector": {
                       "deltaLake": {
                         "filesystem": {
@@ -1031,7 +1031,7 @@
 
     * `filesystem` — тип файлового хранилища. Доступные варианты:
     
-        * `s3` — хранилище [{{ objstorage-full-name }}](../../storage/quickstart/overview.md).
+        * `s3` — хранилище [Yandex Object Storage](../../storage/quickstart/overview.md).
         * `externalS3` — внешнее хранилище. Для него необходимо указать дополнительные параметры:
     
             * `awsAccessKey` — идентификатор AWS-совместимого статического ключа доступа.
@@ -1039,17 +1039,17 @@
             * `awsEndpoint` — эндпоинт файлового хранилища, например `storage.yandexcloud.net`.
             * `awsRegion` — регион файлового хранилища, например `ru-central1`.
     
-    * `metastore.hive.uri` — URI для подключения к кластеру {{ metastore-name }} в формате `thrift://<IP-адрес_кластера>:9083`.
+    * `metastore.hive.uri` — URI для подключения к кластеру Apache Hive™ Metastore в формате `thrift://<IP-адрес_кластера>:9083`.
     
-        Чтобы узнать IP-адрес кластера {{ metastore-name }}, в [консоли управления]({{ link-console-main }}) выберите сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_metadata-hub }}** и на панели слева выберите ![image](../../_assets/console-icons/database.svg) **{{ ui-key.yacloud.metastore.label_metastore }}**.
+        Чтобы узнать IP-адрес кластера Apache Hive™ Metastore, в [консоли управления](https://console.yandex.cloud) выберите сервис **Yandex MetaData Hub** и на панели слева выберите ![image](../../_assets/console-icons/database.svg) **Metastore-сервер**.
     
         {% note warning %}
         
-        Для интеграции с сервисом {{ mtr-name }} требуется кластер {{ metastore-name }} с версией {{ metastore.integration-version }}.
+        Для интеграции с сервисом Managed Service for Trino требуется кластер Apache Hive™ Metastore с версией 3.1.
         
         {% endnote %}
 
-    * `additionalProperties` — список дополнительных настроек в формате `"ключ": "значение"`. Список доступных настроек в [официальной документации]({{ tr.docs }}/connector/delta-lake.html).
+    * `additionalProperties` — список дополнительных настроек в формате `"ключ": "значение"`. Список доступных настроек в [официальной документации](https://trino.io/docs/current/connector/delta-lake.html).
 
     Идентификатор кластера можно запросить со [списком кластеров в каталоге](cluster-list.md#list-clusters).
 
@@ -1067,7 +1067,7 @@
         -d '{
               "cluster_id": "<идентификатор_кластера>",
               "catalog": {
-                "name": "<имя_каталога_{{ TR }}>",
+                "name": "<имя_каталога_Trino>",
                 "connector": {
                   "delta_lake": {
                     "filesystem": {
@@ -1085,7 +1085,7 @@
                 }
               }
             }' \
-        {{ api-host-trino }}:{{ port-https }} \
+        trino.api.cloud.yandex.net:443 \
         yandex.cloud.trino.v1.CatalogService.Create
     ```
 
@@ -1093,7 +1093,7 @@
 
     * `filesystem` — тип файлового хранилища. Доступные варианты:
     
-        * `s3` — хранилище [{{ objstorage-full-name }}](../../storage/quickstart/overview.md).
+        * `s3` — хранилище [Yandex Object Storage](../../storage/quickstart/overview.md).
         * `external_s3` — внешнее хранилище. Для него необходимо указать дополнительные параметры:
     
             * `aws_access_key` — идентификатор AWS-совместимого статического ключа доступа.
@@ -1101,93 +1101,93 @@
             * `aws_endpoint` — эндпоинт файлового хранилища, например `storage.yandexcloud.net`.
             * `aws_region` — регион файлового хранилища, например `ru-central1`.
     
-    * `metastore.hive.uri` — URI для подключения к кластеру {{ metastore-name }} в формате `thrift://<IP-адрес_кластера>:9083`.
+    * `metastore.hive.uri` — URI для подключения к кластеру Apache Hive™ Metastore в формате `thrift://<IP-адрес_кластера>:9083`.
     
-        Чтобы узнать IP-адрес кластера {{ metastore-name }}, в [консоли управления]({{ link-console-main }}) выберите сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_metadata-hub }}** и на панели слева выберите ![image](../../_assets/console-icons/database.svg) **{{ ui-key.yacloud.metastore.label_metastore }}**.
+        Чтобы узнать IP-адрес кластера Apache Hive™ Metastore, в [консоли управления](https://console.yandex.cloud) выберите сервис **Yandex MetaData Hub** и на панели слева выберите ![image](../../_assets/console-icons/database.svg) **Metastore-сервер**.
     
         {% note warning %}
         
-        Для интеграции с сервисом {{ mtr-name }} требуется кластер {{ metastore-name }} с версией {{ metastore.integration-version }}.
+        Для интеграции с сервисом Managed Service for Trino требуется кластер Apache Hive™ Metastore с версией 3.1.
         
         {% endnote %}
 
-    * `additional_properties` — список дополнительных настроек в формате `"ключ": "значение"`. Список доступных настроек в [официальной документации]({{ tr.docs }}/connector/delta-lake.html).
+    * `additional_properties` — список дополнительных настроек в формате `"ключ": "значение"`. Список доступных настроек в [официальной документации](https://trino.io/docs/current/connector/delta-lake.html).
 
     Идентификатор кластера можно запросить со [списком кластеров в каталоге](cluster-list.md#list-clusters).
 
 {% endlist %}
 
-### Коннектор {{ GP }}/Cloudberry {{ preview-stage }} {#gp-clouberry}
+### Коннектор Greenplum®/Cloudberry <code><b><small>Preview</small></b></code> {#gp-clouberry}
 
-Выберите тип подключения — [{{ connection-manager-name }}](../../metadata-hub/concepts/connection-manager.md) или **Ручная настройка** (пользовательская инсталляция), и задайте для него нужные настройки.
+Выберите тип подключения — [Connection Manager](../../metadata-hub/concepts/connection-manager.md) или **Ручная настройка** (пользовательская инсталляция), и задайте для него нужные настройки.
 
-{{ connection-manager-name }} позволяет создавать подключения к кластеру с управляемой базой данных и к пользовательской инсталляции базы данных.
+Connection Manager позволяет создавать подключения к кластеру с управляемой базой данных и к пользовательской инсталляции базы данных.
 
-При подключении с типом {{ connection-manager-name }} любые изменения в параметрах подключения автоматически учитываются в {{ TR }}. При подключении с типом **Ручная настройка** изменения в параметрах подключения не отслеживаются в {{ TR }}. Их необходимо отслеживать и вносить вручную.
+При подключении с типом Connection Manager любые изменения в параметрах подключения автоматически учитываются в Trino. При подключении с типом **Ручная настройка** изменения в параметрах подключения не отслеживаются в Trino. Их необходимо отслеживать и вносить вручную.
 
-Для использования [параллельного чтения данных](../concepts/greenplum-connector.md#parallel-reading) назначьте пользователю {{ GP }}, от имени которого будет происходить подключение, привилегии на чтение таблицы `pg_catalog.gp_segment_configuration`:
+Для использования [параллельного чтения данных](../concepts/greenplum-connector.md#parallel-reading) назначьте пользователю Greenplum®, от имени которого будет происходить подключение, привилегии на чтение таблицы `pg_catalog.gp_segment_configuration`:
 
 ```sql
-GRANT SELECT ON pg_catalog.gp_segment_configuration TO <имя_пользователя_{{ GP }}>;
+GRANT SELECT ON pg_catalog.gp_segment_configuration TO <имя_пользователя_Greenplum®>;
 ```
 
-Для использования [чтения данных напрямую с сегментов](../concepts/greenplum-connector.md#gpfdist-reading) по протоколу GPFDIST назначьте пользователю {{ GP }} права на создание внешних таблиц:
+Для использования [чтения данных напрямую с сегментов](../concepts/greenplum-connector.md#gpfdist-reading) по протоколу GPFDIST назначьте пользователю Greenplum® права на создание внешних таблиц:
 
 ```sql
-ALTER ROLE <имя_пользователя_{{ GP }}> CREATEEXTTABLE (type='writable');
+ALTER ROLE <имя_пользователя_Greenplum®> CREATEEXTTABLE (type='writable');
 ```
 
 {% note warning %}
 
-Данные, передающиеся по протоколу GPFDIST между кластерами {{ mtr-name }} и {{ mgp-name }}, не шифруются. Чтобы обеспечить безопасное подключение, [настройте группы безопасности кластеров](connect.md#security-groups-for-greenplum).
+Данные, передающиеся по протоколу GPFDIST между кластерами Managed Service for Trino и Yandex MPP Analytics for PostgreSQL, не шифруются. Чтобы обеспечить безопасное подключение, [настройте группы безопасности кластеров](connect.md#security-groups-for-greenplum).
 
 {% endnote %}
 
-Подробнее о работе коннектора читайте в разделе [Коннектор {{ GP }}/Cloudberry](../concepts/greenplum-connector.md).
+Подробнее о работе коннектора читайте в разделе [Коннектор Greenplum®/Cloudberry](../concepts/greenplum-connector.md).
 
-#### Подключение {{ connection-manager-name }} {#gp-clouberry-connection-manager}
+#### Подключение Connection Manager {#gp-clouberry-connection-manager}
 
 {% list tabs group=instructions %}
 
 - Консоль управления {#console}
 
-    * **Идентификатор подключения** — идентификатор подключения к кластеру {{ GP }} в {{ connection-manager-name }}.
+    * **Идентификатор подключения** — идентификатор подключения к кластеру Greenplum® в Connection Manager.
 
         Чтобы узнать идентификатор подключения:
         
-        1. Перейдите на страницу [каталога ресурсов]({{ link-console-main }}).
-        1. [Перейдите](../../console/operations/select-service.md#select-service) в сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_metadata-hub }}**.
-        1. Перейдите на вкладку **{{ ui-key.yacloud.iam.folder.dashboard.label_connection-manager }}**.
+        1. Перейдите на страницу [каталога ресурсов](https://console.yandex.cloud).
+        1. [Перейдите](../../console/operations/select-service.md#select-service) в сервис **Yandex MetaData Hub**.
+        1. Перейдите на вкладку **Connection manager**.
 
-    * **База данных** — имя БД в кластере {{ GP }}.
-    * **Дополнительные настройки** — в формате `ключ:значение`. Список доступных настроек представлен в разделе [Коннектор {{ GP }}](../concepts/greenplum-connector.md#settings).
+    * **База данных** — имя БД в кластере Greenplum®.
+    * **Дополнительные настройки** — в формате `ключ:значение`. Список доступных настроек представлен в разделе [Коннектор Greenplum®](../concepts/greenplum-connector.md#settings).
 
 - CLI {#cli}
 
     Пример команды:
 
     ```bash
-    {{ yc-mdb-tr }} catalog create greenplum <имя_каталога_{{ TR }}> \
-      --cluster-id <идентификатор_кластера_{{ TR }}> \
+    yc managed-trino catalog create greenplum <имя_каталога_Trino> \
+      --cluster-id <идентификатор_кластера_Trino> \
       --connection-manager-connection-id <идентификатор_подключения> \
       --connection-manager-database <имя_БД> \
-      --connection-manager-connection-properties <список_настроек_клиента_{{ GP }}> \
+      --connection-manager-connection-properties <список_настроек_клиента_Greenplum®> \
       --additional-properties <список_дополнительных_настроек>
     ```
 
     Где:
 
-    * `--cluster-id` — идентификатор кластера, в котором создается каталог {{ TR }}. Идентификатор можно запросить со [списком кластеров](cluster-list.md#list-clusters).
-    * `--connection-manager-connection-id` — идентификатор подключения к кластеру {{ GP }} в {{ connection-manager-name }}.
+    * `--cluster-id` — идентификатор кластера, в котором создается каталог Trino. Идентификатор можно запросить со [списком кластеров](cluster-list.md#list-clusters).
+    * `--connection-manager-connection-id` — идентификатор подключения к кластеру Greenplum® в Connection Manager.
 
         Чтобы узнать идентификатор подключения:
         
-        1. Перейдите на страницу [каталога ресурсов]({{ link-console-main }}).
-        1. [Перейдите](../../console/operations/select-service.md#select-service) в сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_metadata-hub }}**.
-        1. Перейдите на вкладку **{{ ui-key.yacloud.iam.folder.dashboard.label_connection-manager }}**.
+        1. Перейдите на страницу [каталога ресурсов](https://console.yandex.cloud).
+        1. [Перейдите](../../console/operations/select-service.md#select-service) в сервис **Yandex MetaData Hub**.
+        1. Перейдите на вкладку **Connection manager**.
 
-    * `--connection-manager-database` — имя БД в кластере {{ GP }}.
-    * `--connection-manager-connection-properties` — список настроек клиента {{ GP }} в формате `ключ=значение`.
+    * `--connection-manager-database` — имя БД в кластере Greenplum®.
+    * `--connection-manager-connection-properties` — список настроек клиента Greenplum® в формате `ключ=значение`.
 
         {% cut "Доступные параметры" %}
         
@@ -1226,21 +1226,21 @@ ALTER ROLE <имя_пользователя_{{ GP }}> CREATEEXTTABLE (type='writ
         
         {% endcut %}
 
-    * `--additional-properties` — дополнительные настройки в формате `ключ=значение`. Список доступных настроек представлен в разделе [Коннектор {{ GP }}](../concepts/greenplum-connector.md#settings).
+    * `--additional-properties` — дополнительные настройки в формате `ключ=значение`. Список доступных настроек представлен в разделе [Коннектор Greenplum®](../concepts/greenplum-connector.md#settings).
 
-- {{ TF }} {#tf}
+- Terraform {#tf}
 
     Пример конфигурации:
 
     ```hcl
-    resource "yandex_trino_catalog" "<имя_каталога_{{ TR }}>" {
+    resource "yandex_trino_catalog" "<имя_каталога_Trino>" {
       ...
       greenplum = {
         connection_manager = {
           connection_id = "<идентификатор_подключения>"
           database      = "<имя_БД>"
           connection_properties = {
-            <список_настроек_клиента_{{ GP }}>
+            <список_настроек_клиента_Greenplum®>
           }
         }
         additional_properties = {
@@ -1252,18 +1252,18 @@ ALTER ROLE <имя_пользователя_{{ GP }}> CREATEEXTTABLE (type='writ
 
     Где:
 
-    * `connection_manager` — настройки {{ connection-manager-name }}:
+    * `connection_manager` — настройки Connection Manager:
 
-        * `connection_id` — идентификатор подключения к кластеру {{ GP }} в {{ connection-manager-name }}.
+        * `connection_id` — идентификатор подключения к кластеру Greenplum® в Connection Manager.
 
             Чтобы узнать идентификатор подключения:
             
-            1. Перейдите на страницу [каталога ресурсов]({{ link-console-main }}).
-            1. [Перейдите](../../console/operations/select-service.md#select-service) в сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_metadata-hub }}**.
-            1. Перейдите на вкладку **{{ ui-key.yacloud.iam.folder.dashboard.label_connection-manager }}**.
+            1. Перейдите на страницу [каталога ресурсов](https://console.yandex.cloud).
+            1. [Перейдите](../../console/operations/select-service.md#select-service) в сервис **Yandex MetaData Hub**.
+            1. Перейдите на вкладку **Connection manager**.
 
-        * `database` — имя БД в кластере {{ GP }}.
-        * `connection_properties` — список настроек клиента {{ GP }} в формате `"ключ" = "значение"`.
+        * `database` — имя БД в кластере Greenplum®.
+        * `connection_properties` — список настроек клиента Greenplum® в формате `"ключ" = "значение"`.
 
             {% cut "Доступные параметры" %}
             
@@ -1302,7 +1302,7 @@ ALTER ROLE <имя_пользователя_{{ GP }}> CREATEEXTTABLE (type='writ
             
             {% endcut %}
 
-    * `additional_properties` — список дополнительных настроек в формате `"ключ" = "значение"`. Список доступных настроек представлен в разделе [Коннектор {{ GP }}](../concepts/greenplum-connector.md#settings).
+    * `additional_properties` — список дополнительных настроек в формате `"ключ" = "значение"`. Список доступных настроек представлен в разделе [Коннектор Greenplum®](../concepts/greenplum-connector.md#settings).
 
 - REST API {#api}
 
@@ -1313,10 +1313,10 @@ ALTER ROLE <имя_пользователя_{{ GP }}> CREATEEXTTABLE (type='writ
         --request POST \
         --header "Authorization: Bearer $IAM_TOKEN" \
         --header "Content-Type: application/json" \
-        --url 'https://{{ api-host-trino }}/managed-trino/v1/clusters/<идентификатор_кластера_{{ TR }}>/catalogs' \
+        --url 'https://trino.api.cloud.yandex.net/managed-trino/v1/clusters/<идентификатор_кластера_Trino>/catalogs' \
         --data '{
                   "catalog": {
-                    "name": "<имя_каталога_{{ TR }}>",
+                    "name": "<имя_каталога_Trino>",
                     "connector": {
                       "greenplum": {
                         "connection": {
@@ -1324,7 +1324,7 @@ ALTER ROLE <имя_пользователя_{{ GP }}> CREATEEXTTABLE (type='writ
                             "connectionId": "<идентификатор_подключения>",
                             "database": "<имя_БД>",
                             "connectionProperties": {
-                              <список_настроек_клиента_{{ GP }}>
+                              <список_настроек_клиента_Greenplum®>
                             }
                           }
                         },
@@ -1339,18 +1339,18 @@ ALTER ROLE <имя_пользователя_{{ GP }}> CREATEEXTTABLE (type='writ
 
     Где:
 
-    * `connectionManager` — настройки {{ connection-manager-name }}:
+    * `connectionManager` — настройки Connection Manager:
 
-        * `connectionId` — идентификатор подключения к кластеру {{ GP }} в {{ connection-manager-name }}.
+        * `connectionId` — идентификатор подключения к кластеру Greenplum® в Connection Manager.
 
             Чтобы узнать идентификатор подключения:
             
-            1. Перейдите на страницу [каталога ресурсов]({{ link-console-main }}).
-            1. [Перейдите](../../console/operations/select-service.md#select-service) в сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_metadata-hub }}**.
-            1. Перейдите на вкладку **{{ ui-key.yacloud.iam.folder.dashboard.label_connection-manager }}**.
+            1. Перейдите на страницу [каталога ресурсов](https://console.yandex.cloud).
+            1. [Перейдите](../../console/operations/select-service.md#select-service) в сервис **Yandex MetaData Hub**.
+            1. Перейдите на вкладку **Connection manager**.
 
-        * `database` — имя БД в кластере {{ GP }}.
-        * `connectionProperties` — список настроек клиента {{ GP }} в формате `"ключ": "значение"`.
+        * `database` — имя БД в кластере Greenplum®.
+        * `connectionProperties` — список настроек клиента Greenplum® в формате `"ключ": "значение"`.
 
             {% cut "Доступные параметры" %}
             
@@ -1389,9 +1389,9 @@ ALTER ROLE <имя_пользователя_{{ GP }}> CREATEEXTTABLE (type='writ
             
             {% endcut %}
 
-    * `additionalProperties` — список дополнительных настроек в формате `"ключ": "значение"`. Список доступных настроек представлен в разделе [Коннектор {{ GP }}](../concepts/greenplum-connector.md#settings).
+    * `additionalProperties` — список дополнительных настроек в формате `"ключ": "значение"`. Список доступных настроек представлен в разделе [Коннектор Greenplum®](../concepts/greenplum-connector.md#settings).
 
-    Идентификатор кластера {{ TR }} можно запросить со [списком кластеров в каталоге](cluster-list.md#list-clusters).
+    Идентификатор кластера Trino можно запросить со [списком кластеров в каталоге](cluster-list.md#list-clusters).
 
 - gRPC API {#grpc-api}
 
@@ -1405,9 +1405,9 @@ ALTER ROLE <имя_пользователя_{{ GP }}> CREATEEXTTABLE (type='writ
         -proto ~/cloudapi/yandex/cloud/trino/v1/catalog_service.proto \
         -rpc-header "Authorization: Bearer $IAM_TOKEN" \
         -d '{
-              "cluster_id": "<идентификатор_кластера_{{ TR }}>",
+              "cluster_id": "<идентификатор_кластера_Trino>",
               "catalog": {
-                "name": "<имя_каталога_{{ TR }}>",
+                "name": "<имя_каталога_Trino>",
                 "connector": {
                   "greenplum": {
                     "connection": {
@@ -1415,7 +1415,7 @@ ALTER ROLE <имя_пользователя_{{ GP }}> CREATEEXTTABLE (type='writ
                         "connection_id": "<идентификатор_подключения>",
                         "database": "<имя_БД>",
                         "connection_properties": {
-                          <список_настроек_клиента_{{ GP }}>
+                          <список_настроек_клиента_Greenplum®>
                         }
                       }
                     },
@@ -1426,24 +1426,24 @@ ALTER ROLE <имя_пользователя_{{ GP }}> CREATEEXTTABLE (type='writ
                 }
               }
             }' \
-        {{ api-host-trino }}:{{ port-https }} \
+        trino.api.cloud.yandex.net:443 \
         yandex.cloud.trino.v1.CatalogService.Create
     ```
 
     Где:
 
-    * `connection_manager` — настройки {{ connection-manager-name }}:
+    * `connection_manager` — настройки Connection Manager:
 
-        * `connection_id` — идентификатор подключения к кластеру {{ GP }} в {{ connection-manager-name }}.
+        * `connection_id` — идентификатор подключения к кластеру Greenplum® в Connection Manager.
 
             Чтобы узнать идентификатор подключения:
             
-            1. Перейдите на страницу [каталога ресурсов]({{ link-console-main }}).
-            1. [Перейдите](../../console/operations/select-service.md#select-service) в сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_metadata-hub }}**.
-            1. Перейдите на вкладку **{{ ui-key.yacloud.iam.folder.dashboard.label_connection-manager }}**.
+            1. Перейдите на страницу [каталога ресурсов](https://console.yandex.cloud).
+            1. [Перейдите](../../console/operations/select-service.md#select-service) в сервис **Yandex MetaData Hub**.
+            1. Перейдите на вкладку **Connection manager**.
 
-        * `database` — имя БД в кластере {{ GP }}.
-        * `connection_properties` — список настроек клиента {{ GP }} в формате `"ключ": "значение"`.
+        * `database` — имя БД в кластере Greenplum®.
+        * `connection_properties` — список настроек клиента Greenplum® в формате `"ключ": "значение"`.
 
             {% cut "Доступные параметры" %}
             
@@ -1482,9 +1482,9 @@ ALTER ROLE <имя_пользователя_{{ GP }}> CREATEEXTTABLE (type='writ
             
             {% endcut %}
 
-    * `additional_properties` — список дополнительных настроек в формате `"ключ": "значение"`. Список доступных настроек представлен в разделе [Коннектор {{ GP }}](../concepts/greenplum-connector.md#settings).
+    * `additional_properties` — список дополнительных настроек в формате `"ключ": "значение"`. Список доступных настроек представлен в разделе [Коннектор Greenplum®](../concepts/greenplum-connector.md#settings).
 
-    Идентификатор кластера {{ TR }} можно запросить со [списком кластеров в каталоге](cluster-list.md#list-clusters).
+    Идентификатор кластера Trino можно запросить со [списком кластеров в каталоге](cluster-list.md#list-clusters).
 
 {% endlist %}
 
@@ -1494,18 +1494,18 @@ ALTER ROLE <имя_пользователя_{{ GP }}> CREATEEXTTABLE (type='writ
 
 - Консоль управления {#console}
 
-    * **URL** — URL для подключения к БД {{ GP }} в формате `jdbc:postgresql://<адрес_хоста>:<порт>/<имя_БД>`.
-    * **Имя пользователя** — имя пользователя для подключения к БД {{ GP }}.
-    * **Пароль** — пароль пользователя для подключения к БД {{ GP }}.
-    * **Дополнительные настройки** — в формате `ключ:значение`. Список доступных настроек представлен в разделе [Коннектор {{ GP }}](../concepts/greenplum-connector.md#settings).
+    * **URL** — URL для подключения к БД Greenplum® в формате `jdbc:postgresql://<адрес_хоста>:<порт>/<имя_БД>`.
+    * **Имя пользователя** — имя пользователя для подключения к БД Greenplum®.
+    * **Пароль** — пароль пользователя для подключения к БД Greenplum®.
+    * **Дополнительные настройки** — в формате `ключ:значение`. Список доступных настроек представлен в разделе [Коннектор Greenplum®](../concepts/greenplum-connector.md#settings).
 
 - CLI {#cli}
 
     Пример команды:
 
     ```bash
-    {{ yc-mdb-tr }} catalog create greenplum <имя_каталога_{{ TR }}> \
-      --cluster-id <идентификатор_кластера_{{ TR }}> \
+    yc managed-trino catalog create greenplum <имя_каталога_Trino> \
+      --cluster-id <идентификатор_кластера_Trino> \
       --on-premise-connection-url <URL_для_подключения> \
       --on-premise-user-name <имя_пользователя> \
       --on-premise-password <пароль_пользователя> \
@@ -1514,18 +1514,18 @@ ALTER ROLE <имя_пользователя_{{ GP }}> CREATEEXTTABLE (type='writ
 
     Где:
 
-    * `--cluster-id` — идентификатор кластера, в котором создается каталог {{ TR }}. Идентификатор кластера можно запросить со [списком кластеров](cluster-list.md#list-clusters).
-    * `--on-premise-connection-url` — URL для подключения к БД {{ GP }} в формате `jdbc:postgresql://<адрес_хоста>:<порт>/<имя_БД>`.
-    * `--on-premise-user-name` — имя пользователя для подключения к БД {{ GP }}.
-    * `--on-premise-password` — пароль пользователя для подключения к БД {{ GP }}.
-    * `--additional-properties` — дополнительные настройки в формате `ключ=значение`. Список доступных настроек представлен в разделе [Коннектор {{ GP }}](../concepts/greenplum-connector.md#settings).
+    * `--cluster-id` — идентификатор кластера, в котором создается каталог Trino. Идентификатор кластера можно запросить со [списком кластеров](cluster-list.md#list-clusters).
+    * `--on-premise-connection-url` — URL для подключения к БД Greenplum® в формате `jdbc:postgresql://<адрес_хоста>:<порт>/<имя_БД>`.
+    * `--on-premise-user-name` — имя пользователя для подключения к БД Greenplum®.
+    * `--on-premise-password` — пароль пользователя для подключения к БД Greenplum®.
+    * `--additional-properties` — дополнительные настройки в формате `ключ=значение`. Список доступных настроек представлен в разделе [Коннектор Greenplum®](../concepts/greenplum-connector.md#settings).
 
-- {{ TF }} {#tf}
+- Terraform {#tf}
 
     Пример конфигурации:
 
     ```hcl
-    resource "yandex_trino_catalog" "<имя_каталога_{{ TR }}>" {
+    resource "yandex_trino_catalog" "<имя_каталога_Trino>" {
       ...
       greenplum = {
         on_premise = {
@@ -1544,11 +1544,11 @@ ALTER ROLE <имя_пользователя_{{ GP }}> CREATEEXTTABLE (type='writ
 
     * `on_premise` — настройки для подключения к пользовательской инсталляции:
 
-        * `connection_url` — URL для подключения к БД {{ GP }} в формате `jdbc:postgresql://<адрес_хоста>:<порт>/<имя_БД>`.
-        * `user_name` — имя пользователя для подключения к БД {{ GP }}.
-        * `password` — пароль пользователя для подключения к БД {{ GP }}.
+        * `connection_url` — URL для подключения к БД Greenplum® в формате `jdbc:postgresql://<адрес_хоста>:<порт>/<имя_БД>`.
+        * `user_name` — имя пользователя для подключения к БД Greenplum®.
+        * `password` — пароль пользователя для подключения к БД Greenplum®.
 
-    * `additional_properties` — список дополнительных настроек в формате `"ключ" = "значение"`. Список доступных настроек представлен в разделе [Коннектор {{ GP }}](../concepts/greenplum-connector.md#settings).
+    * `additional_properties` — список дополнительных настроек в формате `"ключ" = "значение"`. Список доступных настроек представлен в разделе [Коннектор Greenplum®](../concepts/greenplum-connector.md#settings).
 
 - REST API {#api}
 
@@ -1559,10 +1559,10 @@ ALTER ROLE <имя_пользователя_{{ GP }}> CREATEEXTTABLE (type='writ
         --request POST \
         --header "Authorization: Bearer $IAM_TOKEN" \
         --header "Content-Type: application/json" \
-        --url 'https://{{ api-host-trino }}/managed-trino/v1/clusters/<идентификатор_кластера_{{ TR }}>/catalogs' \
+        --url 'https://trino.api.cloud.yandex.net/managed-trino/v1/clusters/<идентификатор_кластера_Trino>/catalogs' \
         --data '{
                   "catalog": {
-                    "name": "<имя_каталога_{{ TR }}>",
+                    "name": "<имя_каталога_Trino>",
                     "connector": {
                       "greenplum": {
                         "connection": {
@@ -1585,13 +1585,13 @@ ALTER ROLE <имя_пользователя_{{ GP }}> CREATEEXTTABLE (type='writ
 
     * `onPremise` — настройки для подключения к пользовательской инсталляции:
 
-        * `connectionUrl` — URL для подключения к БД {{ GP }} в формате `jdbc:postgresql://<адрес_хоста>:<порт>/<имя_БД>`.
-        * `userName` — имя пользователя для подключения к БД {{ GP }}.
-        * `password` — пароль пользователя для подключения к БД {{ GP }}.
+        * `connectionUrl` — URL для подключения к БД Greenplum® в формате `jdbc:postgresql://<адрес_хоста>:<порт>/<имя_БД>`.
+        * `userName` — имя пользователя для подключения к БД Greenplum®.
+        * `password` — пароль пользователя для подключения к БД Greenplum®.
 
-    * `additionalProperties` — список дополнительных настроек в формате `"ключ": "значение"`. Список доступных настроек представлен в разделе [Коннектор {{ GP }}](../concepts/greenplum-connector.md#settings).
+    * `additionalProperties` — список дополнительных настроек в формате `"ключ": "значение"`. Список доступных настроек представлен в разделе [Коннектор Greenplum®](../concepts/greenplum-connector.md#settings).
 
-    Идентификатор кластера {{ TR }} можно запросить со [списком кластеров в каталоге](cluster-list.md#list-clusters).
+    Идентификатор кластера Trino можно запросить со [списком кластеров в каталоге](cluster-list.md#list-clusters).
 
 - gRPC API {#grpc-api}
 
@@ -1605,9 +1605,9 @@ ALTER ROLE <имя_пользователя_{{ GP }}> CREATEEXTTABLE (type='writ
         -proto ~/cloudapi/yandex/cloud/trino/v1/catalog_service.proto \
         -rpc-header "Authorization: Bearer $IAM_TOKEN" \
         -d '{
-              "cluster_id": "<идентификатор_кластера_{{ TR }}>",
+              "cluster_id": "<идентификатор_кластера_Trino>",
               "catalog": {
-                "name": "<имя_каталога_{{ TR }}>",
+                "name": "<имя_каталога_Trino>",
                 "connector": {
                   "greenplum": {
                     "connection": {
@@ -1624,7 +1624,7 @@ ALTER ROLE <имя_пользователя_{{ GP }}> CREATEEXTTABLE (type='writ
                 }
               }
             }' \
-        {{ api-host-trino }}:{{ port-https }} \
+        trino.api.cloud.yandex.net:443 \
         yandex.cloud.trino.v1.CatalogService.Create
     ```
 
@@ -1632,13 +1632,13 @@ ALTER ROLE <имя_пользователя_{{ GP }}> CREATEEXTTABLE (type='writ
 
     * `on_premise` — настройки для подключения к пользовательской инсталляции:
 
-        * `connection_url` — URL для подключения к БД {{ GP }} в формате `jdbc:postgresql://<адрес_хоста>:<порт>/<имя_БД>`.
-        * `user_name` — имя пользователя для подключения к БД {{ GP }}.
-        * `password` — пароль пользователя для подключения к БД {{ GP }}.
+        * `connection_url` — URL для подключения к БД Greenplum® в формате `jdbc:postgresql://<адрес_хоста>:<порт>/<имя_БД>`.
+        * `user_name` — имя пользователя для подключения к БД Greenplum®.
+        * `password` — пароль пользователя для подключения к БД Greenplum®.
 
-    * `additional_properties` — список дополнительных настроек в формате `"ключ": "значение"`. Список доступных настроек представлен в разделе [Коннектор {{ GP }}](../concepts/greenplum-connector.md#settings).
+    * `additional_properties` — список дополнительных настроек в формате `"ключ": "значение"`. Список доступных настроек представлен в разделе [Коннектор Greenplum®](../concepts/greenplum-connector.md#settings).
 
-    Идентификатор кластера {{ TR }} можно запросить со [списком кластеров в каталоге](cluster-list.md#list-clusters).
+    Идентификатор кластера Trino можно запросить со [списком кластеров в каталоге](cluster-list.md#list-clusters).
 
 {% endlist %}
 
@@ -1648,20 +1648,20 @@ ALTER ROLE <имя_пользователя_{{ GP }}> CREATEEXTTABLE (type='writ
 
 - Консоль управления {#console}
 
-    * **URI** — URI для подключения к кластеру {{ metastore-name }} в формате `thrift://<IP-адрес_кластера>:9083`.
+    * **URI** — URI для подключения к кластеру Apache Hive™ Metastore в формате `thrift://<IP-адрес_кластера>:9083`.
     
-        Чтобы узнать IP-адрес кластера {{ metastore-name }}:
-          1. Перейдите на страницу [каталога ресурсов]({{ link-console-main }}).
-          1. Перейдите в сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_metadata-hub }}**.
-          1. На панели слева выберите ![image](../../_assets/console-icons/database.svg) **{{ ui-key.yacloud.metastore.label_metastore }}**.
+        Чтобы узнать IP-адрес кластера Apache Hive™ Metastore:
+          1. Перейдите на страницу [каталога ресурсов](https://console.yandex.cloud).
+          1. Перейдите в сервис **Yandex MetaData Hub**.
+          1. На панели слева выберите ![image](../../_assets/console-icons/database.svg) **Metastore-сервер**.
     
         {% note warning %}
         
-        Для интеграции с сервисом {{ mtr-name }} требуется кластер {{ metastore-name }} с версией {{ metastore.integration-version }}.
+        Для интеграции с сервисом Managed Service for Trino требуется кластер Apache Hive™ Metastore с версией 3.1.
         
         {% endnote %}
     
-      * **Файловое хранилище** — тип файлового хранилища. Доступные варианты: [{{ objstorage-full-name }}](../../storage/quickstart/overview.md) и внешнее хранилище.
+      * **Файловое хранилище** — тип файлового хранилища. Доступные варианты: [Yandex Object Storage](../../storage/quickstart/overview.md) и внешнее хранилище.
     
         Для внешнего хранилища необходимо указать:
     
@@ -1670,14 +1670,14 @@ ALTER ROLE <имя_пользователя_{{ GP }}> CREATEEXTTABLE (type='writ
           * **Эндпоинт** — эндпоинт файлового хранилища, например `storage.yandexcloud.net`.
           * **Регион** — регион файлового хранилища, например `ru-central1`.
 
-    * **Дополнительные настройки** — в формате `ключ: значение`. Список доступных настроек в [официальной документации]({{ tr.docs }}/connector/hive.html).
+    * **Дополнительные настройки** — в формате `ключ: значение`. Список доступных настроек в [официальной документации](https://trino.io/docs/current/connector/hive.html).
 
 - CLI {#cli}
 
     Пример команды:
 
     ```bash
-    {{ yc-mdb-tr }} catalog create hive <имя_каталога_{{ TR }}> \
+    yc managed-trino catalog create hive <имя_каталога_Trino> \
       --cluster-id <идентификатор_кластера> \
       --metastore-hive-uri <URI_для_подключения> \
       --filesystem-native-s3 \
@@ -1690,18 +1690,18 @@ ALTER ROLE <имя_пользователя_{{ GP }}> CREATEEXTTABLE (type='writ
 
     Где:
 
-    * `--cluster-id` — идентификатор кластера, в котором создается каталог {{ TR }}. Идентификатор кластера можно запросить со [списком кластеров](cluster-list.md#list-clusters).
-    * `--metastore-hive-uri` — URI для подключения к кластеру {{ metastore-name }} в формате `thrift://<IP-адрес_кластера>:9083`.
+    * `--cluster-id` — идентификатор кластера, в котором создается каталог Trino. Идентификатор кластера можно запросить со [списком кластеров](cluster-list.md#list-clusters).
+    * `--metastore-hive-uri` — URI для подключения к кластеру Apache Hive™ Metastore в формате `thrift://<IP-адрес_кластера>:9083`.
     
-      Чтобы узнать IP-адрес кластера {{ metastore-name }}, в [консоли управления]({{ link-console-main }}) выберите сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_metadata-hub }}** и на панели слева выберите ![image](../../_assets/console-icons/database.svg) **{{ ui-key.yacloud.metastore.label_metastore }}**.
+      Чтобы узнать IP-адрес кластера Apache Hive™ Metastore, в [консоли управления](https://console.yandex.cloud) выберите сервис **Yandex MetaData Hub** и на панели слева выберите ![image](../../_assets/console-icons/database.svg) **Metastore-сервер**.
     
       {% note warning %}
       
-      Для интеграции с сервисом {{ mtr-name }} требуется кластер {{ metastore-name }} с версией {{ metastore.integration-version }}.
+      Для интеграции с сервисом Managed Service for Trino требуется кластер Apache Hive™ Metastore с версией 3.1.
       
       {% endnote %}
     
-    * `--filesystem-native-s3` — хранилище [{{ objstorage-full-name }}](../../storage/quickstart/overview.md).
+    * `--filesystem-native-s3` — хранилище [Yandex Object Storage](../../storage/quickstart/overview.md).
     * `--filesystem-external-s3-aws-access-key` — идентификатор AWS-совместимого статического ключа доступа.
     * `--filesystem-external-s3-aws-secret-key` — секретный ключ AWS-совместимого статического ключа доступа.
     * `--filesystem-external-s3-aws-endpoint` — эндпоинт файлового хранилища, например `storage.yandexcloud.net`.
@@ -1709,18 +1709,18 @@ ALTER ROLE <имя_пользователя_{{ GP }}> CREATEEXTTABLE (type='writ
     
       {% note info %}
     
-      Укажите либо флаг `--filesystem-native-s3`, чтобы использовать хранилище {{ objstorage-name }}, либо флаги группы `--filesystem-external-s3-aws`, чтобы использовать внешнее хранилище.
+      Укажите либо флаг `--filesystem-native-s3`, чтобы использовать хранилище Object Storage, либо флаги группы `--filesystem-external-s3-aws`, чтобы использовать внешнее хранилище.
     
       {% endnote %}
 
-    * `--additional-properties` — дополнительные настройки в формате `ключ=значение`. Список доступных настроек в [официальной документации]({{ tr.docs }}/connector/hive.html).
+    * `--additional-properties` — дополнительные настройки в формате `ключ=значение`. Список доступных настроек в [официальной документации](https://trino.io/docs/current/connector/hive.html).
 
-- {{ TF }} {#tf}
+- Terraform {#tf}
 
     Пример конфигурации:
 
     ```hcl
-    resource "yandex_trino_catalog" "<имя_каталога_{{ TR }}>" {
+    resource "yandex_trino_catalog" "<имя_каталога_Trino>" {
       ...
       hive = {
         file_system = {
@@ -1740,7 +1740,7 @@ ALTER ROLE <имя_пользователя_{{ GP }}> CREATEEXTTABLE (type='writ
 
     * `file_system` — тип файлового хранилища. Доступные варианты:
     
-        * `s3` — хранилище [{{ objstorage-full-name }}](../../storage/quickstart/overview.md).
+        * `s3` — хранилище [Yandex Object Storage](../../storage/quickstart/overview.md).
         * `external_s3` — внешнее хранилище. Для него необходимо указать дополнительные параметры:
     
             * `aws_access_key` — идентификатор AWS-совместимого статического ключа доступа.
@@ -1748,17 +1748,17 @@ ALTER ROLE <имя_пользователя_{{ GP }}> CREATEEXTTABLE (type='writ
             * `aws_endpoint` — эндпоинт файлового хранилища, например `storage.yandexcloud.net`.
             * `aws_region` — регион файлового хранилища, например `ru-central1`.
     
-    * `metastore.uri` — URI для подключения к кластеру {{ metastore-name }} в формате `thrift://<IP-адрес_кластера>:9083`.
+    * `metastore.uri` — URI для подключения к кластеру Apache Hive™ Metastore в формате `thrift://<IP-адрес_кластера>:9083`.
     
-        Чтобы узнать IP-адрес кластера {{ metastore-name }}, в [консоли управления]({{ link-console-main }}) выберите сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_metadata-hub }}** и на панели слева выберите ![image](../../_assets/console-icons/database.svg) **{{ ui-key.yacloud.metastore.label_metastore }}**.
+        Чтобы узнать IP-адрес кластера Apache Hive™ Metastore, в [консоли управления](https://console.yandex.cloud) выберите сервис **Yandex MetaData Hub** и на панели слева выберите ![image](../../_assets/console-icons/database.svg) **Metastore-сервер**.
     
         {% note warning %}
         
-        Для интеграции с сервисом {{ mtr-name }} требуется кластер {{ metastore-name }} с версией {{ metastore.integration-version }}.
+        Для интеграции с сервисом Managed Service for Trino требуется кластер Apache Hive™ Metastore с версией 3.1.
         
         {% endnote %}
 
-    * `additional_properties` — список дополнительных настроек в формате `"ключ" = "значение"`. Список доступных настроек в [официальной документации]({{ tr.docs }}/connector/hive.html).
+    * `additional_properties` — список дополнительных настроек в формате `"ключ" = "значение"`. Список доступных настроек в [официальной документации](https://trino.io/docs/current/connector/hive.html).
 
 - REST API {#api}
 
@@ -1769,10 +1769,10 @@ ALTER ROLE <имя_пользователя_{{ GP }}> CREATEEXTTABLE (type='writ
         --request POST \
         --header "Authorization: Bearer $IAM_TOKEN" \
         --header "Content-Type: application/json" \
-        --url 'https://{{ api-host-trino }}/managed-trino/v1/clusters/<идентификатор_кластера>/catalogs' \
+        --url 'https://trino.api.cloud.yandex.net/managed-trino/v1/clusters/<идентификатор_кластера>/catalogs' \
         --data '{
                   "catalog": {
-                    "name": "<имя_каталога_{{ TR }}>",
+                    "name": "<имя_каталога_Trino>",
                     "connector": {
                       "hive": {
                         "filesystem": {
@@ -1796,7 +1796,7 @@ ALTER ROLE <имя_пользователя_{{ GP }}> CREATEEXTTABLE (type='writ
 
     * `filesystem` — тип файлового хранилища. Доступные варианты:
     
-        * `s3` — хранилище [{{ objstorage-full-name }}](../../storage/quickstart/overview.md).
+        * `s3` — хранилище [Yandex Object Storage](../../storage/quickstart/overview.md).
         * `externalS3` — внешнее хранилище. Для него необходимо указать дополнительные параметры:
     
             * `awsAccessKey` — идентификатор AWS-совместимого статического ключа доступа.
@@ -1804,17 +1804,17 @@ ALTER ROLE <имя_пользователя_{{ GP }}> CREATEEXTTABLE (type='writ
             * `awsEndpoint` — эндпоинт файлового хранилища, например `storage.yandexcloud.net`.
             * `awsRegion` — регион файлового хранилища, например `ru-central1`.
     
-    * `metastore.hive.uri` — URI для подключения к кластеру {{ metastore-name }} в формате `thrift://<IP-адрес_кластера>:9083`.
+    * `metastore.hive.uri` — URI для подключения к кластеру Apache Hive™ Metastore в формате `thrift://<IP-адрес_кластера>:9083`.
     
-        Чтобы узнать IP-адрес кластера {{ metastore-name }}, в [консоли управления]({{ link-console-main }}) выберите сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_metadata-hub }}** и на панели слева выберите ![image](../../_assets/console-icons/database.svg) **{{ ui-key.yacloud.metastore.label_metastore }}**.
+        Чтобы узнать IP-адрес кластера Apache Hive™ Metastore, в [консоли управления](https://console.yandex.cloud) выберите сервис **Yandex MetaData Hub** и на панели слева выберите ![image](../../_assets/console-icons/database.svg) **Metastore-сервер**.
     
         {% note warning %}
         
-        Для интеграции с сервисом {{ mtr-name }} требуется кластер {{ metastore-name }} с версией {{ metastore.integration-version }}.
+        Для интеграции с сервисом Managed Service for Trino требуется кластер Apache Hive™ Metastore с версией 3.1.
         
         {% endnote %}
 
-    * `additionalProperties` — список дополнительных настроек в формате `"ключ": "значение"`. Список доступных настроек в [официальной документации]({{ tr.docs }}/connector/hive.html).
+    * `additionalProperties` — список дополнительных настроек в формате `"ключ": "значение"`. Список доступных настроек в [официальной документации](https://trino.io/docs/current/connector/hive.html).
 
     Идентификатор кластера можно запросить со [списком кластеров в каталоге](cluster-list.md#list-clusters).
 
@@ -1832,7 +1832,7 @@ ALTER ROLE <имя_пользователя_{{ GP }}> CREATEEXTTABLE (type='writ
         -d '{
               "cluster_id": "<идентификатор_кластера>",
               "catalog": {
-                "name": "<имя_каталога_{{ TR }}>",
+                "name": "<имя_каталога_Trino>",
                 "connector": {
                   "hive": {
                     "filesystem": {
@@ -1850,7 +1850,7 @@ ALTER ROLE <имя_пользователя_{{ GP }}> CREATEEXTTABLE (type='writ
                 }
               }
             }' \
-        {{ api-host-trino }}:{{ port-https }} \
+        trino.api.cloud.yandex.net:443 \
         yandex.cloud.trino.v1.CatalogService.Create
     ```
 
@@ -1858,7 +1858,7 @@ ALTER ROLE <имя_пользователя_{{ GP }}> CREATEEXTTABLE (type='writ
 
     * `filesystem` — тип файлового хранилища. Доступные варианты:
     
-        * `s3` — хранилище [{{ objstorage-full-name }}](../../storage/quickstart/overview.md).
+        * `s3` — хранилище [Yandex Object Storage](../../storage/quickstart/overview.md).
         * `external_s3` — внешнее хранилище. Для него необходимо указать дополнительные параметры:
     
             * `aws_access_key` — идентификатор AWS-совместимого статического ключа доступа.
@@ -1866,42 +1866,42 @@ ALTER ROLE <имя_пользователя_{{ GP }}> CREATEEXTTABLE (type='writ
             * `aws_endpoint` — эндпоинт файлового хранилища, например `storage.yandexcloud.net`.
             * `aws_region` — регион файлового хранилища, например `ru-central1`.
     
-    * `metastore.hive.uri` — URI для подключения к кластеру {{ metastore-name }} в формате `thrift://<IP-адрес_кластера>:9083`.
+    * `metastore.hive.uri` — URI для подключения к кластеру Apache Hive™ Metastore в формате `thrift://<IP-адрес_кластера>:9083`.
     
-        Чтобы узнать IP-адрес кластера {{ metastore-name }}, в [консоли управления]({{ link-console-main }}) выберите сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_metadata-hub }}** и на панели слева выберите ![image](../../_assets/console-icons/database.svg) **{{ ui-key.yacloud.metastore.label_metastore }}**.
+        Чтобы узнать IP-адрес кластера Apache Hive™ Metastore, в [консоли управления](https://console.yandex.cloud) выберите сервис **Yandex MetaData Hub** и на панели слева выберите ![image](../../_assets/console-icons/database.svg) **Metastore-сервер**.
     
         {% note warning %}
         
-        Для интеграции с сервисом {{ mtr-name }} требуется кластер {{ metastore-name }} с версией {{ metastore.integration-version }}.
+        Для интеграции с сервисом Managed Service for Trino требуется кластер Apache Hive™ Metastore с версией 3.1.
         
         {% endnote %}
 
-    * `additional_properties` — список дополнительных настроек в формате `"ключ": "значение"`. Список доступных настроек в [официальной документации]({{ tr.docs }}/connector/hive.html).
+    * `additional_properties` — список дополнительных настроек в формате `"ключ": "значение"`. Список доступных настроек в [официальной документации](https://trino.io/docs/current/connector/hive.html).
 
     Идентификатор кластера можно запросить со [списком кластеров в каталоге](cluster-list.md#list-clusters).
 
 {% endlist %}
 
-### Коннектор Hudi {{ preview-stage }} {#hudi}
+### Коннектор Hudi <code><b><small>Preview</small></b></code> {#hudi}
 
 {% list tabs group=instructions %}
 
 - Консоль управления {#console}
 
-    * **URI** — URI для подключения к кластеру {{ metastore-name }} в формате `thrift://<IP-адрес_кластера>:9083`.
+    * **URI** — URI для подключения к кластеру Apache Hive™ Metastore в формате `thrift://<IP-адрес_кластера>:9083`.
     
-        Чтобы узнать IP-адрес кластера {{ metastore-name }}:
-          1. Перейдите на страницу [каталога ресурсов]({{ link-console-main }}).
-          1. Перейдите в сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_metadata-hub }}**.
-          1. На панели слева выберите ![image](../../_assets/console-icons/database.svg) **{{ ui-key.yacloud.metastore.label_metastore }}**.
+        Чтобы узнать IP-адрес кластера Apache Hive™ Metastore:
+          1. Перейдите на страницу [каталога ресурсов](https://console.yandex.cloud).
+          1. Перейдите в сервис **Yandex MetaData Hub**.
+          1. На панели слева выберите ![image](../../_assets/console-icons/database.svg) **Metastore-сервер**.
     
         {% note warning %}
         
-        Для интеграции с сервисом {{ mtr-name }} требуется кластер {{ metastore-name }} с версией {{ metastore.integration-version }}.
+        Для интеграции с сервисом Managed Service for Trino требуется кластер Apache Hive™ Metastore с версией 3.1.
         
         {% endnote %}
     
-      * **Файловое хранилище** — тип файлового хранилища. Доступные варианты: [{{ objstorage-full-name }}](../../storage/quickstart/overview.md) и внешнее хранилище.
+      * **Файловое хранилище** — тип файлового хранилища. Доступные варианты: [Yandex Object Storage](../../storage/quickstart/overview.md) и внешнее хранилище.
     
         Для внешнего хранилища необходимо указать:
     
@@ -1910,14 +1910,14 @@ ALTER ROLE <имя_пользователя_{{ GP }}> CREATEEXTTABLE (type='writ
           * **Эндпоинт** — эндпоинт файлового хранилища, например `storage.yandexcloud.net`.
           * **Регион** — регион файлового хранилища, например `ru-central1`.
 
-    * **Дополнительные настройки** — в формате `ключ: значение`. Список доступных настроек в [официальной документации]({{ tr.docs }}/connector/hudi.html).
+    * **Дополнительные настройки** — в формате `ключ: значение`. Список доступных настроек в [официальной документации](https://trino.io/docs/current/connector/hudi.html).
 
 - CLI {#cli}
 
     Пример команды:
 
     ```bash
-    {{ yc-mdb-tr }} catalog create hudi <имя_каталога_{{ TR }}> \
+    yc managed-trino catalog create hudi <имя_каталога_Trino> \
       --cluster-id <идентификатор_кластера> \
       --metastore-hive-uri <URI_для_подключения> \
       --filesystem-native-s3 \
@@ -1930,18 +1930,18 @@ ALTER ROLE <имя_пользователя_{{ GP }}> CREATEEXTTABLE (type='writ
 
     Где:
 
-    * `--cluster-id` — идентификатор кластера, в котором создается каталог {{ TR }}. Идентификатор кластера можно запросить со [списком кластеров](cluster-list.md#list-clusters).
-    * `--metastore-hive-uri` — URI для подключения к кластеру {{ metastore-name }} в формате `thrift://<IP-адрес_кластера>:9083`.
+    * `--cluster-id` — идентификатор кластера, в котором создается каталог Trino. Идентификатор кластера можно запросить со [списком кластеров](cluster-list.md#list-clusters).
+    * `--metastore-hive-uri` — URI для подключения к кластеру Apache Hive™ Metastore в формате `thrift://<IP-адрес_кластера>:9083`.
     
-      Чтобы узнать IP-адрес кластера {{ metastore-name }}, в [консоли управления]({{ link-console-main }}) выберите сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_metadata-hub }}** и на панели слева выберите ![image](../../_assets/console-icons/database.svg) **{{ ui-key.yacloud.metastore.label_metastore }}**.
+      Чтобы узнать IP-адрес кластера Apache Hive™ Metastore, в [консоли управления](https://console.yandex.cloud) выберите сервис **Yandex MetaData Hub** и на панели слева выберите ![image](../../_assets/console-icons/database.svg) **Metastore-сервер**.
     
       {% note warning %}
       
-      Для интеграции с сервисом {{ mtr-name }} требуется кластер {{ metastore-name }} с версией {{ metastore.integration-version }}.
+      Для интеграции с сервисом Managed Service for Trino требуется кластер Apache Hive™ Metastore с версией 3.1.
       
       {% endnote %}
     
-    * `--filesystem-native-s3` — хранилище [{{ objstorage-full-name }}](../../storage/quickstart/overview.md).
+    * `--filesystem-native-s3` — хранилище [Yandex Object Storage](../../storage/quickstart/overview.md).
     * `--filesystem-external-s3-aws-access-key` — идентификатор AWS-совместимого статического ключа доступа.
     * `--filesystem-external-s3-aws-secret-key` — секретный ключ AWS-совместимого статического ключа доступа.
     * `--filesystem-external-s3-aws-endpoint` — эндпоинт файлового хранилища, например `storage.yandexcloud.net`.
@@ -1949,18 +1949,18 @@ ALTER ROLE <имя_пользователя_{{ GP }}> CREATEEXTTABLE (type='writ
     
       {% note info %}
     
-      Укажите либо флаг `--filesystem-native-s3`, чтобы использовать хранилище {{ objstorage-name }}, либо флаги группы `--filesystem-external-s3-aws`, чтобы использовать внешнее хранилище.
+      Укажите либо флаг `--filesystem-native-s3`, чтобы использовать хранилище Object Storage, либо флаги группы `--filesystem-external-s3-aws`, чтобы использовать внешнее хранилище.
     
       {% endnote %}
 
-    * `--additional-properties` — дополнительные настройки в формате `ключ=значение`. Список доступных настроек в [официальной документации]({{ tr.docs }}/connector/hudi.html).
+    * `--additional-properties` — дополнительные настройки в формате `ключ=значение`. Список доступных настроек в [официальной документации](https://trino.io/docs/current/connector/hudi.html).
 
-- {{ TF }} {#tf}
+- Terraform {#tf}
 
     Пример конфигурации:
 
     ```hcl
-    resource "yandex_trino_catalog" "<имя_каталога_{{ TR }}>" {
+    resource "yandex_trino_catalog" "<имя_каталога_Trino>" {
       ...
       hudi = {
         file_system = {
@@ -1980,7 +1980,7 @@ ALTER ROLE <имя_пользователя_{{ GP }}> CREATEEXTTABLE (type='writ
 
     * `file_system` — тип файлового хранилища. Доступные варианты:
     
-        * `s3` — хранилище [{{ objstorage-full-name }}](../../storage/quickstart/overview.md).
+        * `s3` — хранилище [Yandex Object Storage](../../storage/quickstart/overview.md).
         * `external_s3` — внешнее хранилище. Для него необходимо указать дополнительные параметры:
     
             * `aws_access_key` — идентификатор AWS-совместимого статического ключа доступа.
@@ -1988,17 +1988,17 @@ ALTER ROLE <имя_пользователя_{{ GP }}> CREATEEXTTABLE (type='writ
             * `aws_endpoint` — эндпоинт файлового хранилища, например `storage.yandexcloud.net`.
             * `aws_region` — регион файлового хранилища, например `ru-central1`.
     
-    * `metastore.uri` — URI для подключения к кластеру {{ metastore-name }} в формате `thrift://<IP-адрес_кластера>:9083`.
+    * `metastore.uri` — URI для подключения к кластеру Apache Hive™ Metastore в формате `thrift://<IP-адрес_кластера>:9083`.
     
-        Чтобы узнать IP-адрес кластера {{ metastore-name }}, в [консоли управления]({{ link-console-main }}) выберите сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_metadata-hub }}** и на панели слева выберите ![image](../../_assets/console-icons/database.svg) **{{ ui-key.yacloud.metastore.label_metastore }}**.
+        Чтобы узнать IP-адрес кластера Apache Hive™ Metastore, в [консоли управления](https://console.yandex.cloud) выберите сервис **Yandex MetaData Hub** и на панели слева выберите ![image](../../_assets/console-icons/database.svg) **Metastore-сервер**.
     
         {% note warning %}
         
-        Для интеграции с сервисом {{ mtr-name }} требуется кластер {{ metastore-name }} с версией {{ metastore.integration-version }}.
+        Для интеграции с сервисом Managed Service for Trino требуется кластер Apache Hive™ Metastore с версией 3.1.
         
         {% endnote %}
 
-    * `additional_properties` — список дополнительных настроек в формате `"ключ" = "значение"`. Список доступных настроек в [официальной документации]({{ tr.docs }}/connector/hive.html).
+    * `additional_properties` — список дополнительных настроек в формате `"ключ" = "значение"`. Список доступных настроек в [официальной документации](https://trino.io/docs/current/connector/hive.html).
 
 - REST API {#api}
 
@@ -2009,10 +2009,10 @@ ALTER ROLE <имя_пользователя_{{ GP }}> CREATEEXTTABLE (type='writ
         --request POST \
         --header "Authorization: Bearer $IAM_TOKEN" \
         --header "Content-Type: application/json" \
-        --url 'https://{{ api-host-trino }}/managed-trino/v1/clusters/<идентификатор_кластера>/catalogs' \
+        --url 'https://trino.api.cloud.yandex.net/managed-trino/v1/clusters/<идентификатор_кластера>/catalogs' \
         --data '{
                   "catalog": {
-                    "name": "<имя_каталога_{{ TR }}>",
+                    "name": "<имя_каталога_Trino>",
                     "connector": {
                       "hudi": {
                         "filesystem": {
@@ -2036,7 +2036,7 @@ ALTER ROLE <имя_пользователя_{{ GP }}> CREATEEXTTABLE (type='writ
 
     * `filesystem` — тип файлового хранилища. Доступные варианты:
     
-        * `s3` — хранилище [{{ objstorage-full-name }}](../../storage/quickstart/overview.md).
+        * `s3` — хранилище [Yandex Object Storage](../../storage/quickstart/overview.md).
         * `externalS3` — внешнее хранилище. Для него необходимо указать дополнительные параметры:
     
             * `awsAccessKey` — идентификатор AWS-совместимого статического ключа доступа.
@@ -2044,17 +2044,17 @@ ALTER ROLE <имя_пользователя_{{ GP }}> CREATEEXTTABLE (type='writ
             * `awsEndpoint` — эндпоинт файлового хранилища, например `storage.yandexcloud.net`.
             * `awsRegion` — регион файлового хранилища, например `ru-central1`.
     
-    * `metastore.hive.uri` — URI для подключения к кластеру {{ metastore-name }} в формате `thrift://<IP-адрес_кластера>:9083`.
+    * `metastore.hive.uri` — URI для подключения к кластеру Apache Hive™ Metastore в формате `thrift://<IP-адрес_кластера>:9083`.
     
-        Чтобы узнать IP-адрес кластера {{ metastore-name }}, в [консоли управления]({{ link-console-main }}) выберите сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_metadata-hub }}** и на панели слева выберите ![image](../../_assets/console-icons/database.svg) **{{ ui-key.yacloud.metastore.label_metastore }}**.
+        Чтобы узнать IP-адрес кластера Apache Hive™ Metastore, в [консоли управления](https://console.yandex.cloud) выберите сервис **Yandex MetaData Hub** и на панели слева выберите ![image](../../_assets/console-icons/database.svg) **Metastore-сервер**.
     
         {% note warning %}
         
-        Для интеграции с сервисом {{ mtr-name }} требуется кластер {{ metastore-name }} с версией {{ metastore.integration-version }}.
+        Для интеграции с сервисом Managed Service for Trino требуется кластер Apache Hive™ Metastore с версией 3.1.
         
         {% endnote %}
 
-    * `additionalProperties` — список дополнительных настроек в формате `"ключ": "значение"`. Список доступных настроек в [официальной документации]({{ tr.docs }}/connector/hudi.html).
+    * `additionalProperties` — список дополнительных настроек в формате `"ключ": "значение"`. Список доступных настроек в [официальной документации](https://trino.io/docs/current/connector/hudi.html).
 
     Идентификатор кластера можно запросить со [списком кластеров в каталоге](cluster-list.md#list-clusters).
 
@@ -2072,7 +2072,7 @@ ALTER ROLE <имя_пользователя_{{ GP }}> CREATEEXTTABLE (type='writ
         -d '{
               "cluster_id": "<идентификатор_кластера>",
               "catalog": {
-                "name": "<имя_каталога_{{ TR }}>",
+                "name": "<имя_каталога_Trino>",
                 "connector": {
                   "hudi": {
                     "filesystem": {
@@ -2090,7 +2090,7 @@ ALTER ROLE <имя_пользователя_{{ GP }}> CREATEEXTTABLE (type='writ
                 }
               }
             }' \
-        {{ api-host-trino }}:{{ port-https }} \
+        trino.api.cloud.yandex.net:443 \
         yandex.cloud.trino.v1.CatalogService.Create
     ```
 
@@ -2098,7 +2098,7 @@ ALTER ROLE <имя_пользователя_{{ GP }}> CREATEEXTTABLE (type='writ
 
     * `filesystem` — тип файлового хранилища. Доступные варианты:
     
-        * `s3` — хранилище [{{ objstorage-full-name }}](../../storage/quickstart/overview.md).
+        * `s3` — хранилище [Yandex Object Storage](../../storage/quickstart/overview.md).
         * `external_s3` — внешнее хранилище. Для него необходимо указать дополнительные параметры:
     
             * `aws_access_key` — идентификатор AWS-совместимого статического ключа доступа.
@@ -2106,17 +2106,17 @@ ALTER ROLE <имя_пользователя_{{ GP }}> CREATEEXTTABLE (type='writ
             * `aws_endpoint` — эндпоинт файлового хранилища, например `storage.yandexcloud.net`.
             * `aws_region` — регион файлового хранилища, например `ru-central1`.
     
-    * `metastore.hive.uri` — URI для подключения к кластеру {{ metastore-name }} в формате `thrift://<IP-адрес_кластера>:9083`.
+    * `metastore.hive.uri` — URI для подключения к кластеру Apache Hive™ Metastore в формате `thrift://<IP-адрес_кластера>:9083`.
     
-        Чтобы узнать IP-адрес кластера {{ metastore-name }}, в [консоли управления]({{ link-console-main }}) выберите сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_metadata-hub }}** и на панели слева выберите ![image](../../_assets/console-icons/database.svg) **{{ ui-key.yacloud.metastore.label_metastore }}**.
+        Чтобы узнать IP-адрес кластера Apache Hive™ Metastore, в [консоли управления](https://console.yandex.cloud) выберите сервис **Yandex MetaData Hub** и на панели слева выберите ![image](../../_assets/console-icons/database.svg) **Metastore-сервер**.
     
         {% note warning %}
         
-        Для интеграции с сервисом {{ mtr-name }} требуется кластер {{ metastore-name }} с версией {{ metastore.integration-version }}.
+        Для интеграции с сервисом Managed Service for Trino требуется кластер Apache Hive™ Metastore с версией 3.1.
         
         {% endnote %}
 
-    * `additional_properties` — список дополнительных настроек в формате `"ключ": "значение"`. Список доступных настроек в [официальной документации]({{ tr.docs }}/connector/hudi.html).
+    * `additional_properties` — список дополнительных настроек в формате `"ключ": "значение"`. Список доступных настроек в [официальной документации](https://trino.io/docs/current/connector/hudi.html).
 
     Идентификатор кластера можно запросить со [списком кластеров в каталоге](cluster-list.md#list-clusters).
 
@@ -2128,20 +2128,20 @@ ALTER ROLE <имя_пользователя_{{ GP }}> CREATEEXTTABLE (type='writ
 
 - Консоль управления {#console}
 
-    * **URI** — URI для подключения к кластеру {{ metastore-name }} в формате `thrift://<IP-адрес_кластера>:9083`.
+    * **URI** — URI для подключения к кластеру Apache Hive™ Metastore в формате `thrift://<IP-адрес_кластера>:9083`.
     
-        Чтобы узнать IP-адрес кластера {{ metastore-name }}:
-          1. Перейдите на страницу [каталога ресурсов]({{ link-console-main }}).
-          1. Перейдите в сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_metadata-hub }}**.
-          1. На панели слева выберите ![image](../../_assets/console-icons/database.svg) **{{ ui-key.yacloud.metastore.label_metastore }}**.
+        Чтобы узнать IP-адрес кластера Apache Hive™ Metastore:
+          1. Перейдите на страницу [каталога ресурсов](https://console.yandex.cloud).
+          1. Перейдите в сервис **Yandex MetaData Hub**.
+          1. На панели слева выберите ![image](../../_assets/console-icons/database.svg) **Metastore-сервер**.
     
         {% note warning %}
         
-        Для интеграции с сервисом {{ mtr-name }} требуется кластер {{ metastore-name }} с версией {{ metastore.integration-version }}.
+        Для интеграции с сервисом Managed Service for Trino требуется кластер Apache Hive™ Metastore с версией 3.1.
         
         {% endnote %}
     
-      * **Файловое хранилище** — тип файлового хранилища. Доступные варианты: [{{ objstorage-full-name }}](../../storage/quickstart/overview.md) и внешнее хранилище.
+      * **Файловое хранилище** — тип файлового хранилища. Доступные варианты: [Yandex Object Storage](../../storage/quickstart/overview.md) и внешнее хранилище.
     
         Для внешнего хранилища необходимо указать:
     
@@ -2150,14 +2150,14 @@ ALTER ROLE <имя_пользователя_{{ GP }}> CREATEEXTTABLE (type='writ
           * **Эндпоинт** — эндпоинт файлового хранилища, например `storage.yandexcloud.net`.
           * **Регион** — регион файлового хранилища, например `ru-central1`.
 
-    * **Дополнительные настройки** — в формате `ключ: значение`. Список доступных настроек в [официальной документации]({{ tr.docs }}/connector/iceberg.html).
+    * **Дополнительные настройки** — в формате `ключ: значение`. Список доступных настроек в [официальной документации](https://trino.io/docs/current/connector/iceberg.html).
 
 - CLI {#cli}
 
     Пример команды:
 
     ```bash
-    {{ yc-mdb-tr }} catalog create iceberg <имя_каталога_{{ TR }}> \
+    yc managed-trino catalog create iceberg <имя_каталога_Trino> \
       --cluster-id <идентификатор_кластера> \
       --metastore-hive-uri <URI_для_подключения> \
       --filesystem-native-s3 \
@@ -2170,18 +2170,18 @@ ALTER ROLE <имя_пользователя_{{ GP }}> CREATEEXTTABLE (type='writ
 
     Где:
 
-    * `--cluster-id` — идентификатор кластера, в котором создается каталог {{ TR }}. Идентификатор кластера можно запросить со [списком кластеров](cluster-list.md#list-clusters).
-    * `--metastore-hive-uri` — URI для подключения к кластеру {{ metastore-name }} в формате `thrift://<IP-адрес_кластера>:9083`.
+    * `--cluster-id` — идентификатор кластера, в котором создается каталог Trino. Идентификатор кластера можно запросить со [списком кластеров](cluster-list.md#list-clusters).
+    * `--metastore-hive-uri` — URI для подключения к кластеру Apache Hive™ Metastore в формате `thrift://<IP-адрес_кластера>:9083`.
     
-      Чтобы узнать IP-адрес кластера {{ metastore-name }}, в [консоли управления]({{ link-console-main }}) выберите сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_metadata-hub }}** и на панели слева выберите ![image](../../_assets/console-icons/database.svg) **{{ ui-key.yacloud.metastore.label_metastore }}**.
+      Чтобы узнать IP-адрес кластера Apache Hive™ Metastore, в [консоли управления](https://console.yandex.cloud) выберите сервис **Yandex MetaData Hub** и на панели слева выберите ![image](../../_assets/console-icons/database.svg) **Metastore-сервер**.
     
       {% note warning %}
       
-      Для интеграции с сервисом {{ mtr-name }} требуется кластер {{ metastore-name }} с версией {{ metastore.integration-version }}.
+      Для интеграции с сервисом Managed Service for Trino требуется кластер Apache Hive™ Metastore с версией 3.1.
       
       {% endnote %}
     
-    * `--filesystem-native-s3` — хранилище [{{ objstorage-full-name }}](../../storage/quickstart/overview.md).
+    * `--filesystem-native-s3` — хранилище [Yandex Object Storage](../../storage/quickstart/overview.md).
     * `--filesystem-external-s3-aws-access-key` — идентификатор AWS-совместимого статического ключа доступа.
     * `--filesystem-external-s3-aws-secret-key` — секретный ключ AWS-совместимого статического ключа доступа.
     * `--filesystem-external-s3-aws-endpoint` — эндпоинт файлового хранилища, например `storage.yandexcloud.net`.
@@ -2189,18 +2189,18 @@ ALTER ROLE <имя_пользователя_{{ GP }}> CREATEEXTTABLE (type='writ
     
       {% note info %}
     
-      Укажите либо флаг `--filesystem-native-s3`, чтобы использовать хранилище {{ objstorage-name }}, либо флаги группы `--filesystem-external-s3-aws`, чтобы использовать внешнее хранилище.
+      Укажите либо флаг `--filesystem-native-s3`, чтобы использовать хранилище Object Storage, либо флаги группы `--filesystem-external-s3-aws`, чтобы использовать внешнее хранилище.
     
       {% endnote %}
 
-    * `--additional-properties` — дополнительные настройки в формате `ключ=значение`. Список доступных настроек в [официальной документации]({{ tr.docs }}/connector/iceberg.html).
+    * `--additional-properties` — дополнительные настройки в формате `ключ=значение`. Список доступных настроек в [официальной документации](https://trino.io/docs/current/connector/iceberg.html).
 
-- {{ TF }} {#tf}
+- Terraform {#tf}
 
     Пример конфигурации:
 
     ```hcl
-    resource "yandex_trino_catalog" "<имя_каталога_{{ TR }}>" {
+    resource "yandex_trino_catalog" "<имя_каталога_Trino>" {
       ...
       iceberg = {
         file_system = {
@@ -2220,7 +2220,7 @@ ALTER ROLE <имя_пользователя_{{ GP }}> CREATEEXTTABLE (type='writ
 
     * `file_system` — тип файлового хранилища. Доступные варианты:
     
-        * `s3` — хранилище [{{ objstorage-full-name }}](../../storage/quickstart/overview.md).
+        * `s3` — хранилище [Yandex Object Storage](../../storage/quickstart/overview.md).
         * `external_s3` — внешнее хранилище. Для него необходимо указать дополнительные параметры:
     
             * `aws_access_key` — идентификатор AWS-совместимого статического ключа доступа.
@@ -2228,17 +2228,17 @@ ALTER ROLE <имя_пользователя_{{ GP }}> CREATEEXTTABLE (type='writ
             * `aws_endpoint` — эндпоинт файлового хранилища, например `storage.yandexcloud.net`.
             * `aws_region` — регион файлового хранилища, например `ru-central1`.
     
-    * `metastore.uri` — URI для подключения к кластеру {{ metastore-name }} в формате `thrift://<IP-адрес_кластера>:9083`.
+    * `metastore.uri` — URI для подключения к кластеру Apache Hive™ Metastore в формате `thrift://<IP-адрес_кластера>:9083`.
     
-        Чтобы узнать IP-адрес кластера {{ metastore-name }}, в [консоли управления]({{ link-console-main }}) выберите сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_metadata-hub }}** и на панели слева выберите ![image](../../_assets/console-icons/database.svg) **{{ ui-key.yacloud.metastore.label_metastore }}**.
+        Чтобы узнать IP-адрес кластера Apache Hive™ Metastore, в [консоли управления](https://console.yandex.cloud) выберите сервис **Yandex MetaData Hub** и на панели слева выберите ![image](../../_assets/console-icons/database.svg) **Metastore-сервер**.
     
         {% note warning %}
         
-        Для интеграции с сервисом {{ mtr-name }} требуется кластер {{ metastore-name }} с версией {{ metastore.integration-version }}.
+        Для интеграции с сервисом Managed Service for Trino требуется кластер Apache Hive™ Metastore с версией 3.1.
         
         {% endnote %}
 
-    * `additional_properties` — список дополнительных настроек в формате `"ключ" = "значение"`. Список доступных настроек в [официальной документации]({{ tr.docs }}/connector/iceberg.html).
+    * `additional_properties` — список дополнительных настроек в формате `"ключ" = "значение"`. Список доступных настроек в [официальной документации](https://trino.io/docs/current/connector/iceberg.html).
 
 - REST API {#api}
 
@@ -2249,10 +2249,10 @@ ALTER ROLE <имя_пользователя_{{ GP }}> CREATEEXTTABLE (type='writ
         --request POST \
         --header "Authorization: Bearer $IAM_TOKEN" \
         --header "Content-Type: application/json" \
-        --url 'https://{{ api-host-trino }}/managed-trino/v1/clusters/<идентификатор_кластера>/catalogs' \
+        --url 'https://trino.api.cloud.yandex.net/managed-trino/v1/clusters/<идентификатор_кластера>/catalogs' \
         --data '{
                   "catalog": {
-                    "name": "<имя_каталога_{{ TR }}>",
+                    "name": "<имя_каталога_Trino>",
                     "connector": {
                       "iceberg": {
                         "filesystem": {
@@ -2276,7 +2276,7 @@ ALTER ROLE <имя_пользователя_{{ GP }}> CREATEEXTTABLE (type='writ
 
     * `filesystem` — тип файлового хранилища. Доступные варианты:
     
-        * `s3` — хранилище [{{ objstorage-full-name }}](../../storage/quickstart/overview.md).
+        * `s3` — хранилище [Yandex Object Storage](../../storage/quickstart/overview.md).
         * `externalS3` — внешнее хранилище. Для него необходимо указать дополнительные параметры:
     
             * `awsAccessKey` — идентификатор AWS-совместимого статического ключа доступа.
@@ -2284,17 +2284,17 @@ ALTER ROLE <имя_пользователя_{{ GP }}> CREATEEXTTABLE (type='writ
             * `awsEndpoint` — эндпоинт файлового хранилища, например `storage.yandexcloud.net`.
             * `awsRegion` — регион файлового хранилища, например `ru-central1`.
     
-    * `metastore.hive.uri` — URI для подключения к кластеру {{ metastore-name }} в формате `thrift://<IP-адрес_кластера>:9083`.
+    * `metastore.hive.uri` — URI для подключения к кластеру Apache Hive™ Metastore в формате `thrift://<IP-адрес_кластера>:9083`.
     
-        Чтобы узнать IP-адрес кластера {{ metastore-name }}, в [консоли управления]({{ link-console-main }}) выберите сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_metadata-hub }}** и на панели слева выберите ![image](../../_assets/console-icons/database.svg) **{{ ui-key.yacloud.metastore.label_metastore }}**.
+        Чтобы узнать IP-адрес кластера Apache Hive™ Metastore, в [консоли управления](https://console.yandex.cloud) выберите сервис **Yandex MetaData Hub** и на панели слева выберите ![image](../../_assets/console-icons/database.svg) **Metastore-сервер**.
     
         {% note warning %}
         
-        Для интеграции с сервисом {{ mtr-name }} требуется кластер {{ metastore-name }} с версией {{ metastore.integration-version }}.
+        Для интеграции с сервисом Managed Service for Trino требуется кластер Apache Hive™ Metastore с версией 3.1.
         
         {% endnote %}
 
-    * `additionalProperties` — список дополнительных настроек в формате `"ключ": "значение"`. Список доступных настроек в [официальной документации]({{ tr.docs }}/connector/iceberg.html).
+    * `additionalProperties` — список дополнительных настроек в формате `"ключ": "значение"`. Список доступных настроек в [официальной документации](https://trino.io/docs/current/connector/iceberg.html).
 
     Идентификатор кластера можно запросить со [списком кластеров в каталоге](cluster-list.md#list-clusters).
 
@@ -2312,7 +2312,7 @@ ALTER ROLE <имя_пользователя_{{ GP }}> CREATEEXTTABLE (type='writ
         -d '{
               "cluster_id": "<идентификатор_кластера>",
               "catalog": {
-                "name": "<имя_каталога_{{ TR }}>",
+                "name": "<имя_каталога_Trino>",
                 "connector": {
                   "iceberg": {
                     "filesystem": {
@@ -2330,7 +2330,7 @@ ALTER ROLE <имя_пользователя_{{ GP }}> CREATEEXTTABLE (type='writ
                 }
               }
             }' \
-        {{ api-host-trino }}:{{ port-https }} \
+        trino.api.cloud.yandex.net:443 \
         yandex.cloud.trino.v1.CatalogService.Create
     ```
 
@@ -2338,7 +2338,7 @@ ALTER ROLE <имя_пользователя_{{ GP }}> CREATEEXTTABLE (type='writ
 
     * `filesystem` — тип файлового хранилища. Доступные варианты:
     
-        * `s3` — хранилище [{{ objstorage-full-name }}](../../storage/quickstart/overview.md).
+        * `s3` — хранилище [Yandex Object Storage](../../storage/quickstart/overview.md).
         * `external_s3` — внешнее хранилище. Для него необходимо указать дополнительные параметры:
     
             * `aws_access_key` — идентификатор AWS-совместимого статического ключа доступа.
@@ -2346,23 +2346,23 @@ ALTER ROLE <имя_пользователя_{{ GP }}> CREATEEXTTABLE (type='writ
             * `aws_endpoint` — эндпоинт файлового хранилища, например `storage.yandexcloud.net`.
             * `aws_region` — регион файлового хранилища, например `ru-central1`.
     
-    * `metastore.hive.uri` — URI для подключения к кластеру {{ metastore-name }} в формате `thrift://<IP-адрес_кластера>:9083`.
+    * `metastore.hive.uri` — URI для подключения к кластеру Apache Hive™ Metastore в формате `thrift://<IP-адрес_кластера>:9083`.
     
-        Чтобы узнать IP-адрес кластера {{ metastore-name }}, в [консоли управления]({{ link-console-main }}) выберите сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_metadata-hub }}** и на панели слева выберите ![image](../../_assets/console-icons/database.svg) **{{ ui-key.yacloud.metastore.label_metastore }}**.
+        Чтобы узнать IP-адрес кластера Apache Hive™ Metastore, в [консоли управления](https://console.yandex.cloud) выберите сервис **Yandex MetaData Hub** и на панели слева выберите ![image](../../_assets/console-icons/database.svg) **Metastore-сервер**.
     
         {% note warning %}
         
-        Для интеграции с сервисом {{ mtr-name }} требуется кластер {{ metastore-name }} с версией {{ metastore.integration-version }}.
+        Для интеграции с сервисом Managed Service for Trino требуется кластер Apache Hive™ Metastore с версией 3.1.
         
         {% endnote %}
 
-    * `additional_properties` — список дополнительных настроек в формате `"ключ": "значение"`. Список доступных настроек в [официальной документации]({{ tr.docs }}/connector/iceberg.html).
+    * `additional_properties` — список дополнительных настроек в формате `"ключ": "значение"`. Список доступных настроек в [официальной документации](https://trino.io/docs/current/connector/iceberg.html).
 
     Идентификатор кластера можно запросить со [списком кластеров в каталоге](cluster-list.md#list-clusters).
 
 {% endlist %}
 
-### Коннектор Oracle {{ preview-stage }} {#oracle}
+### Коннектор Oracle <code><b><small>Preview</small></b></code> {#oracle}
 
 {% list tabs group=instructions %}
 
@@ -2372,14 +2372,14 @@ ALTER ROLE <имя_пользователя_{{ GP }}> CREATEEXTTABLE (type='writ
     * **URL** — URL для подключения к БД Oracle в формате `jdbc:oracle:thin:@<адрес_хоста>:<порт>:<SID>`. `SID` — системный идентификатор Oracle.
     * **Имя пользователя** — имя пользователя для подключения к БД Oracle.
     * **Пароль** — пароль пользователя для подключения к БД Oracle.
-    * **Дополнительные настройки** — в формате `ключ: значение`. Список доступных настроек в [официальной документации]({{ tr.docs }}/connector/oracle.html).
+    * **Дополнительные настройки** — в формате `ключ: значение`. Список доступных настроек в [официальной документации](https://trino.io/docs/current/connector/oracle.html).
 
 - CLI {#cli}
 
     Пример команды:
 
     ```bash
-    {{ yc-mdb-tr }} catalog create oracle <имя_каталога_{{ TR }}> \
+    yc managed-trino catalog create oracle <имя_каталога_Trino> \
       --cluster-id <идентификатор_кластера> \
       --on-premise-connection-url <URL_для_подключения> \
       --on-premise-user-name <имя_пользователя> \
@@ -2389,18 +2389,18 @@ ALTER ROLE <имя_пользователя_{{ GP }}> CREATEEXTTABLE (type='writ
 
     Где:
 
-    * `--cluster-id` — идентификатор кластера, в котором создается каталог {{ TR }}. Идентификатор кластера можно запросить со [списком кластеров](cluster-list.md#list-clusters).
+    * `--cluster-id` — идентификатор кластера, в котором создается каталог Trino. Идентификатор кластера можно запросить со [списком кластеров](cluster-list.md#list-clusters).
     * `--on-premise-connection-url` — URL для подключения к БД Oracle в формате `jdbc:oracle:thin:@<адрес_хоста>:<порт>:<SID>`. `SID` — системный идентификатор Oracle.
     * `--on-premise-user-name` — имя пользователя для подключения к БД Oracle.
     * `--on-premise-password` — пароль пользователя для подключения к БД Oracle.
-    * `--additional-properties` — дополнительные настройки в формате `ключ=значение`. Список доступных настроек в [официальной документации]({{ tr.docs }}/connector/oracle.html).
+    * `--additional-properties` — дополнительные настройки в формате `ключ=значение`. Список доступных настроек в [официальной документации](https://trino.io/docs/current/connector/oracle.html).
 
-- {{ TF }} {#tf}
+- Terraform {#tf}
 
     Пример конфигурации:
 
     ```hcl
-    resource "yandex_trino_catalog" "<имя_каталога_{{ TR }}>" {
+    resource "yandex_trino_catalog" "<имя_каталога_Trino>" {
       ...
       oracle = {
         on_premise = {
@@ -2423,7 +2423,7 @@ ALTER ROLE <имя_пользователя_{{ GP }}> CREATEEXTTABLE (type='writ
         * `user_name` — имя пользователя для подключения к БД Oracle.
         * `password` — пароль пользователя для подключения к БД Oracle.
 
-    * `additional_properties` — список дополнительных настроек в формате `"ключ" = "значение"`. Список доступных настроек в [официальной документации]({{ tr.docs }}/connector/oracle.html).
+    * `additional_properties` — список дополнительных настроек в формате `"ключ" = "значение"`. Список доступных настроек в [официальной документации](https://trino.io/docs/current/connector/oracle.html).
 
 - REST API {#api}
 
@@ -2434,10 +2434,10 @@ ALTER ROLE <имя_пользователя_{{ GP }}> CREATEEXTTABLE (type='writ
         --request POST \
         --header "Authorization: Bearer $IAM_TOKEN" \
         --header "Content-Type: application/json" \
-        --url 'https://{{ api-host-trino }}/managed-trino/v1/clusters/<идентификатор_кластера>/catalogs' \
+        --url 'https://trino.api.cloud.yandex.net/managed-trino/v1/clusters/<идентификатор_кластера>/catalogs' \
         --data '{
                   "catalog": {
-                    "name": "<имя_каталога_{{ TR }}>",
+                    "name": "<имя_каталога_Trino>",
                     "connector": {
                       "oracle": {
                         "connection": {
@@ -2464,7 +2464,7 @@ ALTER ROLE <имя_пользователя_{{ GP }}> CREATEEXTTABLE (type='writ
         * `userName` — имя пользователя для подключения к БД Oracle.
         * `password` — пароль пользователя для подключения к БД Oracle.
 
-    * `additionalProperties` — список дополнительных настроек в формате `"ключ": "значение"`. Список доступных настроек в [официальной документации]({{ tr.docs }}/connector/oracle.html).
+    * `additionalProperties` — список дополнительных настроек в формате `"ключ": "значение"`. Список доступных настроек в [официальной документации](https://trino.io/docs/current/connector/oracle.html).
 
     Идентификатор кластера можно запросить со [списком кластеров в каталоге](cluster-list.md#list-clusters).
 
@@ -2482,7 +2482,7 @@ ALTER ROLE <имя_пользователя_{{ GP }}> CREATEEXTTABLE (type='writ
         -d '{
               "cluster_id": "<идентификатор_кластера>",
               "catalog": {
-                "name": "<имя_каталога_{{ TR }}>",
+                "name": "<имя_каталога_Trino>",
                 "connector": {
                   "oracle": {
                     "connection": {
@@ -2499,7 +2499,7 @@ ALTER ROLE <имя_пользователя_{{ GP }}> CREATEEXTTABLE (type='writ
                 }
               }
             }' \
-        {{ api-host-trino }}:{{ port-https }} \
+        trino.api.cloud.yandex.net:443 \
         yandex.cloud.trino.v1.CatalogService.Create
     ```
 
@@ -2511,61 +2511,61 @@ ALTER ROLE <имя_пользователя_{{ GP }}> CREATEEXTTABLE (type='writ
         * `user_name` — имя пользователя для подключения к БД Oracle.
         * `password` — пароль пользователя для подключения к БД Oracle.
 
-    * `additional_properties` — список дополнительных настроек в формате `"ключ": "значение"`. Список доступных настроек в [официальной документации]({{ tr.docs }}/connector/oracle.html).
+    * `additional_properties` — список дополнительных настроек в формате `"ключ": "значение"`. Список доступных настроек в [официальной документации](https://trino.io/docs/current/connector/oracle.html).
 
     Идентификатор кластера можно запросить со [списком кластеров в каталоге](cluster-list.md#list-clusters).
 
 {% endlist %}
 
-### Коннектор {{ PG }} {#pg}
+### Коннектор PostgreSQL {#pg}
 
-Выберите тип подключения — [{{ connection-manager-name }}](../../metadata-hub/concepts/connection-manager.md) или **Ручная настройка** (пользовательская инсталляция), и задайте для него нужные настройки.
+Выберите тип подключения — [Connection Manager](../../metadata-hub/concepts/connection-manager.md) или **Ручная настройка** (пользовательская инсталляция), и задайте для него нужные настройки.
 
-{{ connection-manager-name }} позволяет создавать подключения к кластеру с управляемой базой данных и к пользовательской инсталляции базы данных.
+Connection Manager позволяет создавать подключения к кластеру с управляемой базой данных и к пользовательской инсталляции базы данных.
 
-При подключении с типом {{ connection-manager-name }} любые изменения в параметрах подключения автоматически учитываются в {{ TR }}. При подключении с типом **Ручная настройка** изменения в параметрах подключения не отслеживаются в {{ TR }}. Их необходимо отслеживать и вносить вручную.
+При подключении с типом Connection Manager любые изменения в параметрах подключения автоматически учитываются в Trino. При подключении с типом **Ручная настройка** изменения в параметрах подключения не отслеживаются в Trino. Их необходимо отслеживать и вносить вручную.
 
-#### Подключение {{ connection-manager-name }} {#pg-connection-manager}
+#### Подключение Connection Manager {#pg-connection-manager}
 
 {% list tabs group=instructions %}
 
 - Консоль управления {#console}
 
-    * **Идентификатор подключения** — идентификатор подключения в {{ connection-manager-name }} для подключения к кластеру {{ PG }}.
+    * **Идентификатор подключения** — идентификатор подключения в Connection Manager для подключения к кластеру PostgreSQL.
 
         Чтобы узнать идентификатор подключения:
-        1. Перейдите на страницу [каталога ресурсов]({{ link-console-main }}).
-        1. Перейдите в сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-postgresql }}**.
-        1. Нажмите на имя нужного кластера и перейдите на вкладку **{{ ui-key.yacloud.connection-manager.label_connections }}**.
+        1. Перейдите на страницу [каталога ресурсов](https://console.yandex.cloud).
+        1. Перейдите в сервис **Managed Service for&nbsp;PostgreSQL**.
+        1. Нажмите на имя нужного кластера и перейдите на вкладку **Подключения**.
 
-    * **База данных** — имя БД в кластере {{ PG }}.
-    * **Дополнительные настройки** — в формате `ключ: значение`. Список доступных настроек в [официальной документации]({{ tr.docs }}/connector/postgresql.html).
+    * **База данных** — имя БД в кластере PostgreSQL.
+    * **Дополнительные настройки** — в формате `ключ: значение`. Список доступных настроек в [официальной документации](https://trino.io/docs/current/connector/postgresql.html).
 
 - CLI {#cli}
 
     Пример команды:
 
     ```bash
-    {{ yc-mdb-tr }} catalog create postgresql <имя_каталога_{{ TR }}> \
+    yc managed-trino catalog create postgresql <имя_каталога_Trino> \
       --cluster-id <идентификатор_кластера> \
       --connection-manager-connection-id <идентификатор_подключения> \
       --connection-manager-database <имя_БД> \
-      --connection-manager-connection-properties <список_параметров_клиента_{{ PG }}> \
+      --connection-manager-connection-properties <список_параметров_клиента_PostgreSQL> \
       --additional-properties <список_дополнительных_настроек>
     ```
 
     Где:
 
-    * `--cluster-id` — идентификатор кластера, в котором создается каталог {{ TR }}. Идентификатор кластера можно запросить со [списком кластеров](cluster-list.md#list-clusters).
-    * `--connection-manager-connection-id` — идентификатор подключения в {{ connection-manager-name }} для подключения к кластеру {{ PG }}.
+    * `--cluster-id` — идентификатор кластера, в котором создается каталог Trino. Идентификатор кластера можно запросить со [списком кластеров](cluster-list.md#list-clusters).
+    * `--connection-manager-connection-id` — идентификатор подключения в Connection Manager для подключения к кластеру PostgreSQL.
 
         Чтобы узнать идентификатор подключения:
-        1. Перейдите на страницу [каталога ресурсов]({{ link-console-main }}).
-        1. Перейдите в сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-postgresql }}**.
-        1. Нажмите на имя нужного кластера и перейдите на вкладку **{{ ui-key.yacloud.connection-manager.label_connections }}**.
+        1. Перейдите на страницу [каталога ресурсов](https://console.yandex.cloud).
+        1. Перейдите в сервис **Managed Service for&nbsp;PostgreSQL**.
+        1. Нажмите на имя нужного кластера и перейдите на вкладку **Подключения**.
 
-    * `--connection-manager-database` — имя БД в кластере {{ PG }}.
-    * `--connection-manager-connection-properties` — список настроек клиента {{ PG }} в формате `ключ=значение`.
+    * `--connection-manager-database` — имя БД в кластере PostgreSQL.
+    * `--connection-manager-connection-properties` — список настроек клиента PostgreSQL в формате `ключ=значение`.
 
         {% cut "Доступные параметры" %}
         
@@ -2604,21 +2604,21 @@ ALTER ROLE <имя_пользователя_{{ GP }}> CREATEEXTTABLE (type='writ
         
         {% endcut %}
 
-    * `--additional-properties` — дополнительные настройки в формате `ключ=значение`. Список доступных настроек в [официальной документации]({{ tr.docs }}/connector/postgresql.html).
+    * `--additional-properties` — дополнительные настройки в формате `ключ=значение`. Список доступных настроек в [официальной документации](https://trino.io/docs/current/connector/postgresql.html).
 
-- {{ TF }} {#tf}
+- Terraform {#tf}
 
     Пример конфигурации:
 
     ```hcl
-    resource "yandex_trino_catalog" "<имя_каталога_{{ TR }}>" {
+    resource "yandex_trino_catalog" "<имя_каталога_Trino>" {
       ...
       postgresql = {
         connection_manager = {
           connection_id = "<идентификатор_подключения>"
           database      = "<имя_БД>"
           connection_properties = {
-            <список_настроек_клиента_{{ PG }}>
+            <список_настроек_клиента_PostgreSQL>
           }
         }
         additional_properties = {
@@ -2630,17 +2630,17 @@ ALTER ROLE <имя_пользователя_{{ GP }}> CREATEEXTTABLE (type='writ
 
     Где:
 
-    * `connection_manager` — настройки {{ connection-manager-name }}:
+    * `connection_manager` — настройки Connection Manager:
 
-        * `connection_id` — идентификатор подключения в {{ connection-manager-name }} для подключения к кластеру {{ PG }}.
+        * `connection_id` — идентификатор подключения в Connection Manager для подключения к кластеру PostgreSQL.
 
             Чтобы узнать идентификатор подключения:
-            1. В консоли управления перейдите на страницу [каталога ресурсов]({{ link-console-main }}).
-            1. Перейдите в сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-postgresql }}**.
-            1. Нажмите на имя нужного кластера и перейдите на вкладку **{{ ui-key.yacloud.connection-manager.label_connections }}**.
+            1. В консоли управления перейдите на страницу [каталога ресурсов](https://console.yandex.cloud).
+            1. Перейдите в сервис **Managed Service for&nbsp;PostgreSQL**.
+            1. Нажмите на имя нужного кластера и перейдите на вкладку **Подключения**.
 
-        * `database` — имя БД в кластере {{ PG }}.
-        * `connection_properties` — список настроек клиента {{ PG }} в формате `"ключ" = "значение"`.
+        * `database` — имя БД в кластере PostgreSQL.
+        * `connection_properties` — список настроек клиента PostgreSQL в формате `"ключ" = "значение"`.
 
             {% cut "Доступные параметры" %}
             
@@ -2679,7 +2679,7 @@ ALTER ROLE <имя_пользователя_{{ GP }}> CREATEEXTTABLE (type='writ
             
             {% endcut %}
 
-    * `additional_properties` — список дополнительных настроек в формате `"ключ" = "значение"`. Список доступных настроек в [официальной документации]({{ tr.docs }}/connector/postgresql.html).
+    * `additional_properties` — список дополнительных настроек в формате `"ключ" = "значение"`. Список доступных настроек в [официальной документации](https://trino.io/docs/current/connector/postgresql.html).
 
 - REST API {#api}
 
@@ -2690,10 +2690,10 @@ ALTER ROLE <имя_пользователя_{{ GP }}> CREATEEXTTABLE (type='writ
         --request POST \
         --header "Authorization: Bearer $IAM_TOKEN" \
         --header "Content-Type: application/json" \
-        --url 'https://{{ api-host-trino }}/managed-trino/v1/clusters/<идентификатор_кластера>/catalogs' \
+        --url 'https://trino.api.cloud.yandex.net/managed-trino/v1/clusters/<идентификатор_кластера>/catalogs' \
         --data '{
                   "catalog": {
-                    "name": "<имя_каталога_{{ TR }}>",
+                    "name": "<имя_каталога_Trino>",
                     "connector": {
                       "postgresql": {
                         "connection": {
@@ -2701,7 +2701,7 @@ ALTER ROLE <имя_пользователя_{{ GP }}> CREATEEXTTABLE (type='writ
                             "connectionId": "<идентификатор_подключения>",
                             "database": "<имя_БД>",
                             "connectionProperties": {
-                              <список_настроек_клиента_{{ PG }}>
+                              <список_настроек_клиента_PostgreSQL>
                             }
                           }
                         },
@@ -2716,17 +2716,17 @@ ALTER ROLE <имя_пользователя_{{ GP }}> CREATEEXTTABLE (type='writ
 
     Где:
 
-    * `connectionManager` — настройки {{ connection-manager-name }}:
+    * `connectionManager` — настройки Connection Manager:
 
-        * `connectionId` — идентификатор подключения в {{ connection-manager-name }} для подключения к кластеру {{ PG }}.
+        * `connectionId` — идентификатор подключения в Connection Manager для подключения к кластеру PostgreSQL.
 
             Чтобы узнать идентификатор подключения:
-            1. В консоли управления перейдите на страницу [каталога ресурсов]({{ link-console-main }}).
-            1. Перейдите в сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-postgresql }}**.
-            1. Нажмите на имя нужного кластера и перейдите на вкладку **{{ ui-key.yacloud.connection-manager.label_connections }}**.
+            1. В консоли управления перейдите на страницу [каталога ресурсов](https://console.yandex.cloud).
+            1. Перейдите в сервис **Managed Service for&nbsp;PostgreSQL**.
+            1. Нажмите на имя нужного кластера и перейдите на вкладку **Подключения**.
 
-        * `database` — имя БД в кластере {{ PG }}.
-        * `connectionProperties` — список настроек клиента {{ PG }} в формате `"ключ": "значение"`.
+        * `database` — имя БД в кластере PostgreSQL.
+        * `connectionProperties` — список настроек клиента PostgreSQL в формате `"ключ": "значение"`.
 
             {% cut "Доступные параметры" %}
             
@@ -2765,7 +2765,7 @@ ALTER ROLE <имя_пользователя_{{ GP }}> CREATEEXTTABLE (type='writ
             
             {% endcut %}
 
-    * `additionalProperties` — список дополнительных настроек в формате `"ключ": "значение"`. Список доступных настроек в [официальной документации]({{ tr.docs }}/connector/postgresql.html).
+    * `additionalProperties` — список дополнительных настроек в формате `"ключ": "значение"`. Список доступных настроек в [официальной документации](https://trino.io/docs/current/connector/postgresql.html).
 
     Идентификатор кластера можно запросить со [списком кластеров в каталоге](cluster-list.md#list-clusters).
 
@@ -2783,7 +2783,7 @@ ALTER ROLE <имя_пользователя_{{ GP }}> CREATEEXTTABLE (type='writ
         -d '{
               "cluster_id": "<идентификатор_кластера>",
               "catalog": {
-                "name": "<имя_каталога_{{ TR }}>",
+                "name": "<имя_каталога_Trino>",
                 "connector": {
                   "postgresql": {
                     "connection": {
@@ -2791,7 +2791,7 @@ ALTER ROLE <имя_пользователя_{{ GP }}> CREATEEXTTABLE (type='writ
                         "connection_id": "<идентификатор_подключения>",
                         "database": "<имя_БД>",
                         "connection_properties": {
-                          <список_настроек_клиента_{{ PG }}>
+                          <список_настроек_клиента_PostgreSQL>
                         }
                       }
                     },
@@ -2802,23 +2802,23 @@ ALTER ROLE <имя_пользователя_{{ GP }}> CREATEEXTTABLE (type='writ
                 }
               }
             }' \
-        {{ api-host-trino }}:{{ port-https }} \
+        trino.api.cloud.yandex.net:443 \
         yandex.cloud.trino.v1.CatalogService.Create
     ```
 
     Где:
 
-    * `connection_manager` — настройки {{ connection-manager-name }}:
+    * `connection_manager` — настройки Connection Manager:
 
-        * `connection_id` — идентификатор подключения в {{ connection-manager-name }} для подключения к кластеру {{ PG }}.
+        * `connection_id` — идентификатор подключения в Connection Manager для подключения к кластеру PostgreSQL.
 
             Чтобы узнать идентификатор подключения:
-            1. В консоли управления перейдите на страницу [каталога ресурсов]({{ link-console-main }}).
-            1. Перейдите в сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-postgresql }}**.
-            1. Нажмите на имя нужного кластера и перейдите на вкладку **{{ ui-key.yacloud.connection-manager.label_connections }}**.
+            1. В консоли управления перейдите на страницу [каталога ресурсов](https://console.yandex.cloud).
+            1. Перейдите в сервис **Managed Service for&nbsp;PostgreSQL**.
+            1. Нажмите на имя нужного кластера и перейдите на вкладку **Подключения**.
 
-        * `database` — имя БД в кластере {{ PG }}.
-        * `connection_properties` — список настроек клиента {{ PG }} в формате `"ключ": "значение"`.
+        * `database` — имя БД в кластере PostgreSQL.
+        * `connection_properties` — список настроек клиента PostgreSQL в формате `"ключ": "значение"`.
 
             {% cut "Доступные параметры" %}
             
@@ -2857,7 +2857,7 @@ ALTER ROLE <имя_пользователя_{{ GP }}> CREATEEXTTABLE (type='writ
             
             {% endcut %}
 
-    * `additional_properties` — список дополнительных настроек в формате `"ключ": "значение"`. Список доступных настроек в [официальной документации]({{ tr.docs }}/connector/postgresql.html).
+    * `additional_properties` — список дополнительных настроек в формате `"ключ": "значение"`. Список доступных настроек в [официальной документации](https://trino.io/docs/current/connector/postgresql.html).
 
     Идентификатор кластера можно запросить со [списком кластеров в каталоге](cluster-list.md#list-clusters).
 
@@ -2869,17 +2869,17 @@ ALTER ROLE <имя_пользователя_{{ GP }}> CREATEEXTTABLE (type='writ
 
 - Консоль управления {#console}
 
-    * **URL** — URL для подключения к БД {{ PG }} в формате `jdbc:postgresql://<адрес_хоста>:<порт>/<имя_БД>`.
-    * **Имя пользователя** — имя пользователя для подключения к БД {{ PG }}.
-    * **Пароль** — пароль пользователя для подключения к БД {{ PG }}.
-    * **Дополнительные настройки** — в формате `ключ: значение`. Список доступных настроек в [официальной документации]({{ tr.docs }}/connector/postgresql.html).
+    * **URL** — URL для подключения к БД PostgreSQL в формате `jdbc:postgresql://<адрес_хоста>:<порт>/<имя_БД>`.
+    * **Имя пользователя** — имя пользователя для подключения к БД PostgreSQL.
+    * **Пароль** — пароль пользователя для подключения к БД PostgreSQL.
+    * **Дополнительные настройки** — в формате `ключ: значение`. Список доступных настроек в [официальной документации](https://trino.io/docs/current/connector/postgresql.html).
 
 - CLI {#cli}
 
     Пример команды:
 
     ```bash
-    {{ yc-mdb-tr }} catalog create postgresql <имя_каталога_{{ TR }}> \
+    yc managed-trino catalog create postgresql <имя_каталога_Trino> \
       --cluster-id <идентификатор_кластера> \
       --on-premise-connection-url <URL_для_подключения> \
       --on-premise-user-name <имя_пользователя> \
@@ -2889,18 +2889,18 @@ ALTER ROLE <имя_пользователя_{{ GP }}> CREATEEXTTABLE (type='writ
 
     Где:
 
-    * `--cluster-id` — идентификатор кластера, в котором создается каталог {{ TR }}. Идентификатор кластера можно запросить со [списком кластеров](cluster-list.md#list-clusters).
-    * `--on-premise-connection-url` — URL для подключения к БД {{ PG }} в формате `jdbc:postgresql://<адрес_хоста>:<порт>/<имя_БД>`.
-    * `--on-premise-user-name` — имя пользователя для подключения к БД {{ PG }}.
-    * `--on-premise-password` — пароль пользователя для подключения к БД {{ PG }}.
-    * `--additional-properties` — дополнительные настройки в формате `ключ=значение`. Список доступных настроек в [официальной документации]({{ tr.docs }}/connector/postgresql.html).
+    * `--cluster-id` — идентификатор кластера, в котором создается каталог Trino. Идентификатор кластера можно запросить со [списком кластеров](cluster-list.md#list-clusters).
+    * `--on-premise-connection-url` — URL для подключения к БД PostgreSQL в формате `jdbc:postgresql://<адрес_хоста>:<порт>/<имя_БД>`.
+    * `--on-premise-user-name` — имя пользователя для подключения к БД PostgreSQL.
+    * `--on-premise-password` — пароль пользователя для подключения к БД PostgreSQL.
+    * `--additional-properties` — дополнительные настройки в формате `ключ=значение`. Список доступных настроек в [официальной документации](https://trino.io/docs/current/connector/postgresql.html).
 
-- {{ TF }} {#tf}
+- Terraform {#tf}
 
     Пример конфигурации:
 
     ```hcl
-    resource "yandex_trino_catalog" "<имя_каталога_{{ TR }}>" {
+    resource "yandex_trino_catalog" "<имя_каталога_Trino>" {
       ...
       postgresql = {
         on_premise = {
@@ -2919,11 +2919,11 @@ ALTER ROLE <имя_пользователя_{{ GP }}> CREATEEXTTABLE (type='writ
 
     * `on_premise` — настройки для подключения к пользовательской инсталляции:
 
-        * `connection_url` — URL для подключения к БД {{ PG }} в формате `jdbc:postgresql://<адрес_хоста>:<порт>/<имя_БД>`.
-        * `user_name` — имя пользователя для подключения к БД {{ PG }}.
-        * `password` — пароль пользователя для подключения к БД {{ PG }}.
+        * `connection_url` — URL для подключения к БД PostgreSQL в формате `jdbc:postgresql://<адрес_хоста>:<порт>/<имя_БД>`.
+        * `user_name` — имя пользователя для подключения к БД PostgreSQL.
+        * `password` — пароль пользователя для подключения к БД PostgreSQL.
 
-    * `additional_properties` — список дополнительных настроек в формате `"ключ" = "значение"`. Список доступных настроек в [официальной документации]({{ tr.docs }}/connector/postgresql.html).
+    * `additional_properties` — список дополнительных настроек в формате `"ключ" = "значение"`. Список доступных настроек в [официальной документации](https://trino.io/docs/current/connector/postgresql.html).
 
 - REST API {#api}
 
@@ -2934,10 +2934,10 @@ ALTER ROLE <имя_пользователя_{{ GP }}> CREATEEXTTABLE (type='writ
         --request POST \
         --header "Authorization: Bearer $IAM_TOKEN" \
         --header "Content-Type: application/json" \
-        --url 'https://{{ api-host-trino }}/managed-trino/v1/clusters/<идентификатор_кластера>/catalogs' \
+        --url 'https://trino.api.cloud.yandex.net/managed-trino/v1/clusters/<идентификатор_кластера>/catalogs' \
         --data '{
                   "catalog": {
-                    "name": "<имя_каталога_{{ TR }}>",
+                    "name": "<имя_каталога_Trino>",
                     "connector": {
                       "postgresql": {
                         "connection": {
@@ -2960,11 +2960,11 @@ ALTER ROLE <имя_пользователя_{{ GP }}> CREATEEXTTABLE (type='writ
 
     * `onPremise` — настройки для подключения к пользовательской инсталляции:
 
-        * `connectionUrl` — URL для подключения к БД {{ PG }} в формате `jdbc:postgresql://<адрес_хоста>:<порт>/<имя_БД>`.
-        * `userName` — имя пользователя для подключения к БД {{ PG }}.
-        * `password` — пароль пользователя для подключения к БД {{ PG }}.
+        * `connectionUrl` — URL для подключения к БД PostgreSQL в формате `jdbc:postgresql://<адрес_хоста>:<порт>/<имя_БД>`.
+        * `userName` — имя пользователя для подключения к БД PostgreSQL.
+        * `password` — пароль пользователя для подключения к БД PostgreSQL.
 
-    * `additionalProperties` — список дополнительных настроек в формате `"ключ": "значение"`. Список доступных настроек в [официальной документации]({{ tr.docs }}/connector/postgresql.html).
+    * `additionalProperties` — список дополнительных настроек в формате `"ключ": "значение"`. Список доступных настроек в [официальной документации](https://trino.io/docs/current/connector/postgresql.html).
 
     Идентификатор кластера можно запросить со [списком кластеров в каталоге](cluster-list.md#list-clusters).
 
@@ -2982,7 +2982,7 @@ ALTER ROLE <имя_пользователя_{{ GP }}> CREATEEXTTABLE (type='writ
         -d '{
               "cluster_id": "<идентификатор_кластера>",
               "catalog": {
-                "name": "<имя_каталога_{{ TR }}>",
+                "name": "<имя_каталога_Trino>",
                 "connector": {
                   "postgresql": {
                     "connection": {
@@ -2999,7 +2999,7 @@ ALTER ROLE <имя_пользователя_{{ GP }}> CREATEEXTTABLE (type='writ
                 }
               }
             }' \
-        {{ api-host-trino }}:{{ port-https }} \
+        trino.api.cloud.yandex.net:443 \
         yandex.cloud.trino.v1.CatalogService.Create
     ```
 
@@ -3007,45 +3007,45 @@ ALTER ROLE <имя_пользователя_{{ GP }}> CREATEEXTTABLE (type='writ
 
     * `on_premise` — настройки для подключения к пользовательской инсталляции:
 
-        * `connection_url` — URL для подключения к БД {{ PG }} в формате `jdbc:postgresql://<адрес_хоста>:<порт>/<имя_БД>`.
-        * `user_name` — имя пользователя для подключения к БД {{ PG }}.
-        * `password` — пароль пользователя для подключения к БД {{ PG }}.
+        * `connection_url` — URL для подключения к БД PostgreSQL в формате `jdbc:postgresql://<адрес_хоста>:<порт>/<имя_БД>`.
+        * `user_name` — имя пользователя для подключения к БД PostgreSQL.
+        * `password` — пароль пользователя для подключения к БД PostgreSQL.
 
-    * `additional_properties` — список дополнительных настроек в формате `"ключ": "значение"`. Список доступных настроек в [официальной документации]({{ tr.docs }}/connector/postgresql.html).
+    * `additional_properties` — список дополнительных настроек в формате `"ключ": "значение"`. Список доступных настроек в [официальной документации](https://trino.io/docs/current/connector/postgresql.html).
 
     Идентификатор кластера можно запросить со [списком кластеров в каталоге](cluster-list.md#list-clusters).
 
 {% endlist %}
 
-### Коннектор {{ MY }} {{ preview-stage }} {#mysql}
+### Коннектор MySQL® <code><b><small>Preview</small></b></code> {#mysql}
 
-Выберите тип подключения — [{{ connection-manager-name }}](../../metadata-hub/concepts/connection-manager.md) или **Ручная настройка** (пользовательская инсталляция), и задайте для него нужные настройки.
+Выберите тип подключения — [Connection Manager](../../metadata-hub/concepts/connection-manager.md) или **Ручная настройка** (пользовательская инсталляция), и задайте для него нужные настройки.
 
-{{ connection-manager-name }} позволяет создавать подключения к кластеру с управляемой базой данных и к пользовательской инсталляции базы данных.
+Connection Manager позволяет создавать подключения к кластеру с управляемой базой данных и к пользовательской инсталляции базы данных.
 
-При подключении с типом {{ connection-manager-name }} любые изменения в параметрах подключения автоматически учитываются в {{ TR }}. При подключении с типом **Ручная настройка** изменения в параметрах подключения не отслеживаются в {{ TR }}. Их необходимо отслеживать и вносить вручную.
+При подключении с типом Connection Manager любые изменения в параметрах подключения автоматически учитываются в Trino. При подключении с типом **Ручная настройка** изменения в параметрах подключения не отслеживаются в Trino. Их необходимо отслеживать и вносить вручную.
 
-#### Подключение {{ connection-manager-name }} {#mysql-connection-manager}
+#### Подключение Connection Manager {#mysql-connection-manager}
 
 {% list tabs group=instructions %}
 
 - Консоль управления {#console}
 
-    * **Идентификатор подключения** — идентификатор подключения в {{ connection-manager-name }} для подключения к кластеру {{ MY }}.
+    * **Идентификатор подключения** — идентификатор подключения в Connection Manager для подключения к кластеру MySQL®.
 
         Чтобы узнать идентификатор подключения:
-        1. Перейдите на страницу [каталога ресурсов]({{ link-console-main }}).
-        1. Перейдите в сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-mysql }}**.
-        1. Нажмите на имя нужного кластера и перейдите на вкладку **{{ ui-key.yacloud.connection-manager.label_connections }}**.
+        1. Перейдите на страницу [каталога ресурсов](https://console.yandex.cloud).
+        1. Перейдите в сервис **Managed Service for&nbsp;MySQL**.
+        1. Нажмите на имя нужного кластера и перейдите на вкладку **Подключения**.
 
-    * **Свойства подключения** — параметры подключения {{ MY }} в формате `ключ: значение`.
+    * **Свойства подключения** — параметры подключения MySQL® в формате `ключ: значение`.
 
         {% cut "Доступные параметры" %}
         
-        * `connectTimeout` — максимальное время ожидания установки соединения с {{ MY }}, в миллисекундах;
+        * `connectTimeout` — максимальное время ожидания установки соединения с MySQL®, в миллисекундах;
         * `socketTimeout` — максимальное время ожидания выполнения операций через сокет, в миллисекундах;
-        * `connectionTimeZone` — временная зона, которую использует {{ MY }}, например, `UTC` или `Europe/Moscow`;
-        * `serverTimezone` — временная зона, которую использует {{ MY }}, например, `UTC` или `Europe/Moscow`;
+        * `connectionTimeZone` — временная зона, которую использует MySQL®, например, `UTC` или `Europe/Moscow`;
+        * `serverTimezone` — временная зона, которую использует MySQL®, например, `UTC` или `Europe/Moscow`;
         
            {% note info %}
            
@@ -3062,38 +3062,38 @@ ALTER ROLE <имя_пользователя_{{ GP }}> CREATEEXTTABLE (type='writ
         
         {% endcut %}
 
-    * **Дополнительные настройки** — в формате `ключ: значение`. Список доступных настроек в [официальной документации]({{ tr.docs }}/connector/mysql.html).
+    * **Дополнительные настройки** — в формате `ключ: значение`. Список доступных настроек в [официальной документации](https://trino.io/docs/current/connector/mysql.html).
 
 - CLI {#cli}
 
     Пример команды:
 
     ```bash
-    {{ yc-mdb-tr }} catalog create mysql <имя_каталога_{{ TR }}> \
+    yc managed-trino catalog create mysql <имя_каталога_Trino> \
       --cluster-id <идентификатор_кластера> \
       --connection-manager-connection-id <идентификатор_подключения> \
-      --connection-manager-connection-properties <список_настроек_подключения_{{ MY }}> \
+      --connection-manager-connection-properties <список_настроек_подключения_MySQL®> \
       --additional-properties <список_дополнительных_настроек>
     ```
 
     Где:
 
-    * `--cluster-id` — идентификатор кластера, в котором создается каталог {{ TR }}. Идентификатор кластера можно запросить со [списком кластеров](cluster-list.md#list-clusters).
-    * `--connection-manager-connection-id` — идентификатор подключения в {{ connection-manager-name }} для подключения к кластеру {{ MY }}.
+    * `--cluster-id` — идентификатор кластера, в котором создается каталог Trino. Идентификатор кластера можно запросить со [списком кластеров](cluster-list.md#list-clusters).
+    * `--connection-manager-connection-id` — идентификатор подключения в Connection Manager для подключения к кластеру MySQL®.
 
         Чтобы узнать идентификатор подключения:
-        1. Перейдите на страницу [каталога ресурсов]({{ link-console-main }}).
-        1. Перейдите в сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-postgresql }}**.
-        1. Нажмите на имя нужного кластера и перейдите на вкладку **{{ ui-key.yacloud.connection-manager.label_connections }}**.
+        1. Перейдите на страницу [каталога ресурсов](https://console.yandex.cloud).
+        1. Перейдите в сервис **Managed Service for&nbsp;PostgreSQL**.
+        1. Нажмите на имя нужного кластера и перейдите на вкладку **Подключения**.
 
-    * `--connection-manager-connection-properties` — список настроек подключения {{ MY }} в формате `ключ=значение`.
+    * `--connection-manager-connection-properties` — список настроек подключения MySQL® в формате `ключ=значение`.
 
        {% cut "Доступные параметры" %}
        
-       * `connectTimeout` — максимальное время ожидания установки соединения с {{ MY }}, в миллисекундах;
+       * `connectTimeout` — максимальное время ожидания установки соединения с MySQL®, в миллисекундах;
        * `socketTimeout` — максимальное время ожидания выполнения операций через сокет, в миллисекундах;
-       * `connectionTimeZone` — временная зона, которую использует {{ MY }}, например, `UTC` или `Europe/Moscow`;
-       * `serverTimezone` — временная зона, которую использует {{ MY }}, например, `UTC` или `Europe/Moscow`;
+       * `connectionTimeZone` — временная зона, которую использует MySQL®, например, `UTC` или `Europe/Moscow`;
+       * `serverTimezone` — временная зона, которую использует MySQL®, например, `UTC` или `Europe/Moscow`;
        
           {% note info %}
           
@@ -3110,20 +3110,20 @@ ALTER ROLE <имя_пользователя_{{ GP }}> CREATEEXTTABLE (type='writ
        
        {% endcut %}
 
-    * `--additional-properties` — дополнительные настройки в формате `ключ=значение`. Список доступных настроек в [официальной документации]({{ tr.docs }}/connector/mysql.html).
+    * `--additional-properties` — дополнительные настройки в формате `ключ=значение`. Список доступных настроек в [официальной документации](https://trino.io/docs/current/connector/mysql.html).
 
-- {{ TF }} {#tf}
+- Terraform {#tf}
 
     Пример конфигурации:
 
     ```hcl
-    resource "yandex_trino_catalog" "<имя_каталога_{{ TR }}>" {
+    resource "yandex_trino_catalog" "<имя_каталога_Trino>" {
       ...
       mysql = {
         connection_manager = {
           connection_id = "<идентификатор_подключения>"
           connection_properties = {
-            <список_настроек_подключения_{{ MY }}>
+            <список_настроек_подключения_MySQL®>
           }
         }
         additional_properties = {
@@ -3135,23 +3135,23 @@ ALTER ROLE <имя_пользователя_{{ GP }}> CREATEEXTTABLE (type='writ
 
     Где:
 
-    * `connection_manager` — настройки {{ connection-manager-name }}:
+    * `connection_manager` — настройки Connection Manager:
 
-        * `connection_id` — идентификатор подключения в {{ connection-manager-name }} для подключения к кластеру {{ MY }}.
+        * `connection_id` — идентификатор подключения в Connection Manager для подключения к кластеру MySQL®.
 
             Чтобы узнать идентификатор подключения:
-            1. В консоли управления перейдите на страницу [каталога ресурсов]({{ link-console-main }}).
-            1. Перейдите в сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-mysql }}**.
-            1. Нажмите на имя нужного кластера и перейдите на вкладку **{{ ui-key.yacloud.connection-manager.label_connections }}**.
+            1. В консоли управления перейдите на страницу [каталога ресурсов](https://console.yandex.cloud).
+            1. Перейдите в сервис **Managed Service for&nbsp;MySQL**.
+            1. Нажмите на имя нужного кластера и перейдите на вкладку **Подключения**.
 
-        * `connection_properties` — список настроек подключения {{ MY }} в формате `"ключ" = "значение"`.
+        * `connection_properties` — список настроек подключения MySQL® в формате `"ключ" = "значение"`.
 
            {% cut "Доступные параметры" %}
            
-           * `connectTimeout` — максимальное время ожидания установки соединения с {{ MY }}, в миллисекундах;
+           * `connectTimeout` — максимальное время ожидания установки соединения с MySQL®, в миллисекундах;
            * `socketTimeout` — максимальное время ожидания выполнения операций через сокет, в миллисекундах;
-           * `connectionTimeZone` — временная зона, которую использует {{ MY }}, например, `UTC` или `Europe/Moscow`;
-           * `serverTimezone` — временная зона, которую использует {{ MY }}, например, `UTC` или `Europe/Moscow`;
+           * `connectionTimeZone` — временная зона, которую использует MySQL®, например, `UTC` или `Europe/Moscow`;
+           * `serverTimezone` — временная зона, которую использует MySQL®, например, `UTC` или `Europe/Moscow`;
            
               {% note info %}
               
@@ -3168,7 +3168,7 @@ ALTER ROLE <имя_пользователя_{{ GP }}> CREATEEXTTABLE (type='writ
            
            {% endcut %}
 
-    * `additional_properties` — список дополнительных настроек в формате `"ключ" = "значение"`. Список доступных настроек в [официальной документации]({{ tr.docs }}/connector/mysql.html).
+    * `additional_properties` — список дополнительных настроек в формате `"ключ" = "значение"`. Список доступных настроек в [официальной документации](https://trino.io/docs/current/connector/mysql.html).
 
 - REST API {#api}
 
@@ -3179,17 +3179,17 @@ ALTER ROLE <имя_пользователя_{{ GP }}> CREATEEXTTABLE (type='writ
         --request POST \
         --header "Authorization: Bearer $IAM_TOKEN" \
         --header "Content-Type: application/json" \
-        --url 'https://{{ api-host-trino }}/managed-trino/v1/clusters/<идентификатор_кластера>/catalogs' \
+        --url 'https://trino.api.cloud.yandex.net/managed-trino/v1/clusters/<идентификатор_кластера>/catalogs' \
         --data '{
                   "catalog": {
-                    "name": "<имя_каталога_{{ TR }}>",
+                    "name": "<имя_каталога_Trino>",
                     "connector": {
                       "mysql": {
                         "connection": {
                           "connectionManager": {
                             "connectionId": "<идентификатор_подключения>",
                             "connectionProperties": {
-                              <список_настроек_подключения_{{ MY }}>
+                              <список_настроек_подключения_MySQL®>
                             }
                           }
                         },
@@ -3204,23 +3204,23 @@ ALTER ROLE <имя_пользователя_{{ GP }}> CREATEEXTTABLE (type='writ
 
     Где:
 
-    * `connectionManager` — настройки {{ connection-manager-name }}:
+    * `connectionManager` — настройки Connection Manager:
 
-        * `connectionId` — идентификатор подключения в {{ connection-manager-name }} для подключения к кластеру {{ MY }}.
+        * `connectionId` — идентификатор подключения в Connection Manager для подключения к кластеру MySQL®.
 
             Чтобы узнать идентификатор подключения:
-            1. В консоли управления перейдите на страницу [каталога ресурсов]({{ link-console-main }}).
-            1. Перейдите в сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-mysql }}**.
-            1. Нажмите на имя нужного кластера и перейдите на вкладку **{{ ui-key.yacloud.connection-manager.label_connections }}**.
+            1. В консоли управления перейдите на страницу [каталога ресурсов](https://console.yandex.cloud).
+            1. Перейдите в сервис **Managed Service for&nbsp;MySQL**.
+            1. Нажмите на имя нужного кластера и перейдите на вкладку **Подключения**.
 
-        * `connectionProperties` — список настроек подключения {{ MY }} в формате `"ключ": "значение"`.
+        * `connectionProperties` — список настроек подключения MySQL® в формате `"ключ": "значение"`.
 
            {% cut "Доступные параметры" %}
            
-           * `connectTimeout` — максимальное время ожидания установки соединения с {{ MY }}, в миллисекундах;
+           * `connectTimeout` — максимальное время ожидания установки соединения с MySQL®, в миллисекундах;
            * `socketTimeout` — максимальное время ожидания выполнения операций через сокет, в миллисекундах;
-           * `connectionTimeZone` — временная зона, которую использует {{ MY }}, например, `UTC` или `Europe/Moscow`;
-           * `serverTimezone` — временная зона, которую использует {{ MY }}, например, `UTC` или `Europe/Moscow`;
+           * `connectionTimeZone` — временная зона, которую использует MySQL®, например, `UTC` или `Europe/Moscow`;
+           * `serverTimezone` — временная зона, которую использует MySQL®, например, `UTC` или `Europe/Moscow`;
            
               {% note info %}
               
@@ -3237,7 +3237,7 @@ ALTER ROLE <имя_пользователя_{{ GP }}> CREATEEXTTABLE (type='writ
            
            {% endcut %}
 
-    * `additionalProperties` — список дополнительных настроек в формате `"ключ": "значение"`. Список доступных настроек в [официальной документации]({{ tr.docs }}/connector/mysql.html).
+    * `additionalProperties` — список дополнительных настроек в формате `"ключ": "значение"`. Список доступных настроек в [официальной документации](https://trino.io/docs/current/connector/mysql.html).
 
     Идентификатор кластера можно запросить со [списком кластеров в каталоге](cluster-list.md#list-clusters).
 
@@ -3255,14 +3255,14 @@ ALTER ROLE <имя_пользователя_{{ GP }}> CREATEEXTTABLE (type='writ
         -d '{
               "cluster_id": "<идентификатор_кластера>",
               "catalog": {
-                "name": "<имя_каталога_{{ TR }}>",
+                "name": "<имя_каталога_Trino>",
                 "connector": {
                   "mysql": {
                     "connection": {
                       "connection_manager": {
                         "connection_id": "<идентификатор_подключения>",
                         "connection_properties": {
-                          <список_настроек_подключения_{{ MY }}>
+                          <список_настроек_подключения_MySQL®>
                         }
                       }
                     },
@@ -3273,29 +3273,29 @@ ALTER ROLE <имя_пользователя_{{ GP }}> CREATEEXTTABLE (type='writ
                 }
               }
             }' \
-        {{ api-host-trino }}:{{ port-https }} \
+        trino.api.cloud.yandex.net:443 \
         yandex.cloud.trino.v1.CatalogService.Create
     ```
 
     Где:
 
-    * `connection_manager` — настройки {{ connection-manager-name }}:
+    * `connection_manager` — настройки Connection Manager:
 
-        * `connection_id` — идентификатор подключения в {{ connection-manager-name }} для подключения к кластеру {{ MY }}.
+        * `connection_id` — идентификатор подключения в Connection Manager для подключения к кластеру MySQL®.
 
             Чтобы узнать идентификатор подключения:
-            1. В консоли управления перейдите на страницу [каталога ресурсов]({{ link-console-main }}).
-            1. Перейдите в сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-mysql }}**.
-            1. Нажмите на имя нужного кластера и перейдите на вкладку **{{ ui-key.yacloud.connection-manager.label_connections }}**.
+            1. В консоли управления перейдите на страницу [каталога ресурсов](https://console.yandex.cloud).
+            1. Перейдите в сервис **Managed Service for&nbsp;MySQL**.
+            1. Нажмите на имя нужного кластера и перейдите на вкладку **Подключения**.
 
-        * `connection_properties` — список настроек подключения {{ MY }} в формате `"ключ": "значение"`.
+        * `connection_properties` — список настроек подключения MySQL® в формате `"ключ": "значение"`.
 
            {% cut "Доступные параметры" %}
            
-           * `connectTimeout` — максимальное время ожидания установки соединения с {{ MY }}, в миллисекундах;
+           * `connectTimeout` — максимальное время ожидания установки соединения с MySQL®, в миллисекундах;
            * `socketTimeout` — максимальное время ожидания выполнения операций через сокет, в миллисекундах;
-           * `connectionTimeZone` — временная зона, которую использует {{ MY }}, например, `UTC` или `Europe/Moscow`;
-           * `serverTimezone` — временная зона, которую использует {{ MY }}, например, `UTC` или `Europe/Moscow`;
+           * `connectionTimeZone` — временная зона, которую использует MySQL®, например, `UTC` или `Europe/Moscow`;
+           * `serverTimezone` — временная зона, которую использует MySQL®, например, `UTC` или `Europe/Moscow`;
            
               {% note info %}
               
@@ -3312,7 +3312,7 @@ ALTER ROLE <имя_пользователя_{{ GP }}> CREATEEXTTABLE (type='writ
            
            {% endcut %}
 
-    * `additional_properties` — список дополнительных настроек в формате `"ключ": "значение"`. Список доступных настроек в [официальной документации]({{ tr.docs }}/connector/mysql.html).
+    * `additional_properties` — список дополнительных настроек в формате `"ключ": "значение"`. Список доступных настроек в [официальной документации](https://trino.io/docs/current/connector/mysql.html).
 
     Идентификатор кластера можно запросить со [списком кластеров в каталоге](cluster-list.md#list-clusters).
 
@@ -3324,17 +3324,17 @@ ALTER ROLE <имя_пользователя_{{ GP }}> CREATEEXTTABLE (type='writ
 
 - Консоль управления {#console}
 
-    * **URL** — URL для подключения к серверу {{ MY }} в формате `jdbc:mysql://<адрес_хоста>:<порт>/`. Имя базы данных указывать не нужно — {{ TR }} автоматически обнаружит все доступные базы данных.
-    * **Имя пользователя** — имя пользователя для подключения к серверу {{ MY }}.
-    * **Пароль** — пароль пользователя для подключения к серверу {{ MY }}.
-    * **Дополнительные настройки** — в формате `ключ: значение`. Список доступных настроек в [официальной документации]({{ tr.docs }}/connector/mysql.html).
+    * **URL** — URL для подключения к серверу MySQL® в формате `jdbc:mysql://<адрес_хоста>:<порт>/`. Имя базы данных указывать не нужно — Trino автоматически обнаружит все доступные базы данных.
+    * **Имя пользователя** — имя пользователя для подключения к серверу MySQL®.
+    * **Пароль** — пароль пользователя для подключения к серверу MySQL®.
+    * **Дополнительные настройки** — в формате `ключ: значение`. Список доступных настроек в [официальной документации](https://trino.io/docs/current/connector/mysql.html).
 
 - CLI {#cli}
 
     Пример команды:
 
     ```bash
-    {{ yc-mdb-tr }} catalog create mysql <имя_каталога_{{ TR }}> \
+    yc managed-trino catalog create mysql <имя_каталога_Trino> \
       --cluster-id <идентификатор_кластера> \
       --on-premise-connection-url <URL_для_подключения> \
       --on-premise-user-name <имя_пользователя> \
@@ -3344,18 +3344,18 @@ ALTER ROLE <имя_пользователя_{{ GP }}> CREATEEXTTABLE (type='writ
 
     Где:
 
-    * `--cluster-id` — идентификатор кластера, в котором создается каталог {{ TR }}. Идентификатор кластера можно запросить со [списком кластеров](cluster-list.md#list-clusters).
-    * `--on-premise-connection-url` — URL для подключения к серверу {{ MY }} в формате `jdbc:mysql://<адрес_хоста>:<порт>/`. Имя базы данных указывать не нужно — {{ TR }} автоматически обнаружит все доступные базы данных.
-    * `--on-premise-user-name` — имя пользователя для подключения к серверу {{ MY }}.
-    * `--on-premise-password` — пароль пользователя для подключения к серверу {{ MY }}.
-    * `--additional-properties` — дополнительные настройки в формате `ключ=значение`. Список доступных настроек в [официальной документации]({{ tr.docs }}/connector/mysql.html).
+    * `--cluster-id` — идентификатор кластера, в котором создается каталог Trino. Идентификатор кластера можно запросить со [списком кластеров](cluster-list.md#list-clusters).
+    * `--on-premise-connection-url` — URL для подключения к серверу MySQL® в формате `jdbc:mysql://<адрес_хоста>:<порт>/`. Имя базы данных указывать не нужно — Trino автоматически обнаружит все доступные базы данных.
+    * `--on-premise-user-name` — имя пользователя для подключения к серверу MySQL®.
+    * `--on-premise-password` — пароль пользователя для подключения к серверу MySQL®.
+    * `--additional-properties` — дополнительные настройки в формате `ключ=значение`. Список доступных настроек в [официальной документации](https://trino.io/docs/current/connector/mysql.html).
 
-- {{ TF }} {#tf}
+- Terraform {#tf}
 
     Пример конфигурации:
 
     ```hcl
-    resource "yandex_trino_catalog" "<имя_каталога_{{ TR }}>" {
+    resource "yandex_trino_catalog" "<имя_каталога_Trino>" {
       ...
       mysql = {
         on_premise = {
@@ -3374,11 +3374,11 @@ ALTER ROLE <имя_пользователя_{{ GP }}> CREATEEXTTABLE (type='writ
 
     * `on_premise` — настройки для подключения к пользовательской инсталляции:
 
-        * `connection_url` — URL для подключения к серверу {{ MY }} в формате `jdbc:mysql://<адрес_хоста>:<порт>/`. Имя базы данных указывать не нужно — {{ TR }} автоматически обнаружит все доступные базы данных.
-        * `user_name` — имя пользователя для подключения к серверу {{ MY }}.
-        * `password` — пароль пользователя для подключения к серверу {{ MY }}.
+        * `connection_url` — URL для подключения к серверу MySQL® в формате `jdbc:mysql://<адрес_хоста>:<порт>/`. Имя базы данных указывать не нужно — Trino автоматически обнаружит все доступные базы данных.
+        * `user_name` — имя пользователя для подключения к серверу MySQL®.
+        * `password` — пароль пользователя для подключения к серверу MySQL®.
 
-    * `additional_properties` — список дополнительных настроек в формате `"ключ" = "значение"`. Список доступных настроек в [официальной документации]({{ tr.docs }}/connector/mysql.html).
+    * `additional_properties` — список дополнительных настроек в формате `"ключ" = "значение"`. Список доступных настроек в [официальной документации](https://trino.io/docs/current/connector/mysql.html).
 
 - REST API {#api}
 
@@ -3389,10 +3389,10 @@ ALTER ROLE <имя_пользователя_{{ GP }}> CREATEEXTTABLE (type='writ
         --request POST \
         --header "Authorization: Bearer $IAM_TOKEN" \
         --header "Content-Type: application/json" \
-        --url 'https://{{ api-host-trino }}/managed-trino/v1/clusters/<идентификатор_кластера>/catalogs' \
+        --url 'https://trino.api.cloud.yandex.net/managed-trino/v1/clusters/<идентификатор_кластера>/catalogs' \
         --data '{
                   "catalog": {
-                    "name": "<имя_каталога_{{ TR }}>",
+                    "name": "<имя_каталога_Trino>",
                     "connector": {
                       "mysql": {
                         "connection": {
@@ -3415,11 +3415,11 @@ ALTER ROLE <имя_пользователя_{{ GP }}> CREATEEXTTABLE (type='writ
 
     * `onPremise` — настройки для подключения к пользовательской инсталляции:
 
-        * `connectionUrl` — URL для подключения к серверу {{ MY }} в формате `jdbc:mysql://<адрес_хоста>:<порт>/`. Имя базы данных указывать не нужно — {{ TR }} автоматически обнаружит все доступные базы данных.
-        * `userName` — имя пользователя для подключения к серверу {{ MY }}.
-        * `password` — пароль пользователя для подключения к серверу {{ MY }}.
+        * `connectionUrl` — URL для подключения к серверу MySQL® в формате `jdbc:mysql://<адрес_хоста>:<порт>/`. Имя базы данных указывать не нужно — Trino автоматически обнаружит все доступные базы данных.
+        * `userName` — имя пользователя для подключения к серверу MySQL®.
+        * `password` — пароль пользователя для подключения к серверу MySQL®.
 
-    * `additionalProperties` — список дополнительных настроек в формате `"ключ": "значение"`. Список доступных настроек в [официальной документации]({{ tr.docs }}/connector/mysql.html).
+    * `additionalProperties` — список дополнительных настроек в формате `"ключ": "значение"`. Список доступных настроек в [официальной документации](https://trino.io/docs/current/connector/mysql.html).
 
     Идентификатор кластера можно запросить со [списком кластеров в каталоге](cluster-list.md#list-clusters).
 
@@ -3437,7 +3437,7 @@ ALTER ROLE <имя_пользователя_{{ GP }}> CREATEEXTTABLE (type='writ
         -d '{
               "cluster_id": "<идентификатор_кластера>",
               "catalog": {
-                "name": "<имя_каталога_{{ TR }}>",
+                "name": "<имя_каталога_Trino>",
                 "connector": {
                   "mysql": {
                     "connection": {
@@ -3454,7 +3454,7 @@ ALTER ROLE <имя_пользователя_{{ GP }}> CREATEEXTTABLE (type='writ
                 }
               }
             }' \
-        {{ api-host-trino }}:{{ port-https }} \
+        trino.api.cloud.yandex.net:443 \
         yandex.cloud.trino.v1.CatalogService.Create
     ```
 
@@ -3462,17 +3462,17 @@ ALTER ROLE <имя_пользователя_{{ GP }}> CREATEEXTTABLE (type='writ
 
     * `on_premise` — настройки для подключения к пользовательской инсталляции:
 
-        * `connection_url` — URL для подключения к серверу {{ MY }} в формате `jdbc:mysql://<адрес_хоста>:<порт>/`. Имя базы данных указывать не нужно — {{ TR }} автоматически обнаружит все доступные базы данных.
-        * `user_name` — имя пользователя для подключения к серверу {{ MY }}.
-        * `password` — пароль пользователя для подключения к серверу {{ MY }}.
+        * `connection_url` — URL для подключения к серверу MySQL® в формате `jdbc:mysql://<адрес_хоста>:<порт>/`. Имя базы данных указывать не нужно — Trino автоматически обнаружит все доступные базы данных.
+        * `user_name` — имя пользователя для подключения к серверу MySQL®.
+        * `password` — пароль пользователя для подключения к серверу MySQL®.
 
-    * `additional_properties` — список дополнительных настроек в формате `"ключ": "значение"`. Список доступных настроек в [официальной документации]({{ tr.docs }}/connector/mysql.html).
+    * `additional_properties` — список дополнительных настроек в формате `"ключ": "значение"`. Список доступных настроек в [официальной документации](https://trino.io/docs/current/connector/mysql.html).
 
     Идентификатор кластера можно запросить со [списком кластеров в каталоге](cluster-list.md#list-clusters).
 
 {% endlist %}
 
-### Коннектор MS SQL Server {{ preview-stage }} {#ms-sql}
+### Коннектор MS SQL Server <code><b><small>Preview</small></b></code> {#ms-sql}
 
 {% list tabs group=instructions %}
 
@@ -3482,14 +3482,14 @@ ALTER ROLE <имя_пользователя_{{ GP }}> CREATEEXTTABLE (type='writ
     * **URL** — URL для подключения к БД Microsoft SQL Server в формате `jdbc:sqlserver://<адрес_хоста>:<порт>;databaseName=<имя_БД>`.
     * **Имя пользователя** — имя пользователя для подключения к БД Microsoft SQL Server.
     * **Пароль** — пароль пользователя для подключения к БД Microsoft SQL Server.
-    * **Дополнительные настройки** — в формате `ключ: значение`. Список доступных настроек в [официальной документации]({{ tr.docs }}/connector/sqlserver.html).
+    * **Дополнительные настройки** — в формате `ключ: значение`. Список доступных настроек в [официальной документации](https://trino.io/docs/current/connector/sqlserver.html).
 
 - CLI {#cli}
 
     Пример команды:
 
     ```bash
-    {{ yc-mdb-tr }} catalog create sqlserver <имя_каталога_{{ TR }}> \
+    yc managed-trino catalog create sqlserver <имя_каталога_Trino> \
       --cluster-id <идентификатор_кластера> \
       --on-premise-connection-url <URL_для_подключения> \
       --on-premise-user-name <имя_пользователя> \
@@ -3499,18 +3499,18 @@ ALTER ROLE <имя_пользователя_{{ GP }}> CREATEEXTTABLE (type='writ
 
     Где:
 
-    * `--cluster-id` — идентификатор кластера, в котором создается каталог {{ TR }}. Идентификатор кластера можно запросить со [списком кластеров](cluster-list.md#list-clusters).
+    * `--cluster-id` — идентификатор кластера, в котором создается каталог Trino. Идентификатор кластера можно запросить со [списком кластеров](cluster-list.md#list-clusters).
     * `--on-premise-connection-url` — URL для подключения к БД Microsoft SQL Server в формате `jdbc:sqlserver://<адрес_хоста>:<порт>;databaseName=<имя_БД>`.
     * `--on-premise-user-name` — имя пользователя для подключения к БД Microsoft SQL Server.
     * `--on-premise-password` — пароль пользователя для подключения к БД Microsoft SQL Server.
-    * `--additional-properties` — дополнительные настройки в формате `ключ=значение`. Список доступных настроек в [официальной документации]({{ tr.docs }}/connector/sqlserver.html).
+    * `--additional-properties` — дополнительные настройки в формате `ключ=значение`. Список доступных настроек в [официальной документации](https://trino.io/docs/current/connector/sqlserver.html).
 
-- {{ TF }} {#tf}
+- Terraform {#tf}
 
     Пример конфигурации:
 
     ```hcl
-    resource "yandex_trino_catalog" "<имя_каталога_{{ TR }}>" {
+    resource "yandex_trino_catalog" "<имя_каталога_Trino>" {
       ...
       sqlserver = {
         on_premise = {
@@ -3533,7 +3533,7 @@ ALTER ROLE <имя_пользователя_{{ GP }}> CREATEEXTTABLE (type='writ
         * `user_name` — имя пользователя для подключения к БД Microsoft SQL Server.
         * `password` — пароль пользователя для подключения к БД Microsoft SQL Server.
 
-    * `additional_properties` — список дополнительных настроек в формате `"ключ" = "значение"`. Список доступных настроек в [официальной документации]({{ tr.docs }}/connector/sqlserver.html).
+    * `additional_properties` — список дополнительных настроек в формате `"ключ" = "значение"`. Список доступных настроек в [официальной документации](https://trino.io/docs/current/connector/sqlserver.html).
 
 - REST API {#api}
 
@@ -3544,10 +3544,10 @@ ALTER ROLE <имя_пользователя_{{ GP }}> CREATEEXTTABLE (type='writ
         --request POST \
         --header "Authorization: Bearer $IAM_TOKEN" \
         --header "Content-Type: application/json" \
-        --url 'https://{{ api-host-trino }}/managed-trino/v1/clusters/<идентификатор_кластера>/catalogs' \
+        --url 'https://trino.api.cloud.yandex.net/managed-trino/v1/clusters/<идентификатор_кластера>/catalogs' \
         --data '{
                   "catalog": {
-                    "name": "<имя_каталога_{{ TR }}>",
+                    "name": "<имя_каталога_Trino>",
                     "connector": {
                       "sqlserver": {
                         "connection": {
@@ -3574,7 +3574,7 @@ ALTER ROLE <имя_пользователя_{{ GP }}> CREATEEXTTABLE (type='writ
         * `userName` — имя пользователя для подключения к БД Microsoft SQL Server.
         * `password` — пароль пользователя для подключения к БД Microsoft SQL Server.
 
-    * `additionalProperties` — список дополнительных настроек в формате `"ключ": "значение"`. Список доступных настроек в [официальной документации]({{ tr.docs }}/connector/sqlserver.html).
+    * `additionalProperties` — список дополнительных настроек в формате `"ключ": "значение"`. Список доступных настроек в [официальной документации](https://trino.io/docs/current/connector/sqlserver.html).
 
     Идентификатор кластера можно запросить со [списком кластеров в каталоге](cluster-list.md#list-clusters).
 
@@ -3592,7 +3592,7 @@ ALTER ROLE <имя_пользователя_{{ GP }}> CREATEEXTTABLE (type='writ
         -d '{
               "cluster_id": "<идентификатор_кластера>",
               "catalog": {
-                "name": "<имя_каталога_{{ TR }}>",
+                "name": "<имя_каталога_Trino>",
                 "connector": {
                   "sqlserver": {
                     "connection": {
@@ -3609,7 +3609,7 @@ ALTER ROLE <имя_пользователя_{{ GP }}> CREATEEXTTABLE (type='writ
                 }
               }
             }' \
-        {{ api-host-trino }}:{{ port-https }} \
+        trino.api.cloud.yandex.net:443 \
         yandex.cloud.trino.v1.CatalogService.Create
     ```
 
@@ -3621,7 +3621,7 @@ ALTER ROLE <имя_пользователя_{{ GP }}> CREATEEXTTABLE (type='writ
         * `user_name` — имя пользователя для подключения к БД Microsoft SQL Server.
         * `password` — пароль пользователя для подключения к БД Microsoft SQL Server.
 
-    * `additional_properties` — список дополнительных настроек в формате `"ключ": "значение"`. Список доступных настроек в [официальной документации]({{ tr.docs }}/connector/sqlserver.html).
+    * `additional_properties` — список дополнительных настроек в формате `"ключ": "значение"`. Список доступных настроек в [официальной документации](https://trino.io/docs/current/connector/sqlserver.html).
 
     Идентификатор кластера можно запросить со [списком кластеров в каталоге](cluster-list.md#list-clusters).
 
@@ -3635,29 +3635,29 @@ ALTER ROLE <имя_пользователя_{{ GP }}> CREATEEXTTABLE (type='writ
 
 - Консоль управления {#console}
 
-    Вы можете задать дополнительные настройки в формате `ключ: значение`. Список доступных настроек в [официальной документации]({{ tr.docs }}/connector/tpcds.html).
+    Вы можете задать дополнительные настройки в формате `ключ: значение`. Список доступных настроек в [официальной документации](https://trino.io/docs/current/connector/tpcds.html).
 
 - CLI {#cli}
 
     Пример команды:
 
     ```bash
-    {{ yc-mdb-tr }} catalog create tpcds <имя_каталога_{{ TR }}> \
+    yc managed-trino catalog create tpcds <имя_каталога_Trino> \
       --cluster-id <идентификатор_кластера> \
       --additional-properties <список_дополнительных_настроек>
     ```  
 
     Где:
 
-    * `--cluster-id` — идентификатор кластера, в котором создается каталог {{ TR }}. Идентификатор кластера можно запросить со [списком кластеров](cluster-list.md#list-clusters).
-    * `--additional-properties` — дополнительные настройки в формате `ключ=значение`. Список доступных настроек в [официальной документации]({{ tr.docs }}/connector/tpcds.html).  
+    * `--cluster-id` — идентификатор кластера, в котором создается каталог Trino. Идентификатор кластера можно запросить со [списком кластеров](cluster-list.md#list-clusters).
+    * `--additional-properties` — дополнительные настройки в формате `ключ=значение`. Список доступных настроек в [официальной документации](https://trino.io/docs/current/connector/tpcds.html).  
 
-- {{ TF }} {#tf}
+- Terraform {#tf}
 
     Пример конфигурации:
 
     ```hcl
-    resource "yandex_trino_catalog" "<имя_каталога_{{ TR }}>" {
+    resource "yandex_trino_catalog" "<имя_каталога_Trino>" {
       ...
       tpcds = {
         additional_properties = {
@@ -3667,7 +3667,7 @@ ALTER ROLE <имя_пользователя_{{ GP }}> CREATEEXTTABLE (type='writ
     }
     ```
 
-    Где `additional_properties` — список дополнительных настроек в формате `"ключ" = "значение"`. Список доступных настроек в [официальной документации]({{ tr.docs }}/connector/tpcds.html).
+    Где `additional_properties` — список дополнительных настроек в формате `"ключ" = "значение"`. Список доступных настроек в [официальной документации](https://trino.io/docs/current/connector/tpcds.html).
 
 - REST API {#api}
 
@@ -3678,10 +3678,10 @@ ALTER ROLE <имя_пользователя_{{ GP }}> CREATEEXTTABLE (type='writ
         --request POST \
         --header "Authorization: Bearer $IAM_TOKEN" \
         --header "Content-Type: application/json" \
-        --url 'https://{{ api-host-trino }}/managed-trino/v1/clusters/<идентификатор_кластера>/catalogs' \
+        --url 'https://trino.api.cloud.yandex.net/managed-trino/v1/clusters/<идентификатор_кластера>/catalogs' \
         --data '{
                   "catalog": {
-                    "name": "<имя_каталога_{{ TR }}>",
+                    "name": "<имя_каталога_Trino>",
                     "connector": {
                       "tpcds": {
                         "additionalProperties": {
@@ -3693,7 +3693,7 @@ ALTER ROLE <имя_пользователя_{{ GP }}> CREATEEXTTABLE (type='writ
                 }'
     ```
 
-    Где `additionalProperties` — список дополнительных настроек в формате `"ключ": "значение"`. Список доступных настроек в [официальной документации]({{ tr.docs }}/connector/tpcds.html).
+    Где `additionalProperties` — список дополнительных настроек в формате `"ключ": "значение"`. Список доступных настроек в [официальной документации](https://trino.io/docs/current/connector/tpcds.html).
 
     Идентификатор кластера можно запросить со [списком кластеров в каталоге](cluster-list.md#list-clusters).
 
@@ -3711,7 +3711,7 @@ ALTER ROLE <имя_пользователя_{{ GP }}> CREATEEXTTABLE (type='writ
         -d '{
               "cluster_id": "<идентификатор_кластера>",
               "catalog": {
-                "name": "<имя_каталога_{{ TR }}>",
+                "name": "<имя_каталога_Trino>",
                 "connector": {
                   "tpcds": {
                     "additional_properties": {
@@ -3721,11 +3721,11 @@ ALTER ROLE <имя_пользователя_{{ GP }}> CREATEEXTTABLE (type='writ
                 }
               }
             }' \
-        {{ api-host-trino }}:{{ port-https }} \
+        trino.api.cloud.yandex.net:443 \
         yandex.cloud.trino.v1.CatalogService.Create
     ```
 
-    Где `additional_properties` — список дополнительных настроек в формате `"ключ": "значение"`. Список доступных настроек в [официальной документации]({{ tr.docs }}/connector/tpcds.html).
+    Где `additional_properties` — список дополнительных настроек в формате `"ключ": "значение"`. Список доступных настроек в [официальной документации](https://trino.io/docs/current/connector/tpcds.html).
 
     Идентификатор кластера можно запросить со [списком кластеров в каталоге](cluster-list.md#list-clusters).
 
@@ -3739,29 +3739,29 @@ ALTER ROLE <имя_пользователя_{{ GP }}> CREATEEXTTABLE (type='writ
 
 - Консоль управления {#console}
 
-    Вы можете задать дополнительные настройки в формате `ключ: значение`. Список доступных настроек в [официальной документации]({{ tr.docs }}/connector/tpch.html).
+    Вы можете задать дополнительные настройки в формате `ключ: значение`. Список доступных настроек в [официальной документации](https://trino.io/docs/current/connector/tpch.html).
 
 - CLI {#cli}
 
     Пример команды:
 
     ```bash
-    {{ yc-mdb-tr }} catalog create tpch <имя_каталога_{{ TR }}> \
+    yc managed-trino catalog create tpch <имя_каталога_Trino> \
       --cluster-id <идентификатор_кластера> \
       --additional-properties <список_дополнительных_настроек>
     ```  
 
     Где:
 
-    * `--cluster-id` — идентификатор кластера, в котором создается каталог {{ TR }}. Идентификатор кластера можно запросить со [списком кластеров](cluster-list.md#list-clusters).
-    * `--additional-properties` — дополнительные настройки в формате `ключ=значение`. Список доступных настроек в [официальной документации]({{ tr.docs }}/connector/tpch.html).      
+    * `--cluster-id` — идентификатор кластера, в котором создается каталог Trino. Идентификатор кластера можно запросить со [списком кластеров](cluster-list.md#list-clusters).
+    * `--additional-properties` — дополнительные настройки в формате `ключ=значение`. Список доступных настроек в [официальной документации](https://trino.io/docs/current/connector/tpch.html).      
 
-- {{ TF }} {#tf}
+- Terraform {#tf}
 
     Пример конфигурации:
 
     ```hcl
-    resource "yandex_trino_catalog" "<имя_каталога_{{ TR }}>" {
+    resource "yandex_trino_catalog" "<имя_каталога_Trino>" {
       ...
       tpch = {
         additional_properties = {
@@ -3771,7 +3771,7 @@ ALTER ROLE <имя_пользователя_{{ GP }}> CREATEEXTTABLE (type='writ
     }
     ```
 
-    Где `additional_properties` — список дополнительных настроек в формате `"ключ" = "значение"`. Список доступных настроек в [официальной документации]({{ tr.docs }}/connector/tpch.html).
+    Где `additional_properties` — список дополнительных настроек в формате `"ключ" = "значение"`. Список доступных настроек в [официальной документации](https://trino.io/docs/current/connector/tpch.html).
 
 - REST API {#api}
 
@@ -3782,10 +3782,10 @@ ALTER ROLE <имя_пользователя_{{ GP }}> CREATEEXTTABLE (type='writ
         --request POST \
         --header "Authorization: Bearer $IAM_TOKEN" \
         --header "Content-Type: application/json" \
-        --url 'https://{{ api-host-trino }}/managed-trino/v1/clusters/<идентификатор_кластера>/catalogs' \
+        --url 'https://trino.api.cloud.yandex.net/managed-trino/v1/clusters/<идентификатор_кластера>/catalogs' \
         --data '{
                   "catalog": {
-                    "name": "<имя_каталога_{{ TR }}>",
+                    "name": "<имя_каталога_Trino>",
                     "connector": {
                       "tpch": {
                         "additionalProperties": {
@@ -3797,7 +3797,7 @@ ALTER ROLE <имя_пользователя_{{ GP }}> CREATEEXTTABLE (type='writ
                 }'
     ```
 
-    Где `additionalProperties` — список дополнительных настроек в формате `"ключ": "значение"`. Список доступных настроек в [официальной документации]({{ tr.docs }}/connector/tpch.html).
+    Где `additionalProperties` — список дополнительных настроек в формате `"ключ": "значение"`. Список доступных настроек в [официальной документации](https://trino.io/docs/current/connector/tpch.html).
 
     Идентификатор кластера можно запросить со [списком кластеров в каталоге](cluster-list.md#list-clusters).
 
@@ -3815,7 +3815,7 @@ ALTER ROLE <имя_пользователя_{{ GP }}> CREATEEXTTABLE (type='writ
         -d '{
               "cluster_id": "<идентификатор_кластера>",
               "catalog": {
-                "name": "<имя_каталога_{{ TR }}>",
+                "name": "<имя_каталога_Trino>",
                 "connector": {
                   "tpch": {
                     "additional_properties": {
@@ -3825,14 +3825,14 @@ ALTER ROLE <имя_пользователя_{{ GP }}> CREATEEXTTABLE (type='writ
                 }
               }
             }' \
-        {{ api-host-trino }}:{{ port-https }} \
+        trino.api.cloud.yandex.net:443 \
         yandex.cloud.trino.v1.CatalogService.Create
     ```
 
-    Где `additional_properties` — список дополнительных настроек в формате `"ключ": "значение"`. Список доступных настроек в [официальной документации]({{ tr.docs }}/connector/tpch.html).
+    Где `additional_properties` — список дополнительных настроек в формате `"ключ": "значение"`. Список доступных настроек в [официальной документации](https://trino.io/docs/current/connector/tpch.html).
 
     Идентификатор кластера можно запросить со [списком кластеров в каталоге](cluster-list.md#list-clusters).
 
 {% endlist %}
 
-_{{ CH }} является зарегистрированным товарным знаком [ClickHouse, Inc](https://clickhouse.com)._
+_ClickHouse® является зарегистрированным товарным знаком [ClickHouse, Inc](https://clickhouse.com)._

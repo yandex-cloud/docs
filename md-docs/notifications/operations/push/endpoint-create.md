@@ -8,14 +8,14 @@
 
 - Консоль управления {#console}
 
-  1. В [консоли управления]({{ link-console-main }}) перейдите в каталог, в котором находится эндпоинт.
-  1. Перейдите в сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_cns }}**.
+  1. В [консоли управления](https://console.yandex.cloud) перейдите в каталог, в котором находится эндпоинт.
+  1. Перейдите в сервис **Cloud Notification Service**.
   1. Выберите канал push-уведомлений.
-  1. Перейдите на вкладку ![image](../../../_assets/console-icons/layers-3-diagonal.svg) **{{ ui-key.yacloud.cns.label_endpoints }}**.
-  1. Нажмите **{{ ui-key.yacloud.cns.action_create-endpoint }}**.
-  1. Введите **{{ ui-key.yacloud.cns.field_token }}** — уникальный токен на устройстве пользователя, созданный сервисом уведомлений для приложения.
-  1. (опционально) Введите **{{ ui-key.yacloud.cns.field_endpoint-user-data }}** — текст длиной до 2048 символов в кодировке [UTF-8](https://ru.wikipedia.org/wiki/UTF-8).
-  1. Нажмите **{{ ui-key.yacloud.common.create }}**.
+  1. Перейдите на вкладку ![image](../../../_assets/console-icons/layers-3-diagonal.svg) **Эндпоинты**.
+  1. Нажмите **Создать эндпоинт**.
+  1. Введите **Токен устройства** — уникальный токен на устройстве пользователя, созданный сервисом уведомлений для приложения.
+  1. (опционально) Введите **Данные пользователя** — текст длиной до 2048 символов в кодировке [UTF-8](https://ru.wikipedia.org/wiki/UTF-8).
+  1. Нажмите **Создать**.
 
 - AWS CLI {#aws-cli}
 
@@ -83,7 +83,7 @@
 
 - API {#api}
 
-  Воспользуйтесь методом HTTP API [create](../../api-ref/create-platform-endpoint.md) для ресурса Endpoint сервиса {{ cns-full-name }}.
+  Воспользуйтесь методом HTTP API [create](../../api-ref/create-platform-endpoint.md) для ресурса Endpoint сервиса Yandex Cloud Notification Service.
 
 {% endlist %}
 

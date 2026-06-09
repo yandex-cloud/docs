@@ -5,7 +5,7 @@ Updates the specified agent.
 ## HTTP request
 
 ```
-PATCH https://loadtesting.{{ api-host }}/loadtesting/api/v1/agent/{agentId}
+PATCH https://loadtesting.api.cloud.yandex.net/loadtesting/api/v1/agent/{agentId}
 ```
 
 ## Path parameters

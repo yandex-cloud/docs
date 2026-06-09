@@ -1,4 +1,4 @@
-# Мониторинг и логи в {{ mmy-name }}
+# Мониторинг и логи в Managed Service for MySQL®
 
 * [Как посмотреть графики кластера и хостов?](#charts)
 
@@ -16,9 +16,9 @@
 
 #### Как посмотреть графики кластера и хостов? {#charts}
 
-В [консоли управления]({{ link-console-main }}) перейдите на страницу кластера. Чтобы просмотреть [графики кластера](../operations/monitoring.md#monitoring-cluster), перейдите в раздел **{{ ui-key.yacloud.mysql.cluster.switch_monitoring }}**. Для [графиков отдельных хостов](../operations/monitoring.md#monitoring-hosts) перейдите в раздел **{{ ui-key.yacloud.mysql.cluster.switch_hosts }}** → **{{ ui-key.yacloud.mdb.cluster.hosts.switch_monitoring }}**.
+В [консоли управления](https://console.yandex.cloud) перейдите на страницу кластера. Чтобы просмотреть [графики кластера](../operations/monitoring.md#monitoring-cluster), перейдите в раздел **Мониторинг**. Для [графиков отдельных хостов](../operations/monitoring.md#monitoring-hosts) перейдите в раздел **Хосты** → **Мониторинги**.
 
-Чтобы посмотреть графики в сервисе [{{ monitoring-full-name }}]({{ link-monitoring }}), на главной странице выберите сервисный дашборд **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-mysql }}**. Для просмотра отдельных метрик перейдите в раздел **{{ ui-key.yacloud_monitoring.header.title.mx-mode }}** и задайте параметру `service` значение **{{ ui-key.yacloud_monitoring.services.label_mysql }}**.
+Чтобы посмотреть графики в сервисе [Yandex Monitoring](https://monitoring.yandex.cloud), на главной странице выберите сервисный дашборд **Managed Service for&nbsp;MySQL**. Для просмотра отдельных метрик перейдите в раздел **Метрики** и задайте параметру `service` значение **Managed Service for MySQL**.
 
 #### Как посмотреть логи? {#logs}
 
@@ -26,26 +26,26 @@
 
 - Консоль управления {#console}
 
-   1. Перейдите на страницу кластера и выберите вкладку **{{ ui-key.yacloud.mysql.cluster.switch_logs }}**.
+   1. Перейдите на страницу кластера и выберите вкладку **Логи**.
    1. В верхней части страницы выберите один из доступных логов:
-      * `MYSQL_ERROR` — основной лог {{ MY }}, содержит сообщения об ошибках. Включен всегда.
+      * `MYSQL_ERROR` — основной лог MySQL®, содержит сообщения об ошибках. Включен всегда.
       * `MYSQL_SLOW_QUERY` — информация о медленных запросах. Включен, если параметр `long_query_time` больше `0`.
       * `MYSQL_AUDIT` — информация о подключениях к базе данных.
       * `MYSQL_GENERAL` — полный список всех запросов. Рекомендуется включать только для отладки кластеров в среде разработки.
 
 - CLI {#cli}
 
-   Если у вас еще нет интерфейса командной строки {{ yandex-cloud }} (CLI), [установите и инициализируйте его](../../cli/quickstart.md#install).
+   Если у вас еще нет интерфейса командной строки Yandex Cloud (CLI), [установите и инициализируйте его](../../cli/quickstart.md#install).
 
    По умолчанию используется каталог, указанный при [создании](../../cli/operations/profile/profile-create.md) профиля CLI. Чтобы изменить каталог по умолчанию, используйте команду `yc config set folder-id <идентификатор_каталога>`. Также для любой команды вы можете указать другой каталог с помощью параметров `--folder-name` или `--folder-id`. Если вы обращаетесь к ресурсу по имени, поиск будет выполнен в каталоге по умолчанию. Если вы обращаетесь к ресурсу по идентификатору, поиск будет выполнен глобально — во всех каталогах с учетом прав доступа.
 
    1. Посмотрите описание команды CLI для просмотра логов:
 
       ```bash
-      {{ yc-mdb-my }} cluster list-logs --help
+      yc managed-mysql cluster list-logs --help
       ```
 
-   1.  Выполните команду `{{ yc-mdb-my }} cluster cluster list-logs`.
+   1.  Выполните команду `yc managed-mysql cluster cluster list-logs`.
 
 {% endlist %}
 
@@ -61,7 +61,7 @@
 SHOW PROCESSLIST;
 ```
 
-Подробное описание результата см. в [документации {{ MY }}](https://dev.mysql.com/doc/refman/5.7/en/show-processlist.html).
+Подробное описание результата см. в [документации MySQL®](https://dev.mysql.com/doc/refman/5.7/en/show-processlist.html).
 
 #### Какая еще диагностика доступна? {#trouble-info}
 
@@ -73,7 +73,7 @@ SHOW PROCESSLIST;
 Чтобы выдать привилегию `PROCESS`, выполните команду [CLI](../../cli/index.md):
 
 ```bash
-{{ yc-mdb-my }} user update \
+yc managed-mysql user update \
     --global-permissions PROCESS <имя_пользователя> \
     --cluster-id <идентификатор_кластера>
 ```
@@ -81,21 +81,21 @@ SHOW PROCESSLIST;
 
 #### Как настроить алерты? {#alerts}
 
-Используйте сервис [{{ monitoring-full-name }}]({{ link-monitoring }}), инструкция по настройке в разделе [{#T}](../../monitoring/operations/alert/create-alert.md).
+Используйте сервис [Yandex Monitoring](https://monitoring.yandex.cloud), инструкция по настройке в разделе [Создание алерта](../../monitoring/operations/alert/create-alert.md).
 
-При выборе метрики задайте параметру `service` значение **{{ ui-key.yacloud_monitoring.services.label_mysql }}**.
+При выборе метрики задайте параметру `service` значение **Managed Service for MySQL**.
 
 
 #### Как настроить алерт, который срабатывает при заполнении определенного процента дискового пространства? {#disk-space-percentage}
 
-[Создайте алерт](../operations/monitoring.md#monitoring-integration) с метрикой `disk.used_bytes` в сервисе {{ monitoring-full-name }}. Метрика показывает размер использованного дискового пространства в кластере {{ mmy-name }}.
+[Создайте алерт](../operations/monitoring.md#monitoring-integration) с метрикой `disk.used_bytes` в сервисе Yandex Monitoring. Метрика показывает размер использованного дискового пространства в кластере Managed Service for MySQL®.
 
 Для `disk.used_bytes` используются пороги для оповещения. Их рекомендуемые значения:
 
-* `{{ ui-key.yacloud_monitoring.alert.status_alarm }}` — 90% дискового пространства.
-* `{{ ui-key.yacloud_monitoring.alert.status_warn }}` — 80% дискового пространства.
+* `Alarm` — 90% дискового пространства.
+* `Warning` — 80% дискового пространства.
 
 Значения порогов задаются только в байтах. Например, рекомендуемые значения для диска размером в 100 ГБ:
 
-* `{{ ui-key.yacloud_monitoring.alert.status_alarm }}` — `96636764160` байтов (90%).
-* `{{ ui-key.yacloud_monitoring.alert.status_warn }}` — `85899345920` байтов (80%).
+* `Alarm` — `96636764160` байтов (90%).
+* `Warning` — `85899345920` байтов (80%).

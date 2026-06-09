@@ -14,24 +14,24 @@
 
 - Консоль управления {#console}
 
-  1. В [консоли управления]({{ link-console-main }}) выберите [каталог](../../resource-manager/concepts/resources-hierarchy.md#folder).
-  1. Перейдите в сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_smartwebsecurity }}**.
-  1. На панели слева выберите ![domain-protection-icon](../../_assets/smartwebsecurity/domain-protection-icon.svg) **{{ ui-key.yacloud.smart-web-security.label_domain-protection }}**.
-  1. Нажмите кнопку **{{ ui-key.yacloud.smart-web-security.ProxyServers.createProxyServer_jatYQ }}**.
+  1. В [консоли управления](https://console.yandex.cloud) выберите [каталог](../../resource-manager/concepts/resources-hierarchy.md#folder).
+  1. Перейдите в сервис **Smart Web Security**.
+  1. На панели слева выберите ![domain-protection-icon](../../_assets/smartwebsecurity/domain-protection-icon.svg) **Защита доменов**.
+  1. Нажмите кнопку **Создать прокси-сервер**.
   1. Введите произвольное имя прокси-сервера.
   1. (Опционально) Введите описание.
   1. (Опционально) Добавьте [метки](../../resource-manager/concepts/labels.md).
   1. (Опционально) Чтобы сохранять подробную информацию об операциях с запросами:
 
-      1. Включите опцию **{{ ui-key.yacloud.smart-web-security.ProxyServerForm.swith-enable-logging_e42nT }}**.
+      1. Включите опцию **Логировать запросы**.
       1. Выберите существующую лог-группу или [создайте новую](../../logging/operations/create-group.md).
       1. (Опционально) Чтобы уменьшить объем хранимых логов, добавьте правила отбрасывания логов:
 
-          1. Нажмите кнопку **{{ ui-key.yacloud.smart-web-security.ProxyServerForm.add-rule_fnmLk }}**.
+          1. Нажмите кнопку **Добавить правило**.
           1. Выберите **HTTP-коды** и (опционально) **Классы HTTP-кодов**, для которых будут отбрасываться логи.
           1. Укажите в процентах, какую часть логов нужно отбрасывать.
           1. Если для разных HTTP-кодов требуется отбрасывать разные доли логов, добавьте дополнительные правила.
-  1. Нажмите кнопку **{{ ui-key.yacloud.smart-web-security.ProxyServerFormCreate.createServer_sycVk }}**.
+  1. Нажмите кнопку **Создать сервер**.
 
 Для работы с прокси-сервером будет создан сервисный аккаунт с ролями `monitoring.editor`, `smart-web-security.admin`, `certificate-manager.admin`, `logging.writer`.
         
@@ -47,4 +47,4 @@
 
 ### См. также {#see-also}
 
-* [{#T}](domain-create.md)
+* [Добавить домен](domain-create.md)

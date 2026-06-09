@@ -2,7 +2,7 @@
 
 Yandex Cloud Postbox — сервис отправки почтовых сообщений.
 
-Cloud Postbox позволяет не тратить бюджет и время на управление сервером, настройку сети и мониторинг репутации IP-адресов. Сервис предоставляет: <ul><li>Готовую инфраструктуру, которой Яндекс пользуется для своих задач.</li> <li>Гибкую систему мониторинга и логирования с помощью интеграции с сервисами <a href="../monitoring/index.md">Yandex Monitoring</a> и <a href="../logging/index.md">Yandex Cloud Logging</a>.</li> <li>Соответствие требованиям международных и национальных стандартов.</li> <li>Упрощенную интеграцию с другими сервисами {{ yandex-cloud }} и вашими приложениями.</li></ul>
+Cloud Postbox позволяет не тратить бюджет и время на управление сервером, настройку сети и мониторинг репутации IP-адресов. Сервис предоставляет: <ul><li>Готовую инфраструктуру, которой Яндекс пользуется для своих задач.</li> <li>Гибкую систему мониторинга и логирования с помощью интеграции с сервисами <a href="../monitoring/index.md">Yandex Monitoring</a> и <a href="../logging/index.md">Yandex Cloud Logging</a>.</li> <li>Соответствие требованиям международных и национальных стандартов.</li> <li>Упрощенную интеграцию с другими сервисами Yandex Cloud и вашими приложениями.</li></ul>
 
 # Yandex Cloud Postbox
 
@@ -56,11 +56,11 @@ Cloud Postbox позволяет не тратить бюджет и время 
 
  - [Все практические руководства](tutorials/index.md)
 
- - [Передача событий {{ postbox-full-name }} в {{ yds-full-name }} и их анализ с помощью {{ datalens-full-name }}](tutorials/events-from-postbox-to-yds.md)
+ - [Передача событий Yandex Cloud Postbox в Yandex Data Streams и их анализ с помощью Yandex DataLens](tutorials/events-from-postbox-to-yds.md)
 
- - [Создание адреса {{ postbox-full-name }} и проверка владения доменом с помощью {{ TF }}](tutorials/domain-identity-creating.md)
+ - [Создание адреса Yandex Cloud Postbox и проверка владения доменом с помощью Terraform](tutorials/domain-identity-creating.md)
 
- - [Интеграция {{ postbox-full-name }} с внешними системами через вебхуки](tutorials/postbox-webhook.md)
+ - [Интеграция Yandex Cloud Postbox с внешними системами через вебхуки](tutorials/postbox-webhook.md)
 
 ### Отправка писем с помощью AWS SDK
 
@@ -136,9 +136,9 @@ Cloud Postbox позволяет не тратить бюджет и время 
 
  - [Заголовки запросов](aws-compatible-api/api-ref/request-headers.md)
 
- - [Метрики {{ monitoring-name }}](metrics.md)
+ - [Метрики Monitoring](metrics.md)
 
- - [Аудитные логи {{ at-name }}](at-ref.md)
+ - [Аудитные логи Audit Trails](at-ref.md)
 
  - [Публичные материалы](public-talks.md)
 

@@ -2,31 +2,31 @@
 
 {% list tabs group=instructions %}
 
-- Интерфейс {{ video-name }} {#console}
+- Интерфейс Cloud Video {#console}
 
-  1. Откройте [главную страницу]({{ link-video-main }}) {{ video-name }}.
+  1. Откройте [главную страницу](https://video.yandex.cloud/) Cloud Video.
   1. Выберите канал.
-  1. На вкладке ![image](../../../_assets/console-icons/circle-play.svg) **{{ ui-key.yacloud_video.videos.title_videos }}** выберите видео.
+  1. На вкладке ![image](../../../_assets/console-icons/circle-play.svg) **Видео** выберите видео.
   1. Если у видео уже есть обложка, удалите ее. Для этого наведите указатель на превью обложки и нажмите значок ![image](../../../_assets/console-icons/circle-xmark.svg).
   1. Нажмите кнопку ![image](../../../_assets/console-icons/cloud-arrow-up-in.svg) **Выберите файл** и выберите новое изображение для обложки.
 
       Поддерживаются обложки в следующих форматах: [JPG](https://ru.wikipedia.org/wiki/JPEG), [PNG](https://ru.wikipedia.org/wiki/PNG) и [GIF](https://ru.wikipedia.org/wiki/GIF).
 
-  1. Нажмите кнопку **{{ ui-key.yacloud_video.common.action_accept }}**.
+  1. Нажмите кнопку **Сохранить**.
 
 - REST API {#api}
 
   1. Перед началом работы:
   
-      * [Получите](../../../organization/operations/organization-get-id.md) идентификатор организации, в которой находится ваш [канал](../../concepts/index.md#channels) {{ video-name }}.
-      * [Получите](../../api-ref/authentication.md) IAM-токен, необходимый для аутентификации в API {{ video-name }}.
+      * [Получите](../../../organization/operations/organization-get-id.md) идентификатор организации, в которой находится ваш [канал](../../concepts/index.md#channels) Cloud Video.
+      * [Получите](../../api-ref/authentication.md) IAM-токен, необходимый для аутентификации в API Cloud Video.
       * Чтобы воспользоваться примерами, установите утилиту [cURL](https://curl.haxx.se).
-  1. Получите список каналов {{ video-name }} в вашей организации:
+  1. Получите список каналов Cloud Video в вашей организации:
 
       ```bash
       curl \
         --request GET \
-        --url 'https://video.{{ api-host }}/video/v1/channels?organizationId=<идентификатор_организации>' \
+        --url 'https://video.api.cloud.yandex.net/video/v1/channels?organizationId=<идентификатор_организации>' \
         --header 'Authorization: Bearer <IAM-токен>'
       ```
       
@@ -43,7 +43,7 @@
          "id": "vplc3neipzso********",
          "organizationId": "bpfaidqca8vd********",
          "title": "my-first-channel",
-         "description": "My very first {{ video-name }} channel",
+         "description": "My very first Cloud Video channel",
          "createdAt": "2023-07-07T10:51:48.658737Z",
          "updatedAt": "2023-07-07T10:51:48.658737Z"
         },
@@ -67,12 +67,12 @@
       
       Сохраните идентификатор канала (`id`), в хранилище которого вы хотите загрузить обложку.
 
-  1. Зарегистрируйте обложку в {{ video-name }}:
+  1. Зарегистрируйте обложку в Cloud Video:
 
       ```bash
       curl \
         --request POST \
-        --url 'https://video.{{ api-host }}/video/v1/thumbnails' \
+        --url 'https://video.api.cloud.yandex.net/video/v1/thumbnails' \
         --header 'Authorization: Bearer <IAM-токен>' \
         --header 'Content-Type: application/json' \
         --data '{
@@ -114,7 +114,7 @@
       ```bash
       curl \
         --request POST \
-        --url 'https://video.{{ api-host }}/video/v1/thumbnails/<идентификатор_обложки>:generateUploadURL' \
+        --url 'https://video.api.cloud.yandex.net/video/v1/thumbnails/<идентификатор_обложки>:generateUploadURL' \
         --header 'Authorization: Bearer <IAM-токен>'
       ```
 
@@ -126,7 +126,7 @@
       
       ```text
       {
-        "uploadUrl": "https://{{ s3-storage-host }}/videoplatform-thumbnail/vpltleyrfnjh********?X-Amz-Algorithm=AWS4-HMAC-SHA256&X-Amz-Credential=********3aBOmv27nzbJZaEHZ%2F20241102%2Fru-central1%2Fs3%2Faws4_request&X-Amz-Date=20241102T190000Z&X-Amz-Expires=43200&X-Amz-Signature=057fe4c0da26c7758474f5eaa85ff41d7212632572fb636ed6d8f65d039c309b&X-Amz-SignedHeaders=host"
+        "uploadUrl": "https://storage.yandexcloud.net/videoplatform-thumbnail/vpltleyrfnjh********?X-Amz-Algorithm=AWS4-HMAC-SHA256&X-Amz-Credential=********3aBOmv27nzbJZaEHZ%2F20241102%2Fru-central1%2Fs3%2Faws4_request&X-Amz-Date=20241102T190000Z&X-Amz-Expires=43200&X-Amz-Signature=057fe4c0da26c7758474f5eaa85ff41d7212632572fb636ed6d8f65d039c309b&X-Amz-SignedHeaders=host"
       }
       ```
       
@@ -152,7 +152,7 @@
       ```bash
       curl \
         --request GET \
-        --url 'https://video.{{ api-host }}/video/v1/videos?channelId=<идентификатор_канала>' \
+        --url 'https://video.api.cloud.yandex.net/video/v1/videos?channelId=<идентификатор_канала>' \
         --header 'Authorization: Bearer <IAM-токен>'
       ```
 
@@ -202,7 +202,7 @@
       ```bash
       curl \
         --request PATCH \
-        --url 'https://video.{{ api-host }}/video/v1/videos/<идентификатор_видео>' \
+        --url 'https://video.api.cloud.yandex.net/video/v1/videos/<идентификатор_видео>' \
         --header 'Authorization: Bearer <IAM-токен>' \
         --header 'Content-Type: application/json' \
         --data '{
@@ -253,10 +253,10 @@
 
   1. Перед началом работы:
   
-      * [Получите](../../../organization/operations/organization-get-id.md) идентификатор организации, в которой находится ваш [канал](../../concepts/index.md#channels) {{ video-name }}.
-      * [Получите](../../api-ref/authentication.md) IAM-токен, необходимый для аутентификации в API {{ video-name }}.
+      * [Получите](../../../organization/operations/organization-get-id.md) идентификатор организации, в которой находится ваш [канал](../../concepts/index.md#channels) Cloud Video.
+      * [Получите](../../api-ref/authentication.md) IAM-токен, необходимый для аутентификации в API Cloud Video.
       * Чтобы воспользоваться примерами, установите утилиты [cURL](https://curl.haxx.se), [gRPCurl](https://github.com/fullstorydev/grpcurl) и [jq](https://stedolan.github.io/jq).
-  1. Получите список каналов {{ video-name }} в вашей организации:
+  1. Получите список каналов Cloud Video в вашей организации:
 
       ```bash
       grpcurl \
@@ -264,7 +264,7 @@
         -d '{
           "organizationId": "<идентификатор_организации>"
         }' \
-        video.{{ api-host }}:443 yandex.cloud.video.v1.ChannelService/List
+        video.api.cloud.yandex.net:443 yandex.cloud.video.v1.ChannelService/List
       ```
       
       Где:
@@ -280,7 +280,7 @@
             "id": "vplc3neipzso********",
             "organizationId": "bpfaidqca8vd********",
             "title": "my-first-channel",
-            "description": "My very first {{ video-name }} channel",
+            "description": "My very first Cloud Video channel",
             "createdAt": "2023-07-07T10:51:48.658737Z",
             "updatedAt": "2023-07-07T10:51:48.658737Z"
           },
@@ -304,7 +304,7 @@
       
       Сохраните идентификатор канала (`id`), в хранилище которого вы хотите загрузить обложку.
 
-  1. Зарегистрируйте обложку в {{ video-name }}:
+  1. Зарегистрируйте обложку в Cloud Video:
 
       ```bash
       grpcurl \
@@ -313,7 +313,7 @@
         -d '{
           "channel_id": "<идентификатор_канала>"
         }' \
-        video.{{ api-host }}:443 yandex.cloud.video.v1.ThumbnailService/Create
+        video.api.cloud.yandex.net:443 yandex.cloud.video.v1.ThumbnailService/Create
       ```
       
       Где:
@@ -353,7 +353,7 @@
         -d '{
           "thumbnailId": "<идентификатор_обложки>"
         }' \
-        video.{{ api-host }}:443 yandex.cloud.video.v1.ThumbnailService/GenerateUploadURL | jq
+        video.api.cloud.yandex.net:443 yandex.cloud.video.v1.ThumbnailService/GenerateUploadURL | jq
       ```
 
       Где:
@@ -364,7 +364,7 @@
       
       ```text
       {
-        "uploadUrl": "https://{{ s3-storage-host }}/videoplatform-thumbnail/vpltleyrfnjh********?X-Amz-Algorithm=AWS4-HMAC-SHA256&X-Amz-Credential=********3aBOmv27nzbJZaEHZ%2F20241102%2Fru-central1%2Fs3%2Faws4_request&X-Amz-Date=20241102T190000Z&X-Amz-Expires=43200&X-Amz-Signature=057fe4c0da26c7758474f5eaa85ff41d7212632572fb636ed6d8f65d039c309b&X-Amz-SignedHeaders=host"
+        "uploadUrl": "https://storage.yandexcloud.net/videoplatform-thumbnail/vpltleyrfnjh********?X-Amz-Algorithm=AWS4-HMAC-SHA256&X-Amz-Credential=********3aBOmv27nzbJZaEHZ%2F20241102%2Fru-central1%2Fs3%2Faws4_request&X-Amz-Date=20241102T190000Z&X-Amz-Expires=43200&X-Amz-Signature=057fe4c0da26c7758474f5eaa85ff41d7212632572fb636ed6d8f65d039c309b&X-Amz-SignedHeaders=host"
       }
       ```
       
@@ -393,7 +393,7 @@
         -d '{
           "channelId": "<идентификатор_канала>"
         }' \
-        video.{{ api-host }}:443 yandex.cloud.video.v1.VideoService/List
+        video.api.cloud.yandex.net:443 yandex.cloud.video.v1.VideoService/List
       ```
 
       Где:
@@ -448,7 +448,7 @@
           "fieldMask": {"paths": ["thumbnail_id"]},
           "thumbnailId": "<идентификатор_обложки>"
         }' \
-        video.{{ api-host }}:443 yandex.cloud.video.v1.VideoService/Update
+        video.api.cloud.yandex.net:443 yandex.cloud.video.v1.VideoService/Update
       ```
       
       Где:

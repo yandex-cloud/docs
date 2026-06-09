@@ -1,114 +1,114 @@
 # Что дальше?
 
-Начните знакомство с {{ yandex-cloud }}:
+Начните знакомство с Yandex Cloud:
 
 * [Устройство платформы](#platform-overview).
 
-* [Начало работы с сервисами {{ yandex-cloud }}](#quickstarts).
+* [Начало работы с сервисами Yandex Cloud](#quickstarts).
 
-* [Практическое применение сервисов {{ yandex-cloud }}](#use-cases).
+* [Практическое применение сервисов Yandex Cloud](#use-cases).
 
 ## Устройство платформы {#platform-overview}
 
-* [Архитектура платформы {{ yandex-cloud }}](../../overview/architecture.md).
+* [Архитектура платформы Yandex Cloud](../../overview/architecture.md).
 
 * [Зоны доступности](../../overview/concepts/geo-scope.md).
 
-* [Устройство сети в {{ yandex-cloud }}](../../overview/concepts/network.md).
+* [Устройство сети в Yandex Cloud](../../overview/concepts/network.md).
 
-* [Взаимодействие пользователей и ресурсов {{ yandex-cloud }}](../../overview/roles-and-resources.md).
+* [Взаимодействие пользователей и ресурсов Yandex Cloud](../../overview/roles-and-resources.md).
 
-* [Cписок сервисов {{ yandex-cloud }}](../../overview/concepts/services.md).
+* [Cписок сервисов Yandex Cloud](../../overview/concepts/services.md).
 
 * [Список доступных интерфейсов](../../overview/concepts/interfaces.md).
 
-* [Безопасность в {{ yandex-cloud }}](../../security/index.md).
+* [Безопасность в Yandex Cloud](../../security/index.md).
 
-## Начало работы с сервисами {{ yandex-cloud }} {#quickstarts}
+## Начало работы с сервисами Yandex Cloud {#quickstarts}
 
 ### Базовая инфраструктура и сеть {#basic-infra-and-network}
 
-* [{{ compute-full-name }}](../../compute/quickstart/index.md).
+* [Yandex Compute Cloud](../../compute/quickstart/index.md).
 
   Создайте [виртуальную машину](../../compute/concepts/vm.md) и подключитесь к ней.
 
-* [{{ objstorage-full-name }}](../../storage/quickstart/overview.md).
+* [Yandex Object Storage](../../storage/quickstart/overview.md).
 
-  Создайте бакет для хранения данных в {{ yandex-cloud }}.
+  Создайте бакет для хранения данных в Yandex Cloud.
 
-* [{{ vpc-full-name }}](../../vpc/quickstart.md).
+* [Yandex Virtual Private Cloud](../../vpc/quickstart.md).
 
-  Создайте сетевую инфраструктуру в {{ yandex-cloud }}.
+  Создайте сетевую инфраструктуру в Yandex Cloud.
 
 ### Платформа данных {#dataplatform}
 
-* [{{ mpg-full-name }}](../../managed-postgresql/quickstart.md).
+* [Yandex Managed Service for PostgreSQL](../../managed-postgresql/quickstart.md).
 
-  Создайте кластер {{ mpg-name }} и подключитесь к базе данных в нем.           
+  Создайте кластер Managed Service for PostgreSQL и подключитесь к базе данных в нем.           
 
-* [{{ mch-full-name }}](../../managed-clickhouse/quickstart.md).
+* [Yandex Managed Service for ClickHouse®](../../managed-clickhouse/quickstart.md).
 
-  Создайте кластер {{ mch-name }} и подключитесь к базе данных в нем.
+  Создайте кластер Managed Service for ClickHouse® и подключитесь к базе данных в нем.
 
-* [{{ ydb-full-name }}](../../ydb/quickstart.md).
+* [Yandex Managed Service for YDB](../../ydb/quickstart.md).
 
-  Создайте базу данных {{ ydb-name }} и выполните запросы к ней.
+  Создайте базу данных Managed Service for YDB и выполните запросы к ней.
 
-* [{{ data-transfer-full-name }}](../../data-transfer/quickstart.md).
+* [Yandex Data Transfer](../../data-transfer/quickstart.md).
 
   Настройте перенос данных между вашими хранилищами, например между двумя кластерами управляемых баз данных.
 
 ### Контейнерная разработка и бессерверные технологии {#serverless-containers}
 
-* [{{ managed-k8s-full-name }}](../../managed-kubernetes/quickstart.md).
+* [Yandex Managed Service for Kubernetes](../../managed-kubernetes/quickstart.md).
 
-  Создайте кластер {{ managed-k8s-name }} и группу узлов в нем, после чего подключитесь к узлу в группе при помощи kubectl.
+  Создайте кластер Managed Service for Kubernetes и группу узлов в нем, после чего подключитесь к узлу в группе при помощи kubectl.
 
-* [{{ container-registry-full-name }}](../../container-registry/quickstart/index.md).
+* [Yandex Container Registry](../../container-registry/quickstart/index.md).
 
   Создайте реестр данных и управляйте Docker-образами.
 
-* [{{ api-gw-full-name }}](../../api-gateway/quickstart/index.md).
+* [Yandex API Gateway](../../api-gateway/quickstart/index.md).
 
   Сконфигурируйте API-шлюз и настройте интеграцию для вызова функции.
 
-* [{{ sw-full-name }}](../../serverless-integrations/quickstart/workflows.md).
+* [Yandex Workflows](../../serverless-integrations/quickstart/workflows.md).
 
   Создайте рабочий процесс и запустите его.
 
-* [{{ serverless-containers-full-name }}](../../serverless-containers/quickstart/index.md).
+* [Yandex Serverless Containers](../../serverless-containers/quickstart/index.md).
 
   Создайте контейнер и триггер для него.
 
-* [{{ sf-full-name }}](../../functions/quickstart/index.md).
+* [Yandex Cloud Functions](../../functions/quickstart/index.md).
 
   Создайте функцию на одном из доступных языков программирования и запустите ее.
 
 ### AI {#ai}
 
-* [{{ ai-studio-full-name }}]({{ link-docs-ai }}ai-studio/concepts/index):
+* [Yandex AI Studio](https://aistudio.yandex.ru/docs/ru/ai-studio/concepts/index):
 
-  * [{{ gpt-lite }} и {{ gpt-pro }}]({{ link-docs-ai }}ai-studio/concepts/generation/index#yandex).
+  * [YandexGPT Lite и YandexGPT Pro](https://aistudio.yandex.ru/docs/ru/ai-studio/concepts/generation/index#yandex).
 
-    Используйте нейросеть {{ yagpt-name }} для генерации текста в синхронном режиме без дополнения контекста
+    Используйте нейросеть YandexGPT для генерации текста в синхронном режиме без дополнения контекста
 
-  * [{{ yandexart-name }}]({{ link-docs-ai }}ai-studio/operations/generation/yandexart-request).
+  * [YandexART](https://aistudio.yandex.ru/docs/ru/ai-studio/operations/generation/yandexart-request).
 
-    Используйте нейросеть {{ yandexart-name }} для генерации изображений.
+    Используйте нейросеть YandexART для генерации изображений.
 
-* [{{ ml-platform-full-name }}](../../datasphere/quickstart.md).
+* [Yandex DataSphere](../../datasphere/quickstart.md).
 
   Создайте и запустите проект, настройте окружение, загрузите данные в проект и запустите обучение.
 
-* [{{ speechsense-full-name }}]({{ link-docs-ai }}speechsense/quickstart).
+* [Yandex SpeechSense](https://aistudio.yandex.ru/docs/ru/speechsense/quickstart).
 
   Загрузите аудиозапись или текстовый диалог, запустите распознавание и проанализируйте полученные данные. 
 
-* [{{ speechkit-full-name }}]({{ link-docs-ai }}speechkit/quickstart/index).
+* [Yandex SpeechKit](https://aistudio.yandex.ru/docs/ru/speechkit/quickstart/index).
 
-  Ознакомьтесь с возможностями распознавания и синтеза речи в {{ speechkit-name }}.
+  Ознакомьтесь с возможностями распознавания и синтеза речи в SpeechKit.
 
-## Практическое применение сервисов {{ yandex-cloud }} {#use-cases}
+## Практическое применение сервисов Yandex Cloud {#use-cases}
 
 * [Обеспечение информационной безопасности](../../tutorials/security/index.md).
 

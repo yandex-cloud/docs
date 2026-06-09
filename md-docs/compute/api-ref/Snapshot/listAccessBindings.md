@@ -5,7 +5,7 @@ Lists access bindings for the snapshot.
 ## HTTP request
 
 ```
-GET https://compute.{{ api-host }}/compute/v1/snapshots/{resourceId}:listAccessBindings
+GET https://compute.api.cloud.yandex.net/compute/v1/snapshots/{resourceId}:listAccessBindings
 ```
 
 ## Path parameters

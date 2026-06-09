@@ -5,7 +5,7 @@ Updates specified Workflow.
 ## HTTP request
 
 ```
-PATCH https://serverless-workflows.{{ api-host }}/workflows/v1/workflow/{workflowId}
+PATCH https://serverless-workflows.api.cloud.yandex.net/workflows/v1/workflow/{workflowId}
 ```
 
 ## Path parameters

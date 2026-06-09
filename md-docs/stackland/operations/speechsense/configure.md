@@ -1,12 +1,12 @@
-# Настроить и активировать {{ speechsense-name }}
+# Настроить и активировать SpeechSense
 
-После [загрузки образов](install-images.md) активируйте компонент {{ speechsense-name }} в кластере {{ stackland-name }}.
+После [загрузки образов](install-images.md) активируйте компонент SpeechSense в кластере Stackland.
 
 ## Перед началом работы {#before-you-begin}
 
-1. Убедитесь, что образы {{ speechsense-name }} [загружены](install-images.md) в кластер.
-1. Убедитесь, что компонент [{{ gpu-operator }}](../../concepts/components/gpu.md) включён и узлы с GPU доступны.
-1. Убедитесь, что компоненты [{{ mpg-name }}](../../concepts/components/postgresql.md), [{{ mch-name }}](../../concepts/components/clickhouse.md) и [{{ mkf-name }}](../../concepts/components/kafka.md) включены.
+1. Убедитесь, что образы SpeechSense [загружены](install-images.md) в кластер.
+1. Убедитесь, что компонент [«Поддержка NVIDIA® GPU»](../../concepts/components/gpu.md) включён и узлы с GPU доступны.
+1. Убедитесь, что компоненты [Managed Service for PostgreSQL](../../concepts/components/postgresql.md), [Managed Service for ClickHouse®](../../concepts/components/clickhouse.md) и [Managed Service for Apache Kafka®](../../concepts/components/kafka.md) включены.
 1. Подготовьте S3-совместимое хранилище:
     * [Создайте бакет](../storage/create-bucket.md) для хранения аудиофайлов.
     * [Создайте AccessKey](../storage/create-accesskey.md) для доступа к хранилищу.
@@ -45,7 +45,7 @@
 
     * Создаст namespace `stackland-speechsense`.
     * Сгенерирует секреты с паролями для баз данных.
-    * Создаст кластеры {{ PG }}, {{ CH }}, {{ KF }} и OpenSearch.
+    * Создаст кластеры PostgreSQL, ClickHouse®, Apache Kafka® и OpenSearch.
     * Создаст сертификаты через Certificate Manager.
     * Установит Helm-чарт `stackland-speechsense`.
 
@@ -65,21 +65,21 @@ kubectl get pods -n stackland-speechsense
 
 {% note info %}
 
-Установка {{ speechsense-name }} занимает значительное время. Образы больших языковых моделей (LLM) весят 30–70 ГБ.
+Установка SpeechSense занимает значительное время. Образы больших языковых моделей (LLM) весят 30–70 ГБ.
 
 {% endnote %}
 
-## Открыть консоль {{ speechsense-name }} {#open-console}
+## Открыть консоль SpeechSense {#open-console}
 
-После завершения установки консоль {{ speechsense-name }} доступна по адресу:
+После завершения установки консоль SpeechSense доступна по адресу:
 
 ```text
 https://speechsense.sys.$cluster.$baseDomain
 ```
 
-Для входа используйте учётные данные пользователя {{ stackland-name }}. Администраторы кластера автоматически получают права администратора {{ speechsense-name }}.
+Для входа используйте учётные данные пользователя Stackland. Администраторы кластера автоматически получают права администратора SpeechSense.
 
 ## Что дальше {#whats-next}
 
-* [{#T}](disable.md) — отключение {{ speechsense-name }}.
-* [{{ speechsense-name }}](../../concepts/components/speechsense.md) — описание компонента.
+* [Отключить SpeechSense](disable.md) — отключение SpeechSense.
+* [SpeechSense](../../concepts/components/speechsense.md) — описание компонента.

@@ -24,7 +24,7 @@ _Шаблоны плеера_ позволяют настраивать внеш
 
 #### См. также
 
-  * [{#T}](../operations/style-presets/create.md)
-  * [{#T}](../operations/style-presets/set-default.md)
-  * [{#T}](../operations/style-presets/assign-to-video.md)
-  * [{#T}](../operations/style-presets/delete.md)
+  * [Создать шаблон плеера](../operations/style-presets/create.md)
+  * [Назначить шаблон плеера по умолчанию](../operations/style-presets/set-default.md)
+  * [Выбрать шаблон плеера](../operations/style-presets/assign-to-video.md)
+  * [Удалить шаблон плеера](../operations/style-presets/delete.md)

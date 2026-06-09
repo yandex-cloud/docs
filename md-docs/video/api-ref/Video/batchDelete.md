@@ -6,7 +6,7 @@ This is more efficient than making multiple Delete requests when removing severa
 ## HTTP request
 
 ```
-POST https://video.{{ api-host }}/video/v1/videos:batchDelete
+POST https://video.api.cloud.yandex.net/video/v1/videos:batchDelete
 ```
 
 ## Body parameters {#yandex.cloud.video.v1.BatchDeleteVideosRequest}

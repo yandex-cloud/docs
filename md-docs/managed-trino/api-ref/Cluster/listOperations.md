@@ -5,7 +5,7 @@ Retrieves the list of Operation resources for the specified cluster.
 ## HTTP request
 
 ```
-GET https://trino.{{ api-host }}/managed-trino/v1/clusters/{clusterId}/operations
+GET https://trino.api.cloud.yandex.net/managed-trino/v1/clusters/{clusterId}/operations
 ```
 
 ## Path parameters

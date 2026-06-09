@@ -1,6 +1,6 @@
-# Установить и настроить Docker в {{ cloud-registry-name }}
+# Установить и настроить Docker в Cloud Registry
 
-Перед началом работы с {{ cloud-registry-name }} необходимо установить и настроить [Docker](https://www.docker.com/) на локальном компьютере.
+Перед началом работы с Cloud Registry необходимо установить и настроить [Docker](https://www.docker.com/) на локальном компьютере.
 
 {% list tabs group=operating_system %}
 
@@ -49,4 +49,4 @@
 
 #### См. также {#see-also}
 
-* [{#T}](authentication.md)
+* [Аутентифицировать в Cloud Registry](authentication.md)

@@ -1,11 +1,11 @@
-# Метрики {{ mgp-full-name }}
+# Метрики Yandex MPP Analytics for PostgreSQL
 
 
-В этом разделе описаны метрики сервиса [{{ mgp-name }}](../../managed-greenplum/index.md), поставляемые в {{ monitoring-name }}.
+В этом разделе описаны метрики сервиса [Yandex MPP Analytics for PostgreSQL](../../managed-greenplum/index.md), поставляемые в Monium Metrics.
 
 Имя метрики пишется в метку `name`.
 
-Общие метки для всех метрик сервиса {{ mgp-name }}:
+Общие метки для всех метрик сервиса Yandex MPP Analytics for PostgreSQL:
 
 Метка | Значение
 ----|----

@@ -1,6 +1,6 @@
 # Метрики логов
 
-{{ monium-logs-name }} публикует для каждого проекта набор стандартных метрик независимо от способа доставки логов.
+Monium Logs публикует для каждого проекта набор стандартных метрик независимо от способа доставки логов.
 
 Метрики позволяют оценить объем логов по сервисам и кластерам, задержку доставки, количество записей уровня `ERROR` по проекту и отдельным сервисам.
 
@@ -14,10 +14,10 @@
 
 {% list tabs group=instructions %}
 
-- Интерфейс {{ monium-name }} {#console}
+- Интерфейс Monium {#console}
 
-  1. На главной странице [{{ monium-name }}]({{ link-monium }}) слева выберите **{{ ui-key.yacloud_monitoring.aside-navigation.menu-item.dashboards.title }}**.
-  1. Перейдите на вкладку **{{ ui-key.yacloud_monitoring.dashboard.tab.service-dashboards }}**.
+  1. На главной странице [Monium](https://monium.yandex.cloud) слева выберите **Дашборды**.
+  1. Перейдите на вкладку **Сервисные дашборды**.
   1. Найдите в списке и выберите **Logs overview**.
 
 {% endlist %}

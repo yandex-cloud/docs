@@ -5,7 +5,7 @@ Retrieves the list of users in the specified userpool.
 ## HTTP request
 
 ```
-GET https://organization-manager.{{ api-host }}/organization-manager/v1/idp/users
+GET https://organization-manager.api.cloud.yandex.net/organization-manager/v1/idp/users
 ```
 
 ## Query parameters {#yandex.cloud.organizationmanager.v1.idp.ListUsersRequest}

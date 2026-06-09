@@ -5,7 +5,7 @@ Lists operations for the specified Kubernetes cluster.
 ## HTTP request
 
 ```
-GET https://mks.{{ api-host }}/managed-kubernetes/v1/clusters/{clusterId}/operations
+GET https://mks.api.cloud.yandex.net/managed-kubernetes/v1/clusters/{clusterId}/operations
 ```
 
 ## Path parameters

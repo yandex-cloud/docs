@@ -5,7 +5,7 @@ Revokes a previously issued certificate. Revoked certificates are added to the C
 ## HTTP request
 
 ```
-POST https://private-ca.certificate-manager.{{ api-host }}/privateca/v1/privateCertificates/{certificateId}:revoke
+POST https://private-ca.certificate-manager.api.cloud.yandex.net/privateca/v1/privateCertificates/{certificateId}:revoke
 ```
 
 ## Path parameters

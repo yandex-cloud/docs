@@ -5,7 +5,7 @@ Lists operations for the specified instance.
 ## HTTP request
 
 ```
-GET https://compute.{{ api-host }}/compute/v1/instances/{instanceId}/operations
+GET https://compute.api.cloud.yandex.net/compute/v1/instances/{instanceId}/operations
 ```
 
 ## Path parameters

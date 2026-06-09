@@ -1,41 +1,41 @@
-# Шаблоны {{ dataproc-name }}
+# Шаблоны Yandex Data Processing
 
-Шаблон {{ dataproc-name }} — это специальный ресурс для быстрого развертывания кластеров {{ dataproc-name }} в проектах {{ ml-platform-name }}. Шаблон определяет конфигурацию кластера, на его основе {{ ml-platform-name }} может развернуть кластер несколько раз.
+Шаблон Yandex Data Processing — это специальный ресурс для быстрого развертывания кластеров Yandex Data Processing в проектах DataSphere. Шаблон определяет конфигурацию кластера, на его основе DataSphere может развернуть кластер несколько раз.
 
-Для работы с кластерами {{ dataproc-name }}:
+Для работы с кластерами Yandex Data Processing:
 
 1. [Укажите в настройках проекта](../operations/projects/update.md) следующие параметры:
 
-   * [Каталог по умолчанию](../../resource-manager/concepts/resources-hierarchy.md#folder) для интеграции с другими сервисами {{ yandex-cloud }}. В нем будет развернут кластер {{ dataproc-name }} в рамках текущих [квот](../../data-proc/concepts/limits.md) облака, а стоимость использования кластера будет списана с платежного аккаунта облака.
-   * [Сервисный аккаунт](../../iam/concepts/users/service-accounts.md) с [ролью](../../iam/concepts/access-control/roles.md) `vpc.user`, от имени которого {{ ml-platform-name }} будет работать с сетью кластера {{ dataproc-name }}.
-   * [Подсеть](../../vpc/concepts/network.md#subnet) для связи {{ ml-platform-name }} с кластером {{ dataproc-name }}. Указанная подсеть должна находиться в [зоне доступности](../../overview/concepts/geo-scope.md), в которой создано сообщество. Кластеру {{ dataproc-name }} необходим доступ в интернет, поэтому в подсети должен быть [настроен NAT-шлюз](../../vpc/operations/create-nat-gateway.md). После указания подсети время выделения вычислительных ресурсов может быть увеличено.
+   * [Каталог по умолчанию](../../resource-manager/concepts/resources-hierarchy.md#folder) для интеграции с другими сервисами Yandex Cloud. В нем будет развернут кластер Yandex Data Processing в рамках текущих [квот](../../data-proc/concepts/limits.md) облака, а стоимость использования кластера будет списана с платежного аккаунта облака.
+   * [Сервисный аккаунт](../../iam/concepts/users/service-accounts.md) с [ролью](../../iam/concepts/access-control/roles.md) `vpc.user`, от имени которого DataSphere будет работать с сетью кластера Yandex Data Processing.
+   * [Подсеть](../../vpc/concepts/network.md#subnet) для связи DataSphere с кластером Yandex Data Processing. Указанная подсеть должна находиться в [зоне доступности](../../overview/concepts/geo-scope.md), в которой создано сообщество. Кластеру Yandex Data Processing необходим доступ в интернет, поэтому в подсети должен быть [настроен NAT-шлюз](../../vpc/operations/create-nat-gateway.md). После указания подсети время выделения вычислительных ресурсов может быть увеличено.
 
 1. Создайте [сервисного агента](../../iam/concepts/service-control.md#service-agent):
 
-   1. Чтобы разрешить сервисному агенту работать в {{ ml-platform-name }}, попросите администратора или владельца вашего облака выполнить команду в {{ yandex-cloud }} CLI:
+   1. Чтобы разрешить сервисному агенту работать в DataSphere, попросите администратора или владельца вашего облака выполнить команду в Yandex Cloud CLI:
    
       ```bash
       yc iam service-control enable datasphere --cloud-id <идентификатор_облака>
       ```
    
-      Где `--cloud-id` — [идентификатор облака](../../resource-manager/operations/cloud/get-id.md), с которым вы будете работать в сообществе {{ ml-platform-name }}.
+      Где `--cloud-id` — [идентификатор облака](../../resource-manager/operations/cloud/get-id.md), с которым вы будете работать в сообществе DataSphere.
 
    1. Создайте сервисный аккаунт с ролями:
 
-      * `dataproc.agent` — для использования кластеров {{ dataproc-name }}.
-      * `dataproc.admin`— для создания кластеров из шаблонов {{ dataproc-name }}.
-      * `vpc.user` — для работы с сетью кластера {{ dataproc-name }}.
+      * `dataproc.agent` — для использования кластеров Yandex Data Processing.
+      * `dataproc.admin`— для создания кластеров из шаблонов Yandex Data Processing.
+      * `vpc.user` — для работы с сетью кластера Yandex Data Processing.
       * `iam.serviceAccounts.user` — для создания ресурсов в каталоге от имени сервисного аккаунта.
 
-   1. В настройках сообщества в блоке **{{ ui-key.yc-ui-datasphere.spaces-page.data-processing-sa.title }}** нажмите **{{ ui-key.yc-ui-datasphere.spaces-page.ssa.add-service-account.button }}** и выберите созданный сервисный аккаунт.
+   1. В настройках сообщества в блоке **Кластеры Spark** нажмите **Добавить сервисный аккаунт** и выберите созданный сервисный аккаунт.
    
 {% note warning %}
 
-Постоянный кластер {{ dataproc-name }} должен иметь настройку `livy:livy.spark.deploy-mode : client`.
+Постоянный кластер Yandex Data Processing должен иметь настройку `livy:livy.spark.deploy-mode : client`.
 
 {% endnote %}
 
-## Информация о шаблонах {{ dataproc-name }} как о ресурсе {#info}
+## Информация о шаблонах Yandex Data Processing как о ресурсе {#info}
 
 О каждом шаблоне хранится следующая информация:
 
@@ -44,17 +44,17 @@
 * конфигурация кластера;
 * дата создания шаблона в формате в [UTC](https://ru.wikipedia.org/wiki/Всемирное_координированное_время), например `18 июля 2022 г., 14:23`.
 
-Все шаблоны {{ dataproc-name }}, созданные в проекте, можно посмотреть на странице ресурса {{ dataproc-name }}. Там же отображается список всех доступных в проекте кластеров {{ dataproc-name }}. В него входят и временные кластеры на основе шаблонов {{ dataproc-name }}, и подключенные кластеры, развернутые в [сервисе {{ dataproc-full-name }}](../../data-proc/index.md). Чтобы посмотреть подробную информацию о шаблоне или кластере, нажмите на него.
+Все шаблоны Yandex Data Processing, созданные в проекте, можно посмотреть на странице ресурса Yandex Data Processing. Там же отображается список всех доступных в проекте кластеров Yandex Data Processing. В него входят и временные кластеры на основе шаблонов Yandex Data Processing, и подключенные кластеры, развернутые в [сервисе Yandex Data Processing](../../data-proc/index.md). Чтобы посмотреть подробную информацию о шаблоне или кластере, нажмите на него.
 
-## Особенности временного кластера на основе шаблона {{ dataproc-name }} {#special}
+## Особенности временного кластера на основе шаблона Yandex Data Processing {#special}
 
-Чтобы создать кластер из шаблона {{ dataproc-name }}, [активируйте](../operations/data-processing-template.md#activate) шаблон в проекте. При запуске проекта в IDE {{ ml-platform-name }} создаст временный кластер в каталоге и подсети {{ yandex-cloud }}, указанных в настройках проекта.
+Чтобы создать кластер из шаблона Yandex Data Processing, [активируйте](../operations/data-processing-template.md#activate) шаблон в проекте. При запуске проекта в IDE DataSphere создаст временный кластер в каталоге и подсети Yandex Cloud, указанных в настройках проекта.
 
-{{ ml-platform-name }} следит за временем жизни кластера и автоматически удаляет его, если в течение двух часов на нем не было вычислений. Кластер также будет удален, если в проекте принудительно остановить вычисления.
+DataSphere следит за временем жизни кластера и автоматически удаляет его, если в течение двух часов на нем не было вычислений. Кластер также будет удален, если в проекте принудительно остановить вычисления.
 
 ### Конфигурации временных кластеров {#configurations}
 
-Автоматические кластеры {{ dataproc-name }} разворачиваются на базе [виртуальных машин {{ compute-full-name }}](../../compute/concepts/vm.md) на платформе Intel Cascade Lake (`standard-v2`).
+Автоматические кластеры Yandex Data Processing разворачиваются на базе [виртуальных машин Yandex Compute Cloud](../../compute/concepts/vm.md) на платформе Intel Cascade Lake (`standard-v2`).
 
 Необходимый суммарный объем дисков для разных конфигураций кластеров можно рассчитать по формуле:
 
@@ -72,17 +72,17 @@
 
 {% note tip %}
 
-Перед запуском проекта с активированным шаблоном {{ dataproc-name }} убедитесь, что [квоты]({{ link-console-quotas }}) на создание HDD или SSD-дисков позволяют создать диск достаточного размера.
+Перед запуском проекта с активированным шаблоном Yandex Data Processing убедитесь, что [квоты](https://console.yandex.cloud/cloud?section=quotas) на создание HDD или SSD-дисков позволяют создать диск достаточного размера.
 
 {% endnote %}
 
-Работа временных кластеров, созданных из шаблонов {{ dataproc-name }}, тарифицируется дополнительно по [правилам тарификации {{ dataproc-full-name }}](../../data-proc/pricing.md).
+Работа временных кластеров, созданных из шаблонов Yandex Data Processing, тарифицируется дополнительно по [правилам тарификации Yandex Data Processing](../../data-proc/pricing.md).
 
-### Статусы временного кластера {{ dataproc-name }} {#status}
+### Статусы временного кластера Yandex Data Processing {#status}
 
-{{ ml-platform-name }} создаст временный кластер {{ dataproc-name }}, когда вы откроете проект в IDE.
+DataSphere создаст временный кластер Yandex Data Processing, когда вы откроете проект в IDE.
 
-После создания кластер появится в списке доступных кластеров на странице ресурсов {{ dataproc-name }}. Временный кластер может быть в одном из статусов:
+После создания кластер появится в списке доступных кластеров на странице ресурсов Yandex Data Processing. Временный кластер может быть в одном из статусов:
 * `STARTING` — кластер создается.
 * `UP` — кластер создан и готов для выполнения вычислений.
 * `DOWN` — возникли проблемы при создании кластера.

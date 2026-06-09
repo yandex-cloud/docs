@@ -1,4 +1,4 @@
-# История изменений в {{ quota-manager-full-name }}
+# История изменений в Yandex Cloud Quota Manager
 
 ## IV квартал 2025 {#q4-2025}
 
@@ -8,7 +8,7 @@
 
 Добавлена возможность [создавать и управлять](operations/set-quotas.md) запросами на изменение квот с помощью [API](api-ref/authentication.md) и [YC CLI](cli-ref/index.md).
 
-Функциональность находится на стадии [Preview](../overview/concepts/launch-stages.md), для получения доступа обратитесь в [службу поддержки]({{ link-console-support }}).
+Функциональность находится на стадии [Preview](../overview/concepts/launch-stages.md), для получения доступа обратитесь в [службу поддержки](https://center.yandex.cloud/support).
 
 ## I квартал 2025 {#q1-2025}
 

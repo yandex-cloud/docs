@@ -2,7 +2,7 @@
 
 ## Ошибка входа с учетной записью {#authentication-missed}
 
-Доступ к сервисам {{ yandex-cloud }} ограничен для вашего [аккаунта на Яндексе](../iam/concepts/users/accounts.md). Обратитесь в [поддержку Яндекс ID](https://id.yandex.ru/helpdesk).
+Доступ к сервисам Yandex Cloud ограничен для вашего [аккаунта на Яндексе](../iam/concepts/users/accounts.md). Обратитесь в [поддержку Яндекс ID](https://id.yandex.ru/helpdesk).
 
 ## Доступ к сервису ограничен {#service-access-missed}
 

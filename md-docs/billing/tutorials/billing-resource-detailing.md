@@ -1,11 +1,11 @@
-# Анализ поресурсной детализации расходов с помощью {{ objstorage-full-name }}
+# Анализ поресурсной детализации расходов с помощью Yandex Object Storage
 
-Вы настроите автоматический экспорт данных с детализацией расходов на вашем [платежном аккаунте](../concepts/billing-account.md) и сформируете отчет, содержащий информацию о сумме расходов на ресурсы в каталоге. Для получения данных из бакета {{ objstorage-name }} будет использоваться язык запросов [S3 Select](../../storage/concepts/s3-select-language.md).
+Вы настроите автоматический экспорт данных с детализацией расходов на вашем [платежном аккаунте](../concepts/billing-account.md) и сформируете отчет, содержащий информацию о сумме расходов на ресурсы в каталоге. Для получения данных из бакета Object Storage будет использоваться язык запросов [S3 Select](../../storage/concepts/s3-select-language.md).
 
 Чтобы проанализировать расходы:
 
 1. [Подготовьте облако к работе](#before-you-begin).
-1. [Создайте бакет {{ objstorage-name }}](#create-bucket).
+1. [Создайте бакет Object Storage](#create-bucket).
 1. [Получите детализацию расходов](#get-billing-detail).
 1. [Сформируйте отчет](#create-report).
 
@@ -13,35 +13,35 @@
 
 ## Подготовьте облако к работе {#before-you-begin}
 
-Зарегистрируйтесь в {{ yandex-cloud }} и создайте [платежный аккаунт](../concepts/billing-account.md):
-1. Перейдите в [консоль управления]({{ link-console-main }}), затем войдите в {{ yandex-cloud }} или зарегистрируйтесь.
-1. На странице **[{{ ui-key.yacloud_billing.billing.label_service }}]({{ link-console-billing }})** убедитесь, что у вас подключен платежный аккаунт, и он находится в [статусе](../concepts/billing-account-statuses.md) `ACTIVE` или `TRIAL_ACTIVE`. Если платежного аккаунта нет, [создайте его](../quickstart/index.md) и [привяжите](../operations/pin-cloud.md) к нему облако.
+Зарегистрируйтесь в Yandex Cloud и создайте [платежный аккаунт](../concepts/billing-account.md):
+1. Перейдите в [консоль управления](https://console.yandex.cloud), затем войдите в Yandex Cloud или зарегистрируйтесь.
+1. На странице **[Yandex Cloud Billing](https://center.yandex.cloud/billing/accounts)** убедитесь, что у вас подключен платежный аккаунт, и он находится в [статусе](../concepts/billing-account-statuses.md) `ACTIVE` или `TRIAL_ACTIVE`. Если платежного аккаунта нет, [создайте его](../quickstart/index.md) и [привяжите](../operations/pin-cloud.md) к нему облако.
 
-Если у вас есть активный платежный аккаунт, вы можете создать или выбрать [каталог](../../resource-manager/concepts/resources-hierarchy.md#folder), в котором будет работать ваша инфраструктура, на [странице облака]({{ link-console-cloud }}).
+Если у вас есть активный платежный аккаунт, вы можете создать или выбрать [каталог](../../resource-manager/concepts/resources-hierarchy.md#folder), в котором будет работать ваша инфраструктура, на [странице облака](https://console.yandex.cloud/cloud).
 
 [Подробнее об облаках и каталогах](../../resource-manager/concepts/resources-hierarchy.md).
 
 
 ### Необходимые платные ресурсы {#paid-resources}
 
-В стоимость анализа детализации входит плата за хранение данных в бакете и операции с ними (см. [тарифы {{ objstorage-name }}](../../storage/pricing.md)).
+В стоимость анализа детализации входит плата за хранение данных в бакете и операции с ними (см. [тарифы Object Storage](../../storage/pricing.md)).
 
 
 ### Настройте окружение {#setup-environment}
 
 Установите и настройте интерфейс командной строки [AWS CLI](../../storage/tools/aws-cli.md).
 
-## Создайте бакет {{ objstorage-name }} {#create-bucket}
+## Создайте бакет Object Storage {#create-bucket}
 
 {% list tabs group=instructions %}
 
 - Консоль управления {#console}
 
-  1. В [консоли управления]({{ link-console-main }}) выберите каталог, в котором хотите создать бакет.
-  1. Перейдите в сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_storage }}**.
-  1. Справа сверху нажмите кнопку **{{ ui-key.yacloud.storage.buckets.button_create }}**.
-  1. В поле **{{ ui-key.yacloud.storage.bucket.settings.field_name }}** укажите имя бакета.
-  1. Нажмите кнопку **{{ ui-key.yacloud.storage.buckets.create.button_create }}**.
+  1. В [консоли управления](https://console.yandex.cloud) выберите каталог, в котором хотите создать бакет.
+  1. Перейдите в сервис **Object Storage**.
+  1. Справа сверху нажмите кнопку **Создать бакет**.
+  1. В поле **Имя** укажите имя бакета.
+  1. Нажмите кнопку **Создать бакет**.
 
 {% endlist %}
 
@@ -51,18 +51,18 @@
 
 - Консоль управления {#console}
 
-  1. Перейдите в сервис [**{{ billing-name }}**]({{ link-console-billing }}).
+  1. Перейдите в сервис [**Yandex Cloud Billing**](https://center.yandex.cloud/billing/accounts).
   1. В списке платежных аккаунтов выберите нужный.
-  1. Перейдите на вкладку **{{ ui-key.yacloud_billing.billing.account.switch_detail }}**.
-  1. Справа сверху нажмите кнопку **{{ ui-key.yacloud_billing.billing.account.detail.button_export }}** и выберите **{{ ui-key.yacloud_billing.billing.account.detail.button_create-periodic-export }}**.
+  1. Перейдите на вкладку **Детализация**.
+  1. Справа сверху нажмите кнопку **Экспорт детализации** и выберите **Регулярный экспорт**.
   1. В открывшемся окне:
 
-     * В поле **{{ ui-key.yacloud_billing.billing.account.exports.field_bucket }}** укажите имя бакета, [созданного ранее](#create-bucket). В нем будет храниться CSV-файл с детализацией.
-     * В поле **{{ ui-key.yacloud_billing.billing.account.exports.field_prefix }}** укажите название папки для файла. Последний символ должен быть `/`.
-     * В поле **{{ ui-key.yacloud_billing.billing.account.exports.field_locale }}** выберите язык, на котором будут отображаться названия продуктов – **{{ ui-key.yacloud_billing.billing.account.exports.locale_value_en-lang }}** или **{{ ui-key.yacloud_billing.billing.account.exports.locale_value_ru-lang }}**.
-     * В поле **{{ ui-key.yacloud_billing.billing.account.exports.field_detail-type }}** выберите тип детализации ***{{ ui-key.yacloud_billing.billing.account.exports.label_include-resources }}**.
+     * В поле **Бакет** укажите имя бакета, [созданного ранее](#create-bucket). В нем будет храниться CSV-файл с детализацией.
+     * В поле **Папка** укажите название папки для файла. Последний символ должен быть `/`.
+     * В поле **Язык** выберите язык, на котором будут отображаться названия продуктов – **English** или **Русский**.
+     * В поле **Детализация** выберите тип детализации ***Поресурсная**.
 
-  1. Нажмите кнопку **{{ ui-key.yacloud.common.create }}**.
+  1. Нажмите кнопку **Создать**.
 
 {% endlist %}
 
@@ -72,7 +72,7 @@
 
 - Bash {#bash}
 
-  1. Выполните запрос в {{ objstorage-name }} и сохраните результат выполнения в файл:
+  1. Выполните запрос в Object Storage и сохраните результат выполнения в файл:
 
      1. Для удобства работы сохраните:
 
@@ -97,7 +97,7 @@
      1. Выполните команду:
 
         ```bash
-        aws --endpoint https://{{ s3-storage-host }} s3api select-object-content \
+        aws --endpoint https://storage.yandexcloud.net s3api select-object-content \
           --bucket $bucket \
           --key $key \
           --expression "$query" \

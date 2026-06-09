@@ -5,7 +5,7 @@ Copies the specified desktop image from the specified desktop.
 ## HTTP request
 
 ```
-POST https://clouddesktops.{{ api-host }}/cloud-desktop/v1/images:copyFromDesktop
+POST https://clouddesktops.api.cloud.yandex.net/cloud-desktop/v1/images:copyFromDesktop
 ```
 
 ## Body parameters {#yandex.cloud.clouddesktop.v1.api.CopyFromDesktopRequest}

@@ -14,11 +14,11 @@
 
 1. [Создайте группу узлов](../node-group/node-group-create.md) со следующими параметрами:
 
-   * **{{ ui-key.yacloud.compute.instances.create.section_platform }}** — выберите **{{ ui-key.yacloud.component.compute.resources.label_tab-custom }}**.
-   * В поле **{{ ui-key.yacloud.component.compute.resources.field_advanced }}** активируйте опцию **{{ ui-key.yacloud.component.compute.resources.field_preemptible }}**.
-   * В блоке **{{ ui-key.yacloud.k8s.node-groups.create.section_additional }}** добавьте произвольную taint-политику для приложения (например `node-sitter: 1`).
+   * **Вычислительные ресурсы** — выберите **Своя конфигурация**.
+   * В поле **Дополнительно** активируйте опцию **Прерываемая**.
+   * В блоке **Дополнительно** добавьте произвольную taint-политику для приложения (например `node-sitter: 1`).
 
-1. [Убедитесь](../connect/security-groups.md), что группы безопасности для кластера {{ managed-k8s-name }} и его групп узлов настроены корректно. Если отсутствует какое-либо из правил — [добавьте](../../../vpc/operations/security-group-add-rule.md) его.
+1. [Убедитесь](../connect/security-groups.md), что группы безопасности для кластера Managed Service for Kubernetes и его групп узлов настроены корректно. Если отсутствует какое-либо из правил — [добавьте](../../../vpc/operations/security-group-add-rule.md) его.
 
     {% note warning %}
     
@@ -26,11 +26,11 @@
     
     {% endnote %}
 
-## Установка с помощью {{ marketplace-full-name }} {#marketplace-install}
+## Установка с помощью Yandex Cloud Marketplace {#marketplace-install}
 
-1. Перейдите на [страницу каталога]({{ link-console-main }}) и выберите сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-kubernetes }}**.
-1. Нажмите на имя нужного кластера {{ k8s }} и выберите вкладку ![image](../../../_assets/console-icons/shopping-cart.svg) **{{ ui-key.yacloud.k8s.cluster.switch_marketplace }}**.
-1. В разделе **{{ ui-key.yacloud.marketplace-v2.label_available-products }}** выберите [node-sitter](https://yandex.cloud/ru/marketplace/products/yc/node-sitter) и нажмите кнопку **{{ ui-key.yacloud.marketplace-v2.button_k8s-product-use }}**.
+1. Перейдите на [страницу каталога](https://console.yandex.cloud) и выберите сервис **Managed Service for&nbsp;Kubernetes**.
+1. Нажмите на имя нужного кластера Kubernetes и выберите вкладку ![image](../../../_assets/console-icons/shopping-cart.svg) **Marketplace**.
+1. В разделе **Доступные для установки приложения** выберите [node-sitter](https://yandex.cloud/ru/marketplace/products/yc/node-sitter) и нажмите кнопку **Перейти к установке**.
 1. Задайте настройки приложения:
    * **Пространство имен** — создайте новое [пространство имен](../../concepts/index.md#namespace) (например, `node-sitter`). Если вы оставите пространство имен по умолчанию, node-sitter может работать некорректно.
    * **Название приложения** — укажите название приложения.
@@ -40,7 +40,7 @@
    * (опционально) **Параметры для kubelet** — укажите дополнительные параметры запуска `kubelet` на узлах группы с прерываемыми ВМ.
    * (опционально) **Настройки прокси** — укажите настройки прокси для скачивания образов контейнеров на узлах группы с прерываемыми ВМ. Настройки передаются через переменные окружения `HTTP_PROXY` и `HTTPS_PROXY`.
 
-1. Нажмите кнопку **{{ ui-key.yacloud.k8s.cluster.marketplace.button_install }}**.
+1. Нажмите кнопку **Установить**.
 
 1. Дождитесь перехода приложения в статус `Deployed`.
 
@@ -48,13 +48,13 @@
 
 1. [Установите менеджер пакетов Helm](https://helm.sh/ru/docs/intro/install/) версии не ниже 3.8.0.
 
-1. [Установите kubectl]({{ k8s-docs }}/tasks/tools/install-kubectl) и [настройте его на работу с созданным кластером](../connect/index.md#kubectl-connect).
+1. [Установите kubectl](https://kubernetes.io/ru/docs/tasks/tools/install-kubectl) и [настройте его на работу с созданным кластером](../connect/index.md#kubectl-connect).
 
 1. Для установки [Helm-чарта](https://helm.sh/docs/topics/charts/) с node-sitter выполните команду, указав в ней параметры ресурсов, созданных [ранее](#before-you-begin):
 
     ```bash
-    helm pull oci://{{ mkt-k8s-key.yc_node-sitter.helmChart.name }} \
-       --version {{ mkt-k8s-key.yc_node-sitter.helmChart.tag }} \
+    helm pull oci://cr.yandex/yc-marketplace/yandex-cloud/node-sitter/node-sitter/chart/node-sitter \
+       --version 0.1.6 \
        --untar && \
     helm install \
        --namespace <пространство_имен_для_node_sitter> \

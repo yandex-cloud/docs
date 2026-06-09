@@ -1,6 +1,6 @@
 # Secrets Store
 
-{{ stackland-name }} использует для безопасного хранения секретов и их подстановки два основных инструмента:
+Stackland использует для безопасного хранения секретов и их подстановки два основных инструмента:
 
 * Secrets Injector — загружает секреты по API, совместимому с [Vault](https://developer.hashicorp.com/vault/docs), и подставляет их в ресурсы кластера.
 * Хранилище секретов, совместимое с [Vault](https://developer.hashicorp.com/vault/docs).
@@ -40,7 +40,7 @@ Secrets Store состоит из трех компонентов:
 
 Аннотации в Env mode рекомендуется размещать в `spec.template.metadata.annotations` (на шаблоне пода). Для `Deployment`, `StatefulSet`, `DaemonSet` и `Job` вебхук также может скопировать аннотации из `metadata.annotations` ресурса, если они не заданы в шаблоне пода. Если одна и та же аннотация задана в обоих местах, используется значение из шаблона пода.
 
-Подробное руководство: [{#T}](../../operations/secrets-store/inject-secrets-env.md).
+Подробное руководство: [Инъекция секретов в переменные окружения (Env mode)](../../operations/secrets-store/inject-secrets-env.md).
 
 ### ConfigMap mode {#configmap-mode}
 
@@ -53,7 +53,7 @@ Secrets Store состоит из трех компонентов:
 1. В значениях ConfigMap использовать ссылки на секреты.
 1. Подмонтировать ConfigMap в контейнер.
 
-Подробное руководство: [{#T}](../../operations/secrets-store/inject-secrets-configmap.md).
+Подробное руководство: [Инъекция секретов через ConfigMap (ConfigMap mode)](../../operations/secrets-store/inject-secrets-configmap.md).
 
 ### Dual mode {#dual-mode}
 
@@ -167,7 +167,7 @@ kubectl label namespace <имя_пространства_имен> secrets.stack
 
 * `secrets.stackland.yandex.cloud/role` (обязательная) — роль в Secrets Store для аутентификации пода.
 * `secrets.stackland.yandex.cloud/mutate` — значение `skip` полностью отключает мутацию для пода.
-* `secrets.stackland.yandex.cloud/addr` — адрес сервера Secrets Store. По умолчанию `https://openbao.stackland-secrets-store.svc.{{ cluster-domain }}:8200`.
+* `secrets.stackland.yandex.cloud/addr` — адрес сервера Secrets Store. По умолчанию `https://openbao.stackland-secrets-store.svc.<домен кластера>:8200`.
 * `secrets.stackland.yandex.cloud/auth-path` — путь аутентификации в Secrets Store. По умолчанию `kubernetes`.
 * `secrets.stackland.yandex.cloud/namespace` — пространство имен OpenBao (только для Vault Enterprise).
 
@@ -235,7 +235,7 @@ kubectl label namespace <имя_пространства_имен> secrets.stack
 
 ## Использование Secrets Injector {#secrets-injector}
 
-После включения компонента Secrets Store инжектор не требует отдельного развертывания. Secrets Injector использует Secrets Store в {{ stackland-name }}. Для получения секретов приложением настройте секреты, policy и role в Secrets Store. При необходимости можно настроить использование собственного хранилища секретов в кастомном ресурсе в [параметре](#secrets-injector-settings) `secretsAddr`.
+После включения компонента Secrets Store инжектор не требует отдельного развертывания. Secrets Injector использует Secrets Store в Stackland. Для получения секретов приложением настройте секреты, policy и role в Secrets Store. При необходимости можно настроить использование собственного хранилища секретов в кастомном ресурсе в [параметре](#secrets-injector-settings) `secretsAddr`.
 
 Для аутентификации сервисных аккаунтов Secrets Injector использует API Secrets Store. По умолчанию применяется эндпоинт `auth/kubernetes`. Если для приложения нужен другой путь аутентификации, задайте аннотацию `secrets.stackland.yandex.cloud/auth-path` в шаблоне пода.
 

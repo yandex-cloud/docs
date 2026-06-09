@@ -5,7 +5,7 @@ Returns the specified Operation resource.
 ## HTTP request
 
 ```
-GET https://{{ api-host-mdb-operation }}/operations/{operationId}
+GET https://operation.api.cloud.yandex.net/operations/{operationId}
 ```
 
 ## Path parameters

@@ -4,9 +4,9 @@
 
 - Консоль управления {#console}
 
-    1. В [консоли управления]({{ link-console-main }}) перейдите в каталог, в котором хотите создать [лог-группу](../concepts/log-group.md).
-    1. [Перейдите](../../console/operations/select-service.md#select-service) в сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_logging }}**.
-    1. Нажмите кнопку **{{ ui-key.yacloud.logging.button_create-group }}**.
+    1. В [консоли управления](https://console.yandex.cloud) перейдите в каталог, в котором хотите создать [лог-группу](../concepts/log-group.md).
+    1. [Перейдите](../../console/operations/select-service.md#select-service) в сервис **Cloud Logging**.
+    1. Нажмите кнопку **Создать группу**.
     1. (Опционально) Введите имя и описание лог-группы. Формат имени:
 
         * длина — от 3 до 63 символов;
@@ -18,11 +18,11 @@
     1. (Опционально) Выберите [поток данных](../../data-streams/concepts/glossary.md#stream-concepts) или создайте новый, чтобы перенаправлять в него записи, которые добавили в лог-группу.
 
 
-    1. Нажмите кнопку **{{ ui-key.yacloud.logging.button_create-group }}**.
+    1. Нажмите кнопку **Создать группу**.
 
 - CLI {#cli}
 
-    Если у вас еще нет интерфейса командной строки {{ yandex-cloud }} (CLI), [установите и инициализируйте его](../../cli/quickstart.md#install).
+    Если у вас еще нет интерфейса командной строки Yandex Cloud (CLI), [установите и инициализируйте его](../../cli/quickstart.md#install).
 
     По умолчанию используется каталог, указанный при [создании](../../cli/operations/profile/profile-create.md) профиля CLI. Чтобы изменить каталог по умолчанию, используйте команду `yc config set folder-id <идентификатор_каталога>`. Также для любой команды вы можете указать другой каталог с помощью параметров `--folder-name` или `--folder-id`. Если вы обращаетесь к ресурсу по имени, поиск будет выполнен в каталоге по умолчанию. Если вы обращаетесь к ресурсу по идентификатору, поиск будет выполнен глобально — во всех каталогах с учетом прав доступа.
 
@@ -41,13 +41,13 @@
 
         Срок хранения записей можно указать только в часах, минутах или секундах. Например, `1h` или `1440m`.
 
-    * `--data-stream` — идентификатор [потока данных](../../data-streams/concepts/glossary.md#stream-concepts) {{ yds-full-name }}. Необязательный параметр. В указанный поток автоматически будут перенаправляться записи, которые добавили в лог-группу. Идентификатор потока состоит из зоны доступности, идентификатора каталога, идентификатора базы данных {{ ydb-full-name }} и имени потока.
+    * `--data-stream` — идентификатор [потока данных](../../data-streams/concepts/glossary.md#stream-concepts) Yandex Data Streams. Необязательный параметр. В указанный поток автоматически будут перенаправляться записи, которые добавили в лог-группу. Идентификатор потока состоит из зоны доступности, идентификатора каталога, идентификатора базы данных Yandex Managed Service for YDB и имени потока.
 
-        >Например, укажите идентификатор потока `/{{ region-id }}/aoeu1kuk2dht********/cc8029jgtuab********/aws_stream`, если:
+        >Например, укажите идентификатор потока `/ru-central1/aoeu1kuk2dht********/cc8029jgtuab********/aws_stream`, если:
         >* `aws_stream` — имя потока;
-        >* `{{ region-id }}` — зона доступности;
+        >* `ru-central1` — зона доступности;
         >* `aoeu1kuk2dht********` — идентификатор каталога;
-        >* `cc8029jgtuab********` — идентификатор базы данных {{ ydb-full-name }}.
+        >* `cc8029jgtuab********` — идентификатор базы данных Yandex Managed Service for YDB.
 
 
     Результат:
@@ -61,21 +61,21 @@
     name: group
     status: ACTIVE
     retention_period: 3600s
-    data_stream: /{{ region-id }}/aoeu1kuk2dht********/cc8029jgtuab********/aws_stream
+    data_stream: /ru-central1/aoeu1kuk2dht********/cc8029jgtuab********/aws_stream
     ```
 
-- {{ TF }} {#tf}
+- Terraform {#tf}
 
-  [{{ TF }}](https://www.terraform.io/) позволяет быстро создать облачную инфраструктуру в {{ yandex-cloud }} и управлять ею с помощью файлов конфигураций. В файлах конфигураций хранится описание инфраструктуры на языке HCL (HashiCorp Configuration Language). При изменении файлов конфигураций {{ TF }} автоматически определяет, какая часть вашей конфигурации уже развернута, что следует добавить или удалить.
+  [Terraform](https://www.terraform.io/) позволяет быстро создать облачную инфраструктуру в Yandex Cloud и управлять ею с помощью файлов конфигураций. В файлах конфигураций хранится описание инфраструктуры на языке HCL (HashiCorp Configuration Language). При изменении файлов конфигураций Terraform автоматически определяет, какая часть вашей конфигурации уже развернута, что следует добавить или удалить.
   
-  {{ TF }} распространяется под лицензией [Business Source License](https://github.com/hashicorp/terraform/blob/main/LICENSE), а [провайдер {{ yandex-cloud }} для {{ TF }}](https://github.com/yandex-cloud/terraform-provider-yandex) — под лицензией [MPL-2.0](https://www.mozilla.org/en-US/MPL/2.0/).
+  Terraform распространяется под лицензией [Business Source License](https://github.com/hashicorp/terraform/blob/main/LICENSE), а [провайдер Yandex Cloud для Terraform](https://github.com/yandex-cloud/terraform-provider-yandex) — под лицензией [MPL-2.0](https://www.mozilla.org/en-US/MPL/2.0/).
   
-  Подробную информацию о ресурсах провайдера смотрите в документации на сайте [{{ TF }}](https://www.terraform.io/docs/providers/yandex/index.html) или в [зеркале]({{ tf-docs-link }}).
+  Подробную информацию о ресурсах провайдера смотрите в документации на сайте [Terraform](https://www.terraform.io/docs/providers/yandex/index.html) или в [зеркале](../../terraform/index.md).
 
-  Если у вас еще нет {{ TF }}, [установите его и настройте провайдер {{ yandex-cloud }}](../../tutorials/infrastructure-management/terraform-quickstart.md#install-terraform).
+  Если у вас еще нет Terraform, [установите его и настройте провайдер Yandex Cloud](../../tutorials/infrastructure-management/terraform-quickstart.md#install-terraform).
   
   
-  Чтобы управлять инфраструктурой с помощью {{ TF }} от имени сервисного аккаунта или пользовательских аккаунтов: аккаунта на Яндексе, федеративного аккаунта и локального пользователя, [аутентифицируйтесь](../../terraform/authentication.md) соответствующим способом.
+  Чтобы управлять инфраструктурой с помощью Terraform от имени сервисного аккаунта или пользовательских аккаунтов: аккаунта на Яндексе, федеративного аккаунта и локального пользователя, [аутентифицируйтесь](../../terraform/authentication.md) соответствующим способом.
 
   1. Опишите в конфигурационном файле параметры ресурсов, которые необходимо создать:
 
@@ -101,7 +101,7 @@
      }
      ```
 
-     Более подробную информацию о параметрах ресурса `yandex_logging_group` в {{ TF }}, см. в [документации провайдера]({{ tf-provider-resources-link }}/logging_group).
+     Более подробную информацию о параметрах ресурса `yandex_logging_group` в Terraform, см. в [документации провайдера](../../terraform/resources/logging_group.md).
 
   1. Проверьте корректность конфигурационных файлов.
 
@@ -112,7 +112,7 @@
         terraform plan
         ```
 
-     Если конфигурация описана верно, в терминале отобразится список создаваемых ресурсов и их параметров. Если в конфигурации есть ошибки, {{ TF }} на них укажет. 
+     Если конфигурация описана верно, в терминале отобразится список создаваемых ресурсов и их параметров. Если в конфигурации есть ошибки, Terraform на них укажет. 
 
   1. Разверните облачные ресурсы.
 
@@ -124,7 +124,7 @@
 
      1. Подтвердите создание ресурсов: введите в терминал слово `yes` и нажмите **Enter**.
 
-     После этого в указанном каталоге будут созданы все требуемые ресурсы. Проверить появление ресурсов и их настройки можно в [консоли управления]({{ link-console-main }}) или с помощью команды [CLI](../../cli/quickstart.md):
+     После этого в указанном каталоге будут созданы все требуемые ресурсы. Проверить появление ресурсов и их настройки можно в [консоли управления](https://console.yandex.cloud) или с помощью команды [CLI](../../cli/quickstart.md):
 
         ```
         yc logging group list
@@ -159,7 +159,7 @@
     -import-path ~/cloudapi/ \
     -import-path ~/cloudapi/third_party/googleapis/ \
     -proto ~/cloudapi/yandex/cloud/logging/v1/log_group_service.proto \
-  logging.{{ api-host }}:443 yandex.cloud.logging.v1.LogGroupService.Create < payload.json
+  logging.api.cloud.yandex.net:443 yandex.cloud.logging.v1.LogGroupService.Create < payload.json
   ```
 
   Ответ:

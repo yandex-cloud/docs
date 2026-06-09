@@ -6,7 +6,7 @@ To get the list of available API keys, make a [List](list.md#List) request.
 ## HTTP request
 
 ```
-GET https://iam.{{ api-host }}/iam/v1/apiKeys/{apiKeyId}
+GET https://iam.api.cloud.yandex.net/iam/v1/apiKeys/{apiKeyId}
 ```
 
 ## Path parameters

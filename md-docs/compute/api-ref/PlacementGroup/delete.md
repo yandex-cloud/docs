@@ -5,7 +5,7 @@ Deletes the specified placement group.
 ## HTTP request
 
 ```
-DELETE https://compute.{{ api-host }}/compute/v1/placementGroups/{placementGroupId}
+DELETE https://compute.api.cloud.yandex.net/compute/v1/placementGroups/{placementGroupId}
 ```
 
 ## Path parameters

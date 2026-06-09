@@ -5,7 +5,7 @@ Updates the specified machine learning model.
 ## HTTP request
 
 ```
-PATCH https://{{ api-host-mdb }}/managed-clickhouse/v1/clusters/{clusterId}/mlModels/{mlModelName}
+PATCH https://mdb.api.cloud.yandex.net/managed-clickhouse/v1/clusters/{clusterId}/mlModels/{mlModelName}
 ```
 
 ## Path parameters

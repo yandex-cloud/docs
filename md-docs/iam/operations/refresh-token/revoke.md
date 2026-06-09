@@ -10,20 +10,20 @@ Refresh-токены автоматически добавляются в про
 
 {% list tabs group=instructions %}
 
-- Интерфейс {{ cloud-center }} {#cloud-center}
+- Интерфейс Cloud Center {#cloud-center}
 
-  1. Войдите в сервис [{{ org-full-name }}]({{ link-org-cloud-center }}) с учетной записью администратора или владельца организации.
-  1. На панели слева нажмите ![userpool](../../../_assets/console-icons/persons.svg) **{{ ui-key.yacloud_org.pages.users }}**.
+  1. Войдите в сервис [Yandex Identity Hub](https://center.yandex.cloud/organization) с учетной записью администратора или владельца организации.
+  1. На панели слева нажмите ![userpool](../../../_assets/console-icons/persons.svg) **Пользователи**.
   1. Найдите в списке нужного вам пользователя. При необходимости воспользуйтесь фильтром или поиском в верхней части экрана.
-  1. Перейдите на вкладку **{{ ui-key.yacloud_org.my-account.SecurityPageLayout.refresh_breadcrumb }}**.
-  1. Рядом с нужным токеном нажмите ![image](../../../_assets/console-icons/ellipsis.svg) и выберите ![TrashBin](../../../_assets/console-icons/trash-bin.svg) **{{ ui-key.yacloud.common.delete }}**.
-  1. Чтобы отозвать все токены, нажмите ![TrashBin](../../../_assets/console-icons/trash-bin.svg) **{{ ui-key.yacloud_org.my-account.refresh-tokens.action_remove_all }}**.
+  1. Перейдите на вкладку **Refresh-токены**.
+  1. Рядом с нужным токеном нажмите ![image](../../../_assets/console-icons/ellipsis.svg) и выберите ![TrashBin](../../../_assets/console-icons/trash-bin.svg) **Удалить**.
+  1. Чтобы отозвать все токены, нажмите ![TrashBin](../../../_assets/console-icons/trash-bin.svg) **Удалить все токены**.
 
   Отозвать свои refresh-токены также можно через портал [Мой аккаунт](../../../organization/concepts/my-account.md). Эта возможность доступна в том числе пользователям с аккаунтом на Яндексе.
 
 - CLI {#cli}
 
-  Если у вас еще нет интерфейса командной строки {{ yandex-cloud }} (CLI), [установите и инициализируйте его](../../../cli/quickstart.md#install).
+  Если у вас еще нет интерфейса командной строки Yandex Cloud (CLI), [установите и инициализируйте его](../../../cli/quickstart.md#install).
 
   1. Посмотрите описание команды отзыва refresh-токена:
 
@@ -35,7 +35,7 @@ Refresh-токены автоматически добавляются в про
 
       {% note warning %}
 
-      Команду `yc iam refresh-token revoke` можно выполнять без указания дополнительных параметров. В этом случае она отзовет все refresh-токены пользователя, аутентифицированного в текущий момент в {{ yandex-cloud }} CLI.
+      Команду `yc iam refresh-token revoke` можно выполнять без указания дополнительных параметров. В этом случае она отзовет все refresh-токены пользователя, аутентифицированного в текущий момент в Yandex Cloud CLI.
 
       При отзыве всех refresh-токенов текущего пользователя команда `yc iam refresh-token revoke` дополнительно запрашивает подтверждение выполнения этого действия в терминале.
 
@@ -61,10 +61,10 @@ Refresh-токены автоматически добавляются в про
       * `--refresh-token-id` — идентификатор refresh-токена, который вы хотите отозвать. Необязательный параметр.
 
           Использование параметра `--refresh-token-id` делает невозможным использование любых других параметров команды `yc iam refresh-token revoke`.
-      * `--subject-id` — [идентификатор](../../../organization/operations/users-get.md) федеративного пользователя, refresh-токены которого вы хотите отозвать. Необязательный параметр. Если параметр не задан, будут отозваны refresh-токены пользователя, аутентифицированного в данный момент в {{ yandex-cloud }} CLI.
+      * `--subject-id` — [идентификатор](../../../organization/operations/users-get.md) федеративного пользователя, refresh-токены которого вы хотите отозвать. Необязательный параметр. Если параметр не задан, будут отозваны refresh-токены пользователя, аутентифицированного в данный момент в Yandex Cloud CLI.
 
           По умолчанию любой [федеративный пользователь](../../concepts/users/accounts.md#saml-federation) может отзывать свои refresh-токены. Отзывать refresh-токены других пользователей могут пользователи, обладающие одной из следующих [ролей](../../concepts/access-control/roles.md) на организацию: [organization-manager.federations.userAdmin](../../../organization/security/index.md#organization-manager-federations-userAdmin) или [iam.userAccounts.refreshTokenRevoker](../../security/index.md#iam-userAccounts-refreshTokenRevoker).
-      * `--client-id` — идентификатор OAuth-приложения, refresh-токены для которого вы хотите отозвать. Например: идентификатор {{ yandex-cloud }} CLI — `yc.oauth.public-sdk`. Необязательный параметр.
+      * `--client-id` — идентификатор OAuth-приложения, refresh-токены для которого вы хотите отозвать. Например: идентификатор Yandex Cloud CLI — `yc.oauth.public-sdk`. Необязательный параметр.
       * `--client-instance-info` — идентификатор версии OAuth-приложения, refresh-токены для которого вы хотите отозвать. Например: `yc/0.141.0`. Необязательный параметр.
 
       Результат:

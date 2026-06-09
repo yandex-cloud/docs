@@ -1,14 +1,14 @@
 # Terraform в Yandex Cloud
 
-{{ TF }} — инструмент для управления вашей облачной инфраструктурой как кодом (Infrastructure as a Code, IaC) с помощью файлов конфигурации.
+Terraform — инструмент для управления вашей облачной инфраструктурой как кодом (Infrastructure as a Code, IaC) с помощью файлов конфигурации.
 
-{{ yandex-cloud }} предоставляет провайдер, набор модулей и ряд готовых решений, которые  вы можете адаптировать под свои задачи.
+Yandex Cloud предоставляет провайдер, набор модулей и ряд готовых решений, которые  вы можете адаптировать под свои задачи.
 
-# {{ TF }} в {{ yandex-cloud }}
+# Terraform в Yandex Cloud
 
  - [Начало работы](quickstart.md)
 
- - [Настройка аутентификации {{ TF }}-провайдера {{ yandex-cloud }}](authentication.md)
+ - [Настройка аутентификации Terraform-провайдера Yandex Cloud](authentication.md)
 
 ## Концепции
 
@@ -28,17 +28,17 @@
 
  - [Все практические руководства](tutorials/index.md)
 
- - [Источники данных {{ TF }}](tutorials/terraform-data-sources.md)
+ - [Источники данных Terraform](tutorials/terraform-data-sources.md)
 
- - [Использование модулей {{ TF }}](tutorials/terraform-modules.md)
+ - [Использование модулей Terraform](tutorials/terraform-modules.md)
 
- - [Загрузка состояний {{ TF }} в {{ objstorage-full-name }}](tutorials/terraform-state-storage.md)
+ - [Загрузка состояний Terraform в Yandex Object Storage](tutorials/terraform-state-storage.md)
 
- - [Блокировка состояний {{ TF }} с помощью {{ ydb-full-name }}](tutorials/terraform-state-lock.md)
+ - [Блокировка состояний Terraform с помощью Yandex Managed Service for YDB](tutorials/terraform-state-lock.md)
 
  - [Библиотека решений](solution-library.md)
 
-## Справочник {{ TF }}
+## Справочник Terraform
 
  - [Обзор](tf-ref/overview.md)
 

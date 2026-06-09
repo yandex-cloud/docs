@@ -4,26 +4,26 @@
 
 - Консоль управления {#console}
 
-  1. В [консоли управления]({{ link-console-main }}) выберите каталог, в котором находится API-шлюз.
-  1. Перейдите в сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_api-gateway }}**.
+  1. В [консоли управления](https://console.yandex.cloud) выберите каталог, в котором находится API-шлюз.
+  1. Перейдите в сервис **API Gateway**.
   1. Нажмите на имя нужного API-шлюза.
-  1. Перейдите на вкладку **{{ ui-key.yacloud.serverless-functions.gateways.item.switch_domains }}**.
-  1. В строке с доменом нажмите кнопку ![image](../../_assets/options.svg) и выберите **{{ ui-key.yacloud.serverless-functions.gateways.domains.button_acton-delete }}**.
+  1. Перейдите на вкладку **Домены**.
+  1. В строке с доменом нажмите кнопку ![image](../../_assets/options.svg) и выберите **Отключить**.
   1. Подтвердите отключение.
   1. Удалите ресурсную запись, созданную при подключении домена к API-шлюзу:
       
-      * Если ваш домен делегирован {{ dns-name }}:
+      * Если ваш домен делегирован Cloud DNS:
 
-        1. Перейдите в сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_dns }}**.
+        1. Перейдите в сервис **Cloud DNS**.
         1. Выберите зону, в которой находится домен.
-        1. Нажмите ![image](../../_assets/options.svg) в строке записи со значком ![image](../../_assets/api-gateway/service-icon.svg) и выберите ![image](../../_assets/console-icons/trash-bin.svg) **{{ ui-key.yacloud.common.delete }}**.
+        1. Нажмите ![image](../../_assets/options.svg) в строке записи со значком ![image](../../_assets/api-gateway/service-icon.svg) и выберите ![image](../../_assets/console-icons/trash-bin.svg) **Удалить**.
         1. Подтвердите удаление.
 
       * Если вашим доменом управляет сторонний DNS-провайдер, удалите запись на странице управления доменом вашего провайдера.
 
 - CLI {#cli}
 
-  Если у вас еще нет интерфейса командной строки {{ yandex-cloud }} (CLI), [установите и инициализируйте его](../../cli/quickstart.md#install).
+  Если у вас еще нет интерфейса командной строки Yandex Cloud (CLI), [установите и инициализируйте его](../../cli/quickstart.md#install).
 
   По умолчанию используется каталог, указанный при [создании](../../cli/operations/profile/profile-create.md) профиля CLI. Чтобы изменить каталог по умолчанию, используйте команду `yc config set folder-id <идентификатор_каталога>`. Также для любой команды вы можете указать другой каталог с помощью параметров `--folder-name` или `--folder-id`. Если вы обращаетесь к ресурсу по имени, поиск будет выполнен в каталоге по умолчанию. Если вы обращаетесь к ресурсу по идентификатору, поиск будет выполнен глобально — во всех каталогах с учетом прав доступа.
 
@@ -41,7 +41,7 @@
 
   1. Удалите ресурсную запись, созданную при подключении домена к API-шлюзу:
       
-      * Если ваш домен делегирован {{ dns-name }}:
+      * Если ваш домен делегирован Cloud DNS:
 
         1. Получите список всех записей в зоне DNS, указав идентификатор этой зоны:
 
@@ -49,7 +49,7 @@
             yc dns zone list-records <идентификатор_зоны_DNS>
             ```
         
-            Нужная запись имеет тип `ANAME` и значение вида `{{ api-host-apigw }}`.
+            Нужная запись имеет тип `ANAME` и значение вида `d5dm1lba80md********.i9******.apigw.yandexcloud.net`.
 
         1. Удалите запись:
 
@@ -66,7 +66,7 @@
 
   Удалите ресурсную запись, созданную при подключении домена к API-шлюзу:
       
-  * Если ваш домен делегирован {{ dns-name }}, воспользуйтесь методом REST API [updateRecordSets](../../dns/api-ref/DnsZone/updateRecordSets.md) для ресурса [DnsZone](../../dns/api-ref/DnsZone/index.md) или вызовом gRPC API [DnsZoneService/UpdateRecordSets](../../dns/api-ref/grpc/DnsZone/updateRecordSets.md).
+  * Если ваш домен делегирован Cloud DNS, воспользуйтесь методом REST API [updateRecordSets](../../dns/api-ref/DnsZone/updateRecordSets.md) для ресурса [DnsZone](../../dns/api-ref/DnsZone/index.md) или вызовом gRPC API [DnsZoneService/UpdateRecordSets](../../dns/api-ref/grpc/DnsZone/updateRecordSets.md).
 
   * Если вашим доменом управляет сторонний DNS-провайдер, удалите запись на странице управления доменом вашего провайдера.
 

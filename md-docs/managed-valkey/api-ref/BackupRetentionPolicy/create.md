@@ -5,7 +5,7 @@ Add a new retention policy.
 ## HTTP request
 
 ```
-POST https://{{ api-host-mdb }}/managed-redis/v1/clusters/{clusterId}/retention_policies
+POST https://mdb.api.cloud.yandex.net/managed-redis/v1/clusters/{clusterId}/retention_policies
 ```
 
 ## Path parameters

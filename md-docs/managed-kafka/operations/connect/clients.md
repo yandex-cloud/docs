@@ -1,10 +1,10 @@
-# Подключение к кластеру {{ KF }} из приложений
+# Подключение к кластеру Apache Kafka® из приложений
 
-В этом разделе представлены настройки для подключения к хостам кластера {{ mkf-name }} с помощью [инструментов командной строки](#command-line-tools) и из [Docker-контейнера](#docker). О подключении из кода вашего приложения см. [Примеры кода](code-examples.md).
+В этом разделе представлены настройки для подключения к хостам кластера Managed Service for Apache Kafka® с помощью [инструментов командной строки](#command-line-tools) и из [Docker-контейнера](#docker). О подключении из кода вашего приложения см. [Примеры кода](code-examples.md).
 
-Вы можете подключаться к хостам кластера {{ KF }} в публичном доступе только с использованием [SSL-сертификата](index.md#get-ssl-cert). В примерах ниже предполагается, что сертификат `{{ crt-local-file }}` расположен в директории:
+Вы можете подключаться к хостам кластера Apache Kafka® в публичном доступе только с использованием [SSL-сертификата](index.md#get-ssl-cert). В примерах ниже предполагается, что сертификат `YandexInternalRootCA.crt` расположен в директории:
 
-* `{{ crt-local-dir }}` для Ubuntu;
+* `/usr/local/share/ca-certificates/Yandex/` для Ubuntu;
 * `$HOME\.kafka\` для Windows.
 
 
@@ -15,19 +15,19 @@
 
 Примеры для Linux проверялись в следующем окружении:
 
-* Виртуальная машина в {{ yandex-cloud }} с Ubuntu 20.04 LTS.
+* Виртуальная машина в Yandex Cloud с Ubuntu 20.04 LTS.
 * OpenJDK: `11.0.24`.
 * Bash: `5.0.16`.
 
 Примеры для Windows проверялись в следующем окружении:
 
-* Виртуальная машина в {{ yandex-cloud }} с Windows Server 2019 Datacenter.
+* Виртуальная машина в Yandex Cloud с Windows Server 2019 Datacenter.
 * Microsoft OpenJDK: `11.0.11`.
 * PowerShell: `5.1.17763.1490 Desktop`.
 
 ## Инструменты командной строки {#command-line-tools}
 
-Примеры кода с заполненным FQDN хоста доступны в [консоли управления]({{ link-console-main }}) по нажатию кнопки **{{ ui-key.yacloud.mdb.clusters.button_action-connect }}** на странице кластера.
+Примеры кода с заполненным FQDN хоста доступны в [консоли управления](https://console.yandex.cloud) по нажатию кнопки **Подключиться** на странице кластера.
 
 ### kafkacat {#bash-zsh}
 
@@ -88,7 +88,7 @@ sudo apt update && sudo apt install -y kafkacat
               -X sasl.mechanism=SCRAM-SHA-512 \
               -X sasl.username="<логин_потребителя>" \
               -X sasl.password="<пароль_потребителя>" \
-              -X ssl.ca.location={{ crt-local-dir }}{{ crt-local-file }} -Z -K:
+              -X ssl.ca.location=/usr/local/share/ca-certificates/Yandex/YandexInternalRootCA.crt -Z -K:
      ```
 
      Команда будет непрерывно считывать новые сообщения из топика.
@@ -104,7 +104,7 @@ sudo apt update && sudo apt install -y kafkacat
          -X sasl.mechanism=SCRAM-SHA-512 \
          -X sasl.username="<логин_производителя>" \
          -X sasl.password="<пароль_производителя>" \
-         -X ssl.ca.location={{ crt-local-dir }}{{ crt-local-file }} -Z
+         -X ssl.ca.location=/usr/local/share/ca-certificates/Yandex/YandexInternalRootCA.crt -Z
      ```
 
 {% endlist %}
@@ -113,9 +113,9 @@ sudo apt update && sudo apt install -y kafkacat
 
 Убедитесь, что в первом терминале отобразилось сообщение `key:test message`, отправленное во втором.
 
-### Инструменты {{ KF }} для Linux (Bash)/macOS (Zsh) {#kafka-sh}
+### Инструменты Apache Kafka® для Linux (Bash)/macOS (Zsh) {#kafka-sh}
 
-В состав [архивов с бинарными файлами {{ KF }}](https://kafka.apache.org/community/downloads/) включен [набор инструментов](https://docs.confluent.io/kafka/operations-tools/kafka-tools.html), который позволяет управлять кластером {{ KF }} и сущностями в нем. Далее на примере будет показано, как указать реквизиты пользователя для подключения и использовать инструменты с этими реквизитами:
+В состав [архивов с бинарными файлами Apache Kafka®](https://kafka.apache.org/community/downloads/) включен [набор инструментов](https://docs.confluent.io/kafka/operations-tools/kafka-tools.html), который позволяет управлять кластером Apache Kafka® и сущностями в нем. Далее на примере будет показано, как указать реквизиты пользователя для подключения и использовать инструменты с этими реквизитами:
 
 * С помощью [kafka-console-producer](https://docs.confluent.io/kafka/operations-tools/kafka-tools.html#kafka-console-producer-sh) будет отправлено сообщение в топик.
 * С помощью [kafka-console-consumer](https://docs.confluent.io/kafka/operations-tools/kafka-tools.html#kafka-console-consumer-sh) будет получено сообщение из топика.
@@ -128,7 +128,7 @@ sudo apt update && sudo apt install -y kafkacat
     sudo apt update && sudo apt install --yes default-jdk
     ```
 
-1. Загрузите [архив с бинарными файлами](https://kafka.apache.org/community/downloads/) для версии {{ KF }}, которая используется в кластере. Версия Scala неважна.
+1. Загрузите [архив с бинарными файлами](https://kafka.apache.org/community/downloads/) для версии Apache Kafka®, которая используется в кластере. Версия Scala неважна.
 
 1. Распакуйте архив.
 
@@ -180,11 +180,11 @@ sudo apt update && sudo apt install -y kafkacat
         cd /etc/security
         ```
 
-    1. Добавьте SSL-сертификат в хранилище доверенных сертификатов Java (Java Key Store), чтобы драйвер {{ KF }} мог использовать этот сертификат при защищенном подключении к хостам кластера. Задайте пароль не короче 6 символов в параметре `-storepass` для дополнительной защиты хранилища:
+    1. Добавьте SSL-сертификат в хранилище доверенных сертификатов Java (Java Key Store), чтобы драйвер Apache Kafka® мог использовать этот сертификат при защищенном подключении к хостам кластера. Задайте пароль не короче 6 символов в параметре `-storepass` для дополнительной защиты хранилища:
        
        ```bash
        sudo keytool -importcert \
-                    -alias {{ crt-alias }} -file {{ crt-local-dir }}{{ crt-local-file }} \
+                    -alias YandexCA -file /usr/local/share/ca-certificates/Yandex/YandexInternalRootCA.crt \
                     -keystore ssl -storepass <пароль_хранилища_сертификатов> \
                     --noprompt
        ```
@@ -233,9 +233,9 @@ sudo apt update && sudo apt install -y kafkacat
 
 Убедитесь, что в первом терминале отобразилось сообщение `key:test message`, отправленное во втором.
 
-### Инструменты {{ KF }} для Windows (PowerShell) {#powershell}
+### Инструменты Apache Kafka® для Windows (PowerShell) {#powershell}
 
-В состав [архивов с бинарными файлами {{ KF }}](https://kafka.apache.org/community/downloads/) включен [набор инструментов](https://docs.confluent.io/kafka/operations-tools/kafka-tools.html), который позволяет управлять кластером {{ KF }} и сущностями в нем. Далее на примере будет показано, как указать реквизиты пользователя для подключения и использовать инструменты с этими реквизитами:
+В состав [архивов с бинарными файлами Apache Kafka®](https://kafka.apache.org/community/downloads/) включен [набор инструментов](https://docs.confluent.io/kafka/operations-tools/kafka-tools.html), который позволяет управлять кластером Apache Kafka® и сущностями в нем. Далее на примере будет показано, как указать реквизиты пользователя для подключения и использовать инструменты с этими реквизитами:
 
 * С помощью [kafka-console-producer](https://docs.confluent.io/kafka/operations-tools/kafka-tools.html#kafka-console-producer-sh) будет отправлено сообщение в топик.
 * С помощью [kafka-console-consumer](https://docs.confluent.io/kafka/operations-tools/kafka-tools.html#kafka-console-consumer-sh) будет получено сообщение из топика.
@@ -249,15 +249,15 @@ sudo apt update && sudo apt install -y kafkacat
 
 1. Установите последнюю доступную версию [Microsoft OpenJDK](https://docs.microsoft.com/en-us/java/openjdk/download).
 
-1. Загрузите [архив с бинарными файлами](https://kafka.apache.org/community/downloads/) для версии {{ KF }}, которая используется в кластере. Версия Scala неважна.
+1. Загрузите [архив с бинарными файлами](https://kafka.apache.org/community/downloads/) для версии Apache Kafka®, которая используется в кластере. Версия Scala неважна.
 
 1. Распакуйте архив.
 
    {% note tip %}
 
-   Распаковывайте файлы {{ KF }} в корневой каталог диска, например, `C:\kafka_2.12-2.6.0\`.
+   Распаковывайте файлы Apache Kafka® в корневой каталог диска, например, `C:\kafka_2.12-2.6.0\`.
 
-   Если путь к исполняемым и пакетным файлам {{ KF }} будет слишком длинным, то при попытке запустить их возникнет ошибка `The input line is too long`.
+   Если путь к исполняемым и пакетным файлам Apache Kafka® будет слишком длинным, то при попытке запустить их возникнет ошибка `The input line is too long`.
 
    {% endnote %}
 
@@ -303,11 +303,11 @@ sudo apt update && sudo apt install -y kafkacat
 
 - Подключение с SSL {#with-ssl}
 
-  1. Добавьте SSL-сертификат в хранилище доверенных сертификатов Java (Java Key Store), чтобы драйвер {{ KF }} мог использовать этот сертификат при защищенном подключении к хостам кластера. Задайте пароль в параметре `--storepass` для дополнительной защиты хранилища:
+  1. Добавьте SSL-сертификат в хранилище доверенных сертификатов Java (Java Key Store), чтобы драйвер Apache Kafka® мог использовать этот сертификат при защищенном подключении к хостам кластера. Задайте пароль в параметре `--storepass` для дополнительной защиты хранилища:
 
      ```powershell
-     keytool.exe -importcert -alias {{ crt-alias }} `
-       --file $HOME\.kafka\{{ crt-local-file }} `
+     keytool.exe -importcert -alias YandexCA `
+       --file $HOME\.kafka\YandexInternalRootCA.crt `
        --keystore $HOME\.kafka\ssl `
        --storepass <пароль_хранилища_сертификатов> `
        --noprompt
@@ -377,7 +377,7 @@ sudo apt update && sudo apt install -y kafkacat
 
 ## Подготовка к подключению из Docker-контейнера {#docker}
 
-Чтобы подключаться к кластеру {{ mkf-name }} из Docker-контейнера, добавьте в Dockerfile строки:
+Чтобы подключаться к кластеру Managed Service for Apache Kafka® из Docker-контейнера, добавьте в Dockerfile строки:
 
 {% list tabs group=connection %}
 
@@ -395,10 +395,10 @@ sudo apt update && sudo apt install -y kafkacat
   ```bash
   RUN apt-get update && \
       apt-get install wget kafkacat --yes && \
-      mkdir --parents {{ crt-local-dir }} && \
-      wget "{{ crt-web-path }}" \
-           --output-document {{ crt-local-dir }}{{ crt-local-file }} && \
-      chmod 0655 {{ crt-local-dir }}{{ crt-local-file }}
+      mkdir --parents /usr/local/share/ca-certificates/Yandex/ && \
+      wget "https://storage.yandexcloud.net/cloud-certs/CA.pem" \
+           --output-document /usr/local/share/ca-certificates/Yandex/YandexInternalRootCA.crt && \
+      chmod 0655 /usr/local/share/ca-certificates/Yandex/YandexInternalRootCA.crt
   ```
 
 {% endlist %}

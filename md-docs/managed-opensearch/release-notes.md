@@ -1,10 +1,10 @@
-# История изменений в {{ mos-full-name }}
+# История изменений в Yandex Managed Service for OpenSearch
 
 ## Май 2026 {#may-2026}
 
 * Добавлена возможность [создавать и восстанавливать](operations/cluster-backups.md) из резервной копии кластеры с шифрованными локальными дисками. Шифрование осуществляется пользовательским KMS-ключом.
-* Максимальный размер локальных дисков на одном хосте увеличен до 36 ТБ. Диски такого размера доступны для конфигураций с 16 и более ядрами на платформе Intel Ice Lake (`standard-v3`). Для создания кластеров особо большого размера может потребоваться обращение в [техническую поддержку]({{ link-console-support }}) для резервирования необходимых ресурсов.
-* Начиная с версии {{ OS }} 3.0 доступен MCP-сервер. Он позволяет подключить MCP-клиент напрямую к кластеру для просмотра индексов, схем и выполнения поиска. Подробнее в разделе [Использование MCP-сервера в {{ OS }}](tutorials/mcp.md).
+* Максимальный размер локальных дисков на одном хосте увеличен до 36 ТБ. Диски такого размера доступны для конфигураций с 16 и более ядрами на платформе Intel Ice Lake (`standard-v3`). Для создания кластеров особо большого размера может потребоваться обращение в [техническую поддержку](https://center.yandex.cloud/support) для резервирования необходимых ресурсов.
+* Начиная с версии OpenSearch 3.0 доступен MCP-сервер. Он позволяет подключить MCP-клиент напрямую к кластеру для просмотра индексов, схем и выполнения поиска. Подробнее в разделе [Использование MCP-сервера в OpenSearch](tutorials/mcp.md).
 
 ## Апрель 2026 {#apr-2026}
 
@@ -17,13 +17,13 @@
 
 ## Февраль 2026 {#feb-2026}
 
-Доступна новая версия {{ OS }} [3.5](https://github.com/opensearch-project/opensearch-build/blob/main/release-notes/opensearch-release-notes-3.5.0.md).
+Доступна новая версия OpenSearch [3.5](https://github.com/opensearch-project/opensearch-build/blob/main/release-notes/opensearch-release-notes-3.5.0.md).
 
 ## Декабрь 2025 {#dec-2025}
 
 * Добавлены [детальные метрики](operations/monitoring.md#hosts) использования дисков в хостах кластера.
 * Добавлена детализация выполнения [операций над кластером](operations/cluster-list.md#list-operations).
-* В [обновленных](operations/cluster-version-update.md) версиях {{ OS }} [3.3.2](https://github.com/opensearch-project/opensearch-build/blob/main/release-notes/opensearch-release-notes-3.3.2.md) и [3.4.0](https://github.com/opensearch-project/opensearch-build/blob/main/release-notes/opensearch-release-notes-3.4.0.md) улучшена производительность запросов с агрегацией и исправлен ряд ошибок, в том числе [ошибка NPE при выполнении bulk-запросов](https://github.com/opensearch-project/k-NN/issues/2852).
+* В [обновленных](operations/cluster-version-update.md) версиях OpenSearch [3.3.2](https://github.com/opensearch-project/opensearch-build/blob/main/release-notes/opensearch-release-notes-3.3.2.md) и [3.4.0](https://github.com/opensearch-project/opensearch-build/blob/main/release-notes/opensearch-release-notes-3.4.0.md) улучшена производительность запросов с агрегацией и исправлен ряд ошибок, в том числе [ошибка NPE при выполнении bulk-запросов](https://github.com/opensearch-project/k-NN/issues/2852).
 
 ## Ноябрь 2025 {#nov-2025}
 
@@ -47,8 +47,8 @@
 ## Октябрь 2024 {#oct-2024}
 
 * Добавлена поддержка [плагина](concepts/plugins.md#yandex-lemmer) `yandex-lemmer` для точного поиска на русском языке.
-* Доступна новая версия {{ OS }} [2.17.0](https://github.com/opensearch-project/opensearch-build/blob/main/release-notes/opensearch-release-notes-2.17.0.md).
-* В [настройках внешних источников аутентификации](operations/saml-authentication.md#configuration-sso) добавлена опция **{{ ui-key.yacloud.opensearch.auth.field_jwt-default-expiration-timeout }}** — срок жизни сессии. Укажите его, если провайдер идентификации не установил свой таймаут.
+* Доступна новая версия OpenSearch [2.17.0](https://github.com/opensearch-project/opensearch-build/blob/main/release-notes/opensearch-release-notes-2.17.0.md).
+* В [настройках внешних источников аутентификации](operations/saml-authentication.md#configuration-sso) добавлена опция **Таймаут сессии** — срок жизни сессии. Укажите его, если провайдер идентификации не установил свой таймаут.
 
 ## Сентябрь 2024 {#sep-2024}
 
@@ -56,11 +56,11 @@
 
 ## Апрель 2024 {#apr-2024}
 
-Доступна новая версия {{ OS }} [2.12.0](https://github.com/opensearch-project/opensearch-build/blob/main/release-notes/opensearch-release-notes-2.12.0.md).
+Доступна новая версия OpenSearch [2.12.0](https://github.com/opensearch-project/opensearch-build/blob/main/release-notes/opensearch-release-notes-2.12.0.md).
 
 ## Февраль 2024 {#feb-2024}
 
-Добавлена возможность управления кластерами {{ OS }} с помощью [команд CLI](../cli/cli-ref/managed-opensearch/cli-ref/index.md) и [{{ TF }}](tf-ref.md).
+Добавлена возможность управления кластерами OpenSearch с помощью [команд CLI](../cli/cli-ref/managed-opensearch/cli-ref/index.md) и [Terraform](tf-ref.md).
 
 ## III квартал 2023 {#q3-2023}
 

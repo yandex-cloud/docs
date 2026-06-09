@@ -1,9 +1,9 @@
-# Интеграция L7-балансировщика с {{ cdn-short-name }} и {{ objstorage-short-name }}
+# Интеграция L7-балансировщика с Cloud CDN и Object Storage
 
 
-В этом руководстве в качестве [бэкенда](../../../application-load-balancer/concepts/backend-group.md#types) L7-балансировщика {{ alb-full-name }} используется [бакет](../../concepts/bucket.md) {{ objstorage-full-name }}. Запросы пользователей передаются [балансировщику](../../../application-load-balancer/concepts/application-load-balancer.md) через [сеть распространения контента](../../../cdn/concepts/points-of-presence.md) {{ cdn-full-name }}, чтобы сократить время доставки контента.
+В этом руководстве в качестве [бэкенда](../../../application-load-balancer/concepts/backend-group.md#types) L7-балансировщика Yandex Application Load Balancer используется [бакет](../../concepts/bucket.md) Yandex Object Storage. Запросы пользователей передаются [балансировщику](../../../application-load-balancer/concepts/application-load-balancer.md) через [сеть распространения контента](../../../cdn/concepts/points-of-presence.md) Yandex Cloud CDN, чтобы сократить время доставки контента.
 
-Вы можете создать инфраструктуру для интеграции L7-балансировщика с {{ cdn-name }} и {{ objstorage-name }} с помощью одного из инструментов:
+Вы можете создать инфраструктуру для интеграции L7-балансировщика с Cloud CDN и Object Storage с помощью одного из инструментов:
 
-* [Консоль управления](console.md) — используйте этот способ, чтобы пошагово создать инфраструктуру в консоли управления {{ yandex-cloud }}.
-* [{{ TF }}](terraform.md) — используйте этот способ, чтобы упростить создание ресурсов и управление ими, используя подход «инфраструктура как код» (IaC). Скачайте пример конфигурации {{ TF }} из репозитория GitHub, а затем разверните инфраструктуру с помощью [{{ TF }}-провайдера {{ yandex-cloud }}]({{ tf-docs-link }}).
+* [Консоль управления](console.md) — используйте этот способ, чтобы пошагово создать инфраструктуру в консоли управления Yandex Cloud.
+* [Terraform](terraform.md) — используйте этот способ, чтобы упростить создание ресурсов и управление ими, используя подход «инфраструктура как код» (IaC). Скачайте пример конфигурации Terraform из репозитория GitHub, а затем разверните инфраструктуру с помощью [Terraform-провайдера Yandex Cloud](../../../terraform/index.md).

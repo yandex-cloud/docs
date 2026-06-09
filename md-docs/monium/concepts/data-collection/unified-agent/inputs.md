@@ -14,7 +14,7 @@
 
 ## Вход agent_metrics {#agent_metrics_input}
 
-Вход собирает метрики работоспособности {{ unified-agent-full-name }}.
+Вход собирает метрики работоспособности Unified Agent.
 
 Описание параметров:
 
@@ -32,7 +32,7 @@
 
 ## Вход metrics_pull {#metrics_pull_input}
 
-Вход опрашивает указанный URL с заданной периодичностью для сбора метрик в формате {{ prometheus-name }}.
+Вход опрашивает указанный URL с заданной периодичностью для сбора метрик в формате Prometheus.
 
 Описание параметров:
 
@@ -79,26 +79,26 @@
         # Возможные значения: GET, POST.
         http_method: GET  # необязательный, по умолчанию GET
 
-        # Секция для настройки меток {{ prometheus-name }}
+        # Секция для настройки меток Prometheus
         prometheus_config:  # необязательный, по умолчанию не задан
           # Задает значение метки job для собираемых метрик.
           job_name: my_job  # необязательный, по умолчанию не задан
           # Метка instance формируется автоматически на основе адреса (url).
 
-    # Описание выходного канала для передачи метрик в {{ monitoring-name }}.
+    # Описание выходного канала для передачи метрик в Monium Metrics.
     # Используется вместе с prometheus_config.
     channel:
       output:
         plugin: metrics
         config:  # URL, на который будут отправляться метрики.
-          url: https://{{ api-host-monitoring-1 }}/prometheus/workspaces/workspace_id/api/v1/write
+          url: https://monitoring.api.cloud.yandex.net/prometheus/workspaces/workspace_id/api/v1/write
           # Параметры авторизации запроса.
           oauth:
             secret:
               file: file_token
 ```
 
-`metric_name_label` — определяет, в какую метку агент записывает название метрики для данных {{ prometheus-name }}. По умолчанию используется метка `name`, что может вызвать конфликт, если ваше приложение уже использует эту метку. В этом случае при записи метрик появляется ошибка:
+`metric_name_label` — определяет, в какую метку агент записывает название метрики для данных Prometheus. По умолчанию используется метка `name`, что может вызвать конфликт, если ваше приложение уже использует эту метку. В этом случае при записи метрик появляется ошибка:
 
 ```bash
 label name 'name' is reserved
@@ -110,7 +110,7 @@ label name 'name' is reserved
 
 Вход для сбора статистики использования системных ресурсов (процессор, память, сеть, диск) для Linux-совместимых операционных систем. Вход собирает значения метрик из [procfs](https://ru.wikipedia.org/wiki/Procfs) и [sysfs](https://ru.wikipedia.org/wiki/Sysfs).
 
-{{ unified-agent-short-name }} собирает метрики только тех устройств хранения, которые смонтированы как `/dev/..`. В частности, не поддерживаются [файловые хранилища](../../../../compute/concepts/filesystem.md) {{ compute-name }}.
+Unified Agent собирает метрики только тех устройств хранения, которые смонтированы как `/dev/..`. В частности, не поддерживаются [файловые хранилища](../../../../compute/concepts/filesystem.md) Compute Cloud.
 
 {% note warning %}
 
@@ -124,7 +124,7 @@ label name 'name' is reserved
     -v /data:/data \
     -e PROC_DIRECTORY=/ua_proc \
     -e FOLDER_ID=a1bs81qpemb4******** \
-    {{ registry }}/yc/unified-agent
+    cr.yandex/yc/unified-agent
 ```
 
 {% endnote %}
@@ -162,19 +162,19 @@ label name 'name' is reserved
 
         kernel: advanced  # необязательный, по умолчанию — basic
 
-        # Секция для настройки меток {{ prometheus-name }}
+        # Секция для настройки меток Prometheus
         prometheus_config:  # необязательный, по умолчанию не задан
           # Задает значение метки job для собираемых метрик.
           job_name: my_job  # необязательный, по умолчанию не задан
           # Метка instance формируется автоматически на основе адреса (url).
 
-    # Описание выходного канала для передачи метрик в {{ monitoring-name }}.
+    # Описание выходного канала для передачи метрик в Monium Metrics.
     # Используется вместе с prometheus_config.
     channel:
       output:
         plugin: metrics
         config:  # URL, на который будут отправляться метрики.
-          url: https://{{ api-host-monitoring-1 }}/prometheus/workspaces/workspace_id/api/v1/write
+          url: https://monitoring.api.cloud.yandex.net/prometheus/workspaces/workspace_id/api/v1/write
           # Параметры авторизации запроса.
           oauth:
             secret:
@@ -207,7 +207,7 @@ label name 'name' is reserved
 При работе с файлами в лог будет записываться информация:
 
 * Если при чтении событий обнаружится событие `IN_Q_OVERFLOW`,
-* Остановка {{ unified-agent-short-name }} при удалении, перемещении или размонтировании каталогов, содержащих файл для чтения и файлы после ротации.
+* Остановка Unified Agent при удалении, перемещении или размонтировании каталогов, содержащих файл для чтения и файлы после ротации.
 
 Описание параметров:
 

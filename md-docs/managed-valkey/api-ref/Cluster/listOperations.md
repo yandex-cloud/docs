@@ -5,7 +5,7 @@ Retrieves the list of operations for the specified cluster.
 ## HTTP request
 
 ```
-GET https://{{ api-host-mdb }}/managed-redis/v1/clusters/{clusterId}/operations
+GET https://mdb.api.cloud.yandex.net/managed-redis/v1/clusters/{clusterId}/operations
 ```
 
 ## Path parameters

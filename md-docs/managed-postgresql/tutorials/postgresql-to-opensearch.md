@@ -1,8 +1,8 @@
-# Миграция данных из {{ mpg-full-name }} в {{ mos-full-name }} с помощью {{ data-transfer-full-name }}
+# Миграция данных из Yandex Managed Service for PostgreSQL в Yandex Managed Service for OpenSearch с помощью Yandex Data Transfer
 
-## Поставка данных из {{ mpg-full-name }} в {{ mos-full-name }} с помощью {{ data-transfer-full-name }}
+## Поставка данных из Yandex Managed Service for PostgreSQL в Yandex Managed Service for OpenSearch с помощью Yandex Data Transfer
 
-Вы можете перенести базу данных из {{ mpg-full-name }} в {{ mos-full-name }} с помощью сервиса {{ data-transfer-full-name }}. Для этого:
+Вы можете перенести базу данных из Yandex Managed Service for PostgreSQL в Yandex Managed Service for OpenSearch с помощью сервиса Yandex Data Transfer. Для этого:
 
 1. [Подготовьте инфраструктуру](#prepare-infrastructure).
 1. [Подготовьте трансфер](#prepare-transfer).
@@ -13,19 +13,19 @@
 
 ## Перед началом работы {#before-you-begin}
 
-Зарегистрируйтесь в {{ yandex-cloud }} и создайте [платежный аккаунт](../../billing/concepts/billing-account.md):
-1. Перейдите в [консоль управления]({{ link-console-main }}), затем войдите в {{ yandex-cloud }} или зарегистрируйтесь.
-1. На странице **[{{ ui-key.yacloud_billing.billing.label_service }}]({{ link-console-billing }})** убедитесь, что у вас подключен платежный аккаунт, и он находится в [статусе](../../billing/concepts/billing-account-statuses.md) `ACTIVE` или `TRIAL_ACTIVE`. Если платежного аккаунта нет, [создайте его](../../billing/quickstart/index.md) и [привяжите](../../billing/operations/pin-cloud.md) к нему облако.
+Зарегистрируйтесь в Yandex Cloud и создайте [платежный аккаунт](../../billing/concepts/billing-account.md):
+1. Перейдите в [консоль управления](https://console.yandex.cloud), затем войдите в Yandex Cloud или зарегистрируйтесь.
+1. На странице **[Yandex Cloud Billing](https://center.yandex.cloud/billing/accounts)** убедитесь, что у вас подключен платежный аккаунт, и он находится в [статусе](../../billing/concepts/billing-account-statuses.md) `ACTIVE` или `TRIAL_ACTIVE`. Если платежного аккаунта нет, [создайте его](../../billing/quickstart/index.md) и [привяжите](../../billing/operations/pin-cloud.md) к нему облако.
 
-Если у вас есть активный платежный аккаунт, вы можете создать или выбрать [каталог](../../resource-manager/concepts/resources-hierarchy.md#folder), в котором будет работать ваша инфраструктура, на [странице облака]({{ link-console-cloud }}).
+Если у вас есть активный платежный аккаунт, вы можете создать или выбрать [каталог](../../resource-manager/concepts/resources-hierarchy.md#folder), в котором будет работать ваша инфраструктура, на [странице облака](https://console.yandex.cloud/cloud).
 
 [Подробнее об облаках и каталогах](../../resource-manager/concepts/resources-hierarchy.md).
 
 ### Необходимые платные ресурсы {#paid-resources}
 
-* Кластер {{ mpg-name }}: использование выделенных хостам вычислительных ресурсов, объем хранилища и резервных копий (см. [тарифы {{ mpg-name }}](../pricing.md)).
-* Кластер {{ mos-name }}: использование вычислительных ресурсов, объем хранилища и резервных копий (см. [тарифы {{ mos-name }}](../../managed-opensearch/pricing.md)).
-* Публичные IP-адреса, если для хостов кластеров включен публичный доступ (см. [тарифы {{ vpc-full-name }}](../../vpc/pricing.md)).
+* Кластер Managed Service for PostgreSQL: использование выделенных хостам вычислительных ресурсов, объем хранилища и резервных копий (см. [тарифы Managed Service for PostgreSQL](../pricing.md)).
+* Кластер Managed Service for OpenSearch: использование вычислительных ресурсов, объем хранилища и резервных копий (см. [тарифы Managed Service for OpenSearch](../../managed-opensearch/pricing.md)).
+* Публичные IP-адреса, если для хостов кластеров включен публичный доступ (см. [тарифы Yandex Virtual Private Cloud](../../vpc/pricing.md)).
 
 
 ## Подготовьте инфраструктуру {#prepare-infrastructure}
@@ -36,24 +36,24 @@
 
     {% note info %}
     
-    Публичный доступ к хостам кластера нужен, если вы планируете подключаться к кластеру через интернет. Этот вариант подключения более простой, и его рекомендуется использовать для прохождения руководства. К хостам без публичного доступа тоже можно подключиться, но только с виртуальных машин {{ yandex-cloud }}, расположенных в той же облачной сети, что и кластер.
+    Публичный доступ к хостам кластера нужен, если вы планируете подключаться к кластеру через интернет. Этот вариант подключения более простой, и его рекомендуется использовать для прохождения руководства. К хостам без публичного доступа тоже можно подключиться, но только с виртуальных машин Yandex Cloud, расположенных в той же облачной сети, что и кластер.
     
     {% endnote %}
 
-    1. Создайте кластер-источник {{ mpg-name }} любой подходящей [конфигурации](../concepts/instance-types.md) с хостами в публичном доступе и следующими настройками:
-        * **{{ ui-key.yacloud.mdb.forms.database_field_name }}** — `db1`.
-        * **{{ ui-key.yacloud.mdb.forms.database_field_user-login }}** — `pg-user`.
-        * **{{ ui-key.yacloud.mdb.forms.database_field_user-password }}** — `<пароль_источника>`.
+    1. Создайте кластер-источник Managed Service for PostgreSQL любой подходящей [конфигурации](../concepts/instance-types.md) с хостами в публичном доступе и следующими настройками:
+        * **Имя БД** — `db1`.
+        * **Имя пользователя** — `pg-user`.
+        * **Пароль** — `<пароль_источника>`.
 
-    1. [Создайте кластер-приемник {{ mos-name }}](../../managed-opensearch/operations/cluster-create.md) любой подходящей конфигурации с хостами в публичном доступе.
+    1. [Создайте кластер-приемник Managed Service for OpenSearch](../../managed-opensearch/operations/cluster-create.md) любой подходящей конфигурации с хостами в публичном доступе.
 
-    1. [Получите SSL-сертификат](../../managed-opensearch/operations/connect/index.md#ssl-certificate) для подключения к кластеру-приемнику {{ mos-name }}.
+    1. [Получите SSL-сертификат](../../managed-opensearch/operations/connect/index.md#ssl-certificate) для подключения к кластеру-приемнику Managed Service for OpenSearch.
 
-    1. Настройте группы безопасности для подключения к [кластеру-источнику {{ mpg-name }}](../operations/connect/index.md#configuring-security-groups) и [кластеру-приемнику {{ mos-name }}](../../managed-opensearch/operations/connect/index.md#configuring-security-groups).
+    1. Настройте группы безопасности для подключения к [кластеру-источнику Managed Service for PostgreSQL](../operations/connect/index.md#configuring-security-groups) и [кластеру-приемнику Managed Service for OpenSearch](../../managed-opensearch/operations/connect/index.md#configuring-security-groups).
 
-- {{ TF }} {#tf}
+- Terraform {#tf}
 
-    1. Если у вас еще нет {{ TF }}, [установите его](../../tutorials/infrastructure-management/terraform-quickstart.md#install-terraform).
+    1. Если у вас еще нет Terraform, [установите его](../../tutorials/infrastructure-management/terraform-quickstart.md#install-terraform).
     1. [Получите данные для аутентификации](../../tutorials/infrastructure-management/terraform-quickstart.md#get-credentials). Вы можете добавить их в переменные окружения или указать далее в файле с настройками провайдера.
     1. [Настройте и инициализируйте провайдер](../../tutorials/infrastructure-management/terraform-quickstart.md#configure-provider). Чтобы не создавать конфигурационный файл с настройками провайдера вручную, [скачайте его](https://github.com/yandex-cloud-examples/yc-terraform-provider-settings/blob/main/provider.tf).
     1. Поместите конфигурационный файл в отдельную рабочую директорию и [укажите значения параметров](../../tutorials/infrastructure-management/terraform-quickstart.md#configure-provider). Если данные для аутентификации не были добавлены в переменные окружения, укажите их в конфигурационном файле.
@@ -65,28 +65,28 @@
         * [сеть](../../vpc/concepts/network.md#network);
         * [подсеть](../../vpc/concepts/network.md#subnet);
         * [группа безопасности](../../vpc/concepts/security-groups.md) для подключения к кластерам;
-        * кластер-источник {{ mpg-name }};
-        * кластер-приемник {{ mos-name }};
+        * кластер-источник Managed Service for PostgreSQL;
+        * кластер-приемник Managed Service for OpenSearch;
         * эндпоинт для источника;
         * трансфер.
 
     1. Укажите в файле `postgresql-to-opensearch.tf` значения переменных:
 
         * `folder_id` — [идентификатор каталога](../../resource-manager/operations/folder/get-id.md);
-        * `pg_password` — пароль пользователя {{ PG }};
-        * `mos_version` — версия {{ OS }};
-        * `mos_password` — пароль пользователя {{ OS }};
+        * `pg_password` — пароль пользователя PostgreSQL;
+        * `mos_version` — версия OpenSearch;
+        * `mos_password` — пароль пользователя OpenSearch;
         * `profile_name` — имя вашего профиля в CLI.
 
-           Если у вас еще нет интерфейса командной строки {{ yandex-cloud }} (CLI), [установите и инициализируйте его](../../cli/quickstart.md#install).
+           Если у вас еще нет интерфейса командной строки Yandex Cloud (CLI), [установите и инициализируйте его](../../cli/quickstart.md#install).
 
-    1. Проверьте корректность файлов конфигурации {{ TF }} с помощью команды:
+    1. Проверьте корректность файлов конфигурации Terraform с помощью команды:
 
         ```bash
         terraform validate
         ```
 
-        Если в файлах конфигурации есть ошибки, {{ TF }} на них укажет.
+        Если в файлах конфигурации есть ошибки, Terraform на них укажет.
 
     1. Создайте необходимую инфраструктуру:
 
@@ -108,13 +108,13 @@
            1. Подтвердите изменение ресурсов.
            1. Дождитесь завершения операции.
 
-        В указанном каталоге будут созданы все требуемые ресурсы. Проверить появление ресурсов и их настройки можно в [консоли управления]({{ link-console-main }}).
+        В указанном каталоге будут созданы все требуемые ресурсы. Проверить появление ресурсов и их настройки можно в [консоли управления](https://console.yandex.cloud).
 
 {% endlist %}
 
 ## Подготовьте трансфер {#prepare-transfer}
 
-1. [Подключитесь к кластеру {{ mpg-name }}](../operations/connect/index.md), создайте в базе данных `db1` таблицу `x_tab` и заполните ее данными:
+1. [Подключитесь к кластеру Managed Service for PostgreSQL](../operations/connect/index.md), создайте в базе данных `db1` таблицу `x_tab` и заполните ее данными:
 
      ```sql
      CREATE TABLE x_tab
@@ -132,10 +132,10 @@
 
 1. [Создайте эндпоинт для приемника](../../data-transfer/operations/endpoint/target/opensearch.md) со следующими настройками:
 
-    * **{{ ui-key.yc-data-transfer.data-transfer.console.form.opensearch.console.form.opensearch.OpenSearchConnection.connection_type.title }}** — `{{ ui-key.yc-data-transfer.data-transfer.console.form.opensearch.console.form.opensearch.OpenSearchConnectionType.mdb_cluster_id.title }}`.
-    * **{{ ui-key.yc-data-transfer.data-transfer.console.form.opensearch.console.form.opensearch.OpenSearchConnectionType.mdb_cluster_id.title }}** — выберите кластер {{ mos-name }} из списка.
-    * **{{ ui-key.yc-data-transfer.data-transfer.console.form.opensearch.console.form.opensearch.OpenSearchConnection.user.title }}** — `admin`.
-    * **{{ ui-key.yc-data-transfer.data-transfer.console.form.opensearch.console.form.opensearch.OpenSearchConnection.password.title }}** — `<пароль_пользователя>`.
+    * **Тип подключения** — `Кластер Managed Service for OpenSearch`.
+    * **Кластер Managed Service for OpenSearch** — выберите кластер Managed Service for OpenSearch из списка.
+    * **Пользователь** — `admin`.
+    * **Пароль** — `<пароль_пользователя>`.
 
 1. Создайте эндпоинт для источника и трансфер:
 
@@ -143,32 +143,32 @@
 
     - Вручную {#manual}
 
-      1. [Создайте эндпоинт для источника](../../data-transfer/operations/endpoint/source/postgresql.md) типа `{{ PG }}` и укажите в нем параметры подключения к кластеру:
+      1. [Создайте эндпоинт для источника](../../data-transfer/operations/endpoint/source/postgresql.md) типа `PostgreSQL` и укажите в нем параметры подключения к кластеру:
 
-          * **{{ ui-key.yc-data-transfer.data-transfer.console.form.common.console.form.common.Connection.connection_type.title }}** — `{{ ui-key.yc-data-transfer.data-transfer.console.form.postgres.console.form.postgres.PostgresConnectionType.mdb_cluster_id.title }}`.
-          * **{{ ui-key.yc-data-transfer.data-transfer.console.form.postgres.console.form.postgres.PostgresConnectionType.mdb_cluster_id.title }}** — `<имя_кластера-источника_{{ PG }}>` из выпадающего списка.
-          * **{{ ui-key.yc-data-transfer.data-transfer.console.form.common.console.form.common.Connection.database.title }}** — `db1`.
-          * **{{ ui-key.yc-data-transfer.data-transfer.console.form.common.console.form.common.Connection.user.title }}** — `pg-user`.
-          * **{{ ui-key.yc-data-transfer.data-transfer.console.form.common.console.form.common.Connection.password.title }}** — `<пароль_пользователя>`.
+          * **Тип инсталляции** — `Кластер Managed Service for PostgreSQL`.
+          * **Кластер Managed Service for PostgreSQL** — `<имя_кластера-источника_PostgreSQL>` из выпадающего списка.
+          * **База данных** — `db1`.
+          * **Пользователь** — `pg-user`.
+          * **Пароль** — `<пароль_пользователя>`.
 
-      1. [Создайте трансфер](../../data-transfer/operations/transfer.md#create) типа **_{{ ui-key.yc-data-transfer.data-transfer.console.form.transfer.console.form.transfer.TransferType.snapshot.title }}_**, использующий созданные эндпоинты.
+      1. [Создайте трансфер](../../data-transfer/operations/transfer.md#create) типа **_Копирование_**, использующий созданные эндпоинты.
 
       1. [Активируйте трансфер](../../data-transfer/operations/transfer.md#activate).
 
-    - {{ TF }} {#tf}
+    - Terraform {#tf}
 
       1. Укажите в файле `postgresql-to-opensearch.tf` значения переменных:
 
           * `target_endpoint_id` — значение идентификатора эндпоинта для приемника;
           * `transfer_enabled` – значение `1` для создания трансфера.
 
-      1. Проверьте корректность файлов конфигурации {{ TF }} с помощью команды:
+      1. Проверьте корректность файлов конфигурации Terraform с помощью команды:
 
           ```bash
           terraform validate
           ```
 
-          Если в файлах конфигурации есть ошибки, {{ TF }} на них укажет.
+          Если в файлах конфигурации есть ошибки, Terraform на них укажет.
 
       1. Создайте необходимую инфраструктуру:
 
@@ -196,8 +196,8 @@
 
 ## Проверьте работоспособность трансфера {#verify-transfer}
 
-1. Дождитесь перехода трансфера в статус **{{ ui-key.yacloud.data-transfer.label_connector-status-DONE }}**.
-1. Подключитесь к кластеру-приемнику с помощью [{{ OS }} Dashboards](../../managed-opensearch/operations/connect/clients.md#dashboards).
+1. Дождитесь перехода трансфера в статус **Завершен**.
+1. Подключитесь к кластеру-приемнику с помощью [OpenSearch Dashboards](../../managed-opensearch/operations/connect/clients.md#dashboards).
 1. Выберите общий тенант `Global`.
 1. Создайте новый шаблон индекса с именем `public.x_tab`:
 
@@ -209,7 +209,7 @@
 
 1. Откройте панель управления, нажав на значок ![os-dashboards-sandwich](../../_assets/console-icons/bars.svg).
 1. В разделе **OpenSearch Dashboards** выберите **Discover**.
-1. В открывшемся дашборде должны появиться данные из базы данных {{ mpg-name }}.
+1. В открывшемся дашборде должны появиться данные из базы данных Managed Service for PostgreSQL.
 
 ## Удалите созданные ресурсы {#clear-out}
 
@@ -222,18 +222,18 @@
 
    - Вручную {#manual}
 
-       1. [Удалите кластер {{ mos-name }}](../../managed-opensearch/operations/cluster-delete.md).
-       1. [Удалите кластер {{ mpg-name }}](../operations/cluster-delete.md).
+       1. [Удалите кластер Managed Service for OpenSearch](../../managed-opensearch/operations/cluster-delete.md).
+       1. [Удалите кластер Managed Service for PostgreSQL](../operations/cluster-delete.md).
        1. [Удалите эндпоинт для источника](../../data-transfer/operations/endpoint/index.md#delete).
        1. [Удалите трансфер](../../data-transfer/operations/transfer.md#delete).
 
-   - {{ TF }} {#tf}
+   - Terraform {#tf}
 
        1. В терминале перейдите в директорию с планом инфраструктуры.
        
            {% note warning %}
        
-           Убедитесь, что в директории нет {{ TF }}-манифестов с ресурсами, которые вы хотите сохранить. {{ TF }} удаляет все ресурсы, которые были созданы с помощью манифестов в текущей директории.
+           Убедитесь, что в директории нет Terraform-манифестов с ресурсами, которые вы хотите сохранить. Terraform удаляет все ресурсы, которые были созданы с помощью манифестов в текущей директории.
        
            {% endnote %}
        
@@ -247,6 +247,6 @@
        
            1. Подтвердите удаление ресурсов и дождитесь завершения операции.
        
-           Все ресурсы, которые были описаны в {{ TF }}-манифестах, будут удалены.
+           Все ресурсы, которые были описаны в Terraform-манифестах, будут удалены.
 
    {% endlist %}

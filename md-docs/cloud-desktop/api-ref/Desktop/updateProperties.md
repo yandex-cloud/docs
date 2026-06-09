@@ -5,7 +5,7 @@ Updates desktop properties.
 ## HTTP request
 
 ```
-PATCH https://clouddesktops.{{ api-host }}/cloud-desktop/v1/desktops/{desktopId}
+PATCH https://clouddesktops.api.cloud.yandex.net/cloud-desktop/v1/desktops/{desktopId}
 ```
 
 ## Path parameters

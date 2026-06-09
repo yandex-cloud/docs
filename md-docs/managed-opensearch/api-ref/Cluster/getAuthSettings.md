@@ -5,7 +5,7 @@ Retrieves auth settings for specified cluster.
 ## HTTP request
 
 ```
-GET https://{{ api-host-mdb }}/managed-opensearch/v1/clusters/{clusterId}/auth
+GET https://mdb.api.cloud.yandex.net/managed-opensearch/v1/clusters/{clusterId}/auth
 ```
 
 ## Path parameters

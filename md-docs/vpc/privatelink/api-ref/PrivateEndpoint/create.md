@@ -5,7 +5,7 @@ Creates an private endpoint in the specified folder and network.
 ## HTTP request
 
 ```
-POST https://vpc.{{ api-host }}/vpc/v1/endpoints
+POST https://vpc.api.cloud.yandex.net/vpc/v1/endpoints
 ```
 
 ## Body parameters {#yandex.cloud.vpc.v1.privatelink.CreatePrivateEndpointRequest}

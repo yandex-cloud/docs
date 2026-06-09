@@ -1,22 +1,22 @@
 # Поставка метрик пользовательских приложений
 
-{{ unified-agent-full-name }} собирает метрики в формате {{ prometheus-name }} и конвертирует их в формат {{ monitoring-full-name }}. При помощи {{ unified-agent-short-name }} вы сможете собирать метрики любых приложений, которые предоставляют метрики в формате {{ prometheus-name }}.
+Unified Agent собирает метрики в формате Prometheus и конвертирует их в формат Monium Metrics. При помощи Unified Agent вы сможете собирать метрики любых приложений, которые предоставляют метрики в формате Prometheus.
 
-Для поставки в {{ monitoring-full-name }} метрик пользовательских приложений используется [вход metrics_pull](../../concepts/data-collection/unified-agent/configuration.md#metrics_pull_input), который периодически опрашивает приложение по HTTP, ожидая получить метрики в формате {{ prometheus-name }}.
+Для поставки в Monium Metrics метрик пользовательских приложений используется [вход metrics_pull](../../concepts/data-collection/unified-agent/configuration.md#metrics_pull_input), который периодически опрашивает приложение по HTTP, ожидая получить метрики в формате Prometheus.
 
-Для примера рассмотрим поставку метрик тестового приложения на Python. Тестовое приложение и {{ unified-agent-short-name }} могут быть запущены как на разных виртуальных машинах, так и на одной. Если ВМ разные, используемые ими [группы безопасности](../../../vpc/concepts/security-groups.md) должны разрешать входящий и исходящий трафик на порт `8000` по протоколу `TCP`.
+Для примера рассмотрим поставку метрик тестового приложения на Python. Тестовое приложение и Unified Agent могут быть запущены как на разных виртуальных машинах, так и на одной. Если ВМ разные, используемые ими [группы безопасности](../../../vpc/concepts/security-groups.md) должны разрешать входящий и исходящий трафик на порт `8000` по протоколу `TCP`.
 
 ## Пример поставки метрик пользовательского приложения {#example}
 
 Описанная методика может также применяться для поставки метрик любых пользовательских приложений, использующих [клиентские библиотеки Prometheus](https://prometheus.io/docs/instrumenting/clientlibs/).
 
-1. Настройте сервисный аккаунт, от имени которого будут записываться метрики в {{ monitoring-full-name }}.
+1. Настройте сервисный аккаунт, от имени которого будут записываться метрики в Monium Metrics.
 
-   1. [Создайте сервисный аккаунт](../../../iam/operations/sa/create.md) в каталоге, куда будут записываться метрики и [назначьте ему роль](../../../iam/operations/sa/assign-role-for-sa.md) `{{ roles-monitoring-editor }}`.
+   1. [Создайте сервисный аккаунт](../../../iam/operations/sa/create.md) в каталоге, куда будут записываться метрики и [назначьте ему роль](../../../iam/operations/sa/assign-role-for-sa.md) `monitoring.editor`.
 
-   1. [Привяжите сервисный аккаунт](../../../compute/operations/vm-connect/auth-inside-vm.md#link-sa-with-instance) к виртуальной машине, на которой будет установлен {{ unified-agent-short-name }}.
+   1. [Привяжите сервисный аккаунт](../../../compute/operations/vm-connect/auth-inside-vm.md#link-sa-with-instance) к виртуальной машине, на которой будет установлен Unified Agent.
 
-1. Запустите тестовое Python-приложение, предоставляющее метрики в формате {{ prometheus-name }}.
+1. Запустите тестовое Python-приложение, предоставляющее метрики в формате Prometheus.
 
    1. Установите Python-библиотеку [prometheus_client](https://github.com/prometheus/client_python), выполнив следующие команды:
 
@@ -56,7 +56,7 @@
        python3 example.py
        ```
 
-       Для успешной поставки метрик в {{ unified-agent-short-name }} тестовое приложение должно оставаться запущенным: не прерывайте его.
+       Для успешной поставки метрик в Unified Agent тестовое приложение должно оставаться запущенным: не прерывайте его.
 
     1. Убедитесь, что приложение предоставляет метрики, выполнив команду с указанием публичного IP-адреса вашей ВМ с запущенным приложением:
 
@@ -76,7 +76,7 @@
         # TYPE python_gc_objects_uncollectable_total counter
         ```
 
-1. Установите и настройте {{ unified-agent-full-name }}:
+1. Установите и настройте Unified Agent:
 
    1. При необходимости установите Docker:
 
@@ -149,7 +149,7 @@
 
        * `folder_id` — идентификатор каталога, в который будут записываться метрики.
        * `url` — публичный адрес ВМ с тестовым приложением, предоставляющим метрики.
-       * `metric_name_label` — определяет, в какую метку агент записывает название метрики для данных {{ prometheus-name }}. По умолчанию используется метка `name`, что может вызвать конфликт, если ваше приложение уже использует эту метку. В этом случае при записи метрик появляется ошибка:
+       * `metric_name_label` — определяет, в какую метку агент записывает название метрики для данных Prometheus. По умолчанию используется метка `name`, что может вызвать конфликт, если ваше приложение уже использует эту метку. В этом случае при записи метрик появляется ошибка:
 
          ```bash
          label name 'name' is reserved
@@ -157,7 +157,7 @@
 
        Чтобы избежать ошибки, укажите любое другое уникальное имя.
        * `transform_metric_label` — [фильтр](../../concepts/data-collection/unified-agent/filters.md#transform_metric_label_filter), который позволяет переименовать или добавить префикс к метке для метрики.
-   1. Установите {{ unified-agent-short-name }}, выполнив в домашнем каталоге следующую команду:
+   1. Установите Unified Agent, выполнив в домашнем каталоге следующую команду:
 
       ```bash
       docker run \
@@ -167,16 +167,16 @@
       -v $(pwd)/config.yml:/etc/yandex/unified_agent/conf.d/config.yml \
       -e PROC_DIRECTORY=/ua_proc \
       -e FOLDER_ID=<идентификатор_каталога> \
-      {{ registry }}/yc/unified-agent
+      cr.yandex/yc/unified-agent
       ```
 
       Где `FOLDER_ID` — идентификатор каталога, в который будут записываться метрики.
       
-      Другие способы установки агента описаны в разделе [{#T}](../../concepts/data-collection/unified-agent/installation.md).
+      Другие способы установки агента описаны в разделе [Установка и обновление Unified Agent](../../concepts/data-collection/unified-agent/installation.md).
 
- 1. Убедитесь, что метрики поступают в {{ monitoring-full-name }}:
+ 1. Убедитесь, что метрики поступают в Monium Metrics:
 
-    1. На [главной странице]({{ link-monitoring }}) сервиса {{ monitoring-full-name }} перейдите в раздел **{{ ui-key.yacloud_monitoring.aside-navigation.menu-item.explorer.title }}**.
+    1. На [главной странице](https://monium.yandex.cloud) сервиса Monium Metrics перейдите в раздел **Метрики**.
 
     1. В строке запроса выберите:
       - каталог, в который собираются метрики;
@@ -185,6 +185,6 @@
 
 #### Что дальше {#what-is-next}
 
-- [Изучите концепции {{ unified-agent-short-name }}](../../concepts/data-collection/unified-agent/index.md)
-- [Узнайте подробнее о конфигурировании {{ unified-agent-short-name }}](../../concepts/data-collection/unified-agent/configuration.md)
-- [Ознакомьтесь с рекомендациями по эксплуатации {{ unified-agent-short-name }}](../../concepts/data-collection/unified-agent/best-practices.md)
+- [Изучите концепции Unified Agent](../../concepts/data-collection/unified-agent/index.md)
+- [Узнайте подробнее о конфигурировании Unified Agent](../../concepts/data-collection/unified-agent/configuration.md)
+- [Ознакомьтесь с рекомендациями по эксплуатации Unified Agent](../../concepts/data-collection/unified-agent/best-practices.md)

@@ -1,4 +1,4 @@
-# Симметричный ключ в {{ kms-short-name }}
+# Симметричный ключ в KMS
 
 Симметричный ключ — это набор [версий](version.md), каждая из которых определяет алгоритм и криптографический материал для операций шифрования или расшифрования данных.
 При создании симметричного ключа создается его первая версия, которая становится основной. Она по умолчанию используется в операциях с ключом, если во входных параметрах не указана другая версия.
@@ -8,9 +8,9 @@
 
 ## Параметры ключа {#parameters}
 
-Для симметричного ключа {{ kms-short-name }} доступны следующие параметры:
+Для симметричного ключа KMS доступны следующие параметры:
 
-* Идентификатор — уникальный идентификатор ключа в {{ yandex-cloud }}. Используется для работы с ключами с помощью SDK, [API](../../glossary/rest-api.md) и CLI.
+* Идентификатор — уникальный идентификатор ключа в Yandex Cloud. Используется для работы с ключами с помощью SDK, [API](../../glossary/rest-api.md) и CLI.
 * Имя — неуникальное имя ключа, может быть использовано для работы с ключами с помощью CLI, если в каталоге только один ключ с таким именем.
 * Алгоритм шифрования — алгоритм, при помощи которого модифицируются данные с использованием ключа. Поддерживаются следующие алгоритмы:
 
@@ -32,7 +32,7 @@
 
 ## Использование симметричного ключа {#use}
 
-Симметричный ключ можно использовать в операциях шифрования и расшифрования данных при наличии определенных [ролей](../security/index.md#roles-list). Подробнее читайте в разделе [{#T}](../security/index.md).
+Симметричный ключ можно использовать в операциях шифрования и расшифрования данных при наличии определенных [ролей](../security/index.md#roles-list). Подробнее читайте в разделе [Управление доступом в Key Management Service](../security/index.md).
 
 Также вы можете временно заблокировать операции с использованием ключа, отозвав роли или изменив его статус на `Inactive`.
 
@@ -42,12 +42,12 @@
 
 ## Примеры использования {#examples}
 
-* [{#T}](../tutorials/encrypt/cli-api.md)
-* [{#T}](../tutorials/encrypt/sdk.md)
-* [{#T}](../tutorials/encrypt/aws-encryption-sdk.md)
-* [{#T}](../tutorials/encrypt/google-tink.md)
-* [{#T}](../tutorials/kms-k8s.md)
-* [{#T}](../tutorials/terraform-key.md)
-* [{#T}](../tutorials/terraform-secret.md)
-* [{#T}](../tutorials/vault-secret.md)
-* [{#T}](../tutorials/secure-password-script/index.md)
+* [Шифрование данных с помощью CLI и API Yandex Cloud](../tutorials/encrypt/cli-api.md)
+* [Шифрование данных с помощью SDK Yandex Cloud](../tutorials/encrypt/sdk.md)
+* [Шифрование данных с помощью AWS Encryption SDK](../tutorials/encrypt/aws-encryption-sdk.md)
+* [Шифрование данных с помощью Google Tink](../tutorials/encrypt/google-tink.md)
+* [Шифрование секретов в Yandex Managed Service for Kubernetes](../tutorials/kms-k8s.md)
+* [Управление ключами KMS с HashiCorp Terraform](../tutorials/terraform-key.md)
+* [Шифрование секретов в HashiCorp Terraform](../tutorials/terraform-secret.md)
+* [Auto Unseal в HashiCorp Vault](../tutorials/vault-secret.md)
+* [Безопасная передача пароля в скрипт инициализации](../tutorials/secure-password-script/index.md)

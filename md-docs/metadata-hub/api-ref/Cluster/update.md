@@ -5,7 +5,7 @@ Updates the configuration of the specified Metastore Cluster.
 ## HTTP request
 
 ```
-PATCH https://metastore.{{ api-host }}/managed-metastore/v1/clusters/{clusterId}
+PATCH https://metastore.api.cloud.yandex.net/managed-metastore/v1/clusters/{clusterId}
 ```
 
 ## Path parameters

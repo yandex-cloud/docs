@@ -52,7 +52,7 @@
       name: ri1
       description: Routing instance 1
       folder_id: b1gqf**********jiz2w
-      region_id: {{ region-id }}
+      region_id: ru-central1
       status: ACTIVE
       created_at: "2025-04-16T12:43:55Z"
       ```

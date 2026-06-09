@@ -12,10 +12,10 @@
 * Jenkins
     * [SAML](jenkins/saml-jenkins.md)
     * [OpenID Connect](jenkins/oidc-jenkins.md)
-* [{{ mgl-name }}](saml-managed-gitlab.md)
-* [{{ mos-name }}](saml-opensearch.md)
+* [Managed Service for GitLab](saml-managed-gitlab.md)
+* [Managed Service for OpenSearch](saml-opensearch.md)
 * [MWS](oidc-mws.md)
-* [{{ OS }}](saml-opensearch-self-managed.md)
+* [OpenSearch](saml-opensearch-self-managed.md)
 * OpenVPN
     * [OpenVPN Access Server](saml-ovpn.md)
     * [OpenVPN Community Edition](oidc-ovpn.md)
@@ -26,6 +26,6 @@
     * [SAML](vk-cloud/saml-vk-cloud.md)
 * [Zabbix](saml-zabbix.md)
 * [Пассворк](saml-passwork.md)
-* [{{ yandex-360 }}](saml-yandex-360.md)
+* [Яндекс 360](saml-yandex-360.md)
 * [Яндекс Браузер для организаций](saml-ya-browser-corporate.md)
 * [Настройка единого входа в приложения, не поддерживающие SSO](oidc-nginx-oauth2-proxy.md)

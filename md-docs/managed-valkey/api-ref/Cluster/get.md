@@ -6,7 +6,7 @@ To get the list of available Redis clusters, make a [List](../../../managed-redi
 ## HTTP request
 
 ```
-GET https://{{ api-host-mdb }}/managed-redis/v1/clusters/{clusterId}
+GET https://mdb.api.cloud.yandex.net/managed-redis/v1/clusters/{clusterId}
 ```
 
 ## Path parameters

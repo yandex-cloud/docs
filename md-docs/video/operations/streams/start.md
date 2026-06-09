@@ -10,15 +10,15 @@
 
 {% list tabs group=instructions %}
 
-- Интерфейс {{ video-name }} {#console}
+- Интерфейс Cloud Video {#console}
 
-  1. Откройте [главную страницу]({{ link-video-main }}) {{ video-name }}.
+  1. Откройте [главную страницу](https://video.yandex.cloud/) Cloud Video.
   1. Выберите канал.
-  1. На вкладке ![image](../../../_assets/console-icons/antenna-signal.svg) **{{ ui-key.yacloud_video.streams.title_streams }}** выберите нужную трансляцию.
+  1. На вкладке ![image](../../../_assets/console-icons/antenna-signal.svg) **Трансляции** выберите нужную трансляцию.
   1. В открывшемся окне с параметрами трансляции скопируйте значения следующих полей:
 
-      * **{{ ui-key.yacloud_video.stream-lines.label_server-address }}**;
-      * **{{ ui-key.yacloud_video.stream-lines.label_stream-key }}**.
+      * **Адрес сервера**;
+      * **Ключ трансляции**.
 
 - API {#api}
 
@@ -32,7 +32,7 @@
 
 Вам потребуется программа для записи видео и потокового вещания, например [Open Broadcaster Software (OBS)](https://obsproject.com).
 
-В программе укажите {{ ui-key.yacloud_video.stream-lines.label_stream-key }} и {{ ui-key.yacloud_video.stream-lines.label_server-address }}, полученные ранее, и запустите трансляцию.
+В программе укажите Ключ трансляции и Адрес сервера, полученные ранее, и запустите трансляцию.
 
 ### Пример настройки OBS {#configure-obs}
 
@@ -62,19 +62,19 @@
     
 1. В центральной части окна можете настроить размер и положение транслируемого видеопотока.
 
-Подробнее см. в разделе [{#T}](obs-config-help.md).
+Подробнее см. в разделе [Рекомендации по настройке OBS Studio](obs-config-help.md).
 
 ## Запустите трансляцию {#start-stream}
 
 {% list tabs group=instructions %}
 
-- Интерфейс {{ video-name }} {#console}
+- Интерфейс Cloud Video {#console}
 
-  1. Вернитесь на вкладку ![streams](../../../_assets/console-icons/antenna-signal.svg) **{{ ui-key.yacloud_video.streams.title_streams }}** сервиса {{ video-name }}.
+  1. Вернитесь на вкладку ![streams](../../../_assets/console-icons/antenna-signal.svg) **Трансляции** сервиса Cloud Video.
   1. Выберите трансляцию, созданную ранее.
   1. Включите опцию **Принимать сигнал**.
   1. В OBS Studio на панели справа снизу **Управление** нажмите **Начать трансляцию**.
-  1. В поле **{{ ui-key.yacloud_video.streams.label_start-broadcast }}** дождитесь, когда кнопка ![play](../../../_assets/console-icons/circle-play.svg) **{{ ui-key.yacloud_video.streams.label_start-broadcast }}** станет активной и нажмите на нее. Если значение поля `{{ ui-key.yacloud_video.streams.label_start-broadcast-auto }}`, дополнительных действий не требуется.
+  1. В поле **Опубликовать трансляцию** дождитесь, когда кнопка ![play](../../../_assets/console-icons/circle-play.svg) **Опубликовать трансляцию** станет активной и нажмите на нее. Если значение поля `автоматически`, дополнительных действий не требуется.
    
 - API {#api}
 
@@ -88,11 +88,11 @@
 
 {% list tabs group=instructions %}
 
-- Интерфейс {{ video-name }} {#console}
+- Интерфейс Cloud Video {#console}
 
-  1. В блоке **{{ ui-key.yacloud_video.streams.title_stream-episodes }}** выберите эпизод трансляции со статусом `On air`.
+  1. В блоке **Эпизоды** выберите эпизод трансляции со статусом `On air`.
   1. На странице эпизода выберите вкладку `link`.
-  1. Нажмите кнопку ![image](../../../_assets/console-icons/copy.svg) **{{ ui-key.yacloud_video.streams.action_copy-code }}**.
+  1. Нажмите кнопку ![image](../../../_assets/console-icons/copy.svg) **Скопировать**.
   1. Откройте новую страницу браузера и вставьте в адресной строке полученную ссылку.
   1. Нажмите кнопку воспроизведения, чтобы убедиться, что трансляция доступна.
 

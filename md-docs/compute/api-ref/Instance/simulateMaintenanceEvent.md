@@ -3,7 +3,7 @@
 ## HTTP request
 
 ```
-POST https://compute.{{ api-host }}/compute/v1/instances/{instanceId}:simulateMaintenanceEvent
+POST https://compute.api.cloud.yandex.net/compute/v1/instances/{instanceId}:simulateMaintenanceEvent
 ```
 
 ## Path parameters

@@ -5,7 +5,7 @@ Updates access bindings for the specified MongoDB cluster.
 ## HTTP request
 
 ```
-PATCH https://{{ api-host-mdb }}/managed-mongodb/v1/clusters/{resourceId}:updateAccessBindings
+PATCH https://mdb.api.cloud.yandex.net/managed-mongodb/v1/clusters/{resourceId}:updateAccessBindings
 ```
 
 ## Path parameters

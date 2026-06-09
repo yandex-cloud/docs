@@ -3,8 +3,8 @@
 ## Удалить ноутбук {#delete-notebook}
 
 Чтобы удалить ноутбук из проекта:
-1. Выберите нужный проект в своем сообществе или на [главной странице]({{ link-datasphere-main }}) {{ ml-platform-name }} во вкладке **{{ ui-key.yc-ui-datasphere.main-page.recent-projects }}**.
-1. Нажмите **{{ ui-key.yc-ui-datasphere.project-page.project-card.go-to-jupyter }}**.
+1. Выберите нужный проект в своем сообществе или на [главной странице](https://datasphere.yandex.cloud) DataSphere во вкладке **Недавние проекты**.
+1. Нажмите **Открыть проект в JupyterLab**.
 1. На панели слева нажмите правой кнопкой мыши на имя ноутбука, который вы хотите удалить.
 1. Выберите ![image](../../../_assets/console-icons/xmark.svg) **Delete** и в открывшемся окне нажмите кнопку **Delete**.
 
@@ -17,9 +17,9 @@
 {% endnote %}
 
 Чтобы удалить проект:
-1. Выберите нужный проект в своем сообществе или на [главной странице]({{ link-datasphere-main }}) {{ ml-platform-name }} во вкладке **{{ ui-key.yc-ui-datasphere.main-page.recent-projects }}**.
-1. В правом верхнем углу экрана нажмите **{{ ui-key.yc-ui-datasphere.common.more }}** и выберите ![image](../../../_assets/console-icons/trash-bin.svg) **{{ ui-key.yc-ui-datasphere.common.delete }}**.
-1. В открывшемся окне нажмите кнопку **{{ ui-key.yc-ui-datasphere.common.delete }}**.
+1. Выберите нужный проект в своем сообществе или на [главной странице](https://datasphere.yandex.cloud) DataSphere во вкладке **Недавние проекты**.
+1. В правом верхнем углу экрана нажмите **Еще** и выберите ![image](../../../_assets/console-icons/trash-bin.svg) **Удалить**.
+1. В открывшемся окне нажмите кнопку **Удалить**.
 
 {% note warning %}
 

@@ -10,27 +10,27 @@
 
 - Консоль управления {#console}
 
-  1. В [консоли управления]({{ link-console-main }}) выберите [каталог](../../resource-manager/concepts/resources-hierarchy.md#folder), в котором хотите зарезервировать [выделенную публичную подсеть](../concepts/public-network.md#public-subnet).
-  1. Перейдите в сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_baremetal }}**.
-  1. На панели слева выберите ![globe](../../_assets/console-icons/globe.svg) **{{ ui-key.yacloud.baremetal.label_public-subnets_v16CV }}**.
-  1. Справа вверху нажмите кнопку **{{ ui-key.yacloud.baremetal.label_create-public-subnet-full }}**.
-  1. В поле **{{ ui-key.yacloud.baremetal.field_zone-id }}** выберите [зону доступности](../../overview/concepts/geo-scope.md), в которой будет доступна подсеть.
-  1. В поле **{{ ui-key.yacloud.baremetal.field_hardware-pool-id }}** выберите [пулы](../concepts/servers.md#server-pools), в которых будет доступна подсеть.
+  1. В [консоли управления](https://console.yandex.cloud) выберите [каталог](../../resource-manager/concepts/resources-hierarchy.md#folder), в котором хотите зарезервировать [выделенную публичную подсеть](../concepts/public-network.md#public-subnet).
+  1. Перейдите в сервис **BareMetal**.
+  1. На панели слева выберите ![globe](../../_assets/console-icons/globe.svg) **Публичные адреса и подсети**.
+  1. Справа вверху нажмите кнопку **Заказать публичную подсеть**.
+  1. В поле **Зона доступности** выберите [зону доступности](../../overview/concepts/geo-scope.md), в которой будет доступна подсеть.
+  1. В поле **Пул** выберите [пулы](../concepts/servers.md#server-pools), в которых будет доступна подсеть.
      
      Вы можете привязать выделенную публичную подсеть одновременно к нескольким пулам.
   1. Выберите размер заказываемой подсети.
   
-      В консоли управления можно заказать только подсети размером `/29` (шесть доступных IP-адресов) и `/28` (четырнадцать доступных IP-адресов). Если вам необходима более широкая публичная подсеть, запросите ее через [обращение]({{ link-console-support }}/tickets/create) в службу технической поддержки.
-  1. В блоке **{{ ui-key.yacloud.baremetal.title_common-info }}**:
+      В консоли управления можно заказать только подсети размером `/29` (шесть доступных IP-адресов) и `/28` (четырнадцать доступных IP-адресов). Если вам необходима более широкая публичная подсеть, запросите ее через [обращение](https://center.yandex.cloud/support/tickets/create) в службу технической поддержки.
+  1. В блоке **Общая информация**:
      
-     1. В поле **{{ ui-key.yacloud.baremetal.field_subnetwork-name }}** введите имя публичной подсети.
-     1. (Опционально) В поле **{{ ui-key.yacloud.baremetal.field_description }}** добавьте описание подсети.
-     1. (Опционально) В поле **{{ ui-key.yacloud.component.label-set.label_labels }}** задайте [метки](../../resource-manager/concepts/labels.md).
-  1. Нажмите кнопку **{{ ui-key.yacloud.baremetal.label_create-public-subnet }}**.
+     1. В поле **Имя** введите имя публичной подсети.
+     1. (Опционально) В поле **Описание** добавьте описание подсети.
+     1. (Опционально) В поле **Метки** задайте [метки](../../resource-manager/concepts/labels.md).
+  1. Нажмите кнопку **Заказать**.
 
 - CLI {#cli}
 
-  Если у вас еще нет интерфейса командной строки {{ yandex-cloud }} (CLI), [установите и инициализируйте его](../../cli/quickstart.md#install).
+  Если у вас еще нет интерфейса командной строки Yandex Cloud (CLI), [установите и инициализируйте его](../../cli/quickstart.md#install).
 
   По умолчанию используется каталог, указанный при [создании](../../cli/operations/profile/profile-create.md) профиля CLI. Чтобы изменить каталог по умолчанию, используйте команду `yc config set folder-id <идентификатор_каталога>`. Также для любой команды вы можете указать другой каталог с помощью параметров `--folder-name` или `--folder-id`. Если вы обращаетесь к ресурсу по имени, поиск будет выполнен в каталоге по умолчанию. Если вы обращаетесь к ресурсу по идентификатору, поиск будет выполнен глобально — во всех каталогах с учетом прав доступа.
 
@@ -87,19 +87,19 @@
 
 - Консоль управления {#console}
 
-  1. В [консоли управления]({{ link-console-main }}) выберите каталог, в котором находится эфемерная публичная подсеть, которую вы хотите преобразовать в выделенную.
-  1. Перейдите в сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_baremetal }}**.
-  1. На панели слева выберите ![globe](../../_assets/console-icons/globe.svg) **{{ ui-key.yacloud.baremetal.label_public-subnets_v16CV }}**.
-  1. В открывшемся списке публичных подсетей в строке с нужной эфемерной подсетью нажмите значок ![ellipsis](../../_assets/console-icons/ellipsis.svg) и выберите **{{ ui-key.yacloud.baremetal.action_dedicate-ephemeral-subnet }}**.
-  1. В поле **{{ ui-key.yacloud.baremetal.field_hardware-pool-id }}** выберите [пулы](../concepts/servers.md#server-pools), в которых будет доступна подсеть.
+  1. В [консоли управления](https://console.yandex.cloud) выберите каталог, в котором находится эфемерная публичная подсеть, которую вы хотите преобразовать в выделенную.
+  1. Перейдите в сервис **BareMetal**.
+  1. На панели слева выберите ![globe](../../_assets/console-icons/globe.svg) **Публичные адреса и подсети**.
+  1. В открывшемся списке публичных подсетей в строке с нужной эфемерной подсетью нажмите значок ![ellipsis](../../_assets/console-icons/ellipsis.svg) и выберите **Сделать выделенной**.
+  1. В поле **Пул** выберите [пулы](../concepts/servers.md#server-pools), в которых будет доступна подсеть.
      
      Вы можете привязать выделенную публичную подсеть одновременно к нескольким пулам.
-  1. В блоке **{{ ui-key.yacloud.baremetal.title_common-info }}**:
+  1. В блоке **Общая информация**:
      
-     1. В поле **{{ ui-key.yacloud.baremetal.field_subnetwork-name }}** введите имя публичной подсети.
-     1. (Опционально) В поле **{{ ui-key.yacloud.baremetal.field_description }}** добавьте описание подсети.
-     1. (Опционально) В поле **{{ ui-key.yacloud.component.label-set.label_labels }}** задайте [метки](../../resource-manager/concepts/labels.md).
-  1. Нажмите кнопку **{{ ui-key.yacloud.baremetal.label_create-public-subnet }}**.
+     1. В поле **Имя** введите имя публичной подсети.
+     1. (Опционально) В поле **Описание** добавьте описание подсети.
+     1. (Опционально) В поле **Метки** задайте [метки](../../resource-manager/concepts/labels.md).
+  1. Нажмите кнопку **Заказать**.
 
 - CLI {#cli}
 

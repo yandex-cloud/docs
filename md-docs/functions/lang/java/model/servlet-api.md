@@ -2,11 +2,11 @@
 
 Вы можете задать обработчик на Java, переопределив выбранные методы класса [HttpServlet](https://docs.oracle.com/javaee/7/api/javax/servlet/http/HttpServlet.html).
 
-Сервис {{ sf-name }} будет автоматически перенаправлять каждый `HTTP`-запрос в ваш обработчик, в зависимости от `HTTP`-метода, с которым этот запрос был инициирован. Например, `GET`-запрос будет перенаправлен в метод `doGet` вашего обработчика, а `POST` — в `doPost`. Для успешного перенаправления соответствующие методы обработчика должны существовать, иначе ответом функции будет сообщение `HTTP method XXX is not supported by this URL` с кодом `405`.
+Сервис Cloud Functions будет автоматически перенаправлять каждый `HTTP`-запрос в ваш обработчик, в зависимости от `HTTP`-метода, с которым этот запрос был инициирован. Например, `GET`-запрос будет перенаправлен в метод `doGet` вашего обработчика, а `POST` — в `doPost`. Для успешного перенаправления соответствующие методы обработчика должны существовать, иначе ответом функции будет сообщение `HTTP method XXX is not supported by this URL` с кодом `405`.
 
 ## Неподдерживаемые методы {#unsupported}
 
-При использовании данной модели, обратите внимание на то, что некоторые методы классов [HttpServletRequest](https://docs.oracle.com/javaee/7/api/javax/servlet/http/HttpServletRequest.html) и [HttpServletResponse](https://docs.oracle.com/javaee/7/api/javax/servlet/http/HttpServletResponse.html) не поддерживаются сервисом {{ sf-name }}.
+При использовании данной модели, обратите внимание на то, что некоторые методы классов [HttpServletRequest](https://docs.oracle.com/javaee/7/api/javax/servlet/http/HttpServletRequest.html) и [HttpServletResponse](https://docs.oracle.com/javaee/7/api/javax/servlet/http/HttpServletResponse.html) не поддерживаются сервисом Cloud Functions.
 
 `HttpServletRequest`:
 - getAuthType
@@ -47,12 +47,12 @@
 
 {% endnote %}
 
-{{ sf-name }} [поддерживает](../dependencies.md#maven) Maven — систему управления зависимостями для языка `Java`.
+Cloud Functions [поддерживает](../dependencies.md#maven) Maven — систему управления зависимостями для языка `Java`.
 
 Чтобы создать функцию:
 1. Создайте файл `Handler.java` по пути `/src/main/java/Handler.java` и файл `pom.xml`.
 1. Добавьте в ZIP-архив директорию `/src` и файл `pom.xml`.
-1. [Загрузите](../../../operations/function/version-manage.md#func-version-create) ZIP-архив в {{ sf-name }}.
+1. [Загрузите](../../../operations/function/version-manage.md#func-version-create) ZIP-архив в Cloud Functions.
 
 Файл `pom.xml`:
 

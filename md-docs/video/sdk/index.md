@@ -1,6 +1,6 @@
 # SDK видеоплеера
 
-Для встраивания [видеоплеера](../concepts/player.md) с контентом из {{ video-name }} на сайт или в приложение предусмотрены следующие SDK:
+Для встраивания [видеоплеера](../concepts/player.md) с контентом из Cloud Video на сайт или в приложение предусмотрены следующие SDK:
 
 * [SDK видеоплеера для IFrame](iframe/index.md)
 * [SDK видеоплеера для iOS](ios-sdk.md)
@@ -12,4 +12,4 @@
 
 * [Справочник CloudVideoPlayerSDK](CloudVideoPlayerSDK/Environment.md) — справочник основной библиотеки iOS SDK;
 * [Справочник CloudVideoPlayerSDKUI](CloudVideoPlayerSDKUI/VideoView.md) — справочник библиотеки интерфейсных элементов iOS SDK;
-* [Справочник API {{ video-name }}](../api-ref/authentication.md).
+* [Справочник API Cloud Video](../api-ref/authentication.md).

@@ -1,16 +1,16 @@
-# Автоматическое масштабирование группы узлов в {{ managed-k8s-name }}
+# Автоматическое масштабирование группы узлов в Managed Service for Kubernetes
 
 Автоматическое масштабирование [группы узлов](../index.md#node-group) — это изменение размера группы узлов на основе запросов ресурсов для [подов](../index.md#pod), запущенных на узлах этой группы.
 
 ## Как происходит масштабирование {#how-scale}
 
-При [создании группы узлов](../../operations/node-group/node-group-create.md#node-group-create) вы указываете минимальное и максимальное количество узлов в группе, а [кластер {{ k8s }}](../index.md#kubernetes-cluster) периодически проверяет состояние подов и узлов:
+При [создании группы узлов](../../operations/node-group/node-group-create.md#node-group-create) вы указываете минимальное и максимальное количество узлов в группе, а [кластер Kubernetes](../index.md#kubernetes-cluster) периодически проверяет состояние подов и узлов:
 * Если поды не могут быть назначены из-за нехватки ресурсов (vCPU, памяти) на существующих узлах, число узлов в группе будет постепенно увеличиваться до указанного максимального количества.
 * Если нагрузка на узлы недостаточная и все поды могут быть назначены с меньшим количеством узлов в группе, число узлов в группе будет постепенно уменьшаться до указанного минимального количества.
 
 ## Особенности автоматического масштабирования {#scaling-features}
 
-Изменение размера автомасштабируемой группы производится с помощью [{{ k8s }} cluster-autoscaler](https://github.com/kubernetes/autoscaler/tree/master/cluster-autoscaler) и имеет большое количество неочевидных особенностей. В частности:
+Изменение размера автомасштабируемой группы производится с помощью [Kubernetes cluster-autoscaler](https://github.com/kubernetes/autoscaler/tree/master/cluster-autoscaler) и имеет большое количество неочевидных особенностей. В частности:
 * Если нагрузка в кластере может быть распределена на меньшее число узлов, но поды по каким-то причинам не могут быть расселены с узлов, то количество узлов в группе не уменьшится.
 * Фактическое число узлов в группе может быть меньше, чем минимальный размер группы узлов. Это может произойти, если:
   * минимальный размер автомасштабируемой группы узлов был увеличен после создания группы;
@@ -19,18 +19,18 @@
 
 {% note tip %}
 
-При возникновении неожиданного поведения мы рекомендуем обратиться к [{{ k8s }} cluster-autoscaler FAQ](https://github.com/kubernetes/autoscaler/blob/master/cluster-autoscaler/FAQ.md).
+При возникновении неожиданного поведения мы рекомендуем обратиться к [Kubernetes cluster-autoscaler FAQ](https://github.com/kubernetes/autoscaler/blob/master/cluster-autoscaler/FAQ.md).
 
 {% endnote %}
 
 {% note info %}
 
-При подсчете текущих лимитов и [квот]({{ link-console-quotas }}) сервис {{ managed-k8s-name }} учитывает указанный максимальный размер группы узлов как фактический, независимо от текущего размера группы.
+При подсчете текущих лимитов и [квот](https://console.yandex.cloud/cloud?section=quotas) сервис Managed Service for Kubernetes учитывает указанный максимальный размер группы узлов как фактический, независимо от текущего размера группы.
 
 {% endnote %}
 
-Автоматическое масштабирование группы узлов не то же самое, что горизонтальное масштабирование подов ([Horizontal Pod Autoscaler](https://kubernetes.io/docs/tasks/run-application/horizontal-pod-autoscale)). В последнем случае контроллер периодически запрашивает информацию об использовании ресурсов по метрикам, указанным в каждом описании объекта API {{ k8s }} [HorizontalPodAutoscaler](https://kubernetes.io/docs/reference/generated/kubernetes-api/v1.23/#horizontalpodautoscaler-v2-autoscaling). Вы можете использовать оба механизма одновременно.
+Автоматическое масштабирование группы узлов не то же самое, что горизонтальное масштабирование подов ([Horizontal Pod Autoscaler](https://kubernetes.io/docs/tasks/run-application/horizontal-pod-autoscale)). В последнем случае контроллер периодически запрашивает информацию об использовании ресурсов по метрикам, указанным в каждом описании объекта API Kubernetes [HorizontalPodAutoscaler](https://kubernetes.io/docs/reference/generated/kubernetes-api/v1.23/#horizontalpodautoscaler-v2-autoscaling). Вы можете использовать оба механизма одновременно.
 
 ## Примеры использования {#examples}
 
-* [{#T}](../../tutorials/dns-autoscaler.md)
+* [Автоматическое масштабирование DNS по размеру кластера](../../tutorials/dns-autoscaler.md)

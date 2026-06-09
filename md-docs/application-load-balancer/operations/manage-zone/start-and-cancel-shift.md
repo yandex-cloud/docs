@@ -1,7 +1,7 @@
 # Отключить и включить зону доступности
 
 
-Когда в одной из [зон доступности](../../../overview/concepts/geo-scope.md) проводится обслуживание или возникают неполадки, специалисты {{ yandex-cloud }} могут временно [отключить эту зону](allow-and-deny-shift.md).
+Когда в одной из [зон доступности](../../../overview/concepts/geo-scope.md) проводится обслуживание или возникают неполадки, специалисты Yandex Cloud могут временно [отключить эту зону](allow-and-deny-shift.md).
 
 Вы также можете отключить одну или несколько зон доступности для решения следующих задач:
 
@@ -21,20 +21,20 @@
 
 - Консоль управления {#console}
 
-  1. В [консоли управления]({{ link-console-main }}) перейдите в каталог, в котором находится [L7-балансировщик](../../concepts/application-load-balancer.md).
-  1. Перейдите в сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_application-load-balancer }}**.
+  1. В [консоли управления](https://console.yandex.cloud) перейдите в каталог, в котором находится [L7-балансировщик](../../concepts/application-load-balancer.md).
+  1. Перейдите в сервис **Application Load Balancer**.
   1. Выберите L7-балансировщик.
-  1. На странице **{{ ui-key.yacloud.common.overview }}** в блоке **{{ ui-key.yacloud.alb.section_allocation-settings }}** нажмите кнопку **{{ ui-key.yacloud.alb.section_allocation-settings_button }}**.
+  1. На странице **Обзор** в блоке **Размещение** нажмите кнопку **Настроить блокировку зон**.
   1. Включите блокировку для одной или нескольких зон.
-  1. (Опционально) Чтобы задать время автоматического отключения блокировки, активируйте опцию **{{ ui-key.yacloud.components.BalancerAllocationDialog.AllocationForm.disable_block_after_bqnjE }}** и укажите время от `1m` до `72h`. Если время не указано, зона останется заблокированной до ручного включения.
+  1. (Опционально) Чтобы задать время автоматического отключения блокировки, активируйте опцию **Отключить блокировку через** и укажите время от `1m` до `72h`. Если время не указано, зона останется заблокированной до ручного включения.
 
-  1. Нажмите кнопку **{{ ui-key.yacloud.common.save }}**.
+  1. Нажмите кнопку **Сохранить**.
 
     Балансировщик начнет перенос трафика из заблокированных зон доступности в незаблокированные.
 
 - CLI {#cli}
 
-  Если у вас еще нет интерфейса командной строки {{ yandex-cloud }} (CLI), [установите и инициализируйте его](../../../cli/quickstart.md#install).
+  Если у вас еще нет интерфейса командной строки Yandex Cloud (CLI), [установите и инициализируйте его](../../../cli/quickstart.md#install).
 
   По умолчанию используется каталог, указанный при [создании](../../../cli/operations/profile/profile-create.md) профиля CLI. Чтобы изменить каталог по умолчанию, используйте команду `yc config set folder-id <идентификатор_каталога>`. Также для любой команды вы можете указать другой каталог с помощью параметров `--folder-name` или `--folder-id`. Если вы обращаетесь к ресурсу по имени, поиск будет выполнен в каталоге по умолчанию. Если вы обращаетесь к ресурсу по идентификатору, поиск будет выполнен глобально — во всех каталогах с учетом прав доступа.
 
@@ -66,7 +66,7 @@
       ```bash
       yc application-load-balancer load-balancer disable-zones \
         my-balancer \
-        --zones {{ region-id }}-a \
+        --zones ru-central1-a \
         --duration 1h
       ```
 
@@ -78,11 +78,11 @@
       ...
       allocation_policy:
         locations:
-          - zone_id: {{ region-id }}-a
+          - zone_id: ru-central1-a
             subnet_id: e2lptlobccu6********
             zonal_shift_active: true
             zonal_traffic_disabled: true
-          - zone_id: {{ region-id }}-b
+          - zone_id: ru-central1-b
             subnet_id: e9bo5ir5prfi********
       ...
       ```
@@ -99,9 +99,9 @@
 
 - Консоль управления {#console}
 
-  1. В [консоли управления]({{ link-console-main }}) выберите [каталог](../../../resource-manager/concepts/resources-hierarchy.md#folder), в котором находится балансировщик.
-  1. Перейдите в сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_application-load-balancer }}** и выберите нужный балансировщик.
-  1. В блоке **{{ ui-key.yacloud.alb.section_allocation-settings }}** напротив зоны доступности посмотрите ее статус.
+  1. В [консоли управления](https://console.yandex.cloud) выберите [каталог](../../../resource-manager/concepts/resources-hierarchy.md#folder), в котором находится балансировщик.
+  1. Перейдите в сервис **Application Load Balancer** и выберите нужный балансировщик.
+  1. В блоке **Размещение** напротив зоны доступности посмотрите ее статус.
 
       Если была задана длительность блокировки, рядом с зоной будет указано время, до которого она заблокирована.
 
@@ -119,16 +119,16 @@
 
 - Консоль управления {#console}
 
-  1. В [консоли управления]({{ link-console-main }}) перейдите в каталог, в котором находится [L7-балансировщик](../../concepts/application-load-balancer.md).
-  1. Перейдите в сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_application-load-balancer }}**.
+  1. В [консоли управления](https://console.yandex.cloud) перейдите в каталог, в котором находится [L7-балансировщик](../../concepts/application-load-balancer.md).
+  1. Перейдите в сервис **Application Load Balancer**.
   1. Выберите L7-балансировщик.
-  1. На странице **{{ ui-key.yacloud.common.overview }}** в блоке **{{ ui-key.yacloud.alb.section_allocation-settings }}** нажмите кнопку **{{ ui-key.yacloud.alb.section_allocation-settings_button }}**.
+  1. На странице **Обзор** в блоке **Размещение** нажмите кнопку **Настроить блокировку зон**.
   1. Отключите блокировку зон доступности.
-  1. Нажмите кнопку **{{ ui-key.yacloud.common.save }}**.
+  1. Нажмите кнопку **Сохранить**.
 
 - CLI {#cli}
 
-  Если у вас еще нет интерфейса командной строки {{ yandex-cloud }} (CLI), [установите и инициализируйте его](../../../cli/quickstart.md#install).
+  Если у вас еще нет интерфейса командной строки Yandex Cloud (CLI), [установите и инициализируйте его](../../../cli/quickstart.md#install).
 
   По умолчанию используется каталог, указанный при [создании](../../../cli/operations/profile/profile-create.md) профиля CLI. Чтобы изменить каталог по умолчанию, используйте команду `yc config set folder-id <идентификатор_каталога>`. Также для любой команды вы можете указать другой каталог с помощью параметров `--folder-name` или `--folder-id`. Если вы обращаетесь к ресурсу по имени, поиск будет выполнен в каталоге по умолчанию. Если вы обращаетесь к ресурсу по идентификатору, поиск будет выполнен глобально — во всех каталогах с учетом прав доступа.
 
@@ -151,7 +151,7 @@
       ```bash
       yc application-load-balancer load-balancer enable-zones \
         my-balancer \
-        --zones {{ region-id }}-a
+        --zones ru-central1-a
       ```
       
       Результат:
@@ -162,9 +162,9 @@
       ...
       allocation_policy:
         locations:
-          - zone_id: {{ region-id }}-a
+          - zone_id: ru-central1-a
             subnet_id: e9bo5ir5prfi********
-          - zone_id: {{ region-id }}-b
+          - zone_id: ru-central1-b
             subnet_id: e2lptlobccu6******** 
       ...
       ```
@@ -183,5 +183,5 @@
 
 ### См. также {#see-also}
 
-* [Отключить и включить зоны доступности для группы ВМ {{ compute-full-name }}](../../../compute/operations/instance-groups/disable-enable-zone.md)
-* [Отключить и включить зоны доступности в {{ network-load-balancer-full-name }}](../../../network-load-balancer/operations/manage-zone/disable-enable-zone.md)
+* [Отключить и включить зоны доступности для группы ВМ Yandex Compute Cloud](../../../compute/operations/instance-groups/disable-enable-zone.md)
+* [Отключить и включить зоны доступности в Yandex Network Load Balancer](../../../network-load-balancer/operations/manage-zone/disable-enable-zone.md)

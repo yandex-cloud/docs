@@ -6,7 +6,7 @@ This operation will fail if the style preset is currently in use by any videos, 
 ## HTTP request
 
 ```
-DELETE https://video.{{ api-host }}/video/v1/stylePresets/{stylePresetId}
+DELETE https://video.api.cloud.yandex.net/video/v1/stylePresets/{stylePresetId}
 ```
 
 ## Path parameters

@@ -2,23 +2,23 @@
 
 {% note warning %}
 
-С 1 июля 2026 года сервис {{ load-testing-name }} прекращает работу. Подробнее на странице [Закрытие сервиса Yandex Load Testing](../../load-testing/sunset.md).
+С 1 июля 2026 года сервис Load Testing прекращает работу. Подробнее на странице [Закрытие сервиса Yandex Load Testing](../../load-testing/sunset.md).
 
 {% endnote %}
 
 
 
-{{ load-testing-full-name }} можно использовать для нагрузочного тестирования сервисов с помощью внешних агентов. 
+Yandex Load Testing можно использовать для нагрузочного тестирования сервисов с помощью внешних агентов. 
 
-_Внешний агент_ — физический или виртуальный сервер с инструментом для тестирования и [генераторами нагрузки](../../load-testing/concepts/load-generator.md), который размещен вне сервиса {{ load-testing-name }}.
+_Внешний агент_ — физический или виртуальный сервер с инструментом для тестирования и [генераторами нагрузки](../../load-testing/concepts/load-generator.md), который размещен вне сервиса Load Testing.
 
-Запуск и просмотр результатов нагрузочного тестирования с внешнего агента идентичны работе с [агентом](../../load-testing/concepts/agent.md) {{ load-testing-name }}. Подробнее см. [{#T}](../../load-testing/quickstart.md).
+Запуск и просмотр результатов нагрузочного тестирования с внешнего агента идентичны работе с [агентом](../../load-testing/concepts/agent.md) Load Testing. Подробнее см. [Как начать работать с Yandex Load Testing](../../load-testing/quickstart.md).
 
 Нагрузочное тестирование с внешнего агента применяется в следующих случаях:
-* цель тестирования состоит из нескольких виртуальных машин, а суммарный входящий и исходящий трафик с них превышает [возможности агента {{ load-testing-name }}](../../load-testing/concepts/agent.md#benchmark);
+* цель тестирования состоит из нескольких виртуальных машин, а суммарный входящий и исходящий трафик с них превышает [возможности агента Load Testing](../../load-testing/concepts/agent.md#benchmark);
 * запросы, которые направляются в цель тестирования, требуют много вычислительных мощностей;
 * агент должен размещаться в собственной инфраструктуре по правилам информационной безопасности;
-* вычислительные ресурсы ВМ {{ compute-name }} ограничены.
+* вычислительные ресурсы ВМ Compute Cloud ограничены.
 
 Чтобы провести нагрузочное тестирование с внешнего агента:
 1. [Подготовьте облако к работе](#before-you-begin).
@@ -29,21 +29,21 @@ _Внешний агент_ — физический или виртуальны
 1. [Создайте тест](#run-test).
 1. [Посмотрите результаты тестирования](#see-results).
 
-Если подключенный внешний агент вам больше не нужен, [удалите его](#clear-out) из {{ load-testing-name }}.
+Если подключенный внешний агент вам больше не нужен, [удалите его](#clear-out) из Load Testing.
 
 ## Перед началом работы {#before-you-begin}
 
-Зарегистрируйтесь в {{ yandex-cloud }} и создайте [платежный аккаунт](../../billing/concepts/billing-account.md):
-1. Перейдите в [консоль управления]({{ link-console-main }}), затем войдите в {{ yandex-cloud }} или зарегистрируйтесь.
-1. На странице **[{{ ui-key.yacloud_billing.billing.label_service }}]({{ link-console-billing }})** убедитесь, что у вас подключен платежный аккаунт, и он находится в [статусе](../../billing/concepts/billing-account-statuses.md) `ACTIVE` или `TRIAL_ACTIVE`. Если платежного аккаунта нет, [создайте его](../../billing/quickstart/index.md) и [привяжите](../../billing/operations/pin-cloud.md) к нему облако.
+Зарегистрируйтесь в Yandex Cloud и создайте [платежный аккаунт](../../billing/concepts/billing-account.md):
+1. Перейдите в [консоль управления](https://console.yandex.cloud), затем войдите в Yandex Cloud или зарегистрируйтесь.
+1. На странице **[Yandex Cloud Billing](https://center.yandex.cloud/billing/accounts)** убедитесь, что у вас подключен платежный аккаунт, и он находится в [статусе](../../billing/concepts/billing-account-statuses.md) `ACTIVE` или `TRIAL_ACTIVE`. Если платежного аккаунта нет, [создайте его](../../billing/quickstart/index.md) и [привяжите](../../billing/operations/pin-cloud.md) к нему облако.
 
-Если у вас есть активный платежный аккаунт, вы можете создать или выбрать [каталог](../../resource-manager/concepts/resources-hierarchy.md#folder), в котором будет работать ваша инфраструктура, на [странице облака]({{ link-console-cloud }}).
+Если у вас есть активный платежный аккаунт, вы можете создать или выбрать [каталог](../../resource-manager/concepts/resources-hierarchy.md#folder), в котором будет работать ваша инфраструктура, на [странице облака](https://console.yandex.cloud/cloud).
 
 [Подробнее об облаках и каталогах](../../resource-manager/concepts/resources-hierarchy.md).
 
 ### Необходимые платные ресурсы {#paid-resources}
 
-На стадии [Preview](../../overview/concepts/launch-stages.md) использование сервиса {{ load-testing-name }} не тарифицируется.
+На стадии [Preview](../../overview/concepts/launch-stages.md) использование сервиса Load Testing не тарифицируется.
 
 ## Подготовьте инфраструктуру {#prepare-infrastructure}
 
@@ -53,7 +53,7 @@ _Внешний агент_ — физический или виртуальны
 1. [Назначьте](../../iam/operations/roles/grant.md) сервисному аккаунту [роли](../../load-testing/security/index.md#roles-list) `loadtesting.editor` и `loadtesting.generatorClient`.
 1. [Создайте](../../iam/operations/authentication/manage-authorized-keys.md#create-authorized-key) авторизованные ключи для сервисного аккаунта.
 
-    Сохраните открытый и закрытый ключи единым файлом, для этого нажмите кнопку **{{ ui-key.yacloud.iam.folder.service-account.overview.action_download-keys-file }}**.
+    Сохраните открытый и закрытый ключи единым файлом, для этого нажмите кнопку **Скачать файл с ключами**.
 
 ### Создайте секрет с авторизованными ключами {#create-authorized-key-secret}
 
@@ -61,14 +61,14 @@ _Внешний агент_ — физический или виртуальны
 
 - Консоль управления {#console}
 
-  1. В [консоли управления]({{ link-console-main }}) выберите каталог, где будет подключен внешний агент.
-  1. Перейдите в сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_lockbox }}**.
-  1. Нажмите кнопку **{{ ui-key.yacloud.lockbox.SecretsPage.button_create-secret }}**.
+  1. В [консоли управления](https://console.yandex.cloud) выберите каталог, где будет подключен внешний агент.
+  1. Перейдите в сервис **Lockbox**.
+  1. Нажмите кнопку **Создать секрет**.
 
-  1. В поле **{{ ui-key.yacloud.common.name }}** введите имя секрета, например `secret-loadtest`.
-  1. В поле **{{ ui-key.yacloud.lockbox.SecretVersionsList.label_key }}** введите неконфиденциальный идентификатор, например `key-loadtest`;
-  1. В поле **{{ ui-key.yacloud.lockbox.SecretVersionsList.label_value }}** загрузите файл с открытым и закрытым авторизованными ключами.
-  1. Нажмите кнопку **{{ ui-key.yacloud.common.create }}**.
+  1. В поле **Имя** введите имя секрета, например `secret-loadtest`.
+  1. В поле **Ключ** введите неконфиденциальный идентификатор, например `key-loadtest`;
+  1. В поле **Значение** загрузите файл с открытым и закрытым авторизованными ключами.
+  1. Нажмите кнопку **Создать**.
 
       Сохраните имя и ключ секрета.
 
@@ -76,18 +76,18 @@ _Внешний агент_ — физический или виртуальны
 
 ## Настройте окружение {#configure-environment}
 
-1. [Установите и инициализируйте](../../cli/quickstart.md#install) интерфейс командной строки {{ yandex-cloud }}.
+1. [Установите и инициализируйте](../../cli/quickstart.md#install) интерфейс командной строки Yandex Cloud.
 1. [Установите](https://www.docker.com/) и запустите Docker.
-1. Аутентифицируйтесь в {{ container-registry-name }} от [имени пользователя](../operations/authentication.md#user) или с помощью [Docker Credential Helper](../operations/authentication.md#cred-helper).
+1. Аутентифицируйтесь в Container Registry от [имени пользователя](../operations/authentication.md#user) или с помощью [Docker Credential Helper](../operations/authentication.md#cred-helper).
 
-    Используйте эндпоинт [реестра](../concepts/registry.md) с [Docker-образами](../concepts/docker-image.md) внешних агентов: `{{ registry }}/yc/`.
+    Используйте эндпоинт [реестра](../concepts/registry.md) с [Docker-образами](../concepts/docker-image.md) внешних агентов: `cr.yandex/yc/`.
 
 ## Установите внешний агент {#install-external-agent}
 
 1. Скачайте Docker-образ с внешним агентом, в терминале выполните команду:
 
     ```bash
-    docker pull {{ registry }}/yc/ya-lt-agent:latest
+    docker pull cr.yandex/yc/ya-lt-agent:latest
     ```
 
     Результат:
@@ -97,11 +97,11 @@ _Внешний агент_ — физический или виртуальны
     df6635ed1257: Pull complete 
     7a51fa4387ba: Pull complete 
     Digest: sha256:fad262e94a8b4021b13336ae31c738ec1e77eb6a8971528429c67d28********
-    Status: Downloaded newer image for {{ registry }}/yc/ya-lt-agent:latest
-    {{ registry }}/yc/ya-lt-agent:latest
+    Status: Downloaded newer image for cr.yandex/yc/ya-lt-agent:latest
+    cr.yandex/yc/ya-lt-agent:latest
     ```
 
-1. Скачайте файл с открытым и закрытым авторизованными ключами из {{ lockbox-short-name }}:
+1. Скачайте файл с открытым и закрытым авторизованными ключами из Lockbox:
 
     ```bash
     yc lockbox payload get <имя_секрета> \
@@ -126,13 +126,13 @@ _Внешний агент_ — физический или виртуальны
     client_workdir: '/var/lib/tank_agent/client'
     tankapi_host: localhost
     tankapi_port: 8083
-    load_testing_host: 'loadtesting.{{ api-host }}'
+    load_testing_host: 'loadtesting.api.cloud.yandex.net'
     load_testing_port: '443'
-    logging_host: '{{ logging-endpoint-ingester }}'
+    logging_host: 'ingester.logging.yandexcloud.net'
     logging_port: '443'
-    object_storage_url: 'https://{{ s3-storage-host }}'
+    object_storage_url: 'https://storage.yandexcloud.net'
     storage_file: '/tmp/yandex-tank/storage.data'
-    iam_token_service_url: 'iam.{{ api-host }}:443'
+    iam_token_service_url: 'iam.api.cloud.yandex.net:443'
     agent_id_file: '/run/agentid'
     private_key: '/run/sa_key.json'
 
@@ -154,7 +154,7 @@ _Внешний агент_ — физический или виртуальны
       --mount type=bind,source=<путь_к_файлу_с_авторизованными_ключами>,target=/run/sa_key.json \
       --mount type=bind,source=<путь_к_конфигурационному_файлу>,target=/run/config.yaml \
       --env LOADTESTING_AGENT_CONFIG=/run/config.yaml \
-      {{ registry }}/yc/ya-lt-agent:latest
+      cr.yandex/yc/ya-lt-agent:latest
     ```
 
     Где:
@@ -173,7 +173,7 @@ _Внешний агент_ — физический или виртуальны
       --env LOADTESTING_AGENT_NAME='<имя_внешнего_агента>' \
       --env LOADTESTING_FOLDER_ID='<идентификатор_каталога>' \
       --env LOADTESTING_SA_KEY_FILE=<путь_к_файлу_с_авторизованными_ключами_в_контейнере> \
-      {{ registry }}/yc/ya-lt-agent:latest
+      cr.yandex/yc/ya-lt-agent:latest
     ```
 
     Где:
@@ -191,7 +191,7 @@ _Внешний агент_ — физический или виртуальны
 
     {% endcut %}
 
-    При каждом запуске Docker-контейнера внешний агент будет получать новый идентификатор в {{ load-testing-name }}. Вы можете сохранить один и тот же идентификатор между запусками, например, чтобы привязать результаты тестирования к конкретному агенту. Для этого используйте том Docker для хранения файла с идентификатором внешнего агента (параметр `agent_id_file` в конфигурационном файле агента). Данные в томе хранятся независимо от Docker-контейнера: если вы остановите или удалите контейнер, то том и данные в нем останутся.
+    При каждом запуске Docker-контейнера внешний агент будет получать новый идентификатор в Load Testing. Вы можете сохранить один и тот же идентификатор между запусками, например, чтобы привязать результаты тестирования к конкретному агенту. Для этого используйте том Docker для хранения файла с идентификатором внешнего агента (параметр `agent_id_file` в конфигурационном файле агента). Данные в томе хранятся независимо от Docker-контейнера: если вы остановите или удалите контейнер, то том и данные в нем останутся.
 
     {% cut "Пример запуска внешнего агента с постоянным идентификатором" %}
 
@@ -210,30 +210,30 @@ _Внешний агент_ — физический или виртуальны
       --mount type=bind,source=<путь_к_файлу_с_авторизованными_ключами>,target=/run/sa_key.json \
       --mount type=bind,source=<путь_к_конфигурационному_файлу>,target=/run/config.yaml \
       --env LOADTESTING_AGENT_CONFIG=/run/config.yaml \
-      {{ registry }}/yc/ya-lt-agent:latest
+      cr.yandex/yc/ya-lt-agent:latest
     ```
 
     {% endcut %}
 
-1. Проверьте, что внешний агент доступен в {{ load-testing-name }}:
+1. Проверьте, что внешний агент доступен в Load Testing:
 
     {% list tabs group=instructions %}
 
     - Консоль управления {#console}
 
-      1. Откройте [консоль управления]({{ link-console-main }}).
-      1. Перейдите в сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_load-testing }}**.
-      1. На панели слева перейдите на вкладку ![operations](../../_assets/mdb/operations.svg) **{{ ui-key.yacloud.common.operations-key-value }}**.
+      1. Откройте [консоль управления](https://console.yandex.cloud).
+      1. Перейдите в сервис **Load Testing**.
+      1. На панели слева перейдите на вкладку ![operations](../../_assets/mdb/operations.svg) **Операции**.
 
       1. Убедитесь, что операция **Register an agent** успешно завершена.
-      1. На панели слева перейдите на вкладку ![agents](../../_assets/load-testing/agent.svg) **{{ ui-key.yacloud.load-testing.label_agents-list }}**.
+      1. На панели слева перейдите на вкладку ![agents](../../_assets/load-testing/agent.svg) **Агенты**.
       1. Убедитесь, что внешний агент, например `external-agent`, находится в статусе `Ready for test`.
 
     {% endlist %}
 
 ## Создайте тест {#run-test}
 
-[Выполните](../../load-testing/quickstart.md#run-test) нагрузочное тестирование. В поле **{{ ui-key.yacloud.load-testing.label_agents-list }}** выберите внешний агент, например `external-agent`.
+[Выполните](../../load-testing/quickstart.md#run-test) нагрузочное тестирование. В поле **Агенты** выберите внешний агент, например `external-agent`.
 
 
 ## Посмотрите результаты тестирования {#see-results}
@@ -242,29 +242,29 @@ _Внешний агент_ — физический или виртуальны
 
 - Консоль управления {#console}
 
-  1. Откройте [консоль управления]({{ link-console-main }}).
-  1. Перейдите в сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_load-testing }}**.
-  1. На панели слева перейдите на вкладку ![image](../../_assets/load-testing/test.svg) **{{ ui-key.yacloud.load-testing.label_tests-list }}**.
+  1. Откройте [консоль управления](https://console.yandex.cloud).
+  1. Перейдите в сервис **Load Testing**.
+  1. На панели слева перейдите на вкладку ![image](../../_assets/load-testing/test.svg) **Тесты**.
   1. Выберите созданный ранее тест и посмотрите результаты. 
 
 {% endlist %}
 
 ## Как удалить созданные ресурсы {#clear-out}
 
-Чтобы удалить внешний агент из {{ load-testing-name }}:
+Чтобы удалить внешний агент из Load Testing:
 
 {% list tabs group=instructions %}
 
 - Консоль управления {#console}
 
-  1. Откройте [консоль управления]({{ link-console-main }}).
-  1. Перейдите в сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_load-testing }}**.
-  1. На панели слева перейдите на вкладку ![agents](../../_assets/load-testing/agent.svg) **{{ ui-key.yacloud.load-testing.label_agents-list }}**.
-  1. Напротив агента, который вы хотите удалить, нажмите ![options](../../_assets/options.svg) и выберите **{{ ui-key.yacloud.common.delete }}**.
+  1. Откройте [консоль управления](https://console.yandex.cloud).
+  1. Перейдите в сервис **Load Testing**.
+  1. На панели слева перейдите на вкладку ![agents](../../_assets/load-testing/agent.svg) **Агенты**.
+  1. Напротив агента, который вы хотите удалить, нажмите ![options](../../_assets/options.svg) и выберите **Удалить**.
   1. Подтвердите удаление.
 
 {% endlist %}
 
 ### См. также
 
-* [{#T}](../../load-testing/tutorials/loadtesting-multiply.md)
+* [Нагрузочное тестирование с нескольких агентов](../../load-testing/tutorials/loadtesting-multiply.md)

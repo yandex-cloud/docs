@@ -5,7 +5,7 @@ Retrieves the list of lifecycle policies in the specified repository.
 ## HTTP request
 
 ```
-GET https://container-registry.{{ api-host }}/container-registry/v1/lifecyclePolicies
+GET https://container-registry.api.cloud.yandex.net/container-registry/v1/lifecyclePolicies
 ```
 
 ## Query parameters {#yandex.cloud.containerregistry.v1.ListLifecyclePoliciesRequest}

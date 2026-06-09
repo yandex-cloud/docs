@@ -5,7 +5,7 @@ Returns list of access policy bindings for the folder.
 ## HTTP request
 
 ```
-GET https://resource-manager.{{ api-host }}/resource-manager/v1/folders/{resourceId}:listAccessPolicyBindings
+GET https://resource-manager.api.cloud.yandex.net/resource-manager/v1/folders/{resourceId}:listAccessPolicyBindings
 ```
 
 ## Path parameters

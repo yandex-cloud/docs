@@ -1,13 +1,13 @@
 # Шифрование бакета
 
 
-В {{ objstorage-short-name }} есть возможность шифровать объекты в бакете с помощью [ключей {{ kms-short-name }}](../../../kms/concepts/key.md):
+В Object Storage есть возможность шифровать объекты в бакете с помощью [ключей KMS](../../../kms/concepts/key.md):
 * [Добавьте шифрование бакету](#add), чтобы все новые объекты шифровались указанным ключом.
 * Указывайте ключ шифрования при [загрузке объекта через API](../../s3/api-ref/object/upload.md).
 
 {% note alert %}
 
-Данные в {{ objstorage-short-name }} шифруются по схеме [envelope encryption](../../../kms/concepts/envelope.md). Удаление ключа равносильно уничтожению зашифрованных им данных.
+Данные в Object Storage шифруются по схеме [envelope encryption](../../../kms/concepts/envelope.md). Удаление ключа равносильно уничтожению зашифрованных им данных.
 
 {% endnote %}
 
@@ -18,7 +18,7 @@
 * `kms.keys.decrypter` — для чтения ключа, [расшифровки](../../../kms/security/index.md#kms-keys-decrypter) и скачивания объектов;
 * `kms.keys.encrypterDecrypter` — включает [разрешения](../../../kms/security/index.md#kms-keys-encrypterDecrypter), предоставляемые ролями `kms.keys.encrypter` и `kms.keys.decrypter`.
 
-Подробнее см. [Сервисные роли {{ kms-name }}](../../../kms/security/index.md#service-roles).
+Подробнее см. [Сервисные роли Key Management Service](../../../kms/security/index.md#service-roles).
 
 
 ## Добавить шифрование бакету {#add}
@@ -27,33 +27,33 @@
 
 - Консоль управления {#console}
 
-  Чтобы добавить ключ {{ kms-short-name }}:
-  1. В [консоли управления]({{ link-console-main }}) выберите каталог.
-  1. Перейдите в сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_storage }}**.
+  Чтобы добавить ключ KMS:
+  1. В [консоли управления](https://console.yandex.cloud) выберите каталог.
+  1. Перейдите в сервис **Object Storage**.
   1. Выберите бакет, для которого хотите настроить шифрование.
-  1. На панели слева выберите ![image](../../../_assets/console-icons/persons-lock.svg) **{{ ui-key.yacloud.storage.bucket.switch_security }}**.
-  1. Выберите вкладку **{{ ui-key.yacloud.storage.bucket.switch_encryption }}**.
-  1. В поле **{{ ui-key.yacloud.storage.bucket.encryption.field_key }}** выберите ключ или создайте новый:
+  1. На панели слева выберите ![image](../../../_assets/console-icons/persons-lock.svg) **Безопасность**.
+  1. Выберите вкладку **Шифрование**.
+  1. В поле **Ключ KMS** выберите ключ или создайте новый:
 
-     1. Если в каталоге еще нет ключей, нажмите кнопку **{{ ui-key.yacloud.component.symmetric-key-select.button_create-key }}**. Если ключи есть, но они вам не подходят, нажмите кнопку **{{ ui-key.yacloud.component.symmetric-key-select.button_create-key-new }}**.
+     1. Если в каталоге еще нет ключей, нажмите кнопку **Создать ключ**. Если ключи есть, но они вам не подходят, нажмите кнопку **Создать**.
      1. Введите имя ключа.
      1. Выберите алгоритм шифрования и период ротации.
-     1. Нажмите **{{ ui-key.yacloud.common.create }}**.
+     1. Нажмите **Создать**.
 
-  1. Нажмите **{{ ui-key.yacloud.storage.bucket.encryption.button_save }}**.
+  1. Нажмите **Сохранить**.
 
-- {{ TF }} {#tf}
+- Terraform {#tf}
 
   {% note info %}
   
-  Если вы работаете с {{ objstorage-name }} через {{ TF }} от имени [сервисного аккаунта](../../../iam/concepts/users/service-accounts.md), [назначьте](../../../iam/operations/sa/assign-role-for-sa.md) сервисному аккаунту нужную [роль](../../security/index.md#roles-list), например `storage.admin`, на каталог, в котором будут создаваться ресурсы.
+  Если вы работаете с Object Storage через Terraform от имени [сервисного аккаунта](../../../iam/concepts/users/service-accounts.md), [назначьте](../../../iam/operations/sa/assign-role-for-sa.md) сервисному аккаунту нужную [роль](../../security/index.md#roles-list), например `storage.admin`, на каталог, в котором будут создаваться ресурсы.
   
   {% endnote %}
 
-  Если у вас еще нет {{ TF }}, [установите его и настройте провайдер {{ yandex-cloud }}](../../../tutorials/infrastructure-management/terraform-quickstart.md#install-terraform).
+  Если у вас еще нет Terraform, [установите его и настройте провайдер Yandex Cloud](../../../tutorials/infrastructure-management/terraform-quickstart.md#install-terraform).
   
   
-  Чтобы управлять инфраструктурой с помощью {{ TF }} от имени сервисного аккаунта или пользовательских аккаунтов: аккаунта на Яндексе, федеративного аккаунта и локального пользователя, [аутентифицируйтесь](../../../terraform/authentication.md) соответствующим способом.
+  Чтобы управлять инфраструктурой с помощью Terraform от имени сервисного аккаунта или пользовательских аккаунтов: аккаунта на Яндексе, федеративного аккаунта и локального пользователя, [аутентифицируйтесь](../../../terraform/authentication.md) соответствующим способом.
 
   Перед началом работы [получите IAM-токен](../../../iam/operations/iam-token/create-for-sa.md#via-cli) для сервисного аккаунта и запишите его в файл.
 
@@ -64,7 +64,7 @@
      provider "yandex" {
        cloud_id                 = "<идентификатор_облака>"
        folder_id                = "<идентификатор_каталога>"
-       zone                     = "{{ region-id }}-a"
+       zone                     = "ru-central1-a"
        service_account_key_file = "key.json"
      }
 
@@ -116,7 +116,7 @@
        * `kms_master_key_id` — идентификатор мастер ключа KMS, используемый для шифрования.
        * `sse_algorithm` — используемый алгоритм шифрования на стороне сервера. Поддерживается только значение `aws:kms`.
 
-     Более подробную информацию о параметрах ресурса `yandex_storage_bucket` в {{ TF }} см. в [документации провайдера]({{ tf-provider-resources-link }}/storage_bucket).
+     Более подробную информацию о параметрах ресурса `yandex_storage_bucket` в Terraform см. в [документации провайдера](../../../terraform/resources/storage_bucket.md).
 
   1. Примените изменения:
 
@@ -139,7 +139,7 @@
         terraform plan
         ```
      
-        В терминале будет выведен список ресурсов с параметрами. На этом этапе изменения не будут внесены. Если в конфигурации есть ошибки, {{ TF }} на них укажет.
+        В терминале будет выведен список ресурсов с параметрами. На этом этапе изменения не будут внесены. Если в конфигурации есть ошибки, Terraform на них укажет.
      1. Примените изменения конфигурации:
      
         ```bash
@@ -148,7 +148,7 @@
      
      1. Подтвердите изменения: введите в терминале слово `yes` и нажмите **Enter**.
 
-     Проверить изменения можно в [консоли управления]({{ link-console-main }}).
+     Проверить изменения можно в [консоли управления](https://console.yandex.cloud).
 
 {% endlist %}
 
@@ -158,36 +158,36 @@
 
 - Консоль управления {#console}
 
-  Чтобы убрать шифрование, удалите ключ {{ kms-short-name }}:
-  1. В [консоли управления]({{ link-console-main }}) выберите каталог.
-  1. Перейдите в сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_storage }}**.
+  Чтобы убрать шифрование, удалите ключ KMS:
+  1. В [консоли управления](https://console.yandex.cloud) выберите каталог.
+  1. Перейдите в сервис **Object Storage**.
   1. Выберите бакет, для которого хотите убрать шифрование.
-  1. На панели слева выберите ![image](../../../_assets/console-icons/persons-lock.svg) **{{ ui-key.yacloud.storage.bucket.switch_security }}**.
-  1. Выберите вкладку **{{ ui-key.yacloud.storage.bucket.switch_encryption }}**.
-  1. В поле **{{ ui-key.yacloud.storage.bucket.encryption.field_key }}** выберите **{{ ui-key.yacloud.component.symmetric-key-select.label_no-symmetric-key }}**.
-  1. Нажмите **{{ ui-key.yacloud.storage.bucket.encryption.button_save }}**.
+  1. На панели слева выберите ![image](../../../_assets/console-icons/persons-lock.svg) **Безопасность**.
+  1. Выберите вкладку **Шифрование**.
+  1. В поле **Ключ KMS** выберите **Не выбрано**.
+  1. Нажмите **Сохранить**.
 
-- {{ TF }} {#tf}
+- Terraform {#tf}
 
-  [{{ TF }}](https://www.terraform.io/) позволяет быстро создать облачную инфраструктуру в {{ yandex-cloud }} и управлять ею с помощью файлов конфигураций. В файлах конфигураций хранится описание инфраструктуры на языке HCL (HashiCorp Configuration Language). При изменении файлов конфигураций {{ TF }} автоматически определяет, какая часть вашей конфигурации уже развернута, что следует добавить или удалить.
+  [Terraform](https://www.terraform.io/) позволяет быстро создать облачную инфраструктуру в Yandex Cloud и управлять ею с помощью файлов конфигураций. В файлах конфигураций хранится описание инфраструктуры на языке HCL (HashiCorp Configuration Language). При изменении файлов конфигураций Terraform автоматически определяет, какая часть вашей конфигурации уже развернута, что следует добавить или удалить.
   
-  {{ TF }} распространяется под лицензией [Business Source License](https://github.com/hashicorp/terraform/blob/main/LICENSE), а [провайдер {{ yandex-cloud }} для {{ TF }}](https://github.com/yandex-cloud/terraform-provider-yandex) — под лицензией [MPL-2.0](https://www.mozilla.org/en-US/MPL/2.0/).
+  Terraform распространяется под лицензией [Business Source License](https://github.com/hashicorp/terraform/blob/main/LICENSE), а [провайдер Yandex Cloud для Terraform](https://github.com/yandex-cloud/terraform-provider-yandex) — под лицензией [MPL-2.0](https://www.mozilla.org/en-US/MPL/2.0/).
   
-  Подробную информацию о ресурсах провайдера смотрите в документации на сайте [{{ TF }}](https://www.terraform.io/docs/providers/yandex/index.html) или в [зеркале]({{ tf-docs-link }}).
+  Подробную информацию о ресурсах провайдера смотрите в документации на сайте [Terraform](https://www.terraform.io/docs/providers/yandex/index.html) или в [зеркале](../../../terraform/index.md).
 
   
-  Если у вас еще нет {{ TF }}, [установите его и настройте провайдер {{ yandex-cloud }}](../../../tutorials/infrastructure-management/terraform-quickstart.md#install-terraform).
+  Если у вас еще нет Terraform, [установите его и настройте провайдер Yandex Cloud](../../../tutorials/infrastructure-management/terraform-quickstart.md#install-terraform).
   
   
-  Чтобы управлять инфраструктурой с помощью {{ TF }} от имени сервисного аккаунта или пользовательских аккаунтов: аккаунта на Яндексе, федеративного аккаунта и локального пользователя, [аутентифицируйтесь](../../../terraform/authentication.md) соответствующим способом.
+  Чтобы управлять инфраструктурой с помощью Terraform от имени сервисного аккаунта или пользовательских аккаунтов: аккаунта на Яндексе, федеративного аккаунта и локального пользователя, [аутентифицируйтесь](../../../terraform/authentication.md) соответствующим способом.
 
 
 
-  Чтобы убрать шифрование бакета, созданного с помощью {{ TF }}:
+  Чтобы убрать шифрование бакета, созданного с помощью Terraform:
 
-  1. Откройте файл конфигурации {{ TF }} и удалите блок `server_side_encryption_configuration` в описании бакета.
+  1. Откройте файл конфигурации Terraform и удалите блок `server_side_encryption_configuration` в описании бакета.
 
-     {% cut "Пример описания бакета в конфигурации {{ TF }}" %}
+     {% cut "Пример описания бакета в конфигурации Terraform" %}
 
      ```hcl
      ...
@@ -230,7 +230,7 @@
         terraform plan
         ```
      
-        В терминале будет выведен список ресурсов с параметрами. На этом этапе изменения не будут внесены. Если в конфигурации есть ошибки, {{ TF }} на них укажет.
+        В терминале будет выведен список ресурсов с параметрами. На этом этапе изменения не будут внесены. Если в конфигурации есть ошибки, Terraform на них укажет.
      1. Примените изменения конфигурации:
      
         ```bash
@@ -239,11 +239,11 @@
      
      1. Подтвердите изменения: введите в терминале слово `yes` и нажмите **Enter**.
 
-     Проверить изменения можно в [консоли управления]({{ link-console-main }}).
+     Проверить изменения можно в [консоли управления](https://console.yandex.cloud).
 
 {% endlist %}
 
 
 #### См. также {#see-also}
 
-* [{#T}](../../concepts/encryption.md)
+* [Шифрование в Object Storage](../../concepts/encryption.md)

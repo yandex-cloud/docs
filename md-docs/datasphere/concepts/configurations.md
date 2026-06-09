@@ -4,7 +4,7 @@
 
 {% note info %}
 
-Поскольку проекты запускаются на разных платформах {{ yandex-cloud }} с разными вычислительными мощностями, {{ ml-platform-name }} не гарантирует доступность 100% объема оперативной памяти.
+Поскольку проекты запускаются на разных платформах Yandex Cloud с разными вычислительными мощностями, DataSphere не гарантирует доступность 100% объема оперативной памяти.
 
 {% endnote %}
 
@@ -35,6 +35,6 @@
 
 #### См. также
 
-* [{#T}](../operations/projects/control-compute-resources.md)
-* [{#T}](../../compute/concepts/performance-levels.md)
-* [{#T}](../../compute/concepts/gpus.md)
+* [Выбрать вычислительные ресурсы](../operations/projects/control-compute-resources.md)
+* [Уровни производительности vCPU](../../compute/concepts/performance-levels.md)
+* [Графические ускорители GPU](../../compute/concepts/gpus.md)

@@ -1,12 +1,12 @@
 # Классификация изображений на видеокадрах
 
-{{ ml-platform-full-name }} позволяет строить [модели машинного обучения](../../glossary/ml-models.md), используя интерфейс {{ jlab }} Notebook.
+Yandex DataSphere позволяет строить [модели машинного обучения](../../glossary/ml-models.md), используя интерфейс Jupyter Notebook.
 
-В этом руководстве решена задача бинарной классификации изображений. Такая задача возникает при определении типа транспортного средства по изображению с камеры видеонаблюдения. Предполагается, что система управления видеомониторингом захватывает изображения с камеры при обнаружении движения и сохраняет их в бакет {{ objstorage-full-name }}.
+В этом руководстве решена задача бинарной классификации изображений. Такая задача возникает при определении типа транспортного средства по изображению с камеры видеонаблюдения. Предполагается, что система управления видеомониторингом захватывает изображения с камеры при обнаружении движения и сохраняет их в бакет Yandex Object Storage.
 
 Чтобы познакомиться с решением задачи:
 1. [Подготовьте инфраструктуру](#deploy-infrastructure).
-1. [Настройте {{ ml-platform-name }}](#project).
+1. [Настройте DataSphere](#project).
 1. [Создайте секреты](#create-secrets).
 1. [Подготовьте ноутбуки](#set-notebooks).
 1. [Установите зависимости](#satisfy-dependencies).
@@ -20,28 +20,28 @@
 
 ## Перед началом работы {#before-you-begin}
 
-Перед началом работы нужно зарегистрироваться в {{ yandex-cloud }}, настроить [сообщество](../concepts/community.md) и привязать к нему [платежный аккаунт](../../billing/concepts/billing-account.md):
-1. [На главной странице {{ ml-platform-name }}]({{ link-datasphere-main }}) нажмите **Попробовать бесплатно** и выберите аккаунт для входа — Яндекс ID или рабочий аккаунт в федерации (SSO).
-1. Выберите [организацию {{ org-full-name }}](../../organization/index.md), в которой вы будете работать в {{ yandex-cloud }}.
+Перед началом работы нужно зарегистрироваться в Yandex Cloud, настроить [сообщество](../concepts/community.md) и привязать к нему [платежный аккаунт](../../billing/concepts/billing-account.md):
+1. [На главной странице DataSphere](https://datasphere.yandex.cloud) нажмите **Попробовать бесплатно** и выберите аккаунт для входа — Яндекс ID или рабочий аккаунт в федерации (SSO).
+1. Выберите [организацию Yandex Identity Hub](../../organization/index.md), в которой вы будете работать в Yandex Cloud.
 1. [Создайте сообщество](../operations/community/create.md).
-1. [Привяжите платежный аккаунт](../operations/community/link-ba.md) к сообществу {{ ml-platform-name }}, в котором вы будете работать. Убедитесь, что у вас подключен платежный аккаунт, и он находится в [статусе](../../billing/concepts/billing-account-statuses.md) `ACTIVE` или `TRIAL_ACTIVE`. Если платежного аккаунта нет, создайте его в интерфейсе {{ ml-platform-name }}.
+1. [Привяжите платежный аккаунт](../operations/community/link-ba.md) к сообществу DataSphere, в котором вы будете работать. Убедитесь, что у вас подключен платежный аккаунт, и он находится в [статусе](../../billing/concepts/billing-account-statuses.md) `ACTIVE` или `TRIAL_ACTIVE`. Если платежного аккаунта нет, создайте его в интерфейсе DataSphere.
 
 ### Необходимые платные ресурсы {#paid-resources}
 
 В стоимость работы модели входит:
 
-* плата за использование бакета (см. [тарифы {{ objstorage-full-name }}](../../storage/pricing.md)).
-* плата за использование вычислительных ресурсов (см. [тарифы {{ ml-platform-full-name }}](../pricing.md)).
+* плата за использование бакета (см. [тарифы Yandex Object Storage](../../storage/pricing.md)).
+* плата за использование вычислительных ресурсов (см. [тарифы Yandex DataSphere](../pricing.md)).
 
 ## Подготовьте инфраструктуру {#deploy-infrastructure}
 
-Войдите в [консоль управления]({{ link-console-main }}) {{ yandex-cloud }} и выберите организацию, в которой вы работаете с {{ ml-platform-name }}. На странице [**{{ ui-key.yacloud_billing.billing.label_service }}**]({{ link-console-billing }}) убедитесь, что у вас подключен платежный аккаунт.
+Войдите в [консоль управления](https://console.yandex.cloud) Yandex Cloud и выберите организацию, в которой вы работаете с DataSphere. На странице [**Yandex Cloud Billing**](https://center.yandex.cloud/billing/accounts) убедитесь, что у вас подключен платежный аккаунт.
 
-Если у вас есть активный платежный аккаунт, на [странице облака]({{ link-console-cloud }}) вы можете создать или выбрать каталог, в котором будет работать ваша инфраструктура.
+Если у вас есть активный платежный аккаунт, на [странице облака](https://console.yandex.cloud/cloud) вы можете создать или выбрать каталог, в котором будет работать ваша инфраструктура.
 
 {% note info %}
 
-Если вы работаете с {{ yandex-cloud }} через [федерацию удостоверений](../../organization/concepts/add-federation.md), вам может быть недоступна платежная информация. В этом случае обратитесь к администратору вашей организации в {{ yandex-cloud }}.
+Если вы работаете с Yandex Cloud через [федерацию удостоверений](../../organization/concepts/add-federation.md), вам может быть недоступна платежная информация. В этом случае обратитесь к администратору вашей организации в Yandex Cloud.
 
 {% endnote %}
 
@@ -53,9 +53,9 @@
 
 - Консоль управления {#console}
 
-   1. В [консоли управления]({{ link-console-main }}) выберите облако и нажмите кнопку ![create](../../_assets/console-icons/plus.svg) **{{ ui-key.yacloud.component.console-dashboard.button_action-create-folder }}**.
+   1. В [консоли управления](https://console.yandex.cloud) выберите облако и нажмите кнопку ![create](../../_assets/console-icons/plus.svg) **Создать каталог**.
    1. Введите имя каталога, например `data-folder`.
-   1. Нажмите кнопку **{{ ui-key.yacloud.iam.cloud.folders-create.button_create }}**.
+   1. Нажмите кнопку **Создать**.
 
 {% endlist %}
 
@@ -66,33 +66,33 @@
 - Консоль управления {#console}
 
    1. Перейдите в каталог `data-folder`.
-   1. [Перейдите]( ../../console/operations/select-service.md#select-service) в сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_iam }}**.
-   1. Нажмите кнопку **{{ ui-key.yacloud.iam.folder.service-accounts.button_add }}**.
+   1. [Перейдите]( ../../console/operations/select-service.md#select-service) в сервис **Identity and Access Management**.
+   1. Нажмите кнопку **Создать сервисный аккаунт**.
    1. Введите имя [сервисного аккаунта](../../iam/concepts/users/service-accounts.md), например `sa-for-project`.
-   1. Нажмите **{{ ui-key.yacloud.iam.folder.service-account.label_add-role }}** и назначьте сервисному аккаунту [роли](../../iam/concepts/access-control/roles.md):
-      * `storage.viewer` — для чтения данных из бакета {{ objstorage-name }}.
+   1. Нажмите **Добавить роль** и назначьте сервисному аккаунту [роли](../../iam/concepts/access-control/roles.md):
+      * `storage.viewer` — для чтения данных из бакета Object Storage.
       * `vpc.gateways.user` — для работы с подсетью.
 
-   1. Нажмите кнопку **{{ ui-key.yacloud.iam.folder.service-account.popup-robot_button_add }}**.
+   1. Нажмите кнопку **Создать**.
 
 {% endlist %}
 
 ### Создайте статический ключ доступа для сервисного аккаунта {#create-key}
 
-Чтобы сервисный аккаунт мог аутентифицироваться в {{ objstorage-name }}, создайте [статический ключ доступа](../../iam/concepts/authorization/access-key.md). 
+Чтобы сервисный аккаунт мог аутентифицироваться в Object Storage, создайте [статический ключ доступа](../../iam/concepts/authorization/access-key.md). 
 
 {% list tabs group=instructions %}
 
 - Консоль управления {#console}
 
   1. Перейдите в каталог `data-folder`.
-  1. [Перейдите]( ../../console/operations/select-service.md#select-service) в сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_iam }}**.
-  1. На панели слева выберите ![FaceRobot](../../_assets/console-icons/face-robot.svg) **{{ ui-key.yacloud.iam.label_service-accounts }}**.
+  1. [Перейдите]( ../../console/operations/select-service.md#select-service) в сервис **Identity and Access Management**.
+  1. На панели слева выберите ![FaceRobot](../../_assets/console-icons/face-robot.svg) **Сервисные аккаунты**.
   1. В открывшемся списке выберите сервисный аккаунт `sa-for-project`.
-  1. Нажмите кнопку **{{ ui-key.yacloud.iam.folder.service-account.overview.button_create-key-popup }}** на верхней панели.
-  1. Выберите пункт **{{ ui-key.yacloud.iam.folder.service-account.overview.button_create_service-account-key }}**.
+  1. Нажмите кнопку **Создать новый ключ** на верхней панели.
+  1. Выберите пункт **Создать статический ключ доступа**.
   1. Задайте описание ключа, чтобы потом было проще найти его в консоли управления.
-  1. Сохраните идентификатор и секретный ключ: секретный ключ не сохраняется в {{ yandex-cloud }}, поэтому его нельзя будет посмотреть в консоли управления.
+  1. Сохраните идентификатор и секретный ключ: секретный ключ не сохраняется в Yandex Cloud, поэтому его нельзя будет посмотреть в консоли управления.
 
 {% endlist %}
 
@@ -103,32 +103,32 @@
 - Консоль управления {#console}
 
    1. Перейдите в каталог `data-folder`.
-   1. [Перейдите]( ../../console/operations/select-service.md#select-service) в сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_vpc }}**.
-   1. На панели слева выберите **{{ ui-key.yacloud.vpc.switch_gateways }}**.
-   1. Нажмите кнопку **{{ ui-key.yacloud.common.create }}** и задайте настройки шлюза:
+   1. [Перейдите]( ../../console/operations/select-service.md#select-service) в сервис **Virtual Private Cloud**.
+   1. На панели слева выберите **Шлюзы**.
+   1. Нажмите кнопку **Создать** и задайте настройки шлюза:
       * Введите имя шлюза, например `nat-for-cluster`.
-      * **{{ ui-key.yacloud.vpc.gateways.field_type }}** шлюза — **{{ ui-key.yacloud.vpc.gateways.value_gateway-type-egress-nat }}**.
-      * Нажмите кнопку **{{ ui-key.yacloud.common.save }}**.
+      * **Тип** шлюза — **NAT-шлюз**.
+      * Нажмите кнопку **Сохранить**.
 
    Создайте таблицу маршрутизации:
 
-   1. На панели слева выберите **{{ ui-key.yacloud.vpc.network.switch_route-table }}**.
-   1. Нажмите кнопку **{{ ui-key.yacloud.common.create }}** и введите параметры таблицы маршрутизации:
+   1. На панели слева выберите **Таблицы маршрутизации**.
+   1. Нажмите кнопку **Создать** и введите параметры таблицы маршрутизации:
       1. Введите имя, например `route-table`.
       1. Выберите сеть каталога `data-folder`.
-      1. Нажмите кнопку **{{ ui-key.yacloud.vpc.route-table-form.label_add-static-route }}**.
-         * В открывшемся окне в поле **{{ ui-key.yacloud.vpc.route-table-form.label_next-hop-address }}** выберите **{{ ui-key.yacloud.vpc.add-static-route.value_gateway }}**.
-         * В поле **{{ ui-key.yacloud.vpc.add-static-route.value_gateway }}** выберите созданный NAT-шлюз. Префикс назначения заполнится автоматически.
-         * Нажмите кнопку **{{ ui-key.yacloud.vpc.add-static-route.button_add }}**.
-   1. Нажмите кнопку **{{ ui-key.yacloud.vpc.route-table.create.button_create }}**.
+      1. Нажмите кнопку **Добавить маршрут**.
+         * В открывшемся окне в поле **Next hop** выберите **Шлюз**.
+         * В поле **Шлюз** выберите созданный NAT-шлюз. Префикс назначения заполнится автоматически.
+         * Нажмите кнопку **Добавить**.
+   1. Нажмите кнопку **Создать таблицу маршрутизации**.
 
    Привяжите таблицу маршрутизации к одной из подсетей, чтобы направить трафик из нее через NAT-шлюз:
 
-   1. На панели слева выберите ![image](../../_assets/console-icons/nodes-right.svg) **{{ ui-key.yacloud.vpc.switch_networks }}**.
+   1. На панели слева выберите ![image](../../_assets/console-icons/nodes-right.svg) **Подсети**.
    1. В строке нужной подсети нажмите кнопку ![image](../../_assets/console-icons/ellipsis.svg).
-   1. В открывшемся меню выберите пункт **{{ ui-key.yacloud.vpc.subnetworks.button_action-add-route-table }}**.
+   1. В открывшемся меню выберите пункт **Привязать таблицу маршрутизации**.
    1. В открывшемся окне выберите созданную таблицу в списке.
-   1. Нажмите кнопку **{{ ui-key.yacloud.vpc.subnet.add-route-table.button_add }}**.
+   1. Нажмите кнопку **Привязать**.
 
 {% endlist %}
 
@@ -139,8 +139,8 @@
 - Консоль управления {#console}
 
    1. Перейдите в каталог `data-folder`.
-   1. [Перейдите]( ../../console/operations/select-service.md#select-service) в сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_storage }}**.
-   1. Нажмите **{{ ui-key.yacloud.storage.buckets.button_create }}**.
+   1. [Перейдите]( ../../console/operations/select-service.md#select-service) в сервис **Object Storage**.
+   1. Нажмите **Создать бакет**.
    1. На странице создания бакета:
       1. Введите имя бакета в соответствии с [правилами именования](../../storage/concepts/bucket.md#naming).
       
@@ -150,32 +150,32 @@
 
          {% endnote %}
 
-      1. В полях **{{ ui-key.yacloud.storage.bucket.settings.field_access-read }}**, **{{ ui-key.yacloud.storage.bucket.settings.field_access-list }}** и **{{ ui-key.yacloud.storage.bucket.settings.field_access-config-read }}** выберите **{{ ui-key.yacloud.storage.bucket.settings.access_value_private }}**.
+      1. В полях **Чтение объектов**, **Чтение списка объектов** и **Чтение настроек** выберите **С авторизацией**.
       1. При необходимости ограничьте максимальный размер бакета.
-   1. Нажмите **{{ ui-key.yacloud.storage.buckets.create.button_create }}** для завершения операции.
+   1. Нажмите **Создать бакет** для завершения операции.
 
 {% endlist %}
 
-## Настройте {{ ml-platform-name }} {#project}
+## Настройте DataSphere {#project}
 
 ### Создайте проект {#create-project}
 
-1. Откройте [главную страницу]({{ link-datasphere-main }}) {{ ml-platform-name }}.
-1. На панели слева выберите ![image](../../_assets/console-icons/circles-concentric.svg) **{{ ui-key.yc-ui-datasphere.common.spaces }}**.
+1. Откройте [главную страницу](https://datasphere.yandex.cloud) DataSphere.
+1. На панели слева выберите ![image](../../_assets/console-icons/circles-concentric.svg) **Сообщества**.
 1. Выберите сообщество, в котором вы хотите создать проект.
-1. На странице сообщества нажмите кнопку ![image](../../_assets/console-icons/folder-plus.svg) **{{ ui-key.yc-ui-datasphere.projects.create-project }}**.
+1. На странице сообщества нажмите кнопку ![image](../../_assets/console-icons/folder-plus.svg) **Создать проект**.
 1. В открывшемся окне укажите имя и (опционально) описание проекта.
-1. Нажмите кнопку **{{ ui-key.yc-ui-datasphere.common.create }}**.
+1. Нажмите кнопку **Создать**.
 
 ### Измените настройки проекта {#change-settings}
 
-1. Выберите нужный проект в своем сообществе или на [главной странице]({{ link-datasphere-main }}) {{ ml-platform-name }} во вкладке **{{ ui-key.yc-ui-datasphere.main-page.recent-projects }}**.
-1. Перейдите на вкладку **{{ ui-key.yc-ui-datasphere.project-page.tab.settings }}**.
-1. В блоке **{{ ui-key.yc-ui-datasphere.edit-project-page.advanced-settings }}** нажмите кнопку **![pencil](../../_assets/console-icons/pencil-to-line.svg) {{ ui-key.yc-ui-datasphere.common.edit }}**.
+1. Выберите нужный проект в своем сообществе или на [главной странице](https://datasphere.yandex.cloud) DataSphere во вкладке **Недавние проекты**.
+1. Перейдите на вкладку **Настройки**.
+1. В блоке **Расширенные настройки** нажмите кнопку **![pencil](../../_assets/console-icons/pencil-to-line.svg) Редактировать**.
 1. Укажите параметры:
-   * **{{ ui-key.yc-ui-datasphere.project-page.settings.default-folder }}** — `data-folder`.
-   * **{{ ui-key.yc-ui-datasphere.project-page.settings.service-account }}** — `sa-for-project`.
-   * **{{ ui-key.yc-ui-datasphere.project-page.settings.subnet }}** — подсеть зоны доступности `{{ region-id }}-a` в каталоге `data-folder`.
+   * **Каталог по умолчанию** — `data-folder`.
+   * **Сервисный аккаунт** — `sa-for-project`.
+   * **Подсеть** — подсеть зоны доступности `ru-central1-a` в каталоге `data-folder`.
 
    {% note info %}
    
@@ -183,18 +183,18 @@
    
    {% endnote %}
 
-   * **{{ ui-key.yc-ui-datasphere.edit-project-page.security-group }}** — укажите [группу безопасности](../../vpc/concepts/security-groups.md), если они используются в вашей организации.
-1. Нажмите **{{ ui-key.yc-ui-datasphere.common.save }}**.
+   * **Группа безопасности** — укажите [группу безопасности](../../vpc/concepts/security-groups.md), если они используются в вашей организации.
+1. Нажмите **Сохранить**.
 
 ## Создайте секреты {#create-secrets}
 
 Создайте [секреты](../concepts/secrets.md) для хранения идентификатора и секретной части статического ключа доступа: 
 
-1. В блоке **{{ ui-key.yc-ui-datasphere.project-page.project-resources }}** на странице проекта нажмите ![secret](../../_assets/console-icons/shield-check.svg)**{{ ui-key.yc-ui-datasphere.resources.secret }}**.
-1. Нажмите кнопку **{{ ui-key.yc-ui-datasphere.common.create }}**.
-1. В поле **{{ ui-key.yc-ui-datasphere.secret.name }}** задайте имя секрета. Секрет с идентификатором статического ключа назовите `token`, а секрет с секретной частью — `key_value`.
-1. В поле **{{ ui-key.yc-ui-datasphere.secret.content }}** введите значение, которое будет храниться в зашифрованном виде.
-1. Нажмите кнопку **{{ ui-key.yc-ui-datasphere.common.create }}**. Откроется страница с информацией о созданном секрете.
+1. В блоке **Ресурсы проекта** на странице проекта нажмите ![secret](../../_assets/console-icons/shield-check.svg)**Секрет**.
+1. Нажмите кнопку **Создать**.
+1. В поле **Имя** задайте имя секрета. Секрет с идентификатором статического ключа назовите `token`, а секрет с секретной частью — `key_value`.
+1. В поле **Значение** введите значение, которое будет храниться в зашифрованном виде.
+1. Нажмите кнопку **Создать**. Откроется страница с информацией о созданном секрете.
 
 ## Подготовьте ноутбуки {#set-notebooks}
 
@@ -236,7 +236,7 @@
 
 В решении используется [интерфейс Keras](https://keras.io/about/) библиотеки TensorFlow с [CNTK-бэкендом](https://docs.microsoft.com/en-us/cognitive-toolkit/). Пакет `boto3` необходим для подключения к бакету с изображениями. Также в ячейке задаются переменные окружения, необходимые для работы с CNTK-бэкендом и подключения к бакету.
 
-Указанные в ячейке пакеты уже установлены в {{ ml-platform-name }} и импортируются с помощью команды `import`. Полный список предустановленных в {{ ml-platform-name }} пакетов см. в разделе [{#T}](../concepts/preinstalled-packages.md).
+Указанные в ячейке пакеты уже установлены в DataSphere и импортируются с помощью команды `import`. Полный список предустановленных в DataSphere пакетов см. в разделе [Список предустановленного ПО](../concepts/preinstalled-packages.md).
 
 ## Загрузите и разметьте данные {#load-dataset}
 
@@ -377,8 +377,8 @@
 
 Есть несколько вариантов практического применения построенной модели:
 
-* На основе кода предлагаемого решения можно запустить веб-сервис с помощью [{{ sf-full-name }}](../../functions/index.md) и анализировать изображения при наступлении соответствующего события в видеомониторинге.
-* Для параллельной обработки изображений, приходящих с большого количества видеокамер в S3-бакет, можно загрузить код в кластер Apache Spark™ в [{{ dataproc-full-name }}](../../data-proc/index.md) с помощью пакета PySpark.
+* На основе кода предлагаемого решения можно запустить веб-сервис с помощью [Yandex Cloud Functions](../../functions/index.md) и анализировать изображения при наступлении соответствующего события в видеомониторинге.
+* Для параллельной обработки изображений, приходящих с большого количества видеокамер в S3-бакет, можно загрузить код в кластер Apache Spark™ в [Yandex Data Processing](../../data-proc/index.md) с помощью пакета PySpark.
 
 
 ## Как удалить созданные ресурсы {#clear-out}

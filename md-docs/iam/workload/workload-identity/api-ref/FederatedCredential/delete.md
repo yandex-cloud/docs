@@ -5,7 +5,7 @@ Deletes the specified federated credential.
 ## HTTP request
 
 ```
-DELETE https://iam.{{ api-host }}/iam/v1/workload/federatedCredentials/{federatedCredentialId}
+DELETE https://iam.api.cloud.yandex.net/iam/v1/workload/federatedCredentials/{federatedCredentialId}
 ```
 
 ## Path parameters

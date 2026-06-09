@@ -5,7 +5,7 @@ Restarts hosts.
 ## HTTP request
 
 ```
-POST https://{{ api-host-mdb }}/managed-mongodb/v1/clusters/{clusterId}:restartHosts
+POST https://mdb.api.cloud.yandex.net/managed-mongodb/v1/clusters/{clusterId}:restartHosts
 ```
 
 ## Path parameters

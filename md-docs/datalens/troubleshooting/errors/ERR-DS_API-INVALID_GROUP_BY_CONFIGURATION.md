@@ -1,4 +1,4 @@
-# [{{ datalens-full-name }}] Invalid grouping configuration
+# [Yandex DataLens] Invalid grouping configuration
 
 `ERR.DS_API.INVALID_GROUP_BY_CONFIGURATION`
 

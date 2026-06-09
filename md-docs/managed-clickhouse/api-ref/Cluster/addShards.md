@@ -5,7 +5,7 @@ Creates one or more shards in the specified cluster.
 ## HTTP request
 
 ```
-POST https://{{ api-host-mdb }}/managed-clickhouse/v1/clusters/{clusterId}/shards:batchCreate
+POST https://mdb.api.cloud.yandex.net/managed-clickhouse/v1/clusters/{clusterId}/shards:batchCreate
 ```
 
 ## Path parameters

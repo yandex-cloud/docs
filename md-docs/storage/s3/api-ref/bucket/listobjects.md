@@ -39,10 +39,10 @@ GET /{bucket}?list-type=2&continuation-token=ContinuationToken&delimiter=Delimit
 Параметр | Описание
 ----- | -----
 `continuation-token` | Используется для получения следующей части списка, если все результаты не помещаются в один ответ.<br/>Чтобы получить следующую часть списка, используйте значение `NextContinuationToken` из предыдущего ответа.
-`delimiter` | Символ-разделитель.<br/><br/>Если параметр указан, то {{ objstorage-name }} рассматривает ключ как путь к файлу, где каталоги разделяются символом `delimiter`. В ответе на запрос пользователь увидит перечень <q>файлов</q> и <q>каталогов</q> в бакете. <q>Файлы</q> будут выведены в элементах `Contents`, а <q>каталоги</q> в элементах `CommonPrefixes`.<br/><br/>Если в запросе указан еще и параметр `prefix`, то {{ objstorage-name }} вернет перечень <q>файлов</q> и <q>каталогов</q> в <q>каталоге</q> `prefix`.
-`encoding-type` | Кодировка ответа от сервера.<br/><br/>{{ objstorage-name }} по требованию клиента может закодировать ответ в требуемом виде.<br/><br/>Возможные значения: `url`.
-`max-keys` | Максимальное количество элементов в ответе.<br/><br/>По умолчанию {{ objstorage-name }} выдает не более 1000 элементов `Contents` и `CommonPrefixes`. Параметр следует использовать, если вам нужно получать менее 1000 элементов в одном ответе.<br/><br/>Если под критерии отбора попадает больше ключей, чем поместилось в выдаче, то ответ содержит `<IsTruncated>true</IsTruncated>`.<br/><br/>Чтобы получить все элементы выдачи, если их больше `max-keys`, необходимо выполнить несколько последовательных запросов к {{ objstorage-name }} с параметром `continuation-token`, где для каждого запроса `continuation-token` равен значению элемента `NextContinuationToken` из предыдущего ответа.
-`prefix` | Строка, с которой должен начинаться ключ.<br/><br/>{{ objstorage-name }} выберет только те ключи, которые начинаются с `prefix`.<br/><br/>Может использоваться одновременно с параметром `delimiter`. В этом случае логика выдачи определяется параметром `delimiter`.
+`delimiter` | Символ-разделитель.<br/><br/>Если параметр указан, то Object Storage рассматривает ключ как путь к файлу, где каталоги разделяются символом `delimiter`. В ответе на запрос пользователь увидит перечень <q>файлов</q> и <q>каталогов</q> в бакете. <q>Файлы</q> будут выведены в элементах `Contents`, а <q>каталоги</q> в элементах `CommonPrefixes`.<br/><br/>Если в запросе указан еще и параметр `prefix`, то Object Storage вернет перечень <q>файлов</q> и <q>каталогов</q> в <q>каталоге</q> `prefix`.
+`encoding-type` | Кодировка ответа от сервера.<br/><br/>Object Storage по требованию клиента может закодировать ответ в требуемом виде.<br/><br/>Возможные значения: `url`.
+`max-keys` | Максимальное количество элементов в ответе.<br/><br/>По умолчанию Object Storage выдает не более 1000 элементов `Contents` и `CommonPrefixes`. Параметр следует использовать, если вам нужно получать менее 1000 элементов в одном ответе.<br/><br/>Если под критерии отбора попадает больше ключей, чем поместилось в выдаче, то ответ содержит `<IsTruncated>true</IsTruncated>`.<br/><br/>Чтобы получить все элементы выдачи, если их больше `max-keys`, необходимо выполнить несколько последовательных запросов к Object Storage с параметром `continuation-token`, где для каждого запроса `continuation-token` равен значению элемента `NextContinuationToken` из предыдущего ответа.
+`prefix` | Строка, с которой должен начинаться ключ.<br/><br/>Object Storage выберет только те ключи, которые начинаются с `prefix`.<br/><br/>Может использоваться одновременно с параметром `delimiter`. В этом случае логика выдачи определяется параметром `delimiter`.
 `start-after` | Ключ, с которого нужно начать листинг.
 
 #### Заголовки {#request-headersV2}
@@ -56,7 +56,7 @@ GET /{bucket}?list-type=2&continuation-token=ContinuationToken&delimiter=Delimit
 
 #### Коды ответов {#response-codesV2}
 
-Перечень возможных ответов смотрите в разделе [{#T}](../response-codes.md).
+Перечень возможных ответов смотрите в разделе [Ответы](../response-codes.md).
 
 Успешный ответ содержит дополнительные данные в формате XML, схема которого описана ниже.
 
@@ -105,7 +105,7 @@ GET /{bucket}?list-type=2&continuation-token=ContinuationToken&delimiter=Delimit
 `Delimiter` | Значение query-параметра `delimiter`.<br/><br/>Путь: `/ListBucketResult/Delimiter`.
 `MaxKeys` | Значение query-параметра `max-keys`.<br/><br/>Путь: `/ListBucketResult/MaxKeys`.
 `CommonPrefixes` | Часть имени ключа, которая определяется при обработке query-параметров `delimiter` и `prefix`.<br/><br/>Путь: `/ListBucketResult/CommonPrefixes`.
-`EncodingType` | Кодировка, в которой {{ objstorage-name }} представляет ключ в XML-ответе.<br/><br/>Появляется, если клиент при запросе передал параметр `encoding-type`.<br/><br/>Путь: `/ListBucketResult/EncodingType`.
+`EncodingType` | Кодировка, в которой Object Storage представляет ключ в XML-ответе.<br/><br/>Появляется, если клиент при запросе передал параметр `encoding-type`.<br/><br/>Путь: `/ListBucketResult/EncodingType`.
 `KeyCount` | Количество ключей, возвращенных запросом.<br/>Количество ключей всегда будет меньше или равно `MaxKeys`.<br/><br/>Путь: `/ContinuationToken/KeyCount`.
 `ContinuationToken` | Значение query-параметра `continuation-token`.<br/><br/>Путь: `/ContinuationToken/ContinuationToken`.
 `NextContinuationToken` | Значение, которое надо подставить в query-параметр `continuation-token` для получения следующей части списка, если весь список не поместился в текущий ответ.<br/>Возвращается только в том случае, если `IsTruncated = true`.<br/><br/>Путь: `/ListBucketResult/NextContinuationToken`.
@@ -131,11 +131,11 @@ GET /{bucket}?delimiter=Delimiter&encoding-type=EncodingType&marker=Marker&max-k
 
 Параметр | Описание
 ----- | -----
-`delimiter` | Символ-разделитель.<br/><br/>Если параметр указан, то {{ objstorage-name }} рассматривает ключ как путь к файлу, где каталоги разделяются символом `delimiter`. В ответе на запрос пользователь увидит перечень <q>файлов</q> и <q>каталогов</q> в бакете. <q>Файлы</q> будут выведены в элементах `Contents`, а <q>каталоги</q> в элементах `CommonPrefixes`.<br/><br/>Если в запросе указан еще и параметр `prefix`, то {{ objstorage-name }} вернет перечень <q>файлов</q> и <q>каталогов</q> в <q>каталоге</q> `prefix`.
-`encoding-type` | Кодировка ответа от сервера.<br/><br/>{{ objstorage-name }} по требованию клиента может закодировать ответ в требуемом виде.<br/><br/>Возможные значения: `url`.
-`marker` | Ключ, с которого начнется выдача.<br/><br/>В результирующей выдаче {{ objstorage-name }} оставит ключи, начиная со следующего за `marker`.
-`max-keys` | Максимальное количество элементов в ответе.<br/><br/>По умолчанию {{ objstorage-name }} выдает не более 1000 элементов `Contents` и `CommonPrefixes`. Параметр следует использовать, если вам нужно получать менее 1000 элементов в одном ответе.<br/><br/>Если под критерии отбора попадает больше ключей, чем поместилось в выдаче, то ответ содержит `<IsTruncated>true</IsTruncated>`.<br/><br/>Чтобы получить все элементы выдачи, если их больше `max-keys`, необходимо выполнить несколько последовательных запросов к {{ objstorage-name }} с параметром `marker`, где для каждого запроса `marker` равен значению элемента `NextMarker` из предыдущего ответа.
-`prefix` | Строка, с которой должен начинаться ключ.<br/><br/>{{ objstorage-name }} выберет только те ключи, которые начинаются с `prefix`.<br/><br/>Может использоваться одновременно с параметром `delimiter`. В этом случае логика выдачи определяется параметром `delimiter`.
+`delimiter` | Символ-разделитель.<br/><br/>Если параметр указан, то Object Storage рассматривает ключ как путь к файлу, где каталоги разделяются символом `delimiter`. В ответе на запрос пользователь увидит перечень <q>файлов</q> и <q>каталогов</q> в бакете. <q>Файлы</q> будут выведены в элементах `Contents`, а <q>каталоги</q> в элементах `CommonPrefixes`.<br/><br/>Если в запросе указан еще и параметр `prefix`, то Object Storage вернет перечень <q>файлов</q> и <q>каталогов</q> в <q>каталоге</q> `prefix`.
+`encoding-type` | Кодировка ответа от сервера.<br/><br/>Object Storage по требованию клиента может закодировать ответ в требуемом виде.<br/><br/>Возможные значения: `url`.
+`marker` | Ключ, с которого начнется выдача.<br/><br/>В результирующей выдаче Object Storage оставит ключи, начиная со следующего за `marker`.
+`max-keys` | Максимальное количество элементов в ответе.<br/><br/>По умолчанию Object Storage выдает не более 1000 элементов `Contents` и `CommonPrefixes`. Параметр следует использовать, если вам нужно получать менее 1000 элементов в одном ответе.<br/><br/>Если под критерии отбора попадает больше ключей, чем поместилось в выдаче, то ответ содержит `<IsTruncated>true</IsTruncated>`.<br/><br/>Чтобы получить все элементы выдачи, если их больше `max-keys`, необходимо выполнить несколько последовательных запросов к Object Storage с параметром `marker`, где для каждого запроса `marker` равен значению элемента `NextMarker` из предыдущего ответа.
+`prefix` | Строка, с которой должен начинаться ключ.<br/><br/>Object Storage выберет только те ключи, которые начинаются с `prefix`.<br/><br/>Может использоваться одновременно с параметром `delimiter`. В этом случае логика выдачи определяется параметром `delimiter`.
 
 #### Заголовки {#request-headersV1}
 Используйте в запросе только [общие заголовки](../common-request-headers.md).
@@ -148,7 +148,7 @@ GET /{bucket}?delimiter=Delimiter&encoding-type=EncodingType&marker=Marker&max-k
 
 #### Коды ответов {#response-codesV1}
 
-Перечень возможных ответов смотрите в разделе [{#T}](../response-codes.md).
+Перечень возможных ответов смотрите в разделе [Ответы](../response-codes.md).
 
 Успешный ответ содержит дополнительные данные в формате XML, схема которого описана ниже.
 
@@ -197,17 +197,17 @@ GET /{bucket}?delimiter=Delimiter&encoding-type=EncodingType&marker=Marker&max-k
 `Delimiter` | Значение query-параметра `delimiter`.<br/><br/>Путь: `/ListBucketResult/Delimiter`.
 `MaxKeys` | Значение query-параметра `max-keys`.<br/><br/>Путь: `/ListBucketResult/MaxKeys`.
 `CommonPrefixes` | Часть имени ключа, которая определяется при обработке query-параметров `delimiter` и `prefix`.<br/><br/>Путь: `/ListBucketResult/CommonPrefixes`.
-`EncodingType` | Кодировка, в которой {{ objstorage-name }} представляет ключ в XML-ответе.<br/><br/>Появляется, если клиент при запросе передал параметр `encoding-type`.<br/><br/>Путь: `/ListBucketResult/EncodingType`.
+`EncodingType` | Кодировка, в которой Object Storage представляет ключ в XML-ответе.<br/><br/>Появляется, если клиент при запросе передал параметр `encoding-type`.<br/><br/>Путь: `/ListBucketResult/EncodingType`.
 
 #### Связанные статьи {#related-articles}
 
-* [{#T}](../../../concepts/bucket.md)
+* [Бакет в Object Storage](../../../concepts/bucket.md)
 
-* [{#T}](../../../operations/objects/list.md)
+* [Получение списка объектов в бакете](../../../operations/objects/list.md)
 
 #### См. также {#see-also}
 
-* [{#T}](../../s3-api-quickstart.md)
+* [Начало работы с AWS S3 API в Yandex Object Storage](../../s3-api-quickstart.md)
 
 * [Отладка запросов с помощью утилиты AWS CLI](../../signing-requests.md#debugging)
 

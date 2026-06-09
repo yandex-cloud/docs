@@ -1,10 +1,10 @@
-# Триггер для {{ objstorage-name }}, который вызывает контейнер {{ serverless-containers-name }}
+# Триггер для Object Storage, который вызывает контейнер Serverless Containers
 
-[Триггер](index.md) для {{ objstorage-name }} запускает [контейнер](../container.md) {{ serverless-containers-name }}, когда наступает определенное событие с [объектом](../../../storage/concepts/object.md) {{ objstorage-name }}. Триггер должен находиться в одном облаке с бакетом, на события которого он подписан.
+[Триггер](index.md) для Object Storage запускает [контейнер](../container.md) Serverless Containers, когда наступает определенное событие с [объектом](../../../storage/concepts/object.md) Object Storage. Триггер должен находиться в одном облаке с бакетом, на события которого он подписан.
 
-Триггеру для {{ objstorage-name }} необходим [сервисный аккаунт](../../../iam/concepts/users/service-accounts.md) для вызова контейнера.
+Триггеру для Object Storage необходим [сервисный аккаунт](../../../iam/concepts/users/service-accounts.md) для вызова контейнера.
 
-О том, как создать триггер для {{ objstorage-name }}, читайте в инструкции [{#T}](../../operations/os-trigger-create.md).
+О том, как создать триггер для Object Storage, читайте в инструкции [Создать триггер для Object Storage, который вызывает контейнер Serverless Containers](../../operations/os-trigger-create.md).
 
 ## События для настройки триггера {#event}
 
@@ -25,14 +25,14 @@
 
 Настройки группирования позволяют передавать в контейнер сразу несколько событий. Эти настройки задают ограничение сверху по размеру группы событий и по времени ее накопления. Например, если размер группы событий равен 3, то в контейнер могут поступать группы, в которых содержится от 1 до 3 событий.
 
-## Роли, необходимые для корректной работы триггера для {{ objstorage-name }} {#roles}
+## Роли, необходимые для корректной работы триггера для Object Storage {#roles}
 
 * Для создания триггера вам необходимо разрешение на сервисный аккаунт, от имени которого триггер выполняет операцию. Это разрешение входит в роли [iam.serviceAccounts.user](../../../iam/security/index.md#iam-serviceAccounts-user), [editor](../../../iam/roles-reference.md#editor) и выше.
 * Для работы триггера сервисному аккаунту необходима роль `serverless.containers.invoker` на каталог с контейнером, который вызывает триггер.
 
 Подробнее об [управлении доступом](../../security/index.md).
 
-## Формат сообщения от триггера {{ objstorage-name }} {#format}
+## Формат сообщения от триггера Object Storage {#format}
 
 После того как триггер сработает, он отправит в контейнер следующее сообщение: 
 
@@ -63,5 +63,5 @@
 
 ## См. также {#see-also}
 
-* [{#T}](../../../functions/concepts/trigger/os-trigger.md)
-* [{#T}](../../../api-gateway/concepts/trigger/os-trigger.md)
+* [Триггер для Object Storage, который вызывает функцию Cloud Functions](../../../functions/concepts/trigger/os-trigger.md)
+* [Триггер для Object Storage, который отправляет сообщения в WebSocket-соединения](../../../api-gateway/concepts/trigger/os-trigger.md)

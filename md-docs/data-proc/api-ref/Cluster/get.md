@@ -7,7 +7,7 @@ To get the list of all available clusters, make a [ClusterService.List](list.md#
 ## HTTP request
 
 ```
-GET https://dataproc.{{ api-host }}/dataproc/v1/clusters/{clusterId}
+GET https://dataproc.api.cloud.yandex.net/dataproc/v1/clusters/{clusterId}
 ```
 
 ## Path parameters

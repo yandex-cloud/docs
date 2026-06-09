@@ -5,7 +5,7 @@ Retrieves a list of access bindings for the specified SPQR cluster.
 ## HTTP request
 
 ```
-GET https://{{ api-host-mdb }}/managed-spqr/v1/clusters/{resourceId}:listAccessBindings
+GET https://mdb.api.cloud.yandex.net/managed-spqr/v1/clusters/{resourceId}:listAccessBindings
 ```
 
 ## Path parameters

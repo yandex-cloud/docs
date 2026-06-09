@@ -5,7 +5,7 @@ Stop instances from the instance group.
 ## HTTP request
 
 ```
-POST https://compute.{{ api-host }}/compute/v1/instanceGroups/{instanceGroupId}:stopInstances
+POST https://compute.api.cloud.yandex.net/compute/v1/instanceGroups/{instanceGroupId}:stopInstances
 ```
 
 ## Path parameters

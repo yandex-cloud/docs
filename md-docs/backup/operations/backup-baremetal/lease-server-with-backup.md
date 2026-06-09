@@ -1,7 +1,7 @@
-# Арендовать сервер {{ baremetal-full-name }} с подключением к {{ backup-name }}
+# Арендовать сервер Yandex BareMetal с подключением к Cloud Backup
 
 
-Вы можете создавать резервные копии [серверов](../../../baremetal/concepts/servers.md) {{ baremetal-name }} с поддерживаемыми операционными системами на базе Linux: {#os-support}
+Вы можете создавать резервные копии [серверов](../../../baremetal/concepts/servers.md) BareMetal с поддерживаемыми операционными системами на базе Linux: {#os-support}
 
 * CentOS 7;
 * Debian 11;
@@ -11,13 +11,13 @@
 * Ubuntu 22.04 LTS;
 * Ubuntu 24.04 LTS.
 
-Чтобы подключить сервер к {{ backup-full-name }}, необходима [роль](../../security/index.md#backup-user) `backup.user` или выше.
+Чтобы подключить сервер к Yandex Cloud Backup, необходима [роль](../../security/index.md#backup-user) `backup.user` или выше.
 
 {% note warning %}
 
-С 1 августа 2026 года роли [`baremetal.editor`](../../../baremetal/security/index.md#baremetal-editor) и [`baremetal.admin`](../../../baremetal/security/index.md#baremetal-admin) получают новый набор разрешений, позволяющий подключать серверы {{ baremetal-name }} к сервису {{ backup-full-name }}, а также привязывать и отвязывать их от [политик резервного копирования](../../concepts/policy.md).
+С 1 августа 2026 года роли [`baremetal.editor`](../../../baremetal/security/index.md#baremetal-editor) и [`baremetal.admin`](../../../baremetal/security/index.md#baremetal-admin) получают новый набор разрешений, позволяющий подключать серверы BareMetal к сервису Yandex Cloud Backup, а также привязывать и отвязывать их от [политик резервного копирования](../../concepts/policy.md).
 
-Если вы не планируете подключать ваши ресурсы к {{ backup-name }} и не хотите предоставлять вашим пользователям такие разрешения, вы можете заблаговременно отключить эти возможности с помощью [политики авторизации](../../../iam/concepts/access-control/access-policies.md#backup-denyActivation) `backup.denyActivation`, назначенной на каталог, облако или организацию. Подробнее о том, как создать политику авторизации, читайте в разделе [{#T}](../../../iam/operations/access-policies/assign.md).
+Если вы не планируете подключать ваши ресурсы к Cloud Backup и не хотите предоставлять вашим пользователям такие разрешения, вы можете заблаговременно отключить эти возможности с помощью [политики авторизации](../../../iam/concepts/access-control/access-policies.md#backup-denyActivation) `backup.denyActivation`, назначенной на каталог, облако или организацию. Подробнее о том, как создать политику авторизации, читайте в разделе [Создание политики авторизации для ресурса](../../../iam/operations/access-policies/assign.md).
 
 {% endnote %}
 
@@ -27,9 +27,9 @@
 
 - Консоль управления {#console}
 
-  1. В [консоли управления]({{ link-console-main }}) выберите [каталог](../../../resource-manager/concepts/resources-hierarchy.md#folder), в котором вы хотите арендовать сервер.
-  1. Перейдите в сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_baremetal }}**.
-  1. Нажмите кнопку **{{ ui-key.yacloud.baremetal.label_create-server }}** и в открывшемся окне выберите вариант `{{ ui-key.yacloud_components.baremetal.StockConfigurations }}` и подходящую [конфигурацию](../../../baremetal/concepts/server-configurations.md) сервера {{ baremetal-name }}.
+  1. В [консоли управления](https://console.yandex.cloud) выберите [каталог](../../../resource-manager/concepts/resources-hierarchy.md#folder), в котором вы хотите арендовать сервер.
+  1. Перейдите в сервис **BareMetal**.
+  1. Нажмите кнопку **Заказать сервер** и в открывшемся окне выберите вариант `Готовые конфигурации` и подходящую [конфигурацию](../../../baremetal/concepts/server-configurations.md) сервера BareMetal.
      
      Чтобы выбрать подходящую вам конфигурацию сервера, нажмите на блок с именем этой конфигурации в центральной части экрана.
      
@@ -43,45 +43,45 @@
      
      Вы можете снизить стоимость аренды сервера в некоторых конфигурациях, заказав его [сборку](../../../baremetal/concepts/server-custom-configurations.md#assembly).
      
-     Чтобы воспользоваться скидкой, в блоке с нужной конфигурацией наведите курсор на **{{ ui-key.yacloud_components.baremetal.assemblyDiscountLabel }}** ![circle-info.svg](../../../_assets/console-icons/circle-info.svg) и во всплывающем окне нажмите ![person-nut-hex.svg](../../../_assets/console-icons/person-nut-hex.svg) **{{ ui-key.yacloud_components.baremetal.goToAssembly }}**.
+     Чтобы воспользоваться скидкой, в блоке с нужной конфигурацией наведите курсор на **Дешевле со сборкой** ![circle-info.svg](../../../_assets/console-icons/circle-info.svg) и во всплывающем окне нажмите ![person-nut-hex.svg](../../../_assets/console-icons/person-nut-hex.svg) **Перейти к сборке**.
      
      При заказе сервера со сборкой воспользуйтесь приведенной ниже инструкцией, чтобы задать необходимые параметры сервера. При этом сервер станет доступен вам не сразу, а после завершения сборки (в течение четырех календарных дней) и по более низкой цене.
      
      {% endnote %}
-  1. В блоках **{{ ui-key.yacloud.baremetal.title_section-server-config }}**, **{{ ui-key.yacloud.baremetal.title_section-location }}** и **{{ ui-key.yacloud.baremetal.title_section-lease-conditions }}** убедитесь, что параметры выбранной конфигурации сервера соответствуют вашим потребностям.
+  1. В блоках **Конфигурация**, **Расположение** и **Условия аренды** убедитесь, что параметры выбранной конфигурации сервера соответствуют вашим потребностям.
      
-     Если выбранные параметры вам не подходят, нажмите значок ![arrow-left](../../../_assets/console-icons/arrow-left.svg) в блоке **{{ ui-key.yacloud.baremetal.title_section-server-config }}**, чтобы вернуться к выбору конфигурации.
-  1. В поле **{{ ui-key.yacloud.baremetal.field_server-lease-duration }}** выберите [период](../../../baremetal/concepts/servers.md#server-lease), на который вы хотите арендовать сервер: `1 день`, `1 месяц`, `3 месяца`, `6 месяцев` или `1 год`.
+     Если выбранные параметры вам не подходят, нажмите значок ![arrow-left](../../../_assets/console-icons/arrow-left.svg) в блоке **Конфигурация**, чтобы вернуться к выбору конфигурации.
+  1. В поле **Период аренды** выберите [период](../../../baremetal/concepts/servers.md#server-lease), на который вы хотите арендовать сервер: `1 день`, `1 месяц`, `3 месяца`, `6 месяцев` или `1 год`.
      
      По окончании указанного периода аренда сервера будет автоматически продлена на такой же период. Прервать аренду в течение указанного периода аренды нельзя, но можно [отказаться](../../../baremetal/operations/servers/server-lease-cancel.md) от дальнейшего продления аренды сервера.
-  1. В поле **{{ ui-key.yacloud.baremetal.field_server-count_jPgTg }}** выберите количество серверов данной конфигурации, которое вы хотите арендовать.
-  1. В блоке **{{ ui-key.yacloud.baremetal.title_section-server-product }}** выберите вариант `{{ ui-key.yacloud.baremetal.field_choose-marketplace-os }}` и [операционную систему, поддерживаемую в {{ backup-name }}](#os-support).
-  1. (Опционально) В блоке **{{ ui-key.yacloud.baremetal.title_section-disk }}** настройте разметку [дисков](../../../baremetal/concepts/disks/disk-types.md):
+  1. В поле **Количество серверов** выберите количество серверов данной конфигурации, которое вы хотите арендовать.
+  1. В блоке **Образ** выберите вариант `Marketplace` и [операционную систему, поддерживаемую в Cloud Backup](#os-support).
+  1. (Опционально) В блоке **Диск** настройте разметку [дисков](../../../baremetal/concepts/disks/disk-types.md):
      
-     1. Нажмите кнопку **{{ ui-key.yacloud.baremetal.action_disk-layout-settings }}**.
-     1. Укажите параметры разделов. Чтобы создать новый раздел, нажмите кнопку ![icon](../../../_assets/console-icons/plus.svg) **{{ ui-key.yacloud.baremetal.actions_add-partition }}**.
+     1. Нажмите кнопку **Настроить разделы диска**.
+     1. Укажите параметры разделов. Чтобы создать новый раздел, нажмите кнопку ![icon](../../../_assets/console-icons/plus.svg) **Добавить раздел**.
      
-         Чтобы самостоятельно собрать [RAID](../../../baremetal/concepts/disks/raid.md)-массивы и настроить разделы дисков, нажмите кнопку **{{ ui-key.yacloud.baremetal.action_destroy-raid }}**.
-     1. Нажмите кнопку **{{ ui-key.yacloud.common.save }}**.
+         Чтобы самостоятельно собрать [RAID](../../../baremetal/concepts/disks/raid.md)-массивы и настроить разделы дисков, нажмите кнопку **Разобрать RAID**.
+     1. Нажмите кнопку **Сохранить**.
 
       {% note info %}
       
-      Параметры разметки диска важны для дальнейшего восстановления сервера из резервной копии. Подробнее см. в инструкции [{#T}](../backup-vm/recover.md).
+      Параметры разметки диска важны для дальнейшего восстановления сервера из резервной копии. Подробнее см. в инструкции [Восстановить виртуальную машину или сервер Yandex BareMetal из резервной копии](../backup-vm/recover.md).
       
       {% endnote %}
 
-  1. В блоке **{{ ui-key.yacloud.baremetal.title_section-network-interfaces }}** в разделе **Интерфейс 1** выберите [приватную подсеть](../../../baremetal/concepts/private-network.md#private-subnet) в той [зоне доступности](../../../overview/concepts/geo-scope.md), в которой вы арендуете сервер.
+  1. В блоке **Сетевые интерфейсы** в разделе **Интерфейс 1** выберите [приватную подсеть](../../../baremetal/concepts/private-network.md#private-subnet) в той [зоне доступности](../../../overview/concepts/geo-scope.md), в которой вы арендуете сервер.
      
-     Если в зоне доступности арендуемого сервера еще нет приватной подсети или вы хотите создать новую приватную подсеть, нажмите кнопку **{{ ui-key.yacloud.common.create }}** и в открывшемся окне задайте параметры подсети по инструкции [{#T}](../../../baremetal/operations/subnet-create.md).
-  1. В блоке **{{ ui-key.yacloud.baremetal.title_section-network-interfaces }}** в разделе **Интерфейс 1**:
+     Если в зоне доступности арендуемого сервера еще нет приватной подсети или вы хотите создать новую приватную подсеть, нажмите кнопку **Создать** и в открывшемся окне задайте параметры подсети по инструкции [Создать приватную подсеть](../../../baremetal/operations/subnet-create.md).
+  1. В блоке **Сетевые интерфейсы** в разделе **Интерфейс 1**:
      
-     * В поле **{{ ui-key.yacloud.baremetal.field_needed-public-ip }}** выберите способ назначения публичного адреса:
+     * В поле **Публичный адрес** выберите способ назначения публичного адреса:
      
-         * `{{ ui-key.yacloud.baremetal.label_public-ip-ephemeral }}` — чтобы назначить случайный IP-адрес. Если необходимо получить IP-адрес при создании сервера через запрос к DHCP-серверу, включите опцию **{{ ui-key.yacloud.baremetal.label_public-ip-via-dhcp }}**.
+         * `Из эфемерной подсети` — чтобы назначить случайный IP-адрес. Если необходимо получить IP-адрес при создании сервера через запрос к DHCP-серверу, включите опцию **Назначить по DHCP**.
      
-         * `{{ ui-key.yacloud.baremetal.label_public-ip-from-dedicated-subnet }}` — чтобы назначить IP-адрес из диапазона адресов [выделенной публичной подсети](../../../baremetal/concepts/public-network.md#public-subnet).
+         * `Из выделенной подсети` — чтобы назначить IP-адрес из диапазона адресов [выделенной публичной подсети](../../../baremetal/concepts/public-network.md#public-subnet).
          
-             В появившемся поле выберите публичную подсеть или нажмите кнопку **{{ ui-key.yacloud.baremetal.action_create-public-subnet-from-server }}**, чтобы [заказать](../../../baremetal/operations/reserve-public-subnet.md) новую.
+             В появившемся поле выберите публичную подсеть или нажмите кнопку **Заказать**, чтобы [заказать](../../../baremetal/operations/reserve-public-subnet.md) новую.
          
              {% note warning %}
          
@@ -89,10 +89,10 @@
          
              {% endnote %}
      
-     * В поле **{{ ui-key.yacloud.baremetal.servers.BandwidthRow.bandwidthTitle_wvZra }}** выберите пакет [потребления трафика сервера](../../../baremetal/concepts/network-restrictions.md#bandwidth-for-pubic-network). Доступные пакеты потребления трафика:
+     * В поле **Объём данных** выберите пакет [потребления трафика сервера](../../../baremetal/concepts/network-restrictions.md#bandwidth-for-pubic-network). Доступные пакеты потребления трафика:
        
-       * `{{ ui-key.yacloud.baremetal.servers.BandwidthRow.plan10Tb_2BFQU }}`;
-       * `{{ ui-key.yacloud.baremetal.servers.BandwidthRow.plan100Tb_4AB2b }}`.
+       * `10 ТБ в сутки, ёмкость подключения — 1 Гбит/с`;
+       * `100 ТБ в сутки, ёмкость подключения — 10 Гбит/с`.
        
        {% note info %}
        
@@ -102,101 +102,101 @@
        
        {% endnote %}
      
-     Чтобы [агент {{ backup-name }}](../../concepts/agent.md) мог обмениваться данными с серверами [провайдера резервного копирования](../../concepts/index.md#providers), на сервере должен быть обеспечен сетевой доступ к IP-адресам ресурсов сервиса {{ backup-name }} согласно таблице: {#ip-access}
+     Чтобы [агент Cloud Backup](../../concepts/agent.md) мог обмениваться данными с серверами [провайдера резервного копирования](../../concepts/index.md#providers), на сервере должен быть обеспечен сетевой доступ к IP-адресам ресурсов сервиса Cloud Backup согласно таблице: {#ip-access}
      
-     {{ ui-key.yacloud.vpc.network.security-groups.forms.field_sg-rule-port-range }} | {{ ui-key.yacloud.vpc.network.security-groups.forms.field_sg-rule-protocol }} | {{ ui-key.yacloud.vpc.network.security-groups.forms.field_sg-rule-destination }} | {{ ui-key.yacloud.vpc.network.security-groups.forms.field_sg-rule-cidr-blocks }}
+     Диапазон портов | Протокол | Назначение | CIDR блоки
      --- | --- | --- | ---
-     `80` | `{{ ui-key.yacloud.common.label_tcp }}` | `{{ ui-key.yacloud.vpc.network.security-groups.forms.value_sg-rule-destination-cidr }}` | `213.180.193.0/24`
-     `80` | `{{ ui-key.yacloud.common.label_tcp }}` | `{{ ui-key.yacloud.vpc.network.security-groups.forms.value_sg-rule-destination-cidr }}` | `213.180.204.0/24`
-     `443` | `{{ ui-key.yacloud.common.label_tcp }}` | `{{ ui-key.yacloud.vpc.network.security-groups.forms.value_sg-rule-destination-cidr }}` | `84.47.172.0/24`
-     `443` | `{{ ui-key.yacloud.common.label_tcp }}` | `{{ ui-key.yacloud.vpc.network.security-groups.forms.value_sg-rule-destination-cidr }}` | `84.201.181.0/24`
-     `443` | `{{ ui-key.yacloud.common.label_tcp }}` | `{{ ui-key.yacloud.vpc.network.security-groups.forms.value_sg-rule-destination-cidr }}` | `178.176.128.0/24`
-     `443` | `{{ ui-key.yacloud.common.label_tcp }}` | `{{ ui-key.yacloud.vpc.network.security-groups.forms.value_sg-rule-destination-cidr }}` | `213.180.193.0/24`
-     `443` | `{{ ui-key.yacloud.common.label_tcp }}` | `{{ ui-key.yacloud.vpc.network.security-groups.forms.value_sg-rule-destination-cidr }}` | `213.180.204.0/24`
-     `7770-7800` | `{{ ui-key.yacloud.common.label_tcp }}` | `{{ ui-key.yacloud.vpc.network.security-groups.forms.value_sg-rule-destination-cidr }}` | `84.47.172.0/24`
-     `8443` | `{{ ui-key.yacloud.common.label_tcp }}` | `{{ ui-key.yacloud.vpc.network.security-groups.forms.value_sg-rule-destination-cidr }}` | `84.47.172.0/24`
-     `44445` | `{{ ui-key.yacloud.common.label_tcp }}` | `{{ ui-key.yacloud.vpc.network.security-groups.forms.value_sg-rule-destination-cidr }}` | `51.250.1.0/24`
+     `80` | `TCP` | `CIDR` | `213.180.193.0/24`
+     `80` | `TCP` | `CIDR` | `213.180.204.0/24`
+     `443` | `TCP` | `CIDR` | `84.47.172.0/24`
+     `443` | `TCP` | `CIDR` | `84.201.181.0/24`
+     `443` | `TCP` | `CIDR` | `178.176.128.0/24`
+     `443` | `TCP` | `CIDR` | `213.180.193.0/24`
+     `443` | `TCP` | `CIDR` | `213.180.204.0/24`
+     `7770-7800` | `TCP` | `CIDR` | `84.47.172.0/24`
+     `8443` | `TCP` | `CIDR` | `84.47.172.0/24`
+     `44445` | `TCP` | `CIDR` | `51.250.1.0/24`
      
      
      
      {% note tip %}
      
-     При установке [агента {{ backup-name }}](../../concepts/agent.md) на ВМ или сервер {{ baremetal-name }} может понадобиться доустановить отсутствующие компоненты ПО из интернета. Для этого добавьте в [группу безопасности](../../../vpc/concepts/security-groups.md) следующее правило для исходящего трафика:
-     * **{{ ui-key.yacloud.vpc.network.security-groups.forms.field_sg-rule-port-range }}** — `{{ port-any }}`.
-     * **{{ ui-key.yacloud.vpc.network.security-groups.forms.field_sg-rule-protocol }}** — `{{ ui-key.yacloud.vpc.network.security-groups.forms.value_any }}` (`Any`).
-     * **{{ ui-key.yacloud.vpc.network.security-groups.forms.field_sg-rule-destination }}** — `{{ ui-key.yacloud.vpc.network.security-groups.forms.value_sg-rule-destination-cidr }}`.
-     * **{{ ui-key.yacloud.vpc.network.security-groups.forms.field_sg-rule-cidr-blocks }}** — `0.0.0.0/0`.
-     После установки агента {{ backup-name }} вы можете удалить это правило.
+     При установке [агента Cloud Backup](../../concepts/agent.md) на ВМ или сервер BareMetal может понадобиться доустановить отсутствующие компоненты ПО из интернета. Для этого добавьте в [группу безопасности](../../../vpc/concepts/security-groups.md) следующее правило для исходящего трафика:
+     * **Диапазон портов** — `0-65535`.
+     * **Протокол** — `Любой` (`Any`).
+     * **Назначение** — `CIDR`.
+     * **CIDR блоки** — `0.0.0.0/0`.
+     После установки агента Cloud Backup вы можете удалить это правило.
      
      Для доступа к ВМ по протоколу [SSH](../../../compute/operations/vm-connect/ssh.md) добавьте следующее правило для входящего трафика:
-     * **{{ ui-key.yacloud.vpc.network.security-groups.forms.field_sg-rule-port-range }}** — `22`.
-     * **{{ ui-key.yacloud.vpc.network.security-groups.forms.field_sg-rule-protocol }}** — `{{ ui-key.yacloud.vpc.network.security-groups.forms.value_any }}` (`Any`).
-     * **{{ ui-key.yacloud.vpc.network.security-groups.forms.field_sg-rule-destination }}** — `{{ ui-key.yacloud.vpc.network.security-groups.forms.value_sg-rule-destination-cidr }}`.
-     * **{{ ui-key.yacloud.vpc.network.security-groups.forms.field_sg-rule-cidr-blocks }}** — `0.0.0.0/0`.
+     * **Диапазон портов** — `22`.
+     * **Протокол** — `Любой` (`Any`).
+     * **Назначение** — `CIDR`.
+     * **CIDR блоки** — `0.0.0.0/0`.
      
      {% endnote %}
-  1. В блоке **{{ ui-key.yacloud.baremetal.title_server-access }}**:
+  1. В блоке **Доступ**:
 
-      1. В поле **{{ ui-key.yacloud.baremetal.field_password }}** воспользуйтесь одним из вариантов создания пароля для root-пользователя:
+      1. В поле **Пароль** воспользуйтесь одним из вариантов создания пароля для root-пользователя:
       
-          * Чтобы сгенерировать пароль для root-пользователя, выберите опцию `{{ ui-key.yacloud.baremetal.label_password-plain }}` и нажмите кнопку **{{ ui-key.yacloud.component.password-input.label_button-generate }}**.
+          * Чтобы сгенерировать пароль для root-пользователя, выберите опцию `Новый пароль` и нажмите кнопку **Сгенерировать**.
       
               {% note warning %}
               
-              Этот вариант предусматривает ответственность пользователя за безопасность пароля. Сохраните сгенерированный пароль в надежном месте: он не сохраняется в {{ yandex-cloud }}, и после заказа сервера вы не сможете посмотреть его.
+              Этот вариант предусматривает ответственность пользователя за безопасность пароля. Сохраните сгенерированный пароль в надежном месте: он не сохраняется в Yandex Cloud, и после заказа сервера вы не сможете посмотреть его.
               
               {% endnote %}
       
-          * Чтобы использовать пароль root-пользователя, сохраненный в [секрете](../../../lockbox/concepts/secret.md) {{ lockbox-full-name }}, выберите опцию `{{ ui-key.yacloud.baremetal.label_password-lockbox }}`:
+          * Чтобы использовать пароль root-пользователя, сохраненный в [секрете](../../../lockbox/concepts/secret.md) Yandex Lockbox, выберите опцию `Секрет Lockbox`:
       
-              В полях **{{ ui-key.yacloud.baremetal.label_lockbox-name }}**, **{{ ui-key.yacloud.baremetal.label_lockbox-version }}** и **{{ ui-key.yacloud.baremetal.label_lockbox-key }}** выберите соответственно секрет, его версию и ключ, в которых сохранен ваш пароль.
+              В полях **Имя**, **Версия** и **Ключ** выберите соответственно секрет, его версию и ключ, в которых сохранен ваш пароль.
               
-              Если у вас еще нет секрета {{ lockbox-name }}, нажмите кнопку **{{ ui-key.yacloud.common.create }}**, чтобы создать его.
+              Если у вас еще нет секрета Yandex Lockbox, нажмите кнопку **Создать**, чтобы создать его.
       
-              Этот вариант позволяет вам как задать собственный пароль (тип секрета `{{ ui-key.yacloud.lockbox.FormFields.title_secret-type-custom }}`), так и использовать пароль, сгенерированный автоматически (тип секрета `{{ ui-key.yacloud.lockbox.FormFields.title_secret-type-generated }}`).
+              Этот вариант позволяет вам как задать собственный пароль (тип секрета `Пользовательский`), так и использовать пароль, сгенерированный автоматически (тип секрета `Генерируемый`).
       
-      1. В поле **{{ ui-key.yacloud.baremetal.field_ssh-public-key }}** выберите SSH-ключ, сохраненный в вашем профиле [пользователя организации](../../../organization/concepts/membership.md).
+      1. В поле **Открытый SSH-ключ** выберите SSH-ключ, сохраненный в вашем профиле [пользователя организации](../../../organization/concepts/membership.md).
       
           Если в вашем профиле нет сохраненных SSH-ключей или вы хотите добавить новый ключ:
           
-          1. Нажмите кнопку **{{ ui-key.yacloud.compute.instances.create.button_add-ssh-key }}**.
+          1. Нажмите кнопку **Добавить ключ**.
           1. Задайте имя SSH-ключа.
           1. Выберите вариант:
           
-              * `{{ ui-key.yacloud_components.ssh-key-add-dialog.value_radio-manual }}` — вставьте содержимое открытого [SSH](../../../glossary/ssh-keygen.md)-ключа. Пару SSH-ключей необходимо [создать](../../../compute/operations/vm-connect/ssh.md#creating-ssh-keys) самостоятельно.
-              * `{{ ui-key.yacloud_components.ssh-key-add-dialog.value_radio-upload }}` — загрузите открытую часть SSH-ключа. Пару SSH-ключей необходимо создать самостоятельно.
-              * `{{ ui-key.yacloud_components.ssh-key-add-dialog.value_radio-generate }}` — автоматическое создание пары SSH-ключей.
+              * `Ввести вручную` — вставьте содержимое открытого [SSH](../../../glossary/ssh-keygen.md)-ключа. Пару SSH-ключей необходимо [создать](../../../compute/operations/vm-connect/ssh.md#creating-ssh-keys) самостоятельно.
+              * `Загрузить из файла` — загрузите открытую часть SSH-ключа. Пару SSH-ключей необходимо создать самостоятельно.
+              * `Сгенерировать ключ` — автоматическое создание пары SSH-ключей.
               
                 При добавлении сгенерированного SSH-ключа будет создан и загружен архив с парой ключей. В ОС на базе Linux или macOS распакуйте архив в папку `/home/<имя_пользователя>/.ssh`. В ОС Windows распакуйте архив в папку `C:\Users\<имя_пользователя>/.ssh`. Дополнительно вводить открытый ключ в консоли управления не требуется.
           
-          1. Нажмите кнопку **{{ ui-key.yacloud.common.add }}**.
+          1. Нажмите кнопку **Добавить**.
           
           SSH-ключ будет добавлен в ваш профиль пользователя организации. Если в организации [отключена](../../../organization/operations/os-login-access.md) возможность добавления пользователями SSH-ключей в свои профили, добавленный открытый SSH-ключ будет сохранен только в профиле пользователя внутри создаваемого ресурса.
 
-  1. Включите резервное копирование сервера в {{ backup-name }}:
+  1. Включите резервное копирование сервера в Cloud Backup:
 
-      1. Включите опцию **{{ ui-key.yacloud.baremetal.title_section-server-backups }}**.
+      1. Включите опцию **Резервное копирование**.
       1. Выберите [политику резервного копирования](../../concepts/policy.md) или [создайте](../policy-vm/create.md) новую.
       1. Выберите [сервисный аккаунт](../../../iam/concepts/users/service-accounts.md) с назначенными ролями [`baremetal.editor`](../../../baremetal/security/index.md#baremetal-editor) и [`backup.user`](../../security/index.md#backup-user) или [создайте](../../../iam/operations/sa/create.md) новый.
 
-  1. В блоке **{{ ui-key.yacloud.baremetal.title_section-server-info }}**:
+  1. В блоке **Информация о сервере**:
      
-       1. В поле **{{ ui-key.yacloud.baremetal.field_name }}** введите имя сервера. Требования к имени:
+       1. В поле **Имя** введите имя сервера. Требования к имени:
      
            * длина — от 3 до 63 символов;
            * может содержать строчные буквы латинского алфавита, цифры и дефисы;
            * первый символ — буква, последний — не дефис.
      
-       1. (Опционально) В поле **{{ ui-key.yacloud.baremetal.field_description }}** добавьте описание сервера.
-       1. (Опционально) В поле **{{ ui-key.yacloud.component.label-set.label_labels }}** задайте [метки](../../../resource-manager/concepts/labels.md).
-  1. Нажмите кнопку **{{ ui-key.yacloud.baremetal.label_create-server }}**.
+       1. (Опционально) В поле **Описание** добавьте описание сервера.
+       1. (Опционально) В поле **Метки** задайте [метки](../../../resource-manager/concepts/labels.md).
+  1. Нажмите кнопку **Заказать сервер**.
 
 {% endlist %}
 
-Подробнее об аренде сервера см. в [документации {{ baremetal-name }}](../../../baremetal/operations/servers/server-lease.md).
+Подробнее об аренде сервера см. в [документации BareMetal](../../../baremetal/operations/servers/server-lease.md).
 
 {% note info %}
 
-Если для организации дискового пространства защищаемого ресурса вы используете [LVM](https://ru.wikipedia.org/wiki/LVM), ознакомьтесь с [особенностями](../../concepts/backup.md#lvm) восстановления ресурсов с LVM в {{ backup-name }}.
+Если для организации дискового пространства защищаемого ресурса вы используете [LVM](https://ru.wikipedia.org/wiki/LVM), ознакомьтесь с [особенностями](../../concepts/backup.md#lvm) восстановления ресурсов с LVM в Cloud Backup.
 
 {% endnote %}

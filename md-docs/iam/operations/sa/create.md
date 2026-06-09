@@ -8,7 +8,7 @@
 
 Создайте [сервисный аккаунт](../../concepts/users/service-accounts.md), чтобы управлять ресурсами от имени другой учетной записи.
 
-Чтобы создать сервисный аккаунт, у вас должна быть [роль](../../security/index.md#iam-serviceAccounts-admin) `{{ roles-iam-sa-admin }}` или выше на [каталог](../../../resource-manager/concepts/resources-hierarchy.md#folder).
+Чтобы создать сервисный аккаунт, у вас должна быть [роль](../../security/index.md#iam-serviceAccounts-admin) `iam.serviceAccounts.admin` или выше на [каталог](../../../resource-manager/concepts/resources-hierarchy.md#folder).
 
 {% note info %}
 
@@ -24,9 +24,9 @@
 
 - Консоль управления {#console}
 
-  1. В [консоли управления]({{ link-console-main }}) на панели сверху нажмите ![image](../../../_assets/console-icons/layout-side-content-left.svg) или ![image](../../../_assets/console-icons/chevron-down.svg) и выберите нужный [каталог](../../../resource-manager/concepts/resources-hierarchy.md#folder).
-  1. Перейдите в сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_iam }}**.
-  1. Нажмите кнопку **{{ ui-key.yacloud.iam.folder.service-accounts.button_add }}**.
+  1. В [консоли управления](https://console.yandex.cloud) на панели сверху нажмите ![image](../../../_assets/console-icons/layout-side-content-left.svg) или ![image](../../../_assets/console-icons/chevron-down.svg) и выберите нужный [каталог](../../../resource-manager/concepts/resources-hierarchy.md#folder).
+  1. Перейдите в сервис **Identity and Access Management**.
+  1. Нажмите кнопку **Создать сервисный аккаунт**.
   1. Введите имя сервисного аккаунта.
   
      Требования к формату имени:
@@ -37,11 +37,11 @@
   
      Имя сервисного аккаунта должно быть уникальным в рамках облака.
   
-  1. Нажмите кнопку **{{ ui-key.yacloud.iam.folder.service-account.popup-robot_button_add }}**.
+  1. Нажмите кнопку **Создать**.
 
 - CLI {#cli}
 
-  Если у вас еще нет интерфейса командной строки {{ yandex-cloud }} (CLI), [установите и инициализируйте его](../../../cli/quickstart.md#install).
+  Если у вас еще нет интерфейса командной строки Yandex Cloud (CLI), [установите и инициализируйте его](../../../cli/quickstart.md#install).
 
   По умолчанию используется каталог, указанный при [создании](../../../cli/operations/profile/profile-create.md) профиля CLI. Чтобы изменить каталог по умолчанию, используйте команду `yc config set folder-id <идентификатор_каталога>`. Также для любой команды вы можете указать другой каталог с помощью параметров `--folder-name` или `--folder-id`. Если вы обращаетесь к ресурсу по имени, поиск будет выполнен в каталоге по умолчанию. Если вы обращаетесь к ресурсу по идентификатору, поиск будет выполнен глобально — во всех каталогах с учетом прав доступа.
 
@@ -63,12 +63,12 @@
       * может содержать строчные буквы латинского алфавита, цифры и дефисы;
       * первый символ — буква, последний — не дефис.
 
-- {{ TF }} {#tf}
+- Terraform {#tf}
 
-  Если у вас еще нет {{ TF }}, [установите его и настройте провайдер {{ yandex-cloud }}](../../../tutorials/infrastructure-management/terraform-quickstart.md#install-terraform).
+  Если у вас еще нет Terraform, [установите его и настройте провайдер Yandex Cloud](../../../tutorials/infrastructure-management/terraform-quickstart.md#install-terraform).
   
   
-  Чтобы управлять инфраструктурой с помощью {{ TF }} от имени сервисного аккаунта или пользовательских аккаунтов: аккаунта на Яндексе, федеративного аккаунта и локального пользователя, [аутентифицируйтесь](../../../terraform/authentication.md) соответствующим способом.
+  Чтобы управлять инфраструктурой с помощью Terraform от имени сервисного аккаунта или пользовательских аккаунтов: аккаунта на Яндексе, федеративного аккаунта и локального пользователя, [аутентифицируйтесь](../../../terraform/authentication.md) соответствующим способом.
 
   1. Опишите в конфигурационном файле параметры ресурсов, которые необходимо создать:
     
@@ -84,7 +84,7 @@
      * `description` — описание сервисного аккаунта. Необязательный параметр.
      * `folder_id` — [идентификатор каталога](../../../resource-manager/operations/folder/get-id.md). Необязательный параметр. По умолчанию будет использовано значение, указанное в настройках провайдера.
 
-     Более подробную информацию о параметрах ресурса `yandex_iam_service_account` в {{ TF }}, см. в [документации провайдера]({{ tf-provider-resources-link }}/iam_service_account).
+     Более подробную информацию о параметрах ресурса `yandex_iam_service_account` в Terraform, см. в [документации провайдера](../../../terraform/resources/iam_service_account.md).
     
   1. Проверьте корректность конфигурационных файлов.
 
@@ -107,7 +107,7 @@
 
      1. Подтвердите создание сервисного аккаунта: введите в терминал слово `yes` и нажмите **Enter**.
 
-        После этого будет создан сервисный аккаунт. Проверить появление сервисного аккаунта можно в [консоли управления]({{ link-console-main }}) или с помощью команды [CLI](../../../cli/quickstart.md):
+        После этого будет создан сервисный аккаунт. Проверить появление сервисного аккаунта можно в [консоли управления](https://console.yandex.cloud) или с помощью команды [CLI](../../../cli/quickstart.md):
         
         ```bash
         yc iam service-account list
@@ -135,7 +135,7 @@
     --description "this is my favorite service account"
   ```
 
-- {{ TF }} {#tf}
+- Terraform {#tf}
 
   ```hcl
    resource "yandex_iam_service_account" "sa" {
@@ -156,14 +156,14 @@
       "name": "my-robot",
       "description": "this is my favorite service account"
     }' \
-    https://iam.{{ api-host }}/iam/v1/serviceAccounts
+    https://iam.api.cloud.yandex.net/iam/v1/serviceAccounts
   ```
 
 {% endlist %}
 
 #### См. также {#see-also}
 
-* [{#T}](list-get.md)
-* [{#T}](assign-role-for-sa.md)
-* [{#T}](set-access-bindings.md)
-* [{#T}](../../concepts/users/service-accounts.md#sa-key)
+* [Получение списка сервисных аккаунтов каталога](list-get.md)
+* [Назначение роли сервисному аккаунту](assign-role-for-sa.md)
+* [Настройка прав доступа к сервисному аккаунту](set-access-bindings.md)
+* [Ключи сервисного аккаунта](../../concepts/users/service-accounts.md#sa-key)

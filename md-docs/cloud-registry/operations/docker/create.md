@@ -1,4 +1,4 @@
-# Создать Docker-образ в {{ cloud-registry-name }}
+# Создать Docker-образ в Cloud Registry
 
 В инструкции описано, как создать [Docker-образ](../../concepts/artifacts/docker.md) на основе Dockerfile и собрать его.
 
@@ -21,14 +21,14 @@
 
      ```bash
      docker build . \
-       -t {{ cloud-registry }}/<идентификатор_реестра>/ubuntu:hello
+       -t registry.yandexcloud.net/<идентификатор_реестра>/ubuntu:hello
      ```
 
-     Флаг `-t` присваивает Docker-образу URL вида `{{ cloud-registry }}/<идентификатор_реестра>/<имя_Docker-образа>:<тег>`. Можно собрать Docker-образ без указания тега. В таком случае Docker CLI присвоит метку по умолчанию: `latest`.
+     Флаг `-t` присваивает Docker-образу URL вида `registry.yandexcloud.net/<идентификатор_реестра>/<имя_Docker-образа>:<тег>`. Можно собрать Docker-образ без указания тега. В таком случае Docker CLI присвоит метку по умолчанию: `latest`.
 
 {% endlist %}
 
 После выполнения данных команд будет создан Docker-образ с тегом `hello` в вашем репозитории и полным адресом репозитория, включающим:
-* Адрес сервиса {{ cloud-registry-name }} `{{ cloud-registry }}`.
+* Адрес сервиса Cloud Registry `registry.yandexcloud.net`.
 * Идентификатор вашего реестра `<идентификатор_реестра>`.
 * Имя вашего репозитория `ubuntu`.

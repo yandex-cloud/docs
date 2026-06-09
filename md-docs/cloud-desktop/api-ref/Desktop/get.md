@@ -6,7 +6,7 @@ To get the list of available desktops, make a [List](list.md#List) request.
 ## HTTP request
 
 ```
-GET https://clouddesktops.{{ api-host }}/cloud-desktop/v1/desktops/{desktopId}
+GET https://clouddesktops.api.cloud.yandex.net/cloud-desktop/v1/desktops/{desktopId}
 ```
 
 ## Path parameters

@@ -5,7 +5,7 @@ Adds backends to the specified backend group.
 ## HTTP request
 
 ```
-POST https://alb.{{ api-host }}/apploadbalancer/v1/backendGroups/{backendGroupId}:addBackend
+POST https://alb.api.cloud.yandex.net/apploadbalancer/v1/backendGroups/{backendGroupId}:addBackend
 ```
 
 ## Path parameters

@@ -11,17 +11,17 @@
 
 ## Перед началом работы {#before-you-begin}
 
-Зарегистрируйтесь в {{ yandex-cloud }} и создайте [платежный аккаунт](../../billing/concepts/billing-account.md):
-1. Перейдите в [консоль управления]({{ link-console-main }}), затем войдите в {{ yandex-cloud }} или зарегистрируйтесь.
-1. На странице **[{{ ui-key.yacloud_billing.billing.label_service }}]({{ link-console-billing }})** убедитесь, что у вас подключен платежный аккаунт, и он находится в [статусе](../../billing/concepts/billing-account-statuses.md) `ACTIVE` или `TRIAL_ACTIVE`. Если платежного аккаунта нет, [создайте его](../../billing/quickstart/index.md) и [привяжите](../../billing/operations/pin-cloud.md) к нему облако.
+Зарегистрируйтесь в Yandex Cloud и создайте [платежный аккаунт](../../billing/concepts/billing-account.md):
+1. Перейдите в [консоль управления](https://console.yandex.cloud), затем войдите в Yandex Cloud или зарегистрируйтесь.
+1. На странице **[Yandex Cloud Billing](https://center.yandex.cloud/billing/accounts)** убедитесь, что у вас подключен платежный аккаунт, и он находится в [статусе](../../billing/concepts/billing-account-statuses.md) `ACTIVE` или `TRIAL_ACTIVE`. Если платежного аккаунта нет, [создайте его](../../billing/quickstart/index.md) и [привяжите](../../billing/operations/pin-cloud.md) к нему облако.
 
-Если у вас есть активный платежный аккаунт, вы можете создать или выбрать [каталог](../../resource-manager/concepts/resources-hierarchy.md#folder), в котором будет работать ваша инфраструктура, на [странице облака]({{ link-console-cloud }}).
+Если у вас есть активный платежный аккаунт, вы можете создать или выбрать [каталог](../../resource-manager/concepts/resources-hierarchy.md#folder), в котором будет работать ваша инфраструктура, на [странице облака](https://console.yandex.cloud/cloud).
 
 [Подробнее об облаках и каталогах](../../resource-manager/concepts/resources-hierarchy.md).
 
 ### Необходимые платные ресурсы {#paid-resources}
 
-В стоимость ресурсов входит плата за количество запросов к API-шлюзу и исходящий трафик (см. [тарифы {{ api-gw-full-name }}](../pricing.md)).
+В стоимость ресурсов входит плата за количество запросов к API-шлюзу и исходящий трафик (см. [тарифы Yandex API Gateway](../pricing.md)).
 
 ## Создайте API-шлюз {#create}
 
@@ -29,12 +29,12 @@
 
 - Консоль управления {#console}
 
-    1. В [консоли управления]({{ link-console-main }}) выберите каталог, в котором необходимо создать API-шлюз.
-    1. Перейдите в сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_api-gateway }}**.
-    1. Нажмите кнопку **{{ ui-key.yacloud.serverless-functions.gateways.list.button_create }}**.
-    1. В поле **{{ ui-key.yacloud.common.name }}** введите `websocket`.
-    1. (Опционально) В поле **{{ ui-key.yacloud.common.description }}** введите описание.
-    1. В блок **{{ ui-key.yacloud.serverless-functions.gateways.form.field_spec }}** добавьте спецификацию:
+    1. В [консоли управления](https://console.yandex.cloud) выберите каталог, в котором необходимо создать API-шлюз.
+    1. Перейдите в сервис **API Gateway**.
+    1. Нажмите кнопку **Создать API-шлюз**.
+    1. В поле **Имя** введите `websocket`.
+    1. (Опционально) В поле **Описание** введите описание.
+    1. В блок **Спецификация** добавьте спецификацию:
 
         ```yaml
         openapi: 3.0.0
@@ -69,7 +69,7 @@
                   text/plain: '{"connection_id":"{X-Yc-Apigateway-Websocket-Connection-Id}"}'
         ```
 
-    1. Нажмите кнопку **{{ ui-key.yacloud.serverless-functions.gateways.form.button_create-gateway }}**.
+    1. Нажмите кнопку **Создать**.
 
 {% endlist %}
 
@@ -81,7 +81,7 @@
     npm install -g wscat
     ```
 
-1. Установите соединение с API-шлюзом. Вместо `<домен_API-шлюза>` укажите домен API-шлюза вида `{{ api-host-apigw }}`:
+1. Установите соединение с API-шлюзом. Вместо `<домен_API-шлюза>` укажите домен API-шлюза вида `d5dm1lba80md********.i9******.apigw.yandexcloud.net`:
 
     ```bash
     wscat -c wss://<домен_API-шлюза>/connections
@@ -105,7 +105,7 @@
 
 - CLI {#cli}
 
-    Если у вас еще нет интерфейса командной строки {{ yandex-cloud }} (CLI), [установите и инициализируйте его](../../cli/quickstart.md#install).
+    Если у вас еще нет интерфейса командной строки Yandex Cloud (CLI), [установите и инициализируйте его](../../cli/quickstart.md#install).
 
     По умолчанию используется каталог, указанный при [создании](../../cli/operations/profile/profile-create.md) профиля CLI. Чтобы изменить каталог по умолчанию, используйте команду `yc config set folder-id <идентификатор_каталога>`. Также для любой команды вы можете указать другой каталог с помощью параметров `--folder-name` или `--folder-id`. Если вы обращаетесь к ресурсу по имени, поиск будет выполнен в каталоге по умолчанию. Если вы обращаетесь к ресурсу по идентификатору, поиск будет выполнен глобально — во всех каталогах с учетом прав доступа.
 
@@ -138,7 +138,7 @@
         Disconnected (code: 1000, reason: "")
         ```
 
-        Где `домен_API-шлюза` — строка вида `{{ api-host-apigw }}`.
+        Где `домен_API-шлюза` — строка вида `d5dm1lba80md********.i9******.apigw.yandexcloud.net`.
 
 {% endlist %}
 

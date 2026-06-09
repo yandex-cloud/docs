@@ -5,7 +5,7 @@ Lists access bindings for the specified cloud.
 ## HTTP request
 
 ```
-GET https://resource-manager.{{ api-host }}/resource-manager/v1/clouds/{resourceId}:listAccessBindings
+GET https://resource-manager.api.cloud.yandex.net/resource-manager/v1/clouds/{resourceId}:listAccessBindings
 ```
 
 ## Path parameters

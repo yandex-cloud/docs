@@ -5,7 +5,7 @@ Create new resource rule with specified unique name and rule pattern.
 ## HTTP request
 
 ```
-POST https://cdn.{{ api-host }}/cdn/v1/rules
+POST https://cdn.api.cloud.yandex.net/cdn/v1/rules
 ```
 
 ## Body parameters {#yandex.cloud.cdn.v1.CreateResourceRuleRequest}

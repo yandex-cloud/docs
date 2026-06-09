@@ -1,17 +1,17 @@
-# Автоматическая загрузка данных в {{ speechsense-full-name }} с помощью {{ sw-full-name }}
+# Автоматическая загрузка данных в Yandex SpeechSense с помощью Yandex Workflows
 
-# Автоматическая загрузка данных в {{ speechsense-full-name }} с помощью {{ sw-full-name }}
+# Автоматическая загрузка данных в Yandex SpeechSense с помощью Yandex Workflows
 
 
 
 {% note info %}
 
-{{ sw-name }} находится на стадии [Preview](../../../overview/concepts/launch-stages.md).
+Workflows находится на стадии [Preview](../../../overview/concepts/launch-stages.md).
 
 {% endnote %}
 
 
-Вы можете настроить автоматическую загрузку файлов с диалогами и их метаданными из бакета {{ objstorage-full-name }} в [пространство {{ speechsense-name }}]({{ link-docs-ai }}speechsense/concepts/resources-hierarchy#space). Поддерживаемые форматы:
+Вы можете настроить автоматическую загрузку файлов с диалогами и их метаданными из бакета Yandex Object Storage в [пространство SpeechSense](https://aistudio.yandex.ru/docs/ru/speechsense/concepts/resources-hierarchy#space). Поддерживаемые форматы:
 
   * `MP3`, `WAV`, `OggOpus` — для аудиозаписей;
   * `JSON` — для переписки из чата.
@@ -20,31 +20,31 @@
 
 На схеме:
 
-1. [Триггер](../../../functions/concepts/trigger/os-trigger.md) для {{ objstorage-name }} отслеживает появление новых JSON-файлов с метаданными в выделенной папке [бакета](../../../storage/concepts/bucket.md) или любой из ее подпапок.
-1. Когда в папке появляются новые файлы, триггер вызывает [функцию](../../../functions/concepts/function.md) `workflow-call`, которая запускает [рабочий процесс {{ sw-name }}](../../../serverless-integrations/concepts/workflows/workflow.md).
+1. [Триггер](../../../functions/concepts/trigger/os-trigger.md) для Object Storage отслеживает появление новых JSON-файлов с метаданными в выделенной папке [бакета](../../../storage/concepts/bucket.md) или любой из ее подпапок.
+1. Когда в папке появляются новые файлы, триггер вызывает [функцию](../../../functions/concepts/function.md) `workflow-call`, которая запускает [рабочий процесс Workflows](../../../serverless-integrations/concepts/workflows/workflow.md).
 1. Рабочий процесс получает содержимое JSON-файлов с метаданными и проверяет их синтаксис с помощью функции `verify-file`.
-1. Рабочий процесс получает параметры подключения {{ speechsense-name }} из [секрета {{ lockbox-full-name }}](../../../lockbox/concepts/secret.md).
+1. Рабочий процесс получает параметры подключения SpeechSense из [секрета Yandex Lockbox](../../../lockbox/concepts/secret.md).
 1. Путь к аудиозаписи или текстовому файлу, а также их метаданные передаются в функцию загрузки `speechsense-upload`.
-1. Функция `speechsense-upload` загружает файлы и их метаданные в пространство {{ speechsense-name }}.
+1. Функция `speechsense-upload` загружает файлы и их метаданные в пространство SpeechSense.
 1. Во время выполнения рабочий процесс обращается к БД с метаданными:
     1. Логируются ошибки синтаксиса в файлах с метаданными.
     1. Логируются ошибки синтаксиса записей в файлах с метаданными.
-    1. Проводится проверка на дубликаты: перед вызовом функции `speechsense-upload` проверяется, загружен ли уже файл в это пространство {{ speechsense-name }}.
+    1. Проводится проверка на дубликаты: перед вызовом функции `speechsense-upload` проверяется, загружен ли уже файл в это пространство SpeechSense.
     1. Логируются ошибки функции `speechsense-upload`.
-    1. При успешной загрузке файла логируются его метаданные и уникальный идентификатор в пространстве {{ speechsense-name }}.
-1. Сервис {{ websql-name }} позволяет получить доступ к БД с метаданными. Для просмотра используется один пользователь БД, а для загрузки файлов — другой.
+    1. При успешной загрузке файла логируются его метаданные и уникальный идентификатор в пространстве SpeechSense.
+1. Сервис WebSQL позволяет получить доступ к БД с метаданными. Для просмотра используется один пользователь БД, а для загрузки файлов — другой.
 
-Настроить автоматическую загрузку данных можно сразу для нескольких [подключений {{ speechsense-name }}]({{ link-docs-ai }}speechsense/concepts/resources-hierarchy#connection).
+Настроить автоматическую загрузку данных можно сразу для нескольких [подключений SpeechSense](https://aistudio.yandex.ru/docs/ru/speechsense/concepts/resources-hierarchy#connection).
 
-Чтобы автоматизировать загрузку данных в {{ speechsense-name }}:
+Чтобы автоматизировать загрузку данных в SpeechSense:
 
 1. [Подготовьте облако к работе](#before-you-begin).
 1. [Создайте инфраструктуру для загрузки файлов](#infra).
-1. [Создайте секрет {{ lockbox-name }}](#create-secret).
-1. [Создайте модель данных в кластере {{ mpg-full-name }}](#create-table).
-1. [Создайте в бакете {{ objstorage-name }} папки для хранения файлов и их метаданных](#create-folder).
+1. [Создайте секрет Yandex Lockbox](#create-secret).
+1. [Создайте модель данных в кластере Yandex Managed Service for PostgreSQL](#create-table).
+1. [Создайте в бакете Object Storage папки для хранения файлов и их метаданных](#create-folder).
 1. [Подготовьте метаданные](#prepare-metadata).
-1. [Загрузите файлы в бакет {{ objstorage-name }}](#upload-files).
+1. [Загрузите файлы в бакет Object Storage](#upload-files).
 1. [Проверьте результат](#check-result).
 
 Если созданные ресурсы вам больше не нужны, [удалите их](#clear-out).
@@ -52,21 +52,21 @@
 
 ## Подготовьте облако к работе {#before-you-begin}
 
-Зарегистрируйтесь в {{ yandex-cloud }} и создайте [платежный аккаунт](../../../billing/concepts/billing-account.md):
-1. Перейдите в [консоль управления]({{ link-console-main }}), затем войдите в {{ yandex-cloud }} или зарегистрируйтесь.
-1. На странице **[{{ ui-key.yacloud_billing.billing.label_service }}]({{ link-console-billing }})** убедитесь, что у вас подключен платежный аккаунт, и он находится в [статусе](../../../billing/concepts/billing-account-statuses.md) `ACTIVE` или `TRIAL_ACTIVE`. Если платежного аккаунта нет, [создайте его](../../../billing/quickstart/index.md) и [привяжите](../../../billing/operations/pin-cloud.md) к нему облако.
+Зарегистрируйтесь в Yandex Cloud и создайте [платежный аккаунт](../../../billing/concepts/billing-account.md):
+1. Перейдите в [консоль управления](https://console.yandex.cloud), затем войдите в Yandex Cloud или зарегистрируйтесь.
+1. На странице **[Yandex Cloud Billing](https://center.yandex.cloud/billing/accounts)** убедитесь, что у вас подключен платежный аккаунт, и он находится в [статусе](../../../billing/concepts/billing-account-statuses.md) `ACTIVE` или `TRIAL_ACTIVE`. Если платежного аккаунта нет, [создайте его](../../../billing/quickstart/index.md) и [привяжите](../../../billing/operations/pin-cloud.md) к нему облако.
 
-Если у вас есть активный платежный аккаунт, вы можете создать или выбрать [каталог](../../../resource-manager/concepts/resources-hierarchy.md#folder), в котором будет работать ваша инфраструктура, на [странице облака]({{ link-console-cloud }}).
+Если у вас есть активный платежный аккаунт, вы можете создать или выбрать [каталог](../../../resource-manager/concepts/resources-hierarchy.md#folder), в котором будет работать ваша инфраструктура, на [странице облака](https://console.yandex.cloud/cloud).
 
 [Подробнее об облаках и каталогах](../../../resource-manager/concepts/resources-hierarchy.md).
 
 ### Необходимые платные ресурсы {#paid-resources}
 
-* Сервис {{ speechsense-name }}: длительность каждого двухканального аудиофайла или количество символов в каждом текстовом диалоге (см. [тарифы {{ speechsense-name }}]({{ link-docs-ai }}speechsense/pricing)).
-* Бакет {{ objstorage-name }}: использование хранилища и выполнение операций с данными (см. [тарифы {{ objstorage-name }}](../../../storage/pricing.md)).
-* Кластер {{ mpg-name }}: использование выделенных хостам вычислительных ресурсов, объем хранилища и резервных копий (см. [тарифы {{ mpg-name }}](../../../managed-postgresql/pricing.md)).
-* Функция {{ sf-full-name }}: количество вызовов функции, время простоя подготовленных экземпляров и выделенные для выполнения функции вычислительные ресурсы (см. [тарифы {{ sf-name }}](../../../functions/pricing.md)).
-* Секрет {{ lockbox-name }}: количество хранимых версий секрета и запросы к ним (см. [тарифы {{ lockbox-name }}](../../../lockbox/pricing.md)).
+* Сервис SpeechSense: длительность каждого двухканального аудиофайла или количество символов в каждом текстовом диалоге (см. [тарифы SpeechSense](https://aistudio.yandex.ru/docs/ru/speechsense/pricing)).
+* Бакет Object Storage: использование хранилища и выполнение операций с данными (см. [тарифы Object Storage](../../../storage/pricing.md)).
+* Кластер Managed Service for PostgreSQL: использование выделенных хостам вычислительных ресурсов, объем хранилища и резервных копий (см. [тарифы Managed Service for PostgreSQL](../../../managed-postgresql/pricing.md)).
+* Функция Yandex Cloud Functions: количество вызовов функции, время простоя подготовленных экземпляров и выделенные для выполнения функции вычислительные ресурсы (см. [тарифы Cloud Functions](../../../functions/pricing.md)).
+* Секрет Yandex Lockbox: количество хранимых версий секрета и запросы к ним (см. [тарифы Yandex Lockbox](../../../lockbox/pricing.md)).
 
 ### Создайте сервисные аккаунты {#create-sa}
 
@@ -80,17 +80,17 @@
 
 - Консоль управления {#console}
 
-  1. В [консоли управления]({{ link-console-main }}) выберите нужный каталог.
-  1. Перейдите в сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_iam }}**.
-  1. Нажмите кнопку **{{ ui-key.yacloud.iam.folder.service-accounts.button_add }}**.
+  1. В [консоли управления](https://console.yandex.cloud) выберите нужный каталог.
+  1. Перейдите в сервис **Identity and Access Management**.
+  1. Нажмите кнопку **Создать сервисный аккаунт**.
   1. Введите имя [сервисного аккаунта](../../../iam/concepts/users/service-accounts.md): `deploy-sa`.
-  1. Нажмите кнопку ![image](../../../_assets/console-icons/plus.svg) **{{ ui-key.yacloud.iam.folder.service-account.label_add-role }}** и выберите роли: [functions.admin](../../../functions/security/index.md#functions-admin), [storage.editor](../../../storage/security/index.md#storage-editor), [iam.editor](../../../iam/roles-reference.md#iam-editor), [mdb.admin](../../../iam/roles-reference.md#mdb-admin), `serverless.workflows.admin`.
-  1. Нажмите кнопку **{{ ui-key.yacloud.iam.folder.service-account.popup-robot_button_add }}**.
+  1. Нажмите кнопку ![image](../../../_assets/console-icons/plus.svg) **Добавить роль** и выберите роли: [functions.admin](../../../functions/security/index.md#functions-admin), [storage.editor](../../../storage/security/index.md#storage-editor), [iam.editor](../../../iam/roles-reference.md#iam-editor), [mdb.admin](../../../iam/roles-reference.md#mdb-admin), `serverless.workflows.admin`.
+  1. Нажмите кнопку **Создать**.
   1. Повторите предыдущие шаги и создайте сервисный аккаунт `speechsense-sa` c ролями [storage.viewer](../../../storage/security/index.md#storage-viewer), [functions.functionInvoker](../../../functions/security/index.md#functions-functionInvoker), [functions.mdbProxiesUser](../../../functions/security/index.md#functions-mdbProxiesUser), [lockbox.payloadViewer](../../../lockbox/security/index.md#lockbox-payloadViewer), `serverless.workflows.executor`.
 
-- {{ yandex-cloud }} CLI {#cli}
+- Yandex Cloud CLI {#cli}
 
-  Если у вас еще нет интерфейса командной строки {{ yandex-cloud }} (CLI), [установите и инициализируйте его](../../../cli/quickstart.md#install).
+  Если у вас еще нет интерфейса командной строки Yandex Cloud (CLI), [установите и инициализируйте его](../../../cli/quickstart.md#install).
 
   По умолчанию используется каталог, указанный при [создании](../../../cli/operations/profile/profile-create.md) профиля CLI. Чтобы изменить каталог по умолчанию, используйте команду `yc config set folder-id <идентификатор_каталога>`. Также для любой команды вы можете указать другой каталог с помощью параметров `--folder-name` или `--folder-id`. Если вы обращаетесь к ресурсу по имени, поиск будет выполнен в каталоге по умолчанию. Если вы обращаетесь к ресурсу по идентификатору, поиск будет выполнен глобально — во всех каталогах с учетом прав доступа.
 
@@ -125,7 +125,7 @@
 
       Подробнее о команде `yc resource-manager folder add-access-binding` читайте в [справочнике CLI](../../../cli/cli-ref/resource-manager/cli-ref/folder/add-access-binding.md).
 
-      Если вы будете создавать секрет {{ lockbox-name }} через {{ yandex-cloud }} CLI  от имени сервисного аккаунта `deploy-sa`, также назначьте ему роль [lockbox.editor](../../../lockbox/security/index.md#lockbox-editor).
+      Если вы будете создавать секрет Yandex Lockbox через Yandex Cloud CLI  от имени сервисного аккаунта `deploy-sa`, также назначьте ему роль [lockbox.editor](../../../lockbox/security/index.md#lockbox-editor).
 
   1. Повторите предыдущие шаги и создайте сервисный аккаунт `speechsense-sa` c ролями [storage.viewer](../../../storage/security/index.md#storage-viewer), [functions.functionInvoker](../../../functions/security/index.md#functions-functionInvoker), [functions.mdbProxiesUser](../../../functions/security/index.md#functions-mdbProxiesUser), [lockbox.payloadViewer](../../../lockbox/security/index.md#lockbox-payloadViewer), `serverless.workflows.executor`.
 
@@ -149,13 +149,13 @@
 
 - Консоль управления {#console}
 
-  1. В [консоли управления]({{ link-console-main }}) перейдите в каталог, в котором находится сервисный аккаунт.
-  1. Перейдите в сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_iam }}**.
-  1. На панели слева выберите ![FaceRobot](../../../_assets/console-icons/face-robot.svg) **{{ ui-key.yacloud.iam.label_service-accounts }}**.
+  1. В [консоли управления](https://console.yandex.cloud) перейдите в каталог, в котором находится сервисный аккаунт.
+  1. Перейдите в сервис **Identity and Access Management**.
+  1. На панели слева выберите ![FaceRobot](../../../_assets/console-icons/face-robot.svg) **Сервисные аккаунты**.
   1. Выберите сервисный аккаунт `speechsense-sa`.
-  1. На панели сверху нажмите кнопку ![image](../../../_assets/console-icons/plus.svg) **{{ ui-key.yacloud.iam.folder.service-account.overview.button_create-key-popup }}** и выберите пункт **{{ ui-key.yacloud.iam.folder.service-account.overview.button_create_api_key }}**.
-  1. В открывшемся окне в поле **{{ ui-key.yacloud.iam.folder.service-account.overview.field_key-scope }}** выберите [область действия](../../../iam/concepts/authorization/api-key.md#scoped-api-keys) `yc.speech-sense.use`.
-  1. Нажмите кнопку **{{ ui-key.yacloud.iam.folder.service-account.overview.popup-key_button_create }}**.
+  1. На панели сверху нажмите кнопку ![image](../../../_assets/console-icons/plus.svg) **Создать новый ключ** и выберите пункт **Создать API-ключ**.
+  1. В открывшемся окне в поле **Область действия** выберите [область действия](../../../iam/concepts/authorization/api-key.md#scoped-api-keys) `yc.speech-sense.use`.
+  1. Нажмите кнопку **Создать**.
   1. Сохраните идентификатор и секретный ключ.
 
       {% note alert %}
@@ -164,7 +164,7 @@
 
       {% endnote %}
 
-- {{ yandex-cloud }} CLI {#cli}
+- Yandex Cloud CLI {#cli}
 
   Создайте API-ключ для сервисного аккаунта `speechsense-sa` и запишите ответ в файл `api_key.yaml`:
 
@@ -198,7 +198,7 @@
     --header "Content-Type: application/json" \
     --header "Authorization: Bearer $IAM_TOKEN" \
     --data "{ \"serviceAccountId\": \"$SERVICEACCOUNT_ID\" }" \
-    https://iam.{{ api-host }}/iam/v1/apiKeys
+    https://iam.api.cloud.yandex.net/iam/v1/apiKeys
   ```
 
   Где:
@@ -216,63 +216,63 @@
 
 {% list tabs group=instructions %}
 
-- Интерфейс {{ speechsense-name }} {#speechsense}
+- Интерфейс SpeechSense {#speechsense}
 
-  1. Откройте [главную страницу]({{ link-speechsense-main }}) {{ speechsense-name }}.
-  1. Нажмите кнопку **{{ ui-key.yc-ui-talkanalytics.spaces.create-space }}**.
+  1. Откройте [главную страницу](https://speechsense.yandex.cloud/) SpeechSense.
+  1. Нажмите кнопку **Создать пространство**.
   1. Введите название пространства.
-  1. Нажмите кнопку **{{ ui-key.yc-ui-talkanalytics.common.create }}**.
+  1. Нажмите кнопку **Создать**.
 
 {% endlist %}
 
 ### Добавьте сервисный аккаунт в пространство {#add-sa-to-space}
 
-Добавьте сервисный аккаунт `speechsense-sa` в пространство {{ speechsense-name }}.
+Добавьте сервисный аккаунт `speechsense-sa` в пространство SpeechSense.
 
 {% list tabs group=instructions %}
 
-- Интерфейс {{ speechsense-name }} {#speechsense}
+- Интерфейс SpeechSense {#speechsense}
 
-  1. Откройте [главную страницу]({{ link-speechsense-main }}) {{ speechsense-name }}.
+  1. Откройте [главную страницу](https://speechsense.yandex.cloud/) SpeechSense.
   1. Перейдите в [новое пространство](#create-space).
-  1. Нажмите кнопку ![image](../../../_assets/console-icons/person-plus.svg) **{{ ui-key.yc-ui-talkanalytics.projects.add-participant }}** → ![image](../../../_assets/console-icons/persons.svg) **{{ ui-key.yc-ui-talkanalytics.team.add-from-organization-key-value }}**.
+  1. Нажмите кнопку ![image](../../../_assets/console-icons/person-plus.svg) **Добавить участника** → ![image](../../../_assets/console-icons/persons.svg) **Добавить из организации**.
   1. Cкопируйте идентификатор [созданного ранее сервисного аккаунта](#create-sa) `speechsense-sa` и вставьте в строку поиска.
-  1. Выберите сервисный аккаунт `speechsense-sa` и укажите роль [{{ roles-speechsense-data-editor }}]({{ link-docs-ai }}speechsense/security/#speechsense-data-editor). Эта роль позволит сервисному аккаунту `speechsense-sa` загружать данные в {{ speechsense-name }}.
-  1. Нажмите кнопку **{{ ui-key.yc-ui-talkanalytics.common.add }}**.
+  1. Выберите сервисный аккаунт `speechsense-sa` и укажите роль [Data editor](https://aistudio.yandex.ru/docs/ru/speechsense/security/#speechsense-data-editor). Эта роль позволит сервисному аккаунту `speechsense-sa` загружать данные в SpeechSense.
+  1. Нажмите кнопку **Добавить**.
 
 {% endlist %}
 
 ### Создайте подключение {#create-connection}
 
-В зависимости от типа файлов, которые будут загружаться в {{ speechsense-name }}, создайте подключение для аудио или для чата.
+В зависимости от типа файлов, которые будут загружаться в SpeechSense, создайте подключение для аудио или для чата.
 
 #### Создайте подключение для аудио {#create-audio-connection}
 
 {% list tabs group=instructions %}
 
-- Интерфейс {{ speechsense-name }} {#speechsense}
+- Интерфейс SpeechSense {#speechsense}
 
-  1. Откройте [главную страницу]({{ link-speechsense-main }}) {{ speechsense-name }}.
+  1. Откройте [главную страницу](https://speechsense.yandex.cloud/) SpeechSense.
   1. Перейдите в нужное пространство.
-  1. В правом верхнем углу нажмите **{{ ui-key.yc-ui-talkanalytics.common.more }}** → ![create](../../../_assets/console-icons/thunderbolt.svg) **{{ ui-key.yc-ui-talkanalytics.connections.create-connection-key-value }}**.
+  1. В правом верхнем углу нажмите **Еще** → ![create](../../../_assets/console-icons/thunderbolt.svg) **Создать подключение**.
   1. Укажите название подключения.
-  1. Выберите тип данных **{{ ui-key.yc-ui-talkanalytics.connections.type.two-channel-key-value }}**.
-  1. В блоках **{{ ui-key.yc-ui-talkanalytics.dialogs.operator }}**, **{{ ui-key.yc-ui-talkanalytics.dialogs.client }}**:
+  1. Выберите тип данных **Двухканальное аудио**.
+  1. В блоках **Оператор**, **Клиент**:
 
       1. Укажите каналы, в которых записаны голос оператора и голос клиента.
       1. Укажите для оператора и клиента ключи из файла метаданных. Этот файл содержит информацию о звонке, полученную из CRM-систем, АТС или других источников.
 
-        По умолчанию в подключение добавлены ключи с именем и идентификатором оператора и клиента. В поле **{{ ui-key.yc-ui-talkanalytics.connections.column.name }}** введите название, под которым ключ будет отображаться в {{ speechsense-name }}.
+        По умолчанию в подключение добавлены ключи с именем и идентификатором оператора и клиента. В поле **Название в системе** введите название, под которым ключ будет отображаться в SpeechSense.
 
-        Чтобы указать дополнительные метаданные для оператора и клиента, нажмите кнопку **{{ ui-key.yc-ui-talkanalytics.connections.add-key }}**.
+        Чтобы указать дополнительные метаданные для оператора и клиента, нажмите кнопку **Добавить ключ**.
 
-  1. В блоке **{{ ui-key.yc-ui-talkanalytics.connections.fields.metadata }}** укажите не связанные с оператором и клиентом ключи из файла метаданных.
+  1. В блоке **Общие метаданные** укажите не связанные с оператором и клиентом ключи из файла метаданных.
 
-      По умолчанию в подключение добавлены ключи с датой, направлением звонка и языком диалога. В поле **{{ ui-key.yc-ui-talkanalytics.connections.column.name }}** введите название, под которым ключ будет отображаться в {{ speechsense-name }}.
+      По умолчанию в подключение добавлены ключи с датой, направлением звонка и языком диалога. В поле **Название в системе** введите название, под которым ключ будет отображаться в SpeechSense.
 
-      Чтобы указать дополнительные метаданные, нажмите кнопку **{{ ui-key.yc-ui-talkanalytics.connections.add-key }}**.
+      Чтобы указать дополнительные метаданные, нажмите кнопку **Добавить ключ**.
 
-  1. Нажмите кнопку **{{ ui-key.yc-ui-talkanalytics.connections.create-connection-key-value }}**.
+  1. Нажмите кнопку **Создать подключение**.
 
 {% endlist %}
 
@@ -280,26 +280,26 @@
 
 {% list tabs group=instructions %}
 
-- Интерфейс {{ speechsense-name }} {#speechsense}
+- Интерфейс SpeechSense {#speechsense}
 
-  1. Откройте [главную страницу]({{ link-speechsense-main }}) {{ speechsense-name }}.
+  1. Откройте [главную страницу](https://speechsense.yandex.cloud/) SpeechSense.
   1. Перейдите в нужное пространство.
-  1. В правом верхнем углу нажмите **{{ ui-key.yc-ui-talkanalytics.common.more }}** → ![create](../../../_assets/console-icons/thunderbolt.svg) **{{ ui-key.yc-ui-talkanalytics.connections.create-connection-key-value }}**.
+  1. В правом верхнем углу нажмите **Еще** → ![create](../../../_assets/console-icons/thunderbolt.svg) **Создать подключение**.
   1. Укажите название подключения.
-  1. Выберите тип данных **{{ ui-key.yc-ui-talkanalytics.connections.type.chat-key-value }}**.
-  1. В блоках **{{ ui-key.yc-ui-talkanalytics.dialogs.operator }}**, **{{ ui-key.yc-ui-talkanalytics.dialogs.client }}**, **{{ ui-key.yc-ui-talkanalytics.dialogs.bot }}** укажите ключи из файла метаданных. Этот файл содержит информацию о диалоге, полученную из чатов, CRM-систем или других источников.
+  1. Выберите тип данных **Чат**.
+  1. В блоках **Оператор**, **Клиент**, **Бот** укажите ключи из файла метаданных. Этот файл содержит информацию о диалоге, полученную из чатов, CRM-систем или других источников.
 
-      По умолчанию в подключение добавлены ключи с именем и идентификатором оператора, клиента и бота. В поле **{{ ui-key.yc-ui-talkanalytics.connections.column.name }}** введите название, под которым ключ будет отображаться в {{ speechsense-name }}.
+      По умолчанию в подключение добавлены ключи с именем и идентификатором оператора, клиента и бота. В поле **Название в системе** введите название, под которым ключ будет отображаться в SpeechSense.
 
-      Чтобы указать дополнительные метаданные для оператора, клиента и бота, нажмите кнопку **{{ ui-key.yc-ui-talkanalytics.connections.add-key }}**.
+      Чтобы указать дополнительные метаданные для оператора, клиента и бота, нажмите кнопку **Добавить ключ**.
 
-  1. В блоке **{{ ui-key.yc-ui-talkanalytics.connections.fields.metadata }}** укажите не связанные с оператором, клиентом и ботом ключи из файла метаданных.
+  1. В блоке **Общие метаданные** укажите не связанные с оператором, клиентом и ботом ключи из файла метаданных.
 
-      По умолчанию в подключение добавлены ключи с датой, направлением и языком диалога. В поле **{{ ui-key.yc-ui-talkanalytics.connections.column.name }}** введите название, под которым ключ будет отображаться в {{ speechsense-name }}.
+      По умолчанию в подключение добавлены ключи с датой, направлением и языком диалога. В поле **Название в системе** введите название, под которым ключ будет отображаться в SpeechSense.
 
-      Чтобы указать дополнительные метаданные, нажмите кнопку **{{ ui-key.yc-ui-talkanalytics.connections.add-key }}**.
+      Чтобы указать дополнительные метаданные, нажмите кнопку **Добавить ключ**.
 
-  1. Нажмите кнопку **{{ ui-key.yc-ui-talkanalytics.connections.create-connection-key-value }}**.
+  1. Нажмите кнопку **Создать подключение**.
 
 {% endlist %}
 
@@ -307,14 +307,14 @@
 
 {% list tabs group=instructions %}
 
-- Интерфейс {{ speechsense-name }} {#speechsense}
+- Интерфейс SpeechSense {#speechsense}
 
-  1. Откройте [главную страницу]({{ link-speechsense-main }}) {{ speechsense-name }}.
+  1. Откройте [главную страницу](https://speechsense.yandex.cloud/) SpeechSense.
   1. Перейдите в нужное пространство.
-  1. Нажмите кнопку ![create](../../../_assets/console-icons/folder-plus.svg) **{{ ui-key.yc-ui-talkanalytics.projects.create-project }}**.
+  1. Нажмите кнопку ![create](../../../_assets/console-icons/folder-plus.svg) **Создать проект**.
   1. Введите имя проекта.
-  1. В блоке **{{ ui-key.yc-ui-talkanalytics.connections.connection }}** нажмите **{{ ui-key.yc-ui-talkanalytics.projects.add-connection }}** и выберите подключение, созданное [ранее](#create-connection).
-  1. Нажмите кнопку **{{ ui-key.yc-ui-talkanalytics.projects.create-project }}**.
+  1. В блоке **Подключение** нажмите **Добавить подключение** и выберите подключение, созданное [ранее](#create-connection).
+  1. Нажмите кнопку **Создать проект**.
 
 {% endlist %}
 
@@ -326,20 +326,20 @@
     git clone https://github.com/yandex-cloud-examples/yc-serverless-speechsense-workflows.git
     ```
 
-    В репозитории находится скрипт, который создаст в облаке инфраструктуру, необходимую для загрузки файлов в {{ speechsense-name }}:
+    В репозитории находится скрипт, который создаст в облаке инфраструктуру, необходимую для загрузки файлов в SpeechSense:
 
-      * бакет {{ objstorage-name }};
-      * кластер {{ mpg-name }};
-      * функции {{ sf-name }};
-      * триггер для вызова функции {{ sf-name }};
-      * рабочий процесс {{ sw-name }};
-      * подключения к базе данных кластера {{ mpg-name }}.
+      * бакет Object Storage;
+      * кластер Managed Service for PostgreSQL;
+      * функции Cloud Functions;
+      * триггер для вызова функции Cloud Functions;
+      * рабочий процесс Workflows;
+      * подключения к базе данных кластера Managed Service for PostgreSQL.
 
-1. Для успешной работы скрипта настройте аутентификацию {{ yandex-cloud }} CLI от имени сервисного аккаунта `deploy-sa`:
+1. Для успешной работы скрипта настройте аутентификацию Yandex Cloud CLI от имени сервисного аккаунта `deploy-sa`:
 
     {% list tabs group=instructions %}
 
-    - {{ yandex-cloud }} CLI {#cli}
+    - Yandex Cloud CLI {#cli}
 
       1. Создайте [авторизованный ключ](../../../iam/concepts/authorization/key.md) для сервисного аккаунта `deploy-sa` и запишите его в файл:
       
@@ -398,33 +398,33 @@
 
 - Консоль управления {#console}
 
-  1. В [консоли управления]({{ link-console-main }}) выберите каталог, в котором хотите создать секрет.
-  1. Перейдите в сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_lockbox }}**.
-  1. Нажмите кнопку **{{ ui-key.yacloud.lockbox.SecretsPage.button_create-secret }}**.
-  1. В поле **{{ ui-key.yacloud.common.name }}** укажите имя секрета: `speechsense-secret`.
+  1. В [консоли управления](https://console.yandex.cloud) выберите каталог, в котором хотите создать секрет.
+  1. Перейдите в сервис **Lockbox**.
+  1. Нажмите кнопку **Создать секрет**.
+  1. В поле **Имя** укажите имя секрета: `speechsense-secret`.
 
-  1. В блоке **{{ ui-key.yacloud.lockbox.SecretInfoSection.title_secret-data-section }}**:
+  1. В блоке **Данные секрета**:
 
-        1. Выберите тип секрета **{{ ui-key.yacloud.lockbox.FormFields.title_secret-type-custom }}**.
+        1. Выберите тип секрета **Пользовательский**.
         
         1. Добавьте API-ключ сервисного аккаунта:
 
-            * В поле **{{ ui-key.yacloud.lockbox.SecretVersionsList.label_key }}** укажите: `speechsense_api_key`.
-            * В поле **{{ ui-key.yacloud.lockbox.SecretVersionsList.label_value }}** укажите значение [созданного ранее](#create-key) API-ключа сервисного аккаунта `speechsense-sa`.
+            * В поле **Ключ** укажите: `speechsense_api_key`.
+            * В поле **Значение** укажите значение [созданного ранее](#create-key) API-ключа сервисного аккаунта `speechsense-sa`.
 
-        1. Нажмите кнопку **{{ ui-key.yacloud.lockbox.SecretVersionsList.button_add-pair }}** и добавьте идентификатор подключения {{ speechsense-name }}:
+        1. Нажмите кнопку **Добавить ключ/значение** и добавьте идентификатор подключения SpeechSense:
 
-            * В поле **{{ ui-key.yacloud.lockbox.SecretVersionsList.label_key }}** укажите: `speechsense_connection_id`.
-            * В поле **{{ ui-key.yacloud.lockbox.SecretVersionsList.label_value }}** укажите идентификатор подключения, [созданного ранее](#create-connection).
+            * В поле **Ключ** укажите: `speechsense_connection_id`.
+            * В поле **Значение** укажите идентификатор подключения, [созданного ранее](#create-connection).
 
-        1. Нажмите кнопку **{{ ui-key.yacloud.lockbox.SecretVersionsList.button_add-pair }}** и добавьте формат файлов с диалогами, которые будут загружены в {{ speechsense-name }}:
+        1. Нажмите кнопку **Добавить ключ/значение** и добавьте формат файлов с диалогами, которые будут загружены в SpeechSense:
 
-            * В поле **{{ ui-key.yacloud.lockbox.SecretVersionsList.label_key }}** укажите: `speechsense_file_format`.
-            * В поле **{{ ui-key.yacloud.lockbox.SecretVersionsList.label_value }}** укажите формат файла. Допустимые значения: `mp3`,`wav`,`ogg`, `text`.
+            * В поле **Ключ** укажите: `speechsense_file_format`.
+            * В поле **Значение** укажите формат файла. Допустимые значения: `mp3`,`wav`,`ogg`, `text`.
 
-  1. Нажмите кнопку **{{ ui-key.yacloud.common.create }}**.
+  1. Нажмите кнопку **Создать**.
 
-- {{ yandex-cloud }} CLI {#cli}
+- Yandex Cloud CLI {#cli}
 
   Чтобы создать секрет, выполните команду:
 
@@ -475,28 +475,28 @@
     Где:  
 
     * `source_system_id` — идентификатор источника данных, который будет использоваться в метаданных. Укажите любое уникальное строковое значение. Например: `000001`.
-    * `lockbox_secret_id` — идентификатор секрета {{ lockbox-name }}, созданного [ранее](#create-secret). Например: `e6qigo0vbci2********`.
+    * `lockbox_secret_id` — идентификатор секрета Yandex Lockbox, созданного [ранее](#create-secret). Например: `e6qigo0vbci2********`.
     * `source_system_desc` — описание источника данных. Например: `Загрузка данных телефонии`.
 
-1. Скопируйте содержимое файла `pg_metadata.sql` и выполните получившийся запрос c помощью сервиса {{ websql-name }}:
+1. Скопируйте содержимое файла `pg_metadata.sql` и выполните получившийся запрос c помощью сервиса WebSQL:
 
     {% list tabs group=instructions %}
 
     - Консоль управления {#console}
 
-        1. В [консоли управления]({{ link-console-main }}) выберите нужный каталог.
-        1. Перейдите в сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-postgresql }}**.
+        1. В [консоли управления](https://console.yandex.cloud) выберите нужный каталог.
+        1. Перейдите в сервис **Managed Service for&nbsp;PostgreSQL**.
         1. Нажмите на имя кластера, [созданного ранее](#infra). По умолчанию это `speechsense-upload-metadata`.
-        1. Выберите вкладку **{{ ui-key.yacloud.postgresql.cluster.switch_explore-websql }}**.
+        1. Выберите вкладку **WebSQL**.
         1. Нажмите на имя подключения, которое заканчивается на `-uploader`.
-        1. На странице сервиса {{ websql-name }} нажмите на имя БД — `uploader`.
+        1. На странице сервиса WebSQL нажмите на имя БД — `uploader`.
         1. Вставьте запрос в редактор и нажмите кнопку **Выполнить**.
 
     {% endlist %}
 
 ## Создайте папки для хранения файлов и их метаданных {#create-folder}
 
-В [созданном ранее](#infra) бакете {{ objstorage-name }} создайте две папки:
+В [созданном ранее](#infra) бакете Object Storage создайте две папки:
 
   * `client_data` — для файлов с диалогами.
   * `client_metadata` — для файлов с метаданными.
@@ -509,13 +509,13 @@
 
   Чтобы создать папку:
 
-    1. В [консоли управления]({{ link-console-main }}) выберите каталог, в котором находится бакет.
-    1. Перейдите в сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_storage }}**.
+    1. В [консоли управления](https://console.yandex.cloud) выберите каталог, в котором находится бакет.
+    1. Перейдите в сервис **Object Storage**.
     1. Выберите нужный бакет.
-    1. Нажмите **{{ ui-key.yacloud.storage.bucket.button_create }}** и укажите имя папки.
-    1. Нажмите на кнопку **{{ ui-key.yacloud.storage.bucket.popup-create-folder_button_create }}**.
+    1. Нажмите **Создать папку** и укажите имя папки.
+    1. Нажмите на кнопку **Создать**.
 
-- {{ yandex-cloud }} CLI {#cli}
+- Yandex Cloud CLI {#cli}
 
   Чтобы создать папку, выполните команду:
 
@@ -540,7 +540,7 @@
 
     ```bash
     aws s3api put-object \
-      --endpoint-url=https://{{ s3-storage-host }} \
+      --endpoint-url=https://storage.yandexcloud.net \
       --bucket <имя_бакета>
       --key <имя_папки>/
     ```
@@ -568,7 +568,7 @@
 
 {% endnote %}
 
-Чтобы загрузить файл в {{ speechsense-name }}, подготовьте его метаданные в формате `JSON`. Например:
+Чтобы загрузить файл в SpeechSense, подготовьте его метаданные в формате `JSON`. Например:
 
 ```json
 {
@@ -600,9 +600,9 @@
 
     * `file_name` — имя файла, который будет загружен.
 
-  * Параметры, обязательные для передачи в {{ speechsense-name }}:
+  * Параметры, обязательные для передачи в SpeechSense:
   
-    * `id` — идентификатор файла, уникальный для пространства {{ speechsense-name }}.
+    * `id` — идентификатор файла, уникальный для пространства SpeechSense.
 
     * `operator_id` — идентификатор оператора.
 
@@ -618,7 +618,7 @@
 
     * `language` — язык диалога. `ru-ru` — для русского языка.
 
-  * Дополнительные параметры для аналитики в {{ speechsense-name }}:
+  * Дополнительные параметры для аналитики в SpeechSense:
 
       * `cpn_region_id` — идентификатор региона.
 
@@ -630,7 +630,7 @@
 
 {% note warning %}
 
-Не передавайте больше 100 записей одновременно: это может привести к потере данных, так как время выполнения функции {{ sf-name }} ограничено таймаутом.
+Не передавайте больше 100 записей одновременно: это может привести к потере данных, так как время выполнения функции Cloud Functions ограничено таймаутом.
 
 Если файлов для загрузки больше 100, разделите их метаданные на отдельные JSON-файлы по 100 записей.
 
@@ -655,20 +655,20 @@
 
   Чтобы загрузить файлы:
 
-    1. В [консоли управления]({{ link-console-main }}) выберите нужный каталог.
-    1. Перейдите в сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_storage }}**.
+    1. В [консоли управления](https://console.yandex.cloud) выберите нужный каталог.
+    1. Перейдите в сервис **Object Storage**.
     1. Перейдите в бакет, в который нужно загрузить файлы.
-    1. На панели слева выберите ![image](../../../_assets/console-icons/folder-tree.svg) **{{ ui-key.yacloud.storage.bucket.switch_files }}**.
+    1. На панели слева выберите ![image](../../../_assets/console-icons/folder-tree.svg) **Объекты**.
     1. Перейдите в нужную папку, нажав на ее имя.
-    1. Оказавшись в нужной папке, на верхней панели нажмите ![image](../../../_assets/console-icons/arrow-up-from-line.svg) **{{ ui-key.yacloud.storage.bucket.button_upload }}**.
+    1. Оказавшись в нужной папке, на верхней панели нажмите ![image](../../../_assets/console-icons/arrow-up-from-line.svg) **Загрузить**.
     1. В появившемся окне выберите необходимые файлы и нажмите **Открыть**.
     1. Консоль управления отобразит все файлы, выбранные для загрузки, и предложит для каждого из них выбрать [класс хранилища](../../../storage/concepts/storage-class.md). Класс хранилища по умолчанию определяется [настройкой бакета](../../../storage/concepts/bucket.md#bucket-settings).
-    1. Нажмите **{{ ui-key.yacloud.storage.button_upload }}**.
+    1. Нажмите **Загрузить**.
     1. Обновите страницу.
 
     В консоли управления информация о количестве объектов в бакете и занятом месте обновляется с задержкой в несколько минут. 
 
-- {{ yandex-cloud }} CLI {#cli}
+- Yandex Cloud CLI {#cli}
 
   Чтобы загрузить файл в папку, выполните команду:
 
@@ -697,14 +697,14 @@
   Чтобы загрузить один файл, выполните команду:
 
     ```bash
-    aws --endpoint-url=https://{{ s3-storage-host }}/ \
+    aws --endpoint-url=https://storage.yandexcloud.net/ \
       s3 cp <путь_к_загружаемому_файлу> s3://<имя_бакета>/<имя_папки>/<имя_файла>
     ```
 
   Чтобы загрузить все файлы из локальной директории и вложенных в нее директорий, используйте команду:
    
     ```bash
-    aws --endpoint-url=https://{{ s3-storage-host }}/ \
+    aws --endpoint-url=https://storage.yandexcloud.net/ \
       s3 cp --recursive <путь_к_директории_с_загружаемыми_файлами>/ s3://<имя_бакета>/<имя_папки>/
     ```
 
@@ -734,27 +734,27 @@
 
 - Консоль управления {#console}
 
-  1. В [консоли управления]({{ link-console-main }}) выберите нужный каталог.
-  1. Перейдите в сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_serverless-integrations }}**.
-  1. На панели слева выберите ![GraphNode](../../../_assets/console-icons/graph-node.svg) **{{ ui-key.yacloud.serverless-workflows.label_service }}**.
+  1. В [консоли управления](https://console.yandex.cloud) выберите нужный каталог.
+  1. Перейдите в сервис **Serverless Integrations**.
+  1. На панели слева выберите ![GraphNode](../../../_assets/console-icons/graph-node.svg) **Workflows**.
   1. Нажмите на имя рабочего процесса. По умолчанию это `wf-speechsense-upload`.
-  1. Перейдите на вкладку **{{ ui-key.yacloud.serverless-workflows.label_workflow-executions }}**.
+  1. Перейдите на вкладку **Запуски**.
   1. Убедитесь, что рабочий процесс находится в статусе `Выполнен`.
 
 {% endlist %}
 
-Чтобы проверить, что файлы загрузились в {{ speechsense-name }}:
+Чтобы проверить, что файлы загрузились в SpeechSense:
 
 {% list tabs group=instructions %}
 
 - Консоль управления {#console}
 
-  1. Откройте страницу [сервиса {{ websql-name }}](https://websql.yandex.cloud).
+  1. Откройте страницу [сервиса WebSQL](https://websql.yandex.cloud).
   1. В разделе ![image](../../../_assets/console-icons/folder-tree.svg) **Подключения** выберите подключение `speechsense-upload-metadata` и БД `uploader`.
   1. Выберите схему `public`.
   1. В группе **Таблицы** выберите таблицу:
 
-      * `talk` — для просмотра загруженных в {{ speechsense-name }} метаданных. Если файл с диалогом загружен, в его метаданных должен быть указан идентификатор `talk_id`.
+      * `talk` — для просмотра загруженных в SpeechSense метаданных. Если файл с диалогом загружен, в его метаданных должен быть указан идентификатор `talk_id`.
       * `errors` — для просмотра ошибок, если загрузить файлы не удалось.
 
 {% endlist %}
@@ -764,22 +764,22 @@
 Некоторые ресурсы платные. Чтобы за них не списывалась плата, удалите ресурсы, которые вы больше не будете использовать.
 
 
-1. [Удалите](../../../storage/operations/buckets/delete.md) объекты в бакете {{ objstorage-name }} и сам бакет.
-1. [Удалите](../../../managed-postgresql/operations/cluster-delete.md) кластер {{ mpg-name }}.
-1. [Удалите](../../../functions/operations/trigger/trigger-delete.md) триггер для вызова функции {{ sf-name }}.
-1. [Удалите](../../../functions/operations/function/function-delete.md) функции {{ sf-name }}.
-1. Удалите подключение к базе данных кластера {{ mpg-name }}:
+1. [Удалите](../../../storage/operations/buckets/delete.md) объекты в бакете Object Storage и сам бакет.
+1. [Удалите](../../../managed-postgresql/operations/cluster-delete.md) кластер Managed Service for PostgreSQL.
+1. [Удалите](../../../functions/operations/trigger/trigger-delete.md) триггер для вызова функции Cloud Functions.
+1. [Удалите](../../../functions/operations/function/function-delete.md) функции Cloud Functions.
+1. Удалите подключение к базе данных кластера Managed Service for PostgreSQL:
 
-    1. В [консоли управления]({{ link-console-main }}) выберите каталог, в котором хотите удалить подключение.
-    1. Перейдите в сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_serverless-functions }}**.
-    1. На панели слева выберите ![image](../../../_assets/console-icons/timestamps.svg) **{{ ui-key.yacloud.serverless-functions.switch_list-mdb-proxy }}**.
-    1. В строке с подключением `speechsense-upload-metadata-connection` нажмите ![image](../../../_assets/console-icons/ellipsis.svg) и выберите ![image](../../../_assets/console-icons/trash-bin.svg) **{{ ui-key.yacloud.common.delete }}**.
-    1. В открывшемся окне нажмите **{{ ui-key.yacloud.common.delete }}**.
+    1. В [консоли управления](https://console.yandex.cloud) выберите каталог, в котором хотите удалить подключение.
+    1. Перейдите в сервис **Cloud Functions**.
+    1. На панели слева выберите ![image](../../../_assets/console-icons/timestamps.svg) **Подключения к БД**.
+    1. В строке с подключением `speechsense-upload-metadata-connection` нажмите ![image](../../../_assets/console-icons/ellipsis.svg) и выберите ![image](../../../_assets/console-icons/trash-bin.svg) **Удалить**.
+    1. В открывшемся окне нажмите **Удалить**.
 
-1. Удалите рабочий процесс {{ sw-name }}:
+1. Удалите рабочий процесс Workflows:
 
-    1. В [консоли управления]({{ link-console-main }}) выберите каталог, в котором хотите удалить рабочий процесс.
-    1. Перейдите в сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_serverless-integrations }}**.
-    1. На панели слева выберите ![GraphNode](../../../_assets/console-icons/graph-node.svg) **{{ ui-key.yacloud.serverless-workflows.label_service }}**.
-    1. В строке с рабочим процессом `wf-speechsense-upload` нажмите ![image](../../../_assets/console-icons/ellipsis.svg) и выберите ![image](../../../_assets/console-icons/trash-bin.svg) **{{ ui-key.yacloud.common.delete }}**.
-    1. В открывшемся окне нажмите **{{ ui-key.yacloud.common.delete }}**.
+    1. В [консоли управления](https://console.yandex.cloud) выберите каталог, в котором хотите удалить рабочий процесс.
+    1. Перейдите в сервис **Serverless Integrations**.
+    1. На панели слева выберите ![GraphNode](../../../_assets/console-icons/graph-node.svg) **Workflows**.
+    1. В строке с рабочим процессом `wf-speechsense-upload` нажмите ![image](../../../_assets/console-icons/ellipsis.svg) и выберите ![image](../../../_assets/console-icons/trash-bin.svg) **Удалить**.
+    1. В открывшемся окне нажмите **Удалить**.

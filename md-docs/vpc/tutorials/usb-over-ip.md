@@ -1,15 +1,15 @@
-В данном руководстве вы настроите доставку USB-устройств на [сервер](../../baremetal/concepts/servers.md) {{ baremetal-full-name }} через [VPN-подключение](../../glossary/vpn.md) поверх публичного сегмента сети интернет. Для этого вы используете технологию _USB over IP_ и свободно распространяемое программное обеспечение в составе дистрибутивов [Linux](https://ru.wikipedia.org/wiki/Linux).
+В данном руководстве вы настроите доставку USB-устройств на [сервер](../../baremetal/concepts/servers.md) Yandex BareMetal через [VPN-подключение](../../glossary/vpn.md) поверх публичного сегмента сети интернет. Для этого вы используете технологию _USB over IP_ и свободно распространяемое программное обеспечение в составе дистрибутивов [Linux](https://ru.wikipedia.org/wiki/Linux).
 
 {% note info %}
 
-Аналогичным образом USB-устройства можно доставить на [виртуальную машину](../../compute/concepts/vm.md) {{ compute-full-name }}.
+Аналогичным образом USB-устройства можно доставить на [виртуальную машину](../../compute/concepts/vm.md) Yandex Compute Cloud.
 
 {% endnote %}
 
 Технология USB over IP позволяет передавать данные USB-устройств по сети (локальной или интернет) так, как если бы они были подключены к компьютеру-клиенту напрямую. Это особенно важно в ситуациях, когда физическое подключение USB-устройств к компьютеру затруднено или невозможно.
 
 С помощью технологии USB over IP:
-* USB-устройства можно доставлять в облачные сервисы, а клиентами в отношении удаленных USB-устройств могут выступать виртуальные машины {{ compute-name }} или серверы {{ baremetal-name }}.
+* USB-устройства можно доставлять в облачные сервисы, а клиентами в отношении удаленных USB-устройств могут выступать виртуальные машины Compute Cloud или серверы BareMetal.
 * К ВМ и серверам можно подключать удаленные принтеры, сканеры, камеры, аппаратные токены, флеш-накопители и другие периферийные USB-устройства.
 * Для доставки USB-устройств можно использовать как специализированные [ПАК решения](https://ru.wikipedia.org/wiki/Программно-аппаратный_комплекс), так и свободно распространяемое программное обеспечение.
 * Ключи, токены, смарт-карты, доставляемые на серверы и ВМ, могут размещаться в контролируемом периметре с ограниченным доступом.
@@ -25,7 +25,7 @@
 
 ![usb-over-ip](../../_assets/tutorials/usb-over-ip.svg)
 
-* **USB-клиент** на облачной площадке – виртуальная машина или физический сервер под управлением ОС Windows или Linux. В данном руководстве в качестве клиента будет использован физический сервер под управлением ОС Linux Ubuntu 24.04 LTS, арендованный в сервисе {{ baremetal-full-name }}.
+* **USB-клиент** на облачной площадке – виртуальная машина или физический сервер под управлением ОС Windows или Linux. В данном руководстве в качестве клиента будет использован физический сервер под управлением ОС Linux Ubuntu 24.04 LTS, арендованный в сервисе Yandex BareMetal.
 * **USB-сервер** на удаленной площадке – устройство под управлением ОС Linux с подключением к локальной сети и VPN-доступом (если доставка данных USB-устройства осуществляется через интернет). В USB-порты USB-сервера будут физически вставляться USB-устройства. В качестве сервера могут использоваться микро-компьютеры, например [Raspberry Pi](https://ru.wikipedia.org/wiki/Raspberry_Pi). В данном руководстве в качестве сервера будет использован компьютер под управлением ОС Linux Ubuntu 22.04 LTS, оснащенный несколькими USB-портами.
 * **Программное обеспечение**. В данном руководстве доставка USB-устройства на клиент будет осуществлена с помощью программы `usbip` с использованием стандартного набора системных утилит и модулей ядра, входящих в пакет `linux-tools`.
 * **Подключаемое USB-оборудование**:
@@ -35,13 +35,13 @@
 
     Предлагаемая схема с использованием WireGuard носит демонстрационный характер, вы можете использовать любую другую технологию для связи удаленных серверов.
 
-Чтобы доставить USB-устройства на сервер {{ baremetal-name }} с помощью технологии USB over IP:
+Чтобы доставить USB-устройства на сервер BareMetal с помощью технологии USB over IP:
 
 1. [Подготовьте облако к работе](#before-you-begin).
 1. [Настройте облачную сеть](#setup-vpc).
 1. [Создайте виртуальную машину для VPN-сервера](#create-vpn-server).
-1. [Создайте приватную подсеть {{ baremetal-name }}](#create-subnet).
-1. [Арендуйте сервер {{ baremetal-name }}](#rent-server).
+1. [Создайте приватную подсеть BareMetal](#create-subnet).
+1. [Арендуйте сервер BareMetal](#rent-server).
 1. [Настройте VPN](#setup-vpn).
 1. [Настройте USB over IP](#setup-usbip).
 1. [Убедитесь в работоспособности решения](#test-solution).
@@ -50,11 +50,11 @@
 
 ## Перед началом работы {#before-you-begin}
 
-Зарегистрируйтесь в {{ yandex-cloud }} и создайте [платежный аккаунт](../../billing/concepts/billing-account.md):
-1. Перейдите в [консоль управления]({{ link-console-main }}), затем войдите в {{ yandex-cloud }} или зарегистрируйтесь.
-1. На странице **[{{ ui-key.yacloud_billing.billing.label_service }}]({{ link-console-billing }})** убедитесь, что у вас подключен платежный аккаунт, и он находится в [статусе](../../billing/concepts/billing-account-statuses.md) `ACTIVE` или `TRIAL_ACTIVE`. Если платежного аккаунта нет, [создайте его](../../billing/quickstart/index.md) и [привяжите](../../billing/operations/pin-cloud.md) к нему облако.
+Зарегистрируйтесь в Yandex Cloud и создайте [платежный аккаунт](../../billing/concepts/billing-account.md):
+1. Перейдите в [консоль управления](https://console.yandex.cloud), затем войдите в Yandex Cloud или зарегистрируйтесь.
+1. На странице **[Yandex Cloud Billing](https://center.yandex.cloud/billing/accounts)** убедитесь, что у вас подключен платежный аккаунт, и он находится в [статусе](../../billing/concepts/billing-account-statuses.md) `ACTIVE` или `TRIAL_ACTIVE`. Если платежного аккаунта нет, [создайте его](../../billing/quickstart/index.md) и [привяжите](../../billing/operations/pin-cloud.md) к нему облако.
 
-Если у вас есть активный платежный аккаунт, вы можете создать или выбрать [каталог](../../resource-manager/concepts/resources-hierarchy.md#folder), в котором будет работать ваша инфраструктура, на [странице облака]({{ link-console-cloud }}).
+Если у вас есть активный платежный аккаунт, вы можете создать или выбрать [каталог](../../resource-manager/concepts/resources-hierarchy.md#folder), в котором будет работать ваша инфраструктура, на [странице облака](https://console.yandex.cloud/cloud).
 
 [Подробнее об облаках и каталогах](../../resource-manager/concepts/resources-hierarchy.md).
 
@@ -62,38 +62,38 @@
 
 В стоимость предлагаемого решения входят:
 
-* плата за использование [публичного IP-адреса](../concepts/address.md#public-addresses) виртуальной машины (см. [тарифы {{ vpc-full-name }}](../pricing.md));
-* плата за вычислительные ресурсы и диски [ВМ](../../compute/concepts/vm.md) (см. [тарифы {{ compute-full-name }}](../../compute/pricing.md));
-* плата за аренду сервера {{ baremetal-name }} (см. [тарифы {{ baremetal-full-name }}](../../baremetal/pricing.md)).
+* плата за использование [публичного IP-адреса](../concepts/address.md#public-addresses) виртуальной машины (см. [тарифы Yandex Virtual Private Cloud](../pricing.md));
+* плата за вычислительные ресурсы и диски [ВМ](../../compute/concepts/vm.md) (см. [тарифы Yandex Compute Cloud](../../compute/pricing.md));
+* плата за аренду сервера BareMetal (см. [тарифы Yandex BareMetal](../../baremetal/pricing.md)).
 
 
 ## Настройте облачную сеть {#setup-vpc}
 
 ### Создайте облачную сеть и подсеть {#setup-network-and-subnet}
 
-Создайте облачную сеть и подсеть, к которым будет подключена виртуальная машина {{ compute-name }} – сервер VPN.
+Создайте облачную сеть и подсеть, к которым будет подключена виртуальная машина Compute Cloud – сервер VPN.
 
 {% list tabs group=instructions %}
 
 - Консоль управления {#console} 
 
-  1. В [консоли управления]({{ link-console-main }}) выберите каталог, в котором вы будете создавать облачную инфраструктуру.
-  1. Перейдите в сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_vpc }}**.
+  1. В [консоли управления](https://console.yandex.cloud) выберите каталог, в котором вы будете создавать облачную инфраструктуру.
+  1. Перейдите в сервис **Virtual Private Cloud**.
   1. Создайте облачную сеть:
 
-      1. Справа сверху нажмите **{{ ui-key.yacloud.vpc.networks.button_create }}**.
-      1. В поле **{{ ui-key.yacloud.vpc.networks.create.field_name }}** укажите `sample-network`.
-      1. В поле **{{ ui-key.yacloud.vpc.networks.create.field_advanced }}** отключите опцию **{{ ui-key.yacloud.vpc.networks.create.field_is-default }}**.
-      1. Нажмите **{{ ui-key.yacloud.vpc.networks.button_create }}**.
+      1. Справа сверху нажмите **Создать сеть**.
+      1. В поле **Имя** укажите `sample-network`.
+      1. В поле **Дополнительно** отключите опцию **Создать подсети**.
+      1. Нажмите **Создать сеть**.
   1. Создайте подсеть:
 
-      1. На панели слева выберите ![subnets](../../_assets/console-icons/nodes-right.svg) **{{ ui-key.yacloud.vpc.switch_networks }}**.
-      1. Справа сверху нажмите **{{ ui-key.yacloud.vpc.subnetworks.button_action-create }}**.
-      1. В поле **{{ ui-key.yacloud.vpc.subnetworks.create.field_name }}** укажите `subnet-{{ region-id }}-b`.
-      1. В поле **{{ ui-key.yacloud.vpc.subnetworks.create.field_zone }}** выберите зону доступности `{{ region-id }}-b`.
-      1. В поле **{{ ui-key.yacloud.vpc.subnetworks.create.field_network }}** выберите облачную сеть `sample-network`.
-      1. В поле **{{ ui-key.yacloud.vpc.subnetworks.create.field_ip }}** укажите `192.168.11.0/24`.
-      1. Нажмите **{{ ui-key.yacloud.vpc.subnetworks.create.button_create }}**.
+      1. На панели слева выберите ![subnets](../../_assets/console-icons/nodes-right.svg) **Подсети**.
+      1. Справа сверху нажмите **Создать подсеть**.
+      1. В поле **Имя** укажите `subnet-ru-central1-b`.
+      1. В поле **Зона доступности** выберите зону доступности `ru-central1-b`.
+      1. В поле **Сеть** выберите облачную сеть `sample-network`.
+      1. В поле **CIDR** укажите `192.168.11.0/24`.
+      1. Нажмите **Создать подсеть**.
 
 {% endlist %}
 
@@ -105,19 +105,19 @@
 
 - Консоль управления {#console}
 
-  1. В [консоли управления]({{ link-console-main }}) выберите каталог, в котором вы создаете облачную инфраструктуру.
-  1. Перейдите в сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_vpc }}**.
-  1. На панели слева выберите ![image](../../_assets/console-icons/shield.svg) **{{ ui-key.yacloud.vpc.label_security-groups }}** и нажмите кнопку **{{ ui-key.yacloud.vpc.network.security-groups.button_create }}**.
-  1. В поле **{{ ui-key.yacloud.vpc.network.security-groups.forms.field_sg-name }}** задайте имя `vpn-sg`.
-  1. В поле **{{ ui-key.yacloud.vpc.network.security-groups.forms.field_sg-network }}** выберите созданную ранее сеть `sample-network`.
-  1. В блоке **{{ ui-key.yacloud.vpc.network.security-groups.forms.label_section-rules }}** [создайте](../operations/security-group-add-rule.md) следующие правила для управления трафиком:
+  1. В [консоли управления](https://console.yandex.cloud) выберите каталог, в котором вы создаете облачную инфраструктуру.
+  1. Перейдите в сервис **Virtual Private Cloud**.
+  1. На панели слева выберите ![image](../../_assets/console-icons/shield.svg) **Группы безопасности** и нажмите кнопку **Создать группу безопасности**.
+  1. В поле **Имя** задайте имя `vpn-sg`.
+  1. В поле **Сеть** выберите созданную ранее сеть `sample-network`.
+  1. В блоке **Правила** [создайте](../operations/security-group-add-rule.md) следующие правила для управления трафиком:
 
-      | Направление<br/>трафика | {{ ui-key.yacloud.vpc.network.security-groups.forms.field_sg-rule-description }} | {{ ui-key.yacloud.vpc.network.security-groups.forms.field_sg-rule-port-range }} | {{ ui-key.yacloud.vpc.network.security-groups.forms.field_sg-rule-protocol }} | {{ ui-key.yacloud.vpc.network.security-groups.forms.field_sg-rule-source }} /<br/>{{ ui-key.yacloud.vpc.network.security-groups.forms.field_sg-rule-destination }} | {{ ui-key.yacloud.vpc.network.security-groups.forms.field_sg-rule-cidr-blocks }} /<br/>{{ ui-key.yacloud.vpc.network.security-groups.forms.field_sg-rule-sg-type }} |
+      | Направление<br/>трафика | Описание | Диапазон портов | Протокол | Источник /<br/>Назначение | CIDR блоки /<br/>Группа безопасности |
       | --- | --- | --- | --- | --- | --- |
-      | Входящий | `ssh`            | `22`   | `TCP`  | `{{ ui-key.yacloud.vpc.network.security-groups.forms.value_sg-rule-destination-cidr }}` | `0.0.0.0/0` |
-      | Входящий | `vpn`            | `63665`   | `UDP`  | `{{ ui-key.yacloud.vpc.network.security-groups.forms.value_sg-rule-destination-cidr }}` | `0.0.0.0/0` |
-      | Исходящий | `any`           | `Весь` | `{{ ui-key.yacloud.vpc.network.security-groups.forms.value_any }}` | `{{ ui-key.yacloud.vpc.network.security-groups.forms.value_sg-rule-destination-cidr }}` | `0.0.0.0/0` |
-  1. Нажмите **{{ ui-key.yacloud.common.create }}**.
+      | Входящий | `ssh`            | `22`   | `TCP`  | `CIDR` | `0.0.0.0/0` |
+      | Входящий | `vpn`            | `63665`   | `UDP`  | `CIDR` | `0.0.0.0/0` |
+      | Исходящий | `any`           | `Весь` | `Любой` | `CIDR` | `0.0.0.0/0` |
+  1. Нажмите **Создать**.
 
 {% endlist %}
 
@@ -127,40 +127,40 @@
 
 - Консоль управления {#console}
 
-  1. В [консоли управления]({{ link-console-main }}) выберите каталог, в котором вы создаете инфраструктуру.
-  1. Перейдите в сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_compute }}**.
-  1. На панели слева выберите ![image](../../_assets/console-icons/server.svg) **{{ ui-key.yacloud.compute.instances_jsoza }}** и нажмите кнопку **{{ ui-key.yacloud.compute.instances.button_create }}**.
-  1. В блоке **{{ ui-key.yacloud.compute.instances.create.section_image }}** выберите образ [Ubuntu 24.04](https://yandex.cloud/ru/marketplace/products/yc/ubuntu-2404-lts-oslogin).
-  1. В блоке **{{ ui-key.yacloud.k8s.node-groups.create.section_allocation-policy }}** выберите [зону доступности](../../overview/concepts/geo-scope.md) `{{ region-id }}-b`.
-  1. В блоке **{{ ui-key.yacloud.compute.instances.create.section_network }}**:
+  1. В [консоли управления](https://console.yandex.cloud) выберите каталог, в котором вы создаете инфраструктуру.
+  1. Перейдите в сервис **Compute Cloud**.
+  1. На панели слева выберите ![image](../../_assets/console-icons/server.svg) **Виртуальные машины** и нажмите кнопку **Создать виртуальную машину**.
+  1. В блоке **Образ загрузочного диска** выберите образ [Ubuntu 24.04](https://yandex.cloud/ru/marketplace/products/yc/ubuntu-2404-lts-oslogin).
+  1. В блоке **Расположение** выберите [зону доступности](../../overview/concepts/geo-scope.md) `ru-central1-b`.
+  1. В блоке **Сетевые настройки**:
 
-      * В поле **{{ ui-key.yacloud.component.compute.network-select.field_subnetwork }}** выберите созданную ранее подсеть `subnet-{{ region-id }}-b`.
-      * В поле **{{ ui-key.yacloud.component.compute.network-select.field_external }}** выберите `{{ ui-key.yacloud.component.compute.network-select.switch_auto }}`.
-      * В поле **{{ ui-key.yacloud.component.compute.network-select.field_security-groups }}** выберите созданную ранее группу безопасности `vpn-sg`.
+      * В поле **Подсеть** выберите созданную ранее подсеть `subnet-ru-central1-b`.
+      * В поле **Публичный IP-адрес** выберите `Автоматически`.
+      * В поле **Группы безопасности** выберите созданную ранее группу безопасности `vpn-sg`.
 
-  1. В блоке **{{ ui-key.yacloud.compute.instances.create.section_access }}** выберите вариант **{{ ui-key.yacloud.compute.instance.access-method.label_oslogin-control-ssh-option-title }}** и укажите данные для доступа на ВМ:
+  1. В блоке **Доступ** выберите вариант **SSH-ключ** и укажите данные для доступа на ВМ:
 
-      * В поле **{{ ui-key.yacloud.compute.instances.create.field_user }}** введите имя пользователя: `yc-user`.
-      * В поле **{{ ui-key.yacloud.compute.instances.create.field_key }}** выберите SSH-ключ, сохраненный в вашем профиле [пользователя организации](../../organization/concepts/membership.md).
+      * В поле **Логин** введите имя пользователя: `yc-user`.
+      * В поле **SSH-ключ** выберите SSH-ключ, сохраненный в вашем профиле [пользователя организации](../../organization/concepts/membership.md).
         
         Если в вашем профиле нет сохраненных SSH-ключей или вы хотите добавить новый ключ:
         
-        1. Нажмите кнопку **{{ ui-key.yacloud.compute.instances.create.button_add-ssh-key }}**.
+        1. Нажмите кнопку **Добавить ключ**.
         1. Задайте имя SSH-ключа.
         1. Выберите вариант:
         
-            * `{{ ui-key.yacloud_components.ssh-key-add-dialog.value_radio-manual }}` — вставьте содержимое открытого [SSH](../../glossary/ssh-keygen.md)-ключа. Пару SSH-ключей необходимо [создать](../../compute/operations/vm-connect/ssh.md#creating-ssh-keys) самостоятельно.
-            * `{{ ui-key.yacloud_components.ssh-key-add-dialog.value_radio-upload }}` — загрузите открытую часть SSH-ключа. Пару SSH-ключей необходимо создать самостоятельно.
-            * `{{ ui-key.yacloud_components.ssh-key-add-dialog.value_radio-generate }}` — автоматическое создание пары SSH-ключей.
+            * `Ввести вручную` — вставьте содержимое открытого [SSH](../../glossary/ssh-keygen.md)-ключа. Пару SSH-ключей необходимо [создать](../../compute/operations/vm-connect/ssh.md#creating-ssh-keys) самостоятельно.
+            * `Загрузить из файла` — загрузите открытую часть SSH-ключа. Пару SSH-ключей необходимо создать самостоятельно.
+            * `Сгенерировать ключ` — автоматическое создание пары SSH-ключей.
             
               При добавлении сгенерированного SSH-ключа будет создан и загружен архив с парой ключей. В ОС на базе Linux или macOS распакуйте архив в папку `/home/<имя_пользователя>/.ssh`. В ОС Windows распакуйте архив в папку `C:\Users\<имя_пользователя>/.ssh`. Дополнительно вводить открытый ключ в консоли управления не требуется.
         
-        1. Нажмите кнопку **{{ ui-key.yacloud.common.add }}**.
+        1. Нажмите кнопку **Добавить**.
         
         SSH-ключ будет добавлен в ваш профиль пользователя организации. Если в организации [отключена](../../organization/operations/os-login-access.md) возможность добавления пользователями SSH-ключей в свои профили, добавленный открытый SSH-ключ будет сохранен только в профиле пользователя внутри создаваемого ресурса.
 
-  1. В блоке **{{ ui-key.yacloud.compute.instances.create.section_base }}** задайте имя ВМ: `wireguard-vpn-server`.
-  1. Нажмите кнопку **{{ ui-key.yacloud.compute.instances.create.button_create }}**.
+  1. В блоке **Общая информация** задайте имя ВМ: `wireguard-vpn-server`.
+  1. Нажмите кнопку **Создать ВМ**.
 
 {% endlist %}
 
@@ -171,33 +171,33 @@
 {% endnote %}
 
 
-## Создайте приватную подсеть {{ baremetal-name }} {#create-subnet}
+## Создайте приватную подсеть BareMetal {#create-subnet}
 
 {% list tabs group=instructions %}
 
 - Консоль управления {#console}
 
-  1. В [консоли управления]({{ link-console-main }}) выберите каталог, в котором вы создаете облачную инфраструктуру.
-  1. Перейдите в сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_baremetal }}**.
-  1. На панели слева выберите ![icon](../../_assets/console-icons/nodes-right.svg) **{{ ui-key.yacloud.baremetal.label_subnetworks_uU4LH }}** и нажмите кнопку **{{ ui-key.yacloud.baremetal.label_create-subnetwork }}**.
-  1. В поле **{{ ui-key.yacloud.baremetal.field_hardware-pool-id }}** выберите пул серверов `{{ region-id }}-m3`.
-  1. В поле **{{ ui-key.yacloud.baremetal.field_name }}** задайте имя подсети: `subnet-m3`.
-  1. Не включая опцию **{{ ui-key.yacloud.baremetal.title_routing-settings }}**, нажмите кнопку **{{ ui-key.yacloud.baremetal.label_create-subnetwork }}**.
+  1. В [консоли управления](https://console.yandex.cloud) выберите каталог, в котором вы создаете облачную инфраструктуру.
+  1. Перейдите в сервис **BareMetal**.
+  1. На панели слева выберите ![icon](../../_assets/console-icons/nodes-right.svg) **Приватные подсети** и нажмите кнопку **Создать подсеть**.
+  1. В поле **Пул** выберите пул серверов `ru-central1-m3`.
+  1. В поле **Имя** задайте имя подсети: `subnet-m3`.
+  1. Не включая опцию **IP-адресация и маршрутизация**, нажмите кнопку **Создать подсеть**.
 
 {% endlist %}
 
 
-## Арендуйте сервер {{ baremetal-name }} {#rent-server}
+## Арендуйте сервер BareMetal {#rent-server}
 
 {% list tabs group=instructions %}
 
 - Консоль управления {#console}
 
-  1. В [консоли управления]({{ link-console-main }}) выберите каталог, в котором вы создаете облачную инфраструктуру.
-  1. Перейдите в сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_baremetal }}**.
-  1. Нажмите кнопку **{{ ui-key.yacloud.baremetal.label_create-server }}** и в открывшемся окне выберите вариант `{{ ui-key.yacloud_components.baremetal.StockConfigurations }}` и подходящую [конфигурацию](../../baremetal/concepts/server-configurations.md) сервера {{ baremetal-name }} в пуле серверов `{{ region-id }}-m3`.
+  1. В [консоли управления](https://console.yandex.cloud) выберите каталог, в котором вы создаете облачную инфраструктуру.
+  1. Перейдите в сервис **BareMetal**.
+  1. Нажмите кнопку **Заказать сервер** и в открывшемся окне выберите вариант `Готовые конфигурации` и подходящую [конфигурацию](../../baremetal/concepts/server-configurations.md) сервера BareMetal в пуле серверов `ru-central1-m3`.
 
-      Для этого в фильтре в правой части окна в блоке **{{ ui-key.yacloud_components.baremetal.poolFilter }}** выберите пул серверов `{{ region-id }}-m3`.
+      Для этого в фильтре в правой части окна в блоке **Пул** выберите пул серверов `ru-central1-m3`.
 
       Чтобы выбрать подходящую вам конфигурацию сервера, нажмите на блок с именем этой конфигурации в центральной части экрана.
 
@@ -205,7 +205,7 @@
       
       Вы можете снизить стоимость аренды сервера в некоторых конфигурациях, заказав его [сборку](../../baremetal/concepts/server-custom-configurations.md#assembly).
       
-      Чтобы воспользоваться скидкой, в блоке с нужной конфигурацией наведите курсор на **{{ ui-key.yacloud_components.baremetal.assemblyDiscountLabel }}** ![circle-info.svg](../../_assets/console-icons/circle-info.svg) и во всплывающем окне нажмите ![person-nut-hex.svg](../../_assets/console-icons/person-nut-hex.svg) **{{ ui-key.yacloud_components.baremetal.goToAssembly }}**.
+      Чтобы воспользоваться скидкой, в блоке с нужной конфигурацией наведите курсор на **Дешевле со сборкой** ![circle-info.svg](../../_assets/console-icons/circle-info.svg) и во всплывающем окне нажмите ![person-nut-hex.svg](../../_assets/console-icons/person-nut-hex.svg) **Перейти к сборке**.
       
       При заказе сервера со сборкой воспользуйтесь приведенной ниже инструкцией, чтобы задать необходимые параметры сервера. При этом сервер станет доступен вам не сразу, а после завершения сборки (в течение четырех календарных дней) и по более низкой цене.
       
@@ -213,61 +213,61 @@
 
   1. В открывшемся окне с настройками конфигурации сервера:
 
-      1. В поле **{{ ui-key.yacloud.baremetal.field_server-lease-duration }}** выберите [период](../../baremetal/concepts/servers.md#server-lease), на который вы хотите арендовать сервер: `1 день`, `1 месяц`, `3 месяца`, `6 месяцев` или `1 год`.
+      1. В поле **Период аренды** выберите [период](../../baremetal/concepts/servers.md#server-lease), на который вы хотите арендовать сервер: `1 день`, `1 месяц`, `3 месяца`, `6 месяцев` или `1 год`.
          
          По окончании указанного периода аренда сервера будет автоматически продлена на такой же период. Прервать аренду в течение указанного периода аренды нельзя, но можно [отказаться](../../baremetal/operations/servers/server-lease-cancel.md) от дальнейшего продления аренды сервера.
-      1. В блоке **{{ ui-key.yacloud.baremetal.title_section-server-product }}** выберите образ `Ubuntu 24.04`.
-      1. (Опционально) В блоке **{{ ui-key.yacloud.baremetal.title_section-disk }}** настройте разметку [дисков](../../baremetal/concepts/disks/disk-types.md):
+      1. В блоке **Образ** выберите образ `Ubuntu 24.04`.
+      1. (Опционально) В блоке **Диск** настройте разметку [дисков](../../baremetal/concepts/disks/disk-types.md):
          
-         1. Нажмите кнопку **{{ ui-key.yacloud.baremetal.action_disk-layout-settings }}**.
-         1. Укажите параметры разделов. Чтобы создать новый раздел, нажмите кнопку ![icon](../../_assets/console-icons/plus.svg) **{{ ui-key.yacloud.baremetal.actions_add-partition }}**.
+         1. Нажмите кнопку **Настроить разделы диска**.
+         1. Укажите параметры разделов. Чтобы создать новый раздел, нажмите кнопку ![icon](../../_assets/console-icons/plus.svg) **Добавить раздел**.
          
-             Чтобы самостоятельно собрать [RAID](../../baremetal/concepts/disks/raid.md)-массивы и настроить разделы дисков, нажмите кнопку **{{ ui-key.yacloud.baremetal.action_destroy-raid }}**.
-         1. Нажмите кнопку **{{ ui-key.yacloud.common.save }}**.
-      1. В блоке **{{ ui-key.yacloud.baremetal.title_section-network-interfaces }}**:
-          1. В поле **{{ ui-key.yacloud.baremetal.field_subnet-id }}** выберите созданную ранее подсеть `subnet-m3`.
-          1. В поле **{{ ui-key.yacloud.baremetal.field_needed-public-ip }}** выберите `{{ ui-key.yacloud.baremetal.label_public-ip-ephemeral }}`.
+             Чтобы самостоятельно собрать [RAID](../../baremetal/concepts/disks/raid.md)-массивы и настроить разделы дисков, нажмите кнопку **Разобрать RAID**.
+         1. Нажмите кнопку **Сохранить**.
+      1. В блоке **Сетевые интерфейсы**:
+          1. В поле **Приватная подсеть** выберите созданную ранее подсеть `subnet-m3`.
+          1. В поле **Публичный адрес** выберите `Из эфемерной подсети`.
 
-      1. В блоке **{{ ui-key.yacloud.baremetal.title_server-access }}**:
+      1. В блоке **Доступ**:
 
-          1. В поле **{{ ui-key.yacloud.baremetal.field_password }}** воспользуйтесь одним из вариантов создания пароля для root-пользователя:
+          1. В поле **Пароль** воспользуйтесь одним из вариантов создания пароля для root-пользователя:
           
-              * Чтобы сгенерировать пароль для root-пользователя, выберите опцию `{{ ui-key.yacloud.baremetal.label_password-plain }}` и нажмите кнопку **{{ ui-key.yacloud.component.password-input.label_button-generate }}**.
+              * Чтобы сгенерировать пароль для root-пользователя, выберите опцию `Новый пароль` и нажмите кнопку **Сгенерировать**.
           
                   {% note warning %}
                   
-                  Этот вариант предусматривает ответственность пользователя за безопасность пароля. Сохраните сгенерированный пароль в надежном месте: он не сохраняется в {{ yandex-cloud }}, и после заказа сервера вы не сможете посмотреть его.
+                  Этот вариант предусматривает ответственность пользователя за безопасность пароля. Сохраните сгенерированный пароль в надежном месте: он не сохраняется в Yandex Cloud, и после заказа сервера вы не сможете посмотреть его.
                   
                   {% endnote %}
           
-              * Чтобы использовать пароль root-пользователя, сохраненный в [секрете](../../lockbox/concepts/secret.md) {{ lockbox-full-name }}, выберите опцию `{{ ui-key.yacloud.baremetal.label_password-lockbox }}`:
+              * Чтобы использовать пароль root-пользователя, сохраненный в [секрете](../../lockbox/concepts/secret.md) Yandex Lockbox, выберите опцию `Секрет Lockbox`:
           
-                  В полях **{{ ui-key.yacloud.baremetal.label_lockbox-name }}**, **{{ ui-key.yacloud.baremetal.label_lockbox-version }}** и **{{ ui-key.yacloud.baremetal.label_lockbox-key }}** выберите соответственно секрет, его версию и ключ, в которых сохранен ваш пароль.
+                  В полях **Имя**, **Версия** и **Ключ** выберите соответственно секрет, его версию и ключ, в которых сохранен ваш пароль.
                   
-                  Если у вас еще нет секрета {{ lockbox-name }}, нажмите кнопку **{{ ui-key.yacloud.common.create }}**, чтобы создать его.
+                  Если у вас еще нет секрета Yandex Lockbox, нажмите кнопку **Создать**, чтобы создать его.
           
-                  Этот вариант позволяет вам как задать собственный пароль (тип секрета `{{ ui-key.yacloud.lockbox.FormFields.title_secret-type-custom }}`), так и использовать пароль, сгенерированный автоматически (тип секрета `{{ ui-key.yacloud.lockbox.FormFields.title_secret-type-generated }}`).
+                  Этот вариант позволяет вам как задать собственный пароль (тип секрета `Пользовательский`), так и использовать пароль, сгенерированный автоматически (тип секрета `Генерируемый`).
           
-          1. В поле **{{ ui-key.yacloud.baremetal.field_ssh-public-key }}** выберите SSH-ключ, сохраненный в вашем профиле [пользователя организации](../../organization/concepts/membership.md).
+          1. В поле **Открытый SSH-ключ** выберите SSH-ключ, сохраненный в вашем профиле [пользователя организации](../../organization/concepts/membership.md).
           
               Если в вашем профиле нет сохраненных SSH-ключей или вы хотите добавить новый ключ:
               
-              1. Нажмите кнопку **{{ ui-key.yacloud.compute.instances.create.button_add-ssh-key }}**.
+              1. Нажмите кнопку **Добавить ключ**.
               1. Задайте имя SSH-ключа.
               1. Выберите вариант:
               
-                  * `{{ ui-key.yacloud_components.ssh-key-add-dialog.value_radio-manual }}` — вставьте содержимое открытого [SSH](../../glossary/ssh-keygen.md)-ключа. Пару SSH-ключей необходимо [создать](../../compute/operations/vm-connect/ssh.md#creating-ssh-keys) самостоятельно.
-                  * `{{ ui-key.yacloud_components.ssh-key-add-dialog.value_radio-upload }}` — загрузите открытую часть SSH-ключа. Пару SSH-ключей необходимо создать самостоятельно.
-                  * `{{ ui-key.yacloud_components.ssh-key-add-dialog.value_radio-generate }}` — автоматическое создание пары SSH-ключей.
+                  * `Ввести вручную` — вставьте содержимое открытого [SSH](../../glossary/ssh-keygen.md)-ключа. Пару SSH-ключей необходимо [создать](../../compute/operations/vm-connect/ssh.md#creating-ssh-keys) самостоятельно.
+                  * `Загрузить из файла` — загрузите открытую часть SSH-ключа. Пару SSH-ключей необходимо создать самостоятельно.
+                  * `Сгенерировать ключ` — автоматическое создание пары SSH-ключей.
                   
                     При добавлении сгенерированного SSH-ключа будет создан и загружен архив с парой ключей. В ОС на базе Linux или macOS распакуйте архив в папку `/home/<имя_пользователя>/.ssh`. В ОС Windows распакуйте архив в папку `C:\Users\<имя_пользователя>/.ssh`. Дополнительно вводить открытый ключ в консоли управления не требуется.
               
-              1. Нажмите кнопку **{{ ui-key.yacloud.common.add }}**.
+              1. Нажмите кнопку **Добавить**.
               
               SSH-ключ будет добавлен в ваш профиль пользователя организации. Если в организации [отключена](../../organization/operations/os-login-access.md) возможность добавления пользователями SSH-ключей в свои профили, добавленный открытый SSH-ключ будет сохранен только в профиле пользователя внутри создаваемого ресурса.
 
-      1. В блоке **{{ ui-key.yacloud.baremetal.title_section-server-info }}** в поле **{{ ui-key.yacloud.baremetal.field_name }}** задайте имя сервера: `my-usbip-client`.
-      1. Нажмите кнопку **{{ ui-key.yacloud.baremetal.label_create-server }}**.
+      1. В блоке **Информация о сервере** в поле **Имя** задайте имя сервера: `my-usbip-client`.
+      1. Нажмите кнопку **Заказать сервер**.
 
 {% endlist %}
 
@@ -280,7 +280,7 @@
 
 ## Настройте VPN {#setup-vpn}
 
-Чтобы настроить доставку USB-устройств на сервер {{ baremetal-name }} с компьютера на удаленной площадке, организуйте VPN-подключение в составе VPN-сервера, развернутого на виртуальной машине {{ compute-name }}, и двух VPN-клиентов – на сервере {{ baremetal-name }} и на компьютере на удаленной площадке.
+Чтобы настроить доставку USB-устройств на сервер BareMetal с компьютера на удаленной площадке, организуйте VPN-подключение в составе VPN-сервера, развернутого на виртуальной машине Compute Cloud, и двух VPN-клиентов – на сервере BareMetal и на компьютере на удаленной площадке.
 
 Для настройки VPN-подключения в данном руководстве будет использоваться решение с открытым исходным кодом [WireGuard](https://www.wireguard.com/). При этом вы можете организовать VPN-подключение с использованием других средств.
 
@@ -327,8 +327,8 @@
 
     * `server_private.key` – содержит закрытый ключ шифрования VPN-сервера.
     * `server_public.key` – содержит открытый ключ шифрования VPN-сервера.
-    * `bms_private.key` – содержит закрытый ключ шифрования VPN-клиента – сервера {{ baremetal-name }}.
-    * `bms_public.key` – содержит открытый ключ шифрования VPN-клиента – сервера {{ baremetal-name }}.
+    * `bms_private.key` – содержит закрытый ключ шифрования VPN-клиента – сервера BareMetal.
+    * `bms_public.key` – содержит открытый ключ шифрования VPN-клиента – сервера BareMetal.
     * `remote_private.key` – содержит закрытый ключ шифрования VPN-клиента на удаленной площадке.
     * `remote_public.key` – содержит открытый ключ шифрования VPN-клиента на удаленной площадке.
 
@@ -385,7 +385,7 @@
 
 ### Настройте VPN-клиенты {#vpn-client-setup}
 
-1. [Подключитесь по SSH](../../compute/operations/vm-connect/ssh.md) к арендованному ранее серверу {{ baremetal-name }} `my-usbip-client`.
+1. [Подключитесь по SSH](../../compute/operations/vm-connect/ssh.md) к арендованному ранее серверу BareMetal `my-usbip-client`.
 1. Установите WireGuard и необходимые зависимости:
    
    ```bash
@@ -433,7 +433,7 @@
 
         * `PrivateKey` – содержимое созданного при настройке VPN-сервера файла `bms_private.key` с закрытым ключом шифрования этого VPN-клиента.
         * `PublicKey` – содержимое созданного при настройке VPN-сервера файла `server_public.key` с открытым ключом шифрования VPN-сервера.
-        * `<публичный_IP-адрес_ВМ>` – публичный IP-адрес виртуальной машины с развернутым VPN-сервером. Публичный IP-адрес ВМ можно узнать в [консоли управления]({{ link-console-main }}), в поле **{{ ui-key.yacloud.compute.instance.overview.label_public-ipv4 }}** блока **{{ ui-key.yacloud.compute.instance.overview.section_network }}** на странице с информацией о ВМ.
+        * `<публичный_IP-адрес_ВМ>` – публичный IP-адрес виртуальной машины с развернутым VPN-сервером. Публичный IP-адрес ВМ можно узнать в [консоли управления](https://console.yandex.cloud), в поле **Публичный IPv4-адрес** блока **Сеть** на странице с информацией о ВМ.
 1. Запустите WireGuard:
 
     ```bash
@@ -455,7 +455,7 @@
 
 На этом этапе VPN-соединение установлено. Чтобы проверить его работу:
 
-1. [Подключитесь по SSH](../../compute/operations/vm-connect/ssh.md) к серверу {{ baremetal-name }} `my-usbip-client` и выполните команду:
+1. [Подключитесь по SSH](../../compute/operations/vm-connect/ssh.md) к серверу BareMetal `my-usbip-client` и выполните команду:
 
     ```bash
     ping 192.168.100.3 -c 5
@@ -503,7 +503,7 @@
 
 ## Настройте USB over IP {#setup-usbip}
 
-Доставка USB-устройства на сервер {{ baremetal-name }} будет осуществлена с помощью программы `usbip`.
+Доставка USB-устройства на сервер BareMetal будет осуществлена с помощью программы `usbip`.
 
 ### Настройте usbip-сервер {#setup-usbip-server}
 
@@ -590,9 +590,9 @@
 
 ### Настройте usbip-клиент {#setup-usbip-client}
 
-В качестве usbip-клиента будет выступать сервер {{ baremetal-name }} `my-usbip-client`.
+В качестве usbip-клиента будет выступать сервер BareMetal `my-usbip-client`.
 
-1. [Подключитесь по SSH](../../compute/operations/vm-connect/ssh.md) к серверу {{ baremetal-name }} `my-usbip-client`.
+1. [Подключитесь по SSH](../../compute/operations/vm-connect/ssh.md) к серверу BareMetal `my-usbip-client`.
 1. Установите дополнительные пакеты, необходимые для работы `usbip`:
    
    ```bash
@@ -601,7 +601,7 @@
 
     {% note info %}
 
-    Если в качестве usbip-клиента вы используете виртуальную машину {{ compute-full-name }}, дополнительно установите пакет `linux-image-extra-virtual`:
+    Если в качестве usbip-клиента вы используете виртуальную машину Yandex Compute Cloud, дополнительно установите пакет `linux-image-extra-virtual`:
 
     ```bash
     sudo apt install linux-image-extra-virtual
@@ -649,11 +649,11 @@
     usbip attach -r 192.168.100.3 -b 1-1.5
     ```
 
-На этом этапе выбранные USB-устройства импортированы по сети на сервер {{ baremetal-name }}.
+На этом этапе выбранные USB-устройства импортированы по сети на сервер BareMetal.
 
 ## Убедитесь в работоспособности решения {#test-solution}
 
-Чтобы проверить подключение к удаленным USB-устройствам, подключитесь по SSH к серверу {{ baremetal-name }} `my-usbip-client` и выполните в терминале несколько проверочных действий:
+Чтобы проверить подключение к удаленным USB-устройствам, подключитесь по SSH к серверу BareMetal `my-usbip-client` и выполните в терминале несколько проверочных действий:
 
 1. Выполните команду, чтобы посмотреть журнал `dmesg`:
 
@@ -727,7 +727,7 @@
 
     - Флеш-накопитель {#flash-drive}
 
-      1. Получите информацию о блочных устройствах сервера {{ baremetal-name }}:
+      1. Получите информацию о блочных устройствах сервера BareMetal:
 
           ```bash
           lsblk /dev/sdc
@@ -852,4 +852,4 @@
 Чтобы перестать платить за созданные ресурсы:
 
 1. [Удалите](../../compute/operations/vm-control/vm-delete.md) виртуальную машину.
-1. Удалить сервер {{ baremetal-name }} нельзя. Вместо этого [откажитесь](../../baremetal/operations/servers/server-lease-cancel.md) от продления аренды сервера.
+1. Удалить сервер BareMetal нельзя. Вместо этого [откажитесь](../../baremetal/operations/servers/server-lease-cancel.md) от продления аренды сервера.

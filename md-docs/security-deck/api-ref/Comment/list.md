@@ -5,7 +5,7 @@ List comments.
 ## HTTP request
 
 ```
-GET https://alert-sink.{{ api-host }}/securitydeck/alerts/v1/alerts/{alertId}/comments
+GET https://alert-sink.api.cloud.yandex.net/securitydeck/alerts/v1/alerts/{alertId}/comments
 ```
 
 ## Path parameters

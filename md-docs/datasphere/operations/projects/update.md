@@ -1,25 +1,25 @@
 # Изменить настройки проекта
 
-На странице редактирования проекта вы можете изменить его имя и описание, задать ограничения потребления и настроить интеграцию с другими сервисами {{ yandex-cloud }}:
+На странице редактирования проекта вы можете изменить его имя и описание, задать ограничения потребления и настроить интеграцию с другими сервисами Yandex Cloud:
 
-1. Выберите нужный проект в своем сообществе или на [главной странице]({{ link-datasphere-main }}) {{ ml-platform-name }} во вкладке **{{ ui-key.yc-ui-datasphere.main-page.recent-projects }}**.
+1. Выберите нужный проект в своем сообществе или на [главной странице](https://datasphere.yandex.cloud) DataSphere во вкладке **Недавние проекты**.
 1. Чтобы изменить имя или описание проекта, нажмите значок ![pencil](../../../_assets/console-icons/pencil-to-line.svg) справа от его текущего имени. В открывшемся окне:
-   * **{{ ui-key.yc-ui-datasphere.edit-project-page.name }}** — укажите имя проекта.
-   * При необходимости нажмите **{{ ui-key.yc-ui-datasphere.edit-project-page.add-description }}** и добавьте описание.
-   * Нажмите **{{ ui-key.yc-ui-datasphere.common.save }}**.
-1. Для изменения других настроек перейдите на вкладку **{{ ui-key.yc-ui-datasphere.project-page.tab.settings }}**.
-1. Нажмите кнопку **![pencil](../../../_assets/console-icons/pencil-to-line.svg) {{ ui-key.yc-ui-datasphere.common.edit }}** в нужном блоке настроек.
+   * **Имя** — укажите имя проекта.
+   * При необходимости нажмите **Добавить описание** и добавьте описание.
+   * Нажмите **Сохранить**.
+1. Для изменения других настроек перейдите на вкладку **Настройки**.
+1. Нажмите кнопку **![pencil](../../../_assets/console-icons/pencil-to-line.svg) Редактировать** в нужном блоке настроек.
 
-   * В блоке **{{ ui-key.yc-ui-datasphere.common.general }}**:
+   * В блоке **Общие настройки**:
 
-     * **{{ ui-key.yc-ui-datasphere.edit-project-page.dedicated-vm-inactivity-timeout }}** — укажите время, через которое выделенная ВМ будет остановлена и удалена из проекта, если на ней не будет вычислений.
-     * **{{ ui-key.yc-ui-datasphere.external-ide.external-ide-vm-configuration }}** — выберите конфигурацию ВМ, которая будет создана при [подключении](remote-connect.md) к локальной IDE.
+     * **Остановить простаивающую ВМ через** — укажите время, через которое выделенная ВМ будет остановлена и удалена из проекта, если на ней не будет вычислений.
+     * **Конфигурация ВМ для удаленного подключения** — выберите конфигурацию ВМ, которая будет создана при [подключении](remote-connect.md) к локальной IDE.
 
-   * В блоке **{{ ui-key.yc-ui-datasphere.edit-project-page.advanced-settings }}**:
+   * В блоке **Расширенные настройки**:
 
-     * **{{ ui-key.yc-ui-datasphere.project-page.settings.default-folder }}** — укажите [каталог](../../../resource-manager/concepts/resources-hierarchy.md#folder) по умолчанию для работы c ресурсами {{ yandex-cloud }}.
-     * **{{ ui-key.yc-ui-datasphere.project-page.settings.service-account }}** — укажите [сервисный аккаунт](../../../iam/concepts/users/service-accounts.md), от имени которого {{ ml-platform-name }} будет создавать кластеры {{ dataproc-name }} и выполнять другие действия в сервисах {{ yandex-cloud }}. Сервисный аккаунт должен иметь необходимые [роли](../../../iam/concepts/access-control/roles.md).
-     * **{{ ui-key.yc-ui-datasphere.project-page.settings.subnet }}** — укажите [подсеть](../../../vpc/concepts/network.md#subnet), если она нужна для связи с другими сервисами {{ yandex-cloud }}. Подсеть должна находиться в [зоне доступности](../../../overview/concepts/geo-scope.md), в которой создано сообщество. Вместе с подсетью обязательно укажите сервисный аккаунт с ролью `{{ roles-vpc-user }}`. Чтобы доступ в интернет и к репозиториям pip в проекте сохранился, указанная подсеть должна иметь настроенный [NAT-шлюз](../../../vpc/concepts/gateways.md), а сервисный аккаунт — роль `vpc.gateways.user`.
+     * **Каталог по умолчанию** — укажите [каталог](../../../resource-manager/concepts/resources-hierarchy.md#folder) по умолчанию для работы c ресурсами Yandex Cloud.
+     * **Сервисный аккаунт** — укажите [сервисный аккаунт](../../../iam/concepts/users/service-accounts.md), от имени которого DataSphere будет создавать кластеры Yandex Data Processing и выполнять другие действия в сервисах Yandex Cloud. Сервисный аккаунт должен иметь необходимые [роли](../../../iam/concepts/access-control/roles.md).
+     * **Подсеть** — укажите [подсеть](../../../vpc/concepts/network.md#subnet), если она нужна для связи с другими сервисами Yandex Cloud. Подсеть должна находиться в [зоне доступности](../../../overview/concepts/geo-scope.md), в которой создано сообщество. Вместе с подсетью обязательно укажите сервисный аккаунт с ролью `vpc.user`. Чтобы доступ в интернет и к репозиториям pip в проекте сохранился, указанная подсеть должна иметь настроенный [NAT-шлюз](../../../vpc/concepts/gateways.md), а сервисный аккаунт — роль `vpc.gateways.user`.
 
      {% note info %}
      
@@ -27,16 +27,16 @@
      
      {% endnote %}
 
-     * **{{ ui-key.yc-ui-datasphere.edit-project-page.security-group }}** — укажите [группу безопасности](../../../vpc/concepts/security-groups.md), если они используются в вашей организации.
-     * **{{ ui-key.yc-ui-datasphere.edit-project-page.dataproc-cluster }}** — если необходимо, выберите [кластер {{ dataproc-name }}](../../../data-proc/operations/cluster-create.md).
+     * **Группа безопасности** — укажите [группу безопасности](../../../vpc/concepts/security-groups.md), если они используются в вашей организации.
+     * **Кластер Yandex Data&nbsp;Processing** — если необходимо, выберите [кластер Yandex Data Processing](../../../data-proc/operations/cluster-create.md).
 
-   * В блоке **{{ ui-key.yc-ui-datasphere.project-page.settings.limits }}** вы можете [задать ограничения](restrictions.md) для проекта.
+   * В блоке **Ограничения** вы можете [задать ограничения](restrictions.md) для проекта.
 
-   * Нажмите **{{ ui-key.yc-ui-datasphere.common.save }}**.
+   * Нажмите **Сохранить**.
 
 #### См. также {#see-also}
 
-* [{#T}](restrictions.md)
-* [{#T}](install-dependencies.md)
-* [{#T}](control-compute-resources.md)
-* [{#T}](../user-images.md)
+* [Задать ограничения для проекта](restrictions.md)
+* [Установить зависимости](install-dependencies.md)
+* [Выбрать вычислительные ресурсы](control-compute-resources.md)
+* [Работа с Docker-образами](../user-images.md)

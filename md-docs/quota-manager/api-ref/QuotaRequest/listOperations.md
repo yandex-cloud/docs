@@ -5,7 +5,7 @@ Lists operations for the specified quota request.
 ## HTTP request
 
 ```
-GET https://quota-manager.{{ api-host }}/quota-manager/v1/quotaRequests/{quotaRequestId}/operations
+GET https://quota-manager.api.cloud.yandex.net/quota-manager/v1/quotaRequests/{quotaRequestId}/operations
 ```
 
 ## Path parameters

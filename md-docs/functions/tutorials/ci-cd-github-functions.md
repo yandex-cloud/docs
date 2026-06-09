@@ -1,14 +1,14 @@
 # Настройка CI/CD с GitHub
 
-[GitHub](https://github.com/) дает возможность хранить код функции [{{ sf-full-name }}](../index.md) и развертывать новые версии [функции](../concepts/function.md) при изменениях в репозитории.
+[GitHub](https://github.com/) дает возможность хранить код функции [Yandex Cloud Functions](../index.md) и развертывать новые версии [функции](../concepts/function.md) при изменениях в репозитории.
 
-В этом руководстве вы настроите CI/CD между {{ sf-name }} и GitHub с помощью федерации сервисных аккаунтов [{{ iam-full-name }}](../../iam/index.md) и развернете функции {{ sf-name }} через запуск [рабочих процессов](https://docs.github.com/{{ lang }}/actions/concepts/workflows-and-actions/workflows) GitHub Actions.
+В этом руководстве вы настроите CI/CD между Cloud Functions и GitHub с помощью федерации сервисных аккаунтов [Yandex Identity and Access Management](../../iam/index.md) и развернете функции Cloud Functions через запуск [рабочих процессов](https://docs.github.com/ru/actions/concepts/workflows-and-actions/workflows) GitHub Actions.
 
 Чтобы настроить CI/CD:
 
 1. [Подготовьте облако к работе](#before-begin).
 1. [Создайте репозиторий](#create-repository).
-1. [Подготовьте инфраструктуру в {{ yandex-cloud }}](#prepare-infrastructure).
+1. [Подготовьте инфраструктуру в Yandex Cloud](#prepare-infrastructure).
 1. [Настройте репозиторий](#configure-repo).
 1. [Проверьте рабочие процессы](#check).
 
@@ -17,11 +17,11 @@
 
 ## Подготовьте облако к работе {#before-begin}
 
-Зарегистрируйтесь в {{ yandex-cloud }} и создайте [платежный аккаунт](../../billing/concepts/billing-account.md):
-1. Перейдите в [консоль управления]({{ link-console-main }}), затем войдите в {{ yandex-cloud }} или зарегистрируйтесь.
-1. На странице **[{{ ui-key.yacloud_billing.billing.label_service }}]({{ link-console-billing }})** убедитесь, что у вас подключен платежный аккаунт, и он находится в [статусе](../../billing/concepts/billing-account-statuses.md) `ACTIVE` или `TRIAL_ACTIVE`. Если платежного аккаунта нет, [создайте его](../../billing/quickstart/index.md) и [привяжите](../../billing/operations/pin-cloud.md) к нему облако.
+Зарегистрируйтесь в Yandex Cloud и создайте [платежный аккаунт](../../billing/concepts/billing-account.md):
+1. Перейдите в [консоль управления](https://console.yandex.cloud), затем войдите в Yandex Cloud или зарегистрируйтесь.
+1. На странице **[Yandex Cloud Billing](https://center.yandex.cloud/billing/accounts)** убедитесь, что у вас подключен платежный аккаунт, и он находится в [статусе](../../billing/concepts/billing-account-statuses.md) `ACTIVE` или `TRIAL_ACTIVE`. Если платежного аккаунта нет, [создайте его](../../billing/quickstart/index.md) и [привяжите](../../billing/operations/pin-cloud.md) к нему облако.
 
-Если у вас есть активный платежный аккаунт, вы можете создать или выбрать [каталог](../../resource-manager/concepts/resources-hierarchy.md#folder), в котором будет работать ваша инфраструктура, на [странице облака]({{ link-console-cloud }}).
+Если у вас есть активный платежный аккаунт, вы можете создать или выбрать [каталог](../../resource-manager/concepts/resources-hierarchy.md#folder), в котором будет работать ваша инфраструктура, на [странице облака](https://console.yandex.cloud/cloud).
 
 [Подробнее об облаках и каталогах](../../resource-manager/concepts/resources-hierarchy.md).
 
@@ -30,37 +30,37 @@
 
 В стоимость поддержки инфраструктуры для этого практического руководства входят:
 
-* Плата за количество вызовов функции, вычислительные ресурсы, выделенные для выполнения функции, и исходящий трафик (см. [тарифы {{ sf-name }}](../pricing.md)).
-* Плата за запись и хранение логов функции в [лог-группе](../../logging/concepts/log-group.md) (см. [тарифы {{ cloud-logging-full-name }}](../../logging/pricing.md)).
+* Плата за количество вызовов функции, вычислительные ресурсы, выделенные для выполнения функции, и исходящий трафик (см. [тарифы Cloud Functions](../pricing.md)).
+* Плата за запись и хранение логов функции в [лог-группе](../../logging/concepts/log-group.md) (см. [тарифы Yandex Cloud Logging](../../logging/pricing.md)).
 
 
 ## Создайте репозиторий {#create-repository}
 
-[Создайте](https://docs.github.com/{{ lang }}/repositories/creating-and-managing-repositories/creating-a-new-repository) новый репозиторий на GitHub или используйте существующий, в котором у вас есть права на просмотр и запуск GitHub Actions.
+[Создайте](https://docs.github.com/ru/repositories/creating-and-managing-repositories/creating-a-new-repository) новый репозиторий на GitHub или используйте существующий, в котором у вас есть права на просмотр и запуск GitHub Actions.
 
 Имена репозитория и пользователя GitHub потребуются в дальнейшем.
 
 
-## Подготовьте инфраструктуру в {{ yandex-cloud }} {#prepare-infrastructure}
+## Подготовьте инфраструктуру в Yandex Cloud {#prepare-infrastructure}
 
 ### Создайте сервисный аккаунт {#create-sa}
 
-От имени [сервисного аккаунта](../../iam/concepts/users/service-accounts.md) с [ролью](../security/index.md#functions-admin) `{{ roles-functions-admin }}` GitHub будет создавать функцию и ее версии.
+От имени [сервисного аккаунта](../../iam/concepts/users/service-accounts.md) с [ролью](../security/index.md#functions-admin) `functions.admin` GitHub будет создавать функцию и ее версии.
 
 {% list tabs group=instructions %}
 
 - Консоль управления {#console}
 
-  1. В [консоли управления]({{ link-console-main }}) выберите [каталог](../../resource-manager/concepts/resources-hierarchy.md#folder), в котором вы будете создавать инфраструктуру.
-  1. Перейдите в сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_iam }}**.
-  1. Нажмите **{{ ui-key.yacloud.iam.folder.service-accounts.button_add }}**.
+  1. В [консоли управления](https://console.yandex.cloud) выберите [каталог](../../resource-manager/concepts/resources-hierarchy.md#folder), в котором вы будете создавать инфраструктуру.
+  1. Перейдите в сервис **Identity and Access Management**.
+  1. Нажмите **Создать сервисный аккаунт**.
   1. Введите имя сервисного аккаунта: `ci-cd-github-sa`.
-  1. Нажмите ![plus](../../_assets/console-icons/plus.svg) **{{ ui-key.yacloud.iam.folder.service-account.label_add-role }}** и выберите роль `{{ roles-functions-admin }}`.
-  1. Нажмите **{{ ui-key.yacloud.iam.folder.service-account.popup-robot_button_add }}**.
+  1. Нажмите ![plus](../../_assets/console-icons/plus.svg) **Добавить роль** и выберите роль `functions.admin`.
+  1. Нажмите **Создать**.
 
-- {{ yandex-cloud }} CLI {#cli}
+- Yandex Cloud CLI {#cli}
 
-  Если у вас еще нет интерфейса командной строки {{ yandex-cloud }} (CLI), [установите и инициализируйте его](../../cli/quickstart.md#install).
+  Если у вас еще нет интерфейса командной строки Yandex Cloud (CLI), [установите и инициализируйте его](../../cli/quickstart.md#install).
 
   По умолчанию используется каталог, указанный при [создании](../../cli/operations/profile/profile-create.md) профиля CLI. Чтобы изменить каталог по умолчанию, используйте команду `yc config set folder-id <идентификатор_каталога>`. Также для любой команды вы можете указать другой каталог с помощью параметров `--folder-name` или `--folder-id`. Если вы обращаетесь к ресурсу по имени, поиск будет выполнен в каталоге по умолчанию. Если вы обращаетесь к ресурсу по идентификатору, поиск будет выполнен глобально — во всех каталогах с учетом прав доступа.
 
@@ -79,11 +79,11 @@
       name: ci-cd-github-sa
       ```
 
-  1. Назначьте роль `{{ roles-functions-admin }}` сервисному аккаунту:
+  1. Назначьте роль `functions.admin` сервисному аккаунту:
 
       ```bash
       yc resource-manager folder add-access-binding <имя_или_идентификатор_каталога> \
-        --role {{ roles-functions-admin }} \
+        --role functions.admin \
         --subject serviceAccount:<идентификатор_сервисного_аккаунта>
       ```
 
@@ -93,7 +93,7 @@
       effective_deltas:
         - action: ADD
           access_binding:
-            role_id: {{ roles-functions-admin }}
+            role_id: functions.admin
             subject:
               id: ajejocsfa1jj********
               type: serviceAccount
@@ -103,30 +103,30 @@
 
   Чтобы создать сервисный аккаунт, воспользуйтесь методом REST API [create](../../iam/api-ref/ServiceAccount/create.md) для ресурса [ServiceAccount](../../iam/api-ref/ServiceAccount/index.md) или вызовом gRPC API [ServiceAccountService/Create](../../iam/api-ref/grpc/ServiceAccount/create.md).
 
-  Чтобы назначить сервисному аккаунту роль `{{ roles-functions-admin }}` на каталог, воспользуйтесь методом REST API [updateAccessBindings](../../resource-manager/api-ref/Folder/updateAccessBindings.md) для ресурса [Folder](../../resource-manager/api-ref/Folder/index.md) или вызовом gRPC API [FolderService/UpdateAccessBindings](../../resource-manager/api-ref/grpc/Folder/updateAccessBindings.md).
+  Чтобы назначить сервисному аккаунту роль `functions.admin` на каталог, воспользуйтесь методом REST API [updateAccessBindings](../../resource-manager/api-ref/Folder/updateAccessBindings.md) для ресурса [Folder](../../resource-manager/api-ref/Folder/index.md) или вызовом gRPC API [FolderService/UpdateAccessBindings](../../resource-manager/api-ref/grpc/Folder/updateAccessBindings.md).
 
 {% endlist %}
 
 
 ### Создайте федерацию сервисных аккаунтов {#create-federation}
 
-[Федерация сервисных аккаунтов](../../iam/concepts/workload-identity.md) необходима для настройки обмена токенов GitHub на [IAM-токены](../../iam/concepts/authorization/iam-token.md) {{ yandex-cloud }}.
+[Федерация сервисных аккаунтов](../../iam/concepts/workload-identity.md) необходима для настройки обмена токенов GitHub на [IAM-токены](../../iam/concepts/authorization/iam-token.md) Yandex Cloud.
 
 {% list tabs group=instructions %}
 
 - Консоль управления {#console}
 
-  1. Откройте [консоль управления]({{ link-console-main }}).
-  1. Перейдите в сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_iam }}**.
-  1. На панели слева выберите ![cpus](../../_assets/console-icons/cpus.svg) **{{ ui-key.yacloud.iam.label_federations }}**.
-  1. Нажмите **{{ ui-key.yacloud.iam.label_create-wli-federation }}**.
-  1. В поле **{{ ui-key.yacloud.iam.federations.field_issuer }}** введите URL OIDC-провайдера: `https://token.actions.githubusercontent.com`.
-  1. В поле **{{ ui-key.yacloud.iam.federations.field_audiences }}** введите получателя токена: `https://github.com/<имя_пользователя_GitHub>`.
-  1. В поле **{{ ui-key.yacloud.iam.federations.field_jwks }}** введите URL списка публичных ключей: `https://token.actions.githubusercontent.com/.well-known/jwks`.
-  1. В поле **{{ ui-key.yacloud.iam.federations.field_name }}** введите имя федерации: `ci-cd-github-federation`.
-  1. Нажмите **{{ ui-key.yacloud_billing.iam.cloud.create.popup-create-cloud_button_add }}**.
+  1. Откройте [консоль управления](https://console.yandex.cloud).
+  1. Перейдите в сервис **Identity and Access Management**.
+  1. На панели слева выберите ![cpus](../../_assets/console-icons/cpus.svg) **Федерации сервисных аккаунтов**.
+  1. Нажмите **Создать федерацию**.
+  1. В поле **Значение Issuer (iss)** введите URL OIDC-провайдера: `https://token.actions.githubusercontent.com`.
+  1. В поле **Допустимые значения Audience (aud)** введите получателя токена: `https://github.com/<имя_пользователя_GitHub>`.
+  1. В поле **Адрес JWKS** введите URL списка публичных ключей: `https://token.actions.githubusercontent.com/.well-known/jwks`.
+  1. В поле **Имя** введите имя федерации: `ci-cd-github-federation`.
+  1. Нажмите **Создать**.
 
-- {{ yandex-cloud }} CLI {#cli}
+- Yandex Cloud CLI {#cli}
 
   Выполните команду:
 
@@ -180,20 +180,20 @@
 
 - Консоль управления {#console}
 
-  1. Откройте [консоль управления]({{ link-console-main }}).
-  1. Перейдите в сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_iam }}**.
+  1. Откройте [консоль управления](https://console.yandex.cloud).
+  1. Перейдите в сервис **Identity and Access Management**.
   1. Выберите сервисный аккаунт `ci-cd-github-sa`.
-  1. На верхней панели нажмите ![image](../../_assets/console-icons/cpus.svg) **{{ ui-key.yacloud.iam.folder.service-account.overview.action_connect-federation }}**.
-  1. В поле **{{ ui-key.yacloud.iam.connected-federation.field_federation }}** выберите федерацию `ci-cd-github-federation`.
-  1. В поле **{{ ui-key.yacloud.iam.connected-federation.field_subject }}** укажите идентификатор внешнего субъекта для тестового окружения: `repo:<имя_пользователя_GitHub>/<имя_репозитория>:environment:preprod`.
+  1. На верхней панели нажмите ![image](../../_assets/console-icons/cpus.svg) **Привязать к федерации**.
+  1. В поле **Федерация сервисных аккаунтов** выберите федерацию `ci-cd-github-federation`.
+  1. В поле **Значение Subject (sub)** укажите идентификатор внешнего субъекта для тестового окружения: `repo:<имя_пользователя_GitHub>/<имя_репозитория>:environment:preprod`.
 
       Окружение `preprod` будет использоваться далее в файлах `ci.yml` и `ct.yml`.
 
-  1. Нажмите **{{ ui-key.yacloud.iam.connected-federation.action_connect }}**.
+  1. Нажмите **Привязать**.
 
   Аналогичным способом создайте привязку с идентификатором внешнего субъекта для продакшен-окружения: `repo:<имя_пользователя_GitHub>/<имя_репозитория>:ref:refs/heads/main`.
 
-- {{ yandex-cloud }} CLI {#cli}
+- Yandex Cloud CLI {#cli}
 
   Выполните команды, чтобы создать привязки для тестового и продакшен-окружения:
 
@@ -570,11 +570,11 @@
 
 - Консоль управления {#console}
 
-  1. Откройте [консоль управления]({{ link-console-main }}).
-  1. Перейдите в сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_serverless-functions }}**.
+  1. Откройте [консоль управления](https://console.yandex.cloud).
+  1. Перейдите в сервис **Cloud Functions**.
   1. Выберите функцию `from-github-ci`.
-  1. Перейдите на вкладку ![image](../../_assets/console-icons/circle-play.svg) **{{ ui-key.yacloud.serverless-functions.item.switch_testing }}**.
-  1. В поле **{{ ui-key.yacloud.serverless-functions.item.testing.field_payload }}** введите следующий код и нажмите ![image](../../_assets/console-icons/play-fill.svg) **{{ ui-key.yacloud.serverless-functions.item.testing.button_run-test }}**:
+  1. Перейдите на вкладку ![image](../../_assets/console-icons/circle-play.svg) **Тестирование**.
+  1. В поле **Входные данные** введите следующий код и нажмите ![image](../../_assets/console-icons/play-fill.svg) **Запустить тест**:
      
      ```json
      {
@@ -586,7 +586,7 @@
      }
      ```
      
-     В разделе **{{ ui-key.yacloud.serverless-functions.item.testing.label_title-test-result }}** появится ответ функции:
+     В разделе **Результат тестирования** появится ответ функции:
      
      ```json
      {
@@ -603,7 +603,7 @@
 
 - CLI {#cli}
 
-  [Создайте пул-реквест](https://docs.github.com/{{ lang }}/pull-requests/collaborating-with-pull-requests/proposing-changes-to-your-work-with-pull-requests/creating-a-pull-request) из ветки `feature/smoke-test` в ветку `main` через интерфейс GitHub.
+  [Создайте пул-реквест](https://docs.github.com/ru/pull-requests/collaborating-with-pull-requests/proposing-changes-to-your-work-with-pull-requests/creating-a-pull-request) из ветки `feature/smoke-test` в ветку `main` через интерфейс GitHub.
 
   После создания пул-реквеста автоматически запустится рабочий процесс `.github/workflows/ct.yml`.
 
@@ -617,11 +617,11 @@
 
 - Консоль управления {#console}
 
-  1. Откройте [консоль управления]({{ link-console-main }}).
-  1. Перейдите в сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_serverless-functions }}**.
+  1. Откройте [консоль управления](https://console.yandex.cloud).
+  1. Перейдите в сервис **Cloud Functions**.
   1. Выберите функцию `from-github-ct`.
-  1. Перейдите на вкладку ![image](../../_assets/console-icons/circle-play.svg) **{{ ui-key.yacloud.serverless-functions.item.switch_testing }}**.
-  1. В поле **{{ ui-key.yacloud.serverless-functions.item.testing.field_payload }}** введите следующий код и нажмите ![image](../../_assets/console-icons/play-fill.svg) **{{ ui-key.yacloud.serverless-functions.item.testing.button_run-test }}**:
+  1. Перейдите на вкладку ![image](../../_assets/console-icons/circle-play.svg) **Тестирование**.
+  1. В поле **Входные данные** введите следующий код и нажмите ![image](../../_assets/console-icons/play-fill.svg) **Запустить тест**:
      
      ```json
      {
@@ -633,7 +633,7 @@
      }
      ```
      
-     В разделе **{{ ui-key.yacloud.serverless-functions.item.testing.label_title-test-result }}** появится ответ функции:
+     В разделе **Результат тестирования** появится ответ функции:
      
      ```json
      {
@@ -650,7 +650,7 @@
 
 - CLI {#cli}
 
-  [Смержите ваш пул-реквест](https://docs.github.com/{{ lang }}/pull-requests/collaborating-with-pull-requests/incorporating-changes-from-a-pull-request/merging-a-pull-request) в ветку `main` через интерфейс GitHub.
+  [Смержите ваш пул-реквест](https://docs.github.com/ru/pull-requests/collaborating-with-pull-requests/incorporating-changes-from-a-pull-request/merging-a-pull-request) в ветку `main` через интерфейс GitHub.
 
   После этого автоматически запустится рабочий процесс `.github/workflows/cd.yml`.
 
@@ -664,11 +664,11 @@
 
 - Консоль управления {#console}
 
-  1. Откройте [консоль управления]({{ link-console-main }}).
-  1. Перейдите в сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_serverless-functions }}**.
+  1. Откройте [консоль управления](https://console.yandex.cloud).
+  1. Перейдите в сервис **Cloud Functions**.
   1. Выберите функцию `from-github-cd`.
-  1. Перейдите на вкладку ![image](../../_assets/console-icons/circle-play.svg) **{{ ui-key.yacloud.serverless-functions.item.switch_testing }}**.
-  1. В поле **{{ ui-key.yacloud.serverless-functions.item.testing.field_payload }}** введите следующий код и нажмите ![image](../../_assets/console-icons/play-fill.svg) **{{ ui-key.yacloud.serverless-functions.item.testing.button_run-test }}**:
+  1. Перейдите на вкладку ![image](../../_assets/console-icons/circle-play.svg) **Тестирование**.
+  1. В поле **Входные данные** введите следующий код и нажмите ![image](../../_assets/console-icons/play-fill.svg) **Запустить тест**:
      
      ```json
      {
@@ -680,7 +680,7 @@
      }
      ```
      
-     В разделе **{{ ui-key.yacloud.serverless-functions.item.testing.label_title-test-result }}** появится ответ функции:
+     В разделе **Результат тестирования** появится ответ функции:
      
      ```json
      {

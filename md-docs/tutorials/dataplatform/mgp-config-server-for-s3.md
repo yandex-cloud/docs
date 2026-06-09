@@ -1,6 +1,6 @@
-# Создание внешней таблицы на базе таблицы из бакета {{ objstorage-full-name }} с помощью конфигурационного файла
+# Создание внешней таблицы на базе таблицы из бакета Yandex Object Storage с помощью конфигурационного файла
 
-При [создании внешней таблицы](../../managed-greenplum/operations/pxf/create-table.md) из таблицы, расположенной в бакете {{ objstorage-full-name }}, необходимо передать в запросе [статический ключ доступа](../../iam/concepts/authorization/access-key.md) для сервисного аккаунта. Это можно сделать с помощью [протокола S3]({{ gp.docs.broadcom }}/7/greenplum-database/admin_guide-external-g-s3-protocol.html) и конфигурационного файла, хранящегося на HTTP-сервере.
+При [создании внешней таблицы](../../managed-greenplum/operations/pxf/create-table.md) из таблицы, расположенной в бакете Yandex Object Storage, необходимо передать в запросе [статический ключ доступа](../../iam/concepts/authorization/access-key.md) для сервисного аккаунта. Это можно сделать с помощью [протокола S3](https://techdocs.broadcom.com/us/en/vmware-tanzu/data-solutions/tanzu-greenplum/7/greenplum-database/admin_guide-external-g-s3-protocol.html) и конфигурационного файла, хранящегося на HTTP-сервере.
 
 Чтобы создать внешнюю таблицу с помощью конфигурационного файла:
 
@@ -12,11 +12,11 @@
 
 ## Необходимые платные ресурсы {#paid-resources}
 
-* Кластер {{ mgp-name }}: использование выделенных хостам вычислительных ресурсов, объем хранилища и резервных копий (см. [тарифы {{ mgp-name }}](../../managed-greenplum/pricing/index.md)).
-* NAT-шлюз: почасовое использование шлюза и исходящий через него трафик (см. [тарифы {{ vpc-full-name }}](../../vpc/pricing.md)).
-* Бакет {{ objstorage-name }}: использование хранилища и выполнение операций с данными (см. [тарифы {{ objstorage-name }}](../../storage/pricing.md)).
-* Виртуальная машина: использование вычислительных ресурсов, хранилища, публичного IP-адреса и операционной системы (см. [тарифы {{ compute-full-name }}](../../compute/pricing.md)).
-* Публичные IP-адреса, если для хостов кластера включен публичный доступ (см. [тарифы {{ vpc-name }}](../../vpc/pricing.md)).
+* Кластер Yandex MPP Analytics for PostgreSQL: использование выделенных хостам вычислительных ресурсов, объем хранилища и резервных копий (см. [тарифы Yandex MPP Analytics for PostgreSQL](../../managed-greenplum/pricing/index.md)).
+* NAT-шлюз: почасовое использование шлюза и исходящий через него трафик (см. [тарифы Yandex Virtual Private Cloud](../../vpc/pricing.md)).
+* Бакет Object Storage: использование хранилища и выполнение операций с данными (см. [тарифы Object Storage](../../storage/pricing.md)).
+* Виртуальная машина: использование вычислительных ресурсов, хранилища, публичного IP-адреса и операционной системы (см. [тарифы Yandex Compute Cloud](../../compute/pricing.md)).
+* Публичные IP-адреса, если для хостов кластера включен публичный доступ (см. [тарифы Virtual Private Cloud](../../vpc/pricing.md)).
 
 
 ## Перед началом работы {#before-you-begin}
@@ -27,15 +27,15 @@
 
 - Вручную {#manual}
 
-    1. [Создайте кластер](../../managed-greenplum/operations/cluster-create.md) {{ GP }} любой подходящей конфигурации.
+    1. [Создайте кластер](../../managed-greenplum/operations/cluster-create.md) Greenplum® любой подходящей конфигурации.
 
     
     1. В подсети кластера [настройте NAT-шлюз](../../vpc/operations/create-nat-gateway.md) и [создайте группу безопасности](../../vpc/operations/security-group-create.md), разрешающую весь входящий и исходящий трафик со всех адресов.
 
-    1. [Создайте виртуальную машину с Linux](../../compute/operations/vm-create/create-linux-vm.md) в той же облачной подсети, в которой расположен кластер {{ GP }}.
+    1. [Создайте виртуальную машину с Linux](../../compute/operations/vm-create/create-linux-vm.md) в той же облачной подсети, в которой расположен кластер Greenplum®.
 
 
-    1. [Создайте бакет в {{ objstorage-name }}](../../storage/operations/buckets/create.md) с ограниченным доступом. [Загрузите](../../storage/operations/objects/upload.md) в него файл `example.csv`, содержащий тестовую таблицу:
+    1. [Создайте бакет в Object Storage](../../storage/operations/buckets/create.md) с ограниченным доступом. [Загрузите](../../storage/operations/objects/upload.md) в него файл `example.csv`, содержащий тестовую таблицу:
 
         ```csv
         10,2010
@@ -46,9 +46,9 @@
 
 
 
-- {{ TF }} {#tf}
+- Terraform {#tf}
 
-    1. Если у вас еще нет {{ TF }}, [установите его](../infrastructure-management/terraform-quickstart.md#install-terraform).
+    1. Если у вас еще нет Terraform, [установите его](../infrastructure-management/terraform-quickstart.md#install-terraform).
     1. [Получите данные для аутентификации](../infrastructure-management/terraform-quickstart.md#get-credentials). Вы можете добавить их в переменные окружения или указать далее в файле с настройками провайдера.
     1. [Настройте и инициализируйте провайдер](../infrastructure-management/terraform-quickstart.md#configure-provider). Чтобы не создавать конфигурационный файл с настройками провайдера вручную, [скачайте его](https://github.com/yandex-cloud-examples/yc-terraform-provider-settings/blob/main/provider.tf).
     1. Поместите конфигурационный файл в отдельную рабочую директорию и [укажите значения параметров](../infrastructure-management/terraform-quickstart.md#configure-provider). Если данные для аутентификации не были добавлены в переменные окружения, укажите их в конфигурационном файле.
@@ -66,17 +66,17 @@
         * сеть;
         * подсеть;
         * сервисный аккаунт со статическим ключом доступа;
-        * кластер {{ GP }} в сервисе {{ mgp-name }};
+        * кластер Greenplum® в сервисе Yandex MPP Analytics for PostgreSQL;
         * бакет, в который будет помещен файл `example.csv`;
         * виртуальная машина с [Ubuntu 20.04](https://yandex.cloud/ru/marketplace/products/yc/ubuntu-20-04-lts).
 
     1. Укажите в файле `greenplum-s3-vm.tf`:
 
-        * Пароль пользователя `user`, который будет использоваться для доступа к кластеру {{ GP }}.
+        * Пароль пользователя `user`, который будет использоваться для доступа к кластеру Greenplum®.
         * Идентификатор образа виртуальной машины.
         * Имя пользователя и путь к [SSH-ключу](../../glossary/ssh-keygen.md) для доступа к виртуальной машине.
         * Идентификатор каталога для сервисного аккаунта, такой же как в настройках провайдера.
-        * Имя бакета, которое должно быть уникальным во всем {{ objstorage-name }}.
+        * Имя бакета, которое должно быть уникальным во всем Object Storage.
 
     1. В терминале перейдите в директорию с планом инфраструктуры.
 
@@ -86,7 +86,7 @@
        terraform validate
        ```
 
-       Если в файлах конфигурации есть ошибки, {{ TF }} на них укажет.
+       Если в файлах конфигурации есть ошибки, Terraform на них укажет.
 
     1. Создайте инфраструктуру, необходимую для выполнения инструкций из этого руководства:
 
@@ -108,7 +108,7 @@
           1. Подтвердите изменение ресурсов.
           1. Дождитесь завершения операции.
 
-       В указанном каталоге будут созданы все требуемые ресурсы. Проверить появление ресурсов и их настройки можно в [консоли управления]({{ link-console-main }}).
+       В указанном каталоге будут созданы все требуемые ресурсы. Проверить появление ресурсов и их настройки можно в [консоли управления](https://console.yandex.cloud).
 
     1. Чтобы получить параметры статического ключа, в рабочей директории выполните команду:
 
@@ -120,7 +120,7 @@
 
         Команда сохраняет в файл `static-key.txt` идентификатор статического ключа и статический ключ, они потребуются далее.    
 
-    1. Перейдите в [консоль управления]({{ link-console-main }}) и [настройте NAT-шлюз](../../vpc/operations/create-nat-gateway.md) для подсети, в которой расположен кластер.
+    1. Перейдите в [консоль управления](https://console.yandex.cloud) и [настройте NAT-шлюз](../../vpc/operations/create-nat-gateway.md) для подсети, в которой расположен кластер.
 
 
 {% endlist %}
@@ -193,12 +193,12 @@
 
 ## Создайте внешнюю таблицу {#create-ext-table}
 
-1. [Подключитесь к кластеру](../../managed-greenplum/operations/connect/index.md) {{ GP }}.
+1. [Подключитесь к кластеру](../../managed-greenplum/operations/connect/index.md) Greenplum®.
 1. Выполните запрос на создание внешней таблицы, которая ссылается на таблицу `example.csv` в бакете:
 
     ```sql
     CREATE READABLE EXTERNAL TABLE s3_ext_table(id int, year int)
-    LOCATION('s3://{{ s3-storage-host }}/<имя_бакета>/example.csv config_server=http://<внутренний_IP-адрес_виртуальной_машины>:8553/s3.config region={{ region-id }}-a')
+    LOCATION('s3://storage.yandexcloud.net/<имя_бакета>/example.csv config_server=http://<внутренний_IP-адрес_виртуальной_машины>:8553/s3.config region=ru-central1-a')
     FORMAT 'csv';
     ```
 
@@ -234,8 +234,8 @@
     
     1. [Удалите виртуальную машину](../../compute/operations/vm-control/vm-delete.md).
     1. Если вы зарезервировали для виртуальной машины публичный статический IP-адрес, [удалите его](../../vpc/operations/address-delete.md).
-    1. [Удалите бакет в {{ objstorage-name }}](../../storage/operations/buckets/delete.md).
-    1. [Удалите кластер {{ GP }}](../../managed-greenplum/operations/cluster-delete.md).
+    1. [Удалите бакет в Object Storage](../../storage/operations/buckets/delete.md).
+    1. [Удалите кластер Greenplum®](../../managed-greenplum/operations/cluster-delete.md).
     1. [Удалите сервисный аккаунт](../../iam/operations/sa/delete.md).
     1. [Удалите подсеть](../../vpc/operations/subnet-delete.md).
     1. [Удалите таблицу маршрутизации](../../vpc/operations/delete-route-table.md).
@@ -244,13 +244,13 @@
 
 
 
-- {{ TF }} {#tf}
+- Terraform {#tf}
 
     1. В терминале перейдите в директорию с планом инфраструктуры.
     
         {% note warning %}
     
-        Убедитесь, что в директории нет {{ TF }}-манифестов с ресурсами, которые вы хотите сохранить. {{ TF }} удаляет все ресурсы, которые были созданы с помощью манифестов в текущей директории.
+        Убедитесь, что в директории нет Terraform-манифестов с ресурсами, которые вы хотите сохранить. Terraform удаляет все ресурсы, которые были созданы с помощью манифестов в текущей директории.
     
         {% endnote %}
     
@@ -264,7 +264,7 @@
     
         1. Подтвердите удаление ресурсов и дождитесь завершения операции.
     
-        Все ресурсы, которые были описаны в {{ TF }}-манифестах, будут удалены.
+        Все ресурсы, которые были описаны в Terraform-манифестах, будут удалены.
 
 
 {% endlist %}

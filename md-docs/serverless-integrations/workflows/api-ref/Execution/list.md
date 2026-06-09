@@ -5,7 +5,7 @@ Retrieves list of Workflow executions.
 ## HTTP request
 
 ```
-GET https://serverless-workflows.{{ api-host }}/workflows/v1/execution
+GET https://serverless-workflows.api.cloud.yandex.net/workflows/v1/execution
 ```
 
 ## Query parameters {#yandex.cloud.serverless.workflows.v1.ListExecutionsRequest}

@@ -1,6 +1,6 @@
-# Передача логов кластера {{ maf-name }} в {{ cloud-logging-full-name }}
+# Передача логов кластера Managed Service for Apache Airflow™ в Yandex Cloud Logging
 
-Вы можете настроить регулярный сбор логов о работе кластера {{ maf-name }}. Логи поставляются в [лог-группу](../../logging/concepts/log-group.md) в сервисе {{ cloud-logging-name }}. Можно выбрать лог-группу одного из двух типов:
+Вы можете настроить регулярный сбор логов о работе кластера Managed Service for Apache Airflow™. Логи поставляются в [лог-группу](../../logging/concepts/log-group.md) в сервисе Cloud Logging. Можно выбрать лог-группу одного из двух типов:
 
 * лог-группа, которая используется по умолчанию в каталоге кластера;
 * пользовательская лог-группа.
@@ -8,17 +8,17 @@
 ## Передача данных в лог-группу по умолчанию {#default}
 
 1. [Назначьте](../../iam/operations/sa/assign-role-for-sa.md) сервисному аккаунту кластера [роль](../../iam/roles-reference.md#managed-airflow-integrationProvider) `managed-airflow.integrationProvider`.
-1. В кластере {{ maf-name }} задайте настройки логирования:
+1. В кластере Managed Service for Apache Airflow™ задайте настройки логирования:
 
    {% list tabs group=instructions %}
 
    * Консоль управления {#console}
 
-      1. Перейдите на [страницу каталога]({{ link-console-main }}).
-      1. Перейдите в сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-airflow }}**.
-      1. Выберите кластер и нажмите кнопку **{{ ui-key.yacloud.mdb.clusters.button_action-edit }}** на панели сверху.
-      1. В блоке **{{ ui-key.yacloud.logging.label_title }}** включите опцию **{{ ui-key.yacloud.logging.field_logging }}**.
-      1. Чтобы логи записывались в лог-группу по умолчанию, выберите значение **{{ ui-key.yacloud.common.folder }}** в поле **{{ ui-key.yacloud.logging.label_destination }}**.
+      1. Перейдите на [страницу каталога](https://console.yandex.cloud).
+      1. Перейдите в сервис **Managed Service for&nbsp;Apache&nbsp;Airflow™**.
+      1. Выберите кластер и нажмите кнопку **Редактировать** на панели сверху.
+      1. В блоке **Логирование** включите опцию **Запись логов**.
+      1. Чтобы логи записывались в лог-группу по умолчанию, выберите значение **Каталог** в поле **Назначение**.
       1. Укажите каталог, лог-группу которого нужно использовать.
       1. Выберите минимальный уровень логирования.
 
@@ -40,7 +40,7 @@
 
       В журнал выполнения записываются логи указанного уровня и выше. Доступные уровни — `TRACE`, `DEBUG`, `INFO`, `WARN`, `ERROR` и `FATAL`. Уровень по умолчанию — `INFO`.
 
-   * {{ TF }} {#tf}
+   * Terraform {#tf}
 
       В конфигурационном файле с описанием кластера укажите следующие параметры:
 
@@ -87,7 +87,7 @@
    * Консоль управления {#console}
 
       1. В консоли управления перейдите в нужный каталог.
-      1. Перейдите в сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_logging }}**.
+      1. Перейдите в сервис **Cloud Logging**.
       1. Нажмите на строку с лог-группой `default`.
 
       На открывшейся странице отобразятся записи.
@@ -134,23 +134,23 @@
 
    {% endlist %}
 
-   Подробнее в разделе [{#T}](../../logging/operations/read-logs.md).
+   Подробнее в разделе [Чтение записей](../../logging/operations/read-logs.md).
 
 ## Передача данных в пользовательскую лог-группу {#custom}
 
 1. [Создайте лог-группу](../../logging/operations/create-group.md) `airflow-log-group`.
 1. [Назначьте](../../iam/operations/sa/assign-role-for-sa.md) сервисному аккаунту кластера [роль](../../iam/roles-reference.md#managed-airflow-integrationProvider) `managed-airflow.integrationProvider`.
-1. В кластере {{ maf-name }} задайте настройки логирования:
+1. В кластере Managed Service for Apache Airflow™ задайте настройки логирования:
 
    {% list tabs group=instructions %}
 
    * Консоль управления {#console}
 
-      1. Перейдите на [страницу каталога]({{ link-console-main }}).
-      1. Перейдите в сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-airflow }}**.
-      1. Выберите кластер и нажмите кнопку **{{ ui-key.yacloud.mdb.clusters.button_action-edit }}** на панели сверху.
-      1. В блоке **{{ ui-key.yacloud.logging.label_title }}** включите опцию **{{ ui-key.yacloud.logging.field_logging }}**.
-      1. Чтобы логи записывались в пользовательскую лог-группу, выберите значение **{{ ui-key.yacloud.logging.label_loggroup }}** в поле **{{ ui-key.yacloud.logging.label_destination }}**.
+      1. Перейдите на [страницу каталога](https://console.yandex.cloud).
+      1. Перейдите в сервис **Managed Service for&nbsp;Apache&nbsp;Airflow™**.
+      1. Выберите кластер и нажмите кнопку **Редактировать** на панели сверху.
+      1. В блоке **Логирование** включите опцию **Запись логов**.
+      1. Чтобы логи записывались в пользовательскую лог-группу, выберите значение **Лог-группа** в поле **Назначение**.
       1. Укажите лог-группу `airflow-log-group`.
       1. Выберите минимальный уровень логирования.
 
@@ -170,7 +170,7 @@
 
       В журнал выполнения записываются логи указанного уровня и выше. Доступные уровни — `TRACE`, `DEBUG`, `INFO`, `WARN`, `ERROR` и `FATAL`. Уровень по умолчанию — `INFO`.
 
-   * {{ TF }} {#tf}
+   * Terraform {#tf}
 
       В конфигурационном файле с описанием кластера укажите следующие параметры:
 
@@ -213,7 +213,7 @@
    * Консоль управления {#console}
 
       1. В консоли управления перейдите в нужный каталог.
-      1. Перейдите в сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_logging }}**.
+      1. Перейдите в сервис **Cloud Logging**.
       1. Нажмите на строку с лог-группой `airflow-log-group`.
 
       На открывшейся странице отобразятся записи.
@@ -260,4 +260,4 @@
 
    {% endlist %}
 
-   Подробнее в разделе [{#T}](../../logging/operations/read-logs.md).
+   Подробнее в разделе [Чтение записей](../../logging/operations/read-logs.md).

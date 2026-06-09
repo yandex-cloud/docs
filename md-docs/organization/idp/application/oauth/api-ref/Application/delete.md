@@ -5,7 +5,7 @@ Deletes the specified OAuth application.
 ## HTTP request
 
 ```
-DELETE https://organization-manager.{{ api-host }}/organization-manager/v1/idp/application/oauth/applications/{applicationId}
+DELETE https://organization-manager.api.cloud.yandex.net/organization-manager/v1/idp/application/oauth/applications/{applicationId}
 ```
 
 ## Path parameters

@@ -76,7 +76,7 @@
         --request POST \
         --header "Authorization: Bearer $IAM_TOKEN" \
         --header "Content-Type: application/json" \
-        --url 'https://cdn.{{ api-host }}/cdn/v1/resources' \
+        --url 'https://cdn.api.cloud.yandex.net/cdn/v1/resources' \
         --data '{
           "folderId": "b12m81qm6abc********",
           "cname": "cdn-portal.example.com",
@@ -169,7 +169,7 @@
                 }
               }
             }' \
-        cdn.{{ api-host }}:443 \
+        cdn.api.cloud.yandex.net:443 \
         yandex.cloud.cdn.v1.ResourceService/Create
       ```
 

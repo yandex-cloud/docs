@@ -1,4 +1,4 @@
-# Создание чарта в {{ datalens-full-name }}
+# Создание чарта в Yandex DataLens
 
 ## Создать чарт {#create-chart}
 
@@ -7,9 +7,9 @@
 
 {% note warning %}
 
-Если вы работаете с новой объектной моделью {{ datalens-short-name }}, включающей [воркбуки и коллекции](../../workbooks-collections/index.md):
+Если вы работаете с новой объектной моделью DataLens, включающей [воркбуки и коллекции](../../workbooks-collections/index.md):
 
-1. Перейдите на [главную страницу]({{ link-datalens-main-skip-promo }}) {{ datalens-short-name }}. На панели слева выберите ![collections](../../../_assets/console-icons/rectangles-4.svg) **Коллекции и воркбуки**.
+1. Перейдите на [главную страницу](https://datalens.ru/?skipPromo=true) DataLens. На панели слева выберите ![collections](../../../_assets/console-icons/rectangles-4.svg) **Коллекции и воркбуки**.
 1. Откройте воркбук, в правом верхнем углу нажмите **Создать** и выберите нужный объект.
 
 Продолжайте инструкцию с шага 3.
@@ -20,7 +20,7 @@
 
 
 
-1. Перейдите на [главную страницу]({{ link-datalens-main-skip-promo }}) {{ datalens-short-name }}.
+1. Перейдите на [главную страницу](https://datalens.ru/?skipPromo=true) DataLens.
 1. На панели слева нажмите ![image](../../../_assets/console-icons/chart-column.svg) **Чарты**.
 1. Нажмите кнопку **Создать чарт** → **Чарт в Wizard**.
 
@@ -42,7 +42,7 @@
 * Вверху чарта нажмите значок ![image](../../../_assets/console-icons/ellipsis.svg) → ![image](../../../_assets/console-icons/copy.svg) **Дублировать**. В открывшемся окне введите название нового чарта и нажмите **Применить**.
 * Перейдите на страницу воркбука, в котором расположен чарт. В строке с нужным чартом нажмите значок ![image](../../../_assets/console-icons/ellipsis.svg) → ![image](../../../_assets/console-icons/copy.svg) **Дублировать**. В открывшемся окне введите название нового чарта и нажмите **Применить**.
 
-Также вы можете создать черновик чарта — в правом верхнем углу чарта нажмите значок ![image](../../../_assets/console-icons/chevron-down.svg) → **Сохранить как черновик**. Подробнее см. в разделе [{#T}](../../concepts/chart/versioning.md).
+Также вы можете создать черновик чарта — в правом верхнем углу чарта нажмите значок ![image](../../../_assets/console-icons/chevron-down.svg) → **Сохранить как черновик**. Подробнее см. в разделе [Версионирование в Yandex DataLens](../../concepts/chart/versioning.md).
 
 ## Отмена и восстановление изменений в чартах {#undo-redo}
 
@@ -51,10 +51,10 @@
 
 ## Примеры использования {#examples}
 
-* [{#T}](../../tutorials/data-from-ch-to-sql-chart.md)
+* [Примеры создания QL-чартов](../../tutorials/data-from-ch-to-sql-chart.md)
 
 
 #### См. также {#see-also}
 
-* [{#T}](../../concepts/chart/index.md)
-* [{#T}](../../concepts/chart/settings.md)
+* [Чарт в Yandex DataLens](../../concepts/chart/index.md)
+* [Настройки чарта в Yandex DataLens](../../concepts/chart/settings.md)

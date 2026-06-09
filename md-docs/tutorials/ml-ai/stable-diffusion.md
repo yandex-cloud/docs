@@ -1,6 +1,6 @@
 # Генерация изображения с помощью модели Stable Diffusion
 
-В {{ ml-platform-name }} вы можете развернуть нейросеть на основе модели Stable Diffusion и генерировать изображения по их текстовому описанию.
+В DataSphere вы можете развернуть нейросеть на основе модели Stable Diffusion и генерировать изображения по их текстовому описанию.
 
 [Stable Diffusion](https://github.com/CompVis/stable-diffusion) — это модель преобразования текста в изображение с открытым исходным кодом, разработанная [stability.ai](https://stability.ai/).
 
@@ -15,32 +15,32 @@
 
 ## Перед началом работы {#before-you-begin}
 
-Перед началом работы нужно зарегистрироваться в {{ yandex-cloud }}, настроить [сообщество](../../datasphere/concepts/community.md) и привязать к нему [платежный аккаунт](../../billing/concepts/billing-account.md):
-1. [На главной странице {{ ml-platform-name }}]({{ link-datasphere-main }}) нажмите **Попробовать бесплатно** и выберите аккаунт для входа — Яндекс ID или рабочий аккаунт в федерации (SSO).
-1. Выберите [организацию {{ org-full-name }}](../../organization/index.md), в которой вы будете работать в {{ yandex-cloud }}.
+Перед началом работы нужно зарегистрироваться в Yandex Cloud, настроить [сообщество](../../datasphere/concepts/community.md) и привязать к нему [платежный аккаунт](../../billing/concepts/billing-account.md):
+1. [На главной странице DataSphere](https://datasphere.yandex.cloud) нажмите **Попробовать бесплатно** и выберите аккаунт для входа — Яндекс ID или рабочий аккаунт в федерации (SSO).
+1. Выберите [организацию Yandex Identity Hub](../../organization/index.md), в которой вы будете работать в Yandex Cloud.
 1. [Создайте сообщество](../../datasphere/operations/community/create.md).
-1. [Привяжите платежный аккаунт](../../datasphere/operations/community/link-ba.md) к сообществу {{ ml-platform-name }}, в котором вы будете работать. Убедитесь, что у вас подключен платежный аккаунт, и он находится в [статусе](../../billing/concepts/billing-account-statuses.md) `ACTIVE` или `TRIAL_ACTIVE`. Если платежного аккаунта нет, создайте его в интерфейсе {{ ml-platform-name }}.
+1. [Привяжите платежный аккаунт](../../datasphere/operations/community/link-ba.md) к сообществу DataSphere, в котором вы будете работать. Убедитесь, что у вас подключен платежный аккаунт, и он находится в [статусе](../../billing/concepts/billing-account-statuses.md) `ACTIVE` или `TRIAL_ACTIVE`. Если платежного аккаунта нет, создайте его в интерфейсе DataSphere.
 
 {% note info %}
 
-Если вы работаете с {{ yandex-cloud }} через [федерацию удостоверений](../../organization/concepts/add-federation.md), вам может быть недоступна платежная информация. В этом случае обратитесь к администратору вашей организации в {{ yandex-cloud }}.
+Если вы работаете с Yandex Cloud через [федерацию удостоверений](../../organization/concepts/add-federation.md), вам может быть недоступна платежная информация. В этом случае обратитесь к администратору вашей организации в Yandex Cloud.
 
 {% endnote %}
 
 ### Необходимые платные ресурсы {#paid-resources}
 
-В стоимость использования модели входит плата за запуск ячеек с кодом (см. [тарифы {{ ml-platform-name }}](../../datasphere/pricing.md)).
+В стоимость использования модели входит плата за запуск ячеек с кодом (см. [тарифы DataSphere](../../datasphere/pricing.md)).
 
 ## Подготовьте инфраструктуру {#infra}
 
 ### Создайте проект {#create-project}
 
-1. Откройте [главную страницу]({{ link-datasphere-main }}) {{ ml-platform-name }}.
-1. На панели слева выберите ![image](../../_assets/console-icons/circles-concentric.svg) **{{ ui-key.yc-ui-datasphere.common.spaces }}**.
+1. Откройте [главную страницу](https://datasphere.yandex.cloud) DataSphere.
+1. На панели слева выберите ![image](../../_assets/console-icons/circles-concentric.svg) **Сообщества**.
 1. Выберите сообщество, в котором вы хотите создать проект.
-1. На странице сообщества нажмите кнопку ![image](../../_assets/console-icons/folder-plus.svg) **{{ ui-key.yc-ui-datasphere.projects.create-project }}**.
+1. На странице сообщества нажмите кнопку ![image](../../_assets/console-icons/folder-plus.svg) **Создать проект**.
 1. В открывшемся окне укажите имя `Stable Diffusion` и (опционально) описание проекта.
-1. Нажмите кнопку **{{ ui-key.yc-ui-datasphere.common.create }}**.
+1. Нажмите кнопку **Создать**.
 
 ### Создайте ноутбук и установите библиотеки {#install-libraries}
 
@@ -50,11 +50,11 @@
 
 {% endnote %}
 
-1. В интерфейсе {{ ml-platform-name }} откройте созданный проект.
+1. В интерфейсе DataSphere откройте созданный проект.
 1. Создайте новый ноутбук:
 
    1. На верхней панели в окне проекта нажмите **File** → **New** → **Notebook**.
-   1. В открывшемся окне выберите ядро **{{ ml-platform-name }} Kernel**.
+   1. В открывшемся окне выберите ядро **DataSphere Kernel**.
 
 1. Установите библиотеку [Diffusers](https://huggingface.co/docs/diffusers/index). Вставьте в ячейку указанный ниже код и нажмите значок ![run](../../_assets/datasphere/jupyterlab/run.svg).
 
@@ -110,5 +110,5 @@
 
 #### См. также {#see-also}
 
-* [{#T}](../../datasphere/operations/data/models.md)
-* [{#T}](../../datasphere/tutorials/batch-code-execution.md)
+* [Работа с моделями](../../datasphere/operations/data/models.md)
+* [Запуск вычислений в DataSphere с помощью API](../../datasphere/tutorials/batch-code-execution.md)

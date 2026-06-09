@@ -1,6 +1,6 @@
-# Сервисные роли для {{ sw-name }}
+# Сервисные роли для Workflows
 
-С помощью сервисных ролей [{{ sw-name }}](../concepts/index.md#workflows) вы можете управлять доступом пользователей к [рабочим процессам](../concepts/workflows/workflow.md) {{ sw-name }}.
+С помощью сервисных ролей [Workflows](../concepts/index.md#workflows) вы можете управлять доступом пользователей к [рабочим процессам](../concepts/workflows/workflow.md) Workflows.
 
 {% note info %}
 

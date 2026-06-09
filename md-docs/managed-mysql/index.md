@@ -1,8 +1,8 @@
 # Yandex Managed Service for MySQL<sup>®</sup>
 
-Managed Service for MySQL<sup>®</sup> помогает разворачивать и поддерживать кластеры серверов MySQL<sup>®</sup> в инфраструктуре {{ yandex-cloud }}. Сервис поддерживает MySQL<sup>®</sup> 5.7 и MySQL<sup>®</sup> 8.0.
+Managed Service for MySQL<sup>®</sup> помогает разворачивать и поддерживать кластеры серверов MySQL<sup>®</sup> в инфраструктуре Yandex Cloud. Сервис поддерживает MySQL<sup>®</sup> 5.7 и MySQL<sup>®</sup> 8.0.
 
-Инфраструктура {{ yandex-cloud }} <a href="../security/conform.md">защищена</a> в соответствии со следующими стандартами:
+Инфраструктура Yandex Cloud <a href="../security/conform.md">защищена</a> в соответствии со следующими стандартами:
 
 <ul> <li>Федеральный закон Российской Федерации «О персональных данных» № 152-ФЗ.</li> <li>Стандарт безопасности индустрии платежных карт (PCI DSS).</li> <li>Стандарт ISO 27001.</li> <li>Стандарт ISO 27017.</li> <li>Стандарт ISO 27018.</li> <li>ГОСТ 57580.1-2017.</li> </ul>
 
@@ -36,7 +36,7 @@ Managed Service for MySQL<sup>®</sup> помогает разворачиват
 
  - [Управление доступом к кластеру](operations/cluster-access.md)
 
- - [Обновление версии {{ MY }}](operations/cluster-version-update.md)
+ - [Обновление версии MySQL®](operations/cluster-version-update.md)
 
  - [Удаление кластера](operations/cluster-delete.md)
 
@@ -52,11 +52,11 @@ Managed Service for MySQL<sup>®</sup> помогает разворачиват
 
 ### Базы данных
 
- - [SQL-запросы в {{ websql-full-name }}](operations/web-sql-query.md)
+ - [SQL-запросы в Yandex WebSQL](operations/web-sql-query.md)
 
  - [Управление базами данных](operations/databases.md)
 
-### Пользователи {{ MY }}
+### Пользователи MySQL®
 
  - [Управление пользователями](operations/cluster-users.md)
 
@@ -70,7 +70,7 @@ Managed Service for MySQL<sup>®</sup> помогает разворачиват
 
  - [Мониторинг состояния кластера и хостов](operations/monitoring.md)
 
- - [Подключение из {{ datalens-name }}](operations/datalens-connect.md)
+ - [Подключение из DataLens](operations/datalens-connect.md)
 
 ## Концепции
 
@@ -94,7 +94,7 @@ Managed Service for MySQL<sup>®</sup> помогает разворачиват
 
  - [Квоты и лимиты](concepts/limits.md)
 
- - [Хранилище в {{ mmy-name }}](concepts/storage.md)
+ - [Хранилище в Managed Service for MySQL®](concepts/storage.md)
 
  - [Резервные копии](concepts/backup.md)
 
@@ -108,41 +108,41 @@ Managed Service for MySQL<sup>®</sup> помогает разворачиват
 
  - [Ограничения для команд SQL](concepts/sql-limits.md)
 
- - [Сравнение {{ MY }} версий 5.7 и 8.0](concepts/mysql-57-80-comparison.md)
+ - [Сравнение MySQL® версий 5.7 и 8.0](concepts/mysql-57-80-comparison.md)
 
- - [Политика поддержки версий {{ MY }}](concepts/update-policy.md)
+ - [Политика поддержки версий MySQL®](concepts/update-policy.md)
 
 ## Практические руководства
 
  - [Все руководства](tutorials/index.md)
 
- - [Анализ производительности и оптимизация {{ mmy-name }}](tutorials/profiling-mmy.md)
+ - [Анализ производительности и оптимизация Managed Service for MySQL®](tutorials/profiling-mmy.md)
 
- - [Выгрузка базы данных в {{ dataproc-full-name }}](tutorials/sqoop.md)
+ - [Выгрузка базы данных в Yandex Data Processing](tutorials/sqoop.md)
 
-### Миграция базы данных из стороннего кластера {{ MY }}
+### Миграция базы данных из стороннего кластера MySQL®
 
  - [Обзор](tutorials/data-migration/index.md)
 
- - [Перенос данных с использованием сервиса {{ data-transfer-name }}](tutorials/data-migration/data-transfer.md)
+ - [Перенос данных с использованием сервиса Data Transfer](tutorials/data-migration/data-transfer.md)
 
  - [Перенос данных с помощью логического дампа](tutorials/data-migration/logical-dump-migration.md)
 
- - [Миграция базы данных из {{ mmy-name }} в {{ MY }}](tutorials/mmy-to-mysql-migration.md)
+ - [Миграция базы данных из Managed Service for MySQL® в MySQL®](tutorials/mmy-to-mysql-migration.md)
 
- - [Поставка данных из {{ mkf-full-name }} с помощью {{ data-transfer-full-name }}](tutorials/mkf-mmy-data-transfer.md)
+ - [Поставка данных из Yandex Managed Service for Apache Kafka® с помощью Yandex Data Transfer](tutorials/mkf-mmy-data-transfer.md)
 
- - [Поставка данных в {{ mkf-full-name }} с помощью {{ data-transfer-full-name }}](tutorials/cdc-data-transfer.md)
+ - [Поставка данных в Yandex Managed Service for Apache Kafka® с помощью Yandex Data Transfer](tutorials/cdc-data-transfer.md)
 
- - [Поставка данных в {{ mkf-full-name }} с помощью Debezium](tutorials/cdc-debezium.md)
+ - [Поставка данных в Yandex Managed Service for Apache Kafka® с помощью Debezium](tutorials/cdc-debezium.md)
 
-### Сайт на WordPress с БД {{ MY }}
+### Сайт на WordPress с БД MySQL®
 
  - [Обзор](tutorials/wordpress-mysql/index.md)
 
  - [Консоль управления](tutorials/wordpress-mysql/console.md)
 
- - [{{ TF }}](tutorials/wordpress-mysql/terraform.md)
+ - [Terraform](tutorials/wordpress-mysql/terraform.md)
 
 ### Создание сайта на базе «1С-Битрикс»
 
@@ -150,7 +150,7 @@ Managed Service for MySQL<sup>®</sup> помогает разворачиват
 
  - [Консоль управления](tutorials/bitrix-website/console.md)
 
- - [{{ TF }}](tutorials/bitrix-website/terraform.md)
+ - [Terraform](tutorials/bitrix-website/terraform.md)
 
 ### Интернет-магазин на «1С-Битрикс»
 
@@ -158,7 +158,7 @@ Managed Service for MySQL<sup>®</sup> помогает разворачиват
 
  - [Консоль управления](tutorials/bitrix-shop/console.md)
 
- - [{{ TF }}](tutorials/bitrix-shop/terraform.md)
+ - [Terraform](tutorials/bitrix-shop/terraform.md)
 
 ### Интернет-магазин на платформе OpenCart
 
@@ -166,25 +166,25 @@ Managed Service for MySQL<sup>®</sup> помогает разворачиват
 
  - [Консоль управления](tutorials/opencart/console.md)
 
- - [{{ TF }}](tutorials/opencart/terraform.md)
+ - [Terraform](tutorials/opencart/terraform.md)
 
- - [Миграция базы данных в {{ ydb-full-name }} с помощью {{ data-transfer-full-name }}](tutorials/mmy-ydb-migration.md)
+ - [Миграция базы данных в Yandex Managed Service for YDB с помощью Yandex Data Transfer](tutorials/mmy-ydb-migration.md)
 
- - [Миграция базы данных из {{ mmy-name }} в {{ objstorage-full-name }}](tutorials/mmy-objs-migration.md)
+ - [Миграция базы данных из Managed Service for MySQL® в Yandex Object Storage](tutorials/mmy-objs-migration.md)
 
- - [Перенос данных из {{ objstorage-full-name }} в {{ mmy-name }}](tutorials/objs-mmy-migration.md)
+ - [Перенос данных из Yandex Object Storage в Managed Service for MySQL®](tutorials/objs-mmy-migration.md)
 
- - [Захват изменений {{ MY }} и поставка в {{ DS }}](tutorials/mmy-to-yds.md)
+ - [Захват изменений MySQL® и поставка в YDS](tutorials/mmy-to-yds.md)
 
- - [Миграция данных из {{ mpg-full-name }} в {{ mmy-name }} с помощью {{ data-transfer-full-name }}](tutorials/mpg-to-mmy.md)
+ - [Миграция данных из Yandex Managed Service for PostgreSQL в Managed Service for MySQL® с помощью Yandex Data Transfer](tutorials/mpg-to-mmy.md)
 
- - [Миграция данных из {{ mmy-name }} в {{ mpg-full-name }} с помощью {{ data-transfer-full-name }}](tutorials/mmy-to-mpg.md)
+ - [Миграция данных из Managed Service for MySQL® в Yandex Managed Service for PostgreSQL с помощью Yandex Data Transfer](tutorials/mmy-to-mpg.md)
 
- - [Миграция данных из {{ mmy-name }} в {{ mgp-full-name }} с помощью {{ data-transfer-full-name }}](tutorials/mmy-to-mgp.md)
+ - [Миграция данных из Managed Service for MySQL® в Yandex MPP Analytics for PostgreSQL с помощью Yandex Data Transfer](tutorials/mmy-to-mgp.md)
 
- - [Синхронизация данных из стороннего кластера {{ MY }} в {{ mmy-full-name }} с помощью {{ data-transfer-full-name }}](tutorials/sync-mysql.md)
+ - [Синхронизация данных из стороннего кластера MySQL® в Yandex Managed Service for MySQL® с помощью Yandex Data Transfer](tutorials/sync-mysql.md)
 
- - [Миграция базы данных из {{ MY }} в {{ CH }} с помощью {{ data-transfer-full-name }}](tutorials/mysql-to-clickhouse.md)
+ - [Миграция базы данных из MySQL® в ClickHouse® с помощью Yandex Data Transfer](tutorials/mysql-to-clickhouse.md)
 
  - [Управление доступом](security/index.md)
 
@@ -418,7 +418,7 @@ Managed Service for MySQL<sup>®</sup> помогает разворачиват
 
  - [update](cli-ref/v0/user/update.md)
 
- - [Справочник {{ TF }}](tf-ref.md)
+ - [Справочник Terraform](tf-ref.md)
 
 ## Справочник API
 
@@ -648,9 +648,9 @@ Managed Service for MySQL<sup>®</sup> помогает разворачиват
 
  - [RevokePermission](api-ref/User/revokePermission.md)
 
- - [Метрики {{ monitoring-name }}](metrics.md)
+ - [Метрики Monitoring](metrics.md)
 
- - [Аудитные логи {{ at-name }}](at-ref.md)
+ - [Аудитные логи Audit Trails](at-ref.md)
 
  - [Публичные материалы](public-talks.md)
 

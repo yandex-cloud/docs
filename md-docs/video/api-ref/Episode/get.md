@@ -6,7 +6,7 @@ Returns all episode metadata, status, and related information.
 ## HTTP request
 
 ```
-GET https://video.{{ api-host }}/video/v1/episodes/{episodeId}
+GET https://video.api.cloud.yandex.net/video/v1/episodes/{episodeId}
 ```
 
 ## Path parameters

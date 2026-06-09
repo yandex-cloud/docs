@@ -1,35 +1,35 @@
-# Интеграция с {{ container-registry-name }}
+# Интеграция с Container Registry
 
 
-[{{ container-registry-full-name }}](../../container-registry/index.md) — сервис для хранения и распространения [Docker-образов](../../container-registry/concepts/docker-image.md). Интеграция с ним позволяет {{ managed-k8s-name }} запускать [поды](../concepts/index.md#pod) с приложениями из Docker-образов, которые хранятся в [реестре](../../container-registry/concepts/registry.md) {{ container-registry-name }}. Для взаимодействия с {{ container-registry-name }} [настраивается](#config-ch) Docker Credential helper. Он позволяет работать с приватными реестрами с помощью [сервисного аккаунта](../../iam/concepts/users/service-accounts.md).
+[Yandex Container Registry](../../container-registry/index.md) — сервис для хранения и распространения [Docker-образов](../../container-registry/concepts/docker-image.md). Интеграция с ним позволяет Managed Service for Kubernetes запускать [поды](../concepts/index.md#pod) с приложениями из Docker-образов, которые хранятся в [реестре](../../container-registry/concepts/registry.md) Container Registry. Для взаимодействия с Container Registry [настраивается](#config-ch) Docker Credential helper. Он позволяет работать с приватными реестрами с помощью [сервисного аккаунта](../../iam/concepts/users/service-accounts.md).
 
-Чтобы интегрировать {{ managed-k8s-name }} с {{ container-registry-name }}:
+Чтобы интегрировать Managed Service for Kubernetes с Container Registry:
 1. [Создайте сервисные аккаунты](#create-sa).
    1. [Создайте сервисный аккаунт для ресурсов](#res-sa).
-   1. [Создайте сервисный аккаунт для узлов {{ managed-k8s-name }}](#node-sa).
+   1. [Создайте сервисный аккаунт для узлов Managed Service for Kubernetes](#node-sa).
 1. [Создайте группы безопасности](#create-sg).
-1. [Подготовьте необходимые ресурсы {{ k8s }}](#create-k8s-res).
-   1. [Создайте кластер {{ managed-k8s-name }}](#create-cluster).
-   1. [Создайте группу узлов {{ managed-k8s-name }}](#create-node-groups).
-1. [Подготовьте необходимые ресурсы {{ container-registry-name }}](#create-cr-res).
+1. [Подготовьте необходимые ресурсы Kubernetes](#create-k8s-res).
+   1. [Создайте кластер Managed Service for Kubernetes](#create-cluster).
+   1. [Создайте группу узлов Managed Service for Kubernetes](#create-node-groups).
+1. [Подготовьте необходимые ресурсы Container Registry](#create-cr-res).
    1. [Создайте реестр](#registry-create).
    1. [Сконфигурируйте Credential helper](#config-ch).
    1. [Подготовьте Docker-образ](#docker-image).
-1. [Подключитесь к кластеру {{ managed-k8s-name }}](#cluster-connect).
+1. [Подключитесь к кластеру Managed Service for Kubernetes](#cluster-connect).
 1. [Запустите тестовое приложение](#test-app).
 1. [Удалите созданные ресурсы](#delete-resources).
 
 ## Перед началом работы {#before-you-begin}
 
-Перейдите в [консоль]({{ link-console-main }}) {{ yandex-cloud }} и выберите каталог, в котором будете выполнять операции. Если такого каталога нет, создайте его:
+Перейдите в [консоль](https://console.yandex.cloud) Yandex Cloud и выберите каталог, в котором будете выполнять операции. Если такого каталога нет, создайте его:
 
 {% list tabs group=instructions %}
 
 - Консоль управления {#console}
 
-  1. В [консоли управления]({{ link-console-main }}) на панели сверху нажмите ![image](../../_assets/console-icons/layout-side-content-left.svg) или ![image](../../_assets/console-icons/chevron-down.svg) и выберите нужное [облако](../../resource-manager/concepts/resources-hierarchy.md#cloud).
+  1. В [консоли управления](https://console.yandex.cloud) на панели сверху нажмите ![image](../../_assets/console-icons/layout-side-content-left.svg) или ![image](../../_assets/console-icons/chevron-down.svg) и выберите нужное [облако](../../resource-manager/concepts/resources-hierarchy.md#cloud).
   1. Справа от названия облака нажмите ![image](../../_assets/console-icons/ellipsis.svg).
-  1. Выберите ![image](../../_assets/console-icons/plus.svg) **{{ ui-key.yacloud.component.console-dashboard.button_action-create-folder }}**.
+  1. Выберите ![image](../../_assets/console-icons/plus.svg) **Создать каталог**.
   
      ![create-folder1](../../_assets/resource-manager/create-folder-1.png)
   
@@ -40,14 +40,14 @@
       * первый символ — буква, последний — не дефис.
   
   1. (Опционально) Введите описание каталога.
-  1. Выберите опцию **{{ ui-key.yacloud.iam.cloud.folders-create.field_default-net }}**. Будет создана [сеть](../../vpc/concepts/network.md#network) с подсетями в каждой зоне доступности. Также в этой сети будет создана [группа безопасности по умолчанию](../../vpc/concepts/security-groups.md#default-security-group), внутри которой весь сетевой трафик разрешен.
-  1. Нажмите кнопку **{{ ui-key.yacloud.iam.cloud.folders-create.button_create }}**.
+  1. Выберите опцию **Создать сеть по умолчанию**. Будет создана [сеть](../../vpc/concepts/network.md#network) с подсетями в каждой зоне доступности. Также в этой сети будет создана [группа безопасности по умолчанию](../../vpc/concepts/security-groups.md#default-security-group), внутри которой весь сетевой трафик разрешен.
+  1. Нажмите кнопку **Создать**.
   
      ![create-folder2](../../_assets/resource-manager/create-folder-2.png)
 
 - CLI {#cli}
 
-  Если у вас еще нет интерфейса командной строки {{ yandex-cloud }} (CLI), [установите и инициализируйте его](../../cli/quickstart.md#install).
+  Если у вас еще нет интерфейса командной строки Yandex Cloud (CLI), [установите и инициализируйте его](../../cli/quickstart.md#install).
 
   1. Посмотрите описание команды создания каталога:
 
@@ -78,7 +78,7 @@
 
 - API {#api}
 
-  Воспользуйтесь методом [create](../../resource-manager/api-ref/Folder/create.md) для ресурса [Folder](../../resource-manager/api-ref/Folder/index.md) сервиса {{ resmgr-full-name }}.
+  Воспользуйтесь методом [create](../../resource-manager/api-ref/Folder/create.md) для ресурса [Folder](../../resource-manager/api-ref/Folder/index.md) сервиса Yandex Resource Manager.
 
 {% endlist %}
 
@@ -87,21 +87,21 @@
 
 В стоимость поддержки описываемого решения входят:
 
-* Плата за кластер {{ managed-k8s-name }}: использование мастера и исходящий трафик (см. [тарифы {{ managed-k8s-name }}](../pricing.md)).
-* Плата за узлы кластера (ВМ): использование вычислительных ресурсов, операционной системы и хранилища (см. [тарифы {{ compute-name }}](../../compute/pricing.md)).
-* Плата за публичные IP-адреса, если они назначены узлам кластера (см. [тарифы {{ vpc-name }}](../../vpc/pricing.md#prices-public-ip)).
-* Плата за [использование хранилища](../../container-registry/pricing.md) {{ container-registry-name }}.
+* Плата за кластер Managed Service for Kubernetes: использование мастера и исходящий трафик (см. [тарифы Managed Service for Kubernetes](../pricing.md)).
+* Плата за узлы кластера (ВМ): использование вычислительных ресурсов, операционной системы и хранилища (см. [тарифы Compute Cloud](../../compute/pricing.md)).
+* Плата за публичные IP-адреса, если они назначены узлам кластера (см. [тарифы Virtual Private Cloud](../../vpc/pricing.md#prices-public-ip)).
+* Плата за [использование хранилища](../../container-registry/pricing.md) Container Registry.
 
 
 ## Создайте сервисные аккаунты {#create-sa}
 
 Создайте [сервисные аккаунты](../../iam/operations/sa/create.md):
-* Сервисный аккаунт для ресурсов с [ролями](../security/index.md#yc-api) `k8s.clusters.agent` и `vpc.publicAdmin` на [каталог](../../resource-manager/concepts/resources-hierarchy.md#folder), в котором создается кластер {{ managed-k8s-name }}. От его имени будут создаваться ресурсы, необходимые кластеру {{ managed-k8s-name }}.
-* Сервисный аккаунт для [узлов {{ managed-k8s-name }}](../concepts/index.md#node-group) с ролью [{{ roles-cr-puller }}](../../container-registry/security/index.md#choosing-roles) на каталог с реестром Docker-образов. От его имени узлы {{ managed-k8s-name }} будут скачивать из реестра необходимые Docker-образы.
+* Сервисный аккаунт для ресурсов с [ролями](../security/index.md#yc-api) `k8s.clusters.agent` и `vpc.publicAdmin` на [каталог](../../resource-manager/concepts/resources-hierarchy.md#folder), в котором создается кластер Managed Service for Kubernetes. От его имени будут создаваться ресурсы, необходимые кластеру Managed Service for Kubernetes.
+* Сервисный аккаунт для [узлов Managed Service for Kubernetes](../concepts/index.md#node-group) с ролью [container-registry.images.puller](../../container-registry/security/index.md#choosing-roles) на каталог с реестром Docker-образов. От его имени узлы Managed Service for Kubernetes будут скачивать из реестра необходимые Docker-образы.
 
 ### Создайте сервисный аккаунт для ресурсов {#res-sa}
 
-Чтобы создать сервисный аккаунт, от имени которого будут создаваться ресурсы, необходимые кластеру {{ managed-k8s-name }}.
+Чтобы создать сервисный аккаунт, от имени которого будут создаваться ресурсы, необходимые кластеру Managed Service for Kubernetes.
 1. Запишите в переменную идентификатор каталога из конфигурации вашего профиля CLI:
 
    {% list tabs group=programming_language %}
@@ -176,7 +176,7 @@
 
 ### Создайте сервисный аккаунт для узлов кластера {#node-sa}
 
-Чтобы создать сервисный аккаунт, от имени которого узлы {{ managed-k8s-name }} будут скачивать из реестра необходимые Docker-образы.
+Чтобы создать сервисный аккаунт, от имени которого узлы Managed Service for Kubernetes будут скачивать из реестра необходимые Docker-образы.
 1. Запишите в переменную идентификатор каталога из конфигурации вашего профиля CLI:
 
    {% list tabs group=programming_language %}
@@ -231,7 +231,7 @@
 
    {% endlist %}
 
-1. Назначьте сервисному аккаунту роль [{{ roles-cr-puller }}](../../container-registry/security/index.md#choosing-roles) на каталог:
+1. Назначьте сервисному аккаунту роль [container-registry.images.puller](../../container-registry/security/index.md#choosing-roles) на каталог:
 
    ```bash
    yc resource-manager folder add-access-binding \
@@ -242,7 +242,7 @@
 
 ## Создайте группы безопасности {#create-sg}
 
-[Создайте группы безопасности](../operations/connect/security-groups.md) для кластера {{ managed-k8s-name }} и входящих в него групп узлов.
+[Создайте группы безопасности](../operations/connect/security-groups.md) для кластера Managed Service for Kubernetes и входящих в него групп узлов.
 
 {% note warning %}
 
@@ -250,19 +250,19 @@
 
 {% endnote %}
 
-## Подготовьте ресурсы {{ k8s }} {#create-k8s-res}
+## Подготовьте ресурсы Kubernetes {#create-k8s-res}
 
-## Подготовьте ресурсы {{ k8s }} {#create-k8s-res}
+## Подготовьте ресурсы Kubernetes {#create-k8s-res}
 
-### Создайте кластер {{ managed-k8s-name }} {#create-cluster}
+### Создайте кластер Managed Service for Kubernetes {#create-cluster}
 
 {% note tip %}
 
-В данном примере используются базовые параметры кластера. Часть настроек, например выбор [Container Network Interface](https://kubernetes.io/docs/concepts/extend-kubernetes/compute-storage-net/network-plugins/), [шифрование секретов](../concepts/encryption.md#k8s-secrets-encryption) с помощью {{ kms-full-name }} и ряд других, нельзя изменить после создания кластера. Рекомендуем ознакомиться с подробной [инструкцией по созданию кластера {{ managed-k8s-name }}](../operations/kubernetes-cluster/kubernetes-cluster-create.md#kubernetes-cluster-create).
+В данном примере используются базовые параметры кластера. Часть настроек, например выбор [Container Network Interface](https://kubernetes.io/docs/concepts/extend-kubernetes/compute-storage-net/network-plugins/), [шифрование секретов](../concepts/encryption.md#k8s-secrets-encryption) с помощью Yandex Key Management Service и ряд других, нельзя изменить после создания кластера. Рекомендуем ознакомиться с подробной [инструкцией по созданию кластера Managed Service for Kubernetes](../operations/kubernetes-cluster/kubernetes-cluster-create.md#kubernetes-cluster-create).
 
 {% endnote %}
 
-Создайте [кластер {{ managed-k8s-name }}](../concepts/index.md#kubernetes-cluster) и укажите ранее созданные [сервисные аккаунты](../../iam/concepts/users/service-accounts.md) в параметрах `--service-account-id` и `--node-service-account-id`, и группы безопасности в параметре `--security-group-ids`.
+Создайте [кластер Managed Service for Kubernetes](../concepts/index.md#kubernetes-cluster) и укажите ранее созданные [сервисные аккаунты](../../iam/concepts/users/service-accounts.md) в параметрах `--service-account-id` и `--node-service-account-id`, и группы безопасности в параметре `--security-group-ids`.
 
 {% list tabs group=programming_language %}
 
@@ -274,7 +274,7 @@
   yc managed-kubernetes cluster create \
     --name k8s-demo \
     --network-name yc-auto-network \
-    --zone {{ region-id }}-a \
+    --zone ru-central1-a \
     --subnet-name yc-auto-subnet-0 \
     --public-ip \
     --service-account-id $RES_SA_ID \
@@ -290,7 +290,7 @@
   yc managed-kubernetes cluster create `
     --name k8s-demo `
     --network-name yc-auto-network `
-    --zone {{ region-id }}-a `
+    --zone ru-central1-a `
     --subnet-name yc-auto-subnet-0 `
     --public-ip `
     --service-account-id $RES_SA_ID `
@@ -300,23 +300,23 @@
 
 {% endlist %}
 
-### Создайте группу узлов {{ managed-k8s-name }} {#create-node-groups}
+### Создайте группу узлов Managed Service for Kubernetes {#create-node-groups}
 
 {% note warning %}
 
-Для доступа к {{ container-registry-name }} узлам кластера должен быть назначен публичный IP-адрес. Либо в подсети узлов должен быть настроен [NAT-шлюз](../../vpc/operations/create-nat-gateway.md) или [NAT-инстанс](../../vpc/tutorials/nat-instance/index.md).
+Для доступа к Container Registry узлам кластера должен быть назначен публичный IP-адрес. Либо в подсети узлов должен быть настроен [NAT-шлюз](../../vpc/operations/create-nat-gateway.md) или [NAT-инстанс](../../vpc/tutorials/nat-instance/index.md).
 
-Подробнее см. в разделе [{#T}](../concepts/network.md#nodes-internet).
+Подробнее см. в разделе [Доступ в интернет для рабочих узлов кластера](../concepts/network.md#nodes-internet).
 
 {% endnote %}
 
-1. Проверьте, что создание кластера {{ managed-k8s-name }} успешно завершено.
-   1. В [консоли управления]({{ link-console-main }}) выберите [каталог](../../resource-manager/concepts/resources-hierarchy.md#folder), в котором был создан кластер {{ managed-k8s-name }}.
-   1. Перейдите в сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-kubernetes }}**.
-   1. Проверьте, что кластер {{ managed-k8s-name }} успешно создан:
-      * В столбце **{{ ui-key.yacloud.k8s.cluster.overview.label_status }}** должно быть указано `Running`.
-      * В столбце **{{ ui-key.yacloud.k8s.cluster.overview.label_health }}** должно быть указано `Healthy`.
-1. Создайте [группу узлов {{ managed-k8s-name }}](../concepts/index.md#node-group) и укажите ранее созданные группы безопасности в параметре `--network-interface security-group-ids`:
+1. Проверьте, что создание кластера Managed Service for Kubernetes успешно завершено.
+   1. В [консоли управления](https://console.yandex.cloud) выберите [каталог](../../resource-manager/concepts/resources-hierarchy.md#folder), в котором был создан кластер Managed Service for Kubernetes.
+   1. Перейдите в сервис **Managed Service for&nbsp;Kubernetes**.
+   1. Проверьте, что кластер Managed Service for Kubernetes успешно создан:
+      * В столбце **Статус** должно быть указано `Running`.
+      * В столбце **Состояние** должно быть указано `Healthy`.
+1. Создайте [группу узлов Managed Service for Kubernetes](../concepts/index.md#node-group) и укажите ранее созданные группы безопасности в параметре `--network-interface security-group-ids`:
 
    {% list tabs group=programming_language %}
 
@@ -354,7 +354,7 @@
 
    {% endlist %}
 
-## Подготовьте ресурсы {{ container-registry-name }} {#create-cr-res}
+## Подготовьте ресурсы Container Registry {#create-cr-res}
 
 ### Создайте реестр {#registry-create}
 
@@ -366,7 +366,7 @@ yc container registry create --name yc-auto-cr
 
 ### Сконфигурируйте Docker Credential helper {#config-ch}
 
-Для упрощения аутентификации в {{ container-registry-name }} сконфигурируйте [Docker Credential helper](../../container-registry/operations/authentication.md#cred-helper). Он позволяет работать с приватными реестрами {{ yandex-cloud }}, не выполняя команду `docker login`.
+Для упрощения аутентификации в Container Registry сконфигурируйте [Docker Credential helper](../../container-registry/operations/authentication.md#cred-helper). Он позволяет работать с приватными реестрами Yandex Cloud, не выполняя команду `docker login`.
 
 Для настройки Credential helper выполните команду:
 
@@ -406,13 +406,13 @@ yc container registry configure-docker
    1. Соберите Docker-образ:
 
       ```
-      docker build . -f hello.dockerfile -t {{ registry }}/$REGISTRY_ID/ubuntu:hello
+      docker build . -f hello.dockerfile -t cr.yandex/$REGISTRY_ID/ubuntu:hello
       ```
 
    1. Загрузите Docker-образ в реестр:
 
       ```
-      docker push {{ registry }}/${REGISTRY_ID}/ubuntu:hello
+      docker push cr.yandex/${REGISTRY_ID}/ubuntu:hello
       ```
 
 1. Проверьте, что Docker-образ загрузился в реестр:
@@ -431,17 +431,17 @@ yc container registry configure-docker
    +----------------------+---------------------+-----------------------------+-------+-----------------+
    ```
 
-## Подключитесь к кластеру {{ managed-k8s-name }} {#cluster-connect}
+## Подключитесь к кластеру Managed Service for Kubernetes {#cluster-connect}
 
-[Установите kubectl]({{ k8s-docs }}/tasks/tools/install-kubectl) и [настройте его на работу с созданным кластером](../operations/connect/index.md#kubectl-connect).
+[Установите kubectl](https://kubernetes.io/ru/docs/tasks/tools/install-kubectl) и [настройте его на работу с созданным кластером](../operations/connect/index.md#kubectl-connect).
 
 ## Запустите тестовое приложение {#test-app}
 
-Запустите под с приложением из Docker-образа и убедитесь, что для загрузки Docker-образа не потребовалась дополнительная аутентификация в {{ container-registry-name }}.
+Запустите под с приложением из Docker-образа и убедитесь, что для загрузки Docker-образа не потребовалась дополнительная аутентификация в Container Registry.
 1. Запустите под с приложением из Docker-образа:
 
    ```
-   kubectl run --attach hello-ubuntu --image {{ registry }}/${REGISTRY_ID}/ubuntu:hello
+   kubectl run --attach hello-ubuntu --image cr.yandex/${REGISTRY_ID}/ubuntu:hello
    ```
 
 1. Найдите запущенный под и посмотрите его полное имя:
@@ -469,12 +469,12 @@ yc container registry configure-docker
    Hi, I'm inside
    ```
 
-   Под загрузил Docker-образ без дополнительной аутентификации на стороне {{ container-registry-name }}.
+   Под загрузил Docker-образ без дополнительной аутентификации на стороне Container Registry.
 
 ## Удалите созданные ресурсы {#delete-resources}
 
 Некоторые ресурсы платные. Чтобы за них не списывалась плата, удалите ресурсы, которые вы больше не будете использовать:
-1. Удалите кластер {{ managed-k8s-name }}:
+1. Удалите кластер Managed Service for Kubernetes:
 
    ```bash
    yc managed-kubernetes cluster delete --name k8s-demo
@@ -484,7 +484,7 @@ yc container registry configure-docker
 
    {% note warning %}
 
-   Не удаляйте сервисный аккаунт до удаления кластера {{ managed-k8s-name }}.
+   Не удаляйте сервисный аккаунт до удаления кластера Managed Service for Kubernetes.
 
    {% endnote %}
 
@@ -494,13 +494,13 @@ yc container registry configure-docker
      yc iam service-account delete --id $RES_SA_ID
      ```
 
-   - Удалите сервисный аккаунт для узлов {{ managed-k8s-name }}:
+   - Удалите сервисный аккаунт для узлов Managed Service for Kubernetes:
 
      ```bash
      yc iam service-account delete --id $NODE_SA_ID
      ```
 
-1. Удалите ресурсы {{ container-registry-name }}.
+1. Удалите ресурсы Container Registry.
    1. Узнайте имя Docker-образа, загруженного в реестр:
 
       {% list tabs group=programming_language %}
@@ -533,6 +533,6 @@ yc container registry configure-docker
 
 #### См. также {#see-also}
 
-* [{#T}](../../container-registry/concepts/docker-image.md).
-* [{#T}](../../container-registry/operations/authentication.md).
-* [{#T}](../../container-registry/operations/index.md).
+* [Docker-образ в Container Registry](../../container-registry/concepts/docker-image.md).
+* [Аутентифицироваться в Container Registry](../../container-registry/operations/authentication.md).
+* [Пошаговые инструкции для Container Registry](../../container-registry/operations/index.md).

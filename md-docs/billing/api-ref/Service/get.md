@@ -5,7 +5,7 @@ Returns the specified service.
 ## HTTP request
 
 ```
-GET https://billing.{{ api-host }}/billing/v1/services/{id}
+GET https://billing.api.cloud.yandex.net/billing/v1/services/{id}
 ```
 
 ## Path parameters

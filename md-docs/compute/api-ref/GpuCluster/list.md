@@ -5,7 +5,7 @@ Retrieves the list of GPU clusters in the specified folder.
 ## HTTP request
 
 ```
-GET https://compute.{{ api-host }}/compute/v1/gpuClusters
+GET https://compute.api.cloud.yandex.net/compute/v1/gpuClusters
 ```
 
 ## Query parameters {#yandex.cloud.compute.v1.ListGpuClustersRequest}

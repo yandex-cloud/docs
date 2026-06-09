@@ -5,7 +5,7 @@ Retrieves a list of databases.
 ## HTTP request
 
 ```
-GET https://ydb.{{ api-host }}/ydb/v1/databases
+GET https://ydb.api.cloud.yandex.net/ydb/v1/databases
 ```
 
 ## Query parameters {#yandex.cloud.ydb.v1.ListDatabasesRequest}

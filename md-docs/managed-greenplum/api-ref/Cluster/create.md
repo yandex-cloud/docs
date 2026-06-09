@@ -5,7 +5,7 @@ Creates a Greenplum® cluster in the specified folder.
 ## HTTP request
 
 ```
-POST https://{{ api-host-mdb }}/managed-greenplum/v1/clusters
+POST https://mdb.api.cloud.yandex.net/managed-greenplum/v1/clusters
 ```
 
 ## Body parameters {#yandex.cloud.mdb.greenplum.v1.CreateClusterRequest}

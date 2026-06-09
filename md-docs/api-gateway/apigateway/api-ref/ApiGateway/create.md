@@ -5,7 +5,7 @@ Creates an API gateway in the specified folder.
 ## HTTP request
 
 ```
-POST https://serverless-apigateway.{{ api-host }}/apigateways/v1/apigateways
+POST https://serverless-apigateway.api.cloud.yandex.net/apigateways/v1/apigateways
 ```
 
 ## Body parameters {#yandex.cloud.serverless.apigateway.v1.CreateApiGatewayRequest}

@@ -2,13 +2,13 @@
 
 В периоды ограничений работы мобильного интернета на территории Российской Федерации операторы связи продолжают обеспечивать доступность ряда социально значимых ресурсов для конечных пользователей. Перечень этих социально значимых ресурсов составляет так называемый «белый список», формируемый и регулярно обновляемый [Министерством цифрового развития, связи и массовых коммуникаций Российской Федерации (Минцифры)](https://digital.gov.ru/).
 
-Включение ресурсов в «белый список» Минцифры осуществляется владельцем сайта или приложения в установленном порядке. Размещение ресурса в инфраструктуре {{ yandex-cloud }} не обеспечивает его автоматическое добавление в перечень, поскольку решение о включении принимается Минцифры для каждого сервиса отдельно.
+Включение ресурсов в «белый список» Минцифры осуществляется владельцем сайта или приложения в установленном порядке. Размещение ресурса в инфраструктуре Yandex Cloud не обеспечивает его автоматическое добавление в перечень, поскольку решение о включении принимается Минцифры для каждого сервиса отдельно.
 
-Если вы хотите включить ваши ресурсы в белый список Минцифры и ваши ресурсы построены на инфраструктуре и с использованием [сервисов](services.md) {{ yandex-cloud }}, вам потребуется информация о публичных IP-адресах, которые выделены в инфраструктуре {{ yandex-cloud }} для доступа конечных пользователей к вашим ресурсам.
+Если вы хотите включить ваши ресурсы в белый список Минцифры и ваши ресурсы построены на инфраструктуре и с использованием [сервисов](services.md) Yandex Cloud, вам потребуется информация о публичных IP-адресах, которые выделены в инфраструктуре Yandex Cloud для доступа конечных пользователей к вашим ресурсам.
 
-## Как определить IP-адрес вашего ресурса в инфраструктуре {{ yandex-cloud }} {#identify-your-ip}
+## Как определить IP-адрес вашего ресурса в инфраструктуре Yandex Cloud {#identify-your-ip}
 
-Все публичные адреса ваших ресурсов, которые вы хотите включить в белый список, должны быть [зарезервированы](#reserve-ip) за вами и только за вами. В качестве подтверждения вашего права пользования IP-адресами вы можете приложить соответствующий скриншот из [консоли управления]({{ link-console-main }}).
+Все публичные адреса ваших ресурсов, которые вы хотите включить в белый список, должны быть [зарезервированы](#reserve-ip) за вами и только за вами. В качестве подтверждения вашего права пользования IP-адресами вы можете приложить соответствующий скриншот из [консоли управления](https://console.yandex.cloud).
 
 {% note warning %}
 
@@ -16,60 +16,60 @@
 
 {% endnote %}
 
-### Как узнать публичный IP-адрес ресурса в {{ yandex-cloud }} {#get-known-ip}
+### Как узнать публичный IP-адрес ресурса в Yandex Cloud {#get-known-ip}
 
-В [экосистеме {{ yandex-cloud }}](services.md) ряд сервисов выделяют под некоторые ресурсы пользователей индивидуальные публичные IP-адреса. В перечень таких ресурсов входят:
+В [экосистеме Yandex Cloud](services.md) ряд сервисов выделяют под некоторые ресурсы пользователей индивидуальные публичные IP-адреса. В перечень таких ресурсов входят:
 
-* [Виртуальные машины](../../compute/concepts/vm.md) в сервисе [{{ compute-full-name }}](../../compute/index.md). Узнать публичный IP-адрес виртуальной машины вы можете с помощью инструкции [{#T}](../../compute/operations/vm-info/get-info.md).
-* [Физические серверы](../../baremetal/concepts/servers.md) в сервисе [{{ baremetal-full-name }}](../../baremetal/index.md). Узнать публичный IP-адрес сервера {{ baremetal-name }} вы можете с помощью инструкции [{#T}](../../baremetal/operations/servers/get-info.md).
-* [Кластеры {{ k8s }}](../../managed-kubernetes/concepts/index.md#kubernetes-cluster) и [узлы кластера](../../managed-kubernetes/concepts/index.md#node-group) в сервисе [{{ managed-k8s-full-name }}](../../managed-kubernetes/index.md). Узнать публичный IP-адрес кластера {{ k8s }} и узлов вы можете с помощью инструкций [{#T}](../../managed-kubernetes/operations/kubernetes-cluster/kubernetes-cluster-list.md) и [{#T}](../../managed-kubernetes/operations/node-connect-ssh.md#node-public-ip).
-* [L7-балансировщики нагрузки](../../application-load-balancer/concepts/application-load-balancer.md) в сервисе [{{ alb-full-name }}](../../application-load-balancer/index.md). Узнать публичный IP-адрес L7-балансировщика вы можете с помощью инструкции [{#T}](../../application-load-balancer/operations/application-load-balancer-get.md).
-* [Внешние сетевые балансировщики нагрузки](../../network-load-balancer/concepts/nlb-types.md) в сервисе [{{ network-load-balancer-full-name }}](../../network-load-balancer/index.md). Узнать публичный IP-адрес внешнего сетевого балансировщика вы можете с помощью инструкции [{#T}](../../network-load-balancer/operations/load-balancer-list.md#get).
-* [Прокси-серверы](../../smartwebsecurity/concepts/domain-protect.md#proxy) в сервисе [{{ sws-full-name }}](../../smartwebsecurity/index.md). Узнать публичный IP-адрес прокси-сервера вы можете в [консоли управления]({{ link-console-main }}).
-* Сервис [{{ cdn-full-name }}](../../cdn/index.md) позволяет получить выделенную IP-адресацию для [CDN-ресурсов](../../cdn/concepts/resource.md), распространяемых через все [точки присутствия](../../cdn/concepts/points-of-presence.md). Чтобы получить выделенный IP-адрес, закрепленный только за вашим CDN-ресурсом, [направьте обращение]({{ link-console-support }}) в службу технической поддержки {{ yandex-cloud }}.
+* [Виртуальные машины](../../compute/concepts/vm.md) в сервисе [Yandex Compute Cloud](../../compute/index.md). Узнать публичный IP-адрес виртуальной машины вы можете с помощью инструкции [Получить информацию о виртуальной машине](../../compute/operations/vm-info/get-info.md).
+* [Физические серверы](../../baremetal/concepts/servers.md) в сервисе [Yandex BareMetal](../../baremetal/index.md). Узнать публичный IP-адрес сервера BareMetal вы можете с помощью инструкции [Получить информацию о сервере](../../baremetal/operations/servers/get-info.md).
+* [Кластеры Kubernetes](../../managed-kubernetes/concepts/index.md#kubernetes-cluster) и [узлы кластера](../../managed-kubernetes/concepts/index.md#node-group) в сервисе [Yandex Managed Service for Kubernetes](../../managed-kubernetes/index.md). Узнать публичный IP-адрес кластера Kubernetes и узлов вы можете с помощью инструкций [Информация об имеющихся кластерах Managed Service for Kubernetes](../../managed-kubernetes/operations/kubernetes-cluster/kubernetes-cluster-list.md) и [Получите публичный IP-адрес узла](../../managed-kubernetes/operations/node-connect-ssh.md#node-public-ip).
+* [L7-балансировщики нагрузки](../../application-load-balancer/concepts/application-load-balancer.md) в сервисе [Yandex Application Load Balancer](../../application-load-balancer/index.md). Узнать публичный IP-адрес L7-балансировщика вы можете с помощью инструкции [Получить информацию об L7-балансировщике](../../application-load-balancer/operations/application-load-balancer-get.md).
+* [Внешние сетевые балансировщики нагрузки](../../network-load-balancer/concepts/nlb-types.md) в сервисе [Yandex Network Load Balancer](../../network-load-balancer/index.md). Узнать публичный IP-адрес внешнего сетевого балансировщика вы можете с помощью инструкции [Получить детальную информацию о сетевом балансировщике](../../network-load-balancer/operations/load-balancer-list.md#get).
+* [Прокси-серверы](../../smartwebsecurity/concepts/domain-protect.md#proxy) в сервисе [Yandex Smart Web Security](../../smartwebsecurity/index.md). Узнать публичный IP-адрес прокси-сервера вы можете в [консоли управления](https://console.yandex.cloud).
+* Сервис [Yandex Cloud CDN](../../cdn/index.md) позволяет получить выделенную IP-адресацию для [CDN-ресурсов](../../cdn/concepts/resource.md), распространяемых через все [точки присутствия](../../cdn/concepts/points-of-presence.md). Чтобы получить выделенный IP-адрес, закрепленный только за вашим CDN-ресурсом, [направьте обращение](https://center.yandex.cloud/support) в службу технической поддержки Yandex Cloud.
 
 {% note tip %}
 
-Узнать публичные IP-адреса, назначенные вашим ресурсам в инфраструктуре {{ yandex-cloud }}, вы всегда можете у AI-ассистента. Подробнее читайте в инструкции [{#T}](../../console/operations/ai-assistant.md).
+Узнать публичные IP-адреса, назначенные вашим ресурсам в инфраструктуре Yandex Cloud, вы всегда можете у AI-ассистента. Подробнее читайте в инструкции [Управление ресурсами Yandex Cloud с помощью AI-ассистента](../../console/operations/ai-assistant.md).
 
 {% endnote %}
 
-Другие сервисы {{ yandex-cloud }} [не выделяют](#work-around) под ресурсы пользователей индивидуальных публичных IP-адресов, а трафик пользователя к таким ресурсам поступает на единый служебный IP-адрес сервиса и обрабатывается параллельно с трафиком других пользователей.
+Другие сервисы Yandex Cloud [не выделяют](#work-around) под ресурсы пользователей индивидуальных публичных IP-адресов, а трафик пользователя к таким ресурсам поступает на единый служебный IP-адрес сервиса и обрабатывается параллельно с трафиком других пользователей.
 
 ### Как зарезервировать публичный IP-адрес, чтобы не потерять его {#reserve-ip}
 
-Публичные IP-адреса бывают динамическими и статическими. Динамический IP-адрес может измениться при остановке и последующем запуске ресурса, за которым этот адрес закреплен (например, виртуальной машины {{ compute-name }}). Статический IP-адрес резервируется за пользователем и может использоваться его ресурсами на постоянной основе. Подробнее читайте в разделе [{#T}](../../vpc/concepts/address.md#public-addresses).
+Публичные IP-адреса бывают динамическими и статическими. Динамический IP-адрес может измениться при остановке и последующем запуске ресурса, за которым этот адрес закреплен (например, виртуальной машины Compute Cloud). Статический IP-адрес резервируется за пользователем и может использоваться его ресурсами на постоянной основе. Подробнее читайте в разделе [Публичные адреса](../../vpc/concepts/address.md#public-addresses).
 
 Для добавления в белый список Минцифры подходят только статические (зарезервированные) публичные IP-адреса. Зарезервировать статический публичный IP-адрес можно как до, так и после создания ресурса. Подробнее читайте в инструкциях:
-* [{#T}](../../vpc/operations/get-static-ip.md)
-* [{#T}](../../vpc/operations/set-static-ip.md)
+* [Зарезервировать статический публичный IP-адрес](../../vpc/operations/get-static-ip.md)
+* [Сделать динамический публичный IP-адрес статическим](../../vpc/operations/set-static-ip.md)
 
-Чтобы зарезервированный публичный IP-адрес не мог быть случайно удален, защитите его от удаления. Подробнее читайте в инструкции [{#T}](../../vpc/operations/deletion-protection.md).
+Чтобы зарезервированный публичный IP-адрес не мог быть случайно удален, защитите его от удаления. Подробнее читайте в инструкции [Настроить защиту от удаления](../../vpc/operations/deletion-protection.md).
 
 Приведенные рекомендации позволяют заранее выделить список используемых вашими ресурсами IP-адресов, защитить их от удаления и затем использовать по мере необходимости.
 
-### Что делать, если для ресурса в {{ yandex-cloud }} не выделен отдельный публичный IP-адрес {#work-around}
+### Что делать, если для ресурса в Yandex Cloud не выделен отдельный публичный IP-адрес {#work-around}
 
-Может возникнуть ситуация, когда в белый список Минцифры требуется добавить ресурс в инфраструктуре {{ yandex-cloud }}, который не входит в приведенный выше [перечень](#get-known-ip) и которому не может быть назначен собственный публичный IP-адрес (например, [бакет](../../storage/concepts/bucket.md) {{ objstorage-full-name }}).
+Может возникнуть ситуация, когда в белый список Минцифры требуется добавить ресурс в инфраструктуре Yandex Cloud, который не входит в приведенный выше [перечень](#get-known-ip) и которому не может быть назначен собственный публичный IP-адрес (например, [бакет](../../storage/concepts/bucket.md) Yandex Object Storage).
 
-В подобной ситуации вы можете добавить дополнительный промежуточный элемент на пути трафика к вашему приложению — [L7-балансировщик нагрузки](../../application-load-balancer/concepts/application-load-balancer.md). При такой схеме запросы пользователей будут сначала поступать на балансировщик, имеющий свой собственный выделенный IP-адрес, который можно добавить в белый список Минцифры, и уже из балансировщика запросы будут направляться на нужный вам ресурс в инфраструктуре {{ yandex-cloud }}.
+В подобной ситуации вы можете добавить дополнительный промежуточный элемент на пути трафика к вашему приложению — [L7-балансировщик нагрузки](../../application-load-balancer/concepts/application-load-balancer.md). При такой схеме запросы пользователей будут сначала поступать на балансировщик, имеющий свой собственный выделенный IP-адрес, который можно добавить в белый список Минцифры, и уже из балансировщика запросы будут направляться на нужный вам ресурс в инфраструктуре Yandex Cloud.
 
-Такая схема реализации доступа к ресурсу имеет дополнительные преимущества: к L7-балансировщику нагрузки вы можете подключить [профиль безопасности](../../smartwebsecurity/concepts/profiles.md) {{ sws-name }}, который дополнительно защитит ваши ресурсы от [DDoS-атак](../../glossary/ddos.md) и ботов на уровне приложений (L7).
+Такая схема реализации доступа к ресурсу имеет дополнительные преимущества: к L7-балансировщику нагрузки вы можете подключить [профиль безопасности](../../smartwebsecurity/concepts/profiles.md) Smart Web Security, который дополнительно защитит ваши ресурсы от [DDoS-атак](../../glossary/ddos.md) и ботов на уровне приложений (L7).
 
 Примеры решений по использованию балансировщиков нагрузки для обеспечения доступа к приложениям:
 
-* [{#T}](../../tutorials/security/distributed-secured-infrastructure.md)
-* [{#T}](../../tutorials/web/cdn-storage-integration/index.md)
-* [{#T}](../../tutorials/security/alb-with-ddos-protection/index.md)
-* [{#T}](../../tutorials/security/balancer-with-sws-profile/index.md)
-* [{#T}](../../tutorials/security/alb-ingress-with-sws-profile.md)
-* [{#T}](../../tutorials/security/sws-protection-ongoing-ddos.md)
-* [{#T}](../../tutorials/web/application-load-balancer-website/index.md)
-* [{#T}](../../tutorials/web/virtual-hosting.md)
-* [Защита сервиса с помощью {{ sws-name }}](../../smartwebsecurity/tutorials/sws-basic-protection.md)
+* [Создание распределенной инфраструктуры с защищенным доступом](../../tutorials/security/distributed-secured-infrastructure.md)
+* [Интеграция L7-балансировщика с Cloud CDN и Object Storage](../../tutorials/web/cdn-storage-integration/index.md)
+* [Создание балансировщика с защитой от DDoS](../../tutorials/security/alb-with-ddos-protection/index.md)
+* [Создание L7-балансировщика Yandex Application Load Balancer с профилем безопасности Yandex Smart Web Security](../../tutorials/security/balancer-with-sws-profile/index.md)
+* [Создание L7-балансировщика с профилем безопасности Smart Web Security через Ingress-контроллер Application Load Balancer](../../tutorials/security/alb-ingress-with-sws-profile.md)
+* [Экстренная защита сервисов в Application Load Balancer от DDoS на уровне L7](../../tutorials/security/sws-protection-ongoing-ddos.md)
+* [Отказоустойчивый сайт с балансировкой нагрузки через Yandex Application Load Balancer](../../tutorials/web/application-load-balancer-website/index.md)
+* [Организация виртуального хостинга](../../tutorials/web/virtual-hosting.md)
+* [Защита сервиса с помощью Smart Web Security](../../smartwebsecurity/tutorials/sws-basic-protection.md)
 
 {% note tip %}
 
-Если у вас уже есть IP-адрес [{{ vpc-full-name }}](../../vpc/index.md) из белого списка, вы можете подключить его к прокси-серверу {{ sws-name }}. Для этого обратитесь в [техническую поддержку]({{ link-console-support }}).
+Если у вас уже есть IP-адрес [Yandex Virtual Private Cloud](../../vpc/index.md) из белого списка, вы можете подключить его к прокси-серверу Smart Web Security. Для этого обратитесь в [техническую поддержку](https://center.yandex.cloud/support).
 
 {% endnote %}

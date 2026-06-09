@@ -1,10 +1,10 @@
-# Метрики {{ msp-full-name }}
+# Метрики Yandex Managed Service for Apache Spark™
 
-В этом разделе описаны метрики сервиса [{{ msp-name }}](../../managed-spark/index.md), поставляемые в {{ monitoring-name }}.
+В этом разделе описаны метрики сервиса [Managed Service for Apache Spark™](../../managed-spark/index.md), поставляемые в Monitoring.
 
 Имя метрики пишется в метку `name`.
 
-Общие метки для всех метрик сервиса {{ msp-name }}:
+Общие метки для всех метрик сервиса Managed Service for Apache Spark™:
 
 #|
 || **Метка** | **Значение** ||
@@ -187,7 +187,7 @@
 
 ### Метрики драйверов {#managed-spark-drivers-metrics}
 
-Нативные метрики {{ SPRK }} для [мониторинга драйверов](https://spark.apache.org/docs/latest/monitoring.html#component-instance--driver).
+Нативные метрики Apache Spark™ для [мониторинга драйверов](https://spark.apache.org/docs/latest/monitoring.html#component-instance--driver).
 
 Для метрик применяются дополнительные метки:
 
@@ -273,7 +273,7 @@
 
 ### Метрики исполнителей {#managed-spark-executors-metrics}
 
-Нативные метрики {{ SPRK }} для [мониторинга исполнителей](https://spark.apache.org/docs/latest/monitoring.html#component-instance--executor).
+Нативные метрики Apache Spark™ для [мониторинга исполнителей](https://spark.apache.org/docs/latest/monitoring.html#component-instance--executor).
 
 Для метрик применяются дополнительные метки:
 

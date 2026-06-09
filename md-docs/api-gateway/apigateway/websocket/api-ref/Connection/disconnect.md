@@ -5,7 +5,7 @@ Disconnects the specified connection.
 ## HTTP request
 
 ```
-DELETE https://apigateway-connections.{{ api-host }}/apigateways/websocket/v1/connections/{connectionId}
+DELETE https://apigateway-connections.api.cloud.yandex.net/apigateways/websocket/v1/connections/{connectionId}
 ```
 
 ## Path parameters

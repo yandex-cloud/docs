@@ -1,6 +1,6 @@
 # GeeseFS
 
-[GeeseFS](https://github.com/yandex-cloud/geesefs) — программа для монтирования бакетов {{ objstorage-name }} через [FUSE](https://ru.wikipedia.org/wiki/FUSE_(модуль_ядра)) в системах Linux, macOS и Windows. Разработана командой {{ yandex-cloud }} как ответвление от [goofys](goofys.md). Она обеспечивает высокую производительность и POSIX-совместимость.
+[GeeseFS](https://github.com/yandex-cloud/geesefs) — программа для монтирования бакетов Object Storage через [FUSE](https://ru.wikipedia.org/wiki/FUSE_(модуль_ядра)) в системах Linux, macOS и Windows. Разработана командой Yandex Cloud как ответвление от [goofys](goofys.md). Она обеспечивает высокую производительность и POSIX-совместимость.
 
 ## Функциональность {#features}
 
@@ -33,7 +33,7 @@
 
 ### Частичное изменение и дозапись объектов {#patch}
 
-В GeeseFS поддерживается [частичное изменение и дозапись объектов](../concepts/object-patch.md) в бакеты {{ objstorage-name }}.
+В GeeseFS поддерживается [частичное изменение и дозапись объектов](../concepts/object-patch.md) в бакеты Object Storage.
 
 Чтобы включить частичное изменение объектов, используйте опцию `--enable-patch`.
 
@@ -71,7 +71,7 @@
 ## Подготовка к работе {#before-you-begin}
 
 1. [Создайте сервисный аккаунт](../../iam/operations/sa/create.md).
-1. [Назначьте сервисному аккаунту роли](../../iam/operations/sa/assign-role-for-sa.md), которые нужны для вашего проекта, например [storage.editor](../security/index.md#storage-editor) на бакет — для работы с конкретным бакетом, или на каталог — для работы со всеми бакетами в каталоге. Подробнее о ролях см. на странице [Управление доступом с помощью {{ iam-full-name }}](../security/index.md).
+1. [Назначьте сервисному аккаунту роли](../../iam/operations/sa/assign-role-for-sa.md), которые нужны для вашего проекта, например [storage.editor](../security/index.md#storage-editor) на бакет — для работы с конкретным бакетом, или на каталог — для работы со всеми бакетами в каталоге. Подробнее о ролях см. на странице [Управление доступом с помощью Yandex Identity and Access Management](../security/index.md).
 
           
     Чтобы работать с объектами в [зашифрованном](../concepts/encryption.md) бакете, у пользователя или [сервисного аккаунта](../../iam/concepts/users/service-accounts.md) вместе с [ролью](../security/index.md#storage-configurer) `storage.configurer` должны быть следующие [роли на ключ шифрования](../../kms/operations/key-access.md):
@@ -80,13 +80,13 @@
     * `kms.keys.decrypter` — для чтения ключа, [расшифровки](../../kms/security/index.md#kms-keys-decrypter) и скачивания объектов;
     * `kms.keys.encrypterDecrypter` — включает [разрешения](../../kms/security/index.md#kms-keys-encrypterDecrypter), предоставляемые ролями `kms.keys.encrypter` и `kms.keys.decrypter`.
     
-    Подробнее см. [Сервисные роли {{ kms-name }}](../../kms/security/index.md#service-roles).
+    Подробнее см. [Сервисные роли Key Management Service](../../kms/security/index.md#service-roles).
 
 
 1. [Создайте статический ключ доступа](../../iam/operations/authentication/manage-access-keys.md#create-access-key).
 
     
-    В результате вы получите данные статического ключа доступа. Для аутентификации в {{ objstorage-name }} вам понадобятся:
+    В результате вы получите данные статического ключа доступа. Для аутентификации в Object Storage вам понадобятся:
     
     * `key_id` — идентификатор статического ключа доступа;
     * `secret` — секретный ключ.
@@ -95,7 +95,7 @@
 
 
 
-Авторизация статическими ключами необходима для обращения напрямую к HTTP API и поддерживается инструментами, перечисленными в разделе [{#T}](index.md).
+Авторизация статическими ключами необходима для обращения напрямую к HTTP API и поддерживается инструментами, перечисленными в разделе [Поддерживаемые инструменты](index.md).
   
 {% note info %}
 
@@ -104,7 +104,7 @@
 {% endnote %}
 
 
-Статический ключ для доступа к {{ objstorage-name }} можно безопасно хранить в сервисе {{ lockbox-full-name }}. Подробнее см. [{#T}](../tutorials/static-key-in-lockbox/index.md).
+Статический ключ для доступа к Object Storage можно безопасно хранить в сервисе Yandex Lockbox. Подробнее см. [Использование секрета Yandex Lockbox для хранения статического ключа доступа](../tutorials/static-key-in-lockbox/index.md).
 
 {% note info %}
 
@@ -213,7 +213,7 @@
 ## Аутентификация {#authentication}
 
 
-GeeseFS использует статический ключ доступа к {{ objstorage-name }}, [полученный ранее](#before-you-begin). Он задается несколькими способами:
+GeeseFS использует статический ключ доступа к Object Storage, [полученный ранее](#before-you-begin). Он задается несколькими способами:
 
 {% list tabs group=operating_system %}
 
@@ -289,7 +289,7 @@ GeeseFS использует статический ключ доступа к {
 
 {% endlist %}
 
-При работе с GeeseFS на виртуальной машине {{ compute-name }}, к которой [привязан сервисный аккаунт](../../compute/operations/vm-connect/auth-inside-vm.md#link-sa-with-instance), вы можете включить упрощенную аутентификацию, без статического ключа доступа. Для этого при монтировании бакета используйте параметр `--iam`.
+При работе с GeeseFS на виртуальной машине Compute Cloud, к которой [привязан сервисный аккаунт](../../compute/operations/vm-connect/auth-inside-vm.md#link-sa-with-instance), вы можете включить упрощенную аутентификацию, без статического ключа доступа. Для этого при монтировании бакета используйте параметр `--iam`.
 
 ## Монтирование бакета {#bucket-mounting}
 

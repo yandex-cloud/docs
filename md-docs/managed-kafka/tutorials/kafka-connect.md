@@ -1,37 +1,37 @@
-# Настройка {{ KFC }} для работы с кластером {{ mkf-name }}
+# Настройка Kafka Connect для работы с кластером Managed Service for Apache Kafka®
 
 
 {% note info %}
 
-{{ mkf-name }} имеет встроенную поддержку некоторых коннекторов и позволяет управлять ими. Список доступных коннекторов приведен в разделе [{#T}](../concepts/connectors.md). Если вам нужны другие коннекторы, или вы хотите управлять работой Kafka Connect вручную, используйте информацию из этого руководства.
+Managed Service for Apache Kafka® имеет встроенную поддержку некоторых коннекторов и позволяет управлять ими. Список доступных коннекторов приведен в разделе [Коннекторы](../concepts/connectors.md). Если вам нужны другие коннекторы, или вы хотите управлять работой Kafka Connect вручную, используйте информацию из этого руководства.
 
 {% endnote %}
 
-Инструмент {{ KFC }} предназначен для перемещения данных между {{ KF }} и другими хранилищами данных.
+Инструмент Kafka Connect предназначен для перемещения данных между Apache Kafka® и другими хранилищами данных.
 
-Работа с данными в {{ KFC }} осуществляется с помощью _процессов-исполнителей_ (workers). Инструмент может быть развернут как в виде распределенной системы (distributed mode) с несколькими процессами-исполнителями, так и в виде отдельной инсталляции из одного процесса-исполнителя (standalone mode).
+Работа с данными в Kafka Connect осуществляется с помощью _процессов-исполнителей_ (workers). Инструмент может быть развернут как в виде распределенной системы (distributed mode) с несколькими процессами-исполнителями, так и в виде отдельной инсталляции из одного процесса-исполнителя (standalone mode).
 
 Непосредственно перемещение данных выполняется с помощью _коннекторов_, которые запускаются в отдельных потоках процесса-исполнителя.
 
-Подробнее о Kafka Connect см. в документации [{{ KF }}](https://kafka.apache.org/42/kafka-connect/overview/).
+Подробнее о Kafka Connect см. в документации [Apache Kafka®](https://kafka.apache.org/42/kafka-connect/overview/).
 
-Далее будет продемонстрировано, как настроить {{ KFC }} для взаимодействия с кластером {{ mkf-name }}. Инструмент будет развернут на [виртуальной машине {{ yandex-cloud }}](../../compute/concepts/vm.md) в виде отдельной инсталляции. Для защиты подключения будет использоваться SSL-шифрование.
+Далее будет продемонстрировано, как настроить Kafka Connect для взаимодействия с кластером Managed Service for Apache Kafka®. Инструмент будет развернут на [виртуальной машине Yandex Cloud](../../compute/concepts/vm.md) в виде отдельной инсталляции. Для защиты подключения будет использоваться SSL-шифрование.
 
 
-Также будет настроен простой коннектор [FileStreamSource](https://docs.confluent.io/home/connect/filestream_connector.html), с помощью которого {{ KFC }} прочитает данные из тестового JSON-файла и передаст их в топик кластера.
+Также будет настроен простой коннектор [FileStreamSource](https://docs.confluent.io/home/connect/filestream_connector.html), с помощью которого Kafka Connect прочитает данные из тестового JSON-файла и передаст их в топик кластера.
 
 {% note info %}
 
-Вы можете использовать любой другой коннектор {{ KFC }} для взаимодействия с кластером {{ mkf-name }}.
+Вы можете использовать любой другой коннектор Kafka Connect для взаимодействия с кластером Managed Service for Apache Kafka®.
 
 {% endnote %}
 
-Чтобы настроить {{ KFC }} для работы с кластером {{ mkf-name }}:
+Чтобы настроить Kafka Connect для работы с кластером Managed Service for Apache Kafka®:
 
 1. [Настройте виртуальную машину](#prepare-vm).
 1. [Подготовьте тестовые данные](#prepare-test-data).
-1. [Настройте {{ KFC }}](#configure-kafka-connect).
-1. [Запустите {{ KFC }} и проверьте его работу](#test-kafka-connect).
+1. [Настройте Kafka Connect](#configure-kafka-connect).
+1. [Запустите Kafka Connect и проверьте его работу](#test-kafka-connect).
 
 Если созданные ресурсы вам больше не нужны, [удалите их](#clear-out).
 
@@ -40,9 +40,9 @@
 
 В стоимость поддержки описываемого решения входят:
 
-* Плата за кластер {{ mkf-name }}: использование вычислительных ресурсов, выделенных хостам (в том числе хостам {{ ZK }}), и дискового пространства (см. [тарифы {{ KF }}](../pricing.md)).
-* Плата за использование публичных IP-адресов, если для хостов кластера включен публичный доступ (см. [тарифы {{ vpc-name }}](../../vpc/pricing.md)).
-* Плата за ВМ: использование вычислительных ресурсов, хранилища и публичного IP-адреса (см. [тарифы {{ compute-name }}](../../compute/pricing.md)).
+* Плата за кластер Managed Service for Apache Kafka®: использование вычислительных ресурсов, выделенных хостам (в том числе хостам ZooKeeper), и дискового пространства (см. [тарифы Apache Kafka®](../pricing.md)).
+* Плата за использование публичных IP-адресов, если для хостов кластера включен публичный доступ (см. [тарифы Virtual Private Cloud](../../vpc/pricing.md)).
+* Плата за ВМ: использование вычислительных ресурсов, хранилища и публичного IP-адреса (см. [тарифы Compute Cloud](../../compute/pricing.md)).
 
 
 ## Перед началом работы {#before-you-begin}
@@ -51,21 +51,21 @@
 
 - Вручную {#manual}
 
-    1. [Создайте кластер {{ mkf-name }}](../operations/cluster-create.md) любой подходящей конфигурации.
-    1. [Создайте топик](../operations/cluster-topics.md#create-topic) с именем `messages` для обмена сообщениями между {{ KFC }} и кластером {{ mkf-name }}.
+    1. [Создайте кластер Managed Service for Apache Kafka®](../operations/cluster-create.md) любой подходящей конфигурации.
+    1. [Создайте топик](../operations/cluster-topics.md#create-topic) с именем `messages` для обмена сообщениями между Kafka Connect и кластером Managed Service for Apache Kafka®.
     1. [Создайте пользователя](../operations/cluster-accounts.md#create-account) с именем `user` и [выдайте ему права](../operations/cluster-accounts.md#grant-permission) на топик `messages`:
 
         * `ACCESS_ROLE_CONSUMER`,
         * `ACCESS_ROLE_PRODUCER`.
 
         
-    1. В той же сети, что и кластер {{ mkf-name }}, [создайте виртуальную машину](../../compute/operations/vm-create/create-linux-vm.md) с [Ubuntu 20.04](https://yandex.cloud/ru/marketplace/products/yc/ubuntu-20-04-lts) и публичным IP-адресом.
-    1. Если вы используете группы безопасности, [настройте их](../operations/connect/index.md#configure-security-groups) так, чтобы был разрешен весь необходимый трафик между кластером {{ mkf-name }} и виртуальной машиной.
+    1. В той же сети, что и кластер Managed Service for Apache Kafka®, [создайте виртуальную машину](../../compute/operations/vm-create/create-linux-vm.md) с [Ubuntu 20.04](https://yandex.cloud/ru/marketplace/products/yc/ubuntu-20-04-lts) и публичным IP-адресом.
+    1. Если вы используете группы безопасности, [настройте их](../operations/connect/index.md#configure-security-groups) так, чтобы был разрешен весь необходимый трафик между кластером Managed Service for Apache Kafka® и виртуальной машиной.
 
 
-- {{ TF }} {#tf}
+- Terraform {#tf}
 
-    1. Если у вас еще нет {{ TF }}, [установите его](../../tutorials/infrastructure-management/terraform-quickstart.md#install-terraform).
+    1. Если у вас еще нет Terraform, [установите его](../../tutorials/infrastructure-management/terraform-quickstart.md#install-terraform).
     1. [Получите данные для аутентификации](../../tutorials/infrastructure-management/terraform-quickstart.md#get-credentials). Вы можете добавить их в переменные окружения или указать далее в файле с настройками провайдера.
     1. [Настройте и инициализируйте провайдер](../../tutorials/infrastructure-management/terraform-quickstart.md#configure-provider). Чтобы не создавать конфигурационный файл с настройками провайдера вручную, [скачайте его](https://github.com/yandex-cloud-examples/yc-terraform-provider-settings/blob/main/provider.tf).
     1. Поместите конфигурационный файл в отдельную рабочую директорию и [укажите значения параметров](../../tutorials/infrastructure-management/terraform-quickstart.md#configure-provider). Если данные для аутентификации не были добавлены в переменные окружения, укажите их в конфигурационном файле.
@@ -82,16 +82,16 @@
 
 
         * виртуальная машина с [Ubuntu 20.04](https://yandex.cloud/ru/marketplace/products/yc/ubuntu-20-04-lts);
-        * кластер {{ mkf-name }} с необходимыми настройками.
+        * кластер Managed Service for Apache Kafka® с необходимыми настройками.
 
-    1. Укажите в файле пароль для пользователя `user`, который будет использоваться для доступа к кластеру {{ mkf-name }}, а также имя пользователя и публичную часть [SSH-ключа](../../glossary/ssh-keygen.md) для виртуальной машины. Если на виртуальную машину будет установлена Ubuntu 20.04 из рекомендованного [списка образов](../../compute/operations/images-with-pre-installed-software/get-list.md), то указанное здесь имя пользователя игнорируется. В таком случае при [подключении](#prepare-vm) используйте имя пользователя `ubuntu`.
-    1. Проверьте корректность файлов конфигурации {{ TF }} с помощью команды:
+    1. Укажите в файле пароль для пользователя `user`, который будет использоваться для доступа к кластеру Managed Service for Apache Kafka®, а также имя пользователя и публичную часть [SSH-ключа](../../glossary/ssh-keygen.md) для виртуальной машины. Если на виртуальную машину будет установлена Ubuntu 20.04 из рекомендованного [списка образов](../../compute/operations/images-with-pre-installed-software/get-list.md), то указанное здесь имя пользователя игнорируется. В таком случае при [подключении](#prepare-vm) используйте имя пользователя `ubuntu`.
+    1. Проверьте корректность файлов конфигурации Terraform с помощью команды:
 
        ```bash
        terraform validate
        ```
 
-       Если в файлах конфигурации есть ошибки, {{ TF }} на них укажет.
+       Если в файлах конфигурации есть ошибки, Terraform на них укажет.
     1. Создайте необходимую инфраструктуру:
 
        1. Выполните команду для просмотра планируемых изменений:
@@ -112,7 +112,7 @@
           1. Подтвердите изменение ресурсов.
           1. Дождитесь завершения операции.
 
-       В указанном каталоге будут созданы все требуемые ресурсы. Проверить появление ресурсов и их настройки можно в [консоли управления]({{ link-console-main }}).
+       В указанном каталоге будут созданы все требуемые ресурсы. Проверить появление ресурсов и их настройки можно в [консоли управления](https://console.yandex.cloud).
 
 {% endlist %}
 
@@ -130,23 +130,23 @@
     sudo apt install kafkacat
     ```
     
-    Убедитесь, что можете с ее помощью [подключиться к кластеру-источнику {{ mkf-name }} через SSL](../operations/connect/clients.md#bash-zsh).
+    Убедитесь, что можете с ее помощью [подключиться к кластеру-источнику Managed Service for Apache Kafka® через SSL](../operations/connect/clients.md#bash-zsh).
 
-1. [Скачайте](https://downloads.apache.org/kafka/) и распакуйте архив с {{ KF }}:
+1. [Скачайте](https://downloads.apache.org/kafka/) и распакуйте архив с Apache Kafka®:
 
     ```bash
     wget https://downloads.apache.org/kafka/3.1.0/kafka_2.12-3.1.0.tgz && tar -xvf kafka_2.12-3.1.0.tgz --strip 1 --directory /opt/kafka/
     ```
 
-    В данном примере используется {{ KF }} версии `3.1.0`.
+    В данном примере используется Apache Kafka® версии `3.1.0`.
 
 1. [Получите SSL-сертификат](../operations/connect/index.md#get-ssl-cert).
 
-1. Добавьте SSL-сертификат в хранилище доверенных сертификатов Java (Java Key Store), чтобы драйвер {{ KF }} мог использовать этот сертификат при защищенном подключении к хостам кластера. Задайте пароль не короче 6 символов в параметре `-storepass` для дополнительной защиты хранилища:
+1. Добавьте SSL-сертификат в хранилище доверенных сертификатов Java (Java Key Store), чтобы драйвер Apache Kafka® мог использовать этот сертификат при защищенном подключении к хостам кластера. Задайте пароль не короче 6 символов в параметре `-storepass` для дополнительной защиты хранилища:
    
    ```bash
    sudo keytool -importcert \
-                -alias {{ crt-alias }} -file {{ crt-local-dir }}{{ crt-local-file }} \
+                -alias YandexCA -file /usr/local/share/ca-certificates/Yandex/YandexInternalRootCA.crt \
                 -keystore ssl -storepass <пароль_хранилища_сертификатов> \
                 --noprompt
    ```
@@ -172,7 +172,7 @@
 
 {% endcut %}
 
-## Настройте {{ KFC }} {#configure-kafka-connect}
+## Настройте Kafka Connect {#configure-kafka-connect}
 
 1. Создайте файл настроек процесса-исполнителя `/etc/kafka-connect-worker/worker.properties`:
 
@@ -201,7 +201,7 @@
     offset.storage.file.filename=/etc/kafka-connect-worker/worker.offset
     ```
 
-    {{ KFC }} будет подключаться к кластеру {{ mkf-name }} от имени пользователя `user`, [созданного ранее](#before-you-begin).
+    Kafka Connect будет подключаться к кластеру Managed Service for Apache Kafka® от имени пользователя `user`, [созданного ранее](#before-you-begin).
 
     FQDN хостов-брокеров можно запросить со [списком хостов в кластере](../operations/cluster-hosts.md).
 
@@ -218,9 +218,9 @@
     Где:
 
     * `file` — имя файла, из которого коннектор будет читать данные.
-    * `topic` — имя топика в кластере {{ mkf-name }}, куда коннектор будет передавать данные.
+    * `topic` — имя топика в кластере Managed Service for Apache Kafka®, куда коннектор будет передавать данные.
 
-## Запустите {{ KFC }} и проверьте его работу {#test-kafka-connect}
+## Запустите Kafka Connect и проверьте его работу {#test-kafka-connect}
 
 1. Чтобы отправить тестовые данные в кластер, запустите процесс-исполнитель на виртуальной машине:
 
@@ -241,7 +241,7 @@
         -X sasl.mechanisms=SCRAM-SHA-512 \
         -X sasl.username=user \
         -X sasl.password="<пароль_учетной_записи_user>" \
-        -X ssl.ca.location={{ crt-local-dir }}{{ crt-local-file }} -Z -K:
+        -X ssl.ca.location=/usr/local/share/ca-certificates/Yandex/YandexInternalRootCA.crt -Z -K:
     ```
 
     FQDN хостов-брокеров можно запросить со [списком хостов в кластере](../operations/cluster-hosts.md).
@@ -259,16 +259,16 @@
     
     1. [Удалите виртуальную машину](../../compute/operations/vm-control/vm-delete.md).
     1. Если вы зарезервировали для виртуальной машины публичный статический IP-адрес, [удалите его](../../vpc/operations/address-delete.md).
-    1. [Удалите кластер {{ mkf-name }}](../operations/cluster-delete.md).
+    1. [Удалите кластер Managed Service for Apache Kafka®](../operations/cluster-delete.md).
 
 
-- {{ TF }} {#tf}
+- Terraform {#tf}
 
     1. В терминале перейдите в директорию с планом инфраструктуры.
     
         {% note warning %}
     
-        Убедитесь, что в директории нет {{ TF }}-манифестов с ресурсами, которые вы хотите сохранить. {{ TF }} удаляет все ресурсы, которые были созданы с помощью манифестов в текущей директории.
+        Убедитесь, что в директории нет Terraform-манифестов с ресурсами, которые вы хотите сохранить. Terraform удаляет все ресурсы, которые были созданы с помощью манифестов в текущей директории.
     
         {% endnote %}
     
@@ -282,6 +282,6 @@
     
         1. Подтвердите удаление ресурсов и дождитесь завершения операции.
     
-        Все ресурсы, которые были описаны в {{ TF }}-манифестах, будут удалены.
+        Все ресурсы, которые были описаны в Terraform-манифестах, будут удалены.
 
 {% endlist %}

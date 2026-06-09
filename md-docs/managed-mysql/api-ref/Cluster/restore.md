@@ -6,7 +6,7 @@ See [the documentation](../../concepts/backup.md) for details.
 ## HTTP request
 
 ```
-POST https://{{ api-host-mdb }}/managed-mysql/v1/clusters:restore
+POST https://mdb.api.cloud.yandex.net/managed-mysql/v1/clusters:restore
 ```
 
 ## Body parameters {#yandex.cloud.mdb.mysql.v1.RestoreClusterRequest}

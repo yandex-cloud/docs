@@ -1,4 +1,4 @@
-# {{ marketplace-full-name }}
+# Yandex Cloud Marketplace
 
 Yandex Cloud Marketplace — это магазин готовых инструментов для разработки, анализа данных, обеспечения безопасности, создания бизнес‑приложений и других задач. Продукты в Marketplace доступны всем пользователям сервисов Yandex Cloud.
 
@@ -24,15 +24,15 @@ Yandex Cloud Marketplace — это магазин готовых инструм
 
  - [Создание пробного периода](operations/create-trial-period.md)
 
- - [Интеграция с {{ license-manager }} API](operations/license-manager-integration.md)
+ - [Интеграция с License Manager API](operations/license-manager-integration.md)
 
- - [Создание конфигурации для продукта {{ cloud-apps-name }}](operations/create-configuration.md)
+ - [Создание конфигурации для продукта Cloud Apps](operations/create-configuration.md)
 
  - [Заявки на доступ к продуктам](operations/access-requests.md)
 
 ### Практические руководства
 
- - [Создание демонстрационного продукта {{ cloud-apps-name }}](tutorials/demo-cloud-apps.md)
+ - [Создание демонстрационного продукта Cloud Apps](tutorials/demo-cloud-apps.md)
 
 ### Концепции
 
@@ -50,17 +50,17 @@ Yandex Cloud Marketplace — это магазин готовых инструм
 
  - [Создание образа продукта на базе Linux](concepts/compute-product.md)
 
- - [Создание продукта {{ baremetal-name }} на базе Linux](concepts/baremetal-product.md)
+ - [Создание продукта BareMetal на базе Linux](concepts/baremetal-product.md)
 
- - [Создание продукта для {{ managed-k8s-name }}](concepts/kubernetes-product.md)
+ - [Создание продукта для Managed Service for Kubernetes](concepts/kubernetes-product.md)
 
  - [Тарификация продуктов на основе метрик издателя](concepts/api-usage.md)
 
  - [Пробный период](concepts/trial-period.md)
 
- - [Справочник полей, доступных для формы продукта {{ cloud-apps-name }}](concepts/form-fields-ref.md)
+ - [Справочник полей, доступных для формы продукта Cloud Apps](concepts/form-fields-ref.md)
 
- - [Вычисляемые выражения в конфигурации продукта {{ cloud-apps-name }}](concepts/expressions.md)
+ - [Вычисляемые выражения в конфигурации продукта Cloud Apps](concepts/expressions.md)
 
  - [Управление доступом](security/partners.md)
 
@@ -100,9 +100,9 @@ Yandex Cloud Marketplace — это магазин готовых инструм
 
  - [Write](metering/api-ref/grpc/ProductUsage/write.md)
 
-### Справочник {{ license-manager }} API
+### Справочник License Manager API
 
- - [Начало работы с {{ license-manager }} API](license-manager/api-ref/quickstart.md)
+ - [Начало работы с License Manager API](license-manager/api-ref/quickstart.md)
 
 #### gRPC (англ.)
 
@@ -176,9 +176,9 @@ Yandex Cloud Marketplace — это магазин готовых инструм
 
  - [Cancel](license-manager/api-ref/Operation/cancel.md)
 
-### Справочник {{ license-manager }} SaaS API
+### Справочник License Manager SaaS API
 
- - [Начало работы с {{ license-manager }} SaaS API](license-manager/saas/api-ref/quickstart.md)
+ - [Начало работы с License Manager SaaS API](license-manager/saas/api-ref/quickstart.md)
 
 #### gRPC (англ.)
 
@@ -240,9 +240,9 @@ Yandex Cloud Marketplace — это магазин готовых инструм
 
  - [Cancel](license-manager/saas/api-ref/Operation/cancel.md)
 
-### Справочник {{ cloud-apps-name }} Workload API
+### Справочник Cloud Apps Workload API
 
- - [Начало работы с {{ cloud-apps-name }} Workload API](cloudapps/workload/api-ref/quickstart.md)
+ - [Начало работы с Cloud Apps Workload API](cloudapps/workload/api-ref/quickstart.md)
 
 #### gRPC (англ.)
 
@@ -334,37 +334,37 @@ Yandex Cloud Marketplace — это магазин готовых инструм
 
  - [Все руководства](tutorials/index.md)
 
- - [Развертывание S2S VPN с помощью strongSwan в {{ yandex-cloud }}](tutorials/s2s-vpn.md)
+ - [Развертывание S2S VPN с помощью strongSwan в Yandex Cloud](tutorials/s2s-vpn.md)
 
- - [Установка Ghost CMS High Availability с помощью {{ cloud-apps-name }}](tutorials/ghost-cms-cloudapp.md)
+ - [Установка Ghost CMS High Availability с помощью Cloud Apps](tutorials/ghost-cms-cloudapp.md)
 
- - [Установка WordPress High Availability с помощью {{ cloud-apps-name }}](tutorials/wordpress-ha-cloudapp.md)
+ - [Установка WordPress High Availability с помощью Cloud Apps](tutorials/wordpress-ha-cloudapp.md)
 
- - [Установка WordPress с помощью {{ cloud-apps-name }}](tutorials/wordpress-cloudapp.md)
+ - [Установка WordPress с помощью Cloud Apps](tutorials/wordpress-cloudapp.md)
 
-#### Использование продуктов {{ marketplace-name }} в {{ managed-k8s-name }}
+#### Использование продуктов Cloud Marketplace в Managed Service for Kubernetes
 
  - [Интеграция с Argo CD](tutorials/argo-cd.md)
 
  - [Интеграция с Crossplane](tutorials/crossplane.md)
 
- - [Синхронизация с секретами {{ lockbox-name }}](tutorials/kubernetes-lockbox-secrets.md)
+ - [Синхронизация с секретами Yandex Lockbox](tutorials/kubernetes-lockbox-secrets.md)
 
- - [Настройка Fluent Bit для работы с {{ cloud-logging-name }}](tutorials/fluent-bit-logging.md)
+ - [Настройка Fluent Bit для работы с Cloud Logging](tutorials/fluent-bit-logging.md)
 
  - [Настройка Gateway API](tutorials/gateway-api.md)
 
- - [Настройка L7-балансировщика {{ alb-name }} с помощью Ingress-контроллера](tutorials/alb-ingress-controller.md)
+ - [Настройка L7-балансировщика Application Load Balancer с помощью Ingress-контроллера](tutorials/alb-ingress-controller.md)
 
- - [Настройка логирования для L7-балансировщика {{ alb-name }} с помощью Ingress-контроллера](tutorials/alb-ingress-controller-log-options.md)
+ - [Настройка логирования для L7-балансировщика Application Load Balancer с помощью Ingress-контроллера](tutorials/alb-ingress-controller-log-options.md)
 
- - [Создание L7-балансировщика с профилем безопасности {{ sws-name }} через Ingress-контроллер {{ alb-name }}](tutorials/alb-ingress-with-sws-profile.md)
+ - [Создание L7-балансировщика с профилем безопасности Smart Web Security через Ingress-контроллер Application Load Balancer](tutorials/alb-ingress-with-sws-profile.md)
 
- - [Проверка состояния приложений в кластере {{ managed-k8s-name }} с помощью L7-балансировщика {{ alb-name }}](tutorials/custom-health-checks.md)
+ - [Проверка состояния приложений в кластере Managed Service for Kubernetes с помощью L7-балансировщика Application Load Balancer](tutorials/custom-health-checks.md)
 
  - [Настройка Kyverno & Kyverno Policies](tutorials/kyverno.md)
 
- - [Использование {{ MP }} для трансляции метрик](tutorials/metrics-provider.md)
+ - [Использование Metrics Provider для трансляции метрик](tutorials/metrics-provider.md)
 
  - [Редактирование изображений для сайтов с помощью Thumbor](tutorials/thumbor.md)
 
@@ -380,4 +380,4 @@ Yandex Cloud Marketplace — это магазин готовых инструм
 
  - [Управление доступом](security/index.md)
 
- - [Аудитные логи {{ at-name }}](at-ref.md)
+ - [Аудитные логи Audit Trails](at-ref.md)

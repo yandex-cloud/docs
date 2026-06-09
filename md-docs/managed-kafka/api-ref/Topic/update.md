@@ -5,7 +5,7 @@ Updates the specified Kafka topic.
 ## HTTP request
 
 ```
-PATCH https://{{ api-host-mdb }}/managed-kafka/v1/clusters/{clusterId}/topics/{topicName}
+PATCH https://mdb.api.cloud.yandex.net/managed-kafka/v1/clusters/{clusterId}/topics/{topicName}
 ```
 
 ## Path parameters

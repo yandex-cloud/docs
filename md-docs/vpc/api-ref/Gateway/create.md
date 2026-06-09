@@ -5,7 +5,7 @@ Creates a gateway in the specified folder.
 ## HTTP request
 
 ```
-POST https://vpc.{{ api-host }}/vpc/v1/gateways
+POST https://vpc.api.cloud.yandex.net/vpc/v1/gateways
 ```
 
 ## Body parameters {#yandex.cloud.vpc.v1.CreateGatewayRequest}

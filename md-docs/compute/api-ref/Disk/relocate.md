@@ -7,7 +7,7 @@ disk use [InstanceService.Relocate](../Instance/relocate.md#Relocate) request.
 ## HTTP request
 
 ```
-POST https://compute.{{ api-host }}/compute/v1/disks/{diskId}:relocate
+POST https://compute.api.cloud.yandex.net/compute/v1/disks/{diskId}:relocate
 ```
 
 ## Path parameters

@@ -5,7 +5,7 @@ Creates a placement group in the specified folder.
 ## HTTP request
 
 ```
-POST https://compute.{{ api-host }}/compute/v1/placementGroups
+POST https://compute.api.cloud.yandex.net/compute/v1/placementGroups
 ```
 
 ## Body parameters {#yandex.cloud.compute.v1.CreatePlacementGroupRequest}

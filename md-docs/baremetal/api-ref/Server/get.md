@@ -6,7 +6,7 @@ To get the list of available Server resources, make a [List](list.md#List) reque
 ## HTTP request
 
 ```
-GET https://baremetal.{{ api-host }}/baremetal/v1alpha/servers/{serverId}
+GET https://baremetal.api.cloud.yandex.net/baremetal/v1alpha/servers/{serverId}
 ```
 
 ## Path parameters

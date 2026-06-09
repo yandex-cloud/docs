@@ -5,7 +5,7 @@ Retrieves the list of OpenSearch clusters that belong to the specified folder.
 ## HTTP request
 
 ```
-GET https://{{ api-host-mdb }}/managed-opensearch/v1/clusters
+GET https://mdb.api.cloud.yandex.net/managed-opensearch/v1/clusters
 ```
 
 ## Query parameters {#yandex.cloud.mdb.opensearch.v1.ListClustersRequest}

@@ -5,7 +5,7 @@ Sets access bindings for the filesystem.
 ## HTTP request
 
 ```
-POST https://compute.{{ api-host }}/compute/v1/filesystems/{resourceId}:setAccessBindings
+POST https://compute.api.cloud.yandex.net/compute/v1/filesystems/{resourceId}:setAccessBindings
 ```
 
 ## Path parameters

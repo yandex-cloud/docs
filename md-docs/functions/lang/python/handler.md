@@ -19,7 +19,7 @@ _Обработчик запросов_ — это метод, который и
     * Если функция была вызвана с параметром строки запроса `?integration=raw`, тело HTTP-запроса передается в функцию как есть, без обработки.
 1. [Контекст вызова](context.md) (параметр `context`). 
 
-    Контекст содержит необходимую информацию о версии функции. Структура этого объекта описана в разделе [{#T}](context.md).
+    Контекст содержит необходимую информацию о версии функции. Структура этого объекта описана в разделе [Контекст вызова функции на Python](context.md).
     
 ## Виды обработчика {#type}
 
@@ -75,7 +75,7 @@ def handler(event, context):
 curl \
   --data '{"hello": "world"}' \
   --header 'Content-Type: application/json' \
-  https://{{ sf-url }}/<идентификатор_функции>?param=one
+  https://functions.yandexcloud.net/<идентификатор_функции>?param=one
 ```
 
 Результат:
@@ -104,7 +104,7 @@ curl \
             "Accept": "*/*",
             "Content-Length": "18",
             "Content-Type": "application/json",
-            "Host": "{{ sf-url }}",
+            "Host": "functions.yandexcloud.net",
             "User-Agent": "curl/7.64.1",
             "X-Forwarded-For": "109.252.148.209",
             "X-Real-Remote-Address": "[109.252.148.209]:2816",
@@ -124,7 +124,7 @@ curl \
                 "application/json"
             ],
             "Host": [
-                "{{ sf-url }}"
+                "functions.yandexcloud.net"
             ],
             "User-Agent": [
                 "curl/7.64.1"
@@ -202,7 +202,7 @@ def handler(event, context):
 curl \
   --data '{"test": "asyncio"}' \
   --header 'Content-Type: application/json' \
-  https://{{ sf-url }}/<идентификатор_функции>
+  https://functions.yandexcloud.net/<идентификатор_функции>
 ```
 
 Результат:

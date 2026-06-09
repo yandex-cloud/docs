@@ -1,8 +1,8 @@
-# Как начать работать с API {{ video-full-name }}
+# Как начать работать с API Yandex Cloud Video
 
-В этом разделе вы научитесь создавать [каналы](../concepts/index.md#channels), загружать [видео](../concepts/videos.md) и получать для загруженных видео ссылки на [видеоплеер](../concepts/player.md) с помощью [REST API](index.md) и [gRPC API](grpc/index.md) {{ video-name }}.
+В этом разделе вы научитесь создавать [каналы](../concepts/index.md#channels), загружать [видео](../concepts/videos.md) и получать для загруженных видео ссылки на [видеоплеер](../concepts/player.md) с помощью [REST API](index.md) и [gRPC API](grpc/index.md) Cloud Video.
 
-Чтобы начать работать с API {{ video-name }}:
+Чтобы начать работать с API Cloud Video:
 
 1. [Создайте канал](#create-channel).
 1. [Создайте видео](#create-video).
@@ -11,7 +11,7 @@
 
 ## Перед началом работы {#before-begin}
 
-1. В [сервисе {{ billing-name }}]({{ link-console-billing }}) убедитесь, что у вас подключен [платежный аккаунт](../../billing/concepts/billing-account.md), и он находится в [статусе](../../billing/concepts/billing-account-statuses.md) `ACTIVE` или `TRIAL_ACTIVE`. Если платежного аккаунта нет, [создайте его](../../billing/quickstart/index.md#create_billing_account).
+1. В [сервисе Yandex Cloud Billing](https://center.yandex.cloud/billing/accounts) убедитесь, что у вас подключен [платежный аккаунт](../../billing/concepts/billing-account.md), и он находится в [статусе](../../billing/concepts/billing-account-statuses.md) `ACTIVE` или `TRIAL_ACTIVE`. Если платежного аккаунта нет, [создайте его](../../billing/quickstart/index.md#create_billing_account).
 1. [Получите](../../organization/operations/organization-get-id.md) идентификатор [организации](../../organization/quickstart.md), в которой вы будете создавать канал.
 
 Чтобы воспользоваться примерами, установите утилиты:
@@ -20,19 +20,19 @@
 
 ### Настройте сервисный аккаунт {#configure-account}
 
-Для доступа к организации и работы с API {{ video-name }} потребуется [сервисный аккаунт](../../iam/concepts/users/service-accounts.md) с [ролью](../../iam/concepts/access-control/roles.md) `video.admin` или `video.editor` и [IAM-токен](../../iam/concepts/authorization/iam-token.md).
+Для доступа к организации и работы с API Cloud Video потребуется [сервисный аккаунт](../../iam/concepts/users/service-accounts.md) с [ролью](../../iam/concepts/access-control/roles.md) `video.admin` или `video.editor` и [IAM-токен](../../iam/concepts/authorization/iam-token.md).
 
 #### Создайте сервисный аккаунт {#create-account}
 
-Создайте сервисный аккаунт, от имени которого вы будете аутентифицироваться в API {{ video-name }}.
+Создайте сервисный аккаунт, от имени которого вы будете аутентифицироваться в API Cloud Video.
 
 {% list tabs group=instructions %}
 
 - Консоль управления {#console}
 
-  1. В [консоли управления]({{ link-console-main }}) выберите каталог, в котором вы будете работать с API {{ video-name }}.
-  1. В списке сервисов выберите **{{ ui-key.yacloud.iam.folder.dashboard.label_iam }}**.
-  1. Нажмите кнопку **{{ ui-key.yacloud.iam.folder.service-accounts.button_add }}**.
+  1. В [консоли управления](https://console.yandex.cloud) выберите каталог, в котором вы будете работать с API Cloud Video.
+  1. В списке сервисов выберите **Identity and Access Management**.
+  1. Нажмите кнопку **Создать сервисный аккаунт**.
   1. Введите имя сервисного аккаунта, например `sa-video-api`.
 
       Требования к имени:
@@ -41,11 +41,11 @@
       * может содержать строчные буквы латинского алфавита, цифры и дефисы;
       * первый символ — буква, последний — не дефис.
 
-  1. Нажмите кнопку **{{ ui-key.yacloud.iam.folder.service-account.popup-robot_button_add }}**.
+  1. Нажмите кнопку **Создать**.
 
 - CLI {#cli}
 
-  Если у вас еще нет интерфейса командной строки {{ yandex-cloud }} (CLI), [установите и инициализируйте его](../../cli/quickstart.md#install).
+  Если у вас еще нет интерфейса командной строки Yandex Cloud (CLI), [установите и инициализируйте его](../../cli/quickstart.md#install).
 
   По умолчанию используется каталог, указанный при [создании](../../cli/operations/profile/profile-create.md) профиля CLI. Чтобы изменить каталог по умолчанию, используйте команду `yc config set folder-id <идентификатор_каталога>`. Также для любой команды вы можете указать другой каталог с помощью параметров `--folder-name` или `--folder-id`. Если вы обращаетесь к ресурсу по имени, поиск будет выполнен в каталоге по умолчанию. Если вы обращаетесь к ресурсу по идентификатору, поиск будет выполнен глобально — во всех каталогах с учетом прав доступа.
 
@@ -80,21 +80,21 @@
 
 #### Назначьте роль сервисному аккаунту {#assign-role}
 
-Назначьте сервисному аккаунту роль `video.admin` или `video.editor` на организацию. Подробнее см. в разделе [{#T}](../security/index.md).
+Назначьте сервисному аккаунту роль `video.admin` или `video.editor` на организацию. Подробнее см. в разделе [Управление доступом в Yandex Cloud Video](../security/index.md).
 
-Чтобы предоставить сервисному аккаунту права доступа к организации, необходима роль не ниже `{{ roles-organization-admin }}`.
+Чтобы предоставить сервисному аккаунту права доступа к организации, необходима роль не ниже `organization-manager.admin`.
 
 {% list tabs group=instructions %}
 
-- Интерфейс {{ cloud-center }} {#cloud-center}
+- Интерфейс Cloud Center {#cloud-center}
 
-  1. Войдите в сервис [{{ org-full-name }}]({{ link-org-cloud-center }}) с учетной записью администратора или владельца организации.
-  1. На панели слева выберите ![persons-lock](../../_assets/console-icons/persons-lock.svg) **{{ ui-key.yacloud_org.pages.acl }}**.
-  1. В фильтре **{{ ui-key.yacloud_components.acl-filters.placeholder.account-type-filter }}** выберите `{{ ui-key.yacloud_components.acl.label.service-accounts }}`.
-  1. В правом верхнем углу страницы нажмите кнопку **{{ ui-key.yacloud_components.acl.action.assign-roles }}**.
-  1. В открывшемся окне перейдите в раздел **{{ ui-key.yacloud_components.acl.label.service-accounts }}** и выберите созданный ранее сервисный аккаунт из списка или воспользуйтесь поиском.
-  1. Нажмите кнопку ![plus](../../_assets/console-icons/plus.svg) **{{ ui-key.yacloud_components.acl.action.add-role }}** и выберите роль `video.admin` или `video.editor`.
-  1. Нажмите кнопку **{{ ui-key.yacloud.common.save }}**.
+  1. Войдите в сервис [Yandex Identity Hub](https://center.yandex.cloud/organization) с учетной записью администратора или владельца организации.
+  1. На панели слева выберите ![persons-lock](../../_assets/console-icons/persons-lock.svg) **Права доступа**.
+  1. В фильтре **Тип аккаунта** выберите `Сервисные аккаунты`.
+  1. В правом верхнем углу страницы нажмите кнопку **Назначить роли**.
+  1. В открывшемся окне перейдите в раздел **Сервисные аккаунты** и выберите созданный ранее сервисный аккаунт из списка или воспользуйтесь поиском.
+  1. Нажмите кнопку ![plus](../../_assets/console-icons/plus.svg) **Добавить роль** и выберите роль `video.admin` или `video.editor`.
+  1. Нажмите кнопку **Сохранить**.
 
 - CLI {#cli}
 
@@ -117,7 +117,7 @@
 
 #### Получите IAM-токен {#get-iam}
 
-Чтобы получить IAM-токен для созданного ранее сервисного аккаунта, воспользуйтесь инструкцией [{#T}](../../iam/operations/iam-token/create-for-sa.md).
+Чтобы получить IAM-токен для созданного ранее сервисного аккаунта, воспользуйтесь инструкцией [Получение IAM-токена для сервисного аккаунта](../../iam/operations/iam-token/create-for-sa.md).
 
 ## Создайте канал {#create-channel}
 
@@ -130,7 +130,7 @@
   ```bash
   curl \
     --request POST \
-    --url 'https://video.{{ api-host }}/video/v1/channels' \
+    --url 'https://video.api.cloud.yandex.net/video/v1/channels' \
     --header 'Authorization: Bearer <IAM-токен>' \
     --header 'Content-Type: application/json' \
     --data '{
@@ -142,7 +142,7 @@
   Где:
   * `<IAM-токен>` — полученный перед началом работы IAM-токен.
   * `<идентификатор_организации>` — полученный перед началом работы идентификатор организации.
-  * `<имя_канала>` — имя создаваемого канала в {{ video-name }}.
+  * `<имя_канала>` — имя создаваемого канала в Cloud Video.
 
   Результат:
   
@@ -178,13 +178,13 @@
       "organization_id": "<идентификатор_организации>",
       "title": "<имя_канала>"
     }' \
-    video.{{ api-host }}:443 yandex.cloud.video.v1.ChannelService/Create
+    video.api.cloud.yandex.net:443 yandex.cloud.video.v1.ChannelService/Create
   ```
 
   Где:
   * `<IAM-токен>` — полученный перед началом работы IAM-токен.
   * `<идентификатор_организации>` — полученный перед началом работы идентификатор организации.
-  * `<имя_канала>` — имя создаваемого канала в {{ video-name }}.
+  * `<имя_канала>` — имя создаваемого канала в Cloud Video.
 
   Результат:
   
@@ -217,7 +217,7 @@
 
 ## Создайте видео {#create-video}
 
-Чтобы создать видео в {{ video-name }} с помощью API, [зарегистрируйте](#register-video) видео на канале и затем [загрузите](#upload-video) в него видеофайл по протоколу [tus](https://tus.io/protocols/resumable-upload). В случае сбоя загрузки [дозагрузите](#continue-if-interrupted) файл, продолжив загрузку с той позиции в файле, на которой произошел сбой.
+Чтобы создать видео в Cloud Video с помощью API, [зарегистрируйте](#register-video) видео на канале и затем [загрузите](#upload-video) в него видеофайл по протоколу [tus](https://tus.io/protocols/resumable-upload). В случае сбоя загрузки [дозагрузите](#continue-if-interrupted) файл, продолжив загрузку с той позиции в файле, на которой произошел сбой.
 
 ### Зарегистрируйте видео на канале {#register-video}
 
@@ -266,7 +266,7 @@
       ```bash
       curl \
         --request POST \
-        --url 'https://video.{{ api-host }}/video/v1/videos' \
+        --url 'https://video.api.cloud.yandex.net/video/v1/videos' \
         --header 'Authorization: Bearer <IAM-токен>' \
         --header 'Content-Type: application/json' \
         --data '{
@@ -332,7 +332,7 @@
           },
           "public_access": {}
         }' \
-        video.{{ api-host }}:443 yandex.cloud.video.v1.VideoService/Create
+        video.api.cloud.yandex.net:443 yandex.cloud.video.v1.VideoService/Create
       ```
 
       Где:
@@ -412,7 +412,7 @@ curl \
   ```bash
   curl \
     --request GET \
-    --url 'https://video.{{ api-host }}/video/v1/videos/<идентификатор_видео>' \
+    --url 'https://video.api.cloud.yandex.net/video/v1/videos/<идентификатор_видео>' \
     --header 'Authorization: Bearer <IAM-токен>'
   ```
   
@@ -441,7 +441,7 @@ curl \
   grpcurl \
     -rpc-header "Authorization: Bearer <IAM-токен>" \
     -d '{"video_id": "<идентификатор_видео>"}' \
-    video.{{ api-host }}:443 yandex.cloud.video.v1.VideoService/Get
+    video.api.cloud.yandex.net:443 yandex.cloud.video.v1.VideoService/Get
   ```
   
   Результат:
@@ -531,7 +531,7 @@ curl \
 
 ## Добавьте обложку к видео {#add-thumbnail}
 
-Чтобы добавить обложку к видео в {{ video-name }} с помощью API, [зарегистрируйте](#register-thumbnail) обложку на канале, [получите ссылку](#get-thumbnail-upload-link) на загрузку в нее вашего изображения, [загрузите](#upload-thumbnail-image) по этой ссылке файл с изображением и [добавьте](#assign-thumbnail) созданную обложку к вашему видео.
+Чтобы добавить обложку к видео в Cloud Video с помощью API, [зарегистрируйте](#register-thumbnail) обложку на канале, [получите ссылку](#get-thumbnail-upload-link) на загрузку в нее вашего изображения, [загрузите](#upload-thumbnail-image) по этой ссылке файл с изображением и [добавьте](#assign-thumbnail) созданную обложку к вашему видео.
 
 ### Зарегистрируйте обложку {#register-thumbnail}
 
@@ -544,7 +544,7 @@ curl \
   ```bash
   curl \
     --request POST \
-    --url 'https://video.{{ api-host }}/video/v1/thumbnails' \
+    --url 'https://video.api.cloud.yandex.net/video/v1/thumbnails' \
     --header 'Authorization: Bearer <IAM-токен>' \
     --header 'Content-Type: application/json' \
     --data '{
@@ -588,7 +588,7 @@ curl \
     -d '{
       "channel_id": "<идентификатор_канала>"
     }' \
-    video.{{ api-host }}:443 yandex.cloud.video.v1.ThumbnailService/Create
+    video.api.cloud.yandex.net:443 yandex.cloud.video.v1.ThumbnailService/Create
   ```
   
   Где:
@@ -633,7 +633,7 @@ curl \
   ```bash
   curl \
     --request POST \
-    --url 'https://video.{{ api-host }}/video/v1/thumbnails/<идентификатор_обложки>:generateUploadURL' \
+    --url 'https://video.api.cloud.yandex.net/video/v1/thumbnails/<идентификатор_обложки>:generateUploadURL' \
     --header 'Authorization: Bearer <IAM-токен>'
   ```
 
@@ -645,7 +645,7 @@ curl \
     -d '{
       "thumbnailId": "<идентификатор_обложки>"
     }' \
-    video.{{ api-host }}:443 yandex.cloud.video.v1.ThumbnailService/GenerateUploadURL | jq
+    video.api.cloud.yandex.net:443 yandex.cloud.video.v1.ThumbnailService/GenerateUploadURL | jq
   ```
 
 {% endlist %}
@@ -658,7 +658,7 @@ curl \
 
 ```text
 {
-  "uploadUrl": "https://{{ s3-storage-host }}/videoplatform-thumbnail/vpltleyrfnjh********?X-Amz-Algorithm=AWS4-HMAC-SHA256&X-Amz-Credential=********3aBOmv27nzbJZaEHZ%2F20241102%2Fru-central1%2Fs3%2Faws4_request&X-Amz-Date=20241102T190000Z&X-Amz-Expires=43200&X-Amz-Signature=057fe4c0da26c7758474f5eaa85ff41d7212632572fb636ed6d8f65d039c309b&X-Amz-SignedHeaders=host"
+  "uploadUrl": "https://storage.yandexcloud.net/videoplatform-thumbnail/vpltleyrfnjh********?X-Amz-Algorithm=AWS4-HMAC-SHA256&X-Amz-Credential=********3aBOmv27nzbJZaEHZ%2F20241102%2Fru-central1%2Fs3%2Faws4_request&X-Amz-Date=20241102T190000Z&X-Amz-Expires=43200&X-Amz-Signature=057fe4c0da26c7758474f5eaa85ff41d7212632572fb636ed6d8f65d039c309b&X-Amz-SignedHeaders=host"
 }
 ```
 
@@ -692,7 +692,7 @@ curl \
   ```bash
   curl \
     --request PATCH \
-    --url 'https://video.{{ api-host }}/video/v1/videos/<идентификатор_видео>' \
+    --url 'https://video.api.cloud.yandex.net/video/v1/videos/<идентификатор_видео>' \
     --header 'Authorization: Bearer <IAM-токен>' \
     --header 'Content-Type: application/json' \
     --data '{
@@ -750,7 +750,7 @@ curl \
       "fieldMask": {"paths": ["thumbnail_id"]},
       "thumbnailId": "<идентификатор_обложки>"
     }' \
-    video.{{ api-host }}:443 yandex.cloud.video.v1.VideoService/Update
+    video.api.cloud.yandex.net:443 yandex.cloud.video.v1.VideoService/Update
   ```
   
   Где:
@@ -805,7 +805,7 @@ curl \
   curl \
     --request GET \
     --header 'Authorization: Bearer <IAM-токен>' \
-    --url 'https://video.{{ api-host }}/video/v1/videos/<идентификатор_видео>:getPlayerURL'
+    --url 'https://video.api.cloud.yandex.net/video/v1/videos/<идентификатор_видео>:getPlayerURL'
   ```
 
 - gRPC API {#grpc-api}
@@ -816,7 +816,7 @@ curl \
     -d '{
       "videoId": "<идентификатор_видео>"
     }' \
-    video.{{ api-host }}:443 yandex.cloud.video.v1.VideoService/GetPlayerURL
+    video.api.cloud.yandex.net:443 yandex.cloud.video.v1.VideoService/GetPlayerURL
   ```
 
 {% endlist %}

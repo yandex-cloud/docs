@@ -1,24 +1,24 @@
-# Пошаговые инструкции для {{ load-testing-name }}
+# Пошаговые инструкции для Load Testing
 
 {% note warning %}
 
-С 1 июля 2026 года сервис {{ load-testing-name }} прекращает работу. Подробнее на странице [Закрытие сервиса Yandex Load Testing](../sunset.md).
+С 1 июля 2026 года сервис Load Testing прекращает работу. Подробнее на странице [Закрытие сервиса Yandex Load Testing](../sunset.md).
 
 {% endnote %}
 
 
-* [{#T}](create-agent.md)
-* [{#T}](security-groups-agent.md)
-* [{#T}](security-groups-target.md)
-* [{#T}](create-test-bucket.md)
-* [{#T}](export-test-reports.md)
-* [{#T}](payload-dispatcher.md)
-* [{#T}](regressions.md)
-* [{#T}](save-artifacts.md)
-* [{#T}](operation-logs.md)
+* [Создание агента тестирования](create-agent.md)
+* [Настройка групп безопасности агента тестирования](security-groups-agent.md)
+* [Настройка групп безопасности цели тестирования](security-groups-target.md)
+* [Создание теста с данными из бакета](create-test-bucket.md)
+* [Экспорт отчётов с результатами тестирования](export-test-reports.md)
+* [Подготовка тестовых данных с помощью инструмента Dispatcher](payload-dispatcher.md)
+* [Создать и настроить дашборд регрессий](regressions.md)
+* [Сохранение артефактов теста в Object Storage](save-artifacts.md)
+* [Посмотреть операции с ресурсами сервиса Load Testing](operation-logs.md)
 
 ## Управление дашбордом регрессий {#regressions-manage}
 
-* [{#T}](regressions/create.md)
-* [{#T}](regressions/update.md)
-* [{#T}](regressions/delete.md)
+* [Создать и настроить дашборд регрессий](regressions/create.md)
+* [Редактировать данные на дашборде](regressions/update.md)
+* [Удалить дашборд](regressions/delete.md)

@@ -1,10 +1,10 @@
-# Метрики {{ mtr-full-name }}
+# Метрики Yandex Managed Service for Trino
 
-В этом разделе описаны метрики сервиса [{{ mtr-name }}](../../managed-trino/index.md), поставляемые в {{ monitoring-name }}.
+В этом разделе описаны метрики сервиса [Managed Service for Trino](../../managed-trino/index.md), поставляемые в Monium Metrics.
 
 Имя метрики пишется в метку `name`.
 
-Общие метки для всех метрик сервиса {{ mtr-name }}: 
+Общие метки для всех метрик сервиса Managed Service for Trino: 
 
 Метка | Значение
 ----|----

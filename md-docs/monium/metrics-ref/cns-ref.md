@@ -1,4 +1,4 @@
-# Метрики {{ cns-full-name }}
+# Метрики Yandex Cloud Notification Service
 
 {% note info %}
 
@@ -6,11 +6,11 @@
 
 {% endnote %}
 
-В этом разделе описаны метрики сервиса [{{ cns-name }}](../../notifications/index.md), поставляемые в {{ monitoring-name }}.
+В этом разделе описаны метрики сервиса [Cloud Notification Service](../../notifications/index.md), поставляемые в Monium Metrics.
 
 Имя метрики пишется в метку `name`.
 
-Общие метки для всех метрик {{ cns-name }}:
+Общие метки для всех метрик Cloud Notification Service:
 
 #|
 || **Метка** | **Значение**||

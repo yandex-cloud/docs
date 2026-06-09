@@ -6,7 +6,7 @@ Lists access bindings for the specified artifact (folder, package, artifact, etc
 ## HTTP request
 
 ```
-GET https://registry.{{ api-host }}/cloud-registry/v1/artifacts/{resourceId}:listAccessBindings
+GET https://registry.api.cloud.yandex.net/cloud-registry/v1/artifacts/{resourceId}:listAccessBindings
 ```
 
 ## Path parameters

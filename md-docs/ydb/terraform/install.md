@@ -1,40 +1,40 @@
-# Установка и настройка {{ TF }} и провайдера для подключения к {{ ydb-short-name }}
+# Установка и настройка Terraform и провайдера для подключения к YDB
 
-{{ TF }} можно скачать с официального сайта [HashiCorp](https://developer.hashicorp.com/terraform/downloads), но если сайт недоступен — воспользуйтесь нашим специально созданным [зеркалом](https://hashicorp-releases.yandexcloud.net/terraform/). Скачайте дистрибутив {{ TF }} для вашей платформы и добавьте путь к папке, в которой находится исполняемый файл, в переменную `PATH: export PATH=$PATH:/path/to/terraform`.
+Terraform можно скачать с официального сайта [HashiCorp](https://developer.hashicorp.com/terraform/downloads), но если сайт недоступен — воспользуйтесь нашим специально созданным [зеркалом](https://hashicorp-releases.yandexcloud.net/terraform/). Скачайте дистрибутив Terraform для вашей платформы и добавьте путь к папке, в которой находится исполняемый файл, в переменную `PATH: export PATH=$PATH:/path/to/terraform`.
 
 
-## Установка {{ TF }} для Windows, Linux и macOS с сайта HashiCorp {#terraform-install-on-dif-os}
+## Установка Terraform для Windows, Linux и macOS с сайта HashiCorp {#terraform-install-on-dif-os}
 
 {% list tabs group=operating_system %}
 
 - Linux {#linux}
 
-    * Скачайте дистрибутив [{{ TF }}](https://developer.hashicorp.com/terraform/downloads) и установите его согласно [инструкции](https://developer.hashicorp.com/terraform/tutorials/aws-get-started/install-cli?in=terraform%2Faws-get-started).
+    * Скачайте дистрибутив [Terraform](https://developer.hashicorp.com/terraform/downloads) и установите его согласно [инструкции](https://developer.hashicorp.com/terraform/tutorials/aws-get-started/install-cli?in=terraform%2Faws-get-started).
 
 - macOS {#macos}
 
-    * Скачайте [дистрибутив {{ TF }}](https://developer.hashicorp.com/terraform/downloads) и установите его согласно [инструкции](https://developer.hashicorp.com/terraform/tutorials/aws-get-started/install-cli?in=terraform%2Faws-get-started).
-    * Установите {{ TF }} с помощью пакетного менеджера [Homebrew](https://brew.sh), используя команду: `brew install terraform`.
+    * Скачайте [дистрибутив Terraform](https://developer.hashicorp.com/terraform/downloads) и установите его согласно [инструкции](https://developer.hashicorp.com/terraform/tutorials/aws-get-started/install-cli?in=terraform%2Faws-get-started).
+    * Установите Terraform с помощью пакетного менеджера [Homebrew](https://brew.sh), используя команду: `brew install terraform`.
 
 - Windows {#windows}
 
-    * Скачайте {{ TF }} с [официального сайта](https://developer.hashicorp.com/terraform/downloads) и установите его согласно [инструкции](https://developer.hashicorp.com/terraform/tutorials/aws-get-started/install-cli?in=terraform%2Faws-get-started).
-    * Установите {{ TF }} с помощью пакетного менеджера [Chocolatey](https://chocolatey.org/install), используя команду: `choco install terraform`.
+    * Скачайте Terraform с [официального сайта](https://developer.hashicorp.com/terraform/downloads) и установите его согласно [инструкции](https://developer.hashicorp.com/terraform/tutorials/aws-get-started/install-cli?in=terraform%2Faws-get-started).
+    * Установите Terraform с помощью пакетного менеджера [Chocolatey](https://chocolatey.org/install), используя команду: `choco install terraform`.
 
 {% endlist %}
 
-После установки {{ TF }} его нужно настроить для работы с {{ ydb-short-name }}. Первое, что нужно сделать — это установить провайдер, который будет устанавливать соединение с {{ ydb-short-name }} и предоставлять API-методы.
+После установки Terraform его нужно настроить для работы с YDB. Первое, что нужно сделать — это установить провайдер, который будет устанавливать соединение с YDB и предоставлять API-методы.
 
 
-## Установка провайдера для работы с {{ ydb-short-name }} {#provider-install}
+## Установка провайдера для работы с YDB {#provider-install}
 
-{{ TF }} самостоятельно скачает и установит провайдер с заданного пользователем url в блоке `provider_installation`, который должен быть расположен в файле `.terraformrc`.
+Terraform самостоятельно скачает и установит провайдер с заданного пользователем url в блоке `provider_installation`, который должен быть расположен в файле `.terraformrc`.
 
 {% list tabs group=operating_system %}
 
 - Linux/macOS {#linux}
 
-    1. Откройте файл конфигурации {{ TF }} CLI `~/.terraformrc` в любом удобном для вас текстовом редакторе.
+    1. Откройте файл конфигурации Terraform CLI `~/.terraformrc` в любом удобном для вас текстовом редакторе.
 
         {% note info %}
         
@@ -58,7 +58,7 @@
 
 - Windows {#windows}
 
-    1. Откройте файл конфигурации {{ TF }} CLI `terraform.rc` в папке `%APPDATA%` вашего пользователя.
+    1. Откройте файл конфигурации Terraform CLI `terraform.rc` в папке `%APPDATA%` вашего пользователя.
     1. Добавьте в него следующий блок:
 
         ```tf
@@ -75,4 +75,4 @@
 		
 {% endlist %}
 
-На этом установка и настройка {{ TF }} и провайдера для подключения к {{ ydb-short-name }} завершена. Можно переходить к созданию [конфигурационных файлов](configure.md) для работы с {{ ydb-short-name }}.
+На этом установка и настройка Terraform и провайдера для подключения к YDB завершена. Можно переходить к созданию [конфигурационных файлов](configure.md) для работы с YDB.

@@ -28,35 +28,35 @@
 
 - Консоль управления {#console}
 
-    1. В [консоли управления]({{ link-console-main }}) перейдите в каталог, в котором хотите создать триггер.
+    1. В [консоли управления](https://console.yandex.cloud) перейдите в каталог, в котором хотите создать триггер.
 
-    1. Перейдите в сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_api-gateway }}**.
+    1. Перейдите в сервис **API Gateway**.
 
-    1. На панели слева выберите ![image](../../../_assets/console-icons/gear-play.svg) **{{ ui-key.yacloud.serverless-functions.switch_list-triggers }}**.
+    1. На панели слева выберите ![image](../../../_assets/console-icons/gear-play.svg) **Триггеры**.
 
-    1. Нажмите кнопку **{{ ui-key.yacloud.serverless-functions.triggers.list.button_create }}**.
+    1. Нажмите кнопку **Создать триггер**.
 
-    1. В блоке **{{ ui-key.yacloud.serverless-functions.triggers.form.section_base }}**:
+    1. В блоке **Базовые параметры**:
 
         * Введите имя и описание триггера.
-        * В поле **{{ ui-key.yacloud.serverless-functions.triggers.form.field_type }}** выберите `{{ ui-key.yacloud.serverless-functions.triggers.form.label_timer }}`.
-        * В поле **{{ ui-key.yacloud.serverless-functions.triggers.form.field_invoke }}** выберите `{{ ui-key.yacloud.serverless-functions.triggers.form.label_gateway-broadcast }}`.
+        * В поле **Тип** выберите `Таймер`.
+        * В поле **Запускаемый ресурс** выберите `API-шлюз`.
 
-    1. В блоке **{{ ui-key.yacloud.serverless-functions.triggers.form.section_timer }}**:
+    1. В блоке **Настройки таймера**:
 
-        * В поле **{{ ui-key.yacloud.serverless-functions.triggers.form.field_cron-expression }}** укажите расписание отправки сообщений в WebSocket-соединения в формате [cron-выражения](../../concepts/trigger/timer.md#cron-expression).
-        * (Опционально) В поле **{{ ui-key.yacloud.serverless-functions.triggers.form.field_cron-payload }}** укажите сообщение, которое будет передаваться в WebSocket-соединения при срабатывании таймера в поле `payload`. Тип данных — строка, длина которой не более 4096 символов.
+        * В поле **Cron-выражение** укажите расписание отправки сообщений в WebSocket-соединения в формате [cron-выражения](../../concepts/trigger/timer.md#cron-expression).
+        * (Опционально) В поле **Данные** укажите сообщение, которое будет передаваться в WebSocket-соединения при срабатывании таймера в поле `payload`. Тип данных — строка, длина которой не более 4096 символов.
 
-    1. В блоке **{{ ui-key.yacloud.serverless-functions.triggers.form.section_gateway-broadcast }}**:
-       * В поле **{{ ui-key.yacloud.serverless-functions.triggers.form.field_api-gateway }}** выберите API-шлюз.
-       * В поле **{{ ui-key.yacloud.serverless-functions.triggers.form.field_gateway-path }}** укажите путь в OpenAPI-спецификации. Через WebSocket-соединения, которые установлены по этому пути, будут отправляться сообщения.
-       * В поле **{{ ui-key.yacloud.serverless-functions.triggers.form.field_function_service-account }}** выберите [сервисный аккаунт](../../../iam/concepts/users/service-accounts.md), от имени которого в WebSocket-соединения будут отправляться сообщения.
+    1. В блоке **Настройки API-шлюза**:
+       * В поле **API-шлюз** выберите API-шлюз.
+       * В поле **Путь** укажите путь в OpenAPI-спецификации. Через WebSocket-соединения, которые установлены по этому пути, будут отправляться сообщения.
+       * В поле **Сервисный аккаунт** выберите [сервисный аккаунт](../../../iam/concepts/users/service-accounts.md), от имени которого в WebSocket-соединения будут отправляться сообщения.
 
-    1. Нажмите кнопку **{{ ui-key.yacloud.serverless-functions.triggers.form.button_create-trigger }}**.
+    1. Нажмите кнопку **Создать триггер**.
 
 - CLI {#cli}
 
-    Если у вас еще нет интерфейса командной строки {{ yandex-cloud }} (CLI), [установите и инициализируйте его](../../../cli/quickstart.md#install).
+    Если у вас еще нет интерфейса командной строки Yandex Cloud (CLI), [установите и инициализируйте его](../../../cli/quickstart.md#install).
 
     По умолчанию используется каталог, указанный при [создании](../../../cli/operations/profile/profile-create.md) профиля CLI. Чтобы изменить каталог по умолчанию, используйте команду `yc config set folder-id <идентификатор_каталога>`. Также для любой команды вы можете указать другой каталог с помощью параметров `--folder-name` или `--folder-id`. Если вы обращаетесь к ресурсу по имени, поиск будет выполнен в каталоге по умолчанию. Если вы обращаетесь к ресурсу по идентификатору, поиск будет выполнен глобально — во всех каталогах с учетом прав доступа.
 
@@ -112,5 +112,5 @@
 
 ## См. также {#see-also}
 
-* [Таймер, который вызывает функцию {{ sf-name }}](../../../functions/operations/trigger/timer-create.md)
-* [Таймер, который вызывает контейнер {{ serverless-containers-name }}](../../../serverless-containers/operations/timer-create.md)
+* [Таймер, который вызывает функцию Cloud Functions](../../../functions/operations/trigger/timer-create.md)
+* [Таймер, который вызывает контейнер Serverless Containers](../../../serverless-containers/operations/timer-create.md)

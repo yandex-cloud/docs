@@ -6,7 +6,7 @@ To get the list of available ResourcePreset resources, make a [List](../../../ma
 ## HTTP request
 
 ```
-GET https://{{ api-host-mdb }}/managed-mongodb/v1/resourcePresets/{resourcePresetId}
+GET https://mdb.api.cloud.yandex.net/managed-mongodb/v1/resourcePresets/{resourcePresetId}
 ```
 
 ## Path parameters

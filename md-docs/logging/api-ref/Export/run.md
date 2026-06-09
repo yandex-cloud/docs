@@ -5,7 +5,7 @@ Run new logs export from log group to sink
 ## HTTP request
 
 ```
-POST https://logging.{{ api-host }}/logging/v1/run-export
+POST https://logging.api.cloud.yandex.net/logging/v1/run-export
 ```
 
 ## Body parameters {#yandex.cloud.logging.v1.RunExportRequest}

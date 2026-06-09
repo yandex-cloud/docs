@@ -1,11 +1,11 @@
-# Справочник аудитных логов {{ at-full-name }}
+# Справочник аудитных логов Yandex Audit Trails
 
-В {{ at-name }} для {{ org-full-name }} поддерживается отслеживание [событий уровня конфигурации](../audit-trails/concepts/format.md) (Control Plane) и [событий уровня сервисов](../audit-trails/concepts/format-data-plane.md) (Data Plane).
+В Audit Trails для Yandex Identity Hub поддерживается отслеживание [событий уровня конфигурации](../audit-trails/concepts/format.md) (Control Plane) и [событий уровня сервисов](../audit-trails/concepts/format-data-plane.md) (Data Plane).
 
 Общий вид значения поля `event_type` (_тип события_):
 
 ```text
-{{ at-event-prefix }}.audit.organizationmanager.<имя_события>
+yandex.cloud.audit.organizationmanager.<имя_события>
 ```
 
 ## Справочник событий уровня конфигурации {#control-plane-events}
@@ -22,7 +22,7 @@
 `CreateMembership` | Добавление пользователя в организацию
 `CreateMfaEnforcement` | Создание политики MFA
 `CreateOrganization` | Создание организации
-`CreateOsLoginProfile` | Создание профиля {{ oslogin }}
+`CreateOsLoginProfile` | Создание профиля OS Login
 `CreateUserSshKey` | Создание SSH-ключа пользователя
 `DeactivateMfaEnforcement` | Деактивация политики MFA
 `DeleteGroup` | Удаление группы пользователей
@@ -31,7 +31,7 @@
 `DeleteMembership` | Удаление пользователя из организации
 `DeleteMfaEnforcement` | Удаление политики MFA
 `DeleteOrganization` | Удаление организации
-`DeleteOsLoginProfile` | Удаление профиля {{ oslogin }}
+`DeleteOsLoginProfile` | Удаление профиля OS Login
 `DeleteUserSshKey` | Удаление SSH-ключа пользователя
 `idp.AddUserpoolDomain` | Привязка домена к пулу пользователей
 `idp.branding.CreateAsset` | Загрузка ресурса для [брендирования](concepts/branding.md)
@@ -101,8 +101,8 @@
 `UpdateOrganization` | Изменение организации
 `UpdateOrganizationAccessBindings` | Изменение прав доступа к организации
 `UpdateOrganizationAccessPolicyBindingParameters` | Изменение параметров политики авторизации в организации
-`UpdateOsLoginProfile` | Изменение профиля {{ oslogin }}
-`UpdateOsLoginSettings` | Изменение настроек {{ oslogin }}
+`UpdateOsLoginProfile` | Изменение профиля OS Login
+`UpdateOsLoginSettings` | Изменение настроек OS Login
 `UpdateSubscribers` | Изменение списка подписчиков
 `UpdateUserSshKey` | Изменение SSH-ключа пользователя
 

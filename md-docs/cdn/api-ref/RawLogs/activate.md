@@ -5,7 +5,7 @@ Activate raw log export.
 ## HTTP request
 
 ```
-POST https://cdn.{{ api-host }}/cdn/v1/rawLogs:activate
+POST https://cdn.api.cloud.yandex.net/cdn/v1/rawLogs:activate
 ```
 
 ## Body parameters {#yandex.cloud.cdn.v1.ActivateRawLogsRequest}

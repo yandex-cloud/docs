@@ -1,15 +1,15 @@
-# Обеспечение доступа к приложению, запущенному в кластере {{ k8s }}
+# Обеспечение доступа к приложению, запущенному в кластере Kubernetes
 
-В примере ниже рассматривается приложение {{ k8s }}, которое отвечает на HTTP-запросы на порт 8080. Для предоставления доступа к приложению используйте публичные или внутренние [сервисы](../concepts/service.md). Их IP-адреса не меняются в отличие от адресов подов и узлов кластера.
+В примере ниже рассматривается приложение Kubernetes, которое отвечает на HTTP-запросы на порт 8080. Для предоставления доступа к приложению используйте публичные или внутренние [сервисы](../concepts/service.md). Их IP-адреса не меняются в отличие от адресов подов и узлов кластера.
 
 Чтобы опубликовать приложение, воспользуйтесь сервисом типа `LoadBalancer`. Вы можете организовать два вида доступа:
 
-* Публичный доступ по IP-адресу с внешним сетевым балансировщиком нагрузки [{{ network-load-balancer-full-name }}](../../network-load-balancer/concepts/index.md).
+* Публичный доступ по IP-адресу с внешним сетевым балансировщиком нагрузки [Yandex Network Load Balancer](../../network-load-balancer/concepts/index.md).
 * Доступ из внутренних сетей по IP-адресу с [внутренним](../../network-load-balancer/concepts/nlb-types.md) сетевым балансировщиком.
 
   Приложение будет доступно:
-  * Из [подсетей](../../vpc/concepts/network.md#subnet) {{ vpc-full-name }}.
-  * Из внутренних подсетей организации, подключенных к {{ yandex-cloud }} с помощью сервиса [{{ interconnect-full-name }}](../../interconnect/index.md).
+  * Из [подсетей](../../vpc/concepts/network.md#subnet) Yandex Virtual Private Cloud.
+  * Из внутренних подсетей организации, подключенных к Yandex Cloud с помощью сервиса [Yandex Cloud Interconnect](../../interconnect/index.md).
   * Через [VPN](../../glossary/vpn.md).
 
 При использовании внешнего балансировщика нагрузки в поле `loadBalancerIP` [можно указать](#advanced) статический [публичный IP-адрес](../../vpc/concepts/address.md#public-addresses). Такой адрес необходимо [зарезервировать заранее](../../vpc/operations/get-static-ip.md). Во время резервирования публичного IP-адреса можно активировать [защиту от DDoS-атак](../../vpc/ddos-protection/index.md). Если не указывать статический публичный IP-адрес, то сетевому балансировщику нагрузки будет назначен динамический публичный IP-адрес.
@@ -28,21 +28,21 @@
 
 {% endnote %}
 
-Чтобы обеспечить доступ к приложению {{ k8s }}:
+Чтобы обеспечить доступ к приложению Kubernetes:
 1. [Подготовьтесь к работе](#before-you-begin)
-1. [{#T}](#create-application)
-1. [{#T}](#create-lb)
-1. [{#T}](#check-result)
-1. [{#T}](#network-policy)
+1. [Создайте приложение Kubernetes](#create-application)
+1. [Создайте сервис типа LoadBalancer](#create-lb)
+1. [Проверьте доступность приложения](#check-result)
+1. [(Опционально) Создайте объект NetworkPolicy](#network-policy)
 
 {% cut "Как обеспечить доступ к приложению с помощью HTTPS?" %}
 
 См. документацию:
 
-* [{#T}](../tutorials/new-kubernetes-project.md)
-* [{#T}](../tutorials/alb-ingress-controller.md)
-* [{#T}](../tutorials/ingress-cert-manager.md)
-* [Установка Ingress-контроллера NGINX с сертификатом из {{ certificate-manager-full-name }}](../tutorials/nginx-ingress-certificate-manager.md#check-service-availability)
+* [Создание нового Kubernetes-проекта в Yandex Cloud](../tutorials/new-kubernetes-project.md)
+* [Настройка L7-балансировщика Yandex Application Load Balancer с помощью Ingress-контроллера](../tutorials/alb-ingress-controller.md)
+* [Установка Ingress-контроллера NGINX с менеджером для сертификатов Let's Encrypt®](../tutorials/ingress-cert-manager.md)
+* [Установка Ingress-контроллера NGINX с сертификатом из Yandex Certificate Manager](../tutorials/nginx-ingress-certificate-manager.md#check-service-availability)
 
 {% endcut %}
 
@@ -50,7 +50,7 @@
 
 ## Перед началом работы {#before-you-begin}
 
-1. [Установите kubectl]({{ k8s-docs }}/tasks/tools/install-kubectl) и [настройте его на работу с созданным кластером](connect/index.md#kubectl-connect).
+1. [Установите kubectl](https://kubernetes.io/ru/docs/tasks/tools/install-kubectl) и [настройте его на работу с созданным кластером](connect/index.md#kubectl-connect).
 
 1. Подготовьте инфраструктуру:
 
@@ -60,7 +60,7 @@
 
       1. Создайте [облачную сеть](../../vpc/operations/network-create.md) и [подсеть](../../vpc/operations/subnet-create.md).
       1. Создайте [сервисный аккаунт](../../iam/operations/sa/create.md) с [ролями](../../iam/concepts/access-control/roles.md) `k8s.clusters.agent`, `vpc.publicAdmin` и `load-balancer.admin`. Роль `load-balancer.admin` нужна для создания [сетевого балансировщика нагрузки](../../network-load-balancer/concepts/index.md).
-      1. [Создайте группы безопасности](connect/security-groups.md) для кластера {{ managed-k8s-name }} и входящих в него групп узлов.
+      1. [Создайте группы безопасности](connect/security-groups.md) для кластера Managed Service for Kubernetes и входящих в него групп узлов.
 
           {% note warning %}
           
@@ -68,21 +68,21 @@
           
           {% endnote %}
 
-      1. [Создайте кластер {{ managed-k8s-name }}](kubernetes-cluster/kubernetes-cluster-create.md) и [группу узлов](node-group/node-group-create.md) с публичным доступом в интернет и с группами безопасности, подготовленными ранее.
+      1. [Создайте кластер Managed Service for Kubernetes](kubernetes-cluster/kubernetes-cluster-create.md) и [группу узлов](node-group/node-group-create.md) с публичным доступом в интернет и с группами безопасности, подготовленными ранее.
 
-    - {{ TF }} {#tf}
+    - Terraform {#tf}
 
-      1. Если у вас еще нет {{ TF }}, [установите его](../../tutorials/infrastructure-management/terraform-quickstart.md#install-terraform).
+      1. Если у вас еще нет Terraform, [установите его](../../tutorials/infrastructure-management/terraform-quickstart.md#install-terraform).
       1. [Получите данные для аутентификации](../../tutorials/infrastructure-management/terraform-quickstart.md#get-credentials). Вы можете добавить их в переменные окружения или указать далее в файле с настройками провайдера.
       1. [Настройте и инициализируйте провайдер](../../tutorials/infrastructure-management/terraform-quickstart.md#configure-provider). Чтобы не создавать конфигурационный файл с настройками провайдера вручную, [скачайте его](https://github.com/yandex-cloud-examples/yc-terraform-provider-settings/blob/main/provider.tf).
       1. Поместите конфигурационный файл в отдельную рабочую директорию и [укажите значения параметров](../../tutorials/infrastructure-management/terraform-quickstart.md#configure-provider). Если данные для аутентификации не были добавлены в переменные окружения, укажите их в конфигурационном файле.
 
-      1. Скачайте в ту же рабочую директорию файл конфигурации кластера {{ managed-k8s-name }} [k8s-load-balancer.tf](https://github.com/yandex-cloud-examples/yc-mk8s-load-balancer/blob/main/k8s-load-balancer.tf). В файле описаны:
+      1. Скачайте в ту же рабочую директорию файл конфигурации кластера Managed Service for Kubernetes [k8s-load-balancer.tf](https://github.com/yandex-cloud-examples/yc-mk8s-load-balancer/blob/main/k8s-load-balancer.tf). В файле описаны:
           * [Сеть](../../vpc/concepts/network.md#network).
           * [Подсеть](../../vpc/concepts/network.md#subnet).
-          * Кластер {{ managed-k8s-name }}.
-          * [Сервисный аккаунт](../../iam/concepts/users/service-accounts.md), необходимый для работы кластера и [группы узлов {{ managed-k8s-name }}](../concepts/index.md#node-group).
-          * [Группы безопасности](../../vpc/concepts/security-groups.md), которые содержат [необходимые правила](connect/security-groups.md) для кластера {{ managed-k8s-name }} и входящих в него групп узлов.
+          * Кластер Managed Service for Kubernetes.
+          * [Сервисный аккаунт](../../iam/concepts/users/service-accounts.md), необходимый для работы кластера и [группы узлов Managed Service for Kubernetes](../concepts/index.md#node-group).
+          * [Группы безопасности](../../vpc/concepts/security-groups.md), которые содержат [необходимые правила](connect/security-groups.md) для кластера Managed Service for Kubernetes и входящих в него групп узлов.
 
             {% note warning %}
             
@@ -92,15 +92,15 @@
 
       1. Укажите в файле конфигурации:
           * [Идентификатор каталога](../../resource-manager/operations/folder/get-id.md).
-          * [Версию {{ k8s }}](../concepts/release-channels-and-updates.md) для кластера и групп узлов {{ managed-k8s-name }}.
-          * Имя сервисного аккаунта кластера {{ managed-k8s-name }}.
-      1. Проверьте корректность файлов конфигурации {{ TF }} с помощью команды:
+          * [Версию Kubernetes](../concepts/release-channels-and-updates.md) для кластера и групп узлов Managed Service for Kubernetes.
+          * Имя сервисного аккаунта кластера Managed Service for Kubernetes.
+      1. Проверьте корректность файлов конфигурации Terraform с помощью команды:
 
           ```bash
           terraform validate
           ```
 
-          Если в файлах конфигурации есть ошибки, {{ TF }} на них укажет.
+          Если в файлах конфигурации есть ошибки, Terraform на них укажет.
       1. Создайте необходимую инфраструктуру:
 
           1. Выполните команду для просмотра планируемых изменений:
@@ -121,11 +121,11 @@
              1. Подтвердите изменение ресурсов.
              1. Дождитесь завершения операции.
 
-          В указанном каталоге будут созданы все требуемые ресурсы. Проверить появление ресурсов и их настройки можно в [консоли управления]({{ link-console-main }}).
+          В указанном каталоге будут созданы все требуемые ресурсы. Проверить появление ресурсов и их настройки можно в [консоли управления](https://console.yandex.cloud).
 
           {% note warning "Ограничения по времени" %}
           
-          Провайдер {{ TF }} ограничивает время на выполнение операций с кластером и группой узлов {{ managed-k8s-name }}:
+          Провайдер Terraform ограничивает время на выполнение операций с кластером и группой узлов Managed Service for Kubernetes:
           
           * создание и изменение кластера — 30 минут;
           * создание и изменение группы узлов — 60 минут;
@@ -156,7 +156,7 @@
 
     {% endlist %}
 
-## Создайте приложение {{ k8s }} {#create-application}
+## Создайте приложение Kubernetes {#create-application}
 
 1. Создайте файл `hello.yaml` и добавьте в него спецификацию ресурса [Deployment](https://kubernetes.io/docs/concepts/workloads/controllers/deployment/) для создания приложения:
 
@@ -177,7 +177,7 @@
        spec:
          containers:
          - name: hello-app
-           image: {{ registry }}/crpjd37scfv653nl11i9/hello:1.1
+           image: cr.yandex/crpjd37scfv653nl11i9/hello:1.1
    ```
 
 1. Создайте приложение:
@@ -201,12 +201,12 @@
 
 ## Создайте сервис типа LoadBalancer {#create-lb}
 
-Когда вы создаете сервис типа `LoadBalancer`, контроллер {{ yandex-cloud }} в вашем каталоге устанавливает сетевой балансировщик нагрузки. Он тарифицируется по установленным в {{ network-load-balancer-name }} [правилам тарификации](../../network-load-balancer/pricing.md).
+Когда вы создаете сервис типа `LoadBalancer`, контроллер Yandex Cloud в вашем каталоге устанавливает сетевой балансировщик нагрузки. Он тарифицируется по установленным в Network Load Balancer [правилам тарификации](../../network-load-balancer/pricing.md).
 
 {% note warning %}
 
 * Созданный сетевой балансировщик тарифицируется согласно установленным [правилам тарификации](../../network-load-balancer/pricing.md).
-* Не изменяйте и не удаляйте сетевой балансировщик и целевые группы, которые будут автоматически созданы в вашем каталоге, через интерфейсы {{ yandex-cloud }} (консоль управления, {{ TF }}, CLI и API). Это может привести к некорректной работе кластера.
+* Не изменяйте и не удаляйте сетевой балансировщик и целевые группы, которые будут автоматически созданы в вашем каталоге, через интерфейсы Yandex Cloud (консоль управления, Terraform, CLI и API). Это может привести к некорректной работе кластера.
 
 {% endnote %}
 
@@ -232,16 +232,16 @@
              name: plaintext
              targetPort: 8080
            selector:
-             <{{ k8s }}-метки>
+             <Kubernetes-метки>
          ```
 
          В спецификации укажите:
 
          * `spec.ports.port` — порт приложения.
 
-            В примере предполагается, что приложение {{ k8s }} доступно по протоколу HTTP, поэтому укажите значение `80`. Если нужен доступ к приложению по HTTPS, укажите значение `443`.
+            В примере предполагается, что приложение Kubernetes доступно по протоколу HTTP, поэтому укажите значение `80`. Если нужен доступ к приложению по HTTPS, укажите значение `443`.
 
-         * `spec.selector` — {{ k8s }}-метки, заданные в поле `spec.selector.matchLabels` ресурса `Deployment`.
+         * `spec.selector` — Kubernetes-метки, заданные в поле `spec.selector.matchLabels` ресурса `Deployment`.
 
             В созданном ранее ресурсе `Deployment` используется метка `app: hello`, поэтому укажите ее.
 
@@ -281,7 +281,7 @@
              name: plaintext
              targetPort: 8080
            selector:
-             <{{ k8s }}-метки>
+             <Kubernetes-метки>
          ```
 
          В спецификации укажите:
@@ -289,9 +289,9 @@
          * `yandex.cloud/subnet-id` — идентификатор подсети, в которой расположен кластер. Идентификатор можно [получить вместе с информацией о подсети](../../vpc/operations/subnet-get-info.md).
          * `spec.ports.port` — порт приложения.
 
-            В примере предполагается, что приложение {{ k8s }} доступно по протоколу HTTP, поэтому укажите значение `80`. Если нужен доступ к приложению по HTTPS, укажите значение `443`.
+            В примере предполагается, что приложение Kubernetes доступно по протоколу HTTP, поэтому укажите значение `80`. Если нужен доступ к приложению по HTTPS, укажите значение `443`.
 
-         * `spec.selector` — {{ k8s }}-метки, заданные в поле `spec.selector.matchLabels` ресурса `Deployment`.
+         * `spec.selector` — Kubernetes-метки, заданные в поле `spec.selector.matchLabels` ресурса `Deployment`.
 
             В созданном ранее ресурсе `Deployment` используется метка `app: hello`, поэтому укажите ее.
 
@@ -325,7 +325,7 @@
 
    Возможные значения:
 
-   * **Cluster** — трафик направляется на разные узлы {{ k8s }} (значение по умолчанию). В результате трафик распределяется равномерно, но у такого подхода есть недостатки:
+   * **Cluster** — трафик направляется на разные узлы Kubernetes (значение по умолчанию). В результате трафик распределяется равномерно, но у такого подхода есть недостатки:
    
       * Пакет может прийти на прокси одного узла и без необходимости перенаправиться на другой узел. Такое поведение вызвает задержки во время выполнения операций и отправки пакетов.
       * Под, который получает пакет, видит IP-адрес проксирующего узла, а не клиента. В результате исходный IP-адрес клиента не сохраняется.
@@ -334,11 +334,11 @@
    
       Так как трафик приходит на конкретный узел, он распределяется между узлами неравномерно. Зато IP-адрес клиента сохраняется.
    
-   Подробнее о политиках управления внешним трафиком читайте в [документации {{ k8s }}](https://kubernetes.io/docs/reference/networking/virtual-ips/#external-traffic-policy).
+   Подробнее о политиках управления внешним трафиком читайте в [документации Kubernetes](https://kubernetes.io/docs/reference/networking/virtual-ips/#external-traffic-policy).
 
 1. (Опционально) Подключите [проверки доступности узлов](../../network-load-balancer/concepts/health-check.md) (health checks).
 
-   Сервисы типа `LoadBalancer` в {{ managed-k8s-name }} могут выполнять запросы на проверку состояния [целевой группы](../../network-load-balancer/concepts/target-resources.md). На основе полученных метрик {{ managed-k8s-name }} принимает решение о доступности узлов.
+   Сервисы типа `LoadBalancer` в Managed Service for Kubernetes могут выполнять запросы на проверку состояния [целевой группы](../../network-load-balancer/concepts/target-resources.md). На основе полученных метрик Managed Service for Kubernetes принимает решение о доступности узлов.
 
    Чтобы включить проверки доступности узлов, укажите следующие аннотации в спецификации сервиса:
 
@@ -370,11 +370,11 @@
 
    - Консоль управления {#console}
 
-     1. В [консоли управления]({{ link-console-main }}) выберите ваш каталог по умолчанию.
-     1. Перейдите в сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_load-balancer }}**.
-     1. На вкладке **{{ ui-key.yacloud.load-balancer.network-load-balancer.label_list }}** отображен сетевой балансировщик нагрузки с префиксом `k8s` в имени и уникальным идентификатором вашего кластера {{ k8s }} в описании.
+     1. В [консоли управления](https://console.yandex.cloud) выберите ваш каталог по умолчанию.
+     1. Перейдите в сервис **Network Load Balancer**.
+     1. На вкладке **Балансировщики** отображен сетевой балансировщик нагрузки с префиксом `k8s` в имени и уникальным идентификатором вашего кластера Kubernetes в описании.
 
-        Скопируйте адрес балансировщика в столбце **{{ ui-key.yacloud.load-balancer.network-load-balancer.column_ip-address }}**.
+        Скопируйте адрес балансировщика в столбце **IP-адрес**.
 
    - kubectl {#kubectl}
 
@@ -431,12 +431,12 @@
 
    * Внутренний балансировщик {#internal-balancer}
 
-      1. В подсети кластера {{ managed-k8s-name }} [создайте виртуальную машину Linux](../../compute/operations/vm-create/create-linux-vm.md).
+      1. В подсети кластера Managed Service for Kubernetes [создайте виртуальную машину Linux](../../compute/operations/vm-create/create-linux-vm.md).
 
-         Так как вы развернули внутренний сетевой балансировщик нагрузки, проверить доступ к приложению {{ k8s }} можно только из подсети кластера.
+         Так как вы развернули внутренний сетевой балансировщик нагрузки, проверить доступ к приложению Kubernetes можно только из подсети кластера.
 
       1. [Подключитесь к ВМ по SSH](../../compute/operations/vm-connect/ssh.md).
-      1. Проверьте доступность приложения {{ k8s }}:
+      1. Проверьте доступность приложения Kubernetes:
 
          ```bash
          curl http://<IP-адрес_балансировщика>
@@ -453,13 +453,13 @@
 
    {% note info %}
    
-   Если ресурс недоступен по указанному URL, то [убедитесь](connect/security-groups.md), что группы безопасности для кластера {{ managed-k8s-name }} и его групп узлов настроены корректно. Если отсутствует какое-либо из правил — [добавьте его](../../vpc/operations/security-group-add-rule.md).
+   Если ресурс недоступен по указанному URL, то [убедитесь](connect/security-groups.md), что группы безопасности для кластера Managed Service for Kubernetes и его групп узлов настроены корректно. Если отсутствует какое-либо из правил — [добавьте его](../../vpc/operations/security-group-add-rule.md).
    
    {% endnote %}
 
 ## (Опционально) Создайте объект NetworkPolicy {#network-policy}
 
-Чтобы подключиться с определенных IP-адресов к сервисам, опубликованным через {{ network-load-balancer-name }}, включите [сетевые политики](../concepts/network-policy.md) в кластере. Для настройки доступа через балансировщик создайте объект [NetworkPolicy](https://kubernetes.io/docs/concepts/services-networking/network-policies/#networkpolicy-resource) с политикой типа `Ingress`.
+Чтобы подключиться с определенных IP-адресов к сервисам, опубликованным через Network Load Balancer, включите [сетевые политики](../concepts/network-policy.md) в кластере. Для настройки доступа через балансировщик создайте объект [NetworkPolicy](https://kubernetes.io/docs/concepts/services-networking/network-policies/#networkpolicy-resource) с политикой типа `Ingress`.
 
 {% cut "Пример настройки объекта NetworkPolicy" %}
 
@@ -503,15 +503,15 @@ spec:
 
     - Вручную {#manual}
 
-        [Удалите кластер {{ managed-k8s-name }}](kubernetes-cluster/kubernetes-cluster-delete.md).
+        [Удалите кластер Managed Service for Kubernetes](kubernetes-cluster/kubernetes-cluster-delete.md).
 
-    - {{ TF }} {#tf}
+    - Terraform {#tf}
 
         1. В терминале перейдите в директорию с планом инфраструктуры.
         
             {% note warning %}
         
-            Убедитесь, что в директории нет {{ TF }}-манифестов с ресурсами, которые вы хотите сохранить. {{ TF }} удаляет все ресурсы, которые были созданы с помощью манифестов в текущей директории.
+            Убедитесь, что в директории нет Terraform-манифестов с ресурсами, которые вы хотите сохранить. Terraform удаляет все ресурсы, которые были созданы с помощью манифестов в текущей директории.
         
             {% endnote %}
         
@@ -525,8 +525,8 @@ spec:
         
             1. Подтвердите удаление ресурсов и дождитесь завершения операции.
         
-            Все ресурсы, которые были описаны в {{ TF }}-манифестах, будут удалены.
+            Все ресурсы, которые были описаны в Terraform-манифестах, будут удалены.
 
     {% endlist %}
 
-1. Если для доступа к кластеру {{ managed-k8s-name }} или узлам использовались статические [публичные](../../vpc/concepts/address.md#public-addresses) IP-адреса, освободите и удалите их.
+1. Если для доступа к кластеру Managed Service for Kubernetes или узлам использовались статические [публичные](../../vpc/concepts/address.md#public-addresses) IP-адреса, освободите и удалите их.

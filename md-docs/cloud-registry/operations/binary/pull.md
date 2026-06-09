@@ -21,7 +21,7 @@
    
      {% note info %}
    
-     [Время жизни](../../../iam/concepts/authorization/iam-token.md#lifetime) IAM-токена — не больше {{ iam-token-lifetime }}.
+     [Время жизни](../../../iam/concepts/authorization/iam-token.md#lifetime) IAM-токена — не больше 12 часов.
    
      {% endnote %}
    
@@ -47,7 +47,7 @@
      {% endnote %}
    
    {% endlist %}
-1. Скачайте [binary-артефакт](../../concepts/artifacts/binary.md) с помощью [HTTP](https://{{ lang }}.wikipedia.org/wiki/HTTP)-запроса методом GET:
+1. Скачайте [binary-артефакт](../../concepts/artifacts/binary.md) с помощью [HTTP](https://ru.wikipedia.org/wiki/HTTP)-запроса методом GET:
 
     ```bash
     curl \
@@ -55,7 +55,7 @@
       --user "$REGISTRY_USERNAME:$REGISTRY_PASSWORD" \
       --location \
       --output <локальный_путь_к_файлу> \
-      https://{{ cloud-registry }}/binaries/<идентификатор_реестра>/<имя_артефакта>/<версия_артефакта>
+      https://registry.yandexcloud.net/binaries/<идентификатор_реестра>/<имя_артефакта>/<версия_артефакта>
     ```
 
     Где:
@@ -66,5 +66,5 @@
     * URL запроса содержит URL реестра, а также имя и версию артефакта. Например:
 
         ```bash
-        https://{{ cloud-registry }}/binaries/cn15fqbr806r********/sample-package/3.5.4
+        https://registry.yandexcloud.net/binaries/cn15fqbr806r********/sample-package/3.5.4
         ```

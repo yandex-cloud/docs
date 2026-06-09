@@ -2,33 +2,33 @@
 
 {% note warning %}
 
-С 1 июля 2026 года сервис {{ load-testing-name }} прекращает работу. Подробнее на странице [Закрытие сервиса Yandex Load Testing](../sunset.md).
+С 1 июля 2026 года сервис Load Testing прекращает работу. Подробнее на странице [Закрытие сервиса Yandex Load Testing](../sunset.md).
 
 {% endnote %}
 
 
-В {{ load-testing-name }} результаты тестирования можно экспортировать в виде файлов статичных форматов (HTML, PDF и CSV) в бакет [{{ objstorage-full-name }}](../../storage/index.md). Сформированный отчёт из бакета доступен по ссылке, а также может быть скачан напрямую. 
+В Load Testing результаты тестирования можно экспортировать в виде файлов статичных форматов (HTML, PDF и CSV) в бакет [Yandex Object Storage](../../storage/index.md). Сформированный отчёт из бакета доступен по ссылке, а также может быть скачан напрямую. 
 
-## Экспорт отчёта в {{ objstorage-full-name }} {#export-report}
+## Экспорт отчёта в Yandex Object Storage {#export-report}
 
-1. В [консоли управления]({{ link-console-main }}) выберите каталог.
-1. Перейдите в сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_load-testing }}**.
-1. На вкладке ![image](../../_assets/load-testing/test.svg) **{{ ui-key.yacloud.load-testing.label_tests-list }}** выберите необходимый тест.
-1. На странице теста в правом верхнем углу нажмите ![image](../../_assets/console-icons/ellipsis.svg) и выберите **{{ ui-key.yacloud.load-testing.button_export-report }}**.
-1. В диалоге **{{ ui-key.yacloud.load-testing.label_report-export-title }}**:
-	- В секции **{{ ui-key.yacloud.load-testing.field_report-export-bucket }}** выберите нужный бакет или создайте новый.
-	- В поле **{{ ui-key.yacloud.load-testing.field_report-export-folder }}** введите имя папки, в которую будет сохранен отчёт. Если папки в бакете нет, она будет создана.
-	- В секции **{{ ui-key.yacloud.load-testing.field_report-export-format }}** выберите нужный формат.
-	- В поле **{{ ui-key.yacloud.load-testing.field_report-export-time-interval }}** при необходимости переключите формат интервала времени (весь или текущий). Текущий интервал доступен только после изменения границ интервала на шкале времени на вкладке **{{ ui-key.yacloud.load-testing.label_test-report }}**.  
-1. Нажмите кнопку **{{ ui-key.yacloud.load-testing.button_export-report }}**.
+1. В [консоли управления](https://console.yandex.cloud) выберите каталог.
+1. Перейдите в сервис **Load Testing**.
+1. На вкладке ![image](../../_assets/load-testing/test.svg) **Тесты** выберите необходимый тест.
+1. На странице теста в правом верхнем углу нажмите ![image](../../_assets/console-icons/ellipsis.svg) и выберите **Экспортировать**.
+1. В диалоге **Экспорт отчёта**:
+	- В секции **Экспортировать в бакет** выберите нужный бакет или создайте новый.
+	- В поле **Папка в бакете** введите имя папки, в которую будет сохранен отчёт. Если папки в бакете нет, она будет создана.
+	- В секции **Формат отчёта** выберите нужный формат.
+	- В поле **Временной интервал** при необходимости переключите формат интервала времени (весь или текущий). Текущий интервал доступен только после изменения границ интервала на шкале времени на вкладке **Результаты теста**.  
+1. Нажмите кнопку **Экспортировать**.
 
-## Выгрузка отчёта из {{ objstorage-full-name }} {#download-report}
+## Выгрузка отчёта из Yandex Object Storage {#download-report}
 
-1. В [консоли управления]({{ link-console-main }}) выберите каталог.
-1. Перейдите в сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_load-testing }}**.
-1. На вкладке ![image](../../_assets/load-testing/test.svg) **{{ ui-key.yacloud.load-testing.label_tests-list }}** выберите необходимый тест.
-1. На вкладке **{{ ui-key.yacloud.load-testing.label_report-exports-history-title }}** убедитесь, что статус нужной операции экспорта обозначен как **{{ ui-key.yacloud.common.operations.column_value_done }}**.
+1. В [консоли управления](https://console.yandex.cloud) выберите каталог.
+1. Перейдите в сервис **Load Testing**.
+1. На вкладке ![image](../../_assets/load-testing/test.svg) **Тесты** выберите необходимый тест.
+1. На вкладке **История экспортов** убедитесь, что статус нужной операции экспорта обозначен как **Завершена**.
 1. Перейдите на страницу нужной операции экспорта по ссылке в колонке **Путь к файлу**.
-1. Чтобы получить ссылку на отчёт, в правом верхнем углу нажмите кнопку **{{ ui-key.yacloud.storage.file.button_generate }}**.
-1. Чтобы скачать отчёт, нажмите **{{ ui-key.yacloud.storage.bucket.button_download }}**.
+1. Чтобы получить ссылку на отчёт, в правом верхнем углу нажмите кнопку **Получить ссылку**.
+1. Чтобы скачать отчёт, нажмите **Скачать**.
 1. При необходимости вы можете настроить доступ к отчётам. Для этого нажмите ![image](../../_assets/console-icons/ellipsis.svg) в правом верхнем углу, выберите группу пользователей и уровень доступа.

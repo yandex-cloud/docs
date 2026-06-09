@@ -1,10 +1,10 @@
-# Просмотр логов кластера {{ KF }}
+# Просмотр логов кластера Apache Kafka®
 
-{{ mkf-name }} позволяет [получить фрагмент логов кластера](#get-log) за выбранный период и [просматривать логи в реальном времени](#get-log-stream).
+Managed Service for Apache Kafka® позволяет [получить фрагмент логов кластера](#get-log) за выбранный период и [просматривать логи в реальном времени](#get-log-stream).
 
 {% note info %}
 
-Здесь под логом понимается системный лог кластера и его хостов. Этот лог не имеет отношения к логу раздела для топика {{ KF }}, в который брокер записывает поступающие от производителей сообщения.
+Здесь под логом понимается системный лог кластера и его хостов. Этот лог не имеет отношения к логу раздела для топика Apache Kafka®, в который брокер записывает поступающие от производителей сообщения.
 
 {% endnote %}
 
@@ -20,28 +20,28 @@
 
 - Консоль управления {#console}
 
-    1. В [консоли управления]({{ link-console-main }}) перейдите в нужный каталог.
-    1. Перейдите в сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-kafka }}**.
-    1. Нажмите на имя нужного кластера и выберите вкладку ![image](../../_assets/console-icons/receipt.svg) **{{ ui-key.yacloud.common.logs }}**.
-    1. Выберите **{{ ui-key.yacloud.kafka.label_filter_origin }}**, **{{ ui-key.yacloud.mdb.cluster.logs.label_hosts }}** и **{{ ui-key.yacloud.mdb.cluster.logs.label_severity }}**.
+    1. В [консоли управления](https://console.yandex.cloud) перейдите в нужный каталог.
+    1. Перейдите в сервис **Managed Service for&nbsp;Kafka**.
+    1. Нажмите на имя нужного кластера и выберите вкладку ![image](../../_assets/console-icons/receipt.svg) **Логи**.
+    1. Выберите **Источник**, **Хосты** и **Уровень логирования**.
     1. Укажите период времени, за который нужно отобразить лог.
 
 - CLI {#cli}
 
-    Если у вас еще нет интерфейса командной строки {{ yandex-cloud }} (CLI), [установите и инициализируйте его](../../cli/quickstart.md#install).
+    Если у вас еще нет интерфейса командной строки Yandex Cloud (CLI), [установите и инициализируйте его](../../cli/quickstart.md#install).
 
     По умолчанию используется каталог, указанный при [создании](../../cli/operations/profile/profile-create.md) профиля CLI. Чтобы изменить каталог по умолчанию, используйте команду `yc config set folder-id <идентификатор_каталога>`. Также для любой команды вы можете указать другой каталог с помощью параметров `--folder-name` или `--folder-id`. Если вы обращаетесь к ресурсу по имени, поиск будет выполнен в каталоге по умолчанию. Если вы обращаетесь к ресурсу по идентификатору, поиск будет выполнен глобально — во всех каталогах с учетом прав доступа.
 
     1. Просмотрите описание команды CLI для просмотра логов кластера:
 
         ```bash
-        {{ yc-mdb-kf }} cluster list-logs --help
+        yc managed-kafka cluster list-logs --help
         ```
 
     1. Запустите команду получения логов кластера (в примере приведены не все доступные параметры):
 
         ```bash
-        {{ yc-mdb-kf }} cluster list-logs <имя_или_идентификатор_кластера> \
+        yc managed-kafka cluster list-logs <имя_или_идентификатор_кластера> \
            --limit <ограничение_количества_записей> \
            --columns <список_колонок_лога> \
            --filter <настройки_фильтрации_записей> \
@@ -58,7 +58,7 @@
             * `severity` — уровень логирования. Пример выводимого значения: `INFO`.
             * `origin` — источник сообщения. Примеры выводимых значений: `kafka_server` или `kafka_controller`.
 
-        * `--filter` — настройки фильтрации записей, например `message.hostname='node1.{{ dns-zone }}'`.
+        * `--filter` — настройки фильтрации записей, например `message.hostname='node1.mdb.yandexcloud.net'`.
         * `--since` — левая граница временного диапазона в формате [RFC-3339](https://www.ietf.org/rfc/rfc3339.html), `HH:MM:SS` или временного промежутка относительно текущего времени. Примеры: `2006-01-02T15:04:05Z`, `15:04:05`, `2h`, `3h30m ago`.
         * `--until` — правая граница временного диапазона, формат аналогичен `--since`.
 
@@ -72,13 +72,13 @@
         export IAM_TOKEN="<IAM-токен>"
         ```
 
-    1. Воспользуйтесь методом [Cluster.listLogs](../api-ref/Cluster/listLogs.md) и выполните запрос, например, с помощью {{ api-examples.rest.tool }}:
+    1. Воспользуйтесь методом [Cluster.listLogs](../api-ref/Cluster/listLogs.md) и выполните запрос, например, с помощью [cURL](https://curl.se/):
 
         ```bash
         curl \
             --request GET \
             --header "Authorization: Bearer $IAM_TOKEN" \
-            --url 'https://{{ api-host-mdb }}/managed-kafka/v1/clusters/<идентификатор_кластера>:logs' \
+            --url 'https://mdb.api.cloud.yandex.net/managed-kafka/v1/clusters/<идентификатор_кластера>:logs' \
             --url-query columnFilter=<список_колонок_для_вывода_информации> \
             --url-query fromTime=<левая_граница_временного_диапазона> \
             --url-query toTime=<правая_граница_временного_диапазона>
@@ -97,7 +97,7 @@
 
             В одном параметре `columnFilter` можно указать только одну колонку. Если необходимо отфильтровать логи по нескольким колонкам, передайте перечень нужных колонок в нескольких параметрах.
 
-        * `fromTime` — левая граница временного диапазона в формате [RFC-3339](https://www.ietf.org/rfc/rfc3339.html). Пример: `{{ sample-rfc3339-timestamp }}`.
+        * `fromTime` — левая граница временного диапазона в формате [RFC-3339](https://www.ietf.org/rfc/rfc3339.html). Пример: `2006-01-02T15:04:05Z`.
 
         * `toTime` — правая граница временного диапазона, формат аналогичен `fromTime`.
 
@@ -123,7 +123,7 @@
        
        Далее предполагается, что содержимое репозитория находится в директории `~/cloudapi/`.
 
-    1. Воспользуйтесь вызовом [ClusterService/ListLogs](../api-ref/grpc/Cluster/listLogs.md) и выполните запрос, например, с помощью {{ api-examples.grpc.tool }}:
+    1. Воспользуйтесь вызовом [ClusterService/ListLogs](../api-ref/grpc/Cluster/listLogs.md) и выполните запрос, например, с помощью [gRPCurl](https://github.com/fullstorydev/grpcurl):
 
         ```bash
         grpcurl \
@@ -138,7 +138,7 @@
                     "from_time": "<левая_граница_временного_диапазона>" \
                     "to_time": "<правая_граница_временного_диапазона>"
                 }' \
-            {{ api-host-mdb }}:{{ port-https }} \
+            mdb.api.cloud.yandex.net:443 \
             yandex.cloud.mdb.kafka.v1.ClusterService.ListLogs
         ```
 
@@ -156,7 +156,7 @@
 
             В параметре `column_filter` можно указать несколько колонок, если нужно отфильтровать логи по нескольким колонкам.
 
-        * `from_time` — левая граница временного диапазона в формате [RFC-3339](https://www.ietf.org/rfc/rfc3339.html). Пример: `{{ sample-rfc3339-timestamp }}`.
+        * `from_time` — левая граница временного диапазона в формате [RFC-3339](https://www.ietf.org/rfc/rfc3339.html). Пример: `2006-01-02T15:04:05Z`.
 
         * `to_time` — правая граница временного диапазона, формат аналогичен `from_time`.
 
@@ -176,14 +176,14 @@
 
 - CLI {#cli}
 
-    Если у вас еще нет интерфейса командной строки {{ yandex-cloud }} (CLI), [установите и инициализируйте его](../../cli/quickstart.md#install).
+    Если у вас еще нет интерфейса командной строки Yandex Cloud (CLI), [установите и инициализируйте его](../../cli/quickstart.md#install).
 
     По умолчанию используется каталог, указанный при [создании](../../cli/operations/profile/profile-create.md) профиля CLI. Чтобы изменить каталог по умолчанию, используйте команду `yc config set folder-id <идентификатор_каталога>`. Также для любой команды вы можете указать другой каталог с помощью параметров `--folder-name` или `--folder-id`. Если вы обращаетесь к ресурсу по имени, поиск будет выполнен в каталоге по умолчанию. Если вы обращаетесь к ресурсу по идентификатору, поиск будет выполнен глобально — во всех каталогах с учетом прав доступа.
 
     Для просмотра логов кластера по мере их поступления выполните команду:
 
     ```bash
-    {{ yc-mdb-kf }} cluster list-logs <имя_или_идентификатор_кластера> --follow
+    yc managed-kafka cluster list-logs <имя_или_идентификатор_кластера> --follow
     ```
 
     Имя и идентификатор кластера можно запросить со [списком кластеров в каталоге](cluster-list.md#list-clusters).
@@ -196,13 +196,13 @@
         export IAM_TOKEN="<IAM-токен>"
         ```
 
-    1. Воспользуйтесь методом [Cluster.streamLogs](../api-ref/Cluster/streamLogs.md) и выполните запрос, например, с помощью {{ api-examples.rest.tool }}:
+    1. Воспользуйтесь методом [Cluster.streamLogs](../api-ref/Cluster/streamLogs.md) и выполните запрос, например, с помощью [cURL](https://curl.se/):
 
         ```bash
         curl \
             --request GET \
             --header "Authorization: Bearer $IAM_TOKEN" \
-            --url 'https://{{ api-host-mdb }}/managed-kafka/v1/clusters/<идентификатор_кластера>:stream_logs' \
+            --url 'https://mdb.api.cloud.yandex.net/managed-kafka/v1/clusters/<идентификатор_кластера>:stream_logs' \
             --url-query columnFilter=<список_колонок_для_вывода_информации> \
             --url-query fromTime=<левая_граница_временного_диапазона> \
             --url-query toTime=<правая_граница_временного_диапазона> \
@@ -222,7 +222,7 @@
 
             В одном параметре `columnFilter` можно указать только одну колонку. Если необходимо отфильтровать логи по нескольким колонкам, передайте перечень нужных колонок в нескольких параметрах.
 
-        * `fromTime` — левая граница временного диапазона в формате [RFC-3339](https://www.ietf.org/rfc/rfc3339.html). Пример: `{{ sample-rfc3339-timestamp }}`.
+        * `fromTime` — левая граница временного диапазона в формате [RFC-3339](https://www.ietf.org/rfc/rfc3339.html). Пример: `2006-01-02T15:04:05Z`.
 
         * `toTime` — правая граница временного диапазона, формат аналогичен `fromTime`.
 
@@ -265,7 +265,7 @@
        
        Далее предполагается, что содержимое репозитория находится в директории `~/cloudapi/`.
 
-    1. Воспользуйтесь вызовом [ClusterService/StreamLogs](../api-ref/grpc/Cluster/streamLogs.md) и выполните запрос, например, с помощью {{ api-examples.grpc.tool }}:
+    1. Воспользуйтесь вызовом [ClusterService/StreamLogs](../api-ref/grpc/Cluster/streamLogs.md) и выполните запрос, например, с помощью [gRPCurl](https://github.com/fullstorydev/grpcurl):
 
         ```bash
         grpcurl \
@@ -281,7 +281,7 @@
                     "to_time": "<правая_граница_временного_диапазона>",
                     "filter": "<фильтр_логов>"
                 }' \
-            {{ api-host-mdb }}:{{ port-https }} \
+            mdb.api.cloud.yandex.net:443 \
             yandex.cloud.mdb.kafka.v1.ClusterService.StreamLogs
         ```
 
@@ -298,7 +298,7 @@
 
             В параметре `column_filter` можно указать несколько колонок, если нужно отфильтровать логи по нескольким колонкам.
 
-        * `from_time` — левая граница временного диапазона в формате [RFC-3339](https://www.ietf.org/rfc/rfc3339.html). Пример: `{{ sample-rfc3339-timestamp }}`.
+        * `from_time` — левая граница временного диапазона в формате [RFC-3339](https://www.ietf.org/rfc/rfc3339.html). Пример: `2006-01-02T15:04:05Z`.
 
         * `to_time` — правая граница временного диапазона, формат аналогичен `from_time`.
 

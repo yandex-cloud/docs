@@ -5,7 +5,7 @@ Updates the specified function.
 ## HTTP request
 
 ```
-PATCH https://serverless-functions.{{ api-host }}/functions/v1/functions/{functionId}
+PATCH https://serverless-functions.api.cloud.yandex.net/functions/v1/functions/{functionId}
 ```
 
 ## Path parameters

@@ -5,7 +5,7 @@ Deletes the specified network.
 ## HTTP request
 
 ```
-DELETE https://vpc.{{ api-host }}/vpc/v1/networks/{networkId}
+DELETE https://vpc.api.cloud.yandex.net/vpc/v1/networks/{networkId}
 ```
 
 ## Path parameters

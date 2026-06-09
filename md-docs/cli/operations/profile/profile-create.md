@@ -16,12 +16,12 @@
 * Имя профиля.
 * Облако, в котором у вас есть права доступа.
 * Каталог по умолчанию.
-* Зона доступности по умолчанию, в которой будут создаваться ресурсы сервиса {{ compute-full-name }}.
+* Зона доступности по умолчанию, в которой будут создаваться ресурсы сервиса Yandex Compute Cloud.
 
 Вы можете прервать процесс создания профиля в любой момент. В профиле будут сохранены настройки, которые вы успели задать до прерывания.
 
 
-Если вы еще не подключены к консоли управления, войдите в [консоль]({{ link-console-main }}) и примите пользовательское соглашение (нажмите **Войти**).
+Если вы еще не подключены к консоли управления, войдите в [консоль](https://console.yandex.cloud) и примите пользовательское соглашение (нажмите **Войти**).
 
 {% list tabs group=authentication %}
 
@@ -57,7 +57,7 @@
        ```text
        You are going to be authenticated via username '<электронная_почта>'.
        Authentication web site will be opened.
-       After your successful authentication, you will be redirected to '{{ link-console-main }}'.
+       After your successful authentication, you will be redirected to 'https://console.yandex.cloud'.
     
        Press 'enter' to continue...
        ```
@@ -89,10 +89,10 @@
           Please enter your numeric choice: 1
           ```
     
-    1. Чтобы выбрать [зону доступности](../../../overview/concepts/geo-scope.md) по умолчанию для сервиса [{{ compute-name }}](../../../compute/index.md), введите `Y`. Чтобы пропустить настройку, введите `n`.
+    1. Чтобы выбрать [зону доступности](../../../overview/concepts/geo-scope.md) по умолчанию для сервиса [Compute Cloud](../../../compute/index.md), введите `Y`. Чтобы пропустить настройку, введите `n`.
     
        ```bash
-       Do you want to configure a default {{ compute-full-name }} availability zone? [Y/n] Y
+       Do you want to configure a default Yandex Compute Cloud availability zone? [Y/n] Y
        ```
     
        Если вы ввели `Y`, выберите зону доступности:
@@ -100,9 +100,9 @@
        
        ```text
        Which zone do you want to use as a profile default?
-        [1] {{ region-id }}-a
-        [2] {{ region-id }}-b
-        [3] {{ region-id }}-d
+        [1] ru-central1-a
+        [2] ru-central1-b
+        [3] ru-central1-d
         [4] Do not set default zone
        Please enter your numeric choice: 2
        ```
@@ -122,7 +122,7 @@
        subject-id: b1g159pa15cd********
        username: <электронная_почта>
        folder-id: b1g8o9jbt58********
-       compute-default-zone: {{ region-id }}-b
+       compute-default-zone: ru-central1-b
        ```
 
 - Федеративный аккаунт {#federated-account}
@@ -153,7 +153,7 @@
        ```text
        You are going to be authenticated via federation-id 'aje1f0hsgds3a********'.
        Your federation authentication web site will be opened.
-       After your successful authentication, you will be redirected to '{{ link-console-main }}'.
+       After your successful authentication, you will be redirected to 'https://console.yandex.cloud'.
     
        Press 'enter' to continue...
        ```
@@ -185,10 +185,10 @@
           Please enter your numeric choice: 1
           ```
     
-    1. Чтобы выбрать [зону доступности](../../../overview/concepts/geo-scope.md) по умолчанию для сервиса [{{ compute-name }}](../../../compute/index.md), введите `Y`. Чтобы пропустить настройку, введите `n`.
+    1. Чтобы выбрать [зону доступности](../../../overview/concepts/geo-scope.md) по умолчанию для сервиса [Compute Cloud](../../../compute/index.md), введите `Y`. Чтобы пропустить настройку, введите `n`.
     
        ```bash
-       Do you want to configure a default {{ compute-full-name }} availability zone? [Y/n] Y
+       Do you want to configure a default Yandex Compute Cloud availability zone? [Y/n] Y
        ```
     
        Если вы ввели `Y`, выберите зону доступности:
@@ -196,9 +196,9 @@
        
        ```text
        Which zone do you want to use as a profile default?
-        [1] {{ region-id }}-a
-        [2] {{ region-id }}-b
-        [3] {{ region-id }}-d
+        [1] ru-central1-a
+        [2] ru-central1-b
+        [3] ru-central1-d
         [4] Do not set default zone
        Please enter your numeric choice: 2
        ```
@@ -219,7 +219,7 @@
        subject-id: ajea53egl28l********
        cloud-id: b1g159pa15cd********
        folder-id: b1g8o9jbt58********
-       compute-default-zone: {{ region-id }}-b
+       compute-default-zone: ru-central1-b
        ```
 
 - Аккаунт локального пользователя {#local-account}
@@ -245,9 +245,9 @@
        - Электронная почта
     
           1. Получите адрес электронной почты:
-             1. Перейдите в портал [Мой аккаунт]({{ link-my-account }}).
-             1. На панели слева выберите ![alt](../../../_assets/console-icons/passport.svg) **{{ ui-key.yacloud_org.center-layout.MyAccountLayout.profile_8kyBA }}**.
-             1. В блоке **{{ ui-key.yacloud_org.my-account.ProfilePage.contacts_subheader }}** скопируйте адрес электронной почты.
+             1. Перейдите в портал [Мой аккаунт](https://myaccount.yandex.cloud/).
+             1. На панели слева выберите ![alt](../../../_assets/console-icons/passport.svg) **Профиль**.
+             1. В блоке **Контакты** скопируйте адрес электронной почты.
           1. Запустите интерактивное создание профиля:
     
                       
@@ -305,10 +305,10 @@
           Please enter your numeric choice: 1
           ```
     
-    1. Чтобы выбрать [зону доступности](../../../overview/concepts/geo-scope.md) по умолчанию для сервиса [{{ compute-name }}](../../../compute/index.md), введите `Y`. Чтобы пропустить настройку, введите `n`.
+    1. Чтобы выбрать [зону доступности](../../../overview/concepts/geo-scope.md) по умолчанию для сервиса [Compute Cloud](../../../compute/index.md), введите `Y`. Чтобы пропустить настройку, введите `n`.
     
        ```bash
-       Do you want to configure a default {{ compute-full-name }} availability zone? [Y/n] Y
+       Do you want to configure a default Yandex Compute Cloud availability zone? [Y/n] Y
        ```
     
        Если вы ввели `Y`, выберите зону доступности:
@@ -316,9 +316,9 @@
        
        ```text
        Which zone do you want to use as a profile default?
-        [1] {{ region-id }}-a
-        [2] {{ region-id }}-b
-        [3] {{ region-id }}-d
+        [1] ru-central1-a
+        [2] ru-central1-b
+        [3] ru-central1-d
         [4] Do not set default zone
        Please enter your numeric choice: 2
        ```
@@ -343,7 +343,7 @@
           subject-id: ek00cd1m8hdd8********
           cloud-id: b1g159pa15cd********
           folder-id: b1g8o9jbt58********
-          compute-default-zone: {{ region-id }}-b
+          compute-default-zone: ru-central1-b
           ```
     
     
@@ -354,7 +354,7 @@
           subject-id: b1g159pa15cd********
           username: <электронная_почта>
           folder-id: b1g8o9jbt58********
-          compute-default-zone: {{ region-id }}-b
+          compute-default-zone: ru-central1-b
           ```
     
     

@@ -1,30 +1,30 @@
-# Установить Ingress-контроллер {{ alb-name }} для {{ managed-k8s-name }}
+# Установить Ingress-контроллер Application Load Balancer для Managed Service for Kubernetes
 
-# Установка Ingress-контроллера {{ alb-name }}
+# Установка Ingress-контроллера Application Load Balancer
 
 {% note tip %}
 
-Вместо ALB Ingress-контроллера и Gateway API рекомендуется использовать новый контроллер [{{ yandex-cloud }} Gwin]({{ gwin-tip-local-link }}).
+Вместо ALB Ingress-контроллера и Gateway API рекомендуется использовать новый контроллер [Yandex Cloud Gwin](../tools/gwin/index.md).
 
 {% endnote %}
 
-Для балансировки нагрузки и распределения трафика между приложениями {{ k8s }} используйте [Ingress-контроллер {{ alb-full-name }}]({{ ingress-local-link2 }}/index.md). Он запускает L7-балансировщик и необходимые вспомогательные ресурсы, когда пользователь создает ресурс `Ingress` в кластере {{ managed-k8s-name }}.
+Для балансировки нагрузки и распределения трафика между приложениями Kubernetes используйте [Ingress-контроллер Yandex Application Load Balancer](../tools/k8s-ingress-controller/index.md). Он запускает L7-балансировщик и необходимые вспомогательные ресурсы, когда пользователь создает ресурс `Ingress` в кластере Managed Service for Kubernetes.
 
 {% note warning %}
 
-Не изменяйте и не удаляйте балансировщик нагрузки и его дочерние ресурсы, созданные с помощью {{ managed-k8s-name }}, через интерфейсы {{ yandex-cloud }} (консоль управления, {{ TF }}, CLI и API). Это может привести к некорректной работе кластера.
+Не изменяйте и не удаляйте балансировщик нагрузки и его дочерние ресурсы, созданные с помощью Managed Service for Kubernetes, через интерфейсы Yandex Cloud (консоль управления, Terraform, CLI и API). Это может привести к некорректной работе кластера.
 
 {% endnote %}
 
 ## Перед началом работы {#before-you-begin}
 
-1. Если у вас еще нет интерфейса командной строки {{ yandex-cloud }} (CLI), [установите и инициализируйте его](../../cli/quickstart.md#install).
+1. Если у вас еще нет интерфейса командной строки Yandex Cloud (CLI), [установите и инициализируйте его](../../cli/quickstart.md#install).
 
    По умолчанию используется каталог, указанный при [создании](../../cli/operations/profile/profile-create.md) профиля CLI. Чтобы изменить каталог по умолчанию, используйте команду `yc config set folder-id <идентификатор_каталога>`. Также для любой команды вы можете указать другой каталог с помощью параметров `--folder-name` или `--folder-id`. Если вы обращаетесь к ресурсу по имени, поиск будет выполнен в каталоге по умолчанию. Если вы обращаетесь к ресурсу по идентификатору, поиск будет выполнен глобально — во всех каталогах с учетом прав доступа.
 
-1. [Убедитесь](../../managed-kubernetes/operations/connect/security-groups.md), что группы безопасности для кластера {{ managed-k8s-name }} и его групп узлов настроены корректно. Если отсутствует какое-либо из правил — [добавьте](../../vpc/operations/security-group-add-rule.md) его.
+1. [Убедитесь](../../managed-kubernetes/operations/connect/security-groups.md), что группы безопасности для кластера Managed Service for Kubernetes и его групп узлов настроены корректно. Если отсутствует какое-либо из правил — [добавьте](../../vpc/operations/security-group-add-rule.md) его.
 
-    Также [убедитесь]({{ alb-local-link2 }}/security-groups.md), что настроены группы безопасности, необходимые для работы {{ alb-name }}.
+    Также [убедитесь](../tools/k8s-ingress-controller/security-groups.md), что настроены группы безопасности, необходимые для работы Application Load Balancer.
 
     {% note warning %}
     
@@ -33,11 +33,11 @@
     {% endnote %}
 
 1. [Создайте сервисный аккаунт](../../iam/operations/sa/create.md), необходимый для работы Ingress-контроллера, и [назначьте ему роли](../../iam/operations/sa/assign-role-for-sa.md) на каталог:
-   * [alb.editor](../security/index.md#alb-editor) — для создания необходимых ресурсов {{ alb-name }}.
+   * [alb.editor](../security/index.md#alb-editor) — для создания необходимых ресурсов Application Load Balancer.
    * [vpc.publicAdmin](../../vpc/security/index.md#vpc-public-admin) — для управления внешней сетевой связностью.
-   * [certificate-manager.certificates.downloader](../../certificate-manager/security/index.md#certificate-manager-certificates-downloader) — для работы с сертификатами, зарегистрированными в сервисе [{{ certificate-manager-full-name }}](../../certificate-manager/index.md).
-   * [compute.viewer](../../compute/security/index.md#compute-viewer) — для использования узлов кластера {{ managed-k8s-name }} в [целевых группах](../concepts/target-group.md) L7-балансировщика.
-   * [smart-web-security.editor](../../smartwebsecurity/security/index.md#smart-web-security-editor) — (опционально) для подключения к виртуальному хосту L7-балансировщика [профиля безопасности](../../smartwebsecurity/concepts/profiles.md) {{ sws-full-name }}.
+   * [certificate-manager.certificates.downloader](../../certificate-manager/security/index.md#certificate-manager-certificates-downloader) — для работы с сертификатами, зарегистрированными в сервисе [Yandex Certificate Manager](../../certificate-manager/index.md).
+   * [compute.viewer](../../compute/security/index.md#compute-viewer) — для использования узлов кластера Managed Service for Kubernetes в [целевых группах](../concepts/target-group.md) L7-балансировщика.
+   * [smart-web-security.editor](../../smartwebsecurity/security/index.md#smart-web-security-editor) — (опционально) для подключения к виртуальному хосту L7-балансировщика [профиля безопасности](../../smartwebsecurity/concepts/profiles.md) Yandex Smart Web Security.
 1. [Создайте авторизованный ключ доступа](../../iam/operations/authentication/manage-authorized-keys.md#create-authorized-key) для сервисного аккаунта в формате JSON и сохраните его в файл `sa-key.json`:
 
    ```bash
@@ -46,16 +46,16 @@
      --output sa-key.json
    ```
 
-## Установка с помощью {{ marketplace-full-name }} {#marketplace-install}
+## Установка с помощью Yandex Cloud Marketplace {#marketplace-install}
 
 {% list tabs group=instructions %}
 
 - Консоль управления {#console}
 
   1. Перейдите на страницу [каталога](../../resource-manager/concepts/resources-hierarchy.md#folder).
-  1. Перейдите в сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-kubernetes }}**.
-  1. Нажмите на имя нужного кластера и выберите вкладку ![Marketplace](../../_assets/console-icons/shopping-cart.svg) **{{ ui-key.yacloud.k8s.cluster.switch_marketplace }}**.
-  1. В разделе **{{ ui-key.yacloud.marketplace-v2.label_available-products }}** выберите [ALB Ingress Controller](https://yandex.cloud/ru/marketplace/products/yc/alb-ingress-controller) и нажмите кнопку **{{ ui-key.yacloud.marketplace-v2.button_k8s-product-use }}**.
+  1. Перейдите в сервис **Managed Service for&nbsp;Kubernetes**.
+  1. Нажмите на имя нужного кластера и выберите вкладку ![Marketplace](../../_assets/console-icons/shopping-cart.svg) **Marketplace**.
+  1. В разделе **Доступные для установки приложения** выберите [ALB Ingress Controller](https://yandex.cloud/ru/marketplace/products/yc/alb-ingress-controller) и нажмите кнопку **Перейти к установке**.
   1. Задайте настройки приложения:
 
      * **Пространство имен** — создайте новое [пространство имен](../../managed-kubernetes/concepts/index.md#namespace) (например, `alb-ingress-controller-space`). Если вы оставите пространство имен по умолчанию, ALB Ingress Controller может работать некорректно.
@@ -67,9 +67,9 @@
 
         Ресурс добавляет поды с агентами мониторинга трафика на каждый узел. В результате изоляция узлов и пространств имен не влияет на мониторинг, поэтому информация о мониторинге трафика точная. DaemonSet добавляет или убирает агенты мониторинга в зависимости от того, увеличивается или уменьшается число узлов в кластере.
 
-        Если вам не нужны проверки работоспособности кластера или вы используете свои, опцию можно не включать. Подробнее о настройке проверок вручную см. в разделе [{#T}]({{ tutorial-local-link2 }}/custom-health-checks.md).
+        Если вам не нужны проверки работоспособности кластера или вы используете свои, опцию можно не включать. Подробнее о настройке проверок вручную см. в разделе [Проверка состояния приложений в кластере Yandex Managed Service for Kubernetes с помощью L7-балансировщика Yandex Application Load Balancer](../tutorials/custom-health-checks.md).
 
-  1. Нажмите кнопку **{{ ui-key.yacloud.k8s.cluster.marketplace.button_install }}**.
+  1. Нажмите кнопку **Установить**.
   1. Дождитесь перехода приложения в статус `Deployed`.
 
 {% endlist %}
@@ -78,7 +78,7 @@
 
 1. [Установите менеджер пакетов Helm](https://helm.sh/ru/docs/intro/install/) версии не ниже 3.8.0.
 
-1. [Установите kubectl]({{ k8s-docs }}/tasks/tools/install-kubectl) и [настройте его на работу с созданным кластером](../../managed-kubernetes/operations/connect/index.md#kubectl-connect).
+1. [Установите kubectl](https://kubernetes.io/ru/docs/tasks/tools/install-kubectl) и [настройте его на работу с созданным кластером](../../managed-kubernetes/operations/connect/index.md#kubectl-connect).
 
 1. Установите [утилиту `jq`](https://stedolan.github.io/jq/) для потоковой обработки JSON-файлов:
 
@@ -89,9 +89,9 @@
 1. Для установки [Helm-чарта](https://helm.sh/docs/topics/charts/) с Ingress-контроллером выполните команду:
 
    ```bash
-   cat sa-key.json | helm registry login {{ registry }} --username 'json_key' --password-stdin && \
-   helm pull oci://{{ mkt-k8s-key.yc_alb-ingress-controller.helmChart.name }} \
-     --version {{ mkt-k8s-key.yc_alb-ingress-controller.helmChart.tag }} \
+   cat sa-key.json | helm registry login cr.yandex --username 'json_key' --password-stdin && \
+   helm pull oci://cr.yandex/yc-marketplace/yandex-cloud/yc-alb-ingress/yc-alb-ingress-controller-chart \
+     --version v0.2.26 \
      --untar && \
    helm install \
      --namespace <пространство_имен> \
@@ -115,14 +115,14 @@
 
    Ресурс добавляет поды с агентами мониторинга трафика на каждый узел. В результате изоляция узлов и пространств имен не влияет на мониторинг, поэтому информация о мониторинге трафика точная. DaemonSet добавляет или убирает агенты мониторинга в зависимости от того, увеличивается или уменьшается число узлов в кластере.
 
-   Если вам не нужны проверки работоспособности кластера или вы используете свои, опцию можно не включать. Подробнее о настройке проверок вручную см. в разделе [{#T}](../../managed-kubernetes/tutorials/custom-health-checks.md).
+   Если вам не нужны проверки работоспособности кластера или вы используете свои, опцию можно не включать. Подробнее о настройке проверок вручную см. в разделе [Проверка состояния приложений в кластере Yandex Managed Service for Kubernetes с помощью L7-балансировщика Yandex Application Load Balancer](../../managed-kubernetes/tutorials/custom-health-checks.md).
 
 ## Примеры использования {#examples}
 
-* [Настройка Ingress-контроллера {{ alb-name }}](../../managed-kubernetes/tutorials/alb-ingress-controller.md).
-* [Настройка логирования для Ingress-контроллеров {{ alb-name }}](../../managed-kubernetes/tutorials/alb-ingress-controller-log-options.md).
+* [Настройка Ingress-контроллера Application Load Balancer](../../managed-kubernetes/tutorials/alb-ingress-controller.md).
+* [Настройка логирования для Ingress-контроллеров Application Load Balancer](../../managed-kubernetes/tutorials/alb-ingress-controller-log-options.md).
 
 ## См. также {#see-also}
 
-* [Описание Ingress-контроллеров в документации {{ k8s }}](https://kubernetes.io/docs/concepts/services-networking/ingress-controllers/).
-* [Ограничения при обновлении ALB Ingress Controller]({{ ingress-upgrade-local-link2 }}).
+* [Описание Ingress-контроллеров в документации Kubernetes](https://kubernetes.io/docs/concepts/services-networking/ingress-controllers/).
+* [Ограничения при обновлении ALB Ingress Controller](k8s-ingress-controller-upgrade.md).

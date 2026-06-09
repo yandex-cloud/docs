@@ -1,10 +1,10 @@
 # API Gateway Service: gRPC reference
 
-Actions are performed by making RPC calls. For more information about API architecture, see [API Concepts]({{ api-url-prefix }}/api-design-guide/).
+Actions are performed by making RPC calls. For more information about API architecture, see [API Concepts](../../../../api-design-guide/index.md).
 
 **Interface definitions** available at [GitHub](https://github.com/yandex-cloud/cloudapi/tree/master/yandex/cloud/serverless/apigateway/v1).
 
-**Service URL**: `https://serverless-apigateway.{{ api-host }}`
+**Service URL**: `https://serverless-apigateway.api.cloud.yandex.net`
 
 #|
 ||Service | Description ||

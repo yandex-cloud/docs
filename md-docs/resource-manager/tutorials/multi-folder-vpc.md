@@ -1,15 +1,15 @@
 # Настройка сетевого взаимодействия ресурсов из разных каталогов
 
 
-В {{ yandex-cloud }} сетевые ресурсы, например, облачные сети и подсети, обычно создаются в одном облачном каталоге ресурсов, а связь с ресурсами в других каталогах облака отсутствует. При развертывании ресурсов в {{ yandex-cloud }} часто возникает необходимость обеспечить сетевое взаимодействие между ресурсами из разных каталогов. Один из способов решения этой задачи – метод `Multi-folder VPC`, расширяющий область действия отдельно взятой сети {{ vpc-short-name }} с одного каталога на несколько.
+В Yandex Cloud сетевые ресурсы, например, облачные сети и подсети, обычно создаются в одном облачном каталоге ресурсов, а связь с ресурсами в других каталогах облака отсутствует. При развертывании ресурсов в Yandex Cloud часто возникает необходимость обеспечить сетевое взаимодействие между ресурсами из разных каталогов. Один из способов решения этой задачи – метод `Multi-folder VPC`, расширяющий область действия отдельно взятой сети VPC с одного каталога на несколько.
 
-В зависимости от выбранного интерфейса управления {{ yandex-cloud }} расширение области действия сети в другие каталоги достигается за счет:
+В зависимости от выбранного интерфейса управления Yandex Cloud расширение области действия сети в другие каталоги достигается за счет:
 
 * перемещения подсетей в другие каталоги облака — `консоль управления (UI)`, `CLI`;
 * создания подсетей в целевых каталогах — `CLI`;
 * создания подсетей в целевых каталогах — `Terraform`.
 
-После этого к подсетям в целевых каталогах можно подключать виртуальные машины, кластеры {{ managed-k8s-name }}, хосты БД, балансировщики нагрузки, агенты нагрузочного тестирования или другие ресурсы, находящиеся в этих каталогах. Таким образом можно получить сеть, которая обеспечит связность между ресурсами из разных каталогов.
+После этого к подсетям в целевых каталогах можно подключать виртуальные машины, кластеры Managed Service for Kubernetes, хосты БД, балансировщики нагрузки, агенты нагрузочного тестирования или другие ресурсы, находящиеся в этих каталогах. Таким образом можно получить сеть, которая обеспечит связность между ресурсами из разных каталогов.
 
 В данном руководстве описан пример создания инфраструктуры, состоящей из трех виртуальных машин, расположенных в трех разных каталогах и объединенных в одну общую внутреннюю сеть. Сетевое объединение облачных ресурсов в разных каталогах заключается в создании в одном из этих каталогов облачной сети с последующим расширением области ее действия в другие каталоги. Таким образом, сеть из одного каталога, как бы растягивается на несколько каталогов, давая возможность подключать к `«растянутым подсетям»` в этих каталогах нужные ресурсы.
 
@@ -34,8 +34,8 @@
 Чтобы создать тестовую инфраструктуру и организовать связь ресурсов:
 
 1. [Подготовьте облако к работе](#prepare-cloud).
-1. [Создайте каталоги без сети {{ vpc-short-name }}](#create-folders).
-1. [Создайте облачную сеть {{ vpc-short-name }} с подсетями](#create-vpc).
+1. [Создайте каталоги без сети VPC](#create-folders).
+1. [Создайте облачную сеть VPC с подсетями](#create-vpc).
 1. [Переместите подсети](#move-subnets).
 1. [Создайте виртуальные машины](#create-vms).
 1. [Проверьте сетевую связность ресурсов](#check-connectivity).
@@ -44,11 +44,11 @@
 
 ## Подготовьте облако к работе {#prepare-cloud}
 
-Зарегистрируйтесь в {{ yandex-cloud }} и создайте [платежный аккаунт](../../billing/concepts/billing-account.md):
-1. Перейдите в [консоль управления]({{ link-console-main }}), затем войдите в {{ yandex-cloud }} или зарегистрируйтесь.
-1. На странице **[{{ ui-key.yacloud_billing.billing.label_service }}]({{ link-console-billing }})** убедитесь, что у вас подключен платежный аккаунт, и он находится в [статусе](../../billing/concepts/billing-account-statuses.md) `ACTIVE` или `TRIAL_ACTIVE`. Если платежного аккаунта нет, [создайте его](../../billing/quickstart/index.md) и [привяжите](../../billing/operations/pin-cloud.md) к нему облако.
+Зарегистрируйтесь в Yandex Cloud и создайте [платежный аккаунт](../../billing/concepts/billing-account.md):
+1. Перейдите в [консоль управления](https://console.yandex.cloud), затем войдите в Yandex Cloud или зарегистрируйтесь.
+1. На странице **[Yandex Cloud Billing](https://center.yandex.cloud/billing/accounts)** убедитесь, что у вас подключен платежный аккаунт, и он находится в [статусе](../../billing/concepts/billing-account-statuses.md) `ACTIVE` или `TRIAL_ACTIVE`. Если платежного аккаунта нет, [создайте его](../../billing/quickstart/index.md) и [привяжите](../../billing/operations/pin-cloud.md) к нему облако.
 
-Если у вас есть активный платежный аккаунт, вы можете создать или выбрать [каталог](../concepts/resources-hierarchy.md#folder), в котором будет работать ваша инфраструктура, на [странице облака]({{ link-console-cloud }}).
+Если у вас есть активный платежный аккаунт, вы можете создать или выбрать [каталог](../concepts/resources-hierarchy.md#folder), в котором будет работать ваша инфраструктура, на [странице облака](https://console.yandex.cloud/cloud).
 
 [Подробнее об облаках и каталогах](../concepts/resources-hierarchy.md).
 
@@ -56,8 +56,8 @@
 
 В стоимость поддержки инфраструктуры входят:
 
-* плата за постоянно работающие ВМ (см. [тарифы {{ compute-full-name }}](../../compute/pricing.md));
-* плата за использование публичных IP-адресов и исходящий трафик (см. [тарифы {{ vpc-full-name }}](../../vpc/pricing.md)).
+* плата за постоянно работающие ВМ (см. [тарифы Yandex Compute Cloud](../../compute/pricing.md));
+* плата за использование публичных IP-адресов и исходящий трафик (см. [тарифы Yandex Virtual Private Cloud](../../vpc/pricing.md)).
 
 ### Настройте права доступа {#roles}
 
@@ -68,7 +68,7 @@
 
 Разграничение сетевого доступа обеспечивается [группами безопасности](../../vpc/concepts/security-groups.md).
 
-## Создайте каталоги без сети {{ vpc-short-name }} {#create-folders}
+## Создайте каталоги без сети VPC {#create-folders}
 
 1. Создайте каталоги `net-folder`, `dev-folder` и `prod-folder`:
 
@@ -76,16 +76,16 @@
 
    - Консоль управления {#console}
 
-     1. В [консоли управления]({{ link-console-main }}) выберите [облако](../concepts/resources-hierarchy.md#cloud) и нажмите кнопку ![image](../../_assets/console-icons/ellipsis.svg) → ![Create icon](../../_assets/console-icons/plus.svg) **{{ ui-key.yacloud.component.console-dashboard.button_action-create-folder }}**.
+     1. В [консоли управления](https://console.yandex.cloud) выберите [облако](../concepts/resources-hierarchy.md#cloud) и нажмите кнопку ![image](../../_assets/console-icons/ellipsis.svg) → ![Create icon](../../_assets/console-icons/plus.svg) **Создать каталог**.
      1. Введите имя [каталога](../concepts/resources-hierarchy.md#folder) `net-folder`.
-     1. Отключите опцию **{{ ui-key.yacloud.iam.cloud.folders-create.field_default-net }}**, чтобы создать сеть и подсети вручную.
-     1. Нажмите кнопку **{{ ui-key.yacloud.iam.cloud.folders-create.button_create }}**.
+     1. Отключите опцию **Создать сеть по умолчанию**, чтобы создать сеть и подсети вручную.
+     1. Нажмите кнопку **Создать**.
 
-     Аналогично создайте еще два каталога без сети {{ vpc-short-name }} с именами `dev-folder` и `prod-folder`.
+     Аналогично создайте еще два каталога без сети VPC с именами `dev-folder` и `prod-folder`.
 
    - CLI {#cli}
 
-     Если у вас еще нет интерфейса командной строки {{ yandex-cloud }} (CLI), [установите и инициализируйте его](../../cli/quickstart.md#install).
+     Если у вас еще нет интерфейса командной строки Yandex Cloud (CLI), [установите и инициализируйте его](../../cli/quickstart.md#install).
 
      {% note info %}
 
@@ -107,14 +107,14 @@
         yc resource-manager folder create --name prod-folder
         ```
 
-   - {{ TF }} {#tf}
+   - Terraform {#tf}
 
-     1. Если у вас еще нет {{ TF }}, [установите его и настройте провайдер {{ yandex-cloud }}](../../tutorials/infrastructure-management/terraform-quickstart.md#install-terraform).
+     1. Если у вас еще нет Terraform, [установите его и настройте провайдер Yandex Cloud](../../tutorials/infrastructure-management/terraform-quickstart.md#install-terraform).
         
         
-        Чтобы управлять инфраструктурой с помощью {{ TF }} от имени сервисного аккаунта или пользовательских аккаунтов: аккаунта на Яндексе, федеративного аккаунта и локального пользователя, [аутентифицируйтесь](../../terraform/authentication.md) соответствующим способом.
+        Чтобы управлять инфраструктурой с помощью Terraform от имени сервисного аккаунта или пользовательских аккаунтов: аккаунта на Яндексе, федеративного аккаунта и локального пользователя, [аутентифицируйтесь](../../terraform/authentication.md) соответствующим способом.
 
-     1. Задайте параметры для Terraform-провайдера {{ yandex-cloud }}:
+     1. Задайте параметры для Terraform-провайдера Yandex Cloud:
 
          ```hcl
         # ==================================
@@ -178,15 +178,15 @@
 
    {% endlist %}
 
-## Создайте облачную сеть {{ vpc-short-name }} с подсетями {#create-vpc}
+## Создайте облачную сеть VPC с подсетями {#create-vpc}
 
 В каталоге `net-folder` создайте сеть `shared-net` с тремя подсетями со следующими параметрами:
 
 | Имя подсети | Префикс | Зона доступности | Целевой каталог |
 | --- | --- | --- | --- |
-| `subnet-a` | `10.1.11.0/24` | `{{ region-id }}-a` | `net-folder` |
-| `subnet-b` | `10.1.12.0/24` | `{{ region-id }}-b` | `dev-folder` |
-| `subnet-d` | `10.1.13.0/24` | `{{ region-id }}-d` | `prod-folder` |
+| `subnet-a` | `10.1.11.0/24` | `ru-central1-a` | `net-folder` |
+| `subnet-b` | `10.1.12.0/24` | `ru-central1-b` | `dev-folder` |
+| `subnet-d` | `10.1.13.0/24` | `ru-central1-d` | `prod-folder` |
 
 1. Создайте [облачную сеть](../../vpc/concepts/network.md):
 
@@ -194,12 +194,12 @@
 
    - Консоль управления {#console}
 
-     1. В [консоли управления]({{ link-console-main }}) перейдите в каталог `net-folder`.
-     1. Перейдите в сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_vpc }}**.
-     1. Нажмите кнопку **{{ ui-key.yacloud.vpc.networks.button_create }}**.
+     1. В [консоли управления](https://console.yandex.cloud) перейдите в каталог `net-folder`.
+     1. Перейдите в сервис **Virtual Private Cloud**.
+     1. Нажмите кнопку **Создать сеть**.
      1. Задайте имя сети `shared-net`.
-     1. Отключите опцию [{{ ui-key.yacloud.vpc.networks.create.field_is-default }}](../../vpc/operations/subnet-create.md), чтобы создать подсети вручную.
-     1. Нажмите кнопку **{{ ui-key.yacloud.vpc.networks.button_create }}**.
+     1. Отключите опцию [Создать подсети](../../vpc/operations/subnet-create.md), чтобы создать подсети вручную.
+     1. Нажмите кнопку **Создать сеть**.
 
    - CLI {#cli}
 
@@ -215,7 +215,7 @@
         yc vpc network create --folder-name net-folder --name shared-net
         ```
 
-   - {{ TF }} {#tf}
+   - Terraform {#tf}
 
      1. Опишите целевой ресурс — облачную сеть:
 
@@ -247,20 +247,20 @@
 
    {% endlist %}
 
-1. Создайте [подсети](../../vpc/concepts/network.md#subnet) `subnet-a`, `subnet-b` и `subnet-d` в [зонах доступности](../../overview/concepts/geo-scope.md) `{{ region-id }}-a`, `{{ region-id }}-b` и `{{ region-id }}-d` соответственно:
+1. Создайте [подсети](../../vpc/concepts/network.md#subnet) `subnet-a`, `subnet-b` и `subnet-d` в [зонах доступности](../../overview/concepts/geo-scope.md) `ru-central1-a`, `ru-central1-b` и `ru-central1-d` соответственно:
 
    {% list tabs group=instructions %}
 
    - Консоль управления {#console}
 
-     1. В [консоли управления]({{ link-console-main }}) перейдите в каталог `net-folder`.
-     1. Перейдите в сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_vpc }}**.
+     1. В [консоли управления](https://console.yandex.cloud) перейдите в каталог `net-folder`.
+     1. Перейдите в сервис **Virtual Private Cloud**.
      1. Нажмите на имя облачной сети `shared-net`.
-     1. Нажмите кнопку ![image](../../_assets/console-icons/nodes-right.svg) **{{ ui-key.yacloud.vpc.network.overview.button_create_subnetwork }}**.
+     1. Нажмите кнопку ![image](../../_assets/console-icons/nodes-right.svg) **Создать подсеть**.
      1. Укажите название подсети `subnet-a`, `subnet-b` или `subnet-d` соответственно.
-     1. Выберите зону доступности `{{ region-id }}-a`, `{{ region-id }}-b` или `{{ region-id }}-d` соответственно из выпадающего списка.
+     1. Выберите зону доступности `ru-central1-a`, `ru-central1-b` или `ru-central1-d` соответственно из выпадающего списка.
      1. Введите CIDR подсети: IP-адрес `10.1.11.0` и маску подсети `24`. Подробнее про диапазоны IP-адресов в подсетях читайте в разделе [Облачные сети и подсети](../../vpc/concepts/network.md).
-     1. Нажмите кнопку **{{ ui-key.yacloud.vpc.subnetworks.create.button_create }}**.
+     1. Нажмите кнопку **Создать подсеть**.
 
    - CLI {#cli}
 
@@ -274,13 +274,13 @@
 
         ```bash
         yc vpc subnet create --folder-name net-folder --name subnet-a \
-          --network-name shared-net --zone {{ region-id }}-a --range 10.1.11.0/24
+          --network-name shared-net --zone ru-central1-a --range 10.1.11.0/24
 
         yc vpc subnet create --folder-name dev-folder --name subnet-b \
-          --network-name shared-net --zone {{ region-id }}-b --range 10.1.12.0/24
+          --network-name shared-net --zone ru-central1-b --range 10.1.12.0/24
 
         yc vpc subnet create --folder-name prod-folder --name subnet-d \
-          --network-name shared-net --zone {{ region-id }}-d --range 10.1.13.0/24
+          --network-name shared-net --zone ru-central1-d --range 10.1.13.0/24
         ```
 
      1. Проверьте состояние созданных подсетей:
@@ -291,7 +291,7 @@
         yc vpc subnet list --folder-name prod-folder
         ```
 
-   - {{ TF }} {#tf}
+   - Terraform {#tf}
 
      1. Опишите целевые ресурсы — облачные подсети:
 
@@ -301,7 +301,7 @@
           name           = "subnet-a"
           description    = "NET folder subnet"
           v4_cidr_blocks = ["10.1.11.0/24"]
-          zone           = "{{ region-id }}-a"
+          zone           = "ru-central1-a"
           network_id     = yandex_vpc_network.shared_net.id
         }
 
@@ -310,7 +310,7 @@
           name           = "subnet-b"
           description    = "DEV folder subnet"
           v4_cidr_blocks = ["10.1.12.0/24"]
-          zone           = "{{ region-id }}-b"
+          zone           = "ru-central1-b"
           network_id     = yandex_vpc_network.shared_net.id
         }
 
@@ -319,7 +319,7 @@
           name           = "subnet-d"
           description    = "PROD folder subnet"
           v4_cidr_blocks = ["10.1.13.0/24"]
-          zone           = "{{ region-id }}-d"
+          zone           = "ru-central1-d"
           network_id     = yandex_vpc_network.shared_net.id
         }
         ```
@@ -348,12 +348,12 @@
 
 - Консоль управления {#console}
 
-  1. В [консоли управления]({{ link-console-main }}) перейдите в каталог `net-folder`.
-  1. Перейдите в сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_vpc }}**.
+  1. В [консоли управления](https://console.yandex.cloud) перейдите в каталог `net-folder`.
+  1. Перейдите в сервис **Virtual Private Cloud**.
   1. Нажмите на имя облачной сети `shared-net`.
-  1. Нажмите значок ![image](../../_assets/console-icons/ellipsis.svg) в строке подсети `subnet-b`, и выберите **{{ ui-key.yacloud.common.move }}**.
+  1. Нажмите значок ![image](../../_assets/console-icons/ellipsis.svg) в строке подсети `subnet-b`, и выберите **Переместить**.
   1. В выпадающем списке выберите каталог `dev-folder`.
-  1. Нажмите кнопку **{{ ui-key.yacloud.common.move }}**.
+  1. Нажмите кнопку **Переместить**.
 
 - CLI {#cli}
 
@@ -384,9 +384,9 @@
 
 | Имя ВМ | Каталог | Зона доступности | Подсеть |
 | --- | --- | --- | --- |
-| `net-vm` | `net-folder` | `{{ region-id }}-a` | `subnet-a` |
-| `dev-vm` | `dev-folder` | `{{ region-id }}-b` | `subnet-b` |
-| `prod-vm` | `prod-folder` | `{{ region-id }}-d` | `subnet-d` |
+| `net-vm` | `net-folder` | `ru-central1-a` | `subnet-a` |
+| `dev-vm` | `dev-folder` | `ru-central1-b` | `subnet-b` |
+| `prod-vm` | `prod-folder` | `ru-central1-d` | `subnet-d` |
 
 {% list tabs group=instructions %}
 
@@ -394,38 +394,38 @@
 
   Создайте ВМ `net-vm` с ОС Linux в каталоге `net-folder`:
 
-  1. В [консоли управления]({{ link-console-main }}) выберите каталог `net-folder`.
-  1. Нажмите кнопку ![image](../../_assets/console-icons/plus.svg) **{{ ui-key.yacloud.iam.folder.dashboard.button_add }}** и выберите ![image](../../_assets/console-icons/cpu.svg) **{{ ui-key.yacloud.iam.folder.dashboard.value_compute }}**.
-  1. В блоке **{{ ui-key.yacloud.compute.instances.create.section_image }}** в поле **{{ ui-key.yacloud.compute.instances.create.placeholder_search_marketplace-product }}** введите `Ubuntu 22.04 LTS` и выберите публичный образ [Ubuntu 22.04 LTS](https://yandex.cloud/ru/marketplace/products/yc/ubuntu-22-04-lts).
-  1. В блоке **{{ ui-key.yacloud.k8s.node-groups.create.section_allocation-policy }}** выберите [зону доступности](../../overview/concepts/geo-scope.md) `{{ region-id }}-a`.
-  1. В блоке **{{ ui-key.yacloud.compute.instances.create.section_network }}**:
+  1. В [консоли управления](https://console.yandex.cloud) выберите каталог `net-folder`.
+  1. Нажмите кнопку ![image](../../_assets/console-icons/plus.svg) **Создать ресурс** и выберите ![image](../../_assets/console-icons/cpu.svg) **Виртуальная машина**.
+  1. В блоке **Образ загрузочного диска** в поле **Поиск продукта** введите `Ubuntu 22.04 LTS` и выберите публичный образ [Ubuntu 22.04 LTS](https://yandex.cloud/ru/marketplace/products/yc/ubuntu-22-04-lts).
+  1. В блоке **Расположение** выберите [зону доступности](../../overview/concepts/geo-scope.md) `ru-central1-a`.
+  1. В блоке **Сетевые настройки**:
 
-      * В поле **{{ ui-key.yacloud.component.compute.network-select.field_subnetwork }}** выберите подсеть `subnet-a`.
-      * В поле **{{ ui-key.yacloud.component.compute.network-select.field_external }}** оставьте значение `{{ ui-key.yacloud.component.compute.network-select.switch_auto }}`, чтобы назначить ВМ случайный внешний IP-адрес из пула {{ yandex-cloud }}, или выберите статический адрес из списка, если вы зарезервировали его заранее.
+      * В поле **Подсеть** выберите подсеть `subnet-a`.
+      * В поле **Публичный IP-адрес** оставьте значение `Автоматически`, чтобы назначить ВМ случайный внешний IP-адрес из пула Yandex Cloud, или выберите статический адрес из списка, если вы зарезервировали его заранее.
 
-  1. В блоке **{{ ui-key.yacloud.compute.instances.create.section_access }}** выберите вариант **{{ ui-key.yacloud.compute.instance.access-method.label_oslogin-control-ssh-option-title }}** и укажите данные для доступа на ВМ:
+  1. В блоке **Доступ** выберите вариант **SSH-ключ** и укажите данные для доступа на ВМ:
 
-      * В поле **{{ ui-key.yacloud.compute.instances.create.field_user }}** введите имя пользователя: `ycuser`.
-      * В поле **{{ ui-key.yacloud.compute.instances.create.field_key }}** выберите SSH-ключ, сохраненный в вашем профиле [пользователя организации](../../organization/concepts/membership.md).
+      * В поле **Логин** введите имя пользователя: `ycuser`.
+      * В поле **SSH-ключ** выберите SSH-ключ, сохраненный в вашем профиле [пользователя организации](../../organization/concepts/membership.md).
         
         Если в вашем профиле нет сохраненных SSH-ключей или вы хотите добавить новый ключ:
         
-        1. Нажмите кнопку **{{ ui-key.yacloud.compute.instances.create.button_add-ssh-key }}**.
+        1. Нажмите кнопку **Добавить ключ**.
         1. Задайте имя SSH-ключа.
         1. Выберите вариант:
         
-            * `{{ ui-key.yacloud_components.ssh-key-add-dialog.value_radio-manual }}` — вставьте содержимое открытого [SSH](../../glossary/ssh-keygen.md)-ключа. Пару SSH-ключей необходимо [создать](../../compute/operations/vm-connect/ssh.md#creating-ssh-keys) самостоятельно.
-            * `{{ ui-key.yacloud_components.ssh-key-add-dialog.value_radio-upload }}` — загрузите открытую часть SSH-ключа. Пару SSH-ключей необходимо создать самостоятельно.
-            * `{{ ui-key.yacloud_components.ssh-key-add-dialog.value_radio-generate }}` — автоматическое создание пары SSH-ключей.
+            * `Ввести вручную` — вставьте содержимое открытого [SSH](../../glossary/ssh-keygen.md)-ключа. Пару SSH-ключей необходимо [создать](../../compute/operations/vm-connect/ssh.md#creating-ssh-keys) самостоятельно.
+            * `Загрузить из файла` — загрузите открытую часть SSH-ключа. Пару SSH-ключей необходимо создать самостоятельно.
+            * `Сгенерировать ключ` — автоматическое создание пары SSH-ключей.
             
               При добавлении сгенерированного SSH-ключа будет создан и загружен архив с парой ключей. В ОС на базе Linux или macOS распакуйте архив в папку `/home/<имя_пользователя>/.ssh`. В ОС Windows распакуйте архив в папку `C:\Users\<имя_пользователя>/.ssh`. Дополнительно вводить открытый ключ в консоли управления не требуется.
         
-        1. Нажмите кнопку **{{ ui-key.yacloud.common.add }}**.
+        1. Нажмите кнопку **Добавить**.
         
         SSH-ключ будет добавлен в ваш профиль пользователя организации. Если в организации [отключена](../../organization/operations/os-login-access.md) возможность добавления пользователями SSH-ключей в свои профили, добавленный открытый SSH-ключ будет сохранен только в профиле пользователя внутри создаваемого ресурса.
 
-  1. В блоке **{{ ui-key.yacloud.compute.instances.create.section_base }}** задайте имя ВМ: `net-vm`.
-  1. Остальные настройки оставьте без изменения и нажмите кнопку **{{ ui-key.yacloud.compute.instances.create.button_create }}**.
+  1. В блоке **Общая информация** задайте имя ВМ: `net-vm`.
+  1. Остальные настройки оставьте без изменения и нажмите кнопку **Создать ВМ**.
 
   Аналогично создайте ВМ `dev-vm` и `prod-vm` в соответствующих каталогах.
 
@@ -467,7 +467,7 @@
 
      ```bash
      yc compute instance create --name=net-vm --hostname=net-vm \
-       --zone={{ region-id }}-a \
+       --zone=ru-central1-a \
        --platform=standard-v3 \
        --cores=2 --memory=4G --core-fraction=100 \
        --create-boot-disk image-folder-id=standard-images,image-family=ubuntu-2204-lts \
@@ -475,7 +475,7 @@
        --metadata-from-file user-data=vm-config.txt
 
      yc compute instance create --name=dev-vm --hostname=dev-vm \
-       --zone={{ region-id }}-b \
+       --zone=ru-central1-b \
        --platform=standard-v3 \
        --cores=2 --memory=4G --core-fraction=100 \
        --create-boot-disk image-folder-id=standard-images,image-family=ubuntu-2204-lts \
@@ -483,7 +483,7 @@
        --metadata-from-file user-data=vm-config.txt
 
      yc compute instance create --name=prod-vm --hostname=prod-vm \
-       --zone={{ region-id }}-d \
+       --zone=ru-central1-d \
        --platform=standard-v3 \
        --cores=2 --memory=4G --core-fraction=100 \
        --create-boot-disk image-folder-id=standard-images,image-family=ubuntu-2204-lts \
@@ -493,11 +493,11 @@
 
      {% note info %}
      
-     Команды [`yc compute instance create`](../../cli/cli-ref/compute/cli-ref/instance/create.md) | [`create-with-container`](../../cli/cli-ref/compute/cli-ref/instance/create-with-container.md) | [`update`](../../cli/cli-ref/compute/cli-ref/instance/update.md) | [`add-metadata`](../../cli/cli-ref/compute/cli-ref/instance/add-metadata.md) поддерживают подстановку в метаданные ВМ значений переменных окружения. Эти значения, заданные в ключе `user-data` в формате `$<имя_переменной>`, в момент выполнения команды {{ yandex-cloud }} CLI будут подставлены в метаданные ВМ из переменных окружения среды, в которой выполняется команда. 
+     Команды [`yc compute instance create`](../../cli/cli-ref/compute/cli-ref/instance/create.md) | [`create-with-container`](../../cli/cli-ref/compute/cli-ref/instance/create-with-container.md) | [`update`](../../cli/cli-ref/compute/cli-ref/instance/update.md) | [`add-metadata`](../../cli/cli-ref/compute/cli-ref/instance/add-metadata.md) поддерживают подстановку в метаданные ВМ значений переменных окружения. Эти значения, заданные в ключе `user-data` в формате `$<имя_переменной>`, в момент выполнения команды Yandex Cloud CLI будут подставлены в метаданные ВМ из переменных окружения среды, в которой выполняется команда. 
      
      Чтобы изменить такое поведение, не подставлять значение переменной из среды выполнения команды CLI и передать в метаданные ВМ имя переменной в формате `$<имя_переменной>`, используйте синтаксис с двумя символами доллара. Например: `$$<имя_переменной>`.
      
-     Подробнее см. в разделе [{#T}](../../compute/concepts/metadata/sending-metadata.md#environment-variables).
+     Подробнее см. в разделе [Особенности передачи переменных окружения в метаданных через CLI](../../compute/concepts/metadata/sending-metadata.md#environment-variables).
      
      {% endnote %}
 
@@ -509,7 +509,7 @@
      PROD_VM_IP=$(yc compute instance get prod-vm --format=json | jq -r '.network_interfaces[0].primary_v4_address.one_to_one_nat.address')
      ```
 
-- {{ TF }} {#tf}
+- Terraform {#tf}
 
   1. Опишите входные переменные:
 
@@ -555,7 +555,7 @@
      resource "yandex_compute_disk" "boot-disk-1" {
        name     = "boot-disk-1"
        type     = "network-hdd"
-       zone     = "{{ region-id }}-a"
+       zone     = "ru-central1-a"
        size     = "20"
        image_id = yandex_compute_image.vm_image.id
      }
@@ -563,7 +563,7 @@
      resource "yandex_compute_disk" "boot-disk-2" {
        name     = "boot-disk-2"
        type     = "network-hdd"
-       zone     = "{{ region-id }}-b"
+       zone     = "ru-central1-b"
        size     = "20"
        image_id = yandex_compute_image.vm_image.id
      }
@@ -571,7 +571,7 @@
      resource "yandex_compute_disk" "boot-disk-3" {
        name     = "boot-disk-3"
        type     = "network-hdd"
-       zone     = "{{ region-id }}-d"
+       zone     = "ru-central1-d"
        size     = "20"
        image_id = yandex_compute_image.vm_image.id
      }
@@ -581,7 +581,7 @@
        name        = "net-vm"
        hostname    = "net-vm"
        platform_id = "standard-v3"
-       zone        = "{{ region-id }}-a"
+       zone        = "ru-central1-a"
        resources {
          cores  = 2
          memory = 4
@@ -609,7 +609,7 @@
        name        = "dev-vm"
        hostname    = "dev-vm"
        platform_id = "standard-v3"
-       zone        = "{{ region-id }}-b"
+       zone        = "ru-central1-b"
        resources {
          cores  = 2
          memory = 4
@@ -637,7 +637,7 @@
        name        = "prod-vm"
        hostname    = "prod-vm"
        platform_id = "standard-v3"
-       zone        = "{{ region-id }}-d"
+       zone        = "ru-central1-d"
        resources {
          cores  = 2
          memory = 4

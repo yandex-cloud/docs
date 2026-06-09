@@ -5,7 +5,7 @@ Deletes the specified SPQR user.
 ## HTTP request
 
 ```
-DELETE https://{{ api-host-mdb }}/managed-spqr/v1/clusters/{clusterId}/users/{userName}
+DELETE https://mdb.api.cloud.yandex.net/managed-spqr/v1/clusters/{clusterId}/users/{userName}
 ```
 
 ## Path parameters

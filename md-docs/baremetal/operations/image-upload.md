@@ -1,18 +1,18 @@
 # Загрузить собственный образ операционной системы
 
-Вы можете добавить [собственный образ](../concepts/images.md#user-images) операционной системы или программного продукта, чтобы иметь возможность самостоятельно установить его на сервер. Для этого нужно сначала загрузить файл образа в [бакет](../../storage/concepts/bucket.md) сервиса {{ objstorage-full-name }}.
+Вы можете добавить [собственный образ](../concepts/images.md#user-images) операционной системы или программного продукта, чтобы иметь возможность самостоятельно установить его на сервер. Для этого нужно сначала загрузить файл образа в [бакет](../../storage/concepts/bucket.md) сервиса Yandex Object Storage.
 
-## Загрузите файл образа в {{ objstorage-name }} {#upload-file}
+## Загрузите файл образа в Object Storage {#upload-file}
 
 {% note alert %}
 
-Размер загружаемого в {{ objstorage-name }} файла образа не может превышать 50 ГБ.
+Размер загружаемого в Object Storage файла образа не может превышать 50 ГБ.
 
 {% endnote %}
 
-[Загрузите](image-upload.md#upload-file) ISO-образ в [{{ objstorage-full-name }}](../../storage/index.md) и получите ссылку на загруженный объект:
+[Загрузите](image-upload.md#upload-file) ISO-образ в [Yandex Object Storage](../../storage/index.md) и получите ссылку на загруженный объект:
 
-1. Создайте бакет {{ objstorage-name }}:
+1. Создайте бакет Object Storage:
 
     {% note info %}
 
@@ -24,18 +24,18 @@
 
     - Консоль управления {#console}
 
-      1. В [консоли управления]({{ link-console-main }}) выберите каталог, в котором хотите создать бакет.
-      1. Перейдите в сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_storage }}**.
-      1. Справа сверху нажмите **{{ ui-key.yacloud.storage.buckets.button_create }}**.
+      1. В [консоли управления](https://console.yandex.cloud) выберите каталог, в котором хотите создать бакет.
+      1. Перейдите в сервис **Object Storage**.
+      1. Справа сверху нажмите **Создать бакет**.
       1. На странице создания бакета:
 
           1. Введите имя бакета в соответствии с [правилами именования](../../storage/concepts/bucket.md#naming).
-          1. При необходимости задайте ограничение на максимальный размер бакета или включите опцию **{{ ui-key.yacloud.storage.bucket.settings.label_size-limit-disabled }}**.
-          1. Значения остальных параметров оставьте без изменения и нажмите **{{ ui-key.yacloud.storage.buckets.create.button_create }}**.
+          1. При необходимости задайте ограничение на максимальный размер бакета или включите опцию **Без ограничения**.
+          1. Значения остальных параметров оставьте без изменения и нажмите **Создать бакет**.
 
-    - {{ yandex-cloud }} CLI {#cli}
+    - Yandex Cloud CLI {#cli}
 
-      Если у вас еще нет интерфейса командной строки {{ yandex-cloud }} (CLI), [установите и инициализируйте его](../../cli/quickstart.md#install).
+      Если у вас еще нет интерфейса командной строки Yandex Cloud (CLI), [установите и инициализируйте его](../../cli/quickstart.md#install).
 
       По умолчанию используется каталог, указанный при [создании](../../cli/operations/profile/profile-create.md) профиля CLI. Чтобы изменить каталог по умолчанию, используйте команду `yc config set folder-id <идентификатор_каталога>`. Также для любой команды вы можете указать другой каталог с помощью параметров `--folder-name` или `--folder-id`. Если вы обращаетесь к ресурсу по имени, поиск будет выполнен в каталоге по умолчанию. Если вы обращаетесь к ресурсу по идентификатору, поиск будет выполнен глобально — во всех каталогах с учетом прав доступа.
 
@@ -59,7 +59,7 @@
           resource_id: e3e9neva43dl********
           ```
 
-          Подробнее о команде `yc storage bucket create` см. в [Справочнике {{ yandex-cloud }} CLI](../../cli/cli-ref/storage/cli-ref/bucket/create.md).
+          Подробнее о команде `yc storage bucket create` см. в [Справочнике Yandex Cloud CLI](../../cli/cli-ref/storage/cli-ref/bucket/create.md).
 
     {% endlist %}
 
@@ -71,17 +71,17 @@
 
       {% note info %}
 
-      Через консоль управления нельзя загрузить объекты размером более 5 ГБ (см. [{#T}](../../storage/concepts/limits.md)). Для загрузки больших объектов используйте другие [инструменты](../../storage/tools/index.md).
+      Через консоль управления нельзя загрузить объекты размером более 5 ГБ (см. [Квоты и лимиты в Object Storage](../../storage/concepts/limits.md)). Для загрузки больших объектов используйте другие [инструменты](../../storage/tools/index.md).
 
       {% endnote %}
 
-      1. В [консоли управления]({{ link-console-main }}) Перейдите в сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_storage }}** и перейдите в бакет, в который нужно загрузить образ.
-      1. На панели слева выберите ![image](../../_assets/console-icons/folder-tree.svg) **{{ ui-key.yacloud.storage.bucket.switch_files }}** и в правом верхнем углу экрана нажмите кнопку ![arrow-up-from-line](../../_assets/console-icons/arrow-up-from-line.svg) **{{ ui-key.yacloud.storage.bucket.button_upload }}**.
+      1. В [консоли управления](https://console.yandex.cloud) Перейдите в сервис **Object Storage** и перейдите в бакет, в который нужно загрузить образ.
+      1. На панели слева выберите ![image](../../_assets/console-icons/folder-tree.svg) **Объекты** и в правом верхнем углу экрана нажмите кнопку ![arrow-up-from-line](../../_assets/console-icons/arrow-up-from-line.svg) **Загрузить**.
       1. В открывшемся окне выберите файл с образом и нажмите **Открыть**.
-      1. В окне загрузки объектов нажмите **{{ ui-key.yacloud.storage.button_upload }}** и дождитесь завершения загрузки.
+      1. В окне загрузки объектов нажмите **Загрузить** и дождитесь завершения загрузки.
       1. Обновите страницу.
 
-    - {{ yandex-cloud }} CLI {#cli}
+    - Yandex Cloud CLI {#cli}
 
       1. Выполните команду:
 
@@ -104,7 +104,7 @@
           etag: '"87740887a5159e2685500c02********"'
           request_id: 300dceee********
           ```
-      Подробнее о команде `yc storage s3api put-object` см. в [Справочнике {{ yandex-cloud }} CLI](../../cli/cli-ref/storage/cli-ref/s3api/put-object.md).
+      Подробнее о команде `yc storage s3api put-object` см. в [Справочнике Yandex Cloud CLI](../../cli/cli-ref/storage/cli-ref/s3api/put-object.md).
 
     {% endlist %}
 
@@ -114,26 +114,26 @@
 
     - Консоль управления {#console}
 
-      1. В [консоли управления]({{ link-console-main }}) выберите каталог.
-      1. Перейдите в сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_storage }}** и выберите нужный бакет.
+      1. В [консоли управления](https://console.yandex.cloud) выберите каталог.
+      1. Перейдите в сервис **Object Storage** и выберите нужный бакет.
       1. Нажмите на имя объекта с загруженным ISO-образом.
-      1. В правом верхнем углу экрана нажмите кнопку ![link](../../_assets/storage/link.svg) **{{ ui-key.yacloud.storage.file.button_generate }}**.
-      1. Нажмите **{{ ui-key.yacloud.storage.file.button_generate }}**.
+      1. В правом верхнем углу экрана нажмите кнопку ![link](../../_assets/storage/link.svg) **Получить ссылку**.
+      1. Нажмите **Получить ссылку**.
       1. Скопируйте полученную ссылку.
 
     {% endlist %}
 
-## Создайте образ в {{ baremetal-name }} {#create-image}
+## Создайте образ в BareMetal {#create-image}
 
-Создайте новый образ по ссылке, полученной в {{ objstorage-name }}:
+Создайте новый образ по ссылке, полученной в Object Storage:
 
 {% list tabs group=instructions %}
 
 - Консоль управления {#console}
 
-  1. В [консоли управления]({{ link-console-main }}) выберите каталог, в котором хотите создать образ.
-  1. Перейдите в сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_baremetal }}**.
-  1. На панели слева выберите ![icon](../../_assets/console-icons/layers.svg) **{{ ui-key.yacloud.baremetal.label_images_duoXD }}**.
+  1. В [консоли управления](https://console.yandex.cloud) выберите каталог, в котором хотите создать образ.
+  1. Перейдите в сервис **BareMetal**.
+  1. На панели слева выберите ![icon](../../_assets/console-icons/layers.svg) **Загрузочные образы**.
   1. Нажмите кнопку **Загрузить образ**.
   1. Введите имя образа. Требования к имени:
 
@@ -142,12 +142,12 @@
        * первый символ — буква, последний — не дефис.
 
   1. (Опционально) Добавьте описание образа.
-  1. Вставьте ссылку на образ, полученную в {{ objstorage-name }}.
-  1. Нажмите кнопку **{{ ui-key.yacloud.baremetal.label_create-image }}**.
+  1. Вставьте ссылку на образ, полученную в Object Storage.
+  1. Нажмите кнопку **Загрузить**.
 
 - CLI {#cli}
 
-   Если у вас еще нет интерфейса командной строки {{ yandex-cloud }} (CLI), [установите и инициализируйте его](../../cli/quickstart.md#install).
+   Если у вас еще нет интерфейса командной строки Yandex Cloud (CLI), [установите и инициализируйте его](../../cli/quickstart.md#install).
 
    По умолчанию используется каталог, указанный при [создании](../../cli/operations/profile/profile-create.md) профиля CLI. Чтобы изменить каталог по умолчанию, используйте команду `yc config set folder-id <идентификатор_каталога>`. Также для любой команды вы можете указать другой каталог с помощью параметров `--folder-name` или `--folder-id`. Если вы обращаетесь к ресурсу по имени, поиск будет выполнен в каталоге по умолчанию. Если вы обращаетесь к ресурсу по идентификатору, поиск будет выполнен глобально — во всех каталогах с учетом прав доступа.
 
@@ -175,12 +175,12 @@
         * первый символ — буква, последний — не дефис.
 
       * `--description` — описание образа. Необязательный параметр.
-      * `--uri` — ссылка на образ, полученная в {{ objstorage-name }}.
+      * `--uri` — ссылка на образ, полученная в Object Storage.
       * `--labels` — метки образа. Необязательный параметр.
 
 - API {#api}
 
-  Чтобы создать образ в {{ baremetal-name }}, воспользуйтесь методом REST API [create](../api-ref/Image/create.md) для ресурса [Image](../api-ref/Image/index.md) или вызовом gRPC API [ImageService/Create](../api-ref/grpc/Image/create.md).
+  Чтобы создать образ в BareMetal, воспользуйтесь методом REST API [create](../api-ref/Image/create.md) для ресурса [Image](../api-ref/Image/index.md) или вызовом gRPC API [ImageService/Create](../api-ref/grpc/Image/create.md).
   
   Выполните запрос:
   
@@ -211,7 +211,7 @@
     * первый символ — буква, последний — не дефис.
   
   * `description` — описание образа. Необязательный параметр.
-  * `uri` — ссылка на образ, полученная в {{ objstorage-name }}.
+  * `uri` — ссылка на образ, полученная в Object Storage.
   * `labels` — метки образа. Необязательный параметр.
     
   Результат:
@@ -235,6 +235,6 @@
 
 {% endlist %}
 
-## Удалите образ из {{ objstorage-name }} {#delete-image}
+## Удалите образ из Object Storage {#delete-image}
 
-После создания образа можно [удалить файл образа](../../storage/operations/objects/delete.md) из сервиса {{ objstorage-name }}. Также можно [удалить бакет](../../storage/operations/buckets/delete.md), если в нем не осталось объектов.
+После создания образа можно [удалить файл образа](../../storage/operations/objects/delete.md) из сервиса Object Storage. Также можно [удалить бакет](../../storage/operations/buckets/delete.md), если в нем не осталось объектов.

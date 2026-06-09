@@ -7,7 +7,7 @@
 ## Подготовка к работе {#before-you-begin}
 
 1. [Создайте сервисный аккаунт](../../iam/operations/sa/create.md).
-1. [Назначьте сервисному аккаунту роли](../../iam/operations/sa/assign-role-for-sa.md), которые нужны для вашего проекта, например [storage.editor](../security/index.md#storage-editor) на бакет — для работы с конкретным бакетом, или на каталог — для работы со всеми бакетами в каталоге. Подробнее о ролях см. на странице [Управление доступом с помощью {{ iam-full-name }}](../security/index.md).
+1. [Назначьте сервисному аккаунту роли](../../iam/operations/sa/assign-role-for-sa.md), которые нужны для вашего проекта, например [storage.editor](../security/index.md#storage-editor) на бакет — для работы с конкретным бакетом, или на каталог — для работы со всеми бакетами в каталоге. Подробнее о ролях см. на странице [Управление доступом с помощью Yandex Identity and Access Management](../security/index.md).
 
           
     Чтобы работать с объектами в [зашифрованном](../concepts/encryption.md) бакете, у пользователя или [сервисного аккаунта](../../iam/concepts/users/service-accounts.md) вместе с [ролью](../security/index.md#storage-configurer) `storage.configurer` должны быть следующие [роли на ключ шифрования](../../kms/operations/key-access.md):
@@ -16,13 +16,13 @@
     * `kms.keys.decrypter` — для чтения ключа, [расшифровки](../../kms/security/index.md#kms-keys-decrypter) и скачивания объектов;
     * `kms.keys.encrypterDecrypter` — включает [разрешения](../../kms/security/index.md#kms-keys-encrypterDecrypter), предоставляемые ролями `kms.keys.encrypter` и `kms.keys.decrypter`.
     
-    Подробнее см. [Сервисные роли {{ kms-name }}](../../kms/security/index.md#service-roles).
+    Подробнее см. [Сервисные роли Key Management Service](../../kms/security/index.md#service-roles).
 
 
 1. [Создайте статический ключ доступа](../../iam/operations/authentication/manage-access-keys.md#create-access-key).
 
     
-    В результате вы получите данные статического ключа доступа. Для аутентификации в {{ objstorage-name }} вам понадобятся:
+    В результате вы получите данные статического ключа доступа. Для аутентификации в Object Storage вам понадобятся:
     
     * `key_id` — идентификатор статического ключа доступа;
     * `secret` — секретный ключ.
@@ -31,7 +31,7 @@
 
 
 
-Авторизация статическими ключами необходима для обращения напрямую к HTTP API и поддерживается инструментами, перечисленными в разделе [{#T}](index.md).
+Авторизация статическими ключами необходима для обращения напрямую к HTTP API и поддерживается инструментами, перечисленными в разделе [Поддерживаемые инструменты](index.md).
   
 {% note info %}
 
@@ -40,7 +40,7 @@
 {% endnote %}
 
 
-Статический ключ для доступа к {{ objstorage-name }} можно безопасно хранить в сервисе {{ lockbox-full-name }}. Подробнее см. [{#T}](../tutorials/static-key-in-lockbox/index.md).
+Статический ключ для доступа к Object Storage можно безопасно хранить в сервисе Yandex Lockbox. Подробнее см. [Использование секрета Yandex Lockbox для хранения статического ключа доступа](../tutorials/static-key-in-lockbox/index.md).
 
 {% note info %}
 
@@ -86,27 +86,27 @@
   
       ```text
       [default]
-      region = {{ region-id }}
-      endpoint_url = https://{{ s3-storage-host }}
+      region = ru-central1
+      endpoint_url = https://storage.yandexcloud.net
       ```
   
       {% note info %}
   
-      Некоторые приложения, предназначенные для работы с Amazon S3, не позволяют указывать регион, поэтому {{ objstorage-name }} принимает также значение основного региона AWS — [первая строка в таблице регионов](https://docs.aws.amazon.com/global-infrastructure/latest/regions/aws-regions.html#available-regions).
+      Некоторые приложения, предназначенные для работы с Amazon S3, не позволяют указывать регион, поэтому Object Storage принимает также значение основного региона AWS — [первая строка в таблице регионов](https://docs.aws.amazon.com/global-infrastructure/latest/regions/aws-regions.html#available-regions).
   
       {% endnote %}
   
-  Для доступа к {{ objstorage-name }} используйте эндпоинт `https://{{ s3-storage-host }}`.
+  Для доступа к Object Storage используйте эндпоинт `https://storage.yandexcloud.net`.
 
-- {{ sf-full-name }} {#functions}
+- Yandex Cloud Functions {#functions}
   
-  В функцию {{ sf-name }} [добавьте переменные окружения](../../functions/operations/function/version-manage.md#version-env):
+  В функцию Cloud Functions [добавьте переменные окружения](../../functions/operations/function/version-manage.md#version-env):
 
   * `AWS_ACCESS_KEY_ID` — идентификатор статического ключа сервисного аккаунта.
   * `AWS_SECRET_ACCESS_KEY` — секретный ключ.
   * `AWS_DEFAULT_REGION` — идентификатор региона.
 
-  Для доступа к {{ objstorage-name }} используйте адрес `{{ s3-storage-host }}`.
+  Для доступа к Object Storage используйте адрес `storage.yandexcloud.net`.
 
 {% endlist %}
 
@@ -127,7 +127,7 @@
   session = boto3.session.Session()
   s3 = session.client(
       service_name='s3',
-      endpoint_url='https://{{ s3-storage-host }}'
+      endpoint_url='https://storage.yandexcloud.net'
   )
   
   # Создать новый бакет
@@ -162,7 +162,7 @@
   session = boto3.session.Session()
   s3 = session.client(
       service_name='s3',
-      endpoint_url='https://{{ s3-storage-host }}',
+      endpoint_url='https://storage.yandexcloud.net',
       aws_access_key_id='<идентификатор_статического_ключа>',
       aws_secret_access_key='<секретный_ключ>'
   )
@@ -184,9 +184,9 @@
   from boto.s3.connection import S3Connection
   os.environ['S3_USE_SIGV4'] = 'True'
   conn = S3Connection(
-      host='{{ s3-storage-host }}'
+      host='storage.yandexcloud.net'
   )
-  conn.auth_region_name = '{{ region-id }}'
+  conn.auth_region_name = 'ru-central1'
   
   # Создать новый бакет
   conn.create_bucket('bucket-name')
@@ -220,7 +220,7 @@
 
   {% endcut %}
 
-- {{ sf-full-name }} {#functions}
+- Yandex Cloud Functions {#functions}
 
   См. пример в [руководстве по конвертации видео](../tutorials/video-converting-queue/index.md).
 

@@ -5,7 +5,7 @@ Deletes the specified access key.
 ## HTTP request
 
 ```
-DELETE https://iam.{{ api-host }}/iam/aws-compatibility/v1/accessKeys/{accessKeyId}
+DELETE https://iam.api.cloud.yandex.net/iam/aws-compatibility/v1/accessKeys/{accessKeyId}
 ```
 
 ## Path parameters

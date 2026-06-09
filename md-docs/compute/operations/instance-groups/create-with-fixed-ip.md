@@ -3,7 +3,7 @@
 
 Вы можете использовать [теги](../../concepts/instance-groups/policies/allocation-policy.md#tags) и [переменные](../../concepts/instance-groups/variables-in-the-template.md), чтобы создать группу ВМ с заранее заданными [внутренними](../../../vpc/concepts/address.md#internal-addresses) и [публичными](../../../vpc/concepts/address.md#public-addresses) IP-адресами.
 
-Все операции в {{ ig-name }} выполняются от имени сервисного аккаунта. Если сервисного аккаунта нет, [создайте его](../../../iam/operations/sa/create.md).
+Все операции в Instance Groups выполняются от имени сервисного аккаунта. Если сервисного аккаунта нет, [создайте его](../../../iam/operations/sa/create.md).
 
 Чтобы иметь возможность создавать, обновлять и удалять ВМ в группе [назначьте](../../../iam/operations/sa/assign-role-for-sa.md) сервисному аккаунту роль [compute.editor](../../security/index.md#compute-editor).
 
@@ -13,20 +13,20 @@
 
 - CLI {#cli}
 
-  1. Все операции в {{ ig-name }} выполняются от имени сервисного аккаунта. Если сервисного аккаунта нет, [создайте его](../../../iam/operations/sa/create.md).
+  1. Все операции в Instance Groups выполняются от имени сервисного аккаунта. Если сервисного аккаунта нет, [создайте его](../../../iam/operations/sa/create.md).
   1. Создайте облачную [сеть](../../../vpc/operations/network-create.md) и [подсети](../../../vpc/operations/subnet-create.md), например в двух [зонах доступности](../../../overview/concepts/geo-scope.md), если у вас их нет.
   1. Если вы хотите, чтобы ВМ из группы были доступны из интернета, [зарезервируйте](../../../vpc/operations/get-static-ip.md) необходимое количество статических публичных IP-адресов. Для примера, приведенного ниже, вам будет достаточно четырех IP-адресов.
-  1. Если у вас еще нет интерфейса командной строки {{ yandex-cloud }} (CLI), [установите и инициализируйте его](../../../cli/quickstart.md#install).
+  1. Если у вас еще нет интерфейса командной строки Yandex Cloud (CLI), [установите и инициализируйте его](../../../cli/quickstart.md#install).
 
       По умолчанию используется каталог, указанный при [создании](../../../cli/operations/profile/profile-create.md) профиля CLI. Чтобы изменить каталог по умолчанию, используйте команду `yc config set folder-id <идентификатор_каталога>`. Также для любой команды вы можете указать другой каталог с помощью параметров `--folder-name` или `--folder-id`. Если вы обращаетесь к ресурсу по имени, поиск будет выполнен в каталоге по умолчанию. Если вы обращаетесь к ресурсу по идентификатору, поиск будет выполнен глобально — во всех каталогах с учетом прав доступа.
 
   1. Посмотрите описание команды [CLI](../../../cli/index.md) для создания группы ВМ:
 
      ```bash
-     {{ yc-compute-ig }} create --help
+     yc compute instance-group create --help
      ```
 
-  1. Выберите один из публичных образов {{ marketplace-full-name }}, например [Ubuntu 22.04 LTS](https://yandex.cloud/ru/marketplace/products/yc/ubuntu-22-04-lts).
+  1. Выберите один из публичных образов Yandex Cloud Marketplace, например [Ubuntu 22.04 LTS](https://yandex.cloud/ru/marketplace/products/yc/ubuntu-22-04-lts).
 
      Чтобы получить список доступных образов с помощью CLI, выполните команду:
      
@@ -53,7 +53,7 @@
      * `ID` — идентификатор образа.
      * `NAME` — имя образа.
      * `FAMILY` — идентификатор [семейства образов](../../concepts/image.md#family), к которому относится образ.
-     * `PRODUCT IDS` — идентификаторы [продуктов](../../../marketplace/concepts/product.md) {{ marketplace-full-name }}, связанных с образом.
+     * `PRODUCT IDS` — идентификаторы [продуктов](../../../marketplace/concepts/product.md) Yandex Cloud Marketplace, связанных с образом.
      * `STATUS` — текущий статус образа. Может принимать одно из значений:
      
          * `STATUS_UNSPECIFIED` — статус образа не определен.
@@ -66,19 +66,19 @@
 
       Чтобы назначить ВМ группы фиксированные IP-адреса, добавьте в спецификацию:
 
-      * В поле `allocation_policy` — вложенное поле `zones` с парными параметрами `zone_id` и `instance_tags_pool` для каждой из [зон доступности](../../../overview/concepts/geo-scope.md), в которых будут создаваться ВМ. Например, если ВМ группы будут расположены в зонах доступности `{{ region-id }}-a` и `{{ region-id }}-b`, поле `allocation_policy` будет выглядеть так:
+      * В поле `allocation_policy` — вложенное поле `zones` с парными параметрами `zone_id` и `instance_tags_pool` для каждой из [зон доступности](../../../overview/concepts/geo-scope.md), в которых будут создаваться ВМ. Например, если ВМ группы будут расположены в зонах доступности `ru-central1-a` и `ru-central1-b`, поле `allocation_policy` будет выглядеть так:
 
           ```yml
           allocation_policy:
             zones:
-              - zone_id: {{ region-id }}-a
+              - zone_id: ru-central1-a
                 instance_tags_pool:
-                - <тег1_зоны_{{ region-id }}-a>
-                - <тег2_зоны_{{ region-id }}-a>
-              - zone_id: {{ region-id }}-b
+                - <тег1_зоны_ru-central1-a>
+                - <тег2_зоны_ru-central1-a>
+              - zone_id: ru-central1-b
                 instance_tags_pool:
-                - <тег1_зоны_{{ region-id }}-b>
-                - <тег2_зоны_{{ region-id }}-b>
+                - <тег1_зоны_ru-central1-b>
+                - <тег2_зоны_ru-central1-b>
           ```
 
           Где:
@@ -90,14 +90,14 @@
 
           ```yml
           variables:
-            - key: ip_<тег1_зоны_{{ region-id }}-a>
+            - key: ip_<тег1_зоны_ru-central1-a>
               value: <внутренний_IP-адрес1>
-            - key: external_ip_<тег1_зоны_{{ region-id }}-a>
+            - key: external_ip_<тег1_зоны_ru-central1-a>
               value: <публичный_IP-адрес1>
             ...
-            - key: ip_<тег2_зоны_{{ region-id }}-b>
+            - key: ip_<тег2_зоны_ru-central1-b>
               value: <внутренний_IP-адрес_4>
-            - key: external_ip_<тег2_зоны_{{ region-id }}-b>
+            - key: external_ip_<тег2_зоны_ru-central1-b>
               value: <публичный_IP-адрес_4>
           ```
 
@@ -114,7 +114,7 @@
 
               Если виртуальные машины группы будут создаваться без привязанных публичных IP-адресов, не задавайте переменные с префиксом `external_ip`.
 
-          Подробнее об использовании переменных в шаблоне ВМ см. в разделе [{#T}](../../concepts/instance-groups/variables-in-the-template.md).
+          Подробнее об использовании переменных в шаблоне ВМ см. в разделе [Переменные в шаблоне виртуальной машины](../../concepts/instance-groups/variables-in-the-template.md).
 
       * В поле `instance_template.name` — имя виртуальной машины, содержащее шаблон тега. Например: `sample-vm-{instance.tag}`. После подстановки значений тегов в этот шаблон имена ВМ будут выглядеть как `sample-vm-ru1-a1`, `sample-vm-ru1-b2` и т.д.
 
@@ -125,8 +125,8 @@
             ...
             network_interface_specs:
               - subnet_ids:
-                  - <идентификатор_подсети_в_{{ region-id }}-a>
-                  - <идентификатор_подсети_в_{{ region-id }}-b>
+                  - <идентификатор_подсети_в_ru-central1-a>
+                  - <идентификатор_подсети_в_ru-central1-b>
                 primary_v4_address_spec:
                   address: "{ip_{instance.tag}}"
                   one_to_one_nat_spec:
@@ -154,11 +154,11 @@
         max_unavailable: 2
       allocation_policy:
         zones:
-          - zone_id: {{ region-id }}-a
+          - zone_id: ru-central1-a
             instance_tags_pool:
             - ru1-a1
             - ru1-a2
-          - zone_id: {{ region-id }}-b
+          - zone_id: ru-central1-b
             instance_tags_pool:
             - ru1-b1
             - ru1-b2
@@ -203,28 +203,28 @@
 
       В данном примере приведена спецификация для [создания группы ВМ фиксированного размера](create-fixed-group.md) с фиксированными внутренними и публичными IP-адресами.
 
-      Подробнее о параметрах спецификации группы ВМ см. в разделе [{#T}](../../concepts/instance-groups/specification.md).
+      Подробнее о параметрах спецификации группы ВМ см. в разделе [Спецификация группы виртуальных машин в формате YAML](../../concepts/instance-groups/specification.md).
 
   1. Создайте группу ВМ в каталоге по умолчанию:
 
       ```bash
-      {{ yc-compute-ig }} create --file specification.yaml
+      yc compute instance-group create --file specification.yaml
       ```
 
       Данная команда создаст группу ВМ со следующими характеристиками:
       * С именем `my-vm-group-with-fixed-ips`.
       * С OC `Ubuntu 22.04 LTS`.
-      * С четырьмя ВМ — по две в зонах доступности `{{ region-id }}-a` и `{{ region-id }}-b`.
+      * С четырьмя ВМ — по две в зонах доступности `ru-central1-a` и `ru-central1-b`.
       * С двумя vCPU и двумя ГБ RAM.
       * С сетевым [HDD-диском](../../concepts/disk.md#disks-types) объемом 20 ГБ.
       * К каждой ВМ группы будут привязаны фиксированные внутренний и публичный [IP-адреса](../../../vpc/concepts/address.md).
 
-- {{ TF }} {#tf}
+- Terraform {#tf}
 
-  Если у вас еще нет {{ TF }}, [установите его и настройте провайдер {{ yandex-cloud }}](../../../tutorials/infrastructure-management/terraform-quickstart.md#install-terraform).
+  Если у вас еще нет Terraform, [установите его и настройте провайдер Yandex Cloud](../../../tutorials/infrastructure-management/terraform-quickstart.md#install-terraform).
   
   
-  Чтобы управлять инфраструктурой с помощью {{ TF }} от имени сервисного аккаунта или пользовательских аккаунтов: аккаунта на Яндексе, федеративного аккаунта и локального пользователя, [аутентифицируйтесь](../../../terraform/authentication.md) соответствующим способом.
+  Чтобы управлять инфраструктурой с помощью Terraform от имени сервисного аккаунта или пользовательских аккаунтов: аккаунта на Яндексе, федеративного аккаунта и локального пользователя, [аутентифицируйтесь](../../../terraform/authentication.md) соответствующим способом.
 
   1. Опишите в конфигурационном файле параметры ресурсов, которые вы хотите создать:
 
@@ -281,13 +281,13 @@
         }
 
         allocation_policy {
-          zones = ["{{ region-id }}-a","{{ region-id }}-b"]
+          zones = ["ru-central1-a","ru-central1-b"]
           instance_tags_pool {
-            zone = "{{ region-id }}-a"
+            zone = "ru-central1-a"
             tags = ["ru1-a1","ru1-a2"]
           }
           instance_tags_pool {
-            zone = "{{ region-id }}-b"
+            zone = "ru-central1-b"
             tags = ["ru1-b1","ru1-b2"]
           }
         }
@@ -318,14 +318,14 @@
 
       resource "yandex_vpc_subnet" "ig-subnet-a" {
         name           = "ig-subnet-a"
-        zone           = "{{ region-id }}-a"
+        zone           = "ru-central1-a"
         network_id     = "${yandex_vpc_network.ig-network.id}"
         v4_cidr_blocks = ["192.168.2.0/24"]
       }
 
       resource "yandex_vpc_subnet" "ig-subnet-b" {
         name           = "ig-subnet-b"
-        zone           = "{{ region-id }}-b"
+        zone           = "ru-central1-b"
         network_id     = "${yandex_vpc_network.ig-network.id}"
         v4_cidr_blocks = ["192.168.1.0/24"]
       }
@@ -334,7 +334,7 @@
         name = "external-address-a1"
 
         external_ipv4_address {
-          zone_id = "{{ region-id }}-a"
+          zone_id = "ru-central1-a"
         }
       }
 
@@ -342,7 +342,7 @@
         name = "external-address-a2"
 
         external_ipv4_address {
-          zone_id = "{{ region-id }}-a"
+          zone_id = "ru-central1-a"
         }
       }
 
@@ -350,7 +350,7 @@
         name = "external-address-b1"
 
         external_ipv4_address {
-          zone_id = "{{ region-id }}-b"
+          zone_id = "ru-central1-b"
         }
       }
 
@@ -358,7 +358,7 @@
         name = "external-address-b2"
 
         external_ipv4_address {
-          zone_id = "{{ region-id }}-b"
+          zone_id = "ru-central1-b"
         }
       }
       ```
@@ -387,7 +387,7 @@
             * `nat_ip_address` — публичный IP-адрес ВМ. В качестве значения используется шаблон, в который будет подставлено значение из переменной, заданной для данной ВМ в поле `variables`.
           * `metadata` — в [метаданных](../../concepts/vm-metadata.md) передайте имя пользователя ВМ и открытый ключ для [SSH-доступа](../../../glossary/ssh-keygen.md) этого пользователя на ВМ.
 
-            Подробнее см. в разделе [{#T}](../../concepts/vm-metadata.md).
+            Подробнее см. в разделе [Метаданные виртуальной машины](../../concepts/vm-metadata.md).
 
         * `variables` — [переменные](../../concepts/instance-groups/variables-in-the-template.md), назначаемые группе ВМ. Блок содержит список переменных в формате `<имя> = <значение>`. Через переменные с помощью шаблонов в группу ВМ передаются IP-адреса создаваемых ВМ:
           * имя переменной: должно быть в формате `<префикс>_<тег>`:
@@ -402,7 +402,7 @@
 
               Если виртуальные машины группы будут создаваться без привязанных публичных IP-адресов, не задавайте переменные с префиксом `external_ip`.
 
-          Подробнее об использовании переменных в шаблоне ВМ см. в разделе [{#T}](../../concepts/instance-groups/variables-in-the-template.md).
+          Подробнее об использовании переменных в шаблоне ВМ см. в разделе [Переменные в шаблоне виртуальной машины](../../concepts/instance-groups/variables-in-the-template.md).
 
         * [Политики](../../concepts/instance-groups/policies/index.md):
           * `deploy_policy` — [политика развертывания](../../concepts/instance-groups/policies/deploy-policy.md) ВМ в группе.
@@ -413,7 +413,7 @@
 
               Значение тегов, заданных в массиве `tags`, участвует в формировании имен ВМ, а также в формировании переменных, содержащих IP-адреса ВМ. Количество тегов в массиве `tags` для каждой зоны доступности должно соответствовать количеству ВМ, создаваемых в этой зоне. Примеры возможных значений тегов: `ru1-a1`, `ru1-b2` и т.п.
 
-      * `yandex_iam_service_account` — описание [сервисного аккаунта](../../../iam/concepts/users/service-accounts.md). Все операции в {{ ig-name }} выполняются от имени сервисного аккаунта.
+      * `yandex_iam_service_account` — описание [сервисного аккаунта](../../../iam/concepts/users/service-accounts.md). Все операции в Instance Groups выполняются от имени сервисного аккаунта.
 
         Сервисный аккаунт нельзя удалить, пока он связан с группой виртуальных машин.
 
@@ -428,7 +428,7 @@
 
         {% endnote %}
 
-      Более подробную информацию о ресурсах, которые вы можете создать с помощью {{ TF }}, см. в [документации провайдера]({{ tf-provider-link }}).
+      Более подробную информацию о ресурсах, которые вы можете создать с помощью Terraform, см. в [документации провайдера](../../../terraform/index.md).
 
   1. Создайте ресурсы:
 
@@ -451,7 +451,7 @@
          terraform plan
          ```
       
-         В терминале будет выведен список ресурсов с параметрами. На этом этапе изменения не будут внесены. Если в конфигурации есть ошибки, {{ TF }} на них укажет.
+         В терминале будет выведен список ресурсов с параметрами. На этом этапе изменения не будут внесены. Если в конфигурации есть ошибки, Terraform на них укажет.
       1. Примените изменения конфигурации:
       
          ```bash
@@ -460,7 +460,7 @@
       
       1. Подтвердите изменения: введите в терминале слово `yes` и нажмите **Enter**.
 
-      После этого в указанном каталоге будут созданы все требуемые ресурсы. Проверить появление ресурсов и их настройки можно в [консоли управления]({{ link-console-main }}).
+      После этого в указанном каталоге будут созданы все требуемые ресурсы. Проверить появление ресурсов и их настройки можно в [консоли управления](https://console.yandex.cloud).
 
 - API {#api}
 

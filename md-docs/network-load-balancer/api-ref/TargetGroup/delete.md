@@ -5,7 +5,7 @@ Deletes the specified target group.
 ## HTTP request
 
 ```
-DELETE https://load-balancer.{{ api-host }}/load-balancer/v1/targetGroups/{targetGroupId}
+DELETE https://load-balancer.api.cloud.yandex.net/load-balancer/v1/targetGroups/{targetGroupId}
 ```
 
 ## Path parameters

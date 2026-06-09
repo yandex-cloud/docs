@@ -5,7 +5,7 @@ Retrieves the list of PrivateConnection resources associated with the specified 
 ## HTTP request
 
 ```
-GET https://cic.{{ api-host }}/cic/v1/trunkConnections/{trunkConnectionId}/privateConnections
+GET https://cic.api.cloud.yandex.net/cic/v1/trunkConnections/{trunkConnectionId}/privateConnections
 ```
 
 ## Path parameters

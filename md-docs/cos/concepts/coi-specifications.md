@@ -12,9 +12,9 @@
 
 ## COI-спецификация {#coi-spec}
 
-Docker-контейнер в {{ coi }} описывается в спецификации (YAML-файле), основанной на [спецификации подов {{ k8s }}](https://kubernetes.io/docs/reference/kubernetes-api/workload-resources/pod-v1/).
+Docker-контейнер в Container Optimized Image описывается в спецификации (YAML-файле), основанной на [спецификации подов Kubernetes](https://kubernetes.io/docs/reference/kubernetes-api/workload-resources/pod-v1/).
 
-При [создании виртуальной машины на базе {{ coi }}](../tutorials/vm-create.md) из консоли управления или CLI спецификация генерируется автоматически на основе указанных данных. Для [создания группы ВМ на базе {{ coi }}](../tutorials/ig-create.md) спецификацию необходимо составить вручную. Пример спецификации и необходимые ключи описаны ниже.
+При [создании виртуальной машины на базе Container Optimized Image](../tutorials/vm-create.md) из консоли управления или CLI спецификация генерируется автоматически на основе указанных данных. Для [создания группы ВМ на базе Container Optimized Image](../tutorials/ig-create.md) спецификацию необходимо составить вручную. Пример спецификации и необходимые ключи описаны ниже.
 
 ### Пример COI-спецификации Docker-контейнера {#coi-spec-example}
 
@@ -30,7 +30,7 @@ spec:
     env:
     - name: MYENV
       value: myvalue
-    image: {{ registry }}/mirror/ubuntu:16.04
+    image: cr.yandex/mirror/ubuntu:16.04
     name: my-container
     securityContext:
       privileged: false
@@ -71,14 +71,14 @@ spec:
 
 ### Примеры использования {#examples-coi-spec}
 
-* [{#T}](../tutorials/coi-with-terraform.md)
-* [{#T}](../tutorials/serial-port.md)
+* [Создание ВМ и группы ВМ с Container Optimized Image с помощью Terraform](../tutorials/coi-with-terraform.md)
+* [Настройка вывода информации из Docker-контейнера в серийный порт](../tutorials/serial-port.md)
 
 ## Docker Compose-спецификация {#compose-spec}
 
 Инструкции для запуска Docker-контейнеров и конфигурации сервисов указываются в файле спецификации `docker-compose.yaml`, согласно [документации Docker](https://docs.docker.com/compose/compose-file/).
 
-Подробнее о запуске нескольких Docker-контейнеров читайте в разделе [{#T}](../tutorials/docker-compose.md).
+Подробнее о запуске нескольких Docker-контейнеров читайте в разделе [Создание ВМ с Container Optimized Image и несколькими Docker-контейнерами](../tutorials/docker-compose.md).
 
 ### Пример Docker Compose-спецификации {#compose-spec-example}
 
@@ -128,6 +128,6 @@ x-yc-disks:
 
 ### Примеры использования {#examples-compose-spec}
 
-* [{#T}](../tutorials/docker-compose.md)
-* [{#T}](../tutorials/vm-create-with-second-disk.md)
-* [{#T}](../tutorials/coi-fluent-bit-logging.md)
+* [Создание ВМ с Container Optimized Image и несколькими Docker-контейнерами](../tutorials/docker-compose.md)
+* [Создание ВМ с Container Optimized Image и дополнительным томом для Docker-контейнера](../tutorials/vm-create-with-second-disk.md)
+* [Передача логов с Container Optimized Image в Yandex Cloud Logging](../tutorials/coi-fluent-bit-logging.md)

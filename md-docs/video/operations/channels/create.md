@@ -2,19 +2,19 @@
 
 {% list tabs group=instructions %}
 
-- Интерфейс {{ video-name }} {#console}
+- Интерфейс Cloud Video {#console}
 
-  1. Откройте [главную страницу]({{ link-video-main }}) {{ video-name }}.
-  1. Нажмите кнопку ![plus-sign](../../../_assets/console-icons/plus.svg) **{{ ui-key.yacloud_video.channels.action_create-channel }}**.
+  1. Откройте [главную страницу](https://video.yandex.cloud/) Cloud Video.
+  1. Нажмите кнопку ![plus-sign](../../../_assets/console-icons/plus.svg) **Создать канал**.
   1. На странице создания канала введите:
-      * **{{ ui-key.yacloud_video.channels.label_title }}**.
-      * (Опционально) **{{ ui-key.yacloud_video.channels.label_description }}**.
-  1. Нажмите кнопку **{{ ui-key.yacloud_video.common.action_create }}**.
+      * **Имя**.
+      * (Опционально) **Описание**.
+  1. Нажмите кнопку **Создать**.
   
-  После создания канала вы окажетесь внутри этого канала во вкладке ![image](../../../_assets/console-icons/circle-play.svg) **{{ ui-key.yacloud_video.videos.title_videos }}**.
+  После создания канала вы окажетесь внутри этого канала во вкладке ![image](../../../_assets/console-icons/circle-play.svg) **Видео**.
   
-  * Подробнее о каналах см. в разделе [{#T}](../../concepts/index.md#channels).
-  * Подробнее о том, как настроить показ рекламы, см. в разделе [{#T}](settings.md#ad-settings).
+  * Подробнее о каналах см. в разделе [Каналы](../../concepts/index.md#channels).
+  * Подробнее о том, как настроить показ рекламы, см. в разделе [Настроить показ рекламы](settings.md#ad-settings).
 
 - REST API {#api}
 
@@ -23,7 +23,7 @@
   ```bash
   curl \
     --request POST \
-    --url 'https://video.{{ api-host }}/video/v1/channels' \
+    --url 'https://video.api.cloud.yandex.net/video/v1/channels' \
     --header 'Authorization: Bearer <IAM-токен>' \
     --header 'Content-Type: application/json' \
     --data '{
@@ -33,9 +33,9 @@
   ```
 
   Где:
-  * `<IAM-токен>` — [IAM-токен](../../../iam/concepts/authorization/iam-token.md), необходимый для [аутентификации](../../api-ref/authentication.md) в {{ video-name }} API.
-  * `<идентификатор_организации>` — [идентификатор](../../../organization/operations/organization-get-id.md) организации, в которой создается канал {{ video-name }}.
-  * `<имя_канала>` — имя создаваемого канала в {{ video-name }}.
+  * `<IAM-токен>` — [IAM-токен](../../../iam/concepts/authorization/iam-token.md), необходимый для [аутентификации](../../api-ref/authentication.md) в Cloud Video API.
+  * `<идентификатор_организации>` — [идентификатор](../../../organization/operations/organization-get-id.md) организации, в которой создается канал Cloud Video.
+  * `<имя_канала>` — имя создаваемого канала в Cloud Video.
 
   Результат:
   
@@ -73,13 +73,13 @@
       "organization_id": "<идентификатор_организации>",
       "title": "<имя_канала>"
     }' \
-    video.{{ api-host }}:443 yandex.cloud.video.v1.ChannelService/Create
+    video.api.cloud.yandex.net:443 yandex.cloud.video.v1.ChannelService/Create
   ```
 
   Где:
-  * `<IAM-токен>` — [IAM-токен](../../../iam/concepts/authorization/iam-token.md), необходимый для [аутентификации](../../api-ref/authentication.md) в {{ video-name }} API.
-  * `<идентификатор_организации>` — [идентификатор](../../../organization/operations/organization-get-id.md) организации, в которой создается канал {{ video-name }}.
-  * `<имя_канала>` — имя создаваемого канала в {{ video-name }}.
+  * `<IAM-токен>` — [IAM-токен](../../../iam/concepts/authorization/iam-token.md), необходимый для [аутентификации](../../api-ref/authentication.md) в Cloud Video API.
+  * `<идентификатор_организации>` — [идентификатор](../../../organization/operations/organization-get-id.md) организации, в которой создается канал Cloud Video.
+  * `<имя_канала>` — имя создаваемого канала в Cloud Video.
 
   Результат:
   

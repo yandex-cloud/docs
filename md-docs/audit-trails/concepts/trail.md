@@ -1,7 +1,7 @@
 # Трейл
 
 
-Трейл — это ресурс {{ at-name }}, который собирает аудитные логи ресурсов {{ yandex-cloud }} и записывает их в [бакет](../../storage/concepts/bucket.md) {{ objstorage-name }}, [лог-группу](../../logging/concepts/log-group.md) {{ cloud-logging-name }}, [поток данных](../../data-streams/concepts/glossary.md#stream-concepts) {{ yds-name }} или [шину](../../serverless-integrations/concepts/eventrouter/bus.md) {{ er-full-name }}.
+Трейл — это ресурс Audit Trails, который собирает аудитные логи ресурсов Yandex Cloud и записывает их в [бакет](../../storage/concepts/bucket.md) Object Storage, [лог-группу](../../logging/concepts/log-group.md) Cloud Logging, [поток данных](../../data-streams/concepts/glossary.md#stream-concepts) Data Streams или [шину](../../serverless-integrations/concepts/eventrouter/bus.md) Yandex EventRouter.
 
 ## Область сбора аудитных логов {#collecting-area}
 
@@ -14,7 +14,7 @@
 
 Для тех ресурсов, которые были добавлены в область сбора аудитных логов уже после создания трейла, сбор аудитных логов начнется автоматически.
 
-Для [событий уровня конфигурации](control-plane-vs-data-plane.md#control-plane-events) область сбора содержит все поддерживаемые [сервисы {{ yandex-cloud }}](../../overview/concepts/services.md#list).
+Для [событий уровня конфигурации](control-plane-vs-data-plane.md#control-plane-events) область сбора содержит все поддерживаемые [сервисы Yandex Cloud](../../overview/concepts/services.md#list).
 
 Для [событий уровня сервисов](control-plane-vs-data-plane.md#data-plane-events) область сбора задается отдельно для каждого сервиса.
 
@@ -22,17 +22,17 @@
 
 ## Предустановленные события {#default}
 
-При создании трейла в [консоли управления]({{ link-console-main }}) по умолчанию включен сбор некоторых событий [уровня сервисов](events-data-plane.md). Это сделано для обеспечения безопасности и соответствует [стандарту](../../security/standard/audit-logs.md#audit-trails) по защите облачной инфраструктуры. Если сервис не используется, события можно отключить. Доставленные события тарифицируются в соответствии с [правилами тарификации](../pricing.md).
+При создании трейла в [консоли управления](https://console.yandex.cloud) по умолчанию включен сбор некоторых событий [уровня сервисов](events-data-plane.md). Это сделано для обеспечения безопасности и соответствует [стандарту](../../security/standard/audit-logs.md#audit-trails) по защите облачной инфраструктуры. Если сервис не используется, события можно отключить. Доставленные события тарифицируются в соответствии с [правилами тарификации](../pricing.md).
 
 Сервисы, для которых включена отправка событий по умолчанию:
 
 #|
 || **Сервис** | **События** ||
-|| [{{ certificate-manager-full-name }}](../../certificate-manager/at-ref.md#data-plane-events) | Все события ||
-|| [{{ iam-full-name }}](../../iam/at-ref.md#data-plane-events) | Все события ||
-|| [{{ kms-full-name }}](../../kms/at-ref.md#data-plane-events) | Все события ||
-|| [{{ lockbox-full-name }}](../../lockbox/at-ref.md#data-plane-events) | Все события ||
-|| [{{ mmy-full-name }}](../../managed-mysql/at-ref.md#data-plane-events) |
+|| [Yandex Certificate Manager](../../certificate-manager/at-ref.md#data-plane-events) | Все события ||
+|| [Yandex Identity and Access Management](../../iam/at-ref.md#data-plane-events) | Все события ||
+|| [Yandex Key Management Service](../../kms/at-ref.md#data-plane-events) | Все события ||
+|| [Yandex Lockbox](../../lockbox/at-ref.md#data-plane-events) | Все события ||
+|| [Yandex Managed Service for MySQL®](../../managed-mysql/at-ref.md#data-plane-events) |
 * `yandex.cloud.audit.mdb.mysql.CreateDatabase`
 * `yandex.cloud.audit.mdb.mysql.CreateUser`
 * `yandex.cloud.audit.mdb.mysql.DeleteDatabase`
@@ -41,7 +41,7 @@
 * `yandex.cloud.audit.mdb.mysql.RevokeUserPermission`
 * `yandex.cloud.audit.mdb.mysql.UpdateUser`
 ||
-|| [{{ mpg-full-name }}](../../managed-postgresql/at-ref.md#data-plane-events) |
+|| [Yandex Managed Service for PostgreSQL](../../managed-postgresql/at-ref.md#data-plane-events) |
 * `yandex.cloud.audit.mdb.postgresql.CreateDatabase`
 * `yandex.cloud.audit.mdb.postgresql.CreateUser`
 * `yandex.cloud.audit.mdb.postgresql.DeleteDatabase`
@@ -59,24 +59,24 @@
 
 #|
 || **Назначение** | **Когда использовать** | **Задержка** | **Формат** ||
-|| Бакет {{ ui-key.yacloud.audit-trails.label_objectStorage }} | Долгосрочное хранение, соответствие требованиям | 5 мин | Массив JSON ||
-|| Лог-группа {{ ui-key.yacloud.audit-trails.label_cloudLogging }} | Мониторинг в реальном времени | секунды | Поток записей {{ cloud-logging-name }}: одно событие {{ at-name }} соответствует одной записи {{ cloud-logging-name }} ||
-|| Поток данных {{ ui-key.yacloud.audit-trails.label_dataStream }} | Интеграция с SIEM, аналитика | секунды | Поток JSON-объектов ||
-|| Шина {{ ui-key.yacloud.audit-trails.label_eventRouter }} | Последующая обработка с отправкой в разные [приемники](../../serverless-integrations/concepts/eventrouter/rule.md#target) | секунды | Поток событий {{ er-name }}: одно событие {{ at-name }} соответствует одному событию {{ er-name }} ||
+|| Бакет Object Storage | Долгосрочное хранение, соответствие требованиям | 5 мин | Массив JSON ||
+|| Лог-группа Cloud Logging | Мониторинг в реальном времени | секунды | Поток записей Cloud Logging: одно событие Audit Trails соответствует одной записи Cloud Logging ||
+|| Поток данных Data Streams | Интеграция с SIEM, аналитика | секунды | Поток JSON-объектов ||
+|| Шина EventRouter | Последующая обработка с отправкой в разные [приемники](../../serverless-integrations/concepts/eventrouter/rule.md#target) | секунды | Поток событий EventRouter: одно событие Audit Trails соответствует одному событию EventRouter ||
 |#
 
 Каждый объект назначения имеет свои преимущества:
 
-* **{{ ui-key.yacloud.audit-trails.label_objectStorage }}** — позволяет долговременно хранить большие объемы данных для дальнейшей обработки.
-* **{{ ui-key.yacloud.audit-trails.label_cloudLogging }}** — помогает реагировать на события и анализировать логи в реальном времени.
-* **{{ ui-key.yacloud.audit-trails.label_dataStream }}** — позволяет передавать данные в другие сервисы и системы с помощью потоковой передачи. 
-* **{{ ui-key.yacloud.audit-trails.label_eventRouter }}** — позволяет обрабатывать и отправлять данные в разные обработчики и системы в зависимости от типов событий и других условий.
+* **Object Storage** — позволяет долговременно хранить большие объемы данных для дальнейшей обработки.
+* **Cloud Logging** — помогает реагировать на события и анализировать логи в реальном времени.
+* **Data Streams** — позволяет передавать данные в другие сервисы и системы с помощью потоковой передачи. 
+* **EventRouter** — позволяет обрабатывать и отправлять данные в разные обработчики и системы в зависимости от типов событий и других условий.
 
-При загрузке аудитных логов в бакет {{ at-name }} формирует файлы аудитных логов приблизительно раз в 5 минут. Трейл запишет все [события](events.md), которые произошли за это время с ресурсами облака, в один или несколько файлов. Если никакие события за этот период не произойдут, файлы не сформируются.
+При загрузке аудитных логов в бакет Audit Trails формирует файлы аудитных логов приблизительно раз в 5 минут. Трейл запишет все [события](events.md), которые произошли за это время с ресурсами облака, в один или несколько файлов. Если никакие события за этот период не произойдут, файлы не сформируются.
 
-В лог-группу, поток данных и шину {{ at-name }} загружает аудитные логи в режиме, близком к реальному времени.
+В лог-группу, поток данных и шину Audit Trails загружает аудитные логи в режиме, близком к реальному времени.
 
-От типа объекта назначения зависит структура и содержимое сообщения, в котором {{ at-name }} передает аудитные логи:
+От типа объекта назначения зависит структура и содержимое сообщения, в котором Audit Trails передает аудитные логи:
 * для бакета — в файле находится массив [JSON-объектов](format.md#scheme) аудитного лога;
 * для лог-группы — в сообщении находится только один JSON-объект аудитного лога.
 * для потока данных — в поток передаются сообщения, содержащие JSON-объекты аудитного лога.
@@ -93,39 +93,39 @@
 ## Настройки трейла {#trail-settings}
 
 Трейл содержит в себе все настройки аудитного лога:
-* **{{ ui-key.yacloud.common.name }}** — обязательный параметр.
-* **{{ ui-key.yacloud.common.description }}** — опциональный параметр.
-* Блок **{{ ui-key.yacloud.audit-trails.label_destination }}**:
-    * **{{ ui-key.yacloud.audit-trails.label_destination }}** — значения `{{ ui-key.yacloud.audit-trails.label_objectStorage }}`, `{{ ui-key.yacloud.audit-trails.label_cloudLogging }}`, `{{ ui-key.yacloud.audit-trails.label_dataStream }}` или `{{ ui-key.yacloud.audit-trails.label_eventRouter }}`.
-    * Для значения `{{ ui-key.yacloud.audit-trails.label_objectStorage }}`:
-        * **{{ ui-key.yacloud.audit-trails.label_bucket }}** — бакет.
-        * **{{ ui-key.yacloud.audit-trails.label_object-prefix }}** — необязательный параметр, участвует в [полном имени](format.md#log-file-name) файла аудитного лога.
-        * **{{ ui-key.yacloud.audit-trails.title_kms-key }}** — симметричный [ключ шифрования](../../kms/concepts/key.md) {{ kms-full-name }}, которым будет зашифрован бакет.
-    * Для значения `{{ ui-key.yacloud.audit-trails.label_cloudLogging }}`:
-        * **{{ ui-key.yacloud.logging.label_loggroup }}** — лог-группа.
-    * Для значения `{{ ui-key.yacloud.audit-trails.label_dataStream }}`:
-        * **{{ ui-key.yacloud.audit-trails.label_stream-name }}** — поток данных.
-        * **Кодек** — метод сжатия событий при записи в поток данных {{ yds-name }}.
+* **Имя** — обязательный параметр.
+* **Описание** — опциональный параметр.
+* Блок **Назначение**:
+    * **Назначение** — значения `Object Storage`, `Cloud Logging`, `Data Streams` или `EventRouter`.
+    * Для значения `Object Storage`:
+        * **Бакет** — бакет.
+        * **Префикс объекта** — необязательный параметр, участвует в [полном имени](format.md#log-file-name) файла аудитного лога.
+        * **Ключ шифрования** — симметричный [ключ шифрования](../../kms/concepts/key.md) Yandex Key Management Service, которым будет зашифрован бакет.
+    * Для значения `Cloud Logging`:
+        * **Лог-группа** — лог-группа.
+    * Для значения `Data Streams`:
+        * **Поток данных** — поток данных.
+        * **Кодек** — метод сжатия событий при записи в поток данных Data Streams.
 
-            Если скорость записи потока событий в {{ yds-name }} более 1 МБ/с, включите сжатие. Это сократит объем передаваемых данных, снизит риск перегрузки ([троттлинга](https://ru.wikipedia.org/wiki/Троттлинг)) отдельных сегментов {{ DS }} и повысит эффективность использования пропускной способности потока.
+            Если скорость записи потока событий в Data Streams более 1 МБ/с, включите сжатие. Это сократит объем передаваемых данных, снизит риск перегрузки ([троттлинга](https://ru.wikipedia.org/wiki/Троттлинг)) отдельных сегментов YDS и повысит эффективность использования пропускной способности потока.
             
-            Настройка сжатия доступна при [создании](../operations/create-trail.md) или [изменении](../operations/manage-trail.md) трейла через интерфейсы CLI, API или {{ TF }}. Можно указать метод сжатия `GZIP` ([GNU Zip](https://wikipedia.org/wiki/Gzip)) или `ZSTD` ([Zstandard](https://wikipedia.org/wiki/Zstandard)). По умолчанию сжатия нет (`RAW`).
+            Настройка сжатия доступна при [создании](../operations/create-trail.md) или [изменении](../operations/manage-trail.md) трейла через интерфейсы CLI, API или Terraform. Можно указать метод сжатия `GZIP` ([GNU Zip](https://wikipedia.org/wiki/Gzip)) или `ZSTD` ([Zstandard](https://wikipedia.org/wiki/Zstandard)). По умолчанию сжатия нет (`RAW`).
             
-            Чтобы читать данные через собственный протокол {{ DS }}, дополнительно включите сжатие на читателе {{ DS }}. Протоколы HTTP Kinesis и {{ KF }} пока не поддерживаются.
-    * Для значения `{{ ui-key.yacloud.audit-trails.label_eventRouter }}`:
-        * **Коннектор** — [коннектор](../../serverless-integrations/concepts/eventrouter/connector.md) шины {{ er-name }} с типом источника `{{ at-name }}`.
-* Блок **{{ ui-key.yacloud.audit-trails.label_service-account }}** — сервисный аккаунт, от имени которого будет выполняться загрузка аудитных логов в бакет, лог-группу или поток данных. Если аккаунту нужны дополнительные роли, появится предупреждение с перечнем ролей.
-* Блок **{{ ui-key.yacloud.audit-trails.label_path-filter-section }}**:
+            Чтобы читать данные через собственный протокол YDS, дополнительно включите сжатие на читателе YDS. Протоколы HTTP Kinesis и Apache Kafka® пока не поддерживаются.
+    * Для значения `EventRouter`:
+        * **Коннектор** — [коннектор](../../serverless-integrations/concepts/eventrouter/connector.md) шины EventRouter с типом источника `Audit Trails`.
+* Блок **Сервисный аккаунт** — сервисный аккаунт, от имени которого будет выполняться загрузка аудитных логов в бакет, лог-группу или поток данных. Если аккаунту нужны дополнительные роли, появится предупреждение с перечнем ролей.
+* Блок **Сбор событий c уровня конфигурации**:
     * **Статус** — включение и выключение сбора аудитных логов уровня конфигурации.
-    * **{{ ui-key.yacloud.audit-trails.label_resource-type }}** — значения `{{ ui-key.yacloud.audit-trails.label_organization-manager.organization }}`, `{{ ui-key.yacloud.audit-trails.label_resource-manager.cloud }}` или `{{ ui-key.yacloud.audit-trails.label_resource-manager.folder }}`.
-    * Для значения `{{ ui-key.yacloud.audit-trails.label_organization-manager.organization }}`:
-        * **{{ ui-key.yacloud.audit-trails.label_organization-manager.organization }}** – имя текущей организации. Значение подставляется автоматически.
-    * Для значения `{{ ui-key.yacloud.audit-trails.label_resource-manager.cloud }}`:
-        * **{{ ui-key.yacloud.audit-trails.label_resource-manager.cloud }}** — имя облака, в котором находится текущий трейл. Значение подставляется автоматически.
-        * **{{ ui-key.yacloud.audit-trails.label_resource-manager.folder }}** — каталоги, для ресурсов в которых трейл будет собирать аудитные логи уровня конфигурации. Если не указать ни один каталог, то трейл будет собирать аудитные логи всех ресурсов в облаке.
-    * Для параметра `{{ ui-key.yacloud.audit-trails.label_resource-manager.folder }}`:
-        * **{{ ui-key.yacloud.audit-trails.label_resource-manager.folder }}** — имя каталога, в котором находится трейл. Значение подставляется автоматически.
-* Блок **{{ ui-key.yacloud.audit-trails.label_event-filter-section }}**:
+    * **Ресурс** — значения `Организация`, `Облако` или `Каталог`.
+    * Для значения `Организация`:
+        * **Организация** – имя текущей организации. Значение подставляется автоматически.
+    * Для значения `Облако`:
+        * **Облако** — имя облака, в котором находится текущий трейл. Значение подставляется автоматически.
+        * **Каталог** — каталоги, для ресурсов в которых трейл будет собирать аудитные логи уровня конфигурации. Если не указать ни один каталог, то трейл будет собирать аудитные логи всех ресурсов в облаке.
+    * Для параметра `Каталог`:
+        * **Каталог** — имя каталога, в котором находится трейл. Значение подставляется автоматически.
+* Блок **Сбор событий с уровня сервисов**:
     * **Статус** — включение и выключение сбора аудитных логов уровня сервисов.
     * Список [сервисов](events-data-plane.md#services), для каждого из которых отдельно настраивается:
         * [Область](trail.md#collecting-area) сбора аудитных логов уровня сервисов.
@@ -138,14 +138,14 @@
 
 ## Примеры использования {#examples}
 
-* [{#T}](../tutorials/search-events-audit-logs/index.md)
-* [{#T}](../tutorials/alerts-monitoring.md)
-* [{#T}](../tutorials/logging-functions.md)
-* [{#T}](../tutorials/audit-trails.md)
-* [{#T}](../tutorials/maxpatrol/index.md)
-* [{#T}](../tutorials/export-logs-to-splunk.md)
-* [{#T}](../tutorials/export-logs-to-arcsight.md)
-* [{#T}](../tutorials/audit-trails-events-to-kuma/console.md)
+* [Поиск событий в аудитных логах](../tutorials/search-events-audit-logs/index.md)
+* [Настройка дашбордов и алертов в Yandex Monitoring](../tutorials/alerts-monitoring.md)
+* [Настройка реагирования в Yandex Cloud Logging и Yandex Cloud Functions](../tutorials/logging-functions.md)
+* [Обработка аудитных логов Yandex Audit Trails](../tutorials/audit-trails.md)
+* [Загрузка аудитных логов в MaxPatrol SIEM](../tutorials/maxpatrol/index.md)
+* [Загрузка аудитных логов в SIEM Splunk](../tutorials/export-logs-to-splunk.md)
+* [Загрузка аудитных логов в SIEM ArcSight](../tutorials/export-logs-to-arcsight.md)
+* [Загрузка аудитных логов в SIEM KUMA с помощью консоли управления, CLI или API](../tutorials/audit-trails-events-to-kuma/console.md)
 
 
 ## Что дальше {#whats-next}

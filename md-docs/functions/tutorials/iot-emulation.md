@@ -2,7 +2,7 @@
 
 {% note warning %}
 
-Сервис {{ iot-full-name }} больше не доступен для новых пользователей. 
+Сервис Yandex IoT Core больше не доступен для новых пользователей. 
 
 Текущие пользователи могут создавать ресурсы до 1 ноября 2026 года. После сервис перейдет в режим read-only, а 1 декабря 2026 года — прекратит работу. Подробнее о сроках и порядке закрытия читайте на странице [Закрытие сервиса](../../iot-core/sunset.md).
 
@@ -46,7 +46,7 @@
 
 Чтобы эмулировать работу множества устройств:
 1. [Подготовьте облако к работе](#before-begin).
-1. [Установите {{ TF }}](#install-terraform).
+1. [Установите Terraform](#install-terraform).
 1. [Опишите инфраструктуру](#set-configuration).
 1. [Разверните облачные ресурсы](#deploy).
 
@@ -54,17 +54,17 @@
 
 ## Подготовьте облако к работе {#before-begin}
 
-Зарегистрируйтесь в {{ yandex-cloud }} и создайте [платежный аккаунт](../../billing/concepts/billing-account.md):
-1. Перейдите в [консоль управления]({{ link-console-main }}), затем войдите в {{ yandex-cloud }} или зарегистрируйтесь.
-1. На странице **[{{ ui-key.yacloud_billing.billing.label_service }}]({{ link-console-billing }})** убедитесь, что у вас подключен платежный аккаунт, и он находится в [статусе](../../billing/concepts/billing-account-statuses.md) `ACTIVE` или `TRIAL_ACTIVE`. Если платежного аккаунта нет, [создайте его](../../billing/quickstart/index.md) и [привяжите](../../billing/operations/pin-cloud.md) к нему облако.
+Зарегистрируйтесь в Yandex Cloud и создайте [платежный аккаунт](../../billing/concepts/billing-account.md):
+1. Перейдите в [консоль управления](https://console.yandex.cloud), затем войдите в Yandex Cloud или зарегистрируйтесь.
+1. На странице **[Yandex Cloud Billing](https://center.yandex.cloud/billing/accounts)** убедитесь, что у вас подключен платежный аккаунт, и он находится в [статусе](../../billing/concepts/billing-account-statuses.md) `ACTIVE` или `TRIAL_ACTIVE`. Если платежного аккаунта нет, [создайте его](../../billing/quickstart/index.md) и [привяжите](../../billing/operations/pin-cloud.md) к нему облако.
 
-Если у вас есть активный платежный аккаунт, вы можете создать или выбрать [каталог](../../resource-manager/concepts/resources-hierarchy.md#folder), в котором будет работать ваша инфраструктура, на [странице облака]({{ link-console-cloud }}).
+Если у вас есть активный платежный аккаунт, вы можете создать или выбрать [каталог](../../resource-manager/concepts/resources-hierarchy.md#folder), в котором будет работать ваша инфраструктура, на [странице облака](https://console.yandex.cloud/cloud).
 
 [Подробнее об облаках и каталогах](../../resource-manager/concepts/resources-hierarchy.md).
 
-## Установите {{ TF }} {#install-terraform}
+## Установите Terraform {#install-terraform}
 
-С помощью {{ TF }} в {{ yandex-cloud }} можно создавать облачные ресурсы всех типов: [виртуальные машины](../../compute/concepts/vm.md), [диски](../../compute/concepts/disk.md), [образы](../../compute/concepts/image.md) и т. д. Подробную информацию о ресурсах, создающихся с помощью {{ TF }}, см. в [документации провайдера]({{ tf-provider-link }}).
+С помощью Terraform в Yandex Cloud можно создавать облачные ресурсы всех типов: [виртуальные машины](../../compute/concepts/vm.md), [диски](../../compute/concepts/disk.md), [образы](../../compute/concepts/image.md) и т. д. Подробную информацию о ресурсах, создающихся с помощью Terraform, см. в [документации провайдера](../../terraform/index.md).
 
 ### Из зеркала {#from-yc-mirror}
 
@@ -74,7 +74,7 @@
 
 {% endnote %}
 
-Вы можете скачать дистрибутив {{ TF }} для вашей платформы из [зеркала]({{ terraform-mirror }}). После загрузки добавьте путь к папке, в которой находится исполняемый файл, в переменную `PATH`:
+Вы можете скачать дистрибутив Terraform для вашей платформы из [зеркала](https://hashicorp-releases.yandexcloud.net/terraform/). После загрузки добавьте путь к папке, в которой находится исполняемый файл, в переменную `PATH`:
 
 ```bash
 export PATH=$PATH:/path/to/terraform
@@ -87,8 +87,8 @@ export PATH=$PATH:/path/to/terraform
 - Windows {#windows}
 
   Используйте один из способов:
-  * [Скачайте дистрибутив {{ TF }}](https://www.terraform.io/downloads.html) и установите его согласно [инструкции](https://learn.hashicorp.com/tutorials/terraform/install-cli?in=terraform/aws-get-started).
-  * Установите {{ TF }} с помощью пакетного менеджера [Chocolatey](https://chocolatey.org/install), используя команду:
+  * [Скачайте дистрибутив Terraform](https://www.terraform.io/downloads.html) и установите его согласно [инструкции](https://learn.hashicorp.com/tutorials/terraform/install-cli?in=terraform/aws-get-started).
+  * Установите Terraform с помощью пакетного менеджера [Chocolatey](https://chocolatey.org/install), используя команду:
 
     ```bash
     choco install terraform
@@ -96,13 +96,13 @@ export PATH=$PATH:/path/to/terraform
 
 - Linux {#linux}
 
-  [Скачайте дистрибутив {{ TF }}](https://www.terraform.io/downloads.html) и установите его согласно [инструкции](https://learn.hashicorp.com/tutorials/terraform/install-cli?in=terraform/aws-get-started).
+  [Скачайте дистрибутив Terraform](https://www.terraform.io/downloads.html) и установите его согласно [инструкции](https://learn.hashicorp.com/tutorials/terraform/install-cli?in=terraform/aws-get-started).
 
 - macOS {#macos}
 
   Используйте один из способов:
-  * [Скачайте дистрибутив {{ TF }}](https://www.terraform.io/downloads.html) и установите его согласно [инструкции](https://learn.hashicorp.com/tutorials/terraform/install-cli?in=terraform/aws-get-started).
-  * Установите {{ TF }} с помощью пакетного менеджера [Homebrew](https://brew.sh), используя команду:
+  * [Скачайте дистрибутив Terraform](https://www.terraform.io/downloads.html) и установите его согласно [инструкции](https://learn.hashicorp.com/tutorials/terraform/install-cli?in=terraform/aws-get-started).
+  * Установите Terraform с помощью пакетного менеджера [Homebrew](https://brew.sh), используя команду:
 
     ```bash
     brew install terraform
@@ -112,11 +112,11 @@ export PATH=$PATH:/path/to/terraform
 
 ## Опишите инфраструктуру {#set-configuration}
 
-1. Создайте папку `iot-terraform`. В ней будут храниться конфигурационные файлы {{ TF }}.
-1. [Скачайте](https://{{ s3-storage-host }}/doc-files/emulator_publish.zip) архив с файлами, которые необходимы для выполнения сценария, и распакуйте в папку `iot-terraform`.
+1. Создайте папку `iot-terraform`. В ней будут храниться конфигурационные файлы Terraform.
+1. [Скачайте](https://storage.yandexcloud.net/doc-files/emulator_publish.zip) архив с файлами, которые необходимы для выполнения сценария, и распакуйте в папку `iot-terraform`.
 
    Архив содержит:
-   * `common.tf` — настройки провайдера {{ TF }}.
+   * `common.tf` — настройки провайдера Terraform.
    * `files.tf` — параметры публикации файлов кода из локальной папки.
    * `function.tf` — параметры [функции](../concepts/function.md) для записи эмулированных сообщений в устройства.
    * `iot_core.tf` — параметры [реестра](../../iot-core/concepts/index.md#registry), в котором находятся устройства.
@@ -126,7 +126,7 @@ export PATH=$PATH:/path/to/terraform
    * `trigger.tf` — параметры [триггера](../concepts/trigger/index.md) для вызова функции с заданным таймаутом.
    * `variables.tf` — используемые переменные и их значения.
 1. Отредактируйте файл `variables.tf`, указав следующие параметры для эмуляции:
-   * `token` — [OAuth-токен](../../iam/concepts/authorization/oauth-token.md) для доступа к {{ yandex-cloud }}.
+   * `token` — [OAuth-токен](../../iam/concepts/authorization/oauth-token.md) для доступа к Yandex Cloud.
    * `cloud_id` — [идентификатор облака](../../resource-manager/operations/cloud/get-id.md).
    * `folder_id` — [идентификатор каталога](../../resource-manager/operations/folder/get-id.md).
    * `zone` — [зона доступности](../../overview/concepts/geo-scope.md).
@@ -177,11 +177,11 @@ export PATH=$PATH:/path/to/terraform
    terraform plan
    ```
 
-   В терминале будет выведен список ресурсов с параметрами. Это проверочный этап: ресурсы не будут созданы. Если в конфигурации есть ошибки, {{ TF }} на них укажет.
+   В терминале будет выведен список ресурсов с параметрами. Это проверочный этап: ресурсы не будут созданы. Если в конфигурации есть ошибки, Terraform на них укажет.
 
    {% note alert %}
 
-   Все созданные с помощью {{ TF }} ресурсы тарифицируются. Внимательно проверьте план.
+   Все созданные с помощью Terraform ресурсы тарифицируются. Внимательно проверьте план.
 
    {% endnote %}
 
@@ -204,7 +204,7 @@ export PATH=$PATH:/path/to/terraform
    trigger = "a1sva8sse.......7kf6"
    ```
 
-   {{ TF }} создаст все требуемые ресурсы, а в терминале будут указаны идентификаторы созданных ресурсов. Проверить появление ресурсов и их настройки можно в [консоли управления]({{ link-console-main }}).
+   Terraform создаст все требуемые ресурсы, а в терминале будут указаны идентификаторы созданных ресурсов. Проверить появление ресурсов и их настройки можно в [консоли управления](https://console.yandex.cloud).
 
 ## Удалите созданные ресурсы {#clear-out}
 
@@ -214,32 +214,32 @@ export PATH=$PATH:/path/to/terraform
 
   1. Удалите реестр:
      1. Перейдите в свой рабочий [каталог](../../resource-manager/concepts/resources-hierarchy.md#folder).
-     1. Перейдите в сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_iot-core }}**.
-     1. Справа от имени созданного реестра нажмите ![ellipsis](../../_assets/console-icons/ellipsis.svg) и выберите **{{ ui-key.yacloud.common.delete }}**.
-     1. Нажмите кнопку **{{ ui-key.yacloud.common.delete }}**.
+     1. Перейдите в сервис **IoT Core**.
+     1. Справа от имени созданного реестра нажмите ![ellipsis](../../_assets/console-icons/ellipsis.svg) и выберите **Удалить**.
+     1. Нажмите кнопку **Удалить**.
   1. Удалите устройства:
      1. Перейдите в свой рабочий каталог.
-     1. Перейдите в сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_iot-core }}**.
+     1. Перейдите в сервис **IoT Core**.
      1. Выберите реестр.
-     1. Перейдите на вкладку **{{ ui-key.yacloud.iot.label_devices }}**.
-     1. Справа от имени созданного устройства нажмите ![ellipsis](../../_assets/console-icons/ellipsis.svg) и выберите **{{ ui-key.yacloud.common.delete }}**.
-     1. Нажмите кнопку **{{ ui-key.yacloud.common.delete }}**.
+     1. Перейдите на вкладку **Устройства**.
+     1. Справа от имени созданного устройства нажмите ![ellipsis](../../_assets/console-icons/ellipsis.svg) и выберите **Удалить**.
+     1. Нажмите кнопку **Удалить**.
   1. Удалите функцию:
      1. Перейдите в свой рабочий каталог.
-     1. Перейдите в сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_serverless-functions }}**.
-     1. Справа от имени созданной функции нажмите ![ellipsis](../../_assets/console-icons/ellipsis.svg) и выберите **{{ ui-key.yacloud.serverless-functions.list.button_action-delete }}**.
-     1. Нажмите кнопку **{{ ui-key.yacloud.serverless-functions.list.popup-confirm_button_delete }}**.
+     1. Перейдите в сервис **Cloud Functions**.
+     1. Справа от имени созданной функции нажмите ![ellipsis](../../_assets/console-icons/ellipsis.svg) и выберите **Удалить**.
+     1. Нажмите кнопку **Удалить**.
   1. Удалите триггер:
      1. Перейдите в свой рабочий каталог.
-     1. Перейдите в сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_serverless-functions }}**.
-     1. Перейдите на вкладку **{{ ui-key.yacloud.serverless-functions.switch_list-triggers }}**.
-     1. Справа от имени созданного триггера нажмите ![ellipsis](../../_assets/console-icons/ellipsis.svg) и выберите **{{ ui-key.yacloud.common.delete }}**.
-     1. Нажмите кнопку **{{ ui-key.yacloud.serverless-functions.triggers.list.popup-confirm_button_delete }}**.
+     1. Перейдите в сервис **Cloud Functions**.
+     1. Перейдите на вкладку **Триггеры**.
+     1. Справа от имени созданного триггера нажмите ![ellipsis](../../_assets/console-icons/ellipsis.svg) и выберите **Удалить**.
+     1. Нажмите кнопку **Удалить**.
   1. Удалите сервисный аккаунт:
      1. Перейдите в свой рабочий каталог.
-     1. Перейдите в сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_iam }}**.
-     1. На панели слева выберите ![FaceRobot](../../_assets/console-icons/face-robot.svg) **{{ ui-key.yacloud.iam.label_service-accounts }}**.
-     1. В строке с именем созданного сервисного аккаунта нажмите ![ellipsis](../../_assets/console-icons/ellipsis.svg) и выберите **{{ ui-key.yacloud.iam.folder.service-accounts.button_action-delete }}**.
-     1. Нажмите кнопку **{{ ui-key.yacloud.iam.folder.service-accounts.popup-confirm_button_delete }}**.
+     1. Перейдите в сервис **Identity and Access Management**.
+     1. На панели слева выберите ![FaceRobot](../../_assets/console-icons/face-robot.svg) **Сервисные аккаунты**.
+     1. В строке с именем созданного сервисного аккаунта нажмите ![ellipsis](../../_assets/console-icons/ellipsis.svg) и выберите **Удалить**.
+     1. Нажмите кнопку **Удалить**.
 
 {% endlist %}

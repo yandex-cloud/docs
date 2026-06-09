@@ -1,4 +1,4 @@
-# Вопросы и ответы про автоматическое масштабирование группы узлов в {{ managed-k8s-name }}
+# Вопросы и ответы про автоматическое масштабирование группы узлов в Managed Service for Kubernetes
 
 * [Почему в моем кластере стало N узлов и он не уменьшается?](#not-scaling-down)
 
@@ -76,7 +76,7 @@ kubectl annotate pod <имя_пода> cluster-autoscaler.kubernetes.io/safe-to-
   
 #### В группе с автоматическим масштабированием количество узлов не уменьшается до одного, даже при отсутствии нагрузки {#autoscaler-one-node}
 
-В кластере {{ managed-k8s-name }} приложение `kube-dns-autoscaler` регулирует количество реплик CoreDNS. Если в конфигурации `kube-dns-autoscaler` параметр `preventSinglePointFailure` имеет значение `true` и в группе больше одного узла, минимальное количество реплик CoreDNS равно двум. В этом случае Cluster Autoscaler не может уменьшить количество узлов в кластере так, чтобы оно стало меньше количества подов CoreDNS.
+В кластере Managed Service for Kubernetes приложение `kube-dns-autoscaler` регулирует количество реплик CoreDNS. Если в конфигурации `kube-dns-autoscaler` параметр `preventSinglePointFailure` имеет значение `true` и в группе больше одного узла, минимальное количество реплик CoreDNS равно двум. В этом случае Cluster Autoscaler не может уменьшить количество узлов в кластере так, чтобы оно стало меньше количества подов CoreDNS.
 
 [Подробнее о масштабировании DNS по размеру кластера](../../tutorials/container-infrastructure/dns-autoscaler.md).
 
@@ -97,17 +97,17 @@ kubectl annotate pod <имя_пода> cluster-autoscaler.kubernetes.io/safe-to-
 
 #### Почему автоматическое масштабирование не выполняется, хотя количество узлов меньше минимума / больше максимума? {#beyond-limits}
 
-Установленные лимиты не будут нарушены при масштабировании, но {{ managed-k8s-name }} не следит за соблюдением границ намеренно. Масштабирование в сторону увеличения сработает только в случае появления подов в статусе `unschedulable`.
+Установленные лимиты не будут нарушены при масштабировании, но Managed Service for Kubernetes не следит за соблюдением границ намеренно. Масштабирование в сторону увеличения сработает только в случае появления подов в статусе `unschedulable`.
 
 #### Почему в моем кластере остаются поды со статусом Terminated? {#terminated-pod}
 
 Это происходит из-за того, что во время автоматического масштабирования контроллер [Pod garbage collector (PodGC)](https://kubernetes.io/docs/concepts/workloads/pods/pod-lifecycle/#pod-garbage-collection) не успевает удалять поды. Подробнее в разделе [Удаление подов в статусе Terminated](../operations/autoscale.md#delete-terminated).
 
-Ответы на другие вопросы об автоматическом масштабировании смотрите в [документации {{ k8s }}](https://github.com/kubernetes/autoscaler/blob/master/cluster-autoscaler/FAQ.md#table-of-contents).
+Ответы на другие вопросы об автоматическом масштабировании смотрите в [документации Kubernetes](https://github.com/kubernetes/autoscaler/blob/master/cluster-autoscaler/FAQ.md#table-of-contents).
 
 #### Есть ли поддержка Horizontal Pod Autoscaler? {#horizontal-pod-autoscaler}
 
-Да, {{ managed-k8s-name }} поддерживает механизм [горизонтального автомасштабирования подов](../concepts/autoscale.md#hpa) (Horizontal Pod Autoscaler).
+Да, Managed Service for Kubernetes поддерживает механизм [горизонтального автомасштабирования подов](../concepts/autoscale.md#hpa) (Horizontal Pod Autoscaler).
 
 #### Как выбрать минимальный пресет мастера, чтобы снизить расходы? {#master-preset-cost}
 
@@ -115,9 +115,9 @@ kubectl annotate pod <имя_пода> cluster-autoscaler.kubernetes.io/safe-to-
 
 #### Можно ли изменить пороги автоматического масштабирования мастера на стороне пользователя? {#master-autoscaler-thresholds}
 
-Нет. Пороги срабатывания управляются на стороне сервиса {{ managed-k8s-name }}. Если вы хотите поделиться обратной связью о работе автоскейлера, обратитесь в [техническую поддержку]({{ link-console-support }}).
+Нет. Пороги срабатывания управляются на стороне сервиса Managed Service for Kubernetes. Если вы хотите поделиться обратной связью о работе автоскейлера, обратитесь в [техническую поддержку](https://center.yandex.cloud/support).
 
-Косвенно влиять на поведение автоскейлера можно через выбор конфигурации мастера. {{ k8s-ma }} не уменьшает ресурсы ниже выбранной конфигурации.
+Косвенно влиять на поведение автоскейлера можно через выбор конфигурации мастера. Master Autoscaler не уменьшает ресурсы ниже выбранной конфигурации.
 
 #### Можно ли ограничить автоматическое масштабирование мастера сверху? {#master-autoscaler-max}
 
@@ -125,4 +125,4 @@ kubectl annotate pod <имя_пода> cluster-autoscaler.kubernetes.io/safe-to-
 
 #### Как запретить уменьшение ресурсов мастера при автоматическом масштабировании? {#master-autoscaler-no-scaledown}
 
-Выберите конфигурацию мастера, [соответствующую текущей нагрузке](../concepts/master-configuration.md). {{ k8s-ma }} не уменьшает ресурсы ниже выбранной конфигурации.
+Выберите конфигурацию мастера, [соответствующую текущей нагрузке](../concepts/master-configuration.md). Master Autoscaler не уменьшает ресурсы ниже выбранной конфигурации.

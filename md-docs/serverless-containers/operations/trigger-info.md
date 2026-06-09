@@ -1,17 +1,17 @@
-# Получить информацию о триггере в {{ serverless-containers-name }}
+# Получить информацию о триггере в Serverless Containers
 
 {% list tabs group=instructions %}
 
 - Консоль управления {#console}
 
-  1. В [консоли управления]({{ link-console-main }}) перейдите в каталог, в котором находится триггер.
-  1. Перейдите в сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_serverless-containers }}**.
-  1. На панели слева выберите ![image](../../_assets/console-icons/gear-play.svg) **{{ ui-key.yacloud.serverless-functions.switch_list-triggers }}**.
+  1. В [консоли управления](https://console.yandex.cloud) перейдите в каталог, в котором находится триггер.
+  1. Перейдите в сервис **Serverless Containers**.
+  1. На панели слева выберите ![image](../../_assets/console-icons/gear-play.svg) **Триггеры**.
   1. Выберите триггер, о котором хотите получить подробную информацию.
 
 - CLI {#cli}
 
-    Если у вас еще нет интерфейса командной строки {{ yandex-cloud }} (CLI), [установите и инициализируйте его](../../cli/quickstart.md#install).
+    Если у вас еще нет интерфейса командной строки Yandex Cloud (CLI), [установите и инициализируйте его](../../cli/quickstart.md#install).
 
     По умолчанию используется каталог, указанный при [создании](../../cli/operations/profile/profile-create.md) профиля CLI. Чтобы изменить каталог по умолчанию, используйте команду `yc config set folder-id <идентификатор_каталога>`. Также для любой команды вы можете указать другой каталог с помощью параметров `--folder-name` или `--folder-id`. Если вы обращаетесь к ресурсу по имени, поиск будет выполнен в каталоге по умолчанию. Если вы обращаетесь к ресурсу по идентификатору, поиск будет выполнен глобально — во всех каталогах с учетом прав доступа.
 
@@ -39,7 +39,7 @@
             retry_attempts: "1"
             interval: 10s
           dead_letter_queue:
-            queue-id: yrn:yc:ymq:{{ region-id }}:b1gmit33ngh2********:dlq
+            queue-id: yrn:yc:ymq:ru-central1:b1gmit33ngh2********:dlq
             service-account-id: aje3lebfemh2********
     status: ACTIVE
     ```

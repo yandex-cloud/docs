@@ -3,7 +3,7 @@
 
 Вы можете создать [группу ВМ](../../concepts/instance-groups/index.md) в [группе размещения](../../concepts/placement-groups.md).
 
-Все операции в {{ ig-name }} выполняются от имени сервисного аккаунта. Если сервисного аккаунта нет, [создайте его](../../../iam/operations/sa/create.md).
+Все операции в Instance Groups выполняются от имени сервисного аккаунта. Если сервисного аккаунта нет, [создайте его](../../../iam/operations/sa/create.md).
 
 Чтобы иметь возможность создавать, обновлять и удалять ВМ в группе [назначьте](../../../iam/operations/sa/assign-role-for-sa.md) сервисному аккаунту роль [compute.editor](../../security/index.md#compute-editor).
 
@@ -11,7 +11,7 @@
 
 - CLI {#cli}
 
-  Если у вас еще нет интерфейса командной строки {{ yandex-cloud }} (CLI), [установите и инициализируйте его](../../../cli/quickstart.md#install).
+  Если у вас еще нет интерфейса командной строки Yandex Cloud (CLI), [установите и инициализируйте его](../../../cli/quickstart.md#install).
 
   По умолчанию используется каталог, указанный при [создании](../../../cli/operations/profile/profile-create.md) профиля CLI. Чтобы изменить каталог по умолчанию, используйте команду `yc config set folder-id <идентификатор_каталога>`. Также для любой команды вы можете указать другой каталог с помощью параметров `--folder-name` или `--folder-id`. Если вы обращаетесь к ресурсу по имени, поиск будет выполнен в каталоге по умолчанию. Если вы обращаетесь к ресурсу по идентификатору, поиск будет выполнен глобально — во всех каталогах с учетом прав доступа.
 
@@ -52,7 +52,7 @@
   1. Посмотрите описание команды CLI для создания группы ВМ:
 
      ```bash
-     {{ yc-compute-ig }} create --help
+     yc compute instance-group create --help
      ```
 
   1. Проверьте, есть ли в [каталоге](../../../resource-manager/concepts/resources-hierarchy.md#folder) хотя бы одна [сеть](../../../vpc/concepts/network.md#network):
@@ -63,7 +63,7 @@
 
      Если ни одной сети нет, [создайте ее](../../../vpc/operations/network-create.md).
 
-  1. Выберите один из публичных образов {{ marketplace-full-name }} (например, [CentOS 7](https://yandex.cloud/ru/marketplace/products/yc/centos-7)).
+  1. Выберите один из публичных образов Yandex Cloud Marketplace (например, [CentOS 7](https://yandex.cloud/ru/marketplace/products/yc/centos-7)).
 
      Чтобы получить список доступных образов с помощью CLI, выполните команду:
      
@@ -90,7 +90,7 @@
      * `ID` — идентификатор образа.
      * `NAME` — имя образа.
      * `FAMILY` — идентификатор [семейства образов](../../concepts/image.md#family), к которому относится образ.
-     * `PRODUCT IDS` — идентификаторы [продуктов](../../../marketplace/concepts/product.md) {{ marketplace-full-name }}, связанных с образом.
+     * `PRODUCT IDS` — идентификаторы [продуктов](../../../marketplace/concepts/product.md) Yandex Cloud Marketplace, связанных с образом.
      * `STATUS` — текущий статус образа. Может принимать одно из значений:
      
          * `STATUS_UNSPECIFIED` — статус образа не определен.
@@ -165,18 +165,18 @@
         * `mode` — режим доступа к [диску](../../concepts/disk.md).
           * `READ_ONLY` — доступ на чтение.
           * `READ_WRITE` — доступ на чтение и запись.
-        * `image_id` — идентификатор публичного образа. Идентификаторы образа можно посмотреть в [консоли управления]({{ link-console-main }}) при создании ВМ или в [{{ marketplace-name }}](https://yandex.cloud/ru/marketplace) на странице образа в блоке **Идентификаторы продукта**.
+        * `image_id` — идентификатор публичного образа. Идентификаторы образа можно посмотреть в [консоли управления](https://console.yandex.cloud) при создании ВМ или в [Cloud Marketplace](https://yandex.cloud/ru/marketplace) на странице образа в блоке **Идентификаторы продукта**.
         * `type_id` — тип диска.
         * `size` — размер диска.
         * `network_id` — идентификатор сети `default-net`.
-        * `primary_v4_address_spec` — спецификация версии интернет протокола IPv4. Вы можете предоставить публичный доступ к ВМ группы, указав версию IP для [публичного IP-адреса](../../../vpc/concepts/address.md#public-addresses). Подробнее читайте в разделе [{#T}](../../concepts/instance-groups/instance-template.md#instance-template).
+        * `primary_v4_address_spec` — спецификация версии интернет протокола IPv4. Вы можете предоставить публичный доступ к ВМ группы, указав версию IP для [публичного IP-адреса](../../../vpc/concepts/address.md#public-addresses). Подробнее читайте в разделе [Описание шаблона в YAML-файле](../../concepts/instance-groups/instance-template.md#instance-template).
         * `security_group_ids` — список идентификаторов [групп безопасности](../../../vpc/concepts/security-groups.md).
         * `scheduling_policy` — конфигурация политики планирования.
         * `preemptible` — флаг, указывающий создавать [прерываемые ВМ](../../concepts/preemptible-vm.md).
           * `true` — будет создана прерываемая ВМ.
           * `false` (по умолчанию) — обычная.
 
-          Создавая группу прерываемых ВМ учитывайте, что ВМ будут останавливаться спустя 24 часа непрерывной работы, а могут быть остановлены еще раньше. При этом возможна ситуация, что {{ ig-name }} не сможет сразу перезапустить их из-за нехватки ресурсов. Это может произойти, если резко возрастет потребление вычислительных ресурсов в {{ yandex-cloud }}.
+          Создавая группу прерываемых ВМ учитывайте, что ВМ будут останавливаться спустя 24 часа непрерывной работы, а могут быть остановлены еще раньше. При этом возможна ситуация, что Instance Groups не сможет сразу перезапустить их из-за нехватки ресурсов. Это может произойти, если резко возрастет потребление вычислительных ресурсов в Yandex Cloud.
 
         * `placement_policy` — параметры [группы размещения ВМ](../../concepts/placement-groups.md):
           * `placement_group_id` — идентификатор группы размещения.
@@ -191,7 +191,7 @@
             size: 3
         allocation_policy:
           zones:
-            - zone_id: {{ region-id }}-a
+            - zone_id: ru-central1-a
               instance_tags_pool:
               - first
               - second
@@ -238,7 +238,7 @@
           size: 3
       allocation_policy:
         zones:
-          - zone_id: {{ region-id }}-a
+          - zone_id: ru-central1-a
             instance_tags_pool:
             - first
             - second
@@ -248,7 +248,7 @@
   1. Создайте группу ВМ в каталоге по умолчанию:
 
      ```bash
-     {{ yc-compute-ig }} create --file specification.yaml
+     yc compute instance-group create --file specification.yaml
      ```
 
      Данная команда создаст группу из трех однотипных ВМ со следующими характеристиками:
@@ -256,7 +256,7 @@
      * С OC CentOS 7.
      * В сети `default-net`.
      * В группе размещения `my-group`.
-     * В зоне доступности `{{ region-id }}-a`.
+     * В зоне доступности `ru-central1-a`.
      * С 2 vCPU и 2 ГБ RAM.
      * С сетевым HDD-диском объемом 32 ГБ.
 

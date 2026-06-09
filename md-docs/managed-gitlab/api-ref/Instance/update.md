@@ -5,7 +5,7 @@ Updates GitLab instance.
 ## HTTP request
 
 ```
-PATCH https://gitlab.{{ api-host }}/gitlab/v1/instances/{instanceId}
+PATCH https://gitlab.api.cloud.yandex.net/gitlab/v1/instances/{instanceId}
 ```
 
 ## Path parameters

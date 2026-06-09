@@ -160,4 +160,4 @@ annotations:
 
 ## Диагностика {#troubleshooting}
 
-Если секреты не подставляются, смотрите раздел [{#T}](troubleshooting.md).
+Если секреты не подставляются, смотрите раздел [Диагностика Secrets Store](troubleshooting.md).

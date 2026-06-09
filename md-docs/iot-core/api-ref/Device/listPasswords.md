@@ -5,7 +5,7 @@ Retrieves the list of passwords for the specified device.
 ## HTTP request
 
 ```
-GET https://iot-devices.{{ api-host }}/iot-devices/v1/devices/{deviceId}/passwords
+GET https://iot-devices.api.cloud.yandex.net/iot-devices/v1/devices/{deviceId}/passwords
 ```
 
 ## Path parameters

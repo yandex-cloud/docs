@@ -181,18 +181,18 @@ TLS-протокол используется для защиты сетевых
 
 Протокол TLS продолжает развиваться и адаптироваться к новым технологиям и угрозам. В будущем TLS может быть интегрирован с новыми технологиями для улучшения безопасности и функциональности. Например, интеграция TLS с квантовыми вычислениями может помочь защитить от потенциальных атак на основе квантовых компьютеров, которые в будущем могут стать угрозой для существующих систем шифрования. Также возможно объединение TLS с технологией блокчейн, что позволит создать децентрализованную систему безопасности для обмена данными. Это может обеспечить более высокий уровень безопасности и доверия между различными устройствами и системами.
 
-## TLS в {{ yandex-cloud }} {#yandex-cloud-tls}
+## TLS в Yandex Cloud {#yandex-cloud-tls}
 
-{{ yandex-cloud }} предлагает сервис для получения, обновления и добавления собственных TLS-сертификатов — [{{ certificate-manager-full-name }}](https://yandex.cloud/ru/services/certificate-manager). [Создайте первый сертификат](../certificate-manager/quickstart/index.md), чтобы использовать TLS в своих облачных сервисах:
+Yandex Cloud предлагает сервис для получения, обновления и добавления собственных TLS-сертификатов — [Yandex Certificate Manager](https://yandex.cloud/ru/services/certificate-manager). [Создайте первый сертификат](../certificate-manager/quickstart/index.md), чтобы использовать TLS в своих облачных сервисах:
 
-* **{{ objstorage-full-name }}**
+* **Yandex Object Storage**
 
-  [{{ objstorage-name }}](https://yandex.cloud/ru/services/storage/) поддерживает защищенную передачу данных между клиентом и сервисом по протоколу TLS всех версий. Однако, чтобы надежно защитить взаимодействие с сервисом, используйте протокол TLS версии 1.2 и выше. Подробнее в документации [{{ objstorage-name }}](../storage/concepts/tls.md).
+  [Object Storage](https://yandex.cloud/ru/services/storage/) поддерживает защищенную передачу данных между клиентом и сервисом по протоколу TLS всех версий. Однако, чтобы надежно защитить взаимодействие с сервисом, используйте протокол TLS версии 1.2 и выше. Подробнее в документации [Object Storage](../storage/concepts/tls.md).
 
-* **{{ alb-full-name }}**
+* **Yandex Application Load Balancer**
 
-  Балансировщики [{{ alb-name }}](https://yandex.cloud/ru/services/application-load-balancer/) могут терминировать TLS-соединения: отправлять клиентам сертификаты, дешифровать входящий трафик для отправки бэкендам и шифровать ответы бэкендов для отправки клиентам. Для этого просто [настройте балансировщик](../application-load-balancer/tutorials/tls-termination/index.md).
+  Балансировщики [Application Load Balancer](https://yandex.cloud/ru/services/application-load-balancer/) могут терминировать TLS-соединения: отправлять клиентам сертификаты, дешифровать входящий трафик для отправки бэкендам и шифровать ответы бэкендов для отправки клиентам. Для этого просто [настройте балансировщик](../application-load-balancer/tutorials/tls-termination/index.md).
 
-* **{{ speechkit-full-name }}**
+* **Yandex SpeechKit**
 
-  При работе с [{{ sk-hybrid-name }}](https://yandex.cloud/ru/services/speechkit/) вы можете настроить терминирование TLS-соединения, чтобы безопасно передавать данные для синтеза и распознавания речи по публичной сети. Подробнее в [инструкции](../speechkit-hybrid/operations/tls-proxy.md).
+  При работе с [SpeechKit Hybrid](https://yandex.cloud/ru/services/speechkit/) вы можете настроить терминирование TLS-соединения, чтобы безопасно передавать данные для синтеза и распознавания речи по публичной сети. Подробнее в [инструкции](../speechkit-hybrid/operations/tls-proxy.md).

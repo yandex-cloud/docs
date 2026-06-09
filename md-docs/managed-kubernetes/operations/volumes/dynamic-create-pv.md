@@ -5,11 +5,11 @@
 1. [Создайте объект PersistentVolumeClaim](#create-pvc).
 1. [Создайте под](#create-pod).
 
-Перед началом работы [установите kubectl](https://kubernetes.io/ru/docs/tasks/tools/install-kubectl/) и [настройте его на работу с созданным кластером {{ managed-k8s-name }}](../connect/index.md#kubectl-connect).
+Перед началом работы [установите kubectl](https://kubernetes.io/ru/docs/tasks/tools/install-kubectl/) и [настройте его на работу с созданным кластером Managed Service for Kubernetes](../connect/index.md#kubectl-connect).
 
 {% note tip %}
 
-Вы можете использовать [бакет](../../../storage/concepts/bucket.md) [{{ objstorage-full-name }}](../../../storage/index.md) в качестве хранилища для пода. Подробнее см. в разделе [{#T}](s3-csi-integration.md).
+Вы можете использовать [бакет](../../../storage/concepts/bucket.md) [Yandex Object Storage](../../../storage/index.md) в качестве хранилища для пода. Подробнее см. в разделе [Интеграция с Object Storage](s3-csi-integration.md).
 
 {% endnote %}
 
@@ -19,11 +19,11 @@
 
    {% note info %}
 
-   Если не указать параметр `storageClassName`, будет использован класс хранилищ по умолчанию: `yc-network-hdd`. Как изменить класс по умолчанию читайте в разделе [{#T}](manage-storage-class.md#sc-default).
+   Если не указать параметр `storageClassName`, будет использован класс хранилищ по умолчанию: `yc-network-hdd`. Как изменить класс по умолчанию читайте в разделе [Измените класс хранилищ по умолчанию](manage-storage-class.md#sc-default).
 
    {% endnote %}
 
-   Подробнее о спецификации для создания объекта `PersistentVolumeClaim` читайте в [документации {{ k8s }}](https://kubernetes.io/docs/reference/kubernetes-api/config-and-storage-resources/persistent-volume-claim-v1/).
+   Подробнее о спецификации для создания объекта `PersistentVolumeClaim` читайте в [документации Kubernetes](https://kubernetes.io/docs/reference/kubernetes-api/config-and-storage-resources/persistent-volume-claim-v1/).
 
    ```yaml
    apiVersion: v1
@@ -73,7 +73,7 @@
 
 1. Сохраните следующую спецификацию для создания пода в YAML-файл с названием `pod.yaml`.
 
-   Подробнее о спецификации для создания пода читайте в [документации {{ k8s }}](https://kubernetes.io/docs/reference/kubernetes-api/workload-resources/pod-v1/).
+   Подробнее о спецификации для создания пода читайте в [документации Kubernetes](https://kubernetes.io/docs/reference/kubernetes-api/workload-resources/pod-v1/).
 
    ```yaml
    apiVersion: v1
@@ -126,7 +126,7 @@
    ```
 
    После создания пода:
-   * В [консоли управления]({{ link-console-main }}) в **{{ ui-key.yacloud.iam.folder.dashboard.label_compute }}** в разделе **{{ ui-key.yacloud.compute.disks_ddfdb }}** появится новый [диск](../../../compute/concepts/disk.md) с префиксом `k8s-csi` в имени диска.
+   * В [консоли управления](https://console.yandex.cloud) в **Compute Cloud** в разделе **Диски** появится новый [диск](../../../compute/concepts/disk.md) с префиксом `k8s-csi` в имени диска.
    * В событиях объекта `PersistentVolumeClaim` появится информация о выделении диска:
 
      ```bash
@@ -153,11 +153,11 @@
 kubectl delete pvc <идентификатор_объекта_PersistentVolumeClaim>
 ```
 
-Диск в [{{ compute-full-name }}](../../../compute/index.md) удалится автоматически.
+Диск в [Yandex Compute Cloud](../../../compute/index.md) удалится автоматически.
 
 ### См. также {#see-also}
 
-* [{#T}](../../concepts/volume.md)
-* [{#T}](encrypted-disks.md)
-* [{#T}](static-create-pv.md)
-* [{#T}](manage-storage-class.md)
+* [Том](../../concepts/volume.md)
+* [Использование зашифрованных дисков для постоянных томов](encrypted-disks.md)
+* [Статическая подготовка тома](static-create-pv.md)
+* [Управление классами хранилищ](manage-storage-class.md)

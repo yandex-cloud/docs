@@ -1,16 +1,16 @@
-# Практические руководства {{ postbox-name }}
+# Практические руководства Yandex Cloud Postbox
 
-* [{#T}](domain-identity-creating.md)
-* [{#T}](events-from-postbox-to-yds.md)
-* [{#T}](postbox-webhook.md)
+* [Создание адреса Yandex Cloud Postbox и проверка владения доменом с помощью Terraform](domain-identity-creating.md)
+* [Передача событий Yandex Cloud Postbox в Yandex Data Streams и их анализ с помощью Yandex DataLens](events-from-postbox-to-yds.md)
+* [Интеграция Yandex Cloud Postbox с внешними системами с помощью вебхуков](postbox-webhook.md)
 
 ## Отправка писем с помощью AWS SDK {#aws-sdk}
 
-* [{#T}](send-emails-aws-sdk-csharp.md)
-* [{#T}](send-emails-aws-sdk-go.md)
-* [{#T}](send-emails-aws-sdk-js.md)
-* [{#T}](send-emails-aws-sdk-python.md)
+* [Отправка писем с помощью AWS SDK для .NET Core](send-emails-aws-sdk-csharp.md)
+* [Отправка писем с помощью AWS SDK для Go](send-emails-aws-sdk-go.md)
+* [Отправка писем с помощью AWS SDK для JavaScript](send-emails-aws-sdk-js.md)
+* [Отправка писем с помощью AWS SDK для Python](send-emails-aws-sdk-python.md)
 
 ## Интеграция с приложениями {#integration}
 
-* [{#T}](postfix-integration.md)
+* [Настройка Postfix для отправки через Yandex Cloud Postbox](postfix-integration.md)

@@ -1,15 +1,15 @@
 # Проверить загрузку GPU
 
-В {{ ml-platform-full-name }} доступны [конфигурации вычислительных ресурсов](../../concepts/configurations.md) с [GPU](../../../glossary/gpu.md).
+В Yandex DataSphere доступны [конфигурации вычислительных ресурсов](../../concepts/configurations.md) с [GPU](../../../glossary/gpu.md).
 
 Вы можете проверить работу, уровень загрузки и статистику потребления ресурсов GPU с помощью библиотеки [TensorFlow](https://www.tensorflow.org/) и утилиты `nvidia-smi`.
 
 ## Перед началом работы {#before-begin}
 
-Откройте проект {{ ml-platform-name }}:
+Откройте проект DataSphere:
 
-1. Выберите нужный проект в своем сообществе или на [главной странице]({{ link-datasphere-main }}) {{ ml-platform-name }} во вкладке **{{ ui-key.yc-ui-datasphere.main-page.recent-projects }}**.
-1. Нажмите кнопку **{{ ui-key.yc-ui-datasphere.project-page.project-card.go-to-jupyter }}** и дождитесь окончания загрузки.
+1. Выберите нужный проект в своем сообществе или на [главной странице](https://datasphere.yandex.cloud) DataSphere во вкладке **Недавние проекты**.
+1. Нажмите кнопку **Открыть проект в JupyterLab** и дождитесь окончания загрузки.
 1. Откройте вкладку с ноутбуком.
 
 ## Проверить работу GPU {#check-gpu}

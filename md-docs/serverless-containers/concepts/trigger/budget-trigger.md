@@ -1,10 +1,10 @@
-# Триггер для бюджетов, который вызывает контейнер {{ serverless-containers-name }}
+# Триггер для бюджетов, который вызывает контейнер Serverless Containers
 
-[Триггер](index.md) для [бюджетов](../../../billing/concepts/budget.md) запускает [контейнер](../container.md) {{ serverless-containers-name }} при превышении пороговых значений.
+[Триггер](index.md) для [бюджетов](../../../billing/concepts/budget.md) запускает [контейнер](../container.md) Serverless Containers при превышении пороговых значений.
 
 Триггеру для бюджетов необходим [сервисный аккаунт](../../../iam/concepts/users/service-accounts.md) для вызова контейнера.
 
-О том, как создать триггер для бюджетов, читайте в инструкции [{#T}](../../operations/budget-trigger-create.md).
+О том, как создать триггер для бюджетов, читайте в инструкции [Создать триггер для бюджетов, который вызывает контейнер Serverless Containers](../../operations/budget-trigger-create.md).
 
 ## Роли, необходимые для корректной работы триггера для бюджетов {#roles}
 
@@ -49,5 +49,5 @@
 
 ## См. также {#see-also}
 
-* [{#T}](../../../functions/concepts/trigger/budget-trigger.md)
-* [{#T}](../../../api-gateway/concepts/trigger/budget-trigger.md)
+* [Триггер для бюджетов, который вызывает функцию Cloud Functions](../../../functions/concepts/trigger/budget-trigger.md)
+* [Триггер для бюджетов, который отправляет сообщения в WebSocket-соединения](../../../api-gateway/concepts/trigger/budget-trigger.md)

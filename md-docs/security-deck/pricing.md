@@ -1,28 +1,28 @@
-# Правила тарификации {{ sd-full-name }}
+# Правила тарификации Yandex Security Deck
 
 
 
 
 Все цены в рублях и тенге указаны с НДС, все цены в долларах — без НДС.
 
-В {{ sd-name }} каждый модуль тарифицируется отдельно. Доступен стартовый пакетный тариф, включающий несколько модулей.
+В Security Deck каждый модуль тарифицируется отдельно. Доступен стартовый пакетный тариф, включающий несколько модулей.
 
 Ниже представлены правила тарификации для следующих модулей и тарифов:
 
 * [Стартовый пакетный тариф](#starter-rules).
-* [Модуль контроля данных ({{ dspm-name }})](concepts/dspm.md).
-* [{{ atr-name }}](concepts/access-transparency.md).
-* [Модуль контроля {{ k8s }}® ({{ kspm-name }})](concepts/kspm.md).
-* [Модуль контроля конфигурации ({{ cspm-name }})](concepts/cspm.md).
+* [Модуль контроля данных (DSPM)](concepts/dspm.md).
+* [Access Transparency](concepts/access-transparency.md).
+* [Модуль контроля Kubernetes® (KSPM)](concepts/kspm.md).
+* [Модуль контроля конфигурации (CSPM)](concepts/cspm.md).
 
 {% note info %}
 
-[Модуль диагностики доступов ({{ ciem-name }})](concepts/ciem.md) и [AI-ассистент](concepts/ai-assistant.md) не тарифицируются.
+[Модуль диагностики доступов (CIEM)](concepts/ciem.md) и [AI-ассистент](concepts/ai-assistant.md) не тарифицируются.
 
 {% endnote %}
 
 
-## Из чего складывается стоимость использования {{ sd-name }} {#rules}
+## Из чего складывается стоимость использования Security Deck {#rules}
 
 ### Стартовый пакетный тариф {#starter-rules}
 
@@ -33,27 +33,27 @@
 
 Цены за количество ресурсов в месяц фиксированы и не зависят от количества дней в месяце.
 
-### {{ atr-name }} {#atr-rules}
+### Access Transparency {#atr-rules}
 
-Стоимость использования модуля {{ atr-name }} рассчитывается ежемесячно и зависит от совокупного потребления ресурсов за предшествующий месяц в организации, для которой подключается {{ atr-name }}. Чтобы рассчитать потребление ресурсов для вашей организации, проанализируйте [детализацию по всем сервисам](../billing/operations/check-charges.md#services_1) для каждого [платежного аккаунта](../billing/concepts/billing-account.md), привязанного к этой организации.
+Стоимость использования модуля Access Transparency рассчитывается ежемесячно и зависит от совокупного потребления ресурсов за предшествующий месяц в организации, для которой подключается Access Transparency. Чтобы рассчитать потребление ресурсов для вашей организации, проанализируйте [детализацию по всем сервисам](../billing/operations/check-charges.md#services_1) для каждого [платежного аккаунта](../billing/concepts/billing-account.md), привязанного к этой организации.
 
-Цена рассчитывается в начале календарного месяца и не изменяется в течение месяца. Цена также не зависит от продолжительности календарного месяца при использовании {{ atr-name }} с первого числа месяца.
+Цена рассчитывается в начале календарного месяца и не изменяется в течение месяца. Цена также не зависит от продолжительности календарного месяца при использовании Access Transparency с первого числа месяца.
 
-При использовании {{ atr-name }} со второго числа месяца и далее будет тарифицироваться только время, оставшееся до конца месяца по принципу почасовой оплаты.
+При использовании Access Transparency со второго числа месяца и далее будет тарифицироваться только время, оставшееся до конца месяца по принципу почасовой оплаты.
 
-Если вы отмените подписку {{ atr-name }} в [консоли управления]({{ link-console-main }}), оплата за нее перестанет начисляться с первого числа следующего календарного месяца.
+Если вы отмените подписку Access Transparency в [консоли управления](https://console.yandex.cloud), оплата за нее перестанет начисляться с первого числа следующего календарного месяца.
 
-### Модуль контроля данных ({{ dspm-name }}) {#dspm-rules}
+### Модуль контроля данных (DSPM) {#dspm-rules}
 
-При [сканировании данных](operations/dspm/create-scan.md) модуль контроля данных ({{ dspm-name }}) выполняет запросы к файлам в бакетах {{ objstorage-full-name }}. Запросы тарифицируются по [правилам тарификации](../storage/pricing.md) {{ objstorage-name }}. Использование модуля тарифицируется дополнительно.
+При [сканировании данных](operations/dspm/create-scan.md) модуль контроля данных (DSPM) выполняет запросы к файлам в бакетах Yandex Object Storage. Запросы тарифицируются по [правилам тарификации](../storage/pricing.md) Object Storage. Использование модуля тарифицируется дополнительно.
 
-### Модуль контроля {{ k8s }} ({{ kspm-name }}) {#kspm-rules}
+### Модуль контроля Kubernetes (KSPM) {#kspm-rules}
 
-Стоимость использования модуля контроля {{ k8s }} ({{ kspm-name }}) рассчитывается ежемесячно исходя из количества рабочих узлов в кластерах [{{ managed-k8s-full-name }}](../managed-kubernetes/index.md), которые подключены к сканированию.
+Стоимость использования модуля контроля Kubernetes (KSPM) рассчитывается ежемесячно исходя из количества рабочих узлов в кластерах [Yandex Managed Service for Kubernetes](../managed-kubernetes/index.md), которые подключены к сканированию.
 
-### Модуль контроля конфигурации ({{ cspm-name }}) {#cspm-rules}
+### Модуль контроля конфигурации (CSPM) {#cspm-rules}
 
-Стоимость использования модуля {{ cspm-name }} рассчитывается ежемесячно и зависит от выбранного в окружении стандарта для проверки инфраструктуры и количества ресурсов, включенных в проверку. Тарифицируются все стандарты, кроме [базовых правил безопасности облачной платформы {{ yandex-cloud }}](concepts/standard-compliance/yc-security-baseline.md).
+Стоимость использования модуля CSPM рассчитывается ежемесячно и зависит от выбранного в окружении стандарта для проверки инфраструктуры и количества ресурсов, включенных в проверку. Тарифицируются все стандарты, кроме [базовых правил безопасности облачной платформы Yandex Cloud](concepts/standard-compliance/yc-security-baseline.md).
 
 Каждое окружение тарифицируется отдельно, даже если ресурсы в них пересекаются.
 
@@ -66,9 +66,9 @@
 
 {% note info %}
 
-Цены на ресурсы {{ yandex-cloud }} в разных регионах различаются. Подробнее о доступных регионах см. [{#T}](../overview/concepts/region.md).
+Цены на ресурсы Yandex Cloud в разных регионах различаются. Подробнее о доступных регионах см. [Регионы](../overview/concepts/region.md).
 
-Валюта, которой можно оплачивать ресурсы, зависит от юридического лица, с которым пользователь заключил договор. Подробнее о регистрации аккаунта см. [{#T}](../billing/quickstart/index.md).
+Валюта, которой можно оплачивать ресурсы, зависит от юридического лица, с которым пользователь заключил договор. Подробнее о регистрации аккаунта см. [Регистрация аккаунта в Yandex Cloud](../billing/quickstart/index.md).
 
 {% endnote %}
 
@@ -99,7 +99,7 @@
 
 
 
-### {{ atr-name }} {#atr-pricing}
+### Access Transparency {#atr-pricing}
 
 
 {% list tabs group=pricing %}
@@ -108,7 +108,7 @@
 
   | Совокупное потребление ресурсов в организации<br>за предыдущий месяц | Стоимость подписки на месяц, вкл. НДС |
   | -------------------------------------------------------------------- | --------------------------------------------------------|
-  | Менее 1 000 000 ₽ | {{ sku|RUB|security_deck.access_transparency.subscription.v1|string }} |
+  | Менее 1 000 000 ₽ | 71 167 ₽ |
   | От 1 000 000 до 5 000 000 ₽ | 122 000 ₽ |
   | От 5 000 000 до 10 000 000 ₽ | 183 000 ₽ |
   | От 10 000 000 до 20 000 000 ₽ | 366 000 ₽ |
@@ -128,11 +128,29 @@
 
 
 
-### Модуль контроля данных ({{ dspm-name }}) {#dspm-pricing}
+### Модуль контроля данных (DSPM) {#dspm-pricing}
 
 
-| Услуга | Цена | Ед. тарификации | Действует с | Действует до |
-| ------ | ---- | --------------- | ----------- | ------------ |
+| Услуга                                                                                                                               | Цена              | Ед. тарификации      | Действует с   | Действует до |
+| ------------------------------------------------------------------------------------------------------------------------------------ | ----------------- | -------------------- | ------------- | ------------ |
+| DSPM. Подписка 1.5 Тб                                                                                                                | 120 000 ₽         | Месяц                | 2 июня 2026   | —            |
+| DSPM. Подписка 11 Тб                                                                                                                 | 840 000 ₽         | Месяц                | 2 июня 2026   | —            |
+| DSPM. Подписка 3 Тб                                                                                                                  | 180 000 ₽         | Месяц                | 2 июня 2026   | —            |
+| DSPM. Подписка 5.5 Тб                                                                                                                | 360 000 ₽         | Месяц                | 2 июня 2026   | —            |
+| Security Deck. DSPM, обнаружение чувствительной информации в графическом формате, от 0 до 1000 единицы тарификации в месяц           | 0,0495 ₽          | Изображение          | 1 мая 2026    | —            |
+| Security Deck. DSPM, обнаружение чувствительной информации в графическом формате, от 1000 до 10000 единицы тарификации в месяц       | 0,0413 ₽          | Изображение          | 1 мая 2026    | —            |
+| Security Deck. DSPM, обнаружение чувствительной информации в графическом формате, от 10000 до 100000 единицы тарификации в месяц     | 0,0353 ₽          | Изображение          | 1 мая 2026    | —            |
+| Security Deck. DSPM, обнаружение чувствительной информации в графическом формате, от 100000 до 1000000 единицы тарификации в месяц   | 0,0311 ₽          | Изображение          | 1 мая 2026    | —            |
+| Security Deck. DSPM, обнаружение чувствительной информации в графическом формате, от 1000000 до 10000000 единицы тарификации в месяц | 0,0275 ₽          | Изображение          | 1 мая 2026    | —            |
+| Security Deck. DSPM, обнаружение чувствительной информации в графическом формате, от 10000000 единицы тарификации в месяц            | 0,0247 ₽          | Изображение          | 1 мая 2026    | —            |
+| Security Deck. DSPM, обнаружение чувствительной информации в текстовом формате, от 0 до 10 единицы тарификации в месяц               | 468,48 ₽          | ГБ                   | 1 января 2026 | —            |
+| Security Deck. DSPM, обнаружение чувствительной информации в текстовом формате, от 10 до 100 единицы тарификации в месяц             | 402,6 ₽           | ГБ                   | 1 января 2026 | —            |
+| Security Deck. DSPM, обнаружение чувствительной информации в текстовом формате, от 100 до 1024 единицы тарификации в месяц           | 366 ₽             | ГБ                   | 1 января 2026 | —            |
+| Security Deck. DSPM, обнаружение чувствительной информации в текстовом формате, от 1024 до 10240 единицы тарификации в месяц         | 292,8 ₽           | ГБ                   | 1 января 2026 | —            |
+| Security Deck. DSPM, обнаружение чувствительной информации в текстовом формате, от 10240 до 102400 единицы тарификации в месяц       | 219,6 ₽           | ГБ                   | 1 января 2026 | —            |
+| Security Deck. DSPM, обнаружение чувствительной информации в текстовом формате, от 102400 единицы тарификации в месяц                | 204,96 ₽          | ГБ                   | 1 января 2026 | —            |
+| Security Deck. DSPM, операции с файлами                                                                                              | 152,5 ₽           | 10 тыс. операций     | 1 января 2026 | —            |
+| Security Deck. DSPM, хранение информации об обнаруженных объектах                                                                    | Не тарифицируется | 1 млн объектов х час | —             | —            |
 
 
 
@@ -146,17 +164,17 @@
 
 - Расчет в рублях {#prices-rub}
 
-  5 × {{ sku|RUB|security_deck.dspm.scanned.text.v1|string }} + ({{ sku|RUB|security_deck.dspm.scanned.files.v1|string }} × 50 / 10 000) = {% calc [currency=RUB] 5 × {{ sku|RUB|security_deck.dspm.scanned.text.v1|number }} + ({{ sku|RUB|security_deck.dspm.scanned.files.v1|number }} × 50 / 10 000) %}
+  5 × 468,48 ₽ + (152,5 ₽ × 50 / 10 000) = {% calc [currency=RUB] 5 × 468.48 + (152.5 × 50 / 10 000) %}
 
 - Расчет в тенге {#prices-kzt}
 
-  5 × {{ sku|KZT|security_deck.dspm.scanned.text.v1|string }} + ({{ sku|KZT|security_deck.dspm.scanned.files.v1|string }} × 50 / 10 000) = {% calc [currency=KZT] 5 × {{ sku|KZT|security_deck.dspm.scanned.text.v1|number }} + ({{ sku|KZT|security_deck.dspm.scanned.files.v1|number }} × 50 / 10 000) %}
+  5 × 2 342,4 ₸ + (762,5 ₸ × 50 / 10 000) = {% calc [currency=KZT] 5 × 2342.4 + (762.5 × 50 / 10 000) %}
 
 {% endlist %}
 
 
 
-### Модуль контроля {{ k8s }} ({{ kspm-name }}) {#kspm-pricing}
+### Модуль контроля Kubernetes (KSPM) {#kspm-pricing}
 
 
 {% list tabs group=pricing %}
@@ -165,19 +183,19 @@
 
   | Услуга | Стоимость использования в месяц, вкл. НДС |
   | --- | --- |
-  | 1 рабочий узел {{ kspm-name }} | {{ sku|RUB|security_deck.kspm.nodes|pricingRate.2|string }} |
+  | 1 рабочий узел KSPM | 8 133 ₽ |
 
 - Цены в тенге {#prices-kzt}
 
   | Услуга | Стоимость использования в месяц, вкл. НДС |
   | --- | --- |
-  | 1 рабочий узел {{ kspm-name }} | {{ sku|KZT|security_deck.kspm.nodes|pricingRate.2|string }} |
+  | 1 рабочий узел KSPM | 40 665 ₸ |
 
 {% endlist %}
 
 
 
-### Модуль контроля конфигурации ({{ cspm-name }}) {#cspm-pricing}
+### Модуль контроля конфигурации (CSPM) {#cspm-pricing}
 
 
 {% list tabs group=pricing %}
@@ -186,34 +204,34 @@
 
   | Сервис | Проверяемый ресурс | Стоимость проверки одного ресурса,<br/>вкл. НДС |
   | --- | --- | --- |
-  | {{ compute-full-name }} | Виртуальная машина | {{ sku|RUB|security_deck.cspm.resources|string }} |
-  | {{ objstorage-full-name }} | Бакет | {{ sku|RUB|security_deck.cspm.resources|string }} |
-  | {{ mch-full-name }} | Кластер баз данных | {{ sku|RUB|security_deck.cspm.resources|string }} |
-  | {{ mgp-full-name }} | Кластер баз данных | {{ sku|RUB|security_deck.cspm.resources|string }} |
-  | {{ mkf-full-name }} | Кластер баз данных | {{ sku|RUB|security_deck.cspm.resources|string }} |
-  | {{ mmy-full-name }} | Кластер баз данных | {{ sku|RUB|security_deck.cspm.resources|string }} |
-  | {{ mmg-full-name }} | Кластер баз данных | {{ sku|RUB|security_deck.cspm.resources|string }} |
-  | {{ mos-full-name }} | Кластер баз данных | {{ sku|RUB|security_deck.cspm.resources|string }} |
-  | {{ mpg-full-name }} | Кластер баз данных | {{ sku|RUB|security_deck.cspm.resources|string }} |
-  | {{ mrd-full-name }} | Кластер баз данных | {{ sku|RUB|security_deck.cspm.resources|string }} |
-  | {{ managed-k8s-full-name }} | Кластер {{ k8s }} | {{ sku|RUB|security_deck.cspm.resources|string }} |
-  | {{ vpc-full-name }} | Облачная сеть | {{ sku|RUB|security_deck.cspm.resources|string }} |
+  | Yandex Compute Cloud | Виртуальная машина | 590 ₽ |
+  | Yandex Object Storage | Бакет | 590 ₽ |
+  | Yandex Managed Service for ClickHouse® | Кластер баз данных | 590 ₽ |
+  | Yandex MPP Analytics for PostgreSQL | Кластер баз данных | 590 ₽ |
+  | Yandex Managed Service for Apache Kafka® | Кластер баз данных | 590 ₽ |
+  | Yandex Managed Service for MySQL® | Кластер баз данных | 590 ₽ |
+  | Yandex StoreDoc | Кластер баз данных | 590 ₽ |
+  | Yandex Managed Service for OpenSearch | Кластер баз данных | 590 ₽ |
+  | Yandex Managed Service for PostgreSQL | Кластер баз данных | 590 ₽ |
+  | Yandex Managed Service for Valkey™ | Кластер баз данных | 590 ₽ |
+  | Yandex Managed Service for Kubernetes | Кластер Kubernetes | 590 ₽ |
+  | Yandex Virtual Private Cloud | Облачная сеть | 590 ₽ |
 
 - Цены в тенге {#prices-kzt}
 
   | Сервис | Проверяемый ресурс | Стоимость проверки одного ресурса,<br/>вкл. НДС |
   | --- | --- | --- |
-  | {{ compute-full-name }} | Виртуальная машина | {{ sku|KZT|security_deck.cspm.resources|string }} |
-  | {{ objstorage-full-name }} | Бакет | {{ sku|KZT|security_deck.cspm.resources|string }} |
-  | {{ mch-full-name }} | Кластер баз данных | {{ sku|KZT|security_deck.cspm.resources|string }} |
-  | {{ mgp-full-name }} | Кластер баз данных | {{ sku|KZT|security_deck.cspm.resources|string }} |
-  | {{ mkf-full-name }} | Кластер баз данных | {{ sku|KZT|security_deck.cspm.resources|string }} |
-  | {{ mmy-full-name }} | Кластер баз данных | {{ sku|KZT|security_deck.cspm.resources|string }} |
-  | {{ mmg-full-name }} | Кластер баз данных | {{ sku|KZT|security_deck.cspm.resources|string }} |
-  | {{ mos-full-name }} | Кластер баз данных | {{ sku|KZT|security_deck.cspm.resources|string }} |
-  | {{ mpg-full-name }} | Кластер баз данных | {{ sku|KZT|security_deck.cspm.resources|string }} |
-  | {{ mrd-full-name }} | Кластер баз данных | {{ sku|KZT|security_deck.cspm.resources|string }} |
-  | {{ managed-k8s-full-name }} | Кластер {{ k8s }} | {{ sku|KZT|security_deck.cspm.resources|string }} |
-  | {{ vpc-full-name }} | Облачная сеть | {{ sku|KZT|security_deck.cspm.resources|string }} |
+  | Yandex Compute Cloud | Виртуальная машина | 2 950 ₸ |
+  | Yandex Object Storage | Бакет | 2 950 ₸ |
+  | Yandex Managed Service for ClickHouse® | Кластер баз данных | 2 950 ₸ |
+  | Yandex MPP Analytics for PostgreSQL | Кластер баз данных | 2 950 ₸ |
+  | Yandex Managed Service for Apache Kafka® | Кластер баз данных | 2 950 ₸ |
+  | Yandex Managed Service for MySQL® | Кластер баз данных | 2 950 ₸ |
+  | Yandex StoreDoc | Кластер баз данных | 2 950 ₸ |
+  | Yandex Managed Service for OpenSearch | Кластер баз данных | 2 950 ₸ |
+  | Yandex Managed Service for PostgreSQL | Кластер баз данных | 2 950 ₸ |
+  | Yandex Managed Service for Valkey™ | Кластер баз данных | 2 950 ₸ |
+  | Yandex Managed Service for Kubernetes | Кластер Kubernetes | 2 950 ₸ |
+  | Yandex Virtual Private Cloud | Облачная сеть | 2 950 ₸ |
 
 {% endlist %}

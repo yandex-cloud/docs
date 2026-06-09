@@ -7,7 +7,7 @@ To get the list of available symmetric KMS keys, make a [SymmetricKeyService.Lis
 ## HTTP request
 
 ```
-GET https://{{ api-host-kms }}/kms/v1/keys/{keyId}
+GET https://kms.api.cloud.yandex.net/kms/v1/keys/{keyId}
 ```
 
 ## Path parameters

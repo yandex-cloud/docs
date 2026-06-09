@@ -5,7 +5,7 @@ Converts a user to use external authentication.
 ## HTTP request
 
 ```
-POST https://organization-manager.{{ api-host }}/organization-manager/v1/idp/users/{userId}:convertToExternal
+POST https://organization-manager.api.cloud.yandex.net/organization-manager/v1/idp/users/{userId}:convertToExternal
 ```
 
 ## Path parameters

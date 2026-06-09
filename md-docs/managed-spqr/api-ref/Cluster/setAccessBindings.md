@@ -5,7 +5,7 @@ Sets access bindings for the specified SPQR cluster.
 ## HTTP request
 
 ```
-POST https://{{ api-host-mdb }}/managed-spqr/v1/clusters/{resourceId}:setAccessBindings
+POST https://mdb.api.cloud.yandex.net/managed-spqr/v1/clusters/{resourceId}:setAccessBindings
 ```
 
 ## Path parameters

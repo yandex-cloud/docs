@@ -1,6 +1,6 @@
-# Пример использования {{ message-queue-full-name }} на Node.js
+# Пример использования Yandex Message Queue на Node.js
 
-[Node.js](https://nodejs.org/en/) – среда для запуска JavaScript-приложений. С помощью AWS SDK для JavaScript в Node.js можно управлять очередями сообщений в {{ message-queue-name }}, отправлять и принимать сообщения.
+[Node.js](https://nodejs.org/en/) – среда для запуска JavaScript-приложений. С помощью AWS SDK для JavaScript в Node.js можно управлять очередями сообщений в Message Queue, отправлять и принимать сообщения.
 
 ## Установка {#install}
 
@@ -13,7 +13,7 @@ npm install @aws-sdk/client-sqs@3.445.0
 ## Подготовка к работе {#prepare}
 
 1. [Создайте сервисный аккаунт](../../iam/operations/sa/create.md).
-1. [Назначьте роль {{ roles-editor }} сервисному аккаунту](../../iam/operations/sa/assign-role-for-sa.md).
+1. [Назначьте роль editor сервисному аккаунту](../../iam/operations/sa/assign-role-for-sa.md).
 1. [Создайте статический ключ доступа](../../iam/operations/authentication/manage-access-keys.md#create-access-key).
 
 Задайте переменные окружения:
@@ -27,7 +27,7 @@ export AWS_SECRET_ACCESS_KEY="<секретный_ключ>"
 
 В этом примере:
 
-1. Устанавливается соединение с {{ message-queue-name }}. 
+1. Устанавливается соединение с Message Queue. 
 1. Создается очередь сообщений с именем `mq_example_nodejs_sdk`.
 1. В очередь передается сообщение с текстом `test message`.
 1. Сообщение считывается из очереди и отображается в терминале.
@@ -37,8 +37,8 @@ export AWS_SECRET_ACCESS_KEY="<секретный_ключ>"
 var AWS = require('aws-sdk');
 
 var mq = new AWS.SQS({
-    'region': '{{ region-id }}',
-    'endpoint': 'https://message-queue.{{ api-host }}',
+    'region': 'ru-central1',
+    'endpoint': 'https://message-queue.api.cloud.yandex.net',
 });
 
 async function createQueue() {

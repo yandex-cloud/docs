@@ -5,7 +5,7 @@ Creates a SAML application in the specified organization.
 ## HTTP request
 
 ```
-POST https://organization-manager.{{ api-host }}/organization-manager/v1/idp/application/saml/applications
+POST https://organization-manager.api.cloud.yandex.net/organization-manager/v1/idp/application/saml/applications
 ```
 
 ## Body parameters {#yandex.cloud.organizationmanager.v1.idp.application.saml.CreateApplicationRequest}

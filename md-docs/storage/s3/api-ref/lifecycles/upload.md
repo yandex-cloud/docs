@@ -1,6 +1,6 @@
 # Object Storage API, REST совместимый с Amazon S3: PutBucketLifecycleConfiguration
 
-Загружает конфигурацию жизненных циклов объектов в бакете в {{ objstorage-name }}.
+Загружает конфигурацию жизненных циклов объектов в бакете в Object Storage.
 
 Подробнее о подготовке к работе с API и общем виде запроса см. в разделе [Как пользоваться S3 API](../../index.md).
 
@@ -32,7 +32,7 @@ PUT /{bucket}?lifecycle HTTP/2
 
 ### Схема данных {#request-scheme}
 
-Вид конфигурации описан в разделе [{#T}](xml-config.md).
+Вид конфигурации описан в разделе [Конфигурация жизненных циклов объектов в бакете](xml-config.md).
 
 ## Ответ {#response}
 
@@ -42,17 +42,17 @@ PUT /{bucket}?lifecycle HTTP/2
 
 ### Коды ответов {#response-codes}
 
-Перечень возможных ответов смотрите в разделе [{#T}](../response-codes.md).
+Перечень возможных ответов смотрите в разделе [Ответы](../response-codes.md).
 
 #### Связанные статьи {#related-articles}
 
-* [{#T}](../../../concepts/lifecycles.md)
+* [Жизненные циклы объектов в бакете](../../../concepts/lifecycles.md)
 
-* [{#T}](../../../operations/buckets/lifecycles.md)
+* [Управление жизненными циклами объектов в бакете](../../../operations/buckets/lifecycles.md)
 
 #### См. также {#see-also}
 
-* [{#T}](../../s3-api-quickstart.md)
+* [Начало работы с AWS S3 API в Yandex Object Storage](../../s3-api-quickstart.md)
 
 * [Отладка запросов с помощью утилиты AWS CLI](../../signing-requests.md#debugging)
 

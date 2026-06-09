@@ -5,7 +5,7 @@ Retrieves the list of clusters in a folder.
 ## HTTP request
 
 ```
-GET https://{{ api-host-mdb }}/managed-mysql/v1/clusters
+GET https://mdb.api.cloud.yandex.net/managed-mysql/v1/clusters
 ```
 
 ## Query parameters {#yandex.cloud.mdb.mysql.v1.ListClustersRequest}

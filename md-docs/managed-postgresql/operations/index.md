@@ -1,4 +1,4 @@
-# Пошаговые инструкции для {{ mpg-name }}
+# Пошаговые инструкции для Managed Service for PostgreSQL
 
 ## Кластеры {#clusters}
 
@@ -14,7 +14,7 @@
 * [Управление дисковым пространством](storage-space.md)
 * [Управление доступом к кластеру](cluster-access.md)
 * [Техническое обслуживание](cluster-maintenance.md)
-* [Обновление версии {{ PG }}](cluster-version-update.md)
+* [Обновление версии PostgreSQL](cluster-version-update.md)
 * [Удаление кластера](cluster-delete.md)
 
 ## Подключения
@@ -27,16 +27,16 @@
 ## Базы данных {#databases}
 
 * [Подключение к базе данных в кластере](connect/index.md)
-* [{#T}](web-sql-query.md)
+* [SQL-запросы в Yandex WebSQL](web-sql-query.md)
 * [Копирование и заполнение таблицы с локальной машины](copy-write-data.md)
 * [Управление базами данных](databases.md)
 
-## Пользователи {{ PG }} {#users}
+## Пользователи PostgreSQL {#users}
 
 * [Управление пользователями](cluster-users.md)
 * [Назначение привилегий и ролей пользователям](grant.md)
 
-## Расширения и словари {{ PG }} {#extensions-and-dictionaries}
+## Расширения и словари PostgreSQL {#extensions-and-dictionaries}
 
 * [Управление расширениями](extensions/cluster-extensions.md)
 * [Использование pg_cron](extensions/pg_cron.md)
@@ -51,4 +51,4 @@
 * [Просмотр логов кластера](cluster-logs.md)
 * [Диагностика производительности](performance-diagnostics.md)
 * [Мониторинг состояния кластера и хостов](monitoring.md)
-* [Подключение к кластеру из {{ datalens-name }}](datalens-connect.md)
+* [Подключение к кластеру из DataLens](datalens-connect.md)

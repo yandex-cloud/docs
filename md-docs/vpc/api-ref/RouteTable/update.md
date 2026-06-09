@@ -6,7 +6,7 @@ Method starts an asynchronous operation that can be cancelled while it is in pro
 ## HTTP request
 
 ```
-PATCH https://vpc.{{ api-host }}/vpc/v1/routeTables/{routeTableId}
+PATCH https://vpc.api.cloud.yandex.net/vpc/v1/routeTables/{routeTableId}
 ```
 
 ## Path parameters

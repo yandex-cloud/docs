@@ -7,32 +7,32 @@
 
 - Консоль управления {#console}
 
-  1. В [консоли управления]({{ link-console-main }}) выберите каталог, где требуется создать подсеть.
-  1. Перейдите в сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_vpc }}**.
-  1. На панели слева выберите ![subnets](../../_assets/console-icons/nodes-right.svg) **{{ ui-key.yacloud.vpc.switch_networks }}**.
-  1. Справа сверху нажмите **{{ ui-key.yacloud.common.create }}**.
-  1. В поле **{{ ui-key.yacloud.vpc.subnetworks.create.field_name }}** укажите название подсети. Требования к названию:
+  1. В [консоли управления](https://console.yandex.cloud) выберите каталог, где требуется создать подсеть.
+  1. Перейдите в сервис **Virtual Private Cloud**.
+  1. На панели слева выберите ![subnets](../../_assets/console-icons/nodes-right.svg) **Подсети**.
+  1. Справа сверху нажмите **Создать**.
+  1. В поле **Имя** укажите название подсети. Требования к названию:
 
      * длина — от 3 до 63 символов;
      * может содержать строчные буквы латинского алфавита, цифры и дефисы;
      * первый символ — буква, последний — не дефис.
 
-  1. (Опционально) В поле **{{ ui-key.yacloud.vpc.subnetworks.create.field_description }}** добавьте описание.
-  1. В поле **{{ ui-key.yacloud.vpc.subnetworks.create.field_zone }}** выберите зону доступности из выпадающего списка.
-  1. В поле **{{ ui-key.yacloud.vpc.subnetworks.create.field_network }}** укажите облачную сеть. Она должна быть создана заранее.
-  1. В поле **{{ ui-key.yacloud.vpc.subnetworks.create.field_ip }}** введите IP-адрес и маску подсети. 
+  1. (Опционально) В поле **Описание** добавьте описание.
+  1. В поле **Зона доступности** выберите зону доступности из выпадающего списка.
+  1. В поле **Сеть** укажите облачную сеть. Она должна быть создана заранее.
+  1. В поле **CIDR** введите IP-адрес и маску подсети. 
      Подробнее про диапазоны IP-адресов в подсетях читайте в разделе [Облачные сети и подсети](../concepts/network.md). 
-     Если нужно указать еще один или несколько CIDR, нажмите **{{ ui-key.yacloud.vpc.subnetworks.create.button_add-cidr }}**.
-  1. (Опционально) Задайте **{{ ui-key.yacloud.vpc.subnetworks.create.section_dhcp-options }}**. Для этого:
-      1. В поле **{{ ui-key.yacloud.vpc.subnetworks.create.field_domain-name }}** укажите домен DNS для поиска неквалифицированных имен.
-      1. В поле **{{ ui-key.yacloud.vpc.subnetworks.create.field_domain-name-servers }}** нажмите **{{ ui-key.yacloud.vpc.subnetworks.create.button_add-domain-name-server }}** и укажите адрес вашего [DNS-сервера](../../glossary/dns.md#dns-server). Можно указать несколько DNS-серверов.
-      1. В поле **{{ ui-key.yacloud.vpc.subnetworks.create.field_ntp-servers }}** нажмите **{{ ui-key.yacloud.vpc.subnetworks.create.button_add-ntp-server }}** и укажите адрес вашего NTP-сервера. Можно указать несколько NTP-серверов.
+     Если нужно указать еще один или несколько CIDR, нажмите **Добавить CIDR**.
+  1. (Опционально) Задайте **Настройки DHCP**. Для этого:
+      1. В поле **Доменное имя** укажите домен DNS для поиска неквалифицированных имен.
+      1. В поле **Серверы доменных имен** нажмите **Добавить сервер доменных имен** и укажите адрес вашего [DNS-сервера](../../glossary/dns.md#dns-server). Можно указать несколько DNS-серверов.
+      1. В поле **NTP-серверы** нажмите **Добавить NTP-сервер** и укажите адрес вашего NTP-сервера. Можно указать несколько NTP-серверов.
 
-  1. Нажмите **{{ ui-key.yacloud.vpc.subnetworks.create.button_create }}**.
+  1. Нажмите **Создать подсеть**.
 
 - CLI {#cli}
 
-  Если у вас еще нет интерфейса командной строки {{ yandex-cloud }} (CLI), [установите и инициализируйте его](../../cli/quickstart.md#install).
+  Если у вас еще нет интерфейса командной строки Yandex Cloud (CLI), [установите и инициализируйте его](../../cli/quickstart.md#install).
 
   По умолчанию используется каталог, указанный при [создании](../../cli/operations/profile/profile-create.md) профиля CLI. Чтобы изменить каталог по умолчанию, используйте команду `yc config set folder-id <идентификатор_каталога>`. Также для любой команды вы можете указать другой каталог с помощью параметров `--folder-name` или `--folder-id`. Если вы обращаетесь к ресурсу по имени, поиск будет выполнен в каталоге по умолчанию. Если вы обращаетесь к ресурсу по идентификатору, поиск будет выполнен глобально — во всех каталогах с учетом прав доступа.
 
@@ -68,7 +68,7 @@
         --name test-subnet-1 \
         --description "My test subnet" \
         --network-id enplom7a98s1******** \
-        --zone {{ region-id }}-a \
+        --zone ru-central1-a \
         --range 192.168.0.0/24
       ```
 
@@ -89,7 +89,7 @@
         --name test-subnet-1 \
         --description "My test subnet" \
         --network-name test-network-1 \
-        --zone {{ region-id }}-a \
+        --zone ru-central1-a \
         --range 192.168.0.0/24
       ```
 
@@ -130,25 +130,25 @@
         name: test-subnet-1
         description: My test subnet
         network_id: enplom7a98s1********
-        zone_id: {{ region-id }}-a
+        zone_id: ru-central1-a
         v4_cidr_blocks:
         - 192.168.0.0/24
 
       ...
       ```
 
-- {{ TF }} {#tf}
+- Terraform {#tf}
 
-  [{{ TF }}](https://www.terraform.io/) позволяет быстро создать облачную инфраструктуру в {{ yandex-cloud }} и управлять ею с помощью файлов конфигураций. В файлах конфигураций хранится описание инфраструктуры на языке HCL (HashiCorp Configuration Language). При изменении файлов конфигураций {{ TF }} автоматически определяет, какая часть вашей конфигурации уже развернута, что следует добавить или удалить.
+  [Terraform](https://www.terraform.io/) позволяет быстро создать облачную инфраструктуру в Yandex Cloud и управлять ею с помощью файлов конфигураций. В файлах конфигураций хранится описание инфраструктуры на языке HCL (HashiCorp Configuration Language). При изменении файлов конфигураций Terraform автоматически определяет, какая часть вашей конфигурации уже развернута, что следует добавить или удалить.
   
-  {{ TF }} распространяется под лицензией [Business Source License](https://github.com/hashicorp/terraform/blob/main/LICENSE), а [провайдер {{ yandex-cloud }} для {{ TF }}](https://github.com/yandex-cloud/terraform-provider-yandex) — под лицензией [MPL-2.0](https://www.mozilla.org/en-US/MPL/2.0/).
+  Terraform распространяется под лицензией [Business Source License](https://github.com/hashicorp/terraform/blob/main/LICENSE), а [провайдер Yandex Cloud для Terraform](https://github.com/yandex-cloud/terraform-provider-yandex) — под лицензией [MPL-2.0](https://www.mozilla.org/en-US/MPL/2.0/).
   
-  Подробную информацию о ресурсах провайдера смотрите в документации на сайте [{{ TF }}](https://www.terraform.io/docs/providers/yandex/index.html) или в [зеркале]({{ tf-docs-link }}).
+  Подробную информацию о ресурсах провайдера смотрите в документации на сайте [Terraform](https://www.terraform.io/docs/providers/yandex/index.html) или в [зеркале](../../terraform/index.md).
 
-  Если у вас еще нет {{ TF }}, [установите его и настройте провайдер {{ yandex-cloud }}](../../tutorials/infrastructure-management/terraform-quickstart.md#install-terraform).
+  Если у вас еще нет Terraform, [установите его и настройте провайдер Yandex Cloud](../../tutorials/infrastructure-management/terraform-quickstart.md#install-terraform).
   
   
-  Чтобы управлять инфраструктурой с помощью {{ TF }} от имени сервисного аккаунта или пользовательских аккаунтов: аккаунта на Яндексе, федеративного аккаунта и локального пользователя, [аутентифицируйтесь](../../terraform/authentication.md) соответствующим способом.
+  Чтобы управлять инфраструктурой с помощью Terraform от имени сервисного аккаунта или пользовательских аккаунтов: аккаунта на Яндексе, федеративного аккаунта и локального пользователя, [аутентифицируйтесь](../../terraform/authentication.md) соответствующим способом.
 
   1. Опишите в конфигурационном файле параметры подсети:
 
@@ -177,7 +177,7 @@
 
      Чтобы добавить, изменить или удалить подсеть, используйте ресурс `yandex_vpc_subnet` с указанием на сеть в поле `network_id` (см. [пример](#examples)).
 
-     Более подробную информацию о параметрах ресурса `yandex_vpc_subnet` в {{ TF }} см. в [документации провайдера]({{ tf-provider-resources-link }}/vpc_subnet).
+     Более подробную информацию о параметрах ресурса `yandex_vpc_subnet` в Terraform см. в [документации провайдера](../../terraform/resources/vpc_subnet.md).
 
   1. Проверьте корректность конфигурационных файлов.
 
@@ -188,7 +188,7 @@
         terraform plan
         ```
 
-     Если конфигурация описана верно, в терминале отобразится список создаваемых ресурсов и их параметров. Если в конфигурации есть ошибки, {{ TF }} на них укажет. 
+     Если конфигурация описана верно, в терминале отобразится список создаваемых ресурсов и их параметров. Если в конфигурации есть ошибки, Terraform на них укажет. 
 
   1. Разверните облачные ресурсы.
 
@@ -200,7 +200,7 @@
 
      1. Подтвердите создание ресурсов: введите в терминал слово `yes` и нажмите **Enter**.
 
-        После этого в указанном каталоге будут созданы все требуемые ресурсы. Проверить появление ресурсов и их настройки можно в [консоли управления]({{ link-console-main }}) или с помощью команд [CLI](../../cli/quickstart.md):
+        После этого в указанном каталоге будут созданы все требуемые ресурсы. Проверить появление ресурсов и их настройки можно в [консоли управления](https://console.yandex.cloud) или с помощью команд [CLI](../../cli/quickstart.md):
 
         ```
         yc vpc subnet list
@@ -235,7 +235,7 @@
       --description "My test subnet" \
       --folder-id b1g6ci08ma55******** \
       --network-id enplom7a98s1******** \
-      --zone {{ region-id }}-a \
+      --zone ru-central1-a \
       --range 192.168.0.0/24
     ```
 
@@ -246,14 +246,14 @@
       --description "My test subnet" \
       --folder-id b1g6ci08ma55******** \
       --network-id enplom7a98s1******** \
-      --zone {{ region-id }}-a \
+      --zone ru-central1-a \
       --range 192.168.0.0/24 \
       --domain-name test.domain \
       --domain-name-server 192.168.0.100 \
       --ntp-server 192.168.0.101
     ```
 
-- {{ TF }} {#tf}
+- Terraform {#tf}
 
   1. Опишите в конфигурационном файле параметры ресурса `yandex_vpc_subnet`:
 
@@ -267,12 +267,12 @@
        name           = "subnet-1"
        description    = "My first subnet"
        v4_cidr_blocks = ["10.2.0.0/16"]
-       zone           = "{{ region-id }}-a"
+       zone           = "ru-central1-a"
        network_id     = "${yandex_vpc_network.lab-net.id}"
      }
      ```
 
-     Более подробную информацию о параметрах ресурсов в {{ TF }} см. в [документации провайдера]({{ tf-provider-resources-link }}/vpc_subnet).
+     Более подробную информацию о параметрах ресурсов в Terraform см. в [документации провайдера](../../terraform/resources/vpc_subnet.md).
 
   1. Проверьте корректность конфигурационных файлов.
 
@@ -283,7 +283,7 @@
         terraform plan
         ```
 
-     Если конфигурация описана верно, в терминале отобразится список создаваемых ресурсов и их параметров. Если в конфигурации есть ошибки, {{ TF }} на них укажет. 
+     Если конфигурация описана верно, в терминале отобразится список создаваемых ресурсов и их параметров. Если в конфигурации есть ошибки, Terraform на них укажет. 
 
   1. Разверните облачные ресурсы.
 
@@ -295,7 +295,7 @@
 
      1. Подтвердите создание ресурсов: введите в терминал слово `yes` и нажмите **Enter**.
 
-        После этого в указанном каталоге будут созданы все требуемые ресурсы. Проверить появление ресурсов и их настройки можно в [консоли управления]({{ link-console-main }}) или с помощью команд [CLI](../../cli/quickstart.md):
+        После этого в указанном каталоге будут созданы все требуемые ресурсы. Проверить появление ресурсов и их настройки можно в [консоли управления](https://console.yandex.cloud) или с помощью команд [CLI](../../cli/quickstart.md):
 
         ```
         yc vpc subnet list

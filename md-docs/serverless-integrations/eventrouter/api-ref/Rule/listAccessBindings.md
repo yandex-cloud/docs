@@ -5,7 +5,7 @@ Lists existing access bindings for the specified rule.
 ## HTTP request
 
 ```
-GET https://serverless-eventrouter.{{ api-host }}/eventrouter/v1/rules/{resourceId}:listAccessBindings
+GET https://serverless-eventrouter.api.cloud.yandex.net/eventrouter/v1/rules/{resourceId}:listAccessBindings
 ```
 
 ## Path parameters

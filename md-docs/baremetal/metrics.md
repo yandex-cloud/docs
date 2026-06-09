@@ -1,15 +1,15 @@
-# Справочник метрик {{ monitoring-full-name }}
+# Справочник метрик Yandex Monitoring
 
-В этом разделе описаны метрики сервиса {{ baremetal-name }}, поставляемые в [{{ monitoring-name }}](../monitoring/index.md).
+В этом разделе описаны метрики сервиса BareMetal, поставляемые в [Monitoring](../monitoring/index.md).
 
 Имя метрики пишется в метку `name`.
 
-Общие метки для метрик сервиса {{ baremetal-name }}:
+Общие метки для метрик сервиса BareMetal:
 
 Метка | Значение
 ----|----
 service | Идентификатор сервиса: `baremetal`.
-server_id | Идентификатор [сервера {{ baremetal-name }}](concepts/servers.md).
+server_id | Идентификатор [сервера BareMetal](concepts/servers.md).
 server_subnet_type | Тип [подсети](concepts/network.md): `private` или `public`. 
 
 Метрики сервиса:

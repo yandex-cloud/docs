@@ -3,7 +3,7 @@
 ## HTTP request
 
 ```
-GET https://iot-devices.{{ api-host }}/iot-devices/v1/registries:getByName
+GET https://iot-devices.api.cloud.yandex.net/iot-devices/v1/registries:getByName
 ```
 
 ## Query parameters {#yandex.cloud.iot.devices.v1.GetByNameRegistryRequest}

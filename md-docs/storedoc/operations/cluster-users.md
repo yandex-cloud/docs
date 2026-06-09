@@ -1,4 +1,4 @@
-# Управление пользователями {{ SD }}
+# Управление пользователями Yandex StoreDoc
 
 Вы можете добавлять и удалять пользователей, а также управлять их индивидуальными настройками и правами доступа к базам данных.
 
@@ -8,20 +8,20 @@
 
 - Консоль управления {#console}
   
-  1. Перейдите на [страницу каталога]({{ link-console-main }}).
-  1. Перейдите в сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-mongodb }}**.
-  1. Нажмите на имя нужного кластера, затем выберите вкладку ![image](../../_assets/console-icons/persons.svg) **{{ ui-key.yacloud.mongodb.cluster.switch_users }}**.
+  1. Перейдите на [страницу каталога](https://console.yandex.cloud).
+  1. Перейдите в сервис **Yandex StoreDoc**.
+  1. Нажмите на имя нужного кластера, затем выберите вкладку ![image](../../_assets/console-icons/persons.svg) **Пользователи**.
   
 - CLI {#cli}
   
-  Если у вас еще нет интерфейса командной строки {{ yandex-cloud }} (CLI), [установите и инициализируйте его](../../cli/quickstart.md#install).
+  Если у вас еще нет интерфейса командной строки Yandex Cloud (CLI), [установите и инициализируйте его](../../cli/quickstart.md#install).
   
   По умолчанию используется каталог, указанный при [создании](../../cli/operations/profile/profile-create.md) профиля CLI. Чтобы изменить каталог по умолчанию, используйте команду `yc config set folder-id <идентификатор_каталога>`. Также для любой команды вы можете указать другой каталог с помощью параметров `--folder-name` или `--folder-id`. Если вы обращаетесь к ресурсу по имени, поиск будет выполнен в каталоге по умолчанию. Если вы обращаетесь к ресурсу по идентификатору, поиск будет выполнен глобально — во всех каталогах с учетом прав доступа.
   
   Чтобы получить список пользователей кластера, выполните команду:
   
   ```
-  {{ yc-mdb-mg }} user list \
+  yc managed-mongodb user list \
     --cluster-name <имя_кластера>
   ```
   
@@ -35,13 +35,13 @@
      export IAM_TOKEN="<IAM-токен>"
      ```
 
-  1. Воспользуйтесь методом [User.List](../api-ref/User/list.md) и выполните запрос, например, с помощью {{ api-examples.rest.tool }}:
+  1. Воспользуйтесь методом [User.List](../api-ref/User/list.md) и выполните запрос, например, с помощью [cURL](https://curl.se/):
 
      ```bash
      curl \
        --request GET \
        --header "Authorization: Bearer $IAM_TOKEN" \
-       --url 'https://{{ api-host-mdb }}/managed-mongodb/v1/clusters/<идентификатор_кластера>/users'
+       --url 'https://mdb.api.cloud.yandex.net/managed-mongodb/v1/clusters/<идентификатор_кластера>/users'
      ```
 
      Идентификатор кластера можно запросить со [списком кластеров в каталоге](cluster-list.md#list-clusters).
@@ -63,7 +63,7 @@
      ```
      
      Далее предполагается, что содержимое репозитория находится в директории `~/cloudapi/`.
-  1. Воспользуйтесь вызовом [UserService.List](../api-ref/grpc/User/list.md) и выполните запрос, например, с помощью {{ api-examples.grpc.tool }}:
+  1. Воспользуйтесь вызовом [UserService.List](../api-ref/grpc/User/list.md) и выполните запрос, например, с помощью [gRPCurl](https://github.com/fullstorydev/grpcurl):
 
      ```bash
      grpcurl \
@@ -75,7 +75,7 @@
        -d '{
              "cluster_id": "<идентификатор_кластера>"
            }' \
-       {{ api-host-mdb }}:{{ port-https }} \
+       mdb.api.cloud.yandex.net:443 \
        yandex.cloud.mdb.mongodb.v1.UserService.List
      ```
 
@@ -91,12 +91,12 @@
 
 - Консоль управления {#console}
   
-  1. Перейдите на [страницу каталога]({{ link-console-main }}).
-  1. Перейдите в сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-mongodb }}**.
+  1. Перейдите на [страницу каталога](https://console.yandex.cloud).
+  1. Перейдите в сервис **Yandex StoreDoc**.
 
-  1. Нажмите на имя нужного кластера и выберите вкладку ![image](../../_assets/console-icons/persons.svg) **{{ ui-key.yacloud.mongodb.cluster.switch_users }}**.
+  1. Нажмите на имя нужного кластера и выберите вкладку ![image](../../_assets/console-icons/persons.svg) **Пользователи**.
 
-  1. Нажмите кнопку **{{ ui-key.yacloud.mdb.cluster.users.action_add-user }}**.
+  1. Нажмите кнопку **Создать пользователя**.
 
   1. Введите имя пользователя БД и пароль.
 
@@ -110,16 +110,16 @@
 
   1. Настройте [роли](../concepts/users-and-roles.md) пользователя:
 
-     1. Нажмите кнопку **{{ ui-key.yacloud.mdb.dialogs.button_add-database }}** и выберите БД, в которой вы хотите выдать роль.
+     1. Нажмите кнопку **Добавить базу данных** и выберите БД, в которой вы хотите выдать роль.
      1. Добавьте роли с помощью кнопки ![image](../../_assets/console-icons/plus.svg).
 
      Вы можете выдать пользователю несколько ролей в разных базах данных.
 
-  1. Нажмите кнопку **{{ ui-key.yacloud.mdb.cluster.users.popup-add_button_add }}**.
+  1. Нажмите кнопку **Создать**.
 
 - CLI {#cli}
   
-  Если у вас еще нет интерфейса командной строки {{ yandex-cloud }} (CLI), [установите и инициализируйте его](../../cli/quickstart.md#install).
+  Если у вас еще нет интерфейса командной строки Yandex Cloud (CLI), [установите и инициализируйте его](../../cli/quickstart.md#install).
   
   По умолчанию используется каталог, указанный при [создании](../../cli/operations/profile/profile-create.md) профиля CLI. Чтобы изменить каталог по умолчанию, используйте команду `yc config set folder-id <идентификатор_каталога>`. Также для любой команды вы можете указать другой каталог с помощью параметров `--folder-name` или `--folder-id`. Если вы обращаетесь к ресурсу по имени, поиск будет выполнен в каталоге по умолчанию. Если вы обращаетесь к ресурсу по идентификатору, поиск будет выполнен глобально — во всех каталогах с учетом прав доступа.
   
@@ -128,12 +128,12 @@
   1. Посмотрите описание команды CLI для создания пользователя:
   
      ```
-     {{ yc-mdb-mg }} user create --help
+     yc managed-mongodb user create --help
      ```
   
   1. Укажите свойства пользователя в команде создания:
      ```
-     {{ yc-mdb-mg }} user create <имя_пользователя> \
+     yc managed-mongodb user create <имя_пользователя> \
        --cluster-name <имя_кластера> \
        --password <пароль_для_пользователя> \
        --permission database=<имя_БД>,role=<роль>,role=<другая_роль>,... \
@@ -150,9 +150,9 @@
 
      Имя кластера можно запросить со [списком кластеров в каталоге](cluster-list.md#list-clusters).
 
-- {{ TF }} {#tf}
+- Terraform {#tf}
 
-    1. Откройте актуальный конфигурационный файл {{ TF }} с планом инфраструктуры.
+    1. Откройте актуальный конфигурационный файл Terraform с планом инфраструктуры.
 
         О том, как создать такой файл, см. в разделе [Создание кластера](cluster-create.md).
 
@@ -182,14 +182,14 @@
 
     1. Проверьте корректность настроек.
 
-        1. В командной строке перейдите в каталог, в котором расположены актуальные конфигурационные файлы {{ TF }} с планом инфраструктуры.
+        1. В командной строке перейдите в каталог, в котором расположены актуальные конфигурационные файлы Terraform с планом инфраструктуры.
         1. Выполните команду:
         
            ```bash
            terraform validate
            ```
         
-           Если в файлах конфигурации есть ошибки, {{ TF }} на них укажет.
+           Если в файлах конфигурации есть ошибки, Terraform на них укажет.
 
     1. Подтвердите изменение ресурсов.
 
@@ -211,7 +211,7 @@
            1. Подтвердите изменение ресурсов.
            1. Дождитесь завершения операции.
 
-    Подробнее см. в [документации провайдера {{ TF }}]({{ tf-provider-resources-link }}/mdb_mongodb_user).
+    Подробнее см. в [документации провайдера Terraform](../../terraform/resources/mdb_mongodb_user.md).
 
 - REST API {#api}
 
@@ -221,14 +221,14 @@
      export IAM_TOKEN="<IAM-токен>"
      ```
 
-  1. Воспользуйтесь методом [User.Create](../api-ref/User/create.md) и выполните запрос, например, с помощью {{ api-examples.rest.tool }}:
+  1. Воспользуйтесь методом [User.Create](../api-ref/User/create.md) и выполните запрос, например, с помощью [cURL](https://curl.se/):
 
      ```bash
      curl \
        --request POST \
        --header "Authorization: Bearer $IAM_TOKEN" \
        --header "Content-Type: application/json" \
-       --url 'https://{{ api-host-mdb }}/managed-mongodb/v1/clusters/<идентификатор_кластера>/users' \
+       --url 'https://mdb.api.cloud.yandex.net/managed-mongodb/v1/clusters/<идентификатор_кластера>/users' \
        --data '{
                  "userSpec": {
                    "name": "<имя_пользователя>",
@@ -284,7 +284,7 @@
      ```
      
      Далее предполагается, что содержимое репозитория находится в директории `~/cloudapi/`.
-  1. Воспользуйтесь вызовом [UserService.Create](../api-ref/grpc/User/create.md) и выполните запрос, например, с помощью {{ api-examples.grpc.tool }}:
+  1. Воспользуйтесь вызовом [UserService.Create](../api-ref/grpc/User/create.md) и выполните запрос, например, с помощью [gRPCurl](https://github.com/fullstorydev/grpcurl):
 
      ```bash
      grpcurl \
@@ -308,7 +308,7 @@
                ]
              }
            }' \
-       {{ api-host-mdb }}:{{ port-https }} \
+       mdb.api.cloud.yandex.net:443 \
        yandex.cloud.mdb.mongodb.v1.UserService.Create
      ```
 
@@ -344,12 +344,12 @@
 
 - Консоль управления {#console}
 
-  1. Перейдите на [страницу каталога]({{ link-console-main }}).
-  1. Перейдите в сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-mongodb }}**.
+  1. Перейдите на [страницу каталога](https://console.yandex.cloud).
+  1. Перейдите в сервис **Yandex StoreDoc**.
 
-  1. Нажмите на имя нужного кластера и выберите вкладку ![image](../../_assets/console-icons/persons.svg) **{{ ui-key.yacloud.mongodb.cluster.switch_users }}**.
+  1. Нажмите на имя нужного кластера и выберите вкладку ![image](../../_assets/console-icons/persons.svg) **Пользователи**.
 
-  1. Чтобы изменить пароль пользователя, нажмите значок ![image](../../_assets/console-icons/ellipsis.svg) в строке нужного пользователя и выберите пункт **{{ ui-key.yacloud.mdb.cluster.users.button_action-password }}**.
+  1. Чтобы изменить пароль пользователя, нажмите значок ![image](../../_assets/console-icons/ellipsis.svg) в строке нужного пользователя и выберите пункт **Изменить пароль**.
 
      {% note info %}
      
@@ -361,15 +361,15 @@
 
   1. Чтобы изменить [роли](../concepts/users-and-roles.md) пользователя:
 
-     1. Нажмите значок ![image](../../_assets/console-icons/ellipsis.svg) в строке нужного пользователя и выберите пункт **{{ ui-key.yacloud.mdb.cluster.users.button_action-update }}**.
+     1. Нажмите значок ![image](../../_assets/console-icons/ellipsis.svg) в строке нужного пользователя и выберите пункт **Настроить**.
      1. Чтобы добавить роль, нажмите ![image](../../_assets/console-icons/plus.svg) напротив нужной БД и выберите роль.
      1. Чтобы удалить роль, нажмите на значок ![image](../../_assets/console-icons/xmark.svg) возле названия роли.
 
-  1. Нажмите **{{ ui-key.yacloud.mdb.dialogs.popup_button_save }}**.
+  1. Нажмите **Сохранить**.
 
 - CLI {#cli}
   
-  Если у вас еще нет интерфейса командной строки {{ yandex-cloud }} (CLI), [установите и инициализируйте его](../../cli/quickstart.md#install).
+  Если у вас еще нет интерфейса командной строки Yandex Cloud (CLI), [установите и инициализируйте его](../../cli/quickstart.md#install).
   
   По умолчанию используется каталог, указанный при [создании](../../cli/operations/profile/profile-create.md) профиля CLI. Чтобы изменить каталог по умолчанию, используйте команду `yc config set folder-id <идентификатор_каталога>`. Также для любой команды вы можете указать другой каталог с помощью параметров `--folder-name` или `--folder-id`. Если вы обращаетесь к ресурсу по имени, поиск будет выполнен в каталоге по умолчанию. Если вы обращаетесь к ресурсу по идентификатору, поиск будет выполнен глобально — во всех каталогах с учетом прав доступа.
   
@@ -378,12 +378,12 @@
   1. Посмотрите описание команды CLI для изменения пользователя:
   
      ```
-     {{ yc-mdb-mg }} user update --help
+     yc managed-mongodb user update --help
      ```
   
   1. Укажите свойства пользователя в команде изменения:
      ```
-     {{ yc-mdb-mg }} user update <имя_пользователя> \
+     yc managed-mongodb user update <имя_пользователя> \
        --cluster-name <имя_кластера> \
        --password <пароль_для_пользователя> \
        --permission database=<имя_БД>,role=<роль>,role=<другая_роль>,... \
@@ -403,13 +403,13 @@
   1. Посмотрите описание команды CLI для выдачи прав пользователю:
   
      ```
-     {{ yc-mdb-mg }} user grant-permission --help
+     yc managed-mongodb user grant-permission --help
      ```
   
   1. Укажите свойства пользователя в команде выдачи прав:
 
      ```bash
-     {{ yc-mdb-mg }} user grant-permission <имя_пользователя> \
+     yc managed-mongodb user grant-permission <имя_пользователя> \
        --cluster-name <имя_кластера> \
        --database <имя_БД> \
        --role <набор_ролей_через_запятую>
@@ -420,13 +420,13 @@
   1. Посмотрите описание команды CLI для отзыва прав пользователя:
   
      ```
-     {{ yc-mdb-mg }} user revoke-permission --help
+     yc managed-mongodb user revoke-permission --help
      ```
   
   1. Укажите свойства пользователя в команде отзыва прав:
 
      ```bash
-     {{ yc-mdb-mg }} user revoke-permission <имя_пользователя> \
+     yc managed-mongodb user revoke-permission <имя_пользователя> \
        --cluster-name <имя_кластера> \
        --database <имя_БД>
      ```
@@ -435,9 +435,9 @@
 
   Имя кластера можно запросить со [списком кластеров в каталоге](cluster-list.md#list-clusters), имя базы данных — со [списком баз данных в кластере](databases.md#list-db), имя пользователя — со [списком пользователей в кластере](cluster-users.md#list-users).
 
-- {{ TF }} {#tf}
+- Terraform {#tf}
 
-    1. Откройте актуальный конфигурационный файл {{ TF }} с планом инфраструктуры.
+    1. Откройте актуальный конфигурационный файл Terraform с планом инфраструктуры.
 
         О том, как создать такой файл, см. в разделе [Создание кластера](cluster-create.md).
 
@@ -466,14 +466,14 @@
 
     1. Проверьте корректность настроек.
   
-        1. В командной строке перейдите в каталог, в котором расположены актуальные конфигурационные файлы {{ TF }} с планом инфраструктуры.
+        1. В командной строке перейдите в каталог, в котором расположены актуальные конфигурационные файлы Terraform с планом инфраструктуры.
         1. Выполните команду:
         
            ```bash
            terraform validate
            ```
         
-           Если в файлах конфигурации есть ошибки, {{ TF }} на них укажет.
+           Если в файлах конфигурации есть ошибки, Terraform на них укажет.
 
     1. Подтвердите изменение ресурсов.
 
@@ -495,7 +495,7 @@
            1. Подтвердите изменение ресурсов.
            1. Дождитесь завершения операции.
 
-    Подробнее см. в [документации провайдера {{ TF }}]({{ tf-provider-resources-link }}/mdb_mongodb_user).
+    Подробнее см. в [документации провайдера Terraform](../../terraform/resources/mdb_mongodb_user.md).
 
 - REST API {#api}
 
@@ -505,7 +505,7 @@
      export IAM_TOKEN="<IAM-токен>"
      ```
 
-  1. Воспользуйтесь методом [User.Update](../api-ref/User/update.md) и выполните запрос, например, с помощью {{ api-examples.rest.tool }}:
+  1. Воспользуйтесь методом [User.Update](../api-ref/User/update.md) и выполните запрос, например, с помощью [cURL](https://curl.se/):
 
      {% note warning %}
      
@@ -518,7 +518,7 @@
        --request PATCH \
        --header "Authorization: Bearer $IAM_TOKEN" \
        --header "Content-Type: application/json" \
-       --url 'https://{{ api-host-mdb }}/managed-mongodb/v1/clusters/<идентификатор_кластера>/users/<имя_пользователя>' \
+       --url 'https://mdb.api.cloud.yandex.net/managed-mongodb/v1/clusters/<идентификатор_кластера>/users/<имя_пользователя>' \
        --data '{
                 "updateMask": "password,permissions.databaseName,permissions.roles",
                 "password": "<пароль_пользователя>",
@@ -570,7 +570,7 @@
      ```
      
      Далее предполагается, что содержимое репозитория находится в директории `~/cloudapi/`.
-  1. Воспользуйтесь вызовом [UserService.Update](../api-ref/grpc/User/update.md) и выполните запрос, например, с помощью {{ api-examples.grpc.tool }}:
+  1. Воспользуйтесь вызовом [UserService.Update](../api-ref/grpc/User/update.md) и выполните запрос, например, с помощью [gRPCurl](https://github.com/fullstorydev/grpcurl):
 
      {% note warning %}
      
@@ -620,7 +620,7 @@
                }
              ]
            }' \
-       {{ api-host-mdb }}:{{ port-https }} \
+       mdb.api.cloud.yandex.net:443 \
        yandex.cloud.mdb.mongodb.v1.UserService.Update
      ```
 
@@ -654,29 +654,29 @@
 
 - Консоль управления {#console}
   
-  1. Перейдите на [страницу каталога]({{ link-console-main }}).
-  1. Перейдите в сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-mongodb }}**.
-  1. Нажмите на имя нужного кластера и выберите вкладку ![image](../../_assets/console-icons/persons.svg) **{{ ui-key.yacloud.mongodb.cluster.switch_users }}**.
-  1. Нажмите значок ![image](../../_assets/console-icons/ellipsis.svg) в строке нужного пользователя и выберите пункт **{{ ui-key.yacloud.mdb.clusters.button_action-delete }}**.
+  1. Перейдите на [страницу каталога](https://console.yandex.cloud).
+  1. Перейдите в сервис **Yandex StoreDoc**.
+  1. Нажмите на имя нужного кластера и выберите вкладку ![image](../../_assets/console-icons/persons.svg) **Пользователи**.
+  1. Нажмите значок ![image](../../_assets/console-icons/ellipsis.svg) в строке нужного пользователя и выберите пункт **Удалить**.
   
 - CLI {#cli}
   
-  Если у вас еще нет интерфейса командной строки {{ yandex-cloud }} (CLI), [установите и инициализируйте его](../../cli/quickstart.md#install).
+  Если у вас еще нет интерфейса командной строки Yandex Cloud (CLI), [установите и инициализируйте его](../../cli/quickstart.md#install).
   
   По умолчанию используется каталог, указанный при [создании](../../cli/operations/profile/profile-create.md) профиля CLI. Чтобы изменить каталог по умолчанию, используйте команду `yc config set folder-id <идентификатор_каталога>`. Также для любой команды вы можете указать другой каталог с помощью параметров `--folder-name` или `--folder-id`. Если вы обращаетесь к ресурсу по имени, поиск будет выполнен в каталоге по умолчанию. Если вы обращаетесь к ресурсу по идентификатору, поиск будет выполнен глобально — во всех каталогах с учетом прав доступа.
   
   Чтобы удалить пользователя, выполните команду:
   
   ```
-  {{ yc-mdb-mg }} user delete <имя_пользователя> \
+  yc managed-mongodb user delete <имя_пользователя> \
     --cluster-name <имя_кластера>
   ```
   
   Имя кластера можно запросить со [списком кластеров в каталоге](cluster-list.md#list-clusters).
 
-- {{ TF }} {#tf}
+- Terraform {#tf}
 
-    1. Откройте актуальный конфигурационный файл {{ TF }} с планом инфраструктуры.
+    1. Откройте актуальный конфигурационный файл Terraform с планом инфраструктуры.
 
         О том, как создать такой файл, см. в разделе [Создание кластера](cluster-create.md).
 
@@ -684,14 +684,14 @@
 
     1. Проверьте корректность настроек.
 
-        1. В командной строке перейдите в каталог, в котором расположены актуальные конфигурационные файлы {{ TF }} с планом инфраструктуры.
+        1. В командной строке перейдите в каталог, в котором расположены актуальные конфигурационные файлы Terraform с планом инфраструктуры.
         1. Выполните команду:
         
            ```bash
            terraform validate
            ```
         
-           Если в файлах конфигурации есть ошибки, {{ TF }} на них укажет.
+           Если в файлах конфигурации есть ошибки, Terraform на них укажет.
 
     1. Подтвердите изменение ресурсов.
 
@@ -713,7 +713,7 @@
            1. Подтвердите изменение ресурсов.
            1. Дождитесь завершения операции.
 
-    Подробнее см. в [документации провайдера {{ TF }}]({{ tf-provider-resources-link }}/mdb_mongodb_user).
+    Подробнее см. в [документации провайдера Terraform](../../terraform/resources/mdb_mongodb_user.md).
 
 - REST API {#api}
 
@@ -723,13 +723,13 @@
      export IAM_TOKEN="<IAM-токен>"
      ```
 
-  1. Воспользуйтесь методом [User.Delete](../api-ref/User/delete.md) и выполните запрос, например, с помощью {{ api-examples.rest.tool }}:
+  1. Воспользуйтесь методом [User.Delete](../api-ref/User/delete.md) и выполните запрос, например, с помощью [cURL](https://curl.se/):
 
      ```bash
      curl \
        --request DELETE \
        --header "Authorization: Bearer $IAM_TOKEN" \
-       --url 'https://{{ api-host-mdb }}/managed-mongodb/v1/clusters/<идентификатор_кластера>/users/<имя_пользователя>'
+       --url 'https://mdb.api.cloud.yandex.net/managed-mongodb/v1/clusters/<идентификатор_кластера>/users/<имя_пользователя>'
      ```
 
      Идентификатор кластера можно запросить со [списком кластеров в каталоге](cluster-list.md#list-clusters), а имя пользователя — со [списком пользователей в кластере](#list-users).
@@ -751,7 +751,7 @@
      ```
      
      Далее предполагается, что содержимое репозитория находится в директории `~/cloudapi/`.
-  1. Воспользуйтесь вызовом [UserService.Delete](../api-ref/grpc/User/delete.md) и выполните запрос, например, с помощью {{ api-examples.grpc.tool }}:
+  1. Воспользуйтесь вызовом [UserService.Delete](../api-ref/grpc/User/delete.md) и выполните запрос, например, с помощью [gRPCurl](https://github.com/fullstorydev/grpcurl):
 
      ```bash
      grpcurl \
@@ -764,7 +764,7 @@
              "cluster_id": "<идентификатор_кластера>",
              "user_name": "<имя_пользователя>"
            }' \
-       {{ api-host-mdb }}:{{ port-https }} \
+       mdb.api.cloud.yandex.net:443 \
        yandex.cloud.mdb.mongodb.v1.UserService.Delete
      ```
 
@@ -784,14 +784,14 @@
 
 - Консоль управления {#console}
 
-  1. Перейдите на [страницу каталога]({{ link-console-main }}).
-  1. Перейдите в сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-mongodb }}**.
-  1. Нажмите на имя нужного кластера и выберите вкладку ![image](../../_assets/console-icons/persons.svg) **{{ ui-key.yacloud.mongodb.cluster.switch_users }}**.
-  1. Нажмите кнопку **{{ ui-key.yacloud.mdb.cluster.users.action_add-user }}**.
+  1. Перейдите на [страницу каталога](https://console.yandex.cloud).
+  1. Перейдите в сервис **Yandex StoreDoc**.
+  1. Нажмите на имя нужного кластера и выберите вкладку ![image](../../_assets/console-icons/persons.svg) **Пользователи**.
+  1. Нажмите кнопку **Создать пользователя**.
   1. Введите имя пользователя `user2` и пароль (от 8 до 128 символов).
-  1. Выберите базу данных `db1` из выпадающего списка **{{ ui-key.yacloud.mdb.dialogs.button_add-database }}**.
+  1. Выберите базу данных `db1` из выпадающего списка **Добавить базу данных**.
   1. Выберите роль `read` из выпадающего списка напротив базы данных `db1`.
-  1. Нажмите кнопку **{{ ui-key.yacloud.mdb.cluster.users.popup-add_button_add }}**.
+  1. Нажмите кнопку **Создать**.
 
 - CLI {#cli}
 
@@ -804,9 +804,9 @@
     --permission database=db1,role=read
   ```
 
-- {{ TF }} {#tf}
+- Terraform {#tf}
 
-  1. Откройте актуальный конфигурационный файл {{ TF }} с планом инфраструктуры.
+  1. Откройте актуальный конфигурационный файл Terraform с планом инфраструктуры.
 
       О том, как создать такой файл, см. в разделе [Создание кластера](cluster-create.md).
 
@@ -826,14 +826,14 @@
 
   1. Проверьте корректность настроек.
 
-      1. В командной строке перейдите в каталог, в котором расположены актуальные конфигурационные файлы {{ TF }} с планом инфраструктуры.
+      1. В командной строке перейдите в каталог, в котором расположены актуальные конфигурационные файлы Terraform с планом инфраструктуры.
       1. Выполните команду:
       
          ```bash
          terraform validate
          ```
       
-         Если в файлах конфигурации есть ошибки, {{ TF }} на них укажет.
+         Если в файлах конфигурации есть ошибки, Terraform на них укажет.
 
   1. Подтвердите изменение ресурсов.
 
@@ -855,7 +855,7 @@
          1. Подтвердите изменение ресурсов.
          1. Дождитесь завершения операции.
 
-  Подробнее см. в [документации провайдера {{ TF }}]({{ tf-provider-resources-link }}/mdb_mongodb_user).
+  Подробнее см. в [документации провайдера Terraform](../../terraform/resources/mdb_mongodb_user.md).
 
 {% endlist %}
 
@@ -867,28 +867,28 @@
 
 - Консоль управления {#console}
 
-  1. Перейдите на [страницу каталога]({{ link-console-main }}).
-  1. Перейдите в сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-mongodb }}**.
-  1. Нажмите на имя кластера `cluster1` и выберите вкладку ![image](../../_assets/console-icons/persons.svg) **{{ ui-key.yacloud.mongodb.cluster.switch_users }}**.
-  1. Нажмите значок ![image](../../_assets/console-icons/ellipsis.svg) в строке пользователя `user1` и выберите пункт **{{ ui-key.yacloud.mdb.cluster.users.button_action-update }}**.
-  1. Нажмите кнопку **{{ ui-key.yacloud.mdb.dialogs.button_add-database }}** и выберите базу данных `db2`.
+  1. Перейдите на [страницу каталога](https://console.yandex.cloud).
+  1. Перейдите в сервис **Yandex StoreDoc**.
+  1. Нажмите на имя кластера `cluster1` и выберите вкладку ![image](../../_assets/console-icons/persons.svg) **Пользователи**.
+  1. Нажмите значок ![image](../../_assets/console-icons/ellipsis.svg) в строке пользователя `user1` и выберите пункт **Настроить**.
+  1. Нажмите кнопку **Добавить базу данных** и выберите базу данных `db2`.
   1. Нажмите ![image](../../_assets/console-icons/plus.svg) и выберите роль `read` из выпадающего списка напротив базы данных `db2`.
-  1. Нажмите кнопку **{{ ui-key.yacloud.mdb.dialogs.popup_button_save }}**.
+  1. Нажмите кнопку **Сохранить**.
 
 - CLI {#cli}
 
   Выполните следующую команду:
 
   ```
-  {{ yc-mdb-mg }} user grant-permission user1 \
+  yc managed-mongodb user grant-permission user1 \
     --cluster-name cluster1 \
     --database db2 \
     --role read
   ```
 
-- {{ TF }} {#tf}
+- Terraform {#tf}
 
-  1. Откройте актуальный конфигурационный файл {{ TF }} с планом инфраструктуры.
+  1. Откройте актуальный конфигурационный файл Terraform с планом инфраструктуры.
 
       О том, как создать такой файл, см. в разделе [Создание кластера](cluster-create.md).
 
@@ -909,14 +909,14 @@
 
   1. Проверьте корректность настроек.
 
-      1. В командной строке перейдите в каталог, в котором расположены актуальные конфигурационные файлы {{ TF }} с планом инфраструктуры.
+      1. В командной строке перейдите в каталог, в котором расположены актуальные конфигурационные файлы Terraform с планом инфраструктуры.
       1. Выполните команду:
       
          ```bash
          terraform validate
          ```
       
-         Если в файлах конфигурации есть ошибки, {{ TF }} на них укажет.
+         Если в файлах конфигурации есть ошибки, Terraform на них укажет.
 
   1. Подтвердите изменение ресурсов.
 
@@ -938,6 +938,6 @@
          1. Подтвердите изменение ресурсов.
          1. Дождитесь завершения операции.
 
-  Подробнее см. в [документации провайдера {{ TF }}]({{ tf-provider-resources-link }}/mdb_mongodb_user).
+  Подробнее см. в [документации провайдера Terraform](../../terraform/resources/mdb_mongodb_user.md).
 
 {% endlist %}

@@ -1,4 +1,4 @@
-# [{{ datalens-full-name }}] Подготовка данных еще не завершилась
+# [Yandex DataLens] Подготовка данных еще не завершилась
 
 `ERR.DS_API.DB.DATA_PREPARATION_NOT_FINISHED`
 

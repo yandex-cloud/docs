@@ -5,7 +5,7 @@ Updates access bindings for the specified container.
 ## HTTP request
 
 ```
-POST https://serverless-containers.{{ api-host }}/containers/v1/containers/{resourceId}:updateAccessBindings
+POST https://serverless-containers.api.cloud.yandex.net/containers/v1/containers/{resourceId}:updateAccessBindings
 ```
 
 ## Path parameters

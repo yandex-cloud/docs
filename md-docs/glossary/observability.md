@@ -113,19 +113,19 @@ _Observability (наблюдаемость)_ — возможность поня
 * Оптимизация затрат. ИИ способен на сложные расчеты, которые помогают собирать телеметрию более разумно, отсеивая ненужную. Такой подход может снизить затраты на наблюдаемость на 30–40%.
 * [Чат-боты](chat-bot.md). Чат-боты с ИИ могут помочь разработчикам с проблемами разной сложности, а также стать эффективным «сотрудником» технической поддержки.
 
-## Observability в {{ yandex-cloud }} {#yc-observability}
+## Observability в Yandex Cloud {#yc-observability}
 
-{{ yandex-cloud }} предлагает следующие сервисы для внедрения наблюдаемости в ваши проекты:
+Yandex Cloud предлагает следующие сервисы для внедрения наблюдаемости в ваши проекты:
 
-* [{{ monitoring-full-name }}](https://yandex.cloud/ru/services/monitoring/) — сервис для сбора, хранения и визуализации метрик, а также настройки алертов. Подробнее в документации [{{ monitoring-name }}](../monitoring/index.md).
-* [{{ cloud-logging-full-name }}](https://yandex.cloud/ru/services/logging/) — сервис для сбора и анализа логов. Подробнее в документации [{{ cloud-logging-name }}](../logging/index.md).
-* [{{ managed-prometheus-full-name }}](https://yandex.cloud/ru/services/managed-prometheus/) — система мониторинга, совместимая с [Prometheus](https://prometheus.io/docs/introduction/overview/). Подробнее в документации [{{ managed-prometheus-name }}](../monitoring/operations/prometheus/index.md).
+* [Yandex Monitoring](https://yandex.cloud/ru/services/monitoring/) — сервис для сбора, хранения и визуализации метрик, а также настройки алертов. Подробнее в документации [Monitoring](../monitoring/index.md).
+* [Yandex Cloud Logging](https://yandex.cloud/ru/services/logging/) — сервис для сбора и анализа логов. Подробнее в документации [Cloud Logging](../logging/index.md).
+* [Yandex Managed Service for Prometheus®](https://yandex.cloud/ru/services/managed-prometheus/) — система мониторинга, совместимая с [Prometheus](https://prometheus.io/docs/introduction/overview/). Подробнее в документации [Yandex Managed Service for Prometheus®](../monitoring/operations/prometheus/index.md).
 
 #### Полезные материалы {#see-also}
 
-* [Чтение и запись метрик кластера {{ managed-k8s-name }} с помощью Prometheus Operator](../monitoring/operations/prometheus/read-write-for-kubernetes.md)
+* [Чтение и запись метрик кластера Managed Service for Kubernetes с помощью Prometheus Operator](../monitoring/operations/prometheus/read-write-for-kubernetes.md)
 * [Сбор метрик кластера «1С:Предприятие» на базе Linux](../monitoring/tutorials/collect-metrics-1c-cluster.md)
 * [Видео: Observability для выявления аномалий и нахождения полезных инсайтов для бизнеса](https://yandex.cloud/ru/blog/posts/2024/03/monthly-cloud-news-observability-engineering)
 * [Вебинар: Эффективный мониторинг облачных решений](https://yandex.cloud/ru/events/1161)
-* [Вебинар: Звонки и эскалации в {{ monitoring-name }}](https://yandex.cloud/ru/events/1017)
-* [Вебинар: Инструменты Observability в {{ yandex-cloud }}](https://yandex.cloud/ru/events/674)
+* [Вебинар: Звонки и эскалации в Monitoring](https://yandex.cloud/ru/events/1017)
+* [Вебинар: Инструменты Observability в Yandex Cloud](https://yandex.cloud/ru/events/674)

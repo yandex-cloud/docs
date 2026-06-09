@@ -82,7 +82,7 @@ Yandex Key Management Service — сервис для создания и упр
 
  - [Какой способ шифрования выбрать?](tutorials/encrypt/index.md)
 
- - [Шифрование с помощью CLI и API {{ yandex-cloud }}](tutorials/encrypt/cli-api.md)
+ - [Шифрование с помощью CLI и API Yandex Cloud](tutorials/encrypt/cli-api.md)
 
  - [Шифрование с помощью SDK Yandex Cloud](tutorials/encrypt/sdk.md)
 
@@ -90,13 +90,13 @@ Yandex Key Management Service — сервис для создания и упр
 
  - [Шифрование с помощью Google Tink](tutorials/encrypt/google-tink.md)
 
- - [Шифрование секретов в {{ managed-k8s-name }}](tutorials/kms-k8s.md)
+ - [Шифрование секретов в Managed Service for Kubernetes](tutorials/kms-k8s.md)
 
- - [Подпись и проверка Docker-образов в {{ managed-k8s-name }}](tutorials/sign-cr-with-cosign.md)
+ - [Подпись и проверка Docker-образов в Managed Service for Kubernetes](tutorials/sign-cr-with-cosign.md)
 
- - [Управление ключами KMS с {{ TF-full }}](tutorials/terraform-key.md)
+ - [Управление ключами KMS с HashiCorp Terraform](tutorials/terraform-key.md)
 
- - [Шифрование секретов в {{ TF-full }}](tutorials/terraform-secret.md)
+ - [Шифрование секретов в HashiCorp Terraform](tutorials/terraform-secret.md)
 
  - [Auto Unseal в HashiCorp Vault](tutorials/vault-secret.md)
 
@@ -106,9 +106,9 @@ Yandex Key Management Service — сервис для создания и упр
 
  - [Консоль управления, CLI, API](tutorials/secure-password-script/console.md)
 
- - [{{ TF }}](tutorials/secure-password-script/terraform.md)
+ - [Terraform](tutorials/secure-password-script/terraform.md)
 
- - [Шифрование для бакета {{ objstorage-name }} на стороне сервера](tutorials/server-side-encryption.md)
+ - [Шифрование для бакета Object Storage на стороне сервера](tutorials/server-side-encryption.md)
 
  - [Управление доступом](security/index.md)
 
@@ -346,7 +346,7 @@ Yandex Key Management Service — сервис для создания и упр
 
  - [update](cli-ref/v0/symmetric-key/update.md)
 
- - [Справочник {{ TF }}](tf-ref.md)
+ - [Справочник Terraform](tf-ref.md)
 
 ## Справочник API
 
@@ -636,9 +636,9 @@ Yandex Key Management Service — сервис для создания и упр
 
  - [Cancel](asymmetricsignature/api-ref/Operation/cancel.md)
 
- - [Метрики {{ monitoring-name }}](metrics.md)
+ - [Метрики Monitoring](metrics.md)
 
- - [Аудитные логи {{ at-name }}](at-ref.md)
+ - [Аудитные логи Audit Trails](at-ref.md)
 
  - [Вопросы и ответы](qa/index.md)
 

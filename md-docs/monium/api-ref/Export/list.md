@@ -5,7 +5,7 @@ Retrieves the list of exports in the specified folder.
 ## HTTP request
 
 ```
-GET https://logging.{{ api-host }}/logging/v1/exports
+GET https://logging.api.cloud.yandex.net/logging/v1/exports
 ```
 
 ## Query parameters {#yandex.cloud.logging.v1.ListExportsRequest}

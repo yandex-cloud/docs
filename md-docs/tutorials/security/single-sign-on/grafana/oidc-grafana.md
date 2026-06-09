@@ -1,9 +1,9 @@
-# Создать OIDC-приложение в {{ org-full-name }} для интеграции с Grafana Cloud
+# Создать OIDC-приложение в Yandex Identity Hub для интеграции с Grafana Cloud
 
 
 [Grafana Cloud](https://grafana.com/products/cloud/) — это управляемая облачная платформа для мониторинга и наблюдаемости (observability), которая включает в себя Grafana, Prometheus, Loki и другие инструменты визуализации и анализа данных. Grafana Cloud поддерживает [OpenID Connect](https://ru.wikipedia.org/wiki/OpenID#OpenID_Connect) (OIDC) аутентификацию для обеспечения безопасного единого входа пользователей организации.
 
-Чтобы пользователи вашей [организации](../../../../organization/concepts/organization.md) могли аутентифицироваться в Grafana Cloud с помощью технологии единого входа по стандарту OpenID Connect, создайте [OIDC-приложение](../../../../organization/concepts/applications.md#oidc) в {{ org-full-name }} и настройте его на стороне {{ org-full-name }} и на стороне Grafana Cloud.
+Чтобы пользователи вашей [организации](../../../../organization/concepts/organization.md) могли аутентифицироваться в Grafana Cloud с помощью технологии единого входа по стандарту OpenID Connect, создайте [OIDC-приложение](../../../../organization/concepts/applications.md#oidc) в Yandex Identity Hub и настройте его на стороне Yandex Identity Hub и на стороне Grafana Cloud.
 
 Управлять OIDC-приложениями может пользователь, которому назначена [роль](../../../../organization/security/index.md#organization-manager-oauthApplications-admin) `organization-manager.oauthApplications.admin` или выше.
 
@@ -38,25 +38,25 @@
 
 {% list tabs group=instructions %}
 
-- Интерфейс {{ cloud-center }} {#cloud-center}
+- Интерфейс Cloud Center {#cloud-center}
 
-    1. Войдите в сервис [{{ org-full-name }}]({{ link-org-cloud-center }}).
-    1. На панели слева выберите ![shapes-4](../../../../_assets/console-icons/shapes-4.svg) **{{ ui-key.yacloud_org.pages.apps }}**.
-    1. В правом верхнем углу страницы нажмите ![Circles3Plus](../../../../_assets/console-icons/circles-3-plus.svg) **{{ ui-key.yacloud_org.action.applications.components.create-app }}** и в открывшемся окне:
-        1. Выберите метод единого входа **{{ ui-key.yacloud_org.organization.apps.AppCreateForm.oauth-title_uUs4x }}**.
-        1. В поле **{{ ui-key.yacloud_org.organization.apps.AppCreateForm.field-name_1VbM1 }}** задайте имя создаваемого приложения: `grafana-cloud-oidc-app`.
-        1. В поле **{{ ui-key.yacloud_org.organization.apps.AppCreateForm.field-folder_rANM4 }}** выберите каталог, в котором будет создан OAuth-клиент для приложения.
-        1. (Опционально) В поле **{{ ui-key.yacloud_org.organization.apps.AppCreateForm.field-description_kzkNB }}** задайте описание приложения.
+    1. Войдите в сервис [Yandex Identity Hub](https://center.yandex.cloud/organization).
+    1. На панели слева выберите ![shapes-4](../../../../_assets/console-icons/shapes-4.svg) **Приложения**.
+    1. В правом верхнем углу страницы нажмите ![Circles3Plus](../../../../_assets/console-icons/circles-3-plus.svg) **Создать приложение** и в открывшемся окне:
+        1. Выберите метод единого входа **OIDC (OpenID Connect)**.
+        1. В поле **Имя** задайте имя создаваемого приложения: `grafana-cloud-oidc-app`.
+        1. В поле **Каталог** выберите каталог, в котором будет создан OAuth-клиент для приложения.
+        1. (Опционально) В поле **Описание** задайте описание приложения.
         1. (Опционально) Добавьте [метки](../../../../resource-manager/concepts/labels.md):
 
-            1. Нажмите **{{ ui-key.yacloud.component.label-set.button_add-label }}**.
+            1. Нажмите **Добавить метку**.
             1. Введите метку в формате `ключ: значение`.
             1. Нажмите **Enter**.
-        1. Нажмите **{{ ui-key.yacloud_org.organization.apps.AppCreateForm.create-app-submit_myxPn }}**.
+        1. Нажмите **Создать приложение**.
 
 - CLI {#cli}
 
-  Если у вас еще нет интерфейса командной строки {{ yandex-cloud }} (CLI), [установите и инициализируйте его](../../../../cli/quickstart.md#install).
+  Если у вас еще нет интерфейса командной строки Yandex Cloud (CLI), [установите и инициализируйте его](../../../../cli/quickstart.md#install).
 
   По умолчанию используется каталог, указанный при [создании](../../../../cli/operations/profile/profile-create.md) профиля CLI. Чтобы изменить каталог по умолчанию, используйте команду `yc config set folder-id <идентификатор_каталога>`. Также для любой команды вы можете указать другой каталог с помощью параметров `--folder-name` или `--folder-id`. Если вы обращаетесь к ресурсу по имени, поиск будет выполнен в каталоге по умолчанию. Если вы обращаетесь к ресурсу по идентификатору, поиск будет выполнен глобально — во всех каталогах с учетом прав доступа.
 
@@ -157,27 +157,27 @@
 
 ## Настройте интеграцию {#setup-integration}
 
-Чтобы настроить интеграцию Grafana Cloud с созданным OIDC-приложением в {{ org-full-name }}, выполните настройки на стороне Grafana Cloud и на стороне {{ org-full-name }}.
+Чтобы настроить интеграцию Grafana Cloud с созданным OIDC-приложением в Yandex Identity Hub, выполните настройки на стороне Grafana Cloud и на стороне Yandex Identity Hub.
 
-### Настройте OIDC-приложение на стороне {{ org-full-name }} {#setup-idp}
+### Настройте OIDC-приложение на стороне Yandex Identity Hub {#setup-idp}
 
 #### Получите учетные данные приложения {#get-credentials}
 
 {% list tabs group=instructions %}
 
-- Интерфейс {{ cloud-center }} {#cloud-center}
+- Интерфейс Cloud Center {#cloud-center}
 
-  1. Войдите в сервис [{{ org-full-name }}]({{ link-org-cloud-center }}).
-  1. На панели слева выберите ![shapes-4](../../../../_assets/console-icons/shapes-4.svg) **{{ ui-key.yacloud_org.pages.apps }}** и выберите нужное OIDC-приложение.
-  1. На вкладке **{{ ui-key.yacloud_org.organization.apps.AppPageLayout.overview_b5LJQ }}** в блоке **{{ ui-key.yacloud_org.application.overview.idp_section_title }}** разверните секцию **{{ ui-key.yacloud_org.application.overview.idp_section_closed_text }}** и скопируйте значения параметров, которые необходимо задать на стороне Grafana Cloud:
+  1. Войдите в сервис [Yandex Identity Hub](https://center.yandex.cloud/organization).
+  1. На панели слева выберите ![shapes-4](../../../../_assets/console-icons/shapes-4.svg) **Приложения** и выберите нужное OIDC-приложение.
+  1. На вкладке **Обзор** в блоке **Конфигурация поставщика удостоверений (IdP)** разверните секцию **Дополнительные атрибуты** и скопируйте значения параметров, которые необходимо задать на стороне Grafana Cloud:
 
-        * `{{ ui-key.yacloud_org.application.overview.oauth_field_client_id }}` — уникальный идентификатор приложения.
-        * `{{ ui-key.yacloud_org.application.overview.oauth_field_open_id }}` — URL с конфигурацией всех необходимых для настройки интеграции параметров.
+        * `ClientID` — уникальный идентификатор приложения.
+        * `OpenID Configuration` — URL с конфигурацией всех необходимых для настройки интеграции параметров.
 
-  1. В блоке **{{ ui-key.yacloud_org.application.overview.secret_section_title }}** нажмите кнопку **{{ ui-key.yacloud_org.application.overview.secret_section_add_new_secret_action }}** и в открывшемся окне:
+  1. В блоке **Секреты приложения** нажмите кнопку **Добавить секрет** и в открывшемся окне:
      
      1. (Опционально) Добавьте произвольное описание создаваемого секрета.
-     1. Нажмите **{{ ui-key.yacloud.common.create }}**.
+     1. Нажмите **Создать**.
      
      В окне отобразится сгенерированный [секрет приложения](../../../../organization/concepts/applications.md#oidc-secret). Сохраните полученное значение.
      
@@ -187,13 +187,13 @@
      
      {% endnote %}
      
-     Если вы закрыли или обновили страницу, не сохранив сгенерированный секрет, используйте кнопку **{{ ui-key.yacloud_org.application.overview.secret_section_add_new_secret_action }}**, чтобы создать новый.
+     Если вы закрыли или обновили страницу, не сохранив сгенерированный секрет, используйте кнопку **Добавить секрет**, чтобы создать новый.
      
-     Чтобы удалить секрет, в списке секретов на странице OIDC-приложения в строке с нужным секретом нажмите значок ![ellipsis](../../../../_assets/console-icons/ellipsis.svg) и выберите ![trash-bin](../../../../_assets/console-icons/trash-bin.svg) **{{ ui-key.yacloud.common.delete }}**.
+     Чтобы удалить секрет, в списке секретов на странице OIDC-приложения в строке с нужным секретом нажмите значок ![ellipsis](../../../../_assets/console-icons/ellipsis.svg) и выберите ![trash-bin](../../../../_assets/console-icons/trash-bin.svg) **Удалить**.
 
 - CLI {#cli}
 
-  Если у вас еще нет интерфейса командной строки {{ yandex-cloud }} (CLI), [установите и инициализируйте его](../../../../cli/quickstart.md#install).
+  Если у вас еще нет интерфейса командной строки Yandex Cloud (CLI), [установите и инициализируйте его](../../../../cli/quickstart.md#install).
 
   По умолчанию используется каталог, указанный при [создании](../../../../cli/operations/profile/profile-create.md) профиля CLI. Чтобы изменить каталог по умолчанию, используйте команду `yc config set folder-id <идентификатор_каталога>`. Также для любой команды вы можете указать другой каталог с помощью параметров `--folder-name` или `--folder-id`. Если вы обращаетесь к ресурсу по имени, поиск будет выполнен в каталоге по умолчанию. Если вы обращаетесь к ресурсу по идентификатору, поиск будет выполнен глобально — во всех каталогах с учетом прав доступа.
 
@@ -231,7 +231,7 @@
      Результат будет выглядеть так:
 
      ```text
-     https://{{ auth-main-host }}/oauth/<идентификатор_OAuth-клиента>
+     https://auth.yandex.cloud/oauth/<идентификатор_OAuth-клиента>
      ```
 
      Сохраните этот URL — это OpenID Connect Discovery URL для настройки Grafana Cloud.
@@ -251,12 +251,12 @@
 
 {% list tabs group=instructions %}
 
-- Интерфейс {{ cloud-center }} {#cloud-center}
+- Интерфейс Cloud Center {#cloud-center}
 
-  1. Войдите в сервис [{{ org-full-name }}]({{ link-org-cloud-center }}).
-  1. На панели слева выберите ![shapes-4](../../../../_assets/console-icons/shapes-4.svg) **{{ ui-key.yacloud_org.pages.apps }}** и выберите нужное OIDC-приложение.
-  1. Справа сверху нажмите  ![pencil](../../../../_assets/console-icons/pencil.svg) **{{ ui-key.yacloud.common.edit }}** и в открывшемся окне:
-      1. В поле **{{ ui-key.yacloud_org.application.overview.oauth_field_redirect_uri }}** укажите эндпоинт аутентификации для вашего экземпляра Grafana Cloud в форме:
+  1. Войдите в сервис [Yandex Identity Hub](https://center.yandex.cloud/organization).
+  1. На панели слева выберите ![shapes-4](../../../../_assets/console-icons/shapes-4.svg) **Приложения** и выберите нужное OIDC-приложение.
+  1. Справа сверху нажмите  ![pencil](../../../../_assets/console-icons/pencil.svg) **Редактировать** и в открывшемся окне:
+      1. В поле **Redirect URI** укажите эндпоинт аутентификации для вашего экземпляра Grafana Cloud в форме:
 
         ```text
         <URL_экземпляра_Grafana_Cloud>/login/generic_oauth
@@ -264,11 +264,11 @@
 
         Например: `https://your-org.grafana.net/login/generic_oauth`.
 
-      1. Нажмите **{{ ui-key.yacloud.common.save }}**.
+      1. Нажмите **Сохранить**.
 
 - CLI {#cli}
 
-  Если у вас еще нет интерфейса командной строки {{ yandex-cloud }} (CLI), [установите и инициализируйте его](../../../../cli/quickstart.md#install).
+  Если у вас еще нет интерфейса командной строки Yandex Cloud (CLI), [установите и инициализируйте его](../../../../cli/quickstart.md#install).
 
   По умолчанию используется каталог, указанный при [создании](../../../../cli/operations/profile/profile-create.md) профиля CLI. Чтобы изменить каталог по умолчанию, используйте команду `yc config set folder-id <идентификатор_каталога>`. Также для любой команды вы можете указать другой каталог с помощью параметров `--folder-name` или `--folder-id`. Если вы обращаетесь к ресурсу по имени, поиск будет выполнен в каталоге по умолчанию. Если вы обращаетесь к ресурсу по идентификатору, поиск будет выполнен глобально — во всех каталогах с учетом прав доступа.
 
@@ -311,14 +311,14 @@
 
 1. В поле **Name** укажите: `OpenID Connect`.
 1. В поле **Scopes** введите последовательно: `openid`, `email`, `profile`.
-1. В поле **Client ID** укажите значение, скопированное при настройке OIDC-приложения в {{ org-full-name }} в поле **{{ ui-key.yacloud_org.application.overview.oauth_field_client_id }}**.
-1. В поле **Client Secret** укажите значение, скопированное при настройке OIDC-приложения в {{ org-full-name }} в блоке **{{ ui-key.yacloud_org.application.overview.secret_section_title }}**.
-1. Нажмите **Enter OpenID Connect Discovery URL** и в открывшемся окне укажите URL, скопированный при настройке OIDC-приложения в {{ org-full-name }} в поле **{{ ui-key.yacloud_org.application.overview.oauth_field_open_id }}**.
+1. В поле **Client ID** укажите значение, скопированное при настройке OIDC-приложения в Yandex Identity Hub в поле **ClientID**.
+1. В поле **Client Secret** укажите значение, скопированное при настройке OIDC-приложения в Yandex Identity Hub в блоке **Секреты приложения**.
+1. Нажмите **Enter OpenID Connect Discovery URL** и в открывшемся окне укажите URL, скопированный при настройке OIDC-приложения в Yandex Identity Hub в поле **OpenID Configuration**.
 1. **Allow sign up**: активируйте для автоматического создания пользователей при первом входе.
 
 ### Добавьте пользователя {#add-user}
 
-Чтобы пользователи вашей организации могли аутентифицироваться в Grafana Cloud с помощью OIDC-приложения {{ org-full-name }}, необходимо явно добавить в OIDC-приложение нужных пользователей и/или [группы пользователей](../../../../organization/concepts/groups.md).
+Чтобы пользователи вашей организации могли аутентифицироваться в Grafana Cloud с помощью OIDC-приложения Yandex Identity Hub, необходимо явно добавить в OIDC-приложение нужных пользователей и/или [группы пользователей](../../../../organization/concepts/groups.md).
 
 {% note info %}
 
@@ -330,18 +330,18 @@
 
 {% list tabs group=instructions %}
 
-- Интерфейс {{ cloud-center }} {#cloud-center}
+- Интерфейс Cloud Center {#cloud-center}
 
-    1. Войдите в сервис [{{ org-full-name }}]({{ link-org-cloud-center }}).
-    1. На панели слева выберите ![shapes-4](../../../../_assets/console-icons/shapes-4.svg) **{{ ui-key.yacloud_org.pages.apps }}** и выберите нужное приложение.
-    1. Перейдите на вкладку **{{ ui-key.yacloud_org.organization.apps.AppPageLayout.assignments_kKzJS }}**.
-    1. Нажмите ![person-plus](../../../../_assets/console-icons/person-plus.svg) **{{ ui-key.yacloud_org.organization.apps.AppAssignmentsPage.action_add-assignments }}**.
+    1. Войдите в сервис [Yandex Identity Hub](https://center.yandex.cloud/organization).
+    1. На панели слева выберите ![shapes-4](../../../../_assets/console-icons/shapes-4.svg) **Приложения** и выберите нужное приложение.
+    1. Перейдите на вкладку **Пользователи и группы**.
+    1. Нажмите ![person-plus](../../../../_assets/console-icons/person-plus.svg) **Добавить пользователей**.
     1. В открывшемся окне выберите нужного пользователя или группу пользователей.
-    1. Нажмите **{{ ui-key.yacloud.common.add }}**.
+    1. Нажмите **Добавить**.
 
 - CLI {#cli}
 
-  Если у вас еще нет интерфейса командной строки {{ yandex-cloud }} (CLI), [установите и инициализируйте его](../../../../cli/quickstart.md#install).
+  Если у вас еще нет интерфейса командной строки Yandex Cloud (CLI), [установите и инициализируйте его](../../../../cli/quickstart.md#install).
 
   По умолчанию используется каталог, указанный при [создании](../../../../cli/operations/profile/profile-create.md) профиля CLI. Чтобы изменить каталог по умолчанию, используйте команду `yc config set folder-id <идентификатор_каталога>`. Также для любой команды вы можете указать другой каталог с помощью параметров `--folder-name` или `--folder-id`. Если вы обращаетесь к ресурсу по имени, поиск будет выполнен в каталоге по умолчанию. Если вы обращаетесь к ресурсу по идентификатору, поиск будет выполнен глобально — во всех каталогах с учетом прав доступа.
 
@@ -388,5 +388,5 @@
 1. В браузере перейдите по адресу вашего экземпляра Grafana Cloud (например, `https://your-org.grafana.net`).
 1. Если вы были авторизованы в Grafana Cloud, выйдите из профиля.
 1. На странице авторизации Grafana Cloud нажмите  **Sign in with OpenID Connect**.
-1. На странице авторизации {{ yandex-cloud }} укажите email и пароль пользователя. Пользователь должен быть добавлен в приложение или состоять в группе, добавленной в приложение.
+1. На странице авторизации Yandex Cloud укажите email и пароль пользователя. Пользователь должен быть добавлен в приложение или состоять в группе, добавленной в приложение.
 1. Убедитесь, что вы аутентифицировались в Grafana Cloud.

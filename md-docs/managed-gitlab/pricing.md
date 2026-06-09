@@ -1,11 +1,11 @@
-# Правила тарификации для {{ mgl-full-name }}
+# Правила тарификации для Yandex Managed Service for GitLab
 
 
 
 {% note tip %}
 
 
-Чтобы рассчитать стоимость использования сервиса, воспользуйтесь [калькулятором](https://yandex.cloud/ru/prices?state=7d620c0eb35d#calculator) на сайте {{ yandex-cloud }} или ознакомьтесь с тарифами в этом разделе.
+Чтобы рассчитать стоимость использования сервиса, воспользуйтесь [калькулятором](https://yandex.cloud/ru/prices?state=7d620c0eb35d#calculator) на сайте Yandex Cloud или ознакомьтесь с тарифами в этом разделе.
 
 
 
@@ -17,15 +17,15 @@
 
 Все цены в рублях и тенге указаны с НДС, все цены в долларах — без НДС.
 
-## Из чего складывается стоимость использования {{ mgl-name }} {#rules}
+## Из чего складывается стоимость использования Managed Service for GitLab {#rules}
 
-При работе с {{ mgl-name }} вы оплачиваете:
+При работе с Managed Service for GitLab вы оплачиваете:
 * Вычислительные ресурсы инстанса (виртуальной машины).
 * Объем хранилища (диск) данных инстанса.
 
 Дополнительно оплачиваются следующие потребляемые ресурсы:
-* Место, занятое в сервисе {{ objstorage-full-name }}, для хранения резервных копий.
-* Объем исходящего трафика из {{ yandex-cloud }} в интернет.
+* Место, занятое в сервисе Yandex Object Storage, для хранения резервных копий.
+* Объем исходящего трафика из Yandex Cloud в интернет.
 
 Во всех расчетах 1 ГБ = 2<sup>10</sup> МБ = 2<sup>20</sup> КБ = 2<sup>30</sup> байт.
 
@@ -41,7 +41,7 @@
 
 Оплачивается:
 * Объем хранилища, выделенный для хранения данных инстанса.
-* Объем резервных копий, которые хранятся в {{ objstorage-name }}.
+* Объем резервных копий, которые хранятся в Object Storage.
 
 Цена указывается за 1 месяц использования. Минимальная единица тарификации — 1 ГБ в час (например, стоимость хранения 1 ГБ в течение 1,5 часа равна стоимости хранения в течение 2 часов).
 
@@ -61,27 +61,27 @@
 
 - Расчет в рублях {#prices-rub}
 
-  > 720 × (2 × {{ sku|RUB|gitlab.instance.free.cpu|string }} + 8 × {{ sku|RUB|gitlab.instance.free.ram|string }}) = {% calc [currency=RUB] 720 × (2 × {{ sku|RUB|gitlab.instance.free.cpu|number }} + 8 × {{ sku|RUB|gitlab.instance.free.ram|number }}) %}
+  > 720 × (2 × 1,99 ₽ + 8 × 0,5336 ₽) = {% calc [currency=RUB] 720 × (2 × 1.99 + 8 × 0.5336) %}
     
     Где:
   
     * 720 — количество часов в 30 днях.
     * 2 — количество vCPU.
-    * {{ sku|RUB|gitlab.instance.free.cpu|string }} — стоимость часа использования vCPU.
+    * 1,99 ₽ — стоимость часа использования vCPU.
     * 8 — объем RAM (в гигабайтах).
-    * {{ sku|RUB|gitlab.instance.free.ram|string }} — стоимость часа использования 1 ГБ RAM.
+    * 0,5336 ₽ — стоимость часа использования 1 ГБ RAM.
 
 - Расчет в тенге {#prices-kzt}
 
-  > 720 × (2 × {{ sku|KZT|gitlab.instance.free.cpu|string }} + 8 × {{ sku|KZT|gitlab.instance.free.ram|string }}) = {% calc [currency=KZT] 720 × (2 × {{ sku|KZT|gitlab.instance.free.cpu|number }} + 8 × {{ sku|KZT|gitlab.instance.free.ram|number }}) %}
+  > 720 × (2 × 9,95 ₸ + 8 × 2,668 ₸) = {% calc [currency=KZT] 720 × (2 × 9.95 + 8 × 2.668) %}
   
     Где:
   
     * 720 — количество часов в 30 днях.
     * 2 — количество vCPU.
-    * {{ sku|KZT|gitlab.instance.free.cpu|string }} — стоимость часа использования vCPU.
+    * 9,95 ₸ — стоимость часа использования vCPU.
     * 8 — объем RAM (в гигабайтах).
-    * {{ sku|KZT|gitlab.instance.free.ram|string }} — стоимость часа использования 1 ГБ RAM.
+    * 2,668 ₸ — стоимость часа использования 1 ГБ RAM.
 
 {% endlist %}
 
@@ -94,27 +94,27 @@
 
 - Расчет в рублях {#prices-rub}
 
-  > 30 × {{ sku|RUB|gitlab.instance.disk|month|string }} + 20 × 7 × {{ sku|RUB|gitlab.backup|month|string }} = {% calc [currency=RUB] 30 × {{ sku|RUB|gitlab.instance.disk|month|number }} + 20 × 7 × {{ sku|RUB|gitlab.backup|month|number }} %}
+  > 30 × 15,408 ₽ + 20 × 7 × 2,2752 ₽ = {% calc [currency=RUB] 30 × 15.408 + 20 × 7 × 2.2752 %}
   
     Где:
   
     * 30 — объем хранилища (в гигабайтах).
-    * {{ sku|RUB|gitlab.instance.disk|month|string }} — стоимость месяца использования 1 ГБ хранилища.
+    * 15,408 ₽ — стоимость месяца использования 1 ГБ хранилища.
     * 20 — объем каждой резервной копии.
     * 7 — срок хранения резервных копий.
-    * {{ sku|RUB|gitlab.backup|month|string }} — стоимость хранения 1 ГБ резервных копий.
+    * 2,2752 ₽ — стоимость хранения 1 ГБ резервных копий.
 
 - Расчет в тенге {#prices-kzt}
 
-  > 30 × {{ sku|KZT|gitlab.instance.disk|month|string }} + 20 × 7 × {{ sku|KZT|gitlab.backup|month|string }} = {% calc [currency=KZT] 30 × {{ sku|KZT|gitlab.instance.disk|month|number }} + 20 × 7 × {{ sku|KZT|gitlab.backup|month|number }} %}
+  > 30 × 77,04 ₸ + 20 × 7 × 11,376 ₸ = {% calc [currency=KZT] 30 × 77.04 + 20 × 7 × 11.376 %}
   
     Где:
   
     * 30 — объем хранилища (в гигабайтах).
-    * {{ sku|KZT|gitlab.instance.disk|month|string }} — стоимость месяца использования 1 ГБ хранилища.
+    * 77,04 ₸ — стоимость месяца использования 1 ГБ хранилища.
     * 20 — объем каждой резервной копии.
     * 7 — срок хранения резервных копий.
-    * {{ sku|KZT|gitlab.backup|month|string }} — стоимость хранения 1 ГБ резервных копий.
+    * 11,376 ₸ — стоимость хранения 1 ГБ резервных копий.
 
 {% endlist %}
 
@@ -127,15 +127,15 @@
 
 - Расчет в рублях {#prices-rub}
 
-  > {% calc [currency=RUB] 720 × (2 × {{ sku|RUB|gitlab.instance.free.cpu|number }} + 8 × {{ sku|RUB|gitlab.instance.free.ram|number }}) %} + {% calc [currency=RUB] 30 × {{ sku|RUB|gitlab.instance.disk|month|number }} + 20 × 7 × {{ sku|RUB|gitlab.backup|month|number }} %} = {% calc [currency=RUB] (720 × (2 × {{ sku|RUB|gitlab.instance.free.cpu|number }} + 8 × {{ sku|RUB|gitlab.instance.free.ram|number }})) + (30 × {{ sku|RUB|gitlab.instance.disk|month|number }} + 20 × 7 × {{ sku|RUB|gitlab.backup|month|number }}) %}
+  > {% calc [currency=RUB] 720 × (2 × 1.99 + 8 × 0.5336) %} + {% calc [currency=RUB] 30 × 15.408 + 20 × 7 × 2.2752 %} = {% calc [currency=RUB] (720 × (2 × 1.99 + 8 × 0.5336)) + (30 × 15.408 + 20 × 7 × 2.2752) %}
   
-    Где {% calc [currency=RUB] (720 × (2 × {{ sku|RUB|gitlab.instance.free.cpu|number }} + 8 × {{ sku|RUB|gitlab.instance.free.ram|number }})) + (30 × {{ sku|RUB|gitlab.instance.disk|month|number }} + 20 × 7 × {{ sku|RUB|gitlab.backup|month|number }}) %} — стоимость использования инстанса в течение 30 дней.
+    Где {% calc [currency=RUB] (720 × (2 × 1.99 + 8 × 0.5336)) + (30 × 15.408 + 20 × 7 × 2.2752) %} — стоимость использования инстанса в течение 30 дней.
 
 - Расчет в тенге {#prices-kzt}
 
-  > {% calc [currency=KZT] 720 × (2 × {{ sku|KZT|gitlab.instance.free.cpu|number }} + 8 × {{ sku|KZT|gitlab.instance.free.ram|number }}) %} + {% calc [currency=KZT] 30 × {{ sku|KZT|gitlab.instance.disk|month|number }} + 20 × 7 × {{ sku|KZT|gitlab.backup|month|number }} %} = {% calc [currency=KZT] (720 × (2 × {{ sku|KZT|gitlab.instance.free.cpu|number }} + 8 × {{ sku|KZT|gitlab.instance.free.ram|number }})) + (30 × {{ sku|KZT|gitlab.instance.disk|month|number }} + 20 × 7 × {{ sku|KZT|gitlab.backup|month|number }}) %}
+  > {% calc [currency=KZT] 720 × (2 × 9.95 + 8 × 2.668) %} + {% calc [currency=KZT] 30 × 77.04 + 20 × 7 × 11.376 %} = {% calc [currency=KZT] (720 × (2 × 9.95 + 8 × 2.668)) + (30 × 77.04 + 20 × 7 × 11.376) %}
   
-    Где {% calc [currency=KZT] (720 × (2 × {{ sku|KZT|gitlab.instance.free.cpu|number }} + 8 × {{ sku|KZT|gitlab.instance.free.ram|number }})) + (30 × {{ sku|KZT|gitlab.instance.disk|month|number }} + 20 × 7 × {{ sku|KZT|gitlab.backup|month|number }}) %} — стоимость использования инстанса в течение 30 дней.
+    Где {% calc [currency=KZT] (720 × (2 × 9.95 + 8 × 2.668)) + (30 × 77.04 + 20 × 7 × 11.376) %} — стоимость использования инстанса в течение 30 дней.
 
 {% endlist %}
 
@@ -145,33 +145,43 @@
 
 {% note info %}
 
-Цены на ресурсы {{ yandex-cloud }} в разных регионах различаются. Подробнее о доступных регионах см. [{#T}](../overview/concepts/region.md).
+Цены на ресурсы Yandex Cloud в разных регионах различаются. Подробнее о доступных регионах см. [Регионы](../overview/concepts/region.md).
 
-Валюта, которой можно оплачивать ресурсы, зависит от юридического лица, с которым пользователь заключил договор. Подробнее о регистрации аккаунта см. [{#T}](../billing/quickstart/index.md).
+Валюта, которой можно оплачивать ресурсы, зависит от юридического лица, с которым пользователь заключил договор. Подробнее о регистрации аккаунта см. [Регистрация аккаунта в Yandex Cloud](../billing/quickstart/index.md).
 
 {% endnote %}
 
 Цена вычислительных ресурсов зависит от выбранной конфигурации [правил ревью кода](concepts/approval-rules.md).
 
 
-| Услуга | Цена | Ед. тарификации | Действует с | Действует до |
-| ------ | ---- | --------------- | ----------- | ------------ |
+| Услуга                                                                                   | Цена      | Ед. тарификации | Действует с | Действует до |
+| ---------------------------------------------------------------------------------------- | --------- | --------------- | ----------- | ------------ |
+| Managed Service for GitLab. Базовая конфигурация/правила ревью кода отключены, 100% vCPU | 1,99 ₽    | vCPU × час      | 1 мая 2026  | —            |
+| Managed Service for GitLab. Базовая конфигурация/правила ревью кода отключены, RAM       | 0,5336 ₽  | ГБ × час        | 1 мая 2026  | —            |
+| Managed Service for GitLab. Продвинутая конфигурация, 100% vCPU                          | 3,98 ₽    | vCPU × час      | 1 мая 2026  | —            |
+| Managed Service for GitLab. Продвинутая конфигурация, RAM                                | 1,0672 ₽  | ГБ × час        | 1 мая 2026  | —            |
+| Managed Service for GitLab. Стандартная конфигурация, 100% vCPU                          | 2,78 ₽    | vCPU × час      | 1 мая 2026  | —            |
+| Managed Service for GitLab. Стандартная конфигурация, RAM                                | 0,747 ₽   | ГБ × час        | 1 мая 2026  | —            |
+| Managed Service for GitLab. Хранение данных на SSD-дисках                                | 0,0214 ₽  | ГБ × час        | 1 мая 2026  | —            |
+| Managed Service for GitLab. Хранение резервных копий в Yandex Object Storage             | 0,00316 ₽ | ГБ × час        | 1 мая 2026  | —            |
 
 
 
 
 ### Исходящий трафик {#prices-traffic}
 
-При использовании сервиса оплачивается исходящий трафик из {{ yandex-cloud }} в интернет. Передача трафика между сервисами {{ yandex-cloud }} по внутренним адресам, как и входящий трафик из интернета, не тарифицируется.
+При использовании сервиса оплачивается исходящий трафик из Yandex Cloud в интернет. Передача трафика между сервисами Yandex Cloud по внутренним адресам, как и входящий трафик из интернета, не тарифицируется.
 
 Каждый месяц не тарифицируются первые 100 ГБ исходящего трафика.
 
 Минимальная единица тарификации — 1 МБ.
 
 
-| Услуга | Цена | Ед. тарификации | Действует с | Действует до |
-| ------ | ---- | --------------- | ----------- | ------------ |
+| Услуга                                                    | Цена              | Ед. тарификации | Действует с | Действует до |
+| --------------------------------------------------------- | ----------------- | --------------- | ----------- | ------------ |
+| Исходящий трафик, от 0 до 100 единицы тарификации в месяц | Не тарифицируется | ГБ              | 1 мая 2026  | —            |
+| Исходящий трафик, от 100 единицы тарификации в месяц      | 1,42 ₽            | ГБ              | 1 мая 2026  | —            |
 
 ## Лицензии {#license}
 
-По умолчанию {{ mgl-name }} использует Community Edition версию {{ GL }}. Если у вас есть оплаченная [лицензия](https://about.gitlab.com/pricing/) {{ GL }} (`Premium` или `Ultimate`) — обратитесь в [техническую поддержку]({{ link-console-support }}) или к вашему аккаунт-менеджеру, чтобы воспользоваться ею в {{ mgl-name }}.
+По умолчанию Managed Service for GitLab использует Community Edition версию GitLab. Если у вас есть оплаченная [лицензия](https://about.gitlab.com/pricing/) GitLab (`Premium` или `Ultimate`) — обратитесь в [техническую поддержку](https://center.yandex.cloud/support) или к вашему аккаунт-менеджеру, чтобы воспользоваться ею в Managed Service for GitLab.

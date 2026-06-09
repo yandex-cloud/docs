@@ -12,7 +12,7 @@
 
   Вы можете посмотреть информацию о Routing Instance с помощью следующих команд:
   * [yc cloudrouter routing-instance get](../../cli/cli-ref/cloudrouter/cli-ref/routing-instance/get.md) — позволяет получить информацию о Routing Instance по его имени или идентификатору.
-  * [yc cloudrouter routing-instance get-by-cic-private-connection-id](../../cli/cli-ref/cloudrouter/cli-ref/routing-instance/get-by-cic-private-connection-id.md) — позволяет получить информацию о Routing Instance по идентификатору [приватного соединения](../../interconnect/concepts/priv-con.md) {{ interconnect-full-name }}, которое подключено к Routing Instance.
+  * [yc cloudrouter routing-instance get-by-cic-private-connection-id](../../cli/cli-ref/cloudrouter/cli-ref/routing-instance/get-by-cic-private-connection-id.md) — позволяет получить информацию о Routing Instance по идентификатору [приватного соединения](../../interconnect/concepts/priv-con.md) Yandex Cloud Interconnect, которое подключено к Routing Instance.
   * [yc cloudrouter routing-instance get-by-vpc-network-id](../../cli/cli-ref/cloudrouter/cli-ref/routing-instance/get-by-vpc-network-id.md) — позволяет получить информацию о Routing Instance по идентификатору [облачной сети](../../vpc/concepts/network.md#network), с которой Routing Instance обеспечивает сетевую связность.
 
   **yc cloudrouter routing-instance get**
@@ -54,24 +54,24 @@
       name: routing-instance
       description: '-'
       folder_id: b1gqf2hjizv2********
-      region_id: {{ region-id }}
+      region_id: ru-central1
       vpc_info:
         - vpc_network_id: enp0qpdijf4h********
           az_infos:
             - manual_info:
-                az_id: {{ region-id }}-a
+                az_id: ru-central1-a
                 prefixes:
                   - 10.128.11.0/24
                   - 10.128.12.0/24
                   - 10.128.13.0/24
             - manual_info:
-                az_id: {{ region-id }}-b
+                az_id: ru-central1-b
                 prefixes:
                   - 10.129.21.0/24
                   - 10.129.22.0/24
                   - 10.129.23.0/24
             - manual_info:
-                az_id: {{ region-id }}-d
+                az_id: ru-central1-d
                 prefixes:
                   - 10.130.31.0/24
                   - 10.130.32.0/24
@@ -79,19 +79,19 @@
         - vpc_network_id: enp3vifnkc6********
           az_infos:
             - manual_info:
-                az_id: {{ region-id }}-a
+                az_id: ru-central1-a
                 prefixes:
                   - 172.16.1.0/24
                   - 172.16.2.0/24
                   - 172.16.3.0/24
             - manual_info:
-                az_id: {{ region-id }}-b
+                az_id: ru-central1-b
                 prefixes:
                   - 172.16.11.0/24
                   - 172.16.12.0/24
                   - 172.16.13.0/24
             - manual_info:
-                az_id: {{ region-id }}-d
+                az_id: ru-central1-d
                 prefixes:
                   - 172.16.21.0/24
                   - 172.16.22.0/24
@@ -159,24 +159,24 @@
       name: routing-instance
       description: '-'
       folder_id: b1gqf2hjizv2********
-      region_id: {{ region-id }}
+      region_id: ru-central1
       vpc_info:
         - vpc_network_id: enp0qpdijf4h********
           az_infos:
             - manual_info:
-                az_id: {{ region-id }}-a
+                az_id: ru-central1-a
                 prefixes:
                   - 10.128.11.0/24
                   - 10.128.12.0/24
                   - 10.128.13.0/24
             - manual_info:
-                az_id: {{ region-id }}-b
+                az_id: ru-central1-b
                 prefixes:
                   - 10.129.21.0/24
                   - 10.129.22.0/24
                   - 10.129.23.0/24
             - manual_info:
-                az_id: {{ region-id }}-d
+                az_id: ru-central1-d
                 prefixes:
                   - 10.130.31.0/24
                   - 10.130.32.0/24
@@ -184,19 +184,19 @@
         - vpc_network_id: enp3vifnkc6********
           az_infos:
             - manual_info:
-                az_id: {{ region-id }}-a
+                az_id: ru-central1-a
                 prefixes:
                   - 172.16.1.0/24
                   - 172.16.2.0/24
                   - 172.16.3.0/24
             - manual_info:
-                az_id: {{ region-id }}-b
+                az_id: ru-central1-b
                 prefixes:
                   - 172.16.11.0/24
                   - 172.16.12.0/24
                   - 172.16.13.0/24
             - manual_info:
-                az_id: {{ region-id }}-d
+                az_id: ru-central1-d
                 prefixes:
                   - 172.16.21.0/24
                   - 172.16.22.0/24
@@ -264,24 +264,24 @@
       name: routing-instance
       description: '-'
       folder_id: b1gqf2hjizv2********
-      region_id: {{ region-id }}
+      region_id: ru-central1
       vpc_info:
         - vpc_network_id: enp0qpdijf4h********
           az_infos:
             - manual_info:
-                az_id: {{ region-id }}-a
+                az_id: ru-central1-a
                 prefixes:
                   - 10.128.11.0/24
                   - 10.128.12.0/24
                   - 10.128.13.0/24
             - manual_info:
-                az_id: {{ region-id }}-b
+                az_id: ru-central1-b
                 prefixes:
                   - 10.129.21.0/24
                   - 10.129.22.0/24
                   - 10.129.23.0/24
             - manual_info:
-                az_id: {{ region-id }}-d
+                az_id: ru-central1-d
                 prefixes:
                   - 10.130.31.0/24
                   - 10.130.32.0/24
@@ -289,19 +289,19 @@
         - vpc_network_id: enp3vifnkc6********
           az_infos:
             - manual_info:
-                az_id: {{ region-id }}-a
+                az_id: ru-central1-a
                 prefixes:
                   - 172.16.1.0/24
                   - 172.16.2.0/24
                   - 172.16.3.0/24
             - manual_info:
-                az_id: {{ region-id }}-b
+                az_id: ru-central1-b
                 prefixes:
                   - 172.16.11.0/24
                   - 172.16.12.0/24
                   - 172.16.13.0/24
             - manual_info:
-                az_id: {{ region-id }}-d
+                az_id: ru-central1-d
                 prefixes:
                   - 172.16.21.0/24
                   - 172.16.22.0/24

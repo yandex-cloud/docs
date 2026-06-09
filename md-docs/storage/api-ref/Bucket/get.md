@@ -6,7 +6,7 @@ To get the list of all available buckets, make a [List](list.md#List) request.
 ## HTTP request
 
 ```
-GET https://storage.{{ api-host }}/storage/v1/buckets/{name}
+GET https://storage.api.cloud.yandex.net/storage/v1/buckets/{name}
 ```
 
 ## Path parameters

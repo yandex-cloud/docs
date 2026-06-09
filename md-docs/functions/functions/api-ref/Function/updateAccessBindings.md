@@ -5,7 +5,7 @@ Updates access bindings for the specified function.
 ## HTTP request
 
 ```
-POST https://serverless-functions.{{ api-host }}/functions/v1/functions/{resourceId}:updateAccessBindings
+POST https://serverless-functions.api.cloud.yandex.net/functions/v1/functions/{resourceId}:updateAccessBindings
 ```
 
 ## Path parameters

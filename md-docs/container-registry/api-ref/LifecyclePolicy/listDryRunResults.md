@@ -5,7 +5,7 @@ Retrieves the list of the dry run results.
 ## HTTP request
 
 ```
-GET https://container-registry.{{ api-host }}/container-registry/v1/dryRunLifecyclePolicyResults
+GET https://container-registry.api.cloud.yandex.net/container-registry/v1/dryRunLifecyclePolicyResults
 ```
 
 ## Query parameters {#yandex.cloud.containerregistry.v1.ListDryRunLifecyclePolicyResultsRequest}

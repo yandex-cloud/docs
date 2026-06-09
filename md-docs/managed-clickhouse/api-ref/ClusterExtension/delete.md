@@ -3,7 +3,7 @@
 ## HTTP request
 
 ```
-DELETE https://{{ api-host-mdb }}/managed-clickhouse/v1/clusters/{clusterId}/extensions/{extensionName}
+DELETE https://mdb.api.cloud.yandex.net/managed-clickhouse/v1/clusters/{clusterId}/extensions/{extensionName}
 ```
 
 ## Path parameters

@@ -5,7 +5,7 @@ Creates a new OpenSearch cluster using the specified backup.
 ## HTTP request
 
 ```
-POST https://{{ api-host-mdb }}/managed-opensearch/v1/clusters:restore
+POST https://mdb.api.cloud.yandex.net/managed-opensearch/v1/clusters:restore
 ```
 
 ## Body parameters {#yandex.cloud.mdb.opensearch.v1.RestoreClusterRequest}

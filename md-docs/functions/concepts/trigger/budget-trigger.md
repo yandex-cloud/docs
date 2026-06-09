@@ -1,15 +1,15 @@
-# Триггер для бюджетов, который вызывает функцию {{ sf-name }}
+# Триггер для бюджетов, который вызывает функцию Cloud Functions
 
-[Триггер](index.md) для [бюджетов](../../../billing/concepts/budget.md) запускает [функцию](../function.md) {{ sf-name }} при превышении пороговых значений.
+[Триггер](index.md) для [бюджетов](../../../billing/concepts/budget.md) запускает [функцию](../function.md) Cloud Functions при превышении пороговых значений.
 
 Триггеру для бюджетов необходим [сервисный аккаунт](../../../iam/concepts/users/service-accounts.md) для вызова функции.
 
-О том, как создать триггер для бюджетов, читайте в инструкции [{#T}](../../operations/trigger/budget-trigger-create.md).
+О том, как создать триггер для бюджетов, читайте в инструкции [Создать триггер для бюджетов, который вызывает функцию Cloud Functions](../../operations/trigger/budget-trigger-create.md).
 
 ## Роли, необходимые для корректной работы триггера для бюджетов {#roles}
 
-* Для создания триггера вам необходимо разрешение на сервисный аккаунт, от имени которого триггер выполняет операцию. Это разрешение входит в роли [iam.serviceAccounts.user](../../../iam/concepts/access-control/roles.md#sa-user), [{{ roles-editor }}](../../../iam/concepts/access-control/roles.md#editor) и выше.
-* Для работы триггера сервисному аккаунту необходима роль `{{ roles-functions-invoker }}` на функцию, которую вызывает триггер.
+* Для создания триггера вам необходимо разрешение на сервисный аккаунт, от имени которого триггер выполняет операцию. Это разрешение входит в роли [iam.serviceAccounts.user](../../../iam/concepts/access-control/roles.md#sa-user), [editor](../../../iam/concepts/access-control/roles.md#editor) и выше.
+* Для работы триггера сервисному аккаунту необходима роль `functions.functionInvoker` на функцию, которую вызывает триггер.
 
 ## Формат сообщения от триггера для бюджетов {#format}
 
@@ -49,9 +49,9 @@
 
 ## Примеры использования {#examples}
 
-* [{#T}](../../tutorials/serverless-trigger-budget-vm.md)
+* [Создание триггера для бюджетов, который вызывает функцию Cloud Functions для остановки ВМ](../../tutorials/serverless-trigger-budget-vm.md)
 
 ## См. также {#see-also}
 
-* [{#T}](../../../serverless-containers/concepts/trigger/budget-trigger.md)
-* [{#T}](../../../api-gateway/concepts/trigger/budget-trigger.md)
+* [Триггер для бюджетов, который вызывает контейнер Serverless Containers](../../../serverless-containers/concepts/trigger/budget-trigger.md)
+* [Триггер для бюджетов, который отправляет сообщения в WebSocket-соединения](../../../api-gateway/concepts/trigger/budget-trigger.md)

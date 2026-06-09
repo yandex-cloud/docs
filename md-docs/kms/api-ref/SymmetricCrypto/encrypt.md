@@ -5,7 +5,7 @@ Encrypts given plaintext with the specified key.
 ## HTTP request
 
 ```
-POST https://{{ api-host-kms-symcrypto }}/kms/v1/keys/{keyId}:encrypt
+POST https://kms.yandex/kms/v1/keys/{keyId}:encrypt
 ```
 
 ## Path parameters

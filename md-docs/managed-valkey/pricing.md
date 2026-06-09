@@ -1,11 +1,11 @@
-# Правила тарификации для {{ mrd-name }}
+# Правила тарификации для Yandex Managed Service for Valkey™
 
-В этом разделе описаны [правила](#rules), по которым тарифицируется использование сервиса {{ mrd-name }}, и представлены [актуальные цены](#prices) на предоставляемые им ресурсы.
+В этом разделе описаны [правила](#rules), по которым тарифицируется использование сервиса Yandex Managed Service for Valkey™, и представлены [актуальные цены](#prices) на предоставляемые им ресурсы.
 
 {% note tip %}
 
 
-Чтобы рассчитать стоимость использования сервиса, воспользуйтесь [калькулятором](https://yandex.cloud/ru/prices?state=26441efb181e#calculator) на сайте {{ yandex-cloud }} или ознакомьтесь с тарифами в этом разделе.
+Чтобы рассчитать стоимость использования сервиса, воспользуйтесь [калькулятором](https://yandex.cloud/ru/prices?state=26441efb181e#calculator) на сайте Yandex Cloud или ознакомьтесь с тарифами в этом разделе.
 
 
 
@@ -25,9 +25,9 @@
 * Для запущенного кластера (`Running`) тарифицируются как вычислительные ресурсы, так и объем хранилища и резервных копий.
 * Для остановленного кластера (`Stopped`) тарифицируется только объем хранилища и резервных копий.
 
-## Из чего складывается стоимость использования {{ mrd-short-name }} {#rules}
+## Из чего складывается стоимость использования Yandex Managed Service for Valkey™ {#rules}
 
-Расчет стоимости использования {{ mrd-name }} учитывает:
+Расчет стоимости использования Yandex Managed Service for Valkey™ учитывает:
 
 * тип диска и размер хранилища;
 
@@ -35,7 +35,7 @@
 
 * настройки и количество резервных копий;
 
-* объем исходящего трафика из {{ yandex-cloud }} в интернет.
+* объем исходящего трафика из Yandex Cloud в интернет.
 
 Во всех расчетах 1 ГБ = 2<sup>30</sup> байт, 1 МБ = 2<sup>20</sup> байт.
 
@@ -43,7 +43,7 @@
 
 Стоимость начисляется за каждый час работы хоста в соответствии с выделенными для него вычислительными ресурсами. Поддерживаемые конфигурации ресурсов приведены в разделе [Классы хостов](concepts/instance-types.md), цены за использование vCPU и RAM — в разделе [Цены](#prices).
 
-Минимальная единица тарификации — минута (например, стоимость 1,5 минут работы хоста равна стоимости 2 минут). Время, когда хост {{ VLK }} не может выполнять свои основные функции, не тарифицируется.
+Минимальная единица тарификации — минута (например, стоимость 1,5 минут работы хоста равна стоимости 2 минут). Время, когда хост Valkey™ не может выполнять свои основные функции, не тарифицируется.
 
 ### Использование дискового пространства {#rules-storage}
 
@@ -59,7 +59,7 @@
         * для платформ **Intel Broadwell** и **Intel Cascade Lake** — с шагом 100 ГБ;
 
 
-        * для платформ **Intel Ice Lake** и **AMD Zen 4** — с шагом {{ local-ssd-v3-step }}.
+        * для платформ **Intel Ice Lake** и **AMD Zen 4** — с шагом 368 ГБ.
 
     Подробнее об ограничениях хранилища, связанных с платформой, см. в разделе [Типы дисков](concepts/storage.md).
 
@@ -74,39 +74,39 @@
 
 Стоимость использования кластера со следующими параметрами в течение 30 дней:
 
-* **Хосты {{ VLK }}**: 3 хоста класса `hm3-c2-m8`: Intel Ice Lake, 2 × 100% vCPU, 8 ГБ RAM.
-* **{{ ui-key.yacloud.mdb.forms.section_storage }}**: 100 ГБ на сетевых SSD-дисках.
+* **Хосты Valkey™**: 3 хоста класса `hm3-c2-m8`: Intel Ice Lake, 2 × 100% vCPU, 8 ГБ RAM.
+* **Хранилище**: 100 ГБ на сетевых SSD-дисках.
 
-Расчет стоимости для хостов {{ VLK }}:
+Расчет стоимости для хостов Valkey™:
 
 
 {% list tabs group=pricing %}
 
 - Расчет в рублях {#prices-rub}
 
-  > 3 × (2&nbsp;×&nbsp;{{ sku|RUB|mdb.cluster.redis.v3.cpu.c100|string }} + 8&nbsp;×&nbsp;{{ sku|RUB|mdb.cluster.redis.v3.ram|string }}) = {% calc [currency=RUB] 3 × (2 × {{ sku|RUB|mdb.cluster.redis.v3.cpu.c100|number }} + 8 × {{ sku|RUB|mdb.cluster.redis.v3.ram|number }}) %}
+  > 3 × (2&nbsp;×&nbsp;1,74 ₽ + 8&nbsp;×&nbsp;0,46 ₽) = {% calc [currency=RUB] 3 × (2 × 1.74 + 8 × 0.46) %}
   >
-  > Итого: {% calc [currency=RUB] 3 × (2 × {{ sku|RUB|mdb.cluster.redis.v3.cpu.c100|number }} + 8 × {{ sku|RUB|mdb.cluster.redis.v3.ram|number }}) %} — стоимость часа работы хостов {{ VLK }}.
+  > Итого: {% calc [currency=RUB] 3 × (2 × 1.74 + 8 × 0.46) %} — стоимость часа работы хостов Valkey™.
   
   Где:
-  * 3 — количество хостов {{ VLK }}.
+  * 3 — количество хостов Valkey™.
   * 2 — количество vCPU.
-  * {{ sku|RUB|mdb.cluster.redis.v3.cpu.c100|string }} — стоимость часа использования 100% vCPU.
-  * 8 — объем RAM одного хоста {{ VLK }} (в гигабайтах).
-  * {{ sku|RUB|mdb.cluster.redis.v3.ram|string }} — стоимость часа использования 1 ГБ RAM на 100% vCPU.
+  * 1,74 ₽ — стоимость часа использования 100% vCPU.
+  * 8 — объем RAM одного хоста Valkey™ (в гигабайтах).
+  * 0,46 ₽ — стоимость часа использования 1 ГБ RAM на 100% vCPU.
 
 - Расчет в тенге {#prices-kzt}
 
-  > 3 × (2&nbsp;×&nbsp;{{ sku|KZT|mdb.cluster.redis.v3.cpu.c100|string }} + 8&nbsp;×&nbsp;{{ sku|KZT|mdb.cluster.redis.v3.ram|string }}) = {% calc [currency=KZT] 3 × (2 × {{ sku|KZT|mdb.cluster.redis.v3.cpu.c100|number }} + 8 × {{ sku|KZT|mdb.cluster.redis.v3.ram|number }}) %}
+  > 3 × (2&nbsp;×&nbsp;8,7 ₸ + 8&nbsp;×&nbsp;2,3 ₸) = {% calc [currency=KZT] 3 × (2 × 8.7 + 8 × 2.3) %}
   >
-  > Итого: {% calc [currency=KZT] 3 × (2 × {{ sku|KZT|mdb.cluster.redis.v3.cpu.c100|number }} + 8 × {{ sku|KZT|mdb.cluster.redis.v3.ram|number }}) %} — стоимость часа работы хостов {{ VLK }}.
+  > Итого: {% calc [currency=KZT] 3 × (2 × 8.7 + 8 × 2.3) %} — стоимость часа работы хостов Valkey™.
   
   Где:
-  * 3 — количество хостов {{ VLK }}.
+  * 3 — количество хостов Valkey™.
   * 2 — количество vCPU.
-  * {{ sku|KZT|mdb.cluster.redis.v3.cpu.c100|string }} — стоимость часа использования 100% vCPU.
-  * 8 — объем RAM одного хоста {{ VLK }} (в гигабайтах).
-  * {{ sku|KZT|mdb.cluster.redis.v3.ram|string }} — стоимость часа использования 1 ГБ RAM на 100% vCPU.
+  * 8,7 ₸ — стоимость часа использования 100% vCPU.
+  * 8 — объем RAM одного хоста Valkey™ (в гигабайтах).
+  * 2,3 ₸ — стоимость часа использования 1 ГБ RAM на 100% vCPU.
 
 {% endlist %}
 
@@ -120,29 +120,29 @@
 
 - Расчет в рублях {#prices-rub}
 
-  > 720 × {% calc [currency=RUB] 3 × (2 × {{ sku|RUB|mdb.cluster.redis.v3.cpu.c100|number }} + 8 × {{ sku|RUB|mdb.cluster.redis.v3.ram|number }}) %} + 3 × (100&nbsp;×&nbsp;{{ sku|RUB|mdb.cluster.network-nvme.redis|month|string }}) = {% calc [currency=RUB] 720 × (3 × (2 × {{ sku|RUB|mdb.cluster.redis.v3.cpu.c100|number }} + 8 × {{ sku|RUB|mdb.cluster.redis.v3.ram|number }})) + 3 × (100 × {{ sku|RUB|mdb.cluster.network-nvme.redis|month|number }}) %}
+  > 720 × {% calc [currency=RUB] 3 × (2 × 1.74 + 8 × 0.46) %} + 3 × (100&nbsp;×&nbsp;15,696 ₽) = {% calc [currency=RUB] 720 × (3 × (2 × 1.74 + 8 × 0.46)) + 3 × (100 × 15.696) %}
   >
-  > Итого: {% calc [currency=RUB] 720 × (3 × (2 × {{ sku|RUB|mdb.cluster.redis.v3.cpu.c100|number }} + 8 × {{ sku|RUB|mdb.cluster.redis.v3.ram|number }})) + 3 × (100 × {{ sku|RUB|mdb.cluster.network-nvme.redis|month|number }}) %} — стоимость использования кластера в течение 30 дней.
+  > Итого: {% calc [currency=RUB] 720 × (3 × (2 × 1.74 + 8 × 0.46)) + 3 × (100 × 15.696) %} — стоимость использования кластера в течение 30 дней.
   
   Где:
   * 720 — количество часов в 30 днях.
-  * {% calc [currency=RUB] 3 × (2 × {{ sku|RUB|mdb.cluster.redis.v3.cpu.c100|number }} + 8 × {{ sku|RUB|mdb.cluster.redis.v3.ram|number }}) %} — стоимость часа работы хостов {{ VLK }}.
-  * 3 — количество хостов {{ VLK }}.
+  * {% calc [currency=RUB] 3 × (2 × 1.74 + 8 × 0.46) %} — стоимость часа работы хостов Valkey™.
+  * 3 — количество хостов Valkey™.
   * 100 — объем хранилища на сетевых SSD-дисках (в гигабайтах).
-  * {{ sku|RUB|mdb.cluster.network-nvme.redis|month|string }} — стоимость месяца использования 1 ГБ хранилища на сетевых SSD-дисках.
+  * 15,696 ₽ — стоимость месяца использования 1 ГБ хранилища на сетевых SSD-дисках.
 
 - Расчет в тенге {#prices-kzt}
 
-  > 720 × {% calc [currency=KZT] 3 × (2 × {{ sku|KZT|mdb.cluster.redis.v3.cpu.c100|number }} + 8 × {{ sku|KZT|mdb.cluster.redis.v3.ram|number }}) %} + 3 × (100&nbsp;×&nbsp;{{ sku|KZT|mdb.cluster.network-nvme.redis|month|string }}) = {% calc [currency=KZT] 720 × (3 × (2 × {{ sku|KZT|mdb.cluster.redis.v3.cpu.c100|number }} + 8 × {{ sku|KZT|mdb.cluster.redis.v3.ram|number }})) + 3 × (100 × {{ sku|KZT|mdb.cluster.network-nvme.redis|month|number }}) %}
+  > 720 × {% calc [currency=KZT] 3 × (2 × 8.7 + 8 × 2.3) %} + 3 × (100&nbsp;×&nbsp;78,48 ₸) = {% calc [currency=KZT] 720 × (3 × (2 × 8.7 + 8 × 2.3)) + 3 × (100 × 78.48) %}
   >
-  > Итого: {% calc [currency=KZT] 720 × (3 × (2 × {{ sku|KZT|mdb.cluster.redis.v3.cpu.c100|number }} + 8 × {{ sku|KZT|mdb.cluster.redis.v3.ram|number }})) + 3 × (100 × {{ sku|KZT|mdb.cluster.network-nvme.redis|month|number }}) %} — стоимость использования кластера в течение 30 дней.
+  > Итого: {% calc [currency=KZT] 720 × (3 × (2 × 8.7 + 8 × 2.3)) + 3 × (100 × 78.48) %} — стоимость использования кластера в течение 30 дней.
   
   Где:
   * 720 — количество часов в 30 днях.
-  * {% calc [currency=KZT] 3 × (2 × {{ sku|KZT|mdb.cluster.redis.v3.cpu.c100|number }} + 8 × {{ sku|KZT|mdb.cluster.redis.v3.ram|number }}) %} — стоимость часа работы хостов {{ VLK }}.
-  * 3 — количество хостов {{ VLK }}.
+  * {% calc [currency=KZT] 3 × (2 × 8.7 + 8 × 2.3) %} — стоимость часа работы хостов Valkey™.
+  * 3 — количество хостов Valkey™.
   * 100 — объем хранилища на сетевых SSD-дисках (в гигабайтах).
-  * {{ sku|KZT|mdb.cluster.network-nvme.redis|month|string }} — стоимость месяца использования 1 ГБ хранилища на сетевых SSD-дисках.
+  * 78,48 ₸ — стоимость месяца использования 1 ГБ хранилища на сетевых SSD-дисках.
 
 {% endlist %}
 
@@ -153,13 +153,13 @@
 
 Вы можете получить гарантированную скидку за потребление ресурсов сервиса, запланированное на 6 месяцев или 1 год вперед. Чтобы посмотреть ресурсы, для которых можно получить такую скидку:
 
-1. Перейдите в раздел [**{{ ui-key.yacloud.component.navigation-menu.label_billing }}**]({{ link-console-billing }}).
+1. Перейдите в раздел [**Yandex Cloud Billing**](https://center.yandex.cloud/billing/accounts).
 1. Нажмите на нужный платежный аккаунт.
-1. Выберите раздел ![image](../_assets/console-icons/lock.svg) **{{ ui-key.yacloud_billing.billing.account.switch_offers }}** в меню слева.
+1. Выберите раздел ![image](../_assets/console-icons/lock.svg) **Резервируемый объём** в меню слева.
 
-Механизм CVoS гарантирует скидку на потребление, но не гарантирует наличие заказанного объема ресурсов.  Подробнее о механизме работы CVoS читайте в [документации сервиса {{ billing-name }}](../billing/concepts/cvos.md).
+Механизм CVoS гарантирует скидку на потребление, но не гарантирует наличие заказанного объема ресурсов.  Подробнее о механизме работы CVoS читайте в [документации сервиса Yandex Cloud Billing](../billing/concepts/cvos.md).
 
-Сервис {{ mrd-name }} предоставляет CVoS двух видов: на vCPU и RAM для хостов, которые вы планируете использовать в кластерах БД. В консоли управления вы можете увидеть потенциальную экономию для текущего потребления ресурсов при переводе их на схему CVoS, а также предварительно рассчитать месячные платежи для нужного количества ядер процессора и оперативной памяти.
+Сервис Yandex Managed Service for Valkey™ предоставляет CVoS двух видов: на vCPU и RAM для хостов, которые вы планируете использовать в кластерах БД. В консоли управления вы можете увидеть потенциальную экономию для текущего потребления ресурсов при переводе их на схему CVoS, а также предварительно рассчитать месячные платежи для нужного количества ядер процессора и оперативной памяти.
 
 {% note info %}
 
@@ -174,9 +174,9 @@
 
 {% note info %}
 
-Цены на ресурсы {{ yandex-cloud }} в разных регионах различаются. Подробнее о доступных регионах см. [{#T}](../overview/concepts/region.md).
+Цены на ресурсы Yandex Cloud в разных регионах различаются. Подробнее о доступных регионах см. [Регионы](../overview/concepts/region.md).
 
-Валюта, которой можно оплачивать ресурсы, зависит от юридического лица, с которым пользователь заключил договор. Подробнее о регистрации аккаунта см. [{#T}](../billing/quickstart/index.md).
+Валюта, которой можно оплачивать ресурсы, зависит от юридического лица, с которым пользователь заключил договор. Подробнее о регистрации аккаунта см. [Регистрация аккаунта в Yandex Cloud](../billing/quickstart/index.md).
 
 {% endnote %}
 
@@ -185,16 +185,51 @@
 
 {% note info %}
 
-Доступ к платформе **Intel Ice Lake (Compute Optimized)** предоставляется по запросу. Обратитесь в [техническую поддержку]({{ link-console-support }}) или к вашему аккаунт-менеджеру.
+Доступ к платформе **Intel Ice Lake (Compute Optimized)** предоставляется по запросу. Обратитесь в [техническую поддержку](https://center.yandex.cloud/support) или к вашему аккаунт-менеджеру.
 
 {% endnote %}
 
 
-^*^ Эти типы дисков доступны только для определенных платформ, подробнее см. в разделе [{#T}](concepts/storage.md).
+^*^ Эти типы дисков доступны только для определенных платформ, подробнее см. в разделе [Хранилище в Yandex Managed Service for Valkey™](concepts/storage.md).
 
 
-| Услуга | Цена | Ед. тарификации | Действует с | Действует до |
-| ------ | ---- | --------------- | ----------- | ------------ |
+| Услуга                                                                                                       | Цена      | Ед. тарификации | Действует с    | Действует до |
+| ------------------------------------------------------------------------------------------------------------ | --------- | --------------- | -------------- | ------------ |
+| Managed Service for Valkey™. Вычислительные ресурсы хостов, AMD Zen 4 HighFreq, 100% vCPU                    | 3,39 ₽    | vCPU × час      | 1 мая 2026     | —            |
+| Managed Service for Valkey™. Вычислительные ресурсы хостов, AMD Zen 4 HighFreq, RAM                          | 0,6445 ₽  | ГБ × час        | 1 мая 2026     | —            |
+| Managed Service for Valkey™. Вычислительные ресурсы хостов, AMD Zen 4, 100% vCPU                             | 1,74 ₽    | vCPU × час      | 1 мая 2026     | —            |
+| Managed Service for Valkey™. Вычислительные ресурсы хостов, AMD Zen 4, 100% vCPU, CVoS на 1 год              | 1,3578 ₽  | vCPU × час      | 1 мая 2026     | —            |
+| Managed Service for Valkey™. Вычислительные ресурсы хостов, AMD Zen 4, 100% vCPU, CVoS на 6 месяцев          | 1,4797 ₽  | vCPU × час      | 1 мая 2026     | —            |
+| Managed Service for Valkey™. Вычислительные ресурсы хостов, AMD Zen 4, RAM                                   | 0,46 ₽    | ГБ × час        | 1 мая 2026     | —            |
+| Managed Service for Valkey™. Вычислительные ресурсы хостов, AMD Zen 4, RAM, CVoS на 1 год                    | 0,3597 ₽  | ГБ × час        | 1 мая 2026     | —            |
+| Managed Service for Valkey™. Вычислительные ресурсы хостов, AMD Zen 4, RAM, CVoS на 6 месяцев                | 0,3919 ₽  | ГБ × час        | 1 мая 2026     | —            |
+| Managed Service for Valkey™. Вычислительные ресурсы хостов, Intel Broadwell, 100% vCPU                       | 2,19 ₽    | vCPU × час      | 1 мая 2026     | —            |
+| Managed Service for Valkey™. Вычислительные ресурсы хостов, Intel Broadwell, 20% vCPU                        | 0,9992 ₽  | vCPU × час      | 9 февраля 2026 | —            |
+| Managed Service for Valkey™. Вычислительные ресурсы хостов, Intel Broadwell, 5% vCPU                         | 0,9992 ₽  | vCPU × час      | 9 февраля 2026 | —            |
+| Managed Service for Valkey™. Вычислительные ресурсы хостов, Intel Broadwell, RAM                             | 0,5937 ₽  | ГБ × час        | 1 мая 2026     | —            |
+| Managed Service for Valkey™. Вычислительные ресурсы хостов, Intel Cascade Lake, 100% vCPU                    | 1,93 ₽    | vCPU × час      | 1 мая 2026     | —            |
+| Managed Service for Valkey™. Вычислительные ресурсы хостов, Intel Cascade Lake, 100% vCPU, CVoS на 1 год     | 1,51 ₽    | vCPU × час      | 1 мая 2026     | —            |
+| Managed Service for Valkey™. Вычислительные ресурсы хостов, Intel Cascade Lake, 100% vCPU, CVoS на 6 месяцев | 1,64 ₽    | vCPU × час      | 1 мая 2026     | —            |
+| Managed Service for Valkey™. Вычислительные ресурсы хостов, Intel Cascade Lake, 5% vCPU                      | 0,9992 ₽  | vCPU × час      | 9 февраля 2026 | —            |
+| Managed Service for Valkey™. Вычислительные ресурсы хостов, Intel Cascade Lake, 50% vCPU                     | 1,109 ₽   | vCPU × час      | 9 февраля 2026 | —            |
+| Managed Service for Valkey™. Вычислительные ресурсы хостов, Intel Cascade Lake, RAM                          | 0,5188 ₽  | ГБ × час        | 1 мая 2026     | —            |
+| Managed Service for Valkey™. Вычислительные ресурсы хостов, Intel Cascade Lake, RAM, CVoS на 1 год           | 0,4046 ₽  | ГБ × час        | 1 мая 2026     | —            |
+| Managed Service for Valkey™. Вычислительные ресурсы хостов, Intel Cascade Lake. RAM,  CVoS на 6 месяцев      | 0,44 ₽    | ГБ × час        | 1 мая 2026     | —            |
+| Managed Service for Valkey™. Вычислительные ресурсы хостов, Intel Ice Lake (Compute Optimized), 100% vCPU    | 2,79 ₽    | vCPU × час      | 1 мая 2026     | —            |
+| Managed Service for Valkey™. Вычислительные ресурсы хостов, Intel Ice Lake (Compute Optimized), RAM          | 0,53 ₽    | ГБ × час        | 1 мая 2026     | —            |
+| Managed Service for Valkey™. Вычислительные ресурсы хостов, Intel Ice Lake, 100% vCPU                        | 1,74 ₽    | vCPU × час      | 1 мая 2026     | —            |
+| Managed Service for Valkey™. Вычислительные ресурсы хостов, Intel Ice Lake, 100% vCPU, CVoS на 1 год         | 1,3578 ₽  | vCPU × час      | 1 мая 2026     | —            |
+| Managed Service for Valkey™. Вычислительные ресурсы хостов, Intel Ice Lake, 100% vCPU, CVoS на 6 месяцев     | 1,4797 ₽  | vCPU × час      | 1 мая 2026     | —            |
+| Managed Service for Valkey™. Вычислительные ресурсы хостов, Intel Ice Lake, 50% vCPU                         | 0,9992 ₽  | vCPU × час      | 9 февраля 2026 | —            |
+| Managed Service for Valkey™. Вычислительные ресурсы хостов, Intel Ice Lake, RAM                              | 0,46 ₽    | ГБ × час        | 1 мая 2026     | —            |
+| Managed Service for Valkey™. Вычислительные ресурсы хостов, Intel Ice Lake, RAM, CVoS на 1 год               | 0,3597 ₽  | ГБ × час        | 1 мая 2026     | —            |
+| Managed Service for Valkey™. Вычислительные ресурсы хостов, Intel Ice Lake, RAM, CVoS на 6 месяцев           | 0,3919 ₽  | ГБ × час        | 1 мая 2026     | —            |
+| Managed Service for Valkey™. Публичный IP-адрес                                                              | 0,2766 ₽  | IP-адрес × час  | 1 мая 2026     | —            |
+| Managed Service for Valkey™. Резервные копии сверх размера хранилища                                         | 0,00307 ₽ | ГБ × час        | 1 мая 2026     | —            |
+| Managed Service for Valkey™. Сверхбыстрое сетевое хранилище с тремя репликами (SSD)                          | 0,0365 ₽  | ГБ × час        | 1 мая 2026     | —            |
+| Managed Service for Valkey™. Хранилище на локальных SSD-дисках                                               | 0,0198 ₽  | ГБ × час        | 1 мая 2026     | —            |
+| Managed Service for Valkey™. Хранилище на нереплицируемых SSD-дисках                                         | 0,0147 ₽  | ГБ × час        | 1 мая 2026     | —            |
+| Managed Service for Valkey™. Хранилище на сетевых SSD-дисках                                                 | 0,0218 ₽  | ГБ × час        | 1 мая 2026     | —            |
 
 
 
@@ -202,12 +237,14 @@
 
 ### Исходящий трафик {#prices-traffic}
 
-При использовании сервиса оплачивается исходящий трафик из {{ yandex-cloud }} в интернет. Передача трафика между сервисами {{ yandex-cloud }} по внутренним адресам, как и входящий трафик из интернета, не тарифицируется.
+При использовании сервиса оплачивается исходящий трафик из Yandex Cloud в интернет. Передача трафика между сервисами Yandex Cloud по внутренним адресам, как и входящий трафик из интернета, не тарифицируется.
 
 Каждый месяц не тарифицируются первые 100 ГБ исходящего трафика.
 
 Минимальная единица тарификации — 1 МБ.
 
 
-| Услуга | Цена | Ед. тарификации | Действует с | Действует до |
-| ------ | ---- | --------------- | ----------- | ------------ |
+| Услуга                                                    | Цена              | Ед. тарификации | Действует с | Действует до |
+| --------------------------------------------------------- | ----------------- | --------------- | ----------- | ------------ |
+| Исходящий трафик, от 0 до 100 единицы тарификации в месяц | Не тарифицируется | ГБ              | 1 мая 2026  | —            |
+| Исходящий трафик, от 100 единицы тарификации в месяц      | 1,42 ₽            | ГБ              | 1 мая 2026  | —            |

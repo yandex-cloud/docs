@@ -6,7 +6,7 @@ Only fields specified in the field_mask will be updated.
 ## HTTP request
 
 ```
-PATCH https://video.{{ api-host }}/video/v1/channels/{channelId}
+PATCH https://video.api.cloud.yandex.net/video/v1/channels/{channelId}
 ```
 
 ## Path parameters

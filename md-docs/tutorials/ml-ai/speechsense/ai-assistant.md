@@ -1,8 +1,8 @@
-# Работа с AI-ассистентом в {{ speechsense-name }}
+# Работа с AI-ассистентом в SpeechSense
 
-# Работа с AI-ассистентом в {{ speechsense-name }}
+# Работа с AI-ассистентом в SpeechSense
 
-Вы можете получить из диалога информацию, извлеченную с помощью [AI-ассистента]({{ link-docs-ai }}speechsense/concepts/assistants.md). Его можно подключать к аудиодиалогам и к чатам. В этом руководстве рассмотрено подключение к чатам. В качестве примера приведена переписка клиента с турагентством.
+Вы можете получить из диалога информацию, извлеченную с помощью [AI-ассистента](https://aistudio.yandex.ru/docs/ru/speechsense/concepts/assistants.md). Его можно подключать к аудиодиалогам и к чатам. В этом руководстве рассмотрено подключение к чатам. В качестве примера приведена переписка клиента с турагентством.
 
 Чтобы получить нужную информацию из чата с помощью AI-ассистента:
 
@@ -10,18 +10,18 @@
 1. [Подготовьте инфрастуктуру](#infrastructure-prepare).
 1. [Создайте AI-ассистента](#create-assistant).
 1. [Загрузите данные в проект](#load-data).
-1. [Проверьте результат работы AI-ассистента в интерфейсе {{ speechsense-name }}](#result-console).
+1. [Проверьте результат работы AI-ассистента в интерфейсе SpeechSense](#result-console).
 1. [Получите информацию о диалоге с помощью API](#result-api).
 
 Если созданные ресурсы вам больше не нужны, [удалите их](#clear-out).
 
 ## Подготовьте облако к работе {#before-you-begin}
 
-Зарегистрируйтесь в {{ yandex-cloud }} и создайте [платежный аккаунт](../../../billing/concepts/billing-account.md):
-1. Перейдите в [консоль управления]({{ link-console-main }}), затем войдите в {{ yandex-cloud }} или зарегистрируйтесь.
-1. На странице **[{{ ui-key.yacloud_billing.billing.label_service }}]({{ link-console-billing }})** убедитесь, что у вас подключен платежный аккаунт, и он находится в [статусе](../../../billing/concepts/billing-account-statuses.md) `ACTIVE` или `TRIAL_ACTIVE`. Если платежного аккаунта нет, [создайте его](../../../billing/quickstart/index.md) и [привяжите](../../../billing/operations/pin-cloud.md) к нему облако.
+Зарегистрируйтесь в Yandex Cloud и создайте [платежный аккаунт](../../../billing/concepts/billing-account.md):
+1. Перейдите в [консоль управления](https://console.yandex.cloud), затем войдите в Yandex Cloud или зарегистрируйтесь.
+1. На странице **[Yandex Cloud Billing](https://center.yandex.cloud/billing/accounts)** убедитесь, что у вас подключен платежный аккаунт, и он находится в [статусе](../../../billing/concepts/billing-account-statuses.md) `ACTIVE` или `TRIAL_ACTIVE`. Если платежного аккаунта нет, [создайте его](../../../billing/quickstart/index.md) и [привяжите](../../../billing/operations/pin-cloud.md) к нему облако.
 
-Если у вас есть активный платежный аккаунт, вы можете создать или выбрать [каталог](../../../resource-manager/concepts/resources-hierarchy.md#folder), в котором будет работать ваша инфраструктура, на [странице облака]({{ link-console-cloud }}).
+Если у вас есть активный платежный аккаунт, вы можете создать или выбрать [каталог](../../../resource-manager/concepts/resources-hierarchy.md#folder), в котором будет работать ваша инфраструктура, на [странице облака](https://console.yandex.cloud/cloud).
 
 [Подробнее об облаках и каталогах](../../../resource-manager/concepts/resources-hierarchy.md).
 
@@ -35,7 +35,7 @@
 
 ### Необходимые платные ресурсы {#paid-resources}
 
-* Сервис {{ speechsense-name }}: количество символов в каждом текстовом диалоге и анализ диалогов с помощью AI-ассистента (см. [тарифы {{ speechsense-name }}]({{ link-docs-ai }}/speechsense/pricing)).
+* Сервис SpeechSense: количество символов в каждом текстовом диалоге и анализ диалогов с помощью AI-ассистента (см. [тарифы SpeechSense](https://aistudio.yandex.ru/docs/ru//speechsense/pricing)).
 
 ## Подготовьте инфраструктуру {#infrastructure-prepare}
 
@@ -45,11 +45,11 @@
 
 - Консоль управления {#console}
 
-    1. В [консоли управления]({{ link-console-main }}) выберите нужный каталог.
-    1. Перейдите в сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_iam }}**.
-    1. Нажмите кнопку **{{ ui-key.yacloud.iam.folder.service-accounts.button_add }}**.
+    1. В [консоли управления](https://console.yandex.cloud) выберите нужный каталог.
+    1. Перейдите в сервис **Identity and Access Management**.
+    1. Нажмите кнопку **Создать сервисный аккаунт**.
     1. Введите имя [сервисного аккаунта](../../../iam/concepts/users/service-accounts.md), например `speechsense`.
-    1. Нажмите кнопку **{{ ui-key.yacloud.iam.folder.service-account.popup-robot_button_add }}**.
+    1. Нажмите кнопку **Создать**.
 
 {% endlist %}
 
@@ -59,13 +59,13 @@
 
 - Консоль управления {#console}
 
-  1. В [консоли управления]({{ link-console-main }}) выберите нужный каталог.
-  1. Перейдите в сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_iam }}**.
-  1. На панели слева выберите ![FaceRobot](../../../_assets/console-icons/face-robot.svg) **{{ ui-key.yacloud.iam.label_service-accounts }}**.
+  1. В [консоли управления](https://console.yandex.cloud) выберите нужный каталог.
+  1. Перейдите в сервис **Identity and Access Management**.
+  1. На панели слева выберите ![FaceRobot](../../../_assets/console-icons/face-robot.svg) **Сервисные аккаунты**.
   1. Выберите сервисный аккаунт `speechsense`.
-  1. На панели сверху нажмите кнопку ![image](../../../_assets/console-icons/plus.svg) **{{ ui-key.yacloud.iam.folder.service-account.overview.button_create-key-popup }}** и выберите **{{ ui-key.yacloud.iam.folder.service-account.overview.button_create_api_key }}**.
-  1. В поле **{{ ui-key.yacloud.iam.folder.service-account.overview.field_key-scope }}** выберите `yc.speech-sense.use`.
-  1. Нажмите кнопку **{{ ui-key.yacloud.iam.folder.service-account.overview.popup-key_button_create }}**.
+  1. На панели сверху нажмите кнопку ![image](../../../_assets/console-icons/plus.svg) **Создать новый ключ** и выберите **Создать API-ключ**.
+  1. В поле **Область действия** выберите `yc.speech-sense.use`.
+  1. Нажмите кнопку **Создать**.
   1. Сохраните идентификатор и секретный ключ — они понадобятся позднее.
 
       {% note alert %}
@@ -80,13 +80,13 @@
 
 {% list tabs group=instructions %}
 
-- Интерфейс {{ speechsense-name }} {#speechsense}
+- Интерфейс SpeechSense {#speechsense}
 
-    1. Откройте [главную страницу]({{ link-speechsense-main }}) {{ speechsense-name }}.
-    1. Нажмите кнопку **{{ ui-key.yc-ui-talkanalytics.spaces.create-space }}**.
-    1. Введите название [пространства]({{ link-docs-ai }}speechsense/concepts/resources-hierarchy#space).
-    1. Нажмите кнопку **{{ ui-key.yc-ui-talkanalytics.common.create }}**.
-    1. [Привяжите платежный аккаунт]({{ link-docs-ai }}speechsense/operations/space/link-ba) к пространству для оплаты {{ speechsense-name }}.
+    1. Откройте [главную страницу](https://speechsense.yandex.cloud/) SpeechSense.
+    1. Нажмите кнопку **Создать пространство**.
+    1. Введите название [пространства](https://aistudio.yandex.ru/docs/ru/speechsense/concepts/resources-hierarchy#space).
+    1. Нажмите кнопку **Создать**.
+    1. [Привяжите платежный аккаунт](https://aistudio.yandex.ru/docs/ru/speechsense/operations/space/link-ba) к пространству для оплаты SpeechSense.
 
 {% endlist %}
 
@@ -94,10 +94,10 @@
 
 ## Подготовьте облако к работе {#before-you-begin}
 
-1. Перейдите в [консоль управления]({{ link-console-main }}), затем войдите в {{ yandex-cloud }} или зарегистрируйтесь, если вы еще не зарегистрированы. О том, как начать работать с {{ yandex-cloud }}, см. в документе [Начало работы с {{ yandex-cloud }}](../../../getting-started/index.md).
+1. Перейдите в [консоль управления](https://console.yandex.cloud), затем войдите в Yandex Cloud или зарегистрируйтесь, если вы еще не зарегистрированы. О том, как начать работать с Yandex Cloud, см. в документе [Начало работы с Yandex Cloud](../../../getting-started/index.md).
 1. Примите пользовательское соглашение.
-1. В сервисе [{{ billing-name }}]({{ link-console-billing }}) убедитесь, что у вас подключен [платежный аккаунт](../../../billing/concepts/billing-account.md) и он находится в статусе `ACTIVE`. Если платежного аккаунта нет, [создайте его](../../../billing/quickstart/index.md#create_billing_account), если платежный аккаунт находится в статусе `TRIAL_ACTIVE`, [активируйте платную версию](../../../billing/operations/activate-commercial.md) аккаунта.
-1. [Назначьте](../../../iam/operations/roles/grant.md) вашему аккаунту в {{ yandex-cloud }} роль `speech-sense.spaces.creator`.
+1. В сервисе [Yandex Cloud Billing](https://center.yandex.cloud/billing/accounts) убедитесь, что у вас подключен [платежный аккаунт](../../../billing/concepts/billing-account.md) и он находится в статусе `ACTIVE`. Если платежного аккаунта нет, [создайте его](../../../billing/quickstart/index.md#create_billing_account), если платежный аккаунт находится в статусе `TRIAL_ACTIVE`, [активируйте платную версию](../../../billing/operations/activate-commercial.md) аккаунта.
+1. [Назначьте](../../../iam/operations/roles/grant.md) вашему аккаунту в Yandex Cloud роль `speech-sense.spaces.creator`.
 
     {% note info %}
     
@@ -107,22 +107,22 @@
 
 ### Необходимые платные ресурсы {#paid-resources}
 
-В стоимость инфраструктуры для интеграции с внешними системами входит плата за сервис {{ speechsense-name }}: длительность каждого двухканального аудиофайла (см. [тарифы {{ speechsense-name }}]({{ link-docs-ai }}speechsense/pricing)).
+В стоимость инфраструктуры для интеграции с внешними системами входит плата за сервис SpeechSense: длительность каждого двухканального аудиофайла (см. [тарифы SpeechSense](https://aistudio.yandex.ru/docs/ru/speechsense/pricing)).
 
 ### Создайте сервисный аккаунт {#create-sa}
 
-Создайте сервисный аккаунт с [ролью]({{ link-docs-ai }}speechsense/security/#speechsense-data-editor) `speech-sense.data.editor` для доступа amoCRM к проекту {{ speechsense-name }}.
+Создайте сервисный аккаунт с [ролью](https://aistudio.yandex.ru/docs/ru/speechsense/security/#speechsense-data-editor) `speech-sense.data.editor` для доступа amoCRM к проекту SpeechSense.
 
 {% list tabs group=instructions %}
 
 - Консоль управления {#console}
 
-  1. В [консоли управления]({{ link-console-main }}) выберите нужный каталог.
-  1. Перейдите в сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_iam }}**.
-  1. Нажмите **{{ ui-key.yacloud.iam.folder.service-accounts.button_add }}**.
-  1. Введите имя [сервисного аккаунта]({{ link-docs }}/iam/concepts/users/service-accounts): `speechsense`.
-  1. Нажмите ![image](../../../_assets/console-icons/plus.svg) **{{ ui-key.yacloud.iam.folder.service-account.label_add-role }}** и выберите `speech-sense.data.editor`.
-  1. Нажмите **{{ ui-key.yacloud.iam.folder.service-account.popup-robot_button_add }}**.
+  1. В [консоли управления](https://console.yandex.cloud) выберите нужный каталог.
+  1. Перейдите в сервис **Identity and Access Management**.
+  1. Нажмите **Создать сервисный аккаунт**.
+  1. Введите имя [сервисного аккаунта](../../../iam/concepts/users/service-accounts.md): `speechsense`.
+  1. Нажмите ![image](../../../_assets/console-icons/plus.svg) **Добавить роль** и выберите `speech-sense.data.editor`.
+  1. Нажмите **Создать**.
 
 {% endlist %}
 
@@ -133,13 +133,13 @@
 
 - Консоль управления {#console}
 
-  1. В [консоли управления]({{ link-console-main }}) выберите каталог, в котором был создан сервисный аккаунт.
-  1. Перейдите в сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_iam }}**.
-  1. На панели слева выберите ![FaceRobot](../../../_assets/console-icons/face-robot.svg) **{{ ui-key.yacloud.iam.label_service-accounts }}**.
+  1. В [консоли управления](https://console.yandex.cloud) выберите каталог, в котором был создан сервисный аккаунт.
+  1. Перейдите в сервис **Identity and Access Management**.
+  1. На панели слева выберите ![FaceRobot](../../../_assets/console-icons/face-robot.svg) **Сервисные аккаунты**.
   1. Выберите сервисный аккаунт `speechsense`.
-  1. На панели сверху нажмите ![image](../../../_assets/console-icons/plus.svg) **{{ ui-key.yacloud.iam.folder.service-account.overview.button_create-key-popup }}** и выберите **{{ ui-key.yacloud.iam.folder.service-account.overview.button_create_api_key }}**.
-  1. В открывшемся окне в поле **{{ ui-key.yacloud.iam.folder.service-account.overview.field_key-scope }}** выберите [область действия](../../../iam/concepts/authorization/api-key.md#scoped-api-keys) `yc.speech-sense.use`.
-  1. Нажмите **{{ ui-key.yacloud.iam.folder.service-account.overview.popup-key_button_create }}**.
+  1. На панели сверху нажмите ![image](../../../_assets/console-icons/plus.svg) **Создать новый ключ** и выберите **Создать API-ключ**.
+  1. В открывшемся окне в поле **Область действия** выберите [область действия](../../../iam/concepts/authorization/api-key.md#scoped-api-keys) `yc.speech-sense.use`.
+  1. Нажмите **Создать**.
   1. Сохраните идентификатор и секретный ключ — они понадобятся позднее.
 
       {% note alert %}
@@ -155,13 +155,13 @@
 
 {% list tabs group=instructions %}
 
-- Интерфейс {{ speechsense-name }} {#speechsense}
+- Интерфейс SpeechSense {#speechsense}
 
-  1. Откройте [главную страницу]({{ link-speechsense-main }}) {{ speechsense-name }}.
-  1. Нажмите кнопку **{{ ui-key.yc-ui-talkanalytics.spaces.create-space }}**.
-  1. Введите название [пространства]({{ link-docs-ai }}speechsense/concepts/resources-hierarchy#space).
-  1. Нажмите кнопку **{{ ui-key.yc-ui-talkanalytics.common.create }}**.
-  1. [Привяжите платежный аккаунт]({{ link-docs-ai }}speechsense/operations/space/link-ba) к пространству для оплаты {{ speechsense-name }}.
+  1. Откройте [главную страницу](https://speechsense.yandex.cloud/) SpeechSense.
+  1. Нажмите кнопку **Создать пространство**.
+  1. Введите название [пространства](https://aistudio.yandex.ru/docs/ru/speechsense/concepts/resources-hierarchy#space).
+  1. Нажмите кнопку **Создать**.
+  1. [Привяжите платежный аккаунт](https://aistudio.yandex.ru/docs/ru/speechsense/operations/space/link-ba) к пространству для оплаты SpeechSense.
 
       {% note info %}
       
@@ -176,13 +176,13 @@
 
 {% list tabs group=instructions %}
 
-- Интерфейс {{ speechsense-name }} {#speechsense}
+- Интерфейс SpeechSense {#speechsense}
 
-  1. В [интерфейсе]({{ link-speechsense-main }}) {{ speechsense-name }} перейдите в [новое пространство](#create-space).
-  1. Нажмите кнопку ![image](../../../_assets/console-icons/person-plus.svg) **{{ ui-key.yc-ui-talkanalytics.projects.add-participant }}** → ![image](../../../_assets/console-icons/persons.svg) **{{ ui-key.yc-ui-talkanalytics.team.add-from-organization-key-value }}**.
+  1. В [интерфейсе](https://speechsense.yandex.cloud/) SpeechSense перейдите в [новое пространство](#create-space).
+  1. Нажмите кнопку ![image](../../../_assets/console-icons/person-plus.svg) **Добавить участника** → ![image](../../../_assets/console-icons/persons.svg) **Добавить из организации**.
   1. Скопируйте идентификатор [созданного ранее сервисного аккаунта](#create-sa) `speechsense` и вставьте в строку поиска.
-  1. Выберите сервисный аккаунт `speechsense` и укажите роль [{{ roles-speechsense-data-editor }}]({{ link-docs-ai }}speechsense/security/#speechsense-data-editor). Эта роль позволит сервисному аккаунту загружать данные в {{ speechsense-name }}.
-  1. Нажмите кнопку **{{ ui-key.yc-ui-talkanalytics.common.add }}**.
+  1. Выберите сервисный аккаунт `speechsense` и укажите роль [Data editor](https://aistudio.yandex.ru/docs/ru/speechsense/security/#speechsense-data-editor). Эта роль позволит сервисному аккаунту загружать данные в SpeechSense.
+  1. Нажмите кнопку **Добавить**.
 
 {% endlist %}
 
@@ -190,15 +190,15 @@
 
 {% list tabs group=instructions %}
 
-- Интерфейс {{ speechsense-name }} {#speechsense}
+- Интерфейс SpeechSense {#speechsense}
 
-    1. Откройте [главную страницу]({{ link-speechsense-main }}) {{ speechsense-name }}.
+    1. Откройте [главную страницу](https://speechsense.yandex.cloud/) SpeechSense.
     1. Перейдите в нужное пространство.
-    1. Перейдите на вкладку **{{ ui-key.yc-ui-talkanalytics.connections.connections }}**.
-    1. Нажмите кнопку **{{ ui-key.yc-ui-talkanalytics.connections.create-connection-key-value }}** → **{{ ui-key.yc-ui-talkanalytics.connections.template.default.name }}**.
+    1. Перейдите на вкладку **Подключения**.
+    1. Нажмите кнопку **Создать подключение** → **Пустая форма**.
     1. Укажите название подключения, например `chats-default-metadata`.
-    1. Выберите тип данных **{{ ui-key.yc-ui-talkanalytics.connections.type.chat-key-value }}**.
-    1. Нажмите кнопку **{{ ui-key.yc-ui-talkanalytics.connections.create-connection-key-value }}**.
+    1. Выберите тип данных **Чат**.
+    1. Нажмите кнопку **Создать подключение**.
     1. На открывшейся странице нажмите в левом верхнем углу кнопку **ID**, чтобы скопировать идентификатор созданного подключения. Сохраните этот идентификатор, он понадобится далее для [загрузки данных в проект](#load-data).
 
 {% endlist %}
@@ -207,14 +207,14 @@
 
 {% list tabs group=instructions %}
 
-- Интерфейс {{ speechsense-name }} {#speechsense}
+- Интерфейс SpeechSense {#speechsense}
 
-    1. Откройте [главную страницу]({{ link-speechsense-main }}) {{ speechsense-name }}.
+    1. Откройте [главную страницу](https://speechsense.yandex.cloud/) SpeechSense.
     1. Перейдите в нужное пространство.
-    1. Нажмите кнопку ![create](../../../_assets/console-icons/folder-plus.svg) **{{ ui-key.yc-ui-talkanalytics.projects.create-project }}**.
+    1. Нажмите кнопку ![create](../../../_assets/console-icons/folder-plus.svg) **Создать проект**.
     1. Введите имя проекта, например `chats-travel-agency`.
-    1. В блоке **{{ ui-key.yc-ui-talkanalytics.connections.connection }}** нажмите **{{ ui-key.yc-ui-talkanalytics.projects.add-connection }}** и выберите подключение `chats-default-metadata`.
-    1. Нажмите кнопку **{{ ui-key.yc-ui-talkanalytics.projects.create-project }}**.
+    1. В блоке **Подключение** нажмите **Добавить подключение** и выберите подключение `chats-default-metadata`.
+    1. Нажмите кнопку **Создать проект**.
     1. На открывшейся странице нажмите в левом верхнем углу кнопку **ID**, чтобы скопировать идентификатор созданного проекта. Сохраните этот идентификатор, он понадобится далее для [работы с API](#result-api).
 
 {% endlist %}
@@ -223,16 +223,16 @@
 
 {% list tabs group=instructions %}
 
-- Интерфейс {{ speechsense-name }} {#speechsense}
+- Интерфейс SpeechSense {#speechsense}
 
-    1. Откройте [главную страницу]({{ link-speechsense-main }}) {{ speechsense-name }}.
+    1. Откройте [главную страницу](https://speechsense.yandex.cloud/) SpeechSense.
     1. Перейдите в нужное пространство, затем выберите проект `chats-travel-agency`.
-    1. Выберите вкладку **{{ ui-key.yc-ui-talkanalytics.assistants.assistants }}**.
+    1. Выберите вкладку **Ассистенты**.
     1. Нажмите кнопку **Создать ассистента**.
     1. Задайте параметры ассистента:
 
         1. Введите название `Тематика диалога`.
-        1. В блоке **{{ ui-key.yc-ui-talkanalytics.assistants.prompt }}** введите промпт:
+        1. В блоке **Инструкция** введите промпт:
 
             ```text
             Ты оцениваешь диалог оператора и клиента контактного центра. Будь крайне внимателен при ответе.
@@ -248,15 +248,15 @@
             * Тип поля — `Строка`.
             * Описание — `Наиболее подходящая тематика.`
 
-    1. Включите блок **{{ ui-key.yc-ui-talkanalytics.assistants.applying }}**, чтобы активировать ассистента.
+    1. Включите блок **Использование**, чтобы активировать ассистента.
 
-    1. Нажмите кнопку **{{ ui-key.yacloud.common.create }}**.
+    1. Нажмите кнопку **Создать**.
 
 {% endlist %}
 
 ## Загрузите данные в проект {#load-data}
 
-Для работы с API {{ yandex-cloud }} потребуется Git, Python 3.6 или старше и пакет `grpcio-tools`. [Узнайте, как установить Python](https://www.python.org/downloads/).
+Для работы с API Yandex Cloud потребуется Git, Python 3.6 или старше и пакет `grpcio-tools`. [Узнайте, как установить Python](https://www.python.org/downloads/).
 
 1. Клонируйте репозиторий [cloudapi](https://github.com/yandex-cloud/cloudapi):
    
@@ -270,7 +270,7 @@
    ```python
    pip install grpcio-tools
    ```
-1. Перейдите в папку с репозиторием API {{ yandex-cloud }}, создайте папку `upload_data`, сгенерируйте в ней код интерфейса клиента и перейдите в папку `upload_data`:
+1. Перейдите в папку с репозиторием API Yandex Cloud, создайте папку `upload_data`, сгенерируйте в ней код интерфейса клиента и перейдите в папку `upload_data`:
 
     ```bash
     cd ~/cloudapi/ && \
@@ -289,7 +289,7 @@
     cd upload_data
     ```
 
-1. В папке `upload_data` создайте Python-скрипт `upload_text.py`, который загрузит переписку из чата в {{ speechsense-name }}:
+1. В папке `upload_data` создайте Python-скрипт `upload_text.py`, который загрузит переписку из чата в SpeechSense:
 
     ```python
     import argparse
@@ -429,13 +429,13 @@
 
     Сохраните идентификатор созданного диалога, он понадобится далее для [работы с API](#result-api).
 
-## Проверьте результат работы AI-ассистента в интерфейсе {{ speechsense-name }} {#result-console}
+## Проверьте результат работы AI-ассистента в интерфейсе SpeechSense {#result-console}
 
 Чтобы посмотреть, какую тематику определил AI-ассистент для диалога:
 
-1. Откройте [главную страницу]({{ link-speechsense-main }}) {{ speechsense-name }}.
+1. Откройте [главную страницу](https://speechsense.yandex.cloud/) SpeechSense.
 1. Перейдите в нужное пространство, затем выберите проект `chats-travel-agency`.
-1. На вкладке **{{ ui-key.yc-ui-talkanalytics.dialogs.dialogs }}** включите опцию **{{ ui-key.yc-ui-talkanalytics.assistants.assistants }}**.
+1. На вкладке **Диалоги** включите опцию **Ассистенты**.
 
 Под строкой диалога отобразится строка с указанием тематики `Экскурсии`. Эту тематику AI-ассистент определил как наиболее подходящую диалогу.
 
@@ -447,7 +447,7 @@
 
 - REST API {#api}
 
-    Воспользуйтесь методом [Assistants.List]({{ link-docs-ai }}speechsense/api-ref/Assistants/list) и выполните запрос, например с помощью {{ api-examples.rest.tool }}:
+    Воспользуйтесь методом [Assistants.List](https://aistudio.yandex.ru/docs/ru/speechsense/api-ref/Assistants/list) и выполните запрос, например с помощью [cURL](https://curl.se/):
 
     ```bash
     curl \
@@ -492,7 +492,7 @@
 
 - gRPC API {#grpc-api}
 
-    Воспользуйтесь вызовом [AssistantsService.List]({{link-docs-ai }}/speechsense/api-ref/grpc/Assistants/list) и выполните запрос, например с помощью {{ api-examples.grpc.tool }}:
+    Воспользуйтесь вызовом [AssistantsService.List](https://aistudio.yandex.ru/docs/ru//speechsense/api-ref/grpc/Assistants/list) и выполните запрос, например с помощью [gRPCurl](https://github.com/fullstorydev/grpcurl):
 
     ```bash
     grpcurl \
@@ -550,7 +550,7 @@
 
 - REST API {#api}
 
-    Воспользуйтесь методом [Talk.Get]({{ link-docs-ai }}speechsense/api-ref/Talk/get) и выполните запрос, например с помощью {{ api-examples.rest.tool }}:
+    Воспользуйтесь методом [Talk.Get](https://aistudio.yandex.ru/docs/ru/speechsense/api-ref/Talk/get) и выполните запрос, например с помощью [cURL](https://curl.se/):
 
     ```bash
     curl \
@@ -608,7 +608,7 @@
 
 - gRPC API {#grpc-api}
 
-    Воспользуйтесь вызовом [TalkService.Get]({{ link-docs-ai }}speechsense/api-ref/grpc/Talk/get) и выполните запрос, например с помощью {{ api-examples.grpc.tool }}:
+    Воспользуйтесь вызовом [TalkService.Get](https://aistudio.yandex.ru/docs/ru/speechsense/api-ref/grpc/Talk/get) и выполните запрос, например с помощью [gRPCurl](https://github.com/fullstorydev/grpcurl):
 
     ```bash
     grpcurl \
@@ -672,4 +672,4 @@
 
 ## Удалите ресурсы {#clear-out}
 
-Некоторые ресурсы платные. Чтобы за них не списывалась плата, [удалите проект {{ speechsense-name }}]({{ link-docs-ai }}speechsense/operations/project/delete), если вы больше не будете его использовать. AI-ассистент будет удален при удалении проекта.
+Некоторые ресурсы платные. Чтобы за них не списывалась плата, [удалите проект SpeechSense](https://aistudio.yandex.ru/docs/ru/speechsense/operations/project/delete), если вы больше не будете его использовать. AI-ассистент будет удален при удалении проекта.

@@ -5,7 +5,7 @@ Resolve Cloud Application by workload
 ## HTTP request
 
 ```
-POST https://cloudapps.{{ api-host }}/cloudapps/workload/v1/cloud-applications:resolve-by-workload
+POST https://cloudapps.api.cloud.yandex.net/cloudapps/workload/v1/cloud-applications:resolve-by-workload
 ```
 
 ## Body parameters {#yandex.cloud.cloudapps.workload.v1.ResolveByWorkloadRequest}

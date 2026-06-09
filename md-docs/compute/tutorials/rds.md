@@ -3,13 +3,13 @@
 
 {% note warning %}
 
-В {{ yandex-cloud }} продукты Microsoft можно использовать только с вашими собственными лицензиями и только на выделенных хостах. Подробнее см. [{#T}](../../microsoft/byol.md).
+В Yandex Cloud продукты Microsoft можно использовать только с вашими собственными лицензиями и только на выделенных хостах. Подробнее см. [Использование своей лицензии для продуктов Microsoft](../../microsoft/byol.md).
 
 {% endnote %}
 
 
 
-В сценарии описывается развертывание Microsoft Windows Server Datacenter с предустановленной службой Remote Desktop Services в {{ yandex-cloud }}. Инсталляция Microsoft Windows Server with Remote Desktop Services будет состоять из одного сервера, на котором будут установлены службы Remote Desktop Services и Active Directory. Образы представлены с подготовленными квотами на 5, 10, 25, 50 и 100 пользователей. Выберите версию с необходимой квотой. Все примеры приводятся для сервера с квотой на 5 пользователей.
+В сценарии описывается развертывание Microsoft Windows Server Datacenter с предустановленной службой Remote Desktop Services в Yandex Cloud. Инсталляция Microsoft Windows Server with Remote Desktop Services будет состоять из одного сервера, на котором будут установлены службы Remote Desktop Services и Active Directory. Образы представлены с подготовленными квотами на 5, 10, 25, 50 и 100 пользователей. Выберите версию с необходимой квотой. Все примеры приводятся для сервера с квотой на 5 пользователей.
 
 {% note warning %}
 
@@ -33,11 +33,11 @@
 
 ## Подготовьте облако к работе {#before-you-begin}
 
-Зарегистрируйтесь в {{ yandex-cloud }} и создайте [платежный аккаунт](../../billing/concepts/billing-account.md):
-1. Перейдите в [консоль управления]({{ link-console-main }}), затем войдите в {{ yandex-cloud }} или зарегистрируйтесь.
-1. На странице **[{{ ui-key.yacloud_billing.billing.label_service }}]({{ link-console-billing }})** убедитесь, что у вас подключен платежный аккаунт, и он находится в [статусе](../../billing/concepts/billing-account-statuses.md) `ACTIVE` или `TRIAL_ACTIVE`. Если платежного аккаунта нет, [создайте его](../../billing/quickstart/index.md) и [привяжите](../../billing/operations/pin-cloud.md) к нему облако.
+Зарегистрируйтесь в Yandex Cloud и создайте [платежный аккаунт](../../billing/concepts/billing-account.md):
+1. Перейдите в [консоль управления](https://console.yandex.cloud), затем войдите в Yandex Cloud или зарегистрируйтесь.
+1. На странице **[Yandex Cloud Billing](https://center.yandex.cloud/billing/accounts)** убедитесь, что у вас подключен платежный аккаунт, и он находится в [статусе](../../billing/concepts/billing-account-statuses.md) `ACTIVE` или `TRIAL_ACTIVE`. Если платежного аккаунта нет, [создайте его](../../billing/quickstart/index.md) и [привяжите](../../billing/operations/pin-cloud.md) к нему облако.
 
-Если у вас есть активный платежный аккаунт, вы можете создать или выбрать [каталог](../../resource-manager/concepts/resources-hierarchy.md#folder), в котором будет работать ваша инфраструктура, на [странице облака]({{ link-console-cloud }}).
+Если у вас есть активный платежный аккаунт, вы можете создать или выбрать [каталог](../../resource-manager/concepts/resources-hierarchy.md#folder), в котором будет работать ваша инфраструктура, на [странице облака](https://console.yandex.cloud/cloud).
 
 [Подробнее об облаках и каталогах](../../resource-manager/concepts/resources-hierarchy.md).
 
@@ -51,9 +51,9 @@
 
 В стоимость инсталляции Microsoft Windows Server with Remote Desktop Services входят:
 
-* плата за постоянно запущенные виртуальные машины (см. [тарифы {{ compute-full-name }}](../pricing.md));
-* плата за использование динамических или статических публичных IP-адресов (см. [тарифы {{ vpc-full-name }}](../../vpc/pricing.md));
-* стоимость исходящего трафика из {{ yandex-cloud }} в интернет (см. [тарифы {{ compute-full-name }}](../pricing.md)).
+* плата за постоянно запущенные виртуальные машины (см. [тарифы Yandex Compute Cloud](../pricing.md));
+* плата за использование динамических или статических публичных IP-адресов (см. [тарифы Yandex Virtual Private Cloud](../../vpc/pricing.md));
+* стоимость исходящего трафика из Yandex Cloud в интернет (см. [тарифы Yandex Compute Cloud](../pricing.md)).
 
 ## Создайте облачную сеть и подсети {#create-network}
 
@@ -66,15 +66,15 @@
    - Консоль управления {#console}
 
      Чтобы создать [облачную сеть](../../vpc/concepts/network.md):
-     1. В [консоли управления]({{ link-console-main }}) выберите каталог, в котором будет создана облачная сеть.
-     1. Перейдите в сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_vpc }}**.
-     1. Нажмите кнопку **{{ ui-key.yacloud.vpc.networks.button_create }}**
+     1. В [консоли управления](https://console.yandex.cloud) выберите каталог, в котором будет создана облачная сеть.
+     1. Перейдите в сервис **Virtual Private Cloud**.
+     1. Нажмите кнопку **Создать сеть**
      1. Задайте имя сети: `my-network`.
-     1. Нажмите кнопку **{{ ui-key.yacloud.vpc.networks.button_create }}**.
+     1. Нажмите кнопку **Создать сеть**.
 
    - CLI {#cli}
 
-     Если у вас еще нет интерфейса командной строки {{ yandex-cloud }} (CLI), [установите и инициализируйте его](../../cli/quickstart.md#install).
+     Если у вас еще нет интерфейса командной строки Yandex Cloud (CLI), [установите и инициализируйте его](../../cli/quickstart.md#install).
   
      По умолчанию используется каталог, указанный при [создании](../../cli/operations/profile/profile-create.md) профиля CLI. Чтобы изменить каталог по умолчанию, используйте команду `yc config set folder-id <идентификатор_каталога>`. Также для любой команды вы можете указать другой каталог с помощью параметров `--folder-name` или `--folder-id`. Если вы обращаетесь к ресурсу по имени, поиск будет выполнен в каталоге по умолчанию. Если вы обращаетесь к ресурсу по идентификатору, поиск будет выполнен глобально — во всех каталогах с учетом прав доступа. 
 
@@ -97,10 +97,10 @@
      - Консоль управления {#console}
 
        Чтобы создать подсеть:
-       1. Откройте раздел **{{ vpc-name }}** в каталоге, где требуется создать подсеть.
+       1. Откройте раздел **Virtual Private Cloud** в каталоге, где требуется создать подсеть.
        1. Нажмите на имя облачной сети.
        1. Нажмите кнопку **Добавить подсеть**.
-       1. Заполните форму: введите имя подсети `my-subnet-d`, выберите зону доступности `{{ region-id }}-d` из выпадающего списка.
+       1. Заполните форму: введите имя подсети `my-subnet-d`, выберите зону доступности `ru-central1-d` из выпадающего списка.
        1. Введите CIDR подсети: IP-адрес и маску подсети: `10.1.0.0/16`. Подробнее про диапазоны IP-адресов в подсетях читайте в разделе [Облачные сети и подсети](../../vpc/concepts/network.md).
        1. Нажмите кнопку **Создать подсеть**.
 
@@ -111,7 +111,7 @@
        ```
        yc vpc subnet create \
          --name my-subnet-d \
-         --zone {{ region-id }}-d \
+         --zone ru-central1-d \
          --network-name my-network \
          --range 10.1.0.0/16
        ```
@@ -137,9 +137,9 @@
     ```
 {% endlist %}
 
-Пароль должен соответствовать [требованиям к сложности]({{ ms.docs }}/windows/security/threat-protection/security-policy-settings/password-must-meet-complexity-requirements#справочные-материалы).
+Пароль должен соответствовать [требованиям к сложности](https://docs.microsoft.com/ru-ru/windows/security/threat-protection/security-policy-settings/password-must-meet-complexity-requirements#справочные-материалы).
 
-Подробные рекомендации по защите Active Directory читайте на [сайте разработчика]({{ ms.docs }}/windows-server/identity/ad-ds/plan/security-best-practices/best-practices-for-securing-active-directory).
+Подробные рекомендации по защите Active Directory читайте на [сайте разработчика](https://docs.microsoft.com/ru-ru/windows-server/identity/ad-ds/plan/security-best-practices/best-practices-for-securing-active-directory).
 
 ## Создайте ВМ для Windows Server with Remote Desktop Services {#add-vm}
 
@@ -149,22 +149,22 @@
 
 - Консоль управления {#console}
 
-  1. На странице каталога в [консоли управления]({{ link-console-main }}) нажмите кнопку **{{ ui-key.yacloud.iam.folder.dashboard.button_add }}** и выберите `{{ ui-key.yacloud.iam.folder.dashboard.value_compute }}`.
-  1. В блоке **{{ ui-key.yacloud.compute.instances.create.section_image }}** в поле **{{ ui-key.yacloud.compute.instances.create.placeholder_search_marketplace-product }}** введите `RDS` и выберите подходящий образ [RDS](https://yandex.cloud/ru/marketplace?tab=software&search=windows+rds): 
-  1. В блоке **{{ ui-key.yacloud.k8s.node-groups.create.section_allocation-policy }}** выберите [зону доступности](../../overview/concepts/geo-scope.md) `{{ region-id }}-d`.
-  1. В блоке **{{ ui-key.yacloud.compute.instances.create.section_storages }}** задайте размер загрузочного [диска](../concepts/disk.md) `50 {{ ui-key.yacloud.common.units.label_gigabyte }}`.
-  1. В блоке **{{ ui-key.yacloud.compute.instances.create.section_platform }}** перейдите на вкладку `{{ ui-key.yacloud.component.compute.resources.label_tab-custom }}` и укажите необходимую [платформу](../concepts/vm-platforms.md), количество vCPU и объем RAM:
+  1. На странице каталога в [консоли управления](https://console.yandex.cloud) нажмите кнопку **Создать ресурс** и выберите `Виртуальная машина`.
+  1. В блоке **Образ загрузочного диска** в поле **Поиск продукта** введите `RDS` и выберите подходящий образ [RDS](https://yandex.cloud/ru/marketplace?tab=software&search=windows+rds): 
+  1. В блоке **Расположение** выберите [зону доступности](../../overview/concepts/geo-scope.md) `ru-central1-d`.
+  1. В блоке **Диски и файловые хранилища** задайте размер загрузочного [диска](../concepts/disk.md) `50 ГБ`.
+  1. В блоке **Вычислительные ресурсы** перейдите на вкладку `Своя конфигурация` и укажите необходимую [платформу](../concepts/vm-platforms.md), количество vCPU и объем RAM:
 
-      * **{{ ui-key.yacloud.component.compute.resources.field_platform }}** — `Intel Ice Lake`.
-      * **{{ ui-key.yacloud.component.compute.resources.field_cores }}** — `4`.
-      * **{{ ui-key.yacloud.component.compute.resources.field_core-fraction }}** — `100%`.
-      * **{{ ui-key.yacloud.component.compute.resources.field_memory }}** — `8 {{ ui-key.yacloud.common.units.label_gigabyte }}`.
-  1. В блоке **{{ ui-key.yacloud.compute.instances.create.section_network }}** укажите:
+      * **Платформа** — `Intel Ice Lake`.
+      * **vCPU** — `4`.
+      * **Гарантированная доля vCPU** — `100%`.
+      * **RAM** — `8 ГБ`.
+  1. В блоке **Сетевые настройки** укажите:
 
-      * **{{ ui-key.yacloud.component.compute.network-select.field_subnetwork }}** — сеть `my-network` и подсеть `my-subnet-d`.
-      * **{{ ui-key.yacloud.component.compute.network-select.field_external }}** — `{{ ui-key.yacloud.component.compute.network-select.switch_auto }}`.
-  1. В блоке **{{ ui-key.yacloud.compute.instances.create.section_base }}** задайте имя ВМ: `my-rds-vm`.
-  1. Нажмите кнопку **{{ ui-key.yacloud.compute.instances.create.button_create }}**.
+      * **Подсеть** — сеть `my-network` и подсеть `my-subnet-d`.
+      * **Публичный IP-адрес** — `Автоматически`.
+  1. В блоке **Общая информация** задайте имя ВМ: `my-rds-vm`.
+  1. Нажмите кнопку **Создать ВМ**.
 
   Дождитесь, когда статус ВМ сменится на `Running`, и сбросьте пароль:
   
@@ -182,7 +182,7 @@
      --hostname my-rds-vm \
      --memory 8 \
      --cores 4 \
-     --zone {{ region-id }}-d \
+     --zone ru-central1-d \
      --network-interface subnet-name=my-subnet-d,ipv4-address=10.1.0.3,nat-ip-version=ipv4 \
      --create-boot-disk image-folder-id=standard-images,image-family=windows-2022-dc-gvlk-rds-5 \
      --metadata-from-file user-data=setpass
@@ -190,11 +190,11 @@
 
   {% note info %}
   
-  Команды [`yc compute instance create`](../../cli/cli-ref/compute/cli-ref/instance/create.md) | [`create-with-container`](../../cli/cli-ref/compute/cli-ref/instance/create-with-container.md) | [`update`](../../cli/cli-ref/compute/cli-ref/instance/update.md) | [`add-metadata`](../../cli/cli-ref/compute/cli-ref/instance/add-metadata.md) поддерживают подстановку в метаданные ВМ значений переменных окружения. Эти значения, заданные в ключе `user-data` в формате `$<имя_переменной>`, в момент выполнения команды {{ yandex-cloud }} CLI будут подставлены в метаданные ВМ из переменных окружения среды, в которой выполняется команда. 
+  Команды [`yc compute instance create`](../../cli/cli-ref/compute/cli-ref/instance/create.md) | [`create-with-container`](../../cli/cli-ref/compute/cli-ref/instance/create-with-container.md) | [`update`](../../cli/cli-ref/compute/cli-ref/instance/update.md) | [`add-metadata`](../../cli/cli-ref/compute/cli-ref/instance/add-metadata.md) поддерживают подстановку в метаданные ВМ значений переменных окружения. Эти значения, заданные в ключе `user-data` в формате `$<имя_переменной>`, в момент выполнения команды Yandex Cloud CLI будут подставлены в метаданные ВМ из переменных окружения среды, в которой выполняется команда. 
   
   Чтобы изменить такое поведение, не подставлять значение переменной из среды выполнения команды CLI и передать в метаданные ВМ имя переменной в формате `$<имя_переменной>`, используйте синтаксис с двумя символами доллара. Например: `$$<имя_переменной>`.
   
-  Подробнее см. в разделе [{#T}](../concepts/metadata/sending-metadata.md#environment-variables).
+  Подробнее см. в разделе [Особенности передачи переменных окружения в метаданных через CLI](../concepts/metadata/sending-metadata.md#environment-variables).
   
   {% endnote %}
 
@@ -212,10 +212,10 @@
    
    - Консоль управления {#console}
 
-     1. В [консоли управления]({{ link-console-main }}) выберите каталог, в котором будет создана прерываемая ВМ.
-     1. Перейдите в сервис **{{ ui-key.yacloud_billing.iam.folder.dashboard.label_compute }}**.
+     1. В [консоли управления](https://console.yandex.cloud) выберите каталог, в котором будет создана прерываемая ВМ.
+     1. Перейдите в сервис **Compute Cloud**.
      1. Выберите виртуальную машину `my-rds-vm`.
-     1. Нажмите ![image](../../_assets/console-icons/ellipsis.svg) и выберите пункт **{{ ui-key.yacloud.compute.instances.button_action-restart }}**.
+     1. Нажмите ![image](../../_assets/console-icons/ellipsis.svg) и выберите пункт **Перезапустить**.
    
    - CLI {#cli}
    

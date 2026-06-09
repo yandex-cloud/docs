@@ -5,7 +5,7 @@ Updates the specified certificate.
 ## HTTP request
 
 ```
-PATCH https://{{ api-host-certmanager }}/certificate-manager/v1/certificates/{certificateId}
+PATCH https://certificate-manager.api.cloud.yandex.net/certificate-manager/v1/certificates/{certificateId}
 ```
 
 ## Path parameters

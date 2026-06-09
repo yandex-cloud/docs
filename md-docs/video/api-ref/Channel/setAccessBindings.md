@@ -6,7 +6,7 @@ This operation completely replaces any existing access bindings.
 ## HTTP request
 
 ```
-POST https://video.{{ api-host }}/video/v1/channels/{resourceId}:setAccessBindings
+POST https://video.api.cloud.yandex.net/video/v1/channels/{resourceId}:setAccessBindings
 ```
 
 ## Path parameters

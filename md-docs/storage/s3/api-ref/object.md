@@ -2,10 +2,10 @@
 
 Метод | Описание
 ----- | -----
-[PutObject](object/upload.md) | Загружает объект в {{ objstorage-name }}.
-[GetObject](object/get.md) | Выгружает объект из {{ objstorage-name }}.
+[PutObject](object/upload.md) | Загружает объект в Object Storage.
+[GetObject](object/get.md) | Выгружает объект из Object Storage.
 [patch](object/patch.md) | [Частично изменяет](../../concepts/object-patch.md) объект.
-[CopyObject](object/copy.md) | Копирует объект, хранящийся в {{ objstorage-name }}.
+[CopyObject](object/copy.md) | Копирует объект, хранящийся в Object Storage.
 [HeadObject](object/getobjectmeta.md) | Выгружает метаданные объекта.
 [DeleteObject](object/delete.md) | Удаляет объект.
 [DeleteObjects](object/deletemultipleobjects.md) | Удаляет объекты по списку.
@@ -17,7 +17,7 @@
 
 #### См. также {#see-also}
 
-* [{#T}](../s3-api-quickstart.md)
+* [Начало работы с AWS S3 API в Yandex Object Storage](../s3-api-quickstart.md)
 
 * [Отладка запросов с помощью утилиты AWS CLI](../signing-requests.md#debugging)
 

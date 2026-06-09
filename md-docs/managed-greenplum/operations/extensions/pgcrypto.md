@@ -1,8 +1,8 @@
-# Использование pgcrypto в {{ mgp-name }}
+# Использование pgcrypto в Yandex MPP Analytics for PostgreSQL
 
-Расширение [pgcrypto]({{ pg-docs }}/static/pgcrypto.html) предоставляет криптографические функции, которые позволяют администраторам баз данных хранить определенные столбцы данных в зашифрованном виде.
+Расширение [pgcrypto](https://www.postgresql.org/docs/current/static/pgcrypto.html) предоставляет криптографические функции, которые позволяют администраторам баз данных хранить определенные столбцы данных в зашифрованном виде.
 
-## Установить расширение pgcrypto в кластер {{ mgp-name }} {#pgcrypto-install}
+## Установить расширение pgcrypto в кластер Yandex MPP Analytics for PostgreSQL {#pgcrypto-install}
 
 1. [Подключитесь](../connect/index.md) к базе данных от имени владельца или пользователя, имеющего в базе данных разрешение `CREATE`, и выполните команду:
 
@@ -16,7 +16,7 @@
     SELECT extname FROM pg_extension;
     ```
 
-Подробнее о расширении `pgcrypto` см. в [официальной документации]({{ pg-docs }}/static/pgcrypto.html).
+Подробнее о расширении `pgcrypto` см. в [официальной документации](https://www.postgresql.org/docs/current/static/pgcrypto.html).
 
 ## Примеры использования
 

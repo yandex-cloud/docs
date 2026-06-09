@@ -13,7 +13,7 @@
 Чтобы создать бота:
 
 1. [Подготовьте окружение](#prepare).
-1. [Создайте приложение и подключите его к {{ yandex-cloud }}](#app).
+1. [Создайте приложение и подключите его к Yandex Cloud](#app).
 1. [Получите Token и Secret для приложения](#env).
 1. [Создайте функции](#create-functions).
 1. [Отредактируйте API-шлюз](#edit-api-gw).
@@ -22,11 +22,11 @@
 
 ## Перед началом работы {#before-you-begin}
 
-Зарегистрируйтесь в {{ yandex-cloud }} и создайте [платежный аккаунт](../../billing/concepts/billing-account.md):
-1. Перейдите в [консоль управления]({{ link-console-main }}), затем войдите в {{ yandex-cloud }} или зарегистрируйтесь.
-1. На странице **[{{ ui-key.yacloud_billing.billing.label_service }}]({{ link-console-billing }})** убедитесь, что у вас подключен платежный аккаунт, и он находится в [статусе](../../billing/concepts/billing-account-statuses.md) `ACTIVE` или `TRIAL_ACTIVE`. Если платежного аккаунта нет, [создайте его](../../billing/quickstart/index.md) и [привяжите](../../billing/operations/pin-cloud.md) к нему облако.
+Зарегистрируйтесь в Yandex Cloud и создайте [платежный аккаунт](../../billing/concepts/billing-account.md):
+1. Перейдите в [консоль управления](https://console.yandex.cloud), затем войдите в Yandex Cloud или зарегистрируйтесь.
+1. На странице **[Yandex Cloud Billing](https://center.yandex.cloud/billing/accounts)** убедитесь, что у вас подключен платежный аккаунт, и он находится в [статусе](../../billing/concepts/billing-account-statuses.md) `ACTIVE` или `TRIAL_ACTIVE`. Если платежного аккаунта нет, [создайте его](../../billing/quickstart/index.md) и [привяжите](../../billing/operations/pin-cloud.md) к нему облако.
 
-Если у вас есть активный платежный аккаунт, вы можете создать или выбрать [каталог](../../resource-manager/concepts/resources-hierarchy.md#folder), в котором будет работать ваша инфраструктура, на [странице облака]({{ link-console-cloud }}).
+Если у вас есть активный платежный аккаунт, вы можете создать или выбрать [каталог](../../resource-manager/concepts/resources-hierarchy.md#folder), в котором будет работать ваша инфраструктура, на [странице облака](https://console.yandex.cloud/cloud).
 
 [Подробнее об облаках и каталогах](../../resource-manager/concepts/resources-hierarchy.md).
 
@@ -34,16 +34,16 @@
 
 В стоимость поддержки чат-бота входят:
 
-* плата за использование API-шлюза (см. тарифы [{{ api-gw-full-name }}](../../api-gateway/pricing.md));
-* плата за использование функций (см. тарифы [{{ sf-full-name }}](../pricing.md)).
+* плата за использование API-шлюза (см. тарифы [Yandex API Gateway](../../api-gateway/pricing.md));
+* плата за использование функций (см. тарифы [Yandex Cloud Functions](../pricing.md)).
 
 ## Подготовьте окружение {#prepare}
 
-1. [Скачайте](https://{{ s3-storage-host }}/doc-files/slackbot.zip) архив с файлами, необходимыми для создания бота.
+1. [Скачайте](https://storage.yandexcloud.net/doc-files/slackbot.zip) архив с файлами, необходимыми для создания бота.
 1. Если у вас еще нет каталога, [создайте](../../resource-manager/operations/folder/create.md) его.
-1. [Создайте](../../iam/operations/sa/create.md#create-sa) сервисный аккаунт с именем `sa-slack` и [назначьте](../../iam/operations/roles/grant.md#cloud-or-folder) ему роль `{{ roles-editor }}` на ваш каталог.
+1. [Создайте](../../iam/operations/sa/create.md#create-sa) сервисный аккаунт с именем `sa-slack` и [назначьте](../../iam/operations/roles/grant.md#cloud-or-folder) ему роль `editor` на ваш каталог.
 
-## Создайте приложение и подключите его к {{ yandex-cloud }} {#app}
+## Создайте приложение и подключите его к Yandex Cloud {#app}
 
 ### Зарегистрируйте Slack-приложение {#create-app}
 
@@ -62,24 +62,24 @@
 
 1. Установите приложение: в меню управления приложением выберите пункт **Settings** → **Install App** и нажмите **Install to Workspace** → **Allow**.
 
-### Настройте связь между Slack и {{ yandex-cloud }} {#connect-app}
+### Настройте связь между Slack и Yandex Cloud {#connect-app}
 
 1. [Создайте](../operations/function/function-create.md) функцию с именем `for-slack-bot-challenge`. Убедитесь, что она [приватная](../operations/function/function-private.md).
 1. [Создайте](../operations/function/version-manage.md) версию функции:
 
    1. Укажите следующие параметры:
 
-      * **{{ ui-key.yacloud.serverless-functions.item.editor.field_runtime }}** — `python312`.
-      * **{{ ui-key.yacloud.serverless-functions.item.editor.field_entry }}** — `index.handler`.
-      * **{{ ui-key.yacloud.serverless-functions.item.editor.field_timeout }}** — `5`.
-      * **{{ ui-key.yacloud.forms.label_service-account-select }}** — созданный [ранее](#prepare) сервисный аккаунт `sa-slack`.
+      * **Среда выполнения** — `python312`.
+      * **Точка входа** — `index.handler`.
+      * **Таймаут** — `5`.
+      * **Сервисный аккаунт** — созданный [ранее](#prepare) сервисный аккаунт `sa-slack`.
 
    1. Создайте файл `index.py` и вставьте в него содержимое файла `0_for-slack-bot-challenge.py` из [архива](#prepare).
 
 1. [Создайте](../../api-gateway/operations/api-gw-create.md) API-шлюз:
 
    1. Укажите имя `for-slack-bot`.
-   1. В поле **{{ ui-key.yacloud.serverless-functions.gateways.overview.section_spec }}** добавьте в параметр `paths` конфигурацию метода `POST`:
+   1. В поле **Спецификация** добавьте в параметр `paths` конфигурацию метода `POST`:
 
       ```yaml
       paths:
@@ -105,7 +105,7 @@
          * `function_id` — идентификатор функции `for-slack-bot-challenge`.
          * `service_account_id` — идентификатор сервисного аккаунта `sa-slack`.
 
-### Проверьте связь между Slack и {{ yandex-cloud }} {#connect-test}
+### Проверьте связь между Slack и Yandex Cloud {#connect-test}
 
 1. Скопируйте служебный домен API-шлюза `for-slack-bot`.
 1. Выберите [приложение](https://api.slack.com/apps) `ServerlessBotApp`.
@@ -139,10 +139,10 @@
 
    1. Укажите следующие параметры:
 
-      * **{{ ui-key.yacloud.serverless-functions.item.editor.field_runtime }}** — `python312`.
-      * **{{ ui-key.yacloud.serverless-functions.item.editor.field_entry }}** — `index.handler`.
-      * **{{ ui-key.yacloud.serverless-functions.item.editor.field_timeout }}** — `5`.
-      * **{{ ui-key.yacloud.forms.label_service-account-select }}** — созданный [ранее](#prepare) сервисный аккаунт `sa-slack`.
+      * **Среда выполнения** — `python312`.
+      * **Точка входа** — `index.handler`.
+      * **Таймаут** — `5`.
+      * **Сервисный аккаунт** — созданный [ранее](#prepare) сервисный аккаунт `sa-slack`.
 
    1. Создайте файл `requirements.txt` и укажите в нем библиотеки:
 
@@ -166,10 +166,10 @@
 
    1. Укажите следующие параметры:
 
-      * **{{ ui-key.yacloud.serverless-functions.item.editor.field_runtime }}** — `python312`.
-      * **{{ ui-key.yacloud.serverless-functions.item.editor.field_entry }}** — `index.handler`.
-      * **{{ ui-key.yacloud.serverless-functions.item.editor.field_timeout }}** — `5`.
-      * **{{ ui-key.yacloud.forms.label_service-account-select }}** — созданный [ранее](#prepare) сервисный аккаунт `sa-slack`.
+      * **Среда выполнения** — `python312`.
+      * **Точка входа** — `index.handler`.
+      * **Таймаут** — `5`.
+      * **Сервисный аккаунт** — созданный [ранее](#prepare) сервисный аккаунт `sa-slack`.
 
    1. Создайте файл `requirements.txt` и укажите в нем библиотеки:
 

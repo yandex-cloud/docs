@@ -1,52 +1,60 @@
-# Правила тарификации в {{ org-full-name }}
+# Правила тарификации в Yandex Identity Hub
 
 
 
-Стоимость использования сервиса {{ org-full-name }} входит в стоимость оплачиваемых сервисов. Дополнительно тарифицируется только подключение к внешним приложениям.
+Стоимость использования сервиса Yandex Identity Hub входит в стоимость оплачиваемых сервисов. Дополнительно тарифицируется только подключение к внешним приложениям.
 
-## Из чего складывается стоимость использования {{ org-full-name }} {#rules}
+## Из чего складывается стоимость использования Yandex Identity Hub {#rules}
 
 Средства за выбранное количество пользователей списываются в начале каждого месяца.
 
 При покупке лимита на определенное количество пользователей средства списываются сразу.
 
-[Управлять тарификацией](#pricing-management) сервиса {{ org-full-name }} вы можете через [интерфейс {{ cloud-center }}]({{ link-org-cloud-center }}). Подробнее см. в разделе [{#T}](operations/manage-billing.md).
+[Управлять тарификацией](#pricing-management) сервиса Yandex Identity Hub вы можете через [интерфейс Cloud Center](https://center.yandex.cloud/organization). Подробнее см. в разделе [Управлять тарификацией Yandex Identity Hub](operations/manage-billing.md).
 
 ## Цены для региона Россия {#prices}
 
 {% note info %}
 
-Цены на ресурсы {{ yandex-cloud }} в разных регионах различаются. Подробнее о доступных регионах см. [{#T}](../overview/concepts/region.md).
+Цены на ресурсы Yandex Cloud в разных регионах различаются. Подробнее о доступных регионах см. [Регионы](../overview/concepts/region.md).
 
-Валюта, которой можно оплачивать ресурсы, зависит от юридического лица, с которым пользователь заключил договор. Подробнее о регистрации аккаунта см. [{#T}](../billing/quickstart/index.md).
+Валюта, которой можно оплачивать ресурсы, зависит от юридического лица, с которым пользователь заключил договор. Подробнее о регистрации аккаунта см. [Регистрация аккаунта в Yandex Cloud](../billing/quickstart/index.md).
 
 {% endnote %}
 
 
-| Услуга | Цена | Ед. тарификации | Действует с | Действует до |
-| ------ | ---- | --------------- | ----------- | ------------ |
+| Услуга                                                                                 | Цена              | Ед. тарификации      | Действует с   | Действует до |
+| -------------------------------------------------------------------------------------- | ----------------- | -------------------- | ------------- | ------------ |
+| Лимит пользователей Identity Hub, использующих SSO для внешних приложений (1-15)       | Не тарифицируется | Пользователь × месяц | —             | —            |
+| Лимит пользователей Identity Hub, использующих SSO для внешних приложений (16-100)     | 538 ₽             | Пользователь × месяц | 1 января 2026 | —            |
+| Лимит пользователей Identity Hub, использующих SSO для внешних приложений (101-500)    | 498 ₽             | Пользователь × месяц | 1 января 2026 | —            |
+| Лимит пользователей Identity Hub, использующих SSO для внешних приложений (501-1000)   | 447 ₽             | Пользователь × месяц | 1 января 2026 | —            |
+| Лимит пользователей Identity Hub, использующих SSO для внешних приложений (1001-3000)  | 355 ₽             | Пользователь × месяц | 1 января 2026 | —            |
+| Лимит пользователей Identity Hub, использующих SSO для внешних приложений (3001-5000)  | 274 ₽             | Пользователь × месяц | 1 января 2026 | —            |
+| Лимит пользователей Identity Hub, использующих SSO для внешних приложений (5001-10000) | 213 ₽             | Пользователь × месяц | 1 января 2026 | —            |
+| Лимит пользователей Identity Hub, использующих SSO для внешних приложений (10001+)     | 183 ₽             | Пользователь × месяц | 1 января 2026 | —            |
 
 
 
 
-## Управление тарификацией {{ org-full-name }} {#pricing-management}
+## Управление тарификацией Yandex Identity Hub {#pricing-management}
 
-С помощью [SAML-приложений](concepts/applications.md#saml) и [OIDC-приложений](concepts/applications.md#oidc) пользователи {{ org-full-name }} могут аутентифицироваться во [внешних приложениях](tutorials/single-sign-on/index.md), таких как [Grafana Cloud](https://grafana.com/products/cloud/), [Zabbix](https://www.zabbix.com) и др. Подключение пользователей {{ org-full-name }} к таким внешним приложениям [тарифицируется](#rules). [Управлять тарификацией](operations/manage-billing.md) сервиса {{ org-full-name }} вы можете через [интерфейс {{ cloud-center }}]({{ link-org-cloud-center }}).
+С помощью [SAML-приложений](concepts/applications.md#saml) и [OIDC-приложений](concepts/applications.md#oidc) пользователи Yandex Identity Hub могут аутентифицироваться во [внешних приложениях](tutorials/single-sign-on/index.md), таких как [Grafana Cloud](https://grafana.com/products/cloud/), [Zabbix](https://www.zabbix.com) и др. Подключение пользователей Yandex Identity Hub к таким внешним приложениям [тарифицируется](#rules). [Управлять тарификацией](operations/manage-billing.md) сервиса Yandex Identity Hub вы можете через [интерфейс Cloud Center](https://center.yandex.cloud/organization).
 
-Чтобы управлять тарификацией {{ org-full-name }} и использовать тарифицируемые возможности сервиса, привяжите [платежный аккаунт](../billing/concepts/billing-account.md) к {{ org-full-name }}.
+Чтобы управлять тарификацией Yandex Identity Hub и использовать тарифицируемые возможности сервиса, привяжите [платежный аккаунт](../billing/concepts/billing-account.md) к Yandex Identity Hub.
 
 {% note info %}
 
-Чтобы привязать платежный аккаунт к {{ org-full-name }}, необходимы следующие роли:
+Чтобы привязать платежный аккаунт к Yandex Identity Hub, необходимы следующие роли:
 
-* [роль](security/index.md#organization-manager-idpInstances-billingAdmin) `organization-manager.idpInstances.billingAdmin` или выше на организацию {{ org-full-name }}.
+* [роль](security/index.md#organization-manager-idpInstances-billingAdmin) `organization-manager.idpInstances.billingAdmin` или выше на организацию Yandex Identity Hub.
 * [роль](../billing/security/index.md#billing-accounts-editor) `billing.accounts.editor` или выше на платежный аккаунт.
 
 {% endnote %}
 
 ### Месячный лимит подключений {#monthly-limit}
 
-При первом входе в любое из внешних приложений пользователь {{ org-full-name }} начинает расходовать месячный _лимит подключений_ [организации](concepts/organization.md). Далее, до конца месяца, этот пользователь может без ограничений входить в любые внешние приложения.
+При первом входе в любое из внешних приложений пользователь Yandex Identity Hub начинает расходовать месячный _лимит подключений_ [организации](concepts/organization.md). Далее, до конца месяца, этот пользователь может без ограничений входить в любые внешние приложения.
 
 По умолчанию для организации установлен нетарифицируемый лимит в 15 пользователей в месяц, которые могут аутентифицироваться во внешних приложениях. После достижения этого лимита дополнительные пользователи не смогут входить во внешние приложения.
 
@@ -78,7 +86,7 @@
 
 В организации 10 пользователей, которым нужен доступ ко внешним приложениям.
 
-По умолчанию для организации установлен бесплатный лимит — 15 пользователей в месяц, которые могут аутентифицироваться во внешних приложениях. Поэтому использование {{ org-full-name }} не тарифицируется.
+По умолчанию для организации установлен бесплатный лимит — 15 пользователей в месяц, которые могут аутентифицироваться во внешних приложениях. Поэтому использование Yandex Identity Hub не тарифицируется.
 
 
 ### Пример 2 {#example-2}
@@ -90,35 +98,35 @@
 
 - Расчет в рублях {#prices-rub}
 
-  > (130 - 15) × {{ sku|RUB|identity-hub.users.101-500|string }} = {% calc 130 - 15 %} × {{ sku|RUB|identity-hub.users.101-500|string }} = {% calc [currency=RUB] (130 - 15) × {{ sku|RUB|identity-hub.users.101-500|number }} %}
-  > Итого: {% calc [currency=RUB] (130 - 15) × {{ sku|RUB|identity-hub.users.101-500|number }} %}.
+  > (130 - 15) × 498 ₽ = {% calc 130 - 15 %} × 498 ₽ = {% calc [currency=RUB] (130 - 15) × 498 %}
+  > Итого: {% calc [currency=RUB] (130 - 15) × 498 %}.
   
   Где:
   
   * 130 — лимит платных пользователей.
   * 15 — нетарифицируемое количество пользователей.
-  * {{ sku|RUB|identity-hub.users.101-500|string }} — стоимость за пользователя в месяц для количества от 101 до 500 пользователей.
+  * 498 ₽ — стоимость за пользователя в месяц для количества от 101 до 500 пользователей.
   
   
-  Сразу после увеличения лимита будет списано {% calc [currency=RUB] (130 - 15) × {{ sku|RUB|identity-hub.users.101-500|number }} %}.
+  Сразу после увеличения лимита будет списано {% calc [currency=RUB] (130 - 15) × 498 %}.
   
-  В начале каждого следующего месяца будет списываться так же {% calc [currency=RUB] (130 - 15) × {{ sku|RUB|identity-hub.users.101-500|number }} %}.
+  В начале каждого следующего месяца будет списываться так же {% calc [currency=RUB] (130 - 15) × 498 %}.
 
 - Расчет в тенге {#prices-kzt}
 
-  > (130 - 15) × {% calc [currency=KZT] round({{ sku|KZT|identity-hub.users.101-500|number }} × 100) / 100 %} = {% calc 130 - 15 %} × {% calc [currency=KZT] round({{ sku|KZT|identity-hub.users.101-500|number }} × 100) / 100 %} = {% calc [currency=KZT] (130 - 15) × round({{ sku|KZT|identity-hub.users.101-500|number }} × 100) / 100 %}
-  > Итого: {% calc [currency=KZT] (130 - 15) × round({{ sku|KZT|identity-hub.users.101-500|number }} × 100) / 100 %}.
+  > (130 - 15) × {% calc [currency=KZT] round(2490 × 100) / 100 %} = {% calc 130 - 15 %} × {% calc [currency=KZT] round(2490 × 100) / 100 %} = {% calc [currency=KZT] (130 - 15) × round(2490 × 100) / 100 %}
+  > Итого: {% calc [currency=KZT] (130 - 15) × round(2490 × 100) / 100 %}.
   
   Где:
   
   * 130 — лимит платных пользователей.
   * 15 — нетарифицируемое количество пользователей.
-  * {% calc [currency=KZT] round({{ sku|KZT|identity-hub.users.101-500|number }} × 100) / 100 %} — стоимость за пользователя в месяц для количества от 101 до 500 пользователей.
+  * {% calc [currency=KZT] round(2490 × 100) / 100 %} — стоимость за пользователя в месяц для количества от 101 до 500 пользователей.
   
   
-  Сразу после увеличения лимита будет списано {% calc [currency=KZT] (130 - 15) × round({{ sku|KZT|identity-hub.users.101-500|number }} × 100) / 100 %}.
+  Сразу после увеличения лимита будет списано {% calc [currency=KZT] (130 - 15) × round(2490 × 100) / 100 %}.
   
-  В начале каждого следующего месяца будет списываться так же {% calc [currency=KZT] (130 - 15) × round({{ sku|KZT|identity-hub.users.101-500|number }} × 100) / 100 %}.
+  В начале каждого следующего месяца будет списываться так же {% calc [currency=KZT] (130 - 15) × round(2490 × 100) / 100 %}.
 
 {% endlist %}
 
@@ -134,41 +142,41 @@
 
 - Расчет в рублях {#prices-rub}
 
-  > (600 - 130) × {{ sku|RUB|identity-hub.users.501-1000|string }} = {% calc 600 - 130 %} × {{ sku|RUB|identity-hub.users.501-1000|string }} = {% calc [currency=RUB] (600 - 130) × {{ sku|RUB|identity-hub.users.501-1000|number }} %}
-  > Итого: {% calc [currency=RUB] (600 - 130) × {{ sku|RUB|identity-hub.users.501-1000|number }} %} — разовое списание.
+  > (600 - 130) × 447 ₽ = {% calc 600 - 130 %} × 447 ₽ = {% calc [currency=RUB] (600 - 130) × 447 %}
+  > Итого: {% calc [currency=RUB] (600 - 130) × 447 %} — разовое списание.
   
-  > (600 - 15) × {{ sku|RUB|identity-hub.users.501-1000|string }} = {% calc 600 - 15 %} × {{ sku|RUB|identity-hub.users.501-1000|string }} = {% calc [currency=RUB] (600 - 15) × {{ sku|RUB|identity-hub.users.501-1000|number }} %}
-  > Итого: {% calc [currency=RUB] (600 - 15) × {{ sku|RUB|identity-hub.users.501-1000|number }} %} — в месяц.
+  > (600 - 15) × 447 ₽ = {% calc 600 - 15 %} × 447 ₽ = {% calc [currency=RUB] (600 - 15) × 447 %}
+  > Итого: {% calc [currency=RUB] (600 - 15) × 447 %} — в месяц.
   
   Где:
   
   * 600 — новый лимит платных пользователей.
   * 130 — старый лимит платных пользователей.
   * 15 — нетарифицируемое количество пользователей.
-  * {{ sku|RUB|identity-hub.users.501-1000|string }} — стоимость за пользователя в месяц для количества от 501 до 1000 пользователей.
+  * 447 ₽ — стоимость за пользователя в месяц для количества от 501 до 1000 пользователей.
   
-  Сразу после увеличения лимита будет списано {% calc [currency=RUB] (600 - 130) × {{ sku|RUB|identity-hub.users.501-1000|number }} %}.
+  Сразу после увеличения лимита будет списано {% calc [currency=RUB] (600 - 130) × 447 %}.
   
-  В начале каждого следующего месяца будет списываться {% calc [currency=RUB] (600 - 15) × {{ sku|RUB|identity-hub.users.501-1000|number }} %}.
+  В начале каждого следующего месяца будет списываться {% calc [currency=RUB] (600 - 15) × 447 %}.
 
 - Расчет в тенге {#prices-kzt}
 
-  > (600 - 130) × {% calc [currency=KZT] round({{ sku|KZT|identity-hub.users.501-1000|number }} × 100) / 100 %} = {% calc 600 - 130 %} × {% calc [currency=KZT] round({{ sku|KZT|identity-hub.users.501-1000|number }} × 100) / 100 %} = {% calc [currency=KZT] (600 - 130) × round({{ sku|KZT|identity-hub.users.501-1000|number }} × 100) / 100 %}
-  > Итого: {% calc [currency=KZT] (600 - 130) × round({{ sku|KZT|identity-hub.users.501-1000|number }} × 100) / 100 %} — разовое списание.
+  > (600 - 130) × {% calc [currency=KZT] round(2235 × 100) / 100 %} = {% calc 600 - 130 %} × {% calc [currency=KZT] round(2235 × 100) / 100 %} = {% calc [currency=KZT] (600 - 130) × round(2235 × 100) / 100 %}
+  > Итого: {% calc [currency=KZT] (600 - 130) × round(2235 × 100) / 100 %} — разовое списание.
   
-  > (600 - 15) × {% calc [currency=KZT] round({{ sku|KZT|identity-hub.users.501-1000|number }} × 100) / 100 %} = {% calc 600 - 15 %} × {% calc [currency=KZT] round({{ sku|KZT|identity-hub.users.501-1000|number }} × 100) / 100 %} = {% calc [currency=KZT] (600 - 15) × round({{ sku|KZT|identity-hub.users.501-1000|number }} × 100) / 100 %}
-  > Итого: {% calc [currency=KZT] (600 - 15) × round({{ sku|KZT|identity-hub.users.501-1000|number }} × 100) / 100 %} — в месяц.
+  > (600 - 15) × {% calc [currency=KZT] round(2235 × 100) / 100 %} = {% calc 600 - 15 %} × {% calc [currency=KZT] round(2235 × 100) / 100 %} = {% calc [currency=KZT] (600 - 15) × round(2235 × 100) / 100 %}
+  > Итого: {% calc [currency=KZT] (600 - 15) × round(2235 × 100) / 100 %} — в месяц.
   
   Где:
   
   * 600 — новый лимит платных пользователей.
   * 130 — старый лимит платных пользователей.
   * 15 — нетарифицируемое количество пользователей.
-  * {% calc [currency=KZT] round({{ sku|KZT|identity-hub.users.501-1000|number }} × 100) / 100 %} — стоимость за пользователя в месяц для количества от 501 до 1000 пользователей.
+  * {% calc [currency=KZT] round(2235 × 100) / 100 %} — стоимость за пользователя в месяц для количества от 501 до 1000 пользователей.
   
-  Сразу после увеличения лимита будет списано {% calc [currency=KZT] (600 - 130) × round({{ sku|KZT|identity-hub.users.501-1000|number }} × 100) / 100 %}.
+  Сразу после увеличения лимита будет списано {% calc [currency=KZT] (600 - 130) × round(2235 × 100) / 100 %}.
   
-  В начале каждого следующего месяца будет списываться {% calc [currency=KZT] (600 - 15) × round({{ sku|KZT|identity-hub.users.501-1000|number }} × 100) / 100 %}.
+  В начале каждого следующего месяца будет списываться {% calc [currency=KZT] (600 - 15) × round(2235 × 100) / 100 %}.
 
 {% endlist %}
 
@@ -184,33 +192,33 @@
 
 - Расчет в рублях {#prices-rub}
 
-  > (400 - 15) × {{ sku|RUB|identity-hub.users.101-500|string }} = {% calc 400 - 15 %} × {{ sku|RUB|identity-hub.users.101-500|string }} = {% calc [currency=RUB] (400 - 15) × {{ sku|RUB|identity-hub.users.101-500|number }} %}
-  > Итого: {% calc [currency=RUB] (400 - 15) × {{ sku|RUB|identity-hub.users.101-500|number }} %} — в месяц.
+  > (400 - 15) × 498 ₽ = {% calc 400 - 15 %} × 498 ₽ = {% calc [currency=RUB] (400 - 15) × 498 %}
+  > Итого: {% calc [currency=RUB] (400 - 15) × 498 %} — в месяц.
   
   Где:
   
   * 400 — новый лимит платных пользователей.
   * 15 — нетарифицируемое количество пользователей.
-  * {{ sku|RUB|identity-hub.users.101-500|string }} — стоимость за пользователя в месяц для количества от 101 до 500 пользователей.
+  * 498 ₽ — стоимость за пользователя в месяц для количества от 101 до 500 пользователей.
   
   Текущий месяц уже оплачен, поэтому после уменьшения лимита не будет списания.
   
-  В начале каждого следующего месяца будет списываться {% calc [currency=RUB] (400 - 15) × {{ sku|RUB|identity-hub.users.101-500|number }} %}.
+  В начале каждого следующего месяца будет списываться {% calc [currency=RUB] (400 - 15) × 498 %}.
 
 - Расчет в тенге {#prices-kzt}
 
-  > (400 - 15) × {% calc [currency=KZT] round({{ sku|KZT|identity-hub.users.101-500|number }} × 100) / 100 %} = {% calc 400 - 15 %} × {% calc [currency=KZT] round({{ sku|KZT|identity-hub.users.101-500|number }} × 100) / 100 %} = {% calc [currency=KZT] (400 - 15) × round({{ sku|KZT|identity-hub.users.101-500|number }} × 100) / 100 %}
-  > Итого: {% calc [currency=KZT] (400 - 15) × round({{ sku|KZT|identity-hub.users.101-500|number }} × 100) / 100 %} — в месяц.
+  > (400 - 15) × {% calc [currency=KZT] round(2490 × 100) / 100 %} = {% calc 400 - 15 %} × {% calc [currency=KZT] round(2490 × 100) / 100 %} = {% calc [currency=KZT] (400 - 15) × round(2490 × 100) / 100 %}
+  > Итого: {% calc [currency=KZT] (400 - 15) × round(2490 × 100) / 100 %} — в месяц.
   
   Где:
   
   * 400 — новый лимит платных пользователей.
   * 15 — нетарифицируемое количество пользователей.
-  * {% calc [currency=KZT] round({{ sku|KZT|identity-hub.users.101-500|number }} × 100) / 100 %} — стоимость за пользователя в месяц для количества от 101 до 500 пользователей.
+  * {% calc [currency=KZT] round(2490 × 100) / 100 %} — стоимость за пользователя в месяц для количества от 101 до 500 пользователей.
   
   Текущий месяц уже оплачен, поэтому после уменьшения лимита не будет списания.
   
-  В начале каждого следующего месяца будет списываться {% calc [currency=KZT] (400 - 15) × round({{ sku|KZT|identity-hub.users.101-500|number }} × 100) / 100 %}.
+  В начале каждого следующего месяца будет списываться {% calc [currency=KZT] (400 - 15) × round(2490 × 100) / 100 %}.
 
 {% endlist %}
 
@@ -220,4 +228,4 @@
 
 #### См. также {#see-also}
 
-* [{#T}](operations/manage-billing.md)
+* [Управлять тарификацией Yandex Identity Hub](operations/manage-billing.md)

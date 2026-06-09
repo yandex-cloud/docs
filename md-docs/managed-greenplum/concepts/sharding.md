@@ -1,12 +1,12 @@
-# Шардирование в {{ mgp-name }}
+# Шардирование в Yandex MPP Analytics for PostgreSQL
 
-[_Шардирование_](../../glossary/sharding.md) — это стратегия горизонтального масштабирования кластера {{ mgp-name }}, при которой части каждой таблицы в базе данных размещаются на разных хостах-сегментах. Каждый запрос на запись или чтение в {{ mgp-name }} утилизирует все сегменты кластера.
+[_Шардирование_](../../glossary/sharding.md) — это стратегия горизонтального масштабирования кластера Yandex MPP Analytics for PostgreSQL, при которой части каждой таблицы в базе данных размещаются на разных хостах-сегментах. Каждый запрос на запись или чтение в Yandex MPP Analytics for PostgreSQL утилизирует все сегменты кластера.
 
 ## Ключ дистрибуции {#distribution-key}
 
 Для оптимизации работы операций `JOIN` с большими таблицами вы можете задать ключ дистрибуции явным образом. В таком случае при соединении таблиц по указанным в ключе полям операция будет производиться локально на сегменте, и запрос отработает быстрее.
 
-Подробнее о ключе дистрибуции в [Greenplum 6]({{ gp.docs.broadcom }}/6/greenplum-database/ref_guide-sql_commands-CREATE_TABLE.html) и [Cloudberry](https://cloudberry.apache.org/docs/sql-stmts/create-table/).
+Подробнее о ключе дистрибуции в [Greenplum 6](https://techdocs.broadcom.com/us/en/vmware-tanzu/data-solutions/tanzu-greenplum/6/greenplum-database/ref_guide-sql_commands-CREATE_TABLE.html) и [Cloudberry](https://cloudberry.apache.org/docs/sql-stmts/create-table/).
 
 Для создания таблицы с ключом дистрибуции передайте одно или несколько нужных полей в аргументе `DISTRIBUTED BY`:
 

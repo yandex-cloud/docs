@@ -4,9 +4,9 @@
 
 - Консоль управления {#console}
 
-	1. В [консоли управления]({{ link-console-main }}) перейдите в каталог, в котором находится контейнер.
-	1. Перейдите в сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_serverless-containers }}**.
-	1. Выберите контейнер. Ссылка для вызова будет в поле **{{ ui-key.yacloud.serverless-containers.label_url }}**.
+	1. В [консоли управления](https://console.yandex.cloud) перейдите в каталог, в котором находится контейнер.
+	1. Перейдите в сервис **Serverless Containers**.
+	1. Выберите контейнер. Ссылка для вызова будет в поле **Ссылка для вызова**.
 
 - CLI {#cli}
 
@@ -24,7 +24,7 @@
 	created_at: "2021-08-17T07:53:10.219Z"
 	name: my-beta-container
 	description: my beta container description
-	url: https://flh7r96juaqq********.{{ serverless-containers-host }}/
+	url: https://flh7r96juaqq********.containers.yandexcloud.net/
 	status: ACTIVE
 	```
 

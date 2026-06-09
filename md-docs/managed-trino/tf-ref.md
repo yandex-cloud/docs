@@ -1,29 +1,29 @@
-# Справочник {{ TF }} для {{ mtr-full-name }}
+# Справочник Terraform для Yandex Managed Service for Trino
 
-[{{ TF }}](https://www.terraform.io/) позволяет быстро создать облачную инфраструктуру в {{ yandex-cloud }} и управлять ею с помощью файлов конфигураций. В файлах конфигураций хранится описание инфраструктуры на языке HCL (HashiCorp Configuration Language). При изменении файлов конфигураций {{ TF }} автоматически определяет, какая часть вашей конфигурации уже развернута, что следует добавить или удалить.
+[Terraform](https://www.terraform.io/) позволяет быстро создать облачную инфраструктуру в Yandex Cloud и управлять ею с помощью файлов конфигураций. В файлах конфигураций хранится описание инфраструктуры на языке HCL (HashiCorp Configuration Language). При изменении файлов конфигураций Terraform автоматически определяет, какая часть вашей конфигурации уже развернута, что следует добавить или удалить.
 
-{{ TF }} распространяется под лицензией [Business Source License](https://github.com/hashicorp/terraform/blob/main/LICENSE), а [провайдер {{ yandex-cloud }} для {{ TF }}](https://github.com/yandex-cloud/terraform-provider-yandex) — под лицензией [MPL-2.0](https://www.mozilla.org/en-US/MPL/2.0/).
+Terraform распространяется под лицензией [Business Source License](https://github.com/hashicorp/terraform/blob/main/LICENSE), а [провайдер Yandex Cloud для Terraform](https://github.com/yandex-cloud/terraform-provider-yandex) — под лицензией [MPL-2.0](https://www.mozilla.org/en-US/MPL/2.0/).
 
 
-Подробнее о {{ TF }} [читайте в документации](../tutorials/infrastructure-management/terraform-quickstart.md#install-terraform).
+Подробнее о Terraform [читайте в документации](../tutorials/infrastructure-management/terraform-quickstart.md#install-terraform).
 
 ## Ресурсы {#resources}
 
-Для {{ mtr-name }} поддерживаются следующие ресурсы провайдера {{ TF }}:
+Для Managed Service for Trino поддерживаются следующие ресурсы провайдера Terraform:
 
-| **Ресурс {{ TF }}** | **Ресурс {{ yandex-cloud }}** |
+| **Ресурс Terraform** | **Ресурс Yandex Cloud** |
 | --- | --- |
-| [yandex_trino_cluster]({{ tf-provider-resources-link }}/trino_cluster) | Кластер |
-| [yandex_trino_cluster_iam_binding]({{ tf-provider-resources-link }}/trino_cluster_iam_binding) | [Настройка](../iam/concepts/access-control/index.md#access-bindings) прав доступа к кластеру |
-| [yandex_trino_catalog]({{ tf-provider-resources-link }}/trino_catalog) | Каталог |
-| [yandex_trino_access_control]({{ tf-provider-resources-link }}/trino_access_control) | Настройка правил доступа к объектам |
+| [yandex_trino_cluster](../terraform/resources/trino_cluster.md) | Кластер |
+| [yandex_trino_cluster_iam_binding](../terraform/resources/trino_cluster_iam_binding.md) | [Настройка](../iam/concepts/access-control/index.md#access-bindings) прав доступа к кластеру |
+| [yandex_trino_catalog](../terraform/resources/trino_catalog.md) | Каталог |
+| [yandex_trino_access_control](../terraform/resources/trino_access_control.md) | Настройка правил доступа к объектам |
 
 ## Источники данных {#data-sources}
 
-Для {{ mtr-name }} поддерживаются следующие источники данных провайдера {{ TF }}:
+Для Managed Service for Trino поддерживаются следующие источники данных провайдера Terraform:
 
-| **Источник данных {{ TF }}** | **Описание** |
+| **Источник данных Terraform** | **Описание** |
 | --- | --- |
-| [yandex_trino_cluster]({{ tf-provider-datasources-link }}/trino_cluster) | Информация о [кластере {{ TR }}](concepts/index.md#cluster-architecture) |
-| [yandex_trino_catalog]({{ tf-provider-datasources-link }}/trino_catalog) | Информация о [каталоге {{ TR }}](concepts/index.md#catalog) |
-| [yandex_trino_access_control]({{ tf-provider-datasources-link }}/trino_access_control) | Информация о [правилах доступа к объектам в {{ TR }}](concepts/access-control.md) |
+| [yandex_trino_cluster](../terraform/data-sources/trino_cluster.md) | Информация о [кластере Trino](concepts/index.md#cluster-architecture) |
+| [yandex_trino_catalog](../terraform/data-sources/trino_catalog.md) | Информация о [каталоге Trino](concepts/index.md#catalog) |
+| [yandex_trino_access_control](../terraform/data-sources/trino_access_control.md) | Информация о [правилах доступа к объектам в Trino](concepts/access-control.md) |

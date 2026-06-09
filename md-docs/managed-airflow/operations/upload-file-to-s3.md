@@ -1,10 +1,10 @@
-# Загрузка файла в {{ objstorage-full-name }}
+# Загрузка файла в Yandex Object Storage
 
-Используйте [направленный ациклический граф (DAG)](../concepts/index.md#about-the-service) для загрузки файлов в {{ objstorage-name }}.
+Используйте [направленный ациклический граф (DAG)](../concepts/index.md#about-the-service) для загрузки файлов в Object Storage.
 
 ## Создайте бакет для загрузки файлов {#create-bucket}
 
-1. [Создайте бакет {{ objstorage-name }}](../../storage/operations/buckets/create.md) с именем `username-airflow` для загрузки файлов.
+1. [Создайте бакет Object Storage](../../storage/operations/buckets/create.md) с именем `username-airflow` для загрузки файлов.
 1. [Предоставьте разрешение](../../storage/operations/buckets/edit-acl.md) `READ и WRITE` для сервисного аккаунта `airflow-sa` на созданный ранее бакет.
 
 ## Подготовьте DAG-файл и запустите граф {#dag}
@@ -58,8 +58,8 @@
 
    ```
 
-1. Загрузите DAG-файл `upload_file_to_s3.py` в первый созданный бакет. В результате одноименный граф появится в веб-интерфейсе {{ AF }} автоматически.
-1. [Откройте веб-интерфейс {{ AF }}](af-interfaces.md#web-gui).
+1. Загрузите DAG-файл `upload_file_to_s3.py` в первый созданный бакет. В результате одноименный граф появится в веб-интерфейсе Apache Airflow™ автоматически.
+1. [Откройте веб-интерфейс Apache Airflow™](af-interfaces.md#web-gui).
 1. Убедитесь, что в разделе **Dags** появился новый граф `upload_file_to_s3`.
 
    Загрузка DAG-файла из бакета может занять несколько минут.
@@ -68,4 +68,4 @@
 
 ## Проверьте результат {#check-result}
 
-[Проверьте наличие файла](../../storage/operations/objects/info.md) в веб-интерфейсе {{ objstorage-name }} бакета `username-airflow`.
+[Проверьте наличие файла](../../storage/operations/objects/info.md) в веб-интерфейсе Object Storage бакета `username-airflow`.

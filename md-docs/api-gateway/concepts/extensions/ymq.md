@@ -1,12 +1,12 @@
 # Расширение x-yc-apigateway-integration:cloud_ymq
 
-Расширение `x-yc-apigateway-integration:cloud_ymq` позволяет обращаться к {{ message-queue-full-name }} для работы с [очередями сообщений](../../../message-queue/concepts/queue.md). На данный момент поддерживаются только [стандартные очереди](../../../message-queue/concepts/queue.md#standard-queues) и операция [SendMessage](../../../message-queue/api-ref/message/SendMessage.md).
+Расширение `x-yc-apigateway-integration:cloud_ymq` позволяет обращаться к Yandex Message Queue для работы с [очередями сообщений](../../../message-queue/concepts/queue.md). На данный момент поддерживаются только [стандартные очереди](../../../message-queue/concepts/queue.md#standard-queues) и операция [SendMessage](../../../message-queue/api-ref/message/SendMessage.md).
 
 Добавить расширение в спецификацию можно с помощью [конструктора спецификаций](../../operations/spec-constructor/index.md).
 
 ## Поддерживаемые параметры {#parameters}
 
-В таблице ниже перечислены параметры, специфичные для API-шлюза сервиса {{ api-gw-short-name }}. Описание остальных параметров читайте в [спецификации OpenAPI 3.0](https://github.com/OAI/OpenAPI-Specification).
+В таблице ниже перечислены параметры, специфичные для API-шлюза сервиса API Gateway. Описание остальных параметров читайте в [спецификации OpenAPI 3.0](https://github.com/OAI/OpenAPI-Specification).
 
 Параметр | Тип | Описание
 ----|----|----
@@ -27,7 +27,7 @@
       x-yc-apigateway-integration:
         type: cloud_ymq
         action: SendMessage
-        queue_url: https://message-queue.{{ api-host }}/b2g2emj937ux********/dj6000000003********/pets-queue
+        queue_url: https://message-queue.api.cloud.yandex.net/b2g2emj937ux********/dj6000000003********/pets-queue
         folder_id: b1gmf8vk4dq********
         delay_seconds: 300
         service_account_id: ajea046f05rn********

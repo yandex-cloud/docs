@@ -36,13 +36,13 @@ steps:
 
 - Консоль управления {#console}
 
-  1. В [консоли управления]({{ link-console-main }}) перейдите в каталог, в котором хотите создать [рабочий процесс](../../../concepts/workflows/workflow.md).
-  1. Перейдите в сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_serverless-integrations }}**.
-  1. На панели слева нажмите ![image](../../../../_assets/console-icons/graph-node.svg) **{{ ui-key.yacloud.serverless-workflows.label_service }}**.
-  1. В правом верхнем углу нажмите **{{ ui-key.yacloud.serverless-workflows.button_create-workflow }}**.
-  1. Выберите способ `{{ ui-key.yacloud.serverless-workflows.spec-editor-type_label_text-editor }}`.
+  1. В [консоли управления](https://console.yandex.cloud) перейдите в каталог, в котором хотите создать [рабочий процесс](../../../concepts/workflows/workflow.md).
+  1. Перейдите в сервис **Serverless Integrations**.
+  1. На панели слева нажмите ![image](../../../../_assets/console-icons/graph-node.svg) **Workflows**.
+  1. В правом верхнем углу нажмите **Создать рабочий процесс**.
+  1. Выберите способ `YaML-спецификация`.
   1. В редакторе кода опишите [YaWL-спецификацию](../../../concepts/workflows/yawl/index.md) рабочего процесса.
-  1. Раскройте блок **{{ ui-key.yacloud.serverless-workflows.label_additional-parameters }}**:
+  1. Раскройте блок **Дополнительные параметры**:
      
      1. Введите имя и описание рабочего процесса. Требования к имени:
      
@@ -57,11 +57,11 @@ steps:
          Сервисному аккаунту должны быть назначены роли для доступа к закрытым ресурсам, которые используются в шагах рабочего процесса.
      
      1. (Опционально) [Настройте](logs-write.md) запись логов.
-  1. Нажмите **{{ ui-key.yacloud.common.create }}**.
+  1. Нажмите **Создать**.
 
 - CLI {#cli}
 
-  Если у вас еще нет интерфейса командной строки {{ yandex-cloud }} (CLI), [установите и инициализируйте его](../../../../cli/quickstart.md#install).
+  Если у вас еще нет интерфейса командной строки Yandex Cloud (CLI), [установите и инициализируйте его](../../../../cli/quickstart.md#install).
 
   По умолчанию используется каталог, указанный при [создании](../../../../cli/operations/profile/profile-create.md) профиля CLI. Чтобы изменить каталог по умолчанию, используйте команду `yc config set folder-id <идентификатор_каталога>`. Также для любой команды вы можете указать другой каталог с помощью параметров `--folder-name` или `--folder-id`. Если вы обращаетесь к ресурсу по имени, поиск будет выполнен в каталоге по умолчанию. Если вы обращаетесь к ресурсу по идентификатору, поиск будет выполнен глобально — во всех каталогах с учетом прав доступа.
 

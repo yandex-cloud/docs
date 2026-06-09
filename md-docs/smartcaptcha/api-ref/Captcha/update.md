@@ -5,7 +5,7 @@ Updates the specified captcha.
 ## HTTP request
 
 ```
-PATCH https://smartcaptcha.{{ api-host }}/smartcaptcha/v1/captchas/{captchaId}
+PATCH https://smartcaptcha.api.cloud.yandex.net/smartcaptcha/v1/captchas/{captchaId}
 ```
 
 ## Path parameters

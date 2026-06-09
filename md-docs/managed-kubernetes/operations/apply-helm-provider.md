@@ -1,14 +1,14 @@
-# Установка приложений из {{ marketplace-full-name }} с помощью {{ TF }}
+# Установка приложений из Yandex Cloud Marketplace с помощью Terraform
 
-[{{ TF }}-провайдер Helm](https://github.com/hashicorp/terraform-provider-helm) позволяет устанавливать в кластер {{ managed-k8s-full-name }} приложения из [{{ marketplace-name }}](https://yandex.cloud/ru/marketplace) и любые другие helm-чарты с помощью манифестов {{ TF }}.
+[Terraform-провайдер Helm](https://github.com/hashicorp/terraform-provider-helm) позволяет устанавливать в кластер Yandex Managed Service for Kubernetes приложения из [Cloud Marketplace](https://yandex.cloud/ru/marketplace) и любые другие helm-чарты с помощью манифестов Terraform.
 
-Подробную информацию о ресурсах провайдера смотрите в документации на сайте [{{ TF }}](https://registry.terraform.io/providers/hashicorp/helm/latest/docs).
+Подробную информацию о ресурсах провайдера смотрите в документации на сайте [Terraform](https://registry.terraform.io/providers/hashicorp/helm/latest/docs).
 
 ## Перед началом работы {#before-you-begin}
 
-1. [Создайте](kubernetes-cluster/kubernetes-cluster-create.md) кластер {{ managed-k8s-name }} любым удобным способом.
+1. [Создайте](kubernetes-cluster/kubernetes-cluster-create.md) кластер Managed Service for Kubernetes любым удобным способом.
 
-1. [Установите kubectl]({{ k8s-docs }}/tasks/tools/install-kubectl) и [настройте его на работу с созданным кластером](connect/index.md#kubectl-connect).
+1. [Установите kubectl](https://kubernetes.io/ru/docs/tasks/tools/install-kubectl) и [настройте его на работу с созданным кластером](connect/index.md#kubectl-connect).
 
 ## Подключение провайдера {#configure-provider}
 
@@ -41,18 +41,18 @@
    terraform init
    ```
 
-## Установка приложений с помощью {{ TF }} {#install-app}
+## Установка приложений с помощью Terraform {#install-app}
 
-Для установки приложений используется ресурс {{ TF }} [helm_release](https://registry.terraform.io/providers/hashicorp/helm/latest/docs/resources/release).
+Для установки приложений используется ресурс Terraform [helm_release](https://registry.terraform.io/providers/hashicorp/helm/latest/docs/resources/release).
 
-В качестве примера рассматривается установка приложения [{{ GLR }}](https://yandex.cloud/ru/marketplace/products/yc/gitlab-runner).
+В качестве примера рассматривается установка приложения [GitLab Runner](https://yandex.cloud/ru/marketplace/products/yc/gitlab-runner).
 
 1. В директории, где находится файл `provider.tf`, создайте файл `gitlab-runner.tf`:
 
     ```hcl
     resource "helm_release" "gitlab_runner" {
       name             = "gitlab-runner"
-      chart            = "oci://{{ registry }}/yc-marketplace/yandex-cloud/gitlab-org/gitlab-runner/chart/gitlab-runner"
+      chart            = "oci://cr.yandex/yc-marketplace/yandex-cloud/gitlab-org/gitlab-runner/chart/gitlab-runner"
       version          = "0.54.0-8"
       namespace        = "gitlab-runner"
       create_namespace = true
@@ -77,10 +77,10 @@
     * `name` — название приложения.
     * `chart` — ссылка на Helm-чарт.
     * `version` — версия приложения.
-    * `namespace` — новое пространство имен, в котором будет установлено приложение. Если вы укажете пространство имен по умолчанию, {{ GLR }} может работать некорректно.
+    * `namespace` — новое пространство имен, в котором будет установлено приложение. Если вы укажете пространство имен по умолчанию, GitLab Runner может работать некорректно.
     * `values` — параметры из конфигурационного файла `values.yaml` Helm-чарта:
 
-      * `gitlabDomain` — домен инстанса {{ GL }}.
+      * `gitlabDomain` — домен инстанса GitLab.
       * `runnerRegistrationToken` — регистрационный токен. [Подробнее о получении токена](applications/gitlab-runner.md#before-you-begin).
       * `replicas` — количество подов приложения.
       * `nodeSelector` — назначение подов узлам с меткой `nodepool = "runners"`.
@@ -108,7 +108,7 @@
 
 {% note tip %}
 
-Для установки приложений из {{ marketplace-name }} также можно использовать [модуль {{ TF }} от {{ yandex-cloud }}](https://github.com/terraform-yc-modules/terraform-yc-kubernetes-marketplace).
+Для установки приложений из Cloud Marketplace также можно использовать [модуль Terraform от Yandex Cloud](https://github.com/terraform-yc-modules/terraform-yc-kubernetes-marketplace).
 
 [Подробнее о работе с модулями](../../terraform/concepts/modules.md).
 

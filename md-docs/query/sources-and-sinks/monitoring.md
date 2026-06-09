@@ -1,12 +1,12 @@
-# Чтение данных из {{ monitoring-name }} с помощью соединений в {{ yq-name }}
+# Чтение данных из Monitoring с помощью соединений в Query
 
 Эта функциональность находится на стадии [Preview](../../overview/concepts/launch-stages.md).
 
-[{{ monitoring-name }}](../../monitoring/concepts/index.md) — это сервис, позволяющий собирать и хранить метрики, а также отображать их в виде графиков на дашбордах. Отправляемые в {{ monitoring-name }} данные представляют из себя значения измеряемых величин (`метрики`) и метки (`labels`), их описывающие. 
+[Monitoring](../../monitoring/concepts/index.md) — это сервис, позволяющий собирать и хранить метрики, а также отображать их в виде графиков на дашбордах. Отправляемые в Monitoring данные представляют из себя значения измеряемых величин (`метрики`) и метки (`labels`), их описывающие. 
 
-Например, чтобы следить за количеством сбоев приложения, в качестве метрики можно использовать число сбоев за интервал времени. Данные, описывающие это падение: название хоста, версия приложения — являются метками. В интерфейсе {{ monitoring-name }} можно проводить различные агрегации метрик по меткам.
+Например, чтобы следить за количеством сбоев приложения, в качестве метрики можно использовать число сбоев за интервал времени. Данные, описывающие это падение: название хоста, версия приложения — являются метками. В интерфейсе Monitoring можно проводить различные агрегации метрик по меткам.
 
-Пример чтения метрик из {{ monitoring-name }}.
+Пример чтения метрик из Monitoring.
 
 ```sql
 SELECT
@@ -23,19 +23,19 @@ WITH (
 
 ## Настройка соединения {#setup-connection}
 
-Для чтения метрик из {{ monitoring-name }} необходимо:
-1. [Перейти](../../console/operations/select-service.md#select-service) в сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_yq_ru }}** в раздел **{{ ui-key.yql.yq-ide-aside.connections.tab-text }}** и нажать кнопку **{{ ui-key.yql.yq-connection-form.action_create-new }}**.
-1. В открывшемся окне в поле **{{ ui-key.yql.yq-connection-form.connection-name.input-label }}** указать название соединения с {{ monitoring-name }}.
-1. В выпадающем поле **{{ ui-key.yql.yq-connection-form.connection-type.input-label }}** выбрать `{{ ui-key.yql.yq-connection.action_monitoring }}`.
-1. В поле **{{ ui-key.yql.yq-connection-form.service-account.input-label }}** выбрать сервисный аккаунт, который будет использоваться для чтения метрик, или создать новый, выдав ему роль [`monitoring.viewer`](../../monitoring/security/index.md#monitoring-viewer) на облако.
+Для чтения метрик из Monitoring необходимо:
+1. [Перейти](../../console/operations/select-service.md#select-service) в сервис **Yandex Query** в раздел **Соединения** и нажать кнопку **Создать**.
+1. В открывшемся окне в поле **Имя** указать название соединения с Monitoring.
+1. В выпадающем поле **Тип** выбрать `Monitoring`.
+1. В поле **Сервисный аккаунт** выбрать сервисный аккаунт, который будет использоваться для чтения метрик, или создать новый, выдав ему роль [`monitoring.viewer`](../../monitoring/security/index.md#monitoring-viewer) на облако.
 
    Чтобы использовать сервисный аккаунт, пользователю нужна [роль](../../iam/security/index.md#iam-serviceAccounts-user) `iam.serviceAccounts.user`.
 
-1. Создать соединение, нажав кнопку **{{ ui-key.yql.yq-connection-form.create.button-text }}**.
+1. Создать соединение, нажав кнопку **Создать**.
 
 ## Модель данных {#data-model}
 
-Чтение метрик из {{ monitoring-name }} выполняется с помощью SQL-выражения:
+Чтение метрик из Monitoring выполняется с помощью SQL-выражения:
 
 ```sql
 SELECT
@@ -53,9 +53,9 @@ WITH (
 
 Где:
 
-- `<соединение>` — название соединения с {{ monitoring-name }}, созданного в предыдущем пункте.
-- `<сервис>` — сервис {{ monitoring-name }}.
-- `<запрос>` — запрос на [языке запросов](../../monitoring/concepts/querying.md) {{ monitoring-name }}.
+- `<соединение>` — название соединения с Monitoring, созданного в предыдущем пункте.
+- `<сервис>` — сервис Monitoring.
+- `<запрос>` — запрос на [языке запросов](../../monitoring/concepts/querying.md) Monitoring.
 - `<метки>` — список имен меток, значения которых нужно получить в отдельных столбцах.
 - `<время_от>` — левая граница искомого временного интервала в формате [ISO 8601](https://ru.wikipedia.org/wiki/ISO_8601).
 - `<время_до>` — правая граница искомого временного интервала в формате ISO 8601.
@@ -87,13 +87,13 @@ WITH (
 | Имя параметра | Формат | Пример |
 | --- | --- | --- |
 | `selectors` | `["sensor_name"]{[label_name1 = "label_value1", label_name2 = "label_value2", ...]}` | `{name = "api.grpc.request.bytes", method="DescribeTable"}` |
-| `program` | Запрос на [языке запросов](../../monitoring/concepts/querying.md) {{ monitoring-name }} | `series_sum{method="DescribeTable"}` |
+| `program` | Запрос на [языке запросов](../../monitoring/concepts/querying.md) Monitoring | `series_sum{method="DescribeTable"}` |
 | `labels` | `"label1 [as alias1], label2 [as alias2], ..."` | `"database.dedicated as db, database_path, api_service as api"` |
 | `from / to` | Время в формате ISO 8601 | `"2025-05-20T12:00:00Z"` |
 
 ### Параметры прореживания {#downsampling_parameters}
 
-В {{ yq-full-name }} поддерживаются следующие [параметры прореживания](../../monitoring/concepts/decimation.md#decimation-methods):
+В Yandex Query поддерживаются следующие [параметры прореживания](../../monitoring/concepts/decimation.md#decimation-methods):
 
 | Имя параметра | Описание | Принимаемые значения | Значение по умолчанию |
 | --- | --- | --- | --- |
@@ -104,7 +104,7 @@ WITH (
 
 ## Пример чтения метрик {#example}
 
-Пример запроса для чтения метрик из {{ monitoring-name }}:
+Пример запроса для чтения метрик из Monitoring:
 
 ```sql
 SELECT
@@ -127,7 +127,7 @@ WITH (
 
 Где:
 
-* `monitoring` — название соединения с {{ monitoring-name }}.
+* `monitoring` — название соединения с Monitoring.
 * `compute` — сервис, по которому проводится поиск.
 * `cpu_name as cpu, resource_id` — список меток, значения которых вернутся в отдельных столбцах. Значение метки `cpu_name` будет возвращено в столбце `cpu`, `resource_id` — в столбце `resource_id`.
 * `[2025-03-12T14:00:00Z – 2025-03-12T15:00:00Z)` — временной интервал, по которому проводится поиск.

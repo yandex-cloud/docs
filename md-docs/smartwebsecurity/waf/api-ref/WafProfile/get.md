@@ -5,7 +5,7 @@ Returns the specified WafProfile resource.
 ## HTTP request
 
 ```
-GET https://smartwebsecurity.{{ api-host }}/smartwebsecurity/v1/wafProfiles/{wafProfileId}
+GET https://smartwebsecurity.api.cloud.yandex.net/smartwebsecurity/v1/wafProfiles/{wafProfileId}
 ```
 
 ## Path parameters

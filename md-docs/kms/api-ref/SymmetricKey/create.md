@@ -5,7 +5,7 @@ Creates a symmetric KMS key in the specified folder.
 ## HTTP request
 
 ```
-POST https://{{ api-host-kms }}/kms/v1/keys
+POST https://kms.api.cloud.yandex.net/kms/v1/keys
 ```
 
 ## Body parameters {#yandex.cloud.kms.v1.CreateSymmetricKeyRequest}

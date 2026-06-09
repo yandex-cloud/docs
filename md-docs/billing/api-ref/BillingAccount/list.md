@@ -5,7 +5,7 @@ Retrieves the list of billing accounts available for current user.
 ## HTTP request
 
 ```
-GET https://billing.{{ api-host }}/billing/v1/billingAccounts
+GET https://billing.api.cloud.yandex.net/billing/v1/billingAccounts
 ```
 
 ## Query parameters {#yandex.cloud.billing.v1.ListBillingAccountsRequest}

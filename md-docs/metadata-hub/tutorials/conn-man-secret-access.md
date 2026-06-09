@@ -1,8 +1,8 @@
-# Настройка прав доступа к секрету, созданному {{ connection-manager-full-name }}, для пользователя {{ mpg-full-name }}
+# Настройка прав доступа к секрету, созданному Yandex Connection Manager, для пользователя Yandex Managed Service for PostgreSQL
 
-# Настройка прав доступа к секрету, созданному {{ connection-manager-full-name }}, для пользователя {{ mpg-full-name }}
+# Настройка прав доступа к секрету, созданному Yandex Connection Manager, для пользователя Yandex Managed Service for PostgreSQL
 
-Вы можете получить пароль пользователя [{{ mpg-full-name }}](../../managed-postgresql/index.md) из [секрета {{ lockbox-name }}](../../lockbox/concepts/secret.md). Это можно сделать через [{{ yandex-cloud }} CLI](../../cli/index.md). Для этого [сервисному аккаунту](../../iam/concepts/users/service-accounts.md), под которым вы авторизованы в {{ yandex-cloud }} CLI, нужно настроить права доступа к секрету пользователя. Информацию о секрете, необходимую для настройки прав, можно получить из подключения [{{ connection-manager-name }}](../concepts/connection-manager.md).
+Вы можете получить пароль пользователя [Yandex Managed Service for PostgreSQL](../../managed-postgresql/index.md) из [секрета Yandex Lockbox](../../lockbox/concepts/secret.md). Это можно сделать через [Yandex Cloud CLI](../../cli/index.md). Для этого [сервисному аккаунту](../../iam/concepts/users/service-accounts.md), под которым вы авторизованы в Yandex Cloud CLI, нужно настроить права доступа к секрету пользователя. Информацию о секрете, необходимую для настройки прав, можно получить из подключения [Connection Manager](../concepts/connection-manager.md).
 
 Чтобы настроить права доступа к секрету пользователя:
 
@@ -13,36 +13,36 @@
 
 ## Перед началом работы {#before-you-begin}
 
-Зарегистрируйтесь в {{ yandex-cloud }} и создайте [платежный аккаунт](../../billing/concepts/billing-account.md):
-1. Перейдите в [консоль управления]({{ link-console-main }}), затем войдите в {{ yandex-cloud }} или зарегистрируйтесь.
-1. На странице **[{{ ui-key.yacloud_billing.billing.label_service }}]({{ link-console-billing }})** убедитесь, что у вас подключен платежный аккаунт, и он находится в [статусе](../../billing/concepts/billing-account-statuses.md) `ACTIVE` или `TRIAL_ACTIVE`. Если платежного аккаунта нет, [создайте его](../../billing/quickstart/index.md) и [привяжите](../../billing/operations/pin-cloud.md) к нему облако.
+Зарегистрируйтесь в Yandex Cloud и создайте [платежный аккаунт](../../billing/concepts/billing-account.md):
+1. Перейдите в [консоль управления](https://console.yandex.cloud), затем войдите в Yandex Cloud или зарегистрируйтесь.
+1. На странице **[Yandex Cloud Billing](https://center.yandex.cloud/billing/accounts)** убедитесь, что у вас подключен платежный аккаунт, и он находится в [статусе](../../billing/concepts/billing-account-statuses.md) `ACTIVE` или `TRIAL_ACTIVE`. Если платежного аккаунта нет, [создайте его](../../billing/quickstart/index.md) и [привяжите](../../billing/operations/pin-cloud.md) к нему облако.
 
-Если у вас есть активный платежный аккаунт, вы можете создать или выбрать [каталог](../../resource-manager/concepts/resources-hierarchy.md#folder), в котором будет работать ваша инфраструктура, на [странице облака]({{ link-console-cloud }}).
+Если у вас есть активный платежный аккаунт, вы можете создать или выбрать [каталог](../../resource-manager/concepts/resources-hierarchy.md#folder), в котором будет работать ваша инфраструктура, на [странице облака](https://console.yandex.cloud/cloud).
 
 [Подробнее об облаках и каталогах](../../resource-manager/concepts/resources-hierarchy.md).
 
 
 ### Необходимые платные ресурсы {#paid-resources}
 
-* Кластер {{ mpg-name }}: использование выделенных хостам вычислительных ресурсов, объем хранилища и резервных копий (см. [тарифы {{ mpg-name }}](../../managed-postgresql/pricing.md)).
-* Публичные IP-адреса, если для хостов кластера включен публичный доступ (см. [тарифы {{ vpc-full-name }}](../../vpc/pricing.md)).
+* Кластер Managed Service for PostgreSQL: использование выделенных хостам вычислительных ресурсов, объем хранилища и резервных копий (см. [тарифы Managed Service for PostgreSQL](../../managed-postgresql/pricing.md)).
+* Публичные IP-адреса, если для хостов кластера включен публичный доступ (см. [тарифы Yandex Virtual Private Cloud](../../vpc/pricing.md)).
 
-Использование {{ connection-manager-name }}, а также секретов {{ lockbox-name }}, созданных с его помощью, не тарифицируется.
+Использование Connection Manager, а также секретов Yandex Lockbox, созданных с его помощью, не тарифицируется.
 
 
-## Настройте права доступа к секрету пользователя {{ mpg-name }} {#set-up-roles}
+## Настройте права доступа к секрету пользователя Managed Service for PostgreSQL {#set-up-roles}
 
 {% list tabs group=instructions %}
 
-- {{ TF }} {#tf}
+- Terraform {#tf}
 
-    1. Если у вас еще нет {{ TF }}, [установите его](../../tutorials/infrastructure-management/terraform-quickstart.md#install-terraform).
+    1. Если у вас еще нет Terraform, [установите его](../../tutorials/infrastructure-management/terraform-quickstart.md#install-terraform).
     1. [Получите данные для аутентификации](../../tutorials/infrastructure-management/terraform-quickstart.md#get-credentials). Вы можете добавить их в переменные окружения или указать далее в файле с настройками провайдера.
     1. [Настройте и инициализируйте провайдер](../../tutorials/infrastructure-management/terraform-quickstart.md#configure-provider). Чтобы не создавать конфигурационный файл с настройками провайдера вручную, [скачайте его](https://github.com/yandex-cloud-examples/yc-terraform-provider-settings/blob/main/provider.tf).
 
         {% note warning %}
         
-        Требуется провайдер Yandex версии не ниже `0.160.0`. Если в конфигурации версия провайдера не указана явно, {{ TF }} автоматически загрузит последнюю совместимую версию.
+        Требуется провайдер Yandex версии не ниже `0.160.0`. Если в конфигурации версия провайдера не указана явно, Terraform автоматически загрузит последнюю совместимую версию.
 
         {% endnote %}
 
@@ -52,28 +52,28 @@
 
         В этом файле описаны:
 
-        * кластер {{ mpg-name }};
-        * настройка прав сервисного аккаунта для доступа к секрету пользователя {{ mpg-name }};
+        * кластер Managed Service for PostgreSQL;
+        * настройка прав сервисного аккаунта для доступа к секрету пользователя Managed Service for PostgreSQL;
         * получение идентификатора подключения и идентификатора секрета.     
 
     1. Укажите в конфигурационном файле следующие параметры:
         
         * `network_id` — идентификатор [сети](../../vpc/concepts/network.md#network) для кластера;
         * `subnet_id` — идентификатор [подсети](../../vpc/concepts/network.md#subnet) в [зоне доступности](../../overview/concepts/geo-scope.md) `ru-central1-a` для кластера;
-        * `pg_cluster_version` — версия {{ PG }};
+        * `pg_cluster_version` — версия PostgreSQL;
         * `pg_cluster_name` — имя кластера;
         * `pg_cluster_db` — имя базы данных в кластере;
         * `pg_cluster_username` — имя пользователя в кластере;
         * `pg_cluster_password` — пароль пользователя;
         * `lockbox_sa_id` — идентификатор сервисного аккаунта, для которого будет настроен доступ к секрету.
 
-    1. Проверьте корректность файлов конфигурации {{ TF }} с помощью команды:
+    1. Проверьте корректность файлов конфигурации Terraform с помощью команды:
 
         ```bash
         terraform validate
         ```
 
-        Если в файлах конфигурации есть ошибки, {{ TF }} на них укажет.
+        Если в файлах конфигурации есть ошибки, Terraform на них укажет.
 
     1. Создайте необходимую инфраструктуру:
 
@@ -95,9 +95,9 @@
            1. Подтвердите изменение ресурсов.
            1. Дождитесь завершения операции.
 
-        В указанном каталоге будут созданы все требуемые ресурсы. Проверить появление ресурсов и их настройки можно в [консоли управления]({{ link-console-main }}).
+        В указанном каталоге будут созданы все требуемые ресурсы. Проверить появление ресурсов и их настройки можно в [консоли управления](https://console.yandex.cloud).
     
-    1. После применения конфигурации {{ TF }} выведет идентификаторы подключения и секрета.
+    1. После применения конфигурации Terraform выведет идентификаторы подключения и секрета.
 
         Пример вывода:
         
@@ -112,9 +112,9 @@
 
 {% endlist %}
 
-## Получите пароль пользователя из секрета {{ lockbox-name }} {#get-password}
+## Получите пароль пользователя из секрета Yandex Lockbox {#get-password}
 
-1. [Аутентифицируйтесь в {{ yandex-cloud }} CLI от имени сервисного аккаунта с помощью авторизованного ключа](../../cli/operations/authentication/service-account.md#auth-as-sa).
+1. [Аутентифицируйтесь в Yandex Cloud CLI от имени сервисного аккаунта с помощью авторизованного ключа](../../cli/operations/authentication/service-account.md#auth-as-sa).
 
 1. Получите пароль пользователя из секрета и сохраните его в переменную `PASSWORD`: 
 
@@ -142,13 +142,13 @@
 
 {% list tabs group=instructions %}
 
-- {{ TF }} {#tf}
+- Terraform {#tf}
 
     1. В терминале перейдите в директорию с планом инфраструктуры.
     
         {% note warning %}
     
-        Убедитесь, что в директории нет {{ TF }}-манифестов с ресурсами, которые вы хотите сохранить. {{ TF }} удаляет все ресурсы, которые были созданы с помощью манифестов в текущей директории.
+        Убедитесь, что в директории нет Terraform-манифестов с ресурсами, которые вы хотите сохранить. Terraform удаляет все ресурсы, которые были созданы с помощью манифестов в текущей директории.
     
         {% endnote %}
     
@@ -162,6 +162,6 @@
     
         1. Подтвердите удаление ресурсов и дождитесь завершения операции.
     
-        Все ресурсы, которые были описаны в {{ TF }}-манифестах, будут удалены.
+        Все ресурсы, которые были описаны в Terraform-манифестах, будут удалены.
 
 {% endlist %}

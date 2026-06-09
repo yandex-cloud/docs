@@ -1,10 +1,10 @@
 # Настройка профиля безопасности TLS для CDN-ресурса
 
-Для соединения с клиентами в {{ cdn-name }} поддерживается использование протокола TLS, начиная с версии 1.0.
+Для соединения с клиентами в Cloud CDN поддерживается использование протокола TLS, начиная с версии 1.0.
 
 Чтобы обеспечить большую безопасность вашего CDN-ресурса, вы можете настроить для него специальный профиль с допустимыми для использования версиями протокола TLS.
 
-Подробнее см. в разделе [{#T}](../../concepts/clients-to-servers-tls.md#tls-profiles).
+Подробнее см. в разделе [Профили безопасности TLS](../../concepts/clients-to-servers-tls.md#tls-profiles).
 
 {% list tabs group=instructions %}
 
@@ -41,7 +41,7 @@
     --request POST \
     --header "Authorization: Bearer $IAM_TOKEN" \
     --header "Content-Type: application/json" \
-    --url 'https://cdn.{{ api-host }}/cdn/v1/resources' \
+    --url 'https://cdn.api.cloud.yandex.net/cdn/v1/resources' \
     --data '{
       "folderId": "b12m81qm6abc********",
       "cname": "cdn-portal.example.com",
@@ -133,7 +133,7 @@
             "profile": "PROFILE_SECURE"
           }
         }' \
-    cdn.{{ api-host }}:443 \
+    cdn.api.cloud.yandex.net:443 \
     yandex.cloud.cdn.v1.ResourceService/Create
   ```
 
@@ -156,6 +156,6 @@
 
 ## См. также {#see-also}
 
-* [{#T}](../../concepts/clients-to-servers-tls.md#tls-profiles)
-* [{#T}](../../api-ref/authentication.md)
-* [{#T}](../../../glossary/tls.md)
+* [Профили безопасности TLS](../../concepts/clients-to-servers-tls.md#tls-profiles)
+* [Аутентификация в API](../../api-ref/authentication.md)
+* [Введение в TLS: обзор принципов и основных характеристик](../../../glossary/tls.md)

@@ -5,7 +5,7 @@ Lists access bindings for the project.
 ## HTTP request
 
 ```
-GET https://datasphere.{{ api-host }}/datasphere/v2/projects/{resourceId}:accessBindings
+GET https://datasphere.api.cloud.yandex.net/datasphere/v2/projects/{resourceId}:accessBindings
 ```
 
 ## Path parameters

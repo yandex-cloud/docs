@@ -2,7 +2,7 @@
 
 {% note warning %}
 
-С 1 июля 2026 года сервис {{ load-testing-name }} прекращает работу. Подробнее на странице [Закрытие сервиса Yandex Load Testing](../sunset.md).
+С 1 июля 2026 года сервис Load Testing прекращает работу. Подробнее на странице [Закрытие сервиса Yandex Load Testing](../sunset.md).
 
 {% endnote %}
 
@@ -17,7 +17,7 @@ _Агент_ — это [виртуальная машина](../../glossary/vm.
 
 {% endnote %}
 
-На агентах установлен инструмент для нагрузочного тестирования и коннектор для его работы с сервисом {{ load-testing-name }}.
+На агентах установлен инструмент для нагрузочного тестирования и коннектор для его работы с сервисом Load Testing.
 
 ## Производительность агентов {#benchmark}
 
@@ -34,11 +34,11 @@ _Агент_ — это [виртуальная машина](../../glossary/vm.
 
 ## Примеры использования {#examples}
 
-* [{#T}](../tutorials/loadtesting-grpc.md)
-* [{#T}](../tutorials/loadtesting-https-phantom.md)
-* [{#T}](../tutorials/loadtesting-https-pandora.md)
-* [{#T}](../tutorials/loadtesting-http-scenario-pandora.md)
-* [{#T}](../tutorials/loadtesting-jmeter.md)
-* [{#T}](../tutorials/loadtesting-multiply.md)
-* [{#T}](../tutorials/loadtesting-external-agent.md)
-* [{#T}](../tutorials/loadtesting-results-compare.md)
+* [Нагрузочное тестирование gRPC-сервиса](../tutorials/loadtesting-grpc.md)
+* [HTTPS-тест с постоянной нагрузкой с помощью Phantom](../tutorials/loadtesting-https-phantom.md)
+* [HTTPS-тест со ступенчатой нагрузкой с помощью Pandora](../tutorials/loadtesting-https-pandora.md)
+* [HTTP-тест с нагрузкой по сценарию с помощью Pandora](../tutorials/loadtesting-http-scenario-pandora.md)
+* [Нагрузочный тест с помощью JMeter](../tutorials/loadtesting-jmeter.md)
+* [Нагрузочное тестирование с нескольких агентов](../tutorials/loadtesting-multiply.md)
+* [Запуск внешних агентов для нагрузочного тестирования](../tutorials/loadtesting-external-agent.md)
+* [Сравнение результатов нагрузочных тестов](../tutorials/loadtesting-results-compare.md)

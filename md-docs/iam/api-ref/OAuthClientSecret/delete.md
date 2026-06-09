@@ -5,7 +5,7 @@ Deletes the specified OAuthClientSecret resource.
 ## HTTP request
 
 ```
-DELETE https://iam.{{ api-host }}/iam/v1/oauthClientSecrets/{oauthClientSecretId}
+DELETE https://iam.api.cloud.yandex.net/iam/v1/oauthClientSecrets/{oauthClientSecretId}
 ```
 
 ## Path parameters

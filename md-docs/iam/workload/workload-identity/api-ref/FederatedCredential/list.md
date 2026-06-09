@@ -5,7 +5,7 @@ Retrieves the list of federated credentials for the specified service account.
 ## HTTP request
 
 ```
-GET https://iam.{{ api-host }}/iam/v1/workload/federatedCredentials
+GET https://iam.api.cloud.yandex.net/iam/v1/workload/federatedCredentials
 ```
 
 ## Query parameters {#yandex.cloud.iam.v1.workload.ListFederatedCredentialsRequest}

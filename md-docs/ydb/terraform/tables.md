@@ -1,6 +1,6 @@
 # Создание строковых и колоночных таблиц в базе данных
 
-Таблица в концепциях {{ TF }} — это тоже ресурс, поэтому таблицы баз данных описываются отдельными блоками (`resource "yandex_ydb_table"`) с указанием внутренней ссылки на созданную ранее базу данных.
+Таблица в концепциях Terraform — это тоже ресурс, поэтому таблицы баз данных описываются отдельными блоками (`resource "yandex_ydb_table"`) с указанием внутренней ссылки на созданную ранее базу данных.
 
 ## Описание ресурса yandex_ydb_table {#ydb_table_description}
 
@@ -81,7 +81,7 @@
 
 Свойства полей ресурса `yandex_ydb_table`:
 1. `path` — путь в базе данных, где будет создана таблица. Название таблицы указывается без закрывающего слеша `/`. Если директория, где следует создать таблицу отсутствует — она будет создана;
-1. `connection_string` — путь для подключения к базе данных. Используется совместно с параметром `ydb_full_endpoint`, который содержит полный путь до базы: `grpcs://ydb.serverless.yandexcloud.net:2135/?database=/{{ region-id }}/b1gv7kfcttio********/etn66ecf1qbt********`. Для краткости и простоты записи можно использовать ссылку на ресурс `"yandex_ydb_database_serverless"` с указанием идентификатора и параметра `ydb_full_endpoint`. Например, `yandex_ydb_database_serverless.database1.ydb_full_endpoint `;
+1. `connection_string` — путь для подключения к базе данных. Используется совместно с параметром `ydb_full_endpoint`, который содержит полный путь до базы: `grpcs://ydb.serverless.yandexcloud.net:2135/?database=/ru-central1/b1gv7kfcttio********/etn66ecf1qbt********`. Для краткости и простоты записи можно использовать ссылку на ресурс `"yandex_ydb_database_serverless"` с указанием идентификатора и параметра `ydb_full_endpoint`. Например, `yandex_ydb_database_serverless.database1.ydb_full_endpoint `;
 1. `primary_key` — первичный ключ таблицы. Может быть составным.
 
 Полный перечень полей ресурса `yandex_ydb_table`:
@@ -92,18 +92,18 @@
 |column|`array[column]`|`required`|Тип данных column|
 |family|`array[family]`|`optional`|Группа колонок|
 |store|`string`|`optional`|Тип таблицы. Для создания колоночной таблицы укажите значение `column`. Для создания строковой таблицы, не указывайте поле `store`|
-|primary_key|`array[string]`|`required`|[Первичный ключ таблицы]({{ ydb.docs }}/yql/reference/syntax/create_table)|
+|primary_key|`array[string]`|`required`|[Первичный ключ таблицы](https://ydb.tech/docs/ru//yql/reference/syntax/create_table)|
 |ttl|`ttl`|`optional`|Настройки TTL|
 |attributes|`map[string]string`|`optional`|Атрибуты таблицы|
 |partitioning_settings|`partitioning_settings`|`optional`|Настройки партиционирования|
-|key_bloom_filter|`boolean`|`optional`|Использование [фильтра Блума для первичного ключа]({{ ydb.docs }}/concepts/datamodel/table#bloom-filter)|
-|read_replicas_settings|`string`|`optional`|[Настройки репликаций для чтения]({{ ydb.docs }}/concepts/datamodel/table#read_only_replicas)|
+|key_bloom_filter|`boolean`|`optional`|Использование [фильтра Блума для первичного ключа](https://ydb.tech/docs/ru//concepts/datamodel/table#bloom-filter)|
+|read_replicas_settings|`string`|`optional`|[Настройки репликаций для чтения](https://ydb.tech/docs/ru//concepts/datamodel/table#read_only_replicas)|
 
 Внутри блока `yandex_ydb_table` заключены вложенные блоки `column`, которые описывают индивидуальные свойства колонок, такие как:
 | **Название поля** | **Тип** | **Описание** |
 | --- | --- | --- |
 |name|`string`<br>`required`|Имя колонки|
-|type|`string`<br>`required`|Тип данных колонки. Используются [YQL типы данных]({{ ydb.docs }}/yql/reference/types/)|
+|type|`string`<br>`required`|Тип данных колонки. Используются [YQL типы данных](https://ydb.tech/docs/ru//yql/reference/types/)|
 |family|`string`<br>`optional`|Группа колонки|
 |not_null|`boolean`<br>`optional`<br>По умолчанию: `false`|Колонка не может быть NULL|
 
@@ -119,11 +119,11 @@ column {
 
 {% note warning %}
 
-На данный момент нельзя удалить колонку при помощи {{ TF }}, ее можно только добавить. Для удаления колонки необходимо сначала удалить колонку из базы напрямую (например, при помощи YQL запроса), после чего удалить колонку из конфигурационного файла.
+На данный момент нельзя удалить колонку при помощи Terraform, ее можно только добавить. Для удаления колонки необходимо сначала удалить колонку из базы напрямую (например, при помощи YQL запроса), после чего удалить колонку из конфигурационного файла.
 
 {% endnote %}
 
-Колонки могут быть объединены в [группы]({{ ydb.docs }}/yql/reference/syntax/create_table#column-family) (семейства/family), для того чтобы задать им общие поля, такие как:
+Колонки могут быть объединены в [группы](https://ydb.tech/docs/ru//yql/reference/syntax/create_table#column-family) (семейства/family), для того чтобы задать им общие поля, такие как:
 * `DATA` — тип устройства хранения для данных колонок этой группы (допустимые значения: `ssd`, `rot` (от rotation — вращение шпинделя HDD));
 * `COMPRESSION` — кодек сжатия данных (допустимые значения: `off`, `lz4`).
 
@@ -168,7 +168,7 @@ resource "yandex_ydb_table" "test_table" {
 }
 ```
 
-{{ ydb-short-name }} позволяет создавать специальный вид колонок — [TTL-колонки]({{ ydb.docs }}/concepts/ttl), значения которой используются для определения времени жизни строк. TTL автоматически удаляет из таблицы строки, когда проходит указанное количество секунд от времени, записанного в TTL-колонку. Задать можно не более одной TTL-колонки. TTL-колонка может быть одного из следующих типов: `Date`, `Datetime`, `Timestamp`, `Uint32`, `Uint64`, `DyNumber`.
+YDB позволяет создавать специальный вид колонок — [TTL-колонки](https://ydb.tech/docs/ru//concepts/ttl), значения которой используются для определения времени жизни строк. TTL автоматически удаляет из таблицы строки, когда проходит указанное количество секунд от времени, записанного в TTL-колонку. Задать можно не более одной TTL-колонки. TTL-колонка может быть одного из следующих типов: `Date`, `Datetime`, `Timestamp`, `Uint32`, `Uint64`, `DyNumber`.
 
 Задается TTL-колонка следующим блоком:
 ```tf
@@ -184,11 +184,11 @@ ttl {
 | --- | --- | --- |
 |column_name|`string`<br>`required`|Имя колонки для TTL|
 |expire_interval|`string`<br>`required`|Интервал в формате [ISO 8601](https://ru.wikipedia.org/wiki/ISO_8601)|
-|unit|`string`<br>`optional`|Задается, если колонка с TTL имеет [числовой тип]({{ ydb.docs }}/yql/reference/types/primitive#numeric). Поддерживаемые значения: `seconds`, `milliseconds`, `microseconds`, `nanoseconds`|
+|unit|`string`<br>`optional`|Задается, если колонка с TTL имеет [числовой тип](https://ydb.tech/docs/ru//yql/reference/types/primitive#numeric). Поддерживаемые значения: `seconds`, `milliseconds`, `microseconds`, `nanoseconds`|
 
 ## Партиционирование строковых таблиц
 
-[Партиционирование]({{ ydb.docs }}/concepts/datamodel/table#partitioning_row_table) — это разделение данных таблицы на части для улучшения производительности запросов и оптимизации управления данными. В {{ TF }} для партиционирования строковых таблиц {{ ydb-short-name }} используется параметр `partitioning_settings` ресурса `yandex_ydb_table`.
+[Партиционирование](https://ydb.tech/docs/ru//concepts/datamodel/table#partitioning_row_table) — это разделение данных таблицы на части для улучшения производительности запросов и оптимизации управления данными. В Terraform для партиционирования строковых таблиц YDB используется параметр `partitioning_settings` ресурса `yandex_ydb_table`.
 
 ### Описание значений полей блока partitioning_settings
 
@@ -212,19 +212,19 @@ resource "yandex_ydb_table" "test_table" {
 Полное описание полей `partitioning_settings` для строковых таблиц:
 | **Название поля** | **Тип** | **Описание** |
 | --- | --- | --- |
-|uniform_partitions|`number`<br>`optional`|Количество [заранее аллоцированных партиций]({{ ydb.docs }}/concepts/datamodel/table#uniform_partitions)|
-|partition_at_keys|`string`<br>`optional`|[Партицирование по первичному ключу]({{ ydb.docs }}/concepts/datamodel/table#partition_at_keys)|
-|auto_partitioning_min_partitions_count|`number`<br>`optional`|Минимально возможное [количество партиций]({{ ydb.docs }}/concepts/datamodel/table#auto_partitioning_min_partitions_count) при автопартицировании|
-|auto_partitioning_max_partitions_count|`number`<br>`optional`|Максимально возможное [количество партиций]({{ ydb.docs }}/concepts/datamodel/table#auto_partitioning_max_partitions_count) при автопартицировании|
-|auto_partitioning_partition_size_mb|`number`<br>`optional`|Задание значения [автопартицирования по размеру]({{ ydb.docs }}/concepts/datamodel/table#auto_partitioning_partition_size_mb) в мегабайтах|
+|uniform_partitions|`number`<br>`optional`|Количество [заранее аллоцированных партиций](https://ydb.tech/docs/ru//concepts/datamodel/table#uniform_partitions)|
+|partition_at_keys|`string`<br>`optional`|[Партицирование по первичному ключу](https://ydb.tech/docs/ru//concepts/datamodel/table#partition_at_keys)|
+|auto_partitioning_min_partitions_count|`number`<br>`optional`|Минимально возможное [количество партиций](https://ydb.tech/docs/ru//concepts/datamodel/table#auto_partitioning_min_partitions_count) при автопартицировании|
+|auto_partitioning_max_partitions_count|`number`<br>`optional`|Максимально возможное [количество партиций](https://ydb.tech/docs/ru//concepts/datamodel/table#auto_partitioning_max_partitions_count) при автопартицировании|
+|auto_partitioning_partition_size_mb|`number`<br>`optional`|Задание значения [автопартицирования по размеру](https://ydb.tech/docs/ru//concepts/datamodel/table#auto_partitioning_partition_size_mb) в мегабайтах|
 |auto_partitioning_by_size_enabled|`bool`<br>`optional`|Включение автопартиционирования по размеру (bool), по умолчанию — включено (true)|
 |auto_partitioning_by_load|`bool`<br>`optional`|Включение автопартицирования по нагрузке (bool), по умолчанию — выключено (false)|
 
 ## Партиционирование колоночных таблиц
 
-[Партиционирование]({{ ydb.docs }}/concepts/datamodel/table#olap-tables-partitioning) — это разделение данных таблицы на части для улучшения производительности запросов и оптимизации управления данными. В отличие от строковых таблиц YDB, колоночные таблицы партицируют данные не по первичным ключам, а по специально выделенным ключам — ключам партицирования. Ключи партицирования являются подмножеством первичных ключей таблицы.
+[Партиционирование](https://ydb.tech/docs/ru//concepts/datamodel/table#olap-tables-partitioning) — это разделение данных таблицы на части для улучшения производительности запросов и оптимизации управления данными. В отличие от строковых таблиц YDB, колоночные таблицы партицируют данные не по первичным ключам, а по специально выделенным ключам — ключам партицирования. Ключи партицирования являются подмножеством первичных ключей таблицы.
 
-В {{ TF }} для партиционирования колоночных таблиц {{ ydb-short-name }} используются параметры в разделе `partitioning_settings` ресурса `yandex_ydb_table`.
+В Terraform для партиционирования колоночных таблиц YDB используются параметры в разделе `partitioning_settings` ресурса `yandex_ydb_table`.
 
 Пример:
 ```tf
@@ -244,4 +244,4 @@ resource "yandex_ydb_table" "test_table" {
 | **Название поля** | **Тип** | **Описание** |
 | --- | --- | --- |
 |partition_by|`string`<br>`optional`|Партиционирование по указанным ключам партиционирования|
-|auto_partitioning_min_partitions_count|`number`<br>`optional`|[Количество партиций]({{ ydb.docs }}/concepts/datamodel/table#auto_partitioning_min_partitions_count) для хранения данных. Значение по умолчанию: 64|
+|auto_partitioning_min_partitions_count|`number`<br>`optional`|[Количество партиций](https://ydb.tech/docs/ru//concepts/datamodel/table#auto_partitioning_min_partitions_count) для хранения данных. Значение по умолчанию: 64|

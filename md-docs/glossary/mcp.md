@@ -103,7 +103,7 @@ _MCP_ (Model Context Protocol) — фреймворк с открытым исх
 
 * **Контроль затрат**
 
-  Трафик больших языковых моделей стоит дорого, однако протокол не учитывает эти затраты и не ограничивает размер пакетов. Для решения этой проблемы разработчикам требуется задать максимальное количество [токенов]({{ link-docs-ai }}ai-studio/concepts/generation/tokens).
+  Трафик больших языковых моделей стоит дорого, однако протокол не учитывает эти затраты и не ограничивает размер пакетов. Для решения этой проблемы разработчикам требуется задать максимальное количество [токенов](https://aistudio.yandex.ru/docs/ru/ai-studio/concepts/generation/tokens).
 
 * **Инъекции промптов**
 
@@ -136,14 +136,14 @@ _MCP_ (Model Context Protocol) — фреймворк с открытым исх
   Уже сейчас создано внушительное количество инструментов и сервисов, совместимых с MCP, и это число непрерывно растет. Пока мы писали эту статью, наверняка было выпущено еще несколько новых.
 
 
-## Интеграция AI-моделей через MCP-серверы в {{ yandex-cloud }} {#mcp-yc}
+## Интеграция AI-моделей через MCP-серверы в Yandex Cloud {#mcp-yc}
 
-{{ yandex-cloud }} предлагает следующие сервисы, которые с помощью MCP-сервера позволяют интегрировать в свой бизнес AI-модели:
+Yandex Cloud предлагает следующие сервисы, которые с помощью MCP-сервера позволяют интегрировать в свой бизнес AI-модели:
 
-* [{{ ai-studio-full-name }}]({{ link-aistudio }}) предоставляет возможность подключать к своим корпоративным системам внешние MCP-серверы или создавать собственные, чтобы переложить на AI-агента часть бизнес-процессов и рабочих сценариев. Подробнее в [документации]({{ link-docs-ai }}ai-studio/concepts/mcp-hub/index).
-* [{{ ydb-full-name }}](https://yandex.cloud/ru/services/ydb/) поддерживает управление базами данных с помощью [LLM](llm.md), подключенных через MCP-сервер. Модель будет самостоятельно анализировать данные, предлагать решения по оптимизации и находить ошибки. Подробнее в [документации](../ydb/index.md).
-* [{{ si-full-name }}](https://yandex.cloud/ru/services/serverless-integrations/) позволяет с помощью MCP-сервера интегрировать в рабочие процессы {{ sw-full-name }} AI-агента. Агент сможет автоматизировать процессы и взаимодействовать с внешними инструментами. Подробнее в [документации](../serverless-integrations/index.md).
+* [Yandex AI Studio](https://aistudio.yandex.ru/) предоставляет возможность подключать к своим корпоративным системам внешние MCP-серверы или создавать собственные, чтобы переложить на AI-агента часть бизнес-процессов и рабочих сценариев. Подробнее в [документации](https://aistudio.yandex.ru/docs/ru/ai-studio/concepts/mcp-hub/index).
+* [Yandex Managed Service for YDB](https://yandex.cloud/ru/services/ydb/) поддерживает управление базами данных с помощью [LLM](llm.md), подключенных через MCP-сервер. Модель будет самостоятельно анализировать данные, предлагать решения по оптимизации и находить ошибки. Подробнее в [документации](../ydb/index.md).
+* [Yandex Serverless Integrations](https://yandex.cloud/ru/services/serverless-integrations/) позволяет с помощью MCP-сервера интегрировать в рабочие процессы Yandex Workflows AI-агента. Агент сможет автоматизировать процессы и взаимодействовать с внешними инструментами. Подробнее в [документации](../serverless-integrations/index.md).
 
-{{ yandex-cloud }} также предоставляет [собственные MCP-серверы]({{ link-src-docs }}/code-assistant/operations/agent/mcp/recommended-mcp-servers), с которыми можно работать в [{{ ca-full-name }}](https://yandex.cloud/ru/services/code-assistant/).
+Yandex Cloud также предоставляет [собственные MCP-серверы](https://sourcecraft.dev/portal/docs/ru/code-assistant/operations/agent/mcp/recommended-mcp-servers), с которыми можно работать в [SourceCraft Code Assistant](https://yandex.cloud/ru/services/code-assistant/).
 
-[{{ yandex-cloud }} Documentation MCP-сервер](https://sourcecraft.dev/yandex-cloud/mcp/browse/servers/documentation-mcp-server/README.md) обеспечивает доступ в реальном времени к официальной документации {{ yandex-cloud }} с помощью генеративного поиска.
+[Yandex Cloud Documentation MCP-сервер](https://sourcecraft.dev/yandex-cloud/mcp/browse/servers/documentation-mcp-server/README.md) обеспечивает доступ в реальном времени к официальной документации Yandex Cloud с помощью генеративного поиска.

@@ -5,7 +5,7 @@ Deletes the specified captcha.
 ## HTTP request
 
 ```
-DELETE https://smartcaptcha.{{ api-host }}/smartcaptcha/v1/captchas/{captchaId}
+DELETE https://smartcaptcha.api.cloud.yandex.net/smartcaptcha/v1/captchas/{captchaId}
 ```
 
 ## Path parameters

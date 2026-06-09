@@ -5,7 +5,7 @@ Updates access bindings for the specified artifact (folder, package, artifact, e
 ## HTTP request
 
 ```
-PATCH https://registry.{{ api-host }}/cloud-registry/v1/artifacts/{resourceId}:updateAccessBindings
+PATCH https://registry.api.cloud.yandex.net/cloud-registry/v1/artifacts/{resourceId}:updateAccessBindings
 ```
 
 ## Path parameters

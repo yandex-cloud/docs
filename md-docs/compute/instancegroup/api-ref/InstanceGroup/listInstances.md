@@ -5,7 +5,7 @@ Lists instances for the specified instance group.
 ## HTTP request
 
 ```
-GET https://compute.{{ api-host }}/compute/v1/instanceGroups/{instanceGroupId}/instances
+GET https://compute.api.cloud.yandex.net/compute/v1/instanceGroups/{instanceGroupId}/instances
 ```
 
 ## Path parameters

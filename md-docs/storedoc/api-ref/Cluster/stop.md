@@ -5,7 +5,7 @@ Stop the specified MongoDB cluster.
 ## HTTP request
 
 ```
-POST https://{{ api-host-mdb }}/managed-mongodb/v1/clusters/{clusterId}:stop
+POST https://mdb.api.cloud.yandex.net/managed-mongodb/v1/clusters/{clusterId}:stop
 ```
 
 ## Path parameters

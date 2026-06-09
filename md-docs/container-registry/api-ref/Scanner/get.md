@@ -6,7 +6,7 @@ To get the list of ScanResults for specified Image, make a [List](list.md#List) 
 ## HTTP request
 
 ```
-GET https://container-registry.{{ api-host }}/container-registry/v1/scans/{scanResultId}
+GET https://container-registry.api.cloud.yandex.net/container-registry/v1/scans/{scanResultId}
 ```
 
 ## Path parameters

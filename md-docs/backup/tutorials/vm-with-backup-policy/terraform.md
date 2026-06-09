@@ -1,6 +1,6 @@
-# Автоматическая привязка политики резервного копирования {{ backup-full-name }} к ВМ с помощью {{ TF }}
+# Автоматическая привязка политики резервного копирования Yandex Cloud Backup к ВМ с помощью Terraform
 
-Чтобы создать виртуальную машину с автоматической привязкой к политике резервного копирования {{ backup-name }}:
+Чтобы создать виртуальную машину с автоматической привязкой к политике резервного копирования Cloud Backup:
 
 1. [Подготовьте облако к работе](#before-begin).
 1. [Активируйте сервис](#service-activate).
@@ -10,11 +10,11 @@
 
 ## Подготовьте облако к работе {#before-begin}
 
-Зарегистрируйтесь в {{ yandex-cloud }} и создайте [платежный аккаунт](../../../billing/concepts/billing-account.md):
-1. Перейдите в [консоль управления]({{ link-console-main }}), затем войдите в {{ yandex-cloud }} или зарегистрируйтесь.
-1. На странице **[{{ ui-key.yacloud_billing.billing.label_service }}]({{ link-console-billing }})** убедитесь, что у вас подключен платежный аккаунт, и он находится в [статусе](../../../billing/concepts/billing-account-statuses.md) `ACTIVE` или `TRIAL_ACTIVE`. Если платежного аккаунта нет, [создайте его](../../../billing/quickstart/index.md) и [привяжите](../../../billing/operations/pin-cloud.md) к нему облако.
+Зарегистрируйтесь в Yandex Cloud и создайте [платежный аккаунт](../../../billing/concepts/billing-account.md):
+1. Перейдите в [консоль управления](https://console.yandex.cloud), затем войдите в Yandex Cloud или зарегистрируйтесь.
+1. На странице **[Yandex Cloud Billing](https://center.yandex.cloud/billing/accounts)** убедитесь, что у вас подключен платежный аккаунт, и он находится в [статусе](../../../billing/concepts/billing-account-statuses.md) `ACTIVE` или `TRIAL_ACTIVE`. Если платежного аккаунта нет, [создайте его](../../../billing/quickstart/index.md) и [привяжите](../../../billing/operations/pin-cloud.md) к нему облако.
 
-Если у вас есть активный платежный аккаунт, вы можете создать или выбрать [каталог](../../../resource-manager/concepts/resources-hierarchy.md#folder), в котором будет работать ваша инфраструктура, на [странице облака]({{ link-console-cloud }}).
+Если у вас есть активный платежный аккаунт, вы можете создать или выбрать [каталог](../../../resource-manager/concepts/resources-hierarchy.md#folder), в котором будет работать ваша инфраструктура, на [странице облака](https://console.yandex.cloud/cloud).
 
 [Подробнее об облаках и каталогах](../../../resource-manager/concepts/resources-hierarchy.md).
 
@@ -22,16 +22,16 @@
 
 В стоимость поддержки инфраструктуры входит:
 
-* плата за вычислительные ресурсы ВМ (см. [тарифы {{ compute-full-name }}](../../../compute/pricing.md#prices-instance-resources));
-* плата за диски ВМ (см. [тарифы {{ compute-full-name }}](../../../compute/pricing.md#prices-storage));
-* плата за использование динамического внешнего IP-адреса (см. [тарифы {{ vpc-full-name }}](../../../vpc/pricing.md#prices-public-ip));
-* плата за подключенные к сервису {{ backup-name }} ВМ и объем резервных копий (см. [тарифы {{ backup-full-name }}](../../pricing.md#rules)).
+* плата за вычислительные ресурсы ВМ (см. [тарифы Yandex Compute Cloud](../../../compute/pricing.md#prices-instance-resources));
+* плата за диски ВМ (см. [тарифы Yandex Compute Cloud](../../../compute/pricing.md#prices-storage));
+* плата за использование динамического внешнего IP-адреса (см. [тарифы Yandex Virtual Private Cloud](../../../vpc/pricing.md#prices-public-ip));
+* плата за подключенные к сервису Cloud Backup ВМ и объем резервных копий (см. [тарифы Yandex Cloud Backup](../../pricing.md#rules)).
 
 ## Активируйте сервис {#service-activate}
 
 {% note info %}
 
-Чтобы активировать сервис, у вас должна быть _минимальная_ [роль](../../security/index.md#backup-user) `backup.user` на [каталог](../../../resource-manager/concepts/resources-hierarchy.md#folder), в котором вы хотите создавать резервные копии ВМ или серверов {{ baremetal-name }}.
+Чтобы активировать сервис, у вас должна быть _минимальная_ [роль](../../security/index.md#backup-user) `backup.user` на [каталог](../../../resource-manager/concepts/resources-hierarchy.md#folder), в котором вы хотите создавать резервные копии ВМ или серверов BareMetal.
 
 {% endnote %}
 
@@ -39,15 +39,15 @@
 
 - Консоль управления {#console}
 
-  1. В [консоли управления]({{ link-console-main }}) выберите каталог, в котором вы хотите создать ВМ с подключением к {{ backup-name }}.
-  1. Перейдите в сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_backup }}**.
-  1. Если сервис {{ backup-name }} еще не активирован, нажмите **{{ ui-key.yacloud.backup.button_action-activate }}**.
+  1. В [консоли управления](https://console.yandex.cloud) выберите каталог, в котором вы хотите создать ВМ с подключением к Cloud Backup.
+  1. Перейдите в сервис **Cloud Backup**.
+  1. Если сервис Cloud Backup еще не активирован, нажмите **Активировать**.
 
-      Если кнопки **{{ ui-key.yacloud.backup.button_action-activate }}** нет, и вам доступно создание ВМ с подключением к {{ backup-name }}, значит, сервис уже активирован. Переходите к следующему шагу.
+      Если кнопки **Активировать** нет, и вам доступно создание ВМ с подключением к Cloud Backup, значит, сервис уже активирован. Переходите к следующему шагу.
 
 - CLI {#cli}
 
-  Если у вас еще нет интерфейса командной строки {{ yandex-cloud }} (CLI), [установите и инициализируйте его](../../../cli/quickstart.md#install).
+  Если у вас еще нет интерфейса командной строки Yandex Cloud (CLI), [установите и инициализируйте его](../../../cli/quickstart.md#install).
   
   По умолчанию используется каталог, указанный при [создании](../../../cli/operations/profile/profile-create.md) профиля CLI. Чтобы изменить каталог по умолчанию, используйте команду `yc config set folder-id <идентификатор_каталога>`. Также для любой команды вы можете указать другой каталог с помощью параметров `--folder-name` или `--folder-id`. Если вы обращаетесь к ресурсу по имени, поиск будет выполнен в каталоге по умолчанию. Если вы обращаетесь к ресурсу по идентификатору, поиск будет выполнен глобально — во всех каталогах с учетом прав доступа.
   
@@ -103,19 +103,19 @@
 
 {% note info %}
 
-Привязка политики резервного копирования {{ backup-full-name }} к ВМ доступна для [{{ TF }}-провайдера]({{ tf-provider-link }}) `0.127.0` и более поздних версий.
+Привязка политики резервного копирования Yandex Cloud Backup к ВМ доступна для [Terraform-провайдера](../../../terraform/index.md) `0.127.0` и более поздних версий.
 
 {% endnote %}
 
-[{{ TF }}](https://www.terraform.io/) позволяет быстро создать облачную инфраструктуру в {{ yandex-cloud }} и управлять ею с помощью файлов конфигураций. В файлах конфигураций хранится описание инфраструктуры на языке HCL (HashiCorp Configuration Language). При изменении файлов конфигураций {{ TF }} автоматически определяет, какая часть вашей конфигурации уже развернута, что следует добавить или удалить.
+[Terraform](https://www.terraform.io/) позволяет быстро создать облачную инфраструктуру в Yandex Cloud и управлять ею с помощью файлов конфигураций. В файлах конфигураций хранится описание инфраструктуры на языке HCL (HashiCorp Configuration Language). При изменении файлов конфигураций Terraform автоматически определяет, какая часть вашей конфигурации уже развернута, что следует добавить или удалить.
 
-{{ TF }} распространяется под лицензией [Business Source License](https://github.com/hashicorp/terraform/blob/main/LICENSE), а [провайдер {{ yandex-cloud }} для {{ TF }}](https://github.com/yandex-cloud/terraform-provider-yandex) — под лицензией [MPL-2.0](https://www.mozilla.org/en-US/MPL/2.0/).
+Terraform распространяется под лицензией [Business Source License](https://github.com/hashicorp/terraform/blob/main/LICENSE), а [провайдер Yandex Cloud для Terraform](https://github.com/yandex-cloud/terraform-provider-yandex) — под лицензией [MPL-2.0](https://www.mozilla.org/en-US/MPL/2.0/).
 
-Подробную информацию о ресурсах провайдера смотрите в документации на сайте [{{ TF }}](https://www.terraform.io/docs/providers/yandex/index.html) или в [зеркале]({{ tf-docs-link }}).
+Подробную информацию о ресурсах провайдера смотрите в документации на сайте [Terraform](https://www.terraform.io/docs/providers/yandex/index.html) или в [зеркале](../../../terraform/index.md).
 
-Для создания инфраструктуры c помощью {{ TF }}:
+Для создания инфраструктуры c помощью Terraform:
 
-1. [Установите {{ TF }}](../../../tutorials/infrastructure-management/terraform-quickstart.md#install-terraform), [получите данные для аутентификации](../../../tutorials/infrastructure-management/terraform-quickstart.md#get-credentials) и укажите источник для установки провайдера {{ yandex-cloud }} (раздел [{#T}](../../../tutorials/infrastructure-management/terraform-quickstart.md#configure-provider), шаг 1).
+1. [Установите Terraform](../../../tutorials/infrastructure-management/terraform-quickstart.md#install-terraform), [получите данные для аутентификации](../../../tutorials/infrastructure-management/terraform-quickstart.md#get-credentials) и укажите источник для установки провайдера Yandex Cloud (раздел [Настройте провайдер](../../../tutorials/infrastructure-management/terraform-quickstart.md#configure-provider), шаг 1).
 1. Подготовьте файлы с описанием инфраструктуры:
 
     {% list tabs group=infrastructure_description %}
@@ -155,7 +155,7 @@
             }
             
             provider "yandex" {
-              zone = "{{ region-id }}-a"
+              zone = "ru-central1-a"
             }
             
             # Создание сервисного аккаунта
@@ -181,7 +181,7 @@
             # Создание облачной подсети
             
             resource "yandex_vpc_subnet" "my_backup_subnet" {
-              zone           = "{{ region-id }}-a"
+              zone           = "ru-central1-a"
               network_id     = yandex_vpc_network.my_backup_network.id
               v4_cidr_blocks = ["192.168.0.0/24"]
             }
@@ -236,7 +236,7 @@
             
             resource "yandex_compute_disk" "boot-disk" {
               type     = "network-ssd"
-              zone     = "{{ region-id }}-a"
+              zone     = "ru-central1-a"
               size     = "20"
               image_id = data.yandex_compute_image.ubuntu.id
             }
@@ -246,7 +246,7 @@
             resource "yandex_compute_instance" "my_backup_compute" {
               name               = "backup-instance"
               platform_id        = "standard-v3"
-              zone               = "{{ region-id }}-a"
+              zone               = "ru-central1-a"
               service_account_id = yandex_iam_service_account.my_sa.id
               network_interface {
                 subnet_id          = yandex_vpc_subnet.my_backup_subnet.id
@@ -330,25 +330,25 @@
               - perl
               - jq
             runcmd:
-              - curl https://{{ s3-storage-host }}/backup-distributions/agent_installer.sh | sudo bash
+              - curl https://storage.yandexcloud.net/backup-distributions/agent_installer.sh | sudo bash
             ```
 
             {% endcut %}
 
     {% endlist %}
 
-    Более подробную информацию о параметрах используемых ресурсов в {{ TF }} см. в документации провайдера:
+    Более подробную информацию о параметрах используемых ресурсов в Terraform см. в документации провайдера:
 
-    * [Сервисный аккаунт](../../../iam/concepts/users/service-accounts.md) — [yandex_iam_service_account]({{ tf-provider-resources-link }}/iam_service_account).
-    * Назначение [роли](../../../iam/concepts/access-control/roles.md) сервисному аккаунту — [yandex_resourcemanager_folder_iam_member]({{ tf-provider-resources-link }}/resourcemanager_folder_iam_member).
-    * [Сеть](../../../vpc/concepts/network.md#network) — [yandex_vpc_network]({{ tf-provider-resources-link }}/vpc_network).
-    * [Подсеть](../../../vpc/concepts/network.md#subnet) — [yandex_vpc_subnet]({{ tf-provider-resources-link }}/vpc_subnet).
-    * [Группа безопасности](../../../vpc/concepts/security-groups.md) — [yandex_vpc_security_group]({{ tf-provider-resources-link }}/vpc_security_group).
-    * Данные [образа ВМ](../../../compute/concepts/image.md) — [yandex_compute_image]({{ tf-provider-datasources-link }}/compute_image).
-    * Загрузочный [диск](../../../compute/concepts/disk.md) виртуальной машины — [yandex_compute_disk]({{ tf-provider-resources-link }}/compute_disk).
-    * [Виртуальная машина](../../../compute/concepts/vm.md) — [yandex_compute_instance]({{ tf-provider-resources-link }}/compute_instance).
-    * [Политика резервного копирования](../../concepts/policy.md) — [yandex_backup_policy]({{ tf-provider-resources-link }}/backup_policy). Вы можете создать новую или использовать одну из политик, автоматически созданных при активации сервиса.
-    * Привязка политики резервного копирования к ВМ — [yandex_backup_policy_bindings]({{ tf-provider-resources-link }}/backup_policy_bindings). Чтобы привязать к ВМ одну из политик, автоматически созданных при активации сервиса, [получите](../../operations/policy-vm/get-info.md) ее идентификатор.
+    * [Сервисный аккаунт](../../../iam/concepts/users/service-accounts.md) — [yandex_iam_service_account](../../../terraform/resources/iam_service_account.md).
+    * Назначение [роли](../../../iam/concepts/access-control/roles.md) сервисному аккаунту — [yandex_resourcemanager_folder_iam_member](../../../terraform/resources/resourcemanager_folder_iam_member.md).
+    * [Сеть](../../../vpc/concepts/network.md#network) — [yandex_vpc_network](../../../terraform/resources/vpc_network.md).
+    * [Подсеть](../../../vpc/concepts/network.md#subnet) — [yandex_vpc_subnet](../../../terraform/resources/vpc_subnet.md).
+    * [Группа безопасности](../../../vpc/concepts/security-groups.md) — [yandex_vpc_security_group](../../../terraform/resources/vpc_security_group.md).
+    * Данные [образа ВМ](../../../compute/concepts/image.md) — [yandex_compute_image](../../../terraform/data-sources/compute_image.md).
+    * Загрузочный [диск](../../../compute/concepts/disk.md) виртуальной машины — [yandex_compute_disk](../../../terraform/resources/compute_disk.md).
+    * [Виртуальная машина](../../../compute/concepts/vm.md) — [yandex_compute_instance](../../../terraform/resources/compute_instance.md).
+    * [Политика резервного копирования](../../concepts/policy.md) — [yandex_backup_policy](../../../terraform/resources/backup_policy.md). Вы можете создать новую или использовать одну из политик, автоматически созданных при активации сервиса.
+    * Привязка политики резервного копирования к ВМ — [yandex_backup_policy_bindings](../../../terraform/resources/backup_policy_bindings.md). Чтобы привязать к ВМ одну из политик, автоматически созданных при активации сервиса, [получите](../../operations/policy-vm/get-info.md) ее идентификатор.
 
 1. В файле `cloud-init.yaml` задайте пользовательские параметры:
 
@@ -376,7 +376,7 @@
        terraform plan
        ```
     
-       В терминале будет выведен список ресурсов с параметрами. На этом этапе изменения не будут внесены. Если в конфигурации есть ошибки, {{ TF }} на них укажет.
+       В терминале будет выведен список ресурсов с параметрами. На этом этапе изменения не будут внесены. Если в конфигурации есть ошибки, Terraform на них укажет.
     1. Примените изменения конфигурации:
     
        ```bash
@@ -387,9 +387,9 @@
 
 {% note info %}
 
-Когда ВМ перейдет в статус `Running`, на нее начнет устанавливаться агент {{ backup-name }}. Установка займет от 5 до 10 минут.
+Когда ВМ перейдет в статус `Running`, на нее начнет устанавливаться агент Cloud Backup. Установка займет от 5 до 10 минут.
 
-Привязка политики выполняется асинхронно после создания и инициализации ВМ, а также установки и настройки агента {{ backup-name }}. Это может занимать до 10–15 минут. В итоге виртуальная машина появится в списке ВМ сервиса {{ backup-name }} и в списке ВМ, привязанных к политике `weekly-backup`.
+Привязка политики выполняется асинхронно после создания и инициализации ВМ, а также установки и настройки агента Cloud Backup. Это может занимать до 10–15 минут. В итоге виртуальная машина появится в списке ВМ сервиса Cloud Backup и в списке ВМ, привязанных к политике `weekly-backup`.
 
 {% endnote %}
 
@@ -421,7 +421,7 @@
        terraform plan
        ```
     
-       В терминале будет выведен список ресурсов с параметрами. На этом этапе изменения не будут внесены. Если в конфигурации есть ошибки, {{ TF }} на них укажет.
+       В терминале будет выведен список ресурсов с параметрами. На этом этапе изменения не будут внесены. Если в конфигурации есть ошибки, Terraform на них укажет.
     1. Примените изменения конфигурации:
     
        ```bash
@@ -432,4 +432,4 @@
 
 #### См. также {#see-also}
 
-* [{#T}](console.md)
+* [Автоматическая привязка политики резервного копирования Yandex Cloud Backup к ВМ с помощью консоли управления, CLI или API](console.md)

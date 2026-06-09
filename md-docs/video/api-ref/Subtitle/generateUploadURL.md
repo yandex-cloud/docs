@@ -7,7 +7,7 @@ The URL is pre-signed and has a limited validity period.
 ## HTTP request
 
 ```
-GET https://video.{{ api-host }}/video/v1/subtitles/{subtitleId}:generateUploadURL
+GET https://video.api.cloud.yandex.net/video/v1/subtitles/{subtitleId}:generateUploadURL
 ```
 
 ## Path parameters

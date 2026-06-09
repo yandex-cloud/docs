@@ -6,7 +6,7 @@ Method starts an asynchronous operation that can be cancelled while it is in pro
 ## HTTP request
 
 ```
-POST https://compute.{{ api-host }}/compute/v1/reservedInstancePools
+POST https://compute.api.cloud.yandex.net/compute/v1/reservedInstancePools
 ```
 
 ## Body parameters {#yandex.cloud.compute.v1.CreateReservedInstancePoolRequest}

@@ -21,7 +21,7 @@
    
      {% note info %}
    
-     [Время жизни](../../../iam/concepts/authorization/iam-token.md#lifetime) IAM-токена — не больше {{ iam-token-lifetime }}.
+     [Время жизни](../../../iam/concepts/authorization/iam-token.md#lifetime) IAM-токена — не больше 12 часов.
    
      {% endnote %}
    
@@ -56,7 +56,7 @@
       Чтобы внести изменения в файл конфигурации NuGet с помощью [dotnet CLI](https://learn.microsoft.com/ru-ru/nuget/reference/dotnet-commands), выполните команду:
 
       ```bash
-      dotnet nuget add source "https://{{ cloud-registry }}/nuget/v3/<идентификатор_реестра>/index.json" \
+      dotnet nuget add source "https://registry.yandexcloud.net/nuget/v3/<идентификатор_реестра>/index.json" \
         -n "cloud-registry" \
         -u %REGISTRY_USERNAME% \
         -p %REGISTRY_PASSWORD% \
@@ -69,7 +69,7 @@
 
       ```
       nuget sources add -Name "cloud-registry" \
-        -Source "https://{{ cloud-registry }}/nuget/v3/<идентификатор_реестра>/index.json" \
+        -Source "https://registry.yandexcloud.net/nuget/v3/<идентификатор_реестра>/index.json" \
         -Username "%REGISTRY_USERNAME%" \
         -Password "%REGISTRY_PASSWORD%" \
         -StorePasswordInClearText -ProtocolVersion 3
@@ -91,7 +91,7 @@
           <?xml version="1.0" encoding="utf-8"?>
           <configuration>
             <packageSources>
-              <add key="cloud-registry" value="https://{{ cloud-registry }}/nuget/v3/<идентификатор_реестра>/index.json" protocolVersion="3" />
+              <add key="cloud-registry" value="https://registry.yandexcloud.net/nuget/v3/<идентификатор_реестра>/index.json" protocolVersion="3" />
             </packageSources>
 
             <packageSourceCredentials>

@@ -1,4 +1,4 @@
-# Устранение неполадок в {{ mspqr-name }}
+# Устранение неполадок в Managed Service for Sharded PostgreSQL
 
 * [Транзакция не применяется на всех шардах](#cross-shard-transaction-failure)
 
@@ -45,7 +45,7 @@ COMMIT;
 
 **Решение**:
 
-* Проверьте, отображается ли новый шард в {{ SPQR }} (`SHOW shards`).
+* Проверьте, отображается ли новый шард в Sharded PostgreSQL (`SHOW shards`).
 * Если вы используете шардированную таблицу, убедитесь, что данные должны быть именно на этом шарде (`SHOW key_ranges`).
 * Если вы используете справочную таблицу, убедитесь, что таблица создана именно на этом шарде (`SHOW reference_relations`).
 
@@ -61,23 +61,23 @@ failed to get connection to any shard host within: host {rc1d-cofs7cre********.m
 
 **Решение**:
 
-1. Убедитесь, что кластер {{ mspqr-name }} и шарды находятся в одной сети и в одной [группе безопасности](../../vpc/concepts/security-groups.md).
+1. Убедитесь, что кластер Managed Service for Sharded PostgreSQL и шарды находятся в одной сети и в одной [группе безопасности](../../vpc/concepts/security-groups.md).
 1. В группу безопасности [добавьте правила](../../vpc/operations/security-group-add-rule.md) для входящего и исходящего трафика, разрешающие TCP-подключение на порт `6432`:
 
-    * **{{ ui-key.yacloud.vpc.network.security-groups.forms.field_sg-rule-port-range }}** — `6432`.
-    * **{{ ui-key.yacloud.vpc.network.security-groups.forms.field_sg-rule-protocol }}** — `{{ ui-key.yacloud.common.label_tcp }}`.
-    * **{{ ui-key.yacloud.vpc.network.security-groups.forms.field_sg-rule-destination }}** — `{{ ui-key.yacloud.vpc.network.security-groups.forms.value_sg-rule-destination-cidr }}`.
-    * **{{ ui-key.yacloud.vpc.network.security-groups.forms.field_sg-rule-cidr-blocks }}** — укажите CIDR кластера, например `10.96.0.0/16`.
+    * **Диапазон портов** — `6432`.
+    * **Протокол** — `TCP`.
+    * **Назначение** — `CIDR`.
+    * **CIDR блоки** — укажите CIDR кластера, например `10.96.0.0/16`.
 
 #### Ошибка error processing query ... : syntax error при выполнении запроса {#error-processing-query}
 
-Эта ошибка возникает из-за внутренних проблем {{ SPQR }}, а не из-за синтаксических ошибок в вашем SQL-запросе. {{ SPQR }} использует собственный парсер SQL, который может не поддерживать некоторые нюансы:
+Эта ошибка возникает из-за внутренних проблем Sharded PostgreSQL, а не из-за синтаксических ошибок в вашем SQL-запросе. Sharded PostgreSQL использует собственный парсер SQL, который может не поддерживать некоторые нюансы:
 
-* специфические операторы {{ PG }};
+* специфические операторы PostgreSQL;
 * редкие варианты синтаксиса;
 * нестандартные функции.
 
-**Решение**: сообщите о проблеме разработчикам {{ SPQR }} — создайте issue в [репозитории проекта на Github](https://github.com/pg-sharding/spqr/issues), приложите полный текст запроса.
+**Решение**: сообщите о проблеме разработчикам Sharded PostgreSQL — создайте issue в [репозитории проекта на Github](https://github.com/pg-sharding/spqr/issues), приложите полный текст запроса.
 
 #### Ошибка permission denied for schema {#permission-denied-for-schema}
 
@@ -98,7 +98,7 @@ failed to get connection to any shard host within: host {rc1d-cofs7cre********.m
 **Решение**:
 
 * Убедитесь, что сетевая связность между роутером и шардом не нарушена.
-* Увеличьте вычислительные ресурсы в кластере {{ PG }}, который является перегруженным шардом.
+* Увеличьте вычислительные ресурсы в кластере PostgreSQL, который является перегруженным шардом.
 * Проверьте соответствие настроек `target-session-attrs` вашему запросу.
 
 {% note info %}
@@ -118,7 +118,7 @@ failed to get connection to any shard host within: host {rc1d-cofs7cre********.m
   * Перманентно — в конфигурации роутера установите для параметра `default_route_behaviour` значение `ALLOW`.
   * Временно — через виртуальный параметр `/* __spqr__default_route_behaviour: allow */`.
 * Проверьте:
-  * Корректность ключа шардирования в запросе: название ключа в запросе должно соответствовать названию ключа в метаданных {{ SPQR }}.
+  * Корректность ключа шардирования в запросе: название ключа в запросе должно соответствовать названию ключа в метаданных Sharded PostgreSQL.
   * Наличие правил шардирования (`SHOW distributions`).
   * Наличие таблиц (`SHOW relations`).
   * Наличие диапазонов (`SHOW key_ranges`).

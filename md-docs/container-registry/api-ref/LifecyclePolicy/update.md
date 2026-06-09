@@ -5,7 +5,7 @@ Updates the specified lifecycle policy.
 ## HTTP request
 
 ```
-PATCH https://container-registry.{{ api-host }}/container-registry/v1/lifecyclePolicies/{lifecyclePolicyId}
+PATCH https://container-registry.api.cloud.yandex.net/container-registry/v1/lifecyclePolicies/{lifecyclePolicyId}
 ```
 
 ## Path parameters

@@ -1,6 +1,6 @@
-# Политика аудита в {{ managed-k8s-name }}
+# Политика аудита в Managed Service for Kubernetes
 
-Политика аудита ([audit policy](https://kubernetes.io/docs/tasks/debug/debug-cluster/audit/#audit-policy)) определяет [правила](#rules-audit-policy) о том, какие события должны записываться в [журнал аудита](https://kubernetes.io/docs/tasks/debug/debug-cluster/audit/) и какие данные они должны содержать. События аудита генерируются запросами на сервер API {{ k8s }} на каждой [стадии](#stages) их выполнения. Правила политики аудита применяются по порядку. Первое правило, соответствующее событию, устанавливает [уровень](#levels) аудита события.
+Политика аудита ([audit policy](https://kubernetes.io/docs/tasks/debug/debug-cluster/audit/#audit-policy)) определяет [правила](#rules-audit-policy) о том, какие события должны записываться в [журнал аудита](https://kubernetes.io/docs/tasks/debug/debug-cluster/audit/) и какие данные они должны содержать. События аудита генерируются запросами на сервер API Kubernetes на каждой [стадии](#stages) их выполнения. Правила политики аудита применяются по порядку. Первое правило, соответствующее событию, устанавливает [уровень](#levels) аудита события.
 
 ## Стадии {#stages}
 
@@ -20,9 +20,9 @@
 `Request` | Записывать метаданные событий и тело запроса, но не включать тело ответа.
 `RequestResponse` | Записывать метаданные событий, тело запроса и ответа.
 
-## Файл политики аудита в {{ managed-k8s-name }} {#rules-audit-policy}
+## Файл политики аудита в Managed Service for Kubernetes {#rules-audit-policy}
 
-Файл политики аудита в {{ managed-k8s-name }} выглядит так:
+Файл политики аудита в Managed Service for Kubernetes выглядит так:
 
 ```yaml
 apiVersion: audit.k8s.io/v1
@@ -186,7 +186,7 @@ rules:
 ```
 
 Означает, что сведения о событиях не должны записываться, если верны условия:
-* Запрос отправляется компонентом `kubelet` с [узла](index.md#node-group) [кластера {{ managed-k8s-name }}](index.md#kubernetes-cluster).
+* Запрос отправляется компонентом `kubelet` с [узла](index.md#node-group) [кластера Managed Service for Kubernetes](index.md#kubernetes-cluster).
 * Тип запроса — `get`.
 * Запрос относится к ресурсам `nodes` или `nodes/status`.
 
@@ -295,4 +295,4 @@ rules:
 * Запрос относится к группе ресурсов из списка.
 * Событие не относится к стадии `RequestReceived`.
 
-Подробнее о политике аудита см. в [документации {{ k8s }}](https://kubernetes.io/docs/tasks/debug/debug-cluster/audit/#audit-policy).
+Подробнее о политике аудита см. в [документации Kubernetes](https://kubernetes.io/docs/tasks/debug/debug-cluster/audit/#audit-policy).
