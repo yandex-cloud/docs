@@ -5,7 +5,7 @@ Retrieves a list of hosts for a cluster.
 ## HTTP request
 
 ```
-GET https://mdb.api.cloud.yandex.net/managed-mysql/v1/clusters/{clusterId}/hosts
+GET https://{{ api-host-mdb }}/managed-mysql/v1/clusters/{clusterId}/hosts
 ```
 
 ## Path parameters
@@ -15,7 +15,6 @@ GET https://mdb.api.cloud.yandex.net/managed-mysql/v1/clusters/{clusterId}/hosts
 || clusterId | **string**
 
 Required field. ID of the cluster to list hosts for.
-
 To get this ID, make a [ClusterService.List](list.md#List) request.
 
 The maximum string length in characters is 50. ||
@@ -28,14 +27,12 @@ The maximum string length in characters is 50. ||
 || pageSize | **string** (int64)
 
 The maximum number of results per page to return.
-
 If the number of available results is larger than `pageSize`, the API returns a [ListClusterHostsResponse.nextPageToken](#yandex.cloud.mdb.mysql.v1.ListClusterHostsResponse) that can be used to get the next page of results in the subsequent [ClusterService.ListHosts](#ListHosts) requests.
 
 Acceptable values are 0 to 1000, inclusive. ||
 || pageToken | **string**
 
 Page token that can be used to iterate through multiple pages of results.
-
 To get the next page of results, set `pageToken` to the [ListClusterHostsResponse.nextPageToken](#yandex.cloud.mdb.mysql.v1.ListClusterHostsResponse) returned by the previous [ClusterService.ListHosts](#ListHosts) request.
 
 The maximum string length in characters is 100. ||
@@ -84,9 +81,7 @@ List of hosts in the cluster. ||
 || nextPageToken | **string**
 
 The token that can be used to get the next page of results.
-
 If the number of results is larger than [ListClusterHostsRequest.pageSize](#yandex.cloud.mdb.mysql.v1.ListClusterHostsRequest), use the `nextPageToken` as the value for the [ListClusterHostsRequest.pageToken](#yandex.cloud.mdb.mysql.v1.ListClusterHostsRequest) in the subsequent [ClusterService.ListHosts](#ListHosts) request to iterate through multiple pages of results.
-
 Each of the subsequent [ClusterService.ListHosts](#ListHosts) requests should use the `nextPageToken` value returned by the previous request to continue paging through the results. ||
 |#
 
@@ -97,7 +92,6 @@ Each of the subsequent [ClusterService.ListHosts](#ListHosts) requests should us
 || name | **string**
 
 Name of the host.
-
 This name is assigned by the platform at the time of creation.
 The name is unique across all MDB hosts that exist on the platform, as it defines the FQDN of the host. ||
 || clusterId | **string**
@@ -158,7 +152,6 @@ Cluster resource preset.
 || resourcePresetId | **string**
 
 ID of the resource preset that defines available computational resources (vCPU, RAM, etc.) for a cluster host.
-
 All available presets are listed in [the documentation](../../concepts/instance-types.md). ||
 || diskSize | **string** (int64)
 
@@ -166,13 +159,11 @@ Volume of the storage (for each cluster host, in bytes). ||
 || diskTypeId | **string**
 
 Type of the storage.
-
 Possible values:
 * `network-hdd` - standard network storage
 * `network-ssd` - fast network storage
 * `network-ssd-nonreplicated` - fast network nonreplicated storage
 * `local-ssd` - fast local storage.
-
 See [the documentation](../../concepts/storage.md) for details. ||
 |#
 

@@ -5,7 +5,7 @@
 ## HTTP-запрос {#request}
 
 ```http
-POST https://notifications.yandexcloud.net/
+POST https://{{ cns-host }}/
 ```
 
 ### Query-параметры {#parameters}
@@ -20,7 +20,7 @@ POST https://notifications.yandexcloud.net/
 
 ### Успешный ответ {#response-200}
 
-При отсутствии ошибок Cloud Notification Service отвечает HTTP-кодом `200`.
+При отсутствии ошибок {{ cns-name }} отвечает HTTP-кодом `200`.
 
 Успешный ответ содержит дополнительные данные в формате XML или JSON в зависимости от указанного параметра `ResponseFormat`.
 
@@ -100,12 +100,12 @@ POST https://notifications.yandexcloud.net/
 
 ### Ответ с ошибкой {#response-4xx}
 
-При возникновении ошибки Cloud Notification Service отвечает сообщением с соответствующим HTTP-кодом.
+При возникновении ошибки {{ cns-name }} отвечает сообщением с соответствующим HTTP-кодом.
 
-Перечень общих кодов ошибок для всех действий см. в разделе [Ошибки](common-errors.md).
+Перечень общих кодов ошибок для всех действий см. в разделе [{#T}](common-errors.md).
 
 ## См. также {#see-also}
 
-* [Обзор HTTP API Yandex Cloud Notification Service](index.md)
-* [Отправить запрос HTTP API к Yandex Cloud Notification Service](send-request.md)
+* [{#T}](index.md)
+* [{#T}](send-request.md)
 * [API action ListPlatformApplications](https://docs.aws.amazon.com/sns/latest/api/API_ListPlatformApplications.html) в документации AWS.

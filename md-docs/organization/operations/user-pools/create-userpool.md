@@ -3,11 +3,11 @@
 
 {% list tabs group=instructions %}
 
-- Интерфейс Cloud Center {#cloud-center}
+- Интерфейс {{ cloud-center }} {#cloud-center}
 
-  1. Войдите в сервис [Yandex Identity Hub](https://center.yandex.cloud/organization).
-  1. На панели слева выберите ![userpool](../../../_assets/organization/userpool.svg) **Пулы пользователей**.  
-  1. В правом верхнем углу страницы нажмите ![Circles3Plus](../../../_assets/console-icons/circles-3-plus.svg) **Создать пул пользователей**.
+  1. Войдите в сервис [{{ org-full-name }}]({{ link-org-cloud-center }}).
+  1. На панели слева выберите ![userpool](../../../_assets/organization/userpool.svg) **{{ ui-key.yacloud_org.pages.userpools }}**.  
+  1. В правом верхнем углу страницы нажмите ![Circles3Plus](../../../_assets/console-icons/circles-3-plus.svg) **{{ ui-key.yacloud_org.organization.userpools.action_create-userpool }}**.
   1. Задайте имя и описание [пула пользователей](../../concepts/user-pools.md).
 
       Имя должно быть уникальным в рамках организации и соответствовать требованиям:
@@ -16,18 +16,18 @@
       * может содержать строчные буквы латинского алфавита, цифры и дефисы;
       * первый символ — буква, последний — не дефис.
 
-  1. В поле **Домен по умолчанию** добавьте [домен](../../concepts/domains.md), который будет использоваться, если к пулу не привязаны другие домены.
+  1. В поле **{{ ui-key.yacloud_org.form.userpool.caption.domain }}** добавьте [домен](../../concepts/domains.md), который будет использоваться, если к пулу не привязаны другие домены.
   1. (Опционально) Добавьте метки:
-     1. Нажмите **Добавить метку**.
+     1. Нажмите **{{ ui-key.yacloud.component.label-set.button_add-label }}**.
      1. Введите метку в формате `ключ: значение`.
      1. Нажмите **Enter**.
-  1. (Опционально) В поле **Данные, доступные для редактирования** выберите пользовательские настройки, доступные для изменения на портале [Мой аккаунт](../../concepts/my-account.md). По умолчанию разрешено управление паролем.
-  1. В поле **Срок жизни сессии** задайте период времени, в течение которого будут действительны [сессии](../../concepts/sessions.md) пользователя и не будет требоваться повторная аутентификация в Yandex Identity Hub.
-  1. Нажмите кнопку **Создать пул пользователей**.
+  1. (Опционально) В поле **{{ ui-key.yacloud_org.form.userpool.caption.settings-data }}** выберите пользовательские настройки, доступные для изменения на портале [Мой аккаунт](../../concepts/my-account.md). По умолчанию разрешено управление паролем.
+  1. В поле **{{ ui-key.yacloud_org.form.userpool.caption.session-lifetime }}** задайте период времени, в течение которого будут действительны [сессии](../../concepts/sessions.md) пользователя и не будет требоваться повторная аутентификация в {{ org-full-name }}.
+  1. Нажмите кнопку **{{ ui-key.yacloud_org.form.userpool.create.action.create }}**.
 
 - CLI {#cli}
 
-  Если у вас еще нет интерфейса командной строки Yandex Cloud (CLI), [установите и инициализируйте его](../../../cli/quickstart.md#install).
+  Если у вас еще нет интерфейса командной строки {{ yandex-cloud }} (CLI), [установите и инициализируйте его](../../../cli/quickstart.md#install).
 
   По умолчанию используется каталог, указанный при [создании](../../../cli/operations/profile/profile-create.md) профиля CLI. Чтобы изменить каталог по умолчанию, используйте команду `yc config set folder-id <идентификатор_каталога>`. Также для любой команды вы можете указать другой каталог с помощью параметров `--folder-name` или `--folder-id`. Если вы обращаетесь к ресурсу по имени, поиск будет выполнен в каталоге по умолчанию. Если вы обращаетесь к ресурсу по идентификатору, поиск будет выполнен глобально — во всех каталогах с учетом прав доступа.
 
@@ -61,15 +61,18 @@
      * `--default-subdomain` — [домен](../../concepts/domains.md) по умолчанию. Будет использоваться, если к пулу не привязаны другие домены.
      * `--labels` — список [меток](../../../resource-manager/concepts/labels.md). Необязательный параметр. Можно указать одну или несколько меток через запятую в формате `<ключ1>=<значение1>,<ключ2>=<значение2>`.
 
-- Terraform {#tf}
+- {{ TF }} {#tf}
 
-  [Terraform](https://www.terraform.io/) позволяет быстро создать облачную инфраструктуру в Yandex Cloud и управлять ею с помощью файлов конфигураций. В файлах конфигураций хранится описание инфраструктуры на языке HCL (HashiCorp Configuration Language). При изменении файлов конфигураций Terraform автоматически определяет, какая часть вашей конфигурации уже развернута, что следует добавить или удалить.
+  [{{ TF }}](https://www.terraform.io/) позволяет быстро создать облачную инфраструктуру в {{ yandex-cloud }} и управлять ею с помощью файлов конфигураций. В файлах конфигураций хранится описание инфраструктуры на языке HCL (HashiCorp Configuration Language). При изменении файлов конфигураций {{ TF }} автоматически определяет, какая часть вашей конфигурации уже развернута, что следует добавить или удалить.
   
-  Terraform распространяется под лицензией [Business Source License](https://github.com/hashicorp/terraform/blob/main/LICENSE), а [провайдер Yandex Cloud для Terraform](https://github.com/yandex-cloud/terraform-provider-yandex) — под лицензией [MPL-2.0](https://www.mozilla.org/en-US/MPL/2.0/).
+  {{ TF }} распространяется под лицензией [Business Source License](https://github.com/hashicorp/terraform/blob/main/LICENSE), а [провайдер {{ yandex-cloud }} для {{ TF }}](https://github.com/yandex-cloud/terraform-provider-yandex) — под лицензией [MPL-2.0](https://www.mozilla.org/en-US/MPL/2.0/).
   
-  Подробную информацию о ресурсах провайдера смотрите в документации на сайте [Terraform](https://www.terraform.io/docs/providers/yandex/index.html) или в [зеркале](../../../terraform/index.md).
+  Подробную информацию о ресурсах провайдера смотрите в документации на сайте [{{ TF }}](https://www.terraform.io/docs/providers/yandex/index.html) или в [зеркале]({{ tf-docs-link }}).
 
-  Если у вас еще нет Terraform, [установите его и настройте провайдер Yandex Cloud](../../../tutorials/infrastructure-management/terraform-quickstart.md#install-terraform).
+  Если у вас еще нет {{ TF }}, [установите его и настройте провайдер {{ yandex-cloud }}](../../../tutorials/infrastructure-management/terraform-quickstart.md#install-terraform).
+  
+  
+  Чтобы управлять инфраструктурой с помощью {{ TF }} от имени сервисного аккаунта или пользовательских аккаунтов: аккаунта на Яндексе, федеративного аккаунта и локального пользователя, [аутентифицируйтесь](../../../terraform/authentication.md) соответствующим способом.
 
   1. Опишите в конфигурационном файле параметры [пула пользователей](../../concepts/user-pools.md):
 
@@ -109,7 +112,7 @@
        * `allow_edit_self_login` — изменение логина.
        * `allow_edit_self_password` — изменение пароля.
 
-     Более подробную информацию о параметрах ресурса `yandex_organizationmanager_idp_userpool` см. в [документации провайдера](../../../terraform/resources/organizationmanager_idp_userpool.md).
+     Более подробную информацию о параметрах ресурса `yandex_organizationmanager_idp_userpool` см. в [документации провайдера]({{ tf-provider-resources-link }}/organizationmanager_idp_userpool).
 
   1. Создайте ресурсы:
 
@@ -132,7 +135,7 @@
         terraform plan
         ```
      
-        В терминале будет выведен список ресурсов с параметрами. На этом этапе изменения не будут внесены. Если в конфигурации есть ошибки, Terraform на них укажет.
+        В терминале будет выведен список ресурсов с параметрами. На этом этапе изменения не будут внесены. Если в конфигурации есть ошибки, {{ TF }} на них укажет.
      1. Примените изменения конфигурации:
      
         ```bash
@@ -141,7 +144,7 @@
      
      1. Подтвердите изменения: введите в терминале слово `yes` и нажмите **Enter**.
 
-     Terraform создаст все требуемые ресурсы. Проверить появление ресурсов и их настройки можно в [интерфейсе Cloud Center](https://center.yandex.cloud/organization) или с помощью команды [CLI](../../../cli/index.md):
+     {{ TF }} создаст все требуемые ресурсы. Проверить появление ресурсов и их настройки можно в [интерфейсе {{ cloud-center }}]({{ link-org-cloud-center }}) или с помощью команды [CLI](../../../cli/index.md):
 
      ```bash
      yc organization-manager idp userpool list --organization-id <идентификатор_организации>
@@ -154,5 +157,5 @@
 {% endlist %}
 #### См. также {#see-also}
 
-* [Добавьте локальных пользователей](../add-account.md#add-local-user)
-* [Привязать домен](add-domain.md)
+* [{#T}](../add-account.md#add-local-user)
+* [{#T}](add-domain.md)

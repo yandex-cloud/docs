@@ -1,14 +1,14 @@
-# История изменений в Yandex Cloud Interconnect
+# История изменений в {{ interconnect-full-name }}
 
 ## I квартал 2025 {#q1-2025}
 
-* Реализована работа Cloud Interconnect между Virtual Private Cloud и BareMetal.
+* Реализована работа {{ interconnect-name }} между {{ vpc-name }} и {{ baremetal-name }}.
 * В API стали доступны мутирующие операции.
 
 ## III квартал 2024 {#q3-2024}
 
 В CLI и API добавлены методы для получения информации о следующих ресурсах:
-  * Партнеры Cloud Interconnect.
+  * Партнеры {{ interconnect-name }}.
   * Точки присутствия.
   * Транковые подключения.
   * Приватные соединения.

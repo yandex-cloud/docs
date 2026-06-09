@@ -1,8 +1,8 @@
-# Создать OIDC-приложение в Yandex Identity Hub для интеграции с Cloud.ru
+# Создать OIDC-приложение в {{ org-full-name }} для интеграции с Cloud.ru
 
 [Cloud.ru](https://cloud.ru/) — российский провайдер облачных услуг, предоставляющий IaaS- и PaaS-сервисы, инструменты для AI/ML-разработки, а также решения для публичных, частных и гибридных облаков с поддержкой миграции и эксплуатации ИТ-инфраструктуры. Cloud.ru поддерживает [OpenID Connect](https://ru.wikipedia.org/wiki/OpenID#OpenID_Connect) (OIDC) аутентификацию для обеспечения безопасного единого входа пользователей организации.
 
-Чтобы пользователи вашей [организации](../../../organization/concepts/organization.md) могли аутентифицироваться в Cloud.ru с помощью технологии единого входа по стандарту OpenID Connect, создайте [OIDC-приложение](../../../organization/concepts/applications.md#oidc) в Yandex Identity Hub и настройте его на стороне Yandex Identity Hub и на стороне Cloud.ru.
+Чтобы пользователи вашей [организации](../../../organization/concepts/organization.md) могли аутентифицироваться в Cloud.ru с помощью технологии единого входа по стандарту OpenID Connect, создайте [OIDC-приложение](../../../organization/concepts/applications.md#oidc) в {{ org-full-name }} и настройте его на стороне {{ org-full-name }} и на стороне Cloud.ru.
 
 Управлять OIDC-приложениями может пользователь, которому назначена [роль](../../../organization/security/index.md#organization-manager-oauthApplications-admin) `organization-manager.oauthApplications.admin` или выше.
 
@@ -16,25 +16,25 @@
 
 {% list tabs group=instructions %}
 
-- Интерфейс Cloud Center {#cloud-center}
+- Интерфейс {{ cloud-center }} {#cloud-center}
 
-    1. Войдите в сервис [Yandex Identity Hub](https://center.yandex.cloud/organization).
-    1. На панели слева выберите ![shapes-4](../../../_assets/console-icons/shapes-4.svg) **Приложения**.
-    1. В правом верхнем углу страницы нажмите ![Circles3Plus](../../../_assets/console-icons/circles-3-plus.svg) **Создать приложение** и в открывшемся окне:
-        1. Выберите метод единого входа **OIDC (OpenID Connect)**.
-        1. В поле **Имя** задайте имя создаваемого приложения: `cloud-ru-oidc-app`.
-        1. В поле **Каталог** выберите каталог, в котором будет создан OAuth-клиент для приложения.
-        1. (Опционально) В поле **Описание** задайте описание приложения.
+    1. Войдите в сервис [{{ org-full-name }}]({{ link-org-cloud-center }}).
+    1. На панели слева выберите ![shapes-4](../../../_assets/console-icons/shapes-4.svg) **{{ ui-key.yacloud_org.pages.apps }}**.
+    1. В правом верхнем углу страницы нажмите ![Circles3Plus](../../../_assets/console-icons/circles-3-plus.svg) **{{ ui-key.yacloud_org.action.applications.components.create-app }}** и в открывшемся окне:
+        1. Выберите метод единого входа **{{ ui-key.yacloud_org.organization.apps.AppCreateForm.oauth-title_uUs4x }}**.
+        1. В поле **{{ ui-key.yacloud_org.organization.apps.AppCreateForm.field-name_1VbM1 }}** задайте имя создаваемого приложения: `cloud-ru-oidc-app`.
+        1. В поле **{{ ui-key.yacloud_org.organization.apps.AppCreateForm.field-folder_rANM4 }}** выберите каталог, в котором будет создан OAuth-клиент для приложения.
+        1. (Опционально) В поле **{{ ui-key.yacloud_org.organization.apps.AppCreateForm.field-description_kzkNB }}** задайте описание приложения.
         1. (Опционально) Добавьте [метки](../../../resource-manager/concepts/labels.md):
 
-            1. Нажмите **Добавить метку**.
+            1. Нажмите **{{ ui-key.yacloud.component.label-set.button_add-label }}**.
             1. Введите метку в формате `ключ: значение`.
             1. Нажмите **Enter**.
-        1. Нажмите **Создать приложение**.
+        1. Нажмите **{{ ui-key.yacloud_org.organization.apps.AppCreateForm.create-app-submit_myxPn }}**.
 
 - CLI {#cli}
 
-  Если у вас еще нет интерфейса командной строки Yandex Cloud (CLI), [установите и инициализируйте его](../../../cli/quickstart.md#install).
+  Если у вас еще нет интерфейса командной строки {{ yandex-cloud }} (CLI), [установите и инициализируйте его](../../../cli/quickstart.md#install).
 
   По умолчанию используется каталог, указанный при [создании](../../../cli/operations/profile/profile-create.md) профиля CLI. Чтобы изменить каталог по умолчанию, используйте команду `yc config set folder-id <идентификатор_каталога>`. Также для любой команды вы можете указать другой каталог с помощью параметров `--folder-name` или `--folder-id`. Если вы обращаетесь к ресурсу по имени, поиск будет выполнен в каталоге по умолчанию. Если вы обращаетесь к ресурсу по идентификатору, поиск будет выполнен глобально — во всех каталогах с учетом прав доступа.
 
@@ -135,30 +135,30 @@
 
 ## Настройте интеграцию {#setup-integration}
 
-Чтобы настроить интеграцию Cloud.ru с созданным OIDC-приложением в Yandex Identity Hub, выполните настройки на стороне Cloud.ru и на стороне Yandex Identity Hub.
+Чтобы настроить интеграцию Cloud.ru с созданным OIDC-приложением в {{ org-full-name }}, выполните настройки на стороне Cloud.ru и на стороне {{ org-full-name }}.
 
-### Настройте OIDC-приложение на стороне Yandex Identity Hub {#setup-idp}
+### Настройте OIDC-приложение на стороне {{ org-full-name }} {#setup-idp}
 
 #### Получите учетные данные приложения {#get-credentials}
 
 {% list tabs group=instructions %}
 
-- Интерфейс Cloud Center {#cloud-center}
+- Интерфейс {{ cloud-center }} {#cloud-center}
 
-  1. Войдите в сервис [Yandex Identity Hub](https://center.yandex.cloud/organization).
-  1. На панели слева выберите ![shapes-4](../../../_assets/console-icons/shapes-4.svg) **Приложения** и выберите нужное OIDC-приложение.
-  1. На вкладке **Обзор** в блоке **Конфигурация поставщика удостоверений (IdP)** разверните секцию **Дополнительные атрибуты** и скопируйте значения параметров, которые необходимо задать на стороне Cloud.ru:
+  1. Войдите в сервис [{{ org-full-name }}]({{ link-org-cloud-center }}).
+  1. На панели слева выберите ![shapes-4](../../../_assets/console-icons/shapes-4.svg) **{{ ui-key.yacloud_org.pages.apps }}** и выберите нужное OIDC-приложение.
+  1. На вкладке **{{ ui-key.yacloud_org.organization.apps.AppPageLayout.overview_b5LJQ }}** в блоке **{{ ui-key.yacloud_org.application.overview.idp_section_title }}** разверните секцию **{{ ui-key.yacloud_org.application.overview.idp_section_closed_text }}** и скопируйте значения параметров, которые необходимо задать на стороне Cloud.ru:
 
-        * `ClientID` — уникальный идентификатор приложения.
-        * `OpenID Configuration` — URL с конфигурацией всех необходимых для настройки интеграции параметров.
-        * `Authorization endpoint` — URL, на который поставщик услуг будет перенаправлять пользователя для прохождения аутентификации.
-        * `Token endpoint` — URL, на который от внешнего приложения поступает запрос на получение ID-токена и токена доступа.
-        * `Userinfo endpoint` — URL, по которому внешнее приложение может получить атрибуты пользователя.
+        * `{{ ui-key.yacloud_org.application.overview.oauth_field_client_id }}` — уникальный идентификатор приложения.
+        * `{{ ui-key.yacloud_org.application.overview.oauth_field_open_id }}` — URL с конфигурацией всех необходимых для настройки интеграции параметров.
+        * `{{ ui-key.yacloud_org.application.overview.oauth_field_auth_endpoint }}` — URL, на который поставщик услуг будет перенаправлять пользователя для прохождения аутентификации.
+        * `{{ ui-key.yacloud_org.application.overview.oauth_field_token_endpoint }}` — URL, на который от внешнего приложения поступает запрос на получение ID-токена и токена доступа.
+        * `{{ ui-key.yacloud_org.application.overview.oauth_field_user_info_endpoint }}` — URL, по которому внешнее приложение может получить атрибуты пользователя.
 
-  1. В блоке **Секреты приложения** нажмите кнопку **Добавить секрет** и в открывшемся окне:
+  1. В блоке **{{ ui-key.yacloud_org.application.overview.secret_section_title }}** нажмите кнопку **{{ ui-key.yacloud_org.application.overview.secret_section_add_new_secret_action }}** и в открывшемся окне:
      
      1. (Опционально) Добавьте произвольное описание создаваемого секрета.
-     1. Нажмите **Создать**.
+     1. Нажмите **{{ ui-key.yacloud.common.create }}**.
      
      В окне отобразится сгенерированный [секрет приложения](../../../organization/concepts/applications.md#oidc-secret). Сохраните полученное значение.
      
@@ -168,13 +168,13 @@
      
      {% endnote %}
      
-     Если вы закрыли или обновили страницу, не сохранив сгенерированный секрет, используйте кнопку **Добавить секрет**, чтобы создать новый.
+     Если вы закрыли или обновили страницу, не сохранив сгенерированный секрет, используйте кнопку **{{ ui-key.yacloud_org.application.overview.secret_section_add_new_secret_action }}**, чтобы создать новый.
      
-     Чтобы удалить секрет, в списке секретов на странице OIDC-приложения в строке с нужным секретом нажмите значок ![ellipsis](../../../_assets/console-icons/ellipsis.svg) и выберите ![trash-bin](../../../_assets/console-icons/trash-bin.svg) **Удалить**.
+     Чтобы удалить секрет, в списке секретов на странице OIDC-приложения в строке с нужным секретом нажмите значок ![ellipsis](../../../_assets/console-icons/ellipsis.svg) и выберите ![trash-bin](../../../_assets/console-icons/trash-bin.svg) **{{ ui-key.yacloud.common.delete }}**.
 
 - CLI {#cli}
 
-  Если у вас еще нет интерфейса командной строки Yandex Cloud (CLI), [установите и инициализируйте его](../../../cli/quickstart.md#install).
+  Если у вас еще нет интерфейса командной строки {{ yandex-cloud }} (CLI), [установите и инициализируйте его](../../../cli/quickstart.md#install).
 
   По умолчанию используется каталог, указанный при [создании](../../../cli/operations/profile/profile-create.md) профиля CLI. Чтобы изменить каталог по умолчанию, используйте команду `yc config set folder-id <идентификатор_каталога>`. Также для любой команды вы можете указать другой каталог с помощью параметров `--folder-name` или `--folder-id`. Если вы обращаетесь к ресурсу по имени, поиск будет выполнен в каталоге по умолчанию. Если вы обращаетесь к ресурсу по идентификатору, поиск будет выполнен глобально — во всех каталогах с учетом прав доступа.
 
@@ -212,7 +212,7 @@
      Результат будет выглядеть так:
 
      ```text
-     https://auth.yandex.cloud/oauth/<идентификатор_OAuth-клиента>
+     https://{{ auth-main-host }}/oauth/<идентификатор_OAuth-клиента>
      ```
 
      Сохраните этот URL — это OpenID Connect Discovery URL для настройки Cloud.ru.
@@ -242,41 +242,41 @@
 
     {% endnote %}
 
-1. Заполните поля, используя значения из настройки OIDC‑приложения в Yandex Identity Hub:
+1. Заполните поля, используя значения из настройки OIDC‑приложения в {{ org-full-name }}:
 
-    1. **Auth URL** — значение поля **Authorization endpoint**.
-    1. **Userinfo URL** — значение поля **Userinfo endpoint**.
-    1. **Token URL** — значение поля **Token endpoint**.
-    1. **Logout URL** — значение параметра `end_session_endpoint` из `OpenID Configuration`.
-    1. **Client ID** — значение поля **ClientID**.
-    1. **Client Secret** — значение блока **Секреты приложения**.
-    1. **JWKS URI**  — значение параметра `jwks_uri` из `OpenID Configuration`.
+    1. **Auth URL** — значение поля **{{ ui-key.yacloud_org.application.overview.oauth_field_auth_endpoint }}**.
+    1. **Userinfo URL** — значение поля **{{ ui-key.yacloud_org.application.overview.oauth_field_user_info_endpoint }}**.
+    1. **Token URL** — значение поля **{{ ui-key.yacloud_org.application.overview.oauth_field_token_endpoint }}**.
+    1. **Logout URL** — значение параметра `end_session_endpoint` из `{{ ui-key.yacloud_org.application.overview.oauth_field_open_id }}`.
+    1. **Client ID** — значение поля **{{ ui-key.yacloud_org.application.overview.oauth_field_client_id }}**.
+    1. **Client Secret** — значение блока **{{ ui-key.yacloud_org.application.overview.secret_section_title }}**.
+    1. **JWKS URI**  — значение параметра `jwks_uri` из `{{ ui-key.yacloud_org.application.overview.oauth_field_open_id }}`.
 
 1. Нажмите на кнопку **Создать**.
 1. В списке федераций найдите созданную федерацию и скопируйте её ID. Сохраните этот идентификатор — он понадобится в дальнейшем.
 
-### Настройте Redirect URI на стороне Yandex Identity Hub {#setup-redirect}
+### Настройте Redirect URI на стороне {{ org-full-name }} {#setup-redirect}
 
 {% list tabs group=instructions %}
 
-- Интерфейс Cloud Center {#cloud-center}
+- Интерфейс {{ cloud-center }} {#cloud-center}
 
-  1. Войдите в сервис [Yandex Identity Hub](https://center.yandex.cloud/organization).
-  1. На панели слева выберите ![shapes-4](../../../_assets/console-icons/shapes-4.svg) **Приложения** и выберите нужное OIDC-приложение.
-  1. Справа сверху нажмите  ![pencil](../../../_assets/console-icons/pencil.svg) **Редактировать** и в открывшемся окне:
+  1. Войдите в сервис [{{ org-full-name }}]({{ link-org-cloud-center }}).
+  1. На панели слева выберите ![shapes-4](../../../_assets/console-icons/shapes-4.svg) **{{ ui-key.yacloud_org.pages.apps }}** и выберите нужное OIDC-приложение.
+  1. Справа сверху нажмите  ![pencil](../../../_assets/console-icons/pencil.svg) **{{ ui-key.yacloud.common.edit }}** и в открывшемся окне:
 
-      1. В поле **Redirect URI** укажите эндпоинт аутентификации для вашего экземпляра Cloud.ru в формате:
+      1. В поле **{{ ui-key.yacloud_org.application.overview.oauth_field_redirect_uri }}** укажите эндпоинт аутентификации для вашего экземпляра Cloud.ru в формате:
       
           ```text
           https://id.cloud.ru/auth/system/idp/<ID_федерации_Cloud.ru>/callback
           ```
           Например: `https://id.cloud.ru/auth/system/idp/5ca1bc33-7e8a-711a-b29a-a8a121eda1cd/callback`.
 
-      1. Нажмите **Сохранить**.
+      1. Нажмите **{{ ui-key.yacloud.common.save }}**.
 
 - CLI {#cli}
 
-  Если у вас еще нет интерфейса командной строки Yandex Cloud (CLI), [установите и инициализируйте его](../../../cli/quickstart.md#install).
+  Если у вас еще нет интерфейса командной строки {{ yandex-cloud }} (CLI), [установите и инициализируйте его](../../../cli/quickstart.md#install).
 
   По умолчанию используется каталог, указанный при [создании](../../../cli/operations/profile/profile-create.md) профиля CLI. Чтобы изменить каталог по умолчанию, используйте команду `yc config set folder-id <идентификатор_каталога>`. Также для любой команды вы можете указать другой каталог с помощью параметров `--folder-name` или `--folder-id`. Если вы обращаетесь к ресурсу по имени, поиск будет выполнен в каталоге по умолчанию. Если вы обращаетесь к ресурсу по идентификатору, поиск будет выполнен глобально — во всех каталогах с учетом прав доступа.
 
@@ -312,7 +312,7 @@
 
 ### Добавьте пользователей {#add-users}
 
-Чтобы пользователи вашей организации могли аутентифицироваться в Cloud.ru с помощью OIDC‑приложения Yandex Identity Hub, необходимо явно добавить их учётные записи как в само приложение, так и в федерацию Cloud.ru.
+Чтобы пользователи вашей организации могли аутентифицироваться в Cloud.ru с помощью OIDC‑приложения {{ org-full-name }}, необходимо явно добавить их учётные записи как в само приложение, так и в федерацию Cloud.ru.
 
 {% note info %}
 
@@ -320,22 +320,22 @@
 
 {% endnote %}
 
-#### Добавьте пользователей в OIDC‑приложение Yandex Identity Hub {#add-app-users}
+#### Добавьте пользователей в OIDC‑приложение {{ org-full-name }} {#add-app-users}
 
 {% list tabs group=instructions %}
 
-- Интерфейс Cloud Center {#cloud-center}
+- Интерфейс {{ cloud-center }} {#cloud-center}
 
-    1. Войдите в сервис [Yandex Identity Hub](https://center.yandex.cloud/organization).
-    1. На панели слева выберите ![shapes-4](../../../_assets/console-icons/shapes-4.svg) **Приложения** и выберите нужное приложение.
-    1. Перейдите на вкладку **Пользователи и группы**.
-    1. Нажмите ![person-plus](../../../_assets/console-icons/person-plus.svg) **Добавить пользователей**.
+    1. Войдите в сервис [{{ org-full-name }}]({{ link-org-cloud-center }}).
+    1. На панели слева выберите ![shapes-4](../../../_assets/console-icons/shapes-4.svg) **{{ ui-key.yacloud_org.pages.apps }}** и выберите нужное приложение.
+    1. Перейдите на вкладку **{{ ui-key.yacloud_org.organization.apps.AppPageLayout.assignments_kKzJS }}**.
+    1. Нажмите ![person-plus](../../../_assets/console-icons/person-plus.svg) **{{ ui-key.yacloud_org.organization.apps.AppAssignmentsPage.action_add-assignments }}**.
     1. В открывшемся окне выберите требуемого пользователя.
-    1. Нажмите **Добавить**.
+    1. Нажмите **{{ ui-key.yacloud.common.add }}**.
 
 - CLI {#cli}
 
-  Если у вас еще нет интерфейса командной строки Yandex Cloud (CLI), [установите и инициализируйте его](../../../cli/quickstart.md#install).
+  Если у вас еще нет интерфейса командной строки {{ yandex-cloud }} (CLI), [установите и инициализируйте его](../../../cli/quickstart.md#install).
 
   По умолчанию используется каталог, указанный при [создании](../../../cli/operations/profile/profile-create.md) профиля CLI. Чтобы изменить каталог по умолчанию, используйте команду `yc config set folder-id <идентификатор_каталога>`. Также для любой команды вы можете указать другой каталог с помощью параметров `--folder-name` или `--folder-id`. Если вы обращаетесь к ресурсу по имени, поиск будет выполнен в каталоге по умолчанию. Если вы обращаетесь к ресурсу по идентификатору, поиск будет выполнен глобально — во всех каталогах с учетом прав доступа.
 
@@ -399,5 +399,5 @@
 1. Если вы были авторизованы, выйдите из профиля.
 1. На форме входа нажмите кнопку **SSO**.
 1. В появившемся диалоге введите ID созданной вами федерации и нажмите **Войти**.
-1. На странице аутентификации Yandex Cloud укажите адрес электронной почты и пароль пользователя.
+1. На странице аутентификации {{ yandex-cloud }} укажите адрес электронной почты и пароль пользователя.
 1. Убедитесь, что вы успешно аутентифицировались в Cloud.ru.

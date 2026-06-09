@@ -2,17 +2,17 @@
 
 Вы можете получить информацию, которую виртуальная машина выводит в последовательный порт, и использовать ее, например, для диагностики неполадок.
 
-Для доступа к выводимым данным необходима [роль](../../security/index.md) `сompute.operator` или `viewer`.
+Для доступа к выводимым данным необходима [роль](../../security/index.md) `сompute.operator` или `{{ roles-viewer }}`.
 
 {% list tabs group=instructions %}
 
 - Консоль управления {#console}
 
   1. Выберите каталог, которому принадлежит виртуальная машина.
-  1. [Перейдите](../../../console/operations/select-service.md#select-service) в сервис **Compute Cloud**.
+  1. Перейдите в сервис **{{ compute-name }}**.
   1. Нажмите на строку с нужной виртуальной машиной.
-  1. Перейдите на вкладку **Последовательный порт**.
-  1. Чтобы воспользоваться поиском с помощью сочетания клавиш **Ctrl** + **F**, включите переключатель **Исходные данные** в правом верхнем углу.
+  1. Перейдите на вкладку **{{ ui-key.yacloud.compute.instance.switch_service-console }}**.
+  1. Чтобы воспользоваться поиском с помощью сочетания клавиш **Ctrl** + **F**, включите переключатель **{{ ui-key.yacloud.compute.instance.service-console.raw-mode }}** в правом верхнем углу.
 
 - CLI {#cli}
 
@@ -35,8 +35,8 @@
       +----------------------+-----------------+---------------+---------+----------------------+
       |          ID          |       NAME      |    ZONE ID    | STATUS  |     DESCRIPTION      |
       +----------------------+-----------------+---------------+---------+----------------------+
-      | fhm0b28lgfp4******** | first-instance  | ru-central1-a | RUNNING | my first vm via CLI  |
-      | fhm9gk85nj7g******** | second-instance | ru-central1-a | RUNNING | my second vm via CLI |
+      | fhm0b28lgfp4******** | first-instance  | {{ region-id }}-a | RUNNING | my first vm via CLI  |
+      | fhm9gk85nj7g******** | second-instance | {{ region-id }}-a | RUNNING | my second vm via CLI |
       +----------------------+-----------------+---------------+---------+----------------------+
       ```
 

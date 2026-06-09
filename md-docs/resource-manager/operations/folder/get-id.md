@@ -4,11 +4,11 @@
 
 - Консоль управления {#console}
 
-  Вы можете получить идентификатор каталога на дашборде или на вкладке **Информация о каталоге**.
+  Вы можете получить идентификатор каталога на дашборде или на вкладке **{{ ui-key.yacloud.dashboard.FoldersSelector.FolderInfoTooltip.title_folder-info-dialog_c4F7i }}**.
 
   **Получение идентификатора на дашборде**
 
-  1. В [консоли управления](https://console.yandex.cloud) на панели сверху нажмите ![image](../../../_assets/console-icons/layout-side-content-left.svg) или ![image](../../../_assets/console-icons/chevron-down.svg) и выберите нужный [каталог](../../concepts/resources-hierarchy.md#folder).
+  1. В [консоли управления]({{ link-console-main }}) на панели сверху нажмите ![image](../../../_assets/console-icons/layout-side-content-left.svg) или ![image](../../../_assets/console-icons/chevron-down.svg) и выберите нужный [каталог](../../concepts/resources-hierarchy.md#folder).
   1. Идентификатор каталога указан сверху, под именем каталога. Чтобы скопировать идентификатор, наведите на него указатель и нажмите ![image](../../../_assets/console-icons/copy.svg).
 
      {% cut "Расположение идентификатора" %}
@@ -17,11 +17,11 @@
 
      {% endcut %}
 
-  **Получение идентификатора на вкладке Информация о каталоге**
+  **Получение идентификатора на вкладке {{ ui-key.yacloud.dashboard.FoldersSelector.FolderInfoTooltip.title_folder-info-dialog_c4F7i }}**
 
-  1. В [консоли управления](https://console.yandex.cloud) на панели сверху нажмите ![image](../../../_assets/console-icons/layout-side-content-left.svg) или ![image](../../../_assets/console-icons/chevron-down.svg) и выберите нужный [каталог](../../concepts/resources-hierarchy.md#folder).
-  1. Справа от названия каталога нажмите ![image](../../../_assets/console-icons/ellipsis.svg) и выберите **Информация о каталоге**.
-  1. В открывшемся окне идентификатор каталога указан в поле **Идентификатор каталога**. Чтобы скопировать идентификатор, наведите на него указатель и нажмите ![image](../../../_assets/console-icons/copy.svg).
+  1. В [консоли управления]({{ link-console-main }}) на панели сверху нажмите ![image](../../../_assets/console-icons/layout-side-content-left.svg) или ![image](../../../_assets/console-icons/chevron-down.svg) и выберите нужный [каталог](../../concepts/resources-hierarchy.md#folder).
+  1. Справа от названия каталога нажмите ![image](../../../_assets/console-icons/ellipsis.svg) и выберите **{{ ui-key.yacloud.common.resource-acl.button_folder-info }}**.
+  1. В открывшемся окне идентификатор каталога указан в поле **{{ ui-key.yacloud.dashboard.FoldersSelector.FolderInfoDialog.folder-id_6KQJv }}**. Чтобы скопировать идентификатор, наведите на него указатель и нажмите ![image](../../../_assets/console-icons/copy.svg).
 
      {% cut "Расположение идентификатора" %}
 
@@ -34,12 +34,12 @@
   Вы также можете получить идентификатор из URL страницы каталога в консоли управления:
   
   ```text
-  https://console.yandex.cloud/folders/<идентификатор_каталога>
+  {{ link-console-main }}/folders/<идентификатор_каталога>
   ```
 
 - CLI {#cli}
 
-  Если у вас еще нет интерфейса командной строки Yandex Cloud (CLI), [установите и инициализируйте его](../../../cli/quickstart.md#install).
+  Если у вас еще нет интерфейса командной строки {{ yandex-cloud }} (CLI), [установите и инициализируйте его](../../../cli/quickstart.md#install).
 
   Если вы знаете имя [каталога](../../concepts/resources-hierarchy.md#folder), получите его идентификатор с помощью команды `get`:
 

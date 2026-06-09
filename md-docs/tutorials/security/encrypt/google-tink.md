@@ -2,7 +2,7 @@
 
 [Tink](https://github.com/google/tink) — это библиотека шифрования от Google, альтернатива [AWS Encryption](../../../kms/tutorials/encrypt/aws-encryption-sdk.md). Библиотека помогает сосредоточиться на задаче шифрования и расшифрования данных, не отвлекаясь на выбор правильного алгоритма и параметров шифрования.
 
-Поддерживаются [Java](https://github.com/yandex-cloud/kms-clients-java/tree/master/kms-provider-tink) и [Go](https://github.com/yandex-cloud/kms-clients-go) версии клиентов для Tink, позволяющие шифровать и расшифровывать данные на ключах Yandex Key Management Service. Данные шифруются [по схеме envelope encryption](../../../kms/concepts/envelope.md) (объем открытого текста не ограничен).
+Поддерживаются [Java](https://github.com/yandex-cloud/kms-clients-java/tree/master/kms-provider-tink) и [Go](https://github.com/yandex-cloud/kms-clients-go) версии клиентов для Tink, позволяющие шифровать и расшифровывать данные на ключах {{ kms-full-name }}. Данные шифруются [по схеме envelope encryption](../../../kms/concepts/envelope.md) (объем открытого текста не ограничен).
 
 ## Добавление зависимости {#dependency}
 
@@ -36,9 +36,9 @@
 
 В коде используются следующие переменные:
 
-* `endpoint` – `api.cloud.yandex.net:443`.
-* `credentialProvider` или `credentials` – определяет способ аутентификации, подробнее читайте в разделе [Аутентификация в SDK Yandex Cloud](../../../kms/tutorials/encrypt/sdk.md#auth).
-* `keyId` – идентификатор [ключа KMS](../../../kms/concepts/key.md).
+* `endpoint` – `{{ api-host }}:443`.
+* `credentialProvider` или `credentials` – определяет способ аутентификации, подробнее читайте в разделе [Аутентификация в SDK {{ yandex-cloud }}](../../../kms/tutorials/encrypt/sdk.md#auth).
+* `keyId` – идентификатор [ключа {{ kms-short-name }}](../../../kms/concepts/key.md).
 * `plaintext` – открытый текст.
 * `ciphertext` – шифртекст.
 * `aad` – [AAD-контекст](../../../kms/concepts/symmetric-encryption.md#add-context).

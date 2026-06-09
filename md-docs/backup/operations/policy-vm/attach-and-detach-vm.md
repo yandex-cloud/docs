@@ -1,36 +1,36 @@
-# Привязать виртуальную машину или сервер Yandex BareMetal к политике резервного копирования
+# Привязать виртуальную машину или сервер {{ baremetal-full-name }} к политике резервного копирования
 
 
-Привязать к политике резервного копирования можно только подключенные к Yandex Cloud Backup виртуальные машины и серверы BareMetal. Подробнее см. в разделах [Управление виртуальными машинами в Cloud Backup](../index.md#connect-vm) и [Управление серверами BareMetal в Cloud Backup](../index.md#connect-baremetal).
+Привязать к политике резервного копирования можно только подключенные к {{ backup-full-name }} виртуальные машины и серверы {{ baremetal-name }}. Подробнее см. в разделах [{#T}](../index.md#connect-vm) и [{#T}](../index.md#connect-baremetal).
 
 {% list tabs group=instructions %}
 
 - Консоль управления {#console}
 
-  1. В [консоли управления](https://console.yandex.cloud) выберите каталог, в котором вы хотите привязать ВМ или сервер BareMetal к политике.
-  1. [Перейдите](../../../console/operations/select-service.md#select-service) в сервис **Cloud Backup**.
-  1. Перейдите на вкладку ![policies](../../../_assets/console-icons/calendar.svg) **Политики копирования**.
-  1. Выберите политику, к которой вы хотите привязать ВМ или сервер BareMetal.
-  1. В блоке **Привязанные ресурсы** нажмите кнопку ![image](../../../_assets/console-icons/plus.svg) **Привязать ресурс** и в открывшемся окне:
+  1. В [консоли управления]({{ link-console-main }}) выберите каталог, в котором вы хотите привязать ВМ или сервер {{ baremetal-name }} к политике.
+  1. Перейдите в сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_backup }}**.
+  1. Перейдите на вкладку ![policies](../../../_assets/console-icons/calendar.svg) **{{ ui-key.yacloud_billing.backup.label_policies }}**.
+  1. Выберите политику, к которой вы хотите привязать ВМ или сервер {{ baremetal-name }}.
+  1. В блоке **{{ ui-key.yacloud.backup.title_linked-recourses }}** нажмите кнопку ![image](../../../_assets/console-icons/plus.svg) **{{ ui-key.yacloud.backup.button_attach-instance }}** и в открывшемся окне:
 
-      1. В зависимости от того, какой ресурс вы хотите привязать к политике, выберите вкладку **Виртуальные машины** или **Серверы BareMetal** и в списке выберите нужные ВМ или сервер.
+      1. В зависимости от того, какой ресурс вы хотите привязать к политике, выберите вкладку **{{ ui-key.yacloud.backup.value_vm-recourses }}** или **{{ ui-key.yacloud.backup.value_bms-recourses }}** и в списке выберите нужные ВМ или сервер.
 
-          Если ВМ или сервера BareMetal, которые вы хотите привязать к политике, нет в списке, убедитесь, что они подключены к Cloud Backup.
-      1. Нажмите кнопку **Привязать**.
+          Если ВМ или сервера {{ baremetal-name }}, которые вы хотите привязать к политике, нет в списке, убедитесь, что они подключены к {{ backup-name }}.
+      1. Нажмите кнопку **{{ ui-key.yacloud_billing.backup.button_attach-instance-submit }}**.
 
 - CLI {#cli}
 
-  Если у вас еще нет интерфейса командной строки Yandex Cloud (CLI), [установите и инициализируйте его](../../../cli/quickstart.md#install).
+  Если у вас еще нет интерфейса командной строки {{ yandex-cloud }} (CLI), [установите и инициализируйте его](../../../cli/quickstart.md#install).
 
   По умолчанию используется каталог, указанный при [создании](../../../cli/operations/profile/profile-create.md) профиля CLI. Чтобы изменить каталог по умолчанию, используйте команду `yc config set folder-id <идентификатор_каталога>`. Также для любой команды вы можете указать другой каталог с помощью параметров `--folder-name` или `--folder-id`. Если вы обращаетесь к ресурсу по имени, поиск будет выполнен в каталоге по умолчанию. Если вы обращаетесь к ресурсу по идентификатору, поиск будет выполнен глобально — во всех каталогах с учетом прав доступа.
 
-  1. Посмотрите описание команды CLI для привязки ВМ или сервера BareMetal к политике: 
+  1. Посмотрите описание команды CLI для привязки ВМ или сервера {{ baremetal-name }} к политике: 
 
       ```bash
       yc backup policy apply --help
       ```
 
-  1. Узнайте идентификатор политики, к которой вы хотите привязать ВМ или сервер BareMetal:
+  1. Узнайте идентификатор политики, к которой вы хотите привязать ВМ или сервер {{ baremetal-name }}:
 
       ```bash
       yc backup policy list
@@ -59,43 +59,46 @@
       +----------------------+---------+---------------+---------+--------------+-------------+
       |          ID          |  NAME   |    ZONE ID    | STATUS  | EXTERNAL IP  | INTERNAL IP |
       +----------------------+---------+---------------+---------+--------------+-------------+
-      | jklp0o9i8012******** | my-vm-1 | ru-central1-b | RUNNING | 51.250.**.** | 192.168.*.* |
-      | mnoa5s6d8345******** | my-vm-2 | ru-central1-b | RUNNING | 84.201.**.** | 192.168.*.* |
+      | jklp0o9i8012******** | my-vm-1 | {{ region-id }}-b | RUNNING | 51.250.**.** | 192.168.*.* |
+      | mnoa5s6d8345******** | my-vm-2 | {{ region-id }}-b | RUNNING | 84.201.**.** | 192.168.*.* |
       +----------------------+---------+---------------+---------+--------------+-------------+
       ```
 
-      Чтобы узнать идентификаторы серверов BareMetal, в [консоли управления](https://console.yandex.cloud) в списке сервисов нужного [каталога](../../../resource-manager/concepts/resources-hierarchy.md#folder) выберите **BareMetal**. Идентификаторы указаны в списке серверов в поле **Идентификатор**.
+      Чтобы узнать идентификаторы серверов {{ baremetal-name }}, в [консоли управления]({{ link-console-main }}) в списке сервисов нужного [каталога](../../../resource-manager/concepts/resources-hierarchy.md#folder) выберите **{{ ui-key.yacloud.iam.folder.dashboard.label_baremetal }}**. Идентификаторы указаны в списке серверов в поле **{{ ui-key.yacloud.common.id }}**.
 
-  1. Привяжите ВМ или сервер BareMetal, указав идентификатор политики:
+  1. Привяжите ВМ или сервер {{ baremetal-name }}, указав идентификатор политики:
 
       ```bash
       yc backup policy apply <идентификатор_политики> \
-        --instance-ids <идентификаторы_ВМ_или_серверов_BareMetal>
+        --instance-ids <идентификаторы_ВМ_или_серверов_{{ baremetal-name }}>
       ```
 
-      Где `--instance-ids` — идентификаторы подключенных к Cloud Backup виртуальных машин и серверов BareMetal, которые нужно привязать к политике резервного копирования. Несколько идентификаторов указываются через запятую.
+      Где `--instance-ids` — идентификаторы подключенных к {{ backup-name }} виртуальных машин и серверов {{ baremetal-name }}, которые нужно привязать к политике резервного копирования. Несколько идентификаторов указываются через запятую.
 
   Подробнее о команде читайте в [справочнике CLI](../../../cli/cli-ref/backup/cli-ref/policy/apply.md).
 
-- Terraform {#tf}
+- {{ TF }} {#tf}
 
-  [Terraform](https://www.terraform.io/) позволяет быстро создать облачную инфраструктуру в Yandex Cloud и управлять ею с помощью файлов конфигураций. В файлах конфигураций хранится описание инфраструктуры на языке HCL (HashiCorp Configuration Language). При изменении файлов конфигураций Terraform автоматически определяет, какая часть вашей конфигурации уже развернута, что следует добавить или удалить.
+  [{{ TF }}](https://www.terraform.io/) позволяет быстро создать облачную инфраструктуру в {{ yandex-cloud }} и управлять ею с помощью файлов конфигураций. В файлах конфигураций хранится описание инфраструктуры на языке HCL (HashiCorp Configuration Language). При изменении файлов конфигураций {{ TF }} автоматически определяет, какая часть вашей конфигурации уже развернута, что следует добавить или удалить.
   
-  Terraform распространяется под лицензией [Business Source License](https://github.com/hashicorp/terraform/blob/main/LICENSE), а [провайдер Yandex Cloud для Terraform](https://github.com/yandex-cloud/terraform-provider-yandex) — под лицензией [MPL-2.0](https://www.mozilla.org/en-US/MPL/2.0/).
+  {{ TF }} распространяется под лицензией [Business Source License](https://github.com/hashicorp/terraform/blob/main/LICENSE), а [провайдер {{ yandex-cloud }} для {{ TF }}](https://github.com/yandex-cloud/terraform-provider-yandex) — под лицензией [MPL-2.0](https://www.mozilla.org/en-US/MPL/2.0/).
   
-  Подробную информацию о ресурсах провайдера смотрите в документации на сайте [Terraform](https://www.terraform.io/docs/providers/yandex/index.html) или в [зеркале](../../../terraform/index.md).
+  Подробную информацию о ресурсах провайдера смотрите в документации на сайте [{{ TF }}](https://www.terraform.io/docs/providers/yandex/index.html) или в [зеркале]({{ tf-docs-link }}).
 
-  Если у вас еще нет Terraform, [установите его и настройте провайдер Yandex Cloud](../../../tutorials/infrastructure-management/terraform-quickstart.md#install-terraform).
+  Если у вас еще нет {{ TF }}, [установите его и настройте провайдер {{ yandex-cloud }}](../../../tutorials/infrastructure-management/terraform-quickstart.md#install-terraform).
+  
+  
+  Чтобы управлять инфраструктурой с помощью {{ TF }} от имени сервисного аккаунта или пользовательских аккаунтов: аккаунта на Яндексе, федеративного аккаунта и локального пользователя, [аутентифицируйтесь](../../../terraform/authentication.md) соответствующим способом.
 
   {% note info %}
 
-  В настоящий момент привязать к [политике резервного копирования](../../concepts/policy.md) с помощью Terraform можно только [виртуальную машину Compute Cloud](../../../compute/concepts/vm.md). Чтобы привязать [сервер BareMetal](../../../baremetal/concepts/servers.md), используйте [консоль управления](https://console.yandex.cloud), [Yandex Cloud CLI](../../../cli/cli-ref/backup/cli-ref/policy/apply.md) или [API](../../backup/api-ref/Policy/apply.md).
+  В настоящий момент привязать к [политике резервного копирования](../../concepts/policy.md) с помощью {{ TF }} можно только [виртуальную машину {{ compute-name }}](../../../compute/concepts/vm.md). Чтобы привязать [сервер {{ baremetal-name }}](../../../baremetal/concepts/servers.md), используйте [консоль управления]({{ link-console-main }}), [{{ yandex-cloud }} CLI](../../../cli/cli-ref/backup/cli-ref/policy/apply.md) или [API](../../backup/api-ref/Policy/apply.md).
 
   {% endnote %}
 
   Чтобы привязать виртуальную машину к политике резервного копирования:
 
-  1. Опишите в конфигурационном файле Terraform параметры привязки виртуальной машины к политике:
+  1. Опишите в конфигурационном файле {{ TF }} параметры привязки виртуальной машины к политике:
 
       ```hcl
       resource "yandex_backup_policy_bindings" "test_backup_binding" {
@@ -109,7 +112,7 @@
       * `instance_id` — [идентификатор](../../../compute/operations/vm-info/get-info.md#outside-instance) виртуальной машины, которую вы хотите привязать к политике.
       * `policy_id` — [идентификатор](get-info.md) политики резервного копирования, к которой вы хотите привязать виртуальную машину.
 
-     Более подробную информацию о параметрах ресурса `yandex_backup_policy_bindings` см. в [документации провайдера](../../../terraform/resources/backup_policy_bindings.md).
+     Более подробную информацию о параметрах ресурса `yandex_backup_policy_bindings` см. в [документации провайдера]({{ tf-provider-resources-link }}/backup_policy_bindings).
   1. Создайте ресурсы:
 
      1. В терминале перейдите в директорию с конфигурационным файлом.
@@ -131,7 +134,7 @@
         terraform plan
         ```
      
-        В терминале будет выведен список ресурсов с параметрами. На этом этапе изменения не будут внесены. Если в конфигурации есть ошибки, Terraform на них укажет.
+        В терминале будет выведен список ресурсов с параметрами. На этом этапе изменения не будут внесены. Если в конфигурации есть ошибки, {{ TF }} на них укажет.
      1. Примените изменения конфигурации:
      
         ```bash
@@ -140,7 +143,7 @@
      
      1. Подтвердите изменения: введите в терминале слово `yes` и нажмите **Enter**.
 
-     Terraform создаст все требуемые ресурсы. Проверить появление ресурсов можно в [консоли управления](https://console.yandex.cloud) или с помощью команды [CLI](../../../cli/quickstart.md):
+     {{ TF }} создаст все требуемые ресурсы. Проверить появление ресурсов можно в [консоли управления]({{ link-console-main }}) или с помощью команды [CLI](../../../cli/quickstart.md):
 
      ```bash
       yc backup policy list-applications
@@ -154,9 +157,9 @@
 
 #### См. также {#see-also}
 
-* [Создать виртуальную машину на Linux с подключением к Cloud Backup](../create-vm.md)
-* [Создать виртуальную машину Windows Server с подключением к Cloud Backup](../create-vm-windows.md)
-* [Создать политику резервного копирования](create.md)
-* [Отвязать виртуальную машину или сервер Yandex BareMetal от политики резервного копирования](detach-vm.md)
-* [Подключение виртуальных машин Compute Cloud и серверов Yandex BareMetal к Cloud Backup](../../concepts/vm-connection.md)
-* [Политики резервного копирования](../../concepts/policy.md)
+* [{#T}](../create-vm.md)
+* [{#T}](../create-vm-windows.md)
+* [{#T}](create.md)
+* [{#T}](detach-vm.md)
+* [{#T}](../../concepts/vm-connection.md)
+* [{#T}](../../concepts/policy.md)

@@ -1,6 +1,12 @@
 # Устранение ошибки `OAuth token is invalid or expired`
 
 
+{% note info "Аутентификация по OAuth-токенам устарела" %}
+
+Этот способ аутентификации больше не поддерживается. Рассмотрите использование [IAM-токенов](../../../iam/concepts/authorization/iam-token.md) или [API-ключей](../../../iam/concepts/authorization/api-key.md).
+
+{% endnote %}
+
 ## Описание проблемы {#issue-description}
 
 Истек срок действия OAuth-токена и появилась ошибка `OAuth token is invalid or expired`.
@@ -11,7 +17,7 @@
 
 Возможно, для учетной записи, которой принадлежал токен, был изменен пароль или способ аутентификации. Список причин, из-за которых токен мог утратить свою актуальность, приведен в статье «[Отзыв токенов](https://yandex.ru/dev/id/doc/dg/oauth/reference/token-invalidate.html)» документации Яндекс ID.
 
-Чтобы получить актуальный OAuth-токен, используйте [запрос](https://oauth.yandex.ru/authorize?response_type=token&client_id=1a6990aa636648e9b2ef855fa7bec2fb) к сервису Яндекс OAuth. Токен отобразится на открывшейся странице. 
+Чтобы получить актуальный OAuth-токен, используйте [запрос]({{ link-cloud-oauth }}) к сервису Яндекс OAuth. Токен отобразится на открывшейся странице. 
 
 Чтобы поменять устаревший OAuth-токен, сохраненный в YC CLI, пройдите [аутентификацию](../../../cli/quickstart.md#initialize) вновь.
 

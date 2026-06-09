@@ -1,16 +1,14 @@
 # Compute Cloud API, REST: SnapshotSchedule.Delete
 
 Deletes the specified snapshot schedule.
-
 Deleting a snapshot schedule removes its data permanently and is irreversible. However, deleting a schedule
 does not delete any snapshots created by the schedule. You must delete snapshots separately.
-
 The schedule is deleted only after all snapshot creations and deletions triggered by the schedule are completed.
 
 ## HTTP request
 
 ```
-DELETE https://compute.api.cloud.yandex.net/compute/v1/snapshotSchedules/{snapshotScheduleId}
+DELETE https://compute.{{ api-host }}/compute/v1/snapshotSchedules/{snapshotScheduleId}
 ```
 
 ## Path parameters
@@ -20,7 +18,6 @@ DELETE https://compute.api.cloud.yandex.net/compute/v1/snapshotSchedules/{snapsh
 || snapshotScheduleId | **string**
 
 Required field. ID of the snapshot schedule to delete.
-
 To get a snapshot schedule ID, make a [SnapshotScheduleService.List](list.md#List) request. ||
 |#
 
@@ -36,17 +33,16 @@ To get a snapshot schedule ID, make a [SnapshotScheduleService.List](list.md#Lis
   "createdBy": "string",
   "modifiedAt": "string",
   "done": "boolean",
-  "metadata": {
-    "snapshotScheduleId": "string"
-  },
-  // Includes only one of the fields `error`
+  "metadata": "object",
+  // Includes only one of the fields `error`, `response`
   "error": {
     "code": "integer",
     "message": "string",
     "details": [
       "object"
     ]
-  }
+  },
+  "response": "object"
   // end of the list of possible fields
 }
 ```
@@ -88,7 +84,7 @@ In some languages, built-in datetime utilities do not support nanosecond precisi
 
 If the value is `false`, it means the operation is still in progress.
 If `true`, the operation is completed, and either `error` or `response` is available. ||
-|| metadata | **[DeleteSnapshotScheduleMetadata](#yandex.cloud.compute.v1.DeleteSnapshotScheduleMetadata)**
+|| metadata | **object**
 
 Service-specific metadata associated with the operation.
 It typically contains the ID of the target resource that the operation is performed on.
@@ -97,21 +93,27 @@ Any method that returns a long-running operation should document the metadata ty
 
 The error result of the operation in case of failure or cancellation.
 
-Includes only one of the fields `error`.
+Includes only one of the fields `error`, `response`.
 
 The operation result.
 If `done == false` and there was no failure detected, neither `error` nor `response` is set.
 If `done == false` and there was a failure detected, `error` is set.
 If `done == true`, exactly one of `error` or `response` is set. ||
-|#
+|| response | **object**
 
-## DeleteSnapshotScheduleMetadata {#yandex.cloud.compute.v1.DeleteSnapshotScheduleMetadata}
+The normal response of the operation in case of success.
+If the original method returns no data on success, such as Delete,
+the response is [google.protobuf.Empty](https://developers.google.com/protocol-buffers/docs/reference/google.protobuf#google.protobuf.Empty).
+If the original method is the standard Create/Update,
+the response should be the target resource of the operation.
+Any method that returns a long-running operation should document the response type, if any.
 
-#|
-||Field | Description ||
-|| snapshotScheduleId | **string**
+Includes only one of the fields `error`, `response`.
 
-ID of the snapshot schedule that is being deleted. ||
+The operation result.
+If `done == false` and there was no failure detected, neither `error` nor `response` is set.
+If `done == false` and there was a failure detected, `error` is set.
+If `done == true`, exactly one of `error` or `response` is set. ||
 |#
 
 ## Status {#google.rpc.Status}

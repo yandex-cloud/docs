@@ -5,7 +5,7 @@ Lists operations for the specified placement group.
 ## HTTP request
 
 ```
-GET https://compute.api.cloud.yandex.net/compute/v1/placementGroups/{placementGroupId}/operations
+GET https://compute.{{ api-host }}/compute/v1/placementGroups/{placementGroupId}/operations
 ```
 
 ## Path parameters
@@ -15,7 +15,6 @@ GET https://compute.api.cloud.yandex.net/compute/v1/placementGroups/{placementGr
 || placementGroupId | **string**
 
 Required field. ID of the placement group to list operations for.
-
 To get the placement group ID, use [PlacementGroupService.List](list.md#List) request. ||
 |#
 

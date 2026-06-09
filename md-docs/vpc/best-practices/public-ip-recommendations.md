@@ -1,6 +1,6 @@
 # Рекомендации по использованию публичных IP-адресов
 
-[Публичные IPv4-адреса](../concepts/address.md#public-addresses) — это ограниченный ресурс, цена которого постоянно растет. При этом использование публичных IPv4-адресов часто не требуется, а в некоторых случаях может создавать уязвимости в вашей инфраструктуре. Yandex Cloud предоставляет набор сервисов и [образов виртуальных машин](../../compute/concepts/image.md), позволяющих минимизировать использование публичных IPv4 и построить более экономичную и устойчивую инфраструктуру.
+[Публичные IPv4-адреса](../concepts/address.md#public-addresses) — это ограниченный ресурс, цена которого постоянно растет. При этом использование публичных IPv4-адресов часто не требуется, а в некоторых случаях может создавать уязвимости в вашей инфраструктуре. {{ yandex-cloud }} предоставляет набор сервисов и [образов виртуальных машин](../../compute/concepts/image.md), позволяющих минимизировать использование публичных IPv4 и построить более экономичную и устойчивую инфраструктуру.
 
 #### Используйте NAT-шлюз {#use-nat}
 
@@ -10,36 +10,36 @@
 
 Чтобы организовать доступ в интернет с определенных IP-адресов, [воспользуйтесь выделенным NAT-инстансом](../../tutorials/routing/nat-instance/index.md) и зафиксируйте его адрес как статический. Например, такой вариант можно использовать для настройки политик или межсетевых экранов при взаимодействии с партнерскими организациями. Таким образом, ВМ в рамках [сети](../concepts/network.md#network) доступа смогут использовать общий выход в интернет с фиксированного IP-адреса.
 
-Также такая схема позволяет организовать безопасный доступ к сервису [Yandex Object Storage](../../storage/index.md) без доступа в интернет. Для этого настройте [политику доступа](../../storage/concepts/policy.md) для [бакета](../../storage/concepts/bucket.md), добавив в белый список только фиксированный IP-адрес вашего NAT-инстанса (см. [пример настройки](https://github.com/alex-vlasov-l1/nat-insatnce-terraform-example)).
+Также такая схема позволяет организовать безопасный доступ к сервису [{{ objstorage-full-name }}](../../storage/index.md) без доступа в интернет. Для этого настройте [политику доступа](../../storage/concepts/policy.md) для [бакета](../../storage/concepts/bucket.md), добавив в белый список только фиксированный IP-адрес вашего NAT-инстанса (см. [пример настройки](https://github.com/alex-vlasov-l1/nat-insatnce-terraform-example)).
 
 #### Используйте балансировщики нагрузки {#use-load-balancer}
 
-Для публикации ваших приложений используйте балансировщики нагрузки [Yandex Network Load Balancer](../../network-load-balancer/index.md) и [Yandex Application Load Balancer](../../application-load-balancer/index.md) или сервис типа `LoadBalancer` в [Yandex Managed Service for Kubernetes](../../managed-kubernetes/operations/create-load-balancer.md). С их помощью можно публиковать сервисы на общем IP-адресе, используя разные порты или маршрутизацию по путям и SNI.
+Для публикации ваших приложений используйте балансировщики нагрузки [{{ network-load-balancer-full-name }}](../../network-load-balancer/index.md) и [{{ alb-full-name }}](../../application-load-balancer/index.md) или сервис типа `LoadBalancer` в [{{ managed-k8s-full-name }}](../../managed-kubernetes/operations/create-load-balancer.md). С их помощью можно публиковать сервисы на общем IP-адресе, используя разные порты или маршрутизацию по путям и SNI.
 
-#### Публикуйте статические файлы с помощью Object Storage и Cloud CDN {#publishing-static-files}
+#### Публикуйте статические файлы с помощью {{ objstorage-name }} и {{ cdn-name }} {#publishing-static-files}
 
-Для публикации статических файлов используйте сервис [Object Storage](../../storage/index.md) в сочетании с сервисом [Yandex Cloud CDN](../../cdn/index.md). Таким образом вы и сэкономите вычислительные ресурсы ваших ВМ, и повысите экономическую эффективность. Также использование Yandex Cloud CDN ускоряет отдачу контента пользователям и повышает надежность ваших сервисов.
+Для публикации статических файлов используйте сервис [{{ objstorage-name }}](../../storage/index.md) в сочетании с сервисом [{{ cdn-full-name }}](../../cdn/index.md). Таким образом вы и сэкономите вычислительные ресурсы ваших ВМ, и повысите экономическую эффективность. Также использование {{ cdn-full-name }} ускоряет отдачу контента пользователям и повышает надежность ваших сервисов.
 
 Подробнее:
-* [Настройка хостинга](../../storage/operations/hosting/setup.md).
-* [Организация сине-зеленого и канареечного развертывания версий веб-сервиса](../../tutorials/web/blue-green-canary-deployment.md).
+* [{#T}](../../storage/operations/hosting/setup.md).
+* [{#T}](../../tutorials/web/blue-green-canary-deployment.md).
 
 #### Используйте Site-to-Site VPN {#site-to-site}
 
 Для настройки сетевого взаимодействия между разными площадками и внешними облаками используйте Site-to-Site [VPN](../../glossary/vpn.md). Так можно обезопасить ваши приложения от несанкционированного доступа и исключить доступ к ним извне. Также это поможет сэкономить на использовании публичных IP-адресов: вам будет необходим только один публичный IP-адрес для VPN-подключения.
 
 Подробнее:
-* [Организация сетевой связности между облачными и удаленными ресурсами с помощью IPsec-шлюзов](../../tutorials/routing/ipsec/index.md).
+* [{#T}](../../tutorials/routing/ipsec/index.md).
 * [Настройка VPN с облаком Azure](https://github.com/yandex-cloud/yc-solution-library-for-azure/tree/main/Yandex-Azure%20VPN).
 * [Настройка VPN с облаком AWS](https://github.com/yandex-cloud/yc-solution-library-for-aws/tree/main/VPN/modules/vpn).
 
 
-#### Используйте Yandex Cloud Interconnect {#cic}
+#### Используйте {{ interconnect-full-name }} {#cic}
 
-Свяжите вашу локальную сетевую инфраструктуру с облачной с помощью сервиса [Cloud Interconnect](../../interconnect/index.md). Это позволит не использовать публичные IP-адресов как со стороны вашей сети, так и со стороны Yandex Cloud. Вместо этого вы сможете использовать [внутренние IP-адреса](../concepts/address.md#internal-addresses) из [подсетей](../concepts/network.md#subnet), диапазоны которых определите сами.
+Свяжите вашу локальную сетевую инфраструктуру с облачной с помощью сервиса [{{ interconnect-name }}](../../interconnect/index.md). Это позволит не использовать публичные IP-адресов как со стороны вашей сети, так и со стороны {{ yandex-cloud }}. Вместо этого вы сможете использовать [внутренние IP-адреса](../concepts/address.md#internal-addresses) из [подсетей](../concepts/network.md#subnet), диапазоны которых определите сами.
 
 Подробнее:
-* [Маршрутизация трафика с помощью Cloud Interconnect](../../cloud-router/concepts/routing-instance.md).
+* [Маршрутизация трафика с помощью {{ interconnect-name }}](../../cloud-router/concepts/routing-instance.md).
 
 
 #### Подключайтесь к ВМ через серийную консоль {#serial-console}

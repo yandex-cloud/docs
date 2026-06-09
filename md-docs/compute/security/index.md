@@ -1,19 +1,19 @@
-# Управление доступом в Compute Cloud
+# Управление доступом в {{ compute-name }}
 
 
 В этом разделе вы узнаете:
 
-* [об управлении доступом в Yandex Cloud](#about-access-control);
+* [об управлении доступом в {{ yandex-cloud }}](#about-access-control);
 * [на какие ресурсы можно назначить роль](#resources);
 * [какие роли действуют в сервисе](#roles-list);
 * [какие роли нужны для выполнения определенных действий](#choosing-roles).
 
 ## Об управлении доступом {#about-access-control}
 
-Все операции в Yandex Cloud проверяются в сервисе [Yandex Identity and Access Management](../../iam/index.md). Если у субъекта нет необходимых разрешений, сервис вернет ошибку.
+Все операции в {{ yandex-cloud }} проверяются в сервисе [{{ iam-full-name }}](../../iam/index.md). Если у субъекта нет необходимых разрешений, сервис вернет ошибку.
 
 
-Чтобы выдать разрешения к ресурсу, [назначьте роли](../../iam/operations/roles/grant.md) на этот ресурс субъекту, который будет выполнять операции. Роли можно назначить [аккаунту на Яндексе](../../iam/concepts/users/accounts.md#passport), [сервисному аккаунту](../../iam/concepts/users/service-accounts.md), [локальному пользователю](../../iam/concepts/users/accounts.md#local), [федеративному пользователю](../../iam/concepts/federations.md), [группе пользователей](../../organization/operations/manage-groups.md), [системной группе](../../iam/concepts/access-control/system-group.md) или [публичной группе](../../iam/concepts/access-control/public-group.md). Подробнее читайте в разделе [Как устроено управление доступом в Yandex Cloud](../../iam/concepts/access-control/index.md).
+Чтобы выдать разрешения к ресурсу, [назначьте роли](../../iam/operations/roles/grant.md) на этот ресурс субъекту, который будет выполнять операции. Роли можно назначить [аккаунту на Яндексе](../../iam/concepts/users/accounts.md#passport), [сервисному аккаунту](../../iam/concepts/users/service-accounts.md), [локальному пользователю](../../iam/concepts/users/accounts.md#local), [федеративному пользователю](../../iam/concepts/federations.md), [группе пользователей](../../organization/operations/manage-groups.md), [системной группе](../../iam/concepts/access-control/system-group.md) или [публичной группе](../../iam/concepts/access-control/public-group.md). Подробнее читайте в разделе [{#T}](../../iam/concepts/access-control/index.md).
 
 Назначать роли на ресурс могут пользователи, у которых на этот ресурс есть роль `compute.admin` или одна из следующих ролей:
 
@@ -41,9 +41,9 @@
 
 - Консоль управления {#console}
 
-  Через [консоль управления](https://console.yandex.cloud) вы можете назначить роли на следующие ресурсы:
+  Через [консоль управления]({{ link-console-main }}) вы можете назначить роли на следующие ресурсы:
 
-  # Ресурсы в Compute Cloud, на которые можно назначать роли
+  # Ресурсы в {{ compute-name }}, на которые можно назначать роли
   
   * [Виртуальная машина](../operations/vm-control/vm-access.md)
   * [Группа виртуальных машин](../operations/instance-groups/access.md)
@@ -59,9 +59,9 @@
 
 - CLI {#cli}
 
-  Через [Yandex Cloud CLI](../../cli/cli-ref/compute/cli-ref/index.md) вы можете назначить роли на следующие ресурсы:
+  Через [{{ yandex-cloud }} CLI](../../cli/cli-ref/compute/cli-ref/index.md) вы можете назначить роли на следующие ресурсы:
 
-  # Ресурсы в Compute Cloud, на которые можно назначать роли
+  # Ресурсы в {{ compute-name }}, на которые можно назначать роли
   
   * [Виртуальная машина](../operations/vm-control/vm-access.md)
   * [Группа виртуальных машин](../operations/instance-groups/access.md)
@@ -75,11 +75,11 @@
   * [Снимок диска](../operations/snapshot-control/snapshot-access.md)
   * [Файловое хранилище](../operations/filesystem/filesystem-access.md)
 
-- Terraform {#tf}
+- {{ TF }} {#tf}
 
-  Через [Terraform](../../terraform/index.md) вы можете назначить роли на следующие ресурсы:
+  Через [{{ TF }}]({{ tf-provider-link }}) вы можете назначить роли на следующие ресурсы:
 
-  # Ресурсы в Compute Cloud, на которые можно назначать роли с помощью Terraform
+  # Ресурсы в {{ compute-name }}, на которые можно назначать роли с помощью {{ TF }}
   
   * [Виртуальная машина](../operations/vm-control/vm-access.md)
   * [Группа размещения виртуальных машин](../operations/placement-groups/access.md)
@@ -93,9 +93,9 @@
 
 - API {#api}
 
-  Через [API Yandex Cloud](../api-ref/authentication.md) вы можете назначить роли на следующие ресурсы:
+  Через [API {{ yandex-cloud }}](../api-ref/authentication.md) вы можете назначить роли на следующие ресурсы:
 
-  # Ресурсы в Compute Cloud, на которые можно назначать роли
+  # Ресурсы в {{ compute-name }}, на которые можно назначать роли
   
   * [Виртуальная машина](../operations/vm-control/vm-access.md)
   * [Группа виртуальных машин](../operations/instance-groups/access.md)
@@ -113,11 +113,12 @@
 
 ## Какие роли действуют в сервисе {#roles-list}
 
-На диаграмме показано, какие роли есть в сервисе и как они наследуют разрешения друг друга. Например, в `editor` входят все разрешения `viewer`. После диаграммы дано описание каждой роли.
+На диаграмме показано, какие роли есть в сервисе и как они наследуют разрешения друг друга. Например, в `{{ roles-editor }}` входят все разрешения `{{ roles-viewer }}`. После диаграммы дано описание каждой роли.
 
 ```mermaid
+%%{init: {"flowchart": {'defaultRenderer': 'elk'}} }%%
 flowchart BT
-    compute.osAdminLogin~~~iam.serviceAccounts.user
+    iam.serviceAccounts.user
     vpc.user --> compute.editor
     compute.snapshotSchedules.viewer --> compute.viewer
     compute.snapshotSchedules.viewer --> compute.snapshotSchedules.editor
@@ -125,7 +126,7 @@ flowchart BT
     compute.viewer --> compute.operator
     compute.snapshotSchedules.editor --> compute.editor
     compute.operator --> compute.editor
-	 compute.viewer --> compute.editor
+	compute.viewer --> compute.editor
     compute.disks.user --> compute.editor
     compute.images.user --> compute.editor
     compute.osLogin --> compute.editor
@@ -138,7 +139,7 @@ flowchart BT
 
 #### compute.auditor {#compute-auditor}
 
-Роль `compute.auditor` позволяет просматривать информацию о ресурсах сервиса Compute Cloud и операциях с ними, а также об объеме использованных ресурсов и квот. Не позволяет получать доступ к последовательному порту или серийной консоли виртуальных машин.
+Роль `compute.auditor` позволяет просматривать информацию о ресурсах сервиса {{ compute-name }} и операциях с ними, а также об объеме использованных ресурсов и квот. Не позволяет получать доступ к последовательному порту или серийной консоли виртуальных машин.
 
 {% cut "Пользователи с этой ролью могут:" %}
 
@@ -158,9 +159,9 @@ flowchart BT
 * просматривать информацию о [семействах образов](../concepts/image.md#family), о входящих в семейства образах, о наиболее актуальном образе в семействе, а также о назначенных [правах доступа](../../iam/concepts/access-control/index.md) к семействам образов;
 * просматривать список [снимков дисков](../concepts/snapshot.md) и информацию о них;
 * просматривать информацию о [расписаниях](../concepts/snapshot-schedule.md) создания снимков дисков;
-* просматривать в консоли управления информацию об объеме потребления ресурсов и [квот](../concepts/limits.md#compute-quotas) сервиса Compute Cloud, о [лимитах дисков](../concepts/limits.md#compute-limits-disks);
-* просматривать списки операций с ресурсами сервиса Compute Cloud, а также информацию об этих операциях;
-* просматривать информацию о статусе настройки доступа по [OS Login](../../organization/concepts/os-login.md) на виртуальных машинах;
+* просматривать в консоли управления информацию об объеме потребления ресурсов и [квот](../concepts/limits.md#compute-quotas) сервиса {{ compute-name }}, о [лимитах дисков](../concepts/limits.md#compute-limits-disks);
+* просматривать списки операций с ресурсами сервиса {{ compute-name }}, а также информацию об этих операциях;
+* просматривать информацию о статусе настройки доступа по [{{ oslogin }}](../../organization/concepts/os-login.md) на виртуальных машинах;
 * просматривать информацию о доступных [платформах](../concepts/vm-platforms.md);
 * просматривать список [зон доступности](../../overview/concepts/geo-scope.md) и информацию о них.
 
@@ -168,7 +169,7 @@ flowchart BT
 
 #### compute.viewer {#compute-viewer}
 
-Роль `compute.viewer` позволяет просматривать информацию о ресурсах сервиса Compute Cloud и операциях с ними, а также о назначенных правах доступа к ресурсам сервиса и об объеме использованных ресурсов и квот. Роль также предоставляет доступ к метаданным и выводу последовательного порта виртуальных машин.
+Роль `compute.viewer` позволяет просматривать информацию о ресурсах сервиса {{ compute-name }} и операциях с ними, а также о назначенных правах доступа к ресурсам сервиса и об объеме использованных ресурсов и квот. Роль также предоставляет доступ к метаданным и выводу последовательного порта виртуальных машин.
 
 {% cut "Пользователи с этой ролью могут:" %}
 
@@ -190,9 +191,9 @@ flowchart BT
 * просматривать информацию о [семействах образов](../concepts/image.md#family), о входящих в семейства образах, о наиболее актуальном образе в семействе, а также о назначенных правах доступа к семействам образов;
 * просматривать список [снимков дисков](../concepts/snapshot.md), информацию о них и о назначенных правах доступа к ним;
 * просматривать информацию о [расписаниях](../concepts/snapshot-schedule.md) создания снимков дисков и о назначенных правах доступа к расписаниям;
-* просматривать в консоли управления информацию об объеме потребления ресурсов и [квот](../concepts/limits.md#compute-quotas) сервиса Compute Cloud, о [лимитах дисков](../concepts/limits.md#compute-limits-disks);
-* просматривать списки операций с ресурсами сервиса Compute Cloud, а также информацию об этих операциях;
-* просматривать информацию о статусе настройки доступа по [OS Login](../../organization/concepts/os-login.md) на виртуальных машинах;
+* просматривать в консоли управления информацию об объеме потребления ресурсов и [квот](../concepts/limits.md#compute-quotas) сервиса {{ compute-name }}, о [лимитах дисков](../concepts/limits.md#compute-limits-disks);
+* просматривать списки операций с ресурсами сервиса {{ compute-name }}, а также информацию об этих операциях;
+* просматривать информацию о статусе настройки доступа по [{{ oslogin }}](../../organization/concepts/os-login.md) на виртуальных машинах;
 * просматривать информацию о доступных [платформах](../concepts/vm-platforms.md);
 * просматривать список [зон доступности](../../overview/concepts/geo-scope.md), информацию о них и о назначенных правах доступа к ним.
 
@@ -202,7 +203,7 @@ flowchart BT
 
 #### compute.editor {#compute-editor}
 
-Роль `compute.editor` позволяет управлять виртуальными машинами, группами виртуальных машин, дисками, образами, кластерами GPU и другими ресурсами сервиса Compute Cloud.
+Роль `compute.editor` позволяет управлять виртуальными машинами, группами виртуальных машин, дисками, образами, кластерами GPU и другими ресурсами сервиса {{ compute-name }}.
 
 {% cut "Пользователи с этой ролью могут:" %}
 
@@ -214,7 +215,7 @@ flowchart BT
 * использовать [последовательный порт](../operations/vm-info/get-serial-port-output.md) виртуальной машины в режиме чтения и записи;
 * имитировать события обслуживания виртуальной машины;
 * просматривать [метаданные](../concepts/vm-metadata.md) виртуальной машины;
-* просматривать информацию о статусе настройки доступа по [OS Login](../../organization/concepts/os-login.md) на виртуальных машинах и подключаться к виртуальным машинам через OS Login с помощью SSH-сертификатов или SSH-ключей;
+* просматривать информацию о статусе настройки доступа по [{{ oslogin }}](../../organization/concepts/os-login.md) на виртуальных машинах и подключаться к виртуальным машинам через {{ oslogin }} с помощью SSH-сертификатов или SSH-ключей;
 * просматривать список [групп виртуальных машин](../concepts/instance-groups/index.md), информацию о них и о назначенных правах доступа к ним, а также использовать, создавать, изменять, запускать, останавливать и удалять группы виртуальных машин;
 * просматривать список [групп размещения виртуальных машин](../concepts/placement-groups.md), информацию о них и о назначенных правах доступа к ним, а также использовать, создавать, изменять и удалять группы размещения виртуальных машин;
 * просматривать списки ВМ, входящих в группы размещения;
@@ -242,10 +243,10 @@ flowchart BT
 * просматривать информацию о группах безопасности и использовать их;
 * просматривать информацию о [NAT-шлюзах](../../vpc/concepts/gateways.md) и подключать их к таблицам маршрутизации;
 * просматривать информацию об использованных IP-адресах в подсетях;
-* просматривать информацию об операциях с ресурсами сервиса Virtual Private Cloud;
-* просматривать информацию о [квотах](../../vpc/concepts/limits.md#vpc-quotas) сервиса Virtual Private Cloud;
-* просматривать в консоли управления информацию об объеме потребления ресурсов и [квот](../concepts/limits.md#compute-quotas) Compute Cloud, о [лимитах дисков](../concepts/limits.md#compute-limits-disks);
-* просматривать списки операций с ресурсами сервиса Compute Cloud и информацию об операциях, а также отменять выполнение этих операций;
+* просматривать информацию об операциях с ресурсами сервиса {{ vpc-name }};
+* просматривать информацию о [квотах](../../vpc/concepts/limits.md#vpc-quotas) сервиса {{ vpc-name }};
+* просматривать в консоли управления информацию об объеме потребления ресурсов и [квот](../concepts/limits.md#compute-quotas) {{ compute-name }}, о [лимитах дисков](../concepts/limits.md#compute-limits-disks);
+* просматривать списки операций с ресурсами сервиса {{ compute-name }} и информацию об операциях, а также отменять выполнение этих операций;
 * просматривать информацию о доступных [платформах](../concepts/vm-platforms.md) и использовать их;
 * просматривать список [зон доступности](../../overview/concepts/geo-scope.md), информацию о них и о назначенных правах доступа к ним;
 * просматривать информацию об [облаке](../../resource-manager/concepts/resources-hierarchy.md#cloud);
@@ -255,9 +256,18 @@ flowchart BT
 
 Включает разрешения, предоставляемые ролями `compute.operator`, `compute.osLogin`, `compute.snapshotSchedules.editor`, `compute.disks.user` и `vpc.user`.
 
+{% note warning %}
+
+С 1 августа 2026 года роль `compute.editor` получает новый набор разрешений, позволяющий подключать виртуальные машины к сервису [{{ backup-full-name }}](../../backup/index.md), а также привязывать и отвязывать их от [политик резервного копирования](../../backup/concepts/policy.md).
+
+Если вы не планируете подключать ваши ресурсы к {{ backup-name }} и не хотите предоставлять вашим пользователям такие разрешения, вы можете заблаговременно отключить эти возможности с помощью [политики авторизации](../../iam/concepts/access-control/access-policies.md#backup-denyActivation) `backup.denyActivation`, назначенной на каталог, облако или организацию. Подробнее о том, как создать политику авторизации, читайте в разделе [{#T}](../../iam/operations/access-policies/assign.md).
+
+{% endnote %}
+
 #### compute.admin {#compute-admin}
 
-Роль `compute.admin` позволяет управлять виртуальными машинами, группами виртуальных машин, дисками, образами, кластерами GPU и другими ресурсами сервиса Compute Cloud, а также доступом к ним.
+Роль `compute.admin` позволяет управлять виртуальными машинами, группами виртуальных машин, дисками, образами, кластерами GPU и другими ресурсами сервиса {{ compute-name }}, а также доступом к ним.
+
 {% cut "Пользователи с этой ролью могут:" %}
 
 * создавать, изменять, запускать, перезапускать, останавливать, переносить и удалять [виртуальные машины](../concepts/vm.md), а также управлять доступом к ним;
@@ -268,7 +278,7 @@ flowchart BT
 * использовать [последовательный порт](../operations/vm-info/get-serial-port-output.md) виртуальной машины в режиме чтения и записи;
 * имитировать события обслуживания виртуальной машины;
 * просматривать [метаданные](../concepts/vm-metadata.md) виртуальной машины;
-* просматривать информацию о статусе настройки доступа по [OS Login](../../organization/concepts/os-login.md) на виртуальных машинах и подключаться к виртуальным машинам через OS Login при помощи SSH-сертификатов или SSH-ключей с возможностью выполнять команды от имени суперпользователя (`sudo`);
+* просматривать информацию о статусе настройки доступа по [{{ oslogin }}](../../organization/concepts/os-login.md) на виртуальных машинах и подключаться к виртуальным машинам через {{ oslogin }} при помощи SSH-сертификатов или SSH-ключей с возможностью выполнять команды от имени суперпользователя (`sudo`);
 * использовать, создавать, изменять, запускать, останавливать и удалять [группы виртуальных машин](../concepts/instance-groups/index.md), а также управлять доступом к группам виртуальных машин;
 * просматривать список групп виртуальных машин, информацию о них и о назначенных правах доступа к ним;
 * использовать, создавать, изменять и удалять [группы размещения виртуальных машин](../concepts/placement-groups.md), а также управлять доступом к группам размещения виртуальных машин;
@@ -305,10 +315,10 @@ flowchart BT
 * просматривать информацию о группах безопасности и использовать их;
 * просматривать информацию о [NAT-шлюзах](../../vpc/concepts/gateways.md) и подключать их к таблицам маршрутизации;
 * просматривать информацию об использованных IP-адресах в подсетях;
-* просматривать информацию об операциях с ресурсами сервиса Virtual Private Cloud;
-* просматривать информацию о [квотах](../../vpc/concepts/limits.md#vpc-quotas) сервиса Virtual Private Cloud;
-* просматривать в консоли управления информацию об объеме потребления ресурсов и [квот](../concepts/limits.md#compute-quotas) Compute Cloud, о [лимитах дисков](../concepts/limits.md#compute-limits-disks);
-* просматривать списки операций с ресурсами сервиса Compute Cloud и информацию об операциях, а также отменять выполнение этих операций;
+* просматривать информацию об операциях с ресурсами сервиса {{ vpc-name }};
+* просматривать информацию о [квотах](../../vpc/concepts/limits.md#vpc-quotas) сервиса {{ vpc-name }};
+* просматривать в консоли управления информацию об объеме потребления ресурсов и [квот](../concepts/limits.md#compute-quotas) {{ compute-name }}, о [лимитах дисков](../concepts/limits.md#compute-limits-disks);
+* просматривать списки операций с ресурсами сервиса {{ compute-name }} и информацию об операциях, а также отменять выполнение этих операций;
 * просматривать информацию о доступных [платформах](../concepts/vm-platforms.md) и использовать их;
 * просматривать список [зон доступности](../../overview/concepts/geo-scope.md), информацию о них и о назначенных правах доступа к ним;
 * просматривать информацию об [облаке](../../resource-manager/concepts/resources-hierarchy.md#cloud);
@@ -318,13 +328,21 @@ flowchart BT
 
 Включает разрешения, предоставляемые ролями `compute.editor` и `compute.osAdminLogin`.
 
+{% note warning %}
+
+С 1 августа 2026 года роль `compute.admin` получает новый набор разрешений, позволяющий подключать виртуальные машины к сервису [{{ backup-full-name }}](../../backup/index.md), а также привязывать и отвязывать их от [политик резервного копирования](../../backup/concepts/policy.md).
+
+Если вы не планируете подключать ваши ресурсы к {{ backup-name }} и не хотите предоставлять вашим пользователям такие разрешения, вы можете заблаговременно отключить эти возможности с помощью [политики авторизации](../../iam/concepts/access-control/access-policies.md#backup-denyActivation) `backup.denyActivation`, назначенной на каталог, облако или организацию. Подробнее о том, как создать политику авторизации, читайте в разделе [{#T}](../../iam/operations/access-policies/assign.md).
+
+{% endnote %}
+
 #### compute.osLogin {#compute-oslogin}
 
-Роль `compute.osLogin` позволяет подключаться к [виртуальным машинам](../concepts/vm.md) через [OS Login](../../organization/concepts/os-login.md) с помощью SSH-сертификатов или SSH-ключей.
+Роль `compute.osLogin` позволяет подключаться к [виртуальным машинам](../concepts/vm.md) через [{{ oslogin }}](../../organization/concepts/os-login.md) с помощью SSH-сертификатов или SSH-ключей.
 
 #### compute.osAdminLogin {#compute-osadminlogin}
 
-Роль `compute.osAdminLogin` позволяет подключаться к [виртуальным машинам](../concepts/vm.md) при помощи SSH-сертификатов или SSH-ключей через [OS Login](../../organization/concepts/os-login.md) с возможностью выполнять команды от имени суперпользователя (`sudo`).
+Роль `compute.osAdminLogin` позволяет подключаться к [виртуальным машинам](../concepts/vm.md) при помощи SSH-сертификатов или SSH-ключей через [{{ oslogin }}](../../organization/concepts/os-login.md) с возможностью выполнять команды от имени суперпользователя (`sudo`).
 
 {% note alert %}
 
@@ -342,7 +360,7 @@ flowchart BT
 
 #### compute.operator {#compute-operator}
 
-Роль `compute.operator` позволяет запускать и останавливать виртуальные машины и группы виртуальных машин, а также просматривать информацию о ресурсах сервиса Compute Cloud и операциях с ними, а также о назначенных правах доступа к ресурсам сервиса и об объеме использованных ресурсов и квот.
+Роль `compute.operator` позволяет запускать и останавливать виртуальные машины и группы виртуальных машин, а также просматривать информацию о ресурсах сервиса {{ compute-name }} и операциях с ними, а также о назначенных правах доступа к ресурсам сервиса и об объеме использованных ресурсов и квот.
 
 {% cut "Пользователи с этой ролью могут:" %}
 
@@ -366,9 +384,9 @@ flowchart BT
 * просматривать информацию о [семействах образов](../concepts/image.md#family), о входящих в семейства образах, о наиболее актуальном образе в семействе, а также о назначенных правах доступа к семействам образов;
 * просматривать список [снимков дисков](../concepts/snapshot.md), информацию о них и о назначенных правах доступа к ним;
 * просматривать информацию о [расписаниях](../concepts/snapshot-schedule.md) создания снимков дисков и о назначенных правах доступа к расписаниям;
-* просматривать в консоли управления информацию об объеме потребления ресурсов и [квот](../concepts/limits.md#compute-quotas) сервиса Compute Cloud, о [лимитах дисков](../concepts/limits.md#compute-limits-disks);
-* просматривать списки операций с ресурсами сервиса Compute Cloud, а также информацию об этих операциях;
-* просматривать информацию о статусе настройки доступа по [OS Login](../../organization/concepts/os-login.md) на виртуальных машинах;
+* просматривать в консоли управления информацию об объеме потребления ресурсов и [квот](../concepts/limits.md#compute-quotas) сервиса {{ compute-name }}, о [лимитах дисков](../concepts/limits.md#compute-limits-disks);
+* просматривать списки операций с ресурсами сервиса {{ compute-name }}, а также информацию об этих операциях;
+* просматривать информацию о статусе настройки доступа по [{{ oslogin }}](../../organization/concepts/os-login.md) на виртуальных машинах;
 * просматривать информацию о доступных [платформах](../concepts/vm-platforms.md);
 * просматривать список [зон доступности](../../overview/concepts/geo-scope.md), информацию о них и о назначенных правах доступа к ним.
 
@@ -404,50 +422,50 @@ flowchart BT
 
 Например, если при создании группы виртуальных машин пользователь укажет [сервисный аккаунт](../../iam/concepts/users/accounts.md#sa), сервис IAM проверяет, что у этого пользователя есть права на использование этого сервисного аккаунта.
 
-Более подробную информацию о сервисных ролях читайте на странице [Роли](../../iam/concepts/access-control/roles.md) в документации сервиса Yandex Identity and Access Management.
+Более подробную информацию о сервисных ролях читайте на странице [{#T}](../../iam/concepts/access-control/roles.md) в документации сервиса {{ iam-full-name }}.
 
 ### Примитивные роли {#primitive-roles}
 
-Примитивные роли позволяют пользователям совершать действия во [всех сервисах](../../overview/concepts/services.md) Yandex Cloud.
+Примитивные роли позволяют пользователям совершать действия во [всех сервисах](../../overview/concepts/services.md) {{ yandex-cloud }}.
 
-#### auditor {#auditor}
+#### {{ roles-auditor }} {#auditor}
 
 Роль `auditor` предоставляет разрешения на чтение конфигурации и метаданных любых ресурсов Yandex Cloud без возможности доступа к данным.
 
 Например, пользователи с этой ролью могут:
-* просматривать информацию о [ресурсе](../../resource-manager/concepts/resources-hierarchy.md);
+* просматривать информацию о [ресурсе]({{ link-docs }}/resource-manager/concepts/resources-hierarchy);
 * просматривать метаданные ресурса;
 * просматривать список операций с ресурсом.
 
-Роль `auditor` — наиболее безопасная роль, исключающая доступ к данным [сервисов](../../overview/concepts/services.md). Роль подходит для пользователей, которым необходим минимальный уровень доступа к ресурсам Yandex Cloud.
+Роль `auditor` — наиболее безопасная роль, исключающая доступ к данным [сервисов]({{ link-docs }}/overview/concepts/services). Роль подходит для пользователей, которым необходим минимальный уровень доступа к ресурсам Yandex Cloud.
 
-#### viewer {#viewer}
+#### {{ roles-viewer }} {#viewer}
 
-Роль `viewer` предоставляет разрешения на чтение информации о любых [ресурсах](../../resource-manager/concepts/resources-hierarchy.md) Yandex Cloud.
+Роль `viewer` предоставляет разрешения на чтение информации о любых [ресурсах]({{ link-docs }}/resource-manager/concepts/resources-hierarchy) Yandex Cloud.
 
 Включает разрешения, предоставляемые ролью `auditor`.
 
-В отличие от роли `auditor`, роль `viewer` предоставляет доступ к данным [сервисов](../../overview/concepts/services.md) в режиме чтения.
+В отличие от роли `auditor`, роль `viewer` предоставляет доступ к данным [сервисов]({{ link-docs }}/overview/concepts/services) в режиме чтения.
 
-#### editor {#editor}
+#### {{ roles-editor }} {#editor}
 
-Роль `editor` предоставляет разрешения на управление любыми [ресурсами](../../resource-manager/concepts/resources-hierarchy.md) Yandex Cloud, кроме назначения ролей другим пользователям, передачи прав владения [организацией](../../organization/concepts/organization.md) и ее удаления, а также удаления [ключей шифрования](../../kms/concepts/index.md) Key Management Service.
+Роль `editor` предоставляет разрешения на управление любыми [ресурсами]({{ link-docs }}/resource-manager/concepts/resources-hierarchy) Yandex Cloud, кроме назначения ролей другим пользователям, передачи прав владения [организацией]({{ link-docs }}/organization/concepts/organization) и ее удаления, а также удаления [ключей шифрования]({{ link-docs }}/kms/concepts/) Key Management Service.
 
 Например, пользователи с этой ролью могут создавать, изменять и удалять ресурсы.
 
 Включает разрешения, предоставляемые ролью `viewer`.
 
-#### admin {#admin}
+#### {{ roles-admin }} {#admin}
 
-Роль `admin` позволяет назначать любые роли, кроме `resource-manager.clouds.owner` и `organization-manager.organizations.owner`, а также предоставляет разрешения на управление любыми [ресурсами](../../resource-manager/concepts/resources-hierarchy.md) Yandex Cloud, кроме передачи прав владения [организацией](../../organization/concepts/organization.md) и ее удаления.
+Роль `admin` позволяет назначать любые роли, кроме `resource-manager.clouds.owner` и `organization-manager.organizations.owner`, а также предоставляет разрешения на управление любыми [ресурсами]({{ link-docs }}/resource-manager/concepts/resources-hierarchy) Yandex Cloud, кроме передачи прав владения [организацией]({{ link-docs }}/organization/concepts/organization) и ее удаления.
 
-Прежде чем назначить роль `admin` на организацию, [облако](../../resource-manager/concepts/resources-hierarchy.md#cloud) или [платежный аккаунт](../../billing/concepts/billing-account.md), ознакомьтесь с информацией о защите [привилегированных аккаунтов](../../security/standard/all.md#privileged-users).
+Прежде чем назначить роль `admin` на организацию, [облако]({{ link-docs }}/resource-manager/concepts/resources-hierarchy#cloud) или [платежный аккаунт]({{ link-docs }}/billing/concepts/billing-account), ознакомьтесь с информацией о защите [привилегированных аккаунтов]({{ link-docs }}/security/standard/all#privileged-users).
 
 Включает разрешения, предоставляемые ролью `editor`.
 
 Вместо примитивных ролей мы рекомендуем использовать роли сервисов. Такой подход позволит более гранулярно управлять доступом и обеспечить соблюдение [принципа минимальных привилегий](../../security/standard/all.md#min-privileges).
 
-Подробнее о примитивных ролях см. в [справочнике ролей Yandex Cloud](../../iam/roles-reference.md#primitive-roles).
+Подробнее о примитивных ролях см. в [справочнике ролей {{ yandex-cloud }}](../../iam/roles-reference.md#primitive-roles).
 
 ## Какие роли мне необходимы {#choosing-roles}
 
@@ -516,5 +534,5 @@ flowchart BT
 
 * [Как назначить роль](../../iam/operations/roles/grant.md).
 * [Как отозвать роль](../../iam/operations/roles/revoke.md).
-* [Подробнее об управлении доступом в Yandex Cloud](../../iam/concepts/access-control/index.md).
+* [Подробнее об управлении доступом в {{ yandex-cloud }}](../../iam/concepts/access-control/index.md).
 * [Подробнее о наследовании ролей](../../resource-manager/concepts/resources-hierarchy.md#access-rights-inheritance).

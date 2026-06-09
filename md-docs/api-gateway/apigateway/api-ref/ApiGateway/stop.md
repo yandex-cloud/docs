@@ -5,7 +5,7 @@ Stops the specified API gateway.
 ## HTTP request
 
 ```
-POST https://serverless-apigateway.api.cloud.yandex.net/apigateways/v1/apigateways/{apiGatewayId}:stop
+POST https://serverless-apigateway.{{ api-host }}/apigateways/v1/apigateways/{apiGatewayId}:stop
 ```
 
 ## Path parameters

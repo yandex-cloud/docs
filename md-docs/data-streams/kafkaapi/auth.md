@@ -2,7 +2,7 @@
 
 ## Эндпоинт {#endpoint}
 
-Эндпоинт Kafka API отображается в [консоли управления](https://console.yandex.cloud), на странице потока данных, на вкладке **Обзор**, в поле **Kafka API эндпоинт**.
+Эндпоинт Kafka API отображается в [консоли управления]({{ link-console-main }}), на странице потока данных, на вкладке **Обзор**, в поле **Kafka API эндпоинт**.
 
 Эндпоинт имеет следующий вид: `<FQDN_YDB>:PORT`. Например, `ydb-01.serverless.yandexcloud.net:9093`.
 
@@ -23,9 +23,9 @@
 
 Для этого необходимы:
 
-* `<database>` — путь базы данных. Путь базы данных отображается в [консоли управления](https://console.yandex.cloud), на странице потока данных, на вкладке **Обзор**, в поле **Эндпоинт** после `database=`.
+* `<database>` — путь базы данных. Путь базы данных отображается в [консоли управления]({{ link-console-main }}), на странице потока данных, на вкладке **Обзор**, в поле **Эндпоинт** после `database=`.
 
-    Например, если эндпоинт — `grpcs://ydb.serverless.yandexcloud.net:2135/?database=/ru-central1/b1gia87mbaom********/etnudu2n9ri3********`, то путь базы данных — `/ru-central1/b1gia87mbaom********/etnudu2n9ri3********`.
+    Например, если эндпоинт — `{{ ydb.ep-serverless }}/?database={{ ydb.path-serverless }}`, то путь базы данных — `{{ ydb.path-serverless }}`.
 
 * `<api-key>` — [API-ключ](../../iam/concepts/authorization/api-key.md).
 
@@ -45,7 +45,7 @@
 
    ```bash
     sudo mkdir -p /usr/local/share/ca-certificates/Yandex/ && \
-    wget "https://storage.yandexcloud.net/cloud-certs/CA.pem" \
+    wget "{{ crt-web-path }}" \
      --output-document /usr/local/share/ca-certificates/Yandex/YandexInternalRootCA.crt && \
     sudo chmod 0655 /usr/local/share/ca-certificates/Yandex/YandexInternalRootCA.crt
    ```
@@ -115,4 +115,4 @@
     {% endlist %}
 
 
-Основную документацию по работе с Data Streams через Kafka API и больше примеров см. в [документации YDB](https://ydb.tech/docs/ru//reference/kafka-api).
+Основную документацию по работе с {{ yds-name }} через Kafka API и больше примеров см. в [документации YDB]({{ ydb.docs }}/reference/kafka-api).

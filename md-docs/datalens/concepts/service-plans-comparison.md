@@ -1,14 +1,14 @@
-# Тарифные планы Yandex DataLens
+# Тарифные планы {{ datalens-full-name }}
 
 
 
 {% note info %}
 
-1 декабря 2025 года в DataLens изменились правила тарификации. Подробности изменений описаны в [статье](../pricing-changes.md), актуальные правила тарификации доступны по [ссылке](../pricing.md).
+1 декабря 2025 года в {{ datalens-name }} изменились правила тарификации. Подробности изменений описаны в [статье](../pricing-changes.md), актуальные правила тарификации доступны по [ссылке](../pricing.md).
 
 {% endnote %}
 
-В сервисе Yandex DataLens действуют тарифные планы, которые различаются набором предоставляемых услуг:
+В сервисе {{ datalens-full-name }} действуют тарифные планы, которые различаются набором предоставляемых услуг:
 
 * **Community** — подходит для небольших команд и некоммерческих проектов;
 * **Business** — подходит для корпоративных внедрений и решения бизнес-задач.
@@ -30,12 +30,12 @@ JavaScript-кастомизации в [Editor](../charts/editor/index.md) | ![i
 [Отчеты для экспорта и презентаций](../reports/index.md) | ![image](../../_assets/common/no.svg) | ![image](../../_assets/common/yes.svg)
 [Возможность запретить экспорт воркбуков](../workbooks-collections/export-and-import.md) | ![image](../../_assets/common/no.svg) | ![image](../../_assets/common/yes.svg)
 [Фоновый экспорт данных из чартов](chart/data-export.md) | ![image](../../_assets/common/no.svg) | ![image](../../_assets/common/yes.svg)
-[Стилизация интерфейса DataLens](../settings/appearance.md#ui-customization) | ![image](../../_assets/common/no.svg) | ![image](../../_assets/common/yes.svg) 
+[Стилизация интерфейса {{ datalens-name }}](../settings/appearance.md#ui-customization) | ![image](../../_assets/common/no.svg) | ![image](../../_assets/common/yes.svg) 
 [Безопасное встраивание чартов и дашбордов](../security/private-embedded-objects.md) | ![image](../../_assets/common/no.svg) | ![image](../../_assets/common/yes.svg) 
 [Контроль публикаций](datalens-public.md#publication-disable) | ![image](../../_assets/common/no.svg) | ![image](../../_assets/common/yes.svg)
-Статистика использования сервиса DataLens | Общая ([Light](datalens-usage-analytics.md#light-dash)) | Расширенная ([Detailed](datalens-usage-analytics.md#detailed-dash)) 
+Статистика использования сервиса {{ datalens-name }} | Общая ([Light](datalens-usage-analytics.md#light-dash)) | Расширенная ([Detailed](datalens-usage-analytics.md#detailed-dash)) 
 [SLA](https://yandex.ru/legal/cloud_sla_datalens) | ![image](../../_assets/common/no.svg) | ![image](../../_assets/common/yes.svg)  
-Техническая поддержка | [Базовый тариф](../../support/pricing.md#base) (если у пользователя не подключен [Бизнес](../../support/pricing.md#business) или [Премиум](../../support/pricing.md#premium)) | [Тариф Бизнес](../../support/pricing.md#business) (распространяется только на DataLens) и повышенный приоритет в рассмотрении обращений относительно тарифа Community
+Техническая поддержка | [Базовый тариф](../../support/pricing.md#base) (если у пользователя не подключен [Бизнес](../../support/pricing.md#business) или [Премиум](../../support/pricing.md#premium)) | [Тариф Бизнес](../../support/pricing.md#business) (распространяется только на {{ datalens-name }}) и повышенный приоритет в рассмотрении обращений относительно тарифа Community
 
 #### См. также {#see-also}
 

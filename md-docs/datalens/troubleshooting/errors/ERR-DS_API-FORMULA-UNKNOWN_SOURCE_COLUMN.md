@@ -1,4 +1,4 @@
-# [Yandex DataLens] Unknown referenced source column
+# [{{ datalens-full-name }}] Unknown referenced source column
 
 `ERR.DS_API.FORMULA.UNKNOWN_SOURCE_COLUMN`
 

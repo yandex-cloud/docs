@@ -8,8 +8,8 @@
 
 - Консоль управления {#console}
 
-  1. [Перейдите](../../../console/operations/select-service.md#select-service) в сервис **Managed Service for&nbsp;GitLab**.
-  1. Нажмите на имя нужного инстанса и выберите вкладку ![image](../../../_assets/console-icons/archive.svg) **Резервные копии**.
+  1. Перейдите в сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-gitlab }}**.
+  1. Нажмите на имя нужного инстанса и выберите вкладку ![image](../../../_assets/console-icons/archive.svg) **{{ ui-key.yacloud.gitlab.title_backups }}**.
 
 {% endlist %}
 
@@ -19,14 +19,14 @@
 
 - Консоль управления {#console}
 
-  1. [Перейдите](../../../console/operations/select-service.md#select-service) в сервис **Managed Service for&nbsp;GitLab**.
-  1. Нажмите на имя нужного инстанса и выберите вкладку ![image](../../../_assets/console-icons/archive.svg) **Резервные копии**.
-  1. Нажмите кнопку ![image](../../../_assets/console-icons/plus.svg) **Создать резервную копию**.
+  1. Перейдите в сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-gitlab }}**.
+  1. Нажмите на имя нужного инстанса и выберите вкладку ![image](../../../_assets/console-icons/archive.svg) **{{ ui-key.yacloud.gitlab.title_backups }}**.
+  1. Нажмите кнопку ![image](../../../_assets/console-icons/plus.svg) **{{ ui-key.yacloud.gitlab.action_create-backup }}**.
 
 {% endlist %}
 
 ## Восстановить инстанс из резервной копии {#restore}
 
-Чтобы восстановить инстанс из резервной копии, обратитесь в [техническую поддержку](https://center.yandex.cloud/support).
+Чтобы восстановить инстанс из резервной копии, обратитесь в [техническую поддержку]({{ link-console-support }}).
 
 Таким же образом вы можете восстановить удаленный инстанс. Для него автоматически создается [резервная копия](../../concepts/backup.md), которая хранится в течение двух недель.

@@ -3,9 +3,11 @@ title: Approval rules in {{ mgl-name }}
 description: With {{ mgl-name }}, you can flexibly set up mandatory approval rules before merging code into the target branch of the project. This feature is an alternative to the {{ GL }} Enterprise Edition’s Approval Rules tool and is available regardless of the {{ GL }} version.
 ---
 
-# Approval rules in {{ mgl-name }}
+# Approval rules in {{ mgl-full-name }}
 
-With {{ mgl-name }}, you can flexibly set up mandatory approval rules before merging code into the target branch of the project. This feature is an alternative to the {{ GL }} Enterprise Edition’s [Approval Rules](https://docs.gitlab.com/ee/user/project/merge_requests/approvals/rules.html) tool and is available regardless of the {{ GL }} [version](https://about.gitlab.com/pricing).
+{% include [approval-rules-intro](../../_includes/managed-gitlab/approval-rules-intro.md) %}
+
+{% include [note-approval-rules-pricing](../../_includes/managed-gitlab/note-approval-rules-pricing.md) %}
 
 If approval rules are enabled in your {{ GL }} instance, {{ mgl-name }} analyzes obtained approvals for compliance with the specified rules. If there are not enough approvals, a blocking thread is created in the merge request, preventing it from being merged into the target branch. When the merge request is updated, a comment with the current compliance status is created or updated in the thread. Once all required approvals are obtained, the thread is resolved.
 
@@ -13,15 +15,9 @@ If you manually resolve the thread, it will be recreated. If the merge request i
 
 For more information about working with approval rules, see [Setting up approval rules](../operations/approval-rules.md).
 
-
-## Use cases {#examples-mgl}
-
-* [{#T}](../tutorials/gitlab-lockbox-integration.md)
-
-
 ## {{ GL }} token {#gitlab-token}
 
-You need a _[{{ GL }} token]({{ gl.docs }}/ee/user/profile/personal_access_tokens.html)_ to set up approval rules. When accessing a repository, a token is required for authentication, allowing {{ GL }} API calls.
+Approval rules are configured using a _[{{ GL }} token]({{ gl.docs }}/ee/user/profile/personal_access_tokens.html)_. When you contact a repository, a token is required for authorization – this is how you access the {{ GL }} API.
 
 A {{ GL }} token has a lifetime, which is set when [creating the token](../operations/approval-rules.md#gitlab-token). The token expires at 00:00 UTC on the specified date. The maximum lifetime is one year from the token creation date.
 
@@ -29,15 +25,9 @@ The day before the expiration date, {{ GL }} sends a notification that the token
 
 Issue a new token and add it to the {{ GL }} instance settings before the current token expires Otherwise, {{ mgl-name }} will not work correctly.
 
-
-### Use cases {#examples-token}
-
-* [{#T}](../tutorials/install-gitlab-runner.md)
-
-
 ## Available configurations {#packages}
 
-{% include [note-approval-rules-pricing](../../_includes/managed-gitlab/note-approval-rules-pricing.md) %}
+The configuration you select affects the [cost of using the instance computing resources](../../managed-gitlab/pricing.md#prices).
 
 You can choose a suitable configuration based on your team's objectives:
 
@@ -54,3 +44,8 @@ See the table below for a more detailed comparison of what different configurati
 | Code Ownership                    | You can assign specific files and directories (including using patterns) to particular users. These users become code owners and can participate in code approval if commits in the merge request affect their files. | ![no](../../_assets/common/no.svg)   | ![yes](../../_assets/common/yes.svg) | ![yes](../../_assets/common/yes.svg) |
 | Multiple approval rules            | You can set more than one approval rule per project. | ![no](../../_assets/common/no.svg)   | ![yes](../../_assets/common/yes.svg) | ![yes](../../_assets/common/yes.svg) |
 | Branch-specific rules          | You can specify different approval rules for different branches, e.g., `release` and `master`. | ![no](../../_assets/common/no.svg)   | ![no](../../_assets/common/no.svg)      | ![yes](../../_assets/common/yes.svg) |
+
+## Use cases {#examples-mgl}
+
+* [{#T}](approval-rules-scenarios.md)
+* [{#T}](../tutorials/gitlab-lockbox-integration.md)

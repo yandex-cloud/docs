@@ -1,6 +1,6 @@
-# Мониторинг состояния кластера Managed Service for Apache Airflow™
+# Мониторинг состояния кластера {{ maf-name }}
 
-Данные о состоянии кластера и его хостов доступны в [консоли управления](https://console.yandex.cloud). Их можно посмотреть на вкладке **Мониторинг** страницы управления кластером  или в сервисе [Yandex Monitoring](../../monitoring/concepts/index.md).
+Данные о состоянии кластера и его хостов доступны в [консоли управления]({{ link-console-main }}). Их можно посмотреть на вкладке **{{ ui-key.yacloud.mdb.cluster.switch_monitoring }}** страницы управления кластером  или в сервисе [{{ monitoring-full-name }}](../../monitoring/concepts/index.md).
 
 Диагностическая информация о состоянии кластера представлена в виде графиков.
 
@@ -12,23 +12,23 @@
 
 {% endnote %}
 
-Вы можете [настроить алерты](#monitoring-integration) в сервисе Yandex Monitoring для получения уведомлений о сбоях в работе кластера. В Yandex Monitoring используются два порога срабатывания алерта: `Warning` и `Alarm`. При превышении заданного порога вы получите оповещения через настроенные [каналы уведомлений](../../monitoring/concepts/alerting.md#notification-channel).
+Вы можете [настроить алерты](#monitoring-integration) в сервисе {{ monitoring-full-name }} для получения уведомлений о сбоях в работе кластера. В {{ monitoring-full-name }} используются два порога срабатывания алерта: `{{ ui-key.yacloud_monitoring.alert-template.threshold-status.warn }}` и `{{ ui-key.yacloud_monitoring.alert-template.threshold-status.alarm }}`. При превышении заданного порога вы получите оповещения через настроенные [каналы уведомлений](../../monitoring/concepts/alerting.md#notification-channel).
 
 ## Мониторинг состояния кластера {#monitoring-cluster}
 
-Для просмотра детальной информации о состоянии кластера Managed Service for Apache Airflow™:
+Для просмотра детальной информации о состоянии кластера {{ maf-name }}:
 
 {% list tabs group=instructions %}
 
 - Консоль управления {#console}
 
-  1. В [консоли управления](https://console.yandex.cloud) перейдите в нужный каталог.
-  1. [Перейдите](../../console/operations/select-service.md#select-service) в сервис **Managed Service for&nbsp;Apache&nbsp;Airflow™**.
-  1. Нажмите на имя нужного кластера и выберите вкладку **Мониторинг**.
+  1. В [консоли управления]({{ link-console-main }}) перейдите в нужный каталог.
+  1. Перейдите в сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-airflow }}**.
+  1. Нажмите на имя нужного кластера и выберите вкладку **{{ ui-key.yacloud.mdb.cluster.switch_monitoring }}**.
 
-      На открывшейся странице будут отображены графики работы кластера Managed Service for Apache Airflow™.
+      На открывшейся странице будут отображены графики работы кластера {{ maf-name }}.
 
-  1. Чтобы перейти к работе с метриками, дашбордами или алертами в сервисе Yandex Monitoring, нажмите кнопку **Открыть в Monium** на панели сверху.
+  1. Чтобы перейти к работе с метриками, дашбордами или алертами в сервисе {{ monitoring-full-name }}, нажмите кнопку **{{ ui-key.yacloud.monitoring.button_open-in-monitoring }}** на панели сверху.
 
 {% endlist %}
 
@@ -56,7 +56,7 @@
 
   * **Pool usage** — количество занятых слотов в каждом пуле кластера.
 
-## Настройка алертов в Yandex Monitoring {#monitoring-integration}
+## Настройка алертов в {{ monitoring-full-name }} {#monitoring-integration}
 
 Чтобы настроить алерты показателей состояния [кластера](#monitoring-cluster):
 
@@ -64,13 +64,13 @@
 
 - Консоль управления {#console}
 
-  1. В [консоли управления](https://console.yandex.cloud) выберите каталог с кластером, для которого нужно настроить алерты.
-  1. [Перейдите](../../console/operations/select-service.md#select-service) в сервис ![image](../../_assets/console-icons/display-pulse.svg) **Monitoring**.
-  1. В блоке **Сервисные дашборды** выберите **Managed Service for Apache Airflow™ — Cluster Overview**.
-  1. На нужном графике нажмите на значок ![options](../../_assets/console-icons/ellipsis.svg) и выберите пункт **Создать алерт**.
-  1. Если на графике несколько показателей, выберите запрос данных для формирования метрики и нажмите **Продолжить**. Подробнее о языке запросов см. [документацию Yandex Monitoring](../../monitoring/concepts/querying.md).
-  1. Задайте пороговые значения `Alarm` и `Warning` для срабатывания алерта.
-  1. Нажмите кнопку **Создать алерт**.
+  1. В [консоли управления]({{ link-console-main }}) выберите каталог с кластером, для которого нужно настроить алерты.
+  1. Перейдите в сервис ![image](../../_assets/console-icons/display-pulse.svg) **{{ ui-key.yacloud.iam.folder.dashboard.label_monitoring }}**.
+  1. В блоке **{{ ui-key.yacloud_monitoring.dashboard.tab.service-dashboards }}** выберите **{{ maf-name }} — Cluster Overview**.
+  1. На нужном графике нажмите на значок ![options](../../_assets/console-icons/ellipsis.svg) и выберите пункт **{{ ui-key.yacloud_monitoring.alert.button_create-alert }}**.
+  1. Если на графике несколько показателей, выберите запрос данных для формирования метрики и нажмите **{{ ui-key.yacloud_monitoring.dialog.confirm.button_continue }}**. Подробнее о языке запросов см. [документацию {{ monitoring-full-name }}](../../monitoring/concepts/querying.md).
+  1. Задайте пороговые значения `{{ ui-key.yacloud_monitoring.alert.label_alarm }}` и `{{ ui-key.yacloud_monitoring.alert.label_warning }}` для срабатывания алерта.
+  1. Нажмите кнопку **{{ ui-key.yacloud_monitoring.alert.button_create-alert }}**.
 
 {% endlist %}
 
@@ -86,25 +86,25 @@
 
 {% endlist %}
 
-Полный список поддерживаемых метрик см. в [документации Monitoring](../../monitoring/metrics-ref/managed-airflow-ref.md).
+Полный список поддерживаемых метрик в [документации {{ monitoring-name }}](../../monitoring/metrics-ref/managed-airflow-ref.md).
 
 ## Состояние и статус кластера
 
-**Состояние** кластера указывает на исправность его хостов, а **Статус** показывает, запущен кластер, остановлен или находится в промежуточном состоянии.
+**{{ ui-key.yacloud.mdb.cluster.overview.label_health }}** кластера указывает на исправность его хостов, а **{{ ui-key.yacloud.mdb.cluster.overview.label_status }}** показывает, запущен кластер, остановлен или находится в промежуточном состоянии.
 
 Для просмотра состояния и статуса кластера:
 
-1. Перейдите на [страницу каталога](https://console.yandex.cloud).
-1. [Перейдите](../../console/operations/select-service.md#select-service) в сервис **Managed Service for&nbsp;Apache&nbsp;Airflow™**.
-1. В строке нужного кластера наведите курсор на индикатор в столбце **Доступность**.
+1. Перейдите на [страницу каталога]({{ link-console-main }}).
+1. Перейдите в сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-airflow }}**.
+1. В строке нужного кластера наведите курсор на индикатор в столбце **{{ ui-key.yacloud.mdb.clusters.column_availability }}**.
 
 ### Состояния кластера {#cluster-health}
 
 Состояние | Описание | Предлагаемые действия
 :--- | :--- | :---
 **ALIVE** | Кластер работает в штатном режиме. | Действий не требуется.
-**DEAD** | Кластер неработоспособен. | [Составьте обращение в службу поддержки](https://center.yandex.cloud/support), указав:<ul><li>Идентификатор кластера.</li><li>Идентификаторы последних операций, которые на нем выполнялись.</li><li>Время по [графикам доступности](#monitoring-cluster), когда кластер перешел в состояние `DEAD`.</li></ul>
-**UNKNOWN** | Состояние кластера неизвестно. | [Составьте обращение в службу поддержки](https://center.yandex.cloud/support), указав:<ul><li>Идентификатор кластера.</li><li>Идентификаторы последних операций, которые на нем выполнялись.</li><li>Время по [графикам доступности](#monitoring-cluster), когда кластер перешел в состояние `UNKNOWN`.</li></ul>
+**DEAD** | Кластер неработоспособен. | [Составьте обращение в службу поддержки]({{ link-console-support }}), указав:<ul><li>Идентификатор кластера.</li><li>Идентификаторы последних операций, которые на нем выполнялись.</li><li>Время по [графикам доступности](#monitoring-cluster), когда кластер перешел в состояние `DEAD`.</li></ul>
+**UNKNOWN** | Состояние кластера неизвестно. | [Составьте обращение в службу поддержки]({{ link-console-support }}), указав:<ul><li>Идентификатор кластера.</li><li>Идентификаторы последних операций, которые на нем выполнялись.</li><li>Время по [графикам доступности](#monitoring-cluster), когда кластер перешел в состояние `UNKNOWN`.</li></ul>
 
 ### Статусы кластера {#cluster-status}
 
@@ -116,5 +116,5 @@
 **STOPPED** | Кластер остановлен | Запустите кластер, чтобы вернуть его в работу.
 **STARTING** | Остановленный ранее кластер запускается | Через некоторое время кластеру будет присвоен статус `RUNNING`. Подождите немного и приступайте к работе.
 **UPDATING** | Обновляется конфигурация кластера | По завершении обновления кластеру будет присвоен статус, который был до обновления: `RUNNING` или `STOPPED`.
-**ERROR** | Произошла ошибка при выполнении операции с кластером или во время окна технического обслуживания | Если кластер долго находится в этом статусе, [обратитесь в службу поддержки](https://center.yandex.cloud/support). Доступность кластера можно определить по его состоянию.
-**STATUS_UNKNOWN** | Кластер не может определить свой статус | Если кластер долго находится в этом статусе, [обратитесь в службу поддержки](https://center.yandex.cloud/support).
+**ERROR** | Произошла ошибка при выполнении операции с кластером или во время окна технического обслуживания | Если кластер долго находится в этом статусе, [обратитесь в службу поддержки]({{ link-console-support }}). Доступность кластера можно определить по его состоянию.
+**STATUS_UNKNOWN** | Кластер не может определить свой статус | Если кластер долго находится в этом статусе, [обратитесь в службу поддержки]({{ link-console-support }}).

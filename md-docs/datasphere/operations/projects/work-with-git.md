@@ -2,10 +2,10 @@
 
 ## Перед началом работы {#before-begin}
 
-Откройте проект DataSphere:
+Откройте проект {{ ml-platform-name }}:
 
-1. Выберите нужный проект в своем сообществе или на [главной странице](https://datasphere.yandex.cloud) DataSphere во вкладке **Недавние проекты**.
-1. Нажмите кнопку **Открыть проект в JupyterLab** и дождитесь окончания загрузки.
+1. Выберите нужный проект в своем сообществе или на [главной странице]({{ link-datasphere-main }}) {{ ml-platform-name }} во вкладке **{{ ui-key.yc-ui-datasphere.main-page.recent-projects }}**.
+1. Нажмите кнопку **{{ ui-key.yc-ui-datasphere.project-page.project-card.go-to-jupyter }}** и дождитесь окончания загрузки.
 1. Откройте вкладку с ноутбуком.
 
 ## Клонировать публичный репозиторий GitHub {#clone-public}
@@ -121,7 +121,7 @@
 Чтобы сохранить код проекта в новый репозиторий на GitHub:
 
 1. [Создайте](https://docs.github.com/en/repositories/creating-and-managing-repositories/creating-a-new-repository) новый пустой репозиторий на GitHub. Вы сможете добавить файлы README, license и gitignore позднее.
-1. В проекте DataSphere создайте локальный репозиторий:
+1. В проекте {{ ml-platform-name }} создайте локальный репозиторий:
 
    1. В левом навигационном меню, в разделе ![folder](../../../_assets/datasphere/jupyterlab/folder.svg) **File Browser**, создайте или выберите папку, в которой вы хотите создать клон репозитория, и перейдите в нее.
    1. В верхнем меню нажмите **Git** и выберите **Initialize a Repository**.

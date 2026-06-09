@@ -1,7 +1,6 @@
 # Managed Service for MySQL API, gRPC: ClusterService.ListLogs
 
 Retrieves logs for a cluster.
-
 Alternatively, logs can be streamed using [StreamLogs](streamLogs.md#StreamLogs).
 
 ## gRPC request
@@ -30,7 +29,6 @@ Alternatively, logs can be streamed using [StreamLogs](streamLogs.md#StreamLogs)
 || cluster_id | **string**
 
 Required field. ID of the cluster to request logs for.
-
 To get this ID, make a [ClusterService.List](list.md#List) request.
 
 The maximum string length in characters is 50. ||
@@ -57,14 +55,12 @@ The logs in the response will be within `from_time` to `to_time` range. ||
 || page_size | **int64**
 
 The maximum number of results per page to return.
-
 If the number of available results is larger than `page_size`, the API returns a [ListClusterLogsResponse.next_page_token](#yandex.cloud.mdb.mysql.v1.ListClusterLogsResponse) that can be used to get the next page of results in the subsequent [ClusterService.ListLogs](#ListLogs) requests.
 
 Acceptable values are 0 to 1000, inclusive. ||
 || page_token | **string**
 
 Page token that can be used to iterate through multiple pages of results.
-
 To get the next page of results, set `page_token` to the [ListClusterLogsResponse.next_page_token](#yandex.cloud.mdb.mysql.v1.ListClusterLogsResponse) returned by the previous [ClusterService.ListLogs](#ListLogs) request.
 
 The maximum string length in characters is 100. ||
@@ -96,11 +92,8 @@ Requested log records. ||
 || next_page_token | **string**
 
 The token that can be used to get the next page of results.
-
 If the number of results is larger than [ListClusterLogsRequest.page_size](#yandex.cloud.mdb.mysql.v1.ListClusterLogsRequest), use the `next_page_token` as the value for the [ListClusterLogsRequest.page_token](#yandex.cloud.mdb.mysql.v1.ListClusterLogsRequest) in the subsequent [ClusterService.ListLogs](#ListLogs) request to iterate through multiple pages of results.
-
 Each of the subsequent [ClusterService.ListLogs](#ListLogs) requests should use the `next_page_token` value returned by the previous request to continue paging through the results.
-
 This value is interchangeable with [StreamLogRecord.next_record_token](streamLogs.md#yandex.cloud.mdb.mysql.v1.StreamLogRecord) from [ClusterService.StreamLogs](streamLogs.md#StreamLogs) method. ||
 |#
 

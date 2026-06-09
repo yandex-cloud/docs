@@ -5,7 +5,7 @@ Starts the specified cluster.
 ## HTTP request
 
 ```
-POST https://ytsaurus.api.cloud.yandex.net/ytsaurus/v1/clusters/{clusterId}:start
+POST https://ytsaurus.{{ api-host }}/ytsaurus/v1/clusters/{clusterId}:start
 ```
 
 ## Path parameters

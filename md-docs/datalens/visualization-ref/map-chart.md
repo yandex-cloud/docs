@@ -1,4 +1,4 @@
-# Карта ![](../../_assets/datalens/heatmap.svg) в Yandex DataLens
+# Карта ![](../../_assets/datalens/heatmap.svg) в {{ datalens-full-name }}
 
 Карты используются для геоаналитики — отображения и исследования бизнес-показателей на карте. 
 
@@ -50,7 +50,7 @@
     При этом порядок типов визуализации остается неизменным — сверху вниз: точечная карта, полилинейная карта, фоновая карта, тепловая карта.
 
 
-Чтобы получить геослои, можно найти и использовать работу из [Галереи](https://datalens.ru/gallery/all?category=geo&can_be_used=true).
+Чтобы получить геослои, можно найти и использовать работу из [Галереи]({{ link-datalens-main }}/gallery/all?category=geo&can_be_used=true).
 
 
 {% note info %}
@@ -61,6 +61,6 @@
 
 #### См. также {#see-also}
 
-* [Создание дашборда в Yandex DataLens](../operations/dashboard/create.md)
-* [Добавление чарта на дашборд в Yandex DataLens](../operations/dashboard/add-chart.md)
-* [Добавление селектора на дашборд в Yandex DataLens](../operations/dashboard/add-selector.md)
+* [{#T}](../operations/dashboard/create.md)
+* [{#T}](../operations/dashboard/add-chart.md)
+* [{#T}](../operations/dashboard/add-selector.md)

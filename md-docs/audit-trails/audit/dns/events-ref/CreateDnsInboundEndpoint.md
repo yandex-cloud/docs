@@ -85,13 +85,25 @@
   },
   "details": {
     "dnsInboundEndpointId": "string",
+    // Includes only one of the fields `dnsInboundEndpointName`
     "dnsInboundEndpointName": "string",
+    // end of the list of possible fields
+    // Includes only one of the fields `description`
     "description": "string",
+    // end of the list of possible fields
     "labels": "object",
+    // Includes only one of the fields `networkId`
     "networkId": "string",
+    // end of the list of possible fields
+    // Includes only one of the fields `address`
     "address": "string",
+    // end of the list of possible fields
+    // Includes only one of the fields `addressId`
     "addressId": "string",
+    // end of the list of possible fields
+    // Includes only one of the fields `deletionProtection`
     "deletionProtection": "boolean"
+    // end of the list of possible fields
   },
   "requestParameters": "object",
   "response": "object"
@@ -263,11 +275,23 @@ A list of messages that carry the error details. ||
 #|
 ||Field | Description ||
 || dnsInboundEndpointId | **string** ||
-|| dnsInboundEndpointName | **string** ||
-|| description | **string** ||
+|| dnsInboundEndpointName | **string**
+
+Includes only one of the fields `dnsInboundEndpointName`. ||
+|| description | **string**
+
+Includes only one of the fields `description`. ||
 || labels | **object** (map<**string**, **string**>) ||
-|| networkId | **string** ||
-|| address | **string** ||
-|| addressId | **string** ||
-|| deletionProtection | **boolean** ||
+|| networkId | **string**
+
+Includes only one of the fields `networkId`. ||
+|| address | **string**
+
+Includes only one of the fields `address`. ||
+|| addressId | **string**
+
+Includes only one of the fields `addressId`. ||
+|| deletionProtection | **boolean**
+
+Includes only one of the fields `deletionProtection`. ||
 |#

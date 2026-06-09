@@ -7,7 +7,7 @@ description: Как настроить и использовать {{ IBRG }} в
 
 {{ dataproc-name }} версии 2.0 и выше поддерживает использование таблиц {{ IBRG }} совместно с движком {{ SPRK }}.
 
-Подробную информацию об {{ IBRG }} см. в разделе [{#T}](../concepts/apache-iceberg.md) и в [официальной документации](https://iceberg.apache.org/docs/latest/).
+Подробную информацию об {{ IBRG }} читайте в разделе [{#T}](../concepts/apache-iceberg.md) и в [официальной документации](https://iceberg.apache.org/docs/latest/).
 
 
 {% include [apache-iceberg-disclaimer](../../_includes/data-processing/apache-iceberg-disclaimer.md) %}
@@ -96,7 +96,7 @@ description: Как настроить и использовать {{ IBRG }} в
 
         Данные таблиц будут храниться в бакете по пути `warehouse/`.
 
-    Подробнее о свойствах, влияющих на настройки каталога, см. в [документации {{ IBRG }}](https://iceberg.apache.org/docs/latest/spark-configuration/#catalog-configuration).
+    Подробнее о свойствах, влияющих на настройки каталога, в [документации {{ IBRG }}](https://iceberg.apache.org/docs/latest/spark-configuration/#catalog-configuration).
 
 1. [Подключитесь по SSH](connect-ssh.md) к хосту-мастеру кластера {{ dataproc-name }}.
 

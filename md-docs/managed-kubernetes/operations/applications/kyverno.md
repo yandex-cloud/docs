@@ -1,18 +1,18 @@
 # Установка Kyverno & Kyverno Policies
 
-[Kyverno](https://kyverno.io) — приложение для управления политиками безопасности Kubernetes. Политики безопасности представлены в Kyverno как ресурсы Kubernetes. Kyverno поддерживает инструменты `kubectl`, `git` и `kustomize`. Интерфейс командной строки Kyverno можно использовать для тестирования политик и проверки ресурсов как части конвейера [CI/CD](https://yandex.cloud/ru/blog/posts/2022/10/ci-cd).
+[Kyverno](https://kyverno.io) — приложение для управления политиками безопасности {{ k8s }}. Политики безопасности представлены в Kyverno как ресурсы {{ k8s }}. Kyverno поддерживает инструменты `kubectl`, `git` и `kustomize`. Интерфейс командной строки Kyverno можно использовать для тестирования политик и проверки ресурсов как части конвейера [CI/CD](https://yandex.cloud/ru/blog/posts/2022/10/ci-cd).
 
-[Kyverno policies](https://github.com/kyverno/kyverno/tree/main/charts/kyverno-policies) — расширение для Kyverno. Kyverno policies содержит реализацию Kubernetes [Pod Security Standards (PSS)](https://kubernetes.io/docs/concepts/security/pod-security-standards/). Оригиналы политик загружены в отдельный репозиторий [Kyverno policies](https://github.com/kyverno/policies/tree/main/pod-security).
+[Kyverno policies](https://github.com/kyverno/kyverno/tree/main/charts/kyverno-policies) — расширение для Kyverno. Kyverno policies содержит реализацию {{ k8s }} [Pod Security Standards (PSS)](https://kubernetes.io/docs/concepts/security/pod-security-standards/). Оригиналы политик загружены в отдельный репозиторий [Kyverno policies](https://github.com/kyverno/policies/tree/main/pod-security).
 
 {% note tip %}
 
-Чтобы выявить уязвимости в работе кластера Kubernetes, используйте приложение [Chaos Mesh](chaos-mesh.md). Нахождение уязвимостей поможет настроить политики безопасности.
+Чтобы выявить уязвимости в работе кластера {{ k8s }}, используйте приложение [Chaos Mesh](chaos-mesh.md). Нахождение уязвимостей поможет настроить политики безопасности.
 
 {% endnote %}
 
 ## Перед началом работы {#before-you-begin}
 
-[Убедитесь](../connect/security-groups.md), что группы безопасности для кластера Managed Service for Kubernetes и его групп узлов настроены корректно. Если отсутствует какое-либо из правил — [добавьте его](../../../vpc/operations/security-group-add-rule.md).
+[Убедитесь](../connect/security-groups.md), что группы безопасности для кластера {{ managed-k8s-name }} и его групп узлов настроены корректно. Если отсутствует какое-либо из правил — [добавьте](../../../vpc/operations/security-group-add-rule.md) его.
 
 {% note warning %}
 
@@ -20,12 +20,12 @@
 
 {% endnote %}
 
-## Установка с помощью Yandex Cloud Marketplace {#marketplace-install}
+## Установка с помощью {{ marketplace-full-name }} {#marketplace-install}
 
-1. В [консоли управления](https://console.yandex.cloud) выберите каталог.
-1. [Перейдите](../../../console/operations/select-service.md#select-service) в сервис **Managed Service for&nbsp;Kubernetes**.
-1. Нажмите на имя нужного [кластера Managed Service for Kubernetes](../../concepts/index.md#kubernetes-cluster) и выберите вкладку ![image](../../../_assets/console-icons/shopping-cart.svg) **Marketplace**.
-1. В разделе **Доступные для установки приложения** выберите [Kyverno & Kyverno Policies](https://yandex.cloud/ru/marketplace/products/yc/kyverno) и нажмите кнопку **Перейти к установке**.
+1. В [консоли управления]({{ link-console-main }}) выберите каталог.
+1. Перейдите в сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-kubernetes }}**.
+1. Нажмите на имя нужного [кластера {{ managed-k8s-name }}](../../concepts/index.md#kubernetes-cluster) и выберите вкладку ![image](../../../_assets/console-icons/shopping-cart.svg) **{{ ui-key.yacloud.k8s.cluster.switch_marketplace }}**.
+1. В разделе **{{ ui-key.yacloud.marketplace-v2.label_available-products }}** выберите [Kyverno & Kyverno Policies](https://yandex.cloud/ru/marketplace/products/yc/kyverno) и нажмите кнопку **{{ ui-key.yacloud.marketplace-v2.button_k8s-product-use }}**.
 1. Задайте настройки приложения:
    * **Пространство имен** — создайте новое [пространство имен](../../concepts/index.md#namespace) (например, `kyverno-space`). Если вы оставите пространство имен по умолчанию, Kyverno может работать некорректно.
    * **Название приложения** — укажите название приложения.
@@ -37,20 +37,20 @@
    * **Validation failure action** — выберите способ реагирования на срабатывания Kyverno:
      * `audit` — режим оповещения.
      * `enforce` — режим блокировки.
-1. Нажмите кнопку **Установить**.
+1. Нажмите кнопку **{{ ui-key.yacloud.k8s.cluster.marketplace.button_install }}**.
 1. Дождитесь перехода приложения в статус `Deployed`.
 
 ## Установка с помощью Helm-чарта {#helm-install}
 
 1. [Установите менеджер пакетов Helm](https://helm.sh/ru/docs/intro/install/) версии не ниже 3.8.0.
 
-1. [Установите kubectl](https://kubernetes.io/ru/docs/tasks/tools/install-kubectl) и [настройте его на работу с созданным кластером](../connect/index.md#kubectl-connect).
+1. [Установите kubectl]({{ k8s-docs }}/tasks/tools/install-kubectl) и [настройте его на работу с созданным кластером](../connect/index.md#kubectl-connect).
 
 1. Для установки [Helm-чарта](https://helm.sh/docs/topics/charts/) с Kyverno выполните команду:
 
    ```bash
-   helm pull oci://cr.yandex/yc-marketplace/multi-kyverno \
-     --version 1.0.0 \
+   helm pull oci://{{ mkt-k8s-key.yc_kyverno.helmChart.name }} \
+     --version {{ mkt-k8s-key.yc_kyverno.helmChart.tag }} \
      --untar && \
    helm install \
      --namespace <пространство_имен> \
@@ -83,12 +83,12 @@
 
 {% list tabs group=instructions %}
 
-- Yandex Cloud Marketplace {#marketplace}
+- {{ marketplace-full-name }} {#marketplace}
 
-   1. В [консоли управления](https://console.yandex.cloud) выберите каталог.
-   1. [Перейдите](../../../console/operations/select-service.md#select-service) в сервис **Managed Service for&nbsp;Kubernetes**.
-   1. Нажмите на имя нужного [кластера Kubernetes](../../concepts/index.md#kubernetes-cluster) и выберите вкладку ![image](../../../_assets/console-icons/shopping-cart.svg) **Marketplace**.
-   1. В разделе **Установленные приложения**, в строке приложения [Kyverno & Kyverno Policies](https://yandex.cloud/ru/marketplace/products/yc/kyverno), сначала нажмите кнопку ![image](../../../_assets/marketplace/three_dots.png =22x13), затем — **Удалить**.
+   1. В [консоли управления]({{ link-console-main }}) выберите каталог.
+   1. Перейдите в сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-kubernetes }}**.
+   1. Нажмите на имя нужного [кластера {{ k8s }}](../../concepts/index.md#kubernetes-cluster) и выберите вкладку ![image](../../../_assets/console-icons/shopping-cart.svg) **{{ ui-key.yacloud.k8s.cluster.switch_marketplace }}**.
+   1. В разделе **{{ ui-key.yacloud.k8s.cluster.marketplace.section_releases }}**, в строке приложения [Kyverno & Kyverno Policies](https://yandex.cloud/ru/marketplace/products/yc/kyverno), сначала нажмите кнопку ![image](../../../_assets/marketplace/three_dots.png =22x13), затем — **{{ ui-key.yacloud.k8s.cluster.marketplace.button_release-uninstall }}**.
    1. [Подключитесь к кластеру](../connect/index.md#kubectl-connect) с помощью kubectl.
    1. [Очистите конфигурации веб-хуков приложения](https://release-1-8-0.kyverno.io/docs/installation/#clean-up-webhook-configurations), иначе кластер будет работать некорректно.
 
@@ -107,7 +107,7 @@
 
 ## Примеры использования {#examples}
 
-* [Настройка Kyverno & Kyverno Policies](../../tutorials/marketplace/kyverno.md).
+* [{#T}](../../tutorials/marketplace/kyverno.md).
 
 ## См. также {#see-also}
 

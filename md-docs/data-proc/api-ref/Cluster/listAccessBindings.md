@@ -5,7 +5,7 @@ Retrieves a list of access bindings for the specified cluster.
 ## HTTP request
 
 ```
-GET https://dataproc.api.cloud.yandex.net/dataproc/v1/clusters/{resourceId}:listAccessBindings
+GET https://dataproc.{{ api-host }}/dataproc/v1/clusters/{resourceId}:listAccessBindings
 ```
 
 ## Path parameters

@@ -1,13 +1,12 @@
 # OAUTH Application API, REST: Application.Get
 
 Returns the specified OAuth application resource.
-
 To get the list of available OAuth applications, make a [List](../../mapi-ref/Application/list#List) request.
 
 ## HTTP request
 
 ```
-GET https://organization-manager.api.cloud.yandex.net/organization-manager/v1/idp/application/oauth/applications/{applicationId}
+GET https://organization-manager.{{ api-host }}/organization-manager/v1/idp/application/oauth/applications/{applicationId}
 ```
 
 ## Path parameters
@@ -136,5 +135,5 @@ The maximum string length in characters is 50. ||
 
 List of authorized client scopes by the application
 
-The number of elements must be in the range 1-1000. The maximum string length in characters for each value is 255. ||
+The maximum string length in characters for each value is 255. Each value must match the regular expression ` [!#-\[\]-~]+ `. The number of elements must be in the range 1-1000. ||
 |#

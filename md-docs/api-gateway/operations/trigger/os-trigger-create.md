@@ -1,6 +1,6 @@
-# Создать триггер для Object Storage, который отправляет сообщения в WebSocket-соединения
+# Создать триггер для {{ objstorage-name }}, который отправляет сообщения в WebSocket-соединения
 
-Создайте [триггер для Object Storage](../../concepts/trigger/os-trigger.md), который будет отправлять сообщения в [WebSocket-соединения](../../concepts/extensions/websocket.md) при создании, перемещении или удалении [объекта](../../../storage/concepts/object.md) в бакете.
+Создайте [триггер для {{ objstorage-name }}](../../concepts/trigger/os-trigger.md), который будет отправлять сообщения в [WebSocket-соединения](../../concepts/extensions/websocket.md) при создании, перемещении или удалении [объекта](../../../storage/concepts/object.md) в бакете.
 
 ## Перед началом работы {#before-begin}
 
@@ -30,44 +30,44 @@
 
 - Консоль управления {#console}
 
-    1. В [консоли управления](https://console.yandex.cloud) перейдите в каталог, в котором хотите создать триггер.
+    1. В [консоли управления]({{ link-console-main }}) перейдите в каталог, в котором хотите создать триггер.
 
-    1. [Перейдите](../../../console/operations/select-service.md#select-service) в сервис **API Gateway**.
+    1. Перейдите в сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_api-gateway }}**.
 
-    1. На панели слева выберите ![image](../../../_assets/console-icons/gear-play.svg) **Триггеры**.
+    1. На панели слева выберите ![image](../../../_assets/console-icons/gear-play.svg) **{{ ui-key.yacloud.serverless-functions.switch_list-triggers }}**.
 
-    1. Нажмите кнопку **Создать триггер**.
+    1. Нажмите кнопку **{{ ui-key.yacloud.serverless-functions.triggers.list.button_create }}**.
 
-    1. В блоке **Базовые параметры**:
+    1. В блоке **{{ ui-key.yacloud.serverless-functions.triggers.form.section_base }}**:
 
         * Введите имя и описание триггера.
-        * В поле **Тип** выберите `Object Storage`.
-        * В поле **Запускаемый ресурс** выберите `API-шлюз`.
+        * В поле **{{ ui-key.yacloud.serverless-functions.triggers.form.field_type }}** выберите `{{ ui-key.yacloud.serverless-functions.triggers.form.label_storage }}`.
+        * В поле **{{ ui-key.yacloud.serverless-functions.triggers.form.field_invoke }}** выберите `{{ ui-key.yacloud.serverless-functions.triggers.form.label_gateway-broadcast }}`.
 
-    1. В блоке **Настройки Object Storage**:
+    1. В блоке **{{ ui-key.yacloud.serverless-functions.triggers.form.section_storage }}**:
 
-        * В поле **Бакет** выберите бакет, для событий с объектами которого хотите создать триггер.
-        * В поле **Типы событий** выберите события, после наступления которых триггер будет запускаться.
-        * (Опционально) В поле **Префикс ключа объекта** введите префикс для фильтрации.
-        * (Опционально) В поле **Суффикс ключа объекта** введите суффикс для фильтрации.
+        * В поле **{{ ui-key.yacloud.serverless-functions.triggers.form.field_bucket }}** выберите бакет, для событий с объектами которого хотите создать триггер.
+        * В поле **{{ ui-key.yacloud.serverless-functions.triggers.form.field_event-types }}** выберите события, после наступления которых триггер будет запускаться.
+        * (Опционально) В поле **{{ ui-key.yacloud.serverless-functions.triggers.form.field_prefix }}** введите префикс для фильтрации.
+        * (Опционально) В поле **{{ ui-key.yacloud.serverless-functions.triggers.form.field_suffix }}** введите суффикс для фильтрации.
 
-    1. В блоке **Настройки группирования сообщений** укажите:
+    1. В блоке **{{ ui-key.yacloud.serverless-functions.triggers.form.section_batch-settings }}** укажите:
 
         * размер группы сообщений. Допустимые значения от 1 до 1000, значение по умолчанию — 1.
         * максимальное время ожидания. Допустимые значения от 1 до 60 секунд, значение по умолчанию — 1 секунда.
 
        Триггер группирует события не дольше указанного времени ожидания и отправляет их в WebSocket-соединения. Число событий при этом не превышает указанный размер группы.
 
-    1. В блоке **Настройки API-шлюза**:
-       * В поле **API-шлюз** выберите API-шлюз.
-       * В поле **Путь** укажите путь в OpenAPI-спецификации. Через WebSocket-соединения, которые установлены по этому пути, будут отправляться сообщения.
-       * В поле **Сервисный аккаунт** выберите [сервисный аккаунт](../../../iam/concepts/users/service-accounts.md), от имени которого в WebSocket-соединения будут отправляться сообщения.
+    1. В блоке **{{ ui-key.yacloud.serverless-functions.triggers.form.section_gateway-broadcast }}**:
+       * В поле **{{ ui-key.yacloud.serverless-functions.triggers.form.field_api-gateway }}** выберите API-шлюз.
+       * В поле **{{ ui-key.yacloud.serverless-functions.triggers.form.field_gateway-path }}** укажите путь в OpenAPI-спецификации. Через WebSocket-соединения, которые установлены по этому пути, будут отправляться сообщения.
+       * В поле **{{ ui-key.yacloud.serverless-functions.triggers.form.field_function_service-account }}** выберите [сервисный аккаунт](../../../iam/concepts/users/service-accounts.md), от имени которого в WebSocket-соединения будут отправляться сообщения.
 
-    1. Нажмите кнопку **Создать триггер**.
+    1. Нажмите кнопку **{{ ui-key.yacloud.serverless-functions.triggers.form.button_create-trigger }}**.
 
 - CLI {#cli}
 
-    Если у вас еще нет интерфейса командной строки Yandex Cloud (CLI), [установите и инициализируйте его](../../../cli/quickstart.md#install).
+    Если у вас еще нет интерфейса командной строки {{ yandex-cloud }} (CLI), [установите и инициализируйте его](../../../cli/quickstart.md#install).
 
     По умолчанию используется каталог, указанный при [создании](../../../cli/operations/profile/profile-create.md) профиля CLI. Чтобы изменить каталог по умолчанию, используйте команду `yc config set folder-id <идентификатор_каталога>`. Также для любой команды вы можете указать другой каталог с помощью параметров `--folder-name` или `--folder-id`. Если вы обращаетесь к ресурсу по имени, поиск будет выполнен в каталоге по умолчанию. Если вы обращаетесь к ресурсу по идентификатору, поиск будет выполнен глобально — во всех каталогах с учетом прав доступа.
 
@@ -130,7 +130,7 @@
 
 - API {#api}
 
-  Чтобы создать триггер для Object Storage, воспользуйтесь методом REST API [create](../../triggers/api-ref/Trigger/create.md) для ресурса [Trigger](../../triggers/api-ref/Trigger/index.md) или вызовом gRPC API [TriggerService/Create](../../triggers/api-ref/grpc/Trigger/create.md).
+  Чтобы создать триггер для {{ objstorage-name }}, воспользуйтесь методом REST API [create](../../triggers/api-ref/Trigger/create.md) для ресурса [Trigger](../../triggers/api-ref/Trigger/index.md) или вызовом gRPC API [TriggerService/Create](../../triggers/api-ref/grpc/Trigger/create.md).
 
 {% endlist %}
 
@@ -140,5 +140,5 @@
 
 ## См. также {#see-also}
 
-* [Триггер для Object Storage, который вызывает функцию Cloud Functions](../../../functions/operations/trigger/os-trigger-create.md)
-* [Триггер для Object Storage, который вызывает контейнер Serverless Containers](../../../serverless-containers/operations/os-trigger-create.md)
+* [Триггер для {{ objstorage-name }}, который вызывает функцию {{ sf-name }}](../../../functions/operations/trigger/os-trigger-create.md)
+* [Триггер для {{ objstorage-name }}, который вызывает контейнер {{ serverless-containers-name }}](../../../serverless-containers/operations/os-trigger-create.md)

@@ -5,7 +5,7 @@ Retrieves the list of services.
 ## HTTP request
 
 ```
-GET https://billing.api.cloud.yandex.net/billing/v1/services
+GET https://billing.{{ api-host }}/billing/v1/services
 ```
 
 ## Query parameters {#yandex.cloud.billing.v1.ListServicesRequest}

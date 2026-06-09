@@ -94,6 +94,8 @@ Example: `my-instance-{instance.index}`. If hostname is not set, `name` value wi
   - `metadata_options` [Block]. Options allow user to configure access to managed instances metadata
     - `aws_v1_http_endpoint` (Number). Enables access to AWS flavored metadata (IMDSv1). Possible values: `0`, `1` for `enabled` and `2` for `disabled`.
     - `aws_v1_http_token` (Number). Enables access to IAM credentials with AWS flavored metadata (IMDSv1). Possible values: `0`, `1` for `enabled` and `2` for `disabled`.
+    - `aws_v2_http_endpoint` (Number). Enables access to AWS flavored metadata with session token (IMDSv2). Possible values: `0`, `1` for `enabled` and `2` for `disabled`.
+    - `aws_v2_http_token` (Number). Enables access to STS credentials with AWS flavored metadata with session token (IMDSv2). Possible values: `0`, `1` for `enabled` and `2` for `disabled`.
     - `gce_http_endpoint` (Number). Enables access to GCE flavored metadata. Possible values: `0`, `1` for `enabled` and `2` for `disabled`.
     - `gce_http_token` (Number). Enables access to IAM credentials with GCE flavored metadata. Possible values: `0`, `1` for `enabled` and `2` for `disabled`.
   - `name` (String). Name template of the instance.

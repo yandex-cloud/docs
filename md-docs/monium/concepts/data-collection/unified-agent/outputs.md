@@ -58,7 +58,7 @@ output:
 
 ## Выход yc_metrics {#yc_metrics_output}
 
-Выход для записи метрик в Monium API.
+Выход для записи метрик в {{ monium-name }} API.
 
 Описание параметров:
 
@@ -68,7 +68,7 @@ output:
         plugin: yc_metrics
         config:
         # URL, на который будут отправляться метрики.
-        url: https://monitoring.api.cloud.yandex.net/monitoring/v2/data/write  # необязательный, по умолчанию https://monitoring.api.cloud.yandex.net/monitoring/v2/data/write
+        url: https://monitoring.{{ api-host }}/monitoring/v2/data/write  # необязательный, по умолчанию https://monitoring.{{ api-host }}/monitoring/v2/data/write
 
         folder_id: b1ge2vt0gml6********  # обязательный, идентификатор каталога
 
@@ -84,7 +84,7 @@ output:
             # Имя файла с параметрами JWT в формате, который возвращает команда `yc iam key create`.
                 file: "jwt_params.json"  # обязательный
 
-                endpoint: iam.api.cloud.yandex.net  # необязательный, по умолчанию iam.api.cloud.yandex.net
+                endpoint: iam.{{ api-host }}  # необязательный, по умолчанию iam.{{ api-host }}
 
                 refresh_period: 1h  # необязательный, по умолчанию 1h
 

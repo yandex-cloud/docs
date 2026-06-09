@@ -1,30 +1,30 @@
-# Yandex Serverless Integrations
+# {{ si-full-name }}
 
-Yandex Serverless Integrations — это сервис для настройки интеграций и управления ими с помощью serverless-технологий в Yandex Cloud.
+{{ si-full-name }} — это сервис для настройки интеграций и управления ими с помощью serverless-технологий в {{ yandex-cloud }}.
 
-Serverless Integrations позволяет:<ul><li>разрабатывать микросервисные архитектуры без необходимости конфигурировать виртуальные машины;</li> <li>создавать и автоматизировать рабочие процессы для реагирования на инциденты безопасности;</li> <li>автоматизировать бизнес-операции;</li> <li>настраивать пайпланы CI/CD;</li> <li>разрабатывать событийно-ориентированные приложения на базе serverless, используя оркестрацию и хореографию, чтобы организовывать взаимодействие между событиями и управлять ими.</li></ul>
+{{ si-name }} позволяет:<ul><li>разрабатывать микросервисные архитектуры без необходимости конфигурировать виртуальные машины;</li> <li>создавать и автоматизировать рабочие процессы для реагирования на инциденты безопасности;</li> <li>автоматизировать бизнес-операции;</li> <li>настраивать пайпланы CI/CD;</li> <li>разрабатывать событийно-ориентированные приложения на базе serverless, используя оркестрацию и хореографию, чтобы организовывать взаимодействие между событиями и управлять ими.</li></ul>
 
-Workflows и EventRouter находятся на стадии <a href="../overview/concepts/launch-stages.md">Preview</a>.
+{{ sw-name }} и {{ er-name }} находятся на стадии <a href="../overview/concepts/launch-stages.md">Preview</a>.
 
-О том, как управлять API-шлюзами, которые поддерживают <a href="https://github.com/OAI/OpenAPI-Specification">спецификацию OpenAPI 3.0</a> и  набор расширений для взаимодействия с сервисами Yandex Cloud,  читайте в <a href="../api-gateway/index.md">документации Yandex API Gateway</a>.
+О том, как управлять API-шлюзами, которые поддерживают <a href="https://github.com/OAI/OpenAPI-Specification">спецификацию OpenAPI 3.0</a> и  набор расширений для взаимодействия с сервисами {{ yandex-cloud }},  читайте в <a href="../api-gateway/index.md">документации {{ api-gw-full-name }}</a>.
 
-# Yandex Serverless Integrations
+# {{ si-full-name }}
 
- - [Сопоставление с другими сервисами Yandex Cloud](service-comparison.md)
+ - [Сопоставление с другими сервисами {{ yandex-cloud }}](service-comparison.md)
 
 ## Начало работы
 
  - [Обзор](quickstart/index.md)
 
- - [Workflows](quickstart/workflows.md)
+ - [{{ sw-name }}](quickstart/workflows.md)
 
- - [EventRouter](quickstart/eventrouter.md)
+ - [{{ er-name }}](quickstart/eventrouter.md)
 
 ## Пошаговые инструкции
 
  - [Все инструкции](operations/index.md)
 
-### Workflows
+### {{ sw-name }}
 
 #### Получение информации о рабочем процессе
 
@@ -80,37 +80,35 @@ Workflows и EventRouter находятся на стадии <a href="../overvi
 
 ##### Интеграционные шаги
 
- - [Модели AI Studio](operations/workflows/constructor/foundationmodelscall.md)
+ - [Модели {{ ai-studio-name }}](operations/workflows/constructor/foundationmodelscall.md)
 
- - [Агент AI Studio](operations/workflows/constructor/aistudioagent.md)
+ - [Агент {{ ai-studio-name }}](operations/workflows/constructor/aistudioagent.md)
 
  - [Vector Store](operations/workflows/constructor/vectorstore.md)
 
- - [Cloud Functions](operations/workflows/constructor/functioncall.md)
+ - [{{ sf-short-name }}](operations/workflows/constructor/functioncall.md)
 
- - [Serverless Containers](operations/workflows/constructor/containercall.md)
+ - [{{ serverless-containers-name }}](operations/workflows/constructor/containercall.md)
 
- - [Yandex Cloud Postbox](operations/workflows/constructor/postbox.md)
+ - [{{ postbox-short-name }}](operations/workflows/constructor/postbox.md)
 
- - [Трекер](operations/workflows/constructor/tracker.md)
+ - [{{ tracker-name }}](operations/workflows/constructor/tracker.md)
 
  - [HTTP](operations/workflows/constructor/httpcall.md)
 
  - [gRPC](operations/workflows/constructor/grpccall.md)
 
- - [Object Storage](operations/workflows/constructor/objectstorage.md)
+ - [{{ objstorage-name }}](operations/workflows/constructor/objectstorage.md)
 
- - [Managed Service for YDB](operations/workflows/constructor/ydbdocument.md)
+ - [{{ ydb-name }}](operations/workflows/constructor/ydbdocument.md)
 
- - [Data Streams](operations/workflows/constructor/yds.md)
+ - [{{ yds-name }}](operations/workflows/constructor/yds.md)
 
- - [Message Queue](operations/workflows/constructor/ymq.md)
+ - [{{ message-queue-name }}](operations/workflows/constructor/ymq.md)
 
  - [Яндекс Диск](operations/workflows/constructor/yadisk.md)
 
- - [Workflows](operations/workflows/constructor/workflow.md)
-
- - [AI-агент](operations/workflows/constructor/aiagent.md)
+ - [{{ sw-name }}](operations/workflows/constructor/workflow.md)
 
  - [Telegram-бот](operations/workflows/constructor/telegrambot.md)
 
@@ -160,7 +158,7 @@ Workflows и EventRouter находятся на стадии <a href="../overvi
 
  - [Прекратить запуск рабочего процесса](operations/workflows/execution/terminate.md)
 
-### EventRouter
+### {{ er-name }}
 
 #### Получение информации о шине
 
@@ -204,11 +202,11 @@ Workflows и EventRouter находятся на стадии <a href="../overvi
 
  - [Таймер](operations/eventrouter/connector/create-timer.md)
 
- - [API EventRouter](operations/eventrouter/connector/create-api-eventrouter.md)
+ - [API {{ er-name }}](operations/eventrouter/connector/create-api-eventrouter.md)
 
- - [Data Streams](operations/eventrouter/connector/create-yds.md)
+ - [{{ yds-name }}](operations/eventrouter/connector/create-yds.md)
 
- - [Message Queue](operations/eventrouter/connector/create-message-queue.md)
+ - [{{ message-queue-name }}](operations/eventrouter/connector/create-message-queue.md)
 
  - [Изменить коннектор](operations/eventrouter/connector/update.md)
 
@@ -236,19 +234,19 @@ Workflows и EventRouter находятся на стадии <a href="../overvi
 
 ##### Создать правило
 
- - [API Gateway](operations/eventrouter/rule/create-api-gw.md)
+ - [{{ api-gw-name }}](operations/eventrouter/rule/create-api-gw.md)
 
- - [Cloud Functions](operations/eventrouter/rule/create-functions.md)
+ - [{{ sf-name }}](operations/eventrouter/rule/create-functions.md)
 
- - [Cloud Logging](operations/eventrouter/rule/create-logging.md)
+ - [{{ cloud-logging-name }}](operations/eventrouter/rule/create-logging.md)
 
- - [Data Streams](operations/eventrouter/rule/create-data-streams.md)
+ - [{{ yds-name }}](operations/eventrouter/rule/create-data-streams.md)
 
- - [Message Queue](operations/eventrouter/rule/create-message-queue.md)
+ - [{{ message-queue-name }}](operations/eventrouter/rule/create-message-queue.md)
 
- - [Serverless Containers](operations/eventrouter/rule/create-serverless-containers.md)
+ - [{{ serverless-containers-name }}](operations/eventrouter/rule/create-serverless-containers.md)
 
- - [Workflows](operations/eventrouter/rule/create-workflows.md)
+ - [{{ sw-name }}](operations/eventrouter/rule/create-workflows.md)
 
  - [Изменить правило](operations/eventrouter/rule/update.md)
 
@@ -288,19 +286,19 @@ Workflows и EventRouter находятся на стадии <a href="../overvi
 
  - [Все руководства](tutorials/index.md)
 
- - [Автоматическая загрузка данных в Yandex SpeechSense с помощью Workflows](tutorials/auto-upload.md)
+ - [Автоматическая загрузка данных в {{ speechsense-full-name }} с помощью {{ sw-name }}](tutorials/auto-upload.md)
 
- - [Настройка интеграций Workflows с Яндекс Трекер, Yandex AI Studio и Yandex Cloud Postbox](tutorials/tracker-yandexgpt-postbox-integrations.md)
+ - [Настройка интеграций {{ sw-name }} с {{ tracker-full-name }}, {{ ai-studio-full-name }} и {{ postbox-full-name }}](tutorials/tracker-yandexgpt-postbox-integrations.md)
 
  - [Разработка Telegram-бота с поддержкой AI-агента](tutorials/telegram-ai-bot-workflows.md)
 
- - [ИИ-ревью пул-реквестов на GitHub с помощью Workflows и GitHub Actions](tutorials/ai-powered-github-pr-review.md)
+ - [ИИ-ревью пул-реквестов на GitHub с помощью {{ sw-name }} и GitHub Actions](tutorials/ai-powered-github-pr-review.md)
 
 ## Концепции
 
  - [Обзор](concepts/index.md)
 
-### Workflows
+### {{ sw-name }}
 
  - [Рабочий процесс](concepts/workflows/workflow.md)
 
@@ -338,8 +336,6 @@ Workflows и EventRouter находятся на стадии <a href="../overvi
 
  - [Disk](concepts/workflows/yawl/integration/disk.md)
 
- - [AIAgent](concepts/workflows/yawl/integration/aiagent.md)
-
  - [TelegramBot](concepts/workflows/yawl/integration/telegrambot.md)
 
  - [AIStudioAgent](concepts/workflows/yawl/integration/aistudioagent.md)
@@ -368,7 +364,7 @@ Workflows и EventRouter находятся на стадии <a href="../overvi
 
  - [Шаблонизация](concepts/workflows/templating.md)
 
-### EventRouter
+### {{ er-name }}
 
  - [Шина](concepts/eventrouter/bus.md)
 
@@ -386,23 +382,23 @@ Workflows и EventRouter находятся на стадии <a href="../overvi
 
  - [Обзор](security/index.md)
 
- - [Роли EventRouter](security/eventrouter.md)
+ - [Роли {{ er-name }}](security/eventrouter.md)
 
- - [Роли Workflows](security/workflows.md)
+ - [Роли {{ sw-name }}](security/workflows.md)
 
  - [Правила тарификации](pricing.md)
 
 ## Справочник CLI (англ.)
 
- - [Workflows](../cli/cli-ref/serverless/cli-ref/workflow/index.md)
+ - [{{ sw-name }}](../cli/cli-ref/serverless/cli-ref/workflow/index.md)
 
- - [EventRouter](../cli/cli-ref/serverless/cli-ref/eventrouter/index.md)
+ - [{{ er-name }}](../cli/cli-ref/serverless/cli-ref/eventrouter/index.md)
 
  - [Network](../cli/cli-ref/serverless/cli-ref/network/index.md)
 
- - [Справочник Terraform](tf-ref.md)
+ - [Справочник {{ TF }}](tf-ref.md)
 
-## Справочник API Workflows
+## Справочник API {{ sw-name }}
 
  - [Аутентификация в API](api-ref/workflows/authentication.md)
 
@@ -506,7 +502,7 @@ Workflows и EventRouter находятся на стадии <a href="../overvi
 
  - [UpdateAccessBindings](workflows/api-ref/Workflow/updateAccessBindings.md)
 
-## Справочник API EventRouter
+## Справочник API {{ er-name }}
 
  - [Аутентификация в API](api-ref/eventrouter/authentication.md)
 
@@ -758,7 +754,7 @@ Workflows и EventRouter находятся на стадии <a href="../overvi
 
  - [ListOperations](triggers/api-ref/Trigger/listOperations.md)
 
- - [Метрики Monitoring](metrics.md)
+ - [Метрики {{ monitoring-name }}](metrics.md)
 
  - [Публичные материалы](public-talks.md)
 

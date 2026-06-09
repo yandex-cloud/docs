@@ -6,13 +6,13 @@
 
 - Консоль управления {#console}
 
-  1. В [консоли управления](https://console.yandex.cloud) выберите каталог, в котором находится эндпоинт.
-  1. [Перейдите](../../../console/operations/select-service.md#select-service) в сервис **Cloud Notification Service**.
+  1. В [консоли управления]({{ link-console-main }}) выберите каталог, в котором находится эндпоинт.
+  1. Перейдите в сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_cns }}**.
   1. Выберите канал push-уведомлений в браузере.
-  1. Перейдите на вкладку ![image](../../../_assets/console-icons/layers-3-diagonal.svg) **Эндпоинты**.
-  1. Напротив нужного эндпоинта нажмите ![image](../../../_assets/console-icons/ellipsis.svg) и выберите **Редактировать**.
-  1. Измените **Параметры эндпоинта в JSON** и **Данные пользователя**.
-  1. Нажмите **Сохранить**.
+  1. Перейдите на вкладку ![image](../../../_assets/console-icons/layers-3-diagonal.svg) **{{ ui-key.yacloud.cns.label_endpoints }}**.
+  1. Напротив нужного эндпоинта нажмите ![image](../../../_assets/console-icons/ellipsis.svg) и выберите **{{ ui-key.yacloud.common.edit }}**.
+  1. Измените **{{ ui-key.yacloud.cns.field_web-push-endpoint_params }}** и **{{ ui-key.yacloud.cns.field_endpoint-user-data }}**.
+  1. Нажмите **{{ ui-key.yacloud.common.save }}**.
 
 - AWS CLI {#aws-cli}
 
@@ -75,7 +75,7 @@
 
 - API {#api}
 
-  Воспользуйтесь методом HTTP API [setAttributes](../../api-ref/set-endpoint-attributes.md) для ресурса Endpoint сервиса Yandex Cloud Notification Service.
+  Воспользуйтесь методом HTTP API [setAttributes](../../api-ref/set-endpoint-attributes.md) для ресурса Endpoint сервиса {{ cns-full-name }}.
 
 {% endlist %}
 
@@ -87,12 +87,12 @@
 
 - Консоль управления {#console}
 
-  1. В [консоли управления](https://console.yandex.cloud) перейдите в каталог, в котором находится эндпоинт.
-  1. [Перейдите](../../../console/operations/select-service.md#select-service) в сервис **Cloud Notification Service**.
+  1. В [консоли управления]({{ link-console-main }}) перейдите в каталог, в котором находится эндпоинт.
+  1. Перейдите в сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_cns }}**.
   1. Выберите канал push-уведомлений в браузере.
-  1. Перейдите на вкладку ![image](../../../_assets/console-icons/layers-3-diagonal.svg) **Эндпоинты**.
-  1. Напротив нужного эндпоинта нажмите ![image](../../../_assets/console-icons/ellipsis.svg) и выберите **Удалить**.
-  1. Нажмите **Удалить**.
+  1. Перейдите на вкладку ![image](../../../_assets/console-icons/layers-3-diagonal.svg) **{{ ui-key.yacloud.cns.label_endpoints }}**.
+  1. Напротив нужного эндпоинта нажмите ![image](../../../_assets/console-icons/ellipsis.svg) и выберите **{{ ui-key.yacloud.common.delete }}**.
+  1. Нажмите **{{ ui-key.yacloud.common.delete }}**.
 
 - AWS CLI {#aws-cli}
 
@@ -126,6 +126,6 @@
 
 - API {#api}
 
-  Воспользуйтесь методом HTTP API [delete](../../api-ref/delete-endpoint.md) для ресурса Endpoint сервиса Yandex Cloud Notification Service.
+  Воспользуйтесь методом HTTP API [delete](../../api-ref/delete-endpoint.md) для ресурса Endpoint сервиса {{ cns-full-name }}.
 
 {% endlist %}

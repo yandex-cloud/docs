@@ -1,19 +1,19 @@
 # Загрузка аудитных логов в SIEM ArcSight
 
-Создайте трейл, который будет загружать аудитные логи уровня конфигурации ресурсов отдельного каталога в бакет Yandex Object Storage с включенным шифрованием. Затем настройте непрерывную доставку логов в SIEM ArcSight.
+Создайте трейл, который будет загружать аудитные логи уровня конфигурации ресурсов отдельного каталога в бакет {{ objstorage-full-name }} с включенным шифрованием. Затем настройте непрерывную доставку логов в SIEM ArcSight.
 
 Для успешного прохождения руководства у вас должен быть установлен экземпляр ArcSight.
 
 Решение, которое описано в руководстве, работает по следующей схеме:
-1. [Трейл](../../../audit-trails/concepts/trail.md) загружает логи в бакет Object Storage.
+1. [Трейл](../../../audit-trails/concepts/trail.md) загружает логи в бакет {{ objstorage-name }}.
 1. [Бакет](../../../storage/concepts/bucket.md) монтируется через [FUSE](https://ru.wikipedia.org/wiki/FUSE_(модуль_ядра))-интерфейс к папке на промежуточной [ВМ](../../../glossary/vm.md).
 1. [SmartConnector](https://www.microfocus.com/documentation/arcsight/arcsight-smartconnectors/AS_SmartConn_getstart_HTML/) забирает логи из папки и передает их в ArcSight для анализа.
 
-Подробнее о сценариях загрузки аудитных логов в ArcSight смотрите в [Yandex Cloud Security Solution Library](https://github.com/yandex-cloud-examples/yc-export-auditlogs-to-arcsight#two-log-shipping-scenarios).
+Подробнее о сценариях загрузки аудитных логов в ArcSight смотрите в [{{ yandex-cloud }} Security Solution Library](https://github.com/yandex-cloud-examples/yc-export-auditlogs-to-arcsight#two-log-shipping-scenarios).
 
 {% note info %}
 
-[Yandex Cloud Security Solution Library](https://github.com/yandex-cloud-examples/yc-security-solutions-library) — это набор примеров и рекомендаций по построению безопасной инфраструктуры в Yandex Cloud, собранных в публичном репозитории на GitHub.
+[{{ yandex-cloud }} Security Solution Library](https://github.com/yandex-cloud-examples/yc-security-solutions-library) — это набор примеров и рекомендаций по построению безопасной инфраструктуры в {{ yandex-cloud }}, собранных в публичном репозитории на GitHub.
 
 {% endnote %}
 
@@ -30,15 +30,15 @@
 
 ## Перед началом работы {#before-begin}
 
-Если у вас еще нет интерфейса командной строки Yandex Cloud (CLI), [установите и инициализируйте его](../../../cli/quickstart.md#install).
+Если у вас еще нет интерфейса командной строки {{ yandex-cloud }} (CLI), [установите и инициализируйте его](../../../cli/quickstart.md#install).
 
 По умолчанию используется каталог, указанный при [создании](../../../cli/operations/profile/profile-create.md) профиля CLI. Чтобы изменить каталог по умолчанию, используйте команду `yc config set folder-id <идентификатор_каталога>`. Также для любой команды вы можете указать другой каталог с помощью параметров `--folder-name` или `--folder-id`. Если вы обращаетесь к ресурсу по имени, поиск будет выполнен в каталоге по умолчанию. Если вы обращаетесь к ресурсу по идентификатору, поиск будет выполнен глобально — во всех каталогах с учетом прав доступа.
 
-Зарегистрируйтесь в Yandex Cloud и создайте [платежный аккаунт](../../../billing/concepts/billing-account.md):
-1. Перейдите в [консоль управления](https://console.yandex.cloud), затем войдите в Yandex Cloud или зарегистрируйтесь.
-1. На странице **[Yandex Cloud Billing](https://center.yandex.cloud/billing/accounts)** убедитесь, что у вас подключен платежный аккаунт, и он находится в [статусе](../../../billing/concepts/billing-account-statuses.md) `ACTIVE` или `TRIAL_ACTIVE`. Если платежного аккаунта нет, [создайте его](../../../billing/quickstart/index.md) и [привяжите](../../../billing/operations/pin-cloud.md) к нему облако.
+Зарегистрируйтесь в {{ yandex-cloud }} и создайте [платежный аккаунт](../../../billing/concepts/billing-account.md):
+1. Перейдите в [консоль управления]({{ link-console-main }}), затем войдите в {{ yandex-cloud }} или зарегистрируйтесь.
+1. На странице **[{{ ui-key.yacloud_billing.billing.label_service }}]({{ link-console-billing }})** убедитесь, что у вас подключен платежный аккаунт, и он находится в [статусе](../../../billing/concepts/billing-account-statuses.md) `ACTIVE` или `TRIAL_ACTIVE`. Если платежного аккаунта нет, [создайте его](../../../billing/quickstart/index.md) и [привяжите](../../../billing/operations/pin-cloud.md) к нему облако.
 
-Если у вас есть активный платежный аккаунт, вы можете создать или выбрать [каталог](../../../resource-manager/concepts/resources-hierarchy.md#folder), в котором будет работать ваша инфраструктура, на [странице облака](https://console.yandex.cloud/cloud).
+Если у вас есть активный платежный аккаунт, вы можете создать или выбрать [каталог](../../../resource-manager/concepts/resources-hierarchy.md#folder), в котором будет работать ваша инфраструктура, на [странице облака]({{ link-console-cloud }}).
 
 [Подробнее об облаках и каталогах](../../../resource-manager/concepts/resources-hierarchy.md).
 
@@ -46,10 +46,10 @@
 
 В стоимость поддержки инфраструктуры входит:
 
-* использование виртуальных машин (см. [тарифы Compute Cloud](../../../compute/pricing.md));
-* плата за хранение данных в бакете (см. [тарифы Object Storage](../../../storage/pricing.md#prices-storage));
-* плата за операции с данными (см. [тарифы Object Storage](../../../storage/pricing.md#prices-operations));
-* плата за использование ключей KMS (см. [тарифы Key Management Service](../../../kms/pricing.md#prices)).
+* использование виртуальных машин (см. [тарифы {{ compute-short-name }}](../../../compute/pricing.md));
+* плата за хранение данных в бакете (см. [тарифы {{ objstorage-name }}](../../../storage/pricing.md#prices-storage));
+* плата за операции с данными (см. [тарифы {{ objstorage-name }}](../../../storage/pricing.md#prices-operations));
+* плата за использование ключей {{ kms-short-name }} (см. [тарифы {{ kms-name }}](../../../kms/pricing.md#prices)).
 
 ## Подготовьте окружение {#prepare-environment}
 
@@ -66,34 +66,34 @@
 
 - Консоль управления {#console}
 
-  1. В [консоли управления](https://console.yandex.cloud) перейдите в каталог, в котором хотите создать бакет, например, `example-folder`.
-  1. [Перейдите](../../../console/operations/select-service.md#select-service) в сервис **Object Storage**.
-  1. Нажмите **Создать бакет**.
+  1. В [консоли управления]({{ link-console-main }}) перейдите в каталог, в котором хотите создать бакет, например, `example-folder`.
+  1. Перейдите в сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_storage }}**.
+  1. Нажмите **{{ ui-key.yacloud.storage.buckets.button_create }}**.
   1. На странице создания бакета:
       1. Введите имя бакета в соответствии с [правилами именования](../../../storage/concepts/bucket.md#naming).
       1. При необходимости ограничьте максимальный размер бакета.
 
-         Размер `0` означает отсутствие ограничений и аналогичен включенной опции **Без ограничения**.
+         Размер `0` означает отсутствие ограничений и аналогичен включенной опции **{{ ui-key.yacloud.storage.bucket.settings.label_size-limit-disabled }}**.
 
-      1. Выберите тип [доступа](../../../storage/concepts/bucket.md#bucket-access) `С авторизацией`.
+      1. Выберите тип [доступа](../../../storage/concepts/bucket.md#bucket-access) `{{ ui-key.yacloud.storage.bucket.settings.access_value_private }}`.
       1. Выберите [класс хранилища](../../../storage/concepts/storage-class.md) по умолчанию.
-      1. Нажмите **Создать бакет**.
+      1. Нажмите **{{ ui-key.yacloud.storage.buckets.create.button_create }}**.
 
 {% endlist %}
 
-### Создайте ключ шифрования в сервисе Key Management Service {#create-key}
+### Создайте ключ шифрования в сервисе {{ kms-name }} {#create-key}
 
 {% list tabs group=instructions %}
 
 - Консоль управления {#console}
 
-  1. В [консоли управления](https://console.yandex.cloud) перейдите в каталог `example-folder`.
-  1. [Перейдите](../../../console/operations/select-service.md#select-service) в сервис **Key Management Service**.
-  1. Нажмите **Создать ключ** и укажите:
-     * **Имя** — `arcsight-kms`.
-     * **Алгоритм шифрования** — `AES-256`.
+  1. В [консоли управления]({{ link-console-main }}) перейдите в каталог `example-folder`.
+  1. Перейдите в сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_kms }}**.
+  1. Нажмите **{{ ui-key.yacloud.kms.symmetric-keys.button_empty-create }}** и укажите:
+     * **{{ ui-key.yacloud.common.name }}** — `arcsight-kms`.
+     * **{{ ui-key.yacloud.kms.symmetric-key.form.field_algorithm }}** — `AES-256`.
      * Для остальных параметров оставьте значения по умолчанию.
-  1. Нажмите **Создать**.
+  1. Нажмите **{{ ui-key.yacloud.common.create }}**.
 
 {% endlist %}
 
@@ -103,11 +103,11 @@
 
 - Консоль управления {#console}
 
-  1. В [консоли управления](https://console.yandex.cloud) перейдите в бакет, созданный ранее.
-  1. На панели слева выберите **Безопасность**.
-  1. Откройте вкладку **Шифрование**.
-  1. В поле **Ключ KMS** выберите ключ `arcsight-kms`.
-  1. Нажмите **Сохранить**.
+  1. В [консоли управления]({{ link-console-main }}) перейдите в бакет, созданный ранее.
+  1. На панели слева выберите **{{ ui-key.yacloud.storage.bucket.switch_security }}**.
+  1. Откройте вкладку **{{ ui-key.yacloud.storage.bucket.switch_encryption }}**.
+  1. В поле **{{ ui-key.yacloud.storage.bucket.encryption.field_key }}** выберите ключ `arcsight-kms`.
+  1. Нажмите **{{ ui-key.yacloud.storage.bucket.encryption.button_save }}**.
 
 {% endlist %}
 
@@ -121,9 +121,9 @@
 
 - Консоль управления {#console}
 
-  1. В [консоли управления](https://console.yandex.cloud) перейдите в каталог `example-folder`.
-  1. [Перейдите](../../../console/operations/select-service.md#select-service) в сервис **Identity and Access Management**.
-  1. Нажмите кнопку **Создать сервисный аккаунт**.
+  1. В [консоли управления]({{ link-console-main }}) перейдите в каталог `example-folder`.
+  1. Перейдите в сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_iam }}**.
+  1. Нажмите кнопку **{{ ui-key.yacloud.iam.folder.service-accounts.button_add }}**.
   1. Введите имя сервисного аккаунта в соответствии с правилами именования:
   
        * длина — от 3 до 63 символов;
@@ -132,7 +132,7 @@
 
        Например, `sa-arcsight`.
   
-  1. Нажмите **Создать**.
+  1. Нажмите **{{ ui-key.yacloud.iam.folder.service-account.popup-robot_button_add }}**.
   
 {% endlist %}
 
@@ -146,13 +146,13 @@
 
 - Консоль управления {#console}
 
-  1. В [консоли управления](https://console.yandex.cloud) перейдите в каталог `example-folder`.
-  1. [Перейдите](../../../console/operations/select-service.md#select-service) в сервис **Identity and Access Management**.
-  1. На панели слева выберите ![FaceRobot](../../../_assets/console-icons/face-robot.svg) **Сервисные аккаунты**.
+  1. В [консоли управления]({{ link-console-main }}) перейдите в каталог `example-folder`.
+  1. Перейдите в сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_iam }}**.
+  1. На панели слева выберите ![FaceRobot](../../../_assets/console-icons/face-robot.svg) **{{ ui-key.yacloud.iam.label_service-accounts }}**.
   1. В открывшемся списке выберите сервисный аккаунт `sa-arcsight-bucket`.
-  1. Нажмите **Создать новый ключ** на верхней панели.
-  1. Выберите **Создать статический ключ доступа**.
-  1. Задайте описание ключа и нажмите **Создать**.
+  1. Нажмите **{{ ui-key.yacloud.iam.folder.service-account.overview.button_create-key-popup }}** на верхней панели.
+  1. Выберите **{{ ui-key.yacloud.iam.folder.service-account.overview.button_create_service-account-key }}**.
+  1. Задайте описание ключа и нажмите **{{ ui-key.yacloud.iam.folder.service-account.overview.popup-key_button_create }}**.
   1. Сохраните идентификатор и секретный ключ.
 
       {% note alert %}
@@ -236,7 +236,7 @@
       Где:
   
       * `--role` — назначаемая роль;
-      * `--id` — идентификатор KMS-ключа `arcsight-kms`;
+      * `--id` — идентификатор {{ kms-short-name }}-ключа `arcsight-kms`;
       * `--service-account-id` — идентификатор сервисного аккаунта `sa-arcsight`.
 
 {% endlist %}
@@ -274,7 +274,7 @@
       Где:
   
       * `--role` — назначаемая роль;
-      * `--id` — идентификатор KMS-ключа `arcsight-kms`;
+      * `--id` — идентификатор {{ kms-short-name }}-ключа `arcsight-kms`;
       * `--service-account-id` — идентификатор сервисного аккаунта `sa-arcsight-bucket`.
   
 {% endlist %}
@@ -285,18 +285,18 @@
 
 - Консоль управления {#console}
 
-  1. В [консоли управления](https://console.yandex.cloud) перейдите в каталог `example-folder`.
-  1. [Перейдите](../../../console/operations/select-service.md#select-service) в сервис **Audit Trails**.
-  1. Нажмите **Создать трейл** и укажите:
+  1. В [консоли управления]({{ link-console-main }}) перейдите в каталог `example-folder`.
+  1. Перейдите в сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_audit-trails }}**.
+  1. Нажмите **{{ ui-key.yacloud.audit-trails.button_create-trail }}** и укажите:
 
-     * **Имя** — имя создаваемого трейла, например, `arcsight-trail`.
-     * **Описание** — описание трейла, необязательный параметр.
+     * **{{ ui-key.yacloud.common.name }}** — имя создаваемого трейла, например, `arcsight-trail`.
+     * **{{ ui-key.yacloud.common.description }}** — описание трейла, необязательный параметр.
 
-  1. В блоке **Назначение** задайте параметры объекта назначения:
+  1. В блоке **{{ ui-key.yacloud.audit-trails.label_destination }}** задайте параметры объекта назначения:
 
-     * **Назначение** — `Object Storage`.
-     * **Бакет** — имя бакета.
-     * **Префикс объекта** — необязательный параметр, участвует в [полном имени](../../../audit-trails/concepts/format.md#log-file-name) файла аудитного лога.
+     * **{{ ui-key.yacloud.audit-trails.label_destination }}** — `{{ ui-key.yacloud.audit-trails.label_objectStorage }}`.
+     * **{{ ui-key.yacloud.audit-trails.label_bucket }}** — имя бакета.
+     * **{{ ui-key.yacloud.audit-trails.label_object-prefix }}** — необязательный параметр, участвует в [полном имени](../../../audit-trails/concepts/format.md#log-file-name) файла аудитного лога.
   
      {% note info %}
      
@@ -304,18 +304,18 @@
      
      {% endnote %}
 
-      * **Ключ шифрования** — укажите ключ шифрования `arcsight-kms`, которым [зашифрован](../../../storage/concepts/encryption.md) бакет.
+      * **{{ ui-key.yacloud.audit-trails.title_kms-key }}** — укажите ключ шифрования `arcsight-kms`, которым [зашифрован](../../../storage/concepts/encryption.md) бакет.
   
-  1. В блоке **Сервисный аккаунт** выберите `sa-arcsight`.
+  1. В блоке **{{ ui-key.yacloud.audit-trails.label_service-account }}** выберите `sa-arcsight`.
 
-  1. В блоке **Сбор событий c уровня конфигурации** задайте параметры сбора аудитных логов уровня конфигурации:
+  1. В блоке **{{ ui-key.yacloud.audit-trails.label_path-filter-section }}** задайте параметры сбора аудитных логов уровня конфигурации:
 
-     * **Сбор событий** — выберите `Включено`.
-     * **Ресурс** — выберите `Каталог`.
-     * **Каталог** — не требует заполнения, содержит имя текущего каталога.
+     * **{{ ui-key.yacloud.audit-trails.label_collecting-logs }}** — выберите `{{ ui-key.yacloud.common.enabled }}`.
+     * **{{ ui-key.yacloud.audit-trails.label_resource-type }}** — выберите `{{ ui-key.yacloud.audit-trails.label_resource-manager.folder }}`.
+     * **{{ ui-key.yacloud.audit-trails.label_resource-manager.folder }}** — не требует заполнения, содержит имя текущего каталога.
 
-  1. В блоке **Сбор событий с уровня сервисов** в поле **Сбор событий** выберите `Выключено`.
-  1. Нажмите **Создать**.
+  1. В блоке **{{ ui-key.yacloud.audit-trails.label_event-filter-section }}** в поле **{{ ui-key.yacloud.audit-trails.label_collecting-logs }}** выберите `{{ ui-key.yacloud.common.disabled }}`.
+  1. Нажмите **{{ ui-key.yacloud.common.create }}**.
 
   {% note warning %}
   
@@ -352,7 +352,7 @@
 1. Смонтируйте бакет:
 
    ```bash
-   s3fs <имя_бакета> ${HOME}/mybucket -o passwd_file=${HOME}/.passwd-s3fs -o url=https://storage.yandexcloud.net -o use_path_request_style
+   s3fs <имя_бакета> ${HOME}/mybucket -o passwd_file=${HOME}/.passwd-s3fs -o url=https://{{ s3-storage-host }} -o use_path_request_style
    ```
 
 1. Проверьте, что бакет смонтирован:
@@ -390,6 +390,6 @@
 
 Некоторые ресурсы платные. Чтобы за них не списывалась плата, удалите ресурсы, которые вы больше не будете использовать:
 
-1. [Удалите](../../../storage/operations/buckets/delete.md) бакет Object Storage.
-1. [Удалите](../../../kms/operations/key.md#delete) ключ Key Management Service.
-1. [Удалите](../../../compute/operations/vm-control/vm-delete.md) промежуточную ВМ, если вы создали ее в Compute Cloud.
+1. [Удалите](../../../storage/operations/buckets/delete.md) бакет {{ objstorage-name }}.
+1. [Удалите](../../../kms/operations/key.md#delete) ключ {{ kms-name }}.
+1. [Удалите](../../../compute/operations/vm-control/vm-delete.md) промежуточную ВМ, если вы создали ее в {{ compute-short-name }}.

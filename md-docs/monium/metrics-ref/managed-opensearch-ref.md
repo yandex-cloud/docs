@@ -1,10 +1,10 @@
-# Метрики Yandex Managed Service for OpenSearch
+# Метрики {{ mos-full-name }}
 
-В этом разделе описаны метрики сервиса [Managed Service for OpenSearch](../../managed-opensearch/index.md), поставляемые в Monium Metrics.
+В этом разделе описаны метрики сервиса [{{ mos-name }}](../../managed-opensearch/index.md), поставляемые в {{ monitoring-name }}.
 
 Имя метрики пишется в метку `name`.
 
-Общие метки для всех метрик сервиса Managed Service for OpenSearch: 
+Общие метки для всех метрик сервиса {{ mos-name }}: 
 
 Метка | Значение
 ----|----
@@ -176,7 +176,7 @@ subcluster_name | Имя субкластера
 | `high_total`<br/>`DGAUGE`, байты | Использование оперативной памяти, тип потребления [high_total](*high_total). |
 | `hosts.ha`<br/>`DGAUGE`, штуки | Количество узлов с включенной отказоустойчивостью. |
 | `hosts.subcluster.dashboards.total`<br/>`DGAUGE`, штуки | Количество узлов в подкластере Dashboards. |
-| `hosts.subcluster.opensearch.total`<br/>`DGAUGE`, штуки | Количество узлов в подкластере OpenSearch. |
+| `hosts.subcluster.opensearch.total`<br/>`DGAUGE`, штуки | Количество узлов в подкластере {{ OS }}. |
 | `hosts.total`<br/>`DGAUGE`, штуки | Количество узлов в кластере. |
 | `huge_page_size`<br/>`DGAUGE`, байты | Использование оперативной памяти, тип потребления [huge_page_size](*huge_page_size). |
 | `huge_pages_free`<br/>`DGAUGE`, байты | Использование оперативной памяти, тип потребления [huge_pages_free](*huge_pages_free). |
@@ -325,206 +325,222 @@ subcluster_name | Имя субкластера
 | `write_merged_count`<br/>`DGAUGE`, операций/с | Количество слитых операций записи на конкретный диск в секунду. |
 | `write_time`<br/>`DGAUGE`, миллисекунды | Среднее время записи на диски. |
 
-#### Нативные метрики OpenSearch {#managed-opensearch-system-metrics}
+#### Нативные метрики {{ OS }} {#managed-opensearch-system-metrics}
 
-| Имя<br/>Тип, единицы измерения | 
-| ----- | 
-| `opensearch_above_critical_watermark`<br/>`DGAUGE`, 0/1 | 
-| `opensearch_above_flood_stage_watermark`<br/>`DGAUGE`, 0/1 | 
-| `opensearch_above_high_watermark`<br/>`DGAUGE`, 0/1 | 
-| `opensearch_above_low_watermark`<br/>`DGAUGE`, 0/1 | 
-| `opensearch_discovered_cluster_manager`<br/>`DGAUGE`, 0/1 | 
-| `opensearch_discovered_master`<br/>`DGAUGE`, 0/1 | 
-| `opensearch_fs_io_stats_total_io_time_in_millis`<br/>`DGAUGE`, миллисекунды | 
-| `opensearch_fs_io_stats_total_operations`<br/>`DGAUGE`, штуки | 
-| `opensearch_fs_io_stats_total_queue_size`<br/>`DGAUGE`, штуки | 
-| `opensearch_fs_io_stats_total_read_kilobytes`<br/>`DGAUGE`, килобайты | 
-| `opensearch_fs_io_stats_total_read_operations`<br/>`DGAUGE`, штуки | 
-| `opensearch_fs_io_stats_total_read_time`<br/>`DGAUGE`, миллисекунды | 
-| `opensearch_fs_io_stats_total_write_kilobytes`<br/>`DGAUGE`, килобайты | 
-| `opensearch_fs_io_stats_total_write_operations`<br/>`DGAUGE`, штуки | 
-| `opensearch_fs_io_stats_total_write_time`<br/>`DGAUGE`, миллисекунды | 
-| `opensearch_fs_total_available_in_bytes`<br/>`DGAUGE`, байты | 
-| `opensearch_fs_total_cache_reserved_in_bytes`<br/>`DGAUGE`, байты | 
-| `opensearch_fs_total_free_in_bytes`<br/>`DGAUGE`, байты | 
-| `opensearch_fs_total_total_in_bytes`<br/>`DGAUGE`, байты | 
-| `opensearch_fs_total_used_in_bytes`<br/>`DGAUGE`, байты | 
-| `opensearch_fs_total_used_percent`<br/>`DGAUGE`, штуки | 
-| `opensearch_http_current_open`<br/>`DGAUGE`, штуки |
-| `opensearch_http_total_opened`<br/>`DGAUGE`, штуки |
-| `opensearch_indices_completion_size_in_bytes`<br/>`DGAUGE`, байты | 
-| `opensearch_indices_docs_count`<br/>`DGAUGE`, штуки | 
-| `opensearch_indices_docs_deleted`<br/>`DGAUGE`, штуки | 
-| `opensearch_indices_fielddata_evictions`<br/>`DGAUGE`, штуки | 
-| `opensearch_indices_fielddata_memory_size_in_bytes`<br/>`DGAUGE`, байты | 
-| `opensearch_indices_flush_periodic`<br/>`DGAUGE`, штуки | 
-| `opensearch_indices_flush_total_time_in_millis`<br/>`DGAUGE`, миллисекунды | 
-| `opensearch_indices_flush_total`<br/>`DGAUGE`, штуки | 
-| `opensearch_indices_get_current`<br/>`DGAUGE`, штуки | 
-| `opensearch_indices_get_exists_time_in_millis`<br/>`DGAUGE`, миллисекунды | 
-| `opensearch_indices_get_exists_total`<br/>`DGAUGE`, штуки | 
-| `opensearch_indices_get_missing_time_in_millis`<br/>`DGAUGE`, миллисекунды | 
-| `opensearch_indices_get_missing_total`<br/>`DGAUGE`, штуки | 
-| `opensearch_indices_get_time_in_millis`<br/>`DGAUGE`, миллисекунды | 
-| `opensearch_indices_get_total`<br/>`DGAUGE`, штуки |
-| `opensearch_indices_indexing_delete_current`<br/>`DGAUGE`, штуки |
-| `opensearch_indices_indexing_delete_time_in_millis`<br/>`DGAUGE`, миллисекунды | 
-| `opensearch_indices_indexing_delete_total`<br/>`DGAUGE`, штуки | 
-| `opensearch_indices_indexing_doc_status_2xx`<br/>`DGAUGE`, штуки | 
-| `opensearch_indices_indexing_doc_status_4xx`<br/>`DGAUGE`, штуки | 
-| `opensearch_indices_indexing_index_current`<br/>`DGAUGE`, штуки | 
-| `opensearch_indices_indexing_index_failed`<br/>`DGAUGE`, штуки | 
-| `opensearch_indices_indexing_index_time_in_millis`<br/>`DGAUGE`, миллисекунды  | 
-| `opensearch_indices_indexing_index_total`<br/>`DGAUGE`, штуки | 
-| `opensearch_indices_indexing_noop_update_total`<br/>`DGAUGE`, штуки | 
-| `opensearch_indices_indexing_throttle_time_in_millis`<br/>`DGAUGE`, миллисекунды | 
-| `opensearch_indices_merges_current_docs`<br/>`DGAUGE`, штуки | 
-| `opensearch_indices_merges_current_size_in_bytes`<br/>`DGAUGE`, байты | 
-| `opensearch_indices_merges_current`<br/>`DGAUGE`, штуки | 
-| `opensearch_indices_merges_total_auto_throttle_in_bytes`<br/>`DGAUGE`, байты | 
-| `opensearch_indices_merges_total_docs`<br/>`DGAUGE`, штуки | 
-| `opensearch_indices_merges_total_size_in_bytes`<br/>`DGAUGE`, байты | 
-| `opensearch_indices_merges_total_stopped_time_in_millis`<br/>`DGAUGE`, миллисекунды | 
-| `opensearch_indices_merges_total_throttled_time_in_millis`<br/>`DGAUGE`, миллисекунды | 
-| `opensearch_indices_merges_total_time_in_millis`<br/>`DGAUGE`, миллисекунды | 
-| `opensearch_indices_merges_total`<br/>`DGAUGE`, штуки | 
-| `opensearch_indices_merges_unreferenced_file_cleanups_performed`<br/>`DGAUGE`, штуки | 
-| `opensearch_indices_query_cache_cache_count`<br/>`DGAUGE`, штуки | 
-| `opensearch_indices_query_cache_cache_size`<br/>`DGAUGE`, байты | 
-| `opensearch_indices_query_cache_evictions`<br/>`DGAUGE`, штуки | 
-| `opensearch_indices_query_cache_hit_count`<br/>`DGAUGE`, штуки | 
-| `opensearch_indices_query_cache_memory_size_in_bytes`<br/>`DGAUGE`, байты | 
-| `opensearch_indices_query_cache_miss_count`<br/>`DGAUGE`, штуки | 
-| `opensearch_indices_query_cache_total_count`<br/>`DGAUGE`, штуки | 
-| `opensearch_indices_recovery_current_as_source`<br/>`DGAUGE`, штуки | 
-| `opensearch_indices_recovery_current_as_target`<br/>`DGAUGE`, штуки | 
-| `opensearch_indices_recovery_throttle_time_in_millis`<br/>`DGAUGE`, миллисекунды | 
-| `opensearch_indices_refresh_external_total_time_in_millis`<br/>`DGAUGE`, миллисекунды |
-| `opensearch_indices_refresh_external_total`<br/>`DGAUGE`, штуки | 
-| `opensearch_indices_refresh_listeners`<br/>`DGAUGE`, штуки | 
-| `opensearch_indices_refresh_total_time_in_millis`<br/>`DGAUGE`, миллисекунды |
-| `opensearch_indices_refresh_total`<br/>`DGAUGE`, штуки | 
-| `opensearch_indices_request_cache_evictions`<br/>`DGAUGE`, штуки | 
-| `opensearch_indices_request_cache_hit_count`<br/>`DGAUGE`, штуки | 
-| `opensearch_indices_request_cache_memory_size_in_bytes`<br/>`DGAUGE`, байты | 
-| `opensearch_indices_request_cache_miss_count`<br/>`DGAUGE`, штуки | 
-| `opensearch_indices_search_concurrent_avg_slice_count`<br/>`DGAUGE`, штуки |
-| `opensearch_indices_search_concurrent_query_current`<br/>`DGAUGE`, штуки | 
-| `opensearch_indices_search_concurrent_query_time_in_millis`<br/>`DGAUGE`, миллисекунды | 
-| `opensearch_indices_search_concurrent_query_total`<br/>`DGAUGE`, штуки | 
-| `opensearch_indices_search_fetch_current`<br/>`DGAUGE`, штуки | 
-| `opensearch_indices_search_fetch_time_in_millis`<br/>`DGAUGE`, миллисекунды |
-| `opensearch_indices_search_fetch_total`<br/>`DGAUGE`, штуки | 
-| `opensearch_indices_search_open_contexts`<br/>`DGAUGE`, штуки | 
-| `opensearch_indices_search_point_in_time_current`<br/>`DGAUGE`, штуки | 
-| `opensearch_indices_search_point_in_time_time_in_millis`<br/>`DGAUGE`, миллисекунды | 
-| `opensearch_indices_search_point_in_time_total`<br/>`DGAUGE`, штуки | 
-| `opensearch_indices_search_query_current`<br/>`DGAUGE`, штуки | 
-| `opensearch_indices_search_query_time_in_millis`<br/>`DGAUGE`, миллисекунды | 
-| `opensearch_indices_search_query_total`<br/>`DGAUGE`, штуки | 
-| `opensearch_indices_search_request_can_match_current`<br/>`DGAUGE`, штуки | 
-| `opensearch_indices_search_request_can_match_time_in_millis`<br/>`DGAUGE`, миллисекунды | 
-| `opensearch_indices_search_request_can_match_total`<br/>`DGAUGE`, штуки | 
-| `opensearch_indices_search_request_dfs_pre_query_current`<br/>`DGAUGE`, штуки | 
-| `opensearch_indices_search_request_dfs_pre_query_time_in_millis`<br/>`DGAUGE`, миллисекунды | 
-| `opensearch_indices_search_request_dfs_pre_query_total`<br/>`DGAUGE`, штуки | 
-| `opensearch_indices_search_request_dfs_query_current`<br/>`DGAUGE`, штуки | 
-| `opensearch_indices_search_request_dfs_query_time_in_millis`<br/>`DGAUGE`, миллисекунды | 
-| `opensearch_indices_search_request_dfs_query_total`<br/>`DGAUGE`, штуки | 
-| `opensearch_indices_search_request_expand_current`<br/>`DGAUGE`, штуки |
-| `opensearch_indices_search_request_expand_time_in_millis`<br/>`DGAUGE`, миллисекунды |
-| `opensearch_indices_search_request_expand_total`<br/>`DGAUGE`, штуки |
-| `opensearch_indices_search_request_fetch_current`<br/>`DGAUGE`, штуки |
-| `opensearch_indices_search_request_fetch_time_in_millis`<br/>`DGAUGE`, миллисекунды |
-| `opensearch_indices_search_request_fetch_total`<br/>`DGAUGE`, штуки |
-| `opensearch_indices_search_request_query_current`<br/>`DGAUGE`, штуки |
-| `opensearch_indices_search_request_query_time_in_millis`<br/>`DGAUGE`, миллисекунды |
-| `opensearch_indices_search_request_query_total`<br/>`DGAUGE`, штуки |
-| `opensearch_indices_search_scroll_current`<br/>`DGAUGE`, штуки | 
-| `opensearch_indices_search_scroll_time_in_millis`<br/>`DGAUGE`, миллисекунды |
-| `opensearch_indices_search_scroll_total`<br/>`DGAUGE`, штуки | 
-| `opensearch_indices_search_suggest_current`<br/>`DGAUGE`, штуки | 
-| `opensearch_indices_search_suggest_time_in_millis`<br/>`DGAUGE`, миллисекунды |
-| `opensearch_indices_search_suggest_total`<br/>`DGAUGE`, штуки | 
-| `opensearch_indices_segments_count`<br/>`DGAUGE`, штуки | 
-| `opensearch_indices_segments_doc_values_memory_in_bytes`<br/>`DGAUGE`, байты | 
-| `opensearch_indices_segments_fixed_bit_set_memory_in_bytes`<br/>`DGAUGE`, байты | 
-| `opensearch_indices_segments_index_writer_memory_in_bytes`<br/>`DGAUGE`, байты | 
-| `opensearch_indices_segments_max_unsafe_auto_id_timestamp`<br/>`DGAUGE`, таймстамп | 
-| `opensearch_indices_segments_memory_in_bytes`<br/>`DGAUGE`, байты | 
-| `opensearch_indices_segments_norms_memory_in_bytes`<br/>`DGAUGE`, байты | 
-| `opensearch_indices_segments_points_memory_in_bytes`<br/>`DGAUGE`, байты | 
-| `opensearch_indices_segments_remote_store_download_total_download_size_failed_bytes`<br/>`DGAUGE`, байты |
-| `opensearch_indices_segments_remote_store_download_total_download_size_started_bytes`<br/>`DGAUGE`, байты |
-| `opensearch_indices_segments_remote_store_download_total_download_size_succeeded_bytes`<br/>`DGAUGE`, байты |
-| `opensearch_indices_segments_remote_store_download_total_time_spent_in_millis`<br/>`DGAUGE`, миллисекунды |
-| `opensearch_indices_segments_remote_store_upload_max_refresh_time_lag_in_millis`<br/>`DGAUGE`, миллисекунды |
-| `opensearch_indices_segments_remote_store_upload_pressure_total_rejections`<br/>`DGAUGE`, штуки |
-| `opensearch_indices_segments_remote_store_upload_refresh_size_lag_max_bytes`<br/>`DGAUGE`, байты |
-| `opensearch_indices_segments_remote_store_upload_refresh_size_lag_total_bytes`<br/>`DGAUGE`, байты |
-| `opensearch_indices_segments_remote_store_upload_total_time_spent_in_millis`<br/>`DGAUGE`, миллисекунды |
-| `opensearch_indices_segments_remote_store_upload_total_upload_size_failed_bytes`<br/>`DGAUGE`, байты |
-| `opensearch_indices_segments_remote_store_upload_total_upload_size_started_bytes`<br/>`DGAUGE`, байты |
-| `opensearch_indices_segments_remote_store_upload_total_upload_size_succeeded_bytes`<br/>`DGAUGE`, байты |
-| `opensearch_indices_segments_segment_replication_max_bytes_behind`<br/>`DGAUGE`, байты |
-| `opensearch_indices_segments_segment_replication_max_replication_lag`<br/>`DGAUGE`, штуки |
-| `opensearch_indices_segments_segment_replication_total_bytes_behind`<br/>`DGAUGE`, байты |
-| `opensearch_indices_segments_stored_fields_memory_in_bytes`<br/>`DGAUGE`, байты | 
-| `opensearch_indices_segments_term_vectors_memory_in_bytes`<br/>`DGAUGE`, байты | 
-| `opensearch_indices_segments_terms_memory_in_bytes`<br/>`DGAUGE`, байты | 
-| `opensearch_indices_segments_version_map_memory_in_bytes`<br/>`DGAUGE`, байты | 
-| `opensearch_indices_store_reserved_in_bytes`<br/>`DGAUGE`, байты | 
-| `opensearch_indices_store_size_in_bytes`<br/>`DGAUGE`, байты | 
-| `opensearch_indices_translog_earliest_last_modified_age`<br/>`DGAUGE`, штуки | 
-| `opensearch_indices_translog_operations`<br/>`DGAUGE`, штуки |
-| `opensearch_indices_translog_remote_store_upload_total_upload_size_failed_bytes`<br/>`DGAUGE`, байты |
-| `opensearch_indices_translog_remote_store_upload_total_upload_size_started_bytes`<br/>`DGAUGE`, байты |
-| `opensearch_indices_translog_remote_store_upload_total_upload_size_succeeded_bytes`<br/>`DGAUGE`, байты |
-| `opensearch_indices_translog_remote_store_upload_total_uploads_failed`<br/>`DGAUGE`, штуки |
-| `opensearch_indices_translog_remote_store_upload_total_uploads_started`<br/>`DGAUGE`, штуки |
-| `opensearch_indices_translog_remote_store_upload_total_uploads_succeeded`<br/>`DGAUGE`, штуки |
-| `opensearch_indices_translog_size_in_bytes`<br/>`DGAUGE`, байты | 
-| `opensearch_indices_translog_uncommitted_operations`<br/>`DGAUGE`, штуки |  | 
-| `opensearch_indices_translog_uncommitted_size_in_bytes`<br/>`DGAUGE`, байты | 
-| `opensearch_indices_warmer_current`<br/>`DGAUGE`, штуки | 
-| `opensearch_indices_warmer_total_time_in_millis`<br/>`DGAUGE`, миллисекунды |
-| `opensearch_indices_warmer_total`<br/>`DGAUGE`, штуки | 
-| `opensearch_is_master`<br/>`DGAUGE`, 0/1 |
-| `opensearch_jvm_gc_collectors_old_collection_count`<br/>`DGAUGE`, штуки | 
-| `opensearch_jvm_gc_collectors_young_collection_count`<br/>`DGAUGE`, штуки | 
-| `opensearch_jvm_mem_heap_committed_in_bytes`<br/>`DGAUGE`, байты | 
-| `opensearch_jvm_mem_heap_max_in_bytes`<br/>`DGAUGE`, байты | 
-| `opensearch_jvm_mem_heap_pressure`<br/>`DGAUGE` | 
-| `opensearch_jvm_mem_heap_used_in_bytes`<br/>`DGAUGE`, байты | 
-| `opensearch_jvm_mem_heap_used_percent`<br/>`DGAUGE`, штуки | 
-| `opensearch_jvm_mem_non_heap_committed_in_bytes`<br/>`DGAUGE`, байты | 
-| `opensearch_jvm_mem_non_heap_used_in_bytes`<br/>`DGAUGE`, байты | 
-| `opensearch_jvm_mem_pools_old_max_in_bytes`<br/>`DGAUGE`, байты | 
-| `opensearch_jvm_mem_pools_old_used_in_bytes`<br/>`DGAUGE`, байты | 
-| `opensearch_number_of_data_nodes`<br/>`DGAUGE`, штуки | 
-| `opensearch_number_of_in_flight_fetch`<br/>`DGAUGE`, штуки | 
-| `opensearch_number_of_nodes`<br/>`DGAUGE`, штуки | 
-| `opensearch_number_of_pending_tasks`<br/>`DGAUGE`, штуки | 
-| `opensearch_process_cpu_percent`<br/>`DGAUGE`, штуки | 
-| `opensearch_process_cpu_total_in_millis`<br/>`DGAUGE`, миллисекунды | 
-| `opensearch_process_max_file_descriptors`<br/>`DGAUGE`, штуки | 
-| `opensearch_process_mem_total_virtual_in_bytes`<br/>`DGAUGE`, байты | 
-| `opensearch_process_open_file_descriptors`<br/>`DGAUGE`, штуки | 
-| `opensearch_process_timestamp`<br/>`DGAUGE`, таймстамп | 
-| `opensearch_task_max_waiting_in_queue_millis`<br/>`DGAUGE`, миллисекунды |
-| `opensearch_thread_pool_<thread_pool_name>_active`<br/>`DGAUGE`, штуки | 
-| `opensearch_thread_pool_<thread_pool_name>_completed`<br/>`DGAUGE`, штуки | 
-| `opensearch_thread_pool_<thread_pool_name>_largest`<br/>`DGAUGE`, штуки | 
-| `opensearch_thread_pool_<thread_pool_name>_queue`<br/>`DGAUGE`, штуки | 
-| `opensearch_thread_pool_<thread_pool_name>_rejected`<br/>`DGAUGE`, штуки | 
-| `opensearch_thread_pool_<thread_pool_name>_threads`<br/>`DGAUGE`, штуки | 
-| `opensearch_thread_pool_<thread_pool_name>_total_wait_time_in_nanos`<br/>`DGAUGE`, наносекунды |
-| `opensearch_transport_rx_count`<br/>`DGAUGE`, штуки | 
-| `opensearch_transport_rx_size_in_bytes`<br/>`DGAUGE`, байты | 
-| `opensearch_transport_server_open`<br/>`DGAUGE`, штуки | 
-| `opensearch_transport_total_outbound_connections`<br/>`DGAUGE`, штуки | 
-| `opensearch_transport_tx_count`<br/>`DGAUGE`, штуки | 
-| `opensearch_transport_tx_size_in_bytes`<br/>`DGAUGE`, байты |
+| Имя<br/>Тип, единицы измерения | Описание |
+| ----- | ----- |
+| `opensearch_above_critical_watermark`<br/>`DGAUGE`, 0/1 | Индикатор превышения критического порога заполненности диска. |
+| `opensearch_above_flood_stage_watermark`<br/>`DGAUGE`, 0/1 | Индикатор превышения порога `flood_stage`; индексы переводятся в режим только для чтения. |
+| `opensearch_above_high_watermark`<br/>`DGAUGE`, 0/1 | Индикатор превышения верхнего порога: кластер пытается переместить шарды с узла. |
+| `opensearch_above_low_watermark`<br/>`DGAUGE`, 0/1 | Индикатор превышения нижнего порога: новые шарды на узел не размещаются. |
+| `opensearch_breakers_fielddata_estimated_size_in_bytes`<br/>`DGAUGE`, байты | Текущая оценка памяти, занятой `fielddata` (значения полей для сортировок и агрегаций по text-полям); приближение к лимиту предвещает срабатывание `breaker`. |
+| `opensearch_breakers_fielddata_limit_size_in_bytes`<br/>`DGAUGE`, байты | Лимит памяти `fielddata circuit breaker`, используется для расчета запаса до срабатывания (`estimated` / `limit`). |
+| `opensearch_breakers_fielddata_overhead`<br/>`DGAUGE` | Множитель, применяемый к измеряемому потреблению `fielddata` для оценки реальной нагрузки на память. |
+| `opensearch_breakers_fielddata_tripped`<br/>`DGAUGE`, штуки | Количество срабатываний `fielddata breaker`; рост указывает на тяжелые сортировки или агрегации, исчерпавшие лимит памяти `fielddata`. |
+| `opensearch_breakers_in_flight_requests_estimated_size_in_bytes`<br/>`DGAUGE`, байты | Текущая оценка памяти, занятой буферами входящих сетевых запросов (HTTP и transport). |
+| `opensearch_breakers_in_flight_requests_limit_size_in_bytes`<br/>`DGAUGE`, байты | Лимит памяти `in-flight requests circuit breaker`. |
+| `opensearch_breakers_in_flight_requests_overhead`<br/>`DGAUGE` | Множитель, применяемый к измеряемому потреблению `in-flight requests` для оценки реальной нагрузки на память. |
+| `opensearch_breakers_in_flight_requests_tripped`<br/>`DGAUGE`, штуки | Количество срабатываний `in-flight requests breaker`; рост указывает на превышение лимита памяти на сетевые буферы (слишком большие или слишком частые параллельные запросы). |
+| `opensearch_breakers_parent_estimated_size_in_bytes`<br/>`DGAUGE`, байты | Суммарная оценка памяти, учтенной всеми дочерними `breakers`; сравнение с лимитом показывает запас до срабатывания родительского breaker. |
+| `opensearch_breakers_parent_limit_size_in_bytes`<br/>`DGAUGE`, байты | Общий лимит памяти для всех `circuit breakers` — защита узла от `OutOfMemory`. |
+| `opensearch_breakers_parent_overhead`<br/>`DGAUGE` | Множитель к суммарной оценке памяти родительского `breaker` (обычно 1.0). |
+| `opensearch_breakers_parent_tripped`<br/>`DGAUGE`, штуки | Количество срабатываний родительского `breaker` — суммарное использование памяти превысило общий лимит, узел отклоняет запросы. Главный индикатор перегрузки узла по памяти. |
+| `opensearch_breakers_request_estimated_size_in_bytes`<br/>`DGAUGE`, байты | Текущая оценка памяти, выделенной на обработку активных запросов (агрегации, учет бакетов и т. д.). |
+| `opensearch_breakers_request_limit_size_in_bytes`<br/>`DGAUGE`, байты | Лимит памяти на обработку одного запроса (`request circuit breaker`). |
+| `opensearch_breakers_request_overhead`<br/>`DGAUGE` | Множитель, применяемый к измеряемому потреблению `request breaker` для оценки реальной нагрузки на память. |
+| `opensearch_breakers_request_tripped`<br/>`DGAUGE`, штуки | Количество срабатываний `request breaker`; рост указывает на запросы, требующие больше памяти, чем `per-request` лимит (обычно — тяжелые агрегации). |
+| `opensearch_discovered_cluster_manager`<br/>`DGAUGE`, 0/1 | Индикатор того, что узел обнаружил мастер-узел (`cluster_manager`). |
+| `opensearch_discovered_master`<br/>`DGAUGE`, 0/1 | Алиас для `opensearch_discovered_cluster_manager`, сохранен для обратной совместимости. |
+| `opensearch_fs_io_stats_total_io_time_in_millis`<br/>`DGAUGE`, миллисекунды | Суммарное время дисковых операций ввода-вывода. |
+| `opensearch_fs_io_stats_total_operations`<br/>`DGAUGE`, штуки | Суммарное количество дисковых операций ввода-вывода. |
+| `opensearch_fs_io_stats_total_queue_size`<br/>`DGAUGE`, штуки | Суммарная длина очереди дисковых операций ввода-вывода. |
+| `opensearch_fs_io_stats_total_read_kilobytes`<br/>`DGAUGE`, килобайты | Суммарный объем данных, прочитанных с диска. |
+| `opensearch_fs_io_stats_total_read_operations`<br/>`DGAUGE`, штуки | Суммарное количество операций чтения с диска. |
+| `opensearch_fs_io_stats_total_read_time`<br/>`DGAUGE`, миллисекунды | Суммарное время операций чтения с диска. |
+| `opensearch_fs_io_stats_total_write_kilobytes`<br/>`DGAUGE`, килобайты | Суммарный объем данных, записанных на диск. |
+| `opensearch_fs_io_stats_total_write_operations`<br/>`DGAUGE`, штуки | Суммарное количество операций записи на диск. |
+| `opensearch_fs_io_stats_total_write_time`<br/>`DGAUGE`, миллисекунды | Суммарное время операций записи на диск. |
+| `opensearch_fs_total_available_in_bytes`<br/>`DGAUGE`, байты | Доступное процессу OpenSearch место на диске (без зарезервированного под `root`). |
+| `opensearch_fs_total_cache_reserved_in_bytes`<br/>`DGAUGE`, байты | Объем дискового пространства, зарезервированный под файловый кеш. |
+| `opensearch_fs_total_free_in_bytes`<br/>`DGAUGE`, байты | Свободное место на диске. |
+| `opensearch_fs_total_total_in_bytes`<br/>`DGAUGE`, байты | Общий объем дискового пространства, доступного OpenSearch. |
+| `opensearch_fs_total_used_in_bytes`<br/>`DGAUGE`, байты | Занятое место на диске. |
+| `opensearch_fs_total_used_percent`<br/>`DGAUGE`, % | Процент занятого места на диске. |
+| `opensearch_http_current_open`<br/>`DGAUGE`, штуки | Количество открытых в данный момент HTTP-соединений. |
+| `opensearch_http_total_opened`<br/>`DGAUGE`, штуки | Суммарное количество HTTP-соединений, открытых с момента запуска узла. |
+| `opensearch_indices_completion_size_in_bytes`<br/>`DGAUGE`, байты | Объем памяти, занятый структурами автодополнения (`completion suggester`). |
+| `opensearch_indices_docs_count`<br/>`DGAUGE`, штуки | Общее количество документов в индексах узла. |
+| `opensearch_indices_docs_deleted`<br/>`DGAUGE`, штуки | Количество удаленных документов, еще не вычищенных слияниями (`merge`). |
+| `opensearch_indices_fielddata_evictions`<br/>`DGAUGE`, штуки | Количество вытеснений из кеша `fielddata`. |
+| `opensearch_indices_fielddata_memory_size_in_bytes`<br/>`DGAUGE`, байты | Объем памяти, занятый кешем `fielddata`. |
+| `opensearch_indices_flush_periodic`<br/>`DGAUGE`, штуки | Количество периодических операций `flush`, инициированных по размеру translog. |
+| `opensearch_indices_flush_total_time_in_millis`<br/>`DGAUGE`, миллисекунды | Суммарное время операций `flush`. |
+| `opensearch_indices_flush_total`<br/>`DGAUGE`, штуки | Суммарное количество операций `flush`. |
+| `opensearch_indices_get_current`<br/>`DGAUGE`, штуки | Количество операций `get`, выполняющихся в данный момент. |
+| `opensearch_indices_get_exists_time_in_millis`<br/>`DGAUGE`, миллисекунды | Суммарное время операций `get`, нашедших документ. |
+| `opensearch_indices_get_exists_total`<br/>`DGAUGE`, штуки | Суммарное количество операций `get`, нашедших документ. |
+| `opensearch_indices_get_missing_time_in_millis`<br/>`DGAUGE`, миллисекунды | Суммарное время операций `get`, которые не нашли документ. |
+| `opensearch_indices_get_missing_total`<br/>`DGAUGE`, штуки | Суммарное количество операций `get`, не нашедших документ. |
+| `opensearch_indices_get_time_in_millis`<br/>`DGAUGE`, миллисекунды | Суммарное время всех операций `get`. |
+| `opensearch_indices_get_total`<br/>`DGAUGE`, штуки | Суммарное количество всех операций `get`. |
+| `opensearch_indices_indexing_delete_current`<br/>`DGAUGE`, штуки | Количество выполняющихся операций удаления документов |
+| `opensearch_indices_indexing_delete_time_in_millis`<br/>`DGAUGE`, миллисекунды | Суммарное время операций удаления документов. |
+| `opensearch_indices_indexing_delete_total`<br/>`DGAUGE`, штуки | Суммарное количество операций удаления документов. |
+| `opensearch_indices_indexing_doc_status_2xx`<br/>`DGAUGE`, штуки | Количество документов, проиндексированных с HTTP-статусом 2xx (успех). |
+| `opensearch_indices_indexing_doc_status_4xx`<br/>`DGAUGE`, штуки | Количество документов с HTTP-статусом 4xx (клиентская ошибка индексации). |
+| `opensearch_indices_indexing_index_current`<br/>`DGAUGE`, штуки | Количество выполняющихся операций индексации. |
+| `opensearch_indices_indexing_index_failed`<br/>`DGAUGE`, штуки | Количество неуспешных операций индексации. |
+| `opensearch_indices_indexing_index_time_in_millis`<br/>`DGAUGE`, миллисекунды | Суммарное время операций индексации. |
+| `opensearch_indices_indexing_index_total`<br/>`DGAUGE`, штуки | Суммарное количество операций индексации. |
+| `opensearch_indices_indexing_noop_update_total`<br/>`DGAUGE`, штуки | Количество `noop`-обновлений (документ не изменился по результату обновления). |
+| `opensearch_indices_indexing_throttle_time_in_millis`<br/>`DGAUGE`, миллисекунды | Время, в течение которого индексация была заторможена. |
+| `opensearch_indices_merges_current_docs`<br/>`DGAUGE`, штуки | Количество документов в выполняющихся слияниях сегментов (`merge`). |
+| `opensearch_indices_merges_current_size_in_bytes`<br/>`DGAUGE`, байты | Размер сегментов в выполняющихся слияниях. |
+| `opensearch_indices_merges_current`<br/>`DGAUGE`, штуки | Количество выполняющихся слияний сегментов. |
+| `opensearch_indices_merges_total_auto_throttle_in_bytes`<br/>`DGAUGE`, байты | Суммарный объем данных, обработанных слияниями с автотротлингом. |
+| `opensearch_indices_merges_total_docs`<br/>`DGAUGE`, штуки | Суммарное количество документов, обработанных слияниями. |
+| `opensearch_indices_merges_total_size_in_bytes`<br/>`DGAUGE`, байты | Суммарный объем сегментов, обработанных слияниями. |
+| `opensearch_indices_merges_total_stopped_time_in_millis`<br/>`DGAUGE`, миллисекунды | Суммарное время, в течение которого слияния были остановлены. |
+| `opensearch_indices_merges_total_throttled_time_in_millis`<br/>`DGAUGE`, миллисекунды | Суммарное время, в течение которого слияния были заторможены. |
+| `opensearch_indices_merges_total_time_in_millis`<br/>`DGAUGE`, миллисекунды | Суммарное время операций слияния. |
+| `opensearch_indices_merges_total`<br/>`DGAUGE`, штуки | Суммарное количество завершенных слияний сегментов. |
+| `opensearch_indices_merges_unreferenced_file_cleanups_performed`<br/>`DGAUGE`, штуки | Количество очисток неиспользуемых файлов после слияний. |
+| `opensearch_indices_query_cache_cache_count`<br/>`DGAUGE`, штуки | Количество записей, попавших в кеш запросов уровня узла (`query cache`). |
+| `opensearch_indices_query_cache_cache_size`<br/>`DGAUGE`, байты | Размер кеша запросов уровня узла. |
+| `opensearch_indices_query_cache_evictions`<br/>`DGAUGE`, штуки | Количество вытеснений из кеша запросов уровня узла. |
+| `opensearch_indices_query_cache_hit_count`<br/>`DGAUGE`, штуки | Количество попаданий в кеш запросов уровня узла. |
+| `opensearch_indices_query_cache_memory_size_in_bytes`<br/>`DGAUGE`, байты | Объем памяти, занятый кешем запросов уровня узла. |
+| `opensearch_indices_query_cache_miss_count`<br/>`DGAUGE`, штуки | Количество промахов кеша запросов уровня узла. |
+| `opensearch_indices_query_cache_total_count`<br/>`DGAUGE`, штуки | Суммарное количество обращений к кешу запросов уровня узла. |
+| `opensearch_indices_recovery_current_as_source`<br/>`DGAUGE`, штуки | Количество восстановлений шардов, в которых узел выступает в качестве источника. |
+| `opensearch_indices_recovery_current_as_target`<br/>`DGAUGE`, штуки | Количество восстановлений шардов, в которых узел выступает получателем. |
+| `opensearch_indices_recovery_throttle_time_in_millis`<br/>`DGAUGE`, миллисекунды | Суммарное время, в течение которого восстановление было заторможено. |
+| `opensearch_indices_refresh_external_total_time_in_millis`<br/>`DGAUGE`, миллисекунды | Суммарное время внешних операций `refresh` (после которых изменения становятся видимыми поиску). |
+| `opensearch_indices_refresh_external_total`<br/>`DGAUGE`, штуки | Суммарное количество внешних операций `refresh`. |
+| `opensearch_indices_refresh_listeners`<br/>`DGAUGE`, штуки | Количество слушателей, ожидающих следующего `refresh`. |
+| `opensearch_indices_refresh_total_time_in_millis`<br/>`DGAUGE`, миллисекунды | Суммарное время всех операций `refresh`. |
+| `opensearch_indices_refresh_total`<br/>`DGAUGE`, штуки | Суммарное количество всех операций `refresh`. |
+| `opensearch_indices_request_cache_evictions`<br/>`DGAUGE`, штуки | Количество вытеснений из кеша запросов уровня шарда (`request cache`). |
+| `opensearch_indices_request_cache_hit_count`<br/>`DGAUGE`, штуки | Количество попаданий в кеш запросов уровня шарда. |
+| `opensearch_indices_request_cache_memory_size_in_bytes`<br/>`DGAUGE`, байты | Объем памяти, занятый кешем запросов уровня шарда. |
+| `opensearch_indices_request_cache_miss_count`<br/>`DGAUGE`, штуки | Количество промахов кеша запросов уровня шарда. |
+| `opensearch_indices_search_concurrent_avg_slice_count`<br/>`DGAUGE`, штуки | Среднее число `slices`, на которые делятся конкурентные поисковые запросы. |
+| `opensearch_indices_search_concurrent_query_current`<br/>`DGAUGE`, штуки | Количество выполняющихся конкурентных поисковых запросов. |
+| `opensearch_indices_search_concurrent_query_time_in_millis`<br/>`DGAUGE`, миллисекунды | Суммарное время конкурентных поисковых запросов. |
+| `opensearch_indices_search_concurrent_query_total`<br/>`DGAUGE`, штуки | Суммарное количество конкурентных поисковых запросов. |
+| `opensearch_indices_search_fetch_current`<br/>`DGAUGE`, штуки | Количество выполняющихся фаз `fetch` (получение тел документов). |
+| `opensearch_indices_search_fetch_time_in_millis`<br/>`DGAUGE`, миллисекунды | Суммарное время фаз `fetch`. |
+| `opensearch_indices_search_fetch_total`<br/>`DGAUGE`, штуки | Суммарное количество фаз `fetch`. |
+| `opensearch_indices_search_open_contexts`<br/>`DGAUGE`, штуки | Количество открытых поисковых контекстов (включая `scroll` и `point-in-time`). |
+| `opensearch_indices_search_point_in_time_current`<br/>`DGAUGE`, штуки | Количество активных в данный момент `point-in-time`-поисков. |
+| `opensearch_indices_search_point_in_time_time_in_millis`<br/>`DGAUGE`, миллисекунды | Суммарное время `point-in-time`-поисков. |
+| `opensearch_indices_search_point_in_time_total`<br/>`DGAUGE`, штуки | Суммарное количество `point-in-time`-поисков. |
+| `opensearch_indices_search_query_current`<br/>`DGAUGE`, штуки | Количество выполняющихся фаз `query`. |
+| `opensearch_indices_search_query_time_in_millis`<br/>`DGAUGE`, миллисекунды | Суммарное время фаз `query`. |
+| `opensearch_indices_search_query_total`<br/>`DGAUGE`, штуки | Суммарное количество фаз `query`. |
+| `opensearch_indices_search_request_can_match_current`<br/>`DGAUGE`, штуки | Количество выполняющихся фаз `can_match` (предварительная фильтрация шардов перед запросом). |
+| `opensearch_indices_search_request_can_match_time_in_millis`<br/>`DGAUGE`, миллисекунды | Суммарное время фаз `can_match`. |
+| `opensearch_indices_search_request_can_match_total`<br/>`DGAUGE`, штуки | Суммарное количество фаз `can_match`. |
+| `opensearch_indices_search_request_dfs_pre_query_current`<br/>`DGAUGE`, штуки | Количество выполняющихся фаз `dfs_pre_query` (`Distributed Frequency Search`, подсчет глобальных статистик термов). |
+| `opensearch_indices_search_request_dfs_pre_query_time_in_millis`<br/>`DGAUGE`, миллисекунды | Суммарное время фаз `dfs_pre_query`. |
+| `opensearch_indices_search_request_dfs_pre_query_total`<br/>`DGAUGE`, штуки | Суммарное количество фаз `dfs_pre_query`. |
+| `opensearch_indices_search_request_dfs_query_current`<br/>`DGAUGE`, штуки | Количество выполняющихся фаз `dfs_query`. |
+| `opensearch_indices_search_request_dfs_query_time_in_millis`<br/>`DGAUGE`, миллисекунды | Суммарное время фаз `dfs_query`. |
+| `opensearch_indices_search_request_dfs_query_total`<br/>`DGAUGE`, штуки | Суммарное количество фаз `dfs_query`. |
+| `opensearch_indices_search_request_expand_current`<br/>`DGAUGE`, штуки | Количество выполняющихся фаз `expand` (раскрытие группировки `collapse`). |
+| `opensearch_indices_search_request_expand_time_in_millis`<br/>`DGAUGE`, миллисекунды | Суммарное время фаз `expand`. |
+| `opensearch_indices_search_request_expand_total`<br/>`DGAUGE`, штуки | Суммарное количество фаз `expand`. |
+| `opensearch_indices_search_request_fetch_current`<br/>`DGAUGE`, штуки | Количество выполняющихся фаз `fetch` на уровне запроса. |
+| `opensearch_indices_search_request_fetch_time_in_millis`<br/>`DGAUGE`, миллисекунды | Суммарное время фаз `fetch` на уровне запроса. |
+| `opensearch_indices_search_request_fetch_total`<br/>`DGAUGE`, штуки | Суммарное количество фаз `fetch` на уровне запроса. |
+| `opensearch_indices_search_request_query_current`<br/>`DGAUGE`, штуки | Количество выполняющихся фаз `query` на уровне запроса. |
+| `opensearch_indices_search_request_query_time_in_millis`<br/>`DGAUGE`, миллисекунды | Суммарное время фаз `query` на уровне запроса. |
+| `opensearch_indices_search_request_query_total`<br/>`DGAUGE`, штуки | Суммарное количество фаз `query` на уровне запроса. |
+| `opensearch_indices_search_scroll_current`<br/>`DGAUGE`, штуки | Количество активных `scroll`-контекстов. |
+| `opensearch_indices_search_scroll_time_in_millis`<br/>`DGAUGE`, миллисекунды | Суммарное время операций `scroll`. |
+| `opensearch_indices_search_scroll_total`<br/>`DGAUGE`, штуки | Суммарное количество операций `scroll`. |
+| `opensearch_indices_search_suggest_current`<br/>`DGAUGE`, штуки | Количество выполняющихся запросов `suggest`. |
+| `opensearch_indices_search_suggest_time_in_millis`<br/>`DGAUGE`, миллисекунды | Суммарное время запросов `suggest`. |
+| `opensearch_indices_search_suggest_total`<br/>`DGAUGE`, штуки | Суммарное количество запросов `suggest`. |
+| `opensearch_indices_segments_count`<br/>`DGAUGE`, штуки | Количество сегментов Lucene на узле. |
+| `opensearch_indices_segments_doc_values_memory_in_bytes`<br/>`DGAUGE`, байты | Объем памяти, занятый структурами `doc_values` (используются для сортировок и агрегаций). |
+| `opensearch_indices_segments_fixed_bit_set_memory_in_bytes`<br/>`DGAUGE`, байты | Объем памяти, занятый `FixedBitSet` (например, для родительско-дочерних запросов). |
+| `opensearch_indices_segments_index_writer_memory_in_bytes`<br/>`DGAUGE`, байты | Объем памяти, занятый буферами `IndexWriter` (буферизация документов до `flush`). |
+| `opensearch_indices_segments_max_unsafe_auto_id_timestamp`<br/>`DGAUGE`, таймстамп | Максимальная временная метка `unsafe` автогенерируемого идентификатора документа. |
+| `opensearch_indices_segments_memory_in_bytes`<br/>`DGAUGE`, байты | Суммарный объем памяти, занятый сегментами. |
+| `opensearch_indices_segments_norms_memory_in_bytes`<br/>`DGAUGE`, байты | Объем памяти, занятый данными `norms` (нормирование длины поля для скоринга). |
+| `opensearch_indices_segments_points_memory_in_bytes`<br/>`DGAUGE`, байты | Объем памяти, занятый структурами `points` (числовые и гео-поля). |
+| `opensearch_indices_segments_remote_store_download_total_download_size_failed_bytes`<br/>`DGAUGE`, байты | Суммарный размер неуспешных скачиваний сегментов из `remote store`. |
+| `opensearch_indices_segments_remote_store_download_total_download_size_started_bytes`<br/>`DGAUGE`, байты | Суммарный размер начатых скачиваний сегментов из `remote store`. |
+| `opensearch_indices_segments_remote_store_download_total_download_size_succeeded_bytes`<br/>`DGAUGE`, байты | Суммарный размер успешных скачиваний сегментов из `remote store`. |
+| `opensearch_indices_segments_remote_store_download_total_time_spent_in_millis`<br/>`DGAUGE`, миллисекунды | Суммарное время скачивания сегментов из `remote store`. |
+| `opensearch_indices_segments_remote_store_upload_max_refresh_time_lag_in_millis`<br/>`DGAUGE`, миллисекунды | Максимальное отставание загрузки сегментов в `remote store` относительно локального `refresh`. |
+| `opensearch_indices_segments_remote_store_upload_pressure_total_rejections`<br/>`DGAUGE`, штуки | Количество отклонений загрузок сегментов в `remote store` из-за backpressure. |
+| `opensearch_indices_segments_remote_store_upload_refresh_size_lag_max_bytes`<br/>`DGAUGE`, байты | Максимальное отставание по размеру между локальным состоянием и загруженным в `remote store`. |
+| `opensearch_indices_segments_remote_store_upload_refresh_size_lag_total_bytes`<br/>`DGAUGE`, байты | Суммарное отставание по размеру между локальным состоянием и загруженным в `remote store`. |
+| `opensearch_indices_segments_remote_store_upload_total_time_spent_in_millis`<br/>`DGAUGE`, миллисекунды | Суммарное время загрузки сегментов в `remote store`. |
+| `opensearch_indices_segments_remote_store_upload_total_upload_size_failed_bytes`<br/>`DGAUGE`, байты | Суммарный размер неуспешных загрузок сегментов в `remote store`. |
+| `opensearch_indices_segments_remote_store_upload_total_upload_size_started_bytes`<br/>`DGAUGE`, байты | Суммарный размер начатых загрузок сегментов в `remote store`. |
+| `opensearch_indices_segments_remote_store_upload_total_upload_size_succeeded_bytes`<br/>`DGAUGE`, байты | Суммарный размер успешных загрузок сегментов в `remote store`. |
+| `opensearch_indices_segments_segment_replication_max_bytes_behind`<br/>`DGAUGE`, байты | Максимальное отставание реплики от первичного шарда в байтах при `segment replication`. |
+| `opensearch_indices_segments_segment_replication_max_replication_lag`<br/>`DGAUGE`, штуки | Максимальное отставание `segment replication` (в количестве `refresh`). |
+| `opensearch_indices_segments_segment_replication_total_bytes_behind`<br/>`DGAUGE`, байты | Суммарное отставание реплик от первичных шардов в байтах. |
+| `opensearch_indices_segments_stored_fields_memory_in_bytes`<br/>`DGAUGE`, байты | Объем памяти, занятый хранимыми полями (`stored fields`, например, `_source`). |
+| `opensearch_indices_segments_term_vectors_memory_in_bytes`<br/>`DGAUGE`, байты | Объем памяти, занятый `term vectors`. |
+| `opensearch_indices_segments_terms_memory_in_bytes`<br/>`DGAUGE`, байты | Объем памяти, занятый словарем терминов. |
+| `opensearch_indices_segments_version_map_memory_in_bytes`<br/>`DGAUGE`, байты | Объем памяти, занятый картой версий документов (`version map`). |
+| `opensearch_indices_store_reserved_in_bytes`<br/>`DGAUGE`, байты | Объем дискового пространства, зарезервированный под текущие операции (например, восстановление). |
+| `opensearch_indices_store_size_in_bytes`<br/>`DGAUGE`, байты | Общий объем дискового пространства, занятый индексами на узле. |
+| `opensearch_indices_translog_earliest_last_modified_age`<br/>`DGAUGE`, миллисекунды | Возраст самой ранней еще не закоммиченной операции в translog. |
+| `opensearch_indices_translog_operations`<br/>`DGAUGE`, штуки | Количество операций в translog. |
+| `opensearch_indices_translog_remote_store_upload_total_upload_size_failed_bytes`<br/>`DGAUGE`, байты | Суммарный размер неуспешных загрузок translog в `remote store`. |
+| `opensearch_indices_translog_remote_store_upload_total_upload_size_started_bytes`<br/>`DGAUGE`, байты | Суммарный размер начатых загрузок translog в `remote store`. |
+| `opensearch_indices_translog_remote_store_upload_total_upload_size_succeeded_bytes`<br/>`DGAUGE`, байты | Суммарный размер успешных загрузок translog в `remote store`. |
+| `opensearch_indices_translog_remote_store_upload_total_uploads_failed`<br/>`DGAUGE`, штуки | Количество неуспешных загрузок translog в `remote store`. |
+| `opensearch_indices_translog_remote_store_upload_total_uploads_started`<br/>`DGAUGE`, штуки | Количество начатых загрузок translog в `remote store`. |
+| `opensearch_indices_translog_remote_store_upload_total_uploads_succeeded`<br/>`DGAUGE`, штуки | Количество успешных загрузок translog в `remote store`. |
+| `opensearch_indices_translog_size_in_bytes`<br/>`DGAUGE`, байты | Размер translog на диске. |
+| `opensearch_indices_translog_uncommitted_operations`<br/>`DGAUGE`, штуки | Количество незакоммиченных операций в translog. |
+| `opensearch_indices_translog_uncommitted_size_in_bytes`<br/>`DGAUGE`, байты | Размер незакоммиченной части translog. |
+| `opensearch_indices_warmer_current`<br/>`DGAUGE`, штуки | Количество выполняющихся в данный момент `warmer`-операций. |
+| `opensearch_indices_warmer_total_time_in_millis`<br/>`DGAUGE`, миллисекунды | Суммарное время `warmer`-операций. |
+| `opensearch_indices_warmer_total`<br/>`DGAUGE`, штуки | Суммарное количество `warmer`-операций. |
+| `opensearch_is_master`<br/>`DGAUGE`, 0/1 | Индикатор того, что данный узел является мастер-узлом (`cluster_manager`). |
+| `opensearch_jvm_gc_collectors_old_collection_count`<br/>`DGAUGE`, штуки | Количество сборок мусора в старом поколении (Old GC). |
+| `opensearch_jvm_gc_collectors_young_collection_count`<br/>`DGAUGE`, штуки | Количество сборок мусора в молодом поколении (Young GC). |
+| `opensearch_jvm_mem_heap_committed_in_bytes`<br/>`DGAUGE`, байты | Объем JVM `heap`, выделенный операционной системой. |
+| `opensearch_jvm_mem_heap_max_in_bytes`<br/>`DGAUGE`, байты | Максимальный размер JVM `heap`. |
+| `opensearch_jvm_mem_heap_pressure`<br/>`DGAUGE` | Показатель давления на JVM `heap` (учитывает использование `heap` и активность GC). |
+| `opensearch_jvm_mem_heap_used_in_bytes`<br/>`DGAUGE`, байты | Текущий объем используемой JVM `heap`-памяти. |
+| `opensearch_jvm_mem_heap_used_percent`<br/>`DGAUGE`, % | Процент использования JVM `heap`. |
+| `opensearch_jvm_mem_non_heap_committed_in_bytes`<br/>`DGAUGE`, байты | Объем JVM `non-heap`-памяти, выделенной операционной системой (Metaspace, Code Cache). |
+| `opensearch_jvm_mem_non_heap_used_in_bytes`<br/>`DGAUGE`, байты | Объем используемой JVM `non-heap`-памяти. |
+| `opensearch_jvm_mem_pools_old_max_in_bytes`<br/>`DGAUGE`, байты | Максимальный размер пула памяти старого поколения JVM. |
+| `opensearch_jvm_mem_pools_old_used_in_bytes`<br/>`DGAUGE`, байты | Объем используемой памяти старого поколения JVM. |
+| `opensearch_number_of_data_nodes`<br/>`DGAUGE`, штуки | Количество data-узлов в кластере. |
+| `opensearch_number_of_in_flight_fetch`<br/>`DGAUGE`, штуки | Количество выполняющихся запросов состояния шардов. |
+| `opensearch_number_of_nodes`<br/>`DGAUGE`, штуки | Общее количество узлов в кластере. |
+| `opensearch_number_of_pending_tasks`<br/>`DGAUGE`, штуки | Количество ожидающих задач изменения состояния кластера. |
+| `opensearch_process_cpu_percent`<br/>`DGAUGE`, % | Процент использования CPU процессом OpenSearch. |
+| `opensearch_process_cpu_total_in_millis`<br/>`DGAUGE`, миллисекунды | Суммарное процессорное время, использованное процессом OpenSearch. |
+| `opensearch_process_max_file_descriptors`<br/>`DGAUGE`, штуки | Максимально допустимое для процесса количество файловых дескрипторов. |
+| `opensearch_process_mem_total_virtual_in_bytes`<br/>`DGAUGE`, байты | Объем виртуальной памяти, занятой процессом OpenSearch. |
+| `opensearch_process_open_file_descriptors`<br/>`DGAUGE`, штуки | Количество открытых процессом файловых дескрипторов в данный момент. |
+| `opensearch_process_timestamp`<br/>`DGAUGE`, таймстамп | Временная метка сбора статистики процесса. |
+| `opensearch_task_max_waiting_in_queue_millis`<br/>`DGAUGE`, миллисекунды | Максимальное время ожидания задачи в очереди. |
+| `opensearch_thread_pool_<thread_pool_name>_active`<br/>`DGAUGE`, штуки | Количество активных потоков в пуле.<br/>Специальная метка `thread_pool_name` — имя пула потоков. |
+| `opensearch_thread_pool_<thread_pool_name>_completed`<br/>`DGAUGE`, штуки | Количество завершенных задач пула. |
+| `opensearch_thread_pool_<thread_pool_name>_largest`<br/>`DGAUGE`, штуки | Максимальный размер, до которого вырастал пул потоков. |
+| `opensearch_thread_pool_<thread_pool_name>_queue`<br/>`DGAUGE`, штуки | Количество задач в очереди пула. |
+| `opensearch_thread_pool_<thread_pool_name>_rejected`<br/>`DGAUGE`, штуки | Количество отклоненных задач (очередь пула переполнена). |
+| `opensearch_thread_pool_<thread_pool_name>_threads`<br/>`DGAUGE`, штуки | Текущее количество потоков в пуле. |
+| `opensearch_thread_pool_<thread_pool_name>_total_wait_time_in_nanos`<br/>`DGAUGE`, наносекунды | Суммарное время ожидания задач в очереди пула. |
+| `opensearch_transport_rx_count`<br/>`DGAUGE`, штуки | Количество принятых сообщений транспортного уровня. |
+| `opensearch_transport_rx_size_in_bytes`<br/>`DGAUGE`, байты | Суммарный объем принятых данных транспортного уровня. |
+| `opensearch_transport_server_open`<br/>`DGAUGE`, штуки | Количество открытых серверных соединений транспортного уровня. |
+| `opensearch_transport_total_outbound_connections`<br/>`DGAUGE`, штуки | Суммарное количество открытых исходящих транспортных соединений. |
+| `opensearch_transport_tx_count`<br/>`DGAUGE`, штуки | Количество отправленных сообщений транспортного уровня. |
+| `opensearch_transport_tx_size_in_bytes`<br/>`DGAUGE`, байты | Суммарный объем отправленных данных транспортного уровня. |
 
 #### Прочие метрики {#managed-opensearch-other-metrics}
 | Имя<br/>Тип, единицы измерения | Описание |
@@ -588,13 +604,13 @@ subcluster_name | Имя субкластера
 
 [*buffers]: Объем памяти, используемой для буферов ядра (временное хранение данных блочных устройств).
 
-[*cached]: Объем памяти, используемой для кэша файловой системы (страницы, прочитанные с диска).
+[*cached]: Объем памяти, используемой для кеша файловой системы (страницы, прочитанные с диска).
 
 [*commit_limit]: Общий объем памяти, который может быть выделен системой с учетом файла подкачки.
 
 [*committed_as]: Объем памяти, зарезервированной для выполнения всех операций (может превышать физическую память).
 
-[*dirty]: Объем памяти, ожидающей записи на диск (измененные данные в кэше).
+[*dirty]: Объем памяти, ожидающей записи на диск (измененные данные в кеше).
 
 [*free]: Объем свободной неиспользуемой памяти.
 
@@ -620,7 +636,7 @@ subcluster_name | Имя субкластера
 
 [*shared]: Объем памяти, используемой для временных файловых систем в памяти.
 
-[*slab]: Объем памяти, используемой ядром для кэширования часто используемых структур данных.
+[*slab]: Объем памяти, используемой ядром для кеширования часто используемых структур данных.
 
 [*sreclaimable]: Часть памяти ядра, которая может быть освобождена при нехватке памяти.
 

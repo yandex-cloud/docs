@@ -5,7 +5,7 @@ Lists operations for the specified userpool.
 ## HTTP request
 
 ```
-GET https://organization-manager.api.cloud.yandex.net/organization-manager/v1/idp/userpools/{userpoolId}/operations
+GET https://organization-manager.{{ api-host }}/organization-manager/v1/idp/userpools/{userpoolId}/operations
 ```
 
 ## Path parameters

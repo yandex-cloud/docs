@@ -5,7 +5,7 @@ Move subnet to another folder.
 ## HTTP request
 
 ```
-POST https://vpc.api.cloud.yandex.net/vpc/v1/subnets/{subnetId}:move
+POST https://vpc.{{ api-host }}/vpc/v1/subnets/{subnetId}:move
 ```
 
 ## Path parameters

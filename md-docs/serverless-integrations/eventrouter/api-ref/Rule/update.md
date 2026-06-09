@@ -5,7 +5,7 @@ Updates the specified rule.
 ## HTTP request
 
 ```
-PATCH https://serverless-eventrouter.api.cloud.yandex.net/eventrouter/v1/rules/{ruleId}
+PATCH https://serverless-eventrouter.{{ api-host }}/eventrouter/v1/rules/{ruleId}
 ```
 
 ## Path parameters

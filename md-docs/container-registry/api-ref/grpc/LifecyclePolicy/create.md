@@ -93,28 +93,10 @@ The minimum value is 0. ||
   "created_by": "string",
   "modified_at": "google.protobuf.Timestamp",
   "done": "bool",
-  "metadata": {
-    "lifecycle_policy_id": "string"
-  },
+  "metadata": "google.protobuf.Any",
   // Includes only one of the fields `error`, `response`
   "error": "google.rpc.Status",
-  "response": {
-    "id": "string",
-    "name": "string",
-    "repository_id": "string",
-    "description": "string",
-    "status": "Status",
-    "created_at": "google.protobuf.Timestamp",
-    "rules": [
-      {
-        "description": "string",
-        "expire_period": "google.protobuf.Duration",
-        "tag_regexp": "string",
-        "untagged": "bool",
-        "retained_top": "int64"
-      }
-    ]
-  }
+  "response": "google.protobuf.Any"
   // end of the list of possible fields
 }
 ```
@@ -142,7 +124,7 @@ The time when the Operation resource was last modified. ||
 
 If the value is `false`, it means the operation is still in progress.
 If `true`, the operation is completed, and either `error` or `response` is available. ||
-|| metadata | **[CreateLifecyclePolicyMetadata](#yandex.cloud.containerregistry.v1.CreateLifecyclePolicyMetadata)**
+|| metadata | **[google.protobuf.Any](https://developers.google.com/protocol-buffers/docs/proto3#any)**
 
 Service-specific metadata associated with the operation.
 It typically contains the ID of the target resource that the operation is performed on.
@@ -157,7 +139,7 @@ The operation result.
 If `done == false` and there was no failure detected, neither `error` nor `response` is set.
 If `done == false` and there was a failure detected, `error` is set.
 If `done == true`, exactly one of `error` or `response` is set. ||
-|| response | **[LifecyclePolicy](#yandex.cloud.containerregistry.v1.LifecyclePolicy)**
+|| response | **[google.protobuf.Any](https://developers.google.com/protocol-buffers/docs/proto3#any)**
 
 The normal response of the operation in case of success.
 If the original method returns no data on success, such as Delete,
@@ -172,74 +154,4 @@ The operation result.
 If `done == false` and there was no failure detected, neither `error` nor `response` is set.
 If `done == false` and there was a failure detected, `error` is set.
 If `done == true`, exactly one of `error` or `response` is set. ||
-|#
-
-## CreateLifecyclePolicyMetadata {#yandex.cloud.containerregistry.v1.CreateLifecyclePolicyMetadata}
-
-#|
-||Field | Description ||
-|| lifecycle_policy_id | **string**
-
-ID of the lifecycle policy resource that is being created. ||
-|#
-
-## LifecyclePolicy {#yandex.cloud.containerregistry.v1.LifecyclePolicy}
-
-#|
-||Field | Description ||
-|| id | **string**
-
-ID of the lifecycle policy. ||
-|| name | **string**
-
-Name of the lifecycle policy. ||
-|| repository_id | **string**
-
-ID of the repository that the lifecycle policy belongs to.
-Required. The maximum string length in characters is 50. ||
-|| description | **string**
-
-Description of the lifecycle policy.
-The maximum string length in characters is 256. ||
-|| status | enum **Status**
-
-Status of lifecycle policy.
-
-- `ACTIVE`: Policy is active and regularly deletes Docker images according to the established rules.
-- `DISABLED`: Policy is disabled and does not delete Docker images in the repository.
-Policies in this status can be used for preparing and testing rules. ||
-|| created_at | **[google.protobuf.Timestamp](https://developers.google.com/protocol-buffers/docs/reference/google.protobuf#timestamp)**
-
-Creation timestamp. ||
-|| rules[] | **[LifecycleRule](#yandex.cloud.containerregistry.v1.LifecycleRule2)**
-
-The rules of lifecycle policy. ||
-|#
-
-## LifecycleRule {#yandex.cloud.containerregistry.v1.LifecycleRule2}
-
-#|
-||Field | Description ||
-|| description | **string**
-
-Description of the lifecycle policy rule.
-
-The maximum string length in characters is 256. ||
-|| expire_period | **[google.protobuf.Duration](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/duration)**
-
-Period of time for automatic deletion.
-Period must be a multiple of 24 hours. ||
-|| tag_regexp | **string**
-
-Tag for specifying a filter in the form of a regular expression.
-
-The maximum string length in characters is 256. ||
-|| untagged | **bool**
-
-Tag for applying the rule to Docker images without tags. ||
-|| retained_top | **int64**
-
-Number of Docker images (falling under the specified filter by tags) that must be left, even if the expire_period has already expired.
-
-The minimum value is 0. ||
 |#

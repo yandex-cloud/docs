@@ -8,7 +8,7 @@ request.
 ## HTTP request
 
 ```
-GET https://vpc.api.cloud.yandex.net/vpc/v1/endpoints/{privateEndpointId}
+GET https://vpc.{{ api-host }}/vpc/v1/endpoints/{privateEndpointId}
 ```
 
 ## Path parameters

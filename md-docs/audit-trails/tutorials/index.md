@@ -1,14 +1,14 @@
-# Практические руководства Audit Trails
+# Практические руководства {{ at-name }}
 
-* [Поиск событий Yandex Cloud в Object Storage](search-bucket.md)
-* [Поиск событий Yandex Cloud в Cloud Logging](search-cloud-logging.md)
-* [Настройка дашбордов и алертов в Yandex Monitoring](alerts-monitoring.md)
-* [Настройка реагирования в Yandex Cloud Logging и Yandex Cloud Functions](logging-functions.md)
-* [Обработка аудитных логов Yandex Audit Trails](audit-trails.md)
+* [{#T}](search-bucket.md)
+* [{#T}](search-cloud-logging.md)
+* [{#T}](alerts-monitoring.md)
+* [{#T}](logging-functions.md)
+* [{#T}](audit-trails.md)
 
 ## Экспорт аудитных логов в SIEM {#siem}
 
-* [Загрузка аудитных логов в MaxPatrol SIEM](maxpatrol/index.md)
-* [Загрузка аудитных логов в SIEM Splunk](export-logs-to-splunk.md)
-* [Загрузка аудитных логов в SIEM ArcSight](export-logs-to-arcsight.md)
-* [Загрузка аудитных логов в SIEM KUMA](audit-trails-events-to-kuma/index.md)
+* [{#T}](maxpatrol/index.md)
+* [{#T}](export-logs-to-splunk.md)
+* [{#T}](export-logs-to-arcsight.md)
+* [{#T}](audit-trails-events-to-kuma/index.md)

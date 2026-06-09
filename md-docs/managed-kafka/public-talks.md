@@ -1,14 +1,14 @@
-# Публичные материалы о Yandex Managed Service for Apache Kafka®
+# Публичные материалы о {{ mkf-full-name }}
 
 ## Конференции и вебинары {#conf-and-webinars}
 
 ### 2025: Статьи {#article-2025}
 
-* Apache Kafka®: обработка потоков данных в реальном времени.
+* {{ KF }}: обработка потоков данных в реальном времени.
 
   * [Текст статьи](https://yandex.cloud/ru/blog/apache-kafka-overview).
 
-### 2022: Yandex Cloud {#yc-2022}
+### 2022: {{ yandex-cloud }} {#yc-2022}
 
 * Про людей. Жизнь SRE в облаке.
 
@@ -26,19 +26,19 @@
 
   * [Запись трансляции](https://www.youtube.com/watch?v=cddm8I0UgjU).
 
-### 2019: Yandex Cloud {#yc-2019}
+### 2019: {{ yandex-cloud }} {#yc-2019}
 
-* Что нового в платформе баз данных Yandex Cloud.
+* Что нового в платформе баз данных {{ yandex-cloud }}.
 
   * [Запись трансляции](https://www.youtube.com/watch?v=5OcUo3J4Wdc).
 
-* Внутреннее устройство платформы баз данных в Yandex Cloud.
+* Внутреннее устройство платформы баз данных в {{ yandex-cloud }}.
 
   * [Запись трансляции](https://www.youtube.com/watch?v=Cwdg425a_cw).
 
 ### 2019: Статьи {#article-2019}
 
-* Как устроены сервисы управляемых баз данных в Yandex Cloud.
+* Как устроены сервисы управляемых баз данных в {{ yandex-cloud }}.
 
   * [Текст статьи](https://habr.com/ru/companies/yandex/articles/477860/).
 

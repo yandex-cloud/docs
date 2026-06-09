@@ -1,35 +1,35 @@
-# Настройка сбора телеметрии Nginx в Kubernetes
+# Настройка сбора телеметрии Nginx в {{ k8s }}
 
-Вы настроите веб-сервер Nginx в кластере Kubernetes и передадите его метрики и логи в Monium. В инструкции для разворачивания кластера используется сервис Managed Service for Kubernetes, но вы можете использовать любой ваш кластер Kubernetes.
+Вы настроите веб-сервер Nginx в кластере {{ k8s }} и передадите его метрики и логи в {{ monium-name }}. В инструкции для разворачивания кластера используется сервис {{ managed-k8s-name }}, но вы можете использовать любой ваш кластер {{ k8s }}.
 
 Чтобы настроить сбор телеметрии веб-сервера в кластере:
 
-1. [Настройте кластер Kubernetes](#cluster-settings).
-1. [Настройте аутентификацию](#auth-settings) — создайте сервисный аккаунт и API-ключ для отправки данных в Monium.
+1. [Настройте кластер {{ k8s }}](#cluster-settings).
+1. [Настройте аутентификацию](#auth-settings) — создайте сервисный аккаунт и API-ключ для отправки данных в {{ monium-name }}.
 1. [Установите и настройте Nginx](#nginx-install) — разверните веб-сервер с экспортером метрик.
 1. [Установите OpenTelemetry Collector](#install-otel-collector) — настройте сбор и отправку метрик.
-1. [Просмотрите метрики в Monium](#view-metrics).
+1. [Просмотрите метрики в {{ monium-name }}](#view-metrics).
 1. [Настройте сбор логов](#logs-settings).
-1. [Просмотрите логи в Monium](#view-logs).
+1. [Просмотрите логи в {{ monium-name }}](#view-logs).
 1. [Настройте дополнительные метрики по логам](#metrics-from-logs).
 1. [Создайте дашборд и алерты](#dashboard-alerts).
 
 ## Перед началом работы {#before-you-begin}
 
-Зарегистрируйтесь в Yandex Cloud и создайте [платежный аккаунт](../../billing/concepts/billing-account.md):
-1. Перейдите в [консоль управления](https://console.yandex.cloud), затем войдите в Yandex Cloud или зарегистрируйтесь.
-1. На странице **[Yandex Cloud Billing](https://center.yandex.cloud/billing/accounts)** убедитесь, что у вас подключен платежный аккаунт, и он находится в [статусе](../../billing/concepts/billing-account-statuses.md) `ACTIVE` или `TRIAL_ACTIVE`. Если платежного аккаунта нет, [создайте его](../../billing/quickstart/index.md) и [привяжите](../../billing/operations/pin-cloud.md) к нему облако.
+Зарегистрируйтесь в {{ yandex-cloud }} и создайте [платежный аккаунт](../../billing/concepts/billing-account.md):
+1. Перейдите в [консоль управления]({{ link-console-main }}), затем войдите в {{ yandex-cloud }} или зарегистрируйтесь.
+1. На странице **[{{ ui-key.yacloud_billing.billing.label_service }}]({{ link-console-billing }})** убедитесь, что у вас подключен платежный аккаунт, и он находится в [статусе](../../billing/concepts/billing-account-statuses.md) `ACTIVE` или `TRIAL_ACTIVE`. Если платежного аккаунта нет, [создайте его](../../billing/quickstart/index.md) и [привяжите](../../billing/operations/pin-cloud.md) к нему облако.
 
-Если у вас есть активный платежный аккаунт, вы можете создать или выбрать [каталог](../../resource-manager/concepts/resources-hierarchy.md#folder), в котором будет работать ваша инфраструктура, на [странице облака](https://console.yandex.cloud/cloud).
+Если у вас есть активный платежный аккаунт, вы можете создать или выбрать [каталог](../../resource-manager/concepts/resources-hierarchy.md#folder), в котором будет работать ваша инфраструктура, на [странице облака]({{ link-console-cloud }}).
 
 [Подробнее об облаках и каталогах](../../resource-manager/concepts/resources-hierarchy.md).
 
 ### Необходимые платные ресурсы {#paid-resources}
 
-В стоимость ресурсов для работы с Monium входит:
-* Плата за использование [мастера Managed Service for Kubernetes](../../managed-kubernetes/concepts/index.md#master) — [тарифы Managed Service for Kubernetes](../../managed-kubernetes/pricing.md).
-* Плата за [вычислительные ресурсы](../../compute/concepts/vm-platforms.md) и [диски](../../compute/concepts/disk.md) [группы узлов Managed Service for Kubernetes](../../managed-kubernetes/concepts/index.md#node-group) — [тарифы Yandex Compute Cloud](../../compute/pricing.md).
-* Плата за использование Monium — [тарифы Monium](../pricing.md).
+В стоимость ресурсов для работы с {{ monium-name }} входит:
+* Плата за использование [мастера {{ managed-k8s-name }}](../../managed-kubernetes/concepts/index.md#master) — [тарифы {{ managed-k8s-name }}](../../managed-kubernetes/pricing.md).
+* Плата за [вычислительные ресурсы](../../compute/concepts/vm-platforms.md) и [диски](../../compute/concepts/disk.md) [группы узлов {{ managed-k8s-name }}](../../managed-kubernetes/concepts/index.md#node-group) — [тарифы {{ compute-full-name }}](../../compute/pricing.md).
+* Плата за использование {{ monium-name }} — [тарифы {{ monium-name }}](../pricing.md).
 
 ## Настройка кластера {#cluster-settings}
 
@@ -37,9 +37,9 @@
 
 - Консоль управления {#console}
 
-  1. Создайте кластер [Kubernetes](../../managed-kubernetes/quickstart.md).
+  1. Создайте кластер [{{ k8s }}](../../managed-kubernetes/quickstart.md).
 
-  1. [Установите kubectl](https://kubernetes.io/ru/docs/tasks/tools/install-kubectl) и [настройте его на работу с созданным кластером](../../managed-kubernetes/operations/connect/index.md#kubectl-connect).
+  1. [Установите kubectl]({{ k8s-docs }}/tasks/tools/install-kubectl) и [настройте его на работу с созданным кластером](../../managed-kubernetes/operations/connect/index.md#kubectl-connect).
 
 {% endlist %}
 
@@ -53,17 +53,17 @@
 - Консоль управления {#console}
 
   1. Создайте [сервисный аккаунт](../../iam/operations/sa/create.md) с ролью `monium.telemetry.writer`:
-     1. [Перейдите](../../console/operations/select-service.md#select-service) в сервис **Identity and Access Management**.
-     1. Нажмите кнопку **Создать сервисный аккаунт**.
+     1. Перейдите в сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_iam }}**.
+     1. Нажмите кнопку **{{ ui-key.yacloud.iam.folder.service-accounts.button_add }}**.
      1. Введите имя сервисного аккаунта, например, `monium-ca`.
-     1. Нажмите ![image](../../_assets/console-icons/plus.svg) **Добавить роль** и выберите `monium.telemetry.writer`.
-     1. Нажмите **Создать**.
+     1. Нажмите ![image](../../_assets/console-icons/plus.svg) **{{ ui-key.yacloud_components.acl.button.add-role }}** и выберите `monium.telemetry.writer`.
+     1. Нажмите **{{ ui-key.yacloud.iam.folder.service-account.popup-robot_button_add }}**.
   
   1. Создайте [API-ключ](../../iam/operations/authentication/manage-api-keys.md) с областью действия `yc.monium.telemetry.write`:
      1. Выберите в списке созданный сервисный аккаунт.
-     1. Нажмите кнопку ![image](../../_assets/console-icons/plus.svg) **Создать новый ключ** и выберите пункт **Создать API-ключ**.
-     1. В поле **Область действия** выберите `yc.monium.telemetry.write`.
-     1. Нажмите кнопку **Создать**.
+     1. Нажмите кнопку ![image](../../_assets/console-icons/plus.svg) **{{ ui-key.yacloud.iam.folder.service-account.overview.button_create-key-popup }}** и выберите пункт **{{ ui-key.yacloud.iam.folder.service-account.overview.button_create_api_key }}**.
+     1. В поле **{{ ui-key.yacloud.iam.folder.service-account.overview.field_key-scope }}** выберите `yc.monium.telemetry.write`.
+     1. Нажмите кнопку **{{ ui-key.yacloud.iam.folder.service-account.overview.popup-key_button_create }}**.
   
   1. Скопируйте API-ключ и сохраните его в безопасном месте, он понадобится дальше.
   1. Скопируйте идентификатор каталога, в котором создан кластер и сервисный аккаунт. Для этого вверху нажмите название каталога и в списке напротив нужного каталога нажмите ![image](../../_assets/console-icons/ellipsis.svg) → ![image](../../_assets/console-icons/copy.svg) **Копировать ID**.
@@ -236,7 +236,7 @@
      
      {% endcut %}
    
-   Для мониторинга Nginx в Kubernetes потребуется экспортер (nginx-exporter), который преобразует внутреннюю статистику Nginx в формат для OpenTelemetry Collector.
+   Для мониторинга Nginx в {{ k8s }} потребуется экспортер (nginx-exporter), который преобразует внутреннюю статистику Nginx в формат для OpenTelemetry Collector.
 
    В файле `deployment.yaml` экспортер добавлен в виде сайдкара:
 
@@ -330,7 +330,7 @@
 
 На этом шаге вы установите [OpenTelemetry Collector Contrib](https://github.com/open-telemetry/opentelemetry-collector-contrib) — расширенную версию коллектора с дополнительными компонентами для сбора логов, парсинга и других задач. Для сбора только метрик достаточно базовой версии [OpenTelemetry Collector](https://github.com/open-telemetry/opentelemetry-collector), но для работы с логами требуется Contrib-версия, будем сразу использовать ее.
 
-1. Создайте файл для установки OpenTelemetry Collector и отправки метрик в Monium:
+1. Создайте файл для установки OpenTelemetry Collector и отправки метрик в {{ monium-name }}:
   
      {% cut "otel-config.yaml" %}
 
@@ -565,13 +565,13 @@
     otel-collector-6cd848c59d-k6g2p   1/1     Running   0          12s
     ```
 
-## Просмотр метрик в Monium {#view-metrics}
+## Просмотр метрик в {{ monium-name }} {#view-metrics}
 
 {% list tabs group=instructions %}
 
-- Интерфейс Monium {#console}
+- Интерфейс {{ monium-name }} {#console}
 
-  1. На главной странице [Monium](https://monium.yandex.cloud) слева выберите **Метрики**.
+  1. На главной странице [{{ monium-name }}]({{ link-monium }}) слева выберите **{{ ui-key.yacloud_monitoring.aside-navigation.menu-item.explorer.title }}**.
        
   1. В строке запроса последовательно выберите:
      * `project=folder__<идентификатор_каталога>`; 
@@ -587,13 +587,13 @@
      
      Метрика показывает статус доступности Nginx: `1` — доступен, `0` — недоступен. Агрегированное значение равно `3` по количеству подов.
 
-  1. Нажмите **Выполнить запрос**.
+  1. Нажмите **{{ ui-key.yacloud_monitoring.querystring.action.execute-query }}**.
 
 {% endlist %}
 
 Подробнее о [работе с метриками](../metrics/metric-explorer.md).
 
-Если данные не появились в Monium, см. раздел [Устранение неполадок при поставке данных](troubleshooting.md).
+Если данные не появились в {{ monium-name }}, см. раздел [{#T}](troubleshooting.md).
 
 Комбинируя различные метрики в запросах, вы можете определять, справляется ли веб-сервер с текущей нагрузкой, есть ли отброшенные соединения из-за нехватки ресурсов, как быстро обрабатываются запросы.
 
@@ -612,7 +612,7 @@
 
 Разница между обработанными и принятыми соединениями покажет количество соединений, которые были приняты, но не были корректно обработаны Nginx.
 
-Создайте три запроса: `Запрос A` — для метрики `nginx_connections_accepted`, `Запрос B` — для метрики `nginx_connections_handled`, `Запрос C` — для вычисления разницы между метриками. Чтобы создать дополнительный запрос, нажмите кнопку **Добавить запрос**.
+Создайте три запроса: `Запрос A` — для метрики `nginx_connections_accepted`, `Запрос B` — для метрики `nginx_connections_handled`, `Запрос C` — для вычисления разницы между метриками. Чтобы создать дополнительный запрос, нажмите кнопку **{{ ui-key.yacloud_monitoring.querystring.action.add-query }}**.
 
 * Запрос A:
   ```text
@@ -884,19 +884,19 @@
    kubectl apply -f otel-config-logs.yaml
    ```
 
-## Просмотр логов в Monium {#view-logs}
+## Просмотр логов в {{ monium-name }} {#view-logs}
 
 {% list tabs group=instructions %}
 
-- Интерфейс Monium {#console}
+- Интерфейс {{ monium-name }} {#console}
 
-  1. На главной странице [Monium](https://monium.yandex.cloud) слева выберите **Логи**.
+  1. На главной странице [{{ monium-name }}]({{ link-monium }}) слева выберите **{{ ui-key.yacloud_monitoring.aside-navigation.menu-item.logs.title }}**.
        
   1. В строке запроса выберите:
      * `project=folder__<идентификатор_каталога>`; 
      * `service=nginx`.
 
-  1. Нажмите **Выполнить запрос**.
+  1. Нажмите **{{ ui-key.yacloud_monitoring.querystring.action.execute-query }}**.
 
    {% cut "Пример страницы с логами Nginx" %}
         
@@ -910,7 +910,7 @@
 
 ## Настройка сбора метрик из логов {#metrics-from-logs}
 
-Помимо стандартных метрик, которые Nginx отправляет через экспортер Prometheus, OTel Collector позволяет извлекать дополнительные метрики из логов приложения. Например, подсчитывать количество HTTP-ответов с разными кодами статуса.
+Помимо стандартных метрик, которые Nginx отправляет через экспортер {{ prometheus-name }}, OTel Collector позволяет извлекать дополнительные метрики из логов приложения. Например, подсчитывать количество HTTP-ответов с разными кодами статуса.
 
 Для получения этих метрик создайте и примените новый файл конфигурации:
 
@@ -1214,7 +1214,7 @@ roleRef:
 
 1. Настройка маршрутов (pipelines).
 
-   Добавлен pipeline `metrics/logs`, который будет получать метрики от коннектора `count/nginx` и отправлять их в Monium вместе с остальными метриками:
+   Добавлен pipeline `metrics/logs`, который будет получать метрики от коннектора `count/nginx` и отправлять их в {{ monium-name }} вместе с остальными метриками:
 
    ```yaml
    service:
@@ -1236,7 +1236,7 @@ roleRef:
          exporters: [otlp/monium, debug]
    ```
 
-После применения конфигурации в Monium будут доступны новые метрики:
+После применения конфигурации в {{ monium-name }} будут доступны новые метрики:
 * `nginx_http_2xx_total` — количество успешных ответов.
 * `nginx_http_4xx_total` — количество клиентских ошибок.
 * `nginx_http_5xx_total` — количество серверных ошибок.

@@ -1,33 +1,66 @@
 # yc cloudrouter routing-instance update
 
-Modify configuration or attributes of a routingInstance.
+Updates a RoutingInstance resource using the data specified in the request.
+Method starts an asynchronous operation that can be cancelled while it is in progress.
 
 #### Command Usage
 
 Syntax:
 
-`yc cloudrouter routing-instance update <ROUTING_INSTANCE-NAME>|<ROUTING_INSTANCE-ID> [Flags...] [Global Flags...]`
+`yc cloudrouter routing-instance update <ROUTING-INSTANCE-NAME>|<ROUTING-INSTANCE-ID>`
 
 #### Flags
 
 #|
 ||Flag | Description ||
+|| `--update-mask` | `[]string`
+
+Field paths for FieldMask: each segment may be proto snake_case or CLI kebab-case (e.g. name, labels, network-interface). Repeat the flag or use comma-separated values. When set and non-empty, takes precedence over update_mask in the request body/file and over mask inferred from -r. If omitted or empty, the mask is built from the fields you pass (changed flags, JSON/shorthand, and request file when update_mask is absent there). ||
 || `--id` | `string`
 
-RoutingInstance id. ||
+ID of the RoutingInstance resource. ||
 || `--name` | `string`
 
-RoutingInstance name. ||
+Resolve id by resource name within the current scope. ||
 || `--async` | Display information about the operation in progress, without waiting for the operation to complete. ||
 || `--new-name` | `string`
 
-New name for the routing-instance. ||
+Name of the RoutingInstance.
+The name must be unique within the folder.
+Value must match the regular expression ''\\|[a-zA-Z]([-_a-zA-Z0-9]{0,61}[a-zA-Z0-9])?''. ||
 || `--description` | `string`
 
-New description for the routing-instance. ||
+Optional description of the RoutingInstance. 0-256 characters long. ||
 || `--labels` | `key=value[,key=value...]`
 
-New set of labels for the routing-instance as key-value pairs. Existing set of labels will be completely overwritten. ||
+Resource labels, 'key:value' pairs.
+No more than 64 per resource.
+The maximum string length in characters for each value is 63.
+Each value must match the regular expression '[-_0-9a-z]*'.
+The string length in characters for each key must be 1-63.
+Each key must match the regular expression '[a-z][-_0-9a-z]*'.
+Existing set of labels will be completely overwritten. ||
+|| `-r`, `--request-file` | `string`
+
+Path to a request file. ||
+|| `--example-json` | Generates a JSON template of the request. ||
+|| `-e`, `--example-yaml` | Generates a YAML template of the request.
+
+The template can be customized and used as input for the command.
+
+Usage example:
+
+1. Generate template:
+yc cloudrouter routing-instance update --example-json > request.json
+or
+yc cloudrouter routing-instance update --example-yaml > request.yaml
+
+2. Edit the template file
+
+3. Run with template:
+yc cloudrouter routing-instance update -r request.json
+or
+yc cloudrouter routing-instance update -r request.yaml ||
 |#
 
 #### Global Flags
@@ -36,45 +69,45 @@ New set of labels for the routing-instance as key-value pairs. Existing set of l
 ||Flag | Description ||
 || `--profile` | `string`
 
-Set the custom configuration file. ||
+Set the custom profile. ||
+|| `--region` | `string`
+
+Set the region. ||
 || `--debug` | Debug logging. ||
 || `--debug-grpc` | Debug gRPC logging. Very verbose, used for debugging connection problems. ||
 || `--no-user-output` | Disable printing user intended output to stderr. ||
+|| `--pager` | `string`
+
+Set the custom pager. ||
+|| `--no-pager` | Do not pipe help output through a pager. ||
+|| `--format` | `string`
+
+Set the output format: text, yaml, json, table, summary \|\| summary[name, instance.id, instance.disks[0].size]. ||
 || `--retry` | `int`
 
 Enable gRPC retries. By default, retries are enabled with maximum 5 attempts.
 Pass 0 to disable retries. Pass any negative value for infinite retries.
 Even infinite retries are capped with 2 minutes timeout. ||
-|| `--syntax` | `string`
+|| `--timeout` | `string`
 
-CLI syntax: 1 (legacy) or 2 (current). Omit to use default-syntax in the profile or the product default. ||
-|| `--cloud-id` | `string`
-
-Set the ID of the cloud to use. ||
-|| `--folder-id` | `string`
-
-Set the ID of the folder to use. ||
-|| `--folder-name` | `string`
-
-Set the name of the folder to use (will be resolved to id). ||
-|| `--endpoint` | `string`
-
-Set the Cloud API endpoint (host:port). ||
+Set the timeout. ||
 || `--token` | `string`
 
-Set the OAuth token to use. ||
+Set the IAM token to use. ||
 || `--impersonate-service-account-id` | `string`
 
 Set the ID of the service account to impersonate. ||
 || `--no-browser` | Disable opening browser for authentication. ||
-|| `--format` | `string`
-
-Set the output format: text (default), yaml, json, json-rest. ||
-|| `--jq` | `string`
+|| `--query` | `string`
 
 Query to select values from the response using jq syntax ||
+|| `--print-metadata` | Print operation metadata along with result. ||
+|| `--syntax` | `string`
+
+CLI syntax: this standalone binary only supports 2 (current). Use main yc for syntax 1. ||
+|| `--cli-auto-prompt` | `string[="on"]`
+
+Enable interactive auto-prompt mode. Values: on, partial, off. Bare --cli-auto-prompt is equivalent to --cli-auto-prompt=on. ||
+|| `--no-cli-auto-prompt` | Disable interactive auto-prompt mode (overrides --cli-auto-prompt, env and profile). ||
 || `-h`, `--help` | Display help for the command. ||
 |#
-#### Examples
-
- * [Изменить параметры Routing Instance](../../../../../cloud-router/operations/ri-update.md#cli_1)

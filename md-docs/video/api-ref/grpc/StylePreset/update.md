@@ -67,22 +67,22 @@ The maximum string length in characters is 50. ||
 
 Background color.
 
-Value must match the regular expression ` [#a-zA-Z0-9-]* `. The maximum string length in characters is 50. ||
+The maximum string length in characters is 50. Value must match the regular expression ` [#a-zA-Z0-9-]* `. ||
 || widget_text_color_primary | **string**
 
 Widget primary text color.
 
-Value must match the regular expression ` [#a-zA-Z0-9-]* `. The maximum string length in characters is 50. ||
+The maximum string length in characters is 50. Value must match the regular expression ` [#a-zA-Z0-9-]* `. ||
 || widget_text_color_secondary | **string**
 
 Widget secondary text color.
 
-Value must match the regular expression ` [#a-zA-Z0-9-]* `. The maximum string length in characters is 50. ||
+The maximum string length in characters is 50. Value must match the regular expression ` [#a-zA-Z0-9-]* `. ||
 || widget_accent_color | **string**
 
 Widget accent color.
 
-Value must match the regular expression ` [#a-zA-Z0-9-]* `. The maximum string length in characters is 50. ||
+The maximum string length in characters is 50. Value must match the regular expression ` [#a-zA-Z0-9-]* `. ||
 || widget_block_gap | **int64**
 
 Gap between widget blocks.
@@ -92,7 +92,7 @@ Acceptable values are 0 to 50, inclusive. ||
 
 Line color between widget blocks.
 
-Value must match the regular expression ` [#a-zA-Z0-9-]* `. The maximum string length in characters is 50. ||
+The maximum string length in characters is 50. Value must match the regular expression ` [#a-zA-Z0-9-]* `. ||
 || player_border_radius | **int64**
 
 Player border radius.
@@ -102,12 +102,12 @@ The minimum value is 0. ||
 
 Player color.
 
-Value must match the regular expression ` [#a-zA-Z0-9]* `. The maximum string length in characters is 50. ||
+The maximum string length in characters is 50. Value must match the regular expression ` [#a-zA-Z0-9]* `. ||
 || playlist_selected_item_background_color | **string**
 
 Background color of selected video in playlist.
 
-Value must match the regular expression ` [#a-zA-Z0-9]* `. The maximum string length in characters is 50. ||
+The maximum string length in characters is 50. Value must match the regular expression ` [#a-zA-Z0-9]* `. ||
 || playlist_item_border_radius | **int64**
 
 Playlist item border radius.
@@ -185,46 +185,10 @@ This can include details about the content, creators, and other relevant informa
   "created_by": "string",
   "modified_at": "google.protobuf.Timestamp",
   "done": "bool",
-  "metadata": {
-    "style_preset_id": "string"
-  },
+  "metadata": "google.protobuf.Any",
   // Includes only one of the fields `error`, `response`
   "error": "google.rpc.Status",
-  "response": {
-    "id": "string",
-    "channel_id": "string",
-    "title": "string",
-    "background_color": "string",
-    "widget_text_color_primary": "string",
-    "widget_text_color_secondary": "string",
-    "widget_accent_color": "string",
-    "widget_block_gap": "int64",
-    "widget_block_separator_color": "string",
-    "player_border_radius": "int64",
-    "player_color": "string",
-    "playlist_selected_item_background_color": "string",
-    "playlist_item_border_radius": "int64",
-    "playlist_item_gap": "int64",
-    "playlist_location": "WidgetLocation",
-    "right_widgets": [
-      {
-        // Includes only one of the fields `summarization`, `description`
-        "summarization": "Summarization",
-        "description": "Description"
-        // end of the list of possible fields
-      }
-    ],
-    "bottom_widgets": [
-      {
-        // Includes only one of the fields `summarization`, `description`
-        "summarization": "Summarization",
-        "description": "Description"
-        // end of the list of possible fields
-      }
-    ],
-    "created_at": "google.protobuf.Timestamp",
-    "updated_at": "google.protobuf.Timestamp"
-  }
+  "response": "google.protobuf.Any"
   // end of the list of possible fields
 }
 ```
@@ -252,7 +216,7 @@ The time when the Operation resource was last modified. ||
 
 If the value is `false`, it means the operation is still in progress.
 If `true`, the operation is completed, and either `error` or `response` is available. ||
-|| metadata | **[UpdateStylePresetMetadata](#yandex.cloud.video.v1.UpdateStylePresetMetadata)**
+|| metadata | **[google.protobuf.Any](https://developers.google.com/protocol-buffers/docs/proto3#any)**
 
 Service-specific metadata associated with the operation.
 It typically contains the ID of the target resource that the operation is performed on.
@@ -267,7 +231,7 @@ The operation result.
 If `done == false` and there was no failure detected, neither `error` nor `response` is set.
 If `done == false` and there was a failure detected, `error` is set.
 If `done == true`, exactly one of `error` or `response` is set. ||
-|| response | **[StylePreset](#yandex.cloud.video.v1.StylePreset)**
+|| response | **[google.protobuf.Any](https://developers.google.com/protocol-buffers/docs/proto3#any)**
 
 The normal response of the operation in case of success.
 If the original method returns no data on success, such as Delete,
@@ -282,126 +246,4 @@ The operation result.
 If `done == false` and there was no failure detected, neither `error` nor `response` is set.
 If `done == false` and there was a failure detected, `error` is set.
 If `done == true`, exactly one of `error` or `response` is set. ||
-|#
-
-## UpdateStylePresetMetadata {#yandex.cloud.video.v1.UpdateStylePresetMetadata}
-
-#|
-||Field | Description ||
-|| style_preset_id | **string**
-
-ID of the style preset being updated. ||
-|#
-
-## StylePreset {#yandex.cloud.video.v1.StylePreset}
-
-Entity representing a collection of visual styling settings for content presentation.
-Style presets define the appearance of players, widgets, and other UI elements
-to ensure consistent branding and user experience.
-
-#|
-||Field | Description ||
-|| id | **string**
-
-Unique identifier of the style preset. ||
-|| channel_id | **string**
-
-Identifier of the channel where this style preset is created and managed. ||
-|| title | **string**
-
-Display name of the style preset shown in interfaces. ||
-|| background_color | **string**
-
-Background color for the player page in hexadecimal format (e.g., "#FFFFFF"). ||
-|| widget_text_color_primary | **string**
-
-Primary text color for widgets in hexadecimal format. ||
-|| widget_text_color_secondary | **string**
-
-Secondary text color for widgets in hexadecimal format. ||
-|| widget_accent_color | **string**
-
-Accent color for interactive elements in widgets in hexadecimal format. ||
-|| widget_block_gap | **int64**
-
-Vertical spacing between widget blocks in pixels. ||
-|| widget_block_separator_color | **string**
-
-Color of separator lines between widget blocks in hexadecimal format. ||
-|| player_border_radius | **int64**
-
-Corner radius of the player container in pixels. ||
-|| player_color | **string**
-
-Primary color for player controls in hexadecimal format. ||
-|| playlist_selected_item_background_color | **string**
-
-Background color for the currently selected item in playlists in hexadecimal format. ||
-|| playlist_item_border_radius | **int64**
-
-Corner radius of playlist items in pixels. ||
-|| playlist_item_gap | **int64**
-
-Spacing between playlist items in pixels. ||
-|| playlist_location | enum **WidgetLocation**
-
-Position of the playlist widget relative to the player.
-
-- `RIGHT`: Position the widget to the right of the player.
-- `BOTTOM`: Position the widget below the player. ||
-|| right_widgets[] | **[Widget](#yandex.cloud.video.v1.Widget2)**
-
-List of widgets to display to the right of the player. ||
-|| bottom_widgets[] | **[Widget](#yandex.cloud.video.v1.Widget2)**
-
-List of widgets to display below the player. ||
-|| created_at | **[google.protobuf.Timestamp](https://developers.google.com/protocol-buffers/docs/reference/google.protobuf#timestamp)**
-
-Timestamp when the style preset was initially created in the system. ||
-|| updated_at | **[google.protobuf.Timestamp](https://developers.google.com/protocol-buffers/docs/reference/google.protobuf#timestamp)**
-
-Timestamp of the last modification to the style preset or its metadata. ||
-|#
-
-## Widget {#yandex.cloud.video.v1.Widget2}
-
-Represents a UI component that displays additional content or functionality.
-Widgets can be positioned in different locations around the player.
-
-#|
-||Field | Description ||
-|| summarization | **[Summarization](#yandex.cloud.video.v1.Widget.Summarization2)**
-
-Widget that displays video content summarization.
-
-Includes only one of the fields `summarization`, `description`.
-
-Specifies the type of widget to display. ||
-|| description | **[Description](#yandex.cloud.video.v1.Widget.Description2)**
-
-Widget that displays detailed video description.
-
-Includes only one of the fields `summarization`, `description`.
-
-Specifies the type of widget to display. ||
-|#
-
-## Summarization {#yandex.cloud.video.v1.Widget.Summarization2}
-
-Widget that presents an automatically generated summary of the video content.
-This helps viewers quickly understand the main points without watching the entire video.
-
-#|
-||Field | Description ||
-|| Empty | > ||
-|#
-
-## Description {#yandex.cloud.video.v1.Widget.Description2}
-
-Widget that displays the full description text for the video.
-This can include details about the content, creators, and other relevant information.
-
-#|
-||Field | Description ||
-|| Empty | > ||
 |#

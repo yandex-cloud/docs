@@ -96,7 +96,7 @@ ID of the service account used for access Yandex Cloud resources. ||
 || `--yandexquery-access` | Allow access for Yandex Query. ||
 || `--greenplum-version` | `string`
 
-Version of Greenplum used in the cluster. Values: 6.28 ||
+Version of Greenplum used in the cluster. Values specific version or "default" ||
 || `--zone-id` | `string`
 
 ID of the availability zone where the host resides. ||
@@ -195,9 +195,6 @@ Set the custom configuration file. ||
 Enable gRPC retries. By default, retries are enabled with maximum 5 attempts.
 Pass 0 to disable retries. Pass any negative value for infinite retries.
 Even infinite retries are capped with 2 minutes timeout. ||
-|| `--syntax` | `string`
-
-CLI syntax: 1 (legacy) or 2 (current). Omit to use default-syntax in the profile or the product default. ||
 || `--cloud-id` | `string`
 
 Set the ID of the cloud to use. ||
@@ -225,7 +222,3 @@ Set the output format: text (default), yaml, json, json-rest. ||
 Query to select values from the response using jq syntax ||
 || `-h`, `--help` | Display help for the command. ||
 |#
-#### Examples
-
- * [Создать кластер](../../operations/cluster-create.md#cli_1)
- * [Передача данных в лог-группу по умолчанию](../../operations/mgp-to-cloud-logging.md#cli_1)

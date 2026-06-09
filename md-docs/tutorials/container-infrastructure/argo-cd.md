@@ -1,17 +1,17 @@
-# Интеграция Yandex Managed Service for Kubernetes с Argo CD
+# Интеграция {{ managed-k8s-full-name }} с Argo CD
 
 # Интеграция с Argo CD
 
 
-[Argo CD](https://argo-cd.readthedocs.io) — декларативный инструмент для непрерывной доставки в Kubernetes по модели GitOps.
+[Argo CD](https://argo-cd.readthedocs.io) — декларативный инструмент для непрерывной доставки в {{ k8s }} по модели GitOps.
 
-В этом руководстве описана интеграция [инстанса Yandex Managed Service for GitLab](../../managed-gitlab/concepts/index.md#instance), [кластера Managed Service for Kubernetes](../../managed-kubernetes/concepts/index.md#kubernetes-cluster) и установленных в кластере [Argo CD](https://yandex.cloud/ru/marketplace/products/yc/argo-cd) и [GitLab Runner](https://yandex.cloud/ru/marketplace/products/yc/gitlab-runner), который выполняет сборку [Docker-контейнеров](https://yandex.cloud/ru/blog/posts/2022/03/docker-containers) с помощью инструмента [Kaniko](https://github.com/GoogleContainerTools/kaniko).
+В этом руководстве описана интеграция [инстанса {{ mgl-full-name }}](../../managed-gitlab/concepts/index.md#instance), [кластера {{ managed-k8s-name }}](../../managed-kubernetes/concepts/index.md#kubernetes-cluster) и установленных в кластере [Argo CD](https://yandex.cloud/ru/marketplace/products/yc/argo-cd) и [{{ GLR }}](https://yandex.cloud/ru/marketplace/products/yc/gitlab-runner), который выполняет сборку [Docker-контейнеров](https://yandex.cloud/ru/blog/posts/2022/03/docker-containers) с помощью инструмента [Kaniko](https://github.com/GoogleContainerTools/kaniko).
 
-Чтобы интегрировать Argo CD с Managed Service for Kubernetes и Managed Service for GitLab:
+Чтобы интегрировать Argo CD с {{ managed-k8s-name }} и {{ mgl-name }}:
 
-1. [Создайте инстанс GitLab](#create-gitlab).
-1. [Настройте GitLab](#configure-gitlab).
-1. [Создайте GitLab Runner](#runners).
+1. [Создайте инстанс {{ GL }}](#create-gitlab).
+1. [Настройте {{ GL }}](#configure-gitlab).
+1. [Создайте {{ GLR }}](#runners).
 1. [Подготовьте репозиторий приложения для развертывания](#setup-repo).
 1. [Разверните приложение с помощью Argo CD](#deploy-argo).
 
@@ -22,15 +22,15 @@
 
 В стоимость поддержки описываемого решения входят:
 
-* Плата за кластер Managed Service for Kubernetes: использование мастера и исходящий трафик (см. [тарифы Managed Service for Kubernetes](../../managed-kubernetes/pricing.md)).
-* Плата за узлы кластера (ВМ): использование вычислительных ресурсов, операционной системы и хранилища (см. [тарифы Compute Cloud](../../compute/pricing.md)).
-* Плата за публичные IP-адреса, если они назначены узлам кластера (см. [тарифы Virtual Private Cloud](../../vpc/pricing.md#prices-public-ip)).
-* Плата за NAT-шлюз, если он используется вместо публичных IP-адресов для узлов кластера (см. [тарифы Virtual Private Cloud](../../vpc/pricing.md#nat-gateways)).
-* Плата за [использование хранилища](../../container-registry/pricing.md) Container Registry.
-* Плата за инстанс GitLab. Она зависит от способа создания инстанса:
+* Плата за кластер {{ managed-k8s-name }}: использование мастера и исходящий трафик (см. [тарифы {{ managed-k8s-name }}](../../managed-kubernetes/pricing.md)).
+* Плата за узлы кластера (ВМ): использование вычислительных ресурсов, операционной системы и хранилища (см. [тарифы {{ compute-name }}](../../compute/pricing.md)).
+* Плата за публичные IP-адреса, если они назначены узлам кластера (см. [тарифы {{ vpc-name }}](../../vpc/pricing.md#prices-public-ip)).
+* Плата за NAT-шлюз, если он используется вместо публичных IP-адресов для узлов кластера (см. [тарифы {{ vpc-name }}](../../vpc/pricing.md#nat-gateways)).
+* Плата за [использование хранилища](../../container-registry/pricing.md) {{ container-registry-name }}.
+* Плата за инстанс {{ GL }}. Она зависит от способа создания инстанса:
 
-   * Managed Service for GitLab: оплачиваются ресурсы ВМ, хранение данных и резервных копий, объем исходящего трафика (см. [тарифы Managed Service for GitLab](../../managed-gitlab/pricing.md)).
-   * ВМ с образом GitLab: оплачиваются ресурсы ВМ, образ GitLab, публичный IP-адрес для ВМ (см. [тарифы Compute Cloud](../../compute/pricing.md) и [Virtual Private Cloud](../../vpc/pricing.md#nat-gateways)).
+   * {{ mgl-name }}: оплачиваются ресурсы ВМ, хранение данных и резервных копий, объем исходящего трафика (см. [тарифы {{ mgl-name }}](../../managed-gitlab/pricing.md)).
+   * ВМ с образом {{ GL }}: оплачиваются ресурсы ВМ, образ {{ GL }}, публичный IP-адрес для ВМ (см. [тарифы {{ compute-name }}](../../compute/pricing.md) и [{{ vpc-name }}](../../vpc/pricing.md#nat-gateways)).
 
 
 ## Перед началом работы {#before-you-begin}
@@ -42,18 +42,18 @@
 - Вручную {#manual}
 
   1. Если у вас еще нет [сети](../../vpc/concepts/network.md#network), [создайте ее](../../vpc/operations/network-create.md).
-  1. Если у вас еще нет [подсетей](../../vpc/concepts/network.md#subnet), [создайте их](../../vpc/operations/subnet-create.md) в [зонах доступности](../../overview/concepts/geo-scope.md), где будут созданы кластер Managed Service for Kubernetes и [группа узлов](../../managed-kubernetes/concepts/index.md#node-group).
+  1. Если у вас еще нет [подсетей](../../vpc/concepts/network.md#subnet), [создайте их](../../vpc/operations/subnet-create.md) в [зонах доступности](../../overview/concepts/geo-scope.md), где будут созданы кластер {{ managed-k8s-name }} и [группа узлов](../../managed-kubernetes/concepts/index.md#node-group).
   1. [Создайте сервисные аккаунты](../../iam/operations/sa/create.md):
-     * Сервисный аккаунт для ресурсов Kubernetes с [ролями](../../managed-kubernetes/security/index.md#yc-api) `k8s.clusters.agent` и `vpc.publicAdmin` на [каталог](../../resource-manager/concepts/resources-hierarchy.md#folder), в котором создается кластер Managed Service for Kubernetes.
-     * Сервисный аккаунт для узлов Managed Service for Kubernetes с ролями [container-registry.images.puller](../../container-registry/security/index.md#container-registry-images-puller) и [container-registry.images.pusher](../../container-registry/security/index.md#container-registry-images-pusher). От его имени узлы Managed Service for Kubernetes будут загружать в [реестр](../../container-registry/concepts/registry.md) собранные в GitLab [Docker-образы](../../container-registry/concepts/docker-image.md), а также скачивать их для запуска [подов](../../managed-kubernetes/concepts/index.md#pod).
+     * Сервисный аккаунт для ресурсов {{ k8s }} с [ролями](../../managed-kubernetes/security/index.md#yc-api) `k8s.clusters.agent` и `vpc.publicAdmin` на [каталог](../../resource-manager/concepts/resources-hierarchy.md#folder), в котором создается кластер {{ managed-k8s-name }}.
+     * Сервисный аккаунт для узлов {{ managed-k8s-name }} с ролями [{{ roles-cr-puller }}](../../container-registry/security/index.md#container-registry-images-puller) и [{{ roles-cr-pusher }}](../../container-registry/security/index.md#container-registry-images-pusher). От его имени узлы {{ managed-k8s-name }} будут загружать в [реестр](../../container-registry/concepts/registry.md) собранные в {{ GL }} [Docker-образы](../../container-registry/concepts/docker-image.md), а также скачивать их для запуска [подов](../../managed-kubernetes/concepts/index.md#pod).
 
      {% note tip %}
 
-     Вы можете использовать один и тот же сервисный аккаунт для управления кластером Managed Service for Kubernetes и его группами узлов.
+     Вы можете использовать один и тот же сервисный аккаунт для управления кластером {{ managed-k8s-name }} и его группами узлов.
 
      {% endnote %}
 
-  1. [Создайте группы безопасности](../../managed-kubernetes/operations/connect/security-groups.md) для кластера Managed Service for Kubernetes и входящих в него групп узлов.
+  1. [Создайте группы безопасности](../../managed-kubernetes/operations/connect/security-groups.md) для кластера {{ managed-k8s-name }} и входящих в него групп узлов.
 
         {% note warning %}
         
@@ -61,27 +61,27 @@
         
         {% endnote %}
 
-  1. [Создайте группу безопасности](../../managed-gitlab/operations/configure-security-group.md) для работы [инстанса Managed Service for GitLab](../../managed-gitlab/concepts/index.md#instance).
-  1. [Создайте кластер Managed Service for Kubernetes](../../managed-kubernetes/operations/kubernetes-cluster/kubernetes-cluster-create.md) и [группу узлов](../../managed-kubernetes/operations/node-group/node-group-create.md). При создании кластера Managed Service for Kubernetes укажите ранее созданные сервисные аккаунты для ресурсов и узлов и группы безопасности для кластера.
-  1. [Создайте реестр Yandex Container Registry](../../container-registry/operations/registry/registry-create.md).
+  1. [Создайте группу безопасности](../../managed-gitlab/operations/configure-security-group.md) для работы [инстанса {{ mgl-name }}](../../managed-gitlab/concepts/index.md#instance).
+  1. [Создайте кластер {{ managed-k8s-name }}](../../managed-kubernetes/operations/kubernetes-cluster/kubernetes-cluster-create.md) и [группу узлов](../../managed-kubernetes/operations/node-group/node-group-create.md). При создании кластера {{ managed-k8s-name }} укажите ранее созданные сервисные аккаунты для ресурсов и узлов и группы безопасности для кластера.
+  1. [Создайте реестр {{ container-registry-full-name }}](../../container-registry/operations/registry/registry-create.md).
   1. [Сохраните идентификатор созданного реестра](../../container-registry/operations/registry/registry-list.md#registry-get) — он понадобится для следующих шагов.
 
-- Terraform {#tf}
+- {{ TF }} {#tf}
 
-  1. Если у вас еще нет Terraform, [установите его](../infrastructure-management/terraform-quickstart.md#install-terraform).
+  1. Если у вас еще нет {{ TF }}, [установите его](../infrastructure-management/terraform-quickstart.md#install-terraform).
   1. [Получите данные для аутентификации](../infrastructure-management/terraform-quickstart.md#get-credentials). Вы можете добавить их в переменные окружения или указать далее в файле с настройками провайдера.
   1. [Настройте и инициализируйте провайдер](../infrastructure-management/terraform-quickstart.md#configure-provider). Чтобы не создавать конфигурационный файл с настройками провайдера вручную, [скачайте его](https://github.com/yandex-cloud-examples/yc-terraform-provider-settings/blob/main/provider.tf).
   1. Поместите конфигурационный файл в отдельную рабочую директорию и [укажите значения параметров](../infrastructure-management/terraform-quickstart.md#configure-provider). Если данные для аутентификации не были добавлены в переменные окружения, укажите их в конфигурационном файле.
 
-  1. Скачайте в ту же рабочую директорию файл конфигурации кластера Managed Service for Kubernetes [k8s-argocd.tf](https://github.com/yandex-cloud-examples/yc-mk8s-argo-cd/blob/main/k8s-argocd.tf). В файле описаны:
+  1. Скачайте в ту же рабочую директорию файл конфигурации кластера {{ managed-k8s-name }} [k8s-argocd.tf](https://github.com/yandex-cloud-examples/yc-mk8s-argo-cd/blob/main/k8s-argocd.tf). В файле описаны:
      * [Сеть](../../vpc/concepts/network.md#network).
      * [Подсеть](../../vpc/concepts/network.md#subnet).
-     * Кластер Managed Service for Kubernetes.
-     * [Сервисный аккаунт](../../iam/concepts/users/service-accounts.md) для ресурсов и узлов Managed Service for Kubernetes.
-     * Реестр Container Registry.
-     * [Группы безопасности](../../vpc/concepts/security-groups.md), которые содержат [необходимые правила](../../managed-kubernetes/operations/connect/security-groups.md) для кластера Managed Service for Kubernetes и входящих в него групп узлов.
+     * Кластер {{ managed-k8s-name }}.
+     * [Сервисный аккаунт](../../iam/concepts/users/service-accounts.md) для ресурсов и узлов {{ managed-k8s-name }}.
+     * Реестр {{ container-registry-name }}.
+     * [Группы безопасности](../../vpc/concepts/security-groups.md), которые содержат [необходимые правила](../../managed-kubernetes/operations/connect/security-groups.md) для кластера {{ managed-k8s-name }} и входящих в него групп узлов.
 
-        В этих группах безопасности также присутствуют правила, необходимые для работы инстанса Managed Service for GitLab и [реестра Container Registry](../../container-registry/concepts/registry.md).
+        В этих группах безопасности также присутствуют правила, необходимые для работы инстанса {{ mgl-name }} и [реестра {{ container-registry-name }}](../../container-registry/concepts/registry.md).
 
         {% note warning %}
         
@@ -91,17 +91,17 @@
 
   1. Укажите в файле конфигурации:
      * [Идентификатор каталога](../../resource-manager/operations/folder/get-id.md).
-     * [Версию Kubernetes](../../managed-kubernetes/concepts/release-channels-and-updates.md) для кластера Managed Service for Kubernetes и групп узлов.
-     * CIDR кластера Managed Service for Kubernetes.
-     * Имя сервисного аккаунта для ресурсов и узлов Managed Service for Kubernetes.
-     * Имя реестра Container Registry.
-  1. Проверьте корректность файлов конфигурации Terraform с помощью команды:
+     * [Версию {{ k8s }}](../../managed-kubernetes/concepts/release-channels-and-updates.md) для кластера {{ managed-k8s-name }} и групп узлов.
+     * CIDR кластера {{ managed-k8s-name }}.
+     * Имя сервисного аккаунта для ресурсов и узлов {{ managed-k8s-name }}.
+     * Имя реестра {{ container-registry-name }}.
+  1. Проверьте корректность файлов конфигурации {{ TF }} с помощью команды:
 
      ```bash
      terraform validate
      ```
 
-     Если в файлах конфигурации есть ошибки, Terraform на них укажет.
+     Если в файлах конфигурации есть ошибки, {{ TF }} на них укажет.
   1. Создайте необходимую инфраструктуру:
 
      1. Выполните команду для просмотра планируемых изменений:
@@ -122,111 +122,111 @@
         1. Подтвердите изменение ресурсов.
         1. Дождитесь завершения операции.
 
-     В указанном каталоге будут созданы все требуемые ресурсы. Проверить появление ресурсов и их настройки можно в [консоли управления](https://console.yandex.cloud).
+     В указанном каталоге будут созданы все требуемые ресурсы. Проверить появление ресурсов и их настройки можно в [консоли управления]({{ link-console-main }}).
 
 {% endlist %}
 
 {% note warning %}
 
-Не изменяйте и не удаляйте ресурсы Virtual Private Cloud, которые используются кластером Managed Service for Kubernetes. Это может привести к некорректной работе кластера и невозможности его последующего удаления.
+Не изменяйте и не удаляйте ресурсы {{ vpc-name }}, которые используются кластером {{ managed-k8s-name }}. Это может привести к некорректной работе кластера и невозможности его последующего удаления.
 
 {% endnote %}
 
 ### Установите дополнительные зависимости {#prepare}
 
 Установите в локальном окружении:
-* [Интерфейс командной строки Yandex Cloud (YC CLI)](../../cli/operations/install-cli.md).
+* [Интерфейс командной строки {{ yandex-cloud }} (YC CLI)](../../cli/operations/install-cli.md).
 * [Утилиту потоковой обработки JSON-файлов `jq`](https://stedolan.github.io/jq/).
-* [Менеджер пакетов Helm](https://helm.sh/ru/docs/intro/install/).
-* [Установите kubectl](https://kubernetes.io/ru/docs/tasks/tools/install-kubectl) и [настройте его на работу с созданным кластером](../../managed-kubernetes/operations/connect/index.md#kubectl-connect).
+* [Менеджер пакетов Helm]({{ links.helm.install }}).
+* [Установите kubectl]({{ k8s-docs }}/tasks/tools/install-kubectl) и [настройте его на работу с созданным кластером](../../managed-kubernetes/operations/connect/index.md#kubectl-connect).
 
-## Создайте инстанс GitLab {#create-gitlab}
+## Создайте инстанс {{ GL }} {#create-gitlab}
 
-Создайте [инстанс Managed Service for GitLab](../../managed-gitlab/concepts/index.md#instance) или [виртуальную машину](../../compute/concepts/vm.md) с [образом](../../compute/concepts/image.md) GitLab в той же [облачной сети](../../vpc/concepts/network.md#network), где расположен [кластер Managed Service for Kubernetes](../../managed-kubernetes/concepts/index.md#kubernetes-cluster).
+Создайте [инстанс {{ mgl-name }}](../../managed-gitlab/concepts/index.md#instance) или [виртуальную машину](../../compute/concepts/vm.md) с [образом](../../compute/concepts/image.md) {{ GL }} в той же [облачной сети](../../vpc/concepts/network.md#network), где расположен [кластер {{ managed-k8s-name }}](../../managed-kubernetes/concepts/index.md#kubernetes-cluster).
 
 {% list tabs group=gl_installation %}
 
-- Инстанс Managed Service for GitLab {#instance-mgl}
+- Инстанс {{ mgl-name }} {#instance-mgl}
 
-  Создайте инстанс Managed Service for GitLab [согласно инструкции](../../managed-gitlab/quickstart.md#instance-create).
+  Создайте инстанс {{ mgl-name }} [согласно инструкции](../../managed-gitlab/quickstart.md#instance-create).
 
-- ВМ с образом GitLab {#gl-image-vm}
+- ВМ с образом {{ GL }} {#gl-image-vm}
 
-  Запустите GitLab на ВМ с [публичным IP-адресом](../../vpc/concepts/address.md#public-addresses).
+  Запустите {{ GL }} на ВМ с [публичным IP-адресом](../../vpc/concepts/address.md#public-addresses).
 
-  1. На странице [каталога](../../resource-manager/concepts/resources-hierarchy.md#folder) в [консоли управления](https://console.yandex.cloud) нажмите кнопку **Создать ресурс** и выберите `Виртуальная машина`.
-  1. В блоке **Образ загрузочного диска** в поле **Поиск продукта** введите `Gitlab` и выберите публичный образ [GitLab](https://yandex.cloud/ru/marketplace/products/yc/gitlab).
-  1. В блоке **Расположение** выберите [зону доступности](../../overview/concepts/geo-scope.md), в которой будет находиться ВМ. Если вы не знаете, какая зона доступности вам нужна, оставьте выбранную по умолчанию.
-  1. В блоке **Вычислительные ресурсы** перейдите на вкладку `Своя конфигурация` и укажите необходимую [платформу](../../compute/concepts/vm-platforms.md), количество vCPU и объем RAM:
+  1. На странице [каталога](../../resource-manager/concepts/resources-hierarchy.md#folder) в [консоли управления]({{ link-console-main }}) нажмите кнопку **{{ ui-key.yacloud.iam.folder.dashboard.button_add }}** и выберите `{{ ui-key.yacloud.iam.folder.dashboard.value_compute }}`.
+  1. В блоке **{{ ui-key.yacloud.compute.instances.create.section_image }}** в поле **{{ ui-key.yacloud.compute.instances.create.placeholder_search_marketplace-product }}** введите `Gitlab` и выберите публичный образ [{{ GL }}](https://yandex.cloud/ru/marketplace/products/yc/gitlab).
+  1. В блоке **{{ ui-key.yacloud.k8s.node-groups.create.section_allocation-policy }}** выберите [зону доступности](../../overview/concepts/geo-scope.md), в которой будет находиться ВМ. Если вы не знаете, какая зона доступности вам нужна, оставьте выбранную по умолчанию.
+  1. В блоке **{{ ui-key.yacloud.compute.instances.create.section_platform }}** перейдите на вкладку `{{ ui-key.yacloud.component.compute.resources.label_tab-custom }}` и укажите необходимую [платформу](../../compute/concepts/vm-platforms.md), количество vCPU и объем RAM:
   
-      * **Платформа** — `Intel Ice Lake`.
-      * **vCPU** — `4`.
-      * **Гарантированная доля vCPU** — `100%`.
-      * **RAM** — `8 ГБ`.
+      * **{{ ui-key.yacloud.component.compute.resources.field_platform }}** — `Intel Ice Lake`.
+      * **{{ ui-key.yacloud.component.compute.resources.field_cores }}** — `4`.
+      * **{{ ui-key.yacloud.component.compute.resources.field_core-fraction }}** — `100%`.
+      * **{{ ui-key.yacloud.component.compute.resources.field_memory }}** — `8 {{ ui-key.yacloud.common.units.label_gigabyte }}`.
   
-  1. В блоке **Сетевые настройки**:
+  1. В блоке **{{ ui-key.yacloud.compute.instances.create.section_network }}**:
       
-      * В поле **Подсеть** выберите сеть и подсеть, к которым нужно подключить ВМ. Если нужной [сети](../../vpc/concepts/network.md#network) или [подсети](../../vpc/concepts/network.md#subnet) еще нет, [создайте их](../../vpc/operations/subnet-create.md).
-      * В поле **Публичный IP-адрес** оставьте значение `Автоматически`, чтобы назначить ВМ случайный внешний IP-адрес из пула Yandex Cloud, или выберите статический адрес из списка, если вы зарезервировали его заранее.
+      * В поле **{{ ui-key.yacloud.component.compute.network-select.field_subnetwork }}** выберите сеть и подсеть, к которым нужно подключить ВМ. Если нужной [сети](../../vpc/concepts/network.md#network) или [подсети](../../vpc/concepts/network.md#subnet) еще нет, [создайте их](../../vpc/operations/subnet-create.md).
+      * В поле **{{ ui-key.yacloud.component.compute.network-select.field_external }}** оставьте значение `{{ ui-key.yacloud.component.compute.network-select.switch_auto }}`, чтобы назначить ВМ случайный внешний IP-адрес из пула {{ yandex-cloud }}, или выберите статический адрес из списка, если вы зарезервировали его заранее.
   
-  1. В блоке **Доступ** выберите вариант **SSH-ключ** и укажите данные для доступа на ВМ:
+  1. В блоке **{{ ui-key.yacloud.compute.instances.create.section_access }}** выберите вариант **{{ ui-key.yacloud.compute.instance.access-method.label_oslogin-control-ssh-option-title }}** и укажите данные для доступа на ВМ:
   
-      * В поле **Логин** введите имя пользователя. Не используйте имя `root` или другие имена, зарезервированные ОС. Для выполнения операций, требующих прав суперпользователя, используйте команду `sudo`.
-      * В поле **SSH-ключ** выберите SSH-ключ, сохраненный в вашем профиле [пользователя организации](../../organization/concepts/membership.md).
+      * В поле **{{ ui-key.yacloud.compute.instances.create.field_user }}** введите имя пользователя. Не используйте имя `root` или другие имена, зарезервированные ОС. Для выполнения операций, требующих прав суперпользователя, используйте команду `sudo`.
+      * В поле **{{ ui-key.yacloud.compute.instances.create.field_key }}** выберите SSH-ключ, сохраненный в вашем профиле [пользователя организации](../../organization/concepts/membership.md).
         
         Если в вашем профиле нет сохраненных SSH-ключей или вы хотите добавить новый ключ:
         
-        1. Нажмите кнопку **Добавить ключ**.
+        1. Нажмите кнопку **{{ ui-key.yacloud.compute.instances.create.button_add-ssh-key }}**.
         1. Задайте имя SSH-ключа.
         1. Выберите вариант:
         
-            * `Ввести вручную` — вставьте содержимое открытого [SSH](../../glossary/ssh-keygen.md)-ключа. Пару SSH-ключей необходимо [создать](../../compute/operations/vm-connect/ssh.md#creating-ssh-keys) самостоятельно.
-            * `Загрузить из файла` — загрузите открытую часть SSH-ключа. Пару SSH-ключей необходимо создать самостоятельно.
-            * `Сгенерировать ключ` — автоматическое создание пары SSH-ключей.
+            * `{{ ui-key.yacloud_components.ssh-key-add-dialog.value_radio-manual }}` — вставьте содержимое открытого [SSH](../../glossary/ssh-keygen.md)-ключа. Пару SSH-ключей необходимо [создать](../../compute/operations/vm-connect/ssh.md#creating-ssh-keys) самостоятельно.
+            * `{{ ui-key.yacloud_components.ssh-key-add-dialog.value_radio-upload }}` — загрузите открытую часть SSH-ключа. Пару SSH-ключей необходимо создать самостоятельно.
+            * `{{ ui-key.yacloud_components.ssh-key-add-dialog.value_radio-generate }}` — автоматическое создание пары SSH-ключей.
             
               При добавлении сгенерированного SSH-ключа будет создан и загружен архив с парой ключей. В ОС на базе Linux или macOS распакуйте архив в папку `/home/<имя_пользователя>/.ssh`. В ОС Windows распакуйте архив в папку `C:\Users\<имя_пользователя>/.ssh`. Дополнительно вводить открытый ключ в консоли управления не требуется.
         
-        1. Нажмите кнопку **Добавить**.
+        1. Нажмите кнопку **{{ ui-key.yacloud.common.add }}**.
         
         SSH-ключ будет добавлен в ваш профиль пользователя организации. Если в организации [отключена](../../organization/operations/os-login-access.md) возможность добавления пользователями SSH-ключей в свои профили, добавленный открытый SSH-ключ будет сохранен только в профиле пользователя внутри создаваемого ресурса.
   
-  1. В блоке **Общая информация** задайте имя ВМ: `ci-tutorial-gitlab`.
-  1. Нажмите кнопку **Создать ВМ**.
+  1. В блоке **{{ ui-key.yacloud.compute.instances.create.section_base }}** задайте имя ВМ: `ci-tutorial-gitlab`.
+  1. Нажмите кнопку **{{ ui-key.yacloud.compute.instances.create.button_create }}**.
   
-  Создание ВМ может занять несколько минут. Когда ВМ перейдет в статус `RUNNING` и запустится GitLab, настройте его.
+  Создание ВМ может занять несколько минут. Когда ВМ перейдет в статус `RUNNING` и запустится {{ GL }}, настройте его.
 
 {% endlist %}
 
-## Настройте GitLab {#configure-gitlab}
+## Настройте {{ GL }} {#configure-gitlab}
 
-Чтобы настроить GitLab и подготовить процесс непрерывной интеграции ([Continuous Integration](https://yandex.cloud/ru/blog/posts/2022/10/ci-cd), CI), создайте новый проект и введите параметры для аутентификации в CI:
+Чтобы настроить {{ GL }} и подготовить процесс непрерывной интеграции ([Continuous Integration](https://yandex.cloud/ru/blog/posts/2022/10/ci-cd), CI), создайте новый проект и введите параметры для аутентификации в CI:
 
 {% list tabs group=gl_installation %}
 
-- Инстанс Managed Service for GitLab {#instance-mgl}
+- Инстанс {{ mgl-name }} {#instance-mgl}
 
-  1. Авторизуйтесь в веб-интерфейсе [инстанса Managed Service for GitLab](../../managed-gitlab/concepts/index.md#instance).
+  1. Авторизуйтесь в веб-интерфейсе [инстанса {{ mgl-name }}](../../managed-gitlab/concepts/index.md#instance).
   1. Нажмите кнопку **Create a project**.
   1. Нажмите кнопку **Create blank project**.
   1. Заполните поля:
      * **Project name** — `gitlab-test`.
-     * **Project URL** — выберите пользователя-администратора в поле рядом с FQDN инстанса Managed Service for GitLab.
+     * **Project URL** — выберите пользователя-администратора в поле рядом с FQDN инстанса {{ mgl-name }}.
 
      Остальные поля оставьте без изменений.
   1. Нажмите кнопку **Create project**.
 
-- ВМ с образом GitLab {#gl-image-vm}
+- ВМ с образом {{ GL }} {#gl-image-vm}
 
-  1. На странице сервиса Yandex Compute Cloud выберите созданную [ВМ](../../compute/concepts/vm.md) и скопируйте ее [публичный IP-адрес](../../vpc/concepts/address.md#public-addresses).
+  1. На странице сервиса {{ compute-full-name }} выберите созданную [ВМ](../../compute/concepts/vm.md) и скопируйте ее [публичный IP-адрес](../../vpc/concepts/address.md#public-addresses).
   1. [Подключитесь](../../compute/operations/vm-connect/ssh.md) к ВМ по протоколу SSH.
-  1. Получите пароль администратора GitLab с помощью команды ВМ:
+  1. Получите пароль администратора {{ GL }} с помощью команды ВМ:
 
      ```bash
      sudo cat /etc/gitlab/initial_root_password
      ```
 
   1. Скопируйте пароль из строки `Password` (исключая пробелы) в буфер обмена или отдельный файл.
-  1. Откройте в браузере ссылку `http://<публичный_IP-адрес_ВМ>`. Откроется веб-интерфейс GitLab.
+  1. Откройте в браузере ссылку `http://<публичный_IP-адрес_ВМ>`. Откроется веб-интерфейс {{ GL }}.
   1. Войдите в систему с учетной записью администратора:
      * **Username or email** — `root`.
      * **Password** — пароль, скопированный ранее.
@@ -240,17 +240,17 @@
 
 {% endlist %}
 
-## Создайте GitLab Runner {#runners}
+## Создайте {{ GLR }} {#runners}
 
-Чтобы запускать задачи сборки в [кластере Yandex Managed Service for Kubernetes](../../managed-kubernetes/concepts/index.md#kubernetes-cluster), создайте [GitLab Runner](https://docs.gitlab.com/runner/install/kubernetes/). Для этого установите приложение GitLab Runner согласно [инструкции](../../managed-kubernetes/operations/applications/gitlab-runner.md).
+Чтобы запускать задачи сборки в [кластере {{ managed-k8s-full-name }}](../../managed-kubernetes/concepts/index.md#kubernetes-cluster), создайте [{{ GLR }}](https://docs.gitlab.com/runner/install/kubernetes/). Для этого установите приложение {{ GLR }} согласно [инструкции](../../managed-kubernetes/operations/applications/gitlab-runner.md).
 
-После установки вы можете запускать автоматизированные сборки внутри своего [кластера Managed Service for Kubernetes](../../managed-kubernetes/concepts/index.md#kubernetes-cluster).
+После установки вы можете запускать автоматизированные сборки внутри своего [кластера {{ managed-k8s-name }}](../../managed-kubernetes/concepts/index.md#kubernetes-cluster).
 
-Подробнее про установку и настройку GitLab Runner читайте в [документации GitLab](https://docs.gitlab.com/runner/install/).
+Подробнее про установку и настройку {{ GLR }} читайте в [документации {{ GL }}](https://docs.gitlab.com/runner/install/).
 
 ## Подготовьте репозиторий приложения для развертывания {#setup-repo}
 
-1. Получите [авторизованный ключ](../../iam/concepts/authorization/key.md) для созданного ранее сервисного аккаунта с ролями `container-registry.images.puller` и `container-registry.images.pusher`:
+1. Получите [авторизованный ключ](../../iam/concepts/authorization/key.md) для созданного ранее сервисного аккаунта с ролями `{{ roles-cr-puller }}` и `{{ roles-cr-pusher }}`:
 
    ```bash
    yc iam key create --service-account-name <имя_сервисного_аккаунта_для_узлов> -o key.json
@@ -262,11 +262,11 @@
    cat key.json | base64
    ```
 
-1. Создайте [переменные окружения GitLab](https://docs.gitlab.com/ee/ci/variables/):
-   1. На панели слева в GitLab перейдите в раздел **Settings** и во всплывающем списке выберите пункт **CI/CD**.
+1. Создайте [переменные окружения {{ GL }}]({{ gl.docs }}/ee/ci/variables/):
+   1. На панели слева в {{ GL }} перейдите в раздел **Settings** и во всплывающем списке выберите пункт **CI/CD**.
    1. Нажмите кнопку **Expand** напротив пункта **Variables**.
    1. Добавьте переменные окружения:
-      * `CI_REGISTRY` — адрес созданного ранее реестра в формате `cr.yandex/<идентификатор_реестра>`.
+      * `CI_REGISTRY` — адрес созданного ранее реестра в формате `{{ registry }}/<идентификатор_реестра>`.
       * `CI_REGISTRY_USER` — `json_key`.
       * `CI_REGISTRY_PASSWORD` — вывод команды `cat key.json | base64`.
 
@@ -276,7 +276,7 @@
       1. Нажмите кнопку **Add variable**.
 1. Настройте доступ к репозиторию:
    1. [Сгенерируйте новую пару SSH-ключей](../../compute/operations/vm-connect/ssh.md#creating-ssh-keys) или используйте существующую.
-   1. [Добавьте публичную часть SSH-ключа в настройки учетной записи GitLab](https://docs.gitlab.com/ee/user/ssh.html#add-an-ssh-key-to-your-gitlab-account).
+   1. [Добавьте публичную часть SSH-ключа в настройки учетной записи {{ GL }}](https://docs.gitlab.com/ee/user/ssh.html#add-an-ssh-key-to-your-gitlab-account).
 1. Клонируйте репозиторий:
 
    ```bash
@@ -303,22 +303,22 @@
    git push
    ```
 
-1. Запустится сценарий сборки. Чтобы посмотреть его выполнение, на панели слева в GitLab выберите **Build** → **Pipelines**. Дождитесь успешного завершения обоих этапов сборки.
+1. Запустится сценарий сборки. Чтобы посмотреть его выполнение, на панели слева в {{ GL }} выберите **Build** → **Pipelines**. Дождитесь успешного завершения обоих этапов сборки.
 1. Откройте завершенную сборку и скопируйте строку из лога, она понадобится на следующем этапе:
 
    ```text
-   INFO[0025] Pushing image to cr.yandex/<идентификатор_реестра>/<имя_пользователя-администратора>/gitlab-test:main.<номер_коммита>
+   INFO[0025] Pushing image to {{ registry }}/<идентификатор_реестра>/<имя_пользователя-администратора>/gitlab-test:main.<номер_коммита>
    ```
 
 ## Разверните приложение с помощью Argo CD {#deploy-argo}
 
-### Установите Argo CD в кластер Managed Service for Kubernetes {#install}
+### Установите Argo CD в кластер {{ managed-k8s-name }} {#install}
 
 1. Установите Argo CD согласно [инструкции](../../managed-kubernetes/operations/applications/argo-cd.md).
 
    {% note warning %}
    
-   Группам узлов Kubernetes требуется доступ в интернет для скачивания образов и компонентов.
+   Группам узлов {{ k8s }} требуется доступ в интернет для скачивания образов и компонентов.
    
    Предоставить доступ в интернет можно следующими способами:
    * Назначить каждому узлу в группе [публичный IP адрес](../../vpc/concepts/address.md#public-addresses).
@@ -327,7 +327,7 @@
    
    {% endnote %}
 
-1. Получите пароль администратора из секрета Kubernetes:
+1. Получите пароль администратора из секрета {{ k8s }}:
 
    ```bash
    kubectl --namespace <пространство_имен> get secret argocd-initial-admin-secret \
@@ -344,9 +344,9 @@
 1. Откройте в браузере консоль Argo CD по адресу `https://127.0.0.1:8080`.
 1. Авторизуйтесь в консоли, используя имя пользователя `admin` и полученный ранее пароль.
 
-### Добавьте репозиторий GitLab в Argo CD {#create}
+### Добавьте репозиторий {{ GL }} в Argo CD {#create}
 
-1. На панели слева в GitLab перейдите в раздел **Settings** и во всплывающем списке выберите пункт **Access Tokens**.
+1. На панели слева в {{ GL }} перейдите в раздел **Settings** и во всплывающем списке выберите пункт **Access Tokens**.
 1. Задайте параметры нового токена:
    * **Token name** — `argocd`.
    * **Select a role** — `Maintainer`.
@@ -358,18 +358,18 @@
 
    {% note info %}
 
-   Если при подключении репозитория вы получаете ошибку `FATA[0000] rpc error: code = Unknown desc = error testing repository connectivity: authorization failed`, включите доступ в GitLab по протоколу HTTP(S).
+   Если при подключении репозитория вы получаете ошибку `FATA[0000] rpc error: code = Unknown desc = error testing repository connectivity: authorization failed`, включите доступ в {{ GL }} по протоколу HTTP(S).
 
-   Чтобы включить доступ, на панели слева в GitLab выберите **Admin → Settings → General**. В блоке **Visibility and access controls** найдите настройку **Enabled Git access protocols** и выберите в списке пункт, разрешающий доступ по протоколу HTTP(S).
+   Чтобы включить доступ, на панели слева в {{ GL }} выберите **Admin → Settings → General**. В блоке **Visibility and access controls** найдите настройку **Enabled Git access protocols** и выберите в списке пункт, разрешающий доступ по протоколу HTTP(S).
 
-   [Подробнее в документации GitLab](https://docs.gitlab.com/administration/settings/visibility_and_access_controls/#configure-enabled-git-access-protocols).
+   [Подробнее в документации {{ GL }}](https://docs.gitlab.com/administration/settings/visibility_and_access_controls/#configure-enabled-git-access-protocols).
 
    {% endnote %}
 
 1. В открывшейся форме задайте параметры:
-   * **Repository URL** — URL репозитория вида `https://<имя_инстанса_GitLab>.gitlab.yandexcloud.net/<имя_пользователя-администратора>/gitlab-test.git`.
+   * **Repository URL** — URL репозитория вида `https://<имя_инстанса_{{ GL }}>.gitlab.yandexcloud.net/<имя_пользователя-администратора>/gitlab-test.git`.
    * **Username** — `gitlab-ci-token`.
-   * **Password** — токен GitLab, сгенерированный ранее.
+   * **Password** — токен {{ GL }}, сгенерированный ранее.
 1. Нажмите кнопку **Connect**.
 1. В консоли Argo CD перейдите в раздел **Applications** и нажмите кнопку **Create Application**.
 1. В открывшейся форме задайте параметры:
@@ -377,14 +377,14 @@
    * **Project** — `default`.
    * **Sync policy** — `Automatic`, затем выберите опции **Prune resources** и **Self Heal**.
    * **Sync options** — выберите опцию `Auto-Create Namespace`.
-   * **Repository URL** — укажите URL репозитория вида `https://<имя_инстанса_GitLab>.gitlab.yandexcloud.net/<имя_пользователя-администратора>/gitlab-test.git`.
+   * **Repository URL** — укажите URL репозитория вида `https://<имя_инстанса_{{ GL }}>.gitlab.yandexcloud.net/<имя_пользователя-администратора>/gitlab-test.git`.
    * **Path** — `.helm`.
    * **Cluster URL** — `https://kubernetes.default.svc`.
    * **Namespace** — `gitlab-test`.
-   * **image.repository** — `cr.yandex/<идентификатор_реестра>/<имя_пользователя-администратора>/gitlab-test`.
+   * **image.repository** — `{{ registry }}/<идентификатор_реестра>/<имя_пользователя-администратора>/gitlab-test`.
    * **image.tag** — `main.<номер_коммита>`.
 1. Нажмите кнопку **Create** и дождитесь завершения синхронизации.
-1. Для проверки запуска приложения выполните команду в кластере Managed Service for Kubernetes:
+1. Для проверки запуска приложения выполните команду в кластере {{ managed-k8s-name }}:
 
    ```bash
    kubectl get all -n gitlab-test
@@ -420,7 +420,7 @@
    ```
 
 1. В консоли Argo CD дождитесь синхронизации приложения.
-1. Проверьте, что количество подов приложения в кластере Managed Service for Kubernetes увеличилось:
+1. Проверьте, что количество подов приложения в кластере {{ managed-k8s-name }} увеличилось:
 
    ```bash
    kubectl get pod -n gitlab-test
@@ -448,24 +448,24 @@
 
 Некоторые ресурсы платные. Чтобы за них не списывалась плата, удалите ресурсы, которые вы больше не будете использовать:
 1. [Удалите созданные Docker-образы](../../container-registry/operations/docker-image/docker-image-delete.md).
-1. Удалите кластер Managed Service for Kubernetes и реестр Container Registry:
+1. Удалите кластер {{ managed-k8s-name }} и реестр {{ container-registry-name }}:
 
    {% list tabs group=instructions %}
 
    - Вручную {#manual}
 
-     1. [Удалите кластер Managed Service for Kubernetes](../../managed-kubernetes/operations/kubernetes-cluster/kubernetes-cluster-delete.md).
-     1. [Удалите реестр Container Registry](../../container-registry/operations/registry/registry-delete.md).
+     1. [Удалите кластер {{ managed-k8s-name }}](../../managed-kubernetes/operations/kubernetes-cluster/kubernetes-cluster-delete.md).
+     1. [Удалите реестр {{ container-registry-name }}](../../container-registry/operations/registry/registry-delete.md).
      1. [Удалите созданные подсети](../../vpc/operations/subnet-delete.md) и [сети](../../vpc/operations/network-delete.md).
      1. [Удалите созданные сервисные аккаунты](../../iam/operations/sa/delete.md).
 
-   - Terraform {#tf}
+   - {{ TF }} {#tf}
 
      1. В терминале перейдите в директорию с планом инфраструктуры.
      
          {% note warning %}
      
-         Убедитесь, что в директории нет Terraform-манифестов с ресурсами, которые вы хотите сохранить. Terraform удаляет все ресурсы, которые были созданы с помощью манифестов в текущей директории.
+         Убедитесь, что в директории нет {{ TF }}-манифестов с ресурсами, которые вы хотите сохранить. {{ TF }} удаляет все ресурсы, которые были созданы с помощью манифестов в текущей директории.
      
          {% endnote %}
      
@@ -479,8 +479,8 @@
      
          1. Подтвердите удаление ресурсов и дождитесь завершения операции.
      
-         Все ресурсы, которые были описаны в Terraform-манифестах, будут удалены.
+         Все ресурсы, которые были описаны в {{ TF }}-манифестах, будут удалены.
 
    {% endlist %}
 
-1. [Удалите созданную виртуальную машину GitLab](../../compute/operations/vm-control/vm-delete.md) или инстанс Managed Service for GitLab.
+1. [Удалите созданную виртуальную машину {{ GL }}](../../compute/operations/vm-control/vm-delete.md) или инстанс {{ mgl-name }}.

@@ -6,7 +6,9 @@ editable: false
 
 # Правила тарификации для {{ cdn-full-name }}
 
+
 {% include [pricing-change-warning](../_includes/cdn/pricing-change-warning.md) %}
+
 
 
 
@@ -15,13 +17,19 @@ editable: false
 {% include [link-to-price-list](../_includes/pricing/link-to-price-list.md) %}
 
 
+
+
 {% include [vat](../_includes/vat.md) %}
 
 При расчете стоимости использования {{ cdn-name }} учитываются:
 * Объем исходящего трафика с CDN-серверов, в том числе запрошенного с пользовательских ресурсов сервисов {{ yandex-cloud }}, например с [виртуальных машин](../compute/concepts/vm.md) {{ compute-full-name }}. Входящий трафик, поступающий на CDN-серверы от сервисов и ресурсов {{ yandex-cloud }} и из интернета, не тарифицируется.
 * Платные функции, включенные для ресурсов: [экранирование источников](concepts/origins-shielding.md), [выгрузка логов](concepts/logs.md) и [выделенная IP-адресация](concepts/dedicated-ip-addressing.md).
 
+
+
+
 ## Цены для региона Россия {#prices}
+
 
 {% include [pricing-diff-regions](../_includes/pricing-diff-regions.md) %}
 
@@ -40,7 +48,6 @@ editable: false
     currency="RUB"
   />
 </MDX>
-
 
 
 

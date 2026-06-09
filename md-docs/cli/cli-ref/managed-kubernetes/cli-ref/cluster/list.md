@@ -32,9 +32,6 @@ Set the custom configuration file. ||
 Enable gRPC retries. By default, retries are enabled with maximum 5 attempts.
 Pass 0 to disable retries. Pass any negative value for infinite retries.
 Even infinite retries are capped with 2 minutes timeout. ||
-|| `--syntax` | `string`
-
-CLI syntax: 1 (legacy) or 2 (current). Omit to use default-syntax in the profile or the product default. ||
 || `--cloud-id` | `string`
 
 Set the ID of the cloud to use. ||
@@ -62,10 +59,3 @@ Set the output format: text (default), yaml, json, json-rest. ||
 Query to select values from the response using jq syntax ||
 || `-h`, `--help` | Display help for the command. ||
 |#
-#### Examples
-
- * [Получите уникальный идентификатор кластера](../../../../../managed-kubernetes/operations/connect/create-static-conf.md#cli_1)
- * [Получить список ролей, назначенных на кластер](../../../../../managed-kubernetes/operations/kubernetes-cluster/kubernetes-cluster-access.md#cli_1)
- * [Удаление кластера Kubernetes](../../../../../managed-kubernetes/operations/kubernetes-cluster/kubernetes-cluster-delete.md)
- * [Получить список кластеров Kubernetes в каталоге](../../../../../managed-kubernetes/operations/kubernetes-cluster/kubernetes-cluster-list.md#cli_1)
- * [Изменение кластера Managed Service for Kubernetes](../../../../../managed-kubernetes/operations/kubernetes-cluster/kubernetes-cluster-update.md)

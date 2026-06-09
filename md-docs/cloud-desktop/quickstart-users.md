@@ -1,6 +1,6 @@
-# Начало работы с Yandex Cloud Desktop для пользователей
+# Начало работы с {{ cloud-desktop-full-name }} для пользователей
 
-Cloud Desktop позволяет работать на удаленном рабочем столе, который настроил ваш администратор.
+{{ cloud-desktop-name }} позволяет работать на удаленном рабочем столе, который настроил ваш администратор.
 
 Чтобы начать работать с сервисом:
 
@@ -15,14 +15,14 @@ Cloud Desktop позволяет работать на удаленном раб
 
 - Витрина пользовательских рабочих столов {#desktop-showcase}
 
-  1. Откройте [Витрину пользовательских рабочих столов](https://console.yandex.cloud/showcase/cloud-desktop).
+  1. Откройте [Витрину пользовательских рабочих столов]({{ link-cloud-desktop-showcase }}).
   1. Аутентифицируйтесь с помощью [Яндекс ID](https://yandex.ru/support/id/index.html) или через [систему единого входа (SSO)](../organization/concepts/add-federation.md).
   1. Если рабочий стол, к которому вы хотите подключиться, находится в статусе `Stopped`, запустите его — нажмите ![image](../_assets/console-icons/play.svg) и подтвердите запуск.
   
       Дождитесь перехода рабочего стола в статус `Active`.
   1. Нажмите ![image](../_assets/console-icons/lock-open.svg) и подтвердите сброс пароля.
   1. Сохраните новый пароль из всплывающего окна и закройте его.
-  1. Нажмите ![image](../_assets/console-icons/arrow-down-to-line.svg) **Загрузить RDP-файл**.
+  1. Нажмите ![image](../_assets/console-icons/arrow-down-to-line.svg) **{{ ui-key.yacloud.vdi.button_download-rdp }}**.
 
 {% endlist %}
 
@@ -62,7 +62,7 @@ Cloud Desktop позволяет работать на удаленном раб
 
   #### См. также {#mac-see-also}
 
-  * [Начало работы с удаленным рабочим столом в macOS](https://docs.microsoft.com/ru-ru/windows-server/remote/remote-desktop-services/clients/remote-desktop-mac)
+  * [Начало работы с удаленным рабочим столом в macOS]({{ ms.docs }}/windows-server/remote/remote-desktop-services/clients/remote-desktop-mac)
 
 - Linux {#linux}
 
@@ -100,7 +100,7 @@ Cloud Desktop позволяет работать на удаленном раб
 
 - Витрина пользовательских рабочих столов {#desktop-showcase}
 
-  1. Откройте [Витрину пользовательских рабочих столов](https://console.yandex.cloud/showcase/cloud-desktop).
+  1. Откройте [Витрину пользовательских рабочих столов]({{ link-cloud-desktop-showcase }}).
   1. В карточке нужного рабочего стола нажмите:
 
       * ![image](../_assets/console-icons/play.svg) — чтобы запустить рабочий стол.
@@ -118,7 +118,7 @@ Cloud Desktop позволяет работать на удаленном раб
 
 - Витрина пользовательских рабочих столов {#desktop-showcase}
 
-  1. Откройте [Витрину пользовательских рабочих столов](https://console.yandex.cloud/showcase/cloud-desktop).
+  1. Откройте [Витрину пользовательских рабочих столов]({{ link-cloud-desktop-showcase }}).
   1. Если рабочий стол, к которому вы хотите подключиться, находится в статусе `Stopped`, запустите его — нажмите ![image](../_assets/console-icons/play.svg) и подтвердите запуск.
   
       Дождитесь перехода рабочего стола в статус `Active`.

@@ -11,15 +11,15 @@
 * Локальные пользователи из [пула пользователей](user-pools.md).
 * Владельцы организации, которые [создали](../operations/manage-organizations.md#create-additional-org) организацию или получили соответствующую роль.
 
-Пользователь может быть владельцем или членом одновременно нескольких организаций. [Переключаться](../operations/manage-organizations.md#switch-to-another-org) между организациями можно в [консоли управления](https://console.yandex.cloud) и в [интерфейсе Cloud Center](https://center.yandex.cloud).
+Пользователь может быть владельцем или членом одновременно нескольких организаций. [Переключаться](../operations/manage-organizations.md#switch-to-another-org) между организациями можно в [консоли управления]({{ link-console-main }}) и в [интерфейсе {{ cloud-center }}]({{ cloud-center-link }}).
 
 {% note tip %}
 
-По умолчанию все пользователи организации Yandex Identity Hub могут просматривать информацию о всех остальных пользователях этой же организации. Вы можете [ограничить](../operations/hide-user-info.md) эту возможность, разрешив просмотр информации только отдельным пользователям.
+По умолчанию все пользователи организации {{ org-full-name }} могут просматривать информацию о всех остальных пользователях этой же организации. Вы можете [ограничить](../operations/hide-user-info.md) эту возможность, разрешив просмотр информации только отдельным пользователям.
 
 {% endnote %}
 
 ## Примеры использования {#examples}
 
-* [Разграничение прав доступа для групп пользователей с различными ролями в Yandex Identity Hub](../../tutorials/security/user-group-access-control.md)
-* [Аутентификация с помощью Keycloak](../../tutorials/security/integration-keycloak.md)
+* [{#T}](../../tutorials/security/user-group-access-control.md)
+* [{#T}](../../tutorials/security/integration-keycloak.md)

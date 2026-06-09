@@ -12,22 +12,22 @@
 
 Для нереплицируемых SSD и сверхбыстрых сетевых хранилищ с тремя репликами (SSD) момент времени, когда фиксируется содержимое диска, не детерминирован.
 
-Для снимков с локальных дисков на [выделенных хостах](../../concepts/dedicated-host.md) используйте сервис [Yandex Cloud Backup](../../../backup/index.md) (поддерживает ОС Ubuntu, CentOS, CentOS Stream и Windows Server).
+Для снимков с локальных дисков на [выделенных хостах](../../concepts/dedicated-host.md) используйте сервис [{{ backup-full-name }}](../../../backup/index.md) (поддерживает ОС Ubuntu, CentOS, CentOS Stream и Windows Server).
 
 {% list tabs group=instructions %}
 
 - Консоль управления {#console}
 
-  1. В [консоли управления](https://console.yandex.cloud) выберите каталог, в котором находится диск.
-  1. [Перейдите](../../../console/operations/select-service.md#select-service) в сервис **Compute Cloud**.
-  1. Откройте вкладку ![image](../../../_assets/console-icons/hard-drive.svg) **Диски** и выберите диск.
-  1. В блоке **Расписания снимков** нажмите ![image](../../../_assets/console-icons/plus.svg) **Настроить расписания снимков**.
+  1. В [консоли управления]({{ link-console-main }}) выберите каталог, в котором находится диск.
+  1. Перейдите в сервис **{{ compute-name }}**.
+  1. Откройте вкладку ![image](../../../_assets/console-icons/hard-drive.svg) **{{ ui-key.yacloud.compute.disks_ddfdb }}** и выберите диск.
+  1. В блоке **{{ ui-key.yacloud.compute.snapshots-schedules.label_title }}** нажмите ![image](../../../_assets/console-icons/plus.svg) **{{ ui-key.yacloud.compute.snapshots-schedules.action_edit-disk-schedules }}**.
   1. Выберите расписание или создайте новое. Подробнее о настройках расписания см. в [инструкции](../snapshot-control/create-schedule.md).
-  1. Нажмите **Сохранить**.
+  1. Нажмите **{{ ui-key.yacloud.common.save }}**.
 
 - CLI {#cli}
 
-  Если у вас еще нет интерфейса командной строки Yandex Cloud (CLI), [установите и инициализируйте его](../../../cli/quickstart.md#install).
+  Если у вас еще нет интерфейса командной строки {{ yandex-cloud }} (CLI), [установите и инициализируйте его](../../../cli/quickstart.md#install).
 
   По умолчанию используется каталог, указанный при [создании](../../../cli/operations/profile/profile-create.md) профиля CLI. Чтобы изменить каталог по умолчанию, используйте команду `yc config set folder-id <идентификатор_каталога>`. Также для любой команды вы можете указать другой каталог с помощью параметров `--folder-name` или `--folder-id`. Если вы обращаетесь к ресурсу по имени, поиск будет выполнен в каталоге по умолчанию. Если вы обращаетесь к ресурсу по идентификатору, поиск будет выполнен глобально — во всех каталогах с учетом прав доступа.
 
@@ -50,7 +50,7 @@
         created_at: "2022-10-13T14:37:44Z"
         name: disk-2
         type_id: network-hdd
-        zone_id: ru-central1-a
+        zone_id: {{ region-id }}-a
         size: "21474836480"
         block_size: "4096"
         product_ids:
@@ -65,7 +65,7 @@
         created_at: "2022-10-10T05:00:04Z"
         name: disk-1
         type_id: network-hdd
-        zone_id: ru-central1-a
+        zone_id: {{ region-id }}-a
         size: "21474836480"
         block_size: "4096"
         product_ids:
@@ -152,14 +152,14 @@
 
 - Консоль управления {#console}
 
-  1. В [консоли управления](https://console.yandex.cloud) выберите каталог, в котором находится диск.
-  1. [Перейдите](../../../console/operations/select-service.md#select-service) в сервис **Compute Cloud**.
-  1. Откройте вкладку ![image](../../../_assets/console-icons/hard-drive.svg) **Диски** и выберите диск.
-  1. В блоке **Расписания снимков** в строке с расписанием нажмите значок ![image](../../../_assets/console-icons/ellipsis.svg) и выберите **Отвязать от диска**.
+  1. В [консоли управления]({{ link-console-main }}) выберите каталог, в котором находится диск.
+  1. Перейдите в сервис **{{ compute-name }}**.
+  1. Откройте вкладку ![image](../../../_assets/console-icons/hard-drive.svg) **{{ ui-key.yacloud.compute.disks_ddfdb }}** и выберите диск.
+  1. В блоке **{{ ui-key.yacloud.compute.snapshots-schedules.label_title }}** в строке с расписанием нажмите значок ![image](../../../_assets/console-icons/ellipsis.svg) и выберите **{{ ui-key.yacloud.compute.snapshots-schedules.action_detach-schedule }}**.
 
 - CLI {#cli}
 
-  Если у вас еще нет интерфейса командной строки Yandex Cloud (CLI), [установите и инициализируйте его](../../../cli/quickstart.md#install).
+  Если у вас еще нет интерфейса командной строки {{ yandex-cloud }} (CLI), [установите и инициализируйте его](../../../cli/quickstart.md#install).
 
   По умолчанию используется каталог, указанный при [создании](../../../cli/operations/profile/profile-create.md) профиля CLI. Чтобы изменить каталог по умолчанию, используйте команду `yc config set folder-id <идентификатор_каталога>`. Также для любой команды вы можете указать другой каталог с помощью параметров `--folder-name` или `--folder-id`. Если вы обращаетесь к ресурсу по имени, поиск будет выполнен в каталоге по умолчанию. Если вы обращаетесь к ресурсу по идентификатору, поиск будет выполнен глобально — во всех каталогах с учетом прав доступа.
 
@@ -224,7 +224,7 @@
         created_at: "2022-10-13T14:37:44Z"
         name: disk-2
         type_id: network-hdd
-        zone_id: ru-central1-a
+        zone_id: {{ region-id }}-a
         size: "21474836480"
         block_size: "4096"
         product_ids:
@@ -239,7 +239,7 @@
         created_at: "2022-10-10T05:00:04Z"
         name: disk-1
         type_id: network-hdd
-        zone_id: ru-central1-a
+        zone_id: {{ region-id }}-a
         size: "21474836480"
         block_size: "4096"
         product_ids:
@@ -273,6 +273,6 @@
 
 #### См. также {#see-also}
 
-* [Создать расписание, по которому будут создаваться снимки дисков](../snapshot-control/create-schedule.md)
+* [{#T}](../snapshot-control/create-schedule.md)
 * [Изменить список дисков в расписании снимков](../snapshot-control/update-schedule.md#update-disk-list)
 * [Создать снимок диска вручную](create-snapshot.md)

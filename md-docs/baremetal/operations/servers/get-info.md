@@ -4,22 +4,24 @@
 
 - Консоль управления {#console}
 
-  1. В [консоли управления](https://console.yandex.cloud) выберите [каталог](../../../resource-manager/concepts/resources-hierarchy.md#folder), которому принадлежит сервер.
-  1. [Перейдите](../../../console/operations/select-service.md#select-service) в сервис **BareMetal** и в открывшемся списке серверов выберите нужный сервер.
+  1. В [консоли управления]({{ link-console-main }}) выберите [каталог](../../../resource-manager/concepts/resources-hierarchy.md#folder), которому принадлежит сервер.
+  1. Перейдите в сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_baremetal }}** и в открывшемся списке серверов выберите нужный сервер.
 
       На открывшейся странице доступны следующие сведения:
 
-      * В блоке **Обзор** — общая информация о сервере, в т.ч. его имя, идентификатор, [статус](../../concepts/servers.md#server-status), [зона доступности](../../../overview/concepts/geo-scope.md) и [пул серверов](../../concepts/servers.md#server-pools).
-      * В блоке **Ресурсы** — информация об аппаратной [конфигурации](../../concepts/server-configurations.md) сервера.
-      * В блоке **Приложение Marketplace** — информация об установленной на сервере операционной системе.
-      * В блоке **Публичная сеть** — информация о [публичной сети](../../concepts/public-network.md) сервера, в т.ч. идентификатор, тип и CIDR публичной подсети, адрес шлюза по умолчанию и [MAC-адреса](https://ru.wikipedia.org/wiki/MAC-адрес) сетевого интерфейса в публичной сети.
-      * В блоке **Приватная сеть** — информация о [приватной сети](../../concepts/private-network.md) сервера, в т.ч. о [приватной подсети](../../concepts/private-network.md#private-subnet), а также приватный IP-адрес и MAC-адреса сетевого интерфейса в приватной сети.
-      * В блоке **Условия аренды** — информация об условиях аренды сервера, в т.ч. о периоде и сроке аренды, и ее автопродлении.
-      * В блоках **Резервное копирование** и **Доступы** — информация о подключении сервера к [Yandex Cloud Backup](../../../backup/index.md) и публичный [SSH-ключ](../../../glossary/ssh-keygen.md) root-пользователя соответственно.
+      * В блоке **{{ ui-key.yacloud.common.overview }}** — общая информация о сервере, в т.ч. его имя, идентификатор, [статус](../../concepts/servers.md#server-status), [зона доступности](../../../overview/concepts/geo-scope.md) и [пул серверов](../../concepts/servers.md#server-pools).
+      * В блоке **{{ ui-key.yacloud.baremetal.title_section-resources }}** — информация об аппаратной [конфигурации](../../concepts/server-configurations.md) сервера.
+      * В блоке **{{ ui-key.yacloud.baremetal.title_section-server-marketplace-app }}** — информация об установленной на сервере операционной системе.
+      * В блоке **{{ ui-key.yacloud.baremetal.title_section-network-interfaces }}**:
+          * В разделе **Интерфейс 1** — информация о [публичной сети](../../concepts/public-network.md) сервера, в т.ч. идентификатор, тип и CIDR публичной подсети, адрес шлюза по умолчанию и [MAC-адреса](https://ru.wikipedia.org/wiki/MAC-адрес) сетевого интерфейса в публичной сети.
+          * В разделе **Интерфейс 2** — информация о [приватной сети](../../concepts/private-network.md) сервера, в т.ч. о [приватной подсети](../../concepts/private-network.md#private-subnet), а также приватный IP-адрес и MAC-адреса сетевого интерфейса в приватной сети.
+
+      * В блоке **{{ ui-key.yacloud.baremetal.title_section-lease-conditions }}** — информация об условиях аренды сервера, в т.ч. о периоде и сроке аренды, и ее автопродлении.
+      * В блоках **{{ ui-key.yacloud.baremetal.title_section-backup }}** и **{{ ui-key.yacloud.baremetal.title_section-accesses }}** — информация о подключении сервера к [{{ backup-full-name }}](../../../backup/index.md) и публичный [SSH-ключ](../../../glossary/ssh-keygen.md) root-пользователя соответственно.
 
 - CLI {#cli}
 
-   Если у вас еще нет интерфейса командной строки Yandex Cloud (CLI), [установите и инициализируйте его](../../../cli/quickstart.md#install).
+   Если у вас еще нет интерфейса командной строки {{ yandex-cloud }} (CLI), [установите и инициализируйте его](../../../cli/quickstart.md#install).
 
    По умолчанию используется каталог, указанный при [создании](../../../cli/operations/profile/profile-create.md) профиля CLI. Чтобы изменить каталог по умолчанию, используйте команду `yc config set folder-id <идентификатор_каталога>`. Также для любой команды вы можете указать другой каталог с помощью параметров `--folder-name` или `--folder-id`. Если вы обращаетесь к ресурсу по имени, поиск будет выполнен в каталоге по умолчанию. Если вы обращаетесь к ресурсу по идентификатору, поиск будет выполнен глобально — во всех каталогах с учетом прав доступа.
 

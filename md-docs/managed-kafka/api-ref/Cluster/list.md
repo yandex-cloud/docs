@@ -5,7 +5,7 @@ Retrieves the list of Apache Kafka® clusters that belong to the specified folde
 ## HTTP request
 
 ```
-GET https://mdb.api.cloud.yandex.net/managed-kafka/v1/clusters
+GET https://{{ api-host-mdb }}/managed-kafka/v1/clusters
 ```
 
 ## Query parameters {#yandex.cloud.mdb.kafka.v1.ListClustersRequest}
@@ -95,7 +95,8 @@ The maximum string length in characters is 1000. ||
             "offsetsRetentionMinutes": "string",
             "saslEnabledMechanisms": [
               "string"
-            ]
+            ],
+            "transactionalIdExpirationMs": "string"
           },
           "kafkaConfig_3": {
             "compressionType": "string",
@@ -121,7 +122,8 @@ The maximum string length in characters is 1000. ||
             "offsetsRetentionMinutes": "string",
             "saslEnabledMechanisms": [
               "string"
-            ]
+            ],
+            "transactionalIdExpirationMs": "string"
           },
           "kafkaConfig_4": {
             "compressionType": "string",
@@ -146,7 +148,8 @@ The maximum string length in characters is 1000. ||
             "offsetsRetentionMinutes": "string",
             "saslEnabledMechanisms": [
               "string"
-            ]
+            ],
+            "transactionalIdExpirationMs": "string"
           }
           // end of the list of possible fields
         },
@@ -537,6 +540,9 @@ The list of SASL mechanisms enabled in the Kafka server. Default: [SCRAM_SHA_512
 
 - `SASL_MECHANISM_SCRAM_SHA_256`: SHA_256.
 - `SASL_MECHANISM_SCRAM_SHA_512`: SHA_512. ||
+|| transactionalIdExpirationMs | **string** (int64)
+
+Timeout for transactional ids to expire in ms. Default: 604800000 (7 days). ||
 |#
 
 ## KafkaConfig3 {#yandex.cloud.mdb.kafka.v1.KafkaConfig3}
@@ -635,6 +641,9 @@ The list of SASL mechanisms enabled in the Kafka server. Default: [SCRAM_SHA_512
 
 - `SASL_MECHANISM_SCRAM_SHA_256`: SHA_256.
 - `SASL_MECHANISM_SCRAM_SHA_512`: SHA_512. ||
+|| transactionalIdExpirationMs | **string** (int64)
+
+Timeout for transactional ids to expire in ms. Default: 604800000 (7 days). ||
 |#
 
 ## KafkaConfig4 {#yandex.cloud.mdb.kafka.v1.KafkaConfig4}
@@ -727,6 +736,9 @@ The list of SASL mechanisms enabled in the Kafka server. Default: [SCRAM_SHA_512
 
 - `SASL_MECHANISM_SCRAM_SHA_256`: SHA_256.
 - `SASL_MECHANISM_SCRAM_SHA_512`: SHA_512. ||
+|| transactionalIdExpirationMs | **string** (int64)
+
+Timeout for transactional ids to expire in ms. Default: 604800000 (7 days). ||
 |#
 
 ## Zookeeper {#yandex.cloud.mdb.kafka.v1.ConfigSpec.Zookeeper}

@@ -12,10 +12,10 @@
 
   Чтобы создать таблицу маршрутизации и добавить в нее [статические маршруты](../concepts/routing.md):
 
-  1. В [консоли управления](https://console.yandex.cloud) выберите каталог, где требуется создать статический маршрут.
-  1. [Перейдите](../../console/operations/select-service.md#select-service) в сервис **Virtual Private Cloud**.
-  1. На панели слева выберите ![image](../../_assets/console-icons/route.svg) **Таблицы маршрутизации**.
-  1. Нажмите кнопку **Создать**.
+  1. В [консоли управления]({{ link-console-main }}) выберите каталог, где требуется создать статический маршрут.
+  1. Перейдите в сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_vpc }}**.
+  1. На панели слева выберите ![image](../../_assets/console-icons/route.svg) **{{ ui-key.yacloud.vpc.network.switch_route-table }}**.
+  1. Нажмите кнопку **{{ ui-key.yacloud.common.create }}**.
   1. Задайте имя таблицы маршрутизации. Требования к имени:
 
       * длина — от 3 до 63 символов;
@@ -24,19 +24,19 @@
 
   1. (Опционально) Добавьте описание таблицы маршрутизации.
   1. Выберите сеть, в которой требуется создать таблицу маршрутизации.
-  1. Нажмите кнопку **Добавить маршрут**.
+  1. Нажмите кнопку **{{ ui-key.yacloud.vpc.route-table-form.label_add-static-route }}**.
   1. В открывшемся окне введите префикс подсети назначения в нотации CIDR.
-  1. Укажите **Next hop** — IP-адрес из [разрешенных диапазонов](../concepts/network.md#subnet).
-  1. Нажмите кнопку **Добавить**.
-  1. Нажмите кнопку **Создать таблицу маршрутизации**.
+  1. Укажите **{{ ui-key.yacloud.vpc.add-static-route.field_next-hop-address }}** — IP-адрес из [разрешенных диапазонов](../concepts/network.md#subnet).
+  1. Нажмите кнопку **{{ ui-key.yacloud.vpc.add-static-route.button_add }}**.
+  1. Нажмите кнопку **{{ ui-key.yacloud.vpc.route-table.create.button_create }}**.
 
   Чтобы использовать статические маршруты, необходимо привязать таблицу маршрутизации к подсети:
 
-  1. На панели слева выберите ![image](../../_assets/console-icons/nodes-right.svg) **Подсети**.
+  1. На панели слева выберите ![image](../../_assets/console-icons/nodes-right.svg) **{{ ui-key.yacloud.vpc.switch_networks }}**.
   1. В строке нужной подсети нажмите кнопку ![image](../../_assets/console-icons/ellipsis.svg).
-  1. В открывшемся меню выберите пункт **Привязать таблицу маршрутизации**.
+  1. В открывшемся меню выберите пункт **{{ ui-key.yacloud.vpc.subnetworks.button_action-add-route-table }}**.
   1. В открывшемся окне выберите созданную таблицу в списке.
-  1. Нажмите кнопку **Привязать**.
+  1. Нажмите кнопку **{{ ui-key.yacloud.vpc.subnet.add-route-table.button_add }}**.
 
 - CLI {#cli}
 
@@ -111,7 +111,7 @@
       +----------------------+------------------+----------------------+----------------+---------------+------------------+
       |          ID          |       NAME       |      NETWORK ID      | ROUTE TABLE ID |     ZONE      |      RANGE       |
       +----------------------+------------------+----------------------+----------------+---------------+------------------+
-      | b0cf2b0u7nhl******** | subnet-1         | enp846vf5fus******** |                | ru-central1-a | [192.168.0.0/24] |
+      | b0cf2b0u7nhl******** | subnet-1         | enp846vf5fus******** |                | {{ region-id }}-a | [192.168.0.0/24] |
       +----------------------+------------------+----------------------+----------------+---------------+------------------+
       ```
 
@@ -131,21 +131,24 @@
       created_at: "2019-03-12T13:27:22Z"
       name: subnet-1
       network_id: enp846vf5fus********
-      zone_id: ru-central1-a
+      zone_id: {{ region-id }}-a
       v4_cidr_blocks:
       - 192.168.0.0/24
       route_table_id: enp1sdveovdp********
       ```
 
-- Terraform {#tf}
+- {{ TF }} {#tf}
 
-  [Terraform](https://www.terraform.io/) позволяет быстро создать облачную инфраструктуру в Yandex Cloud и управлять ею с помощью файлов конфигураций. В файлах конфигураций хранится описание инфраструктуры на языке HCL (HashiCorp Configuration Language). При изменении файлов конфигураций Terraform автоматически определяет, какая часть вашей конфигурации уже развернута, что следует добавить или удалить.
+  [{{ TF }}](https://www.terraform.io/) позволяет быстро создать облачную инфраструктуру в {{ yandex-cloud }} и управлять ею с помощью файлов конфигураций. В файлах конфигураций хранится описание инфраструктуры на языке HCL (HashiCorp Configuration Language). При изменении файлов конфигураций {{ TF }} автоматически определяет, какая часть вашей конфигурации уже развернута, что следует добавить или удалить.
   
-  Terraform распространяется под лицензией [Business Source License](https://github.com/hashicorp/terraform/blob/main/LICENSE), а [провайдер Yandex Cloud для Terraform](https://github.com/yandex-cloud/terraform-provider-yandex) — под лицензией [MPL-2.0](https://www.mozilla.org/en-US/MPL/2.0/).
+  {{ TF }} распространяется под лицензией [Business Source License](https://github.com/hashicorp/terraform/blob/main/LICENSE), а [провайдер {{ yandex-cloud }} для {{ TF }}](https://github.com/yandex-cloud/terraform-provider-yandex) — под лицензией [MPL-2.0](https://www.mozilla.org/en-US/MPL/2.0/).
   
-  Подробную информацию о ресурсах провайдера смотрите в документации на сайте [Terraform](https://www.terraform.io/docs/providers/yandex/index.html) или в [зеркале](../../terraform/index.md).
+  Подробную информацию о ресурсах провайдера смотрите в документации на сайте [{{ TF }}](https://www.terraform.io/docs/providers/yandex/index.html) или в [зеркале]({{ tf-docs-link }}).
 
-  Если у вас еще нет Terraform, [установите его и настройте провайдер Yandex Cloud](../../tutorials/infrastructure-management/terraform-quickstart.md#install-terraform).
+  Если у вас еще нет {{ TF }}, [установите его и настройте провайдер {{ yandex-cloud }}](../../tutorials/infrastructure-management/terraform-quickstart.md#install-terraform).
+  
+  
+  Чтобы управлять инфраструктурой с помощью {{ TF }} от имени сервисного аккаунта или пользовательских аккаунтов: аккаунта на Яндексе, федеративного аккаунта и локального пользователя, [аутентифицируйтесь](../../terraform/authentication.md) соответствующим способом.
 
   Чтобы создать таблицу маршрутизации и добавить в нее [статические маршруты](../concepts/routing.md):
 
@@ -178,7 +181,7 @@
 
      Чтобы добавить, изменить или удалить таблицу маршрутизации, используйте ресурс `yandex_vpc_route_table` с указанием на сеть в поле `network_id` (например, `network_id = yandex_vpc_network.test_route_table.id`).
 
-     Более подробную информацию о параметрах ресурса `yandex_vpc_route_table` в Terraform см. в [документации провайдера](../../terraform/resources/vpc_route_table.md).
+     Более подробную информацию о параметрах ресурса `yandex_vpc_route_table` в {{ TF }} см. в [документации провайдера]({{ tf-provider-resources-link }}/vpc_route_table).
 
   1. Проверьте корректность конфигурационных файлов.
 
@@ -189,7 +192,7 @@
         terraform plan
         ```
 
-     Если конфигурация описана верно, в терминале отобразится список создаваемых ресурсов и их параметров. Если в конфигурации есть ошибки, Terraform на них укажет.
+     Если конфигурация описана верно, в терминале отобразится список создаваемых ресурсов и их параметров. Если в конфигурации есть ошибки, {{ TF }} на них укажет.
 
   1. Разверните облачные ресурсы.
 
@@ -201,7 +204,7 @@
 
      1. Подтвердите создание ресурсов: введите в терминал слово `yes` и нажмите **Enter**.
 
-        После этого в указанном каталоге будут созданы все требуемые ресурсы. Проверить появление ресурсов и их настройки можно в [консоли управления](https://console.yandex.cloud) или с помощью команды [CLI](../../cli/quickstart.md):
+        После этого в указанном каталоге будут созданы все требуемые ресурсы. Проверить появление ресурсов и их настройки можно в [консоли управления]({{ link-console-main }}) или с помощью команды [CLI](../../cli/quickstart.md):
 
         ```bash
         yc vpc route-table list
@@ -282,7 +285,7 @@
         --route-table-id enp1sdveovdp********
       ```
 
-- Terraform {#tf}
+- {{ TF }} {#tf}
 
   1. Опишите в конфигурационном файле параметры таблицы маршрутизации и укажите параметр `route_table_id` для подсети:
 
@@ -299,25 +302,25 @@
       resource "yandex_vpc_subnet" "example_subnet" {
         name           = "example-subnet"
         network_id     = "enp846vf5fus********"
-        zone           = ru-central1-a
+        zone           = {{ region-id }}-a
         v4_cidr_blocks = ["10.2.0.0/16"]
         # Привязка таблицы маршрутизации к подсети
         route_table_id = yandex_vpc_route_table.test_route_table.id
       }
       ```
 
-      Более подробную информацию о ресурсах, которые вы можете создать с помощью Terraform, см. в [документации провайдера](../../terraform/resources/vpc_route_table.md).
+      Более подробную информацию о ресурсах, которые вы можете создать с помощью {{ TF }}, см. в [документации провайдера]({{ tf-provider-resources-link }}/vpc_route_table).
 
   1. Проверьте корректность настроек.
 
-     1. В командной строке перейдите в каталог, в котором расположены актуальные конфигурационные файлы Terraform с планом инфраструктуры.
+     1. В командной строке перейдите в каталог, в котором расположены актуальные конфигурационные файлы {{ TF }} с планом инфраструктуры.
      1. Выполните команду:
      
         ```bash
         terraform validate
         ```
      
-        Если в файлах конфигурации есть ошибки, Terraform на них укажет.
+        Если в файлах конфигурации есть ошибки, {{ TF }} на них укажет.
 
   1. Примените изменения.
 

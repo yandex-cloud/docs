@@ -1,4 +1,4 @@
-# [Yandex DataLens] Internal Server Error
+# [{{ datalens-full-name }}] Internal Server Error
 
 `ERR.DS_API.ACTION_NOT_ALLOWED`
 

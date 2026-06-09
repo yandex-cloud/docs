@@ -3,7 +3,7 @@
 ## HTTP request
 
 ```
-POST https://ydb.api.cloud.yandex.net/ydb/v1/databases/{databaseId}:move
+POST https://ydb.{{ api-host }}/ydb/v1/databases/{databaseId}:move
 ```
 
 ## Path parameters

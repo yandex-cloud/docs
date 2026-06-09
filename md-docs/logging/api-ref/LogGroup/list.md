@@ -5,7 +5,7 @@ Retrieves the list of log groups in the specified folder.
 ## HTTP request
 
 ```
-GET https://logging.api.cloud.yandex.net/logging/v1/logGroups
+GET https://logging.{{ api-host }}/logging/v1/logGroups
 ```
 
 ## Query parameters {#yandex.cloud.logging.v1.ListLogGroupsRequest}

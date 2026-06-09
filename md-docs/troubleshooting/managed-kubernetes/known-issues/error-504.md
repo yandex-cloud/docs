@@ -5,7 +5,7 @@
 
 При попытке выполнить curl-запрос следующего вида:
 ```
-curl "https://monitoring.api.cloud.yandex.net/monitoring/v2/prometheusMetrics/?folderId=folder_id&service=managed-kubernetes" -H "Authorization: Bearer ${IAM_TOKEN}" -H "Content-Type: application/json" -i
+curl "https://{{ api-host-monitoring-1 }}/monitoring/v2/prometheusMetrics/?folderId=folder_id&service=managed-kubernetes" -H "Authorization: Bearer ${IAM_TOKEN}" -H "Content-Type: application/json" -i
 ```
 возникает сообщение об ошибке:
 ```

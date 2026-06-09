@@ -5,19 +5,13 @@ Retrieves the list of federations in the specified organization.
 ## HTTP request
 
 ```
-GET https://organization-manager.api.cloud.yandex.net/organization-manager/v1/saml/federations
+GET https://organization-manager.{{ api-host }}/organization-manager/v1/saml/federations
 ```
 
 ## Query parameters {#yandex.cloud.organizationmanager.v1.saml.ListFederationsRequest}
 
 #|
 ||Field | Description ||
-|| organizationId | **string**
-
-Required field. ID of the organization to list federations in.
-To get the organization ID, make a [yandex.cloud.organizationmanager.v1.OrganizationService.List](../../../api-ref/Organization/list.md#List) request.
-
-The maximum string length in characters is 50. ||
 || pageSize | **string** (int64)
 
 The maximum number of results per page to return. If the number of available
@@ -43,6 +37,12 @@ The expression must specify:
 3. The value in double quotes (`"`). Must be 3-63 characters long and match the regular expression `[a-z][-a-z0-9]{1,61}[a-z0-9]`.
 
 The maximum string length in characters is 1000. ||
+|| organizationId | **string**
+
+Required field. ID of the organization to list federations in.
+To get the organization ID, make a [yandex.cloud.organizationmanager.v1.OrganizationService.List](../../../api-ref/Organization/list.md#List) request.
+
+The maximum string length in characters is 50. ||
 |#
 
 ## Response {#yandex.cloud.organizationmanager.v1.saml.ListFederationsResponse}
@@ -135,7 +135,6 @@ authenticates the user immediately and redirects them to the home page. ||
 Add new users automatically on successful authentication.
 The user becomes member of the organization automatically,
 but you need to grant other roles to them.
-
 If the value is `false`, users who aren't added to the organization
 can't log in, even if they have authenticated on your server. ||
 || issuer | **string**
@@ -147,7 +146,6 @@ The maximum string length in characters is 8000. ||
 || ssoBinding | **enum** (BindingType)
 
 Single sign-on endpoint binding type. Most Identity Providers support the `POST` binding type.
-
 SAML Binding is a mapping of a SAML protocol message onto standard messaging
 formats and/or communications protocols.
 

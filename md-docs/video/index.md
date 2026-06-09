@@ -426,6 +426,10 @@ Yandex Cloud Video — комплексная платформа управле�
 
  - [GenerateDownloadURL](api-ref/grpc/Video/generateDownloadURL.md)
 
+ - [GetScreenshots](api-ref/grpc/Video/getScreenshots.md)
+
+ - [BatchGetScreenshots](api-ref/grpc/Video/batchGetScreenshots.md)
+
 ### REST (англ.)
 
  - [Overview](api-ref/index.md)
@@ -618,7 +622,11 @@ Yandex Cloud Video — комплексная платформа управле�
 
  - [GenerateDownloadURL](api-ref/Video/generateDownloadURL.md)
 
- - [Аудитные логи Audit Trails](at-ref.md)
+ - [GetScreenshots](api-ref/Video/getScreenshots.md)
+
+ - [BatchGetScreenshots](api-ref/Video/batchGetScreenshots.md)
+
+ - [Аудитные логи {{ at-name }}](at-ref.md)
 
  - [История изменений](release-notes.md)
 

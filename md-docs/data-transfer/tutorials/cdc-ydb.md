@@ -1,13 +1,13 @@
-# Захват изменений из YDB и поставка в Apache Kafka®
+# Захват изменений из {{ ydb-short-name }} и поставка в {{ KF }}
 
-# Поставка данных из Yandex Managed Service for YDB в Yandex Managed Service for Apache Kafka®
+# Поставка данных из {{ ydb-full-name }} в {{ mkf-full-name }}
 
 
-Вы можете отслеживать изменения данных в _источнике_ Managed Service for YDB и отправлять их в _кластер-приемник_ Managed Service for Apache Kafka® с помощью технологии [Change Data Capture](../concepts/cdc.md) (CDC). Эти данные будут автоматически добавлены в топики Managed Service for Apache Kafka® с именами таблиц Managed Service for YDB.
+Вы можете отслеживать изменения данных в _источнике_ {{ ydb-name }} и отправлять их в _кластер-приемник_ {{ mkf-name }} с помощью технологии [Change Data Capture](../concepts/cdc.md) (CDC). Эти данные будут автоматически добавлены в топики {{ mkf-short-name }} с именами таблиц {{ ydb-name }}.
 
 {% note info %}
 
-В YDB CDC-режим поддерживается, начиная с версии 22.5 и выше.
+В {{ ydb-short-name }} CDC-режим поддерживается, начиная с версии {{ ydb.version-cdc }} и выше.
 
 {% endnote %}
 
@@ -22,14 +22,14 @@
 
 ## Необходимые платные ресурсы {#paid-resources}
 
-* База данных Managed Service for YDB (см. [тарифы Managed Service for YDB](../../ydb/pricing/index.md)). Стоимость зависит от режима использования:
+* База данных {{ ydb-name }} (см. [тарифы {{ ydb-name }}](../../ydb/pricing/index.md)). Стоимость зависит от режима использования:
 
 	* Для бессерверного режима — оплачиваются операции с данными, объем хранимых данных и резервных копий.
   	* Для режима с выделенными инстансами — оплачивается использование выделенных БД вычислительных ресурсов, объем хранилища и резервные копии.
 
-* Кластер Managed Service for Apache Kafka®: выделенные хостам вычислительные ресурсы, объем хранилища и резервных копий (см. [тарифы Managed Service for Apache Kafka®](../../managed-kafka/pricing.md)).
-* Публичные IP-адреса, если для хостов кластера включен публичный доступ (см. [тарифы Virtual Private Cloud](../../vpc/pricing.md)).
-* Каждый трансфер: использование вычислительных ресурсов и количество переданных строк данных (см. [тарифы Data Transfer](../pricing.md)).
+* Кластер {{ mkf-name }}: выделенные хостам вычислительные ресурсы, объем хранилища и резервных копий (см. [тарифы {{ mkf-name }}](../../managed-kafka/pricing.md)).
+* Публичные IP-адреса, если для хостов кластера включен публичный доступ (см. [тарифы {{ vpc-name }}](../../vpc/pricing.md)).
+* Каждый трансфер: использование вычислительных ресурсов и количество переданных строк данных (см. [тарифы {{ data-transfer-name }}](../pricing.md)).
 
 
 ## Перед началом работы {#before-you-begin}
@@ -41,15 +41,15 @@
    - Вручную {#manual}
 
 
-       1. [Создайте базу данных Managed Service for YDB](../../ydb/operations/manage-databases.md) любой подходящей конфигурации.
+       1. [Создайте базу данных {{ ydb-name }}](../../ydb/operations/manage-databases.md) любой подходящей конфигурации.
 
-       1. Если вы выбрали режим БД Dedicated, [создайте](../../vpc/operations/security-group-create.md) и [настройте](../../ydb/operations/connection.md#configuring-security-groups) группу безопасности в сети, где находится БД.
+       1. Если вы выбрали режим БД {{ dd }}, [создайте](../../vpc/operations/security-group-create.md) и [настройте](../../ydb/operations/connection.md#configuring-security-groups) группу безопасности в сети, где находится БД.
 
-       1. [Создайте кластер-приемник Managed Service for Apache Kafka®](../../managed-kafka/operations/cluster-create.md) любой подходящей конфигурации с хостами в публичном доступе.
+       1. [Создайте кластер-приемник {{ mkf-name }}](../../managed-kafka/operations/cluster-create.md) любой подходящей конфигурации с хостами в публичном доступе.
 
           {% note info %}
           
-          Публичный доступ к хостам кластера нужен, если вы планируете подключаться к кластеру через интернет. Этот вариант подключения более простой, и его рекомендуется использовать для прохождения руководства. К хостам без публичного доступа тоже можно подключиться, но только с виртуальных машин Yandex Cloud, расположенных в той же облачной сети, что и кластер.
+          Публичный доступ к хостам кластера нужен, если вы планируете подключаться к кластеру через интернет. Этот вариант подключения более простой, и его рекомендуется использовать для прохождения руководства. К хостам без публичного доступа тоже можно подключиться, но только с виртуальных машин {{ yandex-cloud }}, расположенных в той же облачной сети, что и кластер.
           
           {% endnote %}
 
@@ -57,9 +57,9 @@
         1. Если вы используете группы безопасности, [настройте их так, чтобы к кластеру можно было подключаться из интернета](../../managed-kafka/operations/connect/index.md#configuring-security-groups).
 
 
-       1. Настройте в кластере-приемнике топики Apache Kafka®. Настройки различаются в зависимости от используемого [способа управления топиками](../../managed-kafka/concepts/topics.md#management). Имена топиков для данных формируются как `<префикс_топика>.<имя_таблицы_YDB>`. В этом руководстве в качестве примера используется префикс `cdc`.
+       1. Настройте в кластере-приемнике топики {{ KF }}. Настройки различаются в зависимости от используемого [способа управления топиками](../../managed-kafka/concepts/topics.md#management). Имена топиков для данных формируются как `<префикс_топика>.<имя_таблицы_{{ ydb-short-name }}>`. В этом руководстве в качестве примера используется префикс `cdc`.
 
-          * Если выбрано управление топиками через стандартные интерфейсы Yandex Cloud (Консоль управления, CLI, API):
+          * Если выбрано управление топиками через стандартные интерфейсы {{ yandex-cloud }} (Консоль управления, CLI, API):
 
               1. [Создайте топик](../../managed-kafka/operations/cluster-topics.md#create-topic) с именем `cdc.sensors`.
 
@@ -72,11 +72,11 @@
               1. Создайте [пользователя-администратора](../../managed-kafka/operations/cluster-accounts.md).
               1. Помимо роли `ACCESS_ROLE_ADMIN` назначьте пользователю-администратору роли `ACCESS_ROLE_CONSUMER` и `ACCESS_ROLE_PRODUCER` для топиков `cdc.*`, имена которых начинаются с префикса `cdc`.
 
-                 Необходимые топики будут созданы автоматически при первом изменении в отслеживаемых таблицах кластера-источника. Такое решение может быть удобным для отслеживания изменений во множестве таблиц, однако, требует запаса свободного места в хранилище кластера. Подробнее см. в разделе [Хранилище в Managed Service for Apache Kafka®](../../managed-kafka/concepts/storage.md).
+                 Необходимые топики будут созданы автоматически при первом изменении в отслеживаемых таблицах кластера-источника. Такое решение может быть удобным для отслеживания изменений во множестве таблиц, однако, требует запаса свободного места в хранилище кластера. Подробнее см. в разделе [{#T}](../../managed-kafka/concepts/storage.md).
 
-   - Terraform {#tf}
+   - {{ TF }} {#tf}
 
-       1. Если у вас еще нет Terraform, [установите его](../../tutorials/infrastructure-management/terraform-quickstart.md#install-terraform).
+       1. Если у вас еще нет {{ TF }}, [установите его](../../tutorials/infrastructure-management/terraform-quickstart.md#install-terraform).
        1. [Получите данные для аутентификации](../../tutorials/infrastructure-management/terraform-quickstart.md#get-credentials). Вы можете добавить их в переменные окружения или указать далее в файле с настройками провайдера.
        1. [Настройте и инициализируйте провайдер](../../tutorials/infrastructure-management/terraform-quickstart.md#configure-provider). Чтобы не создавать конфигурационный файл с настройками провайдера вручную, [скачайте его](https://github.com/yandex-cloud-examples/yc-terraform-provider-settings/blob/main/provider.tf).
        1. Поместите конфигурационный файл в отдельную рабочую директорию и [укажите значения параметров](../../tutorials/infrastructure-management/terraform-quickstart.md#configure-provider). Если данные для аутентификации не были добавлены в переменные окружения, укажите их в конфигурационном файле.
@@ -87,36 +87,36 @@
 
            * [сеть](../../vpc/concepts/network.md#network);
            * [подсеть](../../vpc/concepts/network.md#subnet);
-           * [группа безопасности](../../vpc/concepts/security-groups.md) и правило, необходимое для подключения к кластеру Managed Service for Apache Kafka®;
-           * база данных Managed Service for YDB;
-           * кластер-приемник Managed Service for Apache Kafka®;
-           * топик Apache Kafka®;
-           * пользователь Apache Kafka®;
+           * [группа безопасности](../../vpc/concepts/security-groups.md) и правило, необходимое для подключения к кластеру {{ mkf-name }};
+           * база данных {{ ydb-name }};
+           * кластер-приемник {{ mkf-name }};
+           * топик {{ KF }};
+           * пользователь {{ KF }};
            * трансфер.
 
-           Выбор [способа управления топиками](../../managed-kafka/concepts/topics.md#management) определяется переменной Terraform `kf_topics_management`. Переменная задается при выполнении команд `terraform plan` и `terraform apply` (см. далее):
+           Выбор [способа управления топиками](../../managed-kafka/concepts/topics.md#management) определяется переменной {{ TF }} `kf_topics_management`. Переменная задается при выполнении команд `terraform plan` и `terraform apply` (см. далее):
 
-           * Если управление топиками осуществляется с помощью стандартных интерфейсов Yandex Cloud (Консоль управления, CLI, API):
+           * Если управление топиками осуществляется с помощью стандартных интерфейсов {{ yandex-cloud }} (Консоль управления, CLI, API):
                1. Для отслеживания изменений в нескольких таблицах добавьте в файл конфигурации для каждой из них описание отдельного топика с префиксом `cdc`.
-               1. Задайте для переменной Terraform `kf_topics_management` значение `false`.
+               1. Задайте для переменной {{ TF }} `kf_topics_management` значение `false`.
 
-           * Если для управления топиками используется Kafka Admin API, задайте для переменной Terraform `kf_topics_management` значение `true`.
+           * Если для управления топиками используется Kafka Admin API, задайте для переменной {{ TF }} `kf_topics_management` значение `true`.
 
        1. Укажите в файле `data-transfer-ydb-mkf.tf` переменные:
 
-           * `source_db_name` — имя базы данных Managed Service for YDB;
-           * `target_kf_version` – версия Apache Kafka® в кластере-приемнике;
-           * `target_user_name` – имя пользователя для подключения к топику Apache Kafka®;
+           * `source_db_name` — имя базы данных {{ ydb-name }};
+           * `target_kf_version` – версия {{ KF }} в кластере-приемнике;
+           * `target_user_name` – имя пользователя для подключения к топику {{ KF }};
            * `target_user_password` – пароль пользователя;
            * `transfer_enabled` – значение `0`, чтобы не создавать трансфер до [создания эндпоинтов вручную](#prepare-transfer).
 
-       1. Проверьте корректность файлов конфигурации Terraform с помощью команды:
+       1. Проверьте корректность файлов конфигурации {{ TF }} с помощью команды:
 
            ```bash
            terraform validate
            ```
 
-           Если в файлах конфигурации есть ошибки, Terraform на них укажет.
+           Если в файлах конфигурации есть ошибки, {{ TF }} на них укажет.
 
        1. Создайте необходимую инфраструктуру:
 
@@ -138,26 +138,26 @@
               1. Подтвердите изменение ресурсов.
               1. Дождитесь завершения операции.
 
-           В указанном каталоге будут созданы все требуемые ресурсы. Проверить появление ресурсов и их настройки можно в [консоли управления](https://console.yandex.cloud).
+           В указанном каталоге будут созданы все требуемые ресурсы. Проверить появление ресурсов и их настройки можно в [консоли управления]({{ link-console-main }}).
 
    {% endlist %}
 
-1. Установите утилиту [kafkacat](https://github.com/edenhill/kcat) для чтения и записи данных в топики Apache Kafka®.
+1. Установите утилиту [kafkacat](https://github.com/edenhill/kcat) для чтения и записи данных в топики {{ KF }}.
 
     ```bash
     sudo apt update && sudo apt install --yes kafkacat
     ```
 
-    Убедитесь, что можете с ее помощью [подключиться к кластеру-приемнику Managed Service for Apache Kafka® через SSL](../../managed-kafka/operations/connect/clients.md#bash-zsh).
+    Убедитесь, что можете с ее помощью [подключиться к кластеру-приемнику {{ mkf-name }} через SSL](../../managed-kafka/operations/connect/clients.md#bash-zsh).
 
 ## Подготовьте источник {#prepare-source}
 
-1. [Подключитесь к базе данных Managed Service for YDB](../../ydb/operations/connection.md).
-1. [Создайте YDB-таблицу](../../ydb/operations/schema.md#create-table). В качестве примера используется таблица `sensors` с информацией, поступающей от условных датчиков автомобиля.
+1. [Подключитесь к базе данных {{ ydb-name }}](../../ydb/operations/connection.md).
+1. [Создайте {{ ydb-short-name }}-таблицу](../../ydb/operations/schema.md#create-table). В качестве примера используется таблица `sensors` с информацией, поступающей от условных датчиков автомобиля.
 
    Добавьте в таблицу колонки вручную:
 
-    | Имя | Тип | Первичный ключ |
+    | {{ ui-key.yacloud.ydb.browse.info.column_name }} | {{ ui-key.yacloud.ydb.browse.info.column_type }} | {{ ui-key.yacloud.ydb.table.form.column_primary-key }} |
     |:--------------------|:---------|:---------------|
     | `device_id`         | `String` | Да             |
     | `datetime`          | `String` |                |
@@ -192,17 +192,17 @@
 
 1. [Создайте эндпоинт для источника](../operations/endpoint/index.md#create):
 
-    * **Тип базы данных** — `YDB`.
-    * **Параметры эндпоинта**:
+    * **{{ ui-key.yacloud.data-transfer.forms.label-database_type }}** — `YDB`.
+    * **{{ ui-key.yc-data-transfer.data-transfer.console.form.ydb.console.form.ydb.YdbSource.title }}**:
 
-        * **Настройки подключения**:
-           * **База данных** — выберите базу данных Managed Service for YDB из списка.
+        * **{{ ui-key.yc-data-transfer.data-transfer.console.form.ydb.console.form.ydb.YdbSource.connection.title }}**:
+           * **{{ ui-key.yc-data-transfer.data-transfer.console.form.ydb.console.form.ydb.YdbConnectionSettings.database.title }}** — выберите базу данных {{ ydb-name }} из списка.
 
            
-           * **Идентификатор сервисного аккаунта** — выберите или создайте сервисный аккаунт с ролью `editor`.
+           * **{{ ui-key.yc-data-transfer.data-transfer.console.form.ydb.console.form.ydb.YdbConnectionSettings.service_account_id.title }}** — выберите или создайте сервисный аккаунт с ролью `editor`.
 
 
-        * **Список включенных путей** — укажите имена таблиц и директорий базы данных Managed Service for YDB для переноса.
+        * **{{ ui-key.yc-data-transfer.data-transfer.console.form.ydb.console.form.ydb.YdbSource.paths.title }}** — укажите имена таблиц и директорий базы данных {{ ydb-name }} для переноса.
 
            {% note warning %}
 
@@ -211,19 +211,19 @@
            {% endnote %}
 
 1. [Создайте эндпоинт для приемника](../operations/endpoint/index.md#create):
-    * **Тип базы данных** — `Kafka`.
-    * **Параметры эндпоинта**:
-        * **Тип подключения** — `Кластер Managed Service for Apache Kafka`.
-            * **Кластер Managed Service for Apache Kafka** — выберите [созданный ранее](#before-you-begin) кластер-источник Managed Service for Apache Kafka®.
-            * **Аутентификация** — укажите данные [созданного ранее](#before-you-begin) пользователя Apache Kafka®.
+    * **{{ ui-key.yacloud.data-transfer.forms.label-database_type }}** — `Kafka`.
+    * **{{ ui-key.yc-data-transfer.data-transfer.console.form.kafka.console.form.kafka.KafkaTarget.title }}**:
+        * **{{ ui-key.yc-data-transfer.data-transfer.console.form.kafka.console.form.kafka.KafkaTargetConnection.connection_type.title }}** — `{{ ui-key.yc-data-transfer.data-transfer.console.form.kafka.console.form.kafka.KafkaConnectionType.managed.title }}`.
+            * **{{ ui-key.yc-data-transfer.data-transfer.console.form.kafka.console.form.kafka.ManagedKafka.cluster_id.title }}** — выберите [созданный ранее](#before-you-begin) кластер-источник {{ mkf-name }}.
+            * **{{ ui-key.yc-data-transfer.data-transfer.console.form.kafka.console.form.kafka.ManagedKafka.auth.title }}** — укажите данные [созданного ранее](#before-you-begin) пользователя {{ KF }}.
 
-        * **Топик** — `Полное имя топика`.
-        * **Полное имя топика** — `cdc.sensors`.
+        * **{{ ui-key.yc-data-transfer.data-transfer.console.form.kafka.console.form.kafka.KafkaTargetConnection.topic_settings.title }}** — `{{ ui-key.yc-data-transfer.data-transfer.console.form.kafka.console.form.kafka.KafkaTargetTopic.topic_name.title }}`.
+        * **{{ ui-key.yc-data-transfer.data-transfer.console.form.kafka.console.form.kafka.KafkaTargetTopic.topic_name.title }}** — `cdc.sensors`.
 
         Если необходимо отслеживать изменения в нескольких таблицах, заполните поля следующим образом:
 
-        * **Топик** — `Префикс топика`.
-        * **Префикс топика** — укажите префикс `cdc`, использованный при формировании имен топиков.
+        * **{{ ui-key.yc-data-transfer.data-transfer.console.form.kafka.console.form.kafka.KafkaTargetConnection.topic_settings.title }}** — `{{ ui-key.yc-data-transfer.data-transfer.console.form.kafka.console.form.kafka.KafkaTargetTopicSettings.topic_prefix.title }}`.
+        * **{{ ui-key.yc-data-transfer.data-transfer.console.form.kafka.console.form.kafka.KafkaTargetTopicSettings.topic_prefix.title }}** — укажите префикс `cdc`, использованный при формировании имен топиков.
 
 1. Создайте трансфер:
 
@@ -231,10 +231,10 @@
 
     - Вручную {#manual}
 
-        1. [Создайте трансфер](../operations/transfer.md#create) типа **_Репликация_**, использующий созданные эндпоинты.
+        1. [Создайте трансфер](../operations/transfer.md#create) типа **_{{ ui-key.yc-data-transfer.data-transfer.console.form.transfer.console.form.transfer.TransferType.increment.title }}_**, использующий созданные эндпоинты.
         1. [Активируйте](../operations/transfer.md#activate) его.
 
-    - Terraform {#tf}
+    - {{ TF }} {#tf}
 
         1. Укажите в файле `data-transfer-ydb-mkf.tf` переменные:
 
@@ -242,13 +242,13 @@
             * `target_endpoint_id` — значение идентификатора эндпоинта для приемника;
             * `transfer_enabled` – значение `1` для создания трансфера.
 
-        1. Проверьте корректность файлов конфигурации Terraform с помощью команды:
+        1. Проверьте корректность файлов конфигурации {{ TF }} с помощью команды:
 
             ```bash
             terraform validate
             ```
 
-            Если в файлах конфигурации есть ошибки, Terraform на них укажет.
+            Если в файлах конфигурации есть ошибки, {{ TF }} на них укажет.
 
         1. Создайте необходимую инфраструктуру:
 
@@ -276,7 +276,7 @@
 
 ## Проверьте работоспособность трансфера {#verify-transfer}
 
-1. Дождитесь перехода трансфера в статус **Реплицируется**.
+1. Дождитесь перехода трансфера в статус **{{ ui-key.yacloud.data-transfer.label_connector-status-RUNNING }}**.
 1. В отдельном терминале запустите утилиту `kafkacat` в режиме потребителя:
 
     ```bash
@@ -288,14 +288,14 @@
         -X sasl.mechanisms=SCRAM-SHA-512 \
         -X sasl.username=kafka-user \
         -X sasl.password=<пароль> \
-        -X ssl.ca.location=/usr/local/share/ca-certificates/Yandex/YandexInternalRootCA.crt \
+        -X ssl.ca.location={{ crt-local-dir }}{{ crt-local-file }} \
         -Z \
         -K:
     ```
 
-    FQDN хостов-брокеров можно получить со [списком хостов в кластере Managed Service for Apache Kafka®](../../managed-kafka/operations/cluster-hosts.md).
+    FQDN хостов-брокеров можно получить со [списком хостов в кластере {{ mkf-name }}](../../managed-kafka/operations/cluster-hosts.md).
 
-1. [Подключитесь к базе данных Managed Service for YDB](../../ydb/operations/connection.md) и [добавьте тестовые данные](../../ydb/operations/crud.md) в таблицу `sensors`:
+1. [Подключитесь к базе данных {{ ydb-name }}](../../ydb/operations/connection.md) и [добавьте тестовые данные](../../ydb/operations/crud.md) в таблицу `sensors`:
 
     ```sql
     REPLACE INTO sensors (device_id, datetime, latitude, longitude, altitude, speed, battery_voltage, cabin_temperature, fuel_level) VALUES 
@@ -485,16 +485,16 @@
 
    - Вручную {#manual}
 
-       1. [Удалите кластер Managed Service for Apache Kafka®](../../managed-kafka/operations/cluster-delete.md).
-       1. [Удалите базу данных Managed Service for YDB](../../ydb/operations/manage-databases.md#delete-db).
+       1. [Удалите кластер {{ mkf-name }}](../../managed-kafka/operations/cluster-delete.md).
+       1. [Удалите базу данных {{ ydb-name }}](../../ydb/operations/manage-databases.md#delete-db).
 
-   - Terraform {#tf}
+   - {{ TF }} {#tf}
 
        1. В терминале перейдите в директорию с планом инфраструктуры.
        
            {% note warning %}
        
-           Убедитесь, что в директории нет Terraform-манифестов с ресурсами, которые вы хотите сохранить. Terraform удаляет все ресурсы, которые были созданы с помощью манифестов в текущей директории.
+           Убедитесь, что в директории нет {{ TF }}-манифестов с ресурсами, которые вы хотите сохранить. {{ TF }} удаляет все ресурсы, которые были созданы с помощью манифестов в текущей директории.
        
            {% endnote %}
        
@@ -508,6 +508,6 @@
        
            1. Подтвердите удаление ресурсов и дождитесь завершения операции.
        
-           Все ресурсы, которые были описаны в Terraform-манифестах, будут удалены.
+           Все ресурсы, которые были описаны в {{ TF }}-манифестах, будут удалены.
 
    {% endlist %}

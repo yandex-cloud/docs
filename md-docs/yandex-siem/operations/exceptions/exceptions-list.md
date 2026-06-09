@@ -2,7 +2,7 @@
 
 {% note info %}
 
-Функциональность находится на стадии [Preview](../../../overview/concepts/launch-stages.md). Чтобы получить доступ, обратитесь в [техническую поддержку](https://center.yandex.cloud/support) или к вашему аккаунт-менеджеру.
+Функциональность находится на стадии [Preview](../../../overview/concepts/launch-stages.md). Чтобы получить доступ, обратитесь в [техническую поддержку]({{ link-console-support }}) или к вашему аккаунт-менеджеру.
 
 {% endnote %}
 
@@ -10,7 +10,7 @@
 
 ## Перед началом работы {#before-you-begin}
 
-Раздел Yandex SIEM появится в интерфейсе Cloud Center как модуль Security Deck после одобрения заявки на доступ.
+Раздел {{ yandex-siem-full-name }} появится в интерфейсе {{ cloud-center }} как модуль {{ sd-name }} после одобрения заявки на доступ.
 
 Для работы с сервисом вам потребуется [роль](../../../iam/roles-reference.md#ycdr-admin) `ycem.editor`.
 
@@ -20,11 +20,11 @@
 
 {% list tabs group=instructions %}
 
-- Интерфейс Cloud Center {#cloud-center}
+- Интерфейс {{ cloud-center }} {#cloud-center}
 
-  1. Перейдите в сервис [Security Deck](https://center.yandex.cloud/security/).
-  1. На панели слева выберите **Yandex SIEM**.
-  1. Перейдите в раздел **Исключения**.
+  1. Перейдите в сервис [{{ sd-name }}]({{ link-sd-main }}).
+  1. На панели слева выберите **{{ yandex-siem-full-name }}**.
+  1. Перейдите в раздел **{{ ui-key.yacloud_org.security.siem.SiemPageLayout.exceptions }}**.
 
   Откроется список всех доступных исключений с их статусами и статусами развертывания.
 
@@ -36,11 +36,11 @@
 
 {% list tabs group=instructions %}
 
-- Интерфейс Cloud Center {#cloud-center}
+- Интерфейс {{ cloud-center }} {#cloud-center}
 
-  1. Перейдите в сервис [Security Deck](https://center.yandex.cloud/security/).
-  1. На панели слева выберите **Yandex SIEM**.
-  1. Перейдите в раздел **Исключения**.
+  1. Перейдите в сервис [{{ sd-name }}]({{ link-sd-main }}).
+  1. На панели слева выберите **{{ yandex-siem-full-name }}**.
+  1. Перейдите в раздел **{{ ui-key.yacloud_org.security.siem.SiemPageLayout.exceptions }}**.
   1. Используйте фильтры над списком:
      * **Статус** — отфильтруйте исключения по статусу: **Healthy**, **Unhealthy** или **Inactive**;
      * **Привязанное правило** — отфильтруйте по правилу корреляции, к которому привязано исключение.
@@ -55,14 +55,14 @@
 
 {% list tabs group=instructions %}
 
-- Интерфейс Cloud Center {#cloud-center}
+- Интерфейс {{ cloud-center }} {#cloud-center}
 
-  1. Перейдите в сервис [Security Deck](https://center.yandex.cloud/security/).
-  1. На панели слева выберите **Yandex SIEM**.
-  1. Перейдите в раздел **Исключения**.
-  1. В строке нужного исключения нажмите значок ![image](../../../_assets/console-icons/ellipsis.svg) и выберите **Отметить для развёртывания**.
+  1. Перейдите в сервис [{{ sd-name }}]({{ link-sd-main }}).
+  1. На панели слева выберите **{{ yandex-siem-full-name }}**.
+  1. Перейдите в раздел **{{ ui-key.yacloud_org.security.siem.SiemPageLayout.exceptions }}**.
+  1. В строке нужного исключения нажмите значок ![image](../../../_assets/console-icons/ellipsis.svg) и выберите **{{ ui-key.yacloud_org.security.siem.action_mark-for-deployment_sUf3V }}**.
 
-  Статус развертывания исключения изменится на **Будет развернуто**. После завершения развертывания статус изменится на **Развернуто**.
+  Статус развертывания исключения изменится на **{{ ui-key.yacloud_org.security.siem.detect-deployment_created_2GEyZ }}**. После завершения развертывания статус изменится на **{{ ui-key.yacloud_org.security.siem.detect-deployment_deployed_ejgvu }}**.
 
 {% endlist %}
 
@@ -72,19 +72,19 @@
 
 {% list tabs group=instructions %}
 
-- Интерфейс Cloud Center {#cloud-center}
+- Интерфейс {{ cloud-center }} {#cloud-center}
 
-  1. Перейдите в сервис [Security Deck](https://center.yandex.cloud/security/).
-  1. На панели слева выберите **Yandex SIEM**.
-  1. Перейдите в раздел **Исключения**.
-  1. В строке нужного исключения нажмите значок ![image](../../../_assets/console-icons/ellipsis.svg) и выберите **Не разворачивать**.
+  1. Перейдите в сервис [{{ sd-name }}]({{ link-sd-main }}).
+  1. На панели слева выберите **{{ yandex-siem-full-name }}**.
+  1. Перейдите в раздел **{{ ui-key.yacloud_org.security.siem.SiemPageLayout.exceptions }}**.
+  1. В строке нужного исключения нажмите значок ![image](../../../_assets/console-icons/ellipsis.svg) и выберите **{{ ui-key.yacloud_org.security.siem.action_not-deploy_sPzwj }}**.
 
-  Статус развертывания исключения изменится обратно на **Изменено**.
+  Статус развертывания исключения изменится обратно на **{{ ui-key.yacloud_org.security.siem.deployment_status_changed }}**.
 
 {% endlist %}
 
 #### См. также {#see-also}
 
-* [Правила корреляции и исключения](../../concepts/correlation-rules.md).
-* [Управление исключениями](manage-exceptions.md).
-* [Управление правилами корреляции](../correlation-rules/manage-rules.md).
+* [{#T}](../../concepts/correlation-rules.md).
+* [{#T}](manage-exceptions.md).
+* [{#T}](../correlation-rules/manage-rules.md).

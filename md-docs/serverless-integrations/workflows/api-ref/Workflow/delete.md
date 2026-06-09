@@ -5,7 +5,7 @@ Deletes specified Workflow.
 ## HTTP request
 
 ```
-DELETE https://serverless-workflows.api.cloud.yandex.net/workflows/v1/workflow/{workflowId}
+DELETE https://serverless-workflows.{{ api-host }}/workflows/v1/workflow/{workflowId}
 ```
 
 ## Path parameters

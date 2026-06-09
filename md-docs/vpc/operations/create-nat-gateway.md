@@ -9,10 +9,10 @@
 
 - Консоль управления {#console}
 
-  1. В [консоли управления](https://console.yandex.cloud) выберите каталог, где требуется создать шлюз.
-  1. [Перейдите](../../console/operations/select-service.md#select-service) в сервис **Virtual Private Cloud**.
-  1. На панели слева выберите **Шлюзы**.
-  1. Нажмите кнопку **Создать**.
+  1. В [консоли управления]({{ link-console-main }}) выберите каталог, где требуется создать шлюз.
+  1. Перейдите в сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_vpc }}**.
+  1. На панели слева выберите **{{ ui-key.yacloud.vpc.switch_gateways }}**.
+  1. Нажмите кнопку **{{ ui-key.yacloud.common.create }}**.
   1. Задайте имя шлюза. Требования к имени:
 
       * длина — от 3 до 63 символов;
@@ -20,27 +20,27 @@
       * первый символ — буква, последний — не дефис.
    
   1. (Опционально) Добавьте описание шлюза.
-  1. По умолчанию выбран тип шлюза `NAT-шлюз`.
-  1. Нажмите кнопку **Сохранить**.
-  1. На панели слева выберите **Таблицы маршрутизации**.
-  1. Нажмите кнопку **Создать**, чтобы создать новую таблицу, или выберите одну из существующих.
-  1. Нажмите кнопку **Добавить маршрут**.
-  1. В открывшемся окне в поле **Next hop** выберите `Шлюз`.
-  1. В поле **Шлюз** выберите созданный NAT-шлюз. Префикс назначения заполнится автоматически.
-  1. Нажмите кнопку **Добавить**.
-  1. Нажмите кнопку **Сохранить**. 
+  1. По умолчанию выбран тип шлюза `{{ ui-key.yacloud.vpc.gateways.value_gateway-type-egress-nat }}`.
+  1. Нажмите кнопку **{{ ui-key.yacloud.common.save }}**.
+  1. На панели слева выберите **{{ ui-key.yacloud.vpc.network.switch_route-table }}**.
+  1. Нажмите кнопку **{{ ui-key.yacloud.common.create }}**, чтобы создать новую таблицу, или выберите одну из существующих.
+  1. Нажмите кнопку **{{ ui-key.yacloud.vpc.route-table-form.label_add-static-route }}**.
+  1. В открывшемся окне в поле **{{ ui-key.yacloud.vpc.add-static-route.field_next-hop-address }}** выберите `{{ ui-key.yacloud.vpc.add-static-route.value_gateway }}`.
+  1. В поле **{{ ui-key.yacloud.vpc.add-static-route.value_gateway }}** выберите созданный NAT-шлюз. Префикс назначения заполнится автоматически.
+  1. Нажмите кнопку **{{ ui-key.yacloud.vpc.add-static-route.button_add }}**.
+  1. Нажмите кнопку **{{ ui-key.yacloud.vpc.route-table.edit.button_edit }}**. 
 
   Затем привяжите [таблицу маршрутизации](../concepts/routing.md) к одной из подсетей, чтобы направить трафик из нее через NAT-шлюз:
 
-  1. На панели слева выберите ![image](../../_assets/console-icons/nodes-right.svg) **Подсети**.
+  1. На панели слева выберите ![image](../../_assets/console-icons/nodes-right.svg) **{{ ui-key.yacloud.vpc.switch_networks }}**.
   1. В строке нужной подсети нажмите кнопку ![image](../../_assets/console-icons/ellipsis.svg).
-  1. В открывшемся меню выберите пункт **Привязать таблицу маршрутизации**.
+  1. В открывшемся меню выберите пункт **{{ ui-key.yacloud.vpc.subnetworks.button_action-add-route-table }}**.
   1. В открывшемся окне выберите созданную таблицу в списке.
-  1. Нажмите кнопку **Привязать**.
+  1. Нажмите кнопку **{{ ui-key.yacloud.vpc.subnet.add-route-table.button_add }}**.
 
 - CLI {#cli}
 
-  Если у вас еще нет интерфейса командной строки Yandex Cloud (CLI), [установите и инициализируйте его](../../cli/quickstart.md#install).
+  Если у вас еще нет интерфейса командной строки {{ yandex-cloud }} (CLI), [установите и инициализируйте его](../../cli/quickstart.md#install).
 
   По умолчанию используется каталог, указанный при [создании](../../cli/operations/profile/profile-create.md) профиля CLI. Чтобы изменить каталог по умолчанию, используйте команду `yc config set folder-id <идентификатор_каталога>`. Также для любой команды вы можете указать другой каталог с помощью параметров `--folder-name` или `--folder-id`. Если вы обращаетесь к ресурсу по имени, поиск будет выполнен в каталоге по умолчанию. Если вы обращаетесь к ресурсу по идентификатору, поиск будет выполнен глобально — во всех каталогах с учетом прав доступа.
   
@@ -90,15 +90,18 @@
         --route-table-name=test-route-table
      ```
 
-- Terraform {#tf}
+- {{ TF }} {#tf}
 
-  [Terraform](https://www.terraform.io/) позволяет быстро создать облачную инфраструктуру в Yandex Cloud и управлять ею с помощью файлов конфигураций. В файлах конфигураций хранится описание инфраструктуры на языке HCL (HashiCorp Configuration Language). При изменении файлов конфигураций Terraform автоматически определяет, какая часть вашей конфигурации уже развернута, что следует добавить или удалить.
+  [{{ TF }}](https://www.terraform.io/) позволяет быстро создать облачную инфраструктуру в {{ yandex-cloud }} и управлять ею с помощью файлов конфигураций. В файлах конфигураций хранится описание инфраструктуры на языке HCL (HashiCorp Configuration Language). При изменении файлов конфигураций {{ TF }} автоматически определяет, какая часть вашей конфигурации уже развернута, что следует добавить или удалить.
   
-  Terraform распространяется под лицензией [Business Source License](https://github.com/hashicorp/terraform/blob/main/LICENSE), а [провайдер Yandex Cloud для Terraform](https://github.com/yandex-cloud/terraform-provider-yandex) — под лицензией [MPL-2.0](https://www.mozilla.org/en-US/MPL/2.0/).
+  {{ TF }} распространяется под лицензией [Business Source License](https://github.com/hashicorp/terraform/blob/main/LICENSE), а [провайдер {{ yandex-cloud }} для {{ TF }}](https://github.com/yandex-cloud/terraform-provider-yandex) — под лицензией [MPL-2.0](https://www.mozilla.org/en-US/MPL/2.0/).
   
-  Подробную информацию о ресурсах провайдера смотрите в документации на сайте [Terraform](https://www.terraform.io/docs/providers/yandex/index.html) или в [зеркале](../../terraform/index.md).
+  Подробную информацию о ресурсах провайдера смотрите в документации на сайте [{{ TF }}](https://www.terraform.io/docs/providers/yandex/index.html) или в [зеркале]({{ tf-docs-link }}).
 
-  Если у вас еще нет Terraform, [установите его и настройте провайдер Yandex Cloud](../../tutorials/infrastructure-management/terraform-quickstart.md#install-terraform).
+  Если у вас еще нет {{ TF }}, [установите его и настройте провайдер {{ yandex-cloud }}](../../tutorials/infrastructure-management/terraform-quickstart.md#install-terraform).
+  
+  
+  Чтобы управлять инфраструктурой с помощью {{ TF }} от имени сервисного аккаунта или пользовательских аккаунтов: аккаунта на Яндексе, федеративного аккаунта и локального пользователя, [аутентифицируйтесь](../../terraform/authentication.md) соответствующим способом.
   
   Чтобы создать NAT-шлюз, указать его в качестве next hop в таблице [маршрутизации](../concepts/routing.md) и привязать таблицу к подсети используйте следующую конфигурацию:
   
@@ -112,7 +115,7 @@
     folder_id      = "<идентификатор_каталога>"
     name           = "<имя_подсети>"
     v4_cidr_blocks = ["10.20.30.0/24"]
-    zone           = "ru-central1-a"
+    zone           = "{{ region-id }}-a"
     network_id     = data.yandex_vpc_network.net.id
     route_table_id = yandex_vpc_route_table.rt.id
   }

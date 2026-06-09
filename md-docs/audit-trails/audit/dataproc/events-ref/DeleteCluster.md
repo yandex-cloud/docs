@@ -137,7 +137,34 @@
       "logGroupId": "string",
       "environment": "string",
       "autoscalingServiceAccountId": "string"
-    }
+    },
+    "subclusters": [
+      {
+        "id": "string",
+        "clusterId": "string",
+        "createdAt": "string",
+        "name": "string",
+        "role": "string",
+        "resources": {
+          "resourcePresetId": "string",
+          "diskTypeId": "string",
+          "diskSize": "string"
+        },
+        "subnetId": "string",
+        "hostsCount": "string",
+        "assignPublicIp": "boolean",
+        "autoscalingConfig": {
+          "maxHostsCount": "string",
+          "preemptible": "boolean",
+          "measurementDuration": "string",
+          "warmupDuration": "string",
+          "stabilizationDuration": "string",
+          "cpuUtilizationTarget": "string",
+          "decommissionTimeout": "string"
+        },
+        "instanceGroupId": "string"
+      }
+    ]
   },
   "requestParameters": "object",
   "response": "object"
@@ -173,7 +200,7 @@ In some languages, built-in datetime utilities do not support nanosecond precisi
 || error | **[Status](#google.rpc.Status)**
 
 The error result of the operation in case of failure or cancellation. ||
-|| details | **[ClusterDetails](#yandex.cloud.audit.dataproc.ClusterDetails)** ||
+|| details | **[ClusterCreateOrDeleteDetails](#yandex.cloud.audit.dataproc.ClusterCreateOrDeleteDetails)** ||
 || requestParameters | **object** ||
 || response | **object** ||
 |#
@@ -304,12 +331,13 @@ An error message. ||
 A list of messages that carry the error details. ||
 |#
 
-## ClusterDetails {#yandex.cloud.audit.dataproc.ClusterDetails}
+## ClusterCreateOrDeleteDetails {#yandex.cloud.audit.dataproc.ClusterCreateOrDeleteDetails}
 
 #|
 ||Field | Description ||
 || clusterId | **string** ||
 || cluster | **[Cluster](#yandex.cloud.dataproc.v1.Cluster)** ||
+|| subclusters[] | **[Subcluster](#yandex.cloud.dataproc.v1.Subcluster)** ||
 |#
 
 ## Cluster {#yandex.cloud.dataproc.v1.Cluster}
@@ -418,4 +446,68 @@ No more than 64 per resource. ||
 || uri | **string** ||
 || args[] | **string** ||
 || timeout | **string** (int64) ||
+|#
+
+## Subcluster {#yandex.cloud.dataproc.v1.Subcluster}
+
+#|
+||Field | Description ||
+|| id | **string** ||
+|| clusterId | **string** ||
+|| createdAt | **string** (date-time)
+
+String in [RFC3339](https://www.ietf.org/rfc/rfc3339.txt) text format. The range of possible values is from
+`0001-01-01T00:00:00Z` to `9999-12-31T23:59:59.999999999Z`, i.e. from 0 to 9 digits for fractions of a second.
+
+To work with values in this field, use the APIs described in the
+[Protocol Buffers reference](https://developers.google.com/protocol-buffers/docs/reference/overview).
+In some languages, built-in datetime utilities do not support nanosecond precision (9 digits). ||
+|| name | **string**
+
+The string length in characters must be 1-63. ||
+|| role | **enum** (Role)
+
+- `MASTERNODE`
+- `DATANODE`
+- `COMPUTENODE` ||
+|| resources | **[Resources](#yandex.cloud.dataproc.v1.Resources)** ||
+|| subnetId | **string** ||
+|| hostsCount | **string** (int64) ||
+|| assignPublicIp | **boolean** ||
+|| autoscalingConfig | **[AutoscalingConfig](#yandex.cloud.dataproc.v1.AutoscalingConfig)** ||
+|| instanceGroupId | **string** ||
+|#
+
+## Resources {#yandex.cloud.dataproc.v1.Resources}
+
+#|
+||Field | Description ||
+|| resourcePresetId | **string**
+
+The maximum string length in characters is 50. ||
+|| diskTypeId | **string**
+
+The maximum string length in characters is 50. ||
+|| diskSize | **string** (int64)
+
+The minimum value is 0. ||
+|#
+
+## AutoscalingConfig {#yandex.cloud.dataproc.v1.AutoscalingConfig}
+
+#|
+||Field | Description ||
+|| maxHostsCount | **string** (int64)
+
+Acceptable values are 1 to 100, inclusive. ||
+|| preemptible | **boolean** ||
+|| measurementDuration | **string** (duration) ||
+|| warmupDuration | **string** (duration) ||
+|| stabilizationDuration | **string** (duration) ||
+|| cpuUtilizationTarget | **string**
+
+Acceptable values are 0 to 100, inclusive. ||
+|| decommissionTimeout | **string** (int64)
+
+Acceptable values are 0 to 86400, inclusive. ||
 |#

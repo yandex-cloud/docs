@@ -2,7 +2,7 @@
 
 {% note info %}
 
-Функциональность находится на стадии [Preview](../../../overview/concepts/launch-stages.md). Чтобы получить доступ, обратитесь в [техническую поддержку](https://center.yandex.cloud/support) или к вашему аккаунт-менеджеру.
+Функциональность находится на стадии [Preview](../../../overview/concepts/launch-stages.md). Чтобы получить доступ, обратитесь в [техническую поддержку]({{ link-console-support }}) или к вашему аккаунт-менеджеру.
 
 {% endnote %}
 
@@ -10,7 +10,7 @@
 
 ## Перед началом работы {#before-you-begin}
 
-Раздел Yandex SIEM появится в интерфейсе Cloud Center как модуль Security Deck после одобрения заявки на доступ.
+Раздел {{ yandex-siem-full-name }} появится в интерфейсе {{ cloud-center }} как модуль {{ sd-name }} после одобрения заявки на доступ.
 
 Для работы с сервисом вам потребуется [роль](../../../iam/roles-reference.md#ycdr-admin) `ycem.editor`.
 
@@ -20,17 +20,17 @@
 
 {% list tabs group=instructions %}
 
-- Интерфейс Cloud Center {#cloud-center}
+- Интерфейс {{ cloud-center }} {#cloud-center}
 
-  1. Перейдите в сервис [Security Deck](https://center.yandex.cloud/security/).
-  1. На панели слева выберите **Yandex SIEM**.
-  1. Перейдите в раздел **Правила корреляции**.
-  1. Нажмите **Новое правило**.
+  1. Перейдите в сервис [{{ sd-name }}]({{ link-sd-main }}).
+  1. На панели слева выберите **{{ yandex-siem-full-name }}**.
+  1. Перейдите в раздел **{{ ui-key.yacloud_org.security.siem.SiemPageLayout.correlationRules }}**.
+  1. Нажмите **{{ ui-key.yacloud_org.security.siem.CorrelationRulesPage.create-correlation-rule }}**.
   1. В поле **Условие корреляции** введите KQL-запрос. При необходимости используйте шаблоны, схему или датасеты.
   1. В блоке **Агрегация** укажите ключ агрегации и окно агрегации.
-  1. В блоке **Действия при срабатывании** настройте параметры создаваемого алерта: имя, тип и классификацию.
-  1. В блоке **Параметры** заполните обязательное поле **Имя**, а также при необходимости — **Описание**, **Класс** и **Критичность срабатывания**.
-  1. Нажмите **Сохранить**.
+  1. В блоке **{{ ui-key.yacloud_org.security.siem.detect-overview.title-actions-on-trigger_j8dE3 }}** настройте параметры создаваемого алерта: имя, тип и классификацию.
+  1. В блоке **Параметры** заполните обязательное поле **{{ ui-key.yacloud_org.security.siem.label_name_udzhS }}**, а также при необходимости — **{{ ui-key.yacloud_org.security.siem.label_description_4xXeP }}**, **{{ ui-key.yacloud_org.security.siem.CorrelationRuleTable.category }}** и **Критичность срабатывания**.
+  1. Нажмите **{{ ui-key.yacloud_org.siem.SearchActionButtonBlock.save }}**.
 
 {% endlist %}
 
@@ -40,14 +40,14 @@
 
 {% list tabs group=instructions %}
 
-- Интерфейс Cloud Center {#cloud-center}
+- Интерфейс {{ cloud-center }} {#cloud-center}
 
-  1. Перейдите в сервис [Security Deck](https://center.yandex.cloud/security/).
-  1. На панели слева выберите **Yandex SIEM**.
-  1. Перейдите в раздел **Правила корреляции**.
-  1. В строке нужного правила нажмите значок ![image](../../../_assets/console-icons/ellipsis.svg) и выберите **Редактировать**.
+  1. Перейдите в сервис [{{ sd-name }}]({{ link-sd-main }}).
+  1. На панели слева выберите **{{ yandex-siem-full-name }}**.
+  1. Перейдите в раздел **{{ ui-key.yacloud_org.security.siem.SiemPageLayout.correlationRules }}**.
+  1. В строке нужного правила нажмите значок ![image](../../../_assets/console-icons/ellipsis.svg) и выберите **{{ ui-key.yacloud_org.security.controls.ExceptionDrawer.header_action_edit }}**.
   1. Измените нужные поля.
-  1. Нажмите **Сохранить**.
+  1. Нажмите **{{ ui-key.yacloud_org.siem.SearchActionButtonBlock.save }}**.
 
 {% endlist %}
 
@@ -57,12 +57,12 @@
 
 {% list tabs group=instructions %}
 
-- Интерфейс Cloud Center {#cloud-center}
+- Интерфейс {{ cloud-center }} {#cloud-center}
 
-  1. Перейдите в сервис [Security Deck](https://center.yandex.cloud/security/).
-  1. На панели слева выберите **Yandex SIEM**.
-  1. Перейдите в раздел **Правила корреляции**.
-  1. В строке нужного правила нажмите значок ![image](../../../_assets/console-icons/ellipsis.svg) и выберите **Выключить**.
+  1. Перейдите в сервис [{{ sd-name }}]({{ link-sd-main }}).
+  1. На панели слева выберите **{{ yandex-siem-full-name }}**.
+  1. Перейдите в раздел **{{ ui-key.yacloud_org.security.siem.SiemPageLayout.correlationRules }}**.
+  1. В строке нужного правила нажмите значок ![image](../../../_assets/console-icons/ellipsis.svg) и выберите **{{ ui-key.yacloud_org.security.siem.action_switch-off_kYx8w }}**.
 
   Выключенное правило переходит в статус **Inactive** и перестает обрабатывать события.
 
@@ -74,12 +74,12 @@
 
 {% list tabs group=instructions %}
 
-- Интерфейс Cloud Center {#cloud-center}
+- Интерфейс {{ cloud-center }} {#cloud-center}
 
-  1. Перейдите в сервис [Security Deck](https://center.yandex.cloud/security/).
-  1. На панели слева выберите **Yandex SIEM**.
-  1. Перейдите в раздел **Правила корреляции**.
-  1. В строке нужного правила нажмите значок ![image](../../../_assets/console-icons/ellipsis.svg) и выберите **Сбросить изменения**.
+  1. Перейдите в сервис [{{ sd-name }}]({{ link-sd-main }}).
+  1. На панели слева выберите **{{ yandex-siem-full-name }}**.
+  1. Перейдите в раздел **{{ ui-key.yacloud_org.security.siem.SiemPageLayout.correlationRules }}**.
+  1. В строке нужного правила нажмите значок ![image](../../../_assets/console-icons/ellipsis.svg) и выберите **{{ ui-key.yacloud_org.security.siem.action_reset-changes_eXJka }}**.
 
   Все несохраненные изменения будут отменены. Правило вернется к последней развернутой конфигурации.
 
@@ -93,12 +93,12 @@
 
 {% list tabs group=instructions %}
 
-- Интерфейс Cloud Center {#cloud-center}
+- Интерфейс {{ cloud-center }} {#cloud-center}
 
-  1. Перейдите в сервис [Security Deck](https://center.yandex.cloud/security/).
-  1. На панели слева выберите **Yandex SIEM**.
-  1. Перейдите в раздел **Правила корреляции**.
-  1. В строке нужного правила нажмите значок ![image](../../../_assets/console-icons/ellipsis.svg) и выберите **Удалить**.
+  1. Перейдите в сервис [{{ sd-name }}]({{ link-sd-main }}).
+  1. На панели слева выберите **{{ yandex-siem-full-name }}**.
+  1. Перейдите в раздел **{{ ui-key.yacloud_org.security.siem.SiemPageLayout.correlationRules }}**.
+  1. В строке нужного правила нажмите значок ![image](../../../_assets/console-icons/ellipsis.svg) и выберите **{{ ui-key.yacloud_org.security.controls.ExceptionDrawer.header_action_delete }}**.
   1. Подтвердите удаление.
 
   {% note warning %}
@@ -111,6 +111,6 @@
 
 #### См. также {#see-also}
 
-* [Правила корреляции и исключения](../../concepts/correlation-rules.md).
-* [Управление исключениями](../exceptions/manage-exceptions.md).
-* [Работа со списком правил корреляции](rules-list.md).
+* [{#T}](../../concepts/correlation-rules.md).
+* [{#T}](../exceptions/manage-exceptions.md).
+* [{#T}](rules-list.md).

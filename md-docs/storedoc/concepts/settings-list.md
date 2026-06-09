@@ -1,6 +1,6 @@
-# Настройки Yandex StoreDoc
+# Настройки {{ SD }}
 
-При [создании](../operations/cluster-create.md) или [изменении](../operations/update.md#change-mongod-config) кластера Yandex StoreDoc можно задать настройки, которые относятся к Yandex StoreDoc.
+При [создании](../operations/cluster-create.md) или [изменении](../operations/update.md#change-mongod-config) кластера {{ mmg-name }} можно задать настройки, которые относятся к {{ SD }}.
 
 Метки рядом с названием настройки позволяют определить, с помощью какого интерфейса задается значение этой настройки: консоль управления, CLI или [API](../../glossary/rest-api.md).
 
@@ -14,7 +14,7 @@
 
 ## Зависимость настроек от класса хостов {#settings-instance-dependent}
 
-Значения некоторых настроек Yandex StoreDoc могут быть автоматически скорректированы при изменении класса хостов:
+Значения некоторых настроек {{ SD }} могут быть автоматически скорректированы при изменении класса хостов:
 
 * Если значения не были заданы или не подходят новому классу, будут применены настройки по умолчанию для этого класса.
 * Если заданные вручную настройки подходят для нового класса, они не будут изменены.
@@ -26,7 +26,7 @@
 
 ## Настройки СУБД уровня кластера {#dbms-cluster-settings}
 
-- **Storage**{#setting-storage} <code><b><small>Все интерфейсы</small></b></code>
+- **Storage**{#setting-storage} {{ tag-all }}
 
   {% note info %}
 
@@ -39,7 +39,7 @@
 
   - **Journal → Commit interval**{#setting-journal-commit-interval}
   
-    Интервал в миллисекундах между сохранениями данных журнала Yandex StoreDoc на диск.
+    Интервал в миллисекундах между сохранениями данных журнала {{ SD }} на диск.
 
     Минимальное значение — `1`, максимальное значение — `500`, значение по умолчанию — `300`.
 
@@ -66,7 +66,7 @@
       - Максимальное значение — `0,9 × <объем_RAM_на_хосте>`.
       - Значение по умолчанию — `0,5 × <объем_RAM_на_хосте>`.
 
-      Например, для хостов класса s1.medium (8 vCPU, 32 ГБ) максимальное значение настройки — `28.8`, значение по умолчанию — `16`.
+      Например, для хостов класса {{ s1-medium }} максимальное значение настройки — `28.8`, значение по умолчанию — `16`.
 
 
     - **Index config → Prefix compression**{#setting-prefix-compression}
@@ -76,7 +76,7 @@
       Значение по умолчанию — `true` (сжатие префиксов включено).
 
 
-- **Operation profiling**{#setting-operation-profiling} <code><b><small>Все интерфейсы</small></b></code>
+- **Operation profiling**{#setting-operation-profiling} {{ tag-all }}
 
   {% note info  %}
 
@@ -109,7 +109,7 @@
     Минимальное значение — `0`, максимальное значение — `36000000` (10 часов), значение по умолчанию — `300`.
 
 
-- **Net**{#setting-net} <code><b><small>Все интерфейсы</small></b></code>
+- **Net**{#setting-net} {{ tag-all }}
 
   Настройки сетевого взаимодействия.
 
@@ -128,7 +128,7 @@
     Значение `disabled` отключает сжатие. Значение по умолчанию — `snappy,zstd,zlib`.
 
 
-- **Audit Log**{#setting-audit-log} <code><b><small>Все интерфейсы</small></b></code>
+- **Audit Log**{#setting-audit-log} {{ tag-all }}
 
   Настройки логов системы аудита.
 
@@ -144,21 +144,21 @@
 
   {% note info %}
 
-  Вы также можете [настроить](../../audit-trails/operations/create-trail.md) выгрузку [аудитных логов](../at-ref.md) кластера в [трейл](../../audit-trails/concepts/trail.md) с помощью сервиса [Yandex Audit Trails](../../audit-trails/index.md).
+  Вы также можете [настроить](../../audit-trails/operations/create-trail.md) выгрузку [аудитных логов](../at-ref.md) кластера в [трейл](../../audit-trails/concepts/trail.md) с помощью сервиса [{{ at-full-name }}](../../audit-trails/index.md).
 
   {% endnote %}
 
 
 - **Set parameter**{#setting-set-parameter}
 
-  - **Enable flow control**{#setting-enable-flow-control} <code><b><small>Все интерфейсы</small></b></code>
+  - **Enable flow control**{#setting-enable-flow-control} {{ tag-all }}
 
     Определяет, будет ли контролироваться скорость, с которой основной хост выполняет операции записи. Включение параметра гарантирует, что у хостов-реплик метрика «большинство записало изменение» будет не больше предустановленного значения в 10 секунд.
 
     Значение по умолчанию — `false` (контроль скорости отключен).
 
 
-  - **Min snapshot history window in seconds**{#setting-min-snapshot-history-window-in-seconds} <code><b><small>Все интерфейсы</small></b></code>
+  - **Min snapshot history window in seconds**{#setting-min-snapshot-history-window-in-seconds} {{ tag-all }}
 
     {% note info %}
 

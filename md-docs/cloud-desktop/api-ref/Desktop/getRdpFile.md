@@ -5,7 +5,7 @@ Returns a RDP file for the specified desktop.
 ## HTTP request
 
 ```
-GET https://clouddesktops.api.cloud.yandex.net/cloud-desktop/v1/desktops/{desktopId}:getRdpFile
+GET https://clouddesktops.{{ api-host }}/cloud-desktop/v1/desktops/{desktopId}:getRdpFile
 ```
 
 ## Path parameters
@@ -15,7 +15,6 @@ GET https://clouddesktops.api.cloud.yandex.net/cloud-desktop/v1/desktops/{deskto
 || desktopId | **string**
 
 Required field. ID of the desktop resource to return.
-
 To get the desktop ID use a [DesktopService.List](list.md#List) request.
 
 The maximum string length in characters is 50. ||

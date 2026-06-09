@@ -5,7 +5,7 @@ Set community restrictions.
 ## HTTP request
 
 ```
-POST https://datasphere.api.cloud.yandex.net/datasphere/v2/communities/{communityId}:setRestrictions
+POST https://datasphere.{{ api-host }}/datasphere/v2/communities/{communityId}:setRestrictions
 ```
 
 ## Path parameters

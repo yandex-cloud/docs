@@ -58,7 +58,7 @@ output:
 
 ## Выход yc_metrics {#yc_metrics_output}
 
-Выход для записи метрик в Yandex Monitoring API.
+Выход для записи метрик в {{ monitoring-full-name }} API.
 
 Описание параметров:
 
@@ -68,7 +68,7 @@ output:
         plugin: yc_metrics
         config:
         # URL, на который будут отправляться метрики.
-        url: https://monitoring.api.cloud.yandex.net/monitoring/v2/data/write  # необязательный, по умолчанию https://monitoring.api.cloud.yandex.net/monitoring/v2/data/write
+        url: https://monitoring.{{ api-host }}/monitoring/v2/data/write  # необязательный, по умолчанию https://monitoring.{{ api-host }}/monitoring/v2/data/write
 
         folder_id: b1ge2vt0gml6********  # обязательный, идентификатор каталога
 
@@ -84,7 +84,7 @@ output:
             # Имя файла с параметрами JWT в формате, который возвращает команда `yc iam key create`.
                 file: "jwt_params.json"  # обязательный
 
-                endpoint: iam.api.cloud.yandex.net  # необязательный, по умолчанию iam.api.cloud.yandex.net
+                endpoint: iam.{{ api-host }}  # необязательный, по умолчанию iam.{{ api-host }}
 
                 refresh_period: 1h  # необязательный, по умолчанию 1h
 
@@ -108,11 +108,11 @@ output:
 
 ## Выход yc_logs {#yc_logs_output}
 
-Выход для отправки логов в [Yandex Cloud Logging](../../../../logging/index.md) по протоколу [grpc](../../../../logging/api-ref/grpc/LogIngestion/index.md).
+Выход для отправки логов в [{{ cloud-logging-full-name }}](../../../../logging/index.md) по протоколу [grpc](../../../../logging/api-ref/grpc/LogIngestion/index.md).
 
 {% note info %}
 
-Unified Agent устраняет дубликаты сообщений в целевой системе, но не гарантирует их отсутствие. Дубликаты могут возникать при остановке и повторном запуске.
+{{ unified-agent-short-name }} устраняет дубликаты сообщений в целевой системе, но не гарантирует их отсутствие. Дубликаты могут возникать при остановке и повторном запуске.
 
 {% endnote %}
 
@@ -125,7 +125,7 @@ Unified Agent устраняет дубликаты сообщений в цел
       plugin: yc_logs
       config:
         # Необязательный. URL, на который будут отправляться логи
-        url: "ingester.logging.yandexcloud.net:443"
+        url: "{{ logging-endpoint-ingester }}:443"
 
         # Необязательный. Использовать SSL-соединение.
         use_ssl: null # директива выключает SSL, по умолчанию SSL включен

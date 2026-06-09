@@ -4,7 +4,7 @@
 
 ## Перед началом работы {#before-begin}
 
-[Создайте каталог](../../../resource-manager/operations/folder/create.md) в Yandex Cloud.
+[Создайте каталог](../../../resource-manager/operations/folder/create.md) в {{ yandex-cloud }}.
 
 ## Создайте функцию {#create-func}
 
@@ -12,15 +12,15 @@
 
 - Консоль управления {#console}
 
-    1. В [консоли управления](https://console.yandex.cloud) перейдите в каталог, в котором хотите создать функцию.
-    1. [Перейдите](../../../console/operations/select-service.md#select-service) в сервис **Cloud Functions**.
-    1. Нажмите кнопку **Создать функцию**.
+    1. В [консоли управления]({{ link-console-main }}) перейдите в каталог, в котором хотите создать функцию.
+    1. Перейдите в сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_serverless-functions }}**.
+    1. Нажмите кнопку **{{ ui-key.yacloud.serverless-functions.list.button_create }}**.
     1. Введите имя функции — `dotnet-function`.
-    1. Нажмите кнопку **Создать**.
+    1. Нажмите кнопку **{{ ui-key.yacloud.common.create }}**.
 
 - CLI {#cli}
 
-    Если у вас еще нет интерфейса командной строки Yandex Cloud (CLI), [установите и инициализируйте его](../../../cli/quickstart.md#install).
+    Если у вас еще нет интерфейса командной строки {{ yandex-cloud }} (CLI), [установите и инициализируйте его](../../../cli/quickstart.md#install).
 
     По умолчанию используется каталог, указанный при [создании](../../../cli/operations/profile/profile-create.md) профиля CLI. Чтобы изменить каталог по умолчанию, используйте команду `yc config set folder-id <идентификатор_каталога>`. Также для любой команды вы можете указать другой каталог с помощью параметров `--folder-name` или `--folder-id`. Если вы обращаетесь к ресурсу по имени, поиск будет выполнен в каталоге по умолчанию. Если вы обращаетесь к ресурсу по идентификатору, поиск будет выполнен глобально — во всех каталогах с учетом прав доступа.
 
@@ -38,7 +38,7 @@
     created_at: "2019-06-14T10:03:37.475Z"
     name: dotnet-function
     log_group_id: eolm8aoq9vcp********
-    http_invoke_url: https://functions.yandexcloud.net/b09bhaokchn9********
+    http_invoke_url: https://{{ sf-url }}/b09bhaokchn9********
     status: ACTIVE
     ```
 
@@ -55,7 +55,7 @@
 
 {% note warning %}
 
-Файл больше 3,5 МБ необходимо [загружать через Object Storage](../../../storage/operations/objects/upload.md). Подробнее об ограничениях читайте в разделе [Квоты и лимиты в Cloud Functions](../../concepts/limits.md).
+Файл больше 3,5 МБ необходимо [загружать через {{ objstorage-short-name }}](../../../storage/operations/objects/upload.md). Подробнее об ограничениях читайте в разделе [{#T}](../../concepts/limits.md).
 
 {% endnote %}
 
@@ -121,24 +121,24 @@
 
 - Консоль управления {#console}
 
-    1. В [консоли управления](https://console.yandex.cloud) перейдите в каталог, в котором находится функция.
-    1. [Перейдите](../../../console/operations/select-service.md#select-service) в сервис **Cloud Functions**.
+    1. В [консоли управления]({{ link-console-main }}) перейдите в каталог, в котором находится функция.
+    1. Перейдите в сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_serverless-functions }}**.
     1. Выберите функцию `dotnet-function`.
-    1. В разделе **Последняя версия** нажмите кнопку **Создать в редакторе**.
+    1. В разделе **{{ ui-key.yacloud.serverless-functions.item.overview.label_title-latest-version }}** нажмите кнопку **{{ ui-key.yacloud.serverless-functions.item.overview.button_editor-create }}**.
     1. Выберите среду выполнения `.NET 8.0`.
-    1. Отключите опцию **Добавить файлы с примерами кода** и нажмите кнопку **Продолжить**.
+    1. Отключите опцию **{{ ui-key.yacloud.serverless-functions.item.editor.label_with-template }}** и нажмите кнопку **{{ ui-key.yacloud.serverless-functions.item.editor.button_action-continue }}**.
     1. Задайте параметры версии:
-        * **Источник кода** — `ZIP-архив`.
-        * **Файл** — прикрепите файл `hello-dotnet.zip`.
-        * **Точка входа** — `Function.Handler`.
-        * **Таймаут** — `3`.
-        * **Память** — `128 МБ`.
-        * **Сервисный аккаунт** — `Не выбрано`.
-    1. Нажмите кнопку **Сохранить изменения**.
+        * **{{ ui-key.yacloud.serverless-functions.item.editor.field_code-source }}** — `{{ ui-key.yacloud.serverless-functions.item.editor.value_method-zip-file }}`.
+        * **{{ ui-key.yacloud.serverless-functions.item.editor.field_file }}** — прикрепите файл `hello-dotnet.zip`.
+        * **{{ ui-key.yacloud.serverless-functions.item.editor.field_entry }}** — `Function.Handler`.
+        * **{{ ui-key.yacloud.serverless-functions.item.editor.field_timeout }}** — `3`.
+        * **{{ ui-key.yacloud.serverless-functions.item.editor.field_resources-memory }}** — `128 {{ ui-key.yacloud.common.units.label_megabyte }}`.
+        * **{{ ui-key.yacloud.forms.label_service-account-select }}** — `{{ ui-key.yacloud.component.service-account-select.label_no-service-account }}`.
+    1. Нажмите кнопку **{{ ui-key.yacloud.serverless-functions.item.editor.button_deploy-version }}**.
 
 - CLI {#cli}
 
-    Если у вас еще нет интерфейса командной строки Yandex Cloud (CLI), [установите и инициализируйте его](../../../cli/quickstart.md#install).
+    Если у вас еще нет интерфейса командной строки {{ yandex-cloud }} (CLI), [установите и инициализируйте его](../../../cli/quickstart.md#install).
 
     По умолчанию используется каталог, указанный при [создании](../../../cli/operations/profile/profile-create.md) профиля CLI. Чтобы изменить каталог по умолчанию, используйте команду `yc config set folder-id <идентификатор_каталога>`. Также для любой команды вы можете указать другой каталог с помощью параметров `--folder-name` или `--folder-id`. Если вы обращаетесь к ресурсу по имени, поиск будет выполнен в каталоге по умолчанию. Если вы обращаетесь к ресурсу по идентификатору, поиск будет выполнен глобально — во всех каталогах с учетом прав доступа.
 
@@ -193,7 +193,7 @@
 
 {% note info %}
 
-Чтобы любой пользователь мог вызывать функцию, необходимо [сделать ее публичной](../../operations/function/function-public.md). Подробнее о правах читайте в разделе [Управление доступом в Cloud Functions](../../security/index.md).
+Чтобы любой пользователь мог вызывать функцию, необходимо [сделать ее публичной](../../operations/function/function-public.md). Подробнее о правах читайте в разделе [{#T}](../../security/index.md).
 
 {% endnote %}
 
@@ -201,19 +201,19 @@
 
 - Консоль управления {#console}
 
-    1. В [консоли управления](https://console.yandex.cloud) перейдите в каталог, в котором находится функция.
-    1. [Перейдите](../../../console/operations/select-service.md#select-service) в сервис **Cloud Functions**.
+    1. В [консоли управления]({{ link-console-main }}) перейдите в каталог, в котором находится функция.
+    1. Перейдите в сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_serverless-functions }}**.
     1. Выберите функцию.
-    1. Перейдите на вкладку ![CirclePlay](../../../_assets/console-icons/circle-play.svg) **Тестирование**.
-    1. В поле **Тег версии** выберите `$latest`, чтобы вызвать последнюю версию функции.
-    1. В поле **Шаблон данных** выберите `Без шаблона`.
-    1. В поле **Входные данные** введите:
+    1. Перейдите на вкладку ![CirclePlay](../../../_assets/console-icons/circle-play.svg) **{{ ui-key.yacloud.serverless-functions.item.switch_testing }}**.
+    1. В поле **{{ ui-key.yacloud.serverless-functions.item.testing.field_tag }}** выберите `$latest`, чтобы вызвать последнюю версию функции.
+    1. В поле **{{ ui-key.yacloud.serverless-functions.item.testing.field_payload-template }}** выберите `{{ ui-key.yacloud.serverless-functions.item.testing.value_empty }}`.
+    1. В поле **{{ ui-key.yacloud.serverless-functions.item.testing.field_payload }}** введите:
        ```
        {"queryStringParameters": {"name": "Username"}}
        ```
-    1. Нажмите кнопку ![PlayFill](../../../_assets/console-icons/play-fill.svg) **Запустить тест**.
-    1. В разделе **Результат тестирования**, в поле **Состояние функции**, будет показан статус тестирования. **Важно**: максимальное время выполнения функции до [таймаута](../../operations/function/version-manage.md) (включая начальную инициализацию при первом запуске) — 10 минут.
-    1. В поле **Ответ функции** появится результат выполнения функции:
+    1. Нажмите кнопку ![PlayFill](../../../_assets/console-icons/play-fill.svg) **{{ ui-key.yacloud.serverless-functions.item.testing.button_run-test }}**.
+    1. В разделе **{{ ui-key.yacloud.serverless-functions.item.testing.label_title-test-result }}**, в поле **{{ ui-key.yacloud.serverless-functions.item.testing.field_execution-result }}**, будет показан статус тестирования. **Важно**: максимальное время выполнения функции до [таймаута](../../operations/function/version-manage.md) (включая начальную инициализацию при первом запуске) — 10 минут.
+    1. В поле **{{ ui-key.yacloud.serverless-functions.item.testing.field_function-output }}** появится результат выполнения функции:
        ```
        {
          "statusCode": 200,
@@ -227,7 +227,7 @@
 
 - CLI {#cli}
 
-    Если у вас еще нет интерфейса командной строки Yandex Cloud (CLI), [установите и инициализируйте его](../../../cli/quickstart.md#install).
+    Если у вас еще нет интерфейса командной строки {{ yandex-cloud }} (CLI), [установите и инициализируйте его](../../../cli/quickstart.md#install).
 
     По умолчанию используется каталог, указанный при [создании](../../../cli/operations/profile/profile-create.md) профиля CLI. Чтобы изменить каталог по умолчанию, используйте команду `yc config set folder-id <идентификатор_каталога>`. Также для любой команды вы можете указать другой каталог с помощью параметров `--folder-name` или `--folder-id`. Если вы обращаетесь к ресурсу по имени, поиск будет выполнен в каталоге по умолчанию. Если вы обращаетесь к ресурсу по идентификатору, поиск будет выполнен глобально — во всех каталогах с учетом прав доступа.
 
@@ -247,12 +247,12 @@
 
 - HTTPS {#https}
 
-	Ссылку для вызова функции можно найти на вкладке **Обзор**, в поле **Ссылка для вызова**.
+	Ссылку для вызова функции можно найти на вкладке **{{ ui-key.yacloud.common.overview }}**, в поле **{{ ui-key.yacloud.serverless-functions.item.overview.label_invoke-link }}**.
 
 	Для обеспечения безопасности функцию можно вызвать только по протоколу HTTPS. Вызовите ее как обычный HTTPS-запрос, вставив ссылку в адресную строку браузера и добавив в URL параметр `name`:
 
 	```
-	https://functions.yandexcloud.net/<идентификатор_функции>?name=Username
+	https://{{ sf-url }}/<идентификатор_функции>?name=Username
 	```
 
 	На странице появится ответ:
@@ -266,6 +266,6 @@
 
 ## Что дальше {#what-is-next}
 
-- Прочитайте, какой должна быть структура функции для вызова разными способами (HTTP, CLI), в разделе [Вызов функции в Cloud Functions](../../concepts/function-invoke.md).
+- Прочитайте, какой должна быть структура функции для вызова разными способами (HTTP, CLI), в разделе [{#T}](../../concepts/function-invoke.md).
 - Ознакомьтесь с [концепциями сервиса](../../concepts/index.md).
 - Посмотрите, что можно делать с функциями и версиями в [пошаговых инструкциях](../../operations/index.md).

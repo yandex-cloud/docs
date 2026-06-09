@@ -5,7 +5,7 @@ Writes image product's usage. Authentication is by user's service account.
 ## HTTP request
 
 ```
-POST https://marketplace.api.cloud.yandex.net/marketplace/metering/v1/imageProductUsage/write
+POST https://marketplace.{{ api-host }}/marketplace/metering/v1/imageProductUsage/write
 ```
 
 ## Body parameters {#yandex.cloud.marketplace.metering.v1.WriteImageProductUsageRequest}

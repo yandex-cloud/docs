@@ -28,8 +28,8 @@ SELECT
     JSON_QUERY($json, "$.friends[0]");       -- запрос на получение данных из объекта.
 ```
 
-Рассмотрите пример в блоке справа и нажмите кнопку ![run](../../_assets/console-icons/play-fill.svg) **Выполнить**.
-Результат выполнения запроса отобразится на вкладке **Результат** в виде таблицы или схемы.
+Рассмотрите пример в блоке справа и нажмите кнопку ![run](../../_assets/console-icons/play-fill.svg) **{{ ui-key.yql.yq-query-actions.run-query.button-text }}**.
+Результат выполнения запроса отобразится на вкладке **{{ ui-key.yql.yq-query-results.result.tab-text }}** в виде таблицы или схемы.
 
 ## Экранирование кавычек в JSON {#escaping-json}
 
@@ -49,8 +49,8 @@ VALUES
 
 #### См. также {#see-also}
 
-* Оператор [SELECT](https://ydb.tech/docs/ru//yql/reference/syntax/select)
-* Функция [JSON_EXISTS](https://ydb.tech/docs/ru//yql/reference/builtins/json#json_exists)
-* Функция [JSON_VALUE](https://ydb.tech/docs/ru//yql/reference/builtins/json#json_value)
-* Функция [JSON_QUERY](https://ydb.tech/docs/ru//yql/reference/builtins/json#json_query)
-* [Функции для работы с JSON](https://ydb.tech/docs/ru//yql/reference/builtins/json)
+* Оператор [SELECT]({{ ydb.docs }}/yql/reference/syntax/select)
+* Функция [JSON_EXISTS]({{ ydb.docs }}/yql/reference/builtins/json#json_exists)
+* Функция [JSON_VALUE]({{ ydb.docs }}/yql/reference/builtins/json#json_value)
+* Функция [JSON_QUERY]({{ ydb.docs }}/yql/reference/builtins/json#json_query)
+* [Функции для работы с JSON]({{ ydb.docs }}/yql/reference/builtins/json)

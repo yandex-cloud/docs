@@ -22,13 +22,13 @@
 
 - Консоль управления {#console}
 
-  1. В [консоли управления](https://console.yandex.cloud) выберите каталог.
-  1. [Перейдите](../../../console/operations/select-service.md#select-service) в сервис **Object Storage**.
+  1. В [консоли управления]({{ link-console-main }}) выберите каталог.
+  1. Перейдите в сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_storage }}**.
   1. Выберите бакет, для которого хотите настроить блокировку.
-  1. На панели слева выберите ![image](../../../_assets/console-icons/persons-lock.svg) **Безопасность**.
-  1. Выберите вкладку **Блокировки объектов**.
-  1. Чтобы включить возможность работать с блокировками, включите опцию **Включить блокировки**.
-  1. Нажмите **Сохранить**.
+  1. На панели слева выберите ![image](../../../_assets/console-icons/persons-lock.svg) **{{ ui-key.yacloud.storage.bucket.switch_security }}**.
+  1. Выберите вкладку **{{ ui-key.yacloud.storage.bucket.switch_object-lock }}**.
+  1. Чтобы включить возможность работать с блокировками, включите опцию **{{ ui-key.yacloud.storage.form.BucketObjectLockFormContent.field_temp-object-lock-enabled_v3heA }}**.
+  1. Нажмите **{{ ui-key.yacloud.common.save }}**.
 
 - AWS CLI {#cli}
 
@@ -40,21 +40,24 @@
   aws s3api put-object-lock-configuration \
     --bucket <имя_бакета> \
     --object-lock-configuration ObjectLockEnabled=Enabled \
-    --endpoint-url=https://storage.yandexcloud.net
+    --endpoint-url=https://{{ s3-storage-host }}
   ```
 
   Где:
 
   * `--bucket` — имя бакета.
   * `--object-lock-configuration` — настройки блокировок в бакете. Значение `ObjectLockEnabled=Enabled` включает механизм блокировок.
-  * `--endpoint-url` — эндпоинт Object Storage.
+  * `--endpoint-url` — эндпоинт {{ objstorage-name }}.
 
-- Terraform {#tf}
+- {{ TF }} {#tf}
 
-  Если у вас еще нет Terraform, [установите его и настройте провайдер Yandex Cloud](../../../tutorials/infrastructure-management/terraform-quickstart.md#install-terraform).
+  Если у вас еще нет {{ TF }}, [установите его и настройте провайдер {{ yandex-cloud }}](../../../tutorials/infrastructure-management/terraform-quickstart.md#install-terraform).
+  
+  
+  Чтобы управлять инфраструктурой с помощью {{ TF }} от имени сервисного аккаунта или пользовательских аккаунтов: аккаунта на Яндексе, федеративного аккаунта и локального пользователя, [аутентифицируйтесь](../../../terraform/authentication.md) соответствующим способом.
 
 
-  1. Откройте файл конфигурации Terraform и добавьте к описанию бакета блок `object_lock_configuration`:
+  1. Откройте файл конфигурации {{ TF }} и добавьте к описанию бакета блок `object_lock_configuration`:
 
       ```hcl
       resource "yandex_storage_bucket" "b" {
@@ -70,7 +73,7 @@
       * `object_lock_configuration` — настройки блокировки версий объектов:
         * `object_lock_enabled` — включает блокировку версий объектов. Требует включенное версионирование бакета. Необязательный параметр.
 
-      Более подробную информацию о параметрах бакета, которые вы можете задать с помощью Terraform, см. в [документации провайдера](../../../terraform/resources/storage_bucket.md).
+      Более подробную информацию о параметрах бакета, которые вы можете задать с помощью {{ TF }}, см. в [документации провайдера]({{ tf-provider-resources-link }}/storage_bucket).
 
   1. Создайте ресурсы:
 
@@ -93,7 +96,7 @@
          terraform plan
          ```
       
-         В терминале будет выведен список ресурсов с параметрами. На этом этапе изменения не будут внесены. Если в конфигурации есть ошибки, Terraform на них укажет.
+         В терминале будет выведен список ресурсов с параметрами. На этом этапе изменения не будут внесены. Если в конфигурации есть ошибки, {{ TF }} на них укажет.
       1. Примените изменения конфигурации:
       
          ```bash
@@ -136,18 +139,18 @@
 
 - Консоль управления {#console}
 
-  1. В [консоли управления](https://console.yandex.cloud) выберите каталог.
-  1. [Перейдите](../../../console/operations/select-service.md#select-service) в сервис **Object Storage**.
+  1. В [консоли управления]({{ link-console-main }}) выберите каталог.
+  1. Перейдите в сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_storage }}**.
   1. Выберите бакет, для которого хотите настроить блокировку по умолчанию.
-  1. На панели слева выберите ![image](../../../_assets/console-icons/persons-lock.svg) **Безопасность**.
-  1. Выберите вкладку **Блокировки объектов**.
-  1. Чтобы включить или выключить возможность работать с блокировками, используйте опцию **Включить блокировки**.
-  1. Включите опцию **Блокировки по умолчанию для новых версий**.
-  1. Выберите **Тип блокировки по умолчанию**:
-     * **Временная управляемая (governance)** — пользователь с ролью `storage.admin` может обойти блокировку, изменить ее срок или снять ее.
-     * **Временная строгая (compliance)** — пользователь с ролью `storage.admin` может только продлить блокировку. Обойти, сократить или снять блокировку до ее окончания нельзя.
-  1. Установите **Срок блокировки по умолчанию** в днях или годах. Отсчитывается от момента, когда версия объекта загружена в бакет.
-  1. Нажмите **Сохранить**.
+  1. На панели слева выберите ![image](../../../_assets/console-icons/persons-lock.svg) **{{ ui-key.yacloud.storage.bucket.switch_security }}**.
+  1. Выберите вкладку **{{ ui-key.yacloud.storage.bucket.switch_object-lock }}**.
+  1. Чтобы включить или выключить возможность работать с блокировками, используйте опцию **{{ ui-key.yacloud.storage.form.BucketObjectLockFormContent.field_temp-object-lock-enabled_v3heA }}**.
+  1. Включите опцию **{{ ui-key.yacloud.storage.form.BucketObjectLockFormContent.field_default-rules-enabled_qtmC8 }}**.
+  1. Выберите **{{ ui-key.yacloud.storage.form.BucketObjectLockFormContent.field_mode_61kxf }}**:
+     * **{{ ui-key.yacloud.storage.file.value_object-lock-mode-governance }}** — пользователь с ролью `storage.admin` может обойти блокировку, изменить ее срок или снять ее.
+     * **{{ ui-key.yacloud.storage.file.value_object-lock-mode-compliance }}** — пользователь с ролью `storage.admin` может только продлить блокировку. Обойти, сократить или снять блокировку до ее окончания нельзя.
+  1. Установите **{{ ui-key.yacloud.storage.form.BucketObjectLockFormContent.field_retention-period_jJYhy }}** в днях или годах. Отсчитывается от момента, когда версия объекта загружена в бакет.
+  1. Нажмите **{{ ui-key.yacloud.common.save }}**.
 
 - AWS CLI {#cli}
 
@@ -194,21 +197,24 @@
      aws s3api put-object-lock-configuration \
        --bucket <имя_бакета> \
        --object-lock-configuration file://default-object-lock.json \
-       --endpoint-url=https://storage.yandexcloud.net
+       --endpoint-url=https://{{ s3-storage-host }}
      ```
 
      Где:
 
      * `--bucket` — имя бакета.
      * `--object-lock-configuration` — настройки блокировок по умолчанию. В данном случае указаны в файле `default-object-lock.json`.
-     * `--endpoint-url` — эндпоинт Object Storage.
+     * `--endpoint-url` — эндпоинт {{ objstorage-name }}.
 
-- Terraform {#tf}
+- {{ TF }} {#tf}
 
-  Если у вас еще нет Terraform, [установите его и настройте провайдер Yandex Cloud](../../../tutorials/infrastructure-management/terraform-quickstart.md#install-terraform).
+  Если у вас еще нет {{ TF }}, [установите его и настройте провайдер {{ yandex-cloud }}](../../../tutorials/infrastructure-management/terraform-quickstart.md#install-terraform).
+  
+  
+  Чтобы управлять инфраструктурой с помощью {{ TF }} от имени сервисного аккаунта или пользовательских аккаунтов: аккаунта на Яндексе, федеративного аккаунта и локального пользователя, [аутентифицируйтесь](../../../terraform/authentication.md) соответствующим способом.
 
 
-  1. Откройте файл конфигурации Terraform и  добавьте настройки блокировок по умолчанию в блок `object_lock_configuration`:
+  1. Откройте файл конфигурации {{ TF }} и  добавьте настройки блокировок по умолчанию в блок `object_lock_configuration`:
 
       ```
       ...
@@ -227,7 +233,7 @@
         * `mode` — тип блокировки. Может принимать значения `GOVERNANCE` или `COMPLIANCE`. Необязательный параметр.
         * `years` или `days` — время, на которое распространяется блокировка объекта. Указывается в виде числа. Необязательный параметр.
 
-     Более подробную информацию о параметрах ресурса `yandex_storage_bucket` в Terraform см. в [документации провайдера](../../../terraform/resources/storage_bucket.md).
+     Более подробную информацию о параметрах ресурса `yandex_storage_bucket` в {{ TF }} см. в [документации провайдера]({{ tf-provider-resources-link }}/storage_bucket).
 
   1. Примените изменения:
 
@@ -250,7 +256,7 @@
          terraform plan
          ```
       
-         В терминале будет выведен список ресурсов с параметрами. На этом этапе изменения не будут внесены. Если в конфигурации есть ошибки, Terraform на них укажет.
+         В терминале будет выведен список ресурсов с параметрами. На этом этапе изменения не будут внесены. Если в конфигурации есть ошибки, {{ TF }} на них укажет.
       1. Примените изменения конфигурации:
       
          ```bash
@@ -292,13 +298,13 @@
 
 - Консоль управления {#console}
 
-  1. В [консоли управления](https://console.yandex.cloud) выберите каталог.
-  1. [Перейдите](../../../console/operations/select-service.md#select-service) в сервис **Object Storage**.
+  1. В [консоли управления]({{ link-console-main }}) выберите каталог.
+  1. Перейдите в сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_storage }}**.
   1. Выберите бакет, для которого хотите настроить блокировку.
-  1. На панели слева выберите ![image](../../../_assets/console-icons/persons-lock.svg) **Безопасность**.
-  1. Выберите вкладку **Блокировки объектов**.
-  1. Чтобы выключить возможность работать с блокировками, выключите опцию **Включить блокировки**.
-  1. Нажмите **Сохранить**.
+  1. На панели слева выберите ![image](../../../_assets/console-icons/persons-lock.svg) **{{ ui-key.yacloud.storage.bucket.switch_security }}**.
+  1. Выберите вкладку **{{ ui-key.yacloud.storage.bucket.switch_object-lock }}**.
+  1. Чтобы выключить возможность работать с блокировками, выключите опцию **{{ ui-key.yacloud.storage.form.BucketObjectLockFormContent.field_temp-object-lock-enabled_v3heA }}**.
+  1. Нажмите **{{ ui-key.yacloud.common.save }}**.
 
 - AWS CLI {#cli}
 
@@ -310,23 +316,26 @@
   aws s3api put-object-lock-configuration \
     --bucket <имя_бакета> \
     --object-lock-configuration ObjectLockEnabled="" \
-    --endpoint-url=https://storage.yandexcloud.net
+    --endpoint-url=https://{{ s3-storage-host }}
   ```
 
   Где:
 
   * `--bucket` — имя бакета.
   * `--object-lock-configuration` — настройки блокировок в бакете. Значение `ObjectLockEnabled=""` отключает механизм блокировок.
-  * `--endpoint-url` — эндпоинт Object Storage.
+  * `--endpoint-url` — эндпоинт {{ objstorage-name }}.
 
-- Terraform {#tf}
+- {{ TF }} {#tf}
 
-  Если у вас еще нет Terraform, [установите его и настройте провайдер Yandex Cloud](../../../tutorials/infrastructure-management/terraform-quickstart.md#install-terraform).
+  Если у вас еще нет {{ TF }}, [установите его и настройте провайдер {{ yandex-cloud }}](../../../tutorials/infrastructure-management/terraform-quickstart.md#install-terraform).
+  
+  
+  Чтобы управлять инфраструктурой с помощью {{ TF }} от имени сервисного аккаунта или пользовательских аккаунтов: аккаунта на Яндексе, федеративного аккаунта и локального пользователя, [аутентифицируйтесь](../../../terraform/authentication.md) соответствующим способом.
 
 
-  1. Откройте файл конфигурации Terraform и удалите блок `object_lock_configuration`:
+  1. Откройте файл конфигурации {{ TF }} и удалите блок `object_lock_configuration`:
 
-      {% cut "Пример описания блокировки версий объектов в конфигурации Terraform" %}
+      {% cut "Пример описания блокировки версий объектов в конфигурации {{ TF }}" %}
 
         ```
         ...
@@ -365,7 +374,7 @@
          terraform plan
          ```
       
-         В терминале будет выведен список ресурсов с параметрами. На этом этапе изменения не будут внесены. Если в конфигурации есть ошибки, Terraform на них укажет.
+         В терминале будет выведен список ресурсов с параметрами. На этом этапе изменения не будут внесены. Если в конфигурации есть ошибки, {{ TF }} на них укажет.
       1. Примените изменения конфигурации:
       
          ```bash

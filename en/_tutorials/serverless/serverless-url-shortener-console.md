@@ -66,11 +66,11 @@ To create a service account to enable interaction between the shortener componen
 
 - Management console {#console}
 
-  1. Navigate to your working folder.
-  1. [Go](../../console/operations/select-service.md#select-service) to **{{ ui-key.yacloud.iam.folder.dashboard.label_iam }}**.
+  1. In the [management console]({{ link-console-main }}), select the folder.
+  1. [Navigate](../../console/operations/select-service.md#select-service) to **{{ ui-key.yacloud.iam.folder.dashboard.label_iam }}**.
   1. Click **{{ ui-key.yacloud.iam.folder.service-accounts.button_add }}**.
-  1. Enter a name for the service account: `serverless-shortener`.
-  1. Click **{{ ui-key.yacloud.iam.folder.service-account.label_add-role }}** and select `editor`.
+  1. Name the [service account](../../iam/concepts/users/service-accounts.md): `serverless-shortener`.
+  1. Click ![image](../../_assets/console-icons/plus.svg) **{{ ui-key.yacloud.iam.folder.service-account.label_add-role }}** and select `editor`.
   1. Click **{{ ui-key.yacloud.iam.folder.service-account.popup-robot_button_add }}**.
   1. Click the name of the service account you created.
 
@@ -103,7 +103,7 @@ To create a database in {{ ydb-name }} and configure it to store URLs:
   1. Configure the table:
      * **{{ ui-key.yacloud.ydb.table.form.field_name }}** tables: `links`.
      * **{{ ui-key.yacloud.ydb.table.form.field_type }}**: `{{ ui-key.yacloud.ydb.table.form.label_row-table }}`.
-  1. Add these columns:
+  1. Add columns:
      * Column name: `id`; data type: `Utf8`. Set **{{ ui-key.yacloud.ydb.table.form.column_primary-key }}**.
      * Column name: `link`; data type: `Utf8`.
   1. Click **{{ ui-key.yacloud.ydb.table.create.button_create }}**.
@@ -224,7 +224,7 @@ To publish your URL shortener via {{ api-gw-name }}:
 
 ## How to delete the resources you created {#clear-out}
 
-To stop incurring charges for the resources you created:
+To stop paying for the resources you created:
 1. [Delete](../../api-gateway/operations/api-gw-delete.md) `for-serverless-shortener`.
 1. [Delete](../../functions/operations/function/function-delete.md) the function in `for-serverless-shortener`.
 1. [Delete](../../ydb/operations/manage-databases.md#delete-db) the `for-serverless-shortener` YDB database.

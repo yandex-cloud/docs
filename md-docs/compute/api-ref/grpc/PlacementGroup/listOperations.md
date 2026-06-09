@@ -21,7 +21,6 @@ Lists operations for the specified placement group.
 || placement_group_id | **string**
 
 ID of the placement group to list operations for.
-
 To get the placement group ID, use [PlacementGroupService.List](list.md#List) request. ||
 || page_size | **int64**
 

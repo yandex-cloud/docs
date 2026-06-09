@@ -1,6 +1,6 @@
-# Масштабирование группы виртуальных машин по расписанию с помощью Terraform
+# Масштабирование группы виртуальных машин по расписанию с помощью {{ TF }}
 
-Чтобы настроить [масштабирование группы виртуальных машин по расписанию](index.md) с помощью Terraform:
+Чтобы настроить [масштабирование группы виртуальных машин по расписанию](index.md) с помощью {{ TF }}:
 
 1. [Подготовьте облако к работе](#before-begin).
 1. [Создайте инфраструктуру](#deploy).
@@ -10,31 +10,31 @@
 
 ## Подготовьте облако к работе {#before-begin}
 
-Зарегистрируйтесь в Yandex Cloud и создайте [платежный аккаунт](../../../billing/concepts/billing-account.md):
-1. Перейдите в [консоль управления](https://console.yandex.cloud), затем войдите в Yandex Cloud или зарегистрируйтесь.
-1. На странице **[Yandex Cloud Billing](https://center.yandex.cloud/billing/accounts)** убедитесь, что у вас подключен платежный аккаунт, и он находится в [статусе](../../../billing/concepts/billing-account-statuses.md) `ACTIVE` или `TRIAL_ACTIVE`. Если платежного аккаунта нет, [создайте его](../../../billing/quickstart/index.md) и [привяжите](../../../billing/operations/pin-cloud.md) к нему облако.
+Зарегистрируйтесь в {{ yandex-cloud }} и создайте [платежный аккаунт](../../../billing/concepts/billing-account.md):
+1. Перейдите в [консоль управления]({{ link-console-main }}), затем войдите в {{ yandex-cloud }} или зарегистрируйтесь.
+1. На странице **[{{ ui-key.yacloud_billing.billing.label_service }}]({{ link-console-billing }})** убедитесь, что у вас подключен платежный аккаунт, и он находится в [статусе](../../../billing/concepts/billing-account-statuses.md) `ACTIVE` или `TRIAL_ACTIVE`. Если платежного аккаунта нет, [создайте его](../../../billing/quickstart/index.md) и [привяжите](../../../billing/operations/pin-cloud.md) к нему облако.
 
-Если у вас есть активный платежный аккаунт, вы можете создать или выбрать [каталог](../../../resource-manager/concepts/resources-hierarchy.md#folder), в котором будет работать ваша инфраструктура, на [странице облака](https://console.yandex.cloud/cloud).
+Если у вас есть активный платежный аккаунт, вы можете создать или выбрать [каталог](../../../resource-manager/concepts/resources-hierarchy.md#folder), в котором будет работать ваша инфраструктура, на [странице облака]({{ link-console-cloud }}).
 
 [Подробнее об облаках и каталогах](../../../resource-manager/concepts/resources-hierarchy.md).
 
 ### Необходимые платные ресурсы {#paid-resources}
 
 В стоимость поддержки инфраструктуры входят:
-* плата за [диски](../../concepts/disk.md) и постоянно запущенные [ВМ](../../concepts/vm.md) (см. [тарифы Compute Cloud](../../pricing.md));
-* плата за вызовы [функции](../../../functions/concepts/function.md), вычислительные ресурсы, выделенные для выполнения функции, и исходящий трафик (см. [тарифы Cloud Functions](../../../functions/pricing.md)).
+* плата за [диски](../../concepts/disk.md) и постоянно запущенные [ВМ](../../concepts/vm.md) (см. [тарифы {{ compute-name }}](../../pricing.md));
+* плата за вызовы [функции](../../../functions/concepts/function.md), вычислительные ресурсы, выделенные для выполнения функции, и исходящий трафик (см. [тарифы {{ sf-name }}](../../../functions/pricing.md)).
 
 ## Создайте инфраструктуру {#deploy}
 
-[Terraform](https://www.terraform.io/) позволяет быстро создать облачную инфраструктуру в Yandex Cloud и управлять ею с помощью файлов конфигураций. В файлах конфигураций хранится описание инфраструктуры на языке HCL (HashiCorp Configuration Language). При изменении файлов конфигураций Terraform автоматически определяет, какая часть вашей конфигурации уже развернута, что следует добавить или удалить.
+[{{ TF }}](https://www.terraform.io/) позволяет быстро создать облачную инфраструктуру в {{ yandex-cloud }} и управлять ею с помощью файлов конфигураций. В файлах конфигураций хранится описание инфраструктуры на языке HCL (HashiCorp Configuration Language). При изменении файлов конфигураций {{ TF }} автоматически определяет, какая часть вашей конфигурации уже развернута, что следует добавить или удалить.
 
-Terraform распространяется под лицензией [Business Source License](https://github.com/hashicorp/terraform/blob/main/LICENSE), а [провайдер Yandex Cloud для Terraform](https://github.com/yandex-cloud/terraform-provider-yandex) — под лицензией [MPL-2.0](https://www.mozilla.org/en-US/MPL/2.0/).
+{{ TF }} распространяется под лицензией [Business Source License](https://github.com/hashicorp/terraform/blob/main/LICENSE), а [провайдер {{ yandex-cloud }} для {{ TF }}](https://github.com/yandex-cloud/terraform-provider-yandex) — под лицензией [MPL-2.0](https://www.mozilla.org/en-US/MPL/2.0/).
 
-Подробную информацию о ресурсах провайдера смотрите в документации на сайте [Terraform](https://www.terraform.io/docs/providers/yandex/index.html) или в [зеркале](../../../terraform/index.md).
+Подробную информацию о ресурсах провайдера смотрите в документации на сайте [{{ TF }}](https://www.terraform.io/docs/providers/yandex/index.html) или в [зеркале]({{ tf-docs-link }}).
 
-Создайте инфраструктуру с помощью Terraform:
+Создайте инфраструктуру с помощью {{ TF }}:
 
-1. [Установите Terraform](../../../tutorials/infrastructure-management/terraform-quickstart.md#install-terraform) и укажите источник для установки провайдера Yandex Cloud (раздел [Настройте провайдер](../../../tutorials/infrastructure-management/terraform-quickstart.md#configure-provider), шаг 1).
+1. [Установите {{ TF }}](../../../tutorials/infrastructure-management/terraform-quickstart.md#install-terraform) и укажите источник для установки провайдера {{ yandex-cloud }} (раздел [{#T}](../../../tutorials/infrastructure-management/terraform-quickstart.md#configure-provider), шаг 1).
 1. Подготовьте файлы с описанием инфраструктуры:
 
    {% list tabs group=infrastructure_description %}
@@ -50,7 +50,7 @@ Terraform распространяется под лицензией [Business S
      1. Перейдите в директорию с репозиторием. В ней должны появиться файлы:
         * `vm-scale-scheduled.tf` — конфигурация создаваемой инфраструктуры.
         * `vm-scale-scheduled.auto.tfvars` — файл с пользовательскими данными.
-        * `vm-scale-scheduled-function.zip` — архив с кодом функции Cloud Functions.
+        * `vm-scale-scheduled-function.zip` — архив с кодом функции {{ sf-name }}.
 
 
    - Вручную {#manual}
@@ -123,14 +123,14 @@ Terraform распространяется под лицензией [Business S
           
           resource "yandex_vpc_subnet" "vm-scale-scheduled-subnet-a" {
             name           = "vm-scale-scheduled-subnet-a"
-            zone           = "ru-central1-a"
+            zone           = "{{ region-id }}-a"
             v4_cidr_blocks = ["192.168.1.0/24"]
             network_id     = yandex_vpc_network.vm-scale-scheduled-network.id
           }
           
           resource "yandex_vpc_subnet" "vm-scale-scheduled-subnet-b" {
             name           = "vm-scale-scheduled-subnet-b"
-            zone           = "ru-central1-b"
+            zone           = "{{ region-id }}-b"
             v4_cidr_blocks = ["192.168.2.0/24"]
             network_id     = yandex_vpc_network.vm-scale-scheduled-network.id
           }
@@ -149,8 +149,8 @@ Terraform распространяется под лицензией [Business S
           
             allocation_policy {
               zones = [
-                "ru-central1-a",
-                "ru-central1-b"
+                "{{ region-id }}-a",
+                "{{ region-id }}-b"
               ]
             }
           
@@ -262,7 +262,7 @@ Terraform распространяется под лицензией [Business S
 
           {% endcut %}
 
-        * Файл с кодом функции Cloud Functions `handler.sh`:
+        * Файл с кодом функции {{ sf-name }} `handler.sh`:
 
           {% cut "handler.sh" %}
 
@@ -295,15 +295,15 @@ Terraform распространяется под лицензией [Business S
 
    {% endlist %}
 
-   Более подробную информацию о параметрах используемых ресурсов в Terraform см. в документации провайдера:
+   Более подробную информацию о параметрах используемых ресурсов в {{ TF }} см. в документации провайдера:
 
-   * [Сервисный аккаунт](../../../iam/concepts/users/service-accounts.md) — [yandex_iam_service_account](../../../terraform/resources/iam_service_account.md).
-   * [Сеть](../../../vpc/concepts/network.md#network) — [yandex_vpc_network](../../../terraform/resources/vpc_network.md).
-   * [Подсети](../../../vpc/concepts/network.md#subnet) — [yandex_vpc_subnet](../../../terraform/resources/vpc_subnet.md).
-   * [Образ ВМ](../../concepts/image.md) — [yandex_compute_image](../../../terraform/resources/compute_image.md).
-   * [Группа ВМ](../../concepts/instance-groups/index.md) — [yandex_compute_instance_group](../../../terraform/resources/compute_instance_group.md).
-   * [Функция](../../../functions/concepts/function.md) — [yandex_function](../../../terraform/resources/function.md).
-   * [Триггер](../../../functions/concepts/trigger/index.md) — [yandex_function_trigger](../../../terraform/resources/function_trigger.md).
+   * [Сервисный аккаунт](../../../iam/concepts/users/service-accounts.md) — [yandex_iam_service_account]({{ tf-provider-resources-link }}/iam_service_account).
+   * [Сеть](../../../vpc/concepts/network.md#network) — [yandex_vpc_network]({{ tf-provider-resources-link }}/vpc_network).
+   * [Подсети](../../../vpc/concepts/network.md#subnet) — [yandex_vpc_subnet]({{ tf-provider-resources-link }}/vpc_subnet).
+   * [Образ ВМ](../../concepts/image.md) — [yandex_compute_image]({{ tf-provider-resources-link }}/compute_image).
+   * [Группа ВМ](../../concepts/instance-groups/index.md) — [yandex_compute_instance_group]({{ tf-provider-resources-link }}/compute_instance_group).
+   * [Функция](../../../functions/concepts/function.md) — [yandex_function]({{ tf-provider-resources-link }}/function).
+   * [Триггер](../../../functions/concepts/trigger/index.md) — [yandex_function_trigger]({{ tf-provider-resources-link }}/function_trigger).
 
 1. В файле `vm-scale-scheduled.auto.tfvars` задайте пользовательские параметры:
 
@@ -332,7 +332,7 @@ Terraform распространяется под лицензией [Business S
       terraform plan
       ```
    
-      В терминале будет выведен список ресурсов с параметрами. На этом этапе изменения не будут внесены. Если в конфигурации есть ошибки, Terraform на них укажет.
+      В терминале будет выведен список ресурсов с параметрами. На этом этапе изменения не будут внесены. Если в конфигурации есть ошибки, {{ TF }} на них укажет.
    1. Примените изменения конфигурации:
    
       ```bash
@@ -349,11 +349,11 @@ Terraform распространяется под лицензией [Business S
 
 - Консоль управления {#console}
 
-  1. В [консоли управления](https://console.yandex.cloud) выберите каталог `example-folder`.
-  1. [Перейдите](../../../console/operations/select-service.md#select-service) в сервис **Compute Cloud**.
-  1. На панели слева выберите ![image](../../../_assets/console-icons/layers-3-diagonal.svg) **Группы виртуальных машин**.
+  1. В [консоли управления]({{ link-console-main }}) выберите каталог `example-folder`.
+  1. Перейдите в сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_compute }}**.
+  1. На панели слева выберите ![image](../../../_assets/console-icons/layers-3-diagonal.svg) **{{ ui-key.yacloud.compute.instance-groups_hx3kX }}**.
   1. Выберите группу `vm-scale-scheduled-ig`.
-  1. Убедитесь, что в блоке **Виртуальные машины** каждые две минуты изменяется количество ВМ: увеличивается с 2 до 3, затем уменьшается с 3 до 2 и т. д. Также вы можете проверить обновление группы на вкладке ![image](../../../_assets/console-icons/list-check.svg) **Операции**.
+  1. Убедитесь, что в блоке **{{ ui-key.yacloud.compute.group.overview.section_instances-state }}** каждые две минуты изменяется количество ВМ: увеличивается с 2 до 3, затем уменьшается с 3 до 2 и т. д. Также вы можете проверить обновление группы на вкладке ![image](../../../_assets/console-icons/list-check.svg) **{{ ui-key.yacloud.common.operations-key-value }}**.
 
 - CLI {#cli}
 
@@ -411,7 +411,7 @@ Terraform распространяется под лицензией [Business S
        terraform plan
        ```
     
-       В терминале будет выведен список ресурсов с параметрами. На этом этапе изменения не будут внесены. Если в конфигурации есть ошибки, Terraform на них укажет.
+       В терминале будет выведен список ресурсов с параметрами. На этом этапе изменения не будут внесены. Если в конфигурации есть ошибки, {{ TF }} на них укажет.
     1. Примените изменения конфигурации:
     
        ```bash
@@ -422,4 +422,4 @@ Terraform распространяется под лицензией [Business S
 
 #### См. также {#see-also}
 
-* [Масштабирование группы виртуальных машин по расписанию с помощью консоли управления, CLI и API](console.md).
+* [{#T}](console.md).

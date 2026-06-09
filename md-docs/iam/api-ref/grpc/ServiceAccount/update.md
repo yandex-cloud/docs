@@ -34,7 +34,7 @@ Field mask that specifies which fields of the ServiceAccount resource are going 
 Required field. Name of the service account.
 The name must be unique within the cloud.
 
-Value must match the regular expression ``` |[a-z][-a-z0-9]{1,61}[a-z0-9] ```. ||
+Value must match the regular expression ` [a-z]([-a-z0-9]{0,61}[a-z0-9])? `. ||
 || description | **string**
 
 Description of the service account.
@@ -44,7 +44,7 @@ The maximum string length in characters is 256. ||
 
 Resource labels as `` key:value `` pairs.
 
-No more than 64 per resource. The maximum string length in characters for each value is 63. Each value must match the regular expression ` [-_0-9a-z]* `. The string length in characters for each key must be 1-63. Each key must match the regular expression ` [a-z][-_0-9a-z]* `. ||
+The maximum string length in characters for each value is 63. The string length in characters for each key must be 1-63. Each key must match the regular expression ` [a-z][-_0-9a-z]* `. Each value must match the regular expression ` [-_0-9a-z]* `. No more than 64 per resource. ||
 |#
 
 ## operation.Operation {#yandex.cloud.operation.Operation}
@@ -57,20 +57,10 @@ No more than 64 per resource. The maximum string length in characters for each v
   "created_by": "string",
   "modified_at": "google.protobuf.Timestamp",
   "done": "bool",
-  "metadata": {
-    "service_account_id": "string"
-  },
+  "metadata": "google.protobuf.Any",
   // Includes only one of the fields `error`, `response`
   "error": "google.rpc.Status",
-  "response": {
-    "id": "string",
-    "folder_id": "string",
-    "created_at": "google.protobuf.Timestamp",
-    "name": "string",
-    "description": "string",
-    "labels": "map<string, string>",
-    "last_authenticated_at": "google.protobuf.Timestamp"
-  }
+  "response": "google.protobuf.Any"
   // end of the list of possible fields
 }
 ```
@@ -98,7 +88,7 @@ The time when the Operation resource was last modified. ||
 
 If the value is `false`, it means the operation is still in progress.
 If `true`, the operation is completed, and either `error` or `response` is available. ||
-|| metadata | **[UpdateServiceAccountMetadata](#yandex.cloud.iam.v1.UpdateServiceAccountMetadata)**
+|| metadata | **[google.protobuf.Any](https://developers.google.com/protocol-buffers/docs/proto3#any)**
 
 Service-specific metadata associated with the operation.
 It typically contains the ID of the target resource that the operation is performed on.
@@ -113,7 +103,7 @@ The operation result.
 If `done == false` and there was no failure detected, neither `error` nor `response` is set.
 If `done == false` and there was a failure detected, `error` is set.
 If `done == true`, exactly one of `error` or `response` is set. ||
-|| response | **[ServiceAccount](#yandex.cloud.iam.v1.ServiceAccount)**
+|| response | **[google.protobuf.Any](https://developers.google.com/protocol-buffers/docs/proto3#any)**
 
 The normal response of the operation in case of success.
 If the original method returns no data on success, such as Delete,
@@ -128,43 +118,4 @@ The operation result.
 If `done == false` and there was no failure detected, neither `error` nor `response` is set.
 If `done == false` and there was a failure detected, `error` is set.
 If `done == true`, exactly one of `error` or `response` is set. ||
-|#
-
-## UpdateServiceAccountMetadata {#yandex.cloud.iam.v1.UpdateServiceAccountMetadata}
-
-#|
-||Field | Description ||
-|| service_account_id | **string**
-
-ID of the ServiceAccount resource that is being updated. ||
-|#
-
-## ServiceAccount {#yandex.cloud.iam.v1.ServiceAccount}
-
-A ServiceAccount resource. For more information, see [Service accounts](../../../concepts/users/service-accounts.md).
-
-#|
-||Field | Description ||
-|| id | **string**
-
-ID of the service account. ||
-|| folder_id | **string**
-
-ID of the folder that the service account belongs to. ||
-|| created_at | **[google.protobuf.Timestamp](https://developers.google.com/protocol-buffers/docs/reference/google.protobuf#timestamp)**
-
-Creation timestamp. ||
-|| name | **string**
-
-Name of the service account.
-The name is unique within the cloud. 3-63 characters long. ||
-|| description | **string**
-
-Description of the service account. 0-256 characters long. ||
-|| labels | **object** (map<**string**, **string**>)
-
-Resource labels as `` key:value `` pairs. Maximum of 64 per resource. ||
-|| last_authenticated_at | **[google.protobuf.Timestamp](https://developers.google.com/protocol-buffers/docs/reference/google.protobuf#timestamp)**
-
-Timestamp for the last authentication of this service account. ||
 |#

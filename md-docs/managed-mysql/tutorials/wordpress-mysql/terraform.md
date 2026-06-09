@@ -1,0 +1,671 @@
+# Создание сайта на WordPress с кластером базы данных {{ MY }} с помощью {{ TF }}
+
+Чтобы создать инфраструктуру для [сайта на WordPress с кластером базы данных {{ MY }}](index.md) с помощью {{ TF }}:
+
+Чтобы настроить сайт на WordPress с кластером {{ MY }}:
+1. [Подготовьте облако к работе](#before-you-begin).
+1. [Создайте инфраструктуру](#deploy).
+1. [Настройте веб-сервер Nginx](#configure-nginx).
+1. [Установите WordPress и дополнительные компоненты](#install-wordpress).
+1. [Завершите настройку WordPress](#configure-wordpress).
+1. [Проверьте работу сайта](#test-site).
+
+Если созданные ресурсы вам больше не нужны, [удалите их](#clear-out).
+
+## Подготовьте облако к работе {#before-you-begin}
+
+Зарегистрируйтесь в {{ yandex-cloud }} и создайте [платежный аккаунт](../../../billing/concepts/billing-account.md):
+1. Перейдите в [консоль управления]({{ link-console-main }}), затем войдите в {{ yandex-cloud }} или зарегистрируйтесь.
+1. На странице **[{{ ui-key.yacloud_billing.billing.label_service }}]({{ link-console-billing }})** убедитесь, что у вас подключен платежный аккаунт, и он находится в [статусе](../../../billing/concepts/billing-account-statuses.md) `ACTIVE` или `TRIAL_ACTIVE`. Если платежного аккаунта нет, [создайте его](../../../billing/quickstart/index.md) и [привяжите](../../../billing/operations/pin-cloud.md) к нему облако.
+
+Если у вас есть активный платежный аккаунт, вы можете создать или выбрать [каталог](../../../resource-manager/concepts/resources-hierarchy.md#folder), в котором будет работать ваша инфраструктура, на [странице облака]({{ link-console-cloud }}).
+
+[Подробнее об облаках и каталогах](../../../resource-manager/concepts/resources-hierarchy.md).
+
+### Необходимые платные ресурсы {#paid-resources}
+
+* Виртуальная машина: использование вычислительных ресурсов, хранилища, публичного IP-адреса и операционной системы (см. [тарифы {{ compute-name }}](../../../compute/pricing.md)).
+
+* Кластер {{ mmy-name }}: выделенные хостам вычислительные ресурсы, объем хранилища и резервных копий (см. [тарифы {{ mmy-name }}](../../pricing.md)).
+* Публичные IP-адреса, если для хостов кластера включен публичный доступ (см. [тарифы {{ vpc-name }}](../../../vpc/pricing.md)).
+* Публичные [DNS-запросы](../../../glossary/dns.md) и [зоны DNS](../../../dns/concepts/dns-zone.md) (см. [тарифы {{ dns-name }}](../../../dns/pricing.md)).
+
+## Создайте инфраструктуру {#deploy}
+
+[{{ TF }}](https://www.terraform.io/) позволяет быстро создать облачную инфраструктуру в {{ yandex-cloud }} и управлять ею с помощью файлов конфигураций. В файлах конфигураций хранится описание инфраструктуры на языке HCL (HashiCorp Configuration Language). При изменении файлов конфигураций {{ TF }} автоматически определяет, какая часть вашей конфигурации уже развернута, что следует добавить или удалить.
+
+{{ TF }} распространяется под лицензией [Business Source License](https://github.com/hashicorp/terraform/blob/main/LICENSE), а [провайдер {{ yandex-cloud }} для {{ TF }}](https://github.com/yandex-cloud/terraform-provider-yandex) — под лицензией [MPL-2.0](https://www.mozilla.org/en-US/MPL/2.0/).
+
+Подробную информацию о ресурсах провайдера смотрите в документации на сайте [{{ TF }}](https://www.terraform.io/docs/providers/yandex/index.html) или в [зеркале]({{ tf-docs-link }}).
+
+Для создания инфраструктуры c помощью {{ TF }}:
+1. [Установите {{ TF }}](../../../tutorials/infrastructure-management/terraform-quickstart.md#install-terraform), [получите данные для аутентификации](../../../tutorials/infrastructure-management/terraform-quickstart.md#get-credentials) и укажите источник для установки провайдера {{ yandex-cloud }} (раздел [{#T}](../../../tutorials/infrastructure-management/terraform-quickstart.md#configure-provider), шаг 1).
+1. Подготовьте файлы с описанием инфраструктуры:
+
+   {% list tabs group=infrastructure_description %}
+
+   - Готовый архив {#ready}
+
+     1. Создайте папку для файлов.
+     1. Скачайте [архив](https://{{ s3-storage-host }}/doc-files/wordpress-mysql.zip) (1 КБ).
+     1. Разархивируйте архив в папку. В результате в ней должен появиться конфигурационный файл `wordpress-mysql.tf`.
+
+   - Вручную {#manual}
+
+     1. Создайте папку для файлов.
+     1. Создайте в папке конфигурационный файл `wordpress-mysql.tf`:
+
+        {% cut "wordpress-mysql.tf" %}
+
+        ```hcl
+        terraform {
+          required_providers {
+            yandex = {
+              source  = "yandex-cloud/yandex"
+              version = ">= 0.47.0"
+            }
+          }
+        }
+        
+        provider "yandex" {
+          zone = "{{ region-id }}-a"
+        }
+        
+        resource "yandex_compute_disk" "boot-disk" {
+          name     = "bootvmdisk"
+          type     = "network-hdd"
+          zone     = "{{ region-id }}-a"
+          size     = "20"
+          image_id = "<идентификатор_образа>"
+        }
+        
+        resource "yandex_compute_instance" "vm-wordpress-mysql" {
+          name        = "wp-mysql-tutorial-web"
+          platform_id = "standard-v3"
+          zone        = "{{ region-id }}-a"
+        
+          resources {
+            core_fraction = 20
+            cores         = 2
+            memory        = 2
+          }
+        
+          boot_disk {
+            disk_id = yandex_compute_disk.boot-disk.id
+          }
+        
+          network_interface {
+            subnet_id          = yandex_vpc_subnet.subnet-1.id
+            security_group_ids = ["${yandex_vpc_security_group.sg-1.id}"]
+            nat                = true
+          }
+        
+          metadata = {
+            ssh-keys = "<имя_пользователя>:<содержимое_SSH-ключа>"
+          }
+        }
+        
+        resource "yandex_mdb_mysql_cluster" "wp-cluster" {
+          name                = "wp-mysql-tutorial-db-cluster"
+          environment         = "PRESTABLE"
+          network_id          = yandex_vpc_network.network-1.id
+          version             = "8.0"
+          security_group_ids  = ["${yandex_vpc_security_group.sg-1.id}"]
+        
+          resources {
+            resource_preset_id = "s2.small"
+            disk_type_id       = "network-ssd"
+            disk_size          = "10"
+          }
+        
+          host {
+            zone             = "{{ region-id }}-a"
+            subnet_id        = yandex_vpc_subnet.subnet-1.id
+            assign_public_ip = false
+          }
+        
+          host {
+            zone             = "{{ region-id }}-b"
+            subnet_id        = yandex_vpc_subnet.subnet-2.id
+            assign_public_ip = false
+          }
+        
+          host {
+            zone             = "{{ region-id }}-d"
+            subnet_id        = yandex_vpc_subnet.subnet-3.id
+            assign_public_ip = false
+          }
+        }
+        
+        resource "yandex_mdb_mysql_database" "wp-db" {
+          cluster_id = yandex_mdb_mysql_cluster.wp-cluster.id
+          name       = "wp-mysql-tutorial-db"
+        }
+        
+        resource "yandex_mdb_mysql_user" "wp-user" {
+          cluster_id            = yandex_mdb_mysql_cluster.wp-cluster.id
+          name                  = "wordpress"
+          password              = "password"
+          authentication_plugin = "MYSQL_NATIVE_PASSWORD"
+          permission {
+            database_name = yandex_mdb_mysql_database.wp-db.name
+            roles         = ["ALL"]
+          }
+        }
+        
+        resource "yandex_vpc_security_group" "sg-1" {
+          name        = "wordpress"
+          description = "Description for security group"
+          network_id  = yandex_vpc_network.network-1.id
+        
+          ingress {
+            protocol       = "TCP"
+            description    = "ext-http"
+            v4_cidr_blocks = ["0.0.0.0/0"]
+            port           = 80
+          }
+        
+          ingress {
+            protocol       = "TCP"
+            description    = "ext-ssh"
+            v4_cidr_blocks = ["0.0.0.0/0"]
+            port           = 22
+          }
+        
+          ingress {
+            protocol       = "TCP"
+            description    = "ext-msql"
+            v4_cidr_blocks = ["0.0.0.0/0"]
+            port           = 3306
+          }
+        
+          ingress {
+            protocol       = "TCP"
+            description    = "ext-https"
+            v4_cidr_blocks = ["0.0.0.0/0"]
+            port           = 443
+          }
+        
+          egress {
+            protocol       = "ANY"
+            description    = "any"
+            v4_cidr_blocks = ["0.0.0.0/0"]
+          }
+        }
+        
+        resource "yandex_vpc_network" "network-1" {
+          name = "network1"
+        }
+        
+        resource "yandex_vpc_subnet" "subnet-1" {
+          name           = "subnet1"
+          zone           = "{{ region-id }}-a"
+          network_id     = yandex_vpc_network.network-1.id
+          v4_cidr_blocks = ["192.168.1.0/24"]
+        }
+        
+        resource "yandex_vpc_subnet" "subnet-2" {
+          name           = "subnet2"
+          zone           = "{{ region-id }}-b"
+          network_id     = yandex_vpc_network.network-1.id
+          v4_cidr_blocks = ["192.168.2.0/24"]
+        }
+        
+        resource "yandex_vpc_subnet" "subnet-3" {
+          name           = "subnet3"
+          zone           = "{{ region-id }}-d"
+          network_id     = yandex_vpc_network.network-1.id
+          v4_cidr_blocks = ["192.168.3.0/24"]
+        }
+        
+        resource "yandex_dns_zone" "zone-1" {
+          name        = "example-zone-1"
+          description = "Public zone"
+          zone        = "example.com."
+          public      = true
+        }
+        
+        resource "yandex_dns_recordset" "rs-1" {
+          zone_id = yandex_dns_zone.zone-1.id
+          name    = "example.com."
+          ttl     = 600
+          type    = "A"
+          data    = ["${yandex_compute_instance.vm-wordpress-mysql.network_interface.0.nat_ip_address}"]
+        }
+        
+        resource "yandex_dns_recordset" "rs-2" {
+          zone_id = yandex_dns_zone.zone-1.id
+          name    = "www"
+          ttl     = 600
+          type    = "CNAME"
+          data    = ["example.com"]
+        }
+        ```
+
+        {% endcut %}
+
+   {% endlist %}
+
+   Более подробную информацию о параметрах используемых ресурсов в {{ TF }} см. в документации провайдера:
+
+    * [Сеть](../../../vpc/concepts/network.md#network) — [yandex_vpc_network]({{ tf-provider-resources-link }}/vpc_network).
+    * [Подсети](../../../vpc/concepts/network.md#subnet) — [yandex_vpc_subnet]({{ tf-provider-resources-link }}/vpc_subnet).
+    * [Группы безопасности](../../../vpc/concepts/security-groups.md) — [yandex_vpc_security_group]({{ tf-provider-resources-link }}/vpc_security_group).
+    * [Виртуальная машина](../../../compute/concepts/vm.md) — [yandex_compute_instance]({{ tf-provider-resources-link }}/compute_instance).
+    * [Кластер {{ MY }}](../../concepts/index.md) — [yandex_mdb_mysql_cluster]({{ tf-provider-resources-link }}/mdb_mysql_cluster).
+    * [БД {{ PG }}](../../index.md) — [yandex_mdb_mysql_database]({{ tf-provider-resources-link }}/mdb_mysql_database).
+    * [Пользователь БД](../../concepts/user-rights.md) — [yandex_mdb_mysql_user]({{ tf-provider-resources-link }}/mdb_mysql_user).
+    * [Зона DNS](../../../dns/concepts/dns-zone.md) — [yandex_dns_zone]({{ tf-provider-resources-link }}/dns_zone).
+    * [Ресурсная запись DNS](../../../dns/concepts/resource-record.md) — [yandex_dns_recordset]({{ tf-provider-resources-link }}/dns_recordset).
+
+1. В блоке `metadata` укажите [метаданные](../../../compute/concepts/vm-metadata.md) для создания ВМ `<имя_пользователя>:<содержимое_SSH-ключа>`. Указанное имя пользователя не играет роли, ключ будет присвоен пользователю, который задан в конфигурации образа. В разных образах это разные пользователи. Подробнее см. в разделе [{#T}](../../../compute/concepts/metadata/public-image-keys.md).
+1. В блоке `boot_disk` укажите идентификатор одного из [образов](../../../compute/operations/images-with-pre-installed-software/get-list.md) ВМ с нужным набором компонентов:
+   * [Debian 11](https://yandex.cloud/ru/marketplace/products/yc/debian-11).
+   * [Ubuntu 20.04 LTS](https://yandex.cloud/ru/marketplace/products/yc/ubuntu-20-04-lts).
+   * [CentOS 7](https://yandex.cloud/ru/marketplace/products/yc/centos-7).
+1. Создайте ресурсы:
+
+   1. В терминале перейдите в директорию с конфигурационным файлом.
+   1. Проверьте корректность конфигурации с помощью команды:
+   
+      ```bash
+      terraform validate
+      ```
+   
+      Если конфигурация является корректной, появится сообщение:
+   
+      ```bash
+      Success! The configuration is valid.
+      ```
+   
+   1. Выполните команду:
+   
+      ```bash
+      terraform plan
+      ```
+   
+      В терминале будет выведен список ресурсов с параметрами. На этом этапе изменения не будут внесены. Если в конфигурации есть ошибки, {{ TF }} на них укажет.
+   1. Примените изменения конфигурации:
+   
+      ```bash
+      terraform apply
+      ```
+   
+   1. Подтвердите изменения: введите в терминале слово `yes` и нажмите **Enter**.
+
+После создания инфраструктуры, [настройте веб-сервер Nginx](#configure-nginx).
+## Настройте веб-сервер Nginx {#configure-nginx}
+
+После того как ВМ `wp-mysql-tutorial-web` перейдет в статус `RUNNING`:
+1. В блоке **{{ ui-key.yacloud.compute.instance.overview.section_network }}** на странице ВМ в [консоли управления]({{ link-console-main }}) найдите публичный IP-адрес ВМ.
+1. [Подключитесь](../../../compute/operations/vm-connect/ssh.md) к ВМ по протоколу SSH. Для этого можно использовать утилиту `ssh` в Linux и macOS и программу [PuTTY](https://www.chiark.greenend.org.uk/~sgtatham/putty/) для Windows.
+
+   Рекомендуемый способ аутентификации при подключении по SSH — с помощью пары ключей. Не забудьте настроить использование созданной пары ключей: закрытый ключ должен соответствовать открытому ключу, переданному на ВМ.
+1. Установите Nginx, менеджер процессов PHP-FPM и дополнительные пакеты:
+
+   {% list tabs group=operating_system %}
+
+   - Debian/Ubuntu {#ubuntu}
+
+     ```bash
+     sudo apt-get update
+     sudo apt-get install -y nginx-full php-fpm php-mysql
+     sudo systemctl enable nginx
+     ```
+
+   - CentOS {#centos}
+
+     ```bash
+     sudo yum -y install epel-release
+     sudo yum -y install nginx
+     sudo rpm -Uvh http://rpms.famillecollet.com/enterprise/remi-release-7.rpm
+     sudo yum -y --enablerepo=remi-php74 install php php-mysql php-xml php-soap php-xmlrpc php-mbstring php-json php-gd php-mcrypt
+     sudo yum -y --enablerepo=remi-php74 install php-fpm
+     sudo systemctl enable nginx
+     sudo systemctl enable php-fpm
+     ```
+
+   {% endlist %}
+
+1. Задайте настройки веб-сервера в конфигурационных файлах Nginx:
+
+   {% list tabs group=operating_system %}
+
+   - Debian/Ubuntu {#ubuntu}
+
+     1. Вы можете отредактировать файл с помощью редактора `nano`:
+
+        ```bash
+        sudo nano /etc/nginx/sites-available/wordpress
+        ```
+
+     1. Приведите файл к виду:
+
+        ```nginx
+        server {
+          listen 80 default_server;
+
+          root /var/www/wordpress;
+          index index.php;
+
+          server_name <DNS-имя_сервера>;
+
+          location / {
+            try_files $uri $uri/ =404;
+          }
+
+          error_page 404 /404.html;
+          error_page 500 502 503 504 /50x.html;
+          location = /50x.html {
+            root /usr/share/nginx/html;
+          }
+
+          location ~ \.php$ {
+            try_files $uri =404;
+            fastcgi_split_path_info ^(.+\.php)(/.+)$;
+            fastcgi_pass unix:/var/run/php/php7.4-fpm.sock;
+            fastcgi_index index.php;
+            fastcgi_param SCRIPT_FILENAME $document_root$fastcgi_script_name;
+            include fastcgi_params;
+          }
+        }
+        ```
+
+     1. Разрешите запуск вашего сайта:
+
+        ```bash
+        sudo rm /etc/nginx/sites-enabled/default
+        sudo ln -s /etc/nginx/sites-available/wordpress /etc/nginx/sites-enabled/
+        ```
+
+   - CentOS {#centos}
+
+     Вы можете отредактировать файлы `nginx.conf` и `wordpress.conf` с помощью редактора `nano`:
+     1. Откройте файл `nginx.conf`:
+
+        ```bash
+        sudo nano /etc/nginx/nginx.conf
+        ```
+
+     1. Приведите файл к виду:
+
+        ```nginx
+        user nginx;
+        worker_processes auto;
+        error_log /var/log/nginx/error.log;
+        pid /run/nginx.pid;
+        include /usr/share/nginx/modules/*.conf;
+
+        events {
+          worker_connections 1024;
+        }
+
+        http {
+          log_format  main  '$remote_addr - $remote_user [$time_local] "$request" '
+                            '$status $body_bytes_sent "$http_referer" '
+                            '"$http_user_agent" "$http_x_forwarded_for"';
+
+          access_log  /var/log/nginx/access.log main;
+
+          sendfile            on;
+          tcp_nopush          on;
+          tcp_nodelay         on;
+          keepalive_timeout   65;
+          types_hash_max_size 2048;
+
+          include             /etc/nginx/mime.types;
+          default_type        application/octet-stream;
+
+          include /etc/nginx/conf.d/*.conf;
+        }
+        ```
+
+     1. Откройте файл `wordpress.conf`:
+
+        ```bash
+        sudo nano /etc/nginx/conf.d/wordpress.conf
+        ```
+
+     1. Приведите файл к виду:
+
+        ```nginx
+        server {
+          listen 80 default_server;
+
+          root /usr/share/nginx/wordpress/;
+          index index.php;
+
+          server_name <DNS-имя_сервера>;
+
+          location / {
+            try_files $uri $uri/ =404;
+          }
+
+          error_page 404 /404.html;
+          error_page 500 502 503 504 /50x.html;
+          location = /50x.html {
+            root /usr/share/nginx/html;
+          }
+
+          location ~ \.php$ {
+            try_files $uri =404;
+            fastcgi_split_path_info ^(.+\.php)(/.+)$;
+            fastcgi_pass 127.0.0.1:9000;
+            fastcgi_index index.php;
+            fastcgi_param SCRIPT_FILENAME $document_root$fastcgi_script_name;
+            include fastcgi_params;
+          }
+        }
+        ```
+
+   {% endlist %}
+
+## Установите WordPress и дополнительные компоненты {#install-wordpress}
+
+1. Загрузите и распакуйте последнюю версию WordPress:
+
+   {% list tabs group=operating_system %}
+
+   - Debian/Ubuntu {#ubuntu}
+
+     ```bash
+     wget https://wordpress.org/latest.tar.gz
+     tar -xzf latest.tar.gz
+     mv wordpress/wp-config-sample.php wordpress/wp-config.php
+     sudo mv wordpress /var/www/wordpress
+     sudo chown -R www-data:www-data /var/www/wordpress
+     ```
+
+   - CentOS {#centos}
+
+     ```bash
+     curl https://wordpress.org/latest.tar.gz --output latest.tar.gz
+     tar -xzf latest.tar.gz
+     mv wordpress/wp-config-sample.php wordpress/wp-config.php
+     sudo mv wordpress /usr/share/nginx/wordpress
+     sudo chown -R nginx:nginx /usr/share/nginx/wordpress/
+     ```
+
+     Измените настройки SELinux:
+
+     ```bash
+     sudo semanage fcontext -a -t httpd_sys_content_t "/usr/share/nginx/wordpress(/.*)?"
+     sudo semanage fcontext -a -t httpd_sys_rw_content_t "/usr/share/nginx/wordpress(/.*)?"
+     sudo restorecon -R /usr/share/nginx/wordpress
+     sudo setsebool -P httpd_can_network_connect 1
+     ```
+
+   {% endlist %}
+
+1. Получите ключи безопасности WordPress:
+
+   ```bash
+   curl --silent https://api.wordpress.org/secret-key/1.1/salt/
+   ```
+
+   Сохраните вывод команды — полученные ключи будут нужны на следующем шаге.
+1. Добавьте ключи безопасности в конфигурационный файл WordPress `wp-config.php`. Вы можете отредактировать файл с помощью редактора `nano`:
+
+   {% list tabs group=operating_system %}
+
+   - Debian/Ubuntu {#ubuntu}
+
+     ```bash
+     sudo nano /var/www/wordpress/wp-config.php
+     ```
+
+   - CentOS {#centos}
+
+     ```bash
+     sudo nano /usr/share/nginx/wordpress/wp-config.php
+     ```
+
+   {% endlist %}
+
+   Замените блок конфигурации на значения, полученные на предыдущем шаге:
+
+   ```php
+   define('AUTH_KEY',         't vz,|............R lZ5]');
+   define('SECURE_AUTH_KEY',  '@r&pPD............dK-A%=');
+   define('LOGGED_IN_KEY',    '%6TuLl............9>/dNE');
+   define('NONCE_KEY',        'DO(u.H............$?ja-e');
+   define('AUTH_SALT',        '|G Vo<............Xeb.~y');
+   define('SECURE_AUTH_SALT', 'Y5tIYA............7Lxf8J');
+   define('LOGGED_IN_SALT',   'gR]>WZ............<>|;YY');
+   define('NONCE_SALT',       '=]nQIb............HLT2:9');
+   ```
+
+1. Перейдите к блоку конфигурации подключения к кластеру `wp-mysql-tutorial-db-cluster`:
+
+   ```php
+   // ** {{ MY }} settings - You can get this info from your web host. ** //
+   /** The name of the database for WordPress. */
+
+   define( 'DB_NAME', '<DB_NAME>' );
+   /** {{ MY }} database username. */
+   define( 'DB_USER', '<DB_USER>' );
+
+   /** {{ MY }} database password. */
+   define( 'DB_PASSWORD', '<DB_PASSWORD>' );
+
+   /** {{ MY }} hostname. */
+   define( 'DB_HOST', '<DB_HOST>' );
+   ```
+
+   Укажите в файле вместо:
+   * `<DB_NAME>` — имя БД `wp-mysql-tutorial-db`.
+   * `<DB_USER>` — имя пользователя `wordpress`.
+   * `<DB_PASSWORD>` — пароль, заданный при создании кластера БД.
+   * `<DB_HOST>` — имя хоста {{ MY }} вида `XXXX-XXXXXXXXXX.{{ dns-zone }}`.
+
+     Чтобы узнать FQDN хоста {{ MY }}:
+
+	 {% list tabs group=instructions %}
+
+	 - Консоль управления {#console}
+
+	   1. Перейдите на страницу кластера {{ MY }} в [консоли управления]({{ link-console-main }}).
+       1. На вкладке **{{ ui-key.yacloud.mysql.cluster.switch_databases }}** рядом с БД нажмите значок ![image](../../../_assets/options.svg) → **{{ ui-key.yacloud.mdb.clusters.button_action-connect }}**.
+       1. Найдите строчку `mysql --host=ХХХХ-ХХХХХХХХХХ.{{ dns-zone }}`, где `ХХХХ-ХХХХХХХХХХ.{{ dns-zone }}` — это FQDN хоста с ролью `MASTER`.
+
+     - CLI {#cli}
+
+       [Получите список хостов](../../operations/hosts.md#list) и скопируйте `NAME` хоста с ролью `MASTER`:
+
+       ```bash
+       yc managed-mysql host list --cluster-name <имя_кластера_{{ MY }}>
+       ```
+
+       
+       ```text
+       +------------------------+----------------------+---------+--------+-------------------+-----------+
+       |           NAME         |      CLUSTER ID      |  ROLE   | HEALTH |      ZONE ID      | PUBLIC IP |
+       +------------------------+----------------------+---------+--------+-------------------+-----------+
+       | rc1a-...{{ dns-zone }} | c9quhb1l32unm1sdn0in | MASTER  | ALIVE  | {{ region-id }}-a | false     |
+       | rc1b-...{{ dns-zone }} | c9quhb1l32unm1sdn0in | REPLICA | ALIVE  | {{ region-id }}-b | false     |
+       +------------------------+----------------------+---------+--------+-------------------+-----------+
+       ```
+
+
+     {% endlist %}
+
+1. Перезапустите Nginx и PHP-FPM:
+
+   {% list tabs group=operating_system %}
+
+   - Debian/Ubuntu {#ubuntu}
+
+     ```bash
+     sudo systemctl restart nginx.service
+     sudo systemctl restart php7.4-fpm.service
+     ```
+
+   - CentOS {#centos}
+
+     ```bash
+     sudo systemctl restart nginx.service
+     sudo systemctl restart php-fpm.service
+     ```
+
+   {% endlist %}
+
+## Завершите настройку WordPress {#configure-wordpress}
+
+1. В блоке **{{ ui-key.yacloud.compute.instance.overview.section_network }}** на странице ВМ в [консоли управления]({{ link-console-main }}) найдите публичный IP-адрес ВМ.
+1. Перейдите по адресу ВМ в браузере.
+1. Выберите язык и нажмите кнопку **Продолжить**.
+1. Заполните информацию для доступа к сайту:
+   * Укажите любое название сайта, например, `wp-your-project`.
+   * Укажите имя пользователя, которое будет использоваться для входа в административную панель, например, `admin`.
+   * Укажите пароль, который будет использоваться для входа в административную панель.
+   * Укажите вашу электронную почту.
+1. Нажмите кнопку **Установить WordPress**.
+1. Если установка прошла успешно, нажмите кнопку **Войти**.
+1. Войдите на сайт, используя указанные на прошлых шагах имя пользователя и пароль. После этого откроется административная панель, в которой можно приступать к работе с вашим сайтом.
+
+## Проверьте работу сайта {#test-site}
+
+Чтобы проверить работу сайта, введите в браузере его IP-адрес или доменное имя:
+* `http://<публичный_IP-адрес_ВМ>`.
+* `http://www.example.com`.
+
+Для входа в панель управления WordPress используйте адрес `http://www.example.com/wp-admin/`.
+
+## Как удалить созданные ресурсы {#clear-out}
+
+Чтобы перестать платить за созданные ресурсы:
+
+1. Откройте конфигурационный файл `single-node-file-server.tf` и удалите описание создаваемой инфраструктуры из файла.
+1. Примените изменения:
+
+    1. В терминале перейдите в директорию с конфигурационным файлом.
+    1. Проверьте корректность конфигурации с помощью команды:
+    
+       ```bash
+       terraform validate
+       ```
+    
+       Если конфигурация является корректной, появится сообщение:
+    
+       ```bash
+       Success! The configuration is valid.
+       ```
+    
+    1. Выполните команду:
+    
+       ```bash
+       terraform plan
+       ```
+    
+       В терминале будет выведен список ресурсов с параметрами. На этом этапе изменения не будут внесены. Если в конфигурации есть ошибки, {{ TF }} на них укажет.
+    1. Примените изменения конфигурации:
+    
+       ```bash
+       terraform apply
+       ```
+    
+    1. Подтвердите изменения: введите в терминале слово `yes` и нажмите **Enter**.
+
+#### См. также {#see-also}
+
+* [{#T}](console.md)

@@ -5,7 +5,7 @@ Retrieves a list of shards.
 ## HTTP request
 
 ```
-GET https://mdb.api.cloud.yandex.net/managed-redis/v1/clusters/{clusterId}/shards
+GET https://{{ api-host-mdb }}/managed-redis/v1/clusters/{clusterId}/shards
 ```
 
 ## Path parameters
@@ -15,7 +15,7 @@ GET https://mdb.api.cloud.yandex.net/managed-redis/v1/clusters/{clusterId}/shard
 || clusterId | **string**
 
 Required field. ID of the Redis cluster to list shards in.
-To get the cluster ID use a [ClusterService.List](list.md#List) request.
+To get the cluster ID use a [ClusterService.List](../../../managed-redis/api-ref/Cluster/list#List) request.
 
 The maximum string length in characters is 50. ||
 |#
@@ -78,9 +78,9 @@ in the next list request. Each subsequent list request will have its own
 ||Field | Description ||
 || name | **string**
 
-Name of the Redis shard. The shard name is assigned by user at creation time, and cannot be changed.
+Required field. Name of the Redis shard. The shard name is assigned by user at creation time, and cannot be changed.
 1-63 characters long. ||
 || clusterId | **string**
 
-ID of the Redis cluster the shard belongs to. The ID is assigned by MDB at creation time. ||
+Required field. ID of the Redis cluster the shard belongs to. The ID is assigned by MDB at creation time. ||
 |#

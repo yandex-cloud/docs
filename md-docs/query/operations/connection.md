@@ -1,15 +1,15 @@
 # Управление соединениями
 
-[Соединение](../concepts/glossary.md#connection) необходимо для подключения Yandex Query к источникам и приемникам данных.
+[Соединение](../concepts/glossary.md#connection) необходимо для подключения {{ yq-full-name }} к источникам и приемникам данных.
 
 ## Создать соединение {#create}
 
 Чтобы создать соединение:
 
-1. В [консоли управления](https://console.yandex.cloud) выберите каталог, в котором нужно создать соединение.
-1. [Перейдите](../../console/operations/select-service.md#select-service) в сервис **Yandex Query**.
-1. На панели слева выберите **Соединения**.
-1. Нажмите кнопку ![info](../../_assets/console-icons/plus.svg) **Создать**.
+1. В [консоли управления]({{ link-console-main }}) выберите каталог, в котором нужно создать соединение.
+1. Перейдите в сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_yq_ru }}**.
+1. На панели слева выберите **{{ ui-key.yql.yq-ide-aside.connections.tab-text }}**.
+1. Нажмите кнопку ![info](../../_assets/console-icons/plus.svg) **{{ ui-key.yql.yq-connection-form.action_create-new }}**.
 1. Введите имя и описание соединения. Требования к имени:
 
     * имя должно состоять из букв латинского алфавита в нижнем регистре;
@@ -17,71 +17,71 @@
     * может содержать цифры и дефисы;
     * первый символ — буква, последний — не дефис.
 
-1. Выберите тип соединения и укажите **Параметры типа соединения**:
+1. Выберите тип соединения и укажите **{{ ui-key.yql.yq-connection-form.connection-type-parameters.section-title }}**:
 
    {% list tabs %}
 
-   - Object Storage
+   - {{ objstorage-short-name }}
 
-     * **Аутентификация бакета**: `Публичный` или `Приватный`.
-     * Для публичного бакета введите имя в поле **Бакет**.
+     * **{{ ui-key.yql.yq-connection-form.bucket-auth.input-label }}**: `{{ ui-key.yql.yq-connection-form.public.button-text }}` или `{{ ui-key.yql.yq-connection-form.private.button-text }}`.
+     * Для публичного бакета введите имя в поле **{{ ui-key.yql.yq-connection-form.bucket.input-label }}**.
        Для приватного бакета выберите:
-       * **Облако и каталог**, в котором находится источник данных.
+       * **{{ ui-key.yql.yq-connection-form.cloud.input-label }}**, в котором находится источник данных.
        * Выберите или создайте новый бакет.
        * Выберите или создайте новый [сервисный аккаунт](../../iam/concepts/users/service-accounts.md), от имени которого будет выполняться доступ к данным.
 
-   - Data Streams
+   - {{ yds-short-name }}
 
-     * Выберите **Облако и каталог**, в котором находится источник данных.
-     * Выберите или создайте новую [serverless базу данных Managed Service for YDB](../../ydb/index.md) с [потоком данных](../../data-streams/concepts/index.md) Yandex Data Streams.
+     * Выберите **{{ ui-key.yql.yq-connection-form.cloud.input-label }}**, в котором находится источник данных.
+     * Выберите или создайте новую [serverless базу данных {{ ydb-name }}](../../ydb/index.md) с [потоком данных](../../data-streams/concepts/index.md) {{ yds-full-name }}.
      * Выберите или создайте новый [сервисный аккаунт](../../iam/concepts/users/service-accounts.md), от имени которого будет выполняться доступ к данным.
 
-   - Managed Service for ClickHouse®
+   - {{ mch-name }}
 
-      * **Кластер** — выберите существующий кластер Managed Service for ClickHouse® или создайте новый.
-      * **Сервисный аккаунт** — выберите существующий [сервисный аккаунт](../../iam/concepts/users/service-accounts.md) Managed Service for ClickHouse® или создайте новый с [ролью](../../managed-clickhouse/security.md#managed-clickhouse-viewer) `managed-clickhouse.viewer`, от имени которого будет выполняться подключение к кластерам `Managed Service for ClickHouse®`.
-      * **База данных**  — выберите базу данных, которая будет использоваться при работе с кластером ClickHouse®.
-      * **Логин**  — имя пользователя, которое будет использоваться для подключения к базам данных ClickHouse®.
-      * **Пароль**  — пароль пользователя, который будет использоваться для подключения к базам данных ClickHouse®.
+      * **{{ ui-key.yql.yq-connection-form.cluster.input-label }}** — выберите существующий кластер {{ mch-name }} или создайте новый.
+      * **{{ ui-key.yql.yq-connection-form.service-account.input-label }}** — выберите существующий [сервисный аккаунт](../../iam/concepts/users/service-accounts.md) {{ mch-name }} или создайте новый с [ролью](../../managed-clickhouse/security.md#managed-clickhouse-viewer) `{{ roles.mch.viewer }}`, от имени которого будет выполняться подключение к кластерам `{{ mch-name }}`.
+      * **{{ ui-key.yql.yq-connection-info.database.label }}**  — выберите базу данных, которая будет использоваться при работе с кластером {{ CH }}.
+      * **{{ ui-key.yql.yq-connection-form.login.input-label }}**  — имя пользователя, которое будет использоваться для подключения к базам данных {{ CH }}.
+      * **{{ ui-key.yql.yq-connection-form.password.input-label }}**  — пароль пользователя, который будет использоваться для подключения к базам данных {{ CH }}.
 
-   - Yandex MPP Analytics for PostgreSQL
+   - {{ mgp-name }}
 
-      * **Кластер** — выберите существующий кластер Yandex MPP Analytics for PostgreSQL или создайте новый.
-      * **Сервисный аккаунт** — выберите существующий [сервисный аккаунт](../../iam/concepts/users/service-accounts.md) Yandex MPP Analytics for PostgreSQL или создайте новый с ролью [`managed-greenplum.viewer`](../../managed-greenplum/security/index.md#mgp-viewer), от имени которого будет выполняться подключение к кластерам `Yandex MPP Analytics for PostgreSQL`.
-      * **База данных**  — выберите базу данных, которая будет использоваться при работе с кластером Greenplum®.
-      * **Схема**  — укажите [пространство имен](https://docs.vmware.com/en/VMware-Greenplum/7/greenplum-database/admin_guide-ddl-ddl-schema.html), которое будет использоваться при работе с базой данных Greenplum®.
-      * **Логин**  — имя пользователя, которое будет использоваться для подключения к базам данных Greenplum®.
-      * **Пароль**  — пароль пользователя, который будет использоваться для подключения к базам данных Greenplum®.
+      * **{{ ui-key.yql.yq-connection-form.cluster.input-label }}** — выберите существующий кластер {{ mgp-name }} или создайте новый.
+      * **{{ ui-key.yql.yq-connection-form.service-account.input-label }}** — выберите существующий [сервисный аккаунт](../../iam/concepts/users/service-accounts.md) {{ mgp-name }} или создайте новый с ролью [`{{ roles.mgp.viewer }}`](../../managed-greenplum/security/index.md#mgp-viewer), от имени которого будет выполняться подключение к кластерам `{{ mgp-name }}`.
+      * **{{ ui-key.yql.yq-connection-form.database.input-label }}**  — выберите базу данных, которая будет использоваться при работе с кластером {{ GP }}.
+      * **{{ ui-key.yql.yq-connection-form.schema.input-label }}**  — укажите [пространство имен](https://docs.vmware.com/en/VMware-Greenplum/7/greenplum-database/admin_guide-ddl-ddl-schema.html), которое будет использоваться при работе с базой данных {{ GP }}.
+      * **{{ ui-key.yql.yq-connection-form.login.input-label }}**  — имя пользователя, которое будет использоваться для подключения к базам данных {{ GP }}.
+      * **{{ ui-key.yql.yq-connection-form.password.input-label }}**  — пароль пользователя, который будет использоваться для подключения к базам данных {{ GP }}.
 
-   - Managed Service for MySQL®
+   - {{ mmy-name }}
 
-      * **Кластер** — выберите существующий кластер Managed Service for MySQL® или создайте новый.
-      * **Сервисный аккаунт** — выберите существующий [сервисный аккаунт](../../iam/concepts/users/service-accounts.md) Managed Service for MySQL® или создайте новый с ролью [`managed-mysql.viewer`](../../managed-mysql/security/index.md#managed-mysql-viewer), от имени которого будет выполняться подключение к кластерам `Managed Service for MySQL®`.
-      * **База данных**  — выберите базу данных, которая будет использоваться при работе с кластером MySQL®.
-      * **Логин**  — имя пользователя, которое будет использоваться для подключения к базам данных MySQL®.
-      * **Пароль**  — пароль пользователя, который будет использоваться для подключения к базам данных MySQL®.
+      * **{{ ui-key.yql.yq-connection-form.cluster.input-label }}** — выберите существующий кластер {{ mmy-name }} или создайте новый.
+      * **{{ ui-key.yql.yq-connection-form.service-account.input-label }}** — выберите существующий [сервисный аккаунт](../../iam/concepts/users/service-accounts.md) {{ mmy-name }} или создайте новый с ролью [`{{ roles.mmy.viewer }}`](../../managed-mysql/security/index.md#managed-mysql-viewer), от имени которого будет выполняться подключение к кластерам `{{ mmy-name }}`.
+      * **{{ ui-key.yql.yq-connection-form.database.input-label }}**  — выберите базу данных, которая будет использоваться при работе с кластером {{ MY }}.
+      * **{{ ui-key.yql.yq-connection-form.login.input-label }}**  — имя пользователя, которое будет использоваться для подключения к базам данных {{ MY }}.
+      * **{{ ui-key.yql.yq-connection-form.password.input-label }}**  — пароль пользователя, который будет использоваться для подключения к базам данных {{ MY }}.
 
-   - Managed Service for PostgreSQL
+   - {{ mpg-name }}
 
-      * **Кластер** — выберите существующий кластер Managed Service for PostgreSQL или создайте новый.
-      * **Сервисный аккаунт** — выберите существующий [сервисный аккаунт](../../iam/concepts/users/service-accounts.md) Managed Service for PostgreSQL или создайте новый с [ролью](../../managed-postgresql/security/index.md#managed-postgresql-viewer) `managed-postgresql.viewer`, от имени которого будет выполняться подключение к кластерам `Managed Service for PostgreSQL`.
-      * **База данных**  — выберите базу данных, которая будет использоваться при работе с кластером PostgreSQL.
-      * **Логин**  — имя пользователя, которое будет использоваться для подключения к базам данных PostgreSQL.
-      * **Пароль**  — пароль пользователя, который будет использоваться для подключения к базам данных PostgreSQL.
+      * **{{ ui-key.yql.yq-connection-form.cluster.input-label }}** — выберите существующий кластер {{ mpg-name }} или создайте новый.
+      * **{{ ui-key.yql.yq-connection-form.service-account.input-label }}** — выберите существующий [сервисный аккаунт](../../iam/concepts/users/service-accounts.md) {{ mpg-name }} или создайте новый с [ролью](../../managed-postgresql/security/index.md#managed-postgresql-viewer) `{{ roles.mpg.viewer }}`, от имени которого будет выполняться подключение к кластерам `{{ mpg-name }}`.
+      * **{{ ui-key.yql.yq-connection-form.database.input-label }}**  — выберите базу данных, которая будет использоваться при работе с кластером {{ PG }}.
+      * **{{ ui-key.yql.yq-connection-form.login.input-label }}**  — имя пользователя, которое будет использоваться для подключения к базам данных {{ PG }}.
+      * **{{ ui-key.yql.yq-connection-form.password.input-label }}**  — пароль пользователя, который будет использоваться для подключения к базам данных {{ PG }}.
 
-   - Managed Service for YDB
+   - {{ ydb-name }}
      
-      * **Кластер** — выберите существующую базу данных Managed Service for YDB или создайте новую.
-      * **Сервисный аккаунт** — выберите [сервисный аккаунт](../../iam/concepts/users/service-accounts.md) Managed Service for YDB, от имени которого будет выполняться подключение к кластерам `Managed Service for YDB` и аутентификация в базе данных.
+      * **{{ ui-key.yql.yq-connection-form.cluster.input-label }}** — выберите существующую базу данных {{ ydb-name }} или создайте новую.
+      * **{{ ui-key.yql.yq-connection-form.service-account.input-label }}** — выберите [сервисный аккаунт](../../iam/concepts/users/service-accounts.md) {{ ydb-name }}, от имени которого будет выполняться подключение к кластерам `{{ ydb-name }}` и аутентификация в базе данных.
 
-   - Monitoring
+   - {{ monitoring-short-name }}
 
-     * Выберите **Облако и каталог**, в котором находится источник данных.
+     * Выберите **{{ ui-key.yql.yq-connection-form.cloud.input-label }}**, в котором находится источник данных.
      * Выберите или создайте новый [сервисный аккаунт](../../iam/concepts/users/service-accounts.md), от имени которого будет выполняться запись метрик.
 
    {% endlist %}
 
-1. Нажмите кнопку **Создать**.
+1. Нажмите кнопку **{{ ui-key.yql.yq-connection-form.create.button-text }}**.
 
 Чтобы использовать соединение, в настройках которого указан сервисный аккаунт, пользователю нужна [роль](../../iam/security/index.md#iam-serviceAccounts-user) `iam.serviceAccounts.user`.
 
@@ -91,30 +91,30 @@
 
 Чтобы посмотреть информацию о соединении:
 
-1. В [консоли управления](https://console.yandex.cloud) выберите каталог, в котором создано соединение.
-1. [Перейдите](../../console/operations/select-service.md#select-service) в сервис **Yandex Query**.
-1. На панели слева выберите **Соединения**.
-1. В строке с именем нужного соединения нажмите кнопку ![info](../../_assets/console-icons/circle-info.svg). Раздел **Общее** содержит информацию об источнике и сервисном аккаунте. В разделе **Мета** указаны идентификатор (ID) соединения, время создания и автор.
+1. В [консоли управления]({{ link-console-main }}) выберите каталог, в котором создано соединение.
+1. Перейдите в сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_yq_ru }}**.
+1. На панели слева выберите **{{ ui-key.yql.yq-ide-aside.connections.tab-text }}**.
+1. В строке с именем нужного соединения нажмите кнопку ![info](../../_assets/console-icons/circle-info.svg). Раздел **{{ ui-key.yql.yq-connection-info.general.section-header }}** содержит информацию об источнике и сервисном аккаунте. В разделе **{{ ui-key.yql.yq-common-meta-section.meta.section-header }}** указаны идентификатор (ID) соединения, время создания и автор.
 
 ## Изменить параметры соединения {#update}
 
 Чтобы изменить параметры соединения:
 
-1. В [консоли управления](https://console.yandex.cloud) выберите каталог, в котором создано соединение.
-1. [Перейдите](../../console/operations/select-service.md#select-service) в сервис **Yandex Query**.
-1. На панели слева выберите **Соединения**.
-1. В строке с именем нужного соединения нажмите кнопку ![ellipsis](../../_assets/console-icons/ellipsis.svg) и выберите **Изменить**.
+1. В [консоли управления]({{ link-console-main }}) выберите каталог, в котором создано соединение.
+1. Перейдите в сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_yq_ru }}**.
+1. На панели слева выберите **{{ ui-key.yql.yq-ide-aside.connections.tab-text }}**.
+1. В строке с именем нужного соединения нажмите кнопку ![ellipsis](../../_assets/console-icons/ellipsis.svg) и выберите **{{ ui-key.yql.yq-connection-actions.edit-connection.menu-item-text }}**.
 1. Укажите новые параметры соединения. Тип соединения изменить нельзя.
-1. Нажмите кнопку **Изменить**.
+1. Нажмите кнопку **{{ ui-key.yql.yq-connection-form.modify.button-text }}**.
 
 ## Удалить соединение {#delete}
 
 Чтобы удалить соединение:
 
-1. В [консоли управления](https://console.yandex.cloud) выберите каталог, в котором создано соединение.
-1. [Перейдите](../../console/operations/select-service.md#select-service) в сервис **Yandex Query**.
-1. На панели слева выберите **Соединения**.
-1. В строке с именем нужного соединения нажмите кнопку ![ellipsis](../../_assets/console-icons/ellipsis.svg) и выберите **Удалить**.
+1. В [консоли управления]({{ link-console-main }}) выберите каталог, в котором создано соединение.
+1. Перейдите в сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_yq_ru }}**.
+1. На панели слева выберите **{{ ui-key.yql.yq-ide-aside.connections.tab-text }}**.
+1. В строке с именем нужного соединения нажмите кнопку ![ellipsis](../../_assets/console-icons/ellipsis.svg) и выберите **{{ ui-key.yql.yq-connection-actions.delete-connection.menu-item-text }}**.
 1. Подтвердите удаление соединения.
 
-_ClickHouse® является зарегистрированным товарным знаком [ClickHouse, Inc](https://clickhouse.com)._
+_{{ CH }} является зарегистрированным товарным знаком [ClickHouse, Inc](https://clickhouse.com)._

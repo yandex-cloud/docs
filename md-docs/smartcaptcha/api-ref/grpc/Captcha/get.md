@@ -27,9 +27,7 @@ The maximum string length in characters is 50. ||
 
 ```json
 {
-  "id": "string",
   "folder_id": "string",
-  "cloud_id": "string",
   "client_key": "string",
   "created_at": "google.protobuf.Timestamp",
   "name": "string",
@@ -38,6 +36,7 @@ The maximum string length in characters is 50. ||
   ],
   "complexity": "CaptchaComplexity",
   "style_json": "string",
+  "cloud_id": "string",
   "suspend": "bool",
   "turn_off_hostname_check": "bool",
   "pre_check_type": "CaptchaPreCheckType",
@@ -60,7 +59,17 @@ The maximum string length in characters is 50. ||
               "pire_regex_not_match": "string"
               // end of the list of possible fields
             }
-          ]
+          ],
+          "host_matcher": {
+            // Includes only one of the fields `exact_match`, `exact_not_match`, `prefix_match`, `prefix_not_match`, `pire_regex_match`, `pire_regex_not_match`
+            "exact_match": "string",
+            "exact_not_match": "string",
+            "prefix_match": "string",
+            "prefix_not_match": "string",
+            "pire_regex_match": "string",
+            "pire_regex_not_match": "string"
+            // end of the list of possible fields
+          }
         },
         "uri": {
           "path": {
@@ -130,6 +139,7 @@ The maximum string length in characters is 50. ||
       "override_variant_uuid": "string"
     }
   ],
+  "id": "string",
   "deletion_protection": "bool",
   "override_variants": [
     {
@@ -150,15 +160,9 @@ A Captcha resource.
 
 #|
 ||Field | Description ||
-|| id | **string**
-
-ID of the captcha. ||
 || folder_id | **string**
 
 ID of the folder that the captcha belongs to. ||
-|| cloud_id | **string**
-
-ID of the cloud that the captcha belongs to. ||
 || client_key | **string**
 
 Client key of the captcha, see [CAPTCHA keys](../../../concepts/keys.md). ||
@@ -182,6 +186,9 @@ Complexity of the captcha.
 || style_json | **string**
 
 JSON with variables to define the captcha appearance. For more details see generated JSON in cloud console. ||
+|| cloud_id | **string**
+
+ID of the cloud that the captcha belongs to. ||
 || suspend | **bool**
 
 Determines that the captcha is currently in restricted mode, see [SmartCaptcha restricted mode](../../../concepts/restricted-mode.md). ||
@@ -204,6 +211,9 @@ Additional task type of the captcha.
 || security_rules[] | **[SecurityRule](#yandex.cloud.smartcaptcha.v1.SecurityRule)**
 
 List of security rules. ||
+|| id | **string**
+
+ID of the captcha. ||
 || deletion_protection | **bool**
 
 Determines whether captcha is protected from being deleted. ||
@@ -212,13 +222,19 @@ Determines whether captcha is protected from being deleted. ||
 List of variants to use in security_rules
 
 The maximum number of elements is 32. ||
-|| disallow_data_processing | **bool** ||
+|| disallow_data_processing | **bool**
+
+Disables the use of HTTP request data for training and improving the service's ML models. ||
 || description | **string**
+
+Optional description of the captcha.
 
 The maximum string length in characters is 512. ||
 || labels | **object** (map<**string**, **string**>)
 
-No more than 64 per resource. The maximum string length in characters for each value is 63. Each value must match the regular expression ` [-_0-9a-z]* `. The string length in characters for each key must be 1-63. Each key must match the regular expression ` [a-z][-_0-9a-z]* `. ||
+Labels as `` key:value `` pairs. Maximum of 64 per resource.
+
+The maximum string length in characters for each value is 63. The string length in characters for each key must be 1-63. Each key must match the regular expression ` [a-z][-_0-9a-z]* `. Each value must match the regular expression ` [-_0-9a-z]* `. No more than 64 per resource. ||
 |#
 
 ## SecurityRule {#yandex.cloud.smartcaptcha.v1.SecurityRule}
@@ -258,7 +274,7 @@ Condition object. AND semantics implied.
 ||Field | Description ||
 || host | **[HostMatcher](#yandex.cloud.smartcaptcha.v1.Condition.HostMatcher)**
 
-Host where captcha placed. ||
+AND* semantics implied. ||
 || uri | **[UriMatcher](#yandex.cloud.smartcaptcha.v1.Condition.UriMatcher)**
 
 URI where captcha placed. ||
@@ -283,6 +299,9 @@ HostMatcher object.
 List of hosts. OR semantics implied.
 
 The maximum number of elements is 20. ||
+|| host_matcher | **[StringMatcher](#yandex.cloud.smartcaptcha.v1.Condition.StringMatcher)**
+
+Host matcher. ||
 |#
 
 ## StringMatcher {#yandex.cloud.smartcaptcha.v1.Condition.StringMatcher}
@@ -293,30 +312,42 @@ StringMatcher object.
 ||Field | Description ||
 || exact_match | **string**
 
+Exact match condition.
+
 The string length in characters must be 0-255.
 
 Includes only one of the fields `exact_match`, `exact_not_match`, `prefix_match`, `prefix_not_match`, `pire_regex_match`, `pire_regex_not_match`. ||
 || exact_not_match | **string**
+
+Exact not match condition.
 
 The string length in characters must be 0-255.
 
 Includes only one of the fields `exact_match`, `exact_not_match`, `prefix_match`, `prefix_not_match`, `pire_regex_match`, `pire_regex_not_match`. ||
 || prefix_match | **string**
 
+Prefix match condition.
+
 The string length in characters must be 0-255.
 
 Includes only one of the fields `exact_match`, `exact_not_match`, `prefix_match`, `prefix_not_match`, `pire_regex_match`, `pire_regex_not_match`. ||
 || prefix_not_match | **string**
+
+Prefix not match condition.
 
 The string length in characters must be 0-255.
 
 Includes only one of the fields `exact_match`, `exact_not_match`, `prefix_match`, `prefix_not_match`, `pire_regex_match`, `pire_regex_not_match`. ||
 || pire_regex_match | **string**
 
+PIRE regex match condition.
+
 The string length in characters must be 0-255.
 
 Includes only one of the fields `exact_match`, `exact_not_match`, `prefix_match`, `prefix_not_match`, `pire_regex_match`, `pire_regex_not_match`. ||
 || pire_regex_not_match | **string**
+
+PIRE regex not match condition.
 
 The string length in characters must be 0-255.
 
@@ -334,7 +365,7 @@ UriMatcher object. AND semantics implied.
 Path of the URI [RFC3986](https://datatracker.ietf.org/doc/html/rfc3986#section-3.3). ||
 || queries[] | **[QueryMatcher](#yandex.cloud.smartcaptcha.v1.Condition.QueryMatcher)**
 
-List of query matchers. AND semantics implied.
+AND* semantics implied
 
 The maximum number of elements is 20. ||
 |#
@@ -377,10 +408,18 @@ IpMatcher object. AND semantics implied.
 
 #|
 ||Field | Description ||
-|| ip_ranges_match | **[IpRangesMatcher](#yandex.cloud.smartcaptcha.v1.Condition.IpRangesMatcher)** ||
-|| ip_ranges_not_match | **[IpRangesMatcher](#yandex.cloud.smartcaptcha.v1.Condition.IpRangesMatcher)** ||
-|| geo_ip_match | **[GeoIpMatcher](#yandex.cloud.smartcaptcha.v1.Condition.GeoIpMatcher)** ||
-|| geo_ip_not_match | **[GeoIpMatcher](#yandex.cloud.smartcaptcha.v1.Condition.GeoIpMatcher)** ||
+|| ip_ranges_match | **[IpRangesMatcher](#yandex.cloud.smartcaptcha.v1.Condition.IpRangesMatcher)**
+
+IP ranges to match with. ||
+|| ip_ranges_not_match | **[IpRangesMatcher](#yandex.cloud.smartcaptcha.v1.Condition.IpRangesMatcher)**
+
+IP ranges to not match with. ||
+|| geo_ip_match | **[GeoIpMatcher](#yandex.cloud.smartcaptcha.v1.Condition.GeoIpMatcher)**
+
+Geo locations to match with. ||
+|| geo_ip_not_match | **[GeoIpMatcher](#yandex.cloud.smartcaptcha.v1.Condition.GeoIpMatcher)**
+
+Geo locations to not match with. ||
 |#
 
 ## IpRangesMatcher {#yandex.cloud.smartcaptcha.v1.Condition.IpRangesMatcher}
@@ -391,9 +430,9 @@ IpRangesMatcher object.
 ||Field | Description ||
 || ip_ranges[] | **string**
 
-List of IP ranges. OR semantics implied.
+OR* semantics implied.
 
-The maximum number of elements is 10000. ||
+The string length in characters for each value must be greater than 0. The maximum number of elements is 10000. ||
 |#
 
 ## GeoIpMatcher {#yandex.cloud.smartcaptcha.v1.Condition.GeoIpMatcher}
@@ -404,7 +443,7 @@ GeoIpMatcher object.
 ||Field | Description ||
 || locations[] | **string**
 
-ISO 3166-1 alpha 2. OR semantics implied.
+OR semantics implied. ISO 3166-1 alpha 2
 
 The minimum number of elements is 1. ||
 |#
@@ -419,7 +458,7 @@ OverrideVariant object. Contains the settings to override.
 
 Unique identifier of the variant.
 
-Value must match the regular expression ` [a-zA-Z0-9][a-zA-Z0-9-_.]* `. The maximum string length in characters is 64. ||
+The maximum string length in characters is 64. Value must match the regular expression ` [a-zA-Z0-9][a-zA-Z0-9-_.]* `. ||
 || description | **string**
 
 Optional description of the rule. 0-512 characters long.

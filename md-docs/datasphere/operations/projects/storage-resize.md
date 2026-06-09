@@ -2,16 +2,16 @@
 
 {% note info %}
 
-Вы можете изменить размер хранилища проекта, если у вас есть [роль](../../security/index.md) `datasphere.community-projects.admin` в проекте или роль `datasphere.communities.admin` в сообществе проекта.
+Вы можете изменить размер хранилища проекта, если у вас есть [роль](../../security/index.md) `{{ roles-datasphere-project-admin }}` в проекте или роль `{{ roles-datasphere-communities-admin }}` в сообществе проекта.
 
 Изменение размера хранилища проекта может быть [ограничено](../community/manage-community-config.md) в настройках сообщества.
 
 {% endnote %}
 
-1. Выберите нужный проект в своем сообществе или на [главной странице](https://datasphere.yandex.cloud) DataSphere во вкладке **Недавние проекты**.
-1. Информация о размере хранилища проекта доступна на странице проекта на вкладке **Обзор** в блоке **Хранилище проекта**. Нажмите значок ![pencil](../../../_assets/console-icons/pencil-to-line.svg) **Изменить размер**.
+1. Выберите нужный проект в своем сообществе или на [главной странице]({{ link-datasphere-main }}) {{ ml-platform-name }} во вкладке **{{ ui-key.yc-ui-datasphere.main-page.recent-projects }}**.
+1. Информация о размере хранилища проекта доступна на странице проекта на вкладке **{{ ui-key.yc-ui-datasphere.project-page.tab.overview }}** в блоке **{{ ui-key.yc-ui-datasphere.project-page.project-disk }}**. Нажмите значок ![pencil](../../../_assets/console-icons/pencil-to-line.svg) **{{ ui-key.yc-ui-datasphere.common.resize }}**.
 1. Укажите желаемый размер — целое число.
-1. Нажмите **Изменить размер**.
+1. Нажмите **{{ ui-key.yc-ui-datasphere.common.resize }}**.
 1. Проект можно будет открыть, когда завершится изменение размера хранилища.
 
 {% note warning %}

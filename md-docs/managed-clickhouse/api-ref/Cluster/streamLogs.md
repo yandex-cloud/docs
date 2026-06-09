@@ -5,7 +5,7 @@ Same as ListLogs but using server-side streaming. Also allows for `tail -f` sema
 ## HTTP request
 
 ```
-GET https://mdb.api.cloud.yandex.net/managed-clickhouse/v1/clusters/{clusterId}:stream_logs
+GET https://{{ api-host-mdb }}/managed-clickhouse/v1/clusters/{clusterId}:stream_logs
 ```
 
 ## Path parameters

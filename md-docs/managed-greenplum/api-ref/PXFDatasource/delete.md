@@ -5,7 +5,7 @@ Delete PXF datasource
 ## HTTP request
 
 ```
-DELETE https://mdb.api.cloud.yandex.net/managed-greenplum/v1/clusters/{clusterId}/pxf_datasource/{datasourceName}
+DELETE https://{{ api-host-mdb }}/managed-greenplum/v1/clusters/{clusterId}/pxf_datasource/{datasourceName}
 ```
 
 ## Path parameters

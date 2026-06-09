@@ -4,23 +4,23 @@
 
 - Консоль управления {#console}
 
-  1. В [консоли управления](https://console.yandex.cloud) выберите каталог, в котором хотите создать [виртуальный сегмент сети (VRF)](../concepts/private-network.md#vrf-segment).
-  1. [Перейдите](../../console/operations/select-service.md#select-service) в сервис **BareMetal**.
-  1. На панели слева выберите ![icon](../../_assets/console-icons/vector-square.svg) **VRF**.
-  1. Справа вверху нажмите кнопку **Создать VRF**.
-  1. В поле **Имя** укажите имя VRF. Требования к имени:
+  1. В [консоли управления]({{ link-console-main }}) выберите каталог, в котором хотите создать [виртуальный сегмент сети (VRF)](../concepts/private-network.md#vrf-segment).
+  1. Перейдите в сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_baremetal }}**.
+  1. На панели слева выберите ![icon](../../_assets/console-icons/vector-square.svg) **{{ ui-key.yacloud.baremetal.label_networks_kHgng }}**.
+  1. Справа вверху нажмите кнопку **{{ ui-key.yacloud.baremetal.label_create-network }}**.
+  1. В поле **{{ ui-key.yacloud.baremetal.field_name }}** укажите имя VRF. Требования к имени:
 
      * длина — от 3 до 63 символов;
      * может содержать строчные буквы латинского алфавита, цифры и дефисы;
      * первый символ — буква, последний — не дефис.
 
-  1. (Опционально) Добавьте **Описание** VRF.
+  1. (Опционально) Добавьте **{{ ui-key.yacloud.baremetal.field_description }}** VRF.
   1. (Опционально) Добавьте метки.
-  1. Нажмите кнопку **Создать VRF**.
+  1. Нажмите кнопку **{{ ui-key.yacloud.baremetal.label_create-network }}**.
 
 - CLI {#cli}
 
-  Если у вас еще нет интерфейса командной строки Yandex Cloud (CLI), [установите и инициализируйте его](../../cli/quickstart.md#install).
+  Если у вас еще нет интерфейса командной строки {{ yandex-cloud }} (CLI), [установите и инициализируйте его](../../cli/quickstart.md#install).
 
   По умолчанию используется каталог, указанный при [создании](../../cli/operations/profile/profile-create.md) профиля CLI. Чтобы изменить каталог по умолчанию, используйте команду `yc config set folder-id <идентификатор_каталога>`. Также для любой команды вы можете указать другой каталог с помощью параметров `--folder-name` или `--folder-id`. Если вы обращаетесь к ресурсу по имени, поиск будет выполнен в каталоге по умолчанию. Если вы обращаетесь к ресурсу по идентификатору, поиск будет выполнен глобально — во всех каталогах с учетом прав доступа.
 

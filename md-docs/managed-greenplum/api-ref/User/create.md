@@ -5,7 +5,7 @@ Creates user
 ## HTTP request
 
 ```
-POST https://mdb.api.cloud.yandex.net/managed-greenplum/v1/clusters/{clusterId}/users
+POST https://{{ api-host-mdb }}/managed-greenplum/v1/clusters/{clusterId}/users
 ```
 
 ## Path parameters

@@ -56,25 +56,6 @@ To do the setting up:
               always-auth=true
               ```
 
-        - OAuth token (Base64)
-
-          1. [Get]({{ link-cloud-oauth }}) an OAuth token for the [Yandex account](../../../iam/concepts/users/accounts.md#passport) you are going to use for authentication.
-          1. Create the `NPM_AUTH` environment variable:
-
-              ```bash
-              export NPM_AUTH=$(echo -n 'oauth:<OAuth_token>' | base64)
-              ```
-
-              Where `NPM_AUTH` is the body of the previously obtained [OAuth token](../../../iam/concepts/authorization/oauth-token.md), [Base64](https://www.base64encode.org/)-encoded.
-
-          1. Add the following lines to the previously created `.npmrc` file:
-
-              ```text
-              registry=https://{{ cloud-registry }}/npm/<registry_ID>
-              //{{ cloud-registry }}/npm/:_auth=${NPM_AUTH}
-              always-auth=true
-              ```
-
         - API key (Base64)
 
           1. [Create](../../../iam/operations/authentication/manage-api-keys.md#create-api-key) an API key for the [service account](../../../iam/concepts/users/service-accounts.md) you are going to use for authentication.

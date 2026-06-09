@@ -1,12 +1,12 @@
-# Настройки PostgreSQL
+# Настройки {{ PG }}
 
-Для кластера Managed Service for PostgreSQL можно задать настройки, которые относятся к PostgreSQL. Часть настроек задается [на уровне кластера](#dbms-cluster-settings), часть — [на уровне пользователя](#dbms-user-settings).
+Для кластера {{ mpg-name }} можно задать настройки, которые относятся к {{ PG }}. Часть настроек задается [на уровне кластера](#dbms-cluster-settings), часть — [на уровне пользователя](#dbms-user-settings).
 
-Метки рядом с названием настройки позволяют определить, с помощью какого интерфейса задается значение этой настройки: консоль управления, CLI, [API](../../glossary/rest-api.md) или Terraform. Метка <code><b><small>Все интерфейсы</small></b></code> указывает, что поддерживаются все перечисленные интерфейсы.
+Метки рядом с названием настройки позволяют определить, с помощью какого интерфейса задается значение этой настройки: консоль управления, CLI, [API](../../glossary/rest-api.md) или {{ TF }}. Метка {{ tag-all }} указывает, что поддерживаются все перечисленные интерфейсы.
 
 В зависимости от выбранного интерфейса, одна и та же настройка будет представлена по-разному, например:
 - **Backend flush after** в консоли управления соответствует:
-  - `backend_flush_after` в gRPC API, CLI, Terraform;
+  - `backend_flush_after` в gRPC API, CLI, {{ TF }};
   - `backendFlushAfter` в REST API;
 - **Default transaction isolation** в настройках уровня пользователя в консоли управления соответствует:
   - `--default-transaction-isolation` в CLI;
@@ -15,7 +15,7 @@
 
 ## Зависимость настроек от класса хостов и размера хранилища {#settings-instance-dependent}
 
-Значения некоторых настроек PostgreSQL могут быть автоматически скорректированы при изменении класса хостов или размера хранилища:
+Значения некоторых настроек {{ PG }} могут быть автоматически скорректированы при изменении класса хостов или размера хранилища:
 
 - Если значения не были заданы или не подходят новому классу/размеру, будут применены настройки по умолчанию для этого класса/размера.
 - Если заданные вручную настройки подходят для нового класса/размера, они не будут изменены.
@@ -38,124 +38,124 @@
 
 Доступны следующие настройки:
 
-- **Archive timeout**{#setting-archive-timeout} <code><b><small>Все интерфейсы</small></b></code>
+- **Archive timeout**{#setting-archive-timeout} {{ tag-all }}
 
-  Периодичность (в миллисекундах) архивации лога транзакций PostgreSQL.
+  Периодичность (в миллисекундах) архивации лога транзакций {{ PG }}.
 
   Минимальное значение — `10000`, максимальное значение — `86400000`, по умолчанию — `30000`.
 
-  Подробнее см. в описании настройки `archive_timeout` в [документации PostgreSQL](https://www.postgresql.org/docs/current/runtime-config-wal.html#GUC-ARCHIVE-TIMEOUT).
+  Подробнее см. в описании настройки `archive_timeout` в [документации {{ PG }}](https://www.postgresql.org/docs/current/runtime-config-wal.html#GUC-ARCHIVE-TIMEOUT).
 
-- **Array nulls**{#setting-array-nulls} <code><b><small>Все интерфейсы</small></b></code>
+- **Array nulls**{#setting-array-nulls} {{ tag-all }}
 
   Управляет распознаванием элементов `NULL` при вставке массива. Если настройка включена, то такие элементы распознаются как пустое поле `NULL`. В противном случае — как строка с текстом «`NULL`».
 
   По умолчанию настройка включена.
 
-  Подробнее см. в описании настройки `array_nulls` в [документации PostgreSQL](https://www.postgresql.org/docs/current/runtime-config-compatible.html#GUC-ARRAY-NULLS).
+  Подробнее см. в описании настройки `array_nulls` в [документации {{ PG }}](https://www.postgresql.org/docs/current/runtime-config-compatible.html#GUC-ARRAY-NULLS).
 
-- **Auto explain log analyze**{#setting-auto-explain-log-analyze} <code><b><small>Консоль управления</small></b></code> <code><b><small>API</small></b></code> <code><b><small>Terraform</small></b></code>
+- **Auto explain log analyze**{#setting-auto-explain-log-analyze} {{ tag-con }} {{ tag-api }} {{ tag-tf }}
 
-  Определяет, будет ли статистика плана запроса выводиться в лог PostgreSQL автоматически, без использования команды `EXPLAIN`. Это позволяет отслеживать неоптимизированные запросы. Настройка использует модуль `auto_explain`, для его работы необходимо [подключить библиотеку `auto_explain`](#setting-shared-libraries).
+  Определяет, будет ли статистика плана запроса выводиться в лог {{ PG }} автоматически, без использования команды `EXPLAIN`. Это позволяет отслеживать неоптимизированные запросы. Настройка использует модуль `auto_explain`, для его работы необходимо [подключить библиотеку `auto_explain`](#setting-shared-libraries).
 
   По умолчанию настройка выключена (статистика плана запроса не выводится в лог).
 
-  Подробнее см. в описании настройки `auto_explain.log_analyze` в [документации PostgreSQL](https://www.postgresql.org/docs/current/auto-explain.html).
+  Подробнее см. в описании настройки `auto_explain.log_analyze` в [документации {{ PG }}](https://www.postgresql.org/docs/current/auto-explain.html).
 
-- **Auto explain log buffers**{#setting-auto-explain-log-buffers} <code><b><small>Консоль управления</small></b></code> <code><b><small>API</small></b></code> <code><b><small>Terraform</small></b></code>
+- **Auto explain log buffers**{#setting-auto-explain-log-buffers} {{ tag-con }} {{ tag-api }} {{ tag-tf }}
 
-  Определяет, будет ли статистика использования буферного кеша выводиться в лог PostgreSQL через модуль `auto_explain`. Работает аналогично параметру `BUFFERS` в команде `EXPLAIN`. Применяется только при включенной настройке [Auto explain log analyze](#setting-auto-explain-log-analyze).
+  Определяет, будет ли статистика использования буферного кеша выводиться в лог {{ PG }} через модуль `auto_explain`. Работает аналогично параметру `BUFFERS` в команде `EXPLAIN`. Применяется только при включенной настройке [Auto explain log analyze](#setting-auto-explain-log-analyze).
 
   По умолчанию настройка выключена (статистика использования буферного кеша не выводится в лог).
 
-  Подробнее см. в описании настройки `auto_explain.log_buffers` в [документации PostgreSQL](https://www.postgresql.org/docs/current/auto-explain.html).
+  Подробнее см. в описании настройки `auto_explain.log_buffers` в [документации {{ PG }}](https://www.postgresql.org/docs/current/auto-explain.html).
 
-- **Auto explain log format**{#setting-auto-explain-log-format} <code><b><small>Все интерфейсы</small></b></code>
+- **Auto explain log format**{#setting-auto-explain-log-format} {{ tag-all }}
 
-  Определяет формат вывода данных в лог PostgreSQL для модуля `auto_explain`:
+  Определяет формат вывода данных в лог {{ PG }} для модуля `auto_explain`:
   
-  * `text` (`AUTO_EXPLAIN_LOG_FORMAT_TEXT` для Terraform и API);
-  * `xml` (`AUTO_EXPLAIN_LOG_FORMAT_XML` для Terraform и API);
-  * `json` (`AUTO_EXPLAIN_LOG_FORMAT_JSON` для Terraform и API);
-  * `yaml` (`AUTO_EXPLAIN_LOG_FORMAT_YAML` для Terraform и API).
+  * `text` (`AUTO_EXPLAIN_LOG_FORMAT_TEXT` для {{ TF }} и API);
+  * `xml` (`AUTO_EXPLAIN_LOG_FORMAT_XML` для {{ TF }} и API);
+  * `json` (`AUTO_EXPLAIN_LOG_FORMAT_JSON` для {{ TF }} и API);
+  * `yaml` (`AUTO_EXPLAIN_LOG_FORMAT_YAML` для {{ TF }} и API).
 
   Значение по умолчанию — `text`.
 
-  Подробнее см. в описании настройки `auto_explain.log_format` в [документации PostgreSQL](https://www.postgresql.org/docs/current/auto-explain.html#AUTO-EXPLAIN-CONFIGURATION-PARAMETERS-LOG-FORMAT).
+  Подробнее см. в описании настройки `auto_explain.log_format` в [документации {{ PG }}]({{ pg.docs.org }}/current/auto-explain.html#AUTO-EXPLAIN-CONFIGURATION-PARAMETERS-LOG-FORMAT).
 
-- **Auto explain log min duration**{#setting-auto-explain-log-min-duration} <code><b><small>Консоль управления</small></b></code> <code><b><small>API</small></b></code> <code><b><small>Terraform</small></b></code>
+- **Auto explain log min duration**{#setting-auto-explain-log-min-duration} {{ tag-con }} {{ tag-api }} {{ tag-tf }}
 
   Минимальное время выполнения запроса (в миллисекундах), при котором включается логирование в модуле `auto_explain`.
 
   Минимальное значение — `-1` (логирование отключено), максимальное значение — `2147483647`, по умолчанию — `-1`. При значении `0` логируются планы всех запросов независимо от времени их выполнения.
 
-  Подробнее см. в описании настройки `auto_explain.log_min_duration` в [документации PostgreSQL](https://www.postgresql.org/docs/current/auto-explain.html).
+  Подробнее см. в описании настройки `auto_explain.log_min_duration` в [документации {{ PG }}](https://www.postgresql.org/docs/current/auto-explain.html).
 
-- **Auto explain log nested statements**{#setting-auto-explain-log-nested-statements} <code><b><small>Консоль управления</small></b></code> <code><b><small>API</small></b></code> <code><b><small>Terraform</small></b></code>
+- **Auto explain log nested statements**{#setting-auto-explain-log-nested-statements} {{ tag-con }} {{ tag-api }} {{ tag-tf }}
 
   Определяет, будет ли в модуле `auto_explain` логироваться выполнение вложенных запросов внутри SQL-функций. Применяется только при включенной настройке [Auto explain log analyze](#setting-auto-explain-log-analyze).
 
   По умолчанию настройка выключена (логируются только планы верхнеуровневых запросов).
 
-  Подробнее см. в описании настройки `auto_explain.log_nested_statements` в [документации PostgreSQL](https://www.postgresql.org/docs/current/auto-explain.html).
+  Подробнее см. в описании настройки `auto_explain.log_nested_statements` в [документации {{ PG }}](https://www.postgresql.org/docs/current/auto-explain.html).
 
-- **Auto explain log timing**{#setting-auto-explain-log-timing} <code><b><small>Консоль управления</small></b></code> <code><b><small>API</small></b></code> <code><b><small>Terraform</small></b></code>
+- **Auto explain log timing**{#setting-auto-explain-log-timing} {{ tag-con }} {{ tag-api }} {{ tag-tf }}
 
   Определяет, будет ли в модуле `auto_explain` логироваться время выполнения отдельных этапов плана запроса. Работает аналогично параметру `TIMING` в команде `EXPLAIN`. Применяется только при включенной настройке [Auto explain log analyze](#setting-auto-explain-log-analyze).
 
   По умолчанию настройка выключена (время выполнения отдельных этапов не логируется).
 
-  Подробнее см. в описании настройки `auto_explain.log_timing` в [документации PostgreSQL](https://www.postgresql.org/docs/current/auto-explain.html).
+  Подробнее см. в описании настройки `auto_explain.log_timing` в [документации {{ PG }}](https://www.postgresql.org/docs/current/auto-explain.html).
 
-- **Auto explain log triggers**{#setting-auto-explain-log-triggers} <code><b><small>Консоль управления</small></b></code> <code><b><small>API</small></b></code> <code><b><small>Terraform</small></b></code>
+- **Auto explain log triggers**{#setting-auto-explain-log-triggers} {{ tag-con }} {{ tag-api }} {{ tag-tf }}
 
   Определяет, будет ли в модуле `auto_explain` выводиться статистика выполнения триггеров. Применяется только при включенной настройке [Auto explain log analyze](#setting-auto-explain-log-analyze).
 
   По умолчанию настройка выключена (статистика выполнения триггеров не выводится).
 
-  Подробнее см. в описании настройки `auto_explain.log_triggers` в [документации PostgreSQL](https://www.postgresql.org/docs/current/auto-explain.html).
+  Подробнее см. в описании настройки `auto_explain.log_triggers` в [документации {{ PG }}](https://www.postgresql.org/docs/current/auto-explain.html).
 
-- **Auto explain log verbose**{#setting-auto-explain-log-verbose} <code><b><small>Консоль управления</small></b></code> <code><b><small>API</small></b></code> <code><b><small>Terraform</small></b></code>
+- **Auto explain log verbose**{#setting-auto-explain-log-verbose} {{ tag-con }} {{ tag-api }} {{ tag-tf }}
 
   Определяет, будут ли в модуле `auto_explain` детализированы логи. Работает аналогично параметру `VERBOSE` в команде `EXPLAIN`. Применяется только при включенной настройке [Auto explain log analyze](#setting-auto-explain-log-analyze).
 
   По умолчанию настройка выключена (логи не детализируются).
 
-  Подробнее см. в описании настройки `auto_explain.log_verbose` в [документации PostgreSQL](https://www.postgresql.org/docs/current/auto-explain.html).
+  Подробнее см. в описании настройки `auto_explain.log_verbose` в [документации {{ PG }}](https://www.postgresql.org/docs/current/auto-explain.html).
 
-- **Auto explain sample rate**{#setting-auto-explain-sample-rate} <code><b><small>Консоль управления</small></b></code> <code><b><small>API</small></b></code> <code><b><small>Terraform</small></b></code>
+- **Auto explain sample rate**{#setting-auto-explain-sample-rate} {{ tag-con }} {{ tag-api }} {{ tag-tf }}
 
   Доля запросов, которые логируются с помощью модуля `auto_explain` в каждой сессии. Применяется только при включенной настройке [Auto explain log analyze](#setting-auto-explain-log-analyze).
 
   Минимальное значение — `0.0` (никакие запросы не логируются), максимальное значение — `1.0` (логируются все запросы), по умолчанию — `1.0`.
 
-  Подробнее см. в описании настройки `auto_explain.sample_rate` в [документации PostgreSQL](https://www.postgresql.org/docs/current/auto-explain.html).
+  Подробнее см. в описании настройки `auto_explain.sample_rate` в [документации {{ PG }}](https://www.postgresql.org/docs/current/auto-explain.html).
 
-- **Autovacuum analyze scale factor**{#setting-autovacuum-analyze-scale-factor} <code><b><small>Все интерфейсы</small></b></code>
+- **Autovacuum analyze scale factor**{#setting-autovacuum-analyze-scale-factor} {{ tag-all }}
 
   Доля измененных или удаленных записей в таблице, при которой [процесс автоочистки](https://www.postgresql.org/docs/current/routine-vacuuming.html#AUTOVACUUM) выполнит команду `ANALYZE` для сбора статистики.
 
   Минимальное значение — `0.0`, максимальное значение — `1.0`, по умолчанию — `0.0001`.
 
-  Подробнее см. в описании настройки `autovacuum_analyze_scale_factor` в [документации PostgreSQL](https://www.postgresql.org/docs/current/runtime-config-autovacuum.html#GUC-AUTOVACUUM-ANALYZE-SCALE-FACTOR).
+  Подробнее см. в описании настройки `autovacuum_analyze_scale_factor` в [документации {{ PG }}](https://www.postgresql.org/docs/current/runtime-config-autovacuum.html#GUC-AUTOVACUUM-ANALYZE-SCALE-FACTOR).
 
-- **Autovacuum max workers**{#setting-autovacuum-max-workers} <code><b><small>Консоль управления</small></b></code> <code><b><small>API</small></b></code> <code><b><small>Terraform</small></b></code> <code><b><small>CLI</small></b></code>
+- **Autovacuum max workers**{#setting-autovacuum-max-workers} {{ tag-con }} {{ tag-api }} {{ tag-tf }} {{ tag-cli }}
 
   Максимальное количество параллельно запущенных [процессов автоочистки](https://www.postgresql.org/docs/current/routine-vacuuming.html#AUTOVACUUM). Автоочистка периодически запускается для каждой БД, определяет, какие из записей в таблицах помечены на удаление, и удаляет их.
 
   Минимальное значение — `1`, максимальное значение — `32`. Значение по умолчанию [зависит от выбранного класса хостов](#settings-instance-dependent) и равно количеству vCPU на одном хосте, но не может быть меньше `3`.
 
-  Подробнее см. в описании настройки `autovacuum_max_workers` в [документации PostgreSQL](https://www.postgresql.org/docs/current/runtime-config-autovacuum.html#GUC-AUTOVACUUM-MAX-WORKERS).
+  Подробнее см. в описании настройки `autovacuum_max_workers` в [документации {{ PG }}](https://www.postgresql.org/docs/current/runtime-config-autovacuum.html#GUC-AUTOVACUUM-MAX-WORKERS).
 
-- **Autovacuum naptime**{#setting-autovacuum-naptime} <code><b><small>Консоль управления</small></b></code> <code><b><small>API</small></b></code> <code><b><small>Terraform</small></b></code>
+- **Autovacuum naptime**{#setting-autovacuum-naptime} {{ tag-con }} {{ tag-api }} {{ tag-tf }}
 
   Задает минимальный интервал (в миллисекундах) между запусками [процесса автоочистки](https://www.postgresql.org/docs/current/routine-vacuuming.html#AUTOVACUUM). Чтобы не нагружать БД при частых изменениях данных, увеличьте значение настройки.
 
   Минимальное значение — `1000`, максимальное значение — `86400000`, по умолчанию — `15000`.
 
-  Подробнее см. в описании настройки `autovacuum_naptime` в [документации PostgreSQL](https://www.postgresql.org/docs/current/runtime-config-autovacuum.html#GUC-AUTOVACUUM-NAPTIME).
+  Подробнее см. в описании настройки `autovacuum_naptime` в [документации {{ PG }}](https://www.postgresql.org/docs/current/runtime-config-autovacuum.html#GUC-AUTOVACUUM-NAPTIME).
 
-- **Autovacuum vacuum cost delay**{#setting-autovacuum-vacuum-cost-delay} <code><b><small>Все интерфейсы</small></b></code>
+- **Autovacuum vacuum cost delay**{#setting-autovacuum-vacuum-cost-delay} {{ tag-all }}
 
   Время (в миллисекундах), в течение которого будет простаивать [процесс автоочистки](https://www.postgresql.org/docs/current/routine-vacuuming.html#AUTOVACUUM) при превышении [предела стоимости](#setting-autovacuum-vacuum-cost-limit).
 
@@ -168,9 +168,9 @@
     55 - 5 × <количество_vCPU_на_одном_хосте>
     ```
 
-  Подробнее см. в описании настройки `autovacuum_vacuum_cost_delay` в [документации PostgreSQL](https://www.postgresql.org/docs/current/runtime-config-autovacuum.html#GUC-AUTOVACUUM-VACUUM-COST-DELAY).
+  Подробнее см. в описании настройки `autovacuum_vacuum_cost_delay` в [документации {{ PG }}](https://www.postgresql.org/docs/current/runtime-config-autovacuum.html#GUC-AUTOVACUUM-VACUUM-COST-DELAY).
 
-- **Autovacuum vacuum cost limit**{#setting-autovacuum-vacuum-cost-limit} <code><b><small>Все интерфейсы</small></b></code>
+- **Autovacuum vacuum cost limit**{#setting-autovacuum-vacuum-cost-limit} {{ tag-all }}
 
   Предел стоимости, при превышении которого [процесс автоочистки](https://www.postgresql.org/docs/current/routine-vacuuming.html#AUTOVACUUM) будет остановлен на время, заданное параметром [Autovacuum vacuum cost delay](#setting-autovacuum-vacuum-cost-delay).
 
@@ -187,197 +187,197 @@
   s2.small | 4 | `150 × 4 + 400 = 1000`
   m2.medium| 6 | `150 × 6 + 400 = 1300`
 
-  Подробнее см. в описании настройки `autovacuum_vacuum_cost_limit` в [документации PostgreSQL](https://www.postgresql.org/docs/current/runtime-config-autovacuum.html#GUC-AUTOVACUUM-VACUUM-COST-LIMIT).
+  Подробнее см. в описании настройки `autovacuum_vacuum_cost_limit` в [документации {{ PG }}](https://www.postgresql.org/docs/current/runtime-config-autovacuum.html#GUC-AUTOVACUUM-VACUUM-COST-LIMIT).
 
-- **Autovacuum vacuum insert scale factor**{#setting-autovacuum-vacuum-insert-scale-factor} <code><b><small>Все интерфейсы</small></b></code>
+- **Autovacuum vacuum insert scale factor**{#setting-autovacuum-vacuum-insert-scale-factor} {{ tag-all }}
 
   Доля от размера таблицы, добавляемая к величине настройки [Autovacuum vacuum insert threshold](#setting-autovacuum-vacuum-insert-threshold), по достижении которой запустится [процесс автоочистки](https://www.postgresql.org/docs/current/routine-vacuuming.html#AUTOVACUUM).
 
   Минимальное значение — `0.0`, максимальное значение — `1.0`, по умолчанию — `0.2`.
 
-  Функциональность поддерживается в PostgreSQL начиная с версии 13.
+  Функциональность поддерживается в {{ PG }} начиная с версии 13.
 
-  Подробнее см. в описании настройки `autovacuum_vacuum_insert_scale_factor` в [документации PostgreSQL](https://www.postgresql.org/docs/current/runtime-config-autovacuum.html#GUC-AUTOVACUUM-VACUUM-INSERT-SCALE-FACTOR).
+  Подробнее см. в описании настройки `autovacuum_vacuum_insert_scale_factor` в [документации {{ PG }}](https://www.postgresql.org/docs/current/runtime-config-autovacuum.html#GUC-AUTOVACUUM-VACUUM-INSERT-SCALE-FACTOR).
 
-- **Autovacuum vacuum insert threshold**{#setting-autovacuum-vacuum-insert-threshold} <code><b><small>Все интерфейсы</small></b></code>
+- **Autovacuum vacuum insert threshold**{#setting-autovacuum-vacuum-insert-threshold} {{ tag-all }}
 
   Задает количество строк, вставка которых в любую таблицу запустит [процесс автоочистки](https://www.postgresql.org/docs/current/routine-vacuuming.html#AUTOVACUUM).
 
   Минимальное значение — `-1` (настройка не применяется), максимальное значение — `2147483647`, по умолчанию — `1000`.
 
-  Функциональность поддерживается в PostgreSQL начиная с версии 13.
+  Функциональность поддерживается в {{ PG }} начиная с версии 13.
 
-  Подробнее см. в описании настройки `autovacuum_vacuum_insert_threshold` в [документации PostgreSQL](https://www.postgresql.org/docs/current/runtime-config-autovacuum.html#GUC-AUTOVACUUM-VACUUM-INSERT-THRESHOLD).
+  Подробнее см. в описании настройки `autovacuum_vacuum_insert_threshold` в [документации {{ PG }}](https://www.postgresql.org/docs/current/runtime-config-autovacuum.html#GUC-AUTOVACUUM-VACUUM-INSERT-THRESHOLD).
 
-- **Autovacuum vacuum scale factor**{#setting-autovacuum-vacuum-scale-factor} <code><b><small>Все интерфейсы</small></b></code>
+- **Autovacuum vacuum scale factor**{#setting-autovacuum-vacuum-scale-factor} {{ tag-all }}
 
   Доля измененных или удаленных записей в таблице, при которой [процесс автоочистки](https://www.postgresql.org/docs/current/routine-vacuuming.html#AUTOVACUUM) запустит сборку и удаление мусора командой `VACUUM`.
 
   Минимальное значение — `0.0` (настройка не применяется), максимальное значение — `1.0`, по умолчанию — `0.00001`.
 
-  Подробнее см. в описании настройки `autovacuum_vacuum_scale_factor` в [документации PostgreSQL](https://www.postgresql.org/docs/current/runtime-config-autovacuum.html#GUC-AUTOVACUUM-VACUUM-SCALE-FACTOR).
+  Подробнее см. в описании настройки `autovacuum_vacuum_scale_factor` в [документации {{ PG }}](https://www.postgresql.org/docs/current/runtime-config-autovacuum.html#GUC-AUTOVACUUM-VACUUM-SCALE-FACTOR).
 
-- **Autovacuum work mem**{#setting-autovacuum-work-mem} <code><b><small>Консоль управления</small></b></code> <code><b><small>API</small></b></code> <code><b><small>Terraform</small></b></code> <code><b><small>CLI</small></b></code>
+- **Autovacuum work mem**{#setting-autovacuum-work-mem} {{ tag-con }} {{ tag-api }} {{ tag-tf }} {{ tag-cli }}
 
   Объем памяти (в байтах), выделяемый каждому [процессу автоочистки](https://www.postgresql.org/docs/current/routine-vacuuming.html#AUTOVACUUM).
 
   Минимальное значение — `-1` (настройка не применяется), максимальное значение — `2147483647`, по умолчанию — `-1`.
 
-  Подробнее см. в описании настройки `autovacuum_work_mem` в [документации PostgreSQL](https://www.postgresql.org/docs/current/runtime-config-resource.html#GUC-AUTOVACUUM-WORK-MEM).
+  Подробнее см. в описании настройки `autovacuum_work_mem` в [документации {{ PG }}](https://www.postgresql.org/docs/current/runtime-config-resource.html#GUC-AUTOVACUUM-WORK-MEM).
 
-- **Backend flush after**{#setting-backend-flush-after} <code><b><small>Все интерфейсы</small></b></code>
+- **Backend flush after**{#setting-backend-flush-after} {{ tag-all }}
 
   Максимальный объем записываемых служебным процессом данных (в килобайтах) в страничном кеше ядра ОС. При его превышении СУБД дает команду ОС записать данные на диск. Чем больше параметр, тем меньше вероятность замедления при записи данных на диск (в том числе, после завершения контрольной точки) командой `fsync`.
 
   Минимальное значение — `0` (настройка не применяется), максимальное значение — `2048`, по умолчанию — `0`.
 
-  Подробнее см. в описании настройки `backend_flush_after` в [документации PostgreSQL](https://www.postgresql.org/docs/current/runtime-config-resource.html#GUC-BACKEND-FLUSH-AFTER).
+  Подробнее см. в описании настройки `backend_flush_after` в [документации {{ PG }}](https://www.postgresql.org/docs/current/runtime-config-resource.html#GUC-BACKEND-FLUSH-AFTER).
 
-- **Backslash quote**{#setting-backslash-quote} <code><b><small>Все интерфейсы</small></b></code>
+- **Backslash quote**{#setting-backslash-quote} {{ tag-all }}
 
   Управляет представлением кавычки в SQL-строке.
 
   Допустимые значения:
 
-  - `backslash_quote` (`BACKSLASH_QUOTE` для Terraform, API и CLI) — кавычка может быть представлена как `\'` (эквивалентно значению `on`);
-  - `on` (`BACKSLASH_QUOTE_ON` для Terraform, API и CLI) — кавычка может быть представлена как `\'`;
-  - `off` (`BACKSLASH_QUOTE_OFF` для Terraform, API и CLI) — кавычка задается только обычным для SQL способом `''`;
-  - `safe_encoding` (`BACKSLASH_QUOTE_SAFE_ENCODING` для Terraform, API и CLI) — представление кавычки как `\'` допускается только для клиентских кодировок, не использующих `\` в многобайтных символах.
+  - `backslash_quote` (`BACKSLASH_QUOTE` для {{ TF }}, API и CLI) — кавычка может быть представлена как `\'` (эквивалентно значению `on`);
+  - `on` (`BACKSLASH_QUOTE_ON` для {{ TF }}, API и CLI) — кавычка может быть представлена как `\'`;
+  - `off` (`BACKSLASH_QUOTE_OFF` для {{ TF }}, API и CLI) — кавычка задается только обычным для SQL способом `''`;
+  - `safe_encoding` (`BACKSLASH_QUOTE_SAFE_ENCODING` для {{ TF }}, API и CLI) — представление кавычки как `\'` допускается только для клиентских кодировок, не использующих `\` в многобайтных символах.
 
   Значение по умолчанию — `safe_encoding`.
 
-  Подробнее см. в описании настройки `backslash_quote` в [документации PostgreSQL](https://www.postgresql.org/docs/current/runtime-config-compatible.html#GUC-BACKSLASH-QUOTE).
+  Подробнее см. в описании настройки `backslash_quote` в [документации {{ PG }}](https://www.postgresql.org/docs/current/runtime-config-compatible.html#GUC-BACKSLASH-QUOTE).
 
-- **Bgwriter delay**{#setting-bgwriter-delay} <code><b><small>Все интерфейсы</small></b></code>
+- **Bgwriter delay**{#setting-bgwriter-delay} {{ tag-all }}
 
-  Задержка (в миллисекундах) между запусками процесса фоновой записи. Этот процесс записывает новые или измененные элементы буферного кеша PostgreSQL на диск. Задержка позволяет избежать многократной перезаписи страницы при каждом изменении и снизить нагрузку на диск.
+  Задержка (в миллисекундах) между запусками процесса фоновой записи. Этот процесс записывает новые или измененные элементы буферного кеша {{ PG }} на диск. Задержка позволяет избежать многократной перезаписи страницы при каждом изменении и снизить нагрузку на диск.
 
   Минимальное значение — `10`, максимальное значение — `10000`, по умолчанию — `200`.
 
-  Подробнее см. в описании настройки `bgwriter_delay` в [документации PostgreSQL](https://www.postgresql.org/docs/current/runtime-config-resource.html#GUC-BGWRITER-DELAY).
+  Подробнее см. в описании настройки `bgwriter_delay` в [документации {{ PG }}](https://www.postgresql.org/docs/current/runtime-config-resource.html#GUC-BGWRITER-DELAY).
 
-- **Bgwriter flush after**{#setting-bgwriter-flush-after} <code><b><small>Консоль управления</small></b></code> <code><b><small>API</small></b></code> <code><b><small>Terraform</small></b></code>
+- **Bgwriter flush after**{#setting-bgwriter-flush-after} {{ tag-con }} {{ tag-api }} {{ tag-tf }}
 
   Объем данных (в килобайтах), обрабатываемых процессом фоновой записи, при превышении которого СУБД дает команду ОС сохранить эти данные на диск. Параметр ограничивает объем «грязных» данных в страничном кеше ядра ОС и уменьшает вероятность замедления при выполнении команды `fsync` в конце контрольной точки или когда ОС в фоне сбрасывает данные на диск.
 
   Минимальное значение — `0`, максимальное значение — `2048`, по умолчанию — `512`.
 
-  Подробнее см. в описании настройки `bgwriter_flush_after` в [документации PostgreSQL](https://www.postgresql.org/docs/current/runtime-config-resource.html#GUC-BGWRITER-FLUSH-AFTER).
+  Подробнее см. в описании настройки `bgwriter_flush_after` в [документации {{ PG }}](https://www.postgresql.org/docs/current/runtime-config-resource.html#GUC-BGWRITER-FLUSH-AFTER).
 
-- **Bgwriter lru maxpages**{#setting-bgwriter-lru-maxpages} <code><b><small>Все интерфейсы</small></b></code>
+- **Bgwriter lru maxpages**{#setting-bgwriter-lru-maxpages} {{ tag-all }}
 
-  Максимальное число элементов буферного кеша PostgreSQL, которое процесс фоновой записи может сохранить за цикл активности. При нулевом значении фоновая запись отключается.
+  Максимальное число элементов буферного кеша {{ PG }}, которое процесс фоновой записи может сохранить за цикл активности. При нулевом значении фоновая запись отключается.
 
   Минимальное значение — `0`, максимальное значение — `1073741823`, по умолчанию — `100`.
 
-  Подробнее см. в описании настройки `bgwriter_lru_maxpages` в [документации PostgreSQL](https://www.postgresql.org/docs/current/runtime-config-resource.html#GUC-BGWRITER-LRU-MAXPAGES).
+  Подробнее см. в описании настройки `bgwriter_lru_maxpages` в [документации {{ PG }}](https://www.postgresql.org/docs/current/runtime-config-resource.html#GUC-BGWRITER-LRU-MAXPAGES).
 
-- **Bgwriter lru multiplier**{#setting-bgwriter-lru-multiplier} <code><b><small>Все интерфейсы</small></b></code>
+- **Bgwriter lru multiplier**{#setting-bgwriter-lru-multiplier} {{ tag-all }}
 
   Множитель, на который при следующем запуске будет увеличено среднее число буферов, сохраняемых процессом фоновой записи.
 
   Минимальное значение — `0`, максимальное значение — `10`, по умолчанию — `2`.
 
-  Подробнее см. в описании настройки `bgwriter_lru_multiplier` в [документации PostgreSQL](https://www.postgresql.org/docs/current/runtime-config-resource.html#GUC-BGWRITER-LRU-MULTIPLIER).
+  Подробнее см. в описании настройки `bgwriter_lru_multiplier` в [документации {{ PG }}](https://www.postgresql.org/docs/current/runtime-config-resource.html#GUC-BGWRITER-LRU-MULTIPLIER).
 
-- **Bytea output**{#setting-bytea-output} <code><b><small>Все интерфейсы</small></b></code>
+- **Bytea output**{#setting-bytea-output} {{ tag-all }}
 
   Задает формат вывода [бинарных строковых значений](https://www.postgresql.org/docs/current/datatype-binary.html) (тип `bytea`):
 
-  - `hex` (`BYTEA_OUTPUT_HEX` для Terraform, API и CLI) — каждый байт задается двумя шестнадцатеричными символами, например '`SELECT '\xDEADBEEF';`';
-  - `escape` (`BYTEA_OUTPUT_ESCAPE` для Terraform, API и CLI) — стандартный формат PostgreSQL, только символы ASCII.
+  - `hex` (`BYTEA_OUTPUT_HEX` для {{ TF }}, API и CLI) — каждый байт задается двумя шестнадцатеричными символами, например '`SELECT '\xDEADBEEF';`';
+  - `escape` (`BYTEA_OUTPUT_ESCAPE` для {{ TF }}, API и CLI) — стандартный формат {{ PG }}, только символы ASCII.
 
   Значение по умолчанию — `hex`.
 
-  Подробнее см. в [документации PostgreSQL](https://www.postgresql.org/docs/current/datatype-binary.html).
+  Подробнее см. в [документации {{ PG }}](https://www.postgresql.org/docs/current/datatype-binary.html).
 
-- **Checkpoint completion target**{#setting-checkpoint-completion-target} <code><b><small>Все интерфейсы</small></b></code>
+- **Checkpoint completion target**{#setting-checkpoint-completion-target} {{ tag-all }}
 
   Доля интервала между контрольными точками, определяющая максимальную продолжительность снятия контрольной точки. Например, при значении `0.5` снятие контрольной точки будет завершено примерно за половину времени до следующей контрольной точки.
 
   Минимальное значение — `0.0`, максимальное значение — `1.0`, по умолчанию — `0.5`.
 
-  Подробнее см. в описании настройки `checkpoint_completion_target` в [документации PostgreSQL](https://www.postgresql.org/docs/current/wal-configuration.html).
+  Подробнее см. в описании настройки `checkpoint_completion_target` в [документации {{ PG }}](https://www.postgresql.org/docs/current/wal-configuration.html).
 
-- **Checkpoint flush after**{#setting-checkpoint-flush-after} <code><b><small>Консоль управления</small></b></code> <code><b><small>API</small></b></code> <code><b><small>Terraform</small></b></code>
+- **Checkpoint flush after**{#setting-checkpoint-flush-after} {{ tag-con }} {{ tag-api }} {{ tag-tf }}
 
   Объем области памяти (в килобайтах), занятый страницами для записи в контрольной точке. Те страницы, которые выходят за границы области, будут сброшены на диск и удалены из страничного кеша ОС.
 
   Минимальное значение — `0`, максимальное значение — `2048`, по умолчанию — `256`.
 
-  Подробнее см. в описании настройки `checkpoint_flush_after` в [документации PostgreSQL](https://www.postgresql.org/docs/current/runtime-config-wal.html#GUC-CHECKPOINT-FLUSH-AFTER).
+  Подробнее см. в описании настройки `checkpoint_flush_after` в [документации {{ PG }}](https://www.postgresql.org/docs/current/runtime-config-wal.html#GUC-CHECKPOINT-FLUSH-AFTER).
 
-- **Checkpoint timeout**{#setting-checkpoint-timeout} <code><b><small>Все интерфейсы</small></b></code>
+- **Checkpoint timeout**{#setting-checkpoint-timeout} {{ tag-all }}
 
   Интервал между контрольными точками (в миллисекундах).
 
   Минимальное значение — `30000`, максимальное значение — `86400000`, по умолчанию — `300000`.
 
-  Подробнее см. в описании настройки `checkpoint_timeout` в [документации PostgreSQL](https://www.postgresql.org/docs/current/runtime-config-wal.html#GUC-CHECKPOINT-TIMEOUT).
+  Подробнее см. в описании настройки `checkpoint_timeout` в [документации {{ PG }}](https://www.postgresql.org/docs/current/runtime-config-wal.html#GUC-CHECKPOINT-TIMEOUT).
 
-- **Client connection check interval**{#setting-client-connection-check-interval} <code><b><small>Консоль управления</small></b></code> <code><b><small>API</small></b></code> <code><b><small>CLI</small></b></code>
+- **Client connection check interval**{#setting-client-connection-check-interval} {{ tag-con }} {{ tag-api }} {{ tag-cli }}
 
   Период времени между проверками клиентских соединений при выполнении запросов (в миллисекундах). Проверка опрашивает сокет сервера для подключения и прерывает длительные запросы, если обнаруживает, что соединение закрыто.
 
   Минимальное значение — `0` (проверка не выполняется), максимальное значение — `2147483647`. По умолчанию установлено минимальное значение.
 
-  Функциональность поддерживается в PostgreSQL начиная с версии 14.
+  Функциональность поддерживается в {{ PG }} начиная с версии 14.
 
-  Подробнее см. в описании настройки `client_connection_check_interval` в [документации PostgreSQL](https://www.postgresql.org/docs/current/runtime-config-connection.html#GUC-CLIENT-CONNECTION-CHECK-INTERVAL).
+  Подробнее см. в описании настройки `client_connection_check_interval` в [документации {{ PG }}](https://www.postgresql.org/docs/current/runtime-config-connection.html#GUC-CLIENT-CONNECTION-CHECK-INTERVAL).
 
-- **Client min messages**{#setting-client-min-messages} <code><b><small>Все интерфейсы</small></b></code>
+- **Client min messages**{#setting-client-min-messages} {{ tag-all }}
 
-  Уровень сообщений логирования, отправляемых клиентским приложениям. Возможные значения (по возрастанию важности): `debug5`, `debug4`, `debug3`, `debug2`, `debug1`, `info`, `notice`, `warning`, `error`, `log`, `fatal` и `panic` (для Terraform, API, CLI `LOG_LEVEL_DEBUG5`, `LOG_LEVEL_DEBUG4`, `LOG_LEVEL_DEBUG3`, `LOG_LEVEL_DEBUG2`, `LOG_LEVEL_DEBUG1`, `LOG_LEVEL_INFO`, `LOG_LEVEL_NOTICE`, `LOG_LEVEL_WARNING`, `LOG_LEVEL_ERROR`, `LOG_LEVEL_LOG`, `LOG_LEVEL_FATAL` и `LOG_LEVEL_PANIC`).
+  Уровень сообщений логирования, отправляемых клиентским приложениям. Возможные значения (по возрастанию важности): `debug5`, `debug4`, `debug3`, `debug2`, `debug1`, `info`, `notice`, `warning`, `error`, `log`, `fatal` и `panic` (для {{ TF }}, API, CLI `LOG_LEVEL_DEBUG5`, `LOG_LEVEL_DEBUG4`, `LOG_LEVEL_DEBUG3`, `LOG_LEVEL_DEBUG2`, `LOG_LEVEL_DEBUG1`, `LOG_LEVEL_INFO`, `LOG_LEVEL_NOTICE`, `LOG_LEVEL_WARNING`, `LOG_LEVEL_ERROR`, `LOG_LEVEL_LOG`, `LOG_LEVEL_FATAL` и `LOG_LEVEL_PANIC`).
 
   Значение по умолчанию — `NOTICE`.
 
-  Подробнее см. в описании настройки `client_min_messages` в [документации PostgreSQL](https://www.postgresql.org/docs/current/runtime-config-client.html#GUC-CLIENT-MIN-MESSAGES).
+  Подробнее см. в описании настройки `client_min_messages` в [документации {{ PG }}](https://www.postgresql.org/docs/current/runtime-config-client.html#GUC-CLIENT-MIN-MESSAGES).
 
-- **Constraint exclusion**{#setting-constraint-exclusion} <code><b><small>Все интерфейсы</small></b></code>
+- **Constraint exclusion**{#setting-constraint-exclusion} {{ tag-all }}
 
   Разрешает планировщику использовать ограничения таблиц для оптимизации запросов.
 
   Допустимые значения:
 
-  - `on` (`CONSTRAINT_EXCLUSION_ON` для Terraform, API и CLI) — задействовать ограничения для всех таблиц;
-  - `off` (`CONSTRAINT_EXCLUSION_OFF` для Terraform, API и CLI) — не задействовать ограничения;
-  - `partition` (`CONSTRAINT_EXCLUSION_PARTITION` для Terraform, API и CLI) — задействовать ограничения только для дочерних таблиц и подзапросов `UNION ALL`.
+  - `on` (`CONSTRAINT_EXCLUSION_ON` для {{ TF }}, API и CLI) — задействовать ограничения для всех таблиц;
+  - `off` (`CONSTRAINT_EXCLUSION_OFF` для {{ TF }}, API и CLI) — не задействовать ограничения;
+  - `partition` (`CONSTRAINT_EXCLUSION_PARTITION` для {{ TF }}, API и CLI) — задействовать ограничения только для дочерних таблиц и подзапросов `UNION ALL`.
 
   Значение по умолчанию — `partition`.
 
-  Подробнее см. в описании настройки `constraint_exclusion` в [документации PostgreSQL](https://www.postgresql.org/docs/current/runtime-config-query.html#GUC-CONSTRAINT-EXCLUSION).
+  Подробнее см. в описании настройки `constraint_exclusion` в [документации {{ PG }}](https://www.postgresql.org/docs/current/runtime-config-query.html#GUC-CONSTRAINT-EXCLUSION).
 
-- **Cursor tuple fraction**{#setting-cursor-tuple-fraction} <code><b><small>Все интерфейсы</small></b></code>
+- **Cursor tuple fraction**{#setting-cursor-tuple-fraction} {{ tag-all }}
 
   Задает для планировщика оценку доли строк, которые будут получены через курсор.
 
   Минимальное значение — `0.0`, максимальное значение — `1.0`, по умолчанию — `0.1`.
 
-  Подробнее см. в описании настройки `cursor_tuple_fraction` в [документации PostgreSQL](https://www.postgresql.org/docs/current/runtime-config-query.html#GUC-CURSOR-TUPLE-FRACTION).
+  Подробнее см. в описании настройки `cursor_tuple_fraction` в [документации {{ PG }}](https://www.postgresql.org/docs/current/runtime-config-query.html#GUC-CURSOR-TUPLE-FRACTION).
 
-- **Deadlock timeout**{#setting-deadlock-timeout} <code><b><small>Консоль управления</small></b></code> <code><b><small>API</small></b></code> <code><b><small>Terraform</small></b></code> <code><b><small>CLI</small></b></code>
+- **Deadlock timeout**{#setting-deadlock-timeout} {{ tag-con }} {{ tag-api }} {{ tag-tf }} {{ tag-cli }}
 
   Время ожидания (в миллисекундах), по истечении которого будет выполняться проверка состояния перекрестной блокировки.
 
   Минимальное значение — `1`, максимальное значение — `2147483647`, по умолчанию — `1000`.
 
-  Подробнее см. в описании настройки `deadlock_timeout` в [документации PostgreSQL](https://www.postgresql.org/docs/current/runtime-config-locks.html#GUC-DEADLOCK-TIMEOUT).
+  Подробнее см. в описании настройки `deadlock_timeout` в [документации {{ PG }}](https://www.postgresql.org/docs/current/runtime-config-locks.html#GUC-DEADLOCK-TIMEOUT).
 
-- **Debug parallel query**{#setting-debug-parallel-query} <code><b><small>Все интерфейсы</small></b></code>
+- **Debug parallel query**{#setting-debug-parallel-query} {{ tag-all }}
 
-  Настройка доступна в версиях PostgreSQL `16` и выше.
+  Настройка доступна в версиях {{ PG }} `16` и выше.
 
   Позволяет использовать параллельные запросы для тестирования:
 
-  * `off` (`DEBUG_PARALLEL_QUERY_OFF` для Terraform и API) — параллельный режим используется, только когда ожидается повышение производительности;
-  * `on` (`DEBUG_PARALLEL_QUERY_ON` для Terraform и API) — параллельный режим используется принудительно для всех запросов, для которых это безопасно;
-  * `regress` (`DEBUG_PARALLEL_QUERY_REGRESS` для Terraform и API) — аналогично значению `on`, но с некоторыми особенностями, которые облегчают автоматическое регрессионное тестирование. Например, скрываются узлы Gather в выводе команды `EXPLAIN`.
+  * `off` (`DEBUG_PARALLEL_QUERY_OFF` для {{ TF }} и API) — параллельный режим используется, только когда ожидается повышение производительности;
+  * `on` (`DEBUG_PARALLEL_QUERY_ON` для {{ TF }} и API) — параллельный режим используется принудительно для всех запросов, для которых это безопасно;
+  * `regress` (`DEBUG_PARALLEL_QUERY_REGRESS` для {{ TF }} и API) — аналогично значению `on`, но с некоторыми особенностями, которые облегчают автоматическое регрессионное тестирование. Например, скрываются узлы Gather в выводе команды `EXPLAIN`.
 
   Значение по умолчанию — `off`.
 
-  Подробнее см. в описании настройки `debug_parallel_query` в [документации PostgreSQL](https://www.postgresql.org/docs/current/runtime-config-developer.html#GUC-DEBUG-PARALLEL-QUERY).
+  Подробнее см. в описании настройки `debug_parallel_query` в [документации {{ PG }}]({{ pg.docs.org }}/current/runtime-config-developer.html#GUC-DEBUG-PARALLEL-QUERY).
 
-- **Default statistics target**{#setting-default-statistics-target} <code><b><small>Все интерфейсы</small></b></code>
+- **Default statistics target**{#setting-default-statistics-target} {{ tag-all }}
 
   Максимальное число записей статистики по каждому столбцу таблиц БД. С помощью статистики планировщик оценивает число строк, возвращаемых запросами, чтобы выбрать наиболее подходящий план запроса.
 
@@ -385,34 +385,34 @@
 
   Минимальное значение — `1`, максимальное значение — `10000`, по умолчанию — `1000`.
 
-  Подробнее см. в описании настройки `default_statistics_target` в [документации PostgreSQL](https://www.postgresql.org/docs/current/runtime-config-query.html#GUC-DEFAULT-STATISTICS-TARGET).
+  Подробнее см. в описании настройки `default_statistics_target` в [документации {{ PG }}](https://www.postgresql.org/docs/current/runtime-config-query.html#GUC-DEFAULT-STATISTICS-TARGET).
 
-- **Default transaction isolation**{#setting-default-transaction-isolation} <code><b><small>Все интерфейсы</small></b></code>
+- **Default transaction isolation**{#setting-default-transaction-isolation} {{ tag-all }}
 
   Определяет уровень изоляции по умолчанию для новых транзакций SQL.
 
   Допустимые значения:
 
-  - `read committed` (`TRANSACTION_ISOLATION_READ_COMMITTED` для Terraform, API и CLI) — запрос видит только те строки, которые были зафиксированы до начала его выполнения.
-  - `read uncommitted` (`TRANSACTION_ISOLATION_READ_UNCOMMITTED` для Terraform, API и CLI) — поведение этого уровня изоляции в PostgreSQL идентично `read committed`.
-  - `repeatable read` (`TRANSACTION_ISOLATION_REPEATABLE_READ` для Terraform, API и CLI) — все запросы в текущей транзакции видят только те строки, которые были зафиксированы перед первым выполненным в этой транзакции запросом на выборку или изменение данных.
-  - `serializable` (`TRANSACTION_ISOLATION_SERIALIZABLE` для Terraform, API и CLI) — обеспечивает самый строгий уровень изоляции из всех приведенных выше. Поведение этого уровня изоляции в PostgreSQL аналогично `repeatable read`. Однако, если наложение операций чтения и записи параллельных сериализуемых транзакций несовместимо с их последовательным выполнением, произойдет откат одной из транзакций с ошибкой «сбой сериализации».
+  - `read committed` (`TRANSACTION_ISOLATION_READ_COMMITTED` для {{ TF }}, API и CLI) — запрос видит только те строки, которые были зафиксированы до начала его выполнения.
+  - `read uncommitted` (`TRANSACTION_ISOLATION_READ_UNCOMMITTED` для {{ TF }}, API и CLI) — поведение этого уровня изоляции в {{ PG }} идентично `read committed`.
+  - `repeatable read` (`TRANSACTION_ISOLATION_REPEATABLE_READ` для {{ TF }}, API и CLI) — все запросы в текущей транзакции видят только те строки, которые были зафиксированы перед первым выполненным в этой транзакции запросом на выборку или изменение данных.
+  - `serializable` (`TRANSACTION_ISOLATION_SERIALIZABLE` для {{ TF }}, API и CLI) — обеспечивает самый строгий уровень изоляции из всех приведенных выше. Поведение этого уровня изоляции в {{ PG }} аналогично `repeatable read`. Однако, если наложение операций чтения и записи параллельных сериализуемых транзакций несовместимо с их последовательным выполнением, произойдет откат одной из транзакций с ошибкой «сбой сериализации».
 
   Значение по умолчанию — `read committed`.
 
-  Подробнее об уровнях изоляции см. [в документации PostgreSQL](https://www.postgresql.org/docs/current/transaction-iso.html).
+  Подробнее об уровнях изоляции см. [в документации {{ PG }}](https://www.postgresql.org/docs/current/transaction-iso.html).
 
-  Настройка действует на уровне кластера Managed Service for PostgreSQL, но ее можно [переопределить на уровне пользователя](settings-list.md#dbms-user-settings).
+  Настройка действует на уровне кластера {{ mpg-name }}, но ее можно [переопределить на уровне пользователя](settings-list.md#dbms-user-settings).
 
-- **Default transaction read only**{#setting-default-transaction-read-only} <code><b><small>Все интерфейсы</small></b></code>
+- **Default transaction read only**{#setting-default-transaction-read-only} {{ tag-all }}
 
   Устанавливает режим «только чтение» в каждой новой транзакции для любых таблиц, кроме временных.
 
   По умолчанию настройка выключена (допускается чтение и запись).
 
-  Подробнее см. в описании настройки `default_transaction_read_only` в [документации PostgreSQL](https://www.postgresql.org/docs/current/runtime-config-client.html#GUC-DEFAULT-TRANSACTION-READ-ONLY).
+  Подробнее см. в описании настройки `default_transaction_read_only` в [документации {{ PG }}](https://www.postgresql.org/docs/current/runtime-config-client.html#GUC-DEFAULT-TRANSACTION-READ-ONLY).
 
-- **Default with oids**{#setting-default-with-oids} <code><b><small>Все интерфейсы</small></b></code>
+- **Default with oids**{#setting-default-with-oids} {{ tag-all }}
 
   Добавляет столбец `OID` с уникальным идентификатором строки. Настройка действует, если таблица создается:
 
@@ -421,37 +421,37 @@
 
   По умолчанию настройка выключена (столбец `OID` не добавляется).
 
-  Функциональность не поддерживается в PostgreSQL начиная с версии `12`. Используйте настройку только для совместимости со старыми приложениями.
+  Функциональность не поддерживается в {{ PG }} начиная с версии `12`. Используйте настройку только для совместимости со старыми приложениями.
 
-  Подробнее см. в описании настройки `default_with_oids` в [документации PostgreSQL](https://www.postgresql.org/docs/11/runtime-config-compatible.html#GUC-DEFAULT-WITH-OIDS).
+  Подробнее см. в описании настройки `default_with_oids` в [документации {{ PG }}](https://www.postgresql.org/docs/11/runtime-config-compatible.html#GUC-DEFAULT-WITH-OIDS).
 
-- **Effective cache size**{#setting-effective-cache-size} <code><b><small>Все интерфейсы</small></b></code>
+- **Effective cache size**{#setting-effective-cache-size} {{ tag-all }}
 
   Оценка эффективного размера дискового кеша (в байтах), доступного для одного запроса. Чем выше значение настройки, тем вероятнее планировщик применит сканирование по индексу. Более низкие значения повышают вероятность применения последовательного сканирования.
 
   Минимальное значение — `0`, максимальное значение — `549755813888` (512 ГБ), по умолчанию — `107374182400` (100 ГБ).
 
-  Подробнее см. в описании настройки `effective_cache_size` в [документации PostgreSQL](https://www.postgresql.org/docs/current/runtime-config-query.html#GUC-EFFECTIVE-CACHE-SIZE).
+  Подробнее см. в описании настройки `effective_cache_size` в [документации {{ PG }}](https://www.postgresql.org/docs/current/runtime-config-query.html#GUC-EFFECTIVE-CACHE-SIZE).
 
-- **Effective io concurrency**{#setting-effective-io-concurrency} <code><b><small>Все интерфейсы</small></b></code>
+- **Effective io concurrency**{#setting-effective-io-concurrency} {{ tag-all }}
 
-  Максимальное число параллельных операций дискового ввода-вывода в отдельной сессии работы с БД. Чем больше это число, тем больше операций PostgreSQL будет пытаться выполнить параллельно в отдельной сессии.
+  Максимальное число параллельных операций дискового ввода-вывода в отдельной сессии работы с БД. Чем больше это число, тем больше операций {{ PG }} будет пытаться выполнить параллельно в отдельной сессии.
 
   Минимальное значение — `0`, максимальное значение — `1000`, по умолчанию — `1`.
 
-  Подробнее см. в описании настройки `effective_io_concurrency` в [документации PostgreSQL](https://www.postgresql.org/docs/current/runtime-config-resource.html#GUC-EFFECTIVE-IO-CONCURRENCY).
+  Подробнее см. в описании настройки `effective_io_concurrency` в [документации {{ PG }}](https://www.postgresql.org/docs/current/runtime-config-resource.html#GUC-EFFECTIVE-IO-CONCURRENCY).
 
-- **Enable async append**{#setting-enable-async-append} <code><b><small>Консоль управления</small></b></code> <code><b><small>API</small></b></code> <code><b><small>CLI</small></b></code>
+- **Enable async append**{#setting-enable-async-append} {{ tag-con }} {{ tag-api }} {{ tag-cli }}
 
   Разрешает планировщику учитывать асинхронное выполнение плана запроса на разных хостах при добавлении данных из внешних источников.
 
   По умолчанию настройка включена.
 
-  Функциональность поддерживается в PostgreSQL начиная с версии 14.
+  Функциональность поддерживается в {{ PG }} начиная с версии 14.
 
-  Подробнее см. в описании настройки `enable_async_append` в [документации PostgreSQL](https://www.postgresql.org/docs/current/runtime-config-query.html#GUC-ENABLE-ASYNC-APPEND).
+  Подробнее см. в описании настройки `enable_async_append` в [документации {{ PG }}](https://www.postgresql.org/docs/current/runtime-config-query.html#GUC-ENABLE-ASYNC-APPEND).
 
-- **Enable bitmapscan**{#setting-enable-bitmapscan} <code><b><small>Все интерфейсы</small></b></code>
+- **Enable bitmapscan**{#setting-enable-bitmapscan} {{ tag-all }}
 
   Разрешает планировщику сканировать битовую карту индекса при просмотре таблиц, даже если это явно не указано в запросе. Этот способ доступа похож на обычный индексный доступ, но происходит в два этапа:
 
@@ -465,19 +465,19 @@
 
   По умолчанию настройка включена.
 
-  Подробнее см. в описании настройки `enable_bitmapscan` в [документации PostgreSQL](https://www.postgresql.org/docs/current/runtime-config-query.html#GUC-ENABLE-BITMAPSCAN).
+  Подробнее см. в описании настройки `enable_bitmapscan` в [документации {{ PG }}](https://www.postgresql.org/docs/current/runtime-config-query.html#GUC-ENABLE-BITMAPSCAN).
 
-- **Enable gathermerge**{#setting-enable-gathermerge} <code><b><small>Консоль управления</small></b></code> <code><b><small>API</small></b></code> <code><b><small>CLI</small></b></code>
+- **Enable gathermerge**{#setting-enable-gathermerge} {{ tag-con }} {{ tag-api }} {{ tag-cli }}
 
   Разрешает планировщику использовать узел Gather Merge, чтобы выполнить слияние строк, полученных в результате работы параллельных процессов, и сохранить порядок, в котором эти строки были получены.
 
   По умолчанию настройка включена.
 
-  Функциональность поддерживается в PostgreSQL начиная с версии 14.
+  Функциональность поддерживается в {{ PG }} начиная с версии 14.
 
-  Подробнее см. в описании настройки `enable_gathermerge` в [документации PostgreSQL](https://www.postgresql.org/docs/current/runtime-config-query.html#GUC-ENABLE-GATHERMERGE).
+  Подробнее см. в описании настройки `enable_gathermerge` в [документации {{ PG }}](https://www.postgresql.org/docs/current/runtime-config-query.html#GUC-ENABLE-GATHERMERGE).
 
-- **Enable group by reordering**{#setting-enable-group-by-reordering} <code><b><small>Все интерфейсы</small></b></code>
+- **Enable group by reordering**{#setting-enable-group-by-reordering} {{ tag-all }}
 
   Определяет, может ли планировщик запросов создавать план, в котором ключи в блоке `GROUP BY` будут отсортированы в другом порядке, например в порядке сканирования индекса.
 
@@ -485,193 +485,193 @@
 
   Если настройка выключена, планировщик запросов создаст план, в котором ключи в блоке `GROUP BY` будут отсортированы в соответствии с предложениями в блоке `ORDER BY` при его наличии. При отсутствии блока `ORDER BY` ключи в блоке `GROUP BY` не сортируются (используется тот порядок, что задан в `GROUP BY`).
 
-  Подробнее см. в описании настройки `enable_group_by_reordering` в [документации PostgreSQL](https://www.postgresql.org/docs/current/runtime-config-query.html#GUC-ENABLE-GROUPBY-REORDERING).
+  Подробнее см. в описании настройки `enable_group_by_reordering` в [документации {{ PG }}]({{ pg.docs.org }}/current/runtime-config-query.html#GUC-ENABLE-GROUPBY-REORDERING).
 
-- **Enable hashagg**{#setting-enable-hashagg} <code><b><small>Все интерфейсы</small></b></code>
+- **Enable hashagg**{#setting-enable-hashagg} {{ tag-all }}
 
   Разрешает планировщику строить хеш-таблицу из набора результатов, даже если это явно не указано в запросе. Настройка эффективна при частых запросах без сортировок к таблицам с большим объемом данных.
 
   По умолчанию настройка включена.
 
-  Подробнее см. в описании настройки `enable_hashagg` в [документации PostgreSQL](https://www.postgresql.org/docs/current/runtime-config-query.html#GUC-ENABLE-HASHAGG).
+  Подробнее см. в описании настройки `enable_hashagg` в [документации {{ PG }}](https://www.postgresql.org/docs/current/runtime-config-query.html#GUC-ENABLE-HASHAGG).
 
-- **Enable hashjoin**{#setting-enable-hashjoin} <code><b><small>Все интерфейсы</small></b></code>
+- **Enable hashjoin**{#setting-enable-hashjoin} {{ tag-all }}
 
   Разрешает планировщику строить объединения (`JOIN`) таблиц по хеш-значениям строк, даже если это явно не указано в запросе. Настройка эффективна при работе с большими объемами данных или когда таблицы не отсортированы по столбцам, по которым производится объединение.
 
   По умолчанию настройка включена.
 
-  Подробнее см. в описании настройки `enable_hashjoin` в [документации PostgreSQL](https://www.postgresql.org/docs/current/runtime-config-query.html#GUC-ENABLE-HASHJOIN).
+  Подробнее см. в описании настройки `enable_hashjoin` в [документации {{ PG }}](https://www.postgresql.org/docs/current/runtime-config-query.html#GUC-ENABLE-HASHJOIN).
 
-- **Enable incremental sort**{#setting-enable-incremental-sort} <code><b><small>Все интерфейсы</small></b></code>
+- **Enable incremental sort**{#setting-enable-incremental-sort} {{ tag-all }}
 
   Разрешает планировщику использование инкрементной сортировки. Такой способ сортировки позволяет уменьшить время выполнения запроса и объем требуемой оперативной памяти, если необходимо упорядочить строки по нескольким столбцам, причем по одному или нескольким из них сортировка уже выполнена.
 
   По умолчанию настройка включена.
 
-  Функциональность поддерживается в PostgreSQL начиная с версии 13.
+  Функциональность поддерживается в {{ PG }} начиная с версии 13.
 
-  Подробнее см. в описании настройки `enable_incremental_sort` в [документации PostgreSQL](https://www.postgresql.org/docs/current/runtime-config-query.html#GUC-ENABLE-INCREMENTAL-SORT).
+  Подробнее см. в описании настройки `enable_incremental_sort` в [документации {{ PG }}](https://www.postgresql.org/docs/current/runtime-config-query.html#GUC-ENABLE-INCREMENTAL-SORT).
 
-- **Enable indexonlyscan**{#setting-enable-indexonlyscan} <code><b><small>Все интерфейсы</small></b></code>
+- **Enable indexonlyscan**{#setting-enable-indexonlyscan} {{ tag-all }}
 
   Разрешает планировщику использовать сканирование индекса таблиц без обращения к данным, даже если это явно не указано в запросе.
 
   По умолчанию настройка включена.
 
-  Подробнее см. в описании настройки `enable_indexonlyscan` в [документации PostgreSQL](https://www.postgresql.org/docs/current/indexes-index-only-scans.html).
+  Подробнее см. в описании настройки `enable_indexonlyscan` в [документации {{ PG }}](https://www.postgresql.org/docs/current/indexes-index-only-scans.html).
 
-- **Enable indexscan**{#setting-enable-indexscan} <code><b><small>Все интерфейсы</small></b></code>
+- **Enable indexscan**{#setting-enable-indexscan} {{ tag-all }}
 
   Разрешает планировщику использовать сканирование индекса таблиц, даже если это явно не указано в запросе.
 
   По умолчанию настройка включена.
 
-  Подробнее см. в описании настройки `enable_indexscan` в [документации PostgreSQL](https://www.postgresql.org/docs/current/runtime-config-query.html#GUC-ENABLE-INDEXSCAN).
+  Подробнее см. в описании настройки `enable_indexscan` в [документации {{ PG }}](https://www.postgresql.org/docs/current/runtime-config-query.html#GUC-ENABLE-INDEXSCAN).
 
-- **Enable material**{#setting-enable-material} <code><b><small>Все интерфейсы</small></b></code>
+- **Enable material**{#setting-enable-material} {{ tag-all }}
 
   Разрешает планировщику использовать запросы материализации.
 
   По умолчанию настройка включена.
 
-  Подробнее см. в описании настройки `enable_material` в [документации PostgreSQL](https://www.postgresql.org/docs/current/runtime-config-query.html#GUC-ENABLE-MATERIAL).
+  Подробнее см. в описании настройки `enable_material` в [документации {{ PG }}](https://www.postgresql.org/docs/current/runtime-config-query.html#GUC-ENABLE-MATERIAL).
 
-- **Enable memoize**{#setting-enable-memoize} <code><b><small>Все интерфейсы</small></b></code>
+- **Enable memoize**{#setting-enable-memoize} {{ tag-all }}
 
   Разрешает планировщику использовать планы с мемоизацией для кеширования результатов параметризованного сканирования внутри соединений вложенным циклом (Nested Loop Joins). Такой план позволяет пропускать сканирование нижележащих планов, если в кеше уже есть результаты, соответствующие текущим параметрам. Менее востребованные результаты могут быть удалены из кеша, если для новых записей не хватает места.
 
   По умолчанию настройка включена.
 
-  Подробнее см. в описании настройки `enable_memoize` в [документации PostgreSQL](https://www.postgresql.org/docs/current/runtime-config-query.html#GUC-ENABLE-MEMOIZE).
+  Подробнее см. в описании настройки `enable_memoize` в [документации {{ PG }}]({{ pg.docs.org }}/current/runtime-config-query.html#GUC-ENABLE-MEMOIZE).
 
-- **Enable mergejoin**{#setting-enable-mergejoin} <code><b><small>Все интерфейсы</small></b></code>
+- **Enable mergejoin**{#setting-enable-mergejoin} {{ tag-all }}
 
   Разрешает планировщику использовать слияние операций `JOIN` при объединении таблиц.
 
   По умолчанию настройка включена.
 
-  Подробнее см. в описании настройки `enable_mergejoin` в [документации PostgreSQL](https://www.postgresql.org/docs/current/runtime-config-query.html#GUC-ENABLE-MERGEJOIN).
+  Подробнее см. в описании настройки `enable_mergejoin` в [документации {{ PG }}](https://www.postgresql.org/docs/current/runtime-config-query.html#GUC-ENABLE-MERGEJOIN).
 
-- **Enable nestloop**{#setting-enable-nestloop} <code><b><small>Все интерфейсы</small></b></code>
+- **Enable nestloop**{#setting-enable-nestloop} {{ tag-all }}
 
   Разрешает планировщику использовать объединения (`JOIN`) с вложенными циклами. При выключенной настройке планировщик будет использовать другие методы.
 
   По умолчанию настройка включена.
 
-  Подробнее см. в описании настройки `enable_nestloop` в [документации PostgreSQL](https://www.postgresql.org/docs/current/runtime-config-query.html#GUC-ENABLE-NESTLOOP).
+  Подробнее см. в описании настройки `enable_nestloop` в [документации {{ PG }}](https://www.postgresql.org/docs/current/runtime-config-query.html#GUC-ENABLE-NESTLOOP).
 
-- **Enable parallel append**{#setting-enable-parallel-append} <code><b><small>Все интерфейсы</small></b></code>
+- **Enable parallel append**{#setting-enable-parallel-append} {{ tag-all }}
 
   Разрешает планировщику использовать распараллеливание при добавлении данных.
 
   По умолчанию настройка включена.
 
-  Подробнее см. в описании настройки `enable_parallel_append` в [документации PostgreSQL](https://www.postgresql.org/docs/current/runtime-config-query.html#GUC-ENABLE-PARALLEL-APPEND).
+  Подробнее см. в описании настройки `enable_parallel_append` в [документации {{ PG }}](https://www.postgresql.org/docs/current/runtime-config-query.html#GUC-ENABLE-PARALLEL-APPEND).
 
-- **Enable parallel hash**{#setting-enable-parallel-hash} <code><b><small>Все интерфейсы</small></b></code>
+- **Enable parallel hash**{#setting-enable-parallel-hash} {{ tag-all }}
 
   Разрешает планировщику строить объединения по хешу строк с распараллеливанием хеширования. Настройка действует при включенной настройке [Enable hashjoin](#setting-enable-hashjoin).
 
   По умолчанию настройка включена.
 
-  Подробнее см. в описании настройки `enable_parallel_hash` в [документации PostgreSQL](https://www.postgresql.org/docs/current/runtime-config-query.html#GUC-ENABLE-PARALLEL-HASH).
+  Подробнее см. в описании настройки `enable_parallel_hash` в [документации {{ PG }}](https://www.postgresql.org/docs/current/runtime-config-query.html#GUC-ENABLE-PARALLEL-HASH).
 
-- **Enable partition pruning**{#setting-enable-partition-pruning} <code><b><small>Все интерфейсы</small></b></code>
+- **Enable partition pruning**{#setting-enable-partition-pruning} {{ tag-all }}
 
   Разрешает планировщику удалять ненужные партиции из планов запроса к партиционированным таблицам.
 
   По умолчанию настройка включена.
 
-  Подробнее см. в описании настройки `enable_partition_pruning` в [документации PostgreSQL](https://www.postgresql.org/docs/current/ddl-partitioning.html#DDL-PARTITION-PRUNING).
+  Подробнее см. в описании настройки `enable_partition_pruning` в [документации {{ PG }}](https://www.postgresql.org/docs/current/ddl-partitioning.html#DDL-PARTITION-PRUNING).
 
-- **Enable partitionwise aggregate**{#setting-enable-partitionwise-aggregate} <code><b><small>Все интерфейсы</small></b></code>
+- **Enable partitionwise aggregate**{#setting-enable-partitionwise-aggregate} {{ tag-all }}
 
   Разрешает планировщику группировать или агрегировать данные с учетом партиций, чтобы запросы выполнялись для каждой партиции отдельно.
 
   По умолчанию настройка выключена (планировщик не учитывает партиционирование).
 
-  Подробнее см. в описании настройки `enable_partitionwise_aggregate` в [документации PostgreSQL](https://www.postgresql.org/docs/current/runtime-config-query.html#GUC-ENABLE-PARTITIONWISE-AGGREGATE).
+  Подробнее см. в описании настройки `enable_partitionwise_aggregate` в [документации {{ PG }}](https://www.postgresql.org/docs/current/runtime-config-query.html#GUC-ENABLE-PARTITIONWISE-AGGREGATE).
 
-- **Enable partitionwise join**{#setting-enable-partition-join} <code><b><small>Все интерфейсы</small></b></code>
+- **Enable partitionwise join**{#setting-enable-partition-join} {{ tag-all }}
 
   Разрешает планировщику использовать партиционирование таблиц при планировании запросов. Настройка позволяет выполнять запросы объединения партиционированных таблиц через объединение соответствующих партиций.
 
   По умолчанию настройка выключена (планировщик не учитывает партиционирование).
 
-  Подробнее см. в описании настройки `enable_partitionwise_join` в [документации PostgreSQL](https://www.postgresql.org/docs/current/runtime-config-query.html#GUC-ENABLE-PARTITIONWISE-JOIN).
+  Подробнее см. в описании настройки `enable_partitionwise_join` в [документации {{ PG }}](https://www.postgresql.org/docs/current/runtime-config-query.html#GUC-ENABLE-PARTITIONWISE-JOIN).
 
-- **Enable seqscan**{#setting-enable-seqscan} <code><b><small>Все интерфейсы</small></b></code>
+- **Enable seqscan**{#setting-enable-seqscan} {{ tag-all }}
 
   Разрешает планировщику использовать планы последовательного сканирования таблиц.
 
   По умолчанию настройка включена.
 
-  Подробнее см. в описании настройки `enable_seqscan` в [документации PostgreSQL](https://www.postgresql.org/docs/current/runtime-config-query.html#RUNTIME-CONFIG-QUERY-ENABLE).
+  Подробнее см. в описании настройки `enable_seqscan` в [документации {{ PG }}](https://www.postgresql.org/docs/current/runtime-config-query.html#RUNTIME-CONFIG-QUERY-ENABLE).
 
-- **Enable sort**{#setting-enable-sort} <code><b><small>Все интерфейсы</small></b></code>
+- **Enable sort**{#setting-enable-sort} {{ tag-all }}
 
   Разрешает планировщику использовать шаги с явной сортировкой.
 
   По умолчанию настройка включена.
 
-  Подробнее см. в описании настройки `enable_sort` в [документации PostgreSQL](https://www.postgresql.org/docs/current/runtime-config-query.html#GUC-ENABLE-SORT).
+  Подробнее см. в описании настройки `enable_sort` в [документации {{ PG }}](https://www.postgresql.org/docs/current/runtime-config-query.html#GUC-ENABLE-SORT).
 
-- **Enable tidscan**{#setting-enable-tidscan} <code><b><small>Все интерфейсы</small></b></code>
+- **Enable tidscan**{#setting-enable-tidscan} {{ tag-all }}
 
   Разрешает планировщику использовать планы сканирования TID (tuple identifier) для ускорения выполнения запросов.
 
   По умолчанию настройка включена (планировщик выполняет сканирование TID).
 
-  Подробнее см. в описании настройки `enable_tidscan` в [документации PostgreSQL](https://www.postgresql.org/docs/current/ddl-system-columns.html).
+  Подробнее см. в описании настройки `enable_tidscan` в [документации {{ PG }}](https://www.postgresql.org/docs/current/ddl-system-columns.html).
 
-- **Escape string warning**{#setting-escape-string-warning} <code><b><small>Все интерфейсы</small></b></code>
+- **Escape string warning**{#setting-escape-string-warning} {{ tag-all }}
 
   Включает предупреждение о наличии в запросе символа `\` в обычной строковой константе (с синтаксисом `'...'`). Настройка работает только при отключенном параметре [Standard conforming strings](#setting-standard-strings).
 
   По умолчанию настройка включена.
 
-  Подробнее см. в описании настройки `escape_string_warning` в [документации PostgreSQL](https://www.postgresql.org/docs/current/runtime-config-compatible.html#GUC-ESCAPE-STRING-WARNING).
+  Подробнее см. в описании настройки `escape_string_warning` в [документации {{ PG }}](https://www.postgresql.org/docs/current/runtime-config-compatible.html#GUC-ESCAPE-STRING-WARNING).
 
-- **Exit on error**{#setting-exit-on-error} <code><b><small>Все интерфейсы</small></b></code>
+- **Exit on error**{#setting-exit-on-error} {{ tag-all }}
 
   Включает прерывание сессии в случае любой ошибки в запросе.
 
   По умолчанию настройка выключена.
 
-  Подробнее см. в описании настройки `exit_on_error` в [документации PostgreSQL](https://www.postgresql.org/docs/current/runtime-config-error-handling.html).
+  Подробнее см. в описании настройки `exit_on_error` в [документации {{ PG }}](https://www.postgresql.org/docs/current/runtime-config-error-handling.html).
 
-- **Force parallel mode**{#setting-force-parallel-mode} <code><b><small>Все интерфейсы</small></b></code>
+- **Force parallel mode**{#setting-force-parallel-mode} {{ tag-all }}
 
-  Настройка доступна в версиях PostgreSQL `15` и ниже.
+  Настройка доступна в версиях {{ PG }} `15` и ниже.
 
   Позволяет распараллеливать запрос для тестирования:
 
-  - `off` (`FORCE_PARALLEL_MODE_OFF` для Terraform, API и CLI) — использовать параллельный режим, только когда ожидается увеличение производительности.
-  - `on` (`FORCE_PARALLEL_MODE_ON` для Terraform, API и CLI) — принудительно распараллеливать все запросы, для которых это безопасно.
-  - `regress` (`FORCE_PARALLEL_MODE_REGRESS` для Terraform, API и CLI) — эквивалентен `on`, но стандартный вывод такой же, как при выполнении в режиме `off`.
+  - `off` (`FORCE_PARALLEL_MODE_OFF` для {{ TF }}, API и CLI) — использовать параллельный режим, только когда ожидается увеличение производительности.
+  - `on` (`FORCE_PARALLEL_MODE_ON` для {{ TF }}, API и CLI) — принудительно распараллеливать все запросы, для которых это безопасно.
+  - `regress` (`FORCE_PARALLEL_MODE_REGRESS` для {{ TF }}, API и CLI) — эквивалентен `on`, но стандартный вывод такой же, как при выполнении в режиме `off`.
 
   Значение по умолчанию — `off`.
 
-  Подробнее см. в описании настройки `force_parallel_mode` в [документации PostgreSQL](https://www.postgresql.org/docs/current/runtime-config-developer.html).
+  Подробнее см. в описании настройки `force_parallel_mode` в [документации {{ PG }}](https://www.postgresql.org/docs/current/runtime-config-developer.html).
 
-- **From collapse limit**{#setting-from-collapse-limit} <code><b><small>Все интерфейсы</small></b></code>
+- **From collapse limit**{#setting-from-collapse-limit} {{ tag-all }}
 
   Пока количество элементов в списке `FROM` не превышает значение настройки, планировщик будет объединять вложенные запросы с внешним запросом. При уменьшении значения сокращается время планирования, но план запроса может стать менее эффективным.
 
   Минимальное значение — `1`, максимальное значение — `2147483647`, по умолчанию — `8`.
 
-  Подробнее см. в описании настройки `from_collapse_limit` в [документации PostgreSQL](https://www.postgresql.org/docs/current/runtime-config-query.html#GUC-FROM-COLLAPSE-LIMIT).
+  Подробнее см. в описании настройки `from_collapse_limit` в [документации {{ PG }}](https://www.postgresql.org/docs/current/runtime-config-query.html#GUC-FROM-COLLAPSE-LIMIT).
 
-- **Geqo**{#setting-geqo} <code><b><small>Консоль управления</small></b></code> <code><b><small>API</small></b></code>
+- **Geqo**{#setting-geqo} {{ tag-con }} {{ tag-api }}
 
   Включает генетическую оптимизацию запросов ([GEQO](https://www.postgresql.org/docs/current/geqo.html)).
 
   По умолчанию настройка включена.
 
-  Подробнее см. в описании настройки `geqo` в [документации PostgreSQL](https://www.postgresql.org/docs/current/runtime-config-query.html#GUC-GEQO).
+  Подробнее см. в описании настройки `geqo` в [документации {{ PG }}](https://www.postgresql.org/docs/current/runtime-config-query.html#GUC-GEQO).
 
-- **Geqo effort**{#setting-geqo-effort} <code><b><small>Консоль управления</small></b></code> <code><b><small>API</small></b></code>
+- **Geqo effort**{#setting-geqo-effort} {{ tag-con }} {{ tag-api }}
 
   Задает соотношение между временем на планирование запроса и качеством плана запроса в алгоритме [GEQO](https://www.postgresql.org/docs/current/geqo.html).
 
@@ -679,9 +679,9 @@
 
   Минимальное значение — `1`, максимальное значение — `10`, значение по умолчанию — `5`.
 
-  Подробнее см. в описании настройки `geqo_effort` в [документации PostgreSQL](https://www.postgresql.org/docs/current/runtime-config-query.html#GUC-GEQO-EFFORT).
+  Подробнее см. в описании настройки `geqo_effort` в [документации {{ PG }}](https://www.postgresql.org/docs/current/runtime-config-query.html#GUC-GEQO-EFFORT).
 
-- **Geqo generations**{#setting-geqo-generations} <code><b><small>Консоль управления</small></b></code> <code><b><small>API</small></b></code>
+- **Geqo generations**{#setting-geqo-generations} {{ tag-con }} {{ tag-api }}
 
   Задает количество итераций алгоритма [GEQO](https://www.postgresql.org/docs/current/geqo.html).
 
@@ -689,9 +689,9 @@
 
   Если значение настройки равно `0` (по умолчанию), то количество итераций алгоритма выбирается на основании настройки [**Geqo pool size**](#setting-geqo-pool-size).
 
-  Подробнее см. в описании настройки `geqo_generations` в [документации PostgreSQL](https://www.postgresql.org/docs/current/runtime-config-query.html#GUC-GEQO-GENERATIONS).
+  Подробнее см. в описании настройки `geqo_generations` в [документации {{ PG }}](https://www.postgresql.org/docs/current/runtime-config-query.html#GUC-GEQO-GENERATIONS).
 
-- **Geqo pool size**{#setting-geqo-pool-size} <code><b><small>Консоль управления</small></b></code> <code><b><small>API</small></b></code>
+- **Geqo pool size**{#setting-geqo-pool-size} {{ tag-con }} {{ tag-api }}
 
   Задает количество особей в генетической популяции в алгоритме [GEQO](https://www.postgresql.org/docs/current/geqo.html).
 
@@ -699,9 +699,9 @@
 
   Если значение настройки равно `0` (по умолчанию), то количество особей выбирается в зависимости от настройки [**Geqo effort**](#setting-geqo-effort) и количества таблиц в запросе.
 
-  Подробнее см. в описании настройки `geqo_pool_size` в [документации PostgreSQL](https://www.postgresql.org/docs/current/runtime-config-query.html#GUC-GEQO-POOL-SIZE).
+  Подробнее см. в описании настройки `geqo_pool_size` в [документации {{ PG }}](https://www.postgresql.org/docs/current/runtime-config-query.html#GUC-GEQO-POOL-SIZE).
 
-- **Geqo seed**{#setting-geqo-seed} <code><b><small>Консоль управления</small></b></code> <code><b><small>API</small></b></code>
+- **Geqo seed**{#setting-geqo-seed} {{ tag-con }} {{ tag-api }}
 
   Задает начальное значение для генератора случайных чисел, используемого алгоритмом [GEQO](https://www.postgresql.org/docs/current/geqo.html) при выборе путей в пространстве поиска порядка соединений.
 
@@ -709,17 +709,17 @@
 
   Минимальное значение — `0`, максимальное значение — `1`, значение по умолчанию — `0`.
 
-  Подробнее см. в описании настройки `geqo_seed` в [документации PostgreSQL](https://www.postgresql.org/docs/current/runtime-config-query.html#GUC-GEQO-SEED).
+  Подробнее см. в описании настройки `geqo_seed` в [документации {{ PG }}](https://www.postgresql.org/docs/current/runtime-config-query.html#GUC-GEQO-SEED).
 
-- **Geqo selection bias**{#setting-geqo-selection-bias} <code><b><small>Консоль управления</small></b></code> <code><b><small>API</small></b></code>
+- **Geqo selection bias**{#setting-geqo-selection-bias} {{ tag-con }} {{ tag-api }}
 
   Задает избирательное давление отбора внутри популяции, используемое в алгоритме [GEQO](https://www.postgresql.org/docs/current/geqo.html).
 
   Минимальное значение — `1.50`, максимальное значение — `2.00`, значение по умолчанию — `2.00`.
 
-  Подробнее см. в описании настройки `geqo_selection_bias` в [документации PostgreSQL](https://www.postgresql.org/docs/current/runtime-config-query.html#GUC-GEQO-SELECTION-BIAS).
+  Подробнее см. в описании настройки `geqo_selection_bias` в [документации {{ PG }}](https://www.postgresql.org/docs/current/runtime-config-query.html#GUC-GEQO-SELECTION-BIAS).
 
-- **Geqo threshold**{#setting-geqo-threshold} <code><b><small>Консоль управления</small></b></code> <code><b><small>API</small></b></code>
+- **Geqo threshold**{#setting-geqo-threshold} {{ tag-con }} {{ tag-api }}
 
   Алгоритм [GEQO](https://www.postgresql.org/docs/current/geqo.html) будет использоваться для планирования только таких запросов, в которых количество таблиц в [предложении `FROM`](https://www.postgresql.org/docs/current/sql-select.html#SQL-FROM) больше или равно значению данной настройки.
 
@@ -727,69 +727,69 @@
 
   Минимальное значение — `2`, максимальное значение — `2147483647`, значение по умолчанию — `12`.
 
-  Подробнее см. в описании настройки `geqo_threshold` в [документации PostgreSQL](https://www.postgresql.org/docs/current/runtime-config-query.html#GUC-GEQO-THRESHOLD).
+  Подробнее см. в описании настройки `geqo_threshold` в [документации {{ PG }}](https://www.postgresql.org/docs/current/runtime-config-query.html#GUC-GEQO-THRESHOLD).
 
-- **Gin pending list limit**{#setting-gin-list-limit} <code><b><small>Все интерфейсы</small></b></code>
+- **Gin pending list limit**{#setting-gin-list-limit} {{ tag-all }}
 
   Максимальный размер (в байтах) очереди записей [индекса GIN](https://www.postgresql.org/docs/current/gin-intro.html). Очередь используется, когда включен режим `fastupdate`. Если размер очереди превышает заданный предел, записи из нее массово переносятся в основную структуру данных индекса GIN, а очередь очищается.
 
   Минимальное значение — `64`, максимальное значение — `2147483647` (2 ГБ), по умолчанию — `4194304`.
 
-  Подробнее см. в описании настройки `gin_pending_list_limit` в [документации PostgreSQL](https://www.postgresql.org/docs/current/runtime-config-client.html#GUC-GIN-PENDING-LIST-LIMIT).
+  Подробнее см. в описании настройки `gin_pending_list_limit` в [документации {{ PG }}](https://www.postgresql.org/docs/current/runtime-config-client.html#GUC-GIN-PENDING-LIST-LIMIT).
 
-- **Hash mem multiplier**{#setting-hash-mem-multiplier} <code><b><small>Консоль управления</small></b></code> <code><b><small>API</small></b></code> <code><b><small>Terraform</small></b></code>
+- **Hash mem multiplier**{#setting-hash-mem-multiplier} {{ tag-con }} {{ tag-api }} {{ tag-tf }}
 
   Определяет максимальный объем памяти, доступный для операций с хеш-таблицами. Объем вычисляется умножением значения настройки на значение [Work mem](#setting-work-mem).
 
   Минимальное значение — `0.0`, максимальное значение — `1000.0`, по умолчанию — `1.0`.
 
-  Функциональность поддерживается в PostgreSQL начиная с версии 13.
+  Функциональность поддерживается в {{ PG }} начиная с версии 13.
 
-  Подробнее см. в описании настройки `hash_mem_multiplier` в [документации PostgreSQL](https://www.postgresql.org/docs/current/runtime-config-resource.html#GUC-HASH-MEM-MULTIPLIER).
+  Подробнее см. в описании настройки `hash_mem_multiplier` в [документации {{ PG }}](https://www.postgresql.org/docs/current/runtime-config-resource.html#GUC-HASH-MEM-MULTIPLIER).
 
-- **Idle in transaction session timeout**{#setting-idle-session-timeout} <code><b><small>Все интерфейсы</small></b></code>
+- **Idle in transaction session timeout**{#setting-idle-session-timeout} {{ tag-all }}
 
   Время простоя открытой транзакции (в миллисекундах), при превышении которого будет завершена сессия с этой транзакцией.
 
   Минимальное значение — `0`, максимальное значение — `2147483647`, по умолчанию — `0`.
 
-  Подробнее см. в описании настройки `idle_in_transaction_session_timeout` в [документации PostgreSQL](https://www.postgresql.org/docs/current/runtime-config-client.html#GUC-IDLE-IN-TRANSACTION-SESSION-TIMEOUT).
+  Подробнее см. в описании настройки `idle_in_transaction_session_timeout` в [документации {{ PG }}](https://www.postgresql.org/docs/current/runtime-config-client.html#GUC-IDLE-IN-TRANSACTION-SESSION-TIMEOUT).
 
-- **Jit**{#setting-jit} <code><b><small>Консоль управления</small></b></code> <code><b><small>API</small></b></code> <code><b><small>Terraform</small></b></code>
+- **Jit**{#setting-jit} {{ tag-con }} {{ tag-api }} {{ tag-tf }}
 
-  Включает [JIT-компиляцию запросов](https://www.postgresql.org/docs/current/jit.html) (just-in-time compilation) для PostgreSQL. Если настройка включена, то SQL-запросы компилируются в машинный код прямо во время выполнения. Это ускорит выполнение сложных запросов, которые требовательны к ресурсам CPU.
+  Включает [JIT-компиляцию запросов](https://www.postgresql.org/docs/current/jit.html) (just-in-time compilation) для {{ PG }}. Если настройка включена, то SQL-запросы компилируются в машинный код прямо во время выполнения. Это ускорит выполнение сложных запросов, которые требовательны к ресурсам CPU.
 
   По умолчанию настройка выключена.
 
-  Подробнее см. в описании настройки `jit` в [документации PostgreSQL](https://www.postgresql.org/docs/current/runtime-config-query.html#GUC-JIT).
+  Подробнее см. в описании настройки `jit` в [документации {{ PG }}](https://www.postgresql.org/docs/current/runtime-config-query.html#GUC-JIT).
 
-- **Join collapse limit**{#setting-join-collapse-limit} <code><b><small>Все интерфейсы</small></b></code>
+- **Join collapse limit**{#setting-join-collapse-limit} {{ tag-all }}
 
   Пока количество элементов в списке `FROM` не превышает значение настройки, планировщик будет переносить в список явные инструкции `JOIN` (за исключением `FULL JOIN`). При уменьшении значения сокращается время планирования, но план запроса может стать менее эффективным.
 
   Минимальное значение — `1`, максимальное значение — `2147483647`, по умолчанию — `8`.
 
-  Подробнее см. в описании настройки `join_collapse_limit` в [документации PostgreSQL](https://www.postgresql.org/docs/current/runtime-config-query.html#GUC-JOIN-COLLAPSE-LIMIT).
+  Подробнее см. в описании настройки `join_collapse_limit` в [документации {{ PG }}](https://www.postgresql.org/docs/current/runtime-config-query.html#GUC-JOIN-COLLAPSE-LIMIT).
 
-- **Lo compat privileges**{#setting-lo-compat-privileges} <code><b><small>Консоль управления</small></b></code> <code><b><small>API</small></b></code> <code><b><small>CLI</small></b></code> <code><b><small>Terraform</small></b></code>
+- **Lo compat privileges**{#setting-lo-compat-privileges} {{ tag-con }} {{ tag-api }} {{ tag-cli }} {{ tag-tf }}
 
-  Отключает проверку прав доступа для больших объектов. До версии `9.0` права доступа не действовали на большие объекты, и они были доступны для чтения и записи всем пользователям. Включите настройку, если требуется совместимость с версиями PostgreSQL ниже `9.0`.
+  Отключает проверку прав доступа для больших объектов. До версии `9.0` права доступа не действовали на большие объекты, и они были доступны для чтения и записи всем пользователям. Включите настройку, если требуется совместимость с версиями {{ PG }} ниже `9.0`.
 
   По умолчанию настройка выключена (проверки прав доступа включены).
 
-  Подробнее см. в описании настройки `lo_compat_privileges` в [документации PostgreSQL](https://www.postgresql.org/docs/current/runtime-config-compatible.html#GUC-LO-COMPAT-PRIVILEGES).
+  Подробнее см. в описании настройки `lo_compat_privileges` в [документации {{ PG }}](https://www.postgresql.org/docs/current/runtime-config-compatible.html#GUC-LO-COMPAT-PRIVILEGES).
 
-- **Lock timeout**{#setting-lock-timeout} <code><b><small>Все интерфейсы</small></b></code>
+- **Lock timeout**{#setting-lock-timeout} {{ tag-all }}
 
   Определяет, сколько ждать освобождения блокировки (в миллисекундах). Заблокированными могут быть: таблица, индекс, строка или другие объекты базы данных. Если время ожидания для какой-либо операции истекло, то она прерывается.
 
   Минимальное значение — `0` (контроль длительности отключен, ожидать получения блокировки можно сколь угодно долго), максимальное значение — `2147483647`, по умолчанию — `0`.
 
-  Подробнее см. в описании настройки `lock_timeout` в [документации PostgreSQL](https://www.postgresql.org/docs/current/runtime-config-client.html#GUC-LOCK-TIMEOUT).
+  Подробнее см. в описании настройки `lock_timeout` в [документации {{ PG }}](https://www.postgresql.org/docs/current/runtime-config-client.html#GUC-LOCK-TIMEOUT).
 
-  Настройка действует на уровне кластера Managed Service for PostgreSQL, но ее можно [переопределить на уровне пользователя](settings-list.md#dbms-user-settings).
+  Настройка действует на уровне кластера {{ mpg-name }}, но ее можно [переопределить на уровне пользователя](settings-list.md#dbms-user-settings).
 
-- **Log autovacuum min duration**{#setting-log-autovacuum-min-duration} <code><b><small>Все интерфейсы</small></b></code>
+- **Log autovacuum min duration**{#setting-log-autovacuum-min-duration} {{ tag-all }}
 
   Задает время выполнения действия автоочистки (в миллисекундах), при превышении которого информация об этом действии записывается в лог.
 
@@ -797,59 +797,59 @@
 
   Значение по умолчанию — `1000`.
 
-  Подробнее см. в описании настройки `log_autovacuum_min_duration` в [документации PostgreSQL](https://www.postgresql.org/docs/current/runtime-config-logging.html#GUC-LOG-AUTOVACUUM-MIN-DURATION).
+  Подробнее см. в описании настройки `log_autovacuum_min_duration` в [документации {{ PG }}]({{ pg.docs.org }}/current/runtime-config-logging.html#GUC-LOG-AUTOVACUUM-MIN-DURATION).
 
-- **Log checkpoints**{#setting-log-checkpoints} <code><b><small>Все интерфейсы</small></b></code>
+- **Log checkpoints**{#setting-log-checkpoints} {{ tag-all }}
 
   Включает логирование выполнения контрольных точек и точек перезапуска сервера.
 
   По умолчанию настройка выключена (логирование не ведется).
 
-  Подробнее см. в описании настройки `log_checkpoints` в [документации PostgreSQL](https://www.postgresql.org/docs/current/runtime-config-logging.html#GUC-LOG-CHECKPOINTS).
+  Подробнее см. в описании настройки `log_checkpoints` в [документации {{ PG }}](https://www.postgresql.org/docs/current/runtime-config-logging.html#GUC-LOG-CHECKPOINTS).
 
-- **Log connections**{#setting-log-connections} <code><b><small>Консоль управления</small></b></code> <code><b><small>API</small></b></code> <code><b><small>CLI</small></b></code> <code><b><small>Terraform</small></b></code>
+- **Log connections**{#setting-log-connections} {{ tag-con }} {{ tag-api }} {{ tag-cli }} {{ tag-tf }}
 
-  Включает логирование всех попыток подключения к серверу PostgreSQL, в том числе тех, для которых была успешно завершена аутентификация клиентов.
+  Включает логирование всех попыток подключения к серверу {{ PG }}, в том числе тех, для которых была успешно завершена аутентификация клиентов.
 
   По умолчанию настройка выключена (логирование не ведется).
 
-  Подробнее см. в описании настройки `log_connections` в [документации PostgreSQL](https://www.postgresql.org/docs/current/runtime-config-logging.html#GUC-LOG-CONNECTIONS).
+  Подробнее см. в описании настройки `log_connections` в [документации {{ PG }}](https://www.postgresql.org/docs/current/runtime-config-logging.html#GUC-LOG-CONNECTIONS).
 
-- **Log disconnections**{#setting-log-disconnections} <code><b><small>Консоль управления</small></b></code> <code><b><small>API</small></b></code> <code><b><small>CLI</small></b></code> <code><b><small>Terraform</small></b></code>
+- **Log disconnections**{#setting-log-disconnections} {{ tag-con }} {{ tag-api }} {{ tag-cli }} {{ tag-tf }}
 
   Включает логирование завершения сессий.
 
   По умолчанию настройка выключена (логирование не ведется).
 
-  Подробнее см. в описании настройки `log_disconnections` в [документации PostgreSQL](https://www.postgresql.org/docs/current/runtime-config-logging.html#GUC-LOG-DISCONNECTIONS).
+  Подробнее см. в описании настройки `log_disconnections` в [документации {{ PG }}](https://www.postgresql.org/docs/current/runtime-config-logging.html#GUC-LOG-DISCONNECTIONS).
 
-- **Log duration**{#setting-log-duration} <code><b><small>Консоль управления</small></b></code> <code><b><small>API</small></b></code> <code><b><small>CLI</small></b></code> <code><b><small>Terraform</small></b></code>
+- **Log duration**{#setting-log-duration} {{ tag-con }} {{ tag-api }} {{ tag-cli }} {{ tag-tf }}
 
   Включает логирование длительности каждой завершенной команды.
 
   По умолчанию настройка выключена (логирование не выполняется).
 
-  Подробнее см. в описании настройки `log_duration` в [документации PostgreSQL](https://www.postgresql.org/docs/current/runtime-config-logging.html#GUC-LOG-DURATION).
+  Подробнее см. в описании настройки `log_duration` в [документации {{ PG }}](https://www.postgresql.org/docs/current/runtime-config-logging.html#GUC-LOG-DURATION).
 
-- **Log error verbosity**{#setting-log-error-verbosity} <code><b><small>Консоль управления</small></b></code> <code><b><small>API</small></b></code> <code><b><small>CLI</small></b></code> <code><b><small>Terraform</small></b></code>
+- **Log error verbosity**{#setting-log-error-verbosity} {{ tag-con }} {{ tag-api }} {{ tag-cli }} {{ tag-tf }}
 
-  Задает уровень детализации информации в логе PostgreSQL для каждого сообщения. Уровни детализации лога в порядке увеличения информативности:
+  Задает уровень детализации информации в логе {{ PG }} для каждого сообщения. Уровни детализации лога в порядке увеличения информативности:
 
-  - `terse` (`LOG_ERROR_VERBOSITY_TERSE` для Terraform, CLI и API). Из сообщения об ошибке исключаются поля `DETAIL`, `HINT`, `QUERY` и `CONTEXT`.
-  - `default` (`LOG_ERROR_VERBOSITY_DEFAULT` для Terraform, CLI и API). По умолчанию.
-  - `verbose` (`LOG_ERROR_VERBOSITY_VERBOSE` для Terraform, CLI и API). В сообщение об ошибке включается код ошибки `SQLSTATE`, а также имя файла с исходным кодом, имя функции и номер строки, сгенерировавшей ошибку.
+  - `terse` (`LOG_ERROR_VERBOSITY_TERSE` для {{ TF }}, CLI и API). Из сообщения об ошибке исключаются поля `DETAIL`, `HINT`, `QUERY` и `CONTEXT`.
+  - `default` (`LOG_ERROR_VERBOSITY_DEFAULT` для {{ TF }}, CLI и API). По умолчанию.
+  - `verbose` (`LOG_ERROR_VERBOSITY_VERBOSE` для {{ TF }}, CLI и API). В сообщение об ошибке включается код ошибки `SQLSTATE`, а также имя файла с исходным кодом, имя функции и номер строки, сгенерировавшей ошибку.
 
-  Подробнее см. в описании настройки `log_error_verbosity` в [документации PostgreSQL](https://www.postgresql.org/docs/current/runtime-config-logging.html#GUC-LOG-ERROR-VERBOSITY).
+  Подробнее см. в описании настройки `log_error_verbosity` в [документации {{ PG }}](https://www.postgresql.org/docs/current/runtime-config-logging.html#GUC-LOG-ERROR-VERBOSITY).
 
-- **Log lock waits**{#setting-log-lock-waits} <code><b><small>Консоль управления</small></b></code> <code><b><small>API</small></b></code> <code><b><small>CLI</small></b></code> <code><b><small>Terraform</small></b></code>
+- **Log lock waits**{#setting-log-lock-waits} {{ tag-con }} {{ tag-api }} {{ tag-cli }} {{ tag-tf }}
 
-  Управляет логированием продолжительных ожиданий блокировки. При включенной настройке в логе делается запись, когда в сессии PostgreSQL время ожидания получения блокировки превышает значение настройки [Deadlock timeout](#setting-deadlock-timeout).
+  Управляет логированием продолжительных ожиданий блокировки. При включенной настройке в логе делается запись, когда в сессии {{ PG }} время ожидания получения блокировки превышает значение настройки [Deadlock timeout](#setting-deadlock-timeout).
 
   По умолчанию настройка выключена.
 
-  Подробнее см. в описании настройки `log_lock_waits` в [документации PostgreSQL](https://www.postgresql.org/docs/current/runtime-config-logging.html#GUC-LOG-LOCK-WAITS).
+  Подробнее см. в описании настройки `log_lock_waits` в [документации {{ PG }}](https://www.postgresql.org/docs/current/runtime-config-logging.html#GUC-LOG-LOCK-WAITS).
 
-- **Log min duration sample**{#setting-log-min-duration-sample} <code><b><small>Консоль управления</small></b></code> <code><b><small>API</small></b></code> <code><b><small>Terraform</small></b></code>
+- **Log min duration sample**{#setting-log-min-duration-sample} {{ tag-con }} {{ tag-api }} {{ tag-tf }}
 
   Настройка работает так же, как [Log min duration statement](#setting-log-min-duration-statement), но применяется только к командам, указанным в параметре [Log statement sample rate](#setting-log-statement-sample-rate).
 
@@ -857,11 +857,11 @@
 
   Минимальное значение — `-1` (отключает логирование времени работы команд), максимальное значение — `2147483647`, по умолчанию — `-1`.
 
-  Функциональность поддерживается в PostgreSQL начиная с версии 13.
+  Функциональность поддерживается в {{ PG }} начиная с версии 13.
 
-  Подробнее см. в описании настройки `log_min_duration_sample` в [документации PostgreSQL](https://www.postgresql.org/docs/current/runtime-config-logging.html#GUC-LOG-MIN-DURATION-SAMPLE).
+  Подробнее см. в описании настройки `log_min_duration_sample` в [документации {{ PG }}](https://www.postgresql.org/docs/current/runtime-config-logging.html#GUC-LOG-MIN-DURATION-SAMPLE).
 
-- **Log min duration statement**{#setting-log-min-duration-statement} <code><b><small>Консоль управления</small></b></code> <code><b><small>API</small></b></code> <code><b><small>CLI</small></b></code> <code><b><small>Terraform</small></b></code>
+- **Log min duration statement**{#setting-log-min-duration-statement} {{ tag-con }} {{ tag-api }} {{ tag-cli }} {{ tag-tf }}
 
   Задает минимальное время работы команды (в миллисекундах), при котором команда будет записана в лог.
 
@@ -869,31 +869,31 @@
 
   Минимальное значение — `-1` (отключает логирование времени работы), максимальное значение — `2147483647`, по умолчанию — `-1`.
 
-  Подробнее см. в описании настройки `log_min_duration_statement` в [документации PostgreSQL](https://www.postgresql.org/docs/current/runtime-config-logging.html#GUC-LOG-MIN-DURATION-STATEMENT).
+  Подробнее см. в описании настройки `log_min_duration_statement` в [документации {{ PG }}](https://www.postgresql.org/docs/current/runtime-config-logging.html#GUC-LOG-MIN-DURATION-STATEMENT).
 
-  Настройка действует на уровне кластера Managed Service for PostgreSQL, но ее можно [переопределить на уровне пользователя](settings-list.md#dbms-user-settings).
+  Настройка действует на уровне кластера {{ mpg-name }}, но ее можно [переопределить на уровне пользователя](settings-list.md#dbms-user-settings).
 
-- **Log min error statement**{#setting-log-min-error-statement} <code><b><small>Консоль управления</small></b></code> <code><b><small>API</small></b></code> <code><b><small>CLI</small></b></code> <code><b><small>Terraform</small></b></code>
+- **Log min error statement**{#setting-log-min-error-statement} {{ tag-con }} {{ tag-api }} {{ tag-cli }} {{ tag-tf }}
 
   Определяет уровень логирования ошибок выполнения команд SQL. Сообщение о выполнении команды будет записано в лог, если он завершится ошибкой с указанным уровнем важности или выше. Возможные значения: `DEBUG5`, `DEBUG4`, `DEBUG3`, `DEBUG2`, `DEBUG1`, `INFO`, `NOTICE`, `WARNING`, `ERROR`, `LOG`, `FATAL` и `PANIC`.
 
-  По умолчанию используется `ERROR`. Это означает, что в лог PostgreSQL будут записаны все команды, завершившиеся сообщением с уровнем важности `ERROR`, `LOG`, `FATAL` и `PANIC`.
+  По умолчанию используется `ERROR`. Это означает, что в лог {{ PG }} будут записаны все команды, завершившиеся сообщением с уровнем важности `ERROR`, `LOG`, `FATAL` и `PANIC`.
 
   Чтобы отключить запись большинства команд с ошибками, выберите значение `PANIC`.
 
-  Подробнее см. в описании настройки `log_min_error_statement` в [документации PostgreSQL](https://www.postgresql.org/docs/current/runtime-config-logging.html#GUC-LOG-MIN-ERROR-STATEMENT).
+  Подробнее см. в описании настройки `log_min_error_statement` в [документации {{ PG }}](https://www.postgresql.org/docs/current/runtime-config-logging.html#GUC-LOG-MIN-ERROR-STATEMENT).
 
-- **Log min messages**{#setting-log-min-messages} <code><b><small>Консоль управления</small></b></code> <code><b><small>API</small></b></code> <code><b><small>CLI</small></b></code> <code><b><small>Terraform</small></b></code>
+- **Log min messages**{#setting-log-min-messages} {{ tag-con }} {{ tag-api }} {{ tag-cli }} {{ tag-tf }}
 
-  Определяет уровень логирования PostgreSQL. Записываются все сообщения выбранного уровня важности и выше. Возможные значения (по возрастанию важности): `DEBUG5`, `DEBUG4`, `DEBUG3`, `DEBUG2`, `DEBUG1`, `INFO`, `NOTICE`, `WARNING`, `ERROR`, `LOG`, `FATAL` и `PANIC`.
+  Определяет уровень логирования {{ PG }}. Записываются все сообщения выбранного уровня важности и выше. Возможные значения (по возрастанию важности): `DEBUG5`, `DEBUG4`, `DEBUG3`, `DEBUG2`, `DEBUG1`, `INFO`, `NOTICE`, `WARNING`, `ERROR`, `LOG`, `FATAL` и `PANIC`.
 
-  По умолчанию используется `WARNING`. Это означает, что в лог PostgreSQL будут записаны все сообщения с уровнем важности `WARNING`, `ERROR`, `LOG`, `FATAL` и `PANIC`.
+  По умолчанию используется `WARNING`. Это означает, что в лог {{ PG }} будут записаны все сообщения с уровнем важности `WARNING`, `ERROR`, `LOG`, `FATAL` и `PANIC`.
 
   Чтобы отключить запись большинства сообщений, выберите значение `PANIC`.
 
-  Подробнее см. в описании настройки `log_min_messages` в [документации PostgreSQL](https://www.postgresql.org/docs/current/runtime-config-logging.html#GUC-LOG-MIN-MESSAGES).
+  Подробнее см. в описании настройки `log_min_messages` в [документации {{ PG }}](https://www.postgresql.org/docs/current/runtime-config-logging.html#GUC-LOG-MIN-MESSAGES).
 
-- **Log parameter max length**{#setting-log-parameter-max-length} <code><b><small>Консоль управления</small></b></code> <code><b><small>API</small></b></code> <code><b><small>CLI</small></b></code> <code><b><small>Terraform</small></b></code>
+- **Log parameter max length**{#setting-log-parameter-max-length} {{ tag-con }} {{ tag-api }} {{ tag-cli }} {{ tag-tf }}
 
   Сокращает до указанного количества байтов значение каждого привязанного SQL-параметра, которые выводятся вместе с SQL-операторами при логировании всех сообщений, кроме сообщений об ошибках.
 
@@ -901,11 +901,11 @@
 
   Минимальное значение — `-1` (значения параметров логируются полностью), максимальное значение — `1073741823`. По умолчанию установлено минимальное значение.
 
-  Функциональность поддерживается в PostgreSQL начиная с версии 13.
+  Функциональность поддерживается в {{ PG }} начиная с версии 13.
 
-  Подробнее см. в описании настройки `log_parameter_max_length` в [документации PostgreSQL](https://www.postgresql.org/docs/current/runtime-config-logging.html#GUC-LOG-PARAMETER-MAX-LENGTH).
+  Подробнее см. в описании настройки `log_parameter_max_length` в [документации {{ PG }}](https://www.postgresql.org/docs/current/runtime-config-logging.html#GUC-LOG-PARAMETER-MAX-LENGTH).
 
-- **Log parameter max length on error**{#setting-log-parameter-max-length} <code><b><small>Все интерфейсы</small></b></code>
+- **Log parameter max length on error**{#setting-log-parameter-max-length} {{ tag-all }}
 
   Сокращает до указанного количества байтов значение каждого привязанного SQL-параметра, которые выводятся вместе с SQL-операторами при логировании сообщений об ошибках.
 
@@ -913,102 +913,102 @@
 
   Минимальное значение — `-1` (значения параметров логируются полностью), максимальное значение — `1073741823`. Значение по умолчанию — `0`.
 
-  Функциональность поддерживается в PostgreSQL начиная с версии 13.
+  Функциональность поддерживается в {{ PG }} начиная с версии 13.
 
-  Подробнее см. в описании настройки `log_parameter_max_length_on_error` в [документации PostgreSQL](https://www.postgresql.org/docs/current/runtime-config-logging.html#GUC-LOG-PARAMETER-MAX-LENGTH-ON-ERROR).
+  Подробнее см. в описании настройки `log_parameter_max_length_on_error` в [документации {{ PG }}](https://www.postgresql.org/docs/current/runtime-config-logging.html#GUC-LOG-PARAMETER-MAX-LENGTH-ON-ERROR).
 
-- **Log recovery conflict waits**{#setting-log-recovery-conflict-waits} <code><b><small>Консоль управления</small></b></code> <code><b><small>API</small></b></code> <code><b><small>CLI</small></b></code>
+- **Log recovery conflict waits**{#setting-log-recovery-conflict-waits} {{ tag-con }} {{ tag-api }} {{ tag-cli }}
 
   Разрешает фиксировать в логах задержки репликации, возникающие из-за конфликтов восстановления при чтении WAL. Записи в лог будут добавлены, если время ожидания разрешения конфликта превысит таймаут, заданный настройкой [Deadlock timeout](#setting-deadlock-timeout).
 
   По умолчанию настройка выключена.
 
-  Функциональность поддерживается в PostgreSQL начиная с версии 14.
+  Функциональность поддерживается в {{ PG }} начиная с версии 14.
 
-  Подробнее см. в описании настройки `log_recovery_conflict_waits` в [документации PostgreSQL](https://www.postgresql.org/docs/current/runtime-config-logging.html#GUC-LOG-RECOVERY-CONFLICT-WAITS).
+  Подробнее см. в описании настройки `log_recovery_conflict_waits` в [документации {{ PG }}](https://www.postgresql.org/docs/current/runtime-config-logging.html#GUC-LOG-RECOVERY-CONFLICT-WAITS).
 
-- **Log replication commands**{#setting-log-replication-commands} <code><b><small>Все интерфейсы</small></b></code>
+- **Log replication commands**{#setting-log-replication-commands} {{ tag-all }}
 
   Определяет, записывать ли в лог сервера все команды репликации и все случаи получения/освобождения слота репликации процессом `walsender`.
 
   По умолчанию настройка выключена.
 
-  Подробнее см. в описании настройки `log_replication_commands` в [документации PostgreSQL](https://www.postgresql.org/docs/current/runtime-config-logging.html#GUC-LOG-REPLICATION-COMMANDS).
+  Подробнее см. в описании настройки `log_replication_commands` в [документации {{ PG }}]({{ pg.docs.org }}/current/runtime-config-logging.html#GUC-LOG-REPLICATION-COMMANDS).
 
-- **Log statement**{#setting-log-statement} <code><b><small>Консоль управления</small></b></code> <code><b><small>API</small></b></code> <code><b><small>CLI</small></b></code> <code><b><small>Terraform</small></b></code>
+- **Log statement**{#setting-log-statement} {{ tag-con }} {{ tag-api }} {{ tag-cli }} {{ tag-tf }}
 
-  Фильтр команд SQL, которые должны записываться в лог PostgreSQL:
+  Фильтр команд SQL, которые должны записываться в лог {{ PG }}:
 
-  - `none` (`LOG_STATEMENT_NONE` для Terraform, CLI и API) — фильтр отключен, команды SQL не записываются в лог.
-  - `ddl` (`LOG_STATEMENT_DDL` для Terraform, CLI и API) — в лог записываются команды SQL, которые позволяют изменять определения структур данных (`CREATE`, `ALTER`, `DROP` и т. п.).
-  - `mod` (`LOG_STATEMENT_MOD` для Terraform, CLI и API) — в лог записываются команды SQL, попадающие под фильтр `ddl`, и команды, позволяющие изменять данные (`INSERT`, `UPDATE` и т. п.).
-  - `all` (`LOG_STATEMENT_ALL` для Terraform, CLI и API) — в лог записываются все команды SQL.
+  - `none` (`LOG_STATEMENT_NONE` для {{ TF }}, CLI и API) — фильтр отключен, команды SQL не записываются в лог.
+  - `ddl` (`LOG_STATEMENT_DDL` для {{ TF }}, CLI и API) — в лог записываются команды SQL, которые позволяют изменять определения структур данных (`CREATE`, `ALTER`, `DROP` и т. п.).
+  - `mod` (`LOG_STATEMENT_MOD` для {{ TF }}, CLI и API) — в лог записываются команды SQL, попадающие под фильтр `ddl`, и команды, позволяющие изменять данные (`INSERT`, `UPDATE` и т. п.).
+  - `all` (`LOG_STATEMENT_ALL` для {{ TF }}, CLI и API) — в лог записываются все команды SQL.
 
   Значение по умолчанию — `none`.
 
-  Подробнее см. в описании настройки `log_statement` в [документации PostgreSQL](https://www.postgresql.org/docs/current/runtime-config-logging.html).
+  Подробнее см. в описании настройки `log_statement` в [документации {{ PG }}](https://www.postgresql.org/docs/current/runtime-config-logging.html).
 
-  Настройка действует на уровне кластера Managed Service for PostgreSQL, но ее можно [переопределить на уровне пользователя](settings-list.md#dbms-user-settings).
+  Настройка действует на уровне кластера {{ mpg-name }}, но ее можно [переопределить на уровне пользователя](settings-list.md#dbms-user-settings).
 
-- **Log statement sample rate**{#setting-log-statement-sample-rate} <code><b><small>Консоль управления</small></b></code> <code><b><small>API</small></b></code> <code><b><small>Terraform</small></b></code>
+- **Log statement sample rate**{#setting-log-statement-sample-rate} {{ tag-con }} {{ tag-api }} {{ tag-tf }}
 
   Доля команд SQL, которые будут записываться в лог дополнительно (помимо команд, записываемых по другим причинам).
 
   Минимальное значение — `0.0`, максимальное значение — `1.0`, по умолчанию — `0.0`.
 
-  Функциональность поддерживается в PostgreSQL начиная с версии 13.
+  Функциональность поддерживается в {{ PG }} начиная с версии 13.
 
-  Подробнее см. в описании настройки `log_statement_sample_rate` в [документации PostgreSQL](https://www.postgresql.org/docs/current/runtime-config-logging.html#GUC-LOG-STATEMENT-SAMPLE-RATE).
+  Подробнее см. в описании настройки `log_statement_sample_rate` в [документации {{ PG }}](https://www.postgresql.org/docs/current/runtime-config-logging.html#GUC-LOG-STATEMENT-SAMPLE-RATE).
 
-- **Log temp files**{#setting-log-temp-files} <code><b><small>Консоль управления</small></b></code> <code><b><small>API</small></b></code> <code><b><small>CLI</small></b></code> <code><b><small>Terraform</small></b></code>
+- **Log temp files**{#setting-log-temp-files} {{ tag-con }} {{ tag-api }} {{ tag-cli }} {{ tag-tf }}
 
-  Задает минимальный размер временного файла, при удалении которого информация о нем будет записана в лог PostgreSQL.
+  Задает минимальный размер временного файла, при удалении которого информация о нем будет записана в лог {{ PG }}.
 
   Минимальное значение — `-1` (информация об удаленных файлах не логируется), максимальное значение — `2147483647` (2 ГБ), при значении `0` в лог записываются размеры и имена всех временных файлов. По умолчанию — `-1`.
 
-  Подробнее см. в описании настройки `log_temp_files` в [документации PostgreSQL](https://www.postgresql.org/docs/current/runtime-config-logging.html#GUC-LOG-TEMP-FILES).
+  Подробнее см. в описании настройки `log_temp_files` в [документации {{ PG }}](https://www.postgresql.org/docs/current/runtime-config-logging.html#GUC-LOG-TEMP-FILES).
 
-- **Log transaction sample rate**{#setting-log-transaction-sample-rate} <code><b><small>Консоль управления</small></b></code> <code><b><small>API</small></b></code> <code><b><small>Terraform</small></b></code>
+- **Log transaction sample rate**{#setting-log-transaction-sample-rate} {{ tag-con }} {{ tag-api }} {{ tag-tf }}
 
   Доля транзакций, команды из которых будут записываться в лог дополнительно (помимо команд, записываемых по другим причинам).
 
   Минимальное значение — `0.0`, максимальное значение — `1.0`.
 
-  Функциональность поддерживается в PostgreSQL начиная с версии 12.
+  Функциональность поддерживается в {{ PG }} начиная с версии 12.
 
-  Подробнее см. в описании настройки `log_transaction_sample_rate` в [документации PostgreSQL](https://www.postgresql.org/docs/current/runtime-config-logging.html#GUC-LOG-TRANSACTION-SAMPLE-RATE).
+  Подробнее см. в описании настройки `log_transaction_sample_rate` в [документации {{ PG }}](https://www.postgresql.org/docs/current/runtime-config-logging.html#GUC-LOG-TRANSACTION-SAMPLE-RATE).
 
-- **Logical decoding work mem**{#setting-logical-decoding-work-mem} <code><b><small>Все интерфейсы</small></b></code>
+- **Logical decoding work mem**{#setting-logical-decoding-work-mem} {{ tag-all }}
 
   Максимальный объем памяти (в байтах), выделяемый для [логического декодирования](https://www.postgresql.org/docs/current/logicaldecoding.html) перед записью на локальный диск. Настройка ограничивает объем памяти, используемый в соединении для логической репликации.
 
   Минимальное значение — `65536` (64 КБ), максимальное значение — `1099511627776` (1 ТБ), по умолчанию – `67108864` (64 МБ).
 
-  Функциональность поддерживается в PostgreSQL начиная с версии 13.
+  Функциональность поддерживается в {{ PG }} начиная с версии 13.
 
-  Подробнее см. в описании настройки `logical_decoding_work_mem` в [документации PostgreSQL](https://www.postgresql.org/docs/current/runtime-config-resource.html#GUC-LOGICAL-DECODING-WORK-MEM).
+  Подробнее см. в описании настройки `logical_decoding_work_mem` в [документации {{ PG }}](https://www.postgresql.org/docs/current/runtime-config-resource.html#GUC-LOGICAL-DECODING-WORK-MEM).
 
-- **Maintenance io concurrency**{#setting-maintenance-io-concurrency} <code><b><small>Все интерфейсы</small></b></code>
+- **Maintenance io concurrency**{#setting-maintenance-io-concurrency} {{ tag-all }}
 
-  Максимальное число параллельных операций дискового ввода-вывода при обслуживании PostgreSQL командами `VACUUM`, `CREATE INDEX` и `ALTER TABLE ADD FOREIGN KEY`, в отдельной сессии работы с БД. Чем больше это число, тем больше команд обслуживания PostgreSQL будет пытаться выполнить параллельно в отдельной сессии.
+  Максимальное число параллельных операций дискового ввода-вывода при обслуживании {{ PG }} командами `VACUUM`, `CREATE INDEX` и `ALTER TABLE ADD FOREIGN KEY`, в отдельной сессии работы с БД. Чем больше это число, тем больше команд обслуживания {{ PG }} будет пытаться выполнить параллельно в отдельной сессии.
 
   Минимальное значение — `0`, максимальное значение — `1000`, по умолчанию — `10`.
 
-  Функциональность поддерживается в PostgreSQL начиная с версии 13.
+  Функциональность поддерживается в {{ PG }} начиная с версии 13.
 
-  Подробнее см. в описании настройки `maintenance_io_concurrency` в [документации PostgreSQL](https://www.postgresql.org/docs/current/runtime-config-resource.html#GUC-MAINTENANCE-IO-CONCURRENCY).
+  Подробнее см. в описании настройки `maintenance_io_concurrency` в [документации {{ PG }}](https://www.postgresql.org/docs/current/runtime-config-resource.html#GUC-MAINTENANCE-IO-CONCURRENCY).
 
-- **Maintenance work mem**{#setting-maintenance-work-mem} <code><b><small>Все интерфейсы</small></b></code>
+- **Maintenance work mem**{#setting-maintenance-work-mem} {{ tag-all }}
 
-  Максимальный объем памяти (в байтах) для операций обслуживания PostgreSQL, таких как `VACUUM`, `CREATE INDEX` и `ALTER TABLE ADD FOREIGN KEY`. Значение должно быть кратно 1024.
+  Максимальный объем памяти (в байтах) для операций обслуживания {{ PG }}, таких как `VACUUM`, `CREATE INDEX` и `ALTER TABLE ADD FOREIGN KEY`. Значение должно быть кратно 1024.
 
   Минимальное значение — `1048576` (1 МБ), максимальное значение — `137438953472` (128 ГБ), по умолчанию — `67108864` (64 МБ).
 
-  Подробнее см. в описании настройки `maintenance_work_mem` в [документации PostgreSQL](https://www.postgresql.org/docs/current/runtime-config-resource.html#GUC-MAINTENANCE-WORK-MEM).
+  Подробнее см. в описании настройки `maintenance_work_mem` в [документации {{ PG }}](https://www.postgresql.org/docs/current/runtime-config-resource.html#GUC-MAINTENANCE-WORK-MEM).
 
-- **Max connections**{#setting-max-connections} <code><b><small>Консоль управления</small></b></code> <code><b><small>API</small></b></code> <code><b><small>CLI</small></b></code> <code><b><small>Terraform</small></b></code>
+- **Max connections**{#setting-max-connections} {{ tag-con }} {{ tag-api }} {{ tag-cli }} {{ tag-tf }}
 
-  Максимальное число одновременных подключений к хосту PostgreSQL.
+  Максимальное число одновременных подключений к хосту {{ PG }}.
 
   Минимальное значение — `16` (`1` пользовательское подключение и `15` зарезервированных сервисом), максимальное значение и значение по умолчанию [зависят от выбранного класса хостов](#settings-instance-dependent) и задаются формулой:
 
@@ -1022,206 +1022,206 @@
 
   {% note warning %}
   
-  Managed Service for PostgreSQL резервирует 15 подключений для служебных пользователей на каждом PostgreSQL-хосте. Например, если для кластера выставлено значение настройки [Max connections](settings-list.md#setting-max-connections) `100`, то вы можете зарезервировать не больше 85 подключений для пользователей кластера.
+  {{ mpg-short-name }} резервирует 15 подключений для служебных пользователей на каждом {{ PG }}-хосте. Например, если для кластера выставлено значение настройки [Max connections](settings-list.md#setting-max-connections) `100`, то вы можете зарезервировать не больше 85 подключений для пользователей кластера.
   
   {% endnote %}
 
-  Подробнее см. в описании настройки `max_connections` в [документации PostgreSQL](https://www.postgresql.org/docs/current/runtime-config-connection.html#GUC-MAX-CONNECTIONS).
+  Подробнее см. в описании настройки `max_connections` в [документации {{ PG }}](https://www.postgresql.org/docs/current/runtime-config-connection.html#GUC-MAX-CONNECTIONS).
 
-- **Max locks per transaction**{#setting-max-locks-transaction} <code><b><small>Консоль управления</small></b></code> <code><b><small>API</small></b></code> <code><b><small>CLI</small></b></code> <code><b><small>Terraform</small></b></code>
+- **Max locks per transaction**{#setting-max-locks-transaction} {{ tag-con }} {{ tag-api }} {{ tag-cli }} {{ tag-tf }}
 
   Среднее количество объектов, которые могут быть заблокированы одной транзакцией. Отдельные транзакции могут блокировать больше объектов, если общее количество объектов, заблокированных всеми транзакциями, помещается в таблицу блокировок.
 
   Минимальное значение — `10`, максимальное значение — `2147483647`, по умолчанию — `64`.
 
-  Подробнее см. в описании настройки `max_locks_per_transaction` в [документации PostgreSQL](https://www.postgresql.org/docs/current/runtime-config-locks.html#GUC-MAX-LOCKS-PER-TRANSACTION).
+  Подробнее см. в описании настройки `max_locks_per_transaction` в [документации {{ PG }}](https://www.postgresql.org/docs/current/runtime-config-locks.html#GUC-MAX-LOCKS-PER-TRANSACTION).
 
-- **Max logical replication workers**{#setting-max-logical-replication-workers} <code><b><small>Консоль управления</small></b></code>
+- **Max logical replication workers**{#setting-max-logical-replication-workers} {{ tag-con }}
 
-  Максимальное число работающих процессов логической репликации PostgreSQL.
+  Максимальное число работающих процессов логической репликации {{ PG }}.
 
   Минимальное значение — `4`, максимальное значение — `100`. По умолчанию установлено минимальное значение.
 
-  Подробнее см. в описании настройки `max_logical_replication_workers` в [документации PostgreSQL](https://www.postgresql.org/docs/current/runtime-config-replication.html#GUC-MAX-LOGICAL-REPLICATION-WORKERS).
+  Подробнее см. в описании настройки `max_logical_replication_workers` в [документации {{ PG }}](https://www.postgresql.org/docs/current/runtime-config-replication.html#GUC-MAX-LOGICAL-REPLICATION-WORKERS).
 
-- **Max parallel maintenance workers**{#setting-max-parallel-maintenance-workers} <code><b><small>Все интерфейсы</small></b></code>
+- **Max parallel maintenance workers**{#setting-max-parallel-maintenance-workers} {{ tag-all }}
 
-  Максимальное число параллельно работающих процессов PostgreSQL, инициированных одной служебной командой (например, `CREATE INDEX`).
+  Максимальное число параллельно работающих процессов {{ PG }}, инициированных одной служебной командой (например, `CREATE INDEX`).
 
   Минимальное значение — `0`, максимальное значение — `1024`, по умолчанию — `2`.
 
-  Подробнее см. в описании настройки `max_parallel_maintenance_workers` в [документации PostgreSQL](https://www.postgresql.org/docs/current/runtime-config-resource.html#GUC-MAX-PARALLEL-MAINTENANCE-WORKERS).
+  Подробнее см. в описании настройки `max_parallel_maintenance_workers` в [документации {{ PG }}](https://www.postgresql.org/docs/current/runtime-config-resource.html#GUC-MAX-PARALLEL-MAINTENANCE-WORKERS).
 
-- **Max parallel workers**{#setting-max-parallel-workers} <code><b><small>Все интерфейсы</small></b></code>
+- **Max parallel workers**{#setting-max-parallel-workers} {{ tag-all }}
 
-  Максимальное число параллельно работающих процессов PostgreSQL.
+  Максимальное число параллельно работающих процессов {{ PG }}.
 
   Минимальное значение — `0`, максимальное значение — `1024`, по умолчанию — `8`.
 
-  Подробнее см. в описании настройки `max_parallel_workers` в [документации PostgreSQL](https://www.postgresql.org/docs/current/runtime-config-resource.html#GUC-MAX-PARALLEL-WORKERS).
+  Подробнее см. в описании настройки `max_parallel_workers` в [документации {{ PG }}](https://www.postgresql.org/docs/current/runtime-config-resource.html#GUC-MAX-PARALLEL-WORKERS).
 
-- **Max parallel workers per gather**{#setting-max-parallel-workers-gather} <code><b><small>Все интерфейсы</small></b></code>
+- **Max parallel workers per gather**{#setting-max-parallel-workers-gather} {{ tag-all }}
 
   Максимальное число параллельно работающих процессов, которые могут запускаться одним узлом [Gather](https://www.postgresql.org/docs/current/how-parallel-query-works.html).
 
   Минимальное значение — `0`, максимальное значение — `1024`, по умолчанию — `2`.
 
-  Подробнее см. в описании настройки `max_parallel_workers_per_gather` в [документации PostgreSQL](https://www.postgresql.org/docs/current/runtime-config-resource.html#GUC-MAX-PARALLEL-WORKERS-PER-GATHER).
+  Подробнее см. в описании настройки `max_parallel_workers_per_gather` в [документации {{ PG }}](https://www.postgresql.org/docs/current/runtime-config-resource.html#GUC-MAX-PARALLEL-WORKERS-PER-GATHER).
 
-- **Max pred locks per transaction**{#setting-max-pred-locks-transaction} <code><b><small>Консоль управления</small></b></code> <code><b><small>API</small></b></code> <code><b><small>CLI</small></b></code> <code><b><small>Terraform</small></b></code>
+- **Max pred locks per transaction**{#setting-max-pred-locks-transaction} {{ tag-con }} {{ tag-api }} {{ tag-cli }} {{ tag-tf }}
 
   Среднее количество объектов, которые могут быть заблокированы [предикатными блокировками](https://www.postgresql.org/docs/current/transaction-iso.html#XACT-SERIALIZABLE) за одну транзакцию. Отдельные транзакции могут блокировать больше объектов, чем указано в настройке, если общее количество объектов, заблокированных всеми транзакциями, помещается в таблицу блокировок.
 
   Минимальное значение — `10`, максимальное значение — `2147483647` (2 ГБ), по умолчанию — `64`.
 
-  Подробнее см. в описании настройки `max_pred_locks_per_transaction` в [документации PostgreSQL](https://www.postgresql.org/docs/current/runtime-config-locks.html#GUC-MAX-PRED-LOCKS-PER-TRANSACTION).
+  Подробнее см. в описании настройки `max_pred_locks_per_transaction` в [документации {{ PG }}](https://www.postgresql.org/docs/current/runtime-config-locks.html#GUC-MAX-PRED-LOCKS-PER-TRANSACTION).
 
-- **Max prepared transactions**{#setting-max-prepared-transactions} <code><b><small>Консоль управления</small></b></code> <code><b><small>API</small></b></code> <code><b><small>CLI</small></b></code> <code><b><small>Terraform</small></b></code>
+- **Max prepared transactions**{#setting-max-prepared-transactions} {{ tag-con }} {{ tag-api }} {{ tag-cli }} {{ tag-tf }}
 
   Максимальное число транзакций, которые могут одновременно находиться в [подготовленном состоянии](https://www.postgresql.org/docs/current/sql-prepare-transaction.html).
 
   Минимальное значение — `0`, максимальное значение — `262143`, по умолчанию — `0`.
 
-  Подробнее см. в описании настройки `max_prepared_transactions` в [документации PostgreSQL](https://www.postgresql.org/docs/current/runtime-config-resource.html#GUC-MAX-PREPARED-TRANSACTIONS).
+  Подробнее см. в описании настройки `max_prepared_transactions` в [документации {{ PG }}](https://www.postgresql.org/docs/current/runtime-config-resource.html#GUC-MAX-PREPARED-TRANSACTIONS).
 
-- **Max replication slots**{#setting-max-replication-slots} <code><b><small>Консоль управления</small></b></code>
+- **Max replication slots**{#setting-max-replication-slots} {{ tag-con }}
 
   Максимальное число [слотов репликации](https://www.postgresql.org/docs/current/warm-standby.html#STREAMING-REPLICATION-SLOTS). Слоты репликации автоматически обеспечивают механизм сохранения файлов лога [WAL](https://www.postgresql.org/docs/current/wal-intro.html) (Write-Ahead Log), пока они не будут получены всеми репликами.
 
   Минимальное значение — `20`, максимальное значение — `100`. По умолчанию установлено минимальное значение.
 
-  Подробнее см. в описании настройки `max_replication_slots` в [документации PostgreSQL](https://www.postgresql.org/docs/current/runtime-config-replication.html#GUC-MAX-REPLICATION-SLOTS).
+  Подробнее см. в описании настройки `max_replication_slots` в [документации {{ PG }}](https://www.postgresql.org/docs/current/runtime-config-replication.html#GUC-MAX-REPLICATION-SLOTS).
 
-- **Max slot wal keep size**{#setting-max-slot-wal-keep-size} <code><b><small>Консоль управления</small></b></code> <code><b><small>API</small></b></code> <code><b><small>Terraform</small></b></code>
+- **Max slot wal keep size**{#setting-max-slot-wal-keep-size} {{ tag-con }} {{ tag-api }} {{ tag-tf }}
 
   Максимальный размер (в байтах) файлов лога [WAL](https://www.postgresql.org/docs/current/wal-intro.html) (Write-Ahead Log), который хранится на хосте-мастере при репликации.
 
   Минимальное значение — `67108864` (64 МБ). Максимальное значение — 50% от размера [хранилища](storage.md). Значение по умолчанию — `-1` (не ограничен). Значение должно быть кратно 1024.
 
-  Функциональность поддерживается в PostgreSQL начиная с версии 13.
+  Функциональность поддерживается в {{ PG }} начиная с версии 13.
 
-  Подробнее см. в описании настройки `max_slot_wal_keep_size` в [документации PostgreSQL](https://www.postgresql.org/docs/current/runtime-config-replication.html#GUC-MAX-SLOT-WAL-KEEP-SIZE).
+  Подробнее см. в описании настройки `max_slot_wal_keep_size` в [документации {{ PG }}](https://www.postgresql.org/docs/current/runtime-config-replication.html#GUC-MAX-SLOT-WAL-KEEP-SIZE).
 
-- **Max stack depth**{#setting-max-stack-depth} <code><b><small>Все интерфейсы</small></b></code>
+- **Max stack depth**{#setting-max-stack-depth} {{ tag-all }}
 
   Задает максимальную безопасную глубину стека для исполнителя (в байтах).
 
   Минимальное значение — `65536`, максимальное — `134217728`, по умолчанию — `2097152` (2 МБ).
 
-  Подробнее см. в описании настройки `max_stack_depth` в [документации PostgreSQL](https://www.postgresql.org/docs/current/runtime-config-resource.html#GUC-MAX-STACK-DEPTH).
+  Подробнее см. в описании настройки `max_stack_depth` в [документации {{ PG }}]({{ pg.docs.org }}/current/runtime-config-resource.html#GUC-MAX-STACK-DEPTH).
 
-- **Max standby streaming delay**{#setting-max-standby-streaming-delay} <code><b><small>Все интерфейсы</small></b></code>
+- **Max standby streaming delay**{#setting-max-standby-streaming-delay} {{ tag-all }}
 
   Время ожидания (в миллисекундах), по истечении которого хост-реплика в режиме горячего резерва начнет отменять запросы, конфликтующие с очередными изменениями в [WAL](https://www.postgresql.org/docs/current/wal-intro.html).
 
   Минимальное значение — `-1` (время ожидания не ограничено), максимальное значение — `2147483647`, по умолчанию — `30000` (30 секунд).
 
-  Подробнее см. в описании настройки `max_standby_streaming_delay` в [документации PostgreSQL](https://www.postgresql.org/docs/current/runtime-config-replication.html#GUC-MAX-STANDBY-STREAMING-DELAY).
+  Подробнее см. в описании настройки `max_standby_streaming_delay` в [документации {{ PG }}](https://www.postgresql.org/docs/current/runtime-config-replication.html#GUC-MAX-STANDBY-STREAMING-DELAY).
 
-- **Max standby archive delay**{#setting-max-standby-archive-delay} <code><b><small>Все интерфейсы</small></b></code>
+- **Max standby archive delay**{#setting-max-standby-archive-delay} {{ tag-all }}
 
   Время ожидания (в миллисекундах), по истечении которого хост-реплика в режиме горячего резерва начнет отменять запросы, конфликтующие с очередными изменениями в [WAL](https://www.postgresql.org/docs/current/wal-intro.html). Задержка применяется при обработке данных WAL, считываемых из архива.
 
   Минимальное значение — `-1` (время ожидания не ограничено), максимальное значение — `2147483647`, по умолчанию — `30000` (30 секунд).
 
-  Подробнее см. в описании настройки `max_standby_archive_delay` в [документации PostgreSQL](https://www.postgresql.org/docs/current/runtime-config-replication.html#GUC-MAX-STANDBY-ARCHIVE-DELAY).
+  Подробнее см. в описании настройки `max_standby_archive_delay` в [документации {{ PG }}]({{ pg.docs.org }}/current/runtime-config-replication.html#GUC-MAX-STANDBY-ARCHIVE-DELAY).
 
-- **Max wal senders**{#setting-max-wal-senders} <code><b><small>Консоль управления</small></b></code>
+- **Max wal senders**{#setting-max-wal-senders} {{ tag-con }}
 
   Максимальное число параллельных соединений от хостов-источников потока репликации.
 
   Минимальное значение — `20`, максимальное значение — `100`. По умолчанию установлено минимальное значение.
 
-  Подробнее см. в описании настройки `max_wal_senders` в [документации PostgreSQL](https://www.postgresql.org/docs/current/runtime-config-replication.html#GUC-MAX-WAL-SENDERS).
+  Подробнее см. в описании настройки `max_wal_senders` в [документации {{ PG }}](https://www.postgresql.org/docs/current/runtime-config-replication.html#GUC-MAX-WAL-SENDERS).
 
-- **Max wal size**{#setting-max-wal-size} <code><b><small>Все интерфейсы</small></b></code>
+- **Max wal size**{#setting-max-wal-size} {{ tag-all }}
 
   Максимальный размер (в байтах) файла [WAL](https://www.postgresql.org/docs/current/wal-intro.html), при достижении которого запускается снятие автоматических контрольных точек.
 
   Минимальное значение — `2`, максимальное значение [зависит от размера хранилища](#settings-instance-dependent) и равно 10% от этой величины, но не более `8589934592` (8 ГБ). По умолчанию установлено максимальное значение.
 
-  Подробнее см. в описании настройки `max_wal_size` в [документации PostgreSQL](https://www.postgresql.org/docs/current/runtime-config-wal.html#GUC-MAX-WAL-SIZE).
+  Подробнее см. в описании настройки `max_wal_size` в [документации {{ PG }}](https://www.postgresql.org/docs/current/runtime-config-wal.html#GUC-MAX-WAL-SIZE).
 
-- **Max worker processes**{#setting-max-worker-processes} <code><b><small>Консоль управления</small></b></code> <code><b><small>API</small></b></code> <code><b><small>CLI</small></b></code> <code><b><small>Terraform</small></b></code>
+- **Max worker processes**{#setting-max-worker-processes} {{ tag-con }} {{ tag-api }} {{ tag-cli }} {{ tag-tf }}
 
-  Максимальное число фоновых процессов PostgreSQL, которое можно запустить в текущей системе.
+  Максимальное число фоновых процессов {{ PG }}, которое можно запустить в текущей системе.
 
   Минимальное значение — `0`, максимальное значение — `1024`, по умолчанию — `8`.
 
-  Подробнее см. в описании настройки `max_worker_processes` в [документации PostgreSQL](https://www.postgresql.org/docs/current/runtime-config-resource.html#GUC-MAX-WORKER-PROCESSES).
+  Подробнее см. в описании настройки `max_worker_processes` в [документации {{ PG }}](https://www.postgresql.org/docs/current/runtime-config-resource.html#GUC-MAX-WORKER-PROCESSES).
 
-- **Min wal size**{#setting-min-wal-size} <code><b><small>Все интерфейсы</small></b></code>
+- **Min wal size**{#setting-min-wal-size} {{ tag-all }}
 
   Объем дискового пространства (в байтах), занимаемый [WAL](https://www.postgresql.org/docs/current/wal-intro.html), при превышении которого старые файлы WAL в контрольных точках удаляются.
 
   Минимальное значение — `2`, максимальное значение [зависит от размера хранилища](#settings-instance-dependent) и равно 5% от этой величины, но не более `1073741824` (1 ГБ). По умолчанию установлено максимальное значение.
 
-  Подробнее см. в описании настройки `min_wal_size` в [документации PostgreSQL](https://www.postgresql.org/docs/current/runtime-config-wal.html#GUC-MIN-WAL-SIZE).
+  Подробнее см. в описании настройки `min_wal_size` в [документации {{ PG }}](https://www.postgresql.org/docs/current/runtime-config-wal.html#GUC-MIN-WAL-SIZE).
 
-- **Old snapshot threshold**{#setting-old-snapshot-threshold} <code><b><small>Консоль управления</small></b></code> <code><b><small>API</small></b></code> <code><b><small>CLI</small></b></code> <code><b><small>Terraform</small></b></code>
+- **Old snapshot threshold**{#setting-old-snapshot-threshold} {{ tag-con }} {{ tag-api }} {{ tag-cli }} {{ tag-tf }}
 
   Минимальное время (в миллисекундах), в течение которого можно пользоваться снимком состояния для выполнения запроса без риска получить ошибку.
 
   Минимальное значение — `-1` (не ограничено), максимальное значение — `86400000` (24 часа), по умолчанию — `-1`.
 
-  Подробнее см. в описании настройки `old_snapshot_threshold` в [документации PostgreSQL](https://www.postgresql.org/docs/current/runtime-config-resource.html#GUC-OLD-SNAPSHOT-THRESHOLD).
+  Подробнее см. в описании настройки `old_snapshot_threshold` в [документации {{ PG }}](https://www.postgresql.org/docs/current/runtime-config-resource.html#GUC-OLD-SNAPSHOT-THRESHOLD).
 
-- **Online analyze enable**{#setting-online-analyze} <code><b><small>Консоль управления</small></b></code> <code><b><small>API</small></b></code>
+- **Online analyze enable**{#setting-online-analyze} {{ tag-con }} {{ tag-api }}
 
-  Настройка доступна в версиях PostgreSQL с постфиксом `1с`, предназначенных для работы с «1С:Предприятие».
+  Настройка доступна в версиях {{ PG }} с постфиксом `1с`, предназначенных для работы с «1С:Предприятие».
 
   Включает использование модуля `online_analyze`, который обновляет статистику после операций `INSERT`, `UPDATE`, `DELETE` или `SELECT INTO` в целевых таблицах.
 
   По умолчанию настройка включена.
 
-- **Operator precedence warning**{#setting-operator-precedence-warning} <code><b><small>Все интерфейсы</small></b></code>
+- **Operator precedence warning**{#setting-operator-precedence-warning} {{ tag-all }}
 
   Разрешает анализатору запроса выдавать предупреждение для всех конструкций, которые поменяли поведение из-за изменения приоритетов команд в версии `9.5`.
 
   По умолчанию настройка выключена.
 
-  Функциональность не поддерживается в PostgreSQL начиная с версии `14`.
+  Функциональность не поддерживается в {{ PG }} начиная с версии `14`.
 
-  Подробнее см. в описании настройки `operator_precedence_warning` в [документации PostgreSQL](https://www.postgresql.org/docs/13/runtime-config-compatible.html#GUC-OPERATOR-PRECEDENCE-WARNING).
+  Подробнее см. в описании настройки `operator_precedence_warning` в [документации {{ PG }}](https://www.postgresql.org/docs/13/runtime-config-compatible.html#GUC-OPERATOR-PRECEDENCE-WARNING).
 
-- **Parallel leader participation**{#setting-parallel-leader-participation} <code><b><small>Все интерфейсы</small></b></code>
+- **Parallel leader participation**{#setting-parallel-leader-participation} {{ tag-all }}
 
   Разрешает ведущему процессу выполнять план запроса ниже узлов Gather и Gather Merge, не ожидая рабочие процессы.
 
   По умолчанию настройка включена.
 
-  Подробнее см. в описании настройки `parallel_leader_participation` в [документации PostgreSQL](https://www.postgresql.org/docs/current/runtime-config-resource.html#GUC-PARALLEL-LEADER-PARTICIPATION).
+  Подробнее см. в описании настройки `parallel_leader_participation` в [документации {{ PG }}](https://www.postgresql.org/docs/current/runtime-config-resource.html#GUC-PARALLEL-LEADER-PARTICIPATION).
 
-- **Password encryption**{#setting-password-encryption} <code><b><small>Все интерфейсы</small></b></code>
+- **Password encryption**{#setting-password-encryption} {{ tag-all }}
 
   Определяет протокол проверки пароля:
 
-  * `scram-sha-256` (`PASSWORD_ENCRYPTION_SCRAM_SHA_256` для Terraform и API);
-  * `md5` (`PASSWORD_ENCRYPTION_MD5` для Terraform и API).
+  * `scram-sha-256` (`PASSWORD_ENCRYPTION_SCRAM_SHA_256` для {{ TF }} и API);
+  * `md5` (`PASSWORD_ENCRYPTION_MD5` для {{ TF }} и API).
 
   Значение по умолчанию:
 
-  * для версий PostgreSQL `16` и ниже — `md5`;
-  * для версий PostgreSQL `17` и выше — `scram-sha-256`.
+  * для версий {{ PG }} `16` и ниже — `md5`;
+  * для версий {{ PG }} `17` и выше — `scram-sha-256`.
 
-  Подробнее см. в описании настройки `password_encryption` в [документации PostgreSQL](https://www.postgresql.org/docs/current/runtime-config-connection.html#GUC-PASSWORD-ENCRYPTION).
+  Подробнее см. в описании настройки `password_encryption` в [документации {{ PG }}](https://www.postgresql.org/docs/current/runtime-config-connection.html#GUC-PASSWORD-ENCRYPTION).
 
-- **Pg hint plan debug print**{#setting-pghint-plan-debug} <code><b><small>Консоль управления</small></b></code> <code><b><small>API</small></b></code> <code><b><small>Terraform</small></b></code>
+- **Pg hint plan debug print**{#setting-pghint-plan-debug} {{ tag-con }} {{ tag-api }} {{ tag-tf }}
 
   Настройка вывода и детализации отладочной информации модулем `pg_hint_plan`. Действует при включенной настройке [Pg hint plan enable hint](#setting-pg-hint-plan-enable). Возможные значения (по возрастанию детализации):
 
-  - `off` (`PG_HINT_PLAN_DEBUG_PRINT_OFF` для Terraform и API) — вывод отключен (по умолчанию);
-  - `on` (`PG_HINT_PLAN_DEBUG_PRINT_ON` для Terraform и API);
-  - `detailed` (`PG_HINT_PLAN_DEBUG_PRINT_DETAILED` для Terraform и API);
-  - `verbose` (`PG_HINT_PLAN_DEBUG_PRINT_VERBOSE` для Terraform и API).
+  - `off` (`PG_HINT_PLAN_DEBUG_PRINT_OFF` для {{ TF }} и API) — вывод отключен (по умолчанию);
+  - `on` (`PG_HINT_PLAN_DEBUG_PRINT_ON` для {{ TF }} и API);
+  - `detailed` (`PG_HINT_PLAN_DEBUG_PRINT_DETAILED` для {{ TF }} и API);
+  - `verbose` (`PG_HINT_PLAN_DEBUG_PRINT_VERBOSE` для {{ TF }} и API).
 
-- **Pg hint plan enable hint**{#setting-pg-hint-plan-enable} <code><b><small>Консоль управления</small></b></code> <code><b><small>API</small></b></code> <code><b><small>Terraform</small></b></code>
+- **Pg hint plan enable hint**{#setting-pg-hint-plan-enable} {{ tag-con }} {{ tag-api }} {{ tag-tf }}
 
   Включает использование модуля `pg_hint_plan` для корректировки автоматических планов выполнения запросов, применяя так называемые «указания» в виде простых описаний в особых SQL-комментариях.
 
   По умолчанию настройка включена.
 
-- **Pg hint plan enable hint table**{#setting-pg-hint-plan-enable-hint-table} <code><b><small>Консоль управления</small></b></code> <code><b><small>API</small></b></code> <code><b><small>Terraform</small></b></code>
+- **Pg hint plan enable hint table**{#setting-pg-hint-plan-enable-hint-table} {{ tag-con }} {{ tag-api }} {{ tag-tf }}
 
   Включает использование таблицы `hint_plan.hints`. Она содержит «указания» для модуля `pg_hint_plan` и применяется, если нет возможности редактировать запросы. Таблица содержит столбцы:
 
@@ -1232,9 +1232,9 @@
 
   По умолчанию настройка выключена.
 
-- **Pg hint plan message level**{#setting-pg-hint-plan-message} <code><b><small>Консоль управления</small></b></code> <code><b><small>API</small></b></code> <code><b><small>Terraform</small></b></code>
+- **Pg hint plan message level**{#setting-pg-hint-plan-message} {{ tag-con }} {{ tag-api }} {{ tag-tf }}
 
-  Уровень отладочных сообщений модуля `pg_hint_plan`, которые будут попадать в лог PostgreSQL. Действует при включенной настройке [Pg hint plan enable hint](#setting-pg-hint-plan-enable). Возможные значения:
+  Уровень отладочных сообщений модуля `pg_hint_plan`, которые будут попадать в лог {{ PG }}. Действует при включенной настройке [Pg hint plan enable hint](#setting-pg-hint-plan-enable). Возможные значения:
 
   - `error`;
   - `warning`;
@@ -1243,25 +1243,25 @@
   - `log`;
   - `debug`.
 
-- **Pg qualstats enabled**{#setting-pg-qualstats-enabled} <code><b><small>Консоль управления</small></b></code> <code><b><small>API</small></b></code> <code><b><small>CLI</small></b></code>
+- **Pg qualstats enabled**{#setting-pg-qualstats-enabled} {{ tag-con }} {{ tag-api }} {{ tag-cli }}
 
   Включает использование модуля `pg_qualstats` для сбора статистики по предикатам в операторах `WHERE` и блоках `JOIN`. Применяется для анализа наиболее часто вычисляемых предикатов запросов.
 
   По умолчанию настройка включена.
 
-- **Pg qualstats max**{#setting-pg-qualstats-max} <code><b><small>Консоль управления</small></b></code> <code><b><small>API</small></b></code> <code><b><small>CLI</small></b></code>
+- **Pg qualstats max**{#setting-pg-qualstats-max} {{ tag-con }} {{ tag-api }} {{ tag-cli }}
 
   Максимальное число отслеживаемых предикатов для модуля `pg_qualstats`. Действует при включенной настройке [Pg qualstats enabled](#setting-pg-qualstats-enabled).
 
   Минимальное значение — `100`, максимальное значение — `2147483647`, по умолчанию — `1000`.
 
-- **Pg qualstats resolve oids**{#setting-pg-qualstats-resolve-oids} <code><b><small>Консоль управления</small></b></code> <code><b><small>API</small></b></code> <code><b><small>CLI</small></b></code>
+- **Pg qualstats resolve oids**{#setting-pg-qualstats-resolve-oids} {{ tag-con }} {{ tag-api }} {{ tag-cli }}
 
   Включает восстановление имен таблиц по идентификатору `OID` в процессе сбора статистики запроса для модуля `pg_qualstats`. Настройка облегчает анализ данных, но требует больше дискового пространства для хранения статистики. Действует при включенной настройке [Pg qualstats enabled](#setting-pg-qualstats-enabled).
 
   По умолчанию настройка выключена.
 
-- **Pg qualstats sample rate**{#setting-pg-qualstats-sample-rate} <code><b><small>Консоль управления</small></b></code> <code><b><small>API</small></b></code> <code><b><small>CLI</small></b></code>
+- **Pg qualstats sample rate**{#setting-pg-qualstats-sample-rate} {{ tag-con }} {{ tag-api }} {{ tag-cli }}
 
   Доля запросов (число от 0 до 1), для которых выполняется сбор статистики модулем `pg_qualstats`. Действует при включенной настройке [Pg qualstats enabled](#setting-pg-qualstats-enabled). Особые значения настройки:
 
@@ -1271,99 +1271,99 @@
 
   По умолчанию используется значение `-1`.
 
-- **Pg qualstats track constants**{#setting-pg-qualstats-track-constants} <code><b><small>Консоль управления</small></b></code> <code><b><small>API</small></b></code> <code><b><small>CLI</small></b></code>
+- **Pg qualstats track constants**{#setting-pg-qualstats-track-constants} {{ tag-con }} {{ tag-api }} {{ tag-cli }}
 
   Включает отслеживание уже встреченных предикатов в последующих запросах при сборе статистики модулем `pg_qualstats`. Действует при включенной настройке [Pg qualstats enabled](#setting-pg-qualstats-enabled).
 
   По умолчанию настройка включена.
 
-- **Pg trgm similarity threshold**{#setting-pg-trgm-similarity} <code><b><small>Все интерфейсы</small></b></code>
+- **Pg trgm similarity threshold**{#setting-pg-trgm-similarity} {{ tag-all }}
 
   Задает текущий порог схожести, который использует оператор `%` в модуле `pg_trgm`.
 
   Значение должно быть в диапазоне от `0` до `1`, по умолчанию — `0.3`.
 
-  Подробнее см. в описании настройки `pg_trgm.similarity_threshold` в [документации PostgreSQL](https://www.postgresql.org/docs/current/pgtrgm.html#GUC-PGTRGM-SIMILARITY-THRESHOLD).
+  Подробнее см. в описании настройки `pg_trgm.similarity_threshold` в [документации {{ PG }}]({{ pg.docs.org }}/current/pgtrgm.html#GUC-PGTRGM-SIMILARITY-THRESHOLD).
 
-- **Pg trgm strict word similarity threshold**{#setting-pg-trgm-strict-word-similarity-threshold} <code><b><small>Все интерфейсы</small></b></code>
+- **Pg trgm strict word similarity threshold**{#setting-pg-trgm-strict-word-similarity-threshold} {{ tag-all }}
 
   Задает текущий порог строгого соответствия слов, который используют операторы `<<%` и `%>>` в модуле `pg_trgm`.
 
   Значение должно быть в диапазоне от `0` до `1`, по умолчанию — `0.5`.
 
-  Подробнее см. в описании настройки `pg_trgm.strict_word_similarity_threshold` в [документации PostgreSQL](https://www.postgresql.org/docs/current/pgtrgm.html#GUC-PGTRGM-STRICT-WORD-SIMILARITY-THRESHOLD).
+  Подробнее см. в описании настройки `pg_trgm.strict_word_similarity_threshold` в [документации {{ PG }}]({{ pg.docs.org }}/current/pgtrgm.html#GUC-PGTRGM-STRICT-WORD-SIMILARITY-THRESHOLD).
 
-- **Pg trgm word similarity threshold**{#setting-pg-trgm-word-similarity-threshold} <code><b><small>Все интерфейсы</small></b></code>
+- **Pg trgm word similarity threshold**{#setting-pg-trgm-word-similarity-threshold} {{ tag-all }}
 
   Задает текущий порог схожести слов, который используют операторы `<%` и `%>` в модуле `pg_trgm`.
 
   Значение должно быть в диапазоне от `0` до `1`, по умолчанию — `0.6`.
 
-  Подробнее см. в описании настройки `pg_trgm.word_similarity_threshold` в [документации PostgreSQL](https://www.postgresql.org/docs/current/pgtrgm.html#GUC-PGTRGM-WORD-SIMILARITY-THRESHOLD).
+  Подробнее см. в описании настройки `pg_trgm.word_similarity_threshold` в [документации {{ PG }}]({{ pg.docs.org }}/current/pgtrgm.html#GUC-PGTRGM-WORD-SIMILARITY-THRESHOLD).
 
-- **Plan cache mode**{#setting-plan-cache-mode} <code><b><small>Консоль управления</small></b></code> <code><b><small>API</small></b></code> <code><b><small>Terraform</small></b></code>
+- **Plan cache mode**{#setting-plan-cache-mode} {{ tag-con }} {{ tag-api }} {{ tag-tf }}
 
   Определяет, какой тип плана запроса (общий или специализированный) будет использован при выполнении [подготовленных команд](https://www.postgresql.org/docs/current/sql-prepare.html). Возможные значения:
 
-  - `auto` (`PLAN_CACHE_MODE_AUTO` для Terraform и API) — автоматический выбор;
-  - `force_custom_plan` (`PLAN_CACHE_MODE_FORCE_CUSTOM_PLAN` для Terraform и API) — принудительно использовать специализированные планы;
-  - `force_generic_plan` (`PLAN_CACHE_MODE_FORCE_GENERIC_PLAN` для Terraform и API) — принудительно использовать общие планы.
+  - `auto` (`PLAN_CACHE_MODE_AUTO` для {{ TF }} и API) — автоматический выбор;
+  - `force_custom_plan` (`PLAN_CACHE_MODE_FORCE_CUSTOM_PLAN` для {{ TF }} и API) — принудительно использовать специализированные планы;
+  - `force_generic_plan` (`PLAN_CACHE_MODE_FORCE_GENERIC_PLAN` для {{ TF }} и API) — принудительно использовать общие планы.
 
   Значение по умолчанию — `auto`.
 
-  Функциональность поддерживается в PostgreSQL начиная с версии 12.
+  Функциональность поддерживается в {{ PG }} начиная с версии 12.
 
-  Подробнее см. в [документации PostgreSQL](https://www.postgresql.org/docs/current/runtime-config-query.html#GUC-PLAN-CACHE_MODE).
+  Подробнее см. в [документации {{ PG }}](https://www.postgresql.org/docs/current/runtime-config-query.html#GUC-PLAN-CACHE_MODE).
 
-- **Plantuner fix empty table**{#setting-plantuner-fix-empty-table} <code><b><small>Консоль управления</small></b></code> <code><b><small>API</small></b></code>
+- **Plantuner fix empty table**{#setting-plantuner-fix-empty-table} {{ tag-con }} {{ tag-api }}
 
-  Настройка доступна в версиях PostgreSQL с постфиксом `1с`, предназначенных для работы с «1С:Предприятие».
+  Настройка доступна в версиях {{ PG }} с постфиксом `1с`, предназначенных для работы с «1С:Предприятие».
 
   Разрешает модулю `plantuner` скрывать от планировщика отдельные индексы, чтобы они не использовались в планах запросов.
 
   По умолчанию настройка включена.
 
-- **Quote all identifiers**{#setting-quote-identifiers} <code><b><small>Все интерфейсы</small></b></code>
+- **Quote all identifiers**{#setting-quote-identifiers} {{ tag-all }}
 
   Включает принудительное обрамление кавычками всех идентификаторов при формировании SQL-запросов из базы данных, например, при выполнении операции `EXPLAIN`.
 
   По умолчанию настройка выключена.
 
-  Подробнее см. в описании настройки `quote_all_identifiers` в [документации PostgreSQL](https://www.postgresql.org/docs/current/runtime-config-compatible.html#GUC-QUOTE-ALL-IDENTIFIERS).
+  Подробнее см. в описании настройки `quote_all_identifiers` в [документации {{ PG }}](https://www.postgresql.org/docs/current/runtime-config-compatible.html#GUC-QUOTE-ALL-IDENTIFIERS).
 
-- **Random page cost**{#setting-random-page-cost} <code><b><small>Все интерфейсы</small></b></code>
+- **Random page cost**{#setting-random-page-cost} {{ tag-all }}
 
   Задает планировщику примерную стоимость чтения одной произвольной страницы с диска. Если значение этой настройки меньше, чем у [Seq page cost](#setting-seq-page-cost), планировщик отдаст предпочтение сканированию по индексу.
 
   Минимальное значение — `0`, по умолчанию — `1`.
 
-  Подробнее см. в описании настройки `random_page_cost` в [документации PostgreSQL](https://www.postgresql.org/docs/current/runtime-config-query.html#GUC-RANDOM-PAGE-COST).
+  Подробнее см. в описании настройки `random_page_cost` в [документации {{ PG }}](https://www.postgresql.org/docs/current/runtime-config-query.html#GUC-RANDOM-PAGE-COST).
 
-- **Row security**{#setting-row-security} <code><b><small>Все интерфейсы</small></b></code>
+- **Row security**{#setting-row-security} {{ tag-all }}
 
   Управляет обработкой запросов, к которым применима как минимум одна [политика защиты строк](https://www.postgresql.org/docs/current/sql-createpolicy.html). При выключении настройки такие запросы будут выдавать ошибку.
 
   По умолчанию настройка включена.
 
-  Подробнее см. в описании настройки `row_security` в [документации PostgreSQL](https://www.postgresql.org/docs/current/runtime-config-client.html#GUC-ROW-SECURITY).
+  Подробнее см. в описании настройки `row_security` в [документации {{ PG }}](https://www.postgresql.org/docs/current/runtime-config-client.html#GUC-ROW-SECURITY).
 
-- **Search path**{#setting-search-path} <code><b><small>Все интерфейсы</small></b></code>
+- **Search path**{#setting-search-path} {{ tag-all }}
 
   Список имен схем БД через запятую. При обращении к объектам, размещенным в перечисленных схемах, можно не указывать имя схемы.
 
   Значение по умолчанию — `$user, public` (схема текущего пользователя и схема `public`).
 
-  Подробнее см. в описании настройки `search_path` в [документации PostgreSQL](https://www.postgresql.org/docs/current/runtime-config-client.html#GUC-SEARCH-PATH).
+  Подробнее см. в описании настройки `search_path` в [документации {{ PG }}](https://www.postgresql.org/docs/current/runtime-config-client.html#GUC-SEARCH-PATH).
 
-- **Seq page cost**{#setting-seq-page-cost} <code><b><small>Все интерфейсы</small></b></code>
+- **Seq page cost**{#setting-seq-page-cost} {{ tag-all }}
 
   Задает планировщику примерную стоимость чтения одной страницы с диска при выполнении серии последовательных чтений.
 
   Минимальное значение — `0`, по умолчанию — `1`.
 
-  Подробнее см. в описании настройки `seq_page_cost` в [документации PostgreSQL](https://www.postgresql.org/docs/current/runtime-config-query.html#RUNTIME-CONFIG-QUERY-CONSTANTS).
+  Подробнее см. в описании настройки `seq_page_cost` в [документации {{ PG }}](https://www.postgresql.org/docs/current/runtime-config-query.html#RUNTIME-CONFIG-QUERY-CONSTANTS).
 
-- **Session duration timeout**{#setting-session-duration-timeout} <code><b><small>Консоль управления</small></b></code> <code><b><small>API</small></b></code> <code><b><small>CLI</small></b></code>
+- **Session duration timeout**{#setting-session-duration-timeout} {{ tag-con }} {{ tag-api }} {{ tag-cli }}
 
   Максимальное время жизни самой продолжительной активной сессии или транзакции (в миллисекундах). Применяется только для сессий в статусах `active` и `idle in transaction`.
   
@@ -1373,47 +1373,47 @@
 
   Минимальное значение — `0` (нет ограничений на время жизни активной сессии/транзакции), максимальное значение — `2147483647`. Минимальная гранулярность изменения настройки — `1000`.
 
-  Подробнее о возможных статусах сессии см. в [документации PostgreSQL](https://www.postgresql.org/docs/current/monitoring-stats.html#MONITORING-PG-STAT-ACTIVITY-VIEW).
+  Подробнее о возможных статусах сессии см. в [документации {{ PG }}](https://www.postgresql.org/docs/current/monitoring-stats.html#MONITORING-PG-STAT-ACTIVITY-VIEW).
 
-- **Shared buffers**{#setting-shared-buffers} <code><b><small>Консоль управления</small></b></code> <code><b><small>API</small></b></code> <code><b><small>CLI</small></b></code> <code><b><small>Terraform</small></b></code>
+- **Shared buffers**{#setting-shared-buffers} {{ tag-con }} {{ tag-api }} {{ tag-cli }} {{ tag-tf }}
 
-  Объем памяти (в байтах), который PostgreSQL может использовать для буферов в разделяемой памяти (shared memory).
+  Объем памяти (в байтах), который {{ PG }} может использовать для буферов в разделяемой памяти (shared memory).
 
-  Минимальное значение — `131072` (128 КБ), максимальное значение [зависит от выбранного класса хостов](#settings-instance-dependent) и равно 80% от общего размера RAM хоста кластера Managed Service for PostgreSQL. По умолчанию установлено значение 25% от общего размера RAM, но не более 8 ГБ.
+  Минимальное значение — `131072` (128 КБ), максимальное значение [зависит от выбранного класса хостов](#settings-instance-dependent) и равно 80% от общего размера RAM хоста кластера {{ mpg-name }}. По умолчанию установлено значение 25% от общего размера RAM, но не более 8 ГБ.
 
-  Подробнее см. в описании настройки `shared_buffers` в [документации PostgreSQL](https://www.postgresql.org/docs/current/runtime-config-resource.html#GUC-SHARED-BUFFERS).
+  Подробнее см. в описании настройки `shared_buffers` в [документации {{ PG }}](https://www.postgresql.org/docs/current/runtime-config-resource.html#GUC-SHARED-BUFFERS).
 
-- **Shared preload libraries**{#setting-shared-libraries} <code><b><small>Консоль управления</small></b></code> <code><b><small>API</small></b></code> <code><b><small>Terraform</small></b></code>
+- **Shared preload libraries**{#setting-shared-libraries} {{ tag-con }} {{ tag-api }} {{ tag-tf }}
 
-  Разделенные запятыми имена библиотек общего пользования (shared libraries), которые будут загружаться при запуске сервера PostgreSQL. Библиотеки требуются для работы некоторых [расширений PostgreSQL](../operations/extensions/cluster-extensions.md).
+  Разделенные запятыми имена библиотек общего пользования (shared libraries), которые будут загружаться при запуске сервера {{ PG }}. Библиотеки требуются для работы некоторых [расширений {{ PG }}](../operations/extensions/cluster-extensions.md).
 
-  Подробнее см. в описании настройки `shared_preload_libraries` в [документации PostgreSQL](https://www.postgresql.org/docs/current/runtime-config-client.html#GUC-SHARED-PRELOAD-LIBRARIES).
+  Подробнее см. в описании настройки `shared_preload_libraries` в [документации {{ PG }}](https://www.postgresql.org/docs/current/runtime-config-client.html#GUC-SHARED-PRELOAD-LIBRARIES).
 
-- **Standard conforming strings**{#setting-standard-strings} <code><b><small>Консоль управления</small></b></code> <code><b><small>API</small></b></code> <code><b><small>Terraform</small></b></code>
+- **Standard conforming strings**{#setting-standard-strings} {{ tag-con }} {{ tag-api }} {{ tag-tf }}
 
   Включает прочтение символа `\` в обычных строковых константах (`'...'`) не как спецсимвола, а как обычного символа согласно стандарту SQL.
 
   По умолчанию настройка включена.
 
-  Подробнее см. в описании настройки `standard_conforming_strings` в [документации PostgreSQL](https://www.postgresql.org/docs/current/runtime-config-compatible.html#GUC-STANDARD-CONFORMING-STRINGS).
+  Подробнее см. в описании настройки `standard_conforming_strings` в [документации {{ PG }}](https://www.postgresql.org/docs/current/runtime-config-compatible.html#GUC-STANDARD-CONFORMING-STRINGS).
 
-- **Statement timeout**{#setting-statement-timeout} <code><b><small>Консоль управления</small></b></code> <code><b><small>API</small></b></code> <code><b><small>CLI</small></b></code> <code><b><small>Terraform</small></b></code>
+- **Statement timeout**{#setting-statement-timeout} {{ tag-con }} {{ tag-api }} {{ tag-cli }} {{ tag-tf }}
 
   Максимальная длительность (в миллисекундах) выполнения команды, при превышении которой команда прерывается.
 
   Минимальное значение — `0`, максимальное значение — `2147483647`, по умолчанию — `0`.
 
-  Подробнее см. в описании настройки `statement_timeout` в [документации PostgreSQL](https://www.postgresql.org/docs/current/runtime-config-client.html#GUC-STATEMENT-TIMEOUT).
+  Подробнее см. в описании настройки `statement_timeout` в [документации {{ PG }}](https://www.postgresql.org/docs/current/runtime-config-client.html#GUC-STATEMENT-TIMEOUT).
 
-- **Synchronize seqscans**{#setting-synchronize-seqscans} <code><b><small>Все интерфейсы</small></b></code>
+- **Synchronize seqscans**{#setting-synchronize-seqscans} {{ tag-all }}
 
   Включает синхронизацию обращений при последовательном сканировании больших таблиц, чтобы эти операции читали один блок примерно в одно и то же время. При выключении последовательное сканирование всегда будет начинаться с начала таблицы, как это было принято до версии `8.3`.
 
   По умолчанию настройка включена.
 
-  Подробнее см. в описании настройки `synchronize_seqscans` в [документации PostgreSQL](https://www.postgresql.org/docs/current/runtime-config-compatible.html#GUC-SYNCHRONIZE-SEQSCANS).
+  Подробнее см. в описании настройки `synchronize_seqscans` в [документации {{ PG }}](https://www.postgresql.org/docs/current/runtime-config-compatible.html#GUC-SYNCHRONIZE-SEQSCANS).
 
-- **Synchronous commit**{#setting-synchronous-commit} <code><b><small>Все интерфейсы</small></b></code>
+- **Synchronous commit**{#setting-synchronous-commit} {{ tag-all }}
 
   Определяет, после какого этапа обработки [WAL](https://www.postgresql.org/docs/current/wal-intro.html) сервер посчитает транзакцию завершенной.
 
@@ -1431,7 +1431,7 @@
 
     Значение по умолчанию — `on`.
 
-  - Terraform {#tf}
+  - {{ TF }} {#tf}
 
     - `1` или `"SYNCHRONOUS_COMMIT_ON"` — транзакция подтверждается, если WAL записан на диск мастера и на диск каждой кворумной реплики.
     - `2` или `"SYNCHRONOUS_COMMIT_OFF"` — транзакция подтверждается, даже если данные еще не попали в WAL. Запись несинхронна, данные о транзакции могут быть потеряны в результате сбоя дисковой подсистемы.
@@ -1453,19 +1453,19 @@
 
   {% endlist %}
 
-  Подробнее см. в описании настройки `synchronous_commit` в [документации PostgreSQL](https://www.postgresql.org/docs/current/runtime-config-wal.html#GUC-SYNCHRONOUS-COMMIT).
+  Подробнее см. в описании настройки `synchronous_commit` в [документации {{ PG }}](https://www.postgresql.org/docs/current/runtime-config-wal.html#GUC-SYNCHRONOUS-COMMIT).
 
-  Настройка действует на уровне кластера Managed Service for PostgreSQL, но ее можно [переопределить на уровне пользователя](settings-list.md#dbms-user-settings).
+  Настройка действует на уровне кластера {{ mpg-name }}, но ее можно [переопределить на уровне пользователя](settings-list.md#dbms-user-settings).
 
-- **Temp buffers**{#setting-temp-buffers} <code><b><small>Все интерфейсы</small></b></code>
+- **Temp buffers**{#setting-temp-buffers} {{ tag-all }}
 
   Максимальный объем памяти (в байтах), выделяемой для временных буферов в каждой сессии.
 
   Минимальное значение — `100`, максимальное значение — `1073741823` (1 ГБ), по умолчанию — `8388608` (8 МБ).
 
-  Подробнее см. в описании настройки `temp_buffers` в [документации PostgreSQL](https://www.postgresql.org/docs/current/runtime-config-resource.html#GUC-TEMP-BUFFERS).
+  Подробнее см. в описании настройки `temp_buffers` в [документации {{ PG }}](https://www.postgresql.org/docs/current/runtime-config-resource.html#GUC-TEMP-BUFFERS).
 
-- **Temp file limit**{#setting-temp-file-limit} <code><b><small>Консоль управления</small></b></code> <code><b><small>API</small></b></code> <code><b><small>CLI</small></b></code> <code><b><small>Terraform</small></b></code>
+- **Temp file limit**{#setting-temp-file-limit} {{ tag-con }} {{ tag-api }} {{ tag-cli }} {{ tag-tf }}
 
   Максимальный объем дискового пространства (в байтах), который один процесс сможет использовать для временных файлов. Транзакция, которая попытается превысить этот предел, будет отменена.
 
@@ -1473,157 +1473,157 @@
 
   Минимальное значение — `-1` (нет ограничений), максимальное значение — `2147483647` (2 ГБ), по умолчанию — `-1`.
 
-  Подробнее см. в описании настройки `temp_file_limit` в [документации PostgreSQL](https://www.postgresql.org/docs/current/runtime-config-resource.html#GUC-TEMP-FILE-LIMIT).
+  Подробнее см. в описании настройки `temp_file_limit` в [документации {{ PG }}](https://www.postgresql.org/docs/current/runtime-config-resource.html#GUC-TEMP-FILE-LIMIT).
 
-  Настройка действует на уровне кластера Managed Service for PostgreSQL, но ее можно [переопределить на уровне пользователя](settings-list.md#dbms-user-settings).
+  Настройка действует на уровне кластера {{ mpg-name }}, но ее можно [переопределить на уровне пользователя](settings-list.md#dbms-user-settings).
 
-- **Timezone**{#setting-timezone} <code><b><small>Все интерфейсы</small></b></code>
+- **Timezone**{#setting-timezone} {{ tag-all }}
 
   Часовой пояс для вывода и ввода значений времени.
 
   Значение по умолчанию — `Europe/Moscow`.
 
-  Подробнее см. в описании настройки `timezone` в [документации PostgreSQL](https://www.postgresql.org/docs/current/runtime-config-client.html#GUC-TIMEZONE).
+  Подробнее см. в описании настройки `timezone` в [документации {{ PG }}](https://www.postgresql.org/docs/current/runtime-config-client.html#GUC-TIMEZONE).
 
-- **Track activity query size**{#setting-track-activity-query-size} <code><b><small>Консоль управления</small></b></code> <code><b><small>API</small></b></code> <code><b><small>Terraform</small></b></code>
+- **Track activity query size**{#setting-track-activity-query-size} {{ tag-con }} {{ tag-api }} {{ tag-tf }}
 
   Объем памяти (в байтах), резервируемой в каждой активной сессии для хранения текста выполняемой в данной момент команды.
 
   Минимальное значение — `100`, максимальное значение — `102400`, по умолчанию — `1024`.
 
-  Подробнее см. в описании настройки `track_activity_query_size` в [документации PostgreSQL](https://www.postgresql.org/docs/current/runtime-config-statistics.html#GUC-TRACK-ACTIVITY-QUERY-SIZE).
+  Подробнее см. в описании настройки `track_activity_query_size` в [документации {{ PG }}](https://www.postgresql.org/docs/current/runtime-config-statistics.html#GUC-TRACK-ACTIVITY-QUERY-SIZE).
 
-- **Track commit timestamp**{#setting-track-commit-timestamp} <code><b><small>Все интерфейсы</small></b></code>
+- **Track commit timestamp**{#setting-track-commit-timestamp} {{ tag-all }}
 
   Определяет, будет ли сохраняться время фиксации каждой транзакции.
 
   По умолчанию настройка выключена.
 
-  Подробнее см. в описании настройки `track_commit_timestamp` в [документации PostgreSQL](https://www.postgresql.org/docs/current/runtime-config-replication.html#GUC-TRACK-COMMIT-TIMESTAMP).
+  Подробнее см. в описании настройки `track_commit_timestamp` в [документации {{ PG }}]({{ pg.docs.org }}/current/runtime-config-replication.html#GUC-TRACK-COMMIT-TIMESTAMP).
 
-- **Transform null equals**{#setting-transform-null-equals} <code><b><small>Все интерфейсы</small></b></code>
+- **Transform null equals**{#setting-transform-null-equals} {{ tag-all }}
 
   Включает интерпретацию условия `выражение = NULL` как `выражение IS NULL`. Условие истинно, если выражение имеет значение `NULL`, и ложно в противном случае. Согласно стандарту SQL, сравнение `выражение = NULL` всегда возвращает `NULL` (неизвестное значение).
 
   По умолчанию настройка выключена (действует стандарт SQL).
 
-  Подробнее см. в описании настройки `transform_null_equals` в [документации PostgreSQL](https://www.postgresql.org/docs/current/runtime-config-compatible.html#GUC-TRANSFORM-NULL-EQUALS).
+  Подробнее см. в описании настройки `transform_null_equals` в [документации {{ PG }}](https://www.postgresql.org/docs/current/runtime-config-compatible.html#GUC-TRANSFORM-NULL-EQUALS).
 
-- **Vacuum cleanup index scale factor**{#setting-vacuum-index-scale-factor} <code><b><small>Все интерфейсы</small></b></code>
+- **Vacuum cleanup index scale factor**{#setting-vacuum-index-scale-factor} {{ tag-all }}
 
   Доля строк в индексе, попавших в предыдущий срез статистики. При выполнении операции `VACUUM` статистика индекса считается устаревшей, если отношение числа добавляемых в индекс строк к текущему числу строк в индексе превышает указанную долю. В этом случае будет выполнено новое сканирование индекса.
 
   Минимальное значение — `0.0`, максимальное значение — `10000000000.0`, по умолчанию — `0.1`.
 
-  Функциональность не поддерживается в PostgreSQL начиная с версии `14`.
+  Функциональность не поддерживается в {{ PG }} начиная с версии `14`.
 
-  Подробнее см. в описании настройки `vacuum_cleanup_index_scale_factor` в [документации PostgreSQL](https://www.postgresql.org/docs/12/runtime-config-client.html#GUC-VACUUM-CLEANUP-INDEX-SCALE-FACTOR).
+  Подробнее см. в описании настройки `vacuum_cleanup_index_scale_factor` в [документации {{ PG }}](https://www.postgresql.org/docs/12/runtime-config-client.html#GUC-VACUUM-CLEANUP-INDEX-SCALE-FACTOR).
 
-- **Vacuum cost delay**{#setting-vacuum-cost-delay} <code><b><small>Все интерфейсы</small></b></code>
+- **Vacuum cost delay**{#setting-vacuum-cost-delay} {{ tag-all }}
 
   Время (в миллисекундах), в течение которого будет простаивать процесс выполнения команд `VACUUM` и `ANALYZE`, превысивший предел стоимости (см. настройку [Vacuum cost limit](#setting-vacuum-cost-limit)).
 
   Минимальное значение — `0`, максимальное значение — `100`, по умолчанию — `0`.
 
-  Подробнее см. в описании настройки `vacuum_cost_delay` в [документации PostgreSQL](https://www.postgresql.org/docs/current/runtime-config-resource.html#RUNTIME-CONFIG-RESOURCE-VACUUM-COST).
+  Подробнее см. в описании настройки `vacuum_cost_delay` в [документации {{ PG }}](https://www.postgresql.org/docs/current/runtime-config-resource.html#RUNTIME-CONFIG-RESOURCE-VACUUM-COST).
 
-- **Vacuum cost limit**{#setting-vacuum-cost-limit} <code><b><small>Все интерфейсы</small></b></code>
+- **Vacuum cost limit**{#setting-vacuum-cost-limit} {{ tag-all }}
 
   Предел стоимости, при накоплении которой процесс очистки `VACUUM` будет приостанавливаться (переходить в спящий режим).
 
   Минимальное значение — `1`, максимальное значение — `10000`, по умолчанию — `200`.
 
-  Подробнее см. в описании настройки `vacuum_cost_limit` в [документации PostgreSQL](https://www.postgresql.org/docs/current/runtime-config-resource.html#GUC-VACUUM-COST-LIMIT).
+  Подробнее см. в описании настройки `vacuum_cost_limit` в [документации {{ PG }}](https://www.postgresql.org/docs/current/runtime-config-resource.html#GUC-VACUUM-COST-LIMIT).
 
-- **Vacuum cost page dirty**{#setting-vacuum-cost-page-dirty} <code><b><small>Все интерфейсы</small></b></code>
+- **Vacuum cost page dirty**{#setting-vacuum-cost-page-dirty} {{ tag-all }}
 
   Условная стоимость такой операции очистки `VACUUM`, при которой изменяется блок, не модифицированный ранее.
 
   Минимальное значение — `0`, максимальное значение — `10000`, по умолчанию — `20`.
 
-  Подробнее см. в описании настройки `vacuum_cost_page_dirty` в [документации PostgreSQL](https://www.postgresql.org/docs/current/runtime-config-resource.html#GUC-VACUUM-COST-PAGE-DIRTY).
+  Подробнее см. в описании настройки `vacuum_cost_page_dirty` в [документации {{ PG }}](https://www.postgresql.org/docs/current/runtime-config-resource.html#GUC-VACUUM-COST-PAGE-DIRTY).
 
-- **Vacuum cost page hit**{#setting-vacuum-cost-page-hit} <code><b><small>Все интерфейсы</small></b></code>
+- **Vacuum cost page hit**{#setting-vacuum-cost-page-hit} {{ tag-all }}
 
   Условная стоимость очистки буфера, оказавшегося в общем кеше.
 
   Минимальное значение — `0`, максимальное значение — `10000`, по умолчанию — `1`.
 
-  Подробнее см. в описании настройки `vacuum_cost_page_hit` в [документации PostgreSQL](https://www.postgresql.org/docs/current/runtime-config-resource.html#GUC-VACUUM-COST-PAGE-HIT).
+  Подробнее см. в описании настройки `vacuum_cost_page_hit` в [документации {{ PG }}](https://www.postgresql.org/docs/current/runtime-config-resource.html#GUC-VACUUM-COST-PAGE-HIT).
 
-- **Vacuum cost page miss**{#setting-vacuum-cost-page-miss} <code><b><small>Все интерфейсы</small></b></code>
+- **Vacuum cost page miss**{#setting-vacuum-cost-page-miss} {{ tag-all }}
 
   Условная стоимость очистки буфера, который нужно прочитать с диска.
 
   Минимальное значение — `0`, максимальное значение — `10000`, по умолчанию — `10`.
 
-  Подробнее см. в описании настройки `vacuum_cost_page_miss` в [документации PostgreSQL](https://www.postgresql.org/docs/current/runtime-config-resource.html#GUC-VACUUM-COST-PAGE-MISS).
+  Подробнее см. в описании настройки `vacuum_cost_page_miss` в [документации {{ PG }}](https://www.postgresql.org/docs/current/runtime-config-resource.html#GUC-VACUUM-COST-PAGE-MISS).
 
-- **Vacuum failsafe age**{#setting-vacuum-failsafe-age} <code><b><small>Консоль управления</small></b></code> <code><b><small>API</small></b></code> <code><b><small>CLI</small></b></code>
+- **Vacuum failsafe age**{#setting-vacuum-failsafe-age} {{ tag-con }} {{ tag-api }} {{ tag-cli }}
 
   Максимальный возраст «замороженной» (уже завершенной) транзакции, измеряемый в количестве транзакций, запущенных после нее. По достижении этого показателя запускается очистка процессом `VACUUM`, чтобы избежать переполнения счетчика транзакций.
 
   Минимальное значение — `0`, максимальное значение — `2100000000`, по умолчанию — `1600000000`.
 
-  Функциональность поддерживается в PostgreSQL начиная с версии 14.
+  Функциональность поддерживается в {{ PG }} начиная с версии 14.
 
-  Подробнее см. в описании настройки `vacuum_failsafe_age` в [документации PostgreSQL](https://www.postgresql.org/docs/current/runtime-config-client.html#GUC-VACUUM-FAILSAFE-AGE).
+  Подробнее см. в описании настройки `vacuum_failsafe_age` в [документации {{ PG }}](https://www.postgresql.org/docs/current/runtime-config-client.html#GUC-VACUUM-FAILSAFE-AGE).
 
-- **Vacuum multixact failsafe age**{#setting-vacuum-multixact-failsafe-age} <code><b><small>Консоль управления</small></b></code> <code><b><small>API</small></b></code> <code><b><small>CLI</small></b></code>
+- **Vacuum multixact failsafe age**{#setting-vacuum-multixact-failsafe-age} {{ tag-con }} {{ tag-api }} {{ tag-cli }}
 
   Максимальный возраст «замороженной» (уже завершенной) [мультитранзакции](https://www.postgresql.org/docs/14/routine-vacuuming.html#VACUUM-FOR-MULTIXACT-WRAPAROUND), измеряемый в количестве мультитранзакций, запущенных после нее. По достижении этого показателя запускается очистка процессом `VACUUM`, чтобы избежать переполнения счетчика мультитранзакций.
 
   Минимальное значение — `0`, максимальное значение — `2100000000`, по умолчанию — `1600000000`.
 
-  Функциональность поддерживается в PostgreSQL начиная с версии 14.
+  Функциональность поддерживается в {{ PG }} начиная с версии 14.
 
-  Подробнее см. в описании настройки `vacuum_multixact_failsafe_age` в [документации PostgreSQL](https://www.postgresql.org/docs/current/runtime-config-client.html#GUC-VACUUM-MULTIXACT-FAILSAFE-AGE).
+  Подробнее см. в описании настройки `vacuum_multixact_failsafe_age` в [документации {{ PG }}](https://www.postgresql.org/docs/current/runtime-config-client.html#GUC-VACUUM-MULTIXACT-FAILSAFE-AGE).
 
-- **Wal keep size**{#setting-wal-keep-size} <code><b><small>Консоль управления</small></b></code> <code><b><small>API</small></b></code> <code><b><small>Terraform</small></b></code>
+- **Wal keep size**{#setting-wal-keep-size} {{ tag-con }} {{ tag-api }} {{ tag-tf }}
 
   Минимальный размер устаревших сегментов лога (в байтах), сохраняемых в папке [WAL](https://www.postgresql.org/docs/current/wal-intro.html), чтобы при необходимости [реплики](replication.md#replication) могли их загрузить.
 
   Минимальное значение — `0` (прошлые фрагменты не сохраняются для репликации), максимальное значение — `2251799812636672` (2 ТБ), по умолчанию — `0`.
 
-  Функциональность поддерживается в PostgreSQL начиная с версии 13.
+  Функциональность поддерживается в {{ PG }} начиная с версии 13.
 
-  Подробнее см. в описании настройки `wal_keep_size` в [документации PostgreSQL](https://www.postgresql.org/docs/current/runtime-config-replication.html#GUC-WAL-KEEP-SIZE).
+  Подробнее см. в описании настройки `wal_keep_size` в [документации {{ PG }}](https://www.postgresql.org/docs/current/runtime-config-replication.html#GUC-WAL-KEEP-SIZE).
 
-- **Work mem**{#setting-work-mem} <code><b><small>Все интерфейсы</small></b></code>
+- **Work mem**{#setting-work-mem} {{ tag-all }}
 
   Базовый объем памяти (в байтах), который будет использоваться во внутренних операциях при обработке запросов (например, для сортировки или хеш-таблиц), прежде чем будут задействованы временные файлы на диске.
 
   Минимальное значение — `64`, максимальное значение — `2147483647` (2 ГБ), по умолчанию — `4194304` (4 МБ).
 
-  Подробнее см. в описании настройки `work_mem` в [документации PostgreSQL](https://www.postgresql.org/docs/current/runtime-config-resource.html#GUC-WORK-MEM).
+  Подробнее см. в описании настройки `work_mem` в [документации {{ PG }}](https://www.postgresql.org/docs/current/runtime-config-resource.html#GUC-WORK-MEM).
 
-- **Xmlbinary**{#setting-xmlbinary} <code><b><small>Все интерфейсы</small></b></code>
+- **Xmlbinary**{#setting-xmlbinary} {{ tag-all }}
 
   Способ кодирования двоичных данных в XML. Возможные значения:
 
-  - `base64` (`XML_BINARY_BASE64` для Terraform, API и CLI) — BASE64-кодирование;
-  - `hex` (`XML_BINARY_HEX` для Terraform, API и CLI) — шестнадцатеричное кодирование.
+  - `base64` (`XML_BINARY_BASE64` для {{ TF }}, API и CLI) — BASE64-кодирование;
+  - `hex` (`XML_BINARY_HEX` для {{ TF }}, API и CLI) — шестнадцатеричное кодирование.
 
   Значение по умолчанию — `base64`.
 
-  Подробнее см. в описании настройки `xmlbinary` в [документации PostgreSQL](https://www.postgresql.org/docs/current/runtime-config-client.html#GUC-XMLBINARY).
+  Подробнее см. в описании настройки `xmlbinary` в [документации {{ PG }}](https://www.postgresql.org/docs/current/runtime-config-client.html#GUC-XMLBINARY).
 
-- **Xmloption**{#setting-xmloption} <code><b><small>Все интерфейсы</small></b></code>
+- **Xmloption**{#setting-xmloption} {{ tag-all }}
 
   Тип преобразования XML-данных в символьные по умолчанию. Возможные значения:
 
-  - `document` (`XML_OPTION_DOCUMENT` для Terraform, API и CLI) — XML-документ;
-  - `content` (`XML_OPTION_CONTENT` для Terraform, API и CLI) — фрагмент XML-документа.
+  - `document` (`XML_OPTION_DOCUMENT` для {{ TF }}, API и CLI) — XML-документ;
+  - `content` (`XML_OPTION_CONTENT` для {{ TF }}, API и CLI) — фрагмент XML-документа.
 
   Значение по умолчанию — `content`.
 
-  Подробнее см. в описании настройки `xmloption` в [документации PostgreSQL](https://www.postgresql.org/docs/current/runtime-config-client.html#GUC-XMLOPTION).
+  Подробнее см. в описании настройки `xmloption` в [документации {{ PG }}](https://www.postgresql.org/docs/current/runtime-config-client.html#GUC-XMLOPTION).
 
 ## Настройки на уровне пользователя {#dbms-user-settings}
 
-Эти настройки влияют на поведение PostgreSQL при работе с запросами пользователя:
+Эти настройки влияют на поведение {{ PG }} при работе с запросами пользователя:
 
-- **Catchup timeout**{#setting-catchup-timeout} <code><b><small>Консоль управления</small></b></code> <code><b><small>Terraform</small></b></code> <code><b><small>API</small></b></code>
+- **Catchup timeout**{#setting-catchup-timeout} {{ tag-con }} {{ tag-tf }} {{ tag-api }}
 
     Максимально допустимое время отставания реплики от мастера (в секундах).
 
@@ -1637,54 +1637,54 @@
 
     Минимальное значение и значение по умолчанию — `0` (можно подключиться к любым репликам вне зависимости от того, насколько они отстают от мастера).
 
-- **Conn limit**{#setting-conn-limit} <code><b><small>Консоль управления</small></b></code> <code><b><small>API</small></b></code> <code><b><small>CLI</small></b></code>
+- **Conn limit**{#setting-conn-limit} {{ tag-con }} {{ tag-api }} {{ tag-cli }}
 
   В транзакционном пулинге (transaction pooling) настройка ограничивает количество одновременных активных соединений для пользователя. При использовании этого типа пулинга пользователь может открыть тысячи соединений, но одновременно работать смогут только `N` соединений, где `N` — значение настройки.
 
-  В сессионном пулинге (session pooling) настройка ограничивает количество соединений пользователя с каждым хостом в кластере PostgreSQL. При использовании этого типа пулинга значение настройки должно быть не меньше суммы всех соединений, которые могут быть открыты бэкендами пользовательского сервиса. Каждое открытое серверное соединение немного замедляет работу PostgreSQL на [OLTP](../../glossary/oltp.md)-нагрузке.
+  В сессионном пулинге (session pooling) настройка ограничивает количество соединений пользователя с каждым хостом в кластере {{ PG }}. При использовании этого типа пулинга значение настройки должно быть не меньше суммы всех соединений, которые могут быть открыты бэкендами пользовательского сервиса. Каждое открытое серверное соединение немного замедляет работу {{ PG }} на [OLTP](../../glossary/oltp.md)-нагрузке.
 
   Для сессионного пулинга применяются следующие принципы:
 
-  - При добавлении пользователя Managed Service for PostgreSQL по умолчанию резервирует для него 50 подключений к каждому хосту в кластере PostgreSQL. Минимальное количество подключений на пользователя — 1.
-  - Суммарное количество подключений, зарезервированных для пользователей, не должно превышать значение параметра [Max connections](settings-list.md#setting-max-connections). Managed Service for PostgreSQL резервирует 15 служебных подключений на каждом хосте.
+  - При добавлении пользователя {{ mpg-name }} по умолчанию резервирует для него 50 подключений к каждому хосту в кластере {{ PG }}. Минимальное количество подключений на пользователя — 1.
+  - Суммарное количество подключений, зарезервированных для пользователей, не должно превышать значение параметра [Max connections](settings-list.md#setting-max-connections). {{ mpg-name }} резервирует 15 служебных подключений на каждом хосте.
 
     Например, если для кластера задана настройка `"max_connections": 100`, то вы можете зарезервировать не больше 85 подключений для пользователей на каждый хост кластера.
 
-  - Рекомендуется разнести по разным пользователям разные сервисы, использующие PostgreSQL, и задать нужное значение настройки для каждого пользователя. Если при проблемах в одном сервисе возникнет большое количество соединений, другие сервисы не будут затронуты и смогут подключаться к PostgreSQL.
+  - Рекомендуется разнести по разным пользователям разные сервисы, использующие {{ PG }}, и задать нужное значение настройки для каждого пользователя. Если при проблемах в одном сервисе возникнет большое количество соединений, другие сервисы не будут затронуты и смогут подключаться к {{ PG }}.
 
   Эта настройка [зависит от выбранного класса хостов](#settings-instance-dependent).
 
-- **Default transaction isolation**{#setting-user-default-transaction-isolation} <code><b><small>Консоль управления</small></b></code> <code><b><small>API</small></b></code> <code><b><small>CLI</small></b></code>
+- **Default transaction isolation**{#setting-user-default-transaction-isolation} {{ tag-con }} {{ tag-api }} {{ tag-cli }}
 
   См. описание настройки уровня кластера [Default transaction isolation](#setting-default-transaction-isolation).
 
-- **Grants**{#setting-user-grants} <code><b><small>Консоль управления</small></b></code> <code><b><small>API</small></b></code> <code><b><small>CLI</small></b></code> <code><b><small>Terraform</small></b></code>
+- **Grants**{#setting-user-grants} {{ tag-con }} {{ tag-api }} {{ tag-cli }} {{ tag-tf }}
 
   Набор [ролей](roles.md), выданных пользователю.
 
-- **Lock timeout**{#setting-user-lock-timeout} <code><b><small>Консоль управления</small></b></code> <code><b><small>API</small></b></code> <code><b><small>CLI</small></b></code>
+- **Lock timeout**{#setting-user-lock-timeout} {{ tag-con }} {{ tag-api }} {{ tag-cli }}
 
   См. описание настройки уровня кластера [Lock timeout](#setting-lock-timeout).
 
-- **Log min duration statement**{#setting-user-log-min-duration-statement} <code><b><small>Консоль управления</small></b></code> <code><b><small>API</small></b></code> <code><b><small>CLI</small></b></code>
+- **Log min duration statement**{#setting-user-log-min-duration-statement} {{ tag-con }} {{ tag-api }} {{ tag-cli }}
 
   См. описание настройки уровня кластера [Log min duration statement](#setting-log-min-duration-statement).
 
   Рекомендуется определить для каждого сервиса и соответствующего ему пользователя, что считается медленным выполнением запроса, и логировать только такие запросы. Например, для веб-сервиса медленным может считаться запрос, выполняющийся более одной секунды, а для сервиса построения отчетов — запрос, выполняющийся более 10 минут.
 
-  Подробнее см. [в документации PostgreSQL](https://www.postgresql.org/docs/current/runtime-config-logging.html).
+  Подробнее см. [в документации {{ PG }}](https://www.postgresql.org/docs/current/runtime-config-logging.html).
 
-- **Log statement**{#setting-user-log-statement} <code><b><small>Консоль управления</small></b></code> <code><b><small>API</small></b></code> <code><b><small>CLI</small></b></code>
+- **Log statement**{#setting-user-log-statement} {{ tag-con }} {{ tag-api }} {{ tag-cli }}
 
   См. описание настройки уровня кластера [Log statement](#setting-log-statement).
 
-- **Login**{#setting-user-login} <code><b><small>Консоль управления</small></b></code> <code><b><small>API</small></b></code> <code><b><small>CLI</small></b></code>
+- **Login**{#setting-user-login} {{ tag-con }} {{ tag-api }} {{ tag-cli }}
 
-  Определяет, может ли пользователь подключаться к кластеру PostgreSQL.
+  Определяет, может ли пользователь подключаться к кластеру {{ PG }}.
 
   Значение по умолчанию — `true` (пользователь может подключаться к кластеру).
 
-- **Pg audit log**{#setting-pg-audit-log} <code><b><small>Консоль управления</small></b></code>
+- **Pg audit log**{#setting-pg-audit-log} {{ tag-con }}
 
   Определяет, какие запросы пользователя попадут в лог для аудита.
 
@@ -1707,11 +1707,11 @@
 
   Подробнее о настройке логов для аудита см. в разделе [Использование pgaudit](../operations/extensions/pgaudit.md).
 
-- **Pooling mode**{#setting-pooling-mode} <code><b><small>Консоль управления</small></b></code> <code><b><small>Terraform</small></b></code> <code><b><small>API</small></b></code>
+- **Pooling mode**{#setting-pooling-mode} {{ tag-con }} {{ tag-tf }} {{ tag-api }}
 
     {% note info %}
 
-    * В Terraform и gRPC API используется имя настройки `pool_mode`.
+    * В {{ TF }} и gRPC API используется имя настройки `pool_mode`.
     * В REST API используется имя настройки `poolMode`.
 
     {% endnote %}
@@ -1728,20 +1728,20 @@
     Значение по умолчанию — `SESSION`.
 
 
-- **Prepared statements pooling**{#setting-prepared-statements-pooling} <code><b><small>Консоль управления</small></b></code>
+- **Prepared statements pooling**{#setting-prepared-statements-pooling} {{ tag-con }}
 
   Разрешает использовать подготовленные инструкции с объединением транзакций.
 
-- **Synchronous commit**{#setting-user-synchronous-commit} <code><b><small>Консоль управления</small></b></code> <code><b><small>API</small></b></code> <code><b><small>CLI</small></b></code>
+- **Synchronous commit**{#setting-user-synchronous-commit} {{ tag-con }} {{ tag-api }} {{ tag-cli }}
 
   См. описание настройки уровня кластера [Synchronous commit](#setting-synchronous-commit).
 
-- **Temp file limit**{#setting-temp-file-limit} <code><b><small>Консоль управления</small></b></code> <code><b><small>API</small></b></code> <code><b><small>CLI</small></b></code>
+- **Temp file limit**{#setting-temp-file-limit} {{ tag-con }} {{ tag-api }} {{ tag-cli }}
 
   См. описание настройки уровня кластера [Temp file limit](#setting-temp-file-limit).
 
-- **Wal sender timeout**{#setting-wal-sender-timeout} <code><b><small>Консоль управления</small></b></code>
+- **Wal sender timeout**{#setting-wal-sender-timeout} {{ tag-con }}
 
   Время (в миллисекундах), по истечении которого прерываются неактивные соединения репликации.
 
-  Функциональность поддерживается в PostgreSQL начиная с версии 12.
+  Функциональность поддерживается в {{ PG }} начиная с версии 12.

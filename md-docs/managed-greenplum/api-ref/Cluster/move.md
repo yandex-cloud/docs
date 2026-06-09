@@ -5,7 +5,7 @@ Moves the specified Greenplum® cluster to the specified folder.
 ## HTTP request
 
 ```
-POST https://mdb.api.cloud.yandex.net/managed-greenplum/v1/clusters/{clusterId}:move
+POST https://{{ api-host-mdb }}/managed-greenplum/v1/clusters/{clusterId}:move
 ```
 
 ## Path parameters

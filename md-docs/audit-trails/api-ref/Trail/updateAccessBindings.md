@@ -5,7 +5,7 @@ Updates access bindings for the trail.
 ## HTTP request
 
 ```
-POST https://audittrails.api.cloud.yandex.net/audit-trails/v1/trails/{resourceId}:updateAccessBindings
+POST https://audittrails.{{ api-host }}/audit-trails/v1/trails/{resourceId}:updateAccessBindings
 ```
 
 ## Path parameters
@@ -16,7 +16,7 @@ POST https://audittrails.api.cloud.yandex.net/audit-trails/v1/trails/{resourceId
 
 Required field. ID of the resource for which access bindings are being updated.
 
-The maximum string length in characters is 50. ||
+The maximum string length in characters is 64. ||
 |#
 
 ## Body parameters {#yandex.cloud.access.UpdateAccessBindingsRequest}
@@ -70,7 +70,7 @@ Required field. Access binding. For more information, see [Access Bindings](../.
 
 Required field. ID of the [yandex.cloud.iam.v1.Role](../../../iam/api-ref/Role/get.md#yandex.cloud.iam.v1.Role) that is assigned to the `subject`.
 
-The maximum string length in characters is 50. ||
+The maximum string length in characters is 64. ||
 || subject | **[Subject](#yandex.cloud.access.Subject)**
 
 Required field. Identity for which access binding is being created.

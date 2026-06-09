@@ -5,7 +5,7 @@ List ip permissions for the specified registry.
 ## HTTP request
 
 ```
-GET https://container-registry.api.cloud.yandex.net/container-registry/v1/registries/{registryId}:listIpPermission
+GET https://container-registry.{{ api-host }}/container-registry/v1/registries/{registryId}:listIpPermission
 ```
 
 ## Path parameters
@@ -47,7 +47,11 @@ List of ip permissions for registry ||
 ||Field | Description ||
 || action | **enum** (Action)
 
+Required field.
+
 - `PULL`
 - `PUSH` ||
-|| ip | **string** ||
+|| ip | **string**
+
+Value must match the regular expression ``` ^((([0-9]{1,3}.){3}[0-9]{1,3})|([a-fA-F0-9]+:[a-fA-F0-9:]*))(\/[1-9]+[0-9]*)?$ ```. ||
 |#

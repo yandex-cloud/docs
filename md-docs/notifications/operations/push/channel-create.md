@@ -1,6 +1,6 @@
 # Создать канал push-уведомлений
 
-В Cloud Notification Service сообщения конечным пользователям отправляются через [каналы уведомлений](../../concepts/index.md#channels).
+В {{ cns-name }} сообщения конечным пользователям отправляются через [каналы уведомлений](../../concepts/index.md#channels).
 
 Чтобы создать канал:
 
@@ -8,35 +8,35 @@
 
 - Консоль управления {#console}
 
-  1. В [консоли управления](https://console.yandex.cloud) выберите каталог, в котором вы хотите создать канал уведомлений.
-  1. [Перейдите](../../../console/operations/select-service.md#select-service) в сервис **Cloud Notification Service**.
-  1. Нажмите **Создать канал уведомлений**.
-  1. На вкладке **Мобильные Push-уведомления** выберите платформу для отправки:
+  1. В [консоли управления]({{ link-console-main }}) выберите каталог, в котором вы хотите создать канал уведомлений.
+  1. Перейдите в сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_cns }}**.
+  1. Нажмите **{{ ui-key.yacloud.cns.action_create-channel }}**.
+  1. На вкладке **{{ ui-key.yacloud.cns.type_mobile }}** выберите платформу для отправки:
   
-      * `Apple iOS` — для iOS-устройств.
-      * `Google Android` — для Android-устройств c установленными сервисами Google Play.
-      * `Huawei Android` — для Android-устройств c установленными сервисами Huawei.
-      * `RuStore Android` — для Android-устройств c установленным магазином приложений RuStore.
+      * `{{ ui-key.yacloud.cns.select_apns-title }}` — для iOS-устройств.
+      * `{{ ui-key.yacloud.cns.select_gcm-title }}` — для Android-устройств c установленными сервисами Google Play.
+      * `{{ ui-key.yacloud.cns.select_hms-title }}` — для Android-устройств c установленными сервисами Huawei.
+      * `{{ ui-key.yacloud.cns.select_ru-store-title }}` — для Android-устройств c установленным магазином приложений RuStore.
   
   1. В зависимости от платформы задайте параметры аутентификации:
   
-      **Apple iOS**
+      **{{ ui-key.yacloud.cns.select_apns-title }}**
       
-      * Выберите **Метод аутентификации**: `Токен` или `Сертификат`.
+      * Выберите **{{ ui-key.yacloud.cns.field_apns-method }}**: `{{ ui-key.yacloud.cns.auth_token }}` или `{{ ui-key.yacloud.cns.auth_certificate }}`.
       
           * Для аутентификации с помощью токена понадобятся:
-            * **Ключ подписи** — файл с ключом подписи, которым будет заверяться токен аутентификации.
+            * **{{ ui-key.yacloud.cns.field_apns-key }}** — файл с ключом подписи, которым будет заверяться токен аутентификации.
                 
                 Создайте и скачайте ключ подписи в своей учетной записи разработчика Apple: **Certificates, Identifiers & Profiles** → **Keys** → ![image](../../../_assets/console-icons/circle-plus-fill.svg). Скачать файл ключа можно только один раз.
-            * **Идентификатор ключа** (Key ID) — узнайте идентификатор в учетной записи разработчика Apple: **Certificates, Identifiers & Profiles** → **Keys**. Убедитесь, что идентификатор соответствует ключу подписи, который вы загрузили на предыдущем шаге. Должен содержать 10 символов.
-            * **Идентификатор разработчика** (Team ID) — указан в правом верхнем углу вашей учетной записи разработчика Apple. Должен содержать 10 символов: только цифры и буквы латинского алфавита.
-            * **Идентификатор приложения (Bundle ID)** — узнайте [Bundle ID](https://developer.apple.com/documentation/appstoreconnectapi/list_bundle_ids) в учетной записи разработчика Apple: **Certificates, Identifiers & Profiles** → **Identifiers** или в приложении Xcode: **Target** → **General** → **Identity**. Может содержать только цифры, буквы латинского алфавита, дефисы и точки.
+            * **{{ ui-key.yacloud.cns.field_apns-key-id }}** (Key ID) — узнайте идентификатор в учетной записи разработчика Apple: **Certificates, Identifiers & Profiles** → **Keys**. Убедитесь, что идентификатор соответствует ключу подписи, который вы загрузили на предыдущем шаге. Должен содержать 10 символов.
+            * **{{ ui-key.yacloud.cns.field_apns-team-id }}** (Team ID) — указан в правом верхнем углу вашей учетной записи разработчика Apple. Должен содержать 10 символов: только цифры и буквы латинского алфавита.
+            * **{{ ui-key.yacloud.cns.field_apns-bundle-id }}** — узнайте [Bundle ID](https://developer.apple.com/documentation/appstoreconnectapi/list_bundle_ids) в учетной записи разработчика Apple: **Certificates, Identifiers & Profiles** → **Identifiers** или в приложении Xcode: **Target** → **General** → **Identity**. Может содержать только цифры, буквы латинского алфавита, дефисы и точки.
              
              Подробнее о токене см. в [документации Apple](https://developer.apple.com/documentation/usernotifications/establishing-a-token-based-connection-to-apns).
           
           * Для аутентификации с помощью сертификата понадобятся:
-            * **Сертификат** — файл сертификата SSL в формате `.pem`.
-            * **Закрытый ключ сертификата** — файл ключа в формате `.pem`. 
+            * **{{ ui-key.yacloud.cns.field_apns-certificate }}** — файл сертификата SSL в формате `.pem`.
+            * **{{ ui-key.yacloud.cns.field_apns-private-key }}** — файл ключа в формате `.pem`. 
           
             Подробнее о сертификате см. в [документации Apple](https://developer.apple.com/documentation/usernotifications/setting_up_a_remote_notification_server/establishing_a_certificate-based_connection_to_apns#2947597).
           
@@ -49,15 +49,15 @@
           
           Аутентификация с токеном является предпочтительной, как более современная, быстрая и безопасная.
       
-      * Выберите **Окружение**: `Development` или `Production`. Для тестирования приложения используйте `Development`.
+      * Выберите **{{ ui-key.yacloud.cns.field_apns-environment }}**: `{{ ui-key.yacloud.cns.env_development }}` или `{{ ui-key.yacloud.cns.env_production }}`. Для тестирования приложения используйте `{{ ui-key.yacloud.cns.env_development }}`.
       
-      **Google Android**
+      **{{ ui-key.yacloud.cns.select_gcm-title }}**
       
-      Укажите, какая **Версия FCM API** будет использоваться: `HTTP v1` или `Legacy`.
+      Укажите, какая **{{ ui-key.yacloud.cns.field_gcm-version }}** будет использоваться: `{{ ui-key.yacloud.cns.switch_gcm-api-v1 }}` или `{{ ui-key.yacloud.cns.switch_gcm-api-legacy }}`.
       
       Вы можете аутентифицироваться на мобильной платформе FCM через API:
-      * _HTTP v1 API_ — понадобится **Ключ сервисного аккаунта Google Cloud в формате JSON**. С помощью ключа генерируются временные токены OAuth 2.0 для аутентификации запросов в FCM HTTP v1 API. Можно получить в консоли управления Google Cloud.
-      * _Legacy API_ — понадобится **API-ключ** (server key). Можно получить в консоли управления Firebase.
+      * _HTTP v1 API_ — понадобится **{{ ui-key.yacloud.cns.field_gcm-file }}**. С помощью ключа генерируются временные токены OAuth 2.0 для аутентификации запросов в FCM HTTP v1 API. Можно получить в консоли управления Google Cloud.
+      * _Legacy API_ — понадобится **{{ ui-key.yacloud.cns.field_gcm-api-key }}** (server key). Можно получить в консоли управления Firebase.
       
       {% note info %}
       
@@ -67,23 +67,23 @@
       
       Подробнее см. в [документации Firebase](https://firebase.google.com/docs/cloud-messaging/android/client).
       
-      **Huawei Android**
+      **{{ ui-key.yacloud.cns.select_hms-title }}**
       
       Познакомьтесь с [документацией HMS](https://developer.huawei.com/consumer/en/doc/hmscore-common-Guides/get-started-hmscore-0000001212585589) и получите параметры для аутентификации:
-      * **Идентификатор ключа**.
-      * **API-ключ**.
+      * **{{ ui-key.yacloud.cns.field_hms-client-id }}**.
+      * **{{ ui-key.yacloud.cns.field_hms-client-secret }}**.
       
-      **RuStore Android**
+      **{{ ui-key.yacloud.cns.select_ru-store-title }}**
       
       Познакомьтесь с [документацией RuStore](https://www.rustore.ru/help/sdk/push-notifications/send-push-notifications) и получите параметры для аутентификации:
-      * **ID проекта**.
-      * **Сервисный токен**.
+      * **{{ ui-key.yacloud.cns.field_rustore-project-id }}**.
+      * **{{ ui-key.yacloud.cns.field_rustore-service-token }}**.
       
       Параметры аутентификации можно получить в консоли разработчика RuStore: **Push-уведомления** → **Проекты**.
   
-  1. Введите **Имя** канала уведомлений. Имена каналов уникальны для всего CNS. Может содержать строчные и заглавные буквы латинского алфавита, цифры, подчеркивания, дефисы и точки. Допустимая длина — от 1 до 256 символов. Рекомендуется для каналов APNs указывать в имени идентификатор приложения (Bundle ID), для FCM и HMS — полное название пакета приложения (Package name), для RuStore — значение `packageName`.
-  1. (опционально) Нажмите ![image](../../../_assets/console-icons/plus.svg) **Добавить описание** и введите описание для канала уведомлений.
-  1. Нажмите **Создать**.
+  1. Введите **{{ ui-key.yacloud.cns.field_channel-name }}** канала уведомлений. Имена каналов уникальны для всего {{ cns-short-name }}. Может содержать строчные и заглавные буквы латинского алфавита, цифры, подчеркивания, дефисы и точки. Допустимая длина — от 1 до 256 символов. Рекомендуется для каналов APNs указывать в имени идентификатор приложения (Bundle ID), для FCM и HMS — полное название пакета приложения (Package name), для RuStore — значение `packageName`.
+  1. (опционально) Нажмите ![image](../../../_assets/console-icons/plus.svg) **{{ ui-key.yacloud.cns.button_add-description }}** и введите описание для канала уведомлений.
+  1. Нажмите **{{ ui-key.yacloud.common.create }}**.
 
 - AWS CLI {#aws-cli}
 
@@ -101,7 +101,7 @@
       
       * `--name` — имя канала уведомлений, задается пользователем.
         
-        Имя должно быть уникальным для всего CNS. После создания канала изменить имя нельзя. Имя может содержать строчные и заглавные буквы латинского алфавита, цифры, подчеркивания, дефисы и точки. Длина — от 1 до 256 символов. Рекомендуется для каналов APNs указывать в имени идентификатор приложения (Bundle ID), для FCM и HMS — полное название пакета приложения (Package name), для RuStore — значение `packageName`.
+        Имя должно быть уникальным для всего {{ cns-short-name }}. После создания канала изменить имя нельзя. Имя может содержать строчные и заглавные буквы латинского алфавита, цифры, подчеркивания, дефисы и точки. Длина — от 1 до 256 символов. Рекомендуется для каналов APNs указывать в имени идентификатор приложения (Bundle ID), для FCM и HMS — полное название пакета приложения (Package name), для RuStore — значение `packageName`.
       
       * `--platform` — тип мобильной платформы:
       
@@ -177,7 +177,7 @@
       
       * `Name` — имя канала уведомлений, задается пользователем.
         
-        Имя должно быть уникальным для всего CNS. После создания канала изменить имя нельзя. Имя может содержать строчные и заглавные буквы латинского алфавита, цифры, подчеркивания, дефисы и точки. Длина — от 1 до 256 символов. Рекомендуется для каналов APNs указывать в имени идентификатор приложения (Bundle ID), для FCM и HMS — полное название пакета приложения (Package name), для RuStore — значение `packageName`.
+        Имя должно быть уникальным для всего {{ cns-short-name }}. После создания канала изменить имя нельзя. Имя может содержать строчные и заглавные буквы латинского алфавита, цифры, подчеркивания, дефисы и точки. Длина — от 1 до 256 символов. Рекомендуется для каналов APNs указывать в имени идентификатор приложения (Bundle ID), для FCM и HMS — полное название пакета приложения (Package name), для RuStore — значение `packageName`.
       
       * `Platform` — тип мобильной платформы:
       
@@ -252,7 +252,7 @@
       
       * `Name` — имя канала уведомлений, задается пользователем.
         
-        Имя должно быть уникальным для всего CNS. После создания канала изменить имя нельзя. Имя может содержать строчные и заглавные буквы латинского алфавита, цифры, подчеркивания, дефисы и точки. Длина — от 1 до 256 символов. Рекомендуется для каналов APNs указывать в имени идентификатор приложения (Bundle ID), для FCM и HMS — полное название пакета приложения (Package name), для RuStore — значение `packageName`.
+        Имя должно быть уникальным для всего {{ cns-short-name }}. После создания канала изменить имя нельзя. Имя может содержать строчные и заглавные буквы латинского алфавита, цифры, подчеркивания, дефисы и точки. Длина — от 1 до 256 символов. Рекомендуется для каналов APNs указывать в имени идентификатор приложения (Bundle ID), для FCM и HMS — полное название пакета приложения (Package name), для RuStore — значение `packageName`.
       
       * `Platform` — тип мобильной платформы:
       
@@ -304,7 +304,7 @@
 
 - API {#api}
 
-  Воспользуйтесь методом HTTP API [create](../../api-ref/create-platform-application.md) для ресурса PlatformApplications сервиса Yandex Cloud Notification Service.
+  Воспользуйтесь методом HTTP API [create](../../api-ref/create-platform-application.md) для ресурса PlatformApplications сервиса {{ cns-full-name }}.
 
 {% endlist %}
 

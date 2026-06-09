@@ -1,93 +1,93 @@
-# Передача данных из эндпоинта-источника OpenSearch
+# Передача данных из эндпоинта-источника {{ OS }}
 
-С помощью сервиса Yandex Data Transfer вы можете переносить данные поиска и аналитики из базы OpenSearch и реализовывать различные сценарии переноса, обработки и трансформации данных. Для реализации трансфера:
+С помощью сервиса {{ data-transfer-full-name }} вы можете переносить данные поиска и аналитики из базы {{ OS }} и реализовывать различные сценарии переноса, обработки и трансформации данных. Для реализации трансфера:
 
 1. [Ознакомьтесь с возможными сценариями передачи данных](#scenarios).
-1. [Подготовьте базу данных OpenSearch](#prepare) к трансферу.
-1. [Настройте эндпоинт-источник](#endpoint-settings) в Yandex Data Transfer.
+1. [Подготовьте базу данных {{ OS }}](#prepare) к трансферу.
+1. [Настройте эндпоинт-источник](#endpoint-settings) в {{ data-transfer-full-name }}.
 1. [Настройте один из поддерживаемых приемников данных](#supported-targets).
 1. [Создайте](../../transfer.md#create) и [запустите](../../transfer.md#activate) трансфер.
 1. Выполняйте необходимые действия по работе с базой и [контролируйте трансфер](../../monitoring.md).
 1. При возникновении проблем, [воспользуйтесь готовыми решениями](#troubleshooting) по их устранению.
 
-## Сценарии передачи данных из OpenSearch {#scenarios}
+## Сценарии передачи данных из {{ OS }} {#scenarios}
 
 Миграция — перенос данных из одного хранилища в другое. Часто это перенос базы из устаревших локальных баз в управляемые облачные.
 
-* [Миграция кластера OpenSearch](../../../tutorials/os-to-mos.md).
-* [Загрузка данных из OpenSearch в Object Storage](../../../tutorials/opensearch-to-object-storage.md).
-* [Миграция со сменой хранилища: OpenSearch в YDB](../../../tutorials/opensearch-to-ydb.md).
-* [Миграция со сменой хранилища: OpenSearch в Greenplum®](../../../tutorials/opensearch-to-greenplum.md).
+* [Миграция кластера {{ OS }}](../../../tutorials/os-to-mos.md).
+* [Загрузка данных из {{ OS }} в {{ objstorage-name }}](../../../tutorials/opensearch-to-object-storage.md).
+* [Миграция со сменой хранилища: {{ OS }} в {{ ydb-short-name }}](../../../tutorials/opensearch-to-ydb.md).
+* [Миграция со сменой хранилища: {{ OS }} в {{ GP }}](../../../tutorials/opensearch-to-greenplum.md).
 
-* [Копирование данных из Managed Service for OpenSearch в Managed Service for ClickHouse® с помощью Yandex Data Transfer](../../../tutorials/opensearch-to-clickhouse.md)
+* [{#T}](../../../tutorials/opensearch-to-clickhouse.md)
 
-Подробное описание возможных сценариев передачи данных в Yandex Data Transfer см. в разделе [Практические руководства](../../../tutorials/index.md).
+Подробное описание возможных сценариев передачи данных в {{ data-transfer-full-name }} читайте в разделе [Практические руководства](../../../tutorials/index.md).
 
 ## Подготовка базы данных источника {#prepare}
 
 {% list tabs %}
 
-- OpenSearch
+- {{ OS }}
 
   
-  Если вы не планируете использовать для подключения к внешнему кластеру [сервис Cloud Interconnect](../../../../interconnect/concepts/index.md) или [VPN](../../../../glossary/vpn.md), разрешите подключения к такому кластеру из интернета с [IP-адресов, используемых сервисом Data Transfer](../../../../overview/concepts/public-ips.md#virtual-private-cloud}).
+  Если вы не планируете использовать для подключения к внешнему кластеру [сервис {{ interconnect-name }}](../../../../interconnect/concepts/index.md) или [VPN](../../../../glossary/vpn.md), разрешите подключения к такому кластеру из интернета с [IP-адресов, используемых сервисом {{ data-transfer-name }}](../../../../overview/concepts/public-ips.md#virtual-private-cloud}).
   
-  Подробнее о настройке сети для работы с внешними ресурсами см. в [концепции](../../../concepts/network.md#source-external).
+  Подробнее о настройке сети для работы с внешними ресурсами читайте в [концепции](../../../concepts/network.md#source-external).
 
 
 {% endlist %}
 
-## Настройка эндпоинта-источника OpenSearch {#endpoint-settings}
+## Настройка эндпоинта-источника {{ OS }} {#endpoint-settings}
 
 При [создании](../index.md#create) или [изменении](../index.md#update) эндпоинта вы можете задать:
 
-* Настройки подключения к [кластеру Yandex Managed Service for OpenSearch](#managed-service) или [пользовательской инсталляции](#on-premise), в т. ч. на базе виртуальных машин Yandex Compute Cloud. Эти параметры обязательные.
+* Настройки подключения к [кластеру {{ mos-full-name }}](#managed-service) или [пользовательской инсталляции](#on-premise), в т. ч. на базе виртуальных машин {{ compute-full-name }}. Эти параметры обязательные.
 * [Дополнительные параметры](#additional-settings).
 
 
-### Кластер Managed Service for OpenSearch {#managed-service}
+### Кластер {{ mos-name }} {#managed-service}
 
 
 {% note warning %}
 
-Для создания или редактирования эндпоинта управляемой базы данных вам потребуется [роль `managed-opensearch.viewer`](../../../../managed-opensearch/security/index.md#mos-viewer) или примитивная [роль `viewer`](../../../../iam/roles-reference.md#viewer), выданная на каталог кластера этой управляемой базы данных.
+Для создания или редактирования эндпоинта управляемой базы данных вам потребуется [роль `{{ roles.mos.viewer }}`](../../../../managed-opensearch/security/index.md#mos-viewer) или примитивная [роль `viewer`](../../../../iam/roles-reference.md#viewer), выданная на каталог кластера этой управляемой базы данных.
 
 {% endnote %}
 
 
-Подключение с указанием кластера в Yandex Cloud.
+Подключение с указанием кластера в {{ yandex-cloud }}.
 
 {% list tabs group=instructions %}
 
 - Консоль управления {#console}
 
-    * **Тип подключения** — выберите вариант подключения к кластеру:
+    * **{{ ui-key.yc-data-transfer.data-transfer.console.form.common.console.form.common.Connection.authorization_type.title }}** — выберите вариант подключения к кластеру:
     
-      * **Ручная настройка** — позволяет задать настройки подключения вручную.
+      * **{{ ui-key.yc-data-transfer.data-transfer.console.form.common.console.form.common.Connection.authorization_plain.title }}** — позволяет задать настройки подключения вручную.
     
         Выберите тип инсталляции **Кластер Managed Service for OpenSearch** и задайте настройки:
     
-        * **Кластер Managed Service for OpenSearch** — выберите кластер, к которому необходимо подключиться.
-        * **Пользователь** — укажите имя пользователя, под которым сервис Data Transfer будет подключаться к кластеру.
-        * **Пароль** — укажите пароль пользователя для доступа к кластеру.
+        * **{{ ui-key.yc-data-transfer.data-transfer.console.form.opensearch.console.form.opensearch.OpenSearchConnectionType.mdb_cluster_id.title }}** — выберите кластер, к которому необходимо подключиться.
+        * **{{ ui-key.yc-data-transfer.data-transfer.console.form.opensearch.console.form.opensearch.OpenSearchConnection.user.title }}** — укажите имя пользователя, под которым сервис {{ data-transfer-name }} будет подключаться к кластеру.
+        * **{{ ui-key.yc-data-transfer.data-transfer.console.form.opensearch.console.form.opensearch.OpenSearchConnection.password.title }}** — укажите пароль пользователя для доступа к кластеру.
     
-      * **Connection Manager** — позволяет подключиться к кластеру через [Yandex Connection Manager](../../../../metadata-hub/quickstart/connection-manager.md):
+      * **{{ ui-key.yc-data-transfer.data-transfer.console.form.common.console.form.common.Connection.authorization_connman.title }}** — позволяет подключиться к кластеру через [{{ connection-manager-full-name }}](../../../../metadata-hub/quickstart/connection-manager.md):
     
-        * Выберите каталог, в котором находится кластер Managed Service for OpenSearch.
+        * Выберите каталог, в котором находится кластер {{ mos-name }}.
         * Выберите тип инсталляции **Кластер управляемой БД** и задайте настройки:
     
-          * **Кластер управляемой БД** — выберите кластер, к которому необходимо подключиться.
-          * **Подключение** — выберите подключение в Connection Manager или создайте его.
+          * **{{ ui-key.yc-data-transfer.data-transfer.console.form.common.console.form.common.ConnmanConnection.mdb_cluster_id.title }}** — выберите кластер, к которому необходимо подключиться.
+          * **{{ ui-key.yc-data-transfer.data-transfer.console.form.common.console.form.common.ConnmanConnection.connection_id.title }}** — выберите подключение в {{ connection-manager-name }} или создайте его.
     
         {% note warning %}
         
-        Чтобы использовать подключение из Connection Manager, у пользователя должны быть [права доступа](../../../../metadata-hub/operations/connection-access.md) не ниже `connection-manager.user` к этому подключению.
+        Чтобы использовать подключение из {{ connection-manager-name }}, у пользователя должны быть [права доступа](../../../../metadata-hub/operations/connection-access.md) не ниже `connection-manager.user` к этому подключению.
         
         {% endnote %}
     
-    * **Группы безопасности** — выберите облачную сеть для размещения эндпоинта и группы безопасности для сетевого трафика.
+    * **{{ ui-key.yc-data-transfer.data-transfer.console.form.opensearch.console.form.opensearch.OpenSearchConnection.security_groups.title }}** — выберите облачную сеть для размещения эндпоинта и группы безопасности для сетевого трафика.
     
-      Это позволит применить к ВМ и кластерам в выбранной сети указанные правила групп безопасности без изменения настроек этих ВМ и кластеров. Подробнее см. в разделе [Сеть в Yandex Data Transfer](../../../concepts/network.md).
+      Это позволит применить к ВМ и кластерам в выбранной сети указанные правила групп безопасности без изменения настроек этих ВМ и кластеров. Подробнее читайте в разделе [{#T}](../../../concepts/network.md).
 
 {% endlist %}
 
@@ -99,20 +99,20 @@
 
 - Консоль управления {#console}
 
-    * **Тип подключения** — выберите вариант подключения к базе данных:
+    * **{{ ui-key.yc-data-transfer.data-transfer.console.form.common.console.form.common.Connection.authorization_type.title }}** — выберите вариант подключения к базе данных:
     
-        * **Ручная настройка** — позволяет задать настройки подключения вручную.
+        * **{{ ui-key.yc-data-transfer.data-transfer.console.form.common.console.form.common.Connection.authorization_plain.title }}** — позволяет задать настройки подключения вручную.
     
             Выберите тип инсталляции **Пользовательская инсталляция** и задайте настройки:
     
-            * **Узлы с данными** — нажмите на значок ![image](../../../../_assets/console-icons/plus.svg), чтобы добавить новый узел с данными. Для каждого узла укажите:
+            * **{{ ui-key.yc-data-transfer.data-transfer.console.form.opensearch.console.form.opensearch.OnPremiseOpenSearch.addresses.title }}** — нажмите на значок ![image](../../../../_assets/console-icons/plus.svg), чтобы добавить новый узел с данными. Для каждого узла укажите:
     
-              * **Хост** — IP-адрес или FQDN хоста с ролью `DATA`, к которому необходимо подключиться.
-              * **Порт** — номер порта, который сервис Data Transfer будет использовать для подключения к хосту с ролью `DATA`.
+              * **{{ ui-key.yc-data-transfer.data-transfer.console.form.opensearch.console.form.opensearch.OnPremiseOpenSearchHostPort.host.title }}** — IP-адрес или FQDN хоста с ролью `DATA`, к которому необходимо подключиться.
+              * **{{ ui-key.yc-data-transfer.data-transfer.console.form.opensearch.console.form.opensearch.OnPremiseOpenSearchHostPort.port.title }}** — номер порта, который сервис {{ data-transfer-name }} будет использовать для подключения к хосту с ролью `DATA`.
     
-            * **SSL** — выберите, если используется безопасное соединение SSL.
+            * **{{ ui-key.yc-data-transfer.data-transfer.console.form.opensearch.console.form.opensearch.OnPremiseOpenSearch.ssl_enabled.title }}** — выберите, если используется безопасное соединение SSL.
     
-            * **Сертификат CA** — загрузите файл [сертификата](../../../../managed-opensearch/operations/connect/index.md#ssl-certificate) или добавьте его содержимое в текстовом виде, если требуется шифрование передаваемых данных, например, для соответствия требованиям PCI DSS.
+            * **{{ ui-key.yc-data-transfer.data-transfer.console.form.opensearch.console.form.opensearch.OnPremiseOpenSearch.ca_certificate.title }}** — загрузите файл [сертификата](../../../../managed-opensearch/operations/connect/index.md#ssl-certificate) или добавьте его содержимое в текстовом виде, если требуется шифрование передаваемых данных, например, для соответствия требованиям PCI DSS.
               
               
               {% note warning %}
@@ -121,24 +121,24 @@
               
               {% endnote %}
     
-            * **Идентификатор подсети** — выберите или [создайте](../../../../vpc/operations/subnet-create.md) подсеть в нужной [зоне доступности](../../../../overview/concepts/geo-scope.md). Трансфер будет использовать эту подсеть для доступа к базе данных.
+            * **{{ ui-key.yc-data-transfer.data-transfer.console.form.opensearch.console.form.opensearch.OnPremiseOpenSearch.subnet_id.title }}** — выберите или [создайте](../../../../vpc/operations/subnet-create.md) подсеть в нужной [зоне доступности](../../../../overview/concepts/geo-scope.md). Трансфер будет использовать эту подсеть для доступа к базе данных.
     
               Если значение в этом поле задано для обоих эндпоинтов, то обе подсети должны быть размещены в одной зоне доступности.
     
               Если не указать подсеть, при активации трансфера может возникнуть [ошибка](../../../../managed-opensearch/qa/index.md#data-transfer-error).
     
-            * **Пользователь** — укажите имя пользователя, под которым сервис Data Transfer будет подключаться к базе данных.
+            * **{{ ui-key.yc-data-transfer.data-transfer.console.form.opensearch.console.form.opensearch.OpenSearchConnection.user.title }}** — укажите имя пользователя, под которым сервис {{ data-transfer-name }} будет подключаться к базе данных.
     
-            * **Пароль** — укажите пароль пользователя для доступа к базе данных.
+            * **{{ ui-key.yc-data-transfer.data-transfer.console.form.opensearch.console.form.opensearch.OpenSearchConnection.password.title }}** — укажите пароль пользователя для доступа к базе данных.
     
-        * **Connection Manager** — позволяет подключиться к базе данных через [Yandex Connection Manager](../../../../metadata-hub/quickstart/connection-manager.md):
+        * **{{ ui-key.yc-data-transfer.data-transfer.console.form.common.console.form.common.Connection.authorization_connman.title }}** — позволяет подключиться к базе данных через [{{ connection-manager-full-name }}](../../../../metadata-hub/quickstart/connection-manager.md):
     
-            * Выберите каталог, в котором создано подключение Connection Manager.
+            * Выберите каталог, в котором создано подключение {{ connection-manager-name }}.
             * Выберите тип инсталляции **Пользовательская инсталляция** и задайте настройки:
     
-              * **Подключение** — выберите подключение в Connection Manager или создайте его.
+              * **{{ ui-key.yc-data-transfer.data-transfer.console.form.common.console.form.common.ConnmanConnection.connection_id.title }}** — выберите подключение в {{ connection-manager-name }} или создайте его.
               * 
-                **Идентификатор подсети** — выберите или [создайте](../../../../vpc/operations/subnet-create.md) подсеть в нужной [зоне доступности](../../../../overview/concepts/geo-scope.md). Трансфер будет использовать эту подсеть для доступа к базе данных.
+                **{{ ui-key.yc-data-transfer.data-transfer.console.form.opensearch.console.form.opensearch.OnPremiseOpenSearch.subnet_id.title }}** — выберите или [создайте](../../../../vpc/operations/subnet-create.md) подсеть в нужной [зоне доступности](../../../../overview/concepts/geo-scope.md). Трансфер будет использовать эту подсеть для доступа к базе данных.
     
     
                 Если значение в этом поле задано для обоих эндпоинтов, то обе подсети должны быть размещены в одной зоне доступности.
@@ -147,13 +147,13 @@
     
           {% note warning %}
           
-          Чтобы использовать подключение из Connection Manager, у пользователя должны быть [права доступа](../../../../metadata-hub/operations/connection-access.md) не ниже `connection-manager.user` к этому подключению.
+          Чтобы использовать подключение из {{ connection-manager-name }}, у пользователя должны быть [права доступа](../../../../metadata-hub/operations/connection-access.md) не ниже `connection-manager.user` к этому подключению.
           
           {% endnote %}
     
-    * **Группы безопасности** — выберите облачную сеть для размещения эндпоинта и группы безопасности для сетевого трафика.
+    * **{{ ui-key.yc-data-transfer.data-transfer.console.form.opensearch.console.form.opensearch.OpenSearchConnection.security_groups.title }}** — выберите облачную сеть для размещения эндпоинта и группы безопасности для сетевого трафика.
     
-      Это позволит применить к ВМ и БД в выбранной сети указанные правила групп безопасности без изменения настроек этих ВМ и БД. Подробнее см. в разделе [Сеть в Yandex Data Transfer](../../../concepts/network.md).
+      Это позволит применить к ВМ и БД в выбранной сети указанные правила групп безопасности без изменения настроек этих ВМ и БД. Подробнее читайте в разделе [{#T}](../../../concepts/network.md).
 
 {% endlist %}
 
@@ -163,7 +163,7 @@
 
 - Консоль управления {#console}
 
-    * **Перенести индекс с сопоставлением типов** — выберите эту опцию, чтобы перенести типы данных с источника на приемник до начала трансфера. Если опция отключена, а схема индекса на приемнике не задана, то типы данных на приемнике будут определяться автоматически в процессе трансфера.
+    * **{{ ui-key.yc-data-transfer.data-transfer.console.form.opensearch.console.form.opensearch.OpenSearchSource.dump_index_with_mapping.title }}** — выберите эту опцию, чтобы перенести типы данных с источника на приемник до начала трансфера. Если опция отключена, а схема индекса на приемнике не задана, то типы данных на приемнике будут определяться автоматически в процессе трансфера.
 
     {% note warning %}
     
@@ -178,15 +178,15 @@
 
 Настройте эндпоинт-приемник:
 
-* [OpenSearch](../target/opensearch.md);
-* [ClickHouse®](../target/clickhouse.md);
-* [Greenplum®](../target/greenplum.md);
-* [Yandex Managed Service for YDB](../target/yandex-database.md);
-* [Yandex Object Storage](../target/object-storage.md);
-* [Apache Kafka®](../target/kafka.md);
-* [YDS](../target/data-streams.md);
+* [{{ OS }}](../target/opensearch.md);
+* [{{ CH }}](../target/clickhouse.md);
+* [{{ GP }}](../target/greenplum.md);
+* [{{ ydb-full-name }}](../target/yandex-database.md);
+* [{{ objstorage-full-name }}](../target/object-storage.md);
+* [{{ KF }}](../target/kafka.md);
+* [{{ DS }}](../target/data-streams.md);
 
-Полный список поддерживаемых источников и приемников в Yandex Data Transfer см. в разделе [Доступные трансферы](../../../transfer-matrix.md).
+Полный список поддерживаемых источников и приемников в {{ data-transfer-full-name }} читайте в разделе [Доступные трансферы](../../../transfer-matrix.md).
 
 После настройки источника и приемника данных [создайте и запустите трансфер](../../transfer.md#create).
 
@@ -211,7 +211,7 @@ object field starting or ending with a [.] makes object resolution ambiguous <о
 Index -1 out of bounds for length 0
 ```
 
-Трансфер прерывается из-за того что ключи в передаваемых документах невалидны для приемника OpenSearch. К невалидным относятся пустые ключи, а также ключи:
+Трансфер прерывается из-за того что ключи в передаваемых документах невалидны для приемника {{ OS }}. К невалидным относятся пустые ключи, а также ключи:
 
 * состоящие из пробелов;
 * состоящие из точек;
@@ -221,7 +221,7 @@ Index -1 out of bounds for length 0
 
 **Решение:**
 
-В [дополнительных настройках эндпоинта-приемника](../target/opensearch.md#additional-settings) включите опцию **Исправить невалидные ключи в документах** и [активируйте](../../transfer.md#activate) трансфер повторно.
+В [дополнительных настройках эндпоинта-приемника](../target/opensearch.md#additional-settings) включите опцию **{{ ui-key.yc-data-transfer.data-transfer.console.form.opensearch.console.form.opensearch.OpenSearchTarget.sanitize_doc_keys.title }}** и [активируйте](../../transfer.md#activate) трансфер повторно.
 
 ### Дублирование документов на приемнике {#duplication}
 
@@ -253,7 +253,7 @@ Index -1 out of bounds for length 0
 Limit of total fields [<значение_лимита>] has been exceeded
 ```
 
-Трансфер прерывается, если количество колонок в базе данных источника превышает максимальное количество полей в индексах OpenSearch базы данных приемника.
+Трансфер прерывается, если количество колонок в базе данных источника превышает максимальное количество полей в индексах {{ OS }} базы данных приемника.
 
 **Решение:** [увеличьте в базе данных приемника](../target/opensearch.md#prepare) максимальное количество полей с помощью параметра `index.mapping.total_fields.limit`.
 
@@ -267,17 +267,17 @@ mapper_parsing_exception failed to parse field [details.tags] of type [text]
 
 Трансфер прерывается из-за несовместимости типов данных на источнике и приемнике.
 
-**Решение:** перенесите данные в новый индекс OpenSearch, в котором тип поля `details` изменен на `flat_object`.
+**Решение:** перенесите данные в новый индекс {{ OS }}, в котором тип поля `details` изменен на `flat_object`.
 
 1. Деактивируйте трансфер.
 
-1. Создайте новый индекс в OpenSearch:
+1. Создайте новый индекс в {{ OS }}:
 
     ```bash
     curl \
-    --user <имя_пользователя_OpenSearch>:<пароль> \
+    --user <имя_пользователя_{{ OS }}>:<пароль> \
     --header 'Content-Type: application/json' \
-    --request PUT 'https://<адрес_хоста_OpenSearch_с_ролью_DATA>:9200/<название_нового_индекса>/_settings' \
+    --request PUT 'https://<адрес_хоста_{{ OS }}_с_ролью_DATA>:9200/<название_нового_индекса>/_settings' \
     --data '{"index.mapping.total_fields.limit": 2000}'
     ```
 
@@ -285,9 +285,9 @@ mapper_parsing_exception failed to parse field [details.tags] of type [text]
 
     ```bash
     curl \
-    --user <имя_пользователя_OpenSearch>:<пароль> \
+    --user <имя_пользователя_{{ OS }}>:<пароль> \
     --header 'Content-Type: application/json' \
-    --request PUT 'https://<адрес_хоста_OpenSearch_с_ролью_DATA>:9200/<название_нового_индекса>/_mapping' \
+    --request PUT 'https://<адрес_хоста_{{ OS }}_с_ролью_DATA>:9200/<название_нового_индекса>/_mapping' \
     --data '
         {
             "properties": {
@@ -302,9 +302,9 @@ mapper_parsing_exception failed to parse field [details.tags] of type [text]
 
     ```bash
     curl \
-    --user <имя_пользователя_OpenSearch>:<пароль> \
+    --user <имя_пользователя_{{ OS }}>:<пароль> \
     --header 'Content-Type: application/json' \
-    --request POST 'https://<адрес_хоста_OpenSearch_с_ролью_DATA>:9200/_reindex' \
+    --request POST 'https://<адрес_хоста_{{ OS }}_с_ролью_DATA>:9200/_reindex' \
     --data '
         {
         "source":{
@@ -320,18 +320,18 @@ mapper_parsing_exception failed to parse field [details.tags] of type [text]
 
     ```bash
     curl \
-    --user <имя_пользователя_OpenSearch>:<пароль> \
+    --user <имя_пользователя_{{ OS }}>:<пароль> \
     --header 'Content-Type: application/json' \
-    --request DELETE 'https://<адрес_хоста_OpenSearch_с_ролью_DATA>:9200/<название_исходного_индекса>'
+    --request DELETE 'https://<адрес_хоста_{{ OS }}_с_ролью_DATA>:9200/<название_исходного_индекса>'
     ```
 
 1. Присвойте новому индексу псевдоним:
 
     ```bash
     curl \
-    --user <имя_пользователя_OpenSearch>:<пароль> \
+    --user <имя_пользователя_{{ OS }}>:<пароль> \
     --header 'Content-Type: application/json' \
-    --request POST 'https://<адрес_хоста_OpenSearch_с_ролью_DATA>:9200/_aliases' \
+    --request POST 'https://<адрес_хоста_{{ OS }}_с_ролью_DATA>:9200/_aliases' \
     --data '
         {
         "actions": [
@@ -347,9 +347,9 @@ mapper_parsing_exception failed to parse field [details.tags] of type [text]
 
 ### Ошибка SSL is required {#ssl-required}
 
-Ошибка возникает при подключении к кластеру Managed Service for OpenSearch как к пользовательской инсталляции через [FQDN](../../../../managed-opensearch/concepts/network.md#hostname) хоста OpenSearch, если вы не включили опцию **SSL** в настройках эндпоинта. Кластер Managed Service for OpenSearch по умолчанию требует SSL-шифрование для подключений по FQDN хоста. 
+Ошибка возникает при подключении к кластеру {{ mos-name }} как к пользовательской инсталляции через [FQDN](../../../../managed-opensearch/concepts/network.md#hostname) хоста {{ OS }}, если вы не включили опцию **SSL** в настройках эндпоинта. Кластер {{ mos-name }} по умолчанию требует SSL-шифрование для подключений по FQDN хоста. 
 
-Ошибка может также возникнуть, если вы подключаетесь к пользовательской инсталляции OpenSearch, которая требует SSL.
+Ошибка может также возникнуть, если вы подключаетесь к пользовательской инсталляции {{ OS }}, которая требует SSL.
 
 **Решение:**
 

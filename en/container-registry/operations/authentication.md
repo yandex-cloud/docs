@@ -30,6 +30,8 @@ You can authenticate:
 
 - Using an OAuth token {#oauth-token}
 
+  {% include [oauth-token-deprecated-soon](../../_includes/oauth-token-deprecated-soon.md) %}
+
   {% note info %}
 
   {% include [oauth-token-lifetime](../../_includes/oauth-token-lifetime.md) %}
@@ -41,7 +43,7 @@ You can authenticate:
   1. Run this command:
 
      ```bash
-     echo <OAuth_token> | docker login \
+     echo <OAuth_token>|docker login \
        --username oauth \
        --password-stdin \
       {{ registry }}
@@ -61,11 +63,11 @@ You can authenticate:
   {% endnote %}
 
   1. If you do not have Docker yet, [install it](./configure-docker.md).
-  1. Get an [IAM token](../../iam/operations/iam-token/create.md).
+  1. [Get an IAM token](../../iam/operations/iam-token/create.md).
   1. Run this command:
 
       ```bash
-      echo <IAM_token> | docker login \
+      echo <IAM_token>|docker login \
         --username iam \
         --password-stdin \
         {{ registry }}
@@ -106,7 +108,7 @@ The Docker Engine can keep user credentials in an external credentials store. Th
    Credential helper is configured in '/home/<user>/.docker/config.json'
    ```
 
-   Settings are saved in the current user's profile.
+   The current user's profile holds the saved settings.
 
    {% note warning %}
 

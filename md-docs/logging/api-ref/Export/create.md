@@ -5,7 +5,7 @@ Creates a export in the specified folder.
 ## HTTP request
 
 ```
-POST https://logging.api.cloud.yandex.net/logging/v1/exports
+POST https://logging.{{ api-host }}/logging/v1/exports
 ```
 
 ## Body parameters {#yandex.cloud.logging.v1.CreateExportRequest}

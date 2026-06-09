@@ -1,20 +1,20 @@
-# Справочник аудитных логов Yandex MetaData Hub
+# Справочник аудитных логов {{ metadata-hub-full-name }}
 
-В Audit Trails поддерживается отслеживание событий уровня конфигурации (Control Plane) для Apache Hive™ Metastore. Подробнее см. [Аудитный лог событий уровня конфигурации](../audit-trails/concepts/format.md).
+В {{ at-name }} поддерживается отслеживание событий уровня конфигурации (Control Plane) для {{ metastore-full-name }}. Подробнее см. [{#T}](../audit-trails/concepts/format.md).
 
 Общий вид значения поля `event_type` (_тип события_):
 
 ```text
-yandex.cloud.audit.metastore.<имя_события>
+{{ at-event-prefix }}.audit.metastore.<имя_события>
 ```
 
 Имя события | Описание
 --- | ---
-`CreateCluster` | Создание [кластера](concepts/metastore.md) Apache Hive™ Metastore
-`DeleteCluster` | Удаление кластера Apache Hive™ Metastore
+`CreateCluster` | Создание [кластера](concepts/metastore.md) {{ metastore-full-name }}
+`DeleteCluster` | Удаление кластера {{ metastore-full-name }}
 `RescheduleMaintenance` | Перенос запланированного технического обслуживания
-`StartCluster` | Запуск кластера Apache Hive™ Metastore
-`StopCluster` | Остановка кластера Apache Hive™ Metastore
-`UpdateCluster` | Изменение кластера Apache Hive™ Metastore
+`StartCluster` | Запуск кластера {{ metastore-full-name }}
+`StopCluster` | Остановка кластера {{ metastore-full-name }}
+`UpdateCluster` | Изменение кластера {{ metastore-full-name }}
 
 _Apache® и [Apache Hive™](https://hive.apache.org/) являются зарегистрированными товарными знаками или товарными знаками Apache Software Foundation в США и/или других странах._

@@ -5,7 +5,7 @@ Updates the specified VRF resource.
 ## HTTP request
 
 ```
-PATCH https://baremetal.api.cloud.yandex.net/baremetal/v1alpha/vrfs/{vrfId}
+PATCH https://baremetal.{{ api-host }}/baremetal/v1alpha/vrfs/{vrfId}
 ```
 
 ## Path parameters

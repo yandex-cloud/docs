@@ -1,8 +1,8 @@
-# Миграция данных из Managed Service for MySQL® в Yandex MPP Analytics for PostgreSQL с помощью Yandex Data Transfer
+# Миграция данных из {{ mmy-name }} в {{ mgp-full-name }} с помощью {{ data-transfer-full-name }}
 
-# Миграция данных из Yandex Managed Service for MySQL® в Yandex MPP Analytics for PostgreSQL с помощью Yandex Data Transfer
+# Миграция данных из {{ mmy-full-name }} в {{ mgp-full-name }} с помощью {{ data-transfer-full-name }}
 
-Вы можете настроить перенос данных из базы Yandex Managed Service for MySQL® в базу Greenplum® в сервисе Yandex MPP Analytics for PostgreSQL с помощью Yandex Data Transfer. Для этого:
+Вы можете настроить перенос данных из базы {{ mmy-full-name }} в базу {{ GP }} в сервисе {{ mgp-name }} с помощью {{ data-transfer-full-name }}. Для этого:
 
 1. [Подготовьте тестовые данные](#prepare-data).
 1. [Создайте базу данных в кластере-приемнике](#prepare-data).
@@ -14,10 +14,9 @@
 
 ## Необходимые платные ресурсы {#paid-resources}
 
-* Кластер Managed Service for MySQL®: использование выделенных хостам вычислительных ресурсов, объем хранилища и резервных копий (см. [тарифы Managed Service for MySQL®](../pricing.md)).
-* Кластер Yandex MPP Analytics for PostgreSQL: использование выделенных хостам вычислительных ресурсов, объем хранилища и резервных копий (см. [тарифы Yandex MPP Analytics for PostgreSQL](../../managed-greenplum/pricing/index.md)).
-* Каждый трансфер: использование вычислительных ресурсов и количество переданных строк данных (см. [тарифы Data Transfer](../../data-transfer/pricing.md)).
-* Публичные IP-адреса, если для хостов кластеров включен публичный доступ (см. [тарифы Yandex Virtual Private Cloud](../../vpc/pricing.md)).
+* Кластер {{ mmy-name }}: использование выделенных хостам вычислительных ресурсов, объем хранилища и резервных копий (см. [тарифы {{ mmy-name }}](../pricing.md)).
+* Кластер {{ mgp-name }}: использование выделенных хостам вычислительных ресурсов, объем хранилища и резервных копий (см. [тарифы {{ mgp-name }}](../../managed-greenplum/pricing/index.md)).
+* Публичные IP-адреса, если для хостов кластеров включен публичный доступ (см. [тарифы {{ vpc-full-name }}](../../vpc/pricing.md)).
 
 
 ## Перед началом работы {#before-you-begin}
@@ -30,34 +29,34 @@
 
     {% note info %}
     
-    Публичный доступ к хостам кластера нужен, если вы планируете подключаться к кластеру через интернет. Этот вариант подключения более простой, и его рекомендуется использовать для прохождения руководства. К хостам без публичного доступа тоже можно подключиться, но только с виртуальных машин Yandex Cloud, расположенных в той же облачной сети, что и кластер.
+    Публичный доступ к хостам кластера нужен, если вы планируете подключаться к кластеру через интернет. Этот вариант подключения более простой, и его рекомендуется использовать для прохождения руководства. К хостам без публичного доступа тоже можно подключиться, но только с виртуальных машин {{ yandex-cloud }}, расположенных в той же облачной сети, что и кластер.
     
     {% endnote %}
 
-    1. [Создайте кластер-источник Managed Service for MySQL®](../operations/cluster-create.md#create-cluster) в любой [зоне доступности](../../overview/concepts/geo-scope.md), с хостами любой подходящей конфигурации в публичном доступе и следующими настройками:
+    1. [Создайте кластер-источник {{ mmy-name }}](../operations/cluster-create.md#create-cluster) в любой [зоне доступности](../../overview/concepts/geo-scope.md), с хостами любой подходящей конфигурации в публичном доступе и следующими настройками:
 
-        * **Имя БД** — `mmy_db`.
-        * **Имя пользователя** — `mmy_user`.
-        * **Пароль** — `<пароль_источника>`.
+        * **{{ ui-key.yacloud.mdb.forms.database_field_name }}** — `mmy_db`.
+        * **{{ ui-key.yacloud.mdb.forms.database_field_user-login }}** — `mmy_user`.
+        * **{{ ui-key.yacloud.mdb.forms.database_field_user-password }}** — `<пароль_источника>`.
 
     1. [Выдайте административные привилегии](../operations/grant.md#grant-privilege) `REPLICATION CLIENT` и `REPLICATION SLAVE` пользователю `mmy_user`.
 
         Подробнее об административных привилегиях читайте в [описании настроек](../concepts/settings-list.md#setting-administrative-privileges).
 
-    1. В той же зоне доступности [создайте кластер-приемник Greenplum®](../../managed-greenplum/operations/cluster-create.md#create-cluster) любой подходящей конфигурации с хостами в публичном доступе и следующими настройками:
+    1. В той же зоне доступности [создайте кластер-приемник {{ GP }}](../../managed-greenplum/operations/cluster-create.md#create-cluster) любой подходящей конфигурации с хостами в публичном доступе и следующими настройками:
 
-        * **Имя пользователя** — `mgp_user`.
-        * **Пароль** — `<пароль_приемника>`.
-        * **Доступ из Data Transfer** — включен.
+        * **{{ ui-key.yacloud.mdb.forms.database_field_user-login }}** — `mgp_user`.
+        * **{{ ui-key.yacloud.mdb.forms.database_field_user-password }}** — `<пароль_приемника>`.
+        * **{{ ui-key.yacloud.mdb.forms.additional-field-datatransfer }}** — включен.
 
     1. Убедитесь, что группы безопасности кластеров настроены правильно и допускают подключение к ним:
 
-        * [Managed Service for MySQL®](../operations/connect/index.md#configure-security-groups).
-        * [Yandex MPP Analytics for PostgreSQL](../../managed-greenplum/operations/connect/index.md#configuring-security-groups).
+        * [{{ mmy-name }}](../operations/connect/index.md#configure-security-groups).
+        * [{{ mgp-name }}](../../managed-greenplum/operations/connect/index.md#configuring-security-groups).
 
-* С помощью Terraform {#tf}
+* С помощью {{ TF }} {#tf}
 
-    1. Если у вас еще нет Terraform, [установите его](../../tutorials/infrastructure-management/terraform-quickstart.md#install-terraform).
+    1. Если у вас еще нет {{ TF }}, [установите его](../../tutorials/infrastructure-management/terraform-quickstart.md#install-terraform).
     1. [Получите данные для аутентификации](../../tutorials/infrastructure-management/terraform-quickstart.md#get-credentials). Вы можете добавить их в переменные окружения или указать далее в файле с настройками провайдера.
     1. [Настройте и инициализируйте провайдер](../../tutorials/infrastructure-management/terraform-quickstart.md#configure-provider). Чтобы не создавать конфигурационный файл с настройками провайдера вручную, [скачайте его](https://github.com/yandex-cloud-examples/yc-terraform-provider-settings/blob/main/provider.tf).
     1. Поместите конфигурационный файл в отдельную рабочую директорию и [укажите значения параметров](../../tutorials/infrastructure-management/terraform-quickstart.md#configure-provider). Если данные для аутентификации не были добавлены в переменные окружения, укажите их в конфигурационном файле.
@@ -68,23 +67,23 @@
 
         * [сети](../../vpc/concepts/network.md#network) и [подсети](../../vpc/concepts/network.md#subnet) для размещения кластеров;
         * [группы безопасности](../../vpc/concepts/security-groups.md) для подключения к кластерам;
-        * кластер-источник Managed Service for MySQL®;
-        * кластер-приемник Greenplum® в сервисе Yandex MPP Analytics for PostgreSQL;
+        * кластер-источник {{ mmy-name }};
+        * кластер-приемник {{ GP }} в сервисе {{ mgp-name }};
         * эндпоинт для источника;
         * трансфер.
 
     1. Укажите в файле `mmy-to-mgp.tf`:
 
-        * Версии MySQL® и Greenplum®.
-        * Пароли пользователей MySQL® и Greenplum®.
+        * Версии {{ MY }} и {{ GP }}.
+        * Пароли пользователей {{ MY }} и {{ GP }}.
 
-    1. Проверьте корректность файлов конфигурации Terraform с помощью команды:
+    1. Проверьте корректность файлов конфигурации {{ TF }} с помощью команды:
 
         ```bash
         terraform validate
         ```
 
-        Если в файлах конфигурации есть ошибки, Terraform на них укажет.
+        Если в файлах конфигурации есть ошибки, {{ TF }} на них укажет.
 
     1. Создайте необходимую инфраструктуру:
 
@@ -106,13 +105,13 @@
            1. Подтвердите изменение ресурсов.
            1. Дождитесь завершения операции.
 
-        В указанном каталоге будут созданы все требуемые ресурсы. Проверить появление ресурсов и их настройки можно в [консоли управления](https://console.yandex.cloud).
+        В указанном каталоге будут созданы все требуемые ресурсы. Проверить появление ресурсов и их настройки можно в [консоли управления]({{ link-console-main }}).
 
 {% endlist %}
 
 ## Подготовьте тестовые данные {#prepare-data}
 
-1. [Подключитесь к базе данных](../operations/connect/index.md) `mmy_db` в кластере-источнике Managed Service for MySQL®.
+1. [Подключитесь к базе данных](../operations/connect/index.md) `mmy_db` в кластере-источнике {{ mmy-name }}.
 
 1. Создайте простую таблицу `table1`:
 
@@ -135,7 +134,7 @@
 
 ## Создайте базу данных в кластере-приемнике {#prepare-data}
 
-1. [Подключитесь к служебной базе данных](../../managed-greenplum/operations/connect/index.md) `postgres` в кластере-приемнике Greenplum® от имени пользователя `mgp_user`.
+1. [Подключитесь к служебной базе данных](../../managed-greenplum/operations/connect/index.md) `postgres` в кластере-приемнике {{ GP }} от имени пользователя `mgp_user`.
 
 1. Создайте базу данных `mgp_db`:
 
@@ -145,13 +144,13 @@
 
 ## Подготовьте и активируйте трансфер {#prepare-transfer}
 
-1. [Создайте эндпоинт-приемник](../../data-transfer/operations/endpoint/target/greenplum.md) типа `Greenplum®` и укажите в нем параметры подключения к кластеру:
+1. [Создайте эндпоинт-приемник](../../data-transfer/operations/endpoint/target/greenplum.md) типа `{{ GP }}` и укажите в нем параметры подключения к кластеру:
 
-    * **Тип подключения** — `Кластер Managed Service for Greenplum`.
-    * **Кластер Managed Service for Greenplum** — `<имя_кластера_приемника_Greenplum®>` из выпадающего списка.
-    * **База данных** — `mgp_db`.
-    * **Пользователь** — `mgp_user`.
-    * **Пароль** — `<пароль_пользователя>`.
+    * **{{ ui-key.yc-data-transfer.data-transfer.console.form.greenplum.console.form.greenplum.GreenplumConnection.connection_type.title }}** — `{{ ui-key.yc-data-transfer.data-transfer.console.form.greenplum.console.form.greenplum.GreenplumConnectionType.mdb_cluster_id.title }}`.
+    * **{{ ui-key.yc-data-transfer.data-transfer.console.form.greenplum.console.form.greenplum.GreenplumConnectionType.mdb_cluster_id.title }}** — `<имя_кластера_приемника_{{ GP }}>` из выпадающего списка.
+    * **{{ ui-key.yc-data-transfer.data-transfer.console.form.greenplum.console.form.greenplum.GreenplumConnection.database.title }}** — `mgp_db`.
+    * **{{ ui-key.yc-data-transfer.data-transfer.console.form.greenplum.console.form.greenplum.GreenplumConnection.user.title }}** — `mgp_user`.
+    * **{{ ui-key.yc-data-transfer.data-transfer.console.form.greenplum.console.form.greenplum.GreenplumConnection.password.title }}** — `<пароль_пользователя>`.
 
 1. Создайте эндпоинт-источник и трансфер:
 
@@ -159,32 +158,32 @@
 
     * Вручную {#manual}
 
-        1. [Создайте эндпоинт-источник](../../data-transfer/operations/endpoint/source/mysql.md) типа `MySQL®` и укажите в нем параметры подключения к кластеру:
+        1. [Создайте эндпоинт-источник](../../data-transfer/operations/endpoint/source/mysql.md) типа `{{ MY }}` и укажите в нем параметры подключения к кластеру:
 
-            * **Тип подключения** — `Кластер Managed Service for MySQL`.
-            * **Кластер Managed Service for MySQL** — `<имя_кластера_источника_MySQL®>` из выпадающего списка.
-            * **База данных** — `mmy_db`.
-            * **Пользователь** — `mmy_user`.
-            * **Пароль** — `<пароль_пользователя>`.
+            * **{{ ui-key.yc-data-transfer.data-transfer.console.form.mysql.console.form.mysql.MysqlConnection.connection_type.title }}** — `{{ ui-key.yc-data-transfer.data-transfer.console.form.mysql.console.form.mysql.MysqlConnectionType.mdb_cluster_id.title }}`.
+            * **{{ ui-key.yc-data-transfer.data-transfer.console.form.mysql.console.form.mysql.MysqlConnectionType.mdb_cluster_id.title }}** — `<имя_кластера_источника_{{ MY }}>` из выпадающего списка.
+            * **{{ ui-key.yc-data-transfer.data-transfer.console.form.common.console.form.common.Connection.database.title }}** — `mmy_db`.
+            * **{{ ui-key.yc-data-transfer.data-transfer.console.form.mysql.console.form.mysql.MysqlConnection.user.title }}** — `mmy_user`.
+            * **{{ ui-key.yc-data-transfer.data-transfer.console.form.mysql.console.form.mysql.MysqlConnection.password.title }}** — `<пароль_пользователя>`.
 
-        1. [Создайте трансфер](../../data-transfer/operations/transfer.md#create) типа **_Копирование и репликация_**, использующий созданные эндпоинты.
+        1. [Создайте трансфер](../../data-transfer/operations/transfer.md#create) типа **_{{ ui-key.yc-data-transfer.data-transfer.console.form.transfer.console.form.transfer.TransferType.snapshot_and_increment.title }}_**, использующий созданные эндпоинты.
 
-        1. [Активируйте трансфер](../../data-transfer/operations/transfer.md#activate) и дождитесь его перехода в статус **Реплицируется**.
+        1. [Активируйте трансфер](../../data-transfer/operations/transfer.md#activate) и дождитесь его перехода в статус **{{ ui-key.yacloud.data-transfer.label_connector-status-RUNNING }}**.
 
-    * С помощью Terraform {#tf}
+    * С помощью {{ TF }} {#tf}
 
         1. Укажите в файле `mmy-to-mgp.tf` значения параметров:
 
             * `target_endpoint_id` — идентификатор эндпоинта для приемника.
             * `transfer_enabled` — значение `1` для создания трансфера.
 
-        1. Проверьте корректность файлов конфигурации Terraform с помощью команды:
+        1. Проверьте корректность файлов конфигурации {{ TF }} с помощью команды:
 
             ```bash
             terraform validate
             ```
 
-            Если в файлах конфигурации есть ошибки, Terraform на них укажет.
+            Если в файлах конфигурации есть ошибки, {{ TF }} на них укажет.
 
         1. Создайте необходимую инфраструктуру:
 
@@ -206,7 +205,7 @@
                1. Подтвердите изменение ресурсов.
                1. Дождитесь завершения операции.
 
-        1. Трансфер активируется автоматически. Дождитесь его перехода в статус **Реплицируется**.
+        1. Трансфер активируется автоматически. Дождитесь его перехода в статус **{{ ui-key.yacloud.data-transfer.label_connector-status-RUNNING }}**.
 
     {% endlist %}
 
@@ -216,7 +215,7 @@
 
 ### Проверьте работу копирования {#verify-copy}
 
-1. [Подключитесь к базе данных](../../managed-greenplum/operations/connect/index.md) `mgp_db` в кластере-приемнике Greenplum®.
+1. [Подключитесь к базе данных](../../managed-greenplum/operations/connect/index.md) `mgp_db` в кластере-приемнике {{ GP }}.
 
 1. Выполните запрос:
 
@@ -226,7 +225,7 @@
 
 ### Проверьте работу репликации {#verify-replication}
 
-1. [Подключитесь к базе данных](../operations/connect/index.md) `mmy_db` в кластере-источнике Managed Service for MySQL®.
+1. [Подключитесь к базе данных](../operations/connect/index.md) `mmy_db` в кластере-источнике {{ mmy-name }}.
 
 1. Добавьте данные в таблицу `table1`:
 
@@ -237,7 +236,7 @@
 
 1. Убедитесь, что добавленная строка появилась в базе данных приемника:
 
-    1. [Подключитесь к базе данных](../../managed-greenplum/operations/connect/index.md) `mgp_db` в кластере-приемнике Greenplum®.
+    1. [Подключитесь к базе данных](../../managed-greenplum/operations/connect/index.md) `mgp_db` в кластере-приемнике {{ GP }}.
     1. Выполните запрос:
 
         ```sql
@@ -260,16 +259,16 @@
 
     1. [Удалите трансфер](../../data-transfer/operations/transfer.md#delete).
     1. [Удалите эндпоинты](../../data-transfer/operations/endpoint/index.md#delete).
-    1. [Удалите кластер Managed Service for MySQL®](../operations/cluster-delete.md).
-    1. [Удалите кластер Greenplum®](../../managed-greenplum/operations/cluster-delete.md).
+    1. [Удалите кластер {{ mmy-name }}](../operations/cluster-delete.md).
+    1. [Удалите кластер {{ GP }}](../../managed-greenplum/operations/cluster-delete.md).
 
-- С помощью Terraform {#tf}
+- С помощью {{ TF }} {#tf}
 
     1. В терминале перейдите в директорию с планом инфраструктуры.
     
         {% note warning %}
     
-        Убедитесь, что в директории нет Terraform-манифестов с ресурсами, которые вы хотите сохранить. Terraform удаляет все ресурсы, которые были созданы с помощью манифестов в текущей директории.
+        Убедитесь, что в директории нет {{ TF }}-манифестов с ресурсами, которые вы хотите сохранить. {{ TF }} удаляет все ресурсы, которые были созданы с помощью манифестов в текущей директории.
     
         {% endnote %}
     
@@ -283,6 +282,6 @@
     
         1. Подтвердите удаление ресурсов и дождитесь завершения операции.
     
-        Все ресурсы, которые были описаны в Terraform-манифестах, будут удалены.
+        Все ресурсы, которые были описаны в {{ TF }}-манифестах, будут удалены.
 
 {% endlist %}

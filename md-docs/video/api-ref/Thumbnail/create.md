@@ -7,14 +7,13 @@ using the URL obtained from the GenerateUploadURL method.
 ## HTTP request
 
 ```
-POST https://video.api.cloud.yandex.net/video/v1/thumbnails
+POST https://video.{{ api-host }}/video/v1/thumbnails
 ```
 
 ## Body parameters {#yandex.cloud.video.v1.CreateThumbnailRequest}
 
 ```json
 {
-  "channelId": "string",
   // Includes only one of the fields `episodeId`, `videoId`
   "episodeId": "string",
   "videoId": "string"
@@ -24,25 +23,24 @@ POST https://video.api.cloud.yandex.net/video/v1/thumbnails
 
 #|
 ||Field | Description ||
-|| channelId | **string**
-
-[Deprecated] ID of the channel.
-
-The maximum string length in characters is 50. ||
 || episodeId | **string**
 
 ID of the episode to associate the thumbnail with.
 
 The maximum string length in characters is 50.
 
-Includes only one of the fields `episodeId`, `videoId`. ||
+Includes only one of the fields `episodeId`, `videoId`.
+
+Specifies the parent resource to associate the thumbnail with (exactly one must be chosen). ||
 || videoId | **string**
 
 ID of the video to associate the thumbnail with.
 
 The maximum string length in characters is 50.
 
-Includes only one of the fields `episodeId`, `videoId`. ||
+Includes only one of the fields `episodeId`, `videoId`.
+
+Specifies the parent resource to associate the thumbnail with (exactly one must be chosen). ||
 |#
 
 ## Response {#yandex.cloud.operation.Operation}
@@ -57,9 +55,7 @@ Includes only one of the fields `episodeId`, `videoId`. ||
   "createdBy": "string",
   "modifiedAt": "string",
   "done": "boolean",
-  "metadata": {
-    "thumbnailId": "string"
-  },
+  "metadata": "object",
   // Includes only one of the fields `error`, `response`
   "error": {
     "code": "integer",
@@ -68,15 +64,7 @@ Includes only one of the fields `episodeId`, `videoId`. ||
       "object"
     ]
   },
-  "response": {
-    "id": "string",
-    "channelId": "string",
-    // Includes only one of the fields `episodeId`, `videoId`
-    "episodeId": "string",
-    "videoId": "string",
-    // end of the list of possible fields
-    "createdAt": "string"
-  }
+  "response": "object"
   // end of the list of possible fields
 }
 ```
@@ -118,7 +106,7 @@ In some languages, built-in datetime utilities do not support nanosecond precisi
 
 If the value is `false`, it means the operation is still in progress.
 If `true`, the operation is completed, and either `error` or `response` is available. ||
-|| metadata | **[CreateThumbnailMetadata](#yandex.cloud.video.v1.CreateThumbnailMetadata)**
+|| metadata | **object**
 
 Service-specific metadata associated with the operation.
 It typically contains the ID of the target resource that the operation is performed on.
@@ -133,7 +121,7 @@ The operation result.
 If `done == false` and there was no failure detected, neither `error` nor `response` is set.
 If `done == false` and there was a failure detected, `error` is set.
 If `done == true`, exactly one of `error` or `response` is set. ||
-|| response | **[Thumbnail](#yandex.cloud.video.v1.Thumbnail)**
+|| response | **object**
 
 The normal response of the operation in case of success.
 If the original method returns no data on success, such as Delete,
@@ -148,15 +136,6 @@ The operation result.
 If `done == false` and there was no failure detected, neither `error` nor `response` is set.
 If `done == false` and there was a failure detected, `error` is set.
 If `done == true`, exactly one of `error` or `response` is set. ||
-|#
-
-## CreateThumbnailMetadata {#yandex.cloud.video.v1.CreateThumbnailMetadata}
-
-#|
-||Field | Description ||
-|| thumbnailId | **string**
-
-ID of the thumbnail being created. ||
 |#
 
 ## Status {#google.rpc.Status}
@@ -174,39 +153,4 @@ An error message. ||
 || details[] | **object**
 
 A list of messages that carry the error details. ||
-|#
-
-## Thumbnail {#yandex.cloud.video.v1.Thumbnail}
-
-Entity representing an image used as a visual representation for various content entities.
-Thumbnails provide preview images for channels, streams, episodes, videos, and stream lines.
-
-#|
-||Field | Description ||
-|| id | **string**
-
-Unique identifier of the thumbnail. ||
-|| channelId | **string**
-
-Identifier of the channel where the thumbnail is created and managed. ||
-|| episodeId | **string**
-
-ID of the episode which the thumbnail is associated with.
-
-Includes only one of the fields `episodeId`, `videoId`. ||
-|| videoId | **string**
-
-ID of the video which the thumbnail is associated with.
-
-Includes only one of the fields `episodeId`, `videoId`. ||
-|| createdAt | **string** (date-time)
-
-Timestamp when the thumbnail was initially created in the system.
-
-String in [RFC3339](https://www.ietf.org/rfc/rfc3339.txt) text format. The range of possible values is from
-`0001-01-01T00:00:00Z` to `9999-12-31T23:59:59.999999999Z`, i.e. from 0 to 9 digits for fractions of a second.
-
-To work with values in this field, use the APIs described in the
-[Protocol Buffers reference](https://developers.google.com/protocol-buffers/docs/reference/overview).
-In some languages, built-in datetime utilities do not support nanosecond precision (9 digits). ||
 |#

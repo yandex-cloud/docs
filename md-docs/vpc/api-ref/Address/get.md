@@ -7,7 +7,7 @@ To get the list of all available Address resources, make a [List](list.md#List) 
 ## HTTP request
 
 ```
-GET https://vpc.api.cloud.yandex.net/vpc/v1/addresses/{addressId}
+GET https://vpc.{{ api-host }}/vpc/v1/addresses/{addressId}
 ```
 
 ## Path parameters

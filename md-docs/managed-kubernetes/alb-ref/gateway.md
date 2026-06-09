@@ -1,20 +1,20 @@
 # Поля ресурса Gateway
 
-В ресурсе `Gateway` определяются правила приема входящего трафика и выбора маршрутов (ресурсов [HTTPRoute](http-route.md), [GRPCRoute](grpc-route.md) и [TLSRoute](tls-route.md)) для этого трафика. По этим правилам [Gateway API Application Load Balancer](gateway-api/index.md) создает:
+В ресурсе `Gateway` определяются правила приема входящего трафика и выбора маршрутов (ресурсов [HTTPRoute]({{ configuration-local-link }}/http-route.md), [GRPCRoute]({{ configuration-local-link }}/grpc-route.md) и [TLSRoute]({{ configuration-local-link }}/tls-route.md)) для этого трафика. По этим правилам [Gateway API {{ alb-name }}]({{ gateway-local-link }}/index.md) создает:
 
 * [балансировщик](../../application-load-balancer/concepts/application-load-balancer.md) с нужными обработчиками;
 * [группы бэкендов](../../application-load-balancer/concepts/backend-group.md);
-* [HTTP-роутеры](../../application-load-balancer/concepts/http-router.md) (если используются ресурсы [HTTPRoute](http-route.md) или [GRPCRoute](grpc-route.md)).
+* [HTTP-роутеры](../../application-load-balancer/concepts/http-router.md) (если используются ресурсы [HTTPRoute]({{ configuration-local-link }}/http-route.md) или [GRPCRoute]({{ configuration-local-link }}/grpc-route.md)).
 
 {% note tip %}
 
-Вместо ALB Ingress-контроллера и Gateway API рекомендуется использовать новый контроллер [Yandex Cloud Gwin](gwin-index.md).
+Вместо ALB Ingress-контроллера и Gateway API рекомендуется использовать новый контроллер [{{ yandex-cloud }} Gwin]({{ gwin-tip-local-link }}).
 
 {% endnote %}
 
 `Gateway` предназначен для оператора кластера. Разработчики приложений должны использовать `TLSRoute`, `HTTPRoute` или `GRPCRoute`.
 
-`Gateway` — ресурс Kubernetes, определенный [проектом Kubernetes Gateway API](https://gateway-api.sigs.k8s.io/). Ниже описаны поля и аннотации ресурса, с которыми работает Gateway API Application Load Balancer. Полное описание конфигурации ресурса см. в [документации Kubernetes Gateway API](https://gateway-api.sigs.k8s.io/references/spec/#gateway.networking.k8s.io/v1.Gateway).
+`Gateway` — ресурс {{ k8s }}, определенный [проектом {{ k8s }} Gateway API](https://gateway-api.sigs.k8s.io/). Ниже описаны поля и аннотации ресурса, с которыми работает Gateway API {{ alb-name }}. Полное описание конфигурации ресурса см. в [документации {{ k8s }} Gateway API](https://gateway-api.sigs.k8s.io/references/spec/#gateway.networking.k8s.io/v1.Gateway).
 
 ## Gateway {#gateway}
 
@@ -49,9 +49,9 @@ spec: <GatewaySpec>
 
   * `name` (`string`, обязательное)
 
-    Имя ресурса. Подробнее о формате см. в [документации Kubernetes](https://kubernetes.io/docs/concepts/overview/working-with-objects/names/#names).
+    Имя ресурса. Подробнее о формате см. в [документации {{ k8s }}](https://kubernetes.io/docs/concepts/overview/working-with-objects/names/#names).
 
-    Не является именем балансировщика в Application Load Balancer.
+    Не является именем балансировщика в {{ alb-name }}.
   
   * `namespace` (`string`)
   
@@ -63,23 +63,23 @@ spec: <GatewaySpec>
 
     {% note info %}
 
-    Вы можете определить ресурс [GatewayPolicy](gateway-policy.md) вместо аннотаций. Набор параметров ресурса `GatewayPolicy` и аннотации `Gateway` равнозначны.
+    Вы можете определить ресурс [GatewayPolicy]({{ configuration-local-link }}/gateway-policy.md) вместо аннотаций. Набор параметров ресурса `GatewayPolicy` и аннотации `Gateway` равнозначны.
 
     {% endnote %}
 
     * `gateway.alb.yc.io/security-groups` (`string`, обязательное)
 
-      Список [групп безопасности](../../vpc/concepts/security-groups.md) Virtual Private Cloud для балансировщика. Идентификаторы групп перечисляются через запятую, например:
+      Список [групп безопасности](../../vpc/concepts/security-groups.md) {{ vpc-name }} для балансировщика. Идентификаторы групп перечисляются через запятую, например:
 
       ```
       gateway.alb.yc.io/security-groups: b0c2kotoidcoh6haf8cu,e2lnhhdj9a0aqmr78d36,e9bud5itjnl8mkjj7td1
       ```
 
-      Для корректной работы балансировщика и Gateway API группы безопасности должны быть настроены, как описано в разделе [Настройка групп безопасности для инструментов Application Load Balancer в Yandex Managed Service for Kubernetes](security-groups.md).
+      Для корректной работы балансировщика и Gateway API группы безопасности должны быть настроены, как описано в разделе [{#T}]({{ alb-local-link }}/security-groups.md).
 
     * `gateway.alb.yc.io/subnet-ids` (`string`)
 
-      Список [подсетей](../../vpc/concepts/network.md#subnet) Virtual Private Cloud в [зонах доступности](../../overview/concepts/geo-scope.md), где размещен балансировщик. Идентификаторы подсетей перечисляются через запятую.
+      Список [подсетей](../../vpc/concepts/network.md#subnet) {{ vpc-name }} в [зонах доступности](../../overview/concepts/geo-scope.md), где размещен балансировщик. Идентификаторы подсетей перечисляются через запятую.
 
     * `gateway.alb.yc.io/autoScale.minZoneSize` (`string`)
 
@@ -99,7 +99,7 @@ spec: <GatewaySpec>
 
     * `gateway.alb.yc.io/logs.logGroupId` (`string`)
 
-      Идентификатор [лог-группы](../../logging/concepts/log-group.md) для записи [логов балансировщика](../../application-load-balancer/logs-ref.md) в Yandex Cloud Logging.
+      Идентификатор [лог-группы](../../logging/concepts/log-group.md) для записи [логов балансировщика](../../application-load-balancer/logs-ref.md) в {{ cloud-logging-full-name }}.
 
     * `gateway.alb.yc.io/logs.discardRule.<имя_правила>.httpCodes` (`string`)
 
@@ -169,7 +169,7 @@ addresses:
     
     Внутреннее имя обработчика.
     
-    Используется только для нужд Kubernetes и не является именем обработчика в Application Load Balancer.
+    Используется только для нужд {{ k8s }} и не является именем обработчика в {{ alb-name }}.
   
     Имя должно иметь формат доменного, то есть соответствовать следующему регулярному выражению: 
     
@@ -189,7 +189,7 @@ addresses:
     
     Заменить звездочкой только часть первого уровня доменного имени, например `*foo.example.com`, нельзя.
   
-    К обработчику будут привязаны только те маршруты (ресурсы [HTTPRoute](http-route.md), [GRPCRoute](grpc-route.md) и [TLSRoute](tls-route.md)), доменные имена которых (поле `spec.hostnames`) «пересекаются» с доменным именем в этом поле.
+    К обработчику будут привязаны только те маршруты (ресурсы [HTTPRoute]({{ configuration-local-link }}/http-route.md), [GRPCRoute]({{ configuration-local-link }}/grpc-route.md) и [TLSRoute]({{ configuration-local-link }}/tls-route.md)), доменные имена которых (поле `spec.hostnames`) «пересекаются» с доменным именем в этом поле.
 
   * `port` (`int32`)
     
@@ -211,13 +211,13 @@ addresses:
 
     * `certificateRefs` (`[]SecretObjectReference`)
   
-      Список ресурсов Kubernetes, в которых хранятся TLS-сертификаты.
+      Список ресурсов {{ k8s }}, в которых хранятся TLS-сертификаты.
 
       Используется, только если значение поля `protocol` — `HTTPS` или `TLS`. В этом случае в списке должен быть хотя бы один сертификат.
 
       В балансировщике используется только первый сертификат из списка, остальные игнорируются.
   
-      Можно указать сертификат Certificate Manager (ресурс [YCCertificate](yc-certificate.md)) либо добавить сертификат в кластер в виде секрета (ресурса `Secret`) через консоль управления Managed Service for Kubernetes или с помощью kubectl:
+      Можно указать сертификат {{ certificate-manager-name }} (ресурс [YCCertificate]({{ configuration-local-link }}/yc-certificate.md)) либо добавить сертификат в кластер в виде секрета (ресурса `Secret`) через консоль управления {{ managed-k8s-name }} или с помощью kubectl:
   
       ```
       kubectl create secret tls <имя_секрета> \
@@ -228,19 +228,19 @@ addresses:
   
       * `group` (`string`)
 
-        Имя группы API Kubernetes, к которой относится ресурс с сертификатом, например `networking.k8s.io`.
+        Имя группы API {{ k8s }}, к которой относится ресурс с сертификатом, например `networking.k8s.io`.
 
         Значение по умолчанию — пустая строка, обозначающая корневую группу API.
 
       * `kind` (`string`)
 
-        Тип ресурса Kubernetes, в котором хранится сертификат.
+        Тип ресурса {{ k8s }}, в котором хранится сертификат.
   
-        Значение по умолчанию — `Secret`. Для сертификата Certificate Manager используется значение `YCCertificate`.
+        Значение по умолчанию — `Secret`. Для сертификата {{ certificate-manager-name }} используется значение `YCCertificate`.
 
       * `name` (`string`)
 
-        Имя ресурса Kubernetes, в котором хранится сертификат.
+        Имя ресурса {{ k8s }}, в котором хранится сертификат.
 
       * `namespace` (`string`)
   
@@ -248,7 +248,7 @@ addresses:
 
   * `allowedRoutes` (`AllowedRoutes`)
 
-    Правила, по которым для обработчика выбираются маршруты (ресурсы [HTTPRoute](http-route.md), [GRPCRoute](grpc-route.md) и [TLSRoute](tls-route.md)). Чтобы маршрут был выбран, в конфигурации этих ресурсов должно быть указание на `Gateway` в поле `spec.parentRefs`.
+    Правила, по которым для обработчика выбираются маршруты (ресурсы [HTTPRoute]({{ configuration-local-link }}/http-route.md), [GRPCRoute]({{ configuration-local-link }}/grpc-route.md) и [TLSRoute]({{ configuration-local-link }}/tls-route.md)). Чтобы маршрут был выбран, в конфигурации этих ресурсов должно быть указание на `Gateway` в поле `spec.parentRefs`.
 
     По этим маршрутам создаются [группы бэкендов](../../application-load-balancer/concepts/backend-group.md), привязываемые к обработчику. При использовании `HTTPRoute` или `GRPCRoute` также создаются [HTTP-роутеры](../../application-load-balancer/concepts/http-router.md).
 
@@ -268,7 +268,7 @@ addresses:
   
         Селектор — набор требований к пространствам имен. Выбираются только те пространства, которые удовлетворяют всем требованиям из полей `matchExpressions` и `matchLabels`.
   
-        Подробнее см. в [справочнике API Kubernetes](https://kubernetes.io/docs/reference/generated/kubernetes-api/v1.31/#labelselector-v1-meta).
+        Подробнее см. в [справочнике API {{ k8s }}](https://kubernetes.io/docs/reference/generated/kubernetes-api/v1.31/#labelselector-v1-meta).
   
         Если значение поля `from` — не `Selector`, то поле `selector` игнорируется.
 
@@ -282,7 +282,7 @@ addresses:
 
   * `value` (`string`)
   
-    Публичный IP-адрес Yandex Virtual Private Cloud, присваиваемый балансировщику.
+    Публичный IP-адрес {{ vpc-full-name }}, присваиваемый балансировщику.
   
     Перед указанием адреса в этом поле его нужно зарезервировать по [инструкции](../../vpc/operations/get-static-ip.md).
 ```

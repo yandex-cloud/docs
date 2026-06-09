@@ -1,4 +1,4 @@
-## Примеры конфигураций и сценариев Identity and Access Management {#configuration-examples}
+## Примеры конфигураций и сценариев {{ iam-name }} {#configuration-examples}
 
 * [Как изменить владельца облака](change-cloud-owner.md)
 * [Как отменить удаление облака](cancel-pending-deletion.md)

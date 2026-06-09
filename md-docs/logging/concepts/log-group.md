@@ -1,4 +1,4 @@
-# Лог-группа в Cloud Logging
+# Лог-группа в {{ cloud-logging-name }}
 
 _Лог-группа_ — это способ группировки логов сервисов и пользовательских сообщений. Группы бывают двух видов:
 
@@ -15,24 +15,24 @@ _Лог-группа_ — это способ группировки логов 
 Текущая дата - 30 дней < Время создания записи < Текущая дата + 1 день
 ```
 
-## Сервисы, которые могут писать логи в Cloud Logging {#services}
+## Сервисы, которые могут писать логи в {{ cloud-logging-name }} {#services}
 
 
-* [API Gateway](../../api-gateway/index.md)
-* [Application Load Balancer](../../application-load-balancer/index.md)
-* [Audit Trails](../../audit-trails/index.md)
-* [Cloud Functions](../../functions/index.md)
-* [Compute Cloud](../../compute/index.md) (сбор логов ВМ и пользовательских приложений через [Yandex Unified Agent](../../monitoring/concepts/data-collection/unified-agent/index.md))
-* [Container Registry](../../container-registry/index.md)
-* [DataSphere](../../datasphere/index.md)
-* [Managed Service for Apache Airflow™](../../managed-airflow/index.md)
-* [Yandex MPP Analytics for PostgreSQL](../../managed-greenplum/index.md)
-* [Managed Service for Kubernetes®](../../managed-kubernetes/index.md)
-* [Serverless Containers](../../serverless-containers/index.md)
-* [Serverless Integrations](../../serverless-integrations/index.md)
-* [Yandex Cloud Postbox](../../postbox/index.md)
-* [Yandex Cloud Notification Service](../../notifications/index.md)
-* [Yandex Data Processing](../../data-proc/index.md)
-* [Yandex Data Streams](../../data-streams/index.md)
-* [Yandex IoT Core](../../iot-core/index.md)
-* [Yandex Managed Service for PostgreSQL](../../managed-postgresql/index.md)
+* [{{ api-gw-name }}](../../api-gateway/index.md)
+* [{{ alb-name }}](../../application-load-balancer/index.md)
+* [{{ at-name }}](../../audit-trails/index.md)
+* [{{ sf-name }}](../../functions/index.md)
+* [{{ compute-name }}](../../compute/index.md) (сбор логов ВМ и пользовательских приложений через [{{ unified-agent-full-name }}](../../monitoring/concepts/data-collection/unified-agent/index.md))
+* [{{ container-registry-name }}](../../container-registry/index.md)
+* [{{ ml-platform-name }}](../../datasphere/index.md)
+* [{{ maf-name }}](../../managed-airflow/index.md)
+* [{{ mgp-name }}](../../managed-greenplum/index.md)
+* [{{ managed-k8s-name }}®](../../managed-kubernetes/index.md)
+* [{{ serverless-containers-name }}](../../serverless-containers/index.md)
+* [{{ si-name }}](../../serverless-integrations/index.md)
+* [{{ postbox-name }}](../../postbox/index.md)
+* [{{ cns-full-name }}](../../notifications/index.md)
+* [{{ dataproc-name }}](../../data-proc/index.md)
+* [{{ yds-full-name }}](../../data-streams/index.md)
+* [{{ iot-name }}](../../iot-core/index.md)
+* [{{ mpg-full-name }}](../../managed-postgresql/index.md)

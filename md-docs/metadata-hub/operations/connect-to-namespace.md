@@ -37,7 +37,7 @@
   1. Подключитесь к пространству имен:
 
       ```bash
-      curl -X GET "https://<идентификатор_пространства_имен>.schema-registry.yandexcloud.net:443/subjects" \
+      curl -X GET "https://<идентификатор_пространства_имен>.{{ schema-registry-endpoint }}/subjects" \
          -H "accept: application/json" --user 'api-key:'$SECRET
       ```
   
@@ -48,7 +48,7 @@
 
       ```bash
       sudo mkdir ./cert && \
-      sudo wget "https://storage.yandexcloud.net/cloud-certs/CA.pem" --output-document ./cert/CA.pem && \
+      sudo wget "https://{{ s3-storage-host }}/cloud-certs/CA.pem" --output-document ./cert/CA.pem && \
       sudo openssl x509 -outform der -in ./cert/CA.pem -out ./cert/CA.der && \
       sudo keytool -importcert -noprompt -alias ca -file ./cert/CA.der -keystore ./cert/CA.p12 -storepass STOREPASSW0RD
       ```
@@ -75,7 +75,7 @@
       "ssl.truststore.type": "PKCS12",
       "ssl.truststore.password": "STOREPASSW0RD",
       "value.converter": "io.confluent.connect.json.JsonSchemaConverter",
-      "value.converter.schema.registry.url": "https://<идентификатор_пространства_имен>.schema-registry.yandexcloud.net:443",
+      "value.converter.schema.registry.url": "https://<идентификатор_пространства_имен>.{{ schema-registry-endpoint }}",
       "value.converter.basic.auth.credentials.source": "USER_INFO",
       "value.converter.basic.auth.user.info": "api-key:%SECRET%"
       ```

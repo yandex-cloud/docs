@@ -1,0 +1,127 @@
+# Managed Service for Redis API, gRPC: BackupRetentionPolicyService.List
+
+List all retention policies.
+
+## gRPC request
+
+**rpc List ([ListBackupRetentionPoliciesRequest](#yandex.cloud.mdb.redis.v1.ListBackupRetentionPoliciesRequest)) returns ([ListBackupRetentionPoliciesResponse](#yandex.cloud.mdb.redis.v1.ListBackupRetentionPoliciesResponse))**
+
+## ListBackupRetentionPoliciesRequest {#yandex.cloud.mdb.redis.v1.ListBackupRetentionPoliciesRequest}
+
+```json
+{
+  "cluster_id": "string",
+  "page_size": "int64",
+  "page_token": "string"
+}
+```
+
+#|
+||Field | Description ||
+|| cluster_id | **string**
+
+Required field. ID of the Redis cluster.
+To get the Redis cluster ID use a [ClusterService.List](../../../../managed-redis/api-ref/grpc/Cluster/list#List) request.
+
+The maximum string length in characters is 50. ||
+|| page_size | **int64**
+
+The maximum number of results per page to return. If the number of available
+results is larger than `page_size`, the service returns a [ListBackupRetentionPoliciesResponse.next_page_token](#yandex.cloud.mdb.redis.v1.ListBackupRetentionPoliciesResponse)
+that can be used to get the next page of results in subsequent list requests.
+
+The maximum value is 1000. ||
+|| page_token | **string**
+
+Page token. To get the next page of results, set `page_token`
+to the [ListBackupRetentionPoliciesResponse.next_page_token](#yandex.cloud.mdb.redis.v1.ListBackupRetentionPoliciesResponse) returned by the previous list request.
+
+The maximum string length in characters is 100. ||
+|#
+
+## ListBackupRetentionPoliciesResponse {#yandex.cloud.mdb.redis.v1.ListBackupRetentionPoliciesResponse}
+
+```json
+{
+  "policies": [
+    {
+      "policy_id": "string",
+      "cluster_id": "string",
+      "policy_name": "string",
+      "created_at": "google.protobuf.Timestamp",
+      "cron": {
+        "day_of_month": "string",
+        "month": "string",
+        "day_of_week": "string"
+      },
+      "retain_for_days": "int64",
+      "description": "string"
+    }
+  ],
+  "next_page_token": "string"
+}
+```
+
+#|
+||Field | Description ||
+|| policies[] | **[BackupRetentionPolicy](#yandex.cloud.mdb.v1.BackupRetentionPolicy)**
+
+List of [BackupRetentionPolicy](#yandex.cloud.mdb.v1.BackupRetentionPolicy) associated with the cluster. ||
+|| next_page_token | **string**
+
+This token allows you to get the next page of results for list requests. If the number of results
+is larger than [ListBackupRetentionPoliciesRequest.page_size](#yandex.cloud.mdb.redis.v1.ListBackupRetentionPoliciesRequest), use the `next_page_token` as the value
+for the [ListBackupRetentionPoliciesRequest.page_token](#yandex.cloud.mdb.redis.v1.ListBackupRetentionPoliciesRequest) query parameter in the next list request.
+Each subsequent list request will have its own `next_page_token` to continue paging through the results. ||
+|#
+
+## BackupRetentionPolicy {#yandex.cloud.mdb.v1.BackupRetentionPolicy}
+
+Message to describe a retention policy for cluster backups.
+
+#|
+||Field | Description ||
+|| policy_id | **string**
+
+Required field. Required. Policy ID. ||
+|| cluster_id | **string**
+
+Required field. Cluster ID.
+
+The maximum string length in characters is 50. ||
+|| policy_name | **string**
+
+Required field. Required. Policy name. ||
+|| created_at | **[google.protobuf.Timestamp](https://developers.google.com/protocol-buffers/docs/reference/google.protobuf#timestamp)**
+
+Creation timestamp in [RFC3339](https://www.ietf.org/rfc/rfc3339.txt) text format. ||
+|| cron | **[CronTab](#yandex.cloud.mdb.v1.CronTab)**
+
+CronTab schedule. ||
+|| retain_for_days | **int64**
+
+Retention duration. ||
+|| description | **string**
+
+Human-readable description. ||
+|#
+
+## CronTab {#yandex.cloud.mdb.v1.CronTab}
+
+Message to describe a crontab schedule.
+
+#|
+||Field | Description ||
+|| day_of_month | **string**
+
+Day of month in cron format. Valid values: 1-31, *, ranges (1-15), steps (*/2, 1-15/3), lists (1,15,28).
+Defaults to "*". ||
+|| month | **string**
+
+Month in cron format. Valid values: 1-12, *, ranges (1-6), steps (*/3), lists (1,6,12).
+Defaults to "*". ||
+|| day_of_week | **string**
+
+Day of week in cron format. Valid values: 0-7 (0 and 7 both mean Sunday), *, ranges (1-5), steps (0-6/2), lists (1,3,5).
+Defaults to "*". ||
+|#

@@ -2,7 +2,7 @@
 
 [AWS Encryption SDK](https://docs.aws.amazon.com/encryption-sdk/latest/developer-guide/introduction.html) — библиотека, упрощающая процесс шифрования и расшифрования данных. Используйте ее, если хотите безопасно зашифровать данные, не углубляясь в тонкости работы алгоритмов шифрования.
 
-[Провайдер Yandex Cloud для AWS Encryption SDK](https://github.com/yandex-cloud/kms-clients-java/tree/master/kms-provider-awsCrypto) позволяет с помощью AWS Encryption SDK шифровать и расшифровывать данные на ключах Yandex Key Management Service. Данные шифруются [по схеме envelope encryption](../../../kms/concepts/envelope.md) (объем открытого текста не ограничен). Поддерживается только провайдер на Java.
+[Провайдер {{ yandex-cloud }} для AWS Encryption SDK](https://github.com/yandex-cloud/kms-clients-java/tree/master/kms-provider-awsCrypto) позволяет с помощью AWS Encryption SDK шифровать и расшифровывать данные на ключах {{ kms-full-name }}. Данные шифруются [по схеме envelope encryption](../../../kms/concepts/envelope.md) (объем открытого текста не ограничен). Поддерживается только провайдер на Java.
 
 ## Добавление зависимостей {#dependency}
 
@@ -26,7 +26,7 @@
 
 ## Шифрование и расшифрование {#encrypt-decrypt}
 
-Создайте провайдер Yandex Cloud для AWS Encryption SDK и используйте методы класса [AwsCrypto](https://aws.github.io/aws-encryption-sdk-java/com/amazonaws/encryptionsdk/AwsCrypto.html) для шифрования и расшифрования данных.
+Создайте провайдер {{ yandex-cloud }} для AWS Encryption SDK и используйте методы класса [AwsCrypto](https://aws.github.io/aws-encryption-sdk-java/com/amazonaws/encryptionsdk/AwsCrypto.html) для шифрования и расшифрования данных.
 
 {% list tabs group=programming_language %}
 
@@ -51,9 +51,9 @@
 
     Где:
 
-    * `endpoint` – `api.cloud.yandex.net:443`.
-    * `credentials` – определяет способ аутентификации, подробнее читайте в разделе [Аутентификация в SDK Yandex Cloud](../../../kms/tutorials/encrypt/sdk.md#auth).
-    * `keyId` – идентификатор [ключа KMS](../../../kms/concepts/key.md).
+    * `endpoint` – `{{ api-host }}:443`.
+    * `credentials` – определяет способ аутентификации, подробнее читайте в разделе [Аутентификация в SDK {{ yandex-cloud }}](../../../kms/tutorials/encrypt/sdk.md#auth).
+    * `keyId` – идентификатор [ключа {{ kms-short-name }}](../../../kms/concepts/key.md).
     * `plaintext` – открытый текст.
     * `ciphertext` – шифртекст.
     * `aad` – [AAD-контекст](../../../kms/concepts/symmetric-encryption.md#add-context).
@@ -62,5 +62,5 @@
 
 #### См. также {#see-also}
 * [AWS Encryption SDK](https://docs.aws.amazon.com/encryption-sdk/latest/developer-guide/introduction.html).
-* [Провайдер Yandex Cloud для AWS Encryption SDK](https://github.com/yandex-cloud/kms-clients-java/tree/master/kms-provider-awsCrypto).
-* [Примеры использования провайдера Yandex Cloud KMS Providers для AWS Encryption SDK](https://github.com/yandex-cloud/kms-clients-java/tree/master/kms-provider-awsCrypto/src/main/java/com/yandex/cloud/kms/providers/examples).
+* [Провайдер {{ yandex-cloud }} для AWS Encryption SDK](https://github.com/yandex-cloud/kms-clients-java/tree/master/kms-provider-awsCrypto).
+* [Примеры использования провайдера {{ yandex-cloud }} KMS Providers для AWS Encryption SDK](https://github.com/yandex-cloud/kms-clients-java/tree/master/kms-provider-awsCrypto/src/main/java/com/yandex/cloud/kms/providers/examples).

@@ -5,7 +5,7 @@ Creates a security group in the specified folder and network.
 ## HTTP request
 
 ```
-POST https://vpc.api.cloud.yandex.net/vpc/v1/securityGroups
+POST https://vpc.{{ api-host }}/vpc/v1/securityGroups
 ```
 
 ## Body parameters {#yandex.cloud.vpc.v1.CreateSecurityGroupRequest}

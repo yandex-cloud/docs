@@ -1,7 +1,6 @@
 # Managed Service for ClickHouse API, gRPC: BackupService.Get
 
 Returns the specified ClickHouse Backup resource.
-
 To get the list of available ClickHouse Backup resources, make a [List](list.md#List) request.
 
 ## gRPC request
@@ -48,7 +47,7 @@ for more information.
 ||Field | Description ||
 || id | **string**
 
-ID of the backup. ||
+Required field. ID of the backup. ||
 || folder_id | **string**
 
 ID of the folder that the backup belongs to. ||

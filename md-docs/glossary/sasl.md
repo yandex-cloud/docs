@@ -36,7 +36,7 @@ _SASL_ (Simple Authentication and Security Layer) — фреймворк для 
 * EXTERNAL — аутентификация работает в контексте протоколов с уже определенными технологиями защиты, такими как [TLS](tls.md) и [IPSec](ipsec.md).
 * ANONYMOUS — для анонимного гостевого доступа.
 * SCRAM — стандартный механизм формата «запрос — ответ».
-* GSSAPI — механизм на основе протокола [Kerberos](https://ru.wikipedia.org/wiki/Kerberos), основанного на криптографии симметричных ключей.
+* GSSAPI — механизм на основе протокола [Kerberos](https://{{ lang }}.wikipedia.org/wiki/Kerberos), основанного на криптографии симметричных ключей.
 * OAUTHBEARER — аутентификация проходит с помощью OAuth-токенов 2.0.
 * PLAIN — позволяет передавать логин и пароль в открытом виде.
 * DIGEST-MD5 — пользователю присваивается уникальный идентификатор, основанный на хэше его пароля и других данных.
@@ -52,10 +52,10 @@ _SASL_ (Simple Authentication and Security Layer) — фреймворк для 
 * LDAP (Lightweight Directory Access Protocol) — легковесный протокол для совершения простых операций на сервере.
 * EMPP (Extensible Messaging and Presence Protocol или Jabber) — используется в соцсетях для обмена текстом и медиаконтентом.
 
-## Применение SASL в Yandex Cloud {#yc}
+## Применение SASL в {{ yandex-cloud }} {#yc}
 
-Среди облачных сервисов Yandex Cloud фреймворк SASL используется в [Yandex Managed Service for Apache Kafka®](https://yandex.cloud/ru/services/managed-kafka/). К кластерам Apache Kafka® можно подключиться с использованием шифрования (SASL_SSL) — порт 9091, так и без него (SASL_PLAINTEXT) — порт 9092. Подробнее см. в [документации](../managed-kafka/index.md).
+Среди облачных сервисов {{ yandex-cloud }} фреймворк SASL используется в [{{ mkf-full-name }}](https://yandex.cloud/ru/services/managed-kafka/). К кластерам {{ KF }} можно подключиться как с использованием шифрования (SASL_SSL) — порт 9091, так и без него (SASL_PLAINTEXT) — порт 9092. Подробнее в [документации](../managed-kafka/index.md).
 
-Чтобы безопасно поставлять данные из топиков Apache Kafka® в облачные хранилища, воспользуйтесь [руководствами](../data-transfer/tutorials/index.md#delivery-to-queue) сервиса [Yandex Data Transfer](https://yandex.cloud/ru/services/data-transfer/).
+Чтобы безопасно поставлять данные из топиков {{ KF }} в облачные хранилища, воспользуйтесь [руководствами](../data-transfer/tutorials/index.md#delivery-to-queue) сервиса [{{ data-transfer-full-name }}](https://yandex.cloud/ru/services/data-transfer/).
 
-Сервис [Yandex Managed Service for ClickHouse®](https://yandex.cloud/ru/services/managed-clickhouse/) также позволяет использовать SASL для аутентификации в любых кластерах Apache Kafka® и [получения данных](../tutorials/dataplatform/fetch-data-from-mkf.md) оттуда. Подробнее см. в [документации](../managed-clickhouse/index.md).
+Сервис [{{ mch-full-name }}](https://yandex.cloud/ru/services/managed-clickhouse/) также позволяет использовать SASL для аутентификации в любых кластерах {{ KF }} и [получения данных](../tutorials/dataplatform/fetch-data-from-mkf.md) оттуда. Подробнее в [документации](../managed-clickhouse/index.md).

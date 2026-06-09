@@ -5,7 +5,7 @@ Creates an Apache Airflow cluster.
 ## HTTP request
 
 ```
-POST https://airflow.api.cloud.yandex.net/managed-airflow/v1/clusters
+POST https://airflow.{{ api-host }}/managed-airflow/v1/clusters
 ```
 
 ## Body parameters {#yandex.cloud.airflow.v1.CreateClusterRequest}

@@ -5,7 +5,7 @@ Adds shared resource to community
 ## HTTP request
 
 ```
-POST https://datasphere.api.cloud.yandex.net/datasphere/v2/communities/{resourceId}:addResource
+POST https://datasphere.{{ api-host }}/datasphere/v2/communities/{resourceId}:addResource
 ```
 
 ## Path parameters

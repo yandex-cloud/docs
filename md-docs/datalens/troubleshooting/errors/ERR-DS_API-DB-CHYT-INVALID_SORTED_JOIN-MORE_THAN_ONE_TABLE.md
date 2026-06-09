@@ -1,4 +1,4 @@
-# [Yandex DataLens] Cannot join a concatenation of tables with another table
+# [{{ datalens-full-name }}] Cannot join a concatenation of tables with another table
 
 `ERR.DS_API.DB.CHYT.INVALID_SORTED_JOIN.MORE_THAN_ONE_TABLE`
 

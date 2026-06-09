@@ -5,7 +5,7 @@ Updates the specified private endpoint.
 ## HTTP request
 
 ```
-PATCH https://vpc.api.cloud.yandex.net/vpc/v1/endpoints/{privateEndpointId}
+PATCH https://vpc.{{ api-host }}/vpc/v1/endpoints/{privateEndpointId}
 ```
 
 ## Path parameters

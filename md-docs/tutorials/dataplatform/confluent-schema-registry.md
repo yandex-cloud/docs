@@ -1,6 +1,6 @@
-# Использование Confluent Schema Registry с Yandex Managed Service for Apache Kafka®
+# Использование Confluent Schema Registry с {{ mkf-full-name }}
 
-В Managed Service for Apache Kafka® вы можете использовать интегрированный реестр схем формата данных [Managed Schema Registry](../../managed-kafka/concepts/managed-schema-registry.md#msr). Подробнее см. в разделе [Работа с управляемым реестром схем формата данных](../../managed-kafka/tutorials/managed-schema-registry.md). Если вам необходим реестр [Confluent Schema Registry](https://docs.confluent.io/platform/current/schema-registry/index.html), используйте информацию из этого руководства.
+В {{ mkf-name }} вы можете использовать интегрированный реестр схем формата данных [{{ mkf-msr }}](../../managed-kafka/concepts/managed-schema-registry.md#msr). Подробнее см. в разделе [{#T}](../../managed-kafka/tutorials/managed-schema-registry.md). Если вам необходим реестр [Confluent Schema Registry](https://docs.confluent.io/platform/current/schema-registry/index.html), используйте информацию из этого руководства.
 
 {% note info %}
 
@@ -8,7 +8,7 @@
 
 {% endnote %}
 
-Чтобы использовать Confluent Schema Registry совместно с Managed Service for Apache Kafka®:
+Чтобы использовать Confluent Schema Registry совместно с {{ mkf-name }}:
 
 1. [Создайте топик для уведомлений об изменении схем форматов данных](#create-schemas-topic).
 1. [Установите и настройте Confluent Schema Registry на виртуальной машине](#configure-vm).
@@ -22,14 +22,14 @@
 
 В стоимость поддержки описываемого решения входят:
 
-* Плата за кластер Managed Service for Apache Kafka®: использование вычислительных ресурсов, выделенных хостам (в том числе хостам ZooKeeper), и дискового пространства (см. [тарифы Apache Kafka®](../../managed-kafka/pricing.md)).
-* Плата за использование публичных IP-адресов, если для хостов кластера включен публичный доступ (см. [тарифы Virtual Private Cloud](../../vpc/pricing.md)).
-* Плата за ВМ: использование вычислительных ресурсов, хранилища и публичного IP-адреса (см. [тарифы Compute Cloud](../../compute/pricing.md)).
+* Плата за кластер {{ mkf-name }}: использование вычислительных ресурсов, выделенных хостам (в том числе хостам {{ ZK }}), и дискового пространства (см. [тарифы {{ KF }}](../../managed-kafka/pricing.md)).
+* Плата за использование публичных IP-адресов, если для хостов кластера включен публичный доступ (см. [тарифы {{ vpc-name }}](../../vpc/pricing.md)).
+* Плата за ВМ: использование вычислительных ресурсов, хранилища и публичного IP-адреса (см. [тарифы {{ compute-name }}](../../compute/pricing.md)).
 
 
 ## Перед началом работы {#before-you-begin}
 
-1. [Создайте кластер Managed Service for Apache Kafka®](../../managed-kafka/operations/cluster-create.md) любой подходящей конфигурации.
+1. [Создайте кластер {{ mkf-name }}](../../managed-kafka/operations/cluster-create.md) любой подходящей конфигурации.
 
     1. [Создайте топик](../../managed-kafka/operations/cluster-topics.md#create-topic) с именем `messages` для обмена сообщениями между производителем и потребителем.
     1. [Создайте пользователя](../../managed-kafka/operations/cluster-accounts.md#create-account) с именем `user` и [выдайте ему права](../../managed-kafka/operations/cluster-accounts.md#grant-permission) на топик `messages`:
@@ -37,30 +37,30 @@
         * `ACCESS_ROLE_PRODUCER`.
 
 
-1. В той же сети, что и кластер Managed Service for Apache Kafka®, [создайте виртуальную машину](../../compute/operations/vm-create/create-linux-vm.md) с [Ubuntu 20.04 LTS](https://yandex.cloud/ru/marketplace/products/yc/ubuntu-20-04-lts) из Cloud Marketplace и публичным IP-адресом.
+1. В той же сети, что и кластер {{ mkf-name }}, [создайте виртуальную машину](../../compute/operations/vm-create/create-linux-vm.md) с [Ubuntu 20.04 LTS](https://yandex.cloud/ru/marketplace/products/yc/ubuntu-20-04-lts) из {{ marketplace-name }} и публичным IP-адресом.
 
 
 
-1. Если вы используете группы безопасности, [настройте их](../../managed-kafka/operations/connect/index.md#configuring-security-groups) так, чтобы был разрешен весь необходимый трафик между кластером Managed Service for Apache Kafka® и виртуальной машиной.
+1. Если вы используете группы безопасности, [настройте их](../../managed-kafka/operations/connect/index.md#configuring-security-groups) так, чтобы был разрешен весь необходимый трафик между кластером {{ mkf-name }} и виртуальной машиной.
 
 1. В группах безопасности виртуальной машины [создайте правило](../../vpc/operations/security-group-add-rule.md) для входящего трафика, разрешающее подключение через порт `8081` — через него производитель и потребитель будут обращаться к реестру схем:
 
-    * **Диапазон портов**: `8081`.
-    * **Протокол**: `TCP`.
-    * **Назначение**: `CIDR`.
-    * **CIDR блоки**: `0.0.0.0/0` или диапазоны адресов подсетей, в которых работают производитель и потребитель.
+    * **{{ ui-key.yacloud.vpc.network.security-groups.forms.field_sg-rule-port-range }}**: `8081`.
+    * **{{ ui-key.yacloud.vpc.network.security-groups.forms.field_sg-rule-protocol }}**: `{{ ui-key.yacloud.common.label_tcp }}`.
+    * **{{ ui-key.yacloud.vpc.network.security-groups.forms.field_sg-rule-destination }}**: `{{ ui-key.yacloud.vpc.network.security-groups.forms.value_sg-rule-destination-cidr }}`.
+    * **{{ ui-key.yacloud.vpc.network.security-groups.forms.field_sg-rule-cidr-blocks }}**: `0.0.0.0/0` или диапазоны адресов подсетей, в которых работают производитель и потребитель.
 
 
 ## Создайте топик для уведомлений об изменении схем форматов данных {#create-schemas-topic}
 
 1. [Создайте служебный топик](../../managed-kafka/operations/cluster-topics.md#create-topic) с именем `_schemas` со следующими настройками:
 
-    * **Количество разделов** — `1`.
-    * **Политика очистки лога** — `Compact`.
+    * **{{ ui-key.yacloud.kafka.label_partitions }}** — `1`.
+    * **{{ ui-key.yacloud.kafka.label_topic-cleanup-policy }}** — `Compact`.
 
     {% note warning %}
 
-    Указанные значения настроек **Количество разделов** и **Политика очистки лога** необходимы для работы Confluent Schema Registry.
+    Указанные значения настроек **{{ ui-key.yacloud.kafka.label_partitions }}** и **{{ ui-key.yacloud.kafka.label_topic-cleanup-policy }}** необходимы для работы Confluent Schema Registry.
 
     {% endnote %}
 
@@ -99,7 +99,7 @@
     sudo keytool \
          -keystore /etc/schema-registry/client.truststore.jks \
          -alias CARoot \
-         -import -file /usr/local/share/ca-certificates/Yandex/YandexInternalRootCA.crt \
+         -import -file {{ crt-local-dir }}{{ crt-local-file }} \
          -storepass <пароль_защищенного_хранилища_сертификатов> \
          --noprompt
     ```
@@ -218,7 +218,7 @@
             ]),
             "group.id": "avro-consumer",
             "security.protocol": "SASL_SSL",
-            "ssl.ca.location": "/usr/local/share/ca-certificates/Yandex/YandexInternalRootCA.crt",
+            "ssl.ca.location": "{{ crt-local-dir }}{{ crt-local-file }}",
             "sasl.mechanism": "SCRAM-SHA-512",
             "sasl.username": "user",
             "sasl.password": "<пароль_пользователя_user>",
@@ -316,7 +316,7 @@
                 "<FQDN_хоста-брокера_N>:9091",
             ]),
             "security.protocol": "SASL_SSL",
-            "ssl.ca.location": "/usr/local/share/ca-certificates/Yandex/YandexInternalRootCA.crt",
+            "ssl.ca.location": "{{ crt-local-dir }}{{ crt-local-file }}",
             "sasl.mechanism": "SCRAM-SHA-512",
             "sasl.username": "user",
             "sasl.password": "<пароль_пользователя_user>",
@@ -355,6 +355,6 @@
 
 Удалите ресурсы, которые вы больше не будете использовать, чтобы за них не списывалась плата:
 
-* [Удалите кластер Managed Service for Apache Kafka®](../../managed-kafka/operations/cluster-delete.md).
+* [Удалите кластер {{ mkf-name }}](../../managed-kafka/operations/cluster-delete.md).
 * [Удалите виртуальную машину](../../compute/operations/vm-control/vm-delete.md).
 * Если вы зарезервировали публичные статические IP-адреса, освободите и [удалите их](../../vpc/operations/address-delete.md)

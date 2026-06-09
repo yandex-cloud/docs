@@ -1,16 +1,16 @@
 # Поля ресурса HTTPRoute
 
-В ресурсе `HTTPRoute` определяются правила маршрутизации трафика по бэкендам — сервисам Kubernetes (ресурсам [Service](service-for-gateway.md)) или перенаправления трафика. `HTTPRoute` получает входящий трафик от тех [ресурсов Gateway](gateway.md), требованиям которых он соответствует.
+В ресурсе `HTTPRoute` определяются правила маршрутизации трафика по бэкендам — сервисам {{ k8s }} (ресурсам [Service]({{ configuration-local-link }}/service-for-gateway.md)) или перенаправления трафика. `HTTPRoute` получает входящий трафик от тех [ресурсов Gateway]({{ configuration-local-link }}/gateway.md), требованиям которых он соответствует.
 
 {% note tip %}
 
-Вместо ALB Ingress-контроллера и Gateway API рекомендуется использовать новый контроллер [Yandex Cloud Gwin](../tools/gwin/index.md).
+Вместо ALB Ingress-контроллера и Gateway API рекомендуется использовать новый контроллер [{{ yandex-cloud }} Gwin]({{ gwin-tip-local-link }}).
 
 {% endnote %}
 
 `HTTPRoute` предназначен для разработчиков приложений. Оператор кластера должен использовать `Gateway`.
 
-`HTTPRoute` — ресурс Kubernetes, определенный [проектом Kubernetes Gateway API](https://gateway-api.sigs.k8s.io/). Ниже описаны поля и аннотации ресурса, с которыми работает Gateway API Application Load Balancer. Полное описание конфигурации ресурса см. в [документации Kubernetes Gateway API](https://gateway-api.sigs.k8s.io/references/spec/#gateway.networking.k8s.io/v1.HTTPRoute).
+`HTTPRoute` — ресурс {{ k8s }}, определенный [проектом {{ k8s }} Gateway API](https://gateway-api.sigs.k8s.io/). Ниже описаны поля и аннотации ресурса, с которыми работает Gateway API {{ alb-name }}. Полное описание конфигурации ресурса см. в [документации {{ k8s }} Gateway API](https://gateway-api.sigs.k8s.io/references/spec/#gateway.networking.k8s.io/v1.HTTPRoute).
 
 ## HTTPRoute {#httproute}
 
@@ -70,9 +70,9 @@ spec: <HTTPRouteSpec>
 
   * `name` (`string`, обязательное)
 
-    Имя ресурса. Подробнее о формате см. в [документации Kubernetes](https://kubernetes.io/docs/concepts/overview/working-with-objects/names/#names).
+    Имя ресурса. Подробнее о формате см. в [документации {{ k8s }}](https://kubernetes.io/docs/concepts/overview/working-with-objects/names/#names).
 
-    Не является именем маршрута в Application Load Balancer.
+    Не является именем маршрута в {{ alb-name }}.
 
   * `namespace` (`string`)
 
@@ -84,7 +84,7 @@ spec: <HTTPRouteSpec>
 
     {% note info %}
 
-    Вы можете определить ресурс [RoutePolicy](route-policy.md) вместо аннотаций. Набор параметров ресурса `RoutePolicy` и аннотации `HTTPRoute` равнозначны.
+    Вы можете определить ресурс [RoutePolicy]({{ configuration-local-link }}/route-policy.md) вместо аннотаций. Набор параметров ресурса `RoutePolicy` и аннотации `HTTPRoute` равнозначны.
 
     {% endnote %}
 
@@ -98,7 +98,7 @@ spec: <HTTPRouteSpec>
     
     * `gateway.alb.yc.io/rules.securityProfileId` (`string`)
     
-      Идентификатор [профиля безопасности](../../smartwebsecurity/concepts/profiles.md) Smart Web Security для маршрута.
+      Идентификатор [профиля безопасности](../../smartwebsecurity/concepts/profiles.md) {{ sws-name }} для маршрута.
 
     * `gateway.alb.yc.io/hosts.securityProfileId` (`string`)
     
@@ -198,7 +198,7 @@ spec: <HTTPRouteSpec>
 
     * `gateway.alb.yc.io/rules.securityProfileId`
 
-      Идентификатор профиля безопасности Smart Web Security для маршрута.
+      Идентификатор профиля безопасности {{ sws-name }} для маршрута.
 
     * `gateway.alb.yc.io/rules.rbac.action`
     
@@ -289,9 +289,9 @@ rules:
 
 * `parentRefs` (`[]ParentReference`, обязательное)
 
-  Список ресурсов `Gateway` (или их обработчиков из поля `spec.listeners` — см. [справочник](gateway.md#spec)), к которым должен быть привязан `HTTPRoute`.
+  Список ресурсов `Gateway` (или их обработчиков из поля `spec.listeners` — см. [справочник]({{ configuration-local-link }}/gateway.md#spec)), к которым должен быть привязан `HTTPRoute`.
 
-  Также маршрут должен удовлетворять правилам, описанным в [конфигурации](gateway.md#spec) `Gateway` (поле `spec.listeners.allowedRoutes`).
+  Также маршрут должен удовлетворять правилам, описанным в [конфигурации]({{ configuration-local-link }}/gateway.md#spec) `Gateway` (поле `spec.listeners.allowedRoutes`).
   
   * `namespace` (`string`)
     
@@ -367,13 +367,13 @@ rules:
 
   * `backendRefs` (`[]HTTPBackendRef`)
 
-    Список [сервисов Kubernetes](../../managed-kubernetes/concepts/index.md#service), которые должны обрабатывать запрос в качестве бэкенда.
+    Список [сервисов {{ k8s }}](../../managed-kubernetes/concepts/index.md#service), которые должны обрабатывать запрос в качестве бэкенда.
 
-    Можно указать ресурс [YCStorageBucket](yc-storage-bucket.md) (бакет Object Storage) либо ресурс [Service](service-for-gateway.md).
+    Можно указать ресурс [YCStorageBucket]({{ configuration-local-link }}/yc-storage-bucket.md) (бакет {{ objstorage-name }}) либо ресурс [Service]({{ configuration-local-link }}/service-for-gateway.md).
   
      * `name` (`string`)
 
-       Имя сервиса Kubernetes или ресурса с бакетом.
+       Имя сервиса {{ k8s }} или ресурса с бакетом.
 
      * `namespace` (`string`)
   
@@ -381,21 +381,21 @@ rules:
 
      * `group` (`string`)
 
-       Имя группы API Kubernetes, к которой относится ресурс с бакетом, например `gwin.yandex.cloud`. Только для ресурса `YCStorageBucket`.
+       Имя группы API {{ k8s }}, к которой относится ресурс с бакетом, например `gwin.yandex.cloud`. Только для ресурса `YCStorageBucket`.
 
        Значение по умолчанию — пустая строка, обозначающая корневую группу API.
 
      * `kind` (`string`)
 
-       Тип ресурса Kubernetes с бакетом. Только для ресурса `YCStorageBucket`. Используется значение `YCStorageBucket`.
+       Тип ресурса {{ k8s }} с бакетом. Только для ресурса `YCStorageBucket`. Используется значение `YCStorageBucket`.
 
      * `port` (`int32`)
 
        Номер порта сервиса. Только для ресурса `Service`.
 
-       Номер должен совпадать с одним из номеров портов, указанных в полях `spec.ports.port` ресурса `Service`. Подробнее см. в [конфигурации ресурса](service-for-gateway.md).
+       Номер должен совпадать с одним из номеров портов, указанных в полях `spec.ports.port` ресурса `Service`. Подробнее см. в [конфигурации ресурса]({{ configuration-local-link }}/service-for-gateway.md).
 
-       Поле предназначено для работы Gateway API и не соответствует ни одному из полей ресурсов Application Load Balancer.
+       Поле предназначено для работы Gateway API и не соответствует ни одному из полей ресурсов {{ alb-name }}.
        
      * `weight` (`int32`)
 
@@ -486,7 +486,7 @@ requestRedirect:
     
     Настройки перенаправления для изменения схемы (`scheme`) и доменного имени (`hostname`) поддерживаются в Gateway API версии `0.4.31` и выше.
     
-    [Установите](../operations/k8s-gateway-api-install.md) актуальную версию Gateway API, если нужна поддержка этих настроек.
+    [Установите]({{ gateway-install-local-link }}) актуальную версию Gateway API, если нужна поддержка этих настроек.
     
     {% endnote %}
 
@@ -539,7 +539,7 @@ requestRedirect:
 
 Настройки перенаправления для изменения схемы (`scheme`) и доменного имени (`hostname`) поддерживаются в Gateway API версии `0.4.31` и выше.
 
-[Установите](../operations/k8s-gateway-api-install.md) актуальную версию Gateway API, если нужна поддержка этих настроек.
+[Установите]({{ gateway-install-local-link }}) актуальную версию Gateway API, если нужна поддержка этих настроек.
 
 {% endnote %}
 

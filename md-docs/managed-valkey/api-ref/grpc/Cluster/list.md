@@ -359,7 +359,8 @@ The maximum string length in characters is 1000. ||
             "io_threads_allowed": "google.protobuf.BoolValue",
             "zset_max_listpack_entries": "google.protobuf.Int64Value",
             "aof_max_size_percent": "google.protobuf.Int64Value",
-            "activedefrag": "google.protobuf.BoolValue"
+            "activedefrag": "google.protobuf.BoolValue",
+            "audit_log": "google.protobuf.BoolValue"
           },
           "user_config": {
             "maxmemory_policy": "MaxmemoryPolicy",
@@ -393,7 +394,8 @@ The maximum string length in characters is 1000. ||
             "io_threads_allowed": "google.protobuf.BoolValue",
             "zset_max_listpack_entries": "google.protobuf.Int64Value",
             "aof_max_size_percent": "google.protobuf.Int64Value",
-            "activedefrag": "google.protobuf.BoolValue"
+            "activedefrag": "google.protobuf.BoolValue",
+            "audit_log": "google.protobuf.BoolValue"
           },
           "default_config": {
             "maxmemory_policy": "MaxmemoryPolicy",
@@ -427,7 +429,8 @@ The maximum string length in characters is 1000. ||
             "io_threads_allowed": "google.protobuf.BoolValue",
             "zset_max_listpack_entries": "google.protobuf.Int64Value",
             "aof_max_size_percent": "google.protobuf.Int64Value",
-            "activedefrag": "google.protobuf.BoolValue"
+            "activedefrag": "google.protobuf.BoolValue",
+            "audit_log": "google.protobuf.BoolValue"
           }
         },
         "disk_size_autoscaling": {
@@ -502,23 +505,23 @@ list request will have its own `next_page_token` to continue paging through the 
 ## Cluster {#yandex.cloud.mdb.redis.v1.Cluster}
 
 Description of a Redis cluster. For more information, see
-the Managed Service for Redis [documentation](../../../concepts/index.md).
+the Managed Service for Redis [documentation](../../../../managed-redis/concepts).
 
 #|
 ||Field | Description ||
 || id | **string**
 
-ID of the Redis cluster.
+Required field. ID of the Redis cluster.
 This ID is assigned by MDB at creation time. ||
 || folder_id | **string**
 
-ID of the folder that the Redis cluster belongs to. ||
+Required field. ID of the folder that the Redis cluster belongs to. ||
 || created_at | **[google.protobuf.Timestamp](https://developers.google.com/protocol-buffers/docs/reference/google.protobuf#timestamp)**
 
-Creation timestamp in [RFC3339](https://www.ietf.org/rfc/rfc3339.txt) text format. ||
+Required field. Creation timestamp in [RFC3339](https://www.ietf.org/rfc/rfc3339.txt) text format. ||
 || name | **string**
 
-Name of the Redis cluster.
+Required field. Name of the Redis cluster.
 The name is unique within the folder. 3-63 characters long. ||
 || description | **string**
 
@@ -529,7 +532,7 @@ Custom labels for the Redis cluster as `key:value` pairs.
 Maximum 64 per cluster. ||
 || environment | enum **Environment**
 
-Deployment environment of the Redis cluster.
+Required field. Deployment environment of the Redis cluster.
 
 - `PRODUCTION`: Stable environment with a conservative update policy:
 only hotfixes are applied during regular maintenance.
@@ -540,11 +543,13 @@ are rolled out irrespective of backward compatibility. ||
 Description of monitoring systems relevant to the Redis cluster. ||
 || config | **[ClusterConfig](#yandex.cloud.mdb.redis.v1.ClusterConfig)**
 
-Configuration of the Redis cluster. ||
-|| network_id | **string** ||
+Required field. Configuration of the Redis cluster. ||
+|| network_id | **string**
+
+Required field. ID of the network that the cluster belongs to. ||
 || health | enum **Health**
 
-Aggregated cluster health.
+Required field. Aggregated cluster health.
 
 - `HEALTH_UNKNOWN`: Cluster is in unknown state (we have no data)
 - `ALIVE`: Cluster is alive and well (all hosts are alive)
@@ -552,7 +557,7 @@ Aggregated cluster health.
 - `DEGRADED`: Cluster is partially alive (it can perform some of its essential functions) ||
 || status | enum **Status**
 
-Cluster status.
+Required field. Cluster status.
 
 - `STATUS_UNKNOWN`: Cluster status is unknown
 - `CREATING`: Cluster is being created
@@ -567,7 +572,7 @@ Cluster status.
 Redis cluster mode on/off. ||
 || maintenance_window | **[MaintenanceWindow](#yandex.cloud.mdb.redis.v1.MaintenanceWindow)**
 
-Maintenance window for the cluster. ||
+Required field. Maintenance window for the cluster. ||
 || planned_operation | **[MaintenanceOperation](#yandex.cloud.mdb.redis.v1.MaintenanceOperation)**
 
 Planned maintenance operation to be started for the cluster within the nearest `maintenance_window`. ||
@@ -584,9 +589,9 @@ Deletion Protection inhibits deletion of the cluster ||
 
 Persistence mode
 
-- `ON`: cluster persistence mode on
-- `OFF`: cluster persistence mode off
-- `ON_REPLICAS`: cluster persistence on replicas only ||
+- `ON`: Cluster persistence mode is on.
+- `OFF`: Cluster persistence mode is off.
+- `ON_REPLICAS`: Cluster persistence is on for replicas only. ||
 || announce_hostnames | **bool**
 
 Enable FQDN instead of ip ||
@@ -604,13 +609,13 @@ ID of the key to encrypt cluster disks. ||
 ||Field | Description ||
 || name | **string**
 
-Name of the monitoring system. ||
+Required field. Name of the monitoring system. ||
 || description | **string**
 
 Description of the monitoring system. ||
 || link | **string**
 
-Link to the monitoring system charts for the Redis cluster. ||
+Required field. Link to the monitoring system charts for the Redis cluster. ||
 |#
 
 ## ClusterConfig {#yandex.cloud.mdb.redis.v1.ClusterConfig}
@@ -650,16 +655,16 @@ Includes only one of the fields `redis_config_5_0`, `redis_config_6_0`, `redis_c
 Configuration for Redis servers in the cluster. ||
 || resources | **[Resources](#yandex.cloud.mdb.redis.v1.Resources)**
 
-Resources allocated to Redis hosts. ||
+Required field. Resources allocated to Redis hosts. ||
 || backup_window_start | **[google.type.TimeOfDay](https://github.com/googleapis/googleapis/blob/master/google/type/timeofday.proto)**
 
-Time to start the daily backup, in the UTC timezone. ||
+Required field. Time to start the daily backup, in the UTC timezone. ||
 || access | **[Access](#yandex.cloud.mdb.redis.v1.Access)**
 
-Access policy to DB ||
+Required field. Access policy to DB ||
 || redis | **[RedisConfigSet](#yandex.cloud.mdb.redis.v1.config.RedisConfigSet)**
 
-Unified configuration of a Redis cluster. ||
+Required field. Unified configuration of a Redis cluster. ||
 || disk_size_autoscaling | **[DiskSizeAutoscaling](#yandex.cloud.mdb.redis.v1.DiskSizeAutoscaling)**
 
 Disk size autoscaling settings ||
@@ -701,8 +706,7 @@ parameters.
 
 Redis key eviction policy for a dataset that reaches maximum memory,
 available to the host. Redis maxmemory setting depends on Managed
-Service for Redis [host class](../../../concepts/instance-types.md).
-
+Service for Redis [host class](../../../../managed-redis/concepts/instance-types).
 All policies are described in detail in [Redis documentation](https://redis.io/topics/lru-cache).
 
 - `VOLATILE_LRU`: Try to remove less recently used (LRU) keys with `expire set`.
@@ -718,12 +722,14 @@ more memory to be used. ||
 || timeout | **[google.protobuf.Int64Value](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/int64-value)**
 
 Time that Redis keeps the connection open while the client is idle.
-If no new command is sent during that time, the connection is closed. ||
+If no new command is sent during that time, the connection is closed.
+
+Value must be greater than 0. ||
 || password | **string**
 
 Authentication password.
 
-Value must match the regular expression ` [a-zA-Z0-9@=+?*.,!&#$^<>_-]{8,128} `. ||
+The string length in characters must be 8-128. Value must match the regular expression ` [a-zA-Z0-9@=+?*.,!&#$^<>_-]{8,128} `. ||
 || databases | **[google.protobuf.Int64Value](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/int64-value)**
 
 Number of database buckets on a single redis-server process.
@@ -800,8 +806,7 @@ parameters.
 
 Redis key eviction policy for a dataset that reaches maximum memory,
 available to the host. Redis maxmemory setting depends on Managed
-Service for Redis [host class](../../../concepts/instance-types.md).
-
+Service for Redis [host class](../../../../managed-redis/concepts/instance-types).
 All policies are described in detail in [Redis documentation](https://redis.io/topics/lru-cache).
 
 - `VOLATILE_LRU`: Try to remove less recently used (LRU) keys with `expire set`.
@@ -817,12 +822,14 @@ more memory to be used. ||
 || timeout | **[google.protobuf.Int64Value](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/int64-value)**
 
 Time that Redis keeps the connection open while the client is idle.
-If no new command is sent during that time, the connection is closed. ||
+If no new command is sent during that time, the connection is closed.
+
+Value must be greater than 0. ||
 || password | **string**
 
 Authentication password.
 
-Value must match the regular expression ` [a-zA-Z0-9@=+?*.,!&#$^<>_-]{8,128} `. ||
+The string length in characters must be 8-128. Value must match the regular expression ` [a-zA-Z0-9@=+?*.,!&#$^<>_-]{8,128} `. ||
 || databases | **[google.protobuf.Int64Value](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/int64-value)**
 
 Number of database buckets on a single redis-server process.
@@ -899,8 +906,7 @@ parameters.
 
 Redis key eviction policy for a dataset that reaches maximum memory,
 available to the host. Redis maxmemory setting depends on Managed
-Service for Redis [host class](../../../concepts/instance-types.md).
-
+Service for Redis [host class](../../../../managed-redis/concepts/instance-types).
 All policies are described in detail in [Redis documentation](https://redis.io/topics/lru-cache).
 
 - `VOLATILE_LRU`: Try to remove less recently used (LRU) keys with `expire set`.
@@ -916,12 +922,14 @@ more memory to be used. ||
 || timeout | **[google.protobuf.Int64Value](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/int64-value)**
 
 Time that Redis keeps the connection open while the client is idle.
-If no new command is sent during that time, the connection is closed. ||
+If no new command is sent during that time, the connection is closed.
+
+The minimum value is 0. ||
 || password | **string**
 
 Authentication password.
 
-Value must match the regular expression ` [a-zA-Z0-9@=+?*.,!&#$^<>_-]{8,128} `. ||
+The string length in characters must be 8-128. Value must match the regular expression ` [a-zA-Z0-9@=+?*.,!&#$^<>_-]{8,128} `. ||
 || databases | **[google.protobuf.Int64Value](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/int64-value)**
 
 Number of database buckets on a single redis-server process.
@@ -1003,8 +1011,7 @@ parameters.
 
 Redis key eviction policy for a dataset that reaches maximum memory,
 available to the host. Redis maxmemory setting depends on Managed
-Service for Redis [host class](../../../concepts/instance-types.md).
-
+Service for Redis [host class](../../../../managed-redis/concepts/instance-types).
 All policies are described in detail in [Redis documentation](https://redis.io/topics/lru-cache).
 
 - `VOLATILE_LRU`: Try to remove less recently used (LRU) keys with `expire set`.
@@ -1020,12 +1027,14 @@ more memory to be used. ||
 || timeout | **[google.protobuf.Int64Value](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/int64-value)**
 
 Time that Redis keeps the connection open while the client is idle.
-If no new command is sent during that time, the connection is closed. ||
+If no new command is sent during that time, the connection is closed.
+
+The minimum value is 0. ||
 || password | **string**
 
 Authentication password.
 
-Value must match the regular expression ` [a-zA-Z0-9@=+?*.,!&#$^<>_-]{8,128} `. ||
+The string length in characters must be 8-128. Value must match the regular expression ` [a-zA-Z0-9@=+?*.,!&#$^<>_-]{8,128} `. ||
 || databases | **[google.protobuf.Int64Value](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/int64-value)**
 
 Number of database buckets on a single redis-server process.
@@ -1086,8 +1095,8 @@ The minimum value is 0. ||
 ||Field | Description ||
 || resource_preset_id | **string**
 
-ID of the preset for computational resources available to a host (CPU, memory etc.).
-All available presets are listed in the [documentation](../../../concepts/instance-types.md). ||
+Required field. ID of the preset for computational resources available to a host (CPU, memory etc.).
+All available presets are listed in the [documentation](../../../../managed-redis/concepts/instance-types). ||
 || disk_size | **int64**
 
 Volume of the storage available to a host, in bytes. ||
@@ -1138,8 +1147,7 @@ parameters.
 
 Redis key eviction policy for a dataset that reaches maximum memory,
 available to the host. Redis maxmemory setting depends on Managed
-Service for Redis [host class](../../../concepts/instance-types.md).
-
+Service for Redis [host class](../../../../managed-redis/concepts/instance-types).
 All policies are described in detail in [Redis documentation](https://redis.io/topics/lru-cache).
 
 - `VOLATILE_LRU`: Try to remove less recently used (LRU) keys with `expire set`.
@@ -1155,22 +1163,22 @@ more memory to be used. ||
 || timeout | **[google.protobuf.Int64Value](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/int64-value)**
 
 Time that Redis keeps the connection open while the client is idle.
-If no new command is sent during that time, the connection is closed. ||
+If no new command is sent during that time, the connection is closed.
+
+The minimum value is 0. ||
 || password | **string**
 
-Authentication password.
-
-Value must match the regular expression ` [a-zA-Z0-9@=+?*.,!&#$^<>_-]{8,128} `. ||
+Authentication password. ||
 || databases | **[google.protobuf.Int64Value](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/int64-value)**
 
 Number of database buckets on a single redis-server process.
 
-Value must be greater than 0. ||
+Acceptable values are 1 to 1024, inclusive. ||
 || slowlog_log_slower_than | **[google.protobuf.Int64Value](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/int64-value)**
 
 Threshold for logging slow requests to server in microseconds (log only slower than it).
 
-The minimum value is 0. ||
+The minimum value is 10. ||
 || slowlog_max_len | **[google.protobuf.Int64Value](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/int64-value)**
 
 Max slow requests number to log.
@@ -1178,9 +1186,7 @@ Max slow requests number to log.
 The minimum value is 0. ||
 || notify_keyspace_events | **string**
 
-String setting for pub\sub functionality.
-
-Value must match the regular expression ` [KEg$lshzxeAtm]{0,13} `. ||
+String setting for pub\sub functionality. ||
 || client_output_buffer_limit_pubsub | **[ClientOutputBufferLimit](#yandex.cloud.mdb.redis.v1.config.RedisConfig.ClientOutputBufferLimit)**
 
 Redis connection output buffers limits for pubsub operations. ||
@@ -1196,12 +1202,12 @@ Acceptable values are 1 to 75, inclusive. ||
 
 Maximum time in milliseconds for Lua scripts, 0 - disabled mechanism
 
-The minimum value is 0. ||
+Acceptable values are 0 to 5000, inclusive. ||
 || repl_backlog_size_percent | **[google.protobuf.Int64Value](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/int64-value)**
 
 Replication backlog size as a percentage of flavor maxmemory
 
-Value must be greater than 0. ||
+Acceptable values are 1 to 75, inclusive. ||
 || cluster_require_full_coverage | **[google.protobuf.BoolValue](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/bool-value)**
 
 Controls whether all hash slots must be covered by nodes ||
@@ -1215,12 +1221,12 @@ Permits Pub/Sub shard operations when cluster is down ||
 
 The time, in minutes, that must elapse in order for the key counter to be divided by two (or decremented if it has a value less <= 10)
 
-The minimum value is 0. ||
+Acceptable values are 0 to 100000, inclusive. ||
 || lfu_log_factor | **[google.protobuf.Int64Value](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/int64-value)**
 
 Determines how the frequency counter represents key hits.
 
-The minimum value is 0. ||
+Acceptable values are 0 to 1000, inclusive. ||
 || turn_before_switchover | **[google.protobuf.BoolValue](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/bool-value)**
 
 Allows to turn before switchover in RDSync ||
@@ -1246,6 +1252,9 @@ Acceptable values are 1 to 99, inclusive. ||
 || activedefrag | **[google.protobuf.BoolValue](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/bool-value)**
 
 Enable active (online) memory defragmentation ||
+|| audit_log | **[google.protobuf.BoolValue](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/bool-value)**
+
+Enable/disable audit logs for Valkey ||
 |#
 
 ## ClientOutputBufferLimit {#yandex.cloud.mdb.redis.v1.config.RedisConfig.ClientOutputBufferLimit}
@@ -1388,13 +1397,13 @@ Weelky maintenance window settings.
 
 Day of the week (in `DDD` format).
 
-- `MON`
-- `TUE`
-- `WED`
-- `THU`
-- `FRI`
-- `SAT`
-- `SUN` ||
+- `MON`: Monday.
+- `TUE`: Tuesday.
+- `WED`: Wednesday.
+- `THU`: Thursday.
+- `FRI`: Friday.
+- `SAT`: Saturday.
+- `SUN`: Sunday. ||
 || hour | **int64**
 
 Hour of the day in UTC (in `HH` format).

@@ -6,10 +6,10 @@
 
 - Консоль управления {#console}
 
-  1. В [консоли управления](https://console.yandex.cloud) выберите [каталог](../../resource-manager/concepts/resources-hierarchy.md#folder).
-  1. [Перейдите](../../console/operations/select-service.md#select-service) в сервис **Yandex MetaData Hub**.
-  1. На панели слева выберите ![image](../../_assets/console-icons/plug-connection.svg) **Connection manager** и нажмите на имя нужного подключения.
-  1. На панели слева выберите ![image](../../_assets/console-icons/list-check.svg) **Операции**.
+  1. В [консоли управления]({{ link-console-main }}) выберите [каталог](../../resource-manager/concepts/resources-hierarchy.md#folder).
+  1. [Перейдите](../../console/operations/select-service.md#select-service) в сервис **{{ metadata-hub-full-name }}**.
+  1. На панели слева выберите ![image](../../_assets/console-icons/plug-connection.svg) **{{ ui-key.yacloud.iam.folder.dashboard.label_connection-manager }}** и нажмите на имя нужного подключения.
+  1. На панели слева выберите ![image](../../_assets/console-icons/list-check.svg) **{{ ui-key.yacloud.common.operations-key-value }}**.
 
      В списке операций вы можете просмотреть все операции выбранного подключения с момента его создания:
 
@@ -28,7 +28,7 @@
 
 - CLI {#cli}
 
-  Если у вас еще нет интерфейса командной строки Yandex Cloud (CLI), [установите и инициализируйте его](../../cli/quickstart.md#install).
+  Если у вас еще нет интерфейса командной строки {{ yandex-cloud }} (CLI), [установите и инициализируйте его](../../cli/quickstart.md#install).
 
   По умолчанию используется каталог, указанный при [создании](../../cli/operations/profile/profile-create.md) профиля CLI. Чтобы изменить каталог по умолчанию, используйте команду `yc config set folder-id <идентификатор_каталога>`. Также для любой команды вы можете указать другой каталог с помощью параметров `--folder-name` или `--folder-id`. Если вы обращаетесь к ресурсу по имени, поиск будет выполнен в каталоге по умолчанию. Если вы обращаетесь к ресурсу по идентификатору, поиск будет выполнен глобально — во всех каталогах с учетом прав доступа.
 
@@ -50,7 +50,7 @@
 
 - API {#api}
   
-  Чтобы получить информацию о выполненных операциях конкретного подключения Connection Manager, воспользуйтесь методом REST API [Connection.ListOperations](../connection-manager/api-ref/Connection/listOperations.md) или методом gRPC API [ConnectionService.ListOperations](../connection-manager/api-ref/grpc/Connection/listOperations.md) и передайте в запросе идентификатор подключения.
+  Чтобы получить информацию о выполненных операциях конкретного подключения {{ connection-manager-name }}, воспользуйтесь методом REST API [Connection.ListOperations](../connection-manager/api-ref/Connection/listOperations.md) или методом gRPC API [ConnectionService.ListOperations](../connection-manager/api-ref/grpc/Connection/listOperations.md) и передайте в запросе идентификатор подключения.
 
   Идентификатор подключения можно получить со [списком подключений](view-connection.md#connection-list) в каталоге.
 

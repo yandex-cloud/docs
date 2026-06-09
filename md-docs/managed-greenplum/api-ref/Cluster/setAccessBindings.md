@@ -5,7 +5,7 @@ Sets access bindings for the specified Greenplum® cluster.
 ## HTTP request
 
 ```
-POST https://mdb.api.cloud.yandex.net/managed-greenplum/v1/clusters/{resourceId}:setAccessBindings
+POST https://{{ api-host-mdb }}/managed-greenplum/v1/clusters/{resourceId}:setAccessBindings
 ```
 
 ## Path parameters
@@ -17,7 +17,7 @@ POST https://mdb.api.cloud.yandex.net/managed-greenplum/v1/clusters/{resourceId}
 Required field. ID of the resource for which access bindings are being set.
 To get the resource ID, use a corresponding List request.
 
-The maximum string length in characters is 50. ||
+The maximum string length in characters is 64. ||
 |#
 
 ## Body parameters {#yandex.cloud.access.SetAccessBindingsRequest}
@@ -53,7 +53,7 @@ The maximum number of elements is 1000. ||
 
 Required field. ID of the [yandex.cloud.iam.v1.Role](../../../iam/api-ref/Role/get.md#yandex.cloud.iam.v1.Role) that is assigned to the `subject`.
 
-The maximum string length in characters is 50. ||
+The maximum string length in characters is 64. ||
 || subject | **[Subject](#yandex.cloud.access.Subject)**
 
 Required field. Identity for which access binding is being created.
@@ -262,7 +262,7 @@ Required field. Access binding. For more information, see [Access Bindings](../.
 
 Required field. ID of the [yandex.cloud.iam.v1.Role](../../../iam/api-ref/Role/get.md#yandex.cloud.iam.v1.Role) that is assigned to the `subject`.
 
-The maximum string length in characters is 50. ||
+The maximum string length in characters is 64. ||
 || subject | **[Subject](#yandex.cloud.access.Subject2)**
 
 Required field. Identity for which access binding is being created.

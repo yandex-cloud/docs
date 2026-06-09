@@ -16,7 +16,7 @@ grpcurl -rpc-header "Authorization: Bearer <IAM-токен>" \
    -import-path ~/cloudapi/ \
    -import-path ~/cloudapi/third_party/googleapis/ \
    -proto ~/cloudapi/yandex/cloud/monitoring/v3/dashboard_service.proto \
-monitoring.api.cloud.yandex.net:443 yandex.cloud.monitoring.v3.DashboardService.List
+monitoring.{{ api-host }}:443 yandex.cloud.monitoring.v3.DashboardService.List
 ```
 
 ### Get {#get}
@@ -29,7 +29,7 @@ grpcurl -rpc-header "Authorization: Bearer <IAM-токен>" \
    -import-path ~/cloudapi/ \
    -import-path ~/cloudapi/third_party/googleapis/ \
    -proto ~/cloudapi/yandex/cloud/monitoring/v3/dashboard_service.proto \
-monitoring.api.cloud.yandex.net:443 yandex.cloud.monitoring.v3.DashboardService.Get
+monitoring.{{ api-host }}:443 yandex.cloud.monitoring.v3.DashboardService.Get
 ```
 
 ### Create {#create}
@@ -42,7 +42,7 @@ grpcurl -rpc-header "Authorization: Bearer <IAM-токен>" \
    -import-path ~/cloudapi/ \
    -import-path ~/cloudapi/third_party/googleapis/ \
    -proto ~/cloudapi/yandex/cloud/monitoring/v3/dashboard_service.proto \
-monitoring.api.cloud.yandex.net:443 yandex.cloud.monitoring.v3.DashboardService.Create <payload.json
+monitoring.{{ api-host }}:443 yandex.cloud.monitoring.v3.DashboardService.Create <payload.json
 ```
 
 **Пример payload.json**
@@ -142,7 +142,7 @@ grpcurl -rpc-header "Authorization: Bearer <IAM-токен>" \
    -import-path ~/cloudapi/ \
    -import-path ~/cloudapi/third_party/googleapis/ \
    -proto ~/cloudapi/yandex/cloud/monitoring/v3/dashboard_service.proto \
-monitoring.api.cloud.yandex.net:443 yandex.cloud.monitoring.v3.DashboardService.Update <payload.json
+monitoring.{{ api-host }}:443 yandex.cloud.monitoring.v3.DashboardService.Update <payload.json
 ```
 
 **Пример payload.json**
@@ -242,7 +242,7 @@ grpcurl -rpc-header "Authorization: Bearer <IAM-токен>" \
    -import-path ~/cloudapi/ \
    -import-path ~/cloudapi/third_party/googleapis/ \
    -proto ~/cloudapi/yandex/cloud/monitoring/v3/dashboard_service.proto \
-monitoring.api.cloud.yandex.net:443 yandex.cloud.monitoring.v3.DashboardService.Delete
+monitoring.{{ api-host }}:443 yandex.cloud.monitoring.v3.DashboardService.Delete
 ```
 
 **Пример ответа с ошибкой**

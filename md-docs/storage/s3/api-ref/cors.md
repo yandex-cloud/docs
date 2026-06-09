@@ -2,13 +2,13 @@
 
 Метод | Описание
 ----- | -----
-[PutBucketCors](cors/upload.md) | Загружает конфигурацию бакета для [CORS](../../concepts/cors.md) в Object Storage.
-[GetBucketCors](cors/get.md) | Возвращает конфигурацию бакета для CORS из Object Storage.
+[PutBucketCors](cors/upload.md) | Загружает конфигурацию бакета для [CORS](../../concepts/cors.md) в {{ objstorage-name }}.
+[GetBucketCors](cors/get.md) | Возвращает конфигурацию бакета для CORS из {{ objstorage-name }}.
 [DeleteBucketCors](cors/delete.md) | Удаляет конфигурацию бакета для CORS.
 
 #### См. также {#see-also}
 
-* [Начало работы с AWS S3 API в Yandex Object Storage](../s3-api-quickstart.md)
+* [{#T}](../s3-api-quickstart.md)
 
 * [Отладка запросов с помощью утилиты AWS CLI](../signing-requests.md#debugging)
 

@@ -1,11 +1,11 @@
-# Пошаговые инструкции для Managed Service for Apache Airflow™
+# Пошаговые инструкции для {{ maf-name }}
 
 ## Кластеры {#clusters}
 
 * [Информация об имеющихся кластерах](cluster-list.md)
 * [Создание кластера](cluster-create.md)
 * [Изменение кластера](cluster-update.md)
-* [Обновление версии Apache Airflow™ и Python](cluster-version-update.md)
+* [{#T}](cluster-version-update.md)
 * [Остановка и запуск кластера](cluster-stop.md)
 * [Управление доступом к кластеру](cluster-access.md)
 * [Техническое обслуживание кластера](cluster-maintenance.md)
@@ -13,33 +13,33 @@
 
 ## Подключения {#connections}
 
-* [Подключение к базе данных Yandex Managed Service for Apache Airflow™](update-connections.md)
-* [Подключение к Yandex Managed Service for ClickHouse®](clickhouse.md)
-* [Подключение к Yandex Managed Service for PostgreSQL](postgres-operator.md)
+* [{#T}](update-connections.md)
+* [{#T}](clickhouse.md)
+* [{#T}](postgres-operator.md)
 
-## Хранение артефактов в Yandex Lockbox {#lockbox}
+## Хранение артефактов в {{ lockbox-full-name }} {#lockbox}
 
-* [Загрузка переменной из Yandex Lockbox](load-variable-from-lockbox.md)
-* [Хранение подключений Apache Airflow™ в Yandex Lockbox](lockbox-secrets-in-maf-cluster.md)
+* [{#T}](load-variable-from-lockbox.md)
+* [{#T}](lockbox-secrets-in-maf-cluster.md)
 
 ## Работа с DAG-файлами {#dags}
 
 * [Загрузка DAG-файлов в кластер](upload-dags.md)
-* [Получение IAM-токена](get-iam-token.md)
+* [{#T}](get-iam-token.md)
 
-## Работа с Yandex Object Storage
+## Работа с {{ objstorage-full-name }}
 
-* [Загрузка файла в Yandex Object Storage](upload-file-to-s3.md)
-* [Подключение к бакету Yandex Object Storage с политикой доступа](s3-policy-connect.md)
-* [Чтение файла из Yandex Object Storage](read-file-from-dags-bucket.md)
+* [{#T}](upload-file-to-s3.md)
+* [Подключение к бакету {{ objstorage-full-name }} с политикой доступа](s3-policy-connect.md)
+* [{#T}](read-file-from-dags-bucket.md)
 
-## Интерфейсы Apache Airflow™ {#interfaces}
+## Интерфейсы {{ AF }} {#interfaces}
 
-* [Работа с интерфейсами Apache Airflow™](af-interfaces.md)
+* [Работа с интерфейсами {{ AF }}](af-interfaces.md)
 
 ## Логи и мониторинг {#logs}
 
 * [Мониторинг состояния кластера](monitoring.md)
 * [Просмотр логов кластера](cluster-logs.md)
-* [Передача логов кластера в Yandex Cloud Logging](af-logging.md)
+* [Передача логов кластера в {{ cloud-logging-full-name }}](af-logging.md)
 * [Получение логов выполнения DAG](export-dag-logs.md)

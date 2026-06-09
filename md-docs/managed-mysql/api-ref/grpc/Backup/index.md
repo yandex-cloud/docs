@@ -1,7 +1,6 @@
 # Managed Service for MySQL API, gRPC: BackupService
 
 A set of methods for managing MySQL backups.
-
 See [the documentation](../../../operations/cluster-backups.md) for details.
 
 ## Methods

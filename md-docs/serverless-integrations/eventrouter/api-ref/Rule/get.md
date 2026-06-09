@@ -6,7 +6,7 @@ To get the list of all available buses, make a [List](list.md#List) request.
 ## HTTP request
 
 ```
-GET https://serverless-eventrouter.api.cloud.yandex.net/eventrouter/v1/rules/{ruleId}
+GET https://serverless-eventrouter.{{ api-host }}/eventrouter/v1/rules/{ruleId}
 ```
 
 ## Path parameters

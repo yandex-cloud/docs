@@ -1,4 +1,4 @@
-# [Yandex DataLens] Columns in JOIN have different types
+# [{{ datalens-full-name }}] Columns in JOIN have different types
 
 `ERR.DS_API.DB.JOIN_COLUMN_TYPE_MISMATCH`
 

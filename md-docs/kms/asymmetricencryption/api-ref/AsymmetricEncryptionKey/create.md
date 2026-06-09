@@ -6,7 +6,7 @@ Creates an asymmetric KMS key in the specified folder.
 ## HTTP request
 
 ```
-POST https://kms.api.cloud.yandex.net/kms/v1/asymmetricEncryptionKeys
+POST https://{{ api-host-kms }}/kms/v1/asymmetricEncryptionKeys
 ```
 
 ## Body parameters {#yandex.cloud.kms.v1.asymmetricencryption.CreateAsymmetricEncryptionKeyRequest}

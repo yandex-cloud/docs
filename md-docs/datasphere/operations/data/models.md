@@ -1,10 +1,10 @@
 # Работа с моделями
 
-[Модели](../../concepts/models/index.md) позволяют хранить и выгружать результаты вычислений в проектах DataSphere.
+[Модели](../../concepts/models/index.md) позволяют хранить и выгружать результаты вычислений в проектах {{ ml-platform-name }}.
 
 ## Создать модель {#create}
 
-1. Выберите нужный проект в своем сообществе или на [главной странице](https://datasphere.yandex.cloud) DataSphere во вкладке **Недавние проекты**.
+1. Выберите нужный проект в своем сообществе или на [главной странице]({{ link-datasphere-main }}) {{ ml-platform-name }} во вкладке **{{ ui-key.yc-ui-datasphere.main-page.recent-projects }}**.
 1. Откройте проект.
 1. Выберите или создайте ноутбук с кодом, который создаст переменную модели в памяти.
 1. Запустите код в ноутбуке на выбранной конфигурации.
@@ -19,7 +19,7 @@
 
 Вы можете загрузить сохраненную модель в состояние интерпретатора ноутбука и использовать ее в своих вычислениях:
 
-1. Выберите нужный проект в своем сообществе или на [главной странице](https://datasphere.yandex.cloud) DataSphere во вкладке **Недавние проекты**.
+1. Выберите нужный проект в своем сообществе или на [главной странице]({{ link-datasphere-main }}) {{ ml-platform-name }} во вкладке **{{ ui-key.yc-ui-datasphere.main-page.recent-projects }}**.
 1. Откройте проект.
 1. На панели справа выберите ![models](../../../_assets/console-icons/nodes-right.svg). В появившемся окне выберите модель, которую вы хотите загрузить, и нажмите ![options](../../../_assets/console-icons/ellipsis.svg).
 1. Выберите ![load](../../../_assets/datasphere/jupyterlab/load.svg)**Загрузить**.
@@ -29,23 +29,23 @@
 
 ## Удалить модель {#delete}
 
-Вы можете удалить модель в интерфейсе JupyterLab и в разделе **Ресурсы** на странице проекта.
+Вы можете удалить модель в интерфейсе {{ jlab }}Lab и в разделе **Ресурсы** на странице проекта.
 
 {% list tabs %}
 
-- JupyterLab
+- {{ jlab }}Lab
 
-   1. В интерфейсе JupyterLab на панели справа выберите ![models](../../../_assets/console-icons/nodes-right.svg).
+   1. В интерфейсе {{ jlab }}Lab на панели справа выберите ![models](../../../_assets/console-icons/nodes-right.svg).
    1. В списке моделей выберите ту, которую вы хотите удалить, нажмите ![options](../../../_assets/console-icons/ellipsis.svg) и выберите ![delete](../../../_assets/datasphere/jupyterlab/delete-red.svg)**Удалить**.
-   1. Нажмите **Подтвердить**.
+   1. Нажмите **{{ ui-key.yc-ui-datasphere.common.submit }}**.
 
 - Ресурсы проекта
 
-   1. Выберите нужный проект в своем сообществе или на [главной странице](https://datasphere.yandex.cloud) DataSphere во вкладке **Недавние проекты**.
-   1. В блоке **Ресурсы проекта** нажмите ![model](../../../_assets/console-icons/nodes-right.svg)**Модель**.
+   1. Выберите нужный проект в своем сообществе или на [главной странице]({{ link-datasphere-main }}) {{ ml-platform-name }} во вкладке **{{ ui-key.yc-ui-datasphere.main-page.recent-projects }}**.
+   1. В блоке **{{ ui-key.yc-ui-datasphere.project-page.project-resources }}** нажмите ![model](../../../_assets/console-icons/nodes-right.svg)**Модель**.
    1. В списке моделей выберите ту, которую хотите удалить.
-   1. На странице просмотра модели нажмите **Еще** и выберите ![delete](../../../_assets/datasphere/jupyterlab/delete-red.svg)**Удалить**.
-   1. Нажмите **Подтвердить**.
+   1. На странице просмотра модели нажмите **Еще** и выберите ![delete](../../../_assets/datasphere/jupyterlab/delete-red.svg)**{{ ui-key.yc-ui-datasphere.common.delete }}**.
+   1. Нажмите **{{ ui-key.yc-ui-datasphere.common.submit }}**.
 
 {% endlist %}
 

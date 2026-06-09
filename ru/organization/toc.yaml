@@ -291,14 +291,18 @@ items:
             href: tutorials/single-sign-on/oidc-mws.md
           - name: '{{ OS }}'
             href: tutorials/single-sign-on/saml-opensearch-self-managed.md
-          - name: OpenVPN Access Server
-            href: tutorials/single-sign-on/saml-ovpn.md
           - name: Selectel
             href: tutorials/single-sign-on/saml-selectel.md
           - name: Sentry
             href: tutorials/single-sign-on/saml-sentry.md
           - name: SonarQube
             href: tutorials/single-sign-on/saml-sonarqube.md
+          - name: OpenVPN
+            items:
+              - name: OpenVPN Access Server
+                href: tutorials/single-sign-on/saml-ovpn.md
+              - name: OpenVPN Community Edition
+                href: tutorials/single-sign-on/oidc-ovpn.md
           - name: VK Cloud
             items:
               - name: SAML

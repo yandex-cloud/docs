@@ -3,16 +3,16 @@
 
 С помощью serverless-технологий можно создать [CRUD](https://ru.wikipedia.org/wiki/CRUD) API для сервиса, который хранит данные о фильмах.
 
-Реализация CRUD API использует [контейнер](../../serverless-containers/concepts/container.md) Yandex Serverless Containers, который предназначен для работы с базой данных фильмов, развернутой в Yandex Managed Service for YDB.
+Реализация CRUD API использует [контейнер](../../serverless-containers/concepts/container.md) {{ serverless-containers-full-name }}, который предназначен для работы с базой данных фильмов, развернутой в {{ ydb-full-name }}.
 
-Контейнер конфигурируется в спецификации [API-шлюза](../concepts/index.md) Yandex API Gateway по стандарту [OpenAPI 3.0](https://github.com/OAI/OpenAPI-Specification) для выполнения определенных HTTP-запросов.
+Контейнер конфигурируется в спецификации [API-шлюза](../concepts/index.md) {{ api-gw-full-name }} по стандарту [OpenAPI 3.0](https://github.com/OAI/OpenAPI-Specification) для выполнения определенных HTTP-запросов.
 
-Контейнер будет взаимодействовать с Managed Service for YDB и обрабатывать внешние HTTP-запросы через API-шлюз с использованием [HTTP API](https://docs.aws.amazon.com/amazondynamodb/latest/APIReference/Welcome.html), совместимого с [Amazon DynamoDB](https://aws.amazon.com/ru/dynamodb/). Язык кода приложения CRUD API — TypeScript, среда выполнения — Node.js 16.
+Контейнер будет взаимодействовать с {{ ydb-name }} и обрабатывать внешние HTTP-запросы через API-шлюз с использованием [HTTP API](https://docs.aws.amazon.com/amazondynamodb/latest/APIReference/Welcome.html), совместимого с [Amazon DynamoDB](https://aws.amazon.com/ru/dynamodb/). Язык кода приложения CRUD API — TypeScript, среда выполнения — Node.js 16.
 
 Чтобы развернуть проект:
 1. [Настройте окружение](#setup-environment).
-1. [Инициализируйте Terraform](#init-terraform).
-1. [Создайте базу данных Managed Service for YDB](#create-database).
+1. [Инициализируйте {{ TF }}](#init-terraform).
+1. [Создайте базу данных {{ ydb-name }}](#create-database).
 1. [Реализуйте CRUD-операции](#implement-operations).
 1. [Разработайте REST API](#develop-rest-api).
 1. [Проверьте работу созданного CRUD API](#test-api).
@@ -21,20 +21,20 @@
 
 ## Перед началом работы {#before-you-begin}
 
-Зарегистрируйтесь в Yandex Cloud и создайте [платежный аккаунт](../../billing/concepts/billing-account.md):
-1. Перейдите в [консоль управления](https://console.yandex.cloud), затем войдите в Yandex Cloud или зарегистрируйтесь.
-1. На странице **[Yandex Cloud Billing](https://center.yandex.cloud/billing/accounts)** убедитесь, что у вас подключен платежный аккаунт, и он находится в [статусе](../../billing/concepts/billing-account-statuses.md) `ACTIVE` или `TRIAL_ACTIVE`. Если платежного аккаунта нет, [создайте его](../../billing/quickstart/index.md) и [привяжите](../../billing/operations/pin-cloud.md) к нему облако.
+Зарегистрируйтесь в {{ yandex-cloud }} и создайте [платежный аккаунт](../../billing/concepts/billing-account.md):
+1. Перейдите в [консоль управления]({{ link-console-main }}), затем войдите в {{ yandex-cloud }} или зарегистрируйтесь.
+1. На странице **[{{ ui-key.yacloud_billing.billing.label_service }}]({{ link-console-billing }})** убедитесь, что у вас подключен платежный аккаунт, и он находится в [статусе](../../billing/concepts/billing-account-statuses.md) `ACTIVE` или `TRIAL_ACTIVE`. Если платежного аккаунта нет, [создайте его](../../billing/quickstart/index.md) и [привяжите](../../billing/operations/pin-cloud.md) к нему облако.
 
-Если у вас есть активный платежный аккаунт, вы можете создать или выбрать [каталог](../../resource-manager/concepts/resources-hierarchy.md#folder), в котором будет работать ваша инфраструктура, на [странице облака](https://console.yandex.cloud/cloud).
+Если у вас есть активный платежный аккаунт, вы можете создать или выбрать [каталог](../../resource-manager/concepts/resources-hierarchy.md#folder), в котором будет работать ваша инфраструктура, на [странице облака]({{ link-console-cloud }}).
 
 [Подробнее об облаках и каталогах](../../resource-manager/concepts/resources-hierarchy.md).
 
 ### Необходимые платные ресурсы {#paid-resources}
 
 В стоимость ресурсов для работы CRUD API входят:
-* Плата за операции с YDB и хранение данных (см. [тарифы Managed Service for YDB в бессерверном режиме](../../ydb/pricing/serverless.md)).
-* Плата за количество вызовов контейнера, вычислительные ресурсы, выделенные для выполнения приложения, и исходящий трафик (см. [тарифы Serverless Containers](../../serverless-containers/pricing.md)).
-* Плата за количество запросов к API-шлюзу и исходящий трафик (см. [тарифы API Gateway](../pricing.md)).
+* Плата за операции с {{ ydb-short-name }} и хранение данных (см. [тарифы {{ ydb-name }} в бессерверном режиме](../../ydb/pricing/serverless.md)).
+* Плата за количество вызовов контейнера, вычислительные ресурсы, выделенные для выполнения приложения, и исходящий трафик (см. [тарифы {{ serverless-containers-name }}](../../serverless-containers/pricing.md)).
+* Плата за количество запросов к API-шлюзу и исходящий трафик (см. [тарифы {{ api-gw-name }}](../pricing.md)).
 
 ## Настройте окружение {#setup-environment}
 
@@ -82,10 +82,10 @@
        sudo npm install -g typescript
        ```
 
-     * [Yandex Cloud CLI](../../cli/quickstart.md):
+     * [{{ yandex-cloud }} CLI](../../cli/quickstart.md):
 
        ```bash
-       curl https://storage.yandexcloud.net/yandexcloud-yc/install.sh | bash
+       curl https://{{ s3-storage-host-cli }}{{ yc-install-path }} | bash
        exec -l $SHELL
        yc version
        ```
@@ -113,10 +113,10 @@
 
 
   
-  1. [Установите](../../tutorials/infrastructure-management/terraform-quickstart.md#from-yc-mirror) Terraform не ниже версии `1.0.8`.
+  1. [Установите](../../tutorials/infrastructure-management/terraform-quickstart.md#from-yc-mirror) {{ TF }} не ниже версии `1.0.8`.
 
 
-  1. [Создайте](../../cli/operations/profile/profile-create.md#interactive-create) профиль Yandex Cloud CLI с базовыми параметрами.
+  1. [Создайте](../../cli/operations/profile/profile-create.md#interactive-create) профиль {{ yandex-cloud }} CLI с базовыми параметрами.
   1. [Настройте](../../ydb/docapi/tools/aws-setup.md) AWS CLI.
   1. [Настройте](https://docs.docker.com/engine/install/linux-postinstall/#manage-docker-as-a-non-root-user) управление Docker от имени непривилегированного пользователя:
 
@@ -162,10 +162,10 @@
        npm install -g typescript
        ```
 
-     * [Yandex Cloud CLI](../../cli/quickstart.md):
+     * [{{ yandex-cloud }} CLI](../../cli/quickstart.md):
 
        ```bash
-       curl https://storage.yandexcloud.net/yandexcloud-yc/install.sh | bash
+       curl https://{{ s3-storage-host-cli }}{{ yc-install-path }} | bash
        exec -l $SHELL
        yc version
        ```
@@ -185,7 +185,7 @@
 
 
   
-  1. [Установите](../../tutorials/infrastructure-management/terraform-quickstart.md#from-yc-mirror) Terraform не ниже версии `1.0.8`.
+  1. [Установите](../../tutorials/infrastructure-management/terraform-quickstart.md#from-yc-mirror) {{ TF }} не ниже версии `1.0.8`.
 
 
   1. [Создайте](../../cli/operations/profile/profile-create.md#interactive-create) профиль с базовыми параметрами.
@@ -193,7 +193,7 @@
 
 {% endlist %}
 
-## Инициализируйте Terraform {#init-terraform}
+## Инициализируйте {{ TF }} {#init-terraform}
 
 1. Склонируйте репозиторий с исходными файлами для проекта CRUD API:
 
@@ -208,7 +208,7 @@
    cd <путь_к_директории_deploy>
    ```
 
-1. Узнайте имя активного профиля (`ACTIVE`) интерфейса командной строки Yandex Cloud CLI. В терминале выполните команду:
+1. Узнайте имя активного профиля (`ACTIVE`) интерфейса командной строки {{ yandex-cloud }} CLI. В терминале выполните команду:
 
    ```bash
    yc config profile list
@@ -220,8 +220,9 @@
    yc config profile get <имя_профиля>
    ```
 
+1. Получите [IAM-токен](../../iam/concepts/authorization/iam-token.md) или [авторизованный ключ](../../iam/concepts/authorization/key.md).
 1. Скопируйте в файл [provider.tf](https://github.com/yandex-cloud-examples/yc-practicum-serverless-web-application-movie-website/blob/main/deploy/provider.tf) полученные параметры:
-   * `token` — [OAuth-токен](../../iam/concepts/authorization/oauth-token.md).
+   * `token` — IAM-токен или авторизованный ключ.
    * `cloud-id` — идентификатор [облака](../../resource-manager/concepts/resources-hierarchy.md#cloud).
    * `folder-id` — идентификатор [каталога](../../resource-manager/concepts/resources-hierarchy.md#folder).
 1. Экспортируйте идентификатор каталога в переменную окружения:
@@ -231,7 +232,7 @@
    echo $FOLDER_ID
    ```
 
-1. Выполните команду инициализации Terraform:
+1. Выполните команду инициализации {{ TF }}:
 
    ```bash
    terraform init
@@ -239,14 +240,14 @@
 
    {% note info %}
 
-   Выполняйте все команды Terraform в директории `deploy`.
+   Выполняйте все команды {{ TF }} в директории `deploy`.
 
    {% endnote %}
 
-## Создайте базу данных Managed Service for YDB {#create-database}
+## Создайте базу данных {{ ydb-name }} {#create-database}
 
-В проекте используется база данных [YDB](https://yandex.cloud/ru/services/ydb) в режиме serverless. БД состоит из двух таблиц: `movies` для хранения информации о фильмах и `votes` для хранения оценок пользователей. Каждая запись в таблице содержит идентификатор и конечный набор атрибутов.
-1. Конфигурация Terraform для создания БД описана в файле [ydb.tf](https://github.com/yandex-cloud-examples/yc-practicum-serverless-web-application-movie-website/blob/main/deploy/ydb.tf). Создайте базу данных:
+В проекте используется база данных [{{ ydb-short-name }}]({{ link-cloud-services }}/ydb) в режиме serverless. БД состоит из двух таблиц: `movies` для хранения информации о фильмах и `votes` для хранения оценок пользователей. Каждая запись в таблице содержит идентификатор и конечный набор атрибутов.
+1. Конфигурация {{ TF }} для создания БД описана в файле [ydb.tf](https://github.com/yandex-cloud-examples/yc-practicum-serverless-web-application-movie-website/blob/main/deploy/ydb.tf). Создайте базу данных:
 
    ```bash
    terraform apply -target=yandex_ydb_database_serverless.movies_database
@@ -258,7 +259,7 @@
    * `movies_database_document_api_endpoint` — Document API эндпоинт базы данных.
    * `movies_database_path` — относительный путь к базе данных.
 
-   Проверить, что БД `movies-database` успешно создана, можно в [консоли управления](https://console.yandex.cloud) или с помощью команды CLI `yc ydb database list`.
+   Проверить, что БД `movies-database` успешно создана, можно в [консоли управления]({{ link-console-main }}) или с помощью команды CLI `yc ydb database list`.
 1. Экспортируйте в переменные окружения значения `movies_database_document_api_endpoint` и `movies_database_path` из вывода предыдущей команды:
 
    ```bash
@@ -354,7 +355,7 @@
 
 ### Создайте сервисный аккаунт {#create-sa}
 
-1. Конфигурация Terraform для создания сервисного аккаунта описана в файле [sa.tf](https://github.com/yandex-cloud-examples/yc-practicum-serverless-web-application-movie-website/blob/main/deploy/sa.tf). Создайте сервисный аккаунт:
+1. Конфигурация {{ TF }} для создания сервисного аккаунта описана в файле [sa.tf](https://github.com/yandex-cloud-examples/yc-practicum-serverless-web-application-movie-website/blob/main/deploy/sa.tf). Создайте сервисный аккаунт:
 
    ```bash
    terraform apply -target=yandex_iam_service_account.movies_api_sa
@@ -390,8 +391,8 @@
    * `--subject serviceAccount` — идентификатор сервисного аккаунта.
 
    Роли назначаются сервисному аккаунту для следующих действий:
-   * Вызов контейнера в [Serverless Containers](https://yandex.cloud/ru/services/serverless-containers).
-   * Выполнение операций в [YDB](https://yandex.cloud/ru/services/ydb).
+   * Вызов контейнера в [{{ serverless-containers-name }}]({{ link-cloud-services }}/serverless-containers).
+   * Выполнение операций в [{{ ydb-short-name }}]({{ link-cloud-services }}/ydb).
 
    Роли назначаются на весь каталог, а не на каждый ресурс в отдельности.
 
@@ -419,11 +420,11 @@
 
 Для реализации сервиса в соответствии с этой спецификацией используется библиотека [OpenAPI Backend](https://github.com/anttiviljami/openapi-backend) в связке с фреймворком [Express](https://expressjs.com). В файле [app.ts](https://github.com/yandex-cloud-examples/yc-practicum-serverless-web-application-movie-website/blob/main/src/app.ts) описаны необходимые классы и маппинг операций, а также запуск HTTP-сервиса.
 
-### Разверните приложение в Serverless Containers {#deploy-container}
+### Разверните приложение в {{ serverless-containers-name }} {#deploy-container}
 
-Соберите приложение в виде Docker-образа и запустите его в [Serverless Containers](https://yandex.cloud/ru/services/serverless-containers):
+Соберите приложение в виде Docker-образа и запустите его в [{{ serverless-containers-name }}]({{ link-cloud-services }}/serverless-containers):
 1. В [спецификации OpenAPI](https://github.com/yandex-cloud-examples/yc-practicum-serverless-web-application-movie-website/blob/main/openapi/api.yaml) `api.yaml`, в поле `x-yc-apigateway.service_account_id`, укажите идентификатор сервисного аккаунта, который создали ранее.
-1. В файле [container-registry.tf](https://github.com/yandex-cloud-examples/yc-practicum-serverless-web-application-movie-website/blob/main/deploy/container-registry.tf) описана конфигурация реестра и репозитория, в которые будет загружаться Docker-образ приложения. Перейдите в директорию `deploy` и создайте ресурсы в [Yandex Container Registry](https://yandex.cloud/ru/services/container-registry):
+1. В файле [container-registry.tf](https://github.com/yandex-cloud-examples/yc-practicum-serverless-web-application-movie-website/blob/main/deploy/container-registry.tf) описана конфигурация реестра и репозитория, в которые будет загружаться Docker-образ приложения. Перейдите в директорию `deploy` и создайте ресурсы в [{{ container-registry-full-name }}]({{ link-cloud-services }}/container-registry):
 
    ```bash
    cd <путь_к_директории_deploy>
@@ -452,7 +453,7 @@
    docker push ${MOVIES_API_REPOSITORY_NAME}:0.0.1
    ```
 
-1. Создайте контейнер Serverless Containers:
+1. Создайте контейнер {{ serverless-containers-name }}:
 
    ```bash
    yc sls container create \
@@ -498,10 +499,10 @@
    * `--service-account-id` — идентификатор сервисного аккаунта.
    * `--image` — название репозитория.
 
-### Разверните API в API Gateway {#deploy-api-gw}
+### Разверните API в {{ api-gw-name }} {#deploy-api-gw}
 
 1. В [спецификации OpenAPI](https://github.com/yandex-cloud-examples/yc-practicum-serverless-web-application-movie-website/blob/main/openapi/api.yaml) `api.yaml` замените переменную `${MOVIES_API_CONTAINER_ID}` на идентификатор созданного контейнера.
-1. В файле [api-gateway.tf](https://github.com/yandex-cloud-examples/yc-practicum-serverless-web-application-movie-website/blob/main/deploy/api-gateway.tf) описана конфигурация Terraform для создания [API-шлюза](../concepts/index.md). Разверните API-шлюз:
+1. В файле [api-gateway.tf](https://github.com/yandex-cloud-examples/yc-practicum-serverless-web-application-movie-website/blob/main/deploy/api-gateway.tf) описана конфигурация {{ TF }} для создания [API-шлюза](../concepts/index.md). Разверните API-шлюз:
 
    ```bash
    terraform apply -target=yandex_api_gateway.movies_api_gateway
@@ -571,13 +572,13 @@
 
 Также вы можете загрузить спецификацию в [Postman](https://www.postman.com) или [SwaggerHub](https://swagger.io/tools/swaggerhub/), добавив в секцию `servers` адрес созданного API-шлюза из переменной `${MOVIES_API_GATEWAY_DOMAIN}`. Это позволит удобно делать вызовы к [REST API](../../glossary/rest-api.md).
 
-Посмотрите диагностическую информацию о работе контейнера. В [консоли управления](https://console.yandex.cloud) перейдите на страницу контейнера. На вкладке **Логи** находятся сообщения о вызовах контейнера, а на вкладке **Мониторинг** — графики вызовов контейнера, среднего времени обработки запроса и количества ошибок.
+Посмотрите диагностическую информацию о работе контейнера. В [консоли управления]({{ link-console-main }}) перейдите на страницу контейнера. На вкладке **{{ ui-key.yacloud.common.logs }}** находятся сообщения о вызовах контейнера, а на вкладке **{{ ui-key.yacloud.common.monitoring }}** — графики вызовов контейнера, среднего времени обработки запроса и количества ошибок.
 
 Логи и графики мониторинга также можно посмотреть на странице API-шлюза.
 
 ## Как удалить созданные ресурсы {#clear-out}
 
-Чтобы перестать платить за ресурсы, созданные с помощью Terraform, удалите их. В терминале выполните команду:
+Чтобы перестать платить за ресурсы, созданные с помощью {{ TF }}, удалите их. В терминале выполните команду:
 
 ```bash
 terraform destroy
@@ -587,9 +588,9 @@ terraform destroy
 
 #### См. также {#see-also}
 
-* [Начало работы с Terraform](../../tutorials/infrastructure-management/terraform-quickstart.md).
-* [Справочник Terraform. Провайдер Yandex Cloud](../../terraform/index.md).
+* [{#T}](../../tutorials/infrastructure-management/terraform-quickstart.md).
+* [Справочник {{ TF }}. Провайдер {{ yandex-cloud }}]({{ tf-provider-link }}).
 * [Документная таблица](../../ydb/operations/schema.md).
 * [Расширение x-yc-apigateway-integration](../concepts/extensions/containers.md).
-* [Логи контейнера](../../serverless-containers/concepts/logs.md).
-* [Посмотреть графики мониторинга контейнера](../../serverless-containers/operations/monitoring.md).
+* [{#T}](../../serverless-containers/concepts/logs.md).
+* [{#T}](../../serverless-containers/operations/monitoring.md).

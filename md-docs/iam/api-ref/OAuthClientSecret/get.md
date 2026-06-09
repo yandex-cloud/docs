@@ -1,13 +1,12 @@
 # Identity and Access Management API, REST: OAuthClientSecret.Get
 
 Returns the sepcified OAuthClientSecret resource.
-
 To get the list of available OAuthClientSecret resources, make a [List](list.md#List) request.
 
 ## HTTP request
 
 ```
-GET https://iam.api.cloud.yandex.net/iam/v1/oauthClientSecrets/{oauthClientSecretId}
+GET https://iam.{{ api-host }}/iam/v1/oauthClientSecrets/{oauthClientSecretId}
 ```
 
 ## Path parameters

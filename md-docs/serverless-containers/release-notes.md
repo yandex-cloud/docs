@@ -1,14 +1,31 @@
-# История изменений в Yandex Serverless Containers
+# История изменений в {{ serverless-containers-full-name }}
+
+## Апрель 2026 {#april-2026}
+
+### Исправления и улучшения {#fixes-improvements}
+
+* Параметр `batch_cutoff` для триггеров в {{ TF }} теперь опциональный, а `terraform plan` больше не предлагает задать нулевые значения для настроек группирования.
+
+## Март 2026 {#march-2026}
+
+### Обновления {#updates}
+
+* Добавлена передача параметров сервиса метаданных контейнера в аудитные логи {{ at-name }}.
+
+### Исправления и улучшения {#fixes-improvements}
+
+* Исправлена работа триггера для {{ container-registry-name }}, который срабатывает при изменении тегов Docker-образов: теперь в сообщении от триггера передается имя добавленного или удаленного тега.
+* Исправлены аудитные логи {{ at-name }} триггеров для {{ objstorage-name }} и {{ yds-name }}: устранены ошибки proto-валидации в полях `request_parameters.rule` и `details.trigger_rule`.
 
 ## Февраль 2026 {#february-2026}
 
 ### Обновления {#updates}
 
-* Добавлена поддержка сервиса Serverless Containers в [калькуляторе цен](https://yandex.cloud/ru/prices).
+* Добавлена поддержка сервиса {{ serverless-containers-name }} в [калькуляторе цен](https://yandex.cloud/ru/prices).
 
 ### Исправления и улучшения {#fixes-improvements}
 
-* Исправлено вычисление [метрик](metrics.md) Monitoring.
+* Исправлено вычисление [метрик](metrics.md) {{ monitoring-name }}.
 
 ## Сентябрь 2025 {#september-2025}
 
@@ -44,7 +61,7 @@
 
 ### Обновления {#updates}
 
-* Добавлена поддержка выбора [режима работы контейнера](operations/update-runtime.md) в CLI, API и Terraform.
+* Добавлена поддержка выбора [режима работы контейнера](operations/update-runtime.md) в CLI, API и {{ TF }}.
 
 ## Сентябрь — октябрь 2024 {#sept-oct-2024}
 
@@ -64,16 +81,16 @@
 
 ### Обновления {#updates}
 
-* Добавлена поддержка редактирования всех параметров триггеров в Terraform.
-* [Монтирование бакетов Yandex Object Storage](concepts/mounting.md) в контейнер перешло на [стадию General Availability](../overview/concepts/launch-stages.md).
+* Добавлена поддержка редактирования всех параметров триггеров в {{ TF }}.
+* [Монтирование бакетов {{ objstorage-full-name }}](concepts/mounting.md) в контейнер перешло на [стадию General Availability](../overview/concepts/launch-stages.md).
 
 ### Исправления и улучшения {#fixes-improvements}
 
-* Максимальный размер группы в [триггере для Yandex Message Queue](concepts/trigger/ymq-trigger.md) увеличен до 1000 сообщений.
+* Максимальный размер группы в [триггере для {{ message-queue-full-name }}](concepts/trigger/ymq-trigger.md) увеличен до 1000 сообщений.
 
 ## Январь — февраль 2024 {#jan-feb-2024}
 
 ### Обновления {#updates}
 
-* Добавлена поддержка настроек логирования для контейнера в Terraform.
-* Добавлена поддержка [монтирования бакетов Yandex Object Storage](concepts/mounting.md) в контейнер в CLI и Terraform.
+* Добавлена поддержка настроек логирования для контейнера в {{ TF }}.
+* Добавлена поддержка [монтирования бакетов {{ objstorage-full-name }}](concepts/mounting.md) в контейнер в CLI и {{ TF }}.

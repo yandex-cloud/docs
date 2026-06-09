@@ -2,11 +2,11 @@
 
 {% note info %}
 
-Даже если [операция](../../../api-design-guide/concepts/about-async.md) с ресурсами [сервисов](../../../overview/concepts/services.md) Yandex Cloud разрешена [ролью](../../concepts/access-control/roles.md), ее выполнение может быть заблокировано, если на [организацию](../../../organization/concepts/organization.md), [облако](../../../resource-manager/concepts/resources-hierarchy.md#cloud) или [каталог](../../../resource-manager/concepts/resources-hierarchy.md#folder) назначена [политика авторизации](../../concepts/access-control/access-policies.md), запрещающая эту операцию.
+Даже если [операция](../../../api-design-guide/concepts/about-async.md) с ресурсами [сервисов](../../../overview/concepts/services.md) {{ yandex-cloud }} разрешена [ролью](../../concepts/access-control/roles.md), ее выполнение может быть заблокировано, если на [организацию](../../../organization/concepts/organization.md), [облако](../../../resource-manager/concepts/resources-hierarchy.md#cloud) или [каталог](../../../resource-manager/concepts/resources-hierarchy.md#folder) назначена [политика авторизации](../../concepts/access-control/access-policies.md), запрещающая эту операцию.
 
 {% endnote %}
 
-Если вы хотите запретить [субъекту](../../concepts/access-control/index.md#subject) доступ к ресурсу, отзовите у него соответствующие роли на этот ресурс и на ресурсы, от которых наследуются права доступа. Подробнее читайте в разделе [Как устроено управление доступом в Yandex Cloud](../../concepts/access-control/index.md).
+Если вы хотите запретить [субъекту](../../concepts/access-control/index.md#subject) доступ к ресурсу, отзовите у него соответствующие роли на этот ресурс и на ресурсы, от которых наследуются права доступа. Подробнее читайте в разделе [{#T}](../../concepts/access-control/index.md).
 
 
 ## Отозвать роль {#revoke-one-role}
@@ -17,32 +17,32 @@
 
     * Чтобы отозвать роль в каталоге и его дочерних ресурсах:
 
-        1. В [консоли управления](https://console.yandex.cloud) на панели сверху нажмите ![image](../../../_assets/console-icons/layout-side-content-left.svg) или ![image](../../../_assets/console-icons/chevron-down.svg) и выберите нужный [каталог](../../../resource-manager/concepts/resources-hierarchy.md#folder).
-        1. Перейдите на вкладку **Права доступа**.
+        1. В [консоли управления]({{ link-console-main }}) на панели сверху нажмите ![image](../../../_assets/console-icons/layout-side-content-left.svg) или ![image](../../../_assets/console-icons/chevron-down.svg) и выберите нужный [каталог](../../../resource-manager/concepts/resources-hierarchy.md#folder).
+        1. Перейдите на вкладку **{{ ui-key.yacloud.common.resource-acl.label_access-bindings }}**.
         1. Выберите пользователя в списке и нажмите значок ![image](../../../_assets/console-icons/ellipsis.svg) напротив имени пользователя.
-        1. Нажмите кнопку **Изменить роли**.
+        1. Нажмите кнопку **{{ ui-key.yacloud_components.acl.action.edit-roles }}**.
         1. Нажмите значок ![image](../../../_assets/console-icons/xmark.svg) напротив роли, которую хотите отозвать.
-        1. Нажмите кнопку **Сохранить**.
+        1. Нажмите кнопку **{{ ui-key.yacloud_components.acl.action.apply }}**.
 
     * Чтобы отозвать роль в облаке:
 
-        1. В [консоли управления](https://console.yandex.cloud) на панели сверху нажмите ![image](../../../_assets/console-icons/layout-side-content-left.svg) или ![image](../../../_assets/console-icons/chevron-down.svg) и выберите нужное облако.
-        1. Перейдите на вкладку **Права доступа**.
+        1. В [консоли управления]({{ link-console-main }}) на панели сверху нажмите ![image](../../../_assets/console-icons/layout-side-content-left.svg) или ![image](../../../_assets/console-icons/chevron-down.svg) и выберите нужное облако.
+        1. Перейдите на вкладку **{{ ui-key.yacloud.common.resource-acl.label_access-bindings }}**.
         1. Выберите пользователя в списке и нажмите значок ![image](../../../_assets/console-icons/ellipsis.svg) напротив имени пользователя.
-        1. Нажмите кнопку **Изменить роли**.
+        1. Нажмите кнопку **{{ ui-key.yacloud_components.acl.action.edit-roles }}**.
         1. Нажмите значок ![image](../../../_assets/console-icons/xmark.svg) напротив роли, которую хотите отозвать.
-        1. Нажмите кнопку **Сохранить**.
+        1. Нажмите кнопку **{{ ui-key.yacloud_components.acl.action.apply }}**.
 
     * Чтобы отозвать сразу все роли в каталоге или облаке:
 
-        1. В [консоли управления](https://console.yandex.cloud) на панели сверху нажмите ![image](../../../_assets/console-icons/layout-side-content-left.svg) или ![image](../../../_assets/console-icons/chevron-down.svg) и выберите каталог или облако.
-        1. Перейдите на вкладку **Права доступа**.
+        1. В [консоли управления]({{ link-console-main }}) на панели сверху нажмите ![image](../../../_assets/console-icons/layout-side-content-left.svg) или ![image](../../../_assets/console-icons/chevron-down.svg) и выберите каталог или облако.
+        1. Перейдите на вкладку **{{ ui-key.yacloud.common.resource-acl.label_access-bindings }}**.
         1. Выберите пользователя в списке и нажмите значок ![image](../../../_assets/console-icons/ellipsis.svg) напротив имени пользователя.
-        1. Если вы хотите отозвать все роли пользователя в облаке — нажмите кнопку **Отозвать доступ** и подтвердите отзыв.
+        1. Если вы хотите отозвать все роли пользователя в облаке — нажмите кнопку **{{ ui-key.yacloud_components.acl.action.revoke-access }}** и подтвердите отзыв.
 
 - CLI {#cli}
 
-    Если у вас еще нет интерфейса командной строки Yandex Cloud (CLI), [установите и инициализируйте его](../../../cli/quickstart.md#install).
+    Если у вас еще нет интерфейса командной строки {{ yandex-cloud }} (CLI), [установите и инициализируйте его](../../../cli/quickstart.md#install).
 
     Чтобы отозвать роль у субъекта, удалите права доступа для соответствующего ресурса:
 
@@ -83,13 +83,16 @@
         ```
 
         Где:
-        * `--role` — идентификатор роли, которую надо отозвать, например `resource-manager.clouds.owner`.
+        * `--role` — идентификатор роли, которую надо отозвать, например `{{ roles-cloud-owner }}`.
         * `<тип_субъекта>` — тип [субъекта](../../concepts/access-control/index.md#subject), у которого отзывается роль.
         * `<идентификатор_субъекта>` — идентификатор субъекта.
 
-- Terraform {#tf}
+- {{ TF }} {#tf}
 
-    Если у вас еще нет Terraform, [установите его и настройте провайдер Yandex Cloud](../../../tutorials/infrastructure-management/terraform-quickstart.md#install-terraform).
+    Если у вас еще нет {{ TF }}, [установите его и настройте провайдер {{ yandex-cloud }}](../../../tutorials/infrastructure-management/terraform-quickstart.md#install-terraform).
+    
+    
+    Чтобы управлять инфраструктурой с помощью {{ TF }} от имени сервисного аккаунта или пользовательских аккаунтов: аккаунта на Яндексе, федеративного аккаунта и локального пользователя, [аутентифицируйтесь](../../../terraform/authentication.md) соответствующим способом.
 
     1. Чтобы отозвать роль у субъекта на ресурс, найдите в конфигурационном файле описание ресурса:
 
@@ -106,7 +109,7 @@
 
     1. Удалите запись с информацией о субъекте, у которого нужно отозвать права, из перечня пользователей `members`.
 
-       Более подробную информацию о параметрах ресурса `yandex_resourcemanager_cloud_iam_binding`, см. в [документации провайдера](../../../terraform/resources/iam_service_account_iam_binding.md).
+       Более подробную информацию о параметрах ресурса `yandex_resourcemanager_cloud_iam_binding`, см. в [документации провайдера]({{ tf-provider-resources-link }}/iam_service_account_iam_binding).
 
     1. Проверьте корректность конфигурационных файлов.
 
@@ -117,7 +120,7 @@
           terraform plan
           ```
 
-       Если конфигурация описана верно, в терминале отобразится список создаваемых ресурсов и их параметров. Если в конфигурации есть ошибки, Terraform на них укажет.
+       Если конфигурация описана верно, в терминале отобразится список создаваемых ресурсов и их параметров. Если в конфигурации есть ошибки, {{ TF }} на них укажет.
 
     1. Разверните облачные ресурсы.
 
@@ -129,7 +132,7 @@
 
         1. Подтвердите создание ресурсов: введите в терминал слово `yes` и нажмите **Enter**.
 
-        После этого в указанном каталоге будут созданы все требуемые ресурсы. Проверить создание ресурса можно в [консоли управления](https://console.yandex.cloud) или с помощью команды [CLI](../../../cli/quickstart.md):
+        После этого в указанном каталоге будут созданы все требуемые ресурсы. Проверить создание ресурса можно в [консоли управления]({{ link-console-main }}) или с помощью команды [CLI](../../../cli/quickstart.md):
 
         ```
         yc resource-manager cloud list-access-bindings <имя_или_идентификатор_облака>
@@ -146,7 +149,7 @@
        export IAM_TOKEN=CggaATEVAgA...
        curl \
          --header "Authorization: Bearer ${IAM_TOKEN}" \
-         "https://resource-manager.api.cloud.yandex.net/resource-manager/v1/folders/${FOLDER_ID}:listAccessBindings"
+         "https://resource-manager.{{ api-host }}/resource-manager/v1/folders/${FOLDER_ID}:listAccessBindings"
        ```
        
        Результат:
@@ -193,7 +196,7 @@
           --header "Content-Type: application/json" \
           --header "Authorization: Bearer ${IAM_TOKEN}" \
           --data '@body.json' \
-          "https://resource-manager.api.cloud.yandex.net/resource-manager/v1/folders/${FOLDER_ID}:updateAccessBindings"
+          "https://resource-manager.{{ api-host }}/resource-manager/v1/folders/${FOLDER_ID}:updateAccessBindings"
         ```
 
 {% endlist %}

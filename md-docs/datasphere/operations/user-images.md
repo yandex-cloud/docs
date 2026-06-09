@@ -2,29 +2,29 @@
 
 Вы можете настроить окружение для выполнения вашего кода, используя [Docker-образы](../concepts/docker.md).
 
-Yandex DataSphere позволяет создавать репозитории Docker-образов в проекте, а также выбирать образ для проекта. Выбранный образ будет использоваться при запуске кода во всех ноутбуках проекта.
+{{ ml-platform-full-name }} позволяет создавать репозитории Docker-образов в проекте, а также выбирать образ для проекта. Выбранный образ будет использоваться при запуске кода во всех ноутбуках проекта.
 
 ## Создать Docker-образ {#create}
 
-1. Выберите нужный проект в своем сообществе или на [главной странице](https://datasphere.yandex.cloud) DataSphere во вкладке **Недавние проекты**.
-1. В правом верхнем углу нажмите **Создать ресурс**. Во всплывающем окне выберите **Docker-образ**.
+1. Выберите нужный проект в своем сообществе или на [главной странице]({{ link-datasphere-main }}) {{ ml-platform-name }} во вкладке **{{ ui-key.yc-ui-datasphere.main-page.recent-projects }}**.
+1. В правом верхнем углу нажмите **{{ ui-key.yc-ui-datasphere.project-page.project-card.create-resource }}**. Во всплывающем окне выберите **{{ ui-key.yc-ui-datasphere.resources.docker }}**.
 1. Выберите расположение Docker-образа:
 
    {% list tabs %}
    
-   - Container Registry
+   - {{ container-registry-name }}
    
-     Образ будет собран в реестре [Yandex Container Registry](../../container-registry/index.md). Запуск проекта с образом из реестра зависит от размера образа и занимает больше времени. Образ из реестра нельзя [опубликовать](#share) в сообществе.
+     Образ будет собран в реестре [{{ container-registry-full-name }}](../../container-registry/index.md). Запуск проекта с образом из реестра зависит от размера образа и занимает больше времени. Образ из реестра нельзя [опубликовать](#share) в сообществе.
    
-     Для сборки образа в Container Registry администратор сообщества должен указать нужный реестр в [настройках сообщества](community/manage-community-config.md) и включить [сервисного агента](community/create-ssa.md).
+     Для сборки образа в {{ container-registry-name }} администратор сообщества должен указать нужный реестр в [настройках сообщества](community/manage-community-config.md) и включить [сервисного агента](community/create-ssa.md).
    
      Заполните поля:
 
-     * **Тег** — имя и тег образа в формате `<имя>:<тег>`, например `tensorflow:1.0.0`.
-     * **Точка монтирования хранилища проекта** — путь к директории, содержимое которой необходимо иметь в контексте сборки Docker-образа. Все содержимое этой директории будет занимать место на диске для сборки образа. `.` — корневая директория.
-     * **Описание** — описание Docker-образа.
-     * **Шаблон Docker-образа** — шаблон с минимальным набором инструкций для сборки рабочего Docker-образа с выбранной версией Python.
-     * **Файл Docker** — набор инструкций для создания Docker-образа.
+     * **{{ ui-key.yc-ui-datasphere.docker.tag }}** — имя и тег образа в формате `<имя>:<тег>`, например `tensorflow:1.0.0`.
+     * **{{ ui-key.yc-ui-datasphere.docker.build-path }}** — путь к директории, содержимое которой необходимо иметь в контексте сборки Docker-образа. Все содержимое этой директории будет занимать место на диске для сборки образа. `.` — корневая директория.
+     * **{{ ui-key.yc-ui-datasphere.common.description }}** — описание Docker-образа.
+     * **{{ ui-key.yc-ui-datasphere.docker.docker-template }}** — шаблон с минимальным набором инструкций для сборки рабочего Docker-образа с выбранной версией Python.
+     * **{{ ui-key.yc-ui-datasphere.docker.dockerfile }}** — набор инструкций для создания Docker-образа.
 
        Отредактируйте содержимое поля. Например, следующий код создаст Docker-образ с `python_3_8` на основе оригинального образа TensorFlow:
  
@@ -38,19 +38,19 @@ Yandex DataSphere позволяет создавать репозитории D
          && ln -s /usr/bin/python3 /usr/local/bin/python3
        ```
    
-   - DataSphere
+   - {{ ui-key.yc-ui-datasphere.docker.location.datasphere.title }}
    
-     Docker-образ будет собран и оптимизирован для использования в проектах DataSphere. Такой Docker-образ можно [опубликовать](#share) в сообществе. Ресурс будет размещен в выделенном хранилище, которое [тарифицируется](../pricing.md#storage) отдельно.
+     Docker-образ будет собран и оптимизирован для использования в проектах {{ ml-platform-name }}. Такой Docker-образ можно [опубликовать](#share) в сообществе. Ресурс будет размещен в выделенном хранилище, которое [тарифицируется](../pricing.md#storage) отдельно.
 
      Заполните поля:
 
-     * **Размер диска, ГБ** — желаемый размер хранилища в ГБ.
-     * **Имя образа** — имя образа, например `tensorflow`.
-     * **Тег** — тег образа, например `1.0.0`.
-     * **Точка монтирования хранилища проекта** — путь внутри проекта, где будет размещаться созданный Docker-образ; `.` — корневая директория.
-     * **Описание** — описание Docker-образа.
-     * **Шаблон Docker-образа** — шаблон скрипта для установки Python.
-     * **Файл Docker** — набор инструкций для создания Docker-образа.
+     * **{{ ui-key.yc-ui-datasphere.docker.disk-size.label }}** — желаемый размер хранилища в ГБ.
+     * **{{ ui-key.yc-ui-datasphere.docker.repository }}** — имя образа, например `tensorflow`.
+     * **{{ ui-key.yc-ui-datasphere.docker.tag }}** — тег образа, например `1.0.0`.
+     * **{{ ui-key.yc-ui-datasphere.docker.build-path }}** — путь внутри проекта, где будет размещаться созданный Docker-образ; `.` — корневая директория.
+     * **{{ ui-key.yc-ui-datasphere.common.description }}** — описание Docker-образа.
+     * **{{ ui-key.yc-ui-datasphere.docker.docker-template }}** — шаблон скрипта для установки Python.
+     * **{{ ui-key.yc-ui-datasphere.docker.dockerfile }}** — набор инструкций для создания Docker-образа.
 
        Отредактируйте содержимое поля. Например, следующий код создаст Docker-образ с `python_3_8` на основе оригинального образа TensorFlow:
  
@@ -66,14 +66,14 @@ Yandex DataSphere позволяет создавать репозитории D
    
    {% endlist %}
 
-1. (Опционально) Активируйте опцию **Данные для аутентификации** и укажите логин и пароль от аккаунта на Docker Hub.
+1. (Опционально) Активируйте опцию **{{ ui-key.yc-ui-datasphere.docker.credentials-switcher-label }}** и укажите логин и пароль от аккаунта на Docker Hub.
 
-1. Нажмите **Собрать**.
+1. Нажмите **{{ ui-key.yc-ui-datasphere.common.build }}**.
 
     Будет создан Docker-образ с пакетами библиотеки TensorFlow для использования GPU в расчетах.
 
-1. Выберите нужный проект в своем сообществе или на [главной странице](https://datasphere.yandex.cloud) DataSphere во вкладке **Недавние проекты**.
-1. В блоке **Ресурсы проекта** выберите ![docker](../../_assets/console-icons/logo-docker.svg) **Docker-образ**.
+1. Выберите нужный проект в своем сообществе или на [главной странице]({{ link-datasphere-main }}) {{ ml-platform-name }} во вкладке **{{ ui-key.yc-ui-datasphere.main-page.recent-projects }}**.
+1. В блоке **{{ ui-key.yc-ui-datasphere.project-page.project-resources }}** выберите ![docker](../../_assets/console-icons/logo-docker.svg) **{{ ui-key.yc-ui-datasphere.resources.docker }}**.
 
 {% note tip %}
 
@@ -81,7 +81,7 @@ Yandex DataSphere позволяет создавать репозитории D
 
 * [Создайте подсеть](../../vpc/operations/subnet-create.md).
 * [Создайте NAT-шлюз для доступа в интернет](../../vpc/operations/create-nat-gateway.md).
-* [Создайте сервисный аккаунт](../../iam/operations/sa/create.md) с ролью `vpc.user`.
+* [Создайте сервисный аккаунт](../../iam/operations/sa/create.md) с ролью `{{ roles-vpc-user }}`.
 * [В настройках проекта](projects/update.md) добавьте подсеть и сервисный аккаунт.
 
 Вы также можете использовать базовые образы из других библиотек.
@@ -90,10 +90,10 @@ Yandex DataSphere позволяет создавать репозитории D
 
 ## Применить Docker-образ для проекта {#set}
 
-1. Выберите нужный проект в своем сообществе или на [главной странице](https://datasphere.yandex.cloud) DataSphere во вкладке **Недавние проекты**.
-1. В блоке **Ресурсы проекта** выберите ![docker](../../_assets/console-icons/logo-docker.svg) **Docker-образ**.
-1. Напротив нужного образа нажмите ![Options](../../_assets/console-icons/ellipsis.svg) и выберите ![Apply](../../_assets/console-icons/circle-check-fill.svg) **Активировать**.
-1. Откройте проект в JupyterLab и дождитесь окончания загрузки.
+1. Выберите нужный проект в своем сообществе или на [главной странице]({{ link-datasphere-main }}) {{ ml-platform-name }} во вкладке **{{ ui-key.yc-ui-datasphere.main-page.recent-projects }}**.
+1. В блоке **{{ ui-key.yc-ui-datasphere.project-page.project-resources }}** выберите ![docker](../../_assets/console-icons/logo-docker.svg) **{{ ui-key.yc-ui-datasphere.resources.docker }}**.
+1. Напротив нужного образа нажмите ![Options](../../_assets/console-icons/ellipsis.svg) и выберите ![Apply](../../_assets/console-icons/circle-check-fill.svg) **{{ ui-key.yc-ui-datasphere.common.activate }}**.
+1. Откройте проект в {{ jlab }}Lab и дождитесь окончания загрузки.
 1. Откройте вкладку с ноутбуком и убедитесь, что окружение пользовательского образа доступно в вашем проекте. Например, для образа TensorFlow создайте и запустите ячейку со следующим кодом:
 
     ```bash
@@ -110,33 +110,33 @@ Yandex DataSphere позволяет создавать репозитории D
     ```
 
 Чтобы вернуться к окружению по умолчанию:
-1. Выберите нужный проект в своем сообществе или на [главной странице](https://datasphere.yandex.cloud) DataSphere во вкладке **Недавние проекты**.
-1. В блоке **Ресурсы проекта** выберите ![docker](../../_assets/console-icons/logo-docker.svg) **Docker-образ**.
-1. Напротив образа по умолчанию нажмите ![Options](../../_assets/console-icons/ellipsis.svg) и выберите ![Apply](../../_assets/console-icons/circle-check-fill.svg) **Активировать**.
+1. Выберите нужный проект в своем сообществе или на [главной странице]({{ link-datasphere-main }}) {{ ml-platform-name }} во вкладке **{{ ui-key.yc-ui-datasphere.main-page.recent-projects }}**.
+1. В блоке **{{ ui-key.yc-ui-datasphere.project-page.project-resources }}** выберите ![docker](../../_assets/console-icons/logo-docker.svg) **{{ ui-key.yc-ui-datasphere.resources.docker }}**.
+1. Напротив образа по умолчанию нажмите ![Options](../../_assets/console-icons/ellipsis.svg) и выберите ![Apply](../../_assets/console-icons/circle-check-fill.svg) **{{ ui-key.yc-ui-datasphere.common.activate }}**.
 
 ## Поделиться Docker-образом {#share}
 
-Поделиться Docker-образом в сообществе может только администратор сообщества, и только если образ был размещен в DataSphere.
+Поделиться Docker-образом в сообществе может только администратор сообщества, и только если образ был размещен в {{ ml-platform-name }}.
 
-Подробнее о ролях, действующих в DataSphere, см. в разделе [Управление доступом в DataSphere](../security/index.md).
+Подробнее о ролях, действующих в {{ ml-platform-name }}, см. в разделе [{#T}](../security/index.md).
 
-1. Выберите нужный проект в своем сообществе или на [главной странице](https://datasphere.yandex.cloud) DataSphere во вкладке **Недавние проекты**.
-1. В блоке **Ресурсы проекта** нажмите ![docker](../../_assets/console-icons/logo-docker.svg)**Docker-образ**.
+1. Выберите нужный проект в своем сообществе или на [главной странице]({{ link-datasphere-main }}) {{ ml-platform-name }} во вкладке **{{ ui-key.yc-ui-datasphere.main-page.recent-projects }}**.
+1. В блоке **{{ ui-key.yc-ui-datasphere.project-page.project-resources }}** нажмите ![docker](../../_assets/console-icons/logo-docker.svg)**{{ ui-key.yc-ui-datasphere.resources.docker }}**.
 1. Выберите нужный образ в списке.
-1. Перейдите на вкладку **Доступ**.
+1. Перейдите на вкладку **{{ ui-key.yc-ui-datasphere.common.access }}**.
 1. Включите опцию видимости напротив названия сообщества, в котором нужно поделиться Docker-образом.
 
-Чтобы Docker-образ стал доступен для работы в другом проекте, администратор проекта должен [добавить](projects/use-shared-resource.md) его на вкладке **Доступные**.
+Чтобы Docker-образ стал доступен для работы в другом проекте, администратор проекта должен [добавить](projects/use-shared-resource.md) его на вкладке **{{ ui-key.yc-ui-datasphere.common.shared-with-project-resources }}**.
 
 ## Удалить Docker-образ {#delete}
 
 Нельзя удалить Docker-образ, если он доступен для всего сообщества.
 
-1. Выберите нужный проект в своем сообществе или на [главной странице](https://datasphere.yandex.cloud) DataSphere во вкладке **Недавние проекты**.
-1. В блоке **Ресурсы проекта** нажмите ![docker](../../_assets/console-icons/logo-docker.svg)**Docker-образ**.
+1. Выберите нужный проект в своем сообществе или на [главной странице]({{ link-datasphere-main }}) {{ ml-platform-name }} во вкладке **{{ ui-key.yc-ui-datasphere.main-page.recent-projects }}**.
+1. В блоке **{{ ui-key.yc-ui-datasphere.project-page.project-resources }}** нажмите ![docker](../../_assets/console-icons/logo-docker.svg)**{{ ui-key.yc-ui-datasphere.resources.docker }}**.
 1. В списке Docker-образов выберите тот, который хотите удалить.
-1. Нажмите ![options](../../_assets/console-icons/ellipsis.svg) и выберите **Удалить**.
-1. Нажмите **Подтвердить**.
+1. Нажмите ![options](../../_assets/console-icons/ellipsis.svg) и выберите **{{ ui-key.yc-ui-datasphere.common.delete }}**.
+1. Нажмите **{{ ui-key.yc-ui-datasphere.common.submit }}**.
 
 Отобразится сообщение о том, что ресурс удален.
 

@@ -2,7 +2,7 @@
 
 Если у вас публичный бакет, объекты доступны всегда, даже если для бакета не настроен [хостинг сайта](../../concepts/hosting.md). Ссылку можно получить по этой инструкции либо сформировать самостоятельно. [Подробнее про формат ссылки](../../concepts/object.md#object-url).
 
-Если у вас бакет с ограниченным доступом, то Object Storage позволяет сгенерировать подписанную ссылку на объект. Любой человек, получивший эту ссылку, сможет скачать объект даже из бакета с ограниченным доступом. [Подробнее про подписанные ссылки, их генерацию и использование](../../concepts/pre-signed-urls.md).
+Если у вас бакет с ограниченным доступом, то {{ objstorage-name }} позволяет сгенерировать подписанную ссылку на объект. Любой человек, получивший эту ссылку, сможет скачать объект даже из бакета с ограниченным доступом. [Подробнее про подписанные ссылки, их генерацию и использование](../../concepts/pre-signed-urls.md).
 
 {% note info %}
 
@@ -14,18 +14,18 @@
 
 - Консоль управления {#console}
 
-  1. В [консоли управления](https://console.yandex.cloud) выберите каталог.
-  1. [Перейдите](../../../console/operations/select-service.md#select-service) в сервис **Object Storage**.
+  1. В [консоли управления]({{ link-console-main }}) выберите каталог.
+  1. Перейдите в сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_storage }}**.
   1. Нажмите на имя необходимого бакета.
   1. Нажмите на имя объекта.
-  1. Нажмите ![link](../../../_assets/storage/link.svg) **Получить ссылку** в правом верхнем углу.
-  1. Для бакета с ограниченным доступом укажите **Время жизни** ссылки в часах или днях (максимум 30 дней).
-  1. Нажмите **Получить ссылку**.
+  1. Нажмите ![link](../../../_assets/storage/link.svg) **{{ ui-key.yacloud.storage.file.button_generate }}** в правом верхнем углу.
+  1. Для бакета с ограниченным доступом укажите **{{ ui-key.yacloud.storage.file.label_lifetime }}** ссылки в часах или днях (максимум 30 дней).
+  1. Нажмите **{{ ui-key.yacloud.storage.file.button_generate }}**.
   1. Скопируйте полученную ссылку.
 
-- Yandex Cloud CLI {#cli}
+- {{ yandex-cloud }} CLI {#cli}
 
-  Если у вас еще нет интерфейса командной строки Yandex Cloud (CLI), [установите и инициализируйте его](../../../cli/quickstart.md#install).
+  Если у вас еще нет интерфейса командной строки {{ yandex-cloud }} (CLI), [установите и инициализируйте его](../../../cli/quickstart.md#install).
   
   По умолчанию используется каталог, указанный при [создании](../../../cli/operations/profile/profile-create.md) профиля CLI. Чтобы изменить каталог по умолчанию, используйте команду `yc config set folder-id <идентификатор_каталога>`. Также для любой команды вы можете указать другой каталог с помощью параметров `--folder-name` или `--folder-id`. Если вы обращаетесь к ресурсу по имени, поиск будет выполнен в каталоге по умолчанию. Если вы обращаетесь к ресурсу по идентификатору, поиск будет выполнен глобально — во всех каталогах с учетом прав доступа.
   
@@ -75,13 +75,13 @@
       request_id: 338862e1********
       ```
   
-  1. Сгенерируйте подписанную ссылку. Вы можете сделать это либо с помощью API Yandex Cloud от имени [аккаунта](../../../iam/concepts/users/accounts.md), аутентифицированного в текущий момент в профиле Yandex Cloud CLI, либо локально от имени [сервисного аккаунта](../../../iam/concepts/users/service-accounts.md), передав в команде данные его [статического ключа доступа](../../../iam/concepts/authorization/access-key.md).
+  1. Сгенерируйте подписанную ссылку. Вы можете сделать это либо с помощью API {{ yandex-cloud }} от имени [аккаунта](../../../iam/concepts/users/accounts.md), аутентифицированного в текущий момент в профиле {{ yandex-cloud }} CLI, либо локально от имени [сервисного аккаунта](../../../iam/concepts/users/service-accounts.md), передав в команде данные его [статического ключа доступа](../../../iam/concepts/authorization/access-key.md).
   
       {% list tabs %}
   
-      - С помощью API Yandex Cloud
+      - С помощью API {{ yandex-cloud }}
   
-        Чтобы сгенерировать подписанную ссылку на скачивание объекта от имени аккаунта, аутентифицированного в текущий момент в профиле Yandex Cloud CLI, выполните команду:
+        Чтобы сгенерировать подписанную ссылку на скачивание объекта от имени аккаунта, аутентифицированного в текущий момент в профиле {{ yandex-cloud }} CLI, выполните команду:
   
         ```bash
         yc storage s3 presign \
@@ -100,7 +100,7 @@
         Результат:
   
         ```text
-        https://storage.yandexcloud.net/first-bucket/sample.txt?X-Amz-Algorithm=AWS4-HMAC-SHA256&X-Amz-Credential=YCAJEIUp_5V5nBFDgIgh-NLc2%2F20250904%2Fru-central1%2Fs3%2Faws4_request&X-Amz-Date=20250904T063033Z&X-Amz-Expires=36000&X-Amz-Signature=d661b64566753dba1ef66b467e56db0e7f7c69581b0ddd2c8a0a7b505bc3ff61&X-Amz-SignedHeaders=host&response-content-disposition=attachment
+        https://{{ s3-storage-host }}/first-bucket/sample.txt?X-Amz-Algorithm=AWS4-HMAC-SHA256&X-Amz-Credential=YCAJEIUp_5V5nBFDgIgh-NLc2%2F20250904%2Fru-central1%2Fs3%2Faws4_request&X-Amz-Date=20250904T063033Z&X-Amz-Expires=36000&X-Amz-Signature=d661b64566753dba1ef66b467e56db0e7f7c69581b0ddd2c8a0a7b505bc3ff61&X-Amz-SignedHeaders=host&response-content-disposition=attachment
         ```
   
       - Локально
@@ -130,7 +130,7 @@
         Результат:
   
         ```text
-        https://storage.yandexcloud.net:443/first-bucket/sample.txt?X-Amz-Algorithm=AWS4-HMAC-SHA256&X-Amz-Credential=YCAJE98uTrKJwAtqwrHJXNh5L%2F20250904%2Fdefault%2Fs3%2Faws4_request&X-Amz-Date=20250904T072650Z&X-Amz-Expires=36000&X-Amz-SignedHeaders=host&response-content-disposition=attachment&x-id=GetObject&X-Amz-Signature=e60562ef242588eec44916ad9e97d2864b250a73f4e5a70e29bb2bd8926249b0
+        https://{{ s3-storage-host }}:443/first-bucket/sample.txt?X-Amz-Algorithm=AWS4-HMAC-SHA256&X-Amz-Credential=YCAJE98uTrKJwAtqwrHJXNh5L%2F20250904%2Fdefault%2Fs3%2Faws4_request&X-Amz-Date=20250904T072650Z&X-Amz-Expires=36000&X-Amz-SignedHeaders=host&response-content-disposition=attachment&x-id=GetObject&X-Amz-Signature=e60562ef242588eec44916ad9e97d2864b250a73f4e5a70e29bb2bd8926249b0
         ```
   
       {% endlist %}
@@ -142,10 +142,10 @@
   ```bash
   aws s3 presign s3://<имя_бакета>/<ключ_объекта> \
     --expires-in <время_жизни_ссылки> \
-    --endpoint-url "https://storage.yandexcloud.net/"
+    --endpoint-url "https://{{ s3-storage-host }}/"
   ```
   
-  Чтобы ссылка сформировалась корректно, обязательно укажите параметр `--endpoint-url` с указанием доменного имени Object Storage. Подробнее см. в [разделе об особенностях работы AWS CLI](../../tools/aws-cli.md#specifics).
+  Чтобы ссылка сформировалась корректно, обязательно укажите параметр `--endpoint-url` с указанием доменного имени {{ objstorage-name }}. Подробнее см. в [разделе об особенностях работы AWS CLI](../../tools/aws-cli.md#specifics).
 
 - SDK для Python (boto3) {#sdk-python}
 
@@ -158,7 +158,7 @@
   from botocore.client import Config
   
   
-  ENDPOINT = "https://storage.yandexcloud.net"
+  ENDPOINT = "https://{{ s3-storage-host }}"
   
   ACCESS_KEY = "JK38EXAMP********"
   SECRET_KEY = "ExamP1eSecReTKeykdo********"
@@ -166,7 +166,7 @@
   session = boto3.Session(
        aws_access_key_id=ACCESS_KEY,
        aws_secret_access_key=SECRET_KEY,
-       region_name="ru-central1",
+       region_name="{{ region-id }}",
   )
   s3 = session.client(
        "s3", endpoint_url=ENDPOINT, config=Config(signature_version="s3v4")
@@ -191,13 +191,13 @@
   import { S3Client, GetObjectCommand } from "@aws-sdk/client-s3";
   import { getSignedUrl } from "@aws-sdk/s3-request-presigner";
   
-  const S3_ENDPOINT = "https://storage.yandexcloud.net";
+  const S3_ENDPOINT = "https://{{ s3-storage-host }}";
   
   const ACCESS_KEY_ID = "JK38EXAMP********";
   const SECRET_ACCESS_KEY = "ExamP1eSecReTKeykdo********";
   
   const s3Client = new S3Client({
-    region: "ru-central1",
+    region: "{{ region-id }}",
     endpoint: S3_ENDPOINT,
     credentials: {
        accessKeyId: ACCESS_KEY_ID,
@@ -226,4 +226,4 @@
 
 #### См. также {#see-also}
 
-* [Получение подписанной ссылки (pre-signed URL) на загрузку объекта](link-for-upload.md)
+* [{#T}](link-for-upload.md)

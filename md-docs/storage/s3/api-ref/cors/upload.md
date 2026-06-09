@@ -34,7 +34,7 @@ PUT /{bucket}?cors HTTP/2
 
 ### Схема данных {#request-scheme}
 
-Конфигурация CORS передается в виде XML-документа. Описание схемы смотрите в разделе [CORS в Object Storage](../../../concepts/cors.md)
+Конфигурация CORS передается в виде XML-документа. Описание схемы смотрите в разделе [{#T}](../../../concepts/cors.md)
 
 ## Ответ {#response}
 
@@ -44,17 +44,17 @@ PUT /{bucket}?cors HTTP/2
 
 ### Коды ответов {#response-codes}
 
-Перечень возможных ответов смотрите в разделе [Ответы](../response-codes.md).
+Перечень возможных ответов смотрите в разделе [{#T}](../response-codes.md).
 
 #### Связанные статьи {#related-articles}
 
-* [CORS в Object Storage](../../../concepts/cors.md)
+* [{#T}](../../../concepts/cors.md)
 
-* [Настройка CORS](../../../operations/buckets/cors.md)
+* [{#T}](../../../operations/buckets/cors.md)
 
 #### См. также {#see-also}
 
-* [Начало работы с AWS S3 API в Yandex Object Storage](../../s3-api-quickstart.md)
+* [{#T}](../../s3-api-quickstart.md)
 
 * [Отладка запросов с помощью утилиты AWS CLI](../../signing-requests.md#debugging)
 

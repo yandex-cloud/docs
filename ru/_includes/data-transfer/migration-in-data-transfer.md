@@ -6,4 +6,4 @@
 
 {% include [reactivate-a-transfer](reactivate-a-transfer.md) %}
 
-Подробнее см. в разделе [{#T}](../../data-transfer/operations/endpoint/migration-to-an-availability-zone.md).
+Подробнее читайте в разделе [{#T}](../../data-transfer/operations/endpoint/migration-to-an-availability-zone.md).

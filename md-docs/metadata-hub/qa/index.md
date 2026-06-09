@@ -1,13 +1,13 @@
-# Решение проблем в Yandex MetaData Hub 
+# Решение проблем в {{ metadata-hub-name }} 
 
 В этом разделе описаны проблемы, возникающие в сервисе, а также способы их устранения.
 
-* [Apache Hive™ Metastore](#metastore)
-* [Yandex Schema Registry](#schema-registry-full-name)
+* [{{ metastore-full-name }}](#metastore)
+* [{{ schema-registry-full-name }}](#schema-registry-full-name)
 
-## Решение проблем в Apache Hive™ Metastore {#metastore}
+## Решение проблем в {{ metastore-full-name }} {#metastore}
 
-### Ошибка при создании базы данных в Apache Hive™ Metastore {#create-db-in-hive}
+### Ошибка при создании базы данных в {{ metastore-full-name }} {#create-db-in-hive}
 
 Ошибка возникает, если создавать БД с помощью следующего запроса:
 
@@ -16,7 +16,7 @@ CREATE DATABASE IF NOT EXISTS <имя_БД>;
 ```
 
 **Решение**
-Apache Hive™ Metastore не позволяет создать базу данных или таблицу в Hive — они хранятся в [бакете Yandex Object Storage](../../storage/concepts/bucket.md), который привязан к кластеру Yandex Data Processing. Чтобы создать БД, выполните запрос:
+{{ metastore-name }} не позволяет создать базу данных или таблицу в Hive — они хранятся в [бакете {{ objstorage-full-name }}](../../storage/concepts/bucket.md), который привязан к кластеру {{ dataproc-name }}. Чтобы создать БД, выполните запрос:
 
 ```sql
 CREATE DATABASE IF NOT EXISTS <имя_БД> LOCATION <местоположение_БД>;
@@ -37,9 +37,9 @@ ERROR: rpc error: code = PermissionDenied desc = you do not have permission to a
 Ошибка возникает, если вы создаете или изменяете кластер и привязываете к нему сервисный аккаунт.
 
 **Решение**
-[Назначьте](../../iam/operations/roles/grant.md) вашему аккаунту в Yandex Cloud роль [iam.serviceAccounts.user](../../iam/security/index.md#iam-serviceAccounts-user) или выше.
+[Назначьте](../../iam/operations/roles/grant.md) вашему аккаунту в {{ yandex-cloud }} роль [iam.serviceAccounts.user](../../iam/security/index.md#iam-serviceAccounts-user) или выше.
 
-## Решение проблем в Yandex Schema Registry {#schema-registry-full-name}
+## Решение проблем в {{ schema-registry-full-name }} {#schema-registry-full-name}
 
 ### Ошибка при добавлении и удалении опциональных параметров {#avoid-errors-while-evolving-schema}
 

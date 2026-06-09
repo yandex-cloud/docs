@@ -1,18 +1,18 @@
-# Обновить или восстановить агент Yandex Cloud Backup на виртуальной машине
+# Обновить или восстановить агент {{ backup-full-name }} на виртуальной машине
 
-В некоторых ситуациях, чтобы обеспечить бесперебойное автоматическое резервное копирование [виртуальных машин](../../compute/concepts/vm.md) Yandex Compute Cloud, может понадобиться обновить [агент Cloud Backup](../concepts/agent.md) или восстановить нарушенную работоспособность агента.
+В некоторых ситуациях, чтобы обеспечить бесперебойное автоматическое резервное копирование [виртуальных машин](../../compute/concepts/vm.md) {{ compute-full-name }}, может понадобиться обновить [агент {{ backup-name }}](../concepts/agent.md) или восстановить нарушенную работоспособность агента.
 
-## Обновление агента Cloud Backup {#update-agent}
+## Обновление агента {{ backup-name }} {#update-agent}
 
-Обновление агента Cloud Backup может потребоваться при технических обновлениях на стороне [провайдера резервного копирования](../concepts/index.md#providers). О подобных случаях Yandex Cloud заблаговременно предупреждает клиентов.
+Обновление агента {{ backup-name }} может потребоваться при технических обновлениях на стороне [провайдера резервного копирования](../concepts/index.md#providers). О подобных случаях {{ yandex-cloud }} заблаговременно предупреждает клиентов.
 
 {% note info %}
 
-Обновление агента Cloud Backup не влияет на данные в существующих резервных копиях.
+Обновление агента {{ backup-name }} не влияет на данные в существующих резервных копиях.
 
 {% endnote %}
 
-Чтобы обновить агент Cloud Backup на ВМ:
+Чтобы обновить агент {{ backup-name }} на ВМ:
 
 {% list tabs group=operating_system %}
 
@@ -24,7 +24,7 @@
       ```bash
       curl \
         --output backup_agent_linux_installer.bin \
-        https://storage.yandexcloud.net/backup-distributions/backup_agent_linux_installer.bin && \
+        https://{{ s3-storage-host }}/backup-distributions/backup_agent_linux_installer.bin && \
       sudo bash ./backup_agent_linux_installer.bin -a
       ```
 
@@ -36,7 +36,7 @@
       Cyber Backup Agent has been successfully installed in the system.
       ```
 
-      Обновление агента Cloud Backup может занимать около 15 минут.
+      Обновление агента {{ backup-name }} может занимать около 15 минут.
 
   1. Отключитесь от ВМ.
 
@@ -49,7 +49,7 @@
 
       ```powershell
       Invoke-WebRequest `
-        "https://storage.yandexcloud.net/backup-distributions/backup_agent_windows_installer.exe" `
+        "https://{{ s3-storage-host }}/backup-distributions/backup_agent_windows_installer.exe" `
         -OutFile ".\backup_agent_windows_installer.exe"
       Invoke-Expression .\backup_agent_windows_installer.exe
       ```
@@ -57,20 +57,20 @@
   1. В открывшемся окне нажмите **Repair**.
   1. Дождитесь сообщения `The installation was successfully repaired` и нажмите **CLOSE**.
       
-      Обновление агента Cloud Backup может занимать около 15 минут.
+      Обновление агента {{ backup-name }} может занимать около 15 минут.
   1. Отключитесь от ВМ.
 
 {% endlist %}
 
-Если по какой-либо причине обновить агент Cloud Backup не удалось, [обратитесь](https://center.yandex.cloud/support) в техническую поддержку.
+Если по какой-либо причине обновить агент {{ backup-name }} не удалось, [обратитесь]({{ link-console-support }}) в техническую поддержку.
 
-## Восстановление работоспособности агента Cloud Backup {#restore-agent}
+## Восстановление работоспособности агента {{ backup-name }} {#restore-agent}
 
-При обновлении [ядра](https://ru.wikipedia.org/wiki/Ядро_Linux) операционной системы Linux виртуальной машины или сервера BareMetal, подключенных к Cloud Backup, работоспособность агента Cloud Backup может оказаться нарушена: будет невозможно создать резервную копию ВМ/сервера или восстановить ВМ/сервер из резервной копии.
+При обновлении [ядра](https://ru.wikipedia.org/wiki/Ядро_Linux) операционной системы Linux виртуальной машины или сервера {{ baremetal-name }}, подключенных к {{ backup-name }}, работоспособность агента {{ backup-name }} может оказаться нарушена: будет невозможно создать резервную копию ВМ/сервера или восстановить ВМ/сервер из резервной копии.
 
 Функционирование агента может нарушиться, потому что модуль SnapAPI, разработанный [провайдером резервного копирования](../concepts/index.md#providers) для работы агента с дисками и собираемый [фреймворком DKMS](https://ru.wikipedia.org/wiki/Dynamic_Kernel_Module_Support) под конкретное ядро Linux, после обновления ядра может не обновиться и перестать соответствовать версии ядра. 
 
-Чтобы восстановить работоспособность агента Cloud Backup, нарушенную после обновления ядра ОС, необходимо обновить версию заголовков ядра Linux, на которую ориентируется DKMS при сборке модуля SnapAPI. Как только версия заголовков ядра станет соответствовать версии ядра, DKMS пересоберет модуль SnapAPI под нужную версию ядра Linux при следующем запуске ВМ или сервера BareMetal.
+Чтобы восстановить работоспособность агента {{ backup-name }}, нарушенную после обновления ядра ОС, необходимо обновить версию заголовков ядра Linux, на которую ориентируется DKMS при сборке модуля SnapAPI. Как только версия заголовков ядра станет соответствовать версии ядра, DKMS пересоберет модуль SnapAPI под нужную версию ядра Linux при следующем запуске ВМ или сервера {{ baremetal-name }}.
 
 {% list tabs group=operating_system %}
 
@@ -127,7 +127,7 @@
       sudo reboot
       ```
   
-      В процессе перезагрузки фреймворк DKMS пересоберет модуль SnapAPI под нужную версию ядра Linux и агент Cloud Backup заработает.
+      В процессе перезагрузки фреймворк DKMS пересоберет модуль SnapAPI под нужную версию ядра Linux и агент {{ backup-name }} заработает.
 
 - CentOS {#centos}
 
@@ -179,8 +179,8 @@
       sudo reboot
       ```
   
-      В процессе перезагрузки фреймворк DKMS пересоберет модуль SnapAPI под нужную версию ядра Linux и агент Cloud Backup заработает.
+      В процессе перезагрузки фреймворк DKMS пересоберет модуль SnapAPI под нужную версию ядра Linux и агент {{ backup-name }} заработает.
 
 {% endlist %}
 
-Если по какой-либо причине восстановить работу агента Cloud Backup не удалось, [обратитесь](https://center.yandex.cloud/support) в техническую поддержку.
+Если по какой-либо причине восстановить работу агента {{ backup-name }} не удалось, [обратитесь]({{ link-console-support }}) в техническую поддержку.

@@ -6,7 +6,7 @@
 
  ## Поддерживаемые параметры {#parameters}
 
-В таблице ниже перечислены параметры, специфичные для API-шлюза сервиса API Gateway. Описание остальных параметров читайте в [спецификации OpenAPI 3.0](https://github.com/OAI/OpenAPI-Specification).
+В таблице ниже перечислены параметры, специфичные для API-шлюза сервиса {{ api-gw-short-name }}. Описание остальных параметров читайте в [спецификации OpenAPI 3.0](https://github.com/OAI/OpenAPI-Specification).
 
  Параметр | Тип | Описание
  --- | --- | ---
@@ -25,7 +25,7 @@ x-yc-schema-mapping:
     property2: "${.baseProperty1.baseProperty2}"
  ```
 
-Пример преобразования тела ответа, где в ответ пользователю приходит сообщение из двух полей, если функция Cloud Functions возвращает код 200 и заголовок `Content-Type: application/json`:
+Пример преобразования тела ответа, где в ответ пользователю приходит сообщение из двух полей, если функция {{ sf-name }} возвращает код 200 и заголовок `Content-Type: application/json`:
 
 ```json
 openapi: "3.0.0"
@@ -55,4 +55,4 @@ paths:
 
 ## Примеры использования {#examples}
 
-* [Использование Yandex API Gateway для настройки синтеза речи в Yandex SpeechKit](../../tutorials/speechkit-integrarion-via-agi-gw.md)
+* [{#T}](../../tutorials/speechkit-integrarion-via-agi-gw.md)

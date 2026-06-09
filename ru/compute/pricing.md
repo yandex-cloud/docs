@@ -56,10 +56,6 @@ blocks:
 
 
 
-{% include [pricing-increase-2026-05](../_includes/pricing-increase-2026-05.md) %}
-
-
-
 {% include [vat](../_includes/vat.md) %}
 
 

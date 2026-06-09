@@ -1,22 +1,22 @@
-# Развертывание GitLab Runner на виртуальной машине Yandex Compute Cloud
+# Развертывание {{ GLR }} на виртуальной машине {{ compute-full-name }}
 
-[GitLab Runner](https://docs.gitlab.com/runner/) — приложение с открытым исходным кодом, которое выполняет задания конвейерной обработки GitLab [CI/CD](https://yandex.cloud/ru/blog/posts/2022/10/ci-cd) по инструкциям из специального файла `.gitlab-ci.yml`. GitLab Runner можно развернуть не только в [кластере Yandex Managed Service for Kubernetes](../../managed-kubernetes/concepts/index.md#kubernetes-cluster), но и на виртуальной машине Compute Cloud — это проще и дешевле.
+[{{ GLR }}](https://docs.gitlab.com/runner/) — приложение с открытым исходным кодом, которое выполняет задания конвейерной обработки {{ GL }} [CI/CD](https://yandex.cloud/ru/blog/posts/2022/10/ci-cd) по инструкциям из специального файла `.gitlab-ci.yml`. {{ GLR }} можно развернуть не только в [кластере {{ managed-k8s-full-name }}](../../managed-kubernetes/concepts/index.md#kubernetes-cluster), но и на виртуальной машине {{ compute-name }} — это проще и дешевле.
 
-Для пользовательской (self-managed) инсталляции GitLab вы можете вручную установить GitLab Runner на [виртуальную машину](../../compute/concepts/vm.md) Compute Cloud.
+Для пользовательской (self-managed) инсталляции {{ GL }} вы можете вручную установить {{ GLR }} на [виртуальную машину](../../compute/concepts/vm.md) {{ compute-name }}.
 
-Для Yandex Managed Service for GitLab вы также можете воспользоваться ручной установкой GitLab Runner или автоматически развернуть [раннер](../../managed-gitlab/concepts/index.md#runners) в [консоли управления](https://console.yandex.cloud), который будет обеспечивать нужное количество воркеров, запущенных в Compute Cloud.
+Для {{ mgl-full-name }} вы также можете воспользоваться ручной установкой {{ GLR }} или автоматически развернуть [раннер](../../managed-gitlab/concepts/index.md#runners) в [консоли управления]({{ link-console-main }}), который будет обеспечивать нужное количество воркеров, запущенных в {{ compute-name }}.
 
 {% note info %}
 
-Функциональность создания и управления раннерами с помощью консоли управления находится на стадии [Preview](../../overview/concepts/launch-stages.md). Чтобы запросить доступ, обратитесь в [техническую поддержку](https://center.yandex.cloud/support) или к вашему аккаунт-менеджеру.
+Функциональность создания и управления раннерами с помощью консоли управления находится на стадии [Preview](../../overview/concepts/launch-stages.md). Чтобы запросить доступ, обратитесь в [техническую поддержку]({{ link-console-support }}) или к вашему аккаунт-менеджеру.
 
 {% endnote %}
 
-Чтобы начать работу с GitLab Runner с помощью Compute Cloud:
+Чтобы начать работу с {{ GLR }} с помощью {{ compute-name }}:
 
 1. [Подготовьте инфраструктуру](#infra).
-1. [Получите токен GitLab Runner](#gitlab-token).
-1. [Разверните GitLab Runner](#deploy-glr).
+1. [Получите токен {{ GLR }}](#gitlab-token).
+1. [Разверните {{ GLR }}](#deploy-glr).
 1. [Создайте тестовый сценарий](#example).
 
 Если созданные ресурсы вам больше не нужны, [удалите их](#clear-out).
@@ -25,40 +25,40 @@
 
 В стоимость поддержки инфраструктуры входит:
 
-* Плата за [диски](../../compute/concepts/disk.md) и постоянно запущенные ВМ (см. [тарифы Yandex Compute Cloud](../../compute/pricing.md)).
-* Плата за использование [публичного IP-адреса](../../vpc/concepts/address.md#public-addresses) (см. [тарифы Yandex Virtual Private Cloud](../../vpc/pricing.md)).
+* Плата за [диски](../../compute/concepts/disk.md) и постоянно запущенные ВМ (см. [тарифы {{ compute-full-name }}](../../compute/pricing.md)).
+* Плата за использование [публичного IP-адреса](../../vpc/concepts/address.md#public-addresses) (см. [тарифы {{ vpc-full-name }}](../../vpc/pricing.md)).
 
 ## Подготовьте инфраструктуру {#infra}
 
-1. [Создайте и активируйте инстанс](../../managed-gitlab/operations/instance/instance-create.md) Managed Service for GitLab.
-1. [Создайте проект GitLab](https://docs.gitlab.com/ee/user/project/).
+1. [Создайте и активируйте инстанс](../../managed-gitlab/operations/instance/instance-create.md) {{ mgl-name }}.
+1. [Создайте проект {{ GL }}]({{ gl.docs }}/ee/user/project/).
 
-## Получите токен GitLab Runner {#gitlab-token}
+## Получите токен {{ GLR }} {#gitlab-token}
 
-Токен можно получить при создании GitLab Runner в GitLab. Этот токен указывается при [развертывании GitLab Runner](#deploy-glr) на виртуальной машине Compute Cloud и используется для аутентификации раннера в GitLab.
+Токен можно получить при создании {{ GLR }} в {{ GL }}. Этот токен указывается при [развертывании {{ GLR }}](#deploy-glr) на виртуальной машине {{ compute-name }} и используется для аутентификации раннера в {{ GL }}.
 
-Чтобы создать и настроить GitLab Runner для всего [инстанса GitLab](../../managed-gitlab/concepts/index.md#instance) (требуются права администратора GitLab):
+Чтобы создать и настроить {{ GLR }} для всего [инстанса {{ GL }}](../../managed-gitlab/concepts/index.md#instance) (требуются права администратора {{ GL }}):
 
-1. Откройте GitLab.
+1. Откройте {{ GL }}.
 1. В левом нижнем углу нажмите кнопку **Admin**.
 1. В меню слева выберите **CI/CD** → **Runners**.
-1. Нажмите кнопку **New instance runner** и создайте новый GitLab Runner.
+1. Нажмите кнопку **New instance runner** и создайте новый {{ GLR }}.
 1. Сохраните значение параметра `Runner authentication token`.
 
-Чтобы создать и настроить GitLab Runner для [проекта](https://docs.gitlab.com/ee/user/project/):
+Чтобы создать и настроить {{ GLR }} для [проекта]({{ gl.docs }}/ee/user/project/):
 
-1. Откройте GitLab.
+1. Откройте {{ GL }}.
 1. Выберите проект.
 1. В меню слева выберите **Settings** → **CI/CD**.
 1. В блоке **Runners** нажмите кнопку **Expand**.
-1. Нажмите кнопку **New project runner** и создайте новый GitLab Runner.
+1. Нажмите кнопку **New project runner** и создайте новый {{ GLR }}.
 1. Сохраните значение параметра `Runner authentication token`.
 
-## Разверните GitLab Runner {#deploy-glr}
+## Разверните {{ GLR }} {#deploy-glr}
 
-Вы можете воспользоваться [ручной установкой GitLab Runner](#install) или [автоматически развернуть раннер в консоли управления](#create-runner).
+Вы можете воспользоваться [ручной установкой {{ GLR }}](#install) или [автоматически развернуть раннер в консоли управления](#create-runner).
 
-### Установите GitLab Runner на виртуальную машину вручную {#install}
+### Установите {{ GLR }} на виртуальную машину вручную {#install}
 
 1. [Создайте ВМ](../../compute/operations/vm-create/create-linux-vm.md) из публичного образа Ubuntu 22.04 LTS.
 
@@ -74,19 +74,19 @@
    sudo apt-get --yes install git jq
    ```
 
-1. Добавьте репозиторий с GitLab Runner в менеджер пакетов:
+1. Добавьте репозиторий с {{ GLR }} в менеджер пакетов:
 
    ```bash
    curl --location https://packages.gitlab.com/install/repositories/runner/gitlab-runner/script.deb.sh | sudo bash
    ```
 
-1. Установите GitLab Runner:
+1. Установите {{ GLR }}:
 
    ```bash
    sudo apt-get -y install gitlab-runner
    ```
 
-1. Зарегистрируйте GitLab Runner:
+1. Зарегистрируйте {{ GLR }}:
 
    ```bash
    sudo gitlab-runner register
@@ -94,10 +94,10 @@
 
    Команда попросит ввести дополнительные данные:
 
-   * URL инстанса GitLab в формате `https://<домен>/`;
-   * токен GitLab Runner, [полученный ранее](#gitlab-token);
-   * описание GitLab Runner;
-   * теги GitLab Runner и настройки обновлений (`maintenance note`) — не указывайте;
+   * URL инстанса {{ GL }} в формате `https://<домен>/`;
+   * токен {{ GLR }}, [полученный ранее](#gitlab-token);
+   * описание {{ GLR }};
+   * теги {{ GLR }} и настройки обновлений (`maintenance note`) — не указывайте;
    * исполнителя (`executor`) — `shell`.
 
    Результат:
@@ -112,17 +112,17 @@
 
 {% note info %}
 
-Функциональность создания и управления раннерами с помощью консоли управления находится на стадии [Preview](../../overview/concepts/launch-stages.md). Чтобы запросить доступ, обратитесь в [техническую поддержку](https://center.yandex.cloud/support) или к вашему аккаунт-менеджеру.
+Функциональность создания и управления раннерами с помощью консоли управления находится на стадии [Preview](../../overview/concepts/launch-stages.md). Чтобы запросить доступ, обратитесь в [техническую поддержку]({{ link-console-support }}) или к вашему аккаунт-менеджеру.
 
 {% endnote %}
 
 {% note warning %}
 
-За использование виртуальных машин (воркеров) взимается плата (см. [тарифы Compute Cloud](../../compute/pricing.md)).
+За использование виртуальных машин (воркеров) взимается плата (см. [тарифы {{ compute-name }}](../../compute/pricing.md)).
 
 {% endnote %}
 
-Создание раннеров с помощью консоли управления доступно только для инстансов Managed Service for GitLab.
+Создание раннеров с помощью консоли управления доступно только для инстансов {{ mgl-name }}.
 
 Для корректной работы управляемого раннера нужно выполнить [настройку](../../managed-gitlab/concepts/index.md#networking-gl-mr) сети и групп безопасности.
 
@@ -130,49 +130,49 @@
 
 - Консоль управления {#console}
 
-  1. Выберите инстанс Managed Service for GitLab, для которого нужно создать раннер.
-  1. Выберите вкладку **Раннеры**.
-  1. Нажмите кнопку **Создать раннер**.
+  1. Выберите инстанс {{ mgl-name }}, для которого нужно создать раннер.
+  1. Выберите вкладку **{{ ui-key.yacloud.gitlab.title_runners }}**.
+  1. Нажмите кнопку **{{ ui-key.yacloud.gitlab.button_runners_empty-create }}**.
   1. Задайте имя раннера:
       * длина — от 2 до 63 символов;
       * может содержать строчные буквы латинского алфавита, цифры и дефисы;
       * первый символ — буква, последний — не дефис.
   1. (Опционально) Введите произвольное описание раннера.
-  1. Введите токен GitLab Runner, [полученный ранее](#gitlab-token).
+  1. Введите токен {{ GLR }}, [полученный ранее](#gitlab-token).
   1. Выберите или создайте [сервисный аккаунт](../../iam/concepts/users/service-accounts.md) для раннера.
 
       {% note info %}
       
-      Этот сервисный аккаунт используется только для создания ВМ и не будет привязан к ней. У сервисного аккаунта должны быть роли [compute.admin](../../compute/security/index.md#compute-admin), [vpc.admin](../../vpc/security/index.md#vpc-admin) и [iam.serviceAccounts.user](../../iam/security/index.md#iam-serviceAccounts-user). Подробнее см. на странице [Назначение роли сервисному аккаунту](../../iam/operations/sa/assign-role-for-sa.md).
+      Этот сервисный аккаунт используется только для создания ВМ и не будет привязан к ней. У сервисного аккаунта должны быть роли [compute.admin](../../compute/security/index.md#compute-admin), [vpc.admin](../../vpc/security/index.md#vpc-admin) и [iam.serviceAccounts.user](../../iam/security/index.md#iam-serviceAccounts-user). Подробнее см. на странице [{#T}](../../iam/operations/sa/assign-role-for-sa.md).
       
       {% endnote %}
 
   1. (Опционально) Добавьте [метки](../../resource-manager/concepts/labels.md) для разделения раннеров на логические группы.
-  1. В блоке **Настройки масштабирования** укажите:
+  1. В блоке **{{ ui-key.yacloud.gitlab.label_autoscale-section }}** укажите:
 
-      * **Минимум воркеров** — число воркеров, которые всегда запущены и готовы выполнять задачи. Значение по умолчанию — `1`, минимальное — `0`, максимальное — `10`.
-      * **Максимум воркеров** — максимальное число воркеров, которые могут быть созданы для выполнения задач. Значение по умолчанию — `3`, минимальное — `1`, максимальное — `30`. Максимальное количество воркеров не может быть меньше минимального.
-      * **Лимит простоя воркера, в минутах** — максимальное время простоя, по истечении которого дополнительно созданный воркер будет удален. Значение по умолчанию — `10`, минимальное — `0`.
-      * **Максимум задач на воркер** — максимальное количество задач, после выполнения которых воркер будет удален. Значение по умолчанию — `100`, минимальное — `0`.
-      * **Количество параллельных задач на воркер** — количество задач, которые выполняются на одном воркере одновременно. Значение по умолчанию — `1`, минимальное — `0`.
+      * **{{ ui-key.yacloud.gitlab.field_task-minInstances }}** — число воркеров, которые всегда запущены и готовы выполнять задачи. Значение по умолчанию — `1`, минимальное — `0`, максимальное — `10`.
+      * **{{ ui-key.yacloud.gitlab.field_max-workers }}** — максимальное число воркеров, которые могут быть созданы для выполнения задач. Значение по умолчанию — `3`, минимальное — `1`, максимальное — `30`. Максимальное количество воркеров не может быть меньше минимального.
+      * **{{ ui-key.yacloud.gitlab.field_idle-time-minutes }}** — максимальное время простоя, по истечении которого дополнительно созданный воркер будет удален. Значение по умолчанию — `10`, минимальное — `0`.
+      * **{{ ui-key.yacloud.gitlab.field_max-use-count }}** — максимальное количество задач, после выполнения которых воркер будет удален. Значение по умолчанию — `100`, минимальное — `0`.
+      * **{{ ui-key.yacloud.gitlab.field_capacity-per-instance }}** — количество задач, которые выполняются на одном воркере одновременно. Значение по умолчанию — `1`, минимальное — `0`.
 
   1. (Опционально) Добавьте метки для воркера.
-  1. В блоке **Вычислительные ресурсы** выберите конфигурацию вычислительных ресурсов.
-  1. В блоке **Диски и файловые хранилища** настройте загрузочный диск:
+  1. В блоке **{{ ui-key.yacloud.compute.instances.create.section_platform }}** выберите конфигурацию вычислительных ресурсов.
+  1. В блоке **{{ ui-key.yacloud.compute.instances.create.section_storages }}** настройте загрузочный диск:
       * Выберите [тип диска](../../compute/concepts/disk.md#disks_types).
       * Задайте размер диска.
   1. (Опционально) Выберите или создайте сервисный аккаунт для воркера.
 
       {% note info %}
       
-      Этот сервисный аккаунт будет привязан к ВМ с воркером. С помощью него воркер сможет аутентифицироваться в API Yandex Cloud и взаимодействовать с облачными ресурсами.
+      Этот сервисный аккаунт будет привязан к ВМ с воркером. С помощью него воркер сможет аутентифицироваться в API {{ yandex-cloud }} и взаимодействовать с облачными ресурсами.
       
       [Назначьте](../../iam/operations/sa/assign-role-for-sa.md) сервисному аккаунту роль на ресурс, с которым вы хотите работать.
       
       {% endnote %}
 
   1. (Опционально) Выберите [группу безопасности](../../vpc/concepts/security-groups.md).
-  1. Нажмите кнопку **Создать**.
+  1. Нажмите кнопку **{{ ui-key.yacloud.common.create }}**.
 
 {% endlist %}
 
@@ -180,28 +180,28 @@
 
 {% list tabs %}
 
-- В GitLab
+- В {{ GL }}
 
-    * Если вы создавали GitLab Runner для всего инстанса GitLab:
+    * Если вы создавали {{ GLR }} для всего инстанса {{ GL }}:
         1. В левом нижнем углу нажмите кнопку **Admin**.
         1. В меню слева выберите **CI/CD** → **Runners**.
         1. Проверьте, что созданный раннер появился в списке.
 
-    * Если вы создавали GitLab Runner для проекта:
+    * Если вы создавали {{ GLR }} для проекта:
         1. Откройте проект.
         1. В меню слева выберите **Settings** → **CI/CD**.
         1. В блоке **Runners** нажмите кнопку **Expand**.
         1. Проверьте, что в блоке **Assigned project runners** появился созданный раннер.
 
-- В Compute Cloud
+- В {{ compute-name }}
 
-    Проверьте, что в разделе **Виртуальные машины** появились новые ВМ с префиксом в имени `runner-`.
+    Проверьте, что в разделе **{{ ui-key.yacloud.compute.instances.label_title }}** появились новые ВМ с префиксом в имени `runner-`.
 
 {% endlist %}
 
 ## Создайте тестовый сценарий {#example} 
 
-1. Откройте проект GitLab.
+1. Откройте проект {{ GL }}.
 
 1. В меню слева выберите раздел **Build** → **Pipeline editor**. Откроется страница с предложением добавить новый файл `.gitlab-ci.yml`, в котором в формате [YAML](https://yaml.org/) нужно описать сценарий.
 
@@ -235,11 +235,11 @@
 
 Некоторые ресурсы платные. Удалите ресурсы, которые вы больше не будете использовать, чтобы не платить за них:
 
-* [инстанс GitLab](../../managed-gitlab/operations/instance/instance-delete.md);
-* [ВМ с GitLab Runner](../../compute/operations/vm-control/vm-delete.md);
+* [инстанс {{ GL }}](../../managed-gitlab/operations/instance/instance-delete.md);
+* [ВМ с {{ GLR }}](../../compute/operations/vm-control/vm-delete.md);
 * [сервисный аккаунт](../../iam/operations/sa/delete.md).
 
 ### Смотрите также {#see-also}
 
-* [Управляемые раннеры](../../managed-gitlab/concepts/index.md#managed-runners)
-* [Работа с управляемым раннером](../../managed-gitlab/operations/runner.md)
+* [{#T}](../../managed-gitlab/concepts/index.md#managed-runners)
+* [{#T}](../../managed-gitlab/operations/runner.md)

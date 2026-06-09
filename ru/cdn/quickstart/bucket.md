@@ -5,7 +5,10 @@ description: Следуя данной инструкции, вы сможете
 
 # Создание CDN-ресурса с источником-бакетом {{ objstorage-full-name }}
 
+
+
 {% include [pricing-change-short-warning](../../_includes/cdn/pricing-change-short-warning.md) %}
+
 
 {% include [create-other-resources](../../_includes/cdn/create-other-resources-note.md) %}
 

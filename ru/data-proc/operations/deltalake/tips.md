@@ -32,8 +32,8 @@ CONVERT TO DELTA table_name PARTITIONED BY (part_col_1 INT, part_col_2 INT);
 ```sql
 ALTER TABLE <схема_и_имя_таблицы> SET TBLPROPERTIES ('delta.logRetentionDuration' = "interval <интервал>")
 ```
+Подробнее об управлении параметрами таблиц в [документации Delta Lake](https://docs.delta.io/latest/delta-batch.html#table-properties).
 
-Подробнее об управлении параметрами таблиц см. в [документации Delta Lake](https://docs.delta.io/latest/delta-batch.html#table-properties).
 
 Чтобы принудительно очистить историю изменений таблицы:
 

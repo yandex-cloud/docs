@@ -1,6 +1,6 @@
-# Обновление версии Yandex StoreDoc
+# Обновление версии {{ SD }}
 
-Вы можете обновить кластер Yandex StoreDoc только на следующую версию относительно текущей, например, с версии 4.2 на 4.4. Обновление до более поздних версий производится поэтапно. Например, обновление версии Yandex StoreDoc с 4.2 до 8.0 выполняется в такой последовательности: 4.2 → 4.4 → 5.0 → 6.0 → 7.0 → 8.0. Перед каждым этапом обновления кластера необходимо обновлять [версию совместимости кластера](#compatibility-update).
+Вы можете обновить кластер {{ mmg-name }} только на следующую версию относительно текущей, например, с версии 4.2 на 4.4. Обновление до более поздних версий производится поэтапно. Например, обновление версии {{ SD }} с 4.2 до 8.0 выполняется в такой последовательности: 4.2 → 4.4 → 5.0 → 6.0 → 7.0 → 8.0. Перед каждым этапом обновления кластера необходимо обновлять [версию совместимости кластера](#compatibility-update).
 
 
 {% note alert %}
@@ -13,7 +13,7 @@
 
 1. Убедитесь, что это не нарушит работу ваших приложений:
 
-1. Посмотрите в истории изменений MongoDB, как обновления могут повлиять на работу ваших приложений.
+1. Посмотрите в истории изменений {{ MG }}, как обновления могут повлиять на работу ваших приложений.
 1. Попробуйте обновить версию на тестовом кластере. Его можно [развернуть из резервной копии](cluster-backups.md#restore) основного кластера.
 1. [Создайте резервную копию](cluster-backups.md#create-backup) основного кластера непосредственно перед обновлением версии.
 
@@ -25,52 +25,52 @@
 
 - Консоль управления {#console}
 
-  1. Перейдите на [страницу каталога](https://console.yandex.cloud).
-  1. [Перейдите](../../console/operations/select-service.md#select-service) в сервис **Yandex StoreDoc**.
-  1. Выберите нужный кластер в списке и нажмите кнопку **Редактировать**.
-  1. В поле **Версия** выберите номер новой версии.
-  1. Нажмите кнопку **Сохранить изменения**.
+  1. Перейдите на [страницу каталога]({{ link-console-main }}).
+  1. Перейдите в сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-mongodb }}**.
+  1. Выберите нужный кластер в списке и нажмите кнопку **{{ ui-key.yacloud.mdb.clusters.button_action-edit }}**.
+  1. В поле **{{ ui-key.yacloud.mdb.forms.base_field_version }}** выберите номер новой версии.
+  1. Нажмите кнопку **{{ ui-key.yacloud.mdb.forms.button_edit }}**.
 
   После запуска обновления кластер переходит в статус **UPDATING**. Дождитесь окончания операции и проверьте версию кластера.
 
 - CLI {#cli}
 
-  1. Получите список ваших кластеров Yandex StoreDoc командой:
+  1. Получите список ваших кластеров {{ SD }} командой:
 
      ```bash
-     yc managed-mongodb cluster list
+     {{ yc-mdb-mg }} cluster list
      ```
 
-  1. Получите информацию о нужном кластере и проверьте версию Yandex StoreDoc, указанную в свойстве `config.version`:
+  1. Получите информацию о нужном кластере и проверьте версию {{ SD }}, указанную в свойстве `config.version`:
 
      ```bash
-     yc managed-mongodb cluster get <имя_или_идентификатор_кластера>
+     {{ yc-mdb-mg }} cluster get <имя_или_идентификатор_кластера>
      ```
 
-  1. Запустите обновление Yandex StoreDoc:
+  1. Запустите обновление {{ SD }}:
 
      ```bash
-     yc managed-mongodb cluster update <имя_или_идентификатор_кластера> \
+     {{ yc-mdb-mg }} cluster update <имя_или_идентификатор_кластера> \
         --mongodb-version=<номер_новой_версии>
      ```
 
      После запуска обновления кластер переходит в статус **UPDATING**. Дождитесь окончания операции и проверьте версию кластера.
 
-  1. После обновления все возможности Yandex StoreDoc, у которых нет обратной совместимости с прежней версией, выключаются. Чтобы снять это ограничение, выполните команду:
+  1. После обновления все возможности {{ SD }}, у которых нет обратной совместимости с прежней версией, выключаются. Чтобы снять это ограничение, выполните команду:
 
      ```bash
-     yc managed-mongodb cluster update <имя_или_идентификатор_кластера> \
+     {{ yc-mdb-mg }} cluster update <имя_или_идентификатор_кластера> \
         --feature-compatibility-version=<номер_новой_версии>
      ```
 
 
-- Terraform {#tf}
+- {{ TF }} {#tf}
 
-    1. Откройте актуальный конфигурационный файл Terraform с планом инфраструктуры.
+    1. Откройте актуальный конфигурационный файл {{ TF }} с планом инфраструктуры.
   
        О том, как создать такой файл, см. в разделе [Создание кластера](cluster-create.md).
   
-    1. Добавьте к описанию кластера Yandex StoreDoc поле `version` или измените его значение, если оно уже существует:
+    1. Добавьте к описанию кластера {{ mmg-name }} поле `version` или измените его значение, если оно уже существует:
   
        ```hcl
        resource "yandex_mdb_mongodb_cluster" "<имя_кластера>" {
@@ -83,14 +83,14 @@
 
     1. Проверьте корректность настроек.
   
-         1. В командной строке перейдите в каталог, в котором расположены актуальные конфигурационные файлы Terraform с планом инфраструктуры.
+         1. В командной строке перейдите в каталог, в котором расположены актуальные конфигурационные файлы {{ TF }} с планом инфраструктуры.
          1. Выполните команду:
          
             ```bash
             terraform validate
             ```
          
-            Если в файлах конфигурации есть ошибки, Terraform на них укажет.
+            Если в файлах конфигурации есть ошибки, {{ TF }} на них укажет.
   
     1. Подтвердите изменение ресурсов.
   
@@ -112,11 +112,11 @@
             1. Подтвердите изменение ресурсов.
             1. Дождитесь завершения операции.
   
-   Подробнее см. в [документации провайдера Terraform](../../terraform/resources/mdb_mongodb_cluster.md).
+   Подробнее см. в [документации провайдера {{ TF }}]({{ tf-provider-resources-link }}/mdb_mongodb_cluster).
 
    {% note warning "Ограничения по времени" %}
    
-   Провайдер Terraform ограничивает время на выполнение операций с кластером Yandex StoreDoc:
+   Провайдер {{ TF }} ограничивает время на выполнение операций с кластером {{ mmg-name }}:
    
    * создание, в т. ч. путем восстановления из резервной копии, — 30 минут;
    * изменение — 60 минут.
@@ -149,7 +149,7 @@
       export IAM_TOKEN="<IAM-токен>"
       ```
 
-   1. Воспользуйтесь методом [Cluster.Update](../api-ref/Cluster/update.md) и выполните запрос, например с помощью [cURL](https://curl.se/):
+   1. Воспользуйтесь методом [Cluster.Update](../api-ref/Cluster/update.md) и выполните запрос, например с помощью {{ api-examples.rest.tool }}:
 
       {% note warning %}
       
@@ -162,7 +162,7 @@
          --request PATCH \
          --header "Authorization: Bearer $IAM_TOKEN" \
          --header "Content-Type: application/json" \
-         --url 'https://mdb.api.cloud.yandex.net/managed-mongodb/v1/clusters/<идентификатор_кластера>' \
+         --url 'https://{{ api-host-mdb }}/managed-mongodb/v1/clusters/<идентификатор_кластера>' \
          --data '{
                   "updateMask": "configSpec.version",
                   "configSpec": {
@@ -177,7 +177,7 @@
 
          В данном случае передается один параметр.
 
-      * `configSpec.version` — новая версия Yandex StoreDoc.
+      * `configSpec.version` — новая версия {{ SD }}.
 
       Идентификатор кластера можно запросить со [списком кластеров в каталоге](cluster-list.md#list-clusters).
 
@@ -199,7 +199,7 @@
        
        Далее предполагается, что содержимое репозитория находится в директории `~/cloudapi/`.
 
-    1. Воспользуйтесь вызовом [ClusterService.Update](../api-ref/grpc/Cluster/update.md) и выполните запрос, например с помощью [gRPCurl](https://github.com/fullstorydev/grpcurl):
+    1. Воспользуйтесь вызовом [ClusterService.Update](../api-ref/grpc/Cluster/update.md) и выполните запрос, например с помощью {{ api-examples.grpc.tool }}:
 
         {% note warning %}
         
@@ -240,7 +240,7 @@
                     "version": "<версия_Yandex_StoreDoc>"
                   }
                }' \
-            mdb.api.cloud.yandex.net:443 \
+            {{ api-host-mdb }}:{{ port-https }} \
             yandex.cloud.mdb.mongodb.v1.ClusterService.Update
         ```
 
@@ -250,7 +250,7 @@
 
           В данном случае передается один параметр.
 
-        * `version` — новая версия Yandex StoreDoc.
+        * `version` — новая версия {{ SD }}.
 
         Идентификатор кластера можно запросить со [списком кластеров в каталоге](cluster-list.md#list-clusters).
 
@@ -260,7 +260,7 @@
 
 {% note info %}
 
-После обновления все возможности Yandex StoreDoc, у которых нет обратной совместимости с прежней версией, выключаются. Чтобы снять это ограничение, [обновите версию совместимости кластера](#compatibility-update).
+После обновления все возможности {{ SD }}, у которых нет обратной совместимости с прежней версией, выключаются. Чтобы снять это ограничение, [обновите версию совместимости кластера](#compatibility-update).
 
 {% endnote %}
 
@@ -268,9 +268,9 @@
 
 Обновление версии совместимости кластера требуется, если вам нужно:
 * обновить кластер до новой версии, при этом версия совместимости не соответствует текущей версии кластера;
-* сделать доступными новые возможности Yandex StoreDoc после обновления кластера.
+* сделать доступными новые возможности {{ SD }} после обновления кластера.
 
-Подробнее об обратной совместимости читайте в [документации MongoDB](https://docs.mongodb.com/manual/reference/command/setFeatureCompatibilityVersion/).
+Подробнее об обратной совместимости читайте в [документации {{ MG }}](https://docs.mongodb.com/manual/reference/command/setFeatureCompatibilityVersion/).
 
 {% note alert %}
 
@@ -282,40 +282,40 @@
 
 - Консоль управления {#console}
 
-  1. Перейдите на [страницу каталога](https://console.yandex.cloud).
-  1. [Перейдите](../../console/operations/select-service.md#select-service) в сервис **Yandex StoreDoc**.
-  1. Выберите нужный кластер в списке и нажмите кнопку **Редактировать**.
-  1. В поле **Версия совместимости** выберите номер нужной версии.
-  1. Нажмите кнопку **Сохранить изменения**.
+  1. Перейдите на [страницу каталога]({{ link-console-main }}).
+  1. Перейдите в сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-mongodb }}**.
+  1. Выберите нужный кластер в списке и нажмите кнопку **{{ ui-key.yacloud.mdb.clusters.button_action-edit }}**.
+  1. В поле **{{ ui-key.yacloud.mdb.forms.base_field_fcv }}** выберите номер нужной версии.
+  1. Нажмите кнопку **{{ ui-key.yacloud.mdb.forms.button_edit }}**.
 
 - CLI {#cli}
 
-  1. Получите список ваших кластеров Yandex StoreDoc командой:
+  1. Получите список ваших кластеров {{ SD }} командой:
 
      ```bash
-     yc managed-mongodb cluster list
+     {{ yc-mdb-mg }} cluster list
      ```
 
-  1. Получите информацию о нужном кластере и проверьте версию Yandex StoreDoc, указанную в свойстве `config.feature_compatibility_version`:
+  1. Получите информацию о нужном кластере и проверьте версию {{ SD }}, указанную в свойстве `config.feature_compatibility_version`:
 
      ```bash
-     yc managed-mongodb cluster get <имя_или_идентификатор_кластера>
+     {{ yc-mdb-mg }} cluster get <имя_или_идентификатор_кластера>
      ```
 
   1. Выполните команду изменения кластера, указав новую версию совместимости:
 
      ```bash
-     yc managed-mongodb cluster update <имя_или_идентификатор_кластера> \
+     {{ yc-mdb-mg }} cluster update <имя_или_идентификатор_кластера> \
         --feature-compatibility-version=<версия_совместимости_Yandex_StoreDoc>
      ```
 
-- Terraform {#tf}
+- {{ TF }} {#tf}
 
-    1. Откройте актуальный конфигурационный файл Terraform с планом инфраструктуры.
+    1. Откройте актуальный конфигурационный файл {{ TF }} с планом инфраструктуры.
   
        О том, как создать такой файл, см. в разделе [Создание кластера](cluster-create.md).
   
-    1. Добавьте к описанию кластера Yandex StoreDoc поле `feature_compatibility_version` или измените его значение, если оно уже существует:
+    1. Добавьте к описанию кластера {{ mmg-name }} поле `feature_compatibility_version` или измените его значение, если оно уже существует:
   
        ```hcl
        resource "yandex_mdb_mongodb_cluster" "<имя_кластера>" {
@@ -328,14 +328,14 @@
 
     1. Проверьте корректность настроек.
   
-         1. В командной строке перейдите в каталог, в котором расположены актуальные конфигурационные файлы Terraform с планом инфраструктуры.
+         1. В командной строке перейдите в каталог, в котором расположены актуальные конфигурационные файлы {{ TF }} с планом инфраструктуры.
          1. Выполните команду:
          
             ```bash
             terraform validate
             ```
          
-            Если в файлах конфигурации есть ошибки, Terraform на них укажет.
+            Если в файлах конфигурации есть ошибки, {{ TF }} на них укажет.
   
     1. Подтвердите изменение ресурсов.
   
@@ -357,11 +357,11 @@
             1. Подтвердите изменение ресурсов.
             1. Дождитесь завершения операции.
   
-   Подробнее см. в [документации провайдера Terraform](../../terraform/resources/mdb_mongodb_cluster.md).
+   Подробнее см. в [документации провайдера {{ TF }}]({{ tf-provider-resources-link }}/mdb_mongodb_cluster).
 
    {% note warning "Ограничения по времени" %}
    
-   Провайдер Terraform ограничивает время на выполнение операций с кластером Yandex StoreDoc:
+   Провайдер {{ TF }} ограничивает время на выполнение операций с кластером {{ mmg-name }}:
    
    * создание, в т. ч. путем восстановления из резервной копии, — 30 минут;
    * изменение — 60 минут.
@@ -394,7 +394,7 @@
       export IAM_TOKEN="<IAM-токен>"
       ```
 
-   1. Воспользуйтесь методом [Cluster.Update](../api-ref/Cluster/update.md) и выполните запрос, например с помощью [cURL](https://curl.se/):
+   1. Воспользуйтесь методом [Cluster.Update](../api-ref/Cluster/update.md) и выполните запрос, например с помощью {{ api-examples.rest.tool }}:
 
       {% note warning %}
       
@@ -407,7 +407,7 @@
          --request PATCH \
          --header "Authorization: Bearer $IAM_TOKEN" \
          --header "Content-Type: application/json" \
-         --url 'https://mdb.api.cloud.yandex.net/managed-mongodb/v1/clusters/<идентификатор_кластера>' \
+         --url 'https://{{ api-host-mdb }}/managed-mongodb/v1/clusters/<идентификатор_кластера>' \
          --data '{
                   "updateMask": "configSpec.featureCompatibilityVersion",
                   "configSpec": {
@@ -422,7 +422,7 @@
 
          В данном случае передается один параметр.
 
-      * `configSpec.featureCompatibilityVersion` — новая версия совместимости Yandex StoreDoc.
+      * `configSpec.featureCompatibilityVersion` — новая версия совместимости {{ SD }}.
 
       Идентификатор кластера можно запросить со [списком кластеров в каталоге](cluster-list.md#list-clusters).
 
@@ -444,7 +444,7 @@
        
        Далее предполагается, что содержимое репозитория находится в директории `~/cloudapi/`.
 
-    1. Воспользуйтесь вызовом [ClusterService.Update](../api-ref/grpc/Cluster/update.md) и выполните запрос, например с помощью [gRPCurl](https://github.com/fullstorydev/grpcurl):
+    1. Воспользуйтесь вызовом [ClusterService.Update](../api-ref/grpc/Cluster/update.md) и выполните запрос, например с помощью {{ api-examples.grpc.tool }}:
 
         {% note warning %}
         
@@ -485,7 +485,7 @@
                     "feature_compatibility_version": "<версия_совместимости_Yandex_StoreDoc>"
                   }
                }' \
-            mdb.api.cloud.yandex.net:443 \
+            {{ api-host-mdb }}:{{ port-https }} \
             yandex.cloud.mdb.mongodb.v1.ClusterService.Update
         ```
 
@@ -495,7 +495,7 @@
 
           В данном случае передается один параметр.
 
-        * `feature_compatibility_version` — новая версия совместимости Yandex StoreDoc.
+        * `feature_compatibility_version` — новая версия совместимости {{ SD }}.
 
         Идентификатор кластера можно запросить со [списком кластеров в каталоге](cluster-list.md#list-clusters).
 
@@ -514,7 +514,7 @@
    1. Чтобы узнать идентификатор кластера, получите список всех кластеров в каталоге:
 
       ```bash
-      yc managed-mongodb cluster list
+      {{ yc-mdb-mg }} cluster list
       ```
 
       Результат:
@@ -530,7 +530,7 @@
    1. Чтобы получить информацию о кластере `c9qut3k64b2o********`, выполните команду:
 
       ```bash
-      yc managed-mongodb cluster get c9qut3k64b2o********
+      {{ yc-mdb-mg }} cluster get c9qut3k64b2o********
       ```
 
       Результат:
@@ -544,7 +544,7 @@
       monitoring:
       - name: Console
         description: Console charts
-        link: https://console.yandex.cloud/folders/b1g0itj57rbj********/managed-mongodb/cluster/c9qut3k64b2o********?section=monitoring
+        link: {{ link-console-main }}/folders/b1g0itj57rbj********/managed-mongodb/cluster/c9qut3k64b2o********?section=monitoring
       config:
         version: "5.0"
         feature_compatibility_version: "5.0"
@@ -554,14 +554,14 @@
    1. Чтобы обновить кластер `c9qutgkd4b2o********` до версии 6.0, выполните команду:
 
       ```bash
-      yc managed-mongodb cluster update c9qutgkd4b2o******** \
+      {{ yc-mdb-mg }} cluster update c9qutgkd4b2o******** \
           --mongodb-version=6.0
       ```
 
    1. Чтобы включить все возможности версии 6.0 в кластере `c9qutgkd4b2o********`, выполните команду:
 
       ```bash
-      yc managed-mongodb cluster update c9qutgkd4b2o******** \
+      {{ yc-mdb-mg }} cluster update c9qutgkd4b2o******** \
           --feature-compatibility-version=6.0
       ```
 

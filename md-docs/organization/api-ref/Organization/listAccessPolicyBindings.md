@@ -5,7 +5,7 @@ Returns list of access policy bindings for the organization.
 ## HTTP request
 
 ```
-GET https://organization-manager.api.cloud.yandex.net/organization-manager/v1/organizations/{resourceId}:listAccessPolicyBindings
+GET https://organization-manager.{{ api-host }}/organization-manager/v1/organizations/{resourceId}:listAccessPolicyBindings
 ```
 
 ## Path parameters
@@ -18,7 +18,7 @@ Required field. ID of the resource to list access policy bindings for.
 To get the resource ID, use a corresponding List request.
 For example, use the [yandex.cloud.resourcemanager.v1.CloudService.List](../../../resource-manager/api-ref/Cloud/list.md#List) request to get the Cloud resource ID.
 
-The maximum string length in characters is 50. ||
+The maximum string length in characters is 64. ||
 |#
 
 ## Query parameters {#yandex.cloud.access.ListAccessPolicyBindingsRequest}

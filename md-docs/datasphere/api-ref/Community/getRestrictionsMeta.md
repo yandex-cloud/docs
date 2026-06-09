@@ -5,7 +5,7 @@ Get meta information about available restrictions.
 ## HTTP request
 
 ```
-GET https://datasphere.api.cloud.yandex.net/datasphere/v2/communities/restrictionsMeta
+GET https://datasphere.{{ api-host }}/datasphere/v2/communities/restrictionsMeta
 ```
 
 ## Response {#yandex.cloud.datasphere.v2.GetRestrictionsMetaResponse}

@@ -1,39 +1,39 @@
-# Настройка работы с Yandex Query
+# Настройка работы с {{ yq-full-name }}
 
-# Настройка работы с Yandex Query
+# Настройка работы с {{ yq-full-name }}
 
 
-В [Yandex Query](../../../query/index.md) интегрирована поддержка Audit Trails. Вы можете анализировать события ресурсов Yandex Cloud, выполняя [аналитические](../../../query/concepts/batch-processing.md) и [потоковые](../../../query/concepts/stream-processing.md) запросы на языке YQL.
+В [{{ yq-full-name }}](../../../query/index.md) интегрирована поддержка {{ at-name }}. Вы можете анализировать события ресурсов {{ yandex-cloud }}, выполняя [аналитические](../../../query/concepts/batch-processing.md) и [потоковые](../../../query/concepts/stream-processing.md) запросы на языке {{ yql-short-name }}.
 
-Аналитические запросы можно выполнять для логов, которые хранятся в бакете, а потоковые — для логов в потоке данных Yandex Data Streams.
+Аналитические запросы можно выполнять для логов, которые хранятся в бакете, а потоковые — для логов в потоке данных {{ yds-full-name }}.
 
 ![](../../../_assets/audit-trails/tutorials/audit-trails-query.png)
 
-Чтобы подключить бакет с [аудитными логами](../../../audit-trails/concepts/events.md) к Yandex Query и выполнить запросы на языке [YQL](../../../query/yql-tutorials/index.md):
+Чтобы подключить бакет с [аудитными логами](../../../audit-trails/concepts/events.md) к {{ yq-full-name }} и выполнить запросы на языке [{{ yql-short-name }}](../../../query/yql-tutorials/index.md):
 
 1. [Подготовьте окружение](#prepare-environment).
-1. [Создайте соединение между трейлом и YQ](#trail-yq).
-1. [Выполните запрос к логам в Object Storage](#perform-request).
+1. [Создайте соединение между трейлом и {{ yq-short-name }}](#trail-yq).
+1. [Выполните запрос к логам в {{ objstorage-name }}](#perform-request).
 
 Если созданные ресурсы вам больше не нужны, [удалите их](#clear-out).
 
 
 ## Перед началом работы {#before-begin}
 
-Зарегистрируйтесь в Yandex Cloud и создайте [платежный аккаунт](../../../billing/concepts/billing-account.md):
-1. Перейдите в [консоль управления](https://console.yandex.cloud), затем войдите в Yandex Cloud или зарегистрируйтесь.
-1. На странице **[Yandex Cloud Billing](https://center.yandex.cloud/billing/accounts)** убедитесь, что у вас подключен платежный аккаунт, и он находится в [статусе](../../../billing/concepts/billing-account-statuses.md) `ACTIVE` или `TRIAL_ACTIVE`. Если платежного аккаунта нет, [создайте его](../../../billing/quickstart/index.md) и [привяжите](../../../billing/operations/pin-cloud.md) к нему облако.
+Зарегистрируйтесь в {{ yandex-cloud }} и создайте [платежный аккаунт](../../../billing/concepts/billing-account.md):
+1. Перейдите в [консоль управления]({{ link-console-main }}), затем войдите в {{ yandex-cloud }} или зарегистрируйтесь.
+1. На странице **[{{ ui-key.yacloud_billing.billing.label_service }}]({{ link-console-billing }})** убедитесь, что у вас подключен платежный аккаунт, и он находится в [статусе](../../../billing/concepts/billing-account-statuses.md) `ACTIVE` или `TRIAL_ACTIVE`. Если платежного аккаунта нет, [создайте его](../../../billing/quickstart/index.md) и [привяжите](../../../billing/operations/pin-cloud.md) к нему облако.
 
-Если у вас есть активный платежный аккаунт, вы можете создать или выбрать [каталог](../../../resource-manager/concepts/resources-hierarchy.md#folder), в котором будет работать ваша инфраструктура, на [странице облака](https://console.yandex.cloud/cloud).
+Если у вас есть активный платежный аккаунт, вы можете создать или выбрать [каталог](../../../resource-manager/concepts/resources-hierarchy.md#folder), в котором будет работать ваша инфраструктура, на [странице облака]({{ link-console-cloud }}).
 
 [Подробнее об облаках и каталогах](../../../resource-manager/concepts/resources-hierarchy.md).
 
-Если у вас еще нет интерфейса командной строки Yandex Cloud (CLI), [установите и инициализируйте его](../../../cli/quickstart.md#install).
+Если у вас еще нет интерфейса командной строки {{ yandex-cloud }} (CLI), [установите и инициализируйте его](../../../cli/quickstart.md#install).
 
 
 ## Необходимые платные ресурсы {#paid-resources}
 
-В стоимость поддержки инфраструктуры входит плата за использование бакета (см. [тарифы Object Storage](../../../storage/pricing.md)).
+В стоимость поддержки инфраструктуры входит плата за использование бакета (см. [тарифы {{ objstorage-name }}](../../../storage/pricing.md)).
 
 
 ## Подготовьте окружение {#prepare-environment}
@@ -45,14 +45,14 @@
 
 - Консоль управления {#console}
 
-    1. В [консоли управления](https://console.yandex.cloud) перейдите в каталог, в котором хотите создать [бакет](../../../storage/concepts/bucket.md), например `example-folder`.
-    1. [Перейдите](../../../console/operations/select-service.md#select-service) в сервис **Object Storage**.
-    1. Нажмите **Создать бакет**.
+    1. В [консоли управления]({{ link-console-main }}) перейдите в каталог, в котором хотите создать [бакет](../../../storage/concepts/bucket.md), например `example-folder`.
+    1. Перейдите в сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_storage }}**.
+    1. Нажмите **{{ ui-key.yacloud.storage.buckets.button_create }}**.
     1. На странице создания бакета:
         * укажите имя бакета в соответствии с [правилами именования](../../../storage/concepts/bucket.md#naming);
-        * в полях **Чтение объектов**, **Чтение списка объектов** и **Чтение настроек** выберите `С авторизацией`;
+        * в полях **{{ ui-key.yacloud.storage.bucket.settings.field_access-read }}**, **{{ ui-key.yacloud.storage.bucket.settings.field_access-list }}** и **{{ ui-key.yacloud.storage.bucket.settings.field_access-config-read }}** выберите `{{ ui-key.yacloud.storage.bucket.settings.access_value_private }}`;
         * для остальных параметров оставьте значения по умолчанию.
-    1. Нажмите **Создать бакет**.
+    1. Нажмите **{{ ui-key.yacloud.storage.buckets.create.button_create }}**.
 
 {% endlist %}
 
@@ -65,11 +65,11 @@
 
 - Консоль управления {#console}
 
-    1. В [консоли управления](https://console.yandex.cloud) перейдите в каталог `example-folder`.
-    1. [Перейдите](../../../console/operations/select-service.md#select-service) в сервис **Identity and Access Management**.
-    1. Нажмите кнопку **Создать сервисный аккаунт**.
-    1. Укажите **Имя** — `trail-sa`.
-    1. Нажмите кнопку **Создать**.
+    1. В [консоли управления]({{ link-console-main }}) перейдите в каталог `example-folder`.
+    1. Перейдите в сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_iam }}**.
+    1. Нажмите кнопку **{{ ui-key.yacloud.iam.folder.service-accounts.button_add }}**.
+    1. Укажите **{{ ui-key.yacloud.iam.folder.service-account.popup-robot_field_name }}** — `trail-sa`.
+    1. Нажмите кнопку **{{ ui-key.yacloud.iam.folder.service-account.popup-robot_button_add }}**.
 
 {% endlist %}
 
@@ -154,62 +154,62 @@
 
 - Консоль управления {#console}
 
-  1. В [консоли управления](https://console.yandex.cloud) выберите каталог `example-folder`.
-  1. [Перейдите](../../../console/operations/select-service.md#select-service) в сервис **Audit Trails**.
-  1. Нажмите кнопку **Создать трейл**.
-  1. В поле **Имя** укажите `logsyq`.
-  1. В блоке **Назначение** задайте параметры объекта назначения:
-      * **Назначение** — `Object Storage`.
-      * **Бакет** — выберите [созданный ранее](#create-backet) бакет.
-  1. В блоке **Сервисный аккаунт** выберите `trail-sa`.
-  1. В блоке **Сбор событий c уровня конфигурации** задайте параметры сбора аудитных логов уровня конфигурации:
+  1. В [консоли управления]({{ link-console-main }}) выберите каталог `example-folder`.
+  1. Перейдите в сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_audit-trails }}**.
+  1. Нажмите кнопку **{{ ui-key.yacloud.audit-trails.button_create-trail }}**.
+  1. В поле **{{ ui-key.yacloud.common.name }}** укажите `logsyq`.
+  1. В блоке **{{ ui-key.yacloud.audit-trails.label_destination }}** задайте параметры объекта назначения:
+      * **{{ ui-key.yacloud.audit-trails.label_destination }}** — `{{ ui-key.yacloud.audit-trails.label_objectStorage }}`.
+      * **{{ ui-key.yacloud.audit-trails.label_bucket }}** — выберите [созданный ранее](#create-backet) бакет.
+  1. В блоке **{{ ui-key.yacloud.audit-trails.label_service-account }}** выберите `trail-sa`.
+  1. В блоке **{{ ui-key.yacloud.audit-trails.label_path-filter-section }}** задайте параметры сбора аудитных логов уровня конфигурации:
 
-      * **Сбор событий** — выберите `Включено`.
-      * **Ресурс** — выберите `Организация`.
-      * **Организация** — не требует заполнения, содержит имя текущей организации.
-      * **Облако** — оставьте значение по умолчанию `Все`.
+      * **{{ ui-key.yacloud.audit-trails.label_collecting-logs }}** — выберите `{{ ui-key.yacloud.common.enabled }}`.
+      * **{{ ui-key.yacloud.audit-trails.label_resource-type }}** — выберите `{{ ui-key.yacloud.audit-trails.label_organization-manager.organization }}`.
+      * **{{ ui-key.yacloud.audit-trails.label_organization-manager.organization }}** — не требует заполнения, содержит имя текущей организации.
+      * **{{ ui-key.yacloud.audit-trails.label_resource-manager.cloud }}** — оставьте значение по умолчанию `{{ ui-key.yacloud.common.all }}`.
 
-  1. В блоке **Сбор событий с уровня сервисов** в поле **Сбор событий** выберите `Выключено`.
-  1. Нажмите кнопку **Создать**.
+  1. В блоке **{{ ui-key.yacloud.audit-trails.label_event-filter-section }}** в поле **{{ ui-key.yacloud.audit-trails.label_collecting-logs }}** выберите `{{ ui-key.yacloud.common.disabled }}`.
+  1. Нажмите кнопку **{{ ui-key.yacloud.common.create }}**.
 
 {% endlist %}
 
 
-## Создайте соединение между трейлом и YQ {#trail-yq}
+## Создайте соединение между трейлом и {{ yq-short-name }} {#trail-yq}
 
-Соединение необходимо создать только при первом подключении трейла к YQ.
+Соединение необходимо создать только при первом подключении трейла к {{ yq-short-name }}.
 
 {% list tabs group=instructions %}
 
 - Консоль управления {#console}
 
-    1. В [консоли управления](https://console.yandex.cloud) выберите каталог `example-folder`.
-    1. [Перейдите](../../../console/operations/select-service.md#select-service) в сервис **Audit Trails**.
+    1. В [консоли управления]({{ link-console-main }}) выберите каталог `example-folder`.
+    1. Перейдите в сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_audit-trails }}**.
     1. Выберите трейл `logsyq`.
-    1. Нажмите **Обработать в YQ**.
+    1. Нажмите **{{ ui-key.yacloud.audit-trails.button_process-in-yq }}**.
     1. Создайте соединение:
-        * выберите **Сервисный аккаунт** `bucket-yq-sa`;
+        * выберите **{{ ui-key.yacloud.common.resource-acl.label_service-account }}** `bucket-yq-sa`;
         * для остальных параметров оставьте значения по умолчанию.
-    1. Нажмите **Создать**.
-    1. В окне с параметрами привязки к данным нажмите **Создать**.
+    1. Нажмите **{{ ui-key.yacloud.common.create }}**.
+    1. В окне с параметрами привязки к данным нажмите **{{ ui-key.yacloud.common.create }}**.
 
   Вы перейдете на страницу создания запроса к логам трейла.
 
 {% endlist %}
 
 
-## Выполните запрос к логам в Object Storage {#perform-request}
+## Выполните запрос к логам в {{ objstorage-name }} {#perform-request}
 
-Откройте страницу создания аналитического запроса к логам Audit Trails:
+Откройте страницу создания аналитического запроса к логам {{ at-name }}:
 
 {% list tabs group=instructions %}
 
 - Консоль управления {#console}
 
-    1. В [консоли управления](https://console.yandex.cloud) выберите каталог с трейлом.
-    1. [Перейдите](../../../console/operations/select-service.md#select-service) в сервис **Audit Trails**.
-    1. Выберите трейл, для которого настроено [соединение с YQ](#trail-yq).
-    1. Нажмите **Обработать в YQ**, чтобы перейти на страницу выполнения аналитического запроса.
+    1. В [консоли управления]({{ link-console-main }}) выберите каталог с трейлом.
+    1. Перейдите в сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_audit-trails }}**.
+    1. Выберите трейл, для которого настроено [соединение с {{ yq-short-name }}](#trail-yq).
+    1. Нажмите **{{ ui-key.yacloud.audit-trails.button_process-in-yq }}**, чтобы перейти на страницу выполнения аналитического запроса.
 
 {% endlist %}
 
@@ -223,7 +223,7 @@
         ```SQL
         SELECT * FROM bindings.`audit-trails-logsyq-object_storage`
         WHERE
-            JSON_VALUE(data, "$.event_type") = 'yandex.cloud.audit.resourcemanager.DeleteFolder' 
+            JSON_VALUE(data, "$.event_type") = '{{ at-event-prefix }}.audit.resourcemanager.DeleteFolder' 
             and JSON_VALUE(data, "$.details.folder_name") = '<идентификатор_каталога>' 
             LIMIT 100;
         ```
@@ -238,23 +238,23 @@
         ```SQL
         SELECT * FROM bindings.`<audit-trails-logsyq-object_storage>`
         WHERE
-            JSON_VALUE(data, "$.event_type") = 'yandex.cloud.audit.compute.UpdateInstance' 
+            JSON_VALUE(data, "$.event_type") = '{{ at-event-prefix }}.audit.compute.UpdateInstance' 
             and JSON_VALUE(data, "$.details.metadata_serial_port_enable") = '1' 
             LIMIT <количество_записей>;
         ```
 
     1. Нажмите **Выполнить**.
 
-1. Изменение прав доступ к бакету Object Storage:
+1. Изменение прав доступ к бакету {{ objstorage-name }}:
 
-    1. Выберите в списке запрос **11. Подозрительные действия с хранилищем логов Audit Trails (Object Storage Bucket)**.
+    1. Выберите в списке запрос **11. Подозрительные действия с хранилищем логов {{ at-name }} ({{ objstorage-name }} Bucket)**.
     1. Отредактируйте запрос, указав количество отображаемых записей:
 
         ```SQL
         SELECT * FROM bindings.`audit-trails-logsyq-object_storage`
         WHERE
-            (JSON_VALUE(data, "$.event_type") = 'yandex.cloud.audit.storage.BucketAclUpdate' 
-            or JSON_VALUE(data, "$.event_type") = 'yandex.cloud.audit.storage.BucketPolicyUpdate') 
+            (JSON_VALUE(data, "$.event_type") = '{{ at-event-prefix }}.audit.storage.BucketAclUpdate' 
+            or JSON_VALUE(data, "$.event_type") = '{{ at-event-prefix }}.audit.storage.BucketPolicyUpdate') 
             LIMIT <количество_записей>;
         ```
 

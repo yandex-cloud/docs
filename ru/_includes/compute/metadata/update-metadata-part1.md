@@ -42,6 +42,8 @@
 
       {% include [users-from-metadata-example](../users-from-metadata-example.md) %}
 
+      {% include [cli-metadata-variables-substitution-notice](../create/cli-metadata-variables-substitution-notice.md) %}
+
   * `--metadata` — в виде списка пар `ключ=значение`, разделенных запятой, например `--metadata foo1=bar,foo2=baz`.
 
       Если в значении несколько строк, используйте `\n` в качестве разделителя: `--metadata user-data="#ps1\nnet user Administrator Passw0rd"`.

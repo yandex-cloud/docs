@@ -4,17 +4,17 @@
 
 - Консоль управления {#console}
 
-  1. В [консоли управления](https://console.yandex.cloud) выберите [каталог](../../../resource-manager/concepts/resources-hierarchy.md#folder), в котором находится реестр.
-  1. [Перейдите](../../../console/operations/select-service.md#select-service) в сервис **Cloud Registry**.
+  1. В [консоли управления]({{ link-console-main }}) выберите [каталог](../../../resource-manager/concepts/resources-hierarchy.md#folder), в котором находится реестр.
+  1. Перейдите в сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_cloud-registry }}**.
   1. Выберите реестр.
-  1. Перейдите на вкладку **Доступ для IP-адресов**.
-  1. Нажмите кнопку **Настроить доступ**.
+  1. Перейдите на вкладку **{{ ui-key.yacloud.cloud-registry.title_ip-permissions }}**.
+  1. Нажмите кнопку **{{ ui-key.yacloud.cloud-registry.registries.button_update-ip-permissions-full }}**.
   1. В строке с политикой доступа, которую вы хотите удалить, нажмите ![trash-bin](../../../_assets/console-icons/trash-bin.svg).
-  1. Нажмите кнопку **Сохранить**.
+  1. Нажмите кнопку **{{ ui-key.yacloud.common.save }}**.
 
 - CLI {#cli}
 
-  Если у вас еще нет интерфейса командной строки Yandex Cloud (CLI), [установите и инициализируйте его](../../../cli/quickstart.md#install).
+  Если у вас еще нет интерфейса командной строки {{ yandex-cloud }} (CLI), [установите и инициализируйте его](../../../cli/quickstart.md#install).
 
   По умолчанию используется каталог, указанный при [создании](../../../cli/operations/profile/profile-create.md) профиля CLI. Чтобы изменить каталог по умолчанию, используйте команду `yc config set folder-id <идентификатор_каталога>`. Также для любой команды вы можете указать другой каталог с помощью параметров `--folder-name` или `--folder-id`. Если вы обращаетесь к ресурсу по имени, поиск будет выполнен в каталоге по умолчанию. Если вы обращаетесь к ресурсу по идентификатору, поиск будет выполнен глобально — во всех каталогах с учетом прав доступа.
 

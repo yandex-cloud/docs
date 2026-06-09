@@ -5,7 +5,7 @@ Updates the specified access bindings for a certificate.
 ## HTTP request
 
 ```
-PATCH https://private-ca.certificate-manager.api.cloud.yandex.net/privateca/v1/privateCertificates/{resourceId}:updateAccessBindings
+PATCH https://private-ca.certificate-manager.{{ api-host }}/privateca/v1/privateCertificates/{resourceId}:updateAccessBindings
 ```
 
 ## Path parameters

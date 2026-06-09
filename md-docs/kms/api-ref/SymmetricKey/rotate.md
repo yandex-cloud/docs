@@ -6,7 +6,7 @@ The old version remains available for decryption of ciphertext encrypted with it
 ## HTTP request
 
 ```
-POST https://kms.api.cloud.yandex.net/kms/v1/keys/{keyId}:rotate
+POST https://{{ api-host-kms }}/kms/v1/keys/{keyId}:rotate
 ```
 
 ## Path parameters

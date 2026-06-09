@@ -1,12 +1,12 @@
 # Запуск и управление приложениями для Spark и PySpark
 
-Существует несколько способов запустить Spark- и PySpark-задания в кластере Yandex Data Processing:
+Существует несколько способов запустить Spark- и PySpark-задания в кластере {{ dataproc-name }}:
 
 * [Spark Shell](#spark-shell) (командная оболочка для языков программирования Scala и Python). Расчеты запускаются не с помощью скрипта, а построчно. Подробнее о Spark Shell читайте в [документации Spark](https://spark.apache.org/docs/latest/quick-start).
 * [Скрипт spark-submit](#spark-submit). Сохраняет результаты расчета в HDFS. Подробнее о `spark-submit` читайте в [документации Spark](https://spark.apache.org/docs/latest/submitting-applications.html#submitting-applications).
-* [Команды CLI Yandex Cloud](#run-cli-jobs). Позволяют сохранить результаты расчета не только в HDFS, но и в [бакете Yandex Object Storage](../../storage/concepts/bucket.md).
+* [Команды CLI {{ yandex-cloud }}](#run-cli-jobs). Позволяют сохранить результаты расчета не только в HDFS, но и в [бакете {{ objstorage-full-name }}](../../storage/concepts/bucket.md).
 
-Ниже рассматривается пример, по которому будет рассчитана статистика по воздушному трафику США за 2018 год по данным с сайта [transtats.bts.gov](https://transtats.bts.gov/). Набор данных представлен в формате [Parquet](https://parquet.apache.org/) и находится в публичном бакете Yandex Object Storage с именем `yc-mdb-examples`.
+Ниже рассматривается пример, по которому будет рассчитана статистика по воздушному трафику США за 2018 год по данным с сайта [transtats.bts.gov](https://transtats.bts.gov/). Набор данных представлен в формате [Parquet](https://parquet.apache.org/) и находится в публичном бакете {{ objstorage-full-name }} с именем `yc-mdb-examples`.
 
 ## Перед началом работы {#before-you-begin}
 
@@ -16,43 +16,43 @@
 
 - Вручную {#manual}
 
-    1. [Создайте сеть](../../vpc/operations/network-create.md) с именем `data-proc-network`. При создании выключите опцию **Создать подсети**.
+    1. [Создайте сеть](../../vpc/operations/network-create.md) с именем `data-proc-network`. При создании выключите опцию **{{ ui-key.yacloud.vpc.networks.create.field_is-default }}**.
     1. В сети `data-proc-network` [создайте подсеть](../../vpc/operations/subnet-create.md) со следующими параметрами:
 
-        * **Имя** — `data-proc-subnet-a`.
-        * **Зона доступности** — `ru-central1-a`.
-        * **CIDR** — `192.168.1.0/24`.
+        * **{{ ui-key.yacloud.vpc.subnetworks.create.field_name }}** — `data-proc-subnet-a`.
+        * **{{ ui-key.yacloud.vpc.subnetworks.create.field_zone }}** — `{{ region-id }}-a`.
+        * **{{ ui-key.yacloud.vpc.subnetworks.create.field_ip }}** — `192.168.1.0/24`.
 
     1. [Создайте NAT-шлюз](../../vpc/operations/create-nat-gateway.md) и таблицу маршрутизации с именем `data-proc-route-table` в сети `data-proc-network`. Привяжите таблицу к подсети `data-proc-subnet-a`.
     1. В сети `data-proc-network` [создайте группу безопасности](../../vpc/operations/security-group-create.md) с именем `data-proc-security-group` и следующими правилами:
 
         * По одному правилу для входящего и исходящего служебного трафика:
 
-            * **Диапазон портов** — `0-65535`.
-            * **Протокол** — `Любой`.
-            * **Источник**/**Назначение** — `Группа безопасности`.
-            * **Группа безопасности** — `Текущая`.
+            * **{{ ui-key.yacloud.vpc.network.security-groups.forms.field_sg-rule-port-range }}** — `{{ port-any }}`.
+            * **{{ ui-key.yacloud.vpc.network.security-groups.forms.field_sg-rule-protocol }}** — `{{ ui-key.yacloud.vpc.network.security-groups.forms.value_any }}`.
+            * **{{ ui-key.yacloud.vpc.network.security-groups.forms.field_sg-rule-source }}**/**{{ ui-key.yacloud.vpc.network.security-groups.forms.field_sg-rule-destination }}** — `{{ ui-key.yacloud.vpc.network.security-groups.forms.value_sg-rule-destination-sg }}`.
+            * **{{ ui-key.yacloud.vpc.network.security-groups.forms.field_sg-rule-sg-type }}** — `{{ ui-key.yacloud.vpc.network.security-groups.forms.value_sg-rule-sg-type-self }}`.
 
         * Правило для входящего трафика, чтобы подключаться к хостам подкластеров из интернета:
 
-            * **Диапазон портов** — `22`.
-            * **Протокол** — `TCP`.
-            * **Источник** — `CIDR`.
-            * **CIDR блоки** — `0.0.0.0/0`.
+            * **{{ ui-key.yacloud.vpc.network.security-groups.forms.field_sg-rule-port-range }}** — `{{ port-ssh }}`.
+            * **{{ ui-key.yacloud.vpc.network.security-groups.forms.field_sg-rule-protocol }}** — `{{ ui-key.yacloud.common.label_tcp }}`.
+            * **{{ ui-key.yacloud.vpc.network.security-groups.forms.field_sg-rule-source }}** — `{{ ui-key.yacloud.vpc.network.security-groups.forms.value_sg-rule-destination-cidr }}`.
+            * **{{ ui-key.yacloud.vpc.network.security-groups.forms.field_sg-rule-cidr-blocks }}** — `0.0.0.0/0`.
 
         * Правило для исходящего HTTPS-трафика:
 
-            * **Диапазон портов** — `443`.
-            * **Протокол** — `TCP`.
-            * **Назначение** — `CIDR`.
-            * **CIDR блоки** — `0.0.0.0/0`.
+            * **{{ ui-key.yacloud.vpc.network.security-groups.forms.field_sg-rule-port-range }}** — `{{ port-https }}`.
+            * **{{ ui-key.yacloud.vpc.network.security-groups.forms.field_sg-rule-protocol }}** — `{{ ui-key.yacloud.common.label_tcp }}`.
+            * **{{ ui-key.yacloud.vpc.network.security-groups.forms.field_sg-rule-destination }}** — `{{ ui-key.yacloud.vpc.network.security-groups.forms.value_sg-rule-destination-cidr }}`.
+            * **{{ ui-key.yacloud.vpc.network.security-groups.forms.field_sg-rule-cidr-blocks }}** — `0.0.0.0/0`.
 
         * Правило для исходящего HTTP-трафика:
 
-            * **Диапазон портов** — `80`.
-            * **Протокол** — `TCP`.
-            * **Назначение** — `CIDR`.
-            * **CIDR блоки** — `0.0.0.0/0`.
+            * **{{ ui-key.yacloud.vpc.network.security-groups.forms.field_sg-rule-port-range }}** — `{{ port-http }}`.
+            * **{{ ui-key.yacloud.vpc.network.security-groups.forms.field_sg-rule-protocol }}** — `{{ ui-key.yacloud.common.label_tcp }}`.
+            * **{{ ui-key.yacloud.vpc.network.security-groups.forms.field_sg-rule-destination }}** — `{{ ui-key.yacloud.vpc.network.security-groups.forms.value_sg-rule-destination-cidr }}`.
+            * **{{ ui-key.yacloud.vpc.network.security-groups.forms.field_sg-rule-cidr-blocks }}** — `0.0.0.0/0`.
 
     1. [Создайте сервисный аккаунт](../../iam/operations/sa/create.md) `data-proc-sa` с ролями:
 
@@ -60,27 +60,27 @@
         * [dataproc.provisioner](../security/index.md#dataproc-provisioner);
         * [storage.admin](../../storage/security/index.md#storage-admin).
 
-    1. [Создайте бакет Yandex Object Storage](../../storage/operations/buckets/create.md) `data-proc-bucket` с ограниченным доступом.
+    1. [Создайте бакет {{ objstorage-full-name }}](../../storage/operations/buckets/create.md) `data-proc-bucket` с ограниченным доступом.
     1. [Предоставьте сервисному аккаунту](../../storage/operations/buckets/edit-acl.md) `data-proc-sa` разрешение `READ и WRITE` на бакет `data-proc-bucket`.
-    1. [Создайте кластер Yandex Data Processing](../operations/cluster-create.md) любой подходящей конфигурации с настройками:
+    1. [Создайте кластер {{ dataproc-name }}](../operations/cluster-create.md) любой подходящей конфигурации с настройками:
 
-        * **Окружение** — `PRODUCTION`.
-        * **Сервисный аккаунт** — `data-proc-sa`.
-        * **Зона доступности** — `ru-central1-a`.
-        * **Имя бакета** — `data-proc-bucket`.
-        * **Сеть** — `data-proc-network`.
-        * **Группы безопасности** — `data-proc-security-group`.
-        * **Публичный доступ** для подкластеров — предоставлен.
+        * **{{ ui-key.yacloud.mdb.forms.base_field_environment }}** — `PRODUCTION`.
+        * **{{ ui-key.yacloud.mdb.forms.base_field_service-account }}** — `data-proc-sa`.
+        * **{{ ui-key.yacloud.mdb.forms.config_field_zone }}** — `{{ region-id }}-a`.
+        * **{{ ui-key.yacloud.mdb.forms.config_field_bucket }}** — `data-proc-bucket`.
+        * **{{ ui-key.yacloud.mdb.forms.config_field_network }}** — `data-proc-network`.
+        * **{{ ui-key.yacloud.mdb.forms.field_security-group }}** — `data-proc-security-group`.
+        * **{{ ui-key.yacloud.mdb.forms.field_assign-public-ip }}** для подкластеров — предоставлен.
 
             {% note info %}
             
-            Публичный доступ к хостам кластера нужен, если вы планируете подключаться к кластеру через интернет. Этот вариант подключения более простой, и его рекомендуется использовать для прохождения руководства. К хостам без публичного доступа тоже можно подключиться, но только с виртуальных машин Yandex Cloud, расположенных в той же облачной сети, что и кластер.
+            Публичный доступ к хостам кластера нужен, если вы планируете подключаться к кластеру через интернет. Этот вариант подключения более простой, и его рекомендуется использовать для прохождения руководства. К хостам без публичного доступа тоже можно подключиться, но только с виртуальных машин {{ yandex-cloud }}, расположенных в той же облачной сети, что и кластер.
             
             {% endnote %}
 
-- Terraform {#tf}
+- {{ TF }} {#tf}
 
-    1. Если у вас еще нет Terraform, [установите его](../../tutorials/infrastructure-management/terraform-quickstart.md#install-terraform).
+    1. Если у вас еще нет {{ TF }}, [установите его](../../tutorials/infrastructure-management/terraform-quickstart.md#install-terraform).
     1. [Получите данные для аутентификации](../../tutorials/infrastructure-management/terraform-quickstart.md#get-credentials). Вы можете добавить их в переменные окружения или указать далее в файле с настройками провайдера.
     1. [Настройте и инициализируйте провайдер](../../tutorials/infrastructure-management/terraform-quickstart.md#configure-provider). Чтобы не создавать конфигурационный файл с настройками провайдера вручную, [скачайте его](https://github.com/yandex-cloud-examples/yc-terraform-provider-settings/blob/main/provider.tf).
     1. Поместите конфигурационный файл в отдельную рабочую директорию и [укажите значения параметров](../../tutorials/infrastructure-management/terraform-quickstart.md#configure-provider). Если данные для аутентификации не были добавлены в переменные окружения, укажите их в конфигурационном файле.
@@ -95,16 +95,16 @@
         * группы безопасности;
         * сервисный аккаунт для работы с ресурсами кластера;
         * бакет, в котором будут храниться зависимости заданий и результаты их выполнения;
-        * кластер Yandex Data Processing.
+        * кластер {{ dataproc-name }}.
 
     1. Укажите в файле конфигурации `data-proc-for-spark-jobs.tf` необходимые параметры.
-    1. Проверьте корректность файлов конфигурации Terraform с помощью команды:
+    1. Проверьте корректность файлов конфигурации {{ TF }} с помощью команды:
 
         ```bash
         terraform validate
         ```
 
-        Если в файлах конфигурации есть ошибки, Terraform на них укажет.
+        Если в файлах конфигурации есть ошибки, {{ TF }} на них укажет.
 
     1. Создайте необходимую инфраструктуру:
 
@@ -126,20 +126,20 @@
            1. Подтвердите изменение ресурсов.
            1. Дождитесь завершения операции.
 
-        В указанном каталоге будут созданы все требуемые ресурсы. Проверить появление ресурсов и их настройки можно в [консоли управления](https://console.yandex.cloud).
+        В указанном каталоге будут созданы все требуемые ресурсы. Проверить появление ресурсов и их настройки можно в [консоли управления]({{ link-console-main }}).
 
 {% endlist %}
 
 ## Использование Spark Shell {#spark-shell}
 
-1. [Подключитесь по SSH](../operations/connect-ssh.md) к хосту-мастеру кластера Yandex Data Processing.
+1. [Подключитесь по SSH](../operations/connect-ssh.md) к хосту-мастеру кластера {{ dataproc-name }}.
 1. Запустите Spark Shell на хосте-мастере:
 
    ```bash
    /usr/bin/pyspark
    ```
 
-   Количество ядер и процессов выполнения задач (executor) ограничено только конфигурацией вашего кластера Yandex Data Processing.
+   Количество ядер и процессов выполнения задач (executor) ограничено только конфигурацией вашего кластера {{ dataproc-name }}.
 
 1. Построчно введите следующий код:
 
@@ -180,7 +180,7 @@ Spark Submit позволяет запускать заранее написан
 
 - PySpark Submit
 
-  1. [Подключитесь по SSH](../operations/connect-ssh.md) к хосту-мастеру кластера Yandex Data Processing.
+  1. [Подключитесь по SSH](../operations/connect-ssh.md) к хосту-мастеру кластера {{ dataproc-name }}.
   1. На хосте-мастере создайте файл `month_stat.py` со следующим кодом:
 
      ```python
@@ -221,7 +221,7 @@ Spark Submit позволяет запускать заранее написан
 
   Чтобы создать и запустить Spark-приложение:
 
-  1. [Подключитесь по SSH](../operations/connect-ssh.md) к хосту-мастеру кластера Yandex Data Processing.
+  1. [Подключитесь по SSH](../operations/connect-ssh.md) к хосту-мастеру кластера {{ dataproc-name }}.
   1. [Установите](https://docs.scala-lang.net/getting-started/index.html#using-the-scala-installer-recommended-way) стандартную утилиту сборки sbt для Scala. Она устанавливается вместе с языком программирования Scala.
   1. Создайте папку, например `spark-app`.
   1. В созданную папку добавьте файл с путем `./src/main/scala/app.scala`.
@@ -340,19 +340,19 @@ Spark Submit позволяет запускать заранее написан
 
 Более подробно с командами YARN можно ознакомиться на странице [YARN Commands](https://hadoop.apache.org/docs/current/hadoop-yarn/hadoop-yarn-site/YarnCommands.html).
 
-## Запуск заданий (jobs) с помощью CLI Yandex Cloud {#run-cli-jobs}
+## Запуск заданий (jobs) с помощью CLI {{ yandex-cloud }} {#run-cli-jobs}
 
-Запуск заданий с помощью Yandex Cloud CLI происходит посредством агента Yandex Data Processing, установленного на хосте-мастере кластера. Параметры заданий передаются агенту через [Yandex Data Processing API](../api-ref/Job/index.md).  
+Запуск заданий с помощью {{ yandex-cloud }} CLI происходит посредством агента {{ dataproc-name }}, установленного на хосте-мастере кластера. Параметры заданий передаются агенту через [{{ dataproc-name }} API](../api-ref/Job/index.md).  
 
-Исполняемый файл и его зависимости должны находиться в хранилище, к которому есть доступ у сервисного аккаунта кластера Yandex Data Processing. У самого запускаемого приложения должен быть доступ к хранилищам, в которых хранятся исходный набор данных и результаты запуска.
+Исполняемый файл и его зависимости должны находиться в хранилище, к которому есть доступ у сервисного аккаунта кластера {{ dataproc-name }}. У самого запускаемого приложения должен быть доступ к хранилищам, в которых хранятся исходный набор данных и результаты запуска.
 
-Результаты расчета можно сохранить в HDFS в кластере Yandex Data Processing или в бакете `data-proc-bucket`, указанном при создании кластера.
+Результаты расчета можно сохранить в HDFS в кластере {{ dataproc-name }} или в бакете `data-proc-bucket`, указанном при создании кластера.
 
-Служебная и отладочная информация сохраняется в бакете `data-proc-bucket`. Для каждого задания агент Yandex Data Processing создает отдельную папку с путем вида `dataproc/clusters/<идентификатор_кластера>/jobs/<идентификатор_задачи>`.
+Служебная и отладочная информация сохраняется в бакете `data-proc-bucket`. Для каждого задания агент {{ dataproc-name }} создает отдельную папку с путем вида `dataproc/clusters/<идентификатор_кластера>/jobs/<идентификатор_задачи>`.
 
 {% note info %}
 
-Вы можете просматривать логи выполнения заданий и искать в них информацию с помощью сервиса [Yandex Cloud Logging](../../logging/index.md). Подробнее см. в разделе [Работа с логами](../operations/logging.md).
+Вы можете просматривать логи выполнения заданий и искать в них информацию с помощью сервиса [{{ cloud-logging-full-name }}](../../logging/index.md). Подробнее в разделе [{#T}](../operations/logging.md).
 
 {% endnote %}
 
@@ -369,12 +369,12 @@ Spark Submit позволяет запускать заранее написан
 
 На локальном компьютере выполните действия:
 
-1. Если у вас еще нет интерфейса командной строки Yandex Cloud (CLI), [установите и инициализируйте его](../../cli/quickstart.md#install).
+1. Если у вас еще нет интерфейса командной строки {{ yandex-cloud }} (CLI), [установите и инициализируйте его](../../cli/quickstart.md#install).
 
     По умолчанию используется каталог, указанный при [создании](../../cli/operations/profile/profile-create.md) профиля CLI. Чтобы изменить каталог по умолчанию, используйте команду `yc config set folder-id <идентификатор_каталога>`. Также для любой команды вы можете указать другой каталог с помощью параметров `--folder-name` или `--folder-id`. Если вы обращаетесь к ресурсу по имени, поиск будет выполнен в каталоге по умолчанию. Если вы обращаетесь к ресурсу по идентификатору, поиск будет выполнен глобально — во всех каталогах с учетом прав доступа.
 
-1. [Установите и настройте](../../storage/tools/s3cmd.md) консольный клиент S3cmd для работы с Yandex Object Storage.
-1. Установите Python. Убедитесь, что версия Python совпадает с версией, доступной из образа. Проверить версию можно в разделе [Среда исполнения](../concepts/environment.md). Для версии образа 2.0 используйте Python 3.8.10:
+1. [Установите и настройте](../../storage/tools/s3cmd.md) консольный клиент S3cmd для работы с {{ objstorage-full-name }}.
+1. Установите Python. Убедитесь, что версия Python совпадает с версией, доступной из образа. Проверить версию можно в разделе [{#T}](../concepts/environment.md). Для версии образа 2.0 используйте Python 3.8.10:
 
     ```bash
     sudo apt update && sudo apt install python3.8
@@ -416,7 +416,7 @@ Spark Submit позволяет запускать заранее написан
         main()
     ```
 
-1. Чтобы PySpark имел доступ к вашему коду, загрузите файл `job.py` в бакет Object Storage, к которому есть доступ у сервисного аккаунта кластера Yandex Data Processing:
+1. Чтобы PySpark имел доступ к вашему коду, загрузите файл `job.py` в бакет {{ objstorage-name }}, к которому есть доступ у сервисного аккаунта кластера {{ dataproc-name }}:
 
     ```bash
     s3cmd put ./job.py s3://data-proc-bucket/bin/
@@ -424,14 +424,14 @@ Spark Submit позволяет запускать заранее написан
 
 1. Запустите задание.
 
-    Команда для запуска зависит от того, где нужно сохранить результаты задания: в Object Storage или HDFS.
+    Команда для запуска зависит от того, где нужно сохранить результаты задания: в {{ objstorage-name }} или HDFS.
 
     {% list tabs group=storage_system %}
 
-    - Object Storage {#storage}
+    - {{ objstorage-name }} {#storage}
 
       ```bash
-      yc dataproc job create-pyspark \
+      {{ yc-dp }} job create-pyspark \
          --cluster-id=<идентификатор_кластера> \
          --name=<имя_задачи> \
          --main-python-file-uri="s3a://data-proc-bucket/bin/job.py" \
@@ -449,7 +449,7 @@ Spark Submit позволяет запускать заранее написан
     - Директория HDFS {#hdfs}
 
       ```bash
-      yc dataproc job create-pyspark \
+      {{ yc-dp }} job create-pyspark \
          --cluster-id=<идентификатор_кластера> \
          --name=<имя_задачи> \
          --main-python-file-uri="s3a://data-proc-bucket/bin/job.py" \
@@ -469,7 +469,7 @@ Spark Submit позволяет запускать заранее написан
 1. (Опционально) Посмотрите логи задачи:
 
     ```bash
-    yc dataproc job log <идентификатор_задачи> --cluster-id=<идентификатор_кластера>
+    {{ yc-dp }} job log <идентификатор_задачи> --cluster-id=<идентификатор_кластера>
     ```
 
 ### Запуск Spark-задания {#cli-scala}
@@ -478,18 +478,18 @@ Spark Submit позволяет запускать заранее написан
 
 1. [Установите дополнительные зависимости](#infra-for-scala).
 1. [Соберите Scala-приложение](#scala-build).
-1. [Загрузите JAR-файл в Object Storage](#scala-upload).
-1. [Запустите Spark-задание в кластере Yandex Data Processing](#scala-run).
+1. [Загрузите JAR-файл в {{ objstorage-name }}](#scala-upload).
+1. [Запустите Spark-задание в кластере {{ dataproc-name }}](#scala-run).
 
 #### Установите дополнительные зависимости {#infra-for-scala}
 
-1.  Если у вас еще нет интерфейса командной строки Yandex Cloud (CLI), [установите и инициализируйте его](../../cli/quickstart.md#install).
+1.  Если у вас еще нет интерфейса командной строки {{ yandex-cloud }} (CLI), [установите и инициализируйте его](../../cli/quickstart.md#install).
 
     По умолчанию используется каталог, указанный при [создании](../../cli/operations/profile/profile-create.md) профиля CLI. Чтобы изменить каталог по умолчанию, используйте команду `yc config set folder-id <идентификатор_каталога>`. Также для любой команды вы можете указать другой каталог с помощью параметров `--folder-name` или `--folder-id`. Если вы обращаетесь к ресурсу по имени, поиск будет выполнен в каталоге по умолчанию. Если вы обращаетесь к ресурсу по идентификатору, поиск будет выполнен глобально — во всех каталогах с учетом прав доступа.
 
-1. [Подключитесь по SSH](../operations/connect-ssh.md) к хосту-мастеру кластера Yandex Data Processing.
+1. [Подключитесь по SSH](../operations/connect-ssh.md) к хосту-мастеру кластера {{ dataproc-name }}.
 1. [Установите](https://docs.scala-lang.net/getting-started/index.html#using-the-scala-installer-recommended-way) стандартную утилиту сборки `sbt` для Scala. Она устанавливается вместе с языком программирования Scala.
-1. [Установите и настройте](../../storage/tools/s3cmd.md) консольный клиент S3cmd для работы с Yandex Object Storage.
+1. [Установите и настройте](../../storage/tools/s3cmd.md) консольный клиент S3cmd для работы с {{ objstorage-full-name }}.
 
 #### Соберите Scala-приложение {#scala-build}
 
@@ -591,7 +591,7 @@ Spark Submit позволяет запускать заранее написан
 
 Файл будет доступен по следующему пути: `spark-app/target/scala-<версия_Scala>/spark-app-assembly-0.1.0-SNAPSHOT.jar`.
 
-#### Загрузите JAR-файл в Object Storage {#scala-upload}
+#### Загрузите JAR-файл в {{ objstorage-name }} {#scala-upload}
 
 Чтобы Spark имел доступ к собранному JAR-файлу, загрузите файл в бакет `data-proc-bucket`. Загрузить файл можно с помощью [s3cmd](../../storage/tools/s3cmd.md):
 
@@ -601,19 +601,19 @@ s3cmd put ~/spark-app/target/scala-<версия_Scala>/spark-app-assembly-0.1.0
 
 Файл загружается по адресу `s3://data-proc-bucket/bin/spark-app-assembly-0.1.0-SNAPSHOT.jar`.
 
-#### Запустите Spark-задание в кластере Yandex Data Processing {#scala-run}
+#### Запустите Spark-задание в кластере {{ dataproc-name }} {#scala-run}
 
 1. Отключитесь от хоста-мастера кластера.
 1. Запустите задание.
 
-    Команда для запуска зависит от того, где нужно сохранить результаты задания: в Object Storage или HDFS.
+    Команда для запуска зависит от того, где нужно сохранить результаты задания: в {{ objstorage-name }} или HDFS.
 
     {% list tabs group=storage_system %}
 
-    - Object Storage {#storage}
+    - {{ objstorage-name }} {#storage}
 
       ```bash
-      yc dataproc job create-spark \
+      {{ yc-dp }} job create-spark \
          --cluster-id=<идентификатор_кластера> \
          --name=<имя_задачи> \
          --main-class="com.yandex.cloud.dataproc.scala.Main" \
@@ -632,7 +632,7 @@ s3cmd put ~/spark-app/target/scala-<версия_Scala>/spark-app-assembly-0.1.0
     - Директория HDFS {#hdfs}
 
       ```bash
-      yc dataproc job create-spark \
+      {{ yc-dp }} job create-spark \
          --cluster-id=<идентификатор_кластера> \
          --name=<имя_задачи> \
          --main-class="com.yandex.cloud.dataproc.scala.Main" \
@@ -674,20 +674,20 @@ s3cmd put ~/spark-app/target/scala-<версия_Scala>/spark-app-assembly-0.1.0
 
 - Вручную {#manual}
 
-    1. [Удалите кластер Yandex Data Processing](../operations/cluster-delete.md).
+    1. [Удалите кластер {{ dataproc-name }}](../operations/cluster-delete.md).
     1. Если вы зарезервировали публичные статические IP-адреса, освободите и [удалите их](../../vpc/operations/address-delete.md).
     1. [Удалите подсеть](../../vpc/operations/subnet-delete.md).
     1. [Удалите таблицу маршрутизации](../../vpc/operations/delete-route-table.md).
     1. [Удалите NAT-шлюз](../../vpc/operations/delete-nat-gateway.md).
     1. [Удалите сеть](../../vpc/operations/network-delete.md).
 
-- Terraform {#tf}
+- {{ TF }} {#tf}
 
     1. В терминале перейдите в директорию с планом инфраструктуры.
     
         {% note warning %}
     
-        Убедитесь, что в директории нет Terraform-манифестов с ресурсами, которые вы хотите сохранить. Terraform удаляет все ресурсы, которые были созданы с помощью манифестов в текущей директории.
+        Убедитесь, что в директории нет {{ TF }}-манифестов с ресурсами, которые вы хотите сохранить. {{ TF }} удаляет все ресурсы, которые были созданы с помощью манифестов в текущей директории.
     
         {% endnote %}
     
@@ -701,6 +701,6 @@ s3cmd put ~/spark-app/target/scala-<версия_Scala>/spark-app-assembly-0.1.0
     
         1. Подтвердите удаление ресурсов и дождитесь завершения операции.
     
-        Все ресурсы, которые были описаны в Terraform-манифестах, будут удалены.
+        Все ресурсы, которые были описаны в {{ TF }}-манифестах, будут удалены.
 
 {% endlist %}

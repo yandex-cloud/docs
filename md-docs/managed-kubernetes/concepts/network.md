@@ -1,27 +1,27 @@
-# Сеть в Managed Service for Kubernetes
+# Сеть в {{ managed-k8s-name }}
 
-При [создании кластера Kubernetes](../operations/kubernetes-cluster/kubernetes-cluster-create.md) вы можете задать:
+При [создании кластера {{ k8s }}](../operations/kubernetes-cluster/kubernetes-cluster-create.md) вы можете задать:
 * [Сеть и подсеть](../../vpc/concepts/network.md#network) для [мастера](index.md#master).
 * Диапазон IP-адресов для [подов](index.md#pod).
 * Диапазон IP-адресов для [сервисов](index.md#service).
 * Маску подсети узлов.
 
 Дополнительно вы можете:
-* Запросить [публичный IP-адрес](../../vpc/concepts/ips.md) для доступа к [кластеру](index.md#kubernetes-cluster) извне Yandex Cloud.
+* Запросить [публичный IP-адрес](../../vpc/concepts/ips.md) для доступа к [кластеру](index.md#kubernetes-cluster) извне {{ yandex-cloud }}.
 * Настроить [контроллеры сетевых политик](network-policy.md) для управления адресным пространством внутри кластера.
 
 {% note warning %}
 
-Не изменяйте и не удаляйте ресурсы Virtual Private Cloud, которые используются кластером Managed Service for Kubernetes. Это может привести к некорректной работе кластера и невозможности его последующего удаления.
+Не изменяйте и не удаляйте ресурсы {{ vpc-name }}, которые используются кластером {{ managed-k8s-name }}. Это может привести к некорректной работе кластера и невозможности его последующего удаления.
 
 {% endnote %}
 
 ## Сетевые ресурсы {#network-resources}
 
-При работе с кластером Kubernetes на инфраструктуре Yandex Cloud задействуются следующие ресурсы:
+При работе с кластером {{ k8s }} на инфраструктуре {{ yandex-cloud }} задействуются следующие ресурсы:
 * Подсети.
 
-  При создании кластера без туннельного режима Managed Service for Kubernetes резервирует две подсети: для подов и сервисов. Для кластера с [туннельным режимом](network-policy.md#cilium) подсети в адресном пространстве облачной сети не резервируются.
+  При создании кластера без туннельного режима {{ managed-k8s-name }} резервирует две подсети: для подов и сервисов. Для кластера с [туннельным режимом](network-policy.md#cilium) подсети в адресном пространстве облачной сети не резервируются.
 * Публичные IP-адреса.
 
   При [создании кластера](../operations/kubernetes-cluster/kubernetes-cluster-create.md) с публичным доступом мастеру будет присвоен публичный IP-адрес.
@@ -30,9 +30,9 @@
 
 ## Управление адресным пространством {#address-space}
 
-Для кластеров Kubernetes, не использующих туннельный режим, установлены следующие ограничения:
+Для кластеров {{ k8s }}, не использующих туннельный режим, установлены следующие ограничения:
 * Диапазоны создаваемых подсетей не должны пересекаться с уже существующими диапазонами.
-* Для подов, узлов и сервисов доступна только половина возможного диапазона подсетей. Ограничение связано с особенностями [Virtual Private Cloud](../../vpc/index.md) и вводится, чтобы точно обеспечить диапазон свободных IP-адресов для распределения сервисов кластера.
+* Для подов, узлов и сервисов доступна только половина возможного диапазона подсетей. Ограничение связано с особенностями [{{ vpc-name }}](../../vpc/index.md) и вводится, чтобы точно обеспечить диапазон свободных IP-адресов для распределения сервисов кластера.
 
 Для подов, узлов и сервисов таких кластеров доступны диапазоны подсетей:
 * `10.0.0.0/8`.
@@ -41,7 +41,7 @@
 
 Маска подсети узлов и размер подсети для подов определяет максимальное количество узлов в кластере и максимальное количество подов на узле.
 
-Также действует [стандартное ограничение Kubernetes](https://kubernetes.io/docs/setup/best-practices/cluster-large/) в 110 подов на один узел.
+Также действует [стандартное ограничение {{ k8s }}](https://kubernetes.io/docs/setup/best-practices/cluster-large/) в 110 подов на один узел.
 
 Для кластеров в [туннельном режиме](network-policy.md#cilium) доступны диапазоны подсетей:
 * `10.0.0.0/8`.
@@ -66,9 +66,9 @@
 
 ## Имя узла и FQDN {#hostname}
 
-Managed Service for Kubernetes генерирует имя для каждого узла при его создании. Это имя будет являться [доменным именем узла (FQDN)](../../compute/concepts/network.md#hostname). Имя узла и FQDN невозможно изменить.
+{{ managed-k8s-name }} генерирует имя для каждого узла при его создании. Это имя будет являться [доменным именем узла (FQDN)](../../compute/concepts/network.md#hostname). Имя узла и FQDN невозможно изменить.
 
-Используйте FQDN для доступа к узлу в рамках одной облачной сети. Подробнее см. в разделе [Адреса облачных ресурсов](../../vpc/concepts/address.md).
+Используйте FQDN для доступа к узлу в рамках одной облачной сети. Подробнее см. в разделе [{#T}](../../vpc/concepts/address.md).
 
 ## Публичный доступ в кластере {#public-access-to-a-host}
 
@@ -88,16 +88,16 @@ Managed Service for Kubernetes генерирует имя для каждого
 
 ## Доступ в интернет для рабочих узлов кластера {#nodes-internet}
 
-Для подключения к внешним ресурсам, например реестрам Docker-образов [Container Registry](../../container-registry/concepts/index.md), [Cloud Registry](../../cloud-registry/concepts/index.md) или [Docker Hub](https://hub.docker.com/), а также бакетам [Object Storage](../../storage/concepts/bucket.md), у узлов группы должен быть доступ в интернет.
+Для подключения к внешним ресурсам, например реестрам Docker-образов [{{ container-registry-name }}](../../container-registry/concepts/index.md), [{{ cloud-registry-name }}](../../cloud-registry/concepts/index.md) или [Docker Hub](https://hub.docker.com/), а также бакетам [{{ objstorage-name }}](../../storage/concepts/bucket.md), у узлов группы должен быть доступ в интернет.
 
 Чтобы обеспечить доступ в интернет, [назначьте](../operations/node-group/node-group-update.md#node-internet-access) узлам публичный IP-адрес и [настройте](../operations/connect/security-groups.md#rules-internal-nodegroup) группу безопасности. Также в качестве альтернативы публичным IP-адресам можно создать и настроить в подсети узлов [NAT-шлюз](../../vpc/operations/create-nat-gateway.md) или [NAT-инстанс](../../vpc/tutorials/nat-instance/index.md).
 
 Если кластер [создан без доступа в интернет](../tutorials/k8s-cluster-with-no-internet.md), то подключение к внешним ресурсам с узлов кластера будет невозможно.
 
-Исключение — следующие сервисы Yandex Cloud, к которым можно организовать доступ по [внутренним IP-адресам](../../vpc/concepts/address.md#internal-addresses):
+Исключение — следующие сервисы {{ yandex-cloud }}, к которым можно организовать доступ по [внутренним IP-адресам](../../vpc/concepts/address.md#internal-addresses):
 
-* Object Storage: для доступа к бакетам [используйте сервисное подключение VPC](../../storage/operations/buckets/access-via-vpc.md) или [создайте необходимую инфраструктуру вручную](../../storage/tutorials/storage-vpc-access.md).
-* Container Registry: для доступа к реестрам [создайте необходимую инфраструктуру вручную](../../container-registry/tutorials/vpc-cr-access.md).
+* {{ objstorage-name }}: для доступа к бакетам [используйте сервисное подключение {{ vpc-short-name }}](../../storage/operations/buckets/access-via-vpc.md) или [создайте необходимую инфраструктуру вручную](../../storage/tutorials/storage-vpc-access.md).
+* {{ container-registry-name }}: для доступа к реестрам [создайте необходимую инфраструктуру вручную](../../container-registry/tutorials/vpc-cr-access.md).
 
 ### Влияние групп безопасности {#nodes-internet-traffic-rules}
 

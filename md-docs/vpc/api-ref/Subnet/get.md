@@ -7,7 +7,7 @@ To get the list of available Subnet resources, make a [List](list.md#List) reque
 ## HTTP request
 
 ```
-GET https://vpc.api.cloud.yandex.net/vpc/v1/subnets/{subnetId}
+GET https://vpc.{{ api-host }}/vpc/v1/subnets/{subnetId}
 ```
 
 ## Path parameters

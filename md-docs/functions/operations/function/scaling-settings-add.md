@@ -22,16 +22,16 @@
 
 - Консоль управления {#console}
 
-    1. В [консоли управления](https://console.yandex.cloud) перейдите в каталог, в котором находится функция.
-    1. [Перейдите](../../../console/operations/select-service.md#select-service) в сервис **Cloud Functions**.
+    1. В [консоли управления]({{ link-console-main }}) перейдите в каталог, в котором находится функция.
+    1. Перейдите в сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_serverless-functions }}**.
     1. Выберите функцию.
-    1. В блоке **История версий** наведите курсор на тег версии функции (например, ![image](../../../_assets/console-icons/gear.svg) `$latest`), для которой хотите добавить настройки масштабирования.
-    1. Во всплывающем окне нажмите кнопку **Добавить**.
+    1. В блоке **{{ ui-key.yacloud.serverless-functions.item.overview.label_title-history }}** наведите курсор на тег версии функции (например, ![image](../../../_assets/console-icons/gear.svg) `$latest`), для которой хотите добавить настройки масштабирования.
+    1. Во всплывающем окне нажмите кнопку **{{ ui-key.yacloud.common.add }}**.
     1. В открывшемся окне укажите:
         * **zone_instances_limit** — количество экземпляров функции в зоне доступности.
         * **zone_requests_limit** — количество одновременно выполняемых вызовов функции в зоне доступности.
         * **provisioned_instances_count** — количество подготовленных экземпляров.
-    1. Нажмите кнопку **Сохранить**.
+    1. Нажмите кнопку **{{ ui-key.yacloud.common.save }}**.
 
 - CLI {#cli}
 
@@ -64,15 +64,18 @@
     provisioned_instances_count: "3"
     ```
 
-- Terraform {#tf}
+- {{ TF }} {#tf}
 
-    [Terraform](https://www.terraform.io/) позволяет быстро создать облачную инфраструктуру в Yandex Cloud и управлять ею с помощью файлов конфигураций. В файлах конфигураций хранится описание инфраструктуры на языке HCL (HashiCorp Configuration Language). При изменении файлов конфигураций Terraform автоматически определяет, какая часть вашей конфигурации уже развернута, что следует добавить или удалить.
+    [{{ TF }}](https://www.terraform.io/) позволяет быстро создать облачную инфраструктуру в {{ yandex-cloud }} и управлять ею с помощью файлов конфигураций. В файлах конфигураций хранится описание инфраструктуры на языке HCL (HashiCorp Configuration Language). При изменении файлов конфигураций {{ TF }} автоматически определяет, какая часть вашей конфигурации уже развернута, что следует добавить или удалить.
     
-    Terraform распространяется под лицензией [Business Source License](https://github.com/hashicorp/terraform/blob/main/LICENSE), а [провайдер Yandex Cloud для Terraform](https://github.com/yandex-cloud/terraform-provider-yandex) — под лицензией [MPL-2.0](https://www.mozilla.org/en-US/MPL/2.0/).
+    {{ TF }} распространяется под лицензией [Business Source License](https://github.com/hashicorp/terraform/blob/main/LICENSE), а [провайдер {{ yandex-cloud }} для {{ TF }}](https://github.com/yandex-cloud/terraform-provider-yandex) — под лицензией [MPL-2.0](https://www.mozilla.org/en-US/MPL/2.0/).
     
-    Подробную информацию о ресурсах провайдера смотрите в документации на сайте [Terraform](https://www.terraform.io/docs/providers/yandex/index.html) или в [зеркале](../../../terraform/index.md).
+    Подробную информацию о ресурсах провайдера смотрите в документации на сайте [{{ TF }}](https://www.terraform.io/docs/providers/yandex/index.html) или в [зеркале]({{ tf-docs-link }}).
 
-    Если у вас еще нет Terraform, [установите его и настройте провайдер Yandex Cloud](../../../tutorials/infrastructure-management/terraform-quickstart.md#install-terraform).  
+    Если у вас еще нет {{ TF }}, [установите его и настройте провайдер {{ yandex-cloud }}](../../../tutorials/infrastructure-management/terraform-quickstart.md#install-terraform).
+    
+    
+    Чтобы управлять инфраструктурой с помощью {{ TF }} от имени сервисного аккаунта или пользовательских аккаунтов: аккаунта на Яндексе, федеративного аккаунта и локального пользователя, [аутентифицируйтесь](../../../terraform/authentication.md) соответствующим способом.  
 
     Чтобы добавить настройки масштабирования:
 
@@ -97,47 +100,41 @@
 
         Пример структуры конфигурационного файла:
 
-        ```
-        provider "yandex" {
-            token     = "<OAuth-токен_или_статический_ключ_сервисного_аккаунта>"
-            folder_id = "<идентификатор_каталога>"
-            zone      = "ru-central1-a"
-        }
-
+        ```hcl
         resource "yandex_function" "test-function" {
-            name               = "<имя_функции>"
-            user_hash          = "<хеш>"
-            runtime            = "<среда_выполнения>"
-            entrypoint         = "<точка_входа>"
-            memory             = "128"
-            execution_timeout  = "10"
-            service_account_id = "<идентификатор_сервисного_аккаунта>"
-            content {
-                zip_filename = "<путь_к_ZIP-архиву>"
-            }
+          name               = "<имя_функции>"
+          user_hash          = "<хеш>"
+          runtime            = "<среда_выполнения>"
+          entrypoint         = "<точка_входа>"
+          memory             = "128"
+          execution_timeout  = "10"
+          service_account_id = "<идентификатор_сервисного_аккаунта>"
+          content {
+            zip_filename = "<путь_к_ZIP-архиву>"
+          }
         }
 
         resource "yandex_function_scaling_policy" "my_scaling_policy" {
-            function_id = "<идентификатор_функции>"
-            policy {
-                tag = "$latest"
-                zone_instances_limit = 2
-                zone_requests_limit  = 1
-            }
+          function_id = "<идентификатор_функции>"
+          policy {
+            tag = "$latest"
+            zone_instances_limit = 2
+            zone_requests_limit  = 1
+          }
         }
         ```
 
-        Подробнее о параметрах ресурсов см. [yandex_function_scaling_policy](../../../terraform/resources/function_scaling_policy.md).
+        Подробнее о параметрах ресурсов см. [yandex_function_scaling_policy]({{ tf-provider-resources-link }}/function_scaling_policy).
 
     1. Проверьте конфигурацию командой:
         
-       ```
+       ```bash
        terraform validate
        ```
 
        Если конфигурация является корректной, появится сообщение:
         
-       ```
+       ```text
        Success! The configuration is valid.
        ```
 
@@ -147,18 +144,18 @@
        terraform plan
        ```
 
-       В терминале будет выведен список ресурсов с параметрами. На этом этапе изменения не будут внесены. Если в конфигурации есть ошибки, Terraform на них укажет. 
+       В терминале будет выведен список ресурсов с параметрами. На этом этапе изменения не будут внесены. Если в конфигурации есть ошибки, {{ TF }} на них укажет. 
 
     1. Примените изменения конфигурации:
 
-       ```
+       ```bash
        terraform apply
        ```
     1. Подтвердите изменения: введите в терминал слово `yes` и нажмите **Enter**.
 
-    Проверить добавление настроек масштабирования можно в [консоли управления](https://console.yandex.cloud) или с помощью команды [CLI](../../../cli/quickstart.md):
+    Проверить добавление настроек масштабирования можно в [консоли управления]({{ link-console-main }}) или с помощью команды [CLI](../../../cli/quickstart.md):
     
-    ```
+    ```bash
     yc serverless function list-scaling-policies <имя_или_идентификатор_функции>
     ```
 

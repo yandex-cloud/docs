@@ -35,7 +35,7 @@ description: Из статьи вы узнаете, как задать наст
     * [Загрузка данных из {{ objstorage-name }} в {{ CH }}](../../../tutorials/object-storage-to-clickhouse.md);
     * [Загрузка данных из {{ ydb-short-name }} в витрину {{ CH }}](../../../tutorials/ydb-to-clickhouse.md).
 
-Подробное описание возможных сценариев передачи данных в {{ data-transfer-full-name }} см. в разделе [Практические руководства](../../../tutorials/index.md).
+Подробное описание возможных сценариев передачи данных в {{ data-transfer-full-name }} читайте в разделе [Практические руководства](../../../tutorials/index.md).
 
 ## Настройка источника данных {#supported-sources}
 
@@ -54,7 +54,7 @@ description: Из статьи вы узнаете, как задать наст
 * [Oracle](../source/oracle.md);
 * [{{ OS }}](../source/opensearch.md).
 
-Полный список поддерживаемых источников и приемников в {{ data-transfer-full-name }} см. в разделе [Доступные трансферы](../../../transfer-matrix.md).
+Полный список поддерживаемых источников и приемников в {{ data-transfer-full-name }} читайте в разделе [Доступные трансферы](../../../transfer-matrix.md).
 
 {% note info %}
 
@@ -133,7 +133,7 @@ description: Из статьи вы узнаете, как задать наст
     ```
 
 
-    Подробнее см. в [документации провайдера {{ TF }}]({{ tf-provider-dt-endpoint }}).
+    Подробнее в [документации провайдера {{ TF }}]({{ tf-provider-dt-endpoint }}).
 
 - API {#api}
 
@@ -203,7 +203,7 @@ description: Из статьи вы узнаете, как задать наст
     ```
 
 
-    Подробнее см. в [документации провайдера {{ TF }}]({{ tf-provider-dt-endpoint }}).
+    Подробнее в [документации провайдера {{ TF }}]({{ tf-provider-dt-endpoint }}).
 
 - API {#api}
 

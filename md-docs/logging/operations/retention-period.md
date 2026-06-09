@@ -4,16 +4,16 @@
 
 - Консоль управления {#console}
 
-    1. В [консоли управления](https://console.yandex.cloud) перейдите в каталог, в котором находится [лог-группа](../concepts/log-group.md).
-    1. [Перейдите](../../console/operations/select-service.md#select-service) в сервис **Cloud Logging**.
+    1. В [консоли управления]({{ link-console-main }}) перейдите в каталог, в котором находится [лог-группа](../concepts/log-group.md).
+    1. [Перейдите](../../console/operations/select-service.md#select-service) в сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_logging }}**.
     1. В строке с лог-группой нажмите значок ![image](../../_assets/console-icons/ellipsis.svg).
-    1. В открывшемся меню нажмите кнопку **Редактировать**.
+    1. В открывшемся меню нажмите кнопку **{{ ui-key.yacloud.common.edit }}**.
     1. Измените параметры лог-группы.
-    1. Нажмите кнопку **Сохранить**.
+    1. Нажмите кнопку **{{ ui-key.yacloud.common.save }}**.
 
 - CLI {#cli}
 
-    Если у вас еще нет интерфейса командной строки Yandex Cloud (CLI), [установите и инициализируйте его](../../cli/quickstart.md#install).
+    Если у вас еще нет интерфейса командной строки {{ yandex-cloud }} (CLI), [установите и инициализируйте его](../../cli/quickstart.md#install).
 
     По умолчанию используется каталог, указанный при [создании](../../cli/operations/profile/profile-create.md) профиля CLI. Чтобы изменить каталог по умолчанию, используйте команду `yc config set folder-id <идентификатор_каталога>`. Также для любой команды вы можете указать другой каталог с помощью параметров `--folder-name` или `--folder-id`. Если вы обращаетесь к ресурсу по имени, поиск будет выполнен в каталоге по умолчанию. Если вы обращаетесь к ресурсу по идентификатору, поиск будет выполнен глобально — во всех каталогах с учетом прав доступа.
 
@@ -44,13 +44,16 @@
     retention_period: 86400s
     ```
 
-- Terraform {#tf}
+- {{ TF }} {#tf}
 
-  Если у вас еще нет Terraform, [установите его и настройте провайдер Yandex Cloud](../../tutorials/infrastructure-management/terraform-quickstart.md#install-terraform).
+  Если у вас еще нет {{ TF }}, [установите его и настройте провайдер {{ yandex-cloud }}](../../tutorials/infrastructure-management/terraform-quickstart.md#install-terraform).
+  
+  
+  Чтобы управлять инфраструктурой с помощью {{ TF }} от имени сервисного аккаунта или пользовательских аккаунтов: аккаунта на Яндексе, федеративного аккаунта и локального пользователя, [аутентифицируйтесь](../../terraform/authentication.md) соответствующим способом.
 
-  Чтобы изменить параметры [лог-группы](../concepts/log-group.md), созданной с помощью Terraform:
+  Чтобы изменить параметры [лог-группы](../concepts/log-group.md), созданной с помощью {{ TF }}:
 
-  1. Откройте файл конфигурации Terraform и измените нужный параметр в описании лог-группы, например срок хранения записей:
+  1. Откройте файл конфигурации {{ TF }} и измените нужный параметр в описании лог-группы, например срок хранения записей:
 
      ```hcl
      ...
@@ -70,7 +73,7 @@
 
         Срок хранения записей можно указать только в часах, минутах или секундах. Например, `1h` или `1440m`.
 
-     Более подробную информацию о параметрах ресурса `yandex_logging_group` в Terraform, см. в [документации провайдера](../../terraform/resources/logging_group.md).
+     Более подробную информацию о параметрах ресурса `yandex_logging_group` в {{ TF }}, см. в [документации провайдера]({{ tf-provider-resources-link }}/logging_group).
 
   1. Проверьте конфигурацию командой:
 
@@ -90,7 +93,7 @@
      terraform plan
      ```
   
-     В терминале будет выведен список ресурсов с параметрами. На этом этапе изменения не будут внесены. Если в конфигурации есть ошибки, Terraform на них укажет.
+     В терминале будет выведен список ресурсов с параметрами. На этом этапе изменения не будут внесены. Если в конфигурации есть ошибки, {{ TF }} на них укажет.
 
   1. Примените изменения конфигурации:
 
@@ -100,7 +103,7 @@
      
   1. Подтвердите изменения: введите в терминал слово `yes` и нажмите **Enter**.
 
-     Проверить изменение лог-группы можно в [консоли управления](https://console.yandex.cloud) или с помощью команды [CLI](../../cli/quickstart.md):
+     Проверить изменение лог-группы можно в [консоли управления]({{ link-console-main }}) или с помощью команды [CLI](../../cli/quickstart.md):
 
      ```
      yc logging group get <имя_лог-группы>
@@ -136,7 +139,7 @@
     -import-path ~/cloudapi/ \
     -import-path ~/cloudapi/third_party/googleapis/ \
     -proto ~/cloudapi/yandex/cloud/logging/v1/log_group_service.proto \
-  logging.api.cloud.yandex.net:443 yandex.cloud.logging.v1.LogGroupService.Update < payload.json
+  logging.{{ api-host }}:443 yandex.cloud.logging.v1.LogGroupService.Update < payload.json
   ```
 
   Ответ:

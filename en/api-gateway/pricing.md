@@ -40,8 +40,6 @@ Price per month = {{ sku|USD|api-gateway.requests.v1|pricingRate.0.1|string }} Ã
 
 ### Example of calculating the cost of an API gateway {#price-example}
 
-{% include [prices-difference](../_includes/prices-difference.md) %}
-
 {% include [prices-example](../_includes/api-gateway/prices-example.md) %}
 
 ## Prices for the Russia region {#prices}

@@ -5,7 +5,7 @@ Unlocks the specified subscription lock.
 ## HTTP request
 
 ```
-DELETE https://marketplace.api.cloud.yandex.net/marketplace/license-manager/v1/locks/{lockId}
+DELETE https://marketplace.{{ api-host }}/marketplace/license-manager/v1/locks/{lockId}
 ```
 
 ## Path parameters

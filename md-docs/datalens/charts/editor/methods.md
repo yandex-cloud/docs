@@ -217,7 +217,7 @@
 
 #### Поддерживаемые виды чартов {#gen-html-charts}
 
-* [График (Gravity UI Charts)](widgets/chart.md)
+* [График (Gravity UI Charts)](widgets/gravity-ui.md)
 * [Таблица](widgets/table.md)
 * [Advanced-чарт](widgets/advanced.md)
 
@@ -280,7 +280,7 @@
 
 * Каждая переменная должна быть определена и для светлой (`light`), и для темной (`dark`) темы.
 * Если значения для светлой контрастной (`light-hc`) и/или темной контрастной (`dark-hc`) темы не определены, они будут взяты из соответствующих неконтрастных тем.
-* Название переменной должно начинаться с префикса `--ce-theme`, чтобы избежать переопределения системных переменных DataLens и переменных, которые используются в [Gravity UI](https://gravity-ui.com/).
+* Название переменной должно начинаться с префикса `--ce-theme`, чтобы избежать переопределения системных переменных {{ datalens-short-name }} и переменных, которые используются в [Gravity UI](https://gravity-ui.com/).
 * Переменная действует только в области элемента, в рамках которого она определена, а также в области его потомков.
 
 #### Примеры {#gen-html-example}
@@ -582,7 +582,7 @@ module.exports = {
 
 #### Поддерживаемые виды чартов {#get-action-params-charts}
 
-* [График (Gravity UI Charts)](widgets/chart.md)
+* [График (Gravity UI Charts)](widgets/gravity-ui.md)
 * [Таблица](widgets/table.md)
 * [Advanced-чарт](widgets/advanced.md)
 
@@ -713,7 +713,10 @@ JSON-объект вида:
 
 #### Примеры чартов {#get-current-page-charts-example}
 
+
 [Пример чарта с пагинацией и сортировкой](https://datalens.yandex/nvkfwnekf9xy9#Editor.getSortParams()%2C%20Editor.getCurrentPage())
+
+
 
 ## Editor.getId(arg) {#get-id}
 
@@ -782,6 +785,7 @@ JSON-объект вида:
   ```
 
 {% endlist %}
+
 
 ## Editor.getLang() {#get-lang}
 
@@ -968,7 +972,9 @@ JSON-объект вида:
 
 #### Примеры чартов {#get-loaded-data-charts-example}
 
+
 [Пример использования Editor.getLoadedData() в таблице с источником на основе датасета](https://datalens.yandex/nvkfwnekf9xy9#Editor.getLoadedData())
+
 
 ## Editor.getParam(name) {#get-param}
 
@@ -1021,9 +1027,11 @@ JSON-объект вида:
 
 {% endlist %}
 
+
 #### Примеры чартов {#get-param-charts-example}
 
 [Пример чарта с обращением к параметру по имени](https://datalens.yandex/nvkfwnekf9xy9#Editor.getActionParams()%2C%20Editor.updateActionParams(args)%2C%20Editor.getParam(args))
+
 
 ## Editor.getParams() {#get-params}
 
@@ -1096,9 +1104,12 @@ JSON-объект вида:
 
 {% endlist %}
 
+
 #### Примеры чартов {#get-params-charts-example}
 
 [Пример использования функции получения всех примененных параметров](https://datalens.yandex/nvkfwnekf9xy9#Editor.getParams())
+
+
 
 ## Editor.getSortParams() {#get-sort-params}
 
@@ -1161,7 +1172,9 @@ JSON-объект вида:
 
 #### Примеры чартов {#get-sort-params-charts-example}
 
+
 [Пример чарта с пагинацией и сортировкой](https://datalens.yandex/nvkfwnekf9xy9#Editor.getSortParams()%2C%20Editor.getCurrentPage())
+
 
 ## Editor.getWidgetConfig() {#get-widget-config}
 
@@ -1169,7 +1182,7 @@ JSON-объект вида:
 
 #### Поддерживаемые виды чартов {#get-widget-config-charts}
 
-* [График (Gravity UI Charts)](widgets/chart.md)
+* [График (Gravity UI Charts)](widgets/gravity-ui.md)
 * [Таблица](widgets/table.md)
 * [Advanced-чарт](widgets/advanced.md)
 
@@ -1365,8 +1378,8 @@ const interval = Editor.resolveInterval('__interval_2020.01.15___relative_-0d');
 // interval === null
 ```
 
-**Примечание:** начало и конец интервала, прописанного на вкладке [Params](tabs.md#params) или указанного в URL, будут автоматически пропущены через вспомогательный метод для [относительной даты](#resolve-relative).
-Однако в случае, если значение `начала`/`конца` интервала не соответствует формату, то вместо `null` будет возвращено исходное значение.
+**Примечание:** начало и конец интервала, прописанного на вкладке [Params](tabs.md#params) или указанного в URL, будут автоматически пропущены через вспомогательный метод для [относительной даты](#resolve-relative). Однако в случае, если значение `начала`/`конца` интервала не соответствует формату, то вместо `null` будет возвращено исходное значение.
+
 Например:
 
 Вкладка **Params:**
@@ -1459,8 +1472,8 @@ const date = Editor.resolveRelative('2020-01-01');
 // date === null
 ```
 
-**Примечание:** относительные даты, прописанные на вкладке [Params](tabs.md#params) или указанные в URL, будут автоматически пропущены через вспомогательный метод.
-Однако в случае, если значение параметра не соответствует формату относительной даты, вместо `null` будет возвращено исходное значение.
+**Примечание:** относительные даты, прописанные на вкладке [Params](tabs.md#params) или указанные в URL, будут автоматически пропущены через вспомогательный метод. Однако в случае, если значение параметра не соответствует формату относительной даты, вместо `null` будет возвращено исходное значение.
+
 Например:
 
 Вкладка **Params:**
@@ -1526,11 +1539,12 @@ const params = Editor.getParams();
 
   Содержимое вкладки [Prepare](tabs.md#prepare):
 
+
   ```js
   Editor.setChartsInsights([
       {
           title: 'markdown',
-          message: 'Используй [markdown](https://datalens.yandex-team.ru/docs/editor/widgets/markdown/)',
+          message: 'Используй [markdown](https://yandex.cloud/ru/docs/datalens/charts/editor/widgets/markdown)',
           level: 'critical',
           locator: '1'
       },
@@ -1555,6 +1569,7 @@ const params = Editor.getParams();
   ]);
   ```
 
+
 - Результат
 
   ![screenshot](../../../_assets/datalens/editor/notifications.png)
@@ -1563,7 +1578,10 @@ const params = Editor.getParams();
 
 #### Примеры чартов {#set-insights-charts-example}
 
-[Пример чарта с уведомлениями](https://datalens.yandex/nvkfwnekf9xy9#Editor.%20setChartsInsights(args)) 
+
+[Пример чарта с уведомлениями](https://datalens.yandex/nvkfwnekf9xy9#Editor.%20setChartsInsights(args))
+
+
 
 ## Editor.setRawData(data) {#set-raw-data}
 
@@ -1622,7 +1640,7 @@ const params = Editor.getParams();
 
 #### Поддерживаемые виды чартов {#update-action-params-charts}
 
-* [График (Gravity UI Charts)](widgets/chart.md)
+* [График (Gravity UI Charts)](widgets/gravity-ui.md)
 * [Таблица](widgets/table.md)
 * [Advanced-чарт](widgets/advanced.md)
 
@@ -1688,13 +1706,18 @@ JSON-объект вида:
 
 #### Примеры чартов {#get-action-params-chart-examples}
 
+
 [Пример кросс-фильтрации](https://datalens.yandex/nvkfwnekf9xy9#Editor.getActionParams()%2C%20Editor.updateActionParams(args)%2C%20Editor.getParam(args)) — клик по Advanced-чарту слева фильтрует Markdown справа.
+
+
+
 
 ## Editor.updateParams(params) {#update-params}
 
 Доопределяет параметры чарта аргументом `params`.
 
 Не рекомендуем обновлять параметры внутри чартов и контролов, т.к. могут возникнуть проблемы в работе компоненты и связанных элементов. Но в случае крайней необходимости стоит использовать этот метод вместо мутации исходного объекта `params`. В случае мутации не гарантируется стабильность работы чарта.
+
 
 #### Поддерживаемые виды чартов {#update-params-charts}
 
@@ -1780,6 +1803,7 @@ JSON-объект вида:
 
 Функция для формировании обработчика чарта, исполняется в браузере в песочнице с ограниченным доступом к API браузера. Избегайте тяжелых вычислений, которые могут замедлить отображение чарта. А также следует минимизировать объем передаваемой информации в `args`.
 
+
 Функция `Editor.wrapFn` чувствительна к ошибкам синтаксиса. Поэтому при возникновении проблем с использованием функции в первую очередь проверьте синтаксис на валидность.
 
 Ограничения времени исполнения функции `Editor.wrapFn`:
@@ -1790,8 +1814,10 @@ JSON-объект вида:
 
 #### Поддерживаемые виды чартов {#wrap-charts}
 
-* [График (Gravity UI Charts)](widgets/chart.md)
-* [Advanced-чарт](widgets/advanced.md)
+
+Все.
+
+
 
 #### Аргументы {#wrap-args}
 
@@ -1816,7 +1842,7 @@ libs: [lib1, …, libN],
 
   {% endnote %}
 
-* `libs` — массив строк, в которых указываются библиотеки, используемые в функции-обработчике. Рекомендуется указывать имя библиотеки вместе с версией, например, `date-utils@2.3.0` или `date-utils@2.5.3`. Если указать имя библиотеки без версии, например, `date-utils`, будет использоваться последняя версия (`latest`), которая опубликована в [npm registry](https://www.npmjs.com/).
+* `libs` — массив строк, в которых указываются библиотеки, используемые в функции-обработчике. Рекомендуется указывать имя библиотеки вместе с версией, например `date-utils@2.3.0` или `date-utils@2.5.3`. Если указать имя библиотеки без версии, например, `date-utils`, будет использоваться последняя версия (`latest`), которая опубликована в [npm registry](https://www.npmjs.com/).
 
   Доступные значения библиотек для подключения: `date-utils@2.3.0`, `date-utils@2.5.3`(алиас `date-util`), `d3@7.9.0` (алиас `d3`), `d3-chord@3.0.1` (алиас `d3-chord`), `d3-sankey@0.12.3` (алиас `d3-sankey`).
 
@@ -1826,6 +1852,7 @@ libs: [lib1, …, libN],
   * В некоторых случаях использование библиотеки без указания версии может привести к непредсказуемым результатам в работе функции-обработчика.
 
   {% endnote %}
+
 
 #### Примеры {#wrap-example}
 

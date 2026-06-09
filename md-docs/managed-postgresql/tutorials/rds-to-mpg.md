@@ -1,6 +1,6 @@
-# Миграция данных из AWS RDS for PostgreSQL в Managed Service for PostgreSQL с помощью Yandex Data Transfer
+# Миграция данных из AWS RDS for {{ PG }} в {{ mpg-name }} с помощью {{ data-transfer-full-name }}
 
-Чтобы настроить перенос данных из базы [Amazon RDS for PostgreSQL](https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/CHAP_PostgreSQL.html) в базу Managed Service for PostgreSQL с помощью сервиса Data Transfer:
+Чтобы настроить перенос данных из базы [Amazon RDS for {{ PG }}](https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/CHAP_PostgreSQL.html) в базу {{ mpg-name }} с помощью сервиса {{ data-transfer-name }}:
 
 1. [Подготовьте тестовые данные](#prepare-data).
 1. [Подготовьте и активируйте трансфер](#prepare-transfer).
@@ -8,21 +8,21 @@
 
 Если созданные ресурсы вам больше не нужны, [удалите их](#clear-out).
 
-Перенос данных работает для версий PostgreSQL, начиная с 9.4. Версия PostgreSQL в Managed Service for PostgreSQL должна быть не старше, чем версия PostgreSQL в Amazon RDS.
+Перенос данных работает для версий {{ PG }}, начиная с 9.4. Версия {{ PG }} в {{ mpg-name }} должна быть не старше, чем версия {{ PG }} в Amazon RDS.
 
 {% note info %}
 
-Использование сервисов Amazon не входит в [условия использования Yandex Cloud](https://yandex.ru/legal/cloud_termsofuse/?lang=ru) и является предметом отдельного регулирования между клиентом и Amazon. Яндекс не несет ответственности за взаимоотношения клиента и Amazon, вытекающие из использования клиентом продуктов или услуг Amazon.
+Использование сервисов Amazon не входит в [условия использования {{ yandex-cloud }}]({{ link-cloud-terms-of-use }}) и является предметом отдельного регулирования между клиентом и Amazon. Яндекс не несет ответственности за взаимоотношения клиента и Amazon, вытекающие из использования клиентом продуктов или услуг Amazon.
 
 {% endnote %}
 
 
 ## Необходимые платные ресурсы {#paid-resources}
 
-* Кластер Managed Service for PostgreSQL: выделенные хостам вычислительные ресурсы, объем хранилища и резервных копий (см. [тарифы Managed Service for PostgreSQL](../pricing.md)).
-* Публичные IP-адреса, если для хостов кластера включен публичный доступ (см. [тарифы Virtual Private Cloud](../../vpc/pricing.md)).
-* Каждый трансфер: использование вычислительных ресурсов и количество переданных строк данных (см. [тарифы Data Transfer](../../data-transfer/pricing.md)).
-* NAT-шлюз: почасовое использование и исходящий через него трафик (см. [тарифы Virtual Private Cloud](../../vpc/pricing.md#nat-gateways)).
+* Кластер {{ mpg-name }}: выделенные хостам вычислительные ресурсы, объем хранилища и резервных копий (см. [тарифы {{ mpg-name }}](../pricing.md)).
+* Публичные IP-адреса, если для хостов кластера включен публичный доступ (см. [тарифы {{ vpc-name }}](../../vpc/pricing.md)).
+* Каждый трансфер: использование вычислительных ресурсов и количество переданных строк данных (см. [тарифы {{ data-transfer-name }}](../../data-transfer/pricing.md)).
+* NAT-шлюз: почасовое использование и исходящий через него трафик (см. [тарифы {{ vpc-name }}](../../vpc/pricing.md#nat-gateways)).
 
 
 ## Перед началом работы {#before-you-begin}
@@ -35,12 +35,12 @@
 
     1. Если у вас нет аккаунта AWS, [создайте](https://aws.amazon.com) его.
     1. В Amazon RDS [создайте группу параметров](https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/USER_WorkingWithDBInstanceParamGroups.html) и установите в ней параметр `rds.logical_replication` в значение `1`. Остальные параметры можно оставить по умолчанию.
-    1. [Создайте инстанс Amazon RDS for PostgreSQL](https://aws.amazon.com/ru/getting-started/hands-on/create-connect-postgresql-db/) (кластер-источник).
+    1. [Создайте инстанс Amazon RDS for {{ PG }}](https://aws.amazon.com/ru/getting-started/hands-on/create-connect-postgresql-db/) (кластер-источник).
 
         При создании инстанса выполните необходимые настройки:
 
         * Включите для инстанса публичный доступ.
-        * В группу безопасности инстанса добавьте правило, разрешающее входящий TCP-трафик с любых IP-адресов на порт инстанса PostgreSQL (по умолчанию — `5432`).
+        * В группу безопасности инстанса добавьте правило, разрешающее входящий TCP-трафик с любых IP-адресов на порт инстанса {{ PG }} (по умолчанию — `5432`).
         * Назначьте инстансу созданную ранее группу параметров.
 
         {% note info %}
@@ -49,29 +49,29 @@
 
         {% endnote %}
 
-    1. [Создайте кластер-приемник Managed Service for PostgreSQL](../operations/cluster-create.md#create-cluster) любой подходящей конфигурации с хостами в публичном доступе и следующими настройками:
+    1. [Создайте кластер-приемник {{ mpg-name }}](../operations/cluster-create.md#create-cluster) любой подходящей конфигурации с хостами в публичном доступе и следующими настройками:
 
-        * **Имя БД** — `mpg_db`.
-        * **Имя пользователя** — `mpg_user`.
-        * **Пароль** — `<пароль_приемника>`.
+        * **{{ ui-key.yacloud.mdb.forms.database_field_name }}** — `mpg_db`.
+        * **{{ ui-key.yacloud.mdb.forms.database_field_user-login }}** — `mpg_user`.
+        * **{{ ui-key.yacloud.mdb.forms.database_field_user-password }}** — `<пароль_приемника>`.
 
         {% note info %}
         
-        Публичный доступ к хостам кластера нужен, если вы планируете подключаться к кластеру через интернет. Этот вариант подключения более простой, и его рекомендуется использовать для прохождения руководства. К хостам без публичного доступа тоже можно подключиться, но только с виртуальных машин Yandex Cloud, расположенных в той же облачной сети, что и кластер.
+        Публичный доступ к хостам кластера нужен, если вы планируете подключаться к кластеру через интернет. Этот вариант подключения более простой, и его рекомендуется использовать для прохождения руководства. К хостам без публичного доступа тоже можно подключиться, но только с виртуальных машин {{ yandex-cloud }}, расположенных в той же облачной сети, что и кластер.
         
         {% endnote %}
 
-    1. Убедитесь, что группа безопасности кластера Managed Service for PostgreSQL [настроена правильно](../operations/connect/index.md#configuring-security-groups) и допускает подключение к кластеру через интернет.
+    1. Убедитесь, что группа безопасности кластера {{ mpg-name }} [настроена правильно](../operations/connect/index.md#configuring-security-groups) и допускает подключение к кластеру через интернет.
     1. Настройте [NAT-шлюз](../../vpc/operations/create-nat-gateway.md) в интернет для подсети, в которой расположен кластер-приемник.
-    1. [Скачайте сертификат AWS](https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/UsingWithRDS.SSL.html#UsingWithRDS.SSL.RegionCertificates) для региона, в котором расположен инстанс Amazon RDS for PostgreSQL.
+    1. [Скачайте сертификат AWS](https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/UsingWithRDS.SSL.html#UsingWithRDS.SSL.RegionCertificates) для региона, в котором расположен инстанс Amazon RDS for {{ PG }}.
 
-- Terraform {#tf}
+- {{ TF }} {#tf}
 
-    1. Если у вас еще нет Terraform, [установите его](../../tutorials/infrastructure-management/terraform-quickstart.md#install-terraform).
+    1. Если у вас еще нет {{ TF }}, [установите его](../../tutorials/infrastructure-management/terraform-quickstart.md#install-terraform).
     1. [Получите данные для аутентификации](../../tutorials/infrastructure-management/terraform-quickstart.md#get-credentials). Вы можете добавить их в переменные окружения или указать далее в файле с настройками провайдера.
 
-    1. Настройте [AWS CLI](https://docs.aws.amazon.com/cli/latest/userguide/cli-chap-configure.html). Провайдер AWS для Terraform использует конфигурацию AWS CLI для доступа к сервису.
-    1. [Настройте провайдер Terraform](../../tutorials/infrastructure-management/terraform-quickstart.md#configure-provider). Чтобы не создавать конфигурационный файл с настройками провайдера вручную, [скачайте его](https://github.com/yandex-cloud-examples/yc-terraform-provider-settings/blob/main/provider.tf) и поместите в отдельную рабочую директорию.
+    1. Настройте [AWS CLI](https://docs.aws.amazon.com/cli/latest/userguide/cli-chap-configure.html). Провайдер AWS для {{ TF }} использует конфигурацию AWS CLI для доступа к сервису.
+    1. [Настройте провайдер {{ TF }}](../../tutorials/infrastructure-management/terraform-quickstart.md#configure-provider). Чтобы не создавать конфигурационный файл с настройками провайдера вручную, [скачайте его](https://github.com/yandex-cloud-examples/yc-terraform-provider-settings/blob/main/provider.tf) и поместите в отдельную рабочую директорию.
     1. Отредактируйте файл `provider.tf`:
 
         * [Укажите значения параметров](../../tutorials/infrastructure-management/terraform-quickstart.md#configure-provider) для провайдера `yandex`. Если данные для аутентификации не были добавлены в переменные окружения, укажите их в конфигурационном файле.
@@ -87,7 +87,7 @@
             }
             ```
 
-        * Добавьте описание провайдера `aws`, указав в параметрах регион, в котором будет расположен инстанс Amazon RDS for PostgreSQL (в примере `eu-north-1`):
+        * Добавьте описание провайдера `aws`, указав в параметрах регион, в котором будет расположен инстанс Amazon RDS for {{ PG }} (в примере `eu-north-1`):
 
             ```hcl
             provider "aws" {
@@ -99,7 +99,7 @@
 
         В этом файле описаны:
 
-        * Инфраструктура, необходимая для работы инстанса Amazon RDS for PostgreSQL:
+        * Инфраструктура, необходимая для работы инстанса Amazon RDS for {{ PG }}:
 
             * группа подсетей;
             * правило для группы безопасности;
@@ -107,33 +107,33 @@
 
             Инстанс будет использовать сеть, подсети и группу безопасности, существующие по умолчанию.
 
-        * Инстанс Amazon RDS for PostgreSQL (кластер-источник).
-        * Инфраструктура, необходимая для работы кластера-приемника Managed Service for PostgreSQL:
+        * Инстанс Amazon RDS for {{ PG }} (кластер-источник).
+        * Инфраструктура, необходимая для работы кластера-приемника {{ mpg-name }}:
 
             * [сеть](../../vpc/concepts/network.md#network) и [подсеть](../../vpc/concepts/network.md#subnet);
             * [NAT-шлюз](../../vpc/operations/create-nat-gateway.md) для доступа кластера в интернет;
             * [группа безопасности](../../vpc/concepts/security-groups.md).
 
-        * Кластер-приемник Managed Service for PostgreSQL.
+        * Кластер-приемник {{ mpg-name }}.
         * Эндпоинты для источника и приемника.
         * Трансфер.
 
-    1. [Скачайте сертификат AWS](https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/UsingWithRDS.SSL.html#UsingWithRDS.SSL.RegionCertificates) для региона, в котором будет расположен инстанс Amazon RDS for PostgreSQL.
+    1. [Скачайте сертификат AWS](https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/UsingWithRDS.SSL.html#UsingWithRDS.SSL.RegionCertificates) для региона, в котором будет расположен инстанс Amazon RDS for {{ PG }}.
     1. Укажите в файле `rds-pg-mpg.tf`:
 
-        * Версии PostgreSQL для Amazon RDS for PostgreSQL и Managed Service for PostgreSQL.
+        * Версии {{ PG }} для Amazon RDS for {{ PG }} и {{ mpg-name }}.
         * Семейство параметров для [группы параметров](https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/USER_WorkingWithDBInstanceParamGroups.html) Amazon RDS.
         * Путь к скачанному ранее сертификату AWS.
-        * Пароли пользователей Amazon RDS for PostgreSQL и Managed Service for PostgreSQL.
+        * Пароли пользователей Amazon RDS for {{ PG }} и {{ mpg-name }}.
 
     1. Выполните команду `terraform init` в директории с конфигурационным файлом. Эта команда инициализирует провайдер, указанный в конфигурационных файлах, и позволяет работать с ресурсами и источниками данных провайдера.
-    1. Проверьте корректность файлов конфигурации Terraform с помощью команды:
+    1. Проверьте корректность файлов конфигурации {{ TF }} с помощью команды:
 
         ```bash
         terraform validate
         ```
 
-        Если в файлах конфигурации есть ошибки, Terraform на них укажет.
+        Если в файлах конфигурации есть ошибки, {{ TF }} на них укажет.
 
     1. Создайте необходимую инфраструктуру:
 
@@ -155,7 +155,7 @@
            1. Подтвердите изменение ресурсов.
            1. Дождитесь завершения операции.
 
-        В указанном каталоге будут созданы все требуемые ресурсы. Проверить появление ресурсов и их настройки можно в [консоли управления](https://console.yandex.cloud).
+        В указанном каталоге будут созданы все требуемые ресурсы. Проверить появление ресурсов и их настройки можно в [консоли управления]({{ link-console-main }}).
 
 {% endlist %}
 
@@ -167,18 +167,18 @@
     sudo apt update && sudo apt install --yes postgresql-client
     ```
 
-1. Подключитесь к базе данных в кластере-источнике Amazon RDS for PostgreSQL:
+1. Подключитесь к базе данных в кластере-источнике Amazon RDS for {{ PG }}:
 
     ```bash
     psql "host=<URL_хоста> \
-    port=<порт_PostgreSQL> \
+    port=<порт_{{ PG }}> \
     sslmode=verify-full \
     sslrootcert=<путь_к_файлу_сертификата> \
     dbname=<имя_БД> \
     user=<имя_пользователя>"
     ```
 
-    По умолчанию порт PostgreSQL — `5432`.
+    По умолчанию порт {{ PG }} — `5432`.
 
     {% note info %}
 
@@ -219,38 +219,38 @@
 
 - Вручную {#manual}
 
-    1. [Создайте эндпоинт-источник](../../data-transfer/operations/endpoint/source/mysql.md) типа `PostgreSQL` и укажите в нем параметры подключения к кластеру:
+    1. [Создайте эндпоинт-источник](../../data-transfer/operations/endpoint/source/mysql.md) типа `{{ PG }}` и укажите в нем параметры подключения к кластеру:
 
-        * **Тип инсталляции** — `Пользовательская инсталляция`.
-        * **Хост** — URL хоста.
-        * **Порт** — `5432`.
-        * **Сертификат CA** — выберите файл сертификата AWS.
-        * **База данных** — `postgres`.
-        * **Пользователь** — `postgres`.
-        * **Пароль** — `<пароль_пользователя>`.
+        * **{{ ui-key.yc-data-transfer.data-transfer.console.form.common.console.form.common.Connection.connection_type.title }}** — `{{ ui-key.yc-data-transfer.data-transfer.console.form.postgres.console.form.postgres.PostgresConnectionType.on_premise.title }}`.
+        * **{{ ui-key.yc-data-transfer.data-transfer.console.form.postgres.console.form.postgres.OnPremisePostgres.host.title }}** — URL хоста.
+        * **{{ ui-key.yc-data-transfer.data-transfer.console.form.postgres.console.form.postgres.OnPremisePostgres.port.title }}** — `5432`.
+        * **{{ ui-key.yc-data-transfer.data-transfer.console.form.postgres.console.form.postgres.OnPremisePostgres.ca_certificate.title }}** — выберите файл сертификата AWS.
+        * **{{ ui-key.yc-data-transfer.data-transfer.console.form.common.console.form.common.Connection.database.title }}** — `postgres`.
+        * **{{ ui-key.yc-data-transfer.data-transfer.console.form.common.console.form.common.Connection.user.title }}** — `postgres`.
+        * **{{ ui-key.yc-data-transfer.data-transfer.console.form.common.console.form.common.Connection.password.title }}** — `<пароль_пользователя>`.
 
-    1. [Создайте эндпоинт-приемник](../../data-transfer/operations/endpoint/target/postgresql.md) типа `PostgreSQL` и укажите в нем параметры подключения к кластеру:
+    1. [Создайте эндпоинт-приемник](../../data-transfer/operations/endpoint/target/postgresql.md) типа `{{ PG }}` и укажите в нем параметры подключения к кластеру:
 
-        * **Тип инсталляции** — `Кластер Managed Service for PostgreSQL`.
-        * **Кластер Managed Service for PostgreSQL** — `<имя_кластера_приемника>` из выпадающего списка.
-        * **База данных** — `mpg_db`.
-        * **Пользователь** — `mpg_user`.
-        * **Пароль** — `<пароль_пользователя>`.
+        * **{{ ui-key.yc-data-transfer.data-transfer.console.form.common.console.form.common.Connection.connection_type.title }}** — `{{ ui-key.yc-data-transfer.data-transfer.console.form.postgres.console.form.postgres.PostgresConnectionType.mdb_cluster_id.title }}`.
+        * **{{ ui-key.yc-data-transfer.data-transfer.console.form.postgres.console.form.postgres.PostgresConnectionType.mdb_cluster_id.title }}** — `<имя_кластера_приемника>` из выпадающего списка.
+        * **{{ ui-key.yc-data-transfer.data-transfer.console.form.common.console.form.common.Connection.database.title }}** — `mpg_db`.
+        * **{{ ui-key.yc-data-transfer.data-transfer.console.form.common.console.form.common.Connection.user.title }}** — `mpg_user`.
+        * **{{ ui-key.yc-data-transfer.data-transfer.console.form.common.console.form.common.Connection.password.title }}** — `<пароль_пользователя>`.
 
-    1. [Создайте трансфер](../../data-transfer/operations/transfer.md#create) типа **_Копирование и репликация_**, использующий созданные эндпоинты.
-    1. [Активируйте трансфер](../../data-transfer/operations/transfer.md#activate) и дождитесь его перехода в статус **Реплицируется**.
+    1. [Создайте трансфер](../../data-transfer/operations/transfer.md#create) типа **_{{ ui-key.yc-data-transfer.data-transfer.console.form.transfer.console.form.transfer.TransferType.snapshot_and_increment.title }}_**, использующий созданные эндпоинты.
+    1. [Активируйте трансфер](../../data-transfer/operations/transfer.md#activate) и дождитесь его перехода в статус **{{ ui-key.yacloud.data-transfer.label_connector-status-RUNNING }}**.
 
-- Terraform {#tf}
+- {{ TF }} {#tf}
 
     1. Укажите в файле `rds-pg-mpg.tf` значение `1` для параметра `transfer_enabled`.
 
-    1. Проверьте корректность файлов конфигурации Terraform с помощью команды:
+    1. Проверьте корректность файлов конфигурации {{ TF }} с помощью команды:
 
         ```bash
         terraform validate
         ```
 
-        Если в файлах конфигурации есть ошибки, Terraform на них укажет.
+        Если в файлах конфигурации есть ошибки, {{ TF }} на них укажет.
 
     1. Создайте необходимую инфраструктуру:
 
@@ -272,7 +272,7 @@
            1. Подтвердите изменение ресурсов.
            1. Дождитесь завершения операции.
 
-    1. Трансфер активируется автоматически. Дождитесь его перехода в статус **Реплицируется**.
+    1. Трансфер активируется автоматически. Дождитесь его перехода в статус **{{ ui-key.yacloud.data-transfer.label_connector-status-RUNNING }}**.
 
 {% endlist %}
 
@@ -282,7 +282,7 @@
 
 ### Проверьте работу копирования {#verify-copy}
 
-1. [Подключитесь к базе данных в кластере-приемнике Managed Service for PostgreSQL](../operations/connect/index.md).
+1. [Подключитесь к базе данных в кластере-приемнике {{ mpg-name }}](../operations/connect/index.md).
 1. Выполните запрос:
 
     ```sql
@@ -291,18 +291,18 @@
 
 ### Проверьте работу репликации {#verify-replication}
 
-1. Подключитесь к базе данных в кластере-источнике Amazon RDS for PostgreSQL:
+1. Подключитесь к базе данных в кластере-источнике Amazon RDS for {{ PG }}:
 
     ```bash
     psql "host=<URL_хоста> \
-    port=<порт_PostgreSQL> \
+    port=<порт_{{ PG }}> \
     sslmode=verify-full \
     sslrootcert=<путь_к_файлу_сертификата> \
     dbname=<имя_БД> \
     user=<имя_пользователя>"
     ```
 
-    По умолчанию порт PostgreSQL — `5432`.
+    По умолчанию порт {{ PG }} — `5432`.
 
 1. Добавьте данные в таблицу `measurements`:
 
@@ -313,7 +313,7 @@
 
 1. Убедитесь, что добавленная строка появилась в базе данных приемника:
 
-    1. [Подключитесь к базе данных в кластере-приемнике Managed Service for PostgreSQL](../operations/connect/index.md).
+    1. [Подключитесь к базе данных в кластере-приемнике {{ mpg-name }}](../operations/connect/index.md).
     1. Выполните запрос:
 
         ```sql
@@ -342,18 +342,18 @@
 
     1. [Удалите трансфер](../../data-transfer/operations/transfer.md#delete).
     1. [Удалите эндпоинты](../../data-transfer/operations/endpoint/index.md#delete).
-    1. [Удалите инстанс Amazon RDS for PostgreSQL](https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/USER_DeleteInstance.html).
-    1. [Удалите кластер Managed Service for PostgreSQL](../operations/cluster-delete.md).
+    1. [Удалите инстанс Amazon RDS for {{ PG }}](https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/USER_DeleteInstance.html).
+    1. [Удалите кластер {{ mpg-name }}](../operations/cluster-delete.md).
     1. [Удалите таблицу маршрутизации](../../vpc/operations/delete-route-table.md).
     1. [Удалите NAT-шлюз](../../vpc/operations/delete-nat-gateway.md).
 
-- Terraform {#tf}
+- {{ TF }} {#tf}
 
     1. В терминале перейдите в директорию с планом инфраструктуры.
     
         {% note warning %}
     
-        Убедитесь, что в директории нет Terraform-манифестов с ресурсами, которые вы хотите сохранить. Terraform удаляет все ресурсы, которые были созданы с помощью манифестов в текущей директории.
+        Убедитесь, что в директории нет {{ TF }}-манифестов с ресурсами, которые вы хотите сохранить. {{ TF }} удаляет все ресурсы, которые были созданы с помощью манифестов в текущей директории.
     
         {% endnote %}
     
@@ -367,6 +367,6 @@
     
         1. Подтвердите удаление ресурсов и дождитесь завершения операции.
     
-        Все ресурсы, которые были описаны в Terraform-манифестах, будут удалены.
+        Все ресурсы, которые были описаны в {{ TF }}-манифестах, будут удалены.
 
 {% endlist %}

@@ -44,7 +44,7 @@
 
 Пример подключения диска в REST:
 ```json
-POST https://compute.api.cloud.yandex.net/compute/v1/instances/e0m97h0gbq0foeuis03:attachDisk
+POST https://compute.{{ api-host }}/compute/v1/instances/e0m97h0gbq0foeuis03:attachDisk
 
  {
    "attachedDiskSpec": {

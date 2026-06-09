@@ -1,21 +1,21 @@
-# Управление доступом в DataSphere
+# Управление доступом в {{ ml-platform-name }}
 
-Доступ к сервису Yandex DataSphere регулируется путем назначения прав в организации. Управление организациями осуществляется с помощью сервиса [Yandex Identity Hub](../../organization/index.md).
+Доступ к сервису {{ ml-platform-full-name }} регулируется путем назначения прав в организации. Управление организациями осуществляется с помощью сервиса [{{ org-full-name }}](../../organization/index.md).
 
-Список операций, доступных пользователю DataSphere, определяется его ролью. Роли можно назначить аккаунту на Яндексе, [сервисному аккаунту](../../iam/concepts/users/service-accounts.md), [федеративным](../../iam/concepts/users/accounts.md#saml-federation) или [локальным](../../iam/concepts/users/accounts.md#local) пользователям, [группе пользователей](../../organization/operations/manage-groups.md), [системной группе](../../iam/concepts/access-control/system-group.md) или [публичной группе](../../iam/concepts/access-control/public-group.md). Подробнее об управлении доступом в Yandex Cloud см. раздел [Как устроено управление доступом в Yandex Cloud](../../iam/concepts/access-control/index.md).
+Список операций, доступных пользователю {{ ml-platform-short-name }}, определяется его ролью. Роли можно назначить аккаунту на Яндексе, [сервисному аккаунту](../../iam/concepts/users/service-accounts.md), [федеративным](../../iam/concepts/users/accounts.md#saml-federation) или [локальным](../../iam/concepts/users/accounts.md#local) пользователям, [группе пользователей](../../organization/operations/manage-groups.md), [системной группе](../../iam/concepts/access-control/system-group.md) или [публичной группе](../../iam/concepts/access-control/public-group.md). Подробнее об управлении доступом в {{ yandex-cloud }} см. раздел [{#T}](../../iam/concepts/access-control/index.md).
 
 ## На какие ресурсы можно назначить роль {#resources}
 
-Разграничение прав доступа происходит на уровне [сообществ](../concepts/community.md) и [проектов](../concepts/project.md). Также вы можете открыть доступ к ресурсу для всех пользователей сообщества, [опубликовав](../operations/index.md#share) его в сообществе. Выданные права доступа распространяются на всю иерархию ресурсов. Например, если вы назначите пользователю роль на проект DataSphere, то все разрешения будут действовать и на ресурсы внутри этого проекта. Подробнее о [взаимосвязи ресурсов в DataSphere](../concepts/resource-model.md).
+Разграничение прав доступа происходит на уровне [сообществ](../concepts/community.md) и [проектов](../concepts/project.md). Также вы можете открыть доступ к ресурсу для всех пользователей сообщества, [опубликовав](../operations/index.md#share) его в сообществе. Выданные права доступа распространяются на всю иерархию ресурсов. Например, если вы назначите пользователю роль на проект {{ ml-platform-name }}, то все разрешения будут действовать и на ресурсы внутри этого проекта. Подробнее о [взаимосвязи ресурсов в {{ ml-platform-name }}](../concepts/resource-model.md).
 
 ## Как назначить роль {#grant-role}
 
-Вы можете назначить роль пользователю в интерфейсе DataSphere:
-* [Добавить пользователя в сообщество](../operations/community/add-user.md).
-* [Добавить пользователя в проект](../operations/projects/add-user.md).
+Вы можете назначить роль пользователю в интерфейсе {{ ml-platform-name }}:
+* [{#T}](../operations/community/add-user.md).
+* [{#T}](../operations/projects/add-user.md).
 * [Поделиться ресурсами с участниками сообщества](../operations/index.md#share).
 
-Также вы можете назначить права доступа через [интерфейс Yandex Identity Hub в Cloud Center](https://center.yandex.cloud/organization), с помощью [Terraform](../../terraform/index.md) и [API Yandex Cloud](../api-ref/authentication.md).
+Также вы можете назначить права доступа через [интерфейс {{ org-full-name }} в {{ cloud-center }}]({{ link-org-cloud-center }}), с помощью [{{ TF }}]({{ tf-provider-link }}) и [API {{ yandex-cloud }}](../api-ref/authentication.md).
 
 ## Какие роли действуют в сервисе {#roles-list}
 
@@ -38,7 +38,7 @@ flowchart BT
 
 Роль `datasphere.community-projects.viewer` позволяет просматривать информацию о [проектах](../concepts/project.md), настройках проектов и закрепленных за ними [ресурсах](../concepts/resources.md), а также о назначенных [правах доступа](../../iam/concepts/access-control/index.md) к проектам.
 
-В интерфейсе DataSphere пользователи с ролью `datasphere.community-projects.viewer` имеют роль `Viewer` на вкладке **Участники** на странице проекта.
+В интерфейсе {{ ml-platform-name }} пользователи с ролью `datasphere.community-projects.viewer` имеют роль `Viewer` на вкладке **Участники** на странице проекта.
 
 #### datasphere.community-projects.developer {#datasphere-communityprojects-developer}
 
@@ -52,7 +52,7 @@ flowchart BT
 
 Включает разрешения, предоставляемые ролью `datasphere.community-projects.viewer`.
 
-В интерфейсе DataSphere пользователи с ролью `datasphere.community-projects.developer` имеют роль `Developer` на вкладке **Участники** на странице проекта.
+В интерфейсе {{ ml-platform-name }} пользователи с ролью `datasphere.community-projects.developer` имеют роль `Developer` на вкладке **Участники** на странице проекта.
 
 #### datasphere.community-projects.editor {#datasphere-communityprojects-editor}
 
@@ -66,7 +66,7 @@ flowchart BT
 
 Включает разрешения, предоставляемые ролью `datasphere.community-projects.developer`.
 
-В интерфейсе DataSphere пользователи с ролью `datasphere.community-projects.editor` имеют роль `Editor` на вкладке **Участники** на странице проекта.
+В интерфейсе {{ ml-platform-name }} пользователи с ролью `datasphere.community-projects.editor` имеют роль `Editor` на вкладке **Участники** на странице проекта.
 
 #### datasphere.community-projects.admin {#datasphere-communityprojects-admin}
 
@@ -80,7 +80,7 @@ flowchart BT
 
 Включает разрешения, предоставляемые ролью `datasphere.community-projects.editor`.
 
-В интерфейсе DataSphere пользователи с ролью `datasphere.community-projects.admin` имеют роль `Admin` на вкладке **Участники** на странице проекта.
+В интерфейсе {{ ml-platform-name }} пользователи с ролью `datasphere.community-projects.admin` имеют роль `Admin` на вкладке **Участники** на странице проекта.
 
 #### datasphere.communities.viewer {#datasphere-communities-viewer}
 
@@ -93,7 +93,7 @@ flowchart BT
 
 Включает разрешения, предоставляемые ролью `datasphere.community-projects.viewer`.
 
-В интерфейсе DataSphere пользователи с ролью `datasphere.communities.viewer` имеют роль `Viewer` на вкладке **Участники** на странице сообщества.
+В интерфейсе {{ ml-platform-name }} пользователи с ролью `datasphere.communities.viewer` имеют роль `Viewer` на вкладке **Участники** на странице сообщества.
 
 #### datasphere.communities.developer {#datasphere-communities-developer}
 
@@ -108,7 +108,7 @@ flowchart BT
 
 Включает разрешения, предоставляемые ролью `datasphere.communities.viewer`.
 
-В интерфейсе DataSphere пользователи с ролью `datasphere.communities.developer` имеют роль `Developer` на вкладке **Участники** на странице сообщества.
+В интерфейсе {{ ml-platform-name }} пользователи с ролью `datasphere.communities.developer` имеют роль `Developer` на вкладке **Участники** на странице сообщества.
 
 #### datasphere.communities.editor {#datasphere-communities-editor}
 
@@ -125,7 +125,7 @@ flowchart BT
 
 Включает разрешения, предоставляемые ролями `datasphere.communities.developer` и `datasphere.community-projects.editor`.
 
-В интерфейсе DataSphere пользователи с ролью `datasphere.communities.editor` имеют роль `Editor` на вкладке **Участники** на странице сообщества.
+В интерфейсе {{ ml-platform-name }} пользователи с ролью `datasphere.communities.editor` имеют роль `Editor` на вкладке **Участники** на странице сообщества.
 
 #### datasphere.communities.admin {#datasphere-communities-admin}
 
@@ -144,13 +144,13 @@ flowchart BT
 
 Включает разрешения, предоставляемые ролями `datasphere.communities.editor` и `datasphere.community-projects.admin`.
 
-В интерфейсе DataSphere пользователи с ролью `datasphere.communities.admin` имеют роль `Admin` на вкладке **Участники** на странице сообщества.
+В интерфейсе {{ ml-platform-name }} пользователи с ролью `datasphere.communities.admin` имеют роль `Admin` на вкладке **Участники** на странице сообщества.
 
 > Например, Валя работает с несколькими командами и состоит в их сообществах с разными правами доступа:
   
-  * в сообществе <q>Любители котиков</q> — `Admin` (роль `datasphere.communities.admin`);
-  * в сообществе <q>Считаем заборы</q> — `Developer` (роль `datasphere.communities.developer`);
-  * в сообществе <q>Совершенно секретно</q> — `Viewer` (роль `datasphere.communities.viewer`), но имеет права `Editor` в проекте <q>Project_111</q> этого сообщества (роль `datasphere.community-projects.editor`).
+  * в сообществе <q>Любители котиков</q> — `Admin` (роль `{{ roles-datasphere-communities-admin }}`);
+  * в сообществе <q>Считаем заборы</q> — `Developer` (роль `{{ roles-datasphere-communities-developer }}`);
+  * в сообществе <q>Совершенно секретно</q> — `Viewer` (роль `{{ roles-datasphere-communities-viewer }}`), но имеет права `Editor` в проекте <q>Project_111</q> этого сообщества (роль `{{ roles-datasphere-project-editor }}`).
   
   Валя может:
   
@@ -160,46 +160,46 @@ flowchart BT
 
 ### Примитивные роли {#primitive-roles}
 
-Примитивные роли позволяют пользователям совершать действия во [всех сервисах](../../overview/concepts/services.md) Yandex Cloud.
+Примитивные роли позволяют пользователям совершать действия во [всех сервисах](../../overview/concepts/services.md) {{ yandex-cloud }}.
 
-#### auditor {#auditor}
+#### {{ roles-auditor }} {#auditor}
 
 Роль `auditor` предоставляет разрешения на чтение конфигурации и метаданных любых ресурсов Yandex Cloud без возможности доступа к данным.
 
 Например, пользователи с этой ролью могут:
-* просматривать информацию о [ресурсе](../../resource-manager/concepts/resources-hierarchy.md);
+* просматривать информацию о [ресурсе]({{ link-docs }}/resource-manager/concepts/resources-hierarchy);
 * просматривать метаданные ресурса;
 * просматривать список операций с ресурсом.
 
-Роль `auditor` — наиболее безопасная роль, исключающая доступ к данным [сервисов](../../overview/concepts/services.md). Роль подходит для пользователей, которым необходим минимальный уровень доступа к ресурсам Yandex Cloud.
+Роль `auditor` — наиболее безопасная роль, исключающая доступ к данным [сервисов]({{ link-docs }}/overview/concepts/services). Роль подходит для пользователей, которым необходим минимальный уровень доступа к ресурсам Yandex Cloud.
 
-#### viewer {#viewer}
+#### {{ roles-viewer }} {#viewer}
 
-Роль `viewer` предоставляет разрешения на чтение информации о любых [ресурсах](../../resource-manager/concepts/resources-hierarchy.md) Yandex Cloud.
+Роль `viewer` предоставляет разрешения на чтение информации о любых [ресурсах]({{ link-docs }}/resource-manager/concepts/resources-hierarchy) Yandex Cloud.
 
 Включает разрешения, предоставляемые ролью `auditor`.
 
-В отличие от роли `auditor`, роль `viewer` предоставляет доступ к данным [сервисов](../../overview/concepts/services.md) в режиме чтения.
+В отличие от роли `auditor`, роль `viewer` предоставляет доступ к данным [сервисов]({{ link-docs }}/overview/concepts/services) в режиме чтения.
 
-#### editor {#editor}
+#### {{ roles-editor }} {#editor}
 
-Роль `editor` предоставляет разрешения на управление любыми [ресурсами](../../resource-manager/concepts/resources-hierarchy.md) Yandex Cloud, кроме назначения ролей другим пользователям, передачи прав владения [организацией](../../organization/concepts/organization.md) и ее удаления, а также удаления [ключей шифрования](../../kms/concepts/index.md) Key Management Service.
+Роль `editor` предоставляет разрешения на управление любыми [ресурсами]({{ link-docs }}/resource-manager/concepts/resources-hierarchy) Yandex Cloud, кроме назначения ролей другим пользователям, передачи прав владения [организацией]({{ link-docs }}/organization/concepts/organization) и ее удаления, а также удаления [ключей шифрования]({{ link-docs }}/kms/concepts/) Key Management Service.
 
 Например, пользователи с этой ролью могут создавать, изменять и удалять ресурсы.
 
 Включает разрешения, предоставляемые ролью `viewer`.
 
-#### admin {#admin}
+#### {{ roles-admin }} {#admin}
 
-Роль `admin` позволяет назначать любые роли, кроме `resource-manager.clouds.owner` и `organization-manager.organizations.owner`, а также предоставляет разрешения на управление любыми [ресурсами](../../resource-manager/concepts/resources-hierarchy.md) Yandex Cloud, кроме передачи прав владения [организацией](../../organization/concepts/organization.md) и ее удаления.
+Роль `admin` позволяет назначать любые роли, кроме `resource-manager.clouds.owner` и `organization-manager.organizations.owner`, а также предоставляет разрешения на управление любыми [ресурсами]({{ link-docs }}/resource-manager/concepts/resources-hierarchy) Yandex Cloud, кроме передачи прав владения [организацией]({{ link-docs }}/organization/concepts/organization) и ее удаления.
 
-Прежде чем назначить роль `admin` на организацию, [облако](../../resource-manager/concepts/resources-hierarchy.md#cloud) или [платежный аккаунт](../../billing/concepts/billing-account.md), ознакомьтесь с информацией о защите [привилегированных аккаунтов](../../security/standard/all.md#privileged-users).
+Прежде чем назначить роль `admin` на организацию, [облако]({{ link-docs }}/resource-manager/concepts/resources-hierarchy#cloud) или [платежный аккаунт]({{ link-docs }}/billing/concepts/billing-account), ознакомьтесь с информацией о защите [привилегированных аккаунтов]({{ link-docs }}/security/standard/all#privileged-users).
 
 Включает разрешения, предоставляемые ролью `editor`.
 
 Вместо примитивных ролей мы рекомендуем использовать роли сервисов. Такой подход позволит более гранулярно управлять доступом и обеспечить соблюдение [принципа минимальных привилегий](../../security/standard/all.md#min-privileges).
 
-Подробнее о примитивных ролях см. в [справочнике ролей Yandex Cloud](../../iam/roles-reference.md#primitive-roles).
+Подробнее о примитивных ролях см. в [справочнике ролей {{ yandex-cloud }}](../../iam/roles-reference.md#primitive-roles).
 
 ## Какие роли мне необходимы {#choosing-roles}
 
@@ -229,7 +229,7 @@ flowchart BT
 
 #### См. также {#see-also}
 
-* [Yandex Identity Hub](../../organization/index.md).
-* [Как устроено управление доступом в Yandex Cloud](../../iam/concepts/access-control/index.md).
-* [Сервисные аккаунты](../../iam/concepts/users/service-accounts.md).
+* [{{ org-full-name }}](../../organization/index.md).
+* [{#T}](../../iam/concepts/access-control/index.md).
+* [{#T}](../../iam/concepts/users/service-accounts.md).
 * [Подробнее о наследовании ролей](../../resource-manager/concepts/resources-hierarchy.md#access-rights-inheritance).

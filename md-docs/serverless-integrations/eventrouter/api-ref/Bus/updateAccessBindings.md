@@ -5,7 +5,7 @@ Updates access bindings for the specified bus.
 ## HTTP request
 
 ```
-PATCH https://serverless-eventrouter.api.cloud.yandex.net/eventrouter/v1/buses/{resourceId}:updateAccessBindings
+PATCH https://serverless-eventrouter.{{ api-host }}/eventrouter/v1/buses/{resourceId}:updateAccessBindings
 ```
 
 ## Path parameters

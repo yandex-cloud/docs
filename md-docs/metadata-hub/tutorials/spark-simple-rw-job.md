@@ -1,16 +1,16 @@
-# Работа с таблицей в Object Storage из PySpark-задания с использованием Apache Hive™ Metastore и Apache Iceberg™
+# Работа с таблицей в {{ objstorage-name }} из PySpark-задания с использованием {{ metastore-full-name }} и {{ IBRG }}
 
-# Работа с таблицей формата Apache Iceberg™ из PySpark-задания
+# Работа с таблицей формата {{ IBRG }} из PySpark-задания
 
 
-В сервис Yandex Managed Service for Apache Spark™ интегрирована библиотека Apache Iceberg™. Чтобы использовать в PySpark-задании возможности Apache Iceberg™, подключите к кластеру Yandex Managed Service for Apache Spark™ сервер Apache Hive™ Metastore.
+В сервис {{ msp-full-name }} интегрирована библиотека {{ IBRG }}. Чтобы использовать в PySpark-задании возможности {{ IBRG }}, подключите к кластеру {{ msp-full-name }} сервер {{ metastore-name }}.
 
-Формат Apache Iceberg™ обеспечивает:
+Формат {{ IBRG }} обеспечивает:
 * Версионирование данных и хранение снимков состояний.
 * ACID-транзакции, которые поддерживают операции `UPDATE`, `DELETE`, `MERGE`, а также эволюцию таблиц и способа партиционирования.
 * Масштабируемость с сохранением высокой производительности операций.
 
-В этом руководстве показан пример использования формата таблиц Apache Iceberg™ для создания и чтения снимков метаданных. Таблица Apache Iceberg™ создается в S3-хранилище Object Storage. Кластер Yandex Managed Service for Apache Spark™, в котором запускается PySpark-задание, использует глобальный каталог Apache Hive™ Metastore. Подробнее о подключении глобального каталога см. в руководстве [Работа с Yandex Object Storage из PySpark-задания с использованием кластера Apache Hive™ Metastore](../../managed-spark/tutorials/metastore-and-spark.md).
+В этом руководстве показан пример использования формата таблиц {{ IBRG }} для создания и чтения снимков метаданных. Таблица {{ IBRG }} создается в S3-хранилище {{ objstorage-name }}. Кластер {{ msp-full-name }}, в котором запускается PySpark-задание, использует глобальный каталог {{ metastore-name }}. Подробнее о подключении глобального каталога см. в руководстве [{#T}](../../managed-spark/tutorials/metastore-and-spark.md).
 
 Чтобы реализовать описанный пример:
 
@@ -23,10 +23,10 @@
 
 ## Необходимые платные ресурсы {#paid-resources}
 
-* Бакеты Object Storage: использование хранилища и выполнение операций с данными (см. [тарифы Object Storage](../../storage/pricing.md)).
-* Сервис Yandex Cloud Logging: объем записываемых данных и время их хранения (см. [тарифы Cloud Logging](../../logging/pricing.md)).
-* Кластер Yandex Managed Service for Apache Spark™: вычислительные ресурсы компонентов кластера (см. [тарифы Yandex Managed Service for Apache Spark™](../../managed-spark/pricing.md)).
-* Кластер Apache Hive™ Metastore: вычислительные ресурсы компонентов кластера (см. [тарифы Yandex MetaData Hub](../pricing.md)).
+* Бакеты {{ objstorage-name }}: использование хранилища и выполнение операций с данными (см. [тарифы {{ objstorage-name }}](../../storage/pricing.md)).
+* Сервис {{ cloud-logging-full-name }}: объем записываемых данных и время их хранения (см. [тарифы {{ cloud-logging-name }}](../../logging/pricing.md)).
+* Кластер {{ msp-full-name }}: вычислительные ресурсы компонентов кластера (см. [тарифы {{ msp-full-name }}](../../managed-spark/pricing.md)).
+* Кластер {{ metastore-name }}: вычислительные ресурсы компонентов кластера (см. [тарифы {{ metadata-hub-full-name }}](../pricing.md)).
 
 
 ## Подготовьте инфраструктуру {#infra}
@@ -35,7 +35,7 @@
 
 1. [Создайте сервисный аккаунт](../../iam/operations/sa/create.md) `spark-agent` и выдайте ему роль [managed-spark.integrationProvider](../../iam/roles-reference.md#managed-spark-integrationProvider).
 
-1. [Создайте сервисный аккаунт](../../iam/operations/sa/create.md) `metastore-agent` и выдайте ему роль [managed-metastore.integrationProvider](../../iam/roles-reference.md#managed-metastore-integrationProvider), чтобы кластер Apache Hive™ Metastore мог [взаимодействовать с другими ресурсами](../concepts/metastore-impersonation.md).
+1. [Создайте сервисный аккаунт](../../iam/operations/sa/create.md) `metastore-agent` и выдайте ему роль [{{ roles.metastore.integrationProvider }}](../../iam/roles-reference.md#managed-metastore-integrationProvider), чтобы кластер {{ metastore-name }} мог [взаимодействовать с другими ресурсами](../concepts/metastore-impersonation.md).
 
 1. [Создайте бакеты](../../storage/operations/buckets/create.md):
 
@@ -53,16 +53,16 @@
 
     Вместе с ней автоматически создадутся три подсети в разных зонах доступности.
 
-1. Для кластера Yandex Managed Service for Apache Spark™ [создайте группу безопасности](../../vpc/operations/security-group-create.md) `spark-sg` в сети `integration-network`. Добавьте в группу следующее правило:
+1. Для кластера {{ msp-full-name }} [создайте группу безопасности](../../vpc/operations/security-group-create.md) `spark-sg` в сети `integration-network`. Добавьте в группу следующее правило:
 
-    * Для исходящего трафика, чтобы разрешить подключение кластера Yandex Managed Service for Apache Spark™ к Apache Hive™ Metastore:
+    * Для исходящего трафика, чтобы разрешить подключение кластера {{ msp-full-name }} к {{ metastore-name }}:
 
-        * Диапазон портов — `9083`.
+        * Диапазон портов — `{{ port-metastore }}`.
         * Протокол — `Любой` (`Any`).
         * Назначение — `CIDR`.
         * CIDR блоки — `0.0.0.0/0`.
 
-1. Для кластера Apache Hive™ Metastore [создайте группу безопасности](../../vpc/operations/security-group-create.md) `metastore-sg` в сети `integration-network`. Добавьте в группу следующие правила:
+1. Для кластера {{ metastore-name }} [создайте группу безопасности](../../vpc/operations/security-group-create.md) `metastore-sg` в сети `integration-network`. Добавьте в группу следующие правила:
 
     * Для входящего трафика от клиентов:
 
@@ -77,27 +77,27 @@
         * Протокол — `Любой` (`Any`).
         * Источник — `Проверки состояния балансировщика`.
 
-1. [Создайте кластер Apache Hive™ Metastore](../operations/metastore/cluster-create.md) с параметрами:
+1. [Создайте кластер {{ metastore-name }}](../operations/metastore/cluster-create.md) с параметрами:
 
-    * **Сервисный аккаунт** — `metastore-agent`.
-    * **Версия** — `3.1`.
-    * **Сеть** — `integration-network`.
-    * **Подсеть** — `integration-network-ru-central1-a`.
-    * **Группы безопасности** — `metastore-sg`.
+    * **{{ ui-key.yacloud.mdb.forms.base_field_service-account }}** — `metastore-agent`.
+    * **{{ ui-key.yacloud.mdb.forms.base_field_version }}** — `{{ metastore.integration-version }}`.
+    * **{{ ui-key.yacloud.mdb.forms.label_network }}** — `integration-network`.
+    * **{{ ui-key.yacloud.mdb.forms.network_field_subnetwork }}** — `integration-network-{{ region-id }}-a`.
+    * **{{ ui-key.yacloud.mdb.forms.field_security-group }}** — `metastore-sg`.
 
-1. [Создайте кластер Yandex Managed Service for Apache Spark™](../../managed-spark/operations/cluster-create.md) с параметрами:
+1. [Создайте кластер {{ msp-full-name }}](../../managed-spark/operations/cluster-create.md) с параметрами:
 
-    * **Сервисный аккаунт** — `spark-agent`.
-    * **Сеть** — `integration-network`.
-    * **Подсеть** — `integration-network-ru-central1-a`.
-    * **Группы безопасности** — `spark-sg`.
-    * **Metastore-сервер** — созданный ранее кластер Apache Hive™ Metastore.
+    * **{{ ui-key.yacloud.mdb.forms.base_field_service-account }}** — `spark-agent`.
+    * **{{ ui-key.yacloud.mdb.forms.label_network }}** — `integration-network`.
+    * **{{ ui-key.yacloud.mdb.forms.network_field_subnetwork }}** — `integration-network-{{ region-id }}-a`.
+    * **{{ ui-key.yacloud.mdb.forms.field_security-group }}** — `spark-sg`.
+    * **{{ ui-key.yacloud.spark.label_metastore }}** — созданный ранее кластер {{ metastore-name }}.
 
 ## Подготовьте и запустите PySpark-задание {#prepare-job}
 
 Для PySpark-задания будет использован Python-скрипт, который:
 
-1. Создает базу данных и таблицу формата Apache Iceberg™ в бакете.
+1. Создает базу данных и таблицу формата {{ IBRG }} в бакете.
 1. Записывает 10 строк с данными в таблицу.
 1. Сохраняет идентификатор текущего снимка таблицы.
 1. Записывает еще 10 строк с данными в таблицу.
@@ -121,9 +121,9 @@
       .getOrCreate()
    )
 
-   # Создание базы данных и таблицы в формате Apache Iceberg™.
-   # Apache Hive™ Metastore фиксирует метаданные, что позволяет обращаться к таблице по имени db.tbl
-   # из любых приложений Spark, подключённых к этому кластеру Apache Hive™ Metastore.
+   # Создание базы данных и таблицы в формате {{ IBRG }}.
+   # {{ metastore-name }} фиксирует метаданные, что позволяет обращаться к таблице по имени db.tbl
+   # из любых приложений Spark, подключённых к этому кластеру {{ metastore-name }}.
    db, tbl = "demo_db", "demo_events"
    spark.sql(f"CREATE DATABASE IF NOT EXISTS {db}")
    spark.sql(f"""
@@ -165,12 +165,12 @@
 1. Дождитесь, когда созданное PySpark-задание перейдет в статус **Done**.
 1. Откройте [логи выполнения задания](../../managed-spark/operations/jobs-pyspark.md#get-logs).
 1. Найдите в логах строку `now_count: 20 | past_count: 10`.
-1. Убедитесь, что в бакете для выходных данных появилась папка `warehouse/demo_db`. Теперь данные из созданной БД `demo_db` хранятся в бакете Object Storage, а метаинформация о ней — в кластере Apache Hive™ Metastore.
+1. Убедитесь, что в бакете для выходных данных появилась папка `warehouse/demo_db`. Теперь данные из созданной БД `demo_db` хранятся в бакете {{ objstorage-name }}, а метаинформация о ней — в кластере {{ metastore-name }}.
  
 ## Удалите созданные ресурсы {#clear-out}
 
 Некоторые ресурсы платные. Удалите ресурсы, которые вы больше не будете использовать, чтобы не платить за них:
 
-1. [Бакеты Object Storage](../../storage/operations/buckets/delete.md). Перед удалением бакетов [удалите из них все объекты](../../storage/operations/objects/delete.md).
-1. [Кластер Apache Hive™ Metastore](../operations/metastore/cluster-delete.md).
-1. [Кластер Yandex Managed Service for Apache Spark™](../../managed-spark/operations/cluster-delete.md).
+1. [Бакеты {{ objstorage-name }}](../../storage/operations/buckets/delete.md). Перед удалением бакетов [удалите из них все объекты](../../storage/operations/objects/delete.md).
+1. [Кластер {{ metastore-name }}](../operations/metastore/cluster-delete.md).
+1. [Кластер {{ msp-full-name }}](../../managed-spark/operations/cluster-delete.md).

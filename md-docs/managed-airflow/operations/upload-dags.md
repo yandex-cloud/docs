@@ -1,13 +1,13 @@
-# Загрузка DAG-файлов в кластер Managed Service for Apache Airflow™
+# Загрузка DAG-файлов в кластер {{ maf-name }}
 
-Чтобы реализовать автоматизацию, обработку данных или запуск задач по расписанию, используются _[DAG-файлы](../concepts/index.md#about-the-service)_. Они представляют собой скрипты на Python 3, которые запускаются внутри Apache Airflow™. Пример DAG-файла см. в [документации Apache Airflow™](https://airflow.apache.org/docs/apache-airflow/stable/tutorial/fundamentals.html).
+Чтобы реализовать автоматизацию, обработку данных или запуск задач по расписанию, используются _[DAG-файлы](../concepts/index.md#about-the-service)_. Они представляют собой скрипты на Python 3, которые запускаются внутри {{ AF }}. Пример DAG-файла в [документации {{ AF }}](https://airflow.apache.org/docs/apache-airflow/stable/tutorial/fundamentals.html).
 
 Вы можете загрузить DAG-файлы:
 
-* [из бакета Yandex Object Storage](#dag-bucket-import);
+* [из бакета {{ objstorage-full-name }}](#dag-bucket-import);
 * [из внешнего Git-репозитория](#dag-git-import).
 
-Тип источника DAG-файлов можно выбрать при [создании](cluster-create.md) или [изменении кластера](cluster-update.md). Так графы задач автоматически попадают в кластер Managed Service for Apache Airflow™ и отображаются в веб-интерфейсе Apache Airflow™.
+Тип источника DAG-файлов можно выбрать при [создании](cluster-create.md) или [изменении кластера](cluster-update.md). Так графы задач автоматически попадают в кластер {{ maf-name }} и отображаются в веб-интерфейсе {{ AF }}.
 
 ## Загрузка DAG-файлов из бакета {#dag-bucket-import}
 
@@ -21,7 +21,7 @@
     from dags.<имя_файла> import <объект>
     ```
 
-1. [Откройте веб-интерфейс Apache Airflow™](af-interfaces.md#web-gui).
+1. [Откройте веб-интерфейс {{ AF }}](af-interfaces.md#web-gui).
 1. Убедитесь, что в разделе **DAGs** появился новый DAG. Загрузка DAG-файла из бакета может занять несколько минут.
 
 ## Загрузка DAG-файлов из Git-репозитория {#dag-git-import}
@@ -34,5 +34,5 @@
     from dags.<имя_файла> import <объект>
     ```
 
-1. [Откройте веб-интерфейс Apache Airflow™](af-interfaces.md#web-gui).
+1. [Откройте веб-интерфейс {{ AF }}](af-interfaces.md#web-gui).
 1. Убедитесь, что в разделе **DAGs** появился новый DAG. Загрузка DAG-файла из Git-репозитория может занять несколько минут.

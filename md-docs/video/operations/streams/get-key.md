@@ -2,15 +2,15 @@
 
 {% list tabs group=instructions %}
 
-- Интерфейс Cloud Video {#console}
+- Интерфейс {{ video-name }} {#console}
 
-  1. Откройте [главную страницу](https://video.yandex.cloud/) Cloud Video.
+  1. Откройте [главную страницу]({{ link-video-main }}) {{ video-name }}.
   1. Выберите канал.
-  1. На вкладке ![image](../../../_assets/console-icons/antenna-signal.svg) **Трансляции** выберите нужную трансляцию.
+  1. На вкладке ![image](../../../_assets/console-icons/antenna-signal.svg) **{{ ui-key.yacloud_video.streams.title_streams }}** выберите нужную трансляцию.
   1. В открывшемся окне с параметрами трансляции скопируйте значения следующих полей:
 
-      * **Адрес сервера**;
-      * **Ключ трансляции**.
+      * **{{ ui-key.yacloud_video.stream-lines.label_server-address }}**;
+      * **{{ ui-key.yacloud_video.stream-lines.label_stream-key }}**.
 
 - API {#api}
 

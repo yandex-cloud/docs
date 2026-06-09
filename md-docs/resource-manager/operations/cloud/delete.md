@@ -1,26 +1,26 @@
 # Удаление облака
 
-Чтобы удалить облако, у вас должна быть роль [resource-manager.editor](../../security/index.md#resource-manager-editor) или выше на это облако. Если вы не можете выполнить эту операцию, обратитесь к [владельцу облака](../../concepts/resources-hierarchy.md#owner).
+Чтобы удалить облако, у вас должна быть роль [{{ roles-resource-manager-editor }}](../../security/index.md#resource-manager-editor) или выше на это облако. Если вы не можете выполнить эту операцию, обратитесь к [владельцу облака](../../concepts/resources-hierarchy.md#owner).
 
 {% list tabs group=instructions %}
 
 - Консоль управления {#console}
 
-  1. В [консоли управления](https://console.yandex.cloud) на панели сверху нажмите ![image](../../../_assets/console-icons/layout-side-content-left.svg) или ![image](../../../_assets/console-icons/chevron-down.svg) и выберите нужное облако.
+  1. В [консоли управления]({{ link-console-main }}) на панели сверху нажмите ![image](../../../_assets/console-icons/layout-side-content-left.svg) или ![image](../../../_assets/console-icons/chevron-down.svg) и выберите нужное облако.
   1. Справа от названия облака нажмите ![image](../../../_assets/console-icons/ellipsis.svg).
-  1. Выберите ![image](../../../_assets/console-icons/trash-bin.svg) **Удалить облако**.
+  1. Выберите ![image](../../../_assets/console-icons/trash-bin.svg) **{{ ui-key.yacloud.components.CloudActions.button_action-delete-cloud_3simi }}**.
 
      ![delete-cloud1](../../../_assets/resource-manager/delete-cloud-1.png)
 
-  1. Выберите срок удаления облака, по истечении которого облако будет удалено. Выберите один из возможных периодов или `Удалить сейчас`. Срок удаления облака по умолчанию — 7 дней.
+  1. Выберите срок удаления облака, по истечении которого облако будет удалено. Выберите один из возможных периодов или `{{ ui-key.yacloud_billing.component.iam-delete-folder-or-cloud-dialog.label_delete-now }}`. Срок удаления облака по умолчанию — 7 дней.
   1. Введите название облака, чтобы подтвердить удаление.
-  1. Нажмите **Удалить**.
+  1. Нажмите **{{ ui-key.yacloud.common.delete }}**.
 
      ![delete-cloud2](../../../_assets/resource-manager/delete-cloud-2.png)
 
 - CLI {#cli}
 
-  Если у вас еще нет интерфейса командной строки Yandex Cloud (CLI), [установите и инициализируйте его](../../../cli/quickstart.md#install).
+  Если у вас еще нет интерфейса командной строки {{ yandex-cloud }} (CLI), [установите и инициализируйте его](../../../cli/quickstart.md#install).
 
   1. Посмотрите описание команды удаления облака:
 
@@ -87,15 +87,18 @@
 
   Подробнее о команде `yc resource-manager cloud delete` см. в [справочнике CLI](../../../cli/cli-ref/resource-manager/cli-ref/cloud/delete.md).
 
-- Terraform {#tf}
+- {{ TF }} {#tf}
 
-  Если у вас еще нет Terraform, [установите его и настройте провайдер Yandex Cloud](../../../tutorials/infrastructure-management/terraform-quickstart.md#install-terraform).
+  Если у вас еще нет {{ TF }}, [установите его и настройте провайдер {{ yandex-cloud }}](../../../tutorials/infrastructure-management/terraform-quickstart.md#install-terraform).
+  
+  
+  Чтобы управлять инфраструктурой с помощью {{ TF }} от имени сервисного аккаунта или пользовательских аккаунтов: аккаунта на Яндексе, федеративного аккаунта и локального пользователя, [аутентифицируйтесь](../../../terraform/authentication.md) соответствующим способом.
 
-  Чтобы удалить облако, созданное с помощью Terraform:
+  Чтобы удалить облако, созданное с помощью {{ TF }}:
 
-  1. Откройте файл конфигурации Terraform и удалите фрагмент с описанием облака.
+  1. Откройте файл конфигурации {{ TF }} и удалите фрагмент с описанием облака.
 
-      {% cut "Пример описания облака в конфигурации Terraform" %}
+      {% cut "Пример описания облака в конфигурации {{ TF }}" %}
 
       ```hcl
       ...
@@ -108,7 +111,7 @@
 
       {% endcut %}
 
-      Более подробную информацию о параметрах ресурса `yandex_resourcemanager_cloud` в Terraform, см. в [документации провайдера](../../../terraform/resources/resourcemanager_cloud.md).
+      Более подробную информацию о параметрах ресурса `yandex_resourcemanager_cloud` в {{ TF }}, см. в [документации провайдера]({{ tf-provider-resources-link }}/resourcemanager_cloud).
 
   1. В командной строке перейдите в папку, где вы отредактировали конфигурационный файл.
   1. Проверьте корректность конфигурационного файла с помощью команды:
@@ -129,7 +132,7 @@
       terraform plan
       ```
 
-      В терминале будет выведен список ресурсов с параметрами. На этом этапе изменения не будут внесены. Если в конфигурации есть ошибки, Terraform на них укажет.
+      В терминале будет выведен список ресурсов с параметрами. На этом этапе изменения не будут внесены. Если в конфигурации есть ошибки, {{ TF }} на них укажет.
 
   1. Примените изменения конфигурации:
 
@@ -139,7 +142,7 @@
 
   1. Подтвердите изменения: введите в терминале слово `yes` и нажмите **Enter**.
 
-      Проверить изменения можно в [консоли управления](https://console.yandex.cloud) или с помощью команды [CLI](../../../cli/quickstart.md):
+      Проверить изменения можно в [консоли управления]({{ link-console-main }}) или с помощью команды [CLI](../../../cli/quickstart.md):
 
       ```bash
       yc resource-manager cloud list
@@ -155,7 +158,7 @@
 
 {% note alert %}
 
-Пока облако находится в статусе `PENDING_DELETION`, ваши диски, зарезервированные IP-адреса и другие данные продолжают храниться. Стоимость хранения рассчитывается по прежнему тарифу. Следите за тарификацией ресурсов в [сервисе Yandex Cloud Billing](https://center.yandex.cloud/billing/accounts).
+Пока облако находится в статусе `PENDING_DELETION`, ваши диски, зарезервированные IP-адреса и другие данные продолжают храниться. Стоимость хранения рассчитывается по прежнему тарифу. Следите за тарификацией ресурсов в [сервисе {{ billing-name }}]({{ link-console-billing }}).
 
 {% endnote %}
 

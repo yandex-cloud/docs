@@ -1,11 +1,11 @@
 # Передача данных через Fluent Bit
 
-Fluent Bit — агент для сбора, обработки и экспорта логов и метрик. Вы можете использовать Fluent Bit для передачи телеметрии в Monium в формате [OpenTelemetry (OTLP)](https://opentelemetry.io/docs/).
+Fluent Bit — агент для сбора, обработки и экспорта логов и метрик. Вы можете использовать Fluent Bit для передачи телеметрии в {{ monium-name }} в формате [OpenTelemetry (OTLP)](https://opentelemetry.io/docs/).
 
 Fluent Bit оптимально подходит в следующих случаях:
 
 * Много разных форматов логов и нужны гибкие парсеры.
-* Приложение работает в кластере Kubernetes.
+* Приложение работает в кластере {{ k8s }}.
 * Требуется собирать логи централизованно с одного хоста (файлы, Docker, системные логи).
 * Логи уже поставляются через файлы или стандартные выходы приложений.
 
@@ -21,11 +21,11 @@ Fluent Bit отрезает поле `startTimestampNanos` у метрик. Не
 
 ## Настройка передачи телеметрии {#configure}
 
-1. [Установите](https://docs.fluentbit.io/fluent-bit/v/4.0/installation/getting-started-with-fluent-bit) Fluent Bit рядом с источником телеметрии (на сервере, в контейнере или в кластере Kubernetes).
+1. [Установите](https://docs.fluentbit.io/fluent-bit/v/4.0/installation/getting-started-with-fluent-bit) Fluent Bit рядом с источником телеметрии (на сервере, в контейнере или в кластере {{ k8s }}).
 
 1. Создайте файл конфигурации (например, `fluent-bit.yaml`).
 
-    Ниже приведён минимальный пример конфигурации для отправки логов, метрик, трейсов в Monium. Настройте вход (inputs) под ваш источник данных.
+    Ниже приведён минимальный пример конфигурации для отправки логов, метрик, трейсов в {{ monium-name }}. Настройте вход (inputs) под ваш источник данных.
 
     **По gRPC**
     
@@ -39,7 +39,7 @@ Fluent Bit отрезает поле `startTimestampNanos` у метрик. Не
       outputs:
         - name: opentelemetry
           match: "*"
-          host: ingest.monium.yandex.cloud
+          host: {{ api-host-monium }}
           port: 443
           tls: on
           compress: zstd
@@ -61,7 +61,7 @@ Fluent Bit отрезает поле `startTimestampNanos` у метрик. Не
       outputs:
         - name: opentelemetry
           match: "*"
-          host: ingest.monium.yandex.cloud
+          host: {{ api-host-monium }}
           port: 443
           tls: on
           compress: zstd
@@ -74,13 +74,13 @@ Fluent Bit отрезает поле `startTimestampNanos` у метрик. Не
     ```
 
 1. Установите переменные окружения:
-   * `MONIUM_PROJECT` — идентификатор проекта Monium.
+   * `MONIUM_PROJECT` — идентификатор проекта {{ monium-name }}.
    * `MONIUM_API_KEY` — API-ключ с правом записи телеметрии.
 
 1. Запустите Fluent Bit с указанием конфигурации.
 
-1. Проверьте поступление логов в [Monium](https://monium.yandex.cloud).
+1. Проверьте поступление логов в [{{ monium-name }}]({{ link-monium }}).
 
-Простейший вариант использования Fluent Bit для отправки всех видов телеметрии из Java приложения в Monium см. в разделе [Пример для демо-приложения Java с Fluent Bit](otel-clinic-fluentbit-example.md).
+Простейший вариант использования Fluent Bit для отправки всех видов телеметрии из Java приложения в {{ monium-name }} см. в разделе [Пример для демо-приложения Java с Fluent Bit](otel-clinic-fluentbit-example.md).
 
-Подробные примеры конфигурации (Docker, Kubernetes, парсеры) см. в разделе [Отправка логов через Fluent Bit](../logs/write/fluent-bit.md).
+Подробные примеры конфигурации (Docker, {{ k8s }}, парсеры) см. в разделе [Отправка логов через Fluent Bit](../logs/write/fluent-bit.md).

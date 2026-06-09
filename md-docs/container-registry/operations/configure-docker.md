@@ -1,6 +1,6 @@
 # Установить и настроить Docker
 
-Перед началом работы с Container Registry необходимо установить и настроить [Docker](https://www.docker.com/) на локальном компьютере.
+Перед началом работы с {{ container-registry-name }} необходимо установить и настроить [Docker](https://www.docker.com/) на локальном компьютере.
 
 {% list tabs group=operating_system %}
 
@@ -49,4 +49,4 @@
 
 #### См. также {#see-also}
 
-* [Аутентифицироваться в Container Registry](authentication.md)
+* [{#T}](authentication.md)

@@ -1,4 +1,4 @@
-# [Yandex DataLens] Invalid top-level LOD dimension found in expression
+# [{{ datalens-full-name }}] Invalid top-level LOD dimension found in expression
 
 `ERR.DS_API.FORMULA.VALIDATION.LOD.INVALID_TOPLEVEL_DIMENSIONS`
 
@@ -25,4 +25,4 @@ AVG(AVG([Sales] INCLUDE [City]))
 * `AVG(SUM([orders]) INCLUDE [date])` — в такой записи группировка по измерению `[date]` добавлена в агрегацию верхнего уровня (ключевое слово `INCLUDE` относится к функции `AVG`);
 * `AVG(SUM([orders] INCLUDE [date]))` — в такой записи группировка по измерению `[date]` добавлена во вложенную агрегацию (ключевое слово `INCLUDE` относится к функции `SUM`).
 
-Подробнее об использовании LOD-выражений читайте в разделе [LOD-выражения и управление фильтрацией в агрегатных функциях в Yandex DataLens](../../concepts/lod-aggregation.md).
+Подробнее об использовании LOD-выражений читайте в разделе [{#T}](../../concepts/lod-aggregation.md).

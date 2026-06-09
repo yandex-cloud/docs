@@ -39,7 +39,7 @@ Required field. Configuration of the database to create. ||
 
 Required field. Name of the ClickHouse database. 1-63 characters long.
 
-The maximum string length in characters is 63. Value must match the regular expression ` [a-zA-Z0-9_-]* `. ||
+The maximum string length in characters is 63. Value must match the regular expression ` [a-zA-Z_][a-zA-Z0-9_-]* `. ||
 || engine | enum **DatabaseEngine**
 
 Database engine. For details, see [ClickHouse documentation](https://clickhouse.com/docs/engines/database-engines).
@@ -58,17 +58,10 @@ Database engine. For details, see [ClickHouse documentation](https://clickhouse.
   "created_by": "string",
   "modified_at": "google.protobuf.Timestamp",
   "done": "bool",
-  "metadata": {
-    "cluster_id": "string",
-    "database_name": "string"
-  },
+  "metadata": "google.protobuf.Any",
   // Includes only one of the fields `error`, `response`
   "error": "google.rpc.Status",
-  "response": {
-    "name": "string",
-    "cluster_id": "string",
-    "engine": "DatabaseEngine"
-  }
+  "response": "google.protobuf.Any"
   // end of the list of possible fields
 }
 ```
@@ -96,7 +89,7 @@ The time when the Operation resource was last modified. ||
 
 If the value is `false`, it means the operation is still in progress.
 If `true`, the operation is completed, and either `error` or `response` is available. ||
-|| metadata | **[CreateDatabaseMetadata](#yandex.cloud.mdb.clickhouse.v1.CreateDatabaseMetadata)**
+|| metadata | **[google.protobuf.Any](https://developers.google.com/protocol-buffers/docs/proto3#any)**
 
 Service-specific metadata associated with the operation.
 It typically contains the ID of the target resource that the operation is performed on.
@@ -111,7 +104,7 @@ The operation result.
 If `done == false` and there was no failure detected, neither `error` nor `response` is set.
 If `done == false` and there was a failure detected, `error` is set.
 If `done == true`, exactly one of `error` or `response` is set. ||
-|| response | **[Database](#yandex.cloud.mdb.clickhouse.v1.Database)**
+|| response | **[google.protobuf.Any](https://developers.google.com/protocol-buffers/docs/proto3#any)**
 
 The normal response of the operation in case of success.
 If the original method returns no data on success, such as Delete,
@@ -126,37 +119,4 @@ The operation result.
 If `done == false` and there was no failure detected, neither `error` nor `response` is set.
 If `done == false` and there was a failure detected, `error` is set.
 If `done == true`, exactly one of `error` or `response` is set. ||
-|#
-
-## CreateDatabaseMetadata {#yandex.cloud.mdb.clickhouse.v1.CreateDatabaseMetadata}
-
-#|
-||Field | Description ||
-|| cluster_id | **string**
-
-ID of the ClickHouse cluster where a database is being created. ||
-|| database_name | **string**
-
-Name of the ClickHouse database that is being created. ||
-|#
-
-## Database {#yandex.cloud.mdb.clickhouse.v1.Database}
-
-A ClickHouse Database resource. For more information, see the
-[Developer's Guide](../../../concepts/index.md).
-
-#|
-||Field | Description ||
-|| name | **string**
-
-Name of the database. ||
-|| cluster_id | **string**
-
-ID of the ClickHouse cluster that the database belongs to. ||
-|| engine | enum **DatabaseEngine**
-
-Database engine. For details, see [ClickHouse documentation](https://clickhouse.com/docs/engines/database-engines).
-
-- `DATABASE_ENGINE_ATOMIC`
-- `DATABASE_ENGINE_REPLICATED` ||
 |#

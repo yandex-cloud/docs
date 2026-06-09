@@ -13,6 +13,12 @@
 
 {% include [roles-list](../../_includes/iam/roles-list.md) %}
 
+{% note info %}
+
+Возможность вызывать контейнеры и управлять ими из определенных [облачных сетей](../../vpc/concepts/network.md#network) или с определенных IP-адресов, а также привязывать к контейнерам определенные облачные сети может быть ограничена [политиками авторизации](../../iam/concepts/access-control/access-policies.md) на уровне [каталога](../../resource-manager/concepts/resources-hierarchy.md#folder), [облака](../../resource-manager/concepts/resources-hierarchy.md#cloud) или [организации](../../organization/concepts/organization.md). 
+
+{% endnote %}
+
 ## На какие ресурсы можно назначить роль {#resources}
 
 {% include [basic-resources](../../_includes/iam/basic-resources-for-access-control.md) %}

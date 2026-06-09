@@ -1,13 +1,13 @@
-# Организация защищенного доступа к контенту в Yandex Cloud CDN с помощью консоли управления, CLI или API
+# Организация защищенного доступа к контенту в {{ cdn-full-name }} с помощью консоли управления, CLI или API
 
-# Организация защищенного доступа к контенту в Cloud CDN с помощью консоли управления, CLI или API
+# Организация защищенного доступа к контенту в {{ cdn-name }} с помощью консоли управления, CLI или API
 
-Чтобы настроить защищенный доступ к контенту в Cloud CDN:
+Чтобы настроить защищенный доступ к контенту в {{ cdn-name }}:
 
 1. [Подготовьте облако к работе](#before-you-begin).
 1. [Создайте виртуальную машину с веб-сервером](#create-web-server).
 1. [Создайте и настройте публичную зону DNS](#configure-dns).
-1. [Добавьте TLS-сертификат в Yandex Certificate Manager](#issue-certificate).
+1. [Добавьте TLS-сертификат в {{ certificate-manager-full-name }}](#issue-certificate).
 1. [Подготовьте бакет-источник для CDN-ресурса](#setup-bucket-origin).
 1. [Создайте CDN-ресурс](#setup-cdn-resource).
 1. [Создайте ресурсную запись CNAME для CDN-ресурса](#create-cdn-cname-record).
@@ -19,24 +19,24 @@
 
 ## Подготовьте облако к работе {#before-you-begin}
 
-Зарегистрируйтесь в Yandex Cloud и создайте [платежный аккаунт](../../../../billing/concepts/billing-account.md):
-1. Перейдите в [консоль управления](https://console.yandex.cloud), затем войдите в Yandex Cloud или зарегистрируйтесь.
-1. На странице **[Yandex Cloud Billing](https://center.yandex.cloud/billing/accounts)** убедитесь, что у вас подключен платежный аккаунт, и он находится в [статусе](../../../../billing/concepts/billing-account-statuses.md) `ACTIVE` или `TRIAL_ACTIVE`. Если платежного аккаунта нет, [создайте его](../../../../billing/quickstart/index.md) и [привяжите](../../../../billing/operations/pin-cloud.md) к нему облако.
+Зарегистрируйтесь в {{ yandex-cloud }} и создайте [платежный аккаунт](../../../../billing/concepts/billing-account.md):
+1. Перейдите в [консоль управления]({{ link-console-main }}), затем войдите в {{ yandex-cloud }} или зарегистрируйтесь.
+1. На странице **[{{ ui-key.yacloud_billing.billing.label_service }}]({{ link-console-billing }})** убедитесь, что у вас подключен платежный аккаунт, и он находится в [статусе](../../../../billing/concepts/billing-account-statuses.md) `ACTIVE` или `TRIAL_ACTIVE`. Если платежного аккаунта нет, [создайте его](../../../../billing/quickstart/index.md) и [привяжите](../../../../billing/operations/pin-cloud.md) к нему облако.
 
-Если у вас есть активный платежный аккаунт, вы можете создать или выбрать [каталог](../../../../resource-manager/concepts/resources-hierarchy.md#folder), в котором будет работать ваша инфраструктура, на [странице облака](https://console.yandex.cloud/cloud).
+Если у вас есть активный платежный аккаунт, вы можете создать или выбрать [каталог](../../../../resource-manager/concepts/resources-hierarchy.md#folder), в котором будет работать ваша инфраструктура, на [странице облака]({{ link-console-cloud }}).
 
 [Подробнее об облаках и каталогах](../../../../resource-manager/concepts/resources-hierarchy.md).
 
 
 ### Необходимые платные ресурсы {#paid-resources}
 
-В стоимость поддержки инфраструктуры для организации защищенного доступа к контенту в Cloud CDN входят:
+В стоимость поддержки инфраструктуры для организации защищенного доступа к контенту в {{ cdn-name }} входят:
 
-* плата за использование [публичного IP-адреса](../../../../vpc/concepts/address.md#public-addresses) (см. [тарифы Yandex Virtual Private Cloud](../../../../vpc/pricing.md));
-* плата за вычислительные ресурсы и диски [ВМ](../../../../compute/concepts/vm.md) (см. [тарифы Yandex Compute Cloud](../../../../compute/pricing.md));
-* плата за использование [публичной DNS-зоны](../../../../dns/concepts/dns-zone.md#public-zones) и публичные DNS-запросы (см. [тарифы Yandex Cloud DNS](../../../../dns/pricing.md));
-* плата за [хранение данных](../../../../storage/concepts/bucket.md) в Object Storage, [операции](../../../../storage/operations/index.md) с ними и исходящий трафик (см. [тарифы Object Storage](../../../../storage/pricing.md));
-* плата за исходящий трафик с [CDN-серверов](../../../../cdn/concepts/index.md) (см. [тарифы Cloud CDN](../../../../cdn/pricing.md)).
+* плата за использование [публичного IP-адреса](../../../../vpc/concepts/address.md#public-addresses) (см. [тарифы {{ vpc-full-name }}](../../../../vpc/pricing.md));
+* плата за вычислительные ресурсы и диски [ВМ](../../../../compute/concepts/vm.md) (см. [тарифы {{ compute-full-name }}](../../../../compute/pricing.md));
+* плата за использование [публичной DNS-зоны](../../../../dns/concepts/dns-zone.md#public-zones) и публичные DNS-запросы (см. [тарифы {{ dns-full-name }}](../../../../dns/pricing.md));
+* плата за [хранение данных](../../../../storage/concepts/bucket.md) в {{ objstorage-name }}, [операции](../../../../storage/operations/index.md) с ними и исходящий трафик (см. [тарифы {{ objstorage-name }}](../../../../storage/pricing.md));
+* плата за исходящий трафик с [CDN-серверов](../../../../cdn/concepts/index.md) (см. [тарифы {{ cdn-name }}](../../../../cdn/pricing.md)).
 
 
 ### Создайте облачную сеть и подсеть {#create-network}
@@ -45,21 +45,21 @@
 
 - Консоль управления {#console} 
 
-  1. В [консоли управления](https://console.yandex.cloud) выберите каталог, в котором вы будете создавать ресурсы.
-  1. [Перейдите](../../../../console/operations/select-service.md#select-service) в сервис **Virtual Private Cloud**.
-  1. Справа сверху нажмите **Создать сеть**.
-  1. В поле **Имя** укажите `webserver-network`.
-  1. В поле **Дополнительно** отключите опцию **Создать подсети**.
-  1. Нажмите **Создать сеть**.
-  1. На панели слева выберите ![subnets](../../../../_assets/console-icons/nodes-right.svg) **Подсети**.
-  1. Справа сверху нажмите **Создать подсеть**.
-  1. В поле **Имя** укажите `webserver-subnet-ru-central1-b`.
-  1. В поле **Зона доступности** выберите зону доступности `ru-central1-b`.
-  1. В поле **Сеть** выберите облачную сеть `webserver-network`.
-  1. В поле **CIDR** укажите `192.168.1.0/24`.
-  1. Нажмите **Создать подсеть**.
+  1. В [консоли управления]({{ link-console-main }}) выберите каталог, в котором вы будете создавать ресурсы.
+  1. Перейдите в сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_vpc }}**.
+  1. Справа сверху нажмите **{{ ui-key.yacloud.vpc.networks.button_create }}**.
+  1. В поле **{{ ui-key.yacloud.vpc.networks.create.field_name }}** укажите `webserver-network`.
+  1. В поле **{{ ui-key.yacloud.vpc.networks.create.field_advanced }}** отключите опцию **{{ ui-key.yacloud.vpc.networks.create.field_is-default }}**.
+  1. Нажмите **{{ ui-key.yacloud.vpc.networks.button_create }}**.
+  1. На панели слева выберите ![subnets](../../../../_assets/console-icons/nodes-right.svg) **{{ ui-key.yacloud.vpc.switch_networks }}**.
+  1. Справа сверху нажмите **{{ ui-key.yacloud.vpc.subnetworks.button_action-create }}**.
+  1. В поле **{{ ui-key.yacloud.vpc.subnetworks.create.field_name }}** укажите `webserver-subnet-{{ region-id }}-b`.
+  1. В поле **{{ ui-key.yacloud.vpc.subnetworks.create.field_zone }}** выберите зону доступности `{{ region-id }}-b`.
+  1. В поле **{{ ui-key.yacloud.vpc.subnetworks.create.field_network }}** выберите облачную сеть `webserver-network`.
+  1. В поле **{{ ui-key.yacloud.vpc.subnetworks.create.field_ip }}** укажите `192.168.1.0/24`.
+  1. Нажмите **{{ ui-key.yacloud.vpc.subnetworks.create.button_create }}**.
 
-- Yandex Cloud CLI {#cli}
+- {{ yandex-cloud }} CLI {#cli}
 
   1. Создайте сеть `webserver-network`:
 
@@ -79,11 +79,11 @@
 
       Подробнее о команде `yc vpc network create` читайте в [справочнике CLI](../../../../cli/cli-ref/vpc/cli-ref/network/create.md).
 
-  1. Создайте подсеть в зоне доступности `ru-central1-b`:
+  1. Создайте подсеть в зоне доступности `{{ region-id }}-b`:
 
       ```bash
-      yc vpc subnet create webserver-subnet-ru-central1-b \
-        --zone ru-central1-b \
+      yc vpc subnet create webserver-subnet-{{ region-id }}-b \
+        --zone {{ region-id }}-b \
         --network-name webserver-network \
         --range 192.168.1.0/24
       ```
@@ -94,9 +94,9 @@
       id: e2li9tcgi7ii********
       folder_id: b1gt6g8ht345********
       created_at: "2023-12-20T20:11:16Z"
-      name: webserver-subnet-ru-central1-b
+      name: webserver-subnet-{{ region-id }}-b
       network_id: enp1gg8kr3pv********
-      zone_id: ru-central1-b
+      zone_id: {{ region-id }}-b
       v4_cidr_blocks:
         - 192.168.1.0/24
       ```
@@ -120,24 +120,24 @@
 
 - Консоль управления {#console}
 
-  1. В [консоли управления](https://console.yandex.cloud) выберите каталог, в котором вы будете создавать ресурсы.
-  1. [Перейдите](../../../../console/operations/select-service.md#select-service) в сервис **Virtual Private Cloud**.
-  1. На панели слева выберите ![image](../../../../_assets/console-icons/shield.svg) **Группы безопасности**. 
-  1. Нажмите **Создать группу безопасности**.
-  1. В поле **Имя** укажите имя `webserver-sg`.
-  1. В поле **Сеть** выберите созданную ранее сеть `webserver-network`.
-  1. В блоке **Правила** [создайте](../../../../vpc/operations/security-group-add-rule.md) следующие правила для управления трафиком:
+  1. В [консоли управления]({{ link-console-main }}) выберите каталог, в котором вы будете создавать ресурсы.
+  1. Перейдите в сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_vpc }}**.
+  1. На панели слева выберите ![image](../../../../_assets/console-icons/shield.svg) **{{ ui-key.yacloud.vpc.label_security-groups }}**. 
+  1. Нажмите **{{ ui-key.yacloud.vpc.network.security-groups.button_create }}**.
+  1. В поле **{{ ui-key.yacloud.vpc.network.security-groups.forms.field_sg-name }}** укажите имя `webserver-sg`.
+  1. В поле **{{ ui-key.yacloud.vpc.network.security-groups.forms.field_sg-network }}** выберите созданную ранее сеть `webserver-network`.
+  1. В блоке **{{ ui-key.yacloud.vpc.network.security-groups.forms.label_section-rules }}** [создайте](../../../../vpc/operations/security-group-add-rule.md) следующие правила для управления трафиком:
 
-      | Направление<br/>трафика | Описание | Диапазон портов | Протокол | Источник /<br/>Назначение | CIDR блоки |
+      | Направление<br/>трафика | {{ ui-key.yacloud.vpc.network.security-groups.forms.field_sg-rule-description }} | {{ ui-key.yacloud.vpc.network.security-groups.forms.field_sg-rule-port-range }} | {{ ui-key.yacloud.vpc.network.security-groups.forms.field_sg-rule-protocol }} | {{ ui-key.yacloud.vpc.network.security-groups.forms.field_sg-rule-source }} /<br/>{{ ui-key.yacloud.vpc.network.security-groups.forms.field_sg-rule-destination }} | {{ ui-key.yacloud.vpc.network.security-groups.forms.field_sg-rule-cidr-blocks }} |
       | --- | --- | --- | --- | --- | --- |
-      | Входящий | `http`           | `80` | `TCP` | `CIDR` | `0.0.0.0/0` |
-      | Входящий | `https`            | `443`   | `TCP`  | `CIDR` | `0.0.0.0/0` |
-      | Входящий | `ssh`            | `22`   | `TCP`  | `CIDR` | `0.0.0.0/0` |
-      | Исходящий | `any`           | `Весь` | `Любой` | `CIDR` | `0.0.0.0/0` |
+      | Входящий | `http`           | `80` | `TCP` | `{{ ui-key.yacloud.vpc.network.security-groups.forms.value_sg-rule-destination-cidr }}` | `0.0.0.0/0` |
+      | Входящий | `https`            | `443`   | `TCP`  | `{{ ui-key.yacloud.vpc.network.security-groups.forms.value_sg-rule-destination-cidr }}` | `0.0.0.0/0` |
+      | Входящий | `ssh`            | `22`   | `TCP`  | `{{ ui-key.yacloud.vpc.network.security-groups.forms.value_sg-rule-destination-cidr }}` | `0.0.0.0/0` |
+      | Исходящий | `any`           | `Весь` | `{{ ui-key.yacloud.vpc.network.security-groups.forms.value_any }}` | `{{ ui-key.yacloud.vpc.network.security-groups.forms.value_sg-rule-destination-cidr }}` | `0.0.0.0/0` |
 
-  1. Нажмите **Создать**.
+  1. Нажмите **{{ ui-key.yacloud.common.create }}**.
 
-- Yandex Cloud CLI {#cli}
+- {{ yandex-cloud }} CLI {#cli}
   
   Выполните команду:
 
@@ -236,48 +236,48 @@
 
 - Консоль управления {#console}
 
-  1. На странице [каталога](../../../../resource-manager/concepts/resources-hierarchy.md#folder) в [консоли управления](https://console.yandex.cloud) нажмите кнопку **Создать ресурс** и выберите `Виртуальная машина`.
-  1. В блоке **Образ загрузочного диска** в поле **Поиск продукта** введите `LAMP` и выберите образ [LAMP](https://yandex.cloud/ru/marketplace/products/yc/lamp).
-  1. В блоке **Расположение** выберите [зону доступности](../../../../overview/concepts/geo-scope.md) `ru-central1-b`.
-  1. В блоке **Сетевые настройки**:
+  1. На странице [каталога](../../../../resource-manager/concepts/resources-hierarchy.md#folder) в [консоли управления]({{ link-console-main }}) нажмите кнопку **{{ ui-key.yacloud.iam.folder.dashboard.button_add }}** и выберите `{{ ui-key.yacloud.iam.folder.dashboard.value_compute }}`.
+  1. В блоке **{{ ui-key.yacloud.compute.instances.create.section_image }}** в поле **{{ ui-key.yacloud.compute.instances.create.placeholder_search_marketplace-product }}** введите `LAMP` и выберите образ [LAMP](https://yandex.cloud/ru/marketplace/products/yc/lamp).
+  1. В блоке **{{ ui-key.yacloud.k8s.node-groups.create.section_allocation-policy }}** выберите [зону доступности](../../../../overview/concepts/geo-scope.md) `{{ region-id }}-b`.
+  1. В блоке **{{ ui-key.yacloud.compute.instances.create.section_network }}**:
 
-      * В поле **Подсеть** выберите созданную ранее подсеть `webserver-subnet-ru-central1-b`.
-      * В поле **Публичный IP-адрес** выберите `Автоматически`.
-      * В поле **Группы безопасности** выберите созданную ранее группу безопасности `webserver-sg`.
+      * В поле **{{ ui-key.yacloud.component.compute.network-select.field_subnetwork }}** выберите созданную ранее подсеть `webserver-subnet-{{ region-id }}-b`.
+      * В поле **{{ ui-key.yacloud.component.compute.network-select.field_external }}** выберите `{{ ui-key.yacloud.component.compute.network-select.switch_auto }}`.
+      * В поле **{{ ui-key.yacloud.component.compute.network-select.field_security-groups }}** выберите созданную ранее группу безопасности `webserver-sg`.
 
-  1. В блоке **Доступ** выберите вариант **SSH-ключ** и укажите данные для доступа на ВМ:
+  1. В блоке **{{ ui-key.yacloud.compute.instances.create.section_access }}** выберите вариант **{{ ui-key.yacloud.compute.instance.access-method.label_oslogin-control-ssh-option-title }}** и укажите данные для доступа на ВМ:
 
-      * В поле **Логин** введите имя пользователя: `yc-user`.
-      * В поле **SSH-ключ** выберите SSH-ключ, сохраненный в вашем профиле [пользователя организации](../../../../organization/concepts/membership.md).
+      * В поле **{{ ui-key.yacloud.compute.instances.create.field_user }}** введите имя пользователя: `yc-user`.
+      * В поле **{{ ui-key.yacloud.compute.instances.create.field_key }}** выберите SSH-ключ, сохраненный в вашем профиле [пользователя организации](../../../../organization/concepts/membership.md).
         
         Если в вашем профиле нет сохраненных SSH-ключей или вы хотите добавить новый ключ:
         
-        1. Нажмите кнопку **Добавить ключ**.
+        1. Нажмите кнопку **{{ ui-key.yacloud.compute.instances.create.button_add-ssh-key }}**.
         1. Задайте имя SSH-ключа.
         1. Выберите вариант:
         
-            * `Ввести вручную` — вставьте содержимое открытого [SSH](../../../../glossary/ssh-keygen.md)-ключа. Пару SSH-ключей необходимо [создать](../../../../compute/operations/vm-connect/ssh.md#creating-ssh-keys) самостоятельно.
-            * `Загрузить из файла` — загрузите открытую часть SSH-ключа. Пару SSH-ключей необходимо создать самостоятельно.
-            * `Сгенерировать ключ` — автоматическое создание пары SSH-ключей.
+            * `{{ ui-key.yacloud_components.ssh-key-add-dialog.value_radio-manual }}` — вставьте содержимое открытого [SSH](../../../../glossary/ssh-keygen.md)-ключа. Пару SSH-ключей необходимо [создать](../../../../compute/operations/vm-connect/ssh.md#creating-ssh-keys) самостоятельно.
+            * `{{ ui-key.yacloud_components.ssh-key-add-dialog.value_radio-upload }}` — загрузите открытую часть SSH-ключа. Пару SSH-ключей необходимо создать самостоятельно.
+            * `{{ ui-key.yacloud_components.ssh-key-add-dialog.value_radio-generate }}` — автоматическое создание пары SSH-ключей.
             
               При добавлении сгенерированного SSH-ключа будет создан и загружен архив с парой ключей. В ОС на базе Linux или macOS распакуйте архив в папку `/home/<имя_пользователя>/.ssh`. В ОС Windows распакуйте архив в папку `C:\Users\<имя_пользователя>/.ssh`. Дополнительно вводить открытый ключ в консоли управления не требуется.
         
-        1. Нажмите кнопку **Добавить**.
+        1. Нажмите кнопку **{{ ui-key.yacloud.common.add }}**.
         
         SSH-ключ будет добавлен в ваш профиль пользователя организации. Если в организации [отключена](../../../../organization/operations/os-login-access.md) возможность добавления пользователями SSH-ключей в свои профили, добавленный открытый SSH-ключ будет сохранен только в профиле пользователя внутри создаваемого ресурса.
 
-  1. В блоке **Общая информация** задайте имя ВМ: `mywebserver`.
-  1. Нажмите кнопку **Создать ВМ**.
+  1. В блоке **{{ ui-key.yacloud.compute.instances.create.section_base }}** задайте имя ВМ: `mywebserver`.
+  1. Нажмите кнопку **{{ ui-key.yacloud.compute.instances.create.button_create }}**.
 
-- Yandex Cloud CLI {#cli}
+- {{ yandex-cloud }} CLI {#cli}
 
   Выполните команду:
 
   ```bash
   yc compute instance create \
     --name mywebserver \
-    --zone ru-central1-b \
-    --network-interface subnet-name=webserver-subnet-ru-central1-b,nat-ip-version=ipv4,security-group-ids=<идентификатор_группы_безопасности> \
+    --zone {{ region-id }}-b \
+    --network-interface subnet-name=webserver-subnet-{{ region-id }}-b,nat-ip-version=ipv4,security-group-ids=<идентификатор_группы_безопасности> \
     --create-boot-disk image-folder-id=standard-images,image-id=fd8jtn9i7e9ha5q25niu \
     --ssh-key ~/.ssh/id_ed25519.pub
   ```
@@ -294,7 +294,7 @@
   folder_id: b1gt6g8ht345********
   created_at: "2023-12-23T05:36:34Z"
   name: mywebserver
-  zone_id: ru-central1-b
+  zone_id: {{ region-id }}-b
   platform_id: standard-v2
   resources:
     memory: "2147483648"
@@ -343,24 +343,24 @@
 
 ## Создайте и настройте публичную зону DNS {#configure-dns}
 
-1. Создайте публичную [зону DNS](../../../../dns/concepts/dns-zone.md) в Yandex Cloud DNS.
+1. Создайте публичную [зону DNS](../../../../dns/concepts/dns-zone.md) в {{ dns-full-name }}.
 
     {% list tabs group=instructions %}
 
     - Консоль управления {#console}
 
-      1. В [консоли управления](https://console.yandex.cloud) выберите каталог, в котором вы будете создавать ресурсы.
-      1. [Перейдите](../../../../console/operations/select-service.md#select-service) в сервис **Cloud DNS**.
-      1. Нажмите **Создать зону**.
+      1. В [консоли управления]({{ link-console-main }}) выберите каталог, в котором вы будете создавать ресурсы.
+      1. Перейдите в сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_dns }}**.
+      1. Нажмите **{{ ui-key.yacloud.dns.button_zone-create }}**.
       1. Задайте настройки зоны, соответствующие вашему домену:
 
-         1. **Зона** — доменная зона. Название зоны должно заканчиваться точкой. Например, название доменной зоны `example.com.` соответствует домену `example.com`. Чтобы создать доменную зону с нелатинскими символами, используйте кодировку [Punycode](https://ru.wikipedia.org/wiki/Punycode).
-         1. **Тип** — `Публичная`.
-         1. **Имя** — `my-domain-zone`.
+         1. **{{ ui-key.yacloud.dns.label_zone }}** — доменная зона. Название зоны должно заканчиваться точкой. Например, название доменной зоны `example.com.` соответствует домену `example.com`. Чтобы создать доменную зону с нелатинскими символами, используйте кодировку [Punycode](https://{{ lang }}.wikipedia.org/wiki/Punycode).
+         1. **{{ ui-key.yacloud.common.type }}** — `{{ ui-key.yacloud.dns.label_public }}`.
+         1. **{{ ui-key.yacloud.common.name }}** — `my-domain-zone`.
 
-      1. Нажмите **Создать**.
+      1. Нажмите **{{ ui-key.yacloud.common.create }}**.
 
-    - Yandex Cloud CLI {#cli}
+    - {{ yandex-cloud }} CLI {#cli}
 
       Выполните команду:
 
@@ -392,7 +392,7 @@
 
     {% endlist %}
 
-1. Делегируйте ваш домен сервису Cloud DNS. Для этого в личном кабинете вашего регистратора домена укажите в настройках домена адреса DNS-серверов `ns1.yandexcloud.net` и `ns2.yandexcloud.net`.
+1. Делегируйте ваш домен сервису {{ dns-name }}. Для этого в личном кабинете вашего регистратора домена укажите в настройках домена адреса DNS-серверов `ns1.{{ dns-ns-host-sld }}` и `ns2.{{ dns-ns-host-sld }}`.
 
 1. Создайте в вашей зоне DNS ресурсную A-запись, указывающую на публичный IP-адрес созданной ранее ВМ с веб-сервером:
 
@@ -400,20 +400,20 @@
 
     - Консоль управления {#console}
 
-      1. В [консоли управления](https://console.yandex.cloud) выберите каталог, в котором вы будете создавать ресурсы.
-      1. [Перейдите](../../../../console/operations/select-service.md#select-service) в сервис **Cloud DNS**.
+      1. В [консоли управления]({{ link-console-main }}) выберите каталог, в котором вы будете создавать ресурсы.
+      1. Перейдите в сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_dns }}**.
       1. Выберите созданную ранее DNS-зону.
-      1. Нажмите **Создать запись**.
+      1. Нажмите **{{ ui-key.yacloud.dns.button_record-set-create }}**.
       1. Задайте параметры записи:
-         1. В поле **Имя** выберите `Совпадает с именем зоны (@)`.
-         1. В поле **Тип** выберите [тип записи](../../../../dns/concepts/resource-record.md#rr-types) `A`.
-         1. В поле **Значение** укажите [публичный IP-адрес](../../../../vpc/concepts/address.md#public-addresses) созданной ранее ВМ с веб-сервером.
+         1. В поле **{{ ui-key.yacloud.common.name }}** выберите `{{ ui-key.yacloud.dns.label_fqdn-equal-to-zone }}`.
+         1. В поле **{{ ui-key.yacloud.common.type }}** выберите [тип записи](../../../../dns/concepts/resource-record.md#rr-types) `A`.
+         1. В поле **{{ ui-key.yacloud.dns.label_records }}** укажите [публичный IP-адрес](../../../../vpc/concepts/address.md#public-addresses) созданной ранее ВМ с веб-сервером.
 
-             Узнать IP-адрес ВМ можно в [консоли управления](https://console.yandex.cloud) на странице ВМ в блоке **Сеть** или с помощью команды CLI `yc compute instance get mywebserver`.
+             Узнать IP-адрес ВМ можно в [консоли управления]({{ link-console-main }}) на странице ВМ в блоке **{{ ui-key.yacloud.compute.instance.overview.section_network }}** или с помощью команды CLI `yc compute instance get mywebserver`.
 
-      1. Нажмите **Создать**.
+      1. Нажмите **{{ ui-key.yacloud.common.create }}**.
 
-    - Yandex Cloud CLI {#cli}
+    - {{ yandex-cloud }} CLI {#cli}
 
       Выполните команду:
 
@@ -425,7 +425,7 @@
 
       Где `<IP-адрес_ВМ>` — [публичный IP-адрес](../../../../vpc/concepts/address.md#public-addresses) созданной ранее ВМ с веб-сервером.
 
-      Узнать IP-адрес ВМ можно в [консоли управления](https://console.yandex.cloud) на странице ВМ в блоке **Сеть** или с помощью команды CLI `yc compute instance get mywebserver`.
+      Узнать IP-адрес ВМ можно в [консоли управления]({{ link-console-main }}) на странице ВМ в блоке **{{ ui-key.yacloud.compute.instance.overview.section_network }}** или с помощью команды CLI `yc compute instance get mywebserver`.
 
       Результат:
 
@@ -446,25 +446,25 @@
     {% endlist %}
 
 
-## Добавьте TLS-сертификат в Yandex Certificate Manager {#issue-certificate}
+## Добавьте TLS-сертификат в {{ certificate-manager-full-name }} {#issue-certificate}
 
-1. Добавьте в сервис Certificate Manager [сертификат](../../../../certificate-manager/concepts/managed-certificate.md) от Let's Encrypt® для ваших доменов, которые будут использоваться веб-сервером и CDN-ресурсом.
+1. Добавьте в сервис {{ certificate-manager-name }} [сертификат](../../../../certificate-manager/concepts/managed-certificate.md) от Let's Encrypt® для ваших доменов, которые будут использоваться веб-сервером и CDN-ресурсом.
 
     {% list tabs group=instructions %}
 
     - Консоль управления {#console}
 
-      1. В [консоли управления](https://console.yandex.cloud) выберите каталог, в котором вы будете создавать ресурсы.
-      1. [Перейдите](../../../../console/operations/select-service.md#select-service) в сервис **Certificate Manager**.
-      1. Нажмите **Добавить сертификат** и выберите **Сертификат от Let's Encrypt**.
-      1. В открывшемся окне в поле **Имя** укажите `mymanagedcert`.
-      1. В поле **Домены** укажите имя вашего домена, например `example.com`.
+      1. В [консоли управления]({{ link-console-main }}) выберите каталог, в котором вы будете создавать ресурсы.
+      1. Перейдите в сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_certificate-manager }}**.
+      1. Нажмите **{{ ui-key.yacloud.certificate-manager.button_empty-action }}** и выберите **{{ ui-key.yacloud.certificate-manager.action_request }}**.
+      1. В открывшемся окне в поле **{{ ui-key.yacloud.certificate-manager.metadata.field_name }}** укажите `mymanagedcert`.
+      1. В поле **{{ ui-key.yacloud.certificate-manager.request.field_domains }}** укажите имя вашего домена, например `example.com`.
 
           В этом же поле укажите с новой строки имя поддомена, который будет использоваться для CDN-ресурса, например `cdn.example.com`.
-      1. Выберите [тип проверки прав на домен](../../../../certificate-manager/concepts/challenges.md) `DNS`.
-      1. Нажмите **Создать**.
+      1. Выберите [тип проверки прав на домен](../../../../certificate-manager/concepts/challenges.md) `{{ ui-key.yacloud.certificate-manager.request.challenge-type_label_dns }}`.
+      1. Нажмите **{{ ui-key.yacloud.certificate-manager.request.button_request }}**.
 
-    - Yandex Cloud CLI {#cli}
+    - {{ yandex-cloud }} CLI {#cli}
 
       Выполните команду:
 
@@ -511,16 +511,16 @@
 
     - Консоль управления {#console}
 
-        1. В [консоли управления](https://console.yandex.cloud) выберите каталог, в котором вы будете создавать ресурсы.
-        1. [Перейдите](../../../../console/operations/select-service.md#select-service) в сервис **Certificate Manager**.
+        1. В [консоли управления]({{ link-console-main }}) выберите каталог, в котором вы будете создавать ресурсы.
+        1. Перейдите в сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_certificate-manager }}**.
         1. В списке сертификатов выберите `mymanagedcert`.
-        1. В открывшемся окне в блоке **Проверка прав на домены** выберите `CNAME-запись`.
-        1. В секции первого домена ниже нажмите **Создать запись** и в открывшемся окне нажмите **Создать**.
+        1. В открывшемся окне в блоке **{{ ui-key.yacloud.certificate-manager.overview.section_challenges }}** выберите `CNAME-запись`.
+        1. В секции первого домена ниже нажмите **{{ ui-key.yacloud.component.dns-integration.button_add-domain }}** и в открывшемся окне нажмите **{{ ui-key.yacloud.common.create }}**.
         1. Повторите предыдущее действие для второго домена.
 
         Проверка прав на домены может занять от нескольких минут до нескольких дней — дождитесь ее успешного завершения. В результате сертификат будет выпущен и перейдет в статус `Issued`.
 
-    - Yandex Cloud CLI {#cli}
+    - {{ yandex-cloud }} CLI {#cli}
 
         1. Получите значения ресурсных записей, необходимых для прохождения проверки:
 
@@ -663,27 +663,27 @@
 
 ## Подготовьте бакет-источник для CDN-ресурса {#setup-bucket-origin}
 
-1. Создайте бакет Object Storage, который будет использоваться в качестве [источника](../../../../cdn/concepts/origins.md) для CDN-ресурса. [Имя бакета](../../../../storage/concepts/bucket.md#naming) должно быть уникальным.
+1. Создайте бакет {{ objstorage-name }}, который будет использоваться в качестве [источника](../../../../cdn/concepts/origins.md) для CDN-ресурса. [Имя бакета](../../../../storage/concepts/bucket.md#naming) должно быть уникальным.
 
     {% list tabs group=instructions %}
 
     - Консоль управления {#console}
 
-      1. В [консоли управления](https://console.yandex.cloud) выберите каталог, в котором вы будете создавать ресурсы.
-      1. [Перейдите](../../../../console/operations/select-service.md#select-service) в сервис **Object Storage**.
-      1. Справа сверху нажмите **Создать бакет**.
-      1. В поле **Имя** укажите имя бакета, например `cdn-source-bucket`.
-      1. В поле **Макс. размер** укажите `1 ГБ`.
-      1. В полях **Чтение объектов** и **Чтение списка объектов** выберите `Для всех`.
-      1. Нажмите **Создать бакет**.
+      1. В [консоли управления]({{ link-console-main }}) выберите каталог, в котором вы будете создавать ресурсы.
+      1. Перейдите в сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_storage }}**.
+      1. Справа сверху нажмите **{{ ui-key.yacloud.storage.buckets.button_create }}**.
+      1. В поле **{{ ui-key.yacloud.storage.bucket.settings.field_name }}** укажите имя бакета, например `cdn-source-bucket`.
+      1. В поле **{{ ui-key.yacloud.storage.bucket.settings.field_size-limit }}** укажите `1 {{ ui-key.yacloud.common.units.label_gigabyte }}`.
+      1. В полях **{{ ui-key.yacloud.storage.bucket.settings.field_access-read }}** и **{{ ui-key.yacloud.storage.bucket.settings.field_access-list }}** выберите `{{ ui-key.yacloud.storage.bucket.settings.access_value_public }}`.
+      1. Нажмите **{{ ui-key.yacloud.storage.buckets.create.button_create }}**.
       1. На странице со списком бакетов выберите созданный бакет.
-      1. На панели слева выберите **Настройки**.
-      1. На вкладке **Веб-сайт**:
-         * Выберите `Хостинг`.
-         * В поле **Главная страница** укажите `index.html`.
-      1. Нажмите **Сохранить**.
+      1. На панели слева выберите **{{ ui-key.yacloud.storage.bucket.switch_settings }}**.
+      1. На вкладке **{{ ui-key.yacloud.storage.bucket.switch_website }}**:
+         * Выберите `{{ ui-key.yacloud.storage.bucket.website.switch_hosting }}`.
+         * В поле **{{ ui-key.yacloud.storage.bucket.website.field_index }}** укажите `index.html`.
+      1. Нажмите **{{ ui-key.yacloud.storage.bucket.website.button_save }}**.
 
-    - Yandex Cloud CLI {#cli}
+    - {{ yandex-cloud }} CLI {#cli}
 
       1. Создайте бакет:
 
@@ -696,7 +696,7 @@
             --public-list
           ```
 
-          Где `--name` — имя бакета, уникальное для всего сервиса Object Storage. Например: `cdn-source-bucket`.
+          Где `--name` — имя бакета, уникальное для всего сервиса {{ objstorage-name }}. Например: `cdn-source-bucket`.
 
           Результат:
 
@@ -749,12 +749,12 @@
 
           ```bash
           aws s3api create-bucket \
-            --endpoint-url https://storage.yandexcloud.net \
+            --endpoint-url https://{{ s3-storage-host }} \
             --bucket <имя_бакета> \
             --acl public-read
           ```
 
-          Где `--bucket` — имя бакета, уникальное для всего сервиса Object Storage. Например: `cdn-source-bucket`.
+          Где `--bucket` — имя бакета, уникальное для всего сервиса {{ objstorage-name }}. Например: `cdn-source-bucket`.
 
           Результат:
 
@@ -788,10 +788,10 @@
 
     - Консоль управления {#console}
 
-      1. В [консоли управления](https://console.yandex.cloud) выберите каталог, в котором вы будете создавать ресурсы.
-      1. [Перейдите](../../../../console/operations/select-service.md#select-service) в сервис **Object Storage**.
+      1. В [консоли управления]({{ link-console-main }}) выберите каталог, в котором вы будете создавать ресурсы.
+      1. Перейдите в сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_storage }}**.
       1. Выберите созданный ранее бакет.
-      1. В правом верхнем углу страницы нажмите ![image](../../../../_assets/console-icons/arrow-up-from-line.svg) **Загрузить** и выберите созданные файлы `index.html` и `content.jpg`.
+      1. В правом верхнем углу страницы нажмите ![image](../../../../_assets/console-icons/arrow-up-from-line.svg) **{{ ui-key.yacloud.storage.bucket.button_upload }}** и выберите созданные файлы `index.html` и `content.jpg`.
       1. В открывшемся окне подтвердите загрузку объектов.
 
     - AWS CLI {#cli}
@@ -799,7 +799,7 @@
       1. Загрузите в бакет файл `index.html`:
 
           ```bash
-          aws --endpoint-url https://storage.yandexcloud.net \
+          aws --endpoint-url https://{{ s3-storage-host }} \
             s3 cp ./index.html s3://<имя_бакета>/index.html
           ```
 
@@ -814,7 +814,7 @@
       1. Загрузите в бакет файл `content.jpg`:
 
           ```bash
-          aws --endpoint-url https://storage.yandexcloud.net \
+          aws --endpoint-url https://{{ s3-storage-host }} \
             s3 cp ./content.jpg s3://<имя_бакета>/content.jpg
           ```
 
@@ -837,44 +837,44 @@
 
 - Консоль управления {#console}
 
-  1. В [консоли управления](https://console.yandex.cloud) выберите каталог, в котором вы будете создавать ресурсы.
-  1. [Перейдите](../../../../console/operations/select-service.md#select-service) в сервис **Cloud CDN**.
-  1. Нажмите **Создать ресурс**.
+  1. В [консоли управления]({{ link-console-main }}) выберите каталог, в котором вы будете создавать ресурсы.
+  1. Перейдите в сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_cdn }}**.
+  1. Нажмите **{{ ui-key.yacloud.cdn.button_resource-create }}**.
   1. Задайте основные настройки CDN-ресурса:
-      * В блоке **Контент**:
-        * Включите **Доступ к контенту**.
-        * В поле **Запрос контента** выберите `Из одного источника`.
-        * В поле **Тип источника** выберите `Сервер`.
-        * В поле **Доменное имя источника** укажите `<имя_бакета>.website.yandexcloud.net`, где `<имя_бакета>` — имя созданного ранее бакета, используемого CDN-ресурсом в качестве источника.
-        * В поле **Протокол для источников** выберите `Как у клиента`.
-        * В поле **Доменное имя** укажите доменное имя, которое вы присвоите вашему CDN-ресурсу: например `cdn.example.com`.
-      * В блоке **Дополнительно**:
-        * В поле **Переадресация клиентов** выберите `Не использовать`.
-        * В поле **Тип сертификата** выберите `Сертификат из Certificate Manager` и в появившемся списке выберите созданный ранее сертификат `mymanagedcert`.
-        * В поле **Заголовок Host** выберите `Свое значение` и в появившемся поле **Значение заголовка** укажите `<имя_бакета>.website.yandexcloud.net`, где `<имя_бакета>` — имя созданного ранее бакета, использующегося CDN-ресурсом в качестве источника.
-        * Включите опцию **Доступ по защищённому токену**:
-          1. В появившемся поле **Секретный ключ** укажите секретный ключ — произвольную строку длиной от 6 до 32 символов. Он будет передан в конфигурацию CDN-ресурса и будет использоваться для формирования и проверки подписанных ссылок.
-          1. В поле **Ограничение доступа по IP-адресу** выберите `Только доверенные IP-адреса`.
-  1. Нажмите **Продолжить**.
-  1. В разделах **Кеширование**, **HTTP-заголовки и методы** и **Дополнительно** оставьте настройки по умолчанию и нажмите **Продолжить**.
+      * В блоке **{{ ui-key.yacloud.cdn.label_section-content }}**:
+        * Включите **{{ ui-key.yacloud.cdn.label_access }}**.
+        * В поле **{{ ui-key.yacloud.cdn.label_content-query-type }}** выберите `{{ ui-key.yacloud.cdn.value_query-type-one-origin }}`.
+        * В поле **{{ ui-key.yacloud.cdn.label_source-type }}** выберите `{{ ui-key.yacloud.cdn.value_source-type-url }}`.
+        * В поле **{{ ui-key.yacloud.cdn.field_origin }}** укажите `<имя_бакета>.{{ s3-web-host }}`, где `<имя_бакета>` — имя созданного ранее бакета, используемого CDN-ресурсом в качестве источника.
+        * В поле **{{ ui-key.yacloud.cdn.label_protocol }}** выберите `{{ ui-key.yacloud.cdn.value_protocol-match }}`.
+        * В поле **{{ ui-key.yacloud.cdn.label_personal-domain }}** укажите доменное имя, которое вы присвоите вашему CDN-ресурсу: например `cdn.example.com`.
+      * В блоке **{{ ui-key.yacloud.cdn.label_section-additional }}**:
+        * В поле **{{ ui-key.yacloud.cdn.label_redirect }}** выберите `{{ ui-key.yacloud.cdn.value_do-not-use }}`.
+        * В поле **{{ ui-key.yacloud.cdn.label_certificate-type }}** выберите `{{ ui-key.yacloud.cdn.value_certificate-custom }}` и в появившемся списке выберите созданный ранее сертификат `mymanagedcert`.
+        * В поле **{{ ui-key.yacloud.cdn.label_host-header }}** выберите `{{ ui-key.yacloud.cdn.value_host-header-custom }}` и в появившемся поле **{{ ui-key.yacloud.cdn.label_custom-host-header }}** укажите `<имя_бакета>.{{ s3-web-host }}`, где `<имя_бакета>` — имя созданного ранее бакета, использующегося CDN-ресурсом в качестве источника.
+        * Включите опцию **{{ ui-key.yacloud.cdn.field_secure-key-enabled }}**:
+          1. В появившемся поле **{{ ui-key.yacloud.cdn.field_secure-key }}** укажите секретный ключ — произвольную строку длиной от 6 до 32 символов. Он будет передан в конфигурацию CDN-ресурса и будет использоваться для формирования и проверки подписанных ссылок.
+          1. В поле **{{ ui-key.yacloud.cdn.field_secure-key-type }}** выберите `{{ ui-key.yacloud.cdn.value_secure-key-type-enable }}`.
+  1. Нажмите **{{ ui-key.yacloud.common.continue }}**.
+  1. В разделах **{{ ui-key.yacloud.cdn.label_resource-cache }}**, **{{ ui-key.yacloud.cdn.label_resource-http-headers }}** и **Дополнительно** оставьте настройки по умолчанию и нажмите **Продолжить**.
 
-- Yandex Cloud CLI {#cli}
+- {{ yandex-cloud }} CLI {#cli}
 
   1. Создайте ресурс:
   
       ```bash
       yc cdn resource create <имя_поддомена> \
-        --origin-custom-source <имя_бакета>.website.yandexcloud.net \
+        --origin-custom-source <имя_бакета>.{{ s3-web-host }} \
         --origin-protocol 'match' \
         --cert-manager-ssl-cert-id <идентификатор_сертификата> \
-        --host-header <имя_бакета>.website.yandexcloud.net \
+        --host-header <имя_бакета>.{{ s3-web-host }} \
         --secure-key <секретный_ключ> \
         --enable-ip-url-signing
       ```
 
       Где:
       * `<имя_поддомена>` — доменное имя, для которого ранее был создан TLS-сертификат и которое будет использоваться CDN-ресурсом. Например: `cdn.example.com`.
-      * `<имя_бакета>` — имя созданного ранее бакета Object Storage. Например: `cdn-source-bucket`.
+      * `<имя_бакета>` — имя созданного ранее бакета {{ objstorage-name }}. Например: `cdn-source-bucket`.
       * `--cert-manager-ssl-cert-id` — идентификатор TLS-сертификата, сохраненный ранее при его создании.
       * `--secure-key` — секретный ключ, произвольная строка длиной от 6 до 32 символов. Секретный ключ будет передан в конфигурацию CDN-ресурса и будет использоваться для формирования и проверки подписанных ссылок.
 
@@ -898,7 +898,7 @@
         host_options:
           host:
             enabled: true
-            value: cdn-source-bucket.website.yandexcloud.net
+            value: cdn-source-bucket.{{ s3-web-host }}
         stale:
           enabled: true
           value:
@@ -942,21 +942,21 @@
 - Консоль управления {#console}
 
   1. [Получите](../../../../cdn/operations/resources/get-resources-info.md#get-cname) значение доменного имени провайдера CDN.
-  1. В [консоли управления](https://console.yandex.cloud) выберите каталог, в котором вы будете создавать ресурсы.
-  1. [Перейдите](../../../../console/operations/select-service.md#select-service) в сервис **Cloud DNS**.
+  1. В [консоли управления]({{ link-console-main }}) выберите каталог, в котором вы будете создавать ресурсы.
+  1. Перейдите в сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_dns }}**.
   1. Выберите созданную ранее DNS-зону.
-  1. Нажмите **Создать запись**.
+  1. Нажмите **{{ ui-key.yacloud.dns.button_record-set-create }}**.
   1. Задайте параметры записи:
 
-        * В поле **Имя** выберите `Создать поддомен` и укажите имя, которое вы присвоили поддомену CDN-ресурса. Например: если доменное имя вашего CDN-ресурса — `cdn.example.com`, укажите только `cdn`.
-        * В поле **Тип** выберите [тип записи](../../../../dns/concepts/resource-record.md#rr-types) `CNAME`.
-        * В поле **Значение** укажите значение [доменного имени](../../../../cdn/operations/resources/get-resources-info.md#get-cname) провайдера CDN.
+        * В поле **{{ ui-key.yacloud.common.name }}** выберите `{{ ui-key.yacloud.dns.label_create-subdomain }}` и укажите имя, которое вы присвоили поддомену CDN-ресурса. Например: если доменное имя вашего CDN-ресурса — `cdn.example.com`, укажите только `cdn`.
+        * В поле **{{ ui-key.yacloud.common.type }}** выберите [тип записи](../../../../dns/concepts/resource-record.md#rr-types) `CNAME`.
+        * В поле **{{ ui-key.yacloud.dns.label_records }}** укажите значение [доменного имени](../../../../cdn/operations/resources/get-resources-info.md#get-cname) провайдера CDN.
 
-  1. Нажмите **Создать**.
+  1. Нажмите **{{ ui-key.yacloud.common.create }}**.
 
-- Yandex Cloud CLI {#cli}
+- {{ yandex-cloud }} CLI {#cli}
 
-  1. Создайте ресурсную запись CNAME в сервисе Cloud DNS:
+  1. Создайте ресурсную запись CNAME в сервисе {{ dns-name }}:
 
       ```bash
       yc dns zone add-records \
@@ -974,7 +974,7 @@
       +--------+------------------+-------+-------------------------------------------+-----+
       | ACTION |       NAME       | TYPE  |           DATA                            | TTL |
       +--------+------------------+-------+-------------------------------------------+-----+
-      | +      | cdn.example.com. | CNAME | e1b83ae3********.topology.gslb.yccdn.ru | 600 |
+      | +      | cdn.example.com. | CNAME | {{ cname-example-yc }} | 600 |
       +--------+------------------+-------+-------------------------------------------+-----+
       ```
 
@@ -994,13 +994,13 @@
 Далее вы создадите и опубликуете на вашем веб-сервере сайт, который будет генерировать подписанные ссылки на контент, расположенный на защищенном CDN-ресурсе. Чтобы обеспечить безопасность передаваемых данных, вы скопируете на веб-сервер созданный ранее TLS-сертификат и включите SSL-шифрование.
 
 
-### Выгрузите сертификат из Certificate Manager {#export-certificate}
+### Выгрузите сертификат из {{ certificate-manager-name }} {#export-certificate}
 
-Чтобы использовать созданный в Certificate Manager TLS-сертификат в конфигурации вашего веб-сервера, выгрузите цепочку сертификатов и закрытый ключ в текущую директорию:
+Чтобы использовать созданный в {{ certificate-manager-name }} TLS-сертификат в конфигурации вашего веб-сервера, выгрузите цепочку сертификатов и закрытый ключ в текущую директорию:
 
 {% list tabs group=instructions %}
 
-- Yandex Cloud CLI {#cli}
+- {{ yandex-cloud }} CLI {#cli}
 
   1. Узнайте идентификатор созданного ранее TLS-сертификата:
 
@@ -1045,7 +1045,7 @@
 
     Где `<IP-адрес_ВМ>` — публичный IP-адрес созданной ранее ВМ с веб-сервером.
 
-    Узнать IP-адрес ВМ можно в [консоли управления](https://console.yandex.cloud) на странице ВМ в блоке **Сеть** или с помощью команды CLI `yc compute instance get mywebserver`.
+    Узнать IP-адрес ВМ можно в [консоли управления]({{ link-console-main }}) на странице ВМ в блоке **{{ ui-key.yacloud.compute.instance.overview.section_network }}** или с помощью команды CLI `yc compute instance get mywebserver`.
 
     При первом подключении к ВМ появится предупреждение о неизвестном хосте:
 
@@ -1257,4 +1257,4 @@
 
 #### См. также {#see-also}
 
-* [Организация защищенного доступа к контенту в Yandex Cloud CDN с помощью Terraform](terraform.md)
+* [{#T}](terraform.md)

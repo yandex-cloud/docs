@@ -2,13 +2,13 @@
 
 SAML (Security Assertion Markup Language) — это язык разметки для обмена данными аутентификации и авторизации между сторонами. SAML позволяет реализовать систему единого входа (Single Sign-On, SSO), с помощью которой можно переключаться между приложениями без повторной аутентификации.
 
-При работе с SAML и SSO кластер Managed Service for OpenSearch получает сведения от провайдера идентификации (Identity Provider, IdP). Подробнее о SAML и SSO см. в [документации OASIS](https://wiki.oasis-open.org/security/saml/).
+При работе с SAML и SSO кластер {{ mos-name }} получает сведения от провайдера идентификации (Identity Provider, IdP). Подробнее о SAML и SSO см. в [документации OASIS](https://wiki.oasis-open.org/security/saml/).
 
-Managed Service for OpenSearch поддерживает все SAML 2.0-совместимые провайдеры идентификации.
+{{ mos-name }} поддерживает все SAML 2.0-совместимые провайдеры идентификации.
 
 Чтобы настроить SAML-аутентификацию:
 1. [Настройте провайдер идентификации](#configuration-idp).
-1. [Настройте кластер Managed Service for OpenSearch](#configuration-sso) на использование этого провайдера для SSO.
+1. [Настройте кластер {{ mos-name }}](#configuration-sso) на использование этого провайдера для SSO.
 1. [Настройте роли кластера](#roles-sso) для пользователей SSO на стороне провайдера.
 
 ## Настройте провайдер идентификации {#configuration-idp}
@@ -19,29 +19,29 @@ Managed Service for OpenSearch поддерживает все SAML 2.0-совм
     Используйте URL со [специальным FQDN кластера](connect/fqdn.md#special-fqdns):
 
     ```text
-    https://c-<идентификатор_кластера_OpenSearch>.rw.mdb.yandexcloud.net/_opendistro/_security/saml/acs
+    https://c-<идентификатор_кластера_{{ OS }}>.rw.{{ dns-zone }}/_opendistro/_security/saml/acs
     ```
 
     Идентификатор кластера можно запросить со [списком кластеров в каталоге](cluster-list.md#list-clusters).
 
-    Пример URL: `https://c-e4ut2....rw.mdb.yandexcloud.net/_opendistro/_security/saml/acs`
+    Пример URL: `https://c-e4ut2....rw.{{ dns-zone }}/_opendistro/_security/saml/acs`
 
 1. Укажите **SP Entity ID (Audience URI)**.
 
     Используйте URL со [специальным FQDN кластера](connect/fqdn.md#special-fqdns):
 
     ```text
-    https://c-<идентификатор_кластера>rw.mdb.yandexcloud.net/
+    https://c-<идентификатор_кластера>rw.{{ dns-zone }}/
     ```
 
-    Пример URL: `https://c-e4ut2....rw.mdb.yandexcloud.net/`
+    Пример URL: `https://c-e4ut2....rw.{{ dns-zone }}/`
 
 1. Укажите **Name ID Format**:
 
     * `email`, если вы используете [федерацию удостоверений с провайдером Keycloak](../../organization/tutorials/federations/integration-keycloak.md).
     * `persistent` — для остальных провайдеров.
 
-1. Получите данные, необходимые для настройки SAML SSO на стороне OpenSearch:
+1. Получите данные, необходимые для настройки SAML SSO на стороне {{ OS }}:
     * Скопируйте информацию об эмитенте провайдера идентификации (Identity Provider Issuer).
     * Сохраните файл с метаданными провайдера в формате XML.
 
@@ -59,31 +59,31 @@ Managed Service for OpenSearch поддерживает все SAML 2.0-совм
 
 - Консоль управления {#console}
 
-    1. В [консоли управления](https://console.yandex.cloud) перейдите на страницу каталога.
-    1. [Перейдите](../../console/operations/select-service.md#select-service) в сервис **Managed Service for&nbsp;OpenSearch**.
-    1. Нажмите на имя нужного кластера и выберите вкладку **Источники аутентификации**.
-    1. Нажмите кнопку **Настроить**.
+    1. В [консоли управления]({{ link-console-main }}) перейдите на страницу каталога.
+    1. Перейдите в сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-opensearch }}**.
+    1. Нажмите на имя нужного кластера и выберите вкладку **{{ ui-key.yacloud.opensearch.auth.section_auth }}**.
+    1. Нажмите кнопку **{{ ui-key.yacloud.opensearch.auth.button_settings }}**.
     1. Укажите параметры внешнего источника аутентификации:
 
-        * **idp_entity_id** — информация об эмитенте провайдера идентификации (Identity Provider Issuer), которая получена при [настройке провайдера идентификации](#configuration-idp).
+        * **{{ ui-key.yacloud.opensearch.auth.field_idp-entity-id }}** — информация об эмитенте провайдера идентификации (Identity Provider Issuer), которая получена при [настройке провайдера идентификации](#configuration-idp).
 
         * **idp_metadata_file** — файл с метаданными провайдера в формате XML, который получен при [настройке провайдера идентификации](#configuration-idp).
 
-        * **sp_entity_id** — URI-идентификатор приложения SP Entity ID (Audience URI). Должен соответствовать указанному при [настройке провайдера идентификации](#configuration-idp).
+        * **{{ ui-key.yacloud.opensearch.auth.field_sp-entity-id }}** — URI-идентификатор приложения SP Entity ID (Audience URI). Должен соответствовать указанному при [настройке провайдера идентификации](#configuration-idp).
 
-        * **kibana_url** — URL со [специальным FQDN кластера](connect/fqdn.md#special-fqdns). Значение совпадает с **sp_entity_id**.
+        * **{{ ui-key.yacloud.opensearch.auth.field_dashboards-url }}** — URL со [специальным FQDN кластера](connect/fqdn.md#special-fqdns). Значение совпадает с **{{ ui-key.yacloud.opensearch.auth.field_sp-entity-id }}**.
 
-        * **roles_key** — имя параметра в ответе SAML, в котором хранятся роли. Ответ SAML приходит от провайдера идентификации. Если параметр не настроен, роли не используются.
+        * **{{ ui-key.yacloud.opensearch.auth.field_roles-key }}** — имя параметра в ответе SAML, в котором хранятся роли. Ответ SAML приходит от провайдера идентификации. Если параметр не настроен, роли не используются.
 
-        * **subject_key** — имя параметра в ответе SAML, в котором хранится тема. Ответ SAML приходит от провайдера идентификации. Если параметр не настроен, используется параметр `NameID`.
+        * **{{ ui-key.yacloud.opensearch.auth.field_subject-key }}** — имя параметра в ответе SAML, в котором хранится тема. Ответ SAML приходит от провайдера идентификации. Если параметр не настроен, используется параметр `NameID`.
 
-        * **Таймаут сессии** — срок жизни сессии в минутах. Укажите его, если провайдер идентификации не установил свой таймаут.
+        * **{{ ui-key.yacloud.opensearch.auth.field_jwt-default-expiration-timeout }}** — срок жизни сессии в минутах. Укажите его, если провайдер идентификации не установил свой таймаут.
 
             Если значение отсутствует или указан `0`, срок жизни сессии не ограничен (значение по умолчанию).
 
-        * **Активировать** — активировать ли источник аутентификации после создания.
+        * **{{ ui-key.yacloud.opensearch.auth.field_enabled }}** — активировать ли источник аутентификации после создания.
 
-    1. Нажмите кнопку **Сохранить**.
+    1. Нажмите кнопку **{{ ui-key.yacloud.opensearch.auth.button_save }}**.
 
 - REST API {#api}
 
@@ -93,14 +93,14 @@ Managed Service for OpenSearch поддерживает все SAML 2.0-совм
         export IAM_TOKEN="<IAM-токен>"
         ```
 
-    1. Воспользуйтесь методом [Cluster.UpdateAuthSettings](../api-ref/Cluster/updateAuthSettings.md) и выполните запрос, например, с помощью [cURL](https://curl.se/):
+    1. Воспользуйтесь методом [Cluster.UpdateAuthSettings](../api-ref/Cluster/updateAuthSettings.md) и выполните запрос, например, с помощью {{ api-examples.rest.tool }}:
 
         ```bash
         curl \
             --request PUT \
             --header "Authorization: Bearer $IAM_TOKEN" \
             --header "Content-Type: application/json" \
-            --url 'https://mdb.api.cloud.yandex.net/managed-opensearch/v1/clusters/<идентификатор_кластера>/auth' \
+            --url 'https://{{ api-host-mdb }}/managed-opensearch/v1/clusters/<идентификатор_кластера>/auth' \
             --data '{
                         "settings": {
                             "saml": {
@@ -149,7 +149,7 @@ Managed Service for OpenSearch поддерживает все SAML 2.0-совм
        ```
        
        Далее предполагается, что содержимое репозитория находится в директории `~/cloudapi/`.
-    1. Воспользуйтесь вызовом [ClusterService.UpdateAuthSettings](../api-ref/grpc/Cluster/updateAuthSettings.md) и выполните запрос, например, с помощью [gRPCurl](https://github.com/fullstorydev/grpcurl):
+    1. Воспользуйтесь вызовом [ClusterService.UpdateAuthSettings](../api-ref/grpc/Cluster/updateAuthSettings.md) и выполните запрос, например, с помощью {{ api-examples.grpc.tool }}:
 
         ```bash
         grpcurl \
@@ -172,7 +172,7 @@ Managed Service for OpenSearch поддерживает все SAML 2.0-совм
                     }
                 }
             }' \
-        mdb.api.cloud.yandex.net:443 \
+        {{ api-host-mdb }}:{{ port-https }} \
         yandex.cloud.mdb.opensearch.v1.ClusterService.UpdateAuthSettings
         ```
 
@@ -197,7 +197,7 @@ Managed Service for OpenSearch поддерживает все SAML 2.0-совм
 
 {% note info %}
 
-Подробнее о SAML-атрибутах см. в [документации OpenSearch](https://opensearch.org/docs/latest/security/authentication-backends/saml/).
+Подробнее о SAML-атрибутах см. в [документации {{ OS }}]({{ os.docs }}/security/authentication-backends/saml/).
 
 {% endnote %}
 
@@ -205,14 +205,14 @@ Managed Service for OpenSearch поддерживает все SAML 2.0-совм
 
 Чтобы получить доступ к кластеру через SSO, свяжите роли кластера с пользователями SSO на стороне провайдера:
 
-1. [Сопоставьте роли](https://opensearch.org/docs/latest/security/access-control/users-roles/) пользователей OpenSearch на стороне провайдера идентификации с ролями в кластере. Выполните эту операцию от имени [пользователя `admin`](../concepts/index.md) одним из способов:
+1. [Сопоставьте роли](https://opensearch.org/docs/latest/security/access-control/users-roles/) пользователей {{ OS }} на стороне провайдера идентификации с ролями в кластере. Выполните эту операцию от имени [пользователя `admin`](../concepts/index.md) одним из способов:
     * С помощью [OpenSearch Dashboards](https://opensearch.org/docs/latest/security/access-control/users-roles/#opensearch-dashboards-2).
-    * С помощью [API OpenSearch](https://opensearch.org/docs/latest/security/access-control/api/#create-role-mapping).
-1. На стороне провайдера идентификации создайте пользователя, который удовлетворяет указанным сопоставлениям ролей в OpenSearch.
+    * С помощью [API {{ OS }}](https://opensearch.org/docs/latest/security/access-control/api/#create-role-mapping).
+1. На стороне провайдера идентификации создайте пользователя, который удовлетворяет указанным сопоставлениям ролей в {{ OS }}.
 1. Разрешите этому пользователю доступ к [созданному ранее приложению](#configuration-idp).
 
-Чтобы аутентифицироваться в OpenSearch под новым пользователем, перейдите на страницу **OpenSearch Dashboards**.
+Чтобы аутентифицироваться в {{ OS }} под новым пользователем, перейдите на страницу **OpenSearch Dashboards**.
 
 ## Примеры интеграции с провайдерами {#examples}
 
-[Аутентификация в OpenSearch Dashboards с помощью Keycloak](../tutorials/saml-keycloak.md).
+[{#T}](../tutorials/saml-keycloak.md).

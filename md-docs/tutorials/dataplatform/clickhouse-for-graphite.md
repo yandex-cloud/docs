@@ -1,14 +1,14 @@
-# Настройка Yandex Managed Service for ClickHouse® для Graphite
+# Настройка {{ mch-full-name }} для Graphite
 
-# Настройка Managed Service for ClickHouse® для Graphite
+# Настройка {{ mch-name }} для Graphite
 
-Yandex Managed Service for ClickHouse® можно использовать как хранилище данных для [Graphite](https://graphite.readthedocs.io/en/latest/index.html).
+{{ mch-full-name }} можно использовать как хранилище данных для [Graphite](https://graphite.readthedocs.io/en/latest/index.html).
 
-Движок таблиц [GraphiteMergeTree](https://clickhouse.com/docs/ru/engines/table-engines/mergetree-family/graphitemergetree/) позволяет прореживать и агрегировать или усреднять содержимое БД специально для Graphite. Движок уменьшает объем хранения данных и повышает эффективность запросов от Graphite.
+Движок таблиц [GraphiteMergeTree]({{ ch.docs }}{{ lang }}/engines/table-engines/mergetree-family/graphitemergetree) позволяет прореживать и агрегировать или усреднять содержимое БД специально для Graphite. Движок уменьшает объем хранения данных и повышает эффективность запросов от Graphite.
 
 {% note info %}
 
-Если прореживание и агрегирование или усреднение не требуется, то для хранения данных Graphite можно использовать любой [движок таблиц](https://clickhouse.com/docs/ru/engines/table-engines/) ClickHouse®.
+Если прореживание и агрегирование или усреднение не требуется, то для хранения данных Graphite можно использовать любой [движок таблиц]({{ ch.docs }}{{ lang }}/engines/table-engines) {{ CH }}.
 
 {% endnote %}
 
@@ -25,29 +25,29 @@ Yandex Managed Service for ClickHouse® можно использовать ка
 
 ## Подготовьте окружение {#start}
 
-Зарегистрируйтесь в Yandex Cloud и создайте [платежный аккаунт](../../billing/concepts/billing-account.md):
-1. Перейдите в [консоль управления](https://console.yandex.cloud), затем войдите в Yandex Cloud или зарегистрируйтесь.
-1. На странице **[Yandex Cloud Billing](https://center.yandex.cloud/billing/accounts)** убедитесь, что у вас подключен платежный аккаунт, и он находится в [статусе](../../billing/concepts/billing-account-statuses.md) `ACTIVE` или `TRIAL_ACTIVE`. Если платежного аккаунта нет, [создайте его](../../billing/quickstart/index.md) и [привяжите](../../billing/operations/pin-cloud.md) к нему облако.
+Зарегистрируйтесь в {{ yandex-cloud }} и создайте [платежный аккаунт](../../billing/concepts/billing-account.md):
+1. Перейдите в [консоль управления]({{ link-console-main }}), затем войдите в {{ yandex-cloud }} или зарегистрируйтесь.
+1. На странице **[{{ ui-key.yacloud_billing.billing.label_service }}]({{ link-console-billing }})** убедитесь, что у вас подключен платежный аккаунт, и он находится в [статусе](../../billing/concepts/billing-account-statuses.md) `ACTIVE` или `TRIAL_ACTIVE`. Если платежного аккаунта нет, [создайте его](../../billing/quickstart/index.md) и [привяжите](../../billing/operations/pin-cloud.md) к нему облако.
 
-Если у вас есть активный платежный аккаунт, вы можете создать или выбрать [каталог](../../resource-manager/concepts/resources-hierarchy.md#folder), в котором будет работать ваша инфраструктура, на [странице облака](https://console.yandex.cloud/cloud).
+Если у вас есть активный платежный аккаунт, вы можете создать или выбрать [каталог](../../resource-manager/concepts/resources-hierarchy.md#folder), в котором будет работать ваша инфраструктура, на [странице облака]({{ link-console-cloud }}).
 
 [Подробнее об облаках и каталогах](../../resource-manager/concepts/resources-hierarchy.md).
 
 
 ### Необходимые платные ресурсы {#paid-resources}
 
-В стоимость поддержки БД ClickHouse® для Graphite входит:
-* плата за вычислительные ресурсы кластера, объем хранилища и резервных копий (см. [тарифы Yandex Managed Service for ClickHouse®](../../managed-clickhouse/pricing.md));
-* плата за запущенную ВМ для управления БД (см. [тарифы Yandex Compute Cloud](../../compute/pricing.md)).
+В стоимость поддержки БД {{ CH }} для Graphite входит:
+* плата за вычислительные ресурсы кластера, объем хранилища и резервных копий (см. [тарифы {{ mch-full-name }}](../../managed-clickhouse/pricing.md));
+* плата за запущенную ВМ для управления БД (см. [тарифы {{ compute-full-name }}](../../compute/pricing.md)).
 
 
 ## Создайте кластер {#cluster-create}
 
-1. [Создайте кластер **Managed Service for&nbsp;ClickHouse**](../../managed-clickhouse/operations/cluster-create.md) любой подходящей вам конфигурации с БД `db1` и публичным доступом ко всем его хостам. Сохраните имя БД, имя пользователя БД и пароль.
-1. Откройте [консоль управления](https://console.yandex.cloud).
-1. [Перейдите](../../console/operations/select-service.md#select-service) в сервис Managed Service for&nbsp;ClickHouse.
-1. Выберите созданный кластер и на вкладке **Обзор** сохраните идентификатор кластера.
-1. В правом верхнем углу нажмите **Подключиться**, на вкладке **Shell** из поля **Пример строки подключения** сохраните параметр `--host`, например `rc1a-2sqal8f0********.mdb.yandexcloud.net`, это FQDN хоста кластера, он потребуется в дальнейшем.
+1. [Создайте кластер **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-clickhouse }}**](../../managed-clickhouse/operations/cluster-create.md) любой подходящей вам конфигурации с БД `db1` и публичным доступом ко всем его хостам. Сохраните имя БД, имя пользователя БД и пароль.
+1. Откройте [консоль управления]({{ link-console-main }}).
+1. Перейдите в сервис {{ ui-key.yacloud.iam.folder.dashboard.label_managed-clickhouse }}.
+1. Выберите созданный кластер и на вкладке **{{ ui-key.yacloud.common.overview }}** сохраните идентификатор кластера.
+1. В правом верхнем углу нажмите **{{ ui-key.yacloud.mdb.clusters.button_action-connect }}**, на вкладке **Shell** из поля **Пример строки подключения** сохраните параметр `--host`, например `rc1a-2sqal8f0********.{{ dns-zone }}`, это FQDN хоста кластера, он потребуется в дальнейшем.
 
 ## Зарегистрируйте конфигурацию rollup в кластере {#rollup-config}
 
@@ -57,7 +57,7 @@ Yandex Managed Service for ClickHouse® можно использовать ка
 
 - CLI {#cli}
   
-  Если у вас еще нет интерфейса командной строки Yandex Cloud (CLI), [установите и инициализируйте его](../../cli/quickstart.md#install).
+  Если у вас еще нет интерфейса командной строки {{ yandex-cloud }} (CLI), [установите и инициализируйте его](../../cli/quickstart.md#install).
 
   По умолчанию используется каталог, указанный при [создании](../../cli/operations/profile/profile-create.md) профиля CLI. Чтобы изменить каталог по умолчанию, используйте команду `yc config set folder-id <идентификатор_каталога>`. Также для любой команды вы можете указать другой каталог с помощью параметров `--folder-name` или `--folder-id`. Если вы обращаетесь к ресурсу по имени, поиск будет выполнен в каталоге по умолчанию. Если вы обращаетесь к ресурсу по идентификатору, поиск будет выполнен глобально — во всех каталогах с учетом прав доступа.
 
@@ -116,12 +116,12 @@ Yandex Managed Service for ClickHouse® можно использовать ка
 
 1. В той же [облачной сети](../../vpc/concepts/network.md), где расположен кластер, [создайте](../../compute/operations/vm-create/create-linux-vm.md) ВМ на основе Linux. 
 1. [Подключитесь](../../compute/operations/vm-connect/ssh.md) к ВМ по [SSH](../../glossary/ssh-keygen.md). 
-1. Подключите [DEB-репозиторий](https://clickhouse.com/docs/ru/getting-started/install/#install-from-deb-packages) ClickHouse®:
+1. Подключите [DEB-репозиторий]({{ ch.docs }}{{ lang }}/install#install-from-deb-packages) {{ CH }}:
 
     ```bash
     sudo apt update && sudo apt install -y apt-transport-https ca-certificates dirmngr && \
     sudo apt-key adv --keyserver hkp://keyserver.ubuntu.com:80 --recv E0C56BD4 && \
-    echo "deb https://packages.clickhouse.com/deb stable main" | sudo tee \
+    echo "deb https://packages.{{ ch-domain }}/deb stable main" | sudo tee \
     /etc/apt/sources.list.d/clickhouse.list
     ```
 
@@ -135,17 +135,17 @@ Yandex Managed Service for ClickHouse® можно использовать ка
 
     ```bash
     mkdir -p ~/.clickhouse-client && \
-    wget "https://storage.yandexcloud.net/doc-files/clickhouse-client.conf.example" \
+    wget "https://{{ s3-storage-host-doc-files }}/clickhouse-client.conf.example" \
       --output-document ~/.clickhouse-client/config.xml
     ```
 
 1. Получите [SSL-сертификат](../../glossary/ssl-certificate.md):
 
     ```bash
-    sudo mkdir --parents /usr/local/share/ca-certificates/Yandex/ && \
-    sudo wget "https://storage.yandexcloud.net/cloud-certs/RootCA.pem" \
-         --output-document /usr/local/share/ca-certificates/Yandex/RootCA.crt && \
-    sudo chmod 655 /usr/local/share/ca-certificates/Yandex/RootCA.crt && \
+    sudo mkdir --parents {{ crt-local-dir }} && \
+    sudo wget "{{ crt-web-path-root }}" \
+         --output-document {{ crt-local-dir }}{{ crt-local-file-root }} && \
+    sudo chmod 655 {{ crt-local-dir }}{{ crt-local-file-root }} && \
     sudo update-ca-certificates
     ```
 
@@ -154,7 +154,7 @@ Yandex Managed Service for ClickHouse® можно использовать ка
 1. Если вы используете группы безопасности для облачной сети, [настройте их](../../managed-clickhouse/operations/connect/index.md#configuring-security-groups) так, чтобы был разрешен весь необходимый трафик между кластером и ВМ.
 
 1. [Подключитесь](../../compute/operations/vm-connect/ssh.md). 
-1. Запустите ClickHouse® CLI со следующими параметрами: вместо `<FQDN_хоста>`, `<имя_БД>`, `<имя_пользователя_БД>` и `<пароль_пользователя_БД>` укажите ранее сохраненные параметры.
+1. Запустите {{ CH }} CLI со следующими параметрами: вместо `<FQDN_хоста>`, `<имя_БД>`, `<имя_пользователя_БД>` и `<пароль_пользователя_БД>` укажите ранее сохраненные параметры.
 
     ```bash
     clickhouse-client --host <FQDN_хоста> \
@@ -169,9 +169,9 @@ Yandex Managed Service for ClickHouse® можно использовать ка
 
 {% list tabs group=instructions %}
 
-- ClickHouse® CLI {#cli}
+- {{ CH }} CLI {#cli}
 
-  В интерфейсе ClickHouse® CLI выполните запрос на создание таблицы на основе [GraphiteMergeTree](https://clickhouse.com/docs/ru/engines/table-engines/mergetree-family/graphitemergetree/). В качестве параметра передайте имя секции `rollup`, описанной ранее:
+  В интерфейсе {{ CH }} CLI выполните запрос на создание таблицы на основе [GraphiteMergeTree]({{ ch.docs }}{{ lang }}/engines/table-engines/mergetree-family/graphitemergetree). В качестве параметра передайте имя секции `rollup`, описанной ранее:
 
     ```sql
     CREATE TABLE GraphiteTable
@@ -190,7 +190,7 @@ Yandex Managed Service for ClickHouse® можно использовать ка
 
 ## Настройте Graphite {#graphite-setup}
 
-Настройте Graphite для сохранения значений метрик в кластере ClickHouse®. При этом прореживание данных будет проводиться автоматически средствами сервера ClickHouse® в соответствии с параметрами, которые вы указали.
+Настройте Graphite для сохранения значений метрик в кластере {{ CH }}. При этом прореживание данных будет проводиться автоматически средствами сервера {{ CH }} в соответствии с параметрами, которые вы указали.
 
 1. В системе с Graphite установите утилиту `carbon-clickhouse`:
 
@@ -241,7 +241,7 @@ Yandex Managed Service for ClickHouse® можно использовать ка
 
 Удалите ресурсы, которые вы больше не будете использовать, чтобы за них не списывалась плата:
 
-* [Удалите кластер ClickHouse®](../../managed-clickhouse/operations/cluster-delete.md).
+* [Удалите кластер {{ CH }}](../../managed-clickhouse/operations/cluster-delete.md).
 * [Удалите ВМ](../../compute/operations/vm-control/vm-delete.md).
 
-_ClickHouse® является зарегистрированным товарным знаком [ClickHouse, Inc](https://clickhouse.com)._
+_{{ CH }} является зарегистрированным товарным знаком [ClickHouse, Inc](https://clickhouse.com)._

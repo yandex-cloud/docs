@@ -5,7 +5,7 @@ Writes product's usage (authenticated by publisher's service account)
 ## HTTP request
 
 ```
-POST https://marketplace.api.cloud.yandex.net/marketplace/metering/v1/productUsage/write
+POST https://marketplace.{{ api-host }}/marketplace/metering/v1/productUsage/write
 ```
 
 ## Body parameters {#yandex.cloud.marketplace.metering.v1.WriteUsageRequest}

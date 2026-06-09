@@ -1,13 +1,12 @@
 # Resource Manager API, REST: Folder.Get
 
 Returns the specified Folder resource.
-
 To get the list of available Folder resources, make a [List](list.md#List) request.
 
 ## HTTP request
 
 ```
-GET https://resource-manager.api.cloud.yandex.net/resource-manager/v1/folders/{folderId}
+GET https://resource-manager.{{ api-host }}/resource-manager/v1/folders/{folderId}
 ```
 
 ## Path parameters

@@ -6,7 +6,7 @@ Method skips non-existent federated user accounts and returns ones that were act
 ## HTTP request
 
 ```
-POST https://organization-manager.api.cloud.yandex.net/organization-manager/v1/saml/federations/{federationId}:reactivateUserAccounts
+POST https://organization-manager.{{ api-host }}/organization-manager/v1/saml/federations/{federationId}:reactivateUserAccounts
 ```
 
 ## Path parameters
@@ -36,7 +36,7 @@ The maximum string length in characters is 50. ||
 
 List of subjects to reactivate.
 
-The number of elements must be in the range 1-1000. The string length in characters for each value must be 1-50. ||
+The string length in characters for each value must be 1-50. The number of elements must be in the range 1-1000. ||
 |#
 
 ## Response {#yandex.cloud.operation.Operation}
@@ -51,12 +51,7 @@ The number of elements must be in the range 1-1000. The string length in charact
   "createdBy": "string",
   "modifiedAt": "string",
   "done": "boolean",
-  "metadata": {
-    "federationId": "string",
-    "subjectIds": [
-      "string"
-    ]
-  },
+  "metadata": "object",
   // Includes only one of the fields `error`, `response`
   "error": {
     "code": "integer",
@@ -65,11 +60,7 @@ The number of elements must be in the range 1-1000. The string length in charact
       "object"
     ]
   },
-  "response": {
-    "subjectIds": [
-      "string"
-    ]
-  }
+  "response": "object"
   // end of the list of possible fields
 }
 ```
@@ -111,7 +102,7 @@ In some languages, built-in datetime utilities do not support nanosecond precisi
 
 If the value is `false`, it means the operation is still in progress.
 If `true`, the operation is completed, and either `error` or `response` is available. ||
-|| metadata | **[ReactivateFederatedUserAccountsMetadata](#yandex.cloud.organizationmanager.v1.saml.ReactivateFederatedUserAccountsMetadata)**
+|| metadata | **object**
 
 Service-specific metadata associated with the operation.
 It typically contains the ID of the target resource that the operation is performed on.
@@ -126,7 +117,7 @@ The operation result.
 If `done == false` and there was no failure detected, neither `error` nor `response` is set.
 If `done == false` and there was a failure detected, `error` is set.
 If `done == true`, exactly one of `error` or `response` is set. ||
-|| response | **[ReactivateFederatedUserAccountsResponse](#yandex.cloud.organizationmanager.v1.saml.ReactivateFederatedUserAccountsResponse)**
+|| response | **object**
 
 The normal response of the operation in case of success.
 If the original method returns no data on success, such as Delete,
@@ -141,18 +132,6 @@ The operation result.
 If `done == false` and there was no failure detected, neither `error` nor `response` is set.
 If `done == false` and there was a failure detected, `error` is set.
 If `done == true`, exactly one of `error` or `response` is set. ||
-|#
-
-## ReactivateFederatedUserAccountsMetadata {#yandex.cloud.organizationmanager.v1.saml.ReactivateFederatedUserAccountsMetadata}
-
-#|
-||Field | Description ||
-|| federationId | **string**
-
-ID of the federation to reactivate subjects of. ||
-|| subjectIds[] | **string**
-
-List of subjects to reactivate. ||
 |#
 
 ## Status {#google.rpc.Status}
@@ -170,13 +149,4 @@ An error message. ||
 || details[] | **object**
 
 A list of messages that carry the error details. ||
-|#
-
-## ReactivateFederatedUserAccountsResponse {#yandex.cloud.organizationmanager.v1.saml.ReactivateFederatedUserAccountsResponse}
-
-#|
-||Field | Description ||
-|| subjectIds[] | **string**
-
-Subjects that were actually reactivated. ||
 |#

@@ -5,7 +5,7 @@ List group active members.
 ## HTTP request
 
 ```
-GET https://organization-manager.api.cloud.yandex.net/organization-manager/v1/groups/{groupId}:listMembers
+GET https://organization-manager.{{ api-host }}/organization-manager/v1/groups/{groupId}:listMembers
 ```
 
 ## Path parameters
@@ -79,7 +79,6 @@ ID of the subject. ||
 || subjectType | **string**
 
 Type of the subject.
-
 It can contain one of the following values:
 * `userAccount`: An account on Yandex, added to Yandex Cloud.
 * `federatedUser`: A federated account. This type represents a user from an identity federation, like Active Directory. ||

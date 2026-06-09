@@ -1,15 +1,15 @@
 # Получить ключи капчи 
 
-В этом разделе вы узнаете, как получить [ключи капчи](../concepts/keys.md). С помощью клиентского ключа вы можете [добавить виджет](../quickstart.md#add-widget) SmartCaptcha на свою страницу. Серверный ключ потребуется для [проверки ответа](../quickstart.md#check-answer) пользователя.
+В этом разделе вы узнаете, как получить [ключи капчи](../concepts/keys.md). С помощью клиентского ключа вы можете [добавить виджет](../quickstart.md#add-widget) {{ captcha-name }} на свою страницу. Серверный ключ потребуется для [проверки ответа](../quickstart.md#check-answer) пользователя.
 
 {% list tabs group=instructions %}
 
 - Консоль управления {#console}
 
-    1. В [консоли управления](https://console.yandex.cloud) выберите каталог.
-    1. [Перейдите](../../console/operations/select-service.md#select-service) в сервис **Yandex SmartCaptcha**.
+    1. В [консоли управления]({{ link-console-main }}) выберите каталог.
+    1. Перейдите в сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_smartcaptcha_ru }}**.
     1. Нажмите на имя капчи или [создайте](../quickstart.md#creat-captcha) новую капчу.
-    1. На вкладке **Обзор** скопируйте значения полей **Ключ клиента** и **Ключ сервера**.
+    1. На вкладке **{{ ui-key.yacloud.common.overview }}** скопируйте значения полей **{{ ui-key.yacloud.smartcaptcha.label_client-key }}** и **{{ ui-key.yacloud.smartcaptcha.label_server-key }}**.
 
        ![step4-get-keys](../../_assets/smartcaptcha/quickstart/step4-get-keys.png)
 

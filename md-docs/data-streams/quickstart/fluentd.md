@@ -2,7 +2,7 @@
 
 {% note info %}
 
-Вы можете создать триггер, который будет запускать [функцию](../../functions/concepts/function.md) Cloud Functions или [контейнер](../../serverless-containers/concepts/container.md) Serverless Containers при отправке данных в поток. Подробнее о [триггере для Data Streams](../../functions/operations/trigger/data-streams-trigger-create.md).
+Вы можете создать триггер, который будет запускать [функцию](../../functions/concepts/function.md) {{ sf-name }} или [контейнер](../../serverless-containers/concepts/container.md) {{ serverless-containers-name }} при отправке данных в поток. Подробнее о [триггере для {{ yds-name }}](../../functions/operations/trigger/data-streams-trigger-create.md).
 
 {% endnote %}
 
@@ -13,10 +13,10 @@
    sudo fluent-gem install fluent-plugin-kinesis
    ```
 
-1. В [консоли управления](https://console.yandex.cloud) выберите каталог, в котором находится поток данных.
-1. [Перейдите](../../console/operations/select-service.md#select-service) в сервис **Data Streams**.
+1. В [консоли управления]({{ link-console-main }}) выберите каталог, в котором находится поток данных.
+1. Перейдите в сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_data-streams }}**.
 1. Выберите поток данных.
-1. Нажмите **Подключиться** и перейдите на вкладку **Fluentd**.
+1. Нажмите **{{ ui-key.yacloud.data-streams.button_connect }}** и перейдите на вкладку **Fluentd**.
 1. Скопируйте пример файла конфигурации и вставьте его в файл `/etc/td-agent/td-agent.conf`.
 
    Пример файла конфигурации:
@@ -42,7 +42,7 @@
        aws_sec_key <секретный_ключ>
 
        # kinesis stream name
-       stream_name /ru-central1/aoegtvhtp8ob********/cc8004q4lbo6********/test
+       stream_name /{{ region-id }}/aoegtvhtp8ob********/cc8004q4lbo6********/test
 
        # region
        region ru-central-1
@@ -70,9 +70,9 @@
     http://localhost:8888/kinesis
    ```
 
-   Если настройка выполнена успешно, в логе работы Fluentd `/var/log/td-agent/td-agent.log` появится сообщение о получении данных и отправке их в Yandex Data Streams по протоколу AWS Kinesis Data Streams:
+   Если настройка выполнена успешно, в логе работы Fluentd `/var/log/td-agent/td-agent.log` появится сообщение о получении данных и отправке их в {{ yds-full-name }} по протоколу AWS Kinesis Data Streams:
 
    ```text
    kinesis: {"json":"message"}
-   DEBUG -- : [Aws::Kinesis::Client 200 0.628973 0 retries] put_records(stream_name:"/ru-central1/aoeu1kuk2dht********/cc8029jgtuab********/fluentd_stream",records:[{data:"{\"message\":\"Write chunk 5c0cf5c556654e99cac84*********** /   2 records /    0 KB\"}\n",partition_key:"6ec03a4e3ba832c85e802***********"},{data:"{\"message\":\"Finish writing chunk\"}\n",partition_key:"8ada32f7373e1ab4c48fb***********"},{data:"{\"json\":\"message\"}\n",partition_key:"70f21f2decfc90b6f1975***********"}])
+   DEBUG -- : [Aws::Kinesis::Client 200 0.628973 0 retries] put_records(stream_name:"/{{ region-id }}/aoeu1kuk2dht********/cc8029jgtuab********/fluentd_stream",records:[{data:"{\"message\":\"Write chunk 5c0cf5c556654e99cac84*********** /   2 records /    0 KB\"}\n",partition_key:"6ec03a4e3ba832c85e802***********"},{data:"{\"message\":\"Finish writing chunk\"}\n",partition_key:"8ada32f7373e1ab4c48fb***********"},{data:"{\"json\":\"message\"}\n",partition_key:"70f21f2decfc90b6f1975***********"}])
    ```

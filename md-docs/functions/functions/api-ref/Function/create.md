@@ -5,7 +5,7 @@ Creates a function in the specified folder.
 ## HTTP request
 
 ```
-POST https://serverless-functions.api.cloud.yandex.net/functions/v1/functions
+POST https://serverless-functions.{{ api-host }}/functions/v1/functions
 ```
 
 ## Body parameters {#yandex.cloud.serverless.functions.v1.CreateFunctionRequest}

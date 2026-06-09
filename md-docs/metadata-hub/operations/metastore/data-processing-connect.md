@@ -1,8 +1,8 @@
-# Подключение Yandex Data Processing к Apache Hive™ Metastore
+# Подключение {{ dataproc-name }} к {{ metastore-name }}
 
 {% note info %}
 
-Для использования кластера Apache Hive™ Metastore [кластер Yandex Data Processing](../../../data-proc/concepts/index.md) должен содержать компоненты `SPARK` и `YARN`.
+Для использования кластера {{ metastore-name }} [кластер {{ dataproc-full-name }}](../../../data-proc/concepts/index.md) должен содержать компоненты `SPARK` и `YARN`.
 
 {% endnote %}
 
@@ -10,28 +10,28 @@
 
 - Консоль управления {#console}
 
-    1. [Создайте кластер](cluster-create.md) Apache Hive™ Metastore.
-    1. При [создании](../../../data-proc/operations/cluster-create.md) или [изменении](../../../data-proc/operations/cluster-update.md) кластера Yandex Data Processing задайте следующее [свойство](../../../data-proc/concepts/settings-list.md):
+    1. [Создайте кластер](cluster-create.md) {{ metastore-name }}.
+    1. При [создании](../../../data-proc/operations/cluster-create.md) или [изменении](../../../data-proc/operations/cluster-update.md) кластера {{ dataproc-name }} задайте следующее [свойство](../../../data-proc/concepts/settings-list.md):
 
         ```text
-        spark:spark.hive.metastore.uris : thrift://<IP-адрес_кластера_Apache Hive™ Metastore>:9083
+        spark:spark.hive.metastore.uris : thrift://<IP-адрес_кластера_{{ metastore-name }}>:{{ port-metastore }}
         ```
 
-        Чтобы узнать IP-адрес кластера Apache Hive™ Metastore, в [консоли управления](https://console.yandex.cloud) выберите сервис **Yandex MetaData Hub** и на панели слева выберите ![image](../../../_assets/console-icons/database.svg) **Metastore-сервер**. Для нужного кластера скопируйте значение из колонки **IP-адрес**.
+        Чтобы узнать IP-адрес кластера {{ metastore-name }}, в [консоли управления]({{ link-console-main }}) выберите сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_metadata-hub }}** и на панели слева выберите ![image](../../../_assets/console-icons/database.svg) **{{ ui-key.yacloud.metastore.label_metastore }}**. Для нужного кластера скопируйте значение из колонки **{{ ui-key.yacloud.metastore.field_metastore-endpoint-ip }}**.
 
-    1. Если кластеры Apache Hive™ Metastore и Yandex Data Processing расположены в разных облачных сетях, настройте маршрутизацию между этими сетями таким образом, чтобы подсеть Apache Hive™ Metastore была доступна из подсети Yandex Data Processing.
+    1. Если кластеры {{ metastore-name }} и {{ dataproc-name }} расположены в разных облачных сетях, настройте маршрутизацию между этими сетями таким образом, чтобы подсеть {{ metastore-name }} была доступна из подсети {{ dataproc-name }}.
 
         Существует [несколько способов](../../../tutorials/routing/index.md) настройки маршрутизации. Например, можно [создать туннель IPSec](../../../tutorials/routing/ipsec/ipsec-vpn.md).
 
-    1. Если в облачной сети используются [группы безопасности](../../../vpc/concepts/security-groups.md), настройте группу безопасности кластера Yandex Data Processing на работу с Apache Hive™ Metastore. Для этого [добавьте](../../../vpc/operations/security-group-add-rule.md) в нее следующее правило для исходящего трафика:
+    1. Если в облачной сети используются [группы безопасности](../../../vpc/concepts/security-groups.md), настройте группу безопасности кластера {{ dataproc-name }} на работу с {{ metastore-name }}. Для этого [добавьте](../../../vpc/operations/security-group-add-rule.md) в нее следующее правило для исходящего трафика:
 
-        * **Диапазон портов** — `9083`.
-        * **Протокол** — `Любой` (`Any`).
-        * **Источник** — `CIDR`.
-        * **CIDR блоки** — `0.0.0.0/0`.
+        * **{{ ui-key.yacloud.vpc.network.security-groups.forms.field_sg-rule-port-range }}** — `{{ port-metastore }}`.
+        * **{{ ui-key.yacloud.vpc.network.security-groups.forms.field_sg-rule-protocol }}** — `{{ ui-key.yacloud.vpc.network.security-groups.forms.value_any }}` (`Any`).
+        * **{{ ui-key.yacloud.vpc.network.security-groups.forms.field_sg-rule-source }}** — `{{ ui-key.yacloud.vpc.network.security-groups.forms.value_sg-rule-destination-cidr }}`.
+        * **{{ ui-key.yacloud.vpc.network.security-groups.forms.field_sg-rule-cidr-blocks }}** — `0.0.0.0/0`.
 
 {% endlist %}
 
-Пример использования Yandex Data Processing с подключенным кластером Apache Hive™ Metastore см. в практическом руководстве [Совместная работа с таблицами Yandex Data Processing с использованием Apache Hive™ Metastore](../../tutorials/sharing-tables.md).
+Пример использования {{ dataproc-name }} с подключенным кластером {{ metastore-name }} — в практическом руководстве [{#T}](../../tutorials/sharing-tables.md).
 
 _Apache® и [Apache Hive™](https://hive.apache.org/) являются зарегистрированными товарными знаками или товарными знаками Apache Software Foundation в США и/или других странах._

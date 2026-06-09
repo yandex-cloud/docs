@@ -1,47 +1,47 @@
-# Создание кластера Valkey™
+# Создание кластера {{ VLK }}
 
 
 
-[Кластер](../../glossary/cluster.md) Valkey™ — это один или несколько хостов базы данных, между которыми можно настроить репликацию. Репликация работает по умолчанию в любом кластере из более чем 1 хоста: хост-мастер принимает запросы на запись, асинхронно дублируя изменения в репликах.
+[Кластер](../../glossary/cluster.md) {{ VLK }} — это один или несколько хостов базы данных, между которыми можно настроить репликацию. Репликация работает по умолчанию в любом кластере из более чем 1 хоста: хост-мастер принимает запросы на запись, асинхронно дублируя изменения в репликах.
 
-Подробнее об устройстве кластера Yandex Managed Service for Valkey™ см. в разделе [Взаимосвязь ресурсов сервиса](../concepts/index.md).
+Подробнее об устройстве кластера {{ mrd-name }} см. в разделе [Взаимосвязь ресурсов сервиса](../concepts/index.md).
 
 {% note info %}
 
-* Количество хостов, которые можно создать вместе с кластером Valkey™, зависит от выбранного [типа диска](../concepts/storage.md#storage-type-selection), [класса хостов](../concepts/instance-types.md#available-flavors) и использования [шардирования](../concepts/sharding.md).
+* Количество хостов, которые можно создать вместе с кластером {{ VLK }}, зависит от выбранного [типа диска](../concepts/storage.md#storage-type-selection), [класса хостов](../concepts/instance-types.md#available-flavors) и использования [шардирования](../concepts/sharding.md).
 * Доступные типы диска [зависят](../concepts/storage.md) от выбранного [класса хостов](../concepts/instance-types.md).
 
 {% endnote %}
 
 
 
-Подключениями к БД кластера управляет сервис Connection Manager. Вместе с кластером автоматически создаются:
+Подключениями к БД кластера управляет сервис {{ connection-manager-name }}. Вместе с кластером автоматически создаются:
 
-* [Подключение Connection Manager](../../metadata-hub/concepts/connection-manager.md) с информацией о соединении с БД.
+* [Подключение {{ connection-manager-name }}](../../metadata-hub/concepts/connection-manager.md) с информацией о соединении с БД.
 
-* [Секрет Yandex Lockbox](../../metadata-hub/concepts/secret.md), в котором хранится пароль пользователя — владельца БД. Хранение паролей в сервисе Yandex Lockbox обеспечивает их безопасность.
+* [Секрет {{ lockbox-name }}](../../metadata-hub/concepts/secret.md), в котором хранится пароль пользователя — владельца БД. Хранение паролей в сервисе {{ lockbox-name }} обеспечивает их безопасность.
 
-Подключение и секрет создаются для каждого нового пользователя БД. Чтобы увидеть все подключения, на странице кластера выберите вкладку **Подключения**.
+Подключение и секрет создаются для каждого нового пользователя БД. Чтобы увидеть все подключения, на странице кластера выберите вкладку **{{ ui-key.yacloud.connection-manager.label_connections }}**.
 
-Для просмотра информации о подключении требуется роль `connection-manager.viewer`. Вы можете [настраивать доступ к подключениям в Connection Manager](../../metadata-hub/operations/connection-access.md).
+Для просмотра информации о подключении требуется роль `connection-manager.viewer`. Вы можете [настраивать доступ к подключениям в {{ connection-manager-name }}](../../metadata-hub/operations/connection-access.md).
 
-Использование сервиса Connection Manager и секретов, созданных с его помощью, не тарифицируется.
+Использование сервиса {{ connection-manager-name }} и секретов, созданных с его помощью, не тарифицируется.
 
 
 
 ## Создать кластер {#create-cluster}
 
 
-Для создания кластера Yandex Managed Service for Valkey™ нужна роль [vpc.user](../../vpc/security/index.md#vpc-user) и роль [managed-redis.editor или выше](../security/index.md#roles-list). О том, как назначить роль, см. [документацию Identity and Access Management](../../iam/operations/roles/grant.md).
+Для создания кластера {{ mrd-name }} нужна роль [{{ roles-vpc-user }}](../../vpc/security/index.md#vpc-user) и роль [{{ roles.mrd.editor }} или выше](../security/index.md#roles-list). О том, как назначить роль, см. [документацию {{ iam-name }}](../../iam/operations/roles/grant.md).
 
 
 {% note info %}
 
 Действуют следующие ограничения на способы создания шардированных кластеров:
 
-* Кластер с одним шардом можно создать с помощью CLI, Terraform или API.
+* Кластер с одним шардом можно создать с помощью CLI, {{ TF }} или API.
 * Кластер с двумя шардами нельзя создать, но можно [добавить шард](shards.md#add) в существующий кластер с одним шардом.
-* Кластер с тремя и более шардами можно создать с помощью консоли управления, CLI, Terraform или API.
+* Кластер с тремя и более шардами можно создать с помощью консоли управления, CLI, {{ TF }} или API.
 
 Для нешардированных кластеров ограничений нет.
 
@@ -55,14 +55,14 @@
   <iframe width="640" height="360" src="https://runtime.strm.yandex.ru/player/video/vplv3sjb2viq3egbqxf5?autoplay=0&mute=0" allow="autoplay; fullscreen; picture-in-picture; encrypted-media" frameborder="0" scrolling="no"></iframe>
 
 
-  Чтобы создать кластер Yandex Managed Service for Valkey™:
+  Чтобы создать кластер {{ mrd-name }}:
 
-  1. В [консоли управления](https://console.yandex.cloud) перейдите в каталог, в котором нужно создать кластер БД.
-  1. [Перейдите](../../console/operations/select-service.md#select-service) в сервис **Yandex Managed Service for&nbsp;Valkey™**.
-  1. Нажмите кнопку **Создать кластер**.
-  1. В блоке **Базовые параметры**:
+  1. В [консоли управления]({{ link-console-main }}) перейдите в каталог, в котором нужно создать кластер БД.
+  1. Перейдите в сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-redis }}**.
+  1. Нажмите кнопку **{{ ui-key.yacloud.mdb.clusters.button_create }}**.
+  1. В блоке **{{ ui-key.yacloud.mdb.forms.section_base }}**:
 
-     * Введите имя кластера в поле **Имя кластера**. Имя кластера должно быть уникальным в рамках каталога.
+     * Введите имя кластера в поле **{{ ui-key.yacloud.mdb.forms.base_field_name }}**. Имя кластера должно быть уникальным в рамках каталога.
      * (Опционально) Добавьте описание кластера.
      * Выберите окружение, в котором нужно создать кластер (после создания кластера окружение изменить невозможно):
        * `PRODUCTION` — для стабильных версий ваших приложений.
@@ -95,11 +95,11 @@
 
      * Выберите режим [персистентности данных](../concepts/replication.md#persistence).
 
-  1. В блоке **Ресурсы**:
+  1. В блоке **{{ ui-key.yacloud.mdb.forms.new_section_resource }}**:
 
-     * В поле **Платформа** выберите платформу.
-     * Укажите **Тип** виртуальной машины, на которой будут развернуты хосты.
-     * Выберите **Класс хоста**.
+     * В поле **{{ ui-key.yacloud.mdb.forms.resource_presets_field-generation }}** выберите платформу.
+     * Укажите **{{ ui-key.yacloud.mdb.forms.resource_presets_field-type }}** виртуальной машины, на которой будут развернуты хосты.
+     * Выберите **{{ ui-key.yacloud.mdb.forms.section_resource }}**.
 
      
      * Выберите [тип диска](../concepts/storage.md):
@@ -111,13 +111,13 @@
        * Сетевые SSD-диски — с шагом 1 ГБ.
        * Локальные SSD-диски:
            * для платформ **Intel Broadwell** и **Intel Cascade Lake** — с шагом 100 ГБ;
-           * для платформ **Intel Ice Lake** и **AMD Zen 4** — с шагом 368 ГБ.
+           * для платформ **Intel Ice Lake** и **AMD Zen 4** — с шагом {{ local-ssd-v3-step }}.
        * Нереплицируемые SSD-диски — с шагом 93 ГБ.
 
 
      * Выберите размер хранилища. Доступный размер хранилища ограничен [квотами и лимитами](../concepts/limits.md#mrd-limits).
 
-     * В поле **Увеличивать размер** задайте соответствующие условия, чтобы:
+     * В поле **{{ ui-key.yacloud.mdb.cluster.field_thresholds }}** задайте соответствующие условия, чтобы:
      
          * Размер хранилища увеличился в следующее [окно обслуживания](../concepts/maintenance.md#maintenance-window), когда хранилище окажется заполнено более чем на указанную долю (%). Если вы задали этот параметр, настройте расписание технического обслуживания.
      
@@ -129,7 +129,7 @@
      
              {% endnote %}
      
-     * В поле **Максимальный размер хранилища** укажите максимальный размер хранилища, который может быть установлен при автоматическом увеличении размера хранилища.
+     * В поле **{{ ui-key.yacloud.mdb.cluster.field_diskSizeLimit }}** укажите максимальный размер хранилища, который может быть установлен при автоматическом увеличении размера хранилища.
      
      
      {% note warning %}
@@ -140,68 +140,68 @@
      {% endnote %}
 
      
-     * (Опционально) Выберите опцию **Зашифрованный диск**, чтобы зашифровать диск [пользовательским ключом KMS](../../kms/concepts/key.md).
+     * (Опционально) Выберите опцию **{{ ui-key.yacloud.compute.disk-form.label_disk-encryption }}**, чтобы зашифровать диск [пользовательским ключом KMS](../../kms/concepts/key.md).
 
-       * Чтобы [создать](../../kms/operations/key.md#create) новый ключ, нажмите кнопку **Создать**.
+       * Чтобы [создать](../../kms/operations/key.md#create) новый ключ, нажмите кнопку **{{ ui-key.yacloud.component.symmetric-key-select.button_create-key-new }}**.
 
-       * Чтобы использовать созданный ранее ключ, выберите его в поле **Ключ KMS**.
+       * Чтобы использовать созданный ранее ключ, выберите его в поле **{{ ui-key.yacloud.compute.disk-form.label_disk-kms-key }}**.
 
        Подробнее о шифровании дисков см. в разделе [Хранилище](../concepts/storage.md#disk-encryption).
 
 
   
-    1. В блоке **Сетевые настройки** выберите:
+    1. В блоке **{{ ui-key.yacloud.mdb.forms.section_network }}** выберите:
        * [Облачную сеть](../../vpc/concepts/network.md#network) для размещения кластера.
        * Группы безопасности для сетевого трафика кластера. Может потребоваться дополнительная [настройка групп безопасности](connect/index.md#configuring-security-groups) для того, чтобы можно было подключаться к кластеру.
 
 
-  1. В блоке **Хосты** задайте конфигурацию хостов:
+  1. В блоке **{{ ui-key.yacloud.mdb.forms.section_host }}** задайте конфигурацию хостов:
 
       * Чтобы изменить настройки отдельного хоста, нажмите на значок ![pencil](../../_assets/console-icons/pencil.svg) в строке с его именем.
 
-          * **Зона доступности** — выберите [зону доступности](../../overview/concepts/geo-scope.md).
+          * **{{ ui-key.yacloud.mdb.forms.host_column_zone }}** — выберите [зону доступности](../../overview/concepts/geo-scope.md).
 
           
-          * **Подсеть** — укажите [подсеть](../../vpc/concepts/network.md#subnet) в выбранной зоне доступности.
-          * **Публичный доступ** — разрешает доступ к хосту из интернета, если кластер создается с включенной настройкой **Поддержка TLS**.
+          * **{{ ui-key.yacloud.mdb.forms.host_column_subnetwork }}** — укажите [подсеть](../../vpc/concepts/network.md#subnet) в выбранной зоне доступности.
+          * **{{ ui-key.yacloud.mdb.forms.host_column_assign_public_ip }}** — разрешает доступ к хосту из интернета, если кластер создается с включенной настройкой **{{ ui-key.yacloud.redis.field_tls-support }}**.
 
 
-          * **Приоритет мастера** — приоритет назначения хоста мастером при [выходе из строя основного мастера](../concepts/replication.md#master-failover).
-          * **Имя шарда** — позволяет изменить имя шарда для хоста. Поле доступно, только если кластер создается с включенной настройкой **Шардирование кластера**.
+          * **{{ ui-key.yacloud.mdb.forms.host_column_replica-priority }}** — приоритет назначения хоста мастером при [выходе из строя основного мастера](../concepts/replication.md#master-failover).
+          * **{{ ui-key.yacloud.mdb.forms.host_column_shard-name }}** — позволяет изменить имя шарда для хоста. Поле доступно, только если кластер создается с включенной настройкой **{{ ui-key.yacloud.mdb.forms.field_cluster-mode }}**.
 
-      * Чтобы добавить хосты в кластер, нажмите кнопку **Добавить хост**.
+      * Чтобы добавить хосты в кластер, нажмите кнопку **{{ ui-key.yacloud.mdb.forms.button_add-host }}**.
 
       Если вы включили шардирование в кластере и выбрали тип диска **local-ssd**, добавьте не менее двух хостов на шард.
 
-  1. В блоке **Настройки СУБД**:
+  1. В блоке **{{ ui-key.yacloud.mdb.forms.section_settings }}**:
 
-      * В поле **Пароль** укажите пароль пользователя.
+      * В поле **{{ ui-key.yacloud.mdb.forms.database_field_user-password }}** укажите пароль пользователя.
 
          Допустимая длина пароля — от 8 до 128 символов. Пароль должен удовлетворять регулярному выражению `[a-zA-Z0-9@=+?*.,!&#$^<>_-]*`.
 
       * Если требуется, задайте [настройки СУБД](../concepts/settings-list.md).
 
-  1. В блоке **Сервисные настройки** задайте дополнительные настройки кластера:
+  1. В блоке **{{ ui-key.yacloud.mdb.forms.section_service-settings }}** задайте дополнительные настройки кластера:
 
-      - **Начало резервного копирования (UTC)** — время по UTC, когда требуется начать [резервное копирование](cluster-backups.md) кластера (в 24-часовом формате). Если время не задано, резервное копирование начнется в 22:00 UTC.
+      - **{{ ui-key.yacloud.mdb.forms.backup-window-start }}** — время по UTC, когда требуется начать [резервное копирование](cluster-backups.md) кластера (в 24-часовом формате). Если время не задано, резервное копирование начнется в 22:00 UTC.
       
-      - **Окно обслуживания** — настройки времени [технического обслуживания](../concepts/maintenance.md):
+      - **{{ ui-key.yacloud.mdb.forms.maintenance-window-type }}** — настройки времени [технического обслуживания](../concepts/maintenance.md):
       
-          * Чтобы разрешить проведение технического обслуживания в любое время, выберите пункт **произвольное** (по умолчанию).
-          * Чтобы указать предпочтительное время начала обслуживания, выберите пункт **по расписанию** и укажите нужные день недели и час дня по UTC. Например, можно выбрать время, когда кластер наименее загружен.
+          * Чтобы разрешить проведение технического обслуживания в любое время, выберите пункт **{{ ui-key.yacloud.mdb.forms.value_maintenance-type-anytime }}** (по умолчанию).
+          * Чтобы указать предпочтительное время начала обслуживания, выберите пункт **{{ ui-key.yacloud.mdb.forms.value_maintenance-type-weekly }}** и укажите день недели и интервал времени по UTC. Например, можно выбрать время, когда кластер наименее загружен.
           
           Операции по техническому обслуживанию проводятся для включенных и выключенных кластеров. Они могут включать в себя: обновление СУБД, применение патчей и так далее.
       
-      - **Защита от удаления** — управляет защитой кластера от непреднамеренного удаления.
+      - **{{ ui-key.yacloud.mdb.forms.label_deletion-protection }}** — управляет защитой кластера от непреднамеренного удаления.
       
           Включенная защита кластера от удаления не помешает подключиться к нему вручную и удалить данные.
       
       
-      - **Доступ из WebSQL** — опция разрешает [выполнять SQL-запросы](web-sql-query.md) к базам данных кластера из консоли управления Yandex Cloud с помощью сервиса Yandex WebSQL.
+      - **{{ ui-key.yacloud.mdb.forms.additional-field-websql-service }}** — опция разрешает [выполнять SQL-запросы](web-sql-query.md) к базам данных кластера из консоли управления {{ yandex-cloud }} с помощью сервиса {{ websql-full-name }}.
 
-  1. В блоке **Модули** подключите необходимые [модули Valkey™](../concepts/modules.md).
+  1. В блоке **{{ ui-key.yacloud.redis.local.valkey_modules_aQacT }}** подключите необходимые [модули {{ VLK }}](../concepts/modules.md).
 
-      Для модуля **Search** настройте параметры **Количество потоков чтения** и **Количество потоков записи**.
+      Для модуля **{{ ui-key.yacloud.redis.local.valkey_search_vfqdy }}** настройте параметры **{{ ui-key.yacloud.redis.ModulesFormCard.valkey_search_reader_threads_fNBHR }}** и **{{ ui-key.yacloud.redis.ModulesFormCard.valkey_search_writer_threads_6HRjb }}**.
 
       {% note warning %}
       
@@ -209,15 +209,15 @@
       
       {% endnote %}
 
-  1. Нажмите кнопку **Создать кластер**.
+  1. Нажмите кнопку **{{ ui-key.yacloud.mdb.forms.button_create }}**.
 
 - CLI {#cli}
 
-  Если у вас еще нет интерфейса командной строки Yandex Cloud (CLI), [установите и инициализируйте его](../../cli/quickstart.md#install).
+  Если у вас еще нет интерфейса командной строки {{ yandex-cloud }} (CLI), [установите и инициализируйте его](../../cli/quickstart.md#install).
 
   По умолчанию используется каталог, указанный при [создании](../../cli/operations/profile/profile-create.md) профиля CLI. Чтобы изменить каталог по умолчанию, используйте команду `yc config set folder-id <идентификатор_каталога>`. Также для любой команды вы можете указать другой каталог с помощью параметров `--folder-name` или `--folder-id`. Если вы обращаетесь к ресурсу по имени, поиск будет выполнен в каталоге по умолчанию. Если вы обращаетесь к ресурсу по идентификатору, поиск будет выполнен глобально — во всех каталогах с учетом прав доступа.
 
-  Чтобы создать кластер Yandex Managed Service for Valkey™:
+  Чтобы создать кластер {{ mrd-name }}:
 
   
   1. Проверьте, есть ли в каталоге подсети для хостов кластера:
@@ -226,29 +226,29 @@
      yc vpc subnet list
      ```
 
-     Если ни одной подсети в каталоге нет, [создайте нужные подсети](../../vpc/operations/subnet-create.md) в сервисе VPC.
+     Если ни одной подсети в каталоге нет, [создайте нужные подсети](../../vpc/operations/subnet-create.md) в сервисе {{ vpc-short-name }}.
 
 
   1. Посмотрите описание команды CLI для создания кластера:
 
       ```bash
-      yc managed-redis cluster create --help
+      {{ yc-mdb-rd }} cluster create --help
       ```
 
   1. При создании кластера с помощью CLI нельзя напрямую указать тип хоста и объем оперативной памяти. Вместо этого выберите подходящий [класс хостов](../concepts/instance-types.md). Чтобы просмотреть доступные классы хостов, выполните команду:
 
      ```bash
-     yc managed-redis resource-preset list
+     {{ yc-mdb-rd }} resource-preset list
      ```
 
   1. Укажите параметры кластера в команде создания (в примере приведены не все флаги):
 
       
       ```bash
-      yc managed-redis cluster create \
+      {{ yc-mdb-rd }} cluster create \
         --name <имя_кластера> \
         --environment <окружение> \
-        --redis-version <версия_Valkey™> \
+        --redis-version <версия_{{ VLK }}> \
         --network-name <имя_сети> \
         --host zone-id=<зона_доступности>,`
               `subnet-id=<идентификатор_подсети>,`
@@ -278,7 +278,7 @@
 
       Где:
       * `--environment` — окружение: `prestable` или `production`.
-      * `--redis-version` — версия Valkey™: `7.2-valkey`, `8.0-valkey`, `8.1-valkey` или `9.0-valkey`.
+      * `--redis-version` — версия {{ VLK }}: {{ versions.cli.str }}.
       * `--host` — параметры хоста:
          * `zone-id` — [зона доступности](../../overview/concepts/geo-scope.md).
 
@@ -290,7 +290,7 @@
          * `replica-priority` — приоритет назначения хоста мастером при [выходе из строя основного мастера](../concepts/replication.md#master-failover).
       * `--disk-type-id` — тип диска.
 
-      * `--websql-access` — разрешает [выполнять SQL-запросы](web-sql-query.md) к базам данных кластера из консоли управления Yandex Cloud с помощью сервиса Yandex WebSQL. Значение по умолчанию — `false`.
+      * `--websql-access` — разрешает [выполнять SQL-запросы](web-sql-query.md) к базам данных кластера из консоли управления {{ yandex-cloud }} с помощью сервиса {{ websql-full-name }}. Значение по умолчанию — `false`.
 
       * `--disk-size-autoscaling` — настройки автоматического увеличения размера хранилища:
 
@@ -347,7 +347,7 @@
         
         {% endnote %}
 
-      * `--valkey-modules` — параметры [модулей Valkey™](../concepts/modules.md):
+      * `--valkey-modules` — параметры [модулей {{ VLK }}](../concepts/modules.md):
          * `enable-valkey-search` — подключить модуль `Valkey-Search`: `true` или `false`.
          * `valkey-search-reader-threads` — количество потоков обработки запросов в модуле `Valkey-Search`.
          * `valkey-search-writer-threads` — количество потоков индексации в модуле `Valkey-Search`.
@@ -375,17 +375,20 @@
       {% endnote %}
 
 
-- Terraform {#tf}
+- {{ TF }} {#tf}
 
-  [Terraform](https://www.terraform.io/) позволяет быстро создать облачную инфраструктуру в Yandex Cloud и управлять ею с помощью файлов конфигураций. В файлах конфигураций хранится описание инфраструктуры на языке HCL (HashiCorp Configuration Language). При изменении файлов конфигураций Terraform автоматически определяет, какая часть вашей конфигурации уже развернута, что следует добавить или удалить.
+  [{{ TF }}](https://www.terraform.io/) позволяет быстро создать облачную инфраструктуру в {{ yandex-cloud }} и управлять ею с помощью файлов конфигураций. В файлах конфигураций хранится описание инфраструктуры на языке HCL (HashiCorp Configuration Language). При изменении файлов конфигураций {{ TF }} автоматически определяет, какая часть вашей конфигурации уже развернута, что следует добавить или удалить.
   
-  Terraform распространяется под лицензией [Business Source License](https://github.com/hashicorp/terraform/blob/main/LICENSE), а [провайдер Yandex Cloud для Terraform](https://github.com/yandex-cloud/terraform-provider-yandex) — под лицензией [MPL-2.0](https://www.mozilla.org/en-US/MPL/2.0/).
+  {{ TF }} распространяется под лицензией [Business Source License](https://github.com/hashicorp/terraform/blob/main/LICENSE), а [провайдер {{ yandex-cloud }} для {{ TF }}](https://github.com/yandex-cloud/terraform-provider-yandex) — под лицензией [MPL-2.0](https://www.mozilla.org/en-US/MPL/2.0/).
   
-  Подробную информацию о ресурсах провайдера смотрите в документации на сайте [Terraform](https://www.terraform.io/docs/providers/yandex/index.html) или в [зеркале](../../terraform/index.md).
+  Подробную информацию о ресурсах провайдера смотрите в документации на сайте [{{ TF }}](https://www.terraform.io/docs/providers/yandex/index.html) или в [зеркале]({{ tf-docs-link }}).
 
-  Если у вас еще нет Terraform, [установите его и настройте провайдер Yandex Cloud](../../tutorials/infrastructure-management/terraform-quickstart.md#install-terraform).
+  Если у вас еще нет {{ TF }}, [установите его и настройте провайдер {{ yandex-cloud }}](../../tutorials/infrastructure-management/terraform-quickstart.md#install-terraform).
+  
+  
+  Чтобы управлять инфраструктурой с помощью {{ TF }} от имени сервисного аккаунта или пользовательских аккаунтов: аккаунта на Яндексе, федеративного аккаунта и локального пользователя, [аутентифицируйтесь](../../terraform/authentication.md) соответствующим способом.
 
-  Чтобы создать кластер Yandex Managed Service for Valkey™:
+  Чтобы создать кластер {{ mrd-name }}:
 
     1. Опишите в конфигурационном файле параметры ресурсов, которые необходимо создать:
 
@@ -414,7 +417,7 @@
 
          config = {
            password = "<пароль>"
-           version  = "<версия_Valkey™>"
+           version  = "<версия_{{ VLK }}>"
          }
 
          resources = {
@@ -493,7 +496,7 @@
            * `OFF` — выключить персистентность.
            * `ON_REPLICAS` — включить персистентность только на репликах.
 
-       * `version` — версия Valkey™: `7.2-valkey`, `8.0-valkey`, `8.1-valkey` или `9.0-valkey`.
+       * `version` — версия {{ VLK }}: {{ versions.tf.str }}.
        * `hosts` — список хостов и их параметров в формате `"<имя_хоста>" = { <настройки_хоста> }`. Имя хоста должно быть уникальным в кластере.
 
            Для каждого хоста доступны следующие параметры:
@@ -527,7 +530,9 @@
            * `ANYTIME` — в любое время.
            * `WEEKLY` — по расписанию.
        * `day` — день недели для типа `WEEKLY`: `MON`, `TUE`, `WED`, `THU`, `FRI`, `SAT` или `SUN`.
-       * `hour` — час дня по UTC для типа `WEEKLY`: от `1` до `24`.
+       * `hour` — порядковый номер часового интервала по UTC для типа `WEEKLY`: от `1` до `24`.
+       
+         > Например, `1` соответствует интервалу с `00:00` до `01:00`, `5` — с `04:00` до `05:00`.
 
     1. Чтобы зашифровать диск [пользовательским ключом KMS](../../kms/concepts/key.md), добавьте в описание кластера параметр `disk_encryption_key_id`:
 
@@ -540,7 +545,7 @@
 
         Подробнее о шифровании дисков см. в разделе [Хранилище](../concepts/storage.md#disk-encryption).
 
-    1. Чтобы подключить [модули Valkey™](../concepts/modules.md), добавьте в описание кластера блок `modules`:
+    1. Чтобы подключить [модули {{ VLK }}](../concepts/modules.md), добавьте в описание кластера блок `modules`:
 
         ```hcl
         resource "yandex_mdb_redis_cluster_v2" "<имя_кластера>" {
@@ -571,14 +576,14 @@
 
     1. Проверьте корректность настроек.
 
-        1. В командной строке перейдите в каталог, в котором расположены актуальные конфигурационные файлы Terraform с планом инфраструктуры.
+        1. В командной строке перейдите в каталог, в котором расположены актуальные конфигурационные файлы {{ TF }} с планом инфраструктуры.
         1. Выполните команду:
         
            ```bash
            terraform validate
            ```
         
-           Если в файлах конфигурации есть ошибки, Terraform на них укажет.
+           Если в файлах конфигурации есть ошибки, {{ TF }} на них укажет.
 
     1. Создайте кластер.
 
@@ -600,13 +605,13 @@
            1. Подтвердите изменение ресурсов.
            1. Дождитесь завершения операции.
 
-    После этого в указанном каталоге будут созданы все требуемые ресурсы, а в терминале отобразятся [FQDN хостов кластера](../concepts/network.md#hostname). Проверить появление ресурсов и их настройки можно в [консоли управления](https://console.yandex.cloud).
+    После этого в указанном каталоге будут созданы все требуемые ресурсы, а в терминале отобразятся [FQDN хостов кластера](../concepts/network.md#hostname). Проверить появление ресурсов и их настройки можно в [консоли управления]({{ link-console-main }}).
 
-    Более подробную информацию о ресурсах, которые вы можете создать с помощью Terraform, см. в [документации провайдера](../../terraform/resources/mdb_redis_cluster_v2.md).
+    Более подробную информацию о ресурсах, которые вы можете создать с помощью {{ TF }}, см. в [документации провайдера]({{ tf-provider-mrd }}).
 
     {% note warning "Ограничения по времени" %}
     
-    Провайдер Terraform ограничивает время на выполнение операций с кластером Yandex Managed Service for Valkey™:
+    Провайдер {{ TF }} ограничивает время на выполнение операций с кластером {{ mrd-name }}:
     
     * создание, в т. ч. путем восстановления из резервной копии, — 15 минут;
     * изменение — 60 минут;
@@ -651,7 +656,7 @@
           "name": "<имя_кластера>",
           "environment": "<окружение>",
           "configSpec": {
-            "version": "<версия_Valkey™>",
+            "version": "<версия_{{ VLK }}>",
             "resources": {
               "resourcePresetId": "<класс_хостов>",
               "diskSize": "<размер_хранилища_в_байтах>",
@@ -663,7 +668,7 @@
               "diskSizeLimit": "<максимальный_размер_хранилища_в_байтах>"
             },
             "access": {
-              "webSql": <доступ_из_WebSQL>
+              "webSql": <доступ_из_{{ websql-name }}>
             },
             "redis": {
               "password": "<пароль_пользователя>"
@@ -719,7 +724,7 @@
         * `environment` — окружение: `PRESTABLE` или `PRODUCTION`.
         * `configSpec` — настройки кластера:
 
-            * `version` — версия Valkey™: `7.2-valkey`, `8.0-valkey`, `8.1-valkey` или `9.0-valkey`.
+            * `version` — версия {{ VLK }}: {{ versions.cli.str }}.
             * `resources` — ресурсы кластера:
 
                 * `resourcePresetId` — [класс хостов](../concepts/instance-types.md);
@@ -755,12 +760,12 @@
               {% endnote %}
 
             
-            * `access.webSql` — доступ к базам данных кластера из консоли управления Yandex Cloud с помощью сервиса [Yandex WebSQL](../../websql/index.md): `true` или `false`.
+            * `access.webSql` — доступ к базам данных кластера из консоли управления {{ yandex-cloud }} с помощью сервиса [{{ websql-full-name }}](../../websql/index.md): `true` или `false`.
 
 
             * `redis.password` — пароль пользователя.
 
-            * `modules` — параметры [модулей Valkey™](../concepts/modules.md):
+            * `modules` — параметры [модулей {{ VLK }}](../concepts/modules.md):
 
                * `valkeySearch.enabled` — подключить модуль `Valkey-Search`: `true` или `false`. Для модуля доступна настройка параметров:
                    * `valkeySearch.readerThreads` — количество потоков обработки запросов.
@@ -826,14 +831,14 @@
             * `OFF` — выключить персистентность.
             * `ON_REPLICAS` — включить персистентность только на репликах.
 
-    1. Воспользуйтесь методом [Cluster.Create](../api-ref/Cluster/create.md) и выполните запрос, например с помощью [cURL](https://curl.se/):
+    1. Воспользуйтесь методом [Cluster.Create](../api-ref/Cluster/create.md) и выполните запрос, например с помощью {{ api-examples.rest.tool }}:
 
         ```bash
         curl \
             --request POST \
             --header "Authorization: Bearer $IAM_TOKEN" \
             --header "Content-Type: application/json" \
-            --url 'https://mdb.api.cloud.yandex.net/managed-redis/v1/clusters' \
+            --url 'https://{{ api-host-mdb }}/managed-redis/v1/clusters' \
             --data "@body.json"
         ```
 
@@ -864,7 +869,7 @@
           "name": "<имя_кластера>",
           "environment": "<окружение>",
           "config_spec": {
-            "version": "<версия_Valkey™>",
+            "version": "<версия_{{ VLK }}>",
             "resources": {
               "resource_preset_id": "<класс_хостов>",
               "disk_size": "<размер_хранилища_в_байтах>",
@@ -876,7 +881,7 @@
               "disk_size_limit": "<максимальный_размер_хранилища_в_байтах>"
             },
             "access": {
-              "web_sql": <доступ_из_WebSQL>
+              "web_sql": <доступ_из_{{ websql-name }}>
             },
             "redis": {
               "password": "<пароль_пользователя>"
@@ -932,7 +937,7 @@
         * `environment` — окружение: `PRESTABLE` или `PRODUCTION`.
         * `config_spec` — настройки кластера:
 
-            * `version` — версия Valkey™: `7.2-valkey`, `8.0-valkey`, `8.1-valkey` или `9.0-valkey`.
+            * `version` — версия {{ VLK }}: {{ versions.cli.str }}.
             * `resources` — ресурсы кластера:
 
                 * `resource_preset_id` — [класс хостов](../concepts/instance-types.md);
@@ -968,12 +973,12 @@
               {% endnote %}
 
             
-            * `access.web_sql` — доступ к базам данных кластера из консоли управления Yandex Cloud с помощью сервиса [Yandex WebSQL](../../websql/index.md): `true` или `false`.
+            * `access.web_sql` — доступ к базам данных кластера из консоли управления {{ yandex-cloud }} с помощью сервиса [{{ websql-full-name }}](../../websql/index.md): `true` или `false`.
 
 
             * `redis.password` — пароль пользователя.
 
-            * `modules` — параметры [модулей Valkey™](../concepts/modules.md):
+            * `modules` — параметры [модулей {{ VLK }}](../concepts/modules.md):
 
                * `valkey_search.enabled` — подключить модуль `Valkey-Search`: `true` или `false`. Для модуля доступна настройка параметров:
                    * `valkey_search.reader_threads` — количество потоков обработки запросов.
@@ -1039,7 +1044,7 @@
             * `OFF` — выключить персистентность.
             * `ON_REPLICAS` — включить персистентность только на репликах.
 
-    1. Воспользуйтесь вызовом [ClusterService.Create](../api-ref/grpc/Cluster/create.md) и выполните запрос, например с помощью [gRPCurl](https://github.com/fullstorydev/grpcurl):
+    1. Воспользуйтесь вызовом [ClusterService.Create](../api-ref/grpc/Cluster/create.md) и выполните запрос, например с помощью {{ api-examples.grpc.tool }}:
 
         ```bash
         grpcurl \
@@ -1049,7 +1054,7 @@
             -proto ~/cloudapi/yandex/cloud/mdb/redis/v1/cluster_service.proto \
             -rpc-header "Authorization: Bearer $IAM_TOKEN" \
             -d @ \
-            mdb.api.cloud.yandex.net:443 \
+            {{ api-host-mdb }}:{{ port-https }} \
             yandex.cloud.mdb.redis.v1.ClusterService.Create \
             < body.json
         ```
@@ -1068,15 +1073,15 @@
 
 ## Создать копию кластера {#duplicate}
 
-Вы можете создать кластер Valkey™, который будет обладать настройками созданного ранее кластера. Для этого конфигурация исходного кластера Valkey™ импортируется в Terraform. В результате вы можете либо создать идентичную копию, либо взять за основу импортированную конфигурацию и внести в нее изменения. Использовать импорт удобно, если исходный кластер Valkey™ обладает множеством настроек и нужно создать похожий на него кластер.
+Вы можете создать кластер {{ VLK }}, который будет обладать настройками созданного ранее кластера. Для этого конфигурация исходного кластера {{ VLK }} импортируется в {{ TF }}. В результате вы можете либо создать идентичную копию, либо взять за основу импортированную конфигурацию и внести в нее изменения. Использовать импорт удобно, если исходный кластер {{ VLK }} обладает множеством настроек и нужно создать похожий на него кластер.
 
-Чтобы создать копию кластера Valkey™:
+Чтобы создать копию кластера {{ VLK }}:
 
 {% list tabs group=instructions %}
 
-- Terraform {#tf}
+- {{ TF }} {#tf}
 
-    1. Если у вас еще нет Terraform, [установите его](../../tutorials/infrastructure-management/terraform-quickstart.md#install-terraform).
+    1. Если у вас еще нет {{ TF }}, [установите его](../../tutorials/infrastructure-management/terraform-quickstart.md#install-terraform).
     1. [Получите данные для аутентификации](../../tutorials/infrastructure-management/terraform-quickstart.md#get-credentials). Вы можете добавить их в переменные окружения или указать далее в файле с настройками провайдера.
     1. [Настройте и инициализируйте провайдер](../../tutorials/infrastructure-management/terraform-quickstart.md#configure-provider). Чтобы не создавать конфигурационный файл с настройками провайдера вручную, [скачайте его](https://github.com/yandex-cloud-examples/yc-terraform-provider-settings/blob/main/provider.tf).
     1. Поместите конфигурационный файл в отдельную рабочую директорию и [укажите значения параметров](../../tutorials/infrastructure-management/terraform-quickstart.md#configure-provider). Если данные для аутентификации не были добавлены в переменные окружения, укажите их в конфигурационном файле.
@@ -1087,7 +1092,7 @@
         resource "yandex_mdb_redis_cluster_v2" "old" { }
         ```
 
-    1. Запишите идентификатор первоначального кластера Valkey™ в переменную окружения:
+    1. Запишите идентификатор первоначального кластера {{ VLK }} в переменную окружения:
 
         ```bash
         export REDIS_CLUSTER_ID=<идентификатор_кластера>
@@ -1095,7 +1100,7 @@
 
         Идентификатор можно запросить вместе со [списком кластеров в каталоге](cluster-list.md#list-clusters).
 
-    1. Импортируйте настройки первоначального кластера Valkey™ в конфигурацию Terraform:
+    1. Импортируйте настройки первоначального кластера {{ VLK }} в конфигурацию {{ TF }}:
 
         ```bash
         terraform import yandex_mdb_redis_cluster_v2.old ${REDIS_CLUSTER_ID}
@@ -1125,13 +1130,13 @@
 
     1. Поместите конфигурационный файл в директорию `imported-cluster` и [укажите значения параметров](../../tutorials/infrastructure-management/terraform-quickstart.md#configure-provider). Если данные для аутентификации не были добавлены в переменные окружения, укажите их в конфигурационном файле.
 
-    1. Проверьте корректность файлов конфигурации Terraform:
+    1. Проверьте корректность файлов конфигурации {{ TF }}:
 
         ```bash
         terraform validate
         ```
 
-        Если в файлах конфигурации есть ошибки, Terraform на них укажет.
+        Если в файлах конфигурации есть ошибки, {{ TF }} на них укажет.
 
     1. Создайте необходимую инфраструктуру:
 
@@ -1153,11 +1158,11 @@
            1. Подтвердите изменение ресурсов.
            1. Дождитесь завершения операции.
 
-        В указанном каталоге будут созданы все требуемые ресурсы. Проверить появление ресурсов и их настройки можно в [консоли управления](https://console.yandex.cloud).
+        В указанном каталоге будут созданы все требуемые ресурсы. Проверить появление ресурсов и их настройки можно в [консоли управления]({{ link-console-main }}).
 
     {% note warning "Ограничения по времени" %}
     
-    Провайдер Terraform ограничивает время на выполнение операций с кластером Yandex Managed Service for Valkey™:
+    Провайдер {{ TF }} ограничивает время на выполнение операций с кластером {{ mrd-name }}:
     
     * создание, в т. ч. путем восстановления из резервной копии, — 15 минут;
     * изменение — 60 минут;
@@ -1196,16 +1201,16 @@
 
   Чтобы создать кластер с одним хостом, передайте один параметр `--host`.
 
-  Создайте кластер Yandex Managed Service for Valkey™ с тестовыми характеристиками:
+  Создайте кластер {{ mrd-name }} с тестовыми характеристиками:
 
   
   * Имя `myredis`.
-  * Версия `9.0-valkey`.
+  * Версия `{{ versions.cli.latest }}`.
   * Окружение — `production`.
-  * Сеть `default`.
-  * Один хост класса `hm2.nano` в подсети `b0rcctk2rvtr********`, в зоне доступности `ru-central1-a` и группе безопасности с идентификатором `enp6saqnq4ie********`, с публичным доступом и [приоритетом хоста](../concepts/replication.md#master-failover) `50`.
+  * Сеть `{{ network-name }}`.
+  * Один хост класса `{{ mrd-host-class }}` в подсети `b0rcctk2rvtr********`, в зоне доступности `{{ region-id }}-a` и группе безопасности с идентификатором `{{ security-group }}`, с публичным доступом и [приоритетом хоста](../concepts/replication.md#master-failover) `50`.
   * С поддержкой SSL-соединений.
-  * Хранилище на сетевых SSD-дисках (`network-ssd`) размером 16 ГБ.
+  * Хранилище на сетевых SSD-дисках (`{{ disk-type-example }}`) размером 16 ГБ.
   * Пароль `user1user1`.
   * С защитой от непреднамеренного удаления.
 
@@ -1214,16 +1219,16 @@
 
   
   ```bash
-  yc managed-redis cluster create \
+  {{ yc-mdb-rd }} cluster create \
     --name myredis \
-    --redis-version 9.0-valkey \
+    --redis-version {{ versions.cli.latest }} \
     --environment production \
-    --network-name default \
-    --resource-preset hm2.nano \
-    --host zone-id=ru-central1-a,subnet-id=b0rcctk2rvtr********,assign-public-ip=true,replica-priority=50 \
-    --security-group-ids enp6saqnq4ie******** \
+    --network-name {{ network-name }} \
+    --resource-preset {{ mrd-host-class }} \
+    --host zone-id={{ region-id }}-a,subnet-id=b0rcctk2rvtr********,assign-public-ip=true,replica-priority=50 \
+    --security-group-ids {{ security-group }} \
     --enable-tls \
-    --disk-type-id network-ssd \
+    --disk-type-id {{ disk-type-example }} \
     --disk-size 16 \
     --password=user1user1 \
     --deletion-protection
@@ -1231,20 +1236,20 @@
 
 
 
-- Terraform {#tf}
+- {{ TF }} {#tf}
 
-  Создайте кластер Yandex Managed Service for Valkey™ и сеть для него с тестовыми характеристиками:
+  Создайте кластер {{ mrd-name }} и сеть для него с тестовыми характеристиками:
 
     * Имя `myredis`.
-    * Версия `9.0-valkey`.
+    * Версия `{{ versions.tf.latest }}`.
     * Окружение — `PRODUCTION`.
-    * Облако с идентификатором `b1gq90dgh25********`.
-    * Каталог с идентификатором `b1gia87mbaom********`.
+    * Облако с идентификатором `{{ tf-cloud-id }}`.
+    * Каталог с идентификатором `{{ tf-folder-id }}`.
     * Новая сеть `mynet`.
-    * Один хост класса `hm2.nano` в новой подсети `mysubnet`, в зоне доступности `ru-central1-a`, с публичным доступом и [приоритетом хоста](../concepts/replication.md#master-failover) `50`. Подсеть `mysubnet` будет иметь диапазон `10.5.0.0/24`.
-    * Новая группа безопасности `redis-sg`, разрешающая подключения через порт `6380` с любых адресов подсети `mysubnet`.
+    * Один хост класса `{{ mrd-host-class }}` в новой подсети `mysubnet`, в зоне доступности `{{ region-id }}-a`, с публичным доступом и [приоритетом хоста](../concepts/replication.md#master-failover) `50`. Подсеть `mysubnet` будет иметь диапазон `10.5.0.0/24`.
+    * Новая группа безопасности `redis-sg`, разрешающая подключения через порт `{{ port-mrd-tls }}` с любых адресов подсети `mysubnet`.
     * С поддержкой SSL-соединений.
-    * Хранилище на сетевых SSD-дисках (`network-ssd`) размером 16 ГБ.
+    * Хранилище на сетевых SSD-дисках (`{{ disk-type-example }}`) размером 16 ГБ.
     * Пароль `user1user1`.
     * С защитой от непреднамеренного удаления.
 
@@ -1261,18 +1266,18 @@
 
     config = {
       password = "user1user1"
-      version  = "9.0-valkey"
+      version  = "{{ versions.tf.latest }}"
     }
 
     resources = {
-      resource_preset_id = "hm2.nano"
-      disk_type_id       = "network-ssd"
+      resource_preset_id = "{{ mrd-host-class }}"
+      disk_type_id       = "{{ disk-type-example }}"
       disk_size          = 16
     }
 
     hosts = {
       "host1" = {
-        zone             = "ru-central1-a"
+        zone             = "{{ region-id }}-a"
         subnet_id        = yandex_vpc_subnet.mysubnet.id
         assign_public_ip = true
         replica_priority = 50
@@ -1287,8 +1292,8 @@
     network_id = yandex_vpc_network.mynet.id
 
     ingress {
-      description    = "Valkey™"
-      port           = 6380
+      description    = "{{ VLK }}"
+      port           = {{ port-mrd-tls }}
       protocol       = "TCP"
       v4_cidr_blocks = ["10.5.0.0/24"]
     }
@@ -1296,7 +1301,7 @@
 
   resource "yandex_vpc_subnet" "mysubnet" {
     name           = "mysubnet"
-    zone           = "ru-central1-a"
+    zone           = "{{ region-id }}-a"
     network_id     = yandex_vpc_network.mynet.id
     v4_cidr_blocks = ["10.5.0.0/24"]
   }
@@ -1311,20 +1316,20 @@
 
 - CLI {#cli}
 
-  Создайте [шардированный](../concepts/sharding.md) кластер Yandex Managed Service for Valkey™ с тестовыми характеристиками:
+  Создайте [шардированный](../concepts/sharding.md) кластер {{ mrd-name }} с тестовыми характеристиками:
 
   
   * Имя `myredis`.
-  * Версия `9.0-valkey`.
+  * Версия `{{ versions.cli.latest }}`.
   * Окружение `production`.
   * С включенным шардированием.
   * С поддержкой SSL-соединений.
   * С защитой от непреднамеренного удаления.
-  * Сеть `default`.
-  * Группа безопасности с идентификатором `enp6saqnq4ie********`.
-  * Класс хостов `hm2.nano`.
-  * Один хост в шарде `shard1`, в подсети `b0rcctk2rvtr********`, в зоне доступности `ru-central1-a`, с публичным доступом и [приоритетом хоста](../concepts/replication.md#master-failover) `50`.
-  * Хранилище на сетевых SSD-дисках (`network-ssd`) размером 16 ГБ.
+  * Сеть `{{ network-name }}`.
+  * Группа безопасности с идентификатором `{{ security-group }}`.
+  * Класс хостов `{{ mrd-host-class }}`.
+  * Один хост в шарде `shard1`, в подсети `b0rcctk2rvtr********`, в зоне доступности `{{ region-id }}-a`, с публичным доступом и [приоритетом хоста](../concepts/replication.md#master-failover) `50`.
+  * Хранилище на сетевых SSD-дисках (`{{ disk-type-example }}`) размером 16 ГБ.
   * Пароль `user1user1`.
 
 
@@ -1332,39 +1337,39 @@
 
   
   ```bash
-  yc managed-redis cluster create \
+  {{ yc-mdb-rd }} cluster create \
     --name myredis \
-    --redis-version 9.0-valkey \
+    --redis-version {{ versions.cli.latest }} \
     --environment production \
     --sharded \
     --enable-tls \
     --deletion-protection \
-    --network-name default \
-    --security-group-ids enp6saqnq4ie******** \
-    --resource-preset hm2.nano \
+    --network-name {{ network-name }} \
+    --security-group-ids {{ security-group }} \
+    --resource-preset {{ mrd-host-class }} \
     --host shard-name=shard1,subnet-id=b0rcctk2rvtr********,zone-id=ru-central1-a,assign-public-ip=true,replica-priority=50 \
-    --disk-type-id network-ssd \
+    --disk-type-id {{ disk-type-example }} \
     --disk-size 16 \
     --password user1user1
   ```
 
 
 
-- Terraform {#tf}
+- {{ TF }} {#tf}
 
-  Создайте [шардированный](../concepts/sharding.md) кластер Yandex Managed Service for Valkey™ и сеть для него с тестовыми характеристиками:
+  Создайте [шардированный](../concepts/sharding.md) кластер {{ mrd-name }} и сеть для него с тестовыми характеристиками:
 
   * Имя `myredis`.
-  * Версия `9.0-valkey`.
+  * Версия `{{ versions.cli.latest }}`.
   * Окружение `PRODUCTION`.
   * С включенным шардированием.
   * С поддержкой SSL-соединений.
   * С защитой от непреднамеренного удаления.
   * Новая сеть `mynet`, которая будет состоять из одной подсети. Эта новая подсеть `mysubnet` будет иметь диапазон `10.5.0.0/24`.
-  * Новая группа безопасности `redis-sg`, разрешающая подключения через порт `6380` с любых адресов подсети `mysubnet`.
-  * Класс хостов `hm2.nano`.
-  * Один хост в шарде `shard1`, в подсети `mysubnet`, в зоне доступности `ru-central1-a`, с публичным доступом и [приоритетом хоста](../concepts/replication.md#master-failover) `50`.
-  * Хранилище на сетевых SSD-дисках (`network-ssd`) размером 16 ГБ.
+  * Новая группа безопасности `redis-sg`, разрешающая подключения через порт `{{ port-mrd-tls }}` с любых адресов подсети `mysubnet`.
+  * Класс хостов `{{ mrd-host-class }}`.
+  * Один хост в шарде `shard1`, в подсети `mysubnet`, в зоне доступности `{{ region-id }}-a`, с публичным доступом и [приоритетом хоста](../concepts/replication.md#master-failover) `50`.
+  * Хранилище на сетевых SSD-дисках (`{{ disk-type-example }}`) размером 16 ГБ.
   * Пароль `user1user1`.
 
   Конфигурационный файл для такого кластера выглядит так:
@@ -1380,13 +1385,13 @@
     security_group_ids  = [yandex_vpc_security_group.redis-sg.id]
 
     config = {
-      version  = "9.0-valkey"
+      version  = "{{ versions.tf.latest }}"
       password = "user1user1"
     }
 
     resources = {
-      resource_preset_id = "hm2.nano"
-      disk_type_id       = "network-ssd"
+      resource_preset_id = "{{ mrd-host-class }}"
+      disk_type_id       = "{{ disk-type-example }}"
       disk_size          = 16
     }
 
@@ -1405,7 +1410,7 @@
   
   resource "yandex_vpc_subnet" "mysubnet" {
     name           = "mysubnet"
-    zone           = "ru-central1-a"
+    zone           = "{{ region-id }}-a"
     network_id     = yandex_vpc_network.mynet.id
     v4_cidr_blocks = ["10.5.0.0/24"]
   }
@@ -1415,8 +1420,8 @@
     network_id = yandex_vpc_network.mynet.id
   
     ingress {
-      description    = "Valkey™"
-      port           = 6380
+      description    = "{{ VLK }}"
+      port           = {{ port-mrd-tls }}
       protocol       = "TCP"
       v4_cidr_blocks = ["10.5.0.0/24"]
     }
@@ -1432,23 +1437,23 @@
 
 {% list tabs group=instructions %}
 
-- Terraform {#tf}
+- {{ TF }} {#tf}
 
-    Создайте [шардированный](../concepts/sharding.md) кластер Yandex Managed Service for Valkey™ с тестовыми характеристиками:
+    Создайте [шардированный](../concepts/sharding.md) кластер {{ mrd-name }} с тестовыми характеристиками:
 
     * Имя `myredis`.
-    * Версия `9.0-valkey`.
+    * Версия `{{ versions.tf.latest }}`.
     * Окружение `PRODUCTION`.
-    * Облако с идентификатором `b1gq90dgh25********`.
-    * Каталог с идентификатором `b1gia87mbaom********`.
+    * Облако с идентификатором `{{ tf-cloud-id }}`.
+    * Каталог с идентификатором `{{ tf-folder-id }}`.
     * Новая сеть `mynet`.
     * Три подсети в сети `mynet`, по одной в каждой зоне доступности:
       * `subnet-a` с диапазоном `10.1.0.0/24`;
       * `subnet-b` с диапазоном `10.2.0.0/24`;
       * `subnet-d` с диапазоном `10.3.0.0/24`.
-    * Три хоста класса `hm2.nano`, по одному в каждой подсети.
-    * Новая группа безопасности `redis-sg`, разрешающая подключения через порты `6379` и `26379` ([Valkey™ Sentinel](connect/index.md)) с любых адресов подсетей.
-    * Хранилище на сетевых SSD-дисках (`network-ssd`) размером 16 ГБ.
+    * Три хоста класса `{{ mrd-host-class }}`, по одному в каждой подсети.
+    * Новая группа безопасности `redis-sg`, разрешающая подключения через порты `{{ port-mrd }}` и `{{ port-mrd-sentinel }}` ([{{ VLK }} Sentinel](connect/index.md)) с любых адресов подсетей.
+    * Хранилище на сетевых SSD-дисках (`{{ disk-type-example }}`) размером 16 ГБ.
     * Пароль `user1user1`.
     * С защитой от непреднамеренного удаления.
 
@@ -1465,30 +1470,30 @@
 
       config = {
         password = "user1user1"
-        version  = "9.0-valkey"
+        version  = "{{ versions.tf.latest }}"
       }
 
       resources = {
-        resource_preset_id = "hm2.nano"
-        disk_type_id       = "network-ssd"
+        resource_preset_id = "{{ mrd-host-class }}"
+        disk_type_id       = "{{ disk-type-example }}"
         disk_size          = 16
       }
 
       hosts = {
         "host1" = {
-          zone       = "ru-central1-a"
+          zone       = "{{ region-id }}-a"
           subnet_id  = yandex_vpc_subnet.subnet-a.id
           shard_name = "shard1"
         }
 
         "host2" = {
-          zone       = "ru-central1-b"
+          zone       = "{{ region-id }}-b"
           subnet_id  = yandex_vpc_subnet.subnet-b.id
           shard_name = "shard2"
         }
 
         "host3" = {
-          zone       = "ru-central1-d"
+          zone       = "{{ region-id }}-d"
           subnet_id  = yandex_vpc_subnet.subnet-d.id
           shard_name = "shard3"
         }
@@ -1499,21 +1504,21 @@
 
     resource "yandex_vpc_subnet" "subnet-a" {
       name           = "subnet-a"
-      zone           = "ru-central1-a"
+      zone           = "{{ region-id }}-a"
       network_id     = yandex_vpc_network.mynet.id
       v4_cidr_blocks = ["10.1.0.0/24"]
     }
 
     resource "yandex_vpc_subnet" "subnet-b" {
       name           = "subnet-b"
-      zone           = "ru-central1-b"
+      zone           = "{{ region-id }}-b"
       network_id     = yandex_vpc_network.mynet.id
       v4_cidr_blocks = ["10.2.0.0/24"]
     }
 
     resource "yandex_vpc_subnet" "subnet-d" {
       name           = "subnet-d"
-      zone           = "ru-central1-d"
+      zone           = "{{ region-id }}-d"
       network_id     = yandex_vpc_network.mynet.id
       v4_cidr_blocks = ["10.3.0.0/24"]
     }
@@ -1523,8 +1528,8 @@
       network_id = yandex_vpc_network.mynet.id
 
       ingress {
-        description    = "Valkey™"
-        port           = 6379
+        description    = "{{ VLK }}"
+        port           = {{ port-mrd }}
         protocol       = "TCP"
         v4_cidr_blocks = [
           "10.1.0.0/24",
@@ -1534,8 +1539,8 @@
       }
 
       ingress {
-        description    = "Valkey™ Sentinel"
-        port           = 26379
+        description    = "{{ VLK }} Sentinel"
+        port           = {{ port-mrd-sentinel }}
         protocol       = "TCP"
         v4_cidr_blocks = [
           "10.1.0.0/24",

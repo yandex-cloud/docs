@@ -1,6 +1,6 @@
 # Изменение настроек PXF
 
-Настройки [PXF](../external-tables.md), которые можно задать средствами Yandex Cloud, совпадают с настройками в конфигурационном файле Greenplum® [pxf-application.properties](https://techdocs.broadcom.com/us/en/vmware-tanzu/data-solutions/tanzu-greenplum-platform-extension-framework/6-11/gp-pxf/config_files.html#pxfappprops). Он описывает свойства протокола PXF. В кластере Greenplum® для настроек PXF заданы значения по умолчанию. Чтобы оптимизировать работу с [внешними таблицами](../../concepts/external-tables.md), вы можете изменить настройки PXF с помощью интерфейсов Yandex Cloud вместо правки файла.
+Настройки [PXF](../external-tables.md), которые можно задать средствами {{ yandex-cloud }}, совпадают с настройками в конфигурационном файле [pxf-application.properties]({{ gp.docs.broadcom }}-platform-extension-framework/6-11/gp-pxf/config_files.html#pxfappprops). Он описывает свойства протокола PXF. В кластере {{ mgp-name }} для настроек PXF заданы значения по умолчанию. Чтобы оптимизировать работу с [внешними таблицами](../../concepts/external-tables.md), вы можете изменить настройки PXF с помощью интерфейсов {{ yandex-cloud }} вместо правки файла.
 
 {% list tabs group=instructions %}
 
@@ -8,17 +8,17 @@
 
     Чтобы изменить настройки PXF:
 
-    1. Перейдите [на страницу каталога](https://console.yandex.cloud).
-    1. [Перейдите](../../../console/operations/select-service.md#select-service) в сервис **Yandex MPP Analytics for&nbsp;PostgreSQL**.
-    1. Нажмите на имя нужного кластера и выберите на панели слева ![image](../../../_assets/console-icons/arrow-right-arrow-left.svg) **PXF**.
-    1. Нажмите кнопку ![image](../../../_assets/console-icons/pencil.svg) **Изменить настройки PXF** в верхней части страницы.
+    1. Перейдите [на страницу каталога]({{ link-console-main }}).
+    1. Перейдите в сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-greenplum }}**.
+    1. Нажмите на имя нужного кластера и выберите на панели слева ![image](../../../_assets/console-icons/arrow-right-arrow-left.svg) **{{ ui-key.yacloud.greenplum.label_pxf }}**.
+    1. Нажмите кнопку ![image](../../../_assets/console-icons/pencil.svg) **{{ ui-key.yacloud.greenplum.cluster.pxf.action_edit-settings }}** в верхней части страницы.
     1. Измените настройки:
 
         * **Connection Timeout** — таймаут подключения к серверу Apache Tomcat® во время выполнения запросов на чтение. Диапазон значений: от `5` до `600` секунд. Значение можно указать в разных единицах времени.
         * **Upload Timeout** — таймаут подключения к серверу Apache Tomcat® во время выполнения запросов на запись. Диапазон значений: от `5` до `600` секунд. Значение можно указать в разных единицах времени.
         * **Max Threads** — максимальное количество потоков Apache Tomcat®. Диапазон значений: от `1` до `1024`.
 
-            Чтобы предотвратить ситуации, когда запросы зависают или не выполняются из-за перерасхода памяти или некорректной работы сборщика мусора Java, задайте количество потоков Apache Tomcat®. О регулировке числа потоков читайте в документации [VMware Greenplum® Platform Extension Framework](https://techdocs.broadcom.com/us/en/vmware-tanzu/data-solutions/tanzu-greenplum-platform-extension-framework/6-11/gp-pxf/cfg_mem.html).
+            Чтобы предотвратить ситуации, когда запросы зависают или не выполняются из-за перерасхода памяти или некорректной работы сборщика мусора Java, задайте количество потоков Apache Tomcat®. О регулировке числа потоков читайте в документации [VMware {{ GP }} Platform Extension Framework]({{ gp.docs.broadcom }}-platform-extension-framework/6-11/gp-pxf/cfg_mem.html).
 
         * **Pool Allow Core Thread Timeout** — разрешен ли таймаут для стриминговых потоков ядра приложения (core streaming threads).
         * **Pool Core Size** — количество стриминговых потоков ядра в пуле. Диапазон значений: от `1` до `1024`.
@@ -27,11 +27,11 @@
         * **Xmx** — максимальный размер JVM-кучи для демона PXF. Диапазон значений: от `64` до `16384` МБ. Значение можно указать в разных единицах измерения.
         * **Xms** — изначальный размер JVM-кучи для демона PXF. Диапазон значений: от `64` до `16384` МБ. Значение можно указать в разных единицах измерения.
 
-    1. Нажмите кнопку **Сохранить**.
+    1. Нажмите кнопку **{{ ui-key.yacloud.common.save }}**.
 
 - CLI {#cli}
 
-    Если у вас еще нет интерфейса командной строки Yandex Cloud (CLI), [установите и инициализируйте его](../../../cli/quickstart.md#install).
+    Если у вас еще нет интерфейса командной строки {{ yandex-cloud }} (CLI), [установите и инициализируйте его](../../../cli/quickstart.md#install).
 
     По умолчанию используется каталог, указанный при [создании](../../../cli/operations/profile/profile-create.md) профиля CLI. Чтобы изменить каталог по умолчанию, используйте команду `yc config set folder-id <идентификатор_каталога>`. Также для любой команды вы можете указать другой каталог с помощью параметров `--folder-name` или `--folder-id`. Если вы обращаетесь к ресурсу по имени, поиск будет выполнен в каталоге по умолчанию. Если вы обращаетесь к ресурсу по идентификатору, поиск будет выполнен глобально — во всех каталогах с учетом прав доступа.
 
@@ -40,13 +40,13 @@
     1. Посмотрите описание команды CLI для изменения конфигурации кластера:
 
         ```bash
-        yc managed-greenplum cluster update --help
+        {{ yc-mdb-gp }} cluster update --help
         ```
 
     1. Задайте настройки PXF:
 
         ```bash
-        yc managed-greenplum cluster update <имя_или_идентификатор_кластера> \
+        {{ yc-mdb-gp }} cluster update <имя_или_идентификатор_кластера> \
            --pxf-connection-timeout=<таймаут_для_запросов_на_чтение> \
            --pxf-upload-timeout=<таймаут_для_запросов_на_запись> \
            --pxf-max-threads=<максимальное_число_потоков_Apache_Tomcat®> \
@@ -64,7 +64,7 @@
         * `pxf-upload-timeout` — таймаут подключения к серверу Apache Tomcat® во время выполнения запросов на запись (в секундах). Диапазон значений: от `5` до `600`.
         * `pxf-max-threads` — максимальное количество потоков Apache Tomcat®. Диапазон значений: от `1` до `1024`.
 
-            Чтобы предотвратить ситуации, когда запросы зависают или не выполняются из-за перерасхода памяти или некорректной работы сборщика мусора Java, задайте количество потоков Apache Tomcat®. О регулировке числа потоков читайте в документации [VMware Greenplum® Platform Extension Framework](https://techdocs.broadcom.com/us/en/vmware-tanzu/data-solutions/tanzu-greenplum-platform-extension-framework/6-11/gp-pxf/cfg_mem.html).
+            Чтобы предотвратить ситуации, когда запросы зависают или не выполняются из-за перерасхода памяти или некорректной работы сборщика мусора Java, задайте количество потоков Apache Tomcat®. О регулировке числа потоков читайте в документации [VMware {{ GP }} Platform Extension Framework]({{ gp.docs.broadcom }}-platform-extension-framework/6-11/gp-pxf/cfg_mem.html).
 
         * `pxf-pool-allow-core-thread-timeout` — разрешен ли таймаут для стриминговых потоков ядра приложения (core streaming threads). Значение по умолчанию: `false`.
         * `pxf-poll-core-size` — количество стриминговых потоков ядра в пуле. Диапазон значений: от `1` до `1024`.
@@ -75,15 +75,15 @@
 
         Имя кластера можно [получить со списком кластеров в каталоге](../cluster-list.md#list-clusters).
 
-- Terraform {#tf}
+- {{ TF }} {#tf}
 
     Чтобы изменить настройки PXF:
 
-    1. Откройте актуальный конфигурационный файл Terraform с планом инфраструктуры.
+    1. Откройте актуальный конфигурационный файл {{ TF }} с планом инфраструктуры.
 
-        О том, как создать такой файл, см. в разделе [Создание кластера Greenplum®](../cluster-create.md).
+        О том, как создать такой файл, см. в разделе [{#T}](../cluster-create.md).
 
-        Полный список доступных для изменения полей конфигурации кластера Greenplum® см. в [документации провайдера Terraform](../../../terraform/resources/mdb_greenplum_cluster.md).
+        Полный список доступных для изменения полей конфигурации кластера {{ mgp-name }} см. в [документации провайдера {{ TF }}]({{ tf-provider-mgp }}).
 
     1. В описании кластера, в блоке `pxf_config`, задайте настройки PXF:
 
@@ -110,7 +110,7 @@
         * `upload_timeout` — таймаут подключения к серверу Apache Tomcat® во время выполнения запросов на запись (в секундах). Диапазон значений: от `5` до `600`.
         * `max_threads` — максимальное количество потоков Apache Tomcat®. Диапазон значений: от `1` до `1024`.
 
-            Чтобы предотвратить ситуации, когда запросы зависают или не выполняются из-за перерасхода памяти или некорректной работы сборщика мусора Java, задайте количество потоков Apache Tomcat®. О регулировке числа потоков читайте в документации [VMware Greenplum® Platform Extension Framework](https://techdocs.broadcom.com/us/en/vmware-tanzu/data-solutions/tanzu-greenplum-platform-extension-framework/6-11/gp-pxf/cfg_mem.html).
+            Чтобы предотвратить ситуации, когда запросы зависают или не выполняются из-за перерасхода памяти или некорректной работы сборщика мусора Java, задайте количество потоков Apache Tomcat®. О регулировке числа потоков читайте в документации [VMware {{ GP }} Platform Extension Framework]({{ gp.docs.broadcom }}-platform-extension-framework/6-11/gp-pxf/cfg_mem.html).
 
         * `pool_allow_core_thread_timeout` — разрешен ли таймаут для стриминговых потоков ядра приложения (core streaming threads). Значение по умолчанию: `false`.
         * `pool_core_size` — количество стриминговых потоков ядра в пуле. Диапазон значений: от `1` до `1024`.
@@ -121,14 +121,14 @@
 
     1. Проверьте корректность настроек.
 
-        1. В командной строке перейдите в каталог, в котором расположены актуальные конфигурационные файлы Terraform с планом инфраструктуры.
+        1. В командной строке перейдите в каталог, в котором расположены актуальные конфигурационные файлы {{ TF }} с планом инфраструктуры.
         1. Выполните команду:
         
            ```bash
            terraform validate
            ```
         
-           Если в файлах конфигурации есть ошибки, Terraform на них укажет.
+           Если в файлах конфигурации есть ошибки, {{ TF }} на них укажет.
 
     1. Подтвердите изменение ресурсов.
 
@@ -158,7 +158,7 @@
         export IAM_TOKEN="<IAM-токен>"
         ```
 
-    1. Воспользуйтесь методом [Cluster.Update](../../api-ref/Cluster/update.md) и выполните запрос, например, с помощью [cURL](https://curl.se/):
+    1. Воспользуйтесь методом [Cluster.Update](../../api-ref/Cluster/update.md) и выполните запрос, например, с помощью {{ api-examples.rest.tool }}:
 
         {% note warning %}
         
@@ -171,7 +171,7 @@
             --request PATCH \
             --header "Authorization: Bearer $IAM_TOKEN" \
             --header "Content-Type: application/json" \
-            --url 'https://mdb.api.cloud.yandex.net/managed-greenplum/v1/clusters/<идентификатор_кластера>' \
+            --url 'https://{{ api-host-mdb }}/managed-greenplum/v1/clusters/<идентификатор_кластера>' \
             --data '{
                       "updateMask": "configSpec.pxfConfig.connectionTimeout,configSpec.pxfConfig.uploadTimeout,configSpec.pxfConfig.maxThreads,configSpec.pxfConfig.poolAllowCoreThreadTimeout,configSpec.pxfConfig.poolCoreSize,configSpec.pxfConfig.poolQueueCapacity,configSpec.pxfConfig.poolMaxSize,configSpec.pxfConfig.xmx,configSpec.pxfConfig.xms",
                       "configSpec": {
@@ -197,7 +197,7 @@
         * `uploadTimeout` — таймаут подключения к серверу Apache Tomcat® во время выполнения запросов на запись (в секундах). Диапазон значений: от `5` до `600`.
         * `maxThreads` — максимальное количество потоков Apache Tomcat®. Диапазон значений: от `1` до `1024`.
 
-            Чтобы предотвратить ситуации, когда запросы зависают или не выполняются из-за перерасхода памяти или некорректной работы сборщика мусора Java, задайте количество потоков Apache Tomcat®. О регулировке числа потоков читайте в документации [VMware Greenplum® Platform Extension Framework](https://techdocs.broadcom.com/us/en/vmware-tanzu/data-solutions/tanzu-greenplum-platform-extension-framework/6-11/gp-pxf/cfg_mem.html).
+            Чтобы предотвратить ситуации, когда запросы зависают или не выполняются из-за перерасхода памяти или некорректной работы сборщика мусора Java, задайте количество потоков Apache Tomcat®. О регулировке числа потоков читайте в документации [VMware {{ GP }} Platform Extension Framework]({{ gp.docs.broadcom }}-platform-extension-framework/6-11/gp-pxf/cfg_mem.html).
 
         * `poolAllowCoreThreadTimeout` — разрешен ли таймаут для стриминговых потоков ядра приложения (core streaming threads). Значение по умолчанию: `false`.
         * `poolCoreSize` — количество стриминговых потоков ядра в пуле. Диапазон значений: от `1` до `1024`.
@@ -226,7 +226,7 @@
        
        Далее предполагается, что содержимое репозитория находится в директории `~/cloudapi/`.
 
-    1. Воспользуйтесь вызовом [ClusterService.Update](../../api-ref/grpc/Cluster/update.md) и выполните запрос, например, с помощью [gRPCurl](https://github.com/fullstorydev/grpcurl):
+    1. Воспользуйтесь вызовом [ClusterService.Update](../../api-ref/grpc/Cluster/update.md) и выполните запрос, например, с помощью {{ api-examples.grpc.tool }}:
 
         {% note warning %}
         
@@ -285,7 +285,7 @@
                     }
                   }
                 }' \
-            mdb.api.cloud.yandex.net:443 \
+            {{ api-host-mdb }}:{{ port-https }} \
             yandex.cloud.mdb.greenplum.v1.ClusterService.Update
         ```
 
@@ -296,7 +296,7 @@
         * `upload_timeout` — таймаут подключения к серверу Apache Tomcat® во время выполнения запросов на запись (в секундах). Диапазон значений: от `5` до `600`.
         * `max_threads` — максимальное количество потоков Apache Tomcat®. Диапазон значений: от `1` до `1024`.
 
-            Чтобы предотвратить ситуации, когда запросы зависают или не выполняются из-за перерасхода памяти или некорректной работы сборщика мусора Java, задайте количество потоков Apache Tomcat®. О регулировке числа потоков читайте в документации [VMware Greenplum® Platform Extension Framework](https://techdocs.broadcom.com/us/en/vmware-tanzu/data-solutions/tanzu-greenplum-platform-extension-framework/6-11/gp-pxf/cfg_mem.html).
+            Чтобы предотвратить ситуации, когда запросы зависают или не выполняются из-за перерасхода памяти или некорректной работы сборщика мусора Java, задайте количество потоков Apache Tomcat®. О регулировке числа потоков читайте в документации [VMware {{ GP }} Platform Extension Framework]({{ gp.docs.broadcom }}-platform-extension-framework/6-11/gp-pxf/cfg_mem.html).
 
         * `pool_allow_core_thread_timeout` — разрешен ли таймаут для стриминговых потоков ядра приложения (core streaming threads). Значение по умолчанию: `false`.
         * `pool_core_size` — количество стриминговых потоков ядра в пуле. Диапазон значений: от `1` до `1024`.

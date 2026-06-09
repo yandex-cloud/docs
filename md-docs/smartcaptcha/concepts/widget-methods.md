@@ -1,6 +1,6 @@
-# Методы установки виджета Yandex SmartCaptcha
+# Методы установки виджета {{ captcha-full-name }}
 
-Подключить виджет SmartCaptcha можно одним из двух методов:
+Подключить виджет {{ captcha-name }} можно одним из двух методов:
 
 * Автоматический.
 * Расширенный.
@@ -12,7 +12,7 @@
 В автоматическом методе JS-скрипт, который выполняет загрузку виджета на странице пользователя, добавляется на страницу по ссылке:
 
 ```html
-<script src="https://smartcaptcha.cloud.yandex.ru/captcha.js" defer></script>
+<script src="https://{{ captcha-domain }}/captcha.js" defer></script>
 ```
 
 После загрузки JS-скрипт ищет все контейнеры, которые подходят для загрузки в них виджета, и отрисовывает в них виджеты.
@@ -55,7 +55,7 @@
         console.log(callback);
       }
     </script>
-    <script src="https://smartcaptcha.cloud.yandex.ru/captcha.js" async defer></script>
+    <script src="https://{{ captcha-domain }}/captcha.js" async defer></script>
   </head>
 
   <body>
@@ -86,7 +86,7 @@
 В расширенном методе JS-скрипт, который выполняет загрузку виджета на странице пользователя, добавляется на страницу по ссылке:
 
 ```html
-<script src="https://smartcaptcha.cloud.yandex.ru/captcha.js?render=onload&onload=onloadFunction"></script>
+<script src="https://{{ captcha-domain }}/captcha.js?render=onload&onload=onloadFunction"></script>
 ```
 
 В параметре `onload` передается функция, которая содержит параметры отрисовки виджета. В данном примере это функция `onloadFunction`.
@@ -153,7 +153,7 @@
 
 {% note warning %}
 
-Вы обязаны уведомлять пользователей о том, что их данные обрабатывает SmartCaptcha. Если вы скрываете [блок с уведомлением](invisible-captcha.md#data-processing-notice), сообщите пользователям иным способом о том, что SmartCaptcha обрабатывает их данные.
+Вы обязаны уведомлять пользователей о том, что их данные обрабатывает {{ captcha-name }}. Если вы скрываете [блок с уведомлением](invisible-captcha.md#data-processing-notice), сообщите пользователям иным способом о том, что {{ captcha-name }} обрабатывает их данные.
 
 {% endnote %}
 
@@ -253,7 +253,7 @@
 <div id="container"></div>
 
 <script
-  src="https://smartcaptcha.cloud.yandex.ru/captcha.js?render=onload&onload=onloadFunction"
+  src="https://{{ captcha-domain }}/captcha.js?render=onload&onload=onloadFunction"
   async
   defer
 ></script>
@@ -285,7 +285,7 @@
 </form>
 
 <script
-  src="https://smartcaptcha.cloud.yandex.ru/captcha.js?render=onload&onload=smartCaptchaInit"
+  src="https://{{ captcha-domain }}/captcha.js?render=onload&onload=smartCaptchaInit"
   defer
 ></script>
 

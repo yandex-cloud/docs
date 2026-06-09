@@ -28,7 +28,6 @@ The maximum string length in characters is 50. ||
 || resource | **[Resource](#yandex.cloud.iam.v1.Resource)**
 
 Required field. Resource container to enable a service in.
-
 It is supported only resource-manager.cloud resource container now. ||
 |#
 
@@ -60,24 +59,10 @@ The maximum string length in characters is 64. ||
   "created_by": "string",
   "modified_at": "google.protobuf.Timestamp",
   "done": "bool",
-  "metadata": {
-    "service_id": "string",
-    "resource": {
-      "id": "string",
-      "type": "string"
-    }
-  },
+  "metadata": "google.protobuf.Any",
   // Includes only one of the fields `error`, `response`
   "error": "google.rpc.Status",
-  "response": {
-    "service_id": "string",
-    "resource": {
-      "id": "string",
-      "type": "string"
-    },
-    "updated_at": "google.protobuf.Timestamp",
-    "status": "Status"
-  }
+  "response": "google.protobuf.Any"
   // end of the list of possible fields
 }
 ```
@@ -105,7 +90,7 @@ The time when the Operation resource was last modified. ||
 
 If the value is `false`, it means the operation is still in progress.
 If `true`, the operation is completed, and either `error` or `response` is available. ||
-|| metadata | **[EnableServiceMetadata](#yandex.cloud.iam.v1.EnableServiceMetadata)**
+|| metadata | **[google.protobuf.Any](https://developers.google.com/protocol-buffers/docs/proto3#any)**
 
 Service-specific metadata associated with the operation.
 It typically contains the ID of the target resource that the operation is performed on.
@@ -120,7 +105,7 @@ The operation result.
 If `done == false` and there was no failure detected, neither `error` nor `response` is set.
 If `done == false` and there was a failure detected, `error` is set.
 If `done == true`, exactly one of `error` or `response` is set. ||
-|| response | **[Service](#yandex.cloud.iam.v1.Service)**
+|| response | **[google.protobuf.Any](https://developers.google.com/protocol-buffers/docs/proto3#any)**
 
 The normal response of the operation in case of success.
 If the original method returns no data on success, such as Delete,
@@ -135,64 +120,4 @@ The operation result.
 If `done == false` and there was no failure detected, neither `error` nor `response` is set.
 If `done == false` and there was a failure detected, `error` is set.
 If `done == true`, exactly one of `error` or `response` is set. ||
-|#
-
-## EnableServiceMetadata {#yandex.cloud.iam.v1.EnableServiceMetadata}
-
-#|
-||Field | Description ||
-|| service_id | **string**
-
-ID of the Service. ||
-|| resource | **[Resource](#yandex.cloud.iam.v1.Resource2)**
-
-Resource container. ||
-|#
-
-## Resource {#yandex.cloud.iam.v1.Resource2}
-
-A Resource. For more information, see [Resource](../../../concepts/access-control/resources-with-access-control.md).
-
-#|
-||Field | Description ||
-|| id | **string**
-
-Required field. ID of the resource.
-
-The maximum string length in characters is 50. ||
-|| type | **string**
-
-Required field. The type of the resource, e.g. resource-manager.folder, billing.account, compute.snapshot, etc.
-
-The maximum string length in characters is 64. ||
-|#
-
-## Service {#yandex.cloud.iam.v1.Service}
-
-A Service.
-
-#|
-||Field | Description ||
-|| service_id | **string**
-
-ID of the service. ||
-|| resource | **[Resource](#yandex.cloud.iam.v1.Resource2)**
-
-Resource that the service belongs to. ||
-|| updated_at | **[google.protobuf.Timestamp](https://developers.google.com/protocol-buffers/docs/reference/google.protobuf#timestamp)**
-
-Time of the last status update of the service. ||
-|| status | enum **Status**
-
-Current status of the service.
-
-- `ENABLED`: The service is enabled.
-- `PAUSED`: The service is paused.
-- `DISABLED`: The service is disabled.
-- `ENABLING`: The service is being enabled.
-- `RESUMING`: The service is being resumed.
-- `PAUSING`: The service is being paused.
-- `DISABLING`: The service is being disabled.
-- `ERROR`: The service is in error state.
-- `DEFAULT`: The service could be auto enabled. ||
 |#

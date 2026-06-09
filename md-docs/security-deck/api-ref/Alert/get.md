@@ -5,7 +5,7 @@ Get alert by ID.
 ## HTTP request
 
 ```
-GET https://alert-sink.api.cloud.yandex.net/securitydeck/alerts/v1/alerts/{alertId}
+GET https://alert-sink.{{ api-host }}/securitydeck/alerts/v1/alerts/{alertId}
 ```
 
 ## Path parameters

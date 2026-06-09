@@ -1,4 +1,4 @@
-# Устранение ошибки `Access denied` при сохранении SQL-дампа базы при помощи утилиты mysqldump из кластера Managed Service for MySQL®  
+# Устранение ошибки `Access denied` при сохранении SQL-дампа базы при помощи утилиты mysqldump из кластера {{ mmy-name }}  
 
 
 ## Описание проблемы {#issue-description}

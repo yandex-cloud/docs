@@ -5,7 +5,7 @@ Updates the specified shard group.
 ## HTTP request
 
 ```
-PATCH https://mdb.api.cloud.yandex.net/managed-clickhouse/v1/clusters/{clusterId}/shardGroups/{shardGroupName}
+PATCH https://{{ api-host-mdb }}/managed-clickhouse/v1/clusters/{clusterId}/shardGroups/{shardGroupName}
 ```
 
 ## Path parameters
@@ -15,17 +15,15 @@ PATCH https://mdb.api.cloud.yandex.net/managed-clickhouse/v1/clusters/{clusterId
 || clusterId | **string**
 
 Required field. ID of the ClickHouse cluster that contains the shard group to update.
-
 To get the cluster ID, make a [ClusterService.List](list.md#List) request.
 
 The maximum string length in characters is 50. ||
 || shardGroupName | **string**
 
 Required field. Name of the shard group that should be updated.
-
 To get the name, make a [ClusterService.ListShardGroups](listShardGroups.md#ListShardGroups) request.
 
-The maximum string length in characters is 63. Value must match the regular expression ` [a-zA-Z0-9_-]* `. ||
+The maximum string length in characters is 63. ||
 |#
 
 ## Body parameters {#yandex.cloud.mdb.clickhouse.v1.UpdateClusterShardGroupRequest}
@@ -72,10 +70,7 @@ Updated list of shard names that belongs to the shard group. ||
   "createdBy": "string",
   "modifiedAt": "string",
   "done": "boolean",
-  "metadata": {
-    "clusterId": "string",
-    "shardGroupName": "string"
-  },
+  "metadata": "object",
   // Includes only one of the fields `error`, `response`
   "error": {
     "code": "integer",
@@ -84,14 +79,7 @@ Updated list of shard names that belongs to the shard group. ||
       "object"
     ]
   },
-  "response": {
-    "name": "string",
-    "clusterId": "string",
-    "description": "string",
-    "shardNames": [
-      "string"
-    ]
-  }
+  "response": "object"
   // end of the list of possible fields
 }
 ```
@@ -133,7 +121,7 @@ In some languages, built-in datetime utilities do not support nanosecond precisi
 
 If the value is `false`, it means the operation is still in progress.
 If `true`, the operation is completed, and either `error` or `response` is available. ||
-|| metadata | **[UpdateClusterShardGroupMetadata](#yandex.cloud.mdb.clickhouse.v1.UpdateClusterShardGroupMetadata)**
+|| metadata | **object**
 
 Service-specific metadata associated with the operation.
 It typically contains the ID of the target resource that the operation is performed on.
@@ -148,7 +136,7 @@ The operation result.
 If `done == false` and there was no failure detected, neither `error` nor `response` is set.
 If `done == false` and there was a failure detected, `error` is set.
 If `done == true`, exactly one of `error` or `response` is set. ||
-|| response | **[ShardGroup](#yandex.cloud.mdb.clickhouse.v1.ShardGroup)**
+|| response | **object**
 
 The normal response of the operation in case of success.
 If the original method returns no data on success, such as Delete,
@@ -163,18 +151,6 @@ The operation result.
 If `done == false` and there was no failure detected, neither `error` nor `response` is set.
 If `done == false` and there was a failure detected, `error` is set.
 If `done == true`, exactly one of `error` or `response` is set. ||
-|#
-
-## UpdateClusterShardGroupMetadata {#yandex.cloud.mdb.clickhouse.v1.UpdateClusterShardGroupMetadata}
-
-#|
-||Field | Description ||
-|| clusterId | **string**
-
-ID of the cluster that contains the shard group being updated. ||
-|| shardGroupName | **string**
-
-Name of the shard group that is being updated. ||
 |#
 
 ## Status {#google.rpc.Status}
@@ -192,22 +168,4 @@ An error message. ||
 || details[] | **object**
 
 A list of messages that carry the error details. ||
-|#
-
-## ShardGroup {#yandex.cloud.mdb.clickhouse.v1.ShardGroup}
-
-#|
-||Field | Description ||
-|| name | **string**
-
-Name of the shard group. ||
-|| clusterId | **string**
-
-ID of the ClickHouse cluster that the shard group belongs to. ||
-|| description | **string**
-
-Description of the shard group. 0-256 characters long. ||
-|| shardNames[] | **string**
-
-List of shard names contained in the shard group. ||
 |#

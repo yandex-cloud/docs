@@ -12,7 +12,7 @@ _Совместимость схем_ определяет, могут ли пр
 * Полная транзитивная совместимость (`FULL_TRANSITIVE_COMPATIBILITY`) — одновременно выполняются условия обратной транзитивной и прямой транзитивной совместимости.
 * Без проверки совместимости (`NONE`) — проверка совместимости не производится.
 
-Подробнее о типах совместимости см. в [документации Confluent Schema Registry](https://docs.confluent.io/platform/current/schema-registry/fundamentals/schema-evolution.html#compatibility-types).
+Подробнее о типах совместимости в [документации Confluent Schema Registry](https://docs.confluent.io/platform/current/schema-registry/fundamentals/schema-evolution.html#compatibility-types).
 
 В {{ schema-registry-name }} реализована проверка совместимости схем. Вы можете указать, по какому типу совместимости будут проверяться схемы, в параметре **Уровень проверки совместимости**, а также задать правила проверки в параметре **Политика проверок совместимости для JSON**. От используемого при проверке типа совместимости также зависит [эволюция схемы данных](schema-registry-content-model.md#schema-evolution-considerations). 
 

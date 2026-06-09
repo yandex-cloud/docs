@@ -5,7 +5,7 @@ Retrieves the list of nodes in the specified Kubernetes cluster.
 ## HTTP request
 
 ```
-GET https://mks.api.cloud.yandex.net/managed-kubernetes/v1/nodes
+GET https://mks.{{ api-host }}/managed-kubernetes/v1/nodes
 ```
 
 ## Query parameters {#yandex.cloud.k8s.v1.ListNodeGroupNodesRequest}

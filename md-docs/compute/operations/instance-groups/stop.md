@@ -4,7 +4,7 @@
 
 {% note info %}
 
-Если вы остановите отдельную ВМ в группе, а не саму группу, то Instance Groups [автоматически перезапустит](../../concepts/instance-groups/autohealing.md) ВМ.
+Если вы остановите отдельную ВМ в группе, а не саму группу, то {{ ig-name }} [автоматически перезапустит](../../concepts/instance-groups/autohealing.md) ВМ.
 
 {% endnote %}
 
@@ -14,28 +14,28 @@
 
 - Консоль управления {#console}
 
-  1. В [консоли управления](https://console.yandex.cloud) откройте каталог, в котором находится нужная группа ВМ.
-  1. [Перейдите](../../../console/operations/select-service.md#select-service) в сервис **Compute Cloud**.
-  1. На панели слева выберите ![image](../../../_assets/console-icons/layers-3-diagonal.svg) **Группы виртуальных машин**.
-  1. В строке с нужной группой ВМ нажмите значок ![image](../../../_assets/console-icons/ellipsis.svg) и выберите пункт **Остановить группу и ВМ**.
-  1. В открывшемся окне нажмите кнопку **Остановить**.
+  1. В [консоли управления]({{ link-console-main }}) откройте каталог, в котором находится нужная группа ВМ.
+  1. Перейдите в сервис **{{ compute-name }}**.
+  1. На панели слева выберите ![image](../../../_assets/console-icons/layers-3-diagonal.svg) **{{ ui-key.yacloud.compute.instance-groups_hx3kX }}**.
+  1. В строке с нужной группой ВМ нажмите значок ![image](../../../_assets/console-icons/ellipsis.svg) и выберите пункт **{{ ui-key.yacloud.compute.groups.button_action-stop }}**.
+  1. В открывшемся окне нажмите кнопку **{{ ui-key.yacloud.compute.groups.popup-confirm_button_stop }}**.
 
 - CLI {#cli}
 
-  Если у вас еще нет интерфейса командной строки Yandex Cloud (CLI), [установите и инициализируйте его](../../../cli/quickstart.md#install).
+  Если у вас еще нет интерфейса командной строки {{ yandex-cloud }} (CLI), [установите и инициализируйте его](../../../cli/quickstart.md#install).
 
   По умолчанию используется каталог, указанный при [создании](../../../cli/operations/profile/profile-create.md) профиля CLI. Чтобы изменить каталог по умолчанию, используйте команду `yc config set folder-id <идентификатор_каталога>`. Также для любой команды вы можете указать другой каталог с помощью параметров `--folder-name` или `--folder-id`. Если вы обращаетесь к ресурсу по имени, поиск будет выполнен в каталоге по умолчанию. Если вы обращаетесь к ресурсу по идентификатору, поиск будет выполнен глобально — во всех каталогах с учетом прав доступа.
 
   1. Посмотрите описание команды CLI для остановки группы ВМ:
 
      ```bash
-     yc compute instance-group stop --help
+     {{ yc-compute-ig }} stop --help
      ```
 
   1. Получите список групп ВМ в каталоге по умолчанию:
 
      ```bash
-     yc compute instance-group list
+     {{ yc-compute-ig }} list
      ```
      
      Результат:
@@ -52,10 +52,10 @@
   1. Остановите группу ВМ в каталоге по умолчанию:
 
      ```bash
-     yc compute instance-group stop first-instance-group
+     {{ yc-compute-ig }} stop first-instance-group
      ```
 
-     Instance Groups начнет останавливать ВМ в группе. Когда все ВМ будут остановлены, группа перейдет в статус `STOPPED`.
+     {{ ig-name }} начнет останавливать ВМ в группе. Когда все ВМ будут остановлены, группа перейдет в статус `STOPPED`.
 
 - API {#api}
 

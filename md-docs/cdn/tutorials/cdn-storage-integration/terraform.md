@@ -1,4 +1,4 @@
-# Интеграция L7-балансировщика с Cloud CDN и Object Storage с помощью Terraform
+# Интеграция L7-балансировщика с {{ cdn-short-name }} и {{ objstorage-short-name }} с помощью {{ TF }}
 
 
 {% note info %}
@@ -7,21 +7,21 @@
 
 {% endnote %}
 
-Чтобы создать инфраструктуру для [интеграции](index.md) L7-балансировщика с Yandex Cloud CDN и Yandex Object Storage с помощью [Terraform](../../../terraform/index.md):
+Чтобы создать инфраструктуру для [интеграции](index.md) L7-балансировщика с {{ cdn-full-name }} и {{ objstorage-full-name }} с помощью [{{ TF }}](../../../terraform/index.md):
 
 1. [Подготовьте облако к работе](#before-you-begin).
-1. [Разверните инфраструктуру для интеграции L7-балансировщика с Cloud CDN и Object Storage](#deploy).
+1. [Разверните инфраструктуру для интеграции L7-балансировщика с {{ cdn-name }} и {{ objstorage-name }}](#deploy).
 1. [Протестируйте работу решения](#test).
 
 Если созданные ресурсы вам больше не нужны, [удалите их](#clear-out).
 
 ## Подготовьте облако к работе {#before-you-begin}
 
-Зарегистрируйтесь в Yandex Cloud и создайте [платежный аккаунт](../../../billing/concepts/billing-account.md):
-1. Перейдите в [консоль управления](https://console.yandex.cloud), затем войдите в Yandex Cloud или зарегистрируйтесь.
-1. На странице **[Yandex Cloud Billing](https://center.yandex.cloud/billing/accounts)** убедитесь, что у вас подключен платежный аккаунт, и он находится в [статусе](../../../billing/concepts/billing-account-statuses.md) `ACTIVE` или `TRIAL_ACTIVE`. Если платежного аккаунта нет, [создайте его](../../../billing/quickstart/index.md) и [привяжите](../../../billing/operations/pin-cloud.md) к нему облако.
+Зарегистрируйтесь в {{ yandex-cloud }} и создайте [платежный аккаунт](../../../billing/concepts/billing-account.md):
+1. Перейдите в [консоль управления]({{ link-console-main }}), затем войдите в {{ yandex-cloud }} или зарегистрируйтесь.
+1. На странице **[{{ ui-key.yacloud_billing.billing.label_service }}]({{ link-console-billing }})** убедитесь, что у вас подключен платежный аккаунт, и он находится в [статусе](../../../billing/concepts/billing-account-statuses.md) `ACTIVE` или `TRIAL_ACTIVE`. Если платежного аккаунта нет, [создайте его](../../../billing/quickstart/index.md) и [привяжите](../../../billing/operations/pin-cloud.md) к нему облако.
 
-Если у вас есть активный платежный аккаунт, вы можете создать или выбрать [каталог](../../../resource-manager/concepts/resources-hierarchy.md#folder), в котором будет работать ваша инфраструктура, на [странице облака](https://console.yandex.cloud/cloud).
+Если у вас есть активный платежный аккаунт, вы можете создать или выбрать [каталог](../../../resource-manager/concepts/resources-hierarchy.md#folder), в котором будет работать ваша инфраструктура, на [странице облака]({{ link-console-cloud }}).
 
 [Подробнее об облаках и каталогах](../../../resource-manager/concepts/resources-hierarchy.md).
 
@@ -29,22 +29,21 @@
 
 В стоимость поддержки инфраструктуры входят:
 
-* плата за хранение данных в Object Storage, операции с ними и исходящий трафик (см. [тарифы Object Storage](../../../storage/pricing.md));
-* плата за использование вычислительных ресурсов L7-балансировщика (см. [тарифы Application Load Balancer](../../../application-load-balancer/pricing.md));
-* плата за исходящий трафик с CDN-серверов (см. [тарифы Cloud CDN](../../pricing.md));
-* плата за публичные DNS-запросы и DNS-зоны, если вы используете Yandex Cloud DNS (см. [тарифы Cloud DNS](../../../dns/pricing.md)).
+* плата за хранение данных в {{ objstorage-name }}, операции с ними и исходящий трафик (см. [тарифы {{ objstorage-name }}](../../../storage/pricing.md));
+* плата за использование вычислительных ресурсов L7-балансировщика (см. [тарифы {{ alb-name }}](../../../application-load-balancer/pricing.md));
+* плата за исходящий трафик с CDN-серверов (см. [тарифы {{ cdn-name }}](../../pricing.md));
+* плата за публичные DNS-запросы и DNS-зоны, если вы используете {{ dns-full-name }} (см. [тарифы {{ dns-name }}](../../../dns/pricing.md)).
 
-## Разверните инфраструктуру для интеграции L7-балансировщика с Cloud CDN и Object Storage {#deploy}
+## Разверните инфраструктуру для интеграции L7-балансировщика с {{ cdn-name }} и {{ objstorage-name }} {#deploy}
 
-[Terraform](https://www.terraform.io/) позволяет быстро создать облачную инфраструктуру в Yandex Cloud и управлять ею с помощью файлов конфигураций. В файлах конфигураций хранится описание инфраструктуры на языке HCL (HashiCorp Configuration Language). При изменении файлов конфигураций Terraform автоматически определяет, какая часть вашей конфигурации уже развернута, что следует добавить или удалить.
+[{{ TF }}](https://www.terraform.io/) позволяет быстро создать облачную инфраструктуру в {{ yandex-cloud }} и управлять ею с помощью файлов конфигураций. В файлах конфигураций хранится описание инфраструктуры на языке HCL (HashiCorp Configuration Language). При изменении файлов конфигураций {{ TF }} автоматически определяет, какая часть вашей конфигурации уже развернута, что следует добавить или удалить.
 
-Terraform распространяется под лицензией [Business Source License](https://github.com/hashicorp/terraform/blob/main/LICENSE), а [провайдер Yandex Cloud для Terraform](https://github.com/yandex-cloud/terraform-provider-yandex) — под лицензией [MPL-2.0](https://www.mozilla.org/en-US/MPL/2.0/).
+{{ TF }} распространяется под лицензией [Business Source License](https://github.com/hashicorp/terraform/blob/main/LICENSE), а [провайдер {{ yandex-cloud }} для {{ TF }}](https://github.com/yandex-cloud/terraform-provider-yandex) — под лицензией [MPL-2.0](https://www.mozilla.org/en-US/MPL/2.0/).
 
-Подробную информацию о ресурсах провайдера смотрите в документации на сайте [Terraform](https://www.terraform.io/docs/providers/yandex/index.html) или в [зеркале](../../../terraform/index.md).
+Подробную информацию о ресурсах провайдера смотрите в документации на сайте [{{ TF }}](https://www.terraform.io/docs/providers/yandex/index.html) или в [зеркале]({{ tf-docs-link }}).
 
-
-Для создания инфраструктуры с помощью Terraform:
-1. [Установите Terraform](../../../tutorials/infrastructure-management/terraform-quickstart.md#install-terraform), [получите данные для аутентификации](../../../tutorials/infrastructure-management/terraform-quickstart.md#get-credentials) и укажите источник для установки провайдера Yandex Cloud (раздел [Настройте провайдер](../../../tutorials/infrastructure-management/terraform-quickstart.md#configure-provider), шаг 1).
+Для создания инфраструктуры с помощью {{ TF }}:
+1. [Установите {{ TF }}](../../../tutorials/infrastructure-management/terraform-quickstart.md#install-terraform), [получите данные для аутентификации](../../../tutorials/infrastructure-management/terraform-quickstart.md#get-credentials) и укажите источник для установки провайдера {{ yandex-cloud }} (раздел [{#T}](../../../tutorials/infrastructure-management/terraform-quickstart.md#configure-provider), шаг 1).
 1. Подготовьте файлы с описанием инфраструктуры:
 
     {% list tabs group=infrastructure_description %}
@@ -104,9 +103,9 @@ Terraform распространяется под лицензией [Business S
               
               locals {
                 network_name     = "example-network"
-                subneta_name     = "example-subnet-ru-central1-a"
-                subnetb_name     = "example-subnet-ru-central1-b"
-                subnetd_name     = "example-subnet-ru-central1-d"
+                subneta_name     = "example-subnet-{{ region-id }}-a"
+                subnetb_name     = "example-subnet-{{ region-id }}-b"
+                subnetd_name     = "example-subnet-{{ region-id }}-d"
                 sg_name          = "example-sg"
                 object_key       = "index.html"
                 domain_zone_name = "my-domain-zone"
@@ -185,21 +184,21 @@ Terraform распространяется под лицензией [Business S
               
               resource "yandex_vpc_subnet" "my-subnet-a" {
                 name           = local.subneta_name
-                zone           = "ru-central1-a"
+                zone           = "{{ region-id }}-a"
                 network_id     = yandex_vpc_network.my-network.id
                 v4_cidr_blocks = ["192.168.1.0/24"]
               }
               
               resource "yandex_vpc_subnet" "my-subnet-b" {
                 name           = local.subnetb_name
-                zone           = "ru-central1-b"
+                zone           = "{{ region-id }}-b"
                 network_id     = yandex_vpc_network.my-network.id
                 v4_cidr_blocks = ["192.168.2.0/24"]
               }
               
               resource "yandex_vpc_subnet" "my-subnet-d" {
                 name           = local.subnetd_name
-                zone           = "ru-central1-d"
+                zone           = "{{ region-id }}-d"
                 network_id     = yandex_vpc_network.my-network.id
                 v4_cidr_blocks = ["192.168.3.0/24"]
               }
@@ -314,17 +313,17 @@ Terraform распространяется под лицензией [Business S
               
                 allocation_policy {
                   location {
-                    zone_id   = "ru-central1-a"
+                    zone_id   = "{{ region-id }}-a"
                     subnet_id = yandex_vpc_subnet.my-subnet-a.id
                   }
               
                   location {
-                    zone_id   = "ru-central1-b"
+                    zone_id   = "{{ region-id }}-b"
                     subnet_id = yandex_vpc_subnet.my-subnet-b.id
                   }
               
                   location {
-                    zone_id   = "ru-central1-d"
+                    zone_id   = "{{ region-id }}-d"
                     subnet_id = yandex_vpc_subnet.my-subnet-d.id
                   }
                 }
@@ -398,29 +397,29 @@ Terraform распространяется под лицензией [Business S
 
     {% endlist %}
 
-    Более подробную информацию о параметрах используемых ресурсов в Terraform см. в документации провайдера:
+    Более подробную информацию о параметрах используемых ресурсов в {{ TF }} см. в документации провайдера:
 
-    * [Сеть](../../../vpc/concepts/network.md#network) — [yandex_vpc_network](../../../terraform/resources/vpc_network.md).
-    * [Подсеть](../../../vpc/concepts/network.md#subnet) — [yandex_vpc_subnet](../../../terraform/resources/vpc_subnet.md).
-    * [Группа безопасности](../../../vpc/concepts/security-groups.md) — [yandex_vpc_security_group](../../../terraform/resources/vpc_security_group.md).
-    * [DNS-зона](../../../dns/concepts/dns-zone.md) — [yandex_dns_zone](../../../terraform/resources/dns_zone.md).
-    * [Ресурсная запись DNS](../../../dns/concepts/resource-record.md) — [yandex_dns_recordset](../../../terraform/resources/dns_recordset.md).
-    * [TLS-Сертификат](../../../certificate-manager/concepts/managed-certificate.md) — [yandex_cm_certificate](../../../terraform/resources/cm_certificate.md).
-    * [Бакет](../../../storage/concepts/bucket.md) — [yandex_storage_bucket](../../../terraform/resources/storage_bucket.md).
-    * [Объект](../../../storage/concepts/object.md) — [yandex_storage_object](../../../terraform/resources/storage_object.md).
-    * [Группа источников](../../concepts/origins.md#groups) — [yandex_cdn_origin_group](../../../terraform/resources/cdn_origin_group.md).
-    * [CDN-ресурс](../../concepts/resource.md) — [yandex_cdn_resource](../../../terraform/resources/cdn_resource.md).
-    * [Группа бэкендов](../../../application-load-balancer/concepts/backend-group.md) — [yandex_alb_backend_group](../../../terraform/resources/alb_backend_group.md).
-    * [HTTP-роутер](../../../application-load-balancer/concepts/http-router.md) — [yandex_alb_http_router](../../../terraform/resources/alb_http_router.md).
-    * [Виртуальный хост](../../../application-load-balancer/concepts/http-router.md#virtual-host) — [yandex_alb_virtual_host](../../../terraform/resources/alb_virtual_host.md).
-    * [L7-балансировщик нагрузки](../../../application-load-balancer/concepts/application-load-balancer.md) — [yandex_alb_load_balancer](../../../terraform/resources/alb_load_balancer.md).
+    * [Сеть](../../../vpc/concepts/network.md#network) — [yandex_vpc_network]({{ tf-provider-resources-link }}/vpc_network).
+    * [Подсеть](../../../vpc/concepts/network.md#subnet) — [yandex_vpc_subnet]({{ tf-provider-resources-link }}/vpc_subnet).
+    * [Группа безопасности](../../../vpc/concepts/security-groups.md) — [yandex_vpc_security_group]({{ tf-provider-resources-link }}/vpc_security_group).
+    * [DNS-зона](../../../dns/concepts/dns-zone.md) — [yandex_dns_zone]({{ tf-provider-resources-link }}/dns_zone).
+    * [Ресурсная запись DNS](../../../dns/concepts/resource-record.md) — [yandex_dns_recordset]({{ tf-provider-resources-link }}/dns_recordset).
+    * [TLS-Сертификат](../../../certificate-manager/concepts/managed-certificate.md) — [yandex_cm_certificate]({{ tf-provider-resources-link }}/cm_certificate).
+    * [Бакет](../../../storage/concepts/bucket.md) — [yandex_storage_bucket]({{ tf-provider-resources-link }}/storage_bucket).
+    * [Объект](../../../storage/concepts/object.md) — [yandex_storage_object]({{ tf-provider-resources-link }}/storage_object).
+    * [Группа источников](../../concepts/origins.md#groups) — [yandex_cdn_origin_group]({{ tf-provider-resources-link }}/cdn_origin_group).
+    * [CDN-ресурс](../../concepts/resource.md) — [yandex_cdn_resource]({{ tf-provider-resources-link }}/cdn_resource).
+    * [Группа бэкендов](../../../application-load-balancer/concepts/backend-group.md) — [yandex_alb_backend_group]({{ tf-provider-resources-link }}/alb_backend_group).
+    * [HTTP-роутер](../../../application-load-balancer/concepts/http-router.md) — [yandex_alb_http_router]({{ tf-provider-resources-link }}/alb_http_router).
+    * [Виртуальный хост](../../../application-load-balancer/concepts/http-router.md#virtual-host) — [yandex_alb_virtual_host]({{ tf-provider-resources-link }}/alb_virtual_host).
+    * [L7-балансировщик нагрузки](../../../application-load-balancer/concepts/application-load-balancer.md) — [yandex_alb_load_balancer]({{ tf-provider-resources-link }}/alb_load_balancer).
 
 1. В файле `cdn-storage-integration.auto.tfvars` задайте значения пользовательских переменных:
     * `folder_id` — [идентификатор каталога](../../../resource-manager/operations/folder/get-id.md).
     * `bucket_name` — имя бакета в соответствии с [правилами именования](../../../storage/concepts/bucket.md#naming).
     * `domain_name` — имя домена, на котором будет размещен тестовый сервис.
 
-        Чтобы получить доступ к именам из публичной зоны, вам нужно делегировать домен. Укажите адреса серверов `ns1.yandexcloud.net` и `ns2.yandexcloud.net` в личном кабинете вашего регистратора доменных имен.
+        Чтобы получить доступ к именам из публичной зоны, вам нужно делегировать домен. Укажите адреса серверов `ns1.{{ dns-ns-host-sld }}` и `ns2.{{ dns-ns-host-sld }}` в личном кабинете вашего регистратора доменных имен.
     * `index_file_path` — локальный путь к файлу `index.html` с содержимым тестового сервиса. Например: `/Users/MyUser/Repos/cdn-storage-integration/index.html`.
 
 1. Создайте ресурсы:
@@ -444,7 +443,7 @@ Terraform распространяется под лицензией [Business S
       terraform plan
       ```
    
-      В терминале будет выведен список ресурсов с параметрами. На этом этапе изменения не будут внесены. Если в конфигурации есть ошибки, Terraform на них укажет.
+      В терминале будет выведен список ресурсов с параметрами. На этом этапе изменения не будут внесены. Если в конфигурации есть ошибки, {{ TF }} на них укажет.
    1. Примените изменения конфигурации:
    
       ```bash
@@ -503,7 +502,7 @@ Terraform распространяется под лицензией [Business S
        terraform plan
        ```
     
-       В терминале будет выведен список ресурсов с параметрами. На этом этапе изменения не будут внесены. Если в конфигурации есть ошибки, Terraform на них укажет.
+       В терминале будет выведен список ресурсов с параметрами. На этом этапе изменения не будут внесены. Если в конфигурации есть ошибки, {{ TF }} на них укажет.
     1. Примените изменения конфигурации:
     
        ```bash
@@ -514,4 +513,4 @@ Terraform распространяется под лицензией [Business S
 
 #### См. также {#see-also}
 
-* [Интеграция L7-балансировщика с Cloud CDN и Object Storage с помощью консоли управления](console.md)
+* [{#T}](console.md)

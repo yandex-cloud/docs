@@ -5,7 +5,7 @@ Updates the routing_instance_id in a private cloud connection.
 ## HTTP request
 
 ```
-PATCH https://baremetal.api.cloud.yandex.net/baremetal/v1alpha/privateCloudConnections/{privateCloudConnectionId}
+PATCH https://baremetal.{{ api-host }}/baremetal/v1alpha/privateCloudConnections/{privateCloudConnectionId}
 ```
 
 ## Path parameters

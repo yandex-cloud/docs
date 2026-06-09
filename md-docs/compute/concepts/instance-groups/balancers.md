@@ -1,32 +1,32 @@
-# Интеграция группы ВМ с Network Load Balancer или Application Load Balancer
+# Интеграция группы ВМ с {{ network-load-balancer-name }} или {{ alb-name }}
 
-Сервисы [Yandex Network Load Balancer](https://yandex.cloud/ru/services/network-load-balancer) и [Yandex Application Load Balancer](https://yandex.cloud/ru/services/application-load-balancer) позволяют распределять входящую нагрузку между виртуальными машинами Yandex Compute Cloud. [Группу виртуальных машин](index.md) можно интегрировать с этими сервисами: Compute Cloud автоматически создаст из группы ВМ целевую группу Network Load Balancer или Application Load Balancer и будет следить, чтобы в группу не добавлялись «нездоровые» ВМ.
+Сервисы [{{ network-load-balancer-full-name }}](https://yandex.cloud/ru/services/network-load-balancer) и [{{ alb-full-name }}](https://yandex.cloud/ru/services/application-load-balancer) позволяют распределять входящую нагрузку между виртуальными машинами {{ compute-full-name }}. [Группу виртуальных машин](index.md) можно интегрировать с этими сервисами: {{ compute-name }} автоматически создаст из группы ВМ целевую группу {{ network-load-balancer-name }} или {{ alb-name }} и будет следить, чтобы в группу не добавлялись «нездоровые» ВМ.
 
 
 ## Как работает интеграция {#principles}
 
 ### Создание целевой группы {#principles-creation}
 
-В сервисах балансировки нагрузки Yandex Cloud _целевая группа_ — это набор ресурсов, на которых запущены ваши сетевые приложения. Балансировщик, к которому привязана целевая группа, распределяет входящие запросы между ее ресурсами. Подробнее о целевых группах см. в документации [Network Load Balancer](../../../network-load-balancer/concepts/target-resources.md) и [Application Load Balancer](../../../application-load-balancer/concepts/target-group.md).
+В сервисах балансировки нагрузки {{ yandex-cloud }} _целевая группа_ — это набор ресурсов, на которых запущены ваши сетевые приложения. Балансировщик, к которому привязана целевая группа, распределяет входящие запросы между ее ресурсами. Подробнее о целевых группах см. в документации [{{ network-load-balancer-name }}](../../../network-load-balancer/concepts/target-resources.md) и [{{ alb-name }}](../../../application-load-balancer/concepts/target-group.md).
 
-Как правило, целевые группы состоят из виртуальных машин Compute Cloud. Поэтому группу ВМ можно настроить так, чтобы из нее автоматически создалась целевая группа Network Load Balancer или Application Load Balancer. Созданная таким образом целевая группа будет связана с группой ВМ:
+Как правило, целевые группы состоят из виртуальных машин {{ compute-name }}. Поэтому группу ВМ можно настроить так, чтобы из нее автоматически создалась целевая группа {{ network-load-balancer-name }} или {{ alb-name }}. Созданная таким образом целевая группа будет связана с группой ВМ:
 
 * когда ВМ добавляется в группу ВМ или запускается после остановки, она добавляется в целевую группу;
 * когда ВМ останавливается или удаляется из группы ВМ, она удаляется из целевой группы.
 
-Чтобы целевая группа начала получать трафик, ее нужно привязать к балансировщику. Compute Cloud не делает этого автоматически. 
+Чтобы целевая группа начала получать трафик, ее нужно привязать к балансировщику. {{ compute-name }} не делает этого автоматически. 
 
-* Целевую группу Network Load Balancer нужно [привязать к балансировщику](../../../network-load-balancer/operations/target-group-attach.md) напрямую. 
-* Целевую группу Application Load Balancer нужно привязать к [группе бэкендов](../../../application-load-balancer/concepts/backend-group.md), а группу бэкендов — к балансировщику, напрямую или через [HTTP-роутер](../../../application-load-balancer/concepts/http-router.md), в зависимости от типа балансировки. Подробнее см. в [инструкциях по управлению ресурсами Application Load Balancer](../../../application-load-balancer/operations/index.md). 
+* Целевую группу {{ network-load-balancer-name }} нужно [привязать к балансировщику](../../../network-load-balancer/operations/target-group-attach.md) напрямую. 
+* Целевую группу {{ alb-name }} нужно привязать к [группе бэкендов](../../../application-load-balancer/concepts/backend-group.md), а группу бэкендов — к балансировщику, напрямую или через [HTTP-роутер](../../../application-load-balancer/concepts/http-router.md), в зависимости от типа балансировки. Подробнее см. в [инструкциях по управлению ресурсами {{ alb-name }}](../../../application-load-balancer/operations/index.md). 
 
 
 ### Проверки состояния от балансировщиков {#principles-health-checks}
 
-Когда целевая группа привязана к балансировщику, он отправляет машинам в этой группе _проверки состояния_, чтобы при распределении трафика знать, какие ВМ «здоровы», а какие нет. Подробнее о проверках состояния см. в документации [Network Load Balancer](../../../network-load-balancer/concepts/health-check.md) и [Application Load Balancer](../../../application-load-balancer/concepts/backend-group.md#health-checks).
+Когда целевая группа привязана к балансировщику, он отправляет машинам в этой группе _проверки состояния_, чтобы при распределении трафика знать, какие ВМ «здоровы», а какие нет. Подробнее о проверках состояния см. в документации [{{ network-load-balancer-name }}](../../../network-load-balancer/concepts/health-check.md) и [{{ alb-name }}](../../../application-load-balancer/concepts/backend-group.md#health-checks).
 
 ВМ, добавленная в группу ВМ или запущенная после остановки, попадает в целевую группу, получает [статус `OPENING_TRAFFIC` в группе ВМ](statuses.md#vm-statuses), и балансировщик начинает отправлять на нее проверки состояния. Если ВМ пройдет нужное количество проверок (порог работоспособности, который указывается в настройках проверки), то балансировщик сочтет ее «здоровой» — она начнет получать трафик от балансировщика и перейдет в статус `RUNNING_ACTUAL`.
 
-По умолчанию ВМ может находиться в статусе `OPENING_TRAFFIC` неограниченное время, пока не станет «здоровой». Вы можете ограничить это время в [настройках интеграции](#settings) (поле `max_opening_traffic_duration`). Тогда Compute Cloud автоматически восстановит ВМ, которая не получает трафик слишком долго с момента добавления в группу или запуска. Подробнее о восстановлении см. в разделе [Особенности автоматического восстановления](autohealing.md#healthcheck-cases).
+По умолчанию ВМ может находиться в статусе `OPENING_TRAFFIC` неограниченное время, пока не станет «здоровой». Вы можете ограничить это время в [настройках интеграции](#settings) (поле `max_opening_traffic_duration`). Тогда {{ compute-name }} автоматически восстановит ВМ, которая не получает трафик слишком долго с момента добавления в группу или запуска. Подробнее о восстановлении см. в разделе [{#T}](autohealing.md#healthcheck-cases).
 
 Проверки состояния от балансировщиков можно отключить с помощью параметра `ignore_health_checks`. В этом случае проверки никак не будут влиять на группу ВМ. При отрицательных результатах проверки ВМ не будут автоматически восстанавливаться, а в группу не будет поступать трафик от балансировщиков.
 
@@ -36,7 +36,7 @@
 
 1. К балансировщику подключены две целевые группы — группы ВМ:
 
-    * В «синей» группе ВМ размещается стабильная версия приложения, доступная пользователям. Instance Groups автоматически восстанавливает ВМ в этой группе, если они не проходят проверки состояния балансировщика.
+    * В «синей» группе ВМ размещается стабильная версия приложения, доступная пользователям. {{ ig-name }} автоматически восстанавливает ВМ в этой группе, если они не проходят проверки состояния балансировщика.
     * «Зеленая» группа ВМ используется для тестирования следующей версии приложения. В этой группе включено игнорирование проверок состояния балансировщиков.
 
 1. Проверки состояния от балансировщика намеренно настроены так, чтобы ВМ «зеленой» группы эти проверки не прошли, и пользовательский трафик на них не подавался. При этом проверки никак не влияют на развертывание ВМ в группе. Пользовательский трафик попадает только на ВМ из «синей» группы.
@@ -53,13 +53,13 @@
 
 ## Настройки {#settings}
 
-Интеграцию группы ВМ с Network Load Balancer или Application Load Balancer можно настроить в консоли управления или описать в [YAML-спецификации](specification.md) группы, чтобы передать спецификацию через один из программных инструментов — интерфейс командной строки (CLI) или API Yandex Cloud. Настройки можно указать при [создании](../../operations/index.md#ig-create) или [изменении](../../operations/index.md#ig-control) группы.
+Интеграцию группы ВМ с {{ network-load-balancer-name }} или {{ alb-name }} можно настроить в консоли управления или описать в [YAML-спецификации](specification.md) группы, чтобы передать спецификацию через один из программных инструментов — интерфейс командной строки (CLI) или API {{ yandex-cloud }}. Настройки можно указать при [создании](../../operations/index.md#ig-create) или [изменении](../../operations/index.md#ig-control) группы.
 
-Группа ВМ может быть интегрирована только с одним из сервисов: либо с Network Load Balancer, либо с Application Load Balancer. Настроить интеграцию группы ВМ с обоими сервисами сразу нельзя.
+Группа ВМ может быть интегрирована только с одним из сервисов: либо с {{ network-load-balancer-name }}, либо с {{ alb-name }}. Настроить интеграцию группы ВМ с обоими сервисами сразу нельзя.
 
 Ниже описаны поля с настройками в YAML-спецификации и соответствующие им поля в консоли управления.
 
-### Настройки интеграции с Network Load Balancer {#settings-nlb}
+### Настройки интеграции с {{ network-load-balancer-name }} {#settings-nlb}
 
 ```yaml
 load_balancer_spec:
@@ -73,19 +73,19 @@ load_balancer_spec:
   ignore_health_checks: false
 ```
 
-Поля и опции в консоли управления находятся в блоке **Интеграция с Network Load Balancer** на страницах создания и редактирования группы ВМ.
+Поля и опции в консоли управления находятся в блоке **{{ ui-key.yacloud.compute.groups.create.section_ylb }}** на страницах создания и редактирования группы ВМ.
 
 | Ключ в YAML<br/>Поле или опция в консоли | Описание |
 | --- | --- |
-| `load_balancer_spec`<br/>**Создать целевую группу** | Настройки интеграции группы ВМ с Network Load Balancer. Если ключа нет в YAML-спецификации или опция в консоли управления отключена, группа не будет интегрирована с Network Load Balancer. |
-| `target_group_spec` | Параметры [целевой группы Network Load Balancer](../../../network-load-balancer/concepts/target-resources.md), создаваемой из группы ВМ. |
-| `name`<br/>**Имя целевой группы** | Имя целевой группы. |
-| `description`<br/>**Описание целевой группы** | Описание целевой группы. |
+| `load_balancer_spec`<br/>**{{ ui-key.yacloud.compute.groups.create.field_target-group-attached }}** | Настройки интеграции группы ВМ с {{ network-load-balancer-name }}. Если ключа нет в YAML-спецификации или опция в консоли управления отключена, группа не будет интегрирована с {{ network-load-balancer-name }}. |
+| `target_group_spec` | Параметры [целевой группы {{ network-load-balancer-name }}](../../../network-load-balancer/concepts/target-resources.md), создаваемой из группы ВМ. |
+| `name`<br/>**{{ ui-key.yacloud.compute.groups.create.field_target-group-name }}** | Имя целевой группы. |
+| `description`<br/>**{{ ui-key.yacloud.compute.groups.create.field_target-group-description }}** | Описание целевой группы. |
 | `labels` | [Метки](../../../resource-manager/concepts/labels.md) целевой группы в формате `<имя_метки>: <значение_метки>`. |
-| `max_opening_traffic_duration`<br/>**Время ожидания трафика** | Время, в течение которого новая ВМ в группе должна пройти проверку состояния от балансировщика. Возможные значения — 0 и от 1 секунды. Значение по умолчанию — 0: время ожидания не ограничено. Подробнее см. в разделе [Проверки состояния от балансировщиков](#principles-health-checks). |
+| `max_opening_traffic_duration`<br/>**{{ ui-key.yacloud.compute.groups.create.field_nlb-pre-checks-timeout }}** | Время, в течение которого новая ВМ в группе должна пройти проверку состояния от балансировщика. Возможные значения — 0 и от 1 секунды. Значение по умолчанию — 0: время ожидания не ограничено. Подробнее см. в разделе [Проверки состояния от балансировщиков](#principles-health-checks). |
 | `ignore_health_checks` | Игнорировать проверки состояния от балансировщика. Возможные значения `true` или `false`. |
 
-### Настройки интеграции с Application Load Balancer {#settings-alb}
+### Настройки интеграции с {{ alb-name }} {#settings-alb}
 
 ```yaml
 application_load_balancer_spec:
@@ -99,22 +99,22 @@ application_load_balancer_spec:
   ignore_health_checks: false
 ```
 
-Поля и опции в консоли управления находятся в блоке **Интеграция с Application Load Balancer** на страницах создания и редактирования группы ВМ.
+Поля и опции в консоли управления находятся в блоке **{{ ui-key.yacloud.compute.groups.create.section_alb }}** на страницах создания и редактирования группы ВМ.
 
 | Ключ в YAML<br/>Поле или опция в консоли | Описание |
 | --- | --- |
-| `application_load_balancer_spec`<br/>**Создать целевую группу** | Настройки интеграции группы ВМ с Application Load Balancer. Если ключа нет в YAML-спецификации или опция в консоли управления отключена, группа не будет интегрирована с Application Load Balancer. |
-| `target_group_spec` | Параметры [целевой группы Application Load Balancer](../../../application-load-balancer/concepts/target-group.md), создаваемой из группы ВМ. |
-| `name`<br/>**Имя целевой группы** | Имя целевой группы. |
-| `description`<br/>**Описание целевой группы** | Описание целевой группы. |
+| `application_load_balancer_spec`<br/>**{{ ui-key.yacloud.compute.groups.create.field_target-group-attached }}** | Настройки интеграции группы ВМ с {{ alb-name }}. Если ключа нет в YAML-спецификации или опция в консоли управления отключена, группа не будет интегрирована с {{ alb-name }}. |
+| `target_group_spec` | Параметры [целевой группы {{ alb-name }}](../../../application-load-balancer/concepts/target-group.md), создаваемой из группы ВМ. |
+| `name`<br/>**{{ ui-key.yacloud.compute.groups.create.field_target-group-name }}** | Имя целевой группы. |
+| `description`<br/>**{{ ui-key.yacloud.compute.groups.create.field_target-group-description }}** | Описание целевой группы. |
 | `labels` | [Метки](../../../resource-manager/concepts/labels.md) целевой группы в формате `<имя_метки>: <значение_метки>`. |
-| `max_opening_traffic_duration`<br/>**Время ожидания трафика** | Время, в течение которого новая ВМ в группе должна пройти проверку состояния от балансировщика. Возможные значения — 0 и от 1 секунды. Значение по умолчанию — 0: время ожидания не ограничено. Подробнее см. в разделе [Проверки состояния от балансировщиков](#principles-health-checks). |
+| `max_opening_traffic_duration`<br/>**{{ ui-key.yacloud.compute.groups.create.field_alb-pre-checks-timeout }}** | Время, в течение которого новая ВМ в группе должна пройти проверку состояния от балансировщика. Возможные значения — 0 и от 1 секунды. Значение по умолчанию — 0: время ожидания не ограничено. Подробнее см. в разделе [Проверки состояния от балансировщиков](#principles-health-checks). |
 | `ignore_health_checks` | Игнорировать проверки состояния от балансировщика. Возможные значения `true` или `false`. |
 
 ## Примеры использования {#examples}
 
-* [Работа с группой виртуальных машин с автоматическим масштабированием](../../tutorials/vm-autoscale/index.md)
-* [Обновление группы виртуальных машин под нагрузкой](../../tutorials/updating-under-load.md)
-* [Реализация защищенной высокодоступной сетевой инфраструктуры с выделением DMZ на основе Check Point NGFW](../../tutorials/high-accessible-dmz.md)
-* [Настройка отказоустойчивой архитектуры в Yandex Cloud](../../tutorials/fault-tolerance.md)
-* [Создание балансировщика с защитой от DDoS](../../tutorials/alb-with-ddos-protection/index.md)
+* [{#T}](../../tutorials/vm-autoscale/index.md)
+* [{#T}](../../tutorials/updating-under-load.md)
+* [{#T}](../../tutorials/high-accessible-dmz.md)
+* [{#T}](../../tutorials/fault-tolerance.md)
+* [{#T}](../../tutorials/alb-with-ddos-protection/index.md)

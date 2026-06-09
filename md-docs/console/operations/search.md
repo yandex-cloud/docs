@@ -8,16 +8,16 @@
 
 - Консоль управления {#console}
 
-  1. В левом верхнем углу [консоли управления](https://console.yandex.cloud) нажмите ![image](../../_assets/console-icons/magnifier.svg) **Поиск** или клавиши **ALT** + **S**.
+  1. В левом верхнем углу [консоли управления]({{ link-console-main }}) нажмите ![image](../../_assets/console-icons/magnifier.svg) **{{ ui-key.yacloud.common.search }}** или клавиши **ALT** + **S**.
   1. Выберите область поиска:
 
-      * `Везде` — все доступные [облака](../../resource-manager/concepts/resources-hierarchy.md#cloud) и документация.
+      * `{{ ui-key.yacloud_components.search.search_filters_all }}` — все доступные [облака](../../resource-manager/concepts/resources-hierarchy.md#cloud) и документация.
       * `Ресурсы` — [каталоги](../../resource-manager/concepts/resources-hierarchy.md#folder) всех облаков или конкретного облака.
-      * `Документация` — только документация.
+      * `{{ ui-key.yacloud_components.search.search_filters_docs }}` — только документация.
 
-  1. В поле **Поиск по облачным ресурсам** введите поисковый запрос.
+  1. В поле **{{ ui-key.yacloud_components.search.label_placeholder }}** введите поисковый запрос.
 
-      Вы увидите результаты поиска в сервисах, каталогах и документации, а также ответ, сформированный Yandex Search API и YandexGPT.
+      Вы увидите результаты поиска в сервисах, каталогах и документации, а также ответ, сформированный {{ search-api-full-name }} и {{ yagpt-name }}.
 
       Чтобы скопировать ссылку на результаты поиска, нажмите значок ![image](../../_assets/console-icons/link.svg).
 
@@ -29,14 +29,14 @@
 Поиск в каталогах происходит по определенным типам объектов и полям.
 
 
-### Yandex API Gateway {#api-gw}
+### {{ api-gw-full-name }} {#api-gw}
 
 Тип объекта | Поля
 --- | ---
 [API-шлюз](../../api-gateway/concepts/index.md) | Домен, идентификатор, имя
 
 
-### Yandex Application Load Balancer {#alb}
+### {{ alb-full-name }} {#alb}
 
 Тип объекта | Поля
 --- | ---
@@ -46,28 +46,28 @@
 [Целевая группа](../../application-load-balancer/concepts/target-group.md) | Идентификатор, имя
 
 
-### Yandex Audit Trails {#at}
+### {{ at-full-name }} {#at}
 
 Тип объекта | Поля
 --- | ---
 [Трейл](../../audit-trails/concepts/trail.md) | Идентификатор, имя
 
 
-### Yandex Cloud CDN {#cdn}
+### {{ cdn-full-name }} {#cdn}
 
 Тип объекта | Поля
 --- | ---
 [CDN-ресурс](../../cdn/concepts/resource.md) | Идентификатор, имя
 
 
-### Yandex Cloud DNS {#dns}
+### {{ dns-full-name }} {#dns}
 
 Тип объекта | Поля
 --- | ---
 [Зона DNS](../../dns/concepts/dns-zone.md) | Зона, идентификатор, имя, метки
 
 
-### Yandex Cloud Functions {#functions}
+### {{ sf-full-name }} {#functions}
 
 Тип объекта | Поля
 --- | ---
@@ -75,7 +75,7 @@
 [Функция](../../functions/concepts/function.md) | Идентификатор, имя
 
 
-### Yandex Cloud Logging {#logging}
+### {{ cloud-logging-full-name }} {#logging}
 
 Тип объекта | Поля
 --- | ---
@@ -83,14 +83,14 @@
 [Приемник логов](../../logging/operations/create-sink.md) | Идентификатор, имя
 
 
-### Yandex Cloud Postbox {#postbox}
+### {{ postbox-full-name }} {#postbox}
 
 Тип объекта | Поля
 --- | ---
 [Адрес](../../postbox/concepts/glossary.md#adress) | Идентификатор, имя
 
 
-### Yandex Compute Cloud {#compute}
+### {{ compute-full-name }} {#compute}
 
 Тип объекта | Поля
 --- | ---
@@ -103,7 +103,7 @@
 [Файловое хранилище](../../compute/concepts/filesystem.md) | Идентификатор, имя, метки, описание
 
 
-### Yandex Container Registry {#registry}
+### {{ container-registry-full-name }} {#registry}
 
 Тип объекта | Поля
 --- | ---
@@ -111,21 +111,21 @@
 [Репозиторий](../../container-registry/concepts/repository.md) | Идентификатор, имя
 
 
-### Yandex Data Processing {#dataproc}
+### {{ dataproc-full-name }} {#dataproc}
 
 Тип объекта | Поля
 --- | ---
 [Кластер](../../glossary/cluster.md) | Идентификатор, имя, описание, хосты
 
 
-### Yandex Identity and Access Management {#iam}
+### {{ iam-full-name }} {#iam}
 
 Тип объекта | Поля
 --- | ---
 [Сервисный аккаунт](../../iam/concepts/users/service-accounts.md) | Идентификатор, имя
 
 
-### Yandex Key Management Service {#kms}
+### {{ kms-full-name }} {#kms}
 
 Тип объекта | Поля
 --- | ---
@@ -134,7 +134,7 @@
 [Симметричный ключ](../../kms/concepts/symmetric-encryption.md) | Идентификатор, имя
 
 
-### Yandex Load Testing {#load-testing}
+### {{ load-testing-full-name }} {#load-testing}
 
 Тип объекта | Поля
 --- | ---
@@ -143,49 +143,49 @@
 [Тест](../../load-testing/operations/create-test-bucket.md) | Идентификатор, имя, метки
 
 
-### Yandex Lockbox {#lockbox}
+### {{ lockbox-full-name }} {#lockbox}
 
 Тип объекта | Поля
 --- | ---
 [Секрет](../../lockbox/concepts/secret.md) | Идентификатор, имя
 
 
-### Yandex Managed Service for Apache Airflow™ {#maf}
+### {{ maf-full-name }} {#maf}
 
 Тип объекта | Поля
 --- | ---
 [Кластер](../../glossary/cluster.md) | Бакет, идентификатор, имя, описание, сервисный аккаунт, хосты
 
 
-### Yandex Managed Service for Apache Kafka® {#mkf}
+### {{ mkf-full-name }} {#mkf}
 
 Тип объекта | Поля
 --- | ---
 [Кластер](../../glossary/cluster.md) | Внутренний IP-адрес, идентификатор, имя, описание, пользователи, топики, хосты
 
 
-### Yandex Managed Service for ClickHouse® {#mch}
+### {{ mch-full-name }} {#mch}
 
 Тип объекта | Поля
 --- | ---
 [Кластер](../../glossary/cluster.md) | Базы данных, внутренний IP-адрес, идентификатор, имя, описание, пользователи, хосты
 
 
-### Yandex Managed Service for Elasticsearch {#mes}
+### {{ mes-full-name }} {#mes}
 
 Тип объекта | Поля
 --- | ---
 [Кластер](../../glossary/cluster.md) | Внутренний IP-адрес, идентификатор, имя, описание, пользователи, хосты
 
 
-### Yandex MPP Analytics for PostgreSQL {#mgp}
+### {{ mgp-full-name }} {#mgp}
 
 Тип объекта | Поля
 --- | ---
 [Кластер](../../glossary/cluster.md) | Внутренний IP-адрес, идентификатор, имя, описание, пользователи, хосты
 
 
-### Yandex Managed Service for Kubernetes {#k8s}
+### {{ managed-k8s-full-name }} {#k8s}
 
 Тип объекта | Поля
 --- | ---
@@ -193,63 +193,63 @@
 [Кластер](../../glossary/cluster.md) | Идентификатор, имя
 
 
-### Yandex StoreDoc {#mmg}
+### {{ mmg-full-name }} {#mmg}
 
 Тип объекта | Поля
 --- | ---
 [Кластер](../../glossary/cluster.md) | Базы данных, внутренний IP-адрес, идентификатор, имя, метки, описание, пользователи, хосты
 
 
-### Yandex Managed Service for MySQL® {#mmy}
+### {{ mmy-full-name }} {#mmy}
 
 Тип объекта | Поля
 --- | ---
 [Кластер](../../glossary/cluster.md) | Базы данных, внутренний IP-адрес, идентификатор, имя, описание, пользователи, хосты
 
 
-### Yandex Managed Service for OpenSearch {#mos}
+### {{ mos-full-name }} {#mos}
 
 Тип объекта | Поля
 --- | ---
 [Кластер](../../glossary/cluster.md) | Внутренний IP-адрес, идентификатор, имя, описание, пользователи, хосты
 
 
-### Yandex Managed Service for PostgreSQL {#mpg}
+### {{ mpg-full-name }} {#mpg}
 
 Тип объекта | Поля
 --- | ---
 [Кластер](../../glossary/cluster.md) | Базы данных, внутренний IP-адрес, идентификатор, имя, метки, описание, пользователи, хосты
 
 
-### Yandex Managed Service for Valkey™ {#mrd}
+### {{ mrd-full-name }} {#mrd}
 
 Тип объекта | Поля
 --- | ---
 [Кластер](../../glossary/cluster.md) | Внутренний IP-адрес, идентификатор, имя, метки, описание, хосты
 
 
-### Yandex Managed Service for YDB {#ydb}
+### {{ ydb-full-name }} {#ydb}
 
 Тип объекта | Поля
 --- | ---
 [База данных](../../ydb/concepts/resources.md#database) | Идентификатор, имя
 
 
-### Yandex Message Queue {#message-queue}
+### {{ message-queue-full-name }} {#message-queue}
 
 Тип объекта | Поля
 --- | ---
 [Очередь сообщений](../../message-queue/concepts/queue.md) | Идентификатор, имя
 
 
-### Yandex MetaData Hub {#metadata-hub}
+### {{ metadata-hub-full-name }} {#metadata-hub}
 
 Тип объекта | Поля
 --- | ---
 [Кластер](../../metadata-hub/concepts/metastore.md) | Идентификатор, имя, описание, сервисный аккаунт, хосты
 
 
-### Yandex Monitoring {#monitoring}
+### {{ monitoring-full-name }} {#monitoring}
 
 Тип объекта | Поля
 --- | ---
@@ -258,7 +258,7 @@
 [Канал уведомлений](../../monitoring/concepts/alerting/notification-channel.md) | Идентификатор, имя, описание
 
 
-### Yandex Network Load Balancer {#nlb}
+### {{ network-load-balancer-full-name }} {#nlb}
 
 Тип объекта | Поля
 --- | ---
@@ -266,21 +266,21 @@
 [Целевая группа](../../network-load-balancer/concepts/target-resources.md) | Идентификатор, имя, метки, описание
 
 
-### Yandex Object Storage {#storage}
+### {{ objstorage-full-name }} {#storage}
 
 Тип объекта | Поля
 --- | ---
 [Бакет](../../storage/concepts/bucket.md) | Идентификатор, имя
 
 
-### Yandex Serverless Containers {#containers}
+### {{ serverless-containers-full-name }} {#containers}
 
 Тип объекта | Поля
 --- | ---
 [Контейнер](../../serverless-containers/concepts/container.md) | Идентификатор, имя
 
 
-### Yandex Virtual Private Cloud {#vpc}
+### {{ vpc-full-name }} {#vpc}
 
 Тип объекта | Поля
 --- | ---

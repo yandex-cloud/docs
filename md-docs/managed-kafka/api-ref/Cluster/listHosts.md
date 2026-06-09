@@ -5,7 +5,7 @@ Retrieves a list of hosts for the specified Apache Kafka® cluster.
 ## HTTP request
 
 ```
-GET https://mdb.api.cloud.yandex.net/managed-kafka/v1/clusters/{clusterId}/hosts
+GET https://{{ api-host-mdb }}/managed-kafka/v1/clusters/{clusterId}/hosts
 ```
 
 ## Path parameters

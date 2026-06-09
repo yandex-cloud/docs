@@ -5,7 +5,7 @@ Creates a secret in the specified folder.
 ## HTTP request
 
 ```
-POST https://lockbox.api.cloud.yandex.net/lockbox/v1/secrets
+POST https://{{ api-host-lockbox }}/lockbox/v1/secrets
 ```
 
 ## Body parameters {#yandex.cloud.lockbox.v1.CreateSecretRequest}

@@ -5,7 +5,7 @@ Lists operations for the specified TrunkConnection.
 ## HTTP request
 
 ```
-GET https://cic.api.cloud.yandex.net/cic/v1/trunkConnections/{trunkConnectionId}/operations
+GET https://cic.{{ api-host }}/cic/v1/trunkConnections/{trunkConnectionId}/operations
 ```
 
 ## Path parameters
@@ -14,7 +14,9 @@ GET https://cic.api.cloud.yandex.net/cic/v1/trunkConnections/{trunkConnectionId}
 ||Field | Description ||
 || trunkConnectionId | **string**
 
-Required field. ID of the TrunkConnection resource. ||
+Required field. ID of the TrunkConnection resource.
+
+The maximum string length in characters is 50. ||
 |#
 
 ## Query parameters {#yandex.cloud.cic.v1.ListTrunkConnectionOperationsRequest}
@@ -26,11 +28,15 @@ Required field. ID of the TrunkConnection resource. ||
 The maximum number of results per page to return. If the number of available
 results is larger than `pageSize`,
 the service returns a [ListTrunkConnectionOperationsResponse.nextPageToken](#yandex.cloud.cic.v1.ListTrunkConnectionOperationsResponse)
-that can be used to get the next page of results in subsequent list requests. Default value: 100. ||
+that can be used to get the next page of results in subsequent list requests. Default value: 100.
+
+The maximum value is 1000. ||
 || pageToken | **string**
 
 Page token. To get the next page of results, set `pageToken` to the
-[ListTrunkConnectionOperationsResponse.nextPageToken](#yandex.cloud.cic.v1.ListTrunkConnectionOperationsResponse) returned by a previous list request. ||
+[ListTrunkConnectionOperationsResponse.nextPageToken](#yandex.cloud.cic.v1.ListTrunkConnectionOperationsResponse) returned by a previous list request.
+
+The maximum string length in characters is 100. ||
 |#
 
 ## Response {#yandex.cloud.cic.v1.ListTrunkConnectionOperationsResponse}

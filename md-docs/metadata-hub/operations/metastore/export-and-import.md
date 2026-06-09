@@ -1,13 +1,13 @@
-# Экспорт и импорт метаданных Hive в кластере Apache Hive™ Metastore
+# Экспорт и импорт метаданных Hive в кластере {{ metastore-name }}
 
 ## Перед началом работы {#before-you-begin}
 
 1. [Создайте сервисный аккаунт](../../../iam/operations/sa/create.md) `my-account` c ролями `storage.uploader` и `managed-metastore.integrationProvider`.
-1. [Настройте сеть и создайте кластер](cluster-create.md) Apache Hive™ Metastore. При создании укажите сервисный аккаунт `my-account`.
-1. [Создайте бакет](../../../storage/operations/buckets/create.md) в Yandex Object Storage. В нем будет храниться файл с метаданными для импорта и экспорта.
+1. [Настройте сеть и создайте кластер](cluster-create.md) {{ metastore-name }}. При создании укажите сервисный аккаунт `my-account`.
+1. [Создайте бакет](../../../storage/operations/buckets/create.md) в {{ objstorage-full-name }}. В нем будет храниться файл с метаданными для импорта и экспорта.
 1. [Выдайте разрешение](../../../storage/operations/buckets/edit-acl.md) `READ и WRITE` сервисному аккаунту `my-account` на созданный бакет.
 
-Подробнее о подключении к бакету, в котором настроены политики доступа, см. в [инструкции](s3-policy-connect.md).
+Подробнее о подключении к бакету, в котором настроены политики доступа, — [инструкции](s3-policy-connect.md).
 
 ## Экспорт данных {#export}
 
@@ -15,27 +15,27 @@
 
 - Консоль управления {#console}
 
-   1. В [консоли управления](https://console.yandex.cloud) выберите нужный каталог.
-   1. [Перейдите](../../../console/operations/select-service.md#select-service) в сервис **Yandex MetaData Hub**.
-   1. На панели слева выберите ![image](../../../_assets/console-icons/database.svg) **Metastore-сервер**.
-   1. Нажмите на значок ![image](../../../_assets/console-icons/ellipsis.svg) для нужного кластера и выберите пункт ![image](../../../_assets/console-icons/arrow-up-from-square.svg) **Экспорт**.
+   1. В [консоли управления]({{ link-console-main }}) выберите нужный каталог.
+   1. [Перейдите](../../../console/operations/select-service.md#select-service) в сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_metadata-hub }}**.
+   1. На панели слева выберите ![image](../../../_assets/console-icons/database.svg) **{{ ui-key.yacloud.metastore.label_metastore }}**.
+   1. Нажмите на значок ![image](../../../_assets/console-icons/ellipsis.svg) для нужного кластера и выберите пункт ![image](../../../_assets/console-icons/arrow-up-from-square.svg) **{{ ui-key.yacloud.metastore.action_export }}**.
    1. В открывшемся окне укажите:
 
       * [Созданный ранее](#before-you-begin) бакет, куда будут экспортированы данные кластера.
       * Название файла `.sql`, куда будут записаны данные кластера. Если файл с таким названием уже существует, он будет перезаписан.
 
-   1. Нажмите кнопку **Экспортировать**.
+   1. Нажмите кнопку **{{ ui-key.yacloud.metastore.dialog.import-export.action_export }}**.
 
 - CLI {#cli}
 
-   Если у вас еще нет интерфейса командной строки Yandex Cloud (CLI), [установите и инициализируйте его](../../../cli/quickstart.md#install).
+   Если у вас еще нет интерфейса командной строки {{ yandex-cloud }} (CLI), [установите и инициализируйте его](../../../cli/quickstart.md#install).
 
    По умолчанию используется каталог, указанный при [создании](../../../cli/operations/profile/profile-create.md) профиля CLI. Чтобы изменить каталог по умолчанию, используйте команду `yc config set folder-id <идентификатор_каталога>`. Также для любой команды вы можете указать другой каталог с помощью параметров `--folder-name` или `--folder-id`. Если вы обращаетесь к ресурсу по имени, поиск будет выполнен в каталоге по умолчанию. Если вы обращаетесь к ресурсу по идентификатору, поиск будет выполнен глобально — во всех каталогах с учетом прав доступа.
 
-   Чтобы экспортировать метаданные из кластера Apache Hive™ Metastore, выполните команду:
+   Чтобы экспортировать метаданные из кластера {{ metastore-name }}, выполните команду:
 
    ```bash
-   yc managed-metastore cluster export-data <имя_или_идентификатор_кластера> \
+   {{ yc-metastore }} cluster export-data <имя_или_идентификатор_кластера> \
       --bucket <имя_бакета> \
       --filepath <файл_для_данных>
    ```
@@ -55,13 +55,13 @@
         export IAM_TOKEN="<IAM-токен>"
         ```
 
-    1. Воспользуйтесь методом [Cluster.ExportData](../../api-ref/Cluster/exportData.md) и выполните запрос, например с помощью [cURL](https://curl.se/):
+    1. Воспользуйтесь методом [Cluster.ExportData](../../api-ref/Cluster/exportData.md) и выполните запрос, например с помощью {{ api-examples.rest.tool }}:
 
         ```bash
         curl \
             --request POST \
             --header "Authorization: Bearer $IAM_TOKEN" \
-            --url 'https://metastore.api.cloud.yandex.net/managed-metastore/v1/clusters/<идентификатор_кластера>:export' \
+            --url 'https://{{ api-host-metastore }}/managed-metastore/v1/clusters/<идентификатор_кластера>:export' \
             --data '{
                        "bucket": "<имя_бакета>",
                        "filepath": "<файл_для_данных>"
@@ -93,7 +93,7 @@
        
        Далее предполагается, что содержимое репозитория находится в директории `~/cloudapi/`.
 
-    1. Воспользуйтесь вызовом [ClusterService.ExportData](../../api-ref/grpc/Cluster/exportData.md) и выполните запрос, например, с помощью [gRPCurl](https://github.com/fullstorydev/grpcurl):
+    1. Воспользуйтесь вызовом [ClusterService.ExportData](../../api-ref/grpc/Cluster/exportData.md) и выполните запрос, например, с помощью {{ api-examples.grpc.tool }}:
 
         ```bash
         grpcurl \
@@ -107,7 +107,7 @@
                     "bucket": "<имя_бакета>",
                     "filepath": "<файл_для_данных>"
                 }' \
-            metastore.api.cloud.yandex.net:443 \
+            {{ api-host-metastore }}:{{ port-https }} \
             yandex.cloud.metastore.v1.ClusterService.ExportData
         ```
 
@@ -124,31 +124,31 @@
 
 ## Импорт данных {#import}
 
-Перед импортом [загрузите файл](../../../storage/operations/objects/upload.md#simple) `.sql` с метаданными в [cозданный ранее](#before-you-begin) бакет. О том, как подготовить файл и как устроен процесс импорта, читайте в разделе [Перенос метаданных между кластерами Yandex Data Processing с помощью Apache Hive™ Metastore](../../tutorials/metastore-import.md).
+Перед импортом [загрузите файл](../../../storage/operations/objects/upload.md#simple) `.sql` с метаданными в [cозданный ранее](#before-you-begin) бакет. О том, как подготовить файл и как устроен процесс импорта, читайте в разделе [{#T}](../../tutorials/metastore-import.md).
 
 {% list tabs group=instructions %}
 
 - Консоль управления {#console}
 
-   Чтобы импортировать данные в кластер Apache Hive™ Metastore:
+   Чтобы импортировать данные в кластер {{ metastore-name }}:
 
-   1. В [консоли управления](https://console.yandex.cloud) выберите нужный каталог.
-   1. [Перейдите](../../../console/operations/select-service.md#select-service) в сервис **Yandex MetaData Hub**.
-   1. На панели слева выберите ![image](../../../_assets/console-icons/database.svg) **Metastore-сервер**.
-   1. Нажмите на значок ![image](../../../_assets/console-icons/ellipsis.svg) для нужного кластера и выберите пункт ![image](../../../_assets/console-icons/arrow-down-to-square.svg) **Импорт**.
+   1. В [консоли управления]({{ link-console-main }}) выберите нужный каталог.
+   1. [Перейдите](../../../console/operations/select-service.md#select-service) в сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_metadata-hub }}**.
+   1. На панели слева выберите ![image](../../../_assets/console-icons/database.svg) **{{ ui-key.yacloud.metastore.label_metastore }}**.
+   1. Нажмите на значок ![image](../../../_assets/console-icons/ellipsis.svg) для нужного кластера и выберите пункт ![image](../../../_assets/console-icons/arrow-down-to-square.svg) **{{ ui-key.yacloud.metastore.action_import }}**.
    1. В открывшемся окне выберите [cозданный ранее](#before-you-begin) бакет и файл, откуда будут импортированы данные кластера.
-   1. Нажмите кнопку **Импортировать**.
+   1. Нажмите кнопку **{{ ui-key.yacloud.metastore.dialog.import-export.action_import }}**.
 
 - CLI {#cli}
 
-   Если у вас еще нет интерфейса командной строки Yandex Cloud (CLI), [установите и инициализируйте его](../../../cli/quickstart.md#install).
+   Если у вас еще нет интерфейса командной строки {{ yandex-cloud }} (CLI), [установите и инициализируйте его](../../../cli/quickstart.md#install).
 
    По умолчанию используется каталог, указанный при [создании](../../../cli/operations/profile/profile-create.md) профиля CLI. Чтобы изменить каталог по умолчанию, используйте команду `yc config set folder-id <идентификатор_каталога>`. Также для любой команды вы можете указать другой каталог с помощью параметров `--folder-name` или `--folder-id`. Если вы обращаетесь к ресурсу по имени, поиск будет выполнен в каталоге по умолчанию. Если вы обращаетесь к ресурсу по идентификатору, поиск будет выполнен глобально — во всех каталогах с учетом прав доступа.
 
-   Чтобы импортировать метаданные в кластер Apache Hive™ Metastore, выполните команду:
+   Чтобы импортировать метаданные в кластер {{ metastore-name }}, выполните команду:
 
    ```bash
-   yc managed-metastore cluster import-data <имя_или_идентификатор_кластера> \
+   {{ yc-metastore }} cluster import-data <имя_или_идентификатор_кластера> \
       --bucket <имя_бакета> \
       --filepath <файл_c_данными>
    ```
@@ -168,13 +168,13 @@
         export IAM_TOKEN="<IAM-токен>"
         ```
 
-    1. Воспользуйтесь методом [Cluster.ImportData](../../api-ref/Cluster/importData.md) и выполните запрос, например с помощью [cURL](https://curl.se/):
+    1. Воспользуйтесь методом [Cluster.ImportData](../../api-ref/Cluster/importData.md) и выполните запрос, например с помощью {{ api-examples.rest.tool }}:
 
         ```bash
         curl \
             --request POST \
             --header "Authorization: Bearer $IAM_TOKEN" \
-            --url 'https://metastore.api.cloud.yandex.net/managed-metastore/v1/clusters/<идентификатор_кластера>:import' \
+            --url 'https://{{ api-host-metastore }}/managed-metastore/v1/clusters/<идентификатор_кластера>:import' \
             --data '{
                        "bucket": "<имя_бакета>",
                        "filepath": "<файл_c_данными>"
@@ -206,7 +206,7 @@
        
        Далее предполагается, что содержимое репозитория находится в директории `~/cloudapi/`.
 
-    1. Воспользуйтесь вызовом [ClusterService.ImportData](../../api-ref/grpc/Cluster/importData.md) и выполните запрос, например, с помощью [gRPCurl](https://github.com/fullstorydev/grpcurl):
+    1. Воспользуйтесь вызовом [ClusterService.ImportData](../../api-ref/grpc/Cluster/importData.md) и выполните запрос, например, с помощью {{ api-examples.grpc.tool }}:
 
         ```bash
         grpcurl \
@@ -220,7 +220,7 @@
                     "bucket": "<имя_бакета>",
                     "filepath": "<файл_c_данными>"
                 }' \
-            metastore.api.cloud.yandex.net:443 \
+            {{ api-host-metastore }}:{{ port-https }} \
             yandex.cloud.metastore.v1.ClusterService.ImportData
         ```
 

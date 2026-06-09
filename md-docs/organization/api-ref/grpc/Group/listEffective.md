@@ -55,11 +55,9 @@ The expression supports the following operations:
 - `IN` for multiple values: `id IN ('id1', 'id2')`
 - `contains` for domain substring search: `name contains 'example'`
 - `AND` for combining conditions: `name contains 'my-group' AND name contains 'name'`
-
 Available fields for filtering:
 - `id` - group ID
 - `name` - group name
-
 Must be 1-1000 characters long.
 
 The maximum string length in characters is 1000. ||

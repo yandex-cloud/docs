@@ -5,7 +5,7 @@ Returns the specified cluster.
 ## HTTP request
 
 ```
-GET https://ytsaurus.api.cloud.yandex.net/ytsaurus/v1/clusters/{clusterId}
+GET https://ytsaurus.{{ api-host }}/ytsaurus/v1/clusters/{clusterId}
 ```
 
 ## Path parameters

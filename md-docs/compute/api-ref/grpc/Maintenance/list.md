@@ -4,9 +4,9 @@ Lists maintenances by conditions, specified in request.
 
 ## gRPC request
 
-**rpc List ([yandex.cloud.maintenance.v2.ListMaintenancesRequest](#yandex.cloud.maintenance.v2.ListMaintenancesRequest)) returns ([yandex.cloud.maintenance.v2.ListMaintenancesResponse](#yandex.cloud.maintenance.v2.ListMaintenancesResponse))**
+**rpc List ([maintenance.v2.ListMaintenancesRequest](#yandex.cloud.maintenance.v2.ListMaintenancesRequest)) returns ([maintenance.v2.ListMaintenancesResponse](#yandex.cloud.maintenance.v2.ListMaintenancesResponse))**
 
-## yandex.cloud.maintenance.v2.ListMaintenancesRequest {#yandex.cloud.maintenance.v2.ListMaintenancesRequest}
+## maintenance.v2.ListMaintenancesRequest {#yandex.cloud.maintenance.v2.ListMaintenancesRequest}
 
 ```json
 {
@@ -78,7 +78,7 @@ Supported fields: ["status", "resource_type", "resource_id"]
 The maximum string length in characters is 300. ||
 |#
 
-## yandex.cloud.maintenance.v2.ListMaintenancesResponse {#yandex.cloud.maintenance.v2.ListMaintenancesResponse}
+## maintenance.v2.ListMaintenancesResponse {#yandex.cloud.maintenance.v2.ListMaintenancesResponse}
 
 ```json
 {

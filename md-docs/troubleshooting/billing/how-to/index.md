@@ -1,6 +1,6 @@
-## Примеры конфигураций и сценариев Yandex Cloud Billing {#configuration-examples}
+## Примеры конфигураций и сценариев {{ billing-name }} {#configuration-examples}
 
-* [Как работают гранты и промокоды в Yandex Cloud Billing](promocodes-and-grants-features-in-billing.md)
+* [Как работают гранты и промокоды в {{ billing-name }}](promocodes-and-grants-features-in-billing.md)
 * [Как изменить информацию, указанную в свойствах платежного аккаунта](change-payer-info-or-requisites.md)
 * [Как сменить тип платежного аккаунта](changing-billing-account-type.md)
 * [Как изменить форму и данные в выставляемых счетах на оплату](edit-invoice-template-or-content.md)
@@ -16,7 +16,6 @@
 * [Какой формат закрывающих документов в ЭДО](closing-documents-format.md)
 * [Какой лимит отрицательного баланса при оплате банковским переводом](overdraft-while-transferring.md)
 * [Как сменить владельца аккаунта для юридических лиц](changing-account-owner-for-legal-entities.md)
-* [Как остановить списания средств с платежного аккаунта](analyzing-charges-chart.md)
 * [До какой даты вносить оплату](deadline-for-paymens.md)
 * [Как получить оригинал договора](getting-contract-originals.md)
 * [Как получать чеки при совершении платежа с банковской карты](getting-invoices-when-paying-by-card.md)

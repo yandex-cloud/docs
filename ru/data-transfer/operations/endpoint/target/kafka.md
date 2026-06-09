@@ -30,7 +30,7 @@ description: Из статьи вы узнаете, как задать наст
 1. {% include [queue](../../../../_includes/data-transfer/scenario-captions/queue.md) %}
     * [Поставка данных из очереди {{ DS }} в {{ KF }}](../../../tutorials/yds-to-kafka.md)
 
-Подробное описание возможных сценариев передачи данных в {{ data-transfer-full-name }} см. в разделе [Практические руководства](../../../tutorials/index.md).
+Подробное описание возможных сценариев передачи данных в {{ data-transfer-full-name }} читайте в разделе [Практические руководства](../../../tutorials/index.md).
 
 ## Настройка источника данных {#supported-sources}
 
@@ -44,7 +44,7 @@ description: Из статьи вы узнаете, как задать наст
 * [{{ ydb-name }}](../source/ydb.md);
 * [{{ OS }}](../source/opensearch.md).
 
-Полный список поддерживаемых источников и приемников в {{ data-transfer-full-name }} см. в разделе [Доступные трансферы](../../../transfer-matrix.md).
+Полный список поддерживаемых источников и приемников в {{ data-transfer-full-name }} читайте в разделе [Доступные трансферы](../../../transfer-matrix.md).
 
 ## Настройка эндпоинта-приемника {{ KF }} {#endpoint-settings}
 
@@ -100,7 +100,7 @@ description: Из статьи вы узнаете, как задать наст
     ```
 
 
-    Подробнее см. в [документации провайдера {{ TF }}]({{ tf-provider-dt-endpoint }}).
+    Подробнее в [документации провайдера {{ TF }}]({{ tf-provider-dt-endpoint }}).
 
 - API {#api}
 
@@ -150,7 +150,7 @@ description: Из статьи вы узнаете, как задать наст
     ```
 
 
-    Подробнее см. в [документации провайдера {{ TF }}]({{ tf-provider-dt-endpoint }}).
+    Подробнее в [документации провайдера {{ TF }}]({{ tf-provider-dt-endpoint }}).
 
 - API {#api}
 
@@ -196,7 +196,7 @@ description: Из статьи вы узнаете, как задать наст
 
 {% endlist %}
 
-{{ data-transfer-full-name }} поддерживает CDC-режим для трансферов из баз данных {{ PG }}, {{ MY }} и {{ ydb-short-name }} в {{ KF }} и {{ yds-full-name }}. При этом данные в приемник попадают в формате Debezium. Подробнее о CDC-режиме см. в разделе [Захват изменения данных](../../../concepts/cdc.md).
+{{ data-transfer-full-name }} поддерживает CDC-режим для трансферов из баз данных {{ PG }}, {{ MY }} и {{ ydb-short-name }} в {{ KF }} и {{ yds-full-name }}. При этом данные в приемник попадают в формате Debezium. Подробнее о CDC-режиме читайте в разделе [Захват изменения данных](../../../concepts/cdc.md).
 
 {% include [CDC-YDB](../../../../_includes/data-transfer/note-ydb-cdc.md) %}
 

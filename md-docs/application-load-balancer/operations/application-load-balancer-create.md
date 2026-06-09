@@ -6,17 +6,17 @@
 
 - Консоль управления {#console}
 
-  1. В [консоли управления](https://console.yandex.cloud) выберите [каталог](../../resource-manager/concepts/resources-hierarchy.md#folder), в котором будет создан балансировщик.
-  1. [Перейдите](../../console/operations/select-service.md#select-service) в сервис **Application Load Balancer**.
-  1. Нажмите кнопку **Создать L7-балансировщик** и выберите **Вручную**.
+  1. В [консоли управления]({{ link-console-main }}) выберите [каталог](../../resource-manager/concepts/resources-hierarchy.md#folder), в котором будет создан балансировщик.
+  1. Перейдите в сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_application-load-balancer }}**.
+  1. Нажмите кнопку **{{ ui-key.yacloud.alb.button_load-balancer-create }}** и выберите **{{ ui-key.yacloud.alb.label_alb-create-form }}**.
   1. Введите имя балансировщика.
-  1. В блоке **Сетевые настройки** выберите:
+  1. В блоке **{{ ui-key.yacloud.mdb.forms.section_network-settings }}** выберите:
      1. [Сеть](../../vpc/concepts/network.md#network), в [подсетях](../../vpc/concepts/network.md#subnet) которой будут размещаться узлы балансировщика.
      1. Подходящие [группы безопасности](../concepts/application-load-balancer.md#security-groups):
 
-        * `Без групп` — для балансировщика будет разрешен любой входящий и исходящий трафик. Это наименее безопасный вариант.
-        * `Автоматически` — при создании балансировщика будет автоматически создана группа безопасности, разрешающая любой входящий трафик на порте `80` и TCP-трафик для проверки состояния узлов балансировщика на порте `30080`. При этом для балансировщика будет разрешен любой исходящий трафик.
-        * `Из списка` — для более гибкого управления трафиком [создайте](../../vpc/operations/security-group-create.md) свои группы безопасности. Вы можете выбрать и привязать к балансировщику одновременно до пяти групп безопасности.
+        * `{{ ui-key.yacloud.component.security-group-field.label_sg-none }}` — для балансировщика будет разрешен любой входящий и исходящий трафик. Это наименее безопасный вариант.
+        * `{{ ui-key.yacloud.component.security-group-field.label_sg-auto }}` — при создании балансировщика будет автоматически создана группа безопасности, разрешающая любой входящий трафик на порте `80` и TCP-трафик для проверки состояния узлов балансировщика на порте `30080`. При этом для балансировщика будет разрешен любой исходящий трафик.
+        * `{{ ui-key.yacloud.component.security-group-field.label_sg-from-list }}` — для более гибкого управления трафиком [создайте](../../vpc/operations/security-group-create.md) свои группы безопасности. Вы можете выбрать и привязать к балансировщику одновременно до пяти групп безопасности.
 
         {% note info %}
         
@@ -24,48 +24,48 @@
         
           {% endnote %}
 
-  1. В блоке **Размещение** выберите для узлов балансировщика подсети в разных [зонах доступности](../../overview/concepts/geo-scope.md) и включите прием трафика в этих подсетях.
+  1. В блоке **{{ ui-key.yacloud.alb.section_allocation-settings }}** выберите для узлов балансировщика подсети в разных [зонах доступности](../../overview/concepts/geo-scope.md) и включите прием трафика в этих подсетях.
 
       Чтобы не создавать узел балансировщика в определенной зоне доступности, нажмите ![xmark](../../_assets/console-icons/xmark.svg) в соответствующей строке.
 
 
-  1. (Опционально) В блоке **Размещение** включите или отключите входящий трафик для каждой зоны в отдельности с помощью опции **Прием трафика**.
+  1. (Опционально) В блоке **{{ ui-key.yacloud.alb.section_allocation-settings }}** включите или отключите входящий трафик для каждой зоны в отдельности с помощью опции **{{ ui-key.yacloud.alb.label_disable-traffic }}**.
 
-  1. (Опционально) В блоке **Настройки автомасштабирования** укажите ограничения на количество [ресурсных единиц](../concepts/application-load-balancer.md#lcu-scaling).
+  1. (Опционально) В блоке **{{ ui-key.yacloud.alb.section_autoscale-settings }}** укажите ограничения на количество [ресурсных единиц](../concepts/application-load-balancer.md#lcu-scaling).
 
      Количество единиц будет меняться автоматически с учетом нагрузки на балансировщик и установленных ограничений. От количества единиц зависит [тарификация балансировщика](../pricing.md).
-  1. (Опционально) В блоке **Настройки логов**:
-     1. Включите опцию **Запись логов**.
-     1. Выберите [лог-группу](../../logging/concepts/log-group.md) [Yandex Cloud Logging](../../logging/index.md), в которую будут записываться логи балансировщика.
-     1. Нажмите кнопку **Добавить правило отбрасывания логов** и настройте его [параметры](../concepts/application-load-balancer.md#discard-logs-rules):
-        * **HTTP-коды** — добавьте HTTP-коды.
-        * **Классы HTTP-кодов** — добавьте классы HTTP-кодов.
-        * **gRPC-коды** — добавьте gRPC-коды.
-        * **Доля отбрасываемых логов** — добавьте процент отбрасываемых логов.
+  1. (Опционально) В блоке **{{ ui-key.yacloud.alb.section_logs-settings }}**:
+     1. Включите опцию **{{ ui-key.yacloud.alb.label_log-requests }}**.
+     1. Выберите [лог-группу](../../logging/concepts/log-group.md) [{{ cloud-logging-full-name }}](../../logging/index.md), в которую будут записываться логи балансировщика.
+     1. Нажмите кнопку **{{ ui-key.yacloud.alb.button_add-discard-rule }}** и настройте его [параметры](../concepts/application-load-balancer.md#discard-logs-rules):
+        * **{{ ui-key.yacloud.alb.label_discard-http-codes }}** — добавьте HTTP-коды.
+        * **{{ ui-key.yacloud.alb.label_discard-http-code-intervals }}** — добавьте классы HTTP-кодов.
+        * **{{ ui-key.yacloud.alb.label_discard-grpc-codes }}** — добавьте gRPC-коды.
+        * **{{ ui-key.yacloud.alb.label_discard-percent }}** — добавьте процент отбрасываемых логов.
 
         Вы можете задать больше одного правила.
 
-  1. В блоке **Обработчики** нажмите кнопку **Добавить обработчик**. Задайте настройки обработчика:
+  1. В блоке **{{ ui-key.yacloud.alb.label_listeners }}** нажмите кнопку **{{ ui-key.yacloud.alb.button_add-listener }}**. Задайте настройки обработчика:
      1. Введите имя обработчика.
-     1. (Опционально) Включите опцию **Публичный IP-адрес**. Укажите **Порт**: `80` и выберите **Тип**:
-        * `Автоматически`.
-        * `Список` — в появившемся поле справа выберите адрес в выпадающем списке.
-     1. (Опционально) Включите опцию **Внутренний IP-адрес**. Укажите **Порт** и выберите **Подсеть** в выпадающем списке.
-     1. В блоке **Приём и обработка трафика** выберите тип обработчика: `HTTP` или `Stream`.
+     1. (Опционально) Включите опцию **{{ ui-key.yacloud.alb.section_external-address-specs }}**. Укажите **{{ ui-key.yacloud.alb.label_port }}**: `80` и выберите **{{ ui-key.yacloud.common.type }}**:
+        * `{{ ui-key.yacloud.alb.label_address-auto }}`.
+        * `{{ ui-key.yacloud.alb.label_address-list }}` — в появившемся поле справа выберите адрес в выпадающем списке.
+     1. (Опционально) Включите опцию **{{ ui-key.yacloud.alb.section_internal-address-specs }}**. Укажите **{{ ui-key.yacloud.alb.label_port }}** и выберите **{{ ui-key.yacloud.common.label_subnet }}** в выпадающем списке.
+     1. В блоке **{{ ui-key.yacloud.alb.section_common-address-specs }}** выберите тип обработчика: `{{ ui-key.yacloud.alb.label_listener-type-http }}` или `{{ ui-key.yacloud.alb.label_listener-type-stream }}`.
 
-        Для `HTTP` выберите:
-        * Протокол: `HTTP`,`HTTPS` или `Перенаправлять на HTTPS`.
+        Для `{{ ui-key.yacloud.alb.label_listener-type-http }}` выберите:
+        * Протокол: `{{ ui-key.yacloud.alb.label_proto-http-plain }}`,`{{ ui-key.yacloud.alb.label_proto-http-tls }}` или `{{ ui-key.yacloud.alb.label_redirect-to-https }}`.
         * [HTTP-роутер](http-router-create.md) в выпадающем списке.
 
-        Для `Stream` выберите протокол:
-        * `Открытый`: выберите **Группы бэкендов** в выпадающем списке.
-        * `Зашифрованный`: в блоке **Основной обработчик** выберите **Сертификаты** и **Группы бэкендов** в выпадающих списках.
+        Для `{{ ui-key.yacloud.alb.label_listener-type-stream }}` выберите протокол:
+        * `{{ ui-key.yacloud.alb.label_proto-stream-plain }}`: выберите **{{ ui-key.yacloud.alb.label_backend-groups }}** в выпадающем списке.
+        * `{{ ui-key.yacloud.alb.label_proto-stream-tls }}`: в блоке **{{ ui-key.yacloud.alb.section_default-sni-match }}** выберите **{{ ui-key.yacloud.alb.label_certificate }}** и **{{ ui-key.yacloud.alb.label_backend-groups }}** в выпадающих списках.
   1. При необходимости добавьте дополнительные обработчики.
-  1. Нажмите кнопку **Создать**.
+  1. Нажмите кнопку **{{ ui-key.yacloud.common.create }}**.
 
 - CLI {#cli}
 
-  Если у вас еще нет интерфейса командной строки Yandex Cloud (CLI), [установите и инициализируйте его](../../cli/quickstart.md#install).
+  Если у вас еще нет интерфейса командной строки {{ yandex-cloud }} (CLI), [установите и инициализируйте его](../../cli/quickstart.md#install).
 
   По умолчанию используется каталог, указанный при [создании](../../cli/operations/profile/profile-create.md) профиля CLI. Чтобы изменить каталог по умолчанию, используйте команду `yc config set folder-id <идентификатор_каталога>`. Также для любой команды вы можете указать другой каталог с помощью параметров `--folder-name` или `--folder-id`. Если вы обращаетесь к ресурсу по имени, поиск будет выполнен в каталоге по умолчанию. Если вы обращаетесь к ресурсу по идентификатору, поиск будет выполнен глобально — во всех каталогах с учетом прав доступа.
 
@@ -98,11 +98,11 @@
      name: test-balancer2
      folder_id: aoe197919j8e********
      status: ACTIVE
-     region_id: ru-central1
+     region_id: {{ region-id }}
      network_id: c64l1c06d151********
      allocation_policy:
        locations:
-       - zone_id: ru-central1-a
+       - zone_id: {{ region-id }}-a
          subnet_id: buc4gsmpj8hv********
      log_group_id: eolul9ap0bv0********
      security_group_ids:
@@ -149,11 +149,11 @@
         name: test-balancer2
         folder_id: aoe197919j8e********
         status: ACTIVE
-        region_id: ru-central1
+        region_id: {{ region-id }}
         network_id: c64l1c06d151********
         allocation_policy:
           locations:
-            - zone_id: ru-central1-a
+            - zone_id: {{ region-id }}-a
               subnet_id: buc4gsmpj8hv********
         created_at: "2022-06-02T12:12:13.624832586Z"
         auto_scale_policy:
@@ -161,7 +161,7 @@
           max_size: 10
         ```
 
-  1. (Опционально) Установите параметры записи [логов](../logs-ref.md) в [Yandex Cloud Logging](../../logging/index.md):
+  1. (Опционально) Установите параметры записи [логов](../logs-ref.md) в [{{ cloud-logging-full-name }}](../../logging/index.md):
      1. Посмотрите описание команды CLI для добавления логирования в балансировщик:
 
         ```bash
@@ -269,7 +269,7 @@
            backend_group_id: ds77tero4f5h********
      allocation_policy:
        locations:
-       - zone_id: ru-central1-a
+       - zone_id: {{ region-id }}-a
          subnet_id: e9bs1hp7lgdl********
      log_group_id: ckgs4u5km3u8********
      security_group_ids:
@@ -287,15 +287,18 @@
            discard_percent: "90"
      ```
 
-- Terraform {#tf}
+- {{ TF }} {#tf}
 
-  [Terraform](https://www.terraform.io/) позволяет быстро создать облачную инфраструктуру в Yandex Cloud и управлять ею с помощью файлов конфигураций. В файлах конфигураций хранится описание инфраструктуры на языке HCL (HashiCorp Configuration Language). При изменении файлов конфигураций Terraform автоматически определяет, какая часть вашей конфигурации уже развернута, что следует добавить или удалить.
+  [{{ TF }}](https://www.terraform.io/) позволяет быстро создать облачную инфраструктуру в {{ yandex-cloud }} и управлять ею с помощью файлов конфигураций. В файлах конфигураций хранится описание инфраструктуры на языке HCL (HashiCorp Configuration Language). При изменении файлов конфигураций {{ TF }} автоматически определяет, какая часть вашей конфигурации уже развернута, что следует добавить или удалить.
   
-  Terraform распространяется под лицензией [Business Source License](https://github.com/hashicorp/terraform/blob/main/LICENSE), а [провайдер Yandex Cloud для Terraform](https://github.com/yandex-cloud/terraform-provider-yandex) — под лицензией [MPL-2.0](https://www.mozilla.org/en-US/MPL/2.0/).
+  {{ TF }} распространяется под лицензией [Business Source License](https://github.com/hashicorp/terraform/blob/main/LICENSE), а [провайдер {{ yandex-cloud }} для {{ TF }}](https://github.com/yandex-cloud/terraform-provider-yandex) — под лицензией [MPL-2.0](https://www.mozilla.org/en-US/MPL/2.0/).
   
-  Подробную информацию о ресурсах провайдера смотрите в документации на сайте [Terraform](https://www.terraform.io/docs/providers/yandex/index.html) или в [зеркале](../../terraform/index.md).
+  Подробную информацию о ресурсах провайдера смотрите в документации на сайте [{{ TF }}](https://www.terraform.io/docs/providers/yandex/index.html) или в [зеркале]({{ tf-docs-link }}).
 
-  Если у вас еще нет Terraform, [установите его и настройте провайдер Yandex Cloud](../../tutorials/infrastructure-management/terraform-quickstart.md#install-terraform).
+  Если у вас еще нет {{ TF }}, [установите его и настройте провайдер {{ yandex-cloud }}](../../tutorials/infrastructure-management/terraform-quickstart.md#install-terraform).
+  
+  
+  Чтобы управлять инфраструктурой с помощью {{ TF }} от имени сервисного аккаунта или пользовательских аккаунтов: аккаунта на Яндексе, федеративного аккаунта и локального пользователя, [аутентифицируйтесь](../../terraform/authentication.md) соответствующим способом.
 
   1. Опишите в конфигурационном файле параметры ресурсов, которые необходимо создать:
 
@@ -428,7 +431,7 @@
 
             * `default_handler` — обработчик по умолчанию для TLS:
 
-                * `certificate_ids` — список идентификаторов [сертификатов](../../certificate-manager/concepts/index.md#types) Yandex Certificate Manager.
+                * `certificate_ids` — список идентификаторов [сертификатов](../../certificate-manager/concepts/index.md#types) {{ certificate-manager-full-name }}.
                 * `stream_handler` — параметры Stream-обработчика:
 
                     * `backend_group_id` — идентификатор группы бэкендов с типом `Stream`.
@@ -445,13 +448,13 @@
                 * `server_names` — имена серверов, которым соответствует SNI-обработчик.
                 * `handler` — параметры SNI-обработчика:
 
-                    * `certificate_ids` — список идентификаторов сертификатов Yandex Certificate Manager.
+                    * `certificate_ids` — список идентификаторов сертификатов {{ certificate-manager-full-name }}.
                     * `stream_handler` — параметры Stream-обработчика:
 
                         * `backend_group_id` — идентификатор группы бэкендов с типом `Stream`.
                         * `idle_timeout` (опционально) — время ожидания без активности, после которого соединение закрывается. Например: `"10s"`, `"5m"`, `"1h"`. Значение `"0"` отключает таймаут. По умолчанию — 1 час.
 
-      * `log_options` — (опционально) параметры записи [логов](../logs-ref.md) в [Yandex Cloud Logging](../../logging/index.md):
+      * `log_options` — (опционально) параметры записи [логов](../logs-ref.md) в [{{ cloud-logging-full-name }}](../../logging/index.md):
 
           * `log_group_id` — идентификатор [лог-группы](../../logging/concepts/log-group.md).
           * `discard_rule` — [правило отбрасывания логов](../concepts/application-load-balancer.md#discard-logs-rules):
@@ -463,7 +466,7 @@
 
             Вы можете задать больше одного правила.
 
-      Более подробную информацию о параметрах ресурса `yandex_alb_load_balancer` в Terraform см. в [документации провайдера](../../terraform/resources/alb_load_balancer.md).
+      Более подробную информацию о параметрах ресурса `yandex_alb_load_balancer` в {{ TF }} см. в [документации провайдера]({{ tf-provider-resources-link }}/alb_load_balancer).
 
   1. Проверьте корректность конфигурационных файлов.
 
@@ -474,7 +477,7 @@
           terraform plan
           ```
 
-      Если конфигурация описана верно, в терминале отобразится список создаваемых ресурсов и их параметров. Если в конфигурации есть ошибки, Terraform на них укажет.
+      Если конфигурация описана верно, в терминале отобразится список создаваемых ресурсов и их параметров. Если в конфигурации есть ошибки, {{ TF }} на них укажет.
 
   1. Разверните облачные ресурсы.
 
@@ -486,7 +489,7 @@
 
       1. Подтвердите создание ресурсов: введите в терминал слово `yes` и нажмите **Enter**.
 
-          После этого в указанном каталоге будут созданы все требуемые ресурсы. Проверить появление ресурсов и их настройки можно в [консоли управления](https://console.yandex.cloud) или с помощью команды [CLI](../../cli/index.md):
+          После этого в указанном каталоге будут созданы все требуемые ресурсы. Проверить появление ресурсов и их настройки можно в [консоли управления]({{ link-console-main }}) или с помощью команды [CLI](../../cli/index.md):
 
           ```bash
           yc alb load-balancer list
@@ -494,7 +497,7 @@
 
           {% note warning "Ограничения по времени" %}
           
-          Провайдер Terraform ограничивает время на выполнение операций с балансировщиками Application Load Balancer 10 минутами.
+          Провайдер {{ TF }} ограничивает время на выполнение операций с балансировщиками {{ alb-name }} 10 минутами.
           
           Операции, которые длятся дольше указанного времени, прерываются.
           

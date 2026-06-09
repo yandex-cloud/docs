@@ -70,5 +70,5 @@ GROUP BY
 
 ## Примеры использования {#examples}
 
-* [Обработка логов Yandex Cloud Logging](../tutorials/cloud-logging.md).
-* [Обработка потока изменений Debezium](../tutorials/debezium.md).
+* [{#T}](../tutorials/cloud-logging.md).
+* [{#T}](../tutorials/debezium.md).

@@ -20,24 +20,21 @@ Lists operations for the specified filesystem.
 ||Field | Description ||
 || filesystem_id | **string**
 
-Required field. ID of the filesystem to list operations for.
-
+ID of the filesystem to list operations for.
 To get the filesystem ID, make a [FilesystemService.List](list.md#List) request.
-
-The maximum string length in characters is 50. ||
+The length must be less than or equal to 50.
+This field is required. ||
 || page_size | **int64**
 
 The maximum number of results per page to return. If the number of available
 results is larger than `page_size`, the service returns a [ListFilesystemOperationsResponse.next_page_token](#yandex.cloud.compute.v1.ListFilesystemOperationsResponse)
 that can be used to get the next page of results in subsequent list requests.
-
-The maximum value is 1000. ||
+The value must be less than or equal to 1000. ||
 || page_token | **string**
 
 Page token. To get the next page of results, set `page_token` to the
 [ListFilesystemOperationsResponse.next_page_token](#yandex.cloud.compute.v1.ListFilesystemOperationsResponse) returned by a previous list request.
-
-The maximum string length in characters is 100. ||
+The length must be less than or equal to 100. ||
 |#
 
 ## ListFilesystemOperationsResponse {#yandex.cloud.compute.v1.ListFilesystemOperationsResponse}
@@ -73,7 +70,6 @@ List of operations for the specified filesystem. ||
 Token for getting the next page of the list. If the number of results is greater than
 the specified [ListFilesystemOperationsRequest.page_size](#yandex.cloud.compute.v1.ListFilesystemOperationsRequest), use `next_page_token` as the value
 for the [ListFilesystemOperationsRequest.page_token](#yandex.cloud.compute.v1.ListFilesystemOperationsRequest) parameter in the next list request.
-
 Each subsequent page will have its own `next_page_token` to continue paging through the results. ||
 |#
 

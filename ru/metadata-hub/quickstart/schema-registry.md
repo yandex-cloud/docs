@@ -64,7 +64,7 @@
 
       В ответ на успешный запрос придет уникальный идентификатор схемы. Пример: `{"id":1}`.
 
-      Примеры запросов см. в [документации Confluent](https://docs.confluent.io/platform/current/schema-registry/develop/api.html#post--subjects-(string-%20subject)-versions).
+      Примеры запросов в [документации Confluent](https://docs.confluent.io/platform/current/schema-registry/develop/api.html#post--subjects-(string-%20subject)-versions).
 
 {% endlist %}
 

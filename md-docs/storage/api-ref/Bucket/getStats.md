@@ -5,7 +5,7 @@ Returns the statistics for the specified bucket.
 ## HTTP request
 
 ```
-GET https://storage.api.cloud.yandex.net/storage/v1/buckets/{name}:getStats
+GET https://storage.{{ api-host }}/storage/v1/buckets/{name}:getStats
 ```
 
 ## Path parameters

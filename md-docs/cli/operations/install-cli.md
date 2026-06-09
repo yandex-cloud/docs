@@ -22,7 +22,7 @@
     1. Выполните команду:
 
         ```bash
-        curl -sSL https://storage.yandexcloud.net/yandexcloud-yc/install.sh | bash
+        curl -sSL https://{{ s3-storage-host-cli }}{{ yc-install-path }} | bash
         ```
 
         Скрипт установит CLI и добавит путь до исполняемого файла в переменную окружения `PATH`.
@@ -48,7 +48,7 @@
     1. Выполните команду:
 
         ```bash
-        curl -sSL https://storage.yandexcloud.net/yandexcloud-yc/install.sh | bash
+        curl -sSL https://{{ s3-storage-host-cli }}{{ yc-install-path }} | bash
         ```
 
         Скрипт установит CLI и добавит путь до исполняемого файла в переменную окружения `PATH`.
@@ -72,7 +72,7 @@
         Скрипт установки автоматически дополнит конфигурационный файл `~/.zshrc`:
         
         ```
-        # The next line updates PATH for Yandex Cloud CLI.
+        # The next line updates PATH for {{ yandex-cloud }} CLI.
         if [ -f '/Users/<username>/yandex-cloud/path.bash.inc' ]; then source '/Users/<username>/yandex-cloud/path.bash.inc'; fi
         # The next line enables shell command completion for yc.
         if [ -f '/Users/<username>/yandex-cloud/completion.zsh.inc' ]; then source '/Users/<username>/yandex-cloud/completion.zsh.inc'; fi
@@ -99,7 +99,7 @@
             
             
             ```bash
-            iex (New-Object System.Net.WebClient).DownloadString('https://storage.yandexcloud.net/yandexcloud-yc/install.ps1')
+            iex (New-Object System.Net.WebClient).DownloadString('https://storage.yandexcloud.net{{ yc-windows-path }}')
             ```
 
 
@@ -109,7 +109,7 @@
             ```
             Add yc installation dir to your PATH? [Y/n]
             ```        
-        1. Введите `Y`. После этого Yandex Cloud CLI можно пользоваться, командную оболочку перезапускать не нужно.
+        1. Введите `Y`. После этого {{ yandex-cloud }} CLI можно пользоваться, командную оболочку перезапускать не нужно.
 
     - Для установки с помощью командной строки:
 
@@ -119,7 +119,7 @@
             
             
             ```bash
-            @"%SystemRoot%\System32\WindowsPowerShell\v1.0\powershell.exe" -Command "iex ((New-Object System.Net.WebClient).DownloadString('https://storage.yandexcloud.net/yandexcloud-yc/install.ps1'))" && SET "PATH=%PATH%;%USERPROFILE%\yandex-cloud\bin"
+            @"%SystemRoot%\System32\WindowsPowerShell\v1.0\powershell.exe" -Command "iex ((New-Object System.Net.WebClient).DownloadString('https://storage.yandexcloud.net{{ yc-windows-path }}'))" && SET "PATH=%PATH%;%USERPROFILE%\yandex-cloud\bin"
             ```
 
 
@@ -149,7 +149,7 @@
     Выполните команду:
 
     ```bash
-    curl https://storage.yandexcloud.net/yandexcloud-yc/install.sh | bash -s -- -h
+    curl https://{{ s3-storage-host-cli }}{{ yc-install-path }} | bash -s -- -h
     Usage: install [options...]
     Options:
      -i [INSTALL_DIR]    Installs to specified dir.
@@ -163,14 +163,14 @@
     - Установка CLI в `/opt/yc`, без изменений в файле `.bashrc`:
 
         ```bash
-        curl https://storage.yandexcloud.net/yandexcloud-yc/install.sh | \
+        curl https://{{ s3-storage-host-cli }}{{ yc-install-path }} | \
             bash -s -- -i /opt/yc -n
         ```
 
     - Установка CLI в директорию по умолчанию, в файл `.bashrc` добавляются `completion` и `PATH`:
 
         ```bash
-        curl https://storage.yandexcloud.net/yandexcloud-yc/install.sh | \
+        curl https://{{ s3-storage-host-cli }}{{ yc-install-path }} | \
             bash -s -- -a
         ```
 
@@ -194,10 +194,10 @@
      ```bash
      cd <путь_к_директории>
      ```
-  1. Скачайте и распакуйте файл [yc_linux_amd64.tar.gz](https://storage.yandexcloud.net/yandexcloud-yc/release/yc_linux_amd64.tar.gz):
+  1. Скачайте и распакуйте файл [yc_linux_amd64.tar.gz](https://{{ s3-storage-host-cli }}/yandexcloud-yc/release/yc_linux_amd64.tar.gz):
 
       ```bash
-      curl -O https://storage.yandexcloud.net/yandexcloud-yc/release/yc_linux_amd64.tar.gz
+      curl -O https://{{ s3-storage-host-cli }}/yandexcloud-yc/release/yc_linux_amd64.tar.gz
       tar -xzf yc_linux_amd64.tar.gz
       ```
 
@@ -219,10 +219,10 @@
      ```bash
      cd <путь_к_директории>
      ```
-  1. Скачайте и распакуйте файл [yc_linux_386.tar.gz](https://storage.yandexcloud.net/yandexcloud-yc/release/yc_linux_386.tar.gz):
+  1. Скачайте и распакуйте файл [yc_linux_386.tar.gz](https://{{ s3-storage-host-cli }}/yandexcloud-yc/release/yc_linux_386.tar.gz):
 
       ```bash
-      curl -O https://storage.yandexcloud.net/yandexcloud-yc/release/yc_linux_386.tar.gz
+      curl -O https://{{ s3-storage-host-cli }}/yandexcloud-yc/release/yc_linux_386.tar.gz
       tar -xzf yc_linux_386.tar.gz
       ```
 
@@ -244,10 +244,10 @@
      ```bash
      cd <путь_к_директории>
      ```
-  1. Скачайте и распакуйте файл [yc_linux_arm64.tar.gz](https://storage.yandexcloud.net/yandexcloud-yc/release/yc_linux_arm64.tar.gz):
+  1. Скачайте и распакуйте файл [yc_linux_arm64.tar.gz](https://{{ s3-storage-host-cli }}/yandexcloud-yc/release/yc_linux_arm64.tar.gz):
 
       ```bash
-      curl -O https://storage.yandexcloud.net/yandexcloud-yc/release/yc_linux_arm64.tar.gz
+      curl -O https://{{ s3-storage-host-cli }}/yandexcloud-yc/release/yc_linux_arm64.tar.gz
       tar -xzf yc_linux_arm64.tar.gz
       ```
 
@@ -269,10 +269,10 @@
      ```bash
      cd <путь_к_директории>
      ```
-  1. Скачайте и распакуйте файл [yc_darwin_amd64.tar.gz](https://storage.yandexcloud.net/yandexcloud-yc/release/yc_darwin_amd64.tar.gz):
+  1. Скачайте и распакуйте файл [yc_darwin_amd64.tar.gz](https://{{ s3-storage-host-cli }}/yandexcloud-yc/release/yc_darwin_amd64.tar.gz):
 
       ```bash
-      curl -O https://storage.yandexcloud.net/yandexcloud-yc/release/yc_darwin_amd64.tar.gz
+      curl -O https://{{ s3-storage-host-cli }}/yandexcloud-yc/release/yc_darwin_amd64.tar.gz
       tar -xzf yc_darwin_amd64.tar.gz
       ```
 
@@ -294,10 +294,10 @@
      ```bash
      cd <путь_к_директории>
      ```
-  1. Скачайте и распакуйте файл [yc_darwin_arm64.tar.gz](https://storage.yandexcloud.net/yandexcloud-yc/release/yc_darwin_arm64.tar.gz):
+  1. Скачайте и распакуйте файл [yc_darwin_arm64.tar.gz](https://{{ s3-storage-host-cli }}/yandexcloud-yc/release/yc_darwin_arm64.tar.gz):
 
       ```bash
-      curl -O https://storage.yandexcloud.net/yandexcloud-yc/release/yc_darwin_arm64.tar.gz
+      curl -O https://{{ s3-storage-host-cli }}/yandexcloud-yc/release/yc_darwin_arm64.tar.gz
       tar -xzf yc_darwin_arm64.tar.gz
       ```
 
@@ -319,10 +319,10 @@
      ```bash
      cd <путь_к_директории>
      ```
-  1. Скачайте и распакуйте файл [yc_windows_amd64.zip](https://storage.yandexcloud.net/yandexcloud-yc/release/yc_windows_amd64.zip):
+  1. Скачайте и распакуйте файл [yc_windows_amd64.zip](https://{{ s3-storage-host-cli }}/yandexcloud-yc/release/yc_windows_amd64.zip):
 
       ```powershell
-      curl.exe -O https://storage.yandexcloud.net/yandexcloud-yc/release/yc_windows_amd64.zip
+      curl.exe -O https://{{ s3-storage-host-cli }}/yandexcloud-yc/release/yc_windows_amd64.zip
       Expand-Archive yc_windows_amd64.zip -DestinationPath .
       ```
 
@@ -340,10 +340,10 @@
      ```bash
      cd <путь_к_директории>
      ```
-  1. Скачайте и распакуйте файл [yc_windows_386.zip](https://storage.yandexcloud.net/yandexcloud-yc/release/yc_windows_386.zip):
+  1. Скачайте и распакуйте файл [yc_windows_386.zip](https://{{ s3-storage-host-cli }}/yandexcloud-yc/release/yc_windows_386.zip):
 
       ```powershell
-      curl.exe -O https://storage.yandexcloud.net/yandexcloud-yc/release/yc_windows_386.zip
+      curl.exe -O https://{{ s3-storage-host-cli }}/yandexcloud-yc/release/yc_windows_386.zip
       Expand-Archive yc_windows_386.zip -DestinationPath .
       ```
 
@@ -361,5 +361,5 @@
 
 ### См. также {#see-also}
 
-* [Создание профиля](profile/profile-create.md)
-* [Обновление CLI](update-cli.md)
+* [{#T}](profile/profile-create.md)
+* [{#T}](update-cli.md)

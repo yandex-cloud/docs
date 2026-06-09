@@ -1,4 +1,4 @@
-# Управление пользователями в Sharded PostgreSQL
+# Управление пользователями в {{ SPQR }}
 
 Вы можете добавлять и удалять пользователей, а также управлять их индивидуальными настройками.
 
@@ -8,8 +8,8 @@
 
 - Консоль управления {#console}
 
-  1. [Перейдите](../../console/operations/select-service.md#select-service) в сервис **Yandex Managed Service for Sharded&nbsp;PostgreSQL**.
-  1. Нажмите на имя нужного кластера, затем выберите вкладку **Пользователи**.
+  1. Перейдите в сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-spqr }}**.
+  1. Нажмите на имя нужного кластера, затем выберите вкладку **{{ ui-key.yacloud.spqr.cluster.switch_users }}**.
 
 - REST API {#api}
 
@@ -19,13 +19,13 @@
      export IAM_TOKEN="<IAM-токен>"
      ```
 
-  1. Воспользуйтесь методом [User.List](../api-ref/User/list.md) и выполните запрос, например с помощью [cURL](https://curl.se/):
+  1. Воспользуйтесь методом [User.List](../api-ref/User/list.md) и выполните запрос, например с помощью {{ api-examples.rest.tool }}:
 
      ```bash
      curl \
        --request GET \
        --header "Authorization: Bearer $IAM_TOKEN" \
-       --url 'https://mdb.api.cloud.yandex.net/managed-spqr/v1/clusters/<идентификатор_кластера>/users'
+       --url 'https://{{ api-host-mdb }}/managed-spqr/v1/clusters/<идентификатор_кластера>/users'
      ```
 
   1. Убедитесь, что запрос был выполнен успешно, изучив [ответ сервера](../api-ref/User/list.md#yandex.cloud.mdb.spqr.v1.ListUsersResponse).
@@ -45,7 +45,7 @@
      ```
      
      Далее предполагается, что содержимое репозитория находится в директории `~/cloudapi/`.
-  1. Воспользуйтесь вызовом [UserService.List](../api-ref/grpc/User/list.md) и выполните запрос, например с помощью [gRPCurl](https://github.com/fullstorydev/grpcurl):
+  1. Воспользуйтесь вызовом [UserService.List](../api-ref/grpc/User/list.md) и выполните запрос, например с помощью {{ api-examples.grpc.tool }}:
 
      ```bash
      grpcurl \
@@ -57,7 +57,7 @@
        -d '{
              "cluster_id": "<идентификатор_кластера>"
            }' \
-       mdb.api.cloud.yandex.net:443 \
+       {{ api-host-mdb }}:{{ port-https }} \
        yandex.cloud.mdb.spqr.v1.UserService.List
      ```
 
@@ -77,13 +77,13 @@
      export IAM_TOKEN="<IAM-токен>"
      ```
 
-  1. Воспользуйтесь методом [User.Get](../api-ref/User/get.md) и выполните запрос, например с помощью [cURL](https://curl.se/):
+  1. Воспользуйтесь методом [User.Get](../api-ref/User/get.md) и выполните запрос, например с помощью {{ api-examples.rest.tool }}:
 
      ```bash
      curl \
        --request GET \
        --header "Authorization: Bearer $IAM_TOKEN" \
-       --url 'https://mdb.api.cloud.yandex.net/managed-spqr/v1/clusters/<идентификатор_кластера>/users/<имя_пользователя>'
+       --url 'https://{{ api-host-mdb }}/managed-spqr/v1/clusters/<идентификатор_кластера>/users/<имя_пользователя>'
      ```
 
   1. Убедитесь, что запрос был выполнен успешно, изучив [ответ сервера](../api-ref/User/get.md#yandex.cloud.mdb.spqr.v1.User).
@@ -103,7 +103,7 @@
      ```
      
      Далее предполагается, что содержимое репозитория находится в директории `~/cloudapi/`.
-  1. Воспользуйтесь вызовом [UserService.Get](../api-ref/grpc/User/get.md) и выполните запрос, например с помощью [gRPCurl](https://github.com/fullstorydev/grpcurl):
+  1. Воспользуйтесь вызовом [UserService.Get](../api-ref/grpc/User/get.md) и выполните запрос, например с помощью {{ api-examples.grpc.tool }}:
 
      ```bash
      grpcurl \
@@ -116,7 +116,7 @@
              "cluster_id": "<идентификатор_кластера>",
              "user_name": "<имя_пользователя>"
            }' \
-       mdb.api.cloud.yandex.net:443 \
+       {{ api-host-mdb }}:{{ port-https }} \
        yandex.cloud.mdb.spqr.v1.UserService.Get
      ```
 
@@ -130,9 +130,9 @@
 
 - Консоль управления {#console}
 
-  1. [Перейдите](../../console/operations/select-service.md#select-service) в сервис **Yandex Managed Service for Sharded&nbsp;PostgreSQL**.
-  1. Нажмите на имя нужного кластера, затем выберите вкладку **Пользователи**.
-  1. Нажмите кнопку **Создать пользователя**.
+  1. Перейдите в сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-spqr }}**.
+  1. Нажмите на имя нужного кластера, затем выберите вкладку **{{ ui-key.yacloud.spqr.cluster.switch_users }}**.
+  1. Нажмите кнопку **{{ ui-key.yacloud.mdb.cluster.users.action_add-user }}**.
   1. Введите имя пользователя базы данных.
 
      Имя пользователя может содержать латинские буквы, цифры, дефис и подчеркивание, но должно начинаться с буквы (кроме сочетания `pg_`), цифры или подчеркивания. Максимальная длина имени 63 символа.
@@ -156,17 +156,17 @@
   1. Выберите тип защиты от удаления.
 
      Возможные значения:
-     - **Как у кластера**
-     - **Включена**
-     - **Выключена**
+     - **{{ ui-key.yacloud.mdb.dialogs.action_deletion-protection-like-in-cluster }}**
+     - **{{ ui-key.yacloud.mdb.dialogs.action_deletion-protection-enabled }}**
+     - **{{ ui-key.yacloud.mdb.dialogs.action_deletion-protection-disabled }}**
 
   1. Выберите одну или несколько баз данных, к которым должен иметь доступ пользователь:
-     1. В поле **База данных** нажмите значок ![image](../../_assets/console-icons/plus.svg) справа от выпадающего списка.
+     1. В поле **{{ ui-key.yacloud.mdb.dialogs.popup_field_permissions }}** нажмите значок ![image](../../_assets/console-icons/plus.svg) справа от выпадающего списка.
      1. Выберите базу данных из выпадающего списка.
      1. Повторите два предыдущих шага, пока не будут выбраны все требуемые базы данных.
      1. Чтобы удалить базу, добавленную по ошибке, нажмите значок ![image](../../_assets/console-icons/xmark.svg) справа от имени базы.
 
-  1. Нажмите кнопку **Создать**.
+  1. Нажмите кнопку **{{ ui-key.yacloud.mdb.cluster.users.popup-button_add }}**.
 
 - REST API {#api}
 
@@ -176,13 +176,13 @@
      export IAM_TOKEN="<IAM-токен>"
      ```
 
-  1. Воспользуйтесь методом [User.Create](../api-ref/User/create.md) и выполните запрос, например с помощью [cURL](https://curl.se/):
+  1. Воспользуйтесь методом [User.Create](../api-ref/User/create.md) и выполните запрос, например с помощью {{ api-examples.rest.tool }}:
 
      ```bash
      curl \
        --request POST \
        --header "Authorization: Bearer $IAM_TOKEN" \
-       --url 'https://mdb.api.cloud.yandex.net/managed-spqr/v1/clusters/<идентификатор_кластера>/users' \
+       --url 'https://{{ api-host-mdb }}/managed-spqr/v1/clusters/<идентификатор_кластера>/users' \
        --data '{
                  "userSpec": {
                    "name": "<имя_пользователя>",
@@ -248,7 +248,7 @@
      ```
      
      Далее предполагается, что содержимое репозитория находится в директории `~/cloudapi/`.
-  1. Воспользуйтесь вызовом [UserService.Create](../api-ref/grpc/User/create.md) и выполните запрос, например с помощью [gRPCurl](https://github.com/fullstorydev/grpcurl):
+  1. Воспользуйтесь вызовом [UserService.Create](../api-ref/grpc/User/create.md) и выполните запрос, например с помощью {{ api-examples.grpc.tool }}:
 
      ```bash
      grpcurl \
@@ -277,7 +277,7 @@
                "deletion_protection": "<защитить_пользователя_от_удаления>"
              }
            }' \
-       mdb.api.cloud.yandex.net:443 \
+       {{ api-host-mdb }}:{{ port-https }} \
        yandex.cloud.mdb.spqr.v1.UserService.Create
      ```
 
@@ -318,9 +318,9 @@
 
 - Консоль управления {#console}
 
-  1. [Перейдите](../../console/operations/select-service.md#select-service) в сервис **Yandex Managed Service for Sharded&nbsp;PostgreSQL**.
-  1. Нажмите на имя нужного кластера, затем выберите вкладку **Пользователи**.
-  1. Нажмите значок ![image](../../_assets/console-icons/ellipsis.svg) в строке нужного пользователя и выберите пункт **Настроить**.
+  1. Перейдите в сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-spqr }}**.
+  1. Нажмите на имя нужного кластера, затем выберите вкладку **{{ ui-key.yacloud.spqr.cluster.switch_users }}**.
+  1. Нажмите значок ![image](../../_assets/console-icons/ellipsis.svg) в строке нужного пользователя и выберите пункт **{{ ui-key.yacloud.mdb.cluster.users.button_action-update }}**.
   1. Измените максимальное количество подключений пользователя к БД.
 
   1. Измените количество повторных попыток соединения [роутера](../concepts/index.md#router) с [шардами](../concepts/index.md#shard).
@@ -336,18 +336,18 @@
   1. Настройте тип защиты от удаления.
 
      Возможные значения:
-     - **Как у кластера**
-     - **Включена**
-     - **Выключена**
+     - **{{ ui-key.yacloud.mdb.dialogs.action_deletion-protection-like-in-cluster }}**
+     - **{{ ui-key.yacloud.mdb.dialogs.action_deletion-protection-enabled }}**
+     - **{{ ui-key.yacloud.mdb.dialogs.action_deletion-protection-disabled }}**
 
   1. Настройте права пользователя на доступ к базам данных:
      1. Чтобы предоставить доступ к базам данных:
-        1. В поле **База данных** нажмите значок ![image](../../_assets/console-icons/plus.svg) справа от выпадающего списка.
+        1. В поле **{{ ui-key.yacloud.mdb.dialogs.popup_field_permissions }}** нажмите значок ![image](../../_assets/console-icons/plus.svg) справа от выпадающего списка.
         1. Выберите базу данных из выпадающего списка.
         1. Повторите два предыдущих шага, пока не будут выбраны все требуемые БД.
      1. Чтобы отозвать доступ к базе данных, нажмите значок ![image](../../_assets/console-icons/xmark.svg) справа от имени БД.
 
-  1. Нажмите кнопку **Сохранить**.
+  1. Нажмите кнопку **{{ ui-key.yacloud.mdb.cluster.users.popup-button_save }}**.
 
 - REST API {#api}
 
@@ -357,7 +357,7 @@
      export IAM_TOKEN="<IAM-токен>"
      ```
 
-  1. Воспользуйтесь методом [User.Update](../api-ref/User/update.md) и выполните запрос, например с помощью [cURL](https://curl.se/):
+  1. Воспользуйтесь методом [User.Update](../api-ref/User/update.md) и выполните запрос, например с помощью {{ api-examples.rest.tool }}:
 
      {% note warning %}
      
@@ -369,7 +369,7 @@
      curl \
        --request PATCH \
        --header "Authorization: Bearer $IAM_TOKEN" \
-       --url 'https://mdb.api.cloud.yandex.net/managed-spqr/v1/clusters/<идентификатор_кластера>/users/<имя_пользователя>' \
+       --url 'https://{{ api-host-mdb }}/managed-spqr/v1/clusters/<идентификатор_кластера>/users/<имя_пользователя>' \
        --data '{
                  "updateMask": "<перечень_изменяемых_параметров>",
                  "password": "<пароль_пользователя>",
@@ -429,7 +429,7 @@
      ```
      
      Далее предполагается, что содержимое репозитория находится в директории `~/cloudapi/`.
-  1. Воспользуйтесь вызовом [UserService.Update](../api-ref/grpc/User/update.md) и выполните запрос, например с помощью [gRPCurl](https://github.com/fullstorydev/grpcurl):
+  1. Воспользуйтесь вызовом [UserService.Update](../api-ref/grpc/User/update.md) и выполните запрос, например с помощью {{ api-examples.grpc.tool }}:
 
      {% note warning %}
      
@@ -482,7 +482,7 @@
              ],
              "deletion_protection": "<защитить_пользователя_от_удаления>"
            }' \
-       mdb.api.cloud.yandex.net:443 \
+       {{ api-host-mdb }}:{{ port-https }} \
        yandex.cloud.mdb.spqr.v1.UserService.Update
      ```
 
@@ -519,11 +519,11 @@
 
 - Консоль управления {#console}
 
-  1. [Перейдите](../../console/operations/select-service.md#select-service) в сервис **Yandex Managed Service for Sharded&nbsp;PostgreSQL**.
-  1. Нажмите на имя нужного кластера, затем выберите вкладку **Пользователи**.
-  1. Нажмите значок ![image](../../_assets/console-icons/ellipsis.svg) в строке нужного пользователя и выберите пункт **Изменить пароль**.
+  1. Перейдите в сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-spqr }}**.
+  1. Нажмите на имя нужного кластера, затем выберите вкладку **{{ ui-key.yacloud.spqr.cluster.switch_users }}**.
+  1. Нажмите значок ![image](../../_assets/console-icons/ellipsis.svg) в строке нужного пользователя и выберите пункт **{{ ui-key.yacloud.mdb.cluster.users.button_action-password }}**.
   1. Введите новый пароль. Длина пароля — от 8 до 128 символов.
-  1. Нажмите кнопку **Изменить**.
+  1. Нажмите кнопку **{{ ui-key.yacloud.mdb.cluster.users.popup-password_button_change }}**.
 
 - REST API {#api}
 
@@ -533,7 +533,7 @@
      export IAM_TOKEN="<IAM-токен>"
      ```
 
-  1. Воспользуйтесь методом [User.Update](../api-ref/User/update.md) и выполните запрос, например с помощью [cURL](https://curl.se/):
+  1. Воспользуйтесь методом [User.Update](../api-ref/User/update.md) и выполните запрос, например с помощью {{ api-examples.rest.tool }}:
 
      {% note warning %}
      
@@ -545,7 +545,7 @@
      curl \
        --request PATCH \
        --header "Authorization: Bearer $IAM_TOKEN" \
-       --url 'https://mdb.api.cloud.yandex.net/managed-spqr/v1/clusters/<идентификатор_кластера>/users/<имя_пользователя>' \
+       --url 'https://{{ api-host-mdb }}/managed-spqr/v1/clusters/<идентификатор_кластера>/users/<имя_пользователя>' \
        --data '{
                  "updateMask": "password",
                  "password": "<новый_пароль>"
@@ -577,7 +577,7 @@
      ```
      
      Далее предполагается, что содержимое репозитория находится в директории `~/cloudapi/`.
-  1. Воспользуйтесь вызовом [UserService.Update](../api-ref/grpc/User/update.md) и выполните запрос, например с помощью [gRPCurl](https://github.com/fullstorydev/grpcurl):
+  1. Воспользуйтесь вызовом [UserService.Update](../api-ref/grpc/User/update.md) и выполните запрос, например с помощью {{ api-examples.grpc.tool }}:
 
      {% note warning %}
      
@@ -617,7 +617,7 @@
              },
              "password": "<новый_пароль>"
            }' \
-       mdb.api.cloud.yandex.net:443 \
+       {{ api-host-mdb }}:{{ port-https }} \
        yandex.cloud.mdb.spqr.v1.UserService.Update
      ```
 
@@ -639,11 +639,11 @@
 
 - Консоль управления {#console}
 
-  1. [Перейдите](../../console/operations/select-service.md#select-service) в сервис **Yandex Managed Service for Sharded&nbsp;PostgreSQL**.
-  1. Нажмите на имя нужного кластера, затем выберите вкладку **Пользователи**.
-  1. Нажмите значок ![image](../../_assets/console-icons/ellipsis.svg) в строке нужного пользователя и выберите пункт **Настроить**.
-  1. Измените тип защиты от удаления в поле **Защита от удаления**.
-  1. Нажмите кнопку **Сохранить**.
+  1. Перейдите в сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-spqr }}**.
+  1. Нажмите на имя нужного кластера, затем выберите вкладку **{{ ui-key.yacloud.spqr.cluster.switch_users }}**.
+  1. Нажмите значок ![image](../../_assets/console-icons/ellipsis.svg) в строке нужного пользователя и выберите пункт **{{ ui-key.yacloud.mdb.cluster.users.button_action-update }}**.
+  1. Измените тип защиты от удаления в поле **{{ ui-key.yacloud.mdb.dialogs.field_deletion_protection }}**.
+  1. Нажмите кнопку **{{ ui-key.yacloud.mdb.cluster.users.popup-button_save }}**.
 
 - REST API {#api}
 
@@ -653,7 +653,7 @@
      export IAM_TOKEN="<IAM-токен>"
      ```
 
-  1. Воспользуйтесь методом [User.Update](../api-ref/User/update.md) и выполните запрос, например с помощью [cURL](https://curl.se/):
+  1. Воспользуйтесь методом [User.Update](../api-ref/User/update.md) и выполните запрос, например с помощью {{ api-examples.rest.tool }}:
 
      {% note warning %}
      
@@ -665,7 +665,7 @@
      curl \
        --request PATCH \
        --header "Authorization: Bearer $IAM_TOKEN" \
-       --url 'https://mdb.api.cloud.yandex.net/managed-spqr/v1/clusters/<идентификатор_кластера>/users/<имя_пользователя>' \
+       --url 'https://{{ api-host-mdb }}/managed-spqr/v1/clusters/<идентификатор_кластера>/users/<имя_пользователя>' \
        --data '{
                  "updateMask": "deletionProtection",
                  "deletionProtection": "<защитить_пользователя_от_удаления>"
@@ -697,7 +697,7 @@
      ```
      
      Далее предполагается, что содержимое репозитория находится в директории `~/cloudapi/`.
-  1. Воспользуйтесь вызовом [UserService.Update](../api-ref/grpc/User/update.md) и выполните запрос, например с помощью [gRPCurl](https://github.com/fullstorydev/grpcurl):
+  1. Воспользуйтесь вызовом [UserService.Update](../api-ref/grpc/User/update.md) и выполните запрос, например с помощью {{ api-examples.grpc.tool }}:
 
      {% note warning %}
      
@@ -737,7 +737,7 @@
              },
              "deletion_protection": "<защитить_пользователя_от_удаления>"
            }' \
-       mdb.api.cloud.yandex.net:443 \
+       {{ api-host-mdb }}:{{ port-https }} \
        yandex.cloud.mdb.spqr.v1.UserService.Update
      ```
 
@@ -763,9 +763,9 @@
 
   Чтобы удалить пользователя:
 
-  1. [Перейдите](../../console/operations/select-service.md#select-service) в сервис **Yandex Managed Service for Sharded&nbsp;PostgreSQL**.
-  1. Нажмите на имя нужного кластера, затем выберите вкладку **Пользователи**.
-  1. Нажмите значок ![image](../../_assets/console-icons/ellipsis.svg) в строке нужного пользователя и выберите пункт **Удалить**.
+  1. Перейдите в сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-spqr }}**.
+  1. Нажмите на имя нужного кластера, затем выберите вкладку **{{ ui-key.yacloud.spqr.cluster.switch_users }}**.
+  1. Нажмите значок ![image](../../_assets/console-icons/ellipsis.svg) в строке нужного пользователя и выберите пункт **{{ ui-key.yacloud.mdb.clusters.button_action-delete }}**.
   1. Подтвердите удаление.
 
 - REST API {#api}
@@ -776,13 +776,13 @@
      export IAM_TOKEN="<IAM-токен>"
      ```
 
-  1. Воспользуйтесь методом [User.Delete](../api-ref/User/delete.md) и выполните запрос, например с помощью [cURL](https://curl.se/):
+  1. Воспользуйтесь методом [User.Delete](../api-ref/User/delete.md) и выполните запрос, например с помощью {{ api-examples.rest.tool }}:
 
      ```bash
      curl \
        --request DELETE \
        --header "Authorization: Bearer $IAM_TOKEN" \
-       --url 'https://mdb.api.cloud.yandex.net/managed-spqr/v1/clusters/<идентификатор_кластера>/users/<имя_пользователя>'
+       --url 'https://{{ api-host-mdb }}/managed-spqr/v1/clusters/<идентификатор_кластера>/users/<имя_пользователя>'
      ```
 
   1. Убедитесь, что запрос был выполнен успешно, изучив [ответ сервера](../api-ref/User/delete.md#yandex.cloud.operation.Operation).
@@ -802,7 +802,7 @@
      ```
      
      Далее предполагается, что содержимое репозитория находится в директории `~/cloudapi/`.
-  1. Воспользуйтесь вызовом [UserService.Delete](../api-ref/grpc/User/delete.md) и выполните запрос, например с помощью [gRPCurl](https://github.com/fullstorydev/grpcurl):
+  1. Воспользуйтесь вызовом [UserService.Delete](../api-ref/grpc/User/delete.md) и выполните запрос, например с помощью {{ api-examples.grpc.tool }}:
 
      ```bash
      grpcurl \
@@ -815,7 +815,7 @@
              "cluster_id": "<идентификатор_кластера>",
              "user_name": "<имя_пользователя>"
            }' \
-       mdb.api.cloud.yandex.net:443 \
+       {{ api-host-mdb }}:{{ port-https }} \
        yandex.cloud.mdb.spqr.v1.UserService.Delete
      ```
 

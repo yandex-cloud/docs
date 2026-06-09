@@ -22,7 +22,7 @@ sudo apt install curl
 #### Пример сообщения об ошибке {#sample}
 
 ```
-yc compute instance create --name my-inst3 --metadata user-data="#ps1\nnet user Administrator Passw0rd" --zone ru-central1-a --public-ip --create-boot-disk image-folder-id=standard-images,image-name=windows-2016-gvlk-153
+yc compute instance create --name my-inst3 --metadata user-data="#ps1\nnet user Administrator Passw0rd" --zone {{ region-id }}-a --public-ip --create-boot-disk image-folder-id=standard-images,image-name=windows-2016-gvlk-153
 7967224
 ERROR: rpc error: code = ResourceExhausted desc = The limit on maximum number of instances has exceeded.
 
@@ -45,7 +45,7 @@ If you are going to ask for help of cloud support, please send the following tra
     ```
     C:\Users\username\yandex-cloud\logs\yc_compute_instance_create-2019-02-18T12-26-39.897.txt
     ```
-1. Обратитесь с этой информацией в [службу технической поддержки](https://center.yandex.cloud/support).
+1. Обратитесь с этой информацией в [службу технической поддержки]({{ link-console-support }}).
 
 ## Ресурс не найден при обращении по имени {#name-not-found}
 

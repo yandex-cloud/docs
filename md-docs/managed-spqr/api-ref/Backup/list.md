@@ -5,7 +5,7 @@ Returns the list of available backups for the specified SPQR cluster.
 ## HTTP request
 
 ```
-GET https://mdb.api.cloud.yandex.net/managed-spqr/v1/backups
+GET https://{{ api-host-mdb }}/managed-spqr/v1/backups
 ```
 
 ## Query parameters {#yandex.cloud.mdb.spqr.v1.ListBackupsRequest}

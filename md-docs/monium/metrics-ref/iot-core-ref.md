@@ -1,10 +1,10 @@
-# Метрики Yandex IoT Core
+# Метрики {{ iot-full-name }}
 
-В этом разделе описаны метрики сервиса [Yandex IoT Core](../../iot-core/index.md), поставляемые в Monium Metrics.
+В этом разделе описаны метрики сервиса [{{ iot-name }}](../../iot-core/index.md), поставляемые в {{ monitoring-name }}.
 
 Имя метрики пишется в метку `name`.
 
-Все метрики сервиса Yandex IoT Core имеют общую метку `service=iot-core`.
+Все метрики сервиса {{ iot-short-name }} имеют общую метку `service=iot-core`.
 
 ## Метрики реестров {#registry-metrics}
 

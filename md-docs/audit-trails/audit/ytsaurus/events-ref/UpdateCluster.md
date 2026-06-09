@@ -118,6 +118,9 @@
               "sizeGb": "string",
               "locations": [
                 "string"
+              ],
+              "locationQuotasGb": [
+                "string"
               ]
             }
           ],
@@ -128,7 +131,16 @@
             },
             "auto": {
               "minSize": "string",
-              "maxSize": "string"
+              "maxSize": "string",
+              "initialSize": "string",
+              // Includes only one of the fields `linear`
+              "linear": {
+                "cooldownInterval": "string",
+                "statisticsInterval": "string",
+                "overloadCoefficient": "string",
+                "underloadCoefficient": "string"
+              }
+              // end of the list of possible fields
             }
             // end of the list of possible fields
           },
@@ -452,6 +464,7 @@ A list of messages that carry the error details. ||
 || type | **string** ||
 || sizeGb | **string** (int64) ||
 || locations[] | **string** ||
+|| locationQuotasGb[] | **string** (int64) ||
 |#
 
 ## ScalePolicy {#yandex.cloud.ytsaurus.v1.ComputeSpec.ScalePolicy}
@@ -479,6 +492,20 @@ Includes only one of the fields `fixed`, `auto`. ||
 ||Field | Description ||
 || minSize | **string** (int64) ||
 || maxSize | **string** (int64) ||
+|| initialSize | **string** (int64) ||
+|| linear | **[LinearScalingStrategy](#yandex.cloud.ytsaurus.v1.LinearScalingStrategy)**
+
+Includes only one of the fields `linear`. ||
+|#
+
+## LinearScalingStrategy {#yandex.cloud.ytsaurus.v1.LinearScalingStrategy}
+
+#|
+||Field | Description ||
+|| cooldownInterval | **string** (duration) ||
+|| statisticsInterval | **string** (duration) ||
+|| overloadCoefficient | **string** ||
+|| underloadCoefficient | **string** ||
 |#
 
 ## TabletSpec {#yandex.cloud.ytsaurus.v1.TabletSpec}

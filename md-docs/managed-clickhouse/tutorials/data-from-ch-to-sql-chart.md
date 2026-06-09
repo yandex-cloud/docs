@@ -8,7 +8,7 @@
 
 {% cut "Создать папку" %}
 
-1. Перейдите на [главную страницу](https://datalens.ru/?skipPromo=true) DataLens.
+1. Перейдите на [главную страницу]({{ link-datalens-main-skip-promo }}) {{ datalens-short-name }}.
 1. На панели слева выберите ![](../../_assets/console-icons/folders.svg) **Все объекты** или ![](../../_assets/console-icons/folder-house.svg) **Личная папка**.
 1. В правом верхнем углу нажмите **Создать** → **Папку**.
 1. Введите название папки.
@@ -26,7 +26,7 @@
 В качестве источника данных будет использоваться прямое подключения к демонстрационной БД. 
 
 
-Для визуализации и исследования данных [подготовьте DataLens к работе](#before-you-begin), затем выполните следующие шаги:
+Для визуализации и исследования данных [подготовьте {{ datalens-short-name }} к работе](#before-you-begin), затем выполните следующие шаги:
 
 
 1. [Создайте воркбук](#create-workbook).
@@ -45,30 +45,30 @@ SQL-запросы работают только с базами данных. F
 
 ## Перед началом работы {#before-you-begin}
 
-Чтобы начать работать с DataLens:
+Чтобы начать работать с {{ datalens-short-name }}:
 
 
 {% list tabs group=datalens_user %}
 
 - Новый пользователь {#new}
 
-  1. [Войдите](https://passport.yandex.ru/auth) в ваш аккаунт на Яндексе. Если у вас еще нет аккаунта, [создайте](https://yandex.ru/support/passport/authorization/registration.html) его.
-  1. Откройте [главную страницу](https://datalens.ru/promo) DataLens.
+  1. [Войдите]({{ link-passport-login }}) в ваш аккаунт на Яндексе. Если у вас еще нет аккаунта, [создайте](https://yandex.ru/support/passport/authorization/registration.html) его.
+  1. Откройте [главную страницу]({{ link-datalens-main-promo }}) {{ datalens-short-name }}.
   1. Нажмите **Начать в облаке**.
   1. Подтвердите, что ознакомились с [Условиями использования](https://yandex.ru/legal/cloud_termsofuse/?lang=ru) и принимаете их и нажмите кнопку **Войти**.
 
-- Уже использую Yandex Cloud {#already}
+- Уже использую {{ yandex-cloud }} {#already}
 
-  1. [Войдите](https://passport.yandex.ru/auth) в ваш аккаунт на Яндексе.
-  1. Откройте [главную страницу](https://datalens.ru/promo) DataLens.
+  1. [Войдите]({{ link-passport-login }}) в ваш аккаунт на Яндексе.
+  1. Откройте [главную страницу]({{ link-datalens-main-promo }}) {{ datalens-short-name }}.
   1. Нажмите **Начать в облаке**.
   1. Выберите один из вариантов:
 
-     * Если у вас уже есть организация, выберите ее в выпадающем меню на вкладке **Организации** и нажмите **DataLens**.
+     * Если у вас уже есть организация, выберите ее в выпадающем меню на вкладке **Организации** и нажмите **{{ datalens-short-name }}**.
 
        {% note info %}
 
-       Для активации экземпляра DataLens пользователю нужна роль `admin` или `owner`. Подробнее про роли см. в разделе [Управление доступом в Yandex Identity Hub](../../organization/security/index.md).
+       Для активации экземпляра {{ datalens-short-name }} пользователю нужна роль `admin` или `owner`. Подробнее про роли см. в разделе [{#T}](../../organization/security/index.md).
 
        {% endnote %}
 
@@ -76,11 +76,11 @@ SQL-запросы работают только с базами данных. F
 
 {% endlist %}
 
-Если у вас возник технический вопрос по работе сервиса, обратитесь в [службу поддержки](https://center.yandex.cloud/support) Yandex Cloud. Чтобы спросить совета, обсудить решение вашей задачи или лучшие практики работы сервиса, напишите в чат [DataLens](https://t.me/YandexDataLens) в Telegram.
+Если у вас возник технический вопрос по работе сервиса, обратитесь в [службу поддержки]({{ link-console-support }}) {{ yandex-cloud }}. Чтобы спросить совета, обсудить решение вашей задачи или лучшие практики работы сервиса, напишите в чат [{{ datalens-short-name }}](https://t.me/YandexDataLens) в Telegram.
 
 ## Создайте воркбук {#create-workbook}
 
-1. Перейдите на [главную страницу](https://datalens.ru/?skipPromo=true) DataLens.
+1. Перейдите на [главную страницу]({{ link-datalens-main-skip-promo }}) {{ datalens-short-name }}.
 1. На панели слева выберите ![collections](../../_assets/console-icons/rectangles-4.svg) **Коллекции и воркбуки**.
 1. В правом верхнем углу нажмите **Создать** → **Создать воркбук**.
 1. Введите название [воркбука](../../datalens/workbooks-collections/index.md) — `Практические руководства`.
@@ -95,7 +95,7 @@ SQL-запросы работают только с базами данных. F
 
 
 
-1. В разделе **Базы данных** выберите подключение **ClickHouse®**.
+1. В разделе **Базы данных** выберите подключение **{{ CH }}**.
 
    1. В открывшемся окне выберите тип подключения `Указать вручную` и укажите параметры подключения:
 
@@ -294,7 +294,7 @@ SQL-запросы работают только с базами данных. F
 
 #### См. также {#see-also}
 
-- [Добавление чарта на дашборд в Yandex DataLens](../../datalens/operations/dashboard/add-chart.md)
-- [Добавление селектора на дашборд в Yandex DataLens](../../datalens/operations/dashboard/add-selector.md)
-- [Создание QL-чарта в Yandex DataLens](../../datalens/operations/chart/create-sql-chart.md)
+- [{#T}](../../datalens/operations/dashboard/add-chart.md)
+- [{#T}](../../datalens/operations/dashboard/add-selector.md)
+- [{#T}](../../datalens/operations/chart/create-sql-chart.md)
 - [QL-чарты](../../datalens/concepts/chart/index.md#sql-charts)

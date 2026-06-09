@@ -16,7 +16,7 @@ fun handle(s: Int): Int = s
 
 Протестировать функцию из примера выше можно следующими способами:
 
-* В [консоли управления](https://console.yandex.cloud), на странице функции, на вкладке **Тестирование**.
+* В [консоли управления]({{ link-console-main }}), на странице функции, на вкладке **{{ ui-key.yacloud.serverless-functions.item.testing.label_title }}**.
 * С помощью HTTPS-запроса с параметром [?integration=raw](../../../concepts/function-invoke.md#http):
 
    ```bash

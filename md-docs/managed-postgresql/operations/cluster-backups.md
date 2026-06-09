@@ -1,9 +1,9 @@
-# Управление резервными копиями в Managed Service for PostgreSQL
+# Управление резервными копиями в {{ mpg-name }}
 
 
 Вы можете создавать [резервные копии](../concepts/backup.md) и восстанавливать кластеры из имеющихся резервных копий.
 
-Также Managed Service for PostgreSQL ежедневно создает автоматическую резервную копию. Вы можете [задать время начала резервного копирования](#set-backup-window) и [установить срок хранения](#set-backup-retain) для нее.
+Также {{ mpg-name }} ежедневно создает автоматическую резервную копию. Вы можете [задать время начала резервного копирования](#set-backup-window) и [установить срок хранения](#set-backup-retain) для нее.
 
 ## Восстановить кластер из резервной копии {#restore}
 
@@ -14,7 +14,7 @@
 {% endnote %}
 
 
-Перед началом работы [назначьте](../../iam/operations/roles/grant.md) вашему аккаунту в Yandex Cloud роль [managed-postgresql.restorer](../../iam/roles-reference.md#managed-postgresql-restorer) или выше на каталог размещения резервной копии и каталог, где будет развернут новый кластер.
+Перед началом работы [назначьте](../../iam/operations/roles/grant.md) вашему аккаунту в {{ yandex-cloud }} роль [managed-postgresql.restorer](../../iam/roles-reference.md#managed-postgresql-restorer) или выше на каталог размещения резервной копии и каталог, где будет развернут новый кластер.
 
 
 {% note warning %}
@@ -29,49 +29,49 @@
 
   **Чтобы восстановить из резервной копии существующий кластер:**
 
-  1. [Перейдите](../../console/operations/select-service.md#select-service) в сервис **Managed Service for&nbsp;PostgreSQL**.
-  1. Нажмите на имя нужного кластера и выберите вкладку **Резервные копии**.
-  1. Нажмите значок ![image](../../_assets/console-icons/ellipsis.svg) для нужной резервной копии, затем нажмите **Восстановить кластер**.
-  1. Задайте настройки нового кластера. В списке **Каталог** можно выбрать каталог для нового кластера.
-  1. Чтобы восстановить состояние кластера на требуемый момент времени после создания этой резервной копии, задайте нужное значение настройки **Дата и время восстановления (UTC)**. Значение можно ввести вручную или выбрать из выпадающего календаря.
+  1. Перейдите в сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-postgresql }}**.
+  1. Нажмите на имя нужного кластера и выберите вкладку **{{ ui-key.yacloud.postgresql.cluster.switch_backups }}**.
+  1. Нажмите значок ![image](../../_assets/console-icons/ellipsis.svg) для нужной резервной копии, затем нажмите **{{ ui-key.yacloud.mdb.cluster.backups.button_restore }}**.
+  1. Задайте настройки нового кластера. В списке **{{ ui-key.yacloud.mdb.forms.base_field_folder }}** можно выбрать каталог для нового кластера.
+  1. Чтобы восстановить состояние кластера на требуемый момент времени после создания этой резервной копии, задайте нужное значение настройки **{{ ui-key.yacloud.mdb.forms.field_date }}**. Значение можно ввести вручную или выбрать из выпадающего календаря.
 
      Если оставить настройку без изменений, кластер будет восстановлен в состояние на момент завершения создания резервной копии.
 
-  1. Нажмите кнопку **Восстановить кластер**.
+  1. Нажмите кнопку **{{ ui-key.yacloud.mdb.cluster.backups.button_restore }}**.
 
   **Чтобы восстановить из резервной копии удаленный ранее кластер:**
 
-  1. [Перейдите](../../console/operations/select-service.md#select-service) в сервис **Managed Service for&nbsp;PostgreSQL**.
-  1. Выберите вкладку **Резервные копии**.
-  1. Найдите нужную резервную копию по времени создания и идентификатору кластера. В колонке **Идентификатор** содержатся идентификаторы в формате `<идентификатор_кластера>:<идентификатор_резервной_копии>`.
-  1. Нажмите значок ![image](../../_assets/console-icons/ellipsis.svg) для нужной резервной копии, затем нажмите **Восстановить кластер**.
-  1. Задайте настройки нового кластера. В списке **Каталог** можно выбрать каталог для нового кластера.
-  1. Чтобы восстановить состояние кластера на требуемый момент времени после создания этой резервной копии, задайте нужное значение настройки **Дата и время восстановления (UTC)**. Значение можно ввести вручную или выбрать из выпадающего календаря.
+  1. Перейдите в сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-postgresql }}**.
+  1. Выберите вкладку **{{ ui-key.yacloud.postgresql.switch_backups_xgJVM }}**.
+  1. Найдите нужную резервную копию по времени создания и идентификатору кластера. В колонке **{{ ui-key.yacloud.common.id }}** содержатся идентификаторы в формате `<идентификатор_кластера>:<идентификатор_резервной_копии>`.
+  1. Нажмите значок ![image](../../_assets/console-icons/ellipsis.svg) для нужной резервной копии, затем нажмите **{{ ui-key.yacloud.mdb.cluster.backups.button_restore }}**.
+  1. Задайте настройки нового кластера. В списке **{{ ui-key.yacloud.mdb.forms.base_field_folder }}** можно выбрать каталог для нового кластера.
+  1. Чтобы восстановить состояние кластера на требуемый момент времени после создания этой резервной копии, задайте нужное значение настройки **{{ ui-key.yacloud.mdb.forms.field_date }}**. Значение можно ввести вручную или выбрать из выпадающего календаря.
 
      Если оставить настройку без изменений, кластер будет восстановлен в состояние на момент завершения создания резервной копии.
 
-  1. Нажмите кнопку **Восстановить кластер**.
+  1. Нажмите кнопку **{{ ui-key.yacloud.mdb.cluster.backups.button_restore }}**.
   
-  Managed Service for PostgreSQL запустит операцию создания кластера из резервной копии.
+  {{ mpg-name }} запустит операцию создания кластера из резервной копии.
   
 - CLI {#cli}
   
-  Если у вас еще нет интерфейса командной строки Yandex Cloud (CLI), [установите и инициализируйте его](../../cli/quickstart.md#install).
+  Если у вас еще нет интерфейса командной строки {{ yandex-cloud }} (CLI), [установите и инициализируйте его](../../cli/quickstart.md#install).
   
   По умолчанию кластер будет восстановлен в тот же каталог, где находится резервная копия. Чтобы восстановить кластер в другом каталоге, укажите идентификатор этого каталога в параметре `--folder-id`.
   
   Чтобы восстановить кластер из резервной копии:
   
-  1. Посмотрите описание команды CLI для восстановления кластера PostgreSQL:
+  1. Посмотрите описание команды CLI для восстановления кластера {{ PG }}:
   
       ```bash
-      yc managed-postgresql cluster restore --help
+      {{ yc-mdb-pg }} cluster restore --help
       ```
   
-  1. Получите список доступных резервных копий кластеров PostgreSQL:
+  1. Получите список доступных резервных копий кластеров {{ PG }}:
   
       ```bash
-      yc managed-postgresql backup list
+      {{ yc-mdb-pg }} backup list
       ```
   
       ```text
@@ -89,7 +89,7 @@
 
       
       ```bash
-      yc managed-postgresql cluster restore \
+      {{ yc-mdb-pg }} cluster restore \
          --backup-id=<идентификатор_резервной_копии> \
          --time=<время> \
          --name=<имя_кластера> \
@@ -107,7 +107,7 @@
       Где:
 
       * `--backup-id` — идентификатор [резервной копии](../concepts/backup.md).
-      * `--time` — момент времени, на который нужно восстановить состояние кластера PostgreSQL, в формате `yyyy-mm-ddThh:mm:ssZ`.
+      * `--time` — момент времени, на который нужно восстановить состояние кластера {{ PG }}, в формате `yyyy-mm-ddThh:mm:ssZ`.
       * `--name` — имя кластера.
       * `--environment` — окружение:
 
@@ -136,23 +136,23 @@
           * `network-ssd-io-m3`.
 
 
-- Terraform {#tf}
+- {{ TF }} {#tf}
 
-  Используйте Terraform для восстановления:
+  Используйте {{ TF }} для восстановления:
 
    * Существующего кластера из резервной копии.
    * Кластера, созданного и удаленного через Консоль управления, CLI или API.
 
    {% note info %}
 
-   Кластер будет восстановлен в каталог, идентификатор которого указан в [настройках провайдера](../../terraform/index.md) в параметре `folder_id`.
+   Кластер будет восстановлен в каталог, идентификатор которого указан в [настройках провайдера]({{ tf-provider-link }}) в параметре `folder_id`.
 
    {% endnote %}
 
-   Для восстановления потребуется идентификатор резервной копии. Получите список доступных резервных копий кластеров PostgreSQL [с помощью CLI](#list-backups):
+   Для восстановления потребуется идентификатор резервной копии. Получите список доступных резервных копий кластеров {{ PG }} [с помощью CLI](#list-backups):
 
    ```bash
-   yc managed-postgresql backup list
+   {{ yc-mdb-pg }} backup list
    ```
 
    ```text
@@ -166,7 +166,7 @@
 
    {% note warning "Ограничения по времени" %}
    
-   Провайдер Terraform ограничивает время на выполнение операций с кластером Managed Service for PostgreSQL:
+   Провайдер {{ TF }} ограничивает время на выполнение операций с кластером {{ mpg-name }}:
    
    * создание, в том числе путем восстановления из резервной копии, — 30 минут;
    * изменение — 60 минут;
@@ -195,7 +195,7 @@
 
    **Чтобы восстановить из резервной копии существующий кластер:**
 
-   1. Создайте [конфигурационный файл Terraform](cluster-create.md#create-cluster) для нового кластера.
+   1. Создайте [конфигурационный файл {{ TF }}](cluster-create.md#create-cluster) для нового кластера.
 
        При этом не используйте ресурсы баз данных (`yandex_mdb_postgresql_database`) и пользователей (`yandex_mdb_postgresql_user`) — они будут восстановлены из резервной копии.
 
@@ -214,7 +214,7 @@
        Где:
 
        * `backup_id` — идентификатор резервной копии.
-       * `time` — момент времени, на который нужно восстановить состояние кластера PostgreSQL, начиная со времени создания выбранной резервной копии. Формат: `yyyy-mm-ddThh:mm:ss`.
+       * `time` — момент времени, на который нужно восстановить состояние кластера {{ PG }}, начиная со времени создания выбранной резервной копии. Формат: `yyyy-mm-ddThh:mm:ss`.
 
        {% note info %}
 
@@ -224,14 +224,14 @@
 
    1. Проверьте корректность настроек.
 
-      1. В командной строке перейдите в каталог, в котором расположены актуальные конфигурационные файлы Terraform с планом инфраструктуры.
+      1. В командной строке перейдите в каталог, в котором расположены актуальные конфигурационные файлы {{ TF }} с планом инфраструктуры.
       1. Выполните команду:
       
          ```bash
          terraform validate
          ```
       
-         Если в файлах конфигурации есть ошибки, Terraform на них укажет.
+         Если в файлах конфигурации есть ошибки, {{ TF }} на них укажет.
 
    1. Подтвердите изменение ресурсов.
 
@@ -253,11 +253,11 @@
          1. Подтвердите изменение ресурсов.
          1. Дождитесь завершения операции.
 
-  Terraform создаст копию существующего кластера. Базы данных и пользователи будут развернуты из выбранной резервной копии.
+  {{ TF }} создаст копию существующего кластера. Базы данных и пользователи будут развернуты из выбранной резервной копии.
 
   **Чтобы восстановить из резервной копии удаленный ранее кластер:**
 
-   1. Создайте [конфигурационный файл Terraform](cluster-create.md#create-cluster) для нового кластера.
+   1. Создайте [конфигурационный файл {{ TF }}](cluster-create.md#create-cluster) для нового кластера.
 
        При этом не используйте ресурсы баз данных (`yandex_mdb_postgresql_database`) и пользователей (`yandex_mdb_postgresql_user`) — они будут восстановлены из резервной копии.
 
@@ -276,14 +276,14 @@
 
    1. Проверьте корректность настроек.
 
-      1. В командной строке перейдите в каталог, в котором расположены актуальные конфигурационные файлы Terraform с планом инфраструктуры.
+      1. В командной строке перейдите в каталог, в котором расположены актуальные конфигурационные файлы {{ TF }} с планом инфраструктуры.
       1. Выполните команду:
       
          ```bash
          terraform validate
          ```
       
-         Если в файлах конфигурации есть ошибки, Terraform на них укажет.
+         Если в файлах конфигурации есть ошибки, {{ TF }} на них укажет.
 
    1. Подтвердите изменение ресурсов.
 
@@ -305,7 +305,7 @@
          1. Подтвердите изменение ресурсов.
          1. Дождитесь завершения операции.
 
-  Terraform создаст новый кластер. Базы данных и пользователи будут развернуты из резервной копии.
+  {{ TF }} создаст новый кластер. Базы данных и пользователи будут развернуты из резервной копии.
 
 - REST API {#api}
 
@@ -326,7 +326,7 @@
        "environment": "<окружение>",
        "networkId": "<идентификатор_сети>",
        "configSpec": {
-         "version": "<версия_PostgreSQL>",
+         "version": "<версия_{{ PG }}>",
          "resources": {
            "resourcePresetId": "<класс_хостов>",
            "diskSize": "<размер_хранилища_в_байтах>",
@@ -346,7 +346,7 @@
      Где:
 
      * `backupId` — идентификатор [резервной копии](../concepts/backup.md). Его можно запросить со [списком резервных копий](#list-backups).
-     * `time` — момент времени, на который нужно восстановить состояние кластера PostgreSQL, в формате `yyyy-mm-ddThh:mm:ssZ`.
+     * `time` — момент времени, на который нужно восстановить состояние кластера {{ PG }}, в формате `yyyy-mm-ddThh:mm:ssZ`.
      * `folderId` — идентификатор каталога, где будет восстановлен кластер. Идентификатор можно запросить со [списком каталогов в облаке](../../resource-manager/operations/folder/get-id.md).
      * `name` — имя кластера.
      * `environment` — окружение:
@@ -357,7 +357,7 @@
      * `networkId` — идентификатор [сети](../../vpc/concepts/network.md#network).
      * `configSpec` — настройки кластера:
 
-       * `version` — версия PostgreSQL.
+       * `version` — версия {{ PG }}.
        * `resources` — ресурсы кластера:
 
          * `resourcePresetId` — [класс хостов](../concepts/instance-types.md);
@@ -370,14 +370,14 @@
        * `subnetId` — идентификатор [подсети](../../vpc/concepts/network.md#subnet);
        * `assignPublicIp` — разрешение на [подключение](connect/index.md) к хосту из интернета: `true` или `false`.
 
-  1. Воспользуйтесь методом [Cluster.Restore](../api-ref/Cluster/restore.md) и выполните запрос, например, с помощью [cURL](https://curl.se/):
+  1. Воспользуйтесь методом [Cluster.Restore](../api-ref/Cluster/restore.md) и выполните запрос, например, с помощью {{ api-examples.rest.tool }}:
 
      ```bash
      curl \
        --request POST \
        --header "Authorization: Bearer $IAM_TOKEN" \
        --header "Content-Type: application/json" \
-       --url 'https://mdb.api.cloud.yandex.net/managed-postgresql/v1/clusters:restore' \
+       --url 'https://{{ api-host-mdb }}/managed-postgresql/v1/clusters:restore' \
        --data "@body.json"
      ```
 
@@ -409,7 +409,7 @@
        "environment": "<окружение>",
        "network_id": "<идентификатор_сети>",
        "config_spec": {
-         "version": "<версия_PostgreSQL>",
+         "version": "<версия_{{ PG }}>",
          "resources": {
            "resource_preset_id": "<класс_хостов>",
            "disk_size": "<размер_хранилища_в_байтах>",
@@ -429,7 +429,7 @@
      Где:
 
      * `backup_id` — идентификатор [резервной копии](../concepts/backup.md). Его можно запросить со [списком резервных копий](#list-backups).
-     * `time` — момент времени, на который нужно восстановить состояние кластера PostgreSQL, в формате `yyyy-mm-ddThh:mm:ssZ`.
+     * `time` — момент времени, на который нужно восстановить состояние кластера {{ PG }}, в формате `yyyy-mm-ddThh:mm:ssZ`.
      * `folder_id` — идентификатор каталога, где будет восстановлен кластер. Идентификатор можно запросить со [списком каталогов в облаке](../../resource-manager/operations/folder/get-id.md).
      * `name` — имя кластера.
      * `environment` — окружение:
@@ -440,7 +440,7 @@
      * `network_id` — идентификатор [сети](../../vpc/concepts/network.md#network).
      * `config_spec` — настройки кластера:
 
-       * `version` — версия PostgreSQL.
+       * `version` — версия {{ PG }}.
        * `resources` — ресурсы кластера:
 
          * `resource_preset_id` — [класс хостов](../concepts/instance-types.md);
@@ -453,7 +453,7 @@
        * `subnet_id` — идентификатор [подсети](../../vpc/concepts/network.md#subnet);
        * `assign_public_ip` — разрешение на [подключение](connect/index.md) к хосту из интернета: `true` или `false`.
 
-  1. Воспользуйтесь вызовом [ClusterService.Restore](../api-ref/grpc/Cluster/restore.md) и выполните запрос, например, с помощью [gRPCurl](https://github.com/fullstorydev/grpcurl):
+  1. Воспользуйтесь вызовом [ClusterService.Restore](../api-ref/grpc/Cluster/restore.md) и выполните запрос, например, с помощью {{ api-examples.grpc.tool }}:
 
      ```bash
      grpcurl \
@@ -463,7 +463,7 @@
        -proto ~/cloudapi/yandex/cloud/mdb/postgresql/v1/cluster_service.proto \
        -rpc-header "Authorization: Bearer $IAM_TOKEN" \
        -d @ \
-       mdb.api.cloud.yandex.net:443 \
+       {{ api-host-mdb }}:{{ port-https }} \
        yandex.cloud.mdb.postgresql.v1.ClusterService.Restore \
        < body.json
      ```
@@ -478,29 +478,29 @@
 
 - Консоль управления {#console}
   
-  1. [Перейдите](../../console/operations/select-service.md#select-service) в сервис **Managed Service for&nbsp;PostgreSQL**.
-  1. Нажмите на имя нужного кластера и выберите вкладку **Резервные копии**.
-  1. Нажмите кнопку ![image](../../_assets/console-icons/plus.svg) **Создать резервную копию**.
+  1. Перейдите в сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-postgresql }}**.
+  1. Нажмите на имя нужного кластера и выберите вкладку **{{ ui-key.yacloud.postgresql.cluster.switch_backups }}**.
+  1. Нажмите кнопку ![image](../../_assets/console-icons/plus.svg) **{{ ui-key.yacloud.mdb.cluster.backups.button_create }}**.
 
   Сервис начнет создавать резервную копию без дополнительного подтверждения.
 
 - CLI {#cli}
   
-  Если у вас еще нет интерфейса командной строки Yandex Cloud (CLI), [установите и инициализируйте его](../../cli/quickstart.md#install).
+  Если у вас еще нет интерфейса командной строки {{ yandex-cloud }} (CLI), [установите и инициализируйте его](../../cli/quickstart.md#install).
   
   По умолчанию используется каталог, указанный при [создании](../../cli/operations/profile/profile-create.md) профиля CLI. Чтобы изменить каталог по умолчанию, используйте команду `yc config set folder-id <идентификатор_каталога>`. Также для любой команды вы можете указать другой каталог с помощью параметров `--folder-name` или `--folder-id`. Если вы обращаетесь к ресурсу по имени, поиск будет выполнен в каталоге по умолчанию. Если вы обращаетесь к ресурсу по идентификатору, поиск будет выполнен глобально — во всех каталогах с учетом прав доступа.
   
   Чтобы создать резервную копию кластера:
   
-  1. Посмотрите описание команды CLI для создания резервной копии PostgreSQL:
+  1. Посмотрите описание команды CLI для создания резервной копии {{ PG }}:
   
       ```
-      yc managed-postgresql cluster backup --help
+      {{ yc-mdb-pg }} cluster backup --help
       ```
   1. Запросите создание резервной копии, указав имя или идентификатор кластера:
   
       ```
-      yc managed-postgresql cluster backup my-pg-cluster
+      {{ yc-mdb-pg }} cluster backup my-pg-cluster
       ```
   
       Имя и идентификатор кластера можно получить со [списком кластеров](cluster-list.md#list-clusters).
@@ -513,14 +513,14 @@
      export IAM_TOKEN="<IAM-токен>"
      ```
 
-  1. Воспользуйтесь методом [Cluster.Backup](../api-ref/Cluster/backup.md) и выполните запрос, например, с помощью [cURL](https://curl.se/):
+  1. Воспользуйтесь методом [Cluster.Backup](../api-ref/Cluster/backup.md) и выполните запрос, например, с помощью {{ api-examples.rest.tool }}:
 
      ```bash
      curl \
        --request POST \
        --header "Authorization: Bearer $IAM_TOKEN" \
        --header "Content-Type: application/json" \
-       --url 'https://mdb.api.cloud.yandex.net/managed-postgresql/v1/clusters/<идентификатор_кластера>:backup'
+       --url 'https://{{ api-host-mdb }}/managed-postgresql/v1/clusters/<идентификатор_кластера>:backup'
      ```
 
      Идентификатор кластера можно запросить со [списком кластеров в каталоге](cluster-list.md#list-clusters).
@@ -542,7 +542,7 @@
      ```
      
      Далее предполагается, что содержимое репозитория находится в директории `~/cloudapi/`.
-  1. Воспользуйтесь вызовом [ClusterService.Backup](../api-ref/grpc/Cluster/backup.md#yandex.cloud.mdb.postgresql.v1.Backup) и выполните запрос, например, с помощью [gRPCurl](https://github.com/fullstorydev/grpcurl):
+  1. Воспользуйтесь вызовом [ClusterService.Backup](../api-ref/grpc/Cluster/backup.md#yandex.cloud.mdb.postgresql.v1.Backup) и выполните запрос, например, с помощью {{ api-examples.grpc.tool }}:
 
      ```bash
      grpcurl \
@@ -554,7 +554,7 @@
        -d '{
              "cluster_id": "<идентификатор_кластера>"
            }' \
-       mdb.api.cloud.yandex.net:443 \
+       {{ api-host-mdb }}:{{ port-https }} \
        yandex.cloud.mdb.postgresql.v1.ClusterService.Backup
      ```
 
@@ -577,23 +577,23 @@
 - Консоль управления {#console}
 
   Чтобы получить список резервных копий кластера:
-  1. [Перейдите](../../console/operations/select-service.md#select-service) в сервис **Managed Service for&nbsp;PostgreSQL**.
-  1. Нажмите на имя нужного кластера и выберите вкладку **Резервные копии**.
+  1. Перейдите в сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-postgresql }}**.
+  1. Нажмите на имя нужного кластера и выберите вкладку **{{ ui-key.yacloud.postgresql.cluster.switch_backups }}**.
 
   Чтобы получить список всех резервных копий в каталоге:
-  1. [Перейдите](../../console/operations/select-service.md#select-service) в сервис **Managed Service for&nbsp;PostgreSQL**.
-  1. Выберите вкладку **Резервные копии**.
+  1. Перейдите в сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-postgresql }}**.
+  1. Выберите вкладку **{{ ui-key.yacloud.postgresql.switch_backups_xgJVM }}**.
   
 - CLI {#cli}
   
-  Если у вас еще нет интерфейса командной строки Yandex Cloud (CLI), [установите и инициализируйте его](../../cli/quickstart.md#install).
+  Если у вас еще нет интерфейса командной строки {{ yandex-cloud }} (CLI), [установите и инициализируйте его](../../cli/quickstart.md#install).
   
   По умолчанию используется каталог, указанный при [создании](../../cli/operations/profile/profile-create.md) профиля CLI. Чтобы изменить каталог по умолчанию, используйте команду `yc config set folder-id <идентификатор_каталога>`. Также для любой команды вы можете указать другой каталог с помощью параметров `--folder-name` или `--folder-id`. Если вы обращаетесь к ресурсу по имени, поиск будет выполнен в каталоге по умолчанию. Если вы обращаетесь к ресурсу по идентификатору, поиск будет выполнен глобально — во всех каталогах с учетом прав доступа.
   
-  Чтобы получить список резервных копий кластеров PostgreSQL, доступных в каталоге по умолчанию, выполните команду:
+  Чтобы получить список резервных копий кластеров {{ PG }}, доступных в каталоге по умолчанию, выполните команду:
   
   ```
-  yc managed-postgresql backup list
+  {{ yc-mdb-pg }} backup list
   
   +--------------------------+---------------------+----------------------+---------------------+
   |            ID            |      CREATED AT     |  SOURCE CLUSTER ID   |      STARTED AT     |
@@ -613,13 +613,13 @@
 
   1. Чтобы получить список резервных копий кластера:
 
-     1. Воспользуйтесь методом [Cluster.ListBackups](../api-ref/Cluster/listBackups.md) и выполните запрос, например, с помощью [cURL](https://curl.se/):
+     1. Воспользуйтесь методом [Cluster.ListBackups](../api-ref/Cluster/listBackups.md) и выполните запрос, например, с помощью {{ api-examples.rest.tool }}:
 
         ```bash
         curl \
            --request GET \
            --header "Authorization: Bearer $IAM_TOKEN" \
-           --url 'https://mdb.api.cloud.yandex.net/managed-postgresql/v1/clusters/<идентификатор_кластера>/backups'
+           --url 'https://{{ api-host-mdb }}/managed-postgresql/v1/clusters/<идентификатор_кластера>/backups'
         ```
 
         Идентификатор кластера можно запросить со [списком кластеров в каталоге](cluster-list.md#list-clusters).
@@ -628,13 +628,13 @@
 
   1. Чтобы получить список резервных копий всех кластеров в каталоге:
 
-     1. Воспользуйтесь методом [Backup.List](../api-ref/Backup/list.md) и выполните запрос, например, с помощью [cURL](https://curl.se/):
+     1. Воспользуйтесь методом [Backup.List](../api-ref/Backup/list.md) и выполните запрос, например, с помощью {{ api-examples.rest.tool }}:
 
         ```bash
         curl \
            --request GET \
            --header "Authorization: Bearer $IAM_TOKEN" \
-           --url 'https://mdb.api.cloud.yandex.net/managed-postgresql/v1/backups' \
+           --url 'https://{{ api-host-mdb }}/managed-postgresql/v1/backups' \
            --url-query folderId=<идентификатор_каталога>
         ```
 
@@ -661,7 +661,7 @@
      Далее предполагается, что содержимое репозитория находится в директории `~/cloudapi/`.
   1. Чтобы получить список резервных копий кластера:
 
-     1. Воспользуйтесь вызовом [ClusterService.ListBackups](../api-ref/grpc/Cluster/listBackups.md) и выполните запрос, например, с помощью [gRPCurl](https://github.com/fullstorydev/grpcurl):
+     1. Воспользуйтесь вызовом [ClusterService.ListBackups](../api-ref/grpc/Cluster/listBackups.md) и выполните запрос, например, с помощью {{ api-examples.grpc.tool }}:
 
         ```bash
         grpcurl \
@@ -673,7 +673,7 @@
           -d '{
                 "cluster_id": "<идентификатор_кластера>"
               }' \
-          mdb.api.cloud.yandex.net:443 \
+          {{ api-host-mdb }}:{{ port-https }} \
           yandex.cloud.mdb.postgresql.v1.ClusterService.ListBackups
         ```
 
@@ -683,7 +683,7 @@
 
   1. Чтобы получить список резервных копий всех кластеров в каталоге:
 
-     1. Воспользуйтесь вызовом [BackupService.List](../api-ref/grpc/Backup/list.md) и выполните запрос, например, с помощью [gRPCurl](https://github.com/fullstorydev/grpcurl):
+     1. Воспользуйтесь вызовом [BackupService.List](../api-ref/grpc/Backup/list.md) и выполните запрос, например, с помощью {{ api-examples.grpc.tool }}:
 
         ```bash
         grpcurl \
@@ -695,7 +695,7 @@
           -d '{
                 "folder_id": "<идентификатор_каталога>"
               }' \
-          mdb.api.cloud.yandex.net:443 \
+          {{ api-host-mdb }}:{{ port-https }} \
           yandex.cloud.mdb.postgresql.v1.BackupService.List
         ```
 
@@ -714,23 +714,23 @@
 - Консоль управления {#console}
 
   Чтобы получить информацию о резервной копии существующего кластера:
-  1. [Перейдите](../../console/operations/select-service.md#select-service) в сервис **Managed Service for&nbsp;PostgreSQL**.
-  1. Нажмите на имя нужного кластера и выберите вкладку **Резервные копии**.
+  1. Перейдите в сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-postgresql }}**.
+  1. Нажмите на имя нужного кластера и выберите вкладку **{{ ui-key.yacloud.postgresql.cluster.switch_backups }}**.
 
   Чтобы получить информацию о резервной копии удаленного ранее кластера:
-  1. [Перейдите](../../console/operations/select-service.md#select-service) в сервис **Managed Service for&nbsp;PostgreSQL**.
-  1. Выберите вкладку **Резервные копии**.
+  1. Перейдите в сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-postgresql }}**.
+  1. Выберите вкладку **{{ ui-key.yacloud.postgresql.switch_backups_xgJVM }}**.
   
 - CLI {#cli}
   
-  Если у вас еще нет интерфейса командной строки Yandex Cloud (CLI), [установите и инициализируйте его](../../cli/quickstart.md#install).
+  Если у вас еще нет интерфейса командной строки {{ yandex-cloud }} (CLI), [установите и инициализируйте его](../../cli/quickstart.md#install).
   
   По умолчанию используется каталог, указанный при [создании](../../cli/operations/profile/profile-create.md) профиля CLI. Чтобы изменить каталог по умолчанию, используйте команду `yc config set folder-id <идентификатор_каталога>`. Также для любой команды вы можете указать другой каталог с помощью параметров `--folder-name` или `--folder-id`. Если вы обращаетесь к ресурсу по имени, поиск будет выполнен в каталоге по умолчанию. Если вы обращаетесь к ресурсу по идентификатору, поиск будет выполнен глобально — во всех каталогах с учетом прав доступа.
   
-  Чтобы получить данные о резервной копии кластера PostgreSQL, выполните команду:
+  Чтобы получить данные о резервной копии кластера {{ PG }}, выполните команду:
   
   ```
-  yc managed-postgresql backup get <идентификатор_резервной_копии>
+  {{ yc-mdb-pg }} backup get <идентификатор_резервной_копии>
   ```
   
   Идентификатор резервной копии можно получить со [списком резервных копий](#list-backups).
@@ -743,13 +743,13 @@
      export IAM_TOKEN="<IAM-токен>"
      ```
 
-  1. Воспользуйтесь методом [Backup.Get](../api-ref/Backup/get.md) и выполните запрос, например, с помощью [cURL](https://curl.se/):
+  1. Воспользуйтесь методом [Backup.Get](../api-ref/Backup/get.md) и выполните запрос, например, с помощью {{ api-examples.rest.tool }}:
 
      ```bash
      curl \
         --request GET \
         --header "Authorization: Bearer $IAM_TOKEN" \
-        --url 'https://mdb.api.cloud.yandex.net/managed-postgresql/v1/backups/<идентификатор_резервной_копии>'
+        --url 'https://{{ api-host-mdb }}/managed-postgresql/v1/backups/<идентификатор_резервной_копии>'
      ```
 
      Идентификатор резервной копии можно запросить со [списком резервных копий](#list-backups).
@@ -771,7 +771,7 @@
      ```
      
      Далее предполагается, что содержимое репозитория находится в директории `~/cloudapi/`.
-  1. Воспользуйтесь вызовом [BackupService.Get](../api-ref/grpc/Backup/get.md) и выполните запрос, например, с помощью [gRPCurl](https://github.com/fullstorydev/grpcurl):
+  1. Воспользуйтесь вызовом [BackupService.Get](../api-ref/grpc/Backup/get.md) и выполните запрос, например, с помощью {{ api-examples.grpc.tool }}:
 
      ```bash
      grpcurl \
@@ -783,7 +783,7 @@
        -d '{
              "backup_id": "<идентификатор_резервной_копии>"
            }' \
-       mdb.api.cloud.yandex.net:443 \
+       {{ api-host-mdb }}:{{ port-https }} \
        yandex.cloud.mdb.postgresql.v1.BackupService.Get
      ```
 
@@ -806,7 +806,7 @@
   Чтобы задать время начала резервного копирования, используйте параметр `--backup-window-start`. Время задается в формате `ЧЧ:ММ:СС`.
 
   ```bash
-  yc managed-postgresql cluster create \
+  {{ yc-mdb-pg }} cluster create \
      --cluster-name <имя_кластера> \
      --environment <окружение> \
      --network-name <имя_сети> \
@@ -823,20 +823,20 @@
   Изменить время начала резервного копирования в существующем кластере можно с помощью команды `update`:
 
   ```bash
-  yc managed-postgresql cluster update \
+  {{ yc-mdb-pg }} cluster update \
      --cluster-name <имя_кластера> \
      --backup-window-start 11:25:00
   ```
 
-- Terraform {#tf}
+- {{ TF }} {#tf}
 
-    1. Откройте актуальный конфигурационный файл Terraform с планом инфраструктуры.
+    1. Откройте актуальный конфигурационный файл {{ TF }} с планом инфраструктуры.
 
         О том, как создать такой файл, см. в разделе [Создание кластера](cluster-create.md).
 
-        Полный список доступных для изменения полей конфигурации кластера Managed Service for PostgreSQL см. в [документации провайдера Terraform](../../terraform/resources/mdb_postgresql_cluster.md).
+        Полный список доступных для изменения полей конфигурации кластера {{ mpg-name }} см. в [документации провайдера {{ TF }}]({{ tf-provider-mpg }}).
 
-    1. Добавьте к описанию кластера Managed Service for PostgreSQL блок `backup_window_start` в секции `config`:
+    1. Добавьте к описанию кластера {{ mpg-name }} блок `backup_window_start` в секции `config`:
 
         ```hcl
         resource "yandex_mdb_postgresql_cluster" "<имя_кластера>" {
@@ -859,14 +859,14 @@
 
     1. Проверьте корректность настроек.
 
-        1. В командной строке перейдите в каталог, в котором расположены актуальные конфигурационные файлы Terraform с планом инфраструктуры.
+        1. В командной строке перейдите в каталог, в котором расположены актуальные конфигурационные файлы {{ TF }} с планом инфраструктуры.
         1. Выполните команду:
         
            ```bash
            terraform validate
            ```
         
-           Если в файлах конфигурации есть ошибки, Terraform на них укажет.
+           Если в файлах конфигурации есть ошибки, {{ TF }} на них укажет.
 
     1. Подтвердите изменение ресурсов.
 
@@ -890,7 +890,7 @@
 
         {% note warning "Ограничения по времени" %}
         
-        Провайдер Terraform ограничивает время на выполнение операций с кластером Managed Service for PostgreSQL:
+        Провайдер {{ TF }} ограничивает время на выполнение операций с кластером {{ mpg-name }}:
         
         * создание, в том числе путем восстановления из резервной копии, — 30 минут;
         * изменение — 60 минут;
@@ -925,7 +925,7 @@
      export IAM_TOKEN="<IAM-токен>"
      ```
 
-  1. Воспользуйтесь методом [Cluster.Update](../api-ref/Cluster/update.md) и выполните запрос, например, с помощью [cURL](https://curl.se/):
+  1. Воспользуйтесь методом [Cluster.Update](../api-ref/Cluster/update.md) и выполните запрос, например, с помощью {{ api-examples.rest.tool }}:
 
      {% note warning %}
      
@@ -938,7 +938,7 @@
        --request PATCH \
        --header "Authorization: Bearer $IAM_TOKEN" \
        --header "Content-Type: application/json" \
-       --url 'https://mdb.api.cloud.yandex.net/managed-postgresql/v1/clusters/<идентификатор_кластера>' \
+       --url 'https://{{ api-host-mdb }}/managed-postgresql/v1/clusters/<идентификатор_кластера>' \
        --data '{
                  "updateMask": "configSpec.backupWindowStart",
                  "configSpec": {
@@ -986,7 +986,7 @@
      ```
      
      Далее предполагается, что содержимое репозитория находится в директории `~/cloudapi/`.
-  1. Воспользуйтесь вызовом [ClusterService.Update](../api-ref/grpc/Cluster/update.md) и выполните запрос, например, с помощью [gRPCurl](https://github.com/fullstorydev/grpcurl):
+  1. Воспользуйтесь вызовом [ClusterService.Update](../api-ref/grpc/Cluster/update.md) и выполните запрос, например, с помощью {{ api-examples.grpc.tool }}:
 
      {% note warning %}
      
@@ -1032,7 +1032,7 @@
                }
              }
            }' \
-       mdb.api.cloud.yandex.net:443 \
+       {{ api-host-mdb }}:{{ port-https }} \
        yandex.cloud.mdb.postgresql.v1.ClusterService.Update
      ```
 
@@ -1063,18 +1063,18 @@
 
 - Консоль управления {#console}
 
-  В [консоли управления](https://console.yandex.cloud) задать срок хранения автоматических резервных копий можно при [создании](cluster-create.md) или [изменении кластера](update.md).
+  В [консоли управления]({{ link-console-main }}) задать срок хранения автоматических резервных копий можно при [создании](cluster-create.md) или [изменении кластера](update.md).
 
 - CLI {#cli}
 
-  Если у вас еще нет интерфейса командной строки Yandex Cloud (CLI), [установите и инициализируйте его](../../cli/quickstart.md#install).
+  Если у вас еще нет интерфейса командной строки {{ yandex-cloud }} (CLI), [установите и инициализируйте его](../../cli/quickstart.md#install).
 
   По умолчанию используется каталог, указанный при [создании](../../cli/operations/profile/profile-create.md) профиля CLI. Чтобы изменить каталог по умолчанию, используйте команду `yc config set folder-id <идентификатор_каталога>`. Также для любой команды вы можете указать другой каталог с помощью параметров `--folder-name` или `--folder-id`. Если вы обращаетесь к ресурсу по имени, поиск будет выполнен в каталоге по умолчанию. Если вы обращаетесь к ресурсу по идентификатору, поиск будет выполнен глобально — во всех каталогах с учетом прав доступа.
 
   Чтобы задать срок хранения автоматических резервных копий, передайте нужное значение в аргументе `--backup-retain-period-days` команды изменения кластера:
 
     ```bash
-    yc managed-postgresql cluster update <имя_или_идентификатор_кластера> \
+    {{ yc-mdb-pg }} cluster update <имя_или_идентификатор_кластера> \
        --backup-retain-period-days=<срок_хранения_в_днях>
     ```
 
@@ -1082,15 +1082,15 @@
 
   Идентификатор и имя кластера можно запросить со [списком кластеров в каталоге](cluster-list.md#list-clusters).
 
-- Terraform {#tf}
+- {{ TF }} {#tf}
 
-    1. Откройте актуальный конфигурационный файл Terraform с планом инфраструктуры.
+    1. Откройте актуальный конфигурационный файл {{ TF }} с планом инфраструктуры.
 
         О том, как создать такой файл, см. в разделе [Создание кластера](cluster-create.md).
 
-        Полный список доступных для изменения полей конфигурации кластера Managed Service for PostgreSQL см. в [документации провайдера Terraform](../../terraform/resources/mdb_postgresql_cluster.md).
+        Полный список доступных для изменения полей конфигурации кластера {{ mpg-name }} см. в [документации провайдера {{ TF }}]({{ tf-provider-mpg }}).
 
-    1. Добавьте к описанию кластера Managed Service for PostgreSQL блок `backup_retain_period_days` в секции `config`:
+    1. Добавьте к описанию кластера {{ mpg-name }} блок `backup_retain_period_days` в секции `config`:
 
         ```hcl
           resource "yandex_mdb_postgresql_cluster" "<имя_кластера>" {
@@ -1110,14 +1110,14 @@
 
   1. Проверьте корректность настроек.
 
-        1. В командной строке перейдите в каталог, в котором расположены актуальные конфигурационные файлы Terraform с планом инфраструктуры.
+        1. В командной строке перейдите в каталог, в котором расположены актуальные конфигурационные файлы {{ TF }} с планом инфраструктуры.
         1. Выполните команду:
         
            ```bash
            terraform validate
            ```
         
-           Если в файлах конфигурации есть ошибки, Terraform на них укажет.
+           Если в файлах конфигурации есть ошибки, {{ TF }} на них укажет.
 
   1. Подтвердите изменение ресурсов.
 
@@ -1141,7 +1141,7 @@
 
         {% note warning "Ограничения по времени" %}
         
-        Провайдер Terraform ограничивает время на выполнение операций с кластером Managed Service for PostgreSQL:
+        Провайдер {{ TF }} ограничивает время на выполнение операций с кластером {{ mpg-name }}:
         
         * создание, в том числе путем восстановления из резервной копии, — 30 минут;
         * изменение — 60 минут;
@@ -1176,7 +1176,7 @@
      export IAM_TOKEN="<IAM-токен>"
      ```
 
-  1.  Воспользуйтесь методом [Cluster.Update](../api-ref/Cluster/update.md) и выполните запрос, например, с помощью [cURL](https://curl.se/):
+  1.  Воспользуйтесь методом [Cluster.Update](../api-ref/Cluster/update.md) и выполните запрос, например, с помощью {{ api-examples.rest.tool }}:
 
        {% note warning %}
        
@@ -1189,7 +1189,7 @@
          --request PATCH \
          --header "Authorization: Bearer $IAM_TOKEN" \
          --header "Content-Type: application/json" \
-         --url 'https://mdb.api.cloud.yandex.net/managed-postgresql/v1/clusters/<идентификатор_кластера>' \
+         --url 'https://{{ api-host-mdb }}/managed-postgresql/v1/clusters/<идентификатор_кластера>' \
          --data '{
                    "updateMask": "configSpec.backupRetainPeriodDays",
                    "configSpec": {
@@ -1228,7 +1228,7 @@
      
      Далее предполагается, что содержимое репозитория находится в директории `~/cloudapi/`.
 
-  1. Воспользуйтесь вызовом [ClusterService.Update](../api-ref/grpc/Cluster/update.md) и выполните запрос, например, с помощью [gRPCurl](https://github.com/fullstorydev/grpcurl):
+  1. Воспользуйтесь вызовом [ClusterService.Update](../api-ref/grpc/Cluster/update.md) и выполните запрос, например, с помощью {{ api-examples.grpc.tool }}:
 
      {% note warning %}
      
@@ -1269,7 +1269,7 @@
                 "backup_retain_period_days": <срок_хранения_в_днях>
                 }
             }' \
-        mdb.api.cloud.yandex.net:443 \
+        {{ api-host-mdb }}:{{ port-https }} \
         yandex.cloud.mdb.postgresql.v1.ClusterService.Update
         ```
 
@@ -1297,31 +1297,31 @@
 
 - Консоль управления {#console}
 
-    1. [Перейдите](../../console/operations/select-service.md#select-service) в сервис **Managed Service for&nbsp;PostgreSQL**.
-    1. Выберите кластер Managed Service for PostgreSQL, резервную копию которого нужно удалить.
-    1. На левой панели выберите раздел **Резервные копии**.
+    1. Перейдите в сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-postgresql }}**.
+    1. Выберите кластер {{ mpg-name }}, резервную копию которого нужно удалить.
+    1. На левой панели выберите раздел **{{ ui-key.yacloud.postgresql.cluster.switch_backups }}**.
     1. Нажмите на значок ![image](../../_assets/console-icons/ellipsis.svg) справа в строке резервной копии, которую вы хотите удалить.
-    1. Выберите пункт **Удалить резервную копию**.
-    1. Подтвердите удаление и нажмите кнопку **Удалить**.
+    1. Выберите пункт **{{ ui-key.yacloud.mdb.cluster.backups.button_delete }}**.
+    1. Подтвердите удаление и нажмите кнопку **{{ ui-key.yacloud.mdb.cluster.backups.action_delete-backup }}**.
 
 - CLI {#cli}
 
-    Если у вас еще нет интерфейса командной строки Yandex Cloud (CLI), [установите и инициализируйте его](../../cli/quickstart.md#install).
+    Если у вас еще нет интерфейса командной строки {{ yandex-cloud }} (CLI), [установите и инициализируйте его](../../cli/quickstart.md#install).
 
     По умолчанию используется каталог, указанный при [создании](../../cli/operations/profile/profile-create.md) профиля CLI. Чтобы изменить каталог по умолчанию, используйте команду `yc config set folder-id <идентификатор_каталога>`. Также для любой команды вы можете указать другой каталог с помощью параметров `--folder-name` или `--folder-id`. Если вы обращаетесь к ресурсу по имени, поиск будет выполнен в каталоге по умолчанию. Если вы обращаетесь к ресурсу по идентификатору, поиск будет выполнен глобально — во всех каталогах с учетом прав доступа.
 
     Чтобы удалить резервную копию:
 
-    1. Посмотрите описание команды CLI для удаления резервной копии PostgreSQL:
+    1. Посмотрите описание команды CLI для удаления резервной копии {{ PG }}:
 
         ```bash
-        yc managed-postgresql backup delete --help
+        {{ yc-mdb-pg }} backup delete --help
         ```
 
     1. Запросите удаление резервной копии, указав ее идентификатор:
 
         ```bash
-        yc managed-postgresql backup delete <идентификатор_резервной_копии>
+        {{ yc-mdb-pg }} backup delete <идентификатор_резервной_копии>
         ```
 
     Идентификатор резервной копии можно получить со [списком резервных копий](#list-backups).
@@ -1334,13 +1334,13 @@
      export IAM_TOKEN="<IAM-токен>"
      ```
 
-  1. Воспользуйтесь методом [Backup.Delete](../api-ref/Backup/delete.md) и выполните запрос, например, с помощью [cURL](https://curl.se/):
+  1. Воспользуйтесь методом [Backup.Delete](../api-ref/Backup/delete.md) и выполните запрос, например, с помощью {{ api-examples.rest.tool }}:
 
      ```bash
      curl \
        --request DELETE \
        --header "Authorization: Bearer $IAM_TOKEN" \
-       --url 'https://mdb.api.cloud.yandex.net/managed-postgresql/v1/backups/<идентификатор_резервной_копии>'
+       --url 'https://{{ api-host-mdb }}/managed-postgresql/v1/backups/<идентификатор_резервной_копии>'
      ```
 
      Идентификатор резервной копии можно запросить со [списком резервных копий](#list-backups).
@@ -1362,7 +1362,7 @@
      ```
      
      Далее предполагается, что содержимое репозитория находится в директории `~/cloudapi/`.
-  1. Воспользуйтесь вызовом [BackupService.Delete](../api-ref/grpc/Backup/delete.md) и выполните запрос, например, с помощью [gRPCurl](https://github.com/fullstorydev/grpcurl):
+  1. Воспользуйтесь вызовом [BackupService.Delete](../api-ref/grpc/Backup/delete.md) и выполните запрос, например, с помощью {{ api-examples.grpc.tool }}:
 
      ```bash
      grpcurl \
@@ -1374,7 +1374,7 @@
        -d '{
              "backup_id": "<идентификатор_резервной_копии>"
            }' \
-       mdb.api.cloud.yandex.net:443 \
+       {{ api-host-mdb }}:{{ port-https }} \
        yandex.cloud.mdb.postgresql.v1.BackupService.Delete
      ```
 

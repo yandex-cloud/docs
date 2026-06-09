@@ -109,9 +109,6 @@ Set the custom configuration file. ||
 Enable gRPC retries. By default, retries are enabled with maximum 5 attempts.
 Pass 0 to disable retries. Pass any negative value for infinite retries.
 Even infinite retries are capped with 2 minutes timeout. ||
-|| `--syntax` | `string`
-
-CLI syntax: 1 (legacy) or 2 (current). Omit to use default-syntax in the profile or the product default. ||
 || `--cloud-id` | `string`
 
 Set the ID of the cloud to use. ||
@@ -139,13 +136,3 @@ Set the output format: text (default), yaml, json, json-rest. ||
 Query to select values from the response using jq syntax ||
 || `-h`, `--help` | Display help for the command. ||
 |#
-#### Examples
-
- * [Настроить проверку состояния приложения на ВМ](../../operations/instance-groups/enable-autohealing.md#cli_1)
- * [Включить защиту от удаления для группы виртуальных машин Compute Cloud](../../operations/instance-groups/enable-deletion-protection.md#cli_1)
- * [Перенести группу виртуальных машин с L7-балансировщиком в другую зону доступности](../../operations/instance-groups/move-group-with-alb.md#cli_2)
- * [Перенести группу виртуальных машин с сетевым балансировщиком нагрузки в другую зону доступности](../../operations/instance-groups/move-group-with-nlb.md#cli_1)
- * [Перенести группу виртуальных машин в другую зону доступности](../../operations/instance-groups/move-group.md#cli_1)
- * [Изменить группу виртуальных машин по спецификации в формате YAML](../../operations/instance-groups/update-from-yaml.md#cli_1)
- * [Изменить имя и описание](../../operations/instance-groups/update.md#cli_1)
- * [Исключить группу виртуальных машин из группы размещения](../../operations/placement-groups/delete-ig-from-pg.md#cli_1)

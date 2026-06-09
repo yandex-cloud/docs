@@ -1,6 +1,6 @@
 # Identity and Access Management Audit Trails Events: CreateFederation
 
-## Event JSON schema {#yandex.cloud.audit.iam.CreateFederation2-schema}
+## Event JSON schema {#yandex.cloud.audit.iam.workload.oidc.CreateFederation2-schema}
 
 ```json
 {
@@ -86,18 +86,22 @@
   "details": {
     "federationId": "string",
     "federationName": "string",
-    "cookieMaxAge": "string",
-    "autoCreateAccountOnLogin": "boolean",
+    "folderId": "string",
+    "disabled": "boolean",
+    "audiences": [
+      "string"
+    ],
     "issuer": "string",
-    "ssoBinding": "string",
-    "ssoUrl": "string",
-    "caseInsensitiveNameIds": "boolean",
-    "encryptedAssertions": "boolean"
-  }
+    "jwksUrl": "string",
+    "description": "string",
+    "labels": "object"
+  },
+  "requestParameters": "object",
+  "response": "object"
 }
 ```
 
-## Field description {#yandex.cloud.audit.iam.CreateFederation2}
+## Field description {#yandex.cloud.audit.iam.workload.oidc.CreateFederation2}
 
 #|
 ||Field | Description ||
@@ -126,7 +130,9 @@ In some languages, built-in datetime utilities do not support nanosecond precisi
 || error | **[Status](#google.rpc.Status)**
 
 The error result of the operation in case of failure or cancellation. ||
-|| details | **[EventDetails](#yandex.cloud.audit.iam.CreateFederation.EventDetails)** ||
+|| details | **[EventDetails](#yandex.cloud.audit.iam.workload.oidc.CreateFederation.EventDetails)** ||
+|| requestParameters | **object** ||
+|| response | **object** ||
 |#
 
 ## IamAuthentication {#yandex.cloud.audit.IamAuthentication}
@@ -255,20 +261,16 @@ An error message. ||
 A list of messages that carry the error details. ||
 |#
 
-## EventDetails {#yandex.cloud.audit.iam.CreateFederation.EventDetails}
+## EventDetails {#yandex.cloud.audit.iam.workload.oidc.CreateFederation.EventDetails}
 
 #|
 ||Field | Description ||
 || federationId | **string** ||
 || federationName | **string** ||
-|| cookieMaxAge | **string** (duration) ||
-|| autoCreateAccountOnLogin | **boolean** ||
+|| folderId | **string** ||
+|| disabled | **boolean** ||
+|| audiences[] | **string** ||
 || issuer | **string** ||
-|| ssoBinding | **string** ||
-|| ssoUrl | **string** ||
-|| caseInsensitiveNameIds | **boolean** ||
-|| encryptedAssertions | **boolean** ||
-|#* ||
 || jwksUrl | **string** ||
 || description | **string** ||
 || labels | **object** (map<**string**, **string**>) ||

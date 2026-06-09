@@ -1,10 +1,10 @@
-# Аутентификация в API Yandex Cloud Postbox
+# Аутентификация в API {{ postbox-name }}
 
-Вы можете работать с Yandex Cloud Postbox с помощью [API Amazon](../aws-compatible-api/api-ref/index.md). Для аутентификации в нем используйте [статический ключ доступа](../../iam/concepts/authorization/access-key.md) или [IAM-токен](../../iam/concepts/authorization/iam-token.md). Все операции выполняются от имени [сервисного аккаунта](../../iam/concepts/users/service-accounts.md), которому выдан статический ключ или IAM-токен. Подробнее описано в разделе [Как пользоваться API](../aws-compatible-api/index.md).
+Вы можете работать с {{ postbox-name }} с помощью [API Amazon](../aws-compatible-api/api-ref/index.md). Для аутентификации в нем используйте [статический ключ доступа](../../iam/concepts/authorization/access-key.md) или [IAM-токен](../../iam/concepts/authorization/iam-token.md). Все операции выполняются от имени [сервисного аккаунта](../../iam/concepts/users/service-accounts.md), которому выдан статический ключ или IAM-токен. Подробнее описано в разделе [Как пользоваться API](../aws-compatible-api/index.md).
 
 Чтобы использовать API Amazon напрямую, без [AWS CLI](../tools/aws-cli.md) и приложений, воспользуйтесь одним из способов:
 
-* Самостоятельно составьте подпись запроса, она передается в заголовке `Authorization`. О том, как подписать запрос и проверить подпись, читайте в разделе [Подписывание запросов](../aws-compatible-api/signing-requests.md).
+* Самостоятельно составьте подпись запроса, она передается в заголовке `Authorization`. О том, как подписать запрос и проверить подпись, читайте в разделе [{#T}](../aws-compatible-api/signing-requests.md).
 * Аутентифицируйтесь через IAM-токен: получите его для сервисного аккаунта и передайте в заголовке `X-YaCloud-SubjectToken`. В этом случае заголовок `Authorization` и подпись не нужны.
 
 ## Примеры использования API Amazon {#ses-api-example}
@@ -24,8 +24,8 @@
     curl \
        --request GET \
        --user "${AWS_KEY_ID}:${AWS_SECRET_KEY}" \
-       --aws-sigv4 "aws:amz:ru-central1:ses" \
-       --url 'https://postbox.cloud.yandex.net/v2/email/configuration-sets' \
+       --aws-sigv4 "aws:amz:{{ region-id }}:ses" \
+       --url '{{ postbox-endpoint }}/v2/email/configuration-sets' \
        --verbose
     ```
 

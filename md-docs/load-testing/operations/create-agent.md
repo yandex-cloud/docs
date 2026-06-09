@@ -2,7 +2,7 @@
 
 {% note warning %}
 
-С 1 июля 2026 года сервис Load Testing прекращает работу. Подробнее на странице [Закрытие сервиса Yandex Load Testing](../sunset.md).
+С 1 июля 2026 года сервис {{ load-testing-name }} прекращает работу. Подробнее на странице [Закрытие сервиса Yandex Load Testing](../sunset.md).
 
 {% endnote %}
 
@@ -36,18 +36,18 @@
 
    - Консоль управления {#console}
 
-     1. В [консоли управления](https://console.yandex.cloud) выберите [каталог](../../resource-manager/concepts/resources-hierarchy.md#folder), в котором будет создан [агент](../concepts/agent.md).
-     1. [Перейдите](../../console/operations/select-service.md#select-service) в сервис **Load Testing**.
-     1. На вкладке **Агенты** нажмите кнопку **Создать агент**.
+     1. В [консоли управления]({{ link-console-main }}) выберите [каталог](../../resource-manager/concepts/resources-hierarchy.md#folder), в котором будет создан [агент](../concepts/agent.md).
+     1. Перейдите в сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_load-testing }}**.
+     1. На вкладке **{{ ui-key.yacloud.load-testing.label_agents-list }}** нажмите кнопку **{{ ui-key.yacloud.load-testing.button_create-agent }}**.
      1. Укажите имя агента, например `agent-008`.
      1. Укажите ту же [зону доступности](../../overview/concepts/geo-scope.md), в которой находится цель тестирования.
-     1. В блоке **Агент**:
+     1. В блоке **{{ ui-key.yacloud.load-testing.section_agent }}**:
         * Выберите подходящий тип агента. Подробнее см. в разделе [Производительность агентов](../concepts/agent.md#benchmark).
         * Укажите [подсеть](../../vpc/concepts/network.md#subnet), в которой находится цель тестирования. В подсети должен быть создан и [настроен NAT-шлюз](../../vpc/operations/create-nat-gateway.md).
         * Если вам доступны [группы безопасности](../../vpc/concepts/security-groups.md), выберите заранее настроенную группу безопасности агента.
-     1. В блоке **Доступ** укажите данные для доступа к агенту:
+     1. В блоке **{{ ui-key.yacloud.compute.instances.create.section_access }}** укажите данные для доступа к агенту:
         * Выберите [сервисный аккаунт](../../iam/concepts/users/service-accounts.md) `sa-loadtest`.
-        * В поле **Логин** введите имя пользователя.
+        * В поле **{{ ui-key.yacloud.compute.instances.create.field_user }}** введите имя пользователя.
 
           {% note alert %}
 
@@ -55,14 +55,14 @@
 
           {% endnote %}
               
-        * В поле **SSH-ключ** вставьте содержимое файла [открытого ключа](../../compute/operations/vm-connect/ssh.md#creating-ssh-keys).
-     1. Нажмите **Создать**.
+        * В поле **{{ ui-key.yacloud.compute.instances.create.field_key }}** вставьте содержимое файла [открытого ключа](../../compute/operations/vm-connect/ssh.md#creating-ssh-keys).
+     1. Нажмите **{{ ui-key.yacloud.common.create }}**.
      1. Дождитесь завершения процесса создания [виртуальной машины](../../compute/concepts/vm.md). Статус агента должен смениться на `Ready for test`.
 
         {% note info %}
 
         Если процесс создания агента остановился на статусе `Initializing connection`, проверьте выполнение условий:
-        * У агента есть [доступ](security-groups-agent.md) к `loadtesting.api.cloud.yandex.net:443` и [публичный IP-адрес](../../vpc/concepts/address.md#public-addresses).
+        * У агента есть [доступ](security-groups-agent.md) к `loadtesting.{{ api-host }}:443` и [публичный IP-адрес](../../vpc/concepts/address.md#public-addresses).
         * В целевой подсети настроен NAT-шлюз.
         * У сервисного аккаунта, который назначен агенту, есть необходимые [роли](create-agent.md#infrastructure-prepare).
 
@@ -70,7 +70,7 @@
 
    - CLI {#cli}
 
-     Если у вас еще нет интерфейса командной строки Yandex Cloud (CLI), [установите и инициализируйте его](../../cli/quickstart.md#install).
+     Если у вас еще нет интерфейса командной строки {{ yandex-cloud }} (CLI), [установите и инициализируйте его](../../cli/quickstart.md#install).
 
      По умолчанию используется каталог, указанный при [создании](../../cli/operations/profile/profile-create.md) профиля CLI. Чтобы изменить каталог по умолчанию, используйте команду `yc config set folder-id <идентификатор_каталога>`. Также для любой команды вы можете указать другой каталог с помощью параметров `--folder-name` или `--folder-id`. Если вы обращаетесь к ресурсу по имени, поиск будет выполнен в каталоге по умолчанию. Если вы обращаетесь к ресурсу по идентификатору, поиск будет выполнен глобально — во всех каталогах с учетом прав доступа.
 
@@ -96,9 +96,9 @@
         +----------------------+---------------------------+----------------------+----------------+-------------------+-----------------+
         |          ID          |           NAME            |      NETWORK ID      | ROUTE TABLE ID |       ZONE        |      RANGE      |
         +----------------------+---------------------------+----------------------+----------------+-------------------+-----------------+
-        | e2lfkhps7bol******** |   default-ru-central1-b   | enpnf7hajqmd******** |                |   ru-central1-b   | [10.129.0.0/24] |
-        | e9bgnq1bggfa******** |   default-ru-central1-a   | enpnf7hajqmd******** |                |   ru-central1-a   | [10.128.0.0/24] |
-        | fl841n5ilklr******** |   default-ru-central1-d   | enpnf7hajqmd******** |                |   ru-central1-d   | [10.130.0.0/24] |
+        | e2lfkhps7bol******** |   default-{{ region-id }}-b   | enpnf7hajqmd******** |                |   {{ region-id }}-b   | [10.129.0.0/24] |
+        | e9bgnq1bggfa******** |   default-{{ region-id }}-a   | enpnf7hajqmd******** |                |   {{ region-id }}-a   | [10.128.0.0/24] |
+        | fl841n5ilklr******** |   default-{{ region-id }}-d   | enpnf7hajqmd******** |                |   {{ region-id }}-d   | [10.130.0.0/24] |
         +----------------------+---------------------------+----------------------+----------------+-------------------+-----------------+
         ```
 
@@ -145,7 +145,7 @@
         yc loadtesting agent create \
           --name agent-008 \
           --labels origin=default,label-key=label-value \
-          --zone default-ru-central1-a \
+          --zone default-{{ region-id }}-a \
           --network-interface subnet-id=e9bgnq1bggfa********,security-group-ids=enpctpve7951******** \
           --cores 2 \
           --memory 2G \
@@ -175,13 +175,13 @@
 
    - Консоль управления {#console}
 
-     1. В [консоли управления](https://console.yandex.cloud) выберите каталог, в котором размещен агент.
-     1. [Перейдите](../../console/operations/select-service.md#select-service) в сервис **Compute Cloud**.
+     1. В [консоли управления]({{ link-console-main }}) выберите каталог, в котором размещен агент.
+     1. Перейдите в сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_compute }}**.
      1. Выберите ВМ с именем `agent-008`.
-     1. В блоке **Сетевой интерфейс** в правом верхнем углу нажмите ![image](../../_assets/horizontal-ellipsis.svg) и выберите **Добавить публичный IP-адрес**.
+     1. В блоке **{{ ui-key.yacloud.compute.instance.overview.label_network-interface }}** в правом верхнем углу нажмите ![image](../../_assets/horizontal-ellipsis.svg) и выберите **{{ ui-key.yacloud.compute.instance.overview.button_add-public-ip }}**.
      1. В открывшемся окне:
-        * В поле **Публичный адрес** выберите получение адреса **Автоматически**.
-        * Нажмите **Добавить**.
+        * В поле **{{ ui-key.yacloud.component.compute.one-to-one-nat-form.field_external-type }}** выберите получение адреса **{{ ui-key.yacloud.component.compute.one-to-one-nat-form.switch_auto }}**.
+        * Нажмите **{{ ui-key.yacloud.component.compute.one-to-one-nat-form.button_submit }}**.
 
    - CLI {#cli}
    
@@ -232,11 +232,11 @@
 
 - Консоль управления {#console}
 
-   1. В [консоли управления](https://console.yandex.cloud) выберите каталог для тестирования.
-   1. [Перейдите](../../console/operations/select-service.md#select-service) в сервис **Load Testing**.
-   1. На вкладке ![image](../../_assets/load-testing/test.svg) **Тесты** нажмите **Создать тест**.
-   1. В секции **Агенты** нажмите **Временный**.
-   1. В блоке **Настройки временного агента**:
+   1. В [консоли управления]({{ link-console-main }}) выберите каталог для тестирования.
+   1. Перейдите в сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_load-testing }}**.
+   1. На вкладке ![image](../../_assets/load-testing/test.svg) **{{ ui-key.yacloud.load-testing.label_tests-list }}** нажмите **{{ ui-key.yacloud.load-testing.button_create-test }}**.
+   1. В секции **{{ ui-key.yacloud.load-testing.label_agents-list }}** нажмите **{{ ui-key.yacloud.load-testing.label_agent-temporal-selector }}**.
+   1. В блоке **{{ ui-key.yacloud.load-testing.title_temporal-agent-field }}**:
       * Выберите подходящий тип агента. Подробнее см. в разделе [Производительность агентов](../concepts/agent.md#benchmark).
 
       {% note warning %}

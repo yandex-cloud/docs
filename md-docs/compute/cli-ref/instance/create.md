@@ -299,9 +299,6 @@ Set the custom configuration file. ||
 Enable gRPC retries. By default, retries are enabled with maximum 5 attempts.
 Pass 0 to disable retries. Pass any negative value for infinite retries.
 Even infinite retries are capped with 2 minutes timeout. ||
-|| `--syntax` | `string`
-
-CLI syntax: 1 (legacy) or 2 (current). Omit to use default-syntax in the profile or the product default. ||
 || `--cloud-id` | `string`
 
 Set the ID of the cloud to use. ||
@@ -329,31 +326,3 @@ Set the output format: text (default), yaml, json, json-rest. ||
 Query to select values from the response using jq syntax ||
 || `-h`, `--help` | Display help for the command. ||
 |#
-#### Examples
-
- * [Создание виртуальной машины в группе выделенных хостов](../../operations/dedicated-host/running-host-group-vms.md#cli_1)
- * [Создание виртуальной машины на выделенном хосте](../../operations/dedicated-host/running-host-vms.md#cli_1)
- * [Создайте виртуальную машину в другой зоне доступности с дисками из снимков](../../operations/disk-control/disk-change-zone.md#cli_2)
- * [Добавить виртуальную машину в кластер GPU](../../operations/gpu-cluster/gpu-add-to-cluster.md#cli_1)
- * [Создайте ВМ из подготовленного образа](../../operations/image-create/upload.md#cli_2)
- * [Создать виртуальную машину из публичного образа](../../operations/images-with-pre-installed-software/create.md#cli_1)
- * [Добавить виртуальную машину в группу размещения](../../operations/placement-groups/add-vm.md#cli_1)
- * [Создать виртуальную машину в группе размещения](../../operations/placement-groups/create-vm-in-pg.md#cli_1)
- * [Создать новую ВМ с привязкой к пулу](../../operations/reserved-pools/manage-pool-vms.md#cli_2)
- * [Включение консоли при создании ВМ из публичного образа](../../operations/serial-console/index.md#linux_1)
- * [К создаваемой ВМ](../../operations/vm-connect/auth-inside-vm.md#cli_2)
- * [Утрачены учетные данные пользователя ВМ](../../operations/vm-connect/recovery-access.md#cli_1)
- * [Создайте виртуальную машину в другой зоне доступности с дисками из снимков](../../operations/vm-control/vm-change-zone.md#cli_2)
- * [К создаваемой ВМ](../../operations/vm-control/vm-connect-sa.md#cli_2)
- * [Создайте ВМ с настроенной политикой обслуживания](../../operations/vm-control/vm-update-policies.md#cli_1)
- * [Создать виртуальную машину из набора дисков](../../operations/vm-create/create-from-disks.md#cli_1)
- * [Создать виртуальную машину с дисками из снимков](../../operations/vm-create/create-from-snapshots.md#cli_1)
- * [Создайте ВМ из подготовленного образа](../../operations/vm-create/create-from-user-image.md#cli_1)
- * [Создайте виртуальную машину, работающую на оборудовании поколения Gen 2](../../operations/vm-create/create-gen2-vm.md#cli_5)
- * [Создать виртуальную машину из публичного образа Linux](../../operations/vm-create/create-linux-vm.md#cli_1)
- * [Создать прерываемую ВМ](../../operations/vm-create/create-preemptible-vm.md#cli_1)
- * [Создание виртуальной машины с GPU](../../operations/vm-create/create-vm-with-gpu.md#cli_1)
- * [Создание виртуальной машины с пользовательским скриптом конфигурации](../../operations/vm-create/create-with-cloud-init-scripts.md#cli_1)
- * [Создать виртуальную машину с метаданными из переменных окружения](../../operations/vm-create/create-with-env-variables.md#cli_1)
- * [Создать ВМ с доступом к секрету Yandex Lockbox](../../operations/vm-create/create-with-lockbox-secret.md#cli_1)
- * [Настроить параметры сервиса метаданных ВМ](../../operations/vm-metadata/setup-metadata-service.md#cli_1)

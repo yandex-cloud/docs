@@ -1,6 +1,6 @@
-# Резервное копирование Docker-образов в Container Registry
+# Резервное копирование Docker-образов в {{ container-registry-name }}
 
-Данные в Container Registry надежно хранятся и реплицируются в инфраструктуре Yandex Cloud, однако в любой момент вы можете сделать резервные копии [Docker-образов](docker-image.md).
+Данные в {{ container-registry-name }} надежно хранятся и реплицируются в инфраструктуре {{ yandex-cloud }}, однако в любой момент вы можете сделать резервные копии [Docker-образов](docker-image.md).
 
 Чтобы выполнить резервное копирование Docker-образов:
 
@@ -10,13 +10,13 @@
 
    - Консоль управления {#console}
 
-     1. В [консоли управления](https://console.yandex.cloud) выберите каталог, в котором хотите посмотреть список реестров.
-     1. Выберите сервис **Container Registry**.
-     1. На вкладке **Реестры** отображен список реестров.
+     1. В [консоли управления]({{ link-console-main }}) выберите каталог, в котором хотите посмотреть список реестров.
+     1. Выберите сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_container-registry }}**.
+     1. На вкладке **{{ ui-key.yacloud.cr.switch_registry }}** отображен список реестров.
 
    - CLI {#cli}
 
-     Если у вас еще нет интерфейса командной строки Yandex Cloud (CLI), [установите и инициализируйте его](../../cli/quickstart.md#install).
+     Если у вас еще нет интерфейса командной строки {{ yandex-cloud }} (CLI), [установите и инициализируйте его](../../cli/quickstart.md#install).
      
      По умолчанию используется каталог, указанный при [создании](../../cli/operations/profile/profile-create.md) профиля CLI. Чтобы изменить каталог по умолчанию, используйте команду `yc config set folder-id <идентификатор_каталога>`. Также для любой команды вы можете указать другой каталог с помощью параметров `--folder-name` или `--folder-id`. Если вы обращаетесь к ресурсу по имени, поиск будет выполнен в каталоге по умолчанию. Если вы обращаетесь к ресурсу по идентификатору, поиск будет выполнен глобально — во всех каталогах с учетом прав доступа.
 
@@ -46,11 +46,11 @@
 
    - Консоль управления {#console}
 
-     1. В [консоли управления](https://console.yandex.cloud) выберите каталог, в котором хотите посмотреть информацию о Docker-образах.
-     1. Выберите сервис **Container Registry**.
-     1. На вкладке **Реестры** нажмите на имя нужного реестра.
-     1. На странице **Репозитории** нажмите на имя нужного репозитория.
-     1. На странице **Docker-образы** отображены Docker-образы.
+     1. В [консоли управления]({{ link-console-main }}) выберите каталог, в котором хотите посмотреть информацию о Docker-образах.
+     1. Выберите сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_container-registry }}**.
+     1. На вкладке **{{ ui-key.yacloud.cr.switch_registry }}** нажмите на имя нужного реестра.
+     1. На странице **{{ ui-key.yacloud.cr.registry.overview.section_repositories }}** нажмите на имя нужного репозитория.
+     1. На странице **{{ ui-key.yacloud.cr.registry.overview.section_images }}** отображены Docker-образы.
 
    - CLI {#cli}
 
@@ -76,14 +76,14 @@
 
    {% endlist %}
 
-1. Скачайте необходимые Docker-образы из каждого реестра, используя полный адрес — `cr.yandex/<имя>:<тег>`:
+1. Скачайте необходимые Docker-образы из каждого реестра, используя полный адрес — `{{ registry }}/<имя>:<тег>`:
 
    {% list tabs group=instructions %}
 
    - CLI {#cli}
 
      ```bash
-     docker pull cr.yandex/<идентификатор_реестра>/ubuntu:hello
+     docker pull {{ registry }}/<идентификатор_реестра>/ubuntu:hello
      ```
 
      Результат:
@@ -91,8 +91,8 @@
      ```text
      hello: Pulling from crp1abc2tl3d********/ubuntu
      Digest: sha256:1d2b339619babc2d008eca2d5293e3c43ff84cbee597ff76dd3e7f7d********
-     Status: Downloaded newer image for cr.yandex/crp1abc2tl3d********/ubuntu:hello
-     cr.yandex/crp1abc2tl3d********/ubuntu:hello
+     Status: Downloaded newer image for {{ registry }}/crp1abc2tl3d********/ubuntu:hello
+     {{ registry }}/crp1abc2tl3d********/ubuntu:hello
      ```
 
    {% endlist %}
@@ -111,7 +111,7 @@
 
      ```text
      REPOSITORY                                   TAG     IMAGE ID      CREATED     SIZE
-     cr.yandex /crp1abc2tl3d********/ubuntu       hello   d12e********  3 days ago  72.9MB
+     {{ registry }} /crp1abc2tl3d********/ubuntu       hello   d12e********  3 days ago  72.9MB
      ubuntu                                       latest  d12e********  3 days ago  72.9MB
      ```
 

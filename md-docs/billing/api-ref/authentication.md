@@ -7,7 +7,7 @@
 * [Инструкция](../../iam/operations/iam-token/create-for-federation.md) для федеративного аккаунта.
 * [Инструкция](../../iam/operations/iam-token/create-for-local.md) для локального аккаунта.
 
-Полученный IAM-токен указывайте при обращении к ресурсам Yandex Cloud через API. Передайте IAM-токен в заголовке `Authorization` в следующем формате:
+Полученный IAM-токен указывайте при обращении к ресурсам {{ yandex-cloud }} через API. Передайте IAM-токен в заголовке `Authorization` в следующем формате:
 
 ```yaml
 Authorization: Bearer <IAM-токен>
@@ -21,4 +21,4 @@ Authorization: Bearer ${IAM_TOKEN}
 
 #### См. также {#see-also}
 
-[Аккаунты в Yandex Cloud](../../iam/concepts/users/accounts.md)
+[{#T}](../../iam/concepts/users/accounts.md)

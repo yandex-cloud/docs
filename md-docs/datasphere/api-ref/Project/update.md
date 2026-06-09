@@ -5,7 +5,7 @@ Updates the specified project.
 ## HTTP request
 
 ```
-PATCH https://datasphere.api.cloud.yandex.net/datasphere/v2/projects/{projectId}
+PATCH https://datasphere.{{ api-host }}/datasphere/v2/projects/{projectId}
 ```
 
 ## Path parameters

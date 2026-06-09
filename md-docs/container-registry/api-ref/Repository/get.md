@@ -1,13 +1,12 @@
 # Container Registry API, REST: Repository.Get
 
 Returns the specified Repository resource.
-
 To get the list of available Repository resources, make a [List](list.md#List) request.
 
 ## HTTP request
 
 ```
-GET https://container-registry.api.cloud.yandex.net/container-registry/v1/repositories/{repositoryId}
+GET https://container-registry.{{ api-host }}/container-registry/v1/repositories/{repositoryId}
 ```
 
 ## Path parameters
@@ -17,7 +16,6 @@ GET https://container-registry.api.cloud.yandex.net/container-registry/v1/reposi
 || repositoryId | **string**
 
 Required field. ID of the Repository resource to return.
-
 To get the repository ID use a [RepositoryService.List](list.md#List) request.
 
 The maximum string length in characters is 50. ||

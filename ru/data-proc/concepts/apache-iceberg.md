@@ -28,8 +28,8 @@ description: Информация об {{ IBRG }}, а также таблица 
 
 {% include [apache-iceberg-disclaimer](../../_includes/data-processing/apache-iceberg-disclaimer.md) %}
 
+Подробная информация об {{ IBRG }} в [официальной документации](https://iceberg.apache.org/docs/latest/).
 
-Подробную информацию об {{ IBRG }} см. в [официальной документации](https://iceberg.apache.org/docs/latest/).
 
 ## Совместимость версий {{ IBRG }} и образов {{ dataproc-name }} {#compatibility}
 

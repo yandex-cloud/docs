@@ -2,7 +2,7 @@
 
 
 
-_Интерфейс командной строки Yandex Cloud (CLI)_ — скачиваемое программное обеспечение для управления вашими облачными ресурсами через командную строку.
+_Интерфейс командной строки {{ yandex-cloud }} (CLI)_ — скачиваемое программное обеспечение для управления вашими облачными ресурсами через командную строку.
 
 
 ## Установка {#install}
@@ -19,7 +19,7 @@ _Интерфейс командной строки Yandex Cloud (CLI)_ — ск
 Чтобы вручную настроить директорию установки CLI, автодополнение, скрипт автозапуска оболочки и добавить CLI в переменную окружения `PATH`, воспользуйтесь [неинтерактивной установкой CLI с помощью скрипта](operations/install-cli.md#non-interactive).
 
 
-Также вы можете самостоятельно загрузить и установить исполняемый файл с последней стабильной версией CLI. Подробнее см. в разделе [Установка без использования скрипта](operations/install-cli.md#bin).
+Также вы можете самостоятельно загрузить и установить исполняемый файл с последней стабильной версией CLI. Подробнее см. в разделе [{#T}](operations/install-cli.md#bin).
 
 
 {% endnote %}
@@ -31,7 +31,7 @@ _Интерфейс командной строки Yandex Cloud (CLI)_ — ск
     1. Выполните команду:
 
         ```bash
-        curl -sSL https://storage.yandexcloud.net/yandexcloud-yc/install.sh | bash
+        curl -sSL https://{{ s3-storage-host-cli }}{{ yc-install-path }} | bash
         ```
 
         Скрипт установит CLI и добавит путь до исполняемого файла в переменную окружения `PATH`.
@@ -57,7 +57,7 @@ _Интерфейс командной строки Yandex Cloud (CLI)_ — ск
     1. Выполните команду:
 
         ```bash
-        curl -sSL https://storage.yandexcloud.net/yandexcloud-yc/install.sh | bash
+        curl -sSL https://{{ s3-storage-host-cli }}{{ yc-install-path }} | bash
         ```
 
         Скрипт установит CLI и добавит путь до исполняемого файла в переменную окружения `PATH`.
@@ -81,7 +81,7 @@ _Интерфейс командной строки Yandex Cloud (CLI)_ — ск
         Скрипт установки автоматически дополнит конфигурационный файл `~/.zshrc`:
         
         ```
-        # The next line updates PATH for Yandex Cloud CLI.
+        # The next line updates PATH for {{ yandex-cloud }} CLI.
         if [ -f '/Users/<username>/yandex-cloud/path.bash.inc' ]; then source '/Users/<username>/yandex-cloud/path.bash.inc'; fi
         # The next line enables shell command completion for yc.
         if [ -f '/Users/<username>/yandex-cloud/completion.zsh.inc' ]; then source '/Users/<username>/yandex-cloud/completion.zsh.inc'; fi
@@ -108,7 +108,7 @@ _Интерфейс командной строки Yandex Cloud (CLI)_ — ск
             
             
             ```bash
-            iex (New-Object System.Net.WebClient).DownloadString('https://storage.yandexcloud.net/yandexcloud-yc/install.ps1')
+            iex (New-Object System.Net.WebClient).DownloadString('https://storage.yandexcloud.net{{ yc-windows-path }}')
             ```
 
 
@@ -118,7 +118,7 @@ _Интерфейс командной строки Yandex Cloud (CLI)_ — ск
             ```
             Add yc installation dir to your PATH? [Y/n]
             ```        
-        1. Введите `Y`. После этого Yandex Cloud CLI можно пользоваться, командную оболочку перезапускать не нужно.
+        1. Введите `Y`. После этого {{ yandex-cloud }} CLI можно пользоваться, командную оболочку перезапускать не нужно.
 
     - Для установки с помощью командной строки:
 
@@ -128,7 +128,7 @@ _Интерфейс командной строки Yandex Cloud (CLI)_ — ск
             
             
             ```bash
-            @"%SystemRoot%\System32\WindowsPowerShell\v1.0\powershell.exe" -Command "iex ((New-Object System.Net.WebClient).DownloadString('https://storage.yandexcloud.net/yandexcloud-yc/install.ps1'))" && SET "PATH=%PATH%;%USERPROFILE%\yandex-cloud\bin"
+            @"%SystemRoot%\System32\WindowsPowerShell\v1.0\powershell.exe" -Command "iex ((New-Object System.Net.WebClient).DownloadString('https://storage.yandexcloud.net{{ yc-windows-path }}'))" && SET "PATH=%PATH%;%USERPROFILE%\yandex-cloud\bin"
             ```
 
 
@@ -181,7 +181,7 @@ _Интерфейс командной строки Yandex Cloud (CLI)_ — ск
      ```text
      You are going to be authenticated via username '<электронная_почта>'.
      Authentication web site will be opened.
-     After your successful authentication, you will be redirected to 'https://console.yandex.cloud'.
+     After your successful authentication, you will be redirected to '{{ link-console-main }}'.
   
      Press 'enter' to continue...
      ```
@@ -213,10 +213,10 @@ _Интерфейс командной строки Yandex Cloud (CLI)_ — ск
         Please enter your numeric choice: 1
         ```
   
-  1. Чтобы выбрать [зону доступности](../overview/concepts/geo-scope.md) по умолчанию для сервиса [Compute Cloud](../compute/index.md), введите `Y`. Чтобы пропустить настройку, введите `n`.
+  1. Чтобы выбрать [зону доступности](../overview/concepts/geo-scope.md) по умолчанию для сервиса [{{ compute-name }}](../compute/index.md), введите `Y`. Чтобы пропустить настройку, введите `n`.
   
      ```bash
-     Do you want to configure a default Yandex Compute Cloud availability zone? [Y/n] Y
+     Do you want to configure a default {{ compute-full-name }} availability zone? [Y/n] Y
      ```
   
      Если вы ввели `Y`, выберите зону доступности:
@@ -224,9 +224,9 @@ _Интерфейс командной строки Yandex Cloud (CLI)_ — ск
      
      ```text
      Which zone do you want to use as a profile default?
-      [1] ru-central1-a
-      [2] ru-central1-b
-      [3] ru-central1-d
+      [1] {{ region-id }}-a
+      [2] {{ region-id }}-b
+      [3] {{ region-id }}-d
       [4] Do not set default zone
      Please enter your numeric choice: 2
      ```
@@ -246,7 +246,7 @@ _Интерфейс командной строки Yandex Cloud (CLI)_ — ск
      subject-id: b1g159pa15cd********
      username: <электронная_почта>
      folder-id: b1g8o9jbt58********
-     compute-default-zone: ru-central1-b
+     compute-default-zone: {{ region-id }}-b
      ```
   
 - Федеративный аккаунт {#federated-account}
@@ -277,7 +277,7 @@ _Интерфейс командной строки Yandex Cloud (CLI)_ — ск
      ```text
      You are going to be authenticated via federation-id 'aje1f0hsgds3a********'.
      Your federation authentication web site will be opened.
-     After your successful authentication, you will be redirected to 'https://console.yandex.cloud'.
+     After your successful authentication, you will be redirected to '{{ link-console-main }}'.
   
      Press 'enter' to continue...
      ```
@@ -309,10 +309,10 @@ _Интерфейс командной строки Yandex Cloud (CLI)_ — ск
         Please enter your numeric choice: 1
         ```
   
-  1. Чтобы выбрать [зону доступности](../overview/concepts/geo-scope.md) по умолчанию для сервиса [Compute Cloud](../compute/index.md), введите `Y`. Чтобы пропустить настройку, введите `n`.
+  1. Чтобы выбрать [зону доступности](../overview/concepts/geo-scope.md) по умолчанию для сервиса [{{ compute-name }}](../compute/index.md), введите `Y`. Чтобы пропустить настройку, введите `n`.
   
      ```bash
-     Do you want to configure a default Yandex Compute Cloud availability zone? [Y/n] Y
+     Do you want to configure a default {{ compute-full-name }} availability zone? [Y/n] Y
      ```
   
      Если вы ввели `Y`, выберите зону доступности:
@@ -320,9 +320,9 @@ _Интерфейс командной строки Yandex Cloud (CLI)_ — ск
      
      ```text
      Which zone do you want to use as a profile default?
-      [1] ru-central1-a
-      [2] ru-central1-b
-      [3] ru-central1-d
+      [1] {{ region-id }}-a
+      [2] {{ region-id }}-b
+      [3] {{ region-id }}-d
       [4] Do not set default zone
      Please enter your numeric choice: 2
      ```
@@ -343,7 +343,7 @@ _Интерфейс командной строки Yandex Cloud (CLI)_ — ск
      subject-id: ajea53egl28l********
      cloud-id: b1g159pa15cd********
      folder-id: b1g8o9jbt58********
-     compute-default-zone: ru-central1-b
+     compute-default-zone: {{ region-id }}-b
      ```
 
 - Аккаунт локального пользователя {#local-account}
@@ -369,9 +369,9 @@ _Интерфейс командной строки Yandex Cloud (CLI)_ — ск
      - Электронная почта
   
         1. Получите адрес электронной почты:
-           1. Перейдите в портал [Мой аккаунт](https://myaccount.yandex.cloud/).
-           1. На панели слева выберите ![alt](../_assets/console-icons/passport.svg) **Профиль**.
-           1. В блоке **Контакты** скопируйте адрес электронной почты.
+           1. Перейдите в портал [Мой аккаунт]({{ link-my-account }}).
+           1. На панели слева выберите ![alt](../_assets/console-icons/passport.svg) **{{ ui-key.yacloud_org.center-layout.MyAccountLayout.profile_8kyBA }}**.
+           1. В блоке **{{ ui-key.yacloud_org.my-account.ProfilePage.contacts_subheader }}** скопируйте адрес электронной почты.
         1. Запустите интерактивное создание профиля:
   
                     
@@ -429,10 +429,10 @@ _Интерфейс командной строки Yandex Cloud (CLI)_ — ск
         Please enter your numeric choice: 1
         ```
   
-  1. Чтобы выбрать [зону доступности](../overview/concepts/geo-scope.md) по умолчанию для сервиса [Compute Cloud](../compute/index.md), введите `Y`. Чтобы пропустить настройку, введите `n`.
+  1. Чтобы выбрать [зону доступности](../overview/concepts/geo-scope.md) по умолчанию для сервиса [{{ compute-name }}](../compute/index.md), введите `Y`. Чтобы пропустить настройку, введите `n`.
   
      ```bash
-     Do you want to configure a default Yandex Compute Cloud availability zone? [Y/n] Y
+     Do you want to configure a default {{ compute-full-name }} availability zone? [Y/n] Y
      ```
   
      Если вы ввели `Y`, выберите зону доступности:
@@ -440,9 +440,9 @@ _Интерфейс командной строки Yandex Cloud (CLI)_ — ск
      
      ```text
      Which zone do you want to use as a profile default?
-      [1] ru-central1-a
-      [2] ru-central1-b
-      [3] ru-central1-d
+      [1] {{ region-id }}-a
+      [2] {{ region-id }}-b
+      [3] {{ region-id }}-d
       [4] Do not set default zone
      Please enter your numeric choice: 2
      ```
@@ -467,7 +467,7 @@ _Интерфейс командной строки Yandex Cloud (CLI)_ — ск
         subject-id: ek00cd1m8hdd8********
         cloud-id: b1g159pa15cd********
         folder-id: b1g8o9jbt58********
-        compute-default-zone: ru-central1-b
+        compute-default-zone: {{ region-id }}-b
         ```
   
   
@@ -478,7 +478,7 @@ _Интерфейс командной строки Yandex Cloud (CLI)_ — ск
         subject-id: b1g159pa15cd********
         username: <электронная_почта>
         folder-id: b1g8o9jbt58********
-        compute-default-zone: ru-central1-b
+        compute-default-zone: {{ region-id }}-b
         ```
   
   
@@ -512,7 +512,7 @@ _Интерфейс командной строки Yandex Cloud (CLI)_ — ск
    ```bash
    yc vpc subnet create \
      --name my-yc-subnet-a \
-     --zone ru-central1-a \
+     --zone {{ region-id }}-a \
      --range 10.1.2.0/24 \
      --network-name my-yc-network \
      --description "my first subnet via yc"
@@ -570,7 +570,7 @@ _Интерфейс командной строки Yandex Cloud (CLI)_ — ск
       yc compute instance create \
         --name my-yc-instance \
         --network-interface subnet-name=my-yc-subnet-a,nat-ip-version=ipv4 \
-        --zone ru-central1-a \
+        --zone {{ region-id }}-a \
         --ssh-key ~/.ssh/id_ed25519.pub
       ```
 
@@ -610,4 +610,4 @@ _Интерфейс командной строки Yandex Cloud (CLI)_ — ск
 
 ## См. также {#see-also}
 
-* [Обновление CLI](operations/update-cli.md)
+* [{#T}](operations/update-cli.md)

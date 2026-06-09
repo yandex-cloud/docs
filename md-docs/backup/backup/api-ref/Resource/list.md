@@ -5,7 +5,7 @@ List resources: Compute Cloud instances.
 ## HTTP request
 
 ```
-GET https://backup.api.cloud.yandex.net/backup/v1/resources
+GET https://backup.{{ api-host }}/backup/v1/resources
 ```
 
 ## Query parameters {#yandex.cloud.backup.v1.ListResourcesRequest}

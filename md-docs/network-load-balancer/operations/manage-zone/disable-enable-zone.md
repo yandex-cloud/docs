@@ -17,16 +17,16 @@
 
 - Консоль управления {#console}
 
-  1. В [консоли управления](https://console.yandex.cloud) выберите нужный каталог.
-  1. [Перейдите](../../../console/operations/select-service.md#select-service) в сервис **Network Load Balancer**.
+  1. В [консоли управления]({{ link-console-main }}) выберите нужный каталог.
+  1. Перейдите в сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_load-balancer }}**.
   1. Выберите нужный сетевой балансировщик.
-  1. В блоке **Размещение** нажмите кнопку **Управление блокировками зон**.
-  1. Активируйте опцию **Блокировка** напротив зон доступности, которые вы хотите отключить.
-  1. Нажмите **Сохранить**.
+  1. В блоке **{{ ui-key.yacloud.load-balancer.network-load-balancer.section_allocation-settings }}** нажмите кнопку **{{ ui-key.yacloud.load-balancer.network-load-balancer.section_allocation-settings_button }}**.
+  1. Активируйте опцию **{{ ui-key.yacloud.components.BalancerAllocationDialog.AllocationForm.form_disable_traffic_3z2cs }}** напротив зон доступности, которые вы хотите отключить.
+  1. Нажмите **{{ ui-key.yacloud.common.save }}**.
 
 - CLI {#cli}
 
-  Если у вас еще нет интерфейса командной строки Yandex Cloud (CLI), [установите и инициализируйте его](../../../cli/quickstart.md#install).
+  Если у вас еще нет интерфейса командной строки {{ yandex-cloud }} (CLI), [установите и инициализируйте его](../../../cli/quickstart.md#install).
 
   По умолчанию используется каталог, указанный при [создании](../../../cli/operations/profile/profile-create.md) профиля CLI. Чтобы изменить каталог по умолчанию, используйте команду `yc config set folder-id <идентификатор_каталога>`. Также для любой команды вы можете указать другой каталог с помощью параметров `--folder-name` или `--folder-id`. Если вы обращаетесь к ресурсу по имени, поиск будет выполнен в каталоге по умолчанию. Если вы обращаетесь к ресурсу по идентификатору, поиск будет выполнен глобально — во всех каталогах с учетом прав доступа.
 
@@ -144,16 +144,16 @@
 
 - Консоль управления {#console}
 
-  1. В [консоли управления](https://console.yandex.cloud) выберите нужный каталог.
-  1. [Перейдите](../../../console/operations/select-service.md#select-service) в сервис **Network Load Balancer**.
+  1. В [консоли управления]({{ link-console-main }}) выберите нужный каталог.
+  1. Перейдите в сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_load-balancer }}**.
   1. Выберите нужный сетевой балансировщик.
-  1. В блоке **Размещение** нажмите кнопку **Управление блокировками зон**.
-  1. Деактивируйте опцию **Блокировка** напротив зон доступности, которые вы хотите включить.
-  1. Нажмите **Сохранить**.
+  1. В блоке **{{ ui-key.yacloud.load-balancer.network-load-balancer.section_allocation-settings }}** нажмите кнопку **{{ ui-key.yacloud.load-balancer.network-load-balancer.section_allocation-settings_button }}**.
+  1. Деактивируйте опцию **{{ ui-key.yacloud.components.BalancerAllocationDialog.AllocationForm.form_disable_traffic_3z2cs }}** напротив зон доступности, которые вы хотите включить.
+  1. Нажмите **{{ ui-key.yacloud.common.save }}**.
 
 - CLI {#cli}
 
-  Если у вас еще нет интерфейса командной строки Yandex Cloud (CLI), [установите и инициализируйте его](../../../cli/quickstart.md#install).
+  Если у вас еще нет интерфейса командной строки {{ yandex-cloud }} (CLI), [установите и инициализируйте его](../../../cli/quickstart.md#install).
 
   По умолчанию используется каталог, указанный при [создании](../../../cli/operations/profile/profile-create.md) профиля CLI. Чтобы изменить каталог по умолчанию, используйте команду `yc config set folder-id <идентификатор_каталога>`. Также для любой команды вы можете указать другой каталог с помощью параметров `--folder-name` или `--folder-id`. Если вы обращаетесь к ресурсу по имени, поиск будет выполнен в каталоге по умолчанию. Если вы обращаетесь к ресурсу по идентификатору, поиск будет выполнен глобально — во всех каталогах с учетом прав доступа.
 
@@ -207,7 +207,7 @@
 
 - CLI {#cli}
 
-  Если у вас еще нет интерфейса командной строки Yandex Cloud (CLI), [установите и инициализируйте его](../../../cli/quickstart.md#install).
+  Если у вас еще нет интерфейса командной строки {{ yandex-cloud }} (CLI), [установите и инициализируйте его](../../../cli/quickstart.md#install).
 
   По умолчанию используется каталог, указанный при [создании](../../../cli/operations/profile/profile-create.md) профиля CLI. Чтобы изменить каталог по умолчанию, используйте команду `yc config set folder-id <идентификатор_каталога>`. Также для любой команды вы можете указать другой каталог с помощью параметров `--folder-name` или `--folder-id`. Если вы обращаетесь к ресурсу по имени, поиск будет выполнен в каталоге по умолчанию. Если вы обращаетесь к ресурсу по идентификатору, поиск будет выполнен глобально — во всех каталогах с учетом прав доступа.
 
@@ -233,5 +233,5 @@
 
 ### См. также {#see-also}
 
-* [Отключить и включить зоны доступности для группы ВМ Yandex Compute Cloud](../../../compute/operations/instance-groups/disable-enable-zone.md)
-* [Отключить и включить зоны доступности в Yandex Application Load Balancer](../../../application-load-balancer/operations/manage-zone/start-and-cancel-shift.md)
+* [Отключить и включить зоны доступности для группы ВМ {{ compute-full-name }}](../../../compute/operations/instance-groups/disable-enable-zone.md)
+* [Отключить и включить зоны доступности в {{ alb-full-name }}](../../../application-load-balancer/operations/manage-zone/start-and-cancel-shift.md)

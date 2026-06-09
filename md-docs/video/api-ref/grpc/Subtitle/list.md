@@ -11,16 +11,25 @@ Results can be filtered and sorted using the provided parameters.
 
 ```json
 {
-  "page_size": "int64",
-  "page_token": "string",
   // Includes only one of the fields `video_id`
-  "video_id": "string"
+  "video_id": "string",
   // end of the list of possible fields
+  "page_size": "int64",
+  "page_token": "string"
 }
 ```
 
 #|
 ||Field | Description ||
+|| video_id | **string**
+
+ID of the video containing the subtitles to list.
+
+The maximum string length in characters is 50.
+
+Includes only one of the fields `video_id`.
+
+Specifies the parent resource to list subtitles from (exactly one must be chosen). ||
 || page_size | **int64**
 
 The maximum number of subtitles to return per page.
@@ -32,15 +41,6 @@ Page token for retrieving the next page of results.
 This token is obtained from the next_page_token field in the previous ListSubtitlesResponse.
 
 The maximum string length in characters is 15000. ||
-|| video_id | **string**
-
-ID of the video containing the subtitles to list.
-
-The maximum string length in characters is 50.
-
-Includes only one of the fields `video_id`.
-
-Specifies the parent resource to list subtitles from (exactly one must be chosen). ||
 |#
 
 ## ListSubtitlesResponse {#yandex.cloud.video.v1.ListSubtitlesResponse}

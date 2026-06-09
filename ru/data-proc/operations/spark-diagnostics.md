@@ -42,7 +42,7 @@ description: Следуя данной инструкции, вы сможете
 capacity-scheduler:yarn.scheduler.capacity.resource-calculator=org.apache.hadoop.yarn.util.resource.DominantResourceCalculator
 ```
 
-Подробнее о работе планировщика YARN см. в [документации Hadoop](https://hadoop.apache.org/docs/current/hadoop-yarn/hadoop-yarn-site/CapacityScheduler.html).
+Подробнее о работе планировщика YARN в [документации Hadoop](https://hadoop.apache.org/docs/current/hadoop-yarn/hadoop-yarn-site/CapacityScheduler.html).
 
 ### При выполнении заданий возникают систематические ошибки heartbeat {#heartbeat-errors}
 
@@ -62,4 +62,4 @@ capacity-scheduler:yarn.scheduler.capacity.resource-calculator=org.apache.hadoop
 * Уменьшите количество процессорных ядер на одного исполнителя в параметре `spark.executor.cores`.
 * Увеличьте объем резервируемой оперативной памяти для каждого исполнителя в параметре `spark.executor.memory`.
 
-Подробнее об этих параметрах см. в [документации Spark](https://spark.apache.org/docs/latest/configuration.html#available-properties).
+Подробнее об этих параметрах в [документации Spark](https://spark.apache.org/docs/latest/configuration.html#available-properties).

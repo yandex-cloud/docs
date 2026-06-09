@@ -5,7 +5,7 @@ Sets access bindings for the specified Apache Airflow cluster.
 ## HTTP request
 
 ```
-POST https://airflow.api.cloud.yandex.net/managed-airflow/v1/clusters/{resourceId}:setAccessBindings
+POST https://airflow.{{ api-host }}/managed-airflow/v1/clusters/{resourceId}:setAccessBindings
 ```
 
 ## Path parameters

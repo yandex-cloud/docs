@@ -5,7 +5,7 @@ Lists operations for the specified service account.
 ## HTTP request
 
 ```
-GET https://iam.api.cloud.yandex.net/iam/v1/serviceAccounts/{serviceAccountId}/operations
+GET https://iam.{{ api-host }}/iam/v1/serviceAccounts/{serviceAccountId}/operations
 ```
 
 ## Path parameters
@@ -30,7 +30,7 @@ results is larger than `pageSize`, the service returns a [ListServiceAccountOper
 that can be used to get the next page of results in subsequent list requests.
 Default value: 100.
 
-The maximum value is 1000. ||
+Acceptable values are 0 to 1000, inclusive. ||
 || pageToken | **string**
 
 Page token. To get the next page of results, set `pageToken`

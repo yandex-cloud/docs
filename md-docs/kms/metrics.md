@@ -1,10 +1,10 @@
-# Справочник метрик Yandex Monitoring
+# Справочник метрик {{ monitoring-full-name }}
 
-В этом разделе описаны метрики сервиса Key Management Service, поставляемые в [Monitoring](../monitoring/index.md).
+В этом разделе описаны метрики сервиса {{ kms-name }}, поставляемые в [{{ monitoring-name }}](../monitoring/index.md).
 
 Имя метрики пишется в метку `name`.
 
-Все метрики сервиса Key Management Service имеют общую метку `kms`.
+Все метрики сервиса {{ kms-name }} имеют общую метку `kms`.
 
 Метрики сервиса:
 

@@ -1,13 +1,12 @@
 # Identity Provider API, REST: Userpool.Get
 
 Returns the specified userpool.
-
 To get the list of available userpools, make a [List](list.md#List) request.
 
 ## HTTP request
 
 ```
-GET https://organization-manager.api.cloud.yandex.net/organization-manager/v1/idp/userpools/{userpoolId}
+GET https://organization-manager.{{ api-host }}/organization-manager/v1/idp/userpools/{userpoolId}
 ```
 
 ## Path parameters

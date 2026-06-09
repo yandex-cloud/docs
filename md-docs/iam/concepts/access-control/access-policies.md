@@ -2,11 +2,11 @@
 
 {% note info %}
 
-Функциональность находится на стадии [Preview](../../../overview/concepts/launch-stages.md). Чтобы получить доступ, обратитесь в [техническую поддержку](https://center.yandex.cloud/support) или к вашему аккаунт-менеджеру.
+Функциональность находится на стадии [Preview](../../../overview/concepts/launch-stages.md). Чтобы получить доступ, обратитесь в [техническую поддержку]({{ link-console-support }}) или к вашему аккаунт-менеджеру.
 
 {% endnote %}
 
-_Политики авторизации_ (политики) — это механизм контроля доступа Yandex Identity and Access Management, который позволяет управлять разрешениями на выполнение определенных операций с [ресурсами Yandex Cloud](../../../overview/roles-and-resources.md). Политики дополняют систему [ролей](roles.md) и позволяют сделать [управление доступом](index.md) более гибким.
+_Политики авторизации_ (политики) — это механизм контроля доступа {{ iam-full-name }}, который позволяет управлять разрешениями на выполнение определенных операций с [ресурсами {{ yandex-cloud }}](../../../overview/roles-and-resources.md). Политики дополняют систему [ролей](roles.md) и позволяют сделать [управление доступом](index.md) более гибким.
 
 Политики авторизации создаются для [ресурсов](#resources) на основе [шаблонов](#supported-policies) политик авторизации.
 
@@ -32,31 +32,37 @@ _Политики авторизации_ (политики) — это меха
 * [облако](../../../resource-manager/concepts/resources-hierarchy.md#cloud) — политика применяется к ресурсам во всех каталогах в пределах облака;
 * [каталог](../../../resource-manager/concepts/resources-hierarchy.md#folder) — политика применяется только к ресурсам в определенном каталоге.
 
-Политики авторизации, созданные на верхних уровнях [иерархии ресурсов Yandex Cloud](../../../resource-manager/concepts/resources-hierarchy.md), [наследуются](../../../resource-manager/concepts/resources-hierarchy.md#access-rights-inheritance) нижестоящими уровнями.
+Политики авторизации, созданные на верхних уровнях [иерархии ресурсов {{ yandex-cloud }}](../../../resource-manager/concepts/resources-hierarchy.md), [наследуются](../../../resource-manager/concepts/resources-hierarchy.md#access-rights-inheritance) нижестоящими уровнями.
 
 Для одного ресурса можно создать одновременно несколько политик.
 
 ## Шаблоны политик авторизации {#supported-policies}
 
-Одни шаблоны политик авторизации при их назначении на ресурс требуют указания дополнительных параметров, другие — не требуют.
+Одни шаблоны политик авторизации при их назначении на ресурс требуют указания параметров, другие — не требуют.
 
-### Шаблоны без дополнительных параметров {#fixed}
+### Шаблоны без параметров {#fixed}
 
-Следующие шаблоны политик авторизации не содержат дополнительных параметров и вводят безусловные ограничения на соответствующие действия:
+Следующие шаблоны политик авторизации не содержат параметров и вводят безусловные ограничения на соответствующие действия:
 
-* [iam.denyServiceAccountCreation](#iam-denyServiceAccountCreation)
+* [backup.denyActivation](#backup-denyActivation)
+* [backup.denyRemoveProtection](#backup-denyRemoveProtection)
 * [iam.denyServiceAccountAccessKeysCreation](#iam-denyServiceAccountAccessKeysCreation)
 * [iam.denyServiceAccountApiKeysCreation](#iam-denyServiceAccountApiKeysCreation)
 * [iam.denyServiceAccountAuthorizedKeysCreation](#iam-denyServiceAccountAuthorizedKeysCreation)
-* [iam.denyServiceAccountFederatedCredentialsCreation](#iam-denyServiceAccountFederatedCredentialsCreation)
+* [iam.denyServiceAccountCreation](#iam-denyServiceAccountCreation)
 * [iam.denyServiceAccountCredentialsCreation](#iam-denyServiceAccountCredentialsCreation)
+* [iam.denyServiceAccountFederatedCredentialsCreation](#iam-denyServiceAccountFederatedCredentialsCreation)
 * [iam.denyServiceAccountImpersonation](#iam-denyServiceAccountImpersonation)
 * [organization.denyMemberInvitation](#organization-denyMemberInvitation)
 * [organization.denyUserListing](#organization-denyUserListing)
 
-#### iam.denyServiceAccountCreation {#iam-denyServiceAccountCreation}
+#### backup.denyActivation {#backup-denyActivation}
 
-Политика запрещает создавать [сервисные аккаунты](../users/service-accounts.md). 
+Политика запрещает подключать [защищаемые ресурсы](../../../backup/concepts/index.md) к сервису {{ backup-full-name }}, а также привязывать и отвязывать их от [политик резервного копирования](../../../backup/concepts/policy.md).
+
+#### backup.denyRemoveProtection {#backup-denyRemoveProtection}
+
+Политика запрещает изменять и удалять [политики резервного копирования](../../../backup/concepts/policy.md) {{ backup-full-name }}, отвязывать [защищаемые ресурсы](../../../backup/concepts/index.md) от таких политик, а также удалять [резервные копии](../../../backup/concepts/backup.md) защищаемых ресурсов.
 
 #### iam.denyServiceAccountAccessKeysCreation {#iam-denyServiceAccountAccessKeysCreation}
 
@@ -70,9 +76,9 @@ _Политики авторизации_ (политики) — это меха
 
 Политика запрещает создавать [авторизованные ключи](../authorization/key.md) сервисных аккаунтов.
 
-#### iam.denyServiceAccountFederatedCredentialsCreation {#iam-denyServiceAccountFederatedCredentialsCreation}
+#### iam.denyServiceAccountCreation {#iam-denyServiceAccountCreation}
 
-Политика запрещает привязывать сервисные аккаунты к [федерациям сервисных аккаунтов](../workload-identity.md).
+Политика запрещает создавать [сервисные аккаунты](../users/service-accounts.md).
 
 #### iam.denyServiceAccountCredentialsCreation {#iam-denyServiceAccountCredentialsCreation}
 
@@ -80,6 +86,10 @@ _Политики авторизации_ (политики) — это меха
 
 * создавать любые [аутентификационные данные](../authorization/index.md) для сервисных аккаунтов (кроме [IAM-токена](../authorization/iam-token.md));
 * привязывать сервисные аккаунты к [федерациям сервисных аккаунтов](../workload-identity.md).
+
+#### iam.denyServiceAccountFederatedCredentialsCreation {#iam-denyServiceAccountFederatedCredentialsCreation}
+
+Политика запрещает привязывать сервисные аккаунты к [федерациям сервисных аккаунтов](../workload-identity.md).
 
 #### iam.denyServiceAccountImpersonation {#iam-denyServiceAccountImpersonation}
 
@@ -93,49 +103,107 @@ _Политики авторизации_ (политики) — это меха
 
 Политика запрещает просматривать список пользователей [организации](../../../organization/concepts/organization.md). Политика может быть создана только для [организации](../../../organization/concepts/organization.md).
 
-### Шаблоны с дополнительными параметрами {#customizable}
+### Шаблоны с параметрами {#customizable}
 
-Следующие шаблоны политик авторизации позволяют изменять вводимые ограничения с помощью дополнительных параметров:
+Следующие шаблоны политик авторизации позволяют настраивать вводимые ограничения с помощью параметров:
 
-* [serverless.restrictPrivateNetworkInvocation](#serverless-restrictPrivateNetworkInvocation)
-* [serverless.restrictPublicInvocation](#serverless-restrictPublicInvocation)
+{% note tip %}
 
-#### serverless.restrictPrivateNetworkInvocation {#serverless-restrictPrivateNetworkInvocation}
-
-{% note info %}
-
-Политика `serverless.restrictPrivateNetworkInvocation` работает только при настроенном [сервисном подключении](../../../vpc/concepts/private-endpoint.md) из [Yandex Cloud Functions](../../../functions/index.md) и [Yandex Serverless Containers](../../../serverless-containers/index.md) в [Yandex Virtual Private Cloud](../../../vpc/index.md).
+Подробнее о том, как создавать политики авторизации на основе шаблонов с параметрами, читайте в разделе [Создание политики авторизации для ресурса](../../operations/access-policies/assign.md#examples).
 
 {% endnote %}
 
-Политика ограничивает возможность вызова [функций](../../../functions/concepts/function.md) и [контейнеров](../../../serverless-containers/concepts/container.md) с [внутренних IP-адресов](../../../vpc/concepts/address.md#internal-addresses) Yandex Virtual Private Cloud заданными явно [облачными сетями](../../../vpc/concepts/network.md#network) или определенными IP-адресами в них.
+* [serverless.containers.restrictNetworkAccess](#serverless-containers-restrictNetworkAccess)
+* [serverless.containers.restrictResourceVPCNetwork](#serverless-containers-restrictResourceVPCNetwork)
+* [serverless.functions.restrictNetworkAccess](#serverless-functions-restrictNetworkAccess)
+* [serverless.functions.restrictResourceVPCNetwork](#serverless-functions-restrictResourceVPCNetwork)
+* [serverless.mcpGateways.restrictNetworkAccess](#serverless-mcpGateways-restrictNetworkAccess)
+* [serverless.mcpGateways.restrictResourceVPCNetwork](#serverless-mcpGateways-restrictResourceVPCNetwork)
+* [serverless.responses.restrictNetworkAccess](#serverless-responses-restrictNetworkAccess)
+* [serverless.workflows.restrictNetworkAccess](#serverless-workflows-restrictNetworkAccess)
+* [serverless.workflows.restrictResourceVPCNetwork](#serverless-workflows-restrictResourceVPCNetwork)
 
-К функции/контейнеру должна быть привязана облачная сеть из списка, заданного в параметрах политики.
+#### serverless.containers.restrictNetworkAccess {#serverless-containers-restrictNetworkAccess}
 
-Дополнительные параметры:
+Политика запрещает вызов [контейнеров](../../../serverless-containers/concepts/container.md) {{ serverless-containers-full-name }} и управление ими с любых адресов, за исключением заданных явно IP-адресов или [облачных сетей](../../../vpc/concepts/network.md#network) {{ vpc-full-name }}.
 
-* `allowed_vpc_network_ids` — список облачных сетей, в которых с любых внутренних IP-адресов разрешен вызов функций/контейнеров.
+Настраиваемые параметры (применяются с логикой `ИЛИ`):
 
-    Параметр `allowed_vpc_network_ids` имеет приоритет над другими параметрами: если для него задано ненулевое значение, то значения параметров `src_ip_restricted_network_ids` и `allowed_src_ips` будут игнорироваться политикой.
-* `src_ip_restricted_network_ids` — список облачных сетей, в которых вызов функций/контейнеров разрешен только с внутренних IP-адресов, заданных в параметре `allowed_src_ips`.
-* `allowed_src_ips` — список внутренних IP-адресов или диапазонов IP-адресов в нотации [CIDR](https://ru.wikipedia.org/wiki/Бесклассовая_адресация), которые относятся к сетям, заданным в параметре `src_ip_restricted_network_ids`, и с которых разрешен вызов функций и контейнеров.
+* `allowed_src_ips` — список IP-адресов или диапазонов IP-адресов в нотации [CIDR](https://ru.wikipedia.org/wiki/Бесклассовая_адресация), с которых разрешен вызов контейнеров и управление ими.
+* `allowed_vpc_network_ids` — список идентификаторов облачных сетей, в которых разрешен вызов контейнеров и управление ими через настроенное [сервисное подключение](../../../vpc/concepts/private-endpoint.md).
 
-См. также [примеры назначения шаблона политики](../../operations/access-policies/assign.md#serverless-restrictPrivateNetworkInvocation).
+#### serverless.containers.restrictResourceVPCNetwork {#serverless-containers-restrictResourceVPCNetwork}
 
-#### serverless.restrictPublicInvocation {#serverless-restrictPublicInvocation}
+Политика запрещает привязку к [контейнерам](../../../serverless-containers/concepts/container.md) {{ serverless-containers-full-name }} любых [облачных сетей](../../../vpc/concepts/network.md#network) за исключением заданных явно.
 
-Политика `serverless.restrictPublicInvocation` ограничивает возможность вызова [функций](../../../functions/concepts/function.md) и [контейнеров](../../../serverless-containers/concepts/container.md) с [публичных IP-адресов](../../../vpc/concepts/address.md#internal-addresses).
+Настраиваемый параметр:
 
-Дополнительные параметры:
+* `allowed_vpc_network_ids` — список идентификаторов облачных сетей, которые можно привязывать к контейнерам.
 
-* `allowed_src_ip` — список публичных IP-адресов или диапазонов IP-адресов в нотации [CIDR](https://ru.wikipedia.org/wiki/Бесклассовая_адресация), с которых разрешен вызов функций и контейнеров.
+#### serverless.functions.restrictNetworkAccess {#serverless-functions-restrictNetworkAccess}
 
-См. также [пример назначения шаблона политики](../../operations/access-policies/assign.md#serverless-restrictPublicInvocation).
+Политика запрещает вызов [функций](../../../functions/concepts/function.md) {{ sf-full-name }} и управление ими с любых адресов, за исключением заданных явно IP-адресов или [облачных сетей](../../../vpc/concepts/network.md#network) {{ vpc-full-name }}.
+
+Настраиваемые параметры (применяются с логикой `ИЛИ`):
+
+* `allowed_src_ips` — список IP-адресов или диапазонов IP-адресов в нотации [CIDR](https://ru.wikipedia.org/wiki/Бесклассовая_адресация), с которых разрешен вызов функций и управление ими.
+* `allowed_vpc_network_ids` — список идентификаторов облачных сетей, в которых разрешен вызов функций и управление ими через настроенное [сервисное подключение](../../../vpc/concepts/private-endpoint.md).
+
+#### serverless.functions.restrictResourceVPCNetwork {#serverless-functions-restrictResourceVPCNetwork}
+
+Политика запрещает привязку к [функциям](../../../functions/concepts/function.md) {{ sf-full-name }} любых [облачных сетей](../../../vpc/concepts/network.md#network) за исключением заданных явно.
+
+Настраиваемый параметр:
+
+* `allowed_vpc_network_ids` — список идентификаторов облачных сетей, которые можно привязывать к функциям.
+
+#### serverless.mcpGateways.restrictNetworkAccess {#serverless-mcpGateways-restrictNetworkAccess}
+
+Политика запрещает вызов [MCP-серверов]({{ link-docs-ai }}ai-studio/concepts/mcp-hub/#servers) {{ mcp-hub-name }} и управление ими с любых адресов, за исключением заданных явно IP-адресов или [облачных сетей](../../../vpc/concepts/network.md#network) {{ vpc-full-name }}.
+
+Настраиваемые параметры (применяются с логикой `ИЛИ`):
+
+* `allowed_src_ips` — список IP-адресов или диапазонов IP-адресов в нотации [CIDR](https://ru.wikipedia.org/wiki/Бесклассовая_адресация), с которых разрешен вызов MCP-серверов и управление ими.
+* `allowed_vpc_network_ids` — список идентификаторов облачных сетей, в которых разрешен вызов MCP-серверов и управление ими через настроенное [сервисное подключение](../../../vpc/concepts/private-endpoint.md).
+
+#### serverless.mcpGateways.restrictResourceVPCNetwork {#serverless-mcpGateways-restrictResourceVPCNetwork}
+
+Политика запрещает привязку к [MCP-серверам]({{ link-docs-ai }}ai-studio/concepts/mcp-hub/#servers) {{ mcp-hub-name }} любых [облачных сетей](../../../vpc/concepts/network.md#network) за исключением заданных явно.
+
+Настраиваемый параметр:
+
+* `allowed_vpc_network_ids` — список идентификаторов облачных сетей, которые можно привязывать к MCP-серверам.
+
+#### serverless.responses.restrictNetworkAccess {#serverless-responses-restrictNetworkAccess}
+
+Политика запрещает вызов методов [{{ responses-api }}]({{ link-docs-ai }}ai-studio/responses/) {{ ai-studio-full-name }} с любых адресов, за исключением заданных явно IP-адресов или [облачных сетей](../../../vpc/concepts/network.md#network) {{ vpc-full-name }}.
+
+Настраиваемые параметры (применяются с логикой `ИЛИ`):
+
+* `allowed_src_ips` — список IP-адресов или диапазонов IP-адресов в нотации [CIDR](https://ru.wikipedia.org/wiki/Бесклассовая_адресация), с которых разрешен вызов методов {{ responses-api }}.
+* `allowed_vpc_network_ids` — список идентификаторов облачных сетей, в которых разрешен вызов методов {{ responses-api }} через настроенное [сервисное подключение](../../../vpc/concepts/private-endpoint.md).
+
+#### serverless.workflows.restrictNetworkAccess {#serverless-workflows-restrictNetworkAccess}
+
+Политика запрещает запуск [рабочих процессов](../../../serverless-integrations/concepts/workflows/workflow.md) {{ si-full-name }} и управление ими с любых адресов, за исключением заданных явно IP-адресов или [облачных сетей](../../../vpc/concepts/network.md#network) {{ vpc-full-name }}.
+
+Настраиваемые параметры (применяются с логикой `ИЛИ`):
+
+* `allowed_src_ips` — список IP-адресов или диапазонов IP-адресов в нотации [CIDR](https://ru.wikipedia.org/wiki/Бесклассовая_адресация), с которых разрешен запуск рабочих процессов и управление ими.
+* `allowed_vpc_network_ids` — список идентификаторов облачных сетей, в которых разрешен запуск рабочих процессов и управление ими через настроенное [сервисное подключение](../../../vpc/concepts/private-endpoint.md).
+
+#### serverless.workflows.restrictResourceVPCNetwork {#serverless-workflows-restrictResourceVPCNetwork}
+
+Политика запрещает привязку к [рабочим процессам](../../../serverless-integrations/concepts/workflows/workflow.md) {{ si-full-name }} любых [облачных сетей](../../../vpc/concepts/network.md#network) за исключением заданных явно.
+
+Настраиваемый параметр:
+
+* `allowed_vpc_network_ids` — список идентификаторов облачных сетей, которые можно привязывать к рабочим процессам.
 
 #### См. также {#see-also}
 
-* [Роли](roles.md)
-* [Получение списка поддерживаемых шаблонов политик авторизации](../../operations/access-policies/list.md)
-* [Создание политики авторизации для ресурса](../../operations/access-policies/assign.md)
-* [Просмотр политик авторизации, созданных для ресурса](../../operations/access-policies/view-assigned.md)
-* [Удаление политики авторизации](../../operations/access-policies/revoke.md)
+* [{#T}](roles.md)
+* [{#T}](../../operations/access-policies/list.md)
+* [{#T}](../../operations/access-policies/assign.md)
+* [{#T}](../../operations/access-policies/view-assigned.md)
+* [{#T}](../../operations/access-policies/revoke.md)

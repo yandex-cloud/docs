@@ -56,6 +56,7 @@ resource "yandex_mdb_kafka_cluster" "my_cluster" {
         ssl_cipher_suites               = ["TLS_DHE_RSA_WITH_AES_128_CBC_SHA", "TLS_ECDHE_RSA_WITH_CHACHA20_POLY1305_SHA256"]
         offsets_retention_minutes       = 10080
         sasl_enabled_mechanisms         = ["SASL_MECHANISM_SCRAM_SHA_256", "SASL_MECHANISM_SCRAM_SHA_512"]
+        transactional_id_expiration_ms  = 604800000
       }
     }
   }
@@ -139,6 +140,7 @@ resource "yandex_mdb_kafka_cluster" "my_cluster" {
         ssl_cipher_suites               = ["TLS_DHE_RSA_WITH_AES_128_CBC_SHA", "TLS_ECDHE_RSA_WITH_CHACHA20_POLY1305_SHA256"]
         offsets_retention_minutes       = 10080
         sasl_enabled_mechanisms         = ["SASL_MECHANISM_SCRAM_SHA_256", "SASL_MECHANISM_SCRAM_SHA_512"]
+        transactional_id_expiration_ms  = 604800000
       }
     }
     zookeeper {
@@ -241,6 +243,7 @@ resource "yandex_mdb_kafka_cluster" "kraft-split" {
         ssl_cipher_suites               = ["TLS_DHE_RSA_WITH_AES_128_CBC_SHA", "TLS_ECDHE_RSA_WITH_CHACHA20_POLY1305_SHA256"]
         offsets_retention_minutes       = 10080
         sasl_enabled_mechanisms         = ["SASL_MECHANISM_SCRAM_SHA_256", "SASL_MECHANISM_SCRAM_SHA_512"]
+        transactional_id_expiration_ms  = 604800000
       }
     }
     kraft {
@@ -320,6 +323,7 @@ resource "yandex_mdb_kafka_cluster" "kraft-combine" {
         ssl_cipher_suites               = ["TLS_DHE_RSA_WITH_AES_128_CBC_SHA", "TLS_ECDHE_RSA_WITH_CHACHA20_POLY1305_SHA256"]
         offsets_retention_minutes       = 10080
         sasl_enabled_mechanisms         = ["SASL_MECHANISM_SCRAM_SHA_256", "SASL_MECHANISM_SCRAM_SHA_512"]
+        transactional_id_expiration_ms  = 604800000
       }
     }
   }
@@ -407,6 +411,7 @@ resource "yandex_vpc_subnet" "baz" {
       - `socket_receive_buffer_bytes` (String). The SO_RCVBUF buffer of the socket server sockets. If the value is -1, the OS default will be used.
       - `socket_send_buffer_bytes` (String). The SO_SNDBUF buffer of the socket server sockets. If the value is -1, the OS default will be used.
       - `ssl_cipher_suites` (Set Of String). A list of cipher suites.
+      - `transactional_id_expiration_ms` (String). Timeout for transactional ids to expire in ms.
     - `resources` [Block]. Resources allocated to hosts of the Kafka subcluster.
       - `disk_size` (**Required**)(Number). Volume of the storage available to a Kafka host, in gigabytes.
       - `disk_type_id` (**Required**)(String). Type of the storage of Kafka hosts. For more information see [the official documentation](../../managed-kafka/concepts/storage.md).

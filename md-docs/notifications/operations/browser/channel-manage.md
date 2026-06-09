@@ -6,11 +6,11 @@
 
 - Консоль управления {#console}
 
-  1. В [консоли управления](https://console.yandex.cloud) выберите каталог, в котором находится канал уведомлений.
-  1. [Перейдите](../../../console/operations/select-service.md#select-service) в сервис **Cloud Notification Service**.
-  1. Напротив нужного канала нажмите ![image](../../../_assets/console-icons/ellipsis.svg) и выберите **Редактировать**.
+  1. В [консоли управления]({{ link-console-main }}) выберите каталог, в котором находится канал уведомлений.
+  1. Перейдите в сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_cns }}**.
+  1. Напротив нужного канала нажмите ![image](../../../_assets/console-icons/ellipsis.svg) и выберите **{{ ui-key.yacloud.common.edit }}**.
   1. Измените описание канала.
-  1. Нажмите **Сохранить**.
+  1. Нажмите **{{ ui-key.yacloud.common.save }}**.
 
 - AWS CLI {#aws-cli}
 
@@ -32,7 +32,7 @@
 
 - API {#api}
 
-  Воспользуйтесь методом HTTP API [setAttributes](../../api-ref/set-platform-application-attributes.md) для ресурса PlatformApplications сервиса Yandex Cloud Notification Service.
+  Воспользуйтесь методом HTTP API [setAttributes](../../api-ref/set-platform-application-attributes.md) для ресурса PlatformApplications сервиса {{ cns-full-name }}.
 
 {% endlist %}
 
@@ -44,10 +44,10 @@
 
 - Консоль управления {#console}
 
-  1. В [консоли управления](https://console.yandex.cloud) перейдите в каталог, в котором находится канал уведомлений.
-  1. [Перейдите](../../../console/operations/select-service.md#select-service) в сервис **Cloud Notification Service**.
-  1. Напротив нужного канала уведомлений нажмите ![image](../../../_assets/console-icons/ellipsis.svg) и выберите **Удалить**.
-  1. В открывшемся окне нажмите **Удалить**.
+  1. В [консоли управления]({{ link-console-main }}) перейдите в каталог, в котором находится канал уведомлений.
+  1. Перейдите в сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_cns }}**.
+  1. Напротив нужного канала уведомлений нажмите ![image](../../../_assets/console-icons/ellipsis.svg) и выберите **{{ ui-key.yacloud.common.delete }}**.
+  1. В открывшемся окне нажмите **{{ ui-key.yacloud.common.delete }}**.
 
 - AWS CLI {#aws-cli}
 
@@ -65,6 +65,6 @@
 
 - API {#api}
 
-  Воспользуйтесь методом HTTP API [delete](../../api-ref/delete-platform-application.md) для ресурса PlatformApplications сервиса Yandex Cloud Notification Service.
+  Воспользуйтесь методом HTTP API [delete](../../api-ref/delete-platform-application.md) для ресурса PlatformApplications сервиса {{ cns-full-name }}.
 
 {% endlist %}

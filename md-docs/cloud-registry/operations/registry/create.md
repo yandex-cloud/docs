@@ -4,10 +4,10 @@
 
 - Консоль управления {#console}
 
-    1. В [консоли управления](https://console.yandex.cloud) выберите [каталог](../../../resource-manager/concepts/resources-hierarchy.md#folder), в котором хотите создать реестр.
-    1. [Перейдите](../../../console/operations/select-service.md#select-service) в сервис **Cloud Registry**.
-    1. На панели слева выберите ![shapes-4](../../../_assets/console-icons/shapes-4.svg) **Реестры**.
-    1. В правом верхнем углу нажмите кнопку **Создать реестр**.
+    1. В [консоли управления]({{ link-console-main }}) выберите [каталог](../../../resource-manager/concepts/resources-hierarchy.md#folder), в котором хотите создать реестр.
+    1. Перейдите в сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_cloud-registry }}**.
+    1. На панели слева выберите ![shapes-4](../../../_assets/console-icons/shapes-4.svg) **{{ ui-key.yacloud.cloud-registry.title_registries }}**.
+    1. В правом верхнем углу нажмите кнопку **{{ ui-key.yacloud.cloud-registry.action_registry-create }}**.
     1. Выберите формат реестра.
     1. Настройте формат реестра:
 
@@ -27,7 +27,7 @@
 
                 {% note info %}
 
-                Репозиторий `Axiom` доступен по запросу. Чтобы активировать доступ к `Axiom`, [создайте](https://center.yandex.cloud/support/tickets/create) обращение в службу технической поддержки.
+                Репозиторий `Axiom` доступен по запросу. Чтобы активировать доступ к `Axiom`, [создайте]({{ link-console-support }}/tickets/create) обращение в службу технической поддержки.
 
                 {% endnote %}
 
@@ -35,9 +35,9 @@
 
             * Для формата `Docker` доступен только репозиторий `Docker Hub`. При этом необходимо задать данные для аутентификации в `Docker Hub`:
 
-                * Предоставьте [сервисному агенту](../../../iam/concepts/service-control.md#service-agent) сервиса Cloud Registry доступ к содержимому [секрета](../../../lockbox/concepts/secret.md) Yandex Lockbox, назначив ему на этот секрет [роль](../../../lockbox/security/index.md#lockbox-payloadViewer) `lockbox.payloadViewer`.
+                * Предоставьте [сервисному агенту](../../../iam/concepts/service-control.md#service-agent) сервиса {{ cloud-registry-name }} доступ к содержимому [секрета](../../../lockbox/concepts/secret.md) {{ lockbox-full-name }}, назначив ему на этот секрет [роль](../../../lockbox/security/index.md#lockbox-payloadViewer) `lockbox.payloadViewer`.
 
-                    В настоящее время такой доступ можно выдать только с помощью команды [Yandex Cloud CLI](../../../cli/quickstart.md), указав в ней идентификатор секрета Yandex Lockbox, содержащего токен или пароль, и [идентификатор облака](../../../organization/operations/organization-get-id.md), в котором вы создаете реестр:
+                    В настоящее время такой доступ можно выдать только с помощью команды [{{ yandex-cloud }} CLI](../../../cli/quickstart.md), указав в ней идентификатор секрета {{ lockbox-full-name }}, содержащего токен или пароль, и [идентификатор облака](../../../organization/operations/organization-get-id.md), в котором вы создаете реестр:
 
                     ```bash
                     yc lockbox secret add-access-binding \
@@ -46,7 +46,7 @@
                       --agent cloud-registry:data-plane \
                       --cloud-id <идентификатор_облака>
                     ```
-                * Аутентифицируйтесь в `Docker Hub` по [токену доступа](https://docs.docker.com/security/for-developers/access-tokens/). Для этого выберите вариант аутентификации `Basic`, укажите имя пользователя и в поле **Идентификатор секрета в Lockbox** выберите секрет Yandex Lockbox, в ключе `value` которого сохранен токен.
+                * Аутентифицируйтесь в `Docker Hub` по [токену доступа](https://docs.docker.com/security/for-developers/access-tokens/). Для этого выберите вариант аутентификации `Basic`, укажите имя пользователя и в поле **Идентификатор секрета в Lockbox** выберите секрет {{ lockbox-full-name }}, в ключе `value` которого сохранен токен.
 
             * Для любого формата реестра, кроме `Binary`, вы можете указать свой [источник](../../concepts/registry.md#custom-registry). Для этого в поле **Тип источника** выберите `Custom` и в поле **Адрес** укажите URL вашего источника.
 
@@ -54,7 +54,7 @@
 
             Идентификатор реестра можно посмотреть в консоли управления на странице с информацией о реестре.
     1. Введите имя и описание реестра.
-    1. Нажмите **Создать**.
+    1. Нажмите **{{ ui-key.yacloud.common.create }}**.
 
 - CLI {#cli}
 

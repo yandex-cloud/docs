@@ -1,7 +1,6 @@
 # Cloud Router API, gRPC: RoutingInstanceService.GetByCicPrivateConnectionId
 
 Returns the RoutingInstance resource by cicPrivateConnectionId
-
 To get the list of available RoutingInstance resources, make a [List](list.md#List) request.
 
 ## gRPC request
@@ -21,7 +20,9 @@ To get the list of available RoutingInstance resources, make a [List](list.md#Li
 || cic_private_connection_id | **string**
 
 Required field. ID of the PrivateConnection resource to return by.
-To get the routingInstance ID use a [RoutingInstanceService.List](list.md#List) request. ||
+To get the routingInstance ID use a [RoutingInstanceService.List](list.md#List) request.
+
+The maximum string length in characters is 50. ||
 |#
 
 ## RoutingInstance {#yandex.cloud.cloudrouter.v1.RoutingInstance}
@@ -54,6 +55,7 @@ To get the routingInstance ID use a [RoutingInstanceService.List](list.md#List) 
     }
   ],
   "status": "Status",
+  "deletion_protection": "bool",
   "created_at": "google.protobuf.Timestamp",
   "labels": "map<string, string>"
 }
@@ -71,7 +73,7 @@ The name must be unique within the folder.
 Value must match the regular expression ``\\|[a-zA-Z]([-_a-zA-Z0-9]{0,61}[a-zA-Z0-9])?``. ||
 || description | **string**
 
-Optional description of the routingInstance. 0-256 characters long. ||
+Description of the routingInstance. 0-256 characters long. ||
 || folder_id | **string**
 
 ID of the folder that the routingInstance belongs to. ||
@@ -88,11 +90,11 @@ List of the info about privateConnections which are attached to routingInstance.
 
 Status of the routingInstance.
 
-- `STATUS_UNSPECIFIED`
 - `CREATING`
 - `UPDATING`
 - `DELETING`
 - `ACTIVE` ||
+|| deletion_protection | **bool** ||
 || created_at | **[google.protobuf.Timestamp](https://developers.google.com/protocol-buffers/docs/reference/google.protobuf#timestamp)**
 
 Creation timestamp in [RFC3339](https://www.ietf.org/rfc/rfc3339.txt) text format. ||
@@ -112,10 +114,14 @@ Each key must match the regular expression `[a-z][-_0-9a-z]*`. ||
 ||Field | Description ||
 || vpc_network_id | **string**
 
-ID of the vpcNetwork that is attached to the routingInstance. ||
+Required field. ID of the vpcNetwork that is attached to the routingInstance.
+
+The maximum string length in characters is 50. ||
 || az_infos[] | **[VpcAzInfo](#yandex.cloud.cloudrouter.v1.RoutingInstance.VpcAzInfo)**
 
-List of the az-related info about vpcNetworks which are attached to routingInstance ||
+List of the az-related info about vpcNetworks which are attached to routingInstance
+
+The number of elements must be in the range 0-50. ||
 |#
 
 ## VpcAzInfo {#yandex.cloud.cloudrouter.v1.RoutingInstance.VpcAzInfo}
@@ -124,7 +130,7 @@ List of the az-related info about vpcNetworks which are attached to routingInsta
 ||Field | Description ||
 || manual_info | **[VpcManualInfo](#yandex.cloud.cloudrouter.v1.RoutingInstance.VpcManualInfo)**
 
-VpcInfo which is set by user ||
+Required field. VpcInfo which is set by user ||
 |#
 
 ## VpcManualInfo {#yandex.cloud.cloudrouter.v1.RoutingInstance.VpcManualInfo}
@@ -133,10 +139,14 @@ VpcInfo which is set by user ||
 ||Field | Description ||
 || az_id | **string**
 
-ID of the AZ ||
+Required field. ID of the AZ
+
+The maximum string length in characters is 50. ||
 || prefixes[] | **string**
 
-List of prefixes to announce ||
+List of prefixes to announce
+
+The number of elements must be in the range 0-10000. ||
 |#
 
 ## CicPrivateConnectionInfo {#yandex.cloud.cloudrouter.v1.RoutingInstance.CicPrivateConnectionInfo}
@@ -145,5 +155,7 @@ List of prefixes to announce ||
 ||Field | Description ||
 || cic_private_connection_id | **string**
 
-ID of the cicPrivateConnection that is attached to the routingInstance. ||
+Required field. ID of the cicPrivateConnection that is attached to the routingInstance.
+
+The maximum string length in characters is 50. ||
 |#

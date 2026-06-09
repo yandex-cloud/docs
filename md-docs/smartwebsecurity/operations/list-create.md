@@ -6,7 +6,7 @@
 
 {% endnote %}
 
-Вы можете управлять только пользовательскими списками адресов. Предустановленные списки Yandex Cloud изменять нельзя.
+Вы можете управлять только пользовательскими списками адресов. Предустановленные списки {{ yandex-cloud }} изменять нельзя.
 
 ## Создать список
 
@@ -14,8 +14,8 @@
 
 - Консоль управления {#console}
 
-  1. В [консоли управления](https://console.yandex.cloud) выберите [каталог](../../resource-manager/concepts/resources-hierarchy.md#folder).
-  1. [Перейдите](../../console/operations/select-service.md#select-service) в сервис **Smart Web Security**.
+  1. В [консоли управления]({{ link-console-main }}) выберите [каталог](../../resource-manager/concepts/resources-hierarchy.md#folder).
+  1. Перейдите в сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_smartwebsecurity }}**.
   1. На панели слева выберите ![image](../../_assets/smartwebsecurity/list.svg) **Списки** и нажмите **Создать список**.
   1. Введите имя и описание списка.
   1. При необходимости добавьте метку.
@@ -38,8 +38,8 @@
 
 - Консоль управления {#console}
 
-  1. В [консоли управления](https://console.yandex.cloud) выберите [каталог](../../resource-manager/concepts/resources-hierarchy.md#folder).
-  1. [Перейдите](../../console/operations/select-service.md#select-service) в сервис **Smart Web Security**.
+  1. В [консоли управления]({{ link-console-main }}) выберите [каталог](../../resource-manager/concepts/resources-hierarchy.md#folder).
+  1. Перейдите в сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_smartwebsecurity }}**.
   1. На панели слева выберите ![image](../../_assets/smartwebsecurity/list.svg) **Списки**.
   1. Нажмите строку с нужным списком.
   1. Слева выберите раздел **IP-адреса**.
@@ -55,10 +55,10 @@
 
 - Консоль управления {#console}
 
-  1. В [консоли управления](https://console.yandex.cloud) выберите [каталог](../../resource-manager/concepts/resources-hierarchy.md#folder).
-  1. [Перейдите](../../console/operations/select-service.md#select-service) в сервис **Smart Web Security**.
+  1. В [консоли управления]({{ link-console-main }}) выберите [каталог](../../resource-manager/concepts/resources-hierarchy.md#folder).
+  1. Перейдите в сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_smartwebsecurity }}**.
   1. На панели слева выберите ![image](../../_assets/smartwebsecurity/list.svg) **Списки**.
-  1. В строке с нужным списком нажмите ![options](../../_assets/console-icons/ellipsis.svg) и выберите **Редактировать**.
+  1. В строке с нужным списком нажмите ![options](../../_assets/console-icons/ellipsis.svg) и выберите **{{ ui-key.yacloud.common.edit }}**.
   1. Измените имя и описание списка, добавьте или удалите метки.
   1. Нажмите **Сохранить изменения**.
 
@@ -70,8 +70,8 @@
 
 - Консоль управления {#console}
 
-  1. В [консоли управления](https://console.yandex.cloud) выберите [каталог](../../resource-manager/concepts/resources-hierarchy.md#folder).
-  1. [Перейдите](../../console/operations/select-service.md#select-service) в сервис **Smart Web Security**.
+  1. В [консоли управления]({{ link-console-main }}) выберите [каталог](../../resource-manager/concepts/resources-hierarchy.md#folder).
+  1. Перейдите в сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_smartwebsecurity }}**.
   1. На панели слева выберите ![image](../../_assets/smartwebsecurity/list.svg) **Списки**.
   1. Нажмите строку с нужным списком.
   1. Слева выберите раздел **IP-адреса**.
@@ -90,16 +90,16 @@
 
 - Консоль управления {#console}
 
-  1. В [консоли управления](https://console.yandex.cloud) выберите [каталог](../../resource-manager/concepts/resources-hierarchy.md#folder).
-  1. [Перейдите](../../console/operations/select-service.md#select-service) в сервис **Smart Web Security**.
+  1. В [консоли управления]({{ link-console-main }}) выберите [каталог](../../resource-manager/concepts/resources-hierarchy.md#folder).
+  1. Перейдите в сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_smartwebsecurity }}**.
   1. На панели слева выберите ![image](../../_assets/smartwebsecurity/list.svg) **Списки** 
-  1. В строке с нужным списком нажмите ![options](../../_assets/console-icons/ellipsis.svg) и выберите **Удалить**.
+  1. В строке с нужным списком нажмите ![options](../../_assets/console-icons/ellipsis.svg) и выберите **{{ ui-key.yacloud.common.delete }}**.
 
 {% endlist %}
 
 ### См. также {#see-also}
 
-* [Списки](../concepts/lists.md)
-* [Условия](../concepts/conditions.md)
-* [Добавить правило в профиль безопасности](rule-add.md)
-* [Добавить правило в профиль ARL](arl-rule-add.md)
+* [{#T}](../concepts/lists.md)
+* [{#T}](../concepts/conditions.md)
+* [{#T}](rule-add.md)
+* [{#T}](arl-rule-add.md)

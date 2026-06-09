@@ -1,8 +1,8 @@
 # Просмотр метрик бакета
 
-Object Storage автоматически отправляет метрики работы бакетов в сервис [Yandex Monitoring](../../../monitoring/index.md).
+{{ objstorage-name }} автоматически отправляет метрики работы бакетов в сервис [{{ monitoring-full-name }}](../../../monitoring/index.md).
 
-Вы можете посмотреть общую статистику работы на [странице бакета](#storage-ui) или подробно в [интерфейсе Monitoring](#monitoring).
+Вы можете посмотреть общую статистику работы на [странице бакета](#storage-ui) или подробно в [интерфейсе {{ monitoring-name }}](#monitoring).
 
 Полный список метрик представлен в [справочнике](../../metrics.md).
 
@@ -12,10 +12,10 @@ Object Storage автоматически отправляет метрики р
 
 - Консоль управления {#console}
 
-  1. В [консоли управления](https://console.yandex.cloud) выберите каталог.
-  1. [Перейдите](../../../console/operations/select-service.md#select-service) в сервис **Object Storage**.
+  1. В [консоли управления]({{ link-console-main }}) выберите каталог.
+  1. Перейдите в сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_storage }}**.
   1. Выберите бакет, статистику которого вы хотите посмотреть.
-  1. На панели слева выберите ![image](../../../_assets/console-icons/display-pulse.svg) **Мониторинг**.
+  1. На панели слева выберите ![image](../../../_assets/console-icons/display-pulse.svg) **{{ ui-key.yacloud.common.monitoring }}**.
   1. Выберите временной промежуток, за который хотите посмотреть статистику: 1 час, 3 часа, 1 день, 1 неделя, 1 месяц. 
 
       На странице отображаются дашборды:
@@ -29,17 +29,17 @@ Object Storage автоматически отправляет метрики р
 
 {% endlist %}
 
-## Посмотреть подробную статистику в Monitoring {#monitoring}
+## Посмотреть подробную статистику в {{ monitoring-name }} {#monitoring}
 
 {% list tabs group=instructions %}
 
 - Консоль управления {#console}
 
-  1. В [консоли управления](https://console.yandex.cloud) выберите каталог.
-  1. [Перейдите](../../../console/operations/select-service.md#select-service) в сервис **Object Storage**.
-  1. На панели слева выберите ![image](../../../_assets/monitoring/concepts/visualization/legend-goto-chart.svg) **Метрики**.
+  1. В [консоли управления]({{ link-console-main }}) выберите каталог.
+  1. Перейдите в сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_storage }}**.
+  1. На панели слева выберите ![image](../../../_assets/monitoring/concepts/visualization/legend-goto-chart.svg) **{{ ui-key.yacloud_monitoring.aside-navigation.menu-item.explorer.title }}**.
   1. В строке запроса выберите параметры:
-      1. Сервис **Object Storage**.
+      1. Сервис **{{ objstorage-name }}**.
       1. Метрику, значения которой вы хотите визуализировать.
       1. Метку для метрики.
 

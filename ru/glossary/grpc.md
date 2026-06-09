@@ -279,7 +279,7 @@ message Bucket {
 
 {% endcut %}
 
-Подробнее о методе см. в [документации](../storage/api-ref/grpc/Bucket/create.md).
+Подробнее о методе в [документации](../storage/api-ref/grpc/Bucket/create.md).
 
 ## Применение и перспективы развития gRPC {#perspectives}
 

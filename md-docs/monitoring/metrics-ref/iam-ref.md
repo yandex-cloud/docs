@@ -1,10 +1,10 @@
-# Метрики Yandex Identity and Access Management
+# Метрики {{ iam-full-name }}
 
-В этом разделе описаны метрики сервиса [Identity and Access Management](../../iam/index.md), поставляемые в Monitoring.
+В этом разделе описаны метрики сервиса [{{ iam-name }}](../../iam/index.md), поставляемые в {{ monitoring-name }}.
 
 Имя метрики пишется в метку `name`.
 
-Общие метки для всех метрик Identity and Access Management:
+Общие метки для всех метрик {{ iam-name }}:
 
 | Метка | Значение |
 | --- | --- |

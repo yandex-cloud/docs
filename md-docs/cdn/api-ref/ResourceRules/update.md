@@ -5,10 +5,12 @@ Update specified by id resource rule.
 ## HTTP request
 
 ```
-PATCH https://cdn.api.cloud.yandex.net/cdn/v1/rules/{ruleId}
+PATCH https://cdn.{{ api-host }}/cdn/v1/rules/{ruleId}
 ```
 
 ## Path parameters
+
+A request to update a resource rule.
 
 #|
 ||Field | Description ||
@@ -214,9 +216,13 @@ Value must be greater than 0. ||
       "code": "string",
       "content": "string"
     }
-  }
+  },
+  "originsGroupId": "string",
+  "originProtocol": "string"
 }
 ```
+
+A request to update a resource rule.
 
 #|
 ||Field | Description ||
@@ -241,7 +247,22 @@ The maximum string length in characters is 50. ||
 Resource rule pattern.
 
 The maximum string length in characters is 100. ||
-|| options | **[ResourceOptions](#yandex.cloud.cdn.v1.ResourceOptions)** ||
+|| options | **[ResourceOptions](#yandex.cloud.cdn.v1.ResourceOptions)**
+
+Resource options. ||
+|| originsGroupId | **string** (int64)
+
+ID of origins group.
+Set non zero value to override parent origin group, `0` to use parent origin group and `null` to make no changes. ||
+|| originProtocol | **enum** (OriginProtocol)
+
+Protocol used for communication with origin.
+Required if enabling origins_group_id.
+
+- `HTTP`: CDN servers will connect to your origin via HTTP.
+- `HTTPS`: CDN servers will connect to your origin via HTTPS.
+- `MATCH`: Connection protocol will be chosen automatically (content on the
+origin source should be available for the CDN both through HTTP and HTTPS). ||
 |#
 
 ## ResourceOptions {#yandex.cloud.cdn.v1.ResourceOptions}
@@ -299,7 +320,7 @@ Possible values: `error`, `http_403`, `http_404`, `http_429`, `http_500`, `http_
 || allowedHttpMethods | **[StringsListOption](#yandex.cloud.cdn.v1.ResourceOptions.StringsListOption)**
 
 HTTP methods for your CDN content. By default the following methods
-are allowed: GET, HEAD, POST, PUT, PATCH, DELETE, OPTIONS.
+are allowed: GET, HEAD, OPTIONS.
 In case some methods are not allowed to the user, they will get the 405
 (Method Not Allowed) response. If the method is not supported,
 the user gets the 501 (Not Implemented) response. ||

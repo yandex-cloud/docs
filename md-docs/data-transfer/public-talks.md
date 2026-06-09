@@ -1,4 +1,4 @@
-# Публичные материалы о Data Transfer
+# Публичные материалы о {{ data-transfer-name }}
 
 ## Конференции и вебинары {#conf-and-webinars}
 
@@ -12,7 +12,7 @@
 
 ### 2024: Webinar {#webinar-2024}
 
-* Как оптимизировать поставку данных в Data Transfer.
+* Как оптимизировать поставку данных в {{ data-transfer-name }}.
   
   * [Запись трансляции](https://www.youtube.com/watch?v=1BJ9YEASOeU).
 
@@ -22,13 +22,13 @@
 
   * [Запись трансляции](https://www.youtube.com/watch?v=Why7zg8iIoI).
 
-* Yandex Data Transfer в сценариях, о которых редко говорят.
+* {{ data-transfer-full-name }} в сценариях, о которых редко говорят.
 
   * [Запись трансляции](https://www.youtube.com/watch?v=bzWmmPp6KFg).
 
 ### 2022: Monthly Cloud News {#monthly-cloud-news-2022}
 
-* Видеодайджест новостей Yandex Cloud.
+* Видеодайджест новостей {{ yandex-cloud }}.
 
   * [Запись трансляции](https://www.youtube.com/watch?v=LHCkGqButOI&t=1171s).
 
@@ -44,6 +44,6 @@
 
 ### 2021: Webinar {#webinar-2021}
 
-* Data Transfer и Data Streams: все про потоки данных в Yandex Cloud.
+* {{ data-transfer-name }} и {{ yds-name }}: все про потоки данных в {{ yandex-cloud }}.
 
   * [Запись трансляции](https://www.youtube.com/watch?v=1tjrAPSLb_s).

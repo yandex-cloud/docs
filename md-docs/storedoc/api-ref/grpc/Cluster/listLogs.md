@@ -28,7 +28,7 @@ See the [Logs](https://yandex.cloud/ru/yandex-mdb-guide/concepts/logs.html) sect
 || cluster_id | **string**
 
 Required field. ID of the MongoDB cluster to request logs for.
-To get the MongoDB cluster ID use a [ClusterService.List](list.md#List) request.
+To get the MongoDB cluster ID use a [ClusterService.List](../../../../managed-mongodb/api-ref/grpc/Cluster/list#List) request.
 
 The maximum string length in characters is 50. ||
 || column_filter[] | **string**
@@ -39,9 +39,9 @@ If no columns are specified, entire log records are returned. ||
 
 Type of the service to request logs about.
 
-- `MONGOD`: Logs of MongoDB activity.
-- `MONGOS`
-- `MONGOCFG`
+- `MONGOD`: Logs of mongod activity.
+- `MONGOS`: Logs of mongos activity.
+- `MONGOCFG`: Logs of mongocfg activity.
 - `AUDIT`: MongoDB Enterprise audit logs ||
 || from_time | **[google.protobuf.Timestamp](https://developers.google.com/protocol-buffers/docs/reference/google.protobuf#timestamp)**
 

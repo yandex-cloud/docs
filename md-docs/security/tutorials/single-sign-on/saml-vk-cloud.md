@@ -1,8 +1,8 @@
-# Создать SAML-приложение в Yandex Identity Hub для интеграции с VK Cloud
+# Создать SAML-приложение в {{ org-full-name }} для интеграции с VK Cloud
 
 [VK Cloud](https://cloud.vk.com/) — российская облачная платформа, предоставляющая IaaS- и PaaS-сервисы, инструменты для работы с данными и AI/ML, а также решения для построения облачной инфраструктуры. VK Cloud поддерживает аутентификацию пользователей через федерацию удостоверений по стандарту [SAML](https://ru.wikipedia.org/wiki/SAML).
 
-Чтобы пользователи вашей [организации](../../../organization/concepts/organization.md) могли аутентифицироваться в VK Cloud с помощью технологии единого входа по стандарту SAML, создайте [SAML-приложение](../../../organization/concepts/applications.md#saml) в Yandex Identity Hub и настройте его на стороне Yandex Cloud и на стороне VK Cloud.
+Чтобы пользователи вашей [организации](../../../organization/concepts/organization.md) могли аутентифицироваться в VK Cloud с помощью технологии единого входа по стандарту SAML, создайте [SAML-приложение](../../../organization/concepts/applications.md#saml) в {{ org-full-name }} и настройте его на стороне {{ yandex-cloud }} и на стороне VK Cloud.
 
 Управлять SAML-приложениями может пользователь, которому назначена [роль](../../../organization/security/index.md#organization-manager-samlApplications-admin) `organization-manager.samlApplications.admin` или выше.
 
@@ -17,27 +17,27 @@
 
 {% list tabs group=instructions %}
 
-- Интерфейс Cloud Center {#cloud-center}
+- Интерфейс {{ cloud-center }} {#cloud-center}
 
-    1. Войдите в сервис [Yandex Identity Hub](https://center.yandex.cloud/organization).
-    1. На панели слева выберите ![shapes-4](../../../_assets/console-icons/shapes-4.svg) **Приложения**.
-    1. В правом верхнем углу страницы нажмите ![Circles3Plus](../../../_assets/console-icons/circles-3-plus.svg) **Создать приложение** и в открывшемся окне:
-        1. Выберите метод единого входа **SAML (Security Assertion Markup Language)**.
-        1. В поле **Имя** задайте имя создаваемого приложения: `vkcloud-saml`.
+    1. Войдите в сервис [{{ org-full-name }}]({{ link-org-cloud-center }}).
+    1. На панели слева выберите ![shapes-4](../../../_assets/console-icons/shapes-4.svg) **{{ ui-key.yacloud_org.pages.apps }}**.
+    1. В правом верхнем углу страницы нажмите ![Circles3Plus](../../../_assets/console-icons/circles-3-plus.svg) **{{ ui-key.yacloud_org.action.applications.components.create-app }}** и в открывшемся окне:
+        1. Выберите метод единого входа **{{ ui-key.yacloud_org.organization.apps.AppCreateForm.saml-title_kyofk }}**.
+        1. В поле **{{ ui-key.yacloud_org.organization.apps.AppCreateForm.field-name_1VbM1 }}** задайте имя создаваемого приложения: `vkcloud-saml`.
 
-        1. (Опционально) В поле **Описание** задайте описание приложения.
+        1. (Опционально) В поле **{{ ui-key.yacloud_org.organization.apps.AppCreateForm.field-description_kzkNB }}** задайте описание приложения.
         1. (Опционально) Добавьте [метки](../../../resource-manager/concepts/labels.md):
 
-            1. Нажмите **Добавить метку**.
+            1. Нажмите **{{ ui-key.yacloud.component.label-set.button_add-label }}**.
             1. Введите метку в формате `ключ: значение`.
             1. Нажмите **Enter**.
-        1. Нажмите **Создать приложение**.
+        1. Нажмите **{{ ui-key.yacloud_org.organization.apps.AppCreateForm.create-app-submit_myxPn }}**.
 
 {% endlist %}
 
 ## Настройте интеграцию {#setup-integration}
 
-Чтобы настроить интеграцию VK Cloud с созданным SAML-приложением в Yandex Identity Hub, выполните настройки на стороне VK Cloud и на стороне Yandex Identity Hub.
+Чтобы настроить интеграцию VK Cloud с созданным SAML-приложением в {{ org-full-name }}, выполните настройки на стороне VK Cloud и на стороне {{ org-full-name }}.
 
 ### Настройте федерацию удостоверений на стороне VK Cloud {#setup-sp}
 
@@ -49,36 +49,36 @@
 
 1. Получите метаданные для [созданного ранее приложения](#create-app):
 
-    1. Войдите в сервис [Yandex Identity Hub](https://center.yandex.cloud/organization).
-    1. На панели слева выберите ![shapes-4](../../../_assets/console-icons/shapes-4.svg) **Приложения** и выберите нужное SAML-приложение.
-    1. На вкладке **Обзор** в блоке **Конфигурация поставщика удостоверений (IdP)** нажмите кнопку **Скачать файл с метаданными**.
+    1. Войдите в сервис [{{ org-full-name }}]({{ link-org-cloud-center }}).
+    1. На панели слева выберите ![shapes-4](../../../_assets/console-icons/shapes-4.svg) **{{ ui-key.yacloud_org.pages.apps }}** и выберите нужное SAML-приложение.
+    1. На вкладке **{{ ui-key.yacloud_org.organization.apps.AppPageLayout.overview_b5LJQ }}** в блоке **{{ ui-key.yacloud_org.application.overview.idp_section_title }}** нажмите кнопку **{{ ui-key.yacloud_org.application.overview.idp_section_download_metadata_action }}**.
 
       Скачанный [XML](https://ru.wikipedia.org/wiki/XML)-файл содержит необходимые метаданные и сертификат, который используется для проверки подписи SAML-ответов.
 
-1. Создайте федерацию удостоверений в VK Cloud, используя метаданные Yandex Identity Hub:
+1. Создайте федерацию удостоверений в VK Cloud, используя метаданные {{ org-full-name }}:
 
     1. Перейдите в [аккаунт VK Cloud](https://cloud.vk.com/account).
     1. Откройте раздел **Федерация удостоверений** и перейдите на вкладку **Федерации**.
     1. Нажмите **Создать**.
-    1. Нажмите **Загрузить метаданные IdP** и загрузите XML-файл метаданных, который вы скачали в Yandex Identity Hub.
+    1. Нажмите **Загрузить метаданные IdP** и загрузите XML-файл метаданных, который вы скачали в {{ org-full-name }}.
     1. Нажмите **Загрузить**.
 
-1. В данных созданной федерации скопируйте и сохраните ID федерации. Он понадобится для настройки SAML-приложения в Yandex Identity Hub и для входа федеративных пользователей.
+1. В данных созданной федерации скопируйте и сохраните ID федерации. Он понадобится для настройки SAML-приложения в {{ org-full-name }} и для входа федеративных пользователей.
 
-### Настройте SAML-приложение на стороне Yandex Identity Hub {#setup-idp}
+### Настройте SAML-приложение на стороне {{ org-full-name }} {#setup-idp}
 
 #### Настройте эндпоинты поставщика услуг {#sp-endpoints}
 
 {% list tabs group=instructions %}
 
-- Интерфейс Cloud Center {#cloud-center}
+- Интерфейс {{ cloud-center }} {#cloud-center}
 
-    1. Войдите в сервис [Yandex Identity Hub](https://center.yandex.cloud/organization).
-    1. На панели слева выберите ![shapes-4](../../../_assets/console-icons/shapes-4.svg) **Приложения** и выберите нужное SAML-приложение.
-    1. Справа сверху нажмите ![pencil](../../../_assets/console-icons/pencil.svg) **Редактировать** и в открывшемся окне:
-        1. В поле **SP EntityID** укажите адрес `https://msk.cloud.vk.com/federation-service/v1/federation/saml/<ID_федерации>/metadata`, где `<ID_федерации>` — ID федерации, который вы скопировали при [создании федерации в VK Cloud](#setup-sp).
-        1. В поле **ACS URL** укажите адрес `https://msk.cloud.vk.com/federation-service/v1/federation/saml/<ID_федерации>/acs`.
-        1. Нажмите **Сохранить**.
+    1. Войдите в сервис [{{ org-full-name }}]({{ link-org-cloud-center }}).
+    1. На панели слева выберите ![shapes-4](../../../_assets/console-icons/shapes-4.svg) **{{ ui-key.yacloud_org.pages.apps }}** и выберите нужное SAML-приложение.
+    1. Справа сверху нажмите ![pencil](../../../_assets/console-icons/pencil.svg) **{{ ui-key.yacloud.common.edit }}** и в открывшемся окне:
+        1. В поле **{{ ui-key.yacloud_org.organization.apps.SamlAppEditForm.field-sp-entity-id_snAsX }}** укажите адрес `https://msk.cloud.vk.com/federation-service/v1/federation/saml/<ID_федерации>/metadata`, где `<ID_федерации>` — ID федерации, который вы скопировали при [создании федерации в VK Cloud](#setup-sp).
+        1. В поле **{{ ui-key.yacloud_org.organization.apps.SamlAppEditForm.field-acs-urls_eQcJr }}** укажите адрес `https://msk.cloud.vk.com/federation-service/v1/federation/saml/<ID_федерации>/acs`.
+        1. Нажмите **{{ ui-key.yacloud.common.save }}**.
 
 {% endlist %}
 
@@ -95,11 +95,11 @@
 
 {% list tabs group=instructions %}
 
-- Интерфейс Cloud Center {#cloud-center}
+- Интерфейс {{ cloud-center }} {#cloud-center}
 
-    1. Войдите в сервис [Yandex Identity Hub](https://center.yandex.cloud/organization).
-    1. На панели слева выберите ![shapes-4](../../../_assets/console-icons/shapes-4.svg) **Приложения** и выберите нужное приложение.
-    1. Перейдите на вкладку **Атрибуты**.
+    1. Войдите в сервис [{{ org-full-name }}]({{ link-org-cloud-center }}).
+    1. На панели слева выберите ![shapes-4](../../../_assets/console-icons/shapes-4.svg) **{{ ui-key.yacloud_org.pages.apps }}** и выберите нужное приложение.
+    1. Перейдите на вкладку **{{ ui-key.yacloud_org.organization.apps.AppPageLayout.attributes_to71e }}**.
     1. Убедитесь, что атрибуты настроены следующим образом:
 
         Атрибут | Значение
@@ -110,16 +110,16 @@
 
     1. Если вы планируете использовать маппинг групп, добавьте атрибут для передачи групп:
 
-        1. Нажмите **Имя атрибута**.
-        1. В поле **Имя атрибута** введите `http://schemas.xmlsoap.org/claims/Group`.
-        1. В поле **Значение** укажите `SubjectClaims.groups`.
-        1. Нажмите **Сохранить**.
+        1. Нажмите **{{ ui-key.yacloud_org.organization.apps.GroupAttributeFormDialog.field_attribute_name_rPYTn }}**.
+        1. В поле **{{ ui-key.yacloud_org.organization.apps.GroupAttributeFormDialog.field_attribute_name_rPYTn }}** введите `http://schemas.xmlsoap.org/claims/Group`.
+        1. В поле **{{ ui-key.yacloud_org.organization.apps.AttributeFormDialogNew.field_attribute_value_dgUAv }}** укажите `SubjectClaims.groups`.
+        1. Нажмите **{{ ui-key.yacloud.common.save }}**.
 
 {% endlist %}
 
 ## Добавьте пользователей и настройте права {#add-users}
 
-Чтобы предоставить пользователям вашей организации доступ к аутентификации в VK Cloud через SAML-приложение в Yandex Identity Hub, добавьте их в приложение и настройте права доступа в VK Cloud.
+Чтобы предоставить пользователям вашей организации доступ к аутентификации в VK Cloud через SAML-приложение в {{ org-full-name }}, добавьте их в приложение и настройте права доступа в VK Cloud.
 
 {% note info %}
 
@@ -127,18 +127,18 @@
 
 {% endnote %}
 
-### Добавьте пользователей в SAML-приложение Yandex Identity Hub {#add-app-users}
+### Добавьте пользователей в SAML-приложение {{ org-full-name }} {#add-app-users}
 
 {% list tabs group=instructions %}
 
-- Интерфейс Cloud Center {#cloud-center}
+- Интерфейс {{ cloud-center }} {#cloud-center}
 
-    1. Войдите в сервис [Yandex Identity Hub](https://center.yandex.cloud/organization).
-    1. На панели слева выберите ![shapes-4](../../../_assets/console-icons/shapes-4.svg) **Приложения** и выберите нужное приложение.
-    1. Перейдите на вкладку **Пользователи и группы**.
-    1. Нажмите ![person-plus](../../../_assets/console-icons/person-plus.svg) **Добавить пользователей**.
+    1. Войдите в сервис [{{ org-full-name }}]({{ link-org-cloud-center }}).
+    1. На панели слева выберите ![shapes-4](../../../_assets/console-icons/shapes-4.svg) **{{ ui-key.yacloud_org.pages.apps }}** и выберите нужное приложение.
+    1. Перейдите на вкладку **{{ ui-key.yacloud_org.organization.apps.AppPageLayout.assignments_kKzJS }}**.
+    1. Нажмите ![person-plus](../../../_assets/console-icons/person-plus.svg) **{{ ui-key.yacloud_org.organization.apps.AppAssignmentsPage.action_add-assignments }}**.
     1. В открывшемся окне выберите требуемых пользователей.
-    1. Нажмите **Добавить**.
+    1. Нажмите **{{ ui-key.yacloud.common.add }}**.
 
 {% endlist %}
 
@@ -160,5 +160,5 @@
 Для этого:
 
 1. В браузере откройте URL для входа федеративных пользователей: `https://cloud.vk.com/v1/federation/saml/<ID_федерации>/signin`, где `<ID_федерации>` — ID федерации, который вы скопировали при [создании федерации в VK Cloud](#setup-sp).
-1. Аутентифицируйтесь в Yandex Cloud под учетной записью пользователя из вашей организации.
+1. Аутентифицируйтесь в {{ yandex-cloud }} под учетной записью пользователя из вашей организации.
 1. Убедитесь, что после успешной аутентификации вы вошли в VK Cloud.

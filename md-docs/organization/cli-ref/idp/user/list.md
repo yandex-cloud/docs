@@ -38,9 +38,6 @@ Set the custom configuration file. ||
 Enable gRPC retries. By default, retries are enabled with maximum 5 attempts.
 Pass 0 to disable retries. Pass any negative value for infinite retries.
 Even infinite retries are capped with 2 minutes timeout. ||
-|| `--syntax` | `string`
-
-CLI syntax: 1 (legacy) or 2 (current). Omit to use default-syntax in the profile or the product default. ||
 || `--cloud-id` | `string`
 
 Set the ID of the cloud to use. ||
@@ -68,13 +65,3 @@ Set the output format: text (default), yaml, json, json-rest. ||
 Query to select values from the response using jq syntax ||
 || `-h`, `--help` | Display help for the command. ||
 |#
-#### Examples
-
- * [Добавьте локальных пользователей](../../../operations/add-account.md#tf_2)
- * [Удалить локального пользователя](../../../operations/edit-account.md#cli_1)
- * [Активировать локального пользователя](../../../operations/user-pools/activate-user.md#cli_2)
- * [Деактивировать локального пользователя](../../../operations/user-pools/deactivate-user.md#cli_2)
- * [Изменить данные пользователя](../../../operations/user-pools/edit-user.md#cli_1)
- * [Получить список пользователей в пуле](../../../operations/user-pools/get-list-users.md#cli_1)
- * [Сбросить пароль](../../../operations/user-pools/reset-user-password.md#cli_1)
- * [Локальные пользователи](../../../operations/users-get.md#cli_2)

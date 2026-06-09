@@ -1,8 +1,8 @@
-# Логи в Yandex Data Processing
+# Логи в {{ dataproc-name }}
 
-Сервис [Yandex Cloud Logging](../../logging/index.md) собирает и отображает логи кластера Yandex Data Processing. Они автоматически сохраняются в лог-группу, привязанную к кластеру при его [создании](../operations/cluster-create.md) или [изменении](../operations/cluster-update.md). Это может быть лог-группа, которая действует по умолчанию в каталоге, или заранее подготовленная лог-группа пользователя.
+Сервис [{{ cloud-logging-full-name }}](../../logging/index.md) собирает и отображает логи кластера {{ dataproc-name }}. Они автоматически сохраняются в лог-группу, привязанную к кластеру при его [создании](../operations/cluster-create.md) или [изменении](../operations/cluster-update.md). Это может быть лог-группа, которая действует по умолчанию в каталоге, или заранее подготовленная лог-группа пользователя.
 
-Чтобы посмотреть логи кластера Yandex Data Processing, с его страницы перейдите в лог-группу кластера. Затем в поле **Запрос** [введите фильтр](../../logging/concepts/filter.md):
+Чтобы посмотреть логи кластера {{ dataproc-name }}, с его страницы перейдите в лог-группу кластера. Затем в поле **{{ ui-key.yacloud.logging.label_filter-query }}** [введите фильтр](../../logging/concepts/filter.md):
 
 * Стандартные параметры фильтрации:
 
@@ -16,20 +16,20 @@
 
 В результате на странице лог-группы отобразится гистограмма логов и записи из них.
 
-## Типы записей логов Yandex Data Processing {#types}
+## Типы записей логов {{ dataproc-name }} {#types}
 
 ### Логи компонентов кластера {#components}
 
 В зависимости от роли подкластера, для логов компонентов используются перечисленные типы записей:
 
 * Все хосты кластера:
-   * `cloud-init` — кластеры Yandex Data Processing с [версией образа](environment.md) 2.0 или выше;
-   * `salt-minion` — лог сервисной инициализации кластера Yandex Data Processing;
+   * `cloud-init` — кластеры {{ dataproc-name }} с [версией образа](environment.md) 2.0 или выше;
+   * `salt-minion` — лог сервисной инициализации кластера {{ dataproc-name }};
    * `syslog` — системный лог;
-   * `telegraf` — лог отправки метрик кластера Yandex Data Processing в сервис [Monitoring](../../monitoring/index.md).
+   * `telegraf` — лог отправки метрик кластера {{ dataproc-name }} в сервис [{{ monitoring-name }}](../../monitoring/index.md).
 
 * Хост-мастер:
-   * `flume` — кластеры Yandex Data Processing с [версией образа](environment.md) ниже 2.0;
+   * `flume` — кластеры {{ dataproc-name }} с [версией образа](environment.md) ниже 2.0;
    * `hadoop-hdfs-namenode`;
    * `hadoop-hdfs-secondarynamenode`;
    * `hadoop-mapreduce`;
@@ -40,10 +40,10 @@
    * `hbase-thrift`;
    * `hive-metastore`;
    * `hiveserver2`;
-   * `hive-webhcat-console` — кластеры Yandex Data Processing с [версией образа](environment.md) ниже 2.0;
-   * `hive-webhcat-console-error` — кластеры Yandex Data Processing с [версией образа](environment.md) ниже 2.0;
-   * `hive-webhcat` — кластеры Yandex Data Processing с [версией образа](environment.md) ниже 2.0;
-   * `knox` — кластеры Yandex Data Processing с [версией образа](environment.md) ниже 2.0;
+   * `hive-webhcat-console` — кластеры {{ dataproc-name }} с [версией образа](environment.md) ниже 2.0;
+   * `hive-webhcat-console-error` — кластеры {{ dataproc-name }} с [версией образа](environment.md) ниже 2.0;
+   * `hive-webhcat` — кластеры {{ dataproc-name }} с [версией образа](environment.md) ниже 2.0;
+   * `knox` — кластеры {{ dataproc-name }} с [версией образа](environment.md) ниже 2.0;
    * `livy-out`;
    * `livy-request`;
    * `oozie`;
@@ -54,8 +54,8 @@
    * `oozie-jpa`;
    * `oozie-ops`;
    * `postgres`;
-   * `sqoop` — кластеры Yandex Data Processing с [версией образа](environment.md) ниже 2.0;
-   * `supervisor` — кластеры Yandex Data Processing с [версией образа](environment.md) ниже 2.0;
+   * `sqoop` — кластеры {{ dataproc-name }} с [версией образа](environment.md) ниже 2.0;
+   * `supervisor` — кластеры {{ dataproc-name }} с [версией образа](environment.md) ниже 2.0;
    * `yandex-dataproc-agent`;
    * `zeppelin`;
    * `zookeeper`.
@@ -86,8 +86,8 @@
     * `container_id` — идентификатор YARN контейнера. Пример: `container_1638976919626_0002_01_000001`.
     * `application_id` — идентификатор YARN приложения. Пример: `application_1638976919626_0002`.
 
-* Записи лога вывода запускающего процесса. Сохраняются в случае запуска задания через [API](../../glossary/rest-api.md) Yandex Data Processing, а не на хостах кластера.
+* Записи лога вывода запускающего процесса. Сохраняются в случае запуска задания через [API](../../glossary/rest-api.md) {{ dataproc-name }}, а не на хостах кластера.
 
   Для типа записи указывается `job_output`.
 
-  Записи содержат тег `job_id` с идентификатором задания, созданного через API Yandex Data Processing. Если задание начало исполняться и не было завершено на этапе валидации, то записи содержат тег `application_id`.
+  Записи содержат тег `job_id` с идентификатором задания, созданного через API {{ dataproc-name }}. Если задание начало исполняться и не было завершено на этапе валидации, то записи содержат тег `application_id`.

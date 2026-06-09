@@ -7,9 +7,9 @@
 
 1. [Подготовьте облако к работе](#before-begin).
 1. [Подготовьте окружение](#prepare).
-1. [Создайте бакет Yandex Object Storage](#create-bucket).
-1. [Создайте базу данных YDB](#create-db).
-1. [Создайте функции Yandex Cloud Functions](#create-functions).
+1. [Создайте бакет {{ objstorage-full-name }}](#create-bucket).
+1. [Создайте базу данных {{ ydb-short-name }}](#create-db).
+1. [Создайте функции {{ sf-full-name }}](#create-functions).
 1. [Создайте API-шлюз](#create-api-gw).
 1. [Протестируйте приложение](#test).
 
@@ -17,11 +17,11 @@
 
 ## Перед началом работы {#before-begin}
 
-Зарегистрируйтесь в Yandex Cloud и создайте [платежный аккаунт](../../billing/concepts/billing-account.md):
-1. Перейдите в [консоль управления](https://console.yandex.cloud), затем войдите в Yandex Cloud или зарегистрируйтесь.
-1. На странице **[Yandex Cloud Billing](https://center.yandex.cloud/billing/accounts)** убедитесь, что у вас подключен платежный аккаунт, и он находится в [статусе](../../billing/concepts/billing-account-statuses.md) `ACTIVE` или `TRIAL_ACTIVE`. Если платежного аккаунта нет, [создайте его](../../billing/quickstart/index.md) и [привяжите](../../billing/operations/pin-cloud.md) к нему облако.
+Зарегистрируйтесь в {{ yandex-cloud }} и создайте [платежный аккаунт](../../billing/concepts/billing-account.md):
+1. Перейдите в [консоль управления]({{ link-console-main }}), затем войдите в {{ yandex-cloud }} или зарегистрируйтесь.
+1. На странице **[{{ ui-key.yacloud_billing.billing.label_service }}]({{ link-console-billing }})** убедитесь, что у вас подключен платежный аккаунт, и он находится в [статусе](../../billing/concepts/billing-account-statuses.md) `ACTIVE` или `TRIAL_ACTIVE`. Если платежного аккаунта нет, [создайте его](../../billing/quickstart/index.md) и [привяжите](../../billing/operations/pin-cloud.md) к нему облако.
 
-Если у вас есть активный платежный аккаунт, вы можете создать или выбрать [каталог](../../resource-manager/concepts/resources-hierarchy.md#folder), в котором будет работать ваша инфраструктура, на [странице облака](https://console.yandex.cloud/cloud).
+Если у вас есть активный платежный аккаунт, вы можете создать или выбрать [каталог](../../resource-manager/concepts/resources-hierarchy.md#folder), в котором будет работать ваша инфраструктура, на [странице облака]({{ link-console-cloud }}).
 
 [Подробнее об облаках и каталогах](../../resource-manager/concepts/resources-hierarchy.md).
 
@@ -29,22 +29,22 @@
 
 В стоимость ресурсов поддержки веб-приложения входят:
 
-* Плата за количество запросов к API-шлюзу и исходящий трафик (см. [тарифы Yandex API Gateway](../../api-gateway/pricing.md)).
-* Плата за операции с YDB и хранение данных (см. [тарифы Yandex Managed Service for YDB](../../ydb/pricing/serverless.md)).
-* Плата за количество вызовов функции, вычислительные ресурсы, выделенные для выполнения функции, и исходящий трафик (см. [тарифы Cloud Functions](../pricing.md)).
+* Плата за количество запросов к API-шлюзу и исходящий трафик (см. [тарифы {{ api-gw-full-name }}](../../api-gateway/pricing.md)).
+* Плата за операции с {{ ydb-short-name }} и хранение данных (см. [тарифы {{ ydb-full-name }}](../../ydb/pricing/serverless.md)).
+* Плата за количество вызовов функции, вычислительные ресурсы, выделенные для выполнения функции, и исходящий трафик (см. [тарифы {{ sf-name }}](../pricing.md)).
 
 ## Подготовьте окружение {#prepare}
 
-1. [Создайте](../../iam/operations/sa/create.md#create-sa) сервисный аккаунт и [назначьте](../../iam/operations/roles/grant.md#cloud-or-folder) ему роль `editor` на ваш каталог.
+1. [Создайте](../../iam/operations/sa/create.md#create-sa) сервисный аккаунт и [назначьте](../../iam/operations/roles/grant.md#cloud-or-folder) ему роль `{{ roles-editor }}` на ваш каталог.
 1. Склонируйте [репозиторий](https://github.com/yandex-cloud-examples/yc-serverless-servlet) c проектом:
 
     ```bash
     git clone https://github.com/yandex-cloud-examples/yc-serverless-servlet
     ```
-1. Добавьте содержимое склонированного локального репозитория `yc-serverless-servlet` в ZIP-архив `servlet.zip`. Архив потребуется позднее для создания функций Yandex Cloud Functions.
+1. Добавьте содержимое склонированного локального репозитория `yc-serverless-servlet` в ZIP-архив `servlet.zip`. Архив потребуется позднее для создания функций {{ sf-full-name }}.
 
 
-## Создайте бакет Object Storage {#create-bucket}
+## Создайте бакет {{ objstorage-name }} {#create-bucket}
 
 Создайте [бакет](../../storage/concepts/bucket.md) и загрузите в него файл `index.html`:
 
@@ -52,22 +52,22 @@
 
 - Консоль управления {#console}
 
-  1. В [консоли управления](https://console.yandex.cloud) выберите каталог, в котором хотите создать бакет.
-  1. [Перейдите](../../console/operations/select-service.md#select-service) в сервис **Object Storage**.
-  1. Нажмите кнопку **Создать бакет**.
+  1. В [консоли управления]({{ link-console-main }}) выберите каталог, в котором хотите создать бакет.
+  1. Перейдите в сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_storage }}**.
+  1. Нажмите кнопку **{{ ui-key.yacloud.storage.buckets.button_create }}**.
   1. На странице создания бакета:
      1. Введите имя бакета в соответствии с [правилами именования](../../storage/concepts/bucket.md#naming).
      1. При необходимости ограничьте максимальный размер бакета.
-     1. В полях **Чтение объектов**, **Чтение списка объектов** и **Чтение настроек** выберите `С авторизацией`.
+     1. В полях **{{ ui-key.yacloud.storage.bucket.settings.field_access-read }}**, **{{ ui-key.yacloud.storage.bucket.settings.field_access-list }}** и **{{ ui-key.yacloud.storage.bucket.settings.field_access-config-read }}** выберите `{{ ui-key.yacloud.storage.bucket.settings.access_value_private }}`.
      1. Выберите [класс хранилища](../../storage/concepts/storage-class.md) по умолчанию.
-     1. Нажмите кнопку **Создать бакет** для завершения операции.
+     1. Нажмите кнопку **{{ ui-key.yacloud.storage.buckets.create.button_create }}** для завершения операции.
   1. Выберите созданный бакет.
-  1. Нажмите кнопку **Загрузить** и выберите в папке с проектом файл `src/main/resources/index.html`.
-  1. Выберите [класс хранилища](../../storage/concepts/storage-class.md) для файла и нажмите кнопку **Загрузить**.
+  1. Нажмите кнопку **{{ ui-key.yacloud.storage.bucket.button_upload }}** и выберите в папке с проектом файл `src/main/resources/index.html`.
+  1. Выберите [класс хранилища](../../storage/concepts/storage-class.md) для файла и нажмите кнопку **{{ ui-key.yacloud.storage.bucket.button_upload }}**.
 
 {% endlist %}
 
-## Создайте базу данных Managed Service for YDB {#create-db}
+## Создайте базу данных {{ ydb-name }} {#create-db}
 
 1. Создайте базу данных в [режиме Serverless](../../ydb/concepts/serverless-and-dedicated.md#serverless):
 
@@ -75,20 +75,20 @@
 
    - Консоль управления {#console}
 
-     1. В [консоли управления](https://console.yandex.cloud) выберите каталог, в котором создали бакет.
-     1. [Перейдите](../../console/operations/select-service.md#select-service) в сервис **Managed Service for&nbsp;YDB**.
-     1. Нажмите кнопку **Создать базу данных**.
-     1. Введите **Имя** базы. Требования к имени:
+     1. В [консоли управления]({{ link-console-main }}) выберите каталог, в котором создали бакет.
+     1. Перейдите в сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_ydb }}**.
+     1. Нажмите кнопку **{{ ui-key.yacloud.ydb.databases.button_create }}**.
+     1. Введите **{{ ui-key.yacloud.ydb.forms.label_field_name }}** базы. Требования к имени:
 
         * длина — от 3 до 63 символов;
         * может содержать строчные буквы латинского алфавита, цифры и дефисы;
         * первый символ — буква, последний — не дефис.
 
-     1. В блоке **Тип базы данных** выберите `Serverless`.
-     1. Нажмите кнопку **Создать базу данных**.
+     1. В блоке **{{ ui-key.yacloud.ydb.forms.label_field_database-type }}** выберите `{{ ui-key.yacloud.ydb.forms.label_serverless-type }}`.
+     1. Нажмите кнопку **{{ ui-key.yacloud.ydb.forms.button_create-database }}**.
      1. Дождитесь запуска базы данных. В процессе создания база будет иметь статус `Provisioning`, а когда станет готова к использованию, статус изменится на `Running`.
      1. Выберите созданную БД.
-     1. В блоке **Соединение** найдите поле **Эндпоинт** и сохраните его значение. Оно понадобится при создании функций.
+     1. В блоке **{{ ui-key.yacloud.ydb.overview.section_connection }}** найдите поле **{{ ui-key.yacloud.ydb.overview.label_endpoint }}** и сохраните его значение. Оно понадобится при создании функций.
 
    {% endlist %}
 
@@ -98,12 +98,12 @@
 
    - Консоль управления {#console}
 
-     1. В [консоли управления](https://console.yandex.cloud) выберите каталог, в котором создали базу данных.
-     1. [Перейдите](../../console/operations/select-service.md#select-service) в сервис **Managed Service for&nbsp;YDB**.
-     1. На странице **Базы данных** выберите базу.
-     1. Чтобы открыть корневую директорию базы, перейдите на вкладку **Навигация**.
-     1. Для создания запроса к базе в правом верхнем углу нажмите кнопку **Новый SQL-запрос**. Откроется страница **Запрос**.
-     1. В поле **Запрос** введите:
+     1. В [консоли управления]({{ link-console-main }}) выберите каталог, в котором создали базу данных.
+     1. Перейдите в сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_ydb }}**.
+     1. На странице **{{ ui-key.yacloud.ydb.databases.label_title }}** выберите базу.
+     1. Чтобы открыть корневую директорию базы, перейдите на вкладку **{{ ui-key.yacloud.ydb.database.switch_browse }}**.
+     1. Для создания запроса к базе в правом верхнем углу нажмите кнопку **{{ ui-key.yacloud.ydb.browse.button_sql-query }}**. Откроется страница **{{ ui-key.yacloud.ydb.sql.label_query }}**.
+     1. В поле **{{ ui-key.yacloud.ydb.sql.label_query }}** введите:
 
         ```sql
         CREATE TABLE Tasks (
@@ -115,7 +115,7 @@
         );
         ```
 
-     1. Нажмите кнопку **Выполнить**.
+     1. Нажмите кнопку **{{ ui-key.yacloud.ydb.sql.button_run }}**.
 
    - CLI {#cli}
 
@@ -136,7 +136,7 @@
 
    {% endlist %}
 
-## Создайте функции Cloud Functions {#create-functions}
+## Создайте функции {{ sf-name }} {#create-functions}
 
 Создайте [функцию](../concepts/function.md) для каждого сервлета:
 
@@ -144,22 +144,22 @@
 
 - Консоль управления {#console}
 
-  1. В [консоли управления](https://console.yandex.cloud) перейдите в каталог, в котором создали бакет и базу данных.
-  1. [Перейдите](../../console/operations/select-service.md#select-service) в сервис **Cloud Functions**.
-  1. Нажмите кнопку **Создать функцию**.
+  1. В [консоли управления]({{ link-console-main }}) перейдите в каталог, в котором создали бакет и базу данных.
+  1. Перейдите в сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_serverless-functions }}**.
+  1. Нажмите кнопку **{{ ui-key.yacloud.serverless-functions.list.button_create }}**.
   1. Введите имя `add-task` и описание функции.
-  1. Нажмите кнопку **Создать**.
-  1. В блоке **Редактор** выберите среду выполнения `java21`, выключите опцию **Добавить файлы с примерами кода** и нажмите кнопку **Продолжить**.
-  1. Подготовьте код функции. Для этого в поле **Источник кода** выберите `ZIP-архив`.
-  1. В поле **Файл** нажмите кнопку **Прикрепить файл** и выберите созданный ранее архив `servlet.zip`.
-  1. В поле **Точка входа** введите `yandex.cloud.examples.serverless.todo.AddTaskServlet`.
-  1. В поле **Таймаут** установите значение `10`.
-  1. В поле **Сервисный аккаунт** укажите аккаунт, созданный при [подготовке окружения](#prepare).
+  1. Нажмите кнопку **{{ ui-key.yacloud.common.create }}**.
+  1. В блоке **{{ ui-key.yacloud.serverless-functions.item.editor.label_title }}** выберите среду выполнения `java21`, выключите опцию **{{ ui-key.yacloud.serverless-functions.item.editor.label_with-template }}** и нажмите кнопку **{{ ui-key.yacloud.serverless-functions.item.editor.button_action-continue }}**.
+  1. Подготовьте код функции. Для этого в поле **{{ ui-key.yacloud.serverless-functions.item.editor.field_code-source }}** выберите `{{ ui-key.yacloud.serverless-functions.item.editor.value_method-zip-file }}`.
+  1. В поле **{{ ui-key.yacloud.serverless-functions.item.editor.field_file }}** нажмите кнопку **Прикрепить файл** и выберите созданный ранее архив `servlet.zip`.
+  1. В поле **{{ ui-key.yacloud.serverless-functions.item.editor.field_entry }}** введите `yandex.cloud.examples.serverless.todo.AddTaskServlet`.
+  1. В поле **{{ ui-key.yacloud.serverless-functions.item.editor.field_timeout }}** установите значение `10`.
+  1. В поле **{{ ui-key.yacloud.forms.label_service-account-select }}** укажите аккаунт, созданный при [подготовке окружения](#prepare).
   1. Добавьте переменные окружения:
-     * `ENDPOINT` — введите первую часть сохраненного при [создании базы данных YDB](#create-db) значения поля **Эндпоинт** (часть между вхождениями `grpcs://` и `/?database=`). Например, `ydb.serverless.yandexcloud.net:2135`.
-     * `DATABASE` — введите вторую часть сохраненного при [создании базы данных YDB](#create-db) значения поля **Эндпоинт** (часть после вхождения `/?database=`). Например, `/ru-central1/r1gra875baom********/g5n22e7ejfr1********`.
-  1. Нажмите кнопку **Сохранить изменения**.
-  1. На странице **Обзор** включите опцию **Публичная функция**.
+     * `ENDPOINT` — введите первую часть сохраненного при [создании базы данных {{ ydb-short-name }}](#create-db) значения поля **{{ ui-key.yacloud.ydb.overview.label_endpoint }}** (часть между вхождениями `grpcs://` и `/?database=`). Например, `ydb.serverless.yandexcloud.net:2135`.
+     * `DATABASE` — введите вторую часть сохраненного при [создании базы данных {{ ydb-short-name }}](#create-db) значения поля **{{ ui-key.yacloud.ydb.overview.label_endpoint }}** (часть после вхождения `/?database=`). Например, `/{{ region-id }}/r1gra875baom********/g5n22e7ejfr1********`.
+  1. Нажмите кнопку **{{ ui-key.yacloud.serverless-functions.item.editor.button_deploy-version }}**.
+  1. На странице **{{ ui-key.yacloud.serverless-functions.item.overview.label_title }}** включите опцию **{{ ui-key.yacloud.serverless-functions.item.overview.label_all-users-invoke }}**.
   1. Повторите шаги 3-14 и создайте функцию с именем `list-tasks` и точкой входа `yandex.cloud.examples.serverless.todo.ListTasksServlet`.
   1. Повторите шаги 3-14 и создайте функцию с именем `delete-task` и точкой входа `yandex.cloud.examples.serverless.todo.DeleteTaskServlet`.
 
@@ -179,7 +179,7 @@
      created_at: "2021-03-08T14:07:32.134Z"
      name: add-task
      log_group_id: eolm8aoq9vcp********
-     http_invoke_url: https://functions.yandexcloud.net/d4ejb1799eko********
+     http_invoke_url: https://{{ sf-url }}/d4ejb1799eko********
      status: ACTIVE
      ```
 
@@ -248,11 +248,11 @@
 
 - Консоль управления {#console}
 
-  1. В [консоли управления](https://console.yandex.cloud) выберите каталог, в котором создали бакет, базу данных и функции.
-  1. [Перейдите](../../console/operations/select-service.md#select-service) в сервис **API Gateway**.
-  1. Нажмите кнопку **Создать API-шлюз**.
+  1. В [консоли управления]({{ link-console-main }}) выберите каталог, в котором создали бакет, базу данных и функции.
+  1. Перейдите в сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_api-gateway }}**.
+  1. Нажмите кнопку **{{ ui-key.yacloud.serverless-functions.gateways.list.button_create }}**.
   1. Введите имя шлюза и описание.
-  1. В поле **Спецификация** добавьте спецификацию:
+  1. В поле **{{ ui-key.yacloud.serverless-functions.gateways.form.field_spec }}** добавьте спецификацию:
 
      ```yaml
      openapi: 3.0.0
@@ -297,7 +297,7 @@
        * Блок `/list`, параметр `function_id` — идентификатор функции `list-tasks`.
        * Блок `/delete`, параметр `function_id` — идентификатор функции `delete-task`.
 
-  1. Нажмите кнопку **Создать**.
+  1. Нажмите кнопку **{{ ui-key.yacloud.serverless-functions.gateways.form.button_create-gateway }}**.
 
 - CLI {#cli}
 
@@ -365,7 +365,7 @@
      name: todo-list
      description: simple todo list
      status: ACTIVE
-     domain: d5dm1lba80md********.i9******.apigw.yandexcloud.net
+     domain: {{ api-host-apigw }}
      log_group_id: ckg2hdmevnvc********
      ```
 
@@ -374,7 +374,7 @@
 
 ## Проверьте работу приложения {#test}
 
-Чтобы открыть приложение, перейдите по ссылке, указанной в поле **Служебный домен** созданного API-шлюза.
+Чтобы открыть приложение, перейдите по ссылке, указанной в поле **{{ ui-key.yacloud.serverless-functions.gateways.overview.label_domain }}** созданного API-шлюза.
 
 ## Как удалить созданные ресурсы {#clear-out}
 

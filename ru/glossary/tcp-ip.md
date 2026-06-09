@@ -90,27 +90,27 @@ TCP/IP используется в мировом интернете и корп
 
   * [{{ alb-full-name }}](/services/application-load-balancer) — сервис для распределения входящего трафика между разными компонентами ваших веб‑приложений.
 
-    Подробнее см. в [документации {{ alb-name }}](../application-load-balancer/)
+    Подробнее в [документации {{ alb-name }}](../application-load-balancer/)
 
   * [{{ cdn-full-name }}](/services/cdn) — сервис доставки контента до конечных потребителей с помощью сети распространения контента.
 
-    Подробнее см. в [документации {{ cdn-name }}](../cdn/)
+    Подробнее в [документации {{ cdn-name }}](../cdn/)
 
   * [{{ dns-full-name }}](/services/dns) — сервис администрирования ресурсных записей DNS и обслуживания DNS‑запросов.
 
-    Подробнее см. в [документации {{ dns-name }}](../dns/)
+    Подробнее в [документации {{ dns-name }}](../dns/)
 
   * [{{ interconnect-full-name }}](/services/interconnect) — сервис для создания приватных выделенных сетевых соединений между локальной инфраструктурой и {{ yandex-cloud }}.
     
-    Подробнее см. в [документации {{ interconnect-name }}](../interconnect/)
+    Подробнее в [документации {{ interconnect-name }}](../interconnect/)
   
   * [{{ load-testing-full-name }}](/services/load-testing) — сервис для проведения нагрузочного тестирования и анализа производительности.
 
-    Подробнее см. в [документации {{ load-testing-name }}](../load-testing/)
+    Подробнее в [документации {{ load-testing-name }}](../load-testing/)
 
   * [{{ network-load-balancer-full-name }}](/services/network-load-balancer) — сервис, который распределяет сетевую нагрузку по облачным ресурсам, обеспечивая отказоустойчивость сайтов и приложений.
 
-    Подробнее см. в [документации {{ network-load-balancer-short-name }}](../network-load-balancer/)
+    Подробнее в [документации {{ network-load-balancer-short-name }}](../network-load-balancer/)
 
 #### См. также {#see-also}
 

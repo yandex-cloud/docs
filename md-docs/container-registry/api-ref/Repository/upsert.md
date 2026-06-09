@@ -5,7 +5,7 @@ Upserts a repository in the specified registry.
 ## HTTP request
 
 ```
-POST https://container-registry.api.cloud.yandex.net/container-registry/v1/repositories
+POST https://container-registry.{{ api-host }}/container-registry/v1/repositories
 ```
 
 ## Body parameters {#yandex.cloud.containerregistry.v1.UpsertRepositoryRequest}
@@ -21,7 +21,6 @@ POST https://container-registry.api.cloud.yandex.net/container-registry/v1/repos
 || name | **string**
 
 Required field. Name of the repository.
-
 The name of the repository should match the name of the images that will be pushed in the repository.
 
 Value must match the regular expression ` [a-z0-9]+(?:[._-][a-z0-9]+)*(/([a-z0-9]+(?:[._-][a-z0-9]+)*))* `. ||
@@ -39,9 +38,7 @@ Value must match the regular expression ` [a-z0-9]+(?:[._-][a-z0-9]+)*(/([a-z0-9
   "createdBy": "string",
   "modifiedAt": "string",
   "done": "boolean",
-  "metadata": {
-    "repositoryId": "string"
-  },
+  "metadata": "object",
   // Includes only one of the fields `error`, `response`
   "error": {
     "code": "integer",
@@ -50,10 +47,7 @@ Value must match the regular expression ` [a-z0-9]+(?:[._-][a-z0-9]+)*(/([a-z0-9
       "object"
     ]
   },
-  "response": {
-    "name": "string",
-    "id": "string"
-  }
+  "response": "object"
   // end of the list of possible fields
 }
 ```
@@ -95,7 +89,7 @@ In some languages, built-in datetime utilities do not support nanosecond precisi
 
 If the value is `false`, it means the operation is still in progress.
 If `true`, the operation is completed, and either `error` or `response` is available. ||
-|| metadata | **[UpsertRepositoryMetadata](#yandex.cloud.containerregistry.v1.UpsertRepositoryMetadata)**
+|| metadata | **object**
 
 Service-specific metadata associated with the operation.
 It typically contains the ID of the target resource that the operation is performed on.
@@ -110,7 +104,7 @@ The operation result.
 If `done == false` and there was no failure detected, neither `error` nor `response` is set.
 If `done == false` and there was a failure detected, `error` is set.
 If `done == true`, exactly one of `error` or `response` is set. ||
-|| response | **[Repository](#yandex.cloud.containerregistry.v1.Repository)**
+|| response | **object**
 
 The normal response of the operation in case of success.
 If the original method returns no data on success, such as Delete,
@@ -125,15 +119,6 @@ The operation result.
 If `done == false` and there was no failure detected, neither `error` nor `response` is set.
 If `done == false` and there was a failure detected, `error` is set.
 If `done == true`, exactly one of `error` or `response` is set. ||
-|#
-
-## UpsertRepositoryMetadata {#yandex.cloud.containerregistry.v1.UpsertRepositoryMetadata}
-
-#|
-||Field | Description ||
-|| repositoryId | **string**
-
-ID of the repository that is being upserted. ||
 |#
 
 ## Status {#google.rpc.Status}
@@ -151,19 +136,4 @@ An error message. ||
 || details[] | **object**
 
 A list of messages that carry the error details. ||
-|#
-
-## Repository {#yandex.cloud.containerregistry.v1.Repository}
-
-A Repository resource. For more information, see [Repository](../../concepts/repository.md).
-
-#|
-||Field | Description ||
-|| name | **string**
-
-Name of the repository.
-The name is unique within the registry. ||
-|| id | **string**
-
-Output only. ID of the repository. ||
 |#

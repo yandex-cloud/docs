@@ -90,4 +90,4 @@
 
 ## Примеры использования {#examples}
 
-* [Хранение Docker-образов из проектов Yandex Managed Service for GitLab](../tutorials/image-storage.md)
+* [{#T}](../tutorials/image-storage.md)

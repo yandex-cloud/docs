@@ -1,72 +1,72 @@
-# Передача данных из эндпоинта-источника Yandex Object Storage
+# Передача данных из эндпоинта-источника {{ objstorage-full-name }}
 
-С помощью сервиса Yandex Data Transfer вы можете переносить данные из хранилища Yandex Object Storage в управляемые базы данных Yandex Cloud и реализовывать различные сценарии обработки и трансформации данных. Для реализации трансфера:
+С помощью сервиса {{ data-transfer-full-name }} вы можете переносить данные из хранилища {{ objstorage-full-name }} в управляемые базы данных {{ yandex-cloud }} и реализовывать различные сценарии обработки и трансформации данных. Для реализации трансфера:
 
 1. [Ознакомьтесь с возможными сценариями передачи данных](#scenarios).
-1. [Настройте эндпоинт-источник](#endpoint-settings) в Yandex Data Transfer.
+1. [Настройте эндпоинт-источник](#endpoint-settings) в {{ data-transfer-full-name }}.
 1. [Настройте один из поддерживаемых приемников данных](#supported-targets).
 1. [Создайте](../../transfer.md#create) и [запустите](../../transfer.md#activate) трансфер.
 1. Выполняйте необходимые действия по работе с хранилищем и [контролируйте трансфер](../../monitoring.md).
 1. При возникновении проблем, [воспользуйтесь готовыми решениями](../../../troubleshooting/index.md) по их устранению.
 
-## Сценарии передачи данных из Object Storage {#scenarios}
+## Сценарии передачи данных из {{ objstorage-name }} {#scenarios}
 
-Вы можете реализовывать сценарии миграции и поставки данных из хранилища Yandex Object Storage в управляемые базы данных для дальнейшего хранения в облаке, обработки и загрузки в витрины данных с целью последующей визуализации.
+Вы можете реализовывать сценарии миграции и поставки данных из хранилища {{ objstorage-full-name }} в управляемые базы данных для дальнейшего хранения в облаке, обработки и загрузки в витрины данных с целью последующей визуализации.
 
 Загрузка данных в витрины — процесс трансфера подготовленных данных в хранилища с целью последующей визуализации.
 
-* [Загрузка данных из Object Storage в PostgreSQL](../../../tutorials/object-storage-to-postgresql.md);
-* [Загрузка данных из Object Storage в Greenplum®](../../../tutorials/object-storage-to-greenplum.md);
-* [Загрузка данных из Object Storage в MySQL®](../../../tutorials/objs-mmy-migration.md);
-* [Загрузка данных из Object Storage в ClickHouse®](../../../tutorials/object-storage-to-clickhouse.md);
-* [Загрузка данных из Object Storage в YDB](../../../tutorials/object-storage-to-ydb.md).
+* [Загрузка данных из {{ objstorage-name }} в {{ PG }}](../../../tutorials/object-storage-to-postgresql.md);
+* [Загрузка данных из {{ objstorage-name }} в {{ GP }}](../../../tutorials/object-storage-to-greenplum.md);
+* [Загрузка данных из {{ objstorage-name }} в {{ MY }}](../../../tutorials/objs-mmy-migration.md);
+* [Загрузка данных из {{ objstorage-name }} в {{ CH }}](../../../tutorials/object-storage-to-clickhouse.md);
+* [Загрузка данных из {{ objstorage-name }} в {{ ydb-short-name }}](../../../tutorials/object-storage-to-ydb.md).
 
-Подробное описание возможных сценариев передачи данных в Yandex Data Transfer см. в разделе [Практические руководства](../../../tutorials/index.md).
+Подробное описание возможных сценариев передачи данных в {{ data-transfer-full-name }} читайте в разделе [Практические руководства](../../../tutorials/index.md).
 
-## Настройка эндпоинта-источника Object Storage {#endpoint-settings}
+## Настройка эндпоинта-источника {{ objstorage-name }} {#endpoint-settings}
 
 При [создании](../index.md#create) или [изменении](../index.md#update) эндпоинта вы можете задать:
 
-* [Настройки конфигурации](#bucket-config) и [очереди событий](#sqs-queue) для бакета Yandex Object Storage или пользовательского S3-совместимого хранилища.
+* [Настройки конфигурации](#bucket-config) и [очереди событий](#sqs-queue) для бакета {{ objstorage-full-name }} или пользовательского S3-совместимого хранилища.
 * [Дополнительные параметры](#additional-settings).
 
 ### Настройки конфигурации бакета {#bucket-config}
 
 {% list tabs group=instructions %}
 
-- Бакет Yandex Object Storage {#obj-storage}
+- Бакет {{ objstorage-full-name }} {#obj-storage}
 
     
-    * **Бакет** — имя [бакета](../../../../storage/concepts/bucket.md).
-    * **Сервисный аккаунт** – выберите из списка [сервисный аккаунт](../../../../iam/concepts/users/service-accounts.md) с доступом к бакету.
+    * **{{ ui-key.yc-data-transfer.data-transfer.console.form.object_storage.console.form.object_storage.ConnectionSettings.bucket.title }}** — имя [бакета](../../../../storage/concepts/bucket.md).
+    * **{{ ui-key.yc-data-transfer.data-transfer.console.form.object_storage.console.form.object_storage.ConnectionSettings.service_account_id.title }}** – выберите из списка [сервисный аккаунт](../../../../iam/concepts/users/service-accounts.md) с доступом к бакету.
 
 
-    * (Опционально) **Префикс пути** — префикс для каталогов и файлов, которые можно использовать для поиска по бакету.
-    * **Шаблон пути** — укажите шаблон пути. Если в бакете размещаются только файлы, используйте значение `**`.
+    * (Опционально) **{{ ui-key.yc-data-transfer.data-transfer.console.form.object_storage.console.form.object_storage.ObjectStorageSource.path_prefix.title }}** — префикс для каталогов и файлов, которые можно использовать для поиска по бакету.
+    * **{{ ui-key.yc-data-transfer.data-transfer.console.form.object_storage.console.form.object_storage.ObjectStorageSource.path_pattern.title }}** — укажите шаблон пути. Если в бакете размещаются только файлы, используйте значение `**`.
 
 - Пользовательское S3-совместимое хранилище {#s3-storage}
 
-    * **Бакет** — имя бакета.
-    * **Идентификатор статического ключа** и **Содержимое статического ключа** — [идентификатор и содержимое ключа AWS](https://docs.aws.amazon.com/general/latest/gr/aws-sec-cred-types.html#access-keys-and-secret-access-keys) для доступа к частному бакету.
-    * (Опционально) **Эндпоинт** — эндпоинт для службы, совместимой с Amazon S3. Оставьте поле пустым для использования Amazon.
-    * **Регион** — регион для отправки запросов.
-    * **Использовать SSL** — выберите, если удаленный сервер использует безопасное соединение SSL/TLS.
-    * **Проверять SSL-сертификат** — разрешить самоподписанные сертификаты.
-    * (Опционально) **Префикс пути** — префикс для каталогов и файлов, которые можно использовать для поиска по бакету.
-    * **Шаблон пути** — укажите шаблон пути. Если в бакете размещаются только файлы, используйте значение `**`.
+    * **{{ ui-key.yc-data-transfer.data-transfer.console.form.object_storage.console.form.object_storage.ConnectionSettings.bucket.title }}** — имя бакета.
+    * **{{ ui-key.yc-data-transfer.data-transfer.console.form.object_storage.console.form.object_storage.ObjectStorageSource.ObjectStorageEventSource.SQS.aws_access_key_id.title }}** и **{{ ui-key.yc-data-transfer.data-transfer.console.form.object_storage.console.form.object_storage.ObjectStorageSource.ObjectStorageEventSource.SQS.aws_secret_access_key.title }}** — [идентификатор и содержимое ключа AWS](https://docs.aws.amazon.com/general/latest/gr/aws-sec-cred-types.html#access-keys-and-secret-access-keys) для доступа к частному бакету.
+    * (Опционально) **{{ ui-key.yc-data-transfer.data-transfer.console.form.object_storage.console.form.object_storage.ConnectionSettings.endpoint.title }}** — эндпоинт для службы, совместимой с Amazon S3. Оставьте поле пустым для использования Amazon.
+    * **{{ ui-key.yc-data-transfer.data-transfer.console.form.object_storage.console.form.object_storage.ObjectStorageConnectionSettings.region.title }}** — регион для отправки запросов.
+    * **{{ ui-key.yc-data-transfer.data-transfer.console.form.object_storage.console.form.object_storage.ConnectionSettings.use_ssl.title }}** — выберите, если удаленный сервер использует безопасное соединение SSL/TLS.
+    * **{{ ui-key.yc-data-transfer.data-transfer.console.form.object_storage.console.form.object_storage.ConnectionSettings.verify_ssl_cert.title }}** — разрешить самоподписанные сертификаты.
+    * (Опционально) **{{ ui-key.yc-data-transfer.data-transfer.console.form.object_storage.console.form.object_storage.ObjectStorageSource.path_prefix.title }}** — префикс для каталогов и файлов, которые можно использовать для поиска по бакету.
+    * **{{ ui-key.yc-data-transfer.data-transfer.console.form.object_storage.console.form.object_storage.ObjectStorageSource.path_pattern.title }}** — укажите шаблон пути. Если в бакете размещаются только файлы, используйте значение `**`.
 
 {% endlist %}
 
 ### Конфигурация очереди событий {#sqs-queue}
 
-* **Имя очереди** — имя очереди, настроенной в бакете S3, для получения событий `s3:ObjectCreated`.
-* **Идентификатор аккаунта владельца очереди** — идентификатор аккаунта AWS для аккаунта, создавшего очередь. Оставьте поле пустым, если бакет S3 и очередь созданы в одном и том же аккаунте.
-* **Идентификатор статического ключа** — идентификатор ключа AWS, используемый как часть учетных данных для чтения из очереди SQS. Оставьте поле пустым, если можно использовать те же учетные данные, что и для бакета S3.
-* **Содержимое статического ключа** — секрет AWS, используемый как часть учетных данных для чтения из очереди SQS. Оставьте пустым, если можно использовать те же учетные данные, что и для бакета S3.
-* **Эндпоинт** — эндпоинт для S3-совместимого сервиса. Оставьте поле пустым, чтобы использовать AWS.
-* **Регион** — регион AWS для отправки запросов. Оставьте поле пустым, если он совпадает с регионом бакета.
-* **Использовать SSL** — выберите, если удаленный сервер использует безопасное соединение SSL/TLS.
-* **Проверять SSL-сертификат** — разрешить самоподписанные сертификаты.
+* **{{ ui-key.yc-data-transfer.data-transfer.console.form.object_storage.console.form.object_storage.ObjectStorageSource.ObjectStorageEventSource.SQS.queue_name.title }}** — имя очереди, настроенной в бакете S3, для получения событий `s3:ObjectCreated`.
+* **{{ ui-key.yc-data-transfer.data-transfer.console.form.object_storage.console.form.object_storage.ObjectStorageSource.ObjectStorageEventSource.SQS.owner_id.title }}** — идентификатор аккаунта AWS для аккаунта, создавшего очередь. Оставьте поле пустым, если бакет S3 и очередь созданы в одном и том же аккаунте.
+* **{{ ui-key.yc-data-transfer.data-transfer.console.form.object_storage.console.form.object_storage.ObjectStorageSource.ObjectStorageEventSource.SQS.aws_access_key_id.title }}** — идентификатор ключа AWS, используемый как часть учетных данных для чтения из очереди SQS. Оставьте поле пустым, если можно использовать те же учетные данные, что и для бакета S3.
+* **{{ ui-key.yc-data-transfer.data-transfer.console.form.object_storage.console.form.object_storage.ObjectStorageSource.ObjectStorageEventSource.SQS.aws_secret_access_key.title }}** — секрет AWS, используемый как часть учетных данных для чтения из очереди SQS. Оставьте пустым, если можно использовать те же учетные данные, что и для бакета S3.
+* **{{ ui-key.yc-data-transfer.data-transfer.console.form.object_storage.console.form.object_storage.ConnectionSettings.endpoint.title }}** — эндпоинт для S3-совместимого сервиса. Оставьте поле пустым, чтобы использовать AWS.
+* **{{ ui-key.yc-data-transfer.data-transfer.console.form.object_storage.console.form.object_storage.ObjectStorageSource.ObjectStorageEventSource.SQS.region.title }}** — регион AWS для отправки запросов. Оставьте поле пустым, если он совпадает с регионом бакета.
+* **{{ ui-key.yc-data-transfer.data-transfer.console.form.object_storage.console.form.object_storage.ConnectionSettings.use_ssl.title }}** — выберите, если удаленный сервер использует безопасное соединение SSL/TLS.
+* **{{ ui-key.yc-data-transfer.data-transfer.console.form.object_storage.console.form.object_storage.ConnectionSettings.verify_ssl_cert.title }}** — разрешить самоподписанные сертификаты.
 
 ### Дополнительные настройки {#additional-settings}
 
@@ -74,41 +74,41 @@
 
 {% list tabs %}
 
-- CSV
+- {{ ui-key.yc-data-transfer.data-transfer.console.form.object_storage.console.form.object_storage.ObjectStorageSource.ObjectStorageReaderFormat.csv.title }}
 
-     * **Разделитель** — символ-разделитель.
-     * **Символ кавычек** — символ для обозначения начала и конца строки.
-     * **Символ отмены** — Escape-символ, используемый для экранирования специальных символов.
-     * **Кодировка** — [кодировка](https://docs.python.org/3/library/codecs.html#standard-encodings).
-     * **Двойные кавычки** — выберите, чтобы заменять двойные кавычки на одинарные.
-     * **Разрешить перенос строк в значениях** — выберите, если значения текстовых данных могут содержать символы переноса строки.
-     * **Размер блока** — максимальная длина части файла, размещаемой в памяти во время чтения.
-     * **Расширенные настройки** — необходимые CSV [ConvertOptions](https://arrow.apache.org/docs/python/generated/pyarrow.csv.ConvertOptions.html#pyarrow.csv.ConvertOptions) для редактирования. Указываются в виде JSON-строки.
-     * **Дополнительные возможности чтения** — необходимые CSV [ReadOptions](https://arrow.apache.org/docs/python/generated/pyarrow.csv.ReadOptions.html#pyarrow.csv.ReadOptions) для редактирования. Указываются в виде JSON-строки.
+     * **{{ ui-key.yc-data-transfer.data-transfer.console.form.object_storage.console.form.object_storage.ObjectStorageSource.ObjectStorageReaderFormat.Csv.delimiter.title }}** — символ-разделитель.
+     * **{{ ui-key.yc-data-transfer.data-transfer.console.form.object_storage.console.form.object_storage.ObjectStorageSource.ObjectStorageReaderFormat.Csv.quote_char.title }}** — символ для обозначения начала и конца строки.
+     * **{{ ui-key.yc-data-transfer.data-transfer.console.form.object_storage.console.form.object_storage.ObjectStorageSource.ObjectStorageReaderFormat.Csv.escape_char.title }}** — Escape-символ, используемый для экранирования специальных символов.
+     * **{{ ui-key.yc-data-transfer.data-transfer.console.form.object_storage.console.form.object_storage.ObjectStorageSource.ObjectStorageReaderFormat.Csv.encoding.title }}** — [кодировка](https://docs.python.org/3/library/codecs.html#standard-encodings).
+     * **{{ ui-key.yc-data-transfer.data-transfer.console.form.object_storage.console.form.object_storage.ObjectStorageSource.ObjectStorageReaderFormat.Csv.double_quote.title }}** — выберите, чтобы заменять двойные кавычки на одинарные.
+     * **{{ ui-key.yc-data-transfer.data-transfer.console.form.object_storage.console.form.object_storage.ObjectStorageSource.ObjectStorageReaderFormat.Csv.newlines_in_values.title }}** — выберите, если значения текстовых данных могут содержать символы переноса строки.
+     * **{{ ui-key.yc-data-transfer.data-transfer.endpoint.airbyte.s3_source.endpoint.airbyte.s3_source.S3Source.Csv.block_size.title }}** — максимальная длина части файла, размещаемой в памяти во время чтения.
+     * **{{ ui-key.yc-data-transfer.data-transfer.console.form.object_storage.console.form.object_storage.ObjectStorageTarget.advanced_settings.title }}** — необходимые CSV [ConvertOptions](https://arrow.apache.org/docs/python/generated/pyarrow.csv.ConvertOptions.html#pyarrow.csv.ConvertOptions) для редактирования. Указываются в виде JSON-строки.
+     * **{{ ui-key.yc-data-transfer.data-transfer.console.form.object_storage.console.form.object_storage.ObjectStorageSource.ObjectStorageReaderFormat.Csv.additional_options.title }}** — необходимые CSV [ReadOptions](https://arrow.apache.org/docs/python/generated/pyarrow.csv.ReadOptions.html#pyarrow.csv.ReadOptions) для редактирования. Указываются в виде JSON-строки.
 
-- Parquet
+- {{ ui-key.yc-data-transfer.data-transfer.console.form.object_storage.console.form.object_storage.ObjectStorageSource.ObjectStorageReaderFormat.parquet.title }}
 
-- JSON Lines
+- {{ ui-key.yc-data-transfer.data-transfer.console.form.object_storage.console.form.object_storage.ObjectStorageSource.ObjectStorageReaderFormat.jsonl.title }}
   
-     * **Разрешить перенос строк в значениях** — разрешить использовать символы новой строки в значениях JSON. Использование этого параметра может повлиять на производительность. Оставьте пустым, чтобы по умолчанию было установлено значение `FALSE`.
-     * **Неожиданное поведение поля** — метод обработки полей JSON за пределами `explicit_schema` (если указано). См. [документацию PyArrow](https://arrow.apache.org/docs/python/generated/pyarrow.json.ParseOptions.html).
-     * **Размер блока** — размер фрагмента в байтах для одновременной обработки в памяти каждого файла. Если объем данных большой, и не удается обнаружить схему, увеличение этого значения должно решить проблему. Слишком большое значение может привести к ошибкам OOM.
+     * **{{ ui-key.yc-data-transfer.data-transfer.console.form.object_storage.console.form.object_storage.ObjectStorageSource.ObjectStorageReaderFormat.Jsonl.newlines_in_values.title }}** — разрешить использовать символы новой строки в значениях JSON. Использование этого параметра может повлиять на производительность. Оставьте пустым, чтобы по умолчанию было установлено значение `FALSE`.
+     * **{{ ui-key.yc-data-transfer.data-transfer.console.form.object_storage.console.form.object_storage.ObjectStorageSource.ObjectStorageReaderFormat.Jsonl.unexpected_field_behavior.title }}** — метод обработки полей JSON за пределами `explicit_schema` (если указано). См. [документацию PyArrow](https://arrow.apache.org/docs/python/generated/pyarrow.json.ParseOptions.html).
+     * **{{ ui-key.yc-data-transfer.data-transfer.endpoint.airbyte.s3_source.endpoint.airbyte.s3_source.S3Source.Jsonl.block_size.title }}** — размер фрагмента в байтах для одновременной обработки в памяти каждого файла. Если объем данных большой, и не удается обнаружить схему, увеличение этого значения должно решить проблему. Слишком большое значение может привести к ошибкам OOM.
 
-- Proto
+- {{ ui-key.yc-data-transfer.data-transfer.console.form.object_storage.console.form.object_storage.ObjectStorageSource.ObjectStorageReaderFormat.proto.title }}
 
-    * **Дескриптор protobuf** — загрузите файл-дескриптор.
-    * **Тип упаковки protobuf-сообщений** — укажите способ упаковки сообщений:
-        * `Protoseq` — последовательность целевых сообщений с разделителем;
-        * `Repeated` — целевое сообщение находится в поле `repeated` единственного сообщения-обертки;
-        * `Single message` — единственное целевое сообщение;
-    * **Имя protobuf-сообщения** — если тип упаковки `Repeated`, указывается имя сообщения, содержащего единственное поле `repeated` целевым сообщением (иначе указывается имя целевого сообщения).
-    * **Список первичных ключей** — перечислите поля, чтобы они добавились в результат как первичные ключи.
-    * **Включаемые поля** — перечислите поля сообщения для передачи. Если не задано, выводятся все поля сообщения.
-    * **Использовать значение NULL в ключевых столбцах** — выберите эту опцию, чтобы разрешить значение `null` в ключевых колонках.
+    * **{{ ui-key.yc-data-transfer.data-transfer.console.form.logbroker.console.form.logbroker.ParserConfigProto.proto_desc.title }}** — загрузите файл-дескриптор.
+    * **{{ ui-key.yc-data-transfer.data-transfer.console.form.logbroker.console.form.logbroker.ParserConfigProto.msg_package_type.title }}** — укажите способ упаковки сообщений:
+        * `{{ ui-key.yc-data-transfer.data-transfer.console.form.logbroker.console.form.logbroker.ProtoMessagePackageType.PROTOSEQ.title }}` — последовательность целевых сообщений с разделителем;
+        * `{{ ui-key.yc-data-transfer.data-transfer.console.form.logbroker.console.form.logbroker.ProtoMessagePackageType.REPEATED.title }}` — целевое сообщение находится в поле `repeated` единственного сообщения-обертки;
+        * `{{ ui-key.yc-data-transfer.data-transfer.console.form.logbroker.console.form.logbroker.ProtoMessagePackageType.SINGLE_MESSAGE.title }}` — единственное целевое сообщение;
+    * **{{ ui-key.yc-data-transfer.data-transfer.console.form.logbroker.console.form.logbroker.ParserConfigProto.msg_name.title }}** — если тип упаковки `{{ ui-key.yc-data-transfer.data-transfer.console.form.logbroker.console.form.logbroker.ProtoMessagePackageType.REPEATED.title }}`, указывается имя сообщения, содержащего единственное поле `repeated` целевым сообщением (иначе указывается имя целевого сообщения).
+    * **{{ ui-key.yc-data-transfer.data-transfer.console.form.logbroker.console.form.logbroker.ParserConfigProto.primary_keys.title }}** — перечислите поля, чтобы они добавились в результат как первичные ключи.
+    * **{{ ui-key.yc-data-transfer.data-transfer.console.form.logbroker.console.form.logbroker.ParserConfigProto.included_fields.title }}** — перечислите поля сообщения для передачи. Если не задано, выводятся все поля сообщения.
+    * **{{ ui-key.yc-data-transfer.data-transfer.console.form.logbroker.console.form.logbroker.ProtoParser.null_keys_allowed.title }}** — выберите эту опцию, чтобы разрешить значение `null` в ключевых колонках.
 
-- Nginx logs
+- {{ ui-key.yc-data-transfer.data-transfer.console.form.object_storage.console.form.object_storage.ObjectStorageSource.ObjectStorageReaderFormat.nginx.title }}
 
-    * **Шаблон (log_format)** — формат лога, аналогичный директиве [log_format](https://nginx.org/en/docs/http/ngx_http_log_module.html#log_format), например:
+    * **{{ ui-key.yc-data-transfer.data-transfer.console.form.object_storage.console.form.object_storage.ObjectStorageSource.ObjectStorageReaderFormat.Nginx.format.title }}** — формат лога, аналогичный директиве [log_format](https://nginx.org/en/docs/http/ngx_http_log_module.html#log_format), например:
 
         ```text
         "$remote_addr" "$remote_user" "[$time_local]" "$request"
@@ -116,21 +116,21 @@
 
         Чтобы избежать ошибок парсинга, настройте Nginx так, чтобы токены были заключены в кавычки, и включите экранирование данных (`escape=default` или `escape=json`).
 
-        Чтобы переименовать поля в целевой таблице, переименуйте необходимые токены в поле **Шаблон (log_format)**. На примере выше — чтобы перенести данные с токеном `time_local` в колонку `date_time` целевой таблицы, укажите следующий формат лога:
+        Чтобы переименовать поля в целевой таблице, переименуйте необходимые токены в поле **{{ ui-key.yc-data-transfer.data-transfer.console.form.object_storage.console.form.object_storage.ObjectStorageSource.ObjectStorageReaderFormat.Nginx.format.title }}**. На примере выше — чтобы перенести данные с токеном `time_local` в колонку `date_time` целевой таблицы, укажите следующий формат лога:
 
         ```text
         "$remote_addr" "$remote_user" "[$date_time]" "$request"
         ```
 
-    * **Размер блока** — максимальный размер части файла, размещаемой в памяти во время чтения (в байтах).
+    * **{{ ui-key.yc-data-transfer.data-transfer.console.form.object_storage.console.form.object_storage.ObjectStorageSource.ObjectStorageReaderFormat.block_size.title }}** — максимальный размер части файла, размещаемой в памяти во время чтения (в байтах).
 
 {% endlist %}
 
 #### Датасет {#dataset}
 
-* **Схема** — укажите схему служебной таблицы, которая будет использоваться для подключения.
-* **Таблица** — укажите имя служебной таблицы, которое будет использоваться для подключения.
-* **Добавить системные колонки** — добавить в схему результатов системные колонки `__file_name` и `__row_index`. `__file_name` соответствует имени объекта S3, из которого поступают данные. `__row_index` соответствует счетчику строк, в котором находятся данные, в объекте S3.
+* **{{ ui-key.yc-data-transfer.data-transfer.console.form.common.console.form.common.SchemaTableFilterEntry.schema.title }}** — укажите схему служебной таблицы, которая будет использоваться для подключения.
+* **{{ ui-key.yc-data-transfer.data-transfer.console.form.common.console.form.common.SchemaTableFilterEntry.table.title }}** — укажите имя служебной таблицы, которое будет использоваться для подключения.
+* **{{ ui-key.yc-data-transfer.data-transfer.console.form.object_storage.console.form.object_storage.ObjectStorageResultTable.add_system_cols.title }}** — добавить в схему результатов системные колонки `__file_name` и `__row_index`. `__file_name` соответствует имени объекта S3, из которого поступают данные. `__row_index` соответствует счетчику строк, в котором находятся данные, в объекте S3.
 
   {% note warning %}
 
@@ -138,25 +138,25 @@
 
   {% endnote %}
 
-* **Схема результирующей таблицы** — укажите JSON-схему в формате `{"<столбец>": "<тип_данных>"}` или перечислите поля для схемы результирующей таблицы. Если вы выберете `Автоматически`, то схема определится автоматически.
-* **Тип не определён** — определите, как следует обрабатывать строки, не прошедшие проверку типов:
-  * **Продолжать** — продолжать передачу данных.
-  * **Прерывать** — не продолжать.
-  * **Повторять** — повторить попытку определить тип.
-* **Интервал сканирования** — укажите интервал между сканированиями для новых файлов при репликации.
+* **{{ ui-key.yc-data-transfer.data-transfer.console.form.object_storage.console.form.object_storage.ObjectStorageSource.result_schema.title }}** — укажите JSON-схему в формате `{"<столбец>": "<тип_данных>"}` или перечислите поля для схемы результирующей таблицы. Если вы выберете `{{ ui-key.yc-data-transfer.data-transfer.console.form.object_storage.console.form.object_storage.ObjectStorageDataSchema.infer.title }}`, то схема определится автоматически.
+* **{{ ui-key.yc-data-transfer.data-transfer.console.form.object_storage.console.form.object_storage.ObjectStorageSourceAdvancedSettings.unparsed_mode.title }}** — определите, как следует обрабатывать строки, не прошедшие проверку типов:
+  * **{{ ui-key.yc-data-transfer.data-transfer.console.form.object_storage.console.form.object_storage.OBJECT_STORAGE_UNPARSED_CONTINUE.title }}** — продолжать передачу данных.
+  * **{{ ui-key.yc-data-transfer.data-transfer.console.form.object_storage.console.form.object_storage.OBJECT_STORAGE_UNPARSED_FAIL.title }}** — не продолжать.
+  * **{{ ui-key.yc-data-transfer.data-transfer.console.form.object_storage.console.form.object_storage.OBJECT_STORAGE_UNPARSED_RETRY.title }}** — повторить попытку определить тип.
+* **{{ ui-key.yc-data-transfer.data-transfer.console.form.object_storage.console.form.object_storage.ObjectStorageAdvancedSettings.scan_interval.title }}** — укажите интервал между сканированиями для новых файлов при репликации.
 
 ## Настройка приемника данных {#supported-targets}
 
 Настройте один из поддерживаемых приемников данных:
 
-* [PostgreSQL](../target/postgresql.md);
-* [MySQL®](../target/mysql.md);
-* [ClickHouse®](../target/clickhouse.md);
-* [Yandex Managed Service for YDB](../target/yandex-database.md);
-* [YTsaurus](yt.md);
-* [Greenplum®](../target/greenplum.md).
+* [{{ PG }}](../target/postgresql.md);
+* [{{ MY }}](../target/mysql.md);
+* [{{ CH }}](../target/clickhouse.md);
+* [{{ ydb-full-name }}](../target/yandex-database.md);
+* [{{ ytsaurus-name }}](yt.md);
+* [{{ GP }}](../target/greenplum.md).
 
-Полный список поддерживаемых источников и приемников в Yandex Data Transfer см. в разделе [Доступные трансферы](../../../transfer-matrix.md).
+Полный список поддерживаемых источников и приемников в {{ data-transfer-full-name }} читайте в разделе [Доступные трансферы](../../../transfer-matrix.md).
 
 После настройки источника и приемника данных [создайте и запустите трансфер](../../transfer.md#create).
 
@@ -172,6 +172,6 @@
 Push failed: kind: update not supported
 ```
 
-Object Storage поддерживает только вставку новых данных, но не поддерживает их обновление. Если в источнике происходит обновление данных, трансфер завершится с ошибкой.
+{{ objstorage-name }} поддерживает только вставку новых данных, но не поддерживает их обновление. Если в источнике происходит обновление данных, трансфер завершится с ошибкой.
 
-**Решение**: используйте источники, которые поддерживают только вставку данных, или выберите вместо Object Storage другой приемник.
+**Решение**: используйте источники, которые поддерживают только вставку данных, или выберите вместо {{ objstorage-name }} другой приемник.

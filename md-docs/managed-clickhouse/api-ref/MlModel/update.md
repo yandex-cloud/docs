@@ -5,7 +5,7 @@ Updates the specified machine learning model.
 ## HTTP request
 
 ```
-PATCH https://mdb.api.cloud.yandex.net/managed-clickhouse/v1/clusters/{clusterId}/mlModels/{mlModelName}
+PATCH https://{{ api-host-mdb }}/managed-clickhouse/v1/clusters/{clusterId}/mlModels/{mlModelName}
 ```
 
 ## Path parameters
@@ -15,7 +15,6 @@ PATCH https://mdb.api.cloud.yandex.net/managed-clickhouse/v1/clusters/{clusterId
 || clusterId | **string**
 
 Required field. ID of the cluster to update the model in.
-
 To get a cluster ID make a [ClusterService.List](../Cluster/list.md#List) request.
 
 The maximum string length in characters is 50. ||
@@ -64,10 +63,7 @@ The new model file URL. You can only use models stored in Object Storage. ||
   "createdBy": "string",
   "modifiedAt": "string",
   "done": "boolean",
-  "metadata": {
-    "clusterId": "string",
-    "mlModelName": "string"
-  },
+  "metadata": "object",
   // Includes only one of the fields `error`, `response`
   "error": {
     "code": "integer",
@@ -76,12 +72,7 @@ The new model file URL. You can only use models stored in Object Storage. ||
       "object"
     ]
   },
-  "response": {
-    "name": "string",
-    "clusterId": "string",
-    "type": "string",
-    "uri": "string"
-  }
+  "response": "object"
   // end of the list of possible fields
 }
 ```
@@ -123,7 +114,7 @@ In some languages, built-in datetime utilities do not support nanosecond precisi
 
 If the value is `false`, it means the operation is still in progress.
 If `true`, the operation is completed, and either `error` or `response` is available. ||
-|| metadata | **[UpdateMlModelMetadata](#yandex.cloud.mdb.clickhouse.v1.UpdateMlModelMetadata)**
+|| metadata | **object**
 
 Service-specific metadata associated with the operation.
 It typically contains the ID of the target resource that the operation is performed on.
@@ -138,7 +129,7 @@ The operation result.
 If `done == false` and there was no failure detected, neither `error` nor `response` is set.
 If `done == false` and there was a failure detected, `error` is set.
 If `done == true`, exactly one of `error` or `response` is set. ||
-|| response | **[MlModel](#yandex.cloud.mdb.clickhouse.v1.MlModel)**
+|| response | **object**
 
 The normal response of the operation in case of success.
 If the original method returns no data on success, such as Delete,
@@ -153,18 +144,6 @@ The operation result.
 If `done == false` and there was no failure detected, neither `error` nor `response` is set.
 If `done == false` and there was a failure detected, `error` is set.
 If `done == true`, exactly one of `error` or `response` is set. ||
-|#
-
-## UpdateMlModelMetadata {#yandex.cloud.mdb.clickhouse.v1.UpdateMlModelMetadata}
-
-#|
-||Field | Description ||
-|| clusterId | **string**
-
-ID of the cluster that contains the model being updated. ||
-|| mlModelName | **string**
-
-Name of the the model that is being updated. ||
 |#
 
 ## Status {#google.rpc.Status}
@@ -182,24 +161,4 @@ An error message. ||
 || details[] | **object**
 
 A list of messages that carry the error details. ||
-|#
-
-## MlModel {#yandex.cloud.mdb.clickhouse.v1.MlModel}
-
-#|
-||Field | Description ||
-|| name | **string**
-
-Name of the the model. ||
-|| clusterId | **string**
-
-ID of the ClickHouse cluster that the model belongs to. ||
-|| type | **enum** (MlModelType)
-
-Type of the model.
-
-- `ML_MODEL_TYPE_CATBOOST`: CatBoost model. ||
-|| uri | **string**
-
-Model file URL. You can only use models stored in Object Storage. ||
 |#

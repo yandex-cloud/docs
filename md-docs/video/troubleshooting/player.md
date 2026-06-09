@@ -1,6 +1,6 @@
 # Решение проблем с видеоплеером
 
-Ниже перечислены возможные проблемы при работе с [видеоплеером](../concepts/player.md) Cloud Video и способы их решения.
+Ниже перечислены возможные проблемы при работе с [видеоплеером](../concepts/player.md) {{ video-name }} и способы их решения.
 
 ## Не загружается видеоконтент {#loading-issues}
 
@@ -8,9 +8,9 @@
 
 Попробуйте последовательно выполнить следующие действия:
 
-1. Проверьте скорость интернета с помощью [Интернетометра](https://yandex.ru/internet/).
+1. Проверьте скорость интернета с помощью [Интернетометра]({{ link-yandex }}/internet/).
 1. Закройте в браузере все вкладки, кроме видеоплеера. Перезагрузите страницу.
-1. [Очистите кеш браузера](https://yandex.ru/support/common/browsers-settings/browsers-cache.html) и [удалите файлы cookie](https://yandex.ru/support/common/browsers-settings/browsers-cookies.html).
+1. [Очистите кеш браузера]({{ link-yandex }}/support/common/browsers-settings/browsers-cache.html) и [удалите файлы cookie]({{ link-yandex }}/support/common/browsers-settings/browsers-cookies.html).
 1. Отключите установленные расширения браузера.
 
     Если вы используете блокировщик рекламы (например, Adblock Plus, Adguard или uBlock Origin), отключите его в настройках браузера и проверьте, устранена ли проблема.
@@ -68,7 +68,7 @@
 
 #### Просмотр недоступен в моем браузере {#wrong-browser}
 
-Устаревший браузер может не поддерживать технологии, которые используются для быстрой и удобной загрузки видео. Установите [последнюю версию вашего браузера](https://yandex.ru/soft/browsers/).
+Устаревший браузер может не поддерживать технологии, которые используются для быстрой и удобной загрузки видео. Установите [последнюю версию вашего браузера]({{ link-yandex }}/soft/browsers/).
 
 #### Доступ запрещен {#access-denied}
 
@@ -79,8 +79,8 @@
 Попробуйте последовательно выполнить следующие действия:
 
 1. Проверьте, правильно ли вы указали адрес страницы.
-1. Проверьте скорость интернета с помощью [Интернетометра](https://yandex.ru/internet/).
-1. [Очистите кеш браузера](https://yandex.ru/support/common/browsers-settings/browsers-cache.html).
+1. Проверьте скорость интернета с помощью [Интернетометра]({{ link-yandex }}/internet/).
+1. [Очистите кеш браузера]({{ link-yandex }}/support/common/browsers-settings/browsers-cache.html).
 1. Отключите в браузере установленные расширения.
 
     Если вы используете блокировщик рекламы (например, Adblock Plus, Adguard или uBlock Origin), отключите его в настройках браузера и проверьте, устранена ли проблема.
@@ -91,9 +91,9 @@
 
 Попробуйте последовательно выполнить следующие действия:
 
-1. Проверьте скорость интернета с помощью [Интернетометра](https://yandex.ru/internet/).
+1. Проверьте скорость интернета с помощью [Интернетометра]({{ link-yandex }}/internet/).
 1. Закройте в браузере все вкладки, кроме видеоплеера. Перезагрузите страницу.
-1. [Очистите кеш браузера](https://yandex.ru/support/common/browsers-settings/browsers-cache.html) и [удалите файлы cookie](https://yandex.ru/support/common/browsers-settings/browsers-cookies.html).
+1. [Очистите кеш браузера]({{ link-yandex }}/support/common/browsers-settings/browsers-cache.html) и [удалите файлы cookie]({{ link-yandex }}/support/common/browsers-settings/browsers-cookies.html).
 1. Отключите установленные расширения браузера.
 
     Если вы используете блокировщик рекламы (например, Adblock Plus, Adguard или uBlock Origin), отключите его в настройках браузера и проверьте, устранена ли проблема.

@@ -18,10 +18,10 @@ Returns the specified placement group.
 ||Field | Description ||
 || disk_placement_group_id | **string**
 
-Required field. ID of the placement group to return.
+ID of the placement group to return.
 To get the placement group ID, use [DiskPlacementGroupService.List](list.md#List) request.
-
-The maximum string length in characters is 50. ||
+The length must be less than or equal to 50.
+This field is required. ||
 |#
 
 ## DiskPlacementGroup {#yandex.cloud.compute.v1.DiskPlacementGroup}

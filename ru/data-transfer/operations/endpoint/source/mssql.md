@@ -18,7 +18,7 @@ description: Следуя данной инструкции, вы сможете
 
 Вы можете реализовывать сценарии миграции и поставки данных из базы данных Microsoft SQL Server в управляемые базы данных для дальнейшего хранения в облаке, обработки и загрузки в витрины данных с целью последующей визуализации.
 
-Подробное описание возможных сценариев передачи данных в {{ data-transfer-full-name }} см. в разделе [Практические руководства](../../../tutorials/index.md).
+Подробное описание возможных сценариев передачи данных в {{ data-transfer-full-name }} читайте в разделе [Практические руководства](../../../tutorials/index.md).
 
 ## Подготовка базы данных Microsoft SQL Server {#prepare}
 
@@ -52,7 +52,7 @@ description: Следуя данной инструкции, вы сможете
     
 {% endlist %}
 
-Подробнее о настройках см. в [документации {{ AB }}](https://docs.airbyte.com/integrations/sources/mssql/).
+Подробнее о настройках в [документации {{ AB }}](https://docs.airbyte.com/integrations/sources/mssql/).
 
 
 ## Настройка приемника данных {#supported-targets}
@@ -68,7 +68,7 @@ description: Следуя данной инструкции, вы сможете
 * [{{ DS }}](../target/data-streams.md);
 * [{{ PG }}](../target/postgresql.md).
 
-Полный список поддерживаемых источников и приемников в {{ data-transfer-full-name }} см. в разделе [Доступные трансферы](../../../transfer-matrix.md).
+Полный список поддерживаемых источников и приемников в {{ data-transfer-full-name }} читайте в разделе [Доступные трансферы](../../../transfer-matrix.md).
 
 {% include [Internet access](../../../../_includes/data-transfer/notes/internet-access.md) %}
 

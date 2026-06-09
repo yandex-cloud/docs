@@ -5,7 +5,7 @@ Creates an ephemeral access key for the specified subject.
 ## HTTP request
 
 ```
-POST https://iam.api.cloud.yandex.net/iam/aws-compatibility/v1/ephemeralAccessKeys
+POST https://iam.{{ api-host }}/iam/aws-compatibility/v1/ephemeralAccessKeys
 ```
 
 ## Body parameters {#yandex.cloud.iam.v1.awscompatibility.CreateEphemeralAccessKeyRequest}

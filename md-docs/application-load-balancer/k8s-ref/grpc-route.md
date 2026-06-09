@@ -1,16 +1,16 @@
 # Поля ресурса GRPCRoute
 
-В ресурсе `GRPCRoute` определяются правила маршрутизации трафика по бэкендам — сервисам Kubernetes (ресурсам [Service](service-for-gateway.md)) или перенаправления трафика. `GRPCRoute` получает входящий трафик от тех [ресурсов `Gateway`](gateway.md), требованиям которых соответствует.
+В ресурсе `GRPCRoute` определяются правила маршрутизации трафика по бэкендам — сервисам {{ k8s }} (ресурсам [Service]({{ configuration-local-link }}/service-for-gateway.md)) или перенаправления трафика. `GRPCRoute` получает входящий трафик от тех [ресурсов `Gateway`]({{ configuration-local-link }}/gateway.md), требованиям которых соответствует.
 
 {% note tip %}
 
-Вместо ALB Ingress-контроллера и Gateway API рекомендуется использовать новый контроллер [Yandex Cloud Gwin](../tools/gwin/index.md).
+Вместо ALB Ingress-контроллера и Gateway API рекомендуется использовать новый контроллер [{{ yandex-cloud }} Gwin]({{ gwin-tip-local-link }}).
 
 {% endnote %}
 
 `GRPCRoute` предназначен для разработчиков приложений. Оператор кластера должен использовать `Gateway`.
 
-`GRPCRoute` — ресурс Kubernetes, определенный [проектом Kubernetes Gateway API](https://gateway-api.sigs.k8s.io/). Ниже описаны поля и аннотации ресурса, с которыми работает Gateway API Application Load Balancer. Полное описание конфигурации ресурса см. в [документации Kubernetes Gateway API](https://gateway-api.sigs.k8s.io/reference/spec/#gateway.networking.k8s.io/v1.GRPCRoute).
+`GRPCRoute` — ресурс {{ k8s }}, определенный [проектом {{ k8s }} Gateway API](https://gateway-api.sigs.k8s.io/). Ниже описаны поля и аннотации ресурса, с которыми работает Gateway API {{ alb-name }}. Полное описание конфигурации ресурса см. в [документации {{ k8s }} Gateway API](https://gateway-api.sigs.k8s.io/reference/spec/#gateway.networking.k8s.io/v1.GRPCRoute).
 
 ## GRPCRoute {#grpc-route}
 
@@ -33,9 +33,9 @@ spec: <GRPCRouteSpec>
 
   * `name` (`string`, обязательное)
 
-    Имя ресурса. Подробнее о формате см. в [документации Kubernetes](https://kubernetes.io/docs/concepts/overview/working-with-objects/names/#names).
+    Имя ресурса. Подробнее о формате см. в [документации {{ k8s }}](https://kubernetes.io/docs/concepts/overview/working-with-objects/names/#names).
 
-    Не является именем маршрута в Application Load Balancer.
+    Не является именем маршрута в {{ alb-name }}.
  
   * `namespace` (`string`)
 
@@ -117,9 +117,9 @@ rules:
 
 * `parentRefs` (`[]ParentReference`, обязательное)
 
-  Список ресурсов `Gateway` (или их обработчиков из поля `spec.listeners` — см. [справочник](gateway.md#spec)), к которым должен быть привязан `GRPCRoute`.
+  Список ресурсов `Gateway` (или их обработчиков из поля `spec.listeners` — см. [справочник]({{ configuration-local-link }}/gateway.md#spec)), к которым должен быть привязан `GRPCRoute`.
 
-  Также маршрут должен удовлетворять правилам, описанным в [конфигурации](gateway.md#spec) `Gateway` (поле `spec.listeners.allowedRoutes`).
+  Также маршрут должен удовлетворять правилам, описанным в [конфигурации]({{ configuration-local-link }}/gateway.md#spec) `Gateway` (поле `spec.listeners.allowedRoutes`).
   
   * `namespace` (`string`)
     
@@ -229,11 +229,11 @@ rules:
 
   * `backendRefs` (`[]GRPCBackendRef`)
 
-    Список [сервисов Kubernetes](../../managed-kubernetes/concepts/index.md#service), которые должны обрабатывать вызовы в качестве бэкенда.
+    Список [сервисов {{ k8s }}](../../managed-kubernetes/concepts/index.md#service), которые должны обрабатывать вызовы в качестве бэкенда.
       
      * `name` (`string`)
 
-       Имя сервиса Kubernetes. Ресурс `Service`, на который указывает это поле, должен быть описан по [принятой конфигурации](service-for-gateway.md). 
+       Имя сервиса {{ k8s }}. Ресурс `Service`, на который указывает это поле, должен быть описан по [принятой конфигурации]({{ configuration-local-link }}/service-for-gateway.md). 
 
      * `namespace` (`string`)
   
@@ -243,7 +243,7 @@ rules:
 
        Номер порта сервиса.
 
-       Номер должен совпадать с одним из номеров портов, указанных в полях `spec.ports.port` ресурса `Service`. Подробнее см. в [конфигурации ресурса](service-for-gateway.md).
+       Номер должен совпадать с одним из номеров портов, указанных в полях `spec.ports.port` ресурса `Service`. Подробнее см. в [конфигурации ресурса]({{ configuration-local-link }}/service-for-gateway.md).
        
      * `weight` (`int32`)
 

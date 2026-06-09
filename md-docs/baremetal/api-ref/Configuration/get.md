@@ -6,7 +6,7 @@ To get the list of available Configuration resources, make a [List](list.md#List
 ## HTTP request
 
 ```
-GET https://baremetal.api.cloud.yandex.net/baremetal/v1alpha/configurations/{configurationId}
+GET https://baremetal.{{ api-host }}/baremetal/v1alpha/configurations/{configurationId}
 ```
 
 ## Path parameters

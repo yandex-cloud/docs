@@ -1,6 +1,7 @@
 # Managed Service for MongoDB API, gRPC: ClusterService.StreamLogs
 
 Same as ListLogs but using server-side streaming. Also allows for 'tail -f' semantics.
+(-- api-linter: yc::1705::http-method-mapping=disabled --)
 
 ## gRPC request
 
@@ -34,9 +35,11 @@ The maximum string length in characters is 50. ||
 Columns from logs table to get in the response. ||
 || service_type | enum **ServiceType**
 
-- `MONGOD`: Logs of MongoDB activity.
-- `MONGOS`
-- `MONGOCFG`
+Type of the service to request logs about.
+
+- `MONGOD`: Logs of mongod activity.
+- `MONGOS`: Logs of mongos activity.
+- `MONGOCFG`: Logs of mongocfg activity.
 - `AUDIT`: MongoDB Enterprise audit logs ||
 || from_time | **[google.protobuf.Timestamp](https://developers.google.com/protocol-buffers/docs/reference/google.protobuf#timestamp)**
 

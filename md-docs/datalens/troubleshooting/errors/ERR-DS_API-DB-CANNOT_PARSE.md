@@ -1,4 +1,4 @@
-# [Yandex DataLens] Cannot parse
+# [{{ datalens-full-name }}] Cannot parse
 
 `ERR.DS_API.DB.CANNOT_PARSE`
 

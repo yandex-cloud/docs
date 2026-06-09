@@ -1,6 +1,6 @@
 # Управление несколькими организациями
 
-В Yandex Identity Hub любой пользователь Яндекса, авторизованный с помощью Яндекс ID, может создать и управлять неограниченным количеством организаций.
+В {{ org-full-name }} любой пользователь Яндекса, авторизованный с помощью Яндекс ID, может создать и управлять неограниченным количеством организаций.
 
 Чтобы создать вашу первую организацию, следуйте [инструкции](enable-org.md).
 
@@ -14,15 +14,15 @@
 
 {% list tabs group=instructions %}
 
-- Интерфейс Cloud Center {#cloud-center}
+- Интерфейс {{ cloud-center }} {#cloud-center}
 
-  1. Войдите в сервис [Cloud Center](https://center.yandex.cloud) с учетной записью пользователя, от имени которого вы хотите создать новую организацию.
+  1. Войдите в сервис [{{ cloud-center }}]({{ cloud-center-link }}) с учетной записью пользователя, от имени которого вы хотите создать новую организацию.
 
-  1. В левом верхнем углу экрана рядом с названием текущей организации нажмите значок ![chevron-down](../../_assets/console-icons/chevron-down.svg) и выберите ![circle-plus](../../_assets/console-icons/circle-plus.svg) **Создать организацию**.
+  1. В левом верхнем углу экрана рядом с названием текущей организации нажмите значок ![chevron-down](../../_assets/console-icons/chevron-down.svg) и выберите ![circle-plus](../../_assets/console-icons/circle-plus.svg) **{{ ui-key.yacloud_components.organization.action.create-organization }}**.
 
   1. В открывшемся окне введите название и описание организации.
 
-  1. Нажмите **Создать новую организацию**.
+  1. Нажмите **{{ ui-key.yacloud_components.organization.action.create }}**.
 
 {% endlist %}
 
@@ -34,7 +34,7 @@
 
 - Консоль управления {#console}
 
-  1. Перейдите в [консоль управления](https://console.yandex.cloud) и на панели слева нажмите фото вашего аккаунта.
+  1. Перейдите в [консоль управления]({{ link-console-main }}) и на панели слева нажмите фото вашего аккаунта.
   1. Выберите организацию или федерацию из списка доступных в вашем аккаунте. Доступные организации и федерации помечены значком ![case](../../_assets/console-icons/briefcase.svg).
 
       Вы также можете выбрать организацию или федерацию из другого аккаунта на Яндексе, в который вы до этого входили. Для этого в блоке **История входа** нажмите на имя нужного аккаунта.
@@ -43,9 +43,9 @@
 
   Название выбранной организации отображается в левом верхнем углу окна сервиса, а также в блоке со списком облаков и каталогов.
 
-- Интерфейс Cloud Center {#cloud-center}
+- Интерфейс {{ cloud-center }} {#cloud-center}
 
-  1. Войдите в сервис [Cloud Center](https://center.yandex.cloud).
+  1. Войдите в сервис [{{ cloud-center }}]({{ cloud-center-link }}).
 
   1. Измените текущую организацию одним из способов:
 
@@ -61,8 +61,8 @@
 
 {% endlist %}
 
-Если в вашем аккаунте зарегистрировано несколько организаций, вы можете [переносить](../../resource-manager/operations/cloud/change-organization.md) облака из одной организации в другую. Для этого у вас должна быть [роль](../../resource-manager/security/index.md#resource-manager-clouds-owner) `resource-manager.clouds.owner` на переносимое облако и [роль](../security/index.md#organization-manager-organizations-owner) `organization-manager.organizations.owner` на организацию, в которую вы это облако собираетесь перенести.
+Если в вашем аккаунте зарегистрировано несколько организаций, вы можете [переносить](../../resource-manager/operations/cloud/change-organization.md) облака из одной организации в другую. Для этого у вас должна быть [роль](../../resource-manager/security/index.md#resource-manager-clouds-owner) `{{ roles-cloud-owner }}` на переносимое облако и [роль](../security/index.md#organization-manager-organizations-owner) `{{ roles-organization-owner }}` на организацию, в которую вы это облако собираетесь перенести.
 
 #### См. также {#see-also}
 
-* [Изменить организацию платежного аккаунта](../../billing/operations/change-organization.md)
+* [{#T}](../../billing/operations/change-organization.md)

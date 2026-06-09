@@ -60,6 +60,8 @@ description: Из этой статьи вы узнаете о способах 
 
 {% endlist %}
 
+{% include [cli-metadata-variables-substitution-notice](../../../_includes/compute/create/cli-metadata-variables-substitution-notice.md) %}
+
 Пример использования переменных при передаче метаданных на ВМ через {{ yandex-cloud }} CLI см. в разделе [{#T}](../../operations/vm-create/create-with-env-variables.md).
 
 #### См. также {#see-also}

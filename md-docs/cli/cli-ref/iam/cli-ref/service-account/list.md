@@ -32,9 +32,6 @@ Set the custom configuration file. ||
 Enable gRPC retries. By default, retries are enabled with maximum 5 attempts.
 Pass 0 to disable retries. Pass any negative value for infinite retries.
 Even infinite retries are capped with 2 minutes timeout. ||
-|| `--syntax` | `string`
-
-CLI syntax: 1 (legacy) or 2 (current). Omit to use default-syntax in the profile or the product default. ||
 || `--cloud-id` | `string`
 
 Set the ID of the cloud to use. ||
@@ -62,18 +59,3 @@ Set the output format: text (default), yaml, json, json-rest. ||
 Query to select values from the response using jq syntax ||
 || `-h`, `--help` | Display help for the command. ||
 |#
-#### Examples
-
- * [Создать статический ключ доступа](../../../../../iam/operations/authentication/manage-access-keys.md#cli_1)
- * [Создать API-ключ](../../../../../iam/operations/authentication/manage-api-keys.md#cli_2)
- * [Создать авторизованный ключ](../../../../../iam/operations/authentication/manage-authorized-keys.md#cli_1)
- * [Получить IAM-токен с помощью CLI](../../../../../iam/operations/iam-token/create-for-sa.md#cli_1)
- * [Назначение роли на организацию](../../../../../iam/operations/sa/assign-role-for-sa.md#cli_2)
- * [Создать сервисный аккаунт](../../../../../iam/operations/sa/create.md#tf_1)
- * [Удаление сервисного аккаунта](../../../../../iam/operations/sa/delete.md#cli_1)
- * [Получение ID-токена сервисного аккаунта](../../../../../iam/operations/sa/get-id-token.md#cli_1)
- * [Получение информации о сервисном аккаунте](../../../../../iam/operations/sa/get-id.md#cli_1)
- * [Использование имперсонации](../../../../../iam/operations/sa/impersonate-sa.md#cli_1)
- * [Получение списка сервисных аккаунтов каталога](../../../../../iam/operations/sa/list-get.md#cli_1)
- * [Назначить роль на сервисный аккаунт](../../../../../iam/operations/sa/set-access-bindings.md#cli_1)
- * [Изменение сервисного аккаунта](../../../../../iam/operations/sa/update.md#cli_1)

@@ -6,7 +6,7 @@ Results can be filtered and sorted using the provided parameters.
 ## HTTP request
 
 ```
-GET https://video.api.cloud.yandex.net/video/v1/channels
+GET https://video.{{ api-host }}/video/v1/channels
 ```
 
 ## Query parameters {#yandex.cloud.video.v1.ListChannelsRequest}
@@ -261,7 +261,7 @@ List of domains allowed to embed content from this channel.
 Only relevant when enable is set to true.
 Supports wildcard notation (e.g., "*.example.com") to allow all subdomains.
 
-Each value must match the regular expression ``` ^(?:\*\.)?(?:[a-zA-Z0-9-]*\.)+[a-zA-Z]{2,}$|^\*\.[a-zA-Z]{2,}$ ```. The string length in characters for each value must be 4-255. The maximum number of elements is 100. ||
+The string length in characters for each value must be 4-255. Each value must match the regular expression ``` ^(?:\*\.)?(?:[a-zA-Z0-9-]*\.)+[a-zA-Z]{2,}$|^\*\.[a-zA-Z]{2,}$ ```. The maximum number of elements is 100. ||
 |#
 
 ## ChannelVideoSettings {#yandex.cloud.video.v1.ChannelVideoSettings}

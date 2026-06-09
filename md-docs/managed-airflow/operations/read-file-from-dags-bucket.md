@@ -1,6 +1,6 @@
-# Чтение файла из Yandex Object Storage
+# Чтение файла из {{ objstorage-full-name }}
 
-Используйте [направленный ациклический граф (DAG)](../concepts/index.md#about-the-service) для чтения файлов из Yandex Object Storage сервисного аккаунта, который привязан к кластеру Apache Airflow™.
+Используйте [направленный ациклический граф (DAG)](../concepts/index.md#about-the-service) для чтения файлов из {{ objstorage-full-name }} сервисного аккаунта, который привязан к кластеру {{ AF }}.
 
 ## Подготовьте DAG-файл и запустите граф {#dag}
 
@@ -25,8 +25,8 @@
    read_file_from_dags_bucket()
    ```
 
-1. Загрузите DAG-файл `read_file_from_dags_bucket.py` в созданный ранее бакет. В результате одноименный граф появится в веб-интерфейсе Apache Airflow™ автоматически.
-1. [Откройте веб-интерфейс Apache Airflow™](af-interfaces.md#web-gui).
+1. Загрузите DAG-файл `read_file_from_dags_bucket.py` в созданный ранее бакет. В результате одноименный граф появится в веб-интерфейсе {{ AF }} автоматически.
+1. [Откройте веб-интерфейс {{ AF }}](af-interfaces.md#web-gui).
 1. Убедитесь, что в разделе **Dags** появился новый граф `read_file_from_dags_bucket`.
 
    Загрузка DAG-файла из бакета может занять несколько минут.
@@ -35,11 +35,11 @@
 
 ## Проверьте результат {#check-result}
 
-Чтобы проверить результат в веб-интерфейсе Apache Airflow™:
+Чтобы проверить результат в веб-интерфейсе {{ AF }}:
 
 {% list tabs group=instructions %}
    
-- Версия Apache Airflow™ ниже 3.0 {#version-2}
+- Версия {{ AF }} ниже 3.0 {#version-2}
 
   1. В разделе **DAGs** нажмите на граф `read_file_from_dags_bucket`.
   1. Перейдите в раздел **Graph**.
@@ -47,7 +47,7 @@
   1. Перейдите в раздел **Logs**.
   1. Убедитесь, что в логах есть строка `file content: {content}`, где `content` — содержимое файла. Это значит, что запрос выполнен успешно.
 
-- Версия Apache Airflow™ 3.0 и выше {#version-3}
+- Версия {{ AF }} 3.0 и выше {#version-3}
 
   1. В разделе **Dags** нажмите на граф `read_file_from_dags_bucket`.
   1. Перейдите в раздел **Tasks**.

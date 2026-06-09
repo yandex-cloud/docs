@@ -6,7 +6,7 @@
 
     {% note warning %}
 
-    Для работы с AWS CLI из Windows рекомендуется использовать [WSL](https://docs.microsoft.com/ru-ru/windows/wsl/).
+    Для работы с AWS CLI из Windows рекомендуется использовать [WSL]({{ ms.docs }}/windows/wsl/).
 
     {% endnote %}
 

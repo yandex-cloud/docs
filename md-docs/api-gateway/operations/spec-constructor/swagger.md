@@ -4,17 +4,17 @@
 
 - Консоль управления
 
-    1. В [консоли управления](https://console.yandex.cloud) выберите [каталог](../../../resource-manager/concepts/resources-hierarchy.md#folder), в котором создали или хотите создать [API-шлюз](../../concepts/index.md).
-    1. [Перейдите](../../../console/operations/select-service.md#select-service) в сервис **API Gateway**.
-    1. Выберите API-шлюз или нажмите кнопку **Создать API-шлюз**, чтобы создать новый.
-    1. В поле **Спецификация** нажмите значок ![swagger](../../../_assets/api-gateway/spec-constructor/swagger.svg) и в открывшемся окне:
+    1. В [консоли управления]({{ link-console-main }}) выберите [каталог](../../../resource-manager/concepts/resources-hierarchy.md#folder), в котором создали или хотите создать [API-шлюз](../../concepts/index.md).
+    1. Перейдите в сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_api-gateway }}**.
+    1. Выберите API-шлюз или нажмите кнопку **{{ ui-key.yacloud.serverless-functions.gateways.list.button_create }}**, чтобы создать новый.
+    1. В поле **{{ ui-key.yacloud.serverless-functions.gateways.form.field_spec }}** нажмите значок ![swagger](../../../_assets/api-gateway/spec-constructor/swagger.svg) и в открывшемся окне:
 
-        1. В поле **Путь** укажите относительный путь к интеграции, который будет добавлен к URL-адресу API Gateway. Переменные указывайте в фигурных скобках, например `/docs/{document_id}`. Подробнее см. спецификацию [OpenAPI 3.0](https://github.com/OAI/OpenAPI-Specification).
-        1. Нажмите кнопку **Добавить**.
+        1. В поле **{{ ui-key.yc-serverless-apigw.dynamic-forms.path_name }}** укажите относительный путь к интеграции, который будет добавлен к URL-адресу {{ api-gw-name }}. Переменные указывайте в фигурных скобках, например `/docs/{document_id}`. Подробнее см. спецификацию [OpenAPI 3.0](https://github.com/OAI/OpenAPI-Specification).
+        1. Нажмите кнопку **{{ ui-key.yacloud.common.add }}**.
 
 {% endlist %}
 
-В поле **Спецификация** отобразится OpenAPI-спецификация с указанными значениями параметров.
+В поле **{{ ui-key.yacloud.serverless-functions.gateways.form.field_spec }}** отобразится OpenAPI-спецификация с указанными значениями параметров.
 
 ## См. также {#see-also}
 

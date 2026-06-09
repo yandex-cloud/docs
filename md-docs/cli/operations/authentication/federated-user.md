@@ -1,18 +1,18 @@
 # Аутентификация от имени федеративного пользователя
 
-Вы можете использовать [федеративный аккаунт](../../../iam/concepts/users/accounts.md#saml-federation) для работы с Yandex Cloud, если ваша компания настроила [федерацию удостоверений](../../../iam/concepts/federations.md). В этом случае не требуется личный [аккаунт на Яндексе](../../../iam/concepts/users/accounts.md#passport).
+Вы можете использовать [федеративный аккаунт](../../../iam/concepts/users/accounts.md#saml-federation) для работы с {{ yandex-cloud }}, если ваша компания настроила [федерацию удостоверений](../../../iam/concepts/federations.md). В этом случае не требуется личный [аккаунт на Яндексе](../../../iam/concepts/users/accounts.md#passport).
 
 {% note info %}
 
 Для прохождения аутентификации на сервере без графического интерфейса нужен установленный браузер с [настроенным форвардингом X11](https://docs.ssh.com/manuals/client-user/53/tunnel-x11.html). С помощью X11 вы сможете использовать браузер на сервере по SSH. Для SSH-клиентов на ОС Linux эта функциональность доступна по умолчанию. Для клиентов на Windows можно использовать [Xming](https://sourceforge.net/projects/xming/).
 
-См. также [Пример аутентификации на ВМ Linux без графического интерфейса](#linux-vm-auth).
+См. также [{#T}](#linux-vm-auth).
 
 Если браузер установить невозможно, используйте [сервисный аккаунт](../../../iam/concepts/users/service-accounts.md) вместо федеративного.
 
 {% endnote %}
 
-Если у вас еще нет интерфейса командной строки Yandex Cloud, [установите его](../install-cli.md).
+Если у вас еще нет интерфейса командной строки {{ yandex-cloud }}, [установите его](../install-cli.md).
 
 
 Чтобы аутентифицироваться с помощью [SAML-совместимой федерации удостоверений](../../../organization/concepts/add-federation.md):
@@ -41,7 +41,7 @@
    ```text
    You are going to be authenticated via federation-id 'aje1f0hsgds3a********'.
    Your federation authentication web site will be opened.
-   After your successful authentication, you will be redirected to 'https://console.yandex.cloud'.
+   After your successful authentication, you will be redirected to '{{ link-console-main }}'.
 
    Press 'enter' to continue...
    ```
@@ -73,10 +73,10 @@
       Please enter your numeric choice: 1
       ```
 
-1. Чтобы выбрать [зону доступности](../../../overview/concepts/geo-scope.md) по умолчанию для сервиса [Compute Cloud](../../../compute/index.md), введите `Y`. Чтобы пропустить настройку, введите `n`.
+1. Чтобы выбрать [зону доступности](../../../overview/concepts/geo-scope.md) по умолчанию для сервиса [{{ compute-name }}](../../../compute/index.md), введите `Y`. Чтобы пропустить настройку, введите `n`.
 
    ```bash
-   Do you want to configure a default Yandex Compute Cloud availability zone? [Y/n] Y
+   Do you want to configure a default {{ compute-full-name }} availability zone? [Y/n] Y
    ```
 
    Если вы ввели `Y`, выберите зону доступности:
@@ -84,9 +84,9 @@
    
    ```text
    Which zone do you want to use as a profile default?
-    [1] ru-central1-a
-    [2] ru-central1-b
-    [3] ru-central1-d
+    [1] {{ region-id }}-a
+    [2] {{ region-id }}-b
+    [3] {{ region-id }}-d
     [4] Do not set default zone
    Please enter your numeric choice: 2
    ```
@@ -107,7 +107,7 @@
    subject-id: ajea53egl28l********
    cloud-id: b1g159pa15cd********
    folder-id: b1g8o9jbt58********
-   compute-default-zone: ru-central1-b
+   compute-default-zone: {{ region-id }}-b
    ```
 
 ## Пример аутентификации на ВМ Linux без графического интерфейса {#linux-vm-auth}
@@ -150,7 +150,7 @@
    ```text
    You are going to be authenticated via federation-id 'aje1f0hsgds3a********'.
    Your federation authentication web site will be opened.
-   After your successful authentication, you will be redirected to 'https://console.yandex.cloud'.
+   After your successful authentication, you will be redirected to '{{ link-console-main }}'.
 
    Press 'enter' to continue...
    ```
@@ -158,7 +158,7 @@
 1. После нажатия клавиши **Enter** вы получите URL следующего вида:
 
     ```text
-    https://auth.yandex.cloud/oauth/authorize?client_id=yc.oauth.public-sdk&code_challenge=y22kspX4VrKLmdg9hGr_Bwgte_a3RXtw1En********&code_challenge_method=S256&redirect_uri=http%3A%2F%2F127.0.0.1%3A42121%2Fauth%2Fcallback&response_type=code&scope=openid&state=aExf0z********&yc_federation_hint=federation-id
+    https://{{ auth-main-host }}/oauth/authorize?client_id=yc.oauth.public-sdk&code_challenge=y22kspX4VrKLmdg9hGr_Bwgte_a3RXtw1En********&code_challenge_method=S256&redirect_uri=http%3A%2F%2F127.0.0.1%3A42121%2Fauth%2Fcallback&response_type=code&scope=openid&state=aExf0z********&yc_federation_hint=federation-id
     ```
 
     Сохраните этот URL. Он потребуется для аутентификации в браузере. Вам также понадобится порт, который вы можете найти в query-параметре `redirect_uri` после IP-адреса `127.0.0.1`. В данном случае это порт `42121`.

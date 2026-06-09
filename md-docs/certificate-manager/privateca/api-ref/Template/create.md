@@ -6,7 +6,7 @@ The template will be defined by a name, folder, and the data provided.
 ## HTTP request
 
 ```
-POST https://private-ca.certificate-manager.api.cloud.yandex.net/privateca/v1/templates
+POST https://private-ca.certificate-manager.{{ api-host }}/privateca/v1/templates
 ```
 
 ## Body parameters {#yandex.cloud.certificatemanager.v1.privateca.CreateTemplateRequest}

@@ -7,7 +7,7 @@ To get the list of all available secrets, make a [SecretService.List](../Secret/
 ## HTTP request
 
 ```
-GET https://payload.lockbox.api.cloud.yandex.net/lockbox/v1/secrets/{secretId}/payload
+GET https://{{ api-host-lockbox-payload }}/lockbox/v1/secrets/{secretId}/payload
 ```
 
 ## Path parameters

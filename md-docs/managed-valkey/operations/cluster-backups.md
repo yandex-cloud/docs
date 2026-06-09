@@ -1,9 +1,9 @@
-# Управление резервными копиями в Yandex Managed Service for Valkey™
+# Управление резервными копиями в {{ mrd-name }}
 
 
 Вы можете создавать [резервные копии](../concepts/backup.md) и восстанавливать кластеры из имеющихся резервных копий.
 
-Также Yandex Managed Service for Valkey™ ежедневно создает автоматическую резервную копию. Вы можете [задать время начала резервного копирования](#set-backup-window) для нее.
+Также {{ mrd-name }} ежедневно создает автоматическую резервную копию. Вы можете [задать время начала резервного копирования](#set-backup-window) для нее.
 
 ## Восстановить кластер из резервной копии {#restore}
 
@@ -18,7 +18,7 @@
 Если при восстановлении кластера из резервной копии вы выбрали тип диска **local-ssd**, добавьте не менее двух хостов на шард.
 
 
-Перед началом работы [назначьте](../../iam/operations/roles/grant.md) вашему аккаунту в Yandex Cloud роль [managed-redis.restorer](../../iam/roles-reference.md#managed-redis-restorer) или выше на каталог размещения резервной копии и каталог, где будет развернут новый кластер.
+Перед началом работы [назначьте](../../iam/operations/roles/grant.md) вашему аккаунту в {{ yandex-cloud }} роль [managed-redis.restorer](../../iam/roles-reference.md#managed-redis-restorer) или выше на каталог размещения резервной копии и каталог, где будет развернут новый кластер.
 
 
 {% list tabs group=instructions %}
@@ -27,43 +27,43 @@
 
   Чтобы восстановить из резервной копии существующий кластер:
 
-  1. В [консоли управления](https://console.yandex.cloud) перейдите в каталог, в котором нужно восстановить кластер.
-  1. [Перейдите](../../console/operations/select-service.md#select-service) в сервис **Yandex Managed Service for&nbsp;Valkey™**.
-  1. Нажмите на имя нужного кластера и выберите вкладку **Резервные копии**.
-  1. В строке нужной резервной копии нажмите значок ![image](../../_assets/console-icons/ellipsis.svg) и выберите **Восстановить кластер**.
-  1. Задайте настройки нового кластера. В списке **Каталог** можно выбрать каталог для нового кластера.
-  1. Нажмите кнопку **Восстановить кластер**.
+  1. В [консоли управления]({{ link-console-main }}) перейдите в каталог, в котором нужно восстановить кластер.
+  1. Перейдите в сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-redis }}**.
+  1. Нажмите на имя нужного кластера и выберите вкладку **{{ ui-key.yacloud.redis.switch_backups }}**.
+  1. В строке нужной резервной копии нажмите значок ![image](../../_assets/console-icons/ellipsis.svg) и выберите **{{ ui-key.yacloud.mdb.cluster.backups.button_restore }}**.
+  1. Задайте настройки нового кластера. В списке **{{ ui-key.yacloud.mdb.forms.base_field_folder }}** можно выбрать каталог для нового кластера.
+  1. Нажмите кнопку **{{ ui-key.yacloud.mdb.forms.button_restore }}**.
 
   Чтобы восстановить из резервной копии удаленный ранее кластер:
 
-  1. В [консоли управления](https://console.yandex.cloud) перейдите в каталог, в котором нужно восстановить кластер.
-  1. [Перейдите](../../console/operations/select-service.md#select-service) в сервис **Yandex Managed Service for&nbsp;Valkey™**.
-  1. На панели слева выберите ![image](../../_assets/console-icons/archive.svg) **Резервные копии**.
-  1. Найдите нужную резервную копию по времени создания и идентификатору кластера. В колонке **Идентификатор** содержатся идентификаторы в формате `<идентификатор_кластера>:<идентификатор_резервной_копии>`.
-  1. В строке нужной резервной копии нажмите значок ![image](../../_assets/console-icons/ellipsis.svg) и выберите **Восстановить кластер**.
-  1. Задайте настройки нового кластера. В списке **Каталог** можно выбрать каталог для нового кластера.
-  1. Нажмите кнопку **Восстановить кластер**.
+  1. В [консоли управления]({{ link-console-main }}) перейдите в каталог, в котором нужно восстановить кластер.
+  1. Перейдите в сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-redis }}**.
+  1. На панели слева выберите ![image](../../_assets/console-icons/archive.svg) **{{ ui-key.yacloud.redis.switch_backups }}**.
+  1. Найдите нужную резервную копию по времени создания и идентификатору кластера. В колонке **{{ ui-key.yacloud.common.id }}** содержатся идентификаторы в формате `<идентификатор_кластера>:<идентификатор_резервной_копии>`.
+  1. В строке нужной резервной копии нажмите значок ![image](../../_assets/console-icons/ellipsis.svg) и выберите **{{ ui-key.yacloud.mdb.cluster.backups.button_restore }}**.
+  1. Задайте настройки нового кластера. В списке **{{ ui-key.yacloud.mdb.forms.base_field_folder }}** можно выбрать каталог для нового кластера.
+  1. Нажмите кнопку **{{ ui-key.yacloud.mdb.forms.button_restore }}**.
 
-  Yandex Managed Service for Valkey™ запустит операцию создания кластера из резервной копии.
+  {{ mrd-name }} запустит операцию создания кластера из резервной копии.
 
 - CLI {#cli}
 
-  Если у вас еще нет интерфейса командной строки Yandex Cloud (CLI), [установите и инициализируйте его](../../cli/quickstart.md#install).
+  Если у вас еще нет интерфейса командной строки {{ yandex-cloud }} (CLI), [установите и инициализируйте его](../../cli/quickstart.md#install).
 
   По умолчанию используется каталог, указанный при [создании](../../cli/operations/profile/profile-create.md) профиля CLI. Чтобы изменить каталог по умолчанию, используйте команду `yc config set folder-id <идентификатор_каталога>`. Также для любой команды вы можете указать другой каталог с помощью параметров `--folder-name` или `--folder-id`. Если вы обращаетесь к ресурсу по имени, поиск будет выполнен в каталоге по умолчанию. Если вы обращаетесь к ресурсу по идентификатору, поиск будет выполнен глобально — во всех каталогах с учетом прав доступа.
 
   Чтобы восстановить кластер из резервной копии:
 
-  1. Посмотрите описание команды CLI для восстановления кластера Valkey™:
+  1. Посмотрите описание команды CLI для восстановления кластера {{ VLK }}:
 
       ```bash
-      yc managed-redis cluster restore --help
+      {{ yc-mdb-rd }} cluster restore --help
       ```
 
-  1. Получите список доступных резервных копий кластеров Valkey™:
+  1. Получите список доступных резервных копий кластеров {{ VLK }}:
 
       ```bash
-      yc managed-redis backup list
+      {{ yc-mdb-rd }} backup list
       ```
 
       Результат:
@@ -80,24 +80,24 @@
   1. Запросите [создание кластера](cluster-create.md) из резервной копии:
 
       ```bash
-      yc managed-redis cluster restore \
+      {{ yc-mdb-rd }} cluster restore \
          --backup-id c9q287aqv5rf********:20181113T133617 \
          --name mynewrd \
          --environment=PRODUCTION \
          --network-name default \
-         --host zone-id=ru-central1-a,subnet-id=b0rcctk2rvtr********,assign-public-ip=true,replica-priority=50 \
+         --host zone-id={{ region-id }}-a,subnet-id=b0rcctk2rvtr********,assign-public-ip=true,replica-priority=50 \
          --password P@ssWord \
          --disk-size 20
       ```
 
-      В результате будет создан кластер Valkey™ со следующими характеристиками:
+      В результате будет создан кластер {{ VLK }} со следующими характеристиками:
 
       * С именем `mynewrd`.
       * В окружении `PRODUCTION`.
       * В сети `default`.
-      * С одним хостом класса `hm1.nano` в подсети `b0rcctk2rvtr********`, в зоне доступности `ru-central1-a`, публичным доступом и [приоритетом реплики](../concepts/replication.md#master-failover) `50`.
+      * С одним хостом класса `hm1.nano` в подсети `b0rcctk2rvtr********`, в зоне доступности `{{ region-id }}-a`, публичным доступом и [приоритетом реплики](../concepts/replication.md#master-failover) `50`.
       * С паролем `P@ssWord`.
-      * С хранилищем на сетевых SSD-дисках (`network-ssd`) размером 20 ГБ.
+      * С хранилищем на сетевых SSD-дисках (`{{ disk-type-example }}`) размером 20 ГБ.
 
       Допустимая длина пароля — от 8 до 128 символов. Пароль должен удовлетворять регулярному выражению `[a-zA-Z0-9@=+?*.,!&#$^<>_-]*`.
 
@@ -109,14 +109,14 @@
         export IAM_TOKEN="<IAM-токен>"
         ```
 
-    1. Воспользуйтесь методом [Cluster.Restore](../api-ref/Cluster/restore.md) и выполните запрос, например, с помощью [cURL](https://curl.se/):
+    1. Воспользуйтесь методом [Cluster.Restore](../api-ref/Cluster/restore.md) и выполните запрос, например, с помощью {{ api-examples.rest.tool }}:
 
         ```bash
         curl \
             --request POST \
             --header "Authorization: Bearer $IAM_TOKEN" \
             --header "Content-Type: application/json" \
-            --url 'https://mdb.api.cloud.yandex.net/managed-redis/v1/clusters:restore' \
+            --url 'https://{{ api-host-mdb }}/managed-redis/v1/clusters:restore' \
             --data '{
                       "backupId": "<идентификатор_резервной_копии>",
                       "name": "<имя_кластера>",
@@ -183,7 +183,7 @@
        
        Далее предполагается, что содержимое репозитория находится в директории `~/cloudapi/`.
 
-    1. Воспользуйтесь вызовом [Cluster.Restore](../api-ref/grpc/Cluster/restore.md) и выполните запрос, например, с помощью [gRPCurl](https://github.com/fullstorydev/grpcurl):
+    1. Воспользуйтесь вызовом [Cluster.Restore](../api-ref/grpc/Cluster/restore.md) и выполните запрос, например, с помощью {{ api-examples.grpc.tool }}:
 
         ```bash
         grpcurl \
@@ -215,7 +215,7 @@
                   "network_id": "<идентификатор_сети>",
                   "tls_enabled": <поддержка_шифрованных_TLS-соединений>
                 }' \
-            mdb.api.cloud.yandex.net:443 \
+            {{ api-host-mdb }}:{{ port-https }} \
             yandex.cloud.mdb.redis.v1.ClusterService.Restore
         ```
 
@@ -252,31 +252,31 @@
 
 - Консоль управления {#console}
 
-  1. В [консоли управления](https://console.yandex.cloud) перейдите в каталог, где нужно создать резервную копию.
-  1. [Перейдите](../../console/operations/select-service.md#select-service) в сервис **Yandex Managed Service for&nbsp;Valkey™**.
-  1. Нажмите на имя нужного кластера и выберите вкладку **Резервные копии**.
-  1. Нажмите кнопку **Создать резервную копию**.
+  1. В [консоли управления]({{ link-console-main }}) перейдите в каталог, где нужно создать резервную копию.
+  1. Перейдите в сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-redis }}**.
+  1. Нажмите на имя нужного кластера и выберите вкладку **{{ ui-key.yacloud.redis.switch_backups }}**.
+  1. Нажмите кнопку **{{ ui-key.yacloud.mdb.cluster.backups.button_create }}**.
 
   Сервис начнет создавать резервную копию без дополнительного подтверждения.
 
 - CLI {#cli}
 
-  Если у вас еще нет интерфейса командной строки Yandex Cloud (CLI), [установите и инициализируйте его](../../cli/quickstart.md#install).
+  Если у вас еще нет интерфейса командной строки {{ yandex-cloud }} (CLI), [установите и инициализируйте его](../../cli/quickstart.md#install).
 
   По умолчанию используется каталог, указанный при [создании](../../cli/operations/profile/profile-create.md) профиля CLI. Чтобы изменить каталог по умолчанию, используйте команду `yc config set folder-id <идентификатор_каталога>`. Также для любой команды вы можете указать другой каталог с помощью параметров `--folder-name` или `--folder-id`. Если вы обращаетесь к ресурсу по имени, поиск будет выполнен в каталоге по умолчанию. Если вы обращаетесь к ресурсу по идентификатору, поиск будет выполнен глобально — во всех каталогах с учетом прав доступа.
 
   Чтобы создать резервную копию кластера:
 
-  1. Посмотрите описание команды CLI для создания резервной копии Valkey™:
+  1. Посмотрите описание команды CLI для создания резервной копии {{ VLK }}:
 
       ```bash
-      yc managed-redis cluster backup --help
+      {{ yc-mdb-rd }} cluster backup --help
       ```
 
   1. Запросите создание резервной копии, указав имя или идентификатор кластера:
 
       ```bash
-      yc managed-redis cluster backup my-rd-cluster
+      {{ yc-mdb-rd }} cluster backup my-rd-cluster
       ```
 
       Имя и идентификатор кластера можно получить со [списком кластеров](cluster-list.md#list-clusters).
@@ -289,13 +289,13 @@
         export IAM_TOKEN="<IAM-токен>"
         ```
 
-    1. Воспользуйтесь методом [Cluster.Backup](../api-ref/Cluster/backup.md) и выполните запрос, например, с помощью [cURL](https://curl.se/):
+    1. Воспользуйтесь методом [Cluster.Backup](../api-ref/Cluster/backup.md) и выполните запрос, например, с помощью {{ api-examples.rest.tool }}:
 
         ```bash
         curl \
             --request POST \
             --header "Authorization: Bearer $IAM_TOKEN" \
-            --url 'https://mdb.api.cloud.yandex.net/managed-redis/v1/clusters/<идентификатор_кластера>:backup'
+            --url 'https://{{ api-host-mdb }}/managed-redis/v1/clusters/<идентификатор_кластера>:backup'
         ```
 
         Идентификатор кластера можно запросить со [списком кластеров в каталоге](cluster-list.md#list-clusters).
@@ -318,7 +318,7 @@
        
        Далее предполагается, что содержимое репозитория находится в директории `~/cloudapi/`.
 
-    1. Воспользуйтесь вызовом [ClusterService.Backup](../api-ref/grpc/Cluster/backup.md) и выполните запрос, например, с помощью [gRPCurl](https://github.com/fullstorydev/grpcurl):
+    1. Воспользуйтесь вызовом [ClusterService.Backup](../api-ref/grpc/Cluster/backup.md) и выполните запрос, например, с помощью {{ api-examples.grpc.tool }}:
 
         ```bash
         grpcurl \
@@ -330,7 +330,7 @@
             -d '{
                   "cluster_id": "<идентификатор_кластера>"
                 }' \
-            mdb.api.cloud.yandex.net:443 \
+            {{ api-host-mdb }}:{{ port-https }} \
             yandex.cloud.mdb.redis.v1.ClusterService.Backup
         ```
 
@@ -353,25 +353,25 @@
 - Консоль управления {#console}
 
   Чтобы получить список резервных копий кластера:
-  1. В [консоли управления](https://console.yandex.cloud) перейдите в нужный каталог.
-  1. [Перейдите](../../console/operations/select-service.md#select-service) в сервис **Yandex Managed Service for&nbsp;Valkey™**.
-  1. Нажмите на имя нужного кластера и выберите вкладку **Резервные копии**.
+  1. В [консоли управления]({{ link-console-main }}) перейдите в нужный каталог.
+  1. Перейдите в сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-redis }}**.
+  1. Нажмите на имя нужного кластера и выберите вкладку **{{ ui-key.yacloud.redis.switch_backups }}**.
 
   Чтобы получить список всех резервных копий в каталоге:
-  1. В [консоли управления](https://console.yandex.cloud) перейдите в нужный каталог.
-  1. [Перейдите](../../console/operations/select-service.md#select-service) в сервис **Yandex Managed Service for&nbsp;Valkey™**.
-  1. На панели слева выберите ![image](../../_assets/console-icons/archive.svg) **Резервные копии**.
+  1. В [консоли управления]({{ link-console-main }}) перейдите в нужный каталог.
+  1. Перейдите в сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-redis }}**.
+  1. На панели слева выберите ![image](../../_assets/console-icons/archive.svg) **{{ ui-key.yacloud.redis.switch_backups }}**.
 
 - CLI {#cli}
 
-  Если у вас еще нет интерфейса командной строки Yandex Cloud (CLI), [установите и инициализируйте его](../../cli/quickstart.md#install).
+  Если у вас еще нет интерфейса командной строки {{ yandex-cloud }} (CLI), [установите и инициализируйте его](../../cli/quickstart.md#install).
 
   По умолчанию используется каталог, указанный при [создании](../../cli/operations/profile/profile-create.md) профиля CLI. Чтобы изменить каталог по умолчанию, используйте команду `yc config set folder-id <идентификатор_каталога>`. Также для любой команды вы можете указать другой каталог с помощью параметров `--folder-name` или `--folder-id`. Если вы обращаетесь к ресурсу по имени, поиск будет выполнен в каталоге по умолчанию. Если вы обращаетесь к ресурсу по идентификатору, поиск будет выполнен глобально — во всех каталогах с учетом прав доступа.
 
-  Чтобы получить список резервных копий кластеров Valkey™, доступных в каталоге по умолчанию, выполните команду:
+  Чтобы получить список резервных копий кластеров {{ VLK }}, доступных в каталоге по умолчанию, выполните команду:
 
   ```bash
-  yc managed-redis backup list
+  {{ yc-mdb-rd }} backup list
   ```
 
   Результат:
@@ -395,13 +395,13 @@
 
     1. Чтобы получить список резервных копий кластера:
 
-        1. Воспользуйтесь методом [Cluster.ListBackups](../api-ref/Cluster/listBackups.md) и выполните запрос, например, с помощью [cURL](https://curl.se/):
+        1. Воспользуйтесь методом [Cluster.ListBackups](../api-ref/Cluster/listBackups.md) и выполните запрос, например, с помощью {{ api-examples.rest.tool }}:
 
             ```bash
             curl \
                 --request GET \
                 --header "Authorization: Bearer $IAM_TOKEN" \
-                --url 'https://mdb.api.cloud.yandex.net/managed-redis/v1/clusters/<идентификатор_кластера>/backups'
+                --url 'https://{{ api-host-mdb }}/managed-redis/v1/clusters/<идентификатор_кластера>/backups'
             ```
 
             Идентификатор кластера можно запросить со [списком кластеров в каталоге](cluster-list.md#list-clusters).
@@ -410,13 +410,13 @@
 
     1. Чтобы получить список резервных копий всех кластеров в каталоге:
 
-        1. Воспользуйтесь методом [Backup.List](../api-ref/Backup/list.md) и выполните запрос, например, с помощью [cURL](https://curl.se/):
+        1. Воспользуйтесь методом [Backup.List](../api-ref/Backup/list.md) и выполните запрос, например, с помощью {{ api-examples.rest.tool }}:
 
             ```bash
             curl \
                 --request GET \
                 --header "Authorization: Bearer $IAM_TOKEN" \
-                --url 'https://mdb.api.cloud.yandex.net/managed-redis/v1/backups' \
+                --url 'https://{{ api-host-mdb }}/managed-redis/v1/backups' \
                 --url-query folderId=<идентификатор_каталога>
             ```
 
@@ -444,7 +444,7 @@
 
     1. Чтобы получить список резервных копий кластера:
 
-        1. Воспользуйтесь вызовом [ClusterService.ListBackups](../api-ref/grpc/Cluster/listBackups.md) и выполните запрос, например, с помощью [gRPCurl](https://github.com/fullstorydev/grpcurl):
+        1. Воспользуйтесь вызовом [ClusterService.ListBackups](../api-ref/grpc/Cluster/listBackups.md) и выполните запрос, например, с помощью {{ api-examples.grpc.tool }}:
 
             ```bash
             grpcurl \
@@ -456,7 +456,7 @@
                 -d '{
                       "cluster_id": "<идентификатор_кластера>"
                     }' \
-                mdb.api.cloud.yandex.net:443 \
+                {{ api-host-mdb }}:{{ port-https }} \
                 yandex.cloud.mdb.redis.v1.ClusterService.ListBackups
             ```
 
@@ -466,7 +466,7 @@
 
     1. Чтобы получить список резервных копий всех кластеров в каталоге:
 
-        1. Воспользуйтесь вызовом [BackupService.List](../api-ref/grpc/Backup/list.md) и выполните запрос, например, с помощью [gRPCurl](https://github.com/fullstorydev/grpcurl):
+        1. Воспользуйтесь вызовом [BackupService.List](../api-ref/grpc/Backup/list.md) и выполните запрос, например, с помощью {{ api-examples.grpc.tool }}:
 
             ```bash
             grpcurl \
@@ -478,7 +478,7 @@
                 -d '{
                       "folder_id": "<идентификатор_каталога>"
                     }' \
-                mdb.api.cloud.yandex.net:443 \
+                {{ api-host-mdb }}:{{ port-https }} \
                 yandex.cloud.mdb.redis.v1.BackupService.List
             ```
 
@@ -497,25 +497,25 @@
 - Консоль управления {#console}
 
   Чтобы получить информацию о резервной копии существующего кластера:
-  1. В [консоли управления](https://console.yandex.cloud) перейдите в каталог с кластером, информацию о копии которого нужно получить.
-  1. [Перейдите](../../console/operations/select-service.md#select-service) в сервис **Yandex Managed Service for&nbsp;Valkey™**.
-  1. Нажмите на имя нужного кластера и выберите вкладку **Резервные копии**.
+  1. В [консоли управления]({{ link-console-main }}) перейдите в каталог с кластером, информацию о копии которого нужно получить.
+  1. Перейдите в сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-redis }}**.
+  1. Нажмите на имя нужного кластера и выберите вкладку **{{ ui-key.yacloud.redis.switch_backups }}**.
 
   Чтобы получить информацию о резервной копии удаленного ранее кластера:
-  1. В [консоли управления](https://console.yandex.cloud) перейдите в каталог, в котором располагался удаленный кластер.
-  1. [Перейдите](../../console/operations/select-service.md#select-service) в сервис **Yandex Managed Service for&nbsp;Valkey™**.
-  1. На панели слева выберите ![image](../../_assets/console-icons/archive.svg) **Резервные копии**.
+  1. В [консоли управления]({{ link-console-main }}) перейдите в каталог, в котором располагался удаленный кластер.
+  1. Перейдите в сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-redis }}**.
+  1. На панели слева выберите ![image](../../_assets/console-icons/archive.svg) **{{ ui-key.yacloud.redis.switch_backups }}**.
 
 - CLI {#cli}
 
-  Если у вас еще нет интерфейса командной строки Yandex Cloud (CLI), [установите и инициализируйте его](../../cli/quickstart.md#install).
+  Если у вас еще нет интерфейса командной строки {{ yandex-cloud }} (CLI), [установите и инициализируйте его](../../cli/quickstart.md#install).
 
   По умолчанию используется каталог, указанный при [создании](../../cli/operations/profile/profile-create.md) профиля CLI. Чтобы изменить каталог по умолчанию, используйте команду `yc config set folder-id <идентификатор_каталога>`. Также для любой команды вы можете указать другой каталог с помощью параметров `--folder-name` или `--folder-id`. Если вы обращаетесь к ресурсу по имени, поиск будет выполнен в каталоге по умолчанию. Если вы обращаетесь к ресурсу по идентификатору, поиск будет выполнен глобально — во всех каталогах с учетом прав доступа.
 
-  Чтобы получить данные о резервной копии кластера Valkey™, выполните команду:
+  Чтобы получить данные о резервной копии кластера {{ VLK }}, выполните команду:
 
   ```bash
-  yc managed-redis backup get <идентификатор_резервной_копии>
+  {{ yc-mdb-rd }} backup get <идентификатор_резервной_копии>
   ```
 
   Идентификатор резервной копии можно получить со [списком резервных копий](#list-backups).
@@ -528,13 +528,13 @@
         export IAM_TOKEN="<IAM-токен>"
         ```
 
-    1. Воспользуйтесь методом [Backup.Get](../api-ref/Backup/get.md) и выполните запрос, например, с помощью [cURL](https://curl.se/):
+    1. Воспользуйтесь методом [Backup.Get](../api-ref/Backup/get.md) и выполните запрос, например, с помощью {{ api-examples.rest.tool }}:
 
         ```bash
         curl \
             --request GET \
             --header "Authorization: Bearer $IAM_TOKEN" \
-            --url 'https://mdb.api.cloud.yandex.net/managed-redis/v1/backups/<идентификатор_резервной_копии>'
+            --url 'https://{{ api-host-mdb }}/managed-redis/v1/backups/<идентификатор_резервной_копии>'
         ```
 
         Идентификатор резервной копии можно запросить со [списком резервных копий](#list-backups).
@@ -557,7 +557,7 @@
        
        Далее предполагается, что содержимое репозитория находится в директории `~/cloudapi/`.
 
-    1. Воспользуйтесь вызовом [BackupService.Get](../api-ref/grpc/Backup/get.md) и выполните запрос, например, с помощью [gRPCurl](https://github.com/fullstorydev/grpcurl):
+    1. Воспользуйтесь вызовом [BackupService.Get](../api-ref/grpc/Backup/get.md) и выполните запрос, например, с помощью {{ api-examples.grpc.tool }}:
 
         ```bash
         grpcurl \
@@ -569,7 +569,7 @@
             -d '{
                   "backup_id": "<идентификатор_резервной_копии>"
                 }' \
-            mdb.api.cloud.yandex.net:443 \
+            {{ api-host-mdb }}:{{ port-https }} \
             yandex.cloud.mdb.redis.v1.BackupService.Get
         ```
 
@@ -585,14 +585,14 @@
 
 - Консоль управления {#console}
 
-  Время начала резервного копирования можно задать при [создании](cluster-create.md) или [изменении](update.md#change-valkey-config) кластера в блоке **Дополнительные настройки**.
+  Время начала резервного копирования можно задать при [создании](cluster-create.md) или [изменении](update.md#change-valkey-config) кластера в блоке **{{ ui-key.yacloud.mdb.forms.section_additional }}**.
 
 - CLI {#cli}
 
   Чтобы задать время начала резервного копирования, используйте параметр `--backup-window-start`. Время задается в формате `ЧЧ:ММ:СС`.
 
   ```bash
-  yc managed-redis cluster create \
+  {{ yc-mdb-rd }} cluster create \
     --name <имя_кластера> \
     --environment <окружение> \
     --network-name <имя_сети> \
@@ -605,7 +605,7 @@
   Изменить время начала резервного копирования в существующем кластере можно с помощью команды `update`:
 
   ```bash
-  yc managed-redis cluster update \
+  {{ yc-mdb-rd }} cluster update \
      --name <имя_кластера> \
      --backup-window-start 11:25:00
   ```
@@ -618,7 +618,7 @@
         export IAM_TOKEN="<IAM-токен>"
         ```
 
-    1. Воспользуйтесь методом [Cluster.Update](../api-ref/Cluster/update.md) и выполните запрос, например, с помощью [cURL](https://curl.se/):
+    1. Воспользуйтесь методом [Cluster.Update](../api-ref/Cluster/update.md) и выполните запрос, например, с помощью {{ api-examples.rest.tool }}:
 
         {% note warning %}
         
@@ -631,7 +631,7 @@
             --request PATCH \
             --header "Authorization: Bearer $IAM_TOKEN" \
             --header "Content-Type: application/json" \
-            --url 'https://mdb.api.cloud.yandex.net/managed-redis/v1/clusters/<идентификатор_кластера>' \
+            --url 'https://{{ api-host-mdb }}/managed-redis/v1/clusters/<идентификатор_кластера>' \
             --data '{
                       "updateMask": "configSpec.backupWindowStart",
                       "configSpec": {
@@ -680,7 +680,7 @@
        
        Далее предполагается, что содержимое репозитория находится в директории `~/cloudapi/`.
 
-    1. Воспользуйтесь вызовом [ClusterService.Update](../api-ref/grpc/Cluster/update.md) и выполните запрос, например, с помощью [gRPCurl](https://github.com/fullstorydev/grpcurl):
+    1. Воспользуйтесь вызовом [ClusterService.Update](../api-ref/grpc/Cluster/update.md) и выполните запрос, например, с помощью {{ api-examples.grpc.tool }}:
 
         {% note warning %}
         
@@ -724,7 +724,7 @@
                     }
                   } 
                 }' \
-            mdb.api.cloud.yandex.net:443 \
+            {{ api-host-mdb }}:{{ port-https }} \
             yandex.cloud.mdb.redis.v1.ClusterService.Update
         ```
 

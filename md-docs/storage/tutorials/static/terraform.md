@@ -1,6 +1,6 @@
-# Статический сайт в Yandex Object Storage с помощью Terraform
+# Статический сайт в {{ objstorage-full-name }} с помощью {{ TF }}
 
-Чтобы разместить [статический сайт в Object Storage](index.md) с помощью Terraform:
+Чтобы разместить [статический сайт в {{ objstorage-name }}](index.md) с помощью {{ TF }}:
 
 1. [Подготовьте облако к работе](#before-you-begin).
 1. [Создайте инфраструктуру](#deploy).
@@ -10,32 +10,32 @@
 
 ## Подготовьте облако к работе {#before-you-begin}
 
-Зарегистрируйтесь в Yandex Cloud и создайте [платежный аккаунт](../../../billing/concepts/billing-account.md):
-1. Перейдите в [консоль управления](https://console.yandex.cloud), затем войдите в Yandex Cloud или зарегистрируйтесь.
-1. На странице **[Yandex Cloud Billing](https://center.yandex.cloud/billing/accounts)** убедитесь, что у вас подключен платежный аккаунт, и он находится в [статусе](../../../billing/concepts/billing-account-statuses.md) `ACTIVE` или `TRIAL_ACTIVE`. Если платежного аккаунта нет, [создайте его](../../../billing/quickstart/index.md) и [привяжите](../../../billing/operations/pin-cloud.md) к нему облако.
+Зарегистрируйтесь в {{ yandex-cloud }} и создайте [платежный аккаунт](../../../billing/concepts/billing-account.md):
+1. Перейдите в [консоль управления]({{ link-console-main }}), затем войдите в {{ yandex-cloud }} или зарегистрируйтесь.
+1. На странице **[{{ ui-key.yacloud_billing.billing.label_service }}]({{ link-console-billing }})** убедитесь, что у вас подключен платежный аккаунт, и он находится в [статусе](../../../billing/concepts/billing-account-statuses.md) `ACTIVE` или `TRIAL_ACTIVE`. Если платежного аккаунта нет, [создайте его](../../../billing/quickstart/index.md) и [привяжите](../../../billing/operations/pin-cloud.md) к нему облако.
 
-Если у вас есть активный платежный аккаунт, вы можете создать или выбрать [каталог](../../../resource-manager/concepts/resources-hierarchy.md#folder), в котором будет работать ваша инфраструктура, на [странице облака](https://console.yandex.cloud/cloud).
+Если у вас есть активный платежный аккаунт, вы можете создать или выбрать [каталог](../../../resource-manager/concepts/resources-hierarchy.md#folder), в котором будет работать ваша инфраструктура, на [странице облака]({{ link-console-cloud }}).
 
 [Подробнее об облаках и каталогах](../../../resource-manager/concepts/resources-hierarchy.md).
 
 ### Необходимые платные ресурсы {#paid-resources}
 
 В стоимость поддержки статического сайта входит:
-* плата за хранение данных статического сайта (см. [тарифы Object Storage](../../pricing.md#prices-storage));
-* плата за операции с данными (см. [тарифы Object Storage](../../pricing.md#prices-operations));
-* плата за исходящий трафик из Yandex Cloud в интернет (см. [тарифы Object Storage](../../pricing.md#prices-traffic));
-* плата за публичные DNS-запросы и [зоны](../../../dns/concepts/dns-zone.md) (см. [тарифы Yandex Cloud DNS](../../../dns/pricing.md)).
+* плата за хранение данных статического сайта (см. [тарифы {{ objstorage-name }}](../../pricing.md#prices-storage));
+* плата за операции с данными (см. [тарифы {{ objstorage-name }}](../../pricing.md#prices-operations));
+* плата за исходящий трафик из {{ yandex-cloud }} в интернет (см. [тарифы {{ objstorage-name }}](../../pricing.md#prices-traffic));
+* плата за публичные DNS-запросы и [зоны](../../../dns/concepts/dns-zone.md) (см. [тарифы {{ dns-full-name }}](../../../dns/pricing.md)).
 
 ## Создайте инфраструктуру {#deploy}
 
-[Terraform](https://www.terraform.io/) позволяет быстро создать облачную инфраструктуру в Yandex Cloud и управлять ею с помощью файлов конфигураций. В файлах конфигураций хранится описание инфраструктуры на языке HCL (HashiCorp Configuration Language). При изменении файлов конфигураций Terraform автоматически определяет, какая часть вашей конфигурации уже развернута, что следует добавить или удалить.
+[{{ TF }}](https://www.terraform.io/) позволяет быстро создать облачную инфраструктуру в {{ yandex-cloud }} и управлять ею с помощью файлов конфигураций. В файлах конфигураций хранится описание инфраструктуры на языке HCL (HashiCorp Configuration Language). При изменении файлов конфигураций {{ TF }} автоматически определяет, какая часть вашей конфигурации уже развернута, что следует добавить или удалить.
 
-Terraform распространяется под лицензией [Business Source License](https://github.com/hashicorp/terraform/blob/main/LICENSE), а [провайдер Yandex Cloud для Terraform](https://github.com/yandex-cloud/terraform-provider-yandex) — под лицензией [MPL-2.0](https://www.mozilla.org/en-US/MPL/2.0/).
+{{ TF }} распространяется под лицензией [Business Source License](https://github.com/hashicorp/terraform/blob/main/LICENSE), а [провайдер {{ yandex-cloud }} для {{ TF }}](https://github.com/yandex-cloud/terraform-provider-yandex) — под лицензией [MPL-2.0](https://www.mozilla.org/en-US/MPL/2.0/).
 
-Подробную информацию о ресурсах провайдера смотрите в документации на сайте [Terraform](https://www.terraform.io/docs/providers/yandex/index.html) или в [зеркале](../../../terraform/index.md).
+Подробную информацию о ресурсах провайдера смотрите в документации на сайте [{{ TF }}](https://www.terraform.io/docs/providers/yandex/index.html) или в [зеркале]({{ tf-docs-link }}).
 
-Чтобы создать инфраструктуру для статического сайта в Object Storage с помощью Terraform:
-1. [Установите Terraform](../../../tutorials/infrastructure-management/terraform-quickstart.md#install-terraform), [получите данные для аутентификации](../../../tutorials/infrastructure-management/terraform-quickstart.md#get-credentials) и укажите источник для установки провайдера Yandex Cloud (раздел [Настройте провайдер](../../../tutorials/infrastructure-management/terraform-quickstart.md#configure-provider), шаг 1).
+Чтобы создать инфраструктуру для статического сайта в {{ objstorage-name }} с помощью {{ TF }}:
+1. [Установите {{ TF }}](../../../tutorials/infrastructure-management/terraform-quickstart.md#install-terraform), [получите данные для аутентификации](../../../tutorials/infrastructure-management/terraform-quickstart.md#get-credentials) и укажите источник для установки провайдера {{ yandex-cloud }} (раздел [{#T}](../../../tutorials/infrastructure-management/terraform-quickstart.md#configure-provider), шаг 1).
 
 
 1. Подготовьте файлы с описанием инфраструктуры:
@@ -226,17 +226,17 @@ Terraform распространяется под лицензией [Business S
 
    {% endlist %}
 
-   Более подробную информацию о параметрах используемых ресурсов в Terraform см. в документации провайдера:
-    * [Сервисный аккаунт](../../../iam/concepts/users/service-accounts.md) — [yandex_iam_service_account](../../../terraform/resources/iam_service_account.md).
-    * [Настройка](../../../iam/concepts/access-control/roles.md) прав доступа на каталог — [yandex_resourcemanager_folder_iam_member](../../../terraform/resources/resourcemanager_folder_iam_member.md).
-    * [Статический ключ доступа](../../../iam/concepts/authorization/access-key.md) — [yandex_iam_service_account_static_access_key](../../../terraform/resources/iam_service_account_static_access_key.md).
-    * [Бакет](../../concepts/bucket.md) — [yandex_storage_bucket](../../../terraform/resources/storage_bucket.md).
-    * [Настройка](../../operations/buckets/iam-access.md) прав доступа к бакету с помощью Identity and Access Management — [yandex_storage_bucket_iam_binding](../../../terraform/resources/storage_bucket_iam_binding.md).
-    * [Настройка](../../operations/buckets/edit-acl.md) прав доступа к бакету с помощью [ACL Object Storage](../../concepts/acl.md) — [yandex_storage_bucket_grant](../../../terraform/resources/storage_bucket_grant.md).
-    * Источник данных о [TLS-сертификате](../../../certificate-manager/concepts/imported-certificate.md) — [yandex_cm_certificate](../../../terraform/data-sources/cm_certificate.md).
-    * [Объект](../../concepts/object.md) в бакете — [yandex_storage_object](../../../terraform/resources/storage_object.md).
-    * [DNS-зона](../../../dns/concepts/dns-zone.md) — [yandex_dns_zone](../../../terraform/resources/dns_zone.md).
-    * [Ресурсная запись DNS](../../../dns/concepts/resource-record.md) — [yandex_dns_recordset](../../../terraform/resources/dns_recordset.md).
+   Более подробную информацию о параметрах используемых ресурсов в {{ TF }} см. в документации провайдера:
+    * [Сервисный аккаунт](../../../iam/concepts/users/service-accounts.md) — [yandex_iam_service_account]({{ tf-provider-resources-link }}/iam_service_account).
+    * [Настройка](../../../iam/concepts/access-control/roles.md) прав доступа на каталог — [yandex_resourcemanager_folder_iam_member]({{ tf-provider-resources-link }}/resourcemanager_folder_iam_member).
+    * [Статический ключ доступа](../../../iam/concepts/authorization/access-key.md) — [yandex_iam_service_account_static_access_key]({{ tf-provider-resources-link }}/iam_service_account_static_access_key).
+    * [Бакет](../../concepts/bucket.md) — [yandex_storage_bucket]({{ tf-provider-resources-link }}/storage_bucket).
+    * [Настройка](../../operations/buckets/iam-access.md) прав доступа к бакету с помощью {{ iam-name }} — [yandex_storage_bucket_iam_binding]({{ tf-provider-resources-link }}/storage_bucket_iam_binding).
+    * [Настройка](../../operations/buckets/edit-acl.md) прав доступа к бакету с помощью [ACL {{ objstorage-name }}](../../concepts/acl.md) — [yandex_storage_bucket_grant]({{ tf-provider-resources-link }}/storage_bucket_grant).
+    * Источник данных о [TLS-сертификате](../../../certificate-manager/concepts/imported-certificate.md) — [yandex_cm_certificate]({{ tf-provider-datasources-link }}/cm_certificate).
+    * [Объект](../../concepts/object.md) в бакете — [yandex_storage_object]({{ tf-provider-resources-link }}/storage_object).
+    * [DNS-зона](../../../dns/concepts/dns-zone.md) — [yandex_dns_zone]({{ tf-provider-resources-link }}/dns_zone).
+    * [Ресурсная запись DNS](../../../dns/concepts/resource-record.md) — [yandex_dns_recordset]({{ tf-provider-resources-link }}/dns_recordset).
 
 1. В файле `static.tf` в блоке `locals` задайте пользовательские параметры:
    * `folder_id` — [идентификатор каталога](../../../resource-manager/operations/folder/get-id.md), в котором будут создаваться ресурсы.
@@ -263,7 +263,7 @@ Terraform распространяется под лицензией [Business S
       terraform plan
       ```
    
-      В терминале будет выведен список ресурсов с параметрами. На этом этапе изменения не будут внесены. Если в конфигурации есть ошибки, Terraform на них укажет.
+      В терминале будет выведен список ресурсов с параметрами. На этом этапе изменения не будут внесены. Если в конфигурации есть ошибки, {{ TF }} на них укажет.
    1. Примените изменения конфигурации:
    
       ```bash
@@ -276,9 +276,9 @@ Terraform распространяется под лицензией [Business S
 
 ## Проверьте работу сайта {#test-site}
 
-Чтобы проверить работу сайта, используйте один из стандартных адресов Object Storage:
-* `http://<имя_бакета>.website.yandexcloud.net`
-* `http://website.yandexcloud.net/<имя_бакета>`
+Чтобы проверить работу сайта, используйте один из стандартных адресов {{ objstorage-name }}:
+* `http://<имя_бакета>.{{ s3-web-host }}`
+* `http://{{ s3-web-host }}/<имя_бакета>`
 
 Если вы настроили для сайта собственный домен, используйте его адрес, например `example.com`.
 
@@ -308,7 +308,7 @@ Terraform распространяется под лицензией [Business S
        terraform plan
        ```
     
-       В терминале будет выведен список ресурсов с параметрами. На этом этапе изменения не будут внесены. Если в конфигурации есть ошибки, Terraform на них укажет.
+       В терминале будет выведен список ресурсов с параметрами. На этом этапе изменения не будут внесены. Если в конфигурации есть ошибки, {{ TF }} на них укажет.
     1. Примените изменения конфигурации:
     
        ```bash
@@ -319,4 +319,4 @@ Terraform распространяется под лицензией [Business S
 
 #### См. также {#see-also}
 
-* [Статический сайт в Yandex Object Storage с помощью консоли управления](console.md).
+* [{#T}](console.md).

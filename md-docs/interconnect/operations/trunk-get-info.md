@@ -8,6 +8,19 @@
 
 {% list tabs group=instructions %}
 
+- Консоль управления {#console}
+
+  1. В [консоли управления]({{ link-console-main }}) на панели сверху нажмите ![layout-side-content-left](../../_assets/console-icons/layout-side-content-left.svg) или ![chevron-down](../../_assets/console-icons/chevron-down.svg) и выберите нужный [каталог](../../resource-manager/concepts/resources-hierarchy.md#folder).
+  1. [Перейдите](../../console/operations/select-service.md#select-service) в сервис **{{ ui-key.yacloud.ui.constants.label_interconnect_aUMcv }}**.
+  1. На панели слева выберите ![pipeline](../../_assets/console-icons/pipeline.svg) **{{ ui-key.yacloud.interconnect.trunk-connection.trunk-connections_kBGNL }}**. В открывшемся окне будет представлен список всех транковых подключений в выбранном каталоге.
+  1. Чтобы посмотреть подробную информацию об определенном транковом подключении, нажмите на соответствующую строку в списке. В открывшемся окне приведены следующие сведения:
+
+      * На вкладке ![flag](../../_assets/console-icons/flag.svg) **{{ ui-key.yacloud.common.overview }}** — общие сведения о подключении: имя, идентификатор, статус, емкость, тип, точка присутствия, партнер {{ interconnect-name }} и тип трансивера.
+      * На вкладке ![nodes-left](../../_assets/console-icons/nodes-left.svg) **{{ ui-key.yacloud.interconnect.private-connection.private-connections_daeaR }}** — список [приватных соединений](../concepts/priv-con.md) в данном транковом подключении.
+      * На вкладке ![globe](../../_assets/console-icons/globe.svg) **{{ ui-key.yacloud.interconnect.public-connection.public-connections_7xYcV }}** — список [публичных соединений](../concepts/pub-con.md) в данном транковом подключении.
+      * На вкладке ![display-pulse](../../_assets/console-icons/display-pulse.svg) **{{ ui-key.yacloud.common.monitoring }}** — [виджеты](../../monitoring/concepts/visualization/widget.md) {{ monitoring-full-name }}, позволяющие отслеживать состояние транкового подключения.
+      * На вкладке ![list-check](../../_assets/console-icons/list-check.svg) **{{ ui-key.yacloud.common.operations-key-value }}** — список [операций](../../api-design-guide/concepts/about-async.md) с транковым подключением.
+
 - CLI {#cli}
 
   1. Посмотрите описание команды CLI для получения информации о [транковых подключениях](../concepts/trunk.md):
@@ -19,7 +32,7 @@
   1. Получите список транковых подключений в указанном каталоге:
 
       ```bash
-      yc cic trunk list --folder-id b1gqf2hjizv2jw******
+      yc cic trunk list --folder-id b1gt6g8ht345********
       ```
 
       Результат:
@@ -29,8 +42,8 @@
       +----------------------+--------------------+----------------------------+------------------+----------+
       |          ID          |        NAME        | POINT OF PRESENCE ID (POP) | TRANSCEIVER TYPE | CAPACITY |
       +----------------------+--------------------+----------------------------+------------------+----------+
-      | cf3td**********nufvr | customer-name-m9   | ru-msk-m9-0                | 10GBASE-LR       | 1 GBPS   |
-      | euuvd**********jl5sh | customer-name-ost  | ru-msk-ost-0               | 10GBASE-LR       | 1 GBPS   |
+      | cf3dcodot14p******** | customer-name-m9   | ru-msk-m9-0                | 10GBASE-LR       | 1 GBPS   |
+      | cf8hgt6sk1g8******** | customer-name-ost  | ru-msk-ost-0               | 10GBASE-LR       | 1 GBPS   |
       +----------------------+--------------------+----------------------------+------------------+----------+
       ```
 
@@ -40,20 +53,19 @@
   1. Получите информацию о транковом подключении, указав его идентификатор, полученный на предыдущем шаге:
 
       ```bash
-      # yc cic trunk get <идентификатор-транка>
-      yc cic trunk get cf3td**********nufvr
+      yc cic trunk get cf3dcodot14p********
       ```
 
       Результат:
 
       
       ```yml
-      - id: cf3td**********nufvr
+      - id: cf3dcodot14p********
         name: customer-name-m9
         description: Trunk M9
-        cloud_id: b1g7a**********kd23p
-        folder_id: b1gqf**********jiz2w
-        region_id: ru-central1
+        cloud_id: b1gia87mbaom********
+        folder_id: b1gt6g8ht345********
+        region_id: {{ region-id }}
         created_at: "2025-03-25T10:54:46Z"
         single_port_direct_joint:
           transceiver_type: TRANSCEIVER_TYPE_10GBASE_LR
@@ -65,7 +77,8 @@
 
 
 
-      где,
+      Где:
+
       * `id` — идентификатор транкового подключения.
       * `name` — название транкового подключения.
       * `description` — описание транкового подключения.

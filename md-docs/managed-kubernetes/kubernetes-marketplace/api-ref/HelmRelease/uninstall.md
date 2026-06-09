@@ -5,7 +5,7 @@ Uninstalls helm release.
 ## HTTP request
 
 ```
-POST https://mks.api.cloud.yandex.net/managed-kubernetes/marketplace/v1/helm-releases/uninstall/{id}:uninstall
+POST https://mks.{{ api-host }}/managed-kubernetes/marketplace/v1/helm-releases/uninstall/{id}:uninstall
 ```
 
 ## Path parameters

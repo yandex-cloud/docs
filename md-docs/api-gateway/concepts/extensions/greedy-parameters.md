@@ -29,4 +29,4 @@
 
 ## Примеры использования {#examples}
 
-* [Запуск контейнерного приложения в Yandex Serverless Containers](../../tutorials/deploy-app-container.md)
+* [{#T}](../../tutorials/deploy-app-container.md)

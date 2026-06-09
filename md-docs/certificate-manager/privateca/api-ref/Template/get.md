@@ -5,7 +5,7 @@ Retrieves specified certificate template.
 ## HTTP request
 
 ```
-GET https://private-ca.certificate-manager.api.cloud.yandex.net/privateca/v1/templates/{id}
+GET https://private-ca.certificate-manager.{{ api-host }}/privateca/v1/templates/{id}
 ```
 
 ## Path parameters

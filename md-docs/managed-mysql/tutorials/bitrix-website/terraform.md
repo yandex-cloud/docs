@@ -1,6 +1,6 @@
-# Создание сайта на базе «1С-Битрикс» с помощью Terraform
+# Создание сайта на базе «1С-Битрикс» с помощью {{ TF }}
 
-Чтобы создать инфраструктуру для [сайта на базе «1С-Битрикс»](index.md) c помощью Terraform:
+Чтобы создать инфраструктуру для [сайта на базе «1С-Битрикс»](index.md) c помощью {{ TF }}:
 
 1. [Подготовьте облако к работе](#before-you-begin).
 1. [Создайте инфраструктуру](#deploy).
@@ -11,34 +11,34 @@
 
 ## Подготовьте облако к работе {#before-you-begin}
 
-Зарегистрируйтесь в Yandex Cloud и создайте [платежный аккаунт](../../../billing/concepts/billing-account.md):
-1. Перейдите в [консоль управления](https://console.yandex.cloud), затем войдите в Yandex Cloud или зарегистрируйтесь.
-1. На странице **[Yandex Cloud Billing](https://center.yandex.cloud/billing/accounts)** убедитесь, что у вас подключен платежный аккаунт, и он находится в [статусе](../../../billing/concepts/billing-account-statuses.md) `ACTIVE` или `TRIAL_ACTIVE`. Если платежного аккаунта нет, [создайте его](../../../billing/quickstart/index.md) и [привяжите](../../../billing/operations/pin-cloud.md) к нему облако.
+Зарегистрируйтесь в {{ yandex-cloud }} и создайте [платежный аккаунт](../../../billing/concepts/billing-account.md):
+1. Перейдите в [консоль управления]({{ link-console-main }}), затем войдите в {{ yandex-cloud }} или зарегистрируйтесь.
+1. На странице **[{{ ui-key.yacloud_billing.billing.label_service }}]({{ link-console-billing }})** убедитесь, что у вас подключен платежный аккаунт, и он находится в [статусе](../../../billing/concepts/billing-account-statuses.md) `ACTIVE` или `TRIAL_ACTIVE`. Если платежного аккаунта нет, [создайте его](../../../billing/quickstart/index.md) и [привяжите](../../../billing/operations/pin-cloud.md) к нему облако.
 
-Если у вас есть активный платежный аккаунт, вы можете создать или выбрать [каталог](../../../resource-manager/concepts/resources-hierarchy.md#folder), в котором будет работать ваша инфраструктура, на [странице облака](https://console.yandex.cloud/cloud).
+Если у вас есть активный платежный аккаунт, вы можете создать или выбрать [каталог](../../../resource-manager/concepts/resources-hierarchy.md#folder), в котором будет работать ваша инфраструктура, на [странице облака]({{ link-console-cloud }}).
 
 [Подробнее об облаках и каталогах](../../../resource-manager/concepts/resources-hierarchy.md).
 
 ### Необходимые платные ресурсы {#paid-resources}
 
-* Виртуальная машина: использование вычислительных ресурсов, хранилища, публичного IP-адреса и операционной системы (см. [тарифы Compute Cloud](../../../compute/pricing.md)).
+* Виртуальная машина: использование вычислительных ресурсов, хранилища, публичного IP-адреса и операционной системы (см. [тарифы {{ compute-name }}](../../../compute/pricing.md)).
 
-* Кластер Managed Service for MySQL®: выделенные хостам вычислительные ресурсы, объем хранилища и резервных копий (см. [тарифы Managed Service for MySQL®](../../pricing.md)).
-* Публичные IP-адреса, если для хостов кластера включен публичный доступ (см. [тарифы Virtual Private Cloud](../../../vpc/pricing.md)).
+* Кластер {{ mmy-name }}: выделенные хостам вычислительные ресурсы, объем хранилища и резервных копий (см. [тарифы {{ mmy-name }}](../../pricing.md)).
+* Публичные IP-адреса, если для хостов кластера включен публичный доступ (см. [тарифы {{ vpc-name }}](../../../vpc/pricing.md)).
 
 Для данного руководства используется пробная версия «1С-Битрикс» с ознакомительным периодом в 30 дней. Стоимость электронных версий продукта вы можете уточнить на официальном ресурсе [«1С-Битрикс»](https://www.1c-bitrix.ru).
 
 ## Создайте инфраструктуру {#deploy}
 
-[Terraform](https://www.terraform.io/) позволяет быстро создать облачную инфраструктуру в Yandex Cloud и управлять ею с помощью файлов конфигураций. В файлах конфигураций хранится описание инфраструктуры на языке HCL (HashiCorp Configuration Language). При изменении файлов конфигураций Terraform автоматически определяет, какая часть вашей конфигурации уже развернута, что следует добавить или удалить.
+[{{ TF }}](https://www.terraform.io/) позволяет быстро создать облачную инфраструктуру в {{ yandex-cloud }} и управлять ею с помощью файлов конфигураций. В файлах конфигураций хранится описание инфраструктуры на языке HCL (HashiCorp Configuration Language). При изменении файлов конфигураций {{ TF }} автоматически определяет, какая часть вашей конфигурации уже развернута, что следует добавить или удалить.
 
-Terraform распространяется под лицензией [Business Source License](https://github.com/hashicorp/terraform/blob/main/LICENSE), а [провайдер Yandex Cloud для Terraform](https://github.com/yandex-cloud/terraform-provider-yandex) — под лицензией [MPL-2.0](https://www.mozilla.org/en-US/MPL/2.0/).
+{{ TF }} распространяется под лицензией [Business Source License](https://github.com/hashicorp/terraform/blob/main/LICENSE), а [провайдер {{ yandex-cloud }} для {{ TF }}](https://github.com/yandex-cloud/terraform-provider-yandex) — под лицензией [MPL-2.0](https://www.mozilla.org/en-US/MPL/2.0/).
 
-Подробную информацию о ресурсах провайдера смотрите в документации на сайте [Terraform](https://www.terraform.io/docs/providers/yandex/index.html) или в [зеркале](../../../terraform/index.md).
+Подробную информацию о ресурсах провайдера смотрите в документации на сайте [{{ TF }}](https://www.terraform.io/docs/providers/yandex/index.html) или в [зеркале]({{ tf-docs-link }}).
 
-Для создания инфраструктуры c помощью Terraform:
+Для создания инфраструктуры c помощью {{ TF }}:
 
-1. [Установите Terraform](../../../tutorials/infrastructure-management/terraform-quickstart.md#install-terraform), [получите данные для аутентификации](../../../tutorials/infrastructure-management/terraform-quickstart.md#get-credentials) и укажите источник для установки провайдера Yandex Cloud (раздел [Настройте провайдер](../../../tutorials/infrastructure-management/terraform-quickstart.md#configure-provider), шаг 1).
+1. [Установите {{ TF }}](../../../tutorials/infrastructure-management/terraform-quickstart.md#install-terraform), [получите данные для аутентификации](../../../tutorials/infrastructure-management/terraform-quickstart.md#get-credentials) и укажите источник для установки провайдера {{ yandex-cloud }} (раздел [{#T}](../../../tutorials/infrastructure-management/terraform-quickstart.md#configure-provider), шаг 1).
 1. Подготовьте файлы с описанием инфраструктуры:
 
    {% list tabs group=infrastructure_description %}
@@ -110,21 +110,21 @@ Terraform распространяется под лицензией [Business S
            
            resource "yandex_vpc_subnet" "subnet-1" {
              name           = "subnet1"
-             zone           = "ru-central1-a"
+             zone           = "{{ region-id }}-a"
              network_id     = yandex_vpc_network.network-1.id
              v4_cidr_blocks = ["192.168.1.0/24"]
            }
            
            resource "yandex_vpc_subnet" "subnet-2" {
              name           = "subnet2"
-             zone           = "ru-central1-b"
+             zone           = "{{ region-id }}-b"
              network_id     = yandex_vpc_network.network-1.id
              v4_cidr_blocks = ["192.168.2.0/24"]
            }
            
            resource "yandex_vpc_subnet" "subnet-3" {
              name           = "subnet3"
-             zone           = "ru-central1-d"
+             zone           = "{{ region-id }}-d"
              network_id     = yandex_vpc_network.network-1.id
              v4_cidr_blocks = ["192.168.3.0/24"]
            }
@@ -198,7 +198,7 @@ Terraform распространяется под лицензией [Business S
            resource "yandex_compute_disk" "boot-disk" {
              name     = "bootdisk"
              type     = "network-ssd"
-             zone     = "ru-central1-a"
+             zone     = "{{ region-id }}-a"
              size     = "24"
              image_id = data.yandex_compute_image.ubuntu-image.id
            }
@@ -208,7 +208,7 @@ Terraform распространяется под лицензией [Business S
            resource "yandex_compute_instance" "vm-bitrix" {
              name        = "bitrixwebsite"
              platform_id = "standard-v3"
-             zone        = "ru-central1-a"
+             zone        = "{{ region-id }}-a"
            
              resources {
                core_fraction = 20
@@ -247,13 +247,13 @@ Terraform распространяется под лицензией [Business S
              }
            
              host {
-               zone             = "ru-central1-a"
+               zone             = "{{ region-id }}-a"
                subnet_id        = yandex_vpc_subnet.subnet-1.id
                assign_public_ip = false
              }
            
              host {
-               zone             = "ru-central1-b"
+               zone             = "{{ region-id }}-b"
                subnet_id        = yandex_vpc_subnet.subnet-2.id
                assign_public_ip = false
              }
@@ -297,24 +297,24 @@ Terraform распространяется под лицензией [Business S
 
    {% endlist %}
 
-   Более подробную информацию о параметрах используемых ресурсов в Terraform см. в документации провайдера:
+   Более подробную информацию о параметрах используемых ресурсов в {{ TF }} см. в документации провайдера:
 
-   * [Сеть](../../../vpc/concepts/network.md#network) — [yandex_vpc_network](../../../terraform/resources/vpc_network.md).
-   * [Подсети](../../../vpc/concepts/network.md#subnet) — [yandex_vpc_subnet](../../../terraform/resources/vpc_subnet.md).
-   * [Группы безопасности](../../../vpc/concepts/security-groups.md) — [yandex_vpc_security_group](../../../terraform/resources/vpc_security_group.md).
-   * [Образ](../../../compute/concepts/image.md) — [yandex_compute_image](../../../terraform/resources/compute_image.md).
-   * [Диск](../../../compute/concepts/disk.md) — [yandex_compute_disk](../../../terraform/resources/compute_disk.md).
-   * [Виртуальная машина](../../../compute/concepts/vm.md) — [yandex_compute_instance](../../../terraform/resources/compute_instance.md).
-   * [Кластер MySQL](../../concepts/index.md) — [yandex_mdb_mysql_cluster](../../../terraform/resources/mdb_mysql_cluster.md).
-   * База данных — [yandex_mdb_mysql_database](../../../terraform/resources/mdb_mysql_database.md).
-   * Пользователь БД — [yandex_mdb_mysql_user](../../../terraform/resources/mdb_mysql_user.md).
+   * [Сеть](../../../vpc/concepts/network.md#network) — [yandex_vpc_network]({{ tf-provider-resources-link }}/vpc_network).
+   * [Подсети](../../../vpc/concepts/network.md#subnet) — [yandex_vpc_subnet]({{ tf-provider-resources-link }}/vpc_subnet).
+   * [Группы безопасности](../../../vpc/concepts/security-groups.md) — [yandex_vpc_security_group]({{ tf-provider-resources-link }}/vpc_security_group).
+   * [Образ](../../../compute/concepts/image.md) — [yandex_compute_image]({{ tf-provider-resources-link }}/compute_image).
+   * [Диск](../../../compute/concepts/disk.md) — [yandex_compute_disk]({{ tf-provider-resources-link }}/compute_disk).
+   * [Виртуальная машина](../../../compute/concepts/vm.md) — [yandex_compute_instance]({{ tf-provider-resources-link }}/compute_instance).
+   * [Кластер MySQL](../../concepts/index.md) — [yandex_mdb_mysql_cluster]({{ tf-provider-resources-link }}/mdb_mysql_cluster).
+   * База данных — [yandex_mdb_mysql_database]({{ tf-provider-resources-link }}/mdb_mysql_database).
+   * Пользователь БД — [yandex_mdb_mysql_user]({{ tf-provider-resources-link }}/mdb_mysql_user).
 
 1. В файле `bitrix-website.auto.tfvars` задайте пользовательские параметры:
    * `folder_id` — [идентификатор каталога](../../../resource-manager/operations/folder/get-id.md).
    * `vm_user` — имя пользователя ВМ.
-   * `ssh_key_path` — путь к файлу с открытым SSH-ключом для аутентификации пользователя на ВМ. Подробнее см. [Создание пары ключей SSH](../../../compute/operations/vm-connect/ssh.md#creating-ssh-keys).
-   * `mysql_user` — имя пользователя для подключения к БД MySQL®. В этом руководстве укажите `user1`.
-   * `mysql_password` — пароль пользователя для доступа к БД MySQL®. В этом руководстве укажите значение `p@s$woRd!`.
+   * `ssh_key_path` — путь к файлу с открытым SSH-ключом для аутентификации пользователя на ВМ. Подробнее см. [{#T}](../../../compute/operations/vm-connect/ssh.md#creating-ssh-keys).
+   * `mysql_user` — имя пользователя для подключения к БД {{ MY }}. В этом руководстве укажите `user1`.
+   * `mysql_password` — пароль пользователя для доступа к БД {{ MY }}. В этом руководстве укажите значение `p@s$woRd!`.
 1. Создайте ресурсы:
 
    1. В терминале перейдите в директорию с конфигурационным файлом.
@@ -336,7 +336,7 @@ Terraform распространяется под лицензией [Business S
       terraform plan
       ```
    
-      В терминале будет выведен список ресурсов с параметрами. На этом этапе изменения не будут внесены. Если в конфигурации есть ошибки, Terraform на них укажет.
+      В терминале будет выведен список ресурсов с параметрами. На этом этапе изменения не будут внесены. Если в конфигурации есть ошибки, {{ TF }} на них укажет.
    1. Примените изменения конфигурации:
    
       ```bash
@@ -354,7 +354,7 @@ Terraform распространяется под лицензией [Business S
    ssh ubuntu@<публичный_IP-адрес_ВМ>
    ```
 
-   Публичный IP-адрес ВМ можно узнать в [консоли управления](https://console.yandex.cloud) в поле **Публичный IPv4-адрес** блока **Сеть** на странице ВМ.
+   Публичный IP-адрес ВМ можно узнать в [консоли управления]({{ link-console-main }}) в поле **{{ ui-key.yacloud.compute.instance.overview.label_public-ipv4 }}** блока **{{ ui-key.yacloud.compute.instance.overview.section_network }}** на странице ВМ.
 
 1. Установите необходимое программное обеспечение:
 
@@ -477,18 +477,18 @@ Terraform распространяется под лицензией [Business S
 
 1. Настройте БД:
    1. В поле **Сервер** укажите полное доменное имя созданной вами БД. Чтобы его узнать:
-      1. В [консоли управления](https://console.yandex.cloud) перейдите в новой вкладке браузера на страницу каталога.
-      1. [Перейдите](../../../console/operations/select-service.md#select-service) в сервис **Managed Service for&nbsp;MySQL**.
+      1. В [консоли управления]({{ link-console-main }}) перейдите в новой вкладке браузера на страницу каталога.
+      1. Перейдите в сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-mysql }}**.
       1. В открывшемся окне выберите созданный ранее кластер `BitrixMySQL`.
-      1. В меню слева выберите вкладку **Хосты**.
-      1. В поле **FQDN хоста** подведите курсор к имени хоста (вида `rc1c-cfazv1db********`) и скопируйте полное доменное имя базы данных, нажав появившийся значок ![copy](../../../_assets/copy.svg). К имени хоста добавится полное доменное имя, в результате в поле **Сервер** должно быть указано имя вида `rc1c-cfazv1db********.mdb.yandexcloud.net`.
-   1. В полях **Имя пользователя** и **Пароль** укажите данные, с которыми вы создавали БД в разделе [Создайте кластер БД MySQL®](#create-mysql).
+      1. В меню слева выберите вкладку **{{ ui-key.yacloud.mysql.cluster.switch_hosts }}**.
+      1. В поле **{{ ui-key.yacloud.mdb.cluster.hosts.host_column_name }}** подведите курсор к имени хоста (вида `rc1c-cfazv1db********`) и скопируйте полное доменное имя базы данных, нажав появившийся значок ![copy](../../../_assets/copy.svg). К имени хоста добавится полное доменное имя, в результате в поле **Сервер** должно быть указано имя вида `rc1c-cfazv1db********.{{ dns-zone }}`.
+   1. В полях **Имя пользователя** и **Пароль** укажите данные, с которыми вы создавали БД в разделе [Создайте кластер БД {{ MY }}](#create-mysql).
    1. В поле **Имя базы данных** укажите имя созданной БД (`db1`).
    1. Нажмите кнопку **Далее**.
 
    ![Шаг 5](../../../_assets/tutorials/bitrix-website/bitrix-website7.png)
 
-1. Дождитесь инициализации БД MySQL®.
+1. Дождитесь инициализации БД {{ MY }}.
 
    ![Шаг 6](../../../_assets/tutorials/bitrix-website/bitrix-website8.png)
 
@@ -551,7 +551,7 @@ Terraform распространяется под лицензией [Business S
        terraform plan
        ```
     
-       В терминале будет выведен список ресурсов с параметрами. На этом этапе изменения не будут внесены. Если в конфигурации есть ошибки, Terraform на них укажет.
+       В терминале будет выведен список ресурсов с параметрами. На этом этапе изменения не будут внесены. Если в конфигурации есть ошибки, {{ TF }} на них укажет.
     1. Примените изменения конфигурации:
     
        ```bash
@@ -562,4 +562,4 @@ Terraform распространяется под лицензией [Business S
 
 #### См. также {#see-also}
 
-* [Создание сайта на базе «1С-Битрикс» с помощью консоли управления](console.md).
+* [{#T}](console.md).

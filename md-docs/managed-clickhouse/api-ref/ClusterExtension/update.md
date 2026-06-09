@@ -3,7 +3,7 @@
 ## HTTP request
 
 ```
-PATCH https://mdb.api.cloud.yandex.net/managed-clickhouse/v1/clusters/{clusterId}/extensions/{extension_spec.name}
+PATCH https://{{ api-host-mdb }}/managed-clickhouse/v1/clusters/{clusterId}/extensions/{extension_spec.name}
 ```
 
 ## Path parameters
@@ -59,10 +59,7 @@ The maximum string length in characters is 63. ||
   "createdBy": "string",
   "modifiedAt": "string",
   "done": "boolean",
-  "metadata": {
-    "clusterId": "string",
-    "extensionName": "string"
-  },
+  "metadata": "object",
   // Includes only one of the fields `error`, `response`
   "error": {
     "code": "integer",
@@ -71,11 +68,7 @@ The maximum string length in characters is 63. ||
       "object"
     ]
   },
-  "response": {
-    "name": "string",
-    "clusterId": "string",
-    "version": "string"
-  }
+  "response": "object"
   // end of the list of possible fields
 }
 ```
@@ -117,7 +110,7 @@ In some languages, built-in datetime utilities do not support nanosecond precisi
 
 If the value is `false`, it means the operation is still in progress.
 If `true`, the operation is completed, and either `error` or `response` is available. ||
-|| metadata | **[UpdateClusterExtensionMetadata](#yandex.cloud.mdb.clickhouse.v1.UpdateClusterExtensionMetadata)**
+|| metadata | **object**
 
 Service-specific metadata associated with the operation.
 It typically contains the ID of the target resource that the operation is performed on.
@@ -132,7 +125,7 @@ The operation result.
 If `done == false` and there was no failure detected, neither `error` nor `response` is set.
 If `done == false` and there was a failure detected, `error` is set.
 If `done == true`, exactly one of `error` or `response` is set. ||
-|| response | **[ClusterExtension](#yandex.cloud.mdb.clickhouse.v1.ClusterExtension)**
+|| response | **object**
 
 The normal response of the operation in case of success.
 If the original method returns no data on success, such as Delete,
@@ -147,14 +140,6 @@ The operation result.
 If `done == false` and there was no failure detected, neither `error` nor `response` is set.
 If `done == false` and there was a failure detected, `error` is set.
 If `done == true`, exactly one of `error` or `response` is set. ||
-|#
-
-## UpdateClusterExtensionMetadata {#yandex.cloud.mdb.clickhouse.v1.UpdateClusterExtensionMetadata}
-
-#|
-||Field | Description ||
-|| clusterId | **string** ||
-|| extensionName | **string** ||
 |#
 
 ## Status {#google.rpc.Status}
@@ -172,23 +157,4 @@ An error message. ||
 || details[] | **object**
 
 A list of messages that carry the error details. ||
-|#
-
-## ClusterExtension {#yandex.cloud.mdb.clickhouse.v1.ClusterExtension}
-
-#|
-||Field | Description ||
-|| name | **string**
-
-Required field. Required. Extension name.
-
-The maximum string length in characters is 63. ||
-|| clusterId | **string**
-
-Required field. Required. ID of the ClickHouse cluster.
-
-The maximum string length in characters is 50. ||
-|| version | **string**
-
-Required field. Required. Extension version. ||
 |#

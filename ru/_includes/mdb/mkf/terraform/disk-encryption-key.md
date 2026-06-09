@@ -8,4 +8,4 @@ resource "yandex_mdb_kafka_cluster" "<имя_кластера>" {
 }
 ```
 
-Подробнее о шифровании дисков см. в разделе [Хранилище](../../../../managed-kafka/concepts/storage.md#disk-encryption).
+Подробнее о шифровании дисков читайте в разделе [Хранилище](../../../../managed-kafka/concepts/storage.md#disk-encryption).

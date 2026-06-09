@@ -1,11 +1,11 @@
-# Метрики Yandex Managed Service for Apache Airflow™
+# Метрики {{ maf-full-name }}
 
 
-В этом разделе описаны метрики сервиса [Managed Service for Apache Airflow™](../../managed-airflow/index.md), поставляемые в Monitoring.
+В этом разделе описаны метрики сервиса [{{ maf-name }}](../../managed-airflow/index.md), поставляемые в {{ monitoring-name }}.
 
 Имя метрики пишется в метку `name`.
 
-Общие метки для всех метрик сервиса Managed Service for Apache Airflow™:
+Общие метки для всех метрик сервиса {{ maf-name }}:
 
 Метка | Значение
 ----|----

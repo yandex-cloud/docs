@@ -1,10 +1,10 @@
-# Справочник метрик Yandex Monitoring
+# Справочник метрик {{ monitoring-full-name }}
 
-В этом разделе описаны метрики сервиса Cloud Logging, поставляемые в [Monitoring](../monitoring/index.md).
+В этом разделе описаны метрики сервиса {{ cloud-logging-name }}, поставляемые в [{{ monitoring-name }}](../monitoring/index.md).
 
 Имя метрики пишется в метку `name`.
 
-Общие метки для всех метрик сервиса Cloud Logging:
+Общие метки для всех метрик сервиса {{ cloud-logging-name }}:
 
 Метка | Значение
 ----|----
@@ -35,4 +35,4 @@ group | Имя [лог-группы](concepts/log-group.md)
 
 #### См. также {#see-also}
 
-[Настройка реагирования в Cloud Logging и Yandex Cloud Functions](tutorials/log-group-record-monitoring.md)
+[{#T}](tutorials/log-group-record-monitoring.md)

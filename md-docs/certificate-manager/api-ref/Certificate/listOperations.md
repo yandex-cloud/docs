@@ -5,7 +5,7 @@ Lists operations for the specified certificate.
 ## HTTP request
 
 ```
-GET https://certificate-manager.api.cloud.yandex.net/certificate-manager/v1/certificates/{certificateId}/operations
+GET https://{{ api-host-certmanager }}/certificate-manager/v1/certificates/{certificateId}/operations
 ```
 
 ## Path parameters

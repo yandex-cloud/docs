@@ -5,7 +5,7 @@ Returns synchronization settings for a subject container.
 ## HTTP request
 
 ```
-GET https://organization-manager.api.cloud.yandex.net/organization-manager/v1/idp/synchronization-settings/{subjectContainerId}
+GET https://organization-manager.{{ api-host }}/organization-manager/v1/idp/synchronization-settings/{subjectContainerId}
 ```
 
 ## Path parameters
@@ -56,7 +56,8 @@ The maximum string length in characters is 50. ||
     }
   ],
   "createdAt": "string",
-  "replacementDomain": "string"
+  "replacementDomain": "string",
+  "enablePasswordWriteback": "boolean"
 }
 ```
 
@@ -104,6 +105,9 @@ In some languages, built-in datetime utilities do not support nanosecond precisi
 || replacementDomain | **string**
 
 Domain replacement configuration. ||
+|| enablePasswordWriteback | **boolean**
+
+Enables password writeback feature. ||
 |#
 
 ## SynchronizationFilter {#yandex.cloud.organizationmanager.v1.idp.SynchronizationFilter}

@@ -1,32 +1,32 @@
 # Интеграции
 
-В данном разделе приведена основная информация про интеграции Yandex Query с различными сервисами Yandex Cloud и сторонними системами.
+В данном разделе приведена основная информация про интеграции {{ yq-full-name }} с различными сервисами {{ yandex-cloud }} и сторонними системами.
 
 ## Источники данных {#data_sources}
 
-Yandex Query поддерживает работу с аналитическими и потоковыми источниками данных.
+{{ yq-full-name }} поддерживает работу с аналитическими и потоковыми источниками данных.
 
 ### Аналитические источники {#analytics_data_sources}
 
 | Источник данных | Чтение  | Запись | Описание |
 | --- | :---: | :---: | --- |
-| [Object Storage](../storage/quickstart.md) | ![yes](../_assets/common/yes.svg) | ![yes](../_assets/common/yes.svg) | [Описание](sources-and-sinks/object-storage-binding.md) |
-| [Yandex Managed Service for ClickHouse®](../managed-clickhouse/quickstart.md) | ![yes](../_assets/common/yes.svg) | ![no](../_assets/common/no.svg)  | [Описание](sources-and-sinks/clickhouse.md) |
-| [Yandex MPP Analytics for PostgreSQL](../managed-greenplum/quickstart.md) | ![yes](../_assets/common/yes.svg) | ![no](../_assets/common/no.svg)  | [Описание](sources-and-sinks/greenplum.md) |
-| [Yandex Managed Service for MySQL®](../managed-mysql/quickstart.md) | ![yes](../_assets/common/yes.svg) | ![no](../_assets/common/no.svg)  | [Описание](sources-and-sinks/mysql.md) |
-| [Yandex Managed Service for PostgreSQL](../managed-postgresql/quickstart.md) | ![yes](../_assets/common/yes.svg) | ![no](../_assets/common/no.svg)  | [Описание](sources-and-sinks/postgresql.md) |
-| [Yandex Managed Service for YDB](../ydb/quickstart.md) | ![yes](../_assets/common/yes.svg) | ![no](../_assets/common/no.svg)  | [Описание](sources-and-sinks/ydb.md) |
+| [{{ objstorage-name }}](../storage/quickstart.md) | ![yes](../_assets/common/yes.svg) | ![yes](../_assets/common/yes.svg) | [Описание](sources-and-sinks/object-storage-binding.md) |
+| [{{ mch-full-name }}](../managed-clickhouse/quickstart.md) | ![yes](../_assets/common/yes.svg) | ![no](../_assets/common/no.svg)  | [Описание](sources-and-sinks/clickhouse.md) |
+| [{{ mgp-full-name }}](../managed-greenplum/quickstart.md) | ![yes](../_assets/common/yes.svg) | ![no](../_assets/common/no.svg)  | [Описание](sources-and-sinks/greenplum.md) |
+| [{{ mmy-full-name }}](../managed-mysql/quickstart.md) | ![yes](../_assets/common/yes.svg) | ![no](../_assets/common/no.svg)  | [Описание](sources-and-sinks/mysql.md) |
+| [{{ mpg-full-name }}](../managed-postgresql/quickstart.md) | ![yes](../_assets/common/yes.svg) | ![no](../_assets/common/no.svg)  | [Описание](sources-and-sinks/postgresql.md) |
+| [{{ ydb-full-name }}](../ydb/quickstart.md) | ![yes](../_assets/common/yes.svg) | ![no](../_assets/common/no.svg)  | [Описание](sources-and-sinks/ydb.md) |
 
 
 ### Потоковые источники {#streaming_data_sources}
 
 | Источник данных | Чтение  | Запись | Описание |
 | --- | :---: | :---: | --- |
-| [Yandex Data Streams](../data-streams/quickstart/index.md) | ![yes](../_assets/common/yes.svg) | ![yes](../_assets/common/yes.svg) | [Описание](sources-and-sinks/data-streams-binding.md) |
-| [Monitoring](../monitoring/quickstart.md) | ![no](../_assets/common/no.svg) |  ![yes](../_assets/common/yes.svg) | [Описание](sources-and-sinks/monitoring.md) |
-| [Yandex Cloud Logging](../logging/quickstart.md) | Через [Yandex Data Streams](../data-streams/quickstart/index.md) |  ![no](../_assets/common/no.svg) | [Описание](tutorials/cloud-logging.md)|
-| [Yandex IoT Core](../iot-core/quickstart.md) | Через [Yandex Data Streams](../data-streams/quickstart/index.md) |  ![no](../_assets/common/no.svg) |  |
-| [Yandex Audit Trails](../audit-trails/quickstart.md) | Через [Yandex Data Streams](../data-streams/quickstart/index.md) |  ![no](../_assets/common/no.svg) | [Описание](tutorials/audit-trails.md) |
+| [{{ yds-full-name }}](../data-streams/quickstart/index.md) | ![yes](../_assets/common/yes.svg) | ![yes](../_assets/common/yes.svg) | [Описание](sources-and-sinks/data-streams-binding.md) |
+| [{{ monitoring-name }}](../monitoring/quickstart.md) | ![no](../_assets/common/no.svg) |  ![yes](../_assets/common/yes.svg) | [Описание](sources-and-sinks/monitoring.md) |
+| [{{ cloud-logging-full-name }}](../logging/quickstart.md) | Через [{{ yds-full-name }}](../data-streams/quickstart/index.md) |  ![no](../_assets/common/no.svg) | [Описание](tutorials/cloud-logging.md)|
+| [{{ iot-full-name }}](../iot-core/quickstart.md) | Через [{{ yds-full-name }}](../data-streams/quickstart/index.md) |  ![no](../_assets/common/no.svg) |  |
+| [{{ at-full-name }}](../audit-trails/quickstart.md) | Через [{{ yds-full-name }}](../data-streams/quickstart/index.md) |  ![no](../_assets/common/no.svg) | [Описание](tutorials/audit-trails.md) |
 
 
 ## SDK {#sdk}
@@ -45,8 +45,8 @@ Yandex Query поддерживает работу с аналитическим
 
 {% note info %}
 
-* Yandex Query на данный момент поддерживает только **scripting-запросы**.
-* Все поддерживаемые SDK используют общий подход к работе с Yandex Query и работают одинаково. Наиболее наглядным будет [пример](SDK/SDK.md) работы с Python SDK.
+* {{ yq-full-name }} на данный момент поддерживает только **scripting-запросы**.
+* Все поддерживаемые SDK используют общий подход к работе с {{ yq-full-name }} и работают одинаково. Наиболее наглядным будет [пример](SDK/SDK.md) работы с Python SDK.
 
 {% endnote %}
 
@@ -66,22 +66,22 @@ Yandex Query поддерживает работу с аналитическим
 |  Среда | Уровень поддержки  | Инструкция | Описание |
 | --- | :---: | :---: | --- |
 | Jupyter Notebooks |  [DML](#note) |  [Инструкция](tutorials/jupyter.md) | C помощью [yandex-query-magics](https://github.com/yandex-cloud/yandex-query-magics)|
-| [DataSphere](../datasphere/quickstart.md) |  [DML](#note) |  [Инструкция](tutorials/jupyter.md) | C помощью [yandex-query-magics](https://github.com/yandex-cloud/yandex-query-magics)|
+| [{{ ml-platform-short-name }}](../datasphere/quickstart.md) |  [DML](#note) |  [Инструкция](tutorials/jupyter.md) | C помощью [yandex-query-magics](https://github.com/yandex-cloud/yandex-query-magics)|
 
 
 ## Визуализация данных {#bi}
 
 | Среда | Уровень поддержки  | Инструкция |
 | --- | :---: | --- |
-| [DataLens](../datalens/tutorials/index.md) | Полный | [Инструкция](tutorials/datalens.md) |
+| [{{ datalens-name }}](../datalens/tutorials/index.md) | Полный | [Инструкция](tutorials/datalens.md) |
 
 
 ## Оркестрация {#scheduling}
 
 | Среда | Уровень поддержки  | Инструкция |
 | --- | :---: | --- |
-| [Apache Airflow™](../managed-airflow/quickstart.md) | [DML](#note) | [Инструкция](tutorials/airflow-auto-tasks.md) |
-| [Yandex Managed Service for Apache Airflow™](../managed-airflow/quickstart.md) | [DML](#note) | [Инструкция](tutorials/airflow-auto-tasks.md) |
+| [{{ AF }}](../managed-airflow/quickstart.md) | [DML](#note) | [Инструкция](tutorials/airflow-auto-tasks.md) |
+| [{{ maf-full-name }}](../managed-airflow/quickstart.md) | [DML](#note) | [Инструкция](tutorials/airflow-auto-tasks.md) |
 
 ## Примечание {#note}
 

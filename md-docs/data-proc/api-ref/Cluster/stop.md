@@ -5,7 +5,7 @@ Stops the specified cluster.
 ## HTTP request
 
 ```
-POST https://dataproc.api.cloud.yandex.net/dataproc/v1/clusters/{clusterId}:stop
+POST https://dataproc.{{ api-host }}/dataproc/v1/clusters/{clusterId}:stop
 ```
 
 ## Path parameters

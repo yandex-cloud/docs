@@ -1,9 +1,9 @@
-# Поставка данных из Yandex Managed Service for Apache Kafka® с помощью Yandex Data Transfer
+# Поставка данных из {{ mkf-full-name }} с помощью {{ data-transfer-full-name }}
 
-# Поставка данных из очереди Apache Kafka® в PostgreSQL с помощью Yandex Data Transfer
+# Поставка данных из очереди {{ KF }} в {{ PG }} с помощью {{ data-transfer-full-name }}
 
 
-Вы можете настроить перенос данных из топика Managed Service for Apache Kafka® в Managed Service for PostgreSQL с помощью сервиса Yandex Data Transfer. Для этого:
+Вы можете настроить перенос данных из топика {{ mkf-name }} в {{ mpg-name }} с помощью сервиса {{ data-transfer-full-name }}. Для этого:
 
 1. [Подготовьте тестовые данные](#prepare-data).
 1. [Подготовьте и активируйте трансфер](#prepare-transfer).
@@ -14,9 +14,9 @@
 
 ## Необходимые платные ресурсы {#paid-resources}
 
-* Кластер Managed Service for Apache Kafka®: выделенные хостам вычислительные ресурсы, объем хранилища и резервных копий (см. [тарифы Managed Service for Apache Kafka®](../../managed-kafka/pricing.md)).
-* Кластер Managed Service for PostgreSQL: выделенные хостам вычислительные ресурсы, объем хранилища и резервных копий (см. [тарифы Managed Service for PostgreSQL](../pricing.md)).
-* Публичные IP-адреса, если для хостов кластеров включен публичный доступ (см. [тарифы Virtual Private Cloud](../../vpc/pricing.md)).
+* Кластер {{ mkf-name }}: выделенные хостам вычислительные ресурсы, объем хранилища и резервных копий (см. [тарифы {{ mkf-name }}](../../managed-kafka/pricing.md)).
+* Кластер {{ mpg-name }}: выделенные хостам вычислительные ресурсы, объем хранилища и резервных копий (см. [тарифы {{ mpg-name }}](../pricing.md)).
+* Публичные IP-адреса, если для хостов кластеров включен публичный доступ (см. [тарифы {{ vpc-name }}](../../vpc/pricing.md)).
 
 
 ## Перед началом работы {#before-you-begin}
@@ -29,25 +29,25 @@
 
         {% note info %}
         
-        Публичный доступ к хостам кластера нужен, если вы планируете подключаться к кластеру через интернет. Этот вариант подключения более простой, и его рекомендуется использовать для прохождения руководства. К хостам без публичного доступа тоже можно подключиться, но только с виртуальных машин Yandex Cloud, расположенных в той же облачной сети, что и кластер.
+        Публичный доступ к хостам кластера нужен, если вы планируете подключаться к кластеру через интернет. Этот вариант подключения более простой, и его рекомендуется использовать для прохождения руководства. К хостам без публичного доступа тоже можно подключиться, но только с виртуальных машин {{ yandex-cloud }}, расположенных в той же облачной сети, что и кластер.
         
         {% endnote %}
 
-        1. [Создайте кластер-источник Managed Service for Apache Kafka®](../../managed-kafka/operations/cluster-create.md#create-cluster) в любой [зоне доступности](../../overview/concepts/geo-scope.md), любой подходящей конфигурации и с публичным доступом.
+        1. [Создайте кластер-источник {{ mkf-name }}](../../managed-kafka/operations/cluster-create.md#create-cluster) в любой [зоне доступности](../../overview/concepts/geo-scope.md), любой подходящей конфигурации и с публичным доступом.
 
         1. [Создайте в кластере-источнике топик](../../managed-kafka/operations/cluster-topics.md#create-topic) с именем `sensors`.
 
         1. [Создайте в кластере-источнике пользователя](../../managed-kafka/operations/cluster-accounts.md#create-account) с именем `mkf-user` и правами доступа к созданному топику `ACCESS_ROLE_PRODUCER` и `ACCESS_ROLE_CONSUMER`.
 
-        1. В той же зоне доступности [создайте кластер-приемник Managed Service for PostgreSQL](../operations/cluster-create.md#create-cluster) любой подходящей конфигурации с именем пользователя-администратора `pg-user` и хостами в публичном доступе.
+        1. В той же зоне доступности [создайте кластер-приемник {{ mpg-name }}](../operations/cluster-create.md#create-cluster) любой подходящей конфигурации с именем пользователя-администратора `pg-user` и хостами в публичном доступе.
 
         1. Убедитесь, что группы безопасности кластеров настроены правильно и допускают подключение к ним:
-            * [Managed Service for Apache Kafka®](../../managed-kafka/operations/connect/index.md#configuring-security-groups).
-            * [Managed Service for PostgreSQL](../operations/connect/index.md#configuring-security-groups).
+            * [{{ mkf-name }}](../../managed-kafka/operations/connect/index.md#configuring-security-groups).
+            * [{{ mpg-name }}](../operations/connect/index.md#configuring-security-groups).
 
-    - Terraform {#tf}
+    - {{ TF }} {#tf}
 
-        1. Если у вас еще нет Terraform, [установите его](../../tutorials/infrastructure-management/terraform-quickstart.md#install-terraform).
+        1. Если у вас еще нет {{ TF }}, [установите его](../../tutorials/infrastructure-management/terraform-quickstart.md#install-terraform).
         1. [Получите данные для аутентификации](../../tutorials/infrastructure-management/terraform-quickstart.md#get-credentials). Вы можете добавить их в переменные окружения или указать далее в файле с настройками провайдера.
         1. [Настройте и инициализируйте провайдер](../../tutorials/infrastructure-management/terraform-quickstart.md#configure-provider). Чтобы не создавать конфигурационный файл с настройками провайдера вручную, [скачайте его](https://github.com/yandex-cloud-examples/yc-terraform-provider-settings/blob/main/provider.tf).
         1. Поместите конфигурационный файл в отдельную рабочую директорию и [укажите значения параметров](../../tutorials/infrastructure-management/terraform-quickstart.md#configure-provider). Если данные для аутентификации не были добавлены в переменные окружения, укажите их в конфигурационном файле.
@@ -58,23 +58,23 @@
 
             * [сети](../../vpc/concepts/network.md#network) и [подсети](../../vpc/concepts/network.md#subnet) для размещения кластеров;
             * [группы безопасности](../../vpc/concepts/security-groups.md) для подключения к кластерам;
-            * кластер-источник Managed Service for Apache Kafka®;
-            * кластер-приемник Managed Service for PostgreSQL;
+            * кластер-источник {{ mkf-name }};
+            * кластер-приемник {{ mpg-name }};
             * эндпоинт для приемника;
             * трансфер.
 
         1. Укажите в файле `kafka-postgresql.tf`:
 
-            * Версии Apache Kafka® и PostgreSQL.
-            * Пароли пользователей Apache Kafka® и PostgreSQL.
+            * Версии {{ KF }} и {{ PG }}.
+            * Пароли пользователей {{ KF }} и {{ PG }}.
 
-        1. Проверьте корректность файлов конфигурации Terraform с помощью команды:
+        1. Проверьте корректность файлов конфигурации {{ TF }} с помощью команды:
 
             ```bash
             terraform validate
             ```
 
-            Если в файлах конфигурации есть ошибки, Terraform на них укажет.
+            Если в файлах конфигурации есть ошибки, {{ TF }} на них укажет.
 
         1. Создайте необходимую инфраструктуру:
 
@@ -96,19 +96,19 @@
                1. Подтвердите изменение ресурсов.
                1. Дождитесь завершения операции.
 
-            В указанном каталоге будут созданы все требуемые ресурсы. Проверить появление ресурсов и их настройки можно в [консоли управления](https://console.yandex.cloud).
+            В указанном каталоге будут созданы все требуемые ресурсы. Проверить появление ресурсов и их настройки можно в [консоли управления]({{ link-console-main }}).
 
     {% endlist %}
 
 1. Установите утилиты:
 
-    * [kafkacat](https://github.com/edenhill/kcat) — для чтения и записи данных в топики Apache Kafka®.
+    * [kafkacat](https://github.com/edenhill/kcat) — для чтения и записи данных в топики {{ KF }}.
 
         ```bash
         sudo apt update && sudo apt install --yes kafkacat
         ```
 
-        Убедитесь, что можете с ее помощью [подключиться к кластеру-источнику Managed Service for Apache Kafka® через SSL](../../managed-kafka/operations/connect/clients.md#bash-zsh).
+        Убедитесь, что можете с ее помощью [подключиться к кластеру-источнику {{ mkf-name }} через SSL](../../managed-kafka/operations/connect/clients.md#bash-zsh).
 
     * [jq](https://stedolan.github.io/jq/) — для потоковой обработки JSON-файлов.
 
@@ -117,7 +117,7 @@
 
 ## Подготовьте тестовые данные {#prepare-data}
 
-Пусть в качестве сообщения в топик Apache Kafka® `sensors` кластера-источника поступают данные от сенсоров автомобиля в формате JSON.
+Пусть в качестве сообщения в топик {{ KF }} `sensors` кластера-источника поступают данные от сенсоров автомобиля в формате JSON.
 
 Создайте локально файл `sample.json` с тестовыми данными:
 
@@ -163,10 +163,10 @@
 
 ## Подготовьте и активируйте трансфер {#prepare-transfer}
 
-1. [Создайте эндпоинт-источник](../../data-transfer/operations/endpoint/source/kafka.md) типа `Apache Kafka®` и задайте для него:
+1. [Создайте эндпоинт-источник](../../data-transfer/operations/endpoint/source/kafka.md) типа `{{ KF }}` и задайте для него:
 
-    * **Полное имя топика** — `sensors`.
-    * Правила конвертации типа `json`. В поле **Схема данных** выберите `JSON-спецификация` и в открывшуюся форму скопируйте следующую спецификацию полей:
+    * **{{ ui-key.yc-data-transfer.data-transfer.console.form.kafka.console.form.kafka.KafkaSourceConnection.topic_name.title }}** — `sensors`.
+    * Правила конвертации типа `json`. В поле **{{ ui-key.yc-data-transfer.data-transfer.console.form.common.console.form.common.ConvertRecordOptions.data_schema.title }}** выберите `{{ ui-key.yc-data-transfer.data-transfer.console.form.common.console.form.common.DataSchema.json_fields.title }}` и в открывшуюся форму скопируйте следующую спецификацию полей:
 
     {% cut "sensors-specification" %}
 
@@ -220,30 +220,30 @@
 
     - Вручную {#manual}
 
-        1. [Создайте эндпоинт-приемник](../../data-transfer/operations/endpoint/target/postgresql.md) типа `PostgreSQL` и укажите в нем параметры подключения к кластеру:
+        1. [Создайте эндпоинт-приемник](../../data-transfer/operations/endpoint/target/postgresql.md) типа `{{ PG }}` и укажите в нем параметры подключения к кластеру:
 
-            * **Тип инсталляции** — `Кластер Managed Service for PostgreSQL`.
-            * **Кластер Managed Service for PostgreSQL** — `<имя_кластера-приемника_PostgreSQL>` из выпадающего списка.
-            * **База данных** — `db1`.
-            * **Пользователь** — `pg-user`.
-            * **Пароль** — `<пароль_пользователя>`.
-        1. [Создайте трансфер](../../data-transfer/operations/transfer.md#create) типа **_Репликация_**, использующий созданные эндпоинты.
-        1. [Активируйте трансфер](../../data-transfer/operations/transfer.md#activate) и дождитесь его перехода в статус **Реплицируется**.
+            * **{{ ui-key.yc-data-transfer.data-transfer.console.form.common.console.form.common.Connection.connection_type.title }}** — `{{ ui-key.yc-data-transfer.data-transfer.console.form.postgres.console.form.postgres.PostgresConnectionType.mdb_cluster_id.title }}`.
+            * **{{ ui-key.yc-data-transfer.data-transfer.console.form.postgres.console.form.postgres.PostgresConnectionType.mdb_cluster_id.title }}** — `<имя_кластера-приемника_{{ PG }}>` из выпадающего списка.
+            * **{{ ui-key.yc-data-transfer.data-transfer.console.form.common.console.form.common.Connection.database.title }}** — `db1`.
+            * **{{ ui-key.yc-data-transfer.data-transfer.console.form.common.console.form.common.Connection.user.title }}** — `pg-user`.
+            * **{{ ui-key.yc-data-transfer.data-transfer.console.form.common.console.form.common.Connection.password.title }}** — `<пароль_пользователя>`.
+        1. [Создайте трансфер](../../data-transfer/operations/transfer.md#create) типа **_{{ ui-key.yc-data-transfer.data-transfer.console.form.transfer.console.form.transfer.TransferType.increment.title }}_**, использующий созданные эндпоинты.
+        1. [Активируйте трансфер](../../data-transfer/operations/transfer.md#activate) и дождитесь его перехода в статус **{{ ui-key.yacloud.data-transfer.label_connector-status-RUNNING }}**.
 
-    - Terraform {#tf}
+    - {{ TF }} {#tf}
 
         1. Укажите в файле `kafka-postgresql.tf` переменные:
 
             * `kf_source_endpoint_id` — значение идентификатора эндпоинта для источника;
             * `transfer_enabled` — значение `1` для создания эндпоинта-приемника и трансфера.
 
-        1. Проверьте корректность файлов конфигурации Terraform с помощью команды:
+        1. Проверьте корректность файлов конфигурации {{ TF }} с помощью команды:
 
             ```bash
             terraform validate
             ```
 
-            Если в файлах конфигурации есть ошибки, Terraform на них укажет.
+            Если в файлах конфигурации есть ошибки, {{ TF }} на них укажет.
 
         1. Создайте необходимую инфраструктуру:
 
@@ -265,15 +265,15 @@
                1. Подтвердите изменение ресурсов.
                1. Дождитесь завершения операции.
 
-        1. Трансфер активируется автоматически. Дождитесь его перехода в статус **Реплицируется**.
+        1. Трансфер активируется автоматически. Дождитесь его перехода в статус **{{ ui-key.yacloud.data-transfer.label_connector-status-RUNNING }}**.
 
     {% endlist %}
 
 ## Проверьте работоспособность трансфера {#verify-transfer}
 
-Убедитесь, что в базу данных Managed Service for PostgreSQL переносятся данные из топика кластера-источника Managed Service for Apache Kafka®:
+Убедитесь, что в базу данных {{ mpg-name }} переносятся данные из топика кластера-источника {{ mkf-name }}:
 
-1. Отправьте данные из файла `sample.json` в топик `sensors` Managed Service for Apache Kafka® с помощью утилит `jq` и `kafkacat`:
+1. Отправьте данные из файла `sample.json` в топик `sensors` {{ mkf-name }} с помощью утилит `jq` и `kafkacat`:
 
     ```bash
     jq -rc . sample.json | kafkacat -P \
@@ -284,14 +284,14 @@
         -X sasl.mechanisms=SCRAM-SHA-512 \
         -X sasl.username="mkf-user" \
         -X sasl.password="<пароль_пользователя_в_кластере-источнике>" \
-        -X ssl.ca.location=/usr/local/share/ca-certificates/Yandex/YandexInternalRootCA.crt -Z
+        -X ssl.ca.location={{ crt-local-dir }}{{ crt-local-file }} -Z
     ```
 
-    Подробнее о настройке SSL-сертификата и работе с `kafkacat` см. в разделе [Подключение к кластеру Apache Kafka® из приложений](../../managed-kafka/operations/connect/clients.md).
+    Подробнее о настройке SSL-сертификата и работе с `kafkacat` см. в разделе [{#T}](../../managed-kafka/operations/connect/clients.md).
 
-1. Проверьте, что в базу данных Managed Service for PostgreSQL перенеслись данные из кластера-источника Managed Service for Apache Kafka®:
+1. Проверьте, что в базу данных {{ mpg-name }} перенеслись данные из кластера-источника {{ mkf-name }}:
 
-    1. [Подключитесь к базе данных Managed Service for PostgreSQL](../operations/connect/index.md).
+    1. [Подключитесь к базе данных {{ mpg-name }}](../operations/connect/index.md).
     1. Проверьте, что таблица `sensors` содержит отправленные данные:
 
         ```sql
@@ -317,16 +317,16 @@
     - Вручную {#manual}
 
         1. [Удалите эндпоинт-приемник](../../data-transfer/operations/endpoint/index.md#delete).
-        1. [Удалите кластер Managed Service for Apache Kafka®](../../managed-kafka/operations/cluster-delete.md).
-        1. [Удалите кластер Managed Service for PostgreSQL](../operations/cluster-delete.md).
+        1. [Удалите кластер {{ mkf-name }}](../../managed-kafka/operations/cluster-delete.md).
+        1. [Удалите кластер {{ mpg-name }}](../operations/cluster-delete.md).
 
-    - Terraform {#tf}
+    - {{ TF }} {#tf}
 
         1. В терминале перейдите в директорию с планом инфраструктуры.
         
             {% note warning %}
         
-            Убедитесь, что в директории нет Terraform-манифестов с ресурсами, которые вы хотите сохранить. Terraform удаляет все ресурсы, которые были созданы с помощью манифестов в текущей директории.
+            Убедитесь, что в директории нет {{ TF }}-манифестов с ресурсами, которые вы хотите сохранить. {{ TF }} удаляет все ресурсы, которые были созданы с помощью манифестов в текущей директории.
         
             {% endnote %}
         
@@ -340,7 +340,7 @@
         
             1. Подтвердите удаление ресурсов и дождитесь завершения операции.
         
-            Все ресурсы, которые были описаны в Terraform-манифестах, будут удалены.
+            Все ресурсы, которые были описаны в {{ TF }}-манифестах, будут удалены.
 
     {% endlist %}
 ```

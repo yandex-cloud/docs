@@ -49,7 +49,11 @@ List of ip permissions for registry ||
 ||Field | Description ||
 || action | enum **Action**
 
+Required field.
+
 - `PULL`
 - `PUSH` ||
-|| ip | **string** ||
+|| ip | **string**
+
+Required field. ||
 |#

@@ -1,8 +1,8 @@
 # Расширение кластера
 
-Вы можете расширить кластер Greenplum®, добавив хосты-сегменты. Количество добавляемых хостов не может быть меньше двух. Вы также можете увеличить [количество сегментов на хост](../concepts/index.md).
+Вы можете расширить кластер {{ mgp-name }}, добавив хосты-сегменты. Количество добавляемых хостов не может быть меньше двух. Вы также можете увеличить [количество сегментов на хост](../concepts/index.md).
 
-Во время расширения кластера данные автоматически перераспределяются равномерно по всем хостам кластера (включая добавленные хосты). Подробнее см. в разделе [Расширение кластера Greenplum®](../concepts/expand.md).
+Во время расширения кластера данные автоматически перераспределяются равномерно по всем хостам кластера (включая добавленные хосты). Подробнее см. в разделе [{#T}](../concepts/expand.md).
 
 ## Расширить кластер {#add-hosts}
 
@@ -10,17 +10,17 @@
 
 - Консоль управления {#console}
 
-    1. Перейдите [на страницу каталога](https://console.yandex.cloud).
-    1. [Перейдите](../../console/operations/select-service.md#select-service) в сервис **Yandex MPP Analytics for&nbsp;PostgreSQL**.
-    1. Выберите кластер и откройте вкладку ![hosts-edit](../../_assets/console-icons/cube.svg) **Хосты**.
-    1. Нажмите кнопку **Расширить кластер** в правом верхнем углу.
+    1. Перейдите [на страницу каталога]({{ link-console-main }}).
+    1. Перейдите в сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-greenplum }}**.
+    1. Выберите кластер и откройте вкладку ![hosts-edit](../../_assets/console-icons/cube.svg) **{{ ui-key.yacloud.mdb.cluster.hosts.label_title }}**.
+    1. Нажмите кнопку **{{ ui-key.yacloud.greenplum.action_expand-open }}** в правом верхнем углу.
     1. Укажите настройки расширения кластера:
 
-        * **Количество новых хостов-сегментов** — количество хостов-сегментов, на которое нужно расширить кластер.
+        * **{{ ui-key.yacloud.greenplum.field_expand-segment-host-count }}** — количество хостов-сегментов, на которое нужно расширить кластер.
 
             Минимальное значение (по умолчанию) — `2`, максимальное значение ограничено [лимитом на количество хостов-сегментов в кластере](../concepts/limits.md#limits) (за вычетом существующих хостов).
 
-        * **Добавить сегментов на хост** — количество добавляемых сегментов на хост.
+        * **{{ ui-key.yacloud.greenplum.field_expand-add-segments-per-host-count }}** — количество добавляемых сегментов на хост.
 
             {% note warning %}
             
@@ -30,9 +30,9 @@
             
             Минимальное значение (по умолчанию) — `0` (количество сегментов на хост остается неизменным), максимальное — зависит от [класса хостов](../concepts/instance-types.md).
 
-            Класс хостов-сегментов и количество сегментов на хост [влияют](../concepts/instance-types.md#select-class-segment-hosts) на максимальный объем памяти, выделенный на каждый серверный процесс Greenplum®. Если выбран класс хостов с небольшим объемом оперативной памяти и указано большое число сегментов, то может возникнуть [ошибка](../qa/cluster-hosts.md#memory-limit).
+            Класс хостов-сегментов и количество сегментов на хост [влияют](../concepts/instance-types.md#select-class-segment-hosts) на максимальный объем памяти, выделенный на каждый серверный процесс {{ mgp-name }}. Если выбран класс хостов с небольшим объемом оперативной памяти и указано большое число сегментов, то может возникнуть [ошибка](../qa/cluster-hosts.md#memory-limit).
 
-        * **Закрыть кластер от нагрузки** — [закрыть ли кластер для доступа](../concepts/expand.md#setting-close-cluster).
+        * **{{ ui-key.yacloud.greenplum.field_expand-close-cluster }}** — [закрыть ли кластер для доступа](../concepts/expand.md#setting-close-cluster).
 
             Если настройка включена, то к кластеру нельзя подключиться и в него не поступают новые пользовательские запросы. В результате расширение кластера будет выполняться быстрее.
             
@@ -44,7 +44,7 @@
             
             {% endnote %}
 
-        * **Фоновое перераспределение данных** — [использовать ли фоновое перераспределение данных](../concepts/expand.md#setting-delay-redistribution).
+        * **{{ ui-key.yacloud.greenplum.field_expand-delay-redistribution }}** — [использовать ли фоновое перераспределение данных](../concepts/expand.md#setting-delay-redistribution).
 
             * Если фоновый режим выключен, то процесс перераспределения будет запущен однократно сразу после завершения подготовки к расширению кластера.
 
@@ -60,7 +60,7 @@
 
                 Кластер будет находиться в статусе `Updating` только на этапе подготовки к расширению кластера.
 
-        * **Таймаут редистрибуции** — [таймаут (в секундах), после истечения которого процесс перераспределения данных будет прерван](../concepts/expand.md#setting-duration).
+        * **{{ ui-key.yacloud.greenplum.field_expand-duration }}** — [таймаут (в секундах), после истечения которого процесс перераспределения данных будет прерван](../concepts/expand.md#setting-duration).
 
             Истечение таймаута не приводит к немедленному прерыванию процесса: будет завершено перераспределение данных для тех таблиц, которые находятся в обработке (статус `IN PROGRESS`). Можно [запросить статус таблиц](cluster-expand.md#redistribute-monitoring), если кластер не закрыт от нагрузки.
             
@@ -71,17 +71,17 @@
             * `28800` (8 часов) — если включено.
             * Не ограничено — если выключено.
 
-        * **Количество потоков редистрибуции** — [количество потоков, которые будут запущены в ходе процесса перераспределения данных](../concepts/expand.md#setting-parallel).
+        * **{{ ui-key.yacloud.greenplum.field_expand-parallel }}** — [количество потоков, которые будут запущены в ходе процесса перераспределения данных](../concepts/expand.md#setting-parallel).
 
             Большее количество потоков ускорит перераспределение данных, но увеличит нагрузку на кластер.
             
             Минимальное значение (по умолчанию) — `0` (количество будет рассчитано автоматически в зависимости от конфигурации кластера и объема данных), максимальное — `25`.
 
-    1. Нажмите кнопку **Расширить**.
+    1. Нажмите кнопку **{{ ui-key.yacloud.greenplum.action_expand-start }}**.
 
 - CLI {#cli}
 
-    Если у вас еще нет интерфейса командной строки Yandex Cloud (CLI), [установите и инициализируйте его](../../cli/quickstart.md#install).
+    Если у вас еще нет интерфейса командной строки {{ yandex-cloud }} (CLI), [установите и инициализируйте его](../../cli/quickstart.md#install).
 
     По умолчанию используется каталог, указанный при [создании](../../cli/operations/profile/profile-create.md) профиля CLI. Чтобы изменить каталог по умолчанию, используйте команду `yc config set folder-id <идентификатор_каталога>`. Также для любой команды вы можете указать другой каталог с помощью параметров `--folder-name` или `--folder-id`. Если вы обращаетесь к ресурсу по имени, поиск будет выполнен в каталоге по умолчанию. Если вы обращаетесь к ресурсу по идентификатору, поиск будет выполнен глобально — во всех каталогах с учетом прав доступа.
 
@@ -90,13 +90,13 @@
     1. Посмотрите описание команды CLI для расширения кластера:
 
         ```bash
-        yc managed-greenplum cluster expand --help
+        {{ yc-mdb-gp }} cluster expand --help
         ```
 
     1. Выполните команду, чтобы расширить кластер:
 
         ```bash
-        yc managed-greenplum cluster expand <имя_или_идентификатор_кластера> \
+        {{ yc-mdb-gp }} cluster expand <имя_или_идентификатор_кластера> \
            --segment-host-count <количество_добавляемых_хостов_сегментов> \
            --add-segments-per-host-count <количество_добавляемых_сегментов_на_хост> \
            --close-cluster <временный_запрет_на_подключение_к_кластеру> \
@@ -121,7 +121,7 @@
             
             Минимальное значение (по умолчанию) — `0` (количество сегментов на хост остается неизменным), максимальное — зависит от [класса хостов](../concepts/instance-types.md).
 
-            Класс хостов-сегментов и количество сегментов на хост [влияют](../concepts/instance-types.md#select-class-segment-hosts) на максимальный объем памяти, выделенный на каждый серверный процесс Greenplum®. Если выбран класс хостов с небольшим объемом оперативной памяти и указано большое число сегментов, то может возникнуть [ошибка](../qa/cluster-hosts.md#memory-limit).
+            Класс хостов-сегментов и количество сегментов на хост [влияют](../concepts/instance-types.md#select-class-segment-hosts) на максимальный объем памяти, выделенный на каждый серверный процесс {{ mgp-name }}. Если выбран класс хостов с небольшим объемом оперативной памяти и указано большое число сегментов, то может возникнуть [ошибка](../qa/cluster-hosts.md#memory-limit).
 
         * `--close-cluster` — [закрыть ли кластер для доступа](../concepts/expand.md#setting-close-cluster): `true` или `false`.
 
@@ -178,14 +178,14 @@
         export IAM_TOKEN="<IAM-токен>"
         ```
 
-    1. Воспользуйтесь методом [Cluster.Expand](../api-ref/Cluster/expand.md) и выполните запрос, например, с помощью [cURL](https://curl.se/):
+    1. Воспользуйтесь методом [Cluster.Expand](../api-ref/Cluster/expand.md) и выполните запрос, например, с помощью {{ api-examples.rest.tool }}:
 
         ```bash
         curl \
             --request POST \
             --header "Authorization: Bearer $IAM_TOKEN" \
             --header "Content-Type: application/json" \
-            --url 'https://mdb.api.cloud.yandex.net/managed-greenplum/v1/clusters/<идентификатор_кластера>/expand' \
+            --url 'https://{{ api-host-mdb }}/managed-greenplum/v1/clusters/<идентификатор_кластера>/expand' \
             --data '{
                       "segmentHostCount": "<количество_добавляемых_хостов-сегментов>",
                       "addSegmentsPerHostCount": "<количество_добавляемых_сегментов_на_хост>",
@@ -214,7 +214,7 @@
             
             Минимальное значение (по умолчанию) — `0` (количество сегментов на хост остается неизменным), максимальное — зависит от [класса хостов](../concepts/instance-types.md).
 
-            Класс хостов-сегментов и количество сегментов на хост [влияют](../concepts/instance-types.md#select-class-segment-hosts) на максимальный объем памяти, выделенный на каждый серверный процесс Greenplum®. Если выбран класс хостов с небольшим объемом оперативной памяти и указано большое число сегментов, то может возникнуть [ошибка](../qa/cluster-hosts.md#memory-limit).
+            Класс хостов-сегментов и количество сегментов на хост [влияют](../concepts/instance-types.md#select-class-segment-hosts) на максимальный объем памяти, выделенный на каждый серверный процесс {{ mgp-name }}. Если выбран класс хостов с небольшим объемом оперативной памяти и указано большое число сегментов, то может возникнуть [ошибка](../qa/cluster-hosts.md#memory-limit).
 
         * `duration` — [таймаут](../concepts/expand.md#setting-duration) в секундах, после истечения которого процесс перераспределения данных будет прерван.
 
@@ -279,7 +279,7 @@
        
        Далее предполагается, что содержимое репозитория находится в директории `~/cloudapi/`.
 
-    1. Воспользуйтесь вызовом [ClusterService.Expand](../api-ref/grpc/Cluster/expand.md) и выполните запрос, например, с помощью [gRPCurl](https://github.com/fullstorydev/grpcurl):
+    1. Воспользуйтесь вызовом [ClusterService.Expand](../api-ref/grpc/Cluster/expand.md) и выполните запрос, например, с помощью {{ api-examples.grpc.tool }}:
 
         ```bash
         grpcurl \
@@ -297,7 +297,7 @@
                   "close_cluster": "<временный_запрет_на_подключение_к_кластеру>",
                   "delay_redistribution": "<фоновое_перераспределение_данных>"
                 }' \
-            mdb.api.cloud.yandex.net:443 \
+            {{ api-host-mdb }}:{{ port-https }} \
             yandex.cloud.mdb.greenplum.v1.ClusterService.Expand
         ```
 
@@ -319,7 +319,7 @@
             
             Минимальное значение (по умолчанию) — `0` (количество сегментов на хост остается неизменным), максимальное — зависит от [класса хостов](../concepts/instance-types.md).
 
-            Класс хостов-сегментов и количество сегментов на хост [влияют](../concepts/instance-types.md#select-class-segment-hosts) на максимальный объем памяти, выделенный на каждый серверный процесс Greenplum®. Если выбран класс хостов с небольшим объемом оперативной памяти и указано большое число сегментов, то может возникнуть [ошибка](../qa/cluster-hosts.md#memory-limit).
+            Класс хостов-сегментов и количество сегментов на хост [влияют](../concepts/instance-types.md#select-class-segment-hosts) на максимальный объем памяти, выделенный на каждый серверный процесс {{ mgp-name }}. Если выбран класс хостов с небольшим объемом оперативной памяти и указано большое число сегментов, то может возникнуть [ошибка](../qa/cluster-hosts.md#memory-limit).
 
         * `duration` — [таймаут](../concepts/expand.md#setting-duration) в секундах, после истечения которого процесс перераспределения данных будет прерван.
 
@@ -374,9 +374,9 @@
 
 Доступно несколько способов мониторинга [процесса перераспределения данных](../concepts/expand.md#redistribution):
 
-* Если кластер [закрыт от нагрузки](../concepts/expand.md#setting-close-cluster) и [фоновое перераспределение данных](../concepts/expand.md#setting-delay-redistribution) выключено, то отслеживать ход процесса можно только с помощью инструментов мониторинга Yandex Cloud.
+* Если кластер [закрыт от нагрузки](../concepts/expand.md#setting-close-cluster) и [фоновое перераспределение данных](../concepts/expand.md#setting-delay-redistribution) выключено, то отслеживать ход процесса можно только с помощью инструментов мониторинга {{ yandex-cloud }}.
 
-    [Наблюдайте за графиком](monitoring.md#monitoring-cluster) **Expansion progress** на вкладке **Мониторинг** страницы управления кластером или запрашивайте значения [метрик](../metrics.md#managed-greenplum-expand-metrics) `gp_expand.*` с помощью сервиса [Yandex Monitoring](../../monitoring/concepts/index.md).
+    [Наблюдайте за графиком](monitoring.md#monitoring-cluster) **Expansion progress** на вкладке **{{ ui-key.yacloud.mdb.cluster.switch_monitoring }}** страницы управления кластером или запрашивайте значения [метрик](../metrics.md#managed-greenplum-expand-metrics) `gp_expand.*` с помощью сервиса [{{ monitoring-full-name }}](../../monitoring/concepts/index.md).
 
 * Если кластер не закрыт от нагрузки, то также можно выполнять SQL-запросы к объектам служебной схемы данных `gpexpand`.
 
@@ -397,7 +397,7 @@
         ORDER BY rank;
         ```
 
-    Результат запроса будет содержать [различную информацию](https://techdocs.broadcom.com/us/en/vmware-tanzu/data-solutions/tanzu-greenplum/7/greenplum-database/ref_guide-system_catalogs-gp_expansion_tables.html) о ходе процесса перераспределения данных. В столбце `status` будет указан текущий статус обработки конкретных таблиц:
+    Результат запроса будет содержать [различную информацию]({{ gp.docs.broadcom }}/7/greenplum-database/ref_guide-system_catalogs-gp_expansion_tables.html) о ходе процесса перераспределения данных. В столбце `status` будет указан текущий статус обработки конкретных таблиц:
 
     * `NOT STARTED` — запланировано перераспределение данных таблицы, таблица находится в очереди на перераспределение.
 
@@ -443,7 +443,7 @@
     WHERE fq_name IN (<список_полных_имен_таблиц>);
     ```
 
-    Подробнее см. в [документации Greenplum®](https://techdocs.broadcom.com/us/en/vmware-tanzu/data-solutions/tanzu-greenplum/7/greenplum-database/admin_guide-expand-expand-redistribute.html#ranking-tables-for-redistribution).
+    Подробнее см. в [документации {{ GP }}]({{ gp.docs.broadcom }}/7/greenplum-database/admin_guide-expand-expand-redistribute.html#ranking-tables-for-redistribution).
 
 ### Запустить перераспределение данных вручную {#start-redistribute}
 
@@ -475,7 +475,7 @@
     * `relname` — имя таблицы;
     * `numsegment` — количество сегментов, по которым размещены данные.
 
-    Подробнее см. в документации Greenplum®, посвященной таблице [gp_distribution_policy](https://techdocs.broadcom.com/us/en/vmware-tanzu/data-solutions/tanzu-greenplum/7/greenplum-database/ref_guide-system_catalogs-gp_distribution_policy.html).
+    Подробнее см. в документации {{ GP }}, посвященной таблице [gp_distribution_policy]({{ gp.docs.broadcom }}/7/greenplum-database/ref_guide-system_catalogs-gp_distribution_policy.html).
 
 1. Запустите перераспределение данных, пользуясь информацией, полученной ранее.
 
@@ -487,14 +487,14 @@
         ALTER TABLE ONLY <имя_таблицы> EXPAND TABLE;
         ```
 
-    * Для [партиционированной](https://techdocs.broadcom.com/us/en/vmware-tanzu/data-solutions/tanzu-greenplum/7/greenplum-database/admin_guide-ddl-ddl-partition.html#about-table-partitioning) таблицы:
+    * Для [партиционированной]({{ gp.docs.broadcom }}/7/greenplum-database/admin_guide-ddl-ddl-partition.html#about-table-partitioning) таблицы:
 
         ```sql
         ALTER TABLE <имя_таблицы>
         SET WITH (REORGANIZE=true) <политика_распределения>;
         ```
 
-        Чтобы узнать значение политики распределения Greenplum® для отдельной партиции таблицы, выполните запрос:
+        Чтобы узнать значение политики распределения для отдельной партиции таблицы, выполните запрос:
 
         ```sql
         SELECT pg_get_table_distributedby(<OID_партиции>) AS distribution_policy;

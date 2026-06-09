@@ -1,10 +1,10 @@
-# Запись метрик в Monitoring
+# Запись метрик в {{ monitoring-name }}
 
-[Monitoring](../../monitoring/concepts/index.md) — это сервис, позволяющий собирать и хранить метрики, а также отображать их в виде графиков на дашбордах. Отправляемые в Monitoring данные представляют собой значения измеряемых величин (`метрики`) и метки (`labels`), их описывающие.
+[{{ monitoring-name }}](../../monitoring/concepts/index.md) — это сервис, позволяющий собирать и хранить метрики, а также отображать их в виде графиков на дашбордах. Отправляемые в {{ monitoring-name }} данные представляют собой значения измеряемых величин (`метрики`) и метки (`labels`), их описывающие.
 
-Например, чтобы следить за количеством сбоев приложения, в качестве метрики можно использовать число сбоев за интервал времени. Данные, описывающие это падение: название хоста, версия приложения, — являются метками. В интерфейсе Monitoring можно проводить различные агрегации метрик по меткам.
+Например, чтобы следить за количеством сбоев приложения, в качестве метрики можно использовать число сбоев за интервал времени. Данные, описывающие это падение: название хоста, версия приложения, — являются метками. В интерфейсе {{ monitoring-name }} можно проводить различные агрегации метрик по меткам.
 
-Пример записи метрик из Yandex Query в Monitoring.
+Пример записи метрик из {{ yq-full-name }} в {{ monitoring-name }}.
 
 ```sql
 INSERT INTO `monitoring`.custom
@@ -17,23 +17,23 @@ SELECT
 FROM $query;
 ```
 
-При [потоковой обработке данных](../concepts/stream-processing.md) Yandex Query может отправлять в Monitoring результаты исполнения запроса в виде метрик и их меток. 
+При [потоковой обработке данных](../concepts/stream-processing.md) {{ yq-full-name }} может отправлять в {{ monitoring-name }} результаты исполнения запроса в виде метрик и их меток. 
 
 ## Настройка соединения {#setup-connection}
 
-Для отправки метрик в Monitoring необходимо:
-1. [Перейти](../../console/operations/select-service.md#select-service) в сервис **Yandex Query** в раздел **Соединения** и нажать кнопку **Создать**.
-1. В открывшемся окне в поле **Имя** указать название соединения с Monitoring.
-1. В выпадающем поле **Тип** выбрать `Monitoring`.
-1. В поле **Сервисный аккаунт** выбрать сервисный аккаунт, который будет использоваться для записи метрик, или создать новый, выдав ему права [`monitoring.editor`](../../monitoring/security/index.md#monitoring-editor).
+Для отправки метрик в {{ monitoring-name }} необходимо:
+1. [Перейти](../../console/operations/select-service.md#select-service) в сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_yq_ru }}** в раздел **{{ ui-key.yql.yq-ide-aside.connections.tab-text }}** и нажать кнопку **{{ ui-key.yql.yq-connection-form.action_create-new }}**.
+1. В открывшемся окне в поле **{{ ui-key.yql.yq-connection-form.connection-name.input-label }}** указать название соединения с {{ monitoring-name }}.
+1. В выпадающем поле **{{ ui-key.yql.yq-connection-form.connection-type.input-label }}** выбрать `{{ ui-key.yql.yq-connection.action_monitoring }}`.
+1. В поле **{{ ui-key.yql.yq-connection-form.service-account.input-label }}** выбрать сервисный аккаунт, который будет использоваться для записи метрик, или создать новый, выдав ему права [`monitoring.editor`](../../monitoring/security/index.md#monitoring-editor).
 
    Чтобы использовать сервисный аккаунт, пользователю нужна [роль](../../iam/security/index.md#iam-serviceAccounts-user) `iam.serviceAccounts.user`.
 
-1. Создать соединение, нажав кнопку **Создать**.
+1. Создать соединение, нажав кнопку **{{ ui-key.yql.yq-connection-form.create.button-text }}**.
 
 ## Модель данных {#data-model}
 
-Запись метрик в Monitoring выполняется с помощью SQL-выражения.
+Запись метрик в {{ monitoring-name }} выполняется с помощью SQL-выражения.
 
 ```sql
 INSERT INTO 
@@ -46,22 +46,22 @@ FROM
 
 Где:
 
-- `<соединение>` — название соединения с Monitoring, созданного в предыдущем пункте.
+- `<соединение>` — название соединения с {{ monitoring-name }}, созданного в предыдущем пункте.
 - `<поля>` — список полей, содержащих временную отметку, метрики и их метки.
-- `<запрос>` — запрос-источник данных Yandex Query.
+- `<запрос>` — запрос-источник данных {{ yq-full-name }}.
 
 {% note info %}
 
-При записи метрик необходимо использовать конструкцию `INSERT INTO <соединение>.custom`, где [`custom`](../../monitoring/api-ref/MetricsData/write.md#query_params) — зарезервированное имя в Monitoring для записи пользовательских метрик.
+При записи метрик необходимо использовать конструкцию `INSERT INTO <соединение>.custom`, где [`custom`](../../monitoring/api-ref/MetricsData/write.md#query_params) — зарезервированное имя в {{ monitoring-name }} для записи пользовательских метрик.
 
 {% endnote %}
 
-Для записи метрик используется метод [write](../../monitoring/api-ref/MetricsData/write.md) Monitoring API. При записи метрик необходимо передать:
+Для записи метрик используется метод [write](../../monitoring/api-ref/MetricsData/write.md) {{ monitoring-name }} API. При записи метрик необходимо передать:
 - временную метку;
-- список метрик с указанием их типа. Yandex Query поддерживает типы метрик `DGAUGE`, `IGAUGE`;
+- список метрик с указанием их типа. {{ yq-full-name }} поддерживает типы метрик `DGAUGE`, `IGAUGE`;
 - список меток.
 
-Yandex Query автоматически выводит семантику параметров из SQL-запроса.
+{{ yq-full-name }} автоматически выводит семантику параметров из SQL-запроса.
 
 | Тип поля | Описание | Ограничения |
 | --- | --- | --- |
@@ -74,7 +74,7 @@ Yandex Query автоматически выводит семантику пар
 
 ## Пример записи метрик {#example}
 
-Пример запроса для записи метрик из Yandex Query в Monitoring:
+Пример запроса для записи метрик из {{ yq-full-name }} в {{ monitoring-name }}:
 
 ```sql
 INSERT INTO 
@@ -92,13 +92,13 @@ FROM $query;
 
 | Поле | Тип | Описание |
 | --- | --- | --- |
-| `monitoring` | | Название соединения с Monitoring. |
+| `monitoring` | | Название соединения с {{ monitoring-name }}. |
 | `$query` | | Источник данных в SQL-запросе, может быть подзапросом языка YQL, в том числе [подключением](../quickstart/streaming-example.md) к источнику данных. |
 | `my_timestamp` | Метка времени | Источник данных — столбец `my_timestamp` в потоке-источнике данных `stream`. |
 | `exception_count` | Метрика | Источник данных — столбец `exception_count` в потоке-источнике данных `stream`. |
 | `host_name` | Метка | Источник данных — столбец `host` в потоке-источнике данных `stream`. |
 | `app_version` | Метка | Источник данных — столбец `app_version` в потоке-источнике данных `stream`. |
 
-Пример результата работы запроса в Monitoring:
+Пример результата работы запроса в {{ monitoring-name }}:
 
 ![](../../_assets/query/monitoring-example.png)

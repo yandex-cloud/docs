@@ -1,4 +1,4 @@
-# [Yandex DataLens] Data source is unavailable
+# [{{ datalens-full-name }}] Data source is unavailable
 
 `ERR.DS_API.DATABASE_UNAVAILABLE`
 
@@ -6,6 +6,6 @@
 
 Возможные причины:
 - перебои в работе сети;
-- нет доступа от сервера DataLens до сети источника;
+- нет доступа от сервера {{ datalens-short-name }} до сети источника;
 - источник отключен;
 - требуется донастройка источника.

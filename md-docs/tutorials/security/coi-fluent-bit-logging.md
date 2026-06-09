@@ -1,18 +1,18 @@
-# Передача логов с Container Optimized Image в Yandex Cloud Logging
+# Передача логов с {{ coi }} в {{ cloud-logging-full-name }}
 
-Обработчик логов [Fluent Bit](https://fluentbit.io/) позволяет транслировать логи с [виртуальных машин](../../compute/concepts/vm.md), созданных из образов Container Optimized Image, в сервис [Yandex Cloud Logging](../../logging/index.md). Для передачи логов используется модуль [Fluent Bit plugin for Yandex Cloud Logging](https://github.com/yandex-cloud/fluent-bit-plugin-yandex).
+Обработчик логов [Fluent Bit](https://fluentbit.io/) позволяет транслировать логи с [виртуальных машин](../../compute/concepts/vm.md), созданных из образов {{ coi }}, в сервис [{{ cloud-logging-full-name }}](../../logging/index.md). Для передачи логов используется модуль [Fluent Bit plugin for {{ cloud-logging-full-name }}](https://github.com/yandex-cloud/fluent-bit-plugin-yandex).
 
-Чтобы настроить передачу логов с ВМ, созданной из образа Container Optimized Image:
+Чтобы настроить передачу логов с ВМ, созданной из образа {{ coi }}:
 1. [Создайте приложение, генерирующее логи](#generate-logs).
 1. [Создайте Docker-образ и загрузите его в реестр](#create-docker).
 1. [Настройте Fluent Bit](#fluent-bit).
-1. [Создайте ВМ из образа Container Optimized Image](#create-vm).
+1. [Создайте ВМ из образа {{ coi }}](#create-vm).
 
 ## Перед началом работы {#before-you-begin}
 
 1. [Создайте сервисный аккаунт](../../iam/operations/sa/create.md) с [ролями](../../iam/concepts/access-control/roles.md) `logging.writer` и `container-registry.images.puller` на [каталог](../../resource-manager/concepts/resources-hierarchy.md#folder).
-1. [Создайте реестр](../../container-registry/operations/registry/registry-create.md) [Yandex Container Registry](../../container-registry/index.md).
-1. [Создайте облачную сеть](../../vpc/operations/network-create.md). При создании выберите опцию **Создать подсети**.
+1. [Создайте реестр](../../container-registry/operations/registry/registry-create.md) [{{ container-registry-full-name }}](../../container-registry/index.md).
+1. [Создайте облачную сеть](../../vpc/operations/network-create.md). При создании выберите опцию **{{ ui-key.yacloud.vpc.networks.create.field_is-default }}**.
 
 ## Создайте приложение, генерирующее логи {#generate-logs}
 
@@ -113,13 +113,13 @@ if __name__ == '__main__':
 
     ```bash
     docker build . \
-      -t cr.yandex/<идентификатор_реестра>/coi:logs
+      -t {{ registry }}/<идентификатор_реестра>/coi:logs
     ```
 
 1. [Аутентифицируйтесь](../../container-registry/operations/authentication.md) в [реестре](../../container-registry/concepts/registry.md) и загрузите в него Docker-образ:
 
     ```bash
-    docker push cr.yandex/<идентификатор_реестра>/coi:logs
+    docker push {{ registry }}/<идентификатор_реестра>/coi:logs
     ```
 
 ## Настройте Fluent Bit {#fluent-bit}
@@ -127,7 +127,7 @@ if __name__ == '__main__':
 1. Создайте файл `spec.yaml`. Он описывает спецификацию двух контейнеров: с приложением, генерирующим логи, и агентом Fluent Bit.
 
    Укажите в поле:
-   * `image` — URL Docker-образа. Чтобы узнать его, в [консоли управления](https://console.yandex.cloud) перейдите на страницу **Обзор Docker-образа** и скопируйте значение из поля **Теги**.
+   * `image` — URL Docker-образа. Чтобы узнать его, в [консоли управления]({{ link-console-main }}) перейдите на страницу **{{ ui-key.yacloud.cr.image.section_overview }}** и скопируйте значение из поля **{{ ui-key.yacloud.cr.image.label_tag }}**.
    * `YC_GROUP_ID` — идентификатор [лог-группы по умолчанию](../../logging/concepts/log-group.md) `default`.
 
    В секции `fluentbit`, в поле `image`, указан актуальный на момент написания инструкции образ контейнера с агентом Fluent Bit. Список всех доступных образов можно найти по [ссылке](https://github.com/yandex-cloud/fluent-bit-plugin-yandex/releases).
@@ -231,10 +231,10 @@ if __name__ == '__main__':
 
    В секции `FILTER` указано, что ищутся только записи с тегом `app.logs`. Поле `log` каждой записи обрабатывается парсером `regex`, все остальные поля сохраняются в `Reserve_Data On`.
 
-## Создайте ВМ из образа Container Optimized Image {#create-vm}
+## Создайте ВМ из образа {{ coi }} {#create-vm}
 
 Укажите в поле:
-* `--zone` — [зону доступности](../../overview/concepts/geo-scope.md), например `ru-central1-a`.
+* `--zone` — [зону доступности](../../overview/concepts/geo-scope.md), например `{{ region-id }}-a`.
 * `--subnet-name` — имя [подсети](../../vpc/concepts/network.md#subnet) в указанной зоне.
 * `--service-account-name` — имя [сервисного аккаунта](../../iam/concepts/users/service-accounts.md).
 
@@ -252,11 +252,11 @@ yc compute instance create \
 
 {% note info %}
 
-Команды [`yc compute instance create`](../../cli/cli-ref/compute/cli-ref/instance/create.md) | [`create-with-container`](../../cli/cli-ref/compute/cli-ref/instance/create-with-container.md) | [`update`](../../cli/cli-ref/compute/cli-ref/instance/update.md) | [`add-metadata`](../../cli/cli-ref/compute/cli-ref/instance/add-metadata.md) поддерживают подстановку в метаданные ВМ значений переменных окружения. Эти значения, заданные в ключе `user-data` в формате `$<имя_переменной>`, в момент выполнения команды Yandex Cloud CLI будут подставлены в метаданные ВМ из переменных окружения среды, в которой выполняется команда. 
+Команды [`yc compute instance create`](../../cli/cli-ref/compute/cli-ref/instance/create.md) | [`create-with-container`](../../cli/cli-ref/compute/cli-ref/instance/create-with-container.md) | [`update`](../../cli/cli-ref/compute/cli-ref/instance/update.md) | [`add-metadata`](../../cli/cli-ref/compute/cli-ref/instance/add-metadata.md) поддерживают подстановку в метаданные ВМ значений переменных окружения. Эти значения, заданные в ключе `user-data` в формате `$<имя_переменной>`, в момент выполнения команды {{ yandex-cloud }} CLI будут подставлены в метаданные ВМ из переменных окружения среды, в которой выполняется команда. 
 
 Чтобы изменить такое поведение, не подставлять значение переменной из среды выполнения команды CLI и передать в метаданные ВМ имя переменной в формате `$<имя_переменной>`, используйте синтаксис с двумя символами доллара. Например: `$$<имя_переменной>`.
 
-Подробнее см. в разделе [Особенности передачи переменных окружения в метаданных через CLI](../../compute/concepts/metadata/sending-metadata.md#environment-variables).
+Подробнее см. в разделе [{#T}](../../compute/concepts/metadata/sending-metadata.md#environment-variables).
 
 {% endnote %}
 
@@ -266,13 +266,13 @@ yc compute instance create \
 
 - Консоль управления {#console}
 
-  1. В [консоли управления](https://console.yandex.cloud) перейдите в каталог, в котором находится лог-группа `default`, идентификатор которой вы указали в файле `spec.yaml`.
-  1. [Перейдите](../../console/operations/select-service.md#select-service) в сервис **Cloud Logging**.
+  1. В [консоли управления]({{ link-console-main }}) перейдите в каталог, в котором находится лог-группа `default`, идентификатор которой вы указали в файле `spec.yaml`.
+  1. Перейдите в сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_logging }}**.
   1. Выберите лог-группу `default`. На открывшейся странице отобразятся записи.
 
 - CLI {#cli}
 
-  Если у вас еще нет интерфейса командной строки Yandex Cloud (CLI), [установите и инициализируйте его](../../cli/quickstart.md#install).
+  Если у вас еще нет интерфейса командной строки {{ yandex-cloud }} (CLI), [установите и инициализируйте его](../../cli/quickstart.md#install).
 
   По умолчанию используется каталог, указанный при [создании](../../cli/operations/profile/profile-create.md) профиля CLI. Чтобы изменить каталог по умолчанию, используйте команду `yc config set folder-id <идентификатор_каталога>`. Также для любой команды вы можете указать другой каталог с помощью параметров `--folder-name` или `--folder-id`. Если вы обращаетесь к ресурсу по имени, поиск будет выполнен в каталоге по умолчанию. Если вы обращаетесь к ресурсу по идентификатору, поиск будет выполнен глобально — во всех каталогах с учетом прав доступа.
 

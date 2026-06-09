@@ -1,6 +1,6 @@
-# Работа с AWS CLI в Managed Service for YDB. Обзор
+# Работа с AWS CLI в {{ ydb-name }}. Обзор
 
-В разделе описано, как с использованием AWS CLI выполнить следующие операции в YDB:
+В разделе описано, как с использованием AWS CLI выполнить следующие операции в {{ ydb-short-name }}:
 * [Создание](create-table.md) таблицы.
 * [Добавление](put-item.md), [чтение](get-item.md) и [обновление](update-item.md) данных в таблице.
 * [Выполнение](query.md) простых запросов.
@@ -12,16 +12,16 @@
 
    {% cut "Как узнать Document API эндпоинт базы данных" %}
 
-   1. Перейдите в [консоль управления](https://console.yandex.cloud).
-   1. Выберите нужный каталог и перейдите в сервис **Managed Service for&nbsp;YDB**.
+   1. Перейдите в [консоль управления]({{ link-console-main }}).
+   1. Выберите нужный каталог и перейдите в сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_ydb }}**.
    1. Выберите БД, к которой планируете сделать запрос.
-   1. В меню слева перейдите в раздел **Обзор**.
-   1. Значение эндпоинта указано в строке **Document API эндпоинт**.
+   1. В меню слева перейдите в раздел **{{ ui-key.yacloud.common.overview }}**.
+   1. Значение эндпоинта указано в строке **{{ ui-key.yacloud.ydb.overview.label_document-endpoint }}**.
 
       >Пример значения эндпоинта:
       >
       >```text
-      >https://docapi.serverless.yandexcloud.net/ru-central1/b1gia87mbaom********/etnudu2n9ri3********
+      >{{ ydb.aws-ep }}
       >```
 
    {% endcut %}

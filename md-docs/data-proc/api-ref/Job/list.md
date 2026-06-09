@@ -5,7 +5,7 @@ Retrieves a list of jobs for a cluster.
 ## HTTP request
 
 ```
-GET https://dataproc.api.cloud.yandex.net/dataproc/v1/clusters/{clusterId}/jobs
+GET https://dataproc.{{ api-host }}/dataproc/v1/clusters/{clusterId}/jobs
 ```
 
 ## Path parameters

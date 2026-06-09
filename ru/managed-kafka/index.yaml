@@ -34,7 +34,7 @@ blocks:
         title: Начало работы
         text: Создайте свой первый кластер
         icon: _assets/icons/rocket.svg
-        urlTitle: Как начать работать с Managed Service for Apache Kafka
+        urlTitle: Как начать работать с Managed Service for Apache Kafka®
         url: quickstart
         centered: true
         size: s
@@ -66,7 +66,7 @@ blocks:
         title: Правила тарификации
         text: Цены и правила расчета стоимости услуг
         icon: _assets/icons/calculator.svg
-        urlTitle: Правила тарификации для Managed Service for Apache Kafka
+        urlTitle: Правила тарификации для Managed Service for Apache Kafka®
         url: pricing
         centered: true
         size: s

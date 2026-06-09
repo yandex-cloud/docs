@@ -145,7 +145,7 @@ SSL-сертификаты различаются по уровню валида
 
 Обновлять сертификат вручную не требуется. Каждые 90 дней {{ certificate-manager-name }} будет проводить процедуру самостоятельно.
 
-Пользоваться {{ certificate-manager-name }} и TLS-сертификатом Let's Encrypt можно бесплатно. Подробнее см. в [документации](../certificate-manager/).
+Пользоваться {{ certificate-manager-name }} и TLS-сертификатом Let's Encrypt можно бесплатно. Подробнее в [документации](../certificate-manager/).
 
 ## Интеграция {{ certificate-manager-name }} с другими сервисами {{ yandex-cloud }} {#cm-yc}
 

@@ -1,25 +1,25 @@
-# Мониторинг в Smart Web Security
+# Мониторинг в {{ sws-name }}
 
-С помощью мониторинга вы можете следить за скоростью запросов к защищаемому ресурсу: разрешенных и заблокированных, направленных на SmartCaptcha и обработанных профилем ARL. Также можно [настроить уведомления](../../monitoring/operations/alert/create-alert.md) (алерты) о превышении каких-либо порогов скорости запросов.
+С помощью мониторинга вы можете следить за скоростью запросов к защищаемому ресурсу: разрешенных и заблокированных, направленных на {{ captcha-name }} и обработанных профилем ARL. Также можно [настроить уведомления](../../monitoring/operations/alert/create-alert.md) (алерты) о превышении каких-либо порогов скорости запросов.
 
-В Yandex Cloud уже настроены некоторые дашборды для мониторинга Smart Web Security. 
+В {{ yandex-cloud }} уже настроены некоторые дашборды для мониторинга {{ sws-name }}. 
 
 Вы можете посмотреть дашборды одним из способов:
 
-* На странице сервиса Smart Web Security выберите раздел **Мониторинг**.
-* В разделе **Мониторинг** справа вверху нажмите **Открыть в Monium**.
-* На странице сервиса Application Load Balancer:
+* На странице сервиса {{ sws-name }} выберите раздел **{{ ui-key.yacloud.common.monitoring }}**.
+* В разделе **{{ ui-key.yacloud.common.monitoring }}** справа вверху нажмите **{{ ui-key.yacloud.monitoring.button_open-in-monitoring }}**.
+* На странице сервиса {{ alb-name }}:
   1. Выберите балансировщик, к которому привязан профиль безопасности.
-  1. Выберите раздел **Мониторинг**.
+  1. Выберите раздел **{{ ui-key.yacloud.common.monitoring }}**.
   1. Перейдите на вкладку **Smart Web Security**.
 
 {% note info %}
 
-В настоящий момент самый полный набор дашбордов для Smart Web Security находится на странице сервиса Monitoring. Ниже описаны дашборды с этой страницы.
+В настоящий момент самый полный набор дашбордов для {{ sws-name }} находится на странице сервиса {{ monitoring-name }}. Ниже описаны дашборды с этой страницы.
 
 {% endnote %}
 
-## Описание дашбордов для мониторинга Smart Web Security {#monitoring-dashboards}
+## Описание дашбордов для мониторинга {{ sws-name }} {#monitoring-dashboards}
 
 * **Inbound total RPS** — общее количество входящих запросов в секунду (RPS), поступающих на балансировщик с профилем безопасности.
 
@@ -33,7 +33,7 @@
 
    Метрика — `load_balancer.smart_web_security.requests_per_second`, отфильтрованная при помощи метки `antirobot_verdict`=`deny`.
 
-* **Redirected to SmartCaptcha RPS** — количество входящих запросов в секунду, направленных в SmartCaptcha для дополнительной верификации.
+* **Redirected to SmartCaptcha RPS** — количество входящих запросов в секунду, направленных в {{ captcha-name }} для дополнительной верификации.
 
     Метрика — `load_balancer.smart_web_security.requests_per_second`, отфильтрованная при помощи метки `antirobot_verdict`=`captcha`.
 
@@ -57,13 +57,13 @@
 
     {% endnote %}
 
-* **Redirected to SmartCaptcha by ARL Profile RPS** — количество входящих запросов в секунду, направленных профилем ARL в SmartCaptcha для дополнительной верификации.
+* **Redirected to SmartCaptcha by ARL Profile RPS** — количество входящих запросов в секунду, направленных профилем ARL в {{ captcha-name }} для дополнительной верификации.
 
     Метрика — `load_balancer.smart_web_security.arl_requests_per_second`, отфильтрованная при помощи метки `arl_verdict`=`captcha`.
 
-Вы можете комбинировать несколько метрик на одном графике и [настраивать свои дашборды](../../monitoring/operations/dashboard/create.md) в сервисе Monitoring.
+Вы можете комбинировать несколько метрик на одном графике и [настраивать свои дашборды](../../monitoring/operations/dashboard/create.md) в сервисе {{ monitoring-short-name }}.
 
 #### См. также {#see-also}
 
-* [Справочник метрик Yandex Monitoring](../metrics.md)
-* [Дашборд в Monitoring](../../monitoring/concepts/visualization/dashboard.md)
+* [{#T}](../metrics.md)
+* [{#T}](../../monitoring/concepts/visualization/dashboard.md)

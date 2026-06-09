@@ -7,10 +7,6 @@ editable: false
 
 # Правила тарификации для {{ mpg-name }}
 
-
-{% include [pricing-increase-2026-05](../_includes/pricing-increase-2026-05.md) %}
-
-
 ::: page-constructor
 blocks:
   - type: card-layout-block

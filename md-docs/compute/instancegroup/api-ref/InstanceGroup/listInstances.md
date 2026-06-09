@@ -5,7 +5,7 @@ Lists instances for the specified instance group.
 ## HTTP request
 
 ```
-GET https://compute.api.cloud.yandex.net/compute/v1/instanceGroups/{instanceGroupId}/instances
+GET https://compute.{{ api-host }}/compute/v1/instanceGroups/{instanceGroupId}/instances
 ```
 
 ## Path parameters
@@ -16,8 +16,8 @@ GET https://compute.api.cloud.yandex.net/compute/v1/instanceGroups/{instanceGrou
 
 Required field. ID of the InstanceGroup resource to list instances for.
 To get the instance group ID, use a [InstanceGroupService.List](list.md#List) request.
-
-The maximum string length in characters is 50. ||
+The length must be less than or equal to 50.
+This field is required. ||
 |#
 
 ## Query parameters {#yandex.cloud.compute.v1.instancegroup.ListInstanceGroupInstancesRequest}
@@ -30,21 +30,18 @@ The maximum number of results per page to return. If the number of available
 results is larger than `pageSize`,
 the service returns a [ListInstanceGroupInstancesResponse.nextPageToken](#yandex.cloud.compute.v1.instancegroup.ListInstanceGroupInstancesResponse)
 that can be used to get the next page of results in subsequent list requests.
-
-The maximum value is 1000. ||
+The value must be less than or equal to 1000. ||
 || pageToken | **string**
 
 Page token. To get the next page of results,
 set `pageToken` to the [ListInstanceGroupInstancesResponse.nextPageToken](#yandex.cloud.compute.v1.instancegroup.ListInstanceGroupInstancesResponse)
 returned by a previous list request.
-
-The maximum string length in characters is 1000. ||
+The length must be less than or equal to 1000. ||
 || filter | **string**
 
 A filter expression that filters resources listed in the response.
 Currently you can use filtering only on the [ManagedInstance.name](#yandex.cloud.compute.v1.instancegroup.ManagedInstance) field.
-
-The maximum string length in characters is 1000. ||
+The length must be less than or equal to 1000. ||
 |#
 
 ## Response {#yandex.cloud.compute.v1.instancegroup.ListInstanceGroupInstancesResponse}
@@ -58,6 +55,7 @@ The maximum string length in characters is 1000. ||
       "id": "string",
       "status": "string",
       "instanceId": "string",
+      "instanceTag": "string",
       "fqdn": "string",
       "name": "string",
       "statusMessage": "string",
@@ -115,8 +113,7 @@ The maximum string length in characters is 1000. ||
           }
         }
       ],
-      "statusChangedAt": "string",
-      "instanceTag": "string"
+      "statusChangedAt": "string"
     }
   ],
   "nextPageToken": "string"
@@ -170,6 +167,9 @@ It will be updated, recreated or deleted shortly.
 || instanceId | **string**
 
 ID of the instance. ||
+|| instanceTag | **string**
+
+Managed instance tag. ||
 || fqdn | **string**
 
 Fully Qualified Domain Name. ||
@@ -195,9 +195,6 @@ String in [RFC3339](https://www.ietf.org/rfc/rfc3339.txt) text format. The range
 To work with values in this field, use the APIs described in the
 [Protocol Buffers reference](https://developers.google.com/protocol-buffers/docs/reference/overview).
 In some languages, built-in datetime utilities do not support nanosecond precision (9 digits). ||
-|| instanceTag | **string**
-
-Managed instance tag. ||
 |#
 
 ## NetworkInterface {#yandex.cloud.compute.v1.instancegroup.NetworkInterface}
@@ -261,16 +258,16 @@ External DNS configuration. ||
 ||Field | Description ||
 || fqdn | **string**
 
-Required field. Name of the A/AAAA record as specified when creating the instance.
-Note that if `fqdn' has no trailing '.', it is specified relative to the zone (@see dns_zone_id). ||
+Name of the A/AAAA record as specified when creating the instance.
+Note that if `fqdn' has no trailing '.', it is specified relative to the zone (@see dns_zone_id).
+This field is required. ||
 || dnsZoneId | **string**
 
 DNS zone id (optional, if not set, some private zone is used). ||
 || ttl | **string** (int64)
 
 DNS record ttl (optional, if 0, a reasonable default is used).
-
-Acceptable values are 0 to 86400, inclusive. ||
+The value must be between 0 and 86400. ||
 || ptr | **boolean**
 
 When true, indicates there is a corresponding auto-created PTR DNS record. ||

@@ -5,7 +5,7 @@ Creates a PostgreSQL cluster in the specified folder.
 ## HTTP request
 
 ```
-POST https://mdb.api.cloud.yandex.net/managed-postgresql/v1/clusters
+POST https://{{ api-host-mdb }}/managed-postgresql/v1/clusters
 ```
 
 ## Body parameters {#yandex.cloud.mdb.postgresql.v1.CreateClusterRequest}
@@ -2340,6 +2340,11 @@ POST https://mdb.api.cloud.yandex.net/managed-postgresql/v1/clusters
       "plannedUsageThreshold": "string",
       "emergencyUsageThreshold": "string",
       "diskSizeLimit": "string"
+    },
+    "connectionManager": {
+      "enabled": "boolean",
+      "connectionsFolderId": "string",
+      "secretsFolderId": "string"
     }
   },
   "databaseSpecs": [
@@ -2395,7 +2400,12 @@ POST https://mdb.api.cloud.yandex.net/managed-postgresql/v1/clusters
       "deletionProtection": "boolean",
       "userPasswordEncryption": "string",
       "generatePassword": "boolean",
-      "authMethod": "string"
+      "authMethod": "string",
+      "userConnectionManager": {
+        "connectionId": "string",
+        "connectionFolderId": "string",
+        "secretFolderId": "string"
+      }
     }
   ],
   "hostSpecs": [
@@ -3606,6 +3616,9 @@ Configuration of the performance diagnostics service. ||
 || diskSizeAutoscaling | **[DiskSizeAutoscaling](#yandex.cloud.mdb.postgresql.v1.DiskSizeAutoscaling)**
 
 Disk size autoscaling ||
+|| connectionManager | **[ClusterConnectionManager](#yandex.cloud.mdb.v1.ClusterConnectionManager)**
+
+Cluster-wide Connection Manager integration configuration ||
 |#
 
 ## PostgresqlConfig11 {#yandex.cloud.mdb.postgresql.v1.config.PostgresqlConfig11}
@@ -5527,7 +5540,8 @@ Acceptable values are 1048576 to 549755813888, inclusive. ||
 - `SHARED_PRELOAD_LIBRARIES_PG_CRON`: Required for the [pg_cron](https://github.com/citusdata/pg_cron) extension.
 - `SHARED_PRELOAD_LIBRARIES_PGLOGICAL`: Required for the [pglogical](https://github.com/2ndQuadrant/pglogical) extension.
 - `SHARED_PRELOAD_LIBRARIES_PG_PREWARM`: Shared library of extension [pg_prewarm](https://www.postgresql.org/docs/current/pgprewarm.html#PGPREWARM), which ensures loading of extension on server start
-- `SHARED_PRELOAD_LIBRARIES_PGAUDIT`: Required for the [pgaudit](https://www.pgaudit.org/) extension. ||
+- `SHARED_PRELOAD_LIBRARIES_PGAUDIT`: Required for the [pgaudit](https://www.pgaudit.org/) extension.
+- `SHARED_PRELOAD_LIBRARIES_SPQRGUARD`: Required for the [spqrguard](https://github.com/pg-sharding/spqrguard) extension. ||
 || autoExplainLogMinDuration | **string** (int64)
 
 in milliseconds. ||
@@ -5975,7 +5989,8 @@ Acceptable values are 1048576 to 549755813888, inclusive. ||
 - `SHARED_PRELOAD_LIBRARIES_PG_CRON`: Required for the [pg_cron](https://github.com/citusdata/pg_cron) extension.
 - `SHARED_PRELOAD_LIBRARIES_PGLOGICAL`: Required for the [pglogical](https://github.com/2ndQuadrant/pglogical) extension.
 - `SHARED_PRELOAD_LIBRARIES_PG_PREWARM`: Shared library of extension [pg_prewarm](https://www.postgresql.org/docs/current/pgprewarm.html#PGPREWARM), which ensures loading of extension on server start
-- `SHARED_PRELOAD_LIBRARIES_PGAUDIT`: Required for the [pgaudit](https://www.pgaudit.org/) extension. ||
+- `SHARED_PRELOAD_LIBRARIES_PGAUDIT`: Required for the [pgaudit](https://www.pgaudit.org/) extension.
+- `SHARED_PRELOAD_LIBRARIES_SPQRGUARD`: Required for the [spqrguard](https://github.com/pg-sharding/spqrguard) extension. ||
 || autoExplainLogMinDuration | **string** (int64)
 
 in milliseconds. ||
@@ -6419,7 +6434,8 @@ Acceptable values are 1048576 to 549755813888, inclusive. ||
 - `SHARED_PRELOAD_LIBRARIES_PGLOGICAL`: Required for the [pglogical](https://github.com/2ndQuadrant/pglogical) extension.
 - `SHARED_PRELOAD_LIBRARIES_PG_PREWARM`: Required for the [pg_prewarm](https://www.postgresql.org/docs/current/pgprewarm.html#PGPREWARM) extension.
 - `SHARED_PRELOAD_LIBRARIES_PGAUDIT`: Required for the [pgaudit](https://www.pgaudit.org/) extension.
-- `SHARED_PRELOAD_LIBRARIES_ANON`: Required for the [postgresql_anonymizer](https://postgresql-anonymizer.readthedocs.io/en/stable/) extension. ||
+- `SHARED_PRELOAD_LIBRARIES_ANON`: Required for the [postgresql_anonymizer](https://postgresql-anonymizer.readthedocs.io/en/stable/) extension.
+- `SHARED_PRELOAD_LIBRARIES_SPQRGUARD`: Required for the [spqrguard](https://github.com/pg-sharding/spqrguard) extension. ||
 || autoExplainLogMinDuration | **string** (int64)
 
 in milliseconds. ||
@@ -6869,7 +6885,8 @@ Acceptable values are 1048576 to 549755813888, inclusive. ||
 - `SHARED_PRELOAD_LIBRARIES_PGLOGICAL`: Required for the [pglogical](https://github.com/2ndQuadrant/pglogical) extension.
 - `SHARED_PRELOAD_LIBRARIES_PG_PREWARM`: Shared library of extension [pg_prewarm](https://www.postgresql.org/docs/current/pgprewarm.html#PGPREWARM), which ensures loading of extension on server start
 - `SHARED_PRELOAD_LIBRARIES_PGAUDIT`: Required for the [pgaudit](https://www.pgaudit.org/) extension.
-- `SHARED_PRELOAD_LIBRARIES_ANON`: Required for the [postgresql_anonymizer](https://postgresql-anonymizer.readthedocs.io/en/stable/) extension. ||
+- `SHARED_PRELOAD_LIBRARIES_ANON`: Required for the [postgresql_anonymizer](https://postgresql-anonymizer.readthedocs.io/en/stable/) extension.
+- `SHARED_PRELOAD_LIBRARIES_SPQRGUARD`: Required for the [spqrguard](https://github.com/pg-sharding/spqrguard) extension. ||
 || autoExplainLogMinDuration | **string** (int64)
 
 in milliseconds. ||
@@ -7323,7 +7340,8 @@ Acceptable values are 1048576 to 549755813888, inclusive. ||
 - `SHARED_PRELOAD_LIBRARIES_PG_PREWARM`: Shared library of extension [pg_prewarm](https://www.postgresql.org/docs/current/pgprewarm.html#PGPREWARM), which ensures loading of extension on server start
 - `SHARED_PRELOAD_LIBRARIES_PGAUDIT`: Required for the [pgaudit](https://www.pgaudit.org/) extension.
 - `SHARED_PRELOAD_LIBRARIES_ANON`: Required for the [postgresql_anonymizer](https://postgresql-anonymizer.readthedocs.io/en/stable/) extension.
-- `SHARED_PRELOAD_LIBRARIES_AGE`: Required for the [age](https://age.apache.org/) extension. ||
+- `SHARED_PRELOAD_LIBRARIES_AGE`: Required for the [age](https://age.apache.org/) extension.
+- `SHARED_PRELOAD_LIBRARIES_SPQRGUARD`: Required for the [spqrguard](https://github.com/pg-sharding/spqrguard) extension. ||
 || autoExplainLogMinDuration | **string** (int64)
 
 in milliseconds. ||
@@ -7778,7 +7796,8 @@ Acceptable values are 1048576 to 549755813888, inclusive. ||
 - `SHARED_PRELOAD_LIBRARIES_PG_PREWARM`: Shared library of extension [pg_prewarm](https://www.postgresql.org/docs/current/pgprewarm.html#PGPREWARM), which ensures loading of extension on server start
 - `SHARED_PRELOAD_LIBRARIES_PGAUDIT`: Required for the [pgaudit](https://www.pgaudit.org/) extension.
 - `SHARED_PRELOAD_LIBRARIES_ANON`: Required for the [postgresql_anonymizer](https://postgresql-anonymizer.readthedocs.io/en/stable/) extension.
-- `SHARED_PRELOAD_LIBRARIES_AGE`: Required for the [age](https://age.apache.org/) extension. ||
+- `SHARED_PRELOAD_LIBRARIES_AGE`: Required for the [age](https://age.apache.org/) extension.
+- `SHARED_PRELOAD_LIBRARIES_SPQRGUARD`: Required for the [spqrguard](https://github.com/pg-sharding/spqrguard) extension. ||
 || autoExplainLogMinDuration | **string** (int64)
 
 in milliseconds. ||
@@ -8234,7 +8253,8 @@ Acceptable values are 0 to 549755813888, inclusive. ||
 - `SHARED_PRELOAD_LIBRARIES_PG_PREWARM`: Shared library of extension [pg_prewarm](https://www.postgresql.org/docs/current/pgprewarm.html#PGPREWARM), which ensures loading of extension on server start
 - `SHARED_PRELOAD_LIBRARIES_PGAUDIT`: Required for the [pgaudit](https://www.pgaudit.org/) extension.
 - `SHARED_PRELOAD_LIBRARIES_ANON`: Required for the [postgresql_anonymizer](https://postgresql-anonymizer.readthedocs.io/en/stable/) extension.
-- `SHARED_PRELOAD_LIBRARIES_AGE`: Required for the [age](https://age.apache.org/) extension. ||
+- `SHARED_PRELOAD_LIBRARIES_AGE`: Required for the [age](https://age.apache.org/) extension.
+- `SHARED_PRELOAD_LIBRARIES_SPQRGUARD`: Required for the [spqrguard](https://github.com/pg-sharding/spqrguard) extension. ||
 || autoExplainLogMinDuration | **string** (int64)
 
 in milliseconds. ||
@@ -8698,7 +8718,8 @@ Acceptable values are 0 to 549755813888, inclusive. ||
 - `SHARED_PRELOAD_LIBRARIES_PG_PREWARM`: Shared library of extension [pg_prewarm](https://www.postgresql.org/docs/current/pgprewarm.html#PGPREWARM), which ensures loading of extension on server start
 - `SHARED_PRELOAD_LIBRARIES_PGAUDIT`: Required for the [pgaudit](https://www.pgaudit.org/) extension.
 - `SHARED_PRELOAD_LIBRARIES_ANON`: Required for the [postgresql_anonymizer](https://postgresql-anonymizer.readthedocs.io/en/stable/) extension.
-- `SHARED_PRELOAD_LIBRARIES_AGE`: Required for the [age](https://age.apache.org/) extension. ||
+- `SHARED_PRELOAD_LIBRARIES_AGE`: Required for the [age](https://age.apache.org/) extension.
+- `SHARED_PRELOAD_LIBRARIES_SPQRGUARD`: Required for the [spqrguard](https://github.com/pg-sharding/spqrguard) extension. ||
 || autoExplainLogMinDuration | **string** (int64)
 
 in milliseconds. ||
@@ -9162,7 +9183,8 @@ Acceptable values are 0 to 549755813888, inclusive. ||
 - `SHARED_PRELOAD_LIBRARIES_PG_PREWARM`: Shared library of extension [pg_prewarm](https://www.postgresql.org/docs/current/pgprewarm.html#PGPREWARM), which ensures loading of extension on server start
 - `SHARED_PRELOAD_LIBRARIES_PGAUDIT`: Required for the [pgaudit](https://www.pgaudit.org/) extension.
 - `SHARED_PRELOAD_LIBRARIES_ANON`: Required for the [postgresql_anonymizer](https://postgresql-anonymizer.readthedocs.io/en/stable/) extension.
-- `SHARED_PRELOAD_LIBRARIES_AGE`: Required for the [age](https://age.apache.org/) extension. ||
+- `SHARED_PRELOAD_LIBRARIES_AGE`: Required for the [age](https://age.apache.org/) extension.
+- `SHARED_PRELOAD_LIBRARIES_SPQRGUARD`: Required for the [spqrguard](https://github.com/pg-sharding/spqrguard) extension. ||
 || autoExplainLogMinDuration | **string** (int64)
 
 in milliseconds. ||
@@ -9626,7 +9648,8 @@ Acceptable values are 0 to 549755813888, inclusive. ||
 - `SHARED_PRELOAD_LIBRARIES_PG_PREWARM`: Shared library of extension [pg_prewarm](https://www.postgresql.org/docs/current/pgprewarm.html#PGPREWARM), which ensures loading of extension on server start
 - `SHARED_PRELOAD_LIBRARIES_PGAUDIT`: Required for the [pgaudit](https://www.pgaudit.org/) extension.
 - `SHARED_PRELOAD_LIBRARIES_ANON`: Required for the [postgresql_anonymizer](https://postgresql-anonymizer.readthedocs.io/en/stable/) extension.
-- `SHARED_PRELOAD_LIBRARIES_AGE`: Required for the [age](https://age.apache.org/) extension. ||
+- `SHARED_PRELOAD_LIBRARIES_AGE`: Required for the [age](https://age.apache.org/) extension.
+- `SHARED_PRELOAD_LIBRARIES_SPQRGUARD`: Required for the [spqrguard](https://github.com/pg-sharding/spqrguard) extension. ||
 || autoExplainLogMinDuration | **string** (int64)
 
 in milliseconds. ||
@@ -9906,6 +9929,28 @@ Acceptable values are 0 to 100, inclusive. ||
 New storage size (in bytes) that is set when one of the thresholds is achieved. ||
 |#
 
+## ClusterConnectionManager {#yandex.cloud.mdb.v1.ClusterConnectionManager}
+
+A message representing the Connection Manager integration status and settings for a cluster.
+
+#|
+||Field | Description ||
+|| enabled | **boolean**
+
+True if the integration for the cluster is enabled.
+Set to true to enable the integration.
+Disabling the integration is not supported. ||
+|| connectionsFolderId | **string**
+
+ID of the folder where connections for the cluster are created.
+Optional. Defaults to the cluster's folder if not specified. ||
+|| secretsFolderId | **string**
+
+A Connection Manager setting for connections created by MDB integration.
+ID of the folder where connection secrets are created.
+Optional. Defaults to the cluster's folder if not specified. ||
+|#
+
 ## DatabaseSpec {#yandex.cloud.mdb.postgresql.v1.DatabaseSpec}
 
 #|
@@ -10026,6 +10071,9 @@ Auth method for user
 
 - `AUTH_METHOD_PASSWORD`: Standard authentication mode with password
 - `AUTH_METHOD_IAM`: Alternative authentication mode with IAM token ||
+|| userConnectionManager | **[UserConnectionManager](#yandex.cloud.mdb.v1.UserConnectionManager)**
+
+Connection Manager Connection and settings associated with user ||
 |#
 
 ## Permission {#yandex.cloud.mdb.postgresql.v1.Permission}
@@ -10198,6 +10246,29 @@ The default value is PG_AUDIT_SETTINGS_LOG_UNSPECIFIED. In this case, the parame
 - `PG_AUDIT_SETTINGS_LOG_DDL`: Any `DDL` statements that do not belong to the `ROLE` class are logged.
 - `PG_AUDIT_SETTINGS_LOG_MISC`: Miscellaneous commands, such as `DISCARD`, `FETCH`, `CHECKPOINT`, `VACUUM`, and `SET`, are logged.
 - `PG_AUDIT_SETTINGS_LOG_MISC_SET`: Miscellaneous `SET` commands, e.g., `SET ROLE`, are logged. ||
+|#
+
+## UserConnectionManager {#yandex.cloud.mdb.v1.UserConnectionManager}
+
+A message representing Connection Manager integration details and settings for a user in a cluster.
+
+#|
+||Field | Description ||
+|| connectionId | **string**
+
+ID of the Connection Manager connection corresponding to the user.
+Ignored if specified in update requests. ||
+|| connectionFolderId | **string**
+
+ID of the folder where connection for the user is created.
+Optional. Defaults to the cluster's ClusterConnectionManager.connections_folder_id if not specified,
+or the cluster's folder if ClusterConnectionManager.connections_folder_id is not specified. ||
+|| secretFolderId | **string**
+
+A Connection Manager setting for a user's connection created by MDB integration.
+ID of the folder where secret for the user's connection is created.
+Optional. Defaults to the cluster's ClusterConnectionManager.secrets_folder_id if not specified,
+or the cluster's ClusterConnectionManager.connections_folder_id, or the cluster's folder. ||
 |#
 
 ## HostSpec {#yandex.cloud.mdb.postgresql.v1.HostSpec}
@@ -20147,7 +20218,12 @@ Defaults to "*". ||
         "emergencyUsageThreshold": "string",
         "diskSizeLimit": "string"
       },
-      "fullVersion": "string"
+      "fullVersion": "string",
+      "connectionManager": {
+        "enabled": "boolean",
+        "connectionsFolderId": "string",
+        "secretsFolderId": "string"
+      }
     },
     "networkId": "string",
     "health": "string",
@@ -20559,6 +20635,9 @@ Disk size autoscaling ||
 || fullVersion | **string**
 
 Full version ||
+|| connectionManager | **[ClusterConnectionManager](#yandex.cloud.mdb.v1.ClusterConnectionManager2)**
+
+Cluster-wide Connection Manager integration configuration ||
 |#
 
 ## PostgresqlConfigSet11 {#yandex.cloud.mdb.postgresql.v1.config.PostgresqlConfigSet11}
@@ -22560,7 +22639,8 @@ Acceptable values are 1048576 to 549755813888, inclusive. ||
 - `SHARED_PRELOAD_LIBRARIES_PG_CRON`: Required for the [pg_cron](https://github.com/citusdata/pg_cron) extension.
 - `SHARED_PRELOAD_LIBRARIES_PGLOGICAL`: Required for the [pglogical](https://github.com/2ndQuadrant/pglogical) extension.
 - `SHARED_PRELOAD_LIBRARIES_PG_PREWARM`: Shared library of extension [pg_prewarm](https://www.postgresql.org/docs/current/pgprewarm.html#PGPREWARM), which ensures loading of extension on server start
-- `SHARED_PRELOAD_LIBRARIES_PGAUDIT`: Required for the [pgaudit](https://www.pgaudit.org/) extension. ||
+- `SHARED_PRELOAD_LIBRARIES_PGAUDIT`: Required for the [pgaudit](https://www.pgaudit.org/) extension.
+- `SHARED_PRELOAD_LIBRARIES_SPQRGUARD`: Required for the [spqrguard](https://github.com/pg-sharding/spqrguard) extension. ||
 || autoExplainLogMinDuration | **string** (int64)
 
 in milliseconds. ||
@@ -23024,7 +23104,8 @@ Acceptable values are 1048576 to 549755813888, inclusive. ||
 - `SHARED_PRELOAD_LIBRARIES_PG_CRON`: Required for the [pg_cron](https://github.com/citusdata/pg_cron) extension.
 - `SHARED_PRELOAD_LIBRARIES_PGLOGICAL`: Required for the [pglogical](https://github.com/2ndQuadrant/pglogical) extension.
 - `SHARED_PRELOAD_LIBRARIES_PG_PREWARM`: Shared library of extension [pg_prewarm](https://www.postgresql.org/docs/current/pgprewarm.html#PGPREWARM), which ensures loading of extension on server start
-- `SHARED_PRELOAD_LIBRARIES_PGAUDIT`: Required for the [pgaudit](https://www.pgaudit.org/) extension. ||
+- `SHARED_PRELOAD_LIBRARIES_PGAUDIT`: Required for the [pgaudit](https://www.pgaudit.org/) extension.
+- `SHARED_PRELOAD_LIBRARIES_SPQRGUARD`: Required for the [spqrguard](https://github.com/pg-sharding/spqrguard) extension. ||
 || autoExplainLogMinDuration | **string** (int64)
 
 in milliseconds. ||
@@ -23484,7 +23565,8 @@ Acceptable values are 1048576 to 549755813888, inclusive. ||
 - `SHARED_PRELOAD_LIBRARIES_PGLOGICAL`: Required for the [pglogical](https://github.com/2ndQuadrant/pglogical) extension.
 - `SHARED_PRELOAD_LIBRARIES_PG_PREWARM`: Required for the [pg_prewarm](https://www.postgresql.org/docs/current/pgprewarm.html#PGPREWARM) extension.
 - `SHARED_PRELOAD_LIBRARIES_PGAUDIT`: Required for the [pgaudit](https://www.pgaudit.org/) extension.
-- `SHARED_PRELOAD_LIBRARIES_ANON`: Required for the [postgresql_anonymizer](https://postgresql-anonymizer.readthedocs.io/en/stable/) extension. ||
+- `SHARED_PRELOAD_LIBRARIES_ANON`: Required for the [postgresql_anonymizer](https://postgresql-anonymizer.readthedocs.io/en/stable/) extension.
+- `SHARED_PRELOAD_LIBRARIES_SPQRGUARD`: Required for the [spqrguard](https://github.com/pg-sharding/spqrguard) extension. ||
 || autoExplainLogMinDuration | **string** (int64)
 
 in milliseconds. ||
@@ -23950,7 +24032,8 @@ Acceptable values are 1048576 to 549755813888, inclusive. ||
 - `SHARED_PRELOAD_LIBRARIES_PGLOGICAL`: Required for the [pglogical](https://github.com/2ndQuadrant/pglogical) extension.
 - `SHARED_PRELOAD_LIBRARIES_PG_PREWARM`: Shared library of extension [pg_prewarm](https://www.postgresql.org/docs/current/pgprewarm.html#PGPREWARM), which ensures loading of extension on server start
 - `SHARED_PRELOAD_LIBRARIES_PGAUDIT`: Required for the [pgaudit](https://www.pgaudit.org/) extension.
-- `SHARED_PRELOAD_LIBRARIES_ANON`: Required for the [postgresql_anonymizer](https://postgresql-anonymizer.readthedocs.io/en/stable/) extension. ||
+- `SHARED_PRELOAD_LIBRARIES_ANON`: Required for the [postgresql_anonymizer](https://postgresql-anonymizer.readthedocs.io/en/stable/) extension.
+- `SHARED_PRELOAD_LIBRARIES_SPQRGUARD`: Required for the [spqrguard](https://github.com/pg-sharding/spqrguard) extension. ||
 || autoExplainLogMinDuration | **string** (int64)
 
 in milliseconds. ||
@@ -24420,7 +24503,8 @@ Acceptable values are 1048576 to 549755813888, inclusive. ||
 - `SHARED_PRELOAD_LIBRARIES_PG_PREWARM`: Shared library of extension [pg_prewarm](https://www.postgresql.org/docs/current/pgprewarm.html#PGPREWARM), which ensures loading of extension on server start
 - `SHARED_PRELOAD_LIBRARIES_PGAUDIT`: Required for the [pgaudit](https://www.pgaudit.org/) extension.
 - `SHARED_PRELOAD_LIBRARIES_ANON`: Required for the [postgresql_anonymizer](https://postgresql-anonymizer.readthedocs.io/en/stable/) extension.
-- `SHARED_PRELOAD_LIBRARIES_AGE`: Required for the [age](https://age.apache.org/) extension. ||
+- `SHARED_PRELOAD_LIBRARIES_AGE`: Required for the [age](https://age.apache.org/) extension.
+- `SHARED_PRELOAD_LIBRARIES_SPQRGUARD`: Required for the [spqrguard](https://github.com/pg-sharding/spqrguard) extension. ||
 || autoExplainLogMinDuration | **string** (int64)
 
 in milliseconds. ||
@@ -24891,7 +24975,8 @@ Acceptable values are 1048576 to 549755813888, inclusive. ||
 - `SHARED_PRELOAD_LIBRARIES_PG_PREWARM`: Shared library of extension [pg_prewarm](https://www.postgresql.org/docs/current/pgprewarm.html#PGPREWARM), which ensures loading of extension on server start
 - `SHARED_PRELOAD_LIBRARIES_PGAUDIT`: Required for the [pgaudit](https://www.pgaudit.org/) extension.
 - `SHARED_PRELOAD_LIBRARIES_ANON`: Required for the [postgresql_anonymizer](https://postgresql-anonymizer.readthedocs.io/en/stable/) extension.
-- `SHARED_PRELOAD_LIBRARIES_AGE`: Required for the [age](https://age.apache.org/) extension. ||
+- `SHARED_PRELOAD_LIBRARIES_AGE`: Required for the [age](https://age.apache.org/) extension.
+- `SHARED_PRELOAD_LIBRARIES_SPQRGUARD`: Required for the [spqrguard](https://github.com/pg-sharding/spqrguard) extension. ||
 || autoExplainLogMinDuration | **string** (int64)
 
 in milliseconds. ||
@@ -25363,7 +25448,8 @@ Acceptable values are 0 to 549755813888, inclusive. ||
 - `SHARED_PRELOAD_LIBRARIES_PG_PREWARM`: Shared library of extension [pg_prewarm](https://www.postgresql.org/docs/current/pgprewarm.html#PGPREWARM), which ensures loading of extension on server start
 - `SHARED_PRELOAD_LIBRARIES_PGAUDIT`: Required for the [pgaudit](https://www.pgaudit.org/) extension.
 - `SHARED_PRELOAD_LIBRARIES_ANON`: Required for the [postgresql_anonymizer](https://postgresql-anonymizer.readthedocs.io/en/stable/) extension.
-- `SHARED_PRELOAD_LIBRARIES_AGE`: Required for the [age](https://age.apache.org/) extension. ||
+- `SHARED_PRELOAD_LIBRARIES_AGE`: Required for the [age](https://age.apache.org/) extension.
+- `SHARED_PRELOAD_LIBRARIES_SPQRGUARD`: Required for the [spqrguard](https://github.com/pg-sharding/spqrguard) extension. ||
 || autoExplainLogMinDuration | **string** (int64)
 
 in milliseconds. ||
@@ -25843,7 +25929,8 @@ Acceptable values are 0 to 549755813888, inclusive. ||
 - `SHARED_PRELOAD_LIBRARIES_PG_PREWARM`: Shared library of extension [pg_prewarm](https://www.postgresql.org/docs/current/pgprewarm.html#PGPREWARM), which ensures loading of extension on server start
 - `SHARED_PRELOAD_LIBRARIES_PGAUDIT`: Required for the [pgaudit](https://www.pgaudit.org/) extension.
 - `SHARED_PRELOAD_LIBRARIES_ANON`: Required for the [postgresql_anonymizer](https://postgresql-anonymizer.readthedocs.io/en/stable/) extension.
-- `SHARED_PRELOAD_LIBRARIES_AGE`: Required for the [age](https://age.apache.org/) extension. ||
+- `SHARED_PRELOAD_LIBRARIES_AGE`: Required for the [age](https://age.apache.org/) extension.
+- `SHARED_PRELOAD_LIBRARIES_SPQRGUARD`: Required for the [spqrguard](https://github.com/pg-sharding/spqrguard) extension. ||
 || autoExplainLogMinDuration | **string** (int64)
 
 in milliseconds. ||
@@ -26323,7 +26410,8 @@ Acceptable values are 0 to 549755813888, inclusive. ||
 - `SHARED_PRELOAD_LIBRARIES_PG_PREWARM`: Shared library of extension [pg_prewarm](https://www.postgresql.org/docs/current/pgprewarm.html#PGPREWARM), which ensures loading of extension on server start
 - `SHARED_PRELOAD_LIBRARIES_PGAUDIT`: Required for the [pgaudit](https://www.pgaudit.org/) extension.
 - `SHARED_PRELOAD_LIBRARIES_ANON`: Required for the [postgresql_anonymizer](https://postgresql-anonymizer.readthedocs.io/en/stable/) extension.
-- `SHARED_PRELOAD_LIBRARIES_AGE`: Required for the [age](https://age.apache.org/) extension. ||
+- `SHARED_PRELOAD_LIBRARIES_AGE`: Required for the [age](https://age.apache.org/) extension.
+- `SHARED_PRELOAD_LIBRARIES_SPQRGUARD`: Required for the [spqrguard](https://github.com/pg-sharding/spqrguard) extension. ||
 || autoExplainLogMinDuration | **string** (int64)
 
 in milliseconds. ||
@@ -26803,7 +26891,8 @@ Acceptable values are 0 to 549755813888, inclusive. ||
 - `SHARED_PRELOAD_LIBRARIES_PG_PREWARM`: Shared library of extension [pg_prewarm](https://www.postgresql.org/docs/current/pgprewarm.html#PGPREWARM), which ensures loading of extension on server start
 - `SHARED_PRELOAD_LIBRARIES_PGAUDIT`: Required for the [pgaudit](https://www.pgaudit.org/) extension.
 - `SHARED_PRELOAD_LIBRARIES_ANON`: Required for the [postgresql_anonymizer](https://postgresql-anonymizer.readthedocs.io/en/stable/) extension.
-- `SHARED_PRELOAD_LIBRARIES_AGE`: Required for the [age](https://age.apache.org/) extension. ||
+- `SHARED_PRELOAD_LIBRARIES_AGE`: Required for the [age](https://age.apache.org/) extension.
+- `SHARED_PRELOAD_LIBRARIES_SPQRGUARD`: Required for the [spqrguard](https://github.com/pg-sharding/spqrguard) extension. ||
 || autoExplainLogMinDuration | **string** (int64)
 
 in milliseconds. ||
@@ -27081,6 +27170,28 @@ Acceptable values are 0 to 100, inclusive. ||
 || diskSizeLimit | **string** (int64)
 
 New storage size (in bytes) that is set when one of the thresholds is achieved. ||
+|#
+
+## ClusterConnectionManager {#yandex.cloud.mdb.v1.ClusterConnectionManager2}
+
+A message representing the Connection Manager integration status and settings for a cluster.
+
+#|
+||Field | Description ||
+|| enabled | **boolean**
+
+True if the integration for the cluster is enabled.
+Set to true to enable the integration.
+Disabling the integration is not supported. ||
+|| connectionsFolderId | **string**
+
+ID of the folder where connections for the cluster are created.
+Optional. Defaults to the cluster's folder if not specified. ||
+|| secretsFolderId | **string**
+
+A Connection Manager setting for connections created by MDB integration.
+ID of the folder where connection secrets are created.
+Optional. Defaults to the cluster's folder if not specified. ||
 |#
 
 ## MaintenanceWindow {#yandex.cloud.mdb.postgresql.v1.MaintenanceWindow2}

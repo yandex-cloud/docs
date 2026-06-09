@@ -5,7 +5,7 @@ Retrieves the list of available backups for the specified Redis cluster.
 ## HTTP request
 
 ```
-GET https://mdb.api.cloud.yandex.net/managed-redis/v1/clusters/{clusterId}/backups
+GET https://{{ api-host-mdb }}/managed-redis/v1/clusters/{clusterId}/backups
 ```
 
 ## Path parameters
@@ -15,7 +15,7 @@ GET https://mdb.api.cloud.yandex.net/managed-redis/v1/clusters/{clusterId}/backu
 || clusterId | **string**
 
 Required field. ID of the Redis cluster.
-To get the Redis cluster ID use a [ClusterService.List](list.md#List) request.
+To get the Redis cluster ID use a [ClusterService.List](../../../managed-redis/api-ref/Cluster/list#List) request.
 
 The maximum string length in characters is 50. ||
 |#
@@ -78,19 +78,19 @@ Each subsequent list request will have its own `nextPageToken` to continue pagin
 ## Backup {#yandex.cloud.mdb.redis.v1.Backup}
 
 Description of a Redis backup. For more information, see
-the Managed Service for Redis [documentation](../../concepts/backup.md).
+the Managed Service for Redis [documentation](../../../managed-redis/concepts/backup).
 
 #|
 ||Field | Description ||
 || id | **string**
 
-ID of the backup. ||
+Required field. ID of the backup. ||
 || folderId | **string**
 
-ID of the folder that the backup belongs to. ||
+Required field. ID of the folder that the backup belongs to. ||
 || createdAt | **string** (date-time)
 
-Creation timestamp in [RFC3339](https://www.ietf.org/rfc/rfc3339.txt) text format
+Required field. Creation timestamp in [RFC3339](https://www.ietf.org/rfc/rfc3339.txt) text format
 (i.e. when the backup operation was completed).
 
 String in [RFC3339](https://www.ietf.org/rfc/rfc3339.txt) text format. The range of possible values is from
@@ -101,10 +101,10 @@ To work with values in this field, use the APIs described in the
 In some languages, built-in datetime utilities do not support nanosecond precision (9 digits). ||
 || sourceClusterId | **string**
 
-ID of the Redis cluster that the backup was created for. ||
+Required field. ID of the Redis cluster that the backup was created for. ||
 || startedAt | **string** (date-time)
 
-Start timestamp in [RFC3339](https://www.ietf.org/rfc/rfc3339.txt) text format
+Required field. Start timestamp in [RFC3339](https://www.ietf.org/rfc/rfc3339.txt) text format
 (i.e. when the backup operation was started).
 
 String in [RFC3339](https://www.ietf.org/rfc/rfc3339.txt) text format. The range of possible values is from

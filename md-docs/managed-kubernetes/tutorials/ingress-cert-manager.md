@@ -1,14 +1,14 @@
-# Установка Ingress-контроллера NGINX с менеджером для сертификатов Let's Encrypt®
+# Установка Ingress-контроллера NGINX с менеджером для сертификатов {{ lets-encrypt }}
 
 {% note alert %}
 
 Поддержка контроллера Ingress NGINX прекращается в марте 2026 года. Подробнее см. на странице [Ingress NGINX Retirement: What You Need to Know](https://kubernetes.io/blog/2025/11/11/ingress-nginx-retirement/).
 
-Рекомендуется [перейти](../alb-ref/nginx-gwin-migration.md) на новый контроллер [Yandex Cloud Gwin](../alb-ref/gwin-index.md).
+Рекомендуется [перейти](../alb-ref/nginx-gwin-migration.md) на новый контроллер [{{ yandex-cloud }} Gwin](../alb-ref/gwin-index.md).
 
 {% endnote %}
 
-Чтобы с помощью [Kubernetes](https://kubernetes.io/ru/) создать [Ingress-контроллер NGINX](https://kubernetes.github.io/ingress-nginx/) и защитить его сертификатом:
+Чтобы с помощью [{{ k8s }}](https://kubernetes.io/ru/) создать [Ingress-контроллер NGINX](https://kubernetes.github.io/ingress-nginx/) и защитить его сертификатом:
 
 1. [Установите Ingress-контроллер NGINX](#install-controller).
 1. [Настройте DNS-запись для Ingress-контроллера](#connecting-certs-manager).
@@ -24,17 +24,17 @@
 
 В стоимость поддержки описываемого решения входят:
 
-* Плата за DNS-зону и DNS-запросы (см. [тарифы Cloud DNS](../../dns/pricing.md)).
-* Плата за кластер Managed Service for Kubernetes: использование мастера и исходящий трафик (см. [тарифы Managed Service for Kubernetes](../pricing.md)).
-* Плата за узлы кластера (ВМ): использование вычислительных ресурсов, операционной системы и хранилища (см. [тарифы Compute Cloud](../../compute/pricing.md)).
-* Плата за сетевой балансировщик нагрузки (см. [тарифы Network Load Balancer](../../network-load-balancer/pricing.md)).
-* Плата за публичные IP-адреса, если они назначены узлам кластера, а также за публичный IP-адрес для сетевого балансировщика нагрузки (см. [тарифы Virtual Private Cloud](../../vpc/pricing.md#prices-public-ip)).
+* Плата за DNS-зону и DNS-запросы (см. [тарифы {{ dns-name }}](../../dns/pricing.md)).
+* Плата за кластер {{ managed-k8s-name }}: использование мастера и исходящий трафик (см. [тарифы {{ managed-k8s-name }}](../pricing.md)).
+* Плата за узлы кластера (ВМ): использование вычислительных ресурсов, операционной системы и хранилища (см. [тарифы {{ compute-name }}](../../compute/pricing.md)).
+* Плата за сетевой балансировщик нагрузки (см. [тарифы {{ network-load-balancer-name }}](../../network-load-balancer/pricing.md)).
+* Плата за публичные IP-адреса, если они назначены узлам кластера, а также за публичный IP-адрес для сетевого балансировщика нагрузки (см. [тарифы {{ vpc-name }}](../../vpc/pricing.md#prices-public-ip)).
 
 
 ## Перед началом работы {#before-begin}
 
 1. [Создайте сервисный аккаунт](../../iam/operations/sa/create.md) с [ролями](../../iam/concepts/access-control/roles.md) `k8s.clusters.agent`, `vpc.publicAdmin`, `container-registry.images.puller` и `load-balancer.admin` на [каталог](../../resource-manager/concepts/resources-hierarchy.md#folder). Роль `load-balancer.admin` нужна для создания [сетевого балансировщика нагрузки](../../network-load-balancer/concepts/index.md).
-1. [Создайте группы безопасности](../operations/connect/security-groups.md) для кластера Managed Service for Kubernetes и входящих в него групп узлов.
+1. [Создайте группы безопасности](../operations/connect/security-groups.md) для кластера {{ managed-k8s-name }} и входящих в него групп узлов.
 
     {% note warning %}
     
@@ -45,22 +45,22 @@
 1. [Добавьте](../../vpc/operations/security-group-add-rule.md) в группы безопасности следующие правила:
    
      * В [группу безопасности кластера](../operations/connect/security-groups.md#rules-master) добавьте правило для исходящего трафика, которое разрешает проверку сертификатов через веб-хук cert-manager:
-       * **Диапазон портов** — `10250`.
-       * **Протокол** — `TCP`.
-       * **Назначение** — `CIDR`.
-       * **CIDR блоки** — `0.0.0.0/0`.
+       * **{{ ui-key.yacloud.vpc.network.security-groups.forms.field_sg-rule-port-range }}** — `10250`.
+       * **{{ ui-key.yacloud.vpc.network.security-groups.forms.field_sg-rule-protocol }}** — `{{ ui-key.yacloud.common.label_tcp }}`.
+       * **{{ ui-key.yacloud.vpc.network.security-groups.forms.field_sg-rule-destination }}** — `{{ ui-key.yacloud.vpc.network.security-groups.forms.value_sg-rule-destination-cidr }}`.
+       * **{{ ui-key.yacloud.vpc.network.security-groups.forms.field_sg-rule-cidr-blocks }}** — `0.0.0.0/0`.
      * В [группу безопасности группы узлов](../operations/connect/security-groups.md#rules-internal-nodegroup) добавьте правило для исходящего трафика, которое разрешает подключение к серверам Let's Encrypt® для выпуска сертификатов:
-       * **Диапазон портов** — `443`.
-       * **Протокол** — `TCP`.
-       * **Назначение** — `CIDR`.
-       * **CIDR блоки** — `0.0.0.0/0`.
-1. [Создайте кластер Managed Service for Kubernetes](../operations/kubernetes-cluster/kubernetes-cluster-create.md) и [группу узлов](../operations/node-group/node-group-create.md) любой подходящей конфигурации. В настройках кластера укажите сервисный аккаунт и группы безопасности, созданные ранее.
-1. [Установите kubectl](https://kubernetes.io/ru/docs/tasks/tools/install-kubectl) и [настройте его на работу с созданным кластером](../operations/connect/index.md#kubectl-connect).
+       * **{{ ui-key.yacloud.vpc.network.security-groups.forms.field_sg-rule-port-range }}** — `443`.
+       * **{{ ui-key.yacloud.vpc.network.security-groups.forms.field_sg-rule-protocol }}** — `{{ ui-key.yacloud.common.label_tcp }}`.
+       * **{{ ui-key.yacloud.vpc.network.security-groups.forms.field_sg-rule-destination }}** — `{{ ui-key.yacloud.vpc.network.security-groups.forms.value_sg-rule-destination-cidr }}`.
+       * **{{ ui-key.yacloud.vpc.network.security-groups.forms.field_sg-rule-cidr-blocks }}** — `0.0.0.0/0`.
+1. [Создайте кластер {{ managed-k8s-name }}](../operations/kubernetes-cluster/kubernetes-cluster-create.md) и [группу узлов](../operations/node-group/node-group-create.md) любой подходящей конфигурации. В настройках кластера укажите сервисный аккаунт и группы безопасности, созданные ранее.
+1. [Установите kubectl]({{ k8s-docs }}/tasks/tools/install-kubectl) и [настройте его на работу с созданным кластером](../operations/connect/index.md#kubectl-connect).
 
 1. [Зарегистрируйте публичную доменную зону и делегируйте домен](../../dns/operations/zone-create-public.md).
 
 
-1. (Опционально) [Установите](../operations/applications/externaldns.md) ExternalDNS c Webhook Yandex Cloud DNS, чтобы автоматически создать [DNS-запись](../../dns/concepts/resource-record.md) в [Yandex Cloud DNS](../../dns/index.md) при создании Ingress-контроллера.
+1. (Опционально) [Установите](../operations/applications/externaldns.md) ExternalDNS c Webhook {{ dns-full-name }}, чтобы автоматически создать [DNS-запись](../../dns/concepts/resource-record.md) в [{{ dns-full-name }}](../../dns/index.md) при создании Ingress-контроллера.
 
 
 ## Установите Ingress-контроллер NGINX {#install-controller}
@@ -69,7 +69,7 @@
 
 - Вручную {#manual}
 
-  1. [Установите менеджер пакетов Kubernetes Helm](https://helm.sh/ru/docs/intro/install).
+  1. [Установите менеджер пакетов {{ k8s }} Helm](https://helm.sh/ru/docs/intro/install).
   1. Для установки [Helm-чарта](https://helm.sh/docs/topics/charts/) с Ingress-контроллером NGINX выполните команду:
 
      ```bash
@@ -78,7 +78,7 @@
      helm install ingress-nginx ingress-nginx/ingress-nginx
      ```
 
-  Созданный контроллер будет установлен за [Yandex Network Load Balancer](../../network-load-balancer/index.md).
+  Созданный контроллер будет установлен за [{{ network-load-balancer-full-name }}](../../network-load-balancer/index.md).
 
   Чтобы настроить конфигурацию контроллера самостоятельно, обратитесь к [документации Helm](https://helm.sh/ru/docs/intro/using_helm/#настройка-chart-а-перед-установкой) и отредактируйте файл [values.yaml](https://github.com/kubernetes/ingress-nginx/blob/master/charts/ingress-nginx/values.yaml).
 
@@ -88,7 +88,7 @@
 
 ## Настройте DNS-запись для Ingress-контроллера {#connecting-certs-manager}
 
-Если вы используете [ExternalDNS с плагином для Cloud DNS](https://yandex.cloud/ru/marketplace/products/yc/externaldns), настраивать DNS-запись не нужно — она создается автоматически. В противном случае:
+Если вы используете [ExternalDNS с плагином для {{ dns-name }}](https://yandex.cloud/ru/marketplace/products/yc/externaldns), настраивать DNS-запись не нужно — она создается автоматически. В противном случае:
 1. Узнайте [IP-адрес](../../vpc/concepts/address.md) Ingress-контроллера (значение в колонке `EXTERNAL-IP`):
 
    ```bash
@@ -114,9 +114,9 @@
 
 
 Вы можете установить менеджер сертификатов одним из способов:
-* С помощью [Yandex Cloud Marketplace](../../marketplace/index.md): будет установлен cert-manager, [интегрированный с сервисом Cloud DNS](../operations/applications/cert-manager-cloud-dns.md).
+* С помощью [{{ marketplace-full-name }}](../../marketplace/index.md): будет установлен cert-manager, [интегрированный с сервисом {{ dns-name }}](../operations/applications/cert-manager-cloud-dns.md).
 
-  В кластере будет создан объект `ClusterIssuer`, настроенный на прохождение [проверки DNS-01](https://letsencrypt.org/ru/docs/challenge-types/#проверка-dns-01) с помощью Cloud DNS.
+  В кластере будет создан объект `ClusterIssuer`, настроенный на прохождение [проверки DNS-01](https://letsencrypt.org/ru/docs/challenge-types/#проверка-dns-01) с помощью {{ dns-name }}.
 
   При необходимости можно вручную создать и настроить другие объекты: `Issuer` или `ClusterIssuer`. Подробнее об этих объектах см. в [документации cert-manager](https://cert-manager.io/docs/configuration/).
 * Вручную: будет установлен cert-manager без дополнительных интеграций.
@@ -127,9 +127,9 @@
 {% list tabs group=instructions %}
 
 
-- Yandex Cloud Marketplace {#marketplace}
+- {{ marketplace-full-name }} {#marketplace}
 
-  Установите приложение cert-manager c плагином Cloud DNS ACME webhook [по инструкции](../operations/applications/cert-manager-cloud-dns.md).
+  Установите приложение cert-manager c плагином {{ dns-name }} ACME webhook [по инструкции](../operations/applications/cert-manager-cloud-dns.md).
 
 
 - Вручную {#manual}
@@ -159,7 +159,7 @@
 
 ## Создайте ClusterIssuer {#create-issuer}
 
-Создайте объект [ClusterIssuer](https://cert-manager.io/docs/configuration/), с помощью которого можно выпускать сертификаты Let's Encrypt®.
+Создайте объект [ClusterIssuer](https://cert-manager.io/docs/configuration/), с помощью которого можно выпускать сертификаты {{ lets-encrypt }}.
 
 Сертификаты будут выпускаться после прохождения [проверки HTTP-01](https://letsencrypt.org/ru/docs/challenge-types/#проверка-http-01) с помощью [установленного ранее](#install-controller) Ingress-контроллера.
 
@@ -184,7 +184,7 @@
               class: nginx
     ```
 
-1. Создайте объект в кластере Managed Service for Kubernetes:
+1. Создайте объект в кластере {{ managed-k8s-name }}:
 
     ```bash
     kubectl apply -f http01-clusterissuer.yaml
@@ -256,7 +256,7 @@
            - containerPort: 80
    ```
 
-1. Создайте объекты в кластере Managed Service for Kubernetes:
+1. Создайте объекты в кластере {{ managed-k8s-name }}:
 
    ```bash
    kubectl apply -f app.yaml
@@ -286,7 +286,7 @@
 
    {% note info %}
 
-   Проверка прав на домен сертификата Let's Encrypt® может занять несколько часов.
+   Проверка прав на домен сертификата {{ lets-encrypt }} может занять несколько часов.
 
    {% endnote %}
 
@@ -326,12 +326,12 @@
 
    {% note info %}
    
-   Если ресурс недоступен по указанному URL, то [убедитесь](../operations/connect/security-groups.md), что группы безопасности для кластера Managed Service for Kubernetes и его групп узлов настроены корректно. Если отсутствует какое-либо из правил — [добавьте его](../../vpc/operations/security-group-add-rule.md).
+   Если ресурс недоступен по указанному URL, то [убедитесь](../operations/connect/security-groups.md), что группы безопасности для кластера {{ managed-k8s-name }} и его групп узлов настроены корректно. Если отсутствует какое-либо из правил — [добавьте его](../../vpc/operations/security-group-add-rule.md).
    
    {% endnote %}
 
 ## Удалите созданные ресурсы {#clear-out}
 
 Некоторые ресурсы платные. Чтобы за них не списывалась плата, удалите ресурсы, которые вы больше не будете использовать:
-1. [Удалите кластер Managed Service for Kubernetes](../operations/kubernetes-cluster/kubernetes-cluster-delete.md).
+1. [Удалите кластер {{ managed-k8s-name }}](../operations/kubernetes-cluster/kubernetes-cluster-delete.md).
 1. [Удалите публичную доменную зону](../../dns/operations/zone-delete.md).

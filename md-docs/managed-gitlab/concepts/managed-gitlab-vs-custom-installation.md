@@ -1,16 +1,16 @@
-# Преимущества Managed Service for GitLab перед пользовательской инсталляцией GitLab Community Edition
+# Преимущества {{ mgl-name }} перед пользовательской инсталляцией {{ GL }} Community Edition
 
-_Пользовательская инсталляция_ — это GitLab, который установлен на сервер или локальный компьютер (self-managed GitLab). Ниже рассматривается пользовательская инсталляция [GitLab Community Edition](https://about.gitlab.com/install/ce-or-ee/).
+_Пользовательская инсталляция_ — это {{ GL }}, который установлен на сервер или локальный компьютер (self-managed {{ GL }}). Ниже рассматривается пользовательская инсталляция [{{ GL }} Community Edition](https://about.gitlab.com/install/ce-or-ee/).
 
-Managed Service for GitLab имеет поддержку [правил ревью кода](approval-rules.md), которой нет в Community Edition. Правила являются альтернативой инструменту [Approval Rules](https://docs.gitlab.com/ee/user/project/merge_requests/approvals/rules.html) в GitLab Enterprise Edition.
+{{ mgl-name }} имеет поддержку [правил ревью кода](approval-rules.md), которой нет в Community Edition. Правила являются альтернативой инструменту [Approval Rules]({{ gl.docs }}/ee/user/project/merge_requests/approvals/rules.html) в {{ GL }} Enterprise Edition.
 
-Пользовательская инсталляция устанавливается и администрируется вручную. Это требует больше затрат по сравнению с поддержкой Managed Service for GitLab. Администрирование сервиса включает в себя следующие преимущества:
+Пользовательская инсталляция устанавливается и администрируется вручную. Это требует больше затрат по сравнению с поддержкой {{ mgl-name }}. Администрирование сервиса включает в себя следующие преимущества:
 
-* GitLab [развертывается](../operations/instance/instance-create.md) в один клик. Развертывание также включает автоматическую генерацию SSL-сертификата.
-* Yandex Cloud регулярно обслуживает [инстансы GitLab](index.md#instance) и обновляет версию GitLab.
-* Yandex Cloud регулярно создает [резервные копии](backup.md) инстанса по расписанию, указанному в его настройках.
+* {{ GL }} [развертывается](../operations/instance/instance-create.md) в один клик. Развертывание также включает автоматическую генерацию SSL-сертификата.
+* {{ yandex-cloud }} регулярно обслуживает [инстансы {{ GL }}](index.md#instance) и обновляет версию {{ GL }}.
+* {{ yandex-cloud }} регулярно создает [резервные копии](backup.md) инстанса по расписанию, указанному в его настройках.
 
 ## Что дальше {#whats-next}
 
-* [Попробуйте Yandex Managed Service for GitLab](https://console.yandex.cloud/link/managed-gitlab/).
-* Перенесите свои проекты из пользовательской инсталляции в Managed Service for GitLab и сократите затраты на администрирование сервиса. Подробнее о миграции читайте в разделе [Порядок предоставления услуги по миграции из GitLab в Managed Service for GitLab](migration.md).
+* [Попробуйте {{ mgl-full-name }}]({{ link-console-main }}/link/managed-gitlab/).
+* Перенесите свои проекты из пользовательской инсталляции в {{ mgl-name }} и сократите затраты на администрирование сервиса. Подробнее о миграции читайте в разделе [{#T}](migration.md).

@@ -51,23 +51,10 @@ The maximum string length in characters is 256. ||
   "created_by": "string",
   "modified_at": "google.protobuf.Timestamp",
   "done": "bool",
-  "metadata": {
-    "signature_certificate_id": "string"
-  },
+  "metadata": "google.protobuf.Any",
   // Includes only one of the fields `error`, `response`
   "error": "google.rpc.Status",
-  "response": {
-    "id": "string",
-    "application_id": "string",
-    "status": "Status",
-    "name": "string",
-    "description": "string",
-    "created_at": "google.protobuf.Timestamp",
-    "data": "string",
-    "fingerprint": "string",
-    "not_after": "google.protobuf.Timestamp",
-    "not_before": "google.protobuf.Timestamp"
-  }
+  "response": "google.protobuf.Any"
   // end of the list of possible fields
 }
 ```
@@ -95,7 +82,7 @@ The time when the Operation resource was last modified. ||
 
 If the value is `false`, it means the operation is still in progress.
 If `true`, the operation is completed, and either `error` or `response` is available. ||
-|| metadata | **[UpdateSignatureCertificateMetadata](#yandex.cloud.organizationmanager.v1.idp.application.saml.UpdateSignatureCertificateMetadata)**
+|| metadata | **[google.protobuf.Any](https://developers.google.com/protocol-buffers/docs/proto3#any)**
 
 Service-specific metadata associated with the operation.
 It typically contains the ID of the target resource that the operation is performed on.
@@ -110,7 +97,7 @@ The operation result.
 If `done == false` and there was no failure detected, neither `error` nor `response` is set.
 If `done == false` and there was a failure detected, `error` is set.
 If `done == true`, exactly one of `error` or `response` is set. ||
-|| response | **[SignatureCertificate](#yandex.cloud.organizationmanager.v1.idp.application.saml.SignatureCertificate)**
+|| response | **[google.protobuf.Any](https://developers.google.com/protocol-buffers/docs/proto3#any)**
 
 The normal response of the operation in case of success.
 If the original method returns no data on success, such as Delete,
@@ -125,56 +112,4 @@ The operation result.
 If `done == false` and there was no failure detected, neither `error` nor `response` is set.
 If `done == false` and there was a failure detected, `error` is set.
 If `done == true`, exactly one of `error` or `response` is set. ||
-|#
-
-## UpdateSignatureCertificateMetadata {#yandex.cloud.organizationmanager.v1.idp.application.saml.UpdateSignatureCertificateMetadata}
-
-Metadata for the [SignatureCertificateService.Update](#Update) operation.
-
-#|
-||Field | Description ||
-|| signature_certificate_id | **string**
-
-ID of the signature certificate that is being updated. ||
-|#
-
-## SignatureCertificate {#yandex.cloud.organizationmanager.v1.idp.application.saml.SignatureCertificate}
-
-A signature certificate for SAML applications.
-
-#|
-||Field | Description ||
-|| id | **string**
-
-Unique identifier of the signature certificate. ||
-|| application_id | **string**
-
-ID of the SAML application that the signature certificate belongs to. ||
-|| status | enum **Status**
-
-Current status of the signature certificate.
-
-- `ACTIVE`: The certificate is active and can be used for signing.
-- `INACTIVE`: The certificate is inactive and cannot be used for signing. ||
-|| name | **string**
-
-Name of the signature certificate. ||
-|| description | **string**
-
-Description of the signature certificate. ||
-|| created_at | **[google.protobuf.Timestamp](https://developers.google.com/protocol-buffers/docs/reference/google.protobuf#timestamp)**
-
-Creation timestamp. ||
-|| data | **string**
-
-Certificate data in PEM format. ||
-|| fingerprint | **string**
-
-SHA256-fingerprint of the signature certificate. ||
-|| not_after | **[google.protobuf.Timestamp](https://developers.google.com/protocol-buffers/docs/reference/google.protobuf#timestamp)**
-
-Time after which the signature certificate is not valid. ||
-|| not_before | **[google.protobuf.Timestamp](https://developers.google.com/protocol-buffers/docs/reference/google.protobuf#timestamp)**
-
-Time before which the signature certificate is not valid. ||
 |#

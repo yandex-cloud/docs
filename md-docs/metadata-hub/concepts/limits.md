@@ -1,10 +1,10 @@
-# Квоты в Yandex MetaData Hub
+# Квоты в {{ metadata-hub-full-name }}
 
-Для сервиса Yandex MetaData Hub действуют следующие ограничения:
+Для сервиса {{ metadata-hub-full-name }} действуют следующие ограничения:
 
-* [_Квоты_](https://console.yandex.cloud/cloud?section=quotas) — организационные ограничения, которые можно изменить по запросу в техническую поддержку.
+* [_Квоты_]({{ link-console-quotas }}) — организационные ограничения, которые можно изменить по запросу в техническую поддержку.
 
-## Квоты Connection Manager {#connection-manager-quota}
+## Квоты {{ connection-manager-name }} {#connection-manager-quota}
 
 #|
 || Квота | Значение ||
@@ -12,7 +12,7 @@
 `connection-manager.totalConnections.count` | 1 000 ||
 |#
 
-## Квоты Apache Hive™ Metastore {#metastore-quota}
+## Квоты {{ metastore-name }} {#metastore-quota}
 
 #|
 || Вид ограничения | Значение ||
@@ -20,7 +20,7 @@
 `managed-metastore.clusters.count` | 5 ||
 |#
 
-## Квоты Schema Registry {#schema-registry-quota}
+## Квоты {{ schema-registry-name }} {#schema-registry-quota}
 
 Эта функциональность находится на стадии [Preview](../../overview/concepts/launch-stages.md).
 
@@ -32,7 +32,7 @@
 `schema-registry.schemas.count` | 10 240 ||
 |#
 
-## Квоты Data Catalog {#data-catalog-quota}
+## Квоты {{ data-catalog-name }} {#data-catalog-quota}
 
 Эта функциональность находится на стадии [Preview](../../overview/concepts/launch-stages.md).
 
@@ -63,11 +63,11 @@
 
 Если вам необходимо больше ресурсов, увеличьте квоты одним из способов:
 
-* [Сформируйте запрос на увеличение](https://console.yandex.cloud/cloud?section=quotas).
-* Обратитесь в [техническую поддержку](https://center.yandex.cloud/support) и расскажите, какие потребляемые квоты нужно увеличить и на сколько.
+* [Сформируйте запрос на увеличение]({{ link-console-quotas }}).
+* Обратитесь в [техническую поддержку]({{ link-console-support }}) и расскажите, какие потребляемые квоты нужно увеличить и на сколько.
 
 Чтобы ваш запрос был рассмотрен, у вас должна быть [роль](../../iam/roles-reference.md#quota-manager-requestoperator) `quota-manager.requestOperator` или выше (`editor` или `admin`).
 
-Управлять квотами позволяет сервис [Cloud Quota Manager](../../quota-manager/quickstart.md).
+Управлять квотами позволяет сервис [{{ quota-manager-name }}](../../quota-manager/quickstart.md).
 
 _Apache® и [Apache Hive™](https://hive.apache.org/) являются зарегистрированными товарными знаками или товарными знаками Apache Software Foundation в США и/или других странах._

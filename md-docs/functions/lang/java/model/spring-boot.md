@@ -2,11 +2,11 @@
 
 Вы можете задать обработчик на Java, загрузив `Spring Boot` приложение с точкой входа в виде класса, помеченного аннотацией [SpringBootApplication](https://docs.spring.io/spring-boot/docs/current/api/org/springframework/boot/autoconfigure/SpringBootApplication.html).
 
-В момент исполнения функция Cloud Functions не имеет данных о пути, по которому она была вызвана. Другими словами, при наличии эндпоинта `/api/v1/list` в вашем `Spring Boot` приложении, вызвать функцию по адресу `https://functions.yandexcloud.net/function-id/api/v1/list` не получится, вместо этого нужно передать данные о пути в теле запроса (параметр `url`) или воспользоваться интеграцией с [API Gateway](../../../../api-gateway/quickstart/index.md). Мы рекомендуем именно второй способ, поскольку `API Gateway` наиболее прост в использовании со `Spring Boot` приложением, а так же позволяет обращаться к эндпоинтам приложения привычным образом.
+В момент исполнения функция {{ sf-name }} не имеет данных о пути, по которому она была вызвана. Другими словами, при наличии эндпоинта `/api/v1/list` в вашем `Spring Boot` приложении, вызвать функцию по адресу `https://{{ sf-url }}/function-id/api/v1/list` не получится, вместо этого нужно передать данные о пути в теле запроса (параметр `url`) или воспользоваться интеграцией с [API Gateway](../../../../api-gateway/quickstart/index.md). Мы рекомендуем именно второй способ, поскольку `API Gateway` наиболее прост в использовании со `Spring Boot` приложением, а так же позволяет обращаться к эндпоинтам приложения привычным образом.
 
-В случае, если логика вашего приложения использует классы [HttpServletRequest](https://docs.oracle.com/javaee/7/api/javax/servlet/http/HttpServletRequest.html) и [HttpServletResponse](https://docs.oracle.com/javaee/7/api/javax/servlet/http/HttpServletResponse.html), обратите внимание, что сервис Cloud Functions поддерживает не все методы этих классов. Подробнее ознакомиться со списком неподдерживаемых методов можно [здесь](servlet-api.md#unsupported).
+В случае, если логика вашего приложения использует классы [HttpServletRequest](https://docs.oracle.com/javaee/7/api/javax/servlet/http/HttpServletRequest.html) и [HttpServletResponse](https://docs.oracle.com/javaee/7/api/javax/servlet/http/HttpServletResponse.html), обратите внимание, что сервис {{ sf-name }} поддерживает не все методы этих классов. Подробнее ознакомиться со списком неподдерживаемых методов можно [здесь](servlet-api.md#unsupported).
 
-Cloud Functions не поддерживает Spring Boot Loader.
+{{ sf-name }} не поддерживает Spring Boot Loader.
 
 ## Пример: простое приложение с эндпоинтом {#simple-example}
 
@@ -118,14 +118,14 @@ Cloud Functions не поддерживает Spring Boot Loader.
 
 1. [Создайте](../../../operations/function/version-manage.md) версию функции и укажите:
 
-    * **Среда выполнения** — `java17`.
-    * **Источник кода** — `ZIP-архив`.
-    * **Файл** — загрузите архив, созданный ранее.
-    * **Таймаут** — `30`.
-    * **Память** — `128 МБ`.
-    * **Точка входа** — `util.Application`.
+    * **{{ ui-key.yacloud.serverless-functions.item.editor.field_runtime }}** — `java17`.
+    * **{{ ui-key.yacloud.serverless-functions.item.editor.field_code-source }}** — `{{ ui-key.yacloud.serverless-functions.item.editor.value_method-zip-file }}`.
+    * **{{ ui-key.yacloud.serverless-functions.item.editor.field_file }}** — загрузите архив, созданный ранее.
+    * **{{ ui-key.yacloud.serverless-functions.item.editor.field_timeout }}** — `30`.
+    * **{{ ui-key.yacloud.serverless-functions.item.editor.field_resources-memory }}** — `128 {{ ui-key.yacloud.common.units.label_megabyte }}`.
+    * **{{ ui-key.yacloud.serverless-functions.item.editor.field_entry }}** — `util.Application`.
 
-1. [Создайте](../../../../api-gateway/operations/api-gw-create.md) API-шлюз API Gateway и добавьте в него спецификацию:
+1. [Создайте](../../../../api-gateway/operations/api-gw-create.md) API-шлюз {{ api-gw-name }} и добавьте в него спецификацию:
 
     ```yaml
     openapi: 3.0.0
@@ -162,7 +162,7 @@ Cloud Functions не поддерживает Spring Boot Loader.
     curl \
       --request GET \
       --header "Authorization: Bearer ${IAM_TOKEN}" \
-      https://d5dm1lba80md********.i9******.apigw.yandexcloud.net/get/Anonymous
+      https://{{ api-host-apigw }}/get/Anonymous
     ```
 
     Результат:
@@ -171,7 +171,7 @@ Cloud Functions не поддерживает Spring Boot Loader.
     Hello, Anonymous
     ```
 
-Пример прямого запроса, где для вызова функции не используется API Gateway:
+Пример прямого запроса, где для вызова функции не используется {{ api-gw-name }}:
 
 ```
 {

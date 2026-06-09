@@ -14,20 +14,20 @@
 
 {% list tabs group=instructions %}
 
-- Интерфейс Cloud Video {#console}
+- Интерфейс {{ video-name }} {#console}
 
-  1. Откройте [главную страницу](https://video.yandex.cloud/) Cloud Video.
+  1. Откройте [главную страницу]({{ link-video-main }}) {{ video-name }}.
   1. Выберите канал.
-  1. На вкладке ![image](../../../_assets/console-icons/circle-play.svg) **Видео** в строке с нужным видео нажмите значок ![image](../../../_assets/console-icons/ellipsis.svg) и выберите **Редактировать**.
+  1. На вкладке ![image](../../../_assets/console-icons/circle-play.svg) **{{ ui-key.yacloud_video.videos.title_videos }}** в строке с нужным видео нажмите значок ![image](../../../_assets/console-icons/ellipsis.svg) и выберите **{{ ui-key.yacloud_video.common.action_edit }}**.
 
       {% note info %}
 
-      Суммаризация недоступна, если видео находится в статусе `Processing` или длится более 4 часов.
+      Суммаризация недоступна, если видео находится в статусе `{{ ui-key.yacloud_video.videos.status_processing }}` или длится более 4 часов.
 
       {% endnote %}
 
-  1. Включите опцию **Суммаризация**.
-  1. Нажмите кнопку **Сохранить**.
+  1. Включите опцию **{{ ui-key.yacloud_video.videos.field_summarization }}**.
+  1. Нажмите кнопку **{{ ui-key.yacloud_video.common.action_accept }}**.
 
 {% endlist %}
 
@@ -36,12 +36,12 @@
 
 {% list tabs group=instructions %}
 
-- Интерфейс Cloud Video {#console}
+- Интерфейс {{ video-name }} {#console}
 
-  1. Откройте [главную страницу](https://video.yandex.cloud/) Cloud Video.
+  1. Откройте [главную страницу]({{ link-video-main }}) {{ video-name }}.
   1. Выберите канал.
-  1. На вкладке ![image](../../../_assets/console-icons/circle-play.svg) **Видео** в строке с нужным видео нажмите значок ![image](../../../_assets/console-icons/ellipsis.svg) и выберите **Редактировать**.
-  1. Выключите опцию **Суммаризация**.
-  1. Нажмите кнопку **Сохранить**.
+  1. На вкладке ![image](../../../_assets/console-icons/circle-play.svg) **{{ ui-key.yacloud_video.videos.title_videos }}** в строке с нужным видео нажмите значок ![image](../../../_assets/console-icons/ellipsis.svg) и выберите **{{ ui-key.yacloud_video.common.action_edit }}**.
+  1. Выключите опцию **{{ ui-key.yacloud_video.videos.field_summarization }}**.
+  1. Нажмите кнопку **{{ ui-key.yacloud_video.common.action_accept }}**.
 
 {% endlist %}

@@ -8,7 +8,7 @@
 
 # Yandex Managed Service for Kubernetes
 
- - [Сопоставление с другими сервисами Yandex Cloud](service-comparison.md)
+ - [Сопоставление с другими сервисами {{ yandex-cloud }}](service-comparison.md)
 
  - [Начало работы](quickstart.md)
 
@@ -18,15 +18,15 @@
 
  - [Подключение к узлу по SSH](operations/node-connect-ssh.md)
 
- - [Подключение к узлу через OS Login](operations/node-connect-oslogin.md)
+ - [Подключение к узлу через {{ oslogin }}](operations/node-connect-oslogin.md)
 
- - [Обновление Kubernetes](operations/update-kubernetes.md)
+ - [Обновление {{ k8s }}](operations/update-kubernetes.md)
 
  - [Настройка автомасштабирования](operations/autoscale.md)
 
- - [Подключение Terraform-провайдера Kubernetes](operations/apply-tf-provider.md)
+ - [Подключение {{ TF }}-провайдера {{ k8s }}](operations/apply-tf-provider.md)
 
- - [Установка приложений из Yandex Cloud Marketplace с помощью Terraform](operations/apply-helm-provider.md)
+ - [Установка приложений из {{ marketplace-full-name }} с помощью {{ TF }}](operations/apply-helm-provider.md)
 
  - [Работа с приватными реестрами Docker-образов](operations/private-registries.md)
 
@@ -38,9 +38,9 @@
 
  - [Создание статического файла конфигурации](operations/connect/create-static-conf.md)
 
-### Установка приложений из Cloud Marketplace
+### Установка приложений из {{ marketplace-name }}
 
- - [Основы работы с Cloud Marketplace](operations/applications/marketplace.md)
+ - [Основы работы с {{ marketplace-name }}](operations/applications/marketplace.md)
 
  - [Установка Битрикс](operations/applications/bitrix.md)
 
@@ -48,7 +48,7 @@
 
  - [Установка Chaos Mesh](operations/applications/chaos-mesh.md)
 
- - [Установка cert-manager c плагином Cloud DNS ACME webhook](operations/applications/cert-manager-cloud-dns.md)
+ - [Установка cert-manager c плагином {{ dns-name }} ACME webhook](operations/applications/cert-manager-cloud-dns.md)
 
  - [Установка Container Storage Interface для S3](operations/applications/csi-s3.md)
 
@@ -56,7 +56,7 @@
 
  - [Установка External Secrets Operator](operations/applications/external-secrets-operator.md)
 
- - [Установка ExternalDNS c Webhook Cloud DNS](operations/applications/externaldns.md)
+ - [Установка ExternalDNS c Webhook {{ dns-name }}](operations/applications/externaldns.md)
 
  - [Установка Falco](operations/applications/falco.md)
 
@@ -68,17 +68,17 @@
 
  - [Установка Gateway API](operations/applications/gateway-api.md)
 
- - [Установка GitLab Agent](operations/applications/gitlab-agent.md)
+ - [Установка {{ GL }} Agent](operations/applications/gitlab-agent.md)
 
- - [Установка GitLab Runner](operations/applications/gitlab-runner.md)
+ - [Установка {{ GLR }}](operations/applications/gitlab-runner.md)
 
  - [Установка Gwin](alb-ref/gwin-quickstart.md)
 
  - [Установка HashiCorp Vault](operations/applications/hashicorp-vault.md)
 
- - [Установка Ingress-контроллера Application Load Balancer](operations/applications/alb-ingress-controller.md)
+ - [Установка Ingress-контроллера {{ alb-name }}](operations/applications/alb-ingress-controller.md)
 
- - [Обновление Ingress-контроллера Application Load Balancer](operations/applications/upgrade-alb-ingress-controller.md)
+ - [Обновление Ingress-контроллера {{ alb-name }}](operations/applications/upgrade-alb-ingress-controller.md)
 
  - [Установка Istio](operations/applications/istio.md)
 
@@ -104,7 +104,7 @@
 
 ### Сетевые сценарии
 
- - [Обеспечение доступа к приложению, запущенному в кластере Kubernetes](operations/create-load-balancer.md)
+ - [Обеспечение доступа к приложению, запущенному в кластере {{ k8s }}](operations/create-load-balancer.md)
 
  - [Настройка контроллера сетевых политик Calico](operations/calico.md)
 
@@ -128,27 +128,27 @@
 
  - [Подключение тома в блочном режиме](operations/volumes/mode-block.md)
 
- - [Интеграция с Object Storage](operations/volumes/s3-csi-integration.md)
+ - [Интеграция с {{ objstorage-name }}](operations/volumes/s3-csi-integration.md)
 
-### Управление кластером Kubernetes
+### Управление кластером {{ k8s }}
 
- - [Получение информации о кластере Kubernetes](operations/kubernetes-cluster/kubernetes-cluster-list.md)
+ - [Получение информации о кластере {{ k8s }}](operations/kubernetes-cluster/kubernetes-cluster-list.md)
 
- - [Посмотреть операции с кластером Kubernetes](operations/kubernetes-cluster/kubernetes-cluster-operation-logs.md)
+ - [Посмотреть операции с кластером {{ k8s }}](operations/kubernetes-cluster/kubernetes-cluster-operation-logs.md)
 
- - [Создание кластера Kubernetes](operations/kubernetes-cluster/kubernetes-cluster-create.md)
+ - [Создание кластера {{ k8s }}](operations/kubernetes-cluster/kubernetes-cluster-create.md)
 
- - [Изменение кластера Kubernetes](operations/kubernetes-cluster/kubernetes-cluster-update.md)
+ - [Изменение кластера {{ k8s }}](operations/kubernetes-cluster/kubernetes-cluster-update.md)
 
- - [Управление доступом к кластеру Kubernetes](operations/kubernetes-cluster/kubernetes-cluster-access.md)
+ - [Управление доступом к кластеру {{ k8s }}](operations/kubernetes-cluster/kubernetes-cluster-access.md)
 
- - [Поддержка федерации сервисных аккаунтов IAM в кластере Kubernetes](operations/kubernetes-cluster/kubernetes-cluster-wlif-integration.md)
+ - [Поддержка федерации сервисных аккаунтов {{ iam-short-name }} в кластере {{ k8s }}](operations/kubernetes-cluster/kubernetes-cluster-wlif-integration.md)
 
- - [Получение списка доступных конфигураций мастера в кластере Kubernetes](operations/kubernetes-cluster/kubernetes-cluster-configuration-list.md)
+ - [Получение списка доступных конфигураций мастера в кластере {{ k8s }}](operations/kubernetes-cluster/kubernetes-cluster-configuration-list.md)
 
- - [Мониторинг состояния кластера Kubernetes](operations/kubernetes-cluster/kubernetes-cluster-get-stats.md)
+ - [Мониторинг состояния кластера {{ k8s }}](operations/kubernetes-cluster/kubernetes-cluster-get-stats.md)
 
- - [Удаление кластера Kubernetes](operations/kubernetes-cluster/kubernetes-cluster-delete.md)
+ - [Удаление кластера {{ k8s }}](operations/kubernetes-cluster/kubernetes-cluster-delete.md)
 
 ### Управление группой узлов
 
@@ -160,13 +160,13 @@
 
  - [Подключение к узлу по SSH](operations/node-connect-ssh.md)
 
- - [Подключение к узлу через OS Login](operations/node-connect-oslogin.md)
+ - [Подключение к узлу через {{ oslogin }}](operations/node-connect-oslogin.md)
 
  - [Настройка автомасштабирования](operations/autoscale.md)
 
  - [Изменение группы узлов](operations/node-group/node-group-update.md)
 
- - [Управление Kubernetes-метками узлов](operations/node-group/node-label-management.md)
+ - [Управление {{ k8s }}-метками узлов](operations/node-group/node-label-management.md)
 
  - [Удаление группы узлов](operations/node-group/node-group-delete.md)
 
@@ -178,9 +178,9 @@
 
  - [Настройка IPSec-шлюзов для подключения внешних узлов к кластеру](operations/external-nodes-connect-ipsec.md)
 
- - [Подключение сервера BareMetal как внешнего узла](operations/bms-server-connect.md)
+ - [Подключение сервера {{ baremetal-name }} как внешнего узла](operations/bms-server-connect.md)
 
-### Работа с объектами Kubernetes из консоли управления
+### Работа с объектами {{ k8s }} из консоли управления
 
  - [Подключение к терминалу запущенного контейнера](operations/kubernetes-console/pod-terminal.md)
 
@@ -194,7 +194,7 @@
 
  - [Управление ресурсами ConfigMap и Secret](operations/kubernetes-console/configuration.md)
 
- - [Управление сервисными аккаунтами Kubernetes](operations/kubernetes-console/access.md)
+ - [Управление сервисными аккаунтами {{ k8s }}](operations/kubernetes-console/access.md)
 
  - [Управление пространствами имен](operations/kubernetes-cluster/kubernetes-cluster-namespace-create.md)
 
@@ -202,9 +202,9 @@
 
  - [Все руководства](tutorials/index.md)
 
- - [Создание нового Kubernetes-проекта в Yandex Cloud](tutorials/new-kubernetes-project.md)
+ - [Создание нового {{ k8s }}-проекта в {{ yandex-cloud }}](tutorials/new-kubernetes-project.md)
 
- - [Создание кластера Kubernetes без доступа в интернет](tutorials/k8s-cluster-with-no-internet.md)
+ - [Создание кластера {{ k8s }} без доступа в интернет](tutorials/k8s-cluster-with-no-internet.md)
 
  - [Запуск рабочих нагрузок с GPU](tutorials/running-pod-gpu.md)
 
@@ -214,17 +214,17 @@
 
  - [Миграция ресурсов в другую зону доступности](tutorials/migration-to-an-availability-zone.md)
 
-### Создание проекта с помощью Terraform
+### Создание проекта с помощью {{ TF }}
 
- - [Управление ресурсами Kubernetes с помощью провайдера Terraform](tutorials/kubernetes-terraform-provider.md)
+ - [Управление ресурсами {{ k8s }} с помощью провайдера {{ TF }}](tutorials/kubernetes-terraform-provider.md)
 
- - [Использование модулей Yandex Cloud в Terraform](tutorials/terraform-modules.md)
+ - [Использование модулей {{ yandex-cloud }} в {{ TF }}](tutorials/terraform-modules.md)
 
- - [Шифрование секретов в Managed Service for Kubernetes](tutorials/kms-k8s.md)
+ - [Шифрование секретов в {{ managed-k8s-name }}](tutorials/kms-k8s.md)
 
- - [Создание кластера Kubernetes с помощью провайдера Yandex Cloud для Kubernetes Cluster API](tutorials/k8s-cluster-api-provider-yandex.md)
+ - [Создание кластера {{ k8s }} с помощью провайдера {{ yandex-cloud }} для {{ k8s }} Cluster API](tutorials/k8s-cluster-api-provider-yandex.md)
 
- - [Доступ к API Yandex Cloud из кластера Managed Service for Kubernetes с помощью федерации сервисных аккаунтов](tutorials/wlif-managed-k8s-integration.md)
+ - [Доступ к API {{ yandex-cloud }} из кластера {{ managed-k8s-name }} с помощью федерации сервисных аккаунтов](tutorials/wlif-managed-k8s-integration.md)
 
 ### Настройка и тестирование масштабирования
 
@@ -238,27 +238,27 @@
 
  - [Установка Ingress-контроллера NGINX с Let's Encrypt®](tutorials/ingress-cert-manager.md)
 
- - [Установка Ingress-контроллера NGINX с сертификатом из Certificate Manager](tutorials/nginx-ingress-certificate-manager.md)
+ - [Установка Ingress-контроллера NGINX с сертификатом из {{ certificate-manager-name }}](tutorials/nginx-ingress-certificate-manager.md)
 
-### Использование Container Registry
+### Использование {{ container-registry-name }}
 
- - [Интеграция с Container Registry](tutorials/container-registry.md)
+ - [Интеграция с {{ container-registry-name }}](tutorials/container-registry.md)
 
- - [Подпись и проверка Docker-образов Container Registry](tutorials/sign-cr-with-cosign.md)
+ - [Подпись и проверка Docker-образов {{ container-registry-name }}](tutorials/sign-cr-with-cosign.md)
 
- - [Хранение Docker-образов из проектов Managed Service for GitLab](tutorials/image-storage.md)
+ - [Хранение Docker-образов из проектов {{ mgl-name }}](tutorials/image-storage.md)
 
-### Использование Managed Service for Apache Kafka®
+### Использование {{ mkf-name }}
 
- - [Развертывание веб-интерфейса Apache Kafka®](tutorials/deploy-kafka-ui.md)
+ - [Развертывание веб-интерфейса {{ KF }}](tutorials/deploy-kafka-ui.md)
 
-### Непрерывная интеграция с GitLab
+### Непрерывная интеграция с {{ GL }}
 
- - [Непрерывное развертывание контейнеризованных приложений с помощью GitLab](tutorials/gitlab-containers.md)
+ - [Непрерывное развертывание контейнеризованных приложений с помощью {{ GL }}](tutorials/gitlab-containers.md)
 
- - [Сканирование уязвимостей Container Registry при непрерывном развертывании приложений с помощью GitLab](tutorials/cr-scanner-with-k8s-and-gitlab.md)
+ - [Сканирование уязвимостей {{ container-registry-name }} при непрерывном развертывании приложений с помощью {{ GL }}](tutorials/cr-scanner-with-k8s-and-gitlab.md)
 
- - [Построение пайплайна CI/CD в GitLab с использованием serverless-продуктов](tutorials/ci-cd-serverless.md)
+ - [Построение пайплайна CI/CD в {{ GL }} с использованием serverless-продуктов](tutorials/ci-cd-serverless.md)
 
 ### Работа с DNS
 
@@ -274,41 +274,41 @@
 
 ### Резервное копирование
 
- - [Резервное копирование в Object Storage](tutorials/kubernetes-backup.md)
+ - [Резервное копирование в {{ objstorage-name }}](tutorials/kubernetes-backup.md)
 
  - [Работа со снапшотами](tutorials/pvc-snapshot-restore.md)
 
 ### Мониторинг
 
- - [Мониторинг кластера с помощью Prometheus Operator с поддержкой Yandex Monitoring](tutorials/prometheus-grafana-monitoring.md)
+ - [Мониторинг кластера с помощью {{ prometheus-name }} Operator с поддержкой {{ monitoring-full-name }}](tutorials/prometheus-grafana-monitoring.md)
 
- - [Мониторинг кластера Managed Service for Kubernetes с помощью Filebeat OSS](tutorials/filebeat-oss-monitoring.md)
+ - [Мониторинг кластера {{ managed-k8s-name }} с помощью Filebeat OSS](tutorials/filebeat-oss-monitoring.md)
 
- - [Передача логов кластера Managed Service for Kubernetes в Cloud Logging](tutorials/k8s-fluent-bit-logging.md)
+ - [Передача логов кластера {{ managed-k8s-name }} в {{ cloud-logging-name }}](tutorials/k8s-fluent-bit-logging.md)
 
-### Использование продуктов Cloud Marketplace
+### Использование продуктов {{ marketplace-name }}
 
  - [Интеграция с Argo CD](tutorials/marketplace/argo-cd.md)
 
  - [Интеграция с Crossplane](tutorials/marketplace/crossplane.md)
 
- - [Синхронизация с секретами Yandex Lockbox](tutorials/kubernetes-lockbox-secrets.md)
+ - [Синхронизация с секретами {{ lockbox-name }}](tutorials/kubernetes-lockbox-secrets.md)
 
- - [Настройка Fluent Bit для работы с Cloud Logging](tutorials/fluent-bit-logging.md)
+ - [Настройка Fluent Bit для работы с {{ cloud-logging-name }}](tutorials/fluent-bit-logging.md)
 
  - [Настройка Gateway API](tutorials/marketplace/gateway-api.md)
 
- - [Настройка L7-балансировщика Application Load Balancer с помощью Ingress-контроллера](tutorials/alb-ingress-controller.md)
+ - [Настройка L7-балансировщика {{ alb-name }} с помощью Ingress-контроллера](tutorials/alb-ingress-controller.md)
 
- - [Настройка логирования для L7-балансировщика Application Load Balancer с помощью Ingress-контроллера](tutorials/alb-ingress-controller-log-options.md)
+ - [Настройка логирования для L7-балансировщика {{ alb-name }} с помощью Ingress-контроллера](tutorials/alb-ingress-controller-log-options.md)
 
- - [Создание L7-балансировщика с профилем безопасности Smart Web Security через Ingress-контроллер Application Load Balancer](tutorials/alb-ingress-with-sws-profile.md)
+ - [Создание L7-балансировщика с профилем безопасности {{ sws-name }} через Ingress-контроллер {{ alb-name }}](tutorials/alb-ingress-with-sws-profile.md)
 
- - [Проверка состояния приложений в кластере Managed Service for Kubernetes с помощью L7-балансировщика Application Load Balancer](tutorials/custom-health-checks.md)
+ - [Проверка состояния приложений в кластере {{ managed-k8s-name }} с помощью L7-балансировщика {{ alb-name }}](tutorials/custom-health-checks.md)
 
  - [Настройка Kyverno & Kyverno Policies](tutorials/marketplace/kyverno.md)
 
- - [Использование Metrics Provider для трансляции метрик](tutorials/marketplace/metrics-provider.md)
+ - [Использование {{ MP }} для трансляции метрик](tutorials/marketplace/metrics-provider.md)
 
  - [Редактирование изображений для сайтов с помощью Thumbor](tutorials/marketplace/thumbor.md)
 
@@ -322,15 +322,15 @@
 
  - [Релизные каналы и обновления](concepts/release-channels-and-updates.md)
 
- - [Поддержка версий Kubernetes](concepts/k8s-supported-versions.md)
+ - [Поддержка версий {{ k8s }}](concepts/k8s-supported-versions.md)
 
- - [Разграничение зон контроля в Managed Service for Kubernetes](concepts/kubernetes-responsibilities.md)
+ - [Разграничение зон контроля в {{ managed-k8s-name }}](concepts/kubernetes-responsibilities.md)
 
  - [Обновление операционной системы в группе узлов](concepts/node-os-update.md)
 
  - [Шифрование](concepts/encryption.md)
 
-### Использование объектов API Kubernetes
+### Использование объектов API {{ k8s }}
 
  - [Том](concepts/volume.md)
 
@@ -352,7 +352,7 @@
 
  - [Переменные в шаблоне узла](concepts/node-group/variables-in-the-template.md)
 
- - [Сеть в Managed Service for Kubernetes](concepts/network.md)
+ - [Сеть в {{ managed-k8s-name }}](concepts/network.md)
 
  - [Сетевые настройки и политики кластера](concepts/network-policy.md)
 
@@ -364,7 +364,9 @@
 
  - [Квоты и лимиты](concepts/limits.md)
 
- - [Рекомендации по использованию Managed Service for Kubernetes](concepts/usage-recommendations.md)
+ - [Рекомендации по использованию {{ managed-k8s-name }}](concepts/usage-recommendations.md)
+
+ - [Рекомендуемые конфигурации мастера](concepts/master-configuration.md)
 
  - [Управление доступом](security/index.md)
 
@@ -578,7 +580,7 @@
 
  - [list](cli-ref/v0/resource-preset/list.md)
 
- - [Справочник Terraform](tf-ref.md)
+ - [Справочник {{ TF }}](tf-ref.md)
 
 ## Справочник API
 
@@ -780,11 +782,11 @@
 
  - [Cancel](kubernetes-marketplace/api-ref/Operation/cancel.md)
 
- - [Метрики Monitoring](metrics.md)
+ - [Метрики {{ monitoring-name }}](metrics.md)
 
- - [Аудитные логи Audit Trails](at-ref.md)
+ - [Аудитные логи {{ at-name }}](at-ref.md)
 
-## Инструменты Application Load Balancer
+## Инструменты {{ alb-name }}
 
  - [Обзор](alb-ref/index.md)
 
@@ -800,7 +802,7 @@
 
  - [Миграция приложений с Ingress NGINX на Gwin](alb-ref/nginx-gwin-migration.md)
 
- - [Механизм Attachment для интеграции Gwin с Application Load Balancer](alb-ref/gwin-alb-attachment.md)
+ - [Механизм Attachment для интеграции Gwin с {{ alb-name }}](alb-ref/gwin-alb-attachment.md)
 
 #### Конфигурация ресурсов (англ.)
 
@@ -884,7 +886,7 @@
 
  - [Создание и изменение ресурсов по конфигурации](alb-ref/k8s-ingress-controller-apply.md)
 
-## Инструменты Network Load Balancer
+## Инструменты {{ network-load-balancer-name }}
 
  - [Обзор](nlb-ref/index.md)
 

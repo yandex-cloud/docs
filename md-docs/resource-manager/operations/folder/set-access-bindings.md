@@ -2,7 +2,7 @@
 
 {% note warning %}
 
-Даже если [операция](../../../api-design-guide/concepts/about-async.md) с ресурсами [сервисов](../../../overview/concepts/services.md) Yandex Cloud разрешена [ролью](../../../iam/concepts/access-control/roles.md), ее выполнение может быть заблокировано, если на [организацию](../../../organization/concepts/organization.md), [облако](../../concepts/resources-hierarchy.md#cloud) или [каталог](../../concepts/resources-hierarchy.md#folder) назначена [политика авторизации](../../../iam/concepts/access-control/access-policies.md), запрещающая эту операцию.
+Даже если [операция](../../../api-design-guide/concepts/about-async.md) с ресурсами [сервисов](../../../overview/concepts/services.md) {{ yandex-cloud }} разрешена [ролью](../../../iam/concepts/access-control/roles.md), ее выполнение может быть заблокировано, если на [организацию](../../../organization/concepts/organization.md), [облако](../../concepts/resources-hierarchy.md#cloud) или [каталог](../../concepts/resources-hierarchy.md#folder) назначена [политика авторизации](../../../iam/concepts/access-control/access-policies.md), запрещающая эту операцию.
 
 {% endnote %}
 
@@ -10,7 +10,7 @@
 
 {% note info %}
 
-Для доступа пользователя к [консоли управления](https://console.yandex.cloud), назначьте ему роль на [облако](../../../organization/security/index.md#access-binding-cloud) или [организацию](../../../organization/security/index.md#access-binding-organization). Для безопасности вы можете назначить одну из ролей с минимальными привилегиями, например `resource-manager.clouds.member`, но также можно назначить и другие роли, если вы знаете, какие права вы хотите предоставить приглашенным пользователям.
+Для доступа пользователя к [консоли управления]({{ link-console-main }}), назначьте ему роль на [облако](../../../organization/security/index.md#access-binding-cloud) или [организацию](../../../organization/security/index.md#access-binding-organization). Для безопасности вы можете назначить одну из ролей с минимальными привилегиями, например `resource-manager.clouds.member`, но также можно назначить и другие роли, если вы знаете, какие права вы хотите предоставить приглашенным пользователям.
 
 Чтобы дать эти права сразу всем пользователям в организации, назначьте роль [системной группе](../../../iam/concepts/access-control/system-group.md#allOrganizationUsers) `All users in organization X`. При работе с CLI или API назначение дополнительных ролей не требуется.
 
@@ -22,17 +22,17 @@
 
 - Консоль управления {#console}
 
-  1. В [консоли управления](https://console.yandex.cloud) на панели сверху нажмите ![image](../../../_assets/console-icons/layout-side-content-left.svg) или ![image](../../../_assets/console-icons/chevron-down.svg) и выберите нужный [каталог](../../concepts/resources-hierarchy.md#folder).
-  1. Перейдите на вкладку **Права доступа**.
-  1. Нажмите кнопку **Настроить доступ**.
-  1. В открывшемся окне выберите раздел **Пользовательские аккаунты**.
+  1. В [консоли управления]({{ link-console-main }}) на панели сверху нажмите ![image](../../../_assets/console-icons/layout-side-content-left.svg) или ![image](../../../_assets/console-icons/chevron-down.svg) и выберите нужный [каталог](../../concepts/resources-hierarchy.md#folder).
+  1. Перейдите на вкладку **{{ ui-key.yacloud.common.resource-acl.label_access-bindings }}**.
+  1. Нажмите кнопку **{{ ui-key.yacloud.common.resource-acl.button_configure-access }}**.
+  1. В открывшемся окне выберите раздел **{{ ui-key.yacloud_components.acl.label.user-accounts }}**.
   1. Выберите пользователя из списка или воспользуйтесь поиском по пользователям.
-  1. Нажмите кнопку ![image](../../../_assets/console-icons/plus.svg) **Добавить роль** и выберите роль из списка или воспользуйтесь поиском.
-  1. Нажмите кнопку **Сохранить**.
+  1. Нажмите кнопку ![image](../../../_assets/console-icons/plus.svg) **{{ ui-key.yacloud_components.acl.button.add-role }}** и выберите роль из списка или воспользуйтесь поиском.
+  1. Нажмите кнопку **{{ ui-key.yacloud_components.acl.action.apply }}**.
 
 - CLI {#cli}
 
-  Если у вас еще нет интерфейса командной строки Yandex Cloud (CLI), [установите и инициализируйте его](../../../cli/quickstart.md#install).
+  Если у вас еще нет интерфейса командной строки {{ yandex-cloud }} (CLI), [установите и инициализируйте его](../../../cli/quickstart.md#install).
 
   1. Посмотрите описание команды для назначения роли на каталог:
 
@@ -101,9 +101,12 @@
 
   Чтобы назначить роль не пользователю, а [сервисному аккаунту](../../../iam/concepts/users/service-accounts.md), [группе пользователей](../../../organization/concepts/groups.md) или [системной группе](../../../iam/concepts/access-control/system-group.md), воспользуйтесь [примерами](../../../iam/operations/roles/grant.md#cloud-or-folder).
 
-- Terraform {#tf}
+- {{ TF }} {#tf}
 
-  Если у вас еще нет Terraform, [установите его и настройте провайдер Yandex Cloud](../../../tutorials/infrastructure-management/terraform-quickstart.md#install-terraform).
+  Если у вас еще нет {{ TF }}, [установите его и настройте провайдер {{ yandex-cloud }}](../../../tutorials/infrastructure-management/terraform-quickstart.md#install-terraform).
+  
+  
+  Чтобы управлять инфраструктурой с помощью {{ TF }} от имени сервисного аккаунта или пользовательских аккаунтов: аккаунта на Яндексе, федеративного аккаунта и локального пользователя, [аутентифицируйтесь](../../../terraform/authentication.md) соответствующим способом.
 
   {% note alert %}
 
@@ -111,7 +114,7 @@
 
   {% endnote %}
 
-  Чтобы назначить роль на каталог, созданный с помощью Terraform:
+  Чтобы назначить роль на каталог, созданный с помощью {{ TF }}:
 
   1. Опишите в конфигурационном файле параметры роли каталога:
 
@@ -131,7 +134,7 @@
        * `system:group:organization:<идентификатор_организации>:users` — идентификатор [организации](../../../organization/quickstart.md), чтобы назначить роль [системной группе](../../../iam/concepts/access-control/system-group.md#allOrganizationUsers) `All users in organization X`.
        * `system:group:federation:<идентификатор_федерации>:users` — идентификатор [федерации удостоверений](../../../organization/concepts/add-federation.md), чтобы назначить роль [системной группе](../../../iam/concepts/access-control/system-group.md#allFederationUsers) `All users in federation N`.
 
-     {% cut "Пример назначения роли на каталог с помощью Terraform" %}
+     {% cut "Пример назначения роли на каталог с помощью {{ TF }}" %}
 
      ```hcl
      ...
@@ -149,7 +152,7 @@
 
      {% endcut %}
 
-     Более подробную информацию о параметрах ресурса `yandex_resourcemanager_folder_iam_member` в Terraform, см. в [документации провайдера](../../../terraform/resources/resourcemanager_folder_iam_member.md).
+     Более подробную информацию о параметрах ресурса `yandex_resourcemanager_folder_iam_member` в {{ TF }}, см. в [документации провайдера]({{ tf-provider-resources-link }}/resourcemanager_folder_iam_member).
 
   1. Проверьте конфигурацию командой:
      ```
@@ -167,7 +170,7 @@
      terraform plan
      ```
 
-     В терминале будет выведен список ресурсов с параметрами. На этом этапе изменения не будут внесены. Если в конфигурации есть ошибки, Terraform на них укажет.
+     В терминале будет выведен список ресурсов с параметрами. На этом этапе изменения не будут внесены. Если в конфигурации есть ошибки, {{ TF }} на них укажет.
 
   1. Примените изменения конфигурации:
      ```
@@ -176,7 +179,7 @@
 
   1. Подтвердите изменения: введите в терминал слово `yes` и нажмите **Enter**.
 
-     Проверить изменение каталога можно в [консоли управления](https://console.yandex.cloud) или с помощью команды [CLI](../../../cli/quickstart.md):
+     Проверить изменение каталога можно в [консоли управления]({{ link-console-main }}) или с помощью команды [CLI](../../../cli/quickstart.md):
 
      ```
      yc resource-manager folder list-access-bindings <имя_или_идентификатор_каталога>
@@ -190,7 +193,7 @@
       ```bash
       curl \
         --header "Authorization: Bearer <IAM-токен>" \
-        https://resource-manager.api.cloud.yandex.net/resource-manager/v1/folders?cloudId=b1gg8sgd16g7********
+        https://resource-manager.{{ api-host }}/resource-manager/v1/folders?cloudId=b1gg8sgd16g7********
       ```
 
       Результат:
@@ -213,7 +216,7 @@
       ```bash
       curl \
         --header "Authorization: Bearer <IAM-токен>" \
-        https://iam.api.cloud.yandex.net/iam/v1/yandexPassportUserAccounts:byLogin?login=test-user
+        https://iam.{{ api-host }}/iam/v1/yandexPassportUserAccounts:byLogin?login=test-user
       ```
 
       Результат:
@@ -244,7 +247,7 @@
                     "id": "gfei8n54hmfh********",
                     "type": "userAccount"
         }}}]}' \
-        https://resource-manager.api.cloud.yandex.net/resource-manager/v1/folders/b1gd129pp9ha********:updateAccessBindings
+        https://resource-manager.{{ api-host }}/resource-manager/v1/folders/b1gd129pp9ha********:updateAccessBindings
       ```
 
 {% endlist %}
@@ -256,18 +259,18 @@
 
 - Консоль управления {#console}
 
-  1. В [консоли управления](https://console.yandex.cloud) на панели сверху нажмите ![image](../../../_assets/console-icons/layout-side-content-left.svg) или ![image](../../../_assets/console-icons/chevron-down.svg) и выберите нужный [каталог](../../concepts/resources-hierarchy.md#folder).
-  1. Перейдите на вкладку **Права доступа**.
-  1. Нажмите кнопку **Настроить доступ**.
-  1. В открывшемся окне выберите раздел **Пользовательские аккаунты**.
+  1. В [консоли управления]({{ link-console-main }}) на панели сверху нажмите ![image](../../../_assets/console-icons/layout-side-content-left.svg) или ![image](../../../_assets/console-icons/chevron-down.svg) и выберите нужный [каталог](../../concepts/resources-hierarchy.md#folder).
+  1. Перейдите на вкладку **{{ ui-key.yacloud.common.resource-acl.label_access-bindings }}**.
+  1. Нажмите кнопку **{{ ui-key.yacloud.common.resource-acl.button_configure-access }}**.
+  1. В открывшемся окне выберите раздел **{{ ui-key.yacloud_components.acl.label.user-accounts }}**.
   1. Выберите пользователя из списка или воспользуйтесь поиском по пользователям.
-  1. Нажмите кнопку ![image](../../../_assets/console-icons/plus.svg) **Добавить роль** и выберите роль из списка или воспользуйтесь поиском.
+  1. Нажмите кнопку ![image](../../../_assets/console-icons/plus.svg) **{{ ui-key.yacloud_components.acl.button.add-role }}** и выберите роль из списка или воспользуйтесь поиском.
   1. Выполните предыдущее действие необходимое количество раз, чтобы добавить все нужные роли.
-  1. Нажмите кнопку **Сохранить**.
+  1. Нажмите кнопку **{{ ui-key.yacloud_components.acl.action.apply }}**.
 
 - CLI {#cli}
 
-  Если у вас еще нет интерфейса командной строки Yandex Cloud (CLI), [установите и инициализируйте его](../../../cli/quickstart.md#install).
+  Если у вас еще нет интерфейса командной строки {{ yandex-cloud }} (CLI), [установите и инициализируйте его](../../../cli/quickstart.md#install).
 
   Команда `add-access-binding` позволяет добавить только одну роль. Вы можете назначить несколько ролей с помощью команды `set-access-binding`.
 
@@ -291,9 +294,12 @@
 
   Чтобы назначить роль не пользователю, а [сервисному аккаунту](../../../iam/concepts/users/service-accounts.md), [группе пользователей](../../../organization/concepts/groups.md) или [системной группе](../../../iam/concepts/access-control/system-group.md), воспользуйтесь [примерами](../../../iam/operations/roles/grant.md#multiple-roles).
 
-- Terraform {#tf}
+- {{ TF }} {#tf}
 
-  Если у вас еще нет Terraform, [установите его и настройте провайдер Yandex Cloud](../../../tutorials/infrastructure-management/terraform-quickstart.md#install-terraform).
+  Если у вас еще нет {{ TF }}, [установите его и настройте провайдер {{ yandex-cloud }}](../../../tutorials/infrastructure-management/terraform-quickstart.md#install-terraform).
+  
+  
+  Чтобы управлять инфраструктурой с помощью {{ TF }} от имени сервисного аккаунта или пользовательских аккаунтов: аккаунта на Яндексе, федеративного аккаунта и локального пользователя, [аутентифицируйтесь](../../../terraform/authentication.md) соответствующим способом.
 
   {% note alert %}
 
@@ -301,7 +307,7 @@
 
   {% endnote %}
 
-  Чтобы назначить несколько ролей на каталог, созданный с помощью Terraform:
+  Чтобы назначить несколько ролей на каталог, созданный с помощью {{ TF }}:
 
   1. Опишите в конфигурационном файле параметры роли каталога:
 
@@ -316,7 +322,7 @@
 
      * `member` — пользователь, которому будет присвоена роль. Чтобы добавить пользователя в список, создайте запись в формате `userAccount:<идентификатор_пользователя>`, где `<идентификатор_пользователя>` — email-адрес аккаунта Яндекс (например, `ivan@yandex.ru`). Обязательный параметр.
 
-     {% cut "Пример назначения роли на каталог с помощью Terraform" %}
+     {% cut "Пример назначения роли на каталог с помощью {{ TF }}" %}
 
      ```hcl
      ...
@@ -339,7 +345,7 @@
 
      {% endcut %}
 
-     Более подробную информацию о параметрах ресурса `yandex_resourcemanager_folder_iam_member` в Terraform, см. в [документации провайдера](../../../terraform/resources/resourcemanager_folder_iam_member.md).
+     Более подробную информацию о параметрах ресурса `yandex_resourcemanager_folder_iam_member` в {{ TF }}, см. в [документации провайдера]({{ tf-provider-resources-link }}/resourcemanager_folder_iam_member).
 
   1. Проверьте конфигурацию командой:
      ```
@@ -357,7 +363,7 @@
      terraform plan
      ```
 
-     В терминале будет выведен список ресурсов с параметрами. На этом этапе изменения не будут внесены. Если в конфигурации есть ошибки, Terraform на них укажет.
+     В терминале будет выведен список ресурсов с параметрами. На этом этапе изменения не будут внесены. Если в конфигурации есть ошибки, {{ TF }} на них укажет.
 
   1. Примените изменения конфигурации:
      ```
@@ -366,7 +372,7 @@
 
   1. Подтвердите изменения: введите в терминал слово `yes` и нажмите **Enter**.
 
-     Проверить изменение каталога можно в [консоли управления](https://console.yandex.cloud) или с помощью команды [CLI](../../../cli/quickstart.md):
+     Проверить изменение каталога можно в [консоли управления]({{ link-console-main }}) или с помощью команды [CLI](../../../cli/quickstart.md):
 
      ```
      yc resource-manager folder list-access-bindings <имя_или_идентификатор_каталога>
@@ -399,7 +405,7 @@
                 "id": "helj89sfj80a********",
                 "type": "userAccount"
     }}}]}' \
-    https://resource-manager.api.cloud.yandex.net/resource-manager/v1/folders/b1gd129pp9ha********:updateAccessBindings
+    https://resource-manager.{{ api-host }}/resource-manager/v1/folders/b1gd129pp9ha********:updateAccessBindings
   ```
 
   Вы также можете назначать роли с помощью метода REST API [setAccessBindings](../../api-ref/Folder/setAccessBindings.md) для ресурса [Folder](../../api-ref/Folder/index.md) или вызова gRPC API [FolderService/SetAccessBindings](../../api-ref/grpc/Folder/setAccessBindings.md).
@@ -423,7 +429,7 @@
         "roleId": "viewer",
         "subject": { "id": "helj89sfj80a********", "type": "userAccount" }
     }]}' \
-    https://resource-manager.api.cloud.yandex.net/resource-manager/v1/folders/b1gd129pp9ha********:setAccessBindings
+    https://resource-manager.{{ api-host }}/resource-manager/v1/folders/b1gd129pp9ha********:setAccessBindings
   ```
 
 {% endlist %}
@@ -435,19 +441,19 @@
 
 - Консоль управления {#console}
 
-  1. В [консоли управления](https://console.yandex.cloud) на панели сверху нажмите ![image](../../../_assets/console-icons/layout-side-content-left.svg) или ![image](../../../_assets/console-icons/chevron-down.svg) и выберите нужный [каталог](../../concepts/resources-hierarchy.md#folder).
-  1. Перейдите на вкладку **Права доступа**.
-  1. Нажмите кнопку **Настроить доступ**.
-  1. В открывшемся окне выберите раздел **Сервисные аккаунты**.
+  1. В [консоли управления]({{ link-console-main }}) на панели сверху нажмите ![image](../../../_assets/console-icons/layout-side-content-left.svg) или ![image](../../../_assets/console-icons/chevron-down.svg) и выберите нужный [каталог](../../concepts/resources-hierarchy.md#folder).
+  1. Перейдите на вкладку **{{ ui-key.yacloud.common.resource-acl.label_access-bindings }}**.
+  1. Нажмите кнопку **{{ ui-key.yacloud.common.resource-acl.button_configure-access }}**.
+  1. В открывшемся окне выберите раздел **{{ ui-key.yacloud_components.acl.label.service-accounts }}**.
   1. Выберите сервисный аккаунт из списка или воспользуйтесь поиском.
-  1. Нажмите кнопку ![image](../../../_assets/console-icons/plus.svg) **Добавить роль** и выберите роль в каталоге.
-  1. Нажмите кнопку **Сохранить**.
+  1. Нажмите кнопку ![image](../../../_assets/console-icons/plus.svg) **{{ ui-key.yacloud_components.acl.button.add-role }}** и выберите роль в каталоге.
+  1. Нажмите кнопку **{{ ui-key.yacloud.common.save }}**.
 
 - CLI {#cli}
 
-  Если у вас еще нет интерфейса командной строки Yandex Cloud (CLI), [установите и инициализируйте его](../../../cli/quickstart.md#install).
+  Если у вас еще нет интерфейса командной строки {{ yandex-cloud }} (CLI), [установите и инициализируйте его](../../../cli/quickstart.md#install).
 
-  1. Выберите роль, которую хотите назначить сервисному аккаунту. Описание ролей можно найти в документации Yandex Identity and Access Management в [справочнике ролей Yandex Cloud](../../../iam/roles-reference.md).
+  1. Выберите роль, которую хотите назначить сервисному аккаунту. Описание ролей можно найти в документации {{ iam-full-name }} в [справочнике ролей {{ yandex-cloud }}](../../../iam/roles-reference.md).
   
   1. Узнайте идентификатор сервисного аккаунта по его имени:
   
@@ -480,7 +486,7 @@
       +----------------------+------------------+-----------------+
       ```
   
-  1. Назначьте роль `viewer` сервисному аккаунту `my-robot`, используя его идентификатор:
+  1. Назначьте роль `{{ roles-viewer }}` сервисному аккаунту `my-robot`, используя его идентификатор:
   
       ```bash
       yc resource-manager folder add-access-binding my-folder \
@@ -488,9 +494,12 @@
         --subject serviceAccount:aje6o61dvog2********
       ```
 
-- Terraform {#tf}
+- {{ TF }} {#tf}
 
-  Если у вас еще нет Terraform, [установите его и настройте провайдер Yandex Cloud](../../../tutorials/infrastructure-management/terraform-quickstart.md#install-terraform).
+  Если у вас еще нет {{ TF }}, [установите его и настройте провайдер {{ yandex-cloud }}](../../../tutorials/infrastructure-management/terraform-quickstart.md#install-terraform).
+  
+  
+  Чтобы управлять инфраструктурой с помощью {{ TF }} от имени сервисного аккаунта или пользовательских аккаунтов: аккаунта на Яндексе, федеративного аккаунта и локального пользователя, [аутентифицируйтесь](../../../terraform/authentication.md) соответствующим способом.
 
   {% note alert %}
 
@@ -498,7 +507,7 @@
 
   {% endnote %}
 
-  Чтобы назначить роль для сервисного аккаунта на каталог, созданный с помощью Terraform:
+  Чтобы назначить роль для сервисного аккаунта на каталог, созданный с помощью {{ TF }}:
 
   1. Опишите в конфигурационном файле параметры роли каталога:
 
@@ -513,7 +522,7 @@
 
      * `member` — пользователь, которому будет присвоена роль. Чтобы добавить пользователя в список, создайте запись в формате `serviceAccount:<идентификатор_сервисного_аккаунта>`, где `<идентификатор_сервисного_аккаунта>` — [идентификатор сервисного аккаунта](../../../iam/operations/sa/get-id.md). Вы можете перечислить несколько сервисных аккаунтов. Обязательный параметр.
 
-     {% cut "Пример назначения роли на каталог с помощью Terraform" %}
+     {% cut "Пример назначения роли на каталог с помощью {{ TF }}" %}
 
      ```hcl
      ...
@@ -531,7 +540,7 @@
 
      {% endcut %}
 
-     Более подробную информацию о параметрах ресурса `yandex_resourcemanager_folder_iam_member` в Terraform, см. в [документации провайдера](../../../terraform/resources/resourcemanager_folder_iam_member.md).
+     Более подробную информацию о параметрах ресурса `yandex_resourcemanager_folder_iam_member` в {{ TF }}, см. в [документации провайдера]({{ tf-provider-resources-link }}/resourcemanager_folder_iam_member).
 
   1. Проверьте конфигурацию командой:
      ```
@@ -549,7 +558,7 @@
      terraform plan
      ```
 
-     В терминале будет выведен список ресурсов с параметрами. На этом этапе изменения не будут внесены. Если в конфигурации есть ошибки, Terraform на них укажет.
+     В терминале будет выведен список ресурсов с параметрами. На этом этапе изменения не будут внесены. Если в конфигурации есть ошибки, {{ TF }} на них укажет.
 
   1. Примените изменения конфигурации:
      ```
@@ -558,7 +567,7 @@
 
   1. Подтвердите изменения: введите в терминал слово `yes` и нажмите **Enter**.
 
-     Проверить изменение каталога можно в [консоли управления](https://console.yandex.cloud) или с помощью команды [CLI](../../../cli/quickstart.md):
+     Проверить изменение каталога можно в [консоли управления]({{ link-console-main }}) или с помощью команды [CLI](../../../cli/quickstart.md):
 
      ```
      yc resource-manager folder list-access-bindings <имя_или_идентификатор_каталога>
@@ -568,9 +577,9 @@
 
   Чтобы назначить сервисному аккаунту роль на облако или каталог, воспользуйтесь методом REST API `updateAccessBindings` для ресурса [Cloud](../../api-ref/Cloud/index.md) или [Folder](../../api-ref/Folder/index.md):
   
-  1. Выберите роль, которую хотите назначить сервисному аккаунту. Описание ролей можно найти в документации Yandex Identity and Access Management в [справочнике ролей Yandex Cloud](../../../iam/roles-reference.md).
+  1. Выберите роль, которую хотите назначить сервисному аккаунту. Описание ролей можно найти в документации {{ iam-full-name }} в [справочнике ролей {{ yandex-cloud }}](../../../iam/roles-reference.md).
   1. [Узнайте](get-id.md) ID каталога с сервисными аккаунтами.
-  1. [Получите](../../../iam/operations/iam-token/create.md) IAM-токен для аутентификации в API Yandex Cloud.
+  1. [Получите](../../../iam/operations/iam-token/create.md) IAM-токен для аутентификации в API {{ yandex-cloud }}.
   1. Получите список сервисных аккаунтов в каталоге, чтобы узнать их идентификаторы:
   
       ```bash
@@ -578,7 +587,7 @@
       export IAM_TOKEN=CggaATEVAgA...
       curl \
         --header "Authorization: Bearer ${IAM_TOKEN}" \
-        "https://iam.api.cloud.yandex.net/iam/v1/serviceAccounts?folderId=${FOLDER_ID}"
+        "https://iam.{{ api-host }}/iam/v1/serviceAccounts?folderId=${FOLDER_ID}"
       ```
   
       Результат:
@@ -598,7 +607,7 @@
       }
       ```
   
-  1. Сформируйте тело запроса, например в файле `body.json`. В свойстве `action` укажите `ADD`, в свойстве `roleId` — нужную роль, например `editor`, а в свойстве `subject` — тип `serviceAccount` и идентификатор сервисного аккаунта:
+  1. Сформируйте тело запроса, например в файле `body.json`. В свойстве `action` укажите `ADD`, в свойстве `roleId` — нужную роль, например `{{ roles-editor }}`, а в свойстве `subject` — тип `serviceAccount` и идентификатор сервисного аккаунта:
   
       **body.json:**
       ```json
@@ -625,7 +634,7 @@
        --header "Content-Type: application/json" \
        --header "Authorization: Bearer ${IAM_TOKEN}" \
        --data '@body.json' \
-       "https://resource-manager.api.cloud.yandex.net/resource-manager/v1/folders/${FOLDER_ID}:updateAccessBindings"
+       "https://resource-manager.{{ api-host }}/resource-manager/v1/folders/${FOLDER_ID}:updateAccessBindings"
      ```
 
 {% endlist %}
@@ -638,17 +647,17 @@
 
   Назначение роли происходит так же, как назначение роли пользователю с аккаунтом на Яндексе. Рядом с именем пользователя будет указано имя федерации, к которой он относится.
 
-  1. В [консоли управления](https://console.yandex.cloud) на панели сверху нажмите ![image](../../../_assets/console-icons/layout-side-content-left.svg) или ![image](../../../_assets/console-icons/chevron-down.svg) и выберите нужный [каталог](../../concepts/resources-hierarchy.md#folder).
-  1. Перейдите на вкладку **Права доступа**.
-  1. Нажмите кнопку **Настроить доступ**.
-  1. В открывшемся окне выберите раздел **Пользовательские аккаунты**.
+  1. В [консоли управления]({{ link-console-main }}) на панели сверху нажмите ![image](../../../_assets/console-icons/layout-side-content-left.svg) или ![image](../../../_assets/console-icons/chevron-down.svg) и выберите нужный [каталог](../../concepts/resources-hierarchy.md#folder).
+  1. Перейдите на вкладку **{{ ui-key.yacloud.common.resource-acl.label_access-bindings }}**.
+  1. Нажмите кнопку **{{ ui-key.yacloud.common.resource-acl.button_configure-access }}**.
+  1. В открывшемся окне выберите раздел **{{ ui-key.yacloud_components.acl.label.user-accounts }}**.
   1. Выберите пользователя из списка или воспользуйтесь поиском по пользователям.
-  1. Нажмите кнопку ![image](../../../_assets/console-icons/plus.svg) **Добавить роль** и выберите роль из списка или воспользуйтесь поиском.
-  1. Нажмите кнопку **Сохранить**.
+  1. Нажмите кнопку ![image](../../../_assets/console-icons/plus.svg) **{{ ui-key.yacloud_components.acl.button.add-role }}** и выберите роль из списка или воспользуйтесь поиском.
+  1. Нажмите кнопку **{{ ui-key.yacloud_components.acl.action.apply }}**.
 
 - CLI {#cli}
 
-  1. Выберите роль из [справочника ролей Yandex Cloud](../../../iam/roles-reference.md).
+  1. Выберите роль из [справочника ролей {{ yandex-cloud }}](../../../iam/roles-reference.md).
   1. [Получите идентификатор пользователя](../../../organization/operations/users-get.md).
   1. Назначьте роль с помощью команды:
 
@@ -677,5 +686,5 @@
 
 ## Что дальше {#what-is-next}
 
-* [Изменение каталога](update.md)
-* [Иерархия ресурсов Yandex Cloud](../../concepts/resources-hierarchy.md)
+* [{#T}](update.md)
+* [{#T}](../../concepts/resources-hierarchy.md)

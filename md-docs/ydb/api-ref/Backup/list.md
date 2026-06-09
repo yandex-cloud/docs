@@ -5,7 +5,7 @@ Retrieves a list of backups.
 ## HTTP request
 
 ```
-GET https://ydb.api.cloud.yandex.net/ydb/v1/backups
+GET https://ydb.{{ api-host }}/ydb/v1/backups
 ```
 
 ## Query parameters {#yandex.cloud.ydb.v1.ListBackupsRequest}

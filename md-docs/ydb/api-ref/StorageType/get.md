@@ -5,7 +5,7 @@ Returns the specified storage types.
 ## HTTP request
 
 ```
-GET https://ydb.api.cloud.yandex.net/ydb/v1/storageTypes/{storageTypeId}
+GET https://ydb.{{ api-host }}/ydb/v1/storageTypes/{storageTypeId}
 ```
 
 ## Path parameters

@@ -1,13 +1,12 @@
 # Cloud Interconnect API, REST: TrunkConnection.Get
 
 Returns the specified TrunkConnection resource.
-
 To get the list of available TrunkConnection resources, make a [List](list.md#List) request.
 
 ## HTTP request
 
 ```
-GET https://cic.api.cloud.yandex.net/cic/v1/trunkConnections/{trunkConnectionId}
+GET https://cic.{{ api-host }}/cic/v1/trunkConnections/{trunkConnectionId}
 ```
 
 ## Path parameters
@@ -17,7 +16,9 @@ GET https://cic.api.cloud.yandex.net/cic/v1/trunkConnections/{trunkConnectionId}
 || trunkConnectionId | **string**
 
 Required field. ID of the TrunkConnection resource to return.
-To get the trunkConnection ID use a [TrunkConnectionService.List](list.md#List) request. ||
+To get the trunkConnection ID use a [TrunkConnectionService.List](list.md#List) request.
+
+The maximum string length in characters is 50. ||
 |#
 
 ## Response {#yandex.cloud.cic.v1.TrunkConnection}
@@ -30,7 +31,6 @@ To get the trunkConnection ID use a [TrunkConnectionService.List](list.md#List) 
   "name": "string",
   "description": "string",
   "folderId": "string",
-  "regionId": "string",
   "createdAt": "string",
   // Includes only one of the fields `singlePortDirectJoint`, `lagDirectJoint`, `partnerJointInfo`
   "singlePortDirectJoint": {
@@ -42,7 +42,6 @@ To get the trunkConnection ID use a [TrunkConnectionService.List](list.md#List) 
     "transceiverType": "string",
     "lagAllocationSettings": {
       "lagInfo": {
-        "lagId": "string",
         "portNames": [
           "string"
         ]
@@ -51,8 +50,8 @@ To get the trunkConnection ID use a [TrunkConnectionService.List](list.md#List) 
     "accessDeviceName": "string"
   },
   "partnerJointInfo": {
-    "serviceKey": "string",
-    "partnerId": "string"
+    "partnerId": "string",
+    "serviceKey": "string"
   },
   // end of the list of possible fields
   "pointOfPresenceId": "string",
@@ -81,9 +80,6 @@ Optional description of the trunkConnection. 0-256 characters long. ||
 || folderId | **string**
 
 ID of the folder that the trunkConnection belongs to. ||
-|| regionId | **string**
-
-ID of the region that the trunkConnection belongs to. ||
 || createdAt | **string** (date-time)
 
 Creation timestamp in [RFC3339](https://www.ietf.org/rfc/rfc3339.txt) text format.
@@ -111,14 +107,11 @@ Includes only one of the fields `singlePortDirectJoint`, `lagDirectJoint`, `part
 Special trunkConnection config ||
 || pointOfPresenceId | **string**
 
-ID of pointOfPresence that the trunkConnection is deployed on.
-Optional.
-If is not set scheduler selects it by himself. ||
+ID of pointOfPresence that the trunkConnection is deployed on. ||
 || capacity | **enum** (Capacity)
 
 Capacity of the trunkConnection
 
-- `CAPACITY_UNSPECIFIED`
 - `CAPACITY_50_MBPS`
 - `CAPACITY_100_MBPS`
 - `CAPACITY_200_MBPS`
@@ -149,15 +142,13 @@ Each key must match the regular expression `[a-z][-_0-9a-z]*`. ||
 
 Status of the trunkConnection.
 
-- `STATUS_UNSPECIFIED`
 - `CREATING`
 - `UPDATING`
 - `DELETING`
 - `ACTIVE` ||
 || deletionProtection | **boolean**
 
-Optional deletion protection flag.
-If set prohibits deletion of the trunkConnection. ||
+Deletion protection flag. ||
 |#
 
 ## SinglePortDirectJoint {#yandex.cloud.cic.v1.TrunkConnection.SinglePortDirectJoint}
@@ -170,7 +161,6 @@ Config of trunkConnection that is deployed on single port.
 
 Type of transceiver that the trunkConnection is deployed on.
 
-- `TRANSCEIVER_TYPE_UNSPECIFIED`
 - `TRANSCEIVER_TYPE_1000BASE_LX`
 - `TRANSCEIVER_TYPE_10GBASE_LR`
 - `TRANSCEIVER_TYPE_10GBASE_ER`
@@ -194,7 +184,6 @@ Config of trunkConnection that is deployed on lag.
 
 Type of transceiver that the trunkConnection is deployed on.
 
-- `TRANSCEIVER_TYPE_UNSPECIFIED`
 - `TRANSCEIVER_TYPE_1000BASE_LX`
 - `TRANSCEIVER_TYPE_10GBASE_LR`
 - `TRANSCEIVER_TYPE_10GBASE_ER`
@@ -223,11 +212,6 @@ LagInfo ||
 
 #|
 ||Field | Description ||
-|| lagId | **string** (int64)
-
-ID of LAG.
-Optional.
-If is not set scheduler selects it by himself. ||
 || portNames[] | **string**
 
 List of port names that the LAG is deployed on. ||
@@ -239,12 +223,10 @@ Config of trunkConnection that is deployed on partner joint.
 
 #|
 ||Field | Description ||
+|| partnerId | **string**
+
+ID of partner that the trunkConnection is deployed on. ||
 || serviceKey | **string**
 
 Reserved for future using; ||
-|| partnerId | **string**
-
-ID of partner that the trunkConnection is deployed on.
-Optional.
-If is not set scheduler selects it by himself. ||
 |#

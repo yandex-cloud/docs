@@ -5,7 +5,7 @@ Updates the specified Trino Catalog.
 ## HTTP request
 
 ```
-PATCH https://trino.api.cloud.yandex.net/managed-trino/v1/clusters/{clusterId}/catalogs/{catalogId}
+PATCH https://trino.{{ api-host }}/managed-trino/v1/clusters/{clusterId}/catalogs/{catalogId}
 ```
 
 ## Path parameters

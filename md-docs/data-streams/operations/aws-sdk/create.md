@@ -7,7 +7,7 @@
   Для создания потока данных используется метод `create_stream`. При вызове этого метода необходимо указать следующие параметры:
   * Имя создаваемого потока данных, например `example-stream`.
   * [Идентификатор облака](../../../resource-manager/operations/cloud/get-id.md), в котором будет создан поток, например `b1gi1kuj2dht********`.
-  * Идентификатор существующей [бессерверной](../../../ydb/pricing/serverless.md) базы данных YDB, например `cc8028jgtuab********`. Как создать новую базу данных, читайте в [документации YDB](../../../ydb/quickstart.md#create-db).
+  * Идентификатор существующей [бессерверной](../../../ydb/pricing/serverless.md) базы данных {{ ydb-short-name }}, например `cc8028jgtuab********`. Как создать новую базу данных, читайте в [документации {{ ydb-short-name }}](../../../ydb/quickstart.md#create-db).
   * Число сегментов, например `1`.
 
   Вам также потребуется [настроить](prepare.md) AWS SDK и [назначить](../../../iam/operations/sa/assign-role-for-sa.md) сервисному аккаунту роль `yds.editor`.
@@ -23,7 +23,7 @@
      def create_stream(cloud, database, stream_name, shard_count):
          client = boto3.client('kinesis', endpoint_url="https://yds.serverless.yandexcloud.net")
          response = client.create_stream(
-           StreamName="/ru-central1/{cloud}/{database}/{stream}".format(cloud=cloud,
+           StreamName="/{{ region-id }}/{cloud}/{database}/{stream}".format(cloud=cloud,
                                                                          database=database,
                                                                          stream=stream_name),
            ShardCount=shard_count

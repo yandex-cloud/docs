@@ -1,11 +1,11 @@
 # Cloud CDN API, REST: ResourceRules.Create
 
-Create new resource rule with specified unique name and rule patter.
+Create new resource rule with specified unique name and rule pattern.
 
 ## HTTP request
 
 ```
-POST https://cdn.api.cloud.yandex.net/cdn/v1/rules
+POST https://cdn.{{ api-host }}/cdn/v1/rules
 ```
 
 ## Body parameters {#yandex.cloud.cdn.v1.CreateResourceRuleRequest}
@@ -201,9 +201,13 @@ POST https://cdn.api.cloud.yandex.net/cdn/v1/rules
       "content": "string"
     }
   },
-  "weight": "string"
+  "weight": "string",
+  "originsGroupId": "string",
+  "originProtocol": "string"
 }
 ```
+
+A request to create a resource rule.
 
 #|
 ||Field | Description ||
@@ -222,11 +226,24 @@ The maximum string length in characters is 50. ||
 Required field. Resource rule pattern.
 
 The maximum string length in characters is 100. ||
-|| options | **[ResourceOptions](#yandex.cloud.cdn.v1.ResourceOptions)** ||
+|| options | **[ResourceOptions](#yandex.cloud.cdn.v1.ResourceOptions)**
+
+Resource options. ||
 || weight | **string** (int64)
 
 Rules are ordered by weight in ascending order (lower weights execute first)
 Weight must be between 0 and 9999 inclusive ||
+|| originsGroupId | **string** (int64)
+
+ID of origins group. Specify non zero value to override parent origin group. ||
+|| originProtocol | **enum** (OriginProtocol)
+
+Protocol used for communication with origin. Required if origins_group_id is specified.
+
+- `HTTP`: CDN servers will connect to your origin via HTTP.
+- `HTTPS`: CDN servers will connect to your origin via HTTPS.
+- `MATCH`: Connection protocol will be chosen automatically (content on the
+origin source should be available for the CDN both through HTTP and HTTPS). ||
 |#
 
 ## ResourceOptions {#yandex.cloud.cdn.v1.ResourceOptions}
@@ -284,7 +301,7 @@ Possible values: `error`, `http_403`, `http_404`, `http_429`, `http_500`, `http_
 || allowedHttpMethods | **[StringsListOption](#yandex.cloud.cdn.v1.ResourceOptions.StringsListOption)**
 
 HTTP methods for your CDN content. By default the following methods
-are allowed: GET, HEAD, POST, PUT, PATCH, DELETE, OPTIONS.
+are allowed: GET, HEAD, OPTIONS.
 In case some methods are not allowed to the user, they will get the 405
 (Method Not Allowed) response. If the method is not supported,
 the user gets the 501 (Not Implemented) response. ||

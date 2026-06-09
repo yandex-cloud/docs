@@ -1,12 +1,12 @@
-# Сервисный аккаунт для инструментов Application Load Balancer для Managed Service for Kubernetes
+# Сервисный аккаунт для инструментов {{ alb-name }} для {{ managed-k8s-name }}
 
 {% note tip %}
 
-Вместо ALB Ingress-контроллера и Gateway API рекомендуется использовать новый контроллер [Yandex Cloud Gwin](../gwin/index.md).
+Вместо ALB Ingress-контроллера и Gateway API рекомендуется использовать новый контроллер [{{ yandex-cloud }} Gwin]({{ gwin-tip-local-link }}).
 
 {% endnote %}
 
-Инструменты Application Load Balancer для Managed Service for Kubernetes — [Ingress-контроллер](index.md) и [Gateway API](../k8s-gateway-api/index.md) — разворачивают инфраструктуру от имени [сервисного аккаунта](../../../iam/concepts/users/service-accounts.md). Этому аккаунту требуются следующие разрешения:
+Инструменты {{ alb-name }} для {{ managed-k8s-name }} — [Ingress-контроллер]({{ ingress-local-link }}/index.md) и [Gateway API]({{ gateway-local-link }}/index.md) — разворачивают инфраструктуру от имени [сервисного аккаунта](../../../iam/concepts/users/service-accounts.md). Этому аккаунту требуются следующие разрешения:
 
 {% list tabs %}
 
@@ -14,19 +14,19 @@
 
   | Сервис | На что нужно разрешение | Минимальная роль |
   | ----- | ----- | ----- |
-  | Application Load Balancer<br/>([роли](../../security/index.md)) | Управление ресурсами сервиса | `alb.editor` |
-  | Virtual Private Cloud<br/>([роли](../../../vpc/security/index.md)) | Управление внешней или внутренней связностью, в зависимости от типа балансировщика | `vpc.publicAdmin` (внешняя)<br/>`vpc.privateAdmin` (внутренняя) |
-  | Certificate Manager<br/>([роли](../../../certificate-manager/security/index.md)) | Получение сертификатов (для HTTPS-балансировщиков) | `certificate-manager.certificates.downloader` |
-  | Compute Cloud<br/>([роли](../../../compute/security/index.md)) | Получение информации о ВМ, созданных как узлы кластера Managed Service for Kubernetes | `compute.viewer` |
+  | {{ alb-name }}<br/>([роли](../../security/index.md)) | Управление ресурсами сервиса | `alb.editor` |
+  | {{ vpc-name }}<br/>([роли](../../../vpc/security/index.md)) | Управление внешней или внутренней связностью, в зависимости от типа балансировщика | `vpc.publicAdmin` (внешняя)<br/>`vpc.privateAdmin` (внутренняя) |
+  | {{ certificate-manager-name }}<br/>([роли](../../../certificate-manager/security/index.md)) | Получение сертификатов (для HTTPS-балансировщиков) | `certificate-manager.certificates.downloader` |
+  | {{ compute-name }}<br/>([роли](../../../compute/security/index.md)) | Получение информации о ВМ, созданных как узлы кластера {{ managed-k8s-name }} | `compute.viewer` |
 
 - Gateway API
 
   | Сервис | На что нужно разрешение | Минимальная роль |
   | ----- | ----- | ----- |
-  | Application Load Balancer<br/>([роли](../../security/index.md)) | Управление ресурсами сервиса | `alb.editor` |
-  | Virtual Private Cloud<br/>([роли](../../../vpc/security/index.md)) | Управление внешней или внутренней связностью, в зависимости от типа балансировщика | `vpc.publicAdmin` (внешняя)<br/>`vpc.privateAdmin` (внутренняя) |
-  | Certificate Manager<br/>([роли](../../../certificate-manager/security/index.md)) | Управление сертификатами (для HTTPS-балансировщиков) | `certificate-manager.certificates.admin` |
-  | Compute Cloud<br/>([роли](../../../compute/security/index.md)) | Получение информации о ВМ, созданных как узлы кластера Managed Service for Kubernetes | `compute.viewer` |
+  | {{ alb-name }}<br/>([роли](../../security/index.md)) | Управление ресурсами сервиса | `alb.editor` |
+  | {{ vpc-name }}<br/>([роли](../../../vpc/security/index.md)) | Управление внешней или внутренней связностью, в зависимости от типа балансировщика | `vpc.publicAdmin` (внешняя)<br/>`vpc.privateAdmin` (внутренняя) |
+  | {{ certificate-manager-name }}<br/>([роли](../../../certificate-manager/security/index.md)) | Управление сертификатами (для HTTPS-балансировщиков) | `certificate-manager.certificates.admin` |
+  | {{ compute-name }}<br/>([роли](../../../compute/security/index.md)) | Получение информации о ВМ, созданных как узлы кластера {{ managed-k8s-name }} | `compute.viewer` |
   
 {% endlist %}
 

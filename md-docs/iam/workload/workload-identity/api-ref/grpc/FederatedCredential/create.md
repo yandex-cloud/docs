@@ -46,18 +46,10 @@ The maximum string length in characters is 1000. ||
   "created_by": "string",
   "modified_at": "google.protobuf.Timestamp",
   "done": "bool",
-  "metadata": {
-    "federated_credential_id": "string"
-  },
+  "metadata": "google.protobuf.Any",
   // Includes only one of the fields `error`, `response`
   "error": "google.rpc.Status",
-  "response": {
-    "id": "string",
-    "service_account_id": "string",
-    "federation_id": "string",
-    "external_subject_id": "string",
-    "created_at": "google.protobuf.Timestamp"
-  }
+  "response": "google.protobuf.Any"
   // end of the list of possible fields
 }
 ```
@@ -85,7 +77,7 @@ The time when the Operation resource was last modified. ||
 
 If the value is `false`, it means the operation is still in progress.
 If `true`, the operation is completed, and either `error` or `response` is available. ||
-|| metadata | **[CreateFederatedCredentialMetadata](#yandex.cloud.iam.v1.workload.CreateFederatedCredentialMetadata)**
+|| metadata | **[google.protobuf.Any](https://developers.google.com/protocol-buffers/docs/proto3#any)**
 
 Service-specific metadata associated with the operation.
 It typically contains the ID of the target resource that the operation is performed on.
@@ -100,7 +92,7 @@ The operation result.
 If `done == false` and there was no failure detected, neither `error` nor `response` is set.
 If `done == false` and there was a failure detected, `error` is set.
 If `done == true`, exactly one of `error` or `response` is set. ||
-|| response | **[FederatedCredential](#yandex.cloud.iam.v1.workload.FederatedCredential)**
+|| response | **[google.protobuf.Any](https://developers.google.com/protocol-buffers/docs/proto3#any)**
 
 The normal response of the operation in case of success.
 If the original method returns no data on success, such as Delete,
@@ -115,36 +107,4 @@ The operation result.
 If `done == false` and there was no failure detected, neither `error` nor `response` is set.
 If `done == false` and there was a failure detected, `error` is set.
 If `done == true`, exactly one of `error` or `response` is set. ||
-|#
-
-## CreateFederatedCredentialMetadata {#yandex.cloud.iam.v1.workload.CreateFederatedCredentialMetadata}
-
-#|
-||Field | Description ||
-|| federated_credential_id | **string**
-
-ID of the federated credential that is being created. ||
-|#
-
-## FederatedCredential {#yandex.cloud.iam.v1.workload.FederatedCredential}
-
-A federated credential.
-
-#|
-||Field | Description ||
-|| id | **string**
-
-Id of the federated credential. ||
-|| service_account_id | **string**
-
-Id of the service account that the federated credential belongs to. ||
-|| federation_id | **string**
-
-ID of the workload identity federation which is used for authentication. ||
-|| external_subject_id | **string**
-
-Id of the external subject. ||
-|| created_at | **[google.protobuf.Timestamp](https://developers.google.com/protocol-buffers/docs/reference/google.protobuf#timestamp)**
-
-Creation timestamp. ||
 |#

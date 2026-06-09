@@ -1,14 +1,14 @@
-# Yandex Managed Service for ClickHouse®
+# Yandex Managed Service for ClickHouse<sup>®</sup>
 
-Сервис Managed Service for ClickHouse® помогает разворачивать и поддерживать кластеры серверов <a href="https://clickhouse.com">ClickHouse®</a> в инфраструктуре Yandex Cloud. ClickHouse® — это высокопроизводительная колоночная СУБД с открытым исходным кодом.
+Сервис Managed Service for ClickHouse<sup>®</sup> помогает разворачивать и поддерживать кластеры серверов <a href="https://clickhouse.com">ClickHouse<sup>®</sup></a> в инфраструктуре {{ yandex-cloud }}. ClickHouse<sup>®</sup> — это высокопроизводительная колоночная СУБД с открытым исходным кодом.
 
-Managed Service for ClickHouse® позволяет: <ul><li>Создавать системы, в которых требуется обработка и хранение большого объема данных.</li> <li>Обрабатывать транзакции в реальном времени <a href="../glossary/oltp.md">(OLTP)</a>.</li> <li>Обрабатывать аналитические запросы в режиме онлайн <a href="../glossary/olap.md">(OLAP)</a>.</li> <li>Поддерживать системы/работать с системами, которым нужна линейная масштабируемость по вертикали и горизонтали.</li> <li>Использовать параллельную обработку запросов на многих процессорных ядрах.</li></ul>
+Managed Service for ClickHouse<sup>®</sup> позволяет: <ul><li>Создавать системы, в которых требуется обработка и хранение большого объема данных.</li> <li>Обрабатывать транзакции в реальном времени <a href="../glossary/oltp.md">(OLTP)</a>.</li> <li>Обрабатывать аналитические запросы в режиме онлайн <a href="../glossary/olap.md">(OLAP)</a>.</li> <li>Поддерживать системы/работать с системами, которым нужна линейная масштабируемость по вертикали и горизонтали.</li> <li>Использовать параллельную обработку запросов на многих процессорных ядрах.</li></ul>
 
-Взаимодействие с сервисом осуществляется с помощью консоли управления, интерфейса командной строки Yandex Cloud (CLI), API или <a href="https://clickhouse.com/docs/ru/interfaces/http">HTTP-интерфейса</a>. Managed Service for ClickHouse® позволяет визуализировать структуру данных на вашем ClickHouse®-кластере и отправлять SQL-запросы к базам из <a href="operations/web-sql-query.md">консоли управления</a> Yandex Cloud.
+Взаимодействие с сервисом осуществляется с помощью консоли управления, интерфейса командной строки {{ yandex-cloud }} (CLI), API или <a href="https://clickhouse.com/docs/ru/interfaces/http">HTTP-интерфейса</a>. Managed Service for ClickHouse<sup>®</sup> позволяет визуализировать структуру данных на вашем ClickHouse<sup>®</sup>-кластере и отправлять SQL-запросы к базам из <a href="operations/web-sql-query.md">консоли управления</a> {{ yandex-cloud }}.
 
-Инфраструктура Yandex Cloud <a href="../security/conform.md">защищена</a> в соответствии со следующими стандартами:
+Инфраструктура {{ yandex-cloud }} <a href="../security/conform.md">защищена</a> в соответствии со следующими стандартами:
 
-<ul><li>Федеральный закон Российской Федерации «О персональных данных» № 152-ФЗ.</li> <li>Стандарт безопасности индустрии платежных карт (PCI DSS).</li> <li>Стандарт ISO 27001.</li> <li>Стандарт ISO 27017.</li> <li>Стандарт ISO 27018.</li> <li>ГОСТ 57580.1-2017.</li></ul>
+<ul><li>Федеральный закон Российской Федерации «О персональных данных» № 152-ФЗ.</li> <li>Стандарт безопасности индустрии платежных карт (PCI DSS).</li> <li>Стандарт ISO 27001.</li> <li>Стандарт ISO 27017.</li> <li>Стандарт ISO 27018.</li> <li>ГОСТ 57580.1-2017.</li></ul>
 
 Для сервиса действует <a href="https://yandex.ru/legal/cloud_sla">соглашение об уровне обслуживания</a>.
 
@@ -32,7 +32,7 @@ Managed Service for ClickHouse® позволяет: <ul><li>Создавать 
 
  - [Изменение настроек кластера](operations/update.md)
 
-#### Изменение настроек ClickHouse®
+#### Изменение настроек {{ CH }}
 
  - [На уровне сервера](operations/change-server-level-settings.md)
 
@@ -40,19 +40,19 @@ Managed Service for ClickHouse® позволяет: <ul><li>Создавать 
 
  - [Техническое обслуживание](operations/cluster-maintenance.md)
 
- - [Получение патч-версии ClickHouse®](operations/cluster-patch-version.md)
+ - [Получение патч-версии {{ CH }}](operations/cluster-patch-version.md)
 
- - [Обновление версии ClickHouse®](operations/cluster-version-update.md)
+ - [Обновление версии {{ CH }}](operations/cluster-version-update.md)
 
  - [Остановка и запуск кластера](operations/cluster-stop.md)
 
 #### Управление хостами
 
- - [Управление хостами ClickHouse®](operations/hosts.md)
+ - [Управление хостами {{ CH }}](operations/hosts.md)
 
- - [Управление хостами ZooKeeper](operations/zk-hosts.md)
+ - [Управление хостами {{ ZK }}](operations/zk-hosts.md)
 
- - [Управление хостами ClickHouse® Keeper](operations/ck-hosts.md)
+ - [Управление хостами {{ CK }}](operations/ck-hosts.md)
 
  - [Миграция хостов в другую зону доступности](operations/host-migration.md)
 
@@ -74,7 +74,7 @@ Managed Service for ClickHouse® позволяет: <ul><li>Создавать 
 
 ### Базы данных
 
- - [SQL-запросы в Yandex WebSQL](operations/web-sql-query.md)
+ - [SQL-запросы в {{ websql-full-name }}](operations/web-sql-query.md)
 
  - [Управление базами данных](operations/databases.md)
 
@@ -92,7 +92,7 @@ Managed Service for ClickHouse® позволяет: <ul><li>Создавать 
 
  - [Управление моделями машинного обучения](operations/ml-models.md)
 
- - [Настройка доступа к Object Storage](operations/s3-access.md)
+ - [Настройка доступа к {{ objstorage-name }}](operations/s3-access.md)
 
 ### Шардирование
 
@@ -108,7 +108,7 @@ Managed Service for ClickHouse® позволяет: <ul><li>Создавать 
 
  - [Мониторинг состояния кластера и хостов](operations/monitoring.md)
 
- - [Подключение из DataLens](operations/datalens-connect.md)
+ - [Подключение из {{ datalens-name }}](operations/datalens-connect.md)
 
 ## Практические руководства
 
@@ -116,45 +116,45 @@ Managed Service for ClickHouse® позволяет: <ul><li>Создавать 
 
  - [Добавление данных в БД](tutorials/insert.md)
 
- - [Миграция данных в Managed Service for ClickHouse® средствами ClickHouse®](tutorials/data-migration.md)
+ - [Миграция данных в {{ mch-name }} средствами {{ CH }}](tutorials/data-migration.md)
 
- - [Миграция данных в Managed Service for ClickHouse® при помощи Data Transfer](tutorials/ch-to-mch-migration.md)
+ - [Миграция данных в {{ mch-name }} при помощи {{ data-transfer-name }}](tutorials/ch-to-mch-migration.md)
 
  - [Шардирование таблиц](tutorials/sharding.md)
 
  - [Использование гибридного хранилища](tutorials/hybrid-storage.md)
 
- - [Получение данных из Managed Service for Apache Kafka®](tutorials/fetch-data-from-mkf.md)
+ - [Получение данных из {{ mkf-name }}](tutorials/fetch-data-from-mkf.md)
 
  - [Получение данных из RabbitMQ](tutorials/fetch-data-from-rabbitmq.md)
 
- - [Обмен данными с Yandex Data Processing](tutorials/exchange-data-with-dp.md)
+ - [Обмен данными с {{ dataproc-full-name }}](tutorials/exchange-data-with-dp.md)
 
- - [Настройка Yandex Cloud DNS для доступа к кластеру из других облачных сетей](tutorials/dns-peering.md)
+ - [Настройка {{ dns-full-name }} для доступа к кластеру из других облачных сетей](tutorials/dns-peering.md)
 
- - [Анализ логов Yandex Object Storage при помощи Yandex DataLens](tutorials/storage-logs-analysis.md)
+ - [Анализ логов {{ objstorage-full-name }} при помощи {{ datalens-full-name }}](tutorials/storage-logs-analysis.md)
 
- - [Настройка Managed Service for ClickHouse® для Graphite](tutorials/clickhouse-for-graphite.md)
+ - [Настройка {{ mch-name }} для Graphite](tutorials/clickhouse-for-graphite.md)
 
- - [Сохранение потока данных Yandex Data Streams в Managed Service for ClickHouse®](tutorials/yds-to-clickhouse.md)
+ - [Сохранение потока данных {{ yds-full-name }} в {{ mch-name }}](tutorials/yds-to-clickhouse.md)
 
  - [Миграция базы данных из Google BigQuery](tutorials/bigquery-to-clickhouse.md)
 
- - [Поставка данных из Managed Service for Apache Kafka® с помощью Yandex Data Transfer](tutorials/mkf-to-mch-migration.md)
+ - [Поставка данных из {{ mkf-name }} с помощью {{ data-transfer-full-name }}](tutorials/mkf-to-mch-migration.md)
 
- - [Миграция данных из Яндекс Директ с использованием Yandex Cloud Functions, Yandex Object Storage и Yandex Data Transfer](tutorials/transfer-from-direct.md)
+ - [Миграция данных из {{ yandex-direct }} с использованием {{ sf-full-name }}, {{ objstorage-full-name }} и {{ data-transfer-full-name }}](tutorials/transfer-from-direct.md)
 
- - [Загрузка данных из Yandex Object Storage в Managed Service for ClickHouse® с помощью Yandex Data Transfer](tutorials/object-storage-to-clickhouse.md)
+ - [Загрузка данных из {{ objstorage-full-name }} в {{ mch-name }} с помощью {{ data-transfer-full-name }}](tutorials/object-storage-to-clickhouse.md)
 
- - [Миграция базы данных из Greenplum® в ClickHouse®](tutorials/greenplum-to-clickhouse.md)
+ - [Миграция базы данных из {{ GP }} в {{ CH }}](tutorials/greenplum-to-clickhouse.md)
 
- - [Миграция базы данных из MySQL® в ClickHouse® с помощью Yandex Data Transfer](tutorials/mysql-to-clickhouse.md)
+ - [Миграция базы данных из {{ MY }} в {{ CH }} с помощью {{ data-transfer-full-name }}](tutorials/mysql-to-clickhouse.md)
 
- - [Асинхронная репликация данных из PostgreSQL в ClickHouse®](tutorials/rdbms-to-clickhouse.md)
+ - [Асинхронная репликация данных из {{ PG }} в {{ CH }}](tutorials/rdbms-to-clickhouse.md)
 
- - [Загрузка данных из Yandex Managed Service for YDB в Managed Service for ClickHouse® с помощью Yandex Data Transfer](tutorials/ydb-to-clickhouse.md)
+ - [Загрузка данных из {{ ydb-full-name }} в {{ mch-name }} с помощью {{ data-transfer-full-name }}](tutorials/ydb-to-clickhouse.md)
 
- - [Копирование данных из Managed Service for OpenSearch в Managed Service for ClickHouse® с помощью Yandex Data Transfer](tutorials/opensearch-to-clickhouse.md)
+ - [Копирование данных из {{ mos-name }} в {{ mch-name }} с помощью {{ data-transfer-full-name }}](tutorials/opensearch-to-clickhouse.md)
 
  - [Ввод данных в системы хранения](tutorials/data-ingestion.md)
 
@@ -168,25 +168,25 @@ Managed Service for ClickHouse® позволяет: <ul><li>Создавать 
 
  - [AppMetrica: экспорт, постобработка и визуализация данных](tutorials/data-from-appmetrica-yc-visualization.md)
 
- - [Загрузка данных из Яндекс Метрика в витрину ClickHouse®](tutorials/metrika-to-clickhouse.md)
+ - [Загрузка данных из {{ metrika }} в витрину {{ CH }}](tutorials/metrika-to-clickhouse.md)
 
- - [Яндекс Трекер: экспорт и визуализация данных](tutorials/data-from-tracker.md)
+ - [{{ tracker-full-name }}: экспорт и визуализация данных](tutorials/data-from-tracker.md)
 
- - [Дашборд сети магазинов из БД ClickHouse®](tutorials/data-from-ch-visualization.md)
+ - [Дашборд сети магазинов из БД {{ CH }}](tutorials/data-from-ch-visualization.md)
 
- - [Анализ продаж и локаций пиццерий на данных из БД ClickHouse® и Marketplace](tutorials/data-from-ch-to-geolayers-visualization.md)
+ - [Анализ продаж и локаций пиццерий на данных из БД {{ CH }} и Marketplace](tutorials/data-from-ch-to-geolayers-visualization.md)
 
- - [Геокодинг с помощью API Яндекс Карт для визуализации в DataLens](tutorials/data-from-ch-geocoder.md)
+ - [Геокодинг с помощью API Яндекс Карт для визуализации в {{ datalens-short-name }}](tutorials/data-from-ch-geocoder.md)
 
- - [Импорт данных из Object Storage, обработка и экспорт в Managed Service for ClickHouse®](tutorials/s3-data-processing-ch.md)
+ - [Импорт данных из {{ objstorage-name }}, обработка и экспорт в {{ mch-name }}](tutorials/s3-data-processing-ch.md)
 
- - [Работа с данными с помощью Query](tutorials/yq-clickhouse.md)
+ - [Работа с данными с помощью {{ yq-name }}](tutorials/yq-clickhouse.md)
 
- - [Федеративные запросы к данным с помощью Query](tutorials/yq-federative-queries.md)
+ - [Федеративные запросы к данным с помощью {{ yq-name }}](tutorials/yq-federative-queries.md)
 
- - [Интеграция с внешней базой данных Microsoft SQL Server через ClickHouse® JDBC Bridge](tutorials/jdbc-ch-to-sql-server-integration.md)
+ - [Интеграция с внешней базой данных Microsoft SQL Server через {{ CH }} JDBC Bridge](tutorials/jdbc-ch-to-sql-server-integration.md)
 
- - [Интеграция с внешней базой данных Oracle через ClickHouse® JDBC Bridge](tutorials/jdbc-ch-to-oracle-integration.md)
+ - [Интеграция с внешней базой данных Oracle через {{ CH }} JDBC Bridge](tutorials/jdbc-ch-to-oracle-integration.md)
 
 ## Концепции
 
@@ -206,7 +206,7 @@ Managed Service for ClickHouse® позволяет: <ul><li>Создавать 
 
  - [Использование устаревших классов хостов](concepts/using-deprecated-instances.md)
 
- - [Сеть в Managed Service for ClickHouse®](concepts/network.md)
+ - [Сеть в {{ mch-name }}](concepts/network.md)
 
  - [Квоты и лимиты](concepts/limits.md)
 
@@ -222,17 +222,17 @@ Managed Service for ClickHouse® позволяет: <ul><li>Создавать 
 
  - [Шардирование](concepts/sharding.md)
 
- - [Служебные пользователи](concepts/service-users.md)
-
  - [Техническое обслуживание](concepts/maintenance.md)
+
+ - [Управление пользователями и правами доступа](concepts/user-access-rights.md)
 
  - [Поддерживаемые клиенты](concepts/supported-clients.md)
 
  - [Управление памятью](concepts/memory-management.md)
 
- - [Политика работы с версиями ClickHouse®](concepts/update-policy.md)
+ - [Политика работы с версиями {{ CH }}](concepts/update-policy.md)
 
- - [Настройки ClickHouse®](concepts/settings-list.md)
+ - [Настройки {{ CH }}](concepts/settings-list.md)
 
  - [Управление доступом](security.md)
 
@@ -682,7 +682,7 @@ Managed Service for ClickHouse® позволяет: <ul><li>Создавать 
 
  - [list](cli-ref/version/list.md)
 
- - [Справочник Terraform](tf-ref.md)
+ - [Справочник {{ TF }}](tf-ref.md)
 
 ## Справочник API
 
@@ -732,13 +732,13 @@ Managed Service for ClickHouse® позволяет: <ul><li>Создавать 
 
  - [Delete](api-ref/grpc/Cluster/delete.md)
 
+ - [AddZookeeper](api-ref/grpc/Cluster/addZookeeper.md)
+
  - [Start](api-ref/grpc/Cluster/start.md)
 
  - [Stop](api-ref/grpc/Cluster/stop.md)
 
  - [Move](api-ref/grpc/Cluster/move.md)
-
- - [AddZookeeper](api-ref/grpc/Cluster/addZookeeper.md)
 
  - [Backup](api-ref/grpc/Cluster/backup.md)
 
@@ -934,13 +934,13 @@ Managed Service for ClickHouse® позволяет: <ul><li>Создавать 
 
  - [Delete](api-ref/Cluster/delete.md)
 
+ - [AddZookeeper](api-ref/Cluster/addZookeeper.md)
+
  - [Start](api-ref/Cluster/start.md)
 
  - [Stop](api-ref/Cluster/stop.md)
 
  - [Move](api-ref/Cluster/move.md)
-
- - [AddZookeeper](api-ref/Cluster/addZookeeper.md)
 
  - [Backup](api-ref/Cluster/backup.md)
 
@@ -1092,9 +1092,9 @@ Managed Service for ClickHouse® позволяет: <ul><li>Создавать 
 
  - [List](api-ref/Versions/list.md)
 
- - [Метрики Yandex Monitoring](metrics.md)
+ - [Метрики {{ monitoring-full-name }}](metrics.md)
 
- - [Аудитные логи Audit Trails](at-ref.md)
+ - [Аудитные логи {{ at-name }}](at-ref.md)
 
  - [Публичные материалы](public-talks.md)
 
@@ -1104,7 +1104,7 @@ Managed Service for ClickHouse® позволяет: <ul><li>Создавать 
 
  - [Общие вопросы](qa/general.md)
 
- - [Вопросы о ClickHouse®](qa/clickhouse.md)
+ - [Вопросы о {{ CH }}](qa/clickhouse.md)
 
  - [Подключение](qa/connection.md)
 

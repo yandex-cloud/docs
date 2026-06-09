@@ -5,7 +5,7 @@ Retrieves a list of access bindings for the specified Metastore cluster.
 ## HTTP request
 
 ```
-GET https://metastore.api.cloud.yandex.net/managed-metastore/v1/clusters/{resourceId}:listAccessBindings
+GET https://metastore.{{ api-host }}/managed-metastore/v1/clusters/{resourceId}:listAccessBindings
 ```
 
 ## Path parameters

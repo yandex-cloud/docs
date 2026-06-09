@@ -5,7 +5,7 @@ Changes the state of the specified lifecycle policy.
 ## HTTP request
 
 ```
-POST https://registry.api.cloud.yandex.net/cloud-registry/v1/lifecyclePolicies/{policyId}:changeState
+POST https://registry.{{ api-host }}/cloud-registry/v1/lifecyclePolicies/{policyId}:changeState
 ```
 
 ## Path parameters

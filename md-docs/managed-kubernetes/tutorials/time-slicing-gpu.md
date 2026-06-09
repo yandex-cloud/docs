@@ -1,9 +1,9 @@
 # Установка Time-Slicing GPUs
 
 
-Плагин [Time-Slicing GPUs в Kubernetes](https://docs.nvidia.com/datacenter/cloud-native/gpu-operator/gpu-sharing.html) используется для чередования рабочих нагрузок, которые выполняются на одном [GPU](../../compute/concepts/gpus.md) с избыточной подпиской.
+Плагин [Time-Slicing GPUs в {{ k8s }}](https://docs.nvidia.com/datacenter/cloud-native/gpu-operator/gpu-sharing.html) используется для чередования рабочих нагрузок, которые выполняются на одном [GPU](../../compute/concepts/gpus.md) с избыточной подпиской.
 
-Чтобы установить плагин Time-Slicing GPUs в Managed Service for Kubernetes:
+Чтобы установить плагин Time-Slicing GPUs в {{ managed-k8s-name }}:
 
 1. [Настройте Time-Slicing GPUs](#configure-time-slicing).
 1. [Проверьте работу Time-Slicing GPUs](#check-time-slicing).
@@ -15,18 +15,18 @@
 
 В стоимость поддержки описываемого решения входят:
 
-* Плата за кластер Managed Service for Kubernetes: использование мастера и исходящий трафик (см. [тарифы Managed Service for Kubernetes](../pricing.md)).
-* Плата за узлы кластера (ВМ): использование вычислительных ресурсов, операционной системы и хранилища (см. [тарифы Compute Cloud](../../compute/pricing.md)).
-* Плата за публичный IP-адрес, если он назначен узлам кластера (см. [тарифы Virtual Private Cloud](../../vpc/pricing.md#prices-public-ip)).
+* Плата за кластер {{ managed-k8s-name }}: использование мастера и исходящий трафик (см. [тарифы {{ managed-k8s-name }}](../pricing.md)).
+* Плата за узлы кластера (ВМ): использование вычислительных ресурсов, операционной системы и хранилища (см. [тарифы {{ compute-name }}](../../compute/pricing.md)).
+* Плата за публичный IP-адрес, если он назначен узлам кластера (см. [тарифы {{ vpc-name }}](../../vpc/pricing.md#prices-public-ip)).
 
 
 ## Перед началом работы {#before-you-begin}
 
-1. Если у вас еще нет интерфейса командной строки Yandex Cloud (CLI), [установите и инициализируйте его](../../cli/quickstart.md#install).
+1. Если у вас еще нет интерфейса командной строки {{ yandex-cloud }} (CLI), [установите и инициализируйте его](../../cli/quickstart.md#install).
 
 1. По умолчанию используется каталог, указанный при [создании](../../cli/operations/profile/profile-create.md) профиля CLI. Чтобы изменить каталог по умолчанию, используйте команду `yc config set folder-id <идентификатор_каталога>`. Также для любой команды вы можете указать другой каталог с помощью параметров `--folder-name` или `--folder-id`. Если вы обращаетесь к ресурсу по имени, поиск будет выполнен в каталоге по умолчанию. Если вы обращаетесь к ресурсу по идентификатору, поиск будет выполнен глобально — во всех каталогах с учетом прав доступа.
 
-1. [Создайте группы безопасности](../operations/connect/security-groups.md) для кластера Managed Service for Kubernetes и входящих в него групп узлов.
+1. [Создайте группы безопасности](../operations/connect/security-groups.md) для кластера {{ managed-k8s-name }} и входящих в него групп узлов.
 
     {% note warning %}
     
@@ -34,11 +34,11 @@
     
     {% endnote %}
 
-1. [Создайте кластер Managed Service for Kubernetes](../operations/kubernetes-cluster/kubernetes-cluster-create.md). При создании укажите группы безопасности, подготовленные ранее.
+1. [Создайте кластер {{ managed-k8s-name }}](../operations/kubernetes-cluster/kubernetes-cluster-create.md). При создании укажите группы безопасности, подготовленные ранее.
 
-1. [Создайте группу узлов Managed Service for Kubernetes](../operations/node-group/node-group-create.md) c [GPU NVIDIA® Tesla® T4](../../compute/concepts/gpus.md#tesla-t4) и с группами безопасности, подготовленными ранее.
+1. [Создайте группу узлов {{ managed-k8s-name }}](../operations/node-group/node-group-create.md) c [GPU NVIDIA® Tesla® T4](../../compute/concepts/gpus.md#tesla-t4) и с группами безопасности, подготовленными ранее.
 
-1. [Установите kubectl](https://kubernetes.io/ru/docs/tasks/tools/install-kubectl) и [настройте его на работу с созданным кластером](../operations/connect/index.md#kubectl-connect).
+1. [Установите kubectl]({{ k8s-docs }}/tasks/tools/install-kubectl) и [настройте его на работу с созданным кластером](../operations/connect/index.md#kubectl-connect).
 
 ## Настройте Time-Slicing GPUs {#configure-time-slicing}
 
@@ -100,11 +100,11 @@
      gpu-operator nvidia/gpu-operator
    ```
 
-1. Примените конфигурацию time-slicing для [кластера Managed Service for Kubernetes](../concepts/index.md#kubernetes-cluster) или [группы узлов](../concepts/index.md#node-group):
+1. Примените конфигурацию time-slicing для [кластера {{ managed-k8s-name }}](../concepts/index.md#kubernetes-cluster) или [группы узлов](../concepts/index.md#node-group):
 
    {% list tabs %}
 
-   - Кластер Managed Service for Kubernetes
+   - Кластер {{ managed-k8s-name }}
 
      ```bash
      kubectl patch clusterpolicies.nvidia.com/cluster-policy \
@@ -113,14 +113,14 @@
        --patch='{"spec": {"devicePlugin": {"config": {"name": "time-slicing-config", "default": "tesla-t4"}}}}'
      ```
 
-   - Группа узлов Managed Service for Kubernetes
+   - Группа узлов {{ managed-k8s-name }}
 
      ```bash
      yc managed-kubernetes node-group add-labels <идентификатор_или_имя_группы_узлов> \
        --labels nvidia.com/device-plugin.config=tesla-t4
      ```
 
-     Идентификатор и имя группы узлов Managed Service for Kubernetes можно получить со [списком групп узлов в каталоге](../operations/node-group/node-group-list.md#list).
+     Идентификатор и имя группы узлов {{ managed-k8s-name }} можно получить со [списком групп узлов в каталоге](../operations/node-group/node-group-list.md#list).
 
    {% endlist %}
 
@@ -129,7 +129,7 @@
 1. Создайте тестовое приложение:
    1. Сохраните следующую спецификацию для создания приложения в YAML-файл с именем `nvidia-plugin-test.yml`.
 
-      [Deployment](https://kubernetes.io/docs/concepts/workloads/controllers/deployment/) — объект API Kubernetes, который управляет реплицированным приложением.
+      [Deployment](https://kubernetes.io/docs/concepts/workloads/controllers/deployment/) — объект API {{ k8s }}, который управляет реплицированным приложением.
 
       ```yaml
       apiVersion: apps/v1
@@ -178,13 +178,13 @@
       deployment.apps/nvidia-plugin-test created
       ```
 
-1. Убедитесь, что все пять [подов Managed Service for Kubernetes](../concepts/index.md#pod) приложения находятся в состоянии `Running`:
+1. Убедитесь, что все пять [подов {{ managed-k8s-name }}](../concepts/index.md#pod) приложения находятся в состоянии `Running`:
 
    ```bash
    kubectl get pods | grep nvidia-plugin-test
    ```
 
-1. Выполните команду `nvidia-smi` в запущенном поде Managed Service for Kubernetes `nvidia-container-toolkit`:
+1. Выполните команду `nvidia-smi` в запущенном поде {{ managed-k8s-name }} `nvidia-container-toolkit`:
 
    ```bash
    kubectl exec <имя_пода_nvidia-container-toolkit> \
@@ -224,5 +224,5 @@
 ## Удалите созданные ресурсы {#clear-out}
 
 Некоторые ресурсы платные. Удалите ресурсы, которые вы больше не будете использовать, чтобы не тратить на них средства:
-1. [Удалите кластер Managed Service for Kubernetes](../operations/kubernetes-cluster/kubernetes-cluster-delete.md).
+1. [Удалите кластер {{ managed-k8s-name }}](../operations/kubernetes-cluster/kubernetes-cluster-delete.md).
 1. Если вы создавали [сервисные аккаунты](../../iam/concepts/users/service-accounts.md), [удалите их](../../iam/operations/sa/delete.md).

@@ -1,7 +1,7 @@
 # Создание L7-балансировщика с защитой от DDoS с помощью консоли управления или CLI
 
 
-Чтобы создать балансировщик с защитой от DDoS c помощью консоли управления Yandex Cloud или CLI:
+Чтобы создать балансировщик с защитой от DDoS c помощью консоли управления {{ yandex-cloud }} или CLI:
 
 1. [Подготовьте облако к работе](#before-begin).
 1. [Создайте облачную сеть](#create-network).
@@ -18,11 +18,11 @@
 
 ## Подготовьте облако к работе {#before-begin}
 
-Зарегистрируйтесь в Yandex Cloud и создайте [платежный аккаунт](../../../billing/concepts/billing-account.md):
-1. Перейдите в [консоль управления](https://console.yandex.cloud), затем войдите в Yandex Cloud или зарегистрируйтесь.
-1. На странице **[Yandex Cloud Billing](https://center.yandex.cloud/billing/accounts)** убедитесь, что у вас подключен платежный аккаунт, и он находится в [статусе](../../../billing/concepts/billing-account-statuses.md) `ACTIVE` или `TRIAL_ACTIVE`. Если платежного аккаунта нет, [создайте его](../../../billing/quickstart/index.md) и [привяжите](../../../billing/operations/pin-cloud.md) к нему облако.
+Зарегистрируйтесь в {{ yandex-cloud }} и создайте [платежный аккаунт](../../../billing/concepts/billing-account.md):
+1. Перейдите в [консоль управления]({{ link-console-main }}), затем войдите в {{ yandex-cloud }} или зарегистрируйтесь.
+1. На странице **[{{ ui-key.yacloud_billing.billing.label_service }}]({{ link-console-billing }})** убедитесь, что у вас подключен платежный аккаунт, и он находится в [статусе](../../../billing/concepts/billing-account-statuses.md) `ACTIVE` или `TRIAL_ACTIVE`. Если платежного аккаунта нет, [создайте его](../../../billing/quickstart/index.md) и [привяжите](../../../billing/operations/pin-cloud.md) к нему облако.
 
-Если у вас есть активный платежный аккаунт, вы можете создать или выбрать [каталог](../../../resource-manager/concepts/resources-hierarchy.md#folder), в котором будет работать ваша инфраструктура, на [странице облака](https://console.yandex.cloud/cloud).
+Если у вас есть активный платежный аккаунт, вы можете создать или выбрать [каталог](../../../resource-manager/concepts/resources-hierarchy.md#folder), в котором будет работать ваша инфраструктура, на [странице облака]({{ link-console-cloud }}).
 
 [Подробнее об облаках и каталогах](../../../resource-manager/concepts/resources-hierarchy.md).
 
@@ -31,23 +31,23 @@
 
 В стоимость поддержки инфраструктуры для балансировщика с защитой от DDoS входят:
 
-* плата за постоянно запущенные [ВМ](../../../compute/concepts/vm.md) (см. [тарифы Yandex Compute Cloud](../../../compute/pricing.md));
-* плата за использование [публичного статического IP-адреса](../../../vpc/concepts/address.md#public-addresses) (см. [тарифы Yandex Virtual Private Cloud](../../../vpc/pricing.md));
-* плата за фильтрацию входящего трафика на публичный IP-адрес с [защитой от DDoS-атак](../../../vpc/ddos-protection/index.md) (см. [тарифы Yandex Virtual Private Cloud](../../../vpc/pricing.md#prices-ddos-protection));
-* плата за использование вычислительных ресурсов [L7-балансировщика](../../concepts/index.md) (см. [тарифы Application Load Balancer](../../pricing.md)).
+* плата за постоянно запущенные [ВМ](../../../compute/concepts/vm.md) (см. [тарифы {{ compute-full-name }}](../../../compute/pricing.md));
+* плата за использование [публичного статического IP-адреса](../../../vpc/concepts/address.md#public-addresses) (см. [тарифы {{ vpc-full-name }}](../../../vpc/pricing.md));
+* плата за фильтрацию входящего трафика на публичный IP-адрес с [защитой от DDoS-атак](../../../vpc/ddos-protection/index.md) (см. [тарифы {{ vpc-full-name }}](../../../vpc/pricing.md#prices-ddos-protection));
+* плата за использование вычислительных ресурсов [L7-балансировщика](../../concepts/index.md) (см. [тарифы {{ alb-name }}](../../pricing.md)).
 
 
 ## Подготовьте сервисный аккаунт {#prepare-sa}
 
 {% note alert %}
 
-Создавая группы ВМ, учитывайте [лимиты](../../../compute/concepts/limits.md). Чтобы не нарушить работу компонента Instance Groups, не изменяйте и не удаляйте вручную созданные им ресурсы: [целевую группу](../../concepts/target-group.md) Application Load Balancer, ВМ и диски. Вместо этого измените или удалите группу полностью.
+Создавая группы ВМ, учитывайте [лимиты](../../../compute/concepts/limits.md). Чтобы не нарушить работу компонента {{ ig-name }}, не изменяйте и не удаляйте вручную созданные им ресурсы: [целевую группу](../../concepts/target-group.md) {{ alb-name }}, ВМ и диски. Вместо этого измените или удалите группу полностью.
 
 {% endnote %}
 
-Все операции в Instance Groups выполняются от имени сервисного аккаунта. Если сервисного аккаунта нет, [создайте его](../../../iam/operations/sa/create.md).
+Все операции в {{ ig-name }} выполняются от имени сервисного аккаунта. Если сервисного аккаунта нет, [создайте его](../../../iam/operations/sa/create.md).
 
-Чтобы иметь возможность создавать, обновлять и удалять ВМ в группе, а также интегрировать группу с L7-балансировщиком Application Load Balancer, [назначьте](../../../iam/operations/sa/assign-role-for-sa.md) сервисному аккаунту [роль](../../../iam/concepts/access-control/roles.md) `editor`.
+Чтобы иметь возможность создавать, обновлять и удалять ВМ в группе, а также интегрировать группу с L7-балансировщиком {{ alb-name }}, [назначьте](../../../iam/operations/sa/assign-role-for-sa.md) сервисному аккаунту [роль](../../../iam/concepts/access-control/roles.md) `editor`.
 
 ## Создайте облачную сеть {#create-network}
 
@@ -59,16 +59,16 @@
 
 - Консоль управления {#console}
 
-  1. Откройте [консоль управления](https://console.yandex.cloud).
-  1. [Перейдите](../../../console/operations/select-service.md#select-service) в сервис **Virtual Private Cloud**.
-  1. Нажмите кнопку **Создать сеть**.
+  1. Откройте [консоль управления]({{ link-console-main }}).
+  1. Перейдите в сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_vpc }}**.
+  1. Нажмите кнопку **{{ ui-key.yacloud.vpc.networks.button_create }}**.
   1. Укажите имя сети `ddos-network`.
-  1. В поле **Дополнительно** выберите опцию **Создать подсети**.
-  1. Нажмите кнопку **Создать сеть**.
+  1. В поле **{{ ui-key.yacloud.vpc.networks.create.field_advanced }}** выберите опцию **{{ ui-key.yacloud.vpc.networks.create.field_is-default }}**.
+  1. Нажмите кнопку **{{ ui-key.yacloud.vpc.networks.button_create }}**.
 
 - CLI {#cli}
 
-  Если у вас еще нет интерфейса командной строки Yandex Cloud (CLI), [установите и инициализируйте его](../../../cli/quickstart.md#install).
+  Если у вас еще нет интерфейса командной строки {{ yandex-cloud }} (CLI), [установите и инициализируйте его](../../../cli/quickstart.md#install).
 
   По умолчанию используется каталог, указанный при [создании](../../../cli/operations/profile/profile-create.md) профиля CLI. Чтобы изменить каталог по умолчанию, используйте команду `yc config set folder-id <идентификатор_каталога>`. Также для любой команды вы можете указать другой каталог с помощью параметров `--folder-name` или `--folder-id`. Если вы обращаетесь к ресурсу по имени, поиск будет выполнен в каталоге по умолчанию. Если вы обращаетесь к ресурсу по идентификатору, поиск будет выполнен глобально — во всех каталогах с учетом прав доступа.
 
@@ -87,7 +87,7 @@
      yc vpc subnet create \
        --name ddos-network-ru-a \
        --network-name ddos-network \
-       --zone ru-central1-a \
+       --zone {{ region-id }}-a \
        --range 192.168.0.0/24
      ```
 
@@ -95,7 +95,7 @@
      yc vpc subnet create \
        --name ddos-network-ru-b \
        --network-name ddos-network \
-       --zone ru-central1-b \
+       --zone {{ region-id }}-b \
        --range 192.168.1.0/24
      ```
 
@@ -103,7 +103,7 @@
      yc vpc subnet create \
        --name ddos-network-ru-d \
        --network-name ddos-network \
-       --zone ru-central1-d \
+       --zone {{ region-id }}-d \
        --range 192.168.2.0/24
      ```
 
@@ -122,43 +122,43 @@
 
 - Консоль управления {#console}
 
-  1. Откройте [консоль управления](https://console.yandex.cloud).
-  1. [Перейдите](../../../console/operations/select-service.md#select-service) в сервис **Virtual Private Cloud**.
-  1. На панели слева выберите ![image](../../../_assets/console-icons/shield.svg) **Группы безопасности**.
+  1. Откройте [консоль управления]({{ link-console-main }}).
+  1. Перейдите в сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_vpc }}**.
+  1. На панели слева выберите ![image](../../../_assets/console-icons/shield.svg) **{{ ui-key.yacloud.vpc.label_security-groups }}**.
   1. Создайте группу безопасности для балансировщика:
 
-     1. Нажмите кнопку **Создать группу безопасности**.
-     1. Укажите **Имя** группы безопасности: `ddos-sg-balancer`.
-     1. Выберите **Сеть** `ddos-network`.
-     1. В блоке **Правила** создайте следующие правила по инструкции под таблицей:
+     1. Нажмите кнопку **{{ ui-key.yacloud.vpc.network.security-groups.button_create }}**.
+     1. Укажите **{{ ui-key.yacloud.vpc.network.security-groups.forms.field_sg-name }}** группы безопасности: `ddos-sg-balancer`.
+     1. Выберите **{{ ui-key.yacloud.vpc.network.security-groups.forms.field_sg-network }}** `ddos-network`.
+     1. В блоке **{{ ui-key.yacloud.vpc.network.security-groups.forms.label_section-rules }}** создайте следующие правила по инструкции под таблицей:
 
-        Направление<br>трафика | Описание | Диапазон портов | Протокол | Источник /<br>назначение | Добавить CIDR
+        Направление<br>трафика | {{ ui-key.yacloud.vpc.network.security-groups.forms.field_sg-rule-description }} | {{ ui-key.yacloud.vpc.network.security-groups.forms.field_sg-rule-port-range }} | {{ ui-key.yacloud.vpc.network.security-groups.forms.field_sg-rule-protocol }} | Источник /<br>назначение | {{ ui-key.yacloud.vpc.subnetworks.create.button_add-cidr }}
         --- | --- | --- | --- | --- | ---
-        `Исходящий` | `any` | `Весь` | `Любой` | `CIDR` | `0.0.0.0/0`
-        `Входящий` | `ext-http` | `80` | `TCP` | `CIDR` | `0.0.0.0/0`
-        `Входящий` | `ext-https` | `443` | `TCP` | `CIDR` | `0.0.0.0/0`
-        `Входящий` | `healthchecks` | `30080` | `TCP` | `Проверки состояния балансировщика` | —
+        `Исходящий` | `any` | `Весь` | `{{ ui-key.yacloud.vpc.network.security-groups.forms.value_any }}` | `{{ ui-key.yacloud.vpc.network.security-groups.forms.value_sg-rule-destination-cidr }}` | `0.0.0.0/0`
+        `Входящий` | `ext-http` | `80` | `{{ ui-key.yacloud.common.label_tcp }}` | `{{ ui-key.yacloud.vpc.network.security-groups.forms.value_sg-rule-destination-cidr }}` | `0.0.0.0/0`
+        `Входящий` | `ext-https` | `443` | `{{ ui-key.yacloud.common.label_tcp }}` | `{{ ui-key.yacloud.vpc.network.security-groups.forms.value_sg-rule-destination-cidr }}` | `0.0.0.0/0`
+        `Входящий` | `healthchecks` | `30080` | `{{ ui-key.yacloud.common.label_tcp }}` | `{{ ui-key.yacloud.vpc.network.security-groups.forms.value_sg-rule-sg-type-balancer }}` | —
 
-        1. Выберите вкладку **Исходящий трафик** или **Входящий трафик**.
-        1. Нажмите кнопку **Добавить правило**.
-        1. В открывшемся окне в поле **Диапазон портов** укажите один порт или диапазон портов, куда или откуда будет поступать трафик.
-        1. В поле **Протокол** укажите нужный протокол или оставьте `Любой`, чтобы разрешить передачу трафика по всем протоколам.
-        1. В поле **Назначение** или **Источник** выберите назначение правила:
+        1. Выберите вкладку **{{ ui-key.yacloud.vpc.network.security-groups.label_egress }}** или **{{ ui-key.yacloud.vpc.network.security-groups.label_ingress }}**.
+        1. Нажмите кнопку **{{ ui-key.yacloud.vpc.network.security-groups.button_add-rule }}**.
+        1. В открывшемся окне в поле **{{ ui-key.yacloud.vpc.network.security-groups.forms.field_sg-rule-port-range }}** укажите один порт или диапазон портов, куда или откуда будет поступать трафик.
+        1. В поле **{{ ui-key.yacloud.vpc.network.security-groups.forms.field_sg-rule-protocol }}** укажите нужный протокол или оставьте `{{ ui-key.yacloud.vpc.network.security-groups.forms.value_any }}`, чтобы разрешить передачу трафика по всем протоколам.
+        1. В поле **{{ ui-key.yacloud.vpc.network.security-groups.forms.field_sg-rule-destination }}** или **{{ ui-key.yacloud.vpc.network.security-groups.forms.field_sg-rule-source }}** выберите назначение правила:
 
-           * `CIDR` — правило будет применено к диапазону IP-адресов. В поле **CIDR блоки** укажите CIDR и маски подсетей, в которые или из которых будет поступать трафик. Чтобы добавить несколько CIDR, нажимайте кнопку **Добавить CIDR**.
-           * `Группа безопасности` — правило будет применено к ВМ из текущей группы или из выбранной группы безопасности.
-           * `Проверки состояния балансировщика` — правило, которое позволяет балансировщику проверять состояние ВМ.
+           * `{{ ui-key.yacloud.vpc.network.security-groups.forms.value_sg-rule-destination-cidr }}` — правило будет применено к диапазону IP-адресов. В поле **{{ ui-key.yacloud.vpc.network.security-groups.forms.field_sg-rule-cidr-blocks }}** укажите CIDR и маски подсетей, в которые или из которых будет поступать трафик. Чтобы добавить несколько CIDR, нажимайте кнопку **{{ ui-key.yacloud.vpc.subnetworks.create.button_add-cidr }}**.
+           * `{{ ui-key.yacloud.vpc.network.security-groups.forms.value_sg-rule-destination-sg }}` — правило будет применено к ВМ из текущей группы или из выбранной группы безопасности.
+           * `{{ ui-key.yacloud.vpc.network.security-groups.forms.value_sg-rule-sg-type-balancer }}` — правило, которое позволяет балансировщику проверять состояние ВМ.
 
-        1. Нажмите кнопку **Сохранить**. Таким образом создайте все правила из таблицы.
+        1. Нажмите кнопку **{{ ui-key.yacloud.common.save }}**. Таким образом создайте все правила из таблицы.
 
-     1. Нажмите кнопку **Сохранить**.
+     1. Нажмите кнопку **{{ ui-key.yacloud.common.save }}**.
 
   1. Аналогично создайте группу безопасности для ВМ с именем `ddos-sg-vms`, той же сетью `ddos-network` и следующими правилами:
 
-     Направление<br>трафика | Описание | Диапазон портов | Протокол | Источник | CIDR блоки
+     Направление<br>трафика | {{ ui-key.yacloud.vpc.network.security-groups.forms.field_sg-rule-description }} | {{ ui-key.yacloud.vpc.network.security-groups.forms.field_sg-rule-port-range }} | {{ ui-key.yacloud.vpc.network.security-groups.forms.field_sg-rule-protocol }} | Источник | {{ ui-key.yacloud.vpc.network.security-groups.forms.field_sg-rule-cidr-blocks }}
      --- | --- | --- | --- | --- | ---
-     `Входящий` | `balancer` | `80` | `TCP` | `Группа безопасности` | `ddos-sg-balancer`
-     `Входящий` | `ssh` | `22` | `TCP` | `CIDR` | `0.0.0.0/0`
+     `Входящий` | `balancer` | `80` | `{{ ui-key.yacloud.common.label_tcp }}` | `{{ ui-key.yacloud.vpc.network.security-groups.forms.value_sg-rule-destination-sg }}` | `ddos-sg-balancer`
+     `Входящий` | `ssh` | `22` | `{{ ui-key.yacloud.common.label_tcp }}` | `{{ ui-key.yacloud.vpc.network.security-groups.forms.value_sg-rule-destination-cidr }}` | `0.0.0.0/0`
 
 - CLI {#cli}
 
@@ -201,49 +201,49 @@
 
 - Консоль управления {#console}
 
-  1. Откройте [консоль управления](https://console.yandex.cloud).
-  1. [Перейдите](../../../console/operations/select-service.md#select-service) в сервис **Compute Cloud**.
-  1. На панели слева выберите ![image](../../../_assets/console-icons/layers-3-diagonal.svg) **Группы виртуальных машин**. Нажмите кнопку **Создать группу виртуальных машин**.
-  1. В блоке **Базовые параметры**:
+  1. Откройте [консоль управления]({{ link-console-main }}).
+  1. Перейдите в сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_compute }}**.
+  1. На панели слева выберите ![image](../../../_assets/console-icons/layers-3-diagonal.svg) **{{ ui-key.yacloud.compute.instance-groups_hx3kX }}**. Нажмите кнопку **{{ ui-key.yacloud.compute.groups.button_create }}**.
+  1. В блоке **{{ ui-key.yacloud.compute.groups.create.section_base }}**:
 
-     * Введите **Имя** группы ВМ: `ddos-group`.
-     * Выберите [сервисный аккаунт](../../../iam/concepts/users/service-accounts.md) из списка или создайте новый. Чтобы иметь возможность создавать, обновлять и удалять ВМ в группе, а также интегрировать группу с L7-балансировщиком Application Load Balancer, [назначьте](../../../iam/operations/sa/assign-role-for-sa.md) сервисному аккаунту [роль](../../../iam/concepts/access-control/roles.md) `editor`.
+     * Введите **{{ ui-key.yacloud.compute.groups.create.field_name }}** группы ВМ: `ddos-group`.
+     * Выберите [сервисный аккаунт](../../../iam/concepts/users/service-accounts.md) из списка или создайте новый. Чтобы иметь возможность создавать, обновлять и удалять ВМ в группе, а также интегрировать группу с L7-балансировщиком {{ alb-name }}, [назначьте](../../../iam/operations/sa/assign-role-for-sa.md) сервисному аккаунту [роль](../../../iam/concepts/access-control/roles.md) `editor`.
 
-  1. В блоке **Распределение** выберите несколько зон доступности, чтобы обеспечить отказоустойчивость хостинга.
-  1. В блоке **Шаблон виртуальной машины** нажмите кнопку **Задать** и укажите конфигурацию базовой ВМ:
+  1. В блоке **{{ ui-key.yacloud.compute.groups.create.section_allocation }}** выберите несколько зон доступности, чтобы обеспечить отказоустойчивость хостинга.
+  1. В блоке **{{ ui-key.yacloud.compute.groups.create.section_instance }}** нажмите кнопку **{{ ui-key.yacloud.compute.groups.create.button_instance_empty-create }}** и укажите конфигурацию базовой ВМ:
 
-     * В блоке **Общая информация** введите **Описание** шаблона.
-     * В блоке **Образ загрузочного диска** откройте вкладку **Marketplace** и нажмите кнопку **Показать все продукты Marketplace**. Выберите продукт [LEMP](https://yandex.cloud/ru/marketplace/products/yc/lemp) и нажмите кнопку **Использовать**.
-     * В блоке **Диски и файловые хранилища** укажите:
+     * В блоке **{{ ui-key.yacloud.compute.instances.create.section_base }}** введите **{{ ui-key.yacloud.common.description }}** шаблона.
+     * В блоке **{{ ui-key.yacloud.compute.instances.create.section_image }}** откройте вкладку **{{ ui-key.yacloud.compute.instances.create.image_value_marketplace }}** и нажмите кнопку **{{ ui-key.yacloud.compute.instances.create.button_show-all-marketplace-products }}**. Выберите продукт [LEMP](https://yandex.cloud/ru/marketplace/products/yc/lemp) и нажмите кнопку **{{ ui-key.yacloud.marketplace-v2.button_use }}**.
+     * В блоке **{{ ui-key.yacloud.compute.instances.create.section_storages }}** укажите:
 
-       * **Тип** — `HDD`.
-       * **Размер** диска — `3 ГБ`.
+       * **{{ ui-key.yacloud.compute.disk-form.field_type }}** — `HDD`.
+       * **{{ ui-key.yacloud.compute.disk-form.field_size }}** диска — `3 {{ ui-key.yacloud.common.units.label_gigabyte }}`.
 
-     * В блоке **Вычислительные ресурсы** укажите:
+     * В блоке **{{ ui-key.yacloud.compute.instances.create.section_platform }}** укажите:
 
-       * **Платформа** — `Intel Cascade Lake`.
-       * **vCPU** — `2`.
-       * **Гарантированная доля vCPU** — `5%`.
-       * **RAM** — `1 ГБ`.
+       * **{{ ui-key.yacloud.component.compute.resources.field_platform }}** — `Intel Cascade Lake`.
+       * **{{ ui-key.yacloud.component.compute.resources.field_cores }}** — `2`.
+       * **{{ ui-key.yacloud.component.compute.resources.field_core-fraction }}** — `5%`.
+       * **{{ ui-key.yacloud.component.compute.resources.field_memory }}** — `1 {{ ui-key.yacloud.common.units.label_gigabyte }}`.
 
-     * В блоке **Сетевые настройки**:
+     * В блоке **{{ ui-key.yacloud.compute.instances.create.section_network }}**:
 
        * Выберите облачную сеть `ddos-network` и ее подсети.
-       * В поле **Публичный адрес** выберите `Автоматически`.
+       * В поле **{{ ui-key.yacloud.compute.instances.create.field_instance-group-address }}** выберите `{{ ui-key.yacloud.compute.instances.create.value_address-auto }}`.
        * Выберите группу безопасности `ddos-sg-vms`.
 
-     * В блоке **Доступ** укажите данные для доступа на ВМ:
+     * В блоке **{{ ui-key.yacloud.compute.instances.create.section_access }}** укажите данные для доступа на ВМ:
 
-       * В поле **Логин** введите имя пользователя.
-       * В поле **SSH-ключ** вставьте содержимое файла открытого ключа.
+       * В поле **{{ ui-key.yacloud.compute.instances.create.field_user }}** введите имя пользователя.
+       * В поле **{{ ui-key.yacloud.compute.instances.create.field_key }}** вставьте содержимое файла открытого ключа.
 
-        Для подключения по [SSH](../../../glossary/ssh-keygen.md) необходимо создать пару ключей. Подробнее в разделе [Создание пары ключей SSH](../../../compute/operations/vm-connect/ssh.md#creating-ssh-keys).
+        Для подключения по [SSH](../../../glossary/ssh-keygen.md) необходимо создать пару ключей. Подробнее в разделе [{#T}](../../../compute/operations/vm-connect/ssh.md#creating-ssh-keys).
 
-     * Нажмите кнопку **Сохранить**.
+     * Нажмите кнопку **{{ ui-key.yacloud.compute.groups.create.button_edit }}**.
 
-  1. В блоке **Масштабирование** укажите **Размер** группы ВМ — `2`.
-  1. В блоке **Интеграция с Application Load Balancer** выберите опцию **Создать целевую группу** и укажите имя группы: `tg-ddos`. [Подробнее о целевых группах](../../concepts/target-group.md).
-  1. Нажмите кнопку **Создать**.
+  1. В блоке **{{ ui-key.yacloud.compute.groups.create.section_scale }}** укажите **{{ ui-key.yacloud.compute.groups.create.field_scale-size }}** группы ВМ — `2`.
+  1. В блоке **{{ ui-key.yacloud.compute.groups.create.section_alb }}** выберите опцию **{{ ui-key.yacloud.compute.groups.create.field_target-group-attached }}** и укажите имя группы: `tg-ddos`. [Подробнее о целевых группах](../../concepts/target-group.md).
+  1. Нажмите кнопку **{{ ui-key.yacloud.common.create }}**.
 
 - CLI {#cli}
 
@@ -277,9 +277,9 @@
          network_interface_specs:
              - network_id: <идентификатор_облачной_сети>
                subnet_ids:
-                 - <идентификатор_подсети_в_зоне_ru-central1-a>
-                 - <идентификатор_подсети_в_зоне_ru-central1-b>
-                 - <идентификатор_подсети_в_зоне_ru-central1-d>
+                 - <идентификатор_подсети_в_зоне_{{ region-id }}-a>
+                 - <идентификатор_подсети_в_зоне_{{ region-id }}-b>
+                 - <идентификатор_подсети_в_зоне_{{ region-id }}-d>
                primary_v4_address_spec: {}
                security_group_ids:
                  - <идентификатор_группы_безопасности>
@@ -291,9 +291,9 @@
              size: 2
      allocation_policy:
          zones:
-             - zone_id: ru-central1-a
-             - zone_id: ru-central1-b
-             - zone_id: ru-central1-d
+             - zone_id: {{ region-id }}-a
+             - zone_id: {{ region-id }}-b
+             - zone_id: {{ region-id }}-d
      application_load_balancer_spec:
          target_group_spec:
              name: tg-ddos
@@ -348,9 +348,9 @@
        strategy: PROACTIVE
      allocation_policy:
        zones:
-       - zone_id: ru-central1-a
-       - zone_id: ru-central1-b
-       - zone_id: ru-central1-d
+       - zone_id: {{ region-id }}-a
+       - zone_id: {{ region-id }}-b
+       - zone_id: {{ region-id }}-d
      load_balancer_state: {}
      managed_instances_state:
        target_size: "2"
@@ -376,18 +376,18 @@
 
 {% endnote %}
 
-Чтобы защитить балансировщик от DDoS-атак, необходимо зарезервировать для него статический публичный IP-адрес с опцией **Защита от DDoS-атак**:
+Чтобы защитить балансировщик от DDoS-атак, необходимо зарезервировать для него статический публичный IP-адрес с опцией **{{ ui-key.yacloud.common.field_ddos-protection-provider }}**:
 
 {% list tabs group=instructions %}
 
 - Консоль управления {#console}
 
-  1. Откройте [консоль управления](https://console.yandex.cloud).
-  1. [Перейдите](../../../console/operations/select-service.md#select-service) в сервис **Virtual Private Cloud**.
-  1. На панели слева выберите ![image](../../../_assets/console-icons/map-pin.svg) **Публичные IP-адреса** и нажмите кнопку **Зарезервировать публичный IP-адрес**.
+  1. Откройте [консоль управления]({{ link-console-main }}).
+  1. Перейдите в сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_vpc }}**.
+  1. На панели слева выберите ![image](../../../_assets/console-icons/map-pin.svg) **{{ ui-key.yacloud.vpc.switch_addresses }}** и нажмите кнопку **{{ ui-key.yacloud.vpc.addresses.button_create }}**.
   1. Выберите зону доступности, в которой нужно зарезервировать IP-адрес.
-  1. Включите опцию **Защита от DDoS-атак**.
-  1. Нажмите кнопку **Зарезервировать**.
+  1. Включите опцию **{{ ui-key.yacloud.common.field_ddos-protection-provider }}**.
+  1. Нажмите кнопку **{{ ui-key.yacloud.vpc.addresses.popup-create_button_create }}**.
 
 {% endlist %}
 
@@ -404,22 +404,22 @@
 
 - Консоль управления {#console}
 
-  1. Откройте [консоль управления](https://console.yandex.cloud).
-  1. [Перейдите](../../../console/operations/select-service.md#select-service) в сервис **Application Load Balancer**.
-  1. На панели слева выберите ![image](../../../_assets/console-icons/cubes-3-overlap.svg) **Группы бэкендов**. Нажмите кнопку **Создать группу бэкендов**.
-  1. Укажите **Имя** группы бэкендов: `ddos-backend-group`.
-  1. В блоке **Бэкенды** нажмите кнопку **Добавить**.
-  1. Укажите **Имя** бэкенда: `backend-1`.
-  1. В поле **Целевые группы** выберите группу `tg-ddos`.
-  1. Укажите **Порт**, на котором ВМ бэкенда будут принимать входящий трафик от балансировщика: `80`.
-  1. Нажмите кнопку **Добавить проверку состояния**.
-  1. Укажите **Порт**, на котором ВМ бэкенда будут принимать проверочные соединения: `80`.
-  1. Укажите **Путь**, к которому будет обращаться балансировщик при проверке состояния: `/`.
-  1. Нажмите кнопку **Создать**.
+  1. Откройте [консоль управления]({{ link-console-main }}).
+  1. Перейдите в сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_application-load-balancer }}**.
+  1. На панели слева выберите ![image](../../../_assets/console-icons/cubes-3-overlap.svg) **{{ ui-key.yacloud.alb.label_backend-groups }}**. Нажмите кнопку **{{ ui-key.yacloud.alb.button_backend-group-create }}**.
+  1. Укажите **{{ ui-key.yacloud.common.name }}** группы бэкендов: `ddos-backend-group`.
+  1. В блоке **{{ ui-key.yacloud.alb.label_backends }}** нажмите кнопку **{{ ui-key.yacloud.common.add }}**.
+  1. Укажите **{{ ui-key.yacloud.common.name }}** бэкенда: `backend-1`.
+  1. В поле **{{ ui-key.yacloud.alb.label_target-groups }}** выберите группу `tg-ddos`.
+  1. Укажите **{{ ui-key.yacloud.alb.label_port }}**, на котором ВМ бэкенда будут принимать входящий трафик от балансировщика: `80`.
+  1. Нажмите кнопку **{{ ui-key.yacloud.alb.button_add-healthcheck }}**.
+  1. Укажите **{{ ui-key.yacloud.alb.label_port }}**, на котором ВМ бэкенда будут принимать проверочные соединения: `80`.
+  1. Укажите **{{ ui-key.yacloud.alb.label_path }}**, к которому будет обращаться балансировщик при проверке состояния: `/`.
+  1. Нажмите кнопку **{{ ui-key.yacloud.common.create }}**.
 
 - CLI {#cli}
 
-  Если у вас еще нет интерфейса командной строки Yandex Cloud (CLI), [установите и инициализируйте его](../../../cli/quickstart.md#install).
+  Если у вас еще нет интерфейса командной строки {{ yandex-cloud }} (CLI), [установите и инициализируйте его](../../../cli/quickstart.md#install).
 
   По умолчанию используется каталог, указанный при [создании](../../../cli/operations/profile/profile-create.md) профиля CLI. Чтобы изменить каталог по умолчанию, используйте команду `yc config set folder-id <идентификатор_каталога>`. Также для любой команды вы можете указать другой каталог с помощью параметров `--folder-name` или `--folder-id`. Если вы обращаетесь к ресурсу по имени, поиск будет выполнен в каталоге по умолчанию. Если вы обращаетесь к ресурсу по идентификатору, поиск будет выполнен глобально — во всех каталогах с учетом прав доступа.
 
@@ -504,23 +504,23 @@
 
 - Консоль управления {#console}
 
-  1. Откройте [консоль управления](https://console.yandex.cloud).
-  1. [Перейдите](../../../console/operations/select-service.md#select-service) в сервис **Application Load Balancer**.
-  1. На панели слева выберите ![image](../../../_assets/console-icons/route.svg) **HTTP-роутеры**. Нажмите кнопку **Создать HTTP-роутер**.
-  1. Укажите **Имя** HTTP-роутера: `ddos-router`.
-  1. Нажмите кнопку **Добавить виртуальный хост**.
-  1. Укажите **Имя** виртуального хоста: `ddos-host`.
-  1. Укажите значение **Authority**: `alb-with-ddos.com`.
-  1. Нажмите кнопку **Добавить маршрут**.
-  1. Введите **Имя**: `route-1`.
-  1. В поле **Путь** выберите `Начинается с` и укажите путь `/`.
-  1. В поле **Действие** оставьте `Маршрутизация`.
-  1. В списке **Группа бэкендов** выберите созданную ранее группу.
-  1. Остальные настройки оставьте без изменений и нажмите кнопку **Создать**.
+  1. Откройте [консоль управления]({{ link-console-main }}).
+  1. Перейдите в сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_application-load-balancer }}**.
+  1. На панели слева выберите ![image](../../../_assets/console-icons/route.svg) **{{ ui-key.yacloud.alb.label_http-routers }}**. Нажмите кнопку **{{ ui-key.yacloud.alb.button_http-router-create }}**.
+  1. Укажите **{{ ui-key.yacloud.common.name }}** HTTP-роутера: `ddos-router`.
+  1. Нажмите кнопку **{{ ui-key.yacloud.alb.button_virtual-host-add }}**.
+  1. Укажите **{{ ui-key.yacloud.common.name }}** виртуального хоста: `ddos-host`.
+  1. Укажите значение **{{ ui-key.yacloud.alb.label_authority }}**: `alb-with-ddos.com`.
+  1. Нажмите кнопку **{{ ui-key.yacloud.alb.button_add-route }}**.
+  1. Введите **{{ ui-key.yacloud.common.name }}**: `route-1`.
+  1. В поле **{{ ui-key.yacloud.alb.label_path }}** выберите `{{ ui-key.yacloud.alb.label_match-prefix }}` и укажите путь `/`.
+  1. В поле **{{ ui-key.yacloud.alb.label_route-action }}** оставьте `{{ ui-key.yacloud.alb.label_route-action-route }}`.
+  1. В списке **{{ ui-key.yacloud.alb.label_backend-group }}** выберите созданную ранее группу.
+  1. Остальные настройки оставьте без изменений и нажмите кнопку **{{ ui-key.yacloud.common.create }}**.
 
 - CLI {#cli}
 
-  Если у вас еще нет интерфейса командной строки Yandex Cloud (CLI), [установите и инициализируйте его](../../../cli/quickstart.md#install).
+  Если у вас еще нет интерфейса командной строки {{ yandex-cloud }} (CLI), [установите и инициализируйте его](../../../cli/quickstart.md#install).
 
   По умолчанию используется каталог, указанный при [создании](../../../cli/operations/profile/profile-create.md) профиля CLI. Чтобы изменить каталог по умолчанию, используйте команду `yc config set folder-id <идентификатор_каталога>`. Также для любой команды вы можете указать другой каталог с помощью параметров `--folder-name` или `--folder-id`. Если вы обращаетесь к ресурсу по имени, поиск будет выполнен в каталоге по умолчанию. Если вы обращаетесь к ресурсу по идентификатору, поиск будет выполнен глобально — во всех каталогах с учетом прав доступа.
 
@@ -591,22 +591,22 @@
 
 - Консоль управления {#console}
 
-  1. Откройте [консоль управления](https://console.yandex.cloud).
-  1. [Перейдите](../../../console/operations/select-service.md#select-service) в сервис **Application Load Balancer**.
-  1. В меню слева выберите **Балансировщики**.
-  1. Нажмите кнопку **Создать L7-балансировщик**.
+  1. Откройте [консоль управления]({{ link-console-main }}).
+  1. Перейдите в сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_application-load-balancer }}**.
+  1. В меню слева выберите **{{ ui-key.yacloud.alb.label_load-balancers }}**.
+  1. Нажмите кнопку **{{ ui-key.yacloud.alb.button_load-balancer-create }}**.
   1. Введите имя балансировщика: `ddos-protect-alb`.
-  1. В блоке **Сетевые настройки** выберите сеть `ddos-network` и группу безопасности `ddos-sg-balancer`.
-  1. В блоке **Размещение** выберите подсети для узлов балансировщика в каждой зоне доступности и включите передачу трафика.
-  1. В блоке **Обработчики** нажмите кнопку **Добавить обработчик**. Задайте настройки обработчика:
+  1. В блоке **{{ ui-key.yacloud.mdb.forms.section_network-settings }}** выберите сеть `ddos-network` и группу безопасности `ddos-sg-balancer`.
+  1. В блоке **{{ ui-key.yacloud.alb.section_allocation-settings }}** выберите подсети для узлов балансировщика в каждой зоне доступности и включите передачу трафика.
+  1. В блоке **{{ ui-key.yacloud.alb.label_listeners }}** нажмите кнопку **{{ ui-key.yacloud.alb.button_add-listener }}**. Задайте настройки обработчика:
 
      1. Введите имя обработчика: `ddos-listener`.
-     1. В блоке **Публичный IP-адрес** включите передачу трафика.
+     1. В блоке **{{ ui-key.yacloud.alb.section_external-address-specs }}** включите передачу трафика.
      1. Укажите порт `80`.
-     1. Выберите тип **Список** и укажите [зарезервированный ранее](#reserve-ip) IP-адрес с защитой от DDoS.
+     1. Выберите тип **{{ ui-key.yacloud.alb.label_address-list }}** и укажите [зарезервированный ранее](#reserve-ip) IP-адрес с защитой от DDoS.
 
-  1. В поле **HTTP-роутер** выберите `ddos-router`.
-  1. Нажмите кнопку **Создать**.
+  1. В поле **{{ ui-key.yacloud.alb.label_http-router }}** выберите `ddos-router`.
+  1. Нажмите кнопку **{{ ui-key.yacloud.common.create }}**.
 
 - CLI {#cli}
 
@@ -615,9 +615,9 @@
      ```bash
      yc alb load-balancer create ddos-protect-alb \
        --network-name ddos-network \
-       --location subnet-name=ddos-network-ru-a,zone=ru-central1-a \
-       --location subnet-name=ddos-network-ru-b,zone=ru-central1-b \
-       --location subnet-name=ddos-network-ru-d,zone=ru-central1-d
+       --location subnet-name=ddos-network-ru-a,zone={{ region-id }}-a \
+       --location subnet-name=ddos-network-ru-b,zone={{ region-id }}-b \
+       --location subnet-name=ddos-network-ru-d,zone={{ region-id }}-d
      ```
 
      Подробнее о команде `yc alb load-balancer create` читайте в [справочнике CLI](../../../cli/cli-ref/application-load-balancer/cli-ref/load-balancer/create.md).
@@ -693,4 +693,4 @@ Commercial support is available at
 
 #### См. также {#see-also}
 
-* [Создание L7-балансировщика с защитой от DDoS с помощью Terraform](terraform.md)
+* [{#T}](terraform.md)

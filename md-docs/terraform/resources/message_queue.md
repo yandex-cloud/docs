@@ -36,7 +36,7 @@ resource "yandex_message_queue" "example_fifo_queue" {
 
 ## Arguments & Attributes Reference
 
-- `access_key` (String). The [access key](../../iam/operations/authentication/manage-access-keys.md) to use when applying changes. If omitted, `ymq_access_key` specified in provider config is used. For more information see [documentation](../../message-queue/quickstart.md).
+- `access_key` (String). The [access key](../../iam/operations/sa/create-access-key) to use when applying changes. If omitted, `ymq_access_key` specified in provider config is used. For more information see [documentation](../../message-queue/quickstart.md).
 - `arn` (*Read-Only*) (String). ARN of the Yandex Message Queue. It is used for setting up a [redrive policy](../../message-queue/concepts/dlq.md). See [documentation](../../message-queue/api-ref/queue/SetQueueAttributes.md).
 - `content_based_deduplication` (Bool). Enables [content-based deduplication](../../message-queue/concepts/deduplication.md#content-based-deduplication). Can be used only if queue is [FIFO](../../message-queue/concepts/queue.md#fifo-queues).
 - `delay_seconds` (Number). Number of seconds to [delay the message from being available for processing](../../message-queue/concepts/delay-queues.md#delay-queues). Valid values: from 0 to 900 seconds (15 minutes). Default: 0.
@@ -49,7 +49,7 @@ resource "yandex_message_queue" "example_fifo_queue" {
 - `receive_wait_time_seconds` (Number). Wait time for the [ReceiveMessage](../../message-queue/api-ref/message/ReceiveMessage.md) method (for long polling), in seconds. Valid values: from 0 to 20 seconds. Default: 0. For more information about long polling see [documentation](../../message-queue/concepts/long-polling.md).
 - `redrive_policy` (String). Message redrive policy in [Dead Letter Queue](../../message-queue/concepts/dlq.md). The source queue and DLQ must be the same type: for FIFO queues, the DLQ must also be a FIFO queue. For more information about redrive policy see [documentation](../../message-queue/api-ref/queue/CreateQueue.md). Also you can use example in this page.
 - `region_id` (String). ID of the region where the message queue is located at. The default is 'ru-central1'.
-- `secret_key` (String). The [secret key](../../iam/operations/authentication/manage-access-keys.md) to use when applying changes. If omitted, `ymq_secret_key` specified in provider config is used. For more information see [documentation](../../message-queue/quickstart.md).
+- `secret_key` (String). The [secret key](../../iam/operations/sa/create-access-key) to use when applying changes. If omitted, `ymq_secret_key` specified in provider config is used. For more information see [documentation](../../message-queue/quickstart.md).
 - `tags` (Map Of String). SQS tags
 - `visibility_timeout_seconds` (Number). [Visibility timeout](../../message-queue/concepts/visibility-timeout.md) for messages in a queue, specified in seconds. Valid values: from 0 to 43200 seconds (12 hours). Default: 30.
 

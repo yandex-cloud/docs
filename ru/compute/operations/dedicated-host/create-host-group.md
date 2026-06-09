@@ -1,6 +1,6 @@
 ---
 title: Создание группы выделенных хостов
-description: Следуя данной инструкции, вы сможете создать группы выделенных хостов.
+description: Следуя данной инструкции, вы сможете создать группу выделенных хостов.
 ---
 
 # Создание группы выделенных хостов
@@ -13,6 +13,22 @@ description: Следуя данной инструкции, вы сможете
 Чтобы создать группу выделенных хостов:
 
 {% list tabs group=instructions %}
+
+- Консоль управления {#console}
+
+  1. В [консоли управления]({{ link-console-main }}) выберите [каталог](../../../resource-manager/concepts/resources-hierarchy.md#folder), в котором будет создана группа выделенных хостов.
+  1. В списке сервисов выберите **{{ ui-key.yacloud.iam.folder.dashboard.label_compute }}**.
+  1. На панели слева нажмите ![image](../../../_assets/console-icons/ellipsis.svg) и выберите ![image](../../../_assets/console-icons/cubes-3-overlap.svg) **{{ ui-key.yacloud.compute.host-groups_eKsBm }}**.
+  1. Справа сверху нажмите **{{ ui-key.yacloud.compute.host-groups.button_create-host-group }}**.
+  1. Введите имя и описание группы выделенных хостов. Требования к имени:
+
+      {% include [name-format](../../../_includes/name-format.md) %}
+  
+  1. (Опционально) Добавьте [метку](../../../resource-manager/concepts/labels.md) группе выделенных хостов.
+  1. Выберите [зону доступности](../../../overview/concepts/geo-scope.md), в которой будет находиться группа выделенных хостов.
+  1. Выберите [тип хоста](../../concepts/dedicated-host.md#host-types).
+  1. Укажите количество выделенных хостов в группе.
+  1. Нажмите **{{ ui-key.yacloud.common.create }}**.
 
 - CLI {#cli}
 

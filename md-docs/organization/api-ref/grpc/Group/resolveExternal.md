@@ -26,7 +26,9 @@ or [yandex.cloud.organizationmanager.v1.idp.UserpoolService.List](../../../idp/a
 The maximum string length in characters is 50. ||
 || external_id | **string**
 
-Required field. Id of the group from external system ||
+Required field. Id of the group from external system
+
+The maximum string length in characters is 1024. ||
 |#
 
 ## Group {#yandex.cloud.organizationmanager.v1.Group}

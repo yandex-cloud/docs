@@ -1,15 +1,15 @@
-# Разработка пользовательской интеграции в API Gateway
+# Разработка пользовательской интеграции в {{ api-gw-name }}
 
 
-С помощью serverless-технологий можно создать собственную интеграцию с сервисами Yandex Cloud.
+С помощью serverless-технологий можно создать собственную интеграцию с сервисами {{ yandex-cloud }}.
 
-Пользовательская интеграция представляет собой [функцию](../../functions/concepts/function.md) Yandex Cloud Functions или [контейнер](../concepts/container.md) Yandex Serverless Containers, которые предназначены для решения типовой задачи.
+Пользовательская интеграция представляет собой [функцию](../../functions/concepts/function.md) {{ sf-full-name }} или [контейнер](../concepts/container.md) {{ serverless-containers-full-name }}, которые предназначены для решения типовой задачи.
 
-Функция или контейнер могут быть сконфигурированы в спецификации [API-шлюза](../../api-gateway/concepts/index.md) API Gateway по стандарту [OpenAPI 3.0](https://github.com/OAI/OpenAPI-Specification) для выполнения определенных HTTP-запросов.
+Функция или контейнер могут быть сконфигурированы в спецификации [API-шлюза](../../api-gateway/concepts/index.md) {{ api-gw-name }} по стандарту [OpenAPI 3.0](https://github.com/OAI/OpenAPI-Specification) для выполнения определенных HTTP-запросов.
 
-Разработайте функцию-интеграцию с Yandex Managed Service for YDB для работы с [СУБД YDB](../../ydb/concepts/index.md#ydb). Функция будет взаимодействовать с Managed Service for YDB и обрабатывать внешние HTTP-запросы через API-шлюз с использованием [HTTP API](https://docs.aws.amazon.com/amazondynamodb/latest/APIReference/Welcome.html), совместимого с [Amazon DynamoDB](https://aws.amazon.com/ru/dynamodb/). Язык кода функции — TypeScript, среда выполнения — Node.js 16.
+Разработайте функцию-интеграцию с {{ ydb-full-name }} для работы с [СУБД {{ ydb-short-name }}](../../ydb/concepts/index.md#ydb). Функция будет взаимодействовать с {{ ydb-name }} и обрабатывать внешние HTTP-запросы через API-шлюз с использованием [HTTP API](https://docs.aws.amazon.com/amazondynamodb/latest/APIReference/Welcome.html), совместимого с [Amazon DynamoDB](https://aws.amazon.com/ru/dynamodb/). Язык кода функции — TypeScript, среда выполнения — Node.js 16.
 
-Интеграция будет применена для реализации [CRUD](https://ru.wikipedia.org/wiki/CRUD) API для работы с базой данных фильмов, развернутой в Managed Service for YDB.
+Интеграция будет применена для реализации [CRUD](https://ru.wikipedia.org/wiki/CRUD) API для работы с базой данных фильмов, развернутой в {{ ydb-name }}.
 
 Чтобы развернуть проект:
 1. [Настройте окружение](#setup-environment).
@@ -24,21 +24,21 @@
 
 ## Перед началом работы {#before-you-begin}
 
-Зарегистрируйтесь в Yandex Cloud и создайте [платежный аккаунт](../../billing/concepts/billing-account.md):
-1. Перейдите в [консоль управления](https://console.yandex.cloud), затем войдите в Yandex Cloud или зарегистрируйтесь.
-1. На странице **[Yandex Cloud Billing](https://center.yandex.cloud/billing/accounts)** убедитесь, что у вас подключен платежный аккаунт, и он находится в [статусе](../../billing/concepts/billing-account-statuses.md) `ACTIVE` или `TRIAL_ACTIVE`. Если платежного аккаунта нет, [создайте его](../../billing/quickstart/index.md) и [привяжите](../../billing/operations/pin-cloud.md) к нему облако.
+Зарегистрируйтесь в {{ yandex-cloud }} и создайте [платежный аккаунт](../../billing/concepts/billing-account.md):
+1. Перейдите в [консоль управления]({{ link-console-main }}), затем войдите в {{ yandex-cloud }} или зарегистрируйтесь.
+1. На странице **[{{ ui-key.yacloud_billing.billing.label_service }}]({{ link-console-billing }})** убедитесь, что у вас подключен платежный аккаунт, и он находится в [статусе](../../billing/concepts/billing-account-statuses.md) `ACTIVE` или `TRIAL_ACTIVE`. Если платежного аккаунта нет, [создайте его](../../billing/quickstart/index.md) и [привяжите](../../billing/operations/pin-cloud.md) к нему облако.
 
-Если у вас есть активный платежный аккаунт, вы можете создать или выбрать [каталог](../../resource-manager/concepts/resources-hierarchy.md#folder), в котором будет работать ваша инфраструктура, на [странице облака](https://console.yandex.cloud/cloud).
+Если у вас есть активный платежный аккаунт, вы можете создать или выбрать [каталог](../../resource-manager/concepts/resources-hierarchy.md#folder), в котором будет работать ваша инфраструктура, на [странице облака]({{ link-console-cloud }}).
 
 [Подробнее об облаках и каталогах](../../resource-manager/concepts/resources-hierarchy.md).
 
 ### Необходимые платные ресурсы {#paid-resources}
 
 В стоимость ресурсов для интеграции входят:
-* Плата за объем хранилища, занятый данными, количество операций с данными и исходящий трафик (см. [тарифы Yandex Object Storage](../../storage/pricing.md)).
-* Плата за операции с YDB и хранение данных (см. [тарифы Managed Service for YDB в бессерверном режиме](../../ydb/pricing/serverless.md)).
-* Плата за количество вызовов функции, вычислительные ресурсы, выделенные для выполнения функции, и исходящий трафик (см. [тарифы Cloud Functions](../../functions/pricing.md)).
-* Плата за количество запросов к API-шлюзу и исходящий трафик (см. [тарифы API Gateway](../../api-gateway/pricing.md)).
+* Плата за объем хранилища, занятый данными, количество операций с данными и исходящий трафик (см. [тарифы {{ objstorage-full-name }}](../../storage/pricing.md)).
+* Плата за операции с {{ ydb-short-name }} и хранение данных (см. [тарифы {{ ydb-name }} в бессерверном режиме](../../ydb/pricing/serverless.md)).
+* Плата за количество вызовов функции, вычислительные ресурсы, выделенные для выполнения функции, и исходящий трафик (см. [тарифы {{ sf-name }}](../../functions/pricing.md)).
+* Плата за количество запросов к API-шлюзу и исходящий трафик (см. [тарифы {{ api-gw-name }}](../../api-gateway/pricing.md)).
 
 ## Настройте окружение {#setup-environment}
 
@@ -86,10 +86,10 @@
        sudo npm install -g typescript
        ```
 
-     * [Yandex Cloud CLI](../../cli/quickstart.md):
+     * [{{ yandex-cloud }} CLI](../../cli/quickstart.md):
 
        ```bash
-       curl https://storage.yandexcloud.net/yandexcloud-yc/install.sh | bash
+       curl https://{{ s3-storage-host-cli }}{{ yc-install-path }} | bash
        exec -l $SHELL
        yc version
        ```
@@ -104,10 +104,10 @@
 
 
   
-  1. [Установите](../../tutorials/infrastructure-management/terraform-quickstart.md#from-yc-mirror) Terraform не ниже версии `1.0.8`.
+  1. [Установите](../../tutorials/infrastructure-management/terraform-quickstart.md#from-yc-mirror) {{ TF }} не ниже версии `1.0.8`.
 
 
-  1. [Создайте](../../cli/operations/profile/profile-create.md#interactive-create) профиль Yandex Cloud CLI с базовыми параметрами.
+  1. [Создайте](../../cli/operations/profile/profile-create.md#interactive-create) профиль {{ yandex-cloud }} CLI с базовыми параметрами.
   1. [Настройте](../../ydb/docapi/tools/aws-setup.md) AWS CLI.
 
 - macOS {#macos}
@@ -145,10 +145,10 @@
        npm install -g typescript
        ```
 
-     * [Yandex Cloud CLI](../../cli/quickstart.md):
+     * [{{ yandex-cloud }} CLI](../../cli/quickstart.md):
 
        ```bash
-       curl https://storage.yandexcloud.net/yandexcloud-yc/install.sh | bash
+       curl https://{{ s3-storage-host-cli }}{{ yc-install-path }} | bash
        exec -l $SHELL
        yc version
        ```
@@ -162,7 +162,7 @@
 
 
   
-  1. [Установите](../../tutorials/infrastructure-management/terraform-quickstart.md#from-yc-mirror) Terraform не ниже версии `1.0.8`.
+  1. [Установите](../../tutorials/infrastructure-management/terraform-quickstart.md#from-yc-mirror) {{ TF }} не ниже версии `1.0.8`.
 
 
   1. [Создайте](../../cli/operations/profile/profile-create.md#interactive-create) профиль с базовыми параметрами.
@@ -181,7 +181,7 @@ git clone https://github.com/yandex-cloud-examples/yc-serverless-apigw-dynamodb-
 В директории `src` находятся исходные файлы для создания функции:
 * [event.ts](https://github.com/yandex-cloud-examples/yc-serverless-apigw-dynamodb-connector/blob/main/src/event.ts) — код интерфейса `Event`, описывающий [структуру запроса](../../api-gateway/concepts/extensions/cloud-functions.md#request_v1), и интерфейса `RequestContext`, описывающий контекст запроса.
 * [dynamodb.ts](https://github.com/yandex-cloud-examples/yc-serverless-apigw-dynamodb-connector/blob/main/src/dynamodb.ts) — код обработки вызова функции и основных команд.
-* [iam.ts](https://github.com/yandex-cloud-examples/yc-serverless-apigw-dynamodb-connector/blob/main/src/iam.ts) — код получения [IAM-токенов](../../iam/concepts/authorization/iam-token.md), необходимых для авторизации при запросах к YDB.
+* [iam.ts](https://github.com/yandex-cloud-examples/yc-serverless-apigw-dynamodb-connector/blob/main/src/iam.ts) — код получения [IAM-токенов](../../iam/concepts/authorization/iam-token.md), необходимых для авторизации при запросах к {{ ydb-short-name }}.
 
 При вызове функции в файле [dynamodb.ts](https://github.com/yandex-cloud-examples/yc-serverless-apigw-dynamodb-connector/blob/main/src/dynamodb.ts) в поле `requestContext.apiGateway.operationContext` объекта `event` передается контекст операции.
 
@@ -228,16 +228,16 @@ git clone https://github.com/yandex-cloud-examples/yc-serverless-apigw-dynamodb-
 
 ## Подготовьте конфигурацию ресурсов для интеграции {#prepare-configuration}
 
-Для развертывания CRUD API с помощью функции-интеграции будет использоваться инструмент [Terraform](https://www.terraform.io).
+Для развертывания CRUD API с помощью функции-интеграции будет использоваться инструмент [{{ TF }}](https://www.terraform.io).
 
-Специальный [Terraform-модуль](https://github.com/yandex-cloud-examples/yc-serverless-ydb-api), разработанный для этого примера интеграции, упрощает процесс конфигурации ресурсов Yandex Cloud. Создаваемые Terraform ресурсы:
-* Бессерверная база данных YDB.
+Специальный [{{ TF }}-модуль](https://github.com/yandex-cloud-examples/yc-serverless-ydb-api), разработанный для этого примера интеграции, упрощает процесс конфигурации ресурсов {{ yandex-cloud }}. Создаваемые {{ TF }} ресурсы:
+* Бессерверная база данных {{ ydb-short-name }}.
 * Функция-интеграция.
 * Сервисный аккаунт для доступа функции к базе данных.
 * API-шлюз.
 
-Чтобы подготовить конфигурационные файлы для Terraform:
-1. Узнайте имя активного профиля (`ACTIVE`) интерфейса командной строки Yandex Cloud CLI. В терминале выполните команду:
+Чтобы подготовить конфигурационные файлы для {{ TF }}:
+1. Узнайте имя активного профиля (`ACTIVE`) интерфейса командной строки {{ yandex-cloud }} CLI. В терминале выполните команду:
 
    ```bash
    yc config profile list
@@ -250,9 +250,10 @@ git clone https://github.com/yandex-cloud-examples/yc-serverless-apigw-dynamodb-
    ```
 
    Сохраните полученные параметры:
-   * `token` — [OAuth-токен](../../iam/concepts/authorization/oauth-token.md).
    * `cloud-id` — идентификатор [облака](../../resource-manager/concepts/resources-hierarchy.md#cloud).
    * `folder-id` — идентификатор [каталога](../../resource-manager/concepts/resources-hierarchy.md#folder).
+
+1. Получите [IAM-токен](../../iam/concepts/authorization/iam-token.md) или [авторизованный ключ](../../iam/concepts/authorization/key.md).
 1. Создайте директорию `crud-api` и перейдите в нее:
 
    ```bash
@@ -260,19 +261,17 @@ git clone https://github.com/yandex-cloud-examples/yc-serverless-apigw-dynamodb-
    cd crud-api
    ```
 
-   В дальнейшем все команды Terraform выполняйте в директории `crud-api`.
-1. Создайте файл `main.tf` и скопируйте в него конфигурацию Terraform-модуля. Укажите параметры создаваемых ресурсов:
+   В дальнейшем все команды {{ TF }} выполняйте в директории `crud-api`.
+1. Создайте файл `main.tf` и скопируйте в него конфигурацию {{ TF }}-модуля. Укажите параметры создаваемых ресурсов:
    * `cloud_id` — идентификатор облака.
    * `folder_id` — идентификатор каталога.
-   * `oauth_token` — OAuth-токен.
    * `database_connector_bucket` — имя бакета с функцией-интеграцией.
 
    ```hcl
    locals {
      cloud_id    = "<идентификатор_облака>"
      folder_id   = "<идентификатор_каталога>"
-     oauth_token = "<OAuth-токен>"
-     zone        = "ru-central1-d"
+     zone        = "{{ region-id }}-d"
    }
 
    module "crud-api" {
@@ -302,7 +301,6 @@ git clone https://github.com/yandex-cloud-examples/yc-serverless-apigw-dynamodb-
    }
 
    provider "yandex" {
-     token     = local.oauth_token
      cloud_id  = local.cloud_id
      folder_id = local.folder_id
      zone      = local.zone
@@ -313,7 +311,7 @@ git clone https://github.com/yandex-cloud-examples/yc-serverless-apigw-dynamodb-
    }
    ```
 
-1. Создайте файл `table.json` и скопируйте в него спецификацию схемы таблицы создаваемой YDB:
+1. Создайте файл `table.json` и скопируйте в него спецификацию схемы таблицы создаваемой {{ ydb-short-name }}:
 
    ```json
    {
@@ -538,7 +536,7 @@ git clone https://github.com/yandex-cloud-examples/yc-serverless-apigw-dynamodb-
 
 ## Разверните ресурсы для интеграции {#deploy-resources}
 
-1. Инициализируйте Terraform. В терминале выполните команду:
+1. Инициализируйте {{ TF }}. В терминале выполните команду:
 
    ```bash
    terraform init
@@ -554,7 +552,7 @@ git clone https://github.com/yandex-cloud-examples/yc-serverless-apigw-dynamodb-
 
    В выводе команды в переменной `crud_api_domain` будет указан доменный адрес созданного CRUD API. Сохраните этот адрес, он потребуется в дальнейшем.
 
-   Проверить созданные ресурсы можно в [консоли управления](https://console.yandex.cloud).
+   Проверить созданные ресурсы можно в [консоли управления]({{ link-console-main }}).
 
 ## Проверьте работу созданного CRUD API {#test-api}
 
@@ -627,7 +625,7 @@ git clone https://github.com/yandex-cloud-examples/yc-serverless-apigw-dynamodb-
 ## Как удалить созданные ресурсы {#clear-out}
 
 Чтобы перестать платить за созданные ресурсы:
-* Удалите ресурсы, созданные с помощью Terraform. В терминале выполните команду:
+* Удалите ресурсы, созданные с помощью {{ TF }}. В терминале выполните команду:
 
   ```bash
   terraform destroy

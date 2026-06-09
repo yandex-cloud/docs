@@ -1,6 +1,14 @@
-# Начало работы с реестрами устройств Yandex IoT Core
+# Начало работы с реестрами устройств {{ iot-name }}
 
-Чтобы начать работу с сервисом Yandex IoT Core, создайте:
+{% note warning %}
+
+Сервис {{ iot-full-name }} больше не доступен для новых пользователей. 
+
+Текущие пользователи могут создавать ресурсы до 1 ноября 2026 года. После сервис перейдет в режим read-only, а 1 декабря 2026 года — прекратит работу. Подробнее о сроках и порядке закрытия читайте на странице [Закрытие сервиса](sunset.md).
+
+{% endnote %}
+
+Чтобы начать работу с сервисом {{ iot-name }}, создайте:
 
 1. [X.509-сертификаты](#create-ca).
 1. [Реестр](#create-registry).
@@ -10,11 +18,11 @@
 
 ## Перед началом работы {#before-you-begin}
 
-Зарегистрируйтесь в Yandex Cloud и создайте [платежный аккаунт](../billing/concepts/billing-account.md):
-1. Перейдите в [консоль управления](https://console.yandex.cloud), затем войдите в Yandex Cloud или зарегистрируйтесь.
-1. На странице **[Yandex Cloud Billing](https://center.yandex.cloud/billing/accounts)** убедитесь, что у вас подключен платежный аккаунт, и он находится в [статусе](../billing/concepts/billing-account-statuses.md) `ACTIVE` или `TRIAL_ACTIVE`. Если платежного аккаунта нет, [создайте его](../billing/quickstart/index.md) и [привяжите](../billing/operations/pin-cloud.md) к нему облако.
+Зарегистрируйтесь в {{ yandex-cloud }} и создайте [платежный аккаунт](../billing/concepts/billing-account.md):
+1. Перейдите в [консоль управления]({{ link-console-main }}), затем войдите в {{ yandex-cloud }} или зарегистрируйтесь.
+1. На странице **[{{ ui-key.yacloud_billing.billing.label_service }}]({{ link-console-billing }})** убедитесь, что у вас подключен платежный аккаунт, и он находится в [статусе](../billing/concepts/billing-account-statuses.md) `ACTIVE` или `TRIAL_ACTIVE`. Если платежного аккаунта нет, [создайте его](../billing/quickstart/index.md) и [привяжите](../billing/operations/pin-cloud.md) к нему облако.
 
-Если у вас есть активный платежный аккаунт, вы можете создать или выбрать [каталог](../resource-manager/concepts/resources-hierarchy.md#folder), в котором будет работать ваша инфраструктура, на [странице облака](https://console.yandex.cloud/cloud).
+Если у вас есть активный платежный аккаунт, вы можете создать или выбрать [каталог](../resource-manager/concepts/resources-hierarchy.md#folder), в котором будет работать ваша инфраструктура, на [странице облака]({{ link-console-cloud }}).
 
 [Подробнее об облаках и каталогах](../resource-manager/concepts/resources-hierarchy.md).
 
@@ -53,31 +61,31 @@ X.509-сертификаты нужны для взаимодействия кл
 
 - Консоль управления {#console}
 
-    1. В [консоли управления](https://console.yandex.cloud) выберите каталог, в котором вы хотите создать реестр.
-    1. [Перейдите](../console/operations/select-service.md#select-service) в сервис **IoT Core**.
-    1. На панели слева выберите иконку **Реестры**.
-    1. Нажмите кнопку **Создать реестр**.
-    1. В блоке **Общая информация** добавьте имя реестра `my-registry`.
+    1. В [консоли управления]({{ link-console-main }}) выберите каталог, в котором вы хотите создать реестр.
+    1. Перейдите в сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_iot-core }}**.
+    1. На панели слева выберите иконку **{{ ui-key.yacloud.iot.label_registries }}**.
+    1. Нажмите кнопку **{{ ui-key.yacloud.iot.button_create-registry }}**.
+    1. В блоке **{{ ui-key.yacloud.common.section-base }}** добавьте имя реестра `my-registry`.
     1. Добавьте сертификат:
 
         * Чтобы добавить файл:
 
-            1. Выберите способ `Файл`.
+            1. Выберите способ `{{ ui-key.yacloud.component.file-content-dialog.value_upload }}`.
             1. Нажмите кнопку **Прикрепить файл**.
             1. Выберите файл с публичным ключом сертификата и нажмите кнопку **Открыть**.
-            1. Нажмите кнопку **Добавить**.
+            1. Нажмите кнопку **{{ ui-key.yacloud.component.file-content-dialog.button_submit }}**.
 
         * Чтобы добавить текст:
 
-            1. Выберите способ `Текст`.
-            1. Вставьте публичный ключ сертификата в поле **Содержимое**.
-            1. Нажмите кнопку **Добавить**.
+            1. Выберите способ `{{ ui-key.yacloud.component.file-content-dialog.value_manual }}`.
+            1. Вставьте публичный ключ сертификата в поле **{{ ui-key.yacloud.component.file-content-dialog.field_content }}**.
+            1. Нажмите кнопку **{{ ui-key.yacloud.component.file-content-dialog.button_submit }}**.
 
-    1. Нажмите кнопку **Создать**.
+    1. Нажмите кнопку **{{ ui-key.yacloud.common.create }}**.
 
 - CLI {#cli}
 
-    Если у вас еще нет интерфейса командной строки Yandex Cloud (CLI), [установите и инициализируйте его](../cli/quickstart.md#install).
+    Если у вас еще нет интерфейса командной строки {{ yandex-cloud }} (CLI), [установите и инициализируйте его](../cli/quickstart.md#install).
 
     По умолчанию используется каталог, указанный при [создании](../cli/operations/profile/profile-create.md) профиля CLI. Чтобы изменить каталог по умолчанию, используйте команду `yc config set folder-id <идентификатор_каталога>`. Также для любой команды вы можете указать другой каталог с помощью параметров `--folder-name` или `--folder-id`. Если вы обращаетесь к ресурсу по имени, поиск будет выполнен в каталоге по умолчанию. Если вы обращаетесь к ресурсу по идентификатору, поиск будет выполнен глобально — во всех каталогах с учетом прав доступа.
 
@@ -131,28 +139,28 @@ X.509-сертификаты нужны для взаимодействия кл
 
 - Консоль управления {#console}
 
-    1. В [консоли управления](https://console.yandex.cloud) выберите каталог, в котором вы хотите создать устройство.
-    1. [Перейдите](../console/operations/select-service.md#select-service) в сервис **IoT Core**.
+    1. В [консоли управления]({{ link-console-main }}) выберите каталог, в котором вы хотите создать устройство.
+    1. Перейдите в сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_iot-core }}**.
     1. Выберите в списке реестр `my-registry`.
-    1. В левой части окна выберите раздел **Устройства**.
-    1. Нажмите кнопку **Добавить устройство**.
-    1. В блоке **Общая информация** добавьте имя устройства `my-device`.
+    1. В левой части окна выберите раздел **{{ ui-key.yacloud.iot.label_devices }}**.
+    1. Нажмите кнопку **{{ ui-key.yacloud.iot.button_add-device }}**.
+    1. В блоке **{{ ui-key.yacloud.common.section-base }}** добавьте имя устройства `my-device`.
     1. Добавьте сертификат:
 
         * Чтобы добавить файл:
 
-            1. Выберите способ `Файл`.
+            1. Выберите способ `{{ ui-key.yacloud.component.file-content-dialog.value_upload }}`.
             1. Нажмите кнопку **Прикрепить файл**.
             1. Выберите файл с публичным ключом сертификата и нажмите кнопку **Открыть**.
-            1. Нажмите кнопку **Добавить**.
+            1. Нажмите кнопку **{{ ui-key.yacloud.component.file-content-dialog.button_submit }}**.
 
         * Чтобы добавить текст:
 
-            1. Выберите способ `Текст`.
-            1. Вставьте публичный ключ сертификата в поле **Содержимое**.
-            1. Нажмите кнопку **Добавить**.
+            1. Выберите способ `{{ ui-key.yacloud.component.file-content-dialog.value_manual }}`.
+            1. Вставьте публичный ключ сертификата в поле **{{ ui-key.yacloud.component.file-content-dialog.field_content }}**.
+            1. Нажмите кнопку **{{ ui-key.yacloud.component.file-content-dialog.button_submit }}**.
 
-    1. Нажмите кнопку **Создать**.
+    1. Нажмите кнопку **{{ ui-key.yacloud.common.create }}**.
 
 - CLI {#cli}
 

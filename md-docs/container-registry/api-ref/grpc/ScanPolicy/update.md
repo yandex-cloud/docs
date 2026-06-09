@@ -79,7 +79,7 @@ Description of time based rescan rule. ||
 
 List of repositories that are scanned with rule. Child repositories are included into parent node. "*" - means all repositories in registry
 
-The number of elements must be greater than 0. Each value must match the regular expression ``` \*|[a-z0-9]+(?:[._-][a-z0-9]+)*(/([a-z0-9]+(?:[._-][a-z0-9]+)*))* ```. ||
+Each value must match the regular expression ``` \*|[a-z0-9]+(?:[._-][a-z0-9]+)*(/([a-z0-9]+(?:[._-][a-z0-9]+)*))* ```. The number of elements must be greater than 0. ||
 || disabled | **bool**
 
 Turns off scan rule. ||
@@ -93,7 +93,7 @@ Turns off scan rule. ||
 
 List of repositories that are scanned with rule. Child repositories are included into parent node. "*" - means all repositories in registry
 
-The number of elements must be greater than 0. Each value must match the regular expression ``` \*|[a-z0-9]+(?:[._-][a-z0-9]+)*(/([a-z0-9]+(?:[._-][a-z0-9]+)*))* ```. ||
+Each value must match the regular expression ``` \*|[a-z0-9]+(?:[._-][a-z0-9]+)*(/([a-z0-9]+(?:[._-][a-z0-9]+)*))* ```. The number of elements must be greater than 0. ||
 || rescan_period | **[google.protobuf.Duration](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/duration)**
 
 Required field. Period of time since last scan to trigger automatic rescan. ||
@@ -112,36 +112,10 @@ Turns off scan rule. ||
   "created_by": "string",
   "modified_at": "google.protobuf.Timestamp",
   "done": "bool",
-  "metadata": {
-    "scan_policy_id": "string"
-  },
+  "metadata": "google.protobuf.Any",
   // Includes only one of the fields `error`, `response`
   "error": "google.rpc.Status",
-  "response": {
-    "id": "string",
-    "registry_id": "string",
-    "name": "string",
-    "description": "string",
-    "rules": {
-      "push_rule": {
-        "repository_prefixes": [
-          "string"
-        ],
-        "disabled": "bool"
-      },
-      "schedule_rules": [
-        {
-          "repository_prefixes": [
-            "string"
-          ],
-          "rescan_period": "google.protobuf.Duration",
-          "disabled": "bool"
-        }
-      ]
-    },
-    "created_at": "google.protobuf.Timestamp",
-    "disabled": "bool"
-  }
+  "response": "google.protobuf.Any"
   // end of the list of possible fields
 }
 ```
@@ -169,7 +143,7 @@ The time when the Operation resource was last modified. ||
 
 If the value is `false`, it means the operation is still in progress.
 If `true`, the operation is completed, and either `error` or `response` is available. ||
-|| metadata | **[UpdateScanPolicyMetadata](#yandex.cloud.containerregistry.v1.UpdateScanPolicyMetadata)**
+|| metadata | **[google.protobuf.Any](https://developers.google.com/protocol-buffers/docs/proto3#any)**
 
 Service-specific metadata associated with the operation.
 It typically contains the ID of the target resource that the operation is performed on.
@@ -184,7 +158,7 @@ The operation result.
 If `done == false` and there was no failure detected, neither `error` nor `response` is set.
 If `done == false` and there was a failure detected, `error` is set.
 If `done == true`, exactly one of `error` or `response` is set. ||
-|| response | **[ScanPolicy](#yandex.cloud.containerregistry.v1.ScanPolicy)**
+|| response | **[google.protobuf.Any](https://developers.google.com/protocol-buffers/docs/proto3#any)**
 
 The normal response of the operation in case of success.
 If the original method returns no data on success, such as Delete,
@@ -199,85 +173,4 @@ The operation result.
 If `done == false` and there was no failure detected, neither `error` nor `response` is set.
 If `done == false` and there was a failure detected, `error` is set.
 If `done == true`, exactly one of `error` or `response` is set. ||
-|#
-
-## UpdateScanPolicyMetadata {#yandex.cloud.containerregistry.v1.UpdateScanPolicyMetadata}
-
-#|
-||Field | Description ||
-|| scan_policy_id | **string**
-
-ID of the scan policy resource that is updated. ||
-|#
-
-## ScanPolicy {#yandex.cloud.containerregistry.v1.ScanPolicy}
-
-#|
-||Field | Description ||
-|| id | **string**
-
-Output only. ID of the scan policy. ||
-|| registry_id | **string**
-
-ID of the registry that the scan policy belongs to.
-Required. The maximum string length in characters is 50. ||
-|| name | **string**
-
-Name of the scan policy. ||
-|| description | **string**
-
-Description of the scan policy.
-The maximum string length in characters is 256. ||
-|| rules | **[ScanRules](#yandex.cloud.containerregistry.v1.ScanRules2)**
-
-The rules of scan policy. ||
-|| created_at | **[google.protobuf.Timestamp](https://developers.google.com/protocol-buffers/docs/reference/google.protobuf#timestamp)**
-
-Output only. Creation timestamp. ||
-|| disabled | **bool**
-
-Turns off scan policy. ||
-|#
-
-## ScanRules {#yandex.cloud.containerregistry.v1.ScanRules2}
-
-#|
-||Field | Description ||
-|| push_rule | **[PushRule](#yandex.cloud.containerregistry.v1.PushRule2)**
-
-Description of on-push scan rule. ||
-|| schedule_rules[] | **[ScheduledRule](#yandex.cloud.containerregistry.v1.ScheduledRule2)**
-
-Description of time based rescan rule. ||
-|#
-
-## PushRule {#yandex.cloud.containerregistry.v1.PushRule2}
-
-#|
-||Field | Description ||
-|| repository_prefixes[] | **string**
-
-List of repositories that are scanned with rule. Child repositories are included into parent node. "*" - means all repositories in registry
-
-The number of elements must be greater than 0. Each value must match the regular expression ``` \*|[a-z0-9]+(?:[._-][a-z0-9]+)*(/([a-z0-9]+(?:[._-][a-z0-9]+)*))* ```. ||
-|| disabled | **bool**
-
-Turns off scan rule. ||
-|#
-
-## ScheduledRule {#yandex.cloud.containerregistry.v1.ScheduledRule2}
-
-#|
-||Field | Description ||
-|| repository_prefixes[] | **string**
-
-List of repositories that are scanned with rule. Child repositories are included into parent node. "*" - means all repositories in registry
-
-The number of elements must be greater than 0. Each value must match the regular expression ``` \*|[a-z0-9]+(?:[._-][a-z0-9]+)*(/([a-z0-9]+(?:[._-][a-z0-9]+)*))* ```. ||
-|| rescan_period | **[google.protobuf.Duration](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/duration)**
-
-Required field. Period of time since last scan to trigger automatic rescan. ||
-|| disabled | **bool**
-
-Turns off scan rule. ||
 |#

@@ -5,7 +5,7 @@ Retrieves logs for the specified Redis cluster.
 ## HTTP request
 
 ```
-GET https://mdb.api.cloud.yandex.net/managed-redis/v1/clusters/{clusterId}:logs
+GET https://{{ api-host-mdb }}/managed-redis/v1/clusters/{clusterId}:logs
 ```
 
 ## Path parameters
@@ -15,7 +15,7 @@ GET https://mdb.api.cloud.yandex.net/managed-redis/v1/clusters/{clusterId}:logs
 || clusterId | **string**
 
 Required field. ID of the Redis cluster to request logs for.
-To get the Redis cluster ID use a [ClusterService.List](list.md#List) request.
+To get the Redis cluster ID use a [ClusterService.List](../../../managed-redis/api-ref/Cluster/list#List) request.
 
 The maximum string length in characters is 50. ||
 |#
@@ -29,6 +29,8 @@ The maximum string length in characters is 50. ||
 Columns from the logs table to request.
 If no columns are specified, entire log records are returned. ||
 || serviceType | **enum** (ServiceType)
+
+Type of the service to request logs about.
 
 - `REDIS`: Logs of Redis activity. ||
 || fromTime | **string** (date-time)

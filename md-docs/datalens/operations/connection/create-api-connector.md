@@ -1,11 +1,11 @@
 # Создание подключения API Connector
 
 
-API Connector в Yandex DataLens позволяет отправлять HTTP-запросы к произвольному API в интернете. Подключение можно использовать только в [Editor](../../charts/editor/index.md), оно не поддерживается в [QL-чартах](../../concepts/chart/ql-charts.md), а также в [чартах на основе датасета](../../concepts/chart/dataset-based-charts.md).
+API Connector в {{ datalens-full-name }} позволяет отправлять HTTP-запросы к произвольному API в интернете. Подключение можно использовать только в [Editor](../../charts/editor/index.md), оно не поддерживается в [QL-чартах](../../concepts/chart/ql-charts.md), а также в [чартах на основе датасета](../../concepts/chart/dataset-based-charts.md).
 
 Чтобы создать подключение API Connector:
 
-1. Перейдите на [страницу создания нового подключения](https://datalens.ru/connections/new).
+1. Перейдите на [страницу создания нового подключения]({{ link-datalens-main }}/connections/new).
 1. В разделе **Файлы и сервисы** выберите подключение **API Connector**.
 1. Укажите параметры подключения:
 
@@ -22,15 +22,15 @@ API Connector в Yandex DataLens позволяет отправлять HTTP-з
        * `Accept-Encoding` — перечень поддерживаемых способов кодирования содержимого для ответа.
        * `Accept-Language` — список поддерживаемых естественных языков.
        * `Prefer` — код состояния HTTP, который следует отправить в ответ.
-       * `X-Org-ID` — идентификатор организации Яндекс 360 для бизнеса.
+       * `X-Org-ID` — идентификатор организации {{ ya-360 }}.
        * `X-Cloud-Org-ID` — идентификатор [облачной организации](../../../organization/concepts/organization.md).
      
      * **Приватные заголовки запроса** предназначены для передачи чувствительных данных. Значения приватных заголовков хранятся в зашифрованном виде, их нельзя просматривать в настройках подключения, но можно заменять новыми значениями. Доступны следующие приватные заголовки:
 
        * `Authorization` — данные для аутентификации в API.
-       * `X-Api-Key` — API-ключ для аутентификации в ClickHouse®.
-       * `X-ClickHouse-User` — имя пользователя для аутентификации в ClickHouse®.
-       * `X-ClickHouse-Key` — пароль пользователя для аутентификации в ClickHouse®.
+       * `X-Api-Key` — API-ключ для аутентификации в {{ CH }}.
+       * `X-ClickHouse-User` — имя пользователя для аутентификации в {{ CH }}.
+       * `X-ClickHouse-Key` — пароль пользователя для аутентификации в {{ CH }}.
 
    ![image](../../../_assets/datalens/operations/connection/connection-api.png)
 
@@ -39,4 +39,4 @@ API Connector в Yandex DataLens позволяет отправлять HTTP-з
 1. Укажите название подключения и нажмите кнопку **Создать**.
 
 
-_ClickHouse® является зарегистрированным товарным знаком [ClickHouse, Inc](https://clickhouse.com)._
+_{{ CH }} является зарегистрированным товарным знаком [ClickHouse, Inc](https://clickhouse.com)._

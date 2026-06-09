@@ -110,8 +110,8 @@ spark:spark.driver.cores : 1
 | `fs.s3a.endpoint`                 | `{{ s3-storage-host }}`                                 | Эндпоинт для подключения к {{ objstorage-name }}                                   |
 | `fs.s3a.signing-algorithm`        | Пустое значение                                         | Алгоритм подписи                                                                   |
 | `fs.s3a.aws.credentials.provider` | `org.apache.hadoop.fs.s3a.SimpleAWSCredentialsProvider` | Поставщик учетных данных                                                           |
+Подробнее в [документации Apache Hadoop](https://hadoop.apache.org/docs/current/hadoop-project-dist/hadoop-common/core-default.xml).
 
-Подробнее см. в [документации Apache Hadoop](https://hadoop.apache.org/docs/current/hadoop-project-dist/hadoop-common/core-default.xml).
 
 ## Установка пакетов Python {#python-packages-install}
 

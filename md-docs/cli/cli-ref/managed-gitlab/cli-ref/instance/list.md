@@ -32,9 +32,6 @@ Set the custom configuration file. ||
 Enable gRPC retries. By default, retries are enabled with maximum 5 attempts.
 Pass 0 to disable retries. Pass any negative value for infinite retries.
 Even infinite retries are capped with 2 minutes timeout. ||
-|| `--syntax` | `string`
-
-CLI syntax: 1 (legacy) or 2 (current). Omit to use default-syntax in the profile or the product default. ||
 || `--cloud-id` | `string`
 
 Set the ID of the cloud to use. ||
@@ -62,9 +59,3 @@ Set the output format: text (default), yaml, json, json-rest. ||
 Query to select values from the response using jq syntax ||
 || `-h`, `--help` | Display help for the command. ||
 |#
-#### Examples
-
- * [Создать инстанс GitLab](../../../../../managed-gitlab/operations/instance/instance-create.md#tf_1)
- * [Удаление инстанса GitLab](../../../../../managed-gitlab/operations/instance/instance-delete.md#tf_1)
- * [Получить список инстансов в каталоге](../../../../../managed-gitlab/operations/instance/instance-list.md#cli_1)
- * [Изменить общие и дополнительные настройки инстанса](../../../../../managed-gitlab/operations/instance/instance-update.md#tf_1)

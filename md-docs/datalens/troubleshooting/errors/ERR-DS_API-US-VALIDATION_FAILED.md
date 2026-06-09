@@ -1,4 +1,4 @@
-# [Yandex DataLens] Invalid input data: validation failed
+# [{{ datalens-full-name }}] Invalid input data: validation failed
 
 `ERR.DS_API.US.VALIDATION_FAILED`
 

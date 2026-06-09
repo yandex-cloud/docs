@@ -12,7 +12,7 @@
 
  - [Поддержка в Cloud Center](cloud-center.md)
 
- - [Оповещения от Yandex Cloud](notify.md)
+ - [Оповещения от {{ yandex-cloud }}](notify.md)
 
  - [Чат в Telegram](tg-chat.md)
 

@@ -20,7 +20,6 @@
 * Балансировщики нагрузки {{ network-load-balancer-name }} и {{ alb-name }}.
 
 
-
 ### {{ baremetal-name }}
 
 {% include [baremetal-ip-ru](../../_includes/public-ip/ru/baremetal.md) %}
@@ -28,7 +27,10 @@
 
 ### {{ cdn-name }}
 
+
 {% include [cdn-ip-ru](../../_includes/public-ip/ru/cdn.md) %}
+
+
 
 
 ### {{ captcha-name }} {#smartcaptcha-ips}

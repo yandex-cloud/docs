@@ -14,7 +14,7 @@ yc version
 Yandex Cloud CLI 0.144.0 darwin/arm64
 ```
 
-Информация о версиях CLI представлена на странице [Релизы CLI](../release-notes.md).
+Информация о версиях CLI представлена на странице [{#T}](../release-notes.md).
 
 ## Обновить CLI {#update}
 

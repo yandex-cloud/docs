@@ -5,7 +5,7 @@ Adds a certificate.
 ## HTTP request
 
 ```
-POST https://iot-broker.api.cloud.yandex.net/iot-broker/v1/brokers/{brokerId}/certificates
+POST https://{{ api-host-iot-broker }}/iot-broker/v1/brokers/{brokerId}/certificates
 ```
 
 ## Path parameters

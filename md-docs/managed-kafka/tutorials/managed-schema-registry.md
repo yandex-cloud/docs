@@ -1,9 +1,9 @@
 # Работа с управляемым реестром схем формата данных
 
-Чтобы использовать [Managed Schema Registry](../concepts/managed-schema-registry.md#msr) совместно с Managed Service for Apache Kafka®:
+Чтобы использовать [{{ mkf-msr }}](../concepts/managed-schema-registry.md#msr) совместно с {{ mkf-name }}:
 
 1. [Создайте скрипты производителя и потребителя на локальной машине](#create-scripts).
-1. [Проверьте правильность работы Managed Schema Registry](#check-schema-registry).
+1. [Проверьте правильность работы {{ mkf-msr }}](#check-schema-registry).
 1. [Удалите созданные ресурсы](#clear-out).
 
 В этом руководстве описана регистрация одной схемы данных. Подробнее о том, как зарегистрировать несколько схем данных, см. в документации [Confluent Schema Registry](https://docs.confluent.io/platform/current/control-center/topics/schema.html).
@@ -13,18 +13,18 @@
 
 В стоимость поддержки инфраструктуры входит:
 
-* плата за вычислительные ресурсы кластера Managed Service for Apache Kafka® и объем хранилища (см. [тарифы Managed Service for Apache Kafka®](../pricing.md));
-* плата за вычислительные ресурсы и диски [ВМ](../../compute/concepts/vm.md) (см. [тарифы Yandex Compute Cloud](../../compute/pricing.md));
-* плата за использование [публичного IP-адреса](../../vpc/concepts/ips.md) (см. [тарифы Yandex Virtual Private Cloud](../../vpc/pricing.md)).
+* плата за вычислительные ресурсы кластера {{ mkf-name }} и объем хранилища (см. [тарифы {{ mkf-name }}](../pricing.md));
+* плата за вычислительные ресурсы и диски [ВМ](../../compute/concepts/vm.md) (см. [тарифы {{ compute-full-name }}](../../compute/pricing.md));
+* плата за использование [публичного IP-адреса](../../vpc/concepts/ips.md) (см. [тарифы {{ vpc-full-name }}](../../vpc/pricing.md)).
 
 
 ## Перед началом работы {#before-you-begin}
 
-1. [Создайте кластер Managed Service for Apache Kafka®](../operations/cluster-create.md) любой подходящей конфигурации. При создании кластера включите опции **Реестр схем данных** и **Публичный доступ**.
+1. [Создайте кластер {{ mkf-name }}](../operations/cluster-create.md) любой подходящей конфигурации. При создании кластера включите опции **{{ ui-key.yacloud.kafka.field_schema-registry }}** и **{{ ui-key.yacloud.mdb.hosts.dialog.field_public_ip }}**.
 
     {% note info %}
     
-    Публичный доступ к хостам кластера нужен, если вы планируете подключаться к кластеру через интернет. Этот вариант подключения более простой, и его рекомендуется использовать для прохождения руководства. К хостам без публичного доступа тоже можно подключиться, но только с виртуальных машин Yandex Cloud, расположенных в той же облачной сети, что и кластер.
+    Публичный доступ к хостам кластера нужен, если вы планируете подключаться к кластеру через интернет. Этот вариант подключения более простой, и его рекомендуется использовать для прохождения руководства. К хостам без публичного доступа тоже можно подключиться, но только с виртуальных машин {{ yandex-cloud }}, расположенных в той же облачной сети, что и кластер.
     
     {% endnote %}
 
@@ -33,10 +33,10 @@
         * `ACCESS_ROLE_CONSUMER`,
         * `ACCESS_ROLE_PRODUCER`.
 
-1. В той же сети, что и кластер Managed Service for Apache Kafka®, [создайте виртуальную машину](../../compute/operations/vm-create/create-linux-vm.md) с [Ubuntu 20.04](https://yandex.cloud/ru/marketplace/products/yc/ubuntu-20-04-lts) и публичным IP-адресом.
+1. В той же сети, что и кластер {{ mkf-name }}, [создайте виртуальную машину](../../compute/operations/vm-create/create-linux-vm.md) с [Ubuntu 20.04](https://yandex.cloud/ru/marketplace/products/yc/ubuntu-20-04-lts) и публичным IP-адресом.
 
 
-1. Если вы используете группы безопасности, [настройте их](../operations/connect/index.md#configuring-security-groups) так, чтобы был разрешен весь необходимый трафик между кластером Managed Service for Apache Kafka® и виртуальной машиной.
+1. Если вы используете группы безопасности, [настройте их](../operations/connect/index.md#configuring-security-groups) так, чтобы был разрешен весь необходимый трафик между кластером {{ mkf-name }} и виртуальной машиной.
 
 
 ## Создайте скрипты производителя и потребителя {#create-scripts}
@@ -62,9 +62,9 @@
 
     ```bash
     sudo mkdir -p /usr/share/ca-certificates && \
-    sudo wget "https://storage.yandexcloud.net/cloud-certs/CA.pem" \
-              -O /usr/share/ca-certificates/YandexInternalRootCA.crt && \
-    sudo chmod 655 /usr/share/ca-certificates/YandexInternalRootCA.crt
+    sudo wget "{{ crt-web-path }}" \
+              -O /usr/share/ca-certificates/{{ crt-local-file }} && \
+    sudo chmod 655 /usr/share/ca-certificates/{{ crt-local-file }}
     ```
 
 1. Создайте Python-скрипт потребителя.
@@ -94,13 +94,13 @@
             ]),
             "group.id": "avro-consumer",
             "security.protocol": "SASL_SSL",
-            "ssl.ca.location": "/usr/share/ca-certificates/YandexInternalRootCA.crt",
+            "ssl.ca.location": "/usr/share/ca-certificates/{{ crt-local-file }}",
             "sasl.mechanism": "SCRAM-SHA-512",
             "sasl.username": "user",
             "sasl.password": "<пароль_пользователя_user>",
             "schema.registry.url": "https://<FQDN_или_IP-адрес_сервера_Managed_Schema_Registry>:443",
             "schema.registry.basic.auth.credentials.source": "SASL_INHERIT",
-            "schema.registry.ssl.ca.location": "/usr/share/ca-certificates/YandexInternalRootCA.crt",
+            "schema.registry.ssl.ca.location": "/usr/share/ca-certificates/{{ crt-local-file }}",
             "auto.offset.reset": "earliest"
         }
     )
@@ -195,14 +195,14 @@
                 "<FQDN_хоста-брокера_N>:9091",
             ]),
             "security.protocol": 'SASL_SSL',
-            "ssl.ca.location": '/usr/share/ca-certificates/YandexInternalRootCA.crt',
+            "ssl.ca.location": '/usr/share/ca-certificates/{{ crt-local-file }}',
             "sasl.mechanism": 'SCRAM-SHA-512',
             "sasl.username": 'user',
             "sasl.password": '<пароль_пользователя_user>',
             "on_delivery": delivery_report,
             "schema.registry.basic.auth.credentials.source": 'SASL_INHERIT',
             "schema.registry.url": 'https://<FQDN_или_IP-адрес_сервера_Managed_Schema_Registry>:443',
-            "schema.registry.ssl.ca.location": "/usr/share/ca-certificates/YandexInternalRootCA.crt"
+            "schema.registry.ssl.ca.location": "/usr/share/ca-certificates/{{ crt-local-file }}"
         },
         default_key_schema=key_schema,
         default_value_schema=value_schema
@@ -212,7 +212,7 @@
     avroProducer.flush()
     ```
 
-## Проверьте правильность работы Managed Schema Registry {#check-schema-registry}
+## Проверьте правильность работы {{ mkf-msr }} {#check-schema-registry}
 
 1. Запустите потребитель:
 
@@ -236,6 +236,6 @@
 
 Удалите ресурсы, которые вы больше не будете использовать, чтобы за них не списывалась плата:
 
-* [Удалите кластер Managed Service for Apache Kafka®](../operations/cluster-delete.md).
+* [Удалите кластер {{ mkf-name }}](../operations/cluster-delete.md).
 * [Удалите виртуальную машину](../../compute/operations/vm-control/vm-delete.md).
 * Если вы зарезервировали публичные статические IP-адреса, освободите и [удалите их](../../vpc/operations/address-delete.md)

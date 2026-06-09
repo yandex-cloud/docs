@@ -125,6 +125,11 @@
       "connectionManager": {
         "connectionId": "string"
       },
+      "userConnectionManager": {
+        "connectionId": "string",
+        "connectionFolderId": "string",
+        "secretFolderId": "string"
+      },
       "authMethod": "string"
     }
   },
@@ -322,6 +327,7 @@ The maximum string length in characters for each value is 63. Each value must ma
 - `USER_PASSWORD_ENCRYPTION_MD5`
 - `USER_PASSWORD_ENCRYPTION_SCRAM_SHA_256` ||
 || connectionManager | **[ConnectionManager](#yandex.cloud.mdb.postgresql.v1.ConnectionManager)** ||
+|| userConnectionManager | **[UserConnectionManager](#yandex.cloud.mdb.v1.UserConnectionManager)** ||
 || authMethod | **enum** (AuthMethod)
 
 - `AUTH_METHOD_PASSWORD`
@@ -399,4 +405,13 @@ Acceptable values are 0 to 2147483647, inclusive. ||
 #|
 ||Field | Description ||
 || connectionId | **string** ||
+|#
+
+## UserConnectionManager {#yandex.cloud.mdb.v1.UserConnectionManager}
+
+#|
+||Field | Description ||
+|| connectionId | **string** ||
+|| connectionFolderId | **string** ||
+|| secretFolderId | **string** ||
 |#

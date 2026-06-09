@@ -15,7 +15,7 @@
 * Проверьте порты InfiniBand.
 * Проверьте сеть.
 
-Подробнее читайте в разделе [Проверить физическое состояние кластера GPU](../operations/gpu-cluster/gpu-cluster-test-physical-state.md).
+Подробнее читайте в разделе [{#T}](../operations/gpu-cluster/gpu-cluster-test-physical-state.md).
 
 #### Как запустить параллельные задачи в кластере GPU? {#mpirun-parallel}
 
@@ -26,13 +26,13 @@
 1. На каждой ВМ добавьте публичный ключ в `authorized_keys`.
 1. На основной ВМ выполните команду `mpirun` с IP-адресами ВМ и количеством GPU.
 
-Подробнее читайте в разделе [Запустить параллельные задачи в кластере GPU](../operations/gpu-cluster/gpu-cluster-mpirun-parallel.md).
+Подробнее читайте в разделе [{#T}](../operations/gpu-cluster/gpu-cluster-mpirun-parallel.md).
 
 #### Как проверить пропускную способность InfiniBand? {#preinstall-software}
 
 Чтобы проверить пропускную способность InfiniBand создайте и запустите скрипт для запуска тестов `perftest` с использованием `numactl`.
 
-Подробнее читайте в разделе [Проверить пропускную способность InfiniBand](../operations/gpu-cluster/test-infiniband-bandwidth.md).
+Подробнее читайте в разделе [{#T}](../operations/gpu-cluster/test-infiniband-bandwidth.md).
 
 
 #### Что делать, если на ВМ перестал работать GPU? {#gpu-not-working}

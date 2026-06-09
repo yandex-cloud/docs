@@ -75,43 +75,43 @@ Data Mart или витрина данных — база данных, пред
 
 При создании Data Mart важно не попасть в другую крайность. Множество разнородных независимых витрин для разных пользователей в конечном итоге приводят к трудностям  актуализации информации и снижают достоверность данных. При необходимости предоставления инструментария Data Mart для различных областей в рамках одного предприятия необходимо планировать разработку зависимых решений на основе единого хранилища данных.
 
-Идеальной средой разработки подобных решений является облачное хранилище, например, хранилище от Yandex Cloud.
+Идеальной средой разработки подобных решений является облачное хранилище, например, хранилище от {{ yandex-cloud }}.
 
-## Реализация Data Mart с помощью сервисов Yandex Cloud {#datamart-yc}
+## Реализация Data Mart с помощью сервисов {{ yandex-cloud }} {#datamart-yc}
 
 Чтобы успешно решать аналитические задачи с использованием зависимых витрин:
 
 1. Соберите и подготовьте данные.
 
-   Для сбора и обработки данных из различных источников перед помещением их в хранилище используйте инструменты Yandex Cloud:
-   * [Yandex Data Transfer](https://yandex.cloud/ru/services/data-transfer) — сервис для логического переноса данных между источниками и приемниками (СУБД, объектными хранилищами или брокерами сообщений). Подробнее см. в [документации](../data-transfer/index.md).
-   * [Yandex Data Streams](https://yandex.cloud/ru/services/data-streams/) — сервис для управления потоками данных в режиме реального времени (непрерывно). Подробнее см. в [документации](../data-streams/index.md).
-   * [Yandex Data Processing](https://yandex.cloud/ru/services/data-proc/) — сервис для разворачивания кластеров Apache Hadoop и Apache Spark™ в инфраструктуре Yandex Cloud. Подробнее см. в [документации](../data-proc/index.md).
-   * [Yandex Cloud Functions](https://yandex.cloud/ru/services/functions/) — сервис для запуска приложений в безопасном, отказоустойчивом и масштабируемом окружении без создания и обслуживания виртуальных машин. Подробнее см. в [документации](../functions/index.md).
+   Для сбора и обработки данных из различных источников перед помещением их в хранилище используйте инструменты {{ yandex-cloud }}:
+   * [{{ data-transfer-full-name }}](https://yandex.cloud/ru/services/data-transfer) — сервис для логического переноса данных между источниками и приемниками (СУБД, объектными хранилищами или брокерами сообщений). Подробнее в [документации](../data-transfer/index.md).
+   * [{{ yds-full-name }}](https://yandex.cloud/ru/services/data-streams/) — сервис для управления потоками данных в режиме реального времени. Подробнее в [документации](../data-streams/index.md).
+   * [{{ dataproc-full-name }}](https://yandex.cloud/ru/services/data-proc/) — сервис для разворачивания кластеров Apache Hadoop и {{ SPRK }} в инфраструктуре {{ yandex-cloud }}. Подробнее в [документации](../data-proc/index.md).
+   * [{{ sf-full-name }}](https://yandex.cloud/ru/services/functions/) — сервис для запуска приложений в безопасном, отказоустойчивом и масштабируемом окружении без создания и обслуживания виртуальных машин. Подробнее в [документации](../functions/index.md).
 
 1. Организуйте многоуровневое хранение данных.
 
-   Для многоуровневого хранения собранной информации используйте механизмы работы Yandex Cloud с популярными СУБД:
-   * [Yandex Managed Service for PostgreSQL](https://yandex.cloud/ru/services/managed-postgresql/) — для разворачивания кластера одной из самых популярных СУБД по обработке и структурированию полученной информации. Подробнее см. в [документации](../managed-postgresql/index.md).
-   * [Yandex MPP Analytics for PostgreSQL](https://yandex.cloud/ru/services/managed-greenplum/) — для работы с популярной массивно-параллельной СУБД по аналитике больших объемов данных. Подробнее см. в [документации](../managed-greenplum/index.md).
-   * [Yandex Managed Service for ClickHouse®](https://yandex.cloud/ru/services/managed-clickhouse/) — для создания витрины данных на базе высокопроизводительной колоночной СУБД. Подробнее см. в [документации](../managed-clickhouse/index.md).
-   * Сервис [Yandex Query](https://yandex.cloud/ru/services/query/) — для создания аналитических и потоковых SQL-запросов реального времени к собранным данным. Подробнее см. в [документации](../query/index.md).
+   Для многоуровневого хранения собранной информации используйте механизмы работы {{ yandex-cloud }} с популярными СУБД:
+   * [{{ mpg-full-name }}](https://yandex.cloud/ru/services/managed-postgresql/) — для развертывания кластера одной из самых популярных СУБД по обработке и структурированию полученной информации. Подробнее в [документации](../managed-postgresql/index.md).
+   * [{{ mgp-full-name }}](https://yandex.cloud/ru/services/managed-greenplum/) — для работы с популярной массивно-параллельной СУБД для аналитики больших объемов данных. Подробнее в [документации](../managed-greenplum/index.md).
+   * [{{ mch-full-name }}](https://yandex.cloud/ru/services/managed-clickhouse/) — для создания витрины данных на базе высокопроизводительной колоночной СУБД. Подробнее в [документации](../managed-clickhouse/index.md).
+   * Сервис [{{ yq-full-name }}](https://yandex.cloud/ru/services/query/) — для создания аналитических и потоковых SQL-запросов в реальном времени к собранным данным. Подробнее в [документации](../query/index.md).
 
 1. Создайте удобные инструменты для анализа данных.
 
-   Для удобной работы с собранной и подготовленной информацией используйте сервис для бизнес-аналитики [Yandex DataLens](https://yandex.cloud/ru/services/datalens/).
-   Yandex DataLens позволит вам напрямую подключаться к различным источникам данных, а также создавать визуализации и дашборды для совместной работы. Подробнее см. в [документации](../datalens/index.md).
+   Для удобной работы с собранной и подготовленной информацией используйте сервис для бизнес-аналитики [{{ datalens-full-name }}](https://yandex.cloud/ru/services/datalens/).
+   {{ datalens-full-name }} позволит вам напрямую подключаться к различным источникам данных, а также создавать визуализации и дашборды для совместной работы. Подробнее в [документации](../datalens/index.md).
 
-Чтобы начать работу с сервисами, войдите в свой аккаунт в Yandex Cloud или [зарегистрируйтесь](https://center.yandex.cloud/billing/accounts/create-account).
+Чтобы начать работу с сервисами, войдите в свой аккаунт в {{ yandex-cloud }} или [зарегистрируйтесь]({{ link-console-billing }}/create-account).
 
 
 ### См. также {#see-also}
 
-* [Пример создания аналитической витрины в Yandex DataLens](https://yandex.cloud/ru/blog/posts/2022/11/datalens-analytics-clickhouse)
+* [Пример создания аналитической витрины в {{ datalens-full-name }}](https://yandex.cloud/ru/blog/posts/2022/11/datalens-analytics-clickhouse)
 
 * [Пример Data Warehouse как аналитического инструмента, использующий создание витрин](https://yandex.cloud/ru/blog/posts/2022/06/data-warehouse)
 
-* [Пример загрузки данных из Яндекс Метрика в витрину](../data-transfer/tutorials/metrika-to-clickhouse.md)
+* [Пример загрузки данных из {{ metrika }} в витрину](../data-transfer/tutorials/metrika-to-clickhouse.md)
 
 
-_ClickHouse® является зарегистрированным товарным знаком [ClickHouse, Inc](https://clickhouse.com)._
+_{{ CH }} является зарегистрированным товарным знаком [ClickHouse, Inc](https://clickhouse.com)._

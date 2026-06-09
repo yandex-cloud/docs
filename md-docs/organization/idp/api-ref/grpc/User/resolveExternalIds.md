@@ -30,7 +30,7 @@ The maximum string length in characters is 50. ||
 
 List of external IDs to resolve.
 
-The number of elements must be in the range 1-1000. The maximum string length in characters for each value is 256. ||
+The maximum string length in characters for each value is 256. The number of elements must be in the range 1-1000. ||
 |#
 
 ## ResolveExternalIdsResponse {#yandex.cloud.organizationmanager.v1.idp.ResolveExternalIdsResponse}

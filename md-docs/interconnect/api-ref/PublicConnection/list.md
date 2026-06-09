@@ -5,7 +5,7 @@ Retrieves the list of PublicConnection resources in the specified folder.
 ## HTTP request
 
 ```
-GET https://cic.api.cloud.yandex.net/cic/v1/publicConnections
+GET https://cic.{{ api-host }}/cic/v1/publicConnections
 ```
 
 ## Query parameters {#yandex.cloud.cic.v1.ListPublicConnectionsRequest}
@@ -15,24 +15,32 @@ GET https://cic.api.cloud.yandex.net/cic/v1/publicConnections
 || folderId | **string**
 
 Required field. ID of the folder to list publicConnections in.
-To get the folder ID use a [yandex.cloud.resourcemanager.v1.FolderService.List](../../../resource-manager/api-ref/Folder/list.md#List) request. ||
+To get the folder ID use a [yandex.cloud.resourcemanager.v1.FolderService.List](../../../resource-manager/api-ref/Folder/list.md#List) request.
+
+The maximum string length in characters is 50. ||
 || pageSize | **string** (int64)
 
 The maximum number of results per page to return. If the number of available
 results is larger than `pageSize`,
 the service returns a [ListPublicConnectionsResponse.nextPageToken](#yandex.cloud.cic.v1.ListPublicConnectionsResponse)
-that can be used to get the next page of results in subsequent list requests. Default value: 100. ||
+that can be used to get the next page of results in subsequent list requests. Default value: 100.
+
+The maximum value is 1000. ||
 || pageToken | **string**
 
 Page token. To get the next page of results, set `pageToken` to the
-[ListPublicConnectionsResponse.nextPageToken](#yandex.cloud.cic.v1.ListPublicConnectionsResponse) returned by a previous list request. ||
+[ListPublicConnectionsResponse.nextPageToken](#yandex.cloud.cic.v1.ListPublicConnectionsResponse) returned by a previous list request.
+
+The maximum string length in characters is 100. ||
 || filter | **string**
 
 A filter expression that filters resources listed in the response.
 The expression must specify:
 1. The field name. Currently you can use filtering only on [Subnet.name] field.
 2. An `=` operator.
-3. The value in double quotes (`"`). Must be 3-63 characters long and match the regular expression `[a-z][-a-z0-9]{1,61}[a-z0-9]`. ||
+3. The value in double quotes (`"`). Must be 3-63 characters long and match the regular expression `[a-z][-a-z0-9]{1,61}[a-z0-9]`.
+
+The maximum string length in characters is 1000. ||
 |#
 
 ## Response {#yandex.cloud.cic.v1.ListPublicConnectionsResponse}
@@ -47,7 +55,6 @@ The expression must specify:
       "name": "string",
       "description": "string",
       "folderId": "string",
-      "regionId": "string",
       "trunkConnectionId": "string",
       "vlanId": "string",
       "ipv4Peering": {
@@ -104,13 +111,10 @@ The name must be unique within the folder.
 Value must match the regular expression ``\\|[a-zA-Z]([-_a-zA-Z0-9]{0,61}[a-zA-Z0-9])?``. ||
 || description | **string**
 
-Optional description of the publicConnection. 0-256 characters long. ||
+Description of the publicConnection. 0-256 characters long. ||
 || folderId | **string**
 
 ID of the folder that the publicConnection belongs to. ||
-|| regionId | **string**
-
-ID of the region that the publicConnection belongs to. ||
 || trunkConnectionId | **string**
 
 ID of the trunk_connection that the publicConnection belongs to. ||
@@ -126,7 +130,6 @@ IPv4 peering config of connection ||
 
 Cloud services that the publicConnection connects to.
 
-- `CLOUD_SERVICE_TYPE_UNSPECIFIED`
 - `CLOUD_SERVICE_YANDEX`
 - `CLOUD_SERVICE_ALL_PUBLIC`
 - `CLOUD_SERVICE_S3`
@@ -137,7 +140,9 @@ Cloud services that the publicConnection connects to.
 - `CLOUD_SERVICE_MONITORING`
 - `CLOUD_SERVICE_YANDEX_GPT`
 - `CLOUD_SERVICES_ALL_API_ENDPOINT`
-- `CLOUD_SERVICE_YMQ` ||
+- `CLOUD_SERVICE_YMQ`
+- `CLOUD_SERVICE_SPEECH_SENSE`
+- `CLOUD_SERVICE_AI_ASSISTANT` ||
 || ipv4PeerAnnouncedPrefixes[] | **string**
 
 IPv4 Peer Announced Prefixes
@@ -154,7 +159,6 @@ Each key must match the regular expression `[a-z][-_0-9a-z]*`. ||
 
 Status of the publicConnection.
 
-- `STATUS_UNSPECIFIED`
 - `CREATING`
 - `UPDATING`
 - `DELETING`
@@ -178,15 +182,21 @@ In some languages, built-in datetime utilities do not support nanosecond precisi
 || peeringSubnet | **string**
 
 PeeringSubnet.
-It's an ip with format ipPrefix/length where address part of ipPrefix is 0. ||
+It's an ip with format ipPrefix/length where address part of ipPrefix is 0.
+
+The maximum string length in characters is 50. ||
 || peerIp | **string**
 
 PeerIp.
-It's an ip with just an ipAddress format without mask. ||
+It's an ip with just an ipAddress format without mask.
+
+The maximum string length in characters is 50. ||
 || cloudIp | **string**
 
 CloudIp.
-It's an ip with just an ipAddress format without mask. ||
+It's an ip with just an ipAddress format without mask.
+
+The maximum string length in characters is 50. ||
 || peerBgpAsn | **string** (int64)
 
 PeerBgpAsn.
@@ -197,5 +207,7 @@ CloudBgpAsn. ||
 || peerBgpMd5Key | **string**
 
 PeerBgpMd5Key.
-Optional. ||
+Optional.
+
+The maximum string length in characters is 200. ||
 |#

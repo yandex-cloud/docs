@@ -19,7 +19,6 @@ Deletes the specified desktop group.
 || desktop_group_id | **string**
 
 Required field. ID of the desktop group to delete.
-
 To get a desktop group ID make a [DesktopGroupService.List](list.md#List) request.
 
 The maximum string length in characters is 50. ||

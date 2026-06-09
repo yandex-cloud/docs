@@ -1,4 +1,4 @@
-# Аутентификация в API Apache Hive™ Metastore
+# Аутентификация в API {{ metastore-full-name }}
 
 Для выполнения операций через [API](../../glossary/rest-api.md) необходимо получить [IAM-токен](../../iam/concepts/authorization/iam-token.md):
 
@@ -6,7 +6,7 @@
 * [Инструкция](../../iam/operations/iam-token/create-for-sa.md) для сервисного аккаунта.
 * [Инструкция](../../iam/operations/iam-token/create-for-federation.md) для федеративного аккаунта.
 
-Полученный IAM-токен указывайте при обращении к ресурсам Yandex Cloud через API. Передайте IAM-токен в заголовке `Authorization` в следующем формате:
+Полученный IAM-токен указывайте при обращении к ресурсам {{ yandex-cloud }} через API. Передайте IAM-токен в заголовке `Authorization` в следующем формате:
 
 ```yaml
 Authorization: Bearer <IAM-токен>
@@ -20,6 +20,6 @@ Authorization: Bearer ${IAM_TOKEN}
 
 #### См. также {#see-also}
 
-[Аккаунты в Yandex Cloud](../../iam/concepts/users/accounts.md)
+[{#T}](../../iam/concepts/users/accounts.md)
 
 _Apache® и [Apache Hive™](https://hive.apache.org/) являются зарегистрированными товарными знаками или товарными знаками Apache Software Foundation в США и/или других странах._

@@ -5,7 +5,7 @@ Deletes the specified device certificate.
 ## HTTP request
 
 ```
-DELETE https://iot-devices.api.cloud.yandex.net/iot-devices/v1/devices/{deviceId}/certificates/{fingerprint}
+DELETE https://iot-devices.{{ api-host }}/iot-devices/v1/devices/{deviceId}/certificates/{fingerprint}
 ```
 
 ## Path parameters

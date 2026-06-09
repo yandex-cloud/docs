@@ -14,8 +14,8 @@ You can enable auto [scans](../../concepts/vulnerability-scanner.md) of [Docker 
 
 To configure automatic vulnerability [scans](../../concepts/vulnerability-scanner.md) of [Docker images](index.md) on push to [{{ container-registry-full-name }}](../../../container-registry/):
 
-1. [Prepare your cloud](#before-you-begin).
-1. [Prepare the environment](#prepare).
+1. [Get your cloud ready](#before-you-begin).
+1. [Set up your environment](#prepare).
 1. [Create a function](#create-function).
 1. [Create a trigger](#create-trigger).
 1. [Push the Docker image](#download-image).
@@ -31,7 +31,7 @@ If you no longer need the resources you created, [delete them](#clear-out).
 
 {% include [paid-resources](../../../_tutorials/_tutorials_includes/image-auto-scan/paid-resources.md) %}
 
-## Prepare the environment {#prepare}
+## Set up your environment {#prepare}
 
 {% include [cli-install](../../../_includes/cli-install.md) %}
 
@@ -79,11 +79,11 @@ If you no longer need the resources you created, [delete them](#clear-out).
 
    - Management console {#console}
 
-     1. In the [management console]({{ link-console-main }}), select a folder where you want to create a service account.
-     1. At the top of the screen, go to the **Service accounts** tab.
+     1. In the [management console]({{ link-console-main }}), select the folder.
+     1. [Navigate](../../../console/operations/select-service.md#select-service) to **{{ ui-key.yacloud.iam.folder.dashboard.label_iam }}**.
      1. Click **{{ ui-key.yacloud.iam.folder.service-accounts.button_add }}**.
-     1. Enter a name for the service account.
-     1. Click **{{ ui-key.yacloud.iam.folder.service-account.label_add-role }}** and select the `container-registry.images.scanner` role.
+     1. Enter a name for the [service account](../../../iam/concepts/users/service-accounts.md).
+     1. Click ![image](../../../_assets/console-icons/plus.svg) **{{ ui-key.yacloud.iam.folder.service-account.label_add-role }}** and select `container-registry.images.scanner`.
      1. Click **{{ ui-key.yacloud.iam.folder.service-account.popup-robot_button_add }}**.
 
    - CLI {#cli}
@@ -137,7 +137,7 @@ In {{ sf-name }}, create a function named `scan-on-push` that will run the Docke
         * Select the `Bash` runtime environment and click **{{ ui-key.yacloud.serverless-functions.item.editor.button_action-continue }}**.
         * Select how you want to edit the function: `{{ ui-key.yacloud.serverless-functions.item.editor.value_method-editor }}`.
         * In the function edit window, click **{{ ui-key.yacloud.serverless-functions.item.editor.create-file }}**. In the window that opens, enter `handler.sh` as the file name and click **{{ ui-key.yacloud.common.create }}**.
-        * Copy the following code to the `handler.sh` file:
+        * Paste the following code to the `handler.sh` file:
 
           ```bash
           DATA=$(cat | jq -sr '.[0].messages[0].details')
@@ -149,9 +149,9 @@ In {{ sf-name }}, create a function named `scan-on-push` that will run the Docke
 
         * Specify the entry point: `handler.sh`.
      1. Under **{{ ui-key.yacloud.serverless-functions.item.editor.label_title-params }}**, specify:
-        * **{{ ui-key.yacloud.serverless-functions.item.editor.field_timeout }}**: `60`
-        * **{{ ui-key.yacloud.serverless-functions.item.editor.field_resources-memory }}**: `128 {{ ui-key.yacloud.common.units.label_megabyte }}`
-        * **{{ ui-key.yacloud.forms.label_service-account-select }}**: `scanner`
+        * **{{ ui-key.yacloud.serverless-functions.item.editor.field_timeout }}**: `60`.
+        * **{{ ui-key.yacloud.serverless-functions.item.editor.field_resources-memory }}**: `128 {{ ui-key.yacloud.common.units.label_megabyte }}`.
+        * **{{ ui-key.yacloud.forms.label_service-account-select }}**: `scanner`.
      1. Click **{{ ui-key.yacloud.serverless-functions.item.editor.button_deploy-version }}**.
 
 - CLI {#cli}
@@ -178,7 +178,7 @@ In {{ sf-name }}, create a function named `scan-on-push` that will run the Docke
 
      {% include [handler-sh-function](../../../_tutorials/_tutorials_includes/handler-sh-function.md) %}
 
-  1. Create a version of the `scan-on-push` function:
+  1. Create a `scan-on-push` version:
 
      ```bash
      yc serverless function version create \
@@ -193,10 +193,10 @@ In {{ sf-name }}, create a function named `scan-on-push` that will run the Docke
 
      Where:
      * `--function-name`: Name of the function whose version you want to create.
-     * `--runtime`: Runtime environment.
+     * `--runtime`: Runtime.
      * `--entrypoint`: Entry point in `<function_file_name>.<handler_name>` format.
      * `--memory`: Amount of RAM.
-     * `--execution-timeout`: Maximum function running time before the timeout is reached.
+     * `--execution-timeout`: Maximum function execution time before timeout.
      * `--source-path`: File with the function code.
      * `--service-account-id`: Service account ID.
 
@@ -228,7 +228,7 @@ Create a trigger that will invoke your function when creating a Docker image [ta
 
   1. In the [management console]({{ link-console-main }}), select the folder where you want to create a trigger.
   1. Select **{{ ui-key.yacloud.iam.folder.dashboard.label_serverless-functions }}**.
-  1. Go to the **{{ ui-key.yacloud.serverless-functions.switch_list-triggers }}** tab.
+  1. Navigate to the **{{ ui-key.yacloud.serverless-functions.switch_list-triggers }}** tab.
   1. Click **{{ ui-key.yacloud.serverless-functions.triggers.list.button_create }}**.
   1. Under **{{ ui-key.yacloud.serverless-functions.triggers.form.section_base }}**:
      * Enter a name and description for the trigger.
@@ -237,14 +237,14 @@ Create a trigger that will invoke your function when creating a Docker image [ta
      * In the **{{ ui-key.yacloud.serverless-functions.triggers.form.field_container-registry }}** field, select the registry to push the Docker image to.
      * In the **{{ ui-key.yacloud.serverless-functions.triggers.form.field_event-types }}** field, select the [event `{{ ui-key.yacloud.serverless-functions.triggers.form.value_event-type-create-image-tag }}`](../../../functions/concepts/trigger/cr-trigger.md#event).
   1. Under **{{ ui-key.yacloud.serverless-functions.triggers.form.section_function }}**:
-     * Select the `scan-on-push` function.
+     * Select `scan-on-push`.
      * Specify the `$latest` [function version tag](../../../functions/concepts/function.md#tag).
      * Specify the `invoker` service account which will invoke the function.
   1. Click **{{ ui-key.yacloud.serverless-functions.triggers.form.button_create-trigger }}**.
 
 - CLI {#cli}
 
-  To create a trigger, run the command:
+  To create a trigger, run this command:
 
   ```bash
   yc serverless trigger create container-registry \
@@ -258,9 +258,9 @@ Create a trigger that will invoke your function when creating a Docker image [ta
   Where:
   * `--name`: Trigger name.
   * `--registry-id`: [ID of the registry](../../operations/registry/registry-list.md) to push the Docker image to.
-  * `--events`: [Events](../../../functions/concepts/trigger/cr-trigger.md#event) activating the trigger.
+  * `--events`: [Events](../../../functions/concepts/trigger/cr-trigger.md#event) that set off the trigger.
   * `--invoke-function-id`: Function ID.
-  * `--invoke-function-service-account-id`: ID of the service account with the permissions to invoke the function.
+  * `--invoke-function-service-account-id`: ID of the service account with permissions to invoke the function.
 
   Result:
 
@@ -292,7 +292,7 @@ Create a trigger that will invoke your function when creating a Docker image [ta
 
 To stop paying for the resources you created:
 1. [Delete the Docker image](../../../container-registry/operations/docker-image/docker-image-delete.md) stored in [{{ cos-full-name }}](../../../cos/), as well as the [registry](../../../container-registry/operations/registry/registry-delete.md).
-1. [Delete](../../../functions/operations/function/function-delete.md) the {{ sf-name }} function.
+1. [Delete](../../../functions/operations/function/function-delete.md) the function in {{ sf-name }}.
 1. [Delete](../../../functions/operations/function/function-delete.md) the {{ sf-name }} trigger.
 
 #### See also {#see-also}

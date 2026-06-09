@@ -5,7 +5,7 @@ Updates the specified key pair.
 ## HTTP request
 
 ```
-PATCH https://iam.api.cloud.yandex.net/iam/v1/keys/{keyId}
+PATCH https://iam.{{ api-host }}/iam/v1/keys/{keyId}
 ```
 
 ## Path parameters
@@ -60,9 +60,7 @@ The maximum string length in characters is 256. ||
   "createdBy": "string",
   "modifiedAt": "string",
   "done": "boolean",
-  "metadata": {
-    "keyId": "string"
-  },
+  "metadata": "object",
   // Includes only one of the fields `error`, `response`
   "error": {
     "code": "integer",
@@ -71,18 +69,7 @@ The maximum string length in characters is 256. ||
       "object"
     ]
   },
-  "response": {
-    "id": "string",
-    // Includes only one of the fields `userAccountId`, `serviceAccountId`
-    "userAccountId": "string",
-    "serviceAccountId": "string",
-    // end of the list of possible fields
-    "createdAt": "string",
-    "description": "string",
-    "keyAlgorithm": "string",
-    "publicKey": "string",
-    "lastUsedAt": "string"
-  }
+  "response": "object"
   // end of the list of possible fields
 }
 ```
@@ -124,7 +111,7 @@ In some languages, built-in datetime utilities do not support nanosecond precisi
 
 If the value is `false`, it means the operation is still in progress.
 If `true`, the operation is completed, and either `error` or `response` is available. ||
-|| metadata | **[UpdateKeyMetadata](#yandex.cloud.iam.v1.UpdateKeyMetadata)**
+|| metadata | **object**
 
 Service-specific metadata associated with the operation.
 It typically contains the ID of the target resource that the operation is performed on.
@@ -139,7 +126,7 @@ The operation result.
 If `done == false` and there was no failure detected, neither `error` nor `response` is set.
 If `done == false` and there was a failure detected, `error` is set.
 If `done == true`, exactly one of `error` or `response` is set. ||
-|| response | **[Key](#yandex.cloud.iam.v1.Key)**
+|| response | **object**
 
 The normal response of the operation in case of success.
 If the original method returns no data on success, such as Delete,
@@ -154,15 +141,6 @@ The operation result.
 If `done == false` and there was no failure detected, neither `error` nor `response` is set.
 If `done == false` and there was a failure detected, `error` is set.
 If `done == true`, exactly one of `error` or `response` is set. ||
-|#
-
-## UpdateKeyMetadata {#yandex.cloud.iam.v1.UpdateKeyMetadata}
-
-#|
-||Field | Description ||
-|| keyId | **string**
-
-ID of the Key resource that is being updated. ||
 |#
 
 ## Status {#google.rpc.Status}
@@ -180,57 +158,4 @@ An error message. ||
 || details[] | **object**
 
 A list of messages that carry the error details. ||
-|#
-
-## Key {#yandex.cloud.iam.v1.Key}
-
-A Key resource. For more information, see [Authorized keys](../../concepts/authorization/key.md).
-
-#|
-||Field | Description ||
-|| id | **string**
-
-ID of the Key resource. ||
-|| userAccountId | **string**
-
-ID of the user account that the Key resource belongs to.
-
-Includes only one of the fields `userAccountId`, `serviceAccountId`. ||
-|| serviceAccountId | **string**
-
-ID of the service account that the Key resource belongs to.
-
-Includes only one of the fields `userAccountId`, `serviceAccountId`. ||
-|| createdAt | **string** (date-time)
-
-Creation timestamp.
-
-String in [RFC3339](https://www.ietf.org/rfc/rfc3339.txt) text format. The range of possible values is from
-`0001-01-01T00:00:00Z` to `9999-12-31T23:59:59.999999999Z`, i.e. from 0 to 9 digits for fractions of a second.
-
-To work with values in this field, use the APIs described in the
-[Protocol Buffers reference](https://developers.google.com/protocol-buffers/docs/reference/overview).
-In some languages, built-in datetime utilities do not support nanosecond precision (9 digits). ||
-|| description | **string**
-
-Description of the Key resource. 0-256 characters long. ||
-|| keyAlgorithm | **enum** (Algorithm)
-
-An algorithm used to generate a key pair of the Key resource.
-
-- `RSA_2048`: RSA with a 2048-bit key size. Default value.
-- `RSA_4096`: RSA with a 4096-bit key size. ||
-|| publicKey | **string**
-
-A public key of the Key resource. ||
-|| lastUsedAt | **string** (date-time)
-
-Timestamp for the last use of this key.
-
-String in [RFC3339](https://www.ietf.org/rfc/rfc3339.txt) text format. The range of possible values is from
-`0001-01-01T00:00:00Z` to `9999-12-31T23:59:59.999999999Z`, i.e. from 0 to 9 digits for fractions of a second.
-
-To work with values in this field, use the APIs described in the
-[Protocol Buffers reference](https://developers.google.com/protocol-buffers/docs/reference/overview).
-In some languages, built-in datetime utilities do not support nanosecond precision (9 digits). ||
 |#

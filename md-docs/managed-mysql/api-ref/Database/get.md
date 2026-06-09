@@ -5,7 +5,7 @@ Retrieves information about the specified database.
 ## HTTP request
 
 ```
-GET https://mdb.api.cloud.yandex.net/managed-mysql/v1/clusters/{clusterId}/databases/{databaseName}
+GET https://{{ api-host-mdb }}/managed-mysql/v1/clusters/{clusterId}/databases/{databaseName}
 ```
 
 ## Path parameters
@@ -15,14 +15,12 @@ GET https://mdb.api.cloud.yandex.net/managed-mysql/v1/clusters/{clusterId}/datab
 || clusterId | **string**
 
 Required field. ID of the cluster that the database belongs to.
-
 To get this ID, make a [ClusterService.List](../Cluster/list.md#List) request.
 
 The maximum string length in characters is 50. ||
 || databaseName | **string**
 
 Required field. Name of the database to return information about.
-
 To get this name, make a [DatabaseService.List](list.md#List) request.
 
 The maximum string length in characters is 63. Value must match the regular expression ` [a-zA-Z0-9_-]* `. ||
@@ -41,7 +39,6 @@ The maximum string length in characters is 63. Value must match the regular expr
 ```
 
 An object that represents MySQL database.
-
 See [the documentation](../../operations/databases.md) for details.
 
 #|
@@ -55,7 +52,6 @@ ID of the cluster that the database belongs to. ||
 || deletionProtectionMode | **enum** (DeletionProtectionMode)
 
 Deletion Protection inhibits deletion of the database
-
 Default value: `DELETION_PROTECTION_MODE_DISABLED` (protection is disabled)
 
 - `DELETION_PROTECTION_MODE_DISABLED`: Deletion protection is disabled

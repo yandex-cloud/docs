@@ -36,7 +36,7 @@
 
 ## Примеры использования {#examples}
 
-* [Автоматическое масштабирование группы виртуальных машин для обработки сообщений из очереди Message Queue](../tutorials/autoscale-monitoring.md).
-* [Конвертация видео в GIF на Python](../tutorials/video-converting-queue/index.md).
-* [Создание интерактивного serverless-приложения с использованием WebSocket](../tutorials/websocket-app.md).
-* [Создание триггеров, которые вызывают функции Cloud Functions для остановки ВМ и отправки уведомлений в Telegram](../tutorials/serverless-trigger-budget-queue-vm-tg.md).
+* [{#T}](../tutorials/autoscale-monitoring.md).
+* [{#T}](../tutorials/video-converting-queue/index.md).
+* [{#T}](../tutorials/websocket-app.md).
+* [{#T}](../tutorials/serverless-trigger-budget-queue-vm-tg.md).

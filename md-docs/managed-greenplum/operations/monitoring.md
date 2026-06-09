@@ -1,10 +1,10 @@
-# Мониторинг состояния кластера Greenplum® и хостов
+# Мониторинг состояния кластера {{ mgp-name }} и хостов
 
-Данные о состоянии кластера и его хостов доступны в [консоли управления](https://console.yandex.cloud). Их можно посмотреть на вкладке **Мониторинг** страницы управления кластером  или в сервисе [Yandex Monitoring](../../monitoring/concepts/index.md).
+Данные о состоянии кластера и его хостов доступны в [консоли управления]({{ link-console-main }}). Их можно посмотреть на вкладке **{{ ui-key.yacloud.mdb.cluster.switch_monitoring }}** страницы управления кластером  или в сервисе [{{ monitoring-full-name }}](../../monitoring/concepts/index.md).
 
 Диагностическая информация о состоянии кластера представлена в виде графиков.
 
-Новые данные для графиков поступают каждые 15 секунд.
+Новые данные для графиков поступают каждые {{ graph-update }}.
 
 {% note info %}
 
@@ -12,211 +12,194 @@
 
 {% endnote %}
 
-## Мониторинг состояния кластера {#monitoring-cluster}
+## Принципы построения мониторинга
 
-Для просмотра детальной информации о состоянии кластера Greenplum®:
+Для упрощения поиска проблем в консоль управления добавлены инструменты визуальной диагностики (дашборды), основанные на следующих принципах:
+
+* **Иерархичность**: диагностика строится от общего к частному. Сначала вы видите агрегированные сигналы состояния всего кластера, а при обнаружении проблем можете углубиться в детали по конкретным компонентам (кластер, пулер, гибридное хранилище) или потребляемым ресурсам
+* **Прагматичность**: вместо сотен графиков вам предлагаются только ключевые индикаторы. Особое внимание уделено **сигналам** — метрикам с четкими граничными значениями, которые сразу показывают наличие проблемы.
+* **Автономность**: документация и дашборды спроектированы так, чтобы вы могли самостоятельно выявить причину деградации без обращения в поддержку.
+* **Итеративность**: развитие инструментов диагностики ведется поэтапно на основе реального пользовательского опыта. Анализ поступивших запросов на улучшение инструментов позволяет сделать диагностику более точной и удобной.
+
+## Система сигналов
+
+В верхней части дашборда расположены сигналы, которые агрегируют состояние множества метрик. Они работают в режиме «светофора»:
+
+| Статус | Значение | Описание |
+| :--- | :--- | :--- |
+| 🟢&nbsp;**OK** | `2` | Все важные индикаторы в норме. Кластер и компоненты работают штатно. |
+| 🟠&nbsp;**Warn** | `1` | Обнаружены незначительные отклонения. Кластер работает, но требуется внимание для предотвращения ухудшения (например, рост очереди подключений или повышенная задержка). |
+| 🔴&nbsp;**Crit** | `0` | Критическая деградация. Наблюдается нестабильная работа, недоступность компонентов или исчерпание ресурсов. Требуется немедленное вмешательство. |
+| ⚪&nbsp;**Unknown** | `-1` | Данные отсутствуют или статус не определен. |
+
+## Дашборд {{ ui-key.yacloud.mdb.cluster.label_mdb }} {#monitoring-cluster}
+
+Основным инструментом диагностики является дашборд **Кластер**. Он предоставляет единую панель управления состоянием кластера.
 
 {% list tabs group=instructions %}
 
 - Консоль управления {#console}
 
-    1. Перейдите [на страницу каталога](https://console.yandex.cloud).
-    1. [Перейдите](../../console/operations/select-service.md#select-service) в сервис **Yandex MPP Analytics for&nbsp;PostgreSQL**.
-    1. Нажмите на имя нужного кластера и выберите вкладку ![monitoring.svg](../../_assets/console-icons/display-pulse.svg) **Мониторинг**.
+    1. Перейдите [на страницу каталога]({{ link-console-main }}).
+    1. Перейдите в сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-greenplum }}**.
+    1. Нажмите на имя нужного кластера и выберите вкладку ![monitoring.svg](../../_assets/console-icons/display-pulse.svg) **{{ ui-key.yacloud.common.monitoring }}**.
       
-        На открывшейся странице будут отображены графики работы кластера Greenplum®.
+        На открывшейся странице будет отображен дашборд с графиками и сигналами работы кластера {{ mgp-name }}.
 
-    1. Чтобы перейти к работе с метриками, дашбордами или алертами в сервисе Yandex Monitoring, нажмите кнопку **Открыть в Monium** на панели сверху.
+    1. Чтобы перейти к работе с метриками, дашбордами или алертами в сервисе {{ monitoring-full-name }}, нажмите кнопку **{{ ui-key.yacloud.monitoring.button_open-in-monitoring }}** на панели сверху.
 
-    На странице отображаются следующие графики:
+    Дашборд состоит из следующих секций:
 
-    * **Connections** — количество подключений к БД в каждом из состояний:
+    *   **Сигналы**:
+        *   **Cluster** — общий статус кластера.
+        *   **Pooler** — статус пулера соединений.
+        *   **Connections** — статус подключений.
+        *   **Resources** — статус ресурсов хостов.
+        *   **Queries** — статус выполнения тестовых запросов на чтение и запись.
 
-        * **Active** — активные;
-        * **Waiting** — ожидают;
-        * **Idle** — простаивают;
-        * **Idle in transaction** — простаивают в транзакции;
-        * **Aborted** — прерванные.
-    
-    * **Segment health** — количество сегментов с различной работоспособностью:
+    *   **Cluster**:
+        *   **Read availability** — доступность кластера на чтение за последние 5 минут.
+        *   **Write availability** — доступность кластера на запись за последние 5 минут.
+        *   **Master switch history** — история переключений роли мастера (FQDN текущего мастера).
+        *   **XID utilization** — процент использования [счетчика транзакций]({{ gp.docs.broadcom }}/6/greenplum-database/admin_guide-intro-about_mvcc.html#transaction-id-wraparound).
+        *   **Segments down** — количество сегментов в состоянии `down`.
+        *   **Segments not in preferred role** — количество сегментов, не находящихся в предпочтительной роли.
+        *   **Segments not synchronised** — количество несинхронизированных сегментов.
+        *   **Log events** — количество событий в логах типов `WARNING`, `ERROR`, `FATAL`.
 
-        * **total** — все;
-        * **not sync** — несинхронизированные;
-        * **down** — недоступные;
-        * **not prefer role** — непредпочтительные.
-    
-    * **Xid wraparound** — использование [последовательности идентификаторов транзакций](https://techdocs.broadcom.com/us/en/vmware-tanzu/data-solutions/tanzu-greenplum/7/greenplum-database/admin_guide-intro-about_mvcc.html#transaction-id-wraparound) (в процентах).
-    * **Master replication lag** — отставание репликации мастера (в байтах).
-    * **Master replication state** — работоспособность репликации мастера.
-    * **Spill files size** — суммарный размер временных файлов (в байтах).
-    * **Spill files count** — количество временных файлов.
-    * **Group resource memory** — использование оперативной памяти (в байтах) по группам процессов:
+    *   **Pooler**:
+        *   **Availability** — доступность пулера за последние 5 минут.
+        *   **CPU usage** — утилизация CPU процессом пулера.
+        *   **Memory usage** — потребление памяти процессом пулера.
+        *   **Network usage** — объем отправленных и полученных данных.
+        *   **Server connections** — количество активных и свободных серверных соединений.
+        *   **Client connections** — количество активных клиентских соединений.
+        *   **Query timings** — распределение длительности запросов по перцентилям.
 
-        * **admin_group** — в административной группе;
-        * **default_group** — в группе по умолчанию.
+    *   **Connections**:
+        *   **Total master connections utilization** — общая утилизация подключений к мастеру.
+        *   **Idle in transaction master connections utilization** — утилизация подключений, простаивающих в транзакции.
+        *   **Master connections** — детализация подключений к мастеру по состояниям: `active`, `idle`, `idle in transaction`, `waiting`, `aborted`, суммарное число по всем состояниям `total` и ограничение `max`.
+        *   **Total segments connections utilization** — утилизация подключений по сегментам.
 
-    * **Group resource cpu** — загрузка процессорных ядер по группам процессов:
+    *   **Resources**:
+        * Секция разделена на подгруппы **Master hosts** и **Segment hosts**.
+        *   **Load Average** — средняя нагрузка за 15 минут.
+        *   **CPU utilization** — утилизация процессора.
+        *   **Virtual memory consumption** — потребление виртуальной памяти.
+        *   **Physical memory consumption** — потребление физической памяти.
+        *   **Network packets** — количество отправленных и полученных пакетов в секунду.
+        *   **Network packets in queues** — количество пакетов в очередях сетевого интерфейса.
+        *   **Network traffic** — объем отправленного и полученного трафика.
+        *   **Disk space utilization** — процент занятого дискового пространства.
+        *   **Disk IO** — объем чтения и записи с диска в байтах в секунду.
+        *   **Interconnect retransmits ratio** (только для сегментов) — отношение переотправленных пакетов межсегментного взаимодействия к общему числу отправленных.
 
-        * **admin_group** — в административной группе;
-        * **default_group** — в группе по умолчанию.
-    
-    * **Master** — определение первичного хоста-мастера.
-    * **Alive hosts** — работоспособность хостов кластера.
-    * **Alive segments** — работоспособность первичного и резервного мастеров, основных и зеркальных сегментов.
-    * **Connection pooler**:
-        
-        * **Client connections** — количество свободных и занятых клиентских соединений в пуле.
-        * **Server connections** — количество свободных и занятых серверных соединений в пуле.
-        * **TCP connections** — количество TCP-соединений в пуле.
+    *   **Queries**:
+        *   **Read test query duration** — время выполнения тестового запроса на чтение.
+        *   **Write test query duration** — время выполнения тестового запроса на запись.
+        *   **Read duration from each segment** — время выполнения тестового запроса на чтение в разрезе сегментов.
+        *   **Queries sent to the cluster** — количество новых и завершенных с ошибкой запросов.
+        *   **Queries execution time distribution** — гистограмма длительности завершенных запросов.
+        *   **Running queries execution time distribution** — гистограмма распределения длительности выполнения запросов.
+        *   **Spill files count** — количество временных файлов (всего и по хостам).
+        *   **Spill files size** — размер временных файлов (всего и по хостам).
 
-    * **Background activities**:
-    
-        * Обслуживание таблиц:
+    *   **Resource groups**:
+        * Графики в данной секции отображают информацию в разрезе по группам процессов:
+            * **admin_group** — в административной группе;
+            * **default_group** — в группе по умолчанию.
+        *   **Connections utilization by resource group** — утилизация подключений.
+        *   **CPU usage by resource group** — потребление CPU.
+        *   **Memory utilization by resource group** — процент утилизации памяти:
+        *   **Memory usage by resource group** — абсолютное значение использованной и доступной памяти.
+        *   **Running transactions by resource group** — количество выполняемых транзакций.
+        *   **Executed transactions by resource group** — частота транзакций.
+        *   **Queueing transactions by resource group** — количество транзакций в очереди.
 
-          * **Tables vacuum age** — количество пользовательских таблиц, [очистка](../concepts/maintenance.md#custom-table-vacuum) которых выполнялась N дней назад.
-          * **Tables analyze age** — количество пользовательских таблиц, [сбор статистики](../concepts/maintenance.md#get-statistics) для которых выполнялся N дней назад.
-          * **Expansion progress** — ход [процесса перераспределения данных](../concepts/expand.md#redistribution) при расширении кластера:
-
-            * **Tables** — процент обработанных таблиц.
-            * **Bytes** — процент перераспределенных байт данных.
-
-            {% note info %}
-
-            Этот график показывает ход процесса, даже если перераспределение данных было запущено не в виде [фонового процесса](../concepts/expand.md#setting-delay-redistribution).
-
-            {% endnote %}
-        
-        * Статистика bloat системного каталога:
-
-          * **Total catalog size** — размер каталога по всем сегментам.
-          * **Number of dead tuples for segments** — количество `dead_tuple` в таблице `pg_attribute` по всем сегментам.
-          * **Interval from the last vacuum time for segments** — время с последнего vacuum таблицы `pg_attribute` среди всех сегментов.
-
-          На графиках показаны не все [метрики bloat](../metrics.md#managed-greenplum-bloat-metrics). Графики для остальных метрик вы можете построить самостоятельно.
-          
-          > Например, чтобы получить количество `live_tuple` в каталоге на мастере, [выполните запрос](../../monitoring/operations/metric/metric-explorer.md#add-graph):
-          >
-          > `alias(series_max("gp_vacuum.pg_attribute_live_tuples_master"{folderId = "b1g4unjqq856********", service = "managed-greenplum", resource_id = "c9q35r4odgeb********"}), "not_var{{ database }}")`
-          
-          Список доступных метрик см. в разделе [Метрики bloat](../metrics.md#managed-greenplum-bloat-metrics).
-
-    * **Test Queries Execution Time**:
-        
-        * **Read from cluster** — скорость чтения данных.
-        * **Write to cluster** — скорость записи данных.
-        * **Read from each segment** — скорость чтения для каждого сегмента кластера.
-    
-    * **Hybrid Storage**:
-        
-        * **Objects count** — количество объектов в базе данных.
-        * **Total objects size, bytes** — суммарный размер объектов в базе данных (в байтах).
+    *   **Background activities**:
+        *   **Vacuum: catalog**:
+            *   **Catalog size** — размер системного каталога в разрезе по базам данных.
+            *   **Catalog percent of dead tuples** — процент «мертвых» кортежей в каталоге в разрезе по базам данных.
+        *   **Vacuum: pg_attribute**:
+            *   **pg_attribute size** — размер таблицы `pg_attribute` в разрезе по базам данных.
+            *   **pg_attribute percent of dead tuples** — процент «мертвых» кортежей в таблице `pg_attribute` в разрезе по базам данных.
+        *   **Vacuum/analyze: user tables**:
+            *   **Tables vacuum age** — распределение таблиц по числу дней с момента последнего выполнения [очистки](../concepts/maintenance.md#custom-table-vacuum) (`VACUUM`).
+            *   **Tables analyze age** — распределение таблиц по числу дней с момента последнего [сбора статистики](../concepts/maintenance.md#get-statistics) (`ANALYZE`).
+    *   **Hybrid storage**:
+        *   **CPU usage per host** — потребление CPU компонентом `yproxy` в разрезе по хостам кластера.
+        *   **Memory usage per host** — потребление памяти компонентом `yproxy` в разрезе по хостам кластера.
+        *   **Storage requests** — количество запросов к хранилищу (всего, успешных, с ошибками).
+        *   **Storage objects count** — общее количество объектов в хранилище.
+        *   **Storage objects size** — суммарный размер объектов в хранилище.
 
 {% endlist %}
 
-## Мониторинг состояния хостов {#monitoring-hosts}
+## Дашборд {{ ui-key.yacloud.mdb.cluster.switch_hosts }} {#monitoring-hosts}
 
-Для просмотра детальной информации о состоянии отдельных хостов Greenplum®:
+Для просмотра детальной информации о состоянии отдельных хостов {{ mgp-name }} используется дашборд **Хосты**. В верхней части дашборда расположены сигналы состояния ресурсов (CPU, Memory, Disk), ниже — детальные графики по категориям.
 
 {% list tabs group=instructions %}
 
 - Консоль управления {#console}
 
-    1. Перейдите [на страницу каталога](https://console.yandex.cloud).
-    1. [Перейдите](../../console/operations/select-service.md#select-service) в сервис **Yandex MPP Analytics for&nbsp;PostgreSQL**.
-    1. Нажмите на имя нужного кластера и выберите вкладку ![monitoring.svg](../../_assets/console-icons/display-pulse.svg) **Мониторинг** → **Хосты**.
+    1. Перейдите [на страницу каталога]({{ link-console-main }}).
+    1. Перейдите в сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-greenplum }}**.
+    1. Нажмите на имя нужного кластера и выберите вкладку ![monitoring.svg](../../_assets/console-icons/display-pulse.svg) **{{ ui-key.yacloud.common.monitoring }}** → **{{ ui-key.yacloud.mdb.cluster.switch_hosts }}**.
     1. Выберите нужный хост.
 
         На открывшейся странице будут отображены графики состояния конкретного хоста кластера.
 
-    1. Чтобы перейти к работе с метриками, дашбордами или алертами в сервисе Yandex Monitoring, нажмите кнопку **Открыть в Monium** на панели сверху.
+    1. Чтобы перейти к работе с метриками, дашбордами или алертами в сервисе {{ monitoring-full-name }}, нажмите кнопку **{{ ui-key.yacloud.monitoring.button_open-in-monitoring }}** на панели сверху.
 
-    На странице отображаются следующие графики:
-    
-    * **Disk usage** — объем занятого дискового пространства (в байтах).
-    * **Load Average** — средняя нагрузка процессорных ядер за 1 минуту, 5 минут и 15 минут.
-    * **CPU** — загрузка процессорных ядер. При повышении нагрузки значение `Idle` уменьшается.
-    * **Virtual memory usage** — использование вирутуальной памяти (в байтах).
-    * **Disk Await** — среднее время дисковых операций.
-    * **Memory usage** — использование оперативной памяти (в байтах). При высоких нагрузках значение параметра `Free` уменьшается, а значения остальных — растут.
-    * **Disk IOPS** — количество дисковых операций в секунду.
-    * **Network Bytes** — скорость обмена данными по сети.
-    * **Disk IOPS in progress** — количество незавершенных дисковых операций.
-    * **Network Packets** — интенсивность обмена данными по сети.
-    * **Disk Metrics Details**:
-      * **Disk used quota** — использование квоты для дисковых операций.
-      * **Disk write throttler latency (percentiles)** — задержка записи, внесенная при превышении квоты диска, по процентилям.
-      * **Disk read throttler latency (percentiles)** — задержка чтения, внесенная при превышении квоты диска, по процентилям.
-      * **Disk read latency (percentiles)** — время чтения с диска, по процентилям.
-      * **Disk write latency (percentiles)** — время записи на диск, по процентилям.
-      * **Disk read operations** — среднее и максимальное количество операций чтения в секунду.
-      * **Disk write operations** — среднее и максимальное количество операций записи в секунду.
-      * **Disk read bytes** — средняя и максимальная скорость чтения с диска.
-      * **Disk write bytes** — средняя и максимальная скорость записи на диск.
+    Дашборд состоит из следующих секций:
 
-{% endlist %}
+    *   **Сигналы**:
+        *   **CPU** — нагрузка на процессор.
+        *   **Memory** — использование и доступность виртуальной памяти.
+        *   **Disk** — заполненность диска данных.
+    *   **CPU**:
+        *   **Load average 15 min** — средняя нагрузка на процессор за 15 минут.
+        *   **Load average 5 min** — средняя нагрузка на процессор за 5 минут.
+        *   **Load average 1 min** — средняя нагрузка на процессор за 1 минуту.
+        *   **CPU utilization** — процент загрузки процессорных ядер.
+        *   **CPU pressure time** — время в микросекундах, в течение которого процессы ожидали доступа к процессору.
+        *   **CPU** — распределение времени процессора по различным состояниям (`user`, `system`, `idle`, `iowait` и другие).
+        *   **Process statuses** — количество процессов в различных состояниях: `running`, `idle`, `interruptible sleep`, `uninterruptible sleep`, `zombie`.
+    *   **Memory**:
+        *   **Virtual memory utilization** — процент использования виртуальной памяти.
+        *   **Virtual memory usage** — объем использованной виртуальной памяти в байтах.
+        *   **Out of memory count** — количество событий нехватки памяти.
+        *   **Memory utilization** — процент использования физической оперативной памяти.
+        *   **Memory usage** — объем использованной физической памяти в байтах.
+        *   **Memory pressure time** — время, в течение которого процессы ожидали доступа к памяти.
 
-## Мониторинг состояния сети {#monitoring-network}
+    *   **Disk**:
+        *   **Disk usage percent** — процент занятого места на диске данных.
+        *   **Disk usage** — объем занятых данных на диске в байтах.
+        *   **Disk read/write operations** — количество операций чтения и записи в секунду.
+        *   **Disk read/write bytes** — объем данных в байтах, прочитанных и записанных за секунду.
+        *   **Disk read and write time** — среднее время выполнения операций чтения и записи.
+    *   **Disk Metrics Details**:
+        *   **Disk read latency (percentiles)** — распределение времени операций чтения с диска по процентилям.
+        *   **Disk write latency (percentiles)** — распределение времени операций записи на диск по процентилям.
+        *   **Disk read throttler latency (percentiles)** — распределение задержек операций чтения с диска, вносимых механизмом ограничения при превышении квоты, по процентилям.
+        *   **Disk write throttler latency (percentiles)** — распределение задержек операций записи на диск, вносимых механизмом ограничения при превышении квоты, по процентилям.
+        *   **Disk read operations** — среднее и максимальное количество операций чтения с диска в секунду.
+        *   **Disk write operations** — среднее и максимальное количество операций записи на диск в секунду.
+        *   **Disk used quota** — процент использования квоты на дисковые операции.
+        *   **Disk read bytes** — среднее и максимальное количество прочитанных байт с диска.
+        *   **Disk write bytes** — среднее и максимальное количество записанных байт на диск.
 
-Для просмотра детальной информации о состоянии сети каждого хоста кластера Greenplum®:
-
-{% list tabs group=instructions %}
-
-- Консоль управления {#console}
-
-    1. Перейдите [на страницу каталога](https://console.yandex.cloud).
-    1. [Перейдите](../../console/operations/select-service.md#select-service) в сервис **Yandex MPP Analytics for&nbsp;PostgreSQL**.
-    1. Нажмите на имя нужного кластера и выберите вкладку ![monitoring.svg](../../_assets/console-icons/display-pulse.svg) **Мониторинг** → **Сеть**.
-
-        На открывшейся странице будут отображены графики состояния сети каждого хоста кластера.
-
-        {% note info %}
-        
-        Вы можете выбрать хост, чтобы посмотреть графики состояния сети только одного хоста.
-
-        {% endnote %}
-
-    1. Чтобы перейти к работе с метриками, дашбордами или алертами в сервисе Yandex Monitoring, нажмите кнопку **Открыть в Monium** на панели сверху.
-
-    На странице отображаются следующие графики:
-
-    * **Interfaces**:
-        * **Сlient Interface Packets** — число полученных и отправленных пакетов на клиентском сетевом интерфейсе.
-        * **Service Interface Packets** — число полученных и отправленных пакетов на сервисном сетевом интерфейсе.
-        * **Сlient Interface Bytes** — объем полученных и отправленных данных на клиентском сетевом интерфейсе (в байтах).
-        * **Service Interface Bytes** — объем полученных и отправленных данных на сервисном сетевом интерфейсе (в байтах).
-        * **Client Interface Drops and Errors** — число ошибок и отброшенных пакетов при отправке и передаче на клиентском сетевом интерфейсе.
-        * **Service Interface Drops and Errors** — число ошибок и отброшенных пакетов при отправке и передаче на сервисном сетевом интерфейсе.
-
-    * **CPU**:
-        * **Cpu Usage** — использование процессорных ядер (в процентах).
-
-    * **Ping and SSH response time**:
-        * **Host Ping Average Response** — среднее время ответа пинга (в миллисекундах).
-        * **Host SSH Response Time** — время ответа при подключении через SSH (в миллисекундах).
-        * **Host Ping Packet Loss** — потерянные пакеты пинга (в процентах).
-        
-    * **TCP counters**:
-        * **TcpActiveConnection** — число активных TCP-соединений в состоянии `ESTABLISHED` или `CLOSE-WAIT`.
-        * **TcpEstabResets** — число раз, когда TCP-соединения совершали прямой переход в состояние `CLOSED` либо из состояния `ESTABLISHED`, либо из состояния `CLOSE-WAIT`.
-        * **TCP Errors** — число ошибок при передаче TCP-пакетов.
-        * **TCP Retransmission** — число TCP-пакетов, переданных повторно.
-
-    * **ICMP Counters**:
-        * **IcmpErrors** — число ICMP-сообщений об ошибках.
-        * **IcmpDestUnreached** — число ICMP- и ICMPv6-сообщений о недоступности назначения.
-        * **Icmp6PacketsTooBig** — число ICMPv6-сообщений о слишком больших пакетах.
-
-    * **UDP counters**:
-        * **UdpSndbufErrors** — число ошибок буфера при отправке UDP-пакетов.
-        * **UdpRcvbufErrors** — число ошибок буфера при приеме UDP-пакетов.
-        * **UDP Datagrams** — число UDP-пакетов.
-        * **UDP NoPorts** — число принятых UDP-пакетов, для которых на порте назначения не было слушателя.
-
-    * **IP**:
-        * **IpMulticastPackets** — число полученных и отправленных многоадресных пакетов.
-        * **IpBroadcastPackets** — число полученных и отправленных широковещательных пакетов.
-        * **Ip6 Neighbor Discovery** — число отправленных запросов и объявлений маршрутизаторов.
-        * **Ip6NoRoutes** — число IPv6-пакетов, сброшенных из-за отсутствия маршрута.
+    *   **Network**:
+        *   **Client network reliability** — индикатор надежности сетевого интерфейса.
+        *   **Client network packets sent** — количество отправленных пакетов в секунду на интерфейсе.
+        *   **Client network packets received** — количество полученных пакетов в секунду на интерфейсе.
+        *   **Client network errors** — количество ошибок при отправке и получении пакетов.
+        *   **Client network drops** — количество отброшенных пакетов.
+        *   **Client network interface errors/drops** — детализация ошибок и потерь по интерфейсу.
+        *   **Client network bytes** — объем трафика (байт в секунду) на интерфейсе.
 
 {% endlist %}
 
@@ -228,13 +211,13 @@
 
 - Консоль управления {#console}
 
-    1. Перейдите [на страницу каталога](https://console.yandex.cloud).
-    1. [Перейдите](../../console/operations/select-service.md#select-service) в сервис **Yandex MPP Analytics for&nbsp;PostgreSQL**.
-    1. Нажмите на имя нужного кластера и выберите вкладку ![monitoring.svg](../../_assets/console-icons/display-pulse.svg) **Мониторинг** → **PXF**.
+    1. Перейдите [на страницу каталога]({{ link-console-main }}).
+    1. Перейдите в сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-greenplum }}**.
+    1. Нажмите на имя нужного кластера и выберите вкладку ![monitoring.svg](../../_assets/console-icons/display-pulse.svg) **{{ ui-key.yacloud.common.monitoring }}** → **{{ ui-key.yacloud.greenplum.cluster.pxf.value_pxf }}**.
 
         На открывшейся странице будут отображены графики состояния PXF.
 
-    1. Чтобы перейти к работе с метриками, дашбордами или алертами в сервисе Yandex Monitoring, нажмите кнопку **Открыть в Monium** на панели сверху.
+    1. Чтобы перейти к работе с метриками, дашбордами или алертами в сервисе {{ monitoring-full-name }}, нажмите кнопку **{{ ui-key.yacloud.monitoring.button_open-in-monitoring }}** на панели сверху.
 
     На странице отображаются следующие графики:
 
@@ -254,76 +237,21 @@
 {% endlist %}
 
 
-## Мониторинг через дашборд {#monitoring-dashboard}
-
-Для просмотра дашборда кластера Greenplum®:
-
-{% list tabs group=instructions %}
-
-- Консоль управления {#console}
-
-    1. Перейдите [на страницу каталога](https://console.yandex.cloud).
-    1. [Перейдите](../../console/operations/select-service.md#select-service) в сервис **Yandex MPP Analytics for&nbsp;PostgreSQL**.
-    1. Нажмите на имя нужного кластера и выберите вкладку ![monitoring.svg](../../_assets/console-icons/display-pulse.svg) **Мониторинг** → **Дашборд**.
-
-        На открывшейся странице будут отображены графики дашборда кластера.
-
-    1. Чтобы перейти к работе с метриками, дашбордами или алертами в сервисе Yandex Monitoring, нажмите кнопку **Открыть в Monium** на панели сверху.
-
-    На странице отображаются следующие графики:
-
-    * **Running queries**:
-        * **Test write query** — время выполнения тестовой записи с использованием политики `DISTRIBUTED REPLICATED`.
-        * **Test read query** — время выполнения тестового запроса на чтение со случайного сегмента.
-        * **Overall cluster's query execution time** — гистограмма времени выполнения запросов в кластере.
-
-    * **Cluster liveliness**:
-        * **Cluster sessions** — количество сессий в состояниях:
-            * **active** — выполняют запрос;
-            * **waiting** — ожидают команды;
-            * **idle in transaction** — транзакция начата, но выполнение запроса не происходит (например, не сделали `COMMIT`).
-        * **Number of live segments** — количество запущенных экземпляров сегментов, включая зеркала.
-        * **Queries sent to the cluster**  — количество принятых и прерванных (отмененных) запросов.
-
-    * **Segments health**:
-        * **Idle CPU** — неиспользуемый ресурс CPU по хостам-сегментам. Чем меньше значение, тем выше загрузка хостов.
-        * **Reserved memory** — использование оперативной памяти (в байтах) по хостам-сегментам. Во избежание ошибок необходимо поддерживать значение в пределах лимита.
-        * **IOPS** — объем дисковых операций (в байтах) суммарно со всех хостов-сегментов.
-        * **Number of network packets** — количество полученных и отправленных пакетов на сетевых интерфейсах по хостам-сегментам. Приближение к лимиту может привести к задержке в выполнении запросов.
-        * **Number of network packets in queues** — количество пакетов в очереди на сетевых интерфейсах по хостам-сегментам. Приближение к лимиту может привести к задержке в выполнении запросов.
-        * **Network traffic** — утилизация пропускной способности входящего сетевого потока по хостам-сегментам. Приближение к лимиту может привести к задержке в выполнении запросов.
-        * **Ping time** — время выполнения пинга с хоста-мастера к хостам-сегментам кластера.
-        * **Query execution time per segment** — суммарное время, потраченное на выполнение фрагментов (slice) запросов на каждом из хостов-сегментов кластера.
-
-    * **Database internal metrics**:
-        * **Free memory for resource groups** — доступная оперативная память по [ресурсным группам](../concepts/resource-groups.md).
-        * **Summary CPU usage for resource groups** — суммарное использование CPU ресурсными группами на кластере. Может быть больше 100%, т. к. собирается со всех хостов кластера.
-        * **CPU throttle time for cgroups** — время, в течение которого процессам ресурсной группы не выделяется время CPU из-за его полной утилизации (по хостам). При возрастании показателя на порядки (с миллисекунд до минут) может привести к задержке в выполнении запросов.
-        * **Summary spill size** — суммарный размер временных (spill) файлов, образованных в результате нехватки RAM.
-        * **Interconnect quality** — процент повторных передач пакетов между сегментами (трафик [Greenplum® Interconnect](https://techdocs.broadcom.com/us/en/vmware-tanzu/data-solutions/tanzu-greenplum/7/greenplum-database/admin_guide-intro-arch_overview.html#arch_interconnect)) в общем объеме отправляемых пакетов с каждого хоста-сегмента. Чем больше показатель, тем менее стабильно работает сеть.
-        * **Background activity - the number of sessions** — количество системных сессий на каждом сегменте в состояниях:
-            * **active** — выполняют запрос;
-            * **idle** — ожидают команды;
-            * **aborted** — завершились ошибкой.
-        * **Background activity - the longest query** — время выполнения самого долгого системного запроса на каждом из сегментов.
-
-{% endlist %}
-
 ## Мониторинг ресурсных групп {#monitoring-resgroup}
 
-Для просмотра информации по ресурсным группам Greenplum®:
+Для просмотра информации по ресурсным группам {{ mgp-name }}:
 
 {% list tabs group=instructions %}
 
 - Консоль управления {#console}
 
-    1. Перейдите [на страницу каталога](https://console.yandex.cloud).
-    1. [Перейдите](../../console/operations/select-service.md#select-service) в сервис **Yandex MPP Analytics for&nbsp;PostgreSQL**.
-    1. Нажмите на имя нужного кластера и выберите вкладку ![monitoring.svg](../../_assets/console-icons/display-pulse.svg) **Мониторинг** → **Ресурсные группы**.
+    1. Перейдите [на страницу каталога]({{ link-console-main }}).
+    1. Перейдите в сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-greenplum }}**.
+    1. Нажмите на имя нужного кластера и выберите вкладку ![monitoring.svg](../../_assets/console-icons/display-pulse.svg) **{{ ui-key.yacloud.common.monitoring }}** → **Ресурсные группы**.
       
         На открывшейся странице будут отображены графики работы ресурсных групп.
 
-    1. Чтобы перейти к работе с метриками, дашбордами или алертами в сервисе Yandex Monitoring, нажмите кнопку **Открыть в Monium** на панели сверху.
+    1. Чтобы перейти к работе с метриками, дашбордами или алертами в сервисе {{ monitoring-full-name }}, нажмите кнопку **{{ ui-key.yacloud.monitoring.button_open-in-monitoring }}** на панели сверху.
 
     На странице отображаются следующие графики:
  
@@ -337,19 +265,19 @@
 {% endlist %}
 
 
-Также для просмотра доступна информация по ресурсным группам в разрезе хостов кластера Greenplum®:
+Также для просмотра доступна информация по ресурсным группам в разрезе хостов кластера {{ mgp-name }}:
 
 {% list tabs group=instructions %}
 
 - Консоль управления {#console}
 
-    1. Перейдите [на страницу каталога](https://console.yandex.cloud).
-    1. [Перейдите](../../console/operations/select-service.md#select-service) в сервис **Yandex MPP Analytics for&nbsp;PostgreSQL**.
-    1. Нажмите на имя нужного кластера и выберите вкладку ![monitoring.svg](../../_assets/console-icons/display-pulse.svg) **Мониторинг** → **Ресурсные группы по хостам**.
+    1. Перейдите [на страницу каталога]({{ link-console-main }}).
+    1. Перейдите в сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-greenplum }}**.
+    1. Нажмите на имя нужного кластера и выберите вкладку ![monitoring.svg](../../_assets/console-icons/display-pulse.svg) **{{ ui-key.yacloud.common.monitoring }}** → **Ресурсные группы по хостам**.
       
         На открывшейся странице будут отображены графики работы ресурсных групп по хостам.
 
-    1. Чтобы перейти к работе с метриками, дашбордами или алертами в сервисе Yandex Monitoring, нажмите кнопку **Открыть в Monium** на панели сверху.
+    1. Чтобы перейти к работе с метриками, дашбордами или алертами в сервисе {{ monitoring-full-name }}, нажмите кнопку **{{ ui-key.yacloud.monitoring.button_open-in-monitoring }}** на панели сверху.
 
     На странице отображаются следующие графики:
  
@@ -358,7 +286,7 @@
 
 {% endlist %}
 
-## Интеграция с Yandex Monitoring {#monitoring-integration}
+## Интеграция с {{ monitoring-full-name }} {#monitoring-integration}
 
 Чтобы настроить алерты показателей состояния [кластера](#monitoring-cluster) и [хостов](#monitoring-hosts):
 
@@ -366,15 +294,16 @@
 
 - Консоль управления {#console}
 
-  1. В [консоли управления](https://console.yandex.cloud) выберите каталог с кластером, для которого нужно настроить алерты.
-  1. [Перейдите](../../console/operations/select-service.md#select-service) в сервис ![image](../../_assets/console-icons/display-pulse.svg) **Monitoring**.
-  1. В блоке **Сервисные дашборды** выберите:
-      * **Yandex MPP Analytics for PostgreSQL — Cluster Overview** для настройки алертов кластера;
-      * **Yandex MPP Analytics for PostgreSQL — Host Overview** для настройки алертов хостов.
-  1. На нужном графике с показателями нажмите на значок ![options](../../_assets/console-icons/ellipsis.svg) и выберите пункт **Создать алерт**.
-  1. Если показателей на графике больше одного, выберите запрос данных для формирования метрики и нажмите **Продолжить**. Подробнее о языке запросов см. в [документации Yandex Monitoring](../../monitoring/concepts/querying.md).
-  1. Задайте значения порогов `Alarm` и `Warning` для оповещения.
-  1. Нажмите кнопку **Создать алерт**.
+  1. В [консоли управления]({{ link-console-main }}) выберите каталог с кластером, для которого нужно настроить алерты.
+  1. Перейдите в сервис ![image](../../_assets/console-icons/display-pulse.svg) **{{ ui-key.yacloud.iam.folder.dashboard.label_monitoring }}**.
+  1. В блоке **{{ ui-key.yacloud_monitoring.dashboard.tab.service-dashboards }}** выберите:
+      * **{{ mgp-name }} — Cluster Overview** для настройки алертов кластера;
+      * **{{ mgp-name }} — Host Overview** для настройки алертов хостов.
+  1. На нужном графике с показателями нажмите на значок ![options](../../_assets/console-icons/ellipsis.svg) и выберите пункт **{{ ui-key.yacloud_monitoring.alert.button_create-alert }}**.
+  1. Если показателей на графике больше одного, выберите запрос данных для формирования метрики и нажмите **{{ ui-key.yacloud_monitoring.dialog.confirm.button_continue }}**. Подробнее о языке запросов см. в [документации {{ monitoring-full-name }}](../../monitoring/concepts/querying.md).
+  1. Задайте значения порогов `{{ ui-key.yacloud_monitoring.alert.status_alarm }}` и `{{ ui-key.yacloud_monitoring.alert.status_warn }}` для оповещения.
+  1. Нажмите кнопку **{{ ui-key.yacloud_monitoring.alert.button_create-alert }}**.
+  1. Для сигналов рекомендуется устанавливать алерты на переход в статус `Crit` (значение `0`) или `Warn` (значение `1`).
 
 {% endlist %}
 
@@ -390,27 +319,27 @@
 
 {% endlist %}
 
-Полный список поддерживаемых метрик см. в [документации Monitoring](../../monitoring/metrics-ref/managed-greenplum-ref.md).
+Полный список поддерживаемых метрик см. в [документации {{ monitoring-name }}](../../monitoring/metrics-ref/managed-greenplum-ref.md).
 
 
 ## Состояние и статус кластера {#cluster-health-and-status}
 
-**Состояние** кластера указывает на исправность его хостов, а **Статус** показывает, запущен кластер, остановлен или находится в промежуточном состоянии.
+**{{ ui-key.yacloud.mdb.cluster.overview.label_health }}** кластера указывает на исправность его хостов, а **{{ ui-key.yacloud.mdb.cluster.overview.label_status }}** показывает, запущен кластер, остановлен или находится в промежуточном состоянии.
 
 Для просмотра состояния и статуса кластера:
 
-1. Перейдите на [страницу каталога](https://console.yandex.cloud).
-1. [Перейдите](../../console/operations/select-service.md#select-service) в сервис **Yandex MPP Analytics for&nbsp;PostgreSQL**.
-1. Наведите курсор на индикатор в столбце **Доступность** в строке нужного кластера.
+1. Перейдите на [страницу каталога]({{ link-console-main }}).
+1. Перейдите в сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-greenplum }}**.
+1. Наведите курсор на индикатор в столбце **{{ ui-key.yacloud.common.availability }}** в строке нужного кластера.
 
 ### Состояния кластера {#cluster-health}
 
 Состояние | Описание | Предлагаемые действия
 :--- | :--- | :---
 **ALIVE** | Кластер работает в штатном режиме. | Действий не требуется.
-**DEGRADED** | Кластер работает не на полную мощность: минимум один из хостов имеет состояние, отличное от `ALIVE`. | Выполните диагностику:<ul><li>Перейдите на вкладку **Хосты** и посмотрите, какие из них в нерабочем состоянии.</li><li>Перейдите на вкладку **Операции** и убедитесь, что все операции завершились.</li><li>Убедитесь, что кластер не находится в процессе технического обслуживания.</li></ul>Если причины не удалось выяснить самостоятельно, [обратитесь в службу поддержки](https://center.yandex.cloud/support).
-**DEAD** | Кластер неработоспособен:  ни один его хост не работает. | [Составьте обращение в службу поддержки](https://center.yandex.cloud/support), указав:<ul><li>Идентификатор кластера.</li><li>Идентификаторы последних операций, которые на нем выполнялись.</li><li>Время по [графикам доступности](#monitoring-cluster), когда кластер перешел в состояние `DEAD`.</li></ul>
-**UNKNOWN** | Состояние кластера неизвестно. | [Составьте обращение в службу поддержки](https://center.yandex.cloud/support), указав:<ul><li>Идентификатор кластера.</li><li>Идентификаторы последних операций, которые на нем выполнялись.</li><li>Время по [графикам доступности](#monitoring-cluster), когда кластер перешел в состояние `UNKNOWN`.</li></ul>
+**DEGRADED** | Кластер работает не на полную мощность: минимум один из хостов имеет состояние, отличное от `ALIVE`. | Выполните диагностику:<ul><li>Перейдите на вкладку **{{ ui-key.yacloud.mdb.cluster.hosts.label_title }}** и посмотрите, какие из них в нерабочем состоянии.</li><li>Перейдите на вкладку **{{ ui-key.yacloud.common.operations-key-value }}** и убедитесь, что все операции завершились.</li><li>Убедитесь, что кластер не находится в процессе технического обслуживания.</li></ul>Если причины не удалось выяснить самостоятельно, [обратитесь в службу поддержки]({{ link-console-support }}).
+**DEAD** | Кластер неработоспособен:  ни один его хост не работает. | [Составьте обращение в службу поддержки]({{ link-console-support }}), указав:<ul><li>Идентификатор кластера.</li><li>Идентификаторы последних операций, которые на нем выполнялись.</li><li>Время по [графикам доступности](#monitoring-cluster), когда кластер перешел в состояние `DEAD`.</li></ul>
+**UNKNOWN** | Состояние кластера неизвестно. | [Составьте обращение в службу поддержки]({{ link-console-support }}), указав:<ul><li>Идентификатор кластера.</li><li>Идентификаторы последних операций, которые на нем выполнялись.</li><li>Время по [графикам доступности](#monitoring-cluster), когда кластер перешел в состояние `UNKNOWN`.</li></ul>
 
 ### Статусы кластера {#cluster-status}
 
@@ -422,8 +351,8 @@
 **STOPPED** | Кластер остановлен | Запустите кластер, чтобы вернуть его в работу.
 **STARTING** | Остановленный ранее кластер запускается | Через некоторое время кластеру будет присвоен статус `RUNNING`. Подождите немного и приступайте к работе.
 **UPDATING** | Обновляется конфигурация кластера | По завершении обновления кластеру будет присвоен статус, который был до обновления: `RUNNING` или `STOPPED`.
-**ERROR** | Произошла ошибка при выполнении операции с кластером или во время окна технического обслуживания | Если кластер долго находится в этом статусе, [обратитесь в службу поддержки](https://center.yandex.cloud/support). Доступность кластера можно определить по его состоянию.
-**STATUS_UNKNOWN** | Кластер не может определить свой статус | Если кластер долго находится в этом статусе, [обратитесь в службу поддержки](https://center.yandex.cloud/support).
+**ERROR** | Произошла ошибка при выполнении операции с кластером или во время окна технического обслуживания | Если кластер долго находится в этом статусе, [обратитесь в службу поддержки]({{ link-console-support }}). Доступность кластера можно определить по его состоянию.
+**STATUS_UNKNOWN** | Кластер не может определить свой статус | Если кластер долго находится в этом статусе, [обратитесь в службу поддержки]({{ link-console-support }}).
 
 
 _Greenplum® и Greenplum Database® являются зарегистрированными товарными знаками или товарными знаками Broadcom Inc в США и/или других странах._

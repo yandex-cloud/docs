@@ -1,8 +1,8 @@
-# Резервное копирование в Yandex Object Storage с помощью rclone
+# Резервное копирование в {{ objstorage-full-name }} с помощью rclone
 
-В этом практическом руководстве вы настроите резервное копирование файлов из локальной системы в облачное хранилище [Yandex Object Storage](../index.md) с помощью [rclone](../tools/rclone.md).
+В этом практическом руководстве вы настроите резервное копирование файлов из локальной системы в облачное хранилище [{{ objstorage-full-name }}](../index.md) с помощью [rclone](../tools/rclone.md).
 
-[Rclone](https://rclone.org/) — универсальная командная утилита для работы с облачными хранилищами по протоколу S3, включая Object Storage. С ее помощью можно напрямую копировать и синхронизировать файлы между локальным компьютером и [бакетом](../concepts/bucket.md).
+[Rclone](https://rclone.org/) — универсальная командная утилита для работы с облачными хранилищами по протоколу S3, включая {{ objstorage-name }}. С ее помощью можно напрямую копировать и синхронизировать файлы между локальным компьютером и [бакетом](../concepts/bucket.md).
 
 Особенности использования rclone:
 
@@ -25,18 +25,18 @@
 
 ## Перед началом работы {#before-you-begin}
 
-Зарегистрируйтесь в Yandex Cloud и создайте [платежный аккаунт](../../billing/concepts/billing-account.md):
-1. Перейдите в [консоль управления](https://console.yandex.cloud), затем войдите в Yandex Cloud или зарегистрируйтесь.
-1. На странице **[Yandex Cloud Billing](https://center.yandex.cloud/billing/accounts)** убедитесь, что у вас подключен платежный аккаунт, и он находится в [статусе](../../billing/concepts/billing-account-statuses.md) `ACTIVE` или `TRIAL_ACTIVE`. Если платежного аккаунта нет, [создайте его](../../billing/quickstart/index.md) и [привяжите](../../billing/operations/pin-cloud.md) к нему облако.
+Зарегистрируйтесь в {{ yandex-cloud }} и создайте [платежный аккаунт](../../billing/concepts/billing-account.md):
+1. Перейдите в [консоль управления]({{ link-console-main }}), затем войдите в {{ yandex-cloud }} или зарегистрируйтесь.
+1. На странице **[{{ ui-key.yacloud_billing.billing.label_service }}]({{ link-console-billing }})** убедитесь, что у вас подключен платежный аккаунт, и он находится в [статусе](../../billing/concepts/billing-account-statuses.md) `ACTIVE` или `TRIAL_ACTIVE`. Если платежного аккаунта нет, [создайте его](../../billing/quickstart/index.md) и [привяжите](../../billing/operations/pin-cloud.md) к нему облако.
 
-Если у вас есть активный платежный аккаунт, вы можете создать или выбрать [каталог](../../resource-manager/concepts/resources-hierarchy.md#folder), в котором будет работать ваша инфраструктура, на [странице облака](https://console.yandex.cloud/cloud).
+Если у вас есть активный платежный аккаунт, вы можете создать или выбрать [каталог](../../resource-manager/concepts/resources-hierarchy.md#folder), в котором будет работать ваша инфраструктура, на [странице облака]({{ link-console-cloud }}).
 
 [Подробнее об облаках и каталогах](../../resource-manager/concepts/resources-hierarchy.md).
 
 
 ### Необходимые платные ресурсы {#paid-resources}
 
-В стоимость поддержки бакета входит плата за хранение данных в бакете и операции с ними (см. [тарифы Yandex Object Storage](../pricing.md)).
+В стоимость поддержки бакета входит плата за хранение данных в бакете и операции с ними (см. [тарифы {{ objstorage-full-name }}](../pricing.md)).
 
 
 ## Создайте бакет {#create-bucket}
@@ -53,12 +53,12 @@
 
 - Консоль управления {#console}
 
-  1. В [консоли управления](https://console.yandex.cloud) перейдите в нужный каталог.
-  1. [Перейдите](../../console/operations/select-service.md#select-service) в сервис **Object Storage**.
-  1. Нажмите **Создать бакет**.
+  1. В [консоли управления]({{ link-console-main }}) перейдите в нужный каталог.
+  1. Перейдите в сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_storage }}**.
+  1. Нажмите **{{ ui-key.yacloud.storage.buckets.button_create }}**.
   1. Укажите имя бакета в соответствии с [правилами именования](../concepts/bucket.md#naming).
-  1. В полях **Чтение объектов**, **Чтение списка объектов** и **Чтение настроек** выберите `С авторизацией`.
-  1. Нажмите **Создать бакет**.
+  1. В полях **{{ ui-key.yacloud.storage.bucket.settings.field_access-read }}**, **{{ ui-key.yacloud.storage.bucket.settings.field_access-list }}** и **{{ ui-key.yacloud.storage.bucket.settings.field_access-config-read }}** выберите `{{ ui-key.yacloud.storage.bucket.settings.access_value_private }}`.
+  1. Нажмите **{{ ui-key.yacloud.storage.buckets.create.button_create }}**.
 
 - AWS CLI {#cli}
 
@@ -66,7 +66,7 @@
   1. Создайте бакет, указав имя бакета в соответствии с [правилами именования](../concepts/bucket.md#naming):
 
       ```bash
-      aws --endpoint-url=https://storage.yandexcloud.net \
+      aws --endpoint-url=https://{{ s3-storage-host }} \
         s3 mb s3://<имя_бакета>
       ```
 
@@ -91,16 +91,16 @@
 
 - Консоль управления {#console}
 
-  1. В [консоли управления](https://console.yandex.cloud) выберите нужный каталог.
-  1. [Перейдите](../../console/operations/select-service.md#select-service) в сервис **Identity and Access Management**.
-  1. Нажмите **Создать сервисный аккаунт**.
-  1. В поле **Имя** укажите `sa-backup-to-s3`.
-  1. Нажмите ![image](../../_assets/console-icons/plus.svg) **Добавить роль** и выберите [роль](../security/index.md#storage-editor) `storage.editor`.
-  1. Нажмите **Создать**.
+  1. В [консоли управления]({{ link-console-main }}) выберите нужный каталог.
+  1. Перейдите в сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_iam }}**.
+  1. Нажмите **{{ ui-key.yacloud.iam.folder.service-accounts.button_add }}**.
+  1. В поле **{{ ui-key.yacloud.iam.folder.service-account.popup-robot_field_name }}** укажите `sa-backup-to-s3`.
+  1. Нажмите ![image](../../_assets/console-icons/plus.svg) **{{ ui-key.yacloud.iam.folder.service-account.label_add-role }}** и выберите [роль](../security/index.md#storage-editor) `storage.editor`.
+  1. Нажмите **{{ ui-key.yacloud.iam.folder.service-account.popup-robot_button_add }}**.
 
 - CLI {#cli}
 
-  Если у вас еще нет интерфейса командной строки Yandex Cloud (CLI), [установите и инициализируйте его](../../cli/quickstart.md#install).
+  Если у вас еще нет интерфейса командной строки {{ yandex-cloud }} (CLI), [установите и инициализируйте его](../../cli/quickstart.md#install).
 
   По умолчанию используется каталог, указанный при [создании](../../cli/operations/profile/profile-create.md) профиля CLI. Чтобы изменить каталог по умолчанию, используйте команду `yc config set folder-id <идентификатор_каталога>`. Также для любой команды вы можете указать другой каталог с помощью параметров `--folder-name` или `--folder-id`. Если вы обращаетесь к ресурсу по имени, поиск будет выполнен в каталоге по умолчанию. Если вы обращаетесь к ресурсу по идентификатору, поиск будет выполнен глобально — во всех каталогах с учетом прав доступа.
 
@@ -156,7 +156,7 @@
 * `kms.keys.decrypter` — для чтения ключа, [расшифровки](../../kms/security/index.md#kms-keys-decrypter) и скачивания объектов;
 * `kms.keys.encrypterDecrypter` — включает [разрешения](../../kms/security/index.md#kms-keys-encrypterDecrypter), предоставляемые ролями `kms.keys.encrypter` и `kms.keys.decrypter`.
 
-Подробнее см. [Сервисные роли Key Management Service](../../kms/security/index.md#service-roles).
+Подробнее см. [Сервисные роли {{ kms-name }}](../../kms/security/index.md#service-roles).
 
 {% endnote %}
 
@@ -167,12 +167,12 @@
 
 - Консоль управления {#console}
 
-  1. В [консоли управления](https://console.yandex.cloud) выберите нужный каталог.
-  1. [Перейдите](../../console/operations/select-service.md#select-service) в сервис **Identity and Access Management**.
-  1. На панели слева выберите ![FaceRobot](../../_assets/console-icons/face-robot.svg) **Сервисные аккаунты**.
+  1. В [консоли управления]({{ link-console-main }}) выберите нужный каталог.
+  1. Перейдите в сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_iam }}**.
+  1. На панели слева выберите ![FaceRobot](../../_assets/console-icons/face-robot.svg) **{{ ui-key.yacloud.iam.label_service-accounts }}**.
   1. Выберите сервисный аккаунт `sa-backup-to-s3`.
-  1. На панели сверху нажмите ![image](../../_assets/console-icons/plus.svg) **Создать новый ключ** и выберите **Создать статический ключ доступа**.
-  1. Задайте описание ключа и нажмите **Создать**.
+  1. На панели сверху нажмите ![image](../../_assets/console-icons/plus.svg) **{{ ui-key.yacloud.iam.folder.service-account.overview.button_create-key-popup }}** и выберите **{{ ui-key.yacloud.iam.folder.service-account.overview.button_create_service-account-key }}**.
+  1. Задайте описание ключа и нажмите **{{ ui-key.yacloud.iam.folder.service-account.overview.popup-key_button_create }}**.
   1. Сохраните полученные идентификатор и секретный ключ — они понадобятся позднее при монтировании бакета.
 
       {% note alert %}
@@ -290,7 +290,7 @@
 {% endlist %}
 
 
-### Настройте подключение к Object Storage {#connect-rclone}
+### Настройте подключение к {{ objstorage-name }} {#connect-rclone}
 
 1. Запустите конфигурацию утилиты rclone, выполнив команду:
 
@@ -307,8 +307,8 @@
     1. Выберите ручной способ ввода учетных данных: введите в терминал значение `1`.
     1. Введите в терминале идентификатор секретного ключа, полученный ранее.
     1. Введите в терминале значение секретного ключа, полученное ранее.
-    1. Укажите регион: введите в терминал значение `ru-central1`.
-    1. Укажите эндпоинт: введите в терминал значение `storage.yandexcloud.net`.
+    1. Укажите регион: введите в терминал значение `{{ region-id }}`.
+    1. Укажите эндпоинт: введите в терминал значение `{{ s3-storage-host }}`.
     1. Остальные настройки можно оставить по умолчанию — нажмите **Enter**, чтобы их пропустить, и на последнем пункте выберите `q` (`Quit config`).
 
     {% note info %}

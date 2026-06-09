@@ -5,7 +5,7 @@ Get specific Compute Cloud instance.
 ## HTTP request
 
 ```
-GET https://backup.api.cloud.yandex.net/backup/v1/resources/{computeInstanceId}
+GET https://backup.{{ api-host }}/backup/v1/resources/{computeInstanceId}
 ```
 
 ## Path parameters

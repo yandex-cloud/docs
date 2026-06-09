@@ -3,7 +3,7 @@
 ## HTTP request
 
 ```
-GET https://data.certificate-manager.api.cloud.yandex.net/certificate-manager/v1/certificates:getEx
+GET https://{{ api-host-certmanager-certcontent }}/certificate-manager/v1/certificates:getEx
 ```
 
 ## Query parameters {#yandex.cloud.certificatemanager.v1.GetExCertificateContentRequest}

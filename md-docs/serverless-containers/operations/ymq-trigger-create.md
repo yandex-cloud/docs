@@ -1,6 +1,6 @@
-# Создать триггер для Message Queue, который передает сообщения в контейнер Serverless Containers
+# Создать триггер для {{ message-queue-name }}, который передает сообщения в контейнер {{ serverless-containers-name }}
 
-Создайте [триггер для очереди сообщений](../concepts/trigger/ymq-trigger.md) сервиса Message Queue и обрабатывайте их с помощью [контейнера](../concepts/container.md) Serverless Containers.
+Создайте [триггер для очереди сообщений](../concepts/trigger/ymq-trigger.md) сервиса {{ message-queue-short-name }} и обрабатывайте их с помощью [контейнера](../concepts/container.md) {{ serverless-containers-name }}.
 
 {% note warning %}
 
@@ -40,36 +40,36 @@
 
 - Консоль управления {#console}
 
-    1. В [консоли управления](https://console.yandex.cloud) перейдите в каталог, в котором хотите создать триггер.
+    1. В [консоли управления]({{ link-console-main }}) перейдите в каталог, в котором хотите создать триггер.
 
-    1. [Перейдите](../../console/operations/select-service.md#select-service) в сервис **Serverless Containers**.
+    1. Перейдите в сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_serverless-containers }}**.
 
-    1. На панели слева выберите ![image](../../_assets/console-icons/gear-play.svg) **Триггеры**.
+    1. На панели слева выберите ![image](../../_assets/console-icons/gear-play.svg) **{{ ui-key.yacloud.serverless-functions.switch_list-triggers }}**.
 
-    1. Нажмите кнопку **Создать триггер**.
+    1. Нажмите кнопку **{{ ui-key.yacloud.serverless-functions.triggers.list.button_create }}**.
 
-    1. В блоке **Базовые параметры**:
+    1. В блоке **{{ ui-key.yacloud.serverless-functions.triggers.form.section_base }}**:
 
         * Введите имя и описание триггера.
-        * В поле **Тип** выберите `Message Queue`.
-        * В поле **Запускаемый ресурс** выберите `Контейнер`.
+        * В поле **{{ ui-key.yacloud.serverless-functions.triggers.form.field_type }}** выберите `{{ ui-key.yacloud.serverless-functions.triggers.form.label_ymq }}`.
+        * В поле **{{ ui-key.yacloud.serverless-functions.triggers.form.field_invoke }}** выберите `{{ ui-key.yacloud.serverless-functions.triggers.form.label_container }}`.
 
-    1. В блоке **Настройки сообщений Message Queue** выберите очередь сообщений и сервисный аккаунт с правами на чтение из нее.
+    1. В блоке **{{ ui-key.yacloud.serverless-functions.triggers.form.section_ymq }}** выберите очередь сообщений и сервисный аккаунт с правами на чтение из нее.
 
-    1. В блоке **Настройки группирования сообщений** укажите:
+    1. В блоке **{{ ui-key.yacloud.serverless-functions.triggers.form.section_batch-settings }}** укажите:
 
-        * **Время ожидания, с**. Допустимые значения от 0 до 20 секунд, значение по умолчанию — 10 секунд.
-        * **Размер группы**. Допустимые значения от 1 до 1000, значение по умолчанию — 1.
+        * **{{ ui-key.yacloud.serverless-functions.triggers.form.field_ymq-cutoff }}**. Допустимые значения от 0 до 20 секунд, значение по умолчанию — 10 секунд.
+        * **{{ ui-key.yacloud.serverless-functions.triggers.form.field_size }}**. Допустимые значения от 1 до 1000, значение по умолчанию — 1.
 
         Триггер группирует сообщения не дольше указанного времени ожидания и отправляет их в контейнер. Число сообщений при этом не превышает указанный размер группы.
 
-    1. В блоке **Настройки контейнера** выберите его и [сервисный аккаунт](../../iam/concepts/users/service-accounts.md), от имени которого он будет вызываться.
+    1. В блоке **{{ ui-key.yacloud.serverless-functions.triggers.form.section_container }}** выберите его и [сервисный аккаунт](../../iam/concepts/users/service-accounts.md), от имени которого он будет вызываться.
 
-    1. Нажмите кнопку **Создать триггер**.
+    1. Нажмите кнопку **{{ ui-key.yacloud.serverless-functions.triggers.form.button_create-trigger }}**.
 
 - CLI {#cli}
 
-    Если у вас еще нет интерфейса командной строки Yandex Cloud (CLI), [установите и инициализируйте его](../../cli/quickstart.md#install).
+    Если у вас еще нет интерфейса командной строки {{ yandex-cloud }} (CLI), [установите и инициализируйте его](../../cli/quickstart.md#install).
 
     По умолчанию используется каталог, указанный при [создании](../../cli/operations/profile/profile-create.md) профиля CLI. Чтобы изменить каталог по умолчанию, используйте команду `yc config set folder-id <идентификатор_каталога>`. Также для любой команды вы можете указать другой каталог с помощью параметров `--folder-name` или `--folder-id`. Если вы обращаетесь к ресурсу по имени, поиск будет выполнен в каталоге по умолчанию. Если вы обращаетесь к ресурсу по идентификатору, поиск будет выполнен глобально — во всех каталогах с учетом прав доступа.
 
@@ -93,10 +93,10 @@
 
         Чтобы узнать идентификатор очереди:
         
-        1. В [консоли управления](https://console.yandex.cloud) перейдите в каталог, в котором находится очередь.
-        1. Выберите сервис **Message Queue**.
+        1. В [консоли управления]({{ link-console-main }}) перейдите в каталог, в котором находится очередь.
+        1. Выберите сервис **{{ message-queue-name }}**.
         1. Выберите очередь.
-        1. Идентификатор очереди будет в блоке **Общая информация**, в поле **ARN**.
+        1. Идентификатор очереди будет в блоке **{{ ui-key.yacloud.ymq.queue.overview.section_base }}**, в поле **{{ ui-key.yacloud.ymq.queue.overview.label_queue-arn }}**.
 
     * `--invoke-container-id` — идентификатор контейнера.
     * `--queue-service-account-id` — идентификатор сервисного аккаунта с правами на чтение из очереди сообщений.
@@ -113,7 +113,7 @@
     name: ymq-trigger
     rule:
       message_queue:
-        queue_id: yrn:yc:ymq:ru-central1:b1gmit33ngh2********:my-mq
+        queue_id: yrn:yc:ymq:{{ region-id }}:b1gmit33ngh2********:my-mq
         service_account_id: bfbqqeo6jkh2********
         batch_settings:
           size: "1"
@@ -124,17 +124,20 @@
     status: ACTIVE
     ```
 
-- Terraform {#tf}
+- {{ TF }} {#tf}
 
-  [Terraform](https://www.terraform.io/) позволяет быстро создать облачную инфраструктуру в Yandex Cloud и управлять ею с помощью файлов конфигураций. В файлах конфигураций хранится описание инфраструктуры на языке HCL (HashiCorp Configuration Language). При изменении файлов конфигураций Terraform автоматически определяет, какая часть вашей конфигурации уже развернута, что следует добавить или удалить.
+  [{{ TF }}](https://www.terraform.io/) позволяет быстро создать облачную инфраструктуру в {{ yandex-cloud }} и управлять ею с помощью файлов конфигураций. В файлах конфигураций хранится описание инфраструктуры на языке HCL (HashiCorp Configuration Language). При изменении файлов конфигураций {{ TF }} автоматически определяет, какая часть вашей конфигурации уже развернута, что следует добавить или удалить.
   
-  Terraform распространяется под лицензией [Business Source License](https://github.com/hashicorp/terraform/blob/main/LICENSE), а [провайдер Yandex Cloud для Terraform](https://github.com/yandex-cloud/terraform-provider-yandex) — под лицензией [MPL-2.0](https://www.mozilla.org/en-US/MPL/2.0/).
+  {{ TF }} распространяется под лицензией [Business Source License](https://github.com/hashicorp/terraform/blob/main/LICENSE), а [провайдер {{ yandex-cloud }} для {{ TF }}](https://github.com/yandex-cloud/terraform-provider-yandex) — под лицензией [MPL-2.0](https://www.mozilla.org/en-US/MPL/2.0/).
   
-  Подробную информацию о ресурсах провайдера смотрите в документации на сайте [Terraform](https://www.terraform.io/docs/providers/yandex/index.html) или в [зеркале](../../terraform/index.md).
+  Подробную информацию о ресурсах провайдера смотрите в документации на сайте [{{ TF }}](https://www.terraform.io/docs/providers/yandex/index.html) или в [зеркале]({{ tf-docs-link }}).
 
-  Если у вас еще нет Terraform, [установите его и настройте провайдер Yandex Cloud](../../tutorials/infrastructure-management/terraform-quickstart.md#install-terraform).
+  Если у вас еще нет {{ TF }}, [установите его и настройте провайдер {{ yandex-cloud }}](../../tutorials/infrastructure-management/terraform-quickstart.md#install-terraform).
+  
+  
+  Чтобы управлять инфраструктурой с помощью {{ TF }} от имени сервисного аккаунта или пользовательских аккаунтов: аккаунта на Яндексе, федеративного аккаунта и локального пользователя, [аутентифицируйтесь](../../terraform/authentication.md) соответствующим способом.
 
-  Чтобы создать триггер для Message Queue:
+  Чтобы создать триггер для {{ message-queue-name }}:
 
   1. Опишите в конфигурационном файле параметры триггера:
 
@@ -173,17 +176,17 @@
 
              Чтобы узнать идентификатор очереди:
              
-             1. В [консоли управления](https://console.yandex.cloud) перейдите в каталог, в котором находится очередь.
-             1. Выберите сервис **Message Queue**.
+             1. В [консоли управления]({{ link-console-main }}) перейдите в каталог, в котором находится очередь.
+             1. Выберите сервис **{{ message-queue-name }}**.
              1. Выберите очередь.
-             1. Идентификатор очереди будет в блоке **Общая информация**, в поле **ARN**.
+             1. Идентификатор очереди будет в блоке **{{ ui-key.yacloud.ymq.queue.overview.section_base }}**, в поле **{{ ui-key.yacloud.ymq.queue.overview.label_queue-arn }}**.
 
          * `service_account_id` — идентификатор сервисного аккаунта с правами на чтение из очереди сообщений.
 
          * `batch_cutoff` — максимальное время ожидания. Необязательный параметр. Допустимые значения от 0 до 20 секунд, значение по умолчанию — 10 секунд. Триггер группирует сообщения не дольше `batch-cutoff` и отправляет их в контейнер. Число сообщений при этом не превышает `batch-size`.
          * `batch_size` — размер группы сообщений. Необязательный параметр. Допустимые значения от 1 до 1000, значение по умолчанию — 1.
 
-     Более подробную информацию о параметрах ресурса `yandex_function_trigger` см. в [документации провайдера](../../terraform/resources/function_trigger.md).
+     Более подробную информацию о параметрах ресурса `yandex_function_trigger` см. в [документации провайдера]({{ tf-provider-resources-link }}/function_trigger).
 
   1. Создайте ресурсы:
 
@@ -206,7 +209,7 @@
         terraform plan
         ```
      
-        В терминале будет выведен список ресурсов с параметрами. На этом этапе изменения не будут внесены. Если в конфигурации есть ошибки, Terraform на них укажет.
+        В терминале будет выведен список ресурсов с параметрами. На этом этапе изменения не будут внесены. Если в конфигурации есть ошибки, {{ TF }} на них укажет.
      1. Примените изменения конфигурации:
      
         ```bash
@@ -215,7 +218,7 @@
      
      1. Подтвердите изменения: введите в терминале слово `yes` и нажмите **Enter**.
 
-     Terraform создаст все требуемые ресурсы. Проверить появление ресурсов можно в [консоли управления](https://console.yandex.cloud) или с помощью команды [CLI](../../cli/quickstart.md):
+     {{ TF }} создаст все требуемые ресурсы. Проверить появление ресурсов можно в [консоли управления]({{ link-console-main }}) или с помощью команды [CLI](../../cli/quickstart.md):
 
      ```bash
      yc serverless trigger list
@@ -223,7 +226,7 @@
 
 - API {#api}
 
-  Чтобы создать триггер для Message Queue, воспользуйтесь методом REST API [create](../triggers/api-ref/Trigger/create.md) для ресурса [Trigger](../triggers/api-ref/Trigger/index.md) или вызовом gRPC API [TriggerService/Create](../triggers/api-ref/grpc/Trigger/create.md).
+  Чтобы создать триггер для {{ message-queue-name }}, воспользуйтесь методом REST API [create](../triggers/api-ref/Trigger/create.md) для ресурса [Trigger](../triggers/api-ref/Trigger/index.md) или вызовом gRPC API [TriggerService/Create](../triggers/api-ref/grpc/Trigger/create.md).
 
 {% endlist %}
 
@@ -231,23 +234,23 @@
 
 {% list tabs %}
 
-- Serverless Containers
+- {{ serverless-containers-name }}
 
     Проверьте, что триггер работает корректно. Для этого посмотрите [логи контейнера](../concepts/logs.md), в них отображается информация о вызовах.
 
-- Message Queue
+- {{ message-queue-name }}
 
     Проверьте, что количество сообщений в очереди уменьшается. Для этого посмотрите статистику очереди:
 
-   1. В [консоли управления](https://console.yandex.cloud) перейдите в каталог, в котором создали триггер.
-   1. [Перейдите](../../console/operations/select-service.md#select-service) в сервис **Message Queue**.
+   1. В [консоли управления]({{ link-console-main }}) перейдите в каталог, в котором создали триггер.
+   1. Перейдите в сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_ymq }}**.
    1. Выберите очередь, для которой создали триггер.
-   1. Перейдите в раздел **Мониторинг**. Посмотрите график **Сообщений в очереди**.
+   1. Перейдите в раздел **{{ ui-key.yacloud.common.monitoring }}**. Посмотрите график **{{ ui-key.yacloud.ymq.queue.overview.label_msg-count }}**.
 
 {% endlist %}
 
 
 ## См. также {#see-also}
 
-* [Создать триггер для Message Queue, который передает сообщения в функцию Cloud Functions](../../functions/operations/trigger/ymq-trigger-create.md)
-* [Создать триггер для Message Queue, который отправляет сообщения в WebSocket-соединения](../../api-gateway/operations/trigger/ymq-trigger-create.md)
+* [{#T}](../../functions/operations/trigger/ymq-trigger-create.md)
+* [{#T}](../../api-gateway/operations/trigger/ymq-trigger-create.md)

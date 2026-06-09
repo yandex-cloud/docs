@@ -1,6 +1,6 @@
 # Реализация защищенной высокодоступной сетевой инфраструктуры с выделением DMZ на основе Смарт-Софт NGFW
 
-С помощью руководства вы развернете защищенную сетевую инфраструктуру на основе [Смарт-Софт Traffic Inspector Next Generation (TING)](https://www.smart-soft.ru/). Инфраструктура состоит из сегментов, каждый из которых содержит ресурсы одного назначения, обособленные от других ресурсов. Например, [DMZ](https://ru.wikipedia.org/wiki/DMZ_(компьютерные_сети)) сегмент предназначен для размещения общедоступных приложений, а сегмент `mgmt` содержит ресурсы для управления инфраструктурой. В облаке каждому сегменту соответствует свой каталог и своя [облачная сеть](../concepts/network.md#network) VPC. Связь между сегментами происходит через виртуальную машину [Next-Generation Firewall (NGFW)](https://en.wikipedia.org/wiki/Next-generation_firewall), обеспечивающую комплексную защиту сегментов и контроль трафика между сегментами.
+С помощью руководства вы развернете защищенную сетевую инфраструктуру на основе [Смарт-Софт Traffic Inspector Next Generation (TING)](https://www.smart-soft.ru/). Инфраструктура состоит из сегментов, каждый из которых содержит ресурсы одного назначения, обособленные от других ресурсов. Например, [DMZ](https://ru.wikipedia.org/wiki/DMZ_(компьютерные_сети)) сегмент предназначен для размещения общедоступных приложений, а сегмент `mgmt` содержит ресурсы для управления инфраструктурой. В облаке каждому сегменту соответствует свой каталог и своя [облачная сеть](../concepts/network.md#network) {{ vpc-short-name }}. Связь между сегментами происходит через виртуальную машину [Next-Generation Firewall (NGFW)](https://en.wikipedia.org/wiki/Next-generation_firewall), обеспечивающую комплексную защиту сегментов и контроль трафика между сегментами.
 
 Схема решения представлена ниже.
 
@@ -30,7 +30,7 @@
 
 NGFW используется для защиты и сегментации облачной сети с выделением DMZ-зоны для размещения публичных приложений.
 
-В [Yandex Cloud Marketplace](https://yandex.cloud/ru/marketplace?categories=security) доступно несколько вариантов NGFW. В данном сценарии используется решение Смарт-Софт Traffic Inspector Next Generation (TING), предоставляющее следующие возможности:
+В [{{ marketplace-full-name }}]({{ link-cloud-marketplace }}?categories=security) доступно несколько вариантов NGFW. В данном сценарии используется решение Смарт-Софт Traffic Inspector Next Generation (TING), предоставляющее следующие возможности:
 
 * межсетевой экран следующего поколения: защищает виртуальную сеть от несанкционированного доступа извне, обеспечивает NAT, проброс портов, перехват пакетов;
 * система обнаружения и предотвращения вторжений: IDS/IPS распознает источники атак и атакуемые устройства по определенным сигнатурам сетевого трафика и эффективно «очищает» его;
@@ -43,11 +43,11 @@ NGFW используется для защиты и сегментации об
 
 ## Подготовьте облако к работе {#prepare-cloud}
 
-Зарегистрируйтесь в Yandex Cloud и создайте [платежный аккаунт](../../billing/concepts/billing-account.md):
-1. Перейдите в [консоль управления](https://console.yandex.cloud), затем войдите в Yandex Cloud или зарегистрируйтесь.
-1. На странице **[Yandex Cloud Billing](https://center.yandex.cloud/billing/accounts)** убедитесь, что у вас подключен платежный аккаунт, и он находится в [статусе](../../billing/concepts/billing-account-statuses.md) `ACTIVE` или `TRIAL_ACTIVE`. Если платежного аккаунта нет, [создайте его](../../billing/quickstart/index.md) и [привяжите](../../billing/operations/pin-cloud.md) к нему облако.
+Зарегистрируйтесь в {{ yandex-cloud }} и создайте [платежный аккаунт](../../billing/concepts/billing-account.md):
+1. Перейдите в [консоль управления]({{ link-console-main }}), затем войдите в {{ yandex-cloud }} или зарегистрируйтесь.
+1. На странице **[{{ ui-key.yacloud_billing.billing.label_service }}]({{ link-console-billing }})** убедитесь, что у вас подключен платежный аккаунт, и он находится в [статусе](../../billing/concepts/billing-account-statuses.md) `ACTIVE` или `TRIAL_ACTIVE`. Если платежного аккаунта нет, [создайте его](../../billing/quickstart/index.md) и [привяжите](../../billing/operations/pin-cloud.md) к нему облако.
 
-Если у вас есть активный платежный аккаунт, вы можете создать или выбрать [каталог](../../resource-manager/concepts/resources-hierarchy.md#folder), в котором будет работать ваша инфраструктура, на [странице облака](https://console.yandex.cloud/cloud).
+Если у вас есть активный платежный аккаунт, вы можете создать или выбрать [каталог](../../resource-manager/concepts/resources-hierarchy.md#folder), в котором будет работать ваша инфраструктура, на [странице облака]({{ link-console-cloud }}).
 
 [Подробнее об облаках и каталогах](../../resource-manager/concepts/resources-hierarchy.md).
 
@@ -55,11 +55,11 @@ NGFW используется для защиты и сегментации об
 
 В стоимость поддержки инфраструктуры входит:
 
-* плата за постоянно работающие ВМ (см. [тарифы Yandex Compute Cloud](../../compute/pricing.md));
-* плата за использование Application Load Balancer (см. [тарифы Yandex Application Load Balancer](../../application-load-balancer/pricing.md));
-* плата за использование Network Load Balancer (см. [тарифы Yandex Network Load Balancer](../../network-load-balancer/pricing.md));
-* плата за использование публичных IP-адресов и исходящий трафик (см. [тарифы Yandex Virtual Private Cloud](../pricing.md));
-* плата за использование функций (см. [тарифы Yandex Cloud Functions](../../functions/pricing.md)).
+* плата за постоянно работающие ВМ (см. [тарифы {{ compute-full-name }}](../../compute/pricing.md));
+* плата за использование {{ alb-name }} (см. [тарифы {{ alb-full-name }}](../../application-load-balancer/pricing.md));
+* плата за использование {{ network-load-balancer-name }} (см. [тарифы {{ network-load-balancer-full-name }}](../../network-load-balancer/pricing.md));
+* плата за использование публичных IP-адресов и исходящий трафик (см. [тарифы {{ vpc-full-name }}](../pricing.md));
+* плата за использование функций (см. [тарифы {{ sf-full-name }}](../../functions/pricing.md)).
 
 ### Необходимые квоты {#required-quotes}
 
@@ -91,14 +91,14 @@ NGFW используется для защиты и сегментации об
    | Публичные IP-адреса                      | 4                |
    | Статические маршруты                     | 5                |
    | Бакеты                                   | 1                |
-   | Функции Cloud Functions                    | 1                |
+   | Функции {{ sf-name }}                    | 1                |
    | Триггеры                                 | 1                |
    | Общий объем RAM всех запущенных функций  | 128 МБ           |
-   | Балансировщики Network Load Balancer | 2         |
-   | Целевые группы для Network Load Balancer | 2     |
-   | Балансировщики Application Load Balancer            | 1                |
-   | Группы бэкендов для Application Load Balancer       | 1                |
-   | Целевые группы для Application Load Balancer        | 1                |
+   | Балансировщики {{ network-load-balancer-name }} | 2         |
+   | Целевые группы для {{ network-load-balancer-name }} | 2     |
+   | Балансировщики {{ alb-name }}            | 1                |
+   | Группы бэкендов для {{ alb-name }}       | 1                |
+   | Целевые группы для {{ alb-name }}        | 1                |
 
 {% endcut %}
 
@@ -110,9 +110,9 @@ NGFW используется для защиты и сегментации об
 
 - Консоль управления {#console}
 
-   1. В [консоли управления](https://console.yandex.cloud) выберите [каталог](../../resource-manager/concepts/resources-hierarchy.md#folder), в котором хотите создать сервисный аккаунт.
-   1. [Перейдите](../../console/operations/select-service.md#select-service) в сервис **Identity and Access Management**.
-   1. Нажмите кнопку **Создать сервисный аккаунт**.
+   1. В [консоли управления]({{ link-console-main }}) выберите [каталог](../../resource-manager/concepts/resources-hierarchy.md#folder), в котором хотите создать сервисный аккаунт.
+   1. Перейдите в сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_iam }}**.
+   1. Нажмите кнопку **{{ ui-key.yacloud.iam.folder.service-accounts.button_add }}**.
    1. Введите имя сервисного аккаунта, например, `sa-terraform`.
 
        Требования к формату имени:
@@ -123,20 +123,20 @@ NGFW используется для защиты и сегментации об
 
        Имя сервисного аккаунта должно быть уникальным в рамках облака.
 
-   1. Нажмите кнопку **Создать**.
+   1. Нажмите кнопку **{{ ui-key.yacloud.iam.folder.service-account.popup-robot_button_add }}**.
 
    1. Назначьте сервисному аккаунту [роль](../../iam/concepts/access-control/roles.md) администратора:
 
-       1. На [стартовой странице](https://console.yandex.cloud) консоли управления выберите облако.
-       1. Перейдите на вкладку ![image](../../_assets/console-icons/persons-lock.svg) **Права доступа**.
-       1. Нажмите кнопку ![image](../../_assets/console-icons/person-plus.svg) **Настроить доступ**.
-       1. В открывшемся окне выберите раздел **Сервисные аккаунты** и выберите сервисный аккаунт `sa-terraform`.
-       1. Нажмите кнопку ![image](../../_assets/console-icons/plus.svg) **Добавить роль** и выберите роль `admin`.
-       1. Нажмите кнопку **Сохранить**.
+       1. На [стартовой странице]({{ link-console-main }}) консоли управления выберите облако.
+       1. Перейдите на вкладку ![image](../../_assets/console-icons/persons-lock.svg) **{{ ui-key.yacloud.common.resource-acl.label_access-bindings }}**.
+       1. Нажмите кнопку ![image](../../_assets/console-icons/person-plus.svg) **{{ ui-key.yacloud.common.resource-acl.button_configure-access }}**.
+       1. В открывшемся окне выберите раздел **{{ ui-key.yacloud_components.acl.label.service-accounts }}** и выберите сервисный аккаунт `sa-terraform`.
+       1. Нажмите кнопку ![image](../../_assets/console-icons/plus.svg) **{{ ui-key.yacloud_components.acl.button.add-role }}** и выберите роль `admin`.
+       1. Нажмите кнопку **{{ ui-key.yacloud_components.acl.action.apply }}**.
 
 - CLI {#cli}
 
-   Если у вас еще нет интерфейса командной строки Yandex Cloud (CLI), [установите и инициализируйте его](../../cli/quickstart.md#install).
+   Если у вас еще нет интерфейса командной строки {{ yandex-cloud }} (CLI), [установите и инициализируйте его](../../cli/quickstart.md#install).
 
    По умолчанию используется каталог, указанный при [создании](../../cli/operations/profile/profile-create.md) профиля CLI. Чтобы изменить каталог по умолчанию, используйте команду `yc config set folder-id <идентификатор_каталога>`. Также для любой команды вы можете указать другой каталог с помощью параметров `--folder-name` или `--folder-id`. Если вы обращаетесь к ресурсу по имени, поиск будет выполнен в каталоге по умолчанию. Если вы обращаетесь к ресурсу по идентификатору, поиск будет выполнен глобально — во всех каталогах с учетом прав доступа.
 
@@ -181,9 +181,9 @@ NGFW используется для защиты и сегментации об
 
    Чтобы назначить сервисному аккаунту роль на облако или каталог, воспользуйтесь методом REST API `updateAccessBindings` для ресурса [Cloud](../../resource-manager/api-ref/Cloud/index.md) или [Folder](../../resource-manager/api-ref/Folder/index.md):
    
-   1. Выберите роль, которую хотите назначить сервисному аккаунту. Описание ролей можно найти в документации Yandex Identity and Access Management в [справочнике ролей Yandex Cloud](../../iam/roles-reference.md).
+   1. Выберите роль, которую хотите назначить сервисному аккаунту. Описание ролей можно найти в документации {{ iam-full-name }} в [справочнике ролей {{ yandex-cloud }}](../../iam/roles-reference.md).
    1. [Узнайте](../../resource-manager/operations/folder/get-id.md) ID каталога с сервисными аккаунтами.
-   1. [Получите](../../iam/operations/iam-token/create.md) IAM-токен для аутентификации в API Yandex Cloud.
+   1. [Получите](../../iam/operations/iam-token/create.md) IAM-токен для аутентификации в API {{ yandex-cloud }}.
    1. Получите список сервисных аккаунтов в каталоге, чтобы узнать их идентификаторы:
    
        ```bash
@@ -191,7 +191,7 @@ NGFW используется для защиты и сегментации об
        export IAM_TOKEN=CggaATEVAgA...
        curl \
          --header "Authorization: Bearer ${IAM_TOKEN}" \
-         "https://iam.api.cloud.yandex.net/iam/v1/serviceAccounts?folderId=${FOLDER_ID}"
+         "https://iam.{{ api-host }}/iam/v1/serviceAccounts?folderId=${FOLDER_ID}"
        ```
    
        Результат:
@@ -211,7 +211,7 @@ NGFW используется для защиты и сегментации об
        }
        ```
    
-   1. Сформируйте тело запроса, например в файле `body.json`. В свойстве `action` укажите `ADD`, в свойстве `roleId` — нужную роль, например `editor`, а в свойстве `subject` — тип `serviceAccount` и идентификатор сервисного аккаунта:
+   1. Сформируйте тело запроса, например в файле `body.json`. В свойстве `action` укажите `ADD`, в свойстве `roleId` — нужную роль, например `{{ roles-editor }}`, а в свойстве `subject` — тип `serviceAccount` и идентификатор сервисного аккаунта:
    
        **body.json:**
        ```json
@@ -238,7 +238,7 @@ NGFW используется для защиты и сегментации об
         --header "Content-Type: application/json" \
         --header "Authorization: Bearer ${IAM_TOKEN}" \
         --data '@body.json' \
-        "https://resource-manager.api.cloud.yandex.net/resource-manager/v1/folders/${FOLDER_ID}:updateAccessBindings"
+        "https://resource-manager.{{ api-host }}/resource-manager/v1/folders/${FOLDER_ID}:updateAccessBindings"
       ```
 
 {% endlist %}
@@ -251,7 +251,7 @@ NGFW используется для защиты и сегментации об
    sudo apt install git
    ```
 
-1. Установите Terraform:
+1. Установите {{ TF }}:
 
    1. Перейдите в корневую папку:
 
@@ -266,7 +266,7 @@ NGFW используется для защиты и сегментации об
       cd terraform
       ```
 
-   1. [Выберите](../../tutorials/infrastructure-management/terraform-quickstart.md#install-terraform) версию Terraform и дистрибутив для вашей платформы. В данном руководстве используется дистрибутив Terraform версии 1.12.1 для платформы Linux. Скачайте файл:
+   1. [Выберите](../../tutorials/infrastructure-management/terraform-quickstart.md#install-terraform) версию {{ TF }} и дистрибутив для вашей платформы. В данном руководстве используется дистрибутив {{ TF }} версии 1.12.1 для платформы Linux. Скачайте файл:
 
       ```bash
       curl \
@@ -288,13 +288,13 @@ NGFW используется для защиты и сегментации об
       export PATH=$PATH:~/terraform
       ```
 
-   1. Убедитесь, что Terraform установлен, выполнив команду:
+   1. Убедитесь, что {{ TF }} установлен, выполнив команду:
    
       ```bash
       terraform -help
       ```
 
-1. Создайте конфигурационный файл с указанием источника провайдеров для Terraform:
+1. Создайте конфигурационный файл с указанием источника провайдеров для {{ TF }}:
 
    1. Создайте файл `.terraformrc` с помощью встроенного редактора `nano`:
 
@@ -317,7 +317,7 @@ NGFW используется для защиты и сегментации об
       }
       ```
 
-      Подробнее о настройках зеркал см. в [документации Terraform](https://www.terraform.io/cli/config/config-file#explicit-installation-method-configuration).
+      Подробнее о настройках зеркал см. в [документации {{ TF }}](https://www.terraform.io/cli/config/config-file#explicit-installation-method-configuration).
 
 ## Разверните ресурсы {#create-resources}
 
@@ -334,7 +334,7 @@ NGFW используется для защиты и сегментации об
 
    - CLI {#cli}
 
-      Если у вас еще нет интерфейса командной строки Yandex Cloud (CLI), [установите и инициализируйте его](../../cli/quickstart.md#install).
+      Если у вас еще нет интерфейса командной строки {{ yandex-cloud }} (CLI), [установите и инициализируйте его](../../cli/quickstart.md#install).
 
       По умолчанию используется каталог, указанный при [создании](../../cli/operations/profile/profile-create.md) профиля CLI. Чтобы изменить каталог по умолчанию, используйте команду `yc config set folder-id <идентификатор_каталога>`. Также для любой команды вы можете указать другой каталог с помощью параметров `--folder-name` или `--folder-id`. Если вы обращаетесь к ресурсу по имени, поиск будет выполнен в каталоге по умолчанию. Если вы обращаетесь к ресурсу по идентификатору, поиск будет выполнен глобально — во всех каталогах с учетом прав доступа.
 
@@ -426,8 +426,8 @@ NGFW используется для защиты и сегментации об
 
    | Название<br>параметра | Нужно<br>изменение | Описание | Тип | Пример |
    | ----------- | ----------- | ----------- | ----------- | ----------- |
-   | `cloud_id` | да | Идентификатор вашего облака в Yandex Cloud | `string` | `b1g8dn6s3v2e********` |
-   | `az_name_list` | - | Список из двух <a href="../../overview/concepts/geo-scope">зон доступности</a> Yandex Cloud для размещения ресурсов | `list(string)` | `["ru-central1-a", "ru-central1-b"]` |
+   | `cloud_id` | да | Идентификатор вашего облака в {{ yandex-cloud }} | `string` | `b1g8dn6s3v2e********` |
+   | `az_name_list` | - | Список из двух <a href="../../overview/concepts/geo-scope">зон доступности</a> {{ yandex-cloud }} для размещения ресурсов | `list(string)` | `["{{ region-id }}-a", "{{ region-id }}-b"]` |
    | `security_segment_names` | - | Список названий сегментов. Первый сегмент для размещения ресурсов управления, второй — с публичным доступом в интернет, третий — для DMZ. Если требуются дополнительные сегменты, то нужно добавлять их в конец списка. При добавлении сегмента обязательно добавьте префиксы для подсетей в списки `zone1_subnet_prefix_list` и `zone2_subnet_prefix_list`. | `list(string)` |  `["mgmt", "public", "dmz"]` |
    | `zone1_subnet_prefix_list` | - | Список сетевых префиксов в первой зоне доступности для подсетей, соответствующих списку названий сегментов `security_segment_names`. По одному префиксу для сегмента. | `list(string)` | `["192.168.1.0/24", "172.16.1.0/24", "10.160.1.0/24"]` |
    | `zone2_subnet_prefix_list` | - | Список сетевых префиксов во второй зоне доступности для подсетей, соответствующих списку названий сегментов `security_segment_names`. По одному префиксу для сегмента. | `list(string)` | `["192.168.2.0/24", "172.16.2.0/24", "10.160.2.0/24"]` |
@@ -441,15 +441,15 @@ NGFW используется для защиты и сегментации об
 
    {% endcut %}
 
-1. Разверните ресурсы в облаке с помощью Terraform:
+1. Разверните ресурсы в облаке с помощью {{ TF }}:
 
-   1. Выполните инициализацию Terraform:
+   1. Выполните инициализацию {{ TF }}:
        
       ```bash
       terraform init
       ```
 
-   1. Проверьте конфигурацию Terraform файлов:
+   1. Проверьте конфигурацию {{ TF }} файлов:
        
       ```bash
       terraform validate
@@ -685,7 +685,7 @@ NGFW используется для защиты и сегментации об
 
 ## Включите работу модуля route-switcher {#enable-route-switcher}
 
-После завершения настройки NGFW убедитесь, что проверка состояния FW-A и FW-B выдает значение `Healthy`. Для этого в [консоли управления](https://console.yandex.cloud) Yandex Cloud в каталоге `mgmt` [перейдите](../../console/operations/select-service.md#select-service) в сервис **Network Load Balancer** и перейдите на страницу сетевого балансировщика `route-switcher-lb-...`. Раскройте целевую группу и убедитесь, что состояния целевых ресурсов — `Healthy`. Если их состояние — `Unhealthy`, то необходимо проверить, что FW-A и FW-B запущены, функционируют и [настроены](#configure-gateways).
+После завершения настройки NGFW убедитесь, что проверка состояния FW-A и FW-B выдает значение `Healthy`. Для этого в [консоли управления]({{ link-console-main }}) {{ yandex-cloud }} в каталоге `mgmt` Перейдите в сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_load-balancer }}** и перейдите на страницу сетевого балансировщика `route-switcher-lb-...`. Раскройте целевую группу и убедитесь, что состояния целевых ресурсов — `Healthy`. Если их состояние — `Unhealthy`, то необходимо проверить, что FW-A и FW-B запущены, функционируют и [настроены](#configure-gateways).
 
 Когда статус FW-A и FW-B изменится на `Healthy`, в файле `route-switcher.tf` измените значение параметра `start_module` модуля `route-switcher` на `true`. Для включения работы модуля выполните команды:
 
@@ -773,13 +773,13 @@ terraform apply
    sudo passwd <имя_пользователя>
    ```
 
-1. В [консоли управления](https://console.yandex.cloud) Yandex Cloud измените параметры этой ВМ:
+1. В [консоли управления]({{ link-console-main }}) {{ yandex-cloud }} измените параметры этой ВМ:
 
-   1. [Перейдите](../../console/operations/select-service.md#select-service) в сервис **Compute Cloud**.
-   1. На панели слева выберите ![image](../../_assets/console-icons/server.svg) **Виртуальные машины**.
-   1. В строке с нужной ВМ нажмите ![ellipsis](../../_assets/console-icons/ellipsis.svg) и выберите ![pencil](../../_assets/console-icons/pencil.svg) **Редактировать**.
-   1. В открывшемся окне в блоке **Дополнительно** включите опцию **Доступ к серийной консоли**.
-   1. Нажмите кнопку **Сохранить изменения**.
+   1. Перейдите в сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_compute }}**.
+   1. На панели слева выберите ![image](../../_assets/console-icons/server.svg) **{{ ui-key.yacloud.compute.group.switch_instances }}**.
+   1. В строке с нужной ВМ нажмите ![ellipsis](../../_assets/console-icons/ellipsis.svg) и выберите ![pencil](../../_assets/console-icons/pencil.svg) **{{ ui-key.yacloud.common.edit }}**.
+   1. В открывшемся окне в блоке **{{ ui-key.yacloud.compute.instances.create.section_additional }}** включите опцию **{{ ui-key.yacloud.compute.instance.overview.field_serial-port-enable }}**.
+   1. Нажмите кнопку **{{ ui-key.yacloud.compute.instance.edit.button_update }}**.
 
 1. Подключитесь к серийной консоли ВМ, введите логин, указанный в значении переменной `vm_admin_username`, и пароль, созданный ранее.
 
@@ -789,16 +789,16 @@ terraform apply
    ping ya.ru
    ```
 
-1. В [консоли управления](https://console.yandex.cloud) Yandex Cloud в каталоге `mgmt` [остановите](../../compute/operations/vm-control/vm-stop-and-start.md#stop) ВМ `fw-a`, эмулируя отказ основного межсетевого экрана.
+1. В [консоли управления]({{ link-console-main }}) {{ yandex-cloud }} в каталоге `mgmt` [остановите](../../compute/operations/vm-control/vm-stop-and-start.md#stop) ВМ `fw-a`, эмулируя отказ основного межсетевого экрана.
 1. Наблюдайте за пропаданием пакетов, отправляемых `httping` и `ping`. После отказа FW-A может наблюдаться пропадание трафика на протяжении приблизительно одной минуты, после чего трафик должен восстановиться.
 1. Убедитесь, что в таблице маршрутизации `dmz-rt` в каталоге `dmz` для `next hop` используется адрес FW-B.
-1. В [консоли управления](https://console.yandex.cloud) Yandex Cloud [запустите](../../compute/operations/vm-control/vm-stop-and-start.md#start) ВМ `fw-a`, эмулируя восстановление основного межсетевого экрана. 
+1. В [консоли управления]({{ link-console-main }}) {{ yandex-cloud }} [запустите](../../compute/operations/vm-control/vm-stop-and-start.md#start) ВМ `fw-a`, эмулируя восстановление основного межсетевого экрана. 
 1. Наблюдайте за пропаданием пакетов, отправляемых `httping` и `ping`. После восстановления FW-A может наблюдаться пропадание трафика на протяжении приблизительно одной минуты, после чего трафик должен восстановиться.
 1. Убедитесь, что в таблице маршрутизации `dmz-rt` в каталоге `dmz` для `next hop` используется адрес FW-A.
 
 ## Требования к развертыванию в продуктивной среде {#deployment-requirements}
 
-* Сохраните закрытый SSH-ключ `pt_key.pem` в надежное место либо пересоздайте его отдельно от Terraform.
+* Сохраните закрытый SSH-ключ `pt_key.pem` в надежное место либо пересоздайте его отдельно от {{ TF }}.
 * Удалите Jump ВМ, если не планируете ей пользоваться.
 * Если планируете использовать Jump ВМ для подключения к сегменту управления с помощью VPN WireGuard, то измените ключи для WireGuard на Jump ВМ и рабочей станции администратора.
 * Настройте Смарт-Софт TING под ваши задачи в соответствии с корпоративной политикой безопасности.
@@ -814,8 +814,8 @@ terraform apply
 
    {% note warning %}
 
-   Terraform удалит все ресурсы **без возможности восстановления**: сети, подсети, виртуальные машины, балансировщики, каталоги и т. д.
+   {{ TF }} удалит все ресурсы **без возможности восстановления**: сети, подсети, виртуальные машины, балансировщики, каталоги и т. д.
 
    {% endnote %}
 
-Так как созданные ресурсы расположены в каталогах, то в качестве более быстрого способа удаления всех ресурсов можно использовать удаление всех каталогов через [консоль управления](https://console.yandex.cloud) Yandex Cloud с последующим удалением файла `terraform.tfstate` из папки `yc-dmz-with-high-available-ting-ngfw` на вашем ПК.
+Так как созданные ресурсы расположены в каталогах, то в качестве более быстрого способа удаления всех ресурсов можно использовать удаление всех каталогов через [консоль управления]({{ link-console-main }}) {{ yandex-cloud }} с последующим удалением файла `terraform.tfstate` из папки `yc-dmz-with-high-available-ting-ngfw` на вашем ПК.

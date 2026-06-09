@@ -1,10 +1,10 @@
-# Триггер для Object Storage, который вызывает функцию Cloud Functions
+# Триггер для {{ objstorage-name }}, который вызывает функцию {{ sf-name }}
 
-[Триггер](index.md) для Object Storage запускает [функцию](../function.md) Cloud Functions, когда наступает определенное событие с [объектом](../../../storage/concepts/object.md) Object Storage. Триггер должен находиться в одном облаке с бакетом, на события которого он подписан.
+[Триггер](index.md) для {{ objstorage-name }} запускает [функцию](../function.md) {{ sf-name }}, когда наступает определенное событие с [объектом](../../../storage/concepts/object.md) {{ objstorage-name }}. Триггер должен находиться в одном облаке с бакетом, на события которого он подписан.
 
-Триггеру для Object Storage необходим [сервисный аккаунт](../../../iam/concepts/users/service-accounts.md) для вызова функции.
+Триггеру для {{ objstorage-name }} необходим [сервисный аккаунт](../../../iam/concepts/users/service-accounts.md) для вызова функции.
 
-О том, как создать триггер для Object Storage, читайте в инструкции [Создать триггер для Object Storage, который вызывает функцию Cloud Functions](../../operations/trigger/os-trigger-create.md).
+О том, как создать триггер для {{ objstorage-name }}, читайте в инструкции [{#T}](../../operations/trigger/os-trigger-create.md).
 
 ## События для настройки триггера {#event}
 
@@ -25,14 +25,14 @@
 
 Настройки группирования позволяют передавать в функцию сразу несколько событий. Эти настройки задают ограничение сверху по размеру группы событий и по времени ее накопления. Например, если размер группы событий равен 3, то в функцию могут поступать группы, в которых содержится от 1 до 3 событий.
 
-## Роли, необходимые для корректной работы триггера для Object Storage {#roles}
+## Роли, необходимые для корректной работы триггера для {{ objstorage-name }} {#roles}
 
 - Для создания триггера вам необходимо разрешение на сервисный аккаунт, от имени которого триггер выполняет операцию. Это разрешение входит в роли [iam.serviceAccounts.user](../../../iam/security/index.md#iam-serviceAccounts-user), [editor](../../../iam/roles-reference.md#editor) и выше.
-- Для работы триггера сервисному аккаунту необходима роль `functions.functionInvoker` на каталог с функцией, которую вызывает триггер.
+- Для работы триггера сервисному аккаунту необходима роль `{{ roles-functions-invoker }}` на каталог с функцией, которую вызывает триггер.
 
 Подробнее об [управлении доступом](../../security/index.md).
 
-## Формат сообщения от триггера Object Storage {#format}
+## Формат сообщения от триггера {{ objstorage-name }} {#format}
 
 После того как триггер сработает, он отправит в функцию следующее сообщение: 
 
@@ -63,9 +63,9 @@
 
 ## Примеры использования {#examples}
 
-* [Автоматическое копирование объектов из одного бакета Yandex Object Storage в другой](../../tutorials/bucket-to-bucket.md)
+* [{#T}](../../tutorials/bucket-to-bucket.md)
 
 ## См. также {#see-also}
 
-* [Триггер для Object Storage, который вызывает контейнер Serverless Containers](../../../serverless-containers/concepts/trigger/os-trigger.md)
-* [Триггер для Object Storage, который отправляет сообщения в WebSocket-соединения](../../../api-gateway/concepts/trigger/os-trigger.md)
+* [{#T}](../../../serverless-containers/concepts/trigger/os-trigger.md)
+* [{#T}](../../../api-gateway/concepts/trigger/os-trigger.md)

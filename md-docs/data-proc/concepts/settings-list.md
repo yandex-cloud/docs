@@ -62,9 +62,9 @@ spark:spark.driver.cores : 1
 
 * `dataproc:spark_driver_memory_fraction` — доля памяти вычислительного хоста, резервируемая для драйвера при выполнении [заданий Spark](spark-sql.md). Значение по умолчанию — `0.25`.
 
-## Настройки JVM для приложений Spark, выставляемые в Yandex Data Processing по умолчанию {#jvm-settings-for-spark}
+## Настройки JVM для приложений Spark, выставляемые в {{ dataproc-name }} по умолчанию {#jvm-settings-for-spark}
 
-Для улучшения производительности работы JVM в общем случае на кластерах Yandex Data Processing выставляются следующие настройки по умолчанию:
+Для улучшения производительности работы JVM в общем случае на кластерах {{ dataproc-name }} выставляются следующие настройки по умолчанию:
 
 * **spark:spark.driver.extraJavaOptions**:
     * `-XX:+UseConcMarkSweepGC`
@@ -94,7 +94,7 @@ spark:spark.driver.cores : 1
 
 {% endnote %}
 
-## Настройки Spark для работы с Yandex Object Storage {#spark-settings}
+## Настройки Spark для работы с {{ objstorage-full-name }} {#spark-settings}
 
 Для Apache Spark доступны следующие настройки:
 
@@ -102,11 +102,11 @@ spark:spark.driver.cores : 1
 |:----------------------------------|:--------------------------------------------------------|:-----------------------------------------------------------------------------------|
 | `fs.s3a.access.key`               | —                                                       | Идентификатор [статического ключа](../../iam/concepts/authorization/access-key.md) |
 | `fs.s3a.secret.key`               | —                                                       | Секретный ключ                                                                     |
-| `fs.s3a.endpoint`                 | `storage.yandexcloud.net`                                 | Эндпоинт для подключения к Object Storage                                   |
+| `fs.s3a.endpoint`                 | `{{ s3-storage-host }}`                                 | Эндпоинт для подключения к {{ objstorage-name }}                                   |
 | `fs.s3a.signing-algorithm`        | Пустое значение                                         | Алгоритм подписи                                                                   |
 | `fs.s3a.aws.credentials.provider` | `org.apache.hadoop.fs.s3a.SimpleAWSCredentialsProvider` | Поставщик учетных данных                                                           |
+Подробнее в [документации Apache Hadoop](https://hadoop.apache.org/docs/current/hadoop-project-dist/hadoop-common/core-default.xml).
 
-Подробнее см. в [документации Apache Hadoop](https://hadoop.apache.org/docs/current/hadoop-project-dist/hadoop-common/core-default.xml).
 
 ## Установка пакетов Python {#python-packages-install}
 

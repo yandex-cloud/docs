@@ -1,4 +1,4 @@
-# Классы хостов Yandex Managed Service for Apache Spark™
+# Классы хостов {{ msp-full-name }}
 
 Класс хостов определяет вычислительные мощности, которые выделяются для каждого хоста в кластере.
 
@@ -6,7 +6,7 @@
 
 ## Доступные классы хостов {#available-flavors}
 
-Хосты в кластерах Yandex Managed Service for Apache Spark™ разворачиваются на базе виртуальных машин Yandex Compute Cloud.
+Хосты в кластерах {{ msp-full-name }} разворачиваются на базе виртуальных машин {{ compute-full-name }}.
 
 Типы конфигураций:
 

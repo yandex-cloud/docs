@@ -1,18 +1,18 @@
-# Создание подключения к Yandex Query
+# Создание подключения к {{ yq-full-name }}
 
 {% note info %}
 
-Для создания подключения требуется [сервисный аккаунт](../../../iam/concepts/users/service-accounts.md) с [ролью](../../../iam/operations/sa/assign-role-for-sa.md) `yq.editor` (или `editor`) на каталог, в котором создано [соединение](../../../query/concepts/glossary.md#connection) Yandex Query.
+Для создания подключения требуется [сервисный аккаунт](../../../iam/concepts/users/service-accounts.md) с [ролью](../../../iam/operations/sa/assign-role-for-sa.md) `yq.editor` (или `{{ roles-editor }}`) на каталог, в котором создано [соединение](../../../query/concepts/glossary.md#connection) {{ yq-full-name }}.
 
 {% endnote %}
 
-Чтобы создать подключение к Yandex Query:
+Чтобы создать подключение к {{ yq-full-name }}:
 
-1. Перейдите на [страницу создания нового подключения](https://datalens.ru/connections/new).
-1. В разделе **Файлы и сервисы** выберите подключение **Yandex Query**.
+1. Перейдите на [страницу создания нового подключения]({{ link-datalens-main }}/connections/new).
+1. В разделе **Файлы и сервисы** выберите подключение **{{ yq-full-name }}**.
 1. Укажите параметры подключения:
 
-   * **Облако и каталог**. Выберите каталог, в котором создано соединение Yandex Query.
+   * **Облако и каталог**. Выберите каталог, в котором создано соединение {{ yq-full-name }}.
    * **Сервисный аккаунт**. Выберите существующий [сервисный аккаунт](../../../iam/concepts/users/service-accounts.md) или создайте новый.
    * **Время жизни кеша в секундах**. Укажите время жизни кеша или оставьте значение по умолчанию.
    * **Уровень доступа SQL запросов**. Позволяет использовать произвольный SQL-запрос для [формирования датасета](../../dataset/settings.md#sql-request-in-datatset).
@@ -25,4 +25,4 @@
 
 ## Примеры использования {#examples}
 
-* [Визуализация данных из Yandex Object Storage в Yandex DataLens](../../tutorials/data-from-yandex-query-visualization.md)
+* [{#T}](../../tutorials/data-from-yandex-query-visualization.md)

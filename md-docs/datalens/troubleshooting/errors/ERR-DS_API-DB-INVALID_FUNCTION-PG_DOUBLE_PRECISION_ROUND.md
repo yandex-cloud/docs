@@ -1,10 +1,10 @@
-# [Yandex DataLens] ROUND with precision parameter is not supported for double precision data type in PostgreSQL
+# [{{ datalens-full-name }}] ROUND with precision parameter is not supported for double precision data type in {{ PG }}
 
 `ERR.DS_API.DB.INVALID_FUNCTION.PG_DOUBLE_PRECISION_ROUND`
 
-Функция [ROUND](../../function-ref/ROUND.md) с параметром `precision` не поддерживается для типа `double precision` источника данных PostgreSQL.
+Функция [ROUND](../../function-ref/ROUND.md) с параметром `precision` не поддерживается для типа `double precision` источника данных {{ PG }}.
 
-DataLens распознает типы `double precision` и `numeric` от PostgreSQL как `Дробное число`. Из этих двух типов функция ROUND с параметром `precision` поддерживает только `numeric`.  Чтобы снова привести `double precision` на уровень БД, воспользуйтесь другой функцией — [DB_CAST](../../function-ref/DB_CAST.md).
+{{ datalens-short-name }} распознает типы `double precision` и `numeric` от {{ PG }} как `Дробное число`. Из этих двух типов функция ROUND с параметром `precision` поддерживает только `numeric`.  Чтобы снова привести `double precision` на уровень БД, воспользуйтесь другой функцией — [DB_CAST](../../function-ref/DB_CAST.md).
 
 Пример:
 

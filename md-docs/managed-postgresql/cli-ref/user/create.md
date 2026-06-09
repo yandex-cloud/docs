@@ -39,6 +39,12 @@ Authentication method for the user. Values: 'auth-method-password', 'auth-method
 || `--user-password-encryption` | `string`
 
 Password-based authentication method for user. Values: 'user-password-encryption-md5', 'user-password-encryption-scram-sha-256' ||
+|| `--connection-folder-id` | `string`
+
+ID of the folder where connection for the user is created. ||
+|| `--secret-folder-id` | `string`
+
+ID of the folder where connection secret is created. ||
 || `--lock-timeout` | `int`
 
 Lock timeout in milliseconds. ||
@@ -87,9 +93,6 @@ Set the custom configuration file. ||
 Enable gRPC retries. By default, retries are enabled with maximum 5 attempts.
 Pass 0 to disable retries. Pass any negative value for infinite retries.
 Even infinite retries are capped with 2 minutes timeout. ||
-|| `--syntax` | `string`
-
-CLI syntax: 1 (legacy) or 2 (current). Omit to use default-syntax in the profile or the product default. ||
 || `--cloud-id` | `string`
 
 Set the ID of the cloud to use. ||
@@ -117,6 +120,3 @@ Set the output format: text (default), yaml, json, json-rest. ||
 Query to select values from the response using jq syntax ||
 || `-h`, `--help` | Display help for the command. ||
 |#
-#### Examples
-
- * [Создать пользователя](../../operations/cluster-users.md#cli_2)

@@ -8,6 +8,13 @@
 
 {% list tabs group=instructions %}
 
+- Консоль управления {#console}
+
+  1. В [консоли управления]({{ link-console-main }}) на панели сверху нажмите ![layout-side-content-left](../../_assets/console-icons/layout-side-content-left.svg) или ![chevron-down](../../_assets/console-icons/chevron-down.svg) и выберите нужный [каталог](../../resource-manager/concepts/resources-hierarchy.md#folder).
+  1. [Перейдите](../../console/operations/select-service.md#select-service) в сервис **{{ ui-key.yacloud.ui.constants.label_interconnect_aUMcv }}**.
+  1. На панели слева выберите ![globe](../../_assets/console-icons/globe.svg) **{{ ui-key.yacloud.interconnect.public-connection.public-connections_7xYcV }}**. В открывшемся окне будет представлен список всех публичных соединений в выбранном каталоге.
+  1. Чтобы посмотреть подробную информацию об определенном публичном соединении, нажмите на соответствующую строку в списке.
+
 - CLI {#cli}
 
   1. Посмотрите описание команды CLI для получения информации о [публичных соединениях](../concepts/pub-con.md):
@@ -19,7 +26,8 @@
   1. Получите список публичных соединений в указанном каталоге:
 
       ```bash
-      yc cic public-connection list --folder-id b1gqf2hjizv2jw******
+      yc cic public-connection list \
+        --folder-id b1gt6g8ht345********
       ```
 
       Результат:
@@ -28,26 +36,25 @@
       +----------------------+--------------------+----------------------+---------------+
       |          ID          |        NAME        | TRUNK CONNECTION ID  | SERVICE TYPES |
       +----------------------+--------------------+----------------------+---------------+
-      | euuiog88zphgsq****** | customer-name-pub1 | euuqqctbrflq3i****** | APIGW, ML     |
-      | euucr7p47329kq****** | customer-name-pub2 | euuvdjl5shd0fv****** | APIGW, ML     |
+      | euuiog88zphg******** | customer-name-pub1 | euuqqctbrflq******** | APIGW, ML     |
+      | euucr7p47329******** | customer-name-pub2 | euuvdjl5shd0******** | APIGW, ML     |
       +----------------------+--------------------+----------------------+---------------+
       ```
 
   1. Получите информацию о публичном соединении, указав его идентификатор, полученный на предыдущем шаге:
 
       ```bash
-      # yc cic public-connection get <идентификатор_публичного_соединения>
-      yc cic public-connection get euuiog88zphgsq****** 
+      yc cic public-connection get euuiog88zphg******** 
       ```
 
       Результат:
 
       ```text
-      id: euuiog88zphgsq******
+      id: euuiog88zphg********
       name: customer-name-pub1
-      folder_id: b1gqf2hjizv2jw******
-      region_id: ru-central1
-      trunk_connection_id: euuqqctbrflq3i******
+      folder_id: b1gt6g8ht345********
+      region_id: {{ region-id }}
+      trunk_connection_id: euuqqctbrflq********
       vlan_id: "1428"
       ipv4_peering:
         peering_subnet: 178.170.2xx.x2/31
@@ -62,7 +69,8 @@
         - 178.170.2xx.x2/31
       ```
 
-      где,
+      Где:
+
       * `id` — идентификатор публичного соединения.
       * `name` — название публичного соединения.
       * `folder_id` — идентификатор облачного каталога где было создано публичное соединение.
@@ -72,9 +80,9 @@
       * параметры IP и BGP связности для стыковой подсети данного публичного соединения:
          * `peering_subnet` — [стыковая подсеть](../concepts/pub-con.md#pub-address) для BGP-пиринга.
          * `peer_ip` — IP адрес из стыковой (пиринговой) подсети на оборудовании клиента.
-         * `cloud_ip` — IP адрес из стыковой (пиринговой) подсети на оборудовании Yandex Cloud.
+         * `cloud_ip` — IP адрес из стыковой (пиринговой) подсети на оборудовании {{ yandex-cloud }}.
          * `peer_bgp_asn` — номер [BGP ASN](../concepts/priv-con.md#bgp-asn) на оборудовании клиента.
-         * `cloud_bgp_asn` — номер BGP ASN на оборудовании Yandex Cloud.
+         * `cloud_bgp_asn` — номер BGP ASN на оборудовании {{ yandex-cloud }}.
       * `ipv4_allowed_service_types` — список идентификаторов сервисов, IP префиксы которых анонсируются в данном публичном соединении.
       * `ipv4_peer_announced_prefixes` — список клиентских IP префиксов (если они есть), от которых будет приниматься трафик в данное публичное соединение. 
 

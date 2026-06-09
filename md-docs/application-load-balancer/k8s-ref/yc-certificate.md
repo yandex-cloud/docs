@@ -1,10 +1,10 @@
 # Поля ресурса YCCertificate
 
-Ресурс `YCCertificate` содержит параметры сертификата Certificate Manager для настройки TLS-соединений в ресурсе `Gateway`.
+Ресурс `YCCertificate` содержит параметры сертификата {{ certificate-manager-name }} для настройки TLS-соединений в ресурсе `Gateway`.
 
 {% note tip %}
 
-Вместо ALB Ingress-контроллера и Gateway API рекомендуется использовать новый контроллер [Yandex Cloud Gwin](../tools/gwin/index.md).
+Вместо ALB Ingress-контроллера и Gateway API рекомендуется использовать новый контроллер [{{ yandex-cloud }} Gwin]({{ gwin-tip-local-link }}).
 
 {% endnote %}
 
@@ -29,7 +29,7 @@ spec: <YCCertificateSpec>
 
   * `name` (`string`, обязательное)
 
-    Имя ресурса. Подробнее о формате см. в [документации Kubernetes](https://kubernetes.io/docs/concepts/overview/working-with-objects/names/#names).
+    Имя ресурса. Подробнее о формате см. в [документации {{ k8s }}](https://kubernetes.io/docs/concepts/overview/working-with-objects/names/#names).
 
   * `namespace` (`string`)
 
@@ -52,7 +52,7 @@ certificateRef:
 
 * `certificateRef` (обязательное)
 
-  Параметры сертификата Certificate Manager. Вы можете задать либо `certificateID`, либо `certificateName` и `folderID`. Если каталог сертификата совпадает с каталогом размещения балансировщика, вы можете задать только `certificateName`.
+  Параметры сертификата {{ certificate-manager-name }}. Вы можете задать либо `certificateID`, либо `certificateName` и `folderID`. Если каталог сертификата совпадает с каталогом размещения балансировщика, вы можете задать только `certificateName`.
 
   * `certificateID` (`string`)
   

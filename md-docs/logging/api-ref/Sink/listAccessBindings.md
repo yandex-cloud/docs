@@ -5,7 +5,7 @@ Lists existing access bindings for the specified sink.
 ## HTTP request
 
 ```
-GET https://logging.api.cloud.yandex.net/logging/v1/sinks/{resourceId}:listAccessBindings
+GET https://logging.{{ api-host }}/logging/v1/sinks/{resourceId}:listAccessBindings
 ```
 
 ## Path parameters

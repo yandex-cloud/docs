@@ -1,13 +1,12 @@
 # SAML Federation API, REST: Federation.Get
 
 Returns the specified federation.
-
 To get the list of available federations, make a [List](list.md#List) request.
 
 ## HTTP request
 
 ```
-GET https://organization-manager.api.cloud.yandex.net/organization-manager/v1/saml/federations/{federationId}
+GET https://organization-manager.{{ api-host }}/organization-manager/v1/saml/federations/{federationId}
 ```
 
 ## Path parameters
@@ -90,7 +89,6 @@ authenticates the user immediately and redirects them to the home page. ||
 Add new users automatically on successful authentication.
 The user becomes member of the organization automatically,
 but you need to grant other roles to them.
-
 If the value is `false`, users who aren't added to the organization
 can't log in, even if they have authenticated on your server. ||
 || issuer | **string**
@@ -102,7 +100,6 @@ The maximum string length in characters is 8000. ||
 || ssoBinding | **enum** (BindingType)
 
 Single sign-on endpoint binding type. Most Identity Providers support the `POST` binding type.
-
 SAML Binding is a mapping of a SAML protocol message onto standard messaging
 formats and/or communications protocols.
 

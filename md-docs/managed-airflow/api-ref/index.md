@@ -1,10 +1,10 @@
 # Managed Service for Apache Airflow™ API: REST reference
 
-This API reference is organized by resource. Actions are performed by sending HTTP requests to resource URLs or making RPC calls. For more information about API architecture, see [API Concepts](../../api-design-guide/index.md).
+This API reference is organized by resource. Actions are performed by sending HTTP requests to resource URLs or making RPC calls. For more information about API architecture, see [API Concepts]({{ api-url-prefix }}/api-design-guide/).
 
 **Interface definitions** available at [GitHub](https://github.com/yandex-cloud/cloudapi/tree/master/yandex/cloud/airflow/v1).
 
-**Service URL**: `https://airflow.api.cloud.yandex.net`
+**Service URL**: `https://airflow.{{ api-host }}`
 
 #|
 ||Service | Description ||

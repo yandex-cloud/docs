@@ -1,8 +1,8 @@
 # Изменить метаданные виртуальной машины
 
-При внесении изменений в метаданные ВМ с помощью команды Yandex Cloud CLI [`yc compute instance update`](../../../cli/cli-ref/compute/cli-ref/instance/update.md), метода REST API [update](../../api-ref/Instance/update.md) для ресурса [Instance](../../api-ref/Instance/index.md) или вызова gRPC API [InstanceService/Update](../../api-ref/grpc/Instance/update.md) весь имеющийся набор [метаданных](../../concepts/vm-metadata.md) в каталоге [user-data](../../concepts/metadata/directories.md#dir-user) и в пути `instance/attributes/*` каталога [computeMetadata](../../concepts/metadata/directories.md#dir-compute) полностью перезаписывается переданным обновленным набором.
+При внесении изменений в метаданные ВМ с помощью команды {{ yandex-cloud }} CLI [`yc compute instance update`](../../../cli/cli-ref/compute/cli-ref/instance/update.md), метода REST API [update](../../api-ref/Instance/update.md) для ресурса [Instance](../../api-ref/Instance/index.md) или вызова gRPC API [InstanceService/Update](../../api-ref/grpc/Instance/update.md) весь имеющийся набор [метаданных](../../concepts/vm-metadata.md) в каталоге [user-data](../../concepts/metadata/directories.md#dir-user) и в пути `instance/attributes/*` каталога [computeMetadata](../../concepts/metadata/directories.md#dir-compute) полностью перезаписывается переданным обновленным набором.
 
-Чтобы добавить, изменить или удалить отдельные ключи в пути `instance/attributes/*` каталога `computeMetadata` воспользуйтесь командами Yandex Cloud CLI [`yc compute instance add-metadata`](../../../cli/cli-ref/compute/cli-ref/instance/add-metadata.md) и [`yc compute instance remove-metadata`](../../../cli/cli-ref/compute/cli-ref/instance/remove-metadata.md), методом REST API [updateMetadata](../../api-ref/Instance/updateMetadata.md) для ресурса [Instance](../../api-ref/Instance/index.md) или вызовом gRPC API [InstanceService/UpdateMetadata](../../api-ref/grpc/Instance/updateMetadata.md). При этом в каталоге `user-data` метаданные всегда полностью перезаписываются новым набором значений.
+Чтобы добавить, изменить или удалить отдельные ключи в пути `instance/attributes/*` каталога `computeMetadata` воспользуйтесь командами {{ yandex-cloud }} CLI [`yc compute instance add-metadata`](../../../cli/cli-ref/compute/cli-ref/instance/add-metadata.md) и [`yc compute instance remove-metadata`](../../../cli/cli-ref/compute/cli-ref/instance/remove-metadata.md), методом REST API [updateMetadata](../../api-ref/Instance/updateMetadata.md) для ресурса [Instance](../../api-ref/Instance/index.md) или вызовом gRPC API [InstanceService/UpdateMetadata](../../api-ref/grpc/Instance/updateMetadata.md). При этом в каталоге `user-data` метаданные всегда полностью перезаписываются новым набором значений.
 
 Чтобы изменить метаданные ВМ:
 
@@ -12,15 +12,15 @@
 
   {% note info %}
 
-  При создании пользователей ВМ через метаданные с помощью ключа `user-data` все пользователи будут перезаписаны, в том числе пользователь по умолчанию, заданный в блоке **Доступ**. Чтобы этого избежать, передавайте в значении ключа `user-data` данные всех пользователей, в том числе и данные пользователя, заданного в блоке **Доступ**.
+  При создании пользователей ВМ через метаданные с помощью ключа `user-data` все пользователи будут перезаписаны, в том числе пользователь по умолчанию, заданный в блоке **{{ ui-key.yacloud.compute.instances.create.section_access }}**. Чтобы этого избежать, передавайте в значении ключа `user-data` данные всех пользователей, в том числе и данные пользователя, заданного в блоке **{{ ui-key.yacloud.compute.instances.create.section_access }}**.
 
   {% endnote %}
 
-  1. В [консоли управления](https://console.yandex.cloud) выберите каталог, которому принадлежит ВМ.
-  1. [Перейдите](../../../console/operations/select-service.md#select-service) в сервис **Compute Cloud**.
-  1. На панели слева выберите ![image](../../../_assets/console-icons/server.svg) **Виртуальные машины**.
-  1. В строке с нужной ВМ нажмите значок ![image](../../../_assets/console-icons/ellipsis.svg) и выберите ![image](../../../_assets/console-icons/pencil.svg) **Редактировать**.
-  1. В блоке **Метаданные** передайте метаданные в формате `Ключ:Значение`.
+  1. В [консоли управления]({{ link-console-main }}) выберите каталог, которому принадлежит ВМ.
+  1. Перейдите в сервис **{{ compute-name }}**.
+  1. На панели слева выберите ![image](../../../_assets/console-icons/server.svg) **{{ ui-key.yacloud.compute.instances_jsoza }}**.
+  1. В строке с нужной ВМ нажмите значок ![image](../../../_assets/console-icons/ellipsis.svg) и выберите ![image](../../../_assets/console-icons/pencil.svg) **{{ ui-key.yacloud.common.edit }}**.
+  1. В блоке **{{ ui-key.yacloud.common.metadata }}** передайте метаданные в формате `Ключ:Значение`.
 
       Например, чтобы создать в ОС виртуальной машины нескольких пользователей, добавьте ключ `user-data` и в его значении укажите конфигурацию:
 
@@ -50,7 +50,7 @@
       runcmd: []
       ```
 
-  1. Нажмите **Сохранить изменения**.
+  1. Нажмите **{{ ui-key.yacloud.compute.instance.edit.button_update }}**.
 
 - CLI {#cli}
 
@@ -60,7 +60,7 @@
 
   {% endnote %}
 
-  В [Yandex Cloud CLI](../../../glossary/cli.md) метаданные можно передать в любом из трех параметров:
+  В [{{ yandex-cloud }} CLI](../../../glossary/cli.md) метаданные можно передать в любом из трех параметров:
 
   * `--metadata-from-file` — в виде файла конфигурации в формате `--metadata-from-file key=<путь_к_файлу>`. Этим способом удобно передавать значение, состоящее одновременно из нескольких строк.
 
@@ -92,12 +92,22 @@
       runcmd: []
       ```
 
+      {% note info %}
+      
+      Команды [`yc compute instance create`](../../../cli/cli-ref/compute/cli-ref/instance/create.md) | [`create-with-container`](../../../cli/cli-ref/compute/cli-ref/instance/create-with-container.md) | [`update`](../../../cli/cli-ref/compute/cli-ref/instance/update.md) | [`add-metadata`](../../../cli/cli-ref/compute/cli-ref/instance/add-metadata.md) поддерживают подстановку в метаданные ВМ значений переменных окружения. Эти значения, заданные в ключе `user-data` в формате `$<имя_переменной>`, в момент выполнения команды {{ yandex-cloud }} CLI будут подставлены в метаданные ВМ из переменных окружения среды, в которой выполняется команда. 
+      
+      Чтобы изменить такое поведение, не подставлять значение переменной из среды выполнения команды CLI и передать в метаданные ВМ имя переменной в формате `$<имя_переменной>`, используйте синтаксис с двумя символами доллара. Например: `$$<имя_переменной>`.
+      
+      Подробнее см. в разделе [{#T}](../../concepts/metadata/sending-metadata.md#environment-variables).
+      
+      {% endnote %}
+
   * `--metadata` — в виде списка пар `ключ=значение`, разделенных запятой, например `--metadata foo1=bar,foo2=baz`.
 
       Если в значении несколько строк, используйте `\n` в качестве разделителя: `--metadata user-data="#ps1\nnet user Administrator Passw0rd"`.
   * `--ssh-key` — SSH-ключ. Только для ВМ Linux.
 
-    Compute Cloud создаст пользователя `yc-user` и добавит указанный SSH-ключ в список авторизованных ключей. После создания ВМ вы сможете подключиться к ней по SSH с помощью этого ключа.
+    {{ compute-name }} создаст пользователя `yc-user` и добавит указанный SSH-ключ в список авторизованных ключей. После создания ВМ вы сможете подключиться к ней по SSH с помощью этого ключа.
 
   Вы можете комбинировать эти параметры, например:
 
@@ -109,7 +119,7 @@
   ...
   ```
 
-- Terraform {#tf}
+- {{ TF }} {#tf}
 
   {% note info %}
 
@@ -117,7 +127,7 @@
 
   {% endnote %}
 
-  В Terraform метаданные можно указать любым из трех способов:
+  В {{ TF }} метаданные можно указать любым из трех способов:
   * В виде отдельного файла с пользовательскими метаданными, который будет обработан агентом cloud-init. Для этого в блоке `metadata` укажите путь к файлу с пользовательскими метаданными, например к `cloud-init.yaml`:
 
     ```hcl
@@ -178,7 +188,7 @@
     ...
     ```
 
-    Если вы используете готовый публичный [образ](../../concepts/image.md) из Yandex Cloud Marketplace, указанное имя пользователя не играет роли. Ключ будет присвоен пользователю, который задан в конфигурации `cloud-init` по умолчанию. В разных образах это разные пользователи.
+    Если вы используете готовый публичный [образ](../../concepts/image.md) из {{ marketplace-full-name }}, указанное имя пользователя не играет роли. Ключ будет присвоен пользователю, который задан в конфигурации `cloud-init` по умолчанию. В разных образах это разные пользователи.
 
     Если вы не знаете, какой пользователь задан по умолчанию, найдите в [выводе последовательного порта](../vm-info/get-serial-port-output.md) строку, содержащую слова `Authorized keys from`. В ней будет указано имя пользователя, которому присвоены авторизованные ключи.
 
@@ -211,16 +221,16 @@
 
 - Консоль управления {#console}
 
-  1. В [консоли управления](https://console.yandex.cloud) выберите каталог, которому принадлежит ВМ.
-  1. [Перейдите](../../../console/operations/select-service.md#select-service) в сервис **Compute Cloud**.
-  1. На панели слева выберите ![image](../../../_assets/console-icons/server.svg) **Виртуальные машины**.
-  1. В строке с нужной ВМ нажмите значок ![image](../../../_assets/console-icons/ellipsis.svg) и выберите ![image](../../../_assets/console-icons/pencil.svg) **Редактировать**.
-  1. Раскройте секцию **Метаданные** и удалите ключи, нажав ![image](../../../_assets/console-icons/xmark.svg).
-  1. Нажмите **Сохранить изменения**.
+  1. В [консоли управления]({{ link-console-main }}) выберите каталог, которому принадлежит ВМ.
+  1. Перейдите в сервис **{{ compute-name }}**.
+  1. На панели слева выберите ![image](../../../_assets/console-icons/server.svg) **{{ ui-key.yacloud.compute.instances_jsoza }}**.
+  1. В строке с нужной ВМ нажмите значок ![image](../../../_assets/console-icons/ellipsis.svg) и выберите ![image](../../../_assets/console-icons/pencil.svg) **{{ ui-key.yacloud.common.edit }}**.
+  1. Раскройте секцию **{{ ui-key.yacloud.common.metadata }}** и удалите ключи, нажав ![image](../../../_assets/console-icons/xmark.svg).
+  1. Нажмите **{{ ui-key.yacloud.compute.instance.edit.button_update }}**.
 
 - CLI {#cli}
 
-  Если у вас еще нет интерфейса командной строки Yandex Cloud (CLI), [установите и инициализируйте его](../../../cli/quickstart.md#install).
+  Если у вас еще нет интерфейса командной строки {{ yandex-cloud }} (CLI), [установите и инициализируйте его](../../../cli/quickstart.md#install).
 
   По умолчанию используется каталог, указанный при [создании](../../../cli/operations/profile/profile-create.md) профиля CLI. Чтобы изменить каталог по умолчанию, используйте команду `yc config set folder-id <идентификатор_каталога>`. Также для любой команды вы можете указать другой каталог с помощью параметров `--folder-name` или `--folder-id`. Если вы обращаетесь к ресурсу по имени, поиск будет выполнен в каталоге по умолчанию. Если вы обращаетесь к ресурсу по идентификатору, поиск будет выполнен глобально — во всех каталогах с учетом прав доступа.
 
@@ -249,29 +259,29 @@
     --request POST \
     --header "Authorization: Bearer <IAM-токен>" \
     --data '{"delete":["<имя_SSH-ключа>"]}' \
-    https://compute.api.cloud.yandex.net/compute/v1/instances/<идентификатор_ВМ>/updateMetadata
+    https://compute.{{ api-host }}/compute/v1/instances/<идентификатор_ВМ>/updateMetadata
   ```
 
 {% endlist %}
 
-## Включить доступ по OS Login {#enable-oslogin-access}
+## Включить доступ по {{ oslogin }} {#enable-oslogin-access}
 
-Чтобы к ВМ можно было [подключиться](../vm-connect/os-login.md) по [OS Login](../../../organization/concepts/os-login.md), необходимо включить эту опцию в ее настройках:
+Чтобы к ВМ можно было [подключиться](../vm-connect/os-login.md) по [{{ oslogin }}](../../../organization/concepts/os-login.md), необходимо включить эту опцию в ее настройках:
 
 {% list tabs group=instructions %}
 
 - Консоль управления {#console}
 
-  1. В [консоли управления](https://console.yandex.cloud) выберите каталог, которому принадлежит ВМ.
-  1. [Перейдите](../../../console/operations/select-service.md#select-service) в сервис **Compute Cloud**.
-  1. На панели слева выберите ![image](../../../_assets/console-icons/server.svg) **Виртуальные машины**.
-  1. В строке с нужной ВМ нажмите значок ![image](../../../_assets/console-icons/ellipsis.svg) и выберите ![image](../../../_assets/console-icons/pencil.svg) **Редактировать**.
-  1. В блоке **Доступ** выберите вариант **Доступ по OS Login**.
-  1. Нажмите **Сохранить изменения**.
+  1. В [консоли управления]({{ link-console-main }}) выберите каталог, которому принадлежит ВМ.
+  1. Перейдите в сервис **{{ compute-name }}**.
+  1. На панели слева выберите ![image](../../../_assets/console-icons/server.svg) **{{ ui-key.yacloud.compute.instances_jsoza }}**.
+  1. В строке с нужной ВМ нажмите значок ![image](../../../_assets/console-icons/ellipsis.svg) и выберите ![image](../../../_assets/console-icons/pencil.svg) **{{ ui-key.yacloud.common.edit }}**.
+  1. В блоке **{{ ui-key.yacloud.compute.instances.create.section_access }}** выберите вариант **{{ ui-key.yacloud.compute.instance.access-method.field_os-login-access-method }}**.
+  1. Нажмите **{{ ui-key.yacloud.compute.instance.edit.button_update }}**.
 
 - CLI {#cli}
 
-  Если у вас еще нет интерфейса командной строки Yandex Cloud (CLI), [установите и инициализируйте его](../../../cli/quickstart.md#install).
+  Если у вас еще нет интерфейса командной строки {{ yandex-cloud }} (CLI), [установите и инициализируйте его](../../../cli/quickstart.md#install).
 
   По умолчанию используется каталог, указанный при [создании](../../../cli/operations/profile/profile-create.md) профиля CLI. Чтобы изменить каталог по умолчанию, используйте команду `yc config set folder-id <идентификатор_каталога>`. Также для любой команды вы можете указать другой каталог с помощью параметров `--folder-name` или `--folder-id`. Если вы обращаетесь к ресурсу по имени, поиск будет выполнен в каталоге по умолчанию. Если вы обращаетесь к ресурсу по идентификатору, поиск будет выполнен глобально — во всех каталогах с учетом прав доступа.
 
@@ -292,14 +302,14 @@
      +----------------------+-----------------+---------------+---------+----------------------+
      |          ID          |       NAME      |    ZONE ID    | STATUS  |     DESCRIPTION      |
      +----------------------+-----------------+---------------+---------+----------------------+
-     | fhm0b28lgfp4******** | first-instance  | ru-central1-a | RUNNING | my first vm via CLI  |
-     | fhm9gk85nj7g******** | second-instance | ru-central1-a | RUNNING | my second vm via CLI |
+     | fhm0b28lgfp4******** | first-instance  | {{ region-id }}-a | RUNNING | my first vm via CLI  |
+     | fhm9gk85nj7g******** | second-instance | {{ region-id }}-a | RUNNING | my second vm via CLI |
      +----------------------+-----------------+---------------+---------+----------------------+
      ```
 
   1. Выберите идентификатор (`ID`) или имя (`NAME`) нужной машины, например `first-instance`.
 
-  1. Включите доступ по OS Login:
+  1. Включите доступ по {{ oslogin }}:
 
      ```bash
      yc compute instance update first-instance \
@@ -316,7 +326,7 @@
 
 Для пользователей, добавленных через метаданные:
 
-* после включения доступа к ВМ по OS Login из метаданных удаляются ключи, указанные в `user-data` и `ssh-keys`;
-* после отключения доступа к ВМ по OS Login удаленные ключи пересоздаются.
+* после включения доступа к ВМ по {{ oslogin }} из метаданных удаляются ключи, указанные в `user-data` и `ssh-keys`;
+* после отключения доступа к ВМ по {{ oslogin }} удаленные ключи пересоздаются.
 
 {% endnote %}

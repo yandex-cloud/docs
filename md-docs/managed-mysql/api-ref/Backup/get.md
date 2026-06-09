@@ -5,7 +5,7 @@ Retrieves information about the specified backup.
 ## HTTP request
 
 ```
-GET https://mdb.api.cloud.yandex.net/managed-mysql/v1/backups/{backupId}
+GET https://{{ api-host-mdb }}/managed-mysql/v1/backups/{backupId}
 ```
 
 ## Path parameters
@@ -38,7 +38,6 @@ To get this ID, make a [BackupService.List](list.md#List) request (lists all bac
 ```
 
 An object that represents MySQL backup.
-
 See [the documentation](../../concepts/backup.md) for details.
 
 #|

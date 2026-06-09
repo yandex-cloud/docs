@@ -1,6 +1,6 @@
-# Практические руководства Yandex Identity Hub
+# Практические руководства {{ org-full-name }}
 
-* [Разграничение прав доступа для групп пользователей с различными ролями в Yandex Identity Hub](user-group-access-control.md)
+* [{#T}](user-group-access-control.md)
 * [Управление федерациями удостоверений](federations/index.md)
-* [Использование сервисного аккаунта с профилем OS Login для управления ВМ с помощью Ansible](sa-oslogin-ansible.md)
+* [{#T}](sa-oslogin-ansible.md)
 * [Настройка единого входа в приложения (SSO)](single-sign-on/index.md)

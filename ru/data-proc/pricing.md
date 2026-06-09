@@ -7,10 +7,6 @@ editable: false
 # Правила тарификации для {{ dataproc-name }}
 
 
-{% include [pricing-increase-2026-05](../_includes/pricing-increase-2026-05.md) %}
-
-
-
 
 
 {% include [without-use-calculator](../_includes/pricing/without-use-calculator.md) %}
@@ -34,8 +30,8 @@ editable: false
 ### Использование вычислительных ресурсов {#rules-compute}
 
 Стоимость начисляется за каждый час работы виртуальной машины хоста в рамках сервиса {{ compute-name }} согласно [ценам за вычислительные ресурсы {{ compute-full-name }}](../compute/pricing.md#prices), с наценкой за использование управляемого сервиса {{ dataproc-name }}.
+Информация о тарифах за использование внешнего IP-адреса в разделе [{#T}](../vpc/pricing.md) документации сервиса {{ vpc-full-name }}.
 
-Информацию о тарифах за использование внешнего IP-адреса см. в разделе [{#T}](../vpc/pricing.md) документации сервиса {{ vpc-full-name }}.
 
 ### Использование дискового пространства {#rules-storage}
 
@@ -91,4 +87,5 @@ editable: false
 
 
 {% include [egress-traffic-pricing](../_includes/egress-traffic-pricing.md) %}
+
 

@@ -4,7 +4,7 @@
 
 1. [Подготовьте облако к работе](#before-you-begin).
 1. [Создайте сервисный аккаунт](#create-account).
-1. [Создайте ключ KMS](#create-key).
+1. [Создайте ключ {{ kms-short-name }}](#create-key).
 1. [Создайте секрет](#create-secret).
 1. [Создайте ВМ](#create-vm).
 1. [Авторизуйтесь в ОС Windows](#login-windows).
@@ -14,11 +14,11 @@
 
 ## Подготовьте облако к работе {#before-you-begin}
 
-Зарегистрируйтесь в Yandex Cloud и создайте [платежный аккаунт](../../../billing/concepts/billing-account.md):
-1. Перейдите в [консоль управления](https://console.yandex.cloud), затем войдите в Yandex Cloud или зарегистрируйтесь.
-1. На странице **[Yandex Cloud Billing](https://center.yandex.cloud/billing/accounts)** убедитесь, что у вас подключен платежный аккаунт, и он находится в [статусе](../../../billing/concepts/billing-account-statuses.md) `ACTIVE` или `TRIAL_ACTIVE`. Если платежного аккаунта нет, [создайте его](../../../billing/quickstart/index.md) и [привяжите](../../../billing/operations/pin-cloud.md) к нему облако.
+Зарегистрируйтесь в {{ yandex-cloud }} и создайте [платежный аккаунт](../../../billing/concepts/billing-account.md):
+1. Перейдите в [консоль управления]({{ link-console-main }}), затем войдите в {{ yandex-cloud }} или зарегистрируйтесь.
+1. На странице **[{{ ui-key.yacloud_billing.billing.label_service }}]({{ link-console-billing }})** убедитесь, что у вас подключен платежный аккаунт, и он находится в [статусе](../../../billing/concepts/billing-account-statuses.md) `ACTIVE` или `TRIAL_ACTIVE`. Если платежного аккаунта нет, [создайте его](../../../billing/quickstart/index.md) и [привяжите](../../../billing/operations/pin-cloud.md) к нему облако.
 
-Если у вас есть активный платежный аккаунт, вы можете создать или выбрать [каталог](../../../resource-manager/concepts/resources-hierarchy.md#folder), в котором будет работать ваша инфраструктура, на [странице облака](https://console.yandex.cloud/cloud).
+Если у вас есть активный платежный аккаунт, вы можете создать или выбрать [каталог](../../../resource-manager/concepts/resources-hierarchy.md#folder), в котором будет работать ваша инфраструктура, на [странице облака]({{ link-console-cloud }}).
 
 [Подробнее об облаках и каталогах](../../../resource-manager/concepts/resources-hierarchy.md).
 
@@ -26,10 +26,10 @@
 ### Необходимые платные ресурсы {#paid-resources}
 
 В стоимость поддержки инфраструктуры входит:
-* плата за постоянно запущенные [ВМ](../../../compute/concepts/vm.md) (см. [тарифы Yandex Compute Cloud](../../../compute/pricing.md));
+* плата за постоянно запущенные [ВМ](../../../compute/concepts/vm.md) (см. [тарифы {{ compute-full-name }}](../../../compute/pricing.md));
 * плата за использование [образа](../../../compute/concepts/image.md) (зависит от образа);
-* плата за использование [ключа](../../concepts/key.md) KMS (см. [тарифы KMS](../../pricing.md));
-* плата за использование [секрета](../../../lockbox/concepts/secret.md) (см. [тарифы Yandex Lockbox](../../../lockbox/pricing.md)).
+* плата за использование [ключа](../../concepts/key.md) {{ kms-short-name }} (см. [тарифы {{ kms-short-name }}](../../pricing.md));
+* плата за использование [секрета](../../../lockbox/concepts/secret.md) (см. [тарифы {{ lockbox-name }}](../../../lockbox/pricing.md)).
 
 
 ## Создайте сервисный аккаунт {#create-account}
@@ -38,11 +38,11 @@
 
 - Консоль управления {#console}
 
-  1. В [консоли управления](https://console.yandex.cloud) выберите [каталог](../../../resource-manager/concepts/resources-hierarchy.md#folder), в котором хотите создать сервисный аккаунт.
-  1. [Перейдите](../../../console/operations/select-service.md#select-service) в сервис **Identity and Access Management**.
-  1. Нажмите кнопку **Создать сервисный аккаунт**.
+  1. В [консоли управления]({{ link-console-main }}) выберите [каталог](../../../resource-manager/concepts/resources-hierarchy.md#folder), в котором хотите создать сервисный аккаунт.
+  1. Перейдите в сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_iam }}**.
+  1. Нажмите кнопку **{{ ui-key.yacloud.iam.folder.service-accounts.button_add }}**.
   1. Введите имя сервисного аккаунта, например, `win-secret-sa`.
-  1. Нажмите кнопку **Создать**.
+  1. Нажмите кнопку **{{ ui-key.yacloud.iam.folder.service-account.popup-robot_button_add }}**.
 
 - CLI {#cli}
 
@@ -71,7 +71,7 @@
 
 {% endlist %}
   
-## Создайте ключ KMS {#create-key}
+## Создайте ключ {{ kms-short-name }} {#create-key}
 
 1. Создайте [ключ шифрования](../../concepts/key.md):
 
@@ -79,14 +79,14 @@
 
    - Консоль управления {#console}
 
-     1. В [консоли управления](https://console.yandex.cloud) выберите [каталог](../../../resource-manager/concepts/resources-hierarchy.md#folder), в котором будет создана ключевая пара.
-     1. [Перейдите](../../../console/operations/select-service.md#select-service) в сервис **Key Management Service**.
-     1. На панели слева выберите ![image](../../../_assets/console-icons/key.svg) **Симметричные ключи**.
-     1. Нажмите **Создать ключ** и задайте атрибуты ключа:
-         * **Имя** — `win-secret-key`.
-         * **Алгоритм шифрования** — `AES-256`.
+     1. В [консоли управления]({{ link-console-main }}) выберите [каталог](../../../resource-manager/concepts/resources-hierarchy.md#folder), в котором будет создана ключевая пара.
+     1. Перейдите в сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_kms }}**.
+     1. На панели слева выберите ![image](../../../_assets/console-icons/key.svg) **{{ ui-key.yacloud.kms.switch_symmetric-keys }}**.
+     1. Нажмите **{{ ui-key.yacloud.kms.symmetric-keys.button_empty-create }}** и задайте атрибуты ключа:
+         * **{{ ui-key.yacloud.common.name }}** — `win-secret-key`.
+         * **{{ ui-key.yacloud.kms.symmetric-key.form.field_algorithm }}** — `AES-256`.
          * Для остальных параметров оставьте значения по умолчанию.
-     1. Нажмите **Создать**.
+     1. Нажмите **{{ ui-key.yacloud.common.create }}**.
 
      Вместе с ключом создается его первая версия: кликните по ключу в списке, чтобы открыть страницу с его атрибутами.
 
@@ -117,9 +117,9 @@
 
    - Консоль управления {#console}
 
-     1. На странице ключа перейдите на вкладку **Права доступа**.
+     1. На странице ключа перейдите на вкладку **{{ ui-key.yacloud.common.label_access-rights }}**.
      1. На странице **Права доступа к сервисному аккаунту** найдите аккаунт `win-secret-sa` в списке и нажмите значок ![image](../../../_assets/options.svg).
-     1. Нажмите кнопку **Изменить роли**.
+     1. Нажмите кнопку **{{ ui-key.yacloud_components.acl.action.edit-roles }}**.
      1. В открывшемся диалоге нажмите кнопку **Добавить роль** и выберите роль `kms.keys.encrypterDecrypter`.
 
    - CLI {#cli}
@@ -140,7 +140,7 @@
 
 ## Создайте секрет {#create-secret}
 
-Создайте секрет в сервисе Yandex Lockbox и сохраните в нем логины и пароли пользователей, для которых будут созданы учетные записи в ОС Windows.
+Создайте секрет в сервисе {{ lockbox-name }} и сохраните в нем логины и пароли пользователей, для которых будут созданы учетные записи в ОС Windows.
 
 {% note warning %}
 
@@ -161,15 +161,14 @@
 
 - Консоль управления {#console}
 
-  1. [Перейдите](../../../console/operations/select-service.md#select-service) в сервис **Lockbox**.
-  1. Нажмите кнопку **Создать секрет**.
-  1. В поле **Имя** введите имя секрета: `win-secret`.
-  1. В поле **Ключ KMS** укажите ключ `win-secret-key`.
-  1. В блоке **Версия**:
-      * В поле **Ключ** введите логин администратора `Administrator`.
-      * В поле **Значение** введите пароль для администратора.
-  1. При желании добавьте еще пользователей. Для этого нажмите кнопку **Добавить ключ/значение** и введите логин и пароль для следующего пользователя.
-  1. Нажмите кнопку **Создать**.
+  1. Перейдите в сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_lockbox }}**.
+  1. Нажмите кнопку **{{ ui-key.yacloud.lockbox.SecretsPage.button_create-secret }}**.
+  1. В поле **{{ ui-key.yacloud.common.name }}** введите имя секрета: `win-secret`.
+  1. В поле **{{ ui-key.yacloud.lockbox.EncryptionInfoSection.title_kms-key }}** укажите ключ `win-secret-key`.
+  1. В поле **{{ ui-key.yacloud.lockbox.SecretVersionsList.label_key }}** введите логин администратора `Administrator`.
+  1. В поле **{{ ui-key.yacloud.lockbox.SecretVersionsList.label_value }}** введите пароль для администратора.
+  1. При желании добавьте еще пользователей. Для этого нажмите кнопку **{{ ui-key.yacloud.lockbox.SecretVersionsList.button_add-pair }}** и введите логин и пароль для следующего пользователя.
+  1. Нажмите кнопку **{{ ui-key.yacloud.common.create }}**.
 
 - CLI {#cli}
 
@@ -187,7 +186,7 @@
       Где:
 
       * `--name` — имя секрета. Обязательный параметр.
-      * `--kms-key-id` — идентификатор ключа KMS.
+      * `--kms-key-id` — идентификатор ключа {{ kms-short-name }}.
       * `--description` — описание секрета. Необязательный параметр.
       * `--payload` — содержимое секрета в виде массива формата YAML или JSON.
       * `--cloud-id` — [идентификатор облака](../../../resource-manager/operations/cloud/get-id.md), в котором будет создан секрет.
@@ -205,10 +204,10 @@
 
    - Консоль управления {#console}
 
-     1. На странице секрета перейдите на вкладку **Права доступа**.
-     1. Перейдите на вкладку **Права доступа**.
+     1. На странице секрета перейдите на вкладку **{{ ui-key.yacloud.common.label_access-rights }}**.
+     1. Перейдите на вкладку **{{ ui-key.yacloud.common.resource-acl.label_access-bindings }}**.
      1. Найдите аккаунт `win-secret-sa` в списке и нажмите значок ![image](../../../_assets/options.svg).
-     1. Нажмите кнопку **Изменить роли**.
+     1. Нажмите кнопку **{{ ui-key.yacloud_components.acl.action.edit-roles }}**.
      1. В открывшемся диалоге нажмите кнопку **Добавить роль** и выберите роль `lockbox.payloadViewer`.
 
    - CLI {#cli}
@@ -244,7 +243,7 @@
     $SecretID = "<secret_id>"
 
     [Net.ServicePointManager]::SecurityProtocol = [Net.SecurityProtocolType]::Tls12
-    $SecretURL = "https://payload.lockbox.api.cloud.yandex.net/lockbox/v1/secrets/$SecretID/payload"
+    $SecretURL = "https://payload.lockbox.{{ api-host }}/lockbox/v1/secrets/$SecretID/payload"
 
     "Secret ID is $SecretID"
     "Payload URL is $SecretURL"
@@ -300,18 +299,18 @@
 
    - Консоль управления {#console}
 
-     1. В [консоли управления](https://console.yandex.cloud) откройте [каталог](../../../resource-manager/concepts/resources-hierarchy.md#folder), в котором будет создана ВМ.
-     1. Справа сверху нажмите кнопку **Создать ресурс** и выберите `Виртуальная машина`.
-     1. В блоке **Образ загрузочного диска** выберите [образ](../../../compute/concepts/image.md) с ОС Windows.
-     1. В блоке **Расположение** выберите [зону доступности](../../../overview/concepts/geo-scope.md), в которой будет находиться ВМ.
-     1. В блоке **Общая информация** задайте имя ВМ, например, `win-test`.
-     1. В блоке **Дополнительно** укажите данные для доступа на ВМ:
+     1. В [консоли управления]({{ link-console-main }}) откройте [каталог](../../../resource-manager/concepts/resources-hierarchy.md#folder), в котором будет создана ВМ.
+     1. Справа сверху нажмите кнопку **{{ ui-key.yacloud.iam.folder.dashboard.button_add }}** и выберите `{{ ui-key.yacloud.iam.folder.dashboard.value_compute }}`.
+     1. В блоке **{{ ui-key.yacloud.compute.instances.create.section_image }}** выберите [образ](../../../compute/concepts/image.md) с ОС Windows.
+     1. В блоке **{{ ui-key.yacloud.k8s.node-groups.create.section_allocation-policy }}** выберите [зону доступности](../../../overview/concepts/geo-scope.md), в которой будет находиться ВМ.
+     1. В блоке **{{ ui-key.yacloud.compute.instances.create.section_base }}** задайте имя ВМ, например, `win-test`.
+     1. В блоке **{{ ui-key.yacloud.compute.instances.create.field_access-advanced }}** укажите данные для доступа на ВМ:
          * Выберите [сервисный аккаунт](../../../iam/concepts/index.md#sa) `win-secret-sa`.
-         * Разрешите доступ к [серийной консоли](../../../compute/operations/serial-console/index.md).
-     1. В блоке **Метаданные**:
-         * В поле **Ключ** укажите `user-data`.
-         * В поле **Значение** вставьте содержимое файла `init.ps1`.
-     1. Нажмите кнопку **Создать ВМ**.
+         * Разрешите доступ к [серийной консоли](../../../compute/concepts/serial-console.md).
+     1. В блоке **{{ ui-key.yacloud.common.metadata }}**:
+         * В поле **{{ ui-key.yacloud.component.key-values-input.label_key }}** укажите `user-data`.
+         * В поле **{{ ui-key.yacloud.component.key-values-input.label_value }}** вставьте содержимое файла `init.ps1`.
+     1. Нажмите кнопку **{{ ui-key.yacloud.compute.instances.create.button_create }}**.
 
    - CLI {#cli}
 
@@ -321,7 +320,7 @@
      yc compute instance create \
        --name win-test \
        --hostname windows10 \
-       --zone ru-central1-a \
+       --zone {{ region-id }}-a \
        --create-boot-disk image-id=<идентификатор_образа> \
        --cores 2 \
        --core-fraction 100 \
@@ -339,11 +338,11 @@
 
      {% note info %}
      
-     Команды [`yc compute instance create`](../../../cli/cli-ref/compute/cli-ref/instance/create.md) | [`create-with-container`](../../../cli/cli-ref/compute/cli-ref/instance/create-with-container.md) | [`update`](../../../cli/cli-ref/compute/cli-ref/instance/update.md) | [`add-metadata`](../../../cli/cli-ref/compute/cli-ref/instance/add-metadata.md) поддерживают подстановку в метаданные ВМ значений переменных окружения. Эти значения, заданные в ключе `user-data` в формате `$<имя_переменной>`, в момент выполнения команды Yandex Cloud CLI будут подставлены в метаданные ВМ из переменных окружения среды, в которой выполняется команда. 
+     Команды [`yc compute instance create`](../../../cli/cli-ref/compute/cli-ref/instance/create.md) | [`create-with-container`](../../../cli/cli-ref/compute/cli-ref/instance/create-with-container.md) | [`update`](../../../cli/cli-ref/compute/cli-ref/instance/update.md) | [`add-metadata`](../../../cli/cli-ref/compute/cli-ref/instance/add-metadata.md) поддерживают подстановку в метаданные ВМ значений переменных окружения. Эти значения, заданные в ключе `user-data` в формате `$<имя_переменной>`, в момент выполнения команды {{ yandex-cloud }} CLI будут подставлены в метаданные ВМ из переменных окружения среды, в которой выполняется команда. 
      
      Чтобы изменить такое поведение, не подставлять значение переменной из среды выполнения команды CLI и передать в метаданные ВМ имя переменной в формате `$<имя_переменной>`, используйте синтаксис с двумя символами доллара. Например: `$$<имя_переменной>`.
      
-     Подробнее см. в разделе [Особенности передачи переменных окружения в метаданных через CLI](../../../compute/concepts/metadata/sending-metadata.md#environment-variables).
+     Подробнее см. в разделе [{#T}](../../../compute/concepts/metadata/sending-metadata.md#environment-variables).
      
      {% endnote %}
 
@@ -354,11 +353,11 @@
 
 Чтобы проверить, что данные из секрета были успешно использованы для создания пользователей, авторизуйтесь в ОС виртуальной машины:
 
-1. В [консоли управления](https://console.yandex.cloud) выберите каталог, которому принадлежит виртуальная машина.
-1. [Перейдите](../../../console/operations/select-service.md#select-service) в сервис **Compute Cloud**.
+1. В [консоли управления]({{ link-console-main }}) выберите каталог, которому принадлежит виртуальная машина.
+1. Перейдите в сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_compute }}**.
 1. Выберите виртуальную машину `win-test`.
-1. Перейдите на вкладку **Серийная консоль**.
-1. В блоке **Серийная консоль** выберите `COM2` и нажмите кнопку **Подключиться**. В командной строке отобразится приглашение ввода команд:
+1. Перейдите на вкладку **{{ ui-key.yacloud.compute.instance.switch_console }}**.
+1. В блоке **{{ ui-key.yacloud.compute.instance.switch_console }}** выберите `COM2` и нажмите кнопку **{{ ui-key.yacloud.compute.instance.console.connect }}**. В командной строке отобразится приглашение ввода команд:
 
     ```bash
     Computer is booting, SAC started and initialized.                               
@@ -439,4 +438,4 @@
 
 #### См. также {#see-also}
 
-* [Безопасная передача пароля в скрипт инициализации с помощью Terraform](terraform.md)
+* [{#T}](terraform.md)

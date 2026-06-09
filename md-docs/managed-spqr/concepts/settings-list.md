@@ -1,8 +1,8 @@
-# Настройки Sharded PostgreSQL
+# Настройки {{ SPQR }}
 
-Для кластера Managed Service for Sharded PostgreSQL можно задать настройки, которые относятся к Sharded PostgreSQL.
+Для кластера {{ mspqr-name }} можно задать настройки, которые относятся к {{ SPQR }}.
 
-Настройки Sharded PostgreSQL задаются на уровне кластера Managed Service for Sharded PostgreSQL. Вы можете указать их при [создании](../operations/cluster-create.md) или [изменении](../operations/cluster-update.md) кластера.
+Настройки {{ SPQR }} задаются на уровне кластера {{ mspqr-name }}. Вы можете указать их при [создании](../operations/cluster-create.md) или [изменении](../operations/cluster-update.md) кластера.
 
 Настройки роутера (**Router** → **Config**):
 
@@ -12,7 +12,7 @@
 
     По умолчанию настройка выключена (дополнительная информация не выводится).
 
-    Подробнее см. описание настройки `show_notice_messages` в [документации Sharded PostgreSQL](https://docs.pg-sharding.tech/configuration/router#debug-settings).
+    Подробнее см. описание настройки `show_notice_messages` в [документации {{ SPQR }}]({{ spqr.docs }}/configuration/router#debug-settings).
 
 * **Time Quantiles**
 
@@ -20,7 +20,7 @@
 
     По умолчанию используется множество: [`0.5`, `0.75`, `0.9`, `0.95`, `0.99`, `0.999`, `0.9999`].
 
-    Подробнее см. описание настройки `time_quantiles` в [документации Sharded PostgreSQL](https://docs.pg-sharding.tech/configuration/router#statistics-settings).
+    Подробнее см. описание настройки `time_quantiles` в [документации {{ SPQR }}]({{ spqr.docs }}/configuration/router#statistics-settings).
 
 * **Default Route Behavior**
 
@@ -29,7 +29,7 @@
     * `block` (по умолчанию) — отклоняет запросы, которые необходимо выполнять на нескольких шардах (безопаснее для обеспечения согласованности данных);
     * `allow` — разрешает выполнение запросов на нескольких шардах (полезно для DDL и административных запросов).
 
-    Подробнее см. описание настройки `query_routing.default_route_behaviour` в [документации Sharded PostgreSQL](https://docs.pg-sharding.tech/configuration/router#query-routing-settings).
+    Подробнее см. описание настройки `query_routing.default_route_behaviour` в [документации {{ SPQR }}]({{ spqr.docs }}/configuration/router#query-routing-settings).
 
 * **Prefer Same Availability Zone**
 
@@ -41,13 +41,13 @@
 
     Определяет, включать ли расширенную обработку для мультишардовых запросов.
 
-    Подробнее см. описание настройки `query_routing.enhanced_multishard_processing` в [документации Sharded PostgreSQL](https://docs.pg-sharding.tech/configuration/router#query-routing-settings).
+    Подробнее см. описание настройки `query_routing.enhanced_multishard_processing` в [документации {{ SPQR }}]({{ spqr.docs }}/configuration/router#query-routing-settings).
 
     По умолчанию настройка выключена (расширенная обработка не выполняется).
 
 * **Default Target Session Attrs**
 
-    Определяет значение по умолчанию для [параметра PostgreSQL `target_session_attrs`](https://www.postgresql.org/docs/current/libpq-connect.html#LIBPQ-CONNECT-TARGET-SESSION-ATTRS), который указывает предпочтительное состояние сеанса при подключении к базе данных.
+    Определяет значение по умолчанию для [параметра {{ PG }} `target_session_attrs`]({{ pg.docs.org }}/current/libpq-connect.html#LIBPQ-CONNECT-TARGET-SESSION-ATTRS), который указывает предпочтительное состояние сеанса при подключении к базе данных.
 
     Возможные значения:
 
@@ -57,7 +57,7 @@
     * `read write` (по умолчанию) — подключение только к хосту-мастеру. Если он недоступен, подключение не выполняется.
     * `smart read write` — подключение к хосту-мастеру. Если он недоступен, подключение не выполняется. Если в файле конфигурации для настройки `query_routing.auto_route_ro_on_standby` установлено значение `true`, то запросы только на чтение данных автоматически перенаправляются к хостам-репликам (с семантикой `prefer standby`).
 
-    Подробнее см. описание настроек `query_routing.default_target_session_attrs` и `query_routing.auto_route_ro_on_standby` в [документации Sharded PostgreSQL](https://docs.pg-sharding.tech/configuration/router#query-routing-settings).
+    Подробнее см. описание настроек `query_routing.default_target_session_attrs` и `query_routing.auto_route_ro_on_standby` в [документации {{ SPQR }}]({{ spqr.docs }}/configuration/router#query-routing-settings).
 
 * **Default Commit Strategy**
 
@@ -67,4 +67,4 @@
     * `one pc` (по умолчанию) — псевдоним для `best-effort`.
     * `two pc` — двухэтапная фиксация с гарантиями атомарности между шардами.
 
-    Подробнее см. описание настройки `default_commit_strategy` в [документации Sharded PostgreSQL](https://docs.pg-sharding.tech/configuration/router#transaction-settings).
+    Подробнее см. описание настройки `default_commit_strategy` в [документации {{ SPQR }}]({{ spqr.docs }}/configuration/router#transaction-settings).

@@ -20,14 +20,12 @@ Returns detailed information about a given format schema.
 || cluster_id | **string**
 
 Required field. ClickHouse cluster ID.
-
 To get a ClickHouse cluster ID, use the [ClusterService.List](../Cluster/list.md#List) method.
 
 The maximum string length in characters is 50. ||
 || format_schema_name | **string**
 
 Required field. Format schema name.
-
 To get a format schema name, use the [FormatSchemaService.List](list.md#List) method.
 
 The maximum string length in characters is 63. Value must match the regular expression ` [a-zA-Z0-9_-]* `. ||
@@ -55,7 +53,6 @@ ClickHouse cluster ID. ||
 || type | enum **FormatSchemaType**
 
 Schema type. Possible values are the following:
-
 * FORMAT_SCHEMA_TYPE_PROTOBUF - [Protobuf](https://protobuf.dev/) data format (including [ProtobufSingle](https://clickhouse.com/docs/en/interfaces/formats#protobufsingle)).
 * FORMAT_SCHEMA_TYPE_CAPNPROTO - [Cap'n Proto](https://capnproto.org/) data format.
 

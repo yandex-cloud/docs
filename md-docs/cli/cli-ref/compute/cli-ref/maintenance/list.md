@@ -44,9 +44,6 @@ Set the custom configuration file. ||
 Enable gRPC retries. By default, retries are enabled with maximum 5 attempts.
 Pass 0 to disable retries. Pass any negative value for infinite retries.
 Even infinite retries are capped with 2 minutes timeout. ||
-|| `--syntax` | `string`
-
-CLI syntax: 1 (legacy) or 2 (current). Omit to use default-syntax in the profile or the product default. ||
 || `--folder-name` | `string`
 
 Set the name of the folder to use (will be resolved to id). ||
@@ -68,6 +65,3 @@ Set the output format: text (default), yaml, json, json-rest. ||
 Query to select values from the response using jq syntax ||
 || `-h`, `--help` | Display help for the command. ||
 |#
-#### Examples
-
- * [Посмотреть задания на техническое обслуживание ВМ](../../../../../compute/operations/vm-control/gpus-maintenance.md#cli_1)

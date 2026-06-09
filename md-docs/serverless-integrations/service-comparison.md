@@ -1,6 +1,6 @@
-# Сравнение EventRouter, Workflows и Data Streams
+# Сравнение {{ er-name }}, {{ sw-name }} и {{ yds-name }}
 
-**Критерий \ Сервис** | **EventRouter** | **Workflows** | **Data Streams**
+**Критерий \ Сервис** | **{{ er-name }}** | **{{ sw-name }}** | **{{ yds-name }}**
 --- | --- | --- | ---
 **Архитектурные подходы** | [Хореография](https://docs.aws.amazon.com/prescriptive-guidance/latest/cloud-design-patterns/saga-choreography.html), шина данных.<br/>Независимые интеграции с другими сервисами и обработка сообщений, быстрое изменение настроек обработки сообщений | [Оркестрация](https://docs.aws.amazon.com/prescriptive-guidance/latest/cloud-design-patterns/saga-orchestration.html).<br/>Последовательное выполнение взаимосвязанных шагов рабочего процесса | Брокер сообщений
 **Решаемые задачи** | Доставка, маршрутизация, фильтрация и трансформация сообщений | Фильтрация и обработка сообщений, интеграция между сервисами и последовательное выполнение шагов| Хранение сообщений, масштабирование при нагрузке

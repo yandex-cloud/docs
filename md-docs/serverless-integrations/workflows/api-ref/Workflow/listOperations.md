@@ -5,7 +5,7 @@ Lists operations for specified Workflow.
 ## HTTP request
 
 ```
-GET https://serverless-workflows.api.cloud.yandex.net/workflows/v1/workflow/{workflowId}/operations
+GET https://serverless-workflows.{{ api-host }}/workflows/v1/workflow/{workflowId}/operations
 ```
 
 ## Path parameters

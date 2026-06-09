@@ -5,7 +5,7 @@ Resolves external IDs to internal user IDs.
 ## HTTP request
 
 ```
-POST https://organization-manager.api.cloud.yandex.net/organization-manager/v1/idp/users:resolveExternalIds
+POST https://organization-manager.{{ api-host }}/organization-manager/v1/idp/users:resolveExternalIds
 ```
 
 ## Body parameters {#yandex.cloud.organizationmanager.v1.idp.ResolveExternalIdsRequest}
@@ -32,7 +32,7 @@ The maximum string length in characters is 50. ||
 
 List of external IDs to resolve.
 
-The number of elements must be in the range 1-1000. The maximum string length in characters for each value is 256. ||
+The maximum string length in characters for each value is 256. The number of elements must be in the range 1-1000. ||
 |#
 
 ## Response {#yandex.cloud.organizationmanager.v1.idp.ResolveExternalIdsResponse}

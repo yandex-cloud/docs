@@ -4,7 +4,7 @@ Actions are performed by making RPC calls. For more information about API archit
 
 **Interface definitions** available at [GitHub](https://github.com/yandex-cloud/cloudapi/tree/master/yandex/cloud/ytsaurus/v1).
 
-**Service URL**: `https://ytsaurus.api.cloud.yandex.net`
+**Service URL**: `https://ytsaurus.{{ api-host }}`
 
 #|
 ||Service | Description ||

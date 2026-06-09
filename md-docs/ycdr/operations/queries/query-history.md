@@ -2,7 +2,7 @@
 
 {% note info %}
 
-Функциональность находится на стадии [Preview](../../../overview/concepts/launch-stages.md). Чтобы получить доступ, обратитесь в [техническую поддержку](https://center.yandex.cloud/support) или к вашему аккаунт-менеджеру.
+Функциональность находится на стадии [Preview](../../../overview/concepts/launch-stages.md). Чтобы получить доступ, обратитесь в [техническую поддержку]({{ link-console-support }}) или к вашему аккаунт-менеджеру.
 
 {% endnote %}
 
@@ -14,7 +14,7 @@
 
 {% list tabs group=instructions %}
 
-- Интерфейс Security Deck {#cloud-sd}
+- Интерфейс {{ sd-name }} {#cloud-sd}
 
   1. Откройте историю запросов.
   1. Выберите запуск из списка.
@@ -36,11 +36,11 @@
 
 {% list tabs group=instructions %}
 
-- Интерфейс Security Deck {#cloud-sd}
+- Интерфейс {{ sd-name }} {#cloud-sd}
 
   1. Откройте историю запросов.
   1. Найдите нужный запуск.
-  1. Нажмите **Запустить**.
+  1. Нажмите **{{ ui-key.yacloud_org.security.siem.cell-result-action-launch_v9v5f }}**.
 
   Запрос будет выполнен с теми же параметрами, что и в выбранном запуске.
 
@@ -52,7 +52,7 @@
 
 {% list tabs group=instructions %}
 
-- Интерфейс Security Deck {#cloud-sd}
+- Интерфейс {{ sd-name }} {#cloud-sd}
 
   1. Откройте историю запросов.
   1. Найдите нужный запуск.
@@ -68,11 +68,11 @@
 
 {% list tabs group=instructions %}
 
-- Интерфейс Security Deck {#cloud-sd}
+- Интерфейс {{ sd-name }} {#cloud-sd}
 
   1. Откройте историю запросов.
   1. Найдите нужный запуск.
-  1. Нажмите **Поделиться**.
+  1. Нажмите **{{ ui-key.yacloud_org.security.siem.cell-result-action-share_i1khy }}**.
   1. Скопируйте ссылку.
 
   Ссылка содержит текст запроса и временной период из выбранного запуска.
@@ -81,8 +81,8 @@
 
 #### См. также {#see-also}
 
-* [Расследования](../../concepts/investigations.md).
-* [Запросы](../../concepts/queries.md).
-* [Управление запросами](manage-queries.md).
-* [Работа с шаблонами запросов](work-with-templates.md).
-* [Справочник KQL](../../kql-reference.md).
+* [{#T}](../../concepts/investigations.md).
+* [{#T}](../../concepts/queries.md).
+* [{#T}](manage-queries.md).
+* [{#T}](work-with-templates.md).
+* [{#T}](../../kql-reference.md).

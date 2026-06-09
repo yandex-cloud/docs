@@ -46,7 +46,7 @@ GitHub will use a [service account](../../iam/concepts/users/service-accounts.md
 - Management console {#console}
 
   1. In the [management console]({{ link-console-main }}), select the [folder](../../resource-manager/concepts/resources-hierarchy.md#folder) where you are going to create your infrastructure.
-  1. [Go](../../console/operations/select-service.md#select-service) to **{{ ui-key.yacloud.iam.folder.dashboard.label_iam }}**.
+  1. [Navigate](../../console/operations/select-service.md#select-service) to **{{ ui-key.yacloud.iam.folder.dashboard.label_iam }}**.
   1. Click **{{ ui-key.yacloud.iam.folder.service-accounts.button_add }}**.
   1. Name the service account: `ci-cd-github-sa`.
   1. Click ![plus](../../_assets/console-icons/plus.svg) **{{ ui-key.yacloud.iam.folder.service-account.label_add-role }}** and select `{{ roles-functions-admin }}`.
@@ -111,7 +111,7 @@ You need a [workload identity federation](../../iam/concepts/workload-identity.m
 - Management console {#console}
 
   1. Open the [management console]({{ link-console-main }}).
-  1. [Go](../../console/operations/select-service.md#select-service) to **{{ ui-key.yacloud.iam.folder.dashboard.label_iam }}**.
+  1. [Navigate](../../console/operations/select-service.md#select-service) to **{{ ui-key.yacloud.iam.folder.dashboard.label_iam }}**.
   1. In the left-hand panel, select ![cpus](../../_assets/console-icons/cpus.svg) **{{ ui-key.yacloud.iam.label_federations }}**.
   1. Click **{{ ui-key.yacloud.iam.label_create-wli-federation }}**.
   1. In the **{{ ui-key.yacloud.iam.federations.field_issuer }}** field, enter the OIDC provider's URL: `https://token.actions.githubusercontent.com`.
@@ -175,7 +175,7 @@ With [federated credentials](../../iam/concepts/workload-identity.md#federated-c
 - Management console {#console}
 
   1. Open the [management console]({{ link-console-main }}).
-  1. [Go](../../console/operations/select-service.md#select-service) to **{{ ui-key.yacloud.iam.folder.dashboard.label_iam }}**.
+  1. [Navigate](../../console/operations/select-service.md#select-service) to **{{ ui-key.yacloud.iam.folder.dashboard.label_iam }}**.
   1. Select the `ci-cd-github-sa` service account.
   1. In the top panel, click ![image](../../_assets/console-icons/cpus.svg) **{{ ui-key.yacloud.iam.folder.service-account.overview.action_connect-federation }}**.
   1. In the **{{ ui-key.yacloud.iam.connected-federation.field_federation }}** field, select `ci-cd-github-federation`.
@@ -473,7 +473,7 @@ With [federated credentials](../../iam/concepts/workload-identity.md#federated-c
           * `from-github-ct`
           * `from-github-cd`
 
-      * `FUNCTION_RUNTIME`: Function [runtime environment](../../functions/concepts/runtime/index.md).
+      * `FUNCTION_RUNTIME`: Function [runtime](../../functions/concepts/runtime/index.md).
       * `FUNCTION_ENTRYPOINT`: Function entry point.
       * `FUNCTION_MEMORY`: Function RAM amount.
       * `FUNCTION_SOURCEROOT`: Path to the function files in the repository.
@@ -565,7 +565,7 @@ Run the [CI](#run-ci), [CT](#run-ct), and [CD](#run-cd) workflows one after the 
 - Management console {#console}
 
   1. Open the [management console]({{ link-console-main }}).
-  1. [Go](../../console/operations/select-service.md#select-service) to **{{ ui-key.yacloud.iam.folder.dashboard.label_serverless-functions }}**.
+  1. [Navigate](../../console/operations/select-service.md#select-service) to **{{ ui-key.yacloud.iam.folder.dashboard.label_serverless-functions }}**.
   1. Select `from-github-ci`.
   1. Navigate to the ![image](../../_assets/console-icons/circle-play.svg) **{{ ui-key.yacloud.serverless-functions.item.switch_testing }}** tab.
   1. {% include [testing-function](../_tutorials_includes/ci-cd-github-functions/testing-function.md) %}
@@ -594,7 +594,7 @@ Run the [CI](#run-ci), [CT](#run-ct), and [CD](#run-cd) workflows one after the 
 - Management console {#console}
 
   1. Open the [management console]({{ link-console-main }}).
-  1. [Go](../../console/operations/select-service.md#select-service) to **{{ ui-key.yacloud.iam.folder.dashboard.label_serverless-functions }}**.
+  1. [Navigate](../../console/operations/select-service.md#select-service) to **{{ ui-key.yacloud.iam.folder.dashboard.label_serverless-functions }}**.
   1. Select `from-github-ct`.
   1. Navigate to the ![image](../../_assets/console-icons/circle-play.svg) **{{ ui-key.yacloud.serverless-functions.item.switch_testing }}** tab.
   1. {% include [testing-function](../_tutorials_includes/ci-cd-github-functions/testing-function.md) %}
@@ -623,7 +623,7 @@ Run the [CI](#run-ci), [CT](#run-ct), and [CD](#run-cd) workflows one after the 
 - Management console {#console}
 
   1. Open the [management console]({{ link-console-main }}).
-  1. [Go](../../console/operations/select-service.md#select-service) to **{{ ui-key.yacloud.iam.folder.dashboard.label_serverless-functions }}**.
+  1. [Navigate](../../console/operations/select-service.md#select-service) to **{{ ui-key.yacloud.iam.folder.dashboard.label_serverless-functions }}**.
   1. Select `from-github-cd`.
   1. Navigate to the ![image](../../_assets/console-icons/circle-play.svg) **{{ ui-key.yacloud.serverless-functions.item.switch_testing }}** tab.
   1. {% include [testing-function](../_tutorials_includes/ci-cd-github-functions/testing-function.md) %}

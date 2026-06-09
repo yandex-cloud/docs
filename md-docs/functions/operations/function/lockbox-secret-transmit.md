@@ -1,4 +1,4 @@
-# Передать секреты Yandex Lockbox в функцию
+# Передать секреты {{ lockbox-name }} в функцию
 
 {% note info %}
 
@@ -6,13 +6,13 @@
 
 {% endnote %}
 
-[Yandex Lockbox](../../../lockbox/index.md) — сервис для хранения секретов. Передать секрет Yandex Lockbox в функцию можно в [переменной окружения](../../concepts/runtime/environment-variables.md#env).
+[{{ lockbox-name }}](../../../lockbox/index.md) — сервис для хранения секретов. Передать секрет {{ lockbox-name }} в функцию можно в [переменной окружения](../../concepts/runtime/environment-variables.md#env).
 
 Чтобы [функция](../../concepts/function.md) получила доступ к [секрету](../../../lockbox/concepts/secret.md), в ее параметрах нужно указать [сервисный аккаунт](../../../iam/concepts/users/service-accounts.md), у которого есть [роли](../../../iam/concepts/access-control/roles.md):
-* `lockbox.payloadViewer` на секрет ([как назначить права доступа к секрету](../../../lockbox/operations/secret-access.md)).
-* `kms.keys.encrypterDecrypter` на [ключ](../../../kms/concepts/key.md) шифрования, если секрет создан с использованием ключа [Yandex Key Management Service](../../../kms/index.md) ([как назначить права доступа к ключу шифрования](../../../kms/operations/key-access.md)).
+* `{{ roles-lockbox-payloadviewer }}` на секрет ([как назначить права доступа к секрету](../../../lockbox/operations/secret-access.md)).
+* `kms.keys.encrypterDecrypter` на [ключ](../../../kms/concepts/key.md) шифрования, если секрет создан с использованием ключа [{{ kms-full-name }}](../../../kms/index.md) ([как назначить права доступа к ключу шифрования](../../../kms/operations/key-access.md)).
 
-Секрет [Yandex Lockbox](../../../lockbox/index.md), который передается в функцию, кешируется в [Yandex Cloud Functions](../../index.md). После того как сервисный аккаунт потеряет доступ к секрету, функция может хранить его до 5 минут.
+Секрет [{{ lockbox-full-name }}](../../../lockbox/index.md), который передается в функцию, кешируется в [{{ sf-full-name }}](../../index.md). После того как сервисный аккаунт потеряет доступ к секрету, функция может хранить его до 5 минут.
 
 При передаче секретов создается новая версия функции. В существующую версию секреты передать нельзя.
 
@@ -20,29 +20,29 @@
 
 - Консоль управления {#console}
 
-  1. В [консоли управления](https://console.yandex.cloud) перейдите в [каталог](../../../resource-manager/concepts/resources-hierarchy.md#folder), в котором находится функция.
-  1. [Перейдите](../../../console/operations/select-service.md#select-service) в сервис **Cloud Functions**.
-  1. Выберите функцию, в которую хотите передать секрет Yandex Lockbox.
-  1. Перейдите на вкладку **Редактор**.
-  1. В блоке **Параметры** укажите:
-     * В поле **Сервисный аккаунт** — сервисный аккаунт, у которого есть роль `lockbox.payloadViewer`.
-     * В поле **Секреты Lockbox**:
+  1. В [консоли управления]({{ link-console-main }}) перейдите в [каталог](../../../resource-manager/concepts/resources-hierarchy.md#folder), в котором находится функция.
+  1. Перейдите в сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_serverless-functions }}**.
+  1. Выберите функцию, в которую хотите передать секрет {{ lockbox-name }}.
+  1. Перейдите на вкладку **{{ ui-key.yacloud.serverless-functions.item.switch_editor }}**.
+  1. В блоке **{{ ui-key.yacloud.serverless-functions.item.editor.label_title-params }}** укажите:
+     * В поле **{{ ui-key.yacloud.forms.label_service-account-select }}** — сервисный аккаунт, у которого есть роль `{{ roles-lockbox-payloadviewer }}`.
+     * В поле **{{ ui-key.yacloud.serverless-functions.item.editor.label_lockbox-secret }}**:
        * Имя переменной окружения, в которой будет храниться секрет.
        * Идентификатор секрета.
        * Идентификатор версии секрета.
        * Ключ одной из пар ключ-значение в версии секрета.
-  1. Нажмите **Добавить**.
+  1. Нажмите **{{ ui-key.yacloud.serverless-functions.item.editor.button_add-environment-variable }}**.
 
-     В функцию можно передать несколько секретов. Для этого еще раз нажмите **Добавить**.
-  1. Нажмите кнопку **Сохранить изменения**. Будет создана новая версия функции с указанными секретами.
+     В функцию можно передать несколько секретов. Для этого еще раз нажмите **{{ ui-key.yacloud.serverless-functions.item.editor.button_add-environment-variable }}**.
+  1. Нажмите кнопку **{{ ui-key.yacloud.serverless-functions.item.editor.button_deploy-version }}**. Будет создана новая версия функции с указанными секретами.
 
 - CLI {#cli}
 
-  Если у вас еще нет интерфейса командной строки Yandex Cloud (CLI), [установите и инициализируйте его](../../../cli/quickstart.md#install).
+  Если у вас еще нет интерфейса командной строки {{ yandex-cloud }} (CLI), [установите и инициализируйте его](../../../cli/quickstart.md#install).
 
   По умолчанию используется каталог, указанный при [создании](../../../cli/operations/profile/profile-create.md) профиля CLI. Чтобы изменить каталог по умолчанию, используйте команду `yc config set folder-id <идентификатор_каталога>`. Также для любой команды вы можете указать другой каталог с помощью параметров `--folder-name` или `--folder-id`. Если вы обращаетесь к ресурсу по имени, поиск будет выполнен в каталоге по умолчанию. Если вы обращаетесь к ресурсу по идентификатору, поиск будет выполнен глобально — во всех каталогах с учетом прав доступа.
 
-  Чтобы передать секрет Yandex Lockbox в функцию, выполните команду:
+  Чтобы передать секрет {{ lockbox-name }} в функцию, выполните команду:
 
   {% note warning %}
 
@@ -69,7 +69,7 @@
   * `--memory` — объем RAM.
   * `--execution-timeout` — максимальное время выполнения функции до таймаута.
   * `--source-version-id` — идентификатор версии функции, код которой вы хотите скопировать.
-  * `--service-account-id` — идентификатор сервисного аккаунта, у которого есть роль `lockbox.payloadViewer`.
+  * `--service-account-id` — идентификатор сервисного аккаунта, у которого есть роль `{{ roles-lockbox-payloadviewer }}`.
   * `--secret`:
     * `environment-variable` — имя переменной окружения, в которой будет храниться секрет.
     * `id` — идентификатор секрета.
@@ -78,11 +78,14 @@
 
     В функцию можно передать несколько секретов. Для этого укажите параметр `--secret` необходимое количество раз.
 
-- Terraform {#tf}
+- {{ TF }} {#tf}
 
-  Если у вас еще нет Terraform, [установите его и настройте провайдер Yandex Cloud](../../../tutorials/infrastructure-management/terraform-quickstart.md#install-terraform).
+  Если у вас еще нет {{ TF }}, [установите его и настройте провайдер {{ yandex-cloud }}](../../../tutorials/infrastructure-management/terraform-quickstart.md#install-terraform).
+  
+  
+  Чтобы управлять инфраструктурой с помощью {{ TF }} от имени сервисного аккаунта или пользовательских аккаунтов: аккаунта на Яндексе, федеративного аккаунта и локального пользователя, [аутентифицируйтесь](../../../terraform/authentication.md) соответствующим способом.
 
-  1. Откройте файл конфигурации Terraform и добавьте к описанию функции блок `secrets`:
+  1. Откройте файл конфигурации {{ TF }} и добавьте к описанию функции блок `secrets`:
 
      ```hcl
      resource "yandex_function" "test-function" {
@@ -121,7 +124,7 @@
        * `key` — ключ одной из пар ключ-значение в версии секрета, который будет храниться в переменной окружения. Обязательный параметр.
        * `environment_variable` — имя переменной окружения, в которой будет храниться секрет. Обязательный параметр.
   
-     Более подробную информацию о параметрах ресурса `yandex_function` см. в [документации провайдера](../../../terraform/resources/function.md).
+     Более подробную информацию о параметрах ресурса `yandex_function` см. в [документации провайдера]({{ tf-provider-resources-link }}/function).
 
   1. Примените изменения:
 
@@ -144,7 +147,7 @@
         terraform plan
         ```
      
-        В терминале будет выведен список ресурсов с параметрами. На этом этапе изменения не будут внесены. Если в конфигурации есть ошибки, Terraform на них укажет.
+        В терминале будет выведен список ресурсов с параметрами. На этом этапе изменения не будут внесены. Если в конфигурации есть ошибки, {{ TF }} на них укажет.
      1. Примените изменения конфигурации:
      
         ```bash
@@ -153,10 +156,10 @@
      
      1. Подтвердите изменения: введите в терминале слово `yes` и нажмите **Enter**.
 
-  Проверить изменение функции и ее настройки можно в [консоли управления](https://console.yandex.cloud).
+  Проверить изменение функции и ее настройки можно в [консоли управления]({{ link-console-main }}).
 
 - API {#api}
 
-  Чтобы передать секрет Yandex Lockbox в функцию, воспользуйтесь методом REST API [createVersion](../../functions/api-ref/Function/createVersion.md) для ресурса [Function](../../functions/api-ref/Function/index.md) или вызовом gRPC API [FunctionsService/CreateVersion](../../functions/api-ref/grpc/Function/createVersion.md).
+  Чтобы передать секрет {{ lockbox-name }} в функцию, воспользуйтесь методом REST API [createVersion](../../functions/api-ref/Function/createVersion.md) для ресурса [Function](../../functions/api-ref/Function/index.md) или вызовом gRPC API [FunctionsService/CreateVersion](../../functions/api-ref/grpc/Function/createVersion.md).
 
 {% endlist %}

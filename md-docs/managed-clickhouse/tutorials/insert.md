@@ -1,4 +1,4 @@
-# Добавление данных в ClickHouse®
+# Добавление данных в {{ CH }}
 
 Для обычной вставки данных в таблицы используйте запрос `INSERT INTO`:
 
@@ -8,7 +8,7 @@ INSERT INTO db_name.table_name VALUES (v11, v12, v13), (v21, v22, v23), ...
 
 Запросы на вставку рекомендуется отправлять не чаще одного раза в секунду. Чтобы объединить мелкие запросы в один большой, используйте [буферизацию](#buffer-insert).
 
-Подробнее о запросе `INSERT INTO` см. в [документации ClickHouse®](https://clickhouse.com/docs/ru/sql-reference/statements/insert-into#insert).
+Подробнее о запросе `INSERT INTO` см. в [документации {{ CH }}]({{ ch.docs }}{{ lang }}/sql-reference/statements/insert-into#insert).
 
 ## Вставка данных из файла {#file-insert}
 
@@ -19,13 +19,13 @@ INSERT INTO db_name.table_name FROM INFILE '<полный_путь_к_файлу
 [COMPRESSION '<формат_сжатия>'] FORMAT <формат_данных>;
 ```
 
-Опция `COMPRESSION` позволяет передавать сжатые файлы. Используйте ее, чтобы загружать большие объемы информации. Опция поддерживается при работе через [clickhouse-client](https://clickhouse.com/docs/ru/interfaces/cli) или [HTTP-интерфейс](https://clickhouse.com/docs/ru/interfaces/http). Если формат сжатия не указан, то он определяется по расширению файла. Возможные значения формата сжатия: `none`, `gzip`, `deflate`, `br`, `xz`, `zstd`, `lz4`, `bz2`.
+Опция `COMPRESSION` позволяет передавать сжатые файлы. Используйте ее, чтобы загружать большие объемы информации. Опция поддерживается при работе через [clickhouse-client]({{ ch.docs }}{{ lang }}/interfaces/cli) или [HTTP-интерфейс]({{ ch.docs }}{{ lang }}/interfaces/http). Если формат сжатия не указан, то он определяется по расширению файла. Возможные значения формата сжатия: `none`, `gzip`, `deflate`, `br`, `xz`, `zstd`, `lz4`, `bz2`.
 
-Список поддерживаемых форматов данных приведен в [документации ClickHouse®](https://clickhouse.com/docs/ru/interfaces/formats). О настройке схем форматов данных Cap'n Proto и Protobuf см. в разделе [Управление схемами формата данных](../operations/format-schemas.md).
+Список поддерживаемых форматов данных приведен в [документации {{ CH }}]({{ ch.docs }}{{ lang }}/interfaces/formats). О настройке схем форматов данных Cap'n Proto и Protobuf см. в разделе [Управление схемами формата данных](../operations/format-schemas.md).
 
 ## Вставка данных с использованием буферизации {#buffer-insert}
 
-При вставке данных в ClickHouse® часть вычислительных ресурсов расходуется на выполнение служебных операций. При выполнении каждого `INSERT`-запроса ClickHouse® создает в хранилище отдельный кусок данных. Помимо строк таблицы такой кусок содержит ряд вспомогательных файлов с метаданными. Затем ClickHouse® объединяет куски данных в фоновом режиме. Чем больше потребуется операций объединения, тем больше будет задействовано ресурсов.
+При вставке данных в {{ CH }} часть вычислительных ресурсов расходуется на выполнение служебных операций. При выполнении каждого `INSERT`-запроса {{ CH }} создает в хранилище отдельный кусок данных. Помимо строк таблицы такой кусок содержит ряд вспомогательных файлов с метаданными. Затем {{ CH }} объединяет куски данных в фоновом режиме. Чем больше потребуется операций объединения, тем больше будет задействовано ресурсов.
 
 В результате тысяча запросов на вставку одной строки создаст большую нагрузку на кластер, чем один запрос на вставку тысячи строк. Поэтому рекомендуется вставлять данные в таблицу большими порциями — от 1000 до 100 000 строк.
 
@@ -43,9 +43,9 @@ INSERT INTO db_name.table_name FROM INFILE '<полный_путь_к_файлу
 
 Чтобы включить асинхронную вставку данных, [установите значение настройки](../operations/change-query-level-settings.md#yandex-cloud-interfaces) **Async insert** на `1`.
 
-При использовании асинхронных вставок недоступна [дедупликация строк](https://clickhouse.com/docs/en/guides/developer/deduplication).
+При использовании асинхронных вставок недоступна [дедупликация строк]({{ ch.docs }}{{ lang }}/guides/developer/deduplication).
 
-Подробную информацию об асинхронной вставке данных см. в [документации ClickHouse®](https://clickhouse.com/docs/en/cloud/bestpractices/asynchronous-inserts).
+Подробную информацию об асинхронной вставке данных см. в [документации {{ CH }}]({{ ch.docs }}{{ lang }}/best-practices/use-materialized-views).
 
 ### Вставка данных через буферную таблицу {#buffer-table}
 
@@ -66,7 +66,7 @@ Buffer(database, table, num_layers, min_time, max_time, min_rows, max_rows, min_
 
 Сброс данных в основную таблицу происходит при достижении всех минимальных значений, либо хотя бы одного максимального. Если объем поступающей порции данных превышает `max_rows` или `max_bytes`, то данные не попадают в буфер, а записываются напрямую в основную таблицу.
 
-Информацию о дополнительных параметрах движка и ограничениях таблиц на движке `Buffer` см. в [документации ClickHouse®](https://clickhouse.com/docs/ru/engines/table-engines/special/buffer).
+Информацию о дополнительных параметрах движка и ограничениях таблиц на движке `Buffer` см. в [документации {{ CH }}]({{ ch.docs }}{{ lang }}/engines/table-engines/special/buffer).
 
 #### Пример {#buffer-table-example}
 
@@ -107,25 +107,25 @@ Buffer(database, table, num_layers, min_time, max_time, min_rows, max_rows, min_
 
 ## Вставка данных с указанием схемы формата данных {#insert-with-format-schema}
 
-Managed Service for ClickHouse® позволяет вставлять (`INSERT`) и выводить (`SELECT`) данные в различных форматах. Большинство таких форматов — _самоописываемые_, то есть они уже содержат в себе _схему формата_ данных, описывающую допустимые типы данных, их порядок и представление в этом формате. Это позволяет, например, сразу делать вставку из файла. 
+{{ mch-name }} позволяет вставлять (`INSERT`) и выводить (`SELECT`) данные в различных форматах. Большинство таких форматов — _самоописываемые_, то есть они уже содержат в себе _схему формата_ данных, описывающую допустимые типы данных, их порядок и представление в этом формате. Это позволяет, например, сразу делать вставку из файла. 
 
 {% note info %}
 
-_Схема формата_ данных (format schema) описывает формат ввода или вывода данных, в то время как _схема данных_ (data scheme) описывает структуру и устройство баз данных и таблиц ClickHouse®, которые хранят эти данные. Эти понятия не являются взаимозаменяемыми.
+_Схема формата_ данных (format schema) описывает формат ввода или вывода данных, в то время как _схема данных_ (data scheme) описывает структуру и устройство баз данных и таблиц {{ CH }}, которые хранят эти данные. Эти понятия не являются взаимозаменяемыми.
 
 {% endnote %}
 
-Форматы данных [Cap'n Proto](https://capnproto.org/) и [Protobuf](https://developers.google.com/protocol-buffers/) (включая [ProtobufSingle](https://clickhouse.com/docs/ru/interfaces/formats/#protobufsingle)) не содержат в себе схему формата — данные представляются в бинарном виде без какой-либо информации о структуре. Перед началом работы с данными в этих форматах (например, перед вставкой в таблицу) необходимо подключить схему формата данных к кластеру Managed Service for ClickHouse®. Это позволит правильно интерпретировать количество, порядок и тип значений при работе с бинарными данными.
+Форматы данных [Cap'n Proto](https://capnproto.org/) и [Protobuf](https://developers.google.com/protocol-buffers/) (включая [ProtobufSingle]({{ ch.docs }}{{ lang }}/interfaces/formats#protobufsingle)) не содержат в себе схему формата — данные представляются в бинарном виде без какой-либо информации о структуре. Перед началом работы с данными в этих форматах (например, перед вставкой в таблицу) необходимо подключить схему формата данных к кластеру {{ mch-name }}. Это позволит правильно интерпретировать количество, порядок и тип значений при работе с бинарными данными.
 
-Вы можете подключить к кластеру Managed Service for ClickHouse® одну или несколько таких схем формата и использовать их для ввода и вывода требуемых данных в соответствующих форматах.
+Вы можете подключить к кластеру {{ mch-name }} одну или несколько таких схем формата и использовать их для ввода и вывода требуемых данных в соответствующих форматах.
 
 {% note warning %}
 
-Чтобы использовать подключенные схемы формата, вставку данных в Managed Service for ClickHouse® следует производить с помощью [HTTP-интерфейса](https://clickhouse.com/docs/ru/interfaces/http/), т. к. в этом случае сериализация и десериализация данных производится на стороне сервера с использованием подключенных схем.
+Чтобы использовать подключенные схемы формата, вставку данных в {{ mch-name }} следует производить с помощью [HTTP-интерфейса]({{ ch.docs }}{{ lang }}/interfaces/http), т. к. в этом случае сериализация и десериализация данных производится на стороне сервера с использованием подключенных схем.
 
 {% endnote %}
 
-Подробнее о форматах данных см. [в документации ClickHouse®](https://clickhouse.com/docs/ru/interfaces/formats/).
+Подробнее о форматах данных см. [в документации {{ CH }}]({{ ch.docs }}{{ lang }}/interfaces/formats).
 
 ## Пример работы со схемой формата при вставке данных {#example}
 
@@ -137,7 +137,7 @@ _Схема формата_ данных (format schema) описывает фо
 - protobuf-compiler: `3.6.1`.
 - Python: `3.8.5`; pip3: `20.0.2`.
 
-Допустим, что создан однохостовый кластер Managed Service for ClickHouse® `chcluster` с базой данных `db1` и нужно вставить данные о пользователях в таблицу `db1.users`. Пусть каждая запись о пользователе содержит следующую информацию:
+Допустим, что создан однохостовый кластер {{ mch-name }} `chcluster` с базой данных `db1` и нужно вставить данные о пользователях в таблицу `db1.users`. Пусть каждая запись о пользователе содержит следующую информацию:
 - идентификатор пользователя `id`;
 - имя пользователя `name`.
 
@@ -153,10 +153,10 @@ _Схема формата_ данных (format schema) описывает фо
 1. Изучите формат данных, который будет использоваться при вставке, чтобы [подготовить](#prepare-format-schemas) корректные схемы формата.
 
    В этом сценарии использования для иллюстрации принимается, что:
-   - идентификатор пользователя `id` представлен в виде целого беззнакового 64-битного числа (`Uint64` в Cap'n Proto и ClickHouse®, `uint64` в Protobuf);
-   - имя пользователя `name` представлено в виде строки (`Text` в Cap'n Proto, `string` в Protobuf, `String` в ClickHouse®).
+   - идентификатор пользователя `id` представлен в виде целого беззнакового 64-битного числа (`Uint64` в Cap'n Proto и {{ CH }}, `uint64` в Protobuf);
+   - имя пользователя `name` представлено в виде строки (`Text` в Cap'n Proto, `string` в Protobuf, `String` в {{ CH }}).
 
-   Подробнее о поддерживаемых типах данных см. в документации [Cap'n Proto](https://capnproto.org/language.html), [Protobuf](https://developers.google.com/protocol-buffers/docs/proto3) и [ClickHouse®](https://clickhouse.com/docs/ru/sql-reference/data-types/).
+   Подробнее о поддерживаемых типах данных см. в документации [Cap'n Proto](https://capnproto.org/language.html), [Protobuf](https://developers.google.com/protocol-buffers/docs/proto3) и [{{ CH }}]({{ ch.docs }}{{ lang }}/sql-reference/data-types).
 
 1. [Подключитесь к кластеру](../operations/connect/clients.md) и создайте таблицу `db1.users` нужного вида, если ее еще не существует:
 
@@ -211,7 +211,7 @@ pip3 install protobuf varint pycapnp
    {% endlist %}
 
 
-1. [Загрузите файл](../../storage/operations/objects/upload.md) в Object Storage и [получите ссылку](../../storage/operations/objects/link-for-download.md) на него.
+1. [Загрузите файл](../../storage/operations/objects/upload.md) в {{ objstorage-name }} и [получите ссылку](../../storage/operations/objects/link-for-download.md) на него.
 
 
 1. [Подключите схему формата данных](../operations/format-schemas.md#add-format-schema) к кластеру `chcluster`:
@@ -251,11 +251,11 @@ pip3 install protobuf varint pycapnp
      import capnp
      from user_capnp import User
 
-     DB_HOST="<FQDN_хоста_ClickHouse®>"
+     DB_HOST="<FQDN_хоста_{{ CH }}>"
      DB_NAME="db1"
      DB_USER="<имя_пользователя_БД>"
      DB_PASS="<пароль_пользователя_БД>"
-     CA_CERT="/usr/local/share/ca-certificates/Yandex/RootCA.crt"
+     CA_CERT="{{ crt-local-dir }}{{ crt-local-file-root }}"
 
      SCHEMA_NAME = 'schema-capnproto'
      SCHEMA_TYPE = "CapnProto"
@@ -317,11 +317,11 @@ pip3 install protobuf varint pycapnp
      import varint
      from user_pb2 import User
 
-     DB_HOST="<FQDN_хоста_ClickHouse®>"
+     DB_HOST="<FQDN_хоста_{{ CH }}>"
      DB_NAME="db1"
      DB_USER="<имя_пользователя_БД>"
      DB_PASS="<пароль_пользователя_БД>"
-     CA_CERT="/usr/local/share/ca-certificates/Yandex/RootCA.crt"
+     CA_CERT="{{ crt-local-dir }}{{ crt-local-file-root }}"
 
      SCHEMA_NAME = 'schema-protobuf'
      SCHEMA_TYPE = "Protobuf"
@@ -426,4 +426,4 @@ pip3 install protobuf varint pycapnp
 
    {% endlist %}
 
-_ClickHouse® является зарегистрированным товарным знаком [ClickHouse, Inc](https://clickhouse.com)._
+_{{ CH }} является зарегистрированным товарным знаком [ClickHouse, Inc](https://clickhouse.com)._

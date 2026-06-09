@@ -22,7 +22,7 @@ description: Следуя данной инструкции, вы сможете
 
         {% note info %}
 
-        Ссылку на файл также можно получить в Яндекс Диске. Подробнее читайте в [документации](https://yandex.ru/support/disk/share/sharing.html#how-to-share).
+        Ссылку на файл также можно получить в Яндекс Диске. Подробнее в [документации](https://yandex.ru/support/disk/share/sharing.html#how-to-share).
 
         {% endnote %}
 

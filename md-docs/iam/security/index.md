@@ -1,4 +1,4 @@
-# Управление доступом в сервисе Identity and Access Management
+# Управление доступом в сервисе {{ iam-name }}
 
 В этом разделе вы узнаете:
 * [на какие ресурсы можно назначить роль](#resources);
@@ -7,10 +7,10 @@
 
 ## Об управлении доступом {#about-access-control}
 
-Все операции в Yandex Cloud проверяются в сервисе [Yandex Identity and Access Management](../index.md). Если у субъекта нет необходимых разрешений, сервис вернет ошибку.
+Все операции в {{ yandex-cloud }} проверяются в сервисе [{{ iam-full-name }}](../index.md). Если у субъекта нет необходимых разрешений, сервис вернет ошибку.
 
 
-Чтобы выдать разрешения к ресурсу, [назначьте роли](../operations/roles/grant.md) на этот ресурс субъекту, который будет выполнять операции. Роли можно назначить [аккаунту на Яндексе](../concepts/users/accounts.md#passport), [сервисному аккаунту](../concepts/users/service-accounts.md), [локальному пользователю](../concepts/users/accounts.md#local), [федеративному пользователю](../concepts/federations.md), [группе пользователей](../../organization/operations/manage-groups.md), [системной группе](../concepts/access-control/system-group.md) или [публичной группе](../concepts/access-control/public-group.md). Подробнее читайте в разделе [Как устроено управление доступом в Yandex Cloud](../concepts/access-control/index.md).
+Чтобы выдать разрешения к ресурсу, [назначьте роли](../operations/roles/grant.md) на этот ресурс субъекту, который будет выполнять операции. Роли можно назначить [аккаунту на Яндексе](../concepts/users/accounts.md#passport), [сервисному аккаунту](../concepts/users/service-accounts.md), [локальному пользователю](../concepts/users/accounts.md#local), [федеративному пользователю](../concepts/federations.md), [группе пользователей](../../organization/operations/manage-groups.md), [системной группе](../concepts/access-control/system-group.md) или [публичной группе](../concepts/access-control/public-group.md). Подробнее читайте в разделе [{#T}](../concepts/access-control/index.md).
 
 Назначать роли на ресурс могут пользователи, у которых на этот ресурс есть роль `iam.admin` или одна из следующих ролей:
 
@@ -22,7 +22,7 @@
 
 {% note info %}
 
-Даже если [операция](../../api-design-guide/concepts/about-async.md) с ресурсами [сервисов](../../overview/concepts/services.md) Yandex Cloud разрешена [ролью](../concepts/access-control/roles.md), ее выполнение может быть заблокировано, если на [организацию](../../organization/concepts/organization.md), [облако](../../resource-manager/concepts/resources-hierarchy.md#cloud) или [каталог](../../resource-manager/concepts/resources-hierarchy.md#folder) назначена [политика авторизации](../concepts/access-control/access-policies.md), запрещающая эту операцию.
+Даже если [операция](../../api-design-guide/concepts/about-async.md) с ресурсами [сервисов](../../overview/concepts/services.md) {{ yandex-cloud }} разрешена [ролью](../concepts/access-control/roles.md), ее выполнение может быть заблокировано, если на [организацию](../../organization/concepts/organization.md), [облако](../../resource-manager/concepts/resources-hierarchy.md#cloud) или [каталог](../../resource-manager/concepts/resources-hierarchy.md#folder) назначена [политика авторизации](../concepts/access-control/access-policies.md), запрещающая эту операцию.
 
 {% endnote %}
 
@@ -36,25 +36,25 @@
 
 - Консоль управления {#console}
 
-  В [консоли управления](https://console.yandex.cloud) вы можете назначить роли на [сервисный аккаунт](../concepts/users/service-accounts.md).
+  В [консоли управления]({{ link-console-main }}) вы можете назначить роли на [сервисный аккаунт](../concepts/users/service-accounts.md).
 
 - CLI {#cli}
 
-  Через [Yandex Cloud CLI](../../cli/cli-ref/iam/cli-ref/index.md) вы можете назначить роли на следующие ресурсы:
+  Через [{{ yandex-cloud }} CLI](../../cli/cli-ref/iam/cli-ref/index.md) вы можете назначить роли на следующие ресурсы:
 
   * [Сервисный аккаунт](../concepts/users/service-accounts.md)
   * [Федерация сервисных аккаунтов](../concepts/workload-identity.md)
 
-- Terraform {#tf}
+- {{ TF }} {#tf}
 
-  Через [Terraform](../../terraform/index.md) вы можете назначить роли на следующие ресурсы:
+  Через [{{ TF }}]({{ tf-provider-link }}) вы можете назначить роли на следующие ресурсы:
 
   * [Сервисный аккаунт](../concepts/users/service-accounts.md)
   * [Федерация сервисных аккаунтов](../concepts/workload-identity.md)
 
 - API {#api}
 
-  Через [API Yandex Cloud](../api-ref/authentication.md) вы можете назначить роли на следующие ресурсы:
+  Через [API {{ yandex-cloud }}](../api-ref/authentication.md) вы можете назначить роли на следующие ресурсы:
 
   * [Сервисный аккаунт](../concepts/users/service-accounts.md)
   * [Федерация сервисных аккаунтов](../concepts/workload-identity.md)
@@ -63,14 +63,20 @@
 
 ## Какие роли действуют в сервисе {#roles-list}
 
-На диаграмме показано, какие роли есть в сервисе и как они наследуют разрешения друг друга. Например, в `editor` входят все разрешения `viewer`. После диаграммы дано описание каждой роли.
+На диаграмме показано, какие роли есть в сервисе и как они наследуют разрешения друг друга. Например, в `{{ roles-editor }}` входят все разрешения `{{ roles-viewer }}`. После диаграммы дано описание каждой роли.
 
 ```mermaid
+%%{
+  init: {
+    "flowchart": { "defaultRenderer": "elk" },
+    "elk": { "nodePlacementStrategy": "NETWORK_SIMPLEX" }
+  }
+}%%
 flowchart BT
     iam.serviceAccounts.admin ---> iam.admin
     iam.workloadIdentityFederations.admin["`iam.workloadIdentityFederations.
     admin`"]
-    iam.workloadIdentityFederations.admin ------> iam.admin
+    iam.workloadIdentityFederations.admin --> iam.admin
     iam.workloadIdentityFederations.user["`iam.workloadIdentityFederations.
     user`"]
     iam.workloadIdentityFederations.user --> iam.workloadIdentityFederations.admin
@@ -96,6 +102,9 @@ flowchart BT
     iam.serviceAccounts.apiKeyAdmin["`iam.serviceAccounts.
     apiKeyAdmin`"]
     iam.serviceAccounts.apiKeyAdmin --> iam.serviceAccounts.keyAdmin
+    iam.serviceAccounts.ephemeralAccessKeyAdmin["`iam.serviceAccounts.
+    ephemeralAccessKeyAdmin`"]
+    iam.serviceAccounts.ephemeralAccessKeyAdmin --> iam.serviceAccounts.accessKeyAdmin
     iam.serviceAccounts.accessKeyAdmin["`iam.serviceAccounts.
     accessKeyAdmin`"]
     iam.serviceAccounts.accessKeyAdmin --> iam.serviceAccounts.keyAdmin
@@ -111,7 +120,7 @@ flowchart BT
     iam.userAccounts.refreshTokenRevoker["`iam.userAccounts.
     refreshTokenRevoker`"]
     iam.userAccounts.refreshTokenRevoker --> iam.editor
-    iam.viewer ---> iam.editor
+    iam.viewer --> iam.editor
     iam.auditor --> iam.viewer
     iam.serviceAccounts.keyAdmin["`iam.serviceAccounts.
     keyAdmin`"]
@@ -140,7 +149,11 @@ flowchart BT
 * создавать [эфемерные ключи доступа](../concepts/authorization/ephemeral-keys.md) сервисных аккаунтов;
 * просматривать информацию о [каталоге](../../resource-manager/concepts/resources-hierarchy.md#folder) и его настройки.
 
-В некоторых сервисах для выполнения операций необходим сервисный аккаунт, например в [Instance Groups](../../compute/concepts/instance-groups/index.md) или [Managed Service for Kubernetes](https://yandex.cloud/ru/services/managed-kubernetes). Если вы указали сервисный аккаунт в запросе, то IAM проверит, что у вас есть права на использование этого аккаунта.
+В некоторых сервисах для выполнения операций необходим сервисный аккаунт, например в [{{ ig-name }}](../../compute/concepts/instance-groups/index.md) или [{{ managed-k8s-name }}]({{ link-cloud-services }}/managed-kubernetes). Если вы указали сервисный аккаунт в запросе, то {{ iam-short-name }} проверит, что у вас есть права на использование этого аккаунта.
+
+#### iam.serviceAccounts.ephemeralAccessKeyAdmin {#iam-serviceAccounts-ephemeralAccessKeyAdmin}
+
+Роль `iam.serviceAccounts.ephemeralAccessKeyAdmin` позволяет создавать [эфемерные ключи доступа](../concepts/authorization/ephemeral-keys.md) сервисных аккаунтов.
 
 #### iam.serviceAccounts.accessKeyAdmin {#iam-serviceAccounts-accessKeyAdmin}
 
@@ -150,6 +163,8 @@ flowchart BT
 * просматривать список [статических ключей доступа](../concepts/authorization/access-key.md) сервисных аккаунтов и информацию о таких ключах;
 * создавать, изменять и удалять статические ключи доступа [сервисных аккаунтов](../concepts/users/accounts.md#sa);
 * создавать [эфемерные ключи доступа](../concepts/authorization/ephemeral-keys.md) сервисных аккаунтов.
+
+Включает разрешения, предоставляемые ролью `iam.serviceAccounts.ephemeralAccessKeyAdmin`.
 
 #### iam.serviceAccounts.apiKeyAdmin {#iam-serviceAccounts-apiKeyAdmin}
 
@@ -301,46 +316,46 @@ flowchart BT
 
 ### Примитивные роли {#primitive-roles}
 
-Примитивные роли позволяют пользователям совершать действия во [всех сервисах](../../overview/concepts/services.md) Yandex Cloud.
+Примитивные роли позволяют пользователям совершать действия во [всех сервисах](../../overview/concepts/services.md) {{ yandex-cloud }}.
 
-#### auditor {#auditor}
+#### {{ roles-auditor }} {#auditor}
 
 Роль `auditor` предоставляет разрешения на чтение конфигурации и метаданных любых ресурсов Yandex Cloud без возможности доступа к данным.
 
 Например, пользователи с этой ролью могут:
-* просматривать информацию о [ресурсе](../../resource-manager/concepts/resources-hierarchy.md);
+* просматривать информацию о [ресурсе]({{ link-docs }}/resource-manager/concepts/resources-hierarchy);
 * просматривать метаданные ресурса;
 * просматривать список операций с ресурсом.
 
-Роль `auditor` — наиболее безопасная роль, исключающая доступ к данным [сервисов](../../overview/concepts/services.md). Роль подходит для пользователей, которым необходим минимальный уровень доступа к ресурсам Yandex Cloud.
+Роль `auditor` — наиболее безопасная роль, исключающая доступ к данным [сервисов]({{ link-docs }}/overview/concepts/services). Роль подходит для пользователей, которым необходим минимальный уровень доступа к ресурсам Yandex Cloud.
 
-#### viewer {#viewer}
+#### {{ roles-viewer }} {#viewer}
 
-Роль `viewer` предоставляет разрешения на чтение информации о любых [ресурсах](../../resource-manager/concepts/resources-hierarchy.md) Yandex Cloud.
+Роль `viewer` предоставляет разрешения на чтение информации о любых [ресурсах]({{ link-docs }}/resource-manager/concepts/resources-hierarchy) Yandex Cloud.
 
 Включает разрешения, предоставляемые ролью `auditor`.
 
-В отличие от роли `auditor`, роль `viewer` предоставляет доступ к данным [сервисов](../../overview/concepts/services.md) в режиме чтения.
+В отличие от роли `auditor`, роль `viewer` предоставляет доступ к данным [сервисов]({{ link-docs }}/overview/concepts/services) в режиме чтения.
 
-#### editor {#editor}
+#### {{ roles-editor }} {#editor}
 
-Роль `editor` предоставляет разрешения на управление любыми [ресурсами](../../resource-manager/concepts/resources-hierarchy.md) Yandex Cloud, кроме назначения ролей другим пользователям, передачи прав владения [организацией](../../organization/concepts/organization.md) и ее удаления, а также удаления [ключей шифрования](../../kms/concepts/index.md) Key Management Service.
+Роль `editor` предоставляет разрешения на управление любыми [ресурсами]({{ link-docs }}/resource-manager/concepts/resources-hierarchy) Yandex Cloud, кроме назначения ролей другим пользователям, передачи прав владения [организацией]({{ link-docs }}/organization/concepts/organization) и ее удаления, а также удаления [ключей шифрования]({{ link-docs }}/kms/concepts/) Key Management Service.
 
 Например, пользователи с этой ролью могут создавать, изменять и удалять ресурсы.
 
 Включает разрешения, предоставляемые ролью `viewer`.
 
-#### admin {#admin}
+#### {{ roles-admin }} {#admin}
 
-Роль `admin` позволяет назначать любые роли, кроме `resource-manager.clouds.owner` и `organization-manager.organizations.owner`, а также предоставляет разрешения на управление любыми [ресурсами](../../resource-manager/concepts/resources-hierarchy.md) Yandex Cloud, кроме передачи прав владения [организацией](../../organization/concepts/organization.md) и ее удаления.
+Роль `admin` позволяет назначать любые роли, кроме `resource-manager.clouds.owner` и `organization-manager.organizations.owner`, а также предоставляет разрешения на управление любыми [ресурсами]({{ link-docs }}/resource-manager/concepts/resources-hierarchy) Yandex Cloud, кроме передачи прав владения [организацией]({{ link-docs }}/organization/concepts/organization) и ее удаления.
 
-Прежде чем назначить роль `admin` на организацию, [облако](../../resource-manager/concepts/resources-hierarchy.md#cloud) или [платежный аккаунт](../../billing/concepts/billing-account.md), ознакомьтесь с информацией о защите [привилегированных аккаунтов](../../security/standard/all.md#privileged-users).
+Прежде чем назначить роль `admin` на организацию, [облако]({{ link-docs }}/resource-manager/concepts/resources-hierarchy#cloud) или [платежный аккаунт]({{ link-docs }}/billing/concepts/billing-account), ознакомьтесь с информацией о защите [привилегированных аккаунтов]({{ link-docs }}/security/standard/all#privileged-users).
 
 Включает разрешения, предоставляемые ролью `editor`.
 
 Вместо примитивных ролей мы рекомендуем использовать роли сервисов. Такой подход позволит более гранулярно управлять доступом и обеспечить соблюдение [принципа минимальных привилегий](../../security/standard/all.md#min-privileges).
 
-Подробнее о примитивных ролях см. в [справочнике ролей Yandex Cloud](../roles-reference.md#primitive-roles).
+Подробнее о примитивных ролях см. в [справочнике ролей {{ yandex-cloud }}](../roles-reference.md#primitive-roles).
 
 ## Какие роли мне необходимы {#choosing-roles}
 
@@ -367,5 +382,5 @@ flowchart BT
 
 * [Как назначить роль](../operations/roles/grant.md).
 * [Как отозвать роль](../operations/roles/revoke.md).
-* [Подробнее об управлении доступом в Yandex Cloud](../concepts/access-control/index.md).
+* [Подробнее об управлении доступом в {{ yandex-cloud }}](../concepts/access-control/index.md).
 * [Подробнее о наследовании ролей](../../resource-manager/concepts/resources-hierarchy.md#access-rights-inheritance).

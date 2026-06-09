@@ -5,7 +5,7 @@ Lists operations for the specified server.
 ## HTTP request
 
 ```
-GET https://baremetal.api.cloud.yandex.net/baremetal/v1alpha/servers/{serverId}/operations
+GET https://baremetal.{{ api-host }}/baremetal/v1alpha/servers/{serverId}/operations
 ```
 
 ## Path parameters

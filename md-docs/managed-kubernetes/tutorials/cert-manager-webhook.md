@@ -1,28 +1,28 @@
 # Создание веб-хука резолвера ACME для ответов на DNS01-проверки
 
 
-Чтобы автоматически проходить проверки [прав на домен](../../certificate-manager/concepts/challenges.md), зарегистрированный в Yandex Cloud DNS, установите приложение [cert-manager](https://cert-manager.io/docs/) с веб-хуком резолвера DNS01.
+Чтобы автоматически проходить проверки [прав на домен](../../certificate-manager/concepts/challenges.md), зарегистрированный в {{ dns-full-name }}, установите приложение [cert-manager](https://cert-manager.io/docs/) с веб-хуком резолвера DNS01.
 
-Чтобы запустить веб-хук в кластере Managed Service for Kubernetes:
+Чтобы запустить веб-хук в кластере {{ managed-k8s-name }}:
 
-1. [Подготовьте кластер Managed Service for Kubernetes к работе](#before-managed-kubernetes).
-1. [Установите и запустите веб-хук в кластере Managed Service for Kubernetes](#yandex-webhook).
+1. [Подготовьте кластер {{ managed-k8s-name }} к работе](#before-managed-kubernetes).
+1. [Установите и запустите веб-хук в кластере {{ managed-k8s-name }}](#yandex-webhook).
 1. [Проверьте работу веб-хука](#check-yandex-webhook).
 1. [Удалите созданные ресурсы](#clear-out).
 
 {% note info %}
 
-Менеджер сертификатов с веб-хуком ACME для Yandex Cloud DNS поддерживает работу с [Wildcard-сертификатами](../../glossary/ssl-certificate.md#types).
+Менеджер сертификатов с веб-хуком ACME для {{ dns-full-name }} поддерживает работу с [Wildcard-сертификатами](../../glossary/ssl-certificate.md#types).
 
 {% endnote %}
 
 ## Перед началом работы {#before-you-begin}
 
-Зарегистрируйтесь в Yandex Cloud и создайте [платежный аккаунт](../../billing/concepts/billing-account.md):
-1. Перейдите в [консоль управления](https://console.yandex.cloud), затем войдите в Yandex Cloud или зарегистрируйтесь.
-1. На странице **[Yandex Cloud Billing](https://center.yandex.cloud/billing/accounts)** убедитесь, что у вас подключен платежный аккаунт, и он находится в [статусе](../../billing/concepts/billing-account-statuses.md) `ACTIVE` или `TRIAL_ACTIVE`. Если платежного аккаунта нет, [создайте его](../../billing/quickstart/index.md) и [привяжите](../../billing/operations/pin-cloud.md) к нему облако.
+Зарегистрируйтесь в {{ yandex-cloud }} и создайте [платежный аккаунт](../../billing/concepts/billing-account.md):
+1. Перейдите в [консоль управления]({{ link-console-main }}), затем войдите в {{ yandex-cloud }} или зарегистрируйтесь.
+1. На странице **[{{ ui-key.yacloud_billing.billing.label_service }}]({{ link-console-billing }})** убедитесь, что у вас подключен платежный аккаунт, и он находится в [статусе](../../billing/concepts/billing-account-statuses.md) `ACTIVE` или `TRIAL_ACTIVE`. Если платежного аккаунта нет, [создайте его](../../billing/quickstart/index.md) и [привяжите](../../billing/operations/pin-cloud.md) к нему облако.
 
-Если у вас есть активный платежный аккаунт, вы можете создать или выбрать [каталог](../../resource-manager/concepts/resources-hierarchy.md#folder), в котором будет работать ваша инфраструктура, на [странице облака](https://console.yandex.cloud/cloud).
+Если у вас есть активный платежный аккаунт, вы можете создать или выбрать [каталог](../../resource-manager/concepts/resources-hierarchy.md#folder), в котором будет работать ваша инфраструктура, на [странице облака]({{ link-console-cloud }}).
 
 [Подробнее об облаках и каталогах](../../resource-manager/concepts/resources-hierarchy.md).
 
@@ -31,30 +31,30 @@
 
 В стоимость поддержки описываемого решения входят:
 
-* Плата за кластер Managed Service for Kubernetes: использование мастера и исходящий трафик (см. [тарифы Managed Service for Kubernetes](../pricing.md)).
-* Плата за узлы кластера (ВМ): использование вычислительных ресурсов, операционной системы и хранилища (см. [тарифы Compute Cloud](../../compute/pricing.md)).
-* Плата за публичный IP-адрес для узлов кластера (см. [тарифы Virtual Private Cloud](../../vpc/pricing.md#prices-public-ip)).
+* Плата за кластер {{ managed-k8s-name }}: использование мастера и исходящий трафик (см. [тарифы {{ managed-k8s-name }}](../pricing.md)).
+* Плата за узлы кластера (ВМ): использование вычислительных ресурсов, операционной системы и хранилища (см. [тарифы {{ compute-name }}](../../compute/pricing.md)).
+* Плата за публичный IP-адрес для узлов кластера (см. [тарифы {{ vpc-name }}](../../vpc/pricing.md#prices-public-ip)).
 
 
 ## Подготовьте окружение {#prepare-environment}
 
-1. Если у вас еще нет интерфейса командной строки Yandex Cloud (CLI), [установите и инициализируйте его](../../cli/quickstart.md#install).
-1. Установите интерфейс командной строки Kubernetes — [kubectl](https://kubernetes.io/ru/docs/tasks/tools/install-kubectl/).
+1. Если у вас еще нет интерфейса командной строки {{ yandex-cloud }} (CLI), [установите и инициализируйте его](../../cli/quickstart.md#install).
+1. Установите интерфейс командной строки {{ k8s }} — [kubectl]({{ k8s-docs }}/tasks/tools/install-kubectl/).
 1. Убедитесь, что у вас достаточно [свободных ресурсов в облаке](../../resource-manager/concepts/limits.md).
 1. Если у вас еще нет [сети](../../vpc/concepts/network.md#network), [создайте ее](../../vpc/operations/network-create.md).
-1. Если у вас еще нет [подсетей](../../vpc/concepts/network.md#subnet), [создайте их](../../vpc/operations/subnet-create.md) в [зонах доступности](../../overview/concepts/geo-scope.md), где будут созданы кластер Managed Service for Kubernetes и группа узлов.
+1. Если у вас еще нет [подсетей](../../vpc/concepts/network.md#subnet), [создайте их](../../vpc/operations/subnet-create.md) в [зонах доступности](../../overview/concepts/geo-scope.md), где будут созданы кластер {{ managed-k8s-name }} и группа узлов.
 1. [Создайте сервисные аккаунты](../../iam/operations/sa/create.md):
 
    * `sa-kubernetes` с [ролями](../security/index.md#yc-api):
 
-     * `k8s.clusters.agent` и `vpc.publicAdmin` на каталог, в котором создается кластер Managed Service for Kubernetes.
-     * `container-registry.images.puller` на каталог с [реестром](../../container-registry/concepts/registry.md) Docker-образов.
+     * `{{ roles.k8s.clusters.agent }}` и `{{ roles-vpc-public-admin }}` на каталог, в котором создается кластер {{ managed-k8s-name }}.
+     * `{{ roles-cr-puller }}` на каталог с [реестром](../../container-registry/concepts/registry.md) Docker-образов.
 
-     От имени этого сервисного аккаунта будут создаваться необходимые кластеру ресурсы, а узлы Managed Service for Kubernetes будут скачивать из реестра необходимые [Docker-образы](../../container-registry/concepts/docker-image.md).
+     От имени этого сервисного аккаунта будут создаваться необходимые кластеру ресурсы, а узлы {{ managed-k8s-name }} будут скачивать из реестра необходимые [Docker-образы](../../container-registry/concepts/docker-image.md).
 
    * `sa-dns-editor` с ролью `dns.editor` на каталог с [публичной зоной](../../dns/concepts/dns-zone.md#public-zones). От его имени будут создаваться [ресурсные записи](../../dns/concepts/resource-record.md) DNS.
 
-1. [Создайте группы безопасности](../operations/connect/security-groups.md) для кластера Managed Service for Kubernetes и входящих в него групп узлов.
+1. [Создайте группы безопасности](../operations/connect/security-groups.md) для кластера {{ managed-k8s-name }} и входящих в него групп узлов.
 
     {% note warning %}
     
@@ -65,44 +65,44 @@
 1. [Добавьте](../../vpc/operations/security-group-add-rule.md) в группы безопасности следующие правила:
    
      * В [группу безопасности кластера](../operations/connect/security-groups.md#rules-master) добавьте правило для исходящего трафика, которое разрешает проверку сертификатов через веб-хук cert-manager:
-       * **Диапазон портов** — `10250`.
-       * **Протокол** — `TCP`.
-       * **Назначение** — `CIDR`.
-       * **CIDR блоки** — `0.0.0.0/0`.
+       * **{{ ui-key.yacloud.vpc.network.security-groups.forms.field_sg-rule-port-range }}** — `10250`.
+       * **{{ ui-key.yacloud.vpc.network.security-groups.forms.field_sg-rule-protocol }}** — `{{ ui-key.yacloud.common.label_tcp }}`.
+       * **{{ ui-key.yacloud.vpc.network.security-groups.forms.field_sg-rule-destination }}** — `{{ ui-key.yacloud.vpc.network.security-groups.forms.value_sg-rule-destination-cidr }}`.
+       * **{{ ui-key.yacloud.vpc.network.security-groups.forms.field_sg-rule-cidr-blocks }}** — `0.0.0.0/0`.
      * В [группу безопасности группы узлов](../operations/connect/security-groups.md#rules-internal-nodegroup) добавьте правило для исходящего трафика, которое разрешает подключение к серверам Let's Encrypt® для выпуска сертификатов:
-       * **Диапазон портов** — `443`.
-       * **Протокол** — `TCP`.
-       * **Назначение** — `CIDR`.
-       * **CIDR блоки** — `0.0.0.0/0`.
+       * **{{ ui-key.yacloud.vpc.network.security-groups.forms.field_sg-rule-port-range }}** — `443`.
+       * **{{ ui-key.yacloud.vpc.network.security-groups.forms.field_sg-rule-protocol }}** — `{{ ui-key.yacloud.common.label_tcp }}`.
+       * **{{ ui-key.yacloud.vpc.network.security-groups.forms.field_sg-rule-destination }}** — `{{ ui-key.yacloud.vpc.network.security-groups.forms.value_sg-rule-destination-cidr }}`.
+       * **{{ ui-key.yacloud.vpc.network.security-groups.forms.field_sg-rule-cidr-blocks }}** — `0.0.0.0/0`.
 
-## Подготовьте кластер Managed Service for Kubernetes к работе {#before-managed-kubernetes}
+## Подготовьте кластер {{ managed-k8s-name }} к работе {#before-managed-kubernetes}
 
-### Создайте кластер Managed Service for Kubernetes {#kubernetes-cluster-create}
+### Создайте кластер {{ managed-k8s-name }} {#kubernetes-cluster-create}
 
 {% list tabs group=instructions %}
 
 - Консоль управления {#console}
 
-  1. В [консоли управления](https://console.yandex.cloud) выберите каталог, в котором нужно создать кластер Managed Service for Kubernetes.
-  1. [Перейдите](../../console/operations/select-service.md#select-service) в сервис **Managed Service for&nbsp;Kubernetes**.
-  1. Нажмите кнопку **Создать кластер**.
+  1. В [консоли управления]({{ link-console-main }}) выберите каталог, в котором нужно создать кластер {{ managed-k8s-name }}.
+  1. Перейдите в сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-kubernetes }}**.
+  1. Нажмите кнопку **{{ ui-key.yacloud.k8s.clusters.button_create }}**.
   1. Введите имя кластера: `kubernetes-cluster-wh`.
-  1. **Сервисный аккаунт для ресурсов** — укажите сервисный аккаунт `sa-kubernetes`, который будет использоваться для создания ресурсов.
-  1. **Сервисный аккаунт для узлов** — укажите сервисный аккаунт `sa-kubernetes`, который будет использоваться узлами Managed Service for Kubernetes для доступа к реестру Docker-образов.
-  1. Укажите [релизный канал](../concepts/release-channels-and-updates.md). Эту настройку невозможно изменить после создания кластера Managed Service for Kubernetes.
-  1. В блоке **Конфигурация мастера**:
-     * **Версия Kubernetes** — выберите версию Kubernetes, которая будет установлена на [мастере Managed Service for Kubernetes](../concepts/index.md#master). Версия не должна отличаться от версии командной строки Kubernetes.
-     * **Публичный адрес** — выберите способ назначения [IP-адреса](../../vpc/concepts/address.md):
-       * `Автоматически` — чтобы назначить случайный IP-адрес из пула IP-адресов Yandex Cloud.
-     * **Тип мастера** — выберите тип мастера:
-       * `Базовый` — будет создан один хост-мастер в выбранной зоне доступности. Укажите облачную сеть и выберите в ней подсеть для размещения хоста-мастера.
-       * `Высокодоступный` — в каждой зоне доступности будет создано по одному хосту-мастеру. Укажите облачную сеть и подсеть для каждой зоны доступности.
-     * Выберите [группы безопасности](../operations/connect/security-groups.md) для сетевого трафика кластера Managed Service for Kubernetes.
-  1. В блоке **Сетевые настройки кластера**:
-     * **CIDR кластера** — укажите диапазон IP-адресов, из которого будут выделяться IP-адреса для [подов](../concepts/index.md#pod).
-     * **CIDR сервисов** — укажите диапазон IP-адресов, из которого будут выделяться IP-адреса для [сервисов](../concepts/index.md#service).
-     * Задайте маску подсети узлов Managed Service for Kubernetes и максимальное количество подов в узле.
-  1. Нажмите кнопку **Создать**.
+  1. **{{ ui-key.yacloud.k8s.clusters.create.field_service-account }}** — укажите сервисный аккаунт `sa-kubernetes`, который будет использоваться для создания ресурсов.
+  1. **{{ ui-key.yacloud.k8s.clusters.create.field_node-service-account }}** — укажите сервисный аккаунт `sa-kubernetes`, который будет использоваться узлами {{ managed-k8s-name }} для доступа к реестру Docker-образов.
+  1. Укажите [релизный канал](../concepts/release-channels-and-updates.md). Эту настройку невозможно изменить после создания кластера {{ managed-k8s-name }}.
+  1. В блоке **{{ ui-key.yacloud.k8s.clusters.create.section_main-cluster }}**:
+     * **{{ ui-key.yacloud.k8s.clusters.create.field_master-version }}** — выберите версию {{ k8s }}, которая будет установлена на [мастере {{ managed-k8s-name }}](../concepts/index.md#master). Версия не должна отличаться от версии командной строки {{ k8s }}.
+     * **{{ ui-key.yacloud.k8s.clusters.create.field_address-type }}** — выберите способ назначения [IP-адреса](../../vpc/concepts/address.md):
+       * `{{ ui-key.yacloud.k8s.clusters.create.switch_auto }}` — чтобы назначить случайный IP-адрес из пула IP-адресов {{ yandex-cloud }}.
+     * **{{ ui-key.yacloud.k8s.clusters.create.field_master-type }}** — выберите тип мастера:
+       * `{{ ui-key.yacloud.k8s.clusters.create.option_master-type-basic }}` — будет создан один хост-мастер в выбранной зоне доступности. Укажите облачную сеть и выберите в ней подсеть для размещения хоста-мастера.
+       * `{{ ui-key.yacloud.k8s.clusters.create.option_master-type-highly-available }}` — в каждой зоне доступности будет создано по одному хосту-мастеру. Укажите облачную сеть и подсеть для каждой зоны доступности.
+     * Выберите [группы безопасности](../operations/connect/security-groups.md) для сетевого трафика кластера {{ managed-k8s-name }}.
+  1. В блоке **{{ ui-key.yacloud.k8s.clusters.create.section_allocation }}**:
+     * **{{ ui-key.yacloud.k8s.clusters.create.field_cluster-cidr }}** — укажите диапазон IP-адресов, из которого будут выделяться IP-адреса для [подов](../concepts/index.md#pod).
+     * **{{ ui-key.yacloud.k8s.clusters.create.field_service-cidr }}** — укажите диапазон IP-адресов, из которого будут выделяться IP-адреса для [сервисов](../concepts/index.md#service).
+     * Задайте маску подсети узлов {{ managed-k8s-name }} и максимальное количество подов в узле.
+  1. Нажмите кнопку **{{ ui-key.yacloud.common.create }}**.
   1. Дождитесь, когда статус кластера изменится на `Running`, а состояние на `Healthy`.
 
 {% endlist %}
@@ -145,44 +145,44 @@
 
 - Консоль управления {#console}
 
-  1. В [консоли управления](https://console.yandex.cloud) выберите каталог, в котором создан нужный кластер Managed Service for Kubernetes.
-  1. [Перейдите](../../console/operations/select-service.md#select-service) в сервис **Managed Service for&nbsp;Kubernetes**.
+  1. В [консоли управления]({{ link-console-main }}) выберите каталог, в котором создан нужный кластер {{ managed-k8s-name }}.
+  1. Перейдите в сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-kubernetes }}**.
   1. Выберите кластер `kubernetes-cluster-wh`.
-  1. На странице кластера перейдите на вкладку ![nodes-management.svg](../../_assets/console-icons/graph-node.svg) **Управление узлами**.
-  1. Нажмите кнопку **Создать группу узлов**.
-  1. Введите имя и описание группы узлов Managed Service for Kubernetes.
-  1. В поле **Версия Kubernetes** выберите версию Kubernetes для узлов Managed Service for Kubernetes.
-  1. В блоке **Масштабирование** выберите его тип:
-     * `Фиксированный`, чтобы количество узлов в группе Managed Service for Kubernetes оставалось неизменным. Укажите количество узлов в группе Managed Service for Kubernetes.
-     * `Автоматический`, чтобы управлять количеством узлов в группе Managed Service for Kubernetes с помощью [автоматического масштабирования кластера Managed Service for Kubernetes](../concepts/autoscale.md#ca).
-  1. В блоке **В процессе создания и обновления разрешено** укажите максимальное количество [виртуальных машин](../../compute/concepts/vm.md), на которое можно превысить и уменьшить размер группы Managed Service for Kubernetes.
-  1. В блоке **Вычислительные ресурсы**:
+  1. На странице кластера перейдите на вкладку ![nodes-management.svg](../../_assets/console-icons/graph-node.svg) **{{ ui-key.yacloud.k8s.cluster.switch_nodes-manager }}**.
+  1. Нажмите кнопку **{{ ui-key.yacloud.k8s.cluster.node-groups.button_create }}**.
+  1. Введите имя и описание группы узлов {{ managed-k8s-name }}.
+  1. В поле **{{ ui-key.yacloud.k8s.node-groups.create.field_node-version }}** выберите версию {{ k8s }} для узлов {{ managed-k8s-name }}.
+  1. В блоке **{{ ui-key.yacloud.k8s.node-groups.create.section_scale }}** выберите его тип:
+     * `{{ ui-key.yacloud.k8s.node-groups.create.value_scale-fixed }}`, чтобы количество узлов в группе {{ managed-k8s-name }} оставалось неизменным. Укажите количество узлов в группе {{ managed-k8s-name }}.
+     * `{{ ui-key.yacloud.k8s.node-groups.create.value_scale-auto }}`, чтобы управлять количеством узлов в группе {{ managed-k8s-name }} с помощью [автоматического масштабирования кластера {{ managed-k8s-name }}](../concepts/autoscale.md#ca).
+  1. В блоке **{{ ui-key.yacloud.k8s.node-groups.create.section_deploy }}** укажите максимальное количество [виртуальных машин](../../compute/concepts/vm.md), на которое можно превысить и уменьшить размер группы {{ managed-k8s-name }}.
+  1. В блоке **{{ ui-key.yacloud.compute.instances.create.section_platform }}**:
      * Выберите [платформу](../../compute/concepts/vm-platforms.md).
      * Укажите необходимое количество vCPU и [гарантированную долю vCPU](../../compute/concepts/performance-levels.md), а также объем RAM.
 
-  1. В блоке **Хранилище**:
-     * Укажите **Тип диска** для узлов группы Managed Service for Kubernetes:
-       * `HDD` — стандартный сетевой диск, сетевое блочное хранилище на HDD-накопителе.
-       * `SSD` — быстрый сетевой диск, сетевое блочное хранилище на SSD-накопителе.
-       * `Нереплицируемый SSD` — сетевой диск с повышенной производительностью, реализованной за счет устранения избыточности. Размер такого диска можно менять только с шагом 93 ГБ.
-       * `SSD IO` — обладает теми же скоростными характеристиками, что и `Нереплицируемый SSD`, и одновременно обеспечивает избыточность. Размер такого диска можно менять только с шагом 93 ГБ.
+  1. В блоке **{{ ui-key.yacloud.k8s.node-groups.create.section_disk }}**:
+     * Укажите **{{ ui-key.yacloud.k8s.node-groups.create.field_disk-type }}** для узлов группы {{ managed-k8s-name }}:
+       * `{{ ui-key.yacloud.k8s.node-group.overview.label_network-hdd }}` — стандартный сетевой диск, сетевое блочное хранилище на HDD-накопителе.
+       * `{{ ui-key.yacloud.k8s.node-group.overview.label_network-ssd }}` — быстрый сетевой диск, сетевое блочное хранилище на SSD-накопителе.
+       * `{{ ui-key.yacloud.k8s.node-group.overview.label_network-ssd-nonreplicated }}` — сетевой диск с повышенной производительностью, реализованной за счет устранения избыточности. Размер такого диска можно менять только с шагом 93 ГБ.
+       * `{{ ui-key.yacloud.k8s.node-group.overview.label_network-ssd-io-m3 }}` — обладает теми же скоростными характеристиками, что и `{{ ui-key.yacloud.k8s.node-group.overview.label_network-ssd-nonreplicated }}`, и одновременно обеспечивает избыточность. Размер такого диска можно менять только с шагом 93 ГБ.
 
-       Подробнее о типах дисков см. в [документации Yandex Compute Cloud](../../compute/concepts/disk.md#disks_types).
-     * Укажите размер дисков для узлов группы Managed Service for Kubernetes.
-  1. В блоке **Сетевые настройки**:
-     * В поле **Публичный адрес** выберите способ назначения IP-адреса:
-       * `Автоматически` — чтобы назначить случайный IP-адрес из пула IP-адресов Yandex Cloud.
+       Подробнее о типах дисков см. в [документации {{ compute-full-name }}](../../compute/concepts/disk.md#disks_types).
+     * Укажите размер дисков для узлов группы {{ managed-k8s-name }}.
+  1. В блоке **{{ ui-key.yacloud.k8s.node-groups.create.section_network }}**:
+     * В поле **{{ ui-key.yacloud.k8s.node-groups.create.field_address-type }}** выберите способ назначения IP-адреса:
+       * `{{ ui-key.yacloud.k8s.node-groups.create.switch_auto }}` — чтобы назначить случайный IP-адрес из пула IP-адресов {{ yandex-cloud }}.
      * Выберите [группы безопасности](../operations/connect/security-groups.md).
-     * Выберите зону доступности и подсеть для размещения узлов группы Managed Service for Kubernetes.
-  1. В блоке **Доступ** укажите данные для доступа к узлам группы Managed Service for Kubernetes по [SSH](../../glossary/ssh-keygen.md):
-     * **Логин** — укажите имя пользователя.
-     * **SSH-ключ** — вставьте содержимое файла [публичного ключа](../operations/node-connect-ssh.md#creating-ssh-keys).
-  1. Нажмите кнопку **Создать**.
+     * Выберите зону доступности и подсеть для размещения узлов группы {{ managed-k8s-name }}.
+  1. В блоке **{{ ui-key.yacloud.k8s.node-groups.create.section_access }}** укажите данные для доступа к узлам группы {{ managed-k8s-name }} по [SSH](../../glossary/ssh-keygen.md):
+     * **{{ ui-key.yacloud.compute.instances.create.field_user }}** — укажите имя пользователя.
+     * **{{ ui-key.yacloud.compute.instances.create.field_key }}** — вставьте содержимое файла [публичного ключа](../operations/node-connect-ssh.md#creating-ssh-keys).
+  1. Нажмите кнопку **{{ ui-key.yacloud.common.create }}**.
   1. Дождитесь, когда статус группы узлов изменится на `Running`.
 
 {% endlist %}
 
-## Установите и запустите веб-хук в кластере Managed Service for Kubernetes {#yandex-webhook}
+## Установите и запустите веб-хук в кластере {{ managed-k8s-name }} {#yandex-webhook}
 
 1. Клонируйте репозиторий веб-хука с менеджером сертификатов, настроенным для выпуска сертификатов от Let's Encrypt:
 
@@ -190,7 +190,7 @@
    git clone https://github.com/yandex-cloud/cert-manager-webhook-yandex.git
    ```
 
-1. [Установите менеджер пакетов Helm](https://helm.sh/ru/docs/intro/install/) для управления пакетами в вашем кластере Kubernetes.
+1. [Установите менеджер пакетов Helm](https://helm.sh/ru/docs/intro/install/) для управления пакетами в вашем кластере {{ k8s }}.
 1. Установите веб-хук с помощью Helm:
 
    ```bash
@@ -206,7 +206,7 @@
    kubectl get pods -n cert-manager --watch
    ```
 
-   Проверьте, что среди записей присутствует веб-хук ACME для Yandex Cloud DNS:
+   Проверьте, что среди записей присутствует веб-хук ACME для {{ dns-full-name }}:
 
    ```text
    NAME                                                          READY   STATUS    RESTARTS   AGE
@@ -233,7 +233,7 @@
    kubectl create secret generic cert-manager-secret --from-file=iamkey.json -n cert-manager
    ```
 
-1. Создайте файл `cluster-issuer.yml` с манифестом объекта `ClusterIssuer`, в котором используется веб-хук резолвера DNS01 для домена Cloud DNS:
+1. Создайте файл `cluster-issuer.yml` с манифестом объекта `ClusterIssuer`, в котором используется веб-хук резолвера DNS01 для домена {{ dns-name }}:
 
    ```yml
    apiVersion: cert-manager.io/v1
@@ -278,7 +278,7 @@
 
 ### Выпустите сертификат с помощью веб-хука {#run-webhook}
 
-1. Создайте объекты в кластере Kubernetes:
+1. Создайте объекты в кластере {{ k8s }}:
 
    ```bash
    kubectl apply -f cluster-issuer.yml && \
@@ -302,4 +302,4 @@
 
 ## Удалите созданные ресурсы {#clear-out}
 
-Если созданные ресурсы вам больше не нужны, [удалите кластер](../operations/kubernetes-cluster/kubernetes-cluster-delete.md) Managed Service for Kubernetes.
+Если созданные ресурсы вам больше не нужны, [удалите кластер](../operations/kubernetes-cluster/kubernetes-cluster-delete.md) {{ managed-k8s-name }}.

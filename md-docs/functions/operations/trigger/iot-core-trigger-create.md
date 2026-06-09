@@ -1,6 +1,6 @@
-# Создать триггер, который передает сообщения в функцию Cloud Functions из топика реестра или устройства Yandex IoT Core
+# Создать триггер, который передает сообщения в функцию {{ sf-name }} из топика реестра или устройства {{ iot-full-name }}
 
-Создайте [триггер](../../concepts/trigger/iot-core-trigger.md) для [топика](../../../iot-core/concepts/topic/index.md) [устройства](../../../iot-core/concepts/index.md#device) или [реестра](../../../iot-core/concepts/index.md#registry) [Yandex IoT Core](../../../iot-core/index.md) и обрабатывайте копии сообщений с помощью [функции](../../concepts/function.md) [Yandex Cloud Functions](../../index.md).
+Создайте [триггер](../../concepts/trigger/iot-core-trigger.md) для [топика](../../../iot-core/concepts/topic/index.md) [устройства](../../../iot-core/concepts/index.md#device) или [реестра](../../../iot-core/concepts/index.md#registry) [{{ iot-name }}](../../../iot-core/index.md) и обрабатывайте копии сообщений с помощью [функции](../../concepts/function.md) [{{ sf-full-name }}](../../index.md).
 
 {% note warning %}
 
@@ -37,45 +37,45 @@
 
 - Консоль управления {#console}
 
-  1. В [консоли управления](https://console.yandex.cloud) перейдите в [каталог](../../../resource-manager/concepts/resources-hierarchy.md#folder), в котором хотите создать триггер.
+  1. В [консоли управления]({{ link-console-main }}) перейдите в [каталог](../../../resource-manager/concepts/resources-hierarchy.md#folder), в котором хотите создать триггер.
   
-  1. [Перейдите](../../../console/operations/select-service.md#select-service) в сервис **Cloud Functions**.
+  1. Перейдите в сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_serverless-functions }}**.
   
-  1. На панели слева выберите ![image](../../../_assets/console-icons/gear-play.svg) **Триггеры**.
+  1. На панели слева выберите ![image](../../../_assets/console-icons/gear-play.svg) **{{ ui-key.yacloud.serverless-functions.switch_list-triggers }}**.
   
-  1. Нажмите кнопку **Создать триггер**.
+  1. Нажмите кнопку **{{ ui-key.yacloud.serverless-functions.triggers.list.button_create }}**.
   
-  1. В блоке **Базовые параметры**:
+  1. В блоке **{{ ui-key.yacloud.serverless-functions.triggers.form.section_base }}**:
      
      * Введите имя и описание триггера.
-     * В поле **Тип** выберите `IoT Core (устройство)`.
-     * В поле **Запускаемый ресурс** выберите `Функция`.
+     * В поле **{{ ui-key.yacloud.serverless-functions.triggers.form.field_type }}** выберите `{{ ui-key.yacloud.serverless-functions.triggers.form.label_iot }}`.
+     * В поле **{{ ui-key.yacloud.serverless-functions.triggers.form.field_invoke }}** выберите `{{ ui-key.yacloud.serverless-functions.triggers.form.label_function }}`.
   
-  1. В блоке **Настройки сообщений IoT Core** укажите реестр, устройство и MQTT-топик, для которого хотите создать триггер. Если вы создаете триггер для топика реестра, устройство и MQTT-топик можно не указывать. Если MQTT-топик не указан, триггер срабатывает для всех топиков реестра или устройства.
+  1. В блоке **{{ ui-key.yacloud.serverless-functions.triggers.form.section_iot }}** укажите реестр, устройство и MQTT-топик, для которого хотите создать триггер. Если вы создаете триггер для топика реестра, устройство и MQTT-топик можно не указывать. Если MQTT-топик не указан, триггер срабатывает для всех топиков реестра или устройства.
   
-  1. В блоке **Настройки группирования сообщений** укажите:
+  1. В блоке **{{ ui-key.yacloud.serverless-functions.triggers.form.section_batch-settings }}** укажите:
 
-     * **Время ожидания, с**. Допустимые значения от 1 до 60 секунд, значение по умолчанию — 1 секунда.
-     * **Размер группы**. Допустимые значения от 1 до 100, значение по умолчанию — 1.
+     * **{{ ui-key.yacloud.serverless-functions.triggers.form.field_cutoff }}**. Допустимые значения от 1 до 60 секунд, значение по умолчанию — 1 секунда.
+     * **{{ ui-key.yacloud.serverless-functions.triggers.form.field_size }}**. Допустимые значения от 1 до 100, значение по умолчанию — 1.
 
      Триггер группирует сообщения не дольше указанного времени ожидания и отправляет их в функцию. Число сообщений при этом не превышает указанный размер группы.
   
-  1. В блоке **Настройки функции** выберите функцию и укажите:
+  1. В блоке **{{ ui-key.yacloud.serverless-functions.triggers.form.section_function }}** выберите функцию и укажите:
 
-     * [Тег версии функции](../../concepts/function.md#tag).
-     * [Сервисный аккаунт](../../../iam/concepts/users/service-accounts.md), от имени которого будет вызываться функция.
+     * [{{ ui-key.yacloud.serverless-functions.triggers.form.field_function-tag }}](../../concepts/function.md#tag).
+     * [{{ ui-key.yacloud.serverless-functions.triggers.form.field_function_service-account }}](../../../iam/concepts/users/service-accounts.md), от имени которого будет вызываться функция.
 
-  1. (Опционально) В блоке **Настройки повторных запросов**:
+  1. (Опционально) В блоке **{{ ui-key.yacloud.serverless-functions.triggers.form.section_function-retry }}**:
 
-     * В поле **Интервал** укажите время, через которое будет сделан повторный вызов функции, если текущий завершился неуспешно. Допустимые значения — от 10 до 60 секунд, значение по умолчанию — 10 секунд.
-     * В поле **Количество попыток** укажите количество повторных вызовов функции, которые будут сделаны, прежде чем триггер отправит сообщение в Dead Letter Queue. Допустимые значения — от 1 до 5, значение по умолчанию — 1.
+     * В поле **{{ ui-key.yacloud.serverless-functions.triggers.form.field_retry-interval }}** укажите время, через которое будет сделан повторный вызов функции, если текущий завершился неуспешно. Допустимые значения — от 10 до 60 секунд, значение по умолчанию — 10 секунд.
+     * В поле **{{ ui-key.yacloud.serverless-functions.triggers.form.field_retry-attempts }}** укажите количество повторных вызовов функции, которые будут сделаны, прежде чем триггер отправит сообщение в Dead Letter Queue. Допустимые значения — от 1 до 5, значение по умолчанию — 1.
 
-  1. (Опционально) В блоке **Настройки Dead Letter Queue** выберите очередь Dead Letter Queue и [сервисный аккаунт](../../../iam/concepts/users/service-accounts.md) с правами на запись в нее.
-  1. Нажмите кнопку **Создать триггер**.
+  1. (Опционально) В блоке **{{ ui-key.yacloud.serverless-functions.triggers.form.section_dlq }}** выберите очередь Dead Letter Queue и [сервисный аккаунт](../../../iam/concepts/users/service-accounts.md) с правами на запись в нее.
+  1. Нажмите кнопку **{{ ui-key.yacloud.serverless-functions.triggers.form.button_create-trigger }}**.
 
 - CLI {#cli}
 
-  Если у вас еще нет интерфейса командной строки Yandex Cloud (CLI), [установите и инициализируйте его](../../../cli/quickstart.md#install).
+  Если у вас еще нет интерфейса командной строки {{ yandex-cloud }} (CLI), [установите и инициализируйте его](../../../cli/quickstart.md#install).
 
   По умолчанию используется каталог, указанный при [создании](../../../cli/operations/profile/profile-create.md) профиля CLI. Чтобы изменить каталог по умолчанию, используйте команду `yc config set folder-id <идентификатор_каталога>`. Также для любой команды вы можете указать другой каталог с помощью параметров `--folder-name` или `--folder-id`. Если вы обращаетесь к ресурсу по имени, поиск будет выполнен в каталоге по умолчанию. Если вы обращаетесь к ресурсу по идентификатору, поиск будет выполнен глобально — во всех каталогах с учетом прав доступа.
 
@@ -138,19 +138,22 @@
   status: ACTIVE
   ```
 
-- Terraform {#tf}
+- {{ TF }} {#tf}
 
-  [Terraform](https://www.terraform.io/) позволяет быстро создать облачную инфраструктуру в Yandex Cloud и управлять ею с помощью файлов конфигураций. В файлах конфигураций хранится описание инфраструктуры на языке HCL (HashiCorp Configuration Language). При изменении файлов конфигураций Terraform автоматически определяет, какая часть вашей конфигурации уже развернута, что следует добавить или удалить.
+  [{{ TF }}](https://www.terraform.io/) позволяет быстро создать облачную инфраструктуру в {{ yandex-cloud }} и управлять ею с помощью файлов конфигураций. В файлах конфигураций хранится описание инфраструктуры на языке HCL (HashiCorp Configuration Language). При изменении файлов конфигураций {{ TF }} автоматически определяет, какая часть вашей конфигурации уже развернута, что следует добавить или удалить.
   
-  Terraform распространяется под лицензией [Business Source License](https://github.com/hashicorp/terraform/blob/main/LICENSE), а [провайдер Yandex Cloud для Terraform](https://github.com/yandex-cloud/terraform-provider-yandex) — под лицензией [MPL-2.0](https://www.mozilla.org/en-US/MPL/2.0/).
+  {{ TF }} распространяется под лицензией [Business Source License](https://github.com/hashicorp/terraform/blob/main/LICENSE), а [провайдер {{ yandex-cloud }} для {{ TF }}](https://github.com/yandex-cloud/terraform-provider-yandex) — под лицензией [MPL-2.0](https://www.mozilla.org/en-US/MPL/2.0/).
   
-  Подробную информацию о ресурсах провайдера смотрите в документации на сайте [Terraform](https://www.terraform.io/docs/providers/yandex/index.html) или в [зеркале](../../../terraform/index.md).
+  Подробную информацию о ресурсах провайдера смотрите в документации на сайте [{{ TF }}](https://www.terraform.io/docs/providers/yandex/index.html) или в [зеркале]({{ tf-docs-link }}).
 
-  Если у вас еще нет Terraform, [установите его и настройте провайдер Yandex Cloud](../../../tutorials/infrastructure-management/terraform-quickstart.md#install-terraform).
+  Если у вас еще нет {{ TF }}, [установите его и настройте провайдер {{ yandex-cloud }}](../../../tutorials/infrastructure-management/terraform-quickstart.md#install-terraform).
+  
+  
+  Чтобы управлять инфраструктурой с помощью {{ TF }} от имени сервисного аккаунта или пользовательских аккаунтов: аккаунта на Яндексе, федеративного аккаунта и локального пользователя, [аутентифицируйтесь](../../../terraform/authentication.md) соответствующим способом.
 
-  Чтобы создать триггер для Yandex IoT Core:
+  Чтобы создать триггер для {{ iot-name }}:
 
-  1. Опишите в конфигурационном файле Terraform параметры ресурсов, которые необходимо создать:
+  1. Опишите в конфигурационном файле {{ TF }} параметры ресурсов, которые необходимо создать:
 
      ```
      resource "yandex_function_trigger" "my_trigger" {
@@ -205,7 +208,7 @@
          * `queue_id` — идентификатор очереди Dead Letter Queue.
          * `service_account_id` — идентификатор сервисного аккаунта с правами на запись в очередь Dead Letter Queue.
 
-     Более подробную информацию о параметрах ресурса `yandex_function_trigger` см. в [документации провайдера](../../../terraform/resources/function_trigger.md).
+     Более подробную информацию о параметрах ресурса `yandex_function_trigger` см. в [документации провайдера]({{ tf-provider-resources-link }}/function_trigger).
 
   1. Создайте ресурсы:
 
@@ -228,7 +231,7 @@
         terraform plan
         ```
      
-        В терминале будет выведен список ресурсов с параметрами. На этом этапе изменения не будут внесены. Если в конфигурации есть ошибки, Terraform на них укажет.
+        В терминале будет выведен список ресурсов с параметрами. На этом этапе изменения не будут внесены. Если в конфигурации есть ошибки, {{ TF }} на них укажет.
      1. Примените изменения конфигурации:
      
         ```bash
@@ -237,7 +240,7 @@
      
      1. Подтвердите изменения: введите в терминале слово `yes` и нажмите **Enter**.
 
-     Terraform создаст все требуемые ресурсы. Проверить появление ресурсов можно в [консоли управления](https://console.yandex.cloud) или с помощью команды [CLI](../../../cli/quickstart.md):
+     {{ TF }} создаст все требуемые ресурсы. Проверить появление ресурсов можно в [консоли управления]({{ link-console-main }}) или с помощью команды [CLI](../../../cli/quickstart.md):
 
      ```bash
      yc serverless trigger list
@@ -245,7 +248,7 @@
 
 - API {#api}
 
-  Чтобы создать триггер для Yandex IoT Core, воспользуйтесь методом REST API [create](../../triggers/api-ref/Trigger/create.md) для ресурса [Trigger](../../triggers/api-ref/Trigger/index.md) или вызовом gRPC API [TriggerService/Create](../../triggers/api-ref/grpc/Trigger/create.md).
+  Чтобы создать триггер для {{ iot-name }}, воспользуйтесь методом REST API [create](../../triggers/api-ref/Trigger/create.md) для ресурса [Trigger](../../triggers/api-ref/Trigger/index.md) или вызовом gRPC API [TriggerService/Create](../../triggers/api-ref/grpc/Trigger/create.md).
 
 {% endlist %}
 
@@ -255,5 +258,5 @@
 
 ## См. также {#see-also}
 
-* [Создать триггер, который передает сообщения в контейнер Serverless Containers из топика реестра или устройства Yandex IoT Core](../../../serverless-containers/operations/iot-core-trigger-create.md)
-* [Создать триггер, который отправляет сообщения в WebSocket-соединения из топика реестра или устройства Yandex IoT Core](../../../api-gateway/operations/trigger/iot-core-trigger-create.md)
+* [{#T}](../../../serverless-containers/operations/iot-core-trigger-create.md)
+* [{#T}](../../../api-gateway/operations/trigger/iot-core-trigger-create.md)

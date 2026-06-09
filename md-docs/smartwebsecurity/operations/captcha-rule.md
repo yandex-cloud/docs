@@ -1,10 +1,10 @@
-# Правило для Yandex SmartCaptcha
+# Правило для {{ captcha-full-name }}
 
-Настройте правило, чтобы направлять запросы на проверку в [SmartCaptcha](../../smartcaptcha/index.md).
+Настройте правило, чтобы направлять запросы на проверку в [{{ captcha-name }}](../../smartcaptcha/index.md).
 
 {% note info %}
 
-Если для базового правила по умолчанию установлено действие `Запретить` и запросы отправляются на проверку в SmartCaptcha, добавьте базовое правило, разрешающее запросы к капче. Адрес разрешенного запроса соответствует регулярному выражению: `/tmgrdfrend.*`. Установите для правила приоритет выше, чем у правил, которые отправляют запросы на капчу.
+Если для базового правила по умолчанию установлено действие `Запретить` и запросы отправляются на проверку в {{ captcha-name }}, добавьте базовое правило, разрешающее запросы к капче. Адрес разрешенного запроса соответствует регулярному выражению: `{{ allowed-captcha-request }}`. Установите для правила приоритет выше, чем у правил, которые отправляют запросы на капчу.
 
 {% endnote %}
 
@@ -12,28 +12,28 @@
 
 - Консоль управления {#console}
 
-  1. В [консоли управления](https://console.yandex.cloud) выберите [каталог](../../resource-manager/concepts/resources-hierarchy.md#folder).
-  1. [Перейдите](../../console/operations/select-service.md#select-service) в сервис **Smart Web Security**.
-  1. На панели слева нажмите ![image](../../_assets/console-icons/shield.svg) **Профили безопасности** и выберите нужный профиль.
-  1. Нажмите кнопку ![image](../../_assets/console-icons/plus.svg) **Добавить правило** и в открывшемся окне:
+  1. В [консоли управления]({{ link-console-main }}) выберите [каталог](../../resource-manager/concepts/resources-hierarchy.md#folder).
+  1. Перейдите в сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_smartwebsecurity }}**.
+  1. На панели слева нажмите ![image](../../_assets/console-icons/shield.svg) **{{ ui-key.yacloud.smart-web-security.title_profiles }}** и выберите нужный профиль.
+  1. Нажмите кнопку ![image](../../_assets/console-icons/plus.svg) **{{ ui-key.yacloud.smart-web-security.form.button_add-rule }}** и в открывшемся окне:
      
      1. Введите имя правила, например `allow-captcha`.
-     1. Задайте **Приоритет** выше, чем у правил, которые отправляют запросы на капчу.
-     1. Включите опцию **Только логирование**.
+     1. Задайте **{{ ui-key.yacloud.smart-web-security.overview.column_priority }}** выше, чем у правил, которые отправляют запросы на капчу.
+     1. Включите опцию **{{ ui-key.yacloud.smart-web-security.overview.column_dry-run-rule }}**.
      1. Укажите параметры правила:
      
-        * **Тип** — `Базовое`.
-        * **Действие** — `Разрешить`.
+        * **{{ ui-key.yacloud.smart-web-security.overview.column_type }}** — `{{ ui-key.yacloud.smart-web-security.overview.label_base-rule }}`.
+        * **{{ ui-key.yacloud.smart-web-security.overview.column_action-type }}** — `{{ ui-key.yacloud.smart-web-security.form.label_action-allow }}`.
         * **Трафик** — `При условии`.
-        * **Условия** — `Request URI`.
+        * **{{ ui-key.yacloud.smart-web-security.overview.column_rule-conditions }}** — `{{ ui-key.yacloud.component.condition-column.condition_name-requestUri }}`.
         * **Request path** — `Соответствует регулярному выражению`.
-        * Введите выражение `/tmgrdfrend.*`.
+        * Введите выражение `{{ allowed-captcha-request }}`.
      
-     1. Нажмите кнопку **Добавить**.
+     1. Нажмите кнопку **{{ ui-key.yacloud.common.add }}**.
 
 {% endlist %}
 
 ### См. также {#see-also}
 
-* [Создать профиль безопасности](profile-create.md)
-* [Добавить правило в профиль безопасности](rule-add.md)
+* [{#T}](profile-create.md)
+* [{#T}](rule-add.md)

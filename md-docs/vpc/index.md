@@ -84,6 +84,8 @@ Yandex Virtual Private Cloud служит для управления облач
 
  - [Создать сервисное подключение](operations/private-endpoint-create.md)
 
+ - [Создать сервисное подключение через поддержку](operations/private-endpoint-create-support.md)
+
  - [Получить информацию о сервисном подключении](operations/private-endpoint-get-info.md)
 
  - [Назначить политику доступа в Object Storage для сервисного подключения](operations/private-endpoint-storage-policy.md)
@@ -140,13 +142,13 @@ Yandex Virtual Private Cloud служит для управления облач
 
  - [Схема решения](tutorials/ipsec/index.md)
 
- - [Самостоятельная реализация средствами Yandex Cloud](tutorials/ipsec/ipsec-vpn.md)
+ - [Самостоятельная реализация средствами {{ yandex-cloud }}](tutorials/ipsec/ipsec-vpn.md)
 
- - [Развертывание S2S VPN с помощью strongSwan в Yandex Cloud](tutorials/ipsec/s2s-vpn.md)
+ - [Развертывание S2S VPN с помощью strongSwan в {{ yandex-cloud }}](tutorials/ipsec/s2s-vpn.md)
 
- - [Решение SGW от команды архитекторов Yandex Cloud](tutorials/ipsec/sgw.md)
+ - [Решение SGW от команды архитекторов {{ yandex-cloud }}](tutorials/ipsec/sgw.md)
 
- - [ViPNet Coordinator в Yandex Cloud](tutorials/vipnet-to-yc.md)
+ - [ViPNet Coordinator в {{ yandex-cloud }}](tutorials/vipnet-to-yc.md)
 
 ### Сетевая облачная инфраструктура на основе NGFW
 
@@ -160,23 +162,23 @@ Yandex Virtual Private Cloud служит для управления облач
 
  - [Создание и настройка шлюза UserGate в режиме межсетевого экрана](tutorials/usergate-firewall.md)
 
-### BareMetal
+### {{ baremetal-name }}
 
- - [Настройка VRRP для кластера серверов BareMetal с использованием Keepalived](tutorials/bms-vrf-routing.md)
+ - [Настройка VRRP для кластера серверов {{ baremetal-name }} с использованием Keepalived](tutorials/bms-vrf-routing.md)
 
- - [Организация сетевой связности в приватной подсети Yandex BareMetal](tutorials/bms-simple-subnet.md)
+ - [Организация сетевой связности в приватной подсети {{ baremetal-full-name }}](tutorials/bms-simple-subnet.md)
 
- - [Организация сетевой связности между подсетями Yandex BareMetal и Yandex Virtual Private Cloud с помощью Yandex Cloud Interconnect](tutorials/bm-vrf-and-vpc-interconnect.md)
+ - [Организация сетевой связности между подсетями {{ baremetal-full-name }} и {{ vpc-full-name }} с помощью {{ interconnect-full-name }}](tutorials/bm-vrf-and-vpc-interconnect.md)
 
- - [Доставка USB-устройств на сервер BareMetal или виртуальную машину Compute Cloud](tutorials/usb-over-ip.md)
+ - [Доставка USB-устройств на сервер {{ baremetal-name }} или виртуальную машину {{ compute-name }}](tutorials/usb-over-ip.md)
 
- - [Настройка межсетевого экрана OPNsense в режиме кластера высокой доступности на серверах Yandex BareMetal](tutorials/opnsense-failover-cluster.md)
+ - [Настройка межсетевого экрана OPNsense в режиме кластера высокой доступности на серверах {{ baremetal-full-name }}](tutorials/opnsense-failover-cluster.md)
 
- - [Развертывание веб-приложения на серверах Yandex BareMetal с L7-балансировщиком и защитой Yandex Smart Web Security](tutorials/webapp-on-bms-behind-sws.md)
+ - [Развертывание веб-приложения на серверах {{ baremetal-full-name }} с L7-балансировщиком и защитой {{ sws-full-name }}](tutorials/webapp-on-bms-behind-sws.md)
 
-### Cloud Interconnect
+### {{ interconnect-name }}
 
- - [Организация доступа через Cloud Interconnect к облачным сетям, размещенным за NGFW](tutorials/cic-with-ngfw.md)
+ - [Организация доступа через {{ interconnect-name }} к облачным сетям, размещенным за NGFW](tutorials/cic-with-ngfw.md)
 
  - [Создание прямого транкового подключения и приватного соединения в нем](tutorials/trunk-priv-add.md)
 
@@ -210,27 +212,27 @@ Yandex Virtual Private Cloud служит для управления облач
 
  - [Консоль управления](tutorials/nat-instance/console.md)
 
- - [Terraform](tutorials/nat-instance/terraform.md)
+ - [{{ TF }}](tutorials/nat-instance/terraform.md)
 
  - [Настройка сетевого взаимодействия ресурсов из разных каталогов](tutorials/multi-folder-vpc.md)
 
  - [Реализация отказоустойчивых сценариев для сетевых виртуальных машин](tutorials/route-switcher.md)
 
- - [Настройка сети для Yandex Data Processing](tutorials/data-processing-nat-instance.md)
+ - [Настройка сети для {{ dataproc-full-name }}](tutorials/data-processing-nat-instance.md)
 
- - [Переключение сетевого соединения при пересоздании кластера Yandex Data Processing](tutorials/data-processing-dns-reconnect.md)
+ - [Переключение сетевого соединения при пересоздании кластера {{ dataproc-full-name }}](tutorials/data-processing-dns-reconnect.md)
 
- - [Миграция кластера Yandex Data Processing с файловой системой HDFS в другую зону доступности](tutorials/hdfs-cluster-migration.md)
+ - [Миграция кластера {{ dataproc-full-name }} с файловой системой HDFS в другую зону доступности](tutorials/hdfs-cluster-migration.md)
 
  - [Развертывание группы доступности Always On с внутренним сетевым балансировщиком](tutorials/mssql-alwayson-lb.md)
 
 ### Подключение к сервисам
 
- - [Подключение к Object Storage из Virtual Private Cloud](tutorials/storage-vpc-access.md)
+ - [Подключение к {{ objstorage-name }} из {{ vpc-name }}](tutorials/storage-vpc-access.md)
 
- - [Подключение к Container Registry из Virtual Private Cloud](tutorials/vpc-cr-access.md)
+ - [Подключение к {{ container-registry-name }} из {{ vpc-name }}](tutorials/vpc-cr-access.md)
 
- - [Синхронизация топиков Apache Kafka® в Object Storage без использования интернета](tutorials/kafka-topic-s3-sync-private.md)
+ - [Синхронизация топиков {{ KF }} в {{ objstorage-name }} без использования интернета](tutorials/kafka-topic-s3-sync-private.md)
 
 ### Дополнительные настройки и инструменты
 
@@ -238,17 +240,17 @@ Yandex Virtual Private Cloud служит для управления облач
 
  - [Установка виртуального роутера Mikrotik CHR](tutorials/mikrotik.md)
 
- - [Настройка Cloud DNS для доступа к кластеру Managed Service for ClickHouse® из других облачных сетей](tutorials/clickhouse-dns-peering.md)
+ - [Настройка {{ dns-name }} для доступа к кластеру {{ mch-name }} из других облачных сетей](tutorials/clickhouse-dns-peering.md)
 
- - [Автоматизация задач Query с помощью Managed Service for Apache Airflow™](tutorials/airflow-auto-tasks.md)
+ - [Автоматизация задач {{ yq-name }} с помощью {{ maf-name }}](tutorials/airflow-auto-tasks.md)
 
- - [Использование модулей Yandex Cloud в Terraform](tutorials/terraform-modules.md)
+ - [Использование модулей {{ yandex-cloud }} в {{ TF }}](tutorials/terraform-modules.md)
 
 ## Концепции
 
  - [Взаимосвязь ресурсов сервиса](concepts/index.md)
 
- - [Устройство сети в Yandex Cloud](concepts/network-overview.md)
+ - [Устройство сети в {{ yandex-cloud }}](concepts/network-overview.md)
 
  - [Облачные сети и подсети](concepts/network.md)
 
@@ -620,7 +622,7 @@ Yandex Virtual Private Cloud служит для управления облач
 
  - [update](cli-ref/v0/subnet/update.md)
 
- - [Справочник Terraform](tf-ref.md)
+ - [Справочник {{ TF }}](tf-ref.md)
 
 ## Справочник API
 
@@ -962,7 +964,9 @@ Yandex Virtual Private Cloud служит для управления облач
 
  - [ListOperations](privatelink/api-ref/grpc/PrivateEndpoint/listOperations.md)
 
- - [Аудитные логи Audit Trails](at-ref.md)
+ - [Метрики {{ monitoring-name }}](metrics.md)
+
+ - [Аудитные логи {{ at-name }}](at-ref.md)
 
  - [История изменений](release-notes.md)
 

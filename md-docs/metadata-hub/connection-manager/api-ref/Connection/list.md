@@ -5,7 +5,7 @@ Retrieves the list of connections in the specified folder.
 ## HTTP request
 
 ```
-GET https://connman.api.cloud.yandex.net/v1/connections
+GET https://connman.{{ api-host }}/v1/connections
 ```
 
 ## Query parameters {#yandex.cloud.connectionmanager.v1.ListConnectionRequest}

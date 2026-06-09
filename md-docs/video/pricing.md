@@ -1,22 +1,22 @@
-# Правила тарификации для Yandex Cloud Video
+# Правила тарификации для {{ video-full-name }}
 
 
 
 
 Все цены в рублях и тенге указаны с НДС, все цены в долларах — без НДС.
 
-## Из чего складывается стоимость использования Cloud Video {#rules}
+## Из чего складывается стоимость использования {{ video-name }} {#rules}
 
-При использовании сервиса Cloud Video оплачиваются услуги:
+При использовании сервиса {{ video-name }} оплачиваются услуги:
 
-* Исходящий трафик — плата за передачу видео с CDN-серверов Yandex Cloud в интернет. Это трафик передачи и показа видео вашим зрителям. Плата не зависит от типа видео и одинакова для загруженных роликов и для трансляций.
+* Исходящий трафик — плата за передачу видео с CDN-серверов {{ yandex-cloud }} в интернет. Это трафик передачи и показа видео вашим зрителям. Плата не зависит от типа видео и одинакова для загруженных роликов и для трансляций.
 * Транскодирование — плата за преобразование [видео](concepts/videos.md) при его загрузке в сервис.
 * Транскодирование видео трансляции — плата за преобразование видеопотока [трансляции](concepts/streams.md).
 * Хранение потокового видео — плата за хранение видеопотока после транскодирования. При транскодировании получается несколько вариантов видео с различным битрейтом и разрешением, поэтому суммарный объем потокового видео может быть больше, чем оригиналов.
-* Хранение оригинала — плата за хранение исходных видео, которые были загружены в Cloud Video.
+* Хранение оригинала — плата за хранение исходных видео, которые были загружены в {{ video-name }}.
 * Хранение видео трансляции — плата за хранение записей трансляций.
 
-Видео хранится в сервисе Object Storage, объем данных измеряется в ГБ в месяц. Объем видео в течение месяца считается как среднее значение за месяц, согласно данным, гранулированным посекундно. Минимальная единица тарификации — час хранения 1 МБ данных.
+Видео хранится в сервисе {{ objstorage-name }}, объем данных измеряется в ГБ в месяц. Объем видео в течение месяца считается как среднее значение за месяц, согласно данным, гранулированным посекундно. Минимальная единица тарификации — час хранения 1 МБ данных.
 
 Минимальная единица тарификации исходящего трафика — 1 ГБ.
 
@@ -30,21 +30,15 @@
 
 {% note info %}
 
-Цены на ресурсы Yandex Cloud в разных регионах различаются. Подробнее о доступных регионах см. [Регионы](../overview/concepts/region.md).
+Цены на ресурсы {{ yandex-cloud }} в разных регионах различаются. Подробнее о доступных регионах см. [{#T}](../overview/concepts/region.md).
 
-Валюта, которой можно оплачивать ресурсы, зависит от юридического лица, с которым пользователь заключил договор. Подробнее о регистрации аккаунта см. [Регистрация аккаунта в Yandex Cloud](../billing/quickstart/index.md).
+Валюта, которой можно оплачивать ресурсы, зависит от юридического лица, с которым пользователь заключил договор. Подробнее о регистрации аккаунта см. [{#T}](../billing/quickstart/index.md).
 
 {% endnote %}
 
 
-| Услуга                                            | Цена       | Ед. тарификации | Действует с   | Действует до |
-| ------------------------------------------------- | ---------- | --------------- | ------------- | ------------ |
-| Cloud Video. Исходящий трафик                     | 1,054 ₽    | ГБ              | 1 мая 2026    | —            |
-| Cloud Video. Транскодирование видео               | 1,098 ₽    | Минута          | 1 января 2026 | —            |
-| Cloud Video. Транскодирование видео трансляций    | 2,6 ₽      | Минута          | 23 марта 2026 | —            |
-| Cloud Video. Хранение оригинала видео             | 0,00081 ₽  | ГБ × час        | 1 мая 2026    | —            |
-| Cloud Video. Хранение потокового видео            | 0,00306 ₽  | ГБ × час        | 1 мая 2026    | —            |
-| Cloud Video. Хранение потокового видео трансляций | 0,003069 ₽ | ГБ × час        | 23 марта 2026 | —            |
+| Услуга | Цена | Ед. тарификации | Действует с | Действует до |
+| ------ | ---- | --------------- | ----------- | ------------ |
 
 
 
@@ -71,41 +65,41 @@
 
   Стоимость транскодирования видео — `100 минут` (взимается однократно при загрузке видео):
   
-  > 100 × 1,098 ₽ = 109,8 ₽
+  > 100 × {{ sku|RUB|video.transcoding.vod.v1|string }} = {% calc [currency=RUB] 100  × {{ sku|RUB|video.transcoding.vod.v1|number }} %}
   
   Стоимость хранения оригинала видео — `5 ГБ` и потокового видео — `8 ГБ`:
   
-  > 5 × 720 × 0,00088 ₽ = 3,168 ₽
+  > 5 × 720 × {{ sku|RUB|storage.bucket.used_space.ice|string }} = {% calc [currency=RUB] 5  × 720 × {{ sku|RUB|storage.bucket.used_space.ice|number }} %}
   >
-  > 8 × 720 × 0,0033 ₽ = 19,008 ₽
+  > 8 × 720 × {{ sku|RUB|storage.bucket.used_space.standard|pricingRate.720|string }} = {% calc [currency=RUB] 8  × 720 × {{ sku|RUB|storage.bucket.used_space.standard|pricingRate.720|number }} %}
   
   Стоимость исходящего трафика — `50 ГБ`:
   
-  > 50 × 1,054 ₽ = 52,7 ₽
+  > 50 × {{ sku|RUB|video.cdn.traffic.egress|string }} = {% calc [currency=RUB] 50  × {{ sku|RUB|video.cdn.traffic.egress|number }} %}
   
   Общая стоимость услуг сервиса за месяц составит:
   
-  > 109,8 ₽ + 3,168 ₽ + 19,008 ₽ + 52,7 ₽ = 184,676 ₽
+  > {% calc [currency=RUB] 100  × {{ sku|RUB|video.transcoding.vod.v1|number }} %} + {% calc [currency=RUB] 5 × 720 × {{ sku|RUB|storage.bucket.used_space.ice|number }} %} + {% calc [currency=RUB] 8 × 720 × {{ sku|RUB|storage.bucket.used_space.standard|pricingRate.720|number }} %} + {% calc [currency=RUB] 50 × {{ sku|RUB|video.cdn.traffic.egress|number }} %} = {% calc [currency=RUB] 100  × {{ sku|RUB|video.transcoding.vod.v1|number }} + 5 × 720 × {{ sku|RUB|storage.bucket.used_space.ice|number }} + 8 × 720 × {{ sku|RUB|storage.bucket.used_space.standard|pricingRate.720|number }} + 50 × {{ sku|RUB|video.cdn.traffic.egress|number }} %}
 
 - Расчет в тенге {#prices-kzt}
 
   Стоимость транскодирования видео — `100 минут` (взимается однократно при загрузке видео):
   
-  > 100 × 5,49 ₸ = 549 ₸
+  > 100 × {{ sku|KZT|video.transcoding.vod.v1|string }} = {% calc [currency=KZT] 100  × {{ sku|KZT|video.transcoding.vod.v1|number }} %}
   
   Стоимость хранения оригинала видео — `5 ГБ` и потокового видео — `8 ГБ`:
   
-  > 5 × 720 × 0,0044 ₸ = 15,84 ₸
+  > 5 × 720 × {{ sku|KZT|storage.bucket.used_space.ice|string }} = {% calc [currency=KZT] 5  × 720 × {{ sku|KZT|storage.bucket.used_space.ice|number }} %}
   >
-  > 8 × 720 × 0,0165 ₸ = 95,04 ₸
+  > 8 × 720 × {{ sku|KZT|storage.bucket.used_space.standard|pricingRate.720|string }} = {% calc [currency=KZT] 8  × 720 × {{ sku|KZT|storage.bucket.used_space.standard|pricingRate.720|number }} %}
   
   Стоимость исходящего трафика — `50 ГБ`:
   
-  > 50 × 5,27 ₸ = 263,5 ₸
+  > 50 × {{ sku|KZT|video.cdn.traffic.egress|string }} = {% calc [currency=KZT] 50  × {{ sku|KZT|video.cdn.traffic.egress|number }} %}
   
   Общая стоимость услуг сервиса за месяц составит:
   
-  > 549 ₸ + 15,84 ₸ + 95,04 ₸ + 263,5 ₸ = 923,38 ₸
+  > {% calc [currency=KZT] 100  × {{ sku|KZT|video.transcoding.vod.v1|number }} %} + {% calc [currency=KZT] 5 × 720 × {{ sku|KZT|storage.bucket.used_space.ice|number }} %} + {% calc [currency=KZT] 8 × 720 × {{ sku|KZT|storage.bucket.used_space.standard|pricingRate.720|number }} %} + {% calc [currency=KZT] 50 × {{ sku|KZT|video.cdn.traffic.egress|number }} %} = {% calc [currency=KZT] 100  × {{ sku|KZT|video.transcoding.vod.v1|number }} + 5 × 720 × {{ sku|KZT|storage.bucket.used_space.ice|number }} + 8 × 720 × {{ sku|KZT|storage.bucket.used_space.standard|pricingRate.720|number }} + 50 × {{ sku|KZT|video.cdn.traffic.egress|number }} %}
 
 {% endlist %}
 
@@ -128,36 +122,36 @@
 
   Стоимость транскодирования трансляции — `60 минут`:
   
-  > 60 × 2,6 ₽ = 156 ₽
+  > 60 × {{ sku|RUB|video.transcoding.live.v1|string }} = {% calc [currency=RUB] 60 × {{ sku|RUB|video.transcoding.live.v1|number }} %}
   
   Стоимость хранения записи трансляции — `3 ГБ` за месяц (720 часов):
   
-  > 3 × 720 × 0,003069 ₽ = 6,62904 ₽
+  > 3 × 720 × {{ sku|RUB|video.used_space.live.v1|string }} = {% calc [currency=RUB] 3 × 720 × {{ sku|RUB|video.used_space.live.v1|number }} %}
   
   Стоимость исходящего трафика — `20 ГБ`:
   
-  > 20 × 1,054 ₽ = 21,08 ₽
+  > 20 × {{ sku|RUB|video.cdn.traffic.egress|string }} = {% calc [currency=RUB] 20 × {{ sku|RUB|video.cdn.traffic.egress|number }} %}
   
   Общая стоимость трансляции за месяц составит:
   
-  > 156 ₽ + 6,62904 ₽ + 21,08 ₽ = 183,70904 ₽
+  > {% calc [currency=RUB] 60 × {{ sku|RUB|video.transcoding.live.v1|number }} %} + {% calc [currency=RUB] 3 × 720 × {{ sku|RUB|video.used_space.live.v1|number }} %} + {% calc [currency=RUB] 20 × {{ sku|RUB|video.cdn.traffic.egress|number }} %} = {% calc [currency=RUB] 60 × {{ sku|RUB|video.transcoding.live.v1|number }} + 3 × 720 × {{ sku|RUB|video.used_space.live.v1|number }} + 20 × {{ sku|RUB|video.cdn.traffic.egress|number }} %}
 
 - Расчет в тенге {#prices-kzt}
 
   Стоимость транскодирования трансляции — `60 минут`:
   
-  > 60 × 13 ₸ = 780 ₸
+  > 60 × {{ sku|KZT|video.transcoding.live.v1|string }} = {% calc [currency=KZT] 60 × {{ sku|KZT|video.transcoding.live.v1|number }} %}
   
   Стоимость хранения записи трансляции — `3 ГБ` за месяц (720 часов):
   
-  > 3 × 720 × 0,015345 ₸ = 33,1452 ₸
+  > 3 × 720 × {{ sku|KZT|video.used_space.live.v1|string }} = {% calc [currency=KZT] 3 × 720 × {{ sku|KZT|video.used_space.live.v1|number }} %}
   
   Стоимость исходящего трафика — `20 ГБ`:
   
-  > 20 × 5,27 ₸ = 105,4 ₸
+  > 20 × {{ sku|KZT|video.cdn.traffic.egress|string }} = {% calc [currency=KZT] 20 × {{ sku|KZT|video.cdn.traffic.egress|number }} %}
   
   Общая стоимость трансляции за месяц составит:
   
-  > 780 ₸ + 33,1452 ₸ + 105,4 ₸ = 918,5452 ₸
+  > {% calc [currency=KZT] 60 × {{ sku|KZT|video.transcoding.live.v1|number }} %} + {% calc [currency=KZT] 3 × 720 × {{ sku|KZT|video.used_space.live.v1|number }} %} + {% calc [currency=KZT] 20 × {{ sku|KZT|video.cdn.traffic.egress|number }} %} = {% calc [currency=KZT] 60 × {{ sku|KZT|video.transcoding.live.v1|number }} + 3 × 720 × {{ sku|KZT|video.used_space.live.v1|number }} + 20 × {{ sku|KZT|video.cdn.traffic.egress|number }} %}
 
 {% endlist %}

@@ -1,6 +1,6 @@
 # Установка виртуального роутера Mikrotik CHR
 
-В Yandex Cloud можно развернуть виртуальный роутер Mikrotik Cloud Hosted Router из готового образа ВМ. Чтобы установить Mikrotik Cloud Hosted Router и проверить его работу:
+В {{ yandex-cloud }} можно развернуть виртуальный роутер Mikrotik Cloud Hosted Router из готового образа ВМ. Чтобы установить Mikrotik Cloud Hosted Router и проверить его работу:
 
 1. [Подготовьте облако к работе](#before-you-begin).
 1. [Создайте ВМ с Mikrotik Cloud Hosted Router](#create-router).
@@ -13,11 +13,11 @@
 
 ## Подготовьте облако к работе {#before-you-begin}
 
-Зарегистрируйтесь в Yandex Cloud и создайте [платежный аккаунт](../../billing/concepts/billing-account.md):
-1. Перейдите в [консоль управления](https://console.yandex.cloud), затем войдите в Yandex Cloud или зарегистрируйтесь.
-1. На странице **[Yandex Cloud Billing](https://center.yandex.cloud/billing/accounts)** убедитесь, что у вас подключен платежный аккаунт, и он находится в [статусе](../../billing/concepts/billing-account-statuses.md) `ACTIVE` или `TRIAL_ACTIVE`. Если платежного аккаунта нет, [создайте его](../../billing/quickstart/index.md) и [привяжите](../../billing/operations/pin-cloud.md) к нему облако.
+Зарегистрируйтесь в {{ yandex-cloud }} и создайте [платежный аккаунт](../../billing/concepts/billing-account.md):
+1. Перейдите в [консоль управления]({{ link-console-main }}), затем войдите в {{ yandex-cloud }} или зарегистрируйтесь.
+1. На странице **[{{ ui-key.yacloud_billing.billing.label_service }}]({{ link-console-billing }})** убедитесь, что у вас подключен платежный аккаунт, и он находится в [статусе](../../billing/concepts/billing-account-statuses.md) `ACTIVE` или `TRIAL_ACTIVE`. Если платежного аккаунта нет, [создайте его](../../billing/quickstart/index.md) и [привяжите](../../billing/operations/pin-cloud.md) к нему облако.
 
-Если у вас есть активный платежный аккаунт, вы можете создать или выбрать [каталог](../../resource-manager/concepts/resources-hierarchy.md#folder), в котором будет работать ваша инфраструктура, на [странице облака](https://console.yandex.cloud/cloud).
+Если у вас есть активный платежный аккаунт, вы можете создать или выбрать [каталог](../../resource-manager/concepts/resources-hierarchy.md#folder), в котором будет работать ваша инфраструктура, на [странице облака]({{ link-console-cloud }}).
 
 [Подробнее об облаках и каталогах](../../resource-manager/concepts/resources-hierarchy.md).
 
@@ -32,52 +32,52 @@
 
 В стоимость использования виртуального роутера и тестовой ВМ входят:
 
-* плата за диски и постоянно запущенные виртуальные машины (см. [тарифы Yandex Compute Cloud](../../compute/pricing.md));
-* плата за использование публичного IP-адреса (см. [тарифы Yandex Virtual Private Cloud](../pricing.md));
+* плата за диски и постоянно запущенные виртуальные машины (см. [тарифы {{ compute-full-name }}](../../compute/pricing.md));
+* плата за использование публичного IP-адреса (см. [тарифы {{ vpc-full-name }}](../pricing.md));
 
 
 ## Создайте ВМ с Mikrotik Cloud Hosted Router {#create-router}
 
-1. На странице [каталога](../../resource-manager/concepts/resources-hierarchy.md#folder) в [консоли управления](https://console.yandex.cloud) нажмите кнопку **Создать ресурс** и выберите `Виртуальная машина`.
-1. В блоке **Образ загрузочного диска** в поле **Поиск продукта** введите `Cloud Hosted Router` и выберите публичный образ [Cloud Hosted Router](https://yandex.cloud/ru/marketplace/products/yc/cloud-hosted-router).
-1. В блоке **Расположение** выберите [зону доступности](../../overview/concepts/geo-scope.md), в которой будет создана ВМ. Если вы не знаете, какая зона доступности вам нужна, оставьте выбранную по умолчанию.
-1. В блоке **Вычислительные ресурсы** перейдите на вкладку `Своя конфигурация` и укажите необходимую [платформу](../../compute/concepts/vm-platforms.md), количество vCPU и объем RAM:
+1. На странице [каталога](../../resource-manager/concepts/resources-hierarchy.md#folder) в [консоли управления]({{ link-console-main }}) нажмите кнопку **{{ ui-key.yacloud.iam.folder.dashboard.button_add }}** и выберите `{{ ui-key.yacloud.iam.folder.dashboard.value_compute }}`.
+1. В блоке **{{ ui-key.yacloud.compute.instances.create.section_image }}** в поле **{{ ui-key.yacloud.compute.instances.create.placeholder_search_marketplace-product }}** введите `Cloud Hosted Router` и выберите публичный образ [Cloud Hosted Router](https://yandex.cloud/ru/marketplace/products/yc/cloud-hosted-router).
+1. В блоке **{{ ui-key.yacloud.k8s.node-groups.create.section_allocation-policy }}** выберите [зону доступности](../../overview/concepts/geo-scope.md), в которой будет создана ВМ. Если вы не знаете, какая зона доступности вам нужна, оставьте выбранную по умолчанию.
+1. В блоке **{{ ui-key.yacloud.compute.instances.create.section_platform }}** перейдите на вкладку `{{ ui-key.yacloud.component.compute.resources.label_tab-custom }}` и укажите необходимую [платформу](../../compute/concepts/vm-platforms.md), количество vCPU и объем RAM:
 
-    * **Платформа** — `Intel Ice Lake`.
-    * **vCPU** — `2`.
-    * **Гарантированная доля vCPU** — `100%`.
-    * **RAM** — `2 ГБ`.
+    * **{{ ui-key.yacloud.component.compute.resources.field_platform }}** — `Intel Ice Lake`.
+    * **{{ ui-key.yacloud.component.compute.resources.field_cores }}** — `2`.
+    * **{{ ui-key.yacloud.component.compute.resources.field_core-fraction }}** — `100%`.
+    * **{{ ui-key.yacloud.component.compute.resources.field_memory }}** — `2 {{ ui-key.yacloud.common.units.label_gigabyte }}`.
 
-1. В блоке **Сетевые настройки**:
+1. В блоке **{{ ui-key.yacloud.compute.instances.create.section_network }}**:
 
-    * В поле **Подсеть** выберите сеть и подсеть, к которым нужно подключить ВМ. Если нужной [сети](../concepts/network.md#network) или [подсети](../concepts/network.md#subnet) еще нет, [создайте их](../operations/subnet-create.md).
-    * В поле **Публичный IP-адрес** оставьте значение `Автоматически`, чтобы назначить ВМ случайный внешний IP-адрес из пула Yandex Cloud, или выберите статический адрес из списка, если вы зарезервировали его заранее.
+    * В поле **{{ ui-key.yacloud.component.compute.network-select.field_subnetwork }}** выберите сеть и подсеть, к которым нужно подключить ВМ. Если нужной [сети](../concepts/network.md#network) или [подсети](../concepts/network.md#subnet) еще нет, [создайте их](../operations/subnet-create.md).
+    * В поле **{{ ui-key.yacloud.component.compute.network-select.field_external }}** оставьте значение `{{ ui-key.yacloud.component.compute.network-select.switch_auto }}`, чтобы назначить ВМ случайный внешний IP-адрес из пула {{ yandex-cloud }}, или выберите статический адрес из списка, если вы зарезервировали его заранее.
 
-1. В блоке **Доступ** выберите вариант **SSH-ключ** и укажите данные для доступа на ВМ:
+1. В блоке **{{ ui-key.yacloud.compute.instances.create.section_access }}** выберите вариант **{{ ui-key.yacloud.compute.instance.access-method.label_oslogin-control-ssh-option-title }}** и укажите данные для доступа на ВМ:
 
-    * В поле **Логин** введите имя пользователя. Не используйте имя `root` или другие имена, зарезервированные ОС.
-    * В поле **SSH-ключ** выберите SSH-ключ, сохраненный в вашем профиле [пользователя организации](../../organization/concepts/membership.md).
+    * В поле **{{ ui-key.yacloud.compute.instances.create.field_user }}** введите имя пользователя. Не используйте имя `root` или другие имена, зарезервированные ОС.
+    * В поле **{{ ui-key.yacloud.compute.instances.create.field_key }}** выберите SSH-ключ, сохраненный в вашем профиле [пользователя организации](../../organization/concepts/membership.md).
       
       Если в вашем профиле нет сохраненных SSH-ключей или вы хотите добавить новый ключ:
       
-      1. Нажмите кнопку **Добавить ключ**.
+      1. Нажмите кнопку **{{ ui-key.yacloud.compute.instances.create.button_add-ssh-key }}**.
       1. Задайте имя SSH-ключа.
       1. Выберите вариант:
       
-          * `Ввести вручную` — вставьте содержимое открытого [SSH](../../glossary/ssh-keygen.md)-ключа. Пару SSH-ключей необходимо [создать](../../compute/operations/vm-connect/ssh.md#creating-ssh-keys) самостоятельно.
-          * `Загрузить из файла` — загрузите открытую часть SSH-ключа. Пару SSH-ключей необходимо создать самостоятельно.
-          * `Сгенерировать ключ` — автоматическое создание пары SSH-ключей.
+          * `{{ ui-key.yacloud_components.ssh-key-add-dialog.value_radio-manual }}` — вставьте содержимое открытого [SSH](../../glossary/ssh-keygen.md)-ключа. Пару SSH-ключей необходимо [создать](../../compute/operations/vm-connect/ssh.md#creating-ssh-keys) самостоятельно.
+          * `{{ ui-key.yacloud_components.ssh-key-add-dialog.value_radio-upload }}` — загрузите открытую часть SSH-ключа. Пару SSH-ключей необходимо создать самостоятельно.
+          * `{{ ui-key.yacloud_components.ssh-key-add-dialog.value_radio-generate }}` — автоматическое создание пары SSH-ключей.
           
             При добавлении сгенерированного SSH-ключа будет создан и загружен архив с парой ключей. В ОС на базе Linux или macOS распакуйте архив в папку `/home/<имя_пользователя>/.ssh`. В ОС Windows распакуйте архив в папку `C:\Users\<имя_пользователя>/.ssh`. Дополнительно вводить открытый ключ в консоли управления не требуется.
       
-      1. Нажмите кнопку **Добавить**.
+      1. Нажмите кнопку **{{ ui-key.yacloud.common.add }}**.
       
       SSH-ключ будет добавлен в ваш профиль пользователя организации. Если в организации [отключена](../../organization/operations/os-login-access.md) возможность добавления пользователями SSH-ключей в свои профили, добавленный открытый SSH-ключ будет сохранен только в профиле пользователя внутри создаваемого ресурса.
 
     Обратите внимание, что эти данные нужны только для создания ВМ, их нельзя использовать для доступа к роутеру.
 
-1. В блоке **Общая информация** задайте имя ВМ: `mikrotik-router`.
-1. Нажмите кнопку **Создать ВМ**.
+1. В блоке **{{ ui-key.yacloud.compute.instances.create.section_base }}** задайте имя ВМ: `mikrotik-router`.
+1. Нажмите кнопку **{{ ui-key.yacloud.compute.instances.create.button_create }}**.
 
 Создание виртуальной машины может занять несколько минут. Когда виртуальная машина перейдет в статус `RUNNING`, вы можете зайти на нее.
 
@@ -92,8 +92,8 @@
 
 Роутер создается с публичным IP-адресом, поэтому для безопасности необходимо изменить пароль администратора, установленный по умолчанию.
 
-1. В [консоли управления](https://console.yandex.cloud) выберите каталог.
-1. [Перейдите](../../console/operations/select-service.md#select-service) в сервис **Compute Cloud**.
+1. В [консоли управления]({{ link-console-main }}) выберите каталог.
+1. Перейдите в сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_compute }}**.
 1. Скопируйте публичный IP-адрес виртуальной машины `mikrotik-router` и откройте его в браузере.
 1. На открывшейся странице, в поле **IP Address** введите внутренний IP-адрес виртуальной машины. 
 1. В поле **Password** введите новый пароль администратора, подтвердите его в поле **Confirm Pssword**, и нажмите кнопку **Apply Configuration**. Все остальные настройки можно задать позже.
@@ -103,51 +103,51 @@
 
 Создайте тестовую ВМ в одной подсети с роутером, чтобы проверить возможность подключения между роутером и ВМ.
 
-1. На странице [каталога](../../resource-manager/concepts/resources-hierarchy.md#folder) в [консоли управления](https://console.yandex.cloud) нажмите кнопку **Создать ресурс** и выберите `Виртуальная машина`.
-1. В блоке **Образ загрузочного диска** в поле **Поиск продукта** введите `Ubuntu` и выберите публичный образ [Ubuntu](https://yandex.cloud/ru/marketplace?tab=software&search=Ubuntu&categories=os).
-1. В блоке **Расположение** выберите ту же [зону доступности](../../overview/concepts/geo-scope.md), в которой находится ВМ `mikrotik-router`.
-1. В блоке **Вычислительные ресурсы** перейдите на вкладку `Своя конфигурация` и укажите необходимую [платформу](../../compute/concepts/vm-platforms.md), количество vCPU и объем RAM:
+1. На странице [каталога](../../resource-manager/concepts/resources-hierarchy.md#folder) в [консоли управления]({{ link-console-main }}) нажмите кнопку **{{ ui-key.yacloud.iam.folder.dashboard.button_add }}** и выберите `{{ ui-key.yacloud.iam.folder.dashboard.value_compute }}`.
+1. В блоке **{{ ui-key.yacloud.compute.instances.create.section_image }}** в поле **{{ ui-key.yacloud.compute.instances.create.placeholder_search_marketplace-product }}** введите `Ubuntu` и выберите публичный образ [Ubuntu](https://yandex.cloud/ru/marketplace?tab=software&search=Ubuntu&categories=os).
+1. В блоке **{{ ui-key.yacloud.k8s.node-groups.create.section_allocation-policy }}** выберите ту же [зону доступности](../../overview/concepts/geo-scope.md), в которой находится ВМ `mikrotik-router`.
+1. В блоке **{{ ui-key.yacloud.compute.instances.create.section_platform }}** перейдите на вкладку `{{ ui-key.yacloud.component.compute.resources.label_tab-custom }}` и укажите необходимую [платформу](../../compute/concepts/vm-platforms.md), количество vCPU и объем RAM:
 
-    * **Платформа** — `Intel Ice Lake`.
-    * **vCPU** — `2`.
-    * **Гарантированная доля vCPU** — `20%`.
-    * **RAM** — `1 ГБ`.
+    * **{{ ui-key.yacloud.component.compute.resources.field_platform }}** — `Intel Ice Lake`.
+    * **{{ ui-key.yacloud.component.compute.resources.field_cores }}** — `2`.
+    * **{{ ui-key.yacloud.component.compute.resources.field_core-fraction }}** — `20%`.
+    * **{{ ui-key.yacloud.component.compute.resources.field_memory }}** — `1 {{ ui-key.yacloud.common.units.label_gigabyte }}`.
 
-1. В блоке **Сетевые настройки**:
+1. В блоке **{{ ui-key.yacloud.compute.instances.create.section_network }}**:
 
-    * В поле **Подсеть** выберите сеть и подсеть, в которых находится ВМ `mikrotik-router`.
-    * В поле **Публичный IP-адрес** выберите `Без адреса`.
+    * В поле **{{ ui-key.yacloud.component.compute.network-select.field_subnetwork }}** выберите сеть и подсеть, в которых находится ВМ `mikrotik-router`.
+    * В поле **{{ ui-key.yacloud.component.compute.network-select.field_external }}** выберите `{{ ui-key.yacloud.component.compute.network-select.switch_none }}`.
 
-1. В блоке **Доступ** выберите вариант **SSH-ключ** и укажите данные для доступа на ВМ:
+1. В блоке **{{ ui-key.yacloud.compute.instances.create.section_access }}** выберите вариант **{{ ui-key.yacloud.compute.instance.access-method.label_oslogin-control-ssh-option-title }}** и укажите данные для доступа на ВМ:
 
-    * В поле **Логин** введите имя пользователя. Не используйте имя `root` или другие имена, зарезервированные ОС. Для выполнения операций, требующих прав суперпользователя, используйте команду `sudo`.
-    * В поле **SSH-ключ** выберите SSH-ключ, сохраненный в вашем профиле [пользователя организации](../../organization/concepts/membership.md).
+    * В поле **{{ ui-key.yacloud.compute.instances.create.field_user }}** введите имя пользователя. Не используйте имя `root` или другие имена, зарезервированные ОС. Для выполнения операций, требующих прав суперпользователя, используйте команду `sudo`.
+    * В поле **{{ ui-key.yacloud.compute.instances.create.field_key }}** выберите SSH-ключ, сохраненный в вашем профиле [пользователя организации](../../organization/concepts/membership.md).
       
       Если в вашем профиле нет сохраненных SSH-ключей или вы хотите добавить новый ключ:
       
-      1. Нажмите кнопку **Добавить ключ**.
+      1. Нажмите кнопку **{{ ui-key.yacloud.compute.instances.create.button_add-ssh-key }}**.
       1. Задайте имя SSH-ключа.
       1. Выберите вариант:
       
-          * `Ввести вручную` — вставьте содержимое открытого [SSH](../../glossary/ssh-keygen.md)-ключа. Пару SSH-ключей необходимо [создать](../../compute/operations/vm-connect/ssh.md#creating-ssh-keys) самостоятельно.
-          * `Загрузить из файла` — загрузите открытую часть SSH-ключа. Пару SSH-ключей необходимо создать самостоятельно.
-          * `Сгенерировать ключ` — автоматическое создание пары SSH-ключей.
+          * `{{ ui-key.yacloud_components.ssh-key-add-dialog.value_radio-manual }}` — вставьте содержимое открытого [SSH](../../glossary/ssh-keygen.md)-ключа. Пару SSH-ключей необходимо [создать](../../compute/operations/vm-connect/ssh.md#creating-ssh-keys) самостоятельно.
+          * `{{ ui-key.yacloud_components.ssh-key-add-dialog.value_radio-upload }}` — загрузите открытую часть SSH-ключа. Пару SSH-ключей необходимо создать самостоятельно.
+          * `{{ ui-key.yacloud_components.ssh-key-add-dialog.value_radio-generate }}` — автоматическое создание пары SSH-ключей.
           
             При добавлении сгенерированного SSH-ключа будет создан и загружен архив с парой ключей. В ОС на базе Linux или macOS распакуйте архив в папку `/home/<имя_пользователя>/.ssh`. В ОС Windows распакуйте архив в папку `C:\Users\<имя_пользователя>/.ssh`. Дополнительно вводить открытый ключ в консоли управления не требуется.
       
-      1. Нажмите кнопку **Добавить**.
+      1. Нажмите кнопку **{{ ui-key.yacloud.common.add }}**.
       
       SSH-ключ будет добавлен в ваш профиль пользователя организации. Если в организации [отключена](../../organization/operations/os-login-access.md) возможность добавления пользователями SSH-ключей в свои профили, добавленный открытый SSH-ключ будет сохранен только в профиле пользователя внутри создаваемого ресурса.
 
-1. В блоке **Общая информация** задайте имя ВМ: `test-vm`.
-1. Нажмите кнопку **Создать ВМ**.
+1. В блоке **{{ ui-key.yacloud.compute.instances.create.section_base }}** задайте имя ВМ: `test-vm`.
+1. Нажмите кнопку **{{ ui-key.yacloud.compute.instances.create.button_create }}**.
 
 
 ### Проверьте связь роутера и тестовой ВМ {#test-connection}
 
 {% note alert %}
 
-Если вы используете для доступа к роутеру программу WinBox, подключайтесь к роутеру через IP-адрес ВМ. Доступ через MAC-адрес не поддерживается в Yandex Cloud.
+Если вы используете для доступа к роутеру программу WinBox, подключайтесь к роутеру через IP-адрес ВМ. Доступ через MAC-адрес не поддерживается в {{ yandex-cloud }}.
 
 {% endnote %}
 

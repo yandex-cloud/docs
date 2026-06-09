@@ -1,14 +1,14 @@
-# Как начать работать с Marketplace Metering API
+# Как начать работать с {{ marketplace-short-name }} Metering API
 
-В этом разделе вы научитесь отправлять [метрики потребления](../concepts/api-usage.md) вашего [продукта](../concepts/product.md) в Marketplace Metering API.
+В этом разделе вы научитесь отправлять [метрики потребления](../concepts/api-usage.md) вашего [продукта](../concepts/product.md) в {{ marketplace-short-name }} Metering API.
 
 
 ## Перед началом работы {#before-begin}
 
-Чтобы начать работать c Marketplace Metering API:
+Чтобы начать работать c {{ marketplace-short-name }} Metering API:
 
-1. Получите идентификаторы вашего продукта (`productId`) и SKU (`skuId`). Идентификаторы указаны на странице продукта в [кабинете партнера Marketplace](https://partners.yandex.cloud/).
-1. [Назначьте](../../iam/operations/sa/assign-role-for-sa.md#binding-role-organization) сервисному аккаунту, от имени которого вы будете аутентифицироваться в Marketplace Metering API и отправлять метрики, роль `marketplace.meteringAgent` на ваш [каталог](../../resource-manager/concepts/resources-hierarchy.md#folder). Подробнее см. в разделе [Управление доступом](../security/index.md).
+1. Получите идентификаторы вашего продукта (`productId`) и SKU (`skuId`). Идентификаторы указаны на странице продукта в [кабинете партнера {{ marketplace-short-name }}]({{ link-cloud-partners }}).
+1. [Назначьте](../../iam/operations/sa/assign-role-for-sa.md#binding-role-organization) сервисному аккаунту, от имени которого вы будете аутентифицироваться в {{ marketplace-short-name }} Metering API и отправлять метрики, роль `marketplace.meteringAgent` на ваш [каталог](../../resource-manager/concepts/resources-hierarchy.md#folder). Подробнее см. в разделе [Управление доступом](../security/index.md).
 1. [Получите](../../iam/concepts/authorization/iam-token.md) IAM-токен для того же сервисного аккаунта.
 
 Чтобы воспользоваться примерами, установите:
@@ -20,7 +20,7 @@
 
 ## Проверьте возможность отправки метрик {#dry-run}
 
-Проверьте отправку метрик в Marketplace Metering API. Проверочный запрос отличается от реальной отправки метрик только параметром `validate_only` со значением `true`.
+Проверьте отправку метрик в {{ marketplace-short-name }} Metering API. Проверочный запрос отличается от реальной отправки метрик только параметром `validate_only` со значением `true`.
 
 Для проверки выполните команду:
 
@@ -31,7 +31,7 @@
   ```bash
   curl \
     --request POST \
-    --url 'https://marketplace.api.cloud.yandex.net/marketplace/metering/v1/imageProductUsage/write' \
+    --url 'https://marketplace.{{ api-host }}/marketplace/metering/v1/imageProductUsage/write' \
     --header 'Authorization: Bearer <IAM-токен>' \
     --header 'Content-Type: application/json' \
     --data '{
@@ -55,7 +55,7 @@
   * `uuid` — уникальный идентификатор записи. Может быть сгенерирован с помощью [uuidgen](https://uuidgen.org/).
   * `sku_id` — идентификатор SKU.
   * `quantity` — количество потребленных единиц. Должно быть целое число больше `0`. Например, `1`.
-  * `timestamp` — временная метка в формате [ISO 8601](https://ru.wikipedia.org/wiki/ISO_8601). Например, `2024-09-16T19:01:10.591128Z`.
+  * `timestamp` — временная метка в формате [ISO 8601](https://{{ lang }}.wikipedia.org/wiki/ISO_8601). Например, `2024-09-16T19:01:10.591128Z`.
 
 - gRPC API {#grpc-api}
 
@@ -74,7 +74,7 @@
         }
       ]
     }' \
-    marketplace.api.cloud.yandex.net:443 yandex.cloud.marketplace.metering.v1.ImageProductUsageService/Write
+    marketplace.{{ api-host }}:443 yandex.cloud.marketplace.metering.v1.ImageProductUsageService/Write
   ```
 
   Где:
@@ -84,7 +84,7 @@
   * `uuid` — уникальный идентификатор записи. Может быть сгенерирован с помощью [uuidgen](https://uuidgen.org/).
   * `sku_id` — идентификатор SKU.
   * `quantity` — количество потребленных единиц. Должно быть целое число больше `0`. Например, `1`.
-  * `timestamp` — временная метка в формате [ISO 8601](https://ru.wikipedia.org/wiki/ISO_8601). Например, `2024-09-16T19:01:10.591128Z`.
+  * `timestamp` — временная метка в формате [ISO 8601](https://{{ lang }}.wikipedia.org/wiki/ISO_8601). Например, `2024-09-16T19:01:10.591128Z`.
 
 {% endlist %}
 
@@ -99,7 +99,7 @@
   ```bash
   curl \
     --request POST \
-    --url 'https://marketplace.api.cloud.yandex.net/marketplace/metering/v1/imageProductUsage/write' \
+    --url 'https://marketplace.{{ api-host }}/marketplace/metering/v1/imageProductUsage/write' \
     --header 'Authorization: Bearer <IAM-токен>' \
     --header 'Content-Type: application/json' \
     --data '{
@@ -122,7 +122,7 @@
   * `uuid` — уникальный идентификатор записи. Может быть сгенерирован с помощью [uuidgen](https://uuidgen.org/).
   * `sku_id` — идентификатор SKU.
   * `quantity` — количество потребленных единиц. Должно быть целое число больше `0`. Например, `1`.
-  * `timestamp` — временная метка в формате [ISO 8601](https://ru.wikipedia.org/wiki/ISO_8601). Например, `2024-09-16T19:01:10.591128Z`.
+  * `timestamp` — временная метка в формате [ISO 8601](https://{{ lang }}.wikipedia.org/wiki/ISO_8601). Например, `2024-09-16T19:01:10.591128Z`.
 
 - gRPC API {#grpc-api}
 
@@ -140,7 +140,7 @@
         }
       ]
     }' \
-    marketplace.api.cloud.yandex.net:443 yandex.cloud.marketplace.metering.v1.ImageProductUsageService/Write
+    marketplace.{{ api-host }}:443 yandex.cloud.marketplace.metering.v1.ImageProductUsageService/Write
   ```
 
   Где:
@@ -150,7 +150,7 @@
   * `uuid` — уникальный идентификатор записи. Может быть сгенерирован с помощью [uuidgen](https://uuidgen.org/).
   * `sku_id` — идентификатор SKU.
   * `quantity` — количество потребленных единиц. Должно быть целое число больше `0`. Например, `1`.
-  * `timestamp` — временная метка в формате [ISO 8601](https://ru.wikipedia.org/wiki/ISO_8601). Например, `2024-09-16T19:01:10.591128Z`.
+  * `timestamp` — временная метка в формате [ISO 8601](https://{{ lang }}.wikipedia.org/wiki/ISO_8601). Например, `2024-09-16T19:01:10.591128Z`.
 
 {% endlist %}
 

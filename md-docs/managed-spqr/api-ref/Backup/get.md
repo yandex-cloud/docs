@@ -1,13 +1,12 @@
 # Managed Service for SPQR API, REST: Backup.Get
 
 Returns the specified SPQR backup.
-
 To get the list of available SPQR backups, make a [List](list.md#List) request.
 
 ## HTTP request
 
 ```
-GET https://mdb.api.cloud.yandex.net/managed-spqr/v1/backups/{backupId}
+GET https://{{ api-host-mdb }}/managed-spqr/v1/backups/{backupId}
 ```
 
 ## Path parameters

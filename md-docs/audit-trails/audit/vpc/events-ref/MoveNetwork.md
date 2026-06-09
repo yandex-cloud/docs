@@ -85,11 +85,21 @@
   },
   "details": {
     "networkId": "string",
+    // Includes only one of the fields `networkName`
     "networkName": "string",
+    // end of the list of possible fields
+    // Includes only one of the fields `defaultSecurityGroupId`
     "defaultSecurityGroupId": "string",
+    // end of the list of possible fields
+    // Includes only one of the fields `sourceFolderId`
     "sourceFolderId": "string",
+    // end of the list of possible fields
+    // Includes only one of the fields `destinationFolderId`
     "destinationFolderId": "string",
+    // end of the list of possible fields
+    // Includes only one of the fields `description`
     "description": "string",
+    // end of the list of possible fields
     "labels": "object"
   },
   "requestParameters": "object",
@@ -262,10 +272,20 @@ A list of messages that carry the error details. ||
 #|
 ||Field | Description ||
 || networkId | **string** ||
-|| networkName | **string** ||
-|| defaultSecurityGroupId | **string** ||
-|| sourceFolderId | **string** ||
-|| destinationFolderId | **string** ||
-|| description | **string** ||
+|| networkName | **string**
+
+Includes only one of the fields `networkName`. ||
+|| defaultSecurityGroupId | **string**
+
+Includes only one of the fields `defaultSecurityGroupId`. ||
+|| sourceFolderId | **string**
+
+Includes only one of the fields `sourceFolderId`. ||
+|| destinationFolderId | **string**
+
+Includes only one of the fields `destinationFolderId`. ||
+|| description | **string**
+
+Includes only one of the fields `description`. ||
 || labels | **object** (map<**string**, **string**>) ||
 |#

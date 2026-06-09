@@ -1,13 +1,12 @@
 # Workload Identity, REST: FederatedCredential.Get
 
 Returns the specified federated credential.
-
 To get the list of available federated credentials, make a [List](list.md#List) request.
 
 ## HTTP request
 
 ```
-GET https://iam.api.cloud.yandex.net/iam/v1/workload/federatedCredentials/{federatedCredentialId}
+GET https://iam.{{ api-host }}/iam/v1/workload/federatedCredentials/{federatedCredentialId}
 ```
 
 ## Path parameters

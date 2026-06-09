@@ -1,22 +1,22 @@
-# Создать коннектор для Data Streams
+# Создать коннектор для {{ yds-name }}
 
 {% list tabs group=instructions %}
 
 - Консоль управления {#console}
 
-  1. В [консоли управления](https://console.yandex.cloud) перейдите в каталог, в котором хотите создать [коннектор](../../../concepts/eventrouter/connector.md).
-  1. [Перейдите](../../../../console/operations/select-service.md#select-service) в сервис **Serverless Integrations**.
-  1. На панели слева нажмите ![image](../../../../_assets/console-icons/object-align-center-vertical.svg) **EventRouter**.
+  1. В [консоли управления]({{ link-console-main }}) перейдите в каталог, в котором хотите создать [коннектор](../../../concepts/eventrouter/connector.md).
+  1. Перейдите в сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_serverless-integrations }}**.
+  1. На панели слева нажмите ![image](../../../../_assets/console-icons/object-align-center-vertical.svg) **{{ ui-key.yacloud.serverless-event-router.label_service }}**.
   1. Выберите нужную [шину](../../../concepts/eventrouter/bus.md).
-  1. Перейдите на вкладку ![image](../../../../_assets/console-icons/broadcast-signal.svg) **Коннекторы**.
-  1. В правом верхнем углу нажмите **Создать коннектор**.
-  1. В поле **Источник** выберите `Yandex Data Streams`.
-  1. В блоке **Настройки Data Streams**:
+  1. Перейдите на вкладку ![image](../../../../_assets/console-icons/broadcast-signal.svg) **{{ ui-key.yacloud.serverless-event-router.label_connectors }}**.
+  1. В правом верхнем углу нажмите **{{ ui-key.yacloud.serverless-event-router.button_create-connector }}**.
+  1. В поле **{{ ui-key.yacloud.serverless-event-router.label_connector-source }}** выберите `{{ yds-full-name }}`.
+  1. В блоке **{{ ui-key.yc-eventrouter.dynamic-forms.template_connector_yds_base_options_title }}**:
 
       * Выберите [поток данных](../../../../data-streams/concepts/glossary.md#stream-concepts) и [выделенного потребителя данных](../../../../data-streams/concepts/glossary.md#consumers).
       * Выберите [сервисный аккаунт](../../../../iam/concepts/users/service-accounts.md), у которого есть права на чтение из потока данных.
 
-  1. Раскройте блок **Дополнительные параметры**:
+  1. Раскройте блок **{{ ui-key.yacloud.serverless-event-router.label_additional-parameters }}**:
      
      * Введите имя и описание [коннектора](../../../concepts/eventrouter/connector.md). Требования к имени:
      
@@ -26,16 +26,16 @@
      
      * (Опционально) Добавьте метки:
      
-         * Нажмите **Добавить метку**.
+         * Нажмите **{{ ui-key.yacloud.component.label-set.button_add-label }}**.
          * Введите метку в формате `ключ: значение`.
          * Нажмите **Enter**.
      
      * (Опционально) Включите защиту от удаления. Пока опция включена, удалить коннектор невозможно.
-  1. Нажмите **Создать**.
+  1. Нажмите **{{ ui-key.yacloud.common.create }}**.
 
 - CLI {#cli}
 
-  Если у вас еще нет интерфейса командной строки Yandex Cloud (CLI), [установите и инициализируйте его](../../../../cli/quickstart.md#install).
+  Если у вас еще нет интерфейса командной строки {{ yandex-cloud }} (CLI), [установите и инициализируйте его](../../../../cli/quickstart.md#install).
 
   По умолчанию используется каталог, указанный при [создании](../../../../cli/operations/profile/profile-create.md) профиля CLI. Чтобы изменить каталог по умолчанию, используйте команду `yc config set folder-id <идентификатор_каталога>`. Также для любой команды вы можете указать другой каталог с помощью параметров `--folder-name` или `--folder-id`. Если вы обращаетесь к ресурсу по имени, поиск будет выполнен в каталоге по умолчанию. Если вы обращаетесь к ресурсу по идентификатору, поиск будет выполнен глобально — во всех каталогах с учетом прав доступа.
 
@@ -45,7 +45,7 @@
       yc serverless eventrouter connector create data-stream --help
       ```
 
-  1. Создайте коннектор для Data Streams:
+  1. Создайте коннектор для {{ yds-name }}:
 
       ```bash
       yc serverless eventrouter connector create data-stream \
@@ -62,8 +62,8 @@
 
       Где:
 
-      * `--bus-id` — идентификатор [шины](../../../concepts/eventrouter/bus.md) EventRouter.
-      * `--database` — [путь](../../../../ydb/operations/connection.md#endpoint-and-path) к [базе данных](../../../../ydb/concepts/resources.md#database) Yandex Managed Service for YDB, указанной в настройках [потока данных](../../../../data-streams/concepts/glossary.md#stream-concepts), например `/ru-central1/b1gia87mbaom********/etnudu2n9ri3********`.
+      * `--bus-id` — идентификатор [шины](../../../concepts/eventrouter/bus.md) {{ er-name }}.
+      * `--database` — [путь](../../../../ydb/operations/connection.md#endpoint-and-path) к [базе данных](../../../../ydb/concepts/resources.md#database) {{ ydb-full-name }}, указанной в настройках [потока данных](../../../../data-streams/concepts/glossary.md#stream-concepts), например `/{{ region-id }}/b1gia87mbaom********/etnudu2n9ri3********`.
       * `--stream-name` — имя потока данных.
       * `--consumer` — имя [выделенного потребителя данных](../../../../data-streams/concepts/glossary.md#consumers).
       * `--service-account-id` — идентификатор [сервисного аккаунта](../../../../iam/concepts/users/service-accounts.md), у которого есть права на чтение из потока данных.
@@ -95,7 +95,7 @@
         owner: admin
       source:
         data_stream:
-          database: /ru-central1/b1gia87mbaom********/etntd0p5tauu********
+          database: /{{ region-id }}/b1gia87mbaom********/etntd0p5tauu********
           stream_name: my-ydb-flow
           consumer: consumer-one
           service_account_id: ajelprpohp7r********
@@ -103,17 +103,20 @@
       status: RUNNING
       ```
 
-- Terraform {#tf}
+- {{ TF }} {#tf}
 
-  [Terraform](https://www.terraform.io/) позволяет быстро создать облачную инфраструктуру в Yandex Cloud и управлять ею с помощью файлов конфигураций. В файлах конфигураций хранится описание инфраструктуры на языке HCL (HashiCorp Configuration Language). При изменении файлов конфигураций Terraform автоматически определяет, какая часть вашей конфигурации уже развернута, что следует добавить или удалить.
+  [{{ TF }}](https://www.terraform.io/) позволяет быстро создать облачную инфраструктуру в {{ yandex-cloud }} и управлять ею с помощью файлов конфигураций. В файлах конфигураций хранится описание инфраструктуры на языке HCL (HashiCorp Configuration Language). При изменении файлов конфигураций {{ TF }} автоматически определяет, какая часть вашей конфигурации уже развернута, что следует добавить или удалить.
   
-  Terraform распространяется под лицензией [Business Source License](https://github.com/hashicorp/terraform/blob/main/LICENSE), а [провайдер Yandex Cloud для Terraform](https://github.com/yandex-cloud/terraform-provider-yandex) — под лицензией [MPL-2.0](https://www.mozilla.org/en-US/MPL/2.0/).
+  {{ TF }} распространяется под лицензией [Business Source License](https://github.com/hashicorp/terraform/blob/main/LICENSE), а [провайдер {{ yandex-cloud }} для {{ TF }}](https://github.com/yandex-cloud/terraform-provider-yandex) — под лицензией [MPL-2.0](https://www.mozilla.org/en-US/MPL/2.0/).
   
-  Подробную информацию о ресурсах провайдера смотрите в документации на сайте [Terraform](https://www.terraform.io/docs/providers/yandex/index.html) или в [зеркале](../../../../terraform/index.md).
+  Подробную информацию о ресурсах провайдера смотрите в документации на сайте [{{ TF }}](https://www.terraform.io/docs/providers/yandex/index.html) или в [зеркале]({{ tf-docs-link }}).
 
-  Если у вас еще нет Terraform, [установите его и настройте провайдер Yandex Cloud](../../../../tutorials/infrastructure-management/terraform-quickstart.md#install-terraform).
+  Если у вас еще нет {{ TF }}, [установите его и настройте провайдер {{ yandex-cloud }}](../../../../tutorials/infrastructure-management/terraform-quickstart.md#install-terraform).
+  
+  
+  Чтобы управлять инфраструктурой с помощью {{ TF }} от имени сервисного аккаунта или пользовательских аккаунтов: аккаунта на Яндексе, федеративного аккаунта и локального пользователя, [аутентифицируйтесь](../../../../terraform/authentication.md) соответствующим способом.
 
-  Чтобы создать [коннектор](../../../concepts/eventrouter/connector.md) для Data Streams:
+  Чтобы создать [коннектор](../../../concepts/eventrouter/connector.md) для {{ yds-name }}:
 
   1. Опишите в конфигурационном файле параметры ресурсов, которые необходимо создать:
 
@@ -142,7 +145,7 @@
 
       Где:
 
-      * `bus_id` — идентификатор [шины](../../../concepts/eventrouter/bus.md) EventRouter.
+      * `bus_id` — идентификатор [шины](../../../concepts/eventrouter/bus.md) {{ er-name }}.
       * `name` — имя коннектора. Требования к имени:
 
           * Длина — от 3 до 63 символов.
@@ -152,12 +155,12 @@
       * `description` — описание коннектора. Необязательный параметр.
       * `deletion_protection` — защита от удаления коннектора: `true` или `false`. Пока опция включена, удалить коннектор невозможно. Необязательный параметр.
       * `labels` — список меток. Метки задаются в формате `<ключ> = "<значение>"`. Необязательный параметр.
-      * `database` — [путь](../../../../ydb/operations/connection.md#endpoint-and-path) к [базе данных](../../../../ydb/concepts/resources.md#database) Yandex Managed Service for YDB, указанной в настройках [потока данных](../../../../data-streams/concepts/glossary.md#stream-concepts), например `/ru-central1/b1gia87mbaom********/etnudu2n9ri3********`.
+      * `database` — [путь](../../../../ydb/operations/connection.md#endpoint-and-path) к [базе данных](../../../../ydb/concepts/resources.md#database) {{ ydb-full-name }}, указанной в настройках [потока данных](../../../../data-streams/concepts/glossary.md#stream-concepts), например `/{{ region-id }}/b1gia87mbaom********/etnudu2n9ri3********`.
       * `stream_name` — имя потока данных.
       * `consumer` — имя [выделенного потребителя данных](../../../../data-streams/concepts/glossary.md#consumers).
       * `service_account_id` — идентификатор [сервисного аккаунта](../../../../iam/concepts/users/service-accounts.md), у которого есть права на чтение из потока данных.
 
-      Более подробную информацию о параметрах ресурса `yandex_serverless_eventrouter_connector` см. в [документации провайдера](../../../../terraform/resources/serverless_eventrouter_connector.md).
+      Более подробную информацию о параметрах ресурса `yandex_serverless_eventrouter_connector` см. в [документации провайдера]({{ tf-provider-resources-link }}/serverless_eventrouter_connector).
 
   1. Создайте ресурсы:
 
@@ -180,7 +183,7 @@
          terraform plan
          ```
       
-         В терминале будет выведен список ресурсов с параметрами. На этом этапе изменения не будут внесены. Если в конфигурации есть ошибки, Terraform на них укажет.
+         В терминале будет выведен список ресурсов с параметрами. На этом этапе изменения не будут внесены. Если в конфигурации есть ошибки, {{ TF }} на них укажет.
       1. Примените изменения конфигурации:
       
          ```bash
@@ -189,7 +192,7 @@
       
       1. Подтвердите изменения: введите в терминале слово `yes` и нажмите **Enter**.
 
-      Terraform создаст все требуемые ресурсы. Проверить появление ресурсов можно в [консоли управления](https://console.yandex.cloud) или с помощью команды [CLI](../../../../cli/index.md):
+      {{ TF }} создаст все требуемые ресурсы. Проверить появление ресурсов можно в [консоли управления]({{ link-console-main }}) или с помощью команды [CLI](../../../../cli/index.md):
 
       ```bash
       yc serverless eventrouter connector list
@@ -197,7 +200,7 @@
 
 - API {#api}
 
-  Чтобы создать [коннектор](../../../concepts/eventrouter/connector.md) для Data Streams, воспользуйтесь методом REST API [Create](../../../eventrouter/api-ref/Connector/create.md) для ресурса [connector](../../../eventrouter/api-ref/Connector/index.md) или вызовом gRPC API [connector/Create](../../../eventrouter/api-ref/grpc/Connector/create.md).
+  Чтобы создать [коннектор](../../../concepts/eventrouter/connector.md) для {{ yds-name }}, воспользуйтесь методом REST API [Create](../../../eventrouter/api-ref/Connector/create.md) для ресурса [connector](../../../eventrouter/api-ref/Connector/index.md) или вызовом gRPC API [connector/Create](../../../eventrouter/api-ref/grpc/Connector/create.md).
 
 {% endlist %}
 

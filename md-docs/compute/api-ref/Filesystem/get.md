@@ -1,13 +1,12 @@
 # Compute Cloud API, REST: Filesystem.Get
 
 Returns the specified filesystem.
-
 To get the list of available filesystems, make a [List](list.md#List) request.
 
 ## HTTP request
 
 ```
-GET https://compute.api.cloud.yandex.net/compute/v1/filesystems/{filesystemId}
+GET https://compute.{{ api-host }}/compute/v1/filesystems/{filesystemId}
 ```
 
 ## Path parameters
@@ -17,10 +16,9 @@ GET https://compute.api.cloud.yandex.net/compute/v1/filesystems/{filesystemId}
 || filesystemId | **string**
 
 Required field. ID of the filesystem to return.
-
 To get the filesystem ID, make a [FilesystemService.List](list.md#List) request.
-
-The maximum string length in characters is 50. ||
+The length must be less than or equal to 50.
+This field is required. ||
 |#
 
 ## Response {#yandex.cloud.compute.v1.Filesystem}
@@ -77,12 +75,10 @@ For details about the concept, see [documentation](../../../overview/concepts/se
 || typeId | **string**
 
 ID of the filesystem type.
-
 To get a list of available filesystem types, make a [yandex.cloud.compute.v1.DiskTypeService.List](../DiskType/list.md#List) request. ||
 || zoneId | **string**
 
 ID of the availability zone where the filesystem resides.
-
 A filesystem can be attached only to instances residing in the same availability zone. ||
 || size | **string** (int64)
 

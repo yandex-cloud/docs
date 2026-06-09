@@ -1,6 +1,6 @@
-# Как начать работать с AWS CLI в Yandex Object Storage
+# Как начать работать с AWS CLI в {{ objstorage-full-name }}
 
-[AWS CLI](../tools/aws-cli.md) является одним из самых популярных инструментов для работы с Object Storage. В этом разделе вы научитесь работать с сервисом с помощью этого инструмента. Инструкцию о работе в консоли управления см. в документе [Как начать работать с Yandex Object Storage](../quickstart.md).
+[AWS CLI](../tools/aws-cli.md) является одним из самых популярных инструментов для работы с {{ objstorage-name }}. В этом разделе вы научитесь работать с сервисом с помощью этого инструмента. Инструкцию о работе в консоли управления см. в документе [{#T}](../quickstart.md).
 
 Чтобы начать работу с AWS CLI:
 
@@ -17,9 +17,9 @@
 
 - Консоль управления {#console}
 
-  1. Перейдите в [консоль управления](https://console.yandex.cloud), затем войдите в Yandex Cloud или зарегистрируйтесь, если вы еще не зарегистрированы.
-  1. На странице [**Yandex Cloud Billing**](https://center.yandex.cloud/billing/accounts) убедитесь, что у вас подключен [платежный аккаунт](../../billing/concepts/billing-account.md) и он находится в статусе `ACTIVE` или `TRIAL_ACTIVE`. Если платежного аккаунта нет, [создайте его](../../billing/quickstart/index.md#create_billing_account).
-  1. [Назначьте](../../iam/operations/roles/grant.md) вашему аккаунту в Yandex Cloud _минимальные_ роли:
+  1. Перейдите в [консоль управления]({{ link-console-main }}), затем войдите в {{ yandex-cloud }} или зарегистрируйтесь, если вы еще не зарегистрированы.
+  1. На странице [**{{ ui-key.yacloud_billing.billing.label_service }}**]({{ link-console-billing }}) убедитесь, что у вас подключен [платежный аккаунт](../../billing/concepts/billing-account.md) и он находится в статусе `ACTIVE` или `TRIAL_ACTIVE`. Если платежного аккаунта нет, [создайте его](../../billing/quickstart/index.md#create_billing_account).
+  1. [Назначьте](../../iam/operations/roles/grant.md) вашему аккаунту в {{ yandex-cloud }} _минимальные_ роли:
       * для создания [сервисного аккаунта](../../iam/concepts/users/service-accounts.md) и получения на него ключей доступа — [iam.serviceAccounts.admin](../../iam/roles-reference.md#iam-serviceAccounts-admin) на [каталог](../../resource-manager/concepts/resources-hierarchy.md#folder). Если вы хотите использовать существующий сервисный аккаунт, достаточно роли `iam.serviceAccounts.admin` на этот сервисный аккаунт.
       * для назначения сервисному аккаунту нужной роли — [storage.admin](../security/index.md#storage-admin) на каталог.
 
@@ -41,9 +41,9 @@
 
   1. Создайте сервисный аккаунт:
 
-      1. В [консоли управления](https://console.yandex.cloud) на панели сверху нажмите ![image](../../_assets/console-icons/layout-side-content-left.svg) или ![image](../../_assets/console-icons/chevron-down.svg) и выберите нужный [каталог](../../resource-manager/concepts/resources-hierarchy.md#folder).
-      1. [Перейдите](../../console/operations/select-service.md#select-service) в сервис **Identity and Access Management**.
-      1. Нажмите кнопку **Создать сервисный аккаунт**.
+      1. В [консоли управления]({{ link-console-main }}) на панели сверху нажмите ![image](../../_assets/console-icons/layout-side-content-left.svg) или ![image](../../_assets/console-icons/chevron-down.svg) и выберите нужный [каталог](../../resource-manager/concepts/resources-hierarchy.md#folder).
+      1. Перейдите в сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_iam }}**.
+      1. Нажмите кнопку **{{ ui-key.yacloud.iam.folder.service-accounts.button_add }}**.
       1. Введите имя сервисного аккаунта.
       
          Требования к формату имени:
@@ -54,23 +54,23 @@
       
          Имя сервисного аккаунта должно быть уникальным в рамках облака.
       
-      1. Нажмите кнопку **Создать**.
+      1. Нажмите кнопку **{{ ui-key.yacloud.iam.folder.service-account.popup-robot_button_add }}**.
 
       Вы также можете использовать существующий сервисный аккаунт.
 
-      Подробнее см. в документе [Создание сервисного аккаунта](../../iam/operations/sa/create.md).
+      Подробнее см. в документе [{#T}](../../iam/operations/sa/create.md).
 
   1. Назначьте сервисному аккаунту нужную [роль](../security/index.md#roles-list), например [storage.editor](../security/index.md#storage-editor) на каталог:
 
-      1. В [консоли управления](https://console.yandex.cloud) выберите нужное облако или каталог.
-      1. Перейдите на вкладку **Права доступа**.
-      1. Нажмите кнопку **Настроить доступ**.
-      1. В открывшемся окне выберите раздел **Сервисные аккаунты**.
+      1. В [консоли управления]({{ link-console-main }}) выберите нужное облако или каталог.
+      1. Перейдите на вкладку **{{ ui-key.yacloud.common.resource-acl.label_access-bindings }}**.
+      1. Нажмите кнопку **{{ ui-key.yacloud.common.resource-acl.button_configure-access }}**.
+      1. В открывшемся окне выберите раздел **{{ ui-key.yacloud_components.acl.label.service-accounts }}**.
       1. Выберите нужный сервисный аккаунт из списка или воспользуйтесь поиском.
-      1. Нажмите кнопку ![image](../../_assets/console-icons/plus.svg) **Добавить роль** и выберите роль из списка или воспользуйтесь поиском.
-      1. Нажмите кнопку **Сохранить**.
+      1. Нажмите кнопку ![image](../../_assets/console-icons/plus.svg) **{{ ui-key.yacloud_components.acl.button.add-role }}** и выберите роль из списка или воспользуйтесь поиском.
+      1. Нажмите кнопку **{{ ui-key.yacloud_components.acl.action.apply }}**.
 
-      Подробнее см. в документе [Назначение роли сервисному аккаунту](../../iam/operations/sa/assign-role-for-sa.md).
+      Подробнее см. в документе [{#T}](../../iam/operations/sa/assign-role-for-sa.md).
 
       {% note info %}
       
@@ -82,13 +82,13 @@
 
   1. Создайте статический ключ доступа {#create-keys}
 
-      1. В [консоли управления](https://console.yandex.cloud) перейдите в каталог, которому принадлежит сервисный аккаунт.
-      1. [Перейдите](../../console/operations/select-service.md#select-service) в сервис **Identity and Access Management**.
-      1. На панели слева выберите ![FaceRobot](../../_assets/console-icons/face-robot.svg) **Сервисные аккаунты**.
+      1. В [консоли управления]({{ link-console-main }}) перейдите в каталог, которому принадлежит сервисный аккаунт.
+      1. Перейдите в сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_iam }}**.
+      1. На панели слева выберите ![FaceRobot](../../_assets/console-icons/face-robot.svg) **{{ ui-key.yacloud.iam.label_service-accounts }}**.
       1. В открывшемся списке выберите нужный сервисный аккаунт.
-      1. Нажмите кнопку **Создать новый ключ** на верхней панели.
-      1. Выберите **Создать статический ключ доступа**.
-      1. Задайте описание ключа и нажмите кнопку **Создать**.
+      1. Нажмите кнопку **{{ ui-key.yacloud.iam.folder.service-account.overview.button_create-key-popup }}** на верхней панели.
+      1. Выберите **{{ ui-key.yacloud.iam.folder.service-account.overview.button_create_service-account-key }}**.
+      1. Задайте описание ключа и нажмите кнопку **{{ ui-key.yacloud.iam.folder.service-account.overview.popup-key_button_create }}**.
       1. Сохраните идентификатор и секретный ключ.
 
           {% note alert %}
@@ -97,7 +97,7 @@
 
           {% endnote %}
 
-      Подробнее см. в документе [Создать статический ключ доступа](../../iam/operations/authentication/manage-access-keys.md#create-access-key).
+      Подробнее см. в документе [{#T}](../../iam/operations/authentication/manage-access-keys.md#create-access-key).
 
 {% endlist %}
 
@@ -155,21 +155,21 @@
 
           * `AWS Access Key ID` — идентификатор статического ключа, полученный ранее.
           * `AWS Secret Access Key` — секретный ключ, полученный ранее.
-          * `Default region name` — регион `ru-central1`.
+          * `Default region name` — регион `{{ region-id }}`.
 
-            Для работы с Object Storage всегда указывайте регион — `ru-central1`. Другие значения региона могут привести к ошибке авторизации.
+            Для работы с {{ objstorage-name }} всегда указывайте регион — `{{ region-id }}`. Другие значения региона могут привести к ошибке авторизации.
 
 
           Значения остальных параметров оставьте без изменений.
 
           
-          Статический ключ для доступа к Object Storage можно безопасно хранить в сервисе Yandex Lockbox. Подробнее см. [Использование секрета Yandex Lockbox для хранения статического ключа доступа](../tutorials/static-key-in-lockbox/index.md).
+          Статический ключ для доступа к {{ objstorage-name }} можно безопасно хранить в сервисе {{ lockbox-full-name }}. Подробнее см. [{#T}](../tutorials/static-key-in-lockbox/index.md).
 
 
-      1. Задайте эндпоинт Object Storage:
+      1. Задайте эндпоинт {{ objstorage-name }}:
 
           ```bash
-          aws configure set endpoint_url https://storage.yandexcloud.net/
+          aws configure set endpoint_url https://{{ s3-storage-host }}/
           ```
 
           {% cut "Пример получившихся конфигурационных файлов" %}
@@ -179,8 +179,8 @@
             
             ```text
             [default]
-            region = ru-central1
-            endpoint_url = https://storage.yandexcloud.net/
+            region = {{ region-id }}
+            endpoint_url = https://{{ s3-storage-host }}/
             ```
 
 
@@ -201,7 +201,7 @@
 
 {% note info %}
 
-Учитывайте [особенности](../tools/aws-cli.md#specifics) работы AWS CLI с Object Storage.
+Учитывайте [особенности](../tools/aws-cli.md#specifics) работы AWS CLI с {{ objstorage-name }}.
 
 {% endnote %}
 
@@ -217,7 +217,7 @@
   aws s3 mb s3://<имя_бакета>
   ```
 
-  Подробности см. в документе [Создание бакета](../operations/buckets/create.md).
+  Подробности см. в документе [{#T}](../operations/buckets/create.md).
 
 {% endlist %}
 
@@ -233,7 +233,7 @@
   aws s3 cp <путь_к_локальному_файлу>/ s3://<имя_бакета>/<ключ_объекта>
   ```
 
-  Подробности см. в документе [Загрузка объекта](../operations/objects/upload.md).
+  Подробности см. в документе [{#T}](../operations/objects/upload.md).
 
 {% endlist %}
 
@@ -251,10 +251,10 @@
 
   Полученной ссылкой вы можете поделиться или использовать ее в своем сервисе для доступа к файлу.
 
-  Подробности см. в документе [Получение подписанной ссылки (pre-signed URL) на скачивание объекта](../operations/objects/link-for-download.md).
+  Подробности см. в документе [{#T}](../operations/objects/link-for-download.md).
 
 {% endlist %}
 
 #### См. также {#see-also}
 
-* [Начало работы с AWS S3 API в Yandex Object Storage](../s3/s3-api-quickstart.md)
+* [{#T}](../s3/s3-api-quickstart.md)

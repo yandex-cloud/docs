@@ -2,13 +2,13 @@
 
 {% note info %}
 
-Для работы с запросами на изменение квот через CLI и API обратитесь в [службу поддержки](https://center.yandex.cloud/support).
+Для работы с запросами на изменение квот через CLI и API обратитесь в [службу поддержки]({{ link-console-support }}).
 
 {% endnote %}
 
 Потенциально значения квот можно изменить до значений лимитов — ограничений облачной платформы.
 
-Для работы с запросами на изменение квот [учетной записи](https://console.yandex.cloud/iam?section=users) потребуются роли:
+Для работы с запросами на изменение квот [учетной записи]({{ link-console-iam-users }}) потребуются роли:
 * на уровне [организации](../../resource-manager/concepts/resources-hierarchy.md#cloud) — [quota-manager.requestOperator](../security/index.md#quota-manager-requestoperator), [organization-manager.viewer](../../organization/security/index.md#organization-manager-viewer);
 * на уровне облака — [resource-manager.viewer](../../resource-manager/security/index.md#resource-manager-viewer).
 
@@ -19,8 +19,8 @@
 - Консоль управления {#console}
 
   Запросите изменение квоты одним из способов:
-     * На [странице квот](https://console.yandex.cloud/cloud?section=quotas) выберите ресурсы и нажмите **Повысить**.
-     * Обратитесь в [техническую поддержку](https://center.yandex.cloud/support) и опишите, какие потребляемые квоты нужно увеличить и на сколько.
+     * На [странице квот]({{ link-console-quotas }}) выберите ресурсы и нажмите **{{ ui-key.yacloud.iam.cloud.quotas.button_action-request }}**.
+     * Обратитесь в [техническую поддержку]({{ link-console-support }}) и опишите, какие потребляемые квоты нужно увеличить и на сколько.
 
 - CLI {#cli}
 
@@ -55,7 +55,7 @@
 * В разделе [обзора платформы](../../overview/concepts/quotas-limits.md#quotas-limits-default).
 * На странице **Концепции > Квоты и лимиты** для каждого сервиса.
 
-В Cloud Quota Manager сброс к значениям по умолчанию не предусмотрен.
+В {{ quota-manager-name }} сброс к значениям по умолчанию не предусмотрен.
 
 ## Посмотреть статус и операции с запросом на изменение квоты {#view-request-status}
 
@@ -63,9 +63,9 @@
 
 - Консоль управления {#console}
 
-  1. В [консоли управления](https://console.yandex.cloud) выберите облако, в котором хотите посмотреть квоты.
-  1. На панели справа выберите раздел **Квоты**.
-  1. Раскройте секцию **Запросы в обработке**.
+  1. В [консоли управления]({{ link-console-main }}) выберите облако, в котором хотите посмотреть квоты.
+  1. На панели справа выберите раздел **{{ ui-key.yacloud.iam.cloud.switch_quotas }}**.
+  1. Раскройте секцию **{{ ui-key.yacloud.iam.cloud.quotas.label_pending-requests-title }}**.
   1. Выберите нужный запрос и посмотрите ответы службы поддержки и операции с запросом.
 
 - CLI {#cli}
@@ -109,8 +109,8 @@
 
 - Консоль управления {#console}
 
-  1. В разделе [технической поддержки](https://center.yandex.cloud/support) выберите **Обращения**.
-  1. В списке фильтров **Тип обращения** выберите **Увеличить квоты**.
+  1. В разделе [технической поддержки]({{ link-console-support }}) выберите **{{ ui-key.yacloud_org.support.switch_tickets }}**.
+  1. В списке фильтров **{{ ui-key.yacloud_org.support.tickets.table.label_column_ticket_type }}** выберите **{{ ui-key.support-center.search.common.title_suggestion-quotas }}**.
 
 - CLI {#cli}
 
@@ -138,10 +138,10 @@
 
 - Консоль управления {#console}
 
-  1. В [консоли управления](https://console.yandex.cloud) выберите облако, в котором хотите посмотреть квоты.
-  1. На панели справа выберите раздел **Квоты**.
-  1. Раскройте секцию **Запросы в обработке**.
-  1. Выберите нужный запрос и нажмите кнопку **Закрыть обращение**.
+  1. В [консоли управления]({{ link-console-main }}) выберите облако, в котором хотите посмотреть квоты.
+  1. На панели справа выберите раздел **{{ ui-key.yacloud.iam.cloud.switch_quotas }}**.
+  1. Раскройте секцию **{{ ui-key.yacloud.iam.cloud.quotas.label_pending-requests-title }}**.
+  1. Выберите нужный запрос и нажмите кнопку **{{ ui-key.yacloud_components.helpfeedbackdialog.button_close }}**.
 
 - CLI {#cli}
       

@@ -1,5 +1,6 @@
-# Контроль конфигурации (CSPM)
+# Контроль конфигурации ({{ cspm-name }})
 
-* [Посмотреть правила контроля безопасности модуля CSPM и их нарушения](view-rules.md).
-* [Проверить соответствие инфраструктуры стандартам безопасности](check-compliance.md).
-* [Управлять исключениями из правил контроля безопасности модуля CSPM](manage-exceptions.md).
+* [{#T}](view-rules.md).
+* [{#T}](check-environment.md).
+* [{#T}](check-compliance.md).
+* [{#T}](manage-exceptions.md).

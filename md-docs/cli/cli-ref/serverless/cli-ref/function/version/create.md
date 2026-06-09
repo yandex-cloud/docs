@@ -66,8 +66,12 @@ Version network name. ||
 Version network id. ||
 || `--subnet-name` | `value[,value]`
 
+DEPRECATED: specify only the network (--network-name or --network-id), without the list of subnets.
+
 Version subnet names. ||
 || `--subnet-id` | `value[,value]`
+
+DEPRECATED: specify only the network (--network-name or --network-id), without the list of subnets.
 
 Version subnet ids. ||
 || `--add-service-account` | `PROPERTY=VALUE[,PROPERTY=VALUE...]`
@@ -194,9 +198,6 @@ Set the custom configuration file. ||
 Enable gRPC retries. By default, retries are enabled with maximum 5 attempts.
 Pass 0 to disable retries. Pass any negative value for infinite retries.
 Even infinite retries are capped with 2 minutes timeout. ||
-|| `--syntax` | `string`
-
-CLI syntax: 1 (legacy) or 2 (current). Omit to use default-syntax in the profile or the product default. ||
 || `--cloud-id` | `string`
 
 Set the ID of the cloud to use. ||
@@ -224,16 +225,3 @@ Set the output format: text (default), yaml, json, json-rest. ||
 Query to select values from the response using jq syntax ||
 || `-h`, `--help` | Display help for the command. ||
 |#
-#### Examples
-
- * [Выделить память для директории /tmp](../../../../../../functions/operations/function/allocate-memory-tmp.md#cli_1)
- * [Задать количество одновременных вызовов экземпляра функции](../../../../../../functions/operations/function/concurrency.md#cli_1)
- * [Добавить переменные окружения функции](../../../../../../functions/operations/function/environment-variables-add.md#cli_1)
- * [Настройте асинхронный вызов](../../../../../../functions/operations/function/function-invoke-async.md#cli_1)
- * [Передать секреты Yandex Lockbox в функцию](../../../../../../functions/operations/function/lockbox-secret-transmit.md#cli_1)
- * [Пример команды](../../../../../../functions/operations/function/logs-write.md#cli_1)
- * [Настроить параметры сервиса метаданных функции](../../../../../../functions/operations/function/metadata-options.md#cli_1)
- * [Смонтировать бакеты в функцию](../../../../../../functions/operations/function/mount-bucket.md#cli_1)
- * [Смонтировать эфемерный диск в функцию](../../../../../../functions/operations/function/mount-ephemeral-disk.md#cli_1)
- * [Указать облачную сеть, в которой будет исполняться функция](../../../../../../functions/operations/function/network-add.md#cli_1)
- * [Создать версию функции](../../../../../../functions/operations/function/version-manage.md#cli_1)

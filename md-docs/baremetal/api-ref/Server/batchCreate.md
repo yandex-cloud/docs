@@ -5,7 +5,7 @@ Creates multiple servers in the specified folder.
 ## HTTP request
 
 ```
-POST https://baremetal.api.cloud.yandex.net/baremetal/v1alpha/servers:batchCreate
+POST https://baremetal.{{ api-host }}/baremetal/v1alpha/servers:batchCreate
 ```
 
 ## Body parameters {#yandex.cloud.baremetal.v1alpha.BatchCreateServersRequest}

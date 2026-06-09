@@ -5,7 +5,7 @@ Removes a private cloud connection and all allocated network resouces
 ## HTTP request
 
 ```
-DELETE https://baremetal.api.cloud.yandex.net/baremetal/v1alpha/privateCloudConnections/{privateCloudConnectionId}
+DELETE https://baremetal.{{ api-host }}/baremetal/v1alpha/privateCloudConnections/{privateCloudConnectionId}
 ```
 
 ## Path parameters

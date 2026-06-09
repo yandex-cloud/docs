@@ -11,10 +11,10 @@ A set of methods for managing ClickHouse clusters.
 || [Create](create.md) | Creates a ClickHouse cluster in the specified folder. ||
 || [Update](update.md) | Updates the specified ClickHouse cluster. ||
 || [Delete](delete.md) | Deletes the specified ClickHouse cluster. ||
+|| [AddZookeeper](addZookeeper.md) | Adds a ZooKeeper subcluster to the specified ClickHouse cluster. ||
 || [Start](start.md) | Starts the specified ClickHouse cluster. ||
 || [Stop](stop.md) | Stops the specified ClickHouse cluster. ||
 || [Move](move.md) | Moves a ClickHouse cluster to the specified folder. ||
-|| [AddZookeeper](addZookeeper.md) | Adds a ZooKeeper subcluster to the specified ClickHouse cluster. ||
 || [Backup](backup.md) | Creates a backup for the specified ClickHouse cluster. ||
 || [Restore](restore.md) | Creates a new ClickHouse cluster using the specified backup. ||
 || [RescheduleMaintenance](rescheduleMaintenance.md) | Reschedules planned maintenance operation. ||

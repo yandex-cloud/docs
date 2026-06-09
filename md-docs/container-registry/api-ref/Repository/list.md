@@ -5,7 +5,7 @@ Retrieves the list of Repository resources in the specified registry.
 ## HTTP request
 
 ```
-GET https://container-registry.api.cloud.yandex.net/container-registry/v1/repositories
+GET https://container-registry.{{ api-host }}/container-registry/v1/repositories
 ```
 
 ## Query parameters {#yandex.cloud.containerregistry.v1.ListRepositoriesRequest}
@@ -15,16 +15,13 @@ GET https://container-registry.api.cloud.yandex.net/container-registry/v1/reposi
 || registryId | **string**
 
 ID of the registry to list repositories in.
-
 To get the registry ID use a [RegistryService.List](../Registry/list.md#List) request.
 
 The maximum string length in characters is 50. ||
 || folderId | **string**
 
 ID of the folder to list registries in.
-
 `folderId` is ignored if a [ListImagesRequest.registryId](../Image/list.md#yandex.cloud.containerregistry.v1.ListImagesRequest) is specified in the request.
-
 To get the folder ID use a [yandex.cloud.resourcemanager.v1.FolderService.List](../../../resource-manager/api-ref/Folder/list.md#List) request.
 
 The maximum string length in characters is 50. ||

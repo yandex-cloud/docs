@@ -5,7 +5,7 @@ Updates access bindings for the specified cluster.
 ## HTTP request
 
 ```
-PATCH https://dataproc.api.cloud.yandex.net/dataproc/v1/clusters/{resourceId}:updateAccessBindings
+PATCH https://dataproc.{{ api-host }}/dataproc/v1/clusters/{resourceId}:updateAccessBindings
 ```
 
 ## Path parameters

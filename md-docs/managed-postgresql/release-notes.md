@@ -1,25 +1,71 @@
 <!-- Changelog begin -->
 
+{% changelog %}
+```
+date: 2025-12
+index: 3
+```
 
+### Авторизация через IAM
 
+![image](../_assets/managed-postgresql/changelogs/user-iam.png)
+
+Используйте новый тип авторизации через IAM при создании пользователя базы данных.
+
+{% endchangelog %}
+
+{% changelog %}
+```
+date: 2025-11
+index: 2
+```
+
+### Настройки СУБД
+
+![image](../_assets/managed-postgresql/changelogs/search-settings.png)
+
+Для настроек СУБД воспользуйтесь поиском по их каноническим именам.
+
+{% endchangelog %}
+
+{% changelog %}
+```
+date: 2025-10
+index: 1
+```
+
+### Настройки кластера
+
+![image](../_assets/managed-postgresql/changelogs/resources.png)
+
+Для кластеров {{ PG }} доступны новые классы хостов на платформах AMD Zen 4 и AMD Zen 4 HighFreq.
+
+{% endchangelog %}
 
 <!-- Changelog end -->
 
-# История изменений в Yandex Managed Service for PostgreSQL
+# История изменений в {{ mpg-full-name }}
+
+## Апрель 2026 {#apr-2026}
+
+* Добавлен инструмент [MDB Advisor](operations/performance-diagnostics.md) для анализа производительности кластера и получения рекомендаций по оптимизации.
+* Расширена информация о [техническом обслуживании](concepts/maintenance.md): теперь отображается оценка влияния операции.
+* Добавлена поддержка [политик резервного копирования](concepts/backup.md) на уровне каталога.
+* В настройках пользователя добавлен параметр `idleSessionTimeout` для ограничения времени жизни неактивных сессий.
 
 ## Март 2026 {#mar-2026}
 
 * Упрощено добавление и редактирование прав доступа пользователей к базам данных.
 * Запущены уведомления пользователей о диагностических событиях: нехватка CPU, нехватка RAM и ошибки нехватки памяти (OOM).
-* Опубликована [политика поддержки версий](concepts/update-policy.md) PostgreSQL в управляемом сервисе и правила [обновления версий](concepts/upgrade.md).
+* Опубликована [политика поддержки версий](concepts/update-policy.md) {{ PG }} в управляемом сервисе и правила [обновления версий](concepts/upgrade.md).
 * Добавлены отдельные [роли](security/index.md) для просмотра и редактирования (переноса) [технического обслуживания](concepts/maintenance.md) без доступа к кластеру.
 
 ## Декабрь 2025 {#dec-2025}
 
 * Добавлены [детальные метрики](operations/monitoring.md#hosts) использования дисков в хостах кластера.
 * Добавлена детализация выполнения [операций над кластером](operations/cluster-list.md#list-operations).
-* Для PostgreSQL 18 доступны все [расширения](operations/extensions/cluster-extensions.md), которые поддерживаются в PostgreSQL 17.
-* Реализована авторизация через IAM при [создании пользователя](operations/cluster-users.md#adduser) PostgreSQL.
+* Для {{ PG }} 18 доступны все [расширения](operations/extensions/cluster-extensions.md), которые поддерживаются в {{ PG }} 17.
+* Реализована авторизация через {{ iam-short-name }} при [создании пользователя](operations/cluster-users.md#adduser) {{ PG }}.
 * Добавлено [управление сбором статистики](operations/performance-diagnostics.md) о производительности кластера. Теперь можно отключить построение плана запроса через UI или API, установив параметр `pg_stat_query_plans.track = none`.
 
 
@@ -27,16 +73,16 @@
 ## Ноябрь 2025 {#nov-2025}
 
 * Добавлена роль `managed-postgresql.restorer`, позволяющая восстанавливать кластеры из резервных копий. Подробнее см. в разделе [Управление доступом](security/index.md#managed-postgresql-restorer).
-* [Прекращена](https://www.postgresql.org/about/news/postgresql-181-177-1611-1515-1420-and-1323-released-3171/) поддержка PostgreSQL версии 13.
+* [Прекращена](https://www.postgresql.org/about/news/postgresql-181-177-1611-1515-1420-and-1323-released-3171/) поддержка {{ PG }} версии 13.
 
 ## Октябрь 2025 {#oct-2025}
 
-* Убрана возможность отключить настройку автоматического переключения мастера. Теперь эта опция включена для всех кластеров Managed Service for PostgreSQL.
+* Убрана возможность отключить настройку автоматического переключения мастера. Теперь эта опция включена для всех кластеров {{ mpg-name }}.
 * Добавлены новые [классы хостов](concepts/instance-types.md) на платформах AMD Zen 4 и AMD Zen 4 HighFreq.
 
 ## Июль 2025 {#jul-2025}
 
-Добавлена возможность [обновления кластера](operations/cluster-version-update.md) до версии PostgreSQL 17 стандартными средствами без использования сервиса Yandex Data Transfer.
+Добавлена возможность [обновления кластера](operations/cluster-version-update.md) до версии {{ PG }} 17 стандартными средствами без использования сервиса {{ data-transfer-full-name }}.
 
 
 ## Май 2025 {#may-2025}
@@ -46,16 +92,16 @@
 
 ## Апрель 2025 {#apr-2025}
 
-Добавлена [интеграция с Connection Manager](operations/update.md#conn-man). Подключение в Connection Manager теперь автоматически создается для всех новых кластеров.
+Добавлена [интеграция с {{ connection-manager-name }}](operations/update.md#conn-man). Подключение в {{ connection-manager-name }} теперь автоматически создается для всех новых кластеров.
 
 ## Март 2025 {#mar-2025}
 
 * Добавлена возможность использовать [политики резервного копирования](operations/backup-retention-policies.md).
-* В консоли управления добавлен раздел [Обслуживание](operations/cluster-maintenance.md).
+* В консоли управления добавлен раздел [{{ ui-key.yacloud.mdb.maintenance.title_maintenance }}](operations/cluster-maintenance.md).
 
 ## Февраль 2025 {#feb-2025}
 
-Добавлена возможность [обновления кластера](operations/cluster-version-update.md) до версии PostgreSQL 16 стандартными средствами без использования сервиса Yandex Data Transfer.
+Добавлена возможность [обновления кластера](operations/cluster-version-update.md) до версии {{ PG }} 16 стандартными средствами без использования сервиса {{ data-transfer-full-name }}.
 
 ## Январь 2025 {#jan-2025}
 
@@ -63,7 +109,7 @@
 
 ## Ноябрь 2024 {#nov-2024}
 
-[Прекращена](https://www.postgresql.org/about/news/postgresql-164-158-1413-1316-1220-and-17-beta-3-released-2910/) поддержка PostgreSQL версии 12.
+[Прекращена](https://www.postgresql.org/about/news/postgresql-164-158-1413-1316-1220-and-17-beta-3-released-2910/) поддержка {{ PG }} версии 12.
 
 ## Октябрь 2024 {#oct-2024}
 
@@ -71,7 +117,7 @@
 
 ## Сентябрь 2024 {#sep-2024}
 
-* Добавлена поддержка PostgreSQL [версии 17](https://www.postgresql.org/docs/release/17.0/). О том, как обновить кластер, см. в разделе [Обновление версии PostgreSQL](operations/cluster-version-update.md).
+* Добавлена поддержка {{ PG }} [версии 17]({{ pg.docs.org }}/release/17.0/). О том, как обновить кластер, см. в разделе [{#T}](operations/cluster-version-update.md).
 * Добавлена поддержка расширения [postgresql_anonymizer](https://gitlab.com/dalibo/postgresql_anonymizer) (`anon`) для анонимизации данных.
 
 ## Май 2024 {#may-2024}
@@ -81,7 +127,7 @@
 ## Март 2024 {#mar-2024}
 
 * Добавлена возможность настроить пошаговое [автоматическое увеличение размера хранилища](operations/storage-space.md#disk-size-autoscale) в кластере. Пользователь может задать порог заполненности дискового хранилища и максимальное значение размера диска. При достижении порога диск будет автоматически увеличиваться фиксированными шагами до максимального значения.
-* Добавлена возможность обновления PostgreSQL для 1C до версий 13, 14 и 15.
+* Добавлена возможность обновления {{ PG }} для 1C до версий 13, 14 и 15.
 * Установлены обновления из версий [16.2, 15.6, 14.11, 13.14, 12.18](https://www.postgresql.org/about/news/postgresql-162-156-1411-1314-and-1218-released-2807/).
 * Расширены возможности пользователя с [ролью](concepts/roles.md#mdb-admin) `mdb_admin`. Теперь можно:
   
@@ -89,11 +135,11 @@
   * сбросить статистику с помощью функции `pg_stat_reset_shared()`;
   * завершить сессии `autovacuum`.
 
-* Теперь можно аудировать события подключений к кластеру Managed Service for PostgreSQL и события `pgaudit` в сервисе Yandex Audit Trails.
+* Теперь можно аудировать события подключений к кластеру {{ mpg-name }} и события `pgaudit` в сервисе {{ at-full-name }}.
 
 ## IV квартал 2023 {#q4-2023}
 
-Добавлена поддержка PostgreSQL версии 16.
+Добавлена поддержка {{ PG }} версии 16.
 
 Основные изменения в новой версии:
 
@@ -103,13 +149,13 @@
 * Добавлена настройка логической репликации с реплики.
 * Новые кластеры версии 16 используют локали ICU вместо libc.
 
-О том, как обновить кластер, см. в разделе [Обновление версии PostgreSQL](operations/cluster-version-update.md).
+О том, как обновить кластер, см. в разделе [{#T}](operations/cluster-version-update.md).
 
-Подробнее об изменениях PostgreSQL версии 16 см. в [документации PostgreSQL](https://www.postgresql.org/docs/release/16.0/).
+Подробнее об изменениях {{ PG }} версии 16 см. в [документации {{ PG }}]({{ pg.docs.org }}/release/16.0/).
 
 ## III квартал 2023 {#q3-2023}
 
-[Прекращена](https://www.postgresql.org/about/news/postgresql-154-149-1312-1216-1121-and-postgresql-16-beta-3-released-2689/) поддержка PostgreSQL версии 11. С 14 августа недоступно создание новых кластеров этой версии, а с 12 сентября существующие кластеры автоматически обновлены в рамках окна обслуживания.
+[Прекращена](https://www.postgresql.org/about/news/postgresql-154-149-1312-1216-1121-and-postgresql-16-beta-3-released-2689/) поддержка {{ PG }} версии 11. С 14 августа недоступно создание новых кластеров этой версии, а с 12 сентября существующие кластеры автоматически обновлены в рамках окна обслуживания.
 
 ## II квартал 2023 {#q2-2023}
 
@@ -118,29 +164,29 @@
 
 ## IV квартал 2022 {#q4-2022}
 
-* Добавлена поддержка PostgreSQL версии 15.
+* Добавлена поддержка {{ PG }} версии 15.
 
     Основные изменения в новой версии:
 
     * Добавлена команда `SQL MERGE`, которая позволяет выполнить действия `INSERT`, `UPDATE` или `DELETE` в зависимости от условий.
     * Добавлена возможность задавать списки столбцов и условия для фильтрации строк. Это позволяет выборочно публиковать содержимое таблиц с логической репликацией.
-    * Добавлена возможность указать [ICU](https://www.postgresql.org/docs/15/locale.html#id-1.6.11.3.7) для базы данных по умолчанию.
+    * Добавлена возможность указать [ICU]({{ pg.docs.org }}/15/locale.html#id-1.6.11.3.7) для базы данных по умолчанию.
     * Увеличена производительность, особенно для сортировок в памяти и на диске.
 
-    О том, как обновить кластер, см. в разделе [Обновление версии PostgreSQL](operations/cluster-version-update.md).
+    О том, как обновить кластер, см. в разделе [{#T}](operations/cluster-version-update.md).
 
-    Подробнее об изменениях PostgreSQL версии 15 см. в [документации PostgreSQL](https://www.postgresql.org/docs/release/15.0/).
+    Подробнее об изменениях {{ PG }} версии 15 см. в [документации {{ PG }}]({{ pg.docs.org }}/release/15.0/).
 
-* Добавлена поддержка расширений [pgaudit](https://www.pgaudit.org/) и [pg_prewarm](https://www.postgresql.org/docs/current/pgprewarm.html).
+* Добавлена поддержка расширений [pgaudit](https://www.pgaudit.org/) и [pg_prewarm]({{ pg-docs }}/pgprewarm.html).
 * Добавлена возможность восстановить кластер из резервной копии в другом каталоге с помощью любого интерфейса.
 
 ## III квартал 2022 {#q3-2022}
 
 * На вкладке [мониторинга кластера](operations/monitoring.md#monitoring-cluster) добавлены графики `Inode usage`, `Memory usage` и `Free space`.
-* [Прекращена](https://www.postgresql.org/about/news/postgresql-143-137-1211-1116-and-1021-released-2449/) поддержка PostgreSQL версии 10. С 15 августа недоступно создание новых кластеров этой версии, а с 1 сентября запланировано автоматическое обновление кластеров в рамках окна обслуживания. О том, как обновить кластер самостоятельно, см. в разделе [Обновление версии PostgreSQL](operations/cluster-version-update.md).
-* Создание базы из шаблона теперь доступно в CLI и Terraform.
+* [Прекращена](https://www.postgresql.org/about/news/postgresql-143-137-1211-1116-and-1021-released-2449/) поддержка {{ PG }} версии 10. С 15 августа недоступно создание новых кластеров этой версии, а с 1 сентября запланировано автоматическое обновление кластеров в рамках окна обслуживания. О том, как обновить кластер самостоятельно, см. в разделе [{#T}](operations/cluster-version-update.md).
+* Создание базы из шаблона теперь доступно в CLI и {{ TF }}.
 * Добавлена поддержка [расширения](operations/extensions/pg_cron.md) `pg_cron`.
-* Установлено [обновление версии 14.4](https://www.postgresql.org/docs/release/14.4/), где исправлены проблемы с коррупцией индексов.
+* Установлено [обновление версии 14.4]({{ pg.docs.org }}/release/14.4/), где исправлены проблемы с коррупцией индексов.
 
 ## II квартал 2022 {#q2-2022}
 
@@ -148,7 +194,7 @@
 * Доступно создание кластера версии 13 и 14 для 1С.
 * Добавлена возможность обновления с версии 13 на 14.
 * Добавлена роль `mdb_monitor`, которая включает в себя привилегии системной роли [pg_monitor](https://www.postgresql.org/docs/10/default-roles.html). Подробнее см. в разделе [Назначение ролей](concepts/roles.md#mdb-monitor).
-* В конфигурационных файлах Terraform упразднены секции `database` и `user`, добавлены новые ресурсы `yandex_mdb_postgresql_database` и `yandex_mdb_postgresql_user`.
+* В конфигурационных файлах {{ TF }} упразднены секции `database` и `user`, добавлены новые ресурсы `yandex_mdb_postgresql_database` и `yandex_mdb_postgresql_user`.
 * Доступна версия [Odyssey 1.3](https://www.postgresql.org/about/news/odyssey-13-released-2476/): поддержка подготовленных выражений (prepared statements) в режиме пулинга транзакций. С помощью настройки `pool_reserve_prepared_statement` можно активировать пул подготовленных выражений для базы данных, в котором Odyssey подготовит выражения для сессий в случае необходимости.
 * Добавлены настройки `max_logical_replication_workers` и `max_replication_slots`.
 

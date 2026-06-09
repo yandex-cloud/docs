@@ -7,7 +7,7 @@ For videos with signed URL access, an expiration duration can be specified.
 ## HTTP request
 
 ```
-GET https://video.api.cloud.yandex.net/video/v1/videos/{videoId}:getPlayerURL
+GET https://video.{{ api-host }}/video/v1/videos/{videoId}:getPlayerURL
 ```
 
 ## Path parameters

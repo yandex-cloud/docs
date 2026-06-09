@@ -4,16 +4,16 @@
 
 - Консоль управления {#console}
 
-  1. В [консоли управления](https://console.yandex.cloud) выберите каталог, в котором подключен Cloud Backup.
-  1. [Перейдите](../../console/operations/select-service.md#select-service) в сервис **Cloud Backup**.
-  1. На панели слева нажмите ![image](../../_assets/console-icons/server.svg) **Виртуальные машины**.
-  1. В строке с нужной ВМ нажмите ![image](../../_assets/console-icons/ellipsis.svg) и выберите `Открыть журнал резервирования`.
+  1. В [консоли управления]({{ link-console-main }}) выберите каталог, в котором подключен {{ backup-name }}.
+  1. Перейдите в сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_backup }}**.
+  1. На панели слева нажмите ![image](../../_assets/console-icons/server.svg) **{{ ui-key.yacloud_billing.backup.label_instances }}**.
+  1. В строке с нужной ВМ нажмите ![image](../../_assets/console-icons/ellipsis.svg) и выберите `{{ ui-key.yacloud.backup.label_navigate-to-journal-action }}`.
 
       Также чтобы открыть журнал резервного копирования, вы можете навести указатель мыши на статус последней операции и перейти по ссылке во всплывающем окне.
 
 - CLI {#cli}
 
-  Если у вас еще нет интерфейса командной строки Yandex Cloud (CLI), [установите и инициализируйте его](../../cli/quickstart.md#install).
+  Если у вас еще нет интерфейса командной строки {{ yandex-cloud }} (CLI), [установите и инициализируйте его](../../cli/quickstart.md#install).
 
   По умолчанию используется каталог, указанный при [создании](../../cli/operations/profile/profile-create.md) профиля CLI. Чтобы изменить каталог по умолчанию, используйте команду `yc config set folder-id <идентификатор_каталога>`. Также для любой команды вы можете указать другой каталог с помощью параметров `--folder-name` или `--folder-id`. Если вы обращаетесь к ресурсу по имени, поиск будет выполнен в каталоге по умолчанию. Если вы обращаетесь к ресурсу по идентификатору, поиск будет выполнен глобально — во всех каталогах с учетом прав доступа.
 
@@ -50,4 +50,4 @@
 #### См. также {#see-also}
 
 * [Статусы подключения ВМ](../concepts/vm-connection.md#statuses)
-* [Посмотреть статус подключения ВМ](get-connection-status.md)
+* [{#T}](get-connection-status.md)

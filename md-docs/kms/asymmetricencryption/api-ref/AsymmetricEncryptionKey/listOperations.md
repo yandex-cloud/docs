@@ -5,7 +5,7 @@ Lists operations for the specified asymmetric KMS key.
 ## HTTP request
 
 ```
-GET https://kms.api.cloud.yandex.net/kms/v1/asymmetricEncryptionKeys/{keyId}/operations
+GET https://{{ api-host-kms }}/kms/v1/asymmetricEncryptionKeys/{keyId}/operations
 ```
 
 ## Path parameters

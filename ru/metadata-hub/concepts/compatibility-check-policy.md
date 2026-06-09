@@ -8,9 +8,9 @@ _Политика проверки совместимости_ — это сов
 
 Для Protobuf-схем доступны следующие политики:
 
-* Confluent — основывается на рекомендованных методах эволюции схем Protobuf. Подробнее об эволюции схем см. в [документации Protobuf](https://protobuf.dev/programming-guides/proto3/#updating).
+* Confluent — основывается на рекомендованных методах эволюции схем Protobuf. Подробнее об эволюции схем в [документации Protobuf](https://protobuf.dev/programming-guides/proto3/#updating).
 
-* buf — основывается на стандартах Buf v1. Подробнее о применяемых проверках см. в [спецификации](https://github.com/bufbuild/buf/blob/main/private/bufpkg/bufcheck/bufcheckserver/bufcheckserver.go#L156).
+* buf — основывается на стандартах Buf v1. Подробнее о применяемых проверках — [спецификации](https://github.com/bufbuild/buf/blob/main/private/bufpkg/bufcheck/bufcheckserver/bufcheckserver.go#L156).
 
 ## Политики совместимости JSON-схем {#json-compatibility-policy}
 

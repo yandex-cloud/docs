@@ -89,13 +89,12 @@ Each subsequent list request will have its own `next_page_token` to continue pag
 ||Field | Description ||
 || name | **string**
 
-Name of the ClickHouse host. The host name is assigned by MDB at creation time, and cannot be changed.
+Required field. Name of the ClickHouse host. The host name is assigned by MDB at creation time, and cannot be changed.
 1-63 characters long.
-
 The name is unique across all MDB hosts that exist on the platform, as it defines the FQDN of the host. ||
 || cluster_id | **string**
 
-ID of the ClickHouse host. The ID is assigned by MDB at creation time. ||
+Required field. ID of the ClickHouse host. The ID is assigned by MDB at creation time. ||
 || zone_id | **string**
 
 ID of the availability zone where the ClickHouse host resides. ||
@@ -128,7 +127,9 @@ ID of the subnet that the host belongs to. ||
 || assign_public_ip | **bool**
 
 Flag showing public IP assignment status to this host. ||
-|| shard_name | **string** ||
+|| shard_name | **string**
+
+Name of the shard that the host belongs to. ||
 |#
 
 ## Resources {#yandex.cloud.mdb.clickhouse.v1.Resources}
@@ -170,5 +171,5 @@ Aggregated health of the service. If the field has default value, it is not retu
 - `ALIVE`: The server is working normally.
 - `DEAD`: The server is dead or unresponsive.
 - `READONLY`: The service is read-only.
-- `RESTORING`: The service is restoring from backup or syncronzing from other replica. ||
+- `RESTORING`: The service is restoring from backup or synchronizing from other replica. ||
 |#

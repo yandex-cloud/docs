@@ -1,4 +1,4 @@
-# Управление доступом пользователя в Marketplace
+# Управление доступом пользователя в {{ marketplace-short-name }}
 
 В этом разделе вы узнаете:
 * [на какие ресурсы можно назначить роль](#resources);
@@ -38,3 +38,42 @@
 #### license-manager.subscriptionAgent {#license-manager-subscriptionAgent}
 
 Роль `license-manager.subscriptionAgent` позволяет [привязывать](../operations/users/lock-subscription.md) подписки к ресурсам, приложениям или сервисам, а также просматривать информацию о [подписках](../concepts/users/subscription.md) и их привязках к ресурсам, приложениям или сервисам.
+
+#### marketplace.productInstances.auditor {#marketplace-productInstances-auditor}
+
+Роль `marketplace.productInstances.auditor` позволяет просматривать информацию об установленных [продуктах](../concepts/product.md) Marketplace и назначенных [правах доступа](../../iam/concepts/access-control/index.md) к ним, а также просматривать метаданные [каталога](../../resource-manager/concepts/resources-hierarchy.md#folder).
+
+#### marketplace.productInstances.viewer {#marketplace-productInstances-viewer}
+
+Роль `marketplace.productInstances.viewer` позволяет просматривать информацию об установленных [продуктах](../concepts/product.md) Marketplace и назначенных [правах доступа](../../iam/concepts/access-control/index.md) к ним, а также информацию о [каталоге](../../resource-manager/concepts/resources-hierarchy.md#folder).
+
+Включает разрешения, предоставляемые ролью `marketplace.productInstances.auditor`.
+
+#### marketplace.productInstances.user {#marketplace-productInstances-user}
+
+Роль `marketplace.productInstances.user` позволяет просматривать информацию об установленных [продуктах](../concepts/product.md) Marketplace, активировать и деактивировать их, просматривать информацию о назначенных [правах доступа](../../iam/concepts/access-control/index.md) к ним, а также информацию о [каталоге](../../resource-manager/concepts/resources-hierarchy.md#folder).
+
+Включает разрешения, предоставляемые ролью `marketplace.productInstances.viewer`.
+
+#### marketplace.productInstances.editor {#marketplace-productInstances-editor}
+
+Роль `marketplace.productInstances.editor` позволяет управлять установленными продуктами Marketplace.
+
+Пользователи с этой ролью могут:
+* просматривать информацию об установленных [продуктах](../concepts/product.md) Marketplace и назначенных [правах доступа](../../iam/concepts/access-control/index.md) к ним;
+* создавать продукты Marketplace, изменять их метаданные, а также активировать и деактивировать продукты Marketplace;
+* просматривать информацию о [каталоге](../../resource-manager/concepts/resources-hierarchy.md#folder).
+
+Включает разрешения, предоставляемые ролью `marketplace.productInstances.user`.
+
+#### marketplace.productInstances.admin {#marketplace-productInstances-admin}
+
+Роль `marketplace.productInstances.admin` позволяет управлять установленными продуктами Marketplace и доступом к ним.
+
+Пользователи с этой ролью могут:
+* просматривать информацию об установленных [продуктах](../concepts/product.md) Marketplace;
+* просматривать информацию о назначенных [правах доступа](../../iam/concepts/access-control/index.md) к установленным продуктам Marketplace и изменять такие права доступа;
+* создавать продукты Marketplace, изменять их метаданные, а также активировать и деактивировать продукты Marketplace;
+* просматривать информацию о [каталоге](../../resource-manager/concepts/resources-hierarchy.md#folder).
+
+Включает разрешения, предоставляемые ролью `marketplace.productInstances.editor`.

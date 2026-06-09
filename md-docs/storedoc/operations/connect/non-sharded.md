@@ -1,4 +1,4 @@
-# Примеры кода для подключения к нешардированному кластеру Yandex StoreDoc
+# Примеры кода для подключения к нешардированному кластеру {{ SD }}
 
 {% note warning %}
 
@@ -126,12 +126,12 @@ go run connect.go
     sudo apt update && sudo apt install --yes default-jdk maven
     ```
 
-1. Добавьте SSL-сертификат в хранилище доверенных сертификатов Java (Java Key Store), чтобы драйвер Yandex StoreDoc мог использовать этот сертификат при защищенном подключении к хостам кластера. При этом задайте пароль в параметре `-storepass` для защиты хранилища:
+1. Добавьте SSL-сертификат в хранилище доверенных сертификатов Java (Java Key Store), чтобы драйвер {{ SD }} мог использовать этот сертификат при защищенном подключении к хостам кластера. При этом задайте пароль в параметре `-storepass` для защиты хранилища:
 
     ```bash
     cd ~/.mongodb && \
     sudo keytool -importcert \
-                 -alias YandexCA -file root.crt \
+                 -alias {{ crt-alias }} -file root.crt \
                  -keystore ssl -storepass <пароль> \
                  --noprompt
     ```

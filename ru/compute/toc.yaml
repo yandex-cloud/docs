@@ -415,6 +415,8 @@ items:
             href: operations/gpu-cluster/gpu-cluster-mpirun-parallel.md
           - name: Проверить пропускную способность InfiniBand
             href: operations/gpu-cluster/test-infiniband-bandwidth.md
+      - name: Включить программно ускоренную сеть
+        href: operations/enable-software-accelerated-network.md
       - name: Посмотреть операции с ресурсами сервиса
         href: operations/operation-logs.md
       - name: Посмотреть метрики в {{ monitoring-name }}

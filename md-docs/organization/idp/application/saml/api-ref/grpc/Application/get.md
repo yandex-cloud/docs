@@ -1,7 +1,6 @@
 # SAML Application API, gRPC: ApplicationService.Get
 
 Returns the specified SAML application.
-
 To get the list of available applications, make a [List](../../../mapi-ref/grpc/Application/list#List) request.
 
 ## gRPC request

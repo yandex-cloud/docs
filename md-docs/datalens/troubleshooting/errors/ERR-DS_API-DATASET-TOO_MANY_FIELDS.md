@@ -1,4 +1,4 @@
-# [Yandex DataLens] There are too many fields in the dataset
+# [{{ datalens-full-name }}] There are too many fields in the dataset
 
 `ERR.DS_API.DATASET.TOO_MANY_FIELDS`
 

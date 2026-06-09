@@ -6,12 +6,12 @@
 
 {% endnote %}
 
-[Имперсонация](../../concepts/access-control/impersonation.md) позволяет пользователю выполнять действия от имени [сервисного аккаунта](../../concepts/users/service-accounts.md) с помощью параметра `--impersonate-service-account-id` в команде [Yandex Cloud CLI](../../../cli/index.md).
+[Имперсонация](../../concepts/access-control/impersonation.md) позволяет пользователю выполнять действия от имени [сервисного аккаунта](../../concepts/users/service-accounts.md) с помощью параметра `--impersonate-service-account-id` в команде [{{ yandex-cloud }} CLI](../../../cli/index.md).
 
 {% note info %}
 
 Чтобы использовать имперсонацию:
-* у сервисного аккаунта должны быть [права](../../roles-reference.md), необходимые для выполнения нужного действия с ресурсами Yandex Cloud;
+* у сервисного аккаунта должны быть [права](../../roles-reference.md), необходимые для выполнения нужного действия с ресурсами {{ yandex-cloud }};
 * пользователю должна быть назначена [роль](../../security/index.md#iam-serviceAccounts-tokenCreator) `iam.serviceAccounts.tokenCreator` на нужный сервисный аккаунт или на каталог, в котором находится этот сервисный аккаунт.
 
 {% endnote %}
@@ -22,7 +22,7 @@
 
 - CLI {#cli}
 
-  Если у вас еще нет интерфейса командной строки Yandex Cloud (CLI), [установите и инициализируйте его](../../../cli/quickstart.md#install).
+  Если у вас еще нет интерфейса командной строки {{ yandex-cloud }} (CLI), [установите и инициализируйте его](../../../cli/quickstart.md#install).
 
   1. [Узнайте](get-id.md) идентификатор сервисного аккаунта, которому вы хотите назначить роль. Чтобы узнать идентификатор, получите список доступных сервисных аккаунтов (в профиле администратора):
 
@@ -95,4 +95,4 @@
 
 #### См. также {#see-also}
 
-* [Имперсонация](../../concepts/access-control/impersonation.md)
+* [{#T}](../../concepts/access-control/impersonation.md)

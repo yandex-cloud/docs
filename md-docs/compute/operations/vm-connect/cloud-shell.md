@@ -1,21 +1,21 @@
-# Подключиться к виртуальной машине Linux по SSH с помощью Yandex Cloud Shell
+# Подключиться к виртуальной машине Linux по SSH с помощью {{ cloud-shell-full-name }}
 
 
-Вы можете подключиться к ВМ в статусе `Running` по SSH с помощью Cloud Shell в консоли управления.
+Вы можете подключиться к ВМ в статусе `Running` по SSH с помощью {{ cloud-shell-name }} в консоли управления.
 
 {% list tabs group=operating_system %}
 
 - Консоль управления {#console}
 
-  1. В [консоли управления](https://console.yandex.cloud) на панели слева нажмите ![image](../../../_assets/console-icons/dots-9.svg) **Все сервисы** и выберите **Compute Cloud** или найдите его с помощью строки поиска на дашборде.
+  1. В [консоли управления]({{ link-console-main }}) на панели слева нажмите ![image](../../../_assets/console-icons/dots-9.svg) **{{ ui-key.yacloud.dashboard.DashboardPage.ServicesSection.title_ur39b }}** и выберите **{{ ui-key.yacloud.iam.folder.dashboard.label_compute }}** или найдите его с помощью строки поиска на дашборде.
   1. Перейдите в ВМ, к которой хотите подключиться.
-  1. Убедитесь, что ВМ находится в статусе `Running`. Если ВМ не запущена, в правом верхнем углу нажмите ![image](../../../_assets/console-icons/play.svg) **Запустить** и дождитесь перехода ВМ в статус `Running`.
-  1. Справа вверху нажмите ![image](../../../_assets/console-icons/terminal.svg) **Подключиться в Cloud Shell**.
+  1. Убедитесь, что ВМ находится в статусе `Running`. Если ВМ не запущена, в правом верхнем углу нажмите ![image](../../../_assets/console-icons/play.svg) **{{ ui-key.yacloud.compute.instances.button_gr-action-start }}** и дождитесь перехода ВМ в статус `Running`.
+  1. Справа вверху нажмите ![image](../../../_assets/console-icons/terminal.svg) **{{ ui-key.yacloud.compute.instance.overview.button_action-ssh }}**.
   1. Введите логин пользователя. По умолчанию введен логин, указанный при создании ВМ.
   1. Вставьте содержимое или загрузите файл закрытого SSH-ключа.
-  1. Нажмите **Подключиться**.
+  1. Нажмите **{{ ui-key.yacloud.compute.components.SshViaPrivateKeyDialog.connect-via-private-key_6DKKe }}**.
   
-  Внизу откроется терминал ![image](../../../_assets/console-icons/terminal.svg) **Cloud Shell** с открытым подключением к ВМ по SSH.
+  Внизу откроется терминал ![image](../../../_assets/console-icons/terminal.svg) **{{ ui-key.yacloud.cloud-shell.label_service }}** с открытым подключением к ВМ по SSH.
   
   Чтобы закрыть подключение, нажмите ![image](../../../_assets/console-icons/xmark.svg) или используйте команду `exit`.
 
@@ -26,11 +26,11 @@
 
 #### Что дальше {#what-is-next}
 
-* [Узнайте, как работать с Yandex Cloud изнутри ВМ](auth-inside-vm.md).
+* [Узнайте, как работать с {{ yandex-cloud }} изнутри ВМ](auth-inside-vm.md).
 
 
 #### См. также {#see-also}
 
-* [Подключиться к виртуальной машине Windows по RDP](rdp.md)
-* [Подключиться к виртуальной машине Windows через PowerShell](powershell.md)
-* [Подключиться к виртуальной машине по OS Login](os-login.md)
+* [{#T}](rdp.md)
+* [{#T}](powershell.md)
+* [{#T}](os-login.md)

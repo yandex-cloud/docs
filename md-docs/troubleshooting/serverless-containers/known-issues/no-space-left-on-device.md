@@ -12,6 +12,6 @@ zip error: Output file write failure (write error on zip file)
 
 ## Решение {#issue-resolution}
 
-Такая ошибка указывает на недостаток места – разворачиваемые пакеты превышают [лимиты Cloud Functions](../../../functions/concepts/limits.md#functions-limits)
+Такая ошибка указывает на недостаток места – разворачиваемые пакеты превышают [лимиты {{ sf-name }}](../../../functions/concepts/limits.md#functions-limits)
 
 Если нужны наиболее актуальные версии пакетов, а места под них в функции больше нет, то можно задействовать виртуальную машину, на которой будет развернуто приложение.

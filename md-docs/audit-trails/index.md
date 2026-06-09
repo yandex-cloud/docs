@@ -40,9 +40,9 @@ Yandex Audit Trails — сервис сбора и выгрузки аудитн
 
  - [Все руководства](tutorials/index.md)
 
- - [Поиск событий Yandex Cloud в Object Storage](tutorials/search-bucket.md)
+ - [Поиск событий {{ yandex-cloud }} в {{ objstorage-name }}](tutorials/search-bucket.md)
 
- - [Поиск событий Yandex Cloud в Cloud Logging](tutorials/search-cloud-logging.md)
+ - [Поиск событий {{ yandex-cloud }} в {{ cloud-logging-name }}](tutorials/search-cloud-logging.md)
 
 ### Поиск событий в аудитных логах
 
@@ -52,17 +52,17 @@ Yandex Audit Trails — сервис сбора и выгрузки аудитн
 
  - [Примеры запросов для поиска событий](tutorials/search-events-audit-logs/examples.md)
 
- - [Настройка работы с Yandex Query](tutorials/search-events-audit-logs/query.md)
+ - [Настройка работы с {{ yq-full-name }}](tutorials/search-events-audit-logs/query.md)
 
- - [Настройка дашбордов и алертов в Monitoring](tutorials/alerts-monitoring.md)
+ - [Настройка дашбордов и алертов в {{ monitoring-name }}](tutorials/alerts-monitoring.md)
 
- - [Настройка реагирования в Cloud Functions](tutorials/logging-functions.md)
+ - [Настройка реагирования в {{ sf-name }}](tutorials/logging-functions.md)
 
- - [Обработка аудитных логов Audit Trails](tutorials/audit-trails.md)
+ - [Обработка аудитных логов {{ at-name }}](tutorials/audit-trails.md)
 
 ### Экспорт аудитных логов в SIEM
 
- - [Загрузка аудитных логов в Yandex Managed Service for OpenSearch](tutorials/trails-logs-opensearch.md)
+ - [Загрузка аудитных логов в {{ mos-full-name }}](tutorials/trails-logs-opensearch.md)
 
 #### Загрузка аудитных логов в MaxPatrol SIEM
 
@@ -70,7 +70,7 @@ Yandex Audit Trails — сервис сбора и выгрузки аудитн
 
  - [Консоль управления](tutorials/maxpatrol/console.md)
 
- - [Terraform](tutorials/maxpatrol/terraform.md)
+ - [{{ TF }}](tutorials/maxpatrol/terraform.md)
 
  - [Загрузка аудитных логов в SIEM Splunk](tutorials/export-logs-to-splunk.md)
 
@@ -82,7 +82,7 @@ Yandex Audit Trails — сервис сбора и выгрузки аудитн
 
  - [Консоль управления, CLI, API](tutorials/audit-trails-events-to-kuma/console.md)
 
- - [Terraform](tutorials/audit-trails-events-to-kuma/terraform.md)
+ - [{{ TF }}](tutorials/audit-trails-events-to-kuma/terraform.md)
 
 ## Концепции
 
@@ -162,7 +162,7 @@ Yandex Audit Trails — сервис сбора и выгрузки аудитн
 
  - [update](cli-ref/v0/trail/update.md)
 
- - [Справочник Terraform](tf-ref.md)
+ - [Справочник {{ TF }}](tf-ref.md)
 
 ## Справочник API
 
@@ -236,7 +236,7 @@ Yandex Audit Trails — сервис сбора и выгрузки аудитн
 
  - [UpdateAccessBindings](api-ref/grpc/Trail/updateAccessBindings.md)
 
- - [Метрики Monitoring](concepts/user-metrics.md)
+ - [Метрики {{ monitoring-name }}](concepts/user-metrics.md)
 
  - [Справочник событий уровня конфигурации](concepts/events.md)
 
@@ -1328,6 +1328,8 @@ Yandex Audit Trails — сервис сбора и выгрузки аудитн
 
  - [CreateUserCredential](audit/iam/events-ref/CreateUserCredential.md)
 
+ - [CreateYcSsprToken](audit/iam/events-ref/CreateYcSsprToken.md)
+
  - [DeleteAccessKey](audit/iam/events-ref/DeleteAccessKey.md)
 
  - [DeleteApiKey](audit/iam/events-ref/DeleteApiKey.md)
@@ -1358,6 +1360,8 @@ Yandex Audit Trails — сервис сбора и выгрузки аудитн
 
  - [GenerateSshCertificate](audit/iam/events-ref/GenerateSshCertificate.md)
 
+ - [ReactivateServiceAccount](audit/iam/events-ref/ReactivateServiceAccount.md)
+
  - [RevokeIamToken](audit/iam/events-ref/RevokeIamToken.md)
 
  - [RevokeLeakedCredential](audit/iam/events-ref/RevokeLeakedCredential.md)
@@ -1369,6 +1373,8 @@ Yandex Audit Trails — сервис сбора и выгрузки аудитн
  - [SetFederationAccessBindings](audit/iam/events-ref/SetFederationAccessBindings.md)
 
  - [SetServiceAccountAccessBindings](audit/iam/events-ref/SetServiceAccountAccessBindings.md)
+
+ - [SuspendServiceAccount](audit/iam/events-ref/SuspendServiceAccount.md)
 
  - [UpdateAccessKey](audit/iam/events-ref/UpdateAccessKey.md)
 
@@ -2058,6 +2064,8 @@ Yandex Audit Trails — сервис сбора и выгрузки аудитн
 
  - [RevokeUserPermission](audit/mdb/mysql/events-ref/RevokeUserPermission.md)
 
+ - [SetClusterAccessBindings](audit/mdb/mysql/events-ref/SetClusterAccessBindings.md)
+
  - [StartCluster](audit/mdb/mysql/events-ref/StartCluster.md)
 
  - [StartClusterFailover](audit/mdb/mysql/events-ref/StartClusterFailover.md)
@@ -2065,6 +2073,8 @@ Yandex Audit Trails — сервис сбора и выгрузки аудитн
  - [StopCluster](audit/mdb/mysql/events-ref/StopCluster.md)
 
  - [UpdateCluster](audit/mdb/mysql/events-ref/UpdateCluster.md)
+
+ - [UpdateClusterAccessBindings](audit/mdb/mysql/events-ref/UpdateClusterAccessBindings.md)
 
  - [UpdateClusterHosts](audit/mdb/mysql/events-ref/UpdateClusterHosts.md)
 
@@ -2266,6 +2276,8 @@ Yandex Audit Trails — сервис сбора и выгрузки аудитн
 
  - [DeleteUser](audit/mdb/spqr/events-ref/DeleteUser.md)
 
+ - [MoveCluster](audit/mdb/spqr/events-ref/MoveCluster.md)
+
  - [RescheduleMaintenance](audit/mdb/spqr/events-ref/RescheduleMaintenance.md)
 
  - [RestoreCluster](audit/mdb/spqr/events-ref/RestoreCluster.md)
@@ -2303,6 +2315,8 @@ Yandex Audit Trails — сервис сбора и выгрузки аудитн
  - [AddFederatedUserAccounts](audit/organizationmanager/events-ref/AddFederatedUserAccounts.md)
 
  - [AddFederationDomain](audit/organizationmanager/events-ref/AddFederationDomain.md)
+
+ - [AddOAuthFederatedUserAccounts](audit/organizationmanager/events-ref/AddOAuthFederatedUserAccounts.md)
 
  - [AddUserBlock](audit/organizationmanager/events-ref/AddUserBlock.md)
 
@@ -2413,6 +2427,8 @@ Yandex Audit Trails — сервис сбора и выгрузки аудитн
  - [RemoveUserBlock](audit/organizationmanager/events-ref/RemoveUserBlock.md)
 
  - [ResendInvitation](audit/organizationmanager/events-ref/ResendInvitation.md)
+
+ - [ResetOwnPassword](audit/organizationmanager/events-ref/ResetOwnPassword.md)
 
  - [SetApplicationAccessBindings](audit/organizationmanager/events-ref/SetApplicationAccessBindings.md)
 
@@ -3113,6 +3129,12 @@ Yandex Audit Trails — сервис сбора и выгрузки аудитн
  - [BookmarkTagsDelete](audit/wiki/events-ref/BookmarkTagsDelete.md)
 
  - [BookmarkUpdate](audit/wiki/events-ref/BookmarkUpdate.md)
+
+ - [ChangeOrganizationDomain](audit/wiki/events-ref/ChangeOrganizationDomain.md)
+
+ - [ChangeOrganizationMetrika](audit/wiki/events-ref/ChangeOrganizationMetrika.md)
+
+ - [ChangeOrganizationSettings](audit/wiki/events-ref/ChangeOrganizationSettings.md)
 
  - [ClusterMove](audit/wiki/events-ref/ClusterMove.md)
 

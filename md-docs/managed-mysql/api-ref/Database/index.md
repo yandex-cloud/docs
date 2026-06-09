@@ -1,7 +1,6 @@
 # Managed Service for MySQL API, REST: Database
 
 A set of methods for managing MySQL databases in a cluster.
-
 See [the documentation](../../operations/databases.md) for details.
 
 ## Methods

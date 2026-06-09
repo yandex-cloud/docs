@@ -9,7 +9,7 @@ requests, but can be restored within 72 hours with a request to tech support.
 ## HTTP request
 
 ```
-DELETE https://kms.api.cloud.yandex.net/kms/v1/keys/{keyId}
+DELETE https://{{ api-host-kms }}/kms/v1/keys/{keyId}
 ```
 
 ## Path parameters

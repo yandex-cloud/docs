@@ -5,7 +5,7 @@ Returns the list of available extensions for the specified OpenSearch cluster.
 ## HTTP request
 
 ```
-GET https://mdb.api.cloud.yandex.net/managed-opensearch/v1/clusters/{clusterId}/extensions
+GET https://{{ api-host-mdb }}/managed-opensearch/v1/clusters/{clusterId}/extensions
 ```
 
 ## Path parameters

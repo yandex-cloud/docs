@@ -18,7 +18,7 @@
 
  - [Инструменты](program/var-tools.md)
 
-#### Партнерские статусы Yandex Cloud
+#### Партнерские статусы {{ yandex-cloud }}
 
  - [Обзор](specializations/index.md)
 
@@ -61,6 +61,8 @@
  - [Управление доступом](security/index.md)
 
  - [История изменений](release-notes/index.md)
+
+ - [API](api/index.md)
 
  - [Термины и определения](terms.md)
 

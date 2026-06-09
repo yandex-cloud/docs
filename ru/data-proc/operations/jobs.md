@@ -5,7 +5,7 @@ description: В этом разделе собраны пошаговые инс
 
 # Управление заданиями
 
-В кластере {{ dataproc-name }} можно управлять [заданиями (jobs)](../concepts/jobs.md), а также получать логи их выполнения. Примеры заданий см. в разделе [{#T}](../tutorials/job-overview.md).
+В кластере {{ dataproc-name }} можно управлять [заданиями (jobs)](../concepts/jobs.md), а также получать логи их выполнения. Примеры заданий описаны в разделе [{#T}](../tutorials/job-overview.md).
 
 * [{#T}](running-jobs.md)
 * [{#T}](jobs-spark.md)

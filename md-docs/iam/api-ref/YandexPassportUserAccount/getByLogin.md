@@ -5,7 +5,7 @@ Returns the specified YandexPassportUserAccount resource.
 ## HTTP request
 
 ```
-GET https://iam.api.cloud.yandex.net/iam/v1/yandexPassportUserAccounts:byLogin
+GET https://iam.{{ api-host }}/iam/v1/yandexPassportUserAccounts:byLogin
 ```
 
 ## Query parameters {#yandex.cloud.iam.v1.GetUserAccountByLoginRequest}
@@ -14,7 +14,9 @@ GET https://iam.api.cloud.yandex.net/iam/v1/yandexPassportUserAccounts:byLogin
 ||Field | Description ||
 || login | **string**
 
-Required field. Login of the YandexPassportUserAccount resource to return. ||
+Required field. Login of the YandexPassportUserAccount resource to return.
+
+The maximum string length in characters is 100. ||
 |#
 
 ## Response {#yandex.cloud.iam.v1.UserAccount}

@@ -1,15 +1,15 @@
-# Выгрузить логи в Data Streams
+# Выгрузить логи в {{ yds-name }}
 
 {% list tabs group=instructions %}
 
 - Консоль управления {#console}
 
-    1. В [консоли управления](https://console.yandex.cloud) перейдите в каталог, в котором находится лог-группа.
-    1. [Перейдите](../../console/operations/select-service.md#select-service) в сервис **Cloud Logging**.
+    1. В [консоли управления]({{ link-console-main }}) перейдите в каталог, в котором находится лог-группа.
+    1. [Перейдите](../../console/operations/select-service.md#select-service) в сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_logging }}**.
     1. В строке с лог-группой нажмите значок ![image](../../_assets/console-icons/ellipsis.svg).
-    1. В открывшемся меню нажмите кнопку **Редактировать**.
-    1. В поле **Поток данных** выберите имеющийся [поток данных](../../data-streams/concepts/glossary.md#stream-concepts) или [создайте](../../data-streams/operations/manage-streams.md#create-data-stream) новый.
-    1. Нажмите кнопку **Сохранить**.
+    1. В открывшемся меню нажмите кнопку **{{ ui-key.yacloud.common.edit }}**.
+    1. В поле **{{ ui-key.yacloud.logging.label_stream }}** выберите имеющийся [поток данных](../../data-streams/concepts/glossary.md#stream-concepts) или [создайте](../../data-streams/operations/manage-streams.md#create-data-stream) новый.
+    1. Нажмите кнопку **{{ ui-key.yacloud.common.save }}**.
 
 - CLI {#cli}
   
@@ -23,12 +23,12 @@
 
     Где:
     * `--name` — имя лог-группы.
-    * `--data-stream` — идентификатор потока данных [Yandex Data Streams](../../data-streams/index.md), который состоит из [зоны доступности](../../overview/concepts/geo-scope.md), [идентификатора облака](../../resource-manager/operations/cloud/get-id.md), идентификатора [базы данных](../../ydb/concepts/resources.md#database) и имени [потока данных](../../data-streams/concepts/glossary.md#stream-concepts).
+    * `--data-stream` — идентификатор потока данных [{{ yds-full-name }}](../../data-streams/index.md), который состоит из [зоны доступности](../../overview/concepts/geo-scope.md), [идентификатора облака](../../resource-manager/operations/cloud/get-id.md), идентификатора [базы данных](../../ydb/concepts/resources.md#database) и имени [потока данных](../../data-streams/concepts/glossary.md#stream-concepts).
 
-    >Например, укажите идентификатор потока `/ru-central1/b1gvlrnlei4l********/etn780rpm7e5********/default`, если:
-     >* `ru-central1` — регион;
+    >Например, укажите идентификатор потока `/{{ region-id }}/b1gvlrnlei4l********/etn780rpm7e5********/default`, если:
+     >* `{{ region-id }}` — регион;
      >* `b1gvlrnlei4l********` — идентификатор облака;
-     >* `etn780rpm7e5********` — идентификатор базы данных YDB;
+     >* `etn780rpm7e5********` — идентификатор базы данных {{ ydb-short-name }};
      >* `default` — имя потока.
 
 - API {#api}

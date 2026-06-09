@@ -5,7 +5,7 @@ Returns the list of certificates in the specified folder.
 ## HTTP request
 
 ```
-GET https://certificate-manager.api.cloud.yandex.net/certificate-manager/v1/certificates
+GET https://{{ api-host-certmanager }}/certificate-manager/v1/certificates
 ```
 
 ## Query parameters {#yandex.cloud.certificatemanager.v1.ListCertificatesRequest}

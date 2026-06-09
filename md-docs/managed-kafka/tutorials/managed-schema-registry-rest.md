@@ -1,10 +1,10 @@
 # Работа с управляемым реестром схем формата данных с помощью REST API
 
-В кластерах Managed Service for Apache Kafka® можно работать с [Managed Schema Registry](../concepts/managed-schema-registry.md#msr) либо [с помощью клиентов Apache Kafka®](managed-schema-registry.md) для различных языков программирования, либо с помощью [REST API](../concepts/available-apis.md#managed-kafka-api).
+В кластерах {{ mkf-name }} можно работать с [{{ mkf-msr }}](../concepts/managed-schema-registry.md#msr) либо [с помощью клиентов {{ KF }}](managed-schema-registry.md) для различных языков программирования, либо с помощью [REST API](../concepts/available-apis.md#managed-kafka-api).
 
-Также Managed Service for Apache Kafka® предоставляет [REST API для Apache Kafka®](../concepts/available-apis.md#managed-kafka-api). В том числе, с помощью этого API можно отправлять и получать сообщения без использования сторонних производителей и потребителей. Эти возможности также будут продемонстрированы в этом практическом руководстве.
+Также {{ mkf-name }} предоставляет [REST API для {{ KF }}](../concepts/available-apis.md#managed-kafka-api). В том числе, с помощью этого API можно отправлять и получать сообщения без использования сторонних производителей и потребителей. Эти возможности также будут продемонстрированы в этом практическом руководстве.
 
-Чтобы познакомиться с возможностями REST API для Managed Schema Registry и Apache Kafka®:
+Чтобы познакомиться с возможностями REST API для {{ mkf-msr }} и {{ KF }}:
 
 1. [Создайте схемы формата данных](#create-schemas).
 1. [Отправьте сообщения в топик](#send-messages).
@@ -16,8 +16,8 @@
 
 В стоимость поддержки описываемого решения входят:
 
-* Плата за кластер Managed Service for Apache Kafka®: использование вычислительных ресурсов, выделенных хостам (в том числе хостам ZooKeeper), и дискового пространства (см. [тарифы Apache Kafka®](../pricing.md)).
-* Плата за использование публичных IP-адресов (см. [тарифы Virtual Private Cloud](../../vpc/pricing.md)).
+* Плата за кластер {{ mkf-name }}: использование вычислительных ресурсов, выделенных хостам (в том числе хостам {{ ZK }}), и дискового пространства (см. [тарифы {{ KF }}](../pricing.md)).
+* Плата за использование публичных IP-адресов (см. [тарифы {{ vpc-name }}](../../vpc/pricing.md)).
 
 
 ## Перед началом работы {#before-you-begin}
@@ -28,23 +28,23 @@
 
 - Вручную {#manual}
 
-    1. [Создайте кластер Managed Service for Apache Kafka®](../operations/cluster-create.md) любой подходящей конфигурации.
+    1. [Создайте кластер {{ mkf-name }}](../operations/cluster-create.md) любой подходящей конфигурации.
 
         При создании кластера включите опции:
 
-        * **Реестр схем данных**.
+        * **{{ ui-key.yacloud.kafka.field_schema-registry }}**.
 
-            В кластере будет развернут реестр схем формата данных Managed Schema Registry и станет доступен REST API для Managed Schema Registry.
+            В кластере будет развернут реестр схем формата данных {{ mkf-msr }} и станет доступен REST API для {{ mkf-msr }}.
 
-        * **Kafka Rest API**.
+        * **{{ ui-key.yacloud.kafka.field_rest-api-config }}**.
 
-            В кластере станет доступен REST API для Apache Kafka®.
+            В кластере станет доступен REST API для {{ KF }}.
 
-        * **Публичный доступ**.
+        * **{{ ui-key.yacloud.mdb.hosts.dialog.field_public_ip }}**.
 
             {% note info %}
             
-            Публичный доступ к хостам кластера нужен, если вы планируете подключаться к кластеру через интернет. Этот вариант подключения более простой, и его рекомендуется использовать для прохождения руководства. К хостам без публичного доступа тоже можно подключиться, но только с виртуальных машин Yandex Cloud, расположенных в той же облачной сети, что и кластер.
+            Публичный доступ к хостам кластера нужен, если вы планируете подключаться к кластеру через интернет. Этот вариант подключения более простой, и его рекомендуется использовать для прохождения руководства. К хостам без публичного доступа тоже можно подключиться, но только с виртуальных машин {{ yandex-cloud }}, расположенных в той же облачной сети, что и кластер.
             
             {% endnote %}
 
@@ -55,7 +55,7 @@
         * `ACCESS_ROLE_CONSUMER`,
         * `ACCESS_ROLE_PRODUCER`.
 
-        Этот пользователь сможет отправлять и получать сообщения в рамках топика, а также [выполнять любые операции над субъектами в Managed Schema Registry](../concepts/managed-schema-registry.md#msr-auth), которые связаны с топиком.
+        Этот пользователь сможет отправлять и получать сообщения в рамках топика, а также [выполнять любые операции над субъектами в {{ mkf-msr }}](../concepts/managed-schema-registry.md#msr-auth), которые связаны с топиком.
 
     1. [Выполните все шаги по предварительной настройке для подключения к кластеру](../operations/connect/index.md).
 
@@ -87,7 +87,7 @@
 
     С ее помощью описания схем будут приводиться к нужному формату.
 
-    При использовании REST API для Managed Schema Registry описания схем необходимо передавать в виде строки с экранированными символами, например:
+    При использовании REST API для {{ mkf-msr }} описания схем необходимо передавать в виде строки с экранированными символами, например:
 
     ```json
     "schema": "{\"type\": \"record\", \"name\": \"Obj\", \"fields\":[...]}"
@@ -109,11 +109,11 @@
 
 В этом практическом руководстве используются схемы типа [Avro](https://avro.apache.org/docs/1.12.0/specification/).
 
-Вы можете использовать другие типы схем, которые поддерживаются в Managed Schema Registry.
+Вы можете использовать другие типы схем, которые поддерживаются в {{ mkf-msr }}.
 
 {% endnote %}
 
-Пусть сообщение Apache Kafka® в топике `messages` должно состоять из ключа и значения в следующем формате:
+Пусть сообщение {{ KF }} в топике `messages` должно состоять из ключа и значения в следующем формате:
 
 #|
 || **Ключ** | **Значение** ||
@@ -141,7 +141,7 @@
 
 Создайте соответствующие схемы формата данных:
 
-1. Создайте файл `schema-key.json`, который содержит схему формата данных для ключа сообщения Apache Kafka®.
+1. Создайте файл `schema-key.json`, который содержит схему формата данных для ключа сообщения {{ KF }}.
 
     {% cut "schema-key.json" %}
 
@@ -164,11 +164,11 @@
 
     {% endcut %}
 
-1. Создайте схему формата данных для ключа сообщения Apache Kafka®.
+1. Создайте схему формата данных для ключа сообщения {{ KF }}.
 
     [Имя субъекта для схемы](../concepts/managed-schema-registry.md#subjects) должно состоять из имени топика, в котором будет использоваться эта схема (`messages`) и суффикса `-key`.
 
-    Воспользуйтесь методом [POST /subjects/(subject)/versions](https://docs.confluent.io/platform/6.1/schema-registry/develop/api.html#post--subjects-(string-%20subject)-versions) REST API для Managed Schema Registry и выполните запрос:
+    Воспользуйтесь методом [POST /subjects/(subject)/versions](https://docs.confluent.io/platform/{{ mkf.kp-api-version }}/schema-registry/develop/api.html#post--subjects-(string-%20subject)-versions) REST API для {{ mkf-msr }} и выполните запрос:
 
     ```bash
     jq \
@@ -179,7 +179,7 @@
         }' \
     | curl \
           --request POST \
-          --url 'https://<FQDN_хоста-брокера>:443/subjects/messages-key/versions' \
+          --url 'https://<FQDN_хоста-брокера>:{{ port-https }}/subjects/messages-key/versions' \
           --user user1:<пароль_пользователя> \
           --header 'Content-Type: application/vnd.schemaregistry.v1+json' \
           --data "@-"
@@ -187,7 +187,7 @@
 
     В ответе на запрос будет возвращен идентификатор созданной схемы, например, `{"id":1}`.
 
-1. Создайте файл `schema-value.json`, который содержит схему формата данных для значения сообщения Apache Kafka®.
+1. Создайте файл `schema-value.json`, который содержит схему формата данных для значения сообщения {{ KF }}.
 
     {% cut "schema-value.json" %}
 
@@ -214,11 +214,11 @@
 
     {% endcut %}
 
-1. Создайте схему формата данных для значения сообщения Apache Kafka®.
+1. Создайте схему формата данных для значения сообщения {{ KF }}.
 
     [Имя субъекта для схемы](../concepts/managed-schema-registry.md#subjects) должно состоять из имени топика, в котором будет использоваться эта схема (`messages`) и суффикса `-value`.
 
-    Воспользуйтесь методом [POST /subjects/(subject)/versions](https://docs.confluent.io/platform/6.1/schema-registry/develop/api.html#post--subjects-(string-%20subject)-versions) REST API для Managed Schema Registry и выполните запрос:
+    Воспользуйтесь методом [POST /subjects/(subject)/versions](https://docs.confluent.io/platform/{{ mkf.kp-api-version }}/schema-registry/develop/api.html#post--subjects-(string-%20subject)-versions) REST API для {{ mkf-msr }} и выполните запрос:
 
     ```bash
     jq \
@@ -229,7 +229,7 @@
         }' \
     | curl \
           --request POST \
-          --url 'https://<FQDN_хоста-брокера>:443/subjects/messages-value/versions' \
+          --url 'https://<FQDN_хоста-брокера>:{{ port-https }}/subjects/messages-value/versions' \
           --user user1:<пароль_пользователя> \
           --header 'Content-Type: application/vnd.schemaregistry.v1+json' \
           --data "@-"
@@ -241,12 +241,12 @@
 
 1. Получите идентификаторы схем формата данных для ключа и значения.
 
-    Воспользуйтесь методом `GET /schemas` REST API для Managed Schema Registry и выполните запрос:
+    Воспользуйтесь методом `GET /schemas` REST API для {{ mkf-msr }} и выполните запрос:
 
     ```bash
     curl \
         --request GET \
-        --url 'https://<FQDN_хоста-брокера>:443/schemas' \
+        --url 'https://<FQDN_хоста-брокера>:{{ port-https }}/schemas' \
         --user user1:<пароль_пользователя> \
         --header 'Accept: application/vnd.schemaregistry.v1+json'
     ```
@@ -313,7 +313,7 @@
 
 1. Отправьте сообщения в топик `messages`.
 
-    Воспользуйтесь методом [POST /topics/(topic)](https://docs.confluent.io/platform/6.1/kafka-rest/api.html#post--topics-(string-topic_name)) REST API для Apache Kafka® и выполните запрос:
+    Воспользуйтесь методом [POST /topics/(topic)](https://docs.confluent.io/platform/{{ mkf.kp-api-version }}/kafka-rest/api.html#post--topics-(string-topic_name)) REST API для {{ KF }} и выполните запрос:
 
     ```bash
     jq \
@@ -325,7 +325,7 @@
         }' \
     | curl \
           --request POST \
-          --url 'https://<FQDN_хоста-брокера>:443/topics/messages' \
+          --url 'https://<FQDN_хоста-брокера>:{{ port-https }}/topics/messages' \
           --user user1:<пароль_пользователя> \
           --header 'Content-Type: application/vnd.kafka.avro.v2+json' \
           --header 'Accept: application/vnd.kafka.v2+json' \
@@ -359,12 +359,12 @@
 
 1. Создайте потребителя `my-consumer` в группе потребителей `my-group`.
 
-    Воспользуйтесь методом [POST /consumers/(group)](https://docs.confluent.io/platform/6.1/kafka-rest/api.html#post--consumers-(string-group_name)) REST API для Apache Kafka® и выполните запрос:
+    Воспользуйтесь методом [POST /consumers/(group)](https://docs.confluent.io/platform/{{ mkf.kp-api-version }}/kafka-rest/api.html#post--consumers-(string-group_name)) REST API для {{ KF }} и выполните запрос:
 
     ```bash
     curl \
         --request POST \
-        --url 'https://<FQDN_хоста-брокера>:443/consumers/my-group' \
+        --url 'https://<FQDN_хоста-брокера>:{{ port-https }}/consumers/my-group' \
         --user user1:<пароль_пользователя> \
         --header 'Content-Type: application/vnd.kafka.v2+json' \
         --header 'Accept: application/vnd.kafka.v2+json' \
@@ -379,7 +379,7 @@
 
     ```json
     {
-      "base_uri": "https://<FQDN_хоста-брокера>:443/consumers/my-group/instances/my-consumer",
+      "base_uri": "https://<FQDN_хоста-брокера>:{{ port-https }}/consumers/my-group/instances/my-consumer",
       "instance_id": "my-consumer"
     }
     ```
@@ -388,12 +388,12 @@
 
 1. Подпишитесь на топик `messages` для потребителя `my-consumer` из группы потребителей `my-group`.
 
-    Воспользуйтесь методом [POST /consumers/(group)/instances/(instance)/subscription](https://docs.confluent.io/platform/6.1/kafka-rest/api.html#post--consumers-(string-group_name)-instances-(string-instance)-subscription) REST API для Apache Kafka® и выполните запрос:
+    Воспользуйтесь методом [POST /consumers/(group)/instances/(instance)/subscription](https://docs.confluent.io/platform/{{ mkf.kp-api-version }}/kafka-rest/api.html#post--consumers-(string-group_name)-instances-(string-instance)-subscription) REST API для {{ KF }} и выполните запрос:
 
     ```bash
     curl \
         --request POST \
-        --url 'https://<FQDN_хоста-брокера>:443/consumers/my-group/instances/my-consumer/subscription' \
+        --url 'https://<FQDN_хоста-брокера>:{{ port-https }}/consumers/my-group/instances/my-consumer/subscription' \
         --user user1:<пароль_пользователя> \
         --header 'Content-Type: application/vnd.kafka.v2+json' \
         --header 'Accept: application/vnd.kafka.v2+json' \
@@ -404,12 +404,12 @@
 
 1. Получите все сообщения из топика `messages` для потребителя `my-consumer` из группы потребителей `my-group`.
 
-    Воспользуйтесь методом [GET /consumers/(group)/instances/(instance)/records](https://docs.confluent.io/platform/6.1/kafka-rest/api.html#get--consumers-(string-group_name)-instances-(string-instance)-records) REST API для Apache Kafka® и выполните запрос:
+    Воспользуйтесь методом [GET /consumers/(group)/instances/(instance)/records](https://docs.confluent.io/platform/{{ mkf.kp-api-version }}/kafka-rest/api.html#get--consumers-(string-group_name)-instances-(string-instance)-records) REST API для {{ KF }} и выполните запрос:
 
     ```bash
     curl \
         --request GET \
-        --url 'https://<FQDN_хоста-брокера>:443/consumers/my-group/instances/my-consumer/records' \
+        --url 'https://<FQDN_хоста-брокера>:{{ port-https }}/consumers/my-group/instances/my-consumer/records' \
         --user user1:<пароль_пользователя> \
         --header 'Accept: application/vnd.kafka.avro.v2+json'
     ```
@@ -459,5 +459,5 @@
 
 Удалите ресурсы, которые вы больше не будете использовать, чтобы за них не списывалась плата:
 
-* [Удалите кластер Managed Service for Apache Kafka®](../operations/cluster-delete.md).
+* [Удалите кластер {{ mkf-name }}](../operations/cluster-delete.md).
 * Если вы зарезервировали публичные статические IP-адреса, освободите и [удалите их](../../vpc/operations/address-delete.md).

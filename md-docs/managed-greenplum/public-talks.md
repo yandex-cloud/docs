@@ -1,6 +1,12 @@
-# Публичные материалы о Yandex MPP Analytics for PostgreSQL
+# Публичные материалы о {{ mgp-full-name }}
 
 ## Конференции и вебинары {#conf-and-webinars}
+
+### 2026: {{ CB }} и {{ GP }}
+
+* Эволюция платформы и опыт DBA.
+
+  * [Запись трансляции](https://www.youtube.com/live/2GlBcMbEN48).
 
 ### 2025: Статьи {#article-2025}
 
@@ -10,17 +16,17 @@
 
 ### 2023: Data Open Source Day {#data-open-source-day-2023}
 
-* Невероятные идеи по развитию Greenplum® от инженеров Yandex Cloud.
+* Невероятные идеи по развитию {{ GP }} от инженеров {{ yandex-cloud }}.
 
   * [Запись трансляции](https://www.youtube.com/live/aXflVfvoLdU?si=sfseDHlbr-R-PnyK&t=14275).
 
 ### 2022: Greenplum Community Meetup {#gp-community-meetup-2022}
 
-* Делаем Greenplum® облачным.
+* Делаем {{ GP }} облачным.
 
   * [Запись трансляции](https://www.youtube.com/live/EZxIx-Ft0Vo?feature=share&t=2311).
 
-### 2022: Yandex Cloud {#yc-2022}
+### 2022: {{ yandex-cloud }} {#yc-2022}
 
 * Про людей. Жизнь SRE в облаке.
 
@@ -50,19 +56,19 @@
 
   * [Запись трансляции](https://www.youtube.com/watch?v=PCG5bO9Ug60).
 
-### 2019: Yandex Cloud {#yc-2019}
+### 2019: {{ yandex-cloud }} {#yc-2019}
 
-* Что нового в платформе баз данных Yandex Cloud.
+* Что нового в платформе баз данных {{ yandex-cloud }}.
 
   * [Запись трансляции](https://www.youtube.com/watch?v=5OcUo3J4Wdc).
 
-* Внутреннее устройство платформы баз данных в Yandex Cloud.
+* Внутреннее устройство платформы баз данных в {{ yandex-cloud }}.
 
   * [Запись трансляции](https://www.youtube.com/watch?v=Cwdg425a_cw).
 
 ### 2019: Статьи {#article-2019}
 
-* Как устроены сервисы управляемых баз данных в Yandex Cloud.
+* Как устроены сервисы управляемых баз данных в {{ yandex-cloud }}.
 
   * [Текст статьи](https://habr.com/ru/companies/yandex/articles/477860/).
 

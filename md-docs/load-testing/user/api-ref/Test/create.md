@@ -5,7 +5,7 @@ Creates (runs) a test in the specified folder.
 ## HTTP request
 
 ```
-POST https://loadtesting.api.cloud.yandex.net/loadtesting/api/v1/tests
+POST https://loadtesting.{{ api-host }}/loadtesting/api/v1/tests
 ```
 
 ## Body parameters {#yandex.cloud.loadtesting.api.v1.CreateTestRequest}

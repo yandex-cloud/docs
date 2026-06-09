@@ -5,7 +5,7 @@ Retrieves the list of Operation resources for the specified cluster.
 ## HTTP request
 
 ```
-GET https://airflow.api.cloud.yandex.net/managed-airflow/v1/clusters/{clusterId}/operations
+GET https://airflow.{{ api-host }}/managed-airflow/v1/clusters/{clusterId}/operations
 ```
 
 ## Path parameters

@@ -1,6 +1,6 @@
-# Создание сайта на CMS Joomla с базой данных PostgreSQL с помощью Terraform
+# Создание сайта на CMS Joomla с базой данных {{ PG }} с помощью {{ TF }}
 
-Чтобы создать инфраструктуру для [сайта на CMS Joomla с базой данных PostgreSQL](index.md) c помощью Terraform:
+Чтобы создать инфраструктуру для [сайта на CMS Joomla с базой данных {{ PG }}](index.md) c помощью {{ TF }}:
 
 1. [Подготовьте облако к работе](#before-you-begin).
 1. [Создайте инфраструктуру](#deploy).
@@ -12,33 +12,33 @@
 
 ## Подготовьте облако к работе {#before-you-begin}
 
-Зарегистрируйтесь в Yandex Cloud и создайте [платежный аккаунт](../../../billing/concepts/billing-account.md):
-1. Перейдите в [консоль управления](https://console.yandex.cloud), затем войдите в Yandex Cloud или зарегистрируйтесь.
-1. На странице **[Yandex Cloud Billing](https://center.yandex.cloud/billing/accounts)** убедитесь, что у вас подключен платежный аккаунт, и он находится в [статусе](../../../billing/concepts/billing-account-statuses.md) `ACTIVE` или `TRIAL_ACTIVE`. Если платежного аккаунта нет, [создайте его](../../../billing/quickstart/index.md) и [привяжите](../../../billing/operations/pin-cloud.md) к нему облако.
+Зарегистрируйтесь в {{ yandex-cloud }} и создайте [платежный аккаунт](../../../billing/concepts/billing-account.md):
+1. Перейдите в [консоль управления]({{ link-console-main }}), затем войдите в {{ yandex-cloud }} или зарегистрируйтесь.
+1. На странице **[{{ ui-key.yacloud_billing.billing.label_service }}]({{ link-console-billing }})** убедитесь, что у вас подключен платежный аккаунт, и он находится в [статусе](../../../billing/concepts/billing-account-statuses.md) `ACTIVE` или `TRIAL_ACTIVE`. Если платежного аккаунта нет, [создайте его](../../../billing/quickstart/index.md) и [привяжите](../../../billing/operations/pin-cloud.md) к нему облако.
 
-Если у вас есть активный платежный аккаунт, вы можете создать или выбрать [каталог](../../../resource-manager/concepts/resources-hierarchy.md#folder), в котором будет работать ваша инфраструктура, на [странице облака](https://console.yandex.cloud/cloud).
+Если у вас есть активный платежный аккаунт, вы можете создать или выбрать [каталог](../../../resource-manager/concepts/resources-hierarchy.md#folder), в котором будет работать ваша инфраструктура, на [странице облака]({{ link-console-cloud }}).
 
 [Подробнее об облаках и каталогах](../../../resource-manager/concepts/resources-hierarchy.md).
 
 
 ### Необходимые платные ресурсы {#paid-resources}
 
-* Виртуальная машина: использование вычислительных ресурсов, хранилища, публичного IP-адреса и операционной системы (см. [тарифы Compute Cloud](../../../compute/pricing.md)).
-* Кластер Managed Service for PostgreSQL: выделенные хостам вычислительные ресурсы, объем хранилища и резервных копий (см. [тарифы Managed Service for PostgreSQL](../../../managed-postgresql/pricing.md)).
-* Плата за исходящий трафик (см. [тарифы Yandex Compute Cloud](../../../compute/pricing.md)).
-* Публичные [DNS-запросы](../../../glossary/dns.md) и [зоны DNS](../../../dns/concepts/dns-zone.md) (см. [тарифы Cloud DNS](../../../dns/pricing.md)).
+* Виртуальная машина: использование вычислительных ресурсов, хранилища, публичного IP-адреса и операционной системы (см. [тарифы {{ compute-name }}](../../../compute/pricing.md)).
+* Кластер {{ mpg-name }}: выделенные хостам вычислительные ресурсы, объем хранилища и резервных копий (см. [тарифы {{ mpg-name }}](../../../managed-postgresql/pricing.md)).
+* Плата за исходящий трафик (см. [тарифы {{ compute-full-name }}](../../../compute/pricing.md)).
+* Публичные [DNS-запросы](../../../glossary/dns.md) и [зоны DNS](../../../dns/concepts/dns-zone.md) (см. [тарифы {{ dns-name }}](../../../dns/pricing.md)).
 
 
 ## Создайте инфраструктуру {#deploy}
 
-[Terraform](https://www.terraform.io/) позволяет быстро создать облачную инфраструктуру в Yandex Cloud и управлять ею с помощью файлов конфигураций. В файлах конфигураций хранится описание инфраструктуры на языке HCL (HashiCorp Configuration Language). При изменении файлов конфигураций Terraform автоматически определяет, какая часть вашей конфигурации уже развернута, что следует добавить или удалить.
+[{{ TF }}](https://www.terraform.io/) позволяет быстро создать облачную инфраструктуру в {{ yandex-cloud }} и управлять ею с помощью файлов конфигураций. В файлах конфигураций хранится описание инфраструктуры на языке HCL (HashiCorp Configuration Language). При изменении файлов конфигураций {{ TF }} автоматически определяет, какая часть вашей конфигурации уже развернута, что следует добавить или удалить.
 
-Terraform распространяется под лицензией [Business Source License](https://github.com/hashicorp/terraform/blob/main/LICENSE), а [провайдер Yandex Cloud для Terraform](https://github.com/yandex-cloud/terraform-provider-yandex) — под лицензией [MPL-2.0](https://www.mozilla.org/en-US/MPL/2.0/).
+{{ TF }} распространяется под лицензией [Business Source License](https://github.com/hashicorp/terraform/blob/main/LICENSE), а [провайдер {{ yandex-cloud }} для {{ TF }}](https://github.com/yandex-cloud/terraform-provider-yandex) — под лицензией [MPL-2.0](https://www.mozilla.org/en-US/MPL/2.0/).
 
-Подробную информацию о ресурсах провайдера смотрите в документации на сайте [Terraform](https://www.terraform.io/docs/providers/yandex/index.html) или в [зеркале](../../../terraform/index.md).
+Подробную информацию о ресурсах провайдера смотрите в документации на сайте [{{ TF }}](https://www.terraform.io/docs/providers/yandex/index.html) или в [зеркале]({{ tf-docs-link }}).
 
-Для создания инфраструктуры c помощью Terraform:
-1. [Установите](../../infrastructure-management/terraform-quickstart.md#install-terraform) Terraform и укажите источник для установки провайдера Yandex Cloud (раздел [Настройте провайдер](../../infrastructure-management/terraform-quickstart.md#configure-provider), шаг 1).
+Для создания инфраструктуры c помощью {{ TF }}:
+1. [Установите](../../infrastructure-management/terraform-quickstart.md#install-terraform) {{ TF }} и укажите источник для установки провайдера {{ yandex-cloud }} (раздел [{#T}](../../infrastructure-management/terraform-quickstart.md#configure-provider), шаг 1).
 1. Подготовьте файл с описанием инфраструктуры:
 
    {% list tabs group=infrastructure_description %}
@@ -126,34 +126,34 @@ Terraform распространяется под лицензией [Business S
            name = local.network_name
          }
          
-         # Создание подсети в зоне доступности ru-central1-a
+         # Создание подсети в зоне доступности {{ region-id }}-a
          
          resource "yandex_vpc_subnet" "joomla-pg-network-subnet-a" {
            name           = local.subnet_name1
-           zone           = "ru-central1-a"
+           zone           = "{{ region-id }}-a"
            v4_cidr_blocks = [local.subnet_cidr1]
            network_id     = yandex_vpc_network.joomla-pg-network.id
          }
          
-         # Создание подсети в зоне доступности ru-central1-b
+         # Создание подсети в зоне доступности {{ region-id }}-b
          
          resource "yandex_vpc_subnet" "joomla-pg-network-subnet-b" {
            name           = local.subnet_name2
-           zone           = "ru-central1-b"
+           zone           = "{{ region-id }}-b"
            v4_cidr_blocks = [local.subnet_cidr2]
            network_id     = yandex_vpc_network.joomla-pg-network.id
          }
          
-         # Создание подсети в зоне доступности ru-central1-d
+         # Создание подсети в зоне доступности {{ region-id }}-d
          
          resource "yandex_vpc_subnet" "joomla-pg-network-subnet-d" {
            name           = local.subnet_name3
-           zone           = "ru-central1-d"
+           zone           = "{{ region-id }}-d"
            v4_cidr_blocks = [local.subnet_cidr3]
            network_id     = yandex_vpc_network.joomla-pg-network.id
          }
          
-         # Создание группы безопасности для кластера БД PostgreSQL
+         # Создание группы безопасности для кластера БД {{ PG }}
          
          resource "yandex_vpc_security_group" "pgsql-sg" {
            name       = local.sg_pgsql_name
@@ -234,7 +234,7 @@ Terraform распространяется под лицензией [Business S
            name = "joomla-address"
          
            external_ipv4_address {
-             zone_id = "ru-central1-b"
+             zone_id = "{{ region-id }}-b"
            }
          }
          
@@ -248,7 +248,7 @@ Terraform распространяется под лицензией [Business S
          resource "yandex_compute_disk" "boot-disk" {
            name     = "bootvmdisk"
            type     = "network-hdd"
-           zone     = "ru-central1-b"
+           zone     = "{{ region-id }}-b"
            size     = "10"
            image_id = yandex_compute_image.joomla-pg-vm-image.id
          }
@@ -258,7 +258,7 @@ Terraform распространяется под лицензией [Business S
          resource "yandex_compute_instance" "joomla-pg-vm" {
            name               = local.vm_name
            platform_id        = "standard-v3"
-           zone               = "ru-central1-b"
+           zone               = "{{ region-id }}-b"
          
            resources {
              cores         = 2
@@ -281,7 +281,7 @@ Terraform распространяется под лицензией [Business S
            }
          }
          
-         # Создание кластера БД PostgreSQL
+         # Создание кластера БД {{ PG }}
          
          resource "yandex_mdb_postgresql_cluster" "joomla-pg-cluster" {
            name                = local.cluster_name
@@ -299,17 +299,17 @@ Terraform распространяется под лицензией [Business S
            }
          
            host {
-             zone      = "ru-central1-a"
+             zone      = "{{ region-id }}-a"
              subnet_id = yandex_vpc_subnet.joomla-pg-network-subnet-a.id
            }
          
            host {
-             zone      = "ru-central1-b"
+             zone      = "{{ region-id }}-b"
              subnet_id = yandex_vpc_subnet.joomla-pg-network-subnet-b.id
            }
          
            host {
-             zone      = "ru-central1-d"
+             zone      = "{{ region-id }}-d"
              subnet_id = yandex_vpc_subnet.joomla-pg-network-subnet-d.id
            }
          }
@@ -389,28 +389,28 @@ Terraform распространяется под лицензией [Business S
 
    {% endlist %}
 
-   Более подробную информацию о параметрах используемых ресурсов в Terraform см. в документации провайдера:
+   Более подробную информацию о параметрах используемых ресурсов в {{ TF }} см. в документации провайдера:
 
-   * [Сеть](../../../vpc/concepts/network.md#network) — [yandex_vpc_network](../../../terraform/resources/vpc_network.md).
-   * [Подсети](../../../vpc/concepts/network.md#subnet) — [yandex_vpc_subnet](../../../terraform/resources/vpc_subnet.md).
-   * [Группы безопасности](../../../vpc/concepts/security-groups.md) — [yandex_vpc_security_group](../../../terraform/resources/vpc_security_group.md).
-   * [Образ ВМ](../../../compute/concepts/image.md) — [yandex_compute_image](../../../terraform/resources/compute_image.md).
-   * [Диск](../../../compute/concepts/disk.md) — [yandex_compute_disk](../../../terraform/resources/compute_disk.md).
-   * [Виртуальная машина](../../../compute/concepts/vm.md) — [yandex_compute_instance](../../../terraform/resources/compute_instance.md).
-   * [Кластер PostgreSQL](../../../managed-postgresql/concepts/index.md) — [yandex_mdb_postgresql_cluster](../../../terraform/resources/mdb_postgresql_cluster.md).
-   * [БД PostgreSQL](../../../managed-postgresql/index.md) — [yandex_mdb_postgresql_database](../../../terraform/resources/mdb_postgresql_database.md).
-   * [Пользователь БД](../../../managed-postgresql/operations/cluster-users.md) — [yandex_mdb_postgresql_user](../../../terraform/resources/mdb_postgresql_user.md).
-   * [Зона DNS](../../../dns/concepts/dns-zone.md) — [yandex_dns_zone](../../../terraform/resources/dns_zone.md).
-   * [Ресурсная запись DNS](../../../dns/concepts/resource-record.md) — [yandex_dns_recordset](../../../terraform/resources/dns_recordset.md).
-   * [TLS-Сертификат](../../../certificate-manager/concepts/managed-certificate.md) — [yandex_cm_certificate](../../../terraform/resources/cm_certificate.md).
+   * [Сеть](../../../vpc/concepts/network.md#network) — [yandex_vpc_network]({{ tf-provider-resources-link }}/vpc_network).
+   * [Подсети](../../../vpc/concepts/network.md#subnet) — [yandex_vpc_subnet]({{ tf-provider-resources-link }}/vpc_subnet).
+   * [Группы безопасности](../../../vpc/concepts/security-groups.md) — [yandex_vpc_security_group]({{ tf-provider-resources-link }}/vpc_security_group).
+   * [Образ ВМ](../../../compute/concepts/image.md) — [yandex_compute_image]({{ tf-provider-resources-link }}/compute_image).
+   * [Диск](../../../compute/concepts/disk.md) — [yandex_compute_disk]({{ tf-provider-resources-link }}/compute_disk).
+   * [Виртуальная машина](../../../compute/concepts/vm.md) — [yandex_compute_instance]({{ tf-provider-resources-link }}/compute_instance).
+   * [Кластер {{ PG }}](../../../managed-postgresql/concepts/index.md) — [yandex_mdb_postgresql_cluster]({{ tf-provider-resources-link }}/mdb_postgresql_cluster).
+   * [БД {{ PG }}](../../../managed-postgresql/index.md) — [yandex_mdb_postgresql_database]({{ tf-provider-resources-link }}/mdb_postgresql_database).
+   * [Пользователь БД](../../../managed-postgresql/operations/cluster-users.md) — [yandex_mdb_postgresql_user]({{ tf-provider-resources-link }}/mdb_postgresql_user).
+   * [Зона DNS](../../../dns/concepts/dns-zone.md) — [yandex_dns_zone]({{ tf-provider-resources-link }}/dns_zone).
+   * [Ресурсная запись DNS](../../../dns/concepts/resource-record.md) — [yandex_dns_recordset]({{ tf-provider-resources-link }}/dns_recordset).
+   * [TLS-Сертификат](../../../certificate-manager/concepts/managed-certificate.md) — [yandex_cm_certificate]({{ tf-provider-resources-link }}/cm_certificate).
 
 1. В файле `joomla-postgresql-terraform.auto.tfvars` задайте пользовательские параметры:
    * `folder_id` — [идентификатор каталога](../../../resource-manager/operations/folder/get-id.md).
-   * `ssh_key_path` — путь к файлу с открытым SSH-ключом для аутентификации пользователя на ВМ. Подробнее см. [Создание пары ключей SSH](../../../compute/operations/vm-connect/ssh.md#creating-ssh-keys).
+   * `ssh_key_path` — путь к файлу с открытым SSH-ключом для аутентификации пользователя на ВМ. Подробнее см. [{#T}](../../../compute/operations/vm-connect/ssh.md#creating-ssh-keys).
    * `db_password` — пароль для доступа к БД. Длина пароля должна составлять от 8 до 128 символов.
-   * `domain_name` — имя домена. Укажите ваше зарегистрированное доменное имя, делегированное Yandex Cloud DNS. Например: `example.com`.
+   * `domain_name` — имя домена. Укажите ваше зарегистрированное доменное имя, делегированное {{ dns-full-name }}. Например: `example.com`.
 
-       Чтобы получить доступ к именам из публичной зоны, вам нужно делегировать домен. Укажите адреса серверов `ns1.yandexcloud.net` и `ns2.yandexcloud.net` в личном кабинете вашего регистратора доменных имен.
+       Чтобы получить доступ к именам из публичной зоны, вам нужно делегировать домен. Укажите адреса серверов `ns1.{{ dns-ns-host-sld }}` и `ns2.{{ dns-ns-host-sld }}` в личном кабинете вашего регистратора доменных имен.
 1. Создайте ресурсы:
 
    1. В терминале перейдите в директорию с конфигурационным файлом.
@@ -432,7 +432,7 @@ Terraform распространяется под лицензией [Business S
       terraform plan
       ```
    
-      В терминале будет выведен список ресурсов с параметрами. На этом этапе изменения не будут внесены. Если в конфигурации есть ошибки, Terraform на них укажет.
+      В терминале будет выведен список ресурсов с параметрами. На этом этапе изменения не будут внесены. Если в конфигурации есть ошибки, {{ TF }} на них укажет.
    1. Примените изменения конфигурации:
    
       ```bash
@@ -453,10 +453,10 @@ Terraform распространяется под лицензией [Business S
 
     - Консоль управления {#console}
 
-        1. В [консоли управления](https://console.yandex.cloud) выберите каталог, в котором вы создаете инфраструктуру.
-        1. [Перейдите](../../../console/operations/select-service.md#select-service) в сервис **Certificate Manager** и выберите сертификат `joomla-cert`.
-        1. На панели сверху нажмите ![ArrowUpFromLine](../../../_assets/console-icons/arrow-up-from-line.svg) **Экспортировать сертификат**, выберите вариант `Сертификат без приватного ключа` и нажмите **Скачать сертификат**. На ваш компьютер будет скачан файл с сертификатом `certificate.pem`.
-        1. Повторите предыдущее действие и скачайте закрытый ключ, выбрав вариант `Только приватный ключ`. Переименуйте скачанный файл с закрытым ключом в `private_key.pem`.
+        1. В [консоли управления]({{ link-console-main }}) выберите каталог, в котором вы создаете инфраструктуру.
+        1. Перейдите в сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_certificate-manager }}** и выберите сертификат `joomla-cert`.
+        1. На панели сверху нажмите ![ArrowUpFromLine](../../../_assets/console-icons/arrow-up-from-line.svg) **{{ ui-key.yacloud.certificate-manager.overview.certificate_content_export }}**, выберите вариант `{{ ui-key.yacloud.certificate-manager.overview.certificate_content_select_no_private_key }}` и нажмите **{{ ui-key.yacloud.certificate-manager.overview.certificate_content_download }}**. На ваш компьютер будет скачан файл с сертификатом `certificate.pem`.
+        1. Повторите предыдущее действие и скачайте закрытый ключ, выбрав вариант `{{ ui-key.yacloud.certificate-manager.overview.certificate_content_select_private_key_only }}`. Переименуйте скачанный файл с закрытым ключом в `private_key.pem`.
         1. Сохраните скачанные файлы `certificate.pem` и `private_key.pem` — они понадобятся при настройке веб-сервера.
 
     {% endlist %}
@@ -470,7 +470,7 @@ Terraform распространяется под лицензией [Business S
 
     Где `<IP-адрес_ВМ>` — публичный IP-адрес созданной ранее ВМ `joomla-web-server`.
 
-    Узнать IP-адрес ВМ можно в [консоли управления](https://console.yandex.cloud) на странице ВМ в блоке **Сеть**.
+    Узнать IP-адрес ВМ можно в [консоли управления]({{ link-console-main }}) на странице ВМ в блоке **{{ ui-key.yacloud.compute.instance.overview.section_network }}**.
 
     При первом подключении к ВМ появится предупреждение о неизвестном хосте:
 
@@ -531,14 +531,14 @@ Terraform распространяется под лицензией [Business S
     sudo chown -R www-data:www-data /var/www/html
     sudo chmod -R 755 /var/www/html
     ```
-1. Измените номер порта по умолчанию, использующийся Joomla для доступа к базам данных PostgreSQL: в Yandex Managed Service for PostgreSQL используется порт `6432`.
+1. Измените номер порта по умолчанию, использующийся Joomla для доступа к базам данных {{ PG }}: в {{ mpg-full-name }} используется порт `6432`.
 
     1. Откройте файл настроек драйверов доступа к базам данных Joomla:
 
         ```bash
         sudo nano /var/www/html/libraries/vendor/joomla/database/src/Pdo/PdoDriver.php
         ```
-    1. Найдите в файле раздел с настройками баз данных PostgreSQL и замените номер порта c `5432` на `6432`:
+    1. Найдите в файле раздел с настройками баз данных {{ PG }} и замените номер порта c `5432` на `6432`:
 
         ```php
         ...
@@ -601,16 +601,16 @@ Terraform распространяется под лицензией [Business S
 
 ## Настройте Joomla {#configure-joomla}
 
-1. Получите имена хостов кластера Managed Service for PostgreSQL, они потребуются в процессе установки Joomla:
+1. Получите имена хостов кластера {{ mpg-name }}, они потребуются в процессе установки Joomla:
 
     {% list tabs group=instructions %}
 
     - Консоль управления {#console}
 
-      1. В [консоли управления](https://console.yandex.cloud) выберите каталог, в котором находится кластер.
-      1. [Перейдите](../../../console/operations/select-service.md#select-service) в сервис **Managed Service for&nbsp;PostgreSQL**.
-      1. Выберите кластер `joomla-pg-cluster` и перейдите на вкладку **Хосты**.
-      1. Наведите указатель мыши на поле **FQDN хоста** в строке с  каждым из хостов и нажмите значок ![Copy](../../../_assets/console-icons/copy.svg), чтобы скопировать FQDN хоста. Сохраните скопированные значения — они понадобятся позднее.
+      1. В [консоли управления]({{ link-console-main }}) выберите каталог, в котором находится кластер.
+      1. Перейдите в сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-postgresql }}**.
+      1. Выберите кластер `joomla-pg-cluster` и перейдите на вкладку **{{ ui-key.yacloud.postgresql.cluster.switch_hosts }}**.
+      1. Наведите указатель мыши на поле **{{ ui-key.yacloud.mdb.cluster.hosts.host_column_name }}** в строке с  каждым из хостов и нажмите значок ![Copy](../../../_assets/console-icons/copy.svg), чтобы скопировать FQDN хоста. Сохраните скопированные значения — они понадобятся позднее.
 
     {% endlist %}
 
@@ -623,16 +623,16 @@ Terraform распространяется под лицензией [Business S
         * `https://<имя_вашего_домена>`
     1. При настройке параметров базы данных заполните поля:
 
-        * **Тип базы данных** — `PostgreSQL (PDO)`.
+        * **Тип базы данных** — `{{ PG }} (PDO)`.
         * **Имя хоста**:
 
             ```text
             <имя_хоста_1>,<имя_хоста_2>,<имя_хоста_3>
             ```
 
-            Где `<имя_хоста_1>`, `<имя_хоста_2>`, `<имя_хоста_3>` — FQDN-имена хостов кластера Managed Service for PostgreSQL, скопированные на предыдущем шаге.
+            Где `<имя_хоста_1>`, `<имя_хоста_2>`, `<имя_хоста_3>` — FQDN-имена хостов кластера {{ mpg-name }}, скопированные на предыдущем шаге.
         * **Имя пользователя базы данных** — `joomla`.
-        * **Пароль пользователя базы данных** — пароль пользователя БД, заданный при создании кластера PostgreSQL.
+        * **Пароль пользователя базы данных** — пароль пользователя БД, заданный при создании кластера {{ PG }}.
         * **Имя базы данных** — `joomla_db`.
         * **Шифрование соединения** — оставьте значение по умолчанию.
     1. В качестве проверки безопасности Joomla может попросить вас создать или удалить определенный тестовый файл в директории установки продукта на ВМ. Перейдите в директорию `/var/www/html/installation/` и создайте или удалите там указанный файл:
@@ -691,7 +691,7 @@ Terraform распространяется под лицензией [Business S
        terraform plan
        ```
     
-       В терминале будет выведен список ресурсов с параметрами. На этом этапе изменения не будут внесены. Если в конфигурации есть ошибки, Terraform на них укажет.
+       В терминале будет выведен список ресурсов с параметрами. На этом этапе изменения не будут внесены. Если в конфигурации есть ошибки, {{ TF }} на них укажет.
     1. Примените изменения конфигурации:
     
        ```bash
@@ -702,4 +702,4 @@ Terraform распространяется под лицензией [Business S
 
 #### См. также {#see-also}
 
-* [Создание сайта на CMS Joomla с базой данных PostgreSQL с помощью консоли управления](console.md).
+* [{#T}](console.md).

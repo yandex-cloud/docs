@@ -150,6 +150,7 @@
                 }
               ]
             },
+            "address": "string",
             "dnsRecordSpecs": [
               {
                 "fqdn": "string",
@@ -157,8 +158,7 @@
                 "ttl": "string",
                 "ptr": "boolean"
               }
-            ],
-            "address": "string"
+            ]
           },
           "primaryV6AddressSpec": {
             "oneToOneNatSpec": {
@@ -173,6 +173,7 @@
                 }
               ]
             },
+            "address": "string",
             "dnsRecordSpecs": [
               {
                 "fqdn": "string",
@@ -180,8 +181,7 @@
                 "ttl": "string",
                 "ptr": "boolean"
               }
-            ],
-            "address": "string"
+            ]
           },
           "securityGroupIds": [
             "string"
@@ -192,11 +192,11 @@
         "preemptible": "boolean"
       },
       "serviceAccountId": "string",
+      "name": "string",
+      "hostname": "string",
       "networkSettings": {
         "type": "string"
       },
-      "name": "string",
-      "hostname": "string",
       "placementPolicy": {
         "placementGroupId": "string",
         "hostAffinityRules": [
@@ -216,6 +216,7 @@
           "filesystemId": "string"
         }
       ],
+      "reservedInstancePoolId": "string",
       "metadataOptions": {
         "gceHttpEndpoint": "string",
         "awsV1HttpEndpoint": "string",
@@ -223,8 +224,7 @@
         "awsV1HttpToken": "string",
         "awsV2HttpEndpoint": "string",
         "awsV2HttpToken": "string"
-      },
-      "reservedInstancePoolId": "string"
+      }
     },
     "scalePolicy": {
       // Includes only one of the fields `fixedScale`, `autoScale`
@@ -544,44 +544,30 @@ A list of messages that carry the error details. ||
 
 #|
 ||Field | Description ||
-|| description | **string**
-
-The maximum string length in characters is 256. ||
-|| labels | **object** (map<**string**, **string**>)
-
-No more than 64 per resource. The maximum string length in characters for each value is 128. The string length in characters for each key must be 1-63. Each key must match the regular expression ` [a-z][-_./\@0-9a-z]* `. ||
+|| description | **string** ||
+|| labels | **object** (map<**string**, **string**>) ||
 || platformId | **string** ||
 || resourcesSpec | **[ResourcesSpec](#yandex.cloud.compute.v1.instancegroup.ResourcesSpec)** ||
-|| metadata | **object** (map<**string**, **string**>)
-
-No more than 128 per resource. The maximum string length in characters for each value is 262144. The string length in characters for each key must be 1-63. Each key must match the regular expression ` [a-z][-_0-9a-z]* `. ||
+|| metadata | **object** (map<**string**, **string**>) ||
 || bootDiskSpec | **[AttachedDiskSpec](#yandex.cloud.compute.v1.instancegroup.AttachedDiskSpec)** ||
-|| secondaryDiskSpecs[] | **[AttachedDiskSpec](#yandex.cloud.compute.v1.instancegroup.AttachedDiskSpec)**
-
-The maximum number of elements is 3. ||
+|| secondaryDiskSpecs[] | **[AttachedDiskSpec](#yandex.cloud.compute.v1.instancegroup.AttachedDiskSpec)** ||
 || networkInterfaceSpecs[] | **[NetworkInterfaceSpec](#yandex.cloud.compute.v1.instancegroup.NetworkInterfaceSpec)** ||
 || schedulingPolicy | **[SchedulingPolicy](#yandex.cloud.compute.v1.instancegroup.SchedulingPolicy)** ||
 || serviceAccountId | **string** ||
+|| name | **string** ||
+|| hostname | **string** ||
 || networkSettings | **[NetworkSettings](#yandex.cloud.compute.v1.instancegroup.NetworkSettings)** ||
-|| name | **string**
-
-The maximum string length in characters is 128. ||
-|| hostname | **string**
-
-The maximum string length in characters is 128. ||
 || placementPolicy | **[PlacementPolicy](#yandex.cloud.compute.v1.instancegroup.PlacementPolicy)** ||
 || filesystemSpecs[] | **[AttachedFilesystemSpec](#yandex.cloud.compute.v1.instancegroup.AttachedFilesystemSpec)** ||
-|| metadataOptions | **[MetadataOptions](#yandex.cloud.compute.v1.instancegroup.MetadataOptions)** ||
 || reservedInstancePoolId | **string** ||
+|| metadataOptions | **[MetadataOptions](#yandex.cloud.compute.v1.instancegroup.MetadataOptions)** ||
 |#
 
 ## ResourcesSpec {#yandex.cloud.compute.v1.instancegroup.ResourcesSpec}
 
 #|
 ||Field | Description ||
-|| memory | **string** (int64)
-
-The maximum value is 824633720832. ||
+|| memory | **string** (int64) ||
 || cores | **string** (int64) ||
 || coreFraction | **string** (int64) ||
 || gpus | **string** (int64) ||
@@ -601,31 +587,21 @@ Value must match the regular expression ``` |[a-z][-_0-9a-z]{0,19} ```. ||
 || diskSpec | **[DiskSpec](#yandex.cloud.compute.v1.instancegroup.AttachedDiskSpec.DiskSpec)** ||
 || diskId | **string**
 
-The maximum string length in characters is 128. Value must match the regular expression ` [-a-zA-Z0-9._{}]* `. ||
-|| name | **string**
-
-The maximum string length in characters is 128. ||
+Value must match the regular expression ` [-a-zA-Z0-9._{}]* `. ||
+|| name | **string** ||
 |#
 
 ## DiskSpec {#yandex.cloud.compute.v1.instancegroup.AttachedDiskSpec.DiskSpec}
 
 #|
 ||Field | Description ||
-|| description | **string**
-
-The maximum string length in characters is 256. ||
+|| description | **string** ||
 || typeId | **string** ||
-|| size | **string** (int64)
-
-Acceptable values are 4194304 to 28587302322176, inclusive. ||
+|| size | **string** (int64) ||
 || imageId | **string**
-
-The maximum string length in characters is 50.
 
 Includes only one of the fields `imageId`, `snapshotId`. ||
 || snapshotId | **string**
-
-The maximum string length in characters is 50.
 
 Includes only one of the fields `imageId`, `snapshotId`. ||
 || preserveAfterInstanceDelete | **boolean** ||
@@ -647,8 +623,10 @@ Includes only one of the fields `imageId`, `snapshotId`. ||
 #|
 ||Field | Description ||
 || oneToOneNatSpec | **[OneToOneNatSpec](#yandex.cloud.compute.v1.instancegroup.OneToOneNatSpec)** ||
+|| address | **string**
+
+Value must match the regular expression ` [-a-zA-Z0-9._{}:]* `. ||
 || dnsRecordSpecs[] | **[DnsRecordSpec](#yandex.cloud.compute.v1.instancegroup.DnsRecordSpec)** ||
-|| address | **string** ||
 |#
 
 ## OneToOneNatSpec {#yandex.cloud.compute.v1.instancegroup.OneToOneNatSpec}
@@ -659,7 +637,9 @@ Includes only one of the fields `imageId`, `snapshotId`. ||
 
 - `IPV4`
 - `IPV6` ||
-|| address | **string** ||
+|| address | **string**
+
+Value must match the regular expression ` [-a-zA-Z0-9._{}]* `. ||
 || dnsRecordSpecs[] | **[DnsRecordSpec](#yandex.cloud.compute.v1.instancegroup.DnsRecordSpec)** ||
 |#
 
@@ -669,9 +649,7 @@ Includes only one of the fields `imageId`, `snapshotId`. ||
 ||Field | Description ||
 || fqdn | **string** ||
 || dnsZoneId | **string** ||
-|| ttl | **string** (int64)
-
-Acceptable values are 0 to 86400, inclusive. ||
+|| ttl | **string** (int64) ||
 || ptr | **boolean** ||
 |#
 
@@ -726,7 +704,7 @@ Acceptable values are 0 to 86400, inclusive. ||
 Value must match the regular expression ``` |[a-z][-_0-9a-z]{0,19} ```. ||
 || filesystemId | **string**
 
-The maximum string length in characters is 128. Value must match the regular expression ` [-a-zA-Z0-9._{}]* `. ||
+Value must match the regular expression ` [-a-zA-Z0-9._{}]* `. ||
 |#
 
 ## MetadataOptions {#yandex.cloud.compute.v1.instancegroup.MetadataOptions}
@@ -776,31 +754,21 @@ Includes only one of the fields `fixedScale`, `autoScale`. ||
 
 #|
 ||Field | Description ||
-|| size | **string** (int64)
-
-Acceptable values are 1 to 100, inclusive. ||
+|| size | **string** (int64) ||
 |#
 
 ## AutoScale {#yandex.cloud.compute.v1.instancegroup.ScalePolicy.AutoScale}
 
 #|
 ||Field | Description ||
-|| minZoneSize | **string** (int64)
-
-Acceptable values are 0 to 100, inclusive. ||
-|| maxSize | **string** (int64)
-
-Acceptable values are 0 to 100, inclusive. ||
+|| minZoneSize | **string** (int64) ||
+|| maxSize | **string** (int64) ||
 || measurementDuration | **string** (duration) ||
 || warmupDuration | **string** (duration) ||
 || stabilizationDuration | **string** (duration) ||
-|| initialSize | **string** (int64)
-
-The minimum value is 1. ||
+|| initialSize | **string** (int64) ||
 || cpuUtilizationRule | **[CpuUtilizationRule](#yandex.cloud.compute.v1.instancegroup.ScalePolicy.CpuUtilizationRule)** ||
-|| customRules[] | **[CustomRule](#yandex.cloud.compute.v1.instancegroup.ScalePolicy.CustomRule)**
-
-The maximum number of elements is 3. ||
+|| customRules[] | **[CustomRule](#yandex.cloud.compute.v1.instancegroup.ScalePolicy.CustomRule)** ||
 || autoScaleType | **enum** (AutoScaleType)
 
 - `ZONAL`
@@ -811,9 +779,7 @@ The maximum number of elements is 3. ||
 
 #|
 ||Field | Description ||
-|| utilizationTarget | **string**
-
-Acceptable values are 10 to 100, inclusive. ||
+|| utilizationTarget | **string** ||
 |#
 
 ## CustomRule {#yandex.cloud.compute.v1.instancegroup.ScalePolicy.CustomRule}
@@ -833,34 +799,20 @@ Acceptable values are 10 to 100, inclusive. ||
 Value must match the regular expression ` [a-zA-Z0-9./@_][ 0-9a-zA-Z./@_,:;()\[\]<>-]{0,198} `. ||
 || labels | **object** (map<**string**, **string**>)
 
-Each value must match the regular expression ` [a-zA-Z0-9./@_][ 0-9a-zA-Z./@_,:;()\[\]<>-]{0,198} `. Each key must match the regular expression ` ^[a-zA-Z][0-9a-zA-Z_]{0,31}$ `. ||
-|| target | **string**
-
-Value must be greater than 0. ||
-|| folderId | **string**
-
-The maximum string length in characters is 50. ||
-|| service | **string**
-
-The maximum string length in characters is 200. ||
+Each value must match the regular expression ` [a-zA-Z0-9./@_][ 0-9a-zA-Z./@_,:;()\[\]<>-]{0,198} `. ||
+|| target | **string** ||
+|| folderId | **string** ||
+|| service | **string** ||
 |#
 
 ## DeployPolicy {#yandex.cloud.compute.v1.instancegroup.DeployPolicy}
 
 #|
 ||Field | Description ||
-|| maxUnavailable | **string** (int64)
-
-Acceptable values are 0 to 100, inclusive. ||
-|| maxDeleting | **string** (int64)
-
-Acceptable values are 0 to 100, inclusive. ||
-|| maxCreating | **string** (int64)
-
-Acceptable values are 0 to 100, inclusive. ||
-|| maxExpansion | **string** (int64)
-
-Acceptable values are 0 to 100, inclusive. ||
+|| maxUnavailable | **string** (int64) ||
+|| maxDeleting | **string** (int64) ||
+|| maxCreating | **string** (int64) ||
+|| maxExpansion | **string** (int64) ||
 || startupDuration | **string** (duration) ||
 || strategy | **enum** (Strategy)
 
@@ -877,9 +829,7 @@ Acceptable values are 0 to 100, inclusive. ||
 
 #|
 ||Field | Description ||
-|| zones[] | **[Zone](#yandex.cloud.compute.v1.instancegroup.AllocationPolicy.Zone)**
-
-The minimum number of elements is 1. ||
+|| zones[] | **[Zone](#yandex.cloud.compute.v1.instancegroup.AllocationPolicy.Zone)** ||
 |#
 
 ## Zone {#yandex.cloud.compute.v1.instancegroup.AllocationPolicy.Zone}
@@ -887,9 +837,7 @@ The minimum number of elements is 1. ||
 #|
 ||Field | Description ||
 || zoneId | **string** ||
-|| instanceTagsPool[] | **string**
-
-The string length in characters for each value must be 3-50. ||
+|| instanceTagsPool[] | **string** ||
 |#
 
 ## LoadBalancerSpec {#yandex.cloud.compute.v1.instancegroup.LoadBalancerSpec}
@@ -908,21 +856,17 @@ The string length in characters for each value must be 3-50. ||
 || name | **string**
 
 Value must match the regular expression ``` |[a-z]([-a-z0-9]{0,61}[a-z0-9])? ```. ||
-|| description | **string**
-
-The maximum string length in characters is 256. ||
+|| description | **string** ||
 || labels | **object** (map<**string**, **string**>)
 
-No more than 64 per resource. The maximum string length in characters for each value is 63. Each value must match the regular expression ` [-_./\@0-9a-z]* `. The string length in characters for each key must be 1-63. Each key must match the regular expression ` [a-z][-_./\@0-9a-z]* `. ||
+Each value must match the regular expression ` [-_./\@0-9a-z]* `. ||
 |#
 
 ## HealthChecksSpec {#yandex.cloud.compute.v1.instancegroup.HealthChecksSpec}
 
 #|
 ||Field | Description ||
-|| healthCheckSpecs[] | **[HealthCheckSpec](#yandex.cloud.compute.v1.instancegroup.HealthCheckSpec)**
-
-The minimum number of elements is 1. ||
+|| healthCheckSpecs[] | **[HealthCheckSpec](#yandex.cloud.compute.v1.instancegroup.HealthCheckSpec)** ||
 || maxCheckingHealthDuration | **string** (duration) ||
 |#
 
@@ -946,18 +890,14 @@ Includes only one of the fields `tcpOptions`, `httpOptions`. ||
 
 #|
 ||Field | Description ||
-|| port | **string** (int64)
-
-Acceptable values are 1 to 65535, inclusive. ||
+|| port | **string** (int64) ||
 |#
 
 ## HttpOptions {#yandex.cloud.compute.v1.instancegroup.HealthCheckSpec.HttpOptions}
 
 #|
 ||Field | Description ||
-|| port | **string** (int64)
-
-Acceptable values are 1 to 65535, inclusive. ||
+|| port | **string** (int64) ||
 || path | **string** ||
 |#
 
@@ -967,10 +907,8 @@ Acceptable values are 1 to 65535, inclusive. ||
 ||Field | Description ||
 || key | **string**
 
-The string length in characters must be 1-128. Value must match the regular expression ` [a-zA-Z0-9._-]* `. ||
-|| value | **string**
-
-The maximum string length in characters is 128. ||
+Value must match the regular expression ` [a-zA-Z0-9._-]* `. ||
+|| value | **string** ||
 |#
 
 ## ApplicationLoadBalancerSpec {#yandex.cloud.compute.v1.instancegroup.ApplicationLoadBalancerSpec}
@@ -986,9 +924,13 @@ The maximum string length in characters is 128. ||
 
 #|
 ||Field | Description ||
-|| name | **string** ||
+|| name | **string**
+
+Value must match the regular expression ``` |[a-z]([-a-z0-9]{0,61}[a-z0-9])? ```. ||
 || description | **string** ||
-|| labels | **object** (map<**string**, **string**>) ||
+|| labels | **object** (map<**string**, **string**>)
+
+Each value must match the regular expression ` [-_./\@0-9a-z]* `. ||
 |#
 
 ## LoadBalancerState {#yandex.cloud.compute.v1.instancegroup.LoadBalancerState}

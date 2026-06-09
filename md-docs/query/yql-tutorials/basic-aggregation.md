@@ -23,11 +23,11 @@ FROM
 GROUP BY PULocationID           -- Колонка, по которой выполняется агрегация данных.
 ```
 
-Рассмотрите пример в блоке справа и нажмите кнопку ![run](../../_assets/console-icons/play-fill.svg) **Выполнить**.
-Результат выполнения запроса отобразится на вкладке **Результат** в виде таблицы или схемы.
+Рассмотрите пример в блоке справа и нажмите кнопку ![run](../../_assets/console-icons/play-fill.svg) **{{ ui-key.yql.yq-query-actions.run-query.button-text }}**.
+Результат выполнения запроса отобразится на вкладке **{{ ui-key.yql.yq-query-results.result.tab-text }}** в виде таблицы или схемы.
 
 #### См. также {#see-also}
 
-* Оператор [SELECT](https://ydb.tech/docs/ru//yql/reference/syntax/select)
-* Оператор [GROUP BY](https://ydb.tech/docs/ru//yql/reference/syntax/group_by)
-* [Функции агрегации данных](https://ydb.tech/docs/ru//yql/reference/builtins/aggregation)
+* Оператор [SELECT]({{ ydb.docs }}/yql/reference/syntax/select)
+* Оператор [GROUP BY]({{ ydb.docs }}/yql/reference/syntax/group_by)
+* [Функции агрегации данных]({{ ydb.docs }}/yql/reference/builtins/aggregation)

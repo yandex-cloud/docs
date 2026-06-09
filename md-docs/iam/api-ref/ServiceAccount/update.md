@@ -5,7 +5,7 @@ Updates the specified service account.
 ## HTTP request
 
 ```
-PATCH https://iam.api.cloud.yandex.net/iam/v1/serviceAccounts/{serviceAccountId}
+PATCH https://iam.{{ api-host }}/iam/v1/serviceAccounts/{serviceAccountId}
 ```
 
 ## Path parameters
@@ -48,7 +48,7 @@ The rest of the fields will be reset to the default. ||
 Required field. Name of the service account.
 The name must be unique within the cloud.
 
-Value must match the regular expression ``` |[a-z][-a-z0-9]{1,61}[a-z0-9] ```. ||
+Value must match the regular expression ` [a-z]([-a-z0-9]{0,61}[a-z0-9])? `. ||
 || description | **string**
 
 Description of the service account.
@@ -58,7 +58,7 @@ The maximum string length in characters is 256. ||
 
 Resource labels as `` key:value `` pairs.
 
-No more than 64 per resource. The maximum string length in characters for each value is 63. Each value must match the regular expression ` [-_0-9a-z]* `. The string length in characters for each key must be 1-63. Each key must match the regular expression ` [a-z][-_0-9a-z]* `. ||
+The maximum string length in characters for each value is 63. The string length in characters for each key must be 1-63. Each key must match the regular expression ` [a-z][-_0-9a-z]* `. Each value must match the regular expression ` [-_0-9a-z]* `. No more than 64 per resource. ||
 |#
 
 ## Response {#yandex.cloud.operation.Operation}
@@ -73,9 +73,7 @@ No more than 64 per resource. The maximum string length in characters for each v
   "createdBy": "string",
   "modifiedAt": "string",
   "done": "boolean",
-  "metadata": {
-    "serviceAccountId": "string"
-  },
+  "metadata": "object",
   // Includes only one of the fields `error`, `response`
   "error": {
     "code": "integer",
@@ -84,15 +82,7 @@ No more than 64 per resource. The maximum string length in characters for each v
       "object"
     ]
   },
-  "response": {
-    "id": "string",
-    "folderId": "string",
-    "createdAt": "string",
-    "name": "string",
-    "description": "string",
-    "labels": "object",
-    "lastAuthenticatedAt": "string"
-  }
+  "response": "object"
   // end of the list of possible fields
 }
 ```
@@ -134,7 +124,7 @@ In some languages, built-in datetime utilities do not support nanosecond precisi
 
 If the value is `false`, it means the operation is still in progress.
 If `true`, the operation is completed, and either `error` or `response` is available. ||
-|| metadata | **[UpdateServiceAccountMetadata](#yandex.cloud.iam.v1.UpdateServiceAccountMetadata)**
+|| metadata | **object**
 
 Service-specific metadata associated with the operation.
 It typically contains the ID of the target resource that the operation is performed on.
@@ -149,7 +139,7 @@ The operation result.
 If `done == false` and there was no failure detected, neither `error` nor `response` is set.
 If `done == false` and there was a failure detected, `error` is set.
 If `done == true`, exactly one of `error` or `response` is set. ||
-|| response | **[ServiceAccount](#yandex.cloud.iam.v1.ServiceAccount)**
+|| response | **object**
 
 The normal response of the operation in case of success.
 If the original method returns no data on success, such as Delete,
@@ -164,15 +154,6 @@ The operation result.
 If `done == false` and there was no failure detected, neither `error` nor `response` is set.
 If `done == false` and there was a failure detected, `error` is set.
 If `done == true`, exactly one of `error` or `response` is set. ||
-|#
-
-## UpdateServiceAccountMetadata {#yandex.cloud.iam.v1.UpdateServiceAccountMetadata}
-
-#|
-||Field | Description ||
-|| serviceAccountId | **string**
-
-ID of the ServiceAccount resource that is being updated. ||
 |#
 
 ## Status {#google.rpc.Status}
@@ -190,48 +171,4 @@ An error message. ||
 || details[] | **object**
 
 A list of messages that carry the error details. ||
-|#
-
-## ServiceAccount {#yandex.cloud.iam.v1.ServiceAccount}
-
-A ServiceAccount resource. For more information, see [Service accounts](../../concepts/users/service-accounts.md).
-
-#|
-||Field | Description ||
-|| id | **string**
-
-ID of the service account. ||
-|| folderId | **string**
-
-ID of the folder that the service account belongs to. ||
-|| createdAt | **string** (date-time)
-
-Creation timestamp.
-
-String in [RFC3339](https://www.ietf.org/rfc/rfc3339.txt) text format. The range of possible values is from
-`0001-01-01T00:00:00Z` to `9999-12-31T23:59:59.999999999Z`, i.e. from 0 to 9 digits for fractions of a second.
-
-To work with values in this field, use the APIs described in the
-[Protocol Buffers reference](https://developers.google.com/protocol-buffers/docs/reference/overview).
-In some languages, built-in datetime utilities do not support nanosecond precision (9 digits). ||
-|| name | **string**
-
-Name of the service account.
-The name is unique within the cloud. 3-63 characters long. ||
-|| description | **string**
-
-Description of the service account. 0-256 characters long. ||
-|| labels | **object** (map<**string**, **string**>)
-
-Resource labels as `` key:value `` pairs. Maximum of 64 per resource. ||
-|| lastAuthenticatedAt | **string** (date-time)
-
-Timestamp for the last authentication of this service account.
-
-String in [RFC3339](https://www.ietf.org/rfc/rfc3339.txt) text format. The range of possible values is from
-`0001-01-01T00:00:00Z` to `9999-12-31T23:59:59.999999999Z`, i.e. from 0 to 9 digits for fractions of a second.
-
-To work with values in this field, use the APIs described in the
-[Protocol Buffers reference](https://developers.google.com/protocol-buffers/docs/reference/overview).
-In some languages, built-in datetime utilities do not support nanosecond precision (9 digits). ||
 |#

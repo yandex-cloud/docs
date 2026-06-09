@@ -1,6 +1,6 @@
-# Просмотр логов кластера Yandex StoreDoc
+# Просмотр логов кластера {{ SD }}
 
-Yandex StoreDoc позволяет [получить фрагмент логов кластера](#get-log) за выбранный период и [просматривать логи в реальном времени](#get-log-stream).
+{{ mmg-name }} позволяет [получить фрагмент логов кластера](#get-log) за выбранный период и [просматривать логи в реальном времени](#get-log-stream).
 
 {% note info %}
 
@@ -14,32 +14,32 @@ Yandex StoreDoc позволяет [получить фрагмент логов
 
 - Консоль управления {#console}
 
-    1. Перейдите на [страницу каталога](https://console.yandex.cloud), в котором находится кластер.
-    1. [Перейдите](../../console/operations/select-service.md#select-service) в сервис **Yandex StoreDoc**.
-    1. Нажмите на имя нужного кластера и выберите вкладку ![image](../../_assets/console-icons/receipt.svg) **Логи**.
+    1. Перейдите на [страницу каталога]({{ link-console-main }}), в котором находится кластер.
+    1. Перейдите в сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-mongodb }}**.
+    1. Нажмите на имя нужного кластера и выберите вкладку ![image](../../_assets/console-icons/receipt.svg) **{{ ui-key.yacloud.mongodb.cluster.switch_logs }}**.
     1. Укажите период времени, за который нужно отобразить логи: введите его вручную или выберите в календаре, нажав на поле ввода дат.
     1. При необходимости укажите хосты и уровень логирования в строке с полем ввода дат.
 
     Будет отображен список записей в логе за выбранный период времени. Чтобы посмотреть подробную информацию о событии, нажмите на интересующую запись в списке.
 
-    Если записей слишком много и отображается только часть из них, нажмите на кнопку **Загрузить еще** в конце списка.
+    Если записей слишком много и отображается только часть из них, нажмите на кнопку **{{ ui-key.yacloud.common.label_load-more }}** в конце списка.
 
 - CLI {#cli}
 
-    Если у вас еще нет интерфейса командной строки Yandex Cloud (CLI), [установите и инициализируйте его](../../cli/quickstart.md#install).
+    Если у вас еще нет интерфейса командной строки {{ yandex-cloud }} (CLI), [установите и инициализируйте его](../../cli/quickstart.md#install).
 
     По умолчанию используется каталог, указанный при [создании](../../cli/operations/profile/profile-create.md) профиля CLI. Чтобы изменить каталог по умолчанию, используйте команду `yc config set folder-id <идентификатор_каталога>`. Также для любой команды вы можете указать другой каталог с помощью параметров `--folder-name` или `--folder-id`. Если вы обращаетесь к ресурсу по имени, поиск будет выполнен в каталоге по умолчанию. Если вы обращаетесь к ресурсу по идентификатору, поиск будет выполнен глобально — во всех каталогах с учетом прав доступа.
 
     1. Просмотрите описание команды CLI для просмотра логов кластера:
 
         ```bash
-        yc managed-mongodb cluster list-logs --help
+        {{ yc-mdb-mg }} cluster list-logs --help
         ```
 
     1. Запустите команду получения логов кластера (в примере приведены не все доступные параметры):
 
         ```bash
-        yc managed-mongodb cluster list-logs <имя_или_идентификатор_кластера> \
+        {{ yc-mdb-mg }} cluster list-logs <имя_или_идентификатор_кластера> \
            --limit <ограничение_количества_записей> \
            --service-type <тип_сервиса> \
            --columns <список_колонок_для_вывода_информации> \
@@ -65,7 +65,7 @@ Yandex StoreDoc позволяет [получить фрагмент логов
 
             {% endnote %}
 
-        * `--filter` — настройки фильтрации записей, например `message.hostname='node1.mdb.yandexcloud.net'`.
+        * `--filter` — настройки фильтрации записей, например `message.hostname='node1.{{ dns-zone }}'`.
         * `--since` — левая граница временного диапазона в формате [RFC-3339](https://www.ietf.org/rfc/rfc3339.html), `HH:MM:SS` или временного промежутка относительно текущего времени. Примеры: `2006-01-02T15:04:05Z`, `15:04:05`, `2h`, `3h30m ago`.
         * `--until` — правая граница временного диапазона, формат аналогичен `--since`.
 
@@ -79,13 +79,13 @@ Yandex StoreDoc позволяет [получить фрагмент логов
         export IAM_TOKEN="<IAM-токен>"
         ```
 
-    1. Воспользуйтесь методом [Cluster.ListLogs](../api-ref/Cluster/listLogs.md) и выполните запрос, например, с помощью [cURL](https://curl.se/):
+    1. Воспользуйтесь методом [Cluster.ListLogs](../api-ref/Cluster/listLogs.md) и выполните запрос, например, с помощью {{ api-examples.rest.tool }}:
 
         ```bash
         curl \
             --request GET \
             --header "Authorization: Bearer $IAM_TOKEN" \
-            --url 'https://mdb.api.cloud.yandex.net/managed-mongodb/v1/clusters/<идентификатор_кластера>:logs' \
+            --url 'https://{{ api-host-mdb }}/managed-mongodb/v1/clusters/<идентификатор_кластера>:logs' \
             --url-query serviceType=<тип_сервиса> \
             --url-query columnFilter=<список_колонок> \
             --url-query fromTime=<левая_граница_временного_диапазона> \
@@ -96,7 +96,7 @@ Yandex StoreDoc позволяет [получить фрагмент логов
 
         * `serviceType` — тип сервиса, логи которого нужно получить:
 
-          * `MONGOD` — лог операций Yandex StoreDoc.
+          * `MONGOD` — лог операций {{ SD }}.
           * `AUDIT` — лог аудита.
 
         * `columnFilter` — список колонок для вывода информации:
@@ -110,7 +110,7 @@ Yandex StoreDoc позволяет [получить фрагмент логов
 
           В одном параметре `columnFilter` можно указать только одну колонку. Если необходимо отфильтровать логи по нескольким колонкам, передайте перечень нужных колонок в нескольких параметрах.
 
-            * `fromTime` — левая граница временного диапазона в формате [RFC-3339](https://www.ietf.org/rfc/rfc3339.html). Пример: `2006-01-02T15:04:05Z`.
+            * `fromTime` — левая граница временного диапазона в формате [RFC-3339](https://www.ietf.org/rfc/rfc3339.html). Пример: `{{ sample-rfc3339-timestamp }}`.
 
             * `toTime` — правая граница временного диапазона, формат аналогичен `fromTime`.
 
@@ -133,7 +133,7 @@ Yandex StoreDoc позволяет [получить фрагмент логов
        ```
        
        Далее предполагается, что содержимое репозитория находится в директории `~/cloudapi/`.
-    1. Воспользуйтесь вызовом [ClusterService.ListLogs](../api-ref/grpc/Cluster/listLogs.md) и выполните запрос, например, с помощью [gRPCurl](https://github.com/fullstorydev/grpcurl):
+    1. Воспользуйтесь вызовом [ClusterService.ListLogs](../api-ref/grpc/Cluster/listLogs.md) и выполните запрос, например, с помощью {{ api-examples.grpc.tool }}:
 
         ```bash
         grpcurl \
@@ -151,7 +151,7 @@ Yandex StoreDoc позволяет [получить фрагмент логов
                 "from_time": "<левая_граница_временного_диапазона>",
                 "to_time": "<правая_граница_временного_диапазона>"
               }' \
-          mdb.api.cloud.yandex.net:443 \
+          {{ api-host-mdb }}:{{ port-https }} \
           yandex.cloud.mdb.mongodb.v1.ClusterService.ListLogs
         ```
 
@@ -159,7 +159,7 @@ Yandex StoreDoc позволяет [получить фрагмент логов
 
         * `service_type` — тип сервиса, логи которого нужно получить:
         
-          * `MONGOD` — лог операций Yandex StoreDoc.
+          * `MONGOD` — лог операций {{ SD }}.
           * `AUDIT` — лог аудита.
 
         * `column_filter` — список колонок для вывода информации:
@@ -173,7 +173,7 @@ Yandex StoreDoc позволяет [получить фрагмент логов
 
           В параметре `column_filter` можно указать несколько колонок, если нужно отфильтровать логи по нескольким колонкам.
 
-            * `from_time` — левая граница временного диапазона в формате [RFC-3339](https://www.ietf.org/rfc/rfc3339.html). Пример: `2006-01-02T15:04:05Z`.
+            * `from_time` — левая граница временного диапазона в формате [RFC-3339](https://www.ietf.org/rfc/rfc3339.html). Пример: `{{ sample-rfc3339-timestamp }}`.
 
             * `to_time` — правая граница временного диапазона, формат аналогичен `from_time`.
 
@@ -191,14 +191,14 @@ Yandex StoreDoc позволяет [получить фрагмент логов
 
 - CLI {#cli}
 
-    Если у вас еще нет интерфейса командной строки Yandex Cloud (CLI), [установите и инициализируйте его](../../cli/quickstart.md#install).
+    Если у вас еще нет интерфейса командной строки {{ yandex-cloud }} (CLI), [установите и инициализируйте его](../../cli/quickstart.md#install).
 
     По умолчанию используется каталог, указанный при [создании](../../cli/operations/profile/profile-create.md) профиля CLI. Чтобы изменить каталог по умолчанию, используйте команду `yc config set folder-id <идентификатор_каталога>`. Также для любой команды вы можете указать другой каталог с помощью параметров `--folder-name` или `--folder-id`. Если вы обращаетесь к ресурсу по имени, поиск будет выполнен в каталоге по умолчанию. Если вы обращаетесь к ресурсу по идентификатору, поиск будет выполнен глобально — во всех каталогах с учетом прав доступа.
 
     Для просмотра логов кластера по мере их поступления выполните команду:
 
     ```bash
-    yc managed-mongodb cluster list-logs <имя_или_идентификатор_кластера> --follow
+    {{ yc-mdb-mg }} cluster list-logs <имя_или_идентификатор_кластера> --follow
     ```
 
     Имя и идентификатор кластера можно запросить со [списком кластеров в каталоге](cluster-list.md#list-clusters).
@@ -211,13 +211,13 @@ Yandex StoreDoc позволяет [получить фрагмент логов
         export IAM_TOKEN="<IAM-токен>"
         ```
 
-    1. Воспользуйтесь методом [Cluster.StreamLogs](../api-ref/Cluster/streamLogs.md) и выполните запрос, например, с помощью [cURL](https://curl.se/):
+    1. Воспользуйтесь методом [Cluster.StreamLogs](../api-ref/Cluster/streamLogs.md) и выполните запрос, например, с помощью {{ api-examples.rest.tool }}:
 
         ```bash
         curl \
             --request GET \
             --header "Authorization: Bearer $IAM_TOKEN" \
-            --url 'https://mdb.api.cloud.yandex.net/managed-mongodb/v1/clusters/<идентификатор_кластера>:stream_logs' \
+            --url 'https://{{ api-host-mdb }}/managed-mongodb/v1/clusters/<идентификатор_кластера>:stream_logs' \
             --url-query serviceType=<тип_сервиса> \
             --url-query columnFilter=<список_колонок> \
             --url-query fromTime=<левая_граница_временного_диапазона> \
@@ -229,7 +229,7 @@ Yandex StoreDoc позволяет [получить фрагмент логов
 
         * `serviceType` — тип сервиса, логи которого нужно получить:
 
-          * `MONGOD` — лог операций Yandex StoreDoc.
+          * `MONGOD` — лог операций {{ SD }}.
           * `AUDIT` — лог аудита.
 
         * `columnFilter` — список колонок для вывода информации:
@@ -243,7 +243,7 @@ Yandex StoreDoc позволяет [получить фрагмент логов
 
           В одном параметре `columnFilter` можно указать только одну колонку. Если необходимо отфильтровать логи по нескольким колонкам, передайте перечень нужных колонок в нескольких параметрах.
         
-            * `fromTime` — левая граница временного диапазона в формате [RFC-3339](https://www.ietf.org/rfc/rfc3339.html). Пример: `2006-01-02T15:04:05Z`.
+            * `fromTime` — левая граница временного диапазона в формате [RFC-3339](https://www.ietf.org/rfc/rfc3339.html). Пример: `{{ sample-rfc3339-timestamp }}`.
 
             * `toTime` — правая граница временного диапазона, формат аналогичен `fromTime`.
 
@@ -281,7 +281,7 @@ Yandex StoreDoc позволяет [получить фрагмент логов
        ```
        
        Далее предполагается, что содержимое репозитория находится в директории `~/cloudapi/`.
-    1. Воспользуйтесь вызовом [ClusterService.StreamLogs](../api-ref/grpc/Cluster/listLogs.md) и выполните запрос, например, с помощью [gRPCurl](https://github.com/fullstorydev/grpcurl):
+    1. Воспользуйтесь вызовом [ClusterService.StreamLogs](../api-ref/grpc/Cluster/listLogs.md) и выполните запрос, например, с помощью {{ api-examples.grpc.tool }}:
 
         ```bash
         grpcurl \
@@ -300,7 +300,7 @@ Yandex StoreDoc позволяет [получить фрагмент логов
                 "to_time": "<правая_граница_временного_диапазона>",
                 "filter": "<фильтр_логов>"
               }' \
-          mdb.api.cloud.yandex.net:443 \
+          {{ api-host-mdb }}:{{ port-https }} \
           yandex.cloud.mdb.mongodb.v1.ClusterService.StreamLogs
         ```
 
@@ -308,7 +308,7 @@ Yandex StoreDoc позволяет [получить фрагмент логов
 
         * `service_type` — тип сервиса, логи которого нужно получить:
 
-          * `MONGOD` — лог операций Yandex StoreDoc.
+          * `MONGOD` — лог операций {{ SD }}.
           * `AUDIT` — лог аудита.
 
         * `column_filter`  — список колонок для вывода информации:
@@ -322,7 +322,7 @@ Yandex StoreDoc позволяет [получить фрагмент логов
 
           В параметре `column_filter` можно указать несколько колонок, если нужно отфильтровать логи по нескольким колонкам.
 
-            * `from_time` — левая граница временного диапазона в формате [RFC-3339](https://www.ietf.org/rfc/rfc3339.html). Пример: `2006-01-02T15:04:05Z`.
+            * `from_time` — левая граница временного диапазона в формате [RFC-3339](https://www.ietf.org/rfc/rfc3339.html). Пример: `{{ sample-rfc3339-timestamp }}`.
         
             * `to_time` — правая граница временного диапазона, формат аналогичен `from_time`.
 

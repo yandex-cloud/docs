@@ -1,6 +1,6 @@
-# Разграничение прав доступа для групп пользователей с различными ролями в Yandex Identity Hub
+# Разграничение прав доступа для групп пользователей с различными ролями в {{ org-full-name }}
 
-В настоящем руководстве приведен пример решения по использованию [групп пользователей](../../organization/concepts/groups.md) для разграничения [прав доступа](../concepts/access-control/index.md) к ресурсам в [организации Yandex Identity Hub](../../overview/roles-and-resources.md).
+В настоящем руководстве приведен пример решения по использованию [групп пользователей](../../organization/concepts/groups.md) для разграничения [прав доступа](../concepts/access-control/index.md) к ресурсам в [организации {{ org-full-name }}](../../overview/roles-and-resources.md).
 
 ## Обзор решения {#solution-overview}
 
@@ -8,19 +8,19 @@
 
 В рамках руководства вы создадите тестовую организацию, в которой будут созданы два [облака](../../resource-manager/concepts/resources-hierarchy.md#cloud) — `production` и `testing`, соответствующие независимым друг от друга продуктовой и тестовой средам разработки. Этими облаками будут пользоваться три группы пользователей, созданные в организации: группа инженеров по информационной безопасности (`security`), группа инженеров DevOps (`devops`) и группа разработчиков (`developers`).
 
-Каждой из групп пользователей будет назначен свой набор [ролей](../concepts/access-control/roles.md), соответствующий объему задач, выполняемых пользователями-участниками этих групп. Так, инженерам по информационной безопасности во всей организации будут предоставлены права на получение информации обо всех ресурсах, настройку сбора и хранения [аудитных логов](../../audit-trails/concepts/trail.md) любых ресурсов, а также настройку и выполнение сканирования [Docker-образов](../../container-registry/concepts/docker-image.md) в [реестрах](../../container-registry/concepts/registry.md) Yandex Container Registry.
+Каждой из групп пользователей будет назначен свой набор [ролей](../concepts/access-control/roles.md), соответствующий объему задач, выполняемых пользователями-участниками этих групп. Так, инженерам по информационной безопасности во всей организации будут предоставлены права на получение информации обо всех ресурсах, настройку сбора и хранения [аудитных логов](../../audit-trails/concepts/trail.md) любых ресурсов, а также настройку и выполнение сканирования [Docker-образов](../../container-registry/concepts/docker-image.md) в [реестрах](../../container-registry/concepts/registry.md) {{ container-registry-full-name }}.
 
 Кроме того, для группы инженеров по информационной безопасности в продуктовой среде будет создан отдельный [каталог](../../resource-manager/concepts/resources-hierarchy.md#folder) `security`, в котором у участников этой группы будут права администратора и в котором они смогут управлять любыми необходимыми им ресурсами и доступом к ним.
 
-Группе инженеров DevOps в двух облаках будут предоставлены права на управление реестрами Container Registry, [кластерами](../../managed-kubernetes/concepts/index.md#kubernetes-cluster) Yandex Managed Service for Kubernetes, кластерами управляемых баз данных, [виртуальными машинами](../../compute/concepts/vm.md), ресурсами [сервиса Yandex Monitoring](../../monitoring/index.md), а также на управление [лог-группами](../../logging/concepts/log-group.md) Yandex Cloud Logging и доступом к ним.
+Группе инженеров DevOps в двух облаках будут предоставлены права на управление реестрами {{ container-registry-name }}, [кластерами](../../managed-kubernetes/concepts/index.md#kubernetes-cluster) {{ managed-k8s-full-name }}, кластерами управляемых баз данных, [виртуальными машинами](../../compute/concepts/vm.md), ресурсами [сервиса {{ monitoring-full-name }}](../../monitoring/index.md), а также на управление [лог-группами](../../logging/concepts/log-group.md) {{ cloud-logging-full-name }} и доступом к ним.
 
 Группе разработчиков будут предоставлены следующие права доступа:
-* в продуктовой среде на скачивание Docker-образов из реестров Container Registry, просмотр информации о кластерах Kubernetes, подключение к виртуальным машинам Compute Cloud через [OS Login](../../organization/concepts/os-login.md), а также на просмотр информации о ресурсах и [метриках](../../monitoring/concepts/data-model.md#metric) сервиса Monitoring;
-* в тестовой среде на скачивание и загрузку Docker-образов в реестры Container Registry, управление кластерами Kubernetes, подключение к виртуальным машинам Compute Cloud через OS Login от имени суперпользователя, а также на управление ресурсами сервиса Monitoring.
+* в продуктовой среде на скачивание Docker-образов из реестров {{ container-registry-name }}, просмотр информации о кластерах {{ k8s }}, подключение к виртуальным машинам {{ compute-name }} через [{{ oslogin }}](../../organization/concepts/os-login.md), а также на просмотр информации о ресурсах и [метриках](../../monitoring/concepts/data-model.md#metric) сервиса {{ monitoring-name }};
+* в тестовой среде на скачивание и загрузку Docker-образов в реестры {{ container-registry-name }}, управление кластерами {{ k8s }}, подключение к виртуальным машинам {{ compute-name }} через {{ oslogin }} от имени суперпользователя, а также на управление ресурсами сервиса {{ monitoring-name }}.
 
 Чтобы настроить разграничение прав доступа к ресурсам организации с помощью групп пользователей:
 
-1. [Подготовьте платформу Yandex Cloud к работе](#before-begin).
+1. [Подготовьте платформу {{ yandex-cloud }} к работе](#before-begin).
 1. [Создайте организацию](#create-organization).
 1. [Создайте облака](#create-clouds).
 1. [Создайте каталог для группы инженеров по информационной безопасности](#create-folder).
@@ -31,42 +31,42 @@
 
 Если созданная тестовая организация вам больше не нужна, [удалите](#clear-out) ее.
 
-## Подготовьте платформу Yandex Cloud к работе {#before-begin}
+## Подготовьте платформу {{ yandex-cloud }} к работе {#before-begin}
 
-Зарегистрируйтесь в Yandex Cloud и создайте [платежный аккаунт](../../billing/concepts/billing-account.md):
+Зарегистрируйтесь в {{ yandex-cloud }} и создайте [платежный аккаунт](../../billing/concepts/billing-account.md):
 
-1. Перейдите в [консоль управления](https://console.yandex.cloud), затем войдите в Yandex Cloud или зарегистрируйтесь.
-1. На странице **[Yandex Cloud Billing](https://center.yandex.cloud/billing/accounts)** убедитесь, что у вас подключен платежный аккаунт, и он находится в [статусе](../../billing/concepts/billing-account-statuses.md) `ACTIVE` или `TRIAL_ACTIVE`. Если платежного аккаунта нет, [создайте его](../../billing/quickstart/index.md).
+1. Перейдите в [консоль управления]({{ link-console-main }}), затем войдите в {{ yandex-cloud }} или зарегистрируйтесь.
+1. На странице **[{{ ui-key.yacloud_billing.billing.label_service }}]({{ link-console-billing }})** убедитесь, что у вас подключен платежный аккаунт, и он находится в [статусе](../../billing/concepts/billing-account-statuses.md) `ACTIVE` или `TRIAL_ACTIVE`. Если платежного аккаунта нет, [создайте его](../../billing/quickstart/index.md).
 
 ## Создайте организацию {#create-organization}
 
-[_Организация_](../../overview/roles-and-resources.md) — это рабочее пространство, которое объединяет разные типы ресурсов Yandex Cloud и пользователей. Создать организацию в Yandex Identity Hub может любой пользователь Яндекса.
+[_Организация_](../../overview/roles-and-resources.md) — это рабочее пространство, которое объединяет разные типы ресурсов {{ yandex-cloud }} и пользователей. Создать организацию в {{ org-full-name }} может любой пользователь Яндекса.
 
 Чтобы создать организацию:
 
-1. [Перейдите](https://center.yandex.cloud/organization) в сервис Yandex Identity Hub.
+1. [Перейдите]({{ link-org-cloud-center }}) в сервис {{ org-full-name }}.
 
-    Порядок действий при создании организации будет зависеть от того, являетесь ли вы уже членом какой-либо организации Yandex Identity Hub.
+    Порядок действий при создании организации будет зависеть от того, являетесь ли вы уже членом какой-либо организации {{ org-full-name }}.
 1. Создайте организацию:
 
     {% list tabs %}
 
     - Вы не входите в организацию
 
-      Если вы пока не являетесь членом какой-либо организации Yandex Identity Hub, при переходе по ссылке у вас откроется форма создания новой организации:
+      Если вы пока не являетесь членом какой-либо организации {{ org-full-name }}, при переходе по ссылке у вас откроется форма создания новой организации:
 
       1. Введите название организации: `Example organization`.
-      1. Нажмите кнопку **Создать новую организацию**.
+      1. Нажмите кнопку **{{ ui-key.yacloud_components.organization.action.create }}**.
 
     - Вы уже состоите в организации
 
-      Если вы уже являетесь членом какой-либо организации Yandex Identity Hub, при переходе по ссылке у вас откроется интерфейс [Yandex Identity Hub](https://center.yandex.cloud/organization) в Cloud Center.
+      Если вы уже являетесь членом какой-либо организации {{ org-full-name }}, при переходе по ссылке у вас откроется интерфейс [{{ org-full-name }}]({{ link-org-cloud-center }}) в {{ cloud-center }}.
 
       Чтобы не нарушить работу инфраструктуры в существующих организациях, для целей данного руководства вы создадите новую организацию:
 
-      1. В левом верхнем углу экрана рядом с названием текущей организации нажмите значок ![chevron-down](../../_assets/console-icons/chevron-down.svg) и выберите ![circle-plus](../../_assets/console-icons/circle-plus.svg) **Создать организацию**.
+      1. В левом верхнем углу экрана рядом с названием текущей организации нажмите значок ![chevron-down](../../_assets/console-icons/chevron-down.svg) и выберите ![circle-plus](../../_assets/console-icons/circle-plus.svg) **{{ ui-key.yacloud_components.organization.action.create-organization }}**.
       1. В открывшемся окне введите название организации: `Example organization`.
-      1. Нажмите **Создать новую организацию**.
+      1. Нажмите **{{ ui-key.yacloud_components.organization.action.create }}**.
 
     {% endlist %}
 
@@ -82,18 +82,18 @@
 
     - Консоль управления {#console}
 
-      1. Перейдите в [консоль управления](https://console.yandex.cloud) и на панели слева нажмите фото вашего аккаунта.
+      1. Перейдите в [консоль управления]({{ link-console-main }}) и на панели слева нажмите фото вашего аккаунта.
       1. Выберите организацию `Example organization`. Откроется окно с формой создания первого облака в организации:
 
-          1. Убедитесь, что в поле **Организация** выбрана организация `Example organization`.
-          1. В поле **Название облака** укажите `testing`.
-          1. Нажмите **Создать**.
+          1. Убедитесь, что в поле **{{ ui-key.yacloud.page.welcome.field_organization }}** выбрана организация `Example organization`.
+          1. В поле **{{ ui-key.yacloud.page.welcome.field_cloud-name }}** укажите `testing`.
+          1. Нажмите **{{ ui-key.yacloud.page.welcome.button_create }}**.
 
           В результате в организации `Example organization` будет создано первое облако `testing`, а браузер откроет каталог по умолчанию `default`, созданный внутри этого нового облака.
-      1. В левой части экрана в строке с именем организации `Example organization` нажмите значок ![ellipsis](../../_assets/console-icons/ellipsis.svg) и выберите ![plus](../../_assets/console-icons/plus.svg) **Создать облако**. В открывшемся окне:
+      1. В левой части экрана в строке с именем организации `Example organization` нажмите значок ![ellipsis](../../_assets/console-icons/ellipsis.svg) и выберите ![plus](../../_assets/console-icons/plus.svg) **{{ ui-key.yacloud.iam.cloud.label_create_cloud }}**. В открывшемся окне:
 
-          1. В поле **Имя** укажите `production`.
-          1. Нажмите **Создать**.
+          1. В поле **{{ ui-key.yacloud.common.name }}** укажите `production`.
+          1. Нажмите **{{ ui-key.yacloud.common.create }}**.
 
           В результате в организации `Example organization` будет создано второе облако `production`.
 
@@ -103,15 +103,15 @@
 
     {% list tabs group=instructions %}
 
-    - Интерфейс Cloud Center {#cloud-center}
+    - Интерфейс {{ cloud-center }} {#cloud-center}
 
-      1. Перейдите в сервис [**Yandex Cloud Billing**](https://center.yandex.cloud/billing/accounts).
+      1. Перейдите в сервис [**{{ billing-name }}**]({{ link-console-billing }}).
       1. Выберите ваш платежный аккаунт.
-      1. На странице с информацией об аккаунте убедитесь, что в блоке **Привязанные облака и сервисы** указаны оба созданных облака — `production` и `testing`.
+      1. На странице с информацией об аккаунте убедитесь, что в блоке **{{ ui-key.yacloud_billing.billing.account.dashboard-resources.title_section-billable }}** указаны оба созданных облака — `production` и `testing`.
       1. Если какое-то из облаков (или оба облака) отсутствуют в этом блоке, привяжите их:
 
-          1. В блоке **Привязанные облака и сервисы** нажмите кнопку ![link](../../_assets/console-icons/link.svg) **Привязать облако**.
-          1. В открывшемся окне выберите облако, которое необходимо привязать, и нажмите кнопку **Привязать**.
+          1. В блоке **{{ ui-key.yacloud_billing.billing.account.dashboard-resources.title_section-billable }}** нажмите кнопку ![link](../../_assets/console-icons/link.svg) **{{ ui-key.yacloud_billing.billing.account.dashboard-resources.button_bind-cloud }}**.
+          1. В открывшемся окне выберите облако, которое необходимо привязать, и нажмите кнопку **{{ ui-key.yacloud_billing.billing.accounts.button_bind }}**.
 
     {% endlist %}
 
@@ -123,13 +123,13 @@
 
 - Консоль управления {#console}
 
-  1. В [консоли управления](https://console.yandex.cloud) в списке организаций, облаков и каталогов в левой части экрана выберите облако `production`.
-  1. В строке с именем облака `production` нажмите значок ![ellipsis](../../_assets/console-icons/ellipsis.svg) и выберите ![plus](../../_assets/console-icons/plus.svg) **Создать каталог**. В открывшемся окне:
+  1. В [консоли управления]({{ link-console-main }}) в списке организаций, облаков и каталогов в левой части экрана выберите облако `production`.
+  1. В строке с именем облака `production` нажмите значок ![ellipsis](../../_assets/console-icons/ellipsis.svg) и выберите ![plus](../../_assets/console-icons/plus.svg) **{{ ui-key.yacloud.component.console-dashboard.button_action-create-folder }}**. В открывшемся окне:
 
-      1. В поле **Имя** задайте имя каталога `security`.
-      1. (Опционально) В поле **Описание** задайте описание создаваемого каталога.
-      1. В поле **Дополнительно** отключите опцию **Создать сеть по умолчанию**. Позднее при создании инфраструктуры вы в любой момент сможете [создать облачную сеть](../../vpc/operations/network-create.md) с нужными вам параметрами.
-      1. Нажмите кнопку **Создать**. 
+      1. В поле **{{ ui-key.yacloud.iam.cloud.folders-create.field_name }}** задайте имя каталога `security`.
+      1. (Опционально) В поле **{{ ui-key.yacloud_org.iam.cloud.folders-create.field_description }}** задайте описание создаваемого каталога.
+      1. В поле **{{ ui-key.yacloud.iam.cloud.folders-create.field_optionally }}** отключите опцию **{{ ui-key.yacloud.iam.cloud.folders-create.field_default-net }}**. Позднее при создании инфраструктуры вы в любой момент сможете [создать облачную сеть](../../vpc/operations/network-create.md) с нужными вам параметрами.
+      1. Нажмите кнопку **{{ ui-key.yacloud_org.iam.cloud.folders-create.button_create }}**. 
 
 {% endlist %}
 
@@ -139,15 +139,15 @@
 
 {% list tabs group=instructions %}
 
-- Интерфейс Cloud Center {#cloud-center}
+- Интерфейс {{ cloud-center }} {#cloud-center}
 
-  1. Войдите в сервис [Yandex Identity Hub](https://center.yandex.cloud/organization).
-  1. На панели слева выберите ![groups](../../_assets/console-icons/persons.svg) **Группы**.
-  1. В правом верхнем углу страницы нажмите ![Circles3Plus](../../_assets/console-icons/circles-3-plus.svg) **Создать группу** и в открывшемся окне:
+  1. Войдите в сервис [{{ org-full-name }}]({{ link-org-cloud-center }}).
+  1. На панели слева выберите ![groups](../../_assets/console-icons/persons.svg) **{{ ui-key.yacloud_org.pages.groups }}**.
+  1. В правом верхнем углу страницы нажмите ![Circles3Plus](../../_assets/console-icons/circles-3-plus.svg) **{{ ui-key.yacloud_org.entity.group.action_create }}** и в открывшемся окне:
 
       1. Задайте название группы: `security`.
       1. (Опционально) Задайте описание группы.
-      1. Нажмите кнопку **Создать группу**.
+      1. Нажмите кнопку **{{ ui-key.yacloud_org.groups.action_create-group }}**.
   1. Аналогичным образом создайте две другие группы пользователей — `devops` и `developers`.
 
 {% endlist %}
@@ -168,7 +168,7 @@
 
 * получать информацию обо всех ресурсах во всех облаках организации ([роль](../roles-reference.md#auditor) `auditor` на организацию);
 * настраивать сбор и хранение [аудитных логов](../../audit-trails/concepts/trail.md) всех ресурсов во всех облаках организации ([роль](../../audit-trails/security/index.md#at-admin) `audit-trails.admin` на организацию);
-* настраивать и выполнять сканирование [Docker-образов](../../container-registry/concepts/docker-image.md) в [реестрах](../../container-registry/concepts/registry.md) Yandex Container Registry во всех облаках организации ([роль](../../container-registry/security/index.md#container-registry-images-scanner) `container-registry.images.scanner` на организацию);
+* настраивать и выполнять сканирование [Docker-образов](../../container-registry/concepts/docker-image.md) в [реестрах](../../container-registry/concepts/registry.md) {{ container-registry-full-name }} во всех облаках организации ([роль](../../container-registry/security/index.md#container-registry-images-scanner) `container-registry.images.scanner` на организацию);
 * управлять всеми ресурсами и доступом к ним в специальном каталоге `security` облака `production` ([роль](../roles-reference.md#admin) `admin` на этот каталог).
 
 Для того, чтобы предоставить группе пользователей `security` необходимые права доступа:
@@ -177,15 +177,15 @@
 
     {% list tabs group=instructions %}
 
-    - Интерфейс Cloud Center {#cloud-center}
+    - Интерфейс {{ cloud-center }} {#cloud-center}
 
-      1. Войдите в сервис [Yandex Identity Hub](https://center.yandex.cloud/organization) с учетной записью администратора или владельца организации.
-      1. На панели слева выберите ![persons-lock](../../_assets/console-icons/persons-lock.svg) **Права доступа**.
-      1. Справа сверху нажмите кнопку **Назначить роли**.
-      1. Перейдите на вкладку **Группы** и выберите [группу](../../organization/concepts/groups.md) `security`.
-      1. Нажмите кнопку ![plus](../../_assets/console-icons/plus.svg) **Добавить роль**, введите в строке поиска и выберите [роль](../concepts/access-control/roles.md) `auditor`.
+      1. Войдите в сервис [{{ org-full-name }}]({{ link-org-cloud-center }}) с учетной записью администратора или владельца организации.
+      1. На панели слева выберите ![persons-lock](../../_assets/console-icons/persons-lock.svg) **{{ ui-key.yacloud_org.pages.acl }}**.
+      1. Справа сверху нажмите кнопку **{{ ui-key.yacloud_components.acl.action.assign-roles }}**.
+      1. Перейдите на вкладку **{{ ui-key.yacloud_org.pages.groups }}** и выберите [группу](../../organization/concepts/groups.md) `security`.
+      1. Нажмите кнопку ![plus](../../_assets/console-icons/plus.svg) **{{ ui-key.yacloud_components.acl.action.add-role }}**, введите в строке поиска и выберите [роль](../concepts/access-control/roles.md) `auditor`.
       1. Повторите предыдущее действие, чтобы добавить роли `audit-trails.admin` и `container-registry.images.scanner`.
-      1. Нажмите кнопку **Сохранить**.
+      1. Нажмите кнопку **{{ ui-key.yacloud.common.save }}**.
 
     {% endlist %}
 
@@ -195,12 +195,12 @@
 
     - Консоль управления {#console}
 
-      1. В [консоли управления](https://console.yandex.cloud) выберите каталог `security` в облаке `production`.
-      1. В верхней части экрана перейдите на вкладку **Права доступа** и нажмите кнопку **Настроить доступ**. В открывшемся окне:
+      1. В [консоли управления]({{ link-console-main }}) выберите каталог `security` в облаке `production`.
+      1. В верхней части экрана перейдите на вкладку **{{ ui-key.yacloud.common.resource-acl.label_access-bindings }}** и нажмите кнопку **{{ ui-key.yacloud.common.resource-acl.button_configure-access }}**. В открывшемся окне:
 
-          1. Перейдите на вкладку **Группы** и выберите группу `security`.
-          1. Нажмите кнопку ![plus](../../_assets/console-icons/plus.svg) **Добавить роль**, введите в строке поиска и выберите роль `admin`.
-          1. Нажмите **Сохранить**.
+          1. Перейдите на вкладку **{{ ui-key.yacloud_org.pages.groups }}** и выберите группу `security`.
+          1. Нажмите кнопку ![plus](../../_assets/console-icons/plus.svg) **{{ ui-key.yacloud_components.acl.action.add-role }}**, введите в строке поиска и выберите роль `admin`.
+          1. Нажмите **{{ ui-key.yacloud.common.save }}**.
 
     {% endlist %}
 
@@ -208,12 +208,12 @@
 
 Пользователям, входящим в группу инженеров DevOps (`devops`), в обоих облаках понадобятся следующие возможности:
 
-* управлять реестрами Container Registry ([роль](../../container-registry/security/index.md#container-registry.editor) `container-registry.editor` на оба облака);
-* управлять [кластерами](../../managed-kubernetes/concepts/index.md#kubernetes-cluster) Yandex Managed Service for Kubernetes ([роль](../../managed-kubernetes/security/index.md#k8s-editor) `k8s.editor` на оба облака);
+* управлять реестрами {{ container-registry-name }} ([роль](../../container-registry/security/index.md#container-registry.editor) `container-registry.editor` на оба облака);
+* управлять [кластерами](../../managed-kubernetes/concepts/index.md#kubernetes-cluster) {{ managed-k8s-full-name }} ([роль](../../managed-kubernetes/security/index.md#k8s-editor) `k8s.editor` на оба облака);
 * управлять кластерами управляемых баз данных ([роль](../roles-reference.md#mdb-admin) `mdb.admin` на оба облака);
-* управлять [виртуальными машинами](../../compute/concepts/vm.md) Yandex Compute Cloud ([роль](../../compute/security/index.md#compute-editor) `compute.editor` на оба облака);
-* управлять ресурсами [сервиса Yandex Monitoring](../../monitoring/index.md) ([роль](../../monitoring/security/index.md#monitoring-admin) `monitoring.admin` на оба облака);
-* управлять [лог-группами](../../logging/concepts/log-group.md) Yandex Cloud Logging и доступом к ним ([роль](../../logging/security/index.md#logging-admin) `logging.admin` на оба облака).
+* управлять [виртуальными машинами](../../compute/concepts/vm.md) {{ compute-full-name }} ([роль](../../compute/security/index.md#compute-editor) `compute.editor` на оба облака);
+* управлять ресурсами [сервиса {{ monitoring-full-name }}](../../monitoring/index.md) ([роль](../../monitoring/security/index.md#monitoring-admin) `monitoring.admin` на оба облака);
+* управлять [лог-группами](../../logging/concepts/log-group.md) {{ cloud-logging-full-name }} и доступом к ним ([роль](../../logging/security/index.md#logging-admin) `logging.admin` на оба облака).
 
 Назначьте группе пользователей `devops` роли на облака:
 
@@ -221,12 +221,12 @@
 
 - Консоль управления {#console}
 
-  1. В [консоли управления](https://console.yandex.cloud) выберите облако `production`.
-  1. В верхней части экрана перейдите на вкладку **Права доступа** и нажмите кнопку **Настроить доступ**. В открывшемся окне:
+  1. В [консоли управления]({{ link-console-main }}) выберите облако `production`.
+  1. В верхней части экрана перейдите на вкладку **{{ ui-key.yacloud.common.resource-acl.label_access-bindings }}** и нажмите кнопку **{{ ui-key.yacloud.common.resource-acl.button_configure-access }}**. В открывшемся окне:
 
-      1. Перейдите на вкладку **Группы** и выберите группу `devops`.
-      1. Нажмите кнопку ![plus](../../_assets/console-icons/plus.svg) **Добавить роль**, найдите и выберите роли `container-registry.editor`, `k8s.editor`, `mdb.admin`, `compute.editor`, `monitoring.admin` и `logging.admin`.
-      1. Нажмите **Сохранить**.
+      1. Перейдите на вкладку **{{ ui-key.yacloud_org.pages.groups }}** и выберите группу `devops`.
+      1. Нажмите кнопку ![plus](../../_assets/console-icons/plus.svg) **{{ ui-key.yacloud_components.acl.action.add-role }}**, найдите и выберите роли `container-registry.editor`, `k8s.editor`, `mdb.admin`, `compute.editor`, `monitoring.admin` и `logging.admin`.
+      1. Нажмите **{{ ui-key.yacloud.common.save }}**.
   1. Аналогичным образом назначьте эти же роли группе пользователей `devops` на облако `testing`.
 
 {% endlist %}
@@ -235,14 +235,14 @@
 
 Пользователям, входящим в группу разработчиков (`developers`), понадобятся следующие возможности:
 
-* скачивать Docker-образы из реестров Container Registry в продуктовой среде ([роль](../../container-registry/security/index.md#container-registry-images-puller) `container-registry.images.puller` на облако `production`);
-* скачивать и загружать Docker-образы в реестры Container Registry в тестовой среде ([роль](../../container-registry/security/index.md#container-registry-images-pusher) `container-registry.images.pusher` на облако `testing`);
-* просматривать информацию о кластерах Kubernetes в продуктовой среде ([роль](../../managed-kubernetes/security/index.md#k8s-viewer) `k8s.viewer` на облако `production`);
-* управлять кластерами Kubernetes в тестовой среде ([роль](../../managed-kubernetes/security/index.md#k8s-editor) `k8s.editor` и [роль](../../managed-kubernetes/security/index.md#k8s-cluster-api-editor) `k8s.cluster-api.editor` на облако `testing`);
-* подключаться к виртуальным машинам Compute Cloud через [OS Login](../../organization/concepts/os-login.md) в продуктовой среде ([роль](../../compute/security/index.md#compute-oslogin) `compute.osLogin`, [роль](../../resource-manager/security/index.md#resource-manager-auditor) `resource-manager.auditor` или выше на облако `production`);
-* подключаться к виртуальным машинам Compute Cloud через OS Login от имени суперпользователя в тестовой среде ([роль](../../compute/security/index.md#compute-osadminlogin) `compute.osAdminLogin`, [роль](../../resource-manager/security/index.md#resource-manager-auditor) `resource-manager.auditor` или выше на облако `testing`);
-* просматривать информацию о ресурсах и [метриках](../../monitoring/concepts/data-model.md#metric) Monitoring в продуктовой среде ([роль](../../monitoring/security/index.md#monitoring-viewer) `monitoring.viewer` на облако `production`);
-* управлять ресурсами сервиса Monitoring в тестовой среде ([роль](../../monitoring/security/index.md#monitoring-editor) `monitoring.editor` на облако `testing`).
+* скачивать Docker-образы из реестров {{ container-registry-name }} в продуктовой среде ([роль](../../container-registry/security/index.md#container-registry-images-puller) `container-registry.images.puller` на облако `production`);
+* скачивать и загружать Docker-образы в реестры {{ container-registry-name }} в тестовой среде ([роль](../../container-registry/security/index.md#container-registry-images-pusher) `container-registry.images.pusher` на облако `testing`);
+* просматривать информацию о кластерах {{ k8s }} в продуктовой среде ([роль](../../managed-kubernetes/security/index.md#k8s-viewer) `k8s.viewer` на облако `production`);
+* управлять кластерами {{ k8s }} в тестовой среде ([роль](../../managed-kubernetes/security/index.md#k8s-editor) `k8s.editor` и [роль](../../managed-kubernetes/security/index.md#k8s-cluster-api-editor) `k8s.cluster-api.editor` на облако `testing`);
+* подключаться к виртуальным машинам {{ compute-name }} через [{{ oslogin }}](../../organization/concepts/os-login.md) в продуктовой среде ([роль](../../compute/security/index.md#compute-oslogin) `compute.osLogin`, [роль](../../resource-manager/security/index.md#resource-manager-auditor) `resource-manager.auditor` или выше на облако `production`);
+* подключаться к виртуальным машинам {{ compute-name }} через {{ oslogin }} от имени суперпользователя в тестовой среде ([роль](../../compute/security/index.md#compute-osadminlogin) `compute.osAdminLogin`, [роль](../../resource-manager/security/index.md#resource-manager-auditor) `resource-manager.auditor` или выше на облако `testing`);
+* просматривать информацию о ресурсах и [метриках](../../monitoring/concepts/data-model.md#metric) {{ monitoring-name }} в продуктовой среде ([роль](../../monitoring/security/index.md#monitoring-viewer) `monitoring.viewer` на облако `production`);
+* управлять ресурсами сервиса {{ monitoring-name }} в тестовой среде ([роль](../../monitoring/security/index.md#monitoring-editor) `monitoring.editor` на облако `testing`).
 
 Назначьте группе пользователей `developers` роли на облака:
 
@@ -250,37 +250,37 @@
 
 - Консоль управления {#console}
 
-  1. В [консоли управления](https://console.yandex.cloud) выберите облако `production`.
-  1. В верхней части экрана перейдите на вкладку **Права доступа** и нажмите кнопку **Настроить доступ**. В открывшемся окне:
+  1. В [консоли управления]({{ link-console-main }}) выберите облако `production`.
+  1. В верхней части экрана перейдите на вкладку **{{ ui-key.yacloud.common.resource-acl.label_access-bindings }}** и нажмите кнопку **{{ ui-key.yacloud.common.resource-acl.button_configure-access }}**. В открывшемся окне:
 
-      1. Перейдите на вкладку **Группы** и выберите группу `developers`.
-      1. Нажмите кнопку ![plus](../../_assets/console-icons/plus.svg) **Добавить роль**, найдите и выберите роли `container-registry.images.puller`, `k8s.viewer`, `compute.osLogin`, `monitoring.viewer` и `resource-manager.auditor`.
-      1. Нажмите **Сохранить**.
+      1. Перейдите на вкладку **{{ ui-key.yacloud_org.pages.groups }}** и выберите группу `developers`.
+      1. Нажмите кнопку ![plus](../../_assets/console-icons/plus.svg) **{{ ui-key.yacloud_components.acl.action.add-role }}**, найдите и выберите роли `container-registry.images.puller`, `k8s.viewer`, `compute.osLogin`, `monitoring.viewer` и `resource-manager.auditor`.
+      1. Нажмите **{{ ui-key.yacloud.common.save }}**.
   1. Аналогичным образом назначьте группе пользователей `developers` роли `container-registry.images.pusher`, `k8s.editor`, `k8s.cluster-api.editor`, `compute.osAdminLogin`, `monitoring.editor` и `resource-manager.auditor` на облако `testing`.
 
 {% endlist %}
 
 ## Добавьте пользователей и распределите их по группам {#add-users}
 
-Чтобы сотрудники вашей компании могли использовать ресурсы Yandex Cloud, добавьте их в созданную организацию Yandex Identity Hub, а затем, в зависимости от выполняемых ими обязанностей, распределите добавленных сотрудников по созданным ранее группам пользователей.
+Чтобы сотрудники вашей компании могли использовать ресурсы {{ yandex-cloud }}, добавьте их в созданную организацию {{ org-full-name }}, а затем, в зависимости от выполняемых ими обязанностей, распределите добавленных сотрудников по созданным ранее группам пользователей.
 
 1. Пригласите сотрудников в организацию:
 
     {% list tabs group=instructions %}
 
-    - Интерфейс Cloud Center {#cloud-center}
+    - Интерфейс {{ cloud-center }} {#cloud-center}
 
-      1. Перейдите в сервис [Yandex Identity Hub](https://center.yandex.cloud/organization).
-      1. На панели слева выберите ![icon-users](../../_assets/console-icons/person.svg) **Пользователи**.
-      1. В правом верхнем углу экрана нажмите кнопку **Пригласить пользователей с аккаунтом на Яндексе**.
+      1. Перейдите в сервис [{{ org-full-name }}]({{ link-org-cloud-center }}).
+      1. На панели слева выберите ![icon-users](../../_assets/console-icons/person.svg) **{{ ui-key.yacloud_org.pages.users }}**.
+      1. В правом верхнем углу экрана нажмите кнопку **{{ ui-key.yacloud_org.page.users.action.invite-users }}**.
       1. Через запятую введите почтовые адреса пользователей, которых вы хотите пригласить в организацию.
 
           Приглашения можно отправлять на любые адреса электронной почты. Приглашенный пользователь сможет выбрать нужный аккаунт на Яндексе, когда примет приглашение.
-      1. Нажмите кнопку **Отправить приглашение**.
+      1. Нажмите кнопку **{{ ui-key.yacloud_components.organization.action_send-invitation }}**.
 
     {% endlist %}
 
-    Сразу после того, как пользователи примут приглашения по ссылке из письма, они станут [участниками организации](../../organization/concepts/membership.md) и будут отображаться в списке в [разделе **Пользователи**](https://center.yandex.cloud/organization/users) вашей организации.
+    Сразу после того, как пользователи примут приглашения по ссылке из письма, они станут [участниками организации](../../organization/concepts/membership.md) и будут отображаться в списке в [разделе **{{ ui-key.yacloud_org.pages.users }}**]({{ link-org-cloud-center }}/users) вашей организации.
 
     {% note info %}
 
@@ -292,15 +292,15 @@
 
     {% list tabs group=instructions %}
 
-    - Интерфейс Cloud Center {#cloud-center}
+    - Интерфейс {{ cloud-center }} {#cloud-center}
 
-      1. Войдите в сервис [Yandex Identity Hub](https://center.yandex.cloud/organization).
-      1. На панели слева выберите ![groups](../../_assets/console-icons/persons.svg) **Группы** и нажмите строку с названием нужной [группы](../../organization/concepts/groups.md).
-      1. Перейдите на вкладку **Участники**.
-      1. Нажмите кнопку **Добавить участника**. В открывшемся окне:
+      1. Войдите в сервис [{{ org-full-name }}]({{ link-org-cloud-center }}).
+      1. На панели слева выберите ![groups](../../_assets/console-icons/persons.svg) **{{ ui-key.yacloud_org.pages.groups }}** и нажмите строку с названием нужной [группы](../../organization/concepts/groups.md).
+      1. Перейдите на вкладку **{{ ui-key.yacloud_org.entity.group.title_tab-members }}**.
+      1. Нажмите кнопку **{{ ui-key.yacloud_org.entity.group.action_add-member }}**. В открывшемся окне:
 
           1. Выберите нужных пользователей. При необходимости воспользуйтесь поиском.
-          1. Нажмите **Сохранить**.
+          1. Нажмите **{{ ui-key.yacloud.common.save }}**.
 
     {% endlist %}
 
@@ -314,7 +314,7 @@
 
 ## Создайте рабочую инфраструктуру {#move-on}
 
-Вы завершили базовую настройку прав доступа в вашей тестовой организации. Теперь вы можете создавать в облаках организации различные ресурсы: [виртуальные машины](../../compute/operations/vm-create/create-linux-vm.md), [кластеры](../../managed-kubernetes/quickstart.md#kubernetes-cluster-create) Yandex Managed Service for Kubernetes, [реестры](../../container-registry/operations/registry/registry-create.md) Yandex Container Registry, [ключи шифрования](../../kms/operations/key.md#create) KMS, [секреты](../../lockbox/operations/secret-create.md) Lockbox и др.
+Вы завершили базовую настройку прав доступа в вашей тестовой организации. Теперь вы можете создавать в облаках организации различные ресурсы: [виртуальные машины](../../compute/operations/vm-create/create-linux-vm.md), [кластеры](../../managed-kubernetes/quickstart.md#kubernetes-cluster-create) {{ managed-k8s-full-name }}, [реестры](../../container-registry/operations/registry/registry-create.md) {{ container-registry-full-name }}, [ключи шифрования](../../kms/operations/key.md#create) {{ kms-short-name }}, [секреты](../../lockbox/operations/secret-create.md) {{ lockbox-short-name }} и др.
 
 {% note warning %}
 
@@ -334,40 +334,40 @@
 
 Сами по себе организации, облака, каталоги и пользователи не тарифицируются, поэтому вам не придется за них платить. Однако другие ресурсы, создаваемые внутри каталогов, могут тарифицироваться.
 
-Кроме того, созданная в настоящем руководстве инфраструктура расходует [квоты](../../billing/concepts/limits.md) сервиса Yandex Cloud Billing и некоторых других сервисов. Поэтому неиспользуемую организацию лучше удалить.
+Кроме того, созданная в настоящем руководстве инфраструктура расходует [квоты](../../billing/concepts/limits.md) сервиса {{ billing-name }} и некоторых других сервисов. Поэтому неиспользуемую организацию лучше удалить.
 
 Также вы можете отдельно удалить из организации [облака](../../resource-manager/operations/cloud/delete.md), [каталоги](../../resource-manager/operations/folder/delete.md), [пользователей](../../organization/operations/edit-account.md), [группы пользователей](../../organization/operations/delete-group.md) и [сервисные аккаунты](../operations/sa/delete.md).
 
 #### См. также {#see-also}
 
-* Yandex Audit Trails:
-    * [Создание трейла для загрузки аудитных логов](../../audit-trails/operations/create-trail.md)
-* Yandex Cloud Billing:
+* {{ at-full-name }}:
+    * [{#T}](../../audit-trails/operations/create-trail.md)
+* {{ billing-name }}:
     * [Создание платежного аккаунта](../../billing/operations/create-new-account.md)
     * [Назначение прав доступа к платежному аккаунту](../../billing/security/index.md#set-role)
-* Yandex Cloud Logging:
+* {{ cloud-logging-full-name }}:
     * [Создание лог-группы](../../logging/operations/create-group.md)
     * [Назначение прав доступа к лог-группе](../../logging/operations/access-rights.md)
-* Yandex Identity Hub:
-    * [Инструкции по работе с Yandex Identity Hub](../../organization/operations/index.md)
-* Yandex Compute Cloud:
-    * [Создание виртуальной машины](../../compute/operations/index.md#vm-create)
+* {{ org-full-name }}:
+    * [{#T}](../../organization/operations/index.md)
+* {{ compute-full-name }}:
+    * [{#T}](../../compute/operations/index.md#vm-create)
     * [Назначение прав доступа к виртуальной машине](../../compute/operations/vm-control/vm-access.md)
-* Yandex Container Registry:
+* {{ container-registry-full-name }}:
     * [Создание реестра](../../container-registry/operations/registry/registry-create.md)
     * [Назначение прав доступа к реестру](../../container-registry/operations/roles/grant.md)
-* Yandex Identity and Access Management:
-    * [Создание сервисного аккаунта](../operations/sa/create.md)
+* {{ iam-full-name }}:
+    * [{#T}](../operations/sa/create.md)
     * [Назначение прав доступа к сервисному аккаунту](../operations/sa/set-access-bindings.md)
-* Yandex Key Management Service:
+* {{ kms-full-name }}:
     * [Создание симметричного ключа шифрования](../../kms/operations/key.md#create)
-    * [Настройка прав доступа к симметричному ключу шифрования](../../kms/operations/key-access.md)
-* Yandex Lockbox:
+    * [{#T}](../../kms/operations/key-access.md)
+* {{ lockbox-full-name }}:
     * [Создание секрета](../../lockbox/operations/secret-create.md)
     * [Назначение прав доступа к секрету](../../lockbox/operations/secret-access.md)
-* Yandex Managed Service for Kubernetes:
-    * [Создание кластера Managed Service for Kubernetes](../../managed-kubernetes/operations/kubernetes-cluster/kubernetes-cluster-create.md)
-* Yandex Managed Service for PostgreSQL:
-    * [Создание кластера PostgreSQL](../../managed-postgresql/operations/cluster-create.md)
-* Yandex Monitoring:
-    * [Создание и управление дашбордом в Monitoring](../../monitoring/operations/dashboard/create.md)
+* {{ managed-k8s-full-name }}:
+    * [{#T}](../../managed-kubernetes/operations/kubernetes-cluster/kubernetes-cluster-create.md)
+* {{ mpg-full-name }}:
+    * [{#T}](../../managed-postgresql/operations/cluster-create.md)
+* {{ monitoring-full-name }}:
+    * [{#T}](../../monitoring/operations/dashboard/create.md)

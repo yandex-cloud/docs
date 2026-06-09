@@ -5,7 +5,7 @@ Retrieves a list of Metastore Clusters.
 ## HTTP request
 
 ```
-GET https://metastore.api.cloud.yandex.net/managed-metastore/v1/clusters
+GET https://metastore.{{ api-host }}/managed-metastore/v1/clusters
 ```
 
 ## Query parameters {#yandex.cloud.metastore.v1.ListClustersRequest}

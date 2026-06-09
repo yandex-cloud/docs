@@ -1,4 +1,4 @@
-# [Yandex DataLens] Dataset version mismatch. Refresh the page to continue
+# [{{ datalens-full-name }}] Dataset version mismatch. Refresh the page to continue
 
 `ERR.DS_API.DATASET_REVISION_MISMATCH`
 

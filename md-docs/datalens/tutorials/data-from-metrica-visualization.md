@@ -4,20 +4,20 @@
 
 {% note info %}
 
-Для полноценной работы с необработанными данными Яндекс Метрики и поддержки всего набора аналитических функций DataLens рекомендуем использовать выгрузку данных в ClickHouse®, которая доступна в рамках пакета [Метрика Про](https://yandex.ru/project/metrica/pro).
+Для полноценной работы с необработанными данными Яндекс Метрики и поддержки всего набора аналитических функций {{ datalens-short-name }} рекомендуем использовать выгрузку данных в {{ CH }}, которая доступна в рамках пакета [{{ metrika-pro }}](https://yandex.ru/project/metrica/pro).
 
-Для пакета Метрика Про доступна потоковая передача данных в реальном времени. Подробнее см. в [инструкции](https://yandex.ru/support/metrica/ru/pro/data-work).
+Для пакета {{ metrika-pro }} доступна потоковая передача данных в реальном времени. Подробнее см. в [инструкции](https://yandex.ru/support/metrica/ru/pro/data-work).
 
 {% endnote %}
 
 
-В этом руководстве демонстрируется работа Yandex DataLens с сервисом Яндекс Метрика в режиме прямого доступа.
+В этом руководстве демонстрируется работа {{ datalens-full-name }} с сервисом {{ metrika }} в режиме прямого доступа.
 
 В качестве источника данных используйте один из счетчиков Яндекс Метрики, к которому у вас есть доступ. Посмотреть список доступных счетчиков можно по [ссылке](https://metrika.yandex.ru/list).
 
 ![image](../../_assets/datalens/solution-03/01-metrica-list.png)
 
-Если в вашем списке не оказалось доступных счетчиков, используйте [демонстрационный дашборд](https://datalens.ru/marketplace/f2e5hpq5mc7bscsjc6jr) Яндекс Метрики.
+Если в вашем списке не оказалось доступных счетчиков, используйте [демонстрационный дашборд]({{ link-datalens-main }}/marketplace/f2e5hpq5mc7bscsjc6jr) Яндекс Метрики.
 
 {% note info %}
 
@@ -25,7 +25,7 @@
 
 {% cut "Создать папку" %}
 
-1. Перейдите на [главную страницу](https://datalens.ru/?skipPromo=true) DataLens.
+1. Перейдите на [главную страницу]({{ link-datalens-main-skip-promo }}) {{ datalens-short-name }}.
 1. На панели слева выберите ![](../../_assets/console-icons/folders.svg) **Все объекты** или ![](../../_assets/console-icons/folder-house.svg) **Личная папка**.
 1. В правом верхнем углу нажмите **Создать** → **Папку**.
 1. Введите название папки.
@@ -35,7 +35,7 @@
 
 {% endnote %}
 
-Для визуализации и исследования данных [подготовьте DataLens к работе](#before-you-begin), затем выполните следующие шаги:
+Для визуализации и исследования данных [подготовьте {{ datalens-short-name }} к работе](#before-you-begin), затем выполните следующие шаги:
 
 1. [Создайте воркбук](#create-workbook).
 1. [Создайте подключение и стандартный дашборд](#create-connection).
@@ -45,30 +45,30 @@
 
 ## Перед началом работы {#before-you-begin}
 
-Чтобы начать работать с DataLens:
+Чтобы начать работать с {{ datalens-short-name }}:
 
 
 {% list tabs group=datalens_user %}
 
 - Новый пользователь {#new}
 
-  1. [Войдите](https://passport.yandex.ru/auth) в ваш аккаунт на Яндексе. Если у вас еще нет аккаунта, [создайте](https://yandex.ru/support/passport/authorization/registration.html) его.
-  1. Откройте [главную страницу](https://datalens.ru/promo) DataLens.
+  1. [Войдите]({{ link-passport-login }}) в ваш аккаунт на Яндексе. Если у вас еще нет аккаунта, [создайте](https://yandex.ru/support/passport/authorization/registration.html) его.
+  1. Откройте [главную страницу]({{ link-datalens-main-promo }}) {{ datalens-short-name }}.
   1. Нажмите **Начать в облаке**.
   1. Подтвердите, что ознакомились с [Условиями использования](https://yandex.ru/legal/cloud_termsofuse/?lang=ru) и принимаете их и нажмите кнопку **Войти**.
 
-- Уже использую Yandex Cloud {#already}
+- Уже использую {{ yandex-cloud }} {#already}
 
-  1. [Войдите](https://passport.yandex.ru/auth) в ваш аккаунт на Яндексе.
-  1. Откройте [главную страницу](https://datalens.ru/promo) DataLens.
+  1. [Войдите]({{ link-passport-login }}) в ваш аккаунт на Яндексе.
+  1. Откройте [главную страницу]({{ link-datalens-main-promo }}) {{ datalens-short-name }}.
   1. Нажмите **Начать в облаке**.
   1. Выберите один из вариантов:
 
-     * Если у вас уже есть организация, выберите ее в выпадающем меню на вкладке **Организации** и нажмите **DataLens**.
+     * Если у вас уже есть организация, выберите ее в выпадающем меню на вкладке **Организации** и нажмите **{{ datalens-short-name }}**.
 
        {% note info %}
 
-       Для активации экземпляра DataLens пользователю нужна роль `admin` или `owner`. Подробнее про роли см. в разделе [Управление доступом в Yandex Identity Hub](../../organization/security/index.md).
+       Для активации экземпляра {{ datalens-short-name }} пользователю нужна роль `admin` или `owner`. Подробнее про роли см. в разделе [{#T}](../../organization/security/index.md).
 
        {% endnote %}
 
@@ -76,12 +76,12 @@
 
 {% endlist %}
 
-Если у вас возник технический вопрос по работе сервиса, обратитесь в [службу поддержки](https://center.yandex.cloud/support) Yandex Cloud. Чтобы спросить совета, обсудить решение вашей задачи или лучшие практики работы сервиса, напишите в чат [DataLens](https://t.me/YandexDataLens) в Telegram.
+Если у вас возник технический вопрос по работе сервиса, обратитесь в [службу поддержки]({{ link-console-support }}) {{ yandex-cloud }}. Чтобы спросить совета, обсудить решение вашей задачи или лучшие практики работы сервиса, напишите в чат [{{ datalens-short-name }}](https://t.me/YandexDataLens) в Telegram.
 
 
 ## Создайте воркбук {#create-workbook}
 
-1. Перейдите на [главную страницу](https://datalens.ru/?skipPromo=true) DataLens.
+1. Перейдите на [главную страницу]({{ link-datalens-main-skip-promo }}) {{ datalens-short-name }}.
 1. На панели слева выберите ![collections](../../_assets/console-icons/rectangles-4.svg) **Коллекции и воркбуки**.
 1. В правом верхнем углу нажмите **Создать** → **Создать воркбук**.
 1. Введите название [воркбука](../workbooks-collections/index.md) — `Metrica Live Demo`.
@@ -91,12 +91,12 @@
 
 {% note warning %}
 
-На этом шаге описываются действия для пользователей, у которых есть права на какой-либо счетчик Яндекс Метрики. Если у вас нет прав на счетчик, разверните [дашборд из DataLens Marketplace](https://datalens.ru/marketplace/f2e5hpq5mc7bscsjc6jr) и перейдите к шагу [Измените стандартный дашборд](#edit-dashboard).
+На этом шаге описываются действия для пользователей, у которых есть права на какой-либо счетчик Яндекс Метрики. Если у вас нет прав на счетчик, разверните [дашборд из {{ datalens-short-name }} {{ marketplace-short-name }}]({{ link-datalens-main }}/marketplace/f2e5hpq5mc7bscsjc6jr) и перейдите к шагу [Измените стандартный дашборд](#edit-dashboard).
 
 {% endnote %}
 
 1. В правом верхнем углу воркбука нажмите **Создать** → ![image](../../_assets/console-icons/thunderbolt.svg) **Подключение**.
-1. В разделе **Файлы и сервисы** выберите подключение **Яндекс Метрика**.
+1. В разделе **Файлы и сервисы** выберите подключение **{{ metrika }}**.
 1. Нажмите кнопку **Получить токен**.
 
    Если вы первый раз создаете подключение к счетчику Яндекс Метрики, то предоставьте сервису необходимые разрешения.
@@ -129,7 +129,7 @@
 
 {% note warning %}
 
-Если вы пропустили шаг [Создайте подключение и стандартный дашборд](#create-connection), разверните [дашборд из DataLens Marketplace](https://datalens.ru/marketplace/f2e5hpq5mc7bscsjc6jr).
+Если вы пропустили шаг [Создайте подключение и стандартный дашборд](#create-connection), разверните [дашборд из {{ datalens-short-name }} {{ marketplace-short-name }}]({{ link-datalens-main }}/marketplace/f2e5hpq5mc7bscsjc6jr).
 
 {% endnote %}
 

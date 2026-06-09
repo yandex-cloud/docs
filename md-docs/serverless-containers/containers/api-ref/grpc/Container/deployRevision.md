@@ -277,7 +277,7 @@ Revision connectivity specification.
 Network the revision will have access to. ||
 || subnet_ids[] | **string**
 
-The list of subnets (from the same network) the revision can be attached to.
+Complete list of subnets (from the same network) the revision can be attached to.
 
 Deprecated, it is sufficient to specify only network_id, without the list of subnet_ids.
 
@@ -390,8 +390,8 @@ The string length in characters must be 1-300. Value must match the regular expr
 
 Mount's mode
 
-- `READ_ONLY`
-- `READ_WRITE` ||
+- `READ_ONLY`: Mount is available for read access only.
+- `READ_WRITE`: Mount is available for both read and write access. ||
 || object_storage | **[ObjectStorage](#yandex.cloud.serverless.containers.v1.Mount.ObjectStorage)**
 
 Object storage mounts
@@ -866,7 +866,7 @@ Revision connectivity specification.
 Network the revision will have access to. ||
 || subnet_ids[] | **string**
 
-The list of subnets (from the same network) the revision can be attached to.
+Complete list of subnets (from the same network) the revision can be attached to.
 
 Deprecated, it is sufficient to specify only network_id, without the list of subnet_ids.
 
@@ -979,8 +979,8 @@ The string length in characters must be 1-300. Value must match the regular expr
 
 Mount's mode
 
-- `READ_ONLY`
-- `READ_WRITE` ||
+- `READ_ONLY`: Mount is available for read access only.
+- `READ_WRITE`: Mount is available for both read and write access. ||
 || object_storage | **[ObjectStorage](#yandex.cloud.serverless.containers.v1.Mount.ObjectStorage2)**
 
 Object storage mounts

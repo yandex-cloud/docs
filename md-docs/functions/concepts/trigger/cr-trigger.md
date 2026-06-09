@@ -1,10 +1,10 @@
-# Триггер для Container Registry, который вызывает функцию Cloud Functions
+# Триггер для {{ container-registry-name }}, который вызывает функцию {{ sf-name }}
 
-[Триггер](index.md) Cloud Functions запускает [функцию](../function.md), когда с [Docker-образом](../../../container-registry/concepts/docker-image.md) Container Registry происходят определенные события. Триггер должен находиться в одном облаке с [реестром](../../../container-registry/concepts/registry.md), на события которого он подписан.
+[Триггер](index.md) {{ sf-name }} запускает [функцию](../function.md), когда с [Docker-образом](../../../container-registry/concepts/docker-image.md) {{ container-registry-name }} происходят определенные события. Триггер должен находиться в одном облаке с [реестром](../../../container-registry/concepts/registry.md), на события которого он подписан.
 
-Триггеру для Container Registry необходим [сервисный аккаунт](../../../iam/concepts/users/service-accounts.md) для вызова функции.
+Триггеру для {{ container-registry-name }} необходим [сервисный аккаунт](../../../iam/concepts/users/service-accounts.md) для вызова функции.
 
-О том, как создать триггер для Container Registry, читайте в инструкции [Создать триггер для Container Registry, который вызывает функцию Cloud Functions](../../operations/trigger/cr-trigger-create.md).
+О том, как создать триггер для {{ container-registry-name }}, читайте в инструкции [{#T}](../../operations/trigger/cr-trigger-create.md).
 
 ## События для настройки триггера {#event}
 
@@ -28,16 +28,16 @@ Docker-образ всегда загружается с тегом (если т
 
 Настройки группирования позволяют передавать в функцию сразу несколько событий. Эти настройки задают ограничение сверху по размеру группы событий и по времени ее накопления. Например, если размер группы событий равен 3, то в функцию могут поступать группы, в которых содержится от 1 до 3 событий.
 
-## Роли, необходимые для корректной работы триггера для Container Registry {#roles}
+## Роли, необходимые для корректной работы триггера для {{ container-registry-name }} {#roles}
 
 * Для создания триггера вам необходимы:
-    * Разрешение на сервисный аккаунт, от имени которого триггер выполняет операцию. Это разрешение входит в роли [iam.serviceAccounts.user](../../../iam/security/index.md#iam-serviceAccounts-user), [editor](../../../iam/roles-reference.md#editor) и выше.
-    * Роль `container-registry.images.puller` на реестр, события которого триггер обрабатывает.
-* Для работы триггера сервисному аккаунту необходима роль `functions.functionInvoker` на каталог с функцией, которую вызывает триггер.
+    * Разрешение на сервисный аккаунт, от имени которого триггер выполняет операцию. Это разрешение входит в роли [iam.serviceAccounts.user](../../../iam/security/index.md#iam-serviceAccounts-user), [{{ roles-editor }}](../../../iam/roles-reference.md#editor) и выше.
+    * Роль `{{ roles-cr-puller }}` на реестр, события которого триггер обрабатывает.
+* Для работы триггера сервисному аккаунту необходима роль `{{ roles-functions-invoker }}` на каталог с функцией, которую вызывает триггер.
 
 Подробнее об [управлении доступом](../../security/index.md).
 
-## Формат сообщения от триггера Container Registry {#format}
+## Формат сообщения от триггера {{ container-registry-name }} {#format}
 
 После того как триггер сработает, он отправит в функцию сообщение следующего вида:
 
@@ -70,5 +70,5 @@ Docker-образ всегда загружается с тегом (если т
 
 ## См. также {#see-also}
 
-* [Триггер для Container Registry, который вызывает контейнер Serverless Containers](../../../serverless-containers/concepts/trigger/cr-trigger.md)
-* [Триггер для Container Registry, который отправляет сообщения в WebSocket-соединения](../../../api-gateway/concepts/trigger/cr-trigger.md)
+* [{#T}](../../../serverless-containers/concepts/trigger/cr-trigger.md)
+* [{#T}](../../../api-gateway/concepts/trigger/cr-trigger.md)

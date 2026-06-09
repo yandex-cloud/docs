@@ -1,16 +1,16 @@
-# Получение данных из RabbitMQ в Yandex Managed Service for ClickHouse®
+# Получение данных из {{ RMQ }} в {{ mch-full-name }}
 
-# Получение данных из RabbitMQ в Yandex Managed Service for ClickHouse®
+# Получение данных из {{ RMQ }} в {{ mch-full-name }}
 
 
-В кластер Managed Service for ClickHouse® можно поставлять данные из RabbitMQ в реальном времени. Managed Service for ClickHouse® будет автоматически вставлять в таблицу на [движке RabbitMQ](https://clickhouse.com/docs/ru/engines/table-engines/integrations/rabbitmq/) данные, поступающие на определенные точки обмена указанных очередей RabbitMQ.
+В кластер {{ mch-name }} можно поставлять данные из {{ RMQ }} в реальном времени. {{ mch-name }} будет автоматически вставлять в таблицу на [движке {{ RMQ }}]({{ ch.docs }}{{ lang }}/engines/table-engines/integrations/rabbitmq) данные, поступающие на определенные точки обмена указанных очередей {{ RMQ }}.
 
-Чтобы настроить поставку данных из RabbitMQ в Managed Service for ClickHouse®:
+Чтобы настроить поставку данных из {{ RMQ }} в {{ mch-name }}:
 
-1. [Настройте интеграцию с RabbitMQ для кластера Managed Service for ClickHouse®](#configure-mch-for-rmq).
-1. [Создайте в кластере Managed Service for ClickHouse® таблицу на движке RabbitMQ](#create-rmq-table).
-1. [Отправьте тестовые данные в очередь RabbitMQ](#send-sample-data-to-rmq).
-1. [Проверьте наличие тестовых данных в таблице кластера Managed Service for ClickHouse®](#fetch-sample-data).
+1. [Настройте интеграцию с {{ RMQ }} для кластера {{ mch-name }}](#configure-mch-for-rmq).
+1. [Создайте в кластере {{ mch-name }} таблицу на движке {{ RMQ }}](#create-rmq-table).
+1. [Отправьте тестовые данные в очередь {{ RMQ }}](#send-sample-data-to-rmq).
+1. [Проверьте наличие тестовых данных в таблице кластера {{ mch-name }}](#fetch-sample-data).
 
 Если созданные ресурсы вам больше не нужны, [удалите их](#clear-out).
 
@@ -19,9 +19,9 @@
 
 В стоимость поддержки описываемого решения входят:
 
-* Плата за кластер Managed Service for ClickHouse®: использование вычислительных ресурсов, выделенных хостам (в том числе хостам ZooKeeper, и дискового пространства (см. [тарифы Managed Service for ClickHouse®](../../managed-clickhouse/pricing.md)).
-* Плата за использование публичных IP-адресов, если для хостов кластера включен публичный доступ (см. [тарифы Virtual Private Cloud](../../vpc/pricing.md)).
-* Плата за ВМ: использование вычислительных ресурсов, хранилища и публичного IP-адреса (опционально) (см. [тарифы Compute Cloud](../../compute/pricing.md)).
+* Плата за кластер {{ mch-name }}: использование вычислительных ресурсов, выделенных хостам (в том числе хостам {{ ZK }}, и дискового пространства (см. [тарифы {{ mch-name }}](../../managed-clickhouse/pricing.md)).
+* Плата за использование публичных IP-адресов, если для хостов кластера включен публичный доступ (см. [тарифы {{ vpc-name }}](../../vpc/pricing.md)).
+* Плата за ВМ: использование вычислительных ресурсов, хранилища и публичного IP-адреса (опционально) (см. [тарифы {{ compute-name }}](../../compute/pricing.md)).
 
 
 ## Перед началом работы {#before-you-begin}
@@ -32,21 +32,21 @@
 
 - Вручную {#manual}
 
-    1. [Создайте кластер Managed Service for ClickHouse®](../../managed-clickhouse/operations/cluster-create.md) любой подходящей вам конфигурации с базой данных `db1`. Для подключения к кластеру с локальной машины пользователя, а не из облачной сети Yandex Cloud, включите публичный доступ к хостам кластера при его создании.
+    1. [Создайте кластер {{ mch-name }}](../../managed-clickhouse/operations/cluster-create.md) любой подходящей вам конфигурации с базой данных `db1`. Для подключения к кластеру с локальной машины пользователя, а не из облачной сети {{ yandex-cloud }}, включите публичный доступ к хостам кластера при его создании.
 
         {% note info %}
         
-        Публичный доступ к хостам кластера нужен, если вы планируете подключаться к кластеру через интернет. Этот вариант подключения более простой, и его рекомендуется использовать для прохождения руководства. К хостам без публичного доступа тоже можно подключиться, но только с виртуальных машин Yandex Cloud, расположенных в той же облачной сети, что и кластер.
+        Публичный доступ к хостам кластера нужен, если вы планируете подключаться к кластеру через интернет. Этот вариант подключения более простой, и его рекомендуется использовать для прохождения руководства. К хостам без публичного доступа тоже можно подключиться, но только с виртуальных машин {{ yandex-cloud }}, расположенных в той же облачной сети, что и кластер.
         
         {% endnote %}
 
-        Интеграцию с RabbitMQ можно настроить уже на этапе создания кластера. В этой статье интеграция будет настроена [позже](#configure-mch-for-rmq).
+        Интеграцию с {{ RMQ }} можно настроить уже на этапе создания кластера. В этой статье интеграция будет настроена [позже](#configure-mch-for-rmq).
 
-    1. [Создайте виртуальную машину](../../compute/operations/vm-create/create-linux-vm.md) для RabbitMQ. Для подключения к виртуальной машине с локальной машины пользователя, а не из облачной сети Yandex Cloud, включите публичный доступ при ее создании.
+    1. [Создайте виртуальную машину](../../compute/operations/vm-create/create-linux-vm.md) для {{ RMQ }}. Для подключения к виртуальной машине с локальной машины пользователя, а не из облачной сети {{ yandex-cloud }}, включите публичный доступ при ее создании.
 
-- Terraform {#tf}
+- {{ TF }} {#tf}
 
-    1. Если у вас еще нет Terraform, [установите его](../infrastructure-management/terraform-quickstart.md#install-terraform).
+    1. Если у вас еще нет {{ TF }}, [установите его](../infrastructure-management/terraform-quickstart.md#install-terraform).
     1. [Получите данные для аутентификации](../infrastructure-management/terraform-quickstart.md#get-credentials). Вы можете добавить их в переменные окружения или указать далее в файле с настройками провайдера.
     1. [Настройте и инициализируйте провайдер](../infrastructure-management/terraform-quickstart.md#configure-provider). Чтобы не создавать конфигурационный файл с настройками провайдера вручную, [скачайте его](https://github.com/yandex-cloud-examples/yc-terraform-provider-settings/blob/main/provider.tf).
     1. Поместите конфигурационный файл в отдельную рабочую директорию и [укажите значения параметров](../infrastructure-management/terraform-quickstart.md#configure-provider). Если данные для аутентификации не были добавлены в переменные окружения, укажите их в конфигурационном файле.
@@ -58,22 +58,22 @@
         * сеть;
         * подсеть;
         * группа безопасности по умолчанию и правила, необходимые для подключения к кластеру и виртуальной машине из интернета;
-        * кластер Managed Service for ClickHouse®;
+        * кластер {{ mch-name }};
         * виртуальная машина.
 
     1. Укажите в файле `clickhouse-cluster-and-vm-for-rabbitmq.tf`:
 
-        * Имя пользователя и пароль, которые будут использоваться для доступа к кластеру Managed Service for ClickHouse®.
+        * Имя пользователя и пароль, которые будут использоваться для доступа к кластеру {{ mch-name }}.
         * Идентификатор публичного [образа](../../compute/operations/images-with-pre-installed-software/get-list.md) с [Ubuntu](https://yandex.cloud/ru/marketplace?tab=software&search=Ubuntu&categories=os) без [GPU](../../glossary/gpu.md) для виртуальной машины.
         * Логин и путь к файлу [открытого ключа](../../compute/operations/vm-connect/ssh.md#creating-ssh-keys), которые будут использоваться для доступа к виртуальной машине. По умолчанию в используемом образе указанный логин игнорируется, вместо него создается пользователь с логином `ubuntu`. Используйте его для подключения к виртуальной машине.
 
-    1. Проверьте корректность файлов конфигурации Terraform с помощью команды:
+    1. Проверьте корректность файлов конфигурации {{ TF }} с помощью команды:
 
         ```bash
         terraform validate
         ```
 
-        Если в файлах конфигурации есть ошибки, Terraform на них укажет.
+        Если в файлах конфигурации есть ошибки, {{ TF }} на них укажет.
 
     1. Создайте необходимую инфраструктуру:
 
@@ -95,7 +95,7 @@
            1. Подтвердите изменение ресурсов.
            1. Дождитесь завершения операции.
 
-        В указанном каталоге будут созданы все требуемые ресурсы. Проверить появление ресурсов и их настройки можно в [консоли управления](https://console.yandex.cloud).
+        В указанном каталоге будут созданы все требуемые ресурсы. Проверить появление ресурсов и их настройки можно в [консоли управления]({{ link-console-main }}).
 
 {% endlist %}
 
@@ -103,13 +103,13 @@
 
 1. [Подключитесь](../../compute/operations/vm-connect/ssh.md) к виртуальной машине по [SSH](../../glossary/ssh-keygen.md).
 
-    1. Установите RabbitMQ:
+    1. Установите {{ RMQ }}:
 
         ```bash
         sudo apt update && sudo apt install rabbitmq-server --yes
         ```
 
-    1. Создайте пользователя для RabbitMQ:
+    1. Создайте пользователя для {{ RMQ }}:
 
         ```bash
         sudo rabbitmqctl add_user <имя_пользователя> <пароль>
@@ -122,13 +122,13 @@
         sudo rabbitmqctl set_topic_permissions -p / <имя_пользователя> amq.topic "cars" "cars"
         ```
 
-1. Установите утилиты `amqp-publish` и `amqp-declare-queue` для работы с RabbitMQ и [jq](https://stedolan.github.io/jq/) для потоковой обработки JSON-файлов:
+1. Установите утилиты `amqp-publish` и `amqp-declare-queue` для работы с {{ RMQ }} и [jq](https://stedolan.github.io/jq/) для потоковой обработки JSON-файлов:
 
     ```bash
     sudo apt update && sudo apt install amqp-tools --yes && sudo apt-get install jq --yes
     ```
 
-1. Убедитесь, что можете создать в RabbitMQ очередь `cars` с помощью `amqp-declare-queue`:
+1. Убедитесь, что можете создать в {{ RMQ }} очередь `cars` с помощью `amqp-declare-queue`:
 
     ```bash
     amqp-declare-queue \
@@ -136,14 +136,14 @@
         --queue=cars
     ```
 
-1. Установите утилиту `clickhouse-client` для подключения к базе данных в кластере Managed Service for ClickHouse®.
+1. Установите утилиту `clickhouse-client` для подключения к базе данных в кластере {{ mch-name }}.
 
-    1. Подключите [DEB-репозиторий](https://clickhouse.com/docs/ru/getting-started/install/#install-from-deb-packages) ClickHouse®:
+    1. Подключите [DEB-репозиторий]({{ ch.docs }}{{ lang }}/install#install-from-deb-packages) {{ CH }}:
 
         ```bash
         sudo apt update && sudo apt install --yes apt-transport-https ca-certificates dirmngr && \
         sudo apt-key adv --keyserver hkp://keyserver.ubuntu.com:80 --recv E0C56BD4 && \
-        echo "deb https://packages.clickhouse.com/deb stable main" | sudo tee \
+        echo "deb https://packages.{{ ch-domain }}/deb stable main" | sudo tee \
         /etc/apt/sources.list.d/clickhouse.list
         ```
 
@@ -157,31 +157,31 @@
 
         ```bash
         mkdir -p ~/.clickhouse-client && \
-        wget "https://storage.yandexcloud.net/doc-files/clickhouse-client.conf.example" \
+        wget "https://{{ s3-storage-host-doc-files }}/clickhouse-client.conf.example" \
           --output-document ~/.clickhouse-client/config.xml
         ```
 
-    Убедитесь, что можете с помощью `clickhouse-client` [подключиться к кластеру Managed Service for ClickHouse® через SSL](../../managed-clickhouse/operations/connect/clients.md#clickhouse-client).
+    Убедитесь, что можете с помощью `clickhouse-client` [подключиться к кластеру {{ mch-name }} через SSL](../../managed-clickhouse/operations/connect/clients.md#clickhouse-client).
 
-## Настройте интеграцию RabbitMQ для кластера Managed Service for ClickHouse® {#configure-mch-for-rmq}
+## Настройте интеграцию {{ RMQ }} для кластера {{ mch-name }} {#configure-mch-for-rmq}
 
 {% list tabs group=instructions %}
 
 - Вручную {#manual}
 
-    Укажите в [настройках кластера Managed Service for ClickHouse®](../../managed-clickhouse/operations/change-server-level-settings.md#yandex-cloud-interfaces) имя пользователя и пароль для аутентификации RabbitMQ в секции **Настройки СУБД** → **Rabbitmq**.
+    Укажите в [настройках кластера {{ mch-name }}](../../managed-clickhouse/operations/change-server-level-settings.md#yandex-cloud-interfaces) имя пользователя и пароль для аутентификации {{ RMQ }} в секции **{{ ui-key.yacloud.mdb.forms.section_settings }}** → **Rabbitmq**.
 
-- Terraform {#tf}
+- {{ TF }} {#tf}
 
-    Добавьте к описанию кластера блок `clickhouse.config.rabbitmq` с именем пользователя и паролем для аутентификации RabbitMQ:
+    Добавьте к описанию кластера блок `clickhouse.config.rabbitmq` с именем пользователя и паролем для аутентификации {{ RMQ }}:
 
     ```hcl
-    resource "yandex_mdb_clickhouse_cluster" "clickhouse-cluster" {
+    resource "yandex_mdb_clickhouse_cluster_v2" "clickhouse-cluster" {
       ...
-      clickhouse {
+      clickhouse = {
         ...
-        config {
-          rabbitmq {
+        config = {
+          rabbitmq = {
             username = "<имя_пользователя>"
             password = "<пароль>"
           }
@@ -193,9 +193,9 @@
 
 {% endlist %}
 
-## Создайте в кластере Managed Service for ClickHouse® таблицу на движке RabbitMQ {#create-rmq-table}
+## Создайте в кластере {{ mch-name }} таблицу на движке {{ RMQ }} {#create-rmq-table}
 
-Пусть в RabbitMQ в очередь `cars` на точке обмена `exchange` в RabbitMQ будут помещены данные от сенсоров автомобиля в формате JSON:
+Пусть в {{ RMQ }} в очередь `cars` на точке обмена `exchange` в {{ RMQ }} будут помещены данные от сенсоров автомобиля в формате JSON:
 
 * строковый идентификатор устройства `device_id`;
 * дата и время формирования данных `datetime` в формате `YYYY-MM-DD HH:MM:SS`;
@@ -210,17 +210,17 @@
 * температура в салоне `cabin_temperature`;
 * уровень топлива `fuel_level` (для автомобиля с ДВС, для электромобиля значение этого параметра — `null`).
 
-Эти данные будут передаваться в виде сообщений RabbitMQ. Каждое такое сообщение будет содержать JSON-объект как строку следующего вида:
+Эти данные будут передаваться в виде сообщений {{ RMQ }}. Каждое такое сообщение будет содержать JSON-объект как строку следующего вида:
 
 ```json
 {"device_id":"iv9a94th6rzt********","datetime":"2020-06-05 17:27:00","latitude":"55.70329032","longitude":"37.65472196","altitude":"427.5","speed":"0","battery_voltage":"23.5","cabin_temperature":"17","fuel_level":null}
 ```
 
-Кластер Managed Service for ClickHouse® будет использовать при вставке в таблицу [формат данных JSONEachRow](https://clickhouse.com/docs/ru/interfaces/formats/#jsoneachrow), который преобразует строки из сообщения RabbitMQ в нужные значения столбцов.
+Кластер {{ mch-name }} будет использовать при вставке в таблицу [формат данных JSONEachRow]({{ ch.docs }}{{ lang }}/interfaces/formats#jsoneachrow), который преобразует строки из сообщения {{ RMQ }} в нужные значения столбцов.
 
-Создайте в кластере Managed Service for ClickHouse® таблицу, в которую будут заноситься поступающие от RabbitMQ данные:
+Создайте в кластере {{ mch-name }} таблицу, в которую будут заноситься поступающие от {{ RMQ }} данные:
 
-1. [Подключитесь](../../managed-clickhouse/operations/connect/clients.md#clickhouse-client) к базе данных `db1` кластера Managed Service for ClickHouse® с помощью `clickhouse-client`.
+1. [Подключитесь](../../managed-clickhouse/operations/connect/clients.md#clickhouse-client) к базе данных `db1` кластера {{ mch-name }} с помощью `clickhouse-client`.
 
 1. Выполните запрос:
 
@@ -243,9 +243,9 @@
         rabbitmq_format = 'JSONEachRow';
     ```
 
-Эта таблица будет автоматически наполняться сообщениями, считываемыми из очереди `cars` в точке обмена `exchange` RabbitMQ. При чтении данных Managed Service for ClickHouse® использует [указанные ранее данные](#configure-mch-for-rmq) для аутентификации.
+Эта таблица будет автоматически наполняться сообщениями, считываемыми из очереди `cars` в точке обмена `exchange` {{ RMQ }}. При чтении данных {{ mch-name }} использует [указанные ранее данные](#configure-mch-for-rmq) для аутентификации.
 
-## Отправьте тестовые данные в очередь RabbitMQ {#send-sample-data-to-rmq}
+## Отправьте тестовые данные в очередь {{ RMQ }} {#send-sample-data-to-rmq}
 
 1. Создайте файл `sample.json` с тестовыми данными:
 
@@ -299,19 +299,19 @@
     --exchange=exchange
     ```
 
-## Проверьте наличие тестовых данных в таблице кластера Managed Service for ClickHouse® {#fetch-sample-data}
+## Проверьте наличие тестовых данных в таблице кластера {{ mch-name }} {#fetch-sample-data}
 
-Для доступа к данным используйте материализованное представление (`MATERIALIZED VIEW`). Когда к таблице на движке `RabbitMQ` присоединяется материализованное представление, оно начинает в фоновом режиме собирать данные. Это позволяет непрерывно получать сообщения от RabbitMQ и преобразовывать их в необходимый формат с помощью `SELECT`.
+Для доступа к данным используйте материализованное представление (`MATERIALIZED VIEW`). Когда к таблице на движке `{{ RMQ }}` присоединяется материализованное представление, оно начинает в фоновом режиме собирать данные. Это позволяет непрерывно получать сообщения от {{ RMQ }} и преобразовывать их в необходимый формат с помощью `SELECT`.
 
 {% note info %}
 
-Сообщение из очереди может быть прочитано ClickHouse® только один раз, поэтому вместо чтения данных напрямую из таблицы используйте материализованное представление.
+Сообщение из очереди может быть прочитано {{ CH }} только один раз, поэтому вместо чтения данных напрямую из таблицы используйте материализованное представление.
 
 {% endnote %}
 
 Чтобы создать материализованное представление для таблицы `db1.cars`:
 
-1. [Подключитесь](../../managed-clickhouse/operations/connect/clients.md#clickhouse-client) к базе данных `db1` кластера Managed Service for ClickHouse® с помощью `clickhouse-client`.
+1. [Подключитесь](../../managed-clickhouse/operations/connect/clients.md#clickhouse-client) к базе данных `db1` кластера {{ mch-name }} с помощью `clickhouse-client`.
 
 1. Выполните запросы:
 
@@ -335,7 +335,7 @@
 
 Чтобы получить все данные из материализованного представления `db1.cars_view`:
 
-1. [Подключитесь](../../managed-clickhouse/operations/connect/clients.md#clickhouse-client) к базе данных `db1` кластера Managed Service for ClickHouse® с помощью `clickhouse-client`.
+1. [Подключитесь](../../managed-clickhouse/operations/connect/clients.md#clickhouse-client) к базе данных `db1` кластера {{ mch-name }} с помощью `clickhouse-client`.
 
 1. Выполните запрос:
 
@@ -343,7 +343,7 @@
     SELECT * FROM db1.cars_view;
     ```
 
-Запрос вернет таблицу с данными, отправленными в RabbitMQ.
+Запрос вернет таблицу с данными, отправленными в {{ RMQ }}.
 
 ## Удалите созданные ресурсы {#clear-out}
 
@@ -353,17 +353,17 @@
 
 - Вручную {#manual}
 
-    * [Удалите кластер Yandex Managed Service for ClickHouse®](../../managed-clickhouse/operations/cluster-delete.md).
+    * [Удалите кластер {{ mch-full-name }}](../../managed-clickhouse/operations/cluster-delete.md).
     * [Удалите виртуальную машину](../../compute/operations/vm-control/vm-delete.md).
     * Если вы зарезервировали публичные статические IP-адреса, освободите и [удалите их](../../vpc/operations/address-delete.md).
 
-- Terraform {#tf}
+- {{ TF }} {#tf}
 
     1. В терминале перейдите в директорию с планом инфраструктуры.
     
         {% note warning %}
     
-        Убедитесь, что в директории нет Terraform-манифестов с ресурсами, которые вы хотите сохранить. Terraform удаляет все ресурсы, которые были созданы с помощью манифестов в текущей директории.
+        Убедитесь, что в директории нет {{ TF }}-манифестов с ресурсами, которые вы хотите сохранить. {{ TF }} удаляет все ресурсы, которые были созданы с помощью манифестов в текущей директории.
     
         {% endnote %}
     
@@ -377,8 +377,8 @@
     
         1. Подтвердите удаление ресурсов и дождитесь завершения операции.
     
-        Все ресурсы, которые были описаны в Terraform-манифестах, будут удалены.
+        Все ресурсы, которые были описаны в {{ TF }}-манифестах, будут удалены.
 
 {% endlist %}
 
-_ClickHouse® является зарегистрированным товарным знаком [ClickHouse, Inc](https://clickhouse.com)._
+_{{ CH }} является зарегистрированным товарным знаком [ClickHouse, Inc](https://clickhouse.com)._

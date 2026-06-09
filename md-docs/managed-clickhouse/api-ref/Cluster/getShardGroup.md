@@ -5,7 +5,7 @@ Returns the specified shard group.
 ## HTTP request
 
 ```
-GET https://mdb.api.cloud.yandex.net/managed-clickhouse/v1/clusters/{clusterId}/shardGroups/{shardGroupName}
+GET https://{{ api-host-mdb }}/managed-clickhouse/v1/clusters/{clusterId}/shardGroups/{shardGroupName}
 ```
 
 ## Path parameters
@@ -15,17 +15,15 @@ GET https://mdb.api.cloud.yandex.net/managed-clickhouse/v1/clusters/{clusterId}/
 || clusterId | **string**
 
 Required field. ID of the cluster that the shard group belongs to.
-
 To get the cluster ID, make a [ClusterService.List](list.md#List) request.
 
 The maximum string length in characters is 50. ||
 || shardGroupName | **string**
 
 Required field. Name of the shard group to request information about.
-
 To get the name of a shard group, make a [ClusterService.ListShardGroups](listShardGroups.md#ListShardGroups) request.
 
-The maximum string length in characters is 63. Value must match the regular expression ` [a-zA-Z0-9_-]* `. ||
+The maximum string length in characters is 63. ||
 |#
 
 ## Response {#yandex.cloud.mdb.clickhouse.v1.ShardGroup}

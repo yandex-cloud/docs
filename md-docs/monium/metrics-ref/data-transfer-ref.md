@@ -1,10 +1,10 @@
-# Метрики Yandex Data Transfer
+# Метрики {{ data-transfer-full-name }}
 
-В этом разделе описаны метрики сервиса [Data Transfer](../../data-transfer/index.md), поставляемые в Monium Metrics.
+В этом разделе описаны метрики сервиса [{{ data-transfer-name }}](../../data-transfer/index.md), поставляемые в {{ monitoring-name }}.
 
 Имя метрики пишется в метку `name`.
 
-Все метрики сервиса Data Transfer имеют общие метки:
+Все метрики сервиса {{ data-transfer-name }} имеют общие метки:
 
 Метка | Значение
 --- | ---

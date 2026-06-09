@@ -5,7 +5,7 @@ Set the list of cluster extensions. Not specified extensions will be deleted.
 ## HTTP request
 
 ```
-POST https://mdb.api.cloud.yandex.net/managed-clickhouse/v1/clusters/{clusterId}/extensions:batchSet
+POST https://{{ api-host-mdb }}/managed-clickhouse/v1/clusters/{clusterId}/extensions:batchSet
 ```
 
 ## Path parameters
@@ -34,9 +34,7 @@ The maximum string length in characters is 50. ||
 
 #|
 ||Field | Description ||
-|| extensionSpecs[] | **[ExtensionSpec](#yandex.cloud.mdb.clickhouse.v1.ExtensionSpec)**
-
-The number of elements must be greater than 0. ||
+|| extensionSpecs[] | **[ExtensionSpec](#yandex.cloud.mdb.clickhouse.v1.ExtensionSpec)** ||
 |#
 
 ## ExtensionSpec {#yandex.cloud.mdb.clickhouse.v1.ExtensionSpec}
@@ -63,18 +61,7 @@ The maximum string length in characters is 63. ||
   "createdBy": "string",
   "modifiedAt": "string",
   "done": "boolean",
-  "metadata": {
-    "clusterId": "string",
-    "addedExtensionNames": [
-      "string"
-    ],
-    "updatedExtensionNames": [
-      "string"
-    ],
-    "deletedExtensionNames": [
-      "string"
-    ]
-  },
+  "metadata": "object",
   // Includes only one of the fields `error`, `response`
   "error": {
     "code": "integer",
@@ -83,15 +70,7 @@ The maximum string length in characters is 63. ||
       "object"
     ]
   },
-  "response": {
-    "extensions": [
-      {
-        "name": "string",
-        "clusterId": "string",
-        "version": "string"
-      }
-    ]
-  }
+  "response": "object"
   // end of the list of possible fields
 }
 ```
@@ -133,7 +112,7 @@ In some languages, built-in datetime utilities do not support nanosecond precisi
 
 If the value is `false`, it means the operation is still in progress.
 If `true`, the operation is completed, and either `error` or `response` is available. ||
-|| metadata | **[SetClusterExtensionsMetadata](#yandex.cloud.mdb.clickhouse.v1.SetClusterExtensionsMetadata)**
+|| metadata | **object**
 
 Service-specific metadata associated with the operation.
 It typically contains the ID of the target resource that the operation is performed on.
@@ -148,7 +127,7 @@ The operation result.
 If `done == false` and there was no failure detected, neither `error` nor `response` is set.
 If `done == false` and there was a failure detected, `error` is set.
 If `done == true`, exactly one of `error` or `response` is set. ||
-|| response | **[ClusterExtensions](#yandex.cloud.mdb.clickhouse.v1.ClusterExtensions)**
+|| response | **object**
 
 The normal response of the operation in case of success.
 If the original method returns no data on success, such as Delete,
@@ -163,16 +142,6 @@ The operation result.
 If `done == false` and there was no failure detected, neither `error` nor `response` is set.
 If `done == false` and there was a failure detected, `error` is set.
 If `done == true`, exactly one of `error` or `response` is set. ||
-|#
-
-## SetClusterExtensionsMetadata {#yandex.cloud.mdb.clickhouse.v1.SetClusterExtensionsMetadata}
-
-#|
-||Field | Description ||
-|| clusterId | **string** ||
-|| addedExtensionNames[] | **string** ||
-|| updatedExtensionNames[] | **string** ||
-|| deletedExtensionNames[] | **string** ||
 |#
 
 ## Status {#google.rpc.Status}
@@ -190,30 +159,4 @@ An error message. ||
 || details[] | **object**
 
 A list of messages that carry the error details. ||
-|#
-
-## ClusterExtensions {#yandex.cloud.mdb.clickhouse.v1.ClusterExtensions}
-
-#|
-||Field | Description ||
-|| extensions[] | **[ClusterExtension](#yandex.cloud.mdb.clickhouse.v1.ClusterExtension)** ||
-|#
-
-## ClusterExtension {#yandex.cloud.mdb.clickhouse.v1.ClusterExtension}
-
-#|
-||Field | Description ||
-|| name | **string**
-
-Required field. Required. Extension name.
-
-The maximum string length in characters is 63. ||
-|| clusterId | **string**
-
-Required field. Required. ID of the ClickHouse cluster.
-
-The maximum string length in characters is 50. ||
-|| version | **string**
-
-Required field. Required. Extension version. ||
 |#

@@ -27,7 +27,7 @@ description: Из статьи вы узнаете, как задать наст
 
 1. {% include [migration](../../../../_includes/data-transfer/scenario-captions/migration.md) %}
 
-Подробное описание возможных сценариев передачи данных в {{ data-transfer-full-name }} см. в разделе [Практические руководства](../../../tutorials/index.md).
+Подробное описание возможных сценариев передачи данных в {{ data-transfer-full-name }} читайте в разделе [Практические руководства](../../../tutorials/index.md).
 
 ## Настройка источника данных {#supported-sources}
 
@@ -42,7 +42,7 @@ description: Из статьи вы узнаете, как задать наст
 * [{{ objstorage-full-name }}](../source/object-storage.md).
 * [{{ OS }}](../source/opensearch.md).
 
-Полный список поддерживаемых источников и приемников в {{ data-transfer-full-name }} см. в разделе [Доступные трансферы](../../../transfer-matrix.md).
+Полный список поддерживаемых источников и приемников в {{ data-transfer-full-name }} читайте в разделе [Доступные трансферы](../../../transfer-matrix.md).
 
 ## Настройка эндпоинта-приемника {{ yds-full-name }} {#endpoint-settings}
 

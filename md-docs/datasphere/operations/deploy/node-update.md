@@ -1,9 +1,9 @@
 # Изменить ноду
 
 Чтобы изменить [ноду](../../concepts/deploy/index.md#node):
-1. Выберите нужный проект в своем сообществе или на [главной странице](https://datasphere.yandex.cloud) DataSphere во вкладке **Недавние проекты**.
-1. В блоке **Ресурсы проекта** выберите **Нода**.
-1. В строке с нужной нодой нажмите ![Options](../../../_assets/console-icons/ellipsis.svg) и выберите ![Edit](../../../_assets/console-icons/pencil.svg) **Редактировать**.
+1. Выберите нужный проект в своем сообществе или на [главной странице]({{ link-datasphere-main }}) {{ ml-platform-name }} во вкладке **{{ ui-key.yc-ui-datasphere.main-page.recent-projects }}**.
+1. В блоке **{{ ui-key.yc-ui-datasphere.project-page.project-resources }}** выберите **{{ ui-key.yc-ui-datasphere.resources.node }}**.
+1. В строке с нужной нодой нажмите ![Options](../../../_assets/console-icons/ellipsis.svg) и выберите ![Edit](../../../_assets/console-icons/pencil.svg) **{{ ui-key.yc-ui-datasphere.common.edit }}**.
 1. Измените параметры ноды:
     * Имя ноды.
     * Описание ноды.
@@ -12,8 +12,8 @@
     * [Зоны доступности](../../../overview/concepts/geo-scope.md), в которых размещен инстанс.
     * [Подсети](../../../vpc/concepts/network.md#subnet) в которых размещен инстанс. Подсеть должна находиться в зоне доступности, в которой создано сообщество.
     * [Идентификаторы каталогов](../../../resource-manager/operations/folder/get-id.md), из которых можно подключаться к ноде (блок **ACL**).
-1. Нажмите кнопку **Сохранить**.
+1. Нажмите кнопку **{{ ui-key.yc-ui-datasphere.common.save }}**.
 
 #### См. также {#see-also}
 
-* [Удалить ноду](node-delete.md)
+* [{#T}](node-delete.md)

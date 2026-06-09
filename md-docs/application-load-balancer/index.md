@@ -18,7 +18,7 @@ Yandex Application Load Balancer служит для распределения 
 
  - [Все инструкции](operations/index.md)
 
- - [Создать инфраструктуру Application Load Balancer c помощью визарда](quickstart-wizard.md)
+ - [Создать инфраструктуру {{ alb-name }} c помощью визарда](quickstart-wizard.md)
 
 ### Целевые группы
 
@@ -92,7 +92,7 @@ Yandex Application Load Balancer служит для распределения 
 
  - [Все практические руководства](tutorials/index.md)
 
- - [Тестирование отказоустойчивости в инфраструктуре Yandex Cloud](tutorials/testing-zone-failure-for-alb.md)
+ - [Тестирование отказоустойчивости в инфраструктуре {{ yandex-cloud }}](tutorials/testing-zone-failure-for-alb.md)
 
  - [Организация виртуального хостинга](tutorials/virtual-hosting.md)
 
@@ -102,11 +102,11 @@ Yandex Application Load Balancer служит для распределения 
 
  - [Консоль управления, CLI](tutorials/alb-with-ddos-protection/console.md)
 
- - [Terraform](tutorials/alb-with-ddos-protection/terraform.md)
+ - [{{ TF }}](tutorials/alb-with-ddos-protection/terraform.md)
 
- - [Создание L7-балансировщика с профилем безопасности Smart Web Security через Ingress-контроллер Application Load Balancer](tutorials/alb-ingress-with-sws-profile.md)
+ - [Создание L7-балансировщика с профилем безопасности {{ sws-name }} через Ingress-контроллер {{ alb-name }}](tutorials/alb-ingress-with-sws-profile.md)
 
-### Миграция сервисов с балансировщика NLB на L7-балансировщик ALB для подключения защиты Smart Web Security
+### Миграция сервисов с балансировщика NLB на L7-балансировщик ALB для подключения защиты {{ sws-name }}
 
  - [Обзор](tutorials/migration-from-nlb-to-alb/index.md)
 
@@ -116,7 +116,7 @@ Yandex Application Load Balancer служит для распределения 
 
  - [Консоль управления](tutorials/migration-from-nlb-to-alb/nlb-with-target-resource-vm/console.md)
 
- - [Terraform](tutorials/migration-from-nlb-to-alb/nlb-with-target-resource-vm/terraform.md)
+ - [{{ TF }}](tutorials/migration-from-nlb-to-alb/nlb-with-target-resource-vm/terraform.md)
 
 #### Балансировщик NLB с целевыми ресурсами из группы виртуальных машин
 
@@ -124,15 +124,15 @@ Yandex Application Load Balancer служит для распределения 
 
  - [Консоль управления](tutorials/migration-from-nlb-to-alb/nlb-with-target-resource-group-vm/console.md)
 
- - [Terraform](tutorials/migration-from-nlb-to-alb/nlb-with-target-resource-group-vm/terraform.md)
+ - [{{ TF }}](tutorials/migration-from-nlb-to-alb/nlb-with-target-resource-group-vm/terraform.md)
 
-#### Балансировщик NLB с целевыми ресурсами из кластера Managed Service for Kubernetes
+#### Балансировщик NLB с целевыми ресурсами из кластера {{ managed-k8s-name }}
 
  - [Обзор](tutorials/migration-from-nlb-to-alb/nlb-with-target-resource-k8s/index.md)
 
  - [Консоль управления](tutorials/migration-from-nlb-to-alb/nlb-with-target-resource-k8s/console.md)
 
- - [Terraform](tutorials/migration-from-nlb-to-alb/nlb-with-target-resource-k8s/terraform.md)
+ - [{{ TF }}](tutorials/migration-from-nlb-to-alb/nlb-with-target-resource-k8s/terraform.md)
 
 #### Балансировщик NLB как целевой ресурс для ALB
 
@@ -140,15 +140,15 @@ Yandex Application Load Balancer служит для распределения 
 
  - [Консоль управления](tutorials/migration-from-nlb-to-alb/nlb-as-target-resource-alb/console.md)
 
- - [Terraform](tutorials/migration-from-nlb-to-alb/nlb-as-target-resource-alb/terraform.md)
+ - [{{ TF }}](tutorials/migration-from-nlb-to-alb/nlb-as-target-resource-alb/terraform.md)
 
-### Интеграция L7-балансировщика с CDN и Object Storage
+### Интеграция L7-балансировщика с CDN и {{ objstorage-name }}
 
  - [Обзор](tutorials/cdn-storage-integration/index.md)
 
  - [Консоль управления, CLI и API](tutorials/cdn-storage-integration/console.md)
 
- - [Terraform](tutorials/cdn-storage-integration/terraform.md)
+ - [{{ TF }}](tutorials/cdn-storage-integration/terraform.md)
 
  - [Сине-зеленое и канареечное развертывание версий сервиса](tutorials/blue-green-canary-deployment.md)
 
@@ -158,49 +158,49 @@ Yandex Application Load Balancer служит для распределения 
 
  - [Консоль управления](tutorials/tls-termination/console.md)
 
- - [Terraform](tutorials/tls-termination/terraform.md)
+ - [{{ TF }}](tutorials/tls-termination/terraform.md)
 
- - [Запись логов балансировщика в PostgreSQL](tutorials/logging.md)
+ - [Запись логов балансировщика в {{ PG }}](tutorials/logging.md)
 
- - [Развертывание и нагрузочное тестирование gRPC-сервиса с масштабированием в Yandex Managed Service for Kubernetes](tutorials/load-testing-grpc-autoscaling.md)
+ - [Развертывание и нагрузочное тестирование gRPC-сервиса с масштабированием в {{ managed-k8s-full-name }}](tutorials/load-testing-grpc-autoscaling.md)
 
- - [Настройка Gateway API в Yandex Managed Service for Kubernetes](tutorials/gateway-api.md)
+ - [Настройка Gateway API в {{ managed-k8s-full-name }}](tutorials/gateway-api.md)
 
- - [Настройка L7-балансировщика Application Load Balancer с помощью Ingress-контроллера](tutorials/alb-ingress-controller.md)
+ - [Настройка L7-балансировщика {{ alb-name }} с помощью Ingress-контроллера](tutorials/alb-ingress-controller.md)
 
- - [Настройка логирования для L7-балансировщика Application Load Balancer с помощью Ingress-контроллера](tutorials/alb-ingress-controller-log-options.md)
+ - [Настройка логирования для L7-балансировщика {{ alb-name }} с помощью Ingress-контроллера](tutorials/alb-ingress-controller-log-options.md)
 
-### Отказоустойчивый сайт с балансировкой нагрузки через Application Load Balancer
+### Отказоустойчивый сайт с балансировкой нагрузки через {{ alb-name }}
 
  - [Обзор](tutorials/application-load-balancer-website/index.md)
 
  - [Консоль управления](tutorials/application-load-balancer-website/console.md)
 
- - [Terraform](tutorials/application-load-balancer-website/terraform.md)
+ - [{{ TF }}](tutorials/application-load-balancer-website/terraform.md)
 
- - [Проверка состояния приложений в кластере Managed Service for Kubernetes с помощью L7-балансировщика Application Load Balancer](tutorials/custom-health-checks.md)
+ - [Проверка состояния приложений в кластере {{ managed-k8s-name }} с помощью L7-балансировщика {{ alb-name }}](tutorials/custom-health-checks.md)
 
  - [Реализация защищенной высокодоступной сетевой инфраструктуры с выделением DMZ на основе Next-Generation Firewall](tutorials/high-accessible-dmz.md)
 
-### Создание L7-балансировщика Application Load Balancer с профилем безопасности Smart Web Security
+### Создание L7-балансировщика {{ alb-name }} с профилем безопасности {{ sws-name }}
 
  - [Обзор](tutorials/balancer-with-sws-profile/index.md)
 
  - [Консоль управления](tutorials/balancer-with-sws-profile/console.md)
 
- - [Terraform](tutorials/balancer-with-sws-profile/terraform.md)
+ - [{{ TF }}](tutorials/balancer-with-sws-profile/terraform.md)
 
-### Развертывание Nextcloud в интеграции с Object Storage
+### Развертывание Nextcloud в интеграции с {{ objstorage-name }}
 
  - [Обзор](tutorials/integrate-nextcloud/index.md)
 
- - [Развертывание Nextcloud на ВМ из образа Container Optimized Image](tutorials/integrate-nextcloud/coi-based.md)
+ - [Развертывание Nextcloud на ВМ из образа {{ coi }}](tutorials/integrate-nextcloud/coi-based.md)
 
  - [Развертывание Nextcloud на ВМ или в группе ВМ вручную](tutorials/integrate-nextcloud/fault-tolerant.md)
 
- - [Развертывание Nextcloud на ВМ или в группе ВМ с помощью Terraform](tutorials/integrate-nextcloud/terraform.md)
+ - [Развертывание Nextcloud на ВМ или в группе ВМ с помощью {{ TF }}](tutorials/integrate-nextcloud/terraform.md)
 
- - [Развертывание веб-приложения на серверах BareMetal с L7-балансировщиком и защитой Smart Web Security](tutorials/webapp-on-bms-behind-sws.md)
+ - [Развертывание веб-приложения на серверах {{ baremetal-name }} с L7-балансировщиком и защитой {{ sws-name }}](tutorials/webapp-on-bms-behind-sws.md)
 
 ## Концепции
 
@@ -224,7 +224,7 @@ Yandex Application Load Balancer служит для распределения 
 
  - [Рекомендации по настройке проверок состояния](concepts/best-practices.md)
 
-## Инструменты для Managed Service for Kubernetes
+## Инструменты для {{ managed-k8s-name }}
 
  - [Обзор](tools/index.md)
 
@@ -238,7 +238,7 @@ Yandex Application Load Balancer служит для распределения 
 
  - [Миграция приложений с ALB Ingress-контроллера на Gwin](tools/gwin/ingress-gwin-migration.md)
 
- - [Механизм Attachment для интеграции Gwin с Application Load Balancer](tools/gwin/gwin-alb-attachment.md)
+ - [Механизм Attachment для интеграции Gwin с {{ alb-name }}](tools/gwin/gwin-alb-attachment.md)
 
 #### Конфигурация ресурсов (англ.)
 
@@ -654,7 +654,7 @@ Yandex Application Load Balancer служит для распределения 
 
  - [update-http-route](cli-ref/virtual-host/update-http-route.md)
 
- - [Справочник Terraform](tf-ref.md)
+ - [Справочник {{ TF }}](tf-ref.md)
 
 ## Справочник API
 
@@ -920,9 +920,9 @@ Yandex Application Load Balancer служит для распределения 
 
  - [UpdateRoute](api-ref/VirtualHost/updateRoute.md)
 
- - [Метрики Monitoring](metrics.md)
+ - [Метрики {{ monitoring-name }}](metrics.md)
 
- - [Аудитные логи Audit Trails](at-ref.md)
+ - [Аудитные логи {{ at-name }}](at-ref.md)
 
 ## Справочник аудитных логов
 

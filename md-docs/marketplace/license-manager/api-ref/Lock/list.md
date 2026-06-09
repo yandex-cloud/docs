@@ -5,7 +5,7 @@ Returns subscriptions locks for specified resource and folder.
 ## HTTP request
 
 ```
-GET https://marketplace.api.cloud.yandex.net/marketplace/license-manager/v1/locks
+GET https://marketplace.{{ api-host }}/marketplace/license-manager/v1/locks
 ```
 
 ## Query parameters {#yandex.cloud.marketplace.licensemanager.v1.ListLocksRequest}

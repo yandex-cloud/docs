@@ -5,7 +5,7 @@ Lists access bindings for specified community.
 ## HTTP request
 
 ```
-GET https://datasphere.api.cloud.yandex.net/datasphere/v2/communities/{resourceId}:accessBindings
+GET https://datasphere.{{ api-host }}/datasphere/v2/communities/{resourceId}:accessBindings
 ```
 
 ## Path parameters

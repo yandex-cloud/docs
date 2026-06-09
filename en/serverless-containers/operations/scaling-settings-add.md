@@ -19,7 +19,7 @@ The scaling settings must be within the [quotas](../concepts/limits.md#serverles
 - Management console {#console}
 
     1. In the [management console]({{ link-console-main }}), select the folder with your container.
-    1. [Go](../../console/operations/select-service.md#select-service) to **{{ ui-key.yacloud.iam.folder.dashboard.label_serverless-containers }}**.
+    1. [Navigate](../../console/operations/select-service.md#select-service) to **{{ ui-key.yacloud.iam.folder.dashboard.label_serverless-containers }}**.
     1. Select the container.
     1. Navigate to the **{{ ui-key.yacloud.serverless-containers.label_editor }}** tab.
     1. Under **{{ ui-key.yacloud.serverless-containers.section_parameters }}**, specify the number of provisioned instances.
@@ -31,7 +31,7 @@ The scaling settings must be within the [quotas](../concepts/limits.md#serverles
 
     {% include [default-catalogue](../../_includes/default-catalogue.md) %}
 
-    To set scaling settings, run this command:
+    To configure scaling settings, run this command:
 
     ```bash
     yc serverless container revision deploy \
@@ -49,7 +49,7 @@ The scaling settings must be within the [quotas](../concepts/limits.md#serverles
     * `--min-instances`: Number of provisioned instances.
     * `--zone-instances-limit`: Maximum number of container instances per availability zone.
     * `--zone-requests-limit`: Maximum number of simultaneous container invocations per availability zone.
-    * `--service-account-id`: [ID of the service account](../../iam/operations/sa/get-id.md) with Docker image download permissions.
+    * `--service-account-id`: [ID of the service account](../../iam/operations/sa/get-id.md) with Docker image pull permissions.
 
     Result:
 
@@ -111,20 +111,20 @@ The scaling settings must be within the [quotas](../concepts/limits.md#serverles
 
         Where:
         * `name`: Container name.
-        * `service_account_id`: [ID of the service account](../../iam/operations/sa/get-id.md) with Docker image download permissions.
+        * `service_account_id`: [ID of the service account](../../iam/operations/sa/get-id.md) with Docker image pull permissions.
         * `memory`: Required memory. The default value is 128 MB.
         * `url`: [Docker image](../../container-registry/concepts/docker-image.md) URL.
         * `min_instances`: Number of provisioned instances.
        
        For more information about `yandex_serverless_container` properties, see [this provider guide]({{ tf-provider-resources-link }}/serverless_container).
 
-    1. Run a check using the following command:
+    1. Run a check using this command:
 
         ```
         terraform plan
         ```
 
-        A list of resource parameters will be displayed in the terminal. This is a test step: the resource will not be changed. {{ TF }} will show any errors in the configuration.
+        The terminal will display a list of resource parameters. This is a verification step: the resource will not be modified. Otherwise, {{ TF }} will show any detected errors.
 
     1. Apply the configuration changes:
 

@@ -1,13 +1,12 @@
 # Managed Service for MySQL API, REST: Backup.List
 
 Retrieves the list of backups in a folder.
-
 To list backups for an existing cluster, make a [ClusterService.ListBackups](../Cluster/listBackups.md#ListBackups) request.
 
 ## HTTP request
 
 ```
-GET https://mdb.api.cloud.yandex.net/managed-mysql/v1/backups
+GET https://{{ api-host-mdb }}/managed-mysql/v1/backups
 ```
 
 ## Query parameters {#yandex.cloud.mdb.mysql.v1.ListBackupsRequest}
@@ -17,21 +16,18 @@ GET https://mdb.api.cloud.yandex.net/managed-mysql/v1/backups
 || folderId | **string**
 
 Required field. ID of the folder to list backups in.
-
 To get this ID, make a [yandex.cloud.resourcemanager.v1.FolderService.List](../../../resource-manager/api-ref/Folder/list.md#List) request.
 
 The maximum string length in characters is 50. ||
 || pageSize | **string** (int64)
 
 The maximum number of results per page to return.
-
 If the number of available results is larger than `pageSize`, the API returns a [ListBackupsResponse.nextPageToken](#yandex.cloud.mdb.mysql.v1.ListBackupsResponse) that can be used to get the next page of results in the subsequent [BackupService.List](#List) requests.
 
 The maximum value is 1000. ||
 || pageToken | **string**
 
 Page token that can be used to iterate through multiple pages of results.
-
 To get the next page of results, set `pageToken` to the [ListBackupsResponse.nextPageToken](#yandex.cloud.mdb.mysql.v1.ListBackupsResponse) returned by the previous [BackupService.List](#List) request.
 
 The maximum string length in characters is 100. ||
@@ -68,9 +64,7 @@ List of backups. ||
 || nextPageToken | **string**
 
 The token that can be used to get the next page of results.
-
 If the number of results is larger than [ListBackupsRequest.pageSize](#yandex.cloud.mdb.mysql.v1.ListBackupsRequest), use the `nextPageToken` as the value for the [ListBackupsRequest.pageToken](#yandex.cloud.mdb.mysql.v1.ListBackupsRequest) in the subsequent [BackupService.List](#List) request to iterate through multiple pages of results.
-
 Each of the subsequent [BackupService.List](#List) requests should use the `nextPageToken` value returned by the previous request to continue paging through the results.
 
 The maximum string length in characters is 100. ||
@@ -79,7 +73,6 @@ The maximum string length in characters is 100. ||
 ## Backup {#yandex.cloud.mdb.mysql.v1.Backup}
 
 An object that represents MySQL backup.
-
 See [the documentation](../../concepts/backup.md) for details.
 
 #|

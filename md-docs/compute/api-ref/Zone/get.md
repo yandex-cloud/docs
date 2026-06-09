@@ -1,13 +1,12 @@
 # Compute Cloud API, REST: Zone.Get
 
 Returns the information about the specified availability zone.
-
 To get the list of availability zones, make a [List](list.md#List) request.
 
 ## HTTP request
 
 ```
-GET https://compute.api.cloud.yandex.net/compute/v1/zones/{zoneId}
+GET https://compute.{{ api-host }}/compute/v1/zones/{zoneId}
 ```
 
 ## Path parameters
@@ -17,8 +16,8 @@ GET https://compute.api.cloud.yandex.net/compute/v1/zones/{zoneId}
 || zoneId | **string**
 
 Required field. ID of the availability zone to return information about.
-
-The maximum string length in characters is 50. ||
+The length must be less than or equal to 50.
+This field is required. ||
 |#
 
 ## Response {#yandex.cloud.compute.v1.Zone}

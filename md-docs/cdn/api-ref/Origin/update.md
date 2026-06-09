@@ -7,7 +7,7 @@ use the origin via a [CacheService.Purge](../Cache/purge.md#Purge) request.
 ## HTTP request
 
 ```
-PATCH https://cdn.api.cloud.yandex.net/cdn/v1/origins/{originId}
+PATCH https://cdn.{{ api-host }}/cdn/v1/origins/{originId}
 ```
 
 ## Path parameters

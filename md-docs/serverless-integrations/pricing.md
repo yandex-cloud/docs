@@ -1,5 +1,5 @@
-# Правила тарификации для Serverless Integrations
+# Правила тарификации для {{ si-name }}
 
 
 
-На стадии [Preview](../overview/concepts/launch-stages.md) использование Workflows и EventRouter не тарифицируется. Правила тарификации для API Gateway см. в разделе [Правила тарификации для Yandex API Gateway](../api-gateway/pricing.md).
+На стадии [Preview](../overview/concepts/launch-stages.md) использование {{ sw-name }} и {{ er-name }} не тарифицируется. Правила тарификации для {{ api-gw-name }} см. в разделе [{#T}](../api-gateway/pricing.md).

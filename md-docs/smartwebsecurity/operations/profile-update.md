@@ -4,29 +4,29 @@
 
 - Консоль управления {#console}
 
-  1. В [консоли управления](https://console.yandex.cloud) выберите [каталог](../../resource-manager/concepts/resources-hierarchy.md#folder), в котором находится [профиль безопасности](../concepts/profiles.md).
-  1. [Перейдите](../../console/operations/select-service.md#select-service) в сервис **Smart Web Security**.
-  1. На панели слева выберите ![shield-check](../../_assets/console-icons/shield-check.svg) **Профили безопасности**.
-  1. В строке с нужным профилем нажмите ![options](../../_assets/console-icons/ellipsis.svg) и выберите **Редактировать**.
+  1. В [консоли управления]({{ link-console-main }}) выберите [каталог](../../resource-manager/concepts/resources-hierarchy.md#folder), в котором находится [профиль безопасности](../concepts/profiles.md).
+  1. Перейдите в сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_smartwebsecurity }}**.
+  1. На панели слева выберите ![shield-check](../../_assets/console-icons/shield-check.svg) **{{ ui-key.yacloud.smart-web-security.title_profiles }}**.
+  1. В строке с нужным профилем нажмите ![options](../../_assets/console-icons/ellipsis.svg) и выберите **{{ ui-key.yacloud.smart-web-security.overview.action_edit-profile }}**.
   1. В открывшемся окне измените параметры:
 
-      * **Имя**.
-      * **Описание**.
-      * [**Метки**](../../resource-manager/concepts/labels.md). Чтобы добавить новую метку, нажмите кнопку **Добавить метку**.
-      * **Действие для базового правила по умолчанию** — `Запретить` или `Разрешить`.
-      * **Профиль ARL** — выберите или создайте [профиль ARL](../concepts/arl.md).
-      * Выберите или создайте капчу [SmartCaptcha](../../smartcaptcha/index.md) для проверки подозрительных запросов.
-      * Выберите или [создайте](template-create.md) шаблон ответа, который будет возвращаться клиенту при срабатывании любого правила в профиле. По умолчанию используется стандартный шаблон Yandex Cloud.
-      * (опционально) Настройте опцию **Анализировать тело запроса (макс. 8 КБ)**, выбрав действие при превышении максимального размера:
+      * **{{ ui-key.yacloud.common.name }}**.
+      * **{{ ui-key.yacloud.common.description }}**.
+      * [**{{ ui-key.yacloud.component.label-set.label_labels }}**](../../resource-manager/concepts/labels.md). Чтобы добавить новую метку, нажмите кнопку **{{ ui-key.yacloud.component.label-set.button_add-label }}**.
+      * **{{ ui-key.yacloud.smart-web-security.form.label_default-action }}** — `{{ ui-key.yacloud.smart-web-security.form.label_action-deny }}` или `{{ ui-key.yacloud.smart-web-security.form.label_action-allow }}`.
+      * **{{ ui-key.yacloud.smart-web-security.form.label_arl-profile }}** — выберите или создайте [профиль ARL](../concepts/arl.md).
+      * Выберите или создайте капчу [{{ captcha-name }}](../../smartcaptcha/index.md) для проверки подозрительных запросов.
+      * Выберите или [создайте](template-create.md) шаблон ответа, который будет возвращаться клиенту при срабатывании любого правила в профиле. По умолчанию используется стандартный шаблон {{ yandex-cloud }}.
+      * (опционально) Настройте опцию **{{ ui-key.yacloud.smart-web-security.waf.field_analyze-request-body }}**, выбрав действие при превышении максимального размера:
         
-        * `Не анализировать тело запроса`
-        * `Блокировать запрос`
-  1. Включите или отключите использование информации об HTTP-запросах для улучшения моделей машинного обучения в разделе **Обучение ML-моделей**.
-  1. Нажмите кнопку **Сохранить**.
+        * `{{ ui-key.yacloud.smart-web-security.waf.label_analyze-request-body-action-ignore }}`
+        * `{{ ui-key.yacloud.smart-web-security.waf.label_analyze-request-body-action-deny }}`
+  1. Включите или отключите использование информации об HTTP-запросах для улучшения моделей машинного обучения в разделе **{{ ui-key.yacloud.component.disallow-data-processing.title_ml-model-training }}**.
+  1. Нажмите кнопку **{{ ui-key.yacloud.common.save }}**.
 
 - CLI {#cli}
 
-  Если у вас еще нет интерфейса командной строки Yandex Cloud (CLI), [установите и инициализируйте его](../../cli/quickstart.md#install).
+  Если у вас еще нет интерфейса командной строки {{ yandex-cloud }} (CLI), [установите и инициализируйте его](../../cli/quickstart.md#install).
 
   По умолчанию используется каталог, указанный при [создании](../../cli/operations/profile/profile-create.md) профиля CLI. Чтобы изменить каталог по умолчанию, используйте команду `yc config set folder-id <идентификатор_каталога>`. Также для любой команды вы можете указать другой каталог с помощью параметров `--folder-name` или `--folder-id`. Если вы обращаетесь к ресурсу по имени, поиск будет выполнен в каталоге по умолчанию. Если вы обращаетесь к ресурсу по идентификатору, поиск будет выполнен глобально — во всех каталогах с учетом прав доступа.
 
@@ -73,7 +73,7 @@
      * `--description` — текстовое описание профиля безопасности. Необязательный параметр.
      * `--labels` — список [меток](../../resource-manager/concepts/labels.md) для добавления в профиль в формате `КЛЮЧ=ЗНАЧЕНИЕ`. Необязательный параметр. Например: `--labels foo=baz,bar=baz'`.
      * `--default-action` — действие, которое следует выполнить для трафика, который не попал под условия других правил. Необязательный параметр. По умолчанию установлено значение `allow`, разрешающее все запросы к сервису. Чтобы запретить запросы, установите значение `deny`.
-     * `--captcha-id` — идентификатор капчи [SmartCaptcha](../../smartcaptcha/index.md) для проверки подозрительных запросов. Необязательный параметр.
+     * `--captcha-id` — идентификатор капчи [{{ captcha-name }}](../../smartcaptcha/index.md) для проверки подозрительных запросов. Необязательный параметр.
      * `--security-rules-file` — путь к файлу с описанием правил безопасности в формате [YAML](https://ru.wikipedia.org/wiki/YAML). Необязательный параметр. Например:
 
          {% cut "security-rules.yaml" %}
@@ -181,21 +181,24 @@
   Подробнее о команде `yc smartwebsecurity security-profile update` читайте в [справочнике CLI](../../cli/cli-ref/smartwebsecurity/cli-ref/security-profile/update.md).
 
 
-- Terraform {#tf}
+- {{ TF }} {#tf}
 
-  [Terraform](https://www.terraform.io/) позволяет быстро создать облачную инфраструктуру в Yandex Cloud и управлять ею с помощью файлов конфигураций. В файлах конфигураций хранится описание инфраструктуры на языке HCL (HashiCorp Configuration Language). При изменении файлов конфигураций Terraform автоматически определяет, какая часть вашей конфигурации уже развернута, что следует добавить или удалить.
+  [{{ TF }}](https://www.terraform.io/) позволяет быстро создать облачную инфраструктуру в {{ yandex-cloud }} и управлять ею с помощью файлов конфигураций. В файлах конфигураций хранится описание инфраструктуры на языке HCL (HashiCorp Configuration Language). При изменении файлов конфигураций {{ TF }} автоматически определяет, какая часть вашей конфигурации уже развернута, что следует добавить или удалить.
   
-  Terraform распространяется под лицензией [Business Source License](https://github.com/hashicorp/terraform/blob/main/LICENSE), а [провайдер Yandex Cloud для Terraform](https://github.com/yandex-cloud/terraform-provider-yandex) — под лицензией [MPL-2.0](https://www.mozilla.org/en-US/MPL/2.0/).
+  {{ TF }} распространяется под лицензией [Business Source License](https://github.com/hashicorp/terraform/blob/main/LICENSE), а [провайдер {{ yandex-cloud }} для {{ TF }}](https://github.com/yandex-cloud/terraform-provider-yandex) — под лицензией [MPL-2.0](https://www.mozilla.org/en-US/MPL/2.0/).
   
-  Подробную информацию о ресурсах провайдера смотрите в документации на сайте [Terraform](https://www.terraform.io/docs/providers/yandex/index.html) или в [зеркале](../../terraform/index.md).
+  Подробную информацию о ресурсах провайдера смотрите в документации на сайте [{{ TF }}](https://www.terraform.io/docs/providers/yandex/index.html) или в [зеркале]({{ tf-docs-link }}).
 
-  Если у вас еще нет Terraform, [установите его и настройте провайдер Yandex Cloud](../../tutorials/infrastructure-management/terraform-quickstart.md#install-terraform).
+  Если у вас еще нет {{ TF }}, [установите его и настройте провайдер {{ yandex-cloud }}](../../tutorials/infrastructure-management/terraform-quickstart.md#install-terraform).
+  
+  
+  Чтобы управлять инфраструктурой с помощью {{ TF }} от имени сервисного аккаунта или пользовательских аккаунтов: аккаунта на Яндексе, федеративного аккаунта и локального пользователя, [аутентифицируйтесь](../../terraform/authentication.md) соответствующим способом.
 
-  Чтобы изменить параметры профиля безопасности Yandex Smart Web Security, созданного с помощью Terraform:
+  Чтобы изменить параметры профиля безопасности {{ sws-full-name }}, созданного с помощью {{ TF }}:
 
-  1. Откройте файл конфигурации Terraform и измените фрагмент с описанием профиля.
+  1. Откройте файл конфигурации {{ TF }} и измените фрагмент с описанием профиля.
 
-     {% cut "Пример описания профиля безопасности в конфигурации Terraform" %}
+     {% cut "Пример описания профиля безопасности в конфигурации {{ TF }}" %}
      
      ```hcl
      resource "yandex_sws_security_profile" "demo-profile-simple" {
@@ -245,7 +248,7 @@
 
      {% endcut %}
 
-      Более подробную информацию о параметрах ресурса `yandex_sws_security_profile` в Terraform, см. в [документации провайдера](../../terraform/resources/sws_security_profile.md).
+      Более подробную информацию о параметрах ресурса `yandex_sws_security_profile` в {{ TF }}, см. в [документации провайдера]({{ tf-provider-resources-link }}/sws_security_profile).
 
   1. Примените изменения:
 
@@ -268,7 +271,7 @@
           terraform plan
           ```
        
-          В терминале будет выведен список ресурсов с параметрами. На этом этапе изменения не будут внесены. Если в конфигурации есть ошибки, Terraform на них укажет.
+          В терминале будет выведен список ресурсов с параметрами. На этом этапе изменения не будут внесены. Если в конфигурации есть ошибки, {{ TF }} на них укажет.
        1. Примените изменения конфигурации:
        
           ```bash
@@ -277,7 +280,7 @@
        
        1. Подтвердите изменения: введите в терминале слово `yes` и нажмите **Enter**.
 
-  Проверить изменение ресурсов можно в [консоли управления](https://console.yandex.cloud) или с помощью команды [CLI](../../cli/index.md):
+  Проверить изменение ресурсов можно в [консоли управления]({{ link-console-main }}) или с помощью команды [CLI](../../cli/index.md):
 
   ```bash
   yc smartwebsecurity security-profile get <идентификатор_профиля_безопасности>
@@ -291,7 +294,7 @@
 
 ### См. также {#see-also}
 
-* [Добавить правило в профиль безопасности](rule-add.md)
-* [Изменить правило в профиле безопасности](rule-update.md)
-* [Подключить профиль безопасности к ресурсу](host-connect.md)
-* [Удалить профиль безопасности](profile-delete.md)
+* [{#T}](rule-add.md)
+* [{#T}](rule-update.md)
+* [{#T}](host-connect.md)
+* [{#T}](profile-delete.md)

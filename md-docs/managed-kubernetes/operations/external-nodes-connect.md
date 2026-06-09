@@ -2,19 +2,19 @@
 
 {% note info %}
 
-Подключение [внешних узлов](../concepts/external-nodes.md) к [кластеру Managed Service for Kubernetes](index.md#kubernetes-cluster) находится на стадии [Preview](../../overview/concepts/launch-stages.md). Их использование не тарифицируется.
+Подключение [внешних узлов](../concepts/external-nodes.md) к [кластеру {{ managed-k8s-name }}](index.md#kubernetes-cluster) находится на стадии [Preview](../../overview/concepts/launch-stages.md). Их использование не тарифицируется.
 
 {% endnote %}
 
-Внешние серверы подключаются в виде узлов к кластеру Managed Service for Kubernetes с помощью специальных ресурсов Kubernetes API. Определения ([CustomResourceDefinitions](https://kubernetes.io/docs/concepts/extend-kubernetes/api-extension/custom-resources/#customresourcedefinitions)) этих ресурсов автоматически предустановлены в кластер Managed Service for Kubernetes.
+Внешние серверы подключаются в виде узлов к кластеру {{ managed-k8s-name }} с помощью специальных ресурсов {{ k8s }} API. Определения ([CustomResourceDefinitions](https://kubernetes.io/docs/concepts/extend-kubernetes/api-extension/custom-resources/#customresourcedefinitions)) этих ресурсов автоматически предустановлены в кластер {{ managed-k8s-name }}.
 
 {% note warning %}
 
-Чтобы подключить внешние узлы к кластеру Managed Service for Kubernetes, необходимо соответствие кластера и подключаемых серверов [определенным требованиям](../concepts/external-nodes.md#requirements).
+Чтобы подключить внешние узлы к кластеру {{ managed-k8s-name }}, необходимо соответствие кластера и подключаемых серверов [определенным требованиям](../concepts/external-nodes.md#requirements).
 
 {% endnote %}
 
-Если в качестве внешних узлов планируется использовать виртуальные машины Yandex Compute Cloud, то при их [создании](../../compute/operations/index.md#vm-create) нужно указать в метаданных для ключа `user-data` параметр `disable_root: false`. Если параметр не указан, в кластере появятся [ошибки](../qa/troubleshooting.md#vm-as-external-node).
+Если в качестве внешних узлов планируется использовать виртуальные машины {{ compute-full-name }}, то при их [создании](../../compute/operations/index.md#vm-create) нужно указать в метаданных для ключа `user-data` параметр `disable_root: false`. Если параметр не указан, в кластере появятся [ошибки](../qa/troubleshooting.md#vm-as-external-node).
 
 {% cut "Пример метаданных" %}
 
@@ -36,11 +36,11 @@ users:
 
 ## Перед началом работы {#before-you-begin}
 
-1. [Создайте кластер Managed Service for Kubernetes](kubernetes-cluster/kubernetes-cluster-create.md) любой подходящей конфигурации.
+1. [Создайте кластер {{ managed-k8s-name }}](kubernetes-cluster/kubernetes-cluster-create.md) любой подходящей конфигурации.
 
-    Для создания внешней группы узлов кластер Managed Service for Kubernetes должен работать в [туннельном режиме](../concepts/network-policy.md#cilium). Он включается только при создании кластера.
+    Для создания внешней группы узлов кластер {{ managed-k8s-name }} должен работать в [туннельном режиме](../concepts/network-policy.md#cilium). Он включается только при создании кластера.
 
-1. [Установите kubectl](https://kubernetes.io/ru/docs/tasks/tools/install-kubectl) и [настройте его на работу с созданным кластером](connect/index.md#kubectl-connect).
+1. [Установите kubectl]({{ k8s-docs }}/tasks/tools/install-kubectl) и [настройте его на работу с созданным кластером](connect/index.md#kubectl-connect).
 
 ## Создание группы узлов {#node-group-create}
 
@@ -48,16 +48,16 @@ users:
 
 - Консоль управления {#console}
 
-  1. На странице кластера Managed Service for Kubernetes перейдите на вкладку **Управление узлами**.
-  1. Нажмите кнопку **Создать группу узлов**, затем **Внешняя**.
-  1. Введите имя группы узлов Managed Service for Kubernetes.
-  1. В поле **IP-адреса узлов** укажите [IP-адрес](../../vpc/concepts/address.md) подключаемого сервера, доступный из [облачной сети](../../vpc/concepts/network.md#network) кластера Managed Service for Kubernetes.
-  1. При необходимости нажмите кнопку **Добавить IP-адрес**, чтобы добавить еще IP-адреса.
-  1. Нажмите кнопку **Добавить**.
+  1. На странице кластера {{ managed-k8s-name }} перейдите на вкладку **{{ ui-key.yacloud.k8s.cluster.switch_nodes-manager }}**.
+  1. Нажмите кнопку **{{ ui-key.yacloud.k8s.cluster.node-groups.button_create }}**, затем **{{ ui-key.yacloud.k8s.cluster.node-groups.label_type-custom }}**.
+  1. Введите имя группы узлов {{ managed-k8s-name }}.
+  1. В поле **{{ ui-key.yacloud.k8s.node-groups.create.field_ips }}** укажите [IP-адрес](../../vpc/concepts/address.md) подключаемого сервера, доступный из [облачной сети](../../vpc/concepts/network.md#network) кластера {{ managed-k8s-name }}.
+  1. При необходимости нажмите кнопку **{{ ui-key.yacloud.k8s.node-groups.create.button_add-ip }}**, чтобы добавить еще IP-адреса.
+  1. Нажмите кнопку **{{ ui-key.yacloud.common.add }}**.
 
 - CLI {#cli}
 
-  1. Сохраните в YAML-файл `ext-nodegroup.yaml` спецификацию объекта типа `NodeGroup` группы Managed Service for Kubernetes API `mks.yandex.cloud/v1alpha1` в [пространстве имен](../concepts/index.md#namespace) `yandex-system`:
+  1. Сохраните в YAML-файл `ext-nodegroup.yaml` спецификацию объекта типа `NodeGroup` группы {{ managed-k8s-name }} API `mks.yandex.cloud/v1alpha1` в [пространстве имен](../concepts/index.md#namespace) `yandex-system`:
 
      ```yaml
      apiVersion: mks.yandex.cloud/v1alpha1
@@ -66,12 +66,12 @@ users:
        name: external-node-group
        namespace: yandex-system
      spec:
-       ips: # Перечислите IP-адреса подключаемых серверов, доступные из облачной сети кластера Managed Service for Kubernetes.
+       ips: # Перечислите IP-адреса подключаемых серверов, доступные из облачной сети кластера {{ managed-k8s-name }}.
        - 10.130.0.4
        - 10.130.1.5  
      ```
 
-  1. Создайте группу узлов Managed Service for Kubernetes:
+  1. Создайте группу узлов {{ managed-k8s-name }}:
 
      ```bash
      kubectl apply -f ext-nodegroup.yaml
@@ -87,14 +87,14 @@ users:
 
 - Консоль управления {#console}
 
-  1. На странице кластера Managed Service for Kubernetes перейдите на вкладку **Управление узлами**.
-  1. Выберите нужную группу узлов Managed Service for Kubernetes.
-  1. В правом верхнем углу нажмите кнопку **Редактировать**.
-  1. Внесите изменения и нажмите кнопку **Сохранить**.
+  1. На странице кластера {{ managed-k8s-name }} перейдите на вкладку **{{ ui-key.yacloud.k8s.cluster.switch_nodes-manager }}**.
+  1. Выберите нужную группу узлов {{ managed-k8s-name }}.
+  1. В правом верхнем углу нажмите кнопку **{{ ui-key.yacloud.common.edit }}**.
+  1. Внесите изменения и нажмите кнопку **{{ ui-key.yacloud.common.save }}**.
 
 - CLI {#cli}
 
-  Чтобы отредактировать спецификацию группы узлов Managed Service for Kubernetes, выполните команду:
+  Чтобы отредактировать спецификацию группы узлов {{ managed-k8s-name }}, выполните команду:
 
   ```bash
   kubectl -n yandex-system edit nodegroup external-node-group
@@ -104,7 +104,7 @@ users:
 
 ## Установка системных компонентов {#node-setup}
 
-Чтобы подключить серверы к кластеру Managed Service for Kubernetes, необходимо установить на них системные компоненты.
+Чтобы подключить серверы к кластеру {{ managed-k8s-name }}, необходимо установить на них системные компоненты.
 
 Установить системные компоненты можно одним из двух способов:
 
@@ -113,11 +113,11 @@ users:
 
 ### Автоматическая установка {#automatic-setup}
 
-При автоматической установке кластер Managed Service for Kubernetes самостоятельно подключается к серверу по SSH и устанавливает на него все необходимые системные компоненты.
+При автоматической установке кластер {{ managed-k8s-name }} самостоятельно подключается к серверу по SSH и устанавливает на него все необходимые системные компоненты.
 
 Чтобы выполнить автоматическую установку:
 
-1. Создайте в кластере Managed Service for Kubernetes секрет, содержащий приватный [SSH-ключ](../../glossary/ssh-keygen.md) для подключения к серверу:
+1. Создайте в кластере {{ managed-k8s-name }} секрет, содержащий приватный [SSH-ключ](../../glossary/ssh-keygen.md) для подключения к серверу:
 
     ```bash
     kubectl -n yandex-system create secret generic <имя_секрета> \
@@ -131,11 +131,11 @@ users:
 
     - Консоль управления {#console}
 
-      1. На странице кластера Managed Service for Kubernetes перейдите на вкладку **Управление узлами**.
-      1. Выберите созданную группу узлов Managed Service for Kubernetes в списке.
-      1. В правом верхнем углу нажмите кнопку **Редактировать**.
-      1. В поле **Секрет с приватным SSH-ключом** выберите в выпадающем списке имя созданного секрета.
-      1. Нажмите **Сохранить**.
+      1. На странице кластера {{ managed-k8s-name }} перейдите на вкладку **{{ ui-key.yacloud.k8s.cluster.switch_nodes-manager }}**.
+      1. Выберите созданную группу узлов {{ managed-k8s-name }} в списке.
+      1. В правом верхнем углу нажмите кнопку **{{ ui-key.yacloud.common.edit }}**.
+      1. В поле **{{ ui-key.yacloud.k8s.node-group.overview.label_secret }}** выберите в выпадающем списке имя созданного секрета.
+      1. Нажмите **{{ ui-key.yacloud.common.save }}**.
 
     - CLI {#cli}
 
@@ -166,7 +166,7 @@ users:
 
 ### Полуавтоматическая установка {#semi-automatic-setup}
 
-При полуавтоматической установке вы вручную подготавливаете сервер, устанавливая на него компонент `maintainer` и задавая настройки доступа к кластеру Managed Service for Kubernetes. После этого компонент `maintainer` автоматически загрузит и установит остальные системные компоненты.
+При полуавтоматической установке вы вручную подготавливаете сервер, устанавливая на него компонент `maintainer` и задавая настройки доступа к кластеру {{ managed-k8s-name }}. После этого компонент `maintainer` автоматически загрузит и установит остальные системные компоненты.
 
 Чтобы выполнить полуавтоматическую установку:
 
@@ -177,7 +177,7 @@ users:
      -o json | jq -r '.data."kube-config"' | base64 -d > kube.config
    ```
 
-   Секрет становится доступен после [создания группы узлов](#node-group-create) в кластере Managed Service for Kubernetes.
+   Секрет становится доступен после [создания группы узлов](#node-group-create) в кластере {{ managed-k8s-name }}.
 
 1. Перенесите файл `kube.config` на сервер:
 
@@ -202,14 +202,14 @@ users:
 
    ```bash
    sudo mkdir -p /home/kubernetes/bin
-   sudo curl --output /home/kubernetes/bin/maintainer https://storage.yandexcloud.net/mk8s-maintainer/v1/maintainer
+   sudo curl --output /home/kubernetes/bin/maintainer https://{{ s3-storage-host }}/mk8s-maintainer/v1/maintainer
    sudo chmod +x /home/kubernetes/bin/maintainer
    sudo /home/kubernetes/bin/maintainer install
    ```
 
 ## Проверка состояния внешних узлов {#check-status}
 
-После установки системных компонентов серверы начнут подключение к кластеру Managed Service for Kubernetes. Когда подключение завершится, новые узлы кластера перейдут в состояние `Ready`.
+После установки системных компонентов серверы начнут подключение к кластеру {{ managed-k8s-name }}. Когда подключение завершится, новые узлы кластера перейдут в состояние `Ready`.
 
 Чтобы проверить состояние узлов:
 
@@ -217,11 +217,11 @@ users:
 
 - Консоль управления {#console}
 
-  1. На странице кластера Managed Service for Kubernetes перейдите на вкладку **Управление узлами**.
-  1. Нажмите на имя созданной группы узлов Managed Service for Kubernetes.
-  1. Перейдите на вкладку **Узлы**.
-  1. Проверьте, что созданный узел Managed Service for Kubernetes имеет статус `Ready`.
-  1. Откройте созданный узел и перейдите на вкладку **События**.
+  1. На странице кластера {{ managed-k8s-name }} перейдите на вкладку **{{ ui-key.yacloud.k8s.cluster.switch_nodes-manager }}**.
+  1. Нажмите на имя созданной группы узлов {{ managed-k8s-name }}.
+  1. Перейдите на вкладку **{{ ui-key.yacloud.k8s.node-group.overview.label_tab-nodes }}**.
+  1. Проверьте, что созданный узел {{ managed-k8s-name }} имеет статус `Ready`.
+  1. Откройте созданный узел и перейдите на вкладку **{{ ui-key.yacloud.k8s.node.overview.label_events }}**.
   1. Проверьте, что все этапы подключения сервера завершились успешно.
 
 - CLI {#cli}
@@ -249,11 +249,11 @@ users:
 
 - Консоль управления {#console}
 
-  1. На странице кластера Managed Service for Kubernetes перейдите на вкладку **Управление узлами**.
-  1. Выберите созданную группу узлов Managed Service for Kubernetes в списке.
-  1. В правом верхнем углу нажмите кнопку **Редактировать**.
-  1. Удалите IP-адреса созданных узлов Managed Service for Kubernetes.
-  1. Нажмите **Сохранить**.
+  1. На странице кластера {{ managed-k8s-name }} перейдите на вкладку **{{ ui-key.yacloud.k8s.cluster.switch_nodes-manager }}**.
+  1. Выберите созданную группу узлов {{ managed-k8s-name }} в списке.
+  1. В правом верхнем углу нажмите кнопку **{{ ui-key.yacloud.common.edit }}**.
+  1. Удалите IP-адреса созданных узлов {{ managed-k8s-name }}.
+  1. Нажмите **{{ ui-key.yacloud.common.save }}**.
 
 - CLI {#cli}
 
@@ -275,7 +275,7 @@ users:
 
 - Консоль управления {#console}
 
-  1. На странице кластера Managed Service for Kubernetes перейдите на вкладку **События**.
+  1. На странице кластера {{ managed-k8s-name }} перейдите на вкладку **{{ ui-key.yacloud.k8s.cluster.switch_events }}**.
   1. Выберите пространство имен `yandex-system`.
 
 - CLI {#cli}
@@ -295,7 +295,7 @@ journalctl -u yandex-maintainer
 journalctl -u kubelet
 ```
 
-Учитывайте [требования](../concepts/external-nodes.md#requirements) для подключения внешних узлов Managed Service for Kubernetes.
+Учитывайте [требования](../concepts/external-nodes.md#requirements) для подключения внешних узлов {{ managed-k8s-name }}.
 
 
 ## См. также {#see-also}

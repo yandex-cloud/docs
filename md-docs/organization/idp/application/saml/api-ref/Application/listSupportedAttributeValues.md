@@ -5,7 +5,7 @@ Returns the list of supported attribute values for SAML applications.
 ## HTTP request
 
 ```
-GET https://organization-manager.api.cloud.yandex.net/organization-manager/v1/idp/application/saml/applications:listSupportedAttributeValues
+GET https://organization-manager.{{ api-host }}/organization-manager/v1/idp/application/saml/applications:listSupportedAttributeValues
 ```
 
 ## Response {#yandex.cloud.organizationmanager.v1.idp.application.saml.ListSupportedAttributeValuesResponse}

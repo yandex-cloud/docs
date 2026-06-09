@@ -6,7 +6,7 @@ Method starts an asynchronous operation that can be cancelled while it is in pro
 ## HTTP request
 
 ```
-POST https://compute.api.cloud.yandex.net/compute/v1/instances
+POST https://compute.{{ api-host }}/compute/v1/instances
 ```
 
 ## Body parameters {#yandex.cloud.compute.v1.CreateInstanceRequest}
@@ -26,14 +26,6 @@ POST https://compute.api.cloud.yandex.net/compute/v1/instances
     "gpus": "string"
   },
   "metadata": "object",
-  "metadataOptions": {
-    "gceHttpEndpoint": "string",
-    "awsV1HttpEndpoint": "string",
-    "gceHttpToken": "string",
-    "awsV1HttpToken": "string",
-    "awsV2HttpEndpoint": "string",
-    "awsV2HttpToken": "string"
-  },
   "bootDiskSpec": {
     "mode": "string",
     "deviceName": "string",
@@ -44,15 +36,15 @@ POST https://compute.api.cloud.yandex.net/compute/v1/instances
       "description": "string",
       "typeId": "string",
       "size": "string",
-      // Includes only one of the fields `imageId`, `snapshotId`
-      "imageId": "string",
-      "snapshotId": "string",
-      // end of the list of possible fields
+      "blockSize": "string",
       "diskPlacementPolicy": {
         "placementGroupId": "string",
         "placementGroupPartition": "string"
       },
-      "blockSize": "string",
+      // Includes only one of the fields `imageId`, `snapshotId`
+      "imageId": "string",
+      "snapshotId": "string",
+      // end of the list of possible fields
       "kmsKeyId": "string"
     },
     "diskId": "string"
@@ -69,19 +61,26 @@ POST https://compute.api.cloud.yandex.net/compute/v1/instances
         "description": "string",
         "typeId": "string",
         "size": "string",
-        // Includes only one of the fields `imageId`, `snapshotId`
-        "imageId": "string",
-        "snapshotId": "string",
-        // end of the list of possible fields
+        "blockSize": "string",
         "diskPlacementPolicy": {
           "placementGroupId": "string",
           "placementGroupPartition": "string"
         },
-        "blockSize": "string",
+        // Includes only one of the fields `imageId`, `snapshotId`
+        "imageId": "string",
+        "snapshotId": "string",
+        // end of the list of possible fields
         "kmsKeyId": "string"
       },
       "diskId": "string"
       // end of the list of possible fields
+    }
+  ],
+  "filesystemSpecs": [
+    {
+      "mode": "string",
+      "deviceName": "string",
+      "filesystemId": "string"
     }
   ],
   "localDiskSpecs": [
@@ -94,15 +93,9 @@ POST https://compute.api.cloud.yandex.net/compute/v1/instances
       // end of the list of possible fields
     }
   ],
-  "filesystemSpecs": [
-    {
-      "mode": "string",
-      "deviceName": "string",
-      "filesystemId": "string"
-    }
-  ],
   "networkInterfaceSpecs": [
     {
+      "index": "string",
       "subnetId": "string",
       "primaryV4AddressSpec": {
         "address": "string",
@@ -152,8 +145,7 @@ POST https://compute.api.cloud.yandex.net/compute/v1/instances
       },
       "securityGroupIds": [
         "string"
-      ],
-      "index": "string"
+      ]
     }
   ],
   "hostname": "string",
@@ -166,6 +158,7 @@ POST https://compute.api.cloud.yandex.net/compute/v1/instances
   },
   "placementPolicy": {
     "placementGroupId": "string",
+    "placementGroupPartition": "string",
     "hostAffinityRules": [
       {
         "key": "string",
@@ -174,18 +167,24 @@ POST https://compute.api.cloud.yandex.net/compute/v1/instances
           "string"
         ]
       }
-    ],
-    "placementGroupPartition": "string"
+    ]
   },
   "gpuSettings": {
     "gpuClusterId": "string"
   },
   "maintenancePolicy": "string",
   "maintenanceGracePeriod": "string",
+  "metadataOptions": {
+    "gceHttpEndpoint": "string",
+    "awsV1HttpEndpoint": "string",
+    "gceHttpToken": "string",
+    "awsV1HttpToken": "string",
+    "awsV2HttpEndpoint": "string",
+    "awsV2HttpToken": "string"
+  },
   "serialPortSettings": {
     "sshAuthorization": "string"
   },
-  "reservedInstancePoolId": "string",
   "application": {
     // Includes only one of the fields `containerSolution`
     "containerSolution": {
@@ -203,7 +202,8 @@ POST https://compute.api.cloud.yandex.net/compute/v1/instances
       "backupId": "string",
       "instanceRegistrationId": "string"
     }
-  }
+  },
+  "reservedInstancePoolId": "string"
 }
 ```
 
@@ -211,88 +211,83 @@ POST https://compute.api.cloud.yandex.net/compute/v1/instances
 ||Field | Description ||
 || folderId | **string**
 
-Required field. ID of the folder to create an instance in.
+ID of the folder to create an instance in.
 To get the folder ID, use a [yandex.cloud.resourcemanager.v1.FolderService.List](../../../resource-manager/api-ref/Folder/list.md#List) request.
-
-The maximum string length in characters is 50. ||
+The length must be less than or equal to 50.
+This field is required. ||
 || name | **string**
 
 Name of the instance.
-
-Value must match the regular expression ``` |[a-z]([-_a-z0-9]{0,61}[a-z0-9])? ```. ||
+The value must match the regular expression: ```|[a-z]([-_a-z0-9]{0,61}[a-z0-9])?```. ||
 || description | **string**
 
 Description of the instance.
-
-The maximum string length in characters is 256. ||
+The length must be less than or equal to 256. ||
 || labels | **object** (map<**string**, **string**>)
 
 Resource labels as `key:value` pairs.
-
-No more than 64 per resource. The maximum string length in characters for each value is 63. Each value must match the regular expression ` [-_./\@0-9a-z]* `. The string length in characters for each key must be 1-63. Each key must match the regular expression ` [a-z][-_./\@0-9a-z]* `. ||
+Each map key must match the regular expression: `[a-z][-_./\\@0-9a-z]*`.
+Each map value must match the regular expression: `[-_./\\@0-9a-z]*`.
+The length of each map key must be between 1 and 63.
+The length of each map value must be less than or equal to 63.
+The number of elements must be less than or equal to 64. ||
 || zoneId | **string**
 
-Required field. ID of the availability zone where the instance resides.
+ID of the availability zone where the instance resides.
 To get a list of available zones, use the [yandex.cloud.compute.v1.ZoneService.List](../Zone/list.md#List) request
-
-The maximum string length in characters is 50. ||
+The length must be less than or equal to 50.
+This field is required. ||
 || platformId | **string**
 
-Required field. ID of the hardware platform configuration for the instance.
+ID of the hardware platform configuration for the instance.
 This field affects the available values in `resourcesSpec` field.
-
 Platforms allows you to create various types of instances: with a large amount of memory,
 with a large number of cores, with a burstable performance.
-For more information, see [Platforms](../../concepts/vm-platforms.md). ||
+For more information, see [Platforms](../../concepts/vm-platforms.md).
+This field is required. ||
 || resourcesSpec | **[ResourcesSpec](#yandex.cloud.compute.v1.ResourcesSpec)**
 
-Required field. Computing resources of the instance, such as the amount of memory and number of cores.
-To get a list of available values, see [Levels of core performance](../../concepts/performance-levels.md). ||
+Computing resources of the instance, such as the amount of memory and number of cores.
+To get a list of available values, see [Levels of core performance](../../concepts/performance-levels.md).
+This field is required. ||
 || metadata | **object** (map<**string**, **string**>)
 
 The metadata `key:value` pairs that will be assigned to this instance. This includes custom metadata and predefined keys.
 The total size of all keys and values must be less than 512 KB.
-
 Values are free-form strings, and only have meaning as interpreted by the programs which configure the instance.
 The values must be 256 KB or less.
-
 For example, you may use the metadata in order to provide your public SSH key to the instance.
 For more information, see [Metadata](../../concepts/vm-metadata.md). ||
-|| metadataOptions | **[MetadataOptions](#yandex.cloud.compute.v1.MetadataOptions)**
-
-Options allow user to configure access to instance's metadata ||
 || bootDiskSpec | **[AttachedDiskSpec](#yandex.cloud.compute.v1.AttachedDiskSpec)**
 
-Required field. Boot disk to attach to the instance. ||
+Boot disk to attach to the instance.
+This field is required. ||
 || secondaryDiskSpecs[] | **[AttachedDiskSpec](#yandex.cloud.compute.v1.AttachedDiskSpec)**
 
 Array of secondary disks to attach to the instance.
-
-The maximum number of elements is 3. ||
-|| localDiskSpecs[] | **[AttachedLocalDiskSpec](#yandex.cloud.compute.v1.AttachedLocalDiskSpec)**
-
-Array of local disks to attach to the instance. ||
+The number of elements must be less than or equal to 3. ||
 || filesystemSpecs[] | **[AttachedFilesystemSpec](#yandex.cloud.compute.v1.AttachedFilesystemSpec)**
 
 Array of filesystems to attach to the instance.
-
 The filesystems must reside in the same availability zone as the instance.
-
 To use the instance with an attached filesystem, the latter must be mounted.
 For details, see [documentation](../../operations/filesystem/attach-to-vm.md). ||
+|| localDiskSpecs[] | **[AttachedLocalDiskSpec](#yandex.cloud.compute.v1.AttachedLocalDiskSpec)**
+
+Array of local disks to attach to the instance. ||
 || networkInterfaceSpecs[] | **[NetworkInterfaceSpec](#yandex.cloud.compute.v1.NetworkInterfaceSpec)**
 
-Required field. Network configuration for the instance. Specifies how the network interface is configured
-to interact with other services on the internal network and on the internet. ||
+Network configuration for the instance. Specifies how the network interface is configured
+to interact with other services on the internal network and on the internet.
+This field is required. ||
 || hostname | **string**
 
 Host name for the instance.
-This field is used to generate the [yandex.cloud.compute.v1.Instance.fqdn](#yandex.cloud.compute.v1.Instance) value.
+This field is used to generate the [yandex.cloud.compute.v1.Instance.fqdn](../GpuCluster/listInstances.md#yandex.cloud.compute.v1.Instance) value.
 The host name must be unique within the network and region.
-If not specified, the host name will be equal to [yandex.cloud.compute.v1.Instance.id](#yandex.cloud.compute.v1.Instance) of the instance
+If not specified, the host name will be equal to [yandex.cloud.compute.v1.Instance.id](../GpuCluster/listInstances.md#yandex.cloud.compute.v1.Instance) of the instance
 and FQDN will be `<id>.auto.internal`. Otherwise FQDN will be `<hostname>.<region_id>.internal`.
-
-Value must match the regular expression ``` |[a-z]([-_a-z0-9]{0,61}[a-z0-9])? ```. ||
+The value must match the regular expression: ```|[a-z]([-_a-z0-9]{0,61}[a-z0-9])?```. ||
 || schedulingPolicy | **[SchedulingPolicy](#yandex.cloud.compute.v1.SchedulingPolicy)**
 
 Scheduling policy configuration. ||
@@ -317,20 +312,23 @@ Behaviour on maintenance events
 - `MIGRATE`: Use live migration to move instance to another host during maintenance ||
 || maintenanceGracePeriod | **string** (duration)
 
-Time between notification via metadata service and maintenance ||
+Time between notification via metadata service and maintenance
+The value must satisfy: 1s-24h. ||
+|| metadataOptions | **[MetadataOptions](#yandex.cloud.compute.v1.MetadataOptions)**
+
+Options allow user to configure access to instance's metadata ||
 || serialPortSettings | **[SerialPortSettings](#yandex.cloud.compute.v1.SerialPortSettings)**
 
 Serial port settings ||
+|| application | **[Application](#yandex.cloud.compute.v1.Application)**
+
+Instance application settings. ||
 || reservedInstancePoolId | **string**
 
 ID of the reserved instance pool that the instance should belong to.
 Instance will be created using resources from the reserved instance pool.
 Reserved instance pool resource configuration must match the resource configuration of the instance.
-
-The maximum string length in characters is 50. ||
-|| application | **[Application](#yandex.cloud.compute.v1.Application)**
-
-Instance application settings. ||
+The length must be less than or equal to 50. ||
 |#
 
 ## ResourcesSpec {#yandex.cloud.compute.v1.ResourcesSpec}
@@ -339,22 +337,309 @@ Instance application settings. ||
 ||Field | Description ||
 || memory | **string** (int64)
 
-Required field. The amount of memory available to the instance, specified in bytes.
-
-The maximum value is 274877906944. ||
+The amount of memory available to the instance, specified in bytes.
+The value must be less than or equal to 274877906944.
+This field is required. ||
 || cores | **string** (int64)
 
-Required field. The number of cores available to the instance. ||
+The number of cores available to the instance.
+The value must satisfy: 2,4,6,8,10,12,14,16,18,20,22,24,26,28,30,32,34,36,40,44,48,52,56,60,64,68,72,76,80.
+This field is required. ||
 || coreFraction | **string** (int64)
 
 Baseline level of CPU performance with the ability to burst performance above that baseline level.
 This field sets baseline performance for each core.
-
 For example, if you need only 5% of the CPU performance, you can set core_fraction=5.
-For more information, see [Levels of core performance](../../concepts/performance-levels.md). ||
+For more information, see [Levels of core performance](../../concepts/performance-levels.md).
+The value must satisfy: 0,5,20,50,100. ||
 || gpus | **string** (int64)
 
-The number of GPUs available to the instance. ||
+The number of GPUs available to the instance.
+The value must satisfy: 0,1,2,4. ||
+|#
+
+## AttachedDiskSpec {#yandex.cloud.compute.v1.AttachedDiskSpec}
+
+#|
+||Field | Description ||
+|| mode | **enum** (Mode)
+
+The mode in which to attach this disk.
+
+- `READ_ONLY`: Read-only access.
+- `READ_WRITE`: Read/Write access. Default value. ||
+|| deviceName | **string**
+
+Specifies a unique serial number of your choice that is reflected into the /dev/disk/by-id/ tree
+of a Linux operating system running within the instance.
+This value can be used to reference the device for mounting, resizing, and so on, from within the instance.
+If not specified, a random value will be generated.
+The value must match the regular expression: `[a-z][a-z0-9-_]{,19}`. ||
+|| autoDelete | **boolean**
+
+Specifies whether the disk will be auto-deleted when the instance is deleted. ||
+|| diskSpec | **[DiskSpec](#yandex.cloud.compute.v1.AttachedDiskSpec.DiskSpec)**
+
+Disk specification.
+
+Includes only one of the fields `diskSpec`, `diskId`.
+
+Only one field must by specified. ||
+|| diskId | **string**
+
+ID of the disk that should be attached.
+The length must be less than or equal to 50.
+
+Includes only one of the fields `diskSpec`, `diskId`.
+
+Only one field must by specified. ||
+|#
+
+## DiskSpec {#yandex.cloud.compute.v1.AttachedDiskSpec.DiskSpec}
+
+#|
+||Field | Description ||
+|| name | **string**
+
+Name of the disk.
+The value must match the regular expression: ```|[a-z]([-_a-z0-9]{0,61}[a-z0-9])?```. ||
+|| description | **string**
+
+Description of the disk.
+The length must be less than or equal to 256. ||
+|| typeId | **string**
+
+ID of the disk type.
+To get a list of available disk types, use the [yandex.cloud.compute.v1.DiskTypeService.List](../DiskType/list.md#List) request.
+The length must be less than or equal to 50. ||
+|| size | **string** (int64)
+
+Size of the disk, specified in bytes.
+The value must be between 4194304 and 4398046511104.
+This field is required. ||
+|| blockSize | **string** (int64)
+
+Block size of the disk, specified in bytes. The default is 4096. ||
+|| diskPlacementPolicy | **[DiskPlacementPolicy](#yandex.cloud.compute.v1.DiskPlacementPolicy)**
+
+Placement policy configuration. ||
+|| imageId | **string**
+
+ID of the image to create the disk from.
+The length must be less than or equal to 50.
+
+Includes only one of the fields `imageId`, `snapshotId`. ||
+|| snapshotId | **string**
+
+ID of the snapshot to restore the disk from.
+The length must be less than or equal to 50.
+
+Includes only one of the fields `imageId`, `snapshotId`. ||
+|| kmsKeyId | **string**
+
+ID of KMS key for disk encryption
+The length must be less than or equal to 50. ||
+|#
+
+## DiskPlacementPolicy {#yandex.cloud.compute.v1.DiskPlacementPolicy}
+
+#|
+||Field | Description ||
+|| placementGroupId | **string**
+
+Placement group ID. ||
+|| placementGroupPartition | **string** (int64) ||
+|#
+
+## AttachedFilesystemSpec {#yandex.cloud.compute.v1.AttachedFilesystemSpec}
+
+#|
+||Field | Description ||
+|| mode | **enum** (Mode)
+
+Mode of access to the filesystem that should be attached.
+
+- `READ_ONLY`: Read-only access.
+- `READ_WRITE`: Read/Write access. Default value. ||
+|| deviceName | **string**
+
+Name of the device representing the filesystem on the instance.
+The name should be used for referencing the filesystem from within the instance
+when it's being mounted, resized etc.
+If not specified, a random value will be generated.
+The value must match the regular expression: `[a-z][a-z0-9-_]{,19}`. ||
+|| filesystemId | **string**
+
+ID of the filesystem that should be attached.
+The length must be less than or equal to 50. ||
+|#
+
+## AttachedLocalDiskSpec {#yandex.cloud.compute.v1.AttachedLocalDiskSpec}
+
+#|
+||Field | Description ||
+|| size | **string** (int64)
+
+Size of the disk, specified in bytes.
+This field is required. ||
+|| physicalLocalDisk | **[PhysicalLocalDiskSpec](#yandex.cloud.compute.v1.PhysicalLocalDiskSpec)**
+
+Local disk configuration
+
+Includes only one of the fields `physicalLocalDisk`. ||
+|#
+
+## PhysicalLocalDiskSpec {#yandex.cloud.compute.v1.PhysicalLocalDiskSpec}
+
+#|
+||Field | Description ||
+|| kmsKeyId | **string**
+
+ID of KMS key for disk encryption ||
+|#
+
+## NetworkInterfaceSpec {#yandex.cloud.compute.v1.NetworkInterfaceSpec}
+
+#|
+||Field | Description ||
+|| index | **string**
+
+The index of the network interface, will be generated by the server, 0,1,2... etc if not specified. ||
+|| subnetId | **string**
+
+ID of the subnet.
+The length must be less than or equal to 50.
+This field is required. ||
+|| primaryV4AddressSpec | **[PrimaryAddressSpec](#yandex.cloud.compute.v1.PrimaryAddressSpec)**
+
+Primary IPv4 address that will be assigned to the instance for this network interface. ||
+|| primaryV6AddressSpec | **[PrimaryAddressSpec](#yandex.cloud.compute.v1.PrimaryAddressSpec)**
+
+Primary IPv6 address that will be assigned to the instance for this network interface. IPv6 not available yet. ||
+|| securityGroupIds[] | **string**
+
+ID's of security groups attached to the interface ||
+|#
+
+## PrimaryAddressSpec {#yandex.cloud.compute.v1.PrimaryAddressSpec}
+
+#|
+||Field | Description ||
+|| address | **string**
+
+An IPv4 internal network address that is assigned to the instance for this network interface.
+If not specified by the user, an unused internal IP is assigned by the system. ||
+|| oneToOneNatSpec | **[OneToOneNatSpec](#yandex.cloud.compute.v1.OneToOneNatSpec)**
+
+An external IP address configuration.
+If not specified, then this instance will have no external internet access. ||
+|| dnsRecordSpecs[] | **[DnsRecordSpec](#yandex.cloud.compute.v1.DnsRecordSpec)**
+
+Internal DNS configuration ||
+|#
+
+## OneToOneNatSpec {#yandex.cloud.compute.v1.OneToOneNatSpec}
+
+#|
+||Field | Description ||
+|| ipVersion | **enum** (IpVersion)
+
+External IP address version.
+
+- `IPV4`: IPv4 address, for example 192.0.2.235.
+- `IPV6`: IPv6 address. Not available yet. ||
+|| address | **string**
+
+set static IP by value ||
+|| dnsRecordSpecs[] | **[DnsRecordSpec](#yandex.cloud.compute.v1.DnsRecordSpec)**
+
+External DNS configuration ||
+|#
+
+## DnsRecordSpec {#yandex.cloud.compute.v1.DnsRecordSpec}
+
+#|
+||Field | Description ||
+|| fqdn | **string**
+
+FQDN (required)
+This field is required. ||
+|| dnsZoneId | **string**
+
+DNS zone id (optional, if not set, private zone used) ||
+|| ttl | **string** (int64)
+
+DNS record ttl, values in 0-86400 (optional)
+The value must be between 0 and 86400. ||
+|| ptr | **boolean**
+
+When set to true, also create PTR DNS record (optional) ||
+|#
+
+## SchedulingPolicy {#yandex.cloud.compute.v1.SchedulingPolicy}
+
+#|
+||Field | Description ||
+|| preemptible | **boolean**
+
+True for short-lived compute instances. For more information, see [Preemptible VMs](../../concepts/preemptible-vm.md). ||
+|#
+
+## NetworkSettings {#yandex.cloud.compute.v1.NetworkSettings}
+
+#|
+||Field | Description ||
+|| type | **enum** (Type)
+
+Network Type
+
+- `STANDARD`: Standard network.
+- `SOFTWARE_ACCELERATED`: Software accelerated network.
+- `HARDWARE_ACCELERATED`: Hardware accelerated network (not available yet, reserved for future use). ||
+|#
+
+## PlacementPolicy {#yandex.cloud.compute.v1.PlacementPolicy}
+
+#|
+||Field | Description ||
+|| placementGroupId | **string**
+
+Placement group ID. ||
+|| placementGroupPartition | **string** (int64)
+
+Placement group partition ||
+|| hostAffinityRules[] | **[HostAffinityRule](#yandex.cloud.compute.v1.PlacementPolicy.HostAffinityRule)**
+
+List of affinity rules. Scheduler will attempt to allocate instances according to order of rules. ||
+|#
+
+## HostAffinityRule {#yandex.cloud.compute.v1.PlacementPolicy.HostAffinityRule}
+
+Affinity definition
+
+#|
+||Field | Description ||
+|| key | **string**
+
+Affinity label or one of reserved values - 'yc.hostId', 'yc.hostGroupId' ||
+|| op | **enum** (Operator)
+
+Include or exclude action
+
+- `IN`: Include action
+- `NOT_IN`: Exclude action ||
+|| values[] | **string**
+
+Affinity value or host ID or host group ID ||
+|#
+
+## GpuSettings {#yandex.cloud.compute.v1.GpuSettings}
+
+#|
+||Field | Description ||
+|| gpuClusterId | **string**
+
+Attach instance to specified GPU cluster. ||
 |#
 
 ## MetadataOptions {#yandex.cloud.compute.v1.MetadataOptions}
@@ -399,298 +684,6 @@ Enabled access to STS credentials with AWS flavored metadata with session token 
 - `DISABLED`: Option is disabled ||
 |#
 
-## AttachedDiskSpec {#yandex.cloud.compute.v1.AttachedDiskSpec}
-
-#|
-||Field | Description ||
-|| mode | **enum** (Mode)
-
-The mode in which to attach this disk.
-
-- `READ_ONLY`: Read-only access.
-- `READ_WRITE`: Read/Write access. Default value. ||
-|| deviceName | **string**
-
-Specifies a unique serial number of your choice that is reflected into the /dev/disk/by-id/ tree
-of a Linux operating system running within the instance.
-
-This value can be used to reference the device for mounting, resizing, and so on, from within the instance.
-If not specified, a random value will be generated.
-
-Value must match the regular expression ` [a-z][a-z0-9-_]{,19} `. ||
-|| autoDelete | **boolean**
-
-Specifies whether the disk will be auto-deleted when the instance is deleted. ||
-|| diskSpec | **[DiskSpec](#yandex.cloud.compute.v1.AttachedDiskSpec.DiskSpec)**
-
-Disk specification.
-
-Includes only one of the fields `diskSpec`, `diskId`. ||
-|| diskId | **string**
-
-ID of the disk that should be attached.
-
-The maximum string length in characters is 50.
-
-Includes only one of the fields `diskSpec`, `diskId`. ||
-|#
-
-## DiskSpec {#yandex.cloud.compute.v1.AttachedDiskSpec.DiskSpec}
-
-#|
-||Field | Description ||
-|| name | **string**
-
-Name of the disk.
-
-Value must match the regular expression ``` |[a-z]([-_a-z0-9]{0,61}[a-z0-9])? ```. ||
-|| description | **string**
-
-Description of the disk.
-
-The maximum string length in characters is 256. ||
-|| typeId | **string**
-
-ID of the disk type.
-To get a list of available disk types, use the [yandex.cloud.compute.v1.DiskTypeService.List](../DiskType/list.md#List) request.
-
-The maximum string length in characters is 50. ||
-|| size | **string** (int64)
-
-Required field. Size of the disk, specified in bytes.
-
-Acceptable values are 4194304 to 4398046511104, inclusive. ||
-|| imageId | **string**
-
-ID of the image to create the disk from.
-
-The maximum string length in characters is 50.
-
-Includes only one of the fields `imageId`, `snapshotId`. ||
-|| snapshotId | **string**
-
-ID of the snapshot to restore the disk from.
-
-The maximum string length in characters is 50.
-
-Includes only one of the fields `imageId`, `snapshotId`. ||
-|| diskPlacementPolicy | **[DiskPlacementPolicy](#yandex.cloud.compute.v1.DiskPlacementPolicy)**
-
-Placement policy configuration. ||
-|| blockSize | **string** (int64)
-
-Block size of the disk, specified in bytes. The default is 4096. ||
-|| kmsKeyId | **string**
-
-ID of KMS key for disk encryption
-
-The maximum string length in characters is 50. ||
-|#
-
-## DiskPlacementPolicy {#yandex.cloud.compute.v1.DiskPlacementPolicy}
-
-#|
-||Field | Description ||
-|| placementGroupId | **string**
-
-Placement group ID. ||
-|| placementGroupPartition | **string** (int64) ||
-|#
-
-## AttachedLocalDiskSpec {#yandex.cloud.compute.v1.AttachedLocalDiskSpec}
-
-#|
-||Field | Description ||
-|| size | **string** (int64)
-
-Required field. Size of the disk, specified in bytes. ||
-|| physicalLocalDisk | **[PhysicalLocalDiskSpec](#yandex.cloud.compute.v1.PhysicalLocalDiskSpec)**
-
-Local disk configuration
-
-Includes only one of the fields `physicalLocalDisk`. ||
-|#
-
-## PhysicalLocalDiskSpec {#yandex.cloud.compute.v1.PhysicalLocalDiskSpec}
-
-#|
-||Field | Description ||
-|| kmsKeyId | **string**
-
-ID of KMS key for disk encryption ||
-|#
-
-## AttachedFilesystemSpec {#yandex.cloud.compute.v1.AttachedFilesystemSpec}
-
-#|
-||Field | Description ||
-|| mode | **enum** (Mode)
-
-Mode of access to the filesystem that should be attached.
-
-- `READ_ONLY`: Read-only access.
-- `READ_WRITE`: Read/Write access. Default value. ||
-|| deviceName | **string**
-
-Name of the device representing the filesystem on the instance.
-
-The name should be used for referencing the filesystem from within the instance
-when it's being mounted, resized etc.
-
-If not specified, a random value will be generated.
-
-Value must match the regular expression ` [a-z][a-z0-9-_]{,19} `. ||
-|| filesystemId | **string**
-
-ID of the filesystem that should be attached.
-
-The maximum string length in characters is 50. ||
-|#
-
-## NetworkInterfaceSpec {#yandex.cloud.compute.v1.NetworkInterfaceSpec}
-
-#|
-||Field | Description ||
-|| subnetId | **string**
-
-Required field. ID of the subnet.
-
-The maximum string length in characters is 50. ||
-|| primaryV4AddressSpec | **[PrimaryAddressSpec](#yandex.cloud.compute.v1.PrimaryAddressSpec)**
-
-Primary IPv4 address that will be assigned to the instance for this network interface. ||
-|| primaryV6AddressSpec | **[PrimaryAddressSpec](#yandex.cloud.compute.v1.PrimaryAddressSpec)**
-
-Primary IPv6 address that will be assigned to the instance for this network interface. IPv6 not available yet. ||
-|| securityGroupIds[] | **string**
-
-ID's of security groups attached to the interface ||
-|| index | **string**
-
-The index of the network interface, will be generated by the server, 0,1,2... etc if not specified. ||
-|#
-
-## PrimaryAddressSpec {#yandex.cloud.compute.v1.PrimaryAddressSpec}
-
-#|
-||Field | Description ||
-|| address | **string**
-
-An IPv4 internal network address that is assigned to the instance for this network interface.
-If not specified by the user, an unused internal IP is assigned by the system. ||
-|| oneToOneNatSpec | **[OneToOneNatSpec](#yandex.cloud.compute.v1.OneToOneNatSpec)**
-
-An external IP address configuration.
-If not specified, then this instance will have no external internet access. ||
-|| dnsRecordSpecs[] | **[DnsRecordSpec](#yandex.cloud.compute.v1.DnsRecordSpec)**
-
-Internal DNS configuration ||
-|#
-
-## OneToOneNatSpec {#yandex.cloud.compute.v1.OneToOneNatSpec}
-
-#|
-||Field | Description ||
-|| ipVersion | **enum** (IpVersion)
-
-External IP address version.
-
-- `IPV4`: IPv4 address, for example 192.0.2.235.
-- `IPV6`: IPv6 address. Not available yet. ||
-|| address | **string**
-
-set static IP by value ||
-|| dnsRecordSpecs[] | **[DnsRecordSpec](#yandex.cloud.compute.v1.DnsRecordSpec)**
-
-External DNS configuration ||
-|#
-
-## DnsRecordSpec {#yandex.cloud.compute.v1.DnsRecordSpec}
-
-#|
-||Field | Description ||
-|| fqdn | **string**
-
-Required field. FQDN (required) ||
-|| dnsZoneId | **string**
-
-DNS zone id (optional, if not set, private zone used) ||
-|| ttl | **string** (int64)
-
-DNS record ttl, values in 0-86400 (optional)
-
-Acceptable values are 0 to 86400, inclusive. ||
-|| ptr | **boolean**
-
-When set to true, also create PTR DNS record (optional) ||
-|#
-
-## SchedulingPolicy {#yandex.cloud.compute.v1.SchedulingPolicy}
-
-#|
-||Field | Description ||
-|| preemptible | **boolean**
-
-True for short-lived compute instances. For more information, see [Preemptible VMs](../../concepts/preemptible-vm.md). ||
-|#
-
-## NetworkSettings {#yandex.cloud.compute.v1.NetworkSettings}
-
-#|
-||Field | Description ||
-|| type | **enum** (Type)
-
-Network Type
-
-- `STANDARD`: Standard network.
-- `SOFTWARE_ACCELERATED`: Software accelerated network.
-- `HARDWARE_ACCELERATED`: Hardware accelerated network (not available yet, reserved for future use). ||
-|#
-
-## PlacementPolicy {#yandex.cloud.compute.v1.PlacementPolicy}
-
-#|
-||Field | Description ||
-|| placementGroupId | **string**
-
-Placement group ID. ||
-|| hostAffinityRules[] | **[HostAffinityRule](#yandex.cloud.compute.v1.PlacementPolicy.HostAffinityRule)**
-
-List of affinity rules. Scheduler will attempt to allocate instances according to order of rules. ||
-|| placementGroupPartition | **string** (int64)
-
-Placement group partition ||
-|#
-
-## HostAffinityRule {#yandex.cloud.compute.v1.PlacementPolicy.HostAffinityRule}
-
-Affinity definition
-
-#|
-||Field | Description ||
-|| key | **string**
-
-Affinity label or one of reserved values - 'yc.hostId', 'yc.hostGroupId' ||
-|| op | **enum** (Operator)
-
-Include or exclude action
-
-- `IN`: Include action
-- `NOT_IN`: Exclude action ||
-|| values[] | **string**
-
-Affinity value or host ID or host group ID ||
-|#
-
-## GpuSettings {#yandex.cloud.compute.v1.GpuSettings}
-
-#|
-||Field | Description ||
-|| gpuClusterId | **string**
-
-Attach instance to specified GPU cluster. ||
-|#
-
 ## SerialPortSettings {#yandex.cloud.compute.v1.SerialPortSettings}
 
 #|
@@ -723,19 +716,20 @@ Backup settings. ||
 ||Field | Description ||
 || productId | **string**
 
-Required field. ID of the product.
-
-The maximum string length in characters is 50. ||
+ID of the product.
+The length must be less than or equal to 50.
+This field is required. ||
 || secrets | **object** (map<**string**, **[Secret](#yandex.cloud.compute.v1.Secret)**>)
 
 A list of the secrets.
-
-No more than 100 per resource. The maximum string length in characters for each key is 100. ||
+The length of each map key must be less than or equal to 100.
+The number of elements must be less than or equal to 100. ||
 || environment | **object** (map<**string**, **string**>)
 
 A list of the environmets.
-
-No more than 100 per resource. The maximum string length in characters for each key is 100. The maximum string length in characters for each value is 10000. ||
+The length of each map key must be less than or equal to 100.
+The length of each map value must be less than or equal to 10000.
+The number of elements must be less than or equal to 100. ||
 |#
 
 ## Secret {#yandex.cloud.compute.v1.Secret}
@@ -744,19 +738,18 @@ No more than 100 per resource. The maximum string length in characters for each 
 ||Field | Description ||
 || id | **string**
 
-Required field. ID of the secret.
-
-The maximum string length in characters is 50. ||
+ID of the secret.
+The length must be less than or equal to 50.
+This field is required. ||
 || key | **string**
 
-Required field. Name of the key.
-
-The maximum string length in characters is 256. ||
+Name of the key.
+The length must be less than or equal to 256.
+This field is required. ||
 || versionId | **string**
 
 Version of the secret.
-
-The maximum string length in characters is 50. ||
+The length must be less than or equal to 50. ||
 |#
 
 ## BackupSpec {#yandex.cloud.compute.v1.BackupSpec}
@@ -769,21 +762,19 @@ If true, backup is enabled. ||
 || initialPolicyIds[] | **string**
 
 A list of policy IDs to apply after resource registration.
-
-The maximum number of elements is 50. The string length in characters for each value must be 1-50. ||
+The length of each element must be between 1 and 50.
+The number of elements must be less than or equal to 50. ||
 || recoveryFromBackup | **boolean**
 
 If true, recovery from backup starts on instance. ||
 || backupId | **string**
 
 ID of the backup to recover from.
-
-The maximum string length in characters is 100. ||
+The length must be less than or equal to 100. ||
 || instanceRegistrationId | **string**
 
 ID of the instance registration for cloud backup agent installation.
-
-The maximum string length in characters is 100. ||
+The length must be less than or equal to 100. ||
 |#
 
 ## Response {#yandex.cloud.operation.Operation}
@@ -798,9 +789,7 @@ The maximum string length in characters is 100. ||
   "createdBy": "string",
   "modifiedAt": "string",
   "done": "boolean",
-  "metadata": {
-    "instanceId": "string"
-  },
+  "metadata": "object",
   // Includes only one of the fields `error`, `response`
   "error": {
     "code": "integer",
@@ -809,181 +798,7 @@ The maximum string length in characters is 100. ||
       "object"
     ]
   },
-  "response": {
-    "id": "string",
-    "folderId": "string",
-    "createdAt": "string",
-    "name": "string",
-    "description": "string",
-    "labels": "object",
-    "zoneId": "string",
-    "platformId": "string",
-    "resources": {
-      "memory": "string",
-      "cores": "string",
-      "coreFraction": "string",
-      "gpus": "string"
-    },
-    "status": "string",
-    "metadata": "object",
-    "metadataOptions": {
-      "gceHttpEndpoint": "string",
-      "awsV1HttpEndpoint": "string",
-      "gceHttpToken": "string",
-      "awsV1HttpToken": "string",
-      "awsV2HttpEndpoint": "string",
-      "awsV2HttpToken": "string"
-    },
-    "bootDisk": {
-      "mode": "string",
-      "deviceName": "string",
-      "autoDelete": "boolean",
-      "diskId": "string"
-    },
-    "secondaryDisks": [
-      {
-        "mode": "string",
-        "deviceName": "string",
-        "autoDelete": "boolean",
-        "diskId": "string"
-      }
-    ],
-    "localDisks": [
-      {
-        "size": "string",
-        "deviceName": "string",
-        // Includes only one of the fields `physicalLocalDisk`
-        "physicalLocalDisk": {
-          "kmsKey": {
-            "keyId": "string",
-            "versionId": "string"
-          }
-        }
-        // end of the list of possible fields
-      }
-    ],
-    "filesystems": [
-      {
-        "mode": "string",
-        "deviceName": "string",
-        "filesystemId": "string"
-      }
-    ],
-    "networkInterfaces": [
-      {
-        "index": "string",
-        "macAddress": "string",
-        "subnetId": "string",
-        "primaryV4Address": {
-          "address": "string",
-          "oneToOneNat": {
-            "address": "string",
-            "ipVersion": "string",
-            "dnsRecords": [
-              {
-                "fqdn": "string",
-                "dnsZoneId": "string",
-                "ttl": "string",
-                "ptr": "boolean"
-              }
-            ]
-          },
-          "dnsRecords": [
-            {
-              "fqdn": "string",
-              "dnsZoneId": "string",
-              "ttl": "string",
-              "ptr": "boolean"
-            }
-          ]
-        },
-        "primaryV6Address": {
-          "address": "string",
-          "oneToOneNat": {
-            "address": "string",
-            "ipVersion": "string",
-            "dnsRecords": [
-              {
-                "fqdn": "string",
-                "dnsZoneId": "string",
-                "ttl": "string",
-                "ptr": "boolean"
-              }
-            ]
-          },
-          "dnsRecords": [
-            {
-              "fqdn": "string",
-              "dnsZoneId": "string",
-              "ttl": "string",
-              "ptr": "boolean"
-            }
-          ]
-        },
-        "securityGroupIds": [
-          "string"
-        ]
-      }
-    ],
-    "serialPortSettings": {
-      "sshAuthorization": "string"
-    },
-    "gpuSettings": {
-      "gpuClusterId": "string"
-    },
-    "fqdn": "string",
-    "schedulingPolicy": {
-      "preemptible": "boolean"
-    },
-    "serviceAccountId": "string",
-    "networkSettings": {
-      "type": "string"
-    },
-    "placementPolicy": {
-      "placementGroupId": "string",
-      "hostAffinityRules": [
-        {
-          "key": "string",
-          "op": "string",
-          "values": [
-            "string"
-          ]
-        }
-      ],
-      "placementGroupPartition": "string"
-    },
-    "hostGroupId": "string",
-    "hostId": "string",
-    "maintenancePolicy": "string",
-    "maintenanceGracePeriod": "string",
-    "hardwareGeneration": {
-      // Includes only one of the fields `legacyFeatures`, `generation2Features`
-      "legacyFeatures": {
-        "pciTopology": "string"
-      },
-      "generation2Features": "object"
-      // end of the list of possible fields
-    },
-    "reservedInstancePoolId": "string",
-    "application": {
-      // Includes only one of the fields `containerSolution`
-      "containerSolution": {
-        "productId": "string",
-        "secrets": "object",
-        "environment": "object"
-      },
-      // end of the list of possible fields
-      "cloudbackup": {
-        "enabled": "boolean",
-        "initialPolicyIds": [
-          "string"
-        ],
-        "recoveryFromBackup": "boolean",
-        "backupId": "string",
-        "instanceRegistrationId": "string"
-      }
-    }
-  }
+  "response": "object"
   // end of the list of possible fields
 }
 ```
@@ -1025,7 +840,7 @@ In some languages, built-in datetime utilities do not support nanosecond precisi
 
 If the value is `false`, it means the operation is still in progress.
 If `true`, the operation is completed, and either `error` or `response` is available. ||
-|| metadata | **[CreateInstanceMetadata](#yandex.cloud.compute.v1.CreateInstanceMetadata)**
+|| metadata | **object**
 
 Service-specific metadata associated with the operation.
 It typically contains the ID of the target resource that the operation is performed on.
@@ -1040,7 +855,7 @@ The operation result.
 If `done == false` and there was no failure detected, neither `error` nor `response` is set.
 If `done == false` and there was a failure detected, `error` is set.
 If `done == true`, exactly one of `error` or `response` is set. ||
-|| response | **[Instance](#yandex.cloud.compute.v1.Instance)**
+|| response | **object**
 
 The normal response of the operation in case of success.
 If the original method returns no data on success, such as Delete,
@@ -1055,17 +870,6 @@ The operation result.
 If `done == false` and there was no failure detected, neither `error` nor `response` is set.
 If `done == false` and there was a failure detected, `error` is set.
 If `done == true`, exactly one of `error` or `response` is set. ||
-|#
-
-## CreateInstanceMetadata {#yandex.cloud.compute.v1.CreateInstanceMetadata}
-
-#|
-||Field | Description ||
-|| instanceId | **string**
-
-ID of the instance that is being created.
-
-The maximum string length in characters is 50. ||
 |#
 
 ## Status {#google.rpc.Status}
@@ -1083,548 +887,4 @@ An error message. ||
 || details[] | **object**
 
 A list of messages that carry the error details. ||
-|#
-
-## Instance {#yandex.cloud.compute.v1.Instance}
-
-An Instance resource. For more information, see [Instances](../../concepts/vm.md).
-
-#|
-||Field | Description ||
-|| id | **string**
-
-ID of the instance. ||
-|| folderId | **string**
-
-ID of the folder that the instance belongs to. ||
-|| createdAt | **string** (date-time)
-
-The date and time when the instance was created.
-
-String in [RFC3339](https://www.ietf.org/rfc/rfc3339.txt) text format. The range of possible values is from
-`0001-01-01T00:00:00Z` to `9999-12-31T23:59:59.999999999Z`, i.e. from 0 to 9 digits for fractions of a second.
-
-To work with values in this field, use the APIs described in the
-[Protocol Buffers reference](https://developers.google.com/protocol-buffers/docs/reference/overview).
-In some languages, built-in datetime utilities do not support nanosecond precision (9 digits). ||
-|| name | **string**
-
-Name of the instance. 1-63 characters long. ||
-|| description | **string**
-
-Description of the instance. 0-256 characters long. ||
-|| labels | **object** (map<**string**, **string**>)
-
-Resource labels as `key:value` pairs. Maximum of 64 per resource. ||
-|| zoneId | **string**
-
-ID of the availability zone where the instance resides. ||
-|| platformId | **string**
-
-ID of the hardware platform configuration for the instance. ||
-|| resources | **[Resources](#yandex.cloud.compute.v1.Resources)**
-
-Computing resources of the instance such as the amount of memory and number of cores. ||
-|| status | **enum** (Status)
-
-Status of the instance.
-
-- `PROVISIONING`: Instance is waiting for resources to be allocated.
-- `RUNNING`: Instance is running normally.
-- `STOPPING`: Instance is being stopped.
-- `STOPPED`: Instance stopped.
-- `STARTING`: Instance is being started.
-- `RESTARTING`: Instance is being restarted.
-- `UPDATING`: Instance is being updated.
-- `ERROR`: Instance encountered a problem and cannot operate.
-- `CRASHED`: Instance crashed and will be restarted automatically.
-- `DELETING`: Instance is being deleted. ||
-|| metadata | **object** (map<**string**, **string**>)
-
-The metadata `key:value` pairs assigned to this instance. This includes custom metadata and predefined keys.
-
-For example, you may use the metadata in order to provide your public SSH key to the instance.
-For more information, see [Metadata](../../concepts/vm-metadata.md).
-
-**The `metadata` field is currently omitted from response for the [yandex.cloud.compute.v1.InstanceService.List](list.md#List) request.** ||
-|| metadataOptions | **[MetadataOptions](#yandex.cloud.compute.v1.MetadataOptions2)**
-
-Options allow user to configure access to instance's metadata ||
-|| bootDisk | **[AttachedDisk](#yandex.cloud.compute.v1.AttachedDisk)**
-
-Boot disk that is attached to the instance. ||
-|| secondaryDisks[] | **[AttachedDisk](#yandex.cloud.compute.v1.AttachedDisk)**
-
-Array of secondary disks that are attached to the instance. ||
-|| localDisks[] | **[AttachedLocalDisk](#yandex.cloud.compute.v1.AttachedLocalDisk)**
-
-Array of local disks that are attached to the instance. ||
-|| filesystems[] | **[AttachedFilesystem](#yandex.cloud.compute.v1.AttachedFilesystem)**
-
-Array of filesystems that are attached to the instance. ||
-|| networkInterfaces[] | **[NetworkInterface](#yandex.cloud.compute.v1.NetworkInterface)**
-
-Array of network interfaces that are attached to the instance. ||
-|| serialPortSettings | **[SerialPortSettings](#yandex.cloud.compute.v1.SerialPortSettings2)**
-
-Serial port settings ||
-|| gpuSettings | **[GpuSettings](#yandex.cloud.compute.v1.GpuSettings2)**
-
-GPU settings ||
-|| fqdn | **string**
-
-A domain name of the instance. FQDN is defined by the server
-in the format `<hostname>.<region_id>.internal` when the instance is created.
-If the hostname were not specified when the instance was created, FQDN would be `<id>.auto.internal`. ||
-|| schedulingPolicy | **[SchedulingPolicy](#yandex.cloud.compute.v1.SchedulingPolicy2)**
-
-Scheduling policy configuration. ||
-|| serviceAccountId | **string**
-
-ID of the service account to use for [authentication inside the instance](../../operations/vm-connect/auth-inside-vm.md).
-To get the service account ID, use a [yandex.cloud.iam.v1.ServiceAccountService.List](../../../iam/api-ref/ServiceAccount/list.md#List) request. ||
-|| networkSettings | **[NetworkSettings](#yandex.cloud.compute.v1.NetworkSettings2)**
-
-Network Settings ||
-|| placementPolicy | **[PlacementPolicy](#yandex.cloud.compute.v1.PlacementPolicy2)**
-
-Placement policy configuration. ||
-|| hostGroupId | **string**
-
-ID of the dedicated host group that the instance belongs to. ||
-|| hostId | **string**
-
-ID of the dedicated host that the instance belongs to. ||
-|| maintenancePolicy | **enum** (MaintenancePolicy)
-
-Behaviour on maintenance events
-
-- `RESTART`: Restart instance to move it to another host during maintenance
-- `MIGRATE`: Use live migration to move instance to another host during maintenance ||
-|| maintenanceGracePeriod | **string** (duration)
-
-Time between notification via metadata service and maintenance ||
-|| hardwareGeneration | **[HardwareGeneration](#yandex.cloud.compute.v1.HardwareGeneration)**
-
-This feature set is inherited from the image/disk used as a boot one at the creation of the instance. ||
-|| reservedInstancePoolId | **string**
-
-ID of the reserved instance pool that the instance belongs to. ||
-|| application | **[Application](#yandex.cloud.compute.v1.Application2)**
-
-Instance application settings. ||
-|#
-
-## Resources {#yandex.cloud.compute.v1.Resources}
-
-#|
-||Field | Description ||
-|| memory | **string** (int64)
-
-The amount of memory available to the instance, specified in bytes. ||
-|| cores | **string** (int64)
-
-The number of cores available to the instance. ||
-|| coreFraction | **string** (int64)
-
-Baseline level of CPU performance with the ability to burst performance above that baseline level.
-This field sets baseline performance for each core. ||
-|| gpus | **string** (int64)
-
-The number of GPUs available to the instance. ||
-|#
-
-## MetadataOptions {#yandex.cloud.compute.v1.MetadataOptions2}
-
-#|
-||Field | Description ||
-|| gceHttpEndpoint | **enum** (MetadataOption)
-
-Enabled access to GCE flavored metadata
-
-- `ENABLED`: Option is enabled
-- `DISABLED`: Option is disabled ||
-|| awsV1HttpEndpoint | **enum** (MetadataOption)
-
-Enabled access to AWS flavored metadata (IMDSv1)
-
-- `ENABLED`: Option is enabled
-- `DISABLED`: Option is disabled ||
-|| gceHttpToken | **enum** (MetadataOption)
-
-Enabled access to IAM credentials with GCE flavored metadata
-
-- `ENABLED`: Option is enabled
-- `DISABLED`: Option is disabled ||
-|| awsV1HttpToken | **enum** (MetadataOption)
-
-Enabled access to IAM credentials with AWS flavored metadata (IMDSv1)
-
-- `ENABLED`: Option is enabled
-- `DISABLED`: Option is disabled ||
-|| awsV2HttpEndpoint | **enum** (MetadataOption)
-
-Enabled access to AWS flavored metadata with session token (IMDSv2)
-
-- `ENABLED`: Option is enabled
-- `DISABLED`: Option is disabled ||
-|| awsV2HttpToken | **enum** (MetadataOption)
-
-Enabled access to STS credentials with AWS flavored metadata with session token (IMDSv2)
-
-- `ENABLED`: Option is enabled
-- `DISABLED`: Option is disabled ||
-|#
-
-## AttachedDisk {#yandex.cloud.compute.v1.AttachedDisk}
-
-#|
-||Field | Description ||
-|| mode | **enum** (Mode)
-
-Access mode to the Disk resource.
-
-- `READ_ONLY`: Read-only access.
-- `READ_WRITE`: Read/Write access. ||
-|| deviceName | **string**
-
-Serial number that is reflected into the /dev/disk/by-id/ tree
-of a Linux operating system running within the instance.
-
-This value can be used to reference the device for mounting, resizing, and so on, from within the instance. ||
-|| autoDelete | **boolean**
-
-Specifies whether the disk will be auto-deleted when the instance is deleted. ||
-|| diskId | **string**
-
-ID of the disk that is attached to the instance. ||
-|#
-
-## AttachedLocalDisk {#yandex.cloud.compute.v1.AttachedLocalDisk}
-
-#|
-||Field | Description ||
-|| size | **string** (int64)
-
-Size of the disk, specified in bytes. ||
-|| deviceName | **string**
-
-Serial number that is reflected into the /dev/disk/by-id/ tree
-of a Linux operating system running within the instance.
-
-This value can be used to reference the device for mounting, resizing, and so on, from within the instance. ||
-|| physicalLocalDisk | **[PhysicalLocalDisk](#yandex.cloud.compute.v1.PhysicalLocalDisk)**
-
-Local disk configuration
-
-Includes only one of the fields `physicalLocalDisk`. ||
-|#
-
-## PhysicalLocalDisk {#yandex.cloud.compute.v1.PhysicalLocalDisk}
-
-#|
-||Field | Description ||
-|| kmsKey | **[KMSKey](#yandex.cloud.compute.v1.KMSKey)**
-
-Key encryption key info. ||
-|#
-
-## KMSKey {#yandex.cloud.compute.v1.KMSKey}
-
-#|
-||Field | Description ||
-|| keyId | **string**
-
-ID of KMS symmetric key ||
-|| versionId | **string**
-
-Version of KMS symmetric key ||
-|#
-
-## AttachedFilesystem {#yandex.cloud.compute.v1.AttachedFilesystem}
-
-#|
-||Field | Description ||
-|| mode | **enum** (Mode)
-
-Access mode to the filesystem.
-
-- `READ_ONLY`: Read-only access.
-- `READ_WRITE`: Read/Write access. ||
-|| deviceName | **string**
-
-Name of the device representing the filesystem on the instance.
-
-The name should be used for referencing the filesystem from within the instance
-when it's being mounted, resized etc. ||
-|| filesystemId | **string**
-
-ID of the filesystem that is attached to the instance. ||
-|#
-
-## NetworkInterface {#yandex.cloud.compute.v1.NetworkInterface}
-
-#|
-||Field | Description ||
-|| index | **string**
-
-The index of the network interface, will be generated by the server, 0,1,2... etc if not specified. ||
-|| macAddress | **string**
-
-MAC address that is assigned to the network interface. ||
-|| subnetId | **string**
-
-ID of the subnet. ||
-|| primaryV4Address | **[PrimaryAddress](#yandex.cloud.compute.v1.PrimaryAddress)**
-
-Primary IPv4 address that is assigned to the instance for this network interface. ||
-|| primaryV6Address | **[PrimaryAddress](#yandex.cloud.compute.v1.PrimaryAddress)**
-
-Primary IPv6 address that is assigned to the instance for this network interface. IPv6 not available yet. ||
-|| securityGroupIds[] | **string**
-
-ID's of security groups attached to the interface ||
-|#
-
-## PrimaryAddress {#yandex.cloud.compute.v1.PrimaryAddress}
-
-#|
-||Field | Description ||
-|| address | **string**
-
-An IPv4 internal network address that is assigned to the instance for this network interface. ||
-|| oneToOneNat | **[OneToOneNat](#yandex.cloud.compute.v1.OneToOneNat)**
-
-One-to-one NAT configuration. If missing, NAT has not been set up. ||
-|| dnsRecords[] | **[DnsRecord](#yandex.cloud.compute.v1.DnsRecord)**
-
-Internal DNS configuration ||
-|#
-
-## OneToOneNat {#yandex.cloud.compute.v1.OneToOneNat}
-
-#|
-||Field | Description ||
-|| address | **string**
-
-An external IP address associated with this instance. ||
-|| ipVersion | **enum** (IpVersion)
-
-IP version for the external IP address.
-
-- `IPV4`: IPv4 address, for example 192.0.2.235.
-- `IPV6`: IPv6 address. Not available yet. ||
-|| dnsRecords[] | **[DnsRecord](#yandex.cloud.compute.v1.DnsRecord)**
-
-External DNS configuration ||
-|#
-
-## DnsRecord {#yandex.cloud.compute.v1.DnsRecord}
-
-#|
-||Field | Description ||
-|| fqdn | **string**
-
-Name of the A/AAAA record as specified when creating the instance.
-Note that if `fqdn' has no trailing '.', it is specified relative to the zone (@see dns_zone_id). ||
-|| dnsZoneId | **string**
-
-DNS zone id for the record (optional, if not set, some private zone is used). ||
-|| ttl | **string** (int64)
-
-DNS record ttl (optional, if not set, a reasonable default is used.) ||
-|| ptr | **boolean**
-
-When true, indicates there is a corresponding auto-created PTR DNS record. ||
-|#
-
-## SerialPortSettings {#yandex.cloud.compute.v1.SerialPortSettings2}
-
-#|
-||Field | Description ||
-|| sshAuthorization | **enum** (SSHAuthorization)
-
-Authentication and authorization in serial console when using SSH protocol
-
-- `INSTANCE_METADATA`: Authentication and authorization using SSH keys in instance metadata
-- `OS_LOGIN`: Authentication and authorization using Oslogin service ||
-|#
-
-## GpuSettings {#yandex.cloud.compute.v1.GpuSettings2}
-
-#|
-||Field | Description ||
-|| gpuClusterId | **string**
-
-Attach instance to specified GPU cluster. ||
-|#
-
-## SchedulingPolicy {#yandex.cloud.compute.v1.SchedulingPolicy2}
-
-#|
-||Field | Description ||
-|| preemptible | **boolean**
-
-True for short-lived compute instances. For more information, see [Preemptible VMs](../../concepts/preemptible-vm.md). ||
-|#
-
-## NetworkSettings {#yandex.cloud.compute.v1.NetworkSettings2}
-
-#|
-||Field | Description ||
-|| type | **enum** (Type)
-
-Network Type
-
-- `STANDARD`: Standard network.
-- `SOFTWARE_ACCELERATED`: Software accelerated network.
-- `HARDWARE_ACCELERATED`: Hardware accelerated network (not available yet, reserved for future use). ||
-|#
-
-## PlacementPolicy {#yandex.cloud.compute.v1.PlacementPolicy2}
-
-#|
-||Field | Description ||
-|| placementGroupId | **string**
-
-Placement group ID. ||
-|| hostAffinityRules[] | **[HostAffinityRule](#yandex.cloud.compute.v1.PlacementPolicy.HostAffinityRule2)**
-
-List of affinity rules. Scheduler will attempt to allocate instances according to order of rules. ||
-|| placementGroupPartition | **string** (int64)
-
-Placement group partition ||
-|#
-
-## HostAffinityRule {#yandex.cloud.compute.v1.PlacementPolicy.HostAffinityRule2}
-
-Affinity definition
-
-#|
-||Field | Description ||
-|| key | **string**
-
-Affinity label or one of reserved values - 'yc.hostId', 'yc.hostGroupId' ||
-|| op | **enum** (Operator)
-
-Include or exclude action
-
-- `IN`: Include action
-- `NOT_IN`: Exclude action ||
-|| values[] | **string**
-
-Affinity value or host ID or host group ID ||
-|#
-
-## HardwareGeneration {#yandex.cloud.compute.v1.HardwareGeneration}
-
-A set of features, specific to a particular Compute hardware generation.
-They are not necessary supported by every host OS or distro, thus they are fixed to an image
-and are applied to all instances created with it as their boot disk image.
-These features significantly determine how the instance is created, thus cannot be changed after the fact.
-
-#|
-||Field | Description ||
-|| legacyFeatures | **[LegacyHardwareFeatures](#yandex.cloud.compute.v1.LegacyHardwareFeatures)**
-
-Includes only one of the fields `legacyFeatures`, `generation2Features`. ||
-|| generation2Features | **object**
-
-Includes only one of the fields `legacyFeatures`, `generation2Features`. ||
-|#
-
-## LegacyHardwareFeatures {#yandex.cloud.compute.v1.LegacyHardwareFeatures}
-
-A first hardware generation, by default compatible with all legacy images.
-Allows switching to PCI_TOPOLOGY_V2 and back.
-
-#|
-||Field | Description ||
-|| pciTopology | **enum** (PCITopology)
-
-- `PCI_TOPOLOGY_V1`
-- `PCI_TOPOLOGY_V2` ||
-|#
-
-## Application {#yandex.cloud.compute.v1.Application2}
-
-#|
-||Field | Description ||
-|| containerSolution | **[ContainerSolutionSpec](#yandex.cloud.compute.v1.ContainerSolutionSpec2)**
-
-Container specification.
-
-Includes only one of the fields `containerSolution`. ||
-|| cloudbackup | **[BackupSpec](#yandex.cloud.compute.v1.BackupSpec2)**
-
-Backup settings. ||
-|#
-
-## ContainerSolutionSpec {#yandex.cloud.compute.v1.ContainerSolutionSpec2}
-
-#|
-||Field | Description ||
-|| productId | **string**
-
-Required field. ID of the product.
-
-The maximum string length in characters is 50. ||
-|| secrets | **object** (map<**string**, **[Secret](#yandex.cloud.compute.v1.Secret2)**>)
-
-A list of the secrets.
-
-No more than 100 per resource. The maximum string length in characters for each key is 100. ||
-|| environment | **object** (map<**string**, **string**>)
-
-A list of the environmets.
-
-No more than 100 per resource. The maximum string length in characters for each key is 100. The maximum string length in characters for each value is 10000. ||
-|#
-
-## Secret {#yandex.cloud.compute.v1.Secret2}
-
-#|
-||Field | Description ||
-|| id | **string**
-
-Required field. ID of the secret.
-
-The maximum string length in characters is 50. ||
-|| key | **string**
-
-Required field. Name of the key.
-
-The maximum string length in characters is 256. ||
-|| versionId | **string**
-
-Version of the secret.
-
-The maximum string length in characters is 50. ||
-|#
-
-## BackupSpec {#yandex.cloud.compute.v1.BackupSpec2}
-
-#|
-||Field | Description ||
-|| enabled | **boolean**
-
-If true, backup is enabled. ||
-|| initialPolicyIds[] | **string**
-
-A list of policy IDs to apply after resource registration.
-
-The maximum number of elements is 50. The string length in characters for each value must be 1-50. ||
-|| recoveryFromBackup | **boolean**
-
-If true, recovery from backup starts on instance. ||
-|| backupId | **string**
-
-ID of the backup to recover from.
-
-The maximum string length in characters is 100. ||
-|| instanceRegistrationId | **string**
-
-ID of the instance registration for cloud backup agent installation.
-
-The maximum string length in characters is 100. ||
 |#

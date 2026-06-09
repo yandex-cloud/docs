@@ -5,7 +5,7 @@ Retrieves a list of hosts for the specified cluster.
 ## HTTP request
 
 ```
-GET https://mdb.api.cloud.yandex.net/managed-opensearch/v1/clusters/{clusterId}/hosts
+GET https://{{ api-host-mdb }}/managed-opensearch/v1/clusters/{clusterId}/hosts
 ```
 
 ## Path parameters
@@ -27,7 +27,6 @@ The maximum string length in characters is 50. ||
 || pageSize | **string** (int64)
 
 The maximum number of results per page to return.
-
 If the number of available results is larger than `pageSize`, the service returns
 a [ListClusterHostsResponse.nextPageToken](#yandex.cloud.mdb.opensearch.v1.ListClusterHostsResponse) that can be used to get the next page of results in subsequent list requests.
 
@@ -94,10 +93,8 @@ Requested list of hosts for the cluster. ||
 || nextPageToken | **string**
 
 This token allows you to get the next page of results for list requests.
-
 If the number of results is larger than [ListClusterHostsRequest.pageSize](#yandex.cloud.mdb.opensearch.v1.ListClusterHostsRequest), use the `nextPageToken`
 as the value for the [ListClusterHostsRequest.pageToken](#yandex.cloud.mdb.opensearch.v1.ListClusterHostsRequest) query parameter in the next list request.
-
 Each subsequent list request has its own `nextPageToken` to continue paging through the results. ||
 |#
 
@@ -131,7 +128,7 @@ Type of the host. If the field has default value, it is not returned in the resp
 - `DASHBOARDS`: A Dashboards type host. ||
 || health | **enum** (Health)
 
-Aggregated health of the host. If the field has default value, it is not returned in the response.
+Aggregated host health.
 
 - `UNKNOWN`: Health of the host is unknown. Default value.
 - `ALIVE`: The host is performing all its functions normally.
@@ -145,16 +142,19 @@ ID of the subnet that the host belongs to. ||
 Determines whether a public IP is assigned to the host. ||
 || system | **[SystemMetrics](#yandex.cloud.mdb.opensearch.v1.Host.SystemMetrics)**
 
-Resources used by the host. ||
+System metrics. ||
 || nodeGroup | **string**
 
-Name of the host group that the host belongs to. ||
+Which node group the host belongs to. ||
 || roles[] | **enum** (GroupRole)
 
-Roles of the host.
+Roles of the nodes in the group.
 
-- `DATA`
-- `MANAGER` ||
+- `DATA`: Data nodes store indices data.
+- `MANAGER`: Manager nodes perform cluster coordination.
+- `WARM`: Warm nodes provide access to searchable snapshots and manage search cache for these snapshots.
+- `INGEST`: Ingest nodes provides indexed data processing.
+If no node groups have INGEST role explicitly set, then all DATA nodes will implicitly have INGEST role. ||
 |#
 
 ## Resources {#yandex.cloud.mdb.opensearch.v1.Resources}
@@ -165,13 +165,15 @@ A list of computational resources allocated to a host.
 ||Field | Description ||
 || resourcePresetId | **string**
 
-ID of the preset for computational resources allocated to a host. ||
+Required field. ID of the preset for computational resources allocated to a host. ||
 || diskSize | **string** (int64)
 
-Volume of the storage used by the host, in bytes. ||
+Volume of the storage used by the host, in bytes.
+
+Value must be greater than 0. ||
 || diskTypeId | **string**
 
-Type of the storage used by the host: `network-hdd`, `network-ssd` or `local-ssd`. ||
+Required field. Type of the storage used by the host: `network-hdd`, `network-ssd` or `local-ssd`. ||
 |#
 
 ## SystemMetrics {#yandex.cloud.mdb.opensearch.v1.Host.SystemMetrics}

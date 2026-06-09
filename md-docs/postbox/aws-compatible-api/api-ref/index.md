@@ -1,4 +1,4 @@
-# Методы API Amazon для сервиса Yandex Cloud Postbox
+# Методы API Amazon для сервиса {{ postbox-name }}
 
 ## Отправка писем {#send-email}
 

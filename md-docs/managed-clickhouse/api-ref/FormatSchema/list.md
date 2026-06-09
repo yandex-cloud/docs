@@ -5,7 +5,7 @@ Returns a list of format schemas in a cluster.
 ## HTTP request
 
 ```
-GET https://mdb.api.cloud.yandex.net/managed-clickhouse/v1/clusters/{clusterId}/formatSchemas
+GET https://{{ api-host-mdb }}/managed-clickhouse/v1/clusters/{clusterId}/formatSchemas
 ```
 
 ## Path parameters
@@ -15,7 +15,6 @@ GET https://mdb.api.cloud.yandex.net/managed-clickhouse/v1/clusters/{clusterId}/
 || clusterId | **string**
 
 Required field. ClickHouse cluster ID.
-
 To get a ClickHouse cluster ID, use the [ClusterService.List](../Cluster/list.md#List) method.
 
 The maximum string length in characters is 50. ||
@@ -27,12 +26,15 @@ The maximum string length in characters is 50. ||
 ||Field | Description ||
 || pageSize | **string** (int64)
 
-The maximum number of results per page to return. If the number of the results is larger than `pageSize`, the service returns [ListFormatSchemasResponse.nextPageToken](#yandex.cloud.mdb.clickhouse.v1.ListFormatSchemasResponse). You can use it to get the next page of the results in subsequent requests of a format schema list.
+The maximum number of results per page to return. If the number of the results is larger than `pageSize`,
+the service returns [ListFormatSchemasResponse.nextPageToken](#yandex.cloud.mdb.clickhouse.v1.ListFormatSchemasResponse). You can use it to get the next page of
+the results in subsequent requests of a format schema list.
 
 The maximum value is 1000. ||
 || pageToken | **string**
 
-Page token. To get the next page of results, set `pageToken` to the [ListFormatSchemasResponse.nextPageToken](#yandex.cloud.mdb.clickhouse.v1.ListFormatSchemasResponse) returned by the previous format schema list request.
+Page token. To get the next page of results, set `pageToken` to the [ListFormatSchemasResponse.nextPageToken](#yandex.cloud.mdb.clickhouse.v1.ListFormatSchemasResponse)
+returned by the previous format schema list request.
 
 The maximum string length in characters is 100. ||
 |#
@@ -62,7 +64,10 @@ The maximum string length in characters is 100. ||
 List of format schemas. ||
 || nextPageToken | **string**
 
-This token allows you to get the next page of results when requesting the format schema list. If the number of the results is larger than [ListFormatSchemasRequest.pageSize](#yandex.cloud.mdb.clickhouse.v1.ListFormatSchemasRequest), use the `nextPageToken` as the value for the [ListFormatSchemasRequest.pageToken](#yandex.cloud.mdb.clickhouse.v1.ListFormatSchemasRequest) parameter in the next request. Each subsequent request will have its own `nextPageToken` to continue paging through the results. ||
+This token allows you to get the next page of results when requesting the format schema list. If the number of
+the results is larger than [ListFormatSchemasRequest.pageSize](#yandex.cloud.mdb.clickhouse.v1.ListFormatSchemasRequest), use the `nextPageToken` as the value for
+the [ListFormatSchemasRequest.pageToken](#yandex.cloud.mdb.clickhouse.v1.ListFormatSchemasRequest) parameter in the next request.
+Each subsequent request will have its own `nextPageToken` to continue paging through the results. ||
 |#
 
 ## FormatSchema {#yandex.cloud.mdb.clickhouse.v1.FormatSchema}
@@ -78,7 +83,6 @@ ClickHouse cluster ID. ||
 || type | **enum** (FormatSchemaType)
 
 Schema type. Possible values are the following:
-
 * FORMAT_SCHEMA_TYPE_PROTOBUF - [Protobuf](https://protobuf.dev/) data format (including [ProtobufSingle](https://clickhouse.com/docs/en/interfaces/formats#protobufsingle)).
 * FORMAT_SCHEMA_TYPE_CAPNPROTO - [Cap'n Proto](https://capnproto.org/) data format.
 

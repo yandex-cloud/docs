@@ -1,6 +1,6 @@
-# Создание кластера YTsaurus
+# Создание кластера {{ ytsaurus-name }}
 
-Каждый [кластер](../../glossary/cluster.md) Managed Service for YTsaurus состоит из набора компонентов YTsaurus.
+Каждый [кластер](../../glossary/cluster.md) {{ myt-name }} состоит из набора компонентов {{ ytsaurus-name }}.
 
 Компоненты, доступные для настройки:
 * exec- и tablet-ноды;
@@ -14,22 +14,22 @@
 
 ## Роли для создания кластера {#roles}
 
-Для создания кластера Managed Service for YTsaurus вашему аккаунту в Yandex Cloud нужны роли:
+Для создания кластера {{ myt-name }} вашему аккаунту в {{ yandex-cloud }} нужны роли:
 
 * [managed-ytsaurus.editor](../security/index.md#managed-ytsaurus-editor) — чтобы создать кластер;
-* [vpc.user](../../vpc/security/index.md#vpc-user) — чтобы работать с [сетью](../../vpc/concepts/network.md#network) кластера.
+* [{{ roles-vpc-user }}](../../vpc/security/index.md#vpc-user) — чтобы работать с [сетью](../../vpc/concepts/network.md#network) кластера.
 
-О назначении ролей читайте в [документации Yandex Identity and Access Management](../../iam/operations/roles/grant.md).
+О назначении ролей читайте в [документации {{ iam-full-name }}](../../iam/operations/roles/grant.md).
 
 ## Создать кластер {#create-cluster}
 
 {% note info %}
 
-Создание кластера YTsaurus занимает длительное время. В зависимости от выбранной конфигурации время создания может занимать от одного часа.
+Создание кластера {{ ytsaurus-name }} занимает длительное время. В зависимости от выбранной конфигурации время создания может занимать от одного часа.
 
 {% endnote %}
 
-В Managed Service for YTsaurus можно создать [Demo-кластер](#demo-cluster) с минимальной рабочей конфигурацией для ознакомления с сервисом или [Production-кластер](#production-cluster) с ручной настройкой конфигурации кластера. 
+В {{ myt-name }} можно создать [{{ ui-key.yacloud.managed-ytsaurus.clusters.YTSaurusClusterCreatePage.cluster-kind-card_demo_title_4B7zu }}](#demo-cluster) с минимальной рабочей конфигурацией для ознакомления с сервисом или [{{ ui-key.yacloud.managed-ytsaurus.clusters.YTSaurusClusterCreatePage.cluster-kind-card_production_title_dVEmq }}](#production-cluster) с ручной настройкой конфигурации кластера. 
 
 ### Demo-кластер {#demo-cluster}
 
@@ -37,19 +37,19 @@
 
 - Консоль управления {#console}
 
-    1. В [консоли управления](https://console.yandex.cloud) выберите каталог, в котором нужно создать кластер Managed Service for YTsaurus.
-    1. [Перейдите](../../console/operations/select-service.md#select-service) в сервис **Managed Service for YTsaurus**.
-    1. Нажмите кнопку **Создать кластер**.
-    1. Выберите **Demo-кластер** для создания кластера с минимальной рабочей конфигурацией.
-    1. В блоке **Базовые параметры**:
+    1. В [консоли управления]({{ link-console-main }}) выберите каталог, в котором нужно создать кластер {{ myt-name }}.
+    1. Перейдите в сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-ytsaurus }}**.
+    1. Нажмите кнопку **{{ ui-key.yacloud.mdb.clusters.button_create }}**.
+    1. Выберите **{{ ui-key.yacloud.managed-ytsaurus.clusters.YTSaurusClusterCreatePage.cluster-kind-card_demo_title_4B7zu }}** для создания кластера с минимальной рабочей конфигурацией.
+    1. В блоке **{{ ui-key.yacloud.managed-ytsaurus.clusters.YTSaurusClusterCreatePage.base-params-section_title_nfKo2 }}**:
         1. Задайте имя кластера. Имя должно быть уникальным в рамках каталога.
         1. (Опционально) Введите описание кластера.
         1. (Опционально) Создайте [метки](../../resource-manager/concepts/labels.md):
-            1. Нажмите кнопку **Добавить метку**.
+            1. Нажмите кнопку **{{ ui-key.yacloud.component.label-set.button_add-label }}**.
             1. Введите метку в формате `ключ: значение`.
             1. Нажмите **Enter**.
     
-    1. В блоке **Сетевые настройки** выберите:
+    1. В блоке **{{ ui-key.yacloud.managed-ytsaurus.clusters.YTSaurusClusterCreatePage.net-settings-section_title_wo42X }}** выберите:
         * [Зону доступности](../../overview/concepts/geo-scope.md) для размещения кластера.
         * [Подсеть](../../vpc/operations/subnet-create.md).
         * (Опционально) [Группу безопасности](../../vpc/concepts/security-groups.md) для сетевого трафика кластера.
@@ -60,25 +60,28 @@
            
         {% endnote %}
     
-    1. В блоке **Конфигурация кластера** ознакомьтесь с параметрами конфигурации кластера.
-    1. Нажмите кнопку **Создать**.
-    1. Дождитесь, когда кластер будет готов к работе: его статус на панели Managed Service for YTsaurus сменится на **Running**. Это может занять продолжительное время.
+    1. В блоке **{{ ui-key.yacloud.managed-ytsaurus.clusters.YTSaurusClusterCreatePage.cluster-config-section_title_fPkN8 }}** ознакомьтесь с параметрами конфигурации кластера.
+    1. Нажмите кнопку **{{ ui-key.yacloud.common.create }}**.
+    1. Дождитесь, когда кластер будет готов к работе: его статус на панели {{ myt-name }} сменится на **Running**. Это может занять продолжительное время.
 
-- Terraform {#tf}
+- {{ TF }} {#tf}
 
-    [Terraform](https://www.terraform.io/) позволяет быстро создать облачную инфраструктуру в Yandex Cloud и управлять ею с помощью файлов конфигураций. В файлах конфигураций хранится описание инфраструктуры на языке HCL (HashiCorp Configuration Language). При изменении файлов конфигураций Terraform автоматически определяет, какая часть вашей конфигурации уже развернута, что следует добавить или удалить.
+    [{{ TF }}](https://www.terraform.io/) позволяет быстро создать облачную инфраструктуру в {{ yandex-cloud }} и управлять ею с помощью файлов конфигураций. В файлах конфигураций хранится описание инфраструктуры на языке HCL (HashiCorp Configuration Language). При изменении файлов конфигураций {{ TF }} автоматически определяет, какая часть вашей конфигурации уже развернута, что следует добавить или удалить.
     
-    Terraform распространяется под лицензией [Business Source License](https://github.com/hashicorp/terraform/blob/main/LICENSE), а [провайдер Yandex Cloud для Terraform](https://github.com/yandex-cloud/terraform-provider-yandex) — под лицензией [MPL-2.0](https://www.mozilla.org/en-US/MPL/2.0/).
+    {{ TF }} распространяется под лицензией [Business Source License](https://github.com/hashicorp/terraform/blob/main/LICENSE), а [провайдер {{ yandex-cloud }} для {{ TF }}](https://github.com/yandex-cloud/terraform-provider-yandex) — под лицензией [MPL-2.0](https://www.mozilla.org/en-US/MPL/2.0/).
     
-    Подробную информацию о ресурсах провайдера смотрите в документации на сайте [Terraform](https://www.terraform.io/docs/providers/yandex/index.html) или в [зеркале](../../terraform/index.md).
+    Подробную информацию о ресурсах провайдера смотрите в документации на сайте [{{ TF }}](https://www.terraform.io/docs/providers/yandex/index.html) или в [зеркале]({{ tf-docs-link }}).
 
-    Если у вас еще нет Terraform, [установите его и настройте провайдер Yandex Cloud](../../tutorials/infrastructure-management/terraform-quickstart.md#install-terraform).
+    Если у вас еще нет {{ TF }}, [установите его и настройте провайдер {{ yandex-cloud }}](../../tutorials/infrastructure-management/terraform-quickstart.md#install-terraform).
+    
+    
+    Чтобы управлять инфраструктурой с помощью {{ TF }} от имени сервисного аккаунта или пользовательских аккаунтов: аккаунта на Яндексе, федеративного аккаунта и локального пользователя, [аутентифицируйтесь](../../terraform/authentication.md) соответствующим способом.
 
-    Чтобы создать кластер YTsaurus:
+    Чтобы создать кластер {{ ytsaurus-name }}:
 
     1. Опишите в конфигурационном файле создаваемые ресурсы:
 
-        * Кластер YTsaurus — описание кластера.
+        * Кластер {{ ytsaurus-name }} — описание кластера.
 
         * Сеть — описание [облачной сети](../../vpc/concepts/network.md#network), в которой будет расположен кластер. Если подходящая сеть у вас уже есть, описывать ее повторно не нужно.
 
@@ -162,7 +165,7 @@
 
             {% endnote %}
 
-        * `spec` — конфигурация компонентов кластера YTsaurus:
+        * `spec` — конфигурация компонентов кластера {{ ytsaurus-name }}:
 
             * `storage` — параметры хранилища:
 
@@ -179,7 +182,7 @@
 
                 {% note warning %}
 
-                Тип и размер диска для кластера YTsaurus нельзя изменить после создания.
+                Тип и размер диска для кластера {{ ytsaurus-name }} нельзя изменить после создания.
 
                 {% endnote %}
 
@@ -211,20 +214,20 @@
                 * `http.count` — количество HTTP-прокси.
                 * `rpc.count` — количество RPC-прокси.
 
-        Более подробную информацию о ресурсах, которые вы можете создать с помощью Terraform, см. в [документации провайдера](../../terraform/resources/ytsaurus_cluster.md).
+        Подробная информация о ресурсах, которые вы можете создать с помощью {{ TF }}, в [документации провайдера]({{ tf-provider-ytsaurus }}).
 
     1. Проверьте корректность настроек.
 
-        1. В командной строке перейдите в каталог, в котором расположены актуальные конфигурационные файлы Terraform с планом инфраструктуры.
+        1. В командной строке перейдите в каталог, в котором расположены актуальные конфигурационные файлы {{ TF }} с планом инфраструктуры.
         1. Выполните команду:
         
            ```bash
            terraform validate
            ```
         
-           Если в файлах конфигурации есть ошибки, Terraform на них укажет.
+           Если в файлах конфигурации есть ошибки, {{ TF }} на них укажет.
 
-    1. Создайте кластер YTsaurus.
+    1. Создайте кластер {{ ytsaurus-name }}.
 
         1. Выполните команду для просмотра планируемых изменений:
         
@@ -244,7 +247,7 @@
            1. Подтвердите изменение ресурсов.
            1. Дождитесь завершения операции.
 
-        После этого в указанном каталоге будут созданы все требуемые ресурсы. Проверить появление ресурсов и их настройки можно в [консоли управления](https://console.yandex.cloud).
+        После этого в указанном каталоге будут созданы все требуемые ресурсы. Проверить появление ресурсов и их настройки можно в [консоли управления]({{ link-console-main }}).
 
 - REST API {#api}
 
@@ -323,7 +326,7 @@
 
             {% endnote %}
 
-        * `spec` — конфигурация компонентов кластера YTsaurus:
+        * `spec` — конфигурация компонентов кластера {{ ytsaurus-name }}:
 
             * `storage` — параметры хранилища:
 
@@ -340,7 +343,7 @@
 
                 {% note warning %}
 
-                Тип и размер диска для кластера YTsaurus нельзя изменить после создания.
+                Тип и размер диска для кластера {{ ytsaurus-name }} нельзя изменить после создания.
 
                 {% endnote %}
 
@@ -372,13 +375,13 @@
                 * `http.count` — количество HTTP-прокси.
                 * `rpc.count` — количество RPC-прокси.
 
-    1. Воспользуйтесь методом [Cluster.Create](../api-ref/Cluster/create.md) и выполните запрос, например с помощью [cURL](https://curl.se/):
+    1. Воспользуйтесь методом [Cluster.Create](../api-ref/Cluster/create.md) и выполните запрос, например с помощью {{ api-examples.rest.tool }}:
 
         ```bash
         curl \
             --request POST \
             --header "Authorization: Bearer $IAM_TOKEN" \
-            --url 'https://ytsaurus.api.cloud.yandex.net/ytsaurus/v1/clusters'
+            --url 'https://{{ api-host-ytsaurus }}/ytsaurus/v1/clusters'
             --data '@body.json'
         ```
 
@@ -469,7 +472,7 @@
 
             {% endnote %}
 
-        * `spec` — конфигурация компонентов кластера YTsaurus:
+        * `spec` — конфигурация компонентов кластера {{ ytsaurus-name }}:
 
             * `storage` — параметры хранилища:
 
@@ -486,7 +489,7 @@
 
                 {% note warning %}
 
-                Тип и размер диска для кластера YTsaurus нельзя изменить после создания.
+                Тип и размер диска для кластера {{ ytsaurus-name }} нельзя изменить после создания.
 
                 {% endnote %}
 
@@ -518,7 +521,7 @@
                 * `http.count` — количество HTTP-прокси.
                 * `rpc.count` — количество RPC-прокси.
 
-    1. Воспользуйтесь вызовом [ClusterService.Create](../api-ref/grpc/Cluster/create.md) и выполните запрос, например с помощью [gRPCurl](https://github.com/fullstorydev/grpcurl):
+    1. Воспользуйтесь вызовом [ClusterService.Create](../api-ref/grpc/Cluster/create.md) и выполните запрос, например с помощью {{ api-examples.grpc.tool }}:
 
         ```bash
         grpcurl \
@@ -528,7 +531,7 @@
             -proto ~/cloudapi/yandex/cloud/ytsaurus/v1/cluster_service.proto \
             -rpc-header "Authorization: Bearer $IAM_TOKEN" \
             -d @ \
-            ytsaurus.api.cloud.yandex.net:443 \
+            {{ api-host-ytsaurus }}:{{ port-https }} \
             yandex.cloud.ytsaurus.v1.ClusterService.Create \
             < body.json
         ```
@@ -543,19 +546,19 @@
 
 - Консоль управления {#console}
 
-    1. В [консоли управления](https://console.yandex.cloud) выберите каталог, в котором нужно создать кластер Managed Service for YTsaurus.
-    1. [Перейдите](../../console/operations/select-service.md#select-service) в сервис **Managed Service for YTsaurus**.
-    1. Нажмите кнопку **Создать кластер**.
-    1. Выберите **Production-кластер** для создания кластера с ручной настройкой конфигурации.
-    1. В блоке **Базовые параметры**:
+    1. В [консоли управления]({{ link-console-main }}) выберите каталог, в котором нужно создать кластер {{ myt-name }}.
+    1. Перейдите в сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-ytsaurus }}**.
+    1. Нажмите кнопку **{{ ui-key.yacloud.mdb.clusters.button_create }}**.
+    1. Выберите **{{ ui-key.yacloud.managed-ytsaurus.clusters.YTSaurusClusterCreatePage.cluster-kind-card_production_title_dVEmq }}** для создания кластера с ручной настройкой конфигурации.
+    1. В блоке **{{ ui-key.yacloud.managed-ytsaurus.clusters.YTSaurusClusterCreatePage.base-params-section_title_nfKo2 }}**:
         1. Задайте имя кластера. Имя должно быть уникальным в рамках каталога.
         1. (Опционально) Введите описание кластера.
         1. (Опционально) Создайте [метки](../../resource-manager/concepts/labels.md):
-            1. Нажмите кнопку **Добавить метку**.
+            1. Нажмите кнопку **{{ ui-key.yacloud.component.label-set.button_add-label }}**.
             1. Введите метку в формате `ключ: значение`.
             1. Нажмите **Enter**.
 
-    1. В блоке **Сетевые настройки** выберите:
+    1. В блоке **{{ ui-key.yacloud.managed-ytsaurus.clusters.YTSaurusClusterCreatePage.net-settings-section_title_wo42X }}** выберите:
        * [Зону доступности](../../overview/concepts/geo-scope.md) для размещения кластера.
        * [Подсеть](../../vpc/operations/subnet-create.md).
        * (Опционально) [Группу безопасности](../../vpc/concepts/security-groups.md) для сетевого трафика кластера.
@@ -566,7 +569,7 @@
        
        {% endnote %}
 
-    1. В блоке **Хранилище** нажмите кнопку **Добавить** и выберите тип, размер, количество дисков.
+    1. В блоке **{{ ui-key.yacloud.managed-ytsaurus.clusters.YTSaurusClusterCreatePage.filestore-section_title_tYMR7 }}** нажмите кнопку **{{ ui-key.yacloud.common.add }}** и выберите тип, размер, количество дисков.
 
        От выбранного типа зависит, с каким шагом можно будет изменить размер диска:
           * Сетевые HDD- и SSD-диски — с шагом 1 ГБ.
@@ -576,16 +579,16 @@
 
        {% note warning %}
        
-       Тип и размер диска для кластера YTsaurus нельзя изменить после создания.
+       Тип и размер диска для кластера {{ ytsaurus-name }} нельзя изменить после создания.
        
        {% endnote %}
     
-    1. В блоке **Конфигурация exec-нод** задайте:
+    1. В блоке **{{ ui-key.yacloud.managed-ytsaurus.clusters.YTSaurusClusterCreatePage.exec-node-configuration-section_title_mfa54 }}** задайте:
        * количество нод;
        * [конфигурацию вычислительных ресурсов](../concepts/component-types.md#exec-node);
        * тип и размер хранилища, которое будет использоваться для выполнения заданий.
 
-    1. В блоке **Конфигурация tablet-нод** задайте:
+    1. В блоке **{{ ui-key.yacloud.managed-ytsaurus.clusters.YTSaurusClusterCreatePage.tablet-node-configuration-section_title_fHZeX }}** задайте:
        * количество нод;
        * [конфигурацию вычислительных ресурсов](../concepts/component-types.md#tablet-node).
 
@@ -597,7 +600,7 @@
        
        {% endnote %}
     
-    1. В блоках **Конфигурация HTTP** и **Конфигурация RPC** задайте количество прокси.
+    1. В блоках **{{ ui-key.yacloud.managed-ytsaurus.clusters.YTSaurusClusterCreatePage.http-config-section_title_kMdci }}** и **{{ ui-key.yacloud.managed-ytsaurus.clusters.YTSaurusClusterCreatePage.rpc-config-section_title_tGACF }}** задайте количество прокси.
 
        {% note warning %}
        
@@ -605,24 +608,27 @@
        
        {% endnote %}
 
-    1. Нажмите кнопку **Создать**.
-    1. Дождитесь, когда кластер будет готов к работе: его статус на панели Managed Service for YTsaurus сменится на **Running**. Это может занять продолжительное время.
+    1. Нажмите кнопку **{{ ui-key.yacloud.common.create }}**.
+    1. Дождитесь, когда кластер будет готов к работе: его статус на панели {{ myt-name }} сменится на **Running**. Это может занять продолжительное время.
 
-- Terraform {#tf}
+- {{ TF }} {#tf}
 
-    [Terraform](https://www.terraform.io/) позволяет быстро создать облачную инфраструктуру в Yandex Cloud и управлять ею с помощью файлов конфигураций. В файлах конфигураций хранится описание инфраструктуры на языке HCL (HashiCorp Configuration Language). При изменении файлов конфигураций Terraform автоматически определяет, какая часть вашей конфигурации уже развернута, что следует добавить или удалить.
+    [{{ TF }}](https://www.terraform.io/) позволяет быстро создать облачную инфраструктуру в {{ yandex-cloud }} и управлять ею с помощью файлов конфигураций. В файлах конфигураций хранится описание инфраструктуры на языке HCL (HashiCorp Configuration Language). При изменении файлов конфигураций {{ TF }} автоматически определяет, какая часть вашей конфигурации уже развернута, что следует добавить или удалить.
     
-    Terraform распространяется под лицензией [Business Source License](https://github.com/hashicorp/terraform/blob/main/LICENSE), а [провайдер Yandex Cloud для Terraform](https://github.com/yandex-cloud/terraform-provider-yandex) — под лицензией [MPL-2.0](https://www.mozilla.org/en-US/MPL/2.0/).
+    {{ TF }} распространяется под лицензией [Business Source License](https://github.com/hashicorp/terraform/blob/main/LICENSE), а [провайдер {{ yandex-cloud }} для {{ TF }}](https://github.com/yandex-cloud/terraform-provider-yandex) — под лицензией [MPL-2.0](https://www.mozilla.org/en-US/MPL/2.0/).
     
-    Подробную информацию о ресурсах провайдера смотрите в документации на сайте [Terraform](https://www.terraform.io/docs/providers/yandex/index.html) или в [зеркале](../../terraform/index.md).
+    Подробную информацию о ресурсах провайдера смотрите в документации на сайте [{{ TF }}](https://www.terraform.io/docs/providers/yandex/index.html) или в [зеркале]({{ tf-docs-link }}).
 
-    Если у вас еще нет Terraform, [установите его и настройте провайдер Yandex Cloud](../../tutorials/infrastructure-management/terraform-quickstart.md#install-terraform).
+    Если у вас еще нет {{ TF }}, [установите его и настройте провайдер {{ yandex-cloud }}](../../tutorials/infrastructure-management/terraform-quickstart.md#install-terraform).
+    
+    
+    Чтобы управлять инфраструктурой с помощью {{ TF }} от имени сервисного аккаунта или пользовательских аккаунтов: аккаунта на Яндексе, федеративного аккаунта и локального пользователя, [аутентифицируйтесь](../../terraform/authentication.md) соответствующим способом.
 
-    Чтобы создать кластер YTsaurus:
+    Чтобы создать кластер {{ ytsaurus-name }}:
 
     1. Опишите в конфигурационном файле создаваемые ресурсы:
 
-        * Кластер YTsaurus — описание кластера.
+        * Кластер {{ ytsaurus-name }} — описание кластера.
 
         * Сеть — описание [облачной сети](../../vpc/concepts/network.md#network), в которой будет расположен кластер. Если подходящая сеть у вас уже есть, описывать ее повторно не нужно.
 
@@ -715,7 +721,7 @@
             {% endnote %}
 
         * `labels` — список меток. Метки задаются в формате `<ключ> = "<значение>"`.
-        * `spec` — конфигурация компонентов кластера YTsaurus:
+        * `spec` — конфигурация компонентов кластера {{ ytsaurus-name }}:
 
             * `storage` — параметры хранилища:
 
@@ -739,7 +745,7 @@
 
                 {% note warning %}
 
-                Тип и размер диска для кластера YTsaurus нельзя изменить после создания.
+                Тип и размер диска для кластера {{ ytsaurus-name }} нельзя изменить после создания.
 
                 {% endnote %}
 
@@ -779,20 +785,20 @@
 
             * `odin.checks_ttl` — частота проверок внутреннего мониторинга Odin. Указывается с единицами измерения: `h` — часы, `m` — минуты, `s` — секунды. Например: `336h0m0s` (2 недели).
 
-        Более подробную информацию о ресурсах, которые вы можете создать с помощью Terraform, см. в [документации провайдера](../../terraform/resources/ytsaurus_cluster.md).
+        Подробная информация о ресурсах, которые вы можете создать с помощью {{ TF }}, в [документации провайдера]({{ tf-provider-ytsaurus }}).
 
     1. Проверьте корректность настроек.
 
-        1. В командной строке перейдите в каталог, в котором расположены актуальные конфигурационные файлы Terraform с планом инфраструктуры.
+        1. В командной строке перейдите в каталог, в котором расположены актуальные конфигурационные файлы {{ TF }} с планом инфраструктуры.
         1. Выполните команду:
         
            ```bash
            terraform validate
            ```
         
-           Если в файлах конфигурации есть ошибки, Terraform на них укажет.
+           Если в файлах конфигурации есть ошибки, {{ TF }} на них укажет.
 
-    1. Создайте кластер Managed Service for YTsaurus.
+    1. Создайте кластер {{ myt-name }}.
 
         1. Выполните команду для просмотра планируемых изменений:
         
@@ -812,7 +818,7 @@
            1. Подтвердите изменение ресурсов.
            1. Дождитесь завершения операции.
 
-        После этого в указанном каталоге будут созданы все требуемые ресурсы. Проверить появление ресурсов и их настройки можно в [консоли управления](https://console.yandex.cloud).
+        После этого в указанном каталоге будут созданы все требуемые ресурсы. Проверить появление ресурсов и их настройки можно в [консоли управления]({{ link-console-main }}).
 
 - REST API {#api}
 
@@ -897,7 +903,7 @@
 
             {% endnote %}
 
-        * `spec` — конфигурация компонентов кластера YTsaurus:
+        * `spec` — конфигурация компонентов кластера {{ ytsaurus-name }}:
 
             * `storage` — параметры хранилища:
 
@@ -921,7 +927,7 @@
 
                 {% note warning %}
 
-                Тип и размер диска для кластера YTsaurus нельзя изменить после создания.
+                Тип и размер диска для кластера {{ ytsaurus-name }} нельзя изменить после создания.
 
                 {% endnote %}
 
@@ -961,13 +967,13 @@
 
             * `odin.checksTtl` — частота проверок внутреннего мониторинга Odin. Указывается в секундах (`s`). Например: `1209600s` (2 недели).
 
-    1. Воспользуйтесь методом [Cluster.Create](../api-ref/Cluster/create.md) и выполните запрос, например с помощью [cURL](https://curl.se/):
+    1. Воспользуйтесь методом [Cluster.Create](../api-ref/Cluster/create.md) и выполните запрос, например с помощью {{ api-examples.rest.tool }}:
 
         ```bash
         curl \
             --request POST \
             --header "Authorization: Bearer $IAM_TOKEN" \
-            --url 'https://ytsaurus.api.cloud.yandex.net/ytsaurus/v1/clusters' \
+            --url 'https://{{ api-host-ytsaurus }}/ytsaurus/v1/clusters' \
             --data '@body.json'
         ```
 
@@ -1064,7 +1070,7 @@
 
             {% endnote %}
 
-        * `spec` — конфигурация компонентов кластера YTsaurus:
+        * `spec` — конфигурация компонентов кластера {{ ytsaurus-name }}:
 
             * `storage` — параметры хранилища:
 
@@ -1088,7 +1094,7 @@
 
                 {% note warning %}
 
-                Тип и размер диска для кластера YTsaurus нельзя изменить после создания.
+                Тип и размер диска для кластера {{ ytsaurus-name }} нельзя изменить после создания.
 
                 {% endnote %}
 
@@ -1128,7 +1134,7 @@
 
             * `odin.checks_ttl` — частота проверок внутреннего мониторинга Odin. Указывается в секундах (`s`). Например: `1209600s` (2 недели).
 
-    1. Воспользуйтесь вызовом [ClusterService.Create](../api-ref/grpc/Cluster/create.md) и выполните запрос, например с помощью [gRPCurl](https://github.com/fullstorydev/grpcurl):
+    1. Воспользуйтесь вызовом [ClusterService.Create](../api-ref/grpc/Cluster/create.md) и выполните запрос, например с помощью {{ api-examples.grpc.tool }}:
 
         ```bash
         grpcurl \
@@ -1138,7 +1144,7 @@
             -proto ~/cloudapi/yandex/cloud/ytsaurus/v1/cluster_service.proto \
             -rpc-header "Authorization: Bearer $IAM_TOKEN" \
             -d @ \
-            ytsaurus.api.cloud.yandex.net:443 \
+            {{ api-host-ytsaurus }}:{{ port-https }} \
             yandex.cloud.ytsaurus.v1.ClusterService.Create \
             < body.json
         ```
@@ -1151,9 +1157,9 @@
 
 {% list tabs group=instructions %}
 
-- Terraform {#tf}
+- {{ TF }} {#tf}
 
-    Создайте кластер Managed Service for YTsaurus и сеть для него с тестовыми характеристиками:
+    Создайте кластер {{ myt-name }} и сеть для него с тестовыми характеристиками:
 
     * Имя — `my-ytsaurus-cluster`.
     * Сеть — `my-network`.

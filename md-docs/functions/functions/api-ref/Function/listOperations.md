@@ -5,7 +5,7 @@ Lists operations for the specified function.
 ## HTTP request
 
 ```
-GET https://serverless-functions.api.cloud.yandex.net/functions/v1/functions/{functionId}/operations
+GET https://serverless-functions.{{ api-host }}/functions/v1/functions/{functionId}/operations
 ```
 
 ## Path parameters

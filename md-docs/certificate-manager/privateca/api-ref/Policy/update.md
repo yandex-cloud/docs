@@ -7,7 +7,7 @@ Only the fields specified in the `update_mask` will be updated.
 ## HTTP request
 
 ```
-PATCH https://private-ca.certificate-manager.api.cloud.yandex.net/privateca/v1/policies/{id}
+PATCH https://private-ca.certificate-manager.{{ api-host }}/privateca/v1/policies/{id}
 ```
 
 ## Path parameters

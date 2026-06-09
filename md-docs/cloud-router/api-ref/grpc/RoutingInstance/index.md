@@ -14,11 +14,12 @@ A set of methods for managing RoutingInstance resources.
 || [Update](update.md) | Updates a RoutingInstance resource using the data specified in the request. ||
 || [UpsertPrefixes](upsertPrefixes.md) | Upserts specified prefixes to a RoutingInstance resource. ||
 || [RemovePrefixes](removePrefixes.md) | Removes specified prefixes from a RoutingInstance resource. ||
-|| [UpdateNetworks](updateNetworks.md) | Updates multiple vpc using the data specified in the request. ||
-|| [MovePrefix](movePrefix.md) | Moves the specified prefix between availability zones of the RoutingInstance. ||
-|| [UpdatePrefixMask](updatePrefixMask.md) | Removes specified PrivateConnection from a RoutingInstance resource. ||
 || [AddPrivateConnection](addPrivateConnection.md) | Adds specified PrivateConnection to a RoutingInstance resource. ||
 || [RemovePrivateConnection](removePrivateConnection.md) | Removes specified PrivateConnection from a RoutingInstance resource. ||
+|| [UpdateNetworks](updateNetworks.md) | Updates multiple vpc using the data specified in the request. ||
 || [Delete](delete.md) | Deletes a RoutingInstance resource. ||
+|| [Move](move.md) | Moves the specified RoutingInstance to another folder. ||
 || [ListOperations](listOperations.md) | Lists operations for the specified RoutingInstance. ||
+|| [MovePrefix](movePrefix.md) | Moves the specified prefix between availability zones of the RoutingInstance. ||
+|| [UpdatePrefixMask](updatePrefixMask.md) | Removes specified PrivateConnection from a RoutingInstance resource. ||
 |#

@@ -5,7 +5,7 @@ Returns the specified Metastore Cluster.
 ## HTTP request
 
 ```
-GET https://metastore.api.cloud.yandex.net/managed-metastore/v1/clusters/{clusterId}
+GET https://metastore.{{ api-host }}/managed-metastore/v1/clusters/{clusterId}
 ```
 
 ## Path parameters

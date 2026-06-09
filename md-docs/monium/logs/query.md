@@ -1,6 +1,6 @@
 # Язык запросов
 
-В этом разделе описан язык запросов для выборки и фильтрации по логам. В интерфейсе Monium и API используется единый язык запросов для получения данных. Язык позволяет применять фильтрующие выражения к каждой строчке лога. По аналогии с SQL — задавать условные выражения в часть `WHERE`.
+В этом разделе описан язык запросов для выборки и фильтрации по логам. В интерфейсе {{ monium-name }} и API используется единый язык запросов для получения данных. Язык позволяет применять фильтрующие выражения к каждой строчке лога. По аналогии с SQL — задавать условные выражения в часть `WHERE`.
 
 ## Типы данных {#types}
 
@@ -35,7 +35,7 @@ _Селектор_ состоит из имени метки, оператора
 Пример:
 
 ```js
-{project="folder__b1g86q4m5vej********", service="fetcher", cluster="production", duration > 500}
+{project="folder__{{ folder-id-example }}", service="fetcher", cluster="production", duration > 500}
 ```
 
 ### Операторы:
@@ -64,7 +64,7 @@ _Селектор_ состоит из имени метки, оператора
 
 ```js
 ....
-project="folder__b1g86q4m5vej********"
+project="folder__{{ folder-id-example }}"
 service="fetcher"
 cluser="production"
 level=ERROR
@@ -74,19 +74,19 @@ meta={user_agent="Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/53
 Селектор, фильтрующий строчки лога с уровнем логирования INFO или DEBUG
 
 ```js
-{project="folder__b1g86q4m5vej********", service="fetcher", cluser="production", level="INFO|DEBUG"}
+{project="folder__{{ folder-id-example }}", service="fetcher", cluser="production", level="INFO|DEBUG"}
 ```
 
 Селектор, фильтрующий строчки лога у которых в метке `fail_reason` (один из ключей в поле `labels`) содержится целое число больше 1000
 
 ```js
-{project="folder__b1g86q4m5vej********", service="fetcher", cluser="production", fail_reason>1000}
+{project="folder__{{ folder-id-example }}", service="fetcher", cluser="production", fail_reason>1000}
 ```
 
 Поиск всех ошибок, произошедших при запросе от определенного агента
 
 ```js
-{project="folder__b1g86q4m5vej********", service="fetcher", cluser="production", level>="ERROR", fail_reason=200, meta.user_agent=*"Chrome"}
+{project="folder__{{ folder-id-example }}", service="fetcher", cluser="production", level>="ERROR", fail_reason=200, meta.user_agent=*"Chrome"}
 ```
 
 В имени метки допустимы символы `.`, они рассматриваются как часть имени одной метки. Такие символы в селекторе не экранируются.
@@ -109,8 +109,8 @@ meta={user_agent="Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/53
 
 | Метка     | Ограничение                                                                                                                          | Пример                                                                                           |
 |-----------|--------------------------------------------------------------------------------------------------------------------------------------|--------------------------------------------------------------------------------------------------|
-| `project` | должен иметь единое значение и точное соответствие, не является обязательной меткой, если в селекторе имеется метка `trace.id`    | `{project=folder__b1g86q4m5vej********, service=coremon}` `{trace.id="fcdcbceff9cb39ef"}`                             |
-| `service` | может иметь множественное значение и точное соответствие, не является обязательной меткой, если в селекторе имеется метка `trace.id` | `{project=folder__b1g86q4m5vej********, service="coremon\|fetcher"}` `{project=folder__b1g86q4m5vej********, trace.id="fcdcbceff9cb39ef"}` |
+| `project` | должен иметь единое значение и точное соответствие, не является обязательной меткой, если в селекторе имеется метка `trace.id`    | `{project=folder__{{ folder-id-example }}, service=coremon}` `{trace.id="fcdcbceff9cb39ef"}`                             |
+| `service` | может иметь множественное значение и точное соответствие, не является обязательной меткой, если в селекторе имеется метка `trace.id` | `{project=folder__{{ folder-id-example }}, service="coremon\|fetcher"}` `{project=folder__{{ folder-id-example }}, trace.id="fcdcbceff9cb39ef"}` |
 
 ## Ограничение на метки {#labels-limitation}
 
@@ -118,11 +118,11 @@ meta={user_agent="Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/53
 
 | Метка               | Ограничение                                                                                                                                                                                | Пример                                                                               |
 |---------------------|--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|--------------------------------------------------------------------------------------|
-| `project`           | должен иметь единое значение и точное соответствие                                                                                                                                      | `{project=folder__b1g86q4m5vej********, service=coremon}`                                                 |
-| `cluster`/`service` | могут иметь множественное значение и точное соответствие                                                                                                                                   | `{project=folder__b1g86q4m5vej********, service=coremon}` `{project=folder__b1g86q4m5vej********, service="coremon\|fetcher"}` |
+| `project`           | должен иметь единое значение и точное соответствие                                                                                                                                      | `{project=folder__{{ folder-id-example }}, service=coremon}`                                                 |
+| `cluster`/`service` | могут иметь множественное значение и точное соответствие                                                                                                                                   | `{project=folder__{{ folder-id-example }}, service=coremon}` `{project=folder__{{ folder-id-example }}, service="coremon\|fetcher"}` |
 | `host`/`message`    | не применяются операторы `<` `<=` `>` `>=`                                                                                                                                                 |                                                                                      |
-| `trace.id`          | может иметь множественное значение и точное соответствие                                                                                                                                   | `{project=folder__b1g86q4m5vej********, trace.id="36a91077c9806b4c\|cc26b62976badd0"}`                    |
-| `span.id`           | может иметь множественное значение и точное соответствие                                                                                                                                   | `{project=folder__b1g86q4m5vej********, trace.id="cc26b62976badd0", span.id="0cc26b62976badd0"}`          |
+| `trace.id`          | может иметь множественное значение и точное соответствие                                                                                                                                   | `{project=folder__{{ folder-id-example }}, trace.id="36a91077c9806b4c\|cc26b62976badd0"}`                    |
+| `span.id`           | может иметь множественное значение и точное соответствие                                                                                                                                   | `{project=folder__{{ folder-id-example }}, trace.id="cc26b62976badd0", span.id="0cc26b62976badd0"}`          |
 | `level`             | значения должны быть из скоупа `TRACE`&#124;`DEBUG`&#124;`INFO`&#124;`WARN`&#124;`ERROR`&#124;`FATAL`, для `level` доступны сравнения `<` `<=` `>` `>=` в порядке, заданном в перечислении | `{level >= WARN}`                                                                    |
 
 ## Особенности работы с trace.id

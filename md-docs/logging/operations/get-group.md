@@ -4,15 +4,15 @@
 
 - Консоль управления {#console}
 
-  1. В [консоли управления](https://console.yandex.cloud) перейдите в каталог, в котором находится лог-группа.
-  1. [Перейдите](../../console/operations/select-service.md#select-service) в сервис **Cloud Logging**.
-  1. На панели слева выберите ![image](../../_assets/console-icons/tray.svg) **Группы**.
+  1. В [консоли управления]({{ link-console-main }}) перейдите в каталог, в котором находится лог-группа.
+  1. [Перейдите](../../console/operations/select-service.md#select-service) в сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_logging }}**.
+  1. На панели слева выберите ![image](../../_assets/console-icons/tray.svg) **{{ ui-key.yacloud.logging.label_groups }}**.
   1. Выберите лог-группу.
-  1. На странице **Обзор** отобразится подробная информация о лог-группе.
+  1. На странице **{{ ui-key.yacloud.common.overview }}** отобразится подробная информация о лог-группе.
 
 - CLI {#cli}
 
-  Если у вас еще нет интерфейса командной строки Yandex Cloud (CLI), [установите и инициализируйте его](../../cli/quickstart.md#install).
+  Если у вас еще нет интерфейса командной строки {{ yandex-cloud }} (CLI), [установите и инициализируйте его](../../cli/quickstart.md#install).
 
   По умолчанию используется каталог, указанный при [создании](../../cli/operations/profile/profile-create.md) профиля CLI. Чтобы изменить каталог по умолчанию, используйте команду `yc config set folder-id <идентификатор_каталога>`. Также для любой команды вы можете указать другой каталог с помощью параметров `--folder-name` или `--folder-id`. Если вы обращаетесь к ресурсу по имени, поиск будет выполнен в каталоге по умолчанию. Если вы обращаетесь к ресурсу по идентификатору, поиск будет выполнен глобально — во всех каталогах с учетом прав доступа.
 
@@ -38,7 +38,7 @@
   vpc: vpc-log
   status: ACTIVE
   retention_period: 3600s
-  data_stream: /ru-central1/b1gia87mbaom********/etnu60k6l8ft********/sample-stream
+  data_stream: /{{ region-id }}/b1gia87mbaom********/etnu60k6l8ft********/sample-stream
   ```
 
 - API {#api}
@@ -60,7 +60,7 @@
     -import-path ~/cloudapi/ \
     -import-path ~/cloudapi/third_party/googleapis/ \
     -proto ~/cloudapi/yandex/cloud/logging/v1/log_group_service.proto \
-  logging.api.cloud.yandex.net:443 yandex.cloud.logging.v1.LogGroupService.Get
+  logging.{{ api-host }}:443 yandex.cloud.logging.v1.LogGroupService.Get
   ```
 
   Результат:
@@ -87,7 +87,7 @@
     -import-path ~/cloudapi/ \
     -import-path ~/cloudapi/third_party/googleapis/ \
     -proto ~/cloudapi/yandex/cloud/logging/v1/log_group_service.proto \
-  logging.api.cloud.yandex.net:443 yandex.cloud.logging.v1.LogGroupService.Stats
+  logging.{{ api-host }}:443 yandex.cloud.logging.v1.LogGroupService.Stats
   ```
 
   Результат:

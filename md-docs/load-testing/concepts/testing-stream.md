@@ -2,7 +2,7 @@
 
 {% note warning %}
 
-С 1 июля 2026 года сервис Load Testing прекращает работу. Подробнее на странице [Закрытие сервиса Yandex Load Testing](../sunset.md).
+С 1 июля 2026 года сервис {{ load-testing-name }} прекращает работу. Подробнее на странице [Закрытие сервиса Yandex Load Testing](../sunset.md).
 
 {% endnote %}
 
@@ -23,7 +23,7 @@
 
 Pandora создает 1000 тестирующих потоков, если при настройке конфигурации через форму не было заполнено поле **Тестирующие потоки**. Но если настройка выполнялась через файл конфигурации и количество тестирующих потоков не было указано, то Pandora завершит работу с ошибкой.
 
-Если нужно задать количество потоков, настройте их конфигурацию в [консоли управления](https://console.yandex.cloud).
+Если нужно задать количество потоков, настройте их конфигурацию в [консоли управления]({{ link-console-main }}).
 
 Посчитать необходимое количество тестирующих потоков можно по формуле:
 
@@ -93,8 +93,8 @@ Pandora создает 1000 тестирующих потоков, если пр
 
 ## Примеры использования {#examples}
 
-* [Нагрузочное тестирование gRPC-сервиса](../tutorials/loadtesting-grpc.md)
-* [HTTPS-тест со ступенчатой нагрузкой с помощью Pandora](../tutorials/loadtesting-https-pandora.md)
-* [HTTPS-тест с постоянной нагрузкой с помощью Phantom](../tutorials/loadtesting-https-phantom.md)
-* [Сравнение результатов нагрузочных тестов](../tutorials/loadtesting-results-compare.md)
-* [HTTP-тест с нагрузкой по сценарию с помощью Pandora](../tutorials/loadtesting-http-scenario-pandora.md)
+* [{#T}](../tutorials/loadtesting-grpc.md)
+* [{#T}](../tutorials/loadtesting-https-pandora.md)
+* [{#T}](../tutorials/loadtesting-https-phantom.md)
+* [{#T}](../tutorials/loadtesting-results-compare.md)
+* [{#T}](../tutorials/loadtesting-http-scenario-pandora.md)

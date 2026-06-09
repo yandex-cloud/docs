@@ -1,6 +1,6 @@
-# Просмотр логов кластера Valkey™
+# Просмотр логов кластера {{ VLK }}
 
-Yandex Managed Service for Valkey™ позволяет [получить фрагмент логов кластера](#get-log) за выбранный период и [просматривать логи в реальном времени](#get-log-stream).
+{{ mrd-name }} позволяет [получить фрагмент логов кластера](#get-log) за выбранный период и [просматривать логи в реальном времени](#get-log-stream).
 
 {% note info %}
 
@@ -14,31 +14,31 @@ Yandex Managed Service for Valkey™ позволяет [получить фра
 
 - Консоль управления {#console}
 
-    1. [Перейдите](../../console/operations/select-service.md#select-service) в сервис **Yandex Managed Service for&nbsp;Valkey™**.
-    1. Нажмите на имя нужного кластера и выберите вкладку ![image](../../_assets/console-icons/receipt.svg) **Логи**.
+    1. Перейдите в сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-redis }}**.
+    1. Нажмите на имя нужного кластера и выберите вкладку ![image](../../_assets/console-icons/receipt.svg) **{{ ui-key.yacloud.mdb.cluster.logs.label_title }}**.
     1. Укажите период времени, за который нужно отобразить логи: введите его вручную или выберите в календаре, нажав на поле ввода дат.
     1. При необходимости укажите хосты в строке с полем ввода дат.
 
     Будет отображен список записей в логе за выбранный период времени. Чтобы посмотреть подробную информацию о событии, нажмите на интересующую запись в списке.
 
-    Если записей слишком много и отображается только часть из них, нажмите на кнопку **Загрузить еще** в конце списка.
+    Если записей слишком много и отображается только часть из них, нажмите на кнопку **{{ ui-key.yacloud.common.label_load-more }}** в конце списка.
 
 - CLI {#cli}
 
-    Если у вас еще нет интерфейса командной строки Yandex Cloud (CLI), [установите и инициализируйте его](../../cli/quickstart.md#install).
+    Если у вас еще нет интерфейса командной строки {{ yandex-cloud }} (CLI), [установите и инициализируйте его](../../cli/quickstart.md#install).
 
     По умолчанию используется каталог, указанный при [создании](../../cli/operations/profile/profile-create.md) профиля CLI. Чтобы изменить каталог по умолчанию, используйте команду `yc config set folder-id <идентификатор_каталога>`. Также для любой команды вы можете указать другой каталог с помощью параметров `--folder-name` или `--folder-id`. Если вы обращаетесь к ресурсу по имени, поиск будет выполнен в каталоге по умолчанию. Если вы обращаетесь к ресурсу по идентификатору, поиск будет выполнен глобально — во всех каталогах с учетом прав доступа.
 
     1. Просмотрите описание команды CLI для просмотра логов кластера:
 
         ```bash
-        yc managed-redis cluster list-logs --help
+        {{ yc-mdb-rd }} cluster list-logs --help
         ```
 
     1. Запустите команду получения логов кластера (в примере приведены не все доступные параметры):
 
         ```bash
-        yc managed-redis cluster list-logs <имя_или_идентификатор_кластера> \
+        {{ yc-mdb-rd }} cluster list-logs <имя_или_идентификатор_кластера> \
            --limit <ограничение_количества_записей> \
            --columns <список_колонок_для_вывода_информации> \
            --filter <настройки_фильтрации_записей> \
@@ -54,7 +54,7 @@ Yandex Managed Service for Valkey™ позволяет [получить фра
             * `message` — сообщение, которое выводит сервис.
             * `pid` — идентификатор серверного процесса текущей сессии.
             * `role` — роль компонента кластера, например, `X` или `M` (`Sentinel` и `Master` соответственно).
-        * `--filter` — настройки фильтрации записей, например `message.hostname='node1.mdb.yandexcloud.net'`.
+        * `--filter` — настройки фильтрации записей, например `message.hostname='node1.{{ dns-zone }}'`.
         * `--since` — левая граница временного диапазона в формате [RFC-3339](https://www.ietf.org/rfc/rfc3339.html), `HH:MM:SS` или временного промежутка относительно текущего времени. Примеры: `2006-01-02T15:04:05Z`, `15:04:05`, `2h`, `3h30m ago`.
         * `--until` — правая граница временного диапазона, формат аналогичен `--since`.
 
@@ -68,13 +68,13 @@ Yandex Managed Service for Valkey™ позволяет [получить фра
     export IAM_TOKEN="<IAM-токен>"
     ```
 
-    1. Воспользуйтесь методом [Cluster.ListLogs](../api-ref/Cluster/listLogs.md) и выполните запрос, например, с помощью [cURL](https://curl.se/):
+    1. Воспользуйтесь методом [Cluster.ListLogs](../api-ref/Cluster/listLogs.md) и выполните запрос, например, с помощью {{ api-examples.rest.tool }}:
 
         ```bash
         curl \
             --request GET \
             --header "Authorization: Bearer $IAM_TOKEN" \
-            --url 'https://mdb.api.cloud.yandex.net/managed-redis/v1/clusters/<идентификатор_кластера>:logs' \
+            --url 'https://{{ api-host-mdb }}/managed-redis/v1/clusters/<идентификатор_кластера>:logs' \
             --url-query serviceType=REDIS \
             --url-query columnFilter=<список_колонок> \
             --url-query fromTime=<левая_граница_временного_диапазона> \
@@ -94,7 +94,7 @@ Yandex Managed Service for Valkey™ позволяет [получить фра
 
             В одном параметре `columnFilter` можно указать только одну колонку. Если необходимо отфильтровать логи по нескольким колонкам, передайте перечень нужных колонок в нескольких параметрах.
 
-        * `fromTime` — левая граница временного диапазона в формате [RFC-3339](https://www.ietf.org/rfc/rfc3339.html). Пример: `2006-01-02T15:04:05Z`.
+        * `fromTime` — левая граница временного диапазона в формате [RFC-3339](https://www.ietf.org/rfc/rfc3339.html). Пример: `{{ sample-rfc3339-timestamp }}`.
 
         * `toTime` — правая граница временного диапазона, формат аналогичен `fromTime`.
 
@@ -118,7 +118,7 @@ Yandex Managed Service for Valkey™ позволяет [получить фра
        
        Далее предполагается, что содержимое репозитория находится в директории `~/cloudapi/`.
 
-    1. Воспользуйтесь вызовом [ClusterService.ListLogs](../api-ref/grpc/Cluster/listLogs.md) и выполните запрос, например, с помощью [gRPCurl](https://github.com/fullstorydev/grpcurl):
+    1. Воспользуйтесь вызовом [ClusterService.ListLogs](../api-ref/grpc/Cluster/listLogs.md) и выполните запрос, например, с помощью {{ api-examples.grpc.tool }}:
 
         ```bash
         grpcurl \
@@ -136,7 +136,7 @@ Yandex Managed Service for Valkey™ позволяет [получить фра
                   "from_time": "<левая_граница_временного_диапазона>",
                   "to_time": "<правая_граница_временного_диапазона>"
                 }' \
-            mdb.api.cloud.yandex.net:443 \
+            {{ api-host-mdb }}:{{ port-https }} \
             yandex.cloud.mdb.redis.v1.ClusterService.ListLogs
         ```
 
@@ -153,7 +153,7 @@ Yandex Managed Service for Valkey™ позволяет [получить фра
 
             В параметре `column_filter` можно указать несколько колонок, если нужно отфильтровать логи по нескольким колонкам.
 
-        * `from_time` — левая граница временного диапазона в формате [RFC-3339](https://www.ietf.org/rfc/rfc3339.html). Пример: `2006-01-02T15:04:05Z`.
+        * `from_time` — левая граница временного диапазона в формате [RFC-3339](https://www.ietf.org/rfc/rfc3339.html). Пример: `{{ sample-rfc3339-timestamp }}`.
 
         * `to_time` — правая граница временного диапазона, формат аналогичен `from_time`.
 
@@ -171,14 +171,14 @@ Yandex Managed Service for Valkey™ позволяет [получить фра
 
 - CLI {#cli}
 
-    Если у вас еще нет интерфейса командной строки Yandex Cloud (CLI), [установите и инициализируйте его](../../cli/quickstart.md#install).
+    Если у вас еще нет интерфейса командной строки {{ yandex-cloud }} (CLI), [установите и инициализируйте его](../../cli/quickstart.md#install).
 
     По умолчанию используется каталог, указанный при [создании](../../cli/operations/profile/profile-create.md) профиля CLI. Чтобы изменить каталог по умолчанию, используйте команду `yc config set folder-id <идентификатор_каталога>`. Также для любой команды вы можете указать другой каталог с помощью параметров `--folder-name` или `--folder-id`. Если вы обращаетесь к ресурсу по имени, поиск будет выполнен в каталоге по умолчанию. Если вы обращаетесь к ресурсу по идентификатору, поиск будет выполнен глобально — во всех каталогах с учетом прав доступа.
 
     Для просмотра логов кластера по мере их поступления выполните команду:
 
     ```bash
-    yc managed-redis cluster list-logs <имя_или_идентификатор_кластера> --follow
+    {{ yc-mdb-rd }} cluster list-logs <имя_или_идентификатор_кластера> --follow
     ```
 
     Имя и идентификатор кластера можно запросить со [списком кластеров в каталоге](cluster-list.md#list-clusters).
@@ -191,13 +191,13 @@ Yandex Managed Service for Valkey™ позволяет [получить фра
     export IAM_TOKEN="<IAM-токен>"
     ```
 
-    1. Воспользуйтесь методом [Cluster.StreamLogs](../api-ref/Cluster/streamLogs.md) и выполните запрос, например, с помощью [cURL](https://curl.se/):
+    1. Воспользуйтесь методом [Cluster.StreamLogs](../api-ref/Cluster/streamLogs.md) и выполните запрос, например, с помощью {{ api-examples.rest.tool }}:
 
         ```bash
         curl \
             --request GET \
             --header "Authorization: Bearer $IAM_TOKEN" \
-            --url 'https://mdb.api.cloud.yandex.net/managed-redis/v1/clusters/<идентификатор_кластера>:stream_logs' \
+            --url 'https://{{ api-host-mdb }}/managed-redis/v1/clusters/<идентификатор_кластера>:stream_logs' \
             --url-query serviceType=<тип_сервиса> \
             --url-query columnFilter=<список_колонок> \
             --url-query fromTime=<левая_граница_временного_диапазона> \
@@ -218,13 +218,13 @@ Yandex Managed Service for Valkey™ позволяет [получить фра
 
             В одном параметре `columnFilter` можно указать только одну колонку. Если необходимо отфильтровать логи по нескольким колонкам, передайте перечень нужных колонок в нескольких параметрах.
 
-        * `fromTime` — левая граница временного диапазона в формате [RFC-3339](https://www.ietf.org/rfc/rfc3339.html). Пример: `2006-01-02T15:04:05Z`.
+        * `fromTime` — левая граница временного диапазона в формате [RFC-3339](https://www.ietf.org/rfc/rfc3339.html). Пример: `{{ sample-rfc3339-timestamp }}`.
 
         * `toTime` — правая граница временного диапазона, формат аналогичен `fromTime`.
 
             Если не указывать этот параметр, то в поток логов будут отсылаться новые логи по мере их появления. Это поведение семантически эквивалентно `tail -f`.
 
-        * `filter` — фильтр логов, например: `message.hostname='node1.mdb.yandexcloud.net'`.
+        * `filter` — фильтр логов, например: `message.hostname='node1.{{ dns-zone }}'`.
 
             Подробнее о фильтрах и их синтаксисе см. в [справочнике API](../api-ref/Cluster/streamLogs.md#query_params).
 
@@ -248,7 +248,7 @@ Yandex Managed Service for Valkey™ позволяет [получить фра
        
        Далее предполагается, что содержимое репозитория находится в директории `~/cloudapi/`.
 
-    1. Воспользуйтесь вызовом [ClusterService.StreamLogs](../api-ref/grpc/Cluster/streamLogs.md) и выполните запрос, например, с помощью [gRPCurl](https://github.com/fullstorydev/grpcurl):
+    1. Воспользуйтесь вызовом [ClusterService.StreamLogs](../api-ref/grpc/Cluster/streamLogs.md) и выполните запрос, например, с помощью {{ api-examples.grpc.tool }}:
 
         ```bash
         grpcurl \
@@ -267,7 +267,7 @@ Yandex Managed Service for Valkey™ позволяет [получить фра
                   "to_time": "<правая_граница_временного_диапазона>",
                   "filter": "<фильтр_логов>"
                 }' \
-            mdb.api.cloud.yandex.net:443 \
+            {{ api-host-mdb }}:{{ port-https }} \
             yandex.cloud.mdb.redis.v1.ClusterService.StreamLogs
         ```
 
@@ -284,13 +284,13 @@ Yandex Managed Service for Valkey™ позволяет [получить фра
 
             В параметре `column_filter` можно указать несколько колонок, если нужно отфильтровать логи по нескольким колонкам.
 
-        * `from_time` — левая граница временного диапазона в формате [RFC-3339](https://www.ietf.org/rfc/rfc3339.html). Пример: `2006-01-02T15:04:05Z`.
+        * `from_time` — левая граница временного диапазона в формате [RFC-3339](https://www.ietf.org/rfc/rfc3339.html). Пример: `{{ sample-rfc3339-timestamp }}`.
 
         * `to_time` — правая граница временного диапазона, формат аналогичен `from_time`.
 
             Если не указывать этот параметр, то в поток логов будут отсылаться новые логи по мере их появления. Это поведение семантически эквивалентно `tail -f`.
 
-        * `filter` — фильтр логов, например: `message.hostname='node1.mdb.yandexcloud.net'`.
+        * `filter` — фильтр логов, например: `message.hostname='node1.{{ dns-zone }}'`.
 
             Подробнее о фильтрах и их синтаксисе см. в [справочнике API](../api-ref/grpc/Cluster/streamLogs.md).
 

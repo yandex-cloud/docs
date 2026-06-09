@@ -2,12 +2,12 @@
 
 {% list tabs group=instructions %}
 
-- Интерфейс Cloud Video {#console}
+- Интерфейс {{ video-name }} {#console}
 
-  1. Откройте [главную страницу](https://video.yandex.cloud/) Cloud Video.
+  1. Откройте [главную страницу]({{ link-video-main }}) {{ video-name }}.
   1. Выберите канал.
-  1. На вкладке ![image](../../../_assets/console-icons/circle-play.svg) **Видео** в строке с нужным видео нажмите значок ![image](../../../_assets/console-icons/ellipsis.svg) и выберите **Редактировать**.
-  1. В поле **Описание** укажите таймкоды к видео в формате:
+  1. На вкладке ![image](../../../_assets/console-icons/circle-play.svg) **{{ ui-key.yacloud_video.videos.title_videos }}** в строке с нужным видео нажмите значок ![image](../../../_assets/console-icons/ellipsis.svg) и выберите **{{ ui-key.yacloud_video.common.action_edit }}**.
+  1. В поле **{{ ui-key.yacloud_video.videos.label_description }}** укажите таймкоды к видео в формате:
    
       ```
       00:00:00 Название главы 1
@@ -30,7 +30,7 @@
       05:50 Выход из учетной записи
       ```
 
-  1. Нажмите кнопку **Сохранить**.
+  1. Нажмите кнопку **{{ ui-key.yacloud_video.common.action_accept }}**.
   1. На странице обзора видео включите воспроизведение.
 
      ![add-timecodes](../../../_assets/video/add-timecodes.png)

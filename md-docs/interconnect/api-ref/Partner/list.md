@@ -5,7 +5,7 @@ Retrieves the list of Partner resources in the specified folder.
 ## HTTP request
 
 ```
-GET https://cic.api.cloud.yandex.net/cic/v1/partners
+GET https://cic.{{ api-host }}/cic/v1/partners
 ```
 
 ## Query parameters {#yandex.cloud.cic.v1.ListPartnersRequest}
@@ -17,18 +17,24 @@ GET https://cic.api.cloud.yandex.net/cic/v1/partners
 The maximum number of results per page to return. If the number of available
 results is larger than `pageSize`,
 the service returns a [ListPartnersResponse.nextPageToken](#yandex.cloud.cic.v1.ListPartnersResponse)
-that can be used to get the next page of results in subsequent list requests. Default value: 100. ||
+that can be used to get the next page of results in subsequent list requests. Default value: 100.
+
+The maximum value is 1000. ||
 || pageToken | **string**
 
 Page token. To get the next page of results, set `pageToken` to the
-[ListPartnersResponse.nextPageToken](#yandex.cloud.cic.v1.ListPartnersResponse) returned by a previous list request. ||
+[ListPartnersResponse.nextPageToken](#yandex.cloud.cic.v1.ListPartnersResponse) returned by a previous list request.
+
+The maximum string length in characters is 100. ||
 || filter | **string**
 
 A filter expression that filters resources listed in the response.
 The expression must specify:
 1. The field name. Currently you can use filtering only on [Subnet.name] field.
 2. An `=` operator.
-3. The value in double quotes (`"`). Must be 3-63 characters long and match the regular expression `[a-z][-a-z0-9]{1,61}[a-z0-9]`. ||
+3. The value in double quotes (`"`). Must be 3-63 characters long and match the regular expression `[a-z][-a-z0-9]{1,61}[a-z0-9]`.
+
+The maximum string length in characters is 1000. ||
 |#
 
 ## Response {#yandex.cloud.cic.v1.ListPartnersResponse}
@@ -40,7 +46,11 @@ The expression must specify:
   "partners": [
     {
       "id": "string",
-      "regionId": "string",
+      "name": "string",
+      "url": "string",
+      "popIds": [
+        "string"
+      ],
       "status": "string"
     }
   ],
@@ -72,14 +82,19 @@ A Partner resource.
 || id | **string**
 
 ID of the partner. ||
-|| regionId | **string**
+|| name | **string**
 
-ID of the region that the partner belongs to. ||
+Name of the partner. ||
+|| url | **string**
+
+Link to info about the partner. ||
+|| popIds[] | **string**
+
+List of pointOfPresence IDs that the partner is connected to. ||
 || status | **enum** (Status)
 
 Status of the partner.
 
-- `STATUS_UNSPECIFIED`
-- `UP`
-- `DOWN` ||
+- `UP`: Partner is up and operational.
+- `DOWN`: Partner is down and not operational. ||
 |#

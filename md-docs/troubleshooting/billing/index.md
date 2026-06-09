@@ -1,8 +1,8 @@
-# Решения для Yandex Cloud Billing
+# Решения для {{ billing-name }}
 
-## Примеры конфигураций и сценариев Yandex Cloud Billing {#configuration-examples}
+## Примеры конфигураций и сценариев {{ billing-name }} {#configuration-examples}
 
-* [Как работают гранты и промокоды в Yandex Cloud Billing](how-to/promocodes-and-grants-features-in-billing.md)
+* [Как работают гранты и промокоды в {{ billing-name }}](how-to/promocodes-and-grants-features-in-billing.md)
 * [Как изменить информацию, указанную в свойствах платежного аккаунта](how-to/change-payer-info-or-requisites.md)
 * [Как сменить тип платежного аккаунта](how-to/changing-billing-account-type.md)
 * [Как изменить форму и данные в выставляемых счетах на оплату](how-to/edit-invoice-template-or-content.md)
@@ -18,7 +18,6 @@
 * [Какой формат закрывающих документов в ЭДО](how-to/closing-documents-format.md)
 * [Какой лимит отрицательного баланса при оплате банковским переводом](how-to/overdraft-while-transferring.md)
 * [Как сменить владельца аккаунта для юридических лиц](how-to/changing-account-owner-for-legal-entities.md)
-* [Как остановить списания средств с платежного аккаунта](how-to/analyzing-charges-chart.md)
 * [До какой даты вносить оплату](how-to/deadline-for-paymens.md)
 * [Как получить оригинал договора](how-to/getting-contract-originals.md)
 * [Как получать чеки при совершении платежа с банковской карты](how-to/getting-invoices-when-paying-by-card.md)
@@ -26,9 +25,9 @@
 * [Как привязать облако к другому платежному аккаунту](how-to/move-cloud-between-billing-accounts.md)
 * [Как отвязать банковскую карту от платежного аккаунта](how-to/unpin-card.md)
 
-## Решения для известных проблем Yandex Cloud Billing {#known-issues-resolving}
+## Решения для известных проблем {{ billing-name }} {#known-issues-resolving}
 
-* [В детализации по платежному аккаунту стало отображаться потребление по сервису Cloud Logging](known-issues/cloud-logging-unexpectedly-charges-in-billing-account-details.md)
+* [В детализации по платежному аккаунту стало отображаться потребление по сервису {{ cloud-logging-name }}](known-issues/cloud-logging-unexpectedly-charges-in-billing-account-details.md)
 * [Устранение проблем с привязкой банковской карты к платежному аккаунту](known-issues/couldnt-link-card.md)
 * [Устранение ошибки `INVALID_PERSON_TYPE` при регистрации платежного аккаунта](known-issues/invalid-person-type.md)
 * [Устранение проблем с оплатой](known-issues/payment-problems.md)
@@ -46,7 +45,7 @@
 * [Документы перестали поступать в систему ЭДО](known-issues/no-new-incoming-documents-in-edi.md)
 * [Устранение ошибки `balance.WRONG.ACCOUNT`](known-issues/balance-wrong-account-issue.md)
 * [Устранение ошибки `ILLEGAL_REQUEST_CONTRACT` при формировании счета на оплату](known-issues/illegal-request-contract.md)
-* [KMS-ключи продолжают тарифицироваться после удаления](known-issues/kms-keys-are-charged-in-billing-after-deletion.md)
+* [{{ kms-short-name }}-ключи продолжают тарифицироваться после удаления](known-issues/kms-keys-are-charged-in-billing-after-deletion.md)
 * [Платежный аккаунт находится в статусе `PAYMENT_NOT_CONFIRMED`](known-issues/payment-not-confirmed-issue.md)
 * [Устранение ошибки `PROHIBITED_BILLING_ACCOUNT_USAGE_STATUS`](known-issues/error-prohibited-user-account-usage-status.md)
 * [Устранение ошибки `Веб-страница временно недоступна` при оплате картой Сбера](known-issues/unable-to-pay-with-sber-card.md)

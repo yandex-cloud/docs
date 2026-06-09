@@ -1,10 +1,10 @@
-# Справочник метрик сервиса Yandex Monitoring
+# Справочник метрик сервиса {{ monitoring-full-name }}
 
-В этом разделе описаны метрики сервиса Yandex MPP Analytics for PostgreSQL, поставляемые в [Monitoring](../monitoring/concepts/index.md).
+В этом разделе описаны метрики сервиса {{ mgp-name }}, поставляемые в [{{ monitoring-name }}]({{ monitoring-doc-links }}).
 
 Имя метрики пишется в метку `name`.
 
-Общие метки для всех метрик сервиса Yandex MPP Analytics for PostgreSQL:
+Общие метки для всех метрик сервиса {{ mgp-name }}:
 
 Метка | Значение
 ----|----
@@ -479,7 +479,7 @@ fqdn | FQDN хоста
 | `gp.master_replication_state`<br/>`DGAUGE` | Состояние репликации мастера. |
 | `gp.percent_xid_wraparound`<br/>`DGAUGE`, % | Использование последовательности идентификаторов транзакций.<br/>Дополнительные метки: `db_name` | 
 | `gp.ping`<br/>`DGAUGE` | <br/>Дополнительные метки: `can_read`, `is_master`, `can_write`| 
-| `gp.pxf_is_alive`<br/>`DGAUGE` | Показатель доступности расширения PXF. | 
+| `gp.pxf_is_alive`<br/>`DGAUGE` | Показатель доступности сервиса PXF на хосте: `1` — доступен, `0` — недоступен. |
 | `gp.replication_lag_mb`<br/>`DGAUGE`, мегабайты | Задержка репликации данных между мастер-сегментом и зеркальным сегментом.  |
 | `gp.rg_cpu_used`<br/>`DGAUGE` | Распределение CPU по ресурсным группам.<br/>Дополнительные метки: `resgroup` | 
 | `gp.rg_mem_available`<br/>`DGAUGE` | Распределение доступной памяти по ресурсным группам.<br/>Дополнительные метки: `resgroup` | 
@@ -556,29 +556,40 @@ PXF помечает все метрики, которые он возвраща
 * `segment` — идентификатор сегмента базы данных, обрабатывающего определенный блок данных.
 * `server` — имя сервера, с которым PXF взаимодействует для доступа к данным.
 * `user` — имя пользователя, выполнившего операцию.
+* `uri` — URI endpoint'а (для метрик `pxf.http_server_requests_*`).
+* `status` — HTTP-статус ответа (для метрик `pxf.http_server_requests_*`).
+* `level` — уровень логирования (для метрики `pxf.log4j2_events_total`).
 
 | Имя<br/>Тип, единицы измерения | Описание |
 | ----- | ----- |
 | `pxf.jvm_memory_committed_bytes`<br/>`DGAUGE`, байты | Размер выделенной операционной системой памяти для JVM PXF. | 
-| `pxf.jvm_memory_max_bytes`<br/>`DGAUGE`, байты | Максимальный размер доступной JVM PXF памяти. | 
+| `pxf.jvm_memory_max_bytes`<br/>`DGAUGE`, байты | Максимальный размер доступной JVM PXF памяти. <br/>Дополнительные метки: `id` — идентификатор пула (`G1 Eden Space`, `G1 Survivor Space`, `G1 Old Gen` и другие), `area` — агрегированная метка области памяти (`heap`, `nonheap`). |
 | `pxf.jvm_memory_used_bytes`<br/>`DGAUGE`, байты | Размер использованной памяти JVM PXF. | 
 | `pxf.jvm_threads_daemon_threads`<br/>`DGAUGE`, штуки | Количество потоков-демонов JVM PXF. | 
 | `pxf.jvm_threads_live_threads`<br/>`DGAUGE`, штуки | Количество активных потоков JVM PXF. | 
 | `pxf.jvm_threads_states_threads`<br/>`DGAUGE`, штуки | Количество потоков JVM PXF в каждом состоянии. | 
-| `pxf.log4j2_events_total`<br/>`DGAUGE`, штуки | Общее количество событий Log4j2 в JVM PXF. | 
+| `pxf.log4j2_events_total`<br/>`DGAUGE`, штуки | Общее количество событий Log4j2 в JVM PXF.<br/>Дополнительная метка: `level` (`trace`, `debug`, `info`, `warn`, `error`, `fatal`) |
 | `pxf.process_files_max_files`<br/>`DGAUGE`, штуки | Максимальное количество одновременно открытых файлов в процессе PXF. | 
 | `pxf.process_files_open_files`<br/>`DGAUGE`, штуки | Количество текущих открытых файлов в процессе PXF. | 
-| `pxf.pxf_bytes_receivced_total`<br/>`DGAUGE`, байты | Количество байтов, полученнных PXF. | 
+| `pxf.pxf_bytes_received_total`<br/>`DGAUGE`, байты | Количество байтов, полученных PXF. |
 | `pxf.pxf_bytes_sent_total`<br/>`DGAUGE`, байты | Количество байтов, отправленных PXF. | 
 | `pxf.pxf_fragments_sent`<br/>`DGAUGE`, штуки | Количество фрагментов данных, отправленных PXF.<br/>Дополнительная метка: `outcome`. Принимает значение `success`, если успешно отправлены все данные фрагмента, `error`, если нет. | 
-| `pxf.pxf_records_receivced_total`<br/>`DGAUGE`, штуки | Количество записей, полученнных PXF. | 
+| `pxf.pxf_records_received_total`<br/>`DGAUGE`, штуки | Количество записей, полученных PXF. |
 | `pxf.pxf_records_sent_total`<br/>`DGAUGE`, штуки | Количество записей, отправленных PXF. | 
+| `pxf.http_server_requests_seconds_count`<br/>`DCOUNTER`, штуки | Общее количество обработанных HTTP-запросов. <br/>Дополнительные метки: `uri` (`/pxf/read`, `/pxf/write`), `status` (200, 404, 500 и другие). |
+| `pxf.http_server_requests_seconds_max`<br/>`DGAUGE`, секунды | Максимальное время выполнения HTTP-запроса в окне агрегации. <br/>Дополнительные метки: `uri` (`/pxf/read`, `/pxf/write`), `status` (200, 404, 500 и другие). |
 | `pxf.tomcat_connections_config_max_connections`<br/>`DGAUGE`, штуки | Максимальное количество соединений в настройках Tomcat PXF. | 
 | `pxf.tomcat_connections_current_connections`<br/>`DGAUGE`, штуки | Количество текущих соединений в Tomcat PXF. | 
 | `pxf.tomcat_connections_keepalive_current_connections`<br/>`DGAUGE`, штуки | Количество текущих соединений keepalive в Tomcat PXF. | 
 | `pxf.tomcat_threads_busy_threads`<br/>`DGAUGE`, штуки | Количество занятых потоков в Tomcat PXF. | 
 | `pxf.tomcat_threads_config_max_threads`<br/>`DGAUGE`, штуки | Максимальное количество потоков в настройках Tomcat PXF. | 
 | `pxf.tomcat_threads_current_threads`<br/>`DGAUGE`, штуки | Количество текущих потоков в Tomcat PXF. | 
+| `pxf.oom_count`<br/>`DGAUGE`, штуки | Счетчик событий нехватки памяти (out of memory) в процессе PXF. |
+| `pxf.cpu_usage_warn_limit`<br/>`DGAUGE`, % | Настроенный порог предупреждения для загрузки CPU PXF. |
+| `pxf.cpu_usage_crit_limit`<br/>`DGAUGE`, % | Настроенный критический порог для загрузки CPU PXF. |
+| `pxf.memory_utilization_warn_limit`<br/>`DGAUGE`, % (доля) | Настроенный порог предупреждения для использования памяти (относительно максимального). |
+| `pxf.memory_utilization_crit_limit`<br/>`DGAUGE`, % (доля) | Настроенный критический порог для использования памяти (относительно максимального). |
+
 
 ## Метрики SNMP {#managed-greenplum-snmp-metrics}
 | Имя<br/>Тип, единицы измерения | Описание |
@@ -803,11 +814,11 @@ PXF помечает все метрики, которые он возвраща
 | `dmesg_events.cgroup.oom`<br/>`DGAUGE`, штуки | Количество событий `OOM` в `cgroup`. |
 | `dmesg_events.system.oom`<br/>`DGAUGE`, штуки | Количество событий `OOM` в системе. |
 
-# Метрики компонентов Yandex Monitoring
+# Метрики компонентов {{ monitoring-full-name }}
 
-В этом разделе описаны метрик компонентов Greenplum, Odyssey и Yezzey, поставляемые в [Monitoring](../monitoring/concepts/index.md).
+В этом разделе описаны метрики компонентов СУБД, Odyssey и Yezzey, поставляемые в [{{ monitoring-name }}]({{ monitoring-doc-links }}).
 
-Общие метки для всех метрик сервиса Yandex MPP Analytics for PostgreSQL:
+Общие метки для всех метрик сервиса {{ mgp-name }}:
 
 | Метка | Значение |
 | :--- | :--- |
@@ -818,7 +829,7 @@ PXF помечает все метрики, которые он возвраща
 | `host` | FQDN хоста |
 | `fqdn` | FQDN хоста |
 
-Некоторые из описанных метрик специфичны для всего кластера, а не для конкретного хоста. В таких метриках метки `host` и `fqdn` содержат FQDN хоста, на котором они собираются. Чаще всего это мастер-хост координатора (в интерфейсе отображается как `MASTER`), и значение метки может измениться при переключении роли `MASTER` => `REPLICA`. Поэтому для общекластерных метрик лучше не использовать эти метки при построении запросов в Monitoring.
+Некоторые из описанных метрик специфичны для всего кластера, а не для конкретного хоста. В таких метриках метки `host` и `fqdn` содержат FQDN хоста, на котором они собираются. Чаще всего это мастер-хост координатора (в интерфейсе отображается как `MASTER`), и значение метки может измениться при переключении роли `MASTER` => `REPLICA`. Поэтому для общекластерных метрик лучше не использовать эти метки при построении запросов в {{ monitoring-name }}.
 
 ## Метрики ресурсов компонентов {#managed-greenplum-component-resources}
 
@@ -834,7 +845,7 @@ PXF помечает все метрики, которые он возвраща
 | `managed_greenplum_component.cpu_time_system`<br/>`DGAUGE`, миллисекунды | Время процессора, использованное компонентом в режиме ядра (`system`). |
 | `managed_greenplum_component.cpu_time_user`<br/>`DGAUGE`, миллисекунды | Время процессора, использованное компонентом в пользовательском режиме (`user`). |
 | `managed_greenplum_component.memory_usage`<br/>`DGAUGE`, байты | Текущее потребление памяти компонентом. |
-| `managed_greenplum_component.memory_cache`<br/>`DGAUGE`, байты | Объем памяти, используемый компонентом для кэширования данных. |
+| `managed_greenplum_component.memory_cache`<br/>`DGAUGE`, байты | Объем памяти, используемый компонентом для кеширования данных. |
 | `managed_greenplum_component.memory_rss`<br/>`DGAUGE`, байты | Объем резидентной памяти (RSS), занимаемый компонентом в физической памяти. |
 | `managed_greenplum_component.cpu_quota_us`<br/>`DGAUGE`, микросекунды | Квота процессорного времени (`cgroup CPU quota`) в микросекундах за период. |
 | `managed_greenplum_component.cpu_period_us`<br/>`DGAUGE`, микросекунды | Период планирования процессора (`cgroup CPU period`) в микросекундах. |
@@ -868,14 +879,13 @@ PXF помечает все метрики, которые он возвраща
 | `gp.percent_xid_wraparound_warn_limit`<br/>`DGAUGE`, % | Пороговое значение для предупреждения об утилизации XID. |
 | `gp.percent_xid_wraparound_crit_limit`<br/>`DGAUGE`, % | Критическое пороговое значение для утилизации XID. |
 | `gp.seg_down`<br/>`DGAUGE`, штуки | Количество недоступных сегментов. |
-
 | `gp.seg_down_warn_limit`<br/>`DGAUGE`, штуки | Пороговое значение предупреждения для количества недоступных сегментов. |
 | `gp.seg_not_pref_role`<br/>`DGAUGE`, штуки | Количество сегментов, работающих не в предпочтительной роли. |
 | `gp.seg_not_pref_role_warn_limit`<br/>`DGAUGE`, штуки | Пороговое значение предупреждения для сегментов, не находящихся в предпочтительной роли. |
 | `gp.seg_not_synch`<br/>`DGAUGE`, штуки | Количество сегментов в несинхронизированном состоянии. |
-| `gp.log_events_warning_total`<br/>`DGAUGE`, штуки | Общее количество событий уровня `WARNING` в логах Greenplum®. |
-| `gp.log_events_error_total`<br/>`DGAUGE`, штуки | Общее количество событий уровня `ERROR` в логах Greenplum®. |
-| `gp.log_events_fatal_total`<br/>`DGAUGE`, штуки | Общее количество событий уровня `FATAL` в логах Greenplum®. |
+| `gp.log_events_warning_total`<br/>`DGAUGE`, штуки | Общее количество событий уровня `WARNING` в логах СУБД. |
+| `gp.log_events_error_total`<br/>`DGAUGE`, штуки | Общее количество событий уровня `ERROR` в логах СУБД. |
+| `gp.log_events_fatal_total`<br/>`DGAUGE`, штуки | Общее количество событий уровня `FATAL` в логах СУБД. |
 
 ## Метрики компонента Odyssey (Pooler) {#managed-greenplum-odyssey-metrics}
 
@@ -888,7 +898,7 @@ PXF помечает все метрики, которые он возвраща
 | `pooler.memory_limit_warn`<br/>`DGAUGE`, байты | Пороговое значение предупреждения о потреблении памяти пулером. |
 | `pooler.bytes_sent`<br/>`DGAUGE`, байт/с | Скорость отправки данных пулером клиентам. |
 | `pooler.bytes_received`<br/>`DGAUGE`, байт/с | Скорость получения данных пулером от клиентов. |
-| `pooler.used_servers`<br/>`DGAUGE`, штуки | Количество активных серверных соединений (пулер → Greenplum®). |
+| `pooler.used_servers`<br/>`DGAUGE`, штуки | Количество активных серверных соединений (пулер → СУБД). |
 | `pooler.free_servers`<br/>`DGAUGE`, штуки | Количество свободных серверных соединений в пуле. |
 | `pooler.used_clients`<br/>`DGAUGE`, штуки | Количество активных клиентских соединений (клиент → пулер). |
 | `pooler.query_0.5`<br/>`DGAUGE`, миллисекунды | 50-й перцентиль длительности выполнения запросов через пулер. |
@@ -1000,6 +1010,4 @@ PXF помечает все метрики, которые он возвраща
 
 #### См. также {#see-also}
 
-[Мониторинг состояния кластера Greenplum® и хостов](operations/monitoring.md)
-
-_Greenplum® и Greenplum Database® являются зарегистрированными товарными знаками или товарными знаками Broadcom Inc в США и/или других странах._
+[{#T}](operations/monitoring.md)

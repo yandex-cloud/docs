@@ -22,4 +22,4 @@ rollback err: sql: transaction has already been committed or rolled back
 call mysql.rds_set_configuration('binlog retention hours', <количество_часов>);
 ```
 
-Максимальное значение времени хранения — 168 ч (7 дней). Значение по умолчанию — `NULL` (файлы бинарного лога не сохраняются). Подробнее см. в [документации Amazon RDS](https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/mysql_rds_set_configuration.html).
+Максимальное значение времени хранения — 168 ч (7 дней). Значение по умолчанию — `NULL` (файлы бинарного лога не сохраняются). Подробнее в [документации Amazon RDS](https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/mysql_rds_set_configuration.html).

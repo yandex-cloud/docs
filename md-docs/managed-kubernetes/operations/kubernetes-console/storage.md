@@ -1,6 +1,6 @@
 # Управление хранилищами
 
-Хранилища в Kubernetes предоставляют контейнерам в поде общую файловую систему для хранения и обмена данными. Консоль управления позволяет управлять хранением в Kubernetes без использования kubectl.
+Хранилища в {{ k8s }} предоставляют контейнерам в поде общую файловую систему для хранения и обмена данными. Консоль управления позволяет управлять хранением в {{ k8s }} без использования kubectl.
 
 ## Создание ресурса хранилища {#create-storage}
 
@@ -10,12 +10,12 @@
 
 - Консоль управления {#console}
 
-  1. В [консоли управления](https://console.yandex.cloud) перейдите на страницу каталога и выберите сервис **Managed Service for&nbsp;Kubernetes**.
-  1. Нажмите на имя нужного кластера и на панели слева выберите ![Storage](../../../_assets/console-icons/database.svg) **Хранилища**.
-  1. В правом верхнем углу нажмите кнопку **Создать** и выберите тип ресурса.
-  1. В выпадающем списке выберите **Пространство имен**, в котором будет создан ресурс.
+  1. В [консоли управления]({{ link-console-main }}) перейдите на страницу каталога и выберите сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-kubernetes }}**.
+  1. Нажмите на имя нужного кластера и на панели слева выберите ![Storage](../../../_assets/console-icons/database.svg) **{{ ui-key.yacloud.k8s.cluster.switch_storage }}**.
+  1. В правом верхнем углу нажмите кнопку **{{ ui-key.yacloud.common.create }}** и выберите тип ресурса.
+  1. В выпадающем списке выберите **{{ ui-key.yacloud.k8s.cluster.field_namespace }}**, в котором будет создан ресурс.
   1. Заполните файл манифеста в соответствии с документацией Kubernetes: [Persistent Volume Claim](https://kubernetes.io/docs/concepts/storage/persistent-volumes/#persistentvolumeclaims), [Persistent Volume](https://kubernetes.io/docs/concepts/storage/persistent-volumes/), [класс хранилища](https://kubernetes.io/docs/concepts/storage/storage-classes/).
-  1. Нажмите кнопку **Создать**.
+  1. Нажмите кнопку **{{ ui-key.yacloud.k8s.cluster.button_create-resource }}**.
 
 {% endlist %}
 
@@ -29,16 +29,16 @@
 
 - Консоль управления {#console}
 
-  1. В [консоли управления](https://console.yandex.cloud) перейдите на страницу каталога и выберите сервис **Managed Service for&nbsp;Kubernetes**.
-  1. Нажмите на имя нужного кластера и на панели слева выберите ![Storage](../../../_assets/console-icons/database.svg) **Хранилища**.
+  1. В [консоли управления]({{ link-console-main }}) перейдите на страницу каталога и выберите сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-kubernetes }}**.
+  1. Нажмите на имя нужного кластера и на панели слева выберите ![Storage](../../../_assets/console-icons/database.svg) **{{ ui-key.yacloud.k8s.cluster.switch_storage }}**.
   1. Выберите вкладку с типом ресурса, который нужно отредактировать.
-  1. В строке ресурса нажмите на значок ![image](../../../_assets/console-icons/ellipsis.svg) и выберите **Редактировать**.
+  1. В строке ресурса нажмите на значок ![image](../../../_assets/console-icons/ellipsis.svg) и выберите **{{ ui-key.yacloud.common.edit }}**.
   1. Внесите изменения в файл манифеста в правой части экрана. Изменения будут выделены цветом.
-  1. В правом верхнем углу нажмите кнопку **Сохранить**.
+  1. В правом верхнем углу нажмите кнопку **{{ ui-key.yacloud.common.save }}**.
 
 {% endlist %}
 
-Если манифест корректен, изменения применятся. Если обновленный манифест содержит ошибку или изменяет поля, которые нельзя редактировать, появится сообщение об ошибке. Нажмите **Подробнее**, чтобы узнать подробности.
+Если манифест корректен, изменения применятся. Если обновленный манифест содержит ошибку или изменяет поля, которые нельзя редактировать, появится сообщение об ошибке. Нажмите **{{ ui-key.yacloud.common.more }}**, чтобы узнать подробности.
 
 ## Установить или снять класс хранилища по умолчанию {#default-storage-class}
 
@@ -52,10 +52,10 @@
 
 - Консоль управления {#console}
 
-  1. В [консоли управления](https://console.yandex.cloud) перейдите на страницу каталога и выберите сервис **Managed Service for&nbsp;Kubernetes**.
-  1. Нажмите на имя нужного кластера и на панели слева выберите ![Storage](../../../_assets/console-icons/database.svg) **Хранилища**.
-  1. Выберите вкладку **Классы хранилищ**.
-  1. В строке класса хранилища нажмите на значок ![image](../../../_assets/console-icons/ellipsis.svg) и выберите **Использовать по умолчанию** или **Не использовать по умолчанию**.
+  1. В [консоли управления]({{ link-console-main }}) перейдите на страницу каталога и выберите сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-kubernetes }}**.
+  1. Нажмите на имя нужного кластера и на панели слева выберите ![Storage](../../../_assets/console-icons/database.svg) **{{ ui-key.yacloud.k8s.cluster.switch_storage }}**.
+  1. Выберите вкладку **{{ ui-key.yacloud.k8s.storage.label_storage-classes }}**.
+  1. В строке класса хранилища нажмите на значок ![image](../../../_assets/console-icons/ellipsis.svg) и выберите **{{ ui-key.yacloud.k8s.storage.button_action-add-default }}** или **{{ ui-key.yacloud.k8s.storage.button_action-remove-default }}**.
   1. Подтвердите действие.
 
 {% endlist %}
@@ -70,10 +70,10 @@
 
 - Консоль управления {#console}
 
-  1. В [консоли управления](https://console.yandex.cloud) перейдите на страницу каталога и выберите сервис **Managed Service for&nbsp;Kubernetes**.
-  1. Нажмите на имя нужного кластера и на панели слева выберите ![Storage](../../../_assets/console-icons/database.svg) **Хранилища**.
+  1. В [консоли управления]({{ link-console-main }}) перейдите на страницу каталога и выберите сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-kubernetes }}**.
+  1. Нажмите на имя нужного кластера и на панели слева выберите ![Storage](../../../_assets/console-icons/database.svg) **{{ ui-key.yacloud.k8s.cluster.switch_storage }}**.
   1. Выберите вкладку с типом ресурса, который нужно удалить.
-  1. В строке ресурса нажмите на значок ![image](../../../_assets/console-icons/ellipsis.svg) и выберите **Удалить**.
+  1. В строке ресурса нажмите на значок ![image](../../../_assets/console-icons/ellipsis.svg) и выберите **{{ ui-key.yacloud.common.delete }}**.
   1. Подтвердите действие.
 
 {% endlist %}

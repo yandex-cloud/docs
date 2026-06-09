@@ -64,7 +64,7 @@ Yandex Cloud Desktop — сервис для управления виртуал
 
 ## Практические руководства
 
- - [Настройка печати с Cloud Desktop на локальный принтер в Linux](tutorials/desktop-linux-printer.md)
+ - [Настройка печати с {{ cloud-desktop-name }} на локальный принтер в Linux](tutorials/desktop-linux-printer.md)
 
 ## Концепции
 
@@ -250,9 +250,9 @@ Yandex Cloud Desktop — сервис для управления виртуал
 
  - [Create](api-ref/grpc/DesktopGroup/create.md)
 
- - [Update](api-ref/grpc/DesktopGroup/update.md)
-
  - [Delete](api-ref/grpc/DesktopGroup/delete.md)
+
+ - [Update](api-ref/grpc/DesktopGroup/update.md)
 
  - [ListAccessBindings](api-ref/grpc/DesktopGroup/listAccessBindings.md)
 
@@ -270,9 +270,9 @@ Yandex Cloud Desktop — сервис для управления виртуал
 
  - [Copy](api-ref/grpc/DesktopImage/copy.md)
 
- - [Update](api-ref/grpc/DesktopImage/update.md)
-
  - [CopyFromDesktop](api-ref/grpc/DesktopImage/copyFromDesktop.md)
+
+ - [Update](api-ref/grpc/DesktopImage/update.md)
 
  - [Delete](api-ref/grpc/DesktopImage/delete.md)
 
@@ -290,19 +290,19 @@ Yandex Cloud Desktop — сервис для управления виртуал
 
  - [Create](api-ref/grpc/Desktop/create.md)
 
- - [UpdateProperties](api-ref/grpc/Desktop/updateProperties.md)
-
- - [Delete](api-ref/grpc/Desktop/delete.md)
-
  - [ResetPassword](api-ref/grpc/Desktop/resetPassword.md)
 
  - [Restart](api-ref/grpc/Desktop/restart.md)
 
- - [Update](api-ref/grpc/Desktop/update.md)
-
  - [Start](api-ref/grpc/Desktop/start.md)
 
  - [Stop](api-ref/grpc/Desktop/stop.md)
+
+ - [Update](api-ref/grpc/Desktop/update.md)
+
+ - [UpdateProperties](api-ref/grpc/Desktop/updateProperties.md)
+
+ - [Delete](api-ref/grpc/Desktop/delete.md)
 
 #### Operation
 
@@ -330,9 +330,9 @@ Yandex Cloud Desktop — сервис для управления виртуал
 
  - [Create](api-ref/DesktopGroup/create.md)
 
- - [Update](api-ref/DesktopGroup/update.md)
-
  - [Delete](api-ref/DesktopGroup/delete.md)
+
+ - [Update](api-ref/DesktopGroup/update.md)
 
  - [ListAccessBindings](api-ref/DesktopGroup/listAccessBindings.md)
 
@@ -350,9 +350,9 @@ Yandex Cloud Desktop — сервис для управления виртуал
 
  - [Copy](api-ref/DesktopImage/copy.md)
 
- - [Update](api-ref/DesktopImage/update.md)
-
  - [CopyFromDesktop](api-ref/DesktopImage/copyFromDesktop.md)
+
+ - [Update](api-ref/DesktopImage/update.md)
 
  - [Delete](api-ref/DesktopImage/delete.md)
 
@@ -370,19 +370,19 @@ Yandex Cloud Desktop — сервис для управления виртуал
 
  - [Create](api-ref/Desktop/create.md)
 
- - [UpdateProperties](api-ref/Desktop/updateProperties.md)
-
- - [Delete](api-ref/Desktop/delete.md)
-
  - [ResetPassword](api-ref/Desktop/resetPassword.md)
 
  - [Restart](api-ref/Desktop/restart.md)
 
- - [Update](api-ref/Desktop/update.md)
-
  - [Start](api-ref/Desktop/start.md)
 
  - [Stop](api-ref/Desktop/stop.md)
+
+ - [Update](api-ref/Desktop/update.md)
+
+ - [UpdateProperties](api-ref/Desktop/updateProperties.md)
+
+ - [Delete](api-ref/Desktop/delete.md)
 
 #### Operation
 
@@ -392,6 +392,6 @@ Yandex Cloud Desktop — сервис для управления виртуал
 
  - [Cancel](api-ref/Operation/cancel.md)
 
- - [Аудитные логи Cloud Desktop](at-ref.md)
+ - [Аудитные логи {{ cloud-desktop-name }}](at-ref.md)
 
  - [История изменений](release-notes.md)

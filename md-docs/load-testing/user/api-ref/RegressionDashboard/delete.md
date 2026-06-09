@@ -5,7 +5,7 @@ Deletes the specified regression dashboard.
 ## HTTP request
 
 ```
-DELETE https://loadtesting.api.cloud.yandex.net/loadtesting/api/v1/regressionDashboards/{dashboardId}
+DELETE https://loadtesting.{{ api-host }}/loadtesting/api/v1/regressionDashboards/{dashboardId}
 ```
 
 ## Path parameters

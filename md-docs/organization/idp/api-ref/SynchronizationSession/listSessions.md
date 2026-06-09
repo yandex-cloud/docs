@@ -5,7 +5,7 @@ Lists synchronization sessions for a subject container.
 ## HTTP request
 
 ```
-GET https://organization-manager.api.cloud.yandex.net/organization-manager/v1/idp/synchronization-sessions
+GET https://organization-manager.{{ api-host }}/organization-manager/v1/idp/synchronization-sessions
 ```
 
 ## Query parameters {#yandex.cloud.organizationmanager.v1.idp.ListSessionsRequest}

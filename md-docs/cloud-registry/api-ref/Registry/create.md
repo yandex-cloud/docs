@@ -5,7 +5,7 @@ Creates a registry in the specified folder.
 ## HTTP request
 
 ```
-POST https://registry.api.cloud.yandex.net/cloud-registry/v1/registries
+POST https://registry.{{ api-host }}/cloud-registry/v1/registries
 ```
 
 ## Body parameters {#yandex.cloud.cloudregistry.v1.CreateRegistryRequest}
@@ -27,14 +27,12 @@ POST https://registry.api.cloud.yandex.net/cloud-registry/v1/registries
 || folderId | **string**
 
 Required field. ID of the folder to create a registry in.
-
 To get the folder ID, use a [yandex.cloud.resourcemanager.v1.FolderService.List](../../../resource-manager/api-ref/Folder/list.md#List) request.
 
 The maximum string length in characters is 50. ||
 || name | **string**
 
 Name of the registry.
-
 There may be only one registry per folder.
 
 Value must match the regular expression ``` |[a-z][-a-z0-9]{1,61}[a-z0-9] ```. ||
@@ -42,7 +40,7 @@ Value must match the regular expression ``` |[a-z][-a-z0-9]{1,61}[a-z0-9] ```. |
 
 Resource labels as `key:value` pairs.
 
-No more than 64 per resource. The maximum string length in characters for each value is 63. Each value must match the regular expression ` [-_0-9a-z]* `. The string length in characters for each key must be 1-63. Each key must match the regular expression ` [a-z][-_0-9a-z]* `. ||
+The maximum string length in characters for each value is 63. The string length in characters for each key must be 1-63. Each key must match the regular expression ` [a-z][-_0-9a-z]* `. Each value must match the regular expression ` [-_0-9a-z]* `. No more than 64 per resource. ||
 || kind | **enum** (Kind)
 
 Required field. Kind of the registry.
@@ -50,8 +48,8 @@ Required field. Kind of the registry.
 - `MAVEN`: Registry kind is maven.
 - `NPM`: Registry kind is npm.
 - `DOCKER`: Registry kind is docker.
-- `NUGET`: Registry kind is nuget.
 - `DEBIAN`: Registry kind is debian.
+- `NUGET`: Registry kind is nuget.
 - `PYPI`: Registry kind is pypi.
 - `BINARY`: Regisrty kind is binary. ||
 || type | **enum** (Type)
@@ -59,8 +57,9 @@ Required field. Kind of the registry.
 Required field. Type of the registry.
 
 - `LOCAL`: Registry type is local.
-- `REMOTE`
-- `VIRTUAL` ||
+- `REMOTE`: Registry type is remote.
+- `VIRTUAL`: Registry type is virtual.
+- `TRANSITIONAL`: Registry type is transitional. ||
 || description | **string**
 
 Description of the registry. 0-1024 characters long.
@@ -70,7 +69,7 @@ The maximum string length in characters is 1024. ||
 
 Property names and values.
 
-No more than 64 per resource. The maximum string length in characters for each value is 63. Each value must match the regular expression ` [-_.~!*'();/?:@&=+$,%#0-9a-zA-Z]+ `. The string length in characters for each key must be 1-63. Each key must match the regular expression ` [a-zA-Z]+ `. ||
+The maximum string length in characters for each value is 255. The string length in characters for each key must be 1-63. Each key must match the regular expression ` [a-zA-Z]+ `. Each value must match the regular expression ` [-_.~!*'();/?:@&=+$,%#0-9a-zA-Z]+ `. No more than 64 per resource. ||
 |#
 
 ## Response {#yandex.cloud.operation.Operation}
@@ -85,9 +84,7 @@ No more than 64 per resource. The maximum string length in characters for each v
   "createdBy": "string",
   "modifiedAt": "string",
   "done": "boolean",
-  "metadata": {
-    "registryId": "string"
-  },
+  "metadata": "object",
   // Includes only one of the fields `error`, `response`
   "error": {
     "code": "integer",
@@ -96,19 +93,7 @@ No more than 64 per resource. The maximum string length in characters for each v
       "object"
     ]
   },
-  "response": {
-    "id": "string",
-    "folderId": "string",
-    "name": "string",
-    "kind": "string",
-    "type": "string",
-    "status": "string",
-    "description": "string",
-    "labels": "object",
-    "properties": "object",
-    "createdAt": "string",
-    "modifiedAt": "string"
-  }
+  "response": "object"
   // end of the list of possible fields
 }
 ```
@@ -150,7 +135,7 @@ In some languages, built-in datetime utilities do not support nanosecond precisi
 
 If the value is `false`, it means the operation is still in progress.
 If `true`, the operation is completed, and either `error` or `response` is available. ||
-|| metadata | **[CreateRegistryMetadata](#yandex.cloud.cloudregistry.v1.CreateRegistryMetadata)**
+|| metadata | **object**
 
 Service-specific metadata associated with the operation.
 It typically contains the ID of the target resource that the operation is performed on.
@@ -165,7 +150,7 @@ The operation result.
 If `done == false` and there was no failure detected, neither `error` nor `response` is set.
 If `done == false` and there was a failure detected, `error` is set.
 If `done == true`, exactly one of `error` or `response` is set. ||
-|| response | **[Registry](#yandex.cloud.cloudregistry.v1.Registry)**
+|| response | **object**
 
 The normal response of the operation in case of success.
 If the original method returns no data on success, such as Delete,
@@ -180,15 +165,6 @@ The operation result.
 If `done == false` and there was no failure detected, neither `error` nor `response` is set.
 If `done == false` and there was a failure detected, `error` is set.
 If `done == true`, exactly one of `error` or `response` is set. ||
-|#
-
-## CreateRegistryMetadata {#yandex.cloud.cloudregistry.v1.CreateRegistryMetadata}
-
-#|
-||Field | Description ||
-|| registryId | **string**
-
-ID of the registry that is being created. ||
 |#
 
 ## Status {#google.rpc.Status}
@@ -206,75 +182,4 @@ An error message. ||
 || details[] | **object**
 
 A list of messages that carry the error details. ||
-|#
-
-## Registry {#yandex.cloud.cloudregistry.v1.Registry}
-
-A Registry resource. For more information, see the [Registry](../../concepts/registry.md) section of the documentation.
-
-#|
-||Field | Description ||
-|| id | **string**
-
-Output only. ID of the registry. ||
-|| folderId | **string**
-
-ID of the folder that the registry belongs to. ||
-|| name | **string**
-
-Name of the registry. ||
-|| kind | **enum** (Kind)
-
-Kind of the registry.
-
-- `MAVEN`: Registry kind is maven.
-- `NPM`: Registry kind is npm.
-- `DOCKER`: Registry kind is docker.
-- `NUGET`: Registry kind is nuget.
-- `DEBIAN`: Registry kind is debian.
-- `PYPI`: Registry kind is pypi.
-- `BINARY`: Regisrty kind is binary. ||
-|| type | **enum** (Type)
-
-Type of the registry.
-
-- `LOCAL`: Registry type is local.
-- `REMOTE`
-- `VIRTUAL` ||
-|| status | **enum** (Status)
-
-Output only. Status of the registry.
-
-- `CREATING`: Registry is being created.
-- `ACTIVE`: Registry is ready to use.
-- `DELETING`: Registry is being deleted. ||
-|| description | **string**
-
-Description of the registry. ||
-|| labels | **object** (map<**string**, **string**>)
-
-Resource labels as `key:value` pairs. Maximum of 64 per resource. ||
-|| properties | **object** (map<**string**, **string**>)
-
-Resource properties as `key:value` pairs. Maximum of 64 per resource. ||
-|| createdAt | **string** (date-time)
-
-Output only. Creation timestamp in [RFC3339](https://www.ietf.org/rfc/rfc3339.txt) text format.
-
-String in [RFC3339](https://www.ietf.org/rfc/rfc3339.txt) text format. The range of possible values is from
-`0001-01-01T00:00:00Z` to `9999-12-31T23:59:59.999999999Z`, i.e. from 0 to 9 digits for fractions of a second.
-
-To work with values in this field, use the APIs described in the
-[Protocol Buffers reference](https://developers.google.com/protocol-buffers/docs/reference/overview).
-In some languages, built-in datetime utilities do not support nanosecond precision (9 digits). ||
-|| modifiedAt | **string** (date-time)
-
-Output only. Modification timestamp in [RFC3339](https://www.ietf.org/rfc/rfc3339.txt) text format.
-
-String in [RFC3339](https://www.ietf.org/rfc/rfc3339.txt) text format. The range of possible values is from
-`0001-01-01T00:00:00Z` to `9999-12-31T23:59:59.999999999Z`, i.e. from 0 to 9 digits for fractions of a second.
-
-To work with values in this field, use the APIs described in the
-[Protocol Buffers reference](https://developers.google.com/protocol-buffers/docs/reference/overview).
-In some languages, built-in datetime utilities do not support nanosecond precision (9 digits). ||
 |#

@@ -5,7 +5,7 @@ Returns the specified placement group.
 ## HTTP request
 
 ```
-GET https://compute.api.cloud.yandex.net/compute/v1/diskPlacementGroups/{diskPlacementGroupId}
+GET https://compute.{{ api-host }}/compute/v1/diskPlacementGroups/{diskPlacementGroupId}
 ```
 
 ## Path parameters
@@ -16,8 +16,8 @@ GET https://compute.api.cloud.yandex.net/compute/v1/diskPlacementGroups/{diskPla
 
 Required field. ID of the placement group to return.
 To get the placement group ID, use [DiskPlacementGroupService.List](list.md#List) request.
-
-The maximum string length in characters is 50. ||
+The length must be less than or equal to 50.
+This field is required. ||
 |#
 
 ## Response {#yandex.cloud.compute.v1.DiskPlacementGroup}

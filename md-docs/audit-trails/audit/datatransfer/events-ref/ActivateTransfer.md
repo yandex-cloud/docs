@@ -188,6 +188,7 @@
             ],
             "slotByteLagLimit": "string",
             "serviceSchema": "string",
+            "collapseInheritTable": "boolean",
             "objectTransferSettings": {
               "sequence": "string",
               "sequenceOwnedBy": "string",
@@ -912,6 +913,7 @@
             ],
             "slotByteLagLimit": "string",
             "serviceSchema": "string",
+            "collapseInheritTable": "boolean",
             "objectTransferSettings": {
               "sequence": "string",
               "sequenceOwnedBy": "string",
@@ -2126,6 +2128,7 @@ Includes only one of the fields `raw`. ||
 || excludeTables[] | **string** ||
 || slotByteLagLimit | **string** (int64) ||
 || serviceSchema | **string** ||
+|| collapseInheritTable | **boolean** ||
 || objectTransferSettings | **[PostgresObjectTransferSettings](#yandex.cloud.datatransfer.v1.endpoint.PostgresObjectTransferSettings)** ||
 || securityGroups[] | **string** ||
 |#

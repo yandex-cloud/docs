@@ -1,10 +1,10 @@
 # OAUTH Application API: gRPC reference
 
-Actions are performed by making RPC calls. For more information about API architecture, see [API Concepts](../../../../../../api-design-guide/index.md).
+Actions are performed by making RPC calls. For more information about API architecture, see [API Concepts]({{ api-url-prefix }}/api-design-guide/).
 
 **Interface definitions** available at [GitHub](https://github.com/yandex-cloud/cloudapi/tree/master/yandex/cloud/organizationmanager/v1/idp/application/oauth).
 
-**Service URL**: `https://organization-manager.api.cloud.yandex.net`
+**Service URL**: `https://organization-manager.{{ api-host }}`
 
 #|
 ||Service | Description ||

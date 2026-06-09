@@ -5,7 +5,7 @@ Lists operations for the specified HTTP router.
 ## HTTP request
 
 ```
-GET https://alb.api.cloud.yandex.net/apploadbalancer/v1/httpRouters/{httpRouterId}/operations
+GET https://alb.{{ api-host }}/apploadbalancer/v1/httpRouters/{httpRouterId}/operations
 ```
 
 ## Path parameters

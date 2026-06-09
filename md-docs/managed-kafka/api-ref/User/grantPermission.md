@@ -5,7 +5,7 @@ Grants permission to the specified Kafka user.
 ## HTTP request
 
 ```
-POST https://mdb.api.cloud.yandex.net/managed-kafka/v1/clusters/{clusterId}/users/{userName}:grantPermission
+POST https://{{ api-host-mdb }}/managed-kafka/v1/clusters/{clusterId}/users/{userName}:grantPermission
 ```
 
 ## Path parameters

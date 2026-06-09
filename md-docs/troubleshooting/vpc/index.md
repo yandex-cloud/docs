@@ -1,6 +1,6 @@
-# Решения для VPC
+# Решения для {{ vpc-short-name }}
 
-## Примеры конфигураций и сценариев VPC {#configuration-examples}
+## Примеры конфигураций и сценариев {{ vpc-short-name }} {#configuration-examples}
 
 * [Как отключить защиту от DDoS](how-to/disable-ddos-protection-on-external-ip.md)
 * [Как перенести внешний статический IP-адрес в другое облако](how-to/move-external-ip-between-cloud.md)
@@ -18,9 +18,9 @@
 * [Как заблокировать IP-адрес](how-to/block-ip-address.md)
 *
 
-## Решения для известных проблем VPC {#known-issues-resolving}
+## Решения для известных проблем {{ vpc-short-name }} {#known-issues-resolving}
 
-* [Ошибочно определяется географическая принадлежность IP-адресов ресурсов Yandex Cloud](known-issues/external-ip-address-country-affiliation-issue.md)
+* [Ошибочно определяется географическая принадлежность IP-адресов ресурсов {{ yandex-cloud }}](known-issues/external-ip-address-country-affiliation-issue.md)
 * [Устранение ошибок при удалении облачной сети](known-issues/unable-to-delete-cloud-network.md)
 * [Устранение проблем со скоростью сетевого соединения при работе с облачными ресурсами](known-issues/network-perfomance-issue.md)
 * [Устранение ошибок при установке TLS-соединений на ВМ](known-issues/resolving-tls-traffic-issues.md)

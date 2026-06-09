@@ -1,14 +1,14 @@
-# Управление шардами в кластере ClickHouse®
+# Управление шардами в кластере {{ CH }}
 
 Вы можете включить шардирование для кластера, а также добавлять и настраивать отдельные шарды.
 
 ## Включить шардирование {#enable}
 
-Кластеры Managed Service for ClickHouse® создаются с одним шардом. Чтобы начать непосредственно шардирование данных, [добавьте](#add-shard) еще один или несколько шардов и [создайте](../tutorials/sharding.md#example) распределенную таблицу.
+Кластеры {{ mch-name }} создаются с одним шардом. Чтобы начать непосредственно шардирование данных, [добавьте](#add-shard) еще один или несколько шардов и [создайте](../tutorials/sharding.md#example) распределенную таблицу.
 
 ## Создать шард {#add-shard}
 
-Количество шардов в кластерах Managed Service for ClickHouse® ограничено квотами на количество CPU и объем памяти, которые доступны кластерам БД в вашем облаке. Чтобы проверить используемые ресурсы, откройте страницу [Квоты](https://console.yandex.cloud/cloud?section=quotas) и найдите блок **Managed Service for&nbsp;ClickHouse**.
+Количество шардов в кластерах {{ mch-name }} ограничено квотами на количество CPU и объем памяти, которые доступны кластерам БД в вашем облаке. Чтобы проверить используемые ресурсы, откройте страницу [Квоты]({{ link-console-quotas }}) и найдите блок **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-clickhouse }}**.
 
 Вы можете создать сразу несколько шардов в кластере.
 
@@ -16,16 +16,16 @@
 
 - Консоль управления {#console}
 
-  1. В [консоли управления](https://console.yandex.cloud) выберите каталог, в котором находится кластер.
-  1. [Перейдите](../../console/operations/select-service.md#select-service) в сервис **Managed Service for&nbsp;ClickHouse**.
-  1. Нажмите на имя нужного кластера и перейдите на вкладку **Шарды**.
-  1. Нажмите кнопку **Создать шарды**.
+  1. В [консоли управления]({{ link-console-main }}) выберите каталог, в котором находится кластер.
+  1. Перейдите в сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-clickhouse }}**.
+  1. Нажмите на имя нужного кластера и перейдите на вкладку **{{ ui-key.yacloud.clickhouse.cluster.switch_shards }}**.
+  1. Нажмите кнопку **{{ ui-key.yacloud.clickhouse.Cluster.Shards.action_add-shards_iULX7 }}**.
   1. Нажмите на значок ![pencil](../../_assets/console-icons/pencil.svg) в строке нового шарда, чтобы изменить его параметры:
       * имя и вес;
       * конфигурацию хостов шарда.
-  1. (Опционально) Нажмите кнопку **Добавить шард**, чтобы добавить дополнительные шарды, и укажите их параметры.
-  1. (Опционально) Нажмите кнопку **Добавить хост**, чтобы добавить дополнительные хосты, и укажите их параметры.
-  1. Чтобы скопировать схему со случайной реплики одного из шардов на хосты новых шардов, выберите опцию **Копировать схему данных**.
+  1. (Опционально) Нажмите кнопку **{{ ui-key.yacloud.clickhouse.cluster.add_shard-btn }}**, чтобы добавить дополнительные шарды, и укажите их параметры.
+  1. (Опционально) Нажмите кнопку **{{ ui-key.yacloud.mdb.forms.button_add-host }}**, чтобы добавить дополнительные хосты, и укажите их параметры.
+  1. Чтобы скопировать схему со случайной реплики одного из шардов на хосты новых шардов, выберите опцию **{{ ui-key.yacloud.mdb.forms.field_copy_schema }}**.
 
       {% note warning %}
       
@@ -33,11 +33,11 @@
       
       {% endnote %}
 
-  1. Нажмите кнопку **Создать шард**.
+  1. Нажмите кнопку **{{ ui-key.yacloud.mdb.forms.button_create-shard }}**.
 
 - CLI {#cli}
 
-  Если у вас еще нет интерфейса командной строки Yandex Cloud (CLI), [установите и инициализируйте его](../../cli/quickstart.md#install).
+  Если у вас еще нет интерфейса командной строки {{ yandex-cloud }} (CLI), [установите и инициализируйте его](../../cli/quickstart.md#install).
 
   По умолчанию используется каталог, указанный при [создании](../../cli/operations/profile/profile-create.md) профиля CLI. Чтобы изменить каталог по умолчанию, используйте команду `yc config set folder-id <идентификатор_каталога>`. Также для любой команды вы можете указать другой каталог с помощью параметров `--folder-name` или `--folder-id`. Если вы обращаетесь к ресурсу по имени, поиск будет выполнен в каталоге по умолчанию. Если вы обращаетесь к ресурсу по идентификатору, поиск будет выполнен глобально — во всех каталогах с учетом прав доступа.
 
@@ -46,7 +46,7 @@
   1. Посмотрите описание команды CLI для создания шардов:
 
       ```bash
-      yc managed-clickhouse shards add --help
+      {{ yc-mdb-ch }} shards add --help
       ```
 
   1. Выполните команду создания шардов.
@@ -56,7 +56,7 @@
       Пример команды для создания одного шарда (приведены не все доступные параметры):
 
       ```bash
-      yc managed-clickhouse shards add \
+      {{ yc-mdb-ch }} shards add \
         --cluster-name=<имя_кластера> \
         --shard name=<имя_нового_шарда>,`
                `weight=<вес_шарда> \
@@ -98,13 +98,13 @@
           {% endnote %}
 
 
-- Terraform {#tf}
+- {{ TF }} {#tf}
 
-  1. Откройте актуальный конфигурационный файл Terraform с планом инфраструктуры.
+  1. Откройте актуальный конфигурационный файл {{ TF }} с планом инфраструктуры.
 
      О том, как создать такой файл, см. в разделе [Создание кластера](cluster-create.md).
 
-  1. В описании кластера Managed Service for ClickHouse® добавьте в блок `shards` новый шард, а в блок `hosts` — хост ClickHouse® на этом шарде:
+  1. В описании кластера {{ mch-name }} добавьте в блок `shards` новый шард, а в блок `hosts` — хост {{ CH }} на этом шарде:
 
      ```hcl
      resource "yandex_mdb_clickhouse_cluster_v2" "<имя_кластера>" {
@@ -138,14 +138,14 @@
 
   1. Проверьте корректность настроек.
 
-     1. В командной строке перейдите в каталог, в котором расположены актуальные конфигурационные файлы Terraform с планом инфраструктуры.
+     1. В командной строке перейдите в каталог, в котором расположены актуальные конфигурационные файлы {{ TF }} с планом инфраструктуры.
      1. Выполните команду:
      
         ```bash
         terraform validate
         ```
      
-        Если в файлах конфигурации есть ошибки, Terraform на них укажет.
+        Если в файлах конфигурации есть ошибки, {{ TF }} на них укажет.
 
   1. Подтвердите изменение ресурсов.
 
@@ -167,11 +167,11 @@
         1. Подтвердите изменение ресурсов.
         1. Дождитесь завершения операции.
 
-  Подробнее см. в [документации провайдера Terraform](../../terraform/resources/mdb_clickhouse_cluster.md).
+  Подробнее см. в [документации провайдера {{ TF }}]({{ tf-provider-resources-link }}/mdb_clickhouse_cluster).
 
   {% note warning "Ограничения по времени" %}
   
-  Провайдер Terraform ограничивает время на выполнение операций с кластером Managed Service for ClickHouse®:
+  Провайдер {{ TF }} ограничивает время на выполнение операций с кластером {{ mch-name }}:
   
   * создание, в т. ч. путем восстановления из резервной копии, — 60 минут;
   * изменение — 90 минут;
@@ -207,7 +207,7 @@
      export IAM_TOKEN="<IAM-токен>"
      ```
 
-  1. Воспользуйтесь методом [Cluster.AddShards](../api-ref/Cluster/addShards.md) и выполните запрос, например с помощью [cURL](https://curl.se/):
+  1. Воспользуйтесь методом [Cluster.AddShards](../api-ref/Cluster/addShards.md) и выполните запрос, например с помощью {{ api-examples.rest.tool }}:
 
      1. Создайте файл `body.json` и добавьте в него следующее содержимое:
 
@@ -258,7 +258,7 @@
 
           При расчете приоритета шарда при распределении данных складываются веса всех шардов, далее вес каждого шарда делится на полученную сумму. Например, если у одного шарда вес `1`, а у другого — `3`, то у первого шарда приоритет `1/4`, а у второго — `3/4`. Чем выше приоритет, тем больше данных окажется на шарде.
 
-          Подробнее см. в [документации ClickHouse®](https://clickhouse.com/docs/ru/engines/table-engines/special/distributed).
+          Подробнее см. в [документации {{ CH }}]({{ ch.docs }}{{ lang }}/engines/table-engines/special/distributed).
 
         * `hostSpecs` — настройки хостов, которые будут добавлены в шард. Настройки представлены в виде массива элементов. Каждый элемент соответствует отдельному хосту и имеет следующую структуру:
 
@@ -283,7 +283,7 @@
           --request POST \
           --header "Authorization: Bearer $IAM_TOKEN" \
           --header "Content-Type: application/json" \
-          --url 'https://mdb.api.cloud.yandex.net/managed-clickhouse/v1/clusters/<идентификатор_кластера>/shards:batchCreate' \
+          --url 'https://{{ api-host-mdb }}/managed-clickhouse/v1/clusters/<идентификатор_кластера>/shards:batchCreate' \
           --data '@body.json'
         ```
 
@@ -306,7 +306,7 @@
      ```
      
      Далее предполагается, что содержимое репозитория находится в директории `~/cloudapi/`.
-  1. Воспользуйтесь вызовом [ClusterService.AddShards](../api-ref/grpc/Cluster/addShards.md) и выполните запрос, например с помощью [gRPCurl](https://github.com/fullstorydev/grpcurl):
+  1. Воспользуйтесь вызовом [ClusterService.AddShards](../api-ref/grpc/Cluster/addShards.md) и выполните запрос, например с помощью {{ api-examples.grpc.tool }}:
 
      1. Создайте файл `body.json` и добавьте в него следующее содержимое:
 
@@ -359,7 +359,7 @@
 
             При расчете приоритета шарда при распределении данных складываются веса всех шардов, далее вес каждого шарда делится на полученную сумму. Например, если у одного шарда вес `1`, а у другого — `3`, то у первого шарда приоритет `1/4`, а у второго — `3/4`. Чем выше приоритет, тем больше данных окажется на шарде.
 
-            Подробнее см. в [документации ClickHouse®](https://clickhouse.com/docs/ru/engines/table-engines/special/distributed).
+            Подробнее см. в [документации {{ CH }}]({{ ch.docs }}{{ lang }}/engines/table-engines/special/distributed).
 
         * `host_specs` — настройки хостов, которые будут добавлены в шард. Настройки представлены в виде массива элементов. Каждый элемент соответствует отдельному хосту и имеет следующую структуру:
 
@@ -387,7 +387,7 @@
           -proto ~/cloudapi/yandex/cloud/mdb/clickhouse/v1/cluster_service.proto \
           -rpc-header "Authorization: Bearer $IAM_TOKEN" \
           -d @ \
-          mdb.api.cloud.yandex.net:443 \
+          {{ api-host-mdb }}:{{ port-https }} \
           yandex.cloud.mdb.clickhouse.v1.ClusterService.AddShards \
           < body.json
         ```
@@ -402,20 +402,20 @@
 
 - Консоль управления {#console}
 
-  1. В [консоли управления](https://console.yandex.cloud) выберите каталог, в котором находится кластер.
-  1. [Перейдите](../../console/operations/select-service.md#select-service) в сервис **Managed Service for&nbsp;ClickHouse**.
-  1. Нажмите на имя нужного кластера, затем выберите вкладку **Шарды**.
+  1. В [консоли управления]({{ link-console-main }}) выберите каталог, в котором находится кластер.
+  1. Перейдите в сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-clickhouse }}**.
+  1. Нажмите на имя нужного кластера, затем выберите вкладку **{{ ui-key.yacloud.clickhouse.cluster.switch_shards }}**.
 
 - CLI {#cli}
 
-  Если у вас еще нет интерфейса командной строки Yandex Cloud (CLI), [установите и инициализируйте его](../../cli/quickstart.md#install).
+  Если у вас еще нет интерфейса командной строки {{ yandex-cloud }} (CLI), [установите и инициализируйте его](../../cli/quickstart.md#install).
 
   По умолчанию используется каталог, указанный при [создании](../../cli/operations/profile/profile-create.md) профиля CLI. Чтобы изменить каталог по умолчанию, используйте команду `yc config set folder-id <идентификатор_каталога>`. Также для любой команды вы можете указать другой каталог с помощью параметров `--folder-name` или `--folder-id`. Если вы обращаетесь к ресурсу по имени, поиск будет выполнен в каталоге по умолчанию. Если вы обращаетесь к ресурсу по идентификатору, поиск будет выполнен глобально — во всех каталогах с учетом прав доступа.
 
   Чтобы получить список шардов в кластере, выполните команду:
 
   ```bash
-  yc managed-clickhouse shards list --cluster-name=<имя_кластера>
+  {{ yc-mdb-ch }} shards list --cluster-name=<имя_кластера>
   ```
 
   Имя кластера можно запросить со [списком кластеров в каталоге](cluster-list.md#list-clusters).
@@ -428,13 +428,13 @@
      export IAM_TOKEN="<IAM-токен>"
      ```
 
-  1. Воспользуйтесь методом [Cluster.ListShards](../api-ref/Cluster/listShards.md) и выполните запрос, например с помощью [cURL](https://curl.se/):
+  1. Воспользуйтесь методом [Cluster.ListShards](../api-ref/Cluster/listShards.md) и выполните запрос, например с помощью {{ api-examples.rest.tool }}:
 
      ```bash
      curl \
        --request GET \
        --header "Authorization: Bearer $IAM_TOKEN" \
-       --url 'https://mdb.api.cloud.yandex.net/managed-clickhouse/v1/clusters/<идентификатор_кластера>/shards'
+       --url 'https://{{ api-host-mdb }}/managed-clickhouse/v1/clusters/<идентификатор_кластера>/shards'
      ```
 
      Идентификатор кластера можно запросить со [списком кластеров в каталоге](cluster-list.md#list-clusters).
@@ -456,7 +456,7 @@
      ```
      
      Далее предполагается, что содержимое репозитория находится в директории `~/cloudapi/`.
-  1. Воспользуйтесь вызовом [ClusterService.ListShards](../api-ref/grpc/Cluster/listShards.md) и выполните запрос, например с помощью [gRPCurl](https://github.com/fullstorydev/grpcurl):
+  1. Воспользуйтесь вызовом [ClusterService.ListShards](../api-ref/grpc/Cluster/listShards.md) и выполните запрос, например с помощью {{ api-examples.grpc.tool }}:
 
      ```bash
      grpcurl \
@@ -468,7 +468,7 @@
        -d '{
                "cluster_id": "<идентификатор_кластера>"
            }' \
-       mdb.api.cloud.yandex.net:443 \
+       {{ api-host-mdb }}:{{ port-https }} \
        yandex.cloud.mdb.clickhouse.v1.ClusterService.ListShards
      ```
 
@@ -484,13 +484,7 @@
 
 {% note warning %}
 
-При изменении типа диска хосты кластера пересоздаются. Данные реплицированных таблиц сохраняются автоматически. Данные нереплицированных таблиц будут потеряны. Перед изменением типа диска [преобразуйте](zk-hosts.md#replicated-tables) нереплицированные таблицы в реплицированные или [создайте резервную копию данных](cluster-backups.md).
-
-{% endnote %}
-
-{% note info %}
-
-Чтобы изменить тип диска на `local-ssd`, обратитесь в [техническую поддержку](https://center.yandex.cloud/support).
+При изменении типа диска хосты кластера пересоздаются. Данные реплицированных таблиц сохраняются автоматически. Данные нереплицированных таблиц будут потеряны. Если необходимо сохранить данные в нереплицированных таблицах, перед изменением типа диска [преобразуйте их в реплицированные]({{ ch.docs }}{{ lang }}/sql-reference/statements/attach#attach-mergetree-table-as-replicatedmergetree).
 
 {% endnote %}
 
@@ -498,14 +492,18 @@
 
 - Консоль управления {#console}
 
-  1. В [консоли управления](https://console.yandex.cloud) выберите каталог, в котором находится кластер.
-  1. [Перейдите](../../console/operations/select-service.md#select-service) в сервис **Managed Service for&nbsp;ClickHouse**.
-  1. Нажмите на имя нужного кластера, затем выберите вкладку **Шарды**.
-  1. Нажмите ![horizontal-ellipsis](../../_assets/console-icons/ellipsis.svg) и выберите пункт **Редактировать**.
+  1. В [консоли управления]({{ link-console-main }}) выберите каталог, в котором находится кластер.
+  1. Перейдите в сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-clickhouse }}**.
+  1. Нажмите на имя нужного кластера, затем выберите вкладку **{{ ui-key.yacloud.clickhouse.cluster.switch_shards }}**.
+  1. Нажмите ![horizontal-ellipsis](../../_assets/console-icons/ellipsis.svg) и выберите пункт **{{ ui-key.yacloud.mdb.clusters.button_action-edit }}**.
+  1. Внесите необходимые изменения и нажмите кнопку **{{ ui-key.yacloud.mdb.forms.button_edit }}**.
+  1. Если вы изменили тип диска для шарда с хостами {{ CH }}:
+      1. В открывшемся окне посмотрите количество нереплицированных таблиц на графике **Non-replicated MergeTree tables** и их размер на графике **Size of non-replicated MergeTree tables**. Данные в нереплицированных таблицах будут утеряны. Если необходимо сохранить их, перед изменением типа диска [преобразуйте]({{ ch.docs }}{{ lang }}/sql-reference/statements/attach#attach-mergetree-table-as-replicatedmergetree) нереплицированные таблицы в реплицированные.
+      1. Подтвердите изменение ресурсов.
 
 - CLI {#cli}
 
-  Если у вас еще нет интерфейса командной строки Yandex Cloud (CLI), [установите и инициализируйте его](../../cli/quickstart.md#install).
+  Если у вас еще нет интерфейса командной строки {{ yandex-cloud }} (CLI), [установите и инициализируйте его](../../cli/quickstart.md#install).
 
   По умолчанию используется каталог, указанный при [создании](../../cli/operations/profile/profile-create.md) профиля CLI. Чтобы изменить каталог по умолчанию, используйте команду `yc config set folder-id <идентификатор_каталога>`. Также для любой команды вы можете указать другой каталог с помощью параметров `--folder-name` или `--folder-id`. Если вы обращаетесь к ресурсу по имени, поиск будет выполнен в каталоге по умолчанию. Если вы обращаетесь к ресурсу по идентификатору, поиск будет выполнен глобально — во всех каталогах с учетом прав доступа.
 
@@ -514,18 +512,19 @@
   1. Посмотрите описание команды CLI для изменения шарда:
 
      ```bash
-     yc managed-clickhouse shards update --help
+     {{ yc-mdb-ch }} shards update --help
      ```
 
   1. Передайте в команде параметры, которые вы хотите изменить:
 
      ```bash
-     yc managed-clickhouse shards update <имя_шарда> \
+     {{ yc-mdb-ch }} shards update <имя_шарда> \
        --cluster-name <имя_кластера> \
        --weight <вес_шарда> \
        --clickhouse-resource-preset <класс_хостов> \
        --clickhouse-disk-size <размер_хранилища> \
-       --clickhouse-disk-type <тип_диска>
+       --clickhouse-disk-type <тип_диска> \
+       --allow-host-recreation
      ```
 
      Где:
@@ -535,6 +534,7 @@
      * `--clickhouse-resource-preset` — [класс хостов](../concepts/instance-types.md).
      * `--clickhouse-disk-size` — размер хранилища в гигабайтах.
      * `--clickhouse-disk-type` — [тип диска](../concepts/storage.md).
+     * `--allow-host-recreation` — разрешить кластеру пересоздать хосты (параметр обязателен при изменении типа диска).
 
      Имя шарда можно запросить со [списком шардов в кластере](#list-shards).
 
@@ -546,7 +546,7 @@
      export IAM_TOKEN="<IAM-токен>"
      ```
 
-  1. Воспользуйтесь методом [Cluster.UpdateShard](../api-ref/Cluster/updateShard.md) и выполните запрос, например с помощью [cURL](https://curl.se/):
+  1. Воспользуйтесь методом [Cluster.UpdateShard](../api-ref/Cluster/updateShard.md) и выполните запрос, например с помощью {{ api-examples.rest.tool }}:
 
      {% note warning %}
      
@@ -559,13 +559,13 @@
          --request PATCH \
          --header "Authorization: Bearer $IAM_TOKEN" \
          --header "Content-Type: application/json" \
-         --url 'https://mdb.api.cloud.yandex.net/managed-clickhouse/v1/clusters/<идентификатор_кластера>/shards/<имя_шарда>' \
+         --url 'https://{{ api-host-mdb }}/managed-clickhouse/v1/clusters/<идентификатор_кластера>/shards/<имя_шарда>' \
          --data '{
-                   "updateMask": "configSpec.clickhouse.config.<настройка_ClickHouse®>,configSpec.clickhouse.resources,configSpec.clickhouse.weight",
+                   "updateMask": "configSpec.clickhouse.config.<настройка_{{ CH }}>,configSpec.clickhouse.resources,configSpec.clickhouse.weight,allowHostRecreation",
                    "configSpec": {
                      "clickhouse": {
                        "config": {
-                         <настройки_ClickHouse®>
+                         <настройки_{{ CH }}>
                        },
                        "resources": {
                          "resourcePresetId": "<класс_хостов>",
@@ -574,7 +574,8 @@
                        },
                        "weight": "<вес_шарда>"
                      }
-                   }
+                   },
+                   "allowHostRecreation": "true"
                  }'
      ```
 
@@ -583,7 +584,7 @@
      * `updateMask` — перечень изменяемых параметров в одну строку через запятую.
      * `configSpec.clickhouse` — изменяемые параметры шарда:
 
-       * `config` — [настройки ClickHouse®](../concepts/settings-list.md). Список доступных настроек приведен в [описании метода](../api-ref/Cluster/updateShard.md#yandex.cloud.mdb.clickhouse.v1.UpdateClusterShardRequest).
+       * `config` — [настройки {{ CH }}](../concepts/settings-list.md). Список доступных настроек приведен в [описании метода](../api-ref/Cluster/updateShard.md#yandex.cloud.mdb.clickhouse.v1.UpdateClusterShardRequest).
 
        * `resources` — ресурсы хостов, которые добавляются в создаваемый шард:
 
@@ -597,7 +598,9 @@
 
          При расчете приоритета шарда при распределении данных складываются веса всех шардов, далее вес каждого шарда делится на полученную сумму. Например, если у одного шарда вес `1`, а у другого — `3`, то у первого шарда приоритет `1/4`, а у второго — `3/4`. Чем выше приоритет, тем больше данных окажется на шарде.
 
-         Подробнее см. в [документации ClickHouse®](https://clickhouse.com/docs/ru/engines/table-engines/special/distributed).
+         Подробнее см. в [документации {{ CH }}]({{ ch.docs }}{{ lang }}/engines/table-engines/special/distributed).
+
+     * `allowHostRecreation` — разрешить кластеру пересоздать хосты (параметр обязателен при изменении типа диска).
 
      Идентификатор кластера можно запросить со [списком кластеров в каталоге](cluster-list.md#list-clusters), а имя шарда — со [списком шардов в кластере](#list-shards).
 
@@ -618,7 +621,7 @@
      ```
      
      Далее предполагается, что содержимое репозитория находится в директории `~/cloudapi/`.
-  1. Воспользуйтесь вызовом [ClusterService.UpdateShard](../api-ref/grpc/Cluster/updateShard.md) и выполните запрос, например с помощью [gRPCurl](https://github.com/fullstorydev/grpcurl):
+  1. Воспользуйтесь вызовом [ClusterService.UpdateShard](../api-ref/grpc/Cluster/updateShard.md) и выполните запрос, например с помощью {{ api-examples.grpc.tool }}:
 
      {% note warning %}
      
@@ -653,15 +656,16 @@
              "shard_name": "<имя_шарда>",
              "update_mask": {
                "paths": [
-                 "config_spec.clickhouse.config.<настройка_ClickHouse®>",
+                 "config_spec.clickhouse.config.<настройка_{{ CH }}>",
                  "config_spec.clickhouse.resources",
-                 "config_spec.clickhouse.weight"
+                 "config_spec.clickhouse.weight",
+                 "allow_host_recreation"
                ]
              },
              "config_spec": {
                "clickhouse": {
                  "config": {
-                   <настройки_ClickHouse®>
+                   <настройки_{{ CH }}>
                  },
                  "resources": {
                    "resource_preset_id": "<класс_хостов>",
@@ -670,9 +674,10 @@
                  },
                  "weight": "<вес_шарда>"
                }
-             }
+             },
+             "allow_host_recreation": "true"
            }' \
-       mdb.api.cloud.yandex.net:443 \
+       {{ api-host-mdb }}:{{ port-https }} \
        yandex.cloud.mdb.clickhouse.v1.ClusterService.UpdateShard
      ```
 
@@ -681,7 +686,7 @@
      * `update_mask` — перечень изменяемых параметров в виде массива строк `paths[]`.
      * `config_spec.clickhouse` — изменяемые параметры шарда:
 
-       * `config` — [настройки ClickHouse®](../concepts/settings-list.md). Список доступных настроек приведен в [описании метода](../api-ref/Cluster/updateShard.md#yandex.cloud.mdb.clickhouse.v1.UpdateClusterShardRequest).
+       * `config` — [настройки {{ CH }}](../concepts/settings-list.md). Список доступных настроек приведен в [описании метода](../api-ref/Cluster/updateShard.md#yandex.cloud.mdb.clickhouse.v1.UpdateClusterShardRequest).
 
        * `resources` — ресурсы хостов, которые добавляются в создаваемый шард:
 
@@ -695,7 +700,9 @@
 
          При расчете приоритета шарда при распределении данных складываются веса всех шардов, далее вес каждого шарда делится на полученную сумму. Например, если у одного шарда вес `1`, а у другого — `3`, то у первого шарда приоритет `1/4`, а у второго — `3/4`. Чем выше приоритет, тем больше данных окажется на шарде.
 
-         Подробнее см. в [документации ClickHouse®](https://clickhouse.com/docs/ru/engines/table-engines/special/distributed).
+         Подробнее см. в [документации {{ CH }}]({{ ch.docs }}{{ lang }}/engines/table-engines/special/distributed).
+
+     * `allow_host_recreation` — разрешить кластеру пересоздать хосты (параметр обязателен при изменении типа диска).
 
      Идентификатор кластера можно запросить со [списком кластеров в каталоге](cluster-list.md#list-clusters), а имя шарда — со [списком шардов в кластере](#list-shards).
 
@@ -705,7 +712,7 @@
 
 ## Удалить шард {#delete-shard}
 
-Вы можете удалить шард из кластера ClickHouse®, если он не является:
+Вы можете удалить шард из кластера {{ CH }}, если он не является:
 * Единственным шардом.
 * Единственным шардом в [группе шардов](shard-groups.md).
 
@@ -715,17 +722,17 @@
 
 - Консоль управления {#console}
 
-    1. В [консоли управления](https://console.yandex.cloud) выберите каталог, в котором находится кластер.
-    1. [Перейдите](../../console/operations/select-service.md#select-service) в сервис **Managed Service for&nbsp;ClickHouse**.
-    1. Нажмите на имя нужного кластера и выберите вкладку **Шарды**.
+    1. В [консоли управления]({{ link-console-main }}) выберите каталог, в котором находится кластер.
+    1. Перейдите в сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-clickhouse }}**.
+    1. Нажмите на имя нужного кластера и выберите вкладку **{{ ui-key.yacloud.clickhouse.cluster.switch_shards }}**.
     1. Удалите один или несколько шардов:
-        * Чтобы удалить один шард, нажмите на значок ![image](../../_assets/console-icons/ellipsis.svg) в строке нужного шарда и выберите пункт **Удалить**.
-        * Чтобы удалить несколько шардов сразу, выберите нужные шарды и нажмите **Удалить** в нижней части экрана.
-    1. В открывшемся окне включите опцию **Я удаляю шарды** и нажмите кнопку **Удалить**.
+        * Чтобы удалить один шард, нажмите на значок ![image](../../_assets/console-icons/ellipsis.svg) в строке нужного шарда и выберите пункт **{{ ui-key.yacloud.mdb.clusters.button_action-delete }}**.
+        * Чтобы удалить несколько шардов сразу, выберите нужные шарды и нажмите **{{ ui-key.yacloud.mdb.clusters.button_action-delete }}** в нижней части экрана.
+    1. В открывшемся окне включите опцию **Я удаляю шарды** и нажмите кнопку **{{ ui-key.yacloud.common.delete }}**.
 
 - CLI {#cli}
 
-  Если у вас еще нет интерфейса командной строки Yandex Cloud (CLI), [установите и инициализируйте его](../../cli/quickstart.md#install).
+  Если у вас еще нет интерфейса командной строки {{ yandex-cloud }} (CLI), [установите и инициализируйте его](../../cli/quickstart.md#install).
 
   По умолчанию используется каталог, указанный при [создании](../../cli/operations/profile/profile-create.md) профиля CLI. Чтобы изменить каталог по умолчанию, используйте команду `yc config set folder-id <идентификатор_каталога>`. Также для любой команды вы можете указать другой каталог с помощью параметров `--folder-name` или `--folder-id`. Если вы обращаетесь к ресурсу по имени, поиск будет выполнен в каталоге по умолчанию. Если вы обращаетесь к ресурсу по идентификатору, поиск будет выполнен глобально — во всех каталогах с учетом прав доступа.
 
@@ -734,7 +741,7 @@
   Команда для удаления одного шарда имеет вид:
 
   ```bash
-  yc managed-clickhouse shards delete \
+  {{ yc-mdb-ch }} shards delete \
     --cluster-name=<имя_кластера> \
     <имя_шарда>
   ```
@@ -742,23 +749,23 @@
   Имена шардов можно запросить со [списком шардов в кластере](#list-shards), имя кластера — со [списком кластеров в каталоге](cluster-list.md#list-clusters).
 
 
-- Terraform {#tf}
+- {{ TF }} {#tf}
 
-  1. Откройте актуальный конфигурационный файл Terraform с планом инфраструктуры.
+  1. Откройте актуальный конфигурационный файл {{ TF }} с планом инфраструктуры.
 
      О том, как создать такой файл, см. в разделе [Создание кластера](cluster-create.md).
 
-  1. В описании кластера Managed Service for ClickHouse® удалите шард из блока `shards`, а из блока `hosts` — все хосты ClickHouse® на этом шарде.
+  1. В описании кластера {{ mch-name }} удалите шард из блока `shards`, а из блока `hosts` — все хосты {{ CH }} на этом шарде.
   1. Проверьте корректность настроек.
 
-     1. В командной строке перейдите в каталог, в котором расположены актуальные конфигурационные файлы Terraform с планом инфраструктуры.
+     1. В командной строке перейдите в каталог, в котором расположены актуальные конфигурационные файлы {{ TF }} с планом инфраструктуры.
      1. Выполните команду:
      
         ```bash
         terraform validate
         ```
      
-        Если в файлах конфигурации есть ошибки, Terraform на них укажет.
+        Если в файлах конфигурации есть ошибки, {{ TF }} на них укажет.
 
   1. Введите слово `yes` и нажмите **Enter**.
 
@@ -780,11 +787,11 @@
         1. Подтвердите изменение ресурсов.
         1. Дождитесь завершения операции.
 
-  Подробнее см. в [документации провайдера Terraform](../../terraform/resources/mdb_clickhouse_cluster.md).
+  Подробнее см. в [документации провайдера {{ TF }}]({{ tf-provider-resources-link }}/mdb_clickhouse_cluster).
 
   {% note warning "Ограничения по времени" %}
   
-  Провайдер Terraform ограничивает время на выполнение операций с кластером Managed Service for ClickHouse®:
+  Провайдер {{ TF }} ограничивает время на выполнение операций с кластером {{ mch-name }}:
   
   * создание, в т. ч. путем восстановления из резервной копии, — 60 минут;
   * изменение — 90 минут;
@@ -820,13 +827,13 @@
      export IAM_TOKEN="<IAM-токен>"
      ```
 
-  1. Воспользуйтесь методом [Cluster.DeleteShards](../api-ref/Cluster/deleteShards.md) и выполните запрос, например с помощью [cURL](https://curl.se/):
+  1. Воспользуйтесь методом [Cluster.DeleteShards](../api-ref/Cluster/deleteShards.md) и выполните запрос, например с помощью {{ api-examples.rest.tool }}:
 
      ```bash
      curl \
        --request DELETE \
        --header "Authorization: Bearer $IAM_TOKEN" \
-       --url 'https://mdb.api.cloud.yandex.net/managed-clickhouse/v1/clusters/<идентификатор_кластера>/shards:batchDelete' \
+       --url 'https://{{ api-host-mdb }}/managed-clickhouse/v1/clusters/<идентификатор_кластера>/shards:batchDelete' \
        --data '{
                  "shardNames": [
                    <перечень_имен_шардов>
@@ -855,7 +862,7 @@
      ```
      
      Далее предполагается, что содержимое репозитория находится в директории `~/cloudapi/`.
-  1. Воспользуйтесь вызовом [ClusterService.DeleteShards](../api-ref/grpc/Cluster/deleteShards.md) и выполните запрос, например с помощью [gRPCurl](https://github.com/fullstorydev/grpcurl):
+  1. Воспользуйтесь вызовом [ClusterService.DeleteShards](../api-ref/grpc/Cluster/deleteShards.md) и выполните запрос, например с помощью {{ api-examples.grpc.tool }}:
 
      ```bash
      grpcurl \
@@ -870,7 +877,7 @@
                <перечень_имен_шардов>
              ]
            }' \
-       mdb.api.cloud.yandex.net:443 \
+       {{ api-host-mdb }}:{{ port-https }} \
        yandex.cloud.mdb.clickhouse.v1.ClusterService.DeleteShards
      ```
 
@@ -882,4 +889,4 @@
 
 {% endlist %}
 
-_ClickHouse® является зарегистрированным товарным знаком [ClickHouse, Inc](https://clickhouse.com)._
+_{{ CH }} является зарегистрированным товарным знаком [ClickHouse, Inc](https://clickhouse.com)._

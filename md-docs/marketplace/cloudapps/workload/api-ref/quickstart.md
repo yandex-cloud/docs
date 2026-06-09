@@ -1,12 +1,12 @@
-# Как начать работать с Marketplace Cloud Apps Workload API
+# Как начать работать с {{ marketplace-short-name }} {{ cloud-apps-name }} Workload API
 
-В данном разделе приведены примеры использования Marketplace Cloud Apps Workload [REST API](../../../workload/api-ref/index.md) и [gRPC API](../../../workload/api-ref/grpc/index.md) для получения информации о приложении (экземпляре продукта) Cloud Apps, а также о привязке приложения и виртуальной машины, на которой оно запущено, к сервису [Yandex Cloud Apps](../../../../cloud-apps/index.md).
+В данном разделе приведены примеры использования {{ marketplace-short-name }} {{ cloud-apps-name }} Workload [REST API](../../../workload/api-ref/index.md) и [gRPC API](../../../workload/api-ref/grpc/index.md) для получения информации о приложении (экземпляре продукта) {{ cloud-apps-name }}, а также о привязке приложения и виртуальной машины, на которой оно запущено, к сервису [{{ cloud-apps-full-name }}](../../../../cloud-apps/index.md).
 
 Все приведенные запросы вы также можете выполнять с помощью SDK для [Node.js](https://github.com/yandex-cloud/nodejs-sdk), [Python](https://github.com/yandex-cloud/python-sdk), [Go](https://github.com/yandex-cloud/go-sdk), [Java](https://github.com/yandex-cloud/java-sdk) или [C#](https://github.com/yandex-cloud/dotnet-sdk).
 
 ## Перед началом работы {#before-begin}
 
-Чтобы начать работать c Marketplace Cloud Apps Workload API:
+Чтобы начать работать c {{ marketplace-short-name }} {{ cloud-apps-name }} Workload API:
 
 1. [Получите](../../../../compute/operations/vm-connect/auth-inside-vm.md#auth-inside-vm) IAM-токен для [сервисного аккаунта](../../../../iam/concepts/users/service-accounts.md), автоматически созданного во время установки приложения и привязанного к [виртуальной машине](../../../../compute/concepts/vm.md), на которой оно запущено.
 1. [Получите](../../../../compute/concepts/metadata/identity-document.md) идентификатор виртуальной машины, на которой запущено приложение.
@@ -15,9 +15,9 @@
 * [cURL](https://curl.haxx.se) при использовании [REST API](../../../workload/api-ref/index.md).
 * [gRPCurl](https://github.com/fullstorydev/grpcurl) при использовании [gRPC API](../../../workload/api-ref/grpc/index.md).
 
-## Получите информацию о приложении Yandex Cloud Apps {#get-app-info}
+## Получите информацию о приложении {{ cloud-apps-full-name }} {#get-app-info}
 
-Чтобы получить информацию о приложении Cloud Apps, используйте сервисный аккаунт, автоматически созданный во время установки приложения и привязанный к виртуальной машине, на которой оно запущено. Выполните команду:
+Чтобы получить информацию о приложении {{ cloud-apps-name }}, используйте сервисный аккаунт, автоматически созданный во время установки приложения и привязанный к виртуальной машине, на которой оно запущено. Выполните команду:
 
 {% list tabs group=instructions %}
 
@@ -27,7 +27,7 @@
   curl \
     --request GET \
     --header "Authorization: Bearer <IAM-токен>" \ 
-    https://cloudapps.api.cloud.yandex.net/cloudapps/workload/v1/cloud-applications
+    https://cloudapps.{{ api-host }}/cloudapps/workload/v1/cloud-applications
   ```
 
   Где `<IAM-токен>` — [IAM-токен](../../../../iam/concepts/authorization/iam-token.md) сервисного аккаунта, полученный [ранее](#before-begin).
@@ -51,7 +51,7 @@
   ```bash
   grpcurl \
     -H "Authorization: Bearer <IAM-токен>" \
-    cloudapps.api.cloud.yandex.net:443 yandex.cloud.cloudapps.workload.v1.CloudApplicationService/Get
+    cloudapps.{{ api-host }}:443 yandex.cloud.cloudapps.workload.v1.CloudApplicationService/Get
   ```
 
   Где `<IAM-токен>` — [IAM-токен](../../../../iam/concepts/authorization/iam-token.md) сервисного аккаунта, полученный [ранее](#before-begin).
@@ -72,11 +72,11 @@
 
 {% endlist %}
 
-Данный ответ означает, что сервисный аккаунт был автоматически создан во время установки приложения Cloud Apps с идентификатором `d7fsg12ho5h6********`. Текущий статус приложения — `DEPLOYED`, а текущий тип [тарифа](../../../concepts/tariff.md) — `PAY_AS_YOU_GO`.
+Данный ответ означает, что сервисный аккаунт был автоматически создан во время установки приложения {{ cloud-apps-name }} с идентификатором `d7fsg12ho5h6********`. Текущий статус приложения — `DEPLOYED`, а текущий тип [тарифа](../../../concepts/tariff.md) — `PAY_AS_YOU_GO`.
 
-## Убедитесь, что приложение запущено сервисом Cloud Apps {#ensure-cloud-app}
+## Убедитесь, что приложение запущено сервисом {{ cloud-apps-name }} {#ensure-cloud-app}
 
-Чтобы убедиться, что приложение запущено сервисом Cloud Apps, проверьте, что ВМ привязана к приложению. Для этого используйте сервисный аккаунт, который был автоматически создан во время установки приложения и привязан к ВМ, на которой оно запущено. Выполните команду:
+Чтобы убедиться, что приложение запущено сервисом {{ cloud-apps-name }}, проверьте, что ВМ привязана к приложению. Для этого используйте сервисный аккаунт, который был автоматически создан во время установки приложения и привязан к ВМ, на которой оно запущено. Выполните команду:
 
 {% list tabs group=instructions %}
 
@@ -88,7 +88,7 @@
     --header "Content-Type: application/json" \
     --header "Authorization: Bearer <IAM-токен>" \ 
     --data '{"workload_type": "COMPUTE_INSTANCE", "workload_id": "<идентификатор_ВМ>"}' \
-    https://cloudapps.api.cloud.yandex.net/cloudapps/workload/v1/cloud-applications:resolve-by-workload
+    https://cloudapps.{{ api-host }}/cloudapps/workload/v1/cloud-applications:resolve-by-workload
   ```
 
   Где:
@@ -98,7 +98,7 @@
 
   Результат:
 
-  {% cut "ВМ привязана к приложению Cloud Apps" %}
+  {% cut "ВМ привязана к приложению {{ cloud-apps-name }}" %}
 
   ```json
   {
@@ -112,11 +112,11 @@
   }
   ```
 
-  Данный ответ означает, что виртуальная машина и сервисный аккаунт, привязанный к ней, были автоматически созданы во время установки приложения Cloud Apps с идентификатором `d7fsg12ho5h6********`. Текущий статус приложения — `DEPLOYED`, а текущий тип [тарифа](../../../concepts/tariff.md) — `PAY_AS_YOU_GO`.
+  Данный ответ означает, что виртуальная машина и сервисный аккаунт, привязанный к ней, были автоматически созданы во время установки приложения {{ cloud-apps-name }} с идентификатором `d7fsg12ho5h6********`. Текущий статус приложения — `DEPLOYED`, а текущий тип [тарифа](../../../concepts/tariff.md) — `PAY_AS_YOU_GO`.
 
   {% endcut %}
 
-  {% cut "ВМ не привязана к приложению Cloud Apps" %}
+  {% cut "ВМ не привязана к приложению {{ cloud-apps-name }}" %}
 
   ```json
   {
@@ -144,7 +144,7 @@
   grpcurl \
     -H "Authorization: Bearer <IAM-токен>" \
     -d '{"workload_type": "COMPUTE_INSTANCE", "workload_id": "<идентификатор_ВМ>"}' \
-    cloudapps.api.cloud.yandex.net:443 yandex.cloud.cloudapps.workload.v1.CloudApplicationService/ResolveByWorkload
+    cloudapps.{{ api-host }}:443 yandex.cloud.cloudapps.workload.v1.CloudApplicationService/ResolveByWorkload
   ```
 
   Где:
@@ -154,7 +154,7 @@
 
   Результат:
 
-  {% cut "ВМ привязана к приложению Cloud Apps" %}
+  {% cut "ВМ привязана к приложению {{ cloud-apps-name }}" %}
 
   ```json
   {
@@ -168,11 +168,11 @@
   }
   ```
 
-  Данный ответ означает, что виртуальная машина и сервисный аккаунт, привязанный к ней, были автоматически созданы во время установки приложения Cloud Apps с идентификатором `d7fsg12ho5h6********`. Текущий статус приложения — `DEPLOYED`, а текущий тип [тарифа](../../../concepts/tariff.md) — `PAY_AS_YOU_GO`.
+  Данный ответ означает, что виртуальная машина и сервисный аккаунт, привязанный к ней, были автоматически созданы во время установки приложения {{ cloud-apps-name }} с идентификатором `d7fsg12ho5h6********`. Текущий статус приложения — `DEPLOYED`, а текущий тип [тарифа](../../../concepts/tariff.md) — `PAY_AS_YOU_GO`.
 
   {% endcut %}
 
-  {% cut "ВМ не привязана к приложению Cloud Apps" %}
+  {% cut "ВМ не привязана к приложению {{ cloud-apps-name }}" %}
 
   ```json
   ERROR:

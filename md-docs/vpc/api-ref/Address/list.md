@@ -5,7 +5,7 @@ Retrieves the list of Address resources in the specified folder.
 ## HTTP request
 
 ```
-GET https://vpc.api.cloud.yandex.net/vpc/v1/addresses
+GET https://vpc.{{ api-host }}/vpc/v1/addresses
 ```
 
 ## Query parameters {#yandex.cloud.vpc.v1.ListAddressesRequest}

@@ -1,23 +1,23 @@
 # Подключить профиль безопасности к ресурсу
 
-Подключите профиль безопасности к виртуальному хосту, домену или API-шлюзу, чтобы защитить ресурс с помощью Smart Web Security.
+Подключите профиль безопасности к виртуальному хосту, домену или API-шлюзу, чтобы защитить ресурс с помощью {{ sws-name }}.
 
 ## Подключить к виртуальному хосту {#host}
 
-Способ подключения зависит от способа управления балансировщиком [Yandex Application Load Balancer](../../application-load-balancer/concepts/index.md):
+Способ подключения зависит от способа управления балансировщиком [{{ alb-full-name }}](../../application-load-balancer/concepts/index.md):
 
-* Если балансировщик управляется вами, используйте интерфейсы Yandex Cloud.
+* Если балансировщик управляется вами, используйте интерфейсы {{ yandex-cloud }}.
 * Если балансировщик управляется [контроллером](../../application-load-balancer/tools/index.md), используйте аннотацию.
 
     {% note warning %}
 
     Для Ingress-контроллера подключайте профиль безопасности только через аннотацию.
 
-    Если подключить профиль через интерфейсы Yandex Cloud, а затем обновить ресурс Ingress, профиль безопасности отключится из‑за отсутствия аннотации.
+    Если подключить профиль через интерфейсы {{ yandex-cloud }}, а затем обновить ресурс Ingress, профиль безопасности отключится из‑за отсутствия аннотации.
 
     {% endnote %}
 
-Для работы с профилем безопасности, который подключается к балансировщику, потребуется сервисный аккаунт с ролями `monitoring.editor`, `smart-web-security.admin`, `certificate-manager.admin` и `logging.writer`. Подробнее см. [Назначение роли сервисному аккаунту](../../iam/operations/sa/assign-role-for-sa.md).
+Для работы с профилем безопасности, который подключается к балансировщику, потребуется сервисный аккаунт с ролями `{{ roles-monitoring-editor }}`, `smart-web-security.admin`, `certificate-manager.admin` и `{{ roles-logging-writer }}`. Подробнее см. [{#T}](../../iam/operations/sa/assign-role-for-sa.md).
 
 Чтобы подключить профиль безопасности к виртуальному хосту:
 
@@ -25,23 +25,23 @@
 
 - Консоль управления {#console}
 
-  1. В [консоли управления](https://console.yandex.cloud) выберите [каталог](../../resource-manager/concepts/resources-hierarchy.md#folder), в котором находится нужный [профиль безопасности](../concepts/profiles.md).
-    1. [Перейдите](../../console/operations/select-service.md#select-service) в сервис **Smart Web Security**.
-    1. На панели слева выберите ![shield-check](../../_assets/console-icons/shield-check.svg) **Профили безопасности**.
-    1. Выберите профиль безопасности, который вы хотите подключить к [виртуальному хосту](../../application-load-balancer/concepts/http-router.md#virtual-host) сервиса [Yandex Application Load Balancer](../../application-load-balancer/index.md).
-    1. Нажмите кнопку ![plug](../../_assets/console-icons/plug-connection.svg) **Подключить к хосту**.
-    1. В открывшемся окне нажмите **Добавить ресурс** и выберите **Виртуальный хост**.
-    1. Последовательно установите значения в полях [**Балансировщик**](../../application-load-balancer/concepts/application-load-balancer.md), [**HTTP-роутер**](../../application-load-balancer/concepts/http-router.md) и [**Виртуальный хост**](../../application-load-balancer/concepts/http-router.md#virtual-host). Вы можете подключить профиль безопасности сразу к нескольким хостам.
+  1. В [консоли управления]({{ link-console-main }}) выберите [каталог](../../resource-manager/concepts/resources-hierarchy.md#folder), в котором находится нужный [профиль безопасности](../concepts/profiles.md).
+    1. Перейдите в сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_smartwebsecurity }}**.
+    1. На панели слева выберите ![shield-check](../../_assets/console-icons/shield-check.svg) **{{ ui-key.yacloud.smart-web-security.title_profiles }}**.
+    1. Выберите профиль безопасности, который вы хотите подключить к [виртуальному хосту](../../application-load-balancer/concepts/http-router.md#virtual-host) сервиса [{{ alb-full-name }}](../../application-load-balancer/index.md).
+    1. Нажмите кнопку ![plug](../../_assets/console-icons/plug-connection.svg) **{{ ui-key.yacloud.smart-web-security.overview.action_attach-to-host }}**.
+    1. В открывшемся окне нажмите **{{ ui-key.yacloud.smart-web-security.AttachSecurityProfileDialog.label_add-resource_v4U3g }}** и выберите **{{ ui-key.yacloud.smart-web-security.AttachSecurityProfileDialog.label_virtual-host_tYim5 }}**.
+    1. Последовательно установите значения в полях [**{{ ui-key.yacloud.smart-web-security.attach-dialog.label_balancer }}**](../../application-load-balancer/concepts/application-load-balancer.md), [**{{ ui-key.yacloud.smart-web-security.attach-dialog.label_http-router }}**](../../application-load-balancer/concepts/http-router.md) и [**{{ ui-key.yacloud.smart-web-security.attach-dialog.label_virtual-host }}**](../../application-load-balancer/concepts/http-router.md#virtual-host). Вы можете подключить профиль безопасности сразу к нескольким хостам.
   
-        Чтобы подключить профиль к еще одному L7-балансировщику, нажмите кнопку **Добавить ресурс** и выберите **Виртуальный хост**.
+        Чтобы подключить профиль к еще одному L7-балансировщику, нажмите кнопку **{{ ui-key.yacloud.smart-web-security.AttachSecurityProfileDialog.label_add-resource_v4U3g }}** и выберите **{{ ui-key.yacloud.smart-web-security.AttachSecurityProfileDialog.label_virtual-host_tYim5 }}**.
       
-    1. Нажмите кнопку **Подключить**. Если выбранные хосты уже подключены к другому профилю безопасности, подтвердите подключение.
+    1. Нажмите кнопку **{{ ui-key.yacloud.smart-web-security.attach-dialog.action_connect }}**. Если выбранные хосты уже подключены к другому профилю безопасности, подтвердите подключение.
   
-        В разделе ![cubes-3-overlap](../../_assets/console-icons/cubes-3-overlap.svg) **Подключенные ресурсы** появятся подключенные виртуальные хосты.
+        В разделе ![cubes-3-overlap](../../_assets/console-icons/cubes-3-overlap.svg) **{{ ui-key.yacloud.common.connected_resources }}** появятся подключенные виртуальные хосты.
 
 - CLI {#cli}
 
-  Если у вас еще нет интерфейса командной строки Yandex Cloud (CLI), [установите и инициализируйте его](../../cli/quickstart.md#install).
+  Если у вас еще нет интерфейса командной строки {{ yandex-cloud }} (CLI), [установите и инициализируйте его](../../cli/quickstart.md#install).
 
   По умолчанию используется каталог, указанный при [создании](../../cli/operations/profile/profile-create.md) профиля CLI. Чтобы изменить каталог по умолчанию, используйте команду `yc config set folder-id <идентификатор_каталога>`. Также для любой команды вы можете указать другой каталог с помощью параметров `--folder-name` или `--folder-id`. Если вы обращаетесь к ресурсу по имени, поиск будет выполнен в каталоге по умолчанию. Если вы обращаетесь к ресурсу по идентификатору, поиск будет выполнен глобально — во всех каталогах с учетом прав доступа.
 
@@ -144,19 +144,22 @@
   Подробнее о команде `yc application-load-balancer virtual-host update` читайте в [справочнике CLI](../../cli/cli-ref/application-load-balancer/cli-ref/virtual-host/update.md).
 
 
-- Terraform {#tf}
+- {{ TF }} {#tf}
 
-  [Terraform](https://www.terraform.io/) позволяет быстро создать облачную инфраструктуру в Yandex Cloud и управлять ею с помощью файлов конфигураций. В файлах конфигураций хранится описание инфраструктуры на языке HCL (HashiCorp Configuration Language). При изменении файлов конфигураций Terraform автоматически определяет, какая часть вашей конфигурации уже развернута, что следует добавить или удалить.
+  [{{ TF }}](https://www.terraform.io/) позволяет быстро создать облачную инфраструктуру в {{ yandex-cloud }} и управлять ею с помощью файлов конфигураций. В файлах конфигураций хранится описание инфраструктуры на языке HCL (HashiCorp Configuration Language). При изменении файлов конфигураций {{ TF }} автоматически определяет, какая часть вашей конфигурации уже развернута, что следует добавить или удалить.
   
-  Terraform распространяется под лицензией [Business Source License](https://github.com/hashicorp/terraform/blob/main/LICENSE), а [провайдер Yandex Cloud для Terraform](https://github.com/yandex-cloud/terraform-provider-yandex) — под лицензией [MPL-2.0](https://www.mozilla.org/en-US/MPL/2.0/).
+  {{ TF }} распространяется под лицензией [Business Source License](https://github.com/hashicorp/terraform/blob/main/LICENSE), а [провайдер {{ yandex-cloud }} для {{ TF }}](https://github.com/yandex-cloud/terraform-provider-yandex) — под лицензией [MPL-2.0](https://www.mozilla.org/en-US/MPL/2.0/).
   
-  Подробную информацию о ресурсах провайдера смотрите в документации на сайте [Terraform](https://www.terraform.io/docs/providers/yandex/index.html) или в [зеркале](../../terraform/index.md).
+  Подробную информацию о ресурсах провайдера смотрите в документации на сайте [{{ TF }}](https://www.terraform.io/docs/providers/yandex/index.html) или в [зеркале]({{ tf-docs-link }}).
 
-  Если у вас еще нет Terraform, [установите его и настройте провайдер Yandex Cloud](../../tutorials/infrastructure-management/terraform-quickstart.md#install-terraform).
+  Если у вас еще нет {{ TF }}, [установите его и настройте провайдер {{ yandex-cloud }}](../../tutorials/infrastructure-management/terraform-quickstart.md#install-terraform).
+  
+  
+  Чтобы управлять инфраструктурой с помощью {{ TF }} от имени сервисного аккаунта или пользовательских аккаунтов: аккаунта на Яндексе, федеративного аккаунта и локального пользователя, [аутентифицируйтесь](../../terraform/authentication.md) соответствующим способом.
 
-  Профиль безопасности Yandex Smart Web Security подключается к балансировщику [Yandex Application Load Balancer](../../application-load-balancer/concepts/index.md) в настройках виртуального хоста.
+  Профиль безопасности {{ sws-full-name }} подключается к балансировщику [{{ alb-full-name }}](../../application-load-balancer/concepts/index.md) в настройках виртуального хоста.
 
-  1. В конфигурационном файле Terraform для ресурса `yandex_alb_virtual_host` в блокe `route_options` укажите параметр `security_profile_id` — идентификатор профиля безопасности.
+  1. В конфигурационном файле {{ TF }} для ресурса `yandex_alb_virtual_host` в блокe `route_options` укажите параметр `security_profile_id` — идентификатор профиля безопасности.
 
       ```hcl
       resource "yandex_alb_virtual_host" "my-virtual-host" {
@@ -190,7 +193,7 @@
           terraform plan
           ```
        
-          В терминале будет выведен список ресурсов с параметрами. На этом этапе изменения не будут внесены. Если в конфигурации есть ошибки, Terraform на них укажет.
+          В терминале будет выведен список ресурсов с параметрами. На этом этапе изменения не будут внесены. Если в конфигурации есть ошибки, {{ TF }} на них укажет.
        1. Примените изменения конфигурации:
        
           ```bash
@@ -199,7 +202,7 @@
        
        1. Подтвердите изменения: введите в терминале слово `yes` и нажмите **Enter**.
 
-  Проверить изменение ресурсов можно в [консоли управления](https://console.yandex.cloud) или с помощью команды [CLI](../../cli/index.md):
+  Проверить изменение ресурсов можно в [консоли управления]({{ link-console-main }}) или с помощью команды [CLI](../../cli/index.md):
 
   ```bash
   yc alb http-router get <идентификатор_HTTP-роутера>
@@ -207,13 +210,13 @@
 
 - API {#api}
 
-  Воспользуйтесь методом REST API [update](../../application-load-balancer/api-ref/VirtualHost/update.md) для ресурса [VirtualHost](../../application-load-balancer/api-ref/VirtualHost/index.md) или вызовом gRPC API [VirtualHostService/Update](../../application-load-balancer/api-ref/grpc/VirtualHost/update.md) сервиса Application Load Balancer.
+  Воспользуйтесь методом REST API [update](../../application-load-balancer/api-ref/VirtualHost/update.md) для ресурса [VirtualHost](../../application-load-balancer/api-ref/VirtualHost/index.md) или вызовом gRPC API [VirtualHostService/Update](../../application-load-balancer/api-ref/grpc/VirtualHost/update.md) сервиса {{ alb-name }}.
 
 - Аннотация {#annotation}
 
   {% note tip %}
   
-  Вместо ALB Ingress-контроллера и Gateway API рекомендуется использовать новый контроллер [Yandex Cloud Gwin](../../application-load-balancer/tools/gwin/index.md).
+  Вместо ALB Ingress-контроллера и Gateway API рекомендуется использовать новый контроллер [{{ yandex-cloud }} Gwin](../../application-load-balancer/tools/gwin/index.md).
   
   {% endnote %}
 
@@ -224,7 +227,7 @@
 
       {% note info %}
       
-      Для подключения профиля безопасности к виртуальному хосту Application Load Balancer у сервисного аккаунта, от имени которого работает Ingress-контроллер, должна быть роль [smart-web-security.editor](../security/index.md#smart-web-security-editor) на каталог, в котором размещены ресурсы Application Load Balancer и Smart Web Security. Подробнее см. [Назначение роли сервисному аккаунту](../../iam/operations/sa/assign-role-for-sa.md).
+      Для подключения профиля безопасности к виртуальному хосту {{ alb-name }} у сервисного аккаунта, от имени которого работает Ingress-контроллер, должна быть роль [smart-web-security.editor](../security/index.md#smart-web-security-editor) на каталог, в котором размещены ресурсы {{ alb-name }} и {{ sws-name }}. Подробнее см. [Назначение роли сервисному аккаунту](../../iam/operations/sa/assign-role-for-sa.md).
       
       {% endnote %}
 
@@ -236,7 +239,7 @@
 
 {% endnote %}
 
-Профиль безопасности подключается к определенному виртуальному хосту L7-балансировщика, при этом анализируется весь трафик, поступающий на хост. Если трафик к некоторым маршрутам хоста анализировать не требуется, отключите профиль безопасности от этого маршрута. Это можно сделать при [добавлении](../../application-load-balancer/operations/http-router-update.md#add-virtual-host) или [изменении](../../application-load-balancer/operations/manage-routes.md) маршрута через CLI, API или Terraform с помощью параметра `--disable-security-profile` (`disableSecurityProfile`).
+Профиль безопасности подключается к определенному виртуальному хосту L7-балансировщика, при этом анализируется весь трафик, поступающий на хост. Если трафик к некоторым маршрутам хоста анализировать не требуется, отключите профиль безопасности от этого маршрута. Это можно сделать при [добавлении](../../application-load-balancer/operations/http-router-update.md#add-virtual-host) или [изменении](../../application-load-balancer/operations/manage-routes.md) маршрута через CLI, API или {{ TF }} с помощью параметра `--disable-security-profile` (`disableSecurityProfile`).
 
 При добавлении маршрутов учитывайте их порядок: запрос будет направлен по первому маршруту, предикату которого он соответствует. Наиболее специфичные маршруты располагайте первыми в списке. Иначе общий маршрут может перехватить запросы и специфичные правила не будут применяться.
 
@@ -246,15 +249,15 @@
 
 - Консоль управления {#console}
 
-   1. В [консоли управления](https://console.yandex.cloud) выберите [каталог](../../resource-manager/concepts/resources-hierarchy.md#folder), в котором находится нужный [профиль безопасности](../concepts/profiles.md).
-     1. На панели слева выберите ![shield-check](../../_assets/console-icons/shield-check.svg) **Профили безопасности**.
+   1. В [консоли управления]({{ link-console-main }}) выберите [каталог](../../resource-manager/concepts/resources-hierarchy.md#folder), в котором находится нужный [профиль безопасности](../concepts/profiles.md).
+     1. На панели слева выберите ![shield-check](../../_assets/console-icons/shield-check.svg) **{{ ui-key.yacloud.smart-web-security.title_profiles }}**.
      1. Выберите профиль безопасности, который вы хотите подключить к домену.
-     1. Нажмите кнопку ![plug](../../_assets/console-icons/plug-connection.svg) **Подключить к хосту**.
-     1. В открывшемся окне нажмите **Добавить ресурс** и выберите **Домен**.
-     1. Последовательно установите значения в полях **Прокси-сервер** и **Домен**. Вы можете подключить профиль безопасности сразу к нескольким доменам.
-     1. Нажмите кнопку **Подключить**.
+     1. Нажмите кнопку ![plug](../../_assets/console-icons/plug-connection.svg) **{{ ui-key.yacloud.smart-web-security.overview.action_attach-to-host }}**.
+     1. В открывшемся окне нажмите **{{ ui-key.yacloud.smart-web-security.AttachSecurityProfileDialog.label_add-resource_v4U3g }}** и выберите **{{ ui-key.yacloud.smart-web-security.AttachSecurityProfileDialog.label_domain_9Bo38 }}**.
+     1. Последовательно установите значения в полях **{{ ui-key.yacloud.smart-web-security.AttachSecurityProfileDialog.ProxyServerItem.label_proxy-server_w9BGG }}** и **{{ ui-key.yacloud.smart-web-security.AttachSecurityProfileDialog.ProxyServerItem.label_domain_1hgsY }}**. Вы можете подключить профиль безопасности сразу к нескольким доменам.
+     1. Нажмите кнопку **{{ ui-key.yacloud.smart-web-security.attach-dialog.action_connect }}**.
    
-         В разделе ![cubes-3-overlap](../../_assets/console-icons/cubes-3-overlap.svg) **Подключенные ресурсы** появятся подключенные домены.
+         В разделе ![cubes-3-overlap](../../_assets/console-icons/cubes-3-overlap.svg) **{{ ui-key.yacloud.common.connected_resources }}** появятся подключенные домены.
 
 {% endlist %}
 
@@ -264,18 +267,18 @@
 
 - Консоль управления {#console}
 
-  1. В [консоли управления](https://console.yandex.cloud) выберите [каталог](../../resource-manager/concepts/resources-hierarchy.md#folder), в котором находится нужный [профиль безопасности](../concepts/profiles.md).
-    1. На панели слева выберите ![shield-check](../../_assets/console-icons/shield-check.svg) **Профили безопасности**.
+  1. В [консоли управления]({{ link-console-main }}) выберите [каталог](../../resource-manager/concepts/resources-hierarchy.md#folder), в котором находится нужный [профиль безопасности](../concepts/profiles.md).
+    1. На панели слева выберите ![shield-check](../../_assets/console-icons/shield-check.svg) **{{ ui-key.yacloud.smart-web-security.title_profiles }}**.
     1. Выберите профиль безопасности, который вы хотите подключить к API-шлюзу.
-    1. Нажмите кнопку ![plug](../../_assets/console-icons/plug-connection.svg) **Подключить к хосту**.
-    1. В открывшемся окне нажмите **Добавить ресурс** и выберите **API-шлюз**.
-    1. Установите значение в поле **API-шлюз**.
-    1. Нажмите кнопку **Подключить**.
+    1. Нажмите кнопку ![plug](../../_assets/console-icons/plug-connection.svg) **{{ ui-key.yacloud.smart-web-security.overview.action_attach-to-host }}**.
+    1. В открывшемся окне нажмите **{{ ui-key.yacloud.smart-web-security.AttachSecurityProfileDialog.label_add-resource_v4U3g }}** и выберите **{{ ui-key.yacloud.smart-web-security.AttachSecurityProfileDialog.label_api-gateway_sKMCK }}**.
+    1. Установите значение в поле **{{ ui-key.yacloud.smart-web-security.AttachSecurityProfileDialog.ApiGatewayItem.label_api-gateway_5Nttt }}**.
+    1. Нажмите кнопку **{{ ui-key.yacloud.smart-web-security.attach-dialog.action_connect }}**.
   
-        В разделе ![cubes-3-overlap](../../_assets/console-icons/cubes-3-overlap.svg) **Подключенные ресурсы** появятся подключенные API-шлюзы.
+        В разделе ![cubes-3-overlap](../../_assets/console-icons/cubes-3-overlap.svg) **{{ ui-key.yacloud.common.connected_resources }}** появятся подключенные API-шлюзы.
 
 {% endlist %}
 
 ## См. также {#see-also}
 
-* [Отключить профиль безопасности от ресурса](host-delete.md)
+* [{#T}](host-delete.md)

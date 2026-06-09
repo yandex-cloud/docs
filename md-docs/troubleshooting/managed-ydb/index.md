@@ -1,8 +1,8 @@
-# Решения для Managed Service for YDB
+# Решения для {{ ydb-name }}
 
 
 
-## Решения для известных проблем Managed Service for YDB {#known-issues-resolving}
+## Решения для известных проблем {{ ydb-name }} {#known-issues-resolving}
 
 * [Устранение ошибки `RESOURCE_EXHAUSTED`](known-issues/resource-exhausted.md)
 * [Устранение ошибки `Unauthenticated`](known-issues/sdk-unauthenticated.md)

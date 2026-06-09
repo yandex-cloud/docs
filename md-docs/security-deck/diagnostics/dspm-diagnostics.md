@@ -1,4 +1,4 @@
-# Диагностика ошибок в работе модуля контроля данных (DSPM)
+# Диагностика ошибок в работе модуля контроля данных ({{ dspm-name }})
 
 ## Unable to list dataSource `Id` {#unable-to-list-datasource}
 Не удалось получить содержимое источника данных. Возможно, он был удален во время сканирования.
@@ -17,7 +17,7 @@
 
 
 ## Failed to list resources {#unable-to-list-resources}
-Сканирование пользовательских ресурсов для указанного пользователя не будет выполнено, так как для [тарифа](https://yandex.ru/support/yandex-360/business/purchase/ru/plans/payment-plans-ru) Яндекс 360 Минимальный эта функциональность недоступна.
+Сканирование пользовательских ресурсов для указанного пользователя не будет выполнено, так как для [тарифа]({{ link-yandex }}/support/yandex-360/business/purchase/{{ lang }}/plans/payment-plans-ru) {{ yandex-360 }} Минимальный эта функциональность недоступна.
 
 
 ## Error while listing user disk `user-name`. Unauthenticated {#wrong-credentials}
@@ -25,7 +25,7 @@
 
 
 ## Error while listing user disk `user-name`. Internal {#unable-to-list-datasource}
-Яндекс 360 не позволяет подключаться к диску администратора организации.
+{{ yandex-360 }} не позволяет подключаться к диску администратора организации.
 
 
 ## Failed to list user {#user-not-found}

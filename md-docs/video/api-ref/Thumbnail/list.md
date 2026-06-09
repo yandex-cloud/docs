@@ -6,7 +6,7 @@ with pagination support.
 ## HTTP request
 
 ```
-GET https://video.api.cloud.yandex.net/video/v1/thumbnails
+GET https://video.{{ api-host }}/video/v1/thumbnails
 ```
 
 ## Query parameters {#yandex.cloud.video.v1.ListThumbnailRequest}
@@ -24,14 +24,18 @@ ID of the episode containing the thumbnails to list.
 
 The maximum string length in characters is 50.
 
-Includes only one of the fields `episodeId`, `videoId`. ||
+Includes only one of the fields `episodeId`, `videoId`.
+
+Specifies the parent resource to list thumbnails from (exactly one must be chosen). ||
 || videoId | **string**
 
 ID of the video containing the thumbnails to list.
 
 The maximum string length in characters is 50.
 
-Includes only one of the fields `episodeId`, `videoId`. ||
+Includes only one of the fields `episodeId`, `videoId`.
+
+Specifies the parent resource to list thumbnails from (exactly one must be chosen). ||
 || pageSize | **string** (int64)
 
 The maximum number of thumbnails to return per page.

@@ -5,7 +5,7 @@ Enables the specified rule.
 ## HTTP request
 
 ```
-POST https://serverless-eventrouter.api.cloud.yandex.net/eventrouter/v1/rules/{ruleId}:enable
+POST https://serverless-eventrouter.{{ api-host }}/eventrouter/v1/rules/{ruleId}:enable
 ```
 
 ## Path parameters

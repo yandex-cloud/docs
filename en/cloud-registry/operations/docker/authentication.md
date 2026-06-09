@@ -19,7 +19,6 @@ You can authenticate:
 
 * [As a user](#user):
   * With an IAM token. The IAM token's lifetime may not exceed {{ iam-token-lifetime }}.
-  * With an OAuth token. The token is valid for one year.
   * Using an API key and a service account. The API key maximum [lifetime](../../../iam/concepts/authorization/api-key.md#scoped-api-keys) is set manually when you create it.
 
 
@@ -36,7 +35,7 @@ You can authenticate:
   {% endnote %}
 
   1. If you do not have Docker yet, [install it](installation.md).
-  1. Get an [IAM token](../../../iam/operations/iam-token/create.md).
+  1. [Get an IAM token](../../../iam/operations/iam-token/create.md).
   1. Run this command:
 
       ```bash
@@ -49,30 +48,6 @@ You can authenticate:
       Where:
       * `<OAuth>`: Body of the previously obtained IAM token.
       * `--username`: Token type. `iam` means that an IAM token is used for authentication.
-      * `{{ cloud-registry }}`: The endpoint that Docker will access when working with the image registry. If it not specified, the request will be sent to [Docker Hub](https://hub.docker.com) as the default service.
-
-- Using an OAuth token {#oauth-token}
-
-  {% note info %}
-
-  {% include [oauth-token-lifetime](../../../_includes/oauth-token-lifetime.md) %}
-
-  {% endnote %}
-
-  1. If you do not have Docker yet, [install it](installation.md).
-  1. If you do not have an OAuth token yet, get one by following [this link]({{ link-cloud-oauth }}).
-  1. Run this command:
-
-     ```bash
-     echo <OAuth_token> | docker login \
-       --username oauth \
-       --password-stdin \
-      {{ cloud-registry }}
-     ```
-
-      Where:
-      * `<OAuth_token>`: Body of the previously obtained OAuth token.
-      * `--username`: Token type. `oauth` means that an OAuth token is used for authentication.
       * `{{ cloud-registry }}`: The endpoint that Docker will access when working with the image registry. If it not specified, the request will be sent to [Docker Hub](https://hub.docker.com) as the default service.
 
 - With an API key {#api-key}

@@ -1,10 +1,10 @@
-# Работа с топиками Apache Kafka® с помощью PySpark-заданий в Yandex Data Processing
+# Работа с топиками {{ KF }} с помощью PySpark-заданий в {{ dataproc-full-name }}
 
-# Работа с топиками Apache Kafka® с помощью PySpark-заданий в Yandex Data Processing
+# Работа с топиками {{ KF }} с помощью PySpark-заданий в {{ dataproc-full-name }}
 
-Кластеры Yandex Data Processing поддерживают интеграцию с кластерами Managed Service for Apache Kafka®. Вы можете записывать сообщения в топики Apache Kafka® и читать сообщения из топиков с помощью [PySpark-заданий](../../data-proc/operations/jobs-pyspark.md). При чтении поддерживается пакетная обработка (batch processing) и потоковая обработка (stream processing).
+Кластеры {{ dataproc-name }} поддерживают интеграцию с кластерами {{ mkf-name }}. Вы можете записывать сообщения в топики {{ KF }} и читать сообщения из топиков с помощью [PySpark-заданий](../../data-proc/operations/jobs-pyspark.md). При чтении поддерживается пакетная обработка (batch processing) и потоковая обработка (stream processing).
 
-Чтобы настроить интеграцию между кластерами Managed Service for Apache Kafka® и Yandex Data Processing:
+Чтобы настроить интеграцию между кластерами {{ mkf-name }} и {{ dataproc-name }}:
 
 1. [Подготовьте инфраструктуру](#infra).
 1. [Создайте задания PySpark](#create-jobs).
@@ -16,10 +16,10 @@
 
 В стоимость поддержки описываемого решения входят:
 
-* Плата за кластер Managed Service for Apache Kafka®: использование вычислительных ресурсов, выделенных хостам (в том числе хостам ZooKeeper), и дискового пространства (см. [тарифы Apache Kafka®](../pricing.md)).
-* Плата за кластер Yandex Data Processing (см. [тарифы Yandex Data Processing](../../data-proc/pricing.md)).
-* Плата за NAT-шлюз (см. [тарифы Virtual Private Cloud](../../vpc/pricing.md)).
-* Плата за бакет Object Storage: хранение данных и выполнение операций с ними (см. [тарифы Object Storage](../../storage/pricing.md)).
+* Плата за кластер {{ mkf-name }}: использование вычислительных ресурсов, выделенных хостам (в том числе хостам {{ ZK }}), и дискового пространства (см. [тарифы {{ KF }}](../pricing.md)).
+* Плата за кластер {{ dataproc-name }} (см. [тарифы {{ dataproc-name }}](../../data-proc/pricing.md)).
+* Плата за NAT-шлюз (см. [тарифы {{ vpc-name }}](../../vpc/pricing.md)).
+* Плата за бакет {{ objstorage-name }}: хранение данных и выполнение операций с ними (см. [тарифы {{ objstorage-name }}](../../storage/pricing.md)).
 
 
 ## Подготовьте инфраструктуру {#infra}
@@ -29,7 +29,7 @@
 * Вручную {#manual}
 
    1. [Создайте облачную сеть](../../vpc/operations/network-create.md) `dataproc-network` без подсетей.
-   1. [Создайте подсеть](../../vpc/operations/subnet-create.md) `dataproc-subnet-b` в зоне доступности `ru-central1-b`.
+   1. [Создайте подсеть](../../vpc/operations/subnet-create.md) `dataproc-subnet-b` в зоне доступности `{{ region-id }}-b`.
    1. [Настройте NAT-шлюз](../../vpc/operations/create-nat-gateway.md) для подсети `dataproc-subnet-b`.
    1. [Создайте группу безопасности](../../vpc/operations/security-group-create.md) `dataproc-security-group` в сети `dataproc-network`.
    1. [Настройте группу безопасности](../../data-proc/operations/cluster-create.md#change-security-groups).
@@ -42,12 +42,12 @@
 
    1. [Создайте бакет](../../storage/operations/buckets/create.md) `dataproc-bucket`.
    1. [Предоставьте сервисному аккаунту](../../storage/operations/buckets/edit-acl.md) `dataproc-sa` разрешение `FULL_CONTROL` на бакет `dataproc-bucket`.
-   1. [Создайте кластер Yandex Data Processing](../../data-proc/operations/cluster-create.md#create) с параметрами:
+   1. [Создайте кластер {{ dataproc-name }}](../../data-proc/operations/cluster-create.md#create) с параметрами:
 
-      * **Имя кластера** — `dataproc-cluster`.
-      * **Окружение** — `PRODUCTION`.
-      * **Версия** — `2.1`.
-      * **Сервисы**:
+      * **{{ ui-key.yacloud.mdb.forms.base_field_name }}** — `dataproc-cluster`.
+      * **{{ ui-key.yacloud.mdb.forms.base_field_environment }}** — `PRODUCTION`.
+      * **{{ ui-key.yacloud.mdb.forms.config_field_version }}** — `2.1`.
+      * **{{ ui-key.yacloud.mdb.forms.config_field_services }}**:
 
          * `HDFS`
          * `LIVY`
@@ -55,39 +55,39 @@
          * `TEZ`
          * `YARN`
 
-      * **Сервисный аккаунт** — `dataproc-sa`.
-      * **Зона доступности** — `ru-central1-b`.
-      * **Имя бакета** — `dataproc-bucket`.
-      * **Сеть** — `dataproc-network`.
-      * **Группы безопасности** — `dataproc-security-group`.
-      * **Подкластеры** — мастер, один подкластер `Data` и один подкластер `Compute`.
+      * **{{ ui-key.yacloud.mdb.forms.base_field_service-account }}** — `dataproc-sa`.
+      * **{{ ui-key.yacloud.mdb.forms.config_field_zone }}** — `{{ region-id }}-b`.
+      * **{{ ui-key.yacloud.mdb.forms.config_field_bucket }}** — `dataproc-bucket`.
+      * **{{ ui-key.yacloud.mdb.forms.config_field_network }}** — `dataproc-network`.
+      * **{{ ui-key.yacloud.mdb.forms.field_security-group }}** — `dataproc-security-group`.
+      * **{{ ui-key.yacloud.mdb.forms.section_subclusters }}** — мастер, один подкластер `Data` и один подкластер `Compute`.
 
-   1. [Создайте кластер Managed Service for Apache Kafka®](../operations/cluster-create.md#create-cluster) с параметрами:
+   1. [Создайте кластер {{ mkf-name }}](../operations/cluster-create.md#create-cluster) с параметрами:
 
-      * **Имя кластера** — `dataproc-kafka`.
-      * **Окружение** — `PRODUCTION`.
-      * **Версия** — `3.5`.
-      * **Зона доступности** — `ru-central1-b`.
-      * **Сеть** — `dataproc-network`.
-      * **Группы безопасности** — `dataproc-security-group`.
+      * **{{ ui-key.yacloud.mdb.forms.base_field_name }}** — `dataproc-kafka`.
+      * **{{ ui-key.yacloud.mdb.forms.base_field_environment }}** — `PRODUCTION`.
+      * **{{ ui-key.yacloud.mdb.forms.base_field_version }}** — `3.5`.
+      * **{{ ui-key.yacloud.mdb.forms.config_field_zone }}** — `{{ region-id }}-b`.
+      * **{{ ui-key.yacloud.mdb.forms.config_field_network }}** — `dataproc-network`.
+      * **{{ ui-key.yacloud.mdb.forms.field_security-group }}** — `dataproc-security-group`.
       * **Подсеть** — `dataproc-subnet-b`.
 
-   1. [Создайте топик Apache Kafka®](../operations/cluster-topics.md#create-topic) с параметрами:
+   1. [Создайте топик {{ KF }}](../operations/cluster-topics.md#create-topic) с параметрами:
 
       * **Имя** — `dataproc-kafka-topic`.
-      * **Количество разделов** — `1`.
-      * **Фактор репликации** — `1`.
+      * **{{ ui-key.yacloud.kafka.label_partitions }}** — `1`.
+      * **{{ ui-key.yacloud.kafka.label_replication-factor }}** — `1`.
 
-   1. [Создайте пользователя Apache Kafka®](../operations/cluster-accounts.md#create-user) с параметрами:
+   1. [Создайте пользователя {{ KF }}](../operations/cluster-accounts.md#create-user) с параметрами:
 
       * **Имя** — `user1`.
       * **Пароль** — `password1`.
       * **Топики, на которые выдаются разрешения пользователю** — `*` (все топики).
       * **Разрешения на топики** — `ACCESS_ROLE_CONSUMER`, `ACCESS_ROLE_PRODUCER` и `ACCESS_ROLE_ADMIN`.
 
-* Terraform {#tf}
+* {{ TF }} {#tf}
 
-   1. Если у вас еще нет Terraform, [установите его](../../tutorials/infrastructure-management/terraform-quickstart.md#install-terraform).
+   1. Если у вас еще нет {{ TF }}, [установите его](../../tutorials/infrastructure-management/terraform-quickstart.md#install-terraform).
    1. [Получите данные для аутентификации](../../tutorials/infrastructure-management/terraform-quickstart.md#get-credentials). Вы можете добавить их в переменные окружения или указать далее в файле с настройками провайдера.
    1. [Настройте и инициализируйте провайдер](../../tutorials/infrastructure-management/terraform-quickstart.md#configure-provider). Чтобы не создавать конфигурационный файл с настройками провайдера вручную, [скачайте его](https://github.com/yandex-cloud-examples/yc-terraform-provider-settings/blob/main/provider.tf).
    1. Поместите конфигурационный файл в отдельную рабочую директорию и [укажите значения параметров](../../tutorials/infrastructure-management/terraform-quickstart.md#configure-provider). Если данные для аутентификации не были добавлены в переменные окружения, укажите их в конфигурационном файле.
@@ -96,30 +96,30 @@
       В этом файле описаны:
 
       * [сеть](../../vpc/concepts/network.md#network);
-      * [NAT-шлюз](../../vpc/concepts/gateways.md) и таблица маршрутизации, необходимые для работы Yandex Data Processing;
+      * [NAT-шлюз](../../vpc/concepts/gateways.md) и таблица маршрутизации, необходимые для работы {{ dataproc-name }};
       * [подсеть](../../vpc/concepts/network.md#subnet);
-      * [группа безопасности](../../vpc/concepts/security-groups.md), необходимая для кластеров Yandex Data Processing и Managed Service for Apache Kafka®;
-      * [сервисный аккаунт](../../iam/concepts/users/service-accounts.md), необходимый для работы кластера Yandex Data Processing;
-      * сервисный аккаунт для управления бакетом Yandex Object Storage;
-      * [бакет Yandex Object Storage](../../storage/concepts/bucket.md);
+      * [группа безопасности](../../vpc/concepts/security-groups.md), необходимая для кластеров {{ dataproc-name }} и {{ mkf-name }};
+      * [сервисный аккаунт](../../iam/concepts/users/service-accounts.md), необходимый для работы кластера {{ dataproc-name }};
+      * сервисный аккаунт для управления бакетом {{ objstorage-full-name }};
+      * [бакет {{ objstorage-full-name }}](../../storage/concepts/bucket.md);
       * [статический ключ доступа](../../iam/concepts/authorization/access-key.md), необходимый для выдачи сервисному аккаунту нужных разрешений на бакет;
-      * кластер Yandex Data Processing;
-      * кластер Managed Service for Apache Kafka®;
-      * пользователь Apache Kafka®;
-      * топик Apache Kafka®.
+      * кластер {{ dataproc-name }};
+      * кластер {{ mkf-name }};
+      * пользователь {{ KF }};
+      * топик {{ KF }}.
 
    1. Укажите в файле `kafka-and-data-proc.tf`:
 
       * `folder_id` — идентификатор облачного каталога, такой же, как в настройках провайдера.
-      * `dp_ssh_key` — абсолютный путь к публичному ключу для кластера Yandex Data Processing. [Подробнее о подключении к хосту Yandex Data Processing по SSH](../../data-proc/operations/connect-ssh.md).
+      * `dp_ssh_key` — абсолютный путь к публичному ключу для кластера {{ dataproc-name }}. [Подробнее о подключении к хосту {{ dataproc-name }} по SSH](../../data-proc/operations/connect-ssh.md).
 
-   1. Проверьте корректность файлов конфигурации Terraform с помощью команды:
+   1. Проверьте корректность файлов конфигурации {{ TF }} с помощью команды:
 
       ```bash
       terraform validate
       ```
 
-      Если в файлах конфигурации есть ошибки, Terraform на них укажет.
+      Если в файлах конфигурации есть ошибки, {{ TF }} на них укажет.
 
    1. Создайте необходимую инфраструктуру:
 
@@ -141,7 +141,7 @@
          1. Подтвердите изменение ресурсов.
          1. Дождитесь завершения операции.
 
-      В указанном каталоге будут созданы все требуемые ресурсы. Проверить появление ресурсов и их настройки можно в [консоли управления](https://console.yandex.cloud).
+      В указанном каталоге будут созданы все требуемые ресурсы. Проверить появление ресурсов и их настройки можно в [консоли управления]({{ link-console-main }}).
 
 {% endlist %}
 
@@ -151,7 +151,7 @@
 
    {% cut "`kafka-write.py`" %}
 
-   Скрипт для записи сообщений в топик Apache Kafka®:
+   Скрипт для записи сообщений в топик {{ KF }}:
 
    ```python
    #!/usr/bin/env python3
@@ -266,11 +266,11 @@
 
    {% endcut %}
 
-1. [Получите FQDN хоста Apache Kafka®](../operations/connect/index.md#get-fqdn) и укажите FQDN в каждом скрипте.
+1. [Получите FQDN хоста {{ KF }}](../operations/connect/index.md#get-fqdn) и укажите FQDN в каждом скрипте.
 1. [Загрузите в корень бакета](../../storage/operations/objects/upload.md) подготовленные скрипты.
-1. [Создайте задание PySpark](../../data-proc/operations/jobs-pyspark.md#create) для записи сообщения в топик Apache Kafka®. В поле **Main python файл** укажите путь до скрипта `s3a://dataproc-bucket/kafka-write.py`.
+1. [Создайте задание PySpark](../../data-proc/operations/jobs-pyspark.md#create) для записи сообщения в топик {{ KF }}. В поле **{{ ui-key.yacloud.dataproc.jobs.field_main-python-file }}** укажите путь до скрипта `s3a://dataproc-bucket/kafka-write.py`.
 1. Дождитесь, когда [статус задания](../../data-proc/operations/jobs-pyspark.md#get-info) изменится на `Done`.
-1. Убедитесь, что данные в топик были успешно записаны. Для этого создайте новое задание PySpark для чтения из топика и для пакетной обработки данных. В поле **Main python файл** укажите путь до скрипта `s3a://dataproc-bucket/kafka-read-batch.py`.
+1. Убедитесь, что данные в топик были успешно записаны. Для этого создайте новое задание PySpark для чтения из топика и для пакетной обработки данных. В поле **{{ ui-key.yacloud.dataproc.jobs.field_main-python-file }}** укажите путь до скрипта `s3a://dataproc-bucket/kafka-read-batch.py`.
 1. Дождитесь, когда статус нового задания изменится на `Done`.
 1. [Скачайте из бакета](../../storage/operations/objects/download.md) файл с прочитанными данными:
 
@@ -285,7 +285,7 @@
 
    Файл хранится в новой папке `kafka-read-batch-output` в бакете.
 
-1. Прочитайте сообщения из топика при потоковой обработке. Для этого создайте еще одно задание PySpark. В поле **Main python файл** укажите путь до скрипта `s3a://dataproc-bucket/kafka-read-stream.py`.
+1. Прочитайте сообщения из топика при потоковой обработке. Для этого создайте еще одно задание PySpark. В поле **{{ ui-key.yacloud.dataproc.jobs.field_main-python-file }}** укажите путь до скрипта `s3a://dataproc-bucket/kafka-read-stream.py`.
 1. Дождитесь, когда статус нового задания изменится на `Done`.
 1. Скачайте из бакета файлы с прочитанными данными:
 
@@ -309,7 +309,7 @@
 
 {% note info %}
 
-Вы можете просматривать логи выполнения заданий и искать в них информацию с помощью сервиса [Yandex Cloud Logging](../../logging/index.md). Подробнее см. в разделе [Работа с логами](../../data-proc/operations/logging.md).
+Вы можете просматривать логи выполнения заданий и искать в них информацию с помощью сервиса [{{ cloud-logging-full-name }}](../../logging/index.md). Подробнее в разделе [{#T}](../../data-proc/operations/logging.md).
 
 {% endnote %}
 
@@ -324,8 +324,8 @@
 
     * Вручную {#manual}
 
-        1. [Кластер Yandex Data Processing](../../data-proc/operations/cluster-delete.md).
-        1. [Кластер Managed Service for Apache Kafka®](../operations/cluster-delete.md).
+        1. [Кластер {{ dataproc-name }}](../../data-proc/operations/cluster-delete.md).
+        1. [Кластер {{ mkf-name }}](../operations/cluster-delete.md).
         1. [Бакет](../../storage/operations/buckets/delete.md).
         1. [Группу безопасности](../../vpc/operations/security-group-delete.md).
         1. [Подсеть](../../vpc/operations/subnet-delete.md).
@@ -334,13 +334,13 @@
         1. [Сеть](../../vpc/operations/network-delete.md).
         1. [Сервисный аккаунт](../../iam/operations/sa/delete.md).
 
-    * Terraform {#tf}
+    * {{ TF }} {#tf}
 
         1. В терминале перейдите в директорию с планом инфраструктуры.
         
             {% note warning %}
         
-            Убедитесь, что в директории нет Terraform-манифестов с ресурсами, которые вы хотите сохранить. Terraform удаляет все ресурсы, которые были созданы с помощью манифестов в текущей директории.
+            Убедитесь, что в директории нет {{ TF }}-манифестов с ресурсами, которые вы хотите сохранить. {{ TF }} удаляет все ресурсы, которые были созданы с помощью манифестов в текущей директории.
         
             {% endnote %}
         
@@ -354,6 +354,6 @@
         
             1. Подтвердите удаление ресурсов и дождитесь завершения операции.
         
-            Все ресурсы, которые были описаны в Terraform-манифестах, будут удалены.
+            Все ресурсы, которые были описаны в {{ TF }}-манифестах, будут удалены.
 
     {% endlist %}

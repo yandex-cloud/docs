@@ -5,7 +5,7 @@ Lists operations for the specified rule.
 ## HTTP request
 
 ```
-GET https://serverless-eventrouter.api.cloud.yandex.net/eventrouter/v1/rules/{ruleId}/operations
+GET https://serverless-eventrouter.{{ api-host }}/eventrouter/v1/rules/{ruleId}/operations
 ```
 
 ## Path parameters

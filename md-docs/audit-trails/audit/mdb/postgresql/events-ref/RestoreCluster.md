@@ -7025,7 +7025,12 @@
           "emergencyUsageThreshold": "string",
           "diskSizeLimit": "string"
         },
-        "fullVersion": "string"
+        "fullVersion": "string",
+        "connectionManager": {
+          "enabled": "boolean",
+          "connectionsFolderId": "string",
+          "secretsFolderId": "string"
+        }
       },
       "networkId": "string",
       "health": "string",
@@ -7342,6 +7347,7 @@ Acceptable values are 7 to 60, inclusive. ||
 || performanceDiagnostics | **[PerformanceDiagnostics](#yandex.cloud.mdb.postgresql.v1.PerformanceDiagnostics)** ||
 || diskSizeAutoscaling | **[DiskSizeAutoscaling](#yandex.cloud.mdb.postgresql.v1.DiskSizeAutoscaling)** ||
 || fullVersion | **string** ||
+|| connectionManager | **[ClusterConnectionManager](#yandex.cloud.mdb.v1.ClusterConnectionManager)** ||
 |#
 
 ## PostgresqlConfigSet11 {#yandex.cloud.mdb.postgresql.v1.config.PostgresqlConfigSet11}
@@ -8898,7 +8904,8 @@ Acceptable values are 1048576 to 549755813888, inclusive. ||
 - `SHARED_PRELOAD_LIBRARIES_PG_CRON`
 - `SHARED_PRELOAD_LIBRARIES_PGLOGICAL`
 - `SHARED_PRELOAD_LIBRARIES_PG_PREWARM`
-- `SHARED_PRELOAD_LIBRARIES_PGAUDIT` ||
+- `SHARED_PRELOAD_LIBRARIES_PGAUDIT`
+- `SHARED_PRELOAD_LIBRARIES_SPQRGUARD` ||
 || autoExplainLogMinDuration | **string** (int64) ||
 || autoExplainLogAnalyze | **boolean** ||
 || autoExplainLogBuffers | **boolean** ||
@@ -9248,7 +9255,8 @@ Acceptable values are 1048576 to 549755813888, inclusive. ||
 - `SHARED_PRELOAD_LIBRARIES_PG_CRON`
 - `SHARED_PRELOAD_LIBRARIES_PGLOGICAL`
 - `SHARED_PRELOAD_LIBRARIES_PG_PREWARM`
-- `SHARED_PRELOAD_LIBRARIES_PGAUDIT` ||
+- `SHARED_PRELOAD_LIBRARIES_PGAUDIT`
+- `SHARED_PRELOAD_LIBRARIES_SPQRGUARD` ||
 || autoExplainLogMinDuration | **string** (int64) ||
 || autoExplainLogAnalyze | **boolean** ||
 || autoExplainLogBuffers | **boolean** ||
@@ -9596,7 +9604,8 @@ Acceptable values are 1048576 to 549755813888, inclusive. ||
 - `SHARED_PRELOAD_LIBRARIES_PGLOGICAL`
 - `SHARED_PRELOAD_LIBRARIES_PG_PREWARM`
 - `SHARED_PRELOAD_LIBRARIES_PGAUDIT`
-- `SHARED_PRELOAD_LIBRARIES_ANON` ||
+- `SHARED_PRELOAD_LIBRARIES_ANON`
+- `SHARED_PRELOAD_LIBRARIES_SPQRGUARD` ||
 || autoExplainLogMinDuration | **string** (int64) ||
 || autoExplainLogAnalyze | **boolean** ||
 || autoExplainLogBuffers | **boolean** ||
@@ -9948,7 +9957,8 @@ Acceptable values are 1048576 to 549755813888, inclusive. ||
 - `SHARED_PRELOAD_LIBRARIES_PGLOGICAL`
 - `SHARED_PRELOAD_LIBRARIES_PG_PREWARM`
 - `SHARED_PRELOAD_LIBRARIES_PGAUDIT`
-- `SHARED_PRELOAD_LIBRARIES_ANON` ||
+- `SHARED_PRELOAD_LIBRARIES_ANON`
+- `SHARED_PRELOAD_LIBRARIES_SPQRGUARD` ||
 || autoExplainLogMinDuration | **string** (int64) ||
 || autoExplainLogAnalyze | **boolean** ||
 || autoExplainLogBuffers | **boolean** ||
@@ -10304,7 +10314,8 @@ Acceptable values are 1048576 to 549755813888, inclusive. ||
 - `SHARED_PRELOAD_LIBRARIES_PG_PREWARM`
 - `SHARED_PRELOAD_LIBRARIES_PGAUDIT`
 - `SHARED_PRELOAD_LIBRARIES_ANON`
-- `SHARED_PRELOAD_LIBRARIES_AGE` ||
+- `SHARED_PRELOAD_LIBRARIES_AGE`
+- `SHARED_PRELOAD_LIBRARIES_SPQRGUARD` ||
 || autoExplainLogMinDuration | **string** (int64) ||
 || autoExplainLogAnalyze | **boolean** ||
 || autoExplainLogBuffers | **boolean** ||
@@ -10661,7 +10672,8 @@ Acceptable values are 1048576 to 549755813888, inclusive. ||
 - `SHARED_PRELOAD_LIBRARIES_PG_PREWARM`
 - `SHARED_PRELOAD_LIBRARIES_PGAUDIT`
 - `SHARED_PRELOAD_LIBRARIES_ANON`
-- `SHARED_PRELOAD_LIBRARIES_AGE` ||
+- `SHARED_PRELOAD_LIBRARIES_AGE`
+- `SHARED_PRELOAD_LIBRARIES_SPQRGUARD` ||
 || autoExplainLogMinDuration | **string** (int64) ||
 || autoExplainLogAnalyze | **boolean** ||
 || autoExplainLogBuffers | **boolean** ||
@@ -11019,7 +11031,8 @@ Acceptable values are 0 to 549755813888, inclusive. ||
 - `SHARED_PRELOAD_LIBRARIES_PG_PREWARM`
 - `SHARED_PRELOAD_LIBRARIES_PGAUDIT`
 - `SHARED_PRELOAD_LIBRARIES_ANON`
-- `SHARED_PRELOAD_LIBRARIES_AGE` ||
+- `SHARED_PRELOAD_LIBRARIES_AGE`
+- `SHARED_PRELOAD_LIBRARIES_SPQRGUARD` ||
 || autoExplainLogMinDuration | **string** (int64) ||
 || autoExplainLogAnalyze | **boolean** ||
 || autoExplainLogBuffers | **boolean** ||
@@ -11385,7 +11398,8 @@ Acceptable values are 0 to 549755813888, inclusive. ||
 - `SHARED_PRELOAD_LIBRARIES_PG_PREWARM`
 - `SHARED_PRELOAD_LIBRARIES_PGAUDIT`
 - `SHARED_PRELOAD_LIBRARIES_ANON`
-- `SHARED_PRELOAD_LIBRARIES_AGE` ||
+- `SHARED_PRELOAD_LIBRARIES_AGE`
+- `SHARED_PRELOAD_LIBRARIES_SPQRGUARD` ||
 || autoExplainLogMinDuration | **string** (int64) ||
 || autoExplainLogAnalyze | **boolean** ||
 || autoExplainLogBuffers | **boolean** ||
@@ -11751,7 +11765,8 @@ Acceptable values are 0 to 549755813888, inclusive. ||
 - `SHARED_PRELOAD_LIBRARIES_PG_PREWARM`
 - `SHARED_PRELOAD_LIBRARIES_PGAUDIT`
 - `SHARED_PRELOAD_LIBRARIES_ANON`
-- `SHARED_PRELOAD_LIBRARIES_AGE` ||
+- `SHARED_PRELOAD_LIBRARIES_AGE`
+- `SHARED_PRELOAD_LIBRARIES_SPQRGUARD` ||
 || autoExplainLogMinDuration | **string** (int64) ||
 || autoExplainLogAnalyze | **boolean** ||
 || autoExplainLogBuffers | **boolean** ||
@@ -12117,7 +12132,8 @@ Acceptable values are 0 to 549755813888, inclusive. ||
 - `SHARED_PRELOAD_LIBRARIES_PG_PREWARM`
 - `SHARED_PRELOAD_LIBRARIES_PGAUDIT`
 - `SHARED_PRELOAD_LIBRARIES_ANON`
-- `SHARED_PRELOAD_LIBRARIES_AGE` ||
+- `SHARED_PRELOAD_LIBRARIES_AGE`
+- `SHARED_PRELOAD_LIBRARIES_SPQRGUARD` ||
 || autoExplainLogMinDuration | **string** (int64) ||
 || autoExplainLogAnalyze | **boolean** ||
 || autoExplainLogBuffers | **boolean** ||
@@ -12290,6 +12306,15 @@ Acceptable values are 0 to 100, inclusive. ||
 
 Acceptable values are 0 to 100, inclusive. ||
 || diskSizeLimit | **string** (int64) ||
+|#
+
+## ClusterConnectionManager {#yandex.cloud.mdb.v1.ClusterConnectionManager}
+
+#|
+||Field | Description ||
+|| enabled | **boolean** ||
+|| connectionsFolderId | **string** ||
+|| secretsFolderId | **string** ||
 |#
 
 ## MaintenanceWindow {#yandex.cloud.mdb.postgresql.v1.MaintenanceWindow}

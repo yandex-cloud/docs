@@ -5,7 +5,7 @@ Lists origins of origin group.
 ## HTTP request
 
 ```
-GET https://cdn.api.cloud.yandex.net/cdn/v1/origins
+GET https://cdn.{{ api-host }}/cdn/v1/origins
 ```
 
 ## Query parameters {#yandex.cloud.cdn.v1.ListOriginsRequest}

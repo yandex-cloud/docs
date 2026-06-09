@@ -1,22 +1,22 @@
-# Анализ производительности и оптимизация Managed Service for MySQL®
+# Анализ производительности и оптимизация {{ mmy-name }}
 
-# Анализ производительности и оптимизация Managed Service for MySQL®
+# Анализ производительности и оптимизация {{ mmy-name }}
 
-К снижению производительности кластера Managed Service for MySQL® обычно приводят следующие проблемы:
+К снижению производительности кластера {{ mmy-name }} обычно приводят следующие проблемы:
 
 * [высокая утилизация CPU, дискового I/O и сети](#cpu-io-deficit);
-* [неэффективное выполнение запросов в MySQL®](#inefficient-queries);
+* [неэффективное выполнение запросов в {{ MY }}](#inefficient-queries);
 * [блокировки](#localize-locking-issues).
 
-Инструменты [мониторинга](../../managed-mysql/operations/monitoring.md) MySQL® и [диагностики производительности](../../managed-mysql/operations/performance-diagnostics.md) кластера Managed Service for MySQL®, а также специальные запросы MySQL® помогут эти проблемы обнаружить.
+Инструменты [мониторинга](../../managed-mysql/operations/monitoring.md) {{ MY }} и [диагностики производительности](../../managed-mysql/operations/performance-diagnostics.md) кластера {{ mmy-name }}, а также специальные запросы {{ MY }} помогут эти проблемы обнаружить.
 
 ## Перед началом работы {#before-start}
 
 1. Выберите базы данных для диагностики.
 1. [Активируйте сбор статистики](../../managed-mysql/operations/performance-diagnostics.md).
-1. [Создайте пользователя MySQL®](../../managed-mysql/operations/cluster-users.md#adduser) и [назначьте ему административную привилегию](../../managed-mysql/operations/grant.md#grant-privilege) `PROCESS` в настройке **Global permissions**. Эта привилегия действует на уровне кластера и задается в [настройках MySQL® на уровне пользователя](../../managed-mysql/concepts/settings-list.md#setting-administrative-privileges). Диагностические запросы необходимо выполнять от имени созданного пользователя.
+1. [Создайте пользователя {{ MY }}](../../managed-mysql/operations/cluster-users.md#adduser) и [назначьте ему административную привилегию](../../managed-mysql/operations/grant.md#grant-privilege) `PROCESS` в настройке **Global permissions**. Эта привилегия действует на уровне кластера и задается в [настройках {{ MY }} на уровне пользователя](../../managed-mysql/concepts/settings-list.md#setting-administrative-privileges). Диагностические запросы необходимо выполнять от имени созданного пользователя.
     
-    Подробнее о привилегиях пользователей см. в разделе [Права пользователей в Managed Service for MySQL®](../../managed-mysql/concepts/user-rights.md).
+    Подробнее о привилегиях пользователей см. в разделе [{#T}](../../managed-mysql/concepts/user-rights.md).
     
 ## Диагностика дефицита ресурсов {#cpu-io-deficit}
 
@@ -24,7 +24,7 @@
 
 Причины повышенной загрузки ресурсов можно установить специальными запросами:
 
-- Чтобы оценить потребление Disk IO разными потоками MySQL®, выполните запрос:
+- Чтобы оценить потребление Disk IO разными потоками {{ MY }}, выполните запрос:
 
    ```sql
    SELECT   t.name             AS thread_name,
@@ -44,9 +44,9 @@
    ORDER BY io.bytes DESC 
    ```
 
-   Запрос возвращает список файловых потоков MySQL®, упорядоченных по убыванию занимаемого объема памяти. Как правило, в начале списка находятся потоки, обслуживающие репликацию и [буфер InnoDB](https://dev.mysql.com/doc/refman/8.0/en/innodb-buffer-pool.html) для кеширования таблиц и индексов.
+   Запрос возвращает список файловых потоков {{ MY }}, упорядоченных по убыванию занимаемого объема памяти. Как правило, в начале списка находятся потоки, обслуживающие репликацию и [буфер InnoDB](https://dev.mysql.com/doc/refman/8.0/en/innodb-buffer-pool.html) для кеширования таблиц и индексов.
 
-- Чтобы оценить потребление ресурсов сети разными потоками MySQL®, выполните запрос:
+- Чтобы оценить потребление ресурсов сети разными потоками {{ MY }}, выполните запрос:
 
    ```sql
    SELECT   t.name                       AS thread_name,
@@ -73,11 +73,11 @@
    
    Следует обратить внимание на операции чтения и записи, работающие с большим числом строк. Они также могут вызывать повышенную нагрузку на сеть. В случае операций записи изменения в WAL будут переноситься на реплики и это дополнительно увеличит нагрузку на сеть.
 
-- Отследить потребление CPU отдельными запросами в MySQL® невозможно, но можно выявить неэффективно выполнявшиеся запросы (см. далее). 
+- Отследить потребление CPU отдельными запросами в {{ MY }} невозможно, но можно выявить неэффективно выполнявшиеся запросы (см. далее). 
 
 ## Диагностика неэффективного выполнения запросов {#inefficient-queries}
 
-Чтобы выявить проблемные запросы в MySQL®, выполните запрос:
+Чтобы выявить проблемные запросы в {{ MY }}, выполните запрос:
 
 ```sql
 SELECT *
@@ -89,7 +89,7 @@ LIMIT  10
 
 Следует обратить внимание на запросы с высокими значениями `ROWS_EXAMINED`, `ROWS_SORTED` или флагом `FULL_SCAN`.
 
-Подробнее об информации в выдаче см. в [документации MySQL®](https://dev.mysql.com/doc/mysql-em-plugin/en/myoem-metric-sysschema-statementanalysis-category.html).
+Подробнее об информации в выдаче см. в [документации {{ MY }}](https://dev.mysql.com/doc/mysql-em-plugin/en/myoem-metric-sysschema-statementanalysis-category.html).
 
 ## Диагностика наличия блокировок {#localize-locking-issues}
 
@@ -113,7 +113,7 @@ LIMIT  10
 
 Найденные в результате диагностики проблемные запросы можно попробовать оптимизировать. Существует несколько способов оптимизации:
 
-- проанализировать план запроса (query plan) с помощью [команды `EXPLAIN`](https://dev.mysql.com/doc/refman/5.7/en/using-explain.html) и воспользоваться приемами по оптимизации запросов из [документации MySQL®](https://dev.mysql.com/doc/refman/5.7/en/statement-optimization.html);
+- проанализировать план запроса (query plan) с помощью [команды `EXPLAIN`](https://dev.mysql.com/doc/refman/5.7/en/using-explain.html) и воспользоваться приемами по оптимизации запросов из [документации {{ MY }}](https://dev.mysql.com/doc/refman/5.7/en/statement-optimization.html);
 
 - [оптимизировать таблицы InnoDB](https://dev.mysql.com/doc/refman/5.7/en/optimizing-innodb.html), чтобы снизить нагрузку на диск.
 

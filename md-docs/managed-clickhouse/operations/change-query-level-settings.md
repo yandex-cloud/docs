@@ -1,27 +1,27 @@
-# Изменение настроек ClickHouse® на уровне запроса
+# Изменение настроек {{ CH }} на уровне запроса
 
-Вы можете задать [настройки ClickHouse® на уровне запроса](https://clickhouse.com/docs/en/operations/settings/query-level), чтобы гибко настроить базы данных в кластере Managed Service for ClickHouse®. Указать настройки можно несколькими способами:
+Вы можете задать [настройки {{ CH }} на уровне запроса]({{ ch.docs }}{{ lang }}/operations/settings/query-level), чтобы гибко настроить базы данных в кластере {{ mch-name }}. Указать настройки можно несколькими способами:
 
-* С помощью [интерфейсов Yandex Cloud](#yandex-cloud-interfaces). Так можно задать только [настройки ClickHouse®, доступные в Yandex Cloud](../concepts/settings-list.md#user-level-settings).
-* С помощью SQL-запросов. Так можно задать любые настройки ClickHouse® на уровне запроса. Способ, как установить настройки, зависит от их типа:
+* С помощью [интерфейсов {{ yandex-cloud }}](#yandex-cloud-interfaces). Так можно задать только [настройки {{ CH }}, доступные в {{ yandex-cloud }}](../concepts/settings-list.md#user-level-settings).
+* С помощью SQL-запросов. Так можно задать любые настройки {{ CH }} на уровне запроса. Способ, как установить настройки, зависит от их типа:
 
    * [Настройки пользователей](#user). В SQL-запросах `CREATE USER` и `ALTER USER` вы можете передать настройки в условии `SETTINGS`. В результате настройки применятся только к указанному пользователю.
 
-      Чтобы воспользоваться этим способом, при [создании](cluster-create.md) или [изменении](update.md#SQL-management) кластера включите опцию **Управление пользователями через SQL**. После этого нельзя будет управлять пользователями через интерфейсы Yandex Cloud: управление пользователями через SQL невозможно выключить.
+      Чтобы воспользоваться этим способом, при [создании](cluster-create.md) или [изменении](update.md#SQL-management) кластера включите опцию **{{ ui-key.yacloud.mdb.forms.database_field_sql-user-management }}**. После этого нельзя будет управлять пользователями через интерфейсы {{ yandex-cloud }}: управление пользователями через SQL невозможно выключить.
 
-   * [Настройки на уровне профиля](#settings-profile). В ClickHouse® [профиль настроек](https://clickhouse.com/docs/ru/operations/access-rights#settings-profiles-management) содержит их значения и ограничения, а также список ролей и пользователей, к которым применяется профиль. Настройки ClickHouse® передаются в SQL-запросах `CREATE SETTINGS PROFILE` и `ALTER SETTINGS PROFILE`.
+   * [Настройки на уровне профиля](#settings-profile). В {{ CH }} [профиль настроек]({{ ch.docs }}{{ lang }}/operations/access-rights#settings-profiles-management) содержит их значения и ограничения, а также список ролей и пользователей, к которым применяется профиль. Настройки {{ CH }} передаются в SQL-запросах `CREATE SETTINGS PROFILE` и `ALTER SETTINGS PROFILE`.
 
-      Чтобы воспользоваться этим способом, при [создании](cluster-create.md) или [изменении](update.md#SQL-management) кластера включите опцию **Управление пользователями через SQL**.
+      Чтобы воспользоваться этим способом, при [создании](cluster-create.md) или [изменении](update.md#SQL-management) кластера включите опцию **{{ ui-key.yacloud.mdb.forms.database_field_sql-user-management }}**.
 
-   * [Настройки сессии](#session). Во время сессии можно передать настройки ClickHouse® с помощью SQL-запроса `SET`. Так можно задать настройки в кластере с любой конфигурацией, но они будут действовать только для текущей сессии.
+   * [Настройки сессии](#session). Во время сессии можно передать настройки {{ CH }} с помощью SQL-запроса `SET`. Так можно задать настройки в кластере с любой конфигурацией, но они будут действовать только для текущей сессии.
 
       Способ подходит не для всех SQL-редакторов: в некоторых из них каждый запрос выполняется в отдельной сессии. Проверьте параметры своего SQL-редактора, прежде чем настраивать сессию.
 
-   * [Настройки подключения](#connection). Когда вы подключаетесь к базе данных с помощью утилиты [clickhouse-client](connect/clients.md#clickhouse-client), в команде для подключения можно передать настройки ClickHouse® с помощью флагов. Так можно задать настройки в кластере с любой конфигурацией, но они будут действовать только для установленного подключения.
+   * [Настройки подключения](#connection). Когда вы подключаетесь к базе данных с помощью утилиты [clickhouse-client](connect/clients.md#clickhouse-client), в команде для подключения можно передать настройки {{ CH }} с помощью флагов. Так можно задать настройки в кластере с любой конфигурацией, но они будут действовать только для установленного подключения.
 
-      Вы можете также указать настройки подключения в различных драйверах для ClickHouse® либо передать настройки в виде URL-параметров при отправке запросов HTTP API ClickHouse®. Подробнее об этих способах см. в [документации ClickHouse®](https://clickhouse.com/docs/en/interfaces/overview).
+      Вы можете также указать настройки подключения в различных драйверах для {{ CH }} либо передать настройки в виде URL-параметров при отправке запросов HTTP API {{ CH }}. Подробнее об этих способах см. в [документации {{ CH }}]({{ ch.docs }}{{ lang }}/interfaces/overview).
 
-## Получить список настроек ClickHouse® на уровне запроса {#get-list}
+## Получить список настроек {{ CH }} на уровне запроса {#get-list}
 
 {% list tabs group=instructions %}
 
@@ -34,63 +34,63 @@
       SELECT name, description, value FROM system.settings;
       ```
 
-      Результат содержит названия, описания и значения настроек ClickHouse® на уровне запроса. Результат показывает значения для текущей сессии и пользователя, установившего эту сессию.
+      Результат содержит названия, описания и значения настроек {{ CH }} на уровне запроса. Результат показывает значения для текущей сессии и пользователя, установившего эту сессию.
 
 {% endlist %}
 
-## Задать настройки ClickHouse® через интерфейсы Yandex Cloud {#yandex-cloud-interfaces}
+## Задать настройки {{ CH }} через интерфейсы {{ yandex-cloud }} {#yandex-cloud-interfaces}
 
 {% list tabs group=instructions %}
 
 - Консоль управления {#console}
 
-   Чтобы задать настройки ClickHouse®:
+   Чтобы задать настройки {{ CH }}:
 
-   1. В [консоли управления](https://console.yandex.cloud) выберите каталог, в котором находится кластер.
-   1. [Перейдите](../../console/operations/select-service.md#select-service) в сервис **Managed Service for&nbsp;ClickHouse**.
-   1. Нажмите на имя нужного кластера, затем перейдите в раздел **Пользователи**.
-   1. В строке с именем нужного пользователя нажмите кнопку ![image](../../_assets/console-icons/ellipsis.svg) и выберите **Настроить**.
-   1. В списке **Дополнительные настройки** разверните **settings** и задайте [настройки ClickHouse®](../concepts/settings-list.md#user-level-settings).
-   1. Нажмите кнопку **Сохранить изменения**.
+   1. В [консоли управления]({{ link-console-main }}) выберите каталог, в котором находится кластер.
+   1. Перейдите в сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-clickhouse }}**.
+   1. Нажмите на имя нужного кластера, затем перейдите в раздел **{{ ui-key.yacloud.clickhouse.cluster.switch_users }}**.
+   1. В строке с именем нужного пользователя нажмите кнопку ![image](../../_assets/console-icons/ellipsis.svg) и выберите **{{ ui-key.yacloud.mdb.forms.button_configure-settings }}**.
+   1. В списке **{{ ui-key.yacloud.mdb.forms.section_additional }}** разверните **settings** и задайте [настройки {{ CH }}](../concepts/settings-list.md#user-level-settings).
+   1. Нажмите кнопку **{{ ui-key.yacloud.mdb.forms.button_edit }}**.
 
 - CLI {#cli}
 
-   Если у вас еще нет интерфейса командной строки Yandex Cloud (CLI), [установите и инициализируйте его](../../cli/quickstart.md#install).
+   Если у вас еще нет интерфейса командной строки {{ yandex-cloud }} (CLI), [установите и инициализируйте его](../../cli/quickstart.md#install).
 
    По умолчанию используется каталог, указанный при [создании](../../cli/operations/profile/profile-create.md) профиля CLI. Чтобы изменить каталог по умолчанию, используйте команду `yc config set folder-id <идентификатор_каталога>`. Также для любой команды вы можете указать другой каталог с помощью параметров `--folder-name` или `--folder-id`. Если вы обращаетесь к ресурсу по имени, поиск будет выполнен в каталоге по умолчанию. Если вы обращаетесь к ресурсу по идентификатору, поиск будет выполнен глобально — во всех каталогах с учетом прав доступа.
 
-   Чтобы задать настройки ClickHouse®:
+   Чтобы задать настройки {{ CH }}:
 
    1. Посмотрите полный список настроек, установленных для пользователя:
 
       ```bash
-      yc managed-clickhouse user get <имя_пользователя> <имя_или_идентификатор_кластера>
+      {{ yc-mdb-ch }} user get <имя_пользователя> <имя_или_идентификатор_кластера>
       ```
 
    1. Посмотрите описание команды CLI для изменения настроек пользователя:
 
       ```bash
-      yc managed-clickhouse user update --help
+      {{ yc-mdb-ch }} user update --help
       ```
 
    1. Установите нужные значения параметров:
 
       ```bash
-      yc managed-clickhouse user update <имя_пользователя> \
+      {{ yc-mdb-ch }} user update <имя_пользователя> \
          --cluster-name=<имя_кластера> \
          --settings="<имя_параметра_1>=<значение_1>,<имя_параметра_2>=<значение_2>,..."
       ```
 
 
-- Terraform {#tf}
+- {{ TF }} {#tf}
 
-   Чтобы задать настройки ClickHouse®:
+   Чтобы задать настройки {{ CH }}:
 
-   1. Откройте актуальный конфигурационный файл Terraform с планом инфраструктуры.
+   1. Откройте актуальный конфигурационный файл {{ TF }} с планом инфраструктуры.
 
       О том, как создать такой файл, см. в разделе [Создание кластера](cluster-create.md).
 
-   1. В описании пользователя кластера Managed Service for ClickHouse®, в блоке `settings`, измените значения параметров:
+   1. В описании пользователя кластера {{ mch-name }}, в блоке `settings`, измените значения параметров:
 
       ```hcl
       resource "yandex_mdb_clickhouse_user" "<имя_пользователя>" {
@@ -105,14 +105,14 @@
 
    1. Проверьте корректность настроек.
 
-      1. В командной строке перейдите в каталог, в котором расположены актуальные конфигурационные файлы Terraform с планом инфраструктуры.
+      1. В командной строке перейдите в каталог, в котором расположены актуальные конфигурационные файлы {{ TF }} с планом инфраструктуры.
       1. Выполните команду:
       
          ```bash
          terraform validate
          ```
       
-         Если в файлах конфигурации есть ошибки, Terraform на них укажет.
+         Если в файлах конфигурации есть ошибки, {{ TF }} на них укажет.
 
    1. Подтвердите изменение ресурсов.
 
@@ -134,7 +134,7 @@
          1. Подтвердите изменение ресурсов.
          1. Дождитесь завершения операции.
 
-   Подробнее см. в [документации провайдера Terraform](../../terraform/resources/mdb_clickhouse_user.md).
+   Подробнее см. в [документации провайдера {{ TF }}]({{ tf-provider-resources-link }}/mdb_clickhouse_user).
 
 
 - REST API {#api}
@@ -145,7 +145,7 @@
         export IAM_TOKEN="<IAM-токен>"
         ```
 
-    1. Воспользуйтесь методом [User.Update](../api-ref/User/update.md) и выполните запрос, например, с помощью [cURL](https://curl.se/):
+    1. Воспользуйтесь методом [User.Update](../api-ref/User/update.md) и выполните запрос, например, с помощью {{ api-examples.rest.tool }}:
 
         {% note warning %}
         
@@ -158,10 +158,10 @@
             --request PATCH \
             --header "Authorization: Bearer $IAM_TOKEN" \
             --header "Content-Type: application/json" \
-            --url 'https://mdb.api.cloud.yandex.net/managed-clickhouse/v1/clusters/<идентификатор_кластера>/users/<имя_пользователя>' \
+            --url 'https://{{ api-host-mdb }}/managed-clickhouse/v1/clusters/<идентификатор_кластера>/users/<имя_пользователя>' \
             --data '{
                       "updateMask": "<перечень_изменяемых_настроек>",
-                      "settings": { <настройки_ClickHouse®> }
+                      "settings": { <настройки_{{ CH }}> }
                     }'
         ```
 
@@ -169,7 +169,7 @@
 
         * `updateMask` — перечень изменяемых параметров в одну строку через запятую.
 
-        * `settings` — нужные [настройки ClickHouse®](../concepts/settings-list.md#user-level-settings) с новыми значениями.
+        * `settings` — нужные [настройки {{ CH }}](../concepts/settings-list.md#user-level-settings) с новыми значениями.
 
         Идентификатор кластера можно запросить со [списком кластеров в каталоге](cluster-list.md#list-clusters). Имя пользователя можно запросить со [списком пользователей в кластере](cluster-users.md#list-users).
 
@@ -191,7 +191,7 @@
        
        Далее предполагается, что содержимое репозитория находится в директории `~/cloudapi/`.
 
-    1. Воспользуйтесь вызовом [UserService.Update](../api-ref/grpc/User/update.md) и выполните запрос, например, с помощью [gRPCurl](https://github.com/fullstorydev/grpcurl):
+    1. Воспользуйтесь вызовом [UserService.Update](../api-ref/grpc/User/update.md) и выполните запрос, например, с помощью {{ api-examples.grpc.tool }}:
 
         {% note warning %}
         
@@ -229,9 +229,9 @@
                       <перечень_изменяемых_настроек>
                     ]
                   },
-                  "settings": { <настройки_ClickHouse®> }
+                  "settings": { <настройки_{{ CH }}> }
                 }' \
-            mdb.api.cloud.yandex.net:443 \
+            {{ api-host-mdb }}:{{ port-https }} \
             yandex.cloud.mdb.clickhouse.v1.UserService.Update
         ```
 
@@ -239,7 +239,7 @@
 
         * `update_mask` — перечень изменяемых параметров в виде массива строк `paths[]`.
 
-        * `settings` — нужные [настройки ClickHouse®](../concepts/settings-list.md#user-level-settings) с новыми значениями.
+        * `settings` — нужные [настройки {{ CH }}](../concepts/settings-list.md#user-level-settings) с новыми значениями.
 
         Идентификатор кластера можно запросить со [списком кластеров в каталоге](cluster-list.md#list-clusters). Имя пользователя можно запросить со [списком пользователей в кластере](cluster-users.md#list-users).
 
@@ -247,11 +247,11 @@
 
 {% endlist %}
 
-## Задать настройки ClickHouse® в учетной записи пользователя {#user}
+## Задать настройки {{ CH }} в учетной записи пользователя {#user}
 
-Передать настройки ClickHouse® можно при [добавлении нового пользователя](#add-user) или [изменении настроек](#change-user-settings) уже созданного пользователя.
+Передать настройки {{ CH }} можно при [добавлении нового пользователя](#add-user) или [изменении настроек](#change-user-settings) уже созданного пользователя.
 
-### Добавить нового пользователя с настройками ClickHouse® {#add-user}
+### Добавить нового пользователя с настройками {{ CH }} {#add-user}
 
 {% list tabs group=instructions %}
 
@@ -263,7 +263,7 @@
       ```sql
       CREATE USER <имя_пользователя>
          IDENTIFIED WITH sha256_password BY '<пароль_пользователя>'
-         SETTINGS <список_настроек_ClickHouse®>;
+         SETTINGS <список_настроек_{{ CH }}>;
       ```
 
       {% note info %}
@@ -274,7 +274,7 @@
       
       {% endnote %}
 
-      В параметре `SETTINGS` помимо значения настройки можно указать ее минимальное и максимальное значение. Пример для настройки [idle_connection_timeout](https://clickhouse.com/docs/en/operations/settings/settings#idle_connection_timeout):
+      В параметре `SETTINGS` помимо значения настройки можно указать ее минимальное и максимальное значение. Пример для настройки [idle_connection_timeout]({{ ch.docs }}{{ lang }}/operations/settings/settings#idle_connection_timeout):
 
       ```sql
       CREATE USER <имя_пользователя>
@@ -282,11 +282,11 @@
          SETTINGS idle_connection_timeout = 60 MIN 5 MAX 120;
       ```
 
-      Подробнее о создании пользователей см. в [документации ClickHouse®](https://clickhouse.com/docs/ru/sql-reference/statements/create/user/).
+      Подробнее о создании пользователей см. в [документации {{ CH }}]({{ ch.docs }}{{ lang }}/sql-reference/statements/create/user).
 
 {% endlist %}
 
-### Изменить настройки ClickHouse® у пользователя {#change-user-settings}
+### Изменить настройки {{ CH }} у пользователя {#change-user-settings}
 
 {% list tabs group=instructions %}
 
@@ -296,18 +296,18 @@
    1. Измените учетную запись пользователя:
 
       ```sql
-      ALTER USER <имя_пользователя> SETTINGS <список_настроек_ClickHouse®>;
+      ALTER USER <имя_пользователя> SETTINGS <список_настроек_{{ CH }}>;
       ```
 
-      Подробнее об изменении учетных записей см. в [документации ClickHouse®](https://clickhouse.com/docs/ru/sql-reference/statements/alter/user).
+      Подробнее об изменении учетных записей см. в [документации {{ CH }}]({{ ch.docs }}{{ lang }}/sql-reference/statements/alter/user).
 
 {% endlist %}
 
-## Задать настройки ClickHouse® в профиле настроек {#settings-profile}
+## Задать настройки {{ CH }} в профиле настроек {#settings-profile}
 
-Передать настройки ClickHouse® можно при [создании](#create-settings-profile) или [изменении профиля настроек](#change-settings-profile).
+Передать настройки {{ CH }} можно при [создании](#create-settings-profile) или [изменении профиля настроек](#change-settings-profile).
 
-### Создать профиль с настройками ClickHouse® {#create-settings-profile}
+### Создать профиль с настройками {{ CH }} {#create-settings-profile}
 
 {% list tabs group=instructions %}
 
@@ -318,10 +318,10 @@
 
       ```sql
       CREATE SETTINGS PROFILE <название_профиля_настроек>
-         SETTINGS <список_настроек_ClickHouse®>;
+         SETTINGS <список_настроек_{{ CH }}>;
       ```
 
-      В параметре `SETTINGS` помимо значения настройки можно указать ее минимальное и максимальное значение. Пример для настройки [idle_connection_timeout](https://clickhouse.com/docs/en/operations/settings/settings#idle_connection_timeout):
+      В параметре `SETTINGS` помимо значения настройки можно указать ее минимальное и максимальное значение. Пример для настройки [idle_connection_timeout]({{ ch.docs }}{{ lang }}/operations/settings/settings#idle_connection_timeout):
 
       ```sql
       CREATE SETTINGS PROFILE <название_профиля_настроек>
@@ -332,15 +332,15 @@
 
       ```sql
       CREATE SETTINGS PROFILE <название_профиля_настроек>
-         SETTINGS <список_настроек_ClickHouse®>
+         SETTINGS <список_настроек_{{ CH }}>
          TO <имя_пользователя>;
       ```
 
-      Подробнее о создании профилей настроек см. в [документации ClickHouse®](https://clickhouse.com/docs/ru/sql-reference/statements/create/settings-profile).
+      Подробнее о создании профилей настроек см. в [документации {{ CH }}]({{ ch.docs }}{{ lang }}/sql-reference/statements/create/settings-profile).
 
 {% endlist %}
 
-### Изменить настройки ClickHouse® в профиле настроек {#change-settings-profile}
+### Изменить настройки {{ CH }} в профиле настроек {#change-settings-profile}
 
 {% list tabs group=instructions %}
 
@@ -351,14 +351,14 @@
 
       ```sql
       ALTER SETTINGS PROFILE <название_профиля_настроек>
-         SETTINGS <список_настроек_ClickHouse®>;
+         SETTINGS <список_настроек_{{ CH }}>;
       ```
 
-      В этом запросе можно задать граничные значения настроек и привязать профиль к пользователю. Подробнее об изменении профилей настроек см. в [документации ClickHouse®](https://clickhouse.com/docs/ru/sql-reference/statements/alter/settings-profile).
+      В этом запросе можно задать граничные значения настроек и привязать профиль к пользователю. Подробнее об изменении профилей настроек см. в [документации {{ CH }}]({{ ch.docs }}{{ lang }}/sql-reference/statements/alter/settings-profile).
 
 {% endlist %}
 
-## Задать настройки ClickHouse® в сессии {#session}
+## Задать настройки {{ CH }} в сессии {#session}
 
 {% list tabs group=instructions %}
 
@@ -368,7 +368,7 @@
    1. Выполните запрос:
 
       ```sql
-      SET <имя_пользователя> SETTINGS <список_настроек_ClickHouse®>;
+      SET <имя_пользователя> SETTINGS <список_настроек_{{ CH }}>;
       ```
 
       Примененные настройки будут действовать только во время открытой сессии.
@@ -387,7 +387,7 @@
 
 {% endlist %}
 
-## Задать настройки ClickHouse® при подключении к БД через командную строку {#connection}
+## Задать настройки {{ CH }} при подключении к БД через командную строку {#connection}
 
 {% list tabs group=instructions %}
 
@@ -400,40 +400,40 @@
       clickhouse-client --help
       ```
 
-      Большинство флагов в выводе команды — это расширенные настройки ClickHouse®.
+      Большинство флагов в выводе команды — это расширенные настройки {{ CH }}.
 
-   1. Выберите флаги с нужными настройками. Для этого соотнесите названия флагов с [названиями настроек ClickHouse®](https://clickhouse.com/docs/ru/operations/settings/settings).
+   1. Выберите флаги с нужными настройками. Для этого соотнесите названия флагов с [названиями настроек {{ CH }}]({{ ch.docs }}{{ lang }}/operations/settings/settings).
    1. Укажите выбранные флаги в команде на подключение к БД:
 
       * Подключение без SSL:
 
          ```bash
-         clickhouse-client --host <FQDN_любого_хоста_ClickHouse®> \
+         clickhouse-client --host <FQDN_любого_хоста_{{ CH }}> \
                            --user <имя_пользователя> \
                            --database <имя_БД> \
                            --port 9000 \
                            --ask-password \
-                           <флаги_с_настройками_ClickHouse®>
+                           <флаги_с_настройками_{{ CH }}>
          ```
 
       
       * Подключение с SSL:
 
          ```bash
-         clickhouse-client --host <FQDN_любого_хоста_ClickHouse®> \
+         clickhouse-client --host <FQDN_любого_хоста_{{ CH }}> \
                            --secure \
                            --user <имя_пользователя> \
                            --database <имя_БД> \
                            --port 9440 \
                            --ask-password \
-                           <флаги_с_настройками_ClickHouse®>
+                           <флаги_с_настройками_{{ CH }}>
          ```
 
 
-      * Пример подключения без SSL с настройкой [idle_connection_timeout](https://clickhouse.com/docs/en/operations/settings/settings#idle_connection_timeout):
+      * Пример подключения без SSL с настройкой [idle_connection_timeout]({{ ch.docs }}{{ lang }}/operations/settings/settings#idle_connection_timeout):
 
          ```bash
-         clickhouse-client --host rc1a-goh2a9tr********.mdb.yandexcloud.net \
+         clickhouse-client --host {{ host-name }}.{{ dns-zone }} \
                            --user user1 \
                            --database db1 \
                            --port 9440 \
@@ -455,4 +455,4 @@
 
 {% endlist %}
 
-_ClickHouse® является зарегистрированным товарным знаком [ClickHouse, Inc](https://clickhouse.com)._
+_{{ CH }} является зарегистрированным товарным знаком [ClickHouse, Inc](https://clickhouse.com)._

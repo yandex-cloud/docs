@@ -1,6 +1,6 @@
-# Пример использования Yandex Message Queue на Golang
+# Пример использования {{ message-queue-full-name }} на Golang
 
-С помощью [AWS SDK для Golang](https://aws.amazon.com/ru/sdk-for-go/) можно управлять очередями сообщений в Message Queue, отправлять и принимать сообщения.
+С помощью [AWS SDK для Golang](https://aws.amazon.com/ru/sdk-for-go/) можно управлять очередями сообщений в {{ message-queue-name }}, отправлять и принимать сообщения.
 
 ## Установка {#install}
 
@@ -9,7 +9,7 @@
 ## Подготовка к работе {#prepare}
 
 1. [Создайте сервисный аккаунт](../../iam/operations/sa/create.md).
-1. [Назначьте роль editor сервисному аккаунту](../../iam/operations/sa/assign-role-for-sa.md).
+1. [Назначьте роль {{ roles-editor }} сервисному аккаунту](../../iam/operations/sa/assign-role-for-sa.md).
 1. [Создайте статический ключ доступа](../../iam/operations/authentication/manage-access-keys.md#create-access-key).
 
 Задайте переменные окружения:
@@ -23,7 +23,7 @@ export AWS_SECRET_ACCESS_KEY="<секретный_ключ>"
 
 В этом примере:
 
-1. Устанавливается соединение с Message Queue.
+1. Устанавливается соединение с {{ message-queue-name }}.
 1. Создается очередь сообщений с именем `mq_example_golang_sdk`.
 1. В очередь передается сообщение с текстом `test message`.
 1. Сообщение считывается из очереди и отображается в терминале.
@@ -47,8 +47,8 @@ func main() {
 
 	customResolver := aws.EndpointResolverWithOptionsFunc(func(service, region string, options ...interface{}) (aws.Endpoint, error) {
 		return aws.Endpoint{
-			URL:           "https://message-queue.api.cloud.yandex.net",
-			SigningRegion: "ru-central1",
+			URL:           "https://message-queue.{{ api-host }}",
+			SigningRegion: "{{ region-id }}",
 		}, nil
 	})
 

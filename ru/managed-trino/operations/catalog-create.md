@@ -9,7 +9,7 @@ description: Следуя этой инструкции, вы создадите
 
 Для создания [каталога {{ TR }}](../concepts/index.md#catalog) с типом подключения [{{ connection-manager-name }}](../../metadata-hub/concepts/connection-manager.md) вашему аккаунту в {{ yandex-cloud }} нужна дополнительная роль [{{ roles-connection-manager-user }}](../../metadata-hub/security/connection-manager-roles.md#connection-manager-user), чтобы использовать подключения из {{ connection-manager-name }}.
 
-[Сервисному аккаунту](../../iam/concepts/users/service-accounts.md) кластера должны быть назначены роли [{{ roles-connection-manager-user }}](../../metadata-hub/security/connection-manager-roles.md#connection-manager-user) и [{{ roles-lockbox-payloadviewer }}](../../lockbox/security/index.md#lockbox-payloadViewer). Это даст кластеру нужные права для работы с подключениями из {{ connection-manager-name }}. Подробнее см. в разделе [Имперсонация](../concepts/impersonation.md).
+[Сервисному аккаунту](../../iam/concepts/users/service-accounts.md) кластера должны быть назначены роли [{{ roles-connection-manager-user }}](../../metadata-hub/security/connection-manager-roles.md#connection-manager-user) и [{{ roles-lockbox-payloadviewer }}](../../lockbox/security/index.md#lockbox-payloadViewer). Это даст кластеру нужные права для работы с подключениями из {{ connection-manager-name }}. Подробнее в разделе [Имперсонация](../concepts/impersonation.md).
 
 О назначении ролей читайте в [документации {{ iam-full-name }}](../../iam/operations/roles/grant.md).
 
@@ -59,7 +59,7 @@ description: Следуя этой инструкции, вы создадите
 
     1. Откройте актуальный конфигурационный файл {{ TF }} с планом инфраструктуры.
 
-        О том, как создать такой файл, см. в разделе [Создание кластера](cluster-create.md).
+        Инструкция по созданию файла описана в разделе [Создание кластера](cluster-create.md).
 
     1. Добавьте ресурс `yandex_trino_catalog`:
 
@@ -187,7 +187,7 @@ description: Следуя этой инструкции, вы создадите
 
         {% include [client-parameters-ch](../../_includes/managed-trino/client-parameters-ch.md) %}
 
-    * **Дополнительные настройки** — в формате `ключ: значение`. Список доступных настроек см. в [официальной документации]({{ tr.docs }}/connector/clickhouse.html).
+    * **Дополнительные настройки** — в формате `ключ: значение`. Список доступных настроек в [официальной документации]({{ tr.docs }}/connector/clickhouse.html).
 
 - CLI {#cli}
 
@@ -217,7 +217,7 @@ description: Следуя этой инструкции, вы создадите
 
         {% include [client-parameters-ch](../../_includes/managed-trino/client-parameters-ch.md) %}
 
-    * `additional-properties` — дополнительные настройки в формате `ключ=значение`. Список доступных настроек см. в [официальной документации]({{ tr.docs }}/connector/clickhouse.html).
+    * `additional-properties` — дополнительные настройки в формате `ключ=значение`. Список доступных настроек в [официальной документации]({{ tr.docs }}/connector/clickhouse.html).
 
 - {{ TF }} {#tf}
 
@@ -257,7 +257,7 @@ description: Следуя этой инструкции, вы создадите
 
             {% include [client-parameters-ch](../../_includes/managed-trino/client-parameters-ch.md) %}
 
-    * `additional_properties` — список дополнительных настроек в формате `"ключ" = "значение"`. Список доступных настроек см. в [официальной документации]({{ tr.docs }}/connector/clickhouse.html).
+    * `additional_properties` — список дополнительных настроек в формате `"ключ" = "значение"`. Список доступных настроек в [официальной документации]({{ tr.docs }}/connector/clickhouse.html).
 
 - REST API {#api}
 
@@ -308,7 +308,7 @@ description: Следуя этой инструкции, вы создадите
 
             {% include [client-parameters-ch](../../_includes/managed-trino/client-parameters-ch.md) %}
 
-    * `additionalProperties` — список дополнительных настроек в формате `"ключ": "значение"`. Список доступных настроек см. в [официальной документации]({{ tr.docs }}/connector/clickhouse.html).
+    * `additionalProperties` — список дополнительных настроек в формате `"ключ": "значение"`. Список доступных настроек в [официальной документации]({{ tr.docs }}/connector/clickhouse.html).
 
     Идентификатор кластера можно запросить со [списком кластеров в каталоге](cluster-list.md#list-clusters).
 
@@ -365,7 +365,7 @@ description: Следуя этой инструкции, вы создадите
 
             {% include [client-parameters-ch](../../_includes/managed-trino/client-parameters-ch.md) %}
 
-    * `additional_properties` — список дополнительных настроек в формате `"ключ": "значение"`. Список доступных настроек см. в [официальной документации]({{ tr.docs }}/connector/clickhouse.html).
+    * `additional_properties` — список дополнительных настроек в формате `"ключ": "значение"`. Список доступных настроек в [официальной документации]({{ tr.docs }}/connector/clickhouse.html).
 
     Идентификатор кластера можно запросить со [списком кластеров в каталоге](cluster-list.md#list-clusters).
 
@@ -380,7 +380,7 @@ description: Следуя этой инструкции, вы создадите
     * **URL** — URL для подключения к БД {{ CH }} в формате `jdbc:clickhouse://<адрес_хоста>:<порт>/<имя_БД>`.
     * **Имя пользователя** — имя пользователя для подключения к БД {{ CH }}.
     * **Пароль** — пароль пользователя для подключения к БД {{ CH }}.
-    * **Дополнительные настройки** — в формате `ключ: значение`. Список доступных настроек см. в [официальной документации]({{ tr.docs }}/connector/clickhouse.html).
+    * **Дополнительные настройки** — в формате `ключ: значение`. Список доступных настроек в [официальной документации]({{ tr.docs }}/connector/clickhouse.html).
 
 - CLI {#cli}
 
@@ -401,7 +401,7 @@ description: Следуя этой инструкции, вы создадите
     * `--on-premise-connection-url` — URL для подключения к БД {{ CH }} в формате `jdbc:clickhouse://<адрес_хоста>:<порт>/<имя_БД>`
     * `--on-premise-user-name` — имя пользователя для подключения к БД {{ CH }}.
     * `--on-premise-password` — пароль пользователя для подключения к БД {{ CH }}.
-    * `--additional-properties` — дополнительные настройки в формате `ключ=значение`. Список доступных настроек см. в [официальной документации]({{ tr.docs }}/connector/clickhouse.html).
+    * `--additional-properties` — дополнительные настройки в формате `ключ=значение`. Список доступных настроек в [официальной документации]({{ tr.docs }}/connector/clickhouse.html).
 
 - {{ TF }} {#tf}
 
@@ -431,7 +431,7 @@ description: Следуя этой инструкции, вы создадите
         * `user_name` — имя пользователя для подключения к БД {{ CH }}.
         * `password` — пароль пользователя для подключения к БД {{ CH }}.
 
-    * `additional_properties` — список дополнительных настроек в формате `"ключ" = "значение"`. Список доступных настроек см. в [официальной документации]({{ tr.docs }}/connector/clickhouse.html).
+    * `additional_properties` — список дополнительных настроек в формате `"ключ" = "значение"`. Список доступных настроек в [официальной документации]({{ tr.docs }}/connector/clickhouse.html).
 
 - REST API {#api}
 
@@ -472,7 +472,7 @@ description: Следуя этой инструкции, вы создадите
         * `userName` — имя пользователя для подключения к БД {{ CH }}.
         * `password` — пароль пользователя для подключения к БД {{ CH }}.
 
-    * `additionalProperties` — список дополнительных настроек в формате `"ключ": "значение"`. Список доступных настроек см. в [официальной документации]({{ tr.docs }}/connector/clickhouse.html).
+    * `additionalProperties` — список дополнительных настроек в формате `"ключ": "значение"`. Список доступных настроек в [официальной документации]({{ tr.docs }}/connector/clickhouse.html).
 
     Идентификатор кластера можно запросить со [списком кластеров в каталоге](cluster-list.md#list-clusters).
 
@@ -519,7 +519,7 @@ description: Следуя этой инструкции, вы создадите
         * `user_name` — имя пользователя для подключения к БД {{ CH }}.
         * `password` — пароль пользователя для подключения к БД {{ CH }}.
 
-    * `additional_properties` — список дополнительных настроек в формате `"ключ": "значение"`. Список доступных настроек см. в [официальной документации]({{ tr.docs }}/connector/clickhouse.html).
+    * `additional_properties` — список дополнительных настроек в формате `"ключ": "значение"`. Список доступных настроек в [официальной документации]({{ tr.docs }}/connector/clickhouse.html).
 
     Идентификатор кластера можно запросить со [списком кластеров в каталоге](cluster-list.md#list-clusters).
 
@@ -533,7 +533,7 @@ description: Следуя этой инструкции, вы создадите
 
     {% include [connector-settings](../../_includes/managed-trino/connector-settings.md) %}
 
-    * **Дополнительные настройки** — в формате `ключ: значение`. Список доступных настроек см. в [официальной документации]({{ tr.docs }}/connector/delta-lake.html).
+    * **Дополнительные настройки** — в формате `ключ: значение`. Список доступных настроек в [официальной документации]({{ tr.docs }}/connector/delta-lake.html).
 
 - CLI {#cli}
 
@@ -555,7 +555,7 @@ description: Следуя этой инструкции, вы создадите
 
     {% include [cli-connector-settings](../../_includes/managed-trino/cli-connector-settings.md) %}
 
-    * `--additional-properties` — дополнительные настройки в формате `ключ=значение`. Список доступных настроек см. в [официальной документации]({{ tr.docs }}/connector/delta-lake.html).
+    * `--additional-properties` — дополнительные настройки в формате `ключ=значение`. Список доступных настроек в [официальной документации]({{ tr.docs }}/connector/delta-lake.html).
 
 - {{ TF }} {#tf}
 
@@ -582,7 +582,7 @@ description: Следуя этой инструкции, вы создадите
 
     {% include [connector-settings-terraform](../../_includes/managed-trino/terraform/connector-settings.md) %}
 
-    * `additional_properties` — список дополнительных настроек в формате `"ключ" = "значение"`. Список доступных настроек см. в [официальной документации]({{ tr.docs }}/connector/delta-lake.html).
+    * `additional_properties` — список дополнительных настроек в формате `"ключ" = "значение"`. Список доступных настроек в [официальной документации]({{ tr.docs }}/connector/delta-lake.html).
 
 - REST API {#api}
 
@@ -620,7 +620,7 @@ description: Следуя этой инструкции, вы создадите
 
     {% include [connector-settings-rest-api](../../_includes/managed-trino/api/connector-settings-rest.md) %}
 
-    * `additionalProperties` — список дополнительных настроек в формате `"ключ": "значение"`. Список доступных настроек см. в [официальной документации]({{ tr.docs }}/connector/delta-lake.html).
+    * `additionalProperties` — список дополнительных настроек в формате `"ключ": "значение"`. Список доступных настроек в [официальной документации]({{ tr.docs }}/connector/delta-lake.html).
 
     Идентификатор кластера можно запросить со [списком кластеров в каталоге](cluster-list.md#list-clusters).
 
@@ -664,7 +664,7 @@ description: Следуя этой инструкции, вы создадите
 
     {% include [connector-settings-grpc-api](../../_includes/managed-trino/api/connector-settings-grpc.md) %}
 
-    * `additional_properties` — список дополнительных настроек в формате `"ключ": "значение"`. Список доступных настроек см. в [официальной документации]({{ tr.docs }}/connector/delta-lake.html).
+    * `additional_properties` — список дополнительных настроек в формате `"ключ": "значение"`. Список доступных настроек в [официальной документации]({{ tr.docs }}/connector/delta-lake.html).
 
     Идентификатор кластера можно запросить со [списком кластеров в каталоге](cluster-list.md#list-clusters).
 
@@ -1039,7 +1039,7 @@ ALTER ROLE <имя_пользователя_{{ GP }}> CREATEEXTTABLE (type='writ
 
     {% include [connector-settings](../../_includes/managed-trino/connector-settings.md) %}
 
-    * **Дополнительные настройки** — в формате `ключ: значение`. Список доступных настроек см. в [официальной документации]({{ tr.docs }}/connector/hive.html).
+    * **Дополнительные настройки** — в формате `ключ: значение`. Список доступных настроек в [официальной документации]({{ tr.docs }}/connector/hive.html).
 
 - CLI {#cli}
 
@@ -1061,7 +1061,7 @@ ALTER ROLE <имя_пользователя_{{ GP }}> CREATEEXTTABLE (type='writ
 
     {% include [cli-connector-settings](../../_includes/managed-trino/cli-connector-settings.md) %}
 
-    * `--additional-properties` — дополнительные настройки в формате `ключ=значение`. Список доступных настроек см. в [официальной документации]({{ tr.docs }}/connector/hive.html).
+    * `--additional-properties` — дополнительные настройки в формате `ключ=значение`. Список доступных настроек в [официальной документации]({{ tr.docs }}/connector/hive.html).
 
 - {{ TF }} {#tf}
 
@@ -1088,7 +1088,7 @@ ALTER ROLE <имя_пользователя_{{ GP }}> CREATEEXTTABLE (type='writ
 
     {% include [connector-settings-terraform](../../_includes/managed-trino/terraform/connector-settings.md) %}
 
-    * `additional_properties` — список дополнительных настроек в формате `"ключ" = "значение"`. Список доступных настроек см. в [официальной документации]({{ tr.docs }}/connector/hive.html).
+    * `additional_properties` — список дополнительных настроек в формате `"ключ" = "значение"`. Список доступных настроек в [официальной документации]({{ tr.docs }}/connector/hive.html).
 
 - REST API {#api}
 
@@ -1126,7 +1126,7 @@ ALTER ROLE <имя_пользователя_{{ GP }}> CREATEEXTTABLE (type='writ
 
     {% include [connector-settings-rest-api](../../_includes/managed-trino/api/connector-settings-rest.md) %}
 
-    * `additionalProperties` — список дополнительных настроек в формате `"ключ": "значение"`. Список доступных настроек см. в [официальной документации]({{ tr.docs }}/connector/hive.html).
+    * `additionalProperties` — список дополнительных настроек в формате `"ключ": "значение"`. Список доступных настроек в [официальной документации]({{ tr.docs }}/connector/hive.html).
 
     Идентификатор кластера можно запросить со [списком кластеров в каталоге](cluster-list.md#list-clusters).
 
@@ -1170,7 +1170,7 @@ ALTER ROLE <имя_пользователя_{{ GP }}> CREATEEXTTABLE (type='writ
 
     {% include [connector-settings-grpc-api](../../_includes/managed-trino/api/connector-settings-grpc.md) %}
 
-    * `additional_properties` — список дополнительных настроек в формате `"ключ": "значение"`. Список доступных настроек см. в [официальной документации]({{ tr.docs }}/connector/hive.html).
+    * `additional_properties` — список дополнительных настроек в формате `"ключ": "значение"`. Список доступных настроек в [официальной документации]({{ tr.docs }}/connector/hive.html).
 
     Идентификатор кластера можно запросить со [списком кластеров в каталоге](cluster-list.md#list-clusters).
 
@@ -1184,7 +1184,7 @@ ALTER ROLE <имя_пользователя_{{ GP }}> CREATEEXTTABLE (type='writ
 
     {% include [connector-settings](../../_includes/managed-trino/connector-settings.md) %}
 
-    * **Дополнительные настройки** — в формате `ключ: значение`. Список доступных настроек см. в [официальной документации]({{ tr.docs }}/connector/hudi.html).
+    * **Дополнительные настройки** — в формате `ключ: значение`. Список доступных настроек в [официальной документации]({{ tr.docs }}/connector/hudi.html).
 
 - CLI {#cli}
 
@@ -1206,7 +1206,7 @@ ALTER ROLE <имя_пользователя_{{ GP }}> CREATEEXTTABLE (type='writ
 
     {% include [cli-connector-settings](../../_includes/managed-trino/cli-connector-settings.md) %}
 
-    * `--additional-properties` — дополнительные настройки в формате `ключ=значение`. Список доступных настроек см. в [официальной документации]({{ tr.docs }}/connector/hudi.html).
+    * `--additional-properties` — дополнительные настройки в формате `ключ=значение`. Список доступных настроек в [официальной документации]({{ tr.docs }}/connector/hudi.html).
 
 - {{ TF }} {#tf}
 
@@ -1233,7 +1233,7 @@ ALTER ROLE <имя_пользователя_{{ GP }}> CREATEEXTTABLE (type='writ
 
     {% include [connector-settings-terraform](../../_includes/managed-trino/terraform/connector-settings.md) %}
 
-    * `additional_properties` — список дополнительных настроек в формате `"ключ" = "значение"`. Список доступных настроек см. в [официальной документации]({{ tr.docs }}/connector/hive.html).
+    * `additional_properties` — список дополнительных настроек в формате `"ключ" = "значение"`. Список доступных настроек в [официальной документации]({{ tr.docs }}/connector/hive.html).
 
 - REST API {#api}
 
@@ -1271,7 +1271,7 @@ ALTER ROLE <имя_пользователя_{{ GP }}> CREATEEXTTABLE (type='writ
 
     {% include [connector-settings-rest-api](../../_includes/managed-trino/api/connector-settings-rest.md) %}
 
-    * `additionalProperties` — список дополнительных настроек в формате `"ключ": "значение"`. Список доступных настроек см. в [официальной документации]({{ tr.docs }}/connector/hudi.html).
+    * `additionalProperties` — список дополнительных настроек в формате `"ключ": "значение"`. Список доступных настроек в [официальной документации]({{ tr.docs }}/connector/hudi.html).
 
     Идентификатор кластера можно запросить со [списком кластеров в каталоге](cluster-list.md#list-clusters).
 
@@ -1315,7 +1315,7 @@ ALTER ROLE <имя_пользователя_{{ GP }}> CREATEEXTTABLE (type='writ
 
     {% include [connector-settings-grpc-api](../../_includes/managed-trino/api/connector-settings-grpc.md) %}
 
-    * `additional_properties` — список дополнительных настроек в формате `"ключ": "значение"`. Список доступных настроек см. в [официальной документации]({{ tr.docs }}/connector/hudi.html).
+    * `additional_properties` — список дополнительных настроек в формате `"ключ": "значение"`. Список доступных настроек в [официальной документации]({{ tr.docs }}/connector/hudi.html).
 
     Идентификатор кластера можно запросить со [списком кластеров в каталоге](cluster-list.md#list-clusters).
 
@@ -1329,7 +1329,7 @@ ALTER ROLE <имя_пользователя_{{ GP }}> CREATEEXTTABLE (type='writ
 
     {% include [connector-settings](../../_includes/managed-trino/connector-settings.md) %}
 
-    * **Дополнительные настройки** — в формате `ключ: значение`. Список доступных настроек см. в [официальной документации]({{ tr.docs }}/connector/iceberg.html).
+    * **Дополнительные настройки** — в формате `ключ: значение`. Список доступных настроек в [официальной документации]({{ tr.docs }}/connector/iceberg.html).
 
 - CLI {#cli}
 
@@ -1351,7 +1351,7 @@ ALTER ROLE <имя_пользователя_{{ GP }}> CREATEEXTTABLE (type='writ
 
     {% include [cli-connector-settings](../../_includes/managed-trino/cli-connector-settings.md) %}
 
-    * `--additional-properties` — дополнительные настройки в формате `ключ=значение`. Список доступных настроек см. в [официальной документации]({{ tr.docs }}/connector/iceberg.html).
+    * `--additional-properties` — дополнительные настройки в формате `ключ=значение`. Список доступных настроек в [официальной документации]({{ tr.docs }}/connector/iceberg.html).
 
 - {{ TF }} {#tf}
 
@@ -1378,7 +1378,7 @@ ALTER ROLE <имя_пользователя_{{ GP }}> CREATEEXTTABLE (type='writ
 
     {% include [connector-settings-terraform](../../_includes/managed-trino/terraform/connector-settings.md) %}
 
-    * `additional_properties` — список дополнительных настроек в формате `"ключ" = "значение"`. Список доступных настроек см. в [официальной документации]({{ tr.docs }}/connector/iceberg.html).
+    * `additional_properties` — список дополнительных настроек в формате `"ключ" = "значение"`. Список доступных настроек в [официальной документации]({{ tr.docs }}/connector/iceberg.html).
 
 - REST API {#api}
 
@@ -1416,7 +1416,7 @@ ALTER ROLE <имя_пользователя_{{ GP }}> CREATEEXTTABLE (type='writ
 
     {% include [connector-settings-rest-api](../../_includes/managed-trino/api/connector-settings-rest.md) %}
 
-    * `additionalProperties` — список дополнительных настроек в формате `"ключ": "значение"`. Список доступных настроек см. в [официальной документации]({{ tr.docs }}/connector/iceberg.html).
+    * `additionalProperties` — список дополнительных настроек в формате `"ключ": "значение"`. Список доступных настроек в [официальной документации]({{ tr.docs }}/connector/iceberg.html).
 
     Идентификатор кластера можно запросить со [списком кластеров в каталоге](cluster-list.md#list-clusters).
 
@@ -1460,7 +1460,7 @@ ALTER ROLE <имя_пользователя_{{ GP }}> CREATEEXTTABLE (type='writ
 
     {% include [connector-settings-grpc-api](../../_includes/managed-trino/api/connector-settings-grpc.md) %}
 
-    * `additional_properties` — список дополнительных настроек в формате `"ключ": "значение"`. Список доступных настроек см. в [официальной документации]({{ tr.docs }}/connector/iceberg.html).
+    * `additional_properties` — список дополнительных настроек в формате `"ключ": "значение"`. Список доступных настроек в [официальной документации]({{ tr.docs }}/connector/iceberg.html).
 
     Идентификатор кластера можно запросить со [списком кластеров в каталоге](cluster-list.md#list-clusters).
 
@@ -1476,7 +1476,7 @@ ALTER ROLE <имя_пользователя_{{ GP }}> CREATEEXTTABLE (type='writ
     * **URL** — URL для подключения к БД Oracle в формате `jdbc:oracle:thin:@<адрес_хоста>:<порт>:<SID>`. `SID` — системный идентификатор Oracle.
     * **Имя пользователя** — имя пользователя для подключения к БД Oracle.
     * **Пароль** — пароль пользователя для подключения к БД Oracle.
-    * **Дополнительные настройки** — в формате `ключ: значение`. Список доступных настроек см. в [официальной документации]({{ tr.docs }}/connector/oracle.html).
+    * **Дополнительные настройки** — в формате `ключ: значение`. Список доступных настроек в [официальной документации]({{ tr.docs }}/connector/oracle.html).
 
 - CLI {#cli}
 
@@ -1497,7 +1497,7 @@ ALTER ROLE <имя_пользователя_{{ GP }}> CREATEEXTTABLE (type='writ
     * `--on-premise-connection-url` — URL для подключения к БД Oracle в формате `jdbc:oracle:thin:@<адрес_хоста>:<порт>:<SID>`. `SID` — системный идентификатор Oracle.
     * `--on-premise-user-name` — имя пользователя для подключения к БД Oracle.
     * `--on-premise-password` — пароль пользователя для подключения к БД Oracle.
-    * `--additional-properties` — дополнительные настройки в формате `ключ=значение`. Список доступных настроек см. в [официальной документации]({{ tr.docs }}/connector/oracle.html).
+    * `--additional-properties` — дополнительные настройки в формате `ключ=значение`. Список доступных настроек в [официальной документации]({{ tr.docs }}/connector/oracle.html).
 
 - {{ TF }} {#tf}
 
@@ -1527,7 +1527,7 @@ ALTER ROLE <имя_пользователя_{{ GP }}> CREATEEXTTABLE (type='writ
         * `user_name` — имя пользователя для подключения к БД Oracle.
         * `password` — пароль пользователя для подключения к БД Oracle.
 
-    * `additional_properties` — список дополнительных настроек в формате `"ключ" = "значение"`. Список доступных настроек см. в [официальной документации]({{ tr.docs }}/connector/oracle.html).
+    * `additional_properties` — список дополнительных настроек в формате `"ключ" = "значение"`. Список доступных настроек в [официальной документации]({{ tr.docs }}/connector/oracle.html).
 
 - REST API {#api}
 
@@ -1568,7 +1568,7 @@ ALTER ROLE <имя_пользователя_{{ GP }}> CREATEEXTTABLE (type='writ
         * `userName` — имя пользователя для подключения к БД Oracle.
         * `password` — пароль пользователя для подключения к БД Oracle.
 
-    * `additionalProperties` — список дополнительных настроек в формате `"ключ": "значение"`. Список доступных настроек см. в [официальной документации]({{ tr.docs }}/connector/oracle.html).
+    * `additionalProperties` — список дополнительных настроек в формате `"ключ": "значение"`. Список доступных настроек в [официальной документации]({{ tr.docs }}/connector/oracle.html).
 
     Идентификатор кластера можно запросить со [списком кластеров в каталоге](cluster-list.md#list-clusters).
 
@@ -1615,7 +1615,7 @@ ALTER ROLE <имя_пользователя_{{ GP }}> CREATEEXTTABLE (type='writ
         * `user_name` — имя пользователя для подключения к БД Oracle.
         * `password` — пароль пользователя для подключения к БД Oracle.
 
-    * `additional_properties` — список дополнительных настроек в формате `"ключ": "значение"`. Список доступных настроек см. в [официальной документации]({{ tr.docs }}/connector/oracle.html).
+    * `additional_properties` — список дополнительных настроек в формате `"ключ": "значение"`. Список доступных настроек в [официальной документации]({{ tr.docs }}/connector/oracle.html).
 
     Идентификатор кластера можно запросить со [списком кластеров в каталоге](cluster-list.md#list-clusters).
 
@@ -1639,7 +1639,7 @@ ALTER ROLE <имя_пользователя_{{ GP }}> CREATEEXTTABLE (type='writ
         1. Нажмите на имя нужного кластера и перейдите на вкладку **{{ ui-key.yacloud.connection-manager.label_connections }}**.
 
     * **База данных** — имя БД в кластере {{ PG }}.
-    * **Дополнительные настройки** — в формате `ключ: значение`. Список доступных настроек см. в [официальной документации]({{ tr.docs }}/connector/postgresql.html).
+    * **Дополнительные настройки** — в формате `ключ: значение`. Список доступных настроек в [официальной документации]({{ tr.docs }}/connector/postgresql.html).
 
 - CLI {#cli}
 
@@ -1669,7 +1669,7 @@ ALTER ROLE <имя_пользователя_{{ GP }}> CREATEEXTTABLE (type='writ
 
         {% include [client-parameters-pg](../../_includes/managed-trino/client-parameters-pg.md) %}
 
-    * `--additional-properties` — дополнительные настройки в формате `ключ=значение`. Список доступных настроек см. в [официальной документации]({{ tr.docs }}/connector/postgresql.html).
+    * `--additional-properties` — дополнительные настройки в формате `ключ=значение`. Список доступных настроек в [официальной документации]({{ tr.docs }}/connector/postgresql.html).
 
 - {{ TF }} {#tf}
 
@@ -1709,7 +1709,7 @@ ALTER ROLE <имя_пользователя_{{ GP }}> CREATEEXTTABLE (type='writ
 
             {% include [client-parameters-pg](../../_includes/managed-trino/client-parameters-pg.md) %}
 
-    * `additional_properties` — список дополнительных настроек в формате `"ключ" = "значение"`. Список доступных настроек см. в [официальной документации]({{ tr.docs }}/connector/postgresql.html).
+    * `additional_properties` — список дополнительных настроек в формате `"ключ" = "значение"`. Список доступных настроек в [официальной документации]({{ tr.docs }}/connector/postgresql.html).
 
 - REST API {#api}
 
@@ -1760,7 +1760,7 @@ ALTER ROLE <имя_пользователя_{{ GP }}> CREATEEXTTABLE (type='writ
 
             {% include [client-parameters-pg](../../_includes/managed-trino/client-parameters-pg.md) %}
 
-    * `additionalProperties` — список дополнительных настроек в формате `"ключ": "значение"`. Список доступных настроек см. в [официальной документации]({{ tr.docs }}/connector/postgresql.html).
+    * `additionalProperties` — список дополнительных настроек в формате `"ключ": "значение"`. Список доступных настроек в [официальной документации]({{ tr.docs }}/connector/postgresql.html).
 
     Идентификатор кластера можно запросить со [списком кластеров в каталоге](cluster-list.md#list-clusters).
 
@@ -1817,7 +1817,7 @@ ALTER ROLE <имя_пользователя_{{ GP }}> CREATEEXTTABLE (type='writ
 
             {% include [client-parameters-pg](../../_includes/managed-trino/client-parameters-pg.md) %}
 
-    * `additional_properties` — список дополнительных настроек в формате `"ключ": "значение"`. Список доступных настроек см. в [официальной документации]({{ tr.docs }}/connector/postgresql.html).
+    * `additional_properties` — список дополнительных настроек в формате `"ключ": "значение"`. Список доступных настроек в [официальной документации]({{ tr.docs }}/connector/postgresql.html).
 
     Идентификатор кластера можно запросить со [списком кластеров в каталоге](cluster-list.md#list-clusters).
 
@@ -1832,7 +1832,7 @@ ALTER ROLE <имя_пользователя_{{ GP }}> CREATEEXTTABLE (type='writ
     * **URL** — URL для подключения к БД {{ PG }} в формате `jdbc:postgresql://<адрес_хоста>:<порт>/<имя_БД>`.
     * **Имя пользователя** — имя пользователя для подключения к БД {{ PG }}.
     * **Пароль** — пароль пользователя для подключения к БД {{ PG }}.
-    * **Дополнительные настройки** — в формате `ключ: значение`. Список доступных настроек см. в [официальной документации]({{ tr.docs }}/connector/postgresql.html).
+    * **Дополнительные настройки** — в формате `ключ: значение`. Список доступных настроек в [официальной документации]({{ tr.docs }}/connector/postgresql.html).
 
 - CLI {#cli}
 
@@ -1853,7 +1853,7 @@ ALTER ROLE <имя_пользователя_{{ GP }}> CREATEEXTTABLE (type='writ
     * `--on-premise-connection-url` — URL для подключения к БД {{ PG }} в формате `jdbc:postgresql://<адрес_хоста>:<порт>/<имя_БД>`.
     * `--on-premise-user-name` — имя пользователя для подключения к БД {{ PG }}.
     * `--on-premise-password` — пароль пользователя для подключения к БД {{ PG }}.
-    * `--additional-properties` — дополнительные настройки в формате `ключ=значение`. Список доступных настроек см. в [официальной документации]({{ tr.docs }}/connector/postgresql.html).
+    * `--additional-properties` — дополнительные настройки в формате `ключ=значение`. Список доступных настроек в [официальной документации]({{ tr.docs }}/connector/postgresql.html).
 
 - {{ TF }} {#tf}
 
@@ -1883,7 +1883,7 @@ ALTER ROLE <имя_пользователя_{{ GP }}> CREATEEXTTABLE (type='writ
         * `user_name` — имя пользователя для подключения к БД {{ PG }}.
         * `password` — пароль пользователя для подключения к БД {{ PG }}.
 
-    * `additional_properties` — список дополнительных настроек в формате `"ключ" = "значение"`. Список доступных настроек см. в [официальной документации]({{ tr.docs }}/connector/postgresql.html).
+    * `additional_properties` — список дополнительных настроек в формате `"ключ" = "значение"`. Список доступных настроек в [официальной документации]({{ tr.docs }}/connector/postgresql.html).
 
 - REST API {#api}
 
@@ -1924,7 +1924,7 @@ ALTER ROLE <имя_пользователя_{{ GP }}> CREATEEXTTABLE (type='writ
         * `userName` — имя пользователя для подключения к БД {{ PG }}.
         * `password` — пароль пользователя для подключения к БД {{ PG }}.
 
-    * `additionalProperties` — список дополнительных настроек в формате `"ключ": "значение"`. Список доступных настроек см. в [официальной документации]({{ tr.docs }}/connector/postgresql.html).
+    * `additionalProperties` — список дополнительных настроек в формате `"ключ": "значение"`. Список доступных настроек в [официальной документации]({{ tr.docs }}/connector/postgresql.html).
 
     Идентификатор кластера можно запросить со [списком кластеров в каталоге](cluster-list.md#list-clusters).
 
@@ -1971,7 +1971,7 @@ ALTER ROLE <имя_пользователя_{{ GP }}> CREATEEXTTABLE (type='writ
         * `user_name` — имя пользователя для подключения к БД {{ PG }}.
         * `password` — пароль пользователя для подключения к БД {{ PG }}.
 
-    * `additional_properties` — список дополнительных настроек в формате `"ключ": "значение"`. Список доступных настроек см. в [официальной документации]({{ tr.docs }}/connector/postgresql.html).
+    * `additional_properties` — список дополнительных настроек в формате `"ключ": "значение"`. Список доступных настроек в [официальной документации]({{ tr.docs }}/connector/postgresql.html).
 
     Идентификатор кластера можно запросить со [списком кластеров в каталоге](cluster-list.md#list-clusters).
 
@@ -1998,7 +1998,7 @@ ALTER ROLE <имя_пользователя_{{ GP }}> CREATEEXTTABLE (type='writ
 
         {% include [client-parameters-mysql](../../_includes/managed-trino/client-parameters-mysql.md) %}
 
-    * **Дополнительные настройки** — в формате `ключ: значение`. Список доступных настроек см. в [официальной документации]({{ tr.docs }}/connector/mysql.html).
+    * **Дополнительные настройки** — в формате `ключ: значение`. Список доступных настроек в [официальной документации]({{ tr.docs }}/connector/mysql.html).
 
 - CLI {#cli}
 
@@ -2026,7 +2026,7 @@ ALTER ROLE <имя_пользователя_{{ GP }}> CREATEEXTTABLE (type='writ
 
        {% include [client-parameters-mysql](../../_includes/managed-trino/client-parameters-mysql.md) %}
 
-    * `--additional-properties` — дополнительные настройки в формате `ключ=значение`. Список доступных настроек см. в [официальной документации]({{ tr.docs }}/connector/mysql.html).
+    * `--additional-properties` — дополнительные настройки в формате `ключ=значение`. Список доступных настроек в [официальной документации]({{ tr.docs }}/connector/mysql.html).
 
 - {{ TF }} {#tf}
 
@@ -2064,7 +2064,7 @@ ALTER ROLE <имя_пользователя_{{ GP }}> CREATEEXTTABLE (type='writ
 
            {% include [client-parameters-mysql](../../_includes/managed-trino/client-parameters-mysql.md) %}
 
-    * `additional_properties` — список дополнительных настроек в формате `"ключ" = "значение"`. Список доступных настроек см. в [официальной документации]({{ tr.docs }}/connector/mysql.html).
+    * `additional_properties` — список дополнительных настроек в формате `"ключ" = "значение"`. Список доступных настроек в [официальной документации]({{ tr.docs }}/connector/mysql.html).
 
 - REST API {#api}
 
@@ -2113,7 +2113,7 @@ ALTER ROLE <имя_пользователя_{{ GP }}> CREATEEXTTABLE (type='writ
 
            {% include [client-parameters-mysql](../../_includes/managed-trino/client-parameters-mysql.md) %}
 
-    * `additionalProperties` — список дополнительных настроек в формате `"ключ": "значение"`. Список доступных настроек см. в [официальной документации]({{ tr.docs }}/connector/mysql.html).
+    * `additionalProperties` — список дополнительных настроек в формате `"ключ": "значение"`. Список доступных настроек в [официальной документации]({{ tr.docs }}/connector/mysql.html).
 
     Идентификатор кластера можно запросить со [списком кластеров в каталоге](cluster-list.md#list-clusters).
 
@@ -2168,7 +2168,7 @@ ALTER ROLE <имя_пользователя_{{ GP }}> CREATEEXTTABLE (type='writ
 
            {% include [client-parameters-mysql](../../_includes/managed-trino/client-parameters-mysql.md) %}
 
-    * `additional_properties` — список дополнительных настроек в формате `"ключ": "значение"`. Список доступных настроек см. в [официальной документации]({{ tr.docs }}/connector/mysql.html).
+    * `additional_properties` — список дополнительных настроек в формате `"ключ": "значение"`. Список доступных настроек в [официальной документации]({{ tr.docs }}/connector/mysql.html).
 
     Идентификатор кластера можно запросить со [списком кластеров в каталоге](cluster-list.md#list-clusters).
 
@@ -2183,7 +2183,7 @@ ALTER ROLE <имя_пользователя_{{ GP }}> CREATEEXTTABLE (type='writ
     * **URL** — URL для подключения к серверу {{ MY }} в формате `jdbc:mysql://<адрес_хоста>:<порт>/`. Имя базы данных указывать не нужно — {{ TR }} автоматически обнаружит все доступные базы данных.
     * **Имя пользователя** — имя пользователя для подключения к серверу {{ MY }}.
     * **Пароль** — пароль пользователя для подключения к серверу {{ MY }}.
-    * **Дополнительные настройки** — в формате `ключ: значение`. Список доступных настроек см. в [официальной документации]({{ tr.docs }}/connector/mysql.html).
+    * **Дополнительные настройки** — в формате `ключ: значение`. Список доступных настроек в [официальной документации]({{ tr.docs }}/connector/mysql.html).
 
 - CLI {#cli}
 
@@ -2204,7 +2204,7 @@ ALTER ROLE <имя_пользователя_{{ GP }}> CREATEEXTTABLE (type='writ
     * `--on-premise-connection-url` — URL для подключения к серверу {{ MY }} в формате `jdbc:mysql://<адрес_хоста>:<порт>/`. Имя базы данных указывать не нужно — {{ TR }} автоматически обнаружит все доступные базы данных.
     * `--on-premise-user-name` — имя пользователя для подключения к серверу {{ MY }}.
     * `--on-premise-password` — пароль пользователя для подключения к серверу {{ MY }}.
-    * `--additional-properties` — дополнительные настройки в формате `ключ=значение`. Список доступных настроек см. в [официальной документации]({{ tr.docs }}/connector/mysql.html).
+    * `--additional-properties` — дополнительные настройки в формате `ключ=значение`. Список доступных настроек в [официальной документации]({{ tr.docs }}/connector/mysql.html).
 
 - {{ TF }} {#tf}
 
@@ -2234,7 +2234,7 @@ ALTER ROLE <имя_пользователя_{{ GP }}> CREATEEXTTABLE (type='writ
         * `user_name` — имя пользователя для подключения к серверу {{ MY }}.
         * `password` — пароль пользователя для подключения к серверу {{ MY }}.
 
-    * `additional_properties` — список дополнительных настроек в формате `"ключ" = "значение"`. Список доступных настроек см. в [официальной документации]({{ tr.docs }}/connector/mysql.html).
+    * `additional_properties` — список дополнительных настроек в формате `"ключ" = "значение"`. Список доступных настроек в [официальной документации]({{ tr.docs }}/connector/mysql.html).
 
 - REST API {#api}
 
@@ -2275,7 +2275,7 @@ ALTER ROLE <имя_пользователя_{{ GP }}> CREATEEXTTABLE (type='writ
         * `userName` — имя пользователя для подключения к серверу {{ MY }}.
         * `password` — пароль пользователя для подключения к серверу {{ MY }}.
 
-    * `additionalProperties` — список дополнительных настроек в формате `"ключ": "значение"`. Список доступных настроек см. в [официальной документации]({{ tr.docs }}/connector/mysql.html).
+    * `additionalProperties` — список дополнительных настроек в формате `"ключ": "значение"`. Список доступных настроек в [официальной документации]({{ tr.docs }}/connector/mysql.html).
 
     Идентификатор кластера можно запросить со [списком кластеров в каталоге](cluster-list.md#list-clusters).
 
@@ -2322,7 +2322,7 @@ ALTER ROLE <имя_пользователя_{{ GP }}> CREATEEXTTABLE (type='writ
         * `user_name` — имя пользователя для подключения к серверу {{ MY }}.
         * `password` — пароль пользователя для подключения к серверу {{ MY }}.
 
-    * `additional_properties` — список дополнительных настроек в формате `"ключ": "значение"`. Список доступных настроек см. в [официальной документации]({{ tr.docs }}/connector/mysql.html).
+    * `additional_properties` — список дополнительных настроек в формате `"ключ": "значение"`. Список доступных настроек в [официальной документации]({{ tr.docs }}/connector/mysql.html).
 
     Идентификатор кластера можно запросить со [списком кластеров в каталоге](cluster-list.md#list-clusters).
 
@@ -2338,7 +2338,7 @@ ALTER ROLE <имя_пользователя_{{ GP }}> CREATEEXTTABLE (type='writ
     * **URL** — URL для подключения к БД Microsoft SQL Server в формате `jdbc:sqlserver://<адрес_хоста>:<порт>;databaseName=<имя_БД>`.
     * **Имя пользователя** — имя пользователя для подключения к БД Microsoft SQL Server.
     * **Пароль** — пароль пользователя для подключения к БД Microsoft SQL Server.
-    * **Дополнительные настройки** — в формате `ключ: значение`. Список доступных настроек см. в [официальной документации]({{ tr.docs }}/connector/sqlserver.html).
+    * **Дополнительные настройки** — в формате `ключ: значение`. Список доступных настроек в [официальной документации]({{ tr.docs }}/connector/sqlserver.html).
 
 - CLI {#cli}
 
@@ -2359,7 +2359,7 @@ ALTER ROLE <имя_пользователя_{{ GP }}> CREATEEXTTABLE (type='writ
     * `--on-premise-connection-url` — URL для подключения к БД Microsoft SQL Server в формате `jdbc:sqlserver://<адрес_хоста>:<порт>;databaseName=<имя_БД>`.
     * `--on-premise-user-name` — имя пользователя для подключения к БД Microsoft SQL Server.
     * `--on-premise-password` — пароль пользователя для подключения к БД Microsoft SQL Server.
-    * `--additional-properties` — дополнительные настройки в формате `ключ=значение`. Список доступных настроек см. в [официальной документации]({{ tr.docs }}/connector/sqlserver.html).
+    * `--additional-properties` — дополнительные настройки в формате `ключ=значение`. Список доступных настроек в [официальной документации]({{ tr.docs }}/connector/sqlserver.html).
 
 - {{ TF }} {#tf}
 
@@ -2389,7 +2389,7 @@ ALTER ROLE <имя_пользователя_{{ GP }}> CREATEEXTTABLE (type='writ
         * `user_name` — имя пользователя для подключения к БД Microsoft SQL Server.
         * `password` — пароль пользователя для подключения к БД Microsoft SQL Server.
 
-    * `additional_properties` — список дополнительных настроек в формате `"ключ" = "значение"`. Список доступных настроек см. в [официальной документации]({{ tr.docs }}/connector/sqlserver.html).
+    * `additional_properties` — список дополнительных настроек в формате `"ключ" = "значение"`. Список доступных настроек в [официальной документации]({{ tr.docs }}/connector/sqlserver.html).
 
 - REST API {#api}
 
@@ -2430,7 +2430,7 @@ ALTER ROLE <имя_пользователя_{{ GP }}> CREATEEXTTABLE (type='writ
         * `userName` — имя пользователя для подключения к БД Microsoft SQL Server.
         * `password` — пароль пользователя для подключения к БД Microsoft SQL Server.
 
-    * `additionalProperties` — список дополнительных настроек в формате `"ключ": "значение"`. Список доступных настроек см. в [официальной документации]({{ tr.docs }}/connector/sqlserver.html).
+    * `additionalProperties` — список дополнительных настроек в формате `"ключ": "значение"`. Список доступных настроек в [официальной документации]({{ tr.docs }}/connector/sqlserver.html).
 
     Идентификатор кластера можно запросить со [списком кластеров в каталоге](cluster-list.md#list-clusters).
 
@@ -2477,7 +2477,7 @@ ALTER ROLE <имя_пользователя_{{ GP }}> CREATEEXTTABLE (type='writ
         * `user_name` — имя пользователя для подключения к БД Microsoft SQL Server.
         * `password` — пароль пользователя для подключения к БД Microsoft SQL Server.
 
-    * `additional_properties` — список дополнительных настроек в формате `"ключ": "значение"`. Список доступных настроек см. в [официальной документации]({{ tr.docs }}/connector/sqlserver.html).
+    * `additional_properties` — список дополнительных настроек в формате `"ключ": "значение"`. Список доступных настроек в [официальной документации]({{ tr.docs }}/connector/sqlserver.html).
 
     Идентификатор кластера можно запросить со [списком кластеров в каталоге](cluster-list.md#list-clusters).
 
@@ -2491,7 +2491,7 @@ ALTER ROLE <имя_пользователя_{{ GP }}> CREATEEXTTABLE (type='writ
 
 - Консоль управления {#console}
 
-    Вы можете задать дополнительные настройки в формате `ключ: значение`. Список доступных настроек см. в [официальной документации]({{ tr.docs }}/connector/tpcds.html).
+    Вы можете задать дополнительные настройки в формате `ключ: значение`. Список доступных настроек в [официальной документации]({{ tr.docs }}/connector/tpcds.html).
 
 - CLI {#cli}
 
@@ -2506,7 +2506,7 @@ ALTER ROLE <имя_пользователя_{{ GP }}> CREATEEXTTABLE (type='writ
     Где:
 
     * `--cluster-id` — идентификатор кластера, в котором создается каталог {{ TR }}. Идентификатор кластера можно запросить со [списком кластеров](cluster-list.md#list-clusters).
-    * `--additional-properties` — дополнительные настройки в формате `ключ=значение`. Список доступных настроек см. в [официальной документации]({{ tr.docs }}/connector/tpcds.html).  
+    * `--additional-properties` — дополнительные настройки в формате `ключ=значение`. Список доступных настроек в [официальной документации]({{ tr.docs }}/connector/tpcds.html).  
 
 - {{ TF }} {#tf}
 
@@ -2523,7 +2523,7 @@ ALTER ROLE <имя_пользователя_{{ GP }}> CREATEEXTTABLE (type='writ
     }
     ```
 
-    Где `additional_properties` — список дополнительных настроек в формате `"ключ" = "значение"`. Список доступных настроек см. в [официальной документации]({{ tr.docs }}/connector/tpcds.html).
+    Где `additional_properties` — список дополнительных настроек в формате `"ключ" = "значение"`. Список доступных настроек в [официальной документации]({{ tr.docs }}/connector/tpcds.html).
 
 - REST API {#api}
 
@@ -2549,7 +2549,7 @@ ALTER ROLE <имя_пользователя_{{ GP }}> CREATEEXTTABLE (type='writ
                 }'
     ```
 
-    Где `additionalProperties` — список дополнительных настроек в формате `"ключ": "значение"`. Список доступных настроек см. в [официальной документации]({{ tr.docs }}/connector/tpcds.html).
+    Где `additionalProperties` — список дополнительных настроек в формате `"ключ": "значение"`. Список доступных настроек в [официальной документации]({{ tr.docs }}/connector/tpcds.html).
 
     Идентификатор кластера можно запросить со [списком кластеров в каталоге](cluster-list.md#list-clusters).
 
@@ -2581,7 +2581,7 @@ ALTER ROLE <имя_пользователя_{{ GP }}> CREATEEXTTABLE (type='writ
         yandex.cloud.trino.v1.CatalogService.Create
     ```
 
-    Где `additional_properties` — список дополнительных настроек в формате `"ключ": "значение"`. Список доступных настроек см. в [официальной документации]({{ tr.docs }}/connector/tpcds.html).
+    Где `additional_properties` — список дополнительных настроек в формате `"ключ": "значение"`. Список доступных настроек в [официальной документации]({{ tr.docs }}/connector/tpcds.html).
 
     Идентификатор кластера можно запросить со [списком кластеров в каталоге](cluster-list.md#list-clusters).
 
@@ -2595,7 +2595,7 @@ ALTER ROLE <имя_пользователя_{{ GP }}> CREATEEXTTABLE (type='writ
 
 - Консоль управления {#console}
 
-    Вы можете задать дополнительные настройки в формате `ключ: значение`. Список доступных настроек см. в [официальной документации]({{ tr.docs }}/connector/tpch.html).
+    Вы можете задать дополнительные настройки в формате `ключ: значение`. Список доступных настроек в [официальной документации]({{ tr.docs }}/connector/tpch.html).
 
 - CLI {#cli}
 
@@ -2610,7 +2610,7 @@ ALTER ROLE <имя_пользователя_{{ GP }}> CREATEEXTTABLE (type='writ
     Где:
 
     * `--cluster-id` — идентификатор кластера, в котором создается каталог {{ TR }}. Идентификатор кластера можно запросить со [списком кластеров](cluster-list.md#list-clusters).
-    * `--additional-properties` — дополнительные настройки в формате `ключ=значение`. Список доступных настроек см. в [официальной документации]({{ tr.docs }}/connector/tpch.html).      
+    * `--additional-properties` — дополнительные настройки в формате `ключ=значение`. Список доступных настроек в [официальной документации]({{ tr.docs }}/connector/tpch.html).      
 
 - {{ TF }} {#tf}
 
@@ -2627,7 +2627,7 @@ ALTER ROLE <имя_пользователя_{{ GP }}> CREATEEXTTABLE (type='writ
     }
     ```
 
-    Где `additional_properties` — список дополнительных настроек в формате `"ключ" = "значение"`. Список доступных настроек см. в [официальной документации]({{ tr.docs }}/connector/tpch.html).
+    Где `additional_properties` — список дополнительных настроек в формате `"ключ" = "значение"`. Список доступных настроек в [официальной документации]({{ tr.docs }}/connector/tpch.html).
 
 - REST API {#api}
 
@@ -2653,7 +2653,7 @@ ALTER ROLE <имя_пользователя_{{ GP }}> CREATEEXTTABLE (type='writ
                 }'
     ```
 
-    Где `additionalProperties` — список дополнительных настроек в формате `"ключ": "значение"`. Список доступных настроек см. в [официальной документации]({{ tr.docs }}/connector/tpch.html).
+    Где `additionalProperties` — список дополнительных настроек в формате `"ключ": "значение"`. Список доступных настроек в [официальной документации]({{ tr.docs }}/connector/tpch.html).
 
     Идентификатор кластера можно запросить со [списком кластеров в каталоге](cluster-list.md#list-clusters).
 
@@ -2685,7 +2685,7 @@ ALTER ROLE <имя_пользователя_{{ GP }}> CREATEEXTTABLE (type='writ
         yandex.cloud.trino.v1.CatalogService.Create
     ```
 
-    Где `additional_properties` — список дополнительных настроек в формате `"ключ": "значение"`. Список доступных настроек см. в [официальной документации]({{ tr.docs }}/connector/tpch.html).
+    Где `additional_properties` — список дополнительных настроек в формате `"ключ": "значение"`. Список доступных настроек в [официальной документации]({{ tr.docs }}/connector/tpch.html).
 
     Идентификатор кластера можно запросить со [списком кластеров в каталоге](cluster-list.md#list-clusters).
 

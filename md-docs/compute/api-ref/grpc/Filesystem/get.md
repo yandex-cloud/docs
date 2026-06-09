@@ -1,7 +1,6 @@
 # Compute Cloud API, gRPC: FilesystemService.Get
 
 Returns the specified filesystem.
-
 To get the list of available filesystems, make a [List](list.md#List) request.
 
 ## gRPC request
@@ -20,11 +19,10 @@ To get the list of available filesystems, make a [List](list.md#List) request.
 ||Field | Description ||
 || filesystem_id | **string**
 
-Required field. ID of the filesystem to return.
-
+ID of the filesystem to return.
 To get the filesystem ID, make a [FilesystemService.List](list.md#List) request.
-
-The maximum string length in characters is 50. ||
+The length must be less than or equal to 50.
+This field is required. ||
 |#
 
 ## Filesystem {#yandex.cloud.compute.v1.Filesystem}
@@ -72,12 +70,10 @@ For details about the concept, see [documentation](../../../../overview/concepts
 || type_id | **string**
 
 ID of the filesystem type.
-
 To get a list of available filesystem types, make a [yandex.cloud.compute.v1.DiskTypeService.List](../DiskType/list.md#List) request. ||
 || zone_id | **string**
 
 ID of the availability zone where the filesystem resides.
-
 A filesystem can be attached only to instances residing in the same availability zone. ||
 || size | **int64**
 

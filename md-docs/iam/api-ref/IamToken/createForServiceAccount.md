@@ -5,7 +5,7 @@ Create an IAM token for service account.
 ## HTTP request
 
 ```
-POST https://iam.api.cloud.yandex.net/iam/v1/tokens:createForServiceAccount
+POST https://iam.{{ api-host }}/iam/v1/tokens:createForServiceAccount
 ```
 
 ## Body parameters {#yandex.cloud.iam.v1.CreateIamTokenForServiceAccountRequest}
@@ -41,7 +41,6 @@ The maximum string length in characters is 50. ||
 || iamToken | **string**
 
 IAM token for the specified identity.
-
 You should pass the token in the `Authorization` header for any further API requests.
 For example, `Authorization: Bearer `iamToken``. ||
 || expiresAt | **string** (date-time)

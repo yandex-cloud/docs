@@ -1,13 +1,12 @@
 # Container Registry API, REST: Repository.GetByName
 
 Returns the specified Repository resource.
-
 To get the list of available Repository resources, make a [List](list.md#List) request.
 
 ## HTTP request
 
 ```
-GET https://container-registry.api.cloud.yandex.net/container-registry/v1/repositories/{repositoryName}:byName
+GET https://container-registry.{{ api-host }}/container-registry/v1/repositories/{repositoryName}:byName
 ```
 
 ## Path parameters
@@ -17,7 +16,6 @@ GET https://container-registry.api.cloud.yandex.net/container-registry/v1/reposi
 || repositoryName | **string**
 
 Required field. Name of the Repository resource to return.
-
 To get the repository name use a [RepositoryService.List](list.md#List) request.
 
 Value must match the regular expression ` [a-z0-9]+(?:[._-][a-z0-9]+)*(/([a-z0-9]+(?:[._-][a-z0-9]+)*))* `. ||

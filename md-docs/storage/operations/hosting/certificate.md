@@ -17,14 +17,14 @@
 
 {% note alert %}
 
-Поддержка протокола TLS версий 1.0 и 1.1 в Object Storage прекращена с 1 августа 2025 года.
+Поддержка протокола TLS версий 1.0 и 1.1 в {{ objstorage-name }} прекращена с 1 августа 2025 года.
 
-Подробнее см. на странице [Протокол TLS](../../concepts/tls.md).
+Подробнее см. на странице [{#T}](../../concepts/tls.md).
 
 {% endnote %}
 
 
-Object Storage поддерживает только [PEM](https://en.wikipedia.org/wiki/Privacy-Enhanced_Mail)-encoded сертификаты.
+{{ objstorage-name }} поддерживает только [PEM](https://en.wikipedia.org/wiki/Privacy-Enhanced_Mail)-encoded сертификаты.
 
 {% note info %}
 
@@ -34,32 +34,32 @@ Object Storage поддерживает только [PEM](https://en.wikipedia.
 
 {% endnote %}
 
-## Выбор сертификата из Certificate Manager {#cert-manager}
+## Выбор сертификата из {{ certificate-manager-name }} {#cert-manager}
 
 {% list tabs group=instructions %}
 
 - Консоль управления {#console}
 
-    1. В [консоли управления](https://console.yandex.cloud) выберите каталог.
-    1. [Перейдите](../../../console/operations/select-service.md#select-service) в сервис **Object Storage**.
+    1. В [консоли управления]({{ link-console-main }}) выберите каталог.
+    1. Перейдите в сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_storage }}**.
     1. Выберите нужный бакет из списка.
-    1. На панели слева выберите ![image](../../../_assets/console-icons/persons-lock.svg) **Безопасность**.
-    1. Выберите вкладку **HTTPS**.
-    1. Нажмите кнопку **Настроить**.
-    1. В поле **Источник** выберите **Certificate Manager**.
-    1. В поле **Сертификат** выберите сертификат в появившемся списке. 
+    1. На панели слева выберите ![image](../../../_assets/console-icons/persons-lock.svg) **{{ ui-key.yacloud.storage.bucket.switch_security }}**.
+    1. Выберите вкладку **{{ ui-key.yacloud.storage.bucket.switch_https }}**.
+    1. Нажмите кнопку **{{ ui-key.yacloud.storage.bucket.https.button_empty-action }}**.
+    1. В поле **{{ ui-key.yacloud.storage.bucket.https.field_source }}** выберите **{{ ui-key.yacloud.storage.bucket.https.value_method-certificate-manager }}**.
+    1. В поле **{{ ui-key.yacloud.storage.bucket.https.field_certificate }}** выберите сертификат в появившемся списке. 
     
         {% note info %}
         
-        Если у вас еще нет ни одного сертификата в Yandex Certificate Manager, нажмите кнопку **Перейти в Certificate Manager** и воспользуйтесь [инструкцией](../../../certificate-manager/quickstart/index.md), чтобы создать свой первый сертификат.  
+        Если у вас еще нет ни одного сертификата в {{ certificate-manager-full-name }}, нажмите кнопку **Перейти в {{ certificate-manager-name }}** и воспользуйтесь [инструкцией](../../../certificate-manager/quickstart/index.md), чтобы создать свой первый сертификат.  
         
         {% endnote %}
 
-    1. Нажмите кнопку **Сохранить**.
+    1. Нажмите кнопку **{{ ui-key.yacloud.storage.bucket.https.button_save }}**.
 
-- Yandex Cloud CLI {#cli}
+- {{ yandex-cloud }} CLI {#cli}
 
-  Если у вас еще нет интерфейса командной строки Yandex Cloud (CLI), [установите и инициализируйте его](../../../cli/quickstart.md#install).
+  Если у вас еще нет интерфейса командной строки {{ yandex-cloud }} (CLI), [установите и инициализируйте его](../../../cli/quickstart.md#install).
 
   По умолчанию используется каталог, указанный при [создании](../../../cli/operations/profile/profile-create.md) профиля CLI. Чтобы изменить каталог по умолчанию, используйте команду `yc config set folder-id <идентификатор_каталога>`. Также для любой команды вы можете указать другой каталог с помощью параметров `--folder-name` или `--folder-id`. Если вы обращаетесь к ресурсу по имени, поиск будет выполнен в каталоге по умолчанию. Если вы обращаетесь к ресурсу по идентификатору, поиск будет выполнен глобально — во всех каталогах с учетом прав доступа.
 
@@ -77,7 +77,7 @@ Object Storage поддерживает только [PEM](https://en.wikipedia.
 
      Где:
      * `--name` — имя бакета, для которого настраивается HTTPS;
-     * `--certificate-id` — идентификатор сертификата в Certificate Manager.
+     * `--certificate-id` — идентификатор сертификата в {{ certificate-manager-name }}.
 
      Результат:
 
@@ -86,28 +86,31 @@ Object Storage поддерживает только [PEM](https://en.wikipedia.
      certificate_id: fpqe2g0hfr0e********
      ```
 
-- Terraform {#tf}
+- {{ TF }} {#tf}
 
   {% note info %}
   
-  Если вы работаете с Object Storage через Terraform от имени [сервисного аккаунта](../../../iam/concepts/users/service-accounts.md), [назначьте](../../../iam/operations/sa/assign-role-for-sa.md) сервисному аккаунту нужную [роль](../../security/index.md#roles-list), например `storage.admin`, на каталог, в котором будут создаваться ресурсы.
+  Если вы работаете с {{ objstorage-name }} через {{ TF }} от имени [сервисного аккаунта](../../../iam/concepts/users/service-accounts.md), [назначьте](../../../iam/operations/sa/assign-role-for-sa.md) сервисному аккаунту нужную [роль](../../security/index.md#roles-list), например `storage.admin`, на каталог, в котором будут создаваться ресурсы.
   
   {% endnote %}
  
-  [Terraform](https://www.terraform.io/) позволяет быстро создать облачную инфраструктуру в Yandex Cloud и управлять ею с помощью файлов конфигураций. В файлах конфигураций хранится описание инфраструктуры на языке HCL (HashiCorp Configuration Language). При изменении файлов конфигураций Terraform автоматически определяет, какая часть вашей конфигурации уже развернута, что следует добавить или удалить.
+  [{{ TF }}](https://www.terraform.io/) позволяет быстро создать облачную инфраструктуру в {{ yandex-cloud }} и управлять ею с помощью файлов конфигураций. В файлах конфигураций хранится описание инфраструктуры на языке HCL (HashiCorp Configuration Language). При изменении файлов конфигураций {{ TF }} автоматически определяет, какая часть вашей конфигурации уже развернута, что следует добавить или удалить.
   
-  Terraform распространяется под лицензией [Business Source License](https://github.com/hashicorp/terraform/blob/main/LICENSE), а [провайдер Yandex Cloud для Terraform](https://github.com/yandex-cloud/terraform-provider-yandex) — под лицензией [MPL-2.0](https://www.mozilla.org/en-US/MPL/2.0/).
+  {{ TF }} распространяется под лицензией [Business Source License](https://github.com/hashicorp/terraform/blob/main/LICENSE), а [провайдер {{ yandex-cloud }} для {{ TF }}](https://github.com/yandex-cloud/terraform-provider-yandex) — под лицензией [MPL-2.0](https://www.mozilla.org/en-US/MPL/2.0/).
   
-  Подробную информацию о ресурсах провайдера смотрите в документации на сайте [Terraform](https://www.terraform.io/docs/providers/yandex/index.html) или в [зеркале](../../../terraform/index.md).
+  Подробную информацию о ресурсах провайдера смотрите в документации на сайте [{{ TF }}](https://www.terraform.io/docs/providers/yandex/index.html) или в [зеркале]({{ tf-docs-link }}).
 
   
-  Если у вас еще нет Terraform, [установите его и настройте провайдер Yandex Cloud](../../../tutorials/infrastructure-management/terraform-quickstart.md#install-terraform).
+  Если у вас еще нет {{ TF }}, [установите его и настройте провайдер {{ yandex-cloud }}](../../../tutorials/infrastructure-management/terraform-quickstart.md#install-terraform).
+  
+  
+  Чтобы управлять инфраструктурой с помощью {{ TF }} от имени сервисного аккаунта или пользовательских аккаунтов: аккаунта на Яндексе, федеративного аккаунта и локального пользователя, [аутентифицируйтесь](../../../terraform/authentication.md) соответствующим способом.
 
 
 
-  Чтобы выбрать сертификат из Certificate Manager:
+  Чтобы выбрать сертификат из {{ certificate-manager-name }}:
 
-  1. Откройте файл конфигурации Terraform и добавьте блок `https` в описание бакета:
+  1. Откройте файл конфигурации {{ TF }} и добавьте блок `https` в описание бакета:
 
      ```hcl
      ...
@@ -122,9 +125,9 @@ Object Storage поддерживает только [PEM](https://en.wikipedia.
      ```
 
      Где:
-     * `certificate_id` — идентификатор сертификата в Certificate Manager, который будет использован для бакета.
+     * `certificate_id` — идентификатор сертификата в {{ certificate-manager-name }}, который будет использован для бакета.
 
-     Более подробную информацию о параметрах ресурса `yandex_storage_bucket` в Terraform см. в [документации провайдера](../../../terraform/resources/storage_bucket.md#bucket-https-certificate).
+     Более подробную информацию о параметрах ресурса `yandex_storage_bucket` в {{ TF }} см. в [документации провайдера]({{ tf-provider-resources-link }}/storage_bucket#bucket-https-certificate).
 
   1. Создайте ресурсы:
 
@@ -147,7 +150,7 @@ Object Storage поддерживает только [PEM](https://en.wikipedia.
          terraform plan
          ```
       
-         В терминале будет выведен список ресурсов с параметрами. На этом этапе изменения не будут внесены. Если в конфигурации есть ошибки, Terraform на них укажет.
+         В терминале будет выведен список ресурсов с параметрами. На этом этапе изменения не будут внесены. Если в конфигурации есть ошибки, {{ TF }} на них укажет.
       1. Примените изменения конфигурации:
       
          ```bash
@@ -156,17 +159,17 @@ Object Storage поддерживает только [PEM](https://en.wikipedia.
       
       1. Подтвердите изменения: введите в терминале слово `yes` и нажмите **Enter**.
 
-     Проверить выбранный сертификат можно в [консоли управления](https://console.yandex.cloud).
+     Проверить выбранный сертификат можно в [консоли управления]({{ link-console-main }}).
 
 - API {#api}
 
-  Чтобы выбрать сертификат из Certificate Manager, воспользуйтесь методом REST API [setHTTPSConfig](../../api-ref/Bucket/setHTTPSConfig.md) для ресурса [Bucket](../../api-ref/Bucket/index.md) или вызовом gRPC API [BucketService/SetHTTPSConfig](../../api-ref/grpc/Bucket/setHTTPSConfig.md).
+  Чтобы выбрать сертификат из {{ certificate-manager-name }}, воспользуйтесь методом REST API [setHTTPSConfig](../../api-ref/Bucket/setHTTPSConfig.md) для ресурса [Bucket](../../api-ref/Bucket/index.md) или вызовом gRPC API [BucketService/SetHTTPSConfig](../../api-ref/grpc/Bucket/setHTTPSConfig.md).
 
 {% endlist %}
 
 ## Загрузка собственного сертификата безопасности {#own}
 
-Собственный сертификат лучше [загружать](../../../certificate-manager/operations/import/cert-create.md) с помощью сервиса Certificate Manager.
+Собственный сертификат лучше [загружать](../../../certificate-manager/operations/import/cert-create.md) с помощью сервиса {{ certificate-manager-name }}.
 
 Если вы загружаете цепочку сертификатов, она должна начинаться с доменного и заканчиваться корневым сертификатом. Можно создать файл с цепочкой с помощью команды:
 
@@ -182,15 +185,15 @@ cat domain.pem intermediate.pem rootca.pem > bundle.pem
 
 - Консоль управления {#console}
 
-   1. В [консоли управления](https://console.yandex.cloud) выберите каталог.
-   1. [Перейдите](../../../console/operations/select-service.md#select-service) в сервис **Object Storage**.
+   1. В [консоли управления]({{ link-console-main }}) выберите каталог.
+   1. Перейдите в сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_storage }}**.
    1. Выберите нужный бакет из списка.
-   1. На панели слева выберите ![image](../../../_assets/console-icons/persons-lock.svg) **Безопасность**.
-   1. Выберите вкладку **HTTPS**.
-   1. Нажмите кнопку **Настроить**.
-   1. В поле **Источник** выберите **Свой сертификат**.
-   1. Добавьте **Сертификат** и **Секретный ключ**.
-   1. Нажмите кнопку **Сохранить**.
+   1. На панели слева выберите ![image](../../../_assets/console-icons/persons-lock.svg) **{{ ui-key.yacloud.storage.bucket.switch_security }}**.
+   1. Выберите вкладку **{{ ui-key.yacloud.storage.bucket.switch_https }}**.
+   1. Нажмите кнопку **{{ ui-key.yacloud.storage.bucket.https.button_empty-action }}**.
+   1. В поле **{{ ui-key.yacloud.storage.bucket.https.field_source }}** выберите **{{ ui-key.yacloud.storage.bucket.https.value_method-custom }}**.
+   1. Добавьте **{{ ui-key.yacloud.storage.bucket.https.field_certificate }}** и **{{ ui-key.yacloud.storage.bucket.https.field_private-key }}**.
+   1. Нажмите кнопку **{{ ui-key.yacloud.storage.bucket.https.button_save }}**.
 
 - API {#api}
 
@@ -206,7 +209,7 @@ cat domain.pem intermediate.pem rootca.pem > bundle.pem
 
 ### См. также {#see-also}
 
-* [Как исправить некорректный MIME-тип объектов при их загрузке в бакет?](../../qa.md#qa-mime-type)
-* [Настройка хостинга](setup.md)
-* [Собственный домен](own-domain.md)
-* [Поддержка нескольких доменных имен](multiple-domains/index.md)
+* [{#T}](../../qa.md#qa-mime-type)
+* [{#T}](setup.md)
+* [{#T}](own-domain.md)
+* [{#T}](multiple-domains/index.md)

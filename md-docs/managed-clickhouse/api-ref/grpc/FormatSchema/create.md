@@ -22,7 +22,6 @@ Adds a format schema to a cluster.
 || cluster_id | **string**
 
 Required field. ClickHouse cluster ID.
-
 To get a ClickHouse cluster ID, use the [ClusterService.List](../Cluster/list.md#List) method.
 
 The maximum string length in characters is 50. ||
@@ -34,7 +33,6 @@ The maximum string length in characters is 63. Value must match the regular expr
 || type | enum **FormatSchemaType**
 
 Required field. Schema type. Possible values are the following:
-
 * FORMAT_SCHEMA_TYPE_PROTOBUF - [Protobuf](https://protobuf.dev/) data format (including [ProtobufSingle](https://clickhouse.com/docs/en/interfaces/formats#protobufsingle)).
 * FORMAT_SCHEMA_TYPE_CAPNPROTO - [Cap'n Proto](https://capnproto.org/) data format.
 
@@ -55,18 +53,10 @@ Required field. [Link to the file](../../../operations/s3-access.md#get-link-to-
   "created_by": "string",
   "modified_at": "google.protobuf.Timestamp",
   "done": "bool",
-  "metadata": {
-    "cluster_id": "string",
-    "format_schema_name": "string"
-  },
+  "metadata": "google.protobuf.Any",
   // Includes only one of the fields `error`, `response`
   "error": "google.rpc.Status",
-  "response": {
-    "name": "string",
-    "cluster_id": "string",
-    "type": "FormatSchemaType",
-    "uri": "string"
-  }
+  "response": "google.protobuf.Any"
   // end of the list of possible fields
 }
 ```
@@ -94,7 +84,7 @@ The time when the Operation resource was last modified. ||
 
 If the value is `false`, it means the operation is still in progress.
 If `true`, the operation is completed, and either `error` or `response` is available. ||
-|| metadata | **[CreateFormatSchemaMetadata](#yandex.cloud.mdb.clickhouse.v1.CreateFormatSchemaMetadata)**
+|| metadata | **[google.protobuf.Any](https://developers.google.com/protocol-buffers/docs/proto3#any)**
 
 Service-specific metadata associated with the operation.
 It typically contains the ID of the target resource that the operation is performed on.
@@ -109,7 +99,7 @@ The operation result.
 If `done == false` and there was no failure detected, neither `error` nor `response` is set.
 If `done == false` and there was a failure detected, `error` is set.
 If `done == true`, exactly one of `error` or `response` is set. ||
-|| response | **[FormatSchema](#yandex.cloud.mdb.clickhouse.v1.FormatSchema)**
+|| response | **[google.protobuf.Any](https://developers.google.com/protocol-buffers/docs/proto3#any)**
 
 The normal response of the operation in case of success.
 If the original method returns no data on success, such as Delete,
@@ -124,40 +114,4 @@ The operation result.
 If `done == false` and there was no failure detected, neither `error` nor `response` is set.
 If `done == false` and there was a failure detected, `error` is set.
 If `done == true`, exactly one of `error` or `response` is set. ||
-|#
-
-## CreateFormatSchemaMetadata {#yandex.cloud.mdb.clickhouse.v1.CreateFormatSchemaMetadata}
-
-#|
-||Field | Description ||
-|| cluster_id | **string**
-
-ClickHouse cluster ID. ||
-|| format_schema_name | **string**
-
-Format schema name. ||
-|#
-
-## FormatSchema {#yandex.cloud.mdb.clickhouse.v1.FormatSchema}
-
-#|
-||Field | Description ||
-|| name | **string**
-
-Format schema name. ||
-|| cluster_id | **string**
-
-ClickHouse cluster ID. ||
-|| type | enum **FormatSchemaType**
-
-Schema type. Possible values are the following:
-
-* FORMAT_SCHEMA_TYPE_PROTOBUF - [Protobuf](https://protobuf.dev/) data format (including [ProtobufSingle](https://clickhouse.com/docs/en/interfaces/formats#protobufsingle)).
-* FORMAT_SCHEMA_TYPE_CAPNPROTO - [Cap'n Proto](https://capnproto.org/) data format.
-
-- `FORMAT_SCHEMA_TYPE_PROTOBUF`
-- `FORMAT_SCHEMA_TYPE_CAPNPROTO` ||
-|| uri | **string**
-
-Link to the file of a format schema in Yandex Object Storage. Managed Service for ClickHouse works only with format schemas imported to Object Storage. ||
 |#

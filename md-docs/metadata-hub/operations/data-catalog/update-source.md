@@ -12,19 +12,19 @@
 
 - Консоль управления {#console}
 
-    1. В [консоли управления](https://console.yandex.cloud) выберите [каталог ресурсов](../../../resource-manager/concepts/resources-hierarchy.md#folder), в котором создан каталог метаданных.
-    1. [Перейдите](../../../console/operations/select-service.md#select-service) в сервис **Yandex MetaData Hub**.
-    1. На панели слева выберите ![image](../../../_assets/console-icons/folder-magnifier.svg) **Data Catalog**.
+    1. В [консоли управления]({{ link-console-main }}) выберите [каталог ресурсов](../../../resource-manager/concepts/resources-hierarchy.md#folder), в котором создан каталог метаданных.
+    1. [Перейдите](../../../console/operations/select-service.md#select-service) в сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_metadata-hub }}**.
+    1. На панели слева выберите ![image](../../../_assets/console-icons/folder-magnifier.svg) **{{ ui-key.yacloud.iam.folder.dashboard.label_data-catalog }}**.
     1. В открывшемся списке выберите каталог метаданных, в котором вы хотите изменить источник.
-    1. На панели слева выберите ![image](../../../_assets/console-icons/cloud-arrow-up-in.svg) **Источники данных**.
-    1. В списке источников нажмите кнопку ![image](../../../_assets/console-icons/ellipsis.svg) в строке с нужным источником и выберите **Редактировать**.
+    1. На панели слева выберите ![image](../../../_assets/console-icons/cloud-arrow-up-in.svg) **{{ ui-key.yacloud.data-catalog.label_sources }}**.
+    1. В списке источников нажмите кнопку ![image](../../../_assets/console-icons/ellipsis.svg) в строке с нужным источником и выберите **{{ ui-key.yacloud.common.edit }}**.
     1. Измените нужные параметры:
 
         * Описание источника.
 
-        * **ID подключения** — идентификатор управляемого подключения в [Yandex Connection Manager](../../quickstart/connection-manager.md).
-        * **Имя базы данных** — имя базы данных, из которой будут загружаться метаданные.
+        * **{{ ui-key.data-catalog.console.form.postgresql_source_create.PostgreSQLSourceCreate.ConnectionType.ManagedConnection.connection_id.title }}** — идентификатор управляемого подключения в [{{ connection-manager-full-name }}](../../quickstart/connection-manager.md).
+        * **{{ ui-key.data-catalog.console.form.postgresql_source_create.PostgreSQLSourceCreate.database_name.title }}** — имя базы данных, из которой будут загружаться метаданные.
 
-    1. Нажмите кнопку **Сохранить изменения**.
+    1. Нажмите кнопку **{{ ui-key.yacloud.common.save-changes }}**.
 
 {% endlist %}

@@ -1,9 +1,9 @@
 # Графические ускорители GPU
 
 
-Compute Cloud предоставляет графические ускорители ([GPU](../../glossary/gpu.md)) в различных [конфигурациях](#config) виртуальных машин. GPU обрабатывают некоторые типы данных эффективнее, чем CPU, и могут использоваться для сложных вычислений. Сделать решение задач еще эффективнее и удобнее поможет автоматическое выделение ресурсов в [Yandex DataSphere](../../datasphere/concepts/index.md).
+{{ compute-name }} предоставляет графические ускорители ([GPU](../../glossary/gpu.md)) в различных [конфигурациях](#config) виртуальных машин. GPU обрабатывают некоторые типы данных эффективнее, чем CPU, и могут использоваться для сложных вычислений. Сделать решение задач еще эффективнее и удобнее поможет автоматическое выделение ресурсов в [{{ ml-platform-full-name }}](../../datasphere/concepts/index.md).
 
-В Compute Cloud доступны следующие графические карты:
+В {{ compute-name }} доступны следующие графические карты:
 * [NVIDIA® Tesla® V100](https://www.nvidia.com/en-gb/data-center/tesla-v100/) с 32 ГБ памяти HBM2 (High Bandwidth Memory).
 * [NVIDIA® Ampere® A100](https://www.nvidia.com/ru-ru/data-center/a100/) с 80 ГБ памяти HBM2.
 * [NVIDIA® Tesla® T4](https://www.nvidia.com/ru-ru/data-center/tesla-t4/) с 16 ГБ памяти GDDR6.
@@ -14,7 +14,7 @@ GPU работает в режиме [TCC](https://docs.nvidia.com/nsight-visual
 
 {% endnote %}
 
-По умолчанию в облаке установлена нулевая [квота](limits.md#compute-quotas) на создание виртуальных машин с GPU. Вы можете запросить увеличение квоты в [консоли управления](https://console.yandex.cloud/cloud?section=quotas). Для этого нужна [роль](../../iam/roles-reference.md#quota-manager-requestoperator) `quota-manager.requestOperator` или выше.
+По умолчанию в облаке установлена нулевая [квота](limits.md#compute-quotas) на создание виртуальных машин с GPU. Вы можете запросить увеличение квоты в [консоли управления]({{ link-console-quotas }}). Для этого нужна [роль](../../iam/roles-reference.md#quota-manager-requestoperator) `quota-manager.requestOperator` или выше.
 
 
 ## Графические ускорители (GPU) {#gpu}
@@ -48,7 +48,7 @@ T4i использует тензорные ядра и предоставляе
 
 Доступные конфигурации вычислительных ресурсов:
 
-* Платформа Intel Broadwell with NVIDIA® Tesla® V100 (`gpu-standard-v1`):
+* Платформа {{ v100-broadwell }} (`gpu-standard-v1`):
 
   Количество GPU | Объем VRAM, ГБ | Количество vCPU | Объем RAM, ГБ
   --- | --- | --- | ---
@@ -56,7 +56,7 @@ T4i использует тензорные ядра и предоставляе
   2 | 64 | 16 | 192
   4 | 128 | 32 | 384
 
-* Платформа Intel Cascade Lake with NVIDIA® Tesla® V100 (`gpu-standard-v2`):
+* Платформа {{ v100-cascade-lake }} (`gpu-standard-v2`):
 
   Количество GPU | Объем VRAM, ГБ | Количество vCPU | Объем RAM, ГБ
   --- | --- | --- | ---
@@ -65,7 +65,7 @@ T4i использует тензорные ядра и предоставляе
   4 | 128 | 32 | 192
   8 | 256 | 64 | 384
 
-* Платформа AMD EPYC™ with NVIDIA® Ampere® A100 (`gpu-standard-v3`):
+* Платформа {{ a100-epyc }} (`gpu-standard-v3`):
 
   Количество GPU | Объем VRAM, ГБ | Количество vCPU | Объем RAM, ГБ
   --- | --- | --- | ---
@@ -83,7 +83,7 @@ T4i использует тензорные ядра и предоставляе
   4 | 320 | 72 | 576
   8 | 640 | 180 | 1440
   
-* Платформа Intel Ice Lake with NVIDIA® Tesla® T4 (`standard-v3-t4`):
+* Платформа {{ t4-ice-lake }} (`standard-v3-t4`):
 
   Количество GPU | Объем VRAM, ГБ | Количество vCPU | Объем RAM, ГБ
   --- | --- | --- | ---
@@ -92,7 +92,7 @@ T4i использует тензорные ядра и предоставляе
   1 | 16 | 16 | 64
   1 | 16 | 32 | 128
 
-* Платформа Intel Ice Lake with T4i (`standard-v3-t4i`):
+* Платформа {{ t4i-ice-lake }} (`standard-v3-t4i`):
 
   Количество GPU | Объем VRAM, ГБ | Количество vCPU | Объем RAM, ГБ
   --- | --- | --- | ---
@@ -112,31 +112,31 @@ T4i использует тензорные ядра и предоставляе
 
 GPU в виртуальных машинах предоставляется целиком. Например, если в конфигурации указано 4 GPU, то у вашей ВМ будет 4 полноценных GPU-устройства.
 
-Виртуальные машины на платформах Intel Broadwell with NVIDIA® Tesla® V100, Intel Cascade Lake with NVIDIA® Tesla® V100 и AMD EPYC™ with NVIDIA® Ampere® A100 можно создать в зонах доступности `ru-central1-a` и `ru-central1-b`.
+Виртуальные машины на платформах {{ v100-broadwell }}, {{ v100-cascade-lake }} и {{ a100-epyc }} можно создать в зонах доступности `{{ region-id }}-a` и `{{ region-id }}-b`.
 
 Ознакомиться с организационными и техническими ограничениями ВМ можно в разделе [Квоты и лимиты](limits.md).
 
-Стоимость виртуальных машин с GPU см. в разделе [Цены для региона Россия](../pricing.md#prices).
+Стоимость виртуальных машин с GPU см. в разделе [{#T}](../pricing.md#prices).
 
 
 ### Образы операционных систем {#os}
 
 Для виртуальных машин с GPU доступны специальные образы операционных систем с драйверами NVIDIA:
 
-Intel Broadwell with NVIDIA® Tesla® V100 и Intel Cascade Lake with NVIDIA® Tesla® V100
+{{ v100-broadwell }} и {{ v100-cascade-lake }}
 
 : * [Ubuntu 18.04 LTS GPU](https://yandex.cloud/ru/marketplace/products/yc/ubuntu-18-04-lts-gpu) (`ubuntu-1804-lts-gpu`)
   * [Ubuntu 20.04 LTS GPU](https://yandex.cloud/ru/marketplace/products/yc/ubuntu-20-04-lts-gpu) (`ubuntu-2004-lts-gpu`)
 
-Intel Ice Lake with NVIDIA® Tesla® T4
+{{ t4-ice-lake }}
 
 : * [Ubuntu 20.04 LTS GPU](https://yandex.cloud/ru/marketplace/products/yc/ubuntu-20-04-lts-gpu) (`ubuntu-2004-lts-gpu`)
 
-Intel Ice Lake with T4i
+{{ t4i-ice-lake }}
 
 : * [Ubuntu 22.04 LTS GPU CUDA 12.2](https://yandex.cloud/ru/marketplace/products/yc/ubuntu-2204-lts-cuda-12-2) (`ubuntu-2204-lts-cuda-12-2`)
 
-AMD EPYC™ with NVIDIA® Ampere® A100
+{{ a100-epyc }}
 
 : * [Ubuntu 22.04 LTS GPU CUDA 12.2](https://yandex.cloud/ru/marketplace/products/yc/ubuntu-2204-lts-cuda-12-2) (`ubuntu-2204-lts-cuda-12-2`)
 
@@ -147,7 +147,17 @@ Gen2
 
 : * [Ubuntu 20.04 LTS Secure Boot CUDA 12.2](https://yandex.cloud/ru/marketplace/products/yc/ubuntu-2004-lts-secureboot-cuda-12-2) (`ubuntu-2004-lts-secureboot-cuda-12-2`)
 
-Мы рекомендуем использовать стандартный образ от Yandex Cloud. Вы также можете [установить драйверы](../operations/vm-operate/install-nvidia-drivers.md) на другой стандартный образ самостоятельно или [создать собственный образ](../operations/image-create/custom-image.md) с предустановленными драйверами.
+Мы рекомендуем использовать стандартный образ от {{ yandex-cloud }}. Вы также можете [установить драйверы](../operations/vm-operate/install-nvidia-drivers.md) на другой стандартный образ самостоятельно или [создать собственный образ](../operations/image-create/custom-image.md) с предустановленными драйверами.
+
+{% note info %}
+
+{{ compute-name }} проверяет работоспособность и рекомендует устанавливать только [LTS версии драйверов](https://docs.nvidia.com/datacenter/tesla/drivers/releases.json).
+
+При установке драйверов для платформы `gpu-standard-v3` ({{ a100-epyc }}) указывайте совместимую версию драйвера — `535`.
+
+Мы рекомендуем использовать именно эту версию драйвера — обновление до других версий не поддерживается и может привести к нестабильной работе GPU.
+
+{% endnote %}
 
 
 ## Кластеры GPU {#gpu-clusters}
@@ -158,9 +168,9 @@ Gen2
 
 Максимальный возможный размер кластера на платформе Gen2 — 20 ВМ с конфигурацией 8 GPU, 80 ГБ VRAM, 180 vCPU, 1440 ГБ RAM. Фактический максимальный размер кластера ограничен технической доступностью ресурсов.
 
-#### См. также {#see-also}
+## Смотрите также {#see-also}
 
-* [Создание виртуальной машины с GPU](../operations/vm-create/create-vm-with-gpu.md).
+* [{#T}](../operations/vm-create/create-vm-with-gpu.md).
 * Узнайте, как [добавить GPU к существующей ВМ](../operations/vm-control/vm-update-resources.md#add-gpu).
 * Узнайте, как [изменить количество GPU](../operations/vm-control/vm-update-resources.md#update-gpu).
 * [Вопросы про GPU](../qa/gpu.md).

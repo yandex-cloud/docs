@@ -7,7 +7,7 @@ To get the list of all virtual hosts of an HTTP router, make a [List](list.md#Li
 ## HTTP request
 
 ```
-GET https://alb.api.cloud.yandex.net/apploadbalancer/v1/httpRouters/{httpRouterId}/virtualHosts/{virtualHostName}
+GET https://alb.{{ api-host }}/apploadbalancer/v1/httpRouters/{httpRouterId}/virtualHosts/{virtualHostName}
 ```
 
 ## Path parameters

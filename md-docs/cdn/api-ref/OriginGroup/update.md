@@ -7,7 +7,7 @@ use the origin group via a [CacheService.Purge](../Cache/purge.md#Purge) request
 ## HTTP request
 
 ```
-PATCH https://cdn.api.cloud.yandex.net/cdn/v1/originGroups
+PATCH https://cdn.{{ api-host }}/cdn/v1/originGroups
 ```
 
 ## Body parameters {#yandex.cloud.cdn.v1.UpdateOriginGroupRequest}

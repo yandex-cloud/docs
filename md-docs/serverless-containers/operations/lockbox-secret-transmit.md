@@ -1,4 +1,4 @@
-# Передать секреты Yandex Lockbox в контейнер
+# Передать секреты {{ lockbox-full-name }} в контейнер
 
 {% note info %}
 
@@ -6,42 +6,42 @@
 
 {% endnote %}
 
-[Yandex Lockbox](../../lockbox/index.md) — сервис для хранения секретов. Передать секрет Yandex Lockbox в контейнер можно в [переменной окружения](../concepts/runtime.md#environment-variables).
+[{{ lockbox-name }}](../../lockbox/index.md) — сервис для хранения секретов. Передать секрет {{ lockbox-name }} в контейнер можно в [переменной окружения](../concepts/runtime.md#environment-variables).
 
 Чтобы контейнер получил доступ к [секрету](../../lockbox/concepts/secret.md), в настройках контейнера нужно указать [сервисный аккаунт](../../iam/concepts/users/service-accounts.md), у которого есть роли:
 * `lockbox.payloadViewer` на секрет ([как назначить права доступа к секрету](../../lockbox/operations/secret-access.md));
-* `kms.keys.encrypterDecrypter` на ключ шифрования, если секрет создан с использованием ключа Yandex Key Management Service ([как назначить права доступа к ключу шифрования](../../kms/operations/key-access.md)).
+* `kms.keys.encrypterDecrypter` на ключ шифрования, если секрет создан с использованием ключа {{ kms-full-name }} ([как назначить права доступа к ключу шифрования](../../kms/operations/key-access.md)).
 
-Секрет Lockbox, который передается в контейнер, кешируется в Serverless Containers. После того как сервисный аккаунт потеряет доступ к секрету, контейнер может хранить его до 5 минут.
+Секрет {{ lockbox-short-name }}, который передается в контейнер, кешируется в {{ serverless-containers-name }}. После того как сервисный аккаунт потеряет доступ к секрету, контейнер может хранить его до 5 минут.
 
-При передаче секретов Yandex Lockbox создается новая ревизия контейнера. В существующую ревизию секреты передать нельзя.
+При передаче секретов {{ lockbox-name }} создается новая ревизия контейнера. В существующую ревизию секреты передать нельзя.
 
 {% list tabs group=instructions %}
 
 - Консоль управления {#console}
 
-    1. В [консоли управления](https://console.yandex.cloud) перейдите в каталог, в котором находится контейнер.
-    1. [Перейдите](../../console/operations/select-service.md#select-service) в сервис **Serverless Containers**.
+    1. В [консоли управления]({{ link-console-main }}) перейдите в каталог, в котором находится контейнер.
+    1. Перейдите в сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_serverless-containers }}**.
     1. Выберите контейнер, в который хотите передать секрет.
-    1. Перейдите на вкладку **Редактор**.
-    1. В открывшемся окне, в блоке **Параметры образа**, в поле **Секреты Lockbox**, укажите:
+    1. Перейдите на вкладку **{{ ui-key.yacloud.serverless-containers.label_editor }}**.
+    1. В открывшемся окне, в блоке **{{ ui-key.yacloud.serverless-containers.section_image }}**, в поле **{{ ui-key.yacloud.serverless-functions.item.editor.label_lockbox-secret }}**, укажите:
         * имя переменной окружения, в которой будет храниться секрет;
         * идентификатор секрета;
         * идентификатор версии секрета;
         * ключ одной из пар ключ-значение в версии секрета.
-    1. Нажмите **Добавить**.
+    1. Нажмите **{{ ui-key.yacloud.serverless-functions.item.editor.button_add-environment-variable }}**.
 
-        В контейнер можно передать несколько секретов. Для этого еще раз нажмите **Добавить**.
+        В контейнер можно передать несколько секретов. Для этого еще раз нажмите **{{ ui-key.yacloud.serverless-functions.item.editor.button_add-environment-variable }}**.
 
-    1. Нажмите кнопку **Создать ревизию**. Будет создана новая ревизия контейнера с указанными секретами.
+    1. Нажмите кнопку **{{ ui-key.yacloud.serverless-containers.button_deploy-revision }}**. Будет создана новая ревизия контейнера с указанными секретами.
     
 - CLI {#cli}
 
-    Если у вас еще нет интерфейса командной строки Yandex Cloud (CLI), [установите и инициализируйте его](../../cli/quickstart.md#install).
+    Если у вас еще нет интерфейса командной строки {{ yandex-cloud }} (CLI), [установите и инициализируйте его](../../cli/quickstart.md#install).
 
     По умолчанию используется каталог, указанный при [создании](../../cli/operations/profile/profile-create.md) профиля CLI. Чтобы изменить каталог по умолчанию, используйте команду `yc config set folder-id <идентификатор_каталога>`. Также для любой команды вы можете указать другой каталог с помощью параметров `--folder-name` или `--folder-id`. Если вы обращаетесь к ресурсу по имени, поиск будет выполнен в каталоге по умолчанию. Если вы обращаетесь к ресурсу по идентификатору, поиск будет выполнен глобально — во всех каталогах с учетом прав доступа.
 
-    Чтобы передать секреты Yandex Lockbox в контейнер, выполните команду:
+    Чтобы передать секреты {{ lockbox-name }} в контейнер, выполните команду:
 
     {% note warning %}
 
@@ -52,7 +52,7 @@
     ```bash
     yc serverless container revision deploy \
        --container-name test \
-       --image cr.yandex/<идентификатор_реестра>/repository:tag \
+       --image {{ registry }}/<идентификатор_реестра>/repository:tag \
        --cores 1 \
        --memory 1GB \
        --service-account-id <идентификатор_сервисного_аккаунта> \
@@ -74,11 +74,14 @@
       
       В контейнер можно передать несколько секретов. Для этого укажите параметр `--secret` необходимое количество раз.
 
-- Terraform {#tf}
+- {{ TF }} {#tf}
 
-    Если у вас еще нет Terraform, [установите его и настройте провайдер Yandex Cloud](../../tutorials/infrastructure-management/terraform-quickstart.md#install-terraform).
+    Если у вас еще нет {{ TF }}, [установите его и настройте провайдер {{ yandex-cloud }}](../../tutorials/infrastructure-management/terraform-quickstart.md#install-terraform).
+    
+    
+    Чтобы управлять инфраструктурой с помощью {{ TF }} от имени сервисного аккаунта или пользовательских аккаунтов: аккаунта на Яндексе, федеративного аккаунта и локального пользователя, [аутентифицируйтесь](../../terraform/authentication.md) соответствующим способом.
 
-    1. Откройте файл конфигурации Terraform и добавьте к описанию функции блок `secrets`:
+    1. Откройте файл конфигурации {{ TF }} и добавьте к описанию функции блок `secrets`:
 
         ```hcl
         resource "yandex_serverless_container" "test-container" {
@@ -110,7 +113,7 @@
             * `key` — ключ одной из пар ключ-значение в версии секрета, который будет храниться в переменной окружения. Обязательный параметр.
             * `environment_variable` — имя переменной окружения, в которой будет храниться секрет. Обязательный параметр.
         
-        Более подробную информацию о параметрах ресурса `yandex_serverless_container` см. в [документации провайдера](../../terraform/resources/serverless_container.md).
+        Более подробную информацию о параметрах ресурса `yandex_serverless_container` см. в [документации провайдера]({{ tf-provider-resources-link }}/serverless_container).
  
     1. Примените изменения:
 
@@ -133,7 +136,7 @@
            terraform plan
            ```
         
-           В терминале будет выведен список ресурсов с параметрами. На этом этапе изменения не будут внесены. Если в конфигурации есть ошибки, Terraform на них укажет.
+           В терминале будет выведен список ресурсов с параметрами. На этом этапе изменения не будут внесены. Если в конфигурации есть ошибки, {{ TF }} на них укажет.
         1. Примените изменения конфигурации:
         
            ```bash
@@ -142,10 +145,10 @@
         
         1. Подтвердите изменения: введите в терминале слово `yes` и нажмите **Enter**.
 
-    Проверить изменение функции и ее настройки можно в [консоли управления](https://console.yandex.cloud).
+    Проверить изменение функции и ее настройки можно в [консоли управления]({{ link-console-main }}).
 
 - API {#api}
 
-  Чтобы передать секрет Yandex Lockbox в контейнер, воспользуйтесь методом REST API [deployRevision](../containers/api-ref/Container/deployRevision.md) для ресурса [Container](../containers/api-ref/Container/index.md) или вызовом gRPC API [ContainerService/DeployRevision](../containers/api-ref/grpc/Container/deployRevision.md).
+  Чтобы передать секрет {{ lockbox-name }} в контейнер, воспользуйтесь методом REST API [deployRevision](../containers/api-ref/Container/deployRevision.md) для ресурса [Container](../containers/api-ref/Container/index.md) или вызовом gRPC API [ContainerService/DeployRevision](../containers/api-ref/grpc/Container/deployRevision.md).
 
 {% endlist %}

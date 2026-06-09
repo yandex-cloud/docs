@@ -1,17 +1,17 @@
-# Подключение к кластеру MySQL® из DataLens
+# Подключение к кластеру {{ MY }} из {{ datalens-name }}
 
-[Yandex DataLens](../../datalens/concepts/index.md) — это сервис для [бизнес-аналитики](../../glossary/business-analytics.md). Сервис позволяет загружать и обрабатывать данные, визуализировать их для анализа и проверки гипотез. Он может помочь вам при принятии маркетинговых решений для вашего продукта.
+[{{ datalens-full-name }}](../../datalens/concepts/index.md) — это сервис для [бизнес-аналитики](../../glossary/business-analytics.md). Сервис позволяет загружать и обрабатывать данные, визуализировать их для анализа и проверки гипотез. Он может помочь вам при принятии маркетинговых решений для вашего продукта.
 
-Чтобы использовать существующий кластер в качестве источника данных для Yandex DataLens:
-1. [Активируйте DataLens](#activate-datalens).
-1. [Разрешите доступ из DataLens к кластеру](#allow-access).
-1. [Создайте подключение к кластеру в DataLens](#create-connector).
+Чтобы использовать существующий кластер в качестве источника данных для {{ datalens-full-name }}:
+1. [Активируйте {{ datalens-name }}](#activate-datalens).
+1. [Разрешите доступ из {{ datalens-name }} к кластеру](#allow-access).
+1. [Создайте подключение к кластеру в {{ datalens-name }}](#create-connector).
 
-## Активировать DataLens {#activate-datalens}
+## Активировать {{ datalens-name }} {#activate-datalens}
 
 {% note alert "Ограничение" %}
 
-В облаке можно создать только один экземпляр DataLens.
+В облаке можно создать только один экземпляр {{ datalens-name }}.
 
 {% endnote %}
 
@@ -19,17 +19,17 @@
 
 - Консоль управления {#console}
 
-    1. В [консоли управления](https://console.yandex.cloud) перейдите на страницу каталога.
-    1. [Перейдите](../../console/operations/select-service.md#select-service) в сервис **DataLens**.
+    1. В [консоли управления]({{ link-console-main }}) перейдите на страницу каталога.
+    1. Перейдите в сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_datalens }}**.
     1. Нажмите кнопку **Активировать DataLens**.
 
 {% endlist %}
 
-Экземпляр DataLens будет активирован в выбранном каталоге.
+Экземпляр {{ datalens-name }} будет активирован в выбранном каталоге.
 
-## Разрешить доступ из DataLens к кластеру {#allow-access}
+## Разрешить доступ из {{ datalens-name }} к кластеру {#allow-access}
 
-Чтобы DataLens мог подключаться к кластеру и работать с данными в нем, включите опцию **Доступ из DataLens** при [создании кластера](cluster-create.md) или [изменении его настроек](update.md#change-additional-settings).
+Чтобы {{ datalens-name }} мог подключаться к кластеру и работать с данными в нем, включите опцию **{{ ui-key.yacloud.mdb.cluster.overview.label_access-datalens }}** при [создании кластера](cluster-create.md) или [изменении его настроек](update.md#change-additional-settings).
 
 ## Создать подключение к кластеру {#create-connector}
 
@@ -37,14 +37,14 @@
 
 - Консоль управления {#console}
 
-  1. Убедитесь, что сервис DataLens [активирован](#activate-datalens) в нужном каталоге и доступ к кластеру из него [разрешен](#allow-access).
-  1. [Перейдите](../../console/operations/select-service.md#select-service) в сервис **Managed Service for&nbsp;MySQL**.
-  1. Нажмите на имя нужного кластера и выберите вкладку **DataLens**.
+  1. Убедитесь, что сервис {{ datalens-name }} [активирован](#activate-datalens) в нужном каталоге и доступ к кластеру из него [разрешен](#allow-access).
+  1. Перейдите в сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-mysql }}**.
+  1. Нажмите на имя нужного кластера и выберите вкладку **{{ ui-key.yacloud.mysql.cluster.switch_datalens }}**.
   1. Нажмите кнопку **Создать подключение**.
 
      {% cut "У меня нет кнопки «Создать подключение»" %}
 
-     Если вместо кнопки **Создать подключение** вы видите сообщение «DataLens ещё не активирован», значит вы либо ещё не активировали DataLens, либо подключили его в другом каталоге. Чтобы подключить кластер к экземпляру DataLens из другого каталога, воспользуйтесь [инструкцией](../../datalens/operations/connection/create-mysql.md) в документации DataLens.
+     Если вместо кнопки **Создать подключение** вы видите сообщение «DataLens ещё не активирован», значит вы либо ещё не активировали {{ datalens-name }}, либо подключили его в другом каталоге. Чтобы подключить кластер к экземпляру {{ datalens-name }} из другого каталога, воспользуйтесь [инструкцией](../../datalens/operations/connection/create-mysql.md) в документации {{ datalens-name }}.
 
      {% endcut %}
 
@@ -70,8 +70,8 @@
 
 - Консоль управления {#console}
 
-  1. [Перейдите](../../console/operations/select-service.md#select-service) в сервис **Managed Service for&nbsp;MySQL**.
-  1. Нажмите на имя нужного кластера и выберите вкладку **DataLens**.
+  1. Перейдите в сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-mysql }}**.
+  1. Нажмите на имя нужного кластера и выберите вкладку **{{ ui-key.yacloud.mysql.cluster.switch_datalens }}**.
 
 {% endlist %}
 
@@ -81,8 +81,8 @@
 
 - Консоль управления {#console}
 
-  1. [Перейдите](../../console/operations/select-service.md#select-service) в сервис **Managed Service for&nbsp;MySQL**.
-  1. Нажмите на имя нужного кластера и выберите вкладку **DataLens**.
+  1. Перейдите в сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-mysql }}**.
+  1. Нажмите на имя нужного кластера и выберите вкладку **{{ ui-key.yacloud.mysql.cluster.switch_datalens }}**.
   1. Выберите подключение из списка.
   1. Измените [настройки](#connector-settings) и область видимости подключения.
   1. Проверьте, что настройки заданы корректно, нажав кнопку **Проверить подключение**.
@@ -96,7 +96,7 @@
 
 - Консоль управления {#console}
 
-  1. [Перейдите](../../console/operations/select-service.md#select-service) в сервис **Managed Service for MySQL**.
+  1. Перейдите в сервис **Managed Service for MySQL**.
   1. Нажмите на имя нужного кластера и выберите вкладку **DataLens**.
   1. Выберите подключение из списка.
   1. Нажмите на значок ![image](../../_assets/console-icons/ellipsis.svg) вверху страницы и выберите **Удалить**.
@@ -110,14 +110,14 @@
 
 - Консоль управления {#console}
 
-  Если кластер и DataLens находятся в одном каталоге:
+  Если кластер и {{ datalens-name }} находятся в одном каталоге:
   1. Откройте вкладку **Выбрать в каталоге**.
-  1. Выберите кластер и его хост из выпадающих списков, либо [создайте новый кластер](cluster-create.md) в каталоге с DataLens, нажав на кнопку **Создать новый**.
+  1. Выберите кластер и его хост из выпадающих списков, либо [создайте новый кластер](cluster-create.md) в каталоге с {{ datalens-name }}, нажав на кнопку **Создать новый**.
   1. Выберите базу данных и пользователя из выпадающих списков.
-  1. Введите пароль пользователя. См. также [Создание подключения к MySQL® в Yandex DataLens](../../datalens/operations/connection/create-mysql.md) и [Настроить доступ](../../datalens/dataset/create-dataset.md#access) в документации DataLens.
+  1. Введите пароль пользователя. См. также [{#T}](../../datalens/operations/connection/create-mysql.md) и [{#T}](../../datalens/dataset/create-dataset.md#access) в документации {{ datalens-name }}.
 
-  Если кластер и DataLens находятся в разных каталогах:
+  Если кластер и {{ datalens-name }} находятся в разных каталогах:
   1. Перейдите на вкладку **Указать вручную**.
-  1. Используйте настройки из [инструкции](../../datalens/operations/connection/create-mysql.md) в документации DataLens.
+  1. Используйте настройки из [инструкции](../../datalens/operations/connection/create-mysql.md) в документации {{ datalens-name }}.
 
 {% endlist %}

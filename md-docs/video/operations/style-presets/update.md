@@ -6,21 +6,28 @@
 
 {% list tabs group=instructions %}
 
-- Интерфейс Cloud Video {#console}
+- Интерфейс {{ video-name }} {#console}
 
-  1. Откройте [главную страницу](https://video.yandex.cloud/) Cloud Video.
+  1. Откройте [главную страницу]({{ link-video-main }}) {{ video-name }}.
   1. Выберите канал.
-  1. На вкладке ![image](../../../_assets/console-icons/gear-play.svg) **Шаблоны плеера** выберите нужный шаблон.
-  1. Измените название шаблона в поле **Имя шаблона**.
-  1. В блоке **Настройки виджетов**:
+  1. На вкладке ![image](../../../_assets/console-icons/gear-play.svg) **{{ ui-key.yacloud_video.presets.title_presets }}** выберите нужный шаблон.
+  1. Измените название шаблона в поле **{{ ui-key.yacloud_video.presets.label_title }}**.
+  1. В блоке **{{ ui-key.yacloud_video.presets.section_wigets-settings }}**:
      * Включите или выключите нужные виджеты.
      * Измените их расположение в интерфейсе плеера.
-  1. В блоке **Настройка стилей**:
+  1. В блоке **{{ ui-key.yacloud_video.presets.section_styles-settings }}**:
      * Измените цветовую схему.
      * Настройте размеры элементов.
      * Задайте другие визуальные параметры.
-  1. (Опционально) Чтобы посмотреть, как будут выглядеть видео и плейлисты с выбранным шаблоном в отдельном окне, нажмите **Посмотреть шаблон в отдельном окне**.
-  1. Нажмите **Сохранить**.
+  
+  1. В блоке **{{ ui-key.yacloud_video.presets.section_logo-settings }}**:
+     1. Включите опцию **{{ ui-key.yacloud_video.presets.field_logo-enabled }}**, чтобы отображать ваш логотип поверх видео.
+     1. Загрузите изображение с логотипом не более 2 МБ в формате JPG, PNG или GIF.
+     1. Включите опцию **{{ ui-key.yacloud_video.presets.field_logo-show-with-controls }}**, чтобы логотип исчезал вместе с элементами управления плеера, когда пользователь не взаимодействует с видео.
+     1. В поле **{{ ui-key.yacloud_video.presets.field_logo-redirect-on-click-url }}** добавьте URL, который будет открываться при нажатии на логотип.
+  
+  1. (Опционально) Чтобы посмотреть, как будут выглядеть видео и плейлисты с выбранным шаблоном в отдельном окне, нажмите **{{ ui-key.yacloud_video.presets.button_open-preset-template-dialog }}**.
+  1. Нажмите **{{ ui-key.yacloud_video.common.action_accept }}**.
 
 - API {#api}
 
@@ -32,11 +39,11 @@
 
 {% list tabs group=instructions %}
 
-- Интерфейс Cloud Video {#console}
+- Интерфейс {{ video-name }} {#console}
 
-  1. Откройте [главную страницу](https://video.yandex.cloud/) Cloud Video.
+  1. Откройте [главную страницу]({{ link-video-main }}) {{ video-name }}.
   1. Выберите канал.
-  1. На вкладке ![image](../../../_assets/console-icons/gear-play.svg) **Шаблоны плеера** в строке с нужным шаблоном нажмите ![image](../../../_assets/console-icons/ellipsis.svg) и выберите **Дублировать**.
+  1. На вкладке ![image](../../../_assets/console-icons/gear-play.svg) **{{ ui-key.yacloud_video.presets.title_presets }}** в строке с нужным шаблоном нажмите ![image](../../../_assets/console-icons/ellipsis.svg) и выберите **{{ ui-key.datalens.component.plugin-with-menu.view.button_duplicate }}**.
   1. В списке шаблонов появится дубликат. При необходимости измените настройки виджетов и стилей.
   
 - API {#api}
@@ -50,7 +57,7 @@
 
 #### См. также {#see-also}
 
-* [Создать шаблон плеера](create.md)
-* [Удалить шаблон плеера](delete.md)
-* [Получить информацию о шаблоне плеера](get.md)
-* [Назначить шаблон плеера по умолчанию](set-default.md)
+* [{#T}](create.md)
+* [{#T}](delete.md)
+* [{#T}](get.md)
+* [{#T}](set-default.md)

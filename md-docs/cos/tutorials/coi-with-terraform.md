@@ -1,18 +1,21 @@
-# Создание ВМ и группы ВМ с Container Optimized Image с помощью Terraform
+# Создание ВМ и группы ВМ с {{ coi }} с помощью {{ TF }}
 
-Чтобы с помощью Terraform создать конфигурации и запустить [виртуальную машину](../../compute/concepts/vm.md) или [группу виртуальных машин](../../compute/concepts/instance-groups/index.md) на базе образа [Container Optimized Image](../concepts/index.md), выполните следующие действия.
+Чтобы с помощью {{ TF }} создать конфигурации и запустить [виртуальную машину](../../compute/concepts/vm.md) или [группу виртуальных машин](../../compute/concepts/instance-groups/index.md) на базе образа [{{ coi }}](../concepts/index.md), выполните следующие действия.
 
 ## Перед началом работы {#before-begin}
 
-Если у вас еще нет Terraform, [установите его и настройте провайдер Yandex Cloud](../../tutorials/infrastructure-management/terraform-quickstart.md#install-terraform).
+Если у вас еще нет {{ TF }}, [установите его и настройте провайдер {{ yandex-cloud }}](../../tutorials/infrastructure-management/terraform-quickstart.md#install-terraform).
+
+
+Чтобы управлять инфраструктурой с помощью {{ TF }} от имени сервисного аккаунта или пользовательских аккаунтов: аккаунта на Яндексе, федеративного аккаунта и локального пользователя, [аутентифицируйтесь](../../terraform/authentication.md) соответствующим способом.
 
 В сценарии используется конфигурационный файл с названием `example.tf`, который находится в директории `~/cloud-terraform`.
 
-## Создание и запуск ВМ с образом Container Optimized Image {#creating-vm}
+## Создание и запуск ВМ с образом {{ coi }} {#creating-vm}
 
 ### Создайте файлы конфигурации ВМ {#create-config-vm}
 
-1. Используйте образ Container Optimized Image из [семейства образов](../../compute/concepts/image.md#family) Yandex Cloud. Для этого в конфигурационный файл `example.tf` добавьте строки:
+1. Используйте образ {{ coi }} из [семейства образов](../../compute/concepts/image.md#family) {{ yandex-cloud }}. Для этого в конфигурационный файл `example.tf` добавьте строки:
 
    ```
    data "yandex_compute_image" "container-optimized-image" {
@@ -70,12 +73,12 @@
 
    Где `ssh_authorized_keys` — значение [публичного SSH-ключа](../../compute/operations/vm-connect/ssh.md#creating-ssh-keys).
 
-1. Создайте файл спецификации Container Optimized Image с именем `declaration.yaml` в директории `~/cloud-terraform`. Опишите спецификацию:
+1. Создайте файл спецификации {{ coi }} с именем `declaration.yaml` в директории `~/cloud-terraform`. Опишите спецификацию:
 
    ```yaml
    spec:
      containers:
-     - image: cr.yandex/yc/demo/coi:v1
+     - image: {{ registry }}/yc/demo/coi:v1
        securityContext:
          privileged: false
        stdin: false
@@ -90,9 +93,9 @@
    }
    ```
 
-### Создайте ВМ с Container Optimized Image {#create-vm-coi}
+### Создайте ВМ с {{ coi }} {#create-vm-coi}
 
-Запустите ВМ с Container Optimized Image, используя конфигурацию Terraform.
+Запустите ВМ с {{ coi }}, используя конфигурацию {{ TF }}.
 
 {% list tabs group=instructions %}
 
@@ -124,7 +127,7 @@
         "terraform apply" is subsequently run.
         ```
 
-  1. Разверните ресурсы в Yandex Cloud.
+  1. Разверните ресурсы в {{ yandex-cloud }}.
 
      1. Выполните команду:
 
@@ -168,9 +171,9 @@
 
         В каталоге будут созданы требуемые ресурсы. При создании ВМ назначаются публичный IP-адрес и [имя хоста](../../vpc/concepts/address.md#fqdn) (FQDN).
 
-  1. Проверьте ресурсы и их настройки в [консоли управления](https://console.yandex.cloud).
+  1. Проверьте ресурсы и их настройки в [консоли управления]({{ link-console-main }}).
 
-  1. Подключитесь к ВМ с образом Container Optimized Image.
+  1. Подключитесь к ВМ с образом {{ coi }}.
 
      1. Выполните команду:
 
@@ -227,18 +230,17 @@
 
 {% endlist %}
 
-## Создание и запуск группы ВМ с образом Container Optimized Image {#creating-group}
+## Создание и запуск группы ВМ с образом {{ coi }} {#creating-group}
 
 ### Создайте файлы конфигурации группы ВМ {#create-config-group}
 
 1. Сохраните конфигурационный файл с именем `example.tf` в директории `~/cloud-terraform`:
 
-   ```
+   ```hcl
    provider "yandex" {
-     token     = "<OAuth-токен>"
      cloud_id  = "<идентификатор_облака>"
      folder_id = "<идентификатор_каталога>"
-     zone      = "ru-central1-a"
+     zone      = "{{ region-id }}-a"
    }
    data "yandex_compute_image" "container-optimized-image" {
      family = "container-optimized-image"
@@ -288,7 +290,6 @@
 
    Где:
 
-   * `token` — [OAuth-токен](../../iam/concepts/authorization/oauth-token.md) для доступа к Yandex Cloud.
    * `name` — имя группы ВМ.
    * `folder_id` — [идентификатор каталога](../../resource-manager/operations/folder/get-id.md).
    * `instance_template.network_interface.network_id` — идентификатор [сети](../../vpc/concepts/network.md).
@@ -306,9 +307,9 @@
    }
    ```
 
-### Создайте группу ВМ с Container Optimized Image {#create-group-coi}
+### Создайте группу ВМ с {{ coi }} {#create-group-coi}
 
-Запустите группу ВМ с Container Optimized Image, используя конфигурацию Terraform.
+Запустите группу ВМ с {{ coi }}, используя конфигурацию {{ TF }}.
 
 {% list tabs group=instructions %}
 
@@ -340,7 +341,7 @@
         "terraform apply" is subsequently run.
         ```
 
-  1. Разверните ресурсы в Yandex Cloud.
+  1. Разверните ресурсы в {{ yandex-cloud }}.
 
      1. Выполните команду:
 
@@ -385,9 +386,9 @@
 
         В каталоге будут созданы требуемые ресурсы. При создании каждой ВМ назначаются публичный IP-адрес и [имя хоста](../../vpc/concepts/address.md#fqdn) (FQDN).
 
-  1. Проверьте ресурсы и их настройки в [консоли управления](https://console.yandex.cloud).
+  1. Проверьте ресурсы и их настройки в [консоли управления]({{ link-console-main }}).
 
-  1. Подключитесь к одной из ВМ с образом Container Optimized Image.
+  1. Подключитесь к одной из ВМ с образом {{ coi }}.
 
      1. Выполните команду:
 

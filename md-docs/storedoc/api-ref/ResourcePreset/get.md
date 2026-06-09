@@ -1,13 +1,12 @@
 # Managed Service for MongoDB API, REST: ResourcePreset.Get
 
 Returns the specified ResourcePreset resource.
-
-To get the list of available ResourcePreset resources, make a [List](list.md#List) request.
+To get the list of available ResourcePreset resources, make a [List](../../../managed-mongodb/api-ref/ResourcePreset/list#List) request.
 
 ## HTTP request
 
 ```
-GET https://mdb.api.cloud.yandex.net/managed-mongodb/v1/resourcePresets/{resourcePresetId}
+GET https://{{ api-host-mdb }}/managed-mongodb/v1/resourcePresets/{resourcePresetId}
 ```
 
 ## Path parameters
@@ -17,7 +16,7 @@ GET https://mdb.api.cloud.yandex.net/managed-mongodb/v1/resourcePresets/{resourc
 || resourcePresetId | **string**
 
 Required field. ID of the resource preset to return.
-To get the resource preset ID, use a [ResourcePresetService.List](list.md#List) request. ||
+To get the resource preset ID, use a [ResourcePresetService.List](../../../managed-mongodb/api-ref/ResourcePreset/list#List) request. ||
 |#
 
 ## Response {#yandex.cloud.mdb.mongodb.v1.ResourcePreset}

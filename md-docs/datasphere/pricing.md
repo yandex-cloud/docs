@@ -1,4 +1,4 @@
-# Правила тарификации для DataSphere
+# Правила тарификации для {{ ml-platform-name }}
 
 
 
@@ -9,9 +9,9 @@
 
 Все цены в рублях и тенге указаны с НДС, все цены в долларах — без НДС.
 
-## Из чего складывается стоимость использования DataSphere {#rules}
+## Из чего складывается стоимость использования {{ ml-platform-name }} {#rules}
 
-При работе с платформой DataSphere вы платите за использование вычислительных ресурсов — посекундно тарифицируется время вычисления или работы инстансов.
+При работе с платформой {{ ml-platform-name }} вы платите за использование вычислительных ресурсов — посекундно тарифицируется время вычисления или работы инстансов.
 
 ### Единица тарификации {#unit}
 
@@ -23,41 +23,41 @@
 
 Стоимость одного тарифицирующего юнита — это стоимость использования 1 ядра CPU в течение 1 секунды. Количество юнитов зависит от конфигурации вычислительных ресурсов.
 
-### DataSphere Notebook {#dedicated}
+### {{ ds-nb }} {#dedicated}
 
-При вычислениях и обучении моделей в ноутбуках DataSphere вы оплачиваете все время использования ВМ с момента запуска первых вычислений в ноутбуке до освобождения ВМ вне зависимости от того, проводились ли вычисления после первого запуска. Если вы производите вычисления с помощью кластеров Yandex Data Processing, они [оплачиваются отдельно](#data-proc).
+При вычислениях и обучении моделей в ноутбуках {{ ml-platform-name }} вы оплачиваете все время использования ВМ с момента запуска первых вычислений в ноутбуке до освобождения ВМ вне зависимости от того, проводились ли вычисления после первого запуска. Если вы производите вычисления с помощью кластеров {{ dataproc-name }}, они [оплачиваются отдельно](#data-proc).
 
 Также отдельно оплачивается [хранение данных](#storage) в датасетах и расширение хранилища проекта.
 
-### Запуск заданий DataSphere Jobs {#jobs}
+### Запуск заданий {{ ml-platform-name }} Jobs {#jobs}
 
-При удаленном запуске вычислений с помощью [DataSphere Jobs](concepts/jobs/index.md) вы платите за время вычислений на выбранной конфигурации вычислительных ресурсов. Дополнительно оплачивается [хранение данных](#prices-storage), необходимых для запуска заданий: кеш, логи, входные данные и результаты выполнения задания.
+При удаленном запуске вычислений с помощью [{{ ml-platform-name }} Jobs](concepts/jobs/index.md) вы платите за время вычислений на выбранной конфигурации вычислительных ресурсов. Дополнительно оплачивается [хранение данных](#prices-storage), необходимых для запуска заданий: кеш, логи, входные данные и результаты выполнения задания.
 
-### DataSphere Inference {#node}
+### {{ ds-inf }} {#node}
 
-При развертывании эксплуатации моделей в DataSphere Inference вы платите за время работы каждого инстанса ноды — от момента запуска до момента удаления.
+При развертывании эксплуатации моделей в {{ ds-inf }} вы платите за время работы каждого инстанса ноды — от момента запуска до момента удаления.
 
 Дополнительные [диски инстансов нод](#prices-storage) оплачиваются отдельно.
 
-### Использование кластеров Yandex Data Processing {#data-proc}
+### Использование кластеров {{ dataproc-name }} {#data-proc}
 
-При вычислениях на кластерах Yandex Data Processing в стоимость входят:
-* Вычислительные ресурсы выбранной конфигурации DataSphere.
-* Все время существования кластера Yandex Data Processing по [правилам тарификации Yandex Data Processing](../data-proc/pricing.md).
+При вычислениях на кластерах {{ dataproc-name }} в стоимость входят:
+* Вычислительные ресурсы выбранной конфигурации {{ ml-platform-name }}.
+* Все время существования кластера {{ dataproc-name }} по [правилам тарификации {{ dataproc-full-name }}](../data-proc/pricing.md).
 
-Подробнее об [интеграции с Yandex Data Processing](concepts/data-processing.md).
+Подробнее об [интеграции с {{ dataproc-name }}](concepts/data-processing.md).
 
 ### Использование дискового пространства {#storage}
 
-Каждый проект DataSphere имеет хранилище, в рамках которого хранение данных не тарифицируется. При увеличении [квоты](https://console.yandex.cloud/cloud?section=quotas) на размер проекта весь запрошенный [объем хранилища](#prices-storage) свыше 10 ГБ оплачивается отдельно. Подробнее с квотами и лимитами сервиса можно ознакомиться в разделе [Квоты и лимиты в DataSphere](concepts/limits.md).
+Каждый проект {{ ml-platform-name }} имеет хранилище, в рамках которого хранение данных не тарифицируется. При увеличении [квоты]({{ link-console-quotas }}) на размер проекта весь запрошенный [объем хранилища](#prices-storage) свыше {{ ml-project-size }} оплачивается отдельно. Подробнее с квотами и лимитами сервиса можно ознакомиться в разделе [{#T}](concepts/limits.md).
 
 Хранение данных внутри [датасетов](concepts/dataset.md) и файловых хранилищ оплачивается отдельно.
 
-Если вам требуется хранить большие объемы данных, вы можете использовать сервис Yandex Object Storage. В этом случае хранение данных будет тарифицироваться по [правилам тарификации Object Storage](../storage/pricing.md).
+Если вам требуется хранить большие объемы данных, вы можете использовать сервис {{ objstorage-full-name }}. В этом случае хранение данных будет тарифицироваться по [правилам тарификации {{ objstorage-name }}](../storage/pricing.md).
 
-[Хранение моделей](concepts/models/index.md) и [Docker-образов](concepts/docker.md) в DataSphere оплачивается отдельно. Тарификация зависит от размера модели, размер рассчитывается в ГБ и округляется до целого значения в большую сторону.
+[Хранение моделей](concepts/models/index.md) и [Docker-образов](concepts/docker.md) в {{ ml-platform-name }} оплачивается отдельно. Тарификация зависит от размера модели, размер рассчитывается в ГБ и округляется до целого значения в большую сторону.
 
-Хранение Docker-образов в Yandex Container Registry оплачивается по тарифам [Container Registry](../container-registry/pricing.md#prices-storage). 
+Хранение Docker-образов в {{ container-registry-full-name }} оплачивается по тарифам [{{ container-registry-name }}](../container-registry/pricing.md#prices-storage). 
 
 Во всех расчетах 1 ГБ = 2<sup>30</sup> байт, 1 МБ = 2<sup>20</sup> байт.
 
@@ -65,13 +65,13 @@
 
 {% note info %}
 
-Цены на ресурсы Yandex Cloud в разных регионах различаются. Подробнее о доступных регионах см. [Регионы](../overview/concepts/region.md).
+Цены на ресурсы {{ yandex-cloud }} в разных регионах различаются. Подробнее о доступных регионах см. [{#T}](../overview/concepts/region.md).
 
-Валюта, которой можно оплачивать ресурсы, зависит от юридического лица, с которым пользователь заключил договор. Подробнее о регистрации аккаунта см. [Регистрация аккаунта в Yandex Cloud](../billing/quickstart/index.md).
+Валюта, которой можно оплачивать ресурсы, зависит от юридического лица, с которым пользователь заключил договор. Подробнее о регистрации аккаунта см. [{#T}](../billing/quickstart/index.md).
 
 {% endnote %}
 
-Цены использования конфигураций действуют при запуске вычислений в [DataSphere Notebook](concepts/project.md#mode), запуске заданий [DataSphere Jobs](concepts/jobs/index.md) и работе [DataSphere Inference](concepts/deploy/index.md).
+Цены использования конфигураций действуют при запуске вычислений в [{{ ds-nb }}](concepts/project.md#mode), запуске заданий [{{ ds-jobs }}](concepts/jobs/index.md) и работе [{{ ds-inf }}](concepts/deploy/index.md).
 
 
 ### Стоимость юнита {#unit}
@@ -82,13 +82,13 @@
 
   | Количество | Цена за 1 секунду расчета, вкл. НДС |
   | ----- | ----- |
-  | Один юнит  |  0,0013 ₽ |
+  | Один юнит  |  {{ sku|RUB|ai.datasphere.computing.v1|string }} |
 
 - Цены в тенге {#prices-kzt}
 
   | Количество | Цена за 1 секунду расчета, вкл. НДС |
   | ----- | ----- |
-  | Один юнит  | 0,0065 ₸ |
+  | Один юнит  | {{ sku|KZT|ai.datasphere.computing.v1|string }} |
 
 {% endlist %}
 
@@ -100,43 +100,43 @@
 
   | Конфигурация | Потребление в&nbsp;юнитах за 1 секунду работы конфигурации | Цена за 1 час вычислений, вкл. НДС |
   |:---|:---:|:---:|
-  | c1.4 (4 vCPU, 0 GPU) | 4 | 18,72 ₽ |
-  | c1.8 (8 vCPU, 0 GPU) | 8 | 37,44 ₽ |
-  | c1.32 (32 vCPU, 0 GPU) | 32 | 149,76 ₽ |
-  | c1.80 (80 vCPU, 0 GPU) | 80 | 374,4 ₽ |
-  | g1.1 (8 vCPU, 1 GPU V100) | 72 | 336,96 ₽ |
-  | g1.2 (16 vCPU, 2 GPU V100) | 144 | 673,92 ₽ |
-  | g1.4 (32 vCPU, 4 GPU V100) | 288 | 1 347,84 ₽ |
-  | g2.1 (28 vCPU, 1 GPU A100) | 116 | 542,88 ₽ |
-  | g2.2 (56 vCPU, 2 GPU A100) | 232 | 1 085,76 ₽ |
-  | g2.4 (112 vCPU, 4 GPU A100) | 464 | 2 171,52 ₽ |
-  | g2.8 (224 vCPU, 8 GPU A100) | 928 | 4 343,04 ₽ |
-  | gt4.1 (4 vCPU, 1 GPU T4) | 36 | 168,48 ₽ |
-  | gt4i.1 (8 vCPU, 1 GPU T4i) | 50 | 234 ₽ |
+  | c1.4 (4 vCPU, 0 GPU) | 4 | {% calc [currency=RUB] 4 × 3600 × {{ sku|RUB|ai.datasphere.computing.v1|number }} %} |
+  | c1.8 (8 vCPU, 0 GPU) | 8 | {% calc [currency=RUB] 8 × 3600 × {{ sku|RUB|ai.datasphere.computing.v1|number }} %} |
+  | c1.32 (32 vCPU, 0 GPU) | 32 | {% calc [currency=RUB] 32 × 3600 × {{ sku|RUB|ai.datasphere.computing.v1|number }} %} |
+  | c1.80 (80 vCPU, 0 GPU) | 80 | {% calc [currency=RUB] 80 × 3600 × {{ sku|RUB|ai.datasphere.computing.v1|number }} %} |
+  | g1.1 (8 vCPU, 1 GPU V100) | 72 | {% calc [currency=RUB] 72 × 3600 × {{ sku|RUB|ai.datasphere.computing.v1|number }} %} |
+  | g1.2 (16 vCPU, 2 GPU V100) | 144 | {% calc [currency=RUB] 144 × 3600 × {{ sku|RUB|ai.datasphere.computing.v1|number }} %} |
+  | g1.4 (32 vCPU, 4 GPU V100) | 288 | {% calc [currency=RUB] 288 × 3600 × {{ sku|RUB|ai.datasphere.computing.v1|number }} %} |
+  | g2.1 (28 vCPU, 1 GPU A100) | 116 | {% calc [currency=RUB] 116 × 3600 × {{ sku|RUB|ai.datasphere.computing.v1|number }} %} |
+  | g2.2 (56 vCPU, 2 GPU A100) | 232 | {% calc [currency=RUB] 232 × 3600 × {{ sku|RUB|ai.datasphere.computing.v1|number }} %} |
+  | g2.4 (112 vCPU, 4 GPU A100) | 464 | {% calc [currency=RUB] 464 × 3600 × {{ sku|RUB|ai.datasphere.computing.v1|number }} %} |
+  | g2.8 (224 vCPU, 8 GPU A100) | 928 | {% calc [currency=RUB] 928 × 3600 × {{ sku|RUB|ai.datasphere.computing.v1|number }} %} |
+  | gt4.1 (4 vCPU, 1 GPU T4) | 36 | {% calc [currency=RUB] 36 × 3600 × {{ sku|RUB|ai.datasphere.computing.v1|number }} %} |
+  | gt4i.1 (8 vCPU, 1 GPU T4i) | 50 | {% calc [currency=RUB] 50 × 3600 × {{ sku|RUB|ai.datasphere.computing.v1|number }} %} |
 
 - Цены в тенге {#prices-kzt}
 
   | Конфигурация | Потребление в&nbsp;юнитах за 1 секунду работы конфигурации | Цена за 1 час вычислений, вкл. НДС |
   |:---|:---:|:---:|
-  | c1.4 (4 vCPU, 0 GPU) | 4 | 93,6 ₸ |
-  | c1.8 (8 vCPU, 0 GPU) | 8 | 187,2 ₸ |
-  | c1.32 (32 vCPU, 0 GPU) | 32 | 748,8 ₸ |
-  | c1.80 (80 vCPU, 0 GPU) | 80 | 1 872 ₸ |
-  | g1.1 (8 vCPU, 1 GPU V100) | 72 | 1 684,8 ₸ |
-  | g1.2 (16 vCPU, 2 GPU V100) | 144 | 3 369,6 ₸ |
-  | g1.4 (32 vCPU, 4 GPU V100) | 288 | 6 739,2 ₸ |
-  | g2.1 (28 vCPU, 1 GPU A100) | 116 | 2 714,4 ₸ |
-  | g2.2 (56 vCPU, 2 GPU A100) | 232 | 5 428,8 ₸ |
-  | g2.4 (112 vCPU, 4 GPU A100) | 464 | 10 857,6 ₸ |
-  | g2.8 (224 vCPU, 8 GPU A100) | 928 | 21 715,2 ₸ |
-  | gt4.1 (4 vCPU, 1 GPU T4) | 36 | 842,4 ₸ |
-  | gt4i.1 (8 vCPU, 1 GPU T4i) | 50 | 1 170 ₸ |
+  | c1.4 (4 vCPU, 0 GPU) | 4 | {% calc [currency=KZT] 4 × 3600 × {{ sku|KZT|ai.datasphere.computing.v1|number }} %} |
+  | c1.8 (8 vCPU, 0 GPU) | 8 | {% calc [currency=KZT] 8 × 3600 × {{ sku|KZT|ai.datasphere.computing.v1|number }} %} |
+  | c1.32 (32 vCPU, 0 GPU) | 32 | {% calc [currency=KZT] 32 × 3600 × {{ sku|KZT|ai.datasphere.computing.v1|number }} %} |
+  | c1.80 (80 vCPU, 0 GPU) | 80 | {% calc [currency=KZT] 80 × 3600 × {{ sku|KZT|ai.datasphere.computing.v1|number }} %} |
+  | g1.1 (8 vCPU, 1 GPU V100) | 72 | {% calc [currency=KZT] 72 × 3600 × {{ sku|KZT|ai.datasphere.computing.v1|number }} %} |
+  | g1.2 (16 vCPU, 2 GPU V100) | 144 | {% calc [currency=KZT] 144 × 3600 × {{ sku|KZT|ai.datasphere.computing.v1|number }} %} |
+  | g1.4 (32 vCPU, 4 GPU V100) | 288 | {% calc [currency=KZT] 288 × 3600 × {{ sku|KZT|ai.datasphere.computing.v1|number }} %} |
+  | g2.1 (28 vCPU, 1 GPU A100) | 116 | {% calc [currency=KZT] 116 × 3600 × {{ sku|KZT|ai.datasphere.computing.v1|number }} %} |
+  | g2.2 (56 vCPU, 2 GPU A100) | 232 | {% calc [currency=KZT] 232 × 3600 × {{ sku|KZT|ai.datasphere.computing.v1|number }} %} |
+  | g2.4 (112 vCPU, 4 GPU A100) | 464 | {% calc [currency=KZT] 464 × 3600 × {{ sku|KZT|ai.datasphere.computing.v1|number }} %} |
+  | g2.8 (224 vCPU, 8 GPU A100) | 928 | {% calc [currency=KZT] 928 × 3600 × {{ sku|KZT|ai.datasphere.computing.v1|number }} %} |
+  | gt4.1 (4 vCPU, 1 GPU T4) | 36 | {% calc [currency=KZT] 36 × 3600 × {{ sku|KZT|ai.datasphere.computing.v1|number }} %} |
+  | gt4i.1 (8 vCPU, 1 GPU T4i) | 50 | {% calc [currency=KZT] 50 × 3600 × {{ sku|KZT|ai.datasphere.computing.v1|number }} %} |
 
 {% endlist %}
 
 
 
-### Хранение данных внутри DataSphere {#prices-storage}
+### Хранение данных внутри {{ ml-platform-name }} {#prices-storage}
 
 
 {% list tabs group=pricing %}
@@ -146,26 +146,26 @@
   | Ресурс | Цена за 1 ГБ в месяц, вкл. НДС |
   | --- | --- |
   | Объем хранилища проекта, до 10 ГБ | Не тарифицируется |
-  | Объем хранилища проекта, сверх 10 ГБ | 12,9 ₽ |
-  | Диск инстанса ноды | 12,9 ₽ |
-  | Датасет | 12,9 ₽ |
-  | Файловое хранилище | 14,84 ₽ |
-  | Модель | 12,9 ₽ |
-  | Docker-образ | 12,9 ₽ |
-  | Данные DataSphere Jobs | 12,9 ₽ |
+  | Объем хранилища проекта, сверх 10 ГБ | {% calc [currency=RUB] round((0.003829269547325 × 2592000 × {{ sku|RUB|ai.datasphere.disk.v1|number }}) × 100) / 100 %} |
+  | Диск инстанса ноды | {% calc [currency=RUB] round((0.003829269547325 × 2592000 × {{ sku|RUB|ai.datasphere.deployment|number }}) × 100) / 100 %} |
+  | Датасет | {% calc [currency=RUB] round((0.003829269547325 × 2592000 × {{ sku|RUB|ai.datasphere.datasets.v1|number }}) × 100) / 100 %} |
+  | Файловое хранилище | {% calc [currency=RUB] round((0.004403452932099 × 2592000 × {{ sku|RUB|datasphere.filestores|number }}) × 100) / 100 %} |
+  | Модель | {% calc [currency=RUB] round((0.003829269547325 × 2592000 × {{ sku|RUB|ai.datasphere.models.v1|number }}) × 100) / 100 %} |
+  | Docker-образ | {% calc [currency=RUB] round((0.003829269547325 × 2592000 × {{ sku|RUB|datasphere.docker|number }}) × 100) / 100 %} |
+  | Данные {{ ds-jobs }} | {% calc [currency=RUB] round((0.003829269547325 × 2592000 × {{ sku|RUB|ai.datasphere.jobs|number }}) × 100) / 100 %} |
 
 - Цены в тенге {#prices-kzt}
 
   | Ресурс | Цена за 1 ГБ в месяц, вкл. НДС |
   | --- | --- |
   | Объем хранилища проекта, до 10 ГБ | Не тарифицируется |
-  | Объем хранилища проекта, сверх 10 ГБ | 64,52 ₸ |
-  | Диск инстанса ноды | 64,52 ₸ |
-  | Датасет | 64,52 ₸ |
-  | Файловое хранилище | 74,19 ₸ |
-  | Модель | 64,52 ₸ |
-  | Docker-образ | 64,52 ₸ |
-  | Данные DataSphere Jobs | 64,52 ₸ |
+  | Объем хранилища проекта, сверх 10 ГБ | {% calc [currency=KZT] round((0.003829269547325 × 2592000 × {{ sku|KZT|ai.datasphere.disk.v1|number }}) × 100) / 100 %} |
+  | Диск инстанса ноды | {% calc [currency=KZT] round((0.003829269547325 × 2592000 × {{ sku|KZT|ai.datasphere.deployment|number }}) × 100) / 100 %} |
+  | Датасет | {% calc [currency=KZT] round((0.003829269547325 × 2592000 × {{ sku|KZT|ai.datasphere.datasets.v1|number }}) × 100) / 100 %} |
+  | Файловое хранилище | {% calc [currency=KZT] round((0.004403452932099 × 2592000 × {{ sku|KZT|datasphere.filestores|number }}) × 100) / 100 %} |
+  | Модель | {% calc [currency=KZT] round((0.003829269547325 × 2592000 × {{ sku|KZT|ai.datasphere.models.v1|number }}) × 100) / 100 %} |
+  | Docker-образ | {% calc [currency=KZT] round((0.003829269547325 × 2592000 × {{ sku|KZT|datasphere.docker|number }}) × 100) / 100 %} |
+  | Данные {{ ds-jobs }} | {% calc [currency=KZT] round((0.003829269547325 × 2592000 × {{ sku|KZT|ai.datasphere.jobs|number }}) × 100) / 100 %} |
 
 {% endlist %}
 
@@ -173,17 +173,15 @@
 
 ### Исходящий трафик {#prices-traffic}
 
-При использовании сервиса оплачивается исходящий трафик из Yandex Cloud в интернет. Передача трафика между сервисами Yandex Cloud по внутренним адресам, как и входящий трафик из интернета, не тарифицируется.
+При использовании сервиса оплачивается исходящий трафик из {{ yandex-cloud }} в интернет. Передача трафика между сервисами {{ yandex-cloud }} по внутренним адресам, как и входящий трафик из интернета, не тарифицируется.
 
 Каждый месяц не тарифицируются первые 100 ГБ исходящего трафика.
 
 Минимальная единица тарификации — 1 МБ.
 
 
-| Услуга                                                    | Цена              | Ед. тарификации | Действует с | Действует до |
-| --------------------------------------------------------- | ----------------- | --------------- | ----------- | ------------ |
-| Исходящий трафик, от 0 до 100 единицы тарификации в месяц | Не тарифицируется | ГБ              | 1 мая 2026  | —            |
-| Исходящий трафик, от 100 единицы тарификации в месяц      | 1,42 ₽            | ГБ              | 1 мая 2026  | —            |
+| Услуга | Цена | Ед. тарификации | Действует с | Действует до |
+| ------ | ---- | --------------- | ----------- | ------------ |
 
 ## Примеры расчета стоимости {#price-example}
 
@@ -193,9 +191,9 @@
 
 {% endnote %}
 
-### DataSphere Notebook {#price-example-notebook}
+### {{ ds-nb }} {#price-example-notebook}
 
-Стоимость использования DataSphere со следующими параметрами:
+Стоимость использования {{ ml-platform-name }} со следующими параметрами:
 
 * **Вычислительные ресурсы**: конфигурация g1.1 с 8 CPU и 1 GPU.
 * **Время использования ВМ**: 10 мин.
@@ -208,36 +206,36 @@
 - Расчет в рублях {#prices-rub}
 
   > 72 × 600 = 43 200 юнитов за использование ВМ
-  > 43&nbsp;200&nbsp;×&nbsp;0,0013 ₽ = 56,16 ₽
+  > 43&nbsp;200&nbsp;×&nbsp;{{ sku|RUB|ai.datasphere.computing.v1|string }} = {% calc [currency=RUB] 43200 × {{ sku|RUB|ai.datasphere.computing.v1|number }} %}
   >
-  > Итого: 56,16 ₽ — стоимость использования DataSphere.
+  > Итого: {% calc [currency=RUB] 43200 × {{ sku|RUB|ai.datasphere.computing.v1|number }} %} — стоимость использования {{ ml-platform-name }}.
   
   Где:
   
   * 72 — количество юнитов за конфигурацию g1.1.
   * 600 — время использования ВМ в секундах.
-  * 0,0013 ₽ — стоимость 1 юнита.
+  * {{ sku|RUB|ai.datasphere.computing.v1|string }} — стоимость 1 юнита.
 
 - Расчет в тенге {#prices-kzt}
 
   > 72 × 600 = 43 200 юнитов за использование ВМ
-  > 43&nbsp;200&nbsp;×&nbsp;0,0065 ₸ = 280,8 ₸
+  > 43&nbsp;200&nbsp;×&nbsp;{{ sku|KZT|ai.datasphere.computing.v1|string }} = {% calc [currency=KZT] 43200 × {{ sku|KZT|ai.datasphere.computing.v1|number }} %}
   >
-  > Итого: 280,8 ₸ — стоимость использования DataSphere.
+  > Итого: {% calc [currency=KZT] 43200 × {{ sku|KZT|ai.datasphere.computing.v1|number }} %} — стоимость использования {{ ml-platform-name }}.
   
   Где:
   
   * 72 — количество юнитов за конфигурацию g1.1.
   * 600 — время использования ВМ в секундах.
-  * 0,0065 ₸ — стоимость 1 юнита.
+  * {{ sku|KZT|ai.datasphere.computing.v1|string }} — стоимость 1 юнита.
 
 {% endlist %}
 
 
 
-### DataSphere Inference {#price-example-node}
+### {{ ds-inf }} {#price-example-node}
 
-Стоимость использования DataSphere Inference со следующими параметрами:
+Стоимость использования {{ ds-inf }} со следующими параметрами:
 
 * **Количество инстансов в ноде**: 2.
 * **Конфигурация инстансов**: g1.1 с 8 CPU и 1 GPU.
@@ -252,7 +250,7 @@
 * (60 × 60) — количество секунд в 1 часе.
 * 60 — количество секунд в 1 минуте.
 
-Стоимость использования DataSphere Inference составит:
+Стоимость использования {{ ds-inf }} составит:
 
 
 {% list tabs group=pricing %}
@@ -260,27 +258,27 @@
 - Расчет в рублях {#prices-rub}
 
   > 72 × 185 760 × 2 = 26 749 440 юнитов за работу ноды
-  > 26&nbsp;749&nbsp;440&nbsp;×&nbsp;0,0013 ₽ = 34 774,272 ₽
+  > 26&nbsp;749&nbsp;440&nbsp;×&nbsp;{{ sku|RUB|ai.datasphere.computing.v1|string }} = {% calc [currency=RUB] 26749440 × {{ sku|RUB|ai.datasphere.computing.v1|number }} %}
   >
-  > Итого: 34 774,272 ₽ – стоимость использования DataSphere.
+  > Итого: {% calc [currency=RUB] 26749440 × {{ sku|RUB|ai.datasphere.computing.v1|number }} %} – стоимость использования {{ ml-platform-name }}.
   
   Где:
   * 72 — количество юнитов за конфигурацию g1.1.
   * 185 760 — время работы ноды в секундах.
   * 2 — количество инстансов в ноде.
-  * 0,0013 ₽ — стоимость 1 юнита.
+  * {{ sku|RUB|ai.datasphere.computing.v1|string }} — стоимость 1 юнита.
 
 - Расчет в тенге {#prices-kzt}
 
   > 72 × 185 760 × 2 = 26 749 440 юнитов за работу ноды
-  > 26&nbsp;749&nbsp;440&nbsp;×&nbsp;0,0065 ₸ = 173 871,36 ₸
+  > 26&nbsp;749&nbsp;440&nbsp;×&nbsp;{{ sku|KZT|ai.datasphere.computing.v1|string }} = {% calc [currency=KZT] 26749440 × {{ sku|KZT|ai.datasphere.computing.v1|number }} %}
   >
-  > Итого: 173 871,36 ₸ – стоимость использования DataSphere.
+  > Итого: {% calc [currency=KZT] 26749440 × {{ sku|KZT|ai.datasphere.computing.v1|number }} %} – стоимость использования {{ ml-platform-name }}.
   
   Где:
   * 72 — количество юнитов за конфигурацию g1.1.
   * 185 760 — время работы ноды в секундах.
   * 2 — количество инстансов в ноде.
-  * 0,0065 ₸ — стоимость 1 юнита.
+  * {{ sku|KZT|ai.datasphere.computing.v1|string }} — стоимость 1 юнита.
 
 {% endlist %}

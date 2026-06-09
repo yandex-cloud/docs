@@ -1,4 +1,4 @@
-# Активировать модуль KSPM
+# Активировать модуль {{ kspm-name }}
 
 {% note info %}
 
@@ -6,72 +6,72 @@
 
 {% endnote %}
 
-Модуль KSPM позволяет гибко выбирать и настраивать правила безопасности под специфические требования вашей организации, а также создавать исключения из правил.
+Модуль {{ kspm-name }} позволяет гибко выбирать и настраивать правила безопасности под специфические требования вашей организации, а также создавать исключения из правил.
 
 ## Перед началом работы {#before-you-begin}
 
-Перед началом работы с модулем KSPM убедитесь, что кластеры, которые вы планируете включить в область действия модуля, соответствуют техническим требованиям:
+Перед началом работы с модулем {{ kspm-name }} убедитесь, что кластеры, которые вы планируете включить в область действия модуля, соответствуют техническим требованиям:
 
-* Kubernetes версии 1.28 или выше.
-* В кластере Kubernetes отсутствует [Admission Control](https://kubernetes.io/docs/reference/access-authn-authz/admission-controllers/) на базе [Kyverno](https://yandex.cloud/ru/marketplace/products/yc/kyverno). Если Kyverno был развернут ранее, его необходимо удалить вместе со всеми созданными им ресурсами [CustomResourceDefinition](https://kubernetes.io/docs/tasks/extend-kubernetes/custom-resources/custom-resource-definitions/).
-* Между узлами кластера Kubernetes и [сервисом Yandex Container Registry](../../../managed-kubernetes/tutorials/container-registry.md) настроено сетевое взаимодействие.
+* {{ k8s }} версии 1.30 и выше.
+* В кластере {{ k8s }} отсутствует [Admission Control](https://kubernetes.io/docs/reference/access-authn-authz/admission-controllers/) на базе [Kyverno](https://yandex.cloud/ru/marketplace/products/yc/kyverno). Если Kyverno был развернут ранее, его необходимо удалить вместе со всеми созданными им ресурсами [CustomResourceDefinition](https://kubernetes.io/docs/tasks/extend-kubernetes/custom-resources/custom-resource-definitions/).
+* Между узлами кластера {{ k8s }} и [сервисом {{ container-registry-full-name }}](../../../managed-kubernetes/tutorials/container-registry.md) настроено сетевое взаимодействие.
 * Открыт сетевой доступ от пода, в котором запущен сенсор контроля безопасности среды выполнения, до подов кластера через порт `54321`.
-* Открыт доступ от кластера к API KSPM (`kspm.api.cloud.yandex.net`) через порт `443` по протоколу TCP.
-* С помощью [групп безопасности](../../../managed-kubernetes/operations/connect/security-groups.md#rules-nodes) настроен доступ от мастера кластера к компонентам KSPM, запущенным на узлах кластера.
+* Открыт доступ от кластера к API {{ kspm-name }} (`kspm.api.cloud.yandex.net`) через порт `443` по протоколу TCP.
+* С помощью [групп безопасности](../../../managed-kubernetes/operations/connect/security-groups.md#rules-nodes) настроен доступ от мастера кластера к компонентам {{ kspm-name }}, запущенным на узлах кластера.
 
 ## Активировать модуль {#kspm-activate}
 
-Чтобы начать работу с модулем KSPM:
-1. [Создайте](../../../iam/operations/sa/create.md) сервисный аккаунт, от имени которого модуль KSPM будет просматривать информацию о [кластерах](../../../managed-kubernetes/concepts/index.md#kubernetes-cluster) Managed Service for Kubernetes, устанавливать в них необходимые компоненты и выполнять проверки.
+Чтобы начать работу с модулем {{ kspm-name }}:
+1. [Создайте](../../../iam/operations/sa/create.md) сервисный аккаунт, от имени которого модуль {{ kspm-name }} будет просматривать информацию о [кластерах](../../../managed-kubernetes/concepts/index.md#kubernetes-cluster) {{ managed-k8s-name }}, устанавливать в них необходимые компоненты и выполнять проверки.
 1. [Назначьте](../../../iam/operations/sa/assign-role-for-sa.md) сервисному аккаунту [роль](../../security/index.md#security-deck-worker) `security-deck.worker` на организацию, облако или каталог.
 
     {% note info %}
 
-    KSPM будет иметь доступ только к тем кластерам Managed Service for Kubernetes, которые размещены в соответствующих организации, облаке или каталоге.
+    {{ kspm-name }} будет иметь доступ только к тем кластерам {{ managed-k8s-name }}, которые размещены в соответствующих организации, облаке или каталоге.
 
     {% endnote %}
 
     Если вы назначили роль на конкретный каталог, выдайте сервисному аккаунту также роль `auditor` на облако.
 
-1. [Создайте](../workspaces/create.md) окружение Security Deck со следующими особенностями:
+1. [Создайте](../workspaces/create.md) окружение {{ sd-name }} со следующими особенностями:
 
-    * В разделе **Ресурсы** в настройках коннектора:
+    * В разделе **{{ ui-key.yacloud_org.security.workspaces.WorkspaceOnboardingForm.resourcesTitle_fE6qp }}** в настройках коннектора:
       * Выберите сервисный аккаунт, созданный ранее.
-      * Укажите облака и каталоги, в которых вы хотите контролировать безопасность кластеров Managed Service for Kubernetes.
+      * Укажите облака и каталоги, в которых вы хотите контролировать безопасность кластеров {{ managed-k8s-name }}.
 
         {% note tip %}
 
-        В дальнейшем в настройках KSPM можно будет дополнительно сузить область контроля.
+        В дальнейшем в настройках {{ kspm-name }} можно будет дополнительно сузить область контроля.
 
         {% endnote %}
 
-    * В разделе **Соответствие требованиям** выберите отраслевые стандарты и нормативные акты, на соответствие которым будут проверяться выбранные на предыдущем шаге ресурсы:
+    * В разделе **{{ ui-key.yacloud_org.security.workspaces.WorkspaceOnboardingForm.standartsTitle_cxvJ8 }}** выберите отраслевые стандарты и нормативные акты, на соответствие которым будут проверяться выбранные на предыдущем шаге ресурсы:
       
-      * ![cspm-standard-k8s-restricted](../../../_assets/security-deck/cspm-standard-k8s-restricted.svg) Kubernetes Pod Security Standards (Restricted) — стандарт содержит элементы управления безопасностью на основе ограниченного профиля [Kubernetes Pod Security Standards (PSS) Restricted profile](https://kubernetes.io/docs/concepts/security/pod-security-standards/#restricted). Ограниченный профиль является наиболее безопасным и обеспечивает наивысший уровень обнаружения атак на основе контейнеров. Он применяет строгие политики безопасности, которые могут потребовать модификации приложений для соответствия. Ограниченный профиль рекомендуется для критически важных с точки зрения безопасности приложений и сред, где требуется максимальная безопасность.
-      * ![cspm-standard-k8s-baseline](../../../_assets/security-deck/cspm-standard-k8s-baseline.svg) Kubernetes Pod Security Standards (Baseline) — стандарт содержит элементы управления безопасностью на основе базового профиля стандартов безопасности [Kubernetes Pod Security Standards (PSS) Baseline profile](https://kubernetes.io/docs/concepts/security/pod-security-standards/#baseline). Базовый профиль разработан для легкого внедрения и предоставляет общие лучшие практики безопасности контейнеров. Он предотвращает наиболее распространенные проблемы безопасности контейнеров, сохраняя совместимость с большинством приложений. Базовый профиль является хорошей отправной точкой для организаций, которые только начинают работать с безопасностью контейнеров.
-      * ![cspm-standard-k8s-ms](../../../_assets/security-deck/cspm-standard-k8s-ms.svg) Microsoft Threat Matrix for Kubernetes — стандарт содержит элементы управления безопасностью на основе [Microsoft Threat Matrix for Kubernetes](https://www.microsoft.com/en-us/security/blog/2020/04/02/attack-matrix-kubernetes/) — фреймворка, который помогает командам безопасности понимать и защищаться от угроз, специфичных для сред Kubernetes. Он предоставляет комплексный взгляд на техники атак и оборонительные стратегии, адаптированные для платформ оркестрации контейнеров.
-      * ![cspm-cis-k8s-standard](../../../_assets/security-deck/cspm-cis-k8s-standard.svg) CIS Kubernetes Benchmark — стандарт содержит рекомендации [CIS Kubernetes Benchmark](https://www.cisecurity.org/benchmark/kubernetes) для безопасной настройки компонентов на рабочих узлах Kubernetes. Включает только автоматические проверки из раздела `4 Worker Nodes`.
+      * ![cspm-standard-k8s-restricted](../../../_assets/security-deck/cspm-standard-k8s-restricted.svg) {{ k8s }} Pod Security Standards (Restricted) — стандарт содержит элементы управления безопасностью на основе ограниченного профиля [{{ k8s }} Pod Security Standards (PSS) Restricted profile](https://kubernetes.io/docs/concepts/security/pod-security-standards/#restricted). Ограниченный профиль является наиболее безопасным и обеспечивает наивысший уровень обнаружения атак на основе контейнеров. Он применяет строгие политики безопасности, которые могут потребовать модификации приложений для соответствия. Ограниченный профиль рекомендуется для критически важных с точки зрения безопасности приложений и сред, где требуется максимальная безопасность.
+      * ![cspm-standard-k8s-baseline](../../../_assets/security-deck/cspm-standard-k8s-baseline.svg) {{ k8s }} Pod Security Standards (Baseline) — стандарт содержит элементы управления безопасностью на основе базового профиля стандартов безопасности [{{ k8s }} Pod Security Standards (PSS) Baseline profile](https://kubernetes.io/docs/concepts/security/pod-security-standards/#baseline). Базовый профиль разработан для легкого внедрения и предоставляет общие лучшие практики безопасности контейнеров. Он предотвращает наиболее распространенные проблемы безопасности контейнеров, сохраняя совместимость с большинством приложений. Базовый профиль является хорошей отправной точкой для организаций, которые только начинают работать с безопасностью контейнеров.
+      * ![cspm-standard-k8s-ms](../../../_assets/security-deck/cspm-standard-k8s-ms.svg) Microsoft Threat Matrix for {{ k8s }} — стандарт содержит элементы управления безопасностью на основе [Microsoft Threat Matrix for {{ k8s }}](https://www.microsoft.com/en-us/security/blog/2020/04/02/attack-matrix-kubernetes/) — фреймворка, который помогает командам безопасности понимать и защищаться от угроз, специфичных для сред {{ k8s }}. Он предоставляет комплексный взгляд на техники атак и оборонительные стратегии, адаптированные для платформ оркестрации контейнеров.
+      * ![cspm-cis-k8s-standard](../../../_assets/security-deck/cspm-cis-k8s-standard.svg) CIS {{ k8s }} Benchmark — стандарт содержит рекомендации [CIS {{ k8s }} Benchmark](https://www.cisecurity.org/benchmark/kubernetes) для безопасной настройки компонентов на рабочих узлах {{ k8s }}. Включает только автоматические проверки из раздела `4 Worker Nodes`.
 
-      Вы можете выбрать одновременно несколько стандартов. При этом в блоке **Модули контроля** будут отображаться модули Security Deck, которые будут активированы в создаваемом окружении для проверки ресурсов на соответствие выбранным стандартам и нормативным актам.
-1. Завершите настройку KSPM:
-    1. На странице созданного окружения нажмите ![image](../../../_assets/console-icons/wrench.svg) **Параметры окружения**.
-    1. Перейдите на вкладку **Контроль Kubernetes®**.
-    1. В блоке **Область действия контроля** выберите облака, каталоги или кластеры в пределах ресурсов окружения, в которых будет производиться контроль за соблюдением правил безопасности Kubernetes.
+      Вы можете выбрать одновременно несколько стандартов. При этом в блоке **{{ ui-key.yacloud_org.security.workspaces.title_security-modules_8MdQg }}** будут отображаться модули {{ sd-name }}, которые будут активированы в создаваемом окружении для проверки ресурсов на соответствие выбранным стандартам и нормативным актам.
+1. Завершите настройку {{ kspm-name }}:
+    1. На странице созданного окружения нажмите ![image](../../../_assets/console-icons/wrench.svg) **{{ ui-key.yacloud_org.security.workspaces.WorkspacePageLayout.edit_action }}**.
+    1. Перейдите на вкладку **Контроль {{ k8s }}®**.
+    1. В блоке **{{ ui-key.yacloud_org.security.workspaces.WorkspaceKspmResourcesForm.section-title_iYCNY }}** выберите облака, каталоги или кластеры в пределах ресурсов окружения, в которых будет производиться контроль за соблюдением правил безопасности {{ k8s }}.
 
         {% note warning %}
 
-        Один кластер может входить только в одно окружение Security Deck. В противном случае будут возникать конфликты.
+        Один кластер может входить только в одно окружение {{ sd-name }}. В противном случае будут возникать конфликты.
 
         {% endnote %}
 
-    1. Нажмите **Сохранить** и подтвердите действие.
+    1. Нажмите **{{ ui-key.yacloud.common.save }}** и подтвердите действие.
 
-        После этого в кластерах Managed Service for Kubernetes, которые находятся в области действия контроля, будут автоматически установлены необходимые компоненты в пространстве имен `yc-security`.
+        После этого в кластерах {{ managed-k8s-name }}, которые находятся в области действия контроля, будут автоматически установлены необходимые компоненты в пространстве имен `yc-security`.
 
         В зависимости от размера кластера установка компонентов может занять от 1 до 10 минут.
 
 {% note tip %}
 
-Чтобы удалить кластеры из области контроля и прекратить отслеживать их безопасность, [удалите](../workspaces/delete.md) окружение Security Deck или отключите стандарты безопасности, относящиеся к Kubernetes.
+Чтобы удалить кластеры из области контроля и прекратить отслеживать их безопасность, [удалите](../workspaces/delete.md) окружение {{ sd-name }} или отключите стандарты безопасности, относящиеся к {{ k8s }}.
 
 {% endnote %}

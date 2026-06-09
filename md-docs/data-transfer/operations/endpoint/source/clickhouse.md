@@ -1,119 +1,119 @@
-# Передача данных из эндпоинта-источника ClickHouse®
+# Передача данных из эндпоинта-источника {{ CH }}
 
-С помощью сервиса Yandex Data Transfer вы можете переносить данные из базы ClickHouse® и реализовывать различные сценарии переноса, обработки и трансформации данных. Для реализации трансфера:
+С помощью сервиса {{ data-transfer-full-name }} вы можете переносить данные из базы {{ CH }} и реализовывать различные сценарии переноса, обработки и трансформации данных. Для реализации трансфера:
 
 1. [Ознакомьтесь с возможными сценариями передачи данных](#scenarios).
-1. [Подготовьте базу данных ClickHouse®](#prepare) к трансферу.
-1. [Настройте эндпоинт-источник](#endpoint-settings) в Yandex Data Transfer.
+1. [Подготовьте базу данных {{ CH }}](#prepare) к трансферу.
+1. [Настройте эндпоинт-источник](#endpoint-settings) в {{ data-transfer-full-name }}.
 1. [Настройте один из поддерживаемых приемников данных](#supported-targets).
 1. [Создайте](../../transfer.md#create) и [запустите](../../transfer.md#activate) трансфер.
 1. [Выполняйте необходимые действия по работе с базой](#db-actions) и [контролируйте трансфер](../../monitoring.md).
 1. При возникновении проблем, [воспользуйтесь готовыми решениями](#troubleshooting) по их устранению.
 
-## Сценарии передачи данных из ClickHouse® {#scenarios}
+## Сценарии передачи данных из {{ CH }} {#scenarios}
 
 Миграция — перенос данных из одного хранилища в другое. Часто это перенос базы из устаревших локальных баз в управляемые облачные.
 
-* [Миграция кластера ClickHouse®](../../../tutorials/managed-clickhouse.md).
+* [Миграция кластера {{ CH }}](../../../tutorials/managed-clickhouse.md).
 
-Подробное описание возможных сценариев передачи данных в Yandex Data Transfer см. в разделе [Практические руководства](../../../tutorials/index.md).
+Подробное описание возможных сценариев передачи данных в {{ data-transfer-full-name }} читайте в разделе [Практические руководства](../../../tutorials/index.md).
 
 ## Подготовка базы данных источника {#prepare}
 
 {% note info %}
 
-Yandex Data Transfer не может переносить базы данных ClickHouse®, в названии которых есть дефис.
+{{ data-transfer-full-name }} не может переносить базы данных {{ CH }}, в названии которых есть дефис.
 
 
-При переносе таблиц с движками, отличными от движков на базе `ReplicatedMergeTree` и `Distributed`, в многохостовом кластере ClickHouse® трансфер завершится с ошибкой: `the following tables have not Distributed or Replicated engines and are not yet supported`.
+При переносе таблиц с движками, отличными от движков на базе `ReplicatedMergeTree` и `Distributed`, в многохостовом кластере {{ CH }} трансфер завершится с ошибкой: `the following tables have not Distributed or Replicated engines and are not yet supported`.
 
 {% endnote %}
 
 {% list tabs %}
 
-* Managed Service for ClickHouse®
+* {{ mch-name }}
 
     
-    1. Убедитесь, что переносимые таблицы используют движки семейства `MergeTree`. Будут перенесены только эти таблицы и [материализованные представления](https://clickhouse.com/docs/ru/materialized-views) (MaterializedView).
+    1. Убедитесь, что переносимые таблицы используют движки семейства `MergeTree`. Будут перенесены только эти таблицы и [материализованные представления]({{ ch.docs }}{{ lang }}/materialized-views) (MaterializedView).
 
        В случае многохостового кластера будут перенесены таблицы и материализованные представления только с движками на базе `ReplicatedMergeTree` либо `Distributed`. Проверьте, что данные таблицы и представления присутствуют на всех хостах кластера.
 
     1. [Создайте пользователя](../../../../managed-clickhouse/operations/cluster-users.md) с доступом к базе источника. В настройках пользователя укажите для [параметра](../../../../managed-clickhouse/concepts/settings-list.md#setting-max-execution-time) **Max execution time**  значение не менее `1000000`.
 
-* ClickHouse®
+* {{ CH }}
 
-    1. Убедитесь, что переносимые таблицы используют движки семейства `MergeTree`. Будут перенесены только эти таблицы и [материализованные представления](https://clickhouse.com/docs/ru/materialized-views) (MaterializedView).
+    1. Убедитесь, что переносимые таблицы используют движки семейства `MergeTree`. Будут перенесены только эти таблицы и [материализованные представления]({{ ch.docs }}{{ lang }}/materialized-views) (MaterializedView).
 
        В случае многохостового кластера будут перенесены таблицы и материализованные представления только с движками на базе `ReplicatedMergeTree` либо `Distributed`. Проверьте, что данные таблицы и представления присутствуют на всех хостах кластера.
 
-    1. Если вы не планируете использовать для подключения к внешнему кластеру [сервис Cloud Interconnect](../../../../interconnect/concepts/index.md) или [VPN](../../../../glossary/vpn.md), разрешите подключения к такому кластеру из интернета с [IP-адресов, используемых сервисом Data Transfer](../../../../overview/concepts/public-ips.md#virtual-private-cloud}).
+    1. Если вы не планируете использовать для подключения к внешнему кластеру [сервис {{ interconnect-name }}](../../../../interconnect/concepts/index.md) или [VPN](../../../../glossary/vpn.md), разрешите подключения к такому кластеру из интернета с [IP-адресов, используемых сервисом {{ data-transfer-name }}](../../../../overview/concepts/public-ips.md#virtual-private-cloud}).
        
-       Подробнее о настройке сети для работы с внешними ресурсами см. в [концепции](../../../concepts/network.md#source-external).
+       Подробнее о настройке сети для работы с внешними ресурсами читайте в [концепции](../../../concepts/network.md#source-external).
 
-    1. [Настройте доступ к кластеру-источнику из Yandex Cloud](../../../concepts/network.md#source-external).
+    1. [Настройте доступ к кластеру-источнику из {{ yandex-cloud }}](../../../concepts/network.md#source-external).
 
     1. Создайте пользователя с доступом к базе источника. В настройках пользователя укажите для параметра **Max execution time**  значение не менее `1000000`.
 
 {% endlist %}
 
-## Настройка эндпоинта-источника ClickHouse® {#endpoint-settings}
+## Настройка эндпоинта-источника {{ CH }} {#endpoint-settings}
 
 При [создании](../index.md#create) или [изменении](../index.md#update) эндпоинта вы можете задать:
 
-* Настройки подключения к [кластеру Yandex Managed Service for ClickHouse®](#managed-service) или [пользовательской инсталляции](#on-premise), в т. ч. на базе виртуальных машин Yandex Compute Cloud. Эти параметры обязательные.
+* Настройки подключения к [кластеру {{ mch-full-name }}](#managed-service) или [пользовательской инсталляции](#on-premise), в т. ч. на базе виртуальных машин {{ compute-full-name }}. Эти параметры обязательные.
 * [Дополнительные параметры](#additional-settings).
 
-### Кластер Managed Service for ClickHouse® {#managed-service}
+### Кластер {{ mch-name }} {#managed-service}
 
 
 {% note warning %}
 
-Для создания или редактирования эндпоинта управляемой базы данных вам потребуется [роль `managed-clickhouse.viewer`](../../../../managed-clickhouse/security.md#managed-clickhouse-viewer) или примитивная [роль `viewer`](../../../../iam/roles-reference.md#viewer), выданная на каталог кластера этой управляемой базы данных.
+Для создания или редактирования эндпоинта управляемой базы данных вам потребуется [роль `{{ roles.mch.viewer }}`](../../../../managed-clickhouse/security.md#managed-clickhouse-viewer) или примитивная [роль `viewer`](../../../../iam/roles-reference.md#viewer), выданная на каталог кластера этой управляемой базы данных.
 
 {% endnote %}
 
 
-Подключение к БД с указанием кластера в Yandex Cloud.
+Подключение к БД с указанием кластера в {{ yandex-cloud }}.
 
 {% list tabs group=instructions %}
 
 - Консоль управления {#console}
 
-    * **Тип подключения** — выберите вариант подключения к базе данных:
+    * **{{ ui-key.yc-data-transfer.data-transfer.console.form.common.console.form.common.Connection.authorization_type.title }}** — выберите вариант подключения к базе данных:
     
-      * **Ручная настройка** — позволяет задать настройки подключения вручную.
+      * **{{ ui-key.yc-data-transfer.data-transfer.console.form.common.console.form.common.Connection.authorization_plain.title }}** — позволяет задать настройки подключения вручную.
     
         Выберите тип инсталляции **Кластер Managed Service for ClickHouse** и задайте настройки:
     
-        * **Managed кластер** — выберите кластер, к которому необходимо подключиться.
+        * **{{ ui-key.yc-data-transfer.data-transfer.console.form.clickhouse.console.form.clickhouse.ClickHouseManaged.mdb_cluster_id.title }}** — выберите кластер, к которому необходимо подключиться.
     
-        * **Группа шардов** — укажите группу шардов, из которой будут передаваться данные. Если значение не указано, данные передаются из всех шардов.
+        * **{{ ui-key.yc-data-transfer.data-transfer.console.form.clickhouse.console.form.clickhouse.ClickHouseConnection.shard_group.title }}** — укажите группу шардов, из которой будут передаваться данные. Если значение не указано, данные передаются из всех шардов.
     
-        * **База данных** — укажите имя базы данных в выбранном кластере.
+        * **{{ ui-key.yc-data-transfer.data-transfer.console.form.clickhouse.console.form.clickhouse.ClickHouseConnection.database.title }}** — укажите имя базы данных в выбранном кластере.
     
-        * **Пользователь** — укажите имя пользователя, под которым сервис Data Transfer будет подключаться к базе данных.
+        * **{{ ui-key.yc-data-transfer.data-transfer.console.form.clickhouse.console.form.clickhouse.ClickHouseCredentials.user.title }}** — укажите имя пользователя, под которым сервис {{ data-transfer-name }} будет подключаться к базе данных.
     
-        * **Пароль** — укажите пароль пользователя для доступа к базе данных.
+        * **{{ ui-key.yc-data-transfer.data-transfer.console.form.clickhouse.console.form.clickhouse.ClickHouseCredentials.password.title }}** — укажите пароль пользователя для доступа к базе данных.
     
-      * **Connection Manager** — позволяет подключиться к кластеру через [Yandex Connection Manager](../../../../metadata-hub/quickstart/connection-manager.md):
+      * **{{ ui-key.yc-data-transfer.data-transfer.console.form.common.console.form.common.Connection.authorization_connman.title }}** — позволяет подключиться к кластеру через [{{ connection-manager-full-name }}](../../../../metadata-hub/quickstart/connection-manager.md):
     
-        * Выберите каталог, в котором находится кластер Managed Service for ClickHouse®.
+        * Выберите каталог, в котором находится кластер {{ mch-name }}.
         * Выберите тип инсталляции **Кластер управляемой БД** и задайте настройки:
     
-          * **Кластер управляемой БД** — выберите кластер, к которому необходимо подключиться.
-          * **Подключение** — выберите подключение в Connection Manager или создайте его.
+          * **{{ ui-key.yc-data-transfer.data-transfer.console.form.common.console.form.common.ConnmanConnection.mdb_cluster_id.title }}** — выберите кластер, к которому необходимо подключиться.
+          * **{{ ui-key.yc-data-transfer.data-transfer.console.form.common.console.form.common.ConnmanConnection.connection_id.title }}** — выберите подключение в {{ connection-manager-name }} или создайте его.
     
-          * **База данных** — укажите имя базы данных в выбранном кластере.
+          * **{{ ui-key.yc-data-transfer.data-transfer.console.form.clickhouse.console.form.clickhouse.ClickHouseConnection.database.title }}** — укажите имя базы данных в выбранном кластере.
     
-          * **Группа шардов** — укажите группу шардов, из которой будут передаваться данные. Если значение не указано, данные передаются из всех шардов.
+          * **{{ ui-key.yc-data-transfer.data-transfer.console.form.clickhouse.console.form.clickhouse.ClickHouseConnection.shard_group.title }}** — укажите группу шардов, из которой будут передаваться данные. Если значение не указано, данные передаются из всех шардов.
     
         {% note warning %}
         
-        Чтобы использовать подключение из Connection Manager, у пользователя должны быть [права доступа](../../../../metadata-hub/operations/connection-access.md) не ниже `connection-manager.user` к этому подключению.
+        Чтобы использовать подключение из {{ connection-manager-name }}, у пользователя должны быть [права доступа](../../../../metadata-hub/operations/connection-access.md) не ниже `connection-manager.user` к этому подключению.
         
         {% endnote %}
     
-    * **Группы безопасности** — выберите облачную сеть для размещения эндпоинта и группы безопасности для сетевого трафика. Это позволит применить указанные правила групп безопасности к ВМ и кластерам в выбранной сети без изменения их настроек. Подробнее см. в разделе [Сеть в Yandex Data Transfer](../../../concepts/network.md).
+    * **{{ ui-key.yc-data-transfer.data-transfer.console.form.clickhouse.console.form.clickhouse.ClickHouseConnection.security_groups.title }}** — выберите облачную сеть для размещения эндпоинта и группы безопасности для сетевого трафика. Это позволит применить указанные правила групп безопасности к ВМ и кластерам в выбранной сети без изменения их настроек. Подробнее читайте в разделе [{#T}](../../../concepts/network.md).
     
       Убедитесь, что выбранные группы безопасности [настроены](../../../../managed-clickhouse/operations/connect/index.md#configuring-security-groups).
 
@@ -124,8 +124,8 @@ Yandex Data Transfer не может переносить базы данных 
     * `--cluster-id` — идентификатор кластера, к которому необходимо подключиться.
     * `--cluster-name` — группа шардов, из которой будут передаваться данные. Если параметр не указан, будут передаваться данные из всех шардов.
     * `--database` — имя базы данных.
-    * `--user` — имя пользователя, под которым сервис Data Transfer будет подключаться к базе данных.
-    * `--security-group` — группы безопасности для сетевого трафика, правила которых применятся к ВМ и кластерам без изменения их настроек. Подробнее см. в разделе [Сеть в Yandex Data Transfer](../../../concepts/network.md).
+    * `--user` — имя пользователя, под которым сервис {{ data-transfer-name }} будет подключаться к базе данных.
+    * `--security-group` — группы безопасности для сетевого трафика, правила которых применятся к ВМ и кластерам без изменения их настроек. Подробнее читайте в разделе [{#T}](../../../concepts/network.md).
     
         Убедитесь, что указанные группы безопасности [настроены](../../../../managed-clickhouse/operations/connect/index.md#configuring-security-groups).
     
@@ -135,7 +135,7 @@ Yandex Data Transfer не может переносить базы данных 
         * `--raw-password` — пароль в текстовом виде.
         * `--password-file` — путь к файлу с паролем.
 
-- Terraform {#tf}
+- {{ TF }} {#tf}
 
     * Тип эндпоинта — `clickhouse_source`.
 
@@ -146,27 +146,27 @@ Yandex Data Transfer не может переносить базы данных 
       Если значение в этом поле задано для обоих эндпоинтов, то обе подсети должны быть размещены в одной зоне доступности.
     * `security_groups` — [группы безопасности](../../../../vpc/concepts/security-groups.md) для сетевого трафика.
       
-      Правила групп безопасности применяются к трансферу. Они позволяют открыть сетевой доступ с ВМ трансфера к кластеру. Подробнее см. в разделе [Сеть в Yandex Data Transfer](../../../concepts/network.md).
+      Правила групп безопасности применяются к трансферу. Они позволяют открыть сетевой доступ с ВМ трансфера к кластеру. Подробнее читайте в разделе [{#T}](../../../concepts/network.md).
       
       Группы безопасности и подсеть `subnet_id`, если она указана, должны принадлежать той же сети, в которой размещен кластер.
       
       {% note info %}
       
-      В Terraform сеть для групп безопасности задавать не нужно.
+      В {{ TF }} сеть для групп безопасности задавать не нужно.
       
       {% endnote %}
     
        Убедитесь, что указанные группы безопасности [настроены](../../../../managed-clickhouse/operations/connect/index.md#configuring-security-groups).
     
     * `connection.connection_options.database` — имя базы данных.
-    * `connection.connection_options.user` — имя пользователя, под которым сервис Data Transfer будет подключаться к базе данных.
+    * `connection.connection_options.user` — имя пользователя, под которым сервис {{ data-transfer-name }} будет подключаться к базе данных.
     * `connection.connection_options.password.raw` — пароль в текстовом виде.
 
     Пример структуры конфигурационного файла:
 
     
     ```hcl
-    resource "yandex_datatransfer_endpoint" "<имя_эндпоинта_в_Terraform>" {
+    resource "yandex_datatransfer_endpoint" "<имя_эндпоинта_в_{{ TF }}>" {
       name = "<имя_эндпоинта>"
       settings {
         clickhouse_source {
@@ -190,18 +190,18 @@ Yandex Data Transfer не может переносить базы данных 
     ```
 
 
-    Подробнее см. в [документации провайдера Terraform](../../../../terraform/resources/datatransfer_endpoint.md).
+    Подробнее в [документации провайдера {{ TF }}]({{ tf-provider-dt-endpoint }}).
 
 - API {#api}
 
-    * `securityGroups` — группы безопасности для сетевого трафика, правила которых применятся к ВМ и кластерам без изменения их настроек. Подробнее см. в разделе [Сеть в Yandex Data Transfer](../../../concepts/network.md).
+    * `securityGroups` — группы безопасности для сетевого трафика, правила которых применятся к ВМ и кластерам без изменения их настроек. Подробнее читайте в разделе [{#T}](../../../concepts/network.md).
     
        Убедитесь, что указанные группы безопасности [настроены](../../../../managed-clickhouse/operations/connect/index.md#configuring-security-groups).
     
     * `mdbClusterId` — идентификатор кластера, к которому необходимо подключиться.
     * `clickhouseClusterName` — группа шардов, из которой будут передаваться данные. Если параметр не указан, будут передаваться данные из всех шардов.
     * `database` — имя базы данных.
-    * `user` — имя пользователя, под которым сервис Data Transfer будет подключаться к базе данных.
+    * `user` — имя пользователя, под которым сервис {{ data-transfer-name }} будет подключаться к базе данных.
     * `password.raw` — пароль пользователя для доступа к базе данных (в текстовом виде).
 
 {% endlist %}
@@ -214,26 +214,26 @@ Yandex Data Transfer не может переносить базы данных 
 
 - Консоль управления {#console}
 
-    * **Тип подключения** — выберите вариант подключения к базе данных:
+    * **{{ ui-key.yc-data-transfer.data-transfer.console.form.common.console.form.common.Connection.authorization_type.title }}** — выберите вариант подключения к базе данных:
     
-      * **Ручная настройка** — позволяет задать настройки подключения вручную.
+      * **{{ ui-key.yc-data-transfer.data-transfer.console.form.common.console.form.common.Connection.authorization_plain.title }}** — позволяет задать настройки подключения вручную.
     
         Выберите тип инсталляции **Пользовательская инсталляция** и задайте настройки:
     
-        * **Шарды**
+        * **{{ ui-key.yc-data-transfer.data-transfer.console.form.clickhouse.console.form.clickhouse.ClickHouseOnPremise.shards.title }}**
           
-          * **Шард** — укажите строку, которая позволит сервису отличать шарды друг от друга. Если в пользовательской инсталляции шардирование выключено, укажите произвольное имя.
-          * **Хосты** — укажите FQDN или IP-адреса хостов, входящих в шард.
+          * **{{ ui-key.yc-data-transfer.data-transfer.console.form.clickhouse.console.form.clickhouse.ClickHouseShard.shard_name.title }}** — укажите строку, которая позволит сервису отличать шарды друг от друга. Если в пользовательской инсталляции шардирование выключено, укажите произвольное имя.
+          * **{{ ui-key.yc-data-transfer.data-transfer.console.form.clickhouse.console.form.clickhouse.ClickHouseShard.hosts.title }}** — укажите FQDN или IP-адреса хостов, входящих в шард.
         * **Кластер** — укажите имя кластера, из которого будут передаваться данные. Если параметр не указан, будут передаваться данные из кластера по умолчанию (макрос `{cluster}`).
-        * **HTTP-порт** — укажите номер порта, который сервис Data Transfer будет использовать для подключения.
+        * **{{ ui-key.yc-data-transfer.data-transfer.console.form.clickhouse.console.form.clickhouse.ClickHouseOnPremise.http_port.title }}** — укажите номер порта, который сервис {{ data-transfer-name }} будет использовать для подключения.
           
           При подключении через HTTP-порт:
           
           * Для необязательных полей используются значения по умолчанию, если они заданы.
           * Поддерживается запись сложных типов (`array`, `tuple` и т. д.).
-        * **Нативный порт** — укажите номер нативного порта, который сервис Data Transfer будет использовать для подключения.
-        * **SSL** — включите, если кластер поддерживает только шифрованные соединения.
-        * **Сертификат CA** — если требуется шифрование передаваемых данных, например для соответствия требованиям PCI DSS, загрузите файл [сертификата](../../../../managed-clickhouse/operations/connect/index.md#get-ssl-cert) или добавьте его содержимое в текстовом виде.
+        * **{{ ui-key.yc-data-transfer.data-transfer.console.form.clickhouse.console.form.clickhouse.ClickHouseOnPremise.native_port.title }}** — укажите номер нативного порта, который сервис {{ data-transfer-name }} будет использовать для подключения.
+        * **{{ ui-key.yc-data-transfer.data-transfer.console.form.clickhouse.console.form.clickhouse.ClickHouseOnPremise.ssl_enabled.title }}** — включите, если кластер поддерживает только шифрованные соединения.
+        * **{{ ui-key.yc-data-transfer.data-transfer.console.form.clickhouse.console.form.clickhouse.ClickHouseOnPremise.pem_file_content.title }}** — если требуется шифрование передаваемых данных, например для соответствия требованиям PCI DSS, загрузите файл [сертификата](../../../../managed-clickhouse/operations/connect/index.md#get-ssl-cert) или добавьте его содержимое в текстовом виде.
           
           {% note warning %}
           
@@ -241,39 +241,39 @@ Yandex Data Transfer не может переносить базы данных 
           
           {% endnote %}
     
-        * **База данных** — укажите имя базы данных в выбранном кластере.
+        * **{{ ui-key.yc-data-transfer.data-transfer.console.form.clickhouse.console.form.clickhouse.ClickHouseConnection.database.title }}** — укажите имя базы данных в выбранном кластере.
     
-        * **Идентификатор подсети** — выберите или [создайте](../../../../vpc/operations/subnet-create.md) подсеть в нужной [зоне доступности](../../../../overview/concepts/geo-scope.md). Трансфер будет использовать эту подсеть для доступа к кластеру.
+        * **{{ ui-key.yc-data-transfer.data-transfer.console.form.clickhouse.console.form.clickhouse.ClickHouseOnPremise.subnet_id.title }}** — выберите или [создайте](../../../../vpc/operations/subnet-create.md) подсеть в нужной [зоне доступности](../../../../overview/concepts/geo-scope.md). Трансфер будет использовать эту подсеть для доступа к кластеру.
     
           Если значение в этом поле задано для обоих эндпоинтов, то обе подсети должны быть размещены в одной зоне доступности.
     
-        * **Пользователь** — укажите имя пользователя, под которым сервис Data Transfer будет подключаться к базе данных.
-        * **Пароль** — укажите пароль пользователя для доступа к базе данных.
+        * **{{ ui-key.yc-data-transfer.data-transfer.console.form.clickhouse.console.form.clickhouse.ClickHouseCredentials.user.title }}** — укажите имя пользователя, под которым сервис {{ data-transfer-name }} будет подключаться к базе данных.
+        * **{{ ui-key.yc-data-transfer.data-transfer.console.form.clickhouse.console.form.clickhouse.ClickHouseCredentials.password.title }}** — укажите пароль пользователя для доступа к базе данных.
     
-      * **Connection Manager** — позволяет подключиться к базе данных через [Yandex Connection Manager](../../../../metadata-hub/quickstart/connection-manager.md):
+      * **{{ ui-key.yc-data-transfer.data-transfer.console.form.common.console.form.common.Connection.authorization_connman.title }}** — позволяет подключиться к базе данных через [{{ connection-manager-full-name }}](../../../../metadata-hub/quickstart/connection-manager.md):
     
-        * Выберите каталог, в котором создано подключение Connection Manager.
+        * Выберите каталог, в котором создано подключение {{ connection-manager-name }}.
         * Выберите тип инсталляции **Пользовательская инсталляция** и задайте настройки:
     
-          * **Подключение** — выберите подключение в Connection Manager или создайте его.
+          * **{{ ui-key.yc-data-transfer.data-transfer.console.form.common.console.form.common.ConnmanConnection.connection_id.title }}** — выберите подключение в {{ connection-manager-name }} или создайте его.
     
-          * **База данных** — укажите имя базы данных в выбранном кластере.
+          * **{{ ui-key.yc-data-transfer.data-transfer.console.form.clickhouse.console.form.clickhouse.ClickHouseConnection.database.title }}** — укажите имя базы данных в выбранном кластере.
     
-          * **Идентификатор подсети** — выберите или [создайте](../../../../vpc/operations/subnet-create.md) подсеть в нужной [зоне доступности](../../../../overview/concepts/geo-scope.md). Трансфер будет использовать эту подсеть для доступа к кластеру.
+          * **{{ ui-key.yc-data-transfer.data-transfer.console.form.clickhouse.console.form.clickhouse.ClickHouseOnPremise.subnet_id.title }}** — выберите или [создайте](../../../../vpc/operations/subnet-create.md) подсеть в нужной [зоне доступности](../../../../overview/concepts/geo-scope.md). Трансфер будет использовать эту подсеть для доступа к кластеру.
     
             Если значение в этом поле задано для обоих эндпоинтов, то обе подсети должны быть размещены в одной зоне доступности.
     
-          * **Группа шардов** — укажите группу шардов, из которой будут передаваться данные. Если значение не указано, данные передаются из всех шардов.
+          * **{{ ui-key.yc-data-transfer.data-transfer.console.form.clickhouse.console.form.clickhouse.ClickHouseConnection.shard_group.title }}** — укажите группу шардов, из которой будут передаваться данные. Если значение не указано, данные передаются из всех шардов.
     
         {% note warning %}
         
-        Чтобы использовать подключение из Connection Manager, у пользователя должны быть [права доступа](../../../../metadata-hub/operations/connection-access.md) не ниже `connection-manager.user` к этому подключению.
+        Чтобы использовать подключение из {{ connection-manager-name }}, у пользователя должны быть [права доступа](../../../../metadata-hub/operations/connection-access.md) не ниже `connection-manager.user` к этому подключению.
         
         {% endnote %}
     
-    * **Группы безопасности** — выберите облачную сеть для размещения эндпоинта и группы безопасности для сетевого трафика.
+    * **{{ ui-key.yc-data-transfer.data-transfer.console.form.clickhouse.console.form.clickhouse.ClickHouseConnection.security_groups.title }}** — выберите облачную сеть для размещения эндпоинта и группы безопасности для сетевого трафика.
     
-      Это позволит применить к ВМ и кластерам в выбранной сети указанные правила групп безопасности без изменения настроек этих ВМ и кластеров. Подробнее см. в разделе [Сеть в Yandex Data Transfer](../../../concepts/network.md).
+      Это позволит применить к ВМ и кластерам в выбранной сети указанные правила групп безопасности без изменения настроек этих ВМ и кластеров. Подробнее читайте в разделе [{#T}](../../../concepts/network.md).
 
 - CLI {#cli}
 
@@ -281,8 +281,8 @@ Yandex Data Transfer не может переносить базы данных 
 
     * `--cluster-name` — имя кластера, из которого будут передаваться данные.
     * `--host` — список IP-адресов или FQDN хостов, к которым необходимо подключиться, в формате `{имя_шарда}:{IP-адрес_или_FQDN_хоста}`. Если в пользовательской инсталляции шардирование выключено, укажите произвольное имя шарда.
-    * `http-port` — номер порта, который сервис Data Transfer будет использовать для подключения по HTTP.
-    * `native-port` — номер порта, который сервис Data Transfer будет использовать для подключения к нативному интерфейсу ClickHouse®.
+    * `http-port` — номер порта, который сервис {{ data-transfer-name }} будет использовать для подключения по HTTP.
+    * `native-port` — номер порта, который сервис {{ data-transfer-name }} будет использовать для подключения к нативному интерфейсу {{ CH }}.
     * `--ca-certificate` — сертификат CA, если требуется шифрование передаваемых данных, например для соответствия требованиям PCI DSS.
       
       {% note warning %}
@@ -292,15 +292,15 @@ Yandex Data Transfer не может переносить базы данных 
       {% endnote %}
     * `--subnet-id` — идентификатор подсети, в которой находится хост. Трансфер будет использовать эту подсеть для доступа к хосту.
     * `--database` — имя базы данных.
-    * `--user` — имя пользователя, под которым сервис Data Transfer будет подключаться к базе данных.
-    * `--security-group` — группы безопасности для сетевого трафика, правила которых применятся к ВМ и кластерам без изменения их настроек. Подробнее см. в разделе [Сеть в Yandex Data Transfer](../../../concepts/network.md).
+    * `--user` — имя пользователя, под которым сервис {{ data-transfer-name }} будет подключаться к базе данных.
+    * `--security-group` — группы безопасности для сетевого трафика, правила которых применятся к ВМ и кластерам без изменения их настроек. Подробнее читайте в разделе [{#T}](../../../concepts/network.md).
     
     * Чтобы задать пароль пользователя для доступа к базе данных, используйте один из параметров:
     
         * `--raw-password` — пароль в текстовом виде.
         * `--password-file` — путь к файлу с паролем.
 
-- Terraform {#tf}
+- {{ TF }} {#tf}
 
     * Тип эндпоинта — `clickhouse_source`.
 
@@ -308,8 +308,8 @@ Yandex Data Transfer не может переносить базы данных 
       
       * `connection.connection_options.on_premise.shards.name` — имя шарда, с помощью которого сервис сможет отличать шарды друг от друга. Если в пользовательской инсталляции шардирование выключено, укажите произвольное имя.
       * `connection.connection_options.on_premise.shards.hosts` — укажите FQDN или IP-адреса хостов, входящих в шард.
-    * `connection.connection_options.on_premise.http_port` — номер порта, который сервис Data Transfer будет использовать для подключения по HTTP.
-    * `connection.connection_options.on_premise.native_port` — номер порта, который сервис Data Transfer будет использовать для подключения к нативному интерфейсу ClickHouse®.
+    * `connection.connection_options.on_premise.http_port` — номер порта, который сервис {{ data-transfer-name }} будет использовать для подключения по HTTP.
+    * `connection.connection_options.on_premise.native_port` — номер порта, который сервис {{ data-transfer-name }} будет использовать для подключения к нативному интерфейсу {{ CH }}.
     * `connection.connection_options.on_premise.tls_mode.enabled.ca_certificate` — сертификат CA, если требуется шифрование передаваемых данных, например, для соответствия требованиям PCI DSS.
       
       {% note warning %}
@@ -323,24 +323,24 @@ Yandex Data Transfer не может переносить базы данных 
       Если значение в этом поле задано для обоих эндпоинтов, то обе подсети должны быть размещены в одной зоне доступности.
     * `security_groups` — [группы безопасности](../../../../vpc/concepts/security-groups.md) для сетевого трафика.
       
-      Правила групп безопасности применяются к трансферу. Они позволяют открыть сетевой доступ с ВМ трансфера к ВМ c базой данных. Подробнее см. в разделе [Сеть в Yandex Data Transfer](../../../concepts/network.md).
+      Правила групп безопасности применяются к трансферу. Они позволяют открыть сетевой доступ с ВМ трансфера к ВМ с базой данных. Подробнее читайте в разделе [{#T}](../../../concepts/network.md).
       
       Группы безопасности должны принадлежать той же сети, что и подсеть `subnet_id`, если она указана.
       
       {% note info %}
       
-      В Terraform сеть для групп безопасности задавать не нужно.
+      В {{ TF }} сеть для групп безопасности задавать не нужно.
       
       {% endnote %}
     * `connection.connection_options.database` — имя базы данных.
-    * `connection.connection_options.user` — имя пользователя, под которым сервис Data Transfer будет подключаться к базе данных.
+    * `connection.connection_options.user` — имя пользователя, под которым сервис {{ data-transfer-name }} будет подключаться к базе данных.
     * `connection.connection_options.password.raw` — пароль в текстовом виде.
 
     Пример структуры конфигурационного файла:
 
     
     ```hcl
-    resource "yandex_datatransfer_endpoint" "<имя_эндпоинта_в_Terraform>" {
+    resource "yandex_datatransfer_endpoint" "<имя_эндпоинта_в_{{ TF }}>" {
       name = "<имя_эндпоинта>"
       settings {
         clickhouse_source {
@@ -376,7 +376,7 @@ Yandex Data Transfer не может переносить базы данных 
     ```
 
 
-    Подробнее см. в [документации провайдера Terraform](../../../../terraform/resources/datatransfer_endpoint.md).
+    Подробнее в [документации провайдера {{ TF }}]({{ tf-provider-dt-endpoint }}).
 
 - API {#api}
 
@@ -385,8 +385,8 @@ Yandex Data Transfer не может переносить базы данных 
           
           * `name` — имя шарда, с помощью которого сервис сможет отличать шарды друг от друга. Если в пользовательской инсталляции шардирование выключено, укажите произвольное имя.
           * `hosts` — укажите FQDN или IP-адреса хостов, входящих в шард.
-        * `httpPort` — номер порта, который сервис Data Transfer будет использовать для подключения по HTTP.
-        * `nativePort` — номер порта, который сервис Data Transfer будет использовать для подключения к нативному интерфейсу ClickHouse®.
+        * `httpPort` — номер порта, который сервис {{ data-transfer-name }} будет использовать для подключения по HTTP.
+        * `nativePort` — номер порта, который сервис {{ data-transfer-name }} будет использовать для подключения к нативному интерфейсу {{ CH }}.
         * `tlsMode` — параметры шифрования передаваемых данных, если оно требуется, например для соответствия требованиям PCI DSS.
             * `disabled` — отключено.
             * `enabled` — включено
@@ -399,9 +399,9 @@ Yandex Data Transfer не может переносить базы данных 
                   {% endnote %}
         * `subnetId` — идентификатор подсети, в которой находится хост. Трансфер будет использовать эту подсеть для доступа к хосту.
     * `clickhouseClusterName` — имя кластера, из которого будут передаваться данные.
-    * `securityGroups` — группы безопасности для сетевого трафика, правила которых применятся к ВМ и кластерам без изменения их настроек. Подробнее см. в разделе [Сеть в Yandex Data Transfer](../../../concepts/network.md).
+    * `securityGroups` — группы безопасности для сетевого трафика, правила которых применятся к ВМ и кластерам без изменения их настроек. Подробнее читайте в разделе [{#T}](../../../concepts/network.md).
     * `database` — имя базы данных.
-    * `user` — имя пользователя, под которым сервис Data Transfer будет подключаться к базе данных.
+    * `user` — имя пользователя, под которым сервис {{ data-transfer-name }} будет подключаться к базе данных.
     * `password.raw` — пароль пользователя для доступа к базе данных (в текстовом виде).
 
 {% endlist %}
@@ -412,13 +412,13 @@ Yandex Data Transfer не может переносить базы данных 
 
 - Консоль управления {#console}
 
-    * **Список включённых таблиц** — будут передаваться данные только из таблиц этого списка.
+    * **{{ ui-key.yc-data-transfer.data-transfer.console.form.clickhouse.console.form.clickhouse.ClickHouseTableFilter.include_tables.title }}** — будут передаваться данные только из таблиц этого списка.
 
-        Добавление новых таблиц при редактировании эндпоинта, использующегося в трансферах типа **Копирование и репликация** или **Репликация** в статусе **Реплицируется**, не приведет к загрузке истории данных по этим таблицам. Чтобы добавить таблицу с ее историческими данными, используйте поле **Список объектов для переноса** в [настройках трансфера](../../transfer.md#update).
+        Добавление новых таблиц при редактировании эндпоинта, использующегося в трансферах типа {{ dt-type-copy-repl }} или {{ dt-type-repl }} в статусе {{ dt-status-repl }}, не приведет к загрузке истории данных по этим таблицам. Чтобы добавить таблицу с ее историческими данными, используйте поле **{{ ui-key.yc-data-transfer.data-transfer.console.form.transfer.console.form.transfer.Transfer.data_objects.title }}** в [настройках трансфера](../../transfer.md#update).
 
-    * **Список исключённых таблиц** — данные таблиц из этого списка передаваться не будут.
+    * **{{ ui-key.yc-data-transfer.data-transfer.console.form.clickhouse.console.form.clickhouse.ClickHouseTableFilter.exclude_tables.title }}** — данные таблиц из этого списка передаваться не будут.
 
-    Имена включенных и исключенных таблиц должны соответствовать правилам именования идентификаторов в ClickHouse®. Подробнее читайте в [документации ClickHouse®](https://clickhouse.com/docs/ru/sql-reference/syntax#syntax-identifiers). Экранирование двойных кавычек не требуется.
+    Имена включенных и исключенных таблиц должны соответствовать правилам именования идентификаторов в {{ CH }}. Подробнее в [документации {{ CH }}]({{ ch.docs }}{{ lang }}/sql-reference/syntax#syntax-identifiers). Экранирование двойных кавычек не требуется.
 
     Оставьте списки пустыми для переноса всех таблиц.
 
@@ -426,17 +426,17 @@ Yandex Data Transfer не может переносить базы данных 
 
     * `--include_table` — список включенных таблиц. Будут передаваться данные только из таблиц этого списка.
 
-        Добавление новых таблиц при редактировании эндпоинта, использующегося в трансферах типа **Копирование и репликация** или **Репликация** в статусе **Реплицируется**, не приведет к загрузке истории данных по этим таблицам. Чтобы добавить таблицу с ее историческими данными, используйте поле **Список объектов для переноса** в [настройках трансфера](../../transfer.md#update).
+        Добавление новых таблиц при редактировании эндпоинта, использующегося в трансферах типа {{ dt-type-copy-repl }} или {{ dt-type-repl }} в статусе {{ dt-status-repl }}, не приведет к загрузке истории данных по этим таблицам. Чтобы добавить таблицу с ее историческими данными, используйте поле **{{ ui-key.yc-data-transfer.data-transfer.console.form.transfer.console.form.transfer.Transfer.data_objects.title }}** в [настройках трансфера](../../transfer.md#update).
 
     * `--exclude_table` — список исключенных таблиц. Данные таблиц из этого списка передаваться не будут.
 
     Если списки не указаны, передаются данные из всех таблиц.
 
-- Terraform {#tf}
+- {{ TF }} {#tf}
 
     * `include_tables` — список включенных таблиц. Будут передаваться данные только из таблиц этого списка.
 
-        Добавление новых таблиц при редактировании эндпоинта, использующегося в трансферах типа **Копирование и репликация** или **Репликация** в статусе **Реплицируется**, не приведет к загрузке истории данных по этим таблицам. Чтобы добавить таблицу с ее историческими данными, используйте поле **Список объектов для переноса** в [настройках трансфера](../../transfer.md#update).
+        Добавление новых таблиц при редактировании эндпоинта, использующегося в трансферах типа {{ dt-type-copy-repl }} или {{ dt-type-repl }} в статусе {{ dt-status-repl }}, не приведет к загрузке истории данных по этим таблицам. Чтобы добавить таблицу с ее историческими данными, используйте поле **{{ ui-key.yc-data-transfer.data-transfer.console.form.transfer.console.form.transfer.Transfer.data_objects.title }}** в [настройках трансфера](../../transfer.md#update).
 
     * `exclude_tables` — список исключенных таблиц. Данные таблиц из этого списка передаваться не будут.
 
@@ -446,7 +446,7 @@ Yandex Data Transfer не может переносить базы данных 
 
     * `includeTables` — список включенных таблиц. Будут передаваться данные только из таблиц этого списка.
 
-        Добавление новых таблиц при редактировании эндпоинта, использующегося в трансферах типа **Копирование и репликация** или **Репликация** в статусе **Реплицируется**, не приведет к загрузке истории данных по этим таблицам. Чтобы добавить таблицу с ее историческими данными, используйте поле **Список объектов для переноса** в [настройках трансфера](../../transfer.md#update).
+        Добавление новых таблиц при редактировании эндпоинта, использующегося в трансферах типа {{ dt-type-copy-repl }} или {{ dt-type-repl }} в статусе {{ dt-status-repl }}, не приведет к загрузке истории данных по этим таблицам. Чтобы добавить таблицу с ее историческими данными, используйте поле **{{ ui-key.yc-data-transfer.data-transfer.console.form.transfer.console.form.transfer.Transfer.data_objects.title }}** в [настройках трансфера](../../transfer.md#update).
 
     * `excludeTables` — список исключенных таблиц. Данные таблиц из этого списка передаваться не будут.
 
@@ -458,10 +458,10 @@ Yandex Data Transfer не может переносить базы данных 
 
 Настройте эндпоинт-приемник:
 
-* [YTsaurus](yt.md);
-* [ClickHouse®](../target/clickhouse.md).
+* [{{ ytsaurus-name }}](yt.md);
+* [{{ CH }}](../target/clickhouse.md).
 
-Полный список поддерживаемых источников и приемников в Yandex Data Transfer см. в разделе [Доступные трансферы](../../../transfer-matrix.md).
+Полный список поддерживаемых источников и приемников в {{ data-transfer-full-name }} читайте в разделе [Доступные трансферы](../../../transfer-matrix.md).
 
 После настройки источника и приемника данных [создайте и запустите трансфер](../../transfer.md#create).
 
@@ -475,7 +475,7 @@ Yandex Data Transfer не может переносить базы данных 
 
 ### Не добавляются новые таблицы {#no-new-tables}
 
-​В трансфер типа _**Копирование и репликация**_ не добавляются новые таблицы.
+​В трансфер типа _{{ dt-type-copy-repl }}_ не добавляются новые таблицы.
 
 **Решение:**
 
@@ -494,9 +494,9 @@ Yandex Data Transfer не может переносить базы данных 
         ENGINE = ReplacingMergeTree
         ```
 
-1. [Создайте](../../transfer.md#create) отдельный трансфер типа _**Копирование и репликация**_ и добавьте в список объектов для переноса только новые таблицы. При этом исходный трансфер типа _**Копирование и репликация**_ можно не деактивировать. [Активируйте](../../transfer.md#activate) новый трансфер, а после перехода в статус **Реплицируется** [деактивируйте](../../transfer.md#deactivate) его.
+1. [Создайте](../../transfer.md#create) отдельный трансфер типа _{{ dt-type-copy-repl }}_ и добавьте в список объектов для переноса только новые таблицы. При этом исходный трансфер типа _{{ dt-type-copy-repl }}_ можно не деактивировать. [Активируйте](../../transfer.md#activate) новый трансфер, а после перехода в статус {{ dt-status-repl }} [деактивируйте](../../transfer.md#deactivate) его.
 
-   Чтобы добавить другие таблицы, замените ими список объектов для переноса в созданном отдельном трансфере, вновь активируйте его, а после перехода в статус **Реплицируется** деактивируйте.
+   Чтобы добавить другие таблицы, замените ими список объектов для переноса в созданном отдельном трансфере, вновь активируйте его, а после перехода в статус {{ dt-status-repl }} деактивируйте.
 
    {% note info %}
 
@@ -506,7 +506,7 @@ Yandex Data Transfer не может переносить базы данных 
 
 ### Неподдерживаемый диапазон дат {#date-range}
 
-Если в переносимых данных есть даты вне поддерживаемых диапазонов, ClickHouse® возвращает ошибку:
+Если в переносимых данных есть даты вне поддерживаемых диапазонов, {{ CH }} возвращает ошибку:
 
 ```text
 TYPE_ERROR [target]: failed to run (abstract1 source): failed to push items from 0 to 1 in batch:
@@ -515,15 +515,15 @@ ClickHouse Push failed: Unable to exec changeItem: clickhouse:
 dateTime <имя_поля> must be between 1900-01-01 00:00:00 and 2262-04-11 23:47:16
 ```
 
-Поддерживаемые диапазоны дат в ClickHouse®:
+Поддерживаемые диапазоны дат в {{ CH }}:
 
-* Для полей с типом `DateTime64` — с 1900-01-01 по 2299-12-31. Подробнее см. в [документации ClickHouse®](https://clickhouse.com/docs/ru/sql-reference/data-types/datetime64).
-* Для полей с типом `DateTime` — с 1970-01-01 по 2106-02-07. Подробнее см. в [документации ClickHouse®](https://clickhouse.com/docs/ru/sql-reference/data-types/datetime).
+* Для полей с типом `DateTime64` — с 1900-01-01 по 2299-12-31. Подробнее в [документации {{ CH }}]({{ ch.docs }}{{ lang }}/sql-reference/data-types/datetime64).
+* Для полей с типом `DateTime` — с 1970-01-01 по 2106-02-07. Подробнее в [документации {{ CH }}]({{ ch.docs }}{{ lang }}/sql-reference/data-types/datetime).
 
 **Решение:** используйте один из вариантов:
 
-* Приведите все даты в базе-источнике к поддерживаемому в ClickHouse® диапазону.
+* Приведите все даты в базе-источнике к поддерживаемому в {{ CH }} диапазону.
 * В [параметрах эндпоинта-источника](../index.md#update) исключите таблицу с некорректными датами из трансфера.
-* В [параметрах трансфера](../../transfer.md#update) укажите трансформер [Преобразовать значения в строки](../../../concepts/data-transformation.md#convert-to-string). В этом случае при трансфере изменится тип поля.
+* В [параметрах трансфера](../../transfer.md#update) укажите трансформер [{{ ui-key.yc-data-transfer.data-transfer.transfer.transfer.Transformer.convert_to_string.title }}](../../../concepts/data-transformation.md#convert-to-string). В этом случае при трансфере изменится тип поля.
 
-_ClickHouse® является зарегистрированным товарным знаком [ClickHouse, Inc](https://clickhouse.com)._
+_{{ CH }} является зарегистрированным товарным знаком [ClickHouse, Inc](https://clickhouse.com)._

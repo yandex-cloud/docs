@@ -1,4 +1,4 @@
-# Источники данных в Editor Yandex DataLens
+# Источники данных в Editor {{ datalens-full-name }}
 
 ## Виды источников {#source-types}
 
@@ -9,6 +9,7 @@
 * [подключение через API Connector](tabs.md#sources-api-connector).
 
 Подробнее см. [Sources](tabs.md#sources).
+
 
 Editor может работать с несколькими источниками данных.
 

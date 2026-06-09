@@ -1,6 +1,6 @@
 # Невидимая капча
 
-Невидимая капча — это способ подключения виджета SmartCaptcha, при котором кнопка **Я не робот** отсутствует на странице. Окно с заданием увидят только те пользователи, запросы которых сервис SmartCaptcha посчитает подозрительными.
+Невидимая капча — это способ подключения виджета {{ captcha-name }}, при котором кнопка **Я не робот** отсутствует на странице. Окно с заданием увидят только те пользователи, запросы которых сервис {{ captcha-name }} посчитает подозрительными.
 
 Разработчик сам выбирает, когда сервис проверит пользователя, например, по клику на **submit** формы.
 
@@ -12,7 +12,7 @@
 
     ```html
     <script
-      src="https://smartcaptcha.cloud.yandex.ru/captcha.js?render=onload&onload=onloadFunction"
+      src="https://{{ captcha-domain }}/captcha.js?render=onload&onload=onloadFunction"
       defer
     ></script>
     ```
@@ -46,7 +46,7 @@
     </script>
     ```
 
-1. Вызвать `window.smartCaptcha.execute()`, когда SmartCaptcha должна начать валидацию пользователя. Например, при нажатии **submit** в форме.
+1. Вызвать `window.smartCaptcha.execute()`, когда {{ captcha-name }} должна начать валидацию пользователя. Например, при нажатии **submit** в форме.
 
     ```html
     <form id="form">
@@ -104,7 +104,7 @@ window.smartCaptcha.render('captcha-container', {
 
 {% note warning %}
 
-Вы обязаны уведомлять пользователей о том, что их данные обрабатывает SmartCaptcha. Если вы скрываете [блок с уведомлением](invisible-captcha.md#data-processing-notice), сообщите пользователям иным способом о том, что SmartCaptcha обрабатывает их данные.
+Вы обязаны уведомлять пользователей о том, что их данные обрабатывает {{ captcha-name }}. Если вы скрываете [блок с уведомлением](invisible-captcha.md#data-processing-notice), сообщите пользователям иным способом о том, что {{ captcha-name }} обрабатывает их данные.
 
 {% endnote %}
 
@@ -120,7 +120,7 @@ window.smartCaptcha.render('captcha-container', {
 
     ```html
     <script
-      src="https://smartcaptcha.cloud.yandex.ru/captcha.js?render=onload&onload=onloadFunction"
+      src="https://{{ captcha-domain }}/captcha.js?render=onload&onload=onloadFunction"
       defer
     ></script>
 

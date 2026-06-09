@@ -5,7 +5,7 @@ Retrieves the list of MongoDB Database resources in the specified cluster.
 ## HTTP request
 
 ```
-GET https://mdb.api.cloud.yandex.net/managed-mongodb/v1/clusters/{clusterId}/databases
+GET https://{{ api-host-mdb }}/managed-mongodb/v1/clusters/{clusterId}/databases
 ```
 
 ## Path parameters
@@ -15,7 +15,7 @@ GET https://mdb.api.cloud.yandex.net/managed-mongodb/v1/clusters/{clusterId}/dat
 || clusterId | **string**
 
 Required field. ID of the MongoDB cluster to list databases in.
-To get the cluster ID, use a [ClusterService.List](../Cluster/list.md#List) request.
+To get the cluster ID, use a [ClusterService.List](../../../managed-mongodb/api-ref/Cluster/list#List) request.
 
 The maximum string length in characters is 50. ||
 |#
@@ -71,7 +71,7 @@ list request will have its own `nextPageToken` to continue paging through the re
 ## Database {#yandex.cloud.mdb.mongodb.v1.Database}
 
 A MongoDB Database resource. For more information, see the
-[Developer's Guide](../../concepts/index.md).
+[Developer's Guide](../../../managed-mongodb/concepts).
 
 #|
 ||Field | Description ||

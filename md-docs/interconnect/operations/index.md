@@ -1,28 +1,28 @@
-# Пошаговые инструкции Cloud Interconnect
+# Пошаговые инструкции {{ interconnect-name }}
 
 ## Транковое подключение
-- [Получить информацию о транковых подключениях](trunk-get-info.md)
-- [Получить список операций транкового подключения](trunk-operations.md)
-- [Создать новое транковое подключение](trunk-create.md)
-- [Изменить параметры транкового подключения](trunk-update.md)
-- [Удалить транковое подключение](trunk-delete.md)
+- [{#T}](trunk-get-info.md)
+- [{#T}](trunk-create.md)
+- [{#T}](trunk-update.md)
+- [{#T}](trunk-operations.md)
+- [{#T}](trunk-move.md)
+- [{#T}](trunk-delete.md)
 
 ## Приватное соединение
-- [Получить информацию о приватном соединении](priv-con-get-info.md)
-- [Получить список операций приватного соединения](priv-con-operations.md)
-- [Создать приватное соединение](priv-con-create.md)
-- [Изменить параметры приватного соединения](priv-con-update.md)
-- [Удалить приватное соединение](priv-con-delete.md)
-- [Добавить статические маршруты в приватное соединение (VPC Stitching)](priv-con-static-upsert.md)
-- [Удалить статические маршруты из приватного соединения (VPC Stitching)](priv-con-static-remove.md)
+- [{#T}](priv-con-get-info.md)
+- [{#T}](priv-con-create.md)
+- [{#T}](priv-con-update.md)
+- [{#T}](priv-con-operations.md)
+- [{#T}](priv-con-move.md)
+- [{#T}](priv-con-delete.md)
 
 
 ## Публичное соединение
-- [Получить информацию о публичных соединениях](pub-con-get-info.md)
+- [{#T}](pub-con-get-info.md)
 
 
 ## Прочие
-- [Получить информацию о точках присутствия](pop-get-info.md)
+- [{#T}](pop-get-info.md)
 
 
-- [Получить информацию о партнерах Cloud Interconnect](partner-get-info.md)
+- [{#T}](partner-get-info.md)

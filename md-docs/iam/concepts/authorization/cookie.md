@@ -1,11 +1,11 @@
 # Cookie
 
-В веб-интерфейсах Yandex Cloud для аутентификации пользователя используются cookie `yc_session`.
+В веб-интерфейсах {{ yandex-cloud }} для аутентификации пользователя используются cookie `yc_session`.
 
-Все cookie привязаны к единой логической [сессии](../../../organization/concepts/sessions.md), которая инициируется сервисом [auth.yandex.cloud](https://auth.yandex.cloud).
+Все cookie привязаны к единой логической [сессии](../../../organization/concepts/sessions.md), которая инициируется сервисом [{{ auth-main-host }}](https://{{ auth-main-host }}).
 
-Cookie создаются независимо для каждого сервиса Yandex Cloud, работающего на собственном выделенном домене (например, [консоль управления](https://console.yandex.cloud), [Cloud Center](https://center.yandex.cloud), [Yandex DataLens](https://datalens.ru) и др.)
+Cookie создаются независимо для каждого сервиса {{ yandex-cloud }}, работающего на собственном выделенном домене (например, [консоль управления]({{ link-console-main }}), [{{ cloud-center }}]({{ cloud-center-link }}), [{{ datalens-full-name }}]({{ link-datalens-main }}) и др.)
 
 #### См. также {#see-also}
 
-* [Сессии](../../../organization/concepts/sessions.md)
+* [{#T}](../../../organization/concepts/sessions.md)

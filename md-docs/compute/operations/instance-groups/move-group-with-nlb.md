@@ -1,7 +1,7 @@
 # Перенести группу виртуальных машин с сетевым балансировщиком нагрузки в другую зону доступности
 
 
-Чтобы перенести [группу ВМ](../../concepts/instance-groups/index.md) c [сетевым балансировщиком нагрузки](../../../network-load-balancer/concepts/index.md) [Yandex Network Load Balancer](../../../network-load-balancer/index.md):
+Чтобы перенести [группу ВМ](../../concepts/instance-groups/index.md) c [сетевым балансировщиком нагрузки](../../../network-load-balancer/concepts/index.md) [{{ network-load-balancer-full-name }}](../../../network-load-balancer/index.md):
 1. [Создайте](../../../vpc/operations/subnet-create.md) [подсеть](../../../vpc/concepts/network.md#subnet) в [зоне доступности](../../../overview/concepts/geo-scope.md), в которую вы хотите перенести группу ВМ.
 1. Добавьте ВМ группы в новую зону доступности:
 
@@ -9,23 +9,23 @@
    
    - Консоль управления {#console}
    
-     1. В [консоли управления](https://console.yandex.cloud) откройте [каталог](../../../resource-manager/concepts/resources-hierarchy.md#folder), в котором находится нужная [группа виртуальных машин](../../concepts/instance-groups/index.md).
-     1. [Перейдите](../../../console/operations/select-service.md#select-service) в сервис **Compute Cloud**.
-     1. На панели слева выберите ![image](../../../_assets/console-icons/layers-3-diagonal.svg) **Группы виртуальных машин**.
+     1. В [консоли управления]({{ link-console-main }}) откройте [каталог](../../../resource-manager/concepts/resources-hierarchy.md#folder), в котором находится нужная [группа виртуальных машин](../../concepts/instance-groups/index.md).
+     1. Перейдите в сервис **{{ compute-name }}**.
+     1. На панели слева выберите ![image](../../../_assets/console-icons/layers-3-diagonal.svg) **{{ ui-key.yacloud.compute.instance-groups_hx3kX }}**.
      1. Выберите группу ВМ, которую хотите изменить.
-     1. В правом верхнем углу нажмите ![image](../../../_assets/console-icons/pencil.svg) **Редактировать**.
-     1. В блоке **Распределение** добавьте [зону доступности](../../../overview/concepts/geo-scope.md), в которую вы хотите перенести группу ВМ. 
-     1. Если у вас группа ВМ с [ручным масштабированием](../../concepts/instance-groups/scale.md#fixed-scale), в блоке **Масштабирование** укажите размер группы, достаточный для размещения во всех выбранных зонах доступности.
+     1. В правом верхнем углу нажмите ![image](../../../_assets/console-icons/pencil.svg) **{{ ui-key.yacloud.common.edit }}**.
+     1. В блоке **{{ ui-key.yacloud.compute.groups.create.section_allocation }}** добавьте [зону доступности](../../../overview/concepts/geo-scope.md), в которую вы хотите перенести группу ВМ. 
+     1. Если у вас группа ВМ с [ручным масштабированием](../../concepts/instance-groups/scale.md#fixed-scale), в блоке **{{ ui-key.yacloud.compute.groups.create.section_scale }}** укажите размер группы, достаточный для размещения во всех выбранных зонах доступности.
    
         Вернуть изначальное количество ВМ можно будет после воссоздания всех ВМ группы в новой зоне доступности и удаления всех ВМ в старой.
-     1. Если у вас [автоматически масштабируемая](../../concepts/instance-groups/scale.md#auto-scale) группа ВМ с ручной (`OPPORTUNISTIC`) [стратегией остановки](../../concepts/instance-groups/policies/deploy-policy.md#strategy), в поле **Останавливать машины по стратегии** измените стратегию на автоматическую (`PROACTIVE`).
+     1. Если у вас [автоматически масштабируемая](../../concepts/instance-groups/scale.md#auto-scale) группа ВМ с ручной (`OPPORTUNISTIC`) [стратегией остановки](../../concepts/instance-groups/policies/deploy-policy.md#strategy), в поле **{{ ui-key.yacloud.compute.groups.create.field_deploy-strategy }}** измените стратегию на автоматическую (`PROACTIVE`).
    
         Вернуть ручную стратегию остановки можно будет после воссоздания всех ВМ группы в новой зоне доступности и удаления всех ВМ в старой.
-     1. Нажмите **Сохранить**.
+     1. Нажмите **{{ ui-key.yacloud.common.save }}**.
    
    - CLI {#cli}
    
-     Если у вас еще нет интерфейса командной строки Yandex Cloud (CLI), [установите и инициализируйте его](../../../cli/quickstart.md#install).
+     Если у вас еще нет интерфейса командной строки {{ yandex-cloud }} (CLI), [установите и инициализируйте его](../../../cli/quickstart.md#install).
    
      По умолчанию используется каталог, указанный при [создании](../../../cli/operations/profile/profile-create.md) профиля CLI. Чтобы изменить каталог по умолчанию, используйте команду `yc config set folder-id <идентификатор_каталога>`. Также для любой команды вы можете указать другой каталог с помощью параметров `--folder-name` или `--folder-id`. Если вы обращаетесь к ресурсу по имени, поиск будет выполнен в каталоге по умолчанию. Если вы обращаетесь к ресурсу по идентификатору, поиск будет выполнен глобально — во всех каталогах с учетом прав доступа.
    
@@ -85,10 +85,10 @@
         ...
         ```
    
-   - Terraform {#tf}
+   - {{ TF }} {#tf}
    
-     Если у вас еще нет Terraform, [установите его и настройте провайдер Yandex Cloud](../../../tutorials/infrastructure-management/terraform-quickstart.md#install-terraform).
-     1. Откройте файл конфигурации Terraform для [группы виртуальных машин](../../concepts/instance-groups/index.md) и добавьте в блоке `allocation_policy` новую [зону доступности](../../../overview/concepts/geo-scope.md), а в блоке `network_interface` идентификатор [подсети](../../../vpc/concepts/network.md#subnet), созданной ранее.
+     Если у вас еще нет {{ TF }}, [установите его и настройте провайдер {{ yandex-cloud }}](../../../tutorials/infrastructure-management/terraform-quickstart.md#install-terraform).
+     1. Откройте файл конфигурации {{ TF }} для [группы виртуальных машин](../../concepts/instance-groups/index.md) и добавьте в блоке `allocation_policy` новую [зону доступности](../../../overview/concepts/geo-scope.md), а в блоке `network_interface` идентификатор [подсети](../../../vpc/concepts/network.md#subnet), созданной ранее.
    
         ```hcl
         ...
@@ -138,7 +138,7 @@
    
         Вернуть ручную стратегию остановки можно будет после воссоздания всех ВМ группы в новой зоне доступности и удаления всех ВМ в старой.
    
-        Более подробную информацию о параметрах ресурсов в Terraform см. в [документации провайдера](../../../terraform/resources/compute_instance_group.md).
+        Более подробную информацию о параметрах ресурсов в {{ TF }} см. в [документации провайдера]({{ tf-provider-resources-link }}/compute_instance_group).
      1. Примените изменения:
    
         1. В терминале перейдите в директорию с конфигурационным файлом.
@@ -160,7 +160,7 @@
            terraform plan
            ```
         
-           В терминале будет выведен список ресурсов с параметрами. На этом этапе изменения не будут внесены. Если в конфигурации есть ошибки, Terraform на них укажет.
+           В терминале будет выведен список ресурсов с параметрами. На этом этапе изменения не будут внесены. Если в конфигурации есть ошибки, {{ TF }} на них укажет.
         1. Примените изменения конфигурации:
         
            ```bash
@@ -169,7 +169,7 @@
         
         1. Подтвердите изменения: введите в терминале слово `yes` и нажмите **Enter**.
    
-        Добавится новая зона доступности для группы ВМ. Проверить изменения можно в [консоли управления](https://console.yandex.cloud) или с помощью команды [CLI](../../../cli/quickstart.md):
+        Добавится новая зона доступности для группы ВМ. Проверить изменения можно в [консоли управления]({{ link-console-main }}) или с помощью команды [CLI](../../../cli/quickstart.md):
    
         ```bash
         yc compute instance-group get <имя_группы_ВМ>
@@ -189,7 +189,7 @@
 
 1. В зависимости от [типа балансировщика](../../../network-load-balancer/concepts/nlb-types.md), выполните следующие действия:
    * **Внешний балансировщик** (`EXTERNAL`):
-     1. Дождитесь пока ресурсы целевой группы в новой зоне доступности пройдут [проверку состояния](../../../network-load-balancer/concepts/health-check.md) и перейдут в статус `HEALTHY`. См. [Проверить состояние целевых ресурсов](../../../network-load-balancer/operations/check-resource-health.md).
+     1. Дождитесь пока ресурсы целевой группы в новой зоне доступности пройдут [проверку состояния](../../../network-load-balancer/concepts/health-check.md) и перейдут в статус `HEALTHY`. См. [{#T}](../../../network-load-balancer/operations/check-resource-health.md).
 
         После этого новая зона доступности будет включена в маршрутизацию трафика через балансировщик. Этот процесс может занимать до 2 минут. См. [Сходимость маршрутизации в зоне доступности](../../../network-load-balancer/concepts/specifics.md#nlb-zone-converge).
      1. Удалите ВМ группы из старой зоны доступности:
@@ -198,13 +198,13 @@
         
         - Консоль управления {#console}
         
-          1. В [консоли управления](https://console.yandex.cloud) откройте [каталог](../../../resource-manager/concepts/resources-hierarchy.md#folder), в котором находится нужная [группа виртуальных машин](../../concepts/instance-groups/index.md).
-          1. [Перейдите](../../../console/operations/select-service.md#select-service) в сервис **Compute Cloud**.
-          1. На панели слева выберите ![image](../../../_assets/console-icons/layers-3-diagonal.svg) **Группы виртуальных машин**.
+          1. В [консоли управления]({{ link-console-main }}) откройте [каталог](../../../resource-manager/concepts/resources-hierarchy.md#folder), в котором находится нужная [группа виртуальных машин](../../concepts/instance-groups/index.md).
+          1. Перейдите в сервис **{{ compute-name }}**.
+          1. На панели слева выберите ![image](../../../_assets/console-icons/layers-3-diagonal.svg) **{{ ui-key.yacloud.compute.instance-groups_hx3kX }}**.
           1. Выберите группу ВМ, которую хотите изменить.
-          1. В правом верхнем углу нажмите ![image](../../../_assets/console-icons/pencil.svg) **Редактировать**.
-          1. В блоке **Распределение** отключите старую [зону доступности](../../../overview/concepts/geo-scope.md).
-          1. Нажмите **Сохранить**.
+          1. В правом верхнем углу нажмите ![image](../../../_assets/console-icons/pencil.svg) **{{ ui-key.yacloud.common.edit }}**.
+          1. В блоке **{{ ui-key.yacloud.compute.groups.create.section_allocation }}** отключите старую [зону доступности](../../../overview/concepts/geo-scope.md).
+          1. Нажмите **{{ ui-key.yacloud.common.save }}**.
         
         - CLI {#cli}
         
@@ -234,9 +234,9 @@
              ...
              ```
         
-        - Terraform {#tf}
+        - {{ TF }} {#tf}
         
-          1. Откройте файл конфигурации Terraform для [группы виртуальных машин](../../concepts/instance-groups/index.md) и удалите в блоке `allocation_policy` старую [зону доступности](../../../overview/concepts/geo-scope.md), а в блоке `network_interface` идентификатор [подсети](../../../vpc/concepts/network.md#subnet) в старой зоне:
+          1. Откройте файл конфигурации {{ TF }} для [группы виртуальных машин](../../concepts/instance-groups/index.md) и удалите в блоке `allocation_policy` старую [зону доступности](../../../overview/concepts/geo-scope.md), а в блоке `network_interface` идентификатор [подсети](../../../vpc/concepts/network.md#subnet) в старой зоне:
         
              ```hcl
              ...
@@ -254,7 +254,7 @@
              * `zones` — зона доступности, в которую вы хотите переместить группу ВМ. Можно указать несколько зон.
              * `subnet_ids` — идентификатор подсети в той зоне доступности, в которую вы хотите перенести группу ВМ.
         
-             Более подробную информацию о параметрах ресурсов в Terraform см. в [документации провайдера](../../../terraform/resources/compute_instance_group.md).
+             Более подробную информацию о параметрах ресурсов в {{ TF }} см. в [документации провайдера]({{ tf-provider-resources-link }}/compute_instance_group).
           1. Примените изменения:
         
              1. В терминале перейдите в директорию с конфигурационным файлом.
@@ -276,7 +276,7 @@
                 terraform plan
                 ```
              
-                В терминале будет выведен список ресурсов с параметрами. На этом этапе изменения не будут внесены. Если в конфигурации есть ошибки, Terraform на них укажет.
+                В терминале будет выведен список ресурсов с параметрами. На этом этапе изменения не будут внесены. Если в конфигурации есть ошибки, {{ TF }} на них укажет.
              1. Примените изменения конфигурации:
              
                 ```bash
@@ -285,7 +285,7 @@
              
              1. Подтвердите изменения: введите в терминале слово `yes` и нажмите **Enter**.
         
-             ВМ группы будут удалены в старой зоне доступности. Проверить изменения можно в [консоли управления](https://console.yandex.cloud) или с помощью команды [CLI](../../../cli/quickstart.md):
+             ВМ группы будут удалены в старой зоне доступности. Проверить изменения можно в [консоли управления]({{ link-console-main }}) или с помощью команды [CLI](../../../cli/quickstart.md):
         
              ```bash
              yc compute instance-group get <имя_группы_ВМ>
@@ -305,14 +305,14 @@
 
         - Консоль управления {#console}
 
-          1. В [консоли управления](https://console.yandex.cloud) выберите [каталог](../../../resource-manager/concepts/resources-hierarchy.md#folder), в котором находится балансировщик.
-          1. [Перейдите](../../../console/operations/select-service.md#select-service) в сервис **Network Load Balancer**.
+          1. В [консоли управления]({{ link-console-main }}) выберите [каталог](../../../resource-manager/concepts/resources-hierarchy.md#folder), в котором находится балансировщик.
+          1. Перейдите в сервис **{{ network-load-balancer-name }}**.
           1. Нажмите на имя нужного балансировщика.
-          1. В блоке **Обработчики** нажмите ![image](../../../_assets/horizontal-ellipsis.svg) и выберите **Удалить обработчик**.
-          1. Справа сверху нажмите ![image](../../../_assets/plus-sign.svg) **Создать обработчик** и [создайте](../../../network-load-balancer/operations/listener-add.md) новый обработчик.
+          1. В блоке **{{ ui-key.yacloud.load-balancer.network-load-balancer.section_listeners }}** нажмите ![image](../../../_assets/horizontal-ellipsis.svg) и выберите **{{ ui-key.yacloud.load-balancer.network-load-balancer.label_delete-listener }}**.
+          1. Справа сверху нажмите ![image](../../../_assets/plus-sign.svg) **{{ ui-key.yacloud.load-balancer.network-load-balancer.button_add-listener }}** и [создайте](../../../network-load-balancer/operations/listener-add.md) новый обработчик.
 
              При создании нового обработчика укажите подсеть в той зоне доступности, в которую вы хотите перенести балансировщик.
-          1. Нажмите кнопку **Добавить**.
+          1. Нажмите кнопку **{{ ui-key.yacloud.common.add }}**.
 
         - CLI {#cli}
 
@@ -334,8 +334,8 @@
              +----------------------+---------------+-----------------+----------+----------------+------------------------+----------+
              |          ID          |     NAME      |    REGION ID    |   TYPE   | LISTENER COUNT | ATTACHED TARGET GROUPS |  STATUS  |
              +----------------------+---------------+-----------------+----------+----------------+------------------------+----------+
-             | enp2btm6uvdr******** | nlb-34aa5-db1 | ru-central1 | INTERNAL |              0 |                        |  ACTIVE  |
-             | enpvg9o73hqh******** | test-balancer | ru-central1 | EXTERNAL |              0 |                        |  ACTIVE  |
+             | enp2btm6uvdr******** | nlb-34aa5-db1 | {{ region-id }} | INTERNAL |              0 |                        |  ACTIVE  |
+             | enpvg9o73hqh******** | test-balancer | {{ region-id }} | EXTERNAL |              0 |                        |  ACTIVE  |
              +----------------------+---------------+-----------------+----------+----------------+------------------------+----------+
              ```
 
@@ -373,7 +373,7 @@
              folder_id: b1gmit33ngp3********
              created_at: "2023-08-09T13:44:57Z"
              name: nlb-34aa5-db1
-             region_id: ru-central1
+             region_id: {{ region-id }}
              status: INACTIVE
              type: INTERNAL
              ```
@@ -408,7 +408,7 @@
              folder_id: b1gmit33ngp3********
              created_at: "2023-08-09T08:37:03Z"
              name: nlb-34aa5-db1
-             region_id: ru-central1
+             region_id: {{ region-id }}
              status: ACTIVE
              type: INTERNAL
              listeners:
@@ -421,9 +421,9 @@
                  ip_version: IPV4
              ```
 
-        - Terraform {#tf}
+        - {{ TF }} {#tf}
 
-          1. Откройте файл Terraform с конфигурацией балансировщика и в блоке `listener` замените значения полей `name` и `subnet_id`:
+          1. Откройте файл {{ TF }} с конфигурацией балансировщика и в блоке `listener` замените значения полей `name` и `subnet_id`:
 
              ```hcl
              listener { 
@@ -444,7 +444,7 @@
              * `target_port` — целевой порт, на который балансировщик будет направлять трафик. 
              * `subnet_id` — идентификатор подсети в той зоне доступности, в которую вы хотите перенести группу ВМ.
 
-             Более подробную информацию о параметрах ресурсов в Terraform см. в [документации провайдера](../../../terraform/resources/lb_network_load_balancer.md).
+             Более подробную информацию о параметрах ресурсов в {{ TF }} см. в [документации провайдера]({{ tf-provider-resources-link }}/lb_network_load_balancer).
           1. Примените изменения:
 
              1. В терминале перейдите в директорию с конфигурационным файлом.
@@ -466,7 +466,7 @@
                 terraform plan
                 ```
              
-                В терминале будет выведен список ресурсов с параметрами. На этом этапе изменения не будут внесены. Если в конфигурации есть ошибки, Terraform на них укажет.
+                В терминале будет выведен список ресурсов с параметрами. На этом этапе изменения не будут внесены. Если в конфигурации есть ошибки, {{ TF }} на них укажет.
              1. Примените изменения конфигурации:
              
                 ```bash
@@ -475,7 +475,7 @@
              
              1. Подтвердите изменения: введите в терминале слово `yes` и нажмите **Enter**.
 
-             Будет добавлен новый обработчик балансировщика в новой зоне доступности. Проверить создание нового обработчика можно в [консоли управления](https://console.yandex.cloud).
+             Будет добавлен новый обработчик балансировщика в новой зоне доступности. Проверить создание нового обработчика можно в [консоли управления]({{ link-console-main }}).
 
         - API {#api}
 
@@ -519,13 +519,13 @@
         
         - Консоль управления {#console}
         
-          1. В [консоли управления](https://console.yandex.cloud) откройте [каталог](../../../resource-manager/concepts/resources-hierarchy.md#folder), в котором находится нужная [группа виртуальных машин](../../concepts/instance-groups/index.md).
-          1. [Перейдите](../../../console/operations/select-service.md#select-service) в сервис **Compute Cloud**.
-          1. На панели слева выберите ![image](../../../_assets/console-icons/layers-3-diagonal.svg) **Группы виртуальных машин**.
+          1. В [консоли управления]({{ link-console-main }}) откройте [каталог](../../../resource-manager/concepts/resources-hierarchy.md#folder), в котором находится нужная [группа виртуальных машин](../../concepts/instance-groups/index.md).
+          1. Перейдите в сервис **{{ compute-name }}**.
+          1. На панели слева выберите ![image](../../../_assets/console-icons/layers-3-diagonal.svg) **{{ ui-key.yacloud.compute.instance-groups_hx3kX }}**.
           1. Выберите группу ВМ, которую хотите изменить.
-          1. В правом верхнем углу нажмите ![image](../../../_assets/console-icons/pencil.svg) **Редактировать**.
-          1. В блоке **Распределение** отключите старую [зону доступности](../../../overview/concepts/geo-scope.md).
-          1. Нажмите **Сохранить**.
+          1. В правом верхнем углу нажмите ![image](../../../_assets/console-icons/pencil.svg) **{{ ui-key.yacloud.common.edit }}**.
+          1. В блоке **{{ ui-key.yacloud.compute.groups.create.section_allocation }}** отключите старую [зону доступности](../../../overview/concepts/geo-scope.md).
+          1. Нажмите **{{ ui-key.yacloud.common.save }}**.
         
         - CLI {#cli}
         
@@ -555,9 +555,9 @@
              ...
              ```
         
-        - Terraform {#tf}
+        - {{ TF }} {#tf}
         
-          1. Откройте файл конфигурации Terraform для [группы виртуальных машин](../../concepts/instance-groups/index.md) и удалите в блоке `allocation_policy` старую [зону доступности](../../../overview/concepts/geo-scope.md), а в блоке `network_interface` идентификатор [подсети](../../../vpc/concepts/network.md#subnet) в старой зоне:
+          1. Откройте файл конфигурации {{ TF }} для [группы виртуальных машин](../../concepts/instance-groups/index.md) и удалите в блоке `allocation_policy` старую [зону доступности](../../../overview/concepts/geo-scope.md), а в блоке `network_interface` идентификатор [подсети](../../../vpc/concepts/network.md#subnet) в старой зоне:
         
              ```hcl
              ...
@@ -575,7 +575,7 @@
              * `zones` — зона доступности, в которую вы хотите переместить группу ВМ. Можно указать несколько зон.
              * `subnet_ids` — идентификатор подсети в той зоне доступности, в которую вы хотите перенести группу ВМ.
         
-             Более подробную информацию о параметрах ресурсов в Terraform см. в [документации провайдера](../../../terraform/resources/compute_instance_group.md).
+             Более подробную информацию о параметрах ресурсов в {{ TF }} см. в [документации провайдера]({{ tf-provider-resources-link }}/compute_instance_group).
           1. Примените изменения:
         
              1. В терминале перейдите в директорию с конфигурационным файлом.
@@ -597,7 +597,7 @@
                 terraform plan
                 ```
              
-                В терминале будет выведен список ресурсов с параметрами. На этом этапе изменения не будут внесены. Если в конфигурации есть ошибки, Terraform на них укажет.
+                В терминале будет выведен список ресурсов с параметрами. На этом этапе изменения не будут внесены. Если в конфигурации есть ошибки, {{ TF }} на них укажет.
              1. Примените изменения конфигурации:
              
                 ```bash
@@ -606,7 +606,7 @@
              
              1. Подтвердите изменения: введите в терминале слово `yes` и нажмите **Enter**.
         
-             ВМ группы будут удалены в старой зоне доступности. Проверить изменения можно в [консоли управления](https://console.yandex.cloud) или с помощью команды [CLI](../../../cli/quickstart.md):
+             ВМ группы будут удалены в старой зоне доступности. Проверить изменения можно в [консоли управления]({{ link-console-main }}) или с помощью команды [CLI](../../../cli/quickstart.md):
         
              ```bash
              yc compute instance-group get <имя_группы_ВМ>

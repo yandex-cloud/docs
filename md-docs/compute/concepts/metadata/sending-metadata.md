@@ -2,7 +2,7 @@
 
 Вы можете передать [метаданные](../vm-metadata.md) в ВМ при ее [создании](../../operations/index.md#vm-create) и [изменении](../../operations/vm-control/vm-update.md#change-metadata). Данные для подключения к ВМ можно передать только при создании, причем в [ВМ с ОС Linux](../../operations/vm-create/create-linux-vm.md) для каждого пользователя необходимо также передавать открытый [SSH-ключ](../../../glossary/ssh-keygen.md).
 
-Изменять метаданные ВМ можно только в каталоге [user-data](directories.md#dir-user) и в пути `instance/attributes/*` каталога [computeMetadata](directories.md#dir-compute). Подробнее о том, как изменить метаданные ВМ, см. в инструкции [Изменить метаданные виртуальной машины](../../operations/vm-metadata/update-vm-metadata.md).
+Изменять метаданные ВМ можно только в каталоге [user-data](directories.md#dir-user) и в пути `instance/attributes/*` каталога [computeMetadata](directories.md#dir-compute). Подробнее о том, как изменить метаданные ВМ, см. в инструкции [{#T}](../../operations/vm-metadata/update-vm-metadata.md).
 
 {% note warning %}
 
@@ -12,7 +12,7 @@
 
 ## Особенности передачи переменных окружения в метаданных через CLI {#environment-variables}
 
-С помощью [Yandex Cloud CLI](../../../cli/index.md) в метаданные ВМ можно передать как имена [переменных окружения](https://ru.wikipedia.org/wiki/Переменная_среды), так и значения локальных переменных окружения, которые будут подставлены в метаданные создаваемой ВМ при выполнении команды CLI:
+С помощью [{{ yandex-cloud }} CLI](../../../cli/index.md) в метаданные ВМ можно передать как имена [переменных окружения](https://ru.wikipedia.org/wiki/Переменная_среды), так и значения локальных переменных окружения, которые будут подставлены в метаданные создаваемой ВМ при выполнении команды CLI:
 
 {% list tabs %}
 
@@ -55,16 +55,26 @@
 
 {% endlist %}
 
-Пример использования переменных при передаче метаданных на ВМ через Yandex Cloud CLI см. в разделе [Создать виртуальную машину с метаданными из переменных окружения](../../operations/vm-create/create-with-env-variables.md).
+{% note info %}
+
+Команды [`yc compute instance create`](../../../cli/cli-ref/compute/cli-ref/instance/create.md) | [`create-with-container`](../../../cli/cli-ref/compute/cli-ref/instance/create-with-container.md) | [`update`](../../../cli/cli-ref/compute/cli-ref/instance/update.md) | [`add-metadata`](../../../cli/cli-ref/compute/cli-ref/instance/add-metadata.md) поддерживают подстановку в метаданные ВМ значений переменных окружения. Эти значения, заданные в ключе `user-data` в формате `$<имя_переменной>`, в момент выполнения команды {{ yandex-cloud }} CLI будут подставлены в метаданные ВМ из переменных окружения среды, в которой выполняется команда. 
+
+Чтобы изменить такое поведение, не подставлять значение переменной из среды выполнения команды CLI и передать в метаданные ВМ имя переменной в формате `$<имя_переменной>`, используйте синтаксис с двумя символами доллара. Например: `$$<имя_переменной>`.
+
+Подробнее см. в разделе [{#T}](sending-metadata.md#environment-variables).
+
+{% endnote %}
+
+Пример использования переменных при передаче метаданных на ВМ через {{ yandex-cloud }} CLI см. в разделе [{#T}](../../operations/vm-create/create-with-env-variables.md).
 
 #### См. также {#see-also}
 
 * [Изменение метаданных ВМ](../../operations/vm-metadata/update-vm-metadata.md)
 * [Создание ВМ с пользовательским скриптом конфигурации](../../operations/vm-create/create-with-cloud-init-scripts.md)
 * [Создание ВМ с метаданными из переменных окружения](../../operations/vm-create/create-with-env-variables.md)
-* [Передача секрета Yandex Lockbox в ВМ через метаданные](../../operations/vm-create/create-with-lockbox-secret.md)
-* [Метаданные виртуальной машины](../vm-metadata.md)
-* [Каталоги метаданных](directories.md)
-* [Ключи, обрабатываемые в публичных образах Yandex Cloud](public-image-keys.md)
-* [Доступ к метаданным виртуальных машин](accessing-metadata.md)
-* [Идентификационный документ](identity-document.md)
+* [Передача секрета {{ lockbox-full-name }} в ВМ через метаданные](../../operations/vm-create/create-with-lockbox-secret.md)
+* [{#T}](../vm-metadata.md)
+* [{#T}](directories.md)
+* [{#T}](public-image-keys.md)
+* [{#T}](accessing-metadata.md)
+* [{#T}](identity-document.md)
