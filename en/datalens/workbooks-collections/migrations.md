@@ -42,7 +42,7 @@ When this migration type is selected, the object is transferred to the [workbook
 * Object IDs remain the same.
 * Links to objects do not change and lead to the workbook.
 
-During migration, {{ datalens-short-name }} finds linked objects recursively across all links. Therefore, you to start your migration from any object. For example, from a dashboard. {{ datalens-short-name }} will find all linked charts, datasets, and connections. Then it will search for the links of the objects it found. Finally, it will prompt you to put all the objects it found into a single workbook.
+During migration, {{ datalens-short-name }} finds linked objects recursively across all links. Therefore, you can start your migration from any object. For example, from a dashboard. {{ datalens-short-name }} will find all linked charts, datasets, and connections. Then it will search for the links of the objects it found. Finally, it will prompt you to put all the objects it found into a single workbook.
 
 {% note warning %}
 
