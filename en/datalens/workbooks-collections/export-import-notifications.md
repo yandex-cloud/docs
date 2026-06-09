@@ -21,7 +21,7 @@ Check RLS for correct operation and reconfigure it if needed.
 
 Critical error. In {{ datalens-short-name }}, each entity has required fields with prescribed formats. The error indicates missing required fields or wrong data type. Fix the configuration or try re-exporting the workbook.
 
-#### Workbook contains objects with incorrect type {#export-object-type-error}
+#### Workbook contains objects with an incorrect type {#export-object-type-error}
 
 It is likely that the workbook configuration was edited and some objects got wrong types. For example, the `Chart` type was set for a dashboard. Fix the configuration or try re-exporting the workbook.
 
@@ -81,7 +81,7 @@ When importing connections using a {{ connection-manager-name }} service account
 
 Critical error. In {{ datalens-short-name }}, each entity has required fields with prescribed formats. The error indicates missing required fields or wrong data type. Fix the configuration or try re-exporting the workbook.
 
-#### Workbook contains objects with incorrect type {#import-object-type-error}
+#### Workbook contains objects with an incorrect type {#import-object-type-error}
 
 It is likely that the workbook configuration was edited and some objects got wrong types. For example, the `Chart` type was set for a dashboard. Fix the configuration or try re-exporting the workbook.
 
