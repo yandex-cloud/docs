@@ -6,7 +6,7 @@ You can import an existing CA from external PKI systems.
 ## HTTP request
 
 ```
-POST https://private-ca.certificate-manager.api.cloud.yandex.net/privateca/v1/certificateAuthorities:import
+POST https://private-ca.certificate-manager.{{ api-host }}/privateca/v1/certificateAuthorities:import
 ```
 
 ## Body parameters {#yandex.cloud.certificatemanager.v1.privateca.ImportCertificateAuthorityRequest}

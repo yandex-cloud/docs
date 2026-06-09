@@ -1,9 +1,11 @@
 # Cloud CDN API, REST: RawLogs.Get
 
+Get configuration of raw log export.
+
 ## HTTP request
 
 ```
-GET https://cdn.api.cloud.yandex.net/cdn/v1/rawLogs/{resourceId}
+GET https://cdn.{{ api-host }}/cdn/v1/rawLogs/{resourceId}
 ```
 
 ## Path parameters

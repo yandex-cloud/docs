@@ -1,10 +1,4 @@
-# Yandex Data Processing
 
-Сервис помогает разворачивать кластеры Apache Hadoop<sup>®</sup> и Apache Spark™ в инфраструктуре Yandex Cloud. Вы сами определяете размер кластера, мощность узлов и набор сервисов Apache<sup>®</sup> (Spark™, HDFS, YARN, Hive, HBase<sup>®</sup>, Oozie™, Sqoop™, Flume™, Tez<sup>®</sup>, Zeppelin™).
-
-Инфраструктура Yandex Cloud <a href="../security/conform.md">защищена</a> в соответствии со следующими стандартами: <ul> <li>Федеральный закон Российской Федерации «О персональных данных» № 152-ФЗ.</li> <li>Стандарт безопасности индустрии платежных карт (PCI DSS).</li> <li>Стандарт ISO 27001.</li> <li>Стандарт ISO 27017.</li> <li>Стандарт ISO 27018.</li> <li>ГОСТ 57580.1-2017.</li> </ul>
-
-<em>Apache<sup>®</sup>, Apache Hadoop<sup>®</sup> и Apache Spark™ являются зарегистрированными товарными знаками или товарными знаками Apache Software Foundation в США и/или других странах.</em>
 
 # Yandex Data Processing
 
@@ -14,7 +8,7 @@
 
  - [Все инструкции](operations/index.md)
 
-### Кластеры Yandex Data Processing
+### Кластеры {{ dataproc-name }}
 
  - [Информация об имеющихся кластерах](operations/cluster-list.md)
 
@@ -32,7 +26,7 @@
 
  - [Подключение к хосту по SSH](operations/connect-ssh.md)
 
- - [Подключение к хосту через OS Login](operations/connect-oslogin.md)
+ - [Подключение к хосту через {{ oslogin }}](operations/connect-oslogin.md)
 
  - [Подключение к хосту из графических IDE](operations/connect-ide.md)
 
@@ -44,7 +38,7 @@
 
  - [Удаление кластера](operations/cluster-delete.md)
 
-### Подкластеры Yandex Data Processing
+### Подкластеры {{ dataproc-name }}
 
  - [Управление подкластерами](operations/subclusters.md)
 
@@ -56,7 +50,7 @@
 
  - [Использование Sqoop](operations/sqoop-usage.md)
 
- - [Настройка Apache Iceberg™](operations/apache-iceberg.md)
+ - [Настройка {{ IBRG }}](operations/apache-iceberg.md)
 
 #### Delta Lake
 
@@ -98,11 +92,11 @@
 
 ### Сетевые настройки и обслуживание кластера
 
- - [Настройка сети для Yandex Data Processing](tutorials/configure-network.md)
+ - [Настройка сети для {{ dataproc-name }}](tutorials/configure-network.md)
 
  - [Миграция кластера с HDFS в другую зону доступности](tutorials/hdfs-cluster-migration.md)
 
- - [Переключение сетевого соединения при пересоздании кластера Yandex Data Processing](tutorials/reconnect-network.md)
+ - [Переключение сетевого соединения при пересоздании кластера {{ dataproc-name }}](tutorials/reconnect-network.md)
 
 ### Работа с заданиями
 
@@ -122,33 +116,33 @@
 
  - [Запуск заданий с удаленного хоста](tutorials/remote-run-job.md)
 
-### Интеграция Yandex Data Processing с другими сервисами
+### Интеграция {{ dataproc-name }} с другими сервисами
 
-#### Object Storage
+#### {{ objstorage-name }}
 
- - [Использование Object Storage в Yandex Data Processing](tutorials/copy-files-from-object-storage.md)
+ - [Использование {{ objstorage-name }} в {{ dataproc-name }}](tutorials/copy-files-from-object-storage.md)
 
- - [Импорт данных из Object Storage, обработка и экспорт в Managed Service for ClickHouse®](tutorials/s3-data-processing-ch.md)
+ - [Импорт данных из {{ objstorage-name }}, обработка и экспорт в {{ mch-name }}](tutorials/s3-data-processing-ch.md)
 
- - [Монтирование бакетов к файловой системе хостов Yandex Data Processing](tutorials/geesefs-init-actions.md)
+ - [Монтирование бакетов к файловой системе хостов {{ dataproc-name }}](tutorials/geesefs-init-actions.md)
 
-#### Apache Hive™ Metastore
+#### {{ metastore-full-name }}
 
- - [Совместная работа с таблицами с использованием Apache Hive™ Metastore](tutorials/data-processing-to-data-processing.md)
+ - [Совместная работа с таблицами с использованием {{ metastore-name }}](tutorials/data-processing-to-data-processing.md)
 
- - [Перенос метаданных между кластерами Yandex Data Processing с помощью Apache Hive™ Metastore](tutorials/metastore-import.md)
+ - [Перенос метаданных между кластерами {{ dataproc-name }} с помощью {{ metastore-name }}](tutorials/metastore-import.md)
 
- - [Обмен данными с Managed Service for ClickHouse®](tutorials/exchange-data-with-mch.md)
+ - [Обмен данными с {{ mch-name }}](tutorials/exchange-data-with-mch.md)
 
- - [Импорт данных из кластера Managed Service for MySQL® с помощью Sqoop](tutorials/sqoop-mmy.md)
+ - [Импорт данных из кластера {{ mmy-name }} с помощью Sqoop](tutorials/sqoop-mmy.md)
 
- - [Импорт данных из кластера Managed Service for PostgreSQL с помощью Sqoop](tutorials/sqoop-mpg.md)
+ - [Импорт данных из кластера {{ mpg-name }} с помощью Sqoop](tutorials/sqoop-mpg.md)
 
- - [Интеграция с сервисом DataSphere](tutorials/datasphere-integration.md)
+ - [Интеграция с сервисом {{ ml-platform-name }}](tutorials/datasphere-integration.md)
 
- - [Работа с топиками Apache Kafka® с помощью PySpark-заданий](tutorials/kafka.md)
+ - [Работа с топиками {{ KF }} с помощью PySpark-заданий](tutorials/kafka.md)
 
- - [Автоматизация работы с помощью Managed Service for Apache Airflow™](tutorials/airflow-automation.md)
+ - [Автоматизация работы с помощью {{ maf-name }}](tutorials/airflow-automation.md)
 
 ## Концепции
 
@@ -164,9 +158,9 @@
 
  - [Среда исполнения](concepts/environment.md)
 
- - [Интерфейсы и порты компонентов Yandex Data Processing](concepts/interfaces.md)
+ - [Интерфейсы и порты компонентов {{ dataproc-name }}](concepts/interfaces.md)
 
- - [Задания в Yandex Data Processing](concepts/jobs.md)
+ - [Задания в {{ dataproc-name }}](concepts/jobs.md)
 
  - [Задания Spark](concepts/spark-sql.md)
 
@@ -174,23 +168,23 @@
 
  - [Декомиссия подкластеров и хостов](concepts/decommission.md)
 
- - [Сеть в Yandex Data Processing](concepts/network.md)
+ - [Сеть в {{ dataproc-name }}](concepts/network.md)
 
  - [Техническое обслуживание](concepts/maintenance.md)
 
- - [Разграничение зон контроля в Yandex Data Processing](concepts/responsibilities.md)
+ - [Разграничение зон контроля в {{ dataproc-name }}](concepts/responsibilities.md)
 
  - [Квоты и лимиты](concepts/limits.md)
 
- - [Хранилище в Yandex Data Processing](concepts/storage.md)
+ - [Хранилище в {{ dataproc-name }}](concepts/storage.md)
 
  - [Свойства компонентов](concepts/settings-list.md)
 
- - [Apache Iceberg™ в Yandex Data Processing](concepts/apache-iceberg.md)
+ - [{{ IBRG }} в {{ dataproc-name }}](concepts/apache-iceberg.md)
 
- - [Delta Lake в Yandex Data Processing](concepts/deltalake.md)
+ - [Delta Lake в {{ dataproc-name }}](concepts/deltalake.md)
 
- - [Логи в Yandex Data Processing](concepts/logs.md)
+ - [Логи в {{ dataproc-name }}](concepts/logs.md)
 
  - [Скрипты инициализации](concepts/init-action.md)
 
@@ -362,7 +356,7 @@
 
  - [update](cli-ref/v0/subcluster/update.md)
 
- - [Справочник Terraform](tf-ref.md)
+ - [Справочник {{ TF }}](tf-ref.md)
 
 ## Справочник API
 
@@ -524,9 +518,9 @@
 
  - [Delete](api-ref/Subcluster/delete.md)
 
- - [Метрики Monitoring](metrics.md)
+ - [Метрики {{ monitoring-name }}](metrics.md)
 
- - [Аудитные логи Audit Trails](at-ref.md)
+ - [Аудитные логи {{ at-name }}](at-ref.md)
 
  - [Публичные материалы](public-talks.md)
 

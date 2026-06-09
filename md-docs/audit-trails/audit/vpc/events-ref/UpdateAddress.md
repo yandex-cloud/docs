@@ -85,7 +85,9 @@
   },
   "details": {
     "addressId": "string",
+    // Includes only one of the fields `addressName`
     "addressName": "string",
+    // end of the list of possible fields
     // Includes only one of the fields `externalIpv4Address`, `internalIpv4Address`
     "externalIpv4Address": {
       "address": "string",
@@ -102,12 +104,24 @@
       // end of the list of possible fields
     },
     // end of the list of possible fields
+    // Includes only one of the fields `type`
     "type": "string",
+    // end of the list of possible fields
+    // Includes only one of the fields `ipVersion`
     "ipVersion": "string",
+    // end of the list of possible fields
+    // Includes only one of the fields `reserved`
     "reserved": "boolean",
+    // end of the list of possible fields
+    // Includes only one of the fields `used`
     "used": "boolean",
+    // end of the list of possible fields
+    // Includes only one of the fields `deletionProtection`
     "deletionProtection": "boolean",
+    // end of the list of possible fields
+    // Includes only one of the fields `description`
     "description": "string",
+    // end of the list of possible fields
     "labels": "object"
   },
   "requestParameters": "object",
@@ -280,7 +294,9 @@ A list of messages that carry the error details. ||
 #|
 ||Field | Description ||
 || addressId | **string** ||
-|| addressName | **string** ||
+|| addressName | **string**
+
+Includes only one of the fields `addressName`. ||
 || externalIpv4Address | **[ExternalIpv4Address](#yandex.cloud.vpc.v1.ExternalIpv4Address)**
 
 Includes only one of the fields `externalIpv4Address`, `internalIpv4Address`. ||
@@ -289,16 +305,28 @@ Includes only one of the fields `externalIpv4Address`, `internalIpv4Address`. ||
 Includes only one of the fields `externalIpv4Address`, `internalIpv4Address`. ||
 || type | **enum** (Type)
 
+Includes only one of the fields `type`.
+
 - `INTERNAL`
 - `EXTERNAL` ||
 || ipVersion | **enum** (IpVersion)
 
+Includes only one of the fields `ipVersion`.
+
 - `IPV4`
 - `IPV6` ||
-|| reserved | **boolean** ||
-|| used | **boolean** ||
-|| deletionProtection | **boolean** ||
-|| description | **string** ||
+|| reserved | **boolean**
+
+Includes only one of the fields `reserved`. ||
+|| used | **boolean**
+
+Includes only one of the fields `used`. ||
+|| deletionProtection | **boolean**
+
+Includes only one of the fields `deletionProtection`. ||
+|| description | **string**
+
+Includes only one of the fields `description`. ||
 || labels | **object** (map<**string**, **string**>) ||
 |#
 

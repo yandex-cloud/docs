@@ -1,6 +1,6 @@
-# Диагностика производительности в Managed Service for MySQL®
+# Диагностика производительности в {{ mmy-name }}
 
-В Managed Service for MySQL® встроен инструмент для сбора статистики по сессиям и запросам. Эти метрики могут быть полезны при [анализе производительности и оптимизации настроек](../tutorials/profiling-mmy.md) кластера.
+В {{ mmy-name }} встроен инструмент для сбора статистики по сессиям и запросам. Эти метрики могут быть полезны при [анализе производительности и оптимизации настроек](../tutorials/profiling-mmy.md) кластера.
 
 ## Активировать сбор статистики {#activate-stats-collector}
 
@@ -10,22 +10,22 @@
 
     При [создании кластера](cluster-create.md) или [изменении его настроек](update.md#change-additional-settings):
 
-    1. Включите опцию **Сбор статистики** (по умолчанию отключена).
-    1. Настройте **Интервал сбора сессий** и **Интервал сбора запросов**. Допустимые значения:
+    1. Включите опцию **{{ ui-key.yacloud.mdb.forms.field_diagnostics-enabled }}** (по умолчанию отключена).
+    1. Настройте **{{ ui-key.yacloud.mdb.forms.field_diagnostics-sessions-interval }}** и **{{ ui-key.yacloud.mdb.forms.field_diagnostics-statements-interval }}**. Допустимые значения:
         
         * для сессий — от `5` до `86400` секунд;
         * для запросов — от `60` до `86400` секунд.
 
 * CLI {#cli}
 
-    Если у вас еще нет интерфейса командной строки Yandex Cloud (CLI), [установите и инициализируйте его](../../cli/quickstart.md#install).
+    Если у вас еще нет интерфейса командной строки {{ yandex-cloud }} (CLI), [установите и инициализируйте его](../../cli/quickstart.md#install).
 
     По умолчанию используется каталог, указанный при [создании](../../cli/operations/profile/profile-create.md) профиля CLI. Чтобы изменить каталог по умолчанию, используйте команду `yc config set folder-id <идентификатор_каталога>`. Также для любой команды вы можете указать другой каталог с помощью параметров `--folder-name` или `--folder-id`. Если вы обращаетесь к ресурсу по имени, поиск будет выполнен в каталоге по умолчанию. Если вы обращаетесь к ресурсу по идентификатору, поиск будет выполнен глобально — во всех каталогах с учетом прав доступа.
 
     Чтобы включить и настроить сбор статистики, передайте параметр `--performance-diagnostics` в команде изменения кластера:
 
     ```bash
-    yc managed-mysql cluster update <имя_или_идентификатор_кластера> \
+    {{ yc-mdb-my }} cluster update <имя_или_идентификатор_кластера> \
        ...
        --performance-diagnostics enabled=true,`
                                 `sessions-sampling-interval=<интервал_сбора_сессий>,`
@@ -38,9 +38,9 @@
     * `sessions-sampling-interval` — от `5` до `86400` секунд.
     * `statements-sampling-interval` — от `60` до `86400` секунд.
 
-* Terraform {#tf}
+* {{ TF }} {#tf}
 
-    1. Откройте актуальный конфигурационный файл Terraform с планом инфраструктуры.
+    1. Откройте актуальный конфигурационный файл {{ TF }} с планом инфраструктуры.
 
         О том, как создать такой файл, см. в разделе [Создание кластера](cluster-create.md).
 
@@ -66,14 +66,14 @@
 
     1. Проверьте корректность настроек.
 
-        1. В командной строке перейдите в каталог, в котором расположены актуальные конфигурационные файлы Terraform с планом инфраструктуры.
+        1. В командной строке перейдите в каталог, в котором расположены актуальные конфигурационные файлы {{ TF }} с планом инфраструктуры.
         1. Выполните команду:
         
            ```bash
            terraform validate
            ```
         
-           Если в файлах конфигурации есть ошибки, Terraform на них укажет.
+           Если в файлах конфигурации есть ошибки, {{ TF }} на них укажет.
 
     1. Подтвердите изменение ресурсов.
 
@@ -97,10 +97,10 @@
 
     {% note warning "Ограничения по времени" %}
     
-    Провайдер Terraform ограничивает время на выполнение операций с кластером Managed Service for MySQL®:
+    Провайдер {{ TF }} ограничивает время на выполнение операций с кластером {{ mmy-name }}:
     
     * создание кластера, в том числе путем восстановления из резервной копии, — 15 минут;
-    * изменение кластера, в том числе обновление версии MySQL®, — 60 минут;
+    * изменение кластера, в том числе обновление версии {{ MY }}, — 60 минут;
     * удаление кластера — 15 минут.
     
     Операции, длящиеся дольше указанного времени, прерываются.
@@ -141,7 +141,7 @@
                 --request POST \
                 --header "Authorization: Bearer $IAM_TOKEN" \
                 --header "Content-Type: application/json" \
-                --url 'https://mdb.api.cloud.yandex.net/managed-mysql/v1/clusters' \
+                --url 'https://{{ api-host-mdb }}/managed-mysql/v1/clusters' \
                 --data '{
                           "configSpec": {
                             "performanceDiagnostics": {
@@ -165,7 +165,7 @@
 
     1. Чтобы включить сбор статистики при изменении существующего кластера:
 
-        1. Воспользуйтесь методом [Cluster.update](../api-ref/Cluster/update.md) и выполните запрос, например, с помощью [cURL](https://curl.se/):
+        1. Воспользуйтесь методом [Cluster.update](../api-ref/Cluster/update.md) и выполните запрос, например, с помощью {{ api-examples.rest.tool }}:
 
             {% note warning %}
             
@@ -178,7 +178,7 @@
                 --request PATCH \
                 --header "Authorization: Bearer $IAM_TOKEN" \
                 --header "Content-Type: application/json" \
-                --url 'https://mdb.api.cloud.yandex.net/managed-mysql/v1/clusters/<идентификатор_кластера>' \
+                --url 'https://{{ api-host-mdb }}/managed-mysql/v1/clusters/<идентификатор_кластера>' \
                 --data '{
                           "updateMask": "configSpec.performanceDiagnostics",
                           "configSpec": {
@@ -236,7 +236,7 @@
                       },
                       ...
                     }' \
-                mdb.api.cloud.yandex.net:443 \
+                {{ api-host-mdb }}:{{ port-https }} \
                 yandex.cloud.mdb.mysql.v1.ClusterService.Create
             ```
 
@@ -250,7 +250,7 @@
 
     1. Чтобы включить сбор статистики при изменении существующего кластера:
 
-        1. Воспользуйтесь вызовом [ClusterService/Update](../api-ref/grpc/Cluster/update.md) и выполните запрос, например, с помощью [gRPCurl](https://github.com/fullstorydev/grpcurl):
+        1. Воспользуйтесь вызовом [ClusterService/Update](../api-ref/grpc/Cluster/update.md) и выполните запрос, например, с помощью {{ api-examples.grpc.tool }}:
 
             {% note warning %}
             
@@ -295,7 +295,7 @@
                         }
                       }
                     }' \
-                mdb.api.cloud.yandex.net:443 \
+                {{ api-host-mdb }}:{{ port-https }} \
                 yandex.cloud.mdb.mysql.v1.ClusterService.Update
             ```
 
@@ -311,8 +311,8 @@
 
 ## Получить статистику по сессиям {#get-sessions}
 
-1. [Перейдите](../../console/operations/select-service.md#select-service) в сервис **Managed Service for&nbsp;MySQL**.
-1. Нажмите на имя нужного кластера и выберите вкладку **Диагностика производительности** → **Сессии**.
+1. Перейдите в сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-mysql }}**.
+1. Нажмите на имя нужного кластера и выберите вкладку **{{ ui-key.yacloud.mysql.cluster.switch_diagnostics }}** → **{{ ui-key.yacloud.mdb.cluster.diagnostics.label_sessions }}**.
 
     Для просмотра статистики по сессиям или истории запросов в рамках сессии выберите соответствующую вкладку.
 
@@ -339,8 +339,8 @@
 
 ## Получить статистику по запросам {#get-queries}
 
-1. [Перейдите](../../console/operations/select-service.md#select-service) в сервис **Managed Service for&nbsp;MySQL**.
-1. Нажмите на имя нужного кластера и выберите вкладку **Диагностика производительности** → **Запросы**.
+1. Перейдите в сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-mysql }}**.
+1. Нажмите на имя нужного кластера и выберите вкладку **{{ ui-key.yacloud.mysql.cluster.switch_diagnostics }}** → **{{ ui-key.yacloud.mdb.cluster.diagnostics.label_queries }}**.
 
     Для просмотра статистики по запросам или сравнения их статистических данных на двух временных интервалах выберите соответствующую вкладку.
 
@@ -357,8 +357,8 @@
 
         Чтобы получить сведения об относительном изменении статистических характеристик запросов:
 
-        1. В поле **Интервал 1** выберите временной интервал, статистика за который будет основой для расчетов.
-        1. В поле **Интервал 2** выберите временной интервал, статистика за который будет сравниваться со статистикой первого интервала.
+        1. В поле **{{ ui-key.yacloud.mdb.cluster.diagnostics.label_interval-first }}** выберите временной интервал, статистика за который будет основой для расчетов.
+        1. В поле **{{ ui-key.yacloud.mdb.cluster.diagnostics.label_interval-second }}** выберите временной интервал, статистика за который будет сравниваться со статистикой первого интервала.
         1. (Опционально) Настройте фильтры.
 
         Например, пусть в первом интервале было выполнено 10 запросов `SELECT * FROM cities`, а во втором — 20. Тогда при сравнении статистических данных разница по метрике <q>количество запросов</q> (столбец `Calls` в таблице) будет равняться `+100%`.
@@ -367,7 +367,7 @@
 
 ### Доступные метрики {#metrics}
 
-В этом разделе перечислены метрики, по которым собирается статистика запросов в [Monitoring](../../monitoring/index.md).
+В этом разделе перечислены метрики, по которым собирается статистика запросов в [{{ monitoring-name }}](../../monitoring/index.md).
 
 Метрика статистики | Единица измерения | Описание
 ----- | ----- | -----
@@ -394,4 +394,4 @@
 **Errors** | штуки | Количество ошибок при выполнении запроса.
 **Warnings** | штуки | Количество предупреждений при выполнении запроса.
 
-Подробнее про отображаемые сведения см. в [документации MySQL®](https://dev.mysql.com/doc/refman/8.0/en/performance-schema-events-statements-current-table.html).
+Подробнее про отображаемые сведения см. в [документации {{ MY }}](https://dev.mysql.com/doc/refman/8.0/en/performance-schema-events-statements-current-table.html).

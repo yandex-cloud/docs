@@ -14,12 +14,12 @@
 
 - SSH
 
-    * Для подключения к хостам подкластеров с публичным доступом из облачных сетей и интернета [настройте группы безопасности](../../vpc/operations/security-group-add-rule.md) кластера так, чтобы они разрешали входящий трафик с любых IP-адресов на порт `22`. Для этого создайте следующее правило для входящего трафика:
+    * Для подключения к хостам подкластеров с публичным доступом из облачных сетей и интернета [настройте группы безопасности](../../vpc/operations/security-group-add-rule.md) кластера так, чтобы они разрешали входящий трафик с любых IP-адресов на порт `{{ port-ssh }}`. Для этого создайте следующее правило для входящего трафика:
 
-      * **Диапазон портов** — `22`.
-      * **Протокол** — `TCP`.
-      * **Источник** — `CIDR`.
-      * **CIDR блоки** — `0.0.0.0/0`.
+      * **{{ ui-key.yacloud.vpc.network.security-groups.forms.field_sg-rule-port-range }}** — `{{ port-ssh }}`.
+      * **{{ ui-key.yacloud.vpc.network.security-groups.forms.field_sg-rule-protocol }}** — `{{ ui-key.yacloud.common.label_tcp }}`.
+      * **{{ ui-key.yacloud.vpc.network.security-groups.forms.field_sg-rule-source }}** — `{{ ui-key.yacloud.vpc.network.security-groups.forms.value_sg-rule-destination-cidr }}`.
+      * **{{ ui-key.yacloud.vpc.network.security-groups.forms.field_sg-rule-cidr-blocks }}** — `0.0.0.0/0`.
 
     * Для подключения к кластеру с промежуточной виртуальной машины:
 
@@ -27,57 +27,57 @@
 
           * для входящего трафика:
 
-              * **Диапазон портов** — `22`.
-              * **Протокол** — `TCP`.
-              * **Источник** — `CIDR`.
-              * **CIDR блоки** — `0.0.0.0/0`.
+              * **{{ ui-key.yacloud.vpc.network.security-groups.forms.field_sg-rule-port-range }}** — `{{ port-ssh }}`.
+              * **{{ ui-key.yacloud.vpc.network.security-groups.forms.field_sg-rule-protocol }}** — `{{ ui-key.yacloud.common.label_tcp }}`.
+              * **{{ ui-key.yacloud.vpc.network.security-groups.forms.field_sg-rule-source }}** — `{{ ui-key.yacloud.vpc.network.security-groups.forms.value_sg-rule-destination-cidr }}`.
+              * **{{ ui-key.yacloud.vpc.network.security-groups.forms.field_sg-rule-cidr-blocks }}** — `0.0.0.0/0`.
 
           * для исходящего трафика:
 
-              * **Диапазон портов** — `22`.
-              * **Протокол** — `TCP`.
-              * **Назначение** — `CIDR`.
-              * **CIDR блоки** — диапазон адресов подсети, в которой находятся хосты кластера. Если подкластеры находятся в разных подсетях, то создайте это правило для каждой подсети.
+              * **{{ ui-key.yacloud.vpc.network.security-groups.forms.field_sg-rule-port-range }}** — `{{ port-ssh }}`.
+              * **{{ ui-key.yacloud.vpc.network.security-groups.forms.field_sg-rule-protocol }}** — `{{ ui-key.yacloud.common.label_tcp }}`.
+              * **{{ ui-key.yacloud.vpc.network.security-groups.forms.field_sg-rule-destination }}** — `{{ ui-key.yacloud.vpc.network.security-groups.forms.value_sg-rule-destination-cidr }}`.
+              * **{{ ui-key.yacloud.vpc.network.security-groups.forms.field_sg-rule-cidr-blocks }}** — диапазон адресов подсети, в которой находятся хосты кластера. Если подкластеры находятся в разных подсетях, то создайте это правило для каждой подсети.
 
-      1. [Настройте группы безопасности](../../vpc/operations/security-group-add-rule.md) кластера так, чтобы они разрешали входящий трафик из группы безопасности, в которой находится ВМ, на порт `22`. Для этого создайте следующее правило для входящего трафика:
+      1. [Настройте группы безопасности](../../vpc/operations/security-group-add-rule.md) кластера так, чтобы они разрешали входящий трафик из группы безопасности, в которой находится ВМ, на порт `{{ port-ssh }}`. Для этого создайте следующее правило для входящего трафика:
 
-          * **Диапазон портов** — `22`.
-          * **Протокол** — `TCP`.
-          * **Источник** — `Группа безопасности`.
-          * **Группа безопасности** — группа безопасности, в которой находится ВМ.
+          * **{{ ui-key.yacloud.vpc.network.security-groups.forms.field_sg-rule-port-range }}** — `{{ port-ssh }}`.
+          * **{{ ui-key.yacloud.vpc.network.security-groups.forms.field_sg-rule-protocol }}** — `{{ ui-key.yacloud.common.label_tcp }}`.
+          * **{{ ui-key.yacloud.vpc.network.security-groups.forms.field_sg-rule-source }}** — `{{ ui-key.yacloud.vpc.network.security-groups.forms.value_sg-rule-destination-sg }}`.
+          * **{{ ui-key.yacloud.vpc.network.security-groups.forms.field_sg-rule-sg-type }}** — группа безопасности, в которой находится ВМ.
 
 - UI Proxy
 
-    Для использования [**UI Proxy**](../concepts/interfaces.md) [добавьте](../../vpc/operations/security-group-add-rule.md) в группу безопасности хоста подкластера правила, разрешающие входящий трафик через порт `443`:
+    Для использования [**UI Proxy**](../concepts/interfaces.md) [добавьте](../../vpc/operations/security-group-add-rule.md) в группу безопасности хоста подкластера правила, разрешающие входящий трафик через порт `{{ port-https }}`:
 
-    * **Диапазон портов** — `443`.
-    * **Протокол** — `TCP`.
-    * **Источник** — `CIDR`.
-    * **CIDR блоки** — `0.0.0.0/0`.
+    * **{{ ui-key.yacloud.vpc.network.security-groups.forms.field_sg-rule-port-range }}** — `{{ port-https }}`.
+    * **{{ ui-key.yacloud.vpc.network.security-groups.forms.field_sg-rule-protocol }}** — `{{ ui-key.yacloud.common.label_tcp }}`.
+    * **{{ ui-key.yacloud.vpc.network.security-groups.forms.field_sg-rule-source }}** — `{{ ui-key.yacloud.vpc.network.security-groups.forms.value_sg-rule-destination-cidr }}`.
+    * **{{ ui-key.yacloud.vpc.network.security-groups.forms.field_sg-rule-cidr-blocks }}** — `0.0.0.0/0`.
 
     Если подключение выполняется через промежуточную ВМ, [добавьте](../../vpc/operations/security-group-add-rule.md) в группу безопасности хоста подкластера правила, разрешающие подключения через нее:
 
     * для входящего трафика:
 
-        * **Диапазон портов** — `443`.
-        * **Протокол** — `TCP`.
-        * **Источник** — `CIDR`.
-        * **CIDR блоки** — `0.0.0.0/0`.
+        * **{{ ui-key.yacloud.vpc.network.security-groups.forms.field_sg-rule-port-range }}** — `{{ port-https }}`.
+        * **{{ ui-key.yacloud.vpc.network.security-groups.forms.field_sg-rule-protocol }}** — `{{ ui-key.yacloud.common.label_tcp }}`.
+        * **{{ ui-key.yacloud.vpc.network.security-groups.forms.field_sg-rule-source }}** — `{{ ui-key.yacloud.vpc.network.security-groups.forms.value_sg-rule-destination-cidr }}`.
+        * **{{ ui-key.yacloud.vpc.network.security-groups.forms.field_sg-rule-cidr-blocks }}** — `0.0.0.0/0`.
 
     * для исходящего трафика:
 
-        * **Диапазон портов** — `443`.
-        * **Протокол** — `TCP`.
-        * **Назначение** — `CIDR`.
-        * **CIDR блоки** — диапазон адресов подсети, в которой находится хост подкластера.
+        * **{{ ui-key.yacloud.vpc.network.security-groups.forms.field_sg-rule-port-range }}** — `{{ port-https }}`.
+        * **{{ ui-key.yacloud.vpc.network.security-groups.forms.field_sg-rule-protocol }}** — `{{ ui-key.yacloud.common.label_tcp }}`.
+        * **{{ ui-key.yacloud.vpc.network.security-groups.forms.field_sg-rule-destination }}** — `{{ ui-key.yacloud.vpc.network.security-groups.forms.value_sg-rule-destination-cidr }}`.
+        * **{{ ui-key.yacloud.vpc.network.security-groups.forms.field_sg-rule-cidr-blocks }}** — диапазон адресов подсети, в которой находится хост подкластера.
 
 - Подключение с перенаправлением портов
 
     Если вы используете [перенаправление портов](connect-interfaces.md#routing), [добавьте](../../vpc/operations/security-group-add-rule.md) в группу безопасности промежуточной ВМ правила, разрешающие входящий и исходящий трафик через порты требуемых компонентов:
 
-    * **Диапазон портов** — `<порт_компонента>`.
+    * **{{ ui-key.yacloud.vpc.network.security-groups.forms.field_sg-rule-port-range }}** — `<порт_компонента>`.
 
-        Номера портов для компонентов Yandex Data Processing приведены в таблице:
+        Номера портов для компонентов {{ dataproc-name }} приведены в таблице:
 
         | Сервис                        | Порт  |
         | ----------------------------- | ----- |
@@ -93,9 +93,9 @@
         | YARN Resource Manager         |  8088 |
         | Zeppelin                      |  8890 |
 
-    * **Протокол** — `TCP`.
-    * **Источник** — `CIDR`.
-    * **CIDR блоки** — `0.0.0.0/0`.
+    * **{{ ui-key.yacloud.vpc.network.security-groups.forms.field_sg-rule-protocol }}** — `{{ ui-key.yacloud.common.label_tcp }}`.
+    * **{{ ui-key.yacloud.vpc.network.security-groups.forms.field_sg-rule-source }}** — `{{ ui-key.yacloud.vpc.network.security-groups.forms.value_sg-rule-destination-cidr }}`.
+    * **{{ ui-key.yacloud.vpc.network.security-groups.forms.field_sg-rule-cidr-blocks }}** — `0.0.0.0/0`.
 
 {% endlist %}
 
@@ -107,4 +107,4 @@
 
 {% endnote %}
 
-Подробнее о группах безопасности см. в разделе [Группы безопасности](../concepts/network.md#security-groups).
+Подробнее о группах безопасности в разделе [{#T}](../concepts/network.md#security-groups).

@@ -1,24 +1,24 @@
-# Руководства по применению Cloud Interconnect
+# Руководства по применению {{ interconnect-name }}
 
 ## Создание {#create}
-* [Создать прямое транковое подключение и приватное соединение в нем](trunk-priv-add.md)
-* [Создать прямое транковое подключение и публичное соединение в нем](trunk-pub-add.md)
-* [Создать новое транковое подключение через партнера и приватное соединение в нем](partner-trunk-priv-add.md)
-* [Создать новое транковое подключение через партнера и публичное соединение в нем](partner-trunk-pub-add.md)
+* [{#T}](trunk-priv-add.md)
+* [{#T}](trunk-pub-add.md)
+* [{#T}](partner-trunk-priv-add.md)
+* [{#T}](partner-trunk-pub-add.md)
 
 ## Добавление {#add}
-* [Добавить приватное соединение в транковое подключение](priv-add.md)
-* [Добавить публичное соединение в транковое подключение](pub-add.md)
+* [{#T}](priv-add.md)
+* [{#T}](pub-add.md)
 
 ## Изменение {#change}
-* [Изменить емкость транкового подключения](trunk-capacity-change.md)
+* [{#T}](trunk-capacity-change.md)
 
 ## Удаление {#del}
-* [Удалить приватное соединение](priv-del.md)
-* [Удалить публичное соединение](pub-del.md)
-* [Удалить транковое подключение](trunk-del.md)
+* [{#T}](priv-del.md)
+* [{#T}](pub-del.md)
+* [{#T}](trunk-del.md)
 
 ## Интеграции {#interop}
-* [Интеграция Cloud DNS и корпоративного сервиса DNS](dns-integration.md)
-* [Организация доступа через Cloud Interconnect к облачным сетям, размещенным за NGFW](cic-with-ngfw.md)
-* [Настройка сетевой связности между подсетями Yandex BareMetal и Yandex Virtual Private Cloud с помощью Cloud Interconnect](bm-vrf-and-vpc-interconnect.md)
+* [{#T}](dns-integration.md)
+* [{#T}](cic-with-ngfw.md)
+* [{#T}](bm-vrf-and-vpc-interconnect.md)

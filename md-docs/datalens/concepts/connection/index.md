@@ -1,4 +1,4 @@
-# Подключение к источнику данных в Yandex DataLens
+# Подключение к источнику данных в {{ datalens-full-name }}
 
 _Подключение_ содержит информацию о параметрах доступа к источнику данных. Например, IP-адрес хоста БД, порт.
 
@@ -6,21 +6,22 @@ _Подключение_ содержит информацию о парамет
 
 На базе подключения вы можете создавать [_датасеты_](../../dataset/index.md).
 
-В DataLens доступны следующие типы подключений:
+В {{ datalens-short-name }} доступны следующие типы подключений:
 
 
 * Базы данных: {#db}
 
-  * [ClickHouse®](../../operations/connection/create-clickhouse.md)
-  * [PostgreSQL](../../operations/connection/create-postgresql.md)
-  * [MySQL®](../../operations/connection/create-mysql.md)
-  * [YDB](../../operations/connection/create-ydb.md)
-  * [YTsaurus CHYT](../../operations/connection/chyt/create-chyt.md)
-  * [Greenplum®](../../operations/connection/create-greenplum.md)
+  * [{{ CH }}](../../operations/connection/create-clickhouse.md)
+  * [{{ PG }}](../../operations/connection/create-postgresql.md)
+  * [{{ MY }}](../../operations/connection/create-mysql.md)
+  * [{{ ydb-short-name }}](../../operations/connection/create-ydb.md)
+  * [{{ ytsaurus-name }} CHYT](../../operations/connection/chyt/create-chyt.md)
+  * [{{ GP }}](../../operations/connection/create-greenplum.md)
   * [MS SQL Server](../../operations/connection/create-mssql-server.md)
   * [Oracle Database](../../operations/connection/create-oracle.md)
-  * [Trino](../../operations/connection/create-trino.md)
-  * [Prometheus](../../operations/connection/create-prometheus.md)
+  * [{{ SR }}](../../operations/connection/create-starrocks.md)
+  * [{{ TR }}](../../operations/connection/create-trino.md)
+  * [{{ prometheus-name }}](../../operations/connection/create-prometheus.md)
   * [Snowflake](../../operations/connection/create-snowflake.md)
 
 * Файлы и сервисы:
@@ -28,14 +29,14 @@ _Подключение_ содержит информацию о парамет
   * [Файлы](../../operations/connection/create-file.md)
   * [Яндекс Документы](../../operations/connection/create-yadocs.md)
   * [Google Sheets](../../operations/connection/create-google-sheets.md)
-  * [Yandex Query](../../operations/connection/create-yandex-query.md)
+  * [{{ yq-full-name }}](../../operations/connection/create-yandex-query.md)
   * [Metrica](../../operations/connection/create-metrica-api.md)
   * [AppMetrica](../../operations/connection/create-appmetrica.md)
-   * [Yandex Cloud Billing](../../operations/connection/create-cloud-billing.md)
+   * [{{ billing-name }}](../../operations/connection/create-cloud-billing.md)
    * [Yandex Monitoring](../../operations/connection/create-monitoring.md)
-  * [DataLens Usage Analytics](../../operations/connection/create-usage-tracking.md)
+  * [{{ datalens-short-name }} Usage Analytics](../../operations/connection/create-usage-tracking.md)
   * [Подключение API Connector](../../operations/connection/create-api-connector.md)
-   * [SpeechSense](../../operations/connection/create-speechsense.md)
+   * [{{ speechsense-name }}](../../operations/connection/create-speechsense.md)
 
 
 * Партнерские подключения:
@@ -54,10 +55,10 @@ _Подключение_ содержит информацию о парамет
 
 ## Подключение внешней БД {#external-db-connection}
 
-Yandex Cloud не отвечает за настройки удаленного подключения со стороны внешнего сервера БД. Подключая внешнюю БД, которая не является ресурсом Yandex Cloud:
+{{ yandex-cloud }} не отвечает за настройки удаленного подключения со стороны внешнего сервера БД. Подключая внешнюю БД, которая не является ресурсом {{ yandex-cloud }}:
 
-* Проверьте, что на стороне БД используется [SSL-сертификат](../../../glossary/ssl-certificate.md), подписанный удостоверяющим центром SSL. Вы не сможете создать подключение в DataLens, если на стороне БД используется самоподписанный SSL-сертификат.
-* Предоставьте доступ к БД для следующих диапазонов IP-адресов сервиса DataLens (через `/` указана длина маски подсети):
+* Проверьте, что на стороне БД используется [SSL-сертификат](../../../glossary/ssl-certificate.md), подписанный удостоверяющим центром SSL. Вы не сможете создать подключение в {{ datalens-short-name }}, если на стороне БД используется самоподписанный SSL-сертификат.
+* Предоставьте доступ к БД для следующих диапазонов IP-адресов сервиса {{ datalens-short-name }} (через `/` указана длина маски подсети):
 
   {% list tabs group=ip_address %}
 
@@ -83,7 +84,7 @@ Yandex Cloud не отвечает за настройки удаленного 
 
 ## Управление доступом {#access-management}
 
-Вы можете настроить права доступа к подключению. Подробнее в разделе [Управление доступом к Yandex DataLens](../../security/index.md).
+Вы можете настроить права доступа к подключению. Подробнее в разделе [{#T}](../../security/index.md).
 
 
-_ClickHouse® является зарегистрированным товарным знаком [ClickHouse, Inc](https://clickhouse.com)._
+_{{ CH }} является зарегистрированным товарным знаком [ClickHouse, Inc](https://clickhouse.com)._

@@ -2,4 +2,4 @@
 * `replicationFactor` – фактор репликации.
 * `topicConfig_3` — набор настроек топика, если используется {{ KF }} версий `3.x`. Укажите каждую настройку на отдельной строке через запятую.
 
-   Описание и возможные значения настроек см. в разделе [{#T}](../../../../managed-kafka/concepts/settings-list.md#topic-settings).
+   Описание и возможные значения настроек приведены в разделе [{#T}](../../../../managed-kafka/concepts/settings-list.md#topic-settings).

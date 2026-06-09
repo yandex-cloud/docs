@@ -5,7 +5,7 @@ Returns the list of available resource presets.
 ## HTTP request
 
 ```
-GET https://ydb.api.cloud.yandex.net/ydb/v1/resourcePresets
+GET https://ydb.{{ api-host }}/ydb/v1/resourcePresets
 ```
 
 ## Query parameters {#yandex.cloud.ydb.v1.ListResourcePresetsRequest}

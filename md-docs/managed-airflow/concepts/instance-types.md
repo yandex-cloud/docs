@@ -1,4 +1,4 @@
-# Классы хостов Managed Service for Apache Airflow™
+# Классы хостов {{ maf-name }}
 
 Класс хостов определяет вычислительные мощности, выделяемые для каждого хоста в кластере.
 
@@ -6,7 +6,7 @@
 
 ## Доступные классы хостов {#available-flavors}
 
-Хосты в кластерах Managed Service for Apache Airflow™ разворачиваются на базе виртуальных машин Yandex Compute Cloud на платформе Intel Ice Lake.
+Хосты в кластерах {{ maf-name }} разворачиваются на базе виртуальных машин {{ compute-full-name }} на платформе Intel Ice Lake.
 
 Доступны два типа конфигураций:
 

@@ -1,57 +1,63 @@
-# Справочник аудитных логов Yandex Audit Trails
+# Справочник аудитных логов {{ at-full-name }}
 
-В Audit Trails для Yandex DataLens поддерживается отслеживание [событий уровня конфигурации](../audit-trails/concepts/format.md) (Control Plane).
+В {{ at-name }} для {{ datalens-full-name }} поддерживается отслеживание [событий уровня конфигурации](../audit-trails/concepts/format.md) (Control Plane).
 
 Общий вид значения поля `event_type` (_тип события_):
 
 ```text
-yandex.cloud.audit.datalens.<имя_события>
+{{ at-event-prefix }}.audit.datalens.<имя_события>
 ```
 
 ## Справочник событий уровня конфигурации {#control-plane-events}
 
 Имя события | Описание
 --- | ---
-`CopyEntriesToWorkbook`          | Копирование объекта в [воркбук](workbooks-collections/index.md)
-`CopyEntry`                      | Копирование объекта
+`CopyEntriesToWorkbook` | Копирование объекта в [воркбук](workbooks-collections/index.md). Объект (`Entry`) — общее обозначение для [подключений](concepts/connection/index.md), [датасетов](dataset/index.md), [чартов](concepts/chart/index.md), [дашбордов](concepts/dashboard.md), [отчетов](reports/index.md) и папок
+`CopyEntry` | Копирование объекта
 `CopyTemplate` | Разворачивание продукта
-`CopyWorkbook`                 | Копирование воркбука
-`CreateCollection`               | Создание [коллекции](workbooks-collections/index.md)
+`CopyWorkbook` | Копирование воркбука
+`CreateCollection` | Создание [коллекции](workbooks-collections/index.md)
 `CreateColorPalette` | Создание [цветовой палитры](operations/chart/create-palette.md)
 `CreateEmbed` | Создание встраивания
 `CreateEmbeddingSecret` | Создание ключа для [встраивания](security/embedded-objects.md)
-`CreateEntry`                    | Создание объекта. Объект (`Entry`) — общее обозначение для [подключений](concepts/connection/index.md), [датасетов](dataset/index.md), [чартов](concepts/chart/index.md), [дашбордов](concepts/dashboard.md), [отчетов](reports/index.md) и папок
-`CreateWorkbook`               | Создание воркбука
-`DeleteCollections`              | Удаление коллекций
+`CreateEntityBinding` | Создание привязки [общего объекта](security/workbooks-access-advanced.md) в воркбуке
+`CreateEntry` | Создание объекта
+`CreateWorkbook` | Создание воркбука
+`DeleteCollections` | Удаление коллекций
 `DeleteColorPalette` | Удаление цветовой палитры
 `DeleteEmbed` | Удаление встраивания
 `DeleteEmbeddingSecret` | Удаление ключа для встраивания
-`DeleteEntry`                    | Удаление объекта
-`DeleteWorkbooks`              | Удаление одного или нескольких воркбуков
-`DisableBillingInstanceService` | Получение сигнала от Yandex Cloud Billing о неактивности привязанного к DataLens платежного аккаунта
-`DisableFolders`                | [Отключение](settings/navigation.md#disable-folder-navigation) навигации по папкам
-`DisableTenantBilling`          | Планирование отключения тарифа Business пользователем в начале следующего месяца ^1^
-`EnableBillingInstanceService`  | Получение сигнала от Yandex Cloud Billing об активности привязанного к DataLens [платежного аккаунта](../billing/concepts/billing-account.md)
-`EnableTenantBilling`           | Включение пользователем тарифа Business ^1^
+`DeleteEntityBinding` | Удаление привязки общего объекта из воркбука
+`DeleteEntry` | Удаление объекта
+`DeleteSharedEntry` | Удаление общего объекта
+`DeleteWorkbooks` | Удаление одного или нескольких воркбуков
+`DisableBillingInstanceService` | Получение сигнала от {{ billing-name }} о неактивности привязанного к {{ datalens-name }} платежного аккаунта
+`DisableFolders` | [Отключение](settings/navigation.md#disable-folder-navigation) навигации по папкам
+`DisableTenantBilling` | Планирование отключения тарифа Business пользователем в начале следующего месяца ^1^
+`EnableBillingInstanceService` | Получение сигнала от {{ billing-name }} об активности привязанного к {{ datalens-name }} [платежного аккаунта](../billing/concepts/billing-account.md)
+`EnableTenantBilling` | Включение пользователем тарифа Business ^1^
 `FolderEntryBatchModifyPermissions` | Массовое изменение настроек доступа к папочным объектам
-`FolderEntryModifyPermissions`   | Изменение настроек доступа к папочным объектам
-`MigrateEntriesToWorkbook`       | Миграция объектов в воркбук
-`MoveCollections`                | Перемещение коллекций
-`MoveEntry`                      | Перемещение объекта
-`MoveWorkbooks`                | Перемещение воркбуков
-`RenameEntry`                    | Переименование объекта
+`FolderEntryModifyPermissions` | Изменение настроек доступа к папочным объектам
+`MigrateEntriesToWorkbook` | Миграция объектов в воркбук
+`MoveCollections` | Перемещение коллекций
+`MoveEntry` | Перемещение объекта
+`MoveSharedEntry` | Перемещение общего объекта
+`MoveWorkbooks` | Перемещение воркбуков
+`RenameEntry` | Переименование объекта
 `SetDefaultColorPalette` | Настройка цветовой палитры по умолчанию
-`SwitchAiAssistantProhibition`  | Изменение запрета на использование Нейроаналитика
-`SwitchDataExportProhibition`   | Изменение запрета на экспорт данных
+`SwitchAiAssistantProhibition` | Изменение запрета на использование Нейроаналитика
+`SwitchDataExportProhibition` | Изменение запрета на экспорт данных
 `SwitchEntriesPublicationStatus` | Изменение статуса публикации объекта
-`SwitchPublicationProhibition`  | Изменение запрета на публикацию объектов
+`SwitchPublicationProhibition` | Изменение запрета на публикацию объектов
 `SwitchWorkbookFileExportProhibition` | Изменение запрета на экспорт файлов из воркбука
-`UpdateCollection`               | Изменение коллекции
+`UpdateCollection` | Изменение коллекции
 `UpdateCollectionAccessBindings` | Изменение настроек доступа к коллекции
 `UpdateColorPalette` | Изменение цветовой палитры
 `UpdateEmbed` | Изменение встраивания
-`UpdateEntry`                    | Изменение объекта
-`UpdateWorkbook`               | Изменение воркбука
+`UpdateEntityBinding` | Редактирование привязки общего объекта в воркбуке
+`UpdateEntry` | Изменение объекта
+`UpdateSharedEntryAccessBindings` | Изменение настроек доступа к общему объекту
+`UpdateWorkbook` | Изменение воркбука
 `UpdateWorkbookAccessBindings` | Изменение настроек доступа к воркбуку
 
 ^1^ С 1 декабря 2025 года события больше не передаются в связи с прекращением действия [тарифа Business](pricing-changes.md).

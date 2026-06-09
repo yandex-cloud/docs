@@ -1,8 +1,7 @@
 # Managed Service for Redis API, gRPC: UserService.Get
 
 Returns the specified Redis User resource.
-
-To get the list of available Redis User resources, make a [List](list.md#List) request.
+To get the list of available Redis User resources, make a [List](../../../../managed-redis/api-ref/grpc/User/list#List) request.
 
 ## gRPC request
 
@@ -22,15 +21,15 @@ To get the list of available Redis User resources, make a [List](list.md#List) r
 || cluster_id | **string**
 
 Required field. ID of the Redis cluster the user belongs to.
-To get the cluster ID, use a [ClusterService.List](../Cluster/list.md#List) request.
+To get the cluster ID, use a [ClusterService.List](../../../../managed-redis/api-ref/grpc/Cluster/list#List) request.
 
 The maximum string length in characters is 50. ||
 || user_name | **string**
 
 Required field. Name of the Redis User resource to return.
-To get the name of the user, use a [UserService.List](list.md#List) request.
+To get the name of the user, use a [UserService.List](../../../../managed-redis/api-ref/grpc/User/list#List) request.
 
-The maximum string length in characters is 32. Value must match the regular expression ` ^[a-zA-Z0-9_][a-zA-Z0-9_-]*$ `. ||
+The maximum string length in characters is 32. Value must match the regular expression ` ^[a-zA-Z0-9_][a-zA-Z0-9_@.-]*$ `. ||
 |#
 
 ## User {#yandex.cloud.mdb.redis.v1.User}
@@ -44,7 +43,8 @@ The maximum string length in characters is 32. Value must match the regular expr
     "pub_sub_channels": "google.protobuf.StringValue",
     "categories": "google.protobuf.StringValue",
     "commands": "google.protobuf.StringValue",
-    "sanitize_payload": "google.protobuf.StringValue"
+    "sanitize_payload": "google.protobuf.StringValue",
+    "databases": "google.protobuf.StringValue"
   },
   "enabled": "bool",
   "acl_options": "string"
@@ -52,7 +52,7 @@ The maximum string length in characters is 32. Value must match the regular expr
 ```
 
 A Redis User resource. For more information, see the
-[Developer's Guide](../../../concepts/index.md).
+[Developer's Guide](../../../../managed-redis/concepts).
 
 #|
 ||Field | Description ||
@@ -92,4 +92,7 @@ Commands user can execute. ||
 || sanitize_payload | **[google.protobuf.StringValue](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/string-value)**
 
 SanitizePayload parameter. ||
+|| databases | **[google.protobuf.StringValue](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/string-value)**
+
+Databases parameter. ||
 |#

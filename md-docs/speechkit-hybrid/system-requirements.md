@@ -1,6 +1,6 @@
 # Системные требования
 
-Для установки SpeechKit Hybrid вам необходим сервер с ОС Linux, который поддерживает Docker Engine. Список поддерживаемых ОС см. в [официальной документации Docker](https://docs.docker.com/engine/install/#server).
+Для установки {{ sk-hybrid-name }} вам необходим сервер с ОС Linux, который поддерживает Docker Engine. Список поддерживаемых ОС см. в [официальной документации Docker](https://docs.docker.com/engine/install/#server).
 
 {% note warning %}
 
@@ -20,39 +20,17 @@ grep -q avx2 /proc/cpuinfo && echo AVX2 || echo No AVX2
 
 | Тип GPU | RAM на 1&nbsp;карту, <br>ГБ | Физические ядра CPU<br>на 1&nbsp;карту, шт | Логические ядра (vCPU)<br>на 1&nbsp;карту, шт |
 |---|---|---|---|
-| NVIDIA® Tesla® T4 | 2 | 2 | 4 |
-| NVIDIA® Tesla® V100 | 4 | 4 | 8 |
 | NVIDIA® Tesla® L4 | 8 | 8 | 16 |
 | NVIDIA® Ampere® A100 | 10 | 10 | 20 |
 | NVIDIA® Tesla® H100 | 20 | 20 | 40 |
 
 ## Аппаратные требования к серверам STT и TTS {#hardware}
 
-Рекомендуемые аппаратные требования для запуска контейнеров SpeechKit Hybrid. Расчетные значения характеристик SpeechKit Hybrid приведены для справки на основе оборудования, использующего драйвер NVIDIA 535. Точные значение могут измениться после обновления контейнеров и появления новых функций.
+Рекомендуемые аппаратные требования для запуска контейнеров {{ sk-hybrid-name }}. Расчетные значения характеристик {{ sk-hybrid-name }} приведены для справки на основе оборудования, использующего драйвер NVIDIA 535. Точные значения могут измениться после обновления контейнеров и появления новых функций.
 
 Данные в таблицах представлены только для русского языка, если не указано иначе:
 
 {% list tabs group=gpu_type %}
-
-- Контейнеры с GPU T4 {#t4}
-
-   | Режим работы | Гарантированный<br>SPS^1^ | RAM на 1&nbsp;карту, <br>ГБ | HDD на 1&nbsp;карту, <br>ГБ | Физические ядра<br>процессора<br>Intel Gold 6230R <br>на 1&nbsp;карту, шт | Логические ядра <br>Intel Gold 6230R <br>на 1&nbsp;карту, шт |
-   |---|---|---|---|---|---|
-   | **Распознавание речи** |
-   | Потоковое распознавание | 50 | 64 | 200 | 8 | 16 |
-   | Распознавание аудиофайлов | 250 | 64 | 200 | 8 | 16 |
-   | **Синтез речи** |
-   | Синтез | 147 | 64 | 200 | 8 | 16 |
-
-- Контейнеры с GPU V100 {#v100}
-
-   | Режим работы | Гарантированный<br>SPS^1^ | RAM на 1&nbsp;карту, <br>ГБ | HDD на 1&nbsp;карту, <br>ГБ | Физические ядра<br>процессора<br>Intel Gold 6230R <br>на 1&nbsp;карту, шт | Логические ядра <br>Intel Gold 6230R <br>на 1&nbsp;карту, шт |
-   |---|---|---|---|---|---|
-   | **Распознавание речи** |
-   | Потоковое распознавание | 110 | 64 | 200 | 8 | 16 |
-   | Распознавание аудиофайлов | 500 | 64 | 200 | 8 | 16 |
-   | **Синтез речи** |
-   | Синтез | 105 | 64 | 200 | 8 | 16 |
 
 - Контейнеры с GPU L4 {#l4}
 
@@ -135,12 +113,12 @@ grep -q avx2 /proc/cpuinfo && echo AVX2 || echo No AVX2
 
 ## Программные требования {#software}
 
-На выделенном для работы SpeechKit Hybrid сервере должны быть установлены [драйверы NVIDIA LTS 535](https://www.nvidia.com/ru-ru/drivers/unix/) и [NVIDIA Container Toolkit 1.15](https://docs.nvidia.com/datacenter/cloud-native/container-toolkit/latest/install-guide.html) или выше. Подробнее о драйверах см. в [официальной документации NVIDIA](https://docs.nvidia.com/datacenter/tesla/drivers/index.html#lifecycle). Устанавливать CUDA Toolkit не требуется, поскольку они входят в состав образов SpeechKit Hybrid.
+На выделенном для работы {{ sk-hybrid-name }} сервере должны быть установлены [драйверы NVIDIA LTS 535](https://www.nvidia.com/ru-ru/drivers/unix/) и [NVIDIA Container Toolkit 1.15](https://docs.nvidia.com/datacenter/cloud-native/container-toolkit/latest/install-guide.html) или выше. Подробнее о драйверах см. в [официальной документации NVIDIA](https://docs.nvidia.com/datacenter/tesla/drivers/index.html#lifecycle). Устанавливать CUDA Toolkit не требуется, поскольку они входят в состав образов {{ sk-hybrid-name }}.
 
-Для установки и настройки сервисов SpeechKit Hybrid понадобятся интерфейс командной строки Yandex Cloud и реестр в Yandex Container Registry.
+Для установки и настройки сервисов {{ sk-hybrid-name }} понадобятся интерфейс командной строки {{ yandex-cloud }} и реестр в {{ container-registry-full-name }}.
 
-1. Если у вас еще нет интерфейса командной строки Yandex Cloud (CLI), [установите и инициализируйте его](../cli/quickstart.md#install).
-1. [Создайте реестр](../container-registry/operations/registry/registry-create.md) в Yandex Container Registry.
+1. Если у вас еще нет интерфейса командной строки {{ yandex-cloud }} (CLI), [установите и инициализируйте его](../cli/quickstart.md#install).
+1. [Создайте реестр]({{ link-docs }}/container-registry/operations/registry/registry-create) в {{ container-registry-full-name }}.
 
    По умолчанию используется каталог, указанный при [создании](../cli/operations/profile/profile-create.md) профиля CLI. Чтобы изменить каталог по умолчанию, используйте команду `yc config set folder-id <идентификатор_каталога>`. Также для любой команды вы можете указать другой каталог с помощью параметров `--folder-name` или `--folder-id`. Если вы обращаетесь к ресурсу по имени, поиск будет выполнен в каталоге по умолчанию. Если вы обращаетесь к ресурсу по идентификатору, поиск будет выполнен глобально — во всех каталогах с учетом прав доступа.
 
@@ -158,6 +136,6 @@ grep -q avx2 /proc/cpuinfo && echo AVX2 || echo No AVX2
    created_at: "<дата_и_время_создания>"
    ```
 
-1. [Создайте сервисный аккаунт](../iam/operations/sa/create.md) с ролью `editor` на выбранный каталог.
-1. [Создайте API-ключ](../iam/operations/authentication/manage-api-keys.md#create-api-key) для сервисного аккаунта.
-1. Сообщите идентификатор созданного реестра команде SpeechKit. В вашем реестре появятся все необходимые контейнеры, и вам предоставят файл `docker-compose.yaml` с настройками развертывания.
+1. [Создайте сервисный аккаунт]({{ link-docs }}/iam/operations/sa/create) с ролью `{{ roles-editor }}` на выбранный каталог.
+1. [Создайте API-ключ]({{ link-docs }}/iam/operations/authentication/manage-api-keys#create-api-key) для сервисного аккаунта.
+1. Сообщите идентификатор созданного реестра команде {{ speechkit-name }}. В вашем реестре появятся все необходимые контейнеры, и вам предоставят файл `docker-compose.yaml` с настройками развертывания.

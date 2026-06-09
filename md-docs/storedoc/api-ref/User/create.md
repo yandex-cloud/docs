@@ -5,7 +5,7 @@ Creates a MongoDB user in the specified cluster.
 ## HTTP request
 
 ```
-POST https://mdb.api.cloud.yandex.net/managed-mongodb/v1/clusters/{clusterId}/users
+POST https://{{ api-host-mdb }}/managed-mongodb/v1/clusters/{clusterId}/users
 ```
 
 ## Path parameters
@@ -15,7 +15,7 @@ POST https://mdb.api.cloud.yandex.net/managed-mongodb/v1/clusters/{clusterId}/us
 || clusterId | **string**
 
 Required field. ID of the MongoDB cluster to create a user in.
-To get the cluster ID, use a [ClusterService.List](../Cluster/list.md#List) request.
+To get the cluster ID, use a [ClusterService.List](../../../managed-mongodb/api-ref/Cluster/list#List) request.
 
 The maximum string length in characters is 50. ||
 |#
@@ -54,12 +54,12 @@ Properties of the user to be created. ||
 
 Required field. Name of the MongoDB user.
 
-The maximum string length in characters is 63. Value must match the regular expression ` [a-zA-Z0-9_]* `. ||
+The maximum string length in characters is 63. Value must match the regular expression ` ^[a-zA-Z0-9_][a-zA-Z0-9_@.-]*$ `. ||
 || password | **string**
 
-Required field. Password of the MongoDB user.
+Password of the MongoDB user.
 
-The string length in characters must be 8-128. ||
+The maximum string length in characters is 128. ||
 || permissions[] | **[Permission](#yandex.cloud.mdb.mongodb.v1.Permission)**
 
 Set of permissions to grant to the user. ||
@@ -89,10 +89,7 @@ MongoDB roles for the `databaseName` database that the permission grants. ||
   "createdBy": "string",
   "modifiedAt": "string",
   "done": "boolean",
-  "metadata": {
-    "clusterId": "string",
-    "userName": "string"
-  },
+  "metadata": "object",
   // Includes only one of the fields `error`, `response`
   "error": {
     "code": "integer",
@@ -101,18 +98,7 @@ MongoDB roles for the `databaseName` database that the permission grants. ||
       "object"
     ]
   },
-  "response": {
-    "name": "string",
-    "clusterId": "string",
-    "permissions": [
-      {
-        "databaseName": "string",
-        "roles": [
-          "string"
-        ]
-      }
-    ]
-  }
+  "response": "object"
   // end of the list of possible fields
 }
 ```
@@ -154,7 +140,7 @@ In some languages, built-in datetime utilities do not support nanosecond precisi
 
 If the value is `false`, it means the operation is still in progress.
 If `true`, the operation is completed, and either `error` or `response` is available. ||
-|| metadata | **[CreateUserMetadata](#yandex.cloud.mdb.mongodb.v1.CreateUserMetadata)**
+|| metadata | **object**
 
 Service-specific metadata associated with the operation.
 It typically contains the ID of the target resource that the operation is performed on.
@@ -169,7 +155,7 @@ The operation result.
 If `done == false` and there was no failure detected, neither `error` nor `response` is set.
 If `done == false` and there was a failure detected, `error` is set.
 If `done == true`, exactly one of `error` or `response` is set. ||
-|| response | **[User](#yandex.cloud.mdb.mongodb.v1.User)**
+|| response | **object**
 
 The normal response of the operation in case of success.
 If the original method returns no data on success, such as Delete,
@@ -184,18 +170,6 @@ The operation result.
 If `done == false` and there was no failure detected, neither `error` nor `response` is set.
 If `done == false` and there was a failure detected, `error` is set.
 If `done == true`, exactly one of `error` or `response` is set. ||
-|#
-
-## CreateUserMetadata {#yandex.cloud.mdb.mongodb.v1.CreateUserMetadata}
-
-#|
-||Field | Description ||
-|| clusterId | **string**
-
-ID of the MongoDB cluster the user is being created in. ||
-|| userName | **string**
-
-Name of the user that is being created. ||
 |#
 
 ## Status {#google.rpc.Status}
@@ -213,34 +187,4 @@ An error message. ||
 || details[] | **object**
 
 A list of messages that carry the error details. ||
-|#
-
-## User {#yandex.cloud.mdb.mongodb.v1.User}
-
-A MongoDB User resource. For more information, see the
-[Developer's Guide](../../concepts/index.md).
-
-#|
-||Field | Description ||
-|| name | **string**
-
-Name of the MongoDB user. ||
-|| clusterId | **string**
-
-ID of the MongoDB cluster the user belongs to. ||
-|| permissions[] | **[Permission](#yandex.cloud.mdb.mongodb.v1.Permission2)**
-
-Set of permissions granted to the user. ||
-|#
-
-## Permission {#yandex.cloud.mdb.mongodb.v1.Permission2}
-
-#|
-||Field | Description ||
-|| databaseName | **string**
-
-Name of the database that the permission grants access to. ||
-|| roles[] | **string**
-
-MongoDB roles for the `databaseName` database that the permission grants. ||
 |#

@@ -5,7 +5,7 @@ Retrieves the list of snapshot schedules in the specified folder.
 ## HTTP request
 
 ```
-GET https://compute.api.cloud.yandex.net/compute/v1/snapshotSchedules
+GET https://compute.{{ api-host }}/compute/v1/snapshotSchedules
 ```
 
 ## Query parameters {#yandex.cloud.compute.v1.ListSnapshotSchedulesRequest}
@@ -14,45 +14,37 @@ GET https://compute.api.cloud.yandex.net/compute/v1/snapshotSchedules
 ||Field | Description ||
 || folderId | **string**
 
-Required field. ID of the folder to list snapshot schedules in.
-
+ID of the folder to list snapshot schedules in.
 To get the folder ID, make a [yandex.cloud.resourcemanager.v1.FolderService.List](../../../resource-manager/api-ref/Folder/list.md#List) request.
-
-The maximum string length in characters is 50. ||
+The length must be less than or equal to 50.
+This field is required. ||
 || pageSize | **string** (int64)
 
 The maximum number of results per page to return. If the number of available
 results is larger than `page_size`, the service returns a [ListSnapshotSchedulesResponse.nextPageToken](#yandex.cloud.compute.v1.ListSnapshotSchedulesResponse)
 that can be used to get the next page of results in subsequent list requests.
-
-The maximum value is 1000. ||
+The value must be less than or equal to 1000. ||
 || pageToken | **string**
 
 Page token. To get the next page of results, set `page_token` to the
 [ListSnapshotSchedulesResponse.nextPageToken](#yandex.cloud.compute.v1.ListSnapshotSchedulesResponse) returned by a previous list request.
-
-The maximum string length in characters is 100. ||
+The length must be less than or equal to 100. ||
 || filter | **string**
 
 A filter expression that filters snapshot schedules listed in the response.
-
 The expression must specify:
 1. The field name. Currently you can use filtering only on [SnapshotSchedule.name](#yandex.cloud.compute.v1.SnapshotSchedule) field.
 2. An operator. Can be either `=` or `!=` for single values, `IN` or `NOT IN` for lists of values.
 3. The value. Must be 3-63 characters long and match the regular expression `^[a-z][-a-z0-9]{1,61}[a-z0-9]`.
 Example of a filter: `name=my-schedule`.
-
-The maximum string length in characters is 1000. ||
+The length must be less than or equal to 1000. ||
 || orderBy | **string**
 
 A sorting expression that sorts snapshot schedules listed in the response.
-
 The expression must specify the field name from [SnapshotSchedule](#yandex.cloud.compute.v1.SnapshotSchedule) and `asc`ending or `desc`ending order,
 e.g. `createdAt desc`.
-
 Default value: `id asc`.
-
-The maximum string length in characters is 100. ||
+The length must be less than or equal to 100. ||
 |#
 
 ## Response {#yandex.cloud.compute.v1.ListSnapshotSchedulesResponse}
@@ -98,7 +90,6 @@ List of snapshot schedules in the specified folder. ||
 Token for getting the next page of the list. If the number of results is greater than
 the specified [ListSnapshotSchedulesRequest.pageSize](#yandex.cloud.compute.v1.ListSnapshotSchedulesRequest), use `next_page_token` as the value
 for the [ListSnapshotSchedulesRequest.pageToken](#yandex.cloud.compute.v1.ListSnapshotSchedulesRequest) parameter in the next list request.
-
 Each subsequent page will have its own `next_page_token` to continue paging through the results. ||
 |#
 
@@ -127,7 +118,6 @@ In some languages, built-in datetime utilities do not support nanosecond precisi
 || name | **string**
 
 Name of the snapshot schedule.
-
 The name is unique within the folder. ||
 || description | **string**
 
@@ -189,7 +179,6 @@ In some languages, built-in datetime utilities do not support nanosecond precisi
 || expression | **string**
 
 Cron expression for the snapshot schedule (UTC+0).
-
 The expression must consist of five fields (`Minutes Hours Day-of-month Month Day-of-week`) or be one of
 nonstandard predefined expressions (e.g. `@hourly`). For details about the format,
 see [documentation](../../concepts/snapshot-schedule.md#cron) ||

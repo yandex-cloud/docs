@@ -35,9 +35,6 @@ Set the custom configuration file. ||
 Enable gRPC retries. By default, retries are enabled with maximum 5 attempts.
 Pass 0 to disable retries. Pass any negative value for infinite retries.
 Even infinite retries are capped with 2 minutes timeout. ||
-|| `--syntax` | `string`
-
-CLI syntax: 1 (legacy) or 2 (current). Omit to use default-syntax in the profile or the product default. ||
 || `--cloud-id` | `string`
 
 Set the ID of the cloud to use. ||
@@ -65,11 +62,3 @@ Set the output format: text (default), yaml, json, json-rest. ||
 Query to select values from the response using jq syntax ||
 || `-h`, `--help` | Display help for the command. ||
 |#
-#### Examples
-
- * [Создание нового облака](../../../../../resource-manager/operations/cloud/create.md#tf_1)
- * [Удаление облака](../../../../../resource-manager/operations/cloud/delete.md#cli_1)
- * [Получение идентификатора облака](../../../../../resource-manager/operations/cloud/get-id.md#cli_1)
- * [Назначить роль на облако](../../../../../resource-manager/operations/cloud/set-access-bindings.md#tf_1)
- * [Переключение на другое облако](../../../../../resource-manager/operations/cloud/switch-cloud.md#cli_1)
- * [Переименование облака](../../../../../resource-manager/operations/cloud/update.md#cli_1)

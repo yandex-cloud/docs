@@ -1,36 +1,36 @@
-# Миграция групп хостов в кластере Managed Service for OpenSearch в другую зону доступности
+# Миграция групп хостов в кластере {{ mos-name }} в другую зону доступности
 
 
-[Группы хостов](../concepts/host-roles.md) в кластере Managed Service for OpenSearch располагаются в [зонах доступности](../../overview/concepts/geo-scope.md) Yandex Cloud. Чтобы перенести группы хостов из одной зоны в другую:
+[Группы хостов](../concepts/host-roles.md) в кластере {{ mos-name }} располагаются в [зонах доступности](../../overview/concepts/geo-scope.md) {{ yandex-cloud }}. Чтобы перенести группы хостов из одной зоны в другую:
 
 {% list tabs group=instructions %}
 
 - Консоль управления {#console}
 
-   1. В [консоли управления](https://console.yandex.cloud) перейдите на страницу каталога.
-   1. [Перейдите](../../console/operations/select-service.md#select-service) в сервис **Managed Service for&nbsp;OpenSearch**.
-   1. Нажмите на имя нужного кластера, затем выберите вкладку ![host-groups.svg](../../_assets/console-icons/copy-transparent.svg) **Группы хостов**.
+   1. В [консоли управления]({{ link-console-main }}) перейдите на страницу каталога.
+   1. Перейдите в сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-opensearch }}**.
+   1. Нажмите на имя нужного кластера, затем выберите вкладку ![host-groups.svg](../../_assets/console-icons/copy-transparent.svg) **{{ ui-key.yacloud.opensearch.cluster.node-groups.title_node-groups }}**.
    1. В строке с группой хостов нажмите на значок ![image](../../_assets/console-icons/ellipsis.svg), затем выберите **Изменить**.
    1. В поле **Размещение хостов** выберите зону доступности, куда вы переносите кластеры, и уберите первоначальную зону.
-   1. Нажмите кнопку **Сохранить**.
+   1. Нажмите кнопку **{{ ui-key.yacloud.common.save }}**.
 
 {% endlist %}
 
 Перенесите таким образом каждую группу хостов.
 
-Для кластеров, хосты которых располагаются в [зоне доступности](../../overview/concepts/geo-scope.md) `ru-central1-d`, недоступно хранилище на локальных SSD-дисках при использовании платформы Intel Cascade Lake.
+Для кластеров, хосты которых располагаются в [зоне доступности](../../overview/concepts/geo-scope.md) `{{ region-id }}-d`, недоступно хранилище на локальных SSD-дисках при использовании платформы Intel Cascade Lake.
 
-## Особенности миграции в сервисе Yandex Data Transfer {#data-transfer}
+## Особенности миграции в сервисе {{ data-transfer-full-name }} {#data-transfer}
 
-Если кластер выступает в роли [эндпоинта](../../data-transfer/concepts/index.md#endpoint) при передаче данных с помощью сервиса Data Transfer:
+Если кластер выступает в роли [эндпоинта](../../data-transfer/concepts/index.md#endpoint) при передаче данных с помощью сервиса {{ data-transfer-name }}:
 
-1. Убедитесь, что все группы хостов кластера располагаются не только в зоне `ru-central1-d`, иначе трансфер не будет работать корректно. Если вы переносите группы хостов в зону `ru-central1-d`, расположите хотя бы одну группу в зоне `ru-central1-a` или `ru-central1-b`. Трансфер автоматически выберет подходящую зону. Если в кластере одна группа хостов, разместите ее в зоне `ru-central1-a` или `ru-central1-b`.
+1. Убедитесь, что все группы хостов кластера располагаются не только в зоне `{{ region-id }}-d`, иначе трансфер не будет работать корректно. Если вы переносите группы хостов в зону `{{ region-id }}-d`, расположите хотя бы одну группу в зоне `{{ region-id }}-a` или `{{ region-id }}-b`. Трансфер автоматически выберет подходящую зону. Если в кластере одна группа хостов, разместите ее в зоне `{{ region-id }}-a` или `{{ region-id }}-b`.
 
-1. Если [тип трансфера](../../data-transfer/concepts/transfer-lifecycle.md#transfer-types) — **Репликация** или **Копирование и репликация**, перезапустите трансфер после добавления новых групп хостов и удаления старых. Так он получит сведения о новой топологии кластера. Трансферы типа **Копирование** перезапускать не нужно, так как во время их активации информация о новой топологии передается автоматически.
+1. Если [тип трансфера](../../data-transfer/concepts/transfer-lifecycle.md#transfer-types) — {{ dt-type-repl }} или {{ dt-type-copy-repl }}, перезапустите трансфер после добавления новых групп хостов и удаления старых. Так он получит сведения о новой топологии кластера. Трансферы типа {{ dt-type-copy }} перезапускать не нужно, так как во время их активации информация о новой топологии передается автоматически.
 
    Чтобы перезапустить трансфер, выберите один из двух способов:
    
-   * [Деактивируйте](../../data-transfer/operations/transfer.md#deactivate) трансфер и дождитесь его перехода в статус **Остановлен**. Затем [активируйте](../../data-transfer/operations/transfer.md#activate) трансфер и дождитесь его перехода в статус **Реплицируется**.
+   * [Деактивируйте](../../data-transfer/operations/transfer.md#deactivate) трансфер и дождитесь его перехода в статус {{ dt-status-stopped }}. Затем [активируйте](../../data-transfer/operations/transfer.md#activate) трансфер и дождитесь его перехода в статус {{ dt-status-repl }}.
    * Измените какую-либо [настройку трансфера](../../data-transfer/operations/transfer.md#update) или [эндпоинта](../../data-transfer/operations/endpoint/index.md#update).
 
-Подробнее см. в разделе [Миграция эндпоинтов и трансфера Data Transfer в другую зону доступности](../../data-transfer/operations/endpoint/migration-to-an-availability-zone.md).
+Подробнее см. в разделе [{#T}](../../data-transfer/operations/endpoint/migration-to-an-availability-zone.md).

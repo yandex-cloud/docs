@@ -6,7 +6,7 @@ Creation may take up to 15 minutes.
 ## HTTP request
 
 ```
-POST https://cdn.api.cloud.yandex.net/cdn/v1/resources
+POST https://cdn.{{ api-host }}/cdn/v1/resources
 ```
 
 ## Body parameters {#yandex.cloud.cdn.v1.CreateResourceRequest}
@@ -462,7 +462,7 @@ Possible values: `error`, `http_403`, `http_404`, `http_429`, `http_500`, `http_
 || allowedHttpMethods | **[StringsListOption](#yandex.cloud.cdn.v1.ResourceOptions.StringsListOption)**
 
 HTTP methods for your CDN content. By default the following methods
-are allowed: GET, HEAD, POST, PUT, PATCH, DELETE, OPTIONS.
+are allowed: GET, HEAD, OPTIONS.
 In case some methods are not allowed to the user, they will get the 405
 (Method Not Allowed) response. If the method is not supported,
 the user gets the 501 (Not Implemented) response. ||

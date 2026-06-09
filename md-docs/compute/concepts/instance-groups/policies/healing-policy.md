@@ -25,6 +25,6 @@ auto_healing_policy:
 
 #### См. также {#see-also}
 
-* [Политика масштабирования](scale-policy.md)
-* [Политика распределения](allocation-policy.md)
-* [Политика развертывания](deploy-policy.md)
+* [{#T}](scale-policy.md)
+* [{#T}](allocation-policy.md)
+* [{#T}](deploy-policy.md)

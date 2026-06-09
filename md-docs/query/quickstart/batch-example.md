@@ -1,6 +1,6 @@
-# Аналитическая обработка данных из Yandex Object Storage
+# Аналитическая обработка данных из {{ objstorage-full-name }}
 
-В этом примере вы выполните [аналитическую обработку данных](../concepts/batch-processing.md) о поездках Нью-Йоркского такси. Данные для выполнения примера предварительно размещены в бакете [Yandex Object Storage](../../storage/index.md) в файлах формата [Parquet](https://parquet.apache.org/docs/file-format/).
+В этом примере вы выполните [аналитическую обработку данных](../concepts/batch-processing.md) о поездках Нью-Йоркского такси. Данные для выполнения примера предварительно размещены в бакете [{{ objstorage-full-name }}](../../storage/index.md) в файлах формата [Parquet](https://parquet.apache.org/docs/file-format/).
 
 В результате вы получите частотное распределение длительности поездок по числу поездок в виде гистограммы.
 
@@ -13,7 +13,7 @@
 
 {% note info %}
 
-Yandex Cloud предоставляет набор данных - **поездки Нью-Йоркского такси** - на условиях “как есть” (as is). Yandex Cloud не дает никаких заверений, явных или подразумеваемых, гарантий или условий в отношении использования вами указанного датасета (набора данных). В пределах, разрешенных вашим местным законодательством, Yandex Cloud не несет никакой ответственности за любые убытки или ущерб, включая прямые, побочные, специальные, косвенные, случайные или штрафные, возникшие в результате использования вами датасета.
+{{ yandex-cloud }} предоставляет набор данных - **поездки Нью-Йоркского такси** - на условиях “как есть” (as is). {{ yandex-cloud }} не дает никаких заверений, явных или подразумеваемых, гарантий или условий в отношении использования вами указанного датасета (набора данных). В пределах, разрешенных вашим местным законодательством, {{ yandex-cloud }} не несет никакой ответственности за любые убытки или ущерб, включая прямые, побочные, специальные, косвенные, случайные или штрафные, возникшие в результате использования вами датасета.
 
 NYC Taxi and Limousine Commission (TLC):
 
@@ -25,26 +25,26 @@ NYC Taxi and Limousine Commission (TLC):
 
 ## Подготовьтесь к работе {#before-you-begin}
 
-1. Войдите в [консоль управления](https://console.yandex.cloud) или зарегистрируйтесь. Если вы еще не зарегистрированы, перейдите в консоль управления и следуйте инструкциям.
-1. На странице [**Yandex Cloud Billing**](https://center.yandex.cloud/billing/accounts) убедитесь, что у вас подключен [платежный аккаунт](../../billing/concepts/billing-account.md) и он находится в статусе `ACTIVE` или `TRIAL_ACTIVE`. Если платежного аккаунта нет, [создайте его](../../billing/quickstart/index.md#create_billing_account).
+1. Войдите в [консоль управления]({{ link-console-main }}) или зарегистрируйтесь. Если вы еще не зарегистрированы, перейдите в консоль управления и следуйте инструкциям.
+1. На странице [**{{ ui-key.yacloud_billing.billing.label_service }}**]({{ link-console-billing }}) убедитесь, что у вас подключен [платежный аккаунт](../../billing/concepts/billing-account.md) и он находится в статусе `ACTIVE` или `TRIAL_ACTIVE`. Если платежного аккаунта нет, [создайте его](../../billing/quickstart/index.md#create_billing_account).
 1. Если у вас еще нет каталога, [создайте его](../../resource-manager/operations/folder/create.md).
 
 ## Подключитесь к данным {#create-binding}
 
- 1. В [консоли управления](https://console.yandex.cloud) выберите каталог, в котором нужно создать соединение.
- 1. [Перейдите](../../console/operations/select-service.md#select-service) в сервис **Yandex Query**.
- 1. На панели слева выберите ![study](../../_assets/console-icons/graduation-cap.svg) **Учебник**.
- 1. В блоке **Создать инфраструктуру для обучения** нажмите кнопку **Создать соединение**.
+ 1. В [консоли управления]({{ link-console-main }}) выберите каталог, в котором нужно создать соединение.
+ 1. Перейдите в сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_yq_ru }}**.
+ 1. На панели слева выберите ![study](../../_assets/console-icons/graduation-cap.svg) **{{ ui-key.yql.yq-navigation.tutorial.menu-text }}**.
+ 1. В блоке **{{ ui-key.yql.yq-tutorial.create-tutorial-infrastructure.label }}** нажмите кнопку **{{ ui-key.yql.yq-tutorial.create-connection.button-label }}**.
  
      Откроется страница создания [соединения](../concepts/glossary.md#connection). Просмотрите значения параметров по умолчанию, изменять их не нужно.
- 1. Нажмите кнопку **Создать**.
+ 1. Нажмите кнопку **{{ ui-key.yql.yq-connection-form.create.button-text }}**.
  
      Откроется страница создания [привязки к данным](../concepts/glossary.md#binding). Просмотрите значения параметров по умолчанию, изменять их не нужно.
- 1. Нажмите кнопку **Создать**.
+ 1. Нажмите кнопку **{{ ui-key.yql.yq-binding-form.binding-create.button-text }}**.
 
 ## Выполните запрос {#run-query}
 
-1. В редакторе запросов в интерфейсе Query нажмите кнопку **Новый аналитический запрос**.
+1. В редакторе запросов в интерфейсе {{ yq-name }} нажмите кнопку **{{ ui-key.yql.yq-ide-header.new-analytics-query.button-text }}**.
 1. В текстовом поле введите текст запроса:
 
    ```sql
@@ -66,7 +66,7 @@ NYC Taxi and Limousine Commission (TLC):
        $ride_time;
    ```
 
-1. Нажмите кнопку **Выполнить**.
+1. Нажмите кнопку **{{ ui-key.yql.yq-query-actions.run-query.button-text }}**.
 
 ## Исследуйте результат {#check-result}
 
@@ -119,7 +119,7 @@ Kind: AdaptiveWard Bins: 100 WeightsSum: 140151844.000 Min: -531231.000 Max: 436
 
 ## См. также {#see-also}
 
-* [Именованные выражения. Синтаксис YQL](https://ydb.tech/docs/ru/yql/reference/syntax/expressions#named-nodes)
-* [HISTOGRAM. Встроенные функции YQL](https://ydb.tech/docs/ru/yql/reference/builtins/aggregation#histogram)
+* [Именованные выражения. Синтаксис YQL]({{ ydb.docs }}yql/reference/syntax/expressions#named-nodes)
+* [HISTOGRAM. Встроенные функции YQL]({{ ydb.docs }}yql/reference/builtins/aggregation#histogram)
 * [Формат SQL-выражения](../sources-and-sinks/object-storage-binding.md#model-dannyh)
-* [Аналитическая обработка данных](../concepts/batch-processing.md)
+* [{#T}](../concepts/batch-processing.md)

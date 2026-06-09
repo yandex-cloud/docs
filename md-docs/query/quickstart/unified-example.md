@@ -4,19 +4,19 @@
 
 Текст SQL-запроса для обработки обоих видов данных совпадает, различаются только [соединения](../concepts/glossary.md#connection) и [привязки к данным](../concepts/glossary.md#binding) для бакета и потока.
 
-Данные для аналитической обработки предварительно размещены в бакете [Yandex Object Storage](../../storage/index.md) в файлах формата [Parquet](https://parquet.apache.org/docs/file-format/). Потоковые данные будут записаны с помощью генератора в специально созданный поток [Yandex Data Streams](../../data-streams/index.md).
+Данные для аналитической обработки предварительно размещены в бакете [{{ objstorage-full-name }}](../../storage/index.md) в файлах формата [Parquet](https://parquet.apache.org/docs/file-format/). Потоковые данные будут записаны с помощью генератора в специально созданный поток [{{ yds-full-name }}](../../data-streams/index.md).
 
-В обоих случаях используется хранимый в Object Storage справочник для фильтрации данных в запросе.
+В обоих случаях используется хранимый в {{ objstorage-name }} справочник для фильтрации данных в запросе.
 
 Для выполнения примера:
 
 1. [Подготовьтесь к работе](#before-you-begin).
-1. [Проанализируйте данные из Object Storage](#batch).
-1. [Проанализируйте потоковые данные из Data Streams](#stream).
+1. [Проанализируйте данные из {{ objstorage-name }}](#batch).
+1. [Проанализируйте потоковые данные из {{ yds-name }}](#stream).
 
 {% note info %}
 
-Yandex Cloud предоставляет набор данных - **поездки Нью-Йоркского такси** - на условиях “как есть” (as is). Yandex Cloud не дает никаких заверений, явных или подразумеваемых, гарантий или условий в отношении использования вами указанного датасета (набора данных). В пределах, разрешенных вашим местным законодательством, Yandex Cloud не несет никакой ответственности за любые убытки или ущерб, включая прямые, побочные, специальные, косвенные, случайные или штрафные, возникшие в результате использования вами датасета.
+{{ yandex-cloud }} предоставляет набор данных - **поездки Нью-Йоркского такси** - на условиях “как есть” (as is). {{ yandex-cloud }} не дает никаких заверений, явных или подразумеваемых, гарантий или условий в отношении использования вами указанного датасета (набора данных). В пределах, разрешенных вашим местным законодательством, {{ yandex-cloud }} не несет никакой ответственности за любые убытки или ущерб, включая прямые, побочные, специальные, косвенные, случайные или штрафные, возникшие в результате использования вами датасета.
 
 NYC Taxi and Limousine Commission (TLC):
 
@@ -28,30 +28,30 @@ NYC Taxi and Limousine Commission (TLC):
 
 ## Подготовьтесь к работе {#before-you-begin}
 
-1. Войдите в [консоль управления](https://console.yandex.cloud) или зарегистрируйтесь. Если вы еще не зарегистрированы, перейдите в консоль управления и следуйте инструкциям.
-1. На странице [**Yandex Cloud Billing**](https://center.yandex.cloud/billing/accounts) убедитесь, что у вас подключен [платежный аккаунт](../../billing/concepts/billing-account.md) и он находится в статусе `ACTIVE` или `TRIAL_ACTIVE`. Если платежного аккаунта нет, [создайте его](../../billing/quickstart/index.md#create_billing_account).
+1. Войдите в [консоль управления]({{ link-console-main }}) или зарегистрируйтесь. Если вы еще не зарегистрированы, перейдите в консоль управления и следуйте инструкциям.
+1. На странице [**{{ ui-key.yacloud_billing.billing.label_service }}**]({{ link-console-billing }}) убедитесь, что у вас подключен [платежный аккаунт](../../billing/concepts/billing-account.md) и он находится в статусе `ACTIVE` или `TRIAL_ACTIVE`. Если платежного аккаунта нет, [создайте его](../../billing/quickstart/index.md#create_billing_account).
 1. Если у вас еще нет каталога, [создайте его](../../resource-manager/operations/folder/create.md).
 1. Подключение к потоку данных будет выполняться от имени [сервисного аккаунта](../../iam/concepts/users/service-accounts.md). [Создайте](../../iam/operations/sa/create.md#create-sa) сервисный аккаунт с именем `datastream-connection-account` и ролью `ydb.editor`.
-1. Потоки данных используют Yandex Managed Service for YDB. [Создайте](../../ydb/quickstart.md#serverless) бессерверную базу данных.
+1. Потоки данных используют {{ ydb-full-name }}. [Создайте](../../ydb/quickstart.md#serverless) бессерверную базу данных.
 
-## Проанализируйте данные из Object Storage {#batch}
+## Проанализируйте данные из {{ objstorage-name }} {#batch}
 
 ### Подключитесь к данным для аналитической обработки {#batch-create-binding}
 
-1. В [консоли управления](https://console.yandex.cloud) выберите каталог, в котором нужно создать соединение.
-1. [Перейдите](../../console/operations/select-service.md#select-service) в сервис **Yandex Query**.
-1. На панели слева выберите ![study](../../_assets/console-icons/graduation-cap.svg) **Учебник**.
-1. В блоке **Создать инфраструктуру для обучения** нажмите кнопку **Создать соединение**.
+1. В [консоли управления]({{ link-console-main }}) выберите каталог, в котором нужно создать соединение.
+1. Перейдите в сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_yq_ru }}**.
+1. На панели слева выберите ![study](../../_assets/console-icons/graduation-cap.svg) **{{ ui-key.yql.yq-navigation.tutorial.menu-text }}**.
+1. В блоке **{{ ui-key.yql.yq-tutorial.create-tutorial-infrastructure.label }}** нажмите кнопку **{{ ui-key.yql.yq-tutorial.create-connection.button-label }}**.
 
     Откроется страница создания [соединения](../concepts/glossary.md#connection). Просмотрите значения параметров по умолчанию, изменять их не нужно.
-1. Нажмите кнопку **Создать**.
+1. Нажмите кнопку **{{ ui-key.yql.yq-connection-form.create.button-text }}**.
 
     Откроется страница создания [привязки к данным](../concepts/glossary.md#binding). Просмотрите значения параметров по умолчанию, изменять их не нужно.
-1. Нажмите кнопку **Создать**.
+1. Нажмите кнопку **{{ ui-key.yql.yq-binding-form.binding-create.button-text }}**.
 
 ### Выполните запрос {#batch-run-query}
 
-1. В редакторе запросов в интерфейсе Query нажмите кнопку **Новый аналитический запрос**.
+1. В редакторе запросов в интерфейсе {{ yq-name }} нажмите кнопку **{{ ui-key.yql.yq-ide-header.new-analytics-query.button-text }}**.
 1. В текстовом поле введите текст запроса:
 
    ```sql
@@ -93,7 +93,7 @@ NYC Taxi and Limousine Commission (TLC):
        $time;
    ```
 
-1. Нажмите кнопку **Выполнить**.
+1. Нажмите кнопку **{{ ui-key.yql.yq-query-actions.run-query.button-text }}**.
 
 ### Исследуйте результат {#batch-check-result}
 
@@ -110,40 +110,40 @@ NYC Taxi and Limousine Commission (TLC):
 | 7  | 2018-01-02T19:28:00.000000Z | 120 | 7.3   |
 | 8  | 2018-01-03T10:17:00.000000Z | 120 | 81.3  |
 
-## Проанализируйте потоковые данные из Data Streams {#stream}
+## Проанализируйте потоковые данные из {{ yds-name }} {#stream}
 
 ### Создайте поток данных {#stream-create-datastream}
 
-1. В [консоли управления](https://console.yandex.cloud) выберите [каталог](../../resource-manager/concepts/resources-hierarchy.md#folder), в котором нужно создать [поток данных](../../data-streams/concepts/glossary.md).
-  1. [Перейдите](../../console/operations/select-service.md#select-service) в сервис **Data Streams**.
-  1. Нажмите кнопку **Создать поток**.
-  1. Укажите базу данных Yandex Managed Service for YDB, созданную ранее.
+1. В [консоли управления]({{ link-console-main }}) выберите [каталог](../../resource-manager/concepts/resources-hierarchy.md#folder), в котором нужно создать [поток данных](../../data-streams/concepts/glossary.md).
+  1. Перейдите в сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_data-streams }}**.
+  1. Нажмите кнопку **{{ ui-key.yacloud.data-streams.button_create-stream }}**.
+  1. Укажите базу данных {{ ydb-full-name }}, созданную ранее.
   1. Введите имя потока данных: `yellow-taxi`.
-  1. Нажмите кнопку **Создать**.
+  1. Нажмите кнопку **{{ ui-key.yacloud.common.create }}**.
 
 ### Настройте генерацию данных {#stream-configure-generation}
 
 1. Создайте соединение:
 
-    1. В [консоли управления](https://console.yandex.cloud) выберите каталог, в котором нужно создать соединение.
-    1. [Перейдите](../../console/operations/select-service.md#select-service) в сервис **Yandex Query**.
-    1. На панели слева выберите ![study](../../_assets/console-icons/graduation-cap.svg) **Учебник**.
-    1. Перейдите в **Потоковый** раздел.
-    1. В блоке **Создать инфраструктуру для обучения** нажмите кнопку **Создать соединение**.
-    1. В открывшемся окне в блоке **Параметры типа соединения** выберите базу данных и сервисный аккаунт, созданные ранее.
-    1. Нажмите кнопку **Создать**.
+    1. В [консоли управления]({{ link-console-main }}) выберите каталог, в котором нужно создать соединение.
+    1. Перейдите в сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_yq_ru }}**.
+    1. На панели слева выберите ![study](../../_assets/console-icons/graduation-cap.svg) **{{ ui-key.yql.yq-navigation.tutorial.menu-text }}**.
+    1. Перейдите в **{{ ui-key.yql.yq-tutorial.tutorial-type-toggle.option-streaming }}** раздел.
+    1. В блоке **{{ ui-key.yql.yq-tutorial.create-tutorial-infrastructure.label }}** нажмите кнопку **{{ ui-key.yql.yq-tutorial.create-connection.button-label }}**.
+    1. В открывшемся окне в блоке **{{ ui-key.yql.yq-connection-form.connection-type-parameters.section-title }}** выберите базу данных и сервисный аккаунт, созданные ранее.
+    1. Нажмите кнопку **{{ ui-key.yql.yq-binding-form.binding-create.button-text }}**.
 
 1. Создайте [привязку к данным](../concepts/glossary.md):
 
     1. Откроется страница для создания привязки к данным.
-    1. В блоке **Параметры привязки к данным** выберите поток `yellow-taxi`, созданный ранее.
-    1. Нажмите кнопку **Создать**.
+    1. В блоке **{{ ui-key.yql.yq-binding-form.binding-parameters.title }}** выберите поток `yellow-taxi`, созданный ранее.
+    1. Нажмите кнопку **{{ ui-key.yql.yq-binding-form.binding-create.button-text }}**.
 
-Запустится генерация данных в поток `yellow-taxi`. Для управления генератором данных используйте кнопки **Стоп** и **Старт**.
+Запустится генерация данных в поток `yellow-taxi`. Для управления генератором данных используйте кнопки **{{ ui-key.yql.yq-tutorial.stop-stream.button-label }}** и **{{ ui-key.yql.yq-tutorial.run-stream.button-label }}**.
 
 ### Выполните запрос {#stream-run-query}
 
-1. В редакторе запросов в интерфейсе Query нажмите кнопку **Новый потоковый запрос**.
+1. В редакторе запросов в интерфейсе {{ yq-name }} нажмите кнопку **{{ ui-key.yql.yq-ide-header.new-streaming-query.button-text }}**.
 1. В текстовом поле введите текст запроса:
 
    ```sql
@@ -184,7 +184,7 @@ NYC Taxi and Limousine Commission (TLC):
        $time;
    ```
 
-1. Нажмите кнопку **Выполнить**.
+1. Нажмите кнопку **{{ ui-key.yql.yq-query-actions.run-query.button-text }}**.
 
 ### Исследуйте результат {#stream-check-result}
 
@@ -203,7 +203,7 @@ NYC Taxi and Limousine Commission (TLC):
 ## См. также {#see-also}
 
 * [Оператор HOP. Параметры окон в потоковой обработке данных](../concepts/stream-processing-windows.md)
-* [Агрегатные функции. Синтаксис YQL](https://ydb.tech/docs/ru//yql/reference/builtins/aggregation)
+* [Агрегатные функции. Синтаксис YQL]({{ ydb.docs }}/yql/reference/builtins/aggregation)
 * [Формат SQL-выражения](../sources-and-sinks/data-streams-binding.md#model-dannyh)
-* [Аналитическая обработка данных](../concepts/batch-processing.md)
-* [Потоковый анализ данных](../concepts/stream-processing.md)
+* [{#T}](../concepts/batch-processing.md)
+* [{#T}](../concepts/stream-processing.md)

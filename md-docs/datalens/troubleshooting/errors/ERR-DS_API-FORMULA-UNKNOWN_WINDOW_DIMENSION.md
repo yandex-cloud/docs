@@ -1,4 +1,4 @@
-# [Yandex DataLens] Unknown dimension for window
+# [{{ datalens-full-name }}] Unknown dimension for window
 
 `ERR.DS_API.FORMULA.UNKNOWN_WINDOW_DIMENSION`
 

@@ -18,11 +18,11 @@
  
 ## Подготовьте облако к работе {#prepare-cloud}
 
-Зарегистрируйтесь в Yandex Cloud и создайте [платежный аккаунт](../../billing/concepts/billing-account.md):
-1. Перейдите в [консоль управления](https://console.yandex.cloud), затем войдите в Yandex Cloud или зарегистрируйтесь.
-1. На странице **[Yandex Cloud Billing](https://center.yandex.cloud/billing/accounts)** убедитесь, что у вас подключен платежный аккаунт, и он находится в [статусе](../../billing/concepts/billing-account-statuses.md) `ACTIVE` или `TRIAL_ACTIVE`. Если платежного аккаунта нет, [создайте его](../../billing/quickstart/index.md) и [привяжите](../../billing/operations/pin-cloud.md) к нему облако.
+Зарегистрируйтесь в {{ yandex-cloud }} и создайте [платежный аккаунт](../../billing/concepts/billing-account.md):
+1. Перейдите в [консоль управления]({{ link-console-main }}), затем войдите в {{ yandex-cloud }} или зарегистрируйтесь.
+1. На странице **[{{ ui-key.yacloud_billing.billing.label_service }}]({{ link-console-billing }})** убедитесь, что у вас подключен платежный аккаунт, и он находится в [статусе](../../billing/concepts/billing-account-statuses.md) `ACTIVE` или `TRIAL_ACTIVE`. Если платежного аккаунта нет, [создайте его](../../billing/quickstart/index.md) и [привяжите](../../billing/operations/pin-cloud.md) к нему облако.
 
-Если у вас есть активный платежный аккаунт, вы можете создать или выбрать [каталог](../../resource-manager/concepts/resources-hierarchy.md#folder), в котором будет работать ваша инфраструктура, на [странице облака](https://console.yandex.cloud/cloud).
+Если у вас есть активный платежный аккаунт, вы можете создать или выбрать [каталог](../../resource-manager/concepts/resources-hierarchy.md#folder), в котором будет работать ваша инфраструктура, на [странице облака]({{ link-console-cloud }}).
 
 [Подробнее об облаках и каталогах](../../resource-manager/concepts/resources-hierarchy.md).
 
@@ -30,23 +30,23 @@
 
 В стоимость поддержки инфраструктуры входят:
 
-* плата за постоянно работающие ВМ и диски (см. [тарифы Yandex Compute Cloud](../pricing.md));
-* плата за использование публичных IP-адресов и исходящий трафик (см. [тарифы Yandex Virtual Private Cloud](../../vpc/pricing.md));
+* плата за постоянно работающие ВМ и диски (см. [тарифы {{ compute-full-name }}](../pricing.md));
+* плата за использование публичных IP-адресов и исходящий трафик (см. [тарифы {{ vpc-full-name }}](../../vpc/pricing.md));
 
 ## Настройте профиль CLI {#setup-profile}
 
-1. Если у вас еще нет интерфейса командной строки Yandex Cloud, [установите](../../cli/quickstart.md) его и авторизуйтесь от имени пользователя.
+1. Если у вас еще нет интерфейса командной строки {{ yandex-cloud }}, [установите](../../cli/quickstart.md) его и авторизуйтесь от имени пользователя.
 1. Создайте сервисный аккаунт:
 
    {% list tabs group=instructions %}
 
    - Консоль управления {#console}
 
-      1. В [консоли управления](https://console.yandex.cloud) выберите каталог, в котором хотите создать сервисный аккаунт.
-      1. [Перейдите](../../console/operations/select-service.md#select-service) в сервис **Identity and Access Management**.
-      1. Нажмите кнопку **Создать сервисный аккаунт**.
+      1. В [консоли управления]({{ link-console-main }}) выберите каталог, в котором хотите создать сервисный аккаунт.
+      1. Перейдите в сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_iam }}**.
+      1. Нажмите кнопку **{{ ui-key.yacloud.iam.folder.service-accounts.button_add }}**.
       1. Введите имя сервисного аккаунта, например, `sa-glusterfs`.
-      1. Нажмите кнопку **Создать**.
+      1. Нажмите кнопку **{{ ui-key.yacloud.iam.folder.service-account.popup-robot_button_add }}**.
 
    - CLI {#cli}
 
@@ -80,11 +80,11 @@
 
    - Консоль управления {#console}
 
-      1. На [стартовой странице](https://console.yandex.cloud) консоли управления выберите каталог.
-      1. Перейдите на вкладку **Права доступа**.
+      1. На [стартовой странице]({{ link-console-main }}) консоли управления выберите каталог.
+      1. Перейдите на вкладку **{{ ui-key.yacloud.common.resource-acl.label_access-bindings }}**.
       1. Найдите аккаунт `sa-glusterfs` в списке и нажмите значок ![image](../../_assets/options.svg).
-      1. Нажмите кнопку **Изменить роли**.
-      1. В открывшемся диалоге нажмите кнопку **Добавить роль** и выберите роль `admin`.
+      1. Нажмите кнопку **{{ ui-key.yacloud_components.acl.action.edit-roles }}**.
+      1. В открывшемся диалоге нажмите кнопку **{{ ui-key.yacloud_components.acl.button.add-role }}** и выберите роль `admin`.
 
    - CLI {#cli}
 
@@ -166,7 +166,7 @@
    ssh-keygen -t ed25519
    ```
    Рекомендуем оставить имя файла ключа без изменения.
-1. [Установите Terraform](../../tutorials/infrastructure-management/terraform-quickstart.md#install-terraform).
+1. [Установите {{ TF }}](../../tutorials/infrastructure-management/terraform-quickstart.md#install-terraform).
 1. Клонируйте репозиторий `yandex-cloud-examples/yc-distributed-ha-storage-with-glusterfs` из GitHub и перейдите в папку `yc-distributed-ha-storage-with-glusterfs`:
     ```
     git clone https://github.com/yandex-cloud-examples/yc-distributed-ha-storage-with-glusterfs.git
@@ -188,11 +188,11 @@
 
 ## Разверните ресурсы {#deploy-resources}
 
-   1. Выполните инициализацию Terraform:
+   1. Выполните инициализацию {{ TF }}:
       ```bash
       terraform init
       ```
-   1. Проверьте конфигурацию Terraform файлов:
+   1. Проверьте конфигурацию {{ TF }} файлов:
       ```bash
       terraform validate
       ```
@@ -339,10 +339,10 @@
 
       - Консоль управления {#console}
 
-        1. В [консоли управления](https://console.yandex.cloud) выберите каталог, которому принадлежит ВМ.
-        1. [Перейдите](../../console/operations/select-service.md#select-service) в сервис **Compute Cloud**.
-        1. Выберите ВМ `gluster02` в списке, нажмите значок ![image](../../_assets/options.svg) и выберите **Остановить**.
-        1. В открывшемся окне нажмите кнопку **Остановить**.
+        1. В [консоли управления]({{ link-console-main }}) выберите каталог, которому принадлежит ВМ.
+        1. Перейдите в сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_compute }}**.
+        1. Выберите ВМ `gluster02` в списке, нажмите значок ![image](../../_assets/options.svg) и выберите **{{ ui-key.yacloud.common.stop }}**.
+        1. В открывшемся окне нажмите кнопку **{{ ui-key.yacloud.compute.instances.popup-confirm_button_stop }}**.
 
       - CLI {#cli}
 

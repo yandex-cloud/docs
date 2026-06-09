@@ -5,7 +5,7 @@ Creates a job for a cluster.
 ## HTTP request
 
 ```
-POST https://dataproc.api.cloud.yandex.net/dataproc/v1/clusters/{clusterId}/jobs
+POST https://dataproc.{{ api-host }}/dataproc/v1/clusters/{clusterId}/jobs
 ```
 
 ## Path parameters

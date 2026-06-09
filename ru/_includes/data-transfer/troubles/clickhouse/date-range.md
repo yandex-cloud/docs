@@ -11,8 +11,8 @@ dateTime <имя_поля> must be between 1900-01-01 00:00:00 and 2262-04-11 23
 
 Поддерживаемые диапазоны дат в {{ CH }}:
 
-* Для полей с типом `DateTime64` — с 1900-01-01 по 2299-12-31. Подробнее см. в [документации {{ CH }}]({{ ch.docs }}{{ lang }}/sql-reference/data-types/datetime64).
-* Для полей с типом `DateTime` — с 1970-01-01 по 2106-02-07. Подробнее см. в [документации {{ CH }}]({{ ch.docs }}{{ lang }}/sql-reference/data-types/datetime).
+* Для полей с типом `DateTime64` — с 1900-01-01 по 2299-12-31. Подробнее в [документации {{ CH }}]({{ ch.docs }}{{ lang }}/sql-reference/data-types/datetime64).
+* Для полей с типом `DateTime` — с 1970-01-01 по 2106-02-07. Подробнее в [документации {{ CH }}]({{ ch.docs }}{{ lang }}/sql-reference/data-types/datetime).
 
 **Решение:** используйте один из вариантов:
 

@@ -4,20 +4,20 @@
 
 - Консоль управления {#console}
 
-  1. В [консоли управления](https://console.yandex.cloud) перейдите в [каталог](../../resource-manager/concepts/resources-hierarchy.md#folder), в котором хотите создать [контейнер](../concepts/container.md).
-  1. [Перейдите](../../console/operations/select-service.md#select-service) в сервис **Serverless Containers**.
-  1. Нажмите кнопку **Создать контейнер**.
+  1. В [консоли управления]({{ link-console-main }}) перейдите в [каталог](../../resource-manager/concepts/resources-hierarchy.md#folder), в котором хотите создать [контейнер](../concepts/container.md).
+  1. Перейдите в сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_serverless-containers }}**.
+  1. Нажмите кнопку **{{ ui-key.yacloud.serverless-containers.button_create-container }}**.
   1. Введите имя и описание контейнера. Формат имени:
 
      * длина — от 3 до 63 символов;
      * может содержать строчные буквы латинского алфавита, цифры и дефисы;
      * первый символ — буква, последний — не дефис.
 
-  1. Нажмите кнопку **Создать**.
+  1. Нажмите кнопку **{{ ui-key.yacloud.common.create }}**.
 
 - CLI {#cli}
 
-  Если у вас еще нет интерфейса командной строки Yandex Cloud (CLI), [установите и инициализируйте его](../../cli/quickstart.md#install).
+  Если у вас еще нет интерфейса командной строки {{ yandex-cloud }} (CLI), [установите и инициализируйте его](../../cli/quickstart.md#install).
 
   По умолчанию используется каталог, указанный при [создании](../../cli/operations/profile/profile-create.md) профиля CLI. Чтобы изменить каталог по умолчанию, используйте команду `yc config set folder-id <идентификатор_каталога>`. Также для любой команды вы можете указать другой каталог с помощью параметров `--folder-name` или `--folder-id`. Если вы обращаетесь к ресурсу по имени, поиск будет выполнен в каталоге по умолчанию. Если вы обращаетесь к ресурсу по идентификатору, поиск будет выполнен глобально — во всех каталогах с учетом прав доступа.
 
@@ -34,19 +34,22 @@
   folder_id: b1gqvft7kjk3********
   created_at: "2021-07-09T14:49:00.891Z"
   name: my-beta-container
-  url: https://bba3fva6ka5g********.containers.yandexcloud.net/
+  url: https://bba3fva6ka5g********.{{ serverless-containers-host }}/
   status: ACTIVE
   ```
 
-- Terraform {#tf}
+- {{ TF }} {#tf}
 
-  [Terraform](https://www.terraform.io/) позволяет быстро создать облачную инфраструктуру в Yandex Cloud и управлять ею с помощью файлов конфигураций. В файлах конфигураций хранится описание инфраструктуры на языке HCL (HashiCorp Configuration Language). При изменении файлов конфигураций Terraform автоматически определяет, какая часть вашей конфигурации уже развернута, что следует добавить или удалить.
+  [{{ TF }}](https://www.terraform.io/) позволяет быстро создать облачную инфраструктуру в {{ yandex-cloud }} и управлять ею с помощью файлов конфигураций. В файлах конфигураций хранится описание инфраструктуры на языке HCL (HashiCorp Configuration Language). При изменении файлов конфигураций {{ TF }} автоматически определяет, какая часть вашей конфигурации уже развернута, что следует добавить или удалить.
   
-  Terraform распространяется под лицензией [Business Source License](https://github.com/hashicorp/terraform/blob/main/LICENSE), а [провайдер Yandex Cloud для Terraform](https://github.com/yandex-cloud/terraform-provider-yandex) — под лицензией [MPL-2.0](https://www.mozilla.org/en-US/MPL/2.0/).
+  {{ TF }} распространяется под лицензией [Business Source License](https://github.com/hashicorp/terraform/blob/main/LICENSE), а [провайдер {{ yandex-cloud }} для {{ TF }}](https://github.com/yandex-cloud/terraform-provider-yandex) — под лицензией [MPL-2.0](https://www.mozilla.org/en-US/MPL/2.0/).
   
-  Подробную информацию о ресурсах провайдера смотрите в документации на сайте [Terraform](https://www.terraform.io/docs/providers/yandex/index.html) или в [зеркале](../../terraform/index.md).
+  Подробную информацию о ресурсах провайдера смотрите в документации на сайте [{{ TF }}](https://www.terraform.io/docs/providers/yandex/index.html) или в [зеркале]({{ tf-docs-link }}).
 
-  Если у вас еще нет Terraform, [установите его и настройте провайдер Yandex Cloud](../../tutorials/infrastructure-management/terraform-quickstart.md#install-terraform).
+  Если у вас еще нет {{ TF }}, [установите его и настройте провайдер {{ yandex-cloud }}](../../tutorials/infrastructure-management/terraform-quickstart.md#install-terraform).
+  
+  
+  Чтобы управлять инфраструктурой с помощью {{ TF }} от имени сервисного аккаунта или пользовательских аккаунтов: аккаунта на Яндексе, федеративного аккаунта и локального пользователя, [аутентифицируйтесь](../../terraform/authentication.md) соответствующим способом.
 
   Чтобы создать [контейнер](../concepts/container.md) и его [ревизию](manage-revision.md):
 
@@ -67,29 +70,22 @@
 
      * `memory` — объем памяти в МБ, выделенный контейнеру. По умолчанию — 128 МБ.
      * `service_account_id` — идентификатор [сервисного аккаунта](../../iam/concepts/users/service-accounts.md).
-     * `url` — URL [Docker-образа](../../container-registry/concepts/docker-image.md) в [Yandex Container Registry](../../container-registry/index.md).
+     * `url` — URL [Docker-образа](../../container-registry/concepts/docker-image.md) в [{{ container-registry-full-name }}](../../container-registry/index.md).
 
      >Пример структуры конфигурационного файла:
      >
      >```hcl
-     >provider "yandex" {
-     >  token     = "<OAuth-токен>"
-     >  cloud_id  = "<идентификатор_облака>"
-     >  folder_id = "<идентификатор_каталога>"
-     >  zone      = "ru-central1-a"
-     >}
-     >
      >resource "yandex_serverless_container" "test-container" {
-     >   name               = "<имя_контейнера>"
-     >   memory             = <объем_памяти>
-     >   service_account_id = "<идентификатор_сервисного_аккаунта>"
-     >   image {
-     >       url = "<URL_Docker-образа>"
-     >   }
+     >  name               = "<имя_контейнера>"
+     >  memory             = <объем_памяти>
+     >  service_account_id = "<идентификатор_сервисного_аккаунта>"
+     >  image {
+     >    url = "<URL_Docker-образа>"
+     >  }
      >}
      >```
 
-     Более подробную информацию о параметрах ресурса `yandex_serverless_container` в Terraform, см. в [документации провайдера](../../terraform/resources/serverless_container.md).
+     Более подробную информацию о параметрах ресурса `yandex_serverless_container` в {{ TF }}, см. в [документации провайдера]({{ tf-provider-resources-link }}/serverless_container).
   1. Проверьте корректность конфигурационных файлов.
      1. В командной строке перейдите в папку, где вы создали конфигурационный файл.
      1. Выполните проверку с помощью команды:
@@ -98,7 +94,7 @@
         terraform plan
         ```
 
-     Если конфигурация описана верно, в терминале отобразится список создаваемых ресурсов и их параметров. Если в конфигурации есть ошибки, Terraform на них укажет.
+     Если конфигурация описана верно, в терминале отобразится список создаваемых ресурсов и их параметров. Если в конфигурации есть ошибки, {{ TF }} на них укажет.
   1. Разверните облачные ресурсы.
      1. Если в конфигурации нет ошибок, выполните команду:
 
@@ -108,7 +104,7 @@
 
      1. Подтвердите создание ресурсов: введите в терминал слово `yes` и нажмите **Enter**.
 
-        После этого в указанном [каталоге](../../resource-manager/concepts/resources-hierarchy.md#folder) будут созданы все требуемые ресурсы. Проверить появление ресурсов и их настройки можно в [консоли управления](https://console.yandex.cloud) или с помощью команды [CLI](../../cli/index.md):
+        После этого в указанном [каталоге](../../resource-manager/concepts/resources-hierarchy.md#folder) будут созданы все требуемые ресурсы. Проверить появление ресурсов и их настройки можно в [консоли управления]({{ link-console-main }}) или с помощью команды [CLI](../../cli/index.md):
 
         ```bash
         yc serverless container list 

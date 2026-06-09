@@ -1,6 +1,7 @@
 # Managed Service for MongoDB API, gRPC: ClusterService.AddShard
 
 Creates a new shard.
+(-- api-linter: core::0136::http-uri-suffix=disabled --)
 
 ## gRPC request
 
@@ -33,7 +34,7 @@ Creates a new shard.
 || cluster_id | **string**
 
 Required field. ID of the MongoDB cluster to add a shard to.
-To get the cluster ID, use a [ClusterService.List](list.md#List) request.
+To get the cluster ID, use a [ClusterService.List](../../../../managed-mongodb/api-ref/grpc/Cluster/list#List) request.
 
 The maximum string length in characters is 50. ||
 || shard_name | **string**
@@ -62,16 +63,14 @@ The maximum string length in characters is 50. ||
 
 ID of the subnet that the host should belong to. This subnet should be a part
 of the network that the cluster belongs to.
-The network ID is set in the [Cluster.network_id](get.md#yandex.cloud.mdb.mongodb.v1.Cluster) field.
+The network ID is set in the [Cluster.network_id](../../../../managed-mongodb/api-ref/grpc/Cluster/get#yandex.cloud.mdb.mongodb.v1.Cluster) field.
 
 The maximum string length in characters is 50. ||
 || assign_public_ip | **bool**
 
 Whether the host should get a public IP address on creation.
-
 After a host has been created, this setting cannot be changed. To remove an assigned public IP, or to assign
 a public IP to a host without one, recreate the host with `assign_public_ip` set as needed.
-
 Possible values:
 * false - don't assign a public IP to the host.
 * true - the host should have a public IP address. ||
@@ -112,16 +111,10 @@ Host tags ||
   "created_by": "string",
   "modified_at": "google.protobuf.Timestamp",
   "done": "bool",
-  "metadata": {
-    "cluster_id": "string",
-    "shard_name": "string"
-  },
+  "metadata": "google.protobuf.Any",
   // Includes only one of the fields `error`, `response`
   "error": "google.rpc.Status",
-  "response": {
-    "name": "string",
-    "cluster_id": "string"
-  }
+  "response": "google.protobuf.Any"
   // end of the list of possible fields
 }
 ```
@@ -149,7 +142,7 @@ The time when the Operation resource was last modified. ||
 
 If the value is `false`, it means the operation is still in progress.
 If `true`, the operation is completed, and either `error` or `response` is available. ||
-|| metadata | **[AddClusterShardMetadata](#yandex.cloud.mdb.mongodb.v1.AddClusterShardMetadata)**
+|| metadata | **[google.protobuf.Any](https://developers.google.com/protocol-buffers/docs/proto3#any)**
 
 Service-specific metadata associated with the operation.
 It typically contains the ID of the target resource that the operation is performed on.
@@ -164,7 +157,7 @@ The operation result.
 If `done == false` and there was no failure detected, neither `error` nor `response` is set.
 If `done == false` and there was a failure detected, `error` is set.
 If `done == true`, exactly one of `error` or `response` is set. ||
-|| response | **[Shard](#yandex.cloud.mdb.mongodb.v1.Shard)**
+|| response | **[google.protobuf.Any](https://developers.google.com/protocol-buffers/docs/proto3#any)**
 
 The normal response of the operation in case of success.
 If the original method returns no data on success, such as Delete,
@@ -179,28 +172,4 @@ The operation result.
 If `done == false` and there was no failure detected, neither `error` nor `response` is set.
 If `done == false` and there was a failure detected, `error` is set.
 If `done == true`, exactly one of `error` or `response` is set. ||
-|#
-
-## AddClusterShardMetadata {#yandex.cloud.mdb.mongodb.v1.AddClusterShardMetadata}
-
-#|
-||Field | Description ||
-|| cluster_id | **string**
-
-ID of the MongoDB cluster that a shard is being added to. ||
-|| shard_name | **string**
-
-Name of the shard being added. ||
-|#
-
-## Shard {#yandex.cloud.mdb.mongodb.v1.Shard}
-
-#|
-||Field | Description ||
-|| name | **string**
-
-Name of the shard. ||
-|| cluster_id | **string**
-
-ID of the cluster that the shard belongs to. ||
 |#

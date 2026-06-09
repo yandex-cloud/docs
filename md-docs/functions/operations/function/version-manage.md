@@ -4,7 +4,7 @@
 
 {% note warning %}
 
-Файл больше 3,5 МБ необходимо [загружать через Object Storage](../../../storage/operations/objects/upload.md). Подробнее об ограничениях читайте в разделе [Квоты и лимиты в Cloud Functions](../../concepts/limits.md).
+Файл больше 3,5 МБ необходимо [загружать через {{ objstorage-short-name }}](../../../storage/operations/objects/upload.md). Подробнее об ограничениях читайте в разделе [{#T}](../../concepts/limits.md).
 
 {% endnote %}
 
@@ -45,35 +45,35 @@
 
 При создании версии необходимо задать следующие параметры:
 
-* _Среда выполнения_ — предоставляет дополнительные библиотеки и переменные окружения, к которым можно получить доступ из кода функции. Соответствует языку программирования, на котором написана ваша функция. Подробнее см. в разделе [Среда выполнения](../../concepts/runtime/index.md).
-* _Точка входа_ — функция, которая будет вызываться в качестве [обработчика](../../concepts/function.md#programming-model).
-* _Таймаут_ — максимальное время выполнения функции, после которого сервис прервет выполнение, не дожидаясь ответа. Включает в себя время начальной инициализации при первом запуске.
+* _{{ ui-key.yacloud.serverless-functions.item.editor.field_runtime }}_ — предоставляет дополнительные библиотеки и переменные окружения, к которым можно получить доступ из кода функции. Соответствует языку программирования, на котором написана ваша функция. Подробнее см. в разделе [Среда выполнения](../../concepts/runtime/index.md).
+* _{{ ui-key.yacloud.serverless-functions.item.editor.field_entry }}_ — функция, которая будет вызываться в качестве [обработчика](../../concepts/function.md#programming-model).
+* _{{ ui-key.yacloud.serverless-functions.item.editor.field_timeout }}_ — максимальное время выполнения функции, после которого сервис прервет выполнение, не дожидаясь ответа. Включает в себя время начальной инициализации при первом запуске.
 
 {% list tabs group=instructions %}
 
 - Консоль управления {#console}
 
-    1. В [консоли управления](https://console.yandex.cloud) перейдите в каталог, в котором находится функция.
-    1. [Перейдите](../../../console/operations/select-service.md#select-service) в сервис **Cloud Functions**.
+    1. В [консоли управления]({{ link-console-main }}) перейдите в каталог, в котором находится функция.
+    1. Перейдите в сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_serverless-functions }}**.
     1. Выберите функцию, версию которой хотите создать.
-    1. В разделе **Последняя версия** нажмите кнопку **Создать в редакторе**.
-    1. Выберите [среду выполнения](../../concepts/runtime/index.md). Отключите опцию **Добавить файлы с примерами кода**.
-    1. Нажмите кнопку **Продолжить**.
+    1. В разделе **{{ ui-key.yacloud.serverless-functions.item.overview.label_title-latest-version }}** нажмите кнопку **{{ ui-key.yacloud.serverless-functions.item.overview.button_editor-create }}**.
+    1. Выберите [среду выполнения](../../concepts/runtime/index.md). Отключите опцию **{{ ui-key.yacloud.serverless-functions.item.editor.label_with-template }}**.
+    1. Нажмите кнопку **{{ ui-key.yacloud.serverless-functions.item.editor.button_action-continue }}**.
     1. Подготовьте код функции:
-       * **Среда выполнения**: `nodejs18`.
-       * **Источник кода**: `ZIP-архив`.
-       * **Файл**: `hello-js.zip`.
-       * **Точка входа**: `index.handler`.
+       * **{{ ui-key.yacloud.serverless-functions.item.editor.field_runtime }}**: `nodejs18`.
+       * **{{ ui-key.yacloud.serverless-functions.item.editor.field_code-source }}**: `{{ ui-key.yacloud.serverless-functions.item.editor.value_method-zip-file }}`.
+       * **{{ ui-key.yacloud.serverless-functions.item.editor.field_file }}**: `hello-js.zip`.
+       * **{{ ui-key.yacloud.serverless-functions.item.editor.field_entry }}**: `index.handler`.
     1. Задайте параметры версии:
-       * **Таймаут**: `5`.
-       * **Память**: `128 МБ`.
-       * [**Сервисный аккаунт**](../../../iam/concepts/users/service-accounts.md): `Не выбрано`.
-       * [**Переменные окружения**](../../concepts/runtime/environment-variables.md): `Не выбрано`.
-    1. Нажмите кнопку **Сохранить изменения**.
+       * **{{ ui-key.yacloud.serverless-functions.item.editor.field_timeout }}**: `5`.
+       * **{{ ui-key.yacloud.serverless-functions.item.editor.field_resources-memory }}**: `128 {{ ui-key.yacloud.common.units.label_megabyte }}`.
+       * [**{{ ui-key.yacloud.forms.label_service-account-select }}**](../../../iam/concepts/users/service-accounts.md): `{{ ui-key.yacloud.component.service-account-select.label_no-service-account }}`.
+       * [**{{ ui-key.yacloud.serverless-functions.item.editor.field_environment-variables }}**](../../concepts/runtime/environment-variables.md): `{{ ui-key.yacloud.common.not-selected }}`.
+    1. Нажмите кнопку **{{ ui-key.yacloud.serverless-functions.item.editor.button_deploy-version }}**.
 
 - CLI {#cli}
 
-    Если у вас еще нет интерфейса командной строки Yandex Cloud (CLI), [установите и инициализируйте его](../../../cli/quickstart.md#install).
+    Если у вас еще нет интерфейса командной строки {{ yandex-cloud }} (CLI), [установите и инициализируйте его](../../../cli/quickstart.md#install).
 
     По умолчанию используется каталог, указанный при [создании](../../../cli/operations/profile/profile-create.md) профиля CLI. Чтобы изменить каталог по умолчанию, используйте команду `yc config set folder-id <идентификатор_каталога>`. Также для любой команды вы можете указать другой каталог с помощью параметров `--folder-name` или `--folder-id`. Если вы обращаетесь к ресурсу по имени, поиск будет выполнен в каталоге по умолчанию. Если вы обращаетесь к ресурсу по идентификатору, поиск будет выполнен глобально — во всех каталогах с учетом прав доступа.
 
@@ -118,19 +118,22 @@
       folder_id: b1g681qpemb4********
     ```
 
-- Terraform {#tf}
+- {{ TF }} {#tf}
 
-    [Terraform](https://www.terraform.io/) позволяет быстро создать облачную инфраструктуру в Yandex Cloud и управлять ею с помощью файлов конфигураций. В файлах конфигураций хранится описание инфраструктуры на языке HCL (HashiCorp Configuration Language). При изменении файлов конфигураций Terraform автоматически определяет, какая часть вашей конфигурации уже развернута, что следует добавить или удалить.
+    [{{ TF }}](https://www.terraform.io/) позволяет быстро создать облачную инфраструктуру в {{ yandex-cloud }} и управлять ею с помощью файлов конфигураций. В файлах конфигураций хранится описание инфраструктуры на языке HCL (HashiCorp Configuration Language). При изменении файлов конфигураций {{ TF }} автоматически определяет, какая часть вашей конфигурации уже развернута, что следует добавить или удалить.
     
-    Terraform распространяется под лицензией [Business Source License](https://github.com/hashicorp/terraform/blob/main/LICENSE), а [провайдер Yandex Cloud для Terraform](https://github.com/yandex-cloud/terraform-provider-yandex) — под лицензией [MPL-2.0](https://www.mozilla.org/en-US/MPL/2.0/).
+    {{ TF }} распространяется под лицензией [Business Source License](https://github.com/hashicorp/terraform/blob/main/LICENSE), а [провайдер {{ yandex-cloud }} для {{ TF }}](https://github.com/yandex-cloud/terraform-provider-yandex) — под лицензией [MPL-2.0](https://www.mozilla.org/en-US/MPL/2.0/).
     
-    Подробную информацию о ресурсах провайдера смотрите в документации на сайте [Terraform](https://www.terraform.io/docs/providers/yandex/index.html) или в [зеркале](../../../terraform/index.md).
+    Подробную информацию о ресурсах провайдера смотрите в документации на сайте [{{ TF }}](https://www.terraform.io/docs/providers/yandex/index.html) или в [зеркале]({{ tf-docs-link }}).
 
-    Если у вас еще нет Terraform, [установите его и настройте провайдер Yandex Cloud](../../../tutorials/infrastructure-management/terraform-quickstart.md#install-terraform).
+    Если у вас еще нет {{ TF }}, [установите его и настройте провайдер {{ yandex-cloud }}](../../../tutorials/infrastructure-management/terraform-quickstart.md#install-terraform).
+    
+    
+    Чтобы управлять инфраструктурой с помощью {{ TF }} от имени сервисного аккаунта или пользовательских аккаунтов: аккаунта на Яндексе, федеративного аккаунта и локального пользователя, [аутентифицируйтесь](../../../terraform/authentication.md) соответствующим способом.
 
     Чтобы создать новую версию функции:
 
-    1. Откройте файл конфигурации Terraform и измените параметры функции:
+    1. Откройте файл конфигурации {{ TF }} и измените параметры функции:
       
        * `yandex_function` — описание создаваемой функции и ее исходный код.
          * `name` — имя функции.
@@ -168,7 +171,7 @@
 
        {% endnote %}
 
-        Более подробную информацию о параметрах ресурса `yandex_function` см. в [документации провайдера](../../../terraform/resources/function.md).
+        Более подробную информацию о параметрах ресурса `yandex_function` см. в [документации провайдера]({{ tf-provider-resources-link }}/function).
 
     1. Проверьте конфигурацию командой:
         
@@ -188,7 +191,7 @@
        terraform plan
        ```
         
-       В терминале будет выведен список ресурсов с параметрами. На этом этапе изменения не будут внесены. Если в конфигурации есть ошибки, Terraform на них укажет. 
+       В терминале будет выведен список ресурсов с параметрами. На этом этапе изменения не будут внесены. Если в конфигурации есть ошибки, {{ TF }} на них укажет. 
          
     1. Примените изменения конфигурации:
 
@@ -197,7 +200,7 @@
        ```
     1. Подтвердите изменения: введите в терминал слово `yes` и нажмите **Enter**.
       
-    Проверить появление версии можно в [консоли управления](https://console.yandex.cloud) или с помощью команды [CLI](../../../cli/quickstart.md):
+    Проверить появление версии можно в [консоли управления]({{ link-console-main }}) или с помощью команды [CLI](../../../cli/quickstart.md):
 
     ```
     yc serverless function version list --function-name <имя_функции>
@@ -211,9 +214,9 @@
 
     Чтобы воспользоваться примерами, установите [cURL](https://curl.haxx.se) и [аутентифицируйтесь](../../api-ref/functions/authentication.md) в API.
 
-    {% cut "Пример с загрузкой кода из бакета Object Storage" %}
+    {% cut "Пример с загрузкой кода из бакета {{ objstorage-name }}" %}
 
-    1. [Загрузите](../../../storage/operations/objects/upload.md) в бакет Object Storage ZIP-архив с кодом версии функции `hello-js.zip`.
+    1. [Загрузите](../../../storage/operations/objects/upload.md) в бакет {{ objstorage-name }} ZIP-архив с кодом версии функции `hello-js.zip`.
     1. Подготовьте файл `body.json` с телом запроса:
 
         ```json
@@ -280,7 +283,7 @@
 
     {% endcut %}
 
-    {% cut "Пример с загрузкой кода из другой версии функции Cloud Functions" %}
+    {% cut "Пример с загрузкой кода из другой версии функции {{ sf-name }}" %}
 
     Подготовьте файл `body.json` с телом запроса:
 
@@ -315,7 +318,7 @@
     curl -X POST \
       -H "Authorization: Bearer ${IAM_TOKEN}" \
       -d "@<путь_к_файлу_body.json>" \
-      https://serverless-functions.api.cloud.yandex.net/functions/v1/versions
+      https://serverless-functions.{{ api-host }}/functions/v1/versions
     ```
     
     Результат:
@@ -340,6 +343,6 @@
 
 {% note info %}
 
-Для сохранения целостности связей изменение версий функции не предусмотрено. Подробнее о взаимосвязи ресурсов читайте в разделе [Функция](../../concepts/function.md).
+Для сохранения целостности связей изменение версий функции не предусмотрено. Подробнее о взаимосвязи ресурсов читайте в разделе [{#T}](../../concepts/function.md).
 
 {% endnote %}

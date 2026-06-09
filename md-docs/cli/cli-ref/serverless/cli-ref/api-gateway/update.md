@@ -88,9 +88,6 @@ Set the custom configuration file. ||
 Enable gRPC retries. By default, retries are enabled with maximum 5 attempts.
 Pass 0 to disable retries. Pass any negative value for infinite retries.
 Even infinite retries are capped with 2 minutes timeout. ||
-|| `--syntax` | `string`
-
-CLI syntax: 1 (legacy) or 2 (current). Omit to use default-syntax in the profile or the product default. ||
 || `--cloud-id` | `string`
 
 Set the ID of the cloud to use. ||
@@ -118,12 +115,3 @@ Set the output format: text (default), yaml, json, json-rest. ||
 Query to select values from the response using jq syntax ||
 || `-h`, `--help` | Display help for the command. ||
 |#
-#### Examples
-
- * [Настроить канареечный релиз](../../../../../api-gateway/operations/api-gw-canary.md#cli_1)
- * [Пример команды](../../../../../api-gateway/operations/api-gw-logs-write.md#cli_1)
- * [Изменить API-шлюз](../../../../../api-gateway/operations/api-gw-update.md#cli_1)
- * [Настроить переменные](../../../../../api-gateway/operations/api-gw-vars.md#cli_1)
- * [Добавить метку API-шлюзу](../../../../../api-gateway/operations/label-add.md#cli_1)
- * [Удалить метку API-шлюза](../../../../../api-gateway/operations/label-delete.md#cli_1)
- * [Изменить метку API-шлюза](../../../../../api-gateway/operations/label-update.md#cli_1)

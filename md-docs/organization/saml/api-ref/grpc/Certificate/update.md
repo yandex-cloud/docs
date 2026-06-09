@@ -22,7 +22,7 @@ Updates the specified certificate.
 ||Field | Description ||
 || certificate_id | **string**
 
-ID of the certificate to update.
+Required field. ID of the certificate to update.
 To get the certificate ID, make a [CertificateService.List](list.md#List) request.
 
 The maximum string length in characters is 50. ||
@@ -57,19 +57,10 @@ The maximum string length in characters is 32000. ||
   "created_by": "string",
   "modified_at": "google.protobuf.Timestamp",
   "done": "bool",
-  "metadata": {
-    "certificate_id": "string"
-  },
+  "metadata": "google.protobuf.Any",
   // Includes only one of the fields `error`, `response`
   "error": "google.rpc.Status",
-  "response": {
-    "id": "string",
-    "federation_id": "string",
-    "name": "string",
-    "description": "string",
-    "created_at": "google.protobuf.Timestamp",
-    "data": "string"
-  }
+  "response": "google.protobuf.Any"
   // end of the list of possible fields
 }
 ```
@@ -97,7 +88,7 @@ The time when the Operation resource was last modified. ||
 
 If the value is `false`, it means the operation is still in progress.
 If `true`, the operation is completed, and either `error` or `response` is available. ||
-|| metadata | **[UpdateCertificateMetadata](#yandex.cloud.organizationmanager.v1.saml.UpdateCertificateMetadata)**
+|| metadata | **[google.protobuf.Any](https://developers.google.com/protocol-buffers/docs/proto3#any)**
 
 Service-specific metadata associated with the operation.
 It typically contains the ID of the target resource that the operation is performed on.
@@ -112,7 +103,7 @@ The operation result.
 If `done == false` and there was no failure detected, neither `error` nor `response` is set.
 If `done == false` and there was a failure detected, `error` is set.
 If `done == true`, exactly one of `error` or `response` is set. ||
-|| response | **[Certificate](#yandex.cloud.organizationmanager.v1.saml.Certificate)**
+|| response | **[google.protobuf.Any](https://developers.google.com/protocol-buffers/docs/proto3#any)**
 
 The normal response of the operation in case of success.
 If the original method returns no data on success, such as Delete,
@@ -127,49 +118,4 @@ The operation result.
 If `done == false` and there was no failure detected, neither `error` nor `response` is set.
 If `done == false` and there was a failure detected, `error` is set.
 If `done == true`, exactly one of `error` or `response` is set. ||
-|#
-
-## UpdateCertificateMetadata {#yandex.cloud.organizationmanager.v1.saml.UpdateCertificateMetadata}
-
-#|
-||Field | Description ||
-|| certificate_id | **string**
-
-ID of the certificate that is being updated. ||
-|#
-
-## Certificate {#yandex.cloud.organizationmanager.v1.saml.Certificate}
-
-A certificate.
-
-#|
-||Field | Description ||
-|| id | **string**
-
-Required field. ID of the certificate.
-
-The maximum string length in characters is 50. ||
-|| federation_id | **string**
-
-Required field. ID of the federation that the certificate belongs to.
-
-The maximum string length in characters is 50. ||
-|| name | **string**
-
-Name of the certificate.
-
-Value must match the regular expression ``` |[a-z][-a-z0-9]{1,61}[a-z0-9] ```. ||
-|| description | **string**
-
-Description of the certificate.
-
-The maximum string length in characters is 256. ||
-|| created_at | **[google.protobuf.Timestamp](https://developers.google.com/protocol-buffers/docs/reference/google.protobuf#timestamp)**
-
-Creation timestamp. ||
-|| data | **string**
-
-Required field. Certificate data in PEM format.
-
-The maximum string length in characters is 32000. ||
 |#

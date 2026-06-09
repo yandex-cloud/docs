@@ -4926,6 +4926,9 @@ default:
             scope_filter_header_7CrSm: Контроль конфигурации
           ControlsExceptionTable:
             field_author: Автор
+            field_objects_5dGQy: Объекты
+            field_reason: Причина исключения
+            field_resources: Ресурсы
             field_rules: Правила
             field_status: Статус
           ControlsPage:
@@ -5082,6 +5085,9 @@ default:
           TriggeredRunsControl:
             action_check-environment_k3mP9: Проверить окружение на соответствие правилам контроля
             action_download-check-report_q7nR2: Скачать отчёт о проверке
+          workload-labels-checkbox_Wl4Cb: Метки подов
+          workload-names-checkbox_Wn4Cb: Имена рабочих нагрузок
+          workload-types-checkbox_Wt4Cb: Типы рабочих нагрузок
           WorkspaceEditPageLayout:
             tabGeneralParams_xc2v2: Основные параметры
             tabResources_vJuSN: Ресурсы
@@ -5602,7 +5608,6 @@ default:
             field_post-data-command-enabled_rXvwj: Выполнение команды после захвата данных
             field_pre-data-command-enabled_sZ45C: Выполнение команды до захвата данных
             field_pre-post-data-command_mmRTZ: Команды до и после захвата данных
-        title_backup: Резервное копирование
         title_linked-recourses: Привязанные ресурсы
         title_select-vm-backup-policies-row: Политики резервного копирования
         value_bms-recourses: Серверы BareMetal
@@ -6424,6 +6429,8 @@ default:
           hosts:
             label_title: Список хостов
         host-groups_eKsBm: Группы выделенных хостов
+        host-groups:
+          button_create-host-group: Создать группу выделенных хостов
         images_e7RdQ: Образы
         images:
           button_action-image: Создать образ
@@ -6444,6 +6451,8 @@ default:
           edit:
             button_update: Сохранить изменения
           overview:
+            backup-overview:
+              title_backup-section: Резервное копирование
             button_action-edit: Изменить ВМ
             button_action-ssh: Подключиться в Cloud Shell
             button_add-network-interface: Добавить сетевой интерфейс
@@ -6495,6 +6504,9 @@ default:
             button_net_empty-create: Создать сеть
             button_show-all-marketplace-products: Показать все продукты Marketplace
             field_access-advanced: Дополнительно
+            field_affinity-host-groups: Группы выделенных хостов
+            field_affinity-hosts: Идентификаторы хостов
+            field_affinity-key-type: Тип привязки
             field_coi-arguments: Аргументы команды
             field_coi-command: Команда
             field_coi-env: Переменные окружения
@@ -6506,6 +6518,7 @@ default:
               Выделить буфер для потока ввода во время выполнения
               Docker-контейнера
             field_coi-tty: Выделить TTY для Docker-контейнера
+            field_host-affinity-rules: Правила привязки к хостам
             field_instance-group-address: Публичный адрес
             field_instance-group-network: Сеть
             field_key: SSH-ключ
@@ -6533,6 +6546,8 @@ default:
             unified-agent: Агент сбора метрик
             value_address-auto: Автоматически
             value_address-none: Без адреса
+            value_affinity-key-host: Идентификатор хоста
+            value_affinity-key-host-group: Группа выделенных хостов
             value_coi-restart-always: Always
             value_coi-restart-never: Never
             value_coi-restart-on-failure: On-Failure
@@ -9485,7 +9500,7 @@ default:
                         title: Пользователь
                     GreenplumConnectionType:
                       mdb_cluster_id:
-                        title: Кластер Managed Service for Greenplum
+                        title: Кластер
                       on_premise:
                         title: Пользовательская инсталляция
                     GreenplumSource:
@@ -9515,7 +9530,7 @@ default:
                       primary_port:
                         title: Порт координатора
                       segments:
-                        title: Сегменты кластера Greenplum
+                        title: Сегменты кластера
                       subnet_id:
                         title: Идентификатор подсети
             iceberg:

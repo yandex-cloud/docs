@@ -1,15 +1,15 @@
-# Архитектура платформы Yandex Cloud
+# Архитектура платформы {{ yandex-cloud }}
 
-Облачная платформа Yandex Cloud — это набор надежных и безопасных сервисов для решения любых бизнес-задач. Сервисы платформы используют единый пул унифицированных аппаратных ресурсов, что позволяет быстро масштабировать платформу и с минимальными затратами автоматически подключать дополнительную инфраструктуру, если это необходимо.
+Облачная платформа {{ yandex-cloud }} — это набор надежных и безопасных сервисов для решения любых бизнес-задач. Сервисы платформы используют единый пул унифицированных аппаратных ресурсов, что позволяет быстро масштабировать платформу и с минимальными затратами автоматически подключать дополнительную инфраструктуру, если это необходимо.
 
 ![Architecture](../_assets/overview/architecture.svg =450x)
 
-Сетевое и серверное оборудование платформы Yandex Cloud размещается в [трех дата-центрах](concepts/geo-scope.md). На них работает базовая инфраструктура платформы: виртуальные сети и машины, сетевые блочные хранилища и база данных [YDB](https://ydb.tech). С помощью [виртуализации](../glossary/virtualization.md) оборудование дата-центров позволяет создавать имитированные вычислительные среды, разделяющие физическую и сетевую инфраструктуру между виртуальными машинами.
+Сетевое и серверное оборудование платформы {{ yandex-cloud }} размещается в [трех дата-центрах](concepts/geo-scope.md). На них работает базовая инфраструктура платформы: виртуальные сети и машины, сетевые блочные хранилища и база данных [YDB](https://ydb.tech). С помощью [виртуализации](../glossary/virtualization.md) оборудование дата-центров позволяет создавать имитированные вычислительные среды, разделяющие физическую и сетевую инфраструктуру между виртуальными машинами.
 
-Поверх базовой инфраструктуры работают [сервисы платформы](concepts/services.md). Для работы с сервисами доступны различные интерфейсы: [консоль управления](../console/index.md) и собственные интерфейсы сервисов, [мобильное приложение Yandex Cloud](mobile-app/index.md), [интерфейс командной строки CLI](../cli/index.md), инструменты разработки и [API](api.md).
+Поверх базовой инфраструктуры работают [сервисы платформы](concepts/services.md). Для работы с сервисами доступны различные интерфейсы: [консоль управления](../console/index.md) и собственные интерфейсы сервисов, [мобильное приложение {{ yandex-cloud }}](mobile-app/index.md), [интерфейс командной строки CLI](../cli/index.md), инструменты разработки и [API](api.md).
 
 
-## Видео об инфраструктуре Yandex Cloud {#see-also}
+## Видео об инфраструктуре {{ yandex-cloud }} {#see-also}
 
 * Архитектура Compute.
 
@@ -29,7 +29,7 @@
 
 
 
-* Архитектура [Yandex Identity and Access Management](../iam/index.md).
+* Архитектура [{{ iam-full-name }}](../iam/index.md).
 
   
   <iframe width="640" height="360" src="https://runtime.strm.yandex.ru/player/video/vplvcu3nds2sajztxcth?autoplay=0&mute=0" allow="autoplay; fullscreen; picture-in-picture; encrypted-media" frameborder="0" scrolling="no"></iframe>
@@ -38,7 +38,7 @@
 
 
 
-* Архитектура [Yandex Object Storage](../storage/index.md).
+* Архитектура [{{ objstorage-full-name }}](../storage/index.md).
 
   
   <iframe width="640" height="360" src="https://runtime.strm.yandex.ru/player/video/vplvngcqgcskyf3ysbha?autoplay=0&mute=0" allow="autoplay; fullscreen; picture-in-picture; encrypted-media" frameborder="0" scrolling="no"></iframe>
@@ -56,11 +56,11 @@
 
 
 
-Больше видео на Youtube-канале Yandex Cloud:
+Больше видео на Youtube-канале {{ yandex-cloud }}:
 
 * [Плейлист about:cloud — infrastructure](https://www.youtube.com/playlist?list=PL1x4ET76A10aMRLrpxwRzrEg8pcFp8yUv).
 * [Устройство сетевой инфраструктуры](https://youtu.be/4flMKfBKMd4?list=PL1x4ET76A10ZpAEZcRFNuTGhNQXAc8CNw).
 * [Экскурсия по дата-центру](https://www.youtube.com/watch?v=xbNPpD43uvE).
 * [Устройство виртуальной сети](https://www.youtube.com/watch?v=QsuBmnF2Wus&list=PL1x4ET76A10ZpAEZcRFNuTGhNQXAc8CNw&index=33).
-* [Как работает Yandex MPP Analytics for PostgreSQL](https://www.youtube.com/live/ec9hifUiMoE?feature=share).
-* [Под капотом Yandex SpeechKit](https://youtu.be/LVD104U4IjM).
+* [Как работает {{ mgp-full-name }}](https://www.youtube.com/live/ec9hifUiMoE?feature=share).
+* [Под капотом {{ speechkit-full-name }}](https://youtu.be/LVD104U4IjM).

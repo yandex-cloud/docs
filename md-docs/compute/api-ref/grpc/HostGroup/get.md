@@ -18,10 +18,10 @@ Returns the specified host group.
 ||Field | Description ||
 || host_group_id | **string**
 
-Required field. ID of the host group to return.
+ID of the host group to return.
 To get the host group ID, use [HostGroupService.List](list.md#List) request.
-
-The maximum string length in characters is 50. ||
+The length must be less than or equal to 50.
+This field is required. ||
 |#
 
 ## HostGroup {#yandex.cloud.compute.v1.HostGroup}

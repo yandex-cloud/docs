@@ -21,7 +21,7 @@ Retrieves the list of MongoDB User resources in the specified cluster.
 || cluster_id | **string**
 
 Required field. ID of the cluster to list MongoDB users in.
-To get the cluster ID, use a [ClusterService.List](../Cluster/list.md#List) request.
+To get the cluster ID, use a [ClusterService.List](../../../../managed-mongodb/api-ref/grpc/Cluster/list#List) request.
 
 The maximum string length in characters is 50. ||
 || page_size | **int64**
@@ -30,7 +30,7 @@ The maximum number of results per page to return. If the number of available
 results is larger than `page_size`, the service returns a [ListUsersResponse.next_page_token](#yandex.cloud.mdb.mongodb.v1.ListUsersResponse)
 that can be used to get the next page of results in subsequent list requests.
 
-The maximum value is 1000. ||
+Acceptable values are 0 to 1000, inclusive. ||
 || page_token | **string**
 
 Page token. To get the next page of results, set `page_token` to the
@@ -77,7 +77,7 @@ list request will have its own `next_page_token` to continue paging through the 
 ## User {#yandex.cloud.mdb.mongodb.v1.User}
 
 A MongoDB User resource. For more information, see the
-[Developer's Guide](../../../concepts/index.md).
+[Developer's Guide](../../../../managed-mongodb/concepts).
 
 #|
 ||Field | Description ||

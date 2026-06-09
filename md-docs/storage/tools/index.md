@@ -1,10 +1,10 @@
 # Поддерживаемые инструменты
 
-Object Storage поддерживает некоторые методы HTTP API Amazon S3. Это позволяет использовать при работе с Object Storage не только инструменты Yandex Cloud, но и популярные инструменты для работы с Amazon S3.
+{{ objstorage-name }} поддерживает некоторые методы HTTP API Amazon S3. Это позволяет использовать при работе с {{ objstorage-name }} не только инструменты {{ yandex-cloud }}, но и популярные инструменты для работы с Amazon S3.
 
 ## Консольные клиенты {#cli}
 
-* [Yandex Cloud CLI](yc-cli.md)
+* [{{ yandex-cloud }} CLI](yc-cli.md)
 * [AWS CLI](aws-cli.md)
 * [S3cmd](s3cmd.md)
 

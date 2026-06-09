@@ -114,10 +114,15 @@ resource "yandex_mdb_clickhouse_cluster_v2" "my_cluster" {
 
     hosts = {
         "clickhouse-host1" = {
-            type      = "CLICKHOUSE"
-            zone      = "ru-central1-a"
-            subnet_id = yandex_vpc_subnet.foo.id
+            type       = "CLICKHOUSE"
+            zone       = "ru-central1-a"
+            shard_name = "shard1"
+            subnet_id  = yandex_vpc_subnet.foo.id
         }
+    }
+
+    shards = {
+        "shard1" = {}
     }
 
     format_schema {
@@ -172,14 +177,16 @@ resource "yandex_mdb_clickhouse_cluster_v2" "my_cluster" {
 
   hosts = {
     "clickhouse-host1" = {
-      type      = "CLICKHOUSE"
-      zone      = "ru-central1-a"
-      subnet_id = yandex_vpc_subnet.foo.id
+      type       = "CLICKHOUSE"
+      zone       = "ru-central1-a"
+      shard_name = "shard1"
+      subnet_id  = yandex_vpc_subnet.foo.id
     }
     "clickhouse-host2" = {
-      type      = "CLICKHOUSE"
-      zone      = "ru-central1-b"
-      subnet_id = yandex_vpc_subnet.bar.id
+      type       = "CLICKHOUSE"
+      zone       = "ru-central1-b"
+      shard_name = "shard1"
+      subnet_id  = yandex_vpc_subnet.bar.id
     }
     "keeper-host1" = {
       type      = "KEEPER"
@@ -196,6 +203,10 @@ resource "yandex_mdb_clickhouse_cluster_v2" "my_cluster" {
       zone      = "ru-central1-d"
       subnet_id = yandex_vpc_subnet.baz.id
     }
+  }
+
+  shards = {
+    "shard1" = {}
   }
 
   cloud_storage = {
@@ -536,6 +547,9 @@ resource "yandex_vpc_subnet" "baz" {
 - `labels` (Map Of String). A set of key/value label pairs which assigned to resource.
 - `name` (**Required**)(String). Name of the ClickHouse cluster. Provided by the client when the cluster is created.
 - `network_id` (**Required**)(String). The `VPC Network ID` of subnets which resource attached to.
+- `performance_diagnostics` [Block]. Performance diagnostics configuration
+  - `enabled` (Bool). Enabled performance diagnostics.
+  - `processes_refresh_interval` (String). Refresh interval for performance diagnostics data. Specify the value duration format, for example `"15s"`, `"1m0s"`, or `"1h0m0s"`.
 - `restore` [Block]. The cluster will be created from the specified backup.
   - `backup_id` (**Required**)(String). Backup ID. The cluster will be created from the specified backup.
   - `exclude_patterns` (List Of String). Tables and databases to exclude from restore.

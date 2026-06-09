@@ -1,4 +1,4 @@
-# [Yandex DataLens] Backend app request timeout exceeded
+# [{{ datalens-full-name }}] Backend app request timeout exceeded
 
 `ERR.DS_API.REQUEST_TIMEOUT`
 
@@ -7,7 +7,7 @@
 Возможные причины ошибки:
 
 * долгая обработка запроса на стороне источника данных;
-* долгая подготовка запроса в источник данных на стороне DataLens.
+* долгая подготовка запроса в источник данных на стороне {{ datalens-short-name }}.
 
 Чтобы исправить ошибку:
 

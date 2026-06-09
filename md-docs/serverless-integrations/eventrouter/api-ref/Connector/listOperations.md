@@ -5,7 +5,7 @@ Lists operations for the specified connector.
 ## HTTP request
 
 ```
-GET https://serverless-eventrouter.api.cloud.yandex.net/eventrouter/v1/connectors/{connectorId}/operations
+GET https://serverless-eventrouter.{{ api-host }}/eventrouter/v1/connectors/{connectorId}/operations
 ```
 
 ## Path parameters

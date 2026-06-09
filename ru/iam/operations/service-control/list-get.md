@@ -14,10 +14,6 @@ description: С помощью этой инструкции вы научите
 
 {% list tabs group=instructions %}
 
-- Консоль управления {#console}
-
-  1. В [консоли управления]({{ link-console-main }}) на панели сверху нажмите ![image](../../../_assets/console-icons/layout-side-content-left.svg) или ![image](../../../_assets/console-icons/chevron-down.svg) и выберите нужное облако.
-  1. На панели слева нажмите ![image](../../../_assets/console-icons/ellipsis.svg) и выберите **{{ ui-key.yacloud.dashboard.label_permissions_gAtoT }}**.
 
 - CLI {#cli}
 
@@ -46,10 +42,16 @@ description: С помощью этой инструкции вы научите
       +--------------------+----------+
       |     SERVICE ID     |  STATUS  |
       +--------------------+----------+
+      | asset-manager      | DEFAULT  |
+      | backup             | DEFAULT  |
+      | cloud-registry     | ENABLED  |
       | connection-manager | ENABLED  |
+      | data-catalog       | DEFAULT  |
       | datasphere         | DISABLED |
       | disk-encryption    | DEFAULT  |
-      | dspm               | DEFAULT  |
+      | dspm               | ENABLED  |
+      | security-deck      | ENABLED  |
+      | src-integration    | DISABLED |
       | websql             | ENABLED  |
       +--------------------+----------+
       ```
@@ -66,11 +68,6 @@ description: С помощью этой инструкции вы научите
 
 {% list tabs group=instructions %}
 
-- Консоль управления {#console}
-
-  1. В [консоли управления]({{ link-console-main }}) на панели сверху нажмите ![image](../../../_assets/console-icons/layout-side-content-left.svg) или ![image](../../../_assets/console-icons/chevron-down.svg) и выберите нужное облако.
-  1. На панели слева нажмите ![image](../../../_assets/console-icons/ellipsis.svg) и выберите **{{ ui-key.yacloud.dashboard.label_permissions_gAtoT }}**.
-  1. В поле **{{ ui-key.yacloud.iam.ssa.label_filter-by-service-placeholder }}** введите название нужного сервиса.
 
 - CLI {#cli}
 

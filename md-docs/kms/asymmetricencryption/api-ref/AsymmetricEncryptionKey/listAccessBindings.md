@@ -5,7 +5,7 @@ Lists existing access bindings for the specified key.
 ## HTTP request
 
 ```
-GET https://kms.api.cloud.yandex.net/kms/v1/asymmetricEncryptionKeys/{resourceId}:listAccessBindings
+GET https://{{ api-host-kms }}/kms/v1/asymmetricEncryptionKeys/{resourceId}:listAccessBindings
 ```
 
 ## Path parameters

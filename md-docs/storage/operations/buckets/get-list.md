@@ -4,14 +4,14 @@
 
 - Консоль управления {#console}
 
-  1. В [консоли управления](https://console.yandex.cloud) выберите каталог.
-  1. [Перейдите](../../../console/operations/select-service.md#select-service) в сервис **Object Storage**.
+  1. В [консоли управления]({{ link-console-main }}) выберите каталог.
+  1. Перейдите в сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_storage }}**.
   
   На открывшейся странице отобразится полный список [бакетов](../../concepts/bucket.md).
 
-- Yandex Cloud CLI {#cli}
+- {{ yandex-cloud }} CLI {#cli}
 
-  Если у вас еще нет интерфейса командной строки Yandex Cloud (CLI), [установите и инициализируйте его](../../../cli/quickstart.md#install).
+  Если у вас еще нет интерфейса командной строки {{ yandex-cloud }} (CLI), [установите и инициализируйте его](../../../cli/quickstart.md#install).
 
   По умолчанию используется каталог, указанный при [создании](../../../cli/operations/profile/profile-create.md) профиля CLI. Чтобы изменить каталог по умолчанию, используйте команду `yc config set folder-id <идентификатор_каталога>`. Также для любой команды вы можете указать другой каталог с помощью параметров `--folder-name` или `--folder-id`. Если вы обращаетесь к ресурсу по имени, поиск будет выполнен в каталоге по умолчанию. Если вы обращаетесь к ресурсу по идентификатору, поиск будет выполнен глобально — во всех каталогах с учетом прав доступа.
 
@@ -44,10 +44,10 @@
 
       ```bash
       aws s3api list-buckets \
-        --endpoint-url=https://storage.yandexcloud.net
+        --endpoint-url=https://{{ s3-storage-host }}
       ```
 
-      Где `--endpoint-url` — эндпоинт Object Storage.
+      Где `--endpoint-url` — эндпоинт {{ objstorage-name }}.
 
       Результат:
 

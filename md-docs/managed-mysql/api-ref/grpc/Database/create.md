@@ -23,7 +23,6 @@ Creates a new database in a cluster.
 || cluster_id | **string**
 
 Required field. ID of the cluster to create the database in.
-
 To get this ID, make a [ClusterService.List](../Cluster/list.md#List) request.
 
 The maximum string length in characters is 50. ||
@@ -44,7 +43,6 @@ The maximum string length in characters is 63. Value must match the regular expr
 || deletion_protection_mode | enum **DeletionProtectionMode**
 
 Deletion Protection inhibits deletion of the database
-
 Default value: `DELETION_PROTECTION_MODE_DISABLED` (protection is disabled)
 
 - `DELETION_PROTECTION_MODE_DISABLED`: Deletion protection is disabled
@@ -62,17 +60,10 @@ Default value: `DELETION_PROTECTION_MODE_DISABLED` (protection is disabled)
   "created_by": "string",
   "modified_at": "google.protobuf.Timestamp",
   "done": "bool",
-  "metadata": {
-    "cluster_id": "string",
-    "database_name": "string"
-  },
+  "metadata": "google.protobuf.Any",
   // Includes only one of the fields `error`, `response`
   "error": "google.rpc.Status",
-  "response": {
-    "name": "string",
-    "cluster_id": "string",
-    "deletion_protection_mode": "DeletionProtectionMode"
-  }
+  "response": "google.protobuf.Any"
   // end of the list of possible fields
 }
 ```
@@ -100,7 +91,7 @@ The time when the Operation resource was last modified. ||
 
 If the value is `false`, it means the operation is still in progress.
 If `true`, the operation is completed, and either `error` or `response` is available. ||
-|| metadata | **[CreateDatabaseMetadata](#yandex.cloud.mdb.mysql.v1.CreateDatabaseMetadata)**
+|| metadata | **[google.protobuf.Any](https://developers.google.com/protocol-buffers/docs/proto3#any)**
 
 Service-specific metadata associated with the operation.
 It typically contains the ID of the target resource that the operation is performed on.
@@ -115,7 +106,7 @@ The operation result.
 If `done == false` and there was no failure detected, neither `error` nor `response` is set.
 If `done == false` and there was a failure detected, `error` is set.
 If `done == true`, exactly one of `error` or `response` is set. ||
-|| response | **[Database](#yandex.cloud.mdb.mysql.v1.Database)**
+|| response | **[google.protobuf.Any](https://developers.google.com/protocol-buffers/docs/proto3#any)**
 
 The normal response of the operation in case of success.
 If the original method returns no data on success, such as Delete,
@@ -130,41 +121,4 @@ The operation result.
 If `done == false` and there was no failure detected, neither `error` nor `response` is set.
 If `done == false` and there was a failure detected, `error` is set.
 If `done == true`, exactly one of `error` or `response` is set. ||
-|#
-
-## CreateDatabaseMetadata {#yandex.cloud.mdb.mysql.v1.CreateDatabaseMetadata}
-
-#|
-||Field | Description ||
-|| cluster_id | **string**
-
-ID of the cluster the database is being created in. ||
-|| database_name | **string**
-
-Name of the database that is being created. ||
-|#
-
-## Database {#yandex.cloud.mdb.mysql.v1.Database}
-
-An object that represents MySQL database.
-
-See [the documentation](../../../operations/databases.md) for details.
-
-#|
-||Field | Description ||
-|| name | **string**
-
-Name of the database. ||
-|| cluster_id | **string**
-
-ID of the cluster that the database belongs to. ||
-|| deletion_protection_mode | enum **DeletionProtectionMode**
-
-Deletion Protection inhibits deletion of the database
-
-Default value: `DELETION_PROTECTION_MODE_DISABLED` (protection is disabled)
-
-- `DELETION_PROTECTION_MODE_DISABLED`: Deletion protection is disabled
-- `DELETION_PROTECTION_MODE_ENABLED`: Deletion protection is enabled
-- `DELETION_PROTECTION_MODE_INHERITED`: Deletion protection mode is inherited from the cluster ||
 |#

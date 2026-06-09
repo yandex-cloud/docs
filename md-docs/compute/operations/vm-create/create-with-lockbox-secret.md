@@ -1,8 +1,8 @@
-# Создать ВМ с доступом к секрету Yandex Lockbox
+# Создать ВМ с доступом к секрету {{ lockbox-full-name }}
 
-Через сервис [метаданных](../../concepts/vm-metadata.md) можно передать в [виртуальную машину](../../concepts/vm.md) идентификатор [секрета Yandex Lockbox](../../../lockbox/concepts/secret.md), чтобы затем изнутри ВМ получить значение этого секрета с помощью [IAM-токена](../../../iam/concepts/authorization/iam-token.md) привязанного к ВМ [сервисного аккаунта](../../../iam/concepts/users/service-accounts.md).
+Через сервис [метаданных](../../concepts/vm-metadata.md) можно передать в [виртуальную машину](../../concepts/vm.md) идентификатор [секрета {{ lockbox-full-name }}](../../../lockbox/concepts/secret.md), чтобы затем изнутри ВМ получить значение этого секрета с помощью [IAM-токена](../../../iam/concepts/authorization/iam-token.md) привязанного к ВМ [сервисного аккаунта](../../../iam/concepts/users/service-accounts.md).
 
-Секреты Yandex Lockbox, как и другие пользовательские данные, передаются в ключе `user-data`. Метаданные в [каталог](../../concepts/metadata/directories.md#dir-user) `user-data` можно передавать как при [создании](../index.md#vm-create) ВМ, так и при ее [изменении](../vm-control/vm-update.md).
+Секреты {{ lockbox-name }}, как и другие пользовательские данные, передаются в ключе `user-data`. Метаданные в [каталог](../../concepts/metadata/directories.md#dir-user) `user-data` можно передавать как при [создании](../index.md#vm-create) ВМ, так и при ее [изменении](../vm-control/vm-update.md).
 
 {% note info %}
 
@@ -12,9 +12,9 @@
 
 {% endnote %}
 
-Чтобы передать секрет Yandex Lockbox на виртуальную машину через метаданные:
+Чтобы передать секрет {{ lockbox-name }} на виртуальную машину через метаданные:
 
-1. [Создайте](../../../lockbox/operations/secret-create.md) секрет Yandex Lockbox.
+1. [Создайте](../../../lockbox/operations/secret-create.md) секрет {{ lockbox-name }}.
 1. [Создайте](../../../iam/operations/sa/create.md) сервисный аккаунт и [назначьте](../../../iam/operations/sa/assign-role-for-sa.md#binding-role-resource) ему [роль](../../../lockbox/security/index.md#lockbox-payloadViewer) `lockbox.payloadViewer`.
 1. Создайте файл `metadata.yaml` и поместите в него следующую конфигурацию метаданных создаваемой ВМ:
 
@@ -58,49 +58,49 @@
 
     - Консоль управления {#console}
 
-      1. В [консоли управления](https://console.yandex.cloud) выберите каталог, в котором находятся секрет и сервисный аккаунт.
-      1. [Перейдите](../../../console/operations/select-service.md#select-service) в сервис **Compute Cloud**.
-      1. На панели слева выберите ![image](../../../_assets/console-icons/server.svg) **Виртуальные машины**.
-      1. Нажмите кнопку **Создать виртуальную машину**.
-      1. В блоке **Образ загрузочного диска** выберите образ [Ubuntu 24.04 LTS](https://yandex.cloud/ru/marketplace/products/yc/ubuntu-2404-lts-oslogin).
-      1. В блоке **Расположение** выберите [зону доступности](../../../overview/concepts/geo-scope.md), в которой будет находиться ВМ.
-      1. В блоке **Сетевые настройки** в поле **Подсеть** укажите идентификатор подсети в зоне доступности создаваемой ВМ или выберите [облачную сеть](../../../vpc/concepts/network.md#network) из списка.
-      1. В блоке **Доступ** выберите вариант **SSH-ключ** и укажите данные для доступа к ВМ:
+      1. В [консоли управления]({{ link-console-main }}) выберите каталог, в котором находятся секрет и сервисный аккаунт.
+      1. Перейдите в сервис **{{ compute-name }}**.
+      1. На панели слева выберите ![image](../../../_assets/console-icons/server.svg) **{{ ui-key.yacloud.compute.instances_jsoza }}**.
+      1. Нажмите кнопку **{{ ui-key.yacloud.compute.instances.button_create }}**.
+      1. В блоке **{{ ui-key.yacloud.compute.instances.create.section_image }}** выберите образ [Ubuntu 24.04 LTS](https://yandex.cloud/ru/marketplace/products/yc/ubuntu-2404-lts-oslogin).
+      1. В блоке **{{ ui-key.yacloud.k8s.node-groups.create.section_allocation-policy }}** выберите [зону доступности](../../../overview/concepts/geo-scope.md), в которой будет находиться ВМ.
+      1. В блоке **{{ ui-key.yacloud.compute.instances.create.section_network }}** в поле **{{ ui-key.yacloud.component.compute.network-select.field_subnetwork }}** укажите идентификатор подсети в зоне доступности создаваемой ВМ или выберите [облачную сеть](../../../vpc/concepts/network.md#network) из списка.
+      1. В блоке **{{ ui-key.yacloud.compute.instances.create.section_access }}** выберите вариант **{{ ui-key.yacloud.compute.instance.access-method.label_oslogin-control-ssh-option-title }}** и укажите данные для доступа к ВМ:
 
-          * В поле **Логин** введите имя пользователя ВМ.
-          * В поле **SSH-ключ** выберите SSH-ключ, сохраненный в вашем профиле [пользователя организации](../../../organization/concepts/membership.md).
+          * В поле **{{ ui-key.yacloud.compute.instances.create.field_user }}** введите имя пользователя ВМ.
+          * В поле **{{ ui-key.yacloud.compute.instances.create.field_key }}** выберите SSH-ключ, сохраненный в вашем профиле [пользователя организации](../../../organization/concepts/membership.md).
             
             Если в вашем профиле нет сохраненных SSH-ключей или вы хотите добавить новый ключ:
             
-            1. Нажмите кнопку **Добавить ключ**.
+            1. Нажмите кнопку **{{ ui-key.yacloud.compute.instances.create.button_add-ssh-key }}**.
             1. Задайте имя SSH-ключа.
             1. Выберите вариант:
             
-                * `Ввести вручную` — вставьте содержимое открытого [SSH](../../../glossary/ssh-keygen.md)-ключа. Пару SSH-ключей необходимо [создать](../vm-connect/ssh.md#creating-ssh-keys) самостоятельно.
-                * `Загрузить из файла` — загрузите открытую часть SSH-ключа. Пару SSH-ключей необходимо создать самостоятельно.
-                * `Сгенерировать ключ` — автоматическое создание пары SSH-ключей.
+                * `{{ ui-key.yacloud_components.ssh-key-add-dialog.value_radio-manual }}` — вставьте содержимое открытого [SSH](../../../glossary/ssh-keygen.md)-ключа. Пару SSH-ключей необходимо [создать](../vm-connect/ssh.md#creating-ssh-keys) самостоятельно.
+                * `{{ ui-key.yacloud_components.ssh-key-add-dialog.value_radio-upload }}` — загрузите открытую часть SSH-ключа. Пару SSH-ключей необходимо создать самостоятельно.
+                * `{{ ui-key.yacloud_components.ssh-key-add-dialog.value_radio-generate }}` — автоматическое создание пары SSH-ключей.
                 
                   При добавлении сгенерированного SSH-ключа будет создан и загружен архив с парой ключей. В ОС на базе Linux или macOS распакуйте архив в папку `/home/<имя_пользователя>/.ssh`. В ОС Windows распакуйте архив в папку `C:\Users\<имя_пользователя>/.ssh`. Дополнительно вводить открытый ключ в консоли управления не требуется.
             
-            1. Нажмите кнопку **Добавить**.
+            1. Нажмите кнопку **{{ ui-key.yacloud.common.add }}**.
             
             SSH-ключ будет добавлен в ваш профиль пользователя организации. Если в организации [отключена](../../../organization/operations/os-login-access.md) возможность добавления пользователями SSH-ключей в свои профили, добавленный открытый SSH-ключ будет сохранен только в профиле пользователя внутри создаваемого ресурса.
-      1. В блоке **Общая информация** задайте имя ВМ:
+      1. В блоке **{{ ui-key.yacloud.compute.instances.create.section_base }}** задайте имя ВМ:
 
           * длина — от 3 до 63 символов;
           * может содержать строчные буквы латинского алфавита, цифры и дефисы;
           * первый символ — буква, последний — не дефис.
 
-      1. В блоке **Дополнительно** выберите созданный ранее сервисный аккаунт.
-      1. В блоке **Метаданные**:
+      1. В блоке **{{ ui-key.yacloud.compute.instances.create.section_additional }}** выберите созданный ранее сервисный аккаунт.
+      1. В блоке **{{ ui-key.yacloud.common.metadata }}**:
 
-          * В поле **Ключ** укажите `user-data`.
-          * В поле **Значение** вставьте содержимое созданного ранее файла конфигурации `metadata.yaml`.
-      1. Нажмите кнопку **Создать ВМ**.
+          * В поле **{{ ui-key.yacloud.common.label_key }}** укажите `user-data`.
+          * В поле **{{ ui-key.yacloud.common.value }}** вставьте содержимое созданного ранее файла конфигурации `metadata.yaml`.
+      1. Нажмите кнопку **{{ ui-key.yacloud.compute.instances.create.button_create }}**.
 
     - CLI {#cli}
 
-      Если у вас еще нет интерфейса командной строки Yandex Cloud (CLI), [установите и инициализируйте его](../../../cli/quickstart.md#install).
+      Если у вас еще нет интерфейса командной строки {{ yandex-cloud }} (CLI), [установите и инициализируйте его](../../../cli/quickstart.md#install).
 
       По умолчанию используется каталог, указанный при [создании](../../../cli/operations/profile/profile-create.md) профиля CLI. Чтобы изменить каталог по умолчанию, используйте команду `yc config set folder-id <идентификатор_каталога>`. Также для любой команды вы можете указать другой каталог с помощью параметров `--folder-name` или `--folder-id`. Если вы обращаетесь к ресурсу по имени, поиск будет выполнен в каталоге по умолчанию. Если вы обращаетесь к ресурсу по идентификатору, поиск будет выполнен глобально — во всех каталогах с учетом прав доступа.
 
@@ -135,7 +135,7 @@
       folder_id: b1gt6g8ht345********
       created_at: "2025-02-04T18:18:58Z"
       name: my-vm
-      zone_id: ru-central1-b
+      zone_id: {{ region-id }}-b
       platform_id: standard-v2
       resources:
         memory: "2147483648"
@@ -177,9 +177,12 @@
 
       {% endcut %}
 
-    - Terraform {#tf}
+    - {{ TF }} {#tf}
 
-      Если у вас еще нет Terraform, [установите его и настройте провайдер Yandex Cloud](../../../tutorials/infrastructure-management/terraform-quickstart.md#install-terraform).
+      Если у вас еще нет {{ TF }}, [установите его и настройте провайдер {{ yandex-cloud }}](../../../tutorials/infrastructure-management/terraform-quickstart.md#install-terraform).
+      
+      
+      Чтобы управлять инфраструктурой с помощью {{ TF }} от имени сервисного аккаунта или пользовательских аккаунтов: аккаунта на Яндексе, федеративного аккаунта и локального пользователя, [аутентифицируйтесь](../../../terraform/authentication.md) соответствующим способом.
 
       1. Опишите в конфигурационном файле параметры ресурсов, которые необходимо создать:
 
@@ -230,7 +233,7 @@
           * `security_group_ids` — идентификатор [группы безопасности](../../../vpc/concepts/security-groups.md).
           * `user-data` — путь к созданному ранее файлу конфигурации `metadata.yaml`.
 
-          Подробнее о создаваемых ресурсах см. в [документации провайдера](../../../terraform/index.md).
+          Подробнее о создаваемых ресурсах см. в [документации провайдера]({{ tf-provider-link }}).
 
       1. Создайте ресурсы:
 
@@ -253,7 +256,7 @@
              terraform plan
              ```
           
-             В терминале будет выведен список ресурсов с параметрами. На этом этапе изменения не будут внесены. Если в конфигурации есть ошибки, Terraform на них укажет.
+             В терминале будет выведен список ресурсов с параметрами. На этом этапе изменения не будут внесены. Если в конфигурации есть ошибки, {{ TF }} на них укажет.
           1. Примените изменения конфигурации:
           
              ```bash
@@ -262,7 +265,7 @@
           
           1. Подтвердите изменения: введите в терминале слово `yes` и нажмите **Enter**.
 
-          После этого в указанном каталоге будут созданы все требуемые ресурсы. Проверить появление ресурсов и их настройки можно в [консоли управления](https://console.yandex.cloud).
+          После этого в указанном каталоге будут созданы все требуемые ресурсы. Проверить появление ресурсов и их настройки можно в [консоли управления]({{ link-console-main }}).
 
     - API {#api}
 
@@ -282,10 +285,10 @@
         ```bash
         export my_secret_id=$(curl -sf -H Metadata-Flavor:Google 169.254.169.254/latest/user-data | yq .datasource.secrets.my_secret | tr -d \")
         ```
-    1. Получите и сохраните в переменную `my_secret_value` значение секрета, отправив запрос к API Yandex Lockbox:
+    1. Получите и сохраните в переменную `my_secret_value` значение секрета, отправив запрос к API {{ lockbox-full-name }}:
 
         ```bash
-        export my_secret_value=$(curl -sf -H "Authorization: Bearer $YC_TOKEN" "https://payload.lockbox.api.cloud.yandex.net/lockbox/v1/secrets/${my_secret_id}/payload" | jq -r .entries[0].textValue)
+        export my_secret_value=$(curl -sf -H "Authorization: Bearer $YC_TOKEN" "https://{{ api-host-lockbox-payload }}/lockbox/v1/secrets/${my_secret_id}/payload" | jq -r .entries[0].textValue)
         echo $my_secret_value
         ```
 
@@ -300,6 +303,6 @@
 
 #### См. также {#see-also}
 
-* [Метаданные виртуальной машины](../../concepts/vm-metadata.md)
-* [Создать виртуальную машину с метаданными из переменных окружения](create-with-env-variables.md)
-* [Создать виртуальную машину с пользовательским скриптом конфигурации](create-with-cloud-init-scripts.md)
+* [{#T}](../../concepts/vm-metadata.md)
+* [{#T}](create-with-env-variables.md)
+* [{#T}](create-with-cloud-init-scripts.md)

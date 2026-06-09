@@ -1,5 +1,7 @@
 # Cloud CDN API, gRPC: RawLogsService.Activate
 
+Activate raw log export.
+
 ## gRPC request
 
 **rpc Activate ([ActivateRawLogsRequest](#yandex.cloud.cdn.v1.ActivateRawLogsRequest)) returns ([operation.Operation](#yandex.cloud.operation.Operation))**

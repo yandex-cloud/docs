@@ -5,8 +5,6 @@ description: Follow this guide to get authenticated in the {{ yandex-cloud }} CL
 
 # Authenticating as a local user
 
-{% include [userpools-preview-stage](../../../_includes/iam/userpools-preview-stage.md) %}
-
 You can use a [local user](../../../iam/concepts/users/accounts.md#local) account to work with {{ yandex-cloud }} if your [organization](../../../organization/concepts/organization.md) has a [user pool](../../../organization/concepts/user-pools.md) configured. In this case, you can get authenticated without an individual [Yandex account](../../../iam/concepts/users/accounts.md#passport).
 
 {% note info %}

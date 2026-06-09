@@ -1,4 +1,4 @@
-# Сопоставление Serverless Containers с другими сервисами Yandex Cloud
+# Сопоставление {{ serverless-containers-name }} с другими сервисами {{ yandex-cloud }}
 
 **Критерий \ Сервис** | **Container<br/>Solution** | **Managed<br/>Service for<br/>Kubernetes** | **Cloud<br/>Functions** | **Serverless<br/>Containers**
 --- | --- | --- | --- | ---

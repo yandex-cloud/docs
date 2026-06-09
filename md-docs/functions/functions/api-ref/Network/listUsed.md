@@ -5,7 +5,7 @@ Retrieves the list of networks in the specified scope that are used in serverles
 ## HTTP request
 
 ```
-GET https://serverless-functions.api.cloud.yandex.net/functions/v1/networks/used
+GET https://serverless-functions.{{ api-host }}/functions/v1/networks/used
 ```
 
 ## Query parameters {#yandex.cloud.serverless.functions.v1.ListUsedNetworksRequest}

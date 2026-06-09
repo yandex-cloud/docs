@@ -5,7 +5,7 @@ Retrieves the list of policies of the specified certificate authority.
 ## HTTP request
 
 ```
-GET https://private-ca.certificate-manager.api.cloud.yandex.net/privateca/v1/policies
+GET https://private-ca.certificate-manager.{{ api-host }}/privateca/v1/policies
 ```
 
 ## Query parameters {#yandex.cloud.certificatemanager.v1.privateca.ListPolicyRequest}

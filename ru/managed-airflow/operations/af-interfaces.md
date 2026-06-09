@@ -45,10 +45,10 @@ keywords:
         --header 'X-Cloud-Authorization: Bearer <IAM-токен>'
     ```
 
-    Запрос возвращает список DAG-файлов. Пример ответа см. в [документации API {{ AF }}](https://airflow.apache.org/docs/apache-airflow/stable/stable-rest-api-ref.html#operation/get_dags).
+    Запрос возвращает список DAG-файлов. Пример ответа в [документации API {{ AF }}](https://airflow.apache.org/docs/apache-airflow/stable/stable-rest-api-ref.html#operation/get_dags).
 
 {% note warning %}
 
-Чтобы использовать базовую аутентификацию в API {{ AF }} как в примере выше, при [создании](cluster-create.md) или [изменении](cluster-update.md) кластера задайте значение свойства `api.auth_backends` **:** `airflow.api.auth.backend.basic_auth` в блоке **{{ ui-key.yacloud.airflow.section_airflow-configuration }}**. Подробнее об аутентификации в API см. в [документации {{ AF }}](https://airflow.apache.org/docs/apache-airflow/stable/security/api.html).
+Чтобы использовать базовую аутентификацию в API {{ AF }} как в примере выше, при [создании](cluster-create.md) или [изменении](cluster-update.md) кластера задайте значение свойства `api.auth_backends` **:** `airflow.api.auth.backend.basic_auth` в блоке **{{ ui-key.yacloud.airflow.section_airflow-configuration }}**. Подробнее об аутентификации в API в [документации {{ AF }}](https://airflow.apache.org/docs/apache-airflow/stable/security/api.html).
 
 {% endnote %}

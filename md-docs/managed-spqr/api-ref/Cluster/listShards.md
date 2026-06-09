@@ -5,7 +5,7 @@ Retrieves a list of shards.
 ## HTTP request
 
 ```
-GET https://mdb.api.cloud.yandex.net/managed-spqr/v1/clusters/{clusterId}/shards
+GET https://{{ api-host-mdb }}/managed-spqr/v1/clusters/{clusterId}/shards
 ```
 
 ## Path parameters

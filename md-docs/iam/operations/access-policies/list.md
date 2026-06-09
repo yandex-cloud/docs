@@ -2,11 +2,11 @@
 
 {% note info %}
 
-Функциональность находится на стадии [Preview](../../../overview/concepts/launch-stages.md). Чтобы получить доступ, обратитесь в [техническую поддержку](https://center.yandex.cloud/support) или к вашему аккаунт-менеджеру.
+Функциональность находится на стадии [Preview](../../../overview/concepts/launch-stages.md). Чтобы получить доступ, обратитесь в [техническую поддержку]({{ link-console-support }}) или к вашему аккаунт-менеджеру.
 
 {% endnote %}
 
-[Политики авторизации](../../concepts/access-control/access-policies.md) — это механизм контроля доступа Yandex Identity and Access Management, который позволяет управлять разрешениями на выполнение определенных операций с [ресурсами Yandex Cloud](../../../overview/roles-and-resources.md). Политики авторизации создаются на основе [шаблонов](../../concepts/access-control/access-policies.md#supported-policies) и дополняют систему [ролей](../../concepts/access-control/roles.md), делая [управление доступом](../../concepts/access-control/index.md) более гибким.
+[Политики авторизации](../../concepts/access-control/access-policies.md) — это механизм контроля доступа {{ iam-full-name }}, который позволяет управлять разрешениями на выполнение определенных операций с [ресурсами {{ yandex-cloud }}](../../../overview/roles-and-resources.md). Политики авторизации создаются на основе [шаблонов](../../concepts/access-control/access-policies.md#supported-policies) и дополняют систему [ролей](../../concepts/access-control/roles.md), делая [управление доступом](../../concepts/access-control/index.md) более гибким.
 
 Чтобы получить список [поддерживаемых шаблонов](../../concepts/access-control/access-policies.md#supported-policies) политик авторизации:
 
@@ -14,7 +14,7 @@
 
 - CLI {#cli}
 
-  Если у вас еще нет интерфейса командной строки Yandex Cloud (CLI), [установите и инициализируйте его](../../../cli/quickstart.md#install).
+  Если у вас еще нет интерфейса командной строки {{ yandex-cloud }} (CLI), [установите и инициализируйте его](../../../cli/quickstart.md#install).
 
   Выполните команду:
 
@@ -28,6 +28,11 @@
   +----------------------------------------------------+---------------------------------------------------------+--------------------------------+
   |                         ID                         |                          NAME                           |          DESCRIPTION           |
   +----------------------------------------------------+---------------------------------------------------------+--------------------------------+
+  | backup.denyActivation                              | backup-deny-activation                                  | Restrict Cloud Backup          |
+  |                                                    |                                                         | activation and backup policies |
+  |                                                    |                                                         | changes                        |
+  | backup.denyRemoveProtection                        | backup-deny-remove-protection                           | Restrict Cloud Backup removal  |
+  |                                                    |                                                         | and backup policies changes    |
   | iam.denyServiceAccountAccessKeysCreation           | iam-deny-service-account-access-keys-creation           | Deny creation of service       |
   |                                                    |                                                         | account access keys            |
   | iam.denyServiceAccountApiKeysCreation              | iam-deny-service-account-api-keys-creation              | Deny creation of service       |
@@ -46,15 +51,34 @@
   |                                                    |                                                         | to the organization            |
   | organization.denyUserListing                       | organization-deny-user-listing                          | Deny listing of users in the   |
   |                                                    |                                                         | organization                   |
-  | serverless.restrictPrivateNetworkInvocation        | serverless-restrict-private-network-invocation          | Restrict serverless functions  |
-  |                                                    |                                                         | and containers invocation from |
-  |                                                    |                                                         | private vpc networks (by vpc   |
-  |                                                    |                                                         | network ids and/or by private  |
-  |                                                    |                                                         | vpc addresses)                 |
-  | serverless.restrictPublicInvocation                | serverless-restrict-public-invocation                   | Restrict serverless functions  |
-  |                                                    |                                                         | and containers invocation      |
-  |                                                    |                                                         | from public ip addresses by    |
-  |                                                    |                                                         | whitelist                      |
+  | serverless.containers.restrictNetworkAccess        | serverless-containers-restrict-network-access           | Restrict Serverless Containers |
+  |                                                    |                                                         | network access by source IP    |
+  |                                                    |                                                         | addresses and VPC network IDs  |
+  | serverless.containers.restrictResourceVPCNetwork   | serverless-containers-restrict-resource-vpc-network     | Restrict Serverless Containers |
+  |                                                    |                                                         | resource VPC network by        |
+  |                                                    |                                                         | allowed VPC network IDs        |
+  | serverless.functions.restrictNetworkAccess         | serverless-functions-restrict-network-access            | Restrict Cloud Functions       |
+  |                                                    |                                                         | network access by source IP    |
+  |                                                    |                                                         | addresses and VPC network IDs  |
+  | serverless.functions.restrictResourceVPCNetwork    | serverless-functions-restrict-resource-vpc-network      | Restrict Cloud Functions       |
+  |                                                    |                                                         | resource VPC network by        |
+  |                                                    |                                                         | allowed VPC network IDs        |
+  | serverless.mcpGateways.restrictNetworkAccess       | serverless-mcp-gateways-restrict-network-access         | Restrict MCP Gateways network  |
+  |                                                    |                                                         | access by source IP addresses  |
+  |                                                    |                                                         | and VPC network IDs            |
+  | serverless.mcpGateways.restrictResourceVPCNetwork  | serverless-mcp-gateways-restrict-resource-vpc-network   | Restrict MCP Gateways resource |
+  |                                                    |                                                         | VPC network by allowed VPC     |
+  |                                                    |                                                         | network IDs                    |
+  | serverless.responses.restrictNetworkAccess         | serverless-responses-restrict-network-access            | Restrict Foundation Models     |
+  |                                                    |                                                         | Responses network access by    |
+  |                                                    |                                                         | source IP addresses and VPC    |
+  |                                                    |                                                         | network IDs                    |
+  | serverless.workflows.restrictNetworkAccess         | serverless-workflows-restrict-network-access            | Restrict Serverless Workflows  |
+  |                                                    |                                                         | network access by source IP    |
+  |                                                    |                                                         | addresses and VPC network IDs  |
+  | serverless.workflows.restrictResourceVPCNetwork    | serverless-workflows-restrict-resource-vpc-network      | Restrict Serverless Workflows  |
+  |                                                    |                                                         | resource VPC network by        |
+  |                                                    |                                                         | allowed VPC network IDs        |
   +----------------------------------------------------+---------------------------------------------------------+--------------------------------+
   ```
 
@@ -66,7 +90,7 @@
 
 #### См. также {#see-also}
 
-* [Политики авторизации](../../concepts/access-control/access-policies.md)
-* [Создание политики авторизации для ресурса](assign.md)
-* [Просмотр политик авторизации, созданных для ресурса](view-assigned.md)
-* [Удаление политики авторизации](revoke.md)
+* [{#T}](../../concepts/access-control/access-policies.md)
+* [{#T}](assign.md)
+* [{#T}](view-assigned.md)
+* [{#T}](revoke.md)

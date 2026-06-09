@@ -1,8 +1,8 @@
 # Доступ к бакету с помощью эфемерного ключа доступа
 
-[Эфемерные ключи доступа](../../../iam/concepts/authorization/ephemeral-keys.md) — это временные ключи с ограниченным сроком действия, которые предоставляют безопасный способ доступа к ресурсам [Yandex Object Storage](../../index.md) без необходимости хранить [статические ключи](../../../iam/concepts/authorization/access-key.md). В этом руководстве вы научитесь создавать эфемерные ключи с помощью скрипта и использовать их для создания [бакетов](../../concepts/bucket.md) и загрузки [объектов](../../concepts/object.md) с помощью [AWS CLI](https://aws.amazon.com/ru/cli/).
+[Эфемерные ключи доступа](../../../iam/concepts/authorization/ephemeral-keys.md) — это временные ключи с ограниченным сроком действия, которые предоставляют безопасный способ доступа к ресурсам [{{ objstorage-full-name }}](../../index.md) без необходимости хранить [статические ключи](../../../iam/concepts/authorization/access-key.md). В этом руководстве вы научитесь создавать эфемерные ключи с помощью скрипта и использовать их для создания [бакетов](../../concepts/bucket.md) и загрузки [объектов](../../concepts/object.md) с помощью [AWS CLI](https://aws.amazon.com/ru/cli/).
 
-Чтобы загрузить объекты в бакет Object Storage с помощью эфемерного ключа доступа:
+Чтобы загрузить объекты в бакет {{ objstorage-name }} с помощью эфемерного ключа доступа:
 
 1. [Подготовьте облако к работе](#before-you-begin).
 1. [Создайте сервисный аккаунт](#create-sa).
@@ -16,11 +16,11 @@
 
 ## Подготовьте облако к работе {#before-you-begin}
 
-Зарегистрируйтесь в Yandex Cloud и создайте [платежный аккаунт](../../../billing/concepts/billing-account.md):
-1. Перейдите в [консоль управления](https://console.yandex.cloud), затем войдите в Yandex Cloud или зарегистрируйтесь.
-1. На странице **[Yandex Cloud Billing](https://center.yandex.cloud/billing/accounts)** убедитесь, что у вас подключен платежный аккаунт, и он находится в [статусе](../../../billing/concepts/billing-account-statuses.md) `ACTIVE` или `TRIAL_ACTIVE`. Если платежного аккаунта нет, [создайте его](../../../billing/quickstart/index.md) и [привяжите](../../../billing/operations/pin-cloud.md) к нему облако.
+Зарегистрируйтесь в {{ yandex-cloud }} и создайте [платежный аккаунт](../../../billing/concepts/billing-account.md):
+1. Перейдите в [консоль управления]({{ link-console-main }}), затем войдите в {{ yandex-cloud }} или зарегистрируйтесь.
+1. На странице **[{{ ui-key.yacloud_billing.billing.label_service }}]({{ link-console-billing }})** убедитесь, что у вас подключен платежный аккаунт, и он находится в [статусе](../../../billing/concepts/billing-account-statuses.md) `ACTIVE` или `TRIAL_ACTIVE`. Если платежного аккаунта нет, [создайте его](../../../billing/quickstart/index.md) и [привяжите](../../../billing/operations/pin-cloud.md) к нему облако.
 
-Если у вас есть активный платежный аккаунт, вы можете создать или выбрать [каталог](../../../resource-manager/concepts/resources-hierarchy.md#folder), в котором будет работать ваша инфраструктура, на [странице облака](https://console.yandex.cloud/cloud).
+Если у вас есть активный платежный аккаунт, вы можете создать или выбрать [каталог](../../../resource-manager/concepts/resources-hierarchy.md#folder), в котором будет работать ваша инфраструктура, на [странице облака]({{ link-console-cloud }}).
 
 [Подробнее об облаках и каталогах](../../../resource-manager/concepts/resources-hierarchy.md).
 
@@ -30,15 +30,15 @@
 
 В стоимость поддержки инфраструктуры входит:
 
-* плата за хранение данных в бакете (см. [тарифы Object Storage](../../pricing.md#prices-storage));
-* плата за операции с данными (см. [тарифы Object Storage](../../pricing.md#prices-operations)).
+* плата за хранение данных в бакете (см. [тарифы {{ objstorage-name }}](../../pricing.md#prices-storage));
+* плата за операции с данными (см. [тарифы {{ objstorage-name }}](../../pricing.md#prices-operations)).
 
 
 
 ### Настройте окружение {#setup-environment}
 
 
-* Если у вас еще нет интерфейса командной строки Yandex Cloud (CLI), [установите и инициализируйте его](../../../cli/quickstart.md#install).
+* Если у вас еще нет интерфейса командной строки {{ yandex-cloud }} (CLI), [установите и инициализируйте его](../../../cli/quickstart.md#install).
 * Установите и настройте интерфейс командной строки [AWS CLI](../../tools/aws-cli.md).
 * Скачайте и установите утилиту [jq](https://stedolan.github.io/jq/download/).
 
@@ -51,14 +51,14 @@
 
 - Консоль управления {#console}
 
-  1. Откройте [консоль управления](https://console.yandex.cloud).
-  1. [Перейдите](../../../console/operations/select-service.md#select-service) в сервис **Identity and Access Management**.
-  1. Нажмите **Создать сервисный аккаунт**.
-  1. В поле **Имя** укажите `ephemeral-sa`.
-  1. Нажмите ![image](../../../_assets/console-icons/plus.svg) **Добавить роль** и выберите роль `storage.editor`.
-  1. Нажмите **Создать**.
+  1. Откройте [консоль управления]({{ link-console-main }}).
+  1. Перейдите в сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_iam }}**.
+  1. Нажмите **{{ ui-key.yacloud.iam.folder.service-accounts.button_add }}**.
+  1. В поле **{{ ui-key.yacloud.iam.folder.service-account.popup-robot_field_name }}** укажите `ephemeral-sa`.
+  1. Нажмите ![image](../../../_assets/console-icons/plus.svg) **{{ ui-key.yacloud.iam.folder.service-account.label_add-role }}** и выберите роль `storage.editor`.
+  1. Нажмите **{{ ui-key.yacloud.iam.folder.service-account.popup-robot_button_add }}**.
 
-- Yandex Cloud CLI {#cli}
+- {{ yandex-cloud }} CLI {#cli}
 
   По умолчанию используется каталог, указанный при [создании](../../../cli/operations/profile/profile-create.md) профиля CLI. Чтобы изменить каталог по умолчанию, используйте команду `yc config set folder-id <идентификатор_каталога>`. Также для любой команды вы можете указать другой каталог с помощью параметров `--folder-name` или `--folder-id`. Если вы обращаетесь к ресурсу по имени, поиск будет выполнен в каталоге по умолчанию. Если вы обращаетесь к ресурсу по идентификатору, поиск будет выполнен глобально — во всех каталогах с учетом прав доступа.
 
@@ -113,16 +113,18 @@
 * `kms.keys.decrypter` — для чтения ключа, [расшифровки](../../../kms/security/index.md#kms-keys-decrypter) и скачивания объектов;
 * `kms.keys.encrypterDecrypter` — включает [разрешения](../../../kms/security/index.md#kms-keys-encrypterDecrypter), предоставляемые ролями `kms.keys.encrypter` и `kms.keys.decrypter`.
 
-Подробнее см. [Сервисные роли Key Management Service](../../../kms/security/index.md#service-roles).
+Подробнее см. [Сервисные роли {{ kms-name }}](../../../kms/security/index.md#service-roles).
 
 
 ## Подготовьте скрипт для создания эфемерного ключа доступа {#prepare-script}
 
-Скрипт позволяет избежать необходимости обновлять эфемерный ключ в профиле AWS CLI после истечения срока действия ключа. Как управлять эфемерными ключами вручную — см. в документе [Управление эфемерными ключами доступа](../../../iam/operations/authentication/manage-ephemeral-keys.md).
+Скрипт позволяет избежать необходимости обновлять эфемерный ключ в профиле AWS CLI после истечения срока действия ключа. Как управлять эфемерными ключами вручную — см. в документе [{#T}](../../../iam/operations/authentication/manage-ephemeral-keys.md).
+
+Чтобы создать эфемерный ключ доступа, пользователю необходима [роль](../../../iam/security/index.md#iam-serviceAccounts-ephemeralAccessKeyAdmin) `iam.serviceAccounts.ephemeralAccessKeyAdmin` или выше на каталог.
 
 {% list tabs group=instructions %}
 
-- Yandex Cloud CLI {#cli}
+- {{ yandex-cloud }} CLI {#cli}
 
   По умолчанию используется каталог, указанный при [создании](../../../cli/operations/profile/profile-create.md) профиля CLI. Чтобы изменить каталог по умолчанию, используйте команду `yc config set folder-id <идентификатор_каталога>`. Также для любой команды вы можете указать другой каталог с помощью параметров `--folder-name` или `--folder-id`. Если вы обращаетесь к ресурсу по имени, поиск будет выполнен в каталоге по умолчанию. Если вы обращаетесь к ресурсу по идентификатору, поиск будет выполнен глобально — во всех каталогах с учетом прав доступа.
 
@@ -169,8 +171,8 @@
 
       ```text
       [ephemeral-profile]
-      region = ru-central1
-      endpoint_url = https://storage.yandexcloud.net
+      region = {{ region-id }}
+      endpoint_url = https://{{ s3-storage-host }}
       credential_process = <путь_к_файлу>
       ```
 
@@ -208,7 +210,7 @@
   make_bucket: my-bucket
   ```
 
-  Подробности см. в документе [Создание бакета](create.md).
+  Подробности см. в документе [{#T}](create.md).
 
 {% endlist %}
 
@@ -224,7 +226,7 @@
   1. Создайте тестовый файл:
 
       ```bash
-      echo "Hello, Yandex Cloud!" > test-file.txt
+      echo "Hello, {{ yandex-cloud }}!" > test-file.txt
       ```
 
   1. Выполните команду для загрузки файла, указав путь к локальному файлу, имя вашего бакета и [ключ](../../concepts/object.md#key), по которому объект будет храниться в бакете:
@@ -254,7 +256,7 @@
       2025-10-03 09:45:12         23 test-file.txt
       ```
 
-  Подробности см. в документе [Загрузка объекта](../objects/upload.md).
+  Подробности см. в документе [{#T}](../objects/upload.md).
 
 {% endlist %}
 
@@ -269,6 +271,6 @@
 
 #### См. также {#see-also}
 
-* [Обзор способов управления доступом в Object Storage](../../security/overview.md)
-* [Доступ в бакет с помощью Security Token Service](create-sts-key.md)
-* [Управление эфемерными ключами доступа](../../../iam/operations/authentication/manage-ephemeral-keys.md)
+* [{#T}](../../security/overview.md)
+* [{#T}](create-sts-key.md)
+* [{#T}](../../../iam/operations/authentication/manage-ephemeral-keys.md)

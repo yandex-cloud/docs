@@ -1,12 +1,12 @@
-# Справочник аудитных логов Yandex Audit Trails
+# Справочник аудитных логов {{ at-full-name }}
 
 
-В Audit Trails для Yandex Managed Service for Sharded PostgreSQL поддерживается отслеживание [событий уровня конфигурации](../audit-trails/concepts/format.md) (Control Plane) и [событий уровня сервисов](../audit-trails/concepts/format-data-plane.md) (Data Plane).
+В {{ at-name }} для {{ mspqr-full-name }} поддерживается отслеживание [событий уровня конфигурации](../audit-trails/concepts/format.md) (Control Plane) и [событий уровня сервисов](../audit-trails/concepts/format-data-plane.md) (Data Plane).
 
 Общий вид значения поля `event_type` (_тип события_):
 
 ```text
-yandex.cloud.audit.mdb.spqr.<имя_события>
+{{ at-event-prefix }}.audit.mdb.spqr.<имя_события>
 ```
 
 Подробная JSON-структура записи события приведена в справочнике аудитных логов. События в нем отсортированы по алфавиту без разделения на уровни и содержат все возможные поля. В реальных логах набор полей зависит от параметров события и конкретного объекта.
@@ -21,6 +21,7 @@ yandex.cloud.audit.mdb.spqr.<имя_события>
 `DeleteBackup` | Удаление резервной копии
 `DeleteCluster` | Удаление кластера
 `DeleteClusterHosts` | Удаление хостов из кластера
+`MoveCluster` | Перемещение кластера
 `RescheduleMaintenance` | Перенос запланированного технического обслуживания
 `RestoreCluster` | Создание нового кластера из резервной копии
 `StartCluster` | Запуск кластера

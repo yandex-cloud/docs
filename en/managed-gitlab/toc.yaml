@@ -11,7 +11,7 @@ items:
         href: operations/instance/instance-list.md
       - name: Creating and activating an instance
         href: operations/instance/instance-create.md
-      - name: Setting up security groups and access restrictions for an instance
+      - name: Configuring security groups
         href: operations/configure-security-group.md
       - name: Stopping and starting an instance
         href: operations/instance/instance-stop.md
@@ -80,7 +80,12 @@ items:
       - name: Migration from a custom {{ GL }} installation
         href: concepts/migration.md
       - name: Approval rules
-        href: concepts/approval-rules.md
+        expanded: true
+        items:
+          - name: Overview
+            href: concepts/approval-rules.md
+          - name: Recommendations and examples
+            href: concepts/approval-rules-scenarios.md
       - name: Backups
         href: concepts/backup.md
       - name: Security in {{ GL }}

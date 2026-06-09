@@ -1,4 +1,4 @@
-# [Yandex DataLens] Authentication failed
+# [{{ datalens-full-name }}] Authentication failed
 
 `ERR.DS_API.DB.CHYT.AUTH_FAILED`
 

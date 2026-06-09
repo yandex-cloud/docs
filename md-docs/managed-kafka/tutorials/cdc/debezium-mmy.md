@@ -1,25 +1,25 @@
-# Поставка данных из Yandex Managed Service for MySQL® с помощью Debezium
+# Поставка данных из {{ mmy-full-name }} с помощью Debezium
 
-# Поставка данных из Yandex Managed Service for MySQL® в Yandex Managed Service for Apache Kafka® с помощью Debezium
+# Поставка данных из {{ mmy-full-name }} в {{ mkf-full-name }} с помощью Debezium
 
-Вы можете отслеживать изменения данных в Managed Service for MySQL® и отправлять их в Managed Service for Apache Kafka® с помощью технологии Change Data Capture (CDC).
+Вы можете отслеживать изменения данных в {{ mmy-name }} и отправлять их в {{ mkf-name }} с помощью технологии Change Data Capture (CDC).
 
-Из этой статьи вы узнаете, как создать в Yandex Cloud виртуальную машину и настроить на ней [Debezium](https://debezium.io/documentation/reference/index.html) — программное обеспечение, используемое для CDC.
+Из этой статьи вы узнаете, как создать в {{ yandex-cloud }} виртуальную машину и настроить на ней [Debezium](https://debezium.io/documentation/reference/index.html) — программное обеспечение, используемое для CDC.
 
 
 ## Необходимые платные ресурсы {#paid-resources}
 
-* Кластер Managed Service for Apache Kafka®: выделенные хостам вычислительные ресурсы, объем хранилища и резервных копий (см. [тарифы Managed Service for Apache Kafka®](../../pricing.md)).
-* Кластер Managed Service for MySQL®: выделенные хостам вычислительные ресурсы, объем хранилища и резервных копий (см. [тарифы Managed Service for MySQL®](../../../managed-mysql/pricing.md)).
-* Публичные IP-адреса, если для хостов кластеров включен публичный доступ (см. [тарифы Virtual Private Cloud](../../../vpc/pricing.md)).
-* Виртуальная машина: использование вычислительных ресурсов, хранилища, публичного IP-адреса и операционной системы (см. [тарифы Compute Cloud](../../../compute/pricing.md)).
+* Кластер {{ mkf-name }}: выделенные хостам вычислительные ресурсы, объем хранилища и резервных копий (см. [тарифы {{ mkf-name }}](../../pricing.md)).
+* Кластер {{ mmy-name }}: выделенные хостам вычислительные ресурсы, объем хранилища и резервных копий (см. [тарифы {{ mmy-name }}](../../../managed-mysql/pricing.md)).
+* Публичные IP-адреса, если для хостов кластеров включен публичный доступ (см. [тарифы {{ vpc-name }}](../../../vpc/pricing.md)).
+* Виртуальная машина: использование вычислительных ресурсов, хранилища, публичного IP-адреса и операционной системы (см. [тарифы {{ compute-name }}](../../../compute/pricing.md)).
 
 
 ## Перед началом работы {#before-you-begin}
 
 {% note info %}
 
-Публичный доступ к хостам кластера нужен, если вы планируете подключаться к кластеру через интернет. Этот вариант подключения более простой, и его рекомендуется использовать для прохождения руководства. К хостам без публичного доступа тоже можно подключиться, но только с виртуальных машин Yandex Cloud, расположенных в той же облачной сети, что и кластер.
+Публичный доступ к хостам кластера нужен, если вы планируете подключаться к кластеру через интернет. Этот вариант подключения более простой, и его рекомендуется использовать для прохождения руководства. К хостам без публичного доступа тоже можно подключиться, но только с виртуальных машин {{ yandex-cloud }}, расположенных в той же облачной сети, что и кластер.
 
 {% endnote %}
 
@@ -29,15 +29,15 @@
     * с базой данных `db1`;
     * с пользователем `user1`.
 
-1. [Создайте _кластер-приемник_ Managed Service for Apache Kafka®](../../operations/cluster-create.md) любой подходящей конфигурации с хостами в публичном доступе.
+1. [Создайте _кластер-приемник_ {{ mkf-name }}](../../operations/cluster-create.md) любой подходящей конфигурации с хостами в публичном доступе.
 
 1. [Создайте виртуальную машину](../../../compute/operations/vm-create/create-linux-vm.md) с [Ubuntu 20.04](https://yandex.cloud/ru/marketplace/products/yc/ubuntu-20-04-lts) и публичным IP-адресом.
 
 
 1. Если вы используете группы безопасности, настройте их так, чтобы к кластерам можно было подключаться из интернета и созданной виртуальной машины, а к ней — из интернета по [SSH](../../../glossary/ssh-keygen.md):
 
-    * [Настройка групп безопасности кластера Managed Service for Apache Kafka®](../../operations/connect/index.md#configuring-security-groups).
-    * [Настройка групп безопасности кластера Managed Service for MySQL®](../../../managed-mysql/operations/connect/index.md#configure-security-groups).
+    * [Настройка групп безопасности кластера {{ mkf-name }}](../../operations/connect/index.md#configuring-security-groups).
+    * [Настройка групп безопасности кластера {{ mmy-name }}](../../../managed-mysql/operations/connect/index.md#configure-security-groups).
 
 
 1. [Подключитесь к виртуальной машине по SSH](../../../compute/operations/vm-connect/ssh.md#vm-connect) и выполните ее предварительную настройку:
@@ -49,27 +49,27 @@
             sudo apt install kafkacat openjdk-17-jre mysql-client --yes
         ```
 
-        Убедитесь, что можете с ее помощью [подключиться к кластеру-источнику Managed Service for Apache Kafka® через SSL](../../operations/connect/clients.md#bash-zsh).
+        Убедитесь, что можете с ее помощью [подключиться к кластеру-источнику {{ mkf-name }} через SSL](../../operations/connect/clients.md#bash-zsh).
 
-    1. Создайте директорию для Apache Kafka®:
+    1. Создайте директорию для {{ KF }}:
 
         ```bash
         sudo mkdir -p /opt/kafka/
         ```
 
-    1. Скачайте и распакуйте в эту директорию архив с исполняемыми файлами Apache Kafka®. Например, для загрузки и распаковки Apache Kafka® версии 3.0 выполните команду:
+    1. Скачайте и распакуйте в эту директорию архив с исполняемыми файлами {{ KF }}. Например, для загрузки и распаковки {{ KF }} версии 3.0 выполните команду:
 
         ```bash
         wget https://archive.apache.org/dist/kafka/3.0.0/kafka_2.13-3.0.0.tgz && \
         sudo tar xf kafka_2.13-3.0.0.tgz --strip 1 --directory /opt/kafka/
         ```
 
-        Актуальную версию Apache Kafka® уточняйте на [странице загрузок проекта](https://kafka.apache.org/community/downloads/).
+        Актуальную версию {{ KF }} уточняйте на [странице загрузок проекта](https://kafka.apache.org/community/downloads/).
 
     1. Установите на виртуальную машину сертификаты и убедитесь в доступности кластеров:
 
-        * [Managed Service for Apache Kafka®](../../operations/connect/clients.md) (используйте утилиту `kafkacat`).
-        * [Managed Service for MySQL®](../../../managed-mysql/operations/connect/index.md#get-ssl-cert) (используйте утилиту `mysql`).
+        * [{{ mkf-name }}](../../operations/connect/clients.md) (используйте утилиту `kafkacat`).
+        * [{{ mmy-name }}](../../../managed-mysql/operations/connect/index.md#get-ssl-cert) (используйте утилиту `mysql`).
 
     1. Создайте директорию, в которой будут храниться файлы, необходимые для работы коннектора Debezium:
 
@@ -77,12 +77,12 @@
         sudo mkdir -p /etc/debezium/plugins/
         ```
 
-    1. Чтобы коннектор Debezium мог подключаться к хостам-брокерам Managed Service for Apache Kafka®, добавьте SSL-сертификат в защищенное хранилище сертификатов Java (Java Key Store). Для дополнительной защиты хранилища в параметре `-storepass` укажите пароль длиной не меньше 6 символов:
+    1. Чтобы коннектор Debezium мог подключаться к хостам-брокерам {{ mkf-name }}, добавьте SSL-сертификат в защищенное хранилище сертификатов Java (Java Key Store). Для дополнительной защиты хранилища в параметре `-storepass` укажите пароль длиной не меньше 6 символов:
 
         ```bash
         sudo keytool \
             -importcert \
-            -alias YandexCA -file /usr/local/share/ca-certificates/Yandex/YandexInternalRootCA.crt \
+            -alias YandexCA -file /usr/local/share/ca-certificates/Yandex/{{ crt-local-file }} \
             -keystore /etc/debezium/keystore.jks \
             -storepass <пароль_JKS> \
             --noprompt
@@ -140,7 +140,7 @@
     ```init
     name=debezium-mmy
     connector.class=io.debezium.connector.mysql.MySqlConnector
-    database.hostname=c-<идентификатор_кластера>.rw.mdb.yandexcloud.net
+    database.hostname=c-<идентификатор_кластера>.rw.{{ dns-zone }}
     database.port=3306
     database.user=user1
     database.password=<пароль_пользователя_user1>
@@ -180,8 +180,8 @@
 
         Идентификатор кластера можно получить со [списком кластеров в каталоге](../../../managed-mysql/operations/cluster-list.md#list-clusters).
 
-    * `database.user` — имя пользователя MySQL®.
-    * `database.dbname` — имя базы данных MySQL®.
+    * `database.user` — имя пользователя {{ MY }}.
+    * `database.dbname` — имя базы данных {{ MY }}.
     * `database.server.name` — имя сервера баз данных, которое [Debezium будет использовать](#prepare-target) при выборе топика для отправки сообщений.
     * `table.include.list` — имена таблиц, для которых Debezium должен отслеживать изменения. Укажите полные имена, включающие в себя имя базы данных (`db1`). [Debezium будет использовать](#prepare-target) значения настроек из этого поля при выборе топика для отправки сообщений.
     * `heartbeat.interval.ms` и `heartbeat.topics.prefix` — настройки heartbeat, [необходимые для работы](https://debezium.io/documentation/reference/connectors/mysql.html#mysql-property-heartbeat-interval-ms) Debezium.
@@ -191,7 +191,7 @@
 
 1. [Создайте топик](../../operations/cluster-topics.md#create-topic), в который будут помещаться данные, поступающие от кластера-источника:
 
-    * **Имя** — `mmy.db1.measurements`.
+    * **{{ ui-key.yacloud.common.name }}** — `mmy.db1.measurements`.
 
         Имена топиков для данных [конструируются](https://debezium.io/documentation/reference/connectors/mysql.html#mysql-topic-names) по принципу `<имя_сервера>.<имя_БД>.<имя_таблицы>`.
 
@@ -204,7 +204,7 @@
 
 1. Создайте служебный топик для отслеживания состояния коннектора:
 
-    * **Имя** — `__debezium-heartbeat.mmy`.
+    * **{{ ui-key.yacloud.common.name }}** — `__debezium-heartbeat.mmy`.
 
         Имена служебных топиков [конструируются](https://debezium.io/documentation/reference/connectors/mysql.html#mysql-property-heartbeat-topics-prefix) по принципу `<префикс_для_heartbeat>.<имя_сервера>`.
 
@@ -213,15 +213,15 @@
         * Префикс `__debezium-heartbeat` указан в параметре `heartbeat.topics.prefix`.
         * Имя сервера `mmy` указано в параметре `database.server.name`.
 
-    * **Политика очистки лога** — `Compact`.
+    * **{{ ui-key.yacloud.kafka.label_topic-cleanup-policy }}** — `Compact`.
 
     Если необходимо получать данные из нескольких кластеров-источников, создайте для каждого из них отдельный служебный топик.
 
 1. Создайте служебный топик для отслеживания изменений в схеме формата данных:
 
-    * **Имя** — `dbhistory.mmy`.
-    * **Политика очистки лога** — `Delete`.
-    * **Количество разделов** — `1`.
+    * **{{ ui-key.yacloud.common.name }}** — `dbhistory.mmy`.
+    * **{{ ui-key.yacloud.kafka.label_topic-cleanup-policy }}** — `Delete`.
+    * **{{ ui-key.yacloud.kafka.label_partitions }}** — `1`.
 
 1. [Создайте пользователя](../../operations/cluster-accounts.md#create-account) с именем `debezium`.
 
@@ -279,7 +279,7 @@
         -X sasl.mechanisms=SCRAM-SHA-512 \
         -X sasl.username=debezium \
         -X sasl.password=<пароль> \
-        -X ssl.ca.location=/usr/local/share/ca-certificates/Yandex/YandexInternalRootCA.crt \
+        -X ssl.ca.location=/usr/local/share/ca-certificates/Yandex/{{ crt-local-file }} \
         -Z \
         -K:
     ```
@@ -346,5 +346,5 @@
 
 1. Удалите кластеры:
 
-    * [Managed Service for Apache Kafka®](../../operations/cluster-delete.md).
-    * [Managed Service for MySQL®](../../../managed-mysql/operations/cluster-delete.md).
+    * [{{ mkf-name }}](../../operations/cluster-delete.md).
+    * [{{ mmy-name }}](../../../managed-mysql/operations/cluster-delete.md).

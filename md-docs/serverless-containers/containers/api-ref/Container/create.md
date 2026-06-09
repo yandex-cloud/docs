@@ -5,7 +5,7 @@ Creates a container in the specified folder.
 ## HTTP request
 
 ```
-POST https://serverless-containers.api.cloud.yandex.net/containers/v1/containers
+POST https://serverless-containers.{{ api-host }}/containers/v1/containers
 ```
 
 ## Body parameters {#yandex.cloud.serverless.containers.v1.CreateContainerRequest}

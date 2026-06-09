@@ -1,35 +1,35 @@
 # Сокращатель ссылок с помощью консоли управления
 
 
-Чтобы создать [сокращатель ссылок](index.md) с помощью консоли управления Yandex Cloud:
+Чтобы создать [сокращатель ссылок](index.md) с помощью консоли управления {{ yandex-cloud }}:
 
 1. [Подготовьте облако к работе](#before-begin).
 1. [Настройте хостинг страницы сокращателя](#object-storage).
 1. [Создайте сервисный аккаунт](#service-account).
-1. [Создайте БД в Yandex Managed Service for YDB](#ydb).
-1. [Настройте функцию в Yandex Cloud Functions](#function).
-1. [Опубликуйте сервис через Yandex API Gateway](#api-gw).
+1. [Создайте БД в {{ ydb-full-name }}](#ydb).
+1. [Настройте функцию в {{ sf-full-name }}](#function).
+1. [Опубликуйте сервис через {{ api-gw-full-name }}](#api-gw).
 1. [Проверьте работу сокращателя](#test).
 
 Если созданные ресурсы вам больше не нужны, [удалите их](#clear-out).
 
 ## Подготовьте облако к работе {#before-begin}
 
-Зарегистрируйтесь в Yandex Cloud и создайте [платежный аккаунт](../../../billing/concepts/billing-account.md):
-1. Перейдите в [консоль управления](https://console.yandex.cloud), затем войдите в Yandex Cloud или зарегистрируйтесь.
-1. На странице **[Yandex Cloud Billing](https://center.yandex.cloud/billing/accounts)** убедитесь, что у вас подключен платежный аккаунт, и он находится в [статусе](../../../billing/concepts/billing-account-statuses.md) `ACTIVE` или `TRIAL_ACTIVE`. Если платежного аккаунта нет, [создайте его](../../../billing/quickstart/index.md) и [привяжите](../../../billing/operations/pin-cloud.md) к нему облако.
+Зарегистрируйтесь в {{ yandex-cloud }} и создайте [платежный аккаунт](../../../billing/concepts/billing-account.md):
+1. Перейдите в [консоль управления]({{ link-console-main }}), затем войдите в {{ yandex-cloud }} или зарегистрируйтесь.
+1. На странице **[{{ ui-key.yacloud_billing.billing.label_service }}]({{ link-console-billing }})** убедитесь, что у вас подключен платежный аккаунт, и он находится в [статусе](../../../billing/concepts/billing-account-statuses.md) `ACTIVE` или `TRIAL_ACTIVE`. Если платежного аккаунта нет, [создайте его](../../../billing/quickstart/index.md) и [привяжите](../../../billing/operations/pin-cloud.md) к нему облако.
 
-Если у вас есть активный платежный аккаунт, вы можете создать или выбрать [каталог](../../../resource-manager/concepts/resources-hierarchy.md#folder), в котором будет работать ваша инфраструктура, на [странице облака](https://console.yandex.cloud/cloud).
+Если у вас есть активный платежный аккаунт, вы можете создать или выбрать [каталог](../../../resource-manager/concepts/resources-hierarchy.md#folder), в котором будет работать ваша инфраструктура, на [странице облака]({{ link-console-cloud }}).
 
 [Подробнее об облаках и каталогах](../../../resource-manager/concepts/resources-hierarchy.md).
 
 ### Необходимые платные ресурсы {#paid-resources}
 
 В стоимость поддержки инфраструктуры для сокращателя ссылок входят:
-* плата за хранение данных (см. [тарифы Yandex Object Storage](../../../storage/pricing.md));
-* плата за операции с [базой данных YDB](../../../ydb/concepts/resources.md#database) и хранение данных (см. [тарифы Managed Service for YDB](../../../ydb/pricing/serverless.md));
-* плата за количество вызовов [функции](../../../functions/concepts/function.md), вычислительные ресурсы, выделенные для выполнения функции, и исходящий трафик (см. [тарифы Cloud Functions](../../../functions/pricing.md));
-* плата за количество запросов к [API-шлюзу](../../concepts/index.md) и исходящий трафик (см. [тарифы API Gateway](../../pricing.md)).
+* плата за хранение данных (см. [тарифы {{ objstorage-full-name }}](../../../storage/pricing.md));
+* плата за операции с [базой данных YDB](../../../ydb/concepts/resources.md#database) и хранение данных (см. [тарифы {{ ydb-name }}](../../../ydb/pricing/serverless.md));
+* плата за количество вызовов [функции](../../../functions/concepts/function.md), вычислительные ресурсы, выделенные для выполнения функции, и исходящий трафик (см. [тарифы {{ sf-name }}](../../../functions/pricing.md));
+* плата за количество запросов к [API-шлюзу](../../concepts/index.md) и исходящий трафик (см. [тарифы {{ api-gw-name }}](../../pricing.md)).
 
 ## Настройте хостинг страницы сокращателя {#object-storage}
 
@@ -39,21 +39,21 @@
 
 - Консоль управления {#console}
 
-  1. В [консоли управления](https://console.yandex.cloud) выберите свой рабочий каталог.
-  1. Выберите сервис **Object Storage**.
-  1. Нажмите кнопку **Создать бакет**.
+  1. В [консоли управления]({{ link-console-main }}) выберите свой рабочий каталог.
+  1. Выберите сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_storage }}**.
+  1. Нажмите кнопку **{{ ui-key.yacloud.storage.buckets.button_create }}**.
   1. На странице создания бакета:
      1. Введите имя бакета.
 
         {% note warning %}
 
-        Имена бакетов уникальны для всего Object Storage, т. е. нельзя создать два бакета с одинаковыми именами даже в разных каталогах разных облаков.
+        Имена бакетов уникальны для всего {{ objstorage-name }}, т. е. нельзя создать два бакета с одинаковыми именами даже в разных каталогах разных облаков.
 
         {% endnote %}
 
-     1. Задайте максимальный размер `1 ГБ`.
-     1. Выберите доступ на чтение объектов `Для всех`.
-     1. Нажмите кнопку **Создать бакет** для завершения операции.
+     1. Задайте максимальный размер `1 {{ ui-key.yacloud.common.units.label_gigabyte }}`.
+     1. Выберите доступ на чтение объектов `{{ ui-key.yacloud.storage.bucket.settings.access_value_public }}`.
+     1. Нажмите кнопку **{{ ui-key.yacloud.storage.buckets.create.button_create }}** для завершения операции.
   1. Скопируйте HTML-код и вставьте его в файл `index.html`:
 
      {% cut "HTML-код" %}
@@ -106,13 +106,13 @@
      {% endcut %}
 
   1. Нажмите на имя созданного бакета.
-  1. Нажмите кнопку **Загрузить объекты**.
+  1. Нажмите кнопку **{{ ui-key.yacloud.storage.bucket.button_empty-create }}**.
   1. Укажите подготовленный ранее файл `index.html`.
-  1. Нажмите кнопку **Загрузить**.
-  1. На панели слева выберите вкладку **Веб-сайт**.
-  1. Выберите опцию **Хостинг**.
+  1. Нажмите кнопку **{{ ui-key.yacloud.storage.button_upload }}**.
+  1. На панели слева выберите вкладку **{{ ui-key.yacloud.storage.bucket.switch_website }}**.
+  1. Выберите опцию **{{ ui-key.yacloud.storage.bucket.website.switch_hosting }}**.
   1. Укажите главную страницу сайта — `index.html`.
-  1. Нажмите кнопку **Сохранить**.
+  1. Нажмите кнопку **{{ ui-key.yacloud.storage.bucket.website.button_save }}**.
 
 {% endlist %}
 
@@ -124,51 +124,51 @@
 
 - Консоль управления {#console}
 
-  1. Перейдите в свой рабочий каталог.
-  1. В верхней части экрана перейдите на вкладку **Сервисные аккаунты**.
-  1. Нажмите кнопку **Создать сервисный аккаунт**.
-  1. Введите имя сервисного аккаунта `serverless-shortener`.
-  1. Нажмите **Добавить роль** и выберите роль `editor`.
-  1. Нажмите кнопку **Создать**.
+  1. В [консоли управления]({{ link-console-main }}) выберите нужный каталог.
+  1. Перейдите в сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_iam }}**.
+  1. Нажмите **{{ ui-key.yacloud.iam.folder.service-accounts.button_add }}**.
+  1. Введите имя [сервисного аккаунта](../../../iam/concepts/users/service-accounts.md): `serverless-shortener`.
+  1. Нажмите ![image](../../../_assets/console-icons/plus.svg) **{{ ui-key.yacloud.iam.folder.service-account.label_add-role }}** и выберите `editor`.
+  1. Нажмите **{{ ui-key.yacloud.iam.folder.service-account.popup-robot_button_add }}**.
   1. Нажмите на имя созданного сервисного аккаунта.
 
      Сохраните идентификатор созданного сервисного аккаунта, он понадобится на следующих шагах.
 
 {% endlist %}
 
-## Создайте БД в Managed Service for YDB {#ydb}
+## Создайте БД в {{ ydb-name }} {#ydb}
 
-Чтобы создать базу данных Managed Service for YDB и настроить ее для хранения ссылок:
+Чтобы создать базу данных {{ ydb-name }} и настроить ее для хранения ссылок:
 
 {% list tabs group=instructions %}
 
 - Консоль управления {#console}
 
   1. Перейдите в свой рабочий каталог.
-  1. В списке сервисов выберите **Managed Service for&nbsp;YDB**.
-  1. Нажмите кнопку **Создать базу данных**.
+  1. В списке сервисов выберите **{{ ui-key.yacloud.iam.folder.dashboard.label_ydb }}**.
+  1. Нажмите кнопку **{{ ui-key.yacloud.ydb.databases.button_create }}**.
   1. Введите имя базы `for-serverless-shortener`.
-  1. Выберите тип базы данных **Serverless**.
-  1. Нажмите кнопку **Создать базу данных**.
+  1. Выберите тип базы данных **{{ ui-key.yacloud.ydb.forms.label_serverless-type }}**.
+  1. Нажмите кнопку **{{ ui-key.yacloud.ydb.forms.button_create-database }}**.
   1. Дождитесь запуска базы данных.
 
      В процессе создания база будет иметь статус `Provisioning`, а когда станет готова к использованию, статус изменится на `Running`.
   1. Нажмите на имя созданной БД.
 
-     Сохраните значение поля **Эндпоинт**, оно понадобится на следующих шагах.
-  1. На панели слева выберите вкладку **Навигация**.
-  1. Выберите **Создать** → **Таблицу** в правой части страницы.
+     Сохраните значение поля **{{ ui-key.yacloud.ydb.overview.label_endpoint }}**, оно понадобится на следующих шагах.
+  1. На панели слева выберите вкладку **{{ ui-key.yacloud.ydb.database.switch_browse }}**.
+  1. Выберите **{{ ui-key.yacloud.ydb.browse.button_create }}** → **{{ ui-key.yacloud.ydb.browse.menu_table }}** в правой части страницы.
   1. Настройте параметры таблицы:
-     * **Имя** таблицы — `links`.
-     * **Тип таблицы** — `Строковая таблица`.
+     * **{{ ui-key.yacloud.ydb.table.form.field_name }}** таблицы — `links`.
+     * **{{ ui-key.yacloud.ydb.table.form.field_type }}** — `{{ ui-key.yacloud.ydb.table.form.label_row-table }}`.
   1. Добавьте колонки:
-     * имя колонки — `id`, тип данных — `Utf8` и установите **Первичный ключ**.
+     * имя колонки — `id`, тип данных — `Utf8` и установите **{{ ui-key.yacloud.ydb.table.form.column_primary-key }}**.
      * имя колонки — `link`, тип данных — `Utf8`.
-  1. Нажмите кнопку **Создать таблицу**.
+  1. Нажмите кнопку **{{ ui-key.yacloud.ydb.table.create.button_create }}**.
 
 {% endlist %}
 
-## Настройте функцию в Cloud Functions {#function}
+## Настройте функцию в {{ sf-name }} {#function}
 
 Чтобы создать и настроить функцию сокращения URL:
 
@@ -177,13 +177,13 @@
 - Консоль управления {#console}
 
   1. Перейдите в свой рабочий каталог.
-  1. В списке сервисов выберите **Cloud Functions**.
-  1. Нажмите кнопку **Создать функцию**.
+  1. В списке сервисов выберите **{{ ui-key.yacloud.iam.folder.dashboard.label_serverless-functions }}**.
+  1. Нажмите кнопку **{{ ui-key.yacloud.serverless-functions.list.button_create }}**.
   1. Введите имя `for-serverless-shortener`.
-  1. Нажмите кнопку **Создать**.
+  1. Нажмите кнопку **{{ ui-key.yacloud.common.create }}**.
   1. В выпадающем списке **Python** выберите среду выполнения `python312`.
-  1. Нажмите кнопку **Продолжить**.
-  1. Скопируйте код функции и вставьте его в файл `index.py` в блоке **Код функции**.
+  1. Нажмите кнопку **{{ ui-key.yacloud.serverless-functions.item.editor.button_action-continue }}**.
+  1. Скопируйте код функции и вставьте его в файл `index.py` в блоке **{{ ui-key.yacloud.serverless-functions.item.editor.label_title-source }}**.
 
      {% cut "Код функции" %}
 
@@ -352,7 +352,7 @@
 
      {% endcut %}
 
-  1. В блоке **Код функции** создайте файл `requirements.txt` и вставьте в него следующий текст:
+  1. В блоке **{{ ui-key.yacloud.serverless-functions.item.editor.label_title-source }}** создайте файл `requirements.txt` и вставьте в него следующий текст:
 
      ```text
      ydb
@@ -362,28 +362,28 @@
   1. Задайте таймаут `5`.
   1. Выберите сервисный аккаунт `serverless-shortener`.
   1. Добавьте переменные окружения:
-     * `endpoint` — введите первую часть сохраненного ранее поля **Эндпоинт** (часть до вхождения `/?database=`). Например, `grpcs://ydb.serverless.yandexcloud.net:2135`.
-     * `database` — введите вторую часть сохраненного ранее поля **Эндпоинт** (часть после вхождения `/?database=`). Например, `/ru-central1/r1gra875baom********/g5n22e7ejfr1********`.
-  1. Нажмите кнопку **Сохранить изменения**.
-  1. В блоке **Обзор** включите опцию **Публичная функция**.
+     * `endpoint` — введите первую часть сохраненного ранее поля **{{ ui-key.yacloud.ydb.overview.label_endpoint }}** (часть до вхождения `/?database=`). Например, `{{ ydb.ep-serverless }}`.
+     * `database` — введите вторую часть сохраненного ранее поля **{{ ui-key.yacloud.ydb.overview.label_endpoint }}** (часть после вхождения `/?database=`). Например, `/{{ region-id }}/r1gra875baom********/g5n22e7ejfr1********`.
+  1. Нажмите кнопку **{{ ui-key.yacloud.serverless-functions.item.editor.button_deploy-version }}**.
+  1. В блоке **{{ ui-key.yacloud.serverless-functions.item.overview.label_title }}** включите опцию **{{ ui-key.yacloud.serverless-functions.item.overview.label_all-users-invoke }}**.
 
   Сохраните идентификатор созданной функции, он понадобится на следующих шагах.
 
 {% endlist %}
 
-## Опубликуйте сервис через API Gateway {#api-gw}
+## Опубликуйте сервис через {{ api-gw-name }} {#api-gw}
 
-Чтобы опубликовать сервис через API Gateway:
+Чтобы опубликовать сервис через {{ api-gw-name }}:
 
 {% list tabs group=instructions %}
 
 - Консоль управления {#console}
 
   1. Перейдите в свой рабочий каталог.
-  1. В списке сервисов выберите **API Gateway**.
-  1. Нажмите кнопку **Создать API-шлюз**.
-  1. В поле **Имя** введите `for-serverless-shortener`.
-  1. Скопируйте и вставьте следующий код в блок **Спецификация**:
+  1. В списке сервисов выберите **{{ ui-key.yacloud.iam.folder.dashboard.label_api-gateway }}**.
+  1. Нажмите кнопку **{{ ui-key.yacloud.serverless-functions.gateways.list.button_create }}**.
+  1. В поле **{{ ui-key.yacloud.common.name }}** введите `for-serverless-shortener`.
+  1. Скопируйте и вставьте следующий код в блок **{{ ui-key.yacloud.serverless-functions.gateways.form.field_spec }}**:
 
      {% cut "Спецификация API-шлюза" %}
 
@@ -431,7 +431,7 @@
      * Замените `<service_account_id>` на идентификатор созданного ранее сервисного аккаунта.
      * Замените `<function_id>` на идентификатор созданной ранее функции.
      * Замените `<имя_бакета>` на имя созданного ранее бакета.
-  1. Нажмите кнопку **Создать**.
+  1. Нажмите кнопку **{{ ui-key.yacloud.serverless-functions.gateways.form.button_create-gateway }}**.
   1. Нажмите на имя созданного API-шлюза.
   1. Скопируйте значение `url` из спецификации.
 
@@ -459,4 +459,4 @@
 
 #### См. также {#see-also}
 
-* [Сокращатель ссылок с помощью Terraform](terraform.md)
+* [{#T}](terraform.md)

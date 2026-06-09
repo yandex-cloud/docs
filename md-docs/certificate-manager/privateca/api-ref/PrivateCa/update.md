@@ -6,7 +6,7 @@ This allows updating attributes of an already existing CA, such as name, descrip
 ## HTTP request
 
 ```
-PATCH https://private-ca.certificate-manager.api.cloud.yandex.net/privateca/v1/certificateAuthorities/{certificateAuthorityId}
+PATCH https://private-ca.certificate-manager.{{ api-host }}/privateca/v1/certificateAuthorities/{certificateAuthorityId}
 ```
 
 ## Path parameters

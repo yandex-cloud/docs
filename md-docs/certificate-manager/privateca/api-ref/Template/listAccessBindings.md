@@ -5,7 +5,7 @@ Lists access bindings for a specific certificate template to see current permiss
 ## HTTP request
 
 ```
-GET https://private-ca.certificate-manager.api.cloud.yandex.net/privateca/v1/templates/{resourceId}:listAccessBindings
+GET https://private-ca.certificate-manager.{{ api-host }}/privateca/v1/templates/{resourceId}:listAccessBindings
 ```
 
 ## Path parameters

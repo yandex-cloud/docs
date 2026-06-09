@@ -217,7 +217,7 @@ Text string
 
     Значение по умолчанию — `true`.
 
-    Подробнее о настройке см. в [документации Debezium](https://debezium.io/documentation/reference/stable/transformations/applying-transformations-selectively.html#ignoring-tombstone-events).
+    Подробнее о настройке в [документации Debezium](https://debezium.io/documentation/reference/stable/transformations/applying-transformations-selectively.html#ignoring-tombstone-events).
 
 * **unavailable.value.placeholder** — значение, которое устанавливается вместо данных, если их тип не поддерживается.
 

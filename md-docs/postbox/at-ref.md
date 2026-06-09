@@ -1,11 +1,11 @@
-# Справочник аудитных логов Yandex Audit Trails
+# Справочник аудитных логов {{ at-full-name }}
 
-В Audit Trails поддерживается отслеживание событий уровня конфигурации (Control Plane) для Yandex Cloud Postbox. Подробнее см. [Аудитный лог событий уровня конфигурации](../audit-trails/concepts/format.md).
+В {{ at-name }} поддерживается отслеживание событий уровня конфигурации (Control Plane) для {{ postbox-full-name }}. Подробнее см. [{#T}](../audit-trails/concepts/format.md).
 
 Общий вид значения поля `event_type` (_тип события_):
 
 ```text
-yandex.cloud.audit.postbox.<имя_события>
+{{ at-event-prefix }}.audit.postbox.<имя_события>
 ```
 
 Имя события | Описание

@@ -1,18 +1,18 @@
-# Управление хостами ClickHouse®
+# Управление хостами {{ CH }}
 
-Вы можете выполнить следующие действия над хостами ClickHouse®:
+Вы можете выполнить следующие действия над хостами {{ CH }}:
 
 * [получить список хостов в кластере](#list-hosts);
 * [создать хост](#add-host);
-* [изменить настройки ClickHouse® для хоста](#update);
+* [изменить настройки {{ CH }} для хоста](#update);
 * [перезагрузить хост](#restart);
 * [удалить хост](#remove-host).
 
-О том, как перенести хосты ClickHouse® в другую [зону доступности](../../overview/concepts/geo-scope.md), читайте в [инструкции](host-migration.md#clickhouse-hosts).
+О том, как перенести хосты {{ CH }} в другую [зону доступности](../../overview/concepts/geo-scope.md), читайте в [инструкции](host-migration.md#clickhouse-hosts).
 
 {% note warning %}
 
-Если вы создали кластер без поддержки [ClickHouse® Keeper](../concepts/replication.md#ck), то прежде чем добавлять новые хосты в любой из [шардов](../concepts/sharding.md), [добавьте не менее трех хостов ZooKeeper](zk-hosts.md#add-zk).
+Если вы создали кластер без поддержки [{{ CK }}](../concepts/replication.md#ck), то прежде чем добавлять новые хосты в любой из [шардов](../concepts/sharding.md), [добавьте не менее трех хостов {{ ZK }}](zk-hosts.md#add-zk).
 
 {% endnote %}
 
@@ -24,20 +24,20 @@
 
 - Консоль управления {#console}
 
-  1. В [консоли управления](https://console.yandex.cloud) выберите каталог, в котором находится кластер.
-  1. [Перейдите](../../console/operations/select-service.md#select-service) в сервис **Managed Service for&nbsp;ClickHouse**.
-  1. Нажмите на имя нужного кластера, затем выберите вкладку **Хосты**.
+  1. В [консоли управления]({{ link-console-main }}) выберите каталог, в котором находится кластер.
+  1. Перейдите в сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-clickhouse }}**.
+  1. Нажмите на имя нужного кластера, затем выберите вкладку **{{ ui-key.yacloud.mdb.cluster.hosts.label_title }}**.
 
 - CLI {#cli}
 
-  Если у вас еще нет интерфейса командной строки Yandex Cloud (CLI), [установите и инициализируйте его](../../cli/quickstart.md#install).
+  Если у вас еще нет интерфейса командной строки {{ yandex-cloud }} (CLI), [установите и инициализируйте его](../../cli/quickstart.md#install).
 
   По умолчанию используется каталог, указанный при [создании](../../cli/operations/profile/profile-create.md) профиля CLI. Чтобы изменить каталог по умолчанию, используйте команду `yc config set folder-id <идентификатор_каталога>`. Также для любой команды вы можете указать другой каталог с помощью параметров `--folder-name` или `--folder-id`. Если вы обращаетесь к ресурсу по имени, поиск будет выполнен в каталоге по умолчанию. Если вы обращаетесь к ресурсу по идентификатору, поиск будет выполнен глобально — во всех каталогах с учетом прав доступа.
 
   Чтобы получить список хостов в кластере, выполните команду:
 
   ```bash
-  yc managed-clickhouse host list \
+  {{ yc-mdb-ch }} host list \
      --cluster-name=<имя_кластера>
   ```
 
@@ -45,8 +45,8 @@
   +----------------------------+--------------+---------+--------+---------------+
   |            NAME            |  CLUSTER ID  |  ROLE   | HEALTH |    ZONE ID    |
   +----------------------------+--------------+---------+--------+---------------+
-  | rc1b...mdb.yandexcloud.net | c9qp71dk1... | MASTER  | ALIVE  | ru-central1-b |
-  | rc1a...mdb.yandexcloud.net | c9qp71dk1... | REPLICA | ALIVE  | ru-central1-a |
+  | rc1b...{{ dns-zone }} | c9qp71dk1... | MASTER  | ALIVE  | {{ region-id }}-b |
+  | rc1a...{{ dns-zone }} | c9qp71dk1... | REPLICA | ALIVE  | {{ region-id }}-a |
   +----------------------------+--------------+---------+--------+---------------+
   ```
 
@@ -60,13 +60,13 @@
         export IAM_TOKEN="<IAM-токен>"
         ```
 
-    1. Воспользуйтесь методом [Cluster.ListHosts](../api-ref/Cluster/listHosts.md) и выполните запрос, например, с помощью [cURL](https://curl.se/):
+    1. Воспользуйтесь методом [Cluster.ListHosts](../api-ref/Cluster/listHosts.md) и выполните запрос, например, с помощью {{ api-examples.rest.tool }}:
 
         ```bash
         curl \
             --request GET \
             --header "Authorization: Bearer $IAM_TOKEN" \
-            --url 'https://mdb.api.cloud.yandex.net/managed-clickhouse/v1/clusters/<идентификатор_кластера>/hosts'
+            --url 'https://{{ api-host-mdb }}/managed-clickhouse/v1/clusters/<идентификатор_кластера>/hosts'
         ```
 
         Идентификатор кластера можно запросить со [списком кластеров в каталоге](cluster-list.md#list-clusters).
@@ -89,7 +89,7 @@
        
        Далее предполагается, что содержимое репозитория находится в директории `~/cloudapi/`.
 
-    1. Воспользуйтесь вызовом [ClusterService.ListHosts](../api-ref/grpc/Cluster/listHosts.md) и выполните запрос, например, с помощью [gRPCurl](https://github.com/fullstorydev/grpcurl):
+    1. Воспользуйтесь вызовом [ClusterService.ListHosts](../api-ref/grpc/Cluster/listHosts.md) и выполните запрос, например, с помощью {{ api-examples.grpc.tool }}:
 
         ```bash
         grpcurl \
@@ -101,7 +101,7 @@
             -d '{
                     "cluster_id": "<идентификатор_кластера>"
                 }' \
-            mdb.api.cloud.yandex.net:443 \
+            {{ api-host-mdb }}:{{ port-https }} \
             yandex.cloud.mdb.clickhouse.v1.ClusterService.ListHosts
         ```
 
@@ -113,7 +113,7 @@
 
 ## Создать хост {#add-host}
 
-Количество хостов в кластерах Managed Service for ClickHouse® ограничено квотами на количество CPU и объем памяти, которые доступны кластерам БД в вашем облаке. Чтобы проверить используемые ресурсы, откройте страницу [Квоты](https://console.yandex.cloud/cloud?section=quotas) и найдите блок **Managed Databases**.
+Количество хостов в кластерах {{ mch-name }} ограничено квотами на количество CPU и объем памяти, которые доступны кластерам БД в вашем облаке. Чтобы проверить используемые ресурсы, откройте страницу [Квоты]({{ link-console-quotas }}) и найдите блок **{{ ui-key.yacloud.iam.folder.dashboard.label_mdb }}**.
 
 Вы можете создать сразу несколько хостов в кластере.
 
@@ -123,10 +123,10 @@
 
 - Консоль управления {#console}
 
-  1. В [консоли управления](https://console.yandex.cloud) выберите каталог, в котором находится кластер.
-  1. [Перейдите](../../console/operations/select-service.md#select-service) в сервис **Managed Service for&nbsp;ClickHouse**.
-  1. Нажмите на имя нужного кластера и перейдите на вкладку **Хосты**.
-  1. Нажмите кнопку **Создать хосты ClickHouse**.
+  1. В [консоли управления]({{ link-console-main }}) выберите каталог, в котором находится кластер.
+  1. Перейдите в сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-clickhouse }}**.
+  1. Нажмите на имя нужного кластера и перейдите на вкладку **{{ ui-key.yacloud.mdb.cluster.hosts.label_title }}**.
+  1. Нажмите кнопку **{{ ui-key.yacloud.clickhouse.hosts.dialog.action_add-clickhouse-hosts }}**.
 
   1. Укажите параметры хоста:
 
@@ -134,16 +134,16 @@
       * Зону доступности.
       * Подсеть (если нужной подсети в списке нет, [создайте ее](../../vpc/operations/subnet-create.md)).
       * Имя шарда.
-      * Включите опцию **Публичный доступ**, если хост должен быть доступен извне Yandex Cloud.
+      * Включите опцию **{{ ui-key.yacloud.mdb.hosts.dialog.field_public_ip }}**, если хост должен быть доступен извне {{ yandex-cloud }}.
 
 
-  1. (Опционально) Нажмите кнопку **Создать хост**, чтобы добавить дополнительные хосты, и укажите их параметры.
+  1. (Опционально) Нажмите кнопку **{{ ui-key.yacloud.clickhouse.hosts.dialog.action_add-host-item }}**, чтобы добавить дополнительные хосты, и укажите их параметры.
 
-  1. Нажмите кнопку **Создать хосты**, чтобы создать один или несколько хостов.
+  1. Нажмите кнопку **{{ ui-key.yacloud.clickhouse.hosts.dialog.action_submit }}**, чтобы создать один или несколько хостов.
 
 - CLI {#cli}
 
-  Если у вас еще нет интерфейса командной строки Yandex Cloud (CLI), [установите и инициализируйте его](../../cli/quickstart.md#install).
+  Если у вас еще нет интерфейса командной строки {{ yandex-cloud }} (CLI), [установите и инициализируйте его](../../cli/quickstart.md#install).
 
   По умолчанию используется каталог, указанный при [создании](../../cli/operations/profile/profile-create.md) профиля CLI. Чтобы изменить каталог по умолчанию, используйте команду `yc config set folder-id <идентификатор_каталога>`. Также для любой команды вы можете указать другой каталог с помощью параметров `--folder-name` или `--folder-id`. Если вы обращаетесь к ресурсу по имени, поиск будет выполнен в каталоге по умолчанию. Если вы обращаетесь к ресурсу по идентификатору, поиск будет выполнен глобально — во всех каталогах с учетом прав доступа.
 
@@ -162,10 +162,10 @@
      +-----------+-----------+------------+---------------+------------------+
      |     ID    |   NAME    | NETWORK ID |     ZONE      |      RANGE       |
      +-----------+-----------+------------+---------------+------------------+
-     | b0cl69... | default-d | enp6rq7... | ru-central1-d | [172.16.0.0/20]  |
-     | e2lkj9... | default-b | enp6rq7... | ru-central1-b | [10.10.0.0/16]   |
-     | e9b0ph... | a-2       | enp6rq7... | ru-central1-a | [172.16.32.0/20] |
-     | e9b9v2... | default-a | enp6rq7... | ru-central1-a | [172.16.16.0/20] |
+     | b0cl69... | default-d | enp6rq7... | {{ region-id }}-d | [172.16.0.0/20]  |
+     | e2lkj9... | default-b | enp6rq7... | {{ region-id }}-b | [10.10.0.0/16]   |
+     | e9b0ph... | a-2       | enp6rq7... | {{ region-id }}-a | [172.16.32.0/20] |
+     | e9b9v2... | default-a | enp6rq7... | {{ region-id }}-a | [172.16.16.0/20] |
      +-----------+-----------+------------+---------------+------------------+
      ```
 
@@ -175,7 +175,7 @@
   1. Посмотрите описание команды CLI для создания хостов:
 
      ```bash
-     yc managed-clickhouse hosts add --help
+     {{ yc-mdb-ch }} hosts add --help
      ```
 
   1. Выполните команду создания хостов.
@@ -186,7 +186,7 @@
 
      
      ```bash
-     yc managed-clickhouse hosts add \
+     {{ yc-mdb-ch }} hosts add \
        --cluster-name=<имя_кластера> \
        --host zone-id=<зона_доступности>,`
          `subnet-id=<идентификатор_подсети>,`
@@ -198,16 +198,16 @@
      Где `assign-public-ip` — доступность хоста из интернета по публичному IP-адресу: `true` или `false`.
 
 
-     Managed Service for ClickHouse® запустит операцию создания хостов.
+     {{ mch-name }} запустит операцию создания хостов.
 
      
-     Идентификатор подсети необходимо указать, если в зоне доступности больше одной подсети, в противном случае Managed Service for ClickHouse® автоматически выберет единственную подсеть. Имя кластера можно запросить со [списком кластеров в каталоге](cluster-list.md#list-clusters).
+     Идентификатор подсети необходимо указать, если в зоне доступности больше одной подсети, в противном случае {{ mch-name }} автоматически выберет единственную подсеть. Имя кластера можно запросить со [списком кластеров в каталоге](cluster-list.md#list-clusters).
 
 
 
-- Terraform {#tf}
+- {{ TF }} {#tf}
 
-  1. Откройте актуальный конфигурационный файл Terraform с планом инфраструктуры.
+  1. Откройте актуальный конфигурационный файл {{ TF }} с планом инфраструктуры.
 
      О том, как создать такой файл, см. в разделе [Создание кластера](cluster-create.md).
 
@@ -233,14 +233,14 @@
 
   1. Проверьте корректность настроек.
 
-     1. В командной строке перейдите в каталог, в котором расположены актуальные конфигурационные файлы Terraform с планом инфраструктуры.
+     1. В командной строке перейдите в каталог, в котором расположены актуальные конфигурационные файлы {{ TF }} с планом инфраструктуры.
      1. Выполните команду:
      
         ```bash
         terraform validate
         ```
      
-        Если в файлах конфигурации есть ошибки, Terraform на них укажет.
+        Если в файлах конфигурации есть ошибки, {{ TF }} на них укажет.
 
   1. Подтвердите изменение ресурсов.
 
@@ -262,11 +262,11 @@
         1. Подтвердите изменение ресурсов.
         1. Дождитесь завершения операции.
 
-  Подробнее см. в [документации провайдера Terraform](../../terraform/resources/mdb_clickhouse_cluster.md).
+  Подробнее см. в [документации провайдера {{ TF }}]({{ tf-provider-resources-link }}/mdb_clickhouse_cluster).
 
   {% note warning "Ограничения по времени" %}
   
-  Провайдер Terraform ограничивает время на выполнение операций с кластером Managed Service for ClickHouse®:
+  Провайдер {{ TF }} ограничивает время на выполнение операций с кластером {{ mch-name }}:
   
   * создание, в т. ч. путем восстановления из резервной копии, — 60 минут;
   * изменение — 90 минут;
@@ -302,7 +302,7 @@
         export IAM_TOKEN="<IAM-токен>"
         ```
 
-    1. Воспользуйтесь методом [Cluster.AddHosts](../api-ref/Cluster/addHosts.md) и выполните запрос, например, с помощью [cURL](https://curl.se/):
+    1. Воспользуйтесь методом [Cluster.AddHosts](../api-ref/Cluster/addHosts.md) и выполните запрос, например, с помощью {{ api-examples.rest.tool }}:
 
         
         ```bash
@@ -310,7 +310,7 @@
             --request POST \
             --header "Authorization: Bearer $IAM_TOKEN" \
             --header "Content-Type: application/json" \
-            --url 'https://mdb.api.cloud.yandex.net/managed-clickhouse/v1/clusters/<идентификатор_кластера>/hosts:batchCreate' \
+            --url 'https://{{ api-host-mdb }}/managed-clickhouse/v1/clusters/<идентификатор_кластера>/hosts:batchCreate' \
             --data '{
                       "hostSpecs": [
                         {
@@ -330,7 +330,7 @@
 
         Где `hostSpecs` — массив, содержащий настройки создаваемых хостов. Один элемент массива содержит настройки для одного хоста и имеет следующую структуру:
 
-       * `type` — тип хоста, всегда `CLICKHOUSE` для хостов ClickHouse®.
+       * `type` — тип хоста, всегда `CLICKHOUSE` для хостов {{ CH }}.
        * `zoneId` — зона доступности.
        * `subnetId` — идентификатор подсети.
        * `shardName` — имя шарда.
@@ -356,7 +356,7 @@
        
        Далее предполагается, что содержимое репозитория находится в директории `~/cloudapi/`.
 
-    1. Воспользуйтесь вызовом [ClusterService.AddHosts](../api-ref/grpc/Cluster/addHosts.md) и выполните запрос, например, с помощью [gRPCurl](https://github.com/fullstorydev/grpcurl):
+    1. Воспользуйтесь вызовом [ClusterService.AddHosts](../api-ref/grpc/Cluster/addHosts.md) и выполните запрос, например, с помощью {{ api-examples.grpc.tool }}:
 
         
         ```bash
@@ -381,14 +381,14 @@
                         { <аналогичный_набор_настроек_для_создаваемого_хоста_N> }
                     ],
                 }' \
-            mdb.api.cloud.yandex.net:443 \
+            {{ api-host-mdb }}:{{ port-https }} \
             yandex.cloud.mdb.clickhouse.v1.ClusterService.AddHosts
         ```
 
 
         Где `host_specs` — массив, содержащий настройки создаваемых хостов. Один элемент массива содержит настройки для одного хоста и имеет следующую структуру:
 
-       * `type` — тип хоста, всегда `CLICKHOUSE` для хостов ClickHouse®.
+       * `type` — тип хоста, всегда `CLICKHOUSE` для хостов {{ CH }}.
        * `zone_id` — зона доступности.
        * `subnet_id` — идентификатор подсети.
        * `shard_name` — имя шарда.
@@ -411,11 +411,11 @@
 
 ## Изменить хост {#update}
 
-Для каждого хоста в кластере Managed Service for ClickHouse® можно изменить настройки публичного доступа.
+Для каждого хоста в кластере {{ mch-name }} можно изменить настройки публичного доступа.
 
 {% note warning %}
 
-Чтобы повысить безопасность кластера с включенным публичным доступом к хостам, укажите в правилах группы безопасности кластера только доверенные IP-адреса или подсети. Подробнее см. в разделе [Настройка групп безопасности](connect/index.md#configuring-security-groups).
+Чтобы повысить безопасность кластера с включенным публичным доступом к хостам, укажите в правилах группы безопасности кластера только доверенные IP-адреса или подсети. Подробнее см. в разделе [{#T}](connect/index.md#configuring-security-groups).
 
 {% endnote %}
 
@@ -424,23 +424,23 @@
 - Консоль управления {#console}
 
   Чтобы изменить параметры хоста в кластере:
-  1. В [консоли управления](https://console.yandex.cloud) выберите каталог, в котором находится кластер.
-  1. [Перейдите](../../console/operations/select-service.md#select-service) в сервис **Managed Service for&nbsp;ClickHouse**.
-  1. Нажмите на имя нужного кластера и перейдите на вкладку **Хосты**.
-  1. Нажмите на значок ![image](../../_assets/console-icons/ellipsis.svg) в строке нужного хоста и выберите пункт **Редактировать**.
-  1. В открывшемся окне включите опцию **Публичный доступ**, если хост должен быть доступен извне Yandex Cloud.
-  1. Нажмите кнопку **Сохранить**.
+  1. В [консоли управления]({{ link-console-main }}) выберите каталог, в котором находится кластер.
+  1. Перейдите в сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-clickhouse }}**.
+  1. Нажмите на имя нужного кластера и перейдите на вкладку **{{ ui-key.yacloud.mdb.cluster.hosts.label_title }}**.
+  1. Нажмите на значок ![image](../../_assets/console-icons/ellipsis.svg) в строке нужного хоста и выберите пункт **{{ ui-key.yacloud.mdb.clusters.button_action-edit }}**.
+  1. В открывшемся окне включите опцию **{{ ui-key.yacloud.mdb.hosts.dialog.field_public_ip }}**, если хост должен быть доступен извне {{ yandex-cloud }}.
+  1. Нажмите кнопку **{{ ui-key.yacloud.mdb.hosts.dialog.button_choose }}**.
 
 - CLI {#cli}
 
-  Если у вас еще нет интерфейса командной строки Yandex Cloud (CLI), [установите и инициализируйте его](../../cli/quickstart.md#install).
+  Если у вас еще нет интерфейса командной строки {{ yandex-cloud }} (CLI), [установите и инициализируйте его](../../cli/quickstart.md#install).
 
   По умолчанию используется каталог, указанный при [создании](../../cli/operations/profile/profile-create.md) профиля CLI. Чтобы изменить каталог по умолчанию, используйте команду `yc config set folder-id <идентификатор_каталога>`. Также для любой команды вы можете указать другой каталог с помощью параметров `--folder-name` или `--folder-id`. Если вы обращаетесь к ресурсу по имени, поиск будет выполнен в каталоге по умолчанию. Если вы обращаетесь к ресурсу по идентификатору, поиск будет выполнен глобально — во всех каталогах с учетом прав доступа.
 
   Чтобы изменить параметры хоста, выполните команду:
 
   ```bash
-  yc managed-clickhouse host update <имя_хоста> \
+  {{ yc-mdb-ch }} host update <имя_хоста> \
     --cluster-name=<имя_кластера> \
     --assign-public-ip=<публичный_доступ_к_хосту>
   ```
@@ -450,9 +450,9 @@
   Имя хоста можно запросить со [списком хостов в кластере](#list-hosts), имя кластера — со [списком кластеров в каталоге](cluster-list.md#list-clusters).
 
 
-- Terraform {#tf}
+- {{ TF }} {#tf}
 
-  1. Откройте актуальный конфигурационный файл Terraform с планом инфраструктуры.
+  1. Откройте актуальный конфигурационный файл {{ TF }} с планом инфраструктуры.
 
      О том, как создать такой файл, см. в разделе [Создание кластера](cluster-create.md).
 
@@ -475,14 +475,14 @@
 
   1. Проверьте корректность настроек.
 
-     1. В командной строке перейдите в каталог, в котором расположены актуальные конфигурационные файлы Terraform с планом инфраструктуры.
+     1. В командной строке перейдите в каталог, в котором расположены актуальные конфигурационные файлы {{ TF }} с планом инфраструктуры.
      1. Выполните команду:
      
         ```bash
         terraform validate
         ```
      
-        Если в файлах конфигурации есть ошибки, Terraform на них укажет.
+        Если в файлах конфигурации есть ошибки, {{ TF }} на них укажет.
 
   1. Подтвердите изменение ресурсов.
 
@@ -504,7 +504,7 @@
         1. Подтвердите изменение ресурсов.
         1. Дождитесь завершения операции.
 
-  Подробнее см. в [документации провайдера Terraform](../../terraform/resources/mdb_clickhouse_cluster.md).
+  Подробнее см. в [документации провайдера {{ TF }}]({{ tf-provider-mch }}).
 
 
 - REST API {#api}
@@ -515,7 +515,7 @@
         export IAM_TOKEN="<IAM-токен>"
         ```
 
-    1. Воспользуйтесь методом [Cluster.UpdateHosts](../api-ref/Cluster/updateHosts.md) и выполните запрос, например, с помощью [cURL](https://curl.se/):
+    1. Воспользуйтесь методом [Cluster.UpdateHosts](../api-ref/Cluster/updateHosts.md) и выполните запрос, например, с помощью {{ api-examples.rest.tool }}:
 
         {% note warning %}
         
@@ -528,7 +528,7 @@
             --request POST \
             --header "Authorization: Bearer $IAM_TOKEN" \
             --header "Content-Type: application/json" \
-            --url 'https://mdb.api.cloud.yandex.net/managed-clickhouse/v1/clusters/<идентификатор_кластера>/hosts:batchUpdate' \
+            --url 'https://{{ api-host-mdb }}/managed-clickhouse/v1/clusters/<идентификатор_кластера>/hosts:batchUpdate' \
             --data '{
                       "updateHostSpecs": [
                         {
@@ -569,7 +569,7 @@
        
        Далее предполагается, что содержимое репозитория находится в директории `~/cloudapi/`.
 
-    1. Воспользуйтесь вызовом [ClusterService.UpdateHosts](../api-ref/grpc/Cluster/updateHosts.md) и выполните запрос, например, с помощью [gRPCurl](https://github.com/fullstorydev/grpcurl):
+    1. Воспользуйтесь вызовом [ClusterService.UpdateHosts](../api-ref/grpc/Cluster/updateHosts.md) и выполните запрос, например, с помощью {{ api-examples.grpc.tool }}:
 
         {% note warning %}
         
@@ -612,7 +612,7 @@
                         "assign_public_ip": <публичный_доступ_к_хосту>
                     }]
                 }' \
-            mdb.api.cloud.yandex.net:443 \
+            {{ api-host-mdb }}:{{ port-https }} \
             yandex.cloud.mdb.clickhouse.v1.ClusterService.UpdateHosts
         ```
 
@@ -649,7 +649,7 @@
 * перерасход ресурсов;
 * утечка памяти;
 * взаимоблокировка (deadlock) между запросами;
-* зависание операций и внутренних процессов ClickHouse®.
+* зависание операций и внутренних процессов {{ CH }}.
 
 {% list tabs group=instructions %}
 
@@ -657,23 +657,23 @@
 
   Чтобы перезагрузить один хост:
 
-    1. В [консоли управления](https://console.yandex.cloud) выберите каталог, в котором находится кластер.
-    1. [Перейдите](../../console/operations/select-service.md#select-service) в сервис **Managed Service for&nbsp;ClickHouse**.
-    1. Нажмите на имя нужного кластера и перейдите на вкладку **Хосты**.
-    1. В строке нужного хоста нажмите на значок ![icon](../../_assets/console-icons/ellipsis.svg) и выберите пункт **Перезагрузить**.
-    1. В открывшемся окне включите опцию **Я перезагружаю хост** и нажмите кнопку **Подтвердить**.
+    1. В [консоли управления]({{ link-console-main }}) выберите каталог, в котором находится кластер.
+    1. Перейдите в сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-clickhouse }}**.
+    1. Нажмите на имя нужного кластера и перейдите на вкладку **{{ ui-key.yacloud.mdb.cluster.hosts.label_title }}**.
+    1. В строке нужного хоста нажмите на значок ![icon](../../_assets/console-icons/ellipsis.svg) и выберите пункт **{{ ui-key.yacloud.mdb.cluster.hosts.action_restart-host }}**.
+    1. В открывшемся окне включите опцию **Я перезагружаю хост** и нажмите кнопку **{{ ui-key.yacloud.mdb.cluster.hosts.popup-confirm_button }}**.
 
   Чтобы перезагрузить несколько хостов сразу:
 
-    1. В [консоли управления](https://console.yandex.cloud) выберите каталог, в котором находится кластер.
-    1. [Перейдите](../../console/operations/select-service.md#select-service) в сервис **Managed Service for&nbsp;ClickHouse**.
-    1. Нажмите на имя нужного кластера и перейдите на вкладку **Хосты**.
-    1. Выберите хосты, которые хотите перезагрузить, и нажмите **Перезагрузить** в нижней части экрана.
-    1. В открывшемся окне нажмите кнопку **Подтвердить**.
+    1. В [консоли управления]({{ link-console-main }}) выберите каталог, в котором находится кластер.
+    1. Перейдите в сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-clickhouse }}**.
+    1. Нажмите на имя нужного кластера и перейдите на вкладку **{{ ui-key.yacloud.mdb.cluster.hosts.label_title }}**.
+    1. Выберите хосты, которые хотите перезагрузить, и нажмите **{{ ui-key.yacloud.mdb.cluster.hosts.action_restart-host }}** в нижней части экрана.
+    1. В открывшемся окне нажмите кнопку **{{ ui-key.yacloud.mdb.cluster.hosts.popup-confirm_button }}**.
 
 - CLI {#cli}
 
-  Если у вас еще нет интерфейса командной строки Yandex Cloud (CLI), [установите и инициализируйте его](../../cli/quickstart.md#install).
+  Если у вас еще нет интерфейса командной строки {{ yandex-cloud }} (CLI), [установите и инициализируйте его](../../cli/quickstart.md#install).
 
   По умолчанию используется каталог, указанный при [создании](../../cli/operations/profile/profile-create.md) профиля CLI. Чтобы изменить каталог по умолчанию, используйте команду `yc config set folder-id <идентификатор_каталога>`. Также для любой команды вы можете указать другой каталог с помощью параметров `--folder-name` или `--folder-id`. Если вы обращаетесь к ресурсу по имени, поиск будет выполнен в каталоге по умолчанию. Если вы обращаетесь к ресурсу по идентификатору, поиск будет выполнен глобально — во всех каталогах с учетом прав доступа.
 
@@ -682,7 +682,7 @@
   Команда для перезагрузки одного хоста выглядит так:
 
   ```bash
-  yc managed-clickhouse host restart <имя_хоста> \
+  {{ yc-mdb-ch }} host restart <имя_хоста> \
      --cluster-name=<имя_кластера>
   ```
 
@@ -696,14 +696,14 @@
         export IAM_TOKEN="<IAM-токен>"
         ```
 
-    1. Воспользуйтесь методом [Cluster.RestartHosts](../api-ref/Cluster/restartHosts.md) и выполните запрос, например, с помощью [cURL](https://curl.se/):
+    1. Воспользуйтесь методом [Cluster.RestartHosts](../api-ref/Cluster/restartHosts.md) и выполните запрос, например, с помощью {{ api-examples.rest.tool }}:
 
         ```bash
         curl \
             --request POST \
             --header "Authorization: Bearer $IAM_TOKEN" \
             --header "Content-Type: application/json" \
-            --url 'https://mdb.api.cloud.yandex.net/managed-clickhouse/v1/clusters/<идентификатор_кластера>/hosts:restartHosts' \
+            --url 'https://{{ api-host-mdb }}/managed-clickhouse/v1/clusters/<идентификатор_кластера>/hosts:restartHosts' \
             --data '{
                       "hostNames": [
                         <перечень_имен_хостов>
@@ -733,7 +733,7 @@
        
        Далее предполагается, что содержимое репозитория находится в директории `~/cloudapi/`.
 
-    1. Воспользуйтесь вызовом [ClusterService.RestartHosts](../api-ref/grpc/Cluster/restartHosts.md) и выполните запрос, например, с помощью [gRPCurl](https://github.com/fullstorydev/grpcurl):
+    1. Воспользуйтесь вызовом [ClusterService.RestartHosts](../api-ref/grpc/Cluster/restartHosts.md) и выполните запрос, например, с помощью {{ api-examples.grpc.tool }}:
 
         ```bash
         grpcurl \
@@ -748,7 +748,7 @@
                       <перечень_имен_хостов>
                     ]
                 }' \
-            mdb.api.cloud.yandex.net:443 \
+            {{ api-host-mdb }}:{{ port-https }} \
             yandex.cloud.mdb.clickhouse.v1.ClusterService.RestartHosts
         ```
 
@@ -766,9 +766,9 @@
 
 Нельзя удалить хост из кластера или шарда, если достигнут [соответствующий лимит на минимальное количество хостов](../concepts/limits.md#mch-limits).
 
-Нельзя удалить хосты, на которых размещается [ClickHouse® Keeper](../concepts/replication.md#ck), если при создании кластера была включена поддержка этого механизма репликации.
+Нельзя удалить хосты, на которых размещается [{{ CK }}](../concepts/replication.md#ck), если при создании кластера была включена поддержка этого механизма репликации.
 
-Нельзя удалить хосты разных типов (ClickHouse® и ZooKeeper) за один раз.
+Нельзя удалить хосты разных типов ({{ CH }} и {{ ZK }}) за один раз.
 
 {% endnote %}
 
@@ -778,23 +778,23 @@
 
   Чтобы удалить один хост:
 
-    1. В [консоли управления](https://console.yandex.cloud) выберите каталог, в котором находится кластер.
-    1. [Перейдите](../../console/operations/select-service.md#select-service) в сервис **Managed Service for&nbsp;ClickHouse**.
-    1. Нажмите на имя нужного кластера и перейдите на вкладку **Хосты**.
-    1. Нажмите на значок ![image](../../_assets/console-icons/ellipsis.svg) в строке нужного хоста и выберите пункт **Удалить**.
-    1. В открывшемся окне включите опцию **Я удаляю хост** и нажмите кнопку **Подтвердить**.
+    1. В [консоли управления]({{ link-console-main }}) выберите каталог, в котором находится кластер.
+    1. Перейдите в сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-clickhouse }}**.
+    1. Нажмите на имя нужного кластера и перейдите на вкладку **{{ ui-key.yacloud.mdb.cluster.hosts.label_title }}**.
+    1. Нажмите на значок ![image](../../_assets/console-icons/ellipsis.svg) в строке нужного хоста и выберите пункт **{{ ui-key.yacloud.mdb.clusters.button_action-delete }}**.
+    1. В открывшемся окне включите опцию **Я удаляю хост** и нажмите кнопку **{{ ui-key.yacloud.mdb.cluster.hosts.popup-confirm_button }}**.
 
   Чтобы удалить несколько хостов сразу:
 
-    1. В [консоли управления](https://console.yandex.cloud) выберите каталог, в котором находится кластер.
-    1. [Перейдите](../../console/operations/select-service.md#select-service) в сервис **Managed Service for&nbsp;ClickHouse**.
-    1. Нажмите на имя нужного кластера и перейдите на вкладку **Хосты**.
-    1. Выберите хосты, которые хотите удалить, и нажмите **Удалить** в нижней части экрана.
-    1. В открывшемся окне нажмите кнопку **Удалить**.
+    1. В [консоли управления]({{ link-console-main }}) выберите каталог, в котором находится кластер.
+    1. Перейдите в сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-clickhouse }}**.
+    1. Нажмите на имя нужного кластера и перейдите на вкладку **{{ ui-key.yacloud.mdb.cluster.hosts.label_title }}**.
+    1. Выберите хосты, которые хотите удалить, и нажмите **{{ ui-key.yacloud.mdb.clusters.button_action-delete }}** в нижней части экрана.
+    1. В открывшемся окне нажмите кнопку **{{ ui-key.yacloud.mdb.cluster.hosts.action_delete-host }}**.
 
 - CLI {#cli}
 
-  Если у вас еще нет интерфейса командной строки Yandex Cloud (CLI), [установите и инициализируйте его](../../cli/quickstart.md#install).
+  Если у вас еще нет интерфейса командной строки {{ yandex-cloud }} (CLI), [установите и инициализируйте его](../../cli/quickstart.md#install).
 
   По умолчанию используется каталог, указанный при [создании](../../cli/operations/profile/profile-create.md) профиля CLI. Чтобы изменить каталог по умолчанию, используйте команду `yc config set folder-id <идентификатор_каталога>`. Также для любой команды вы можете указать другой каталог с помощью параметров `--folder-name` или `--folder-id`. Если вы обращаетесь к ресурсу по имени, поиск будет выполнен в каталоге по умолчанию. Если вы обращаетесь к ресурсу по идентификатору, поиск будет выполнен глобально — во всех каталогах с учетом прав доступа.
 
@@ -803,30 +803,30 @@
   Команда для удаления одного хоста имеет вид:
 
   ```bash
-  yc managed-clickhouse hosts delete --cluster-name=<имя_кластера> \
+  {{ yc-mdb-ch }} hosts delete --cluster-name=<имя_кластера> \
     <имя_хоста>
   ```
 
   Имена хостов можно запросить со [списком хостов в кластере](#list-hosts), имя кластера — со [списком кластеров в каталоге](cluster-list.md#list-clusters).
 
 
-- Terraform {#tf}
+- {{ TF }} {#tf}
 
-  1. Откройте актуальный конфигурационный файл Terraform с планом инфраструктуры.
+  1. Откройте актуальный конфигурационный файл {{ TF }} с планом инфраструктуры.
 
      О том, как создать такой файл, см. в разделе [Создание кластера](cluster-create.md).
   
   1. Удалите один или несколько хостов с типом `CLICKHOUSE` из блока `hosts`.
   1. Проверьте корректность настроек.
 
-     1. В командной строке перейдите в каталог, в котором расположены актуальные конфигурационные файлы Terraform с планом инфраструктуры.
+     1. В командной строке перейдите в каталог, в котором расположены актуальные конфигурационные файлы {{ TF }} с планом инфраструктуры.
      1. Выполните команду:
      
         ```bash
         terraform validate
         ```
      
-        Если в файлах конфигурации есть ошибки, Terraform на них укажет.
+        Если в файлах конфигурации есть ошибки, {{ TF }} на них укажет.
 
   1. Введите слово `yes` и нажмите **Enter**.
 
@@ -848,11 +848,11 @@
         1. Подтвердите изменение ресурсов.
         1. Дождитесь завершения операции.
 
-  Подробнее см. в [документации провайдера Terraform](../../terraform/resources/mdb_clickhouse_cluster.md).
+  Подробнее см. в [документации провайдера {{ TF }}]({{ tf-provider-resources-link }}/mdb_clickhouse_cluster).
 
   {% note warning "Ограничения по времени" %}
   
-  Провайдер Terraform ограничивает время на выполнение операций с кластером Managed Service for ClickHouse®:
+  Провайдер {{ TF }} ограничивает время на выполнение операций с кластером {{ mch-name }}:
   
   * создание, в т. ч. путем восстановления из резервной копии, — 60 минут;
   * изменение — 90 минут;
@@ -888,14 +888,14 @@
         export IAM_TOKEN="<IAM-токен>"
         ```
     
-    1. Воспользуйтесь методом [Cluster.DeleteHosts](../api-ref/Cluster/deleteHosts.md) и выполните запрос, например, с помощью [cURL](https://curl.se/):
+    1. Воспользуйтесь методом [Cluster.DeleteHosts](../api-ref/Cluster/deleteHosts.md) и выполните запрос, например, с помощью {{ api-examples.rest.tool }}:
     
         ```bash
         curl \
             --request POST \
             --header "Authorization: Bearer $IAM_TOKEN" \
             --header "Content-Type: application/json" \
-            --url 'https://mdb.api.cloud.yandex.net/managed-clickhouse/v1/clusters/<идентификатор_кластера>/hosts:batchDelete' \
+            --url 'https://{{ api-host-mdb }}/managed-clickhouse/v1/clusters/<идентификатор_кластера>/hosts:batchDelete' \
             --data '{
                       "hostNames": [
                         <перечень_имен_хостов>
@@ -925,7 +925,7 @@
        
        Далее предполагается, что содержимое репозитория находится в директории `~/cloudapi/`.
     
-    1. Воспользуйтесь вызовом [ClusterService.DeleteHosts](../api-ref/grpc/Cluster/deleteHosts.md) и выполните запрос, например, с помощью [gRPCurl](https://github.com/fullstorydev/grpcurl):
+    1. Воспользуйтесь вызовом [ClusterService.DeleteHosts](../api-ref/grpc/Cluster/deleteHosts.md) и выполните запрос, например, с помощью {{ api-examples.grpc.tool }}:
     
         ```bash
         grpcurl \
@@ -940,7 +940,7 @@
                       <перечень_имен_хостов>
                     ]
                 }' \
-            mdb.api.cloud.yandex.net:443 \
+            {{ api-host-mdb }}:{{ port-https }} \
             yandex.cloud.mdb.clickhouse.v1.ClusterService.DeleteHosts
         ```
     
@@ -952,4 +952,4 @@
 
 {% endlist %}
 
-_ClickHouse® является зарегистрированным товарным знаком [ClickHouse, Inc](https://clickhouse.com)._
+_{{ CH }} является зарегистрированным товарным знаком [ClickHouse, Inc](https://clickhouse.com)._

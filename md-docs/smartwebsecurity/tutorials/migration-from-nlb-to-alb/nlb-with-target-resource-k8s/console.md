@@ -1,26 +1,26 @@
-# Миграция сервисов с балансировщика NLB с целевыми ресурсами из кластера Yandex Managed Service for Kubernetes на L7-балансировщик ALB с помощью консоли управления
+# Миграция сервисов с балансировщика NLB с целевыми ресурсами из кластера {{ managed-k8s-full-name }} на L7-балансировщик ALB с помощью консоли управления
 
-# Миграция сервисов с балансировщика NLB с целевыми ресурсами из кластера Yandex Managed Service for Kubernetes на L7-балансировщик ALB с помощью консоли управления
+# Миграция сервисов с балансировщика NLB с целевыми ресурсами из кластера {{ managed-k8s-full-name }} на L7-балансировщик ALB с помощью консоли управления
 
 
 Чтобы мигрировать сервис с сетевого балансировщика на L7-балансировщик:
 
 1. [Ознакомьтесь с рекомендациями по миграции сервисов](#recommendations).
 1. [Создайте инфраструктуру для миграции](#before-you-begin).
-1. [Создайте профиль безопасности Smart Web Security](#create-profile-sws).
-1. [Установите Ingress-контроллер Application Load Balancer и создайте ресурсы в кластере Managed Service for Kubernetes](#install-ingress-nginx). На этом этапе вы подключите профиль безопасности Smart Web Security к L7-балансировщику.
+1. [Создайте профиль безопасности {{ sws-name }}](#create-profile-sws).
+1. [Установите Ingress-контроллер {{ alb-name }} и создайте ресурсы в кластере {{ managed-k8s-name }}](#install-ingress-nginx). На этом этапе вы подключите профиль безопасности {{ sws-name }} к L7-балансировщику.
 1. [Проверьте работу L7-балансировщика](#test).
 1. [Мигрируйте пользовательскую нагрузку с сетевого балансировщика на L7-балансировщик](#migration-nlb-to-alb).
 
 ## Рекомендации по миграции сервисов {#recommendations}
 
-1. Подключите защиту от DDoS-атак на уровне L3-L4 ([модель OSI](https://ru.wikipedia.org/wiki/Сетевая_модель_OSI)). Она станет дополнением к защите на уровне L7, которую после миграции обеспечит [Yandex Smart Web Security](../../../index.md).
+1. Подключите защиту от DDoS-атак на уровне L3-L4 ([модель OSI](https://ru.wikipedia.org/wiki/Сетевая_модель_OSI)). Она станет дополнением к защите на уровне L7, которую после миграции обеспечит [{{ sws-full-name }}](../../../index.md).
 
     Чтобы подключить защиту на уровне L3-L4:
 
     1. Перед миграцией [зарезервируйте статический публичный IP-адрес с защитой от DDoS-атак](../../../../vpc/operations/enable-ddos-protection.md#enable-on-reservation) и используйте этот адрес для обработчика L7-балансировщика. Если для сетевого балансировщика публичный IP-адрес с защитой уже есть, его можно сохранить при миграции. В противном случае IP-адрес придется поменять на защищенный.
 
-    1. Настройте порог для срабатывания механизмов защиты, который будет соответствовать объему легитимного трафика на защищаемый ресурс. Для настройки такого порога обратитесь в [техническую поддержку](https://center.yandex.cloud/support).
+    1. Настройте порог для срабатывания механизмов защиты, который будет соответствовать объему легитимного трафика на защищаемый ресурс. Для настройки такого порога обратитесь в [техническую поддержку]({{ link-console-support }}).
 
     1. [Задайте](../../../../vpc/operations/adjust-mtu-ddos-protection.md) значение MTU равным `1450` на целевых ресурсах за балансировщиком. Подробнее см. в разделе [MTU и TCP MSS](../../../../vpc/concepts/mtu-mss.md).
 
@@ -37,11 +37,11 @@
     * количество новых соединений в секунду;
     * объем трафика в секунду.
 
-1. Функциональные возможности балансировщика Application Load Balancer могут отличаться от возможностей, используемых в вашем балансировщике, развернутом в кластере Managed Service for Kubernetes. Ознакомьтесь с описанием [Ingress-контроллера Application Load Balancer](../../../../application-load-balancer/tools/k8s-ingress-controller/index.md) и [принципами его работы](../../../../application-load-balancer/tools/k8s-ingress-controller/principles.md).
+1. Функциональные возможности балансировщика {{ alb-name }} могут отличаться от возможностей, используемых в вашем балансировщике, развернутом в кластере {{ managed-k8s-name }}. Ознакомьтесь с описанием [Ingress-контроллера {{ alb-name }}](../../../../application-load-balancer/tools/k8s-ingress-controller/index.md) и [принципами его работы](../../../../application-load-balancer/tools/k8s-ingress-controller/principles.md).
 
-1. Настройте проверки состояния бэкендов на балансировщике Application Load Balancer. Благодаря проверкам состояния балансировщик своевременно отслеживает недоступные бэкенды и направляет трафик на другие бэкенды. После обновления приложения трафик будет снова распределен на все бэкенды.
+1. Настройте проверки состояния бэкендов на балансировщике {{ alb-name }}. Благодаря проверкам состояния балансировщик своевременно отслеживает недоступные бэкенды и направляет трафик на другие бэкенды. После обновления приложения трафик будет снова распределен на все бэкенды.
 
-    Подробнее см. в разделах [Рекомендации по настройке проверок состояния Yandex Application Load Balancer](../../../../application-load-balancer/concepts/best-practices.md) и [Аннотации (metadata.annotations)](../../../../application-load-balancer/k8s-ref/service-for-ingress.md#annotations).
+    Подробнее см. в разделах [{#T}](../../../../application-load-balancer/concepts/best-practices.md) и [{#T}](../../../../application-load-balancer/k8s-ref/service-for-ingress.md#annotations).
 
 ## Создайте инфраструктуру {#before-you-begin}
 
@@ -49,32 +49,32 @@
 
 1. Создайте [группы безопасности](../../../../application-load-balancer/tools/k8s-ingress-controller/security-groups.md), которые разрешают L7-балансировщику получать входящий трафик и отправлять его на целевые ресурсы, а также разрешают целевым ресурсам получать входящий трафик от балансировщика.
 
-1. При использовании протокола HTTPS [добавьте TLS-сертификат](../../../../certificate-manager/operations/import/cert-create.md#create-certificate) вашего сервиса в [Yandex Certificate Manager](../../../../certificate-manager/index.md).
+1. При использовании протокола HTTPS [добавьте TLS-сертификат](../../../../certificate-manager/operations/import/cert-create.md#create-certificate) вашего сервиса в [{{ certificate-manager-full-name }}](../../../../certificate-manager/index.md).
 
 1. (Опционально) [Зарезервируйте публичный статический IP-адрес с защитой от DDoS](../../../../vpc/operations/get-static-ip.md) на уровне L3-L4 для L7-балансировщика.
 
-1. Сервисы Managed Service for Kubernetes, которые используются в качестве бэкендов, должны иметь тип `NodePort`. Если ваши сервисы используют другой тип, измените его на `NodePort`. Подробнее об этом типе см. в документации [Kubernetes](https://kubernetes.io/docs/concepts/services-networking/service/#type-nodeport).
+1. Сервисы {{ managed-k8s-name }}, которые используются в качестве бэкендов, должны иметь тип `NodePort`. Если ваши сервисы используют другой тип, измените его на `NodePort`. Подробнее об этом типе см. в документации [{{ k8s }}](https://kubernetes.io/docs/concepts/services-networking/service/#type-nodeport).
 
-## Создайте профиль безопасности Smart Web Security {#create-profile-sws}
+## Создайте профиль безопасности {{ sws-name }} {#create-profile-sws}
 
-[Создайте профиль безопасности](../../../operations/profile-create.md) Smart Web Security, выбрав вариант создания **По преднастроенному шаблону**.
+[Создайте профиль безопасности](../../../operations/profile-create.md) {{ sws-name }}, выбрав вариант создания **{{ ui-key.yacloud.smart-web-security.title_default-template }}**.
 
 При создании профиля задайте настройки:
 
-* В поле **Действие для базового правила по умолчанию** выберите `Разрешить`.
-* Для правила **Smart Protection** включите опцию **Только логирование (dry run)**.
+* В поле **{{ ui-key.yacloud.smart-web-security.form.label_default-action }}** выберите `{{ ui-key.yacloud.smart-web-security.form.label_action-allow }}`.
+* Для правила **{{ ui-key.yacloud.smart-web-security.overview.label_smart-protection-rule }}** включите опцию **{{ ui-key.yacloud.smart-web-security.overview.column_dry-run-rule }} (dry run)**.
 
-С этими настройками информация о трафике будет логироваться, но к трафику не будут применяться никакие действия. Это позволит снизить риск отключения пользователей из-за проблем в настройке профиля. В дальнейшем вы сможете отключить опцию **Только логирование (dry run)** и настроить правила с запрещающими действиями в профиле безопасности для вашего сценария.
+С этими настройками информация о трафике будет логироваться, но к трафику не будут применяться никакие действия. Это позволит снизить риск отключения пользователей из-за проблем в настройке профиля. В дальнейшем вы сможете отключить опцию **{{ ui-key.yacloud.smart-web-security.overview.column_dry-run-rule }} (dry run)** и настроить правила с запрещающими действиями в профиле безопасности для вашего сценария.
 
-## Установите Ingress-контроллер Application Load Balancer и создайте ресурсы в кластере Managed Service for Kubernetes {#install-ingress-nginx}
+## Установите Ingress-контроллер {{ alb-name }} и создайте ресурсы в кластере {{ managed-k8s-name }} {#install-ingress-nginx}
 
 {% note tip %}
 
-Вместо ALB Ingress-контроллера и Gateway API рекомендуется использовать новый контроллер [Yandex Cloud Gwin](../../../../application-load-balancer/tools/gwin/index.md).
+Вместо ALB Ingress-контроллера и Gateway API рекомендуется использовать новый контроллер [{{ yandex-cloud }} Gwin](../../../../application-load-balancer/tools/gwin/index.md).
 
 {% endnote %}
 
-1. [Установите Ingress-контроллер Yandex Application Load Balancer](../../../../managed-kubernetes/operations/applications/alb-ingress-controller.md).
+1. [Установите Ingress-контроллер {{ alb-full-name }}](../../../../managed-kubernetes/operations/applications/alb-ingress-controller.md).
 
 1. Создайте ресурс [IngressClass](../../../../application-load-balancer/k8s-ref/ingress-class.md) для Ingress-контроллера L7-балансировщика:
 
@@ -110,12 +110,12 @@
             * `ingress.alb.yc.io/subnets` — идентификаторы подсетей в трех зонах доступности для узлов L7-балансировщика. Идентификаторы перечисляются через запятую без пробелов.
             * `ingress.alb.yc.io/security-groups` — идентификатор одной или нескольких групп безопасности для L7-балансировщика. Идентификаторы нескольких групп перечисляются через запятую без пробелов.
             * `ingress.alb.yc.io/external-ipv4-address` — зарезервированный ранее статический публичный IP-адрес.
-            * `ingress.alb.yc.io/group-name` — имя группы ресурсов `Ingress`. Ресурсы `Ingress` объединяются в группы, каждая из которых обслуживается отдельным экземпляром Application Load Balancer с отдельным публичным IP-адресом.
-            * `ingress.alb.yc.io/security-profile-id` — идентификатор созданного ранее профиля безопасности Smart Web Security.
+            * `ingress.alb.yc.io/group-name` — имя группы ресурсов `Ingress`. Ресурсы `Ingress` объединяются в группы, каждая из которых обслуживается отдельным экземпляром {{ alb-name }} с отдельным публичным IP-адресом.
+            * `ingress.alb.yc.io/security-profile-id` — идентификатор созданного ранее профиля безопасности {{ sws-name }}.
 
                 {% note warning %}
 
-                Профиль безопасности будет привязан к виртуальному хосту L7-балансировщика. Подключение сервиса Smart Web Security невозможно без привязки профиля безопасности к виртуальному хосту L7-балансировщика.
+                Профиль безопасности будет привязан к виртуальному хосту L7-балансировщика. Подключение сервиса {{ sws-name }} невозможно без привязки профиля безопасности к виртуальному хосту L7-балансировщика.
 
                 {% endnote %}
 
@@ -126,7 +126,7 @@
         1. При использовании протокола HTTPS заполните раздел [tls](../../../../managed-kubernetes/alb-ref/ingress.md#tls):
 
             * `hosts` — доменное имя вашего сервиса, которому соответствует TLS-сертификат.
-            * `secretName` — TLS-сертификат вашего сервиса в Yandex Certificate Manager в формате `yc-certmgr-cert-id-<идентификатор_сертификата>`.
+            * `secretName` — TLS-сертификат вашего сервиса в {{ certificate-manager-full-name }} в формате `yc-certmgr-cert-id-<идентификатор_сертификата>`.
 
         1. Заполните раздел [rules](../../../../managed-kubernetes/alb-ref/ingress.md#rule) в соответствии с правилами распределения входящего трафика по бэкендам в зависимости от доменного имени (поле `host`) и запрашиваемого ресурса (поле `http.paths`):
 
@@ -139,18 +139,18 @@
             * `path` — путь в URI входящего запроса (если тип `Exact`) или его начало (если тип `Prefix`).
             * `backend` — указание на [бэкенд или группу бэкендов](../../../../managed-kubernetes/alb-ref/ingress.md#backend), которые должны обрабатывать запросы с указанным доменным именем и путем в URI. Укажите либо сервис-бэкенд (`service`), либо группу бэкендов (`resource`), но не оба одновременно:
 
-                * `service` — сервис Managed Service for Kubernetes, который должен обрабатывать запросы в качестве бэкенда:
+                * `service` — сервис {{ managed-k8s-name }}, который должен обрабатывать запросы в качестве бэкенда:
 
-                    * `name` — имя сервиса Managed Service for Kubernetes. Ресурс `Service`, на который указывает это поле, должен быть описан по [конфигурации](../../../../application-load-balancer/k8s-ref/service-for-ingress.md).
+                    * `name` — имя сервиса {{ managed-k8s-name }}. Ресурс `Service`, на который указывает это поле, должен быть описан по [конфигурации](../../../../application-load-balancer/k8s-ref/service-for-ingress.md).
                     * `port` — порт сервиса, к которому будет обращаться `Ingress`. Для порта сервиса укажите либо номер (`number`), либо имя (`name`), но не оба одновременно.
 
                     {% note warning %}
 
-                    Сервисы Managed Service for Kubernetes, используемые в качестве бэкендов, должны иметь тип `NodePort`.
+                    Сервисы {{ managed-k8s-name }}, используемые в качестве бэкендов, должны иметь тип `NodePort`.
 
                     {% endnote %}
 
-                * `resource` — указание на группу бэкендов `HttpBackendGroup`, которые должны обрабатывать запросы. Бэкендами в такой группе могут быть сервисы Managed Service for Kubernetes и [бакеты Yandex Object Storage](../../../../storage/concepts/bucket.md). При использовании группы бэкендов доступна расширенная функциональность Application Load Balancer. Также можно указывать относительные веса бэкендов для пропорционального распределения трафика между ними.
+                * `resource` — указание на группу бэкендов `HttpBackendGroup`, которые должны обрабатывать запросы. Бэкендами в такой группе могут быть сервисы {{ managed-k8s-name }} и [бакеты {{ objstorage-full-name }}](../../../../storage/concepts/bucket.md). При использовании группы бэкендов доступна расширенная функциональность {{ alb-name }}. Также можно указывать относительные веса бэкендов для пропорционального распределения трафика между ними.
 
                     * `kind` — `HttpBackendGroup`.
                     * `name` — имя группы бэкендов. Оно должно совпадать с именем, указанным в поле `metadata.name` ресурса `HttpBackendGroup`. Ресурс `HttpBackendGroup`, на который указывает это поле, должен быть описан по [конфигурации](../../../../application-load-balancer/k8s-ref/http-backend-group.md).
@@ -206,7 +206,7 @@
 Протестируйте запрос к сервису через L7-балансировщик. Например, одним из способов:
 
 * В файле `hosts` на рабочей станции добавьте запись `<публичный_IP-адрес_L7-балансировщика> <имя_домена_сервиса>`. Удалите запись после тестирования.
-* Выполните запрос с помощью [cURL](https://curl.se/) в зависимости от типа протокола:
+* Выполните запрос с помощью {{ api-examples.rest.tool }} в зависимости от типа протокола:
 
     ```bash
     curl http://<имя_домена_сервиса> \
@@ -251,10 +251,10 @@
 
 1. Перейдите в L7-балансировщик:
 
-    1. В [консоли управления](https://console.yandex.cloud) перейдите в каталог, в котором находится кластер Managed Service for Kubernetes.
-    1. [Перейдите](../../../../console/operations/select-service.md#select-service) в сервис **Managed Service for&nbsp;Kubernetes**.
+    1. В [консоли управления]({{ link-console-main }}) перейдите в каталог, в котором находится кластер {{ managed-k8s-name }}.
+    1. Перейдите в сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-kubernetes }}**.
     1. Выберите нужный кластер.
-    1. Слева выберите ![image](../../../../_assets/console-icons/timestamps.svg) **Сеть**, а в правой части — вкладку **Ingress**. Для вашего `Ingress`-ресурса в столбце **Балансировщик** перейдите по ссылке на L7-балансировщик.
+    1. Слева выберите ![image](../../../../_assets/console-icons/timestamps.svg) **{{ ui-key.yacloud.k8s.cluster.switch_network }}**, а в правой части — вкладку **{{ ui-key.yacloud.k8s.network.label_ingress }}**. Для вашего `Ingress`-ресурса в столбце **Балансировщик** перейдите по ссылке на L7-балансировщик.
     1. Наблюдайте за пользовательской нагрузкой, поступающей на L7-балансировщик, на графиках [статистики работы балансировщика](../../../../application-load-balancer/operations/application-load-balancer-get-stats.md).
 
 1. Удалите освободившийся статический публичный IP-адрес, который был зарезервирован для L7-балансировщика.
@@ -263,7 +263,7 @@
 
 ### Не сохранять публичный IP-адрес для вашего сервиса {#not-save-public-ip}
 
-1. Чтобы мигрировать пользовательскую нагрузку с сетевого балансировщика на L7-балансировщик, в DNS-сервисе, обслуживающем публичную зону вашего домена, измените значение A-записи для доменного имени сервиса на публичный IP-адрес L7-балансировщика. Если публичная зона домена была создана в [Yandex Cloud DNS](../../../../dns/index.md), то измените запись [по инструкции](../../../../dns/operations/resource-record-update.md).
+1. Чтобы мигрировать пользовательскую нагрузку с сетевого балансировщика на L7-балансировщик, в DNS-сервисе, обслуживающем публичную зону вашего домена, измените значение A-записи для доменного имени сервиса на публичный IP-адрес L7-балансировщика. Если публичная зона домена была создана в [{{ dns-full-name }}](../../../../dns/index.md), то измените запись [по инструкции](../../../../dns/operations/resource-record-update.md).
 
     {% note info %}
 
@@ -273,10 +273,10 @@
 
 1. По мере распространения изменений в записи DNS наблюдайте за ростом запросов, поступающих на L7-балансировщик:
 
-    1. В [консоли управления](https://console.yandex.cloud) перейдите в каталог, в котором находится кластер Managed Service for Kubernetes.
-    1. [Перейдите](../../../../console/operations/select-service.md#select-service) в сервис **Managed Service for&nbsp;Kubernetes**.
+    1. В [консоли управления]({{ link-console-main }}) перейдите в каталог, в котором находится кластер {{ managed-k8s-name }}.
+    1. Перейдите в сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-kubernetes }}**.
     1. Выберите нужный кластер.
-    1. Слева выберите ![image](../../../../_assets/console-icons/timestamps.svg) **Сеть**, а в правой части — вкладку **Ingress**. Для вашего `Ingress`-ресурса в столбце **Балансировщик** перейдите по ссылке на L7-балансировщик.
+    1. Слева выберите ![image](../../../../_assets/console-icons/timestamps.svg) **{{ ui-key.yacloud.k8s.cluster.switch_network }}**, а в правой части — вкладку **{{ ui-key.yacloud.k8s.network.label_ingress }}**. Для вашего `Ingress`-ресурса в столбце **Балансировщик** перейдите по ссылке на L7-балансировщик.
     1. Наблюдайте за пользовательской нагрузкой, поступающей на L7-балансировщик, на графиках [статистики работы балансировщика](../../../../application-load-balancer/operations/application-load-balancer-get-stats.md).
 
 1. Наблюдайте за снижением нагрузки на сетевой балансировщик с помощью [метрик балансировщика](../../../../monitoring/metrics-ref/network-load-balancer-ref.md) `processed_bytes` и `processed_packets`. Для визуализации этих метрик можно [создать дашборд](../../../../monitoring/operations/dashboard/create.md). Если нагрузка на сетевом балансировщике долгое время отсутствует, то перенос на L7-балансировщик завершен.

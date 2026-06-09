@@ -1,6 +1,6 @@
 # yandex_mdb_mongodb_cluster (Resource)
 
-Manages a MongoDB cluster within the Yandex Cloud. For more information, see [the official documentation](../../storedoc/concepts/index.md).
+Manages a MongoDB cluster within the Yandex Cloud. For more information, see [the official documentation](../../managed-mongodb/concepts).
 
 ## Example usage
 
@@ -80,14 +80,14 @@ resource "yandex_vpc_subnet" "foo" {
 - `disk_encryption_key_id` (String). ID of the KMS key for cluster disk encryption.
 - `environment` (**Required**)(String). Deployment environment of the MongoDB cluster. Can be either `PRESTABLE` or `PRODUCTION`.
 - `folder_id` (String). The folder identifier that resource belongs to. If it is not provided, the default provider `folder-id` is used.
-- `health` (*Read-Only*) (String). Aggregated health of the cluster. Can be either `ALIVE`, `DEGRADED`, `DEAD` or `HEALTH_UNKNOWN`. For more information see `health` field of JSON representation in [the official documentation](../../storedoc/api-ref/Cluster/index.md).
+- `health` (*Read-Only*) (String). Aggregated health of the cluster. Can be either `ALIVE`, `DEGRADED`, `DEAD` or `HEALTH_UNKNOWN`. For more information see `health` field of JSON representation in [the official documentation](../../managed-mongodb/api-ref/Cluster).
 - `id` (String). 
 - `labels` (Map Of String). A set of key/value label pairs which assigned to resource.
 - `name` (**Required**)(String). The resource name.
 - `network_id` (**Required**)(String). The `VPC Network ID` of subnets which resource attached to.
 - `security_group_ids` (Set Of String). The list of security groups applied to resource or their components.
 - `sharded` (*Read-Only*) (Bool). MongoDB Cluster mode enabled/disabled.
-- `status` (*Read-Only*) (String). Status of the cluster. Can be either `CREATING`, `STARTING`, `RUNNING`, `UPDATING`, `STOPPING`, `STOPPED`, `ERROR` or `STATUS_UNKNOWN`. For more information see `status` field of JSON representation in [the official documentation](../../storedoc/api-ref/Cluster/index.md).
+- `status` (*Read-Only*) (String). Status of the cluster. Can be either `CREATING`, `STARTING`, `RUNNING`, `UPDATING`, `STOPPING`, `STOPPED`, `ERROR` or `STATUS_UNKNOWN`. For more information see `status` field of JSON representation in [the official documentation](../../managed-mongodb/api-ref/Cluster).
 - `cluster_config` [Block]. Configuration of the MongoDB subcluster.
   - `backup_retain_period_days` (Number). Retain period of automatically created backup in days.
   - `feature_compatibility_version` (String). Feature compatibility version of MongoDB. If not provided version is taken. Can be either `6.0`, `5.0`, `4.4` and `4.2`.
@@ -226,25 +226,25 @@ resource "yandex_vpc_subnet" "foo" {
 - `resources` [Block]. (**DEPRECATED**, use `resources_*` instead) Resources allocated to hosts of the MongoDB cluster.
   - `disk_size` (**Required**)(Number). Volume of the storage available to a MongoDB host, in gigabytes.
   - `disk_type_id` (**Required**)(String). Type of the storage of MongoDB hosts. For more information see [the official documentation](../../managed-clickhouse/concepts/storage.md).
-  - `resource_preset_id` (**Required**)(String). The ID of the preset for computational resources available to a MongoDB host (CPU, memory etc.). For more information, see [the official documentation](../../storedoc/concepts/index.md).
+  - `resource_preset_id` (**Required**)(String). The ID of the preset for computational resources available to a MongoDB host (CPU, memory etc.). For more information, see [the official documentation](../../managed-mongodb/concepts).
 - `resources_mongocfg` [Block]. Resources allocated to `mongocfg` hosts of the MongoDB cluster.
   - `disk_size` (**Required**)(Number). Volume of the storage available to a MongoDB host, in gigabytes.
   - `disk_type_id` (**Required**)(String). Type of the storage of MongoDB hosts. For more information see [the official documentation](../../managed-clickhouse/concepts/storage.md).
-  - `resource_preset_id` (**Required**)(String). The ID of the preset for computational resources available to a MongoDB host (CPU, memory etc.). For more information, see [the official documentation](../../storedoc/concepts/index.md).
+  - `resource_preset_id` (**Required**)(String). The ID of the preset for computational resources available to a MongoDB host (CPU, memory etc.). For more information, see [the official documentation](../../managed-mongodb/concepts).
 - `resources_mongod` [Block]. Resources allocated to `mongod` hosts of the MongoDB cluster.
   - `disk_size` (**Required**)(Number). Volume of the storage available to a MongoDB host, in gigabytes.
   - `disk_type_id` (**Required**)(String). Type of the storage of MongoDB hosts. For more information see [the official documentation](../../managed-clickhouse/concepts/storage.md).
-  - `resource_preset_id` (**Required**)(String). The ID of the preset for computational resources available to a MongoDB host (CPU, memory etc.). For more information, see [the official documentation](../../storedoc/concepts/index.md).
+  - `resource_preset_id` (**Required**)(String). The ID of the preset for computational resources available to a MongoDB host (CPU, memory etc.). For more information, see [the official documentation](../../managed-mongodb/concepts).
 - `resources_mongoinfra` [Block]. Resources allocated to `mongoinfra` hosts of the MongoDB cluster.
   - `disk_size` (**Required**)(Number). Volume of the storage available to a MongoDB host, in gigabytes.
   - `disk_type_id` (**Required**)(String). Type of the storage of MongoDB hosts. For more information see [the official documentation](../../managed-clickhouse/concepts/storage.md).
-  - `resource_preset_id` (**Required**)(String). The ID of the preset for computational resources available to a MongoDB host (CPU, memory etc.). For more information, see [the official documentation](../../storedoc/concepts/index.md).
+  - `resource_preset_id` (**Required**)(String). The ID of the preset for computational resources available to a MongoDB host (CPU, memory etc.). For more information, see [the official documentation](../../managed-mongodb/concepts).
 - `resources_mongos` [Block]. Resources allocated to `mongos` hosts of the MongoDB cluster.
   - `disk_size` (**Required**)(Number). Volume of the storage available to a MongoDB host, in gigabytes.
   - `disk_type_id` (**Required**)(String). Type of the storage of MongoDB hosts. For more information see [the official documentation](../../managed-clickhouse/concepts/storage.md).
-  - `resource_preset_id` (**Required**)(String). The ID of the preset for computational resources available to a MongoDB host (CPU, memory etc.). For more information, see [the official documentation](../../storedoc/concepts/index.md).
+  - `resource_preset_id` (**Required**)(String). The ID of the preset for computational resources available to a MongoDB host (CPU, memory etc.). For more information, see [the official documentation](../../managed-mongodb/concepts).
 - `restore` [Block]. The cluster will be created from the specified backup.
-  - `backup_id` (**Required**)(String). Backup ID. The cluster will be created from the specified backup. [How to get a list of PostgreSQL backups](../../storedoc/operations/cluster-backups.md).
+  - `backup_id` (**Required**)(String). Backup ID. The cluster will be created from the specified backup. [How to get a list of PostgreSQL backups](../../managed-mongodb/operations/cluster-backups).
   - `time` (String). Timestamp of the moment to which the MongoDB cluster should be restored. (Format: `2006-01-02T15:04:05` - UTC). When not set, current time is used.
 - `timeouts` [Block]. 
   - `create` (String). 
@@ -255,7 +255,7 @@ resource "yandex_vpc_subnet" "foo" {
   - `password` (**Required**)(String). The password of the user.
   - `permission` [Block]. Set of permissions granted to the user.
     - `database_name` (**Required**)(String). The name of the database that the permission grants access to.
-    - `roles` (List Of String). The roles of the user in this database. For more information see [the official documentation](../../storedoc/concepts/users-and-roles.md).
+    - `roles` (List Of String). The roles of the user in this database. For more information see [the official documentation](../../managed-mongodb/concepts/users-and-roles).
 
 ## Import
 

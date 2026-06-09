@@ -2,11 +2,11 @@
 
 {% note info %}
 
-Функциональность находится на стадии [Preview](../../../overview/concepts/launch-stages.md). Чтобы получить доступ, обратитесь в [техническую поддержку](https://center.yandex.cloud/support) или к вашему аккаунт-менеджеру.
+Функциональность находится на стадии [Preview](../../../overview/concepts/launch-stages.md). Чтобы получить доступ, обратитесь в [техническую поддержку]({{ link-console-support }}) или к вашему аккаунт-менеджеру.
 
 {% endnote %}
 
-[Политики авторизации](../../concepts/access-control/access-policies.md) — это механизм контроля доступа Yandex Identity and Access Management, который позволяет управлять разрешениями на выполнение определенных операций с [ресурсами Yandex Cloud](../../../overview/roles-and-resources.md). Политики авторизации создаются на основе [шаблонов](../../concepts/access-control/access-policies.md#supported-policies) и дополняют систему [ролей](../../concepts/access-control/roles.md), делая [управление доступом](../../concepts/access-control/index.md) более гибким.
+[Политики авторизации](../../concepts/access-control/access-policies.md) — это механизм контроля доступа {{ iam-full-name }}, который позволяет управлять разрешениями на выполнение определенных операций с [ресурсами {{ yandex-cloud }}](../../../overview/roles-and-resources.md). Политики авторизации создаются на основе [шаблонов](../../concepts/access-control/access-policies.md#supported-policies) и дополняют систему [ролей](../../concepts/access-control/roles.md), делая [управление доступом](../../concepts/access-control/index.md) более гибким.
 
 Политики авторизации могут быть созданы для [каталога](#folder), [облака](#cloud) или [организации](#organization).
 
@@ -27,7 +27,7 @@
 
 - CLI {#cli}
 
-  Если у вас еще нет интерфейса командной строки Yandex Cloud (CLI), [установите и инициализируйте его](../../../cli/quickstart.md#install).
+  Если у вас еще нет интерфейса командной строки {{ yandex-cloud }} (CLI), [установите и инициализируйте его](../../../cli/quickstart.md#install).
 
   Выполните команду, указав имя или [идентификатор](../../../resource-manager/operations/folder/get-id.md) каталога, для которого вы хотите посмотреть созданные политики:
 
@@ -38,11 +38,13 @@
   Результат:
 
   ```
-  +---------------------------------------+
-  |      ACCESS POLICY TEMPLATE ID        |
-  +---------------------------------------+
-  | iam.denyServiceAccountApiKeysCreation |
-  +---------------------------------------+
+  +---------------------------------------------+-------------------------------------------------+
+  |          ACCESS POLICY TEMPLATE ID          |                   PARAMETERS                    |
+  +---------------------------------------------+-------------------------------------------------+
+  | backup.denyRemoveProtection                 |                                                 |
+  | serverless.containers.restrictNetworkAccess | allowed_vpc_network_ids=[enphfcfseu9i********], |
+  |                                             | allowed_src_ips=[192.168.1.12/24]               |
+  +---------------------------------------------+-------------------------------------------------+
   ```
 
 - API {#api}
@@ -59,7 +61,7 @@
 
 - CLI {#cli}
 
-  Если у вас еще нет интерфейса командной строки Yandex Cloud (CLI), [установите и инициализируйте его](../../../cli/quickstart.md#install).
+  Если у вас еще нет интерфейса командной строки {{ yandex-cloud }} (CLI), [установите и инициализируйте его](../../../cli/quickstart.md#install).
 
   Выполните команду, указав имя или [идентификатор](../../../resource-manager/operations/cloud/get-id.md) облака, для которого вы хотите посмотреть созданные политики:
 
@@ -70,11 +72,13 @@
   Результат:
 
   ```
-  +---------------------------------------+
-  |      ACCESS POLICY TEMPLATE ID        |
-  +---------------------------------------+
-  | iam.denyServiceAccountApiKeysCreation |
-  +---------------------------------------+
+  +---------------------------------------------+-------------------------------------------------+
+  |          ACCESS POLICY TEMPLATE ID          |                   PARAMETERS                    |
+  +---------------------------------------------+-------------------------------------------------+
+  | backup.denyRemoveProtection                 |                                                 |
+  | serverless.containers.restrictNetworkAccess | allowed_vpc_network_ids=[enphfcfseu9i********], |
+  |                                             | allowed_src_ips=[192.168.1.12/24]               |
+  +---------------------------------------------+-------------------------------------------------+
   ```
 
 - API {#api}
@@ -91,7 +95,7 @@
 
 - CLI {#cli}
 
-  Если у вас еще нет интерфейса командной строки Yandex Cloud (CLI), [установите и инициализируйте его](../../../cli/quickstart.md#install).
+  Если у вас еще нет интерфейса командной строки {{ yandex-cloud }} (CLI), [установите и инициализируйте его](../../../cli/quickstart.md#install).
 
   Выполните команду, указав имя или [идентификатор](../../../organization/operations/organization-get-id.md) организации, для которой вы хотите посмотреть созданные политики:
 
@@ -117,7 +121,7 @@
 
 #### См. также {#see-also}
 
-* [Политики авторизации](../../concepts/access-control/access-policies.md)
-* [Получение списка поддерживаемых шаблонов политик авторизации](list.md)
-* [Создание политики авторизации для ресурса](assign.md)
-* [Удаление политики авторизации](revoke.md)
+* [{#T}](../../concepts/access-control/access-policies.md)
+* [{#T}](list.md)
+* [{#T}](assign.md)
+* [{#T}](revoke.md)

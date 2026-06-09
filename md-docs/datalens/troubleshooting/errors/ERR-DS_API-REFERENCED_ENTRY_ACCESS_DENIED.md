@@ -1,4 +1,4 @@
-# [Yandex DataLens] Referenced connection <идентификатор_подключения> cannot be loaded: access denied
+# [{{ datalens-full-name }}] Referenced connection <идентификатор_подключения> cannot be loaded: access denied
 
 `ERR.DS_API.REFERENCED_ENTRY_ACCESS_DENIED`
 
@@ -7,4 +7,4 @@
 * Чтобы просматривать чарт, запросите право доступа **Исполнение**.
 * Чтобы просматривать чарт и параметры подключения к источнику, запросите право доступа **Просмотр**.
 
-Подробнее о правах доступа читайте в разделе [Управление доступом к Yandex DataLens](../../security/index.md).
+Подробнее о правах доступа читайте в разделе [{#T}](../../security/index.md).

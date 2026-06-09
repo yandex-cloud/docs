@@ -1,24 +1,18 @@
 # Аутентификация от имени локального пользователя
 
-{% note info %}
-
-Пулы пользователей находятся на стадии [Preview](../../../overview/concepts/launch-stages.md).
-
-{% endnote %}
-
-Вы можете использовать аккаунт [локального пользователя](../../../iam/concepts/users/accounts.md#local) для работы с Yandex Cloud, если в вашей [организации](../../../organization/concepts/organization.md) настроен [пул пользователей](../../../organization/concepts/user-pools.md). В этом случае для аутентификации не требуется личный [аккаунт на Яндексе](../../../iam/concepts/users/accounts.md#passport).
+Вы можете использовать аккаунт [локального пользователя](../../../iam/concepts/users/accounts.md#local) для работы с {{ yandex-cloud }}, если в вашей [организации](../../../organization/concepts/organization.md) настроен [пул пользователей](../../../organization/concepts/user-pools.md). В этом случае для аутентификации не требуется личный [аккаунт на Яндексе](../../../iam/concepts/users/accounts.md#passport).
 
 {% note info %}
 
 Для прохождения аутентификации на сервере без графического интерфейса нужен установленный браузер с [настроенным форвардингом X11](https://docs.ssh.com/manuals/client-user/53/tunnel-x11.html). С помощью X11 вы сможете использовать браузер на сервере по SSH. Для SSH-клиентов на ОС Linux эта функциональность доступна по умолчанию. Для клиентов на Windows можно использовать [Xming](https://sourceforge.net/projects/xming/).
 
-См. также [Пример аутентификации на ВМ Linux без графического интерфейса](#linux-vm-auth).
+См. также [{#T}](#linux-vm-auth).
 
 Если браузер установить невозможно, вместо локального аккаунта используйте [сервисный аккаунт](../../../iam/concepts/users/service-accounts.md).
 
 {% endnote %}
 
-Если у вас еще нет интерфейса командной строки Yandex Cloud, [установите его](../install-cli.md).
+Если у вас еще нет интерфейса командной строки {{ yandex-cloud }}, [установите его](../install-cli.md).
 
 Чтобы аутентифицироваться с помощью [аккаунта локального пользователя](../../../iam/concepts/users/accounts.md#local):
 
@@ -41,9 +35,9 @@
    - Электронная почта
 
       1. Получите адрес электронной почты:
-         1. Перейдите в портал [Мой аккаунт](https://myaccount.yandex.cloud/).
-         1. На панели слева выберите ![alt](../../../_assets/console-icons/passport.svg) **Профиль**.
-         1. В блоке **Контакты** скопируйте адрес электронной почты.
+         1. Перейдите в портал [Мой аккаунт]({{ link-my-account }}).
+         1. На панели слева выберите ![alt](../../../_assets/console-icons/passport.svg) **{{ ui-key.yacloud_org.center-layout.MyAccountLayout.profile_8kyBA }}**.
+         1. В блоке **{{ ui-key.yacloud_org.my-account.ProfilePage.contacts_subheader }}** скопируйте адрес электронной почты.
       1. Запустите интерактивное создание профиля:
 
                   
@@ -101,10 +95,10 @@
       Please enter your numeric choice: 1
       ```
 
-1. Чтобы выбрать [зону доступности](../../../overview/concepts/geo-scope.md) по умолчанию для сервиса [Compute Cloud](../../../compute/index.md), введите `Y`. Чтобы пропустить настройку, введите `n`.
+1. Чтобы выбрать [зону доступности](../../../overview/concepts/geo-scope.md) по умолчанию для сервиса [{{ compute-name }}](../../../compute/index.md), введите `Y`. Чтобы пропустить настройку, введите `n`.
 
    ```bash
-   Do you want to configure a default Yandex Compute Cloud availability zone? [Y/n] Y
+   Do you want to configure a default {{ compute-full-name }} availability zone? [Y/n] Y
    ```
 
    Если вы ввели `Y`, выберите зону доступности:
@@ -112,9 +106,9 @@
    
    ```text
    Which zone do you want to use as a profile default?
-    [1] ru-central1-a
-    [2] ru-central1-b
-    [3] ru-central1-d
+    [1] {{ region-id }}-a
+    [2] {{ region-id }}-b
+    [3] {{ region-id }}-d
     [4] Do not set default zone
    Please enter your numeric choice: 2
    ```
@@ -139,7 +133,7 @@
       subject-id: ek00cd1m8hdd8********
       cloud-id: b1g159pa15cd********
       folder-id: b1g8o9jbt58********
-      compute-default-zone: ru-central1-b
+      compute-default-zone: {{ region-id }}-b
       ```
 
 
@@ -150,7 +144,7 @@
       subject-id: b1g159pa15cd********
       username: <электронная_почта>
       folder-id: b1g8o9jbt58********
-      compute-default-zone: ru-central1-b
+      compute-default-zone: {{ region-id }}-b
       ```
 
 
@@ -205,7 +199,7 @@
 1. После нажатия клавиши **Enter** вы получите URL следующего вида:
 
     ```text
-    https://auth.yandex.cloud/oauth/authorize?client_id=yc.oauth.public-sdk&code_challenge=y22kspX4VrKLmdg9hGr_Bwgte_a3RXtw1En********&code_challenge_method=S256&redirect_uri=http%3A%2F%2F127.0.0.1%3A42121%2Fauth%2Fcallback&response_type=code&scope=openid&state=aExf0z********&yc_federation_hint=ek0o6g0irskn********&yc_sub_hint=
+    https://{{ auth-main-host }}/oauth/authorize?client_id=yc.oauth.public-sdk&code_challenge=y22kspX4VrKLmdg9hGr_Bwgte_a3RXtw1En********&code_challenge_method=S256&redirect_uri=http%3A%2F%2F127.0.0.1%3A42121%2Fauth%2Fcallback&response_type=code&scope=openid&state=aExf0z********&yc_federation_hint=ek0o6g0irskn********&yc_sub_hint=
     ```
 
     Сохраните этот URL. Он потребуется для аутентификации в браузере. Вам также понадобится порт, который вы можете найти в query-параметре `redirect_uri` после IP-адреса `127.0.0.1`. В данном случае это порт `42121`.

@@ -5,7 +5,7 @@ Updates access bindings for specified community.
 ## HTTP request
 
 ```
-PATCH https://datasphere.api.cloud.yandex.net/datasphere/v2/communities/{resourceId}:updateAccessBindings
+PATCH https://datasphere.{{ api-host }}/datasphere/v2/communities/{resourceId}:updateAccessBindings
 ```
 
 ## Path parameters

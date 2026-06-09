@@ -5,7 +5,7 @@ Apply policy to [Compute Cloud instance](../../../concepts/vm-connection.md#os).
 ## HTTP request
 
 ```
-POST https://backup.api.cloud.yandex.net/backup/v1/policies/{policyId}:apply
+POST https://backup.{{ api-host }}/backup/v1/policies/{policyId}:apply
 ```
 
 ## Path parameters

@@ -330,7 +330,8 @@ The number of elements must be greater than 0. ||
 
 - `CREATING`
 - `ACTIVE`
-- `DELETING` ||
+- `DELETING`
+- `DELETED` ||
 || createdAt | **string** (date-time)
 
 String in [RFC3339](https://www.ietf.org/rfc/rfc3339.txt) text format. The range of possible values is from

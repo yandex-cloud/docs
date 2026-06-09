@@ -5,7 +5,7 @@ Retrieves the list of SKUs.
 ## HTTP request
 
 ```
-GET https://billing.api.cloud.yandex.net/billing/v1/skus
+GET https://billing.{{ api-host }}/billing/v1/skus
 ```
 
 ## Query parameters {#yandex.cloud.billing.v1.ListSkusRequest}

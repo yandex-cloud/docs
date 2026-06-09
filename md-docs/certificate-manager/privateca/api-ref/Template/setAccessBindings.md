@@ -5,7 +5,7 @@ Set new access bindings for a specific certificate template.
 ## HTTP request
 
 ```
-POST https://private-ca.certificate-manager.api.cloud.yandex.net/privateca/v1/templates/{resourceId}:setAccessBindings
+POST https://private-ca.certificate-manager.{{ api-host }}/privateca/v1/templates/{resourceId}:setAccessBindings
 ```
 
 ## Path parameters

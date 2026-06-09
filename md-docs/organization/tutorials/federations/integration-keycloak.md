@@ -4,11 +4,11 @@
 
 Настройка аутентификации состоит из следующих этапов:
 
-1. [Создание и настройка федерации в Yandex Identity Hub](#yc-settings).
+1. [Создание и настройка федерации в {{ org-full-name }}](#yc-settings).
 
 1. [Создание и настройка SAML-приложения в Keycloak](#keycloak-settings).
 
-1. [Добавление пользователей в Yandex Identity Hub](#add-users).
+1. [Добавление пользователей в {{ org-full-name }}](#add-users).
 
 1. [Проверка аутентификации](#test-auth).
 
@@ -90,27 +90,27 @@
 
     {% endlist %}
 
-## Создание и настройка федерации в Yandex Identity Hub {#yc-settings}
+## Создание и настройка федерации в {{ org-full-name }} {#yc-settings}
 
 ### Создайте федерацию {#create-federation}
 
 {% list tabs group=instructions %}
 
-- Интерфейс Cloud Center {#cloud-center}
+- Интерфейс {{ cloud-center }} {#cloud-center}
 
-  1. Перейдите в сервис [Yandex Identity Hub](https://center.yandex.cloud/organization).
+  1. Перейдите в сервис [{{ org-full-name }}]({{ link-org-cloud-center }}).
 
-  1. На панели слева выберите ![icon-federation](../../../_assets/console-icons/vector-square.svg) **Федерации**.
+  1. На панели слева выберите ![icon-federation](../../../_assets/console-icons/vector-square.svg) **{{ ui-key.yacloud_org.pages.federations }}**.
 
-  1. В правом верхнем углу страницы нажмите кнопку ![Circles3Plus](../../../_assets/console-icons/circles-3-plus.svg) **Создать федерацию**. В открывшемся окне:
+  1. В правом верхнем углу страницы нажмите кнопку ![Circles3Plus](../../../_assets/console-icons/circles-3-plus.svg) **{{ ui-key.yacloud_org.form.federation.action.create }}**. В открывшемся окне:
 
       1. Задайте имя федерации. Имя должно быть уникальным в каталоге.
 
       1. При необходимости добавьте описание.
 
-      1. В поле **Время жизни cookie** укажите время, в течение которого браузер не будет требовать у пользователя повторной аутентификации.
+      1. В поле **{{ ui-key.yacloud_org.entity.federation.field.cookieMaxAge }}** укажите время, в течение которого браузер не будет требовать у пользователя повторной аутентификации.
 
-      1. В поле **IdP Issuer** вставьте ссылку вида:
+      1. В поле **{{ ui-key.yacloud_org.entity.federation.field.issuer }}** вставьте ссылку вида:
 
           - Keycloak 17 или новее
 
@@ -121,7 +121,7 @@
               Если для IdP-сервера настроен [публичный адрес](https://www.keycloak.org/server/hostname), укажите его URL. Например:
 
               ```
-              http://keycloak.example.com:8080/realms/master
+              {{ link-keycloak-example }}
               ```
 
           - Keycloak 16 и предшествующих версий
@@ -133,10 +133,10 @@
               Если для IdP-сервера настроен [публичный адрес](https://www.keycloak.org/server/hostname), укажите его URL. Например:
 
               ```
-              http://keycloak.example.com:8080/auth/realms/master
+              {{ link-keycloak-example-old }}
               ```
 
-      1. В поле **Ссылка на страницу для входа в IdP** вставьте ссылку вида:
+      1. В поле **{{ ui-key.yacloud_org.entity.federation.field.ssoUrl }}** вставьте ссылку вида:
 
           - Keycloak 17 или новее
 
@@ -147,7 +147,7 @@
               Если для IdP-сервера настроен [публичный адрес](https://www.keycloak.org/server/hostname), укажите его URL. Например:
 
               ```
-              http://keycloak.example.com:8080/realms/master/protocol/saml
+              {{ link-keycloak-example }}/protocol/saml
               ```
 
           - Keycloak 16 и предшествующих версий
@@ -159,36 +159,36 @@
               Если для IdP-сервера настроен [публичный адрес](https://www.keycloak.org/server/hostname), укажите его URL. Например:
 
               ```
-              http://keycloak.example.com:8080/auth/realms/master/protocol/saml
+              {{ link-keycloak-example-old }}/protocol/saml
               ```
 
           В ссылке допустимо использовать только протоколы HTTP и HTTPS.
 
-      1. Включите опцию **Автоматически создавать пользователей**, чтобы автоматически добавлять пользователя в организацию после аутентификации. Если опция отключена, федеративных пользователей потребуется [добавить вручную](../../operations/add-account.md#add-user-sso).
+      1. Включите опцию **{{ ui-key.yacloud_org.entity.federation.field.autocreateUsers }}**, чтобы автоматически добавлять пользователя в организацию после аутентификации. Если опция отключена, федеративных пользователей потребуется [добавить вручную](../../operations/add-account.md#add-user-sso).
 
           Автоматически федеративный пользователь создается только при первом входе пользователя в облако. Если вы исключили пользователя из федерации, вернуть его туда можно будет только вручную.
 
-      1. Чтобы все запросы аутентификации от Yandex Cloud содержали цифровую подпись, включите опцию **Подписывать запросы аутентификации**. Для завершения настройки потребуется скачать и [установить](#signature) сертификат Yandex Cloud.
+      1. Чтобы все запросы аутентификации от {{ yandex-cloud }} содержали цифровую подпись, включите опцию **{{ ui-key.yacloud_org.entity.federation.field.encryptedAssertions }}**. Для завершения настройки потребуется скачать и [установить](#signature) сертификат {{ yandex-cloud }}.
       
-          В появившемся блоке **Сертификаты SAML** появится информация о действующем SAML-сертификате Yandex Cloud.
+          В появившемся блоке **Сертификаты SAML** появится информация о действующем SAML-сертификате {{ yandex-cloud }}.
           
           Нажмите ![ArrowDownToLine](../../../_assets/console-icons/arrow-down-to-line.svg) **Скачать** и сохраните скачанный файл сертификата. Он потребуется для установки на ваш IdP-сервер.
           
           {% note tip %}
           
-          Следите за сроком действия сертификатов и устанавливайте новые сертификаты до истечения срока действия используемых. Перевыпущенный SAML-сертификат Yandex Cloud необходимо заранее [скачать и установить](../../operations/renew-yc-certificate.md) на стороне IdP-провайдера и в вашей федерации.
+          Следите за сроком действия сертификатов и устанавливайте новые сертификаты до истечения срока действия используемых. Перевыпущенный SAML-сертификат {{ yandex-cloud }} необходимо заранее [скачать и установить](../../operations/renew-yc-certificate.md) на стороне IdP-провайдера и в вашей федерации.
           
           {% endnote %}
       
-          Вы также сможете скачать сертификат и после создания федерации. Для этого на странице сведений о федерации в Yandex Identity Hub нажмите кнопку ![ArrowDownToLine](../../../_assets/console-icons/arrow-down-to-line.svg) **Скачать сертификат** в поле **Подписывать запросы аутентификации**.
+          Вы также сможете скачать сертификат и после создания федерации. Для этого на странице сведений о федерации в {{ org-full-name }} нажмите кнопку ![ArrowDownToLine](../../../_assets/console-icons/arrow-down-to-line.svg) **{{ ui-key.yacloud_org.page.federation.action.download-cert }}** в поле **{{ ui-key.yacloud_org.entity.federation.field.encryptedAssertions }}**.
 
-      1. Включите опцию **Принудительная повторная аутентификация (ForceAuthn) в IdP**, чтобы задать значение `true` для параметра [ForceAuthn](../../saml/api-ref/Federation/index.md) в запросе аутентификации SAML. При включении этой опции поставщик удостоверений (Identity Provider, IdP) запрашивает у пользователя аутентификацию по истечении сессии в Yandex Cloud. Необязательный параметр.
+      1. Включите опцию **{{ ui-key.yacloud_org.entity.federation.field.forceAuthn }}**, чтобы задать значение `true` для параметра [ForceAuthn](../../saml/api-ref/Federation/index.md) в запросе аутентификации SAML. При включении этой опции поставщик удостоверений (Identity Provider, IdP) запрашивает у пользователя аутентификацию по истечении сессии в {{ yandex-cloud }}. Необязательный параметр.
 
-      1. Нажмите кнопку **Создать федерацию**.
+      1. Нажмите кнопку **{{ ui-key.yacloud_org.form.federation.create.action.create }}**.
 
 - CLI {#cli}
 
-  Если у вас еще нет интерфейса командной строки Yandex Cloud (CLI), [установите и инициализируйте его](../../../cli/quickstart.md#install).
+  Если у вас еще нет интерфейса командной строки {{ yandex-cloud }} (CLI), [установите и инициализируйте его](../../../cli/quickstart.md#install).
 
   По умолчанию используется каталог, указанный при [создании](../../../cli/operations/profile/profile-create.md) профиля CLI. Чтобы изменить каталог по умолчанию, используйте команду `yc config set folder-id <идентификатор_каталога>`. Также для любой команды вы можете указать другой каталог с помощью параметров `--folder-name` или `--folder-id`. Если вы обращаетесь к ресурсу по имени, поиск будет выполнен в каталоге по умолчанию. Если вы обращаетесь к ресурсу по идентификатору, поиск будет выполнен глобально — во всех каталогах с учетом прав доступа.
 
@@ -237,9 +237,9 @@
         * `--auto-create-account-on-login` — флаг, который активирует автоматическое создание новых пользователей в облаке после аутентификации на IdP-сервере.
         Опция упрощает процесс заведения пользователей, но созданный таким образом пользователь не сможет выполнять никаких операций с ресурсами в облаке. Исключение — те ресурсы, на которые назначены роли [публичной группе](../../../iam/concepts/access-control/public-group.md) `All users` или `All authenticated users`.
 
-          Если опцию не включать, то пользователь, которого не добавили в организацию, не сможет войти в консоль управления, даже если пройдет аутентификацию на вашем IdP-сервере. В этом случае вы можете управлять списком пользователей, которым разрешено пользоваться ресурсами Yandex Cloud.
+          Если опцию не включать, то пользователь, которого не добавили в организацию, не сможет войти в консоль управления, даже если пройдет аутентификацию на вашем IdP-сервере. В этом случае вы можете управлять списком пользователей, которым разрешено пользоваться ресурсами {{ yandex-cloud }}.
 
-        * `--encrypted-assertions` — флаг, который включает цифровую подпись запросов аутентификации. Для завершения настройки потребуется скачать и [установить](#signature) сертификат Yandex Cloud.
+        * `--encrypted-assertions` — флаг, который включает цифровую подпись запросов аутентификации. Для завершения настройки потребуется скачать и [установить](#signature) сертификат {{ yandex-cloud }}.
 
         * `--cookie-max-age` — время, в течение которого браузер не должен требовать у пользователя повторной аутентификации.
 
@@ -254,7 +254,7 @@
             Если для IdP-сервера настроен [публичный адрес](https://www.keycloak.org/server/hostname), укажите его URL. Например:
 
             ```
-            http://keycloak.example.com:8080/realms/master
+            {{ link-keycloak-example }}
             ```
 
           - Keycloak 16 и предшествующих версий
@@ -266,7 +266,7 @@
             Если для IdP-сервера настроен [публичный адрес](https://www.keycloak.org/server/hostname), укажите его URL. Например:
 
             ```
-            http://keycloak.example.com:8080/auth/realms/master
+            {{ link-keycloak-example-old }}
             ```
 
         * `--sso-url` — URL-адрес страницы, на которую браузер должен перенаправить пользователя для аутентификации:
@@ -280,7 +280,7 @@
               Если для IdP-сервера настроен [публичный адрес](https://www.keycloak.org/server/hostname), укажите его URL. Например:
 
               ```
-              http://keycloak.example.com:8080/realms/master/protocol/saml
+              {{ link-keycloak-example }}/protocol/saml
               ```
 
             - Keycloak 16 и предшествующих версий
@@ -292,14 +292,14 @@
               Если для IdP-сервера настроен [публичный адрес](https://www.keycloak.org/server/hostname), укажите его URL. Например:
 
               ```
-              http://keycloak.example.com:8080/auth/realms/master/protocol/saml
+              {{ link-keycloak-example-old }}/protocol/saml
               ```
 
             В ссылке допустимо использовать только протоколы HTTP и HTTPS.
 
         * `--sso-binding` — укажите тип привязки для Single Sign-on. Большинство поставщиков поддерживают тип привязки `POST`.
 
-        * `--force-authn` — по истечении сессии в Yandex Cloud поставщик удостоверений запросит у пользователя повторную аутентификацию. Необязательный параметр.
+        * `--force-authn` — по истечении сессии в {{ yandex-cloud }} поставщик удостоверений запросит у пользователя повторную аутентификацию. Необязательный параметр.
 
 - API {#api}
 
@@ -350,7 +350,7 @@
         * `autoCreateAccountOnLogin` — флаг, который активирует автоматическое создание новых пользователей в облаке после аутентификации на IdP-сервере.
         Опция упрощает процесс заведения пользователей, но созданный таким образом пользователь не сможет выполнять никаких операций с ресурсами в облаке. Исключение — те ресурсы, на которые назначены роли [публичной группе](../../../iam/concepts/access-control/public-group.md) `All users` или `All authenticated users`.
 
-          Если опцию не включать, то пользователь, которого не добавили в организацию, не сможет войти в консоль управления, даже если пройдет аутентификацию на вашем IdP-сервере. В этом случае вы можете управлять списком пользователей, которым разрешено пользоваться ресурсами Yandex Cloud.
+          Если опцию не включать, то пользователь, которого не добавили в организацию, не сможет войти в консоль управления, даже если пройдет аутентификацию на вашем IdP-сервере. В этом случае вы можете управлять списком пользователей, которым разрешено пользоваться ресурсами {{ yandex-cloud }}.
 
         * `cookieMaxAge` — время, в течение которого браузер не должен требовать у пользователя повторной аутентификации.
 
@@ -365,7 +365,7 @@
             Если для IdP-сервера настроен [публичный адрес](https://www.keycloak.org/server/hostname), укажите его URL. Например:
 
             ```
-            http://keycloak.example.com:8080/realms/master
+            {{ link-keycloak-example }}
             ```
 
           - Keycloak 16 и предшествующих версий
@@ -379,7 +379,7 @@
             Например:
 
             ```
-            http://keycloak.example.com:8080/auth/realms/master
+            {{ link-keycloak-example-old }}
             ```
 
         * `ssoUrl` — URL-адрес страницы, на которую браузер должен перенаправить пользователя для аутентификации:
@@ -393,7 +393,7 @@
             Если для IdP-сервера настроен [публичный адрес](https://www.keycloak.org/server/hostname), укажите его URL. Например:
 
             ```
-            http://keycloak.example.com:8080/realms/master/protocol/saml
+            {{ link-keycloak-example }}/protocol/saml
             ```
 
           - Keycloak 16 и предшествующих версий
@@ -405,14 +405,14 @@
             Если для IdP-сервера настроен [публичный адрес](https://www.keycloak.org/server/hostname), укажите его URL. Например:
 
             ```
-            http://keycloak.example.com:8080/auth/realms/master/protocol/saml
+            {{ link-keycloak-example-old }}/protocol/saml
             ```
 
           В ссылке допустимо использовать только протоколы HTTP и HTTPS.
 
-        * `encryptedAssertions` — флаг, который включает цифровую подпись запросов аутентификации. Для завершения настройки потребуется скачать и [установить](#signature) сертификат Yandex Cloud.
+        * `encryptedAssertions` — флаг, который включает цифровую подпись запросов аутентификации. Для завершения настройки потребуется скачать и [установить](#signature) сертификат {{ yandex-cloud }}.
 
-        * `forceAuthn` — параметр, который включает принудительную повторную аутентификацию пользователя по истечении сессии в Yandex Cloud. Необязательный параметр.
+        * `forceAuthn` — параметр, который включает принудительную повторную аутентификацию пользователя по истечении сессии в {{ yandex-cloud }}. Необязательный параметр.
 
         * `ssoBinding` — укажите тип привязки для Single Sign-on. Большинство поставщиков поддерживают тип привязки `POST`.
 
@@ -426,7 +426,7 @@
        --header "Content-Type: application/json" \
        --header "Authorization: Bearer <IAM-токен>" \
        --data '@body.json' \
-       https://organization-manager.api.cloud.yandex.net/organization-manager/v1/saml/federations
+       https://organization-manager.{{ api-host }}/organization-manager/v1/saml/federations
      ```
      
      Пример ответа:
@@ -442,9 +442,12 @@
      
      В свойстве `federationId` указан идентификатор созданной федерации: сохраните его, он понадобится в дальнейшем.
 
-- Terraform {#tf}
+- {{ TF }} {#tf}
 
-  Если у вас еще нет Terraform, [установите его и настройте провайдер Yandex Cloud](../../../tutorials/infrastructure-management/terraform-quickstart.md#install-terraform).
+  Если у вас еще нет {{ TF }}, [установите его и настройте провайдер {{ yandex-cloud }}](../../../tutorials/infrastructure-management/terraform-quickstart.md#install-terraform).
+  
+  
+  Чтобы управлять инфраструктурой с помощью {{ TF }} от имени сервисного аккаунта или пользовательских аккаунтов: аккаунта на Яндексе, федеративного аккаунта и локального пользователя, [аутентифицируйтесь](../../../terraform/authentication.md) соответствующим способом.
 
   1. В конфигурационном файле опишите параметры федерации.
 
@@ -501,7 +504,7 @@
           Если для IdP-сервера настроен [публичный адрес](https://www.keycloak.org/server/hostname), укажите его идентификатор. Например:
 
           ```
-          http://keycloak.example.com:8080/realms/master
+          {{ link-keycloak-example }}
           ```
 
         - Keycloak 16 и предшествующих версий
@@ -513,7 +516,7 @@
           Если для IdP-сервера настроен [публичный адрес](https://www.keycloak.org/server/hostname), укажите его идентификатор. Например:
 
           ```
-          http://keycloak.example.com:8080/auth/realms/master
+          {{ link-keycloak-example-old }}
           ``` 
 
       * `sso_binding` — укажите тип привязки для Single Sign-on. Большинство поставщиков поддерживают тип привязки `POST`.
@@ -530,7 +533,7 @@
           Например:
 
           ```
-          http://keycloak.example.com:8080/realms/master/protocol/saml
+          {{ link-keycloak-example }}/protocol/saml
           ```
 
         - Keycloak 16 и предшествующих версий
@@ -544,7 +547,7 @@
           Например:
 
           ```
-          http://keycloak.example.com:8080/auth/realms/master/protocol/saml
+          {{ link-keycloak-example-old }}/protocol/saml
           ```
 
         В ссылке допустимо использовать только протоколы HTTP и HTTPS.
@@ -553,18 +556,18 @@
       * `auto_create_account_on_login` — флаг, который активирует автоматическое создание новых пользователей в облаке после аутентификации на IdP-сервере. 
         Опция упрощает процесс заведения пользователей, но созданный таким образом пользователь не сможет выполнять никаких операций с ресурсами в облаке. Исключение — те ресурсы, на которые назначены роли [публичной группе](../../../iam/concepts/access-control/public-group.md) `All users` или `All authenticated users`.
 
-        Если опцию не включать, то пользователь, которого не добавили в организацию, не сможет войти в консоль управления, даже если пройдет аутентификацию на вашем сервере. В этом случае вы можете управлять списком пользователей, которым разрешено пользоваться ресурсами Yandex Cloud.
+        Если опцию не включать, то пользователь, которого не добавили в организацию, не сможет войти в консоль управления, даже если пройдет аутентификацию на вашем сервере. В этом случае вы можете управлять списком пользователей, которым разрешено пользоваться ресурсами {{ yandex-cloud }}.
       * `case_insensitive_name_ids` — зависимость имен пользователей от регистра.
         Если опция включена, идентификаторы имен федеративных пользователей будут нечувствительны к регистру.
       * `security_settings` — настройки безопасности федерации:
 
         * `encrypted_assertions` — подписывать запросы аутентификации.
           
-          Если включить эту опцию, то все запросы аутентификации от Yandex Cloud будут содержать цифровую подпись.
+          Если включить эту опцию, то все запросы аутентификации от {{ yandex-cloud }} будут содержать цифровую подпись.
 
-        * `force-authn` — по истечении сессии в Yandex Cloud поставщик удостоверений запросит у пользователя повторную аутентификацию. Необязательный параметр.
+        * `force-authn` — по истечении сессии в {{ yandex-cloud }} поставщик удостоверений запросит у пользователя повторную аутентификацию. Необязательный параметр.
 
-      Более подробную информацию о параметрах ресурса `yandex_organizationmanager_saml_federation` см. в [документации провайдера](../../../terraform/resources/organizationmanager_saml_federation.md).
+      Более подробную информацию о параметрах ресурса `yandex_organizationmanager_saml_federation` см. в [документации провайдера]({{ tf-provider-resources-link }}/organizationmanager_saml_federation).
 
   1. Проверьте корректность конфигурационных файлов.
 
@@ -575,7 +578,7 @@
           terraform plan
           ```
 
-          Если конфигурация описана верно, в терминале отобразятся параметры федерации. Если в конфигурации есть ошибки, Terraform на них укажет. 
+          Если конфигурация описана верно, в терминале отобразятся параметры федерации. Если в конфигурации есть ошибки, {{ TF }} на них укажет. 
 
   1. Создайте федерацию.
 
@@ -587,38 +590,38 @@
 
       1. Подтвердите создание федерации.
 
-  После этого в указанной организации будет создана федерация. Проверить появление федерации и ее настроек можно в организации в разделе [Федерации](https://org.yandex.cloud/federations).
+  После этого в указанной организации будет создана федерация. Проверить появление федерации и ее настроек можно в организации в разделе [{{ ui-key.yacloud_org.pages.federations }}]({{ link-org-federations }}).
 
 {% endlist %}
 
 ### Добавьте сертификаты {#add-certificate}
 
-При аутентификации у сервиса Yandex Identity Hub должна быть возможность проверить сертификат IdP-сервера. Для этого добавьте сертификат в федерацию:
+При аутентификации у сервиса {{ org-full-name }} должна быть возможность проверить сертификат IdP-сервера. Для этого добавьте сертификат в федерацию:
 
 {% list tabs group=instructions %}
 
-- Интерфейс Cloud Center {#cloud-center}
+- Интерфейс {{ cloud-center }} {#cloud-center}
 
-  1. Войдите в сервис [Yandex Identity Hub](https://center.yandex.cloud/organization).
+  1. Войдите в сервис [{{ org-full-name }}]({{ link-org-cloud-center }}).
   
-  1. На панели слева выберите ![VectorSquare](../../../_assets/console-icons/vector-square.svg) **Федерации**.
+  1. На панели слева выберите ![VectorSquare](../../../_assets/console-icons/vector-square.svg) **{{ ui-key.yacloud_org.pages.federations }}**.
   
   1. Нажмите на строку с федерацией, для которой нужно добавить сертификат.
   
-  1. Внизу страницы в блоке **Сертификаты** нажмите кнопку **Добавить сертификат**.
+  1. Внизу страницы в блоке **{{ ui-key.yacloud_org.page.federation.section.certificates }}** нажмите кнопку **{{ ui-key.yacloud_org.entity.certificate.action.add }}**.
   
   1. Введите название и описание сертификата.
   
   1. Выберите способ добавления сертификата:
   
-      * Чтобы добавить сертификат в виде файла, нажмите **Выбрать файл** и укажите путь к нему.
-      * Чтобы вставить скопированное содержимое сертификата, выберите способ **Текст** и вставьте содержимое.
+      * Чтобы добавить сертификат в виде файла, нажмите **{{ ui-key.yacloud_portal.component.file-input.button_choose }}** и укажите путь к нему.
+      * Чтобы вставить скопированное содержимое сертификата, выберите способ **{{ ui-key.yacloud_org.component.form-file-upload.method.manual }}** и вставьте содержимое.
   
-  1. Нажмите кнопку **Добавить**.
+  1. Нажмите кнопку **{{ ui-key.yacloud_org.actions.add }}**.
 
 - CLI {#cli}
 
-  Если у вас еще нет интерфейса командной строки Yandex Cloud (CLI), [установите и инициализируйте его](../../../cli/quickstart.md#install).
+  Если у вас еще нет интерфейса командной строки {{ yandex-cloud }} (CLI), [установите и инициализируйте его](../../../cli/quickstart.md#install).
 
   По умолчанию используется каталог, указанный при [создании](../../../cli/operations/profile/profile-create.md) профиля CLI. Чтобы изменить каталог по умолчанию, используйте команду `yc config set folder-id <идентификатор_каталога>`. Также для любой команды вы можете указать другой каталог с помощью параметров `--folder-name` или `--folder-id`. Если вы обращаетесь к ресурсу по имени, поиск будет выполнен в каталоге по умолчанию. Если вы обращаетесь к ресурсу по идентификатору, поиск будет выполнен глобально — во всех каталогах с учетом прав доступа.
 
@@ -659,7 +662,7 @@
        --header "Content-Type: application/json" \
        --header "Authorization: Bearer ${IAM_TOKEN}" \
        --data '@body.json' \
-       "https://organization-manager.api.cloud.yandex.net/organization-manager/v1/saml/certificates"
+       "https://organization-manager.{{ api-host }}/organization-manager/v1/saml/certificates"
      ```
 
 {% endlist %}
@@ -706,20 +709,20 @@
       
          {% cut "Как получить ID федерации" %}
       
-         1. Войдите в сервис [Yandex Identity Hub](https://center.yandex.cloud/organization).
-         1. На панели слева выберите ![VectorSquare](../../../_assets/console-icons/vector-square.svg) **Федерации**.
-         1. Выберите нужную федерацию и на странице с информацией о ней скопируйте значение поля **Идентификатор**.
+         1. Войдите в сервис [{{ org-full-name }}]({{ link-org-cloud-center }}).
+         1. На панели слева выберите ![VectorSquare](../../../_assets/console-icons/vector-square.svg) **{{ ui-key.yacloud_org.pages.federations }}**.
+         1. Выберите нужную федерацию и на странице с информацией о ней скопируйте значение поля **{{ ui-key.yacloud_org.common.columns.column_id }}**.
       
          {% endcut %}
 
          
          {% cut "Как получить ACS URL федерации" %}
 
-         1. Войдите в сервис [Yandex Identity Hub](https://center.yandex.cloud/organization).
+         1. Войдите в сервис [{{ org-full-name }}]({{ link-org-cloud-center }}).
          
-         1. На панели слева выберите ![VectorSquare](../../../_assets/console-icons/vector-square.svg) **Федерации**.
+         1. На панели слева выберите ![VectorSquare](../../../_assets/console-icons/vector-square.svg) **{{ ui-key.yacloud_org.pages.federations }}**.
          
-         1. Выберите нужную федерацию и на странице с информацией о ней скопируйте значение поля **ACS URL**.
+         1. Выберите нужную федерацию и на странице с информацией о ней скопируйте значение поля **{{ ui-key.yacloud_org.entity.federation.field.acsUrl }}**.
 
          {% endcut %}
 
@@ -736,20 +739,20 @@
 
          {% cut "Как получить ID федерации" %}
 
-         1. Войдите в сервис [Yandex Identity Hub](https://center.yandex.cloud/organization).
-         1. На панели слева выберите ![VectorSquare](../../../_assets/console-icons/vector-square.svg) **Федерации**.
-         1. Выберите нужную федерацию и на странице с информацией о ней скопируйте значение поля **Идентификатор**.
+         1. Войдите в сервис [{{ org-full-name }}]({{ link-org-cloud-center }}).
+         1. На панели слева выберите ![VectorSquare](../../../_assets/console-icons/vector-square.svg) **{{ ui-key.yacloud_org.pages.federations }}**.
+         1. Выберите нужную федерацию и на странице с информацией о ней скопируйте значение поля **{{ ui-key.yacloud_org.common.columns.column_id }}**.
 
          {% endcut %}
 
          
          {% cut "Как получить ACS URL федерации" %}
 
-         1. Войдите в сервис [Yandex Identity Hub](https://center.yandex.cloud/organization).
+         1. Войдите в сервис [{{ org-full-name }}]({{ link-org-cloud-center }}).
          
-         1. На панели слева выберите ![VectorSquare](../../../_assets/console-icons/vector-square.svg) **Федерации**.
+         1. На панели слева выберите ![VectorSquare](../../../_assets/console-icons/vector-square.svg) **{{ ui-key.yacloud_org.pages.federations }}**.
          
-         1. Выберите нужную федерацию и на странице с информацией о ней скопируйте значение поля **ACS URL**.
+         1. Выберите нужную федерацию и на странице с информацией о ней скопируйте значение поля **{{ ui-key.yacloud_org.entity.federation.field.acsUrl }}**.
 
          {% endcut %}
 
@@ -783,11 +786,11 @@
        
        {% cut "Как получить ACS URL федерации" %}
 
-       1. Войдите в сервис [Yandex Identity Hub](https://center.yandex.cloud/organization).
+       1. Войдите в сервис [{{ org-full-name }}]({{ link-org-cloud-center }}).
        
-       1. На панели слева выберите ![VectorSquare](../../../_assets/console-icons/vector-square.svg) **Федерации**.
+       1. На панели слева выберите ![VectorSquare](../../../_assets/console-icons/vector-square.svg) **{{ ui-key.yacloud_org.pages.federations }}**.
        
-       1. Выберите нужную федерацию и на странице с информацией о ней скопируйте значение поля **ACS URL**.
+       1. Выберите нужную федерацию и на странице с информацией о ней скопируйте значение поля **{{ ui-key.yacloud_org.entity.federation.field.acsUrl }}**.
 
        {% endcut %}
 
@@ -802,11 +805,11 @@
 
     1. В поле **SAML Signature Key Name** выберите **CERT_SUBJECT**.
 
-    1. В качестве **Name ID Format** выберите подходящий вариант из списка. Чтобы выбранный вариант передавался вне зависимости от настроек Yandex Identity Hub, включите опцию **Force Name ID format**.
+    1. В качестве **Name ID Format** выберите подходящий вариант из списка. Чтобы выбранный вариант передавался вне зависимости от настроек {{ org-full-name }}, включите опцию **Force Name ID format**.
 
     1. Нажмите кнопку **Save**.
 
-1. Если при [создании федерации](#create-federation) в Yandex Identity Hub вы включили опцию **Подписывать запросы аутентификации**, настройте в SAML-приложении проверку цифровой подписи:
+1. Если при [создании федерации](#create-federation) в {{ org-full-name }} вы включили опцию **{{ ui-key.yacloud_org.entity.federation.field.encryptedAssertions }}**, настройте в SAML-приложении проверку цифровой подписи:
 
     {% list tabs %}
 
@@ -814,11 +817,11 @@
 
       1. На вкладке **Keys** SAML-приложения включите опции **Encrypt Assertions**, опция **Client Signature Required** должна быть выключена.
 
-      1. Для опций **Client Signature Required** нужно выбрать метод **Import**.
+      1. В поле **Select method** выберите **Import**.
 
-      1. В поле **Archive Format** выберите **Certificate PEM**. (возможно понадобится сначала сгенерировать сертификаты, чтобы после нажатия кнопки **Import key** стал доступен вариант **Certificate PEM**)
+      1. В поле **Archive Format** выберите **Certificate PEM**. Если пункт **Certificate PEM** отсутствует, закройте окно, нажмите **Regenerate** → **Yes** → **Import key**. Пункт появится в списке.
       {#signature}
-      1. Нажмите кнопку **Browse** и выберите скачанный ранее SAML-сертификат Yandex Cloud для подписи запросов аутентификации. Если вы не скачивали SAML-сертификат при создании федерации, вы можете скачать его на странице сведений о федерации в Yandex Identity Hub, нажав кнопку ![ArrowDownToLine](../../../_assets/console-icons/arrow-down-to-line.svg) **Скачать сертификат** в поле **Подписывать запросы аутентификации**.
+      1. Нажмите кнопку **Browse** и выберите скачанный ранее SAML-сертификат {{ yandex-cloud }} для подписи запросов аутентификации. Если вы не скачивали SAML-сертификат при создании федерации, вы можете скачать его на странице сведений о федерации в {{ org-full-name }}, нажав кнопку ![ArrowDownToLine](../../../_assets/console-icons/arrow-down-to-line.svg) **{{ ui-key.yacloud_org.page.federation.action.download-cert }}** в поле **{{ ui-key.yacloud_org.entity.federation.field.encryptedAssertions }}**.
 
       1. Нажмите **Confirm**.
 
@@ -830,7 +833,7 @@
 
       1. В поле **Archive Format** выберите **Certificate PEM**.
       {#signature}
-      1. Нажмите кнопку **Select file** и выберите скачанный ранее SAML-сертификат Yandex Cloud для подписи запросов аутентификации. Если вы не скачивали SAML-сертификат при создании федерации, вы можете скачать его на странице сведений о федерации в Yandex Identity Hub, нажав кнопку ![ArrowDownToLine](../../../_assets/console-icons/arrow-down-to-line.svg) **Скачать сертификат** в поле **Подписывать запросы аутентификации**.
+      1. Нажмите кнопку **Select file** и выберите скачанный ранее SAML-сертификат {{ yandex-cloud }} для подписи запросов аутентификации. Если вы не скачивали SAML-сертификат при создании федерации, вы можете скачать его на странице сведений о федерации в {{ org-full-name }}, нажав кнопку ![ArrowDownToLine](../../../_assets/console-icons/arrow-down-to-line.svg) **{{ ui-key.yacloud_org.page.federation.action.download-cert }}** в поле **{{ ui-key.yacloud_org.entity.federation.field.encryptedAssertions }}**.
 
       1. Нажмите **Import**.
 
@@ -846,19 +849,19 @@
 
     1. На вкладке **Credentials** нажмите **Set Password** и задайте пароль.
 
-## Добавление пользователей в Yandex Identity Hub {#add-users}
+## Добавление пользователей в {{ org-full-name }} {#add-users}
 
-Если при [создании федерации](#yc-settings) вы не включили опцию **Автоматически создавать пользователей**, федеративных пользователей нужно добавить в организацию вручную.
+Если при [создании федерации](#yc-settings) вы не включили опцию **{{ ui-key.yacloud_org.entity.federation.field.autocreateUsers }}**, федеративных пользователей нужно добавить в организацию вручную.
 
 Для этого вам понадобятся пользовательские Name ID. Их возвращает IdP-сервер вместе с ответом об успешной аутентификации.
 
-При включенной опции **Автоматически создавать пользователей** в федерацию будут добавлены только пользователи, которые впервые авторизуются в облаке. Если федеративный пользователь был удален, добавить его повторно можно только вручную.
+При включенной опции **{{ ui-key.yacloud_org.entity.federation.field.autocreateUsers }}** в федерацию будут добавлены только пользователи, которые впервые авторизуются в облаке. Если федеративный пользователь был удален, добавить его повторно можно только вручную.
 
 Добавить пользователя может администратор (роль `organization-manager.admin`) или владелец (роль `organization-manager.organizations.owner`) организации. О том, как назначить пользователю роль, читайте в разделе [Роли](../../security/index.md#add-role).
 
 {% note info %}
 
-Для доступа пользователя к [консоли управления](https://console.yandex.cloud), назначьте ему роль на [облако](../../security/index.md#access-binding-cloud) или [организацию](../../security/index.md#access-binding-organization). Для безопасности вы можете назначить одну из ролей с минимальными привилегиями, например `resource-manager.clouds.member`, но также можно назначить и другие роли, если вы знаете, какие права вы хотите предоставить приглашенным пользователям.
+Для доступа пользователя к [консоли управления]({{ link-console-main }}), назначьте ему роль на [облако](../../security/index.md#access-binding-cloud) или [организацию](../../security/index.md#access-binding-organization). Для безопасности вы можете назначить одну из ролей с минимальными привилегиями, например `resource-manager.clouds.member`, но также можно назначить и другие роли, если вы знаете, какие права вы хотите предоставить приглашенным пользователям.
 
 Чтобы дать эти права сразу всем пользователям в организации, назначьте роль [системной группе](../../../iam/concepts/access-control/system-group.md#allOrganizationUsers) `All users in organization X`. При работе с CLI или API назначение дополнительных ролей не требуется.
 
@@ -866,23 +869,23 @@
 
 {% list tabs group=instructions %}
 
-- Интерфейс Cloud Center {#cloud-center}
+- Интерфейс {{ cloud-center }} {#cloud-center}
 
-  1. Перейдите в сервис [Yandex Identity Hub](https://center.yandex.cloud/organization).
+  1. Перейдите в сервис [{{ org-full-name }}]({{ link-org-cloud-center }}).
   
-  1. На панели слева выберите ![icon-users](../../../_assets/console-icons/person.svg) **Пользователи**.
+  1. На панели слева выберите ![icon-users](../../../_assets/console-icons/person.svg) **{{ ui-key.yacloud_org.pages.users }}**.
   
-  1. В правом верхнем углу нажмите кнопку ![person-plus](../../../_assets/console-icons/person-plus.svg) **Добавить пользователя** и в выпадающем списке выберите ![key](../../../_assets/console-icons/key.svg) **Добавить федеративных пользователей**.
+  1. В правом верхнем углу нажмите кнопку ![person-plus](../../../_assets/console-icons/person-plus.svg) **{{ ui-key.yacloud_org.page.users.dropdown.button-text }}** и в выпадающем списке выберите ![key](../../../_assets/console-icons/key.svg) **{{ ui-key.yacloud_org.page.users.action.add-federated-users }}**.
   
-  1. В поле **Федерация** выберите федерацию удостоверений, из которой необходимо добавить пользователей.
+  1. В поле **{{ ui-key.yacloud_org.form.users.federated.add.field.federation }}** выберите федерацию удостоверений, из которой необходимо добавить пользователей.
   
-  1. В поле **Пользователи** перечислите Name ID пользователей, разделяя их пробелами или переносами строк.
+  1. В поле **{{ ui-key.yacloud_org.form.users.federated.add.field.users }}** перечислите Name ID пользователей, разделяя их пробелами или переносами строк.
   
-  1. Нажмите **Добавить**. Пользователи будут подключены к организации.
+  1. Нажмите **{{ ui-key.yacloud_components.organization.action.add }}**. Пользователи будут подключены к организации.
 
 - CLI {#cli}
 
-  Если у вас еще нет интерфейса командной строки Yandex Cloud (CLI), [установите и инициализируйте его](../../../cli/quickstart.md#install).
+  Если у вас еще нет интерфейса командной строки {{ yandex-cloud }} (CLI), [установите и инициализируйте его](../../../cli/quickstart.md#install).
 
   По умолчанию используется каталог, указанный при [создании](../../../cli/operations/profile/profile-create.md) профиля CLI. Чтобы изменить каталог по умолчанию, используйте команду `yc config set folder-id <идентификатор_каталога>`. Также для любой команды вы можете указать другой каталог с помощью параметров `--folder-name` или `--folder-id`. Если вы обращаетесь к ресурсу по имени, поиск будет выполнен в каталоге по умолчанию. Если вы обращаетесь к ресурсу по идентификатору, поиск будет выполнен глобально — во всех каталогах с учетом прав доступа.
 
@@ -928,7 +931,7 @@
         --header "Content-Type: application/json" \
         --header "Authorization: Bearer <IAM-токен>" \
         --data '@body.json' \
-        https://organization-manager.api.cloud.yandex.net/organization-manager/v1/saml/federations/<ID_федерации>:addUserAccounts
+        https://organization-manager.{{ api-host }}/organization-manager/v1/saml/federations/<ID_федерации>:addUserAccounts
       ```
 
 {% endlist %}
@@ -943,7 +946,7 @@
 
 Вы можете настроить сопоставление между атрибутами SAML-сообщения и персональными данными, которые хранятся на IdP-сервере. Для этого:
 
-1. Включите опцию сопоставления ролей поставщика удостоверений и Yandex Identity Hub:
+1. Включите опцию сопоставления ролей поставщика удостоверений и {{ org-full-name }}:
 
     1. На панели слева выберите **Client Scopes** → **role_list**.
 
@@ -951,7 +954,7 @@
 
     1. Включите опцию **Single Role Attribute**.
 
-1. Настройте атрибуты, которые будут передаваться в Yandex Cloud:
+1. Настройте атрибуты, которые будут передаваться в {{ yandex-cloud }}:
 
     {% list tabs %}
 
@@ -971,7 +974,7 @@
 
       1. Вы можете создать дополнительные атрибуты для пользователей, например номер телефона. Для этого нажмите **Add mappers** -> **By configuration** -> **User Property**, в таблице **Configure a new mapper** выберите пункт **User Attribute** и введите параметры атрибута.
 
-      1. Настройте синхронизацию атрибутов Keycloak и Yandex Identity Hub: откройте атрибут и измените значение **SAML Attribute Name**. Значения **SAML Attribute Name**, которые поддерживаются в Yandex Identity Hub, приведены ниже.
+      1. Настройте синхронизацию атрибутов Keycloak и {{ org-full-name }}: откройте атрибут и измените значение **SAML Attribute Name**. Значения **SAML Attribute Name**, которые поддерживаются в {{ org-full-name }}, приведены ниже.
 
     - Keycloak 18 и предшествующих версий
 
@@ -987,7 +990,7 @@
 
       1. Вы можете создать дополнительные атрибуты для пользователей, например номер телефона. Для этого нажмите **Create**, в поле **Mapper Type** выберите опцию **User Attribute** и введите параметры атрибута.
 
-      1. Настройте синхронизацию атрибутов Keycloak и Yandex Identity Hub: откройте атрибут и измените значение **SAML Attribute Name**. Значения **SAML Attribute Name**, которые поддерживаются в Yandex Identity Hub, приведены ниже.
+      1. Настройте синхронизацию атрибутов Keycloak и {{ org-full-name }}: откройте атрибут и измените значение **SAML Attribute Name**. Значения **SAML Attribute Name**, которые поддерживаются в {{ org-full-name }}, приведены ниже.
 
    {% endlist %}
 
@@ -1009,12 +1012,12 @@
 
 Данные пользователя | Комментарий | SAML Attribute Name
 ------------------- | ----------- | -------------------
-Фамилия | Используется для поиска в сервисах Yandex Cloud.<br> Ограничение значения по длине: 64 символа. | `lastName`
-Имя | Используется для поиска в сервисах Yandex Cloud.<br> Ограничение значения по длине: 64 символа. | `firstName`
-Полное имя | Отображается в сервисах Yandex Cloud.<br> Ограничение значения по длине: 64 символа. | `name`
-Почта | Используется для отправки уведомлений из сервисов Yandex Cloud.<br>Пример:&nbsp;`ivanov@example.com`.<br> Ограничение значения по длине: 256 символов. | `email`
-Телефон | Используется для отправки уведомлений из сервисов Yandex Cloud.<br>Пример: +71234567890.<br> Ограничение значения по длине: 64 символа. | `phone`
-Аватар | Отображается в сервисах Yandex Cloud. Изображение должно быть представлено в символьном формате Base64.<br> Ограничение значения по длине: 204800 символов. | `thumbnailPhoto`
+Фамилия | Используется для поиска в сервисах {{ yandex-cloud }}.<br> Ограничение значения по длине: {{ saml-limit-last-name }}. | `lastName`
+Имя | Используется для поиска в сервисах {{ yandex-cloud }}.<br> Ограничение значения по длине: {{ saml-limit-first-name }}. | `firstName`
+Полное имя | Отображается в сервисах {{ yandex-cloud }}.<br> Ограничение значения по длине: {{ saml-limit-display-name }}. | `name`
+Почта | Используется для отправки уведомлений из сервисов {{ yandex-cloud }}.<br>Пример:&nbsp;`ivanov@example.com`.<br> Ограничение значения по длине: {{ saml-limit-email }}. | `email`
+Телефон | Используется для отправки уведомлений из сервисов {{ yandex-cloud }}.<br>Пример: +71234567890.<br> Ограничение значения по длине: {{ saml-limit-phone }}. | `phone`
+Аватар | Отображается в сервисах {{ yandex-cloud }}. Изображение должно быть представлено в символьном формате Base64.<br> Ограничение значения по длине: {{ saml-limit-thumbnail-photo }}. | `thumbnailPhoto`
 Членство в группах | Используется для функционала динамического сопоставления членства в группах. | `member`
 
 {% note warning %}
@@ -1036,14 +1039,14 @@
 1. Перейдите по URL для входа в консоль:
 
    ```
-   https://console.yandex.cloud/federations/<ID_федерации>
+   {{ link-console-main }}/federations/<ID_федерации>
    ```
 
    {% cut "Как получить ID федерации" %}
 
-   1. Войдите в сервис [Yandex Identity Hub](https://center.yandex.cloud/organization).
-   1. На панели слева выберите ![VectorSquare](../../../_assets/console-icons/vector-square.svg) **Федерации**.
-   1. Выберите нужную федерацию и на странице с информацией о ней скопируйте значение поля **Идентификатор**.
+   1. Войдите в сервис [{{ org-full-name }}]({{ link-org-cloud-center }}).
+   1. На панели слева выберите ![VectorSquare](../../../_assets/console-icons/vector-square.svg) **{{ ui-key.yacloud_org.pages.federations }}**.
+   1. Выберите нужную федерацию и на странице с информацией о ней скопируйте значение поля **{{ ui-key.yacloud_org.common.columns.column_id }}**.
 
    {% endcut %}
    
@@ -1051,4 +1054,4 @@
 
 1. Введите данные для аутентификации и нажмите кнопку **Sign in**.
 
-После успешной аутентификации IdP-сервер перенаправит вас по ACS URL, который вы указали в настройках Keycloak, а после — на главную страницу [консоли управления](https://console.yandex.cloud). В правом верхнем углу вы сможете увидеть, что вошли в консоль от имени федеративного пользователя.
+После успешной аутентификации IdP-сервер перенаправит вас по ACS URL, который вы указали в настройках Keycloak, а после — на главную страницу [консоли управления]({{ link-console-main }}). В правом верхнем углу вы сможете увидеть, что вошли в консоль от имени федеративного пользователя.

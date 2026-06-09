@@ -1,18 +1,18 @@
-# Создание нового Kubernetes-проекта в Yandex Cloud
+# Создание нового {{ k8s }}-проекта в {{ yandex-cloud }}
 
 
-В этой статье описан запуск нового Kubernetes-проекта в Yandex Cloud. Приложение из [Yandex Container Registry](../../container-registry/index.md) будет развернуто в [кластере Managed Service for Kubernetes](../concepts/index.md#kubernetes-cluster) и опубликовано в интернете через Ingress-контроллер [Yandex Application Load Balancer](../../application-load-balancer/index.md).
+В этой статье описан запуск нового {{ k8s }}-проекта в {{ yandex-cloud }}. Приложение из [{{ container-registry-full-name }}](../../container-registry/index.md) будет развернуто в [кластере {{ managed-k8s-name }}](../concepts/index.md#kubernetes-cluster) и опубликовано в интернете через Ingress-контроллер [{{ alb-full-name }}](../../application-load-balancer/index.md).
 
-Если вам нужно создать кластер Managed Service for Kubernetes без доступа в интернет, обратитесь к разделу [Создание и настройка кластера Kubernetes без доступа в интернет](k8s-cluster-with-no-internet.md).
+Если вам нужно создать кластер {{ managed-k8s-name }} без доступа в интернет, обратитесь к разделу [{#T}](k8s-cluster-with-no-internet.md).
 
 Чтобы запустить приложение:
 
 1. [Создайте сервисные аккаунты](#create-sa).
 1. [Создайте группы безопасности](#create-sg).
-1. [Подготовьте ресурсы Kubernetes](#create-k8s-res).
-1. [Подключитесь к кластеру Managed Service for Kubernetes](#cluster-connect).
-1. [Подготовьте ресурсы Container Registry](#create-cr-res).
-1. [Установите Application Load Balancer](#setup-alb).
+1. [Подготовьте ресурсы {{ k8s }}](#create-k8s-res).
+1. [Подключитесь к кластеру {{ managed-k8s-name }}](#cluster-connect).
+1. [Подготовьте ресурсы {{ container-registry-name }}](#create-cr-res).
+1. [Установите {{ alb-name }}](#setup-alb).
 1. [Создайте балансировщик нагрузки](#create-ingress).
 
 Если созданные ресурсы вам больше не нужны, [удалите их](#clear-out).
@@ -22,17 +22,17 @@
 
 В стоимость поддержки описываемого решения входят:
 
-* Плата за DNS-зону и DNS-запросы (см. [тарифы Cloud DNS](../../dns/pricing.md)).
-* Плата за кластер Managed Service for Kubernetes: использование мастера и исходящий трафик (см. [тарифы Managed Service for Kubernetes](../pricing.md)).
-* Плата за узлы кластера (ВМ): использование вычислительных ресурсов, операционной системы и хранилища (см. [тарифы Compute Cloud](../../compute/pricing.md)).
-* Плата за сервис Container Registry: использование хранилища и исходящий трафик (см. [тарифы Container Registry](../../container-registry/pricing.md)).
-* Плата за использование вычислительных ресурсов L7-балансировщика (см. [тарифы Application Load Balancer](../../application-load-balancer/pricing.md)).
-* Плата за публичный IP-адрес для L7-балансировщика (см. [тарифы Virtual Private Cloud](../../vpc/pricing.md#prices-public-ip)).
+* Плата за DNS-зону и DNS-запросы (см. [тарифы {{ dns-name }}](../../dns/pricing.md)).
+* Плата за кластер {{ managed-k8s-name }}: использование мастера и исходящий трафик (см. [тарифы {{ managed-k8s-name }}](../pricing.md)).
+* Плата за узлы кластера (ВМ): использование вычислительных ресурсов, операционной системы и хранилища (см. [тарифы {{ compute-name }}](../../compute/pricing.md)).
+* Плата за сервис {{ container-registry-name }}: использование хранилища и исходящий трафик (см. [тарифы {{ container-registry-name }}](../../container-registry/pricing.md)).
+* Плата за использование вычислительных ресурсов L7-балансировщика (см. [тарифы {{ alb-name }}](../../application-load-balancer/pricing.md)).
+* Плата за публичный IP-адрес для L7-балансировщика (см. [тарифы {{ vpc-name }}](../../vpc/pricing.md#prices-public-ip)).
 
 
 ## Перед началом работы {#before-you-begin}
 
-1. Если у вас еще нет интерфейса командной строки Yandex Cloud (CLI), [установите и инициализируйте его](../../cli/quickstart.md#install).
+1. Если у вас еще нет интерфейса командной строки {{ yandex-cloud }} (CLI), [установите и инициализируйте его](../../cli/quickstart.md#install).
 
    По умолчанию используется каталог, указанный при [создании](../../cli/operations/profile/profile-create.md) профиля CLI. Чтобы изменить каталог по умолчанию, используйте команду `yc config set folder-id <идентификатор_каталога>`. Также для любой команды вы можете указать другой каталог с помощью параметров `--folder-name` или `--folder-id`. Если вы обращаетесь к ресурсу по имени, поиск будет выполнен в каталоге по умолчанию. Если вы обращаетесь к ресурсу по идентификатору, поиск будет выполнен глобально — во всех каталогах с учетом прав доступа.
 
@@ -50,19 +50,19 @@
    yc vpc network create --name yc-auto-network
    ```
 
-1. [Создайте подсеть](../../vpc/operations/subnet-create.md) в [зоне доступности](../../overview/concepts/geo-scope.md) `ru-central1-a`:
+1. [Создайте подсеть](../../vpc/operations/subnet-create.md) в [зоне доступности](../../overview/concepts/geo-scope.md) `{{ region-id }}-a`:
 
    ```bash
    yc vpc subnet create \
      --name yc-auto-subnet-0 \
      --network-name yc-auto-network \
      --range 192.168.1.0/24 \
-     --zone ru-central1-a
+     --zone {{ region-id }}-a
    ```
 
 {% note warning %}
 
-Не изменяйте и не удаляйте ресурсы Virtual Private Cloud, которые используются кластером Managed Service for Kubernetes. Это может привести к некорректной работе кластера и невозможности его последующего удаления.
+Не изменяйте и не удаляйте ресурсы {{ vpc-name }}, которые используются кластером {{ managed-k8s-name }}. Это может привести к некорректной работе кластера и невозможности его последующего удаления.
 
 {% endnote %}
 
@@ -70,9 +70,9 @@
 
 1. [Зарегистрируйте публичную доменную зону и делегируйте домен](../../dns/operations/zone-create-public.md).
 
-1. Если у вас уже есть [сертификат](../../certificate-manager/concepts/index.md#types) для [доменной зоны](../../dns/concepts/dns-zone.md), [добавьте сведения о нем](../../certificate-manager/operations/import/cert-create.md) в сервис [Yandex Certificate Manager](../../certificate-manager/index.md).
+1. Если у вас уже есть [сертификат](../../certificate-manager/concepts/index.md#types) для [доменной зоны](../../dns/concepts/dns-zone.md), [добавьте сведения о нем](../../certificate-manager/operations/import/cert-create.md) в сервис [{{ certificate-manager-full-name }}](../../certificate-manager/index.md).
 
-   Если у вас нет сертификата, выпустите новый сертификат от Let's Encrypt® и [добавьте](../../certificate-manager/operations/managed/cert-create.md) его в Certificate Manager.
+   Если у вас нет сертификата, выпустите новый сертификат от Let's Encrypt® и [добавьте](../../certificate-manager/operations/managed/cert-create.md) его в {{ certificate-manager-name }}.
 1. Получите идентификатор сертификата:
 
    ```bash
@@ -91,19 +91,19 @@
 
 ## Создайте сервисные аккаунты {#create-sa}
 
-Для работы кластера Managed Service for Kubernetes и [балансировщика нагрузки](../../application-load-balancer/concepts/application-load-balancer.md) нужны [сервисные аккаунты](../../iam/concepts/users/service-accounts.md):
-* Сервисный аккаунт с [ролями](../security/index.md#yc-api) `k8s.clusters.agent` и `vpc.publicAdmin` на [каталог](../../resource-manager/concepts/resources-hierarchy.md#folder), в котором создается кластер Managed Service for Kubernetes. От имени этого сервисного аккаунта будут создаваться ресурсы, необходимые кластеру Managed Service for Kubernetes.
-* Сервисный аккаунт с ролью [container-registry.images.puller](../../container-registry/security/index.md#container-registry-images-puller) на каталог с [реестром](../../container-registry/concepts/registry.md) [Docker-образов](../../container-registry/concepts/docker-image.md). От имени этого сервисного аккаунта [узлы](../concepts/index.md#node-group) будут скачивать из реестра необходимые Docker-образы.
-* Для работы Ingress-контроллера Application Load Balancer, с ролями:
+Для работы кластера {{ managed-k8s-name }} и [балансировщика нагрузки](../../application-load-balancer/concepts/application-load-balancer.md) нужны [сервисные аккаунты](../../iam/concepts/users/service-accounts.md):
+* Сервисный аккаунт с [ролями](../security/index.md#yc-api) `k8s.clusters.agent` и `vpc.publicAdmin` на [каталог](../../resource-manager/concepts/resources-hierarchy.md#folder), в котором создается кластер {{ managed-k8s-name }}. От имени этого сервисного аккаунта будут создаваться ресурсы, необходимые кластеру {{ managed-k8s-name }}.
+* Сервисный аккаунт с ролью [{{ roles-cr-puller }}](../../container-registry/security/index.md#container-registry-images-puller) на каталог с [реестром](../../container-registry/concepts/registry.md) [Docker-образов](../../container-registry/concepts/docker-image.md). От имени этого сервисного аккаунта [узлы](../concepts/index.md#node-group) будут скачивать из реестра необходимые Docker-образы.
+* Для работы Ingress-контроллера {{ alb-name }}, с ролями:
   * [alb.editor](../../application-load-balancer/security/index.md#alb-editor) — для создания необходимых ресурсов.
   * [vpc.publicAdmin](../../vpc/security/index.md#vpc-public-admin) — для управления [внешней связностью](../../vpc/security/index.md#roles-list).
-  * [certificate-manager.certificates.downloader](../../certificate-manager/security/index.md#certificate-manager-certificates-downloader) — для работы с сертификатами, зарегистрированными в сервисе [Certificate Manager](../../certificate-manager/index.md).
-  * [compute.viewer](../../compute/security/index.md#compute-viewer) — для использования узлов кластера Managed Service for Kubernetes в [целевых группах](../../application-load-balancer/concepts/target-group.md) балансировщика нагрузки.
+  * [certificate-manager.certificates.downloader](../../certificate-manager/security/index.md#certificate-manager-certificates-downloader) — для работы с сертификатами, зарегистрированными в сервисе [{{ certificate-manager-name }}](../../certificate-manager/index.md).
+  * [compute.viewer](../../compute/security/index.md#compute-viewer) — для использования узлов кластера {{ managed-k8s-name }} в [целевых группах](../../application-load-balancer/concepts/target-group.md) балансировщика нагрузки.
 
 ### Сервисный аккаунт для ресурсов {#res-sa}
 
-Чтобы создать сервисный аккаунт, от имени которого будут создаваться ресурсы, необходимые кластеру Managed Service for Kubernetes:
-1. Запишите в переменную идентификатор каталога из конфигурации вашего профиля Yandex Cloud CLI:
+Чтобы создать сервисный аккаунт, от имени которого будут создаваться ресурсы, необходимые кластеру {{ managed-k8s-name }}:
+1. Запишите в переменную идентификатор каталога из конфигурации вашего профиля {{ yandex-cloud }} CLI:
 
    {% list tabs group=programming_language %}
 
@@ -157,7 +157,7 @@
 
    {% endlist %}
 
-1. Назначьте сервисному аккаунту роль [editor](../../iam/roles-reference.md#editor) на каталог:
+1. Назначьте сервисному аккаунту роль [{{ roles-editor }}](../../iam/roles-reference.md#editor) на каталог:
 
    ```bash
    yc resource-manager folder add-access-binding \
@@ -169,7 +169,7 @@
 ### Сервисный аккаунт для узлов {#node-sa}
 
 Чтобы создать сервисный аккаунт, от имени которого узлы будут скачивать из реестра необходимые Docker-образы.
-1. Запишите в переменную идентификатор каталога из конфигурации вашего профиля Yandex Cloud CLI:
+1. Запишите в переменную идентификатор каталога из конфигурации вашего профиля {{ yandex-cloud }} CLI:
 
    {% list tabs group=programming_language %}
 
@@ -223,7 +223,7 @@
 
    {% endlist %}
 
-1. Назначьте сервисному аккаунту роль [container-registry.images.puller](../../container-registry/security/index.md#container-registry-images-puller) на каталог:
+1. Назначьте сервисному аккаунту роль [{{ roles-cr-puller }}](../../container-registry/security/index.md#container-registry-images-puller) на каталог:
 
    ```bash
    yc resource-manager folder add-access-binding \
@@ -232,9 +232,9 @@
      --subject serviceAccount:$NODE_SA_ID
    ```
 
-### Сервисный аккаунт, необходимый для работы Application Load Balancer Ingress-контроллера {#ic-sa}
+### Сервисный аккаунт, необходимый для работы {{ alb-name }} Ingress-контроллера {#ic-sa}
 
-1. Запишите в переменную идентификатор каталога из конфигурации вашего профиля Yandex Cloud CLI:
+1. Запишите в переменную идентификатор каталога из конфигурации вашего профиля {{ yandex-cloud }} CLI:
 
    {% list tabs group=programming_language %}
 
@@ -289,8 +289,8 @@
    {% endlist %}
 
 1. Назначьте сервисному аккаунту роли на каталог:
-   * [alb.editor](../../application-load-balancer/security/index.md#alb-editor).
-   * [vpc.publicAdmin](../../vpc/security/index.md#vpc-public-admin).
+   * [{{ roles-alb-editor }}](../../application-load-balancer/security/index.md#alb-editor).
+   * [{{ roles-vpc-public-admin }}](../../vpc/security/index.md#vpc-public-admin).
    * [certificate-manager.certificates.downloader](../../certificate-manager/security/index.md#certificate-manager-certificates-downloader).
    * [compute.viewer](../../compute/security/index.md#compute-viewer).
 
@@ -314,11 +314,11 @@
 
 ## Создайте группы безопасности {#create-sg}
 
-[Создайте группы безопасности](../operations/connect/security-groups.md) для кластера Managed Service for Kubernetes и входящих в него групп узлов.
+[Создайте группы безопасности](../operations/connect/security-groups.md) для кластера {{ managed-k8s-name }} и входящих в него групп узлов.
 
-Для доступа к Container Registry в группе безопасности узлов [добавьте правило](../operations/connect/security-groups.md#rules-internal-nodegroup) для исходящего трафика, разрешающее узлам подключаться к внешним ресурсам.
+Для доступа к {{ container-registry-name }} в группе безопасности узлов [добавьте правило](../operations/connect/security-groups.md#rules-internal-nodegroup) для исходящего трафика, разрешающее узлам подключаться к внешним ресурсам.
 
-Также [настройте](../../application-load-balancer/tools/k8s-ingress-controller/security-groups.md) группы безопасности, необходимые для работы Application Load Balancer.
+Также [настройте](../../application-load-balancer/tools/k8s-ingress-controller/security-groups.md) группы безопасности, необходимые для работы {{ alb-name }}.
 
 {% note warning %}
 
@@ -326,19 +326,19 @@
 
 {% endnote %}
 
-## Подготовьте ресурсы Kubernetes {#create-k8s-res}
+## Подготовьте ресурсы {{ k8s }} {#create-k8s-res}
 
-## Подготовьте ресурсы Kubernetes {#create-k8s-res}
+## Подготовьте ресурсы {{ k8s }} {#create-k8s-res}
 
-### Создайте кластер Managed Service for Kubernetes {#create-cluster}
+### Создайте кластер {{ managed-k8s-name }} {#create-cluster}
 
 {% note tip %}
 
-В данном примере используются базовые параметры кластера. Часть настроек, например выбор [Container Network Interface](https://kubernetes.io/docs/concepts/extend-kubernetes/compute-storage-net/network-plugins/), [шифрование секретов](../concepts/encryption.md#k8s-secrets-encryption) с помощью Yandex Key Management Service и ряд других, нельзя изменить после создания кластера. Рекомендуем ознакомиться с подробной [инструкцией по созданию кластера Managed Service for Kubernetes](../operations/kubernetes-cluster/kubernetes-cluster-create.md#kubernetes-cluster-create).
+В данном примере используются базовые параметры кластера. Часть настроек, например выбор [Container Network Interface](https://kubernetes.io/docs/concepts/extend-kubernetes/compute-storage-net/network-plugins/), [шифрование секретов](../concepts/encryption.md#k8s-secrets-encryption) с помощью {{ kms-full-name }} и ряд других, нельзя изменить после создания кластера. Рекомендуем ознакомиться с подробной [инструкцией по созданию кластера {{ managed-k8s-name }}](../operations/kubernetes-cluster/kubernetes-cluster-create.md#kubernetes-cluster-create).
 
 {% endnote %}
 
-Создайте [кластер Managed Service for Kubernetes](../concepts/index.md#kubernetes-cluster) и укажите ранее созданные [сервисные аккаунты](../../iam/concepts/users/service-accounts.md) в параметрах `--service-account-id` и `--node-service-account-id`, и группы безопасности в параметре `--security-group-ids`.
+Создайте [кластер {{ managed-k8s-name }}](../concepts/index.md#kubernetes-cluster) и укажите ранее созданные [сервисные аккаунты](../../iam/concepts/users/service-accounts.md) в параметрах `--service-account-id` и `--node-service-account-id`, и группы безопасности в параметре `--security-group-ids`.
 
 {% list tabs group=programming_language %}
 
@@ -350,7 +350,7 @@
   yc managed-kubernetes cluster create \
     --name k8s-demo \
     --network-name yc-auto-network \
-    --zone ru-central1-a \
+    --zone {{ region-id }}-a \
     --subnet-name yc-auto-subnet-0 \
     --public-ip \
     --service-account-id $RES_SA_ID \
@@ -366,7 +366,7 @@
   yc managed-kubernetes cluster create `
     --name k8s-demo `
     --network-name yc-auto-network `
-    --zone ru-central1-a `
+    --zone {{ region-id }}-a `
     --subnet-name yc-auto-subnet-0 `
     --public-ip `
     --service-account-id $RES_SA_ID `
@@ -376,23 +376,23 @@
 
 {% endlist %}
 
-### Создайте группу узлов Managed Service for Kubernetes {#create-node-groups}
+### Создайте группу узлов {{ managed-k8s-name }} {#create-node-groups}
 
 {% note warning %}
 
-Для доступа к Container Registry узлам кластера должен быть назначен публичный IP-адрес. Либо в подсети узлов должен быть настроен [NAT-шлюз](../../vpc/operations/create-nat-gateway.md) или [NAT-инстанс](../../vpc/tutorials/nat-instance/index.md).
+Для доступа к {{ container-registry-name }} узлам кластера должен быть назначен публичный IP-адрес. Либо в подсети узлов должен быть настроен [NAT-шлюз](../../vpc/operations/create-nat-gateway.md) или [NAT-инстанс](../../vpc/tutorials/nat-instance/index.md).
 
-Подробнее см. в разделе [Доступ в интернет для рабочих узлов кластера](../concepts/network.md#nodes-internet).
+Подробнее см. в разделе [{#T}](../concepts/network.md#nodes-internet).
 
 {% endnote %}
 
-1. Проверьте, что создание кластера Managed Service for Kubernetes успешно завершено.
-   1. В [консоли управления](https://console.yandex.cloud) выберите [каталог](../../resource-manager/concepts/resources-hierarchy.md#folder), в котором был создан кластер Managed Service for Kubernetes.
-   1. [Перейдите](../../console/operations/select-service.md#select-service) в сервис **Managed Service for&nbsp;Kubernetes**.
-   1. Проверьте, что кластер Managed Service for Kubernetes успешно создан:
-      * В столбце **Статус** должно быть указано `Running`.
-      * В столбце **Состояние** должно быть указано `Healthy`.
-1. Создайте [группу узлов Managed Service for Kubernetes](../concepts/index.md#node-group) и укажите ранее созданные группы безопасности в параметре `--network-interface security-group-ids`:
+1. Проверьте, что создание кластера {{ managed-k8s-name }} успешно завершено.
+   1. В [консоли управления]({{ link-console-main }}) выберите [каталог](../../resource-manager/concepts/resources-hierarchy.md#folder), в котором был создан кластер {{ managed-k8s-name }}.
+   1. Перейдите в сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-kubernetes }}**.
+   1. Проверьте, что кластер {{ managed-k8s-name }} успешно создан:
+      * В столбце **{{ ui-key.yacloud.k8s.cluster.overview.label_status }}** должно быть указано `Running`.
+      * В столбце **{{ ui-key.yacloud.k8s.cluster.overview.label_health }}** должно быть указано `Healthy`.
+1. Создайте [группу узлов {{ managed-k8s-name }}](../concepts/index.md#node-group) и укажите ранее созданные группы безопасности в параметре `--network-interface security-group-ids`:
 
    {% list tabs group=programming_language %}
 
@@ -430,11 +430,11 @@
 
    {% endlist %}
 
-## Подключитесь к кластеру Managed Service for Kubernetes {#cluster-connect}
+## Подключитесь к кластеру {{ managed-k8s-name }} {#cluster-connect}
 
-[Установите kubectl](https://kubernetes.io/ru/docs/tasks/tools/install-kubectl) и [настройте его на работу с созданным кластером](../operations/connect/index.md#kubectl-connect).
+[Установите kubectl]({{ k8s-docs }}/tasks/tools/install-kubectl) и [настройте его на работу с созданным кластером](../operations/connect/index.md#kubectl-connect).
 
-## Подготовьте ресурсы Container Registry {#create-cr-res}
+## Подготовьте ресурсы {{ container-registry-name }} {#create-cr-res}
 
 ### Создайте реестр {#registry-create}
 
@@ -446,7 +446,7 @@ yc container registry create --name yc-auto-cr
 
 ### Сконфигурируйте Docker Credential helper {#config-ch}
 
-Для упрощения аутентификации в Container Registry сконфигурируйте [Docker Credential helper](../../container-registry/operations/authentication.md#cred-helper). Он позволяет работать с приватными реестрами Yandex Cloud, не выполняя команду `docker login`.
+Для упрощения аутентификации в {{ container-registry-name }} сконфигурируйте [Docker Credential helper](../../container-registry/operations/authentication.md#cred-helper). Он позволяет работать с приватными реестрами {{ yandex-cloud }}, не выполняя команду `docker login`.
 
 Для настройки Credential helper выполните команду:
 
@@ -486,13 +486,13 @@ yc container registry configure-docker
    1. Соберите Docker-образ:
 
       ```bash
-      docker build . -f hello.dockerfile -t cr.yandex/$REGISTRY_ID/nginx:hello
+      docker build . -f hello.dockerfile -t {{ registry }}/$REGISTRY_ID/nginx:hello
       ```
 
    1. Загрузите Docker-образ в реестр:
 
       ```bash
-      docker push cr.yandex/$REGISTRY_ID/nginx:hello
+      docker push {{ registry }}/$REGISTRY_ID/nginx:hello
       ```
 
 1. Проверьте, что Docker-образ загрузился в реестр:
@@ -513,11 +513,11 @@ yc container registry configure-docker
 
 ### Запустите тестовое приложение {#test-app}
 
-Создайте [под](../concepts/index.md#pod) с приложением из Docker-образа и убедитесь, что для загрузки Docker-образа не потребовалась дополнительная аутентификация в Container Registry.
+Создайте [под](../concepts/index.md#pod) с приложением из Docker-образа и убедитесь, что для загрузки Docker-образа не потребовалась дополнительная аутентификация в {{ container-registry-name }}.
 1. Запустите под с приложением из Docker-образа:
 
    ```bash
-   kubectl run --attach hello-nginx --image cr.yandex/$REGISTRY_ID/nginx:hello
+   kubectl run --attach hello-nginx --image {{ registry }}/$REGISTRY_ID/nginx:hello
    ```
 
 1. Убедитесь, что под перешел в состояние `Running`, и узнайте его полное имя:
@@ -545,15 +545,15 @@ yc container registry configure-docker
    Hi, I'm inside
    ```
 
-   Под загрузил Docker-образ без дополнительной аутентификации на стороне Container Registry.
+   Под загрузил Docker-образ без дополнительной аутентификации на стороне {{ container-registry-name }}.
 
-## Установите Application Load Balancer {#setup-alb}
+## Установите {{ alb-name }} {#setup-alb}
 
-Чтобы установить [Application Load Balancer](https://yandex.cloud/ru/marketplace/products/yc/alb-ingress-controller), [воспользуйтесь инструкцией](../operations/applications/alb-ingress-controller.md).
+Чтобы установить [{{ alb-name }}](https://yandex.cloud/ru/marketplace/products/yc/alb-ingress-controller), [воспользуйтесь инструкцией](../operations/applications/alb-ingress-controller.md).
 
 ## Создайте балансировщик нагрузки {#create-ingress}
 
-1. Создайте балансировщик нагрузки для [сервисов Kubernetes](../concepts/index.md#service).
+1. Создайте балансировщик нагрузки для [сервисов {{ k8s }}](../concepts/index.md#service).
    1. Создайте файл `ingress.yaml` с манифестом Ingress-контроллера:
 
       ```yaml
@@ -601,12 +601,12 @@ yc container registry configure-docker
       ```
 
       Где:
-      * `ingress.alb.yc.io/subnets` — укажите одну или несколько [подсетей](../../vpc/concepts/network.md#subnet), с которыми будет работать Application Load Balancer.
-      * `ingress.alb.yc.io/security-groups` — укажите одну или несколько [групп безопасности](../../application-load-balancer/concepts/application-load-balancer.md#security-groups) для Application Load Balancer. Если параметр не задан, используется группа безопасности по умолчанию. Хотя бы одна из групп безопасности должна разрешать исходящее TCP-соединение к порту 10501 в подсети группы узлов или в ее группу безопасности.
-      * `ingress.alb.yc.io/external-ipv4-address` — чтобы получить новый и предоставить публичный доступ к Application Load Balancer из интернета, укажите [заранее полученный IP-адрес](../../vpc/operations/get-static-ip.md), либо установите значение `auto`.
+      * `ingress.alb.yc.io/subnets` — укажите одну или несколько [подсетей](../../vpc/concepts/network.md#subnet), с которыми будет работать {{ alb-name }}.
+      * `ingress.alb.yc.io/security-groups` — укажите одну или несколько [групп безопасности](../../application-load-balancer/concepts/application-load-balancer.md#security-groups) для {{ alb-name }}. Если параметр не задан, используется группа безопасности по умолчанию. Хотя бы одна из групп безопасности должна разрешать исходящее TCP-соединение к порту 10501 в подсети группы узлов или в ее группу безопасности.
+      * `ingress.alb.yc.io/external-ipv4-address` — чтобы получить новый и предоставить публичный доступ к {{ alb-name }} из интернета, укажите [заранее полученный IP-адрес](../../vpc/operations/get-static-ip.md), либо установите значение `auto`.
 
         Если вы указали значение `auto`, то при удалении Ingress-контроллера IP-адрес также будет удален из облака. Чтобы избежать этого, используйте имеющийся зарезервированный адрес.
-      * `ingress.alb.yc.io/group-name` — укажите имя группы. Группа объединяет ресурсы Kubernetes Ingress, обслуживаемые отдельным экземпляром Application Load Balancer.
+      * `ingress.alb.yc.io/group-name` — укажите имя группы. Группа объединяет ресурсы {{ k8s }} Ingress, обслуживаемые отдельным экземпляром {{ alb-name }}.
    1. Создайте балансировщик нагрузки:
 
       ```bash
@@ -631,7 +631,7 @@ yc container registry configure-docker
 
     {% note info %}
     
-    Если ресурс недоступен по указанному URL, то [убедитесь](../operations/connect/security-groups.md), что группы безопасности для кластера Managed Service for Kubernetes и его групп узлов настроены корректно. Если отсутствует какое-либо из правил — [добавьте его](../../vpc/operations/security-group-add-rule.md).
+    Если ресурс недоступен по указанному URL, то [убедитесь](../operations/connect/security-groups.md), что группы безопасности для кластера {{ managed-k8s-name }} и его групп узлов настроены корректно. Если отсутствует какое-либо из правил — [добавьте его](../../vpc/operations/security-group-add-rule.md).
     
     {% endnote %}
 
@@ -639,7 +639,7 @@ yc container registry configure-docker
 
 Некоторые ресурсы платные. Чтобы за них не списывалась плата, удалите ресурсы, которые вы больше не будете использовать:
 
-1. [Удалите кластер Managed Service for Kubernetes](../operations/kubernetes-cluster/kubernetes-cluster-delete.md):
+1. [Удалите кластер {{ managed-k8s-name }}](../operations/kubernetes-cluster/kubernetes-cluster-delete.md):
 
    ```bash
    yc managed-kubernetes cluster delete --name k8s-demo
@@ -664,7 +664,7 @@ yc container registry configure-docker
      yc iam service-account delete --id $IC_SA_ID
      ```
 
-1. Удалите ресурсы Container Registry.
+1. Удалите ресурсы {{ container-registry-name }}.
    1. Узнайте идентификатор Docker-образа, загруженного в реестр:
 
       {% list tabs group=programming_language %}

@@ -17,7 +17,7 @@
 
 - Редактор запросов
 
-   1. В разделе ![image](../../_assets/console-icons/folder-tree.svg) [**Подключения**](https://websql.yandex.cloud) подключитесь к нужной БД и [перейдите в редактор запросов](query-executor.md).
+   1. В разделе ![image](../../_assets/console-icons/folder-tree.svg) [**Подключения**]({{ websql-link }}) подключитесь к нужной БД и [перейдите в редактор запросов](query-executor.md).
    1. На панели данных нажмите ![image](../../_assets/console-icons/floppy-disk.svg) рядом с кнопкой **Выполнить**.
    1. В окне **Сохранение запроса**:
       1. Выберите БД, к которой осуществляется запрос. По умолчанию в этом поле указана текущая БД.
@@ -35,7 +35,7 @@
 
 - Раздел Сохраненные запросы
 
-   1. [Перейдите](../../console/operations/select-service.md#select-service) в сервис [Yandex WebSQL](https://websql.yandex.cloud).
+   1. Перейдите в сервис [{{ websql-full-name }}]({{ websql-link }}).
    1. Перейдите в раздел ![image](../../_assets/console-icons/floppy-disk.svg) **Сохраненные запросы**.
    1. В правом верхнем углу раздела нажмите ![image](../../_assets/websql/new-connection.svg).
    1. В открывшемся окне:
@@ -55,7 +55,7 @@
 
 {% endlist %}
 
-После сохранения запроса он отобразится в окне ![image](../../_assets/console-icons/floppy-disk.svg) **Сохраненные запросы**. Если вы добавили подсказку, он будет показываться как шаблон вместе с [готовыми шаблонами](#use-templates) Yandex WebSQL.
+После сохранения запроса он отобразится в окне ![image](../../_assets/console-icons/floppy-disk.svg) **Сохраненные запросы**. Если вы добавили подсказку, он будет показываться как шаблон вместе с [готовыми шаблонами](#use-templates) {{ websql-full-name }}.
 
 ## Использовать сохраненный запрос {#use-templates}
 
@@ -79,7 +79,7 @@
 
 - Раздел Сохраненные запросы
 
-   1. [Перейдите](../../console/operations/select-service.md#select-service) в сервис [Yandex WebSQL](https://websql.yandex.cloud).
+   1. Перейдите в сервис [{{ websql-full-name }}]({{ websql-link }}).
    1. Перейдите в раздел ![image](../../_assets/console-icons/floppy-disk.svg) **Сохраненные запросы**.
    1. Нажмите ![image](../../_assets/console-icons/ellipsis.svg) справа от нужного запроса и выберите **Использовать запрос** — он отобразится в панели данных.
    1. Нажмите кнопку **Открыть в редакторе**.
@@ -92,7 +92,7 @@
 
 Чтобы изменить сохраненный запрос:
 
-1. [Перейдите](../../console/operations/select-service.md#select-service) в сервис [Yandex WebSQL](https://websql.yandex.cloud).
+1. Перейдите в сервис [{{ websql-full-name }}]({{ websql-link }}).
 
 1. Перейдите в раздел ![image](../../_assets/console-icons/floppy-disk.svg) **Сохраненные запросы**.
 
@@ -120,7 +120,7 @@
 
 Чтобы опубликовать запрос:
 
-1. [Перейдите](../../console/operations/select-service.md#select-service) в сервис [Yandex WebSQL](https://websql.yandex.cloud).
+1. Перейдите в сервис [{{ websql-full-name }}]({{ websql-link }}).
 
 1. Перейдите в раздел ![image](../../_assets/console-icons/floppy-disk.svg) **Сохраненные запросы**.
 
@@ -134,7 +134,7 @@
 
 Чтобы настроить [права доступа](../security/index.md):
 
-1. [Перейдите](../../console/operations/select-service.md#select-service) в сервис [Yandex WebSQL](https://websql.yandex.cloud).
+1. Перейдите в сервис [{{ websql-full-name }}]({{ websql-link }}).
 
 1. Перейдите в раздел ![image](../../_assets/console-icons/floppy-disk.svg) **Сохраненные запросы**.
 
@@ -148,7 +148,7 @@
 
 Чтобы удалить сохраненный запрос:
 
-1. [Перейдите](../../console/operations/select-service.md#select-service) в сервис [Yandex WebSQL](https://websql.yandex.cloud).
+1. Перейдите в сервис [{{ websql-full-name }}]({{ websql-link }}).
 
 1. Перейдите в раздел ![image](../../_assets/console-icons/floppy-disk.svg) **Сохраненные запросы**.
 

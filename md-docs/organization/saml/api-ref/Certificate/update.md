@@ -5,7 +5,7 @@ Updates the specified certificate.
 ## HTTP request
 
 ```
-PATCH https://organization-manager.api.cloud.yandex.net/organization-manager/v1/saml/certificates/{certificateId}
+PATCH https://organization-manager.{{ api-host }}/organization-manager/v1/saml/certificates/{certificateId}
 ```
 
 ## Path parameters
@@ -73,9 +73,7 @@ The maximum string length in characters is 32000. ||
   "createdBy": "string",
   "modifiedAt": "string",
   "done": "boolean",
-  "metadata": {
-    "certificateId": "string"
-  },
+  "metadata": "object",
   // Includes only one of the fields `error`, `response`
   "error": {
     "code": "integer",
@@ -84,14 +82,7 @@ The maximum string length in characters is 32000. ||
       "object"
     ]
   },
-  "response": {
-    "id": "string",
-    "federationId": "string",
-    "name": "string",
-    "description": "string",
-    "createdAt": "string",
-    "data": "string"
-  }
+  "response": "object"
   // end of the list of possible fields
 }
 ```
@@ -133,7 +124,7 @@ In some languages, built-in datetime utilities do not support nanosecond precisi
 
 If the value is `false`, it means the operation is still in progress.
 If `true`, the operation is completed, and either `error` or `response` is available. ||
-|| metadata | **[UpdateCertificateMetadata](#yandex.cloud.organizationmanager.v1.saml.UpdateCertificateMetadata)**
+|| metadata | **object**
 
 Service-specific metadata associated with the operation.
 It typically contains the ID of the target resource that the operation is performed on.
@@ -148,7 +139,7 @@ The operation result.
 If `done == false` and there was no failure detected, neither `error` nor `response` is set.
 If `done == false` and there was a failure detected, `error` is set.
 If `done == true`, exactly one of `error` or `response` is set. ||
-|| response | **[Certificate](#yandex.cloud.organizationmanager.v1.saml.Certificate)**
+|| response | **object**
 
 The normal response of the operation in case of success.
 If the original method returns no data on success, such as Delete,
@@ -163,15 +154,6 @@ The operation result.
 If `done == false` and there was no failure detected, neither `error` nor `response` is set.
 If `done == false` and there was a failure detected, `error` is set.
 If `done == true`, exactly one of `error` or `response` is set. ||
-|#
-
-## UpdateCertificateMetadata {#yandex.cloud.organizationmanager.v1.saml.UpdateCertificateMetadata}
-
-#|
-||Field | Description ||
-|| certificateId | **string**
-
-ID of the certificate that is being updated. ||
 |#
 
 ## Status {#google.rpc.Status}
@@ -189,47 +171,4 @@ An error message. ||
 || details[] | **object**
 
 A list of messages that carry the error details. ||
-|#
-
-## Certificate {#yandex.cloud.organizationmanager.v1.saml.Certificate}
-
-A certificate.
-
-#|
-||Field | Description ||
-|| id | **string**
-
-Required field. ID of the certificate.
-
-The maximum string length in characters is 50. ||
-|| federationId | **string**
-
-Required field. ID of the federation that the certificate belongs to.
-
-The maximum string length in characters is 50. ||
-|| name | **string**
-
-Name of the certificate.
-
-Value must match the regular expression ``` |[a-z][-a-z0-9]{1,61}[a-z0-9] ```. ||
-|| description | **string**
-
-Description of the certificate.
-
-The maximum string length in characters is 256. ||
-|| createdAt | **string** (date-time)
-
-Creation timestamp.
-
-String in [RFC3339](https://www.ietf.org/rfc/rfc3339.txt) text format. The range of possible values is from
-`0001-01-01T00:00:00Z` to `9999-12-31T23:59:59.999999999Z`, i.e. from 0 to 9 digits for fractions of a second.
-
-To work with values in this field, use the APIs described in the
-[Protocol Buffers reference](https://developers.google.com/protocol-buffers/docs/reference/overview).
-In some languages, built-in datetime utilities do not support nanosecond precision (9 digits). ||
-|| data | **string**
-
-Required field. Certificate data in PEM format.
-
-The maximum string length in characters is 32000. ||
 |#

@@ -7,7 +7,7 @@ To get the list of available ResourcePreset resources, make a [List](list.md#Lis
 ## HTTP request
 
 ```
-GET https://mdb.api.cloud.yandex.net/managed-postgresql/v1/resourcePresets/{resourcePresetId}
+GET https://{{ api-host-mdb }}/managed-postgresql/v1/resourcePresets/{resourcePresetId}
 ```
 
 ## Path parameters

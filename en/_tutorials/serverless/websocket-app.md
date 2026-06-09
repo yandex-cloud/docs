@@ -12,7 +12,7 @@ Required resources:
 * {{ lockbox-name }} [secrets](../../lockbox/concepts/secret.md) for secure storage and delivery of sensitive data to the application.
 * {{ api-gw-name }} [instance](../../api-gateway/concepts/index.md) to receive and redirect user requests to {{ sf-name }}.
 
-The game uses Telegram integration for user authentication.
+The game uses Telegram integration for user authorization.
 
 To create an online game:
 
@@ -233,27 +233,12 @@ Create a bot in Telegram and get a token.
 
 ### Get an access token {#create-token}
 
-{% list tabs group=authentication %}
+Get an IAM token and save it to the `YC_IAM_TOKEN:` variable:
 
-- Federated account {#federated-account}
-
-  Get an IAM token and save it to the `YC_IAM_TOKEN:` variable:
-
-  ```bash
-  echo "export YC_IAM_TOKEN=$(yc iam create-token)" >> ~/.bashrc && . ~/.bashrc
-  echo $YC_IAM_TOKEN
-  ```
-
-- Yandex account {#yandex-account}
-
-  Get an OAUTH token and save it to the `OAUTH_TOKEN` variable:
-
-  ```bash
-  echo "export OAUTH_TOKEN=$(yc config get token)" >> ~/.bashrc && . ~/.bashrc
-  echo $OAUTH_TOKEN
-  ```
-
-{% endlist %}
+```bash
+echo "export YC_IAM_TOKEN=$(yc iam create-token)" >> ~/.bashrc && . ~/.bashrc
+echo $YC_IAM_TOKEN
+```
 
 ### Create a service account {#setup-sa}
 
@@ -705,7 +690,7 @@ During project deployment, the system created these service accounts:
 1. Inject new values into the secret named `game-secrets`:
 
     1. In the [management console]({{ link-console-main }}), select your working folder.
-    1. [Go](../../console/operations/select-service.md#select-service) to **{{ ui-key.yacloud.iam.folder.dashboard.label_message-queue }}**.
+    1. [Navigate](../../console/operations/select-service.md#select-service) to **{{ ui-key.yacloud.iam.folder.dashboard.label_message-queue }}**.
     1. Select `capturing-queue`.
     1. Copy the value from the **{{ ui-key.yacloud.ymq.queue.overview.label_url }}** field and save it to the `YMQ_CAPTURE_QUEUE_URL` variable:
 
@@ -827,7 +812,7 @@ The game offers player statistics. If the API gateway's service domain is `{{ ap
 
 ## How to delete the resources you created {#clear-out}
 
-To stop incurring charges for the resources you created:
+To stop paying for the resources you created:
 1. [Delete](../../ydb/operations/manage-databases.md#delete-db) the {{ ydb-name }} databases.
 1. [Delete](../../data-streams/operations/manage-streams.md#delete-data-stream) the stream in {{ yds-name }}.
 1. [Delete](../../lockbox/operations/secret-delete.md) the {{ lockbox-name }} secret.

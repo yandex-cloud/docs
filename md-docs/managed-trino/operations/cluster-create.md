@@ -1,20 +1,20 @@
-# Создание кластера Trino
+# Создание кластера {{ TR }}
 
-Каждый [кластер](../../glossary/cluster.md) Managed Service for Trino состоит из набора компонентов Trino: [координатора](../concepts/index.md#coordinator) и [воркеров](../concepts/index.md#workers), которые могут быть представлены в нескольких экземплярах.
+Каждый [кластер](../../glossary/cluster.md) {{ mtr-name }} состоит из набора компонентов {{ TR }}: [координатора](../concepts/index.md#coordinator) и [воркеров](../concepts/index.md#workers), которые могут быть представлены в нескольких экземплярах.
 
 ## Роли для создания кластера {#roles}
 
-Для создания кластера Managed Service for Trino вашему аккаунту в Yandex Cloud нужны роли:
+Для создания кластера {{ mtr-name }} вашему аккаунту в {{ yandex-cloud }} нужны роли:
 
 * [managed-trino.admin](../security.md#managed-trino-admin) — чтобы создать кластер;
-* [vpc.user](../../vpc/security/index.md#vpc-user) — чтобы работать с [сетью](../../vpc/concepts/network.md#network) кластера;
-* [logging.reader](../../logging/security/index.md#logging-reader) — чтобы просматривать логи кластера;
+* [{{ roles-vpc-user }}](../../vpc/security/index.md#vpc-user) — чтобы работать с [сетью](../../vpc/concepts/network.md#network) кластера;
+* [{{ roles-logging-reader }}](../../logging/security/index.md#logging-reader) — чтобы просматривать логи кластера;
 * [logging.editor](../../logging/security/index.md#logging-editor) — чтобы управлять настройками логирования кластера;
 * [iam.serviceAccounts.user](../../iam/security/index.md#iam-serviceAccounts-user) — чтобы привязать сервисный аккаунт к кластеру.
 
-[Сервисному аккаунту](../../iam/concepts/users/service-accounts.md) кластера должны быть назначены роли `managed-trino.integrationProvider` и `storage.editor`. Это даст кластеру нужные права для работы с пользовательскими ресурсами. Подробнее см. в разделе [Имперсонация](../concepts/impersonation.md).
+[Сервисному аккаунту](../../iam/concepts/users/service-accounts.md) кластера должны быть назначены роли `managed-trino.integrationProvider` и `storage.editor`. Это даст кластеру нужные права для работы с пользовательскими ресурсами. Подробнее в разделе [Имперсонация](../concepts/impersonation.md).
 
-О назначении ролей читайте в [документации Yandex Identity and Access Management](../../iam/operations/roles/grant.md).
+О назначении ролей читайте в [документации {{ iam-full-name }}](../../iam/operations/roles/grant.md).
 
 ## Создать кластер {#create-cluster}
 
@@ -22,16 +22,16 @@
 
 - Консоль управления {#console}
 
-    1. В [консоли управления](https://console.yandex.cloud) выберите каталог, в котором нужно создать кластер Managed Service for Trino.
-    1. [Перейдите](../../console/operations/select-service.md#select-service) в сервис **Managed Service for&nbsp;Trino**.
-    1. Нажмите кнопку **Создать кластер**.
-    1. В блоке **Базовые параметры**:
+    1. В [консоли управления]({{ link-console-main }}) выберите каталог, в котором нужно создать кластер {{ mtr-name }}.
+    1. Перейдите в сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-trino }}**.
+    1. Нажмите кнопку **{{ ui-key.yacloud.mdb.clusters.button_create }}**.
+    1. В блоке **{{ ui-key.yacloud.mdb.forms.section_base }}**:
 
         1. Задайте имя кластера. Имя должно быть уникальным в рамках каталога.
         1. (Опционально) Введите описание кластера.
         1. (Опционально) Создайте [метки](../../resource-manager/concepts/labels.md):
 
-            1. Нажмите кнопку **Добавить метку**.
+            1. Нажмите кнопку **{{ ui-key.yacloud.component.label-set.button_add-label }}**.
             1. Введите метку в формате `ключ: значение`.
             1. Нажмите **Enter**.
 
@@ -39,36 +39,37 @@
 
             Сервисному аккаунту должны быть назначены роли `managed-trino.integrationProvider` и `storage.editor`.
 
-        1. Выберите версию Trino.
+        1. Выберите версию {{ TR }}.
 
             {% note info %}
             
-            После создания кластера вы можете изменить версию Trino. Версию можно как повысить, так и понизить.
+            После создания кластера вы можете изменить версию {{ TR }}. Версию можно как повысить, так и понизить.
             
             {% endnote %}
 
-    1. В блоке **Сетевые настройки**:
+    1. В блоке **{{ ui-key.yacloud.mdb.forms.section_network-settings }}**:
 
         1. Выберите [сеть](../../vpc/operations/network-create.md), [подсеть](../../vpc/operations/subnet-create.md) и [группу безопасности](../../vpc/concepts/security-groups.md) для кластера.
-        1. (Опционально) Включите параметр **Приватный доступ**, чтобы кластер был доступен только через [сервисное подключение](../concepts/network.md#private-endpoint).
+        1. (Опционально) Включите параметр **{{ ui-key.yacloud.trino.label_private-access }}**, чтобы кластер был доступен только через [сервисное подключение](../concepts/network.md#private-endpoint).
 
     1. В блоке **Политика перезапросов** задайте параметры [отказоустойчивого выполнения запросов](../concepts/retry-policy.md):
         1. Выберите **Тип объекта для перезапроса**:
            * **Задача** — в рамках запроса повторно выполняется промежуточное задание, вызвавшее сбой воркера.
            * **Запрос** — повторно выполняются все [этапы запроса](../concepts/index.md#query-execution), в котором произошел сбой воркера.
-        1. (Опционально) В поле **Параметры перезапросов** задайте дополнительные параметры в формате `ключ: значение`. Подробнее о параметрах см. в [документации Trino](https://trino.io/docs/current/admin/fault-tolerant-execution.html#advanced-configuration).
-        1. (Опционально) В поле **Параметры хранилища** задайте дополнительные параметры хранилища Exchange Manager в формате `ключ: значение`. Подробнее о параметрах см. в [документации Trino](https://trino.io/docs/current/admin/fault-tolerant-execution.html#id1).
+        1. (Опционально) В поле **Параметры перезапросов** задайте дополнительные параметры в формате `ключ: значение`. Подробнее о параметрах в [документации {{ TR }}](https://trino.io/docs/current/admin/fault-tolerant-execution.html#advanced-configuration).
+        1. (Опционально) В поле **Параметры хранилища** задайте дополнительные параметры хранилища Exchange Manager в формате `ключ: значение`. Подробнее о параметрах в [документации {{ TR }}](https://trino.io/docs/current/admin/fault-tolerant-execution.html#id1).
 
     1. Задайте конфигурацию [координатора](../concepts/index.md#coordinator) и [воркеров](../concepts/index.md#workers).
-    1. (Опционально) В блоке **Каталоги** добавьте [каталоги Trino](../concepts/index.md#catalog). Вы можете сделать это как при создании кластера, так и позже. Подробнее см. в разделе [Создание каталога Trino](catalog-create.md).
-    1. (Опционально) В блоке **Настройки доступа** задайте [правила доступа к объектам кластера](../concepts/access-control.md). Подробнее см. в разделе [Управление доступом в Managed Service for Trino](access-control.md).
-    1. В блоке **Дополнительные настройки**:
+    1. (Опционально) В блоке **{{ ui-key.yacloud.trino.title_catalogs }}** добавьте [каталоги Trino](../concepts/index.md#catalog). Вы можете сделать это как при создании кластера, так и позже. Подробнее в разделе [Создание каталога {{ TR }}](catalog-create.md).
+    1. (Опционально) В блоке **{{ ui-key.yacloud.trino.ClusterView.RBACView.label_rbac-settings_o2F64 }}** задайте [правила доступа к объектам кластера](../concepts/access-control.md). Подробнее в разделе [{#T}](access-control.md).
+    1. (Опционально) В блоке **{{ ui-key.yacloud.trino.section_resource-management }}** задайте [конфигурацию ресурсных групп](../concepts/access-control.md). Подробнее в разделе [{#T}](manage-resource-groups.md).
+    1. В блоке **{{ ui-key.yacloud.mdb.forms.section_additional }}**:
 
         1. (Опционально) Включите защиту от удаления кластера.
         1. (Опционально) Выберите время [технического обслуживания](../concepts/maintenance.md) кластера:
 
-            * Чтобы разрешить проведение технического обслуживания в любое время, выберите пункт **произвольное** (по умолчанию).
-            * Чтобы указать предпочтительное время начала обслуживания, выберите пункт **по расписанию** и укажите нужные день недели и час дня по UTC. Например, можно выбрать время, когда кластер наименее загружен.
+            * Чтобы разрешить проведение технического обслуживания в любое время, выберите пункт **{{ ui-key.yacloud.mdb.forms.value_maintenance-type-anytime }}** (по умолчанию).
+            * Чтобы указать предпочтительное время начала обслуживания, выберите пункт **{{ ui-key.yacloud.mdb.forms.value_maintenance-type-weekly }}** и укажите день недели и интервал времени по UTC. Например, можно выбрать время, когда кластер наименее загружен.
             
             Операции по техническому обслуживанию проводятся для включенных и выключенных кластеров. Они могут включать в себя: обновление СУБД, применение патчей и так далее.
         
@@ -76,13 +77,13 @@
         
            ## Параметры TLS {#tls}
            
-           Managed Service for Trino будет использовать указанные сертификаты для подключения к пользовательским инсталляциям баз данных. Для управляемых баз данных TLS-сертификат добавляется в параметры подключения автоматически.
+           {{ mtr-name }} будет использовать указанные сертификаты для подключения к пользовательским инсталляциям баз данных. Для управляемых баз данных TLS-сертификат добавляется в параметры подключения автоматически.
            
            ## TLS для PG и CH {#tls-pg-ch}
            
            {% note info %}
                       
-           Если вы настраиваете TLS для коннекторов ClickHouse®, PostgreSQL или MySQL® — [создайте подключение](../../metadata-hub/operations/create-connection.md#on-premise-connection) к пользовательской инсталляции в Connection Manager, в настройках включите использование TLS.
+           Если вы настраиваете TLS для коннекторов {{ CH }}, {{ PG }} или {{ MY }} — [создайте подключение](../../metadata-hub/operations/create-connection.md#on-premise-connection) к пользовательской инсталляции в {{ connection-manager-name }}, в настройках включите использование TLS.
                       
            {% endnote %}
            
@@ -118,13 +119,13 @@
 
            ## Параметры TLS {#tls}
            
-           Managed Service for Trino будет использовать указанные сертификаты для подключения к пользовательским инсталляциям баз данных. Для управляемых баз данных TLS-сертификат добавляется в параметры подключения автоматически.
+           {{ mtr-name }} будет использовать указанные сертификаты для подключения к пользовательским инсталляциям баз данных. Для управляемых баз данных TLS-сертификат добавляется в параметры подключения автоматически.
            
            ## TLS для PG и CH {#tls-pg-ch}
            
            {% note info %}
                       
-           Если вы настраиваете TLS для коннекторов ClickHouse®, PostgreSQL или MySQL® — [создайте подключение](../../metadata-hub/operations/create-connection.md#on-premise-connection) к пользовательской инсталляции в Connection Manager, в настройках включите использование TLS.
+           Если вы настраиваете TLS для коннекторов {{ CH }}, {{ PG }} или {{ MY }} — [создайте подключение](../../metadata-hub/operations/create-connection.md#on-premise-connection) к пользовательской инсталляции в {{ connection-manager-name }}, в настройках включите использование TLS.
                       
            {% endnote %}
            
@@ -136,21 +137,21 @@
 
         1. (Опционально) Настройте логирование:
 
-            1. Включите настройку **Запись логов**.
+            1. Включите настройку **{{ ui-key.yacloud.logging.field_logging }}**.
             1. Выберите место записи логов:
-                * **Каталог** — выберите каталог из списка. Логи будут записываться в лог-группу по умолчанию выбранного каталога.
-                * **Группа** — выберите [лог-группу](../../logging/concepts/log-group.md) из списка или создайте новую.
-            1. Выберите **Минимальный уровень логирования** из списка.
+                * **{{ ui-key.yacloud.common.folder }}** — выберите каталог из списка. Логи будут записываться в лог-группу по умолчанию выбранного каталога.
+                * **{{ ui-key.yacloud.logging.label_group }}** — выберите [лог-группу](../../logging/concepts/log-group.md) из списка или создайте новую.
+            1. Выберите **{{ ui-key.yacloud.logging.label_minlevel }}** из списка.
 
-    1. Нажмите кнопку **Создать**.
+    1. Нажмите кнопку **{{ ui-key.yacloud.common.create }}**.
 
 - CLI {#cli}
 
-    Если у вас еще нет интерфейса командной строки Yandex Cloud (CLI), [установите и инициализируйте его](../../cli/quickstart.md#install).
+    Если у вас еще нет интерфейса командной строки {{ yandex-cloud }} (CLI), [установите и инициализируйте его](../../cli/quickstart.md#install).
 
     По умолчанию используется каталог, указанный при [создании](../../cli/operations/profile/profile-create.md) профиля CLI. Чтобы изменить каталог по умолчанию, используйте команду `yc config set folder-id <идентификатор_каталога>`. Также для любой команды вы можете указать другой каталог с помощью параметров `--folder-name` или `--folder-id`. Если вы обращаетесь к ресурсу по имени, поиск будет выполнен в каталоге по умолчанию. Если вы обращаетесь к ресурсу по идентификатору, поиск будет выполнен глобально — во всех каталогах с учетом прав доступа.
 
-    Чтобы создать кластер Managed Service for Trino:
+    Чтобы создать кластер {{ mtr-name }}:
 
     1. Проверьте, есть ли в каталоге подсети для хостов кластера:
 
@@ -158,18 +159,18 @@
         yc vpc subnet list
         ```
 
-        Если ни одной подсети в каталоге нет, [создайте нужные подсети](../../vpc/operations/subnet-create.md) в сервисе VPC.
+        Если ни одной подсети в каталоге нет, [создайте нужные подсети](../../vpc/operations/subnet-create.md) в сервисе {{ vpc-short-name }}.
 
     1. Посмотрите описание команды CLI для создания кластера:
 
         ```bash
-        yc managed-trino cluster create --help
+        {{ yc-mdb-tr }} cluster create --help
         ```
 
     1. Укажите параметры кластера в команде создания (в примере приведены не все доступные параметры):
 
         ```bash
-        yc managed-trino cluster create \
+        {{ yc-mdb-tr }} cluster create \
            --name <имя_кластера> \
            --version <версия> \
            --service-account-id <идентификатор_сервисного_аккаунта> \
@@ -185,11 +186,11 @@
         Где:
 
         * `--name` — имя кластера. Оно должно быть уникальным в рамках каталога.
-        * `--version` — версия Trino.
+        * `--version` — версия {{ TR }}.
 
           {% note info %}
           
-          После создания кластера вы можете изменить версию Trino. Версию можно как повысить, так и понизить.
+          После создания кластера вы можете изменить версию {{ TR }}. Версию можно как повысить, так и понизить.
           
           {% endnote %}
         
@@ -218,13 +219,13 @@
 
            ## Параметры TLS {#tls}
            
-           Managed Service for Trino будет использовать указанные сертификаты для подключения к пользовательским инсталляциям баз данных. Для управляемых баз данных TLS-сертификат добавляется в параметры подключения автоматически.
+           {{ mtr-name }} будет использовать указанные сертификаты для подключения к пользовательским инсталляциям баз данных. Для управляемых баз данных TLS-сертификат добавляется в параметры подключения автоматически.
            
            ## TLS для PG и CH {#tls-pg-ch}
            
            {% note info %}
                       
-           Если вы настраиваете TLS для коннекторов ClickHouse®, PostgreSQL или MySQL® — [создайте подключение](../../metadata-hub/operations/create-connection.md#on-premise-connection) к пользовательской инсталляции в Connection Manager, в настройках включите использование TLS.
+           Если вы настраиваете TLS для коннекторов {{ CH }}, {{ PG }} или {{ MY }} — [создайте подключение](../../metadata-hub/operations/create-connection.md#on-premise-connection) к пользовательской инсталляции в {{ connection-manager-name }}, в настройках включите использование TLS.
                       
            {% endnote %}
            
@@ -236,13 +237,13 @@
         
            ## Параметры TLS {#tls}
            
-           Managed Service for Trino будет использовать указанные сертификаты для подключения к пользовательским инсталляциям баз данных. Для управляемых баз данных TLS-сертификат добавляется в параметры подключения автоматически.
+           {{ mtr-name }} будет использовать указанные сертификаты для подключения к пользовательским инсталляциям баз данных. Для управляемых баз данных TLS-сертификат добавляется в параметры подключения автоматически.
            
            ## TLS для PG и CH {#tls-pg-ch}
            
            {% note info %}
                       
-           Если вы настраиваете TLS для коннекторов ClickHouse®, PostgreSQL или MySQL® — [создайте подключение](../../metadata-hub/operations/create-connection.md#on-premise-connection) к пользовательской инсталляции в Connection Manager, в настройках включите использование TLS.
+           Если вы настраиваете TLS для коннекторов {{ CH }}, {{ PG }} или {{ MY }} — [создайте подключение](../../metadata-hub/operations/create-connection.md#on-premise-connection) к пользовательской инсталляции в {{ connection-manager-name }}, в настройках включите использование TLS.
                       
            {% endnote %}
            
@@ -254,13 +255,13 @@
            
            ## Параметры TLS {#tls}
            
-           Managed Service for Trino будет использовать указанные сертификаты для подключения к пользовательским инсталляциям баз данных. Для управляемых баз данных TLS-сертификат добавляется в параметры подключения автоматически.
+           {{ mtr-name }} будет использовать указанные сертификаты для подключения к пользовательским инсталляциям баз данных. Для управляемых баз данных TLS-сертификат добавляется в параметры подключения автоматически.
            
            ## TLS для PG и CH {#tls-pg-ch}
            
            {% note info %}
                       
-           Если вы настраиваете TLS для коннекторов ClickHouse®, PostgreSQL или MySQL® — [создайте подключение](../../metadata-hub/operations/create-connection.md#on-premise-connection) к пользовательской инсталляции в Connection Manager, в настройках включите использование TLS.
+           Если вы настраиваете TLS для коннекторов {{ CH }}, {{ PG }} или {{ MY }} — [создайте подключение](../../metadata-hub/operations/create-connection.md#on-premise-connection) к пользовательской инсталляции в {{ connection-manager-name }}, в настройках включите использование TLS.
                       
            {% endnote %}
            
@@ -270,10 +271,10 @@
            * самоподписанный сертификат;
            * сертификат, выпущенный в стороннем центре сертификации с цепочкой промежуточных сертификатов.
 
-    1. Чтобы включить отправку логов Trino в сервис [Yandex Cloud Logging](../../logging/index.md), задайте параметры логирования:
+    1. Чтобы включить отправку логов {{ TR }} в сервис [{{ cloud-logging-full-name }}](../../logging/index.md), задайте параметры логирования:
 
         ```bash
-        yc managed-trino cluster create <имя_кластера> \
+        {{ yc-mdb-tr }} cluster create <имя_кластера> \
            ...
            --log-enabled \
            --log-folder-id <идентификатор_каталога> \
@@ -293,7 +294,7 @@
     1. Чтобы включить политику [отказоустойчивого выполнения запросов](../concepts/retry-policy.md), задайте параметры:
 
         ```bash
-        yc managed-trino cluster create <имя_кластера> \
+        {{ yc-mdb-tr }} cluster create <имя_кластера> \
            ...
            --retry-policy-enabled \
            --retry-policy \
@@ -310,14 +311,14 @@
             * `task` — в рамках запроса повторно выполняется промежуточное задание, вызвавшее сбой воркера.
             * `query` — повторно выполняются все [этапы запроса](../concepts/index.md#query-execution), в котором произошел сбой воркера.
 
-        * `--retry-policy-additional-properties` — дополнительные параметры повторного выполнения запросов в формате `<ключ>=<значение>`. Подробнее о параметрах см. в [документации Trino](https://trino.io/docs/current/admin/fault-tolerant-execution.html#advanced-configuration).
+        * `--retry-policy-additional-properties` — дополнительные параметры повторного выполнения запросов в формате `<ключ>=<значение>`. Подробнее о параметрах в [документации {{ TR }}]({{ tr.docs }}/admin/fault-tolerant-execution.html#advanced-configuration).
         * `--retry-policy-exchange-manager-service-s3` — использование S3-хранилища для записи данных при перезапросах.
-        * `--retry-policy-exchange-manager-additional-properties` — дополнительные параметры хранилища в формате `<ключ>=<значение>`. Подробнее о параметрах см. в [документации Trino](https://trino.io/docs/current/admin/fault-tolerant-execution.html#id1).
+        * `--retry-policy-exchange-manager-additional-properties` — дополнительные параметры хранилища в формате `<ключ>=<значение>`. Подробнее о параметрах в [документации {{ TR }}]({{ tr.docs }}/admin/fault-tolerant-execution.html#id1).
 
     1. Чтобы добавить настройки выполнения запросов и выделения ресурсов для запросов, задайте параметр:
 
         ```bash
-        yc managed-trino cluster create <имя_кластера> \
+        {{ yc-mdb-tr }} cluster create <имя_кластера> \
            ...
            --query-properties <список_настроек>
         ```
@@ -326,12 +327,12 @@
 
         * `--query-properties` — настройки выполнения запросов и выделения ресурсов кластера для запросов в формате `<ключ>=<значение>`.
 
-          Подробнее о [настройках выделения ресурсов кластера для запросов](https://trino.io/docs/current/admin/properties-resource-management.html) и о [настройках выполнения запросов](https://trino.io/docs/current/admin/properties-query-management.html).
+          Подробнее о [настройках выделения ресурсов кластера для запросов]({{ tr.docs }}/admin/properties-resource-management.html) и о [настройках выполнения запросов]({{ tr.docs }}/admin/properties-query-management.html).
 
     1. Чтобы настроить время технического обслуживания (в т. ч. для выключенных кластеров), передайте нужное значение в параметре `--maintenance-window`:
 
         ```bash
-        yc managed-trino cluster create <имя_кластера> \
+        {{ yc-mdb-tr }} cluster create <имя_кластера> \
            ...
            --maintenance-window type=<тип_технического_обслуживания>,`
                                `day=<день_недели>,`
@@ -343,25 +344,40 @@
         * `anytime` (по умолчанию) — в любое время.
         * `weekly` — по расписанию. Для этого значения дополнительно укажите:
             * `day` — день недели: `MON`, `TUE`, `WED`, `THU`, `FRI`, `SAT` или `SUN`.
-            * `hour` — час дня по UTC: от `1` до `24`.
+            * `hour` — порядковый номер часового интервала по UTC: от `1` до `24`.
+        
+              > Например, `1` соответствует интервалу с `00:00` до `01:00`, `5` — с `04:00` до `05:00`.
 
-- Terraform {#tf}
+    1. Чтобы задать [правила доступа к объектам кластера](../concepts/access-control.md), создайте файл `access_control.yaml` с описанием правил и передайте его имя в параметре `--access-control-from-file`:
 
-    [Terraform](https://www.terraform.io/) позволяет быстро создать облачную инфраструктуру в Yandex Cloud и управлять ею с помощью файлов конфигураций. В файлах конфигураций хранится описание инфраструктуры на языке HCL (HashiCorp Configuration Language). При изменении файлов конфигураций Terraform автоматически определяет, какая часть вашей конфигурации уже развернута, что следует добавить или удалить.
+        ```bash
+        {{ yc-mdb-tr }} cluster create <имя_кластера> \
+           ...
+           --access-control-from-file access_control.yaml
+        ```
+
+       Подробнее в разделе [{#T}](access-control.md).
+
+- {{ TF }} {#tf}
+
+    [{{ TF }}](https://www.terraform.io/) позволяет быстро создать облачную инфраструктуру в {{ yandex-cloud }} и управлять ею с помощью файлов конфигураций. В файлах конфигураций хранится описание инфраструктуры на языке HCL (HashiCorp Configuration Language). При изменении файлов конфигураций {{ TF }} автоматически определяет, какая часть вашей конфигурации уже развернута, что следует добавить или удалить.
     
-    Terraform распространяется под лицензией [Business Source License](https://github.com/hashicorp/terraform/blob/main/LICENSE), а [провайдер Yandex Cloud для Terraform](https://github.com/yandex-cloud/terraform-provider-yandex) — под лицензией [MPL-2.0](https://www.mozilla.org/en-US/MPL/2.0/).
+    {{ TF }} распространяется под лицензией [Business Source License](https://github.com/hashicorp/terraform/blob/main/LICENSE), а [провайдер {{ yandex-cloud }} для {{ TF }}](https://github.com/yandex-cloud/terraform-provider-yandex) — под лицензией [MPL-2.0](https://www.mozilla.org/en-US/MPL/2.0/).
     
-    Подробную информацию о ресурсах провайдера смотрите в документации на сайте [Terraform](https://www.terraform.io/docs/providers/yandex/index.html) или в [зеркале](../../terraform/index.md).
+    Подробную информацию о ресурсах провайдера смотрите в документации на сайте [{{ TF }}](https://www.terraform.io/docs/providers/yandex/index.html) или в [зеркале]({{ tf-docs-link }}).
 
-    Если у вас еще нет Terraform, [установите его и настройте провайдер Yandex Cloud](../../tutorials/infrastructure-management/terraform-quickstart.md#install-terraform).
+    Если у вас еще нет {{ TF }}, [установите его и настройте провайдер {{ yandex-cloud }}](../../tutorials/infrastructure-management/terraform-quickstart.md#install-terraform).
+    
+    
+    Чтобы управлять инфраструктурой с помощью {{ TF }} от имени сервисного аккаунта или пользовательских аккаунтов: аккаунта на Яндексе, федеративного аккаунта и локального пользователя, [аутентифицируйтесь](../../terraform/authentication.md) соответствующим способом.
 
-    Чтобы создать кластер Managed Service for Trino:
+    Чтобы создать кластер {{ mtr-name }}:
 
     1. Опишите в конфигурационном файле создаваемые ресурсы:
 
-        * Кластер Managed Service for Trino — описание кластера.
+        * Кластер {{ mtr-name }} — описание кластера.
 
-        * Каталог Managed Service for Trino — описание каталога.
+        * Каталог {{ mtr-name }} — описание каталога.
 
         * Сеть — описание [облачной сети](../../vpc/concepts/network.md#network), в которой будет расположен кластер. Если подходящая сеть у вас уже есть, описывать ее повторно не нужно.
 
@@ -414,11 +430,11 @@
         
             Включенная защита от удаления не помешает подключиться к кластеру вручную и удалить его.
         
-        * `version` — версия Trino.
+        * `version` — версия {{ TR }}.
             
             {% note info %}
             
-            После создания кластера вы можете изменить версию Trino. Версию можно как повысить, так и понизить.
+            После создания кластера вы можете изменить версию {{ TR }}. Версию можно как повысить, так и понизить.
             
             {% endnote %}
         
@@ -441,9 +457,9 @@
         
             Укажите либо фиксированное количество воркеров (`fixed_scale.count`), либо минимальное и максимальное количество воркеров (`auto_scale.min_count`, `auto_scale.max_count`) для автоматического масштабирования.
 
-    1. Чтобы создать в кластере [каталоги Trino](../concepts/index.md#catalog), добавьте в конфигурационный файл нужное количество ресурсов `yandex_trino_catalog`. Вы можете сделать это как при создании кластера, так и позже. Подробнее см. в разделе [Создание каталога Trino](catalog-create.md).
+    1. Чтобы создать в кластере [каталоги {{ TR }}](../concepts/index.md#catalog), добавьте в конфигурационный файл нужное количество ресурсов `yandex_trino_catalog`. Вы можете сделать это как при создании кластера, так и позже. Подробнее в разделе [Создание каталога {{ TR }}](catalog-create.md).
 
-    1. Чтобы включить отправку логов Trino в сервис [Yandex Cloud Logging](../../logging/index.md), добавьте к описанию кластера блок `logging`:
+    1. Чтобы включить отправку логов {{ TR }} в сервис [{{ cloud-logging-full-name }}](../../logging/index.md), добавьте к описанию кластера блок `logging`:
 
         ```hcl
         resource "yandex_trino_cluster" "<имя_кластера>" {
@@ -495,12 +511,12 @@
             * `TASK` — в рамках запроса повторно выполняется промежуточное задание, вызвавшее сбой воркера.
             * `QUERY` — повторно выполняются все [этапы запроса](../concepts/index.md#query-execution), в котором произошел сбой воркера.
         
-        * `additional_properties` — дополнительные параметры повторного выполнения запросов в формате `"<ключ>" = "<значение>"`. Подробнее о параметрах см. в [документации Trino](https://trino.io/docs/current/admin/fault-tolerant-execution.html#advanced-configuration).
+        * `additional_properties` — дополнительные параметры повторного выполнения запросов в формате `"<ключ>" = "<значение>"`. Подробнее о параметрах в [документации {{ TR }}]({{ tr.docs }}/admin/fault-tolerant-execution.html#advanced-configuration).
         
         * `exchangeManager` — параметры хранилища Exchange Manager:
         
             * `service_s3` — использование S3-хранилища для записи данных при перезапросах.
-            * `additional_properties` – дополнительные параметры хранилища Exchange Manager в формате `"<ключ>" = "<значение>"`. Подробнее о параметрах см. в [документации Trino](https://trino.io/docs/current/admin/fault-tolerant-execution.html#id1).
+            * `additional_properties` — дополнительные параметры хранилища Exchange Manager в формате `"<ключ>" = "<значение>"`. Подробнее о параметрах в [документации {{ TR }}]({{ tr.docs }}/admin/fault-tolerant-execution.html#id1).
 
     1. Чтобы задать настройки выполнения запросов и выделения ресурсов для запросов, добавьте к описанию кластера блок `query_properties`:
 
@@ -519,7 +535,7 @@
         
         * `query_properties` — настройки выполнения запросов и выделения ресурсов кластера для запросов в формате `"<ключ>" = "<значение>"`.
         
-            Подробнее о [настройках выделения ресурсов кластера для запросов](https://trino.io/docs/current/admin/properties-resource-management.html) и о [настройках выполнения запросов](https://trino.io/docs/current/admin/properties-query-management.html).
+            Подробнее о [настройках выделения ресурсов кластера для запросов]({{ tr.docs }}/admin/properties-resource-management.html) и о [настройках выполнения запросов]({{ tr.docs }}/admin/properties-query-management.html).
 
     1. Чтобы настроить время технического обслуживания (в т. ч. для выключенных кластеров), добавьте к описанию кластера блок `maintenance_window`:
 
@@ -541,7 +557,9 @@
             * `ANYTIME` — в любое время.
             * `WEEKLY` — по расписанию.
         * `day` — день недели для типа `WEEKLY`: `MON`, `TUE`, `WED`, `THU`, `FRI`, `SAT` или `SUN`.
-        * `hour` — час дня по UTC для типа `WEEKLY`: от `1` до `24`.
+        * `hour` — порядковый номер часового интервала по UTC для типа `WEEKLY`: от `1` до `24`.
+        
+          > Например, `1` соответствует интервалу с `00:00` до `01:00`, `5` — с `04:00` до `05:00`.
 
     1. Чтобы задать параметры [TLS](../../glossary/tls.md):
 
@@ -561,13 +579,13 @@
          
            ## Параметры TLS {#tls}
            
-           Managed Service for Trino будет использовать указанные сертификаты для подключения к пользовательским инсталляциям баз данных. Для управляемых баз данных TLS-сертификат добавляется в параметры подключения автоматически.
+           {{ mtr-name }} будет использовать указанные сертификаты для подключения к пользовательским инсталляциям баз данных. Для управляемых баз данных TLS-сертификат добавляется в параметры подключения автоматически.
            
            ## TLS для PG и CH {#tls-pg-ch}
            
            {% note info %}
                       
-           Если вы настраиваете TLS для коннекторов ClickHouse®, PostgreSQL или MySQL® — [создайте подключение](../../metadata-hub/operations/create-connection.md#on-premise-connection) к пользовательской инсталляции в Connection Manager, в настройках включите использование TLS.
+           Если вы настраиваете TLS для коннекторов {{ CH }}, {{ PG }} или {{ MY }} — [создайте подключение](../../metadata-hub/operations/create-connection.md#on-premise-connection) к пользовательской инсталляции в {{ connection-manager-name }}, в настройках включите использование TLS.
                       
            {% endnote %}
            
@@ -581,13 +599,13 @@
        
              ## Параметры TLS {#tls}
              
-             Managed Service for Trino будет использовать указанные сертификаты для подключения к пользовательским инсталляциям баз данных. Для управляемых баз данных TLS-сертификат добавляется в параметры подключения автоматически.
+             {{ mtr-name }} будет использовать указанные сертификаты для подключения к пользовательским инсталляциям баз данных. Для управляемых баз данных TLS-сертификат добавляется в параметры подключения автоматически.
              
              ## TLS для PG и CH {#tls-pg-ch}
              
              {% note info %}
                         
-             Если вы настраиваете TLS для коннекторов ClickHouse®, PostgreSQL или MySQL® — [создайте подключение](../../metadata-hub/operations/create-connection.md#on-premise-connection) к пользовательской инсталляции в Connection Manager, в настройках включите использование TLS.
+             Если вы настраиваете TLS для коннекторов {{ CH }}, {{ PG }} или {{ MY }} — [создайте подключение](../../metadata-hub/operations/create-connection.md#on-premise-connection) к пользовательской инсталляции в {{ connection-manager-name }}, в настройках включите использование TLS.
                         
              {% endnote %}
              
@@ -599,13 +617,13 @@
        
            ## Параметры TLS {#tls}
            
-           Managed Service for Trino будет использовать указанные сертификаты для подключения к пользовательским инсталляциям баз данных. Для управляемых баз данных TLS-сертификат добавляется в параметры подключения автоматически.
+           {{ mtr-name }} будет использовать указанные сертификаты для подключения к пользовательским инсталляциям баз данных. Для управляемых баз данных TLS-сертификат добавляется в параметры подключения автоматически.
            
            ## TLS для PG и CH {#tls-pg-ch}
            
            {% note info %}
                       
-           Если вы настраиваете TLS для коннекторов ClickHouse®, PostgreSQL или MySQL® — [создайте подключение](../../metadata-hub/operations/create-connection.md#on-premise-connection) к пользовательской инсталляции в Connection Manager, в настройках включите использование TLS.
+           Если вы настраиваете TLS для коннекторов {{ CH }}, {{ PG }} или {{ MY }} — [создайте подключение](../../metadata-hub/operations/create-connection.md#on-premise-connection) к пользовательской инсталляции в {{ connection-manager-name }}, в настройках включите использование TLS.
                       
            {% endnote %}
            
@@ -615,16 +633,18 @@
            * самоподписанный сертификат;
            * сертификат, выпущенный в стороннем центре сертификации с цепочкой промежуточных сертификатов.
 
+    1. Чтобы задать [правила доступа к объектам кластера](../concepts/access-control.md), добавьте к описанию кластера ресурс `yandex_trino_access_control`, содержащий список правил. Подробнее в разделе [{#T}](access-control.md).
+
     1. Проверьте корректность настроек.
 
-        1. В командной строке перейдите в каталог, в котором расположены актуальные конфигурационные файлы Terraform с планом инфраструктуры.
+        1. В командной строке перейдите в каталог, в котором расположены актуальные конфигурационные файлы {{ TF }} с планом инфраструктуры.
         1. Выполните команду:
         
            ```bash
            terraform validate
            ```
         
-           Если в файлах конфигурации есть ошибки, Terraform на них укажет.
+           Если в файлах конфигурации есть ошибки, {{ TF }} на них укажет.
 
     1. Подтвердите изменение ресурсов.
 
@@ -646,7 +666,7 @@
            1. Подтвердите изменение ресурсов.
            1. Дождитесь завершения операции.
 
-    Более подробную информацию о ресурсах, которые вы можете создать с помощью Terraform, см. в [документации провайдера](../../terraform/resources/trino_cluster.md).
+    Подробная информация о ресурсах, которые вы можете создать с помощью {{ TF }}, в [документации провайдера]({{ tf-provider-mtr }}).
 
 - REST API {#api}
 
@@ -660,7 +680,7 @@
 
        {% note info %}
 
-       В примере приведены не все доступные параметры. Список всех параметров см. в [документации по API](../api-ref/Cluster/create.md#yandex.cloud.trino.v1.CreateClusterRequest).
+       В примере приведены не все доступные параметры. Список всех параметров описан в [документации по API](../api-ref/Cluster/create.md#yandex.cloud.trino.v1.CreateClusterRequest).
 
        {% endnote %}
 
@@ -708,7 +728,8 @@
             },
             "tls": {
               "trustedCertificates": [ <список_сертификатов> ]
-            }
+            },
+            "accessControl": { <конфигурация_правил_доступа> }
           },
           "network": {
             "subnetIds": [ <список_идентификаторов_подсетей> ],
@@ -733,7 +754,7 @@
         * `name` — имя кластера.
         * `description` — описание кластера.
         * `labels` — список меток. Метки задаются в формате `"<ключ>": "<значение>"`.
-        * `trino` — конфигурация [компонентов](../concepts/index.md#cluster-architecture) кластера Trino.
+        * `trino` — конфигурация [компонентов](../concepts/index.md#cluster-architecture) кластера {{ TR }}.
 
             * `coordinatorConfig` — конфигурация координатора.
 
@@ -763,33 +784,33 @@
                   * `TASK` — в рамках запроса повторно выполняется промежуточное задание, вызвавшее сбой воркера.
                   * `QUERY` – повторно выполняются все [этапы запроса](../concepts/index.md#query-execution), в котором произошел сбой воркера.
 
-               * `exchangeManager.additionalProperties` – дополнительные параметры хранилища Exchange Manager в формате `ключ: значение`. Подробнее о параметрах см. в [документации Trino](https://trino.io/docs/current/admin/fault-tolerant-execution.html#id1).
+               * `exchangeManager.additionalProperties` – дополнительные параметры хранилища Exchange Manager в формате `ключ: значение`. Подробнее о параметрах в [документации {{ TR }}](https://trino.io/docs/current/admin/fault-tolerant-execution.html#id1).
 
-               * `additionalProperties` – дополнительные параметры в формате `ключ: значение`. Подробнее о параметрах см. в [документации Trino](https://trino.io/docs/current/admin/fault-tolerant-execution.html#advanced-configuration).
+               * `additionalProperties` — дополнительные параметры в формате `ключ: значение`. Подробнее о параметрах в [документации {{ TR }}](https://trino.io/docs/current/admin/fault-tolerant-execution.html#advanced-configuration).
 
-            * `version` — версия Trino.
+            * `version` — версия {{ TR }}.
 
                {% note info %}
                
-               После создания кластера вы можете изменить версию Trino. Версию можно как повысить, так и понизить.
+               После создания кластера вы можете изменить версию {{ TR }}. Версию можно как повысить, так и понизить.
                
                {% endnote %}
 
             * `resourceManagement.query.properties` — настройки выполнения запросов и выделения ресурсов кластера для запросов в формате `ключ: значение`.
 
-              Подробнее о [настройках выделения ресурсов кластера для запросов](https://trino.io/docs/current/admin/properties-resource-management.html) и о [настройках выполнения запросов](https://trino.io/docs/current/admin/properties-query-management.html).
+              Подробнее о [настройках выделения ресурсов кластера для запросов]({{ tr.docs }}/admin/properties-resource-management.html) и о [настройках выполнения запросов]({{ tr.docs }}/admin/properties-query-management.html).
 
             * `tls` — параметры [TLS](../../glossary/tls.md).
 
                ## Параметры TLS {#tls}
                
-               Managed Service for Trino будет использовать указанные сертификаты для подключения к пользовательским инсталляциям баз данных. Для управляемых баз данных TLS-сертификат добавляется в параметры подключения автоматически.
+               {{ mtr-name }} будет использовать указанные сертификаты для подключения к пользовательским инсталляциям баз данных. Для управляемых баз данных TLS-сертификат добавляется в параметры подключения автоматически.
                
                ## TLS для PG и CH {#tls-pg-ch}
                
                {% note info %}
                           
-               Если вы настраиваете TLS для коннекторов ClickHouse®, PostgreSQL или MySQL® — [создайте подключение](../../metadata-hub/operations/create-connection.md#on-premise-connection) к пользовательской инсталляции в Connection Manager, в настройках включите использование TLS.
+               Если вы настраиваете TLS для коннекторов {{ CH }}, {{ PG }} или {{ MY }} — [создайте подключение](../../metadata-hub/operations/create-connection.md#on-premise-connection) к пользовательской инсталляции в {{ connection-manager-name }}, в настройках включите использование TLS.
                           
                {% endnote %}
                
@@ -803,13 +824,13 @@
 
                   ## Параметры TLS {#tls}
                   
-                  Managed Service for Trino будет использовать указанные сертификаты для подключения к пользовательским инсталляциям баз данных. Для управляемых баз данных TLS-сертификат добавляется в параметры подключения автоматически.
+                  {{ mtr-name }} будет использовать указанные сертификаты для подключения к пользовательским инсталляциям баз данных. Для управляемых баз данных TLS-сертификат добавляется в параметры подключения автоматически.
                   
                   ## TLS для PG и CH {#tls-pg-ch}
                   
                   {% note info %}
                              
-                  Если вы настраиваете TLS для коннекторов ClickHouse®, PostgreSQL или MySQL® — [создайте подключение](../../metadata-hub/operations/create-connection.md#on-premise-connection) к пользовательской инсталляции в Connection Manager, в настройках включите использование TLS.
+                  Если вы настраиваете TLS для коннекторов {{ CH }}, {{ PG }} или {{ MY }} — [создайте подключение](../../metadata-hub/operations/create-connection.md#on-premise-connection) к пользовательской инсталляции в {{ connection-manager-name }}, в настройках включите использование TLS.
                              
                   {% endnote %}
                   
@@ -821,13 +842,13 @@
                
                ## Параметры TLS {#tls}
                
-               Managed Service for Trino будет использовать указанные сертификаты для подключения к пользовательским инсталляциям баз данных. Для управляемых баз данных TLS-сертификат добавляется в параметры подключения автоматически.
+               {{ mtr-name }} будет использовать указанные сертификаты для подключения к пользовательским инсталляциям баз данных. Для управляемых баз данных TLS-сертификат добавляется в параметры подключения автоматически.
                
                ## TLS для PG и CH {#tls-pg-ch}
                
                {% note info %}
                           
-               Если вы настраиваете TLS для коннекторов ClickHouse®, PostgreSQL или MySQL® — [создайте подключение](../../metadata-hub/operations/create-connection.md#on-premise-connection) к пользовательской инсталляции в Connection Manager, в настройках включите использование TLS.
+               Если вы настраиваете TLS для коннекторов {{ CH }}, {{ PG }} или {{ MY }} — [создайте подключение](../../metadata-hub/operations/create-connection.md#on-premise-connection) к пользовательской инсталляции в {{ connection-manager-name }}, в настройках включите использование TLS.
                           
                {% endnote %}
                
@@ -836,6 +857,8 @@
                Передайте один или несколько пользовательских сертификатов в PEM-формате:
                * самоподписанный сертификат;
                * сертификат, выпущенный в стороннем центре сертификации с цепочкой промежуточных сертификатов.
+
+            * `accessControl` — конфигурация [правил доступа к объектам кластера](../concepts/access-control.md). Подробнее в разделе [{#T}](access-control.md).
 
         * `network` — сетевые настройки:
 
@@ -850,20 +873,20 @@
         * `serviceAccountId` — идентификатор сервисного аккаунта.
         * `logging` — параметры логирования:
 
-            * `enabled` — позволяет включить логирование. Логи, сгенерированные компонентами Trino, будут отправляться в Yandex Cloud Logging. Возможные значения: `true` или `false`.
+            * `enabled` — позволяет включить логирование. Логи, сгенерированные компонентами {{ TR }}, будут отправляться в {{ cloud-logging-full-name }}. Возможные значения: `true` или `false`.
             * `minLevel` — минимальный уровень логирования. Возможные значения: `TRACE`, `DEBUG`, `INFO`, `WARN`, `ERROR` и `FATAL`.
             * `folderId` — идентификатор каталога. Логи будут записываться в [лог-группу](../../logging/concepts/log-group.md) по умолчанию для этого каталога.
             * `logGroupId` — идентификатор пользовательской лог-группы. Логи будут записываться в нее.
 
             Укажите один из двух параметров: `folderId` либо `logGroupId`.
 
-    1. Воспользуйтесь методом [Cluster.create](../api-ref/Cluster/create.md) и выполните запрос, например с помощью [cURL](https://curl.se/):
+    1. Воспользуйтесь методом [Cluster.create](../api-ref/Cluster/create.md) и выполните запрос, например с помощью {{ api-examples.rest.tool }}:
 
         ```bash
         curl \
             --request POST \
             --header "Authorization: Bearer $IAM_TOKEN" \
-            --url 'https://trino.api.cloud.yandex.net/managed-trino/v1/clusters'
+            --url 'https://{{ api-host-trino }}/managed-trino/v1/clusters'
             --data '@body.json'
         ```
 
@@ -889,7 +912,7 @@
 
        {% note info %}
 
-       В примере приведены не все доступные параметры. Список всех параметров см. в [документации по API](../api-ref/grpc/Cluster/create.md#yandex.cloud.trino.v1.CreateClusterRequest).
+       В примере приведены не все доступные параметры. Список всех параметров описан в [документации по API](../api-ref/grpc/Cluster/create.md#yandex.cloud.trino.v1.CreateClusterRequest).
 
        {% endnote %}
 
@@ -937,7 +960,8 @@
             },
             "tls": {
               "trusted_certificates": [ <список_сертификатов> ]
-            }
+            },
+            "access_control": { <конфигурация_правил_доступа> }
           },
           "network": {
             "subnet_ids": [ <список_идентификаторов_подсетей> ],
@@ -962,7 +986,7 @@
         * `name` — имя кластера.
         * `description` — описание кластера.
         * `labels` — список меток. Метки задаются в формате `"<ключ>": "<значение>"`.
-        * `trino` — конфигурация [компонентов](../concepts/index.md#cluster-architecture) кластера Trino.
+        * `trino` — конфигурация [компонентов](../concepts/index.md#cluster-architecture) кластера {{ TR }}.
 
             * `coordinator_config` — конфигурация координатора.
 
@@ -992,33 +1016,33 @@
                   * `TASK` — в рамках запроса повторно выполняется промежуточное задание, вызвавшее сбой воркера.
                   * `QUERY` – повторно выполняются все [этапы запроса](../concepts/index.md#query-execution), в котором произошел сбой воркера.
 
-               * `exchange_manager.additional_properties` – дополнительные параметры хранилища Exchange Manager в формате `ключ: значение`. Подробнее о параметрах см. в [документации Trino](https://trino.io/docs/current/admin/fault-tolerant-execution.html#id1).
+               * `exchange_manager.additional_properties` – дополнительные параметры хранилища Exchange Manager в формате `ключ: значение`. Подробнее о параметрах в [документации {{ TR }}](https://trino.io/docs/current/admin/fault-tolerant-execution.html#id1).
 
-               * `additional_properties` – дополнительные параметры в формате `ключ: значение`. Подробнее о параметрах см. в [документации Trino](https://trino.io/docs/current/admin/fault-tolerant-execution.html#advanced-configuration).
+               * `additional_properties` – дополнительные параметры в формате `ключ: значение`. Подробнее о параметрах в [документации {{ TR }}](https://trino.io/docs/current/admin/fault-tolerant-execution.html#advanced-configuration).
 
-            * `version` — версия Trino.
+            * `version` — версия {{ TR }}.
 
                {% note info %}
                
-               После создания кластера вы можете изменить версию Trino. Версию можно как повысить, так и понизить.
+               После создания кластера вы можете изменить версию {{ TR }}. Версию можно как повысить, так и понизить.
                
                {% endnote %}
 
             * `resource_management.query.properties` — настройки выполнения запросов и выделения ресурсов кластера для запросов в формате `ключ: значение`.
 
-              Подробнее о [настройках выделения ресурсов кластера для запросов](https://trino.io/docs/current/admin/properties-resource-management.html) и о [настройках выполнения запросов](https://trino.io/docs/current/admin/properties-query-management.html).
+              Подробнее о [настройках выделения ресурсов кластера для запросов]({{ tr.docs }}/admin/properties-resource-management.html) и о [настройках выполнения запросов]({{ tr.docs }}/admin/properties-query-management.html).
 
             * `tls` — параметры [TLS](../../glossary/tls.md).
 
                ## Параметры TLS {#tls}
                
-               Managed Service for Trino будет использовать указанные сертификаты для подключения к пользовательским инсталляциям баз данных. Для управляемых баз данных TLS-сертификат добавляется в параметры подключения автоматически.
+               {{ mtr-name }} будет использовать указанные сертификаты для подключения к пользовательским инсталляциям баз данных. Для управляемых баз данных TLS-сертификат добавляется в параметры подключения автоматически.
                
                ## TLS для PG и CH {#tls-pg-ch}
                
                {% note info %}
                           
-               Если вы настраиваете TLS для коннекторов ClickHouse®, PostgreSQL или MySQL® — [создайте подключение](../../metadata-hub/operations/create-connection.md#on-premise-connection) к пользовательской инсталляции в Connection Manager, в настройках включите использование TLS.
+               Если вы настраиваете TLS для коннекторов {{ CH }}, {{ PG }} или {{ MY }} — [создайте подключение](../../metadata-hub/operations/create-connection.md#on-premise-connection) к пользовательской инсталляции в {{ connection-manager-name }}, в настройках включите использование TLS.
                           
                {% endnote %}
                
@@ -1032,13 +1056,13 @@
 
                   ## Параметры TLS {#tls}
                   
-                  Managed Service for Trino будет использовать указанные сертификаты для подключения к пользовательским инсталляциям баз данных. Для управляемых баз данных TLS-сертификат добавляется в параметры подключения автоматически.
+                  {{ mtr-name }} будет использовать указанные сертификаты для подключения к пользовательским инсталляциям баз данных. Для управляемых баз данных TLS-сертификат добавляется в параметры подключения автоматически.
                   
                   ## TLS для PG и CH {#tls-pg-ch}
                   
                   {% note info %}
                              
-                  Если вы настраиваете TLS для коннекторов ClickHouse®, PostgreSQL или MySQL® — [создайте подключение](../../metadata-hub/operations/create-connection.md#on-premise-connection) к пользовательской инсталляции в Connection Manager, в настройках включите использование TLS.
+                  Если вы настраиваете TLS для коннекторов {{ CH }}, {{ PG }} или {{ MY }} — [создайте подключение](../../metadata-hub/operations/create-connection.md#on-premise-connection) к пользовательской инсталляции в {{ connection-manager-name }}, в настройках включите использование TLS.
                              
                   {% endnote %}
                   
@@ -1050,13 +1074,13 @@
 
                ## Параметры TLS {#tls}
                
-               Managed Service for Trino будет использовать указанные сертификаты для подключения к пользовательским инсталляциям баз данных. Для управляемых баз данных TLS-сертификат добавляется в параметры подключения автоматически.
+               {{ mtr-name }} будет использовать указанные сертификаты для подключения к пользовательским инсталляциям баз данных. Для управляемых баз данных TLS-сертификат добавляется в параметры подключения автоматически.
                
                ## TLS для PG и CH {#tls-pg-ch}
                
                {% note info %}
                           
-               Если вы настраиваете TLS для коннекторов ClickHouse®, PostgreSQL или MySQL® — [создайте подключение](../../metadata-hub/operations/create-connection.md#on-premise-connection) к пользовательской инсталляции в Connection Manager, в настройках включите использование TLS.
+               Если вы настраиваете TLS для коннекторов {{ CH }}, {{ PG }} или {{ MY }} — [создайте подключение](../../metadata-hub/operations/create-connection.md#on-premise-connection) к пользовательской инсталляции в {{ connection-manager-name }}, в настройках включите использование TLS.
                           
                {% endnote %}
                
@@ -1065,6 +1089,8 @@
                Передайте один или несколько пользовательских сертификатов в PEM-формате:
                * самоподписанный сертификат;
                * сертификат, выпущенный в стороннем центре сертификации с цепочкой промежуточных сертификатов.
+
+            * `access_control` — конфигурация [правил доступа к объектам кластера](../concepts/access-control.md). Подробнее в разделе [{#T}](access-control.md).
 
         * `network` — сетевые настройки:
 
@@ -1079,14 +1105,14 @@
         * `service_account_id` — идентификатор сервисного аккаунта.
         * `logging` — параметры логирования:
 
-            * `enabled` — позволяет включить логирование. Логи, сгенерированные компонентами Trino, будут отправляться в Yandex Cloud Logging. Возможные значения: `true` или `false`.
+            * `enabled` — позволяет включить логирование. Логи, сгенерированные компонентами {{ TR }}, будут отправляться в {{ cloud-logging-full-name }}. Возможные значения: `true` или `false`.
             * `min_level` — минимальный уровень логирования. Возможные значения: `TRACE`, `DEBUG`, `INFO`, `WARN`, `ERROR` и `FATAL`.
             * `folder_id` — идентификатор каталога. Логи будут записываться в [лог-группу](../../logging/concepts/log-group.md) по умолчанию для этого каталога.
             * `log_group_id` — идентификатор пользовательской лог-группы. Логи будут записываться в нее.
 
             Укажите один из двух параметров: `folder_id` либо `log_group_id`.
 
-    1. Воспользуйтесь вызовом [ClusterService/Create](../api-ref/grpc/Cluster/create.md) и выполните запрос, например с помощью [gRPCurl](https://github.com/fullstorydev/grpcurl):
+    1. Воспользуйтесь вызовом [ClusterService/Create](../api-ref/grpc/Cluster/create.md) и выполните запрос, например с помощью {{ api-examples.grpc.tool }}:
 
         ```bash
         grpcurl \
@@ -1096,7 +1122,7 @@
             -proto ~/cloudapi/yandex/cloud/trino/v1/cluster_service.proto \
             -rpc-header "Authorization: Bearer $IAM_TOKEN" \
             -d @ \
-            trino.api.cloud.yandex.net:443 \
+            {{ api-host-trino }}:{{ port-https }} \
             yandex.cloud.trino.v1.ClusterService.Create \
             < body.json
         ```
@@ -1111,12 +1137,12 @@
 
 - CLI {#cli}
 
-    Создайте кластер Managed Service for Trino с тестовыми характеристиками:
+    Создайте кластер {{ mtr-name }} с тестовыми характеристиками:
 
     * Имя — `mytr`.
     * Сервисный аккаунт — `ajev56jp96ji********`.
-    * Подсеть — `b0rcctk2rvtr********`.
-    * Группа безопасности — `enp6saqnq4ie********`.
+    * Подсеть — `{{ subnet-id }}`.
+    * Группа безопасности — `{{ security-group }}`.
     * Координатор с [классом вычислительных ресурсов](../concepts/instance-types.md) — `c4-m16`.
     * 4 воркера с [классом вычислительных ресурсов](../concepts/instance-types.md) — `c4-m16`.
     * Защита от непреднамеренного удаления.
@@ -1124,19 +1150,19 @@
     Выполните следующую команду:
 
     ```bash
-    yc managed-trino cluster create \
+    {{ yc-mdb-tr }} cluster create \
        --name mytr \
        --service-account-id ajev56jp96ji******** \
-       --subnet-ids b0rcctk2rvtr******** \
-       --security-group-ids enp6saqnq4ie******** \
+       --subnet-ids {{ subnet-id }} \
+       --security-group-ids {{ security-group }} \
        --coordinator resource-preset-id=c4-m16 \
        --worker resource-preset-id=c4-m16,count=4 \
        --deletion-protection
     ```
 
-- Terraform {#tf}
+- {{ TF }} {#tf}
 
-    Создайте кластер Managed Service for Trino и сеть для него с тестовыми характеристиками:
+    Создайте кластер {{ mtr-name }} и сеть для него с тестовыми характеристиками:
 
     * Имя — `mytr`.
     * Сервисный аккаунт — `ajev56jp96ji********`.

@@ -10,7 +10,7 @@
 * [Удалить трансфер](#delete).
 
 
-Подробнее о состояниях [трансфера](../concepts/index.md#transfer), возможных действиях с ним и имеющихся ограничениях см. в разделе [Типы и жизненные циклы трансферов](../concepts/transfer-lifecycle.md).
+Подробнее о состояниях [трансфера](../concepts/index.md#transfer), возможных действиях с ним и имеющихся ограничениях читайте в разделе [{#T}](../concepts/transfer-lifecycle.md).
 
 Если вы хотите перенести трансфер и [эндпоинты](../concepts/index.md#endpoint) в другую [зону доступности](../../overview/concepts/geo-scope.md), обратитесь к [инструкции](endpoint/migration-to-an-availability-zone.md).
 
@@ -20,9 +20,9 @@
 
 - Консоль управления {#console}
 
-  1. Перейдите на [страницу каталога](https://console.yandex.cloud).
-  1. [Перейдите](../../console/operations/select-service.md#select-service) в сервис **Data Transfer**.
-  1. На панели слева выберите ![image](../../_assets/console-icons/arrow-right-arrow-left.svg) **Трансферы**.
+  1. Перейдите на [страницу каталога]({{ link-console-main }}).
+  1. Перейдите в сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_data-transfer }}**.
+  1. На панели слева выберите ![image](../../_assets/console-icons/arrow-right-arrow-left.svg) **{{ ui-key.yacloud.data-transfer.label_connectors }}**.
 
   Вы можете отфильтровать список трансферов по доступным параметрам:
   * имя эндпоинта или трансфера;
@@ -32,14 +32,14 @@
 
 - CLI {#cli}
 
-  Если у вас еще нет интерфейса командной строки Yandex Cloud (CLI), [установите и инициализируйте его](../../cli/quickstart.md#install).
+  Если у вас еще нет интерфейса командной строки {{ yandex-cloud }} (CLI), [установите и инициализируйте его](../../cli/quickstart.md#install).
 
   По умолчанию используется каталог, указанный при [создании](../../cli/operations/profile/profile-create.md) профиля CLI. Чтобы изменить каталог по умолчанию, используйте команду `yc config set folder-id <идентификатор_каталога>`. Также для любой команды вы можете указать другой каталог с помощью параметров `--folder-name` или `--folder-id`. Если вы обращаетесь к ресурсу по имени, поиск будет выполнен в каталоге по умолчанию. Если вы обращаетесь к ресурсу по идентификатору, поиск будет выполнен глобально — во всех каталогах с учетом прав доступа.
 
   Чтобы получить список трансферов в [каталоге](../../resource-manager/concepts/resources-hierarchy.md#folder), выполните команду:
 
   ```bash
-  yc datatransfer transfer list
+  {{ yc-dt }} transfer list
   ```
 
 
@@ -56,21 +56,21 @@
 
 - Консоль управления {#console}
 
-    1. Перейдите на [страницу каталога](https://console.yandex.cloud).
-    1. [Перейдите](../../console/operations/select-service.md#select-service) в сервис **Data Transfer**.
-    1. На панели слева выберите ![image](../../_assets/console-icons/arrow-right-arrow-left.svg) **Трансферы**.
+    1. Перейдите на [страницу каталога]({{ link-console-main }}).
+    1. Перейдите в сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_data-transfer }}**.
+    1. На панели слева выберите ![image](../../_assets/console-icons/arrow-right-arrow-left.svg) **{{ ui-key.yacloud.data-transfer.label_connectors }}**.
     1. Нажмите на имя нужного трансфера.
 
 - CLI {#cli}
 
-    Если у вас еще нет интерфейса командной строки Yandex Cloud (CLI), [установите и инициализируйте его](../../cli/quickstart.md#install).
+    Если у вас еще нет интерфейса командной строки {{ yandex-cloud }} (CLI), [установите и инициализируйте его](../../cli/quickstart.md#install).
 
     По умолчанию используется каталог, указанный при [создании](../../cli/operations/profile/profile-create.md) профиля CLI. Чтобы изменить каталог по умолчанию, используйте команду `yc config set folder-id <идентификатор_каталога>`. Также для любой команды вы можете указать другой каталог с помощью параметров `--folder-name` или `--folder-id`. Если вы обращаетесь к ресурсу по имени, поиск будет выполнен в каталоге по умолчанию. Если вы обращаетесь к ресурсу по идентификатору, поиск будет выполнен глобально — во всех каталогах с учетом прав доступа.
 
     Чтобы получить информацию о трансфере, выполните команду:
 
     ```bash
-    yc datatransfer transfer get <идентификатор_трансфера>
+    {{ yc-dt }} transfer get <идентификатор_трансфера>
     ```
 
     Идентификатор трансфера можно получить со [списком трансферов в каталоге](#list).
@@ -91,42 +91,42 @@
 
 - Консоль управления {#console}
 
-  1. Перейдите на [страницу каталога](https://console.yandex.cloud).
-  1. [Перейдите](../../console/operations/select-service.md#select-service) в сервис **Data Transfer**.
-  1. На панели слева выберите ![image](../../_assets/console-icons/arrow-right-arrow-left.svg) **Трансферы**.
-  1. Нажмите кнопку **Создать трансфер**.
+  1. Перейдите на [страницу каталога]({{ link-console-main }}).
+  1. Перейдите в сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_data-transfer }}**.
+  1. На панели слева выберите ![image](../../_assets/console-icons/arrow-right-arrow-left.svg) **{{ ui-key.yacloud.data-transfer.label_connectors }}**.
+  1. Нажмите кнопку **{{ ui-key.yacloud.data-transfer.button_create-transfer }}**.
   1. Выберите эндпоинт для источника или [создайте](endpoint/index.md#create) новый.
   1. Выберите эндпоинт для приемника или [создайте](endpoint/index.md#create) новый. Убедитесь, что [подсеть](../concepts/network.md), указанная для эндпоинта приемника, принадлежит той же зоне доступности, что и подсеть эндпоинта источника.
   1. Укажите параметры трансфера:
-     * **Имя**.
-     * (Опционально) **Описание**.
-     * **Тип трансфера**:
-       * **Копирование** — создает полную копию данных без дальнейшего получения обновлений из источника.
-         * **Периодическое копирование** — включите для создания полной копии данных через определенные интервалы времени.
-           * **Период** — выберите интервал копирования из списка. Трансфер будет регулярно запускаться с указанным интервалом. Первый запуск произойдет сразу после сохранения настроек. Если вы запустите трансфер вручную, то следующий запуск произойдет после указанного интервала.
-           * **Cron выражение** — укажите расписание запусков копирования в [формате cron](../../compute/concepts/snapshot-schedule.md#cron). Время указывается в часовом поясе [UTC±00:00](https://ru.wikipedia.org/wiki/UTC±00:00).
-           * **Время ожидания завершения транзакций в секундах** — укажите [временную задержку](../concepts/regular-incremental-copy.md#increment-delay) для завершения текущих транзакций.
-             * **Инкрементальные таблицы** — укажите таблицы, копирование данных которых осуществляется не полностью, а с места, где копирование завершилось в прошлый раз: укажите значения полей **Схема**, **Таблица**, **Ключевая колонка** и (опционально) **Начальное значение**. Подробнее см. в разделе [Периодическое инкрементальное копирование](../concepts/regular-incremental-copy.md).
+     * **{{ ui-key.yacloud.common.name }}**.
+     * (Опционально) **{{ ui-key.yacloud.common.description }}**.
+     * **{{ ui-key.yc-data-transfer.data-transfer.console.form.transfer.console.form.transfer.Transfer.type.title }}**:
+       * {{ dt-type-copy }} — создает полную копию данных без дальнейшего получения обновлений из источника.
+         * **{{ ui-key.yc-data-transfer.data-transfer.console.form.transfer.console.form.transfer.TransferTypeSnapshot.regular_snapshot.title }}** — включите для создания полной копии данных через определенные интервалы времени.
+           * **{{ ui-key.yc-data-transfer.data-transfer.console.form.transfer.console.form.transfer.RegularSnapshotIntervalType.interval.title }}** — выберите интервал копирования из списка. Трансфер будет регулярно запускаться с указанным интервалом. Первый запуск произойдет сразу после сохранения настроек. Если вы запустите трансфер вручную, то следующий запуск произойдет после указанного интервала.
+           * **{{ ui-key.yc-data-transfer.data-transfer.console.form.transfer.console.form.transfer.RegularSnapshotIntervalType.cron_expression.title }}** — укажите расписание запусков копирования в [формате cron](../../compute/concepts/snapshot-schedule.md#cron). Время указывается в часовом поясе [UTC±00:00](https://{{ lang }}.wikipedia.org/wiki/UTC±00:00).
+           * **{{ ui-key.yc-data-transfer.data-transfer.console.form.transfer.console.form.transfer.RegularSnapshotSettings.increment_delay_seconds.title }}** — укажите [временную задержку](../concepts/regular-incremental-copy.md#increment-delay) для завершения текущих транзакций.
+             * **{{ ui-key.yc-data-transfer.data-transfer.console.form.transfer.console.form.transfer.TransferTypeSnapshot.incremental_tables.title }}** — укажите таблицы, копирование данных которых осуществляется не полностью, а с места, где копирование завершилось в прошлый раз: укажите значения полей **{{ ui-key.yc-data-transfer.data-transfer.console.form.transfer.console.form.transfer.IncrementalTable.table_namespace.title }}**, **{{ ui-key.yc-data-transfer.data-transfer.console.form.transfer.console.form.transfer.IncrementalTable.table_name.title }}**, **{{ ui-key.yc-data-transfer.data-transfer.console.form.transfer.console.form.transfer.IncrementalTable.key_column.title }}** и (опционально) **{{ ui-key.yc-data-transfer.data-transfer.console.form.transfer.console.form.transfer.IncrementalTable.key_start_value.title }}**. Подробнее читайте в разделе [Периодическое инкрементальное копирование](../concepts/regular-incremental-copy.md).
                
                {% note info %}
                
-               Это эффективнее, чем копировать таблицы целиком, но менее эффективно, чем использовать тип трансфера _**Копирование и репликация**_. Настройка доступна для источников PostgreSQL, ClickHouse® и Airbyte®.
+               Это эффективнее, чем копировать таблицы целиком, но менее эффективно, чем использовать тип трансфера _{{ dt-type-copy-repl }}_. Настройка доступна для источников {{ PG }}, {{ CH }} и {{ AB }}.
                
                {% endnote %}
-             * **Настройки копирования** → **Настройки параллельного копирования** — укажите количество [воркеров](../concepts/index.md#worker) и потоков в каждом воркере для организации параллельного копирования.
+             * **{{ ui-key.yc-data-transfer.data-transfer.console.form.transfer.console.form.transfer.TransferTypeRegularSnapshot.snapshot_settings.title }}** → **{{ ui-key.yc-data-transfer.data-transfer.console.form.transfer.console.form.transfer.SnapshotSettings.parallel_settings.title }}** — укажите количество [воркеров](../concepts/index.md#worker) и потоков в каждом воркере для организации параллельного копирования.
                
-               Подробнее о настройке воркеров и потоков см. в [рекомендациях по параллельному копированию](../concepts/sharded.md#recommendations).
-         * **Репликация** — позволяет получать изменения данных от источника и применять их к приемнику (без создания полной копии данных источника).
-         * **Копирование и репликация** — создает полную копию данных источника и поддерживает ее в актуальном состоянии.
-             * **Настройки копирования** → **Настройки параллельного копирования** — укажите количество [воркеров](../concepts/index.md#worker) и потоков в каждом воркере для организации параллельного копирования.
+               Подробнее о настройке воркеров и потоков — в [рекомендациях по параллельному копированию](../concepts/sharded.md#recommendations).
+         * {{ dt-type-repl }} — позволяет получать изменения данных от источника и применять их к приемнику (без создания полной копии данных источника).
+         * {{ dt-type-copy-repl }} — создает полную копию данных источника и поддерживает ее в актуальном состоянии.
+             * **{{ ui-key.yc-data-transfer.data-transfer.console.form.transfer.console.form.transfer.TransferTypeRegularSnapshot.snapshot_settings.title }}** → **{{ ui-key.yc-data-transfer.data-transfer.console.form.transfer.console.form.transfer.SnapshotSettings.parallel_settings.title }}** — укажите количество [воркеров](../concepts/index.md#worker) и потоков в каждом воркере для организации параллельного копирования.
                
-               Подробнее о настройке воркеров и потоков см. в [рекомендациях по параллельному копированию](../concepts/sharded.md#recommendations).
+               Подробнее о настройке воркеров и потоков — в [рекомендациях по параллельному копированию](../concepts/sharded.md#recommendations).
 
 
      
      * Для пар источник-приемник, которые [тарифицируются](../pricing.md) и находятся на стадии [GA](../../overview/concepts/launch-stages.md), вы можете настроить объем вычислительных ресурсов для виртуальной машины в блоке настроек **Среда выполнения**.
      
-         Для типа трансфера **Копирование и репликация** вычислительные ресурсы среды выполнения для копирования и для репликации выбираются отдельно.
+         Для типа трансфера {{ dt-type-copy-repl }} вычислительные ресурсы среды выполнения для копирования и для репликации выбираются отдельно.
          
          Доступны следующие конфигурации вычислительных ресурсов:
 
@@ -134,40 +134,40 @@
          * 4 vCPU и 8 ГБ RAM.
          * 8 vCPU и 16 ГБ RAM.
 
-         Конфигурация ресурсов виртуальной машины определяет производительность [воркеров](../concepts/index.md#worker), переносящих данные. На каждый воркер выделяется отдельная ВМ. Правила тарификации vCPU и RAM, примеры расчета и рекомендации по оптимизации стоимости см. в разделе [Правила тарификации сервиса](../pricing.md).
+         Конфигурация ресурсов виртуальной машины определяет производительность [воркеров](../concepts/index.md#worker), переносящих данные. На каждый воркер выделяется отдельная ВМ. Правила тарификации vCPU и RAM, примеры расчета и рекомендации по оптимизации стоимости читайте в разделе [Правила тарификации сервиса](../pricing.md).
 
 
-     * (Опционально) **Список объектов для переноса** — укажите полный путь до каждого объекта для переноса. Будут передаваться только объекты из этого списка. Если в настройках эндпоинта-источника указан список включенных таблиц или коллекций, передаваться будут только те объекты, которые есть в обоих списках. Если указать объекты, которых нет в списке включенных таблиц или коллекций в настройках эндпоинта-источника, активация трансфера завершится с ошибкой `$table not found in source`. Настройка недоступна для источников Apache Kafka® и YDS.
+     * (Опционально) **{{ ui-key.yc-data-transfer.data-transfer.console.form.transfer.console.form.transfer.Transfer.data_objects.title }}** — укажите полный путь до каждого объекта для переноса. Будут передаваться только объекты из этого списка. Если в настройках эндпоинта-источника указан список включенных таблиц или коллекций, передаваться будут только те объекты, которые есть в обоих списках. Если указать объекты, которых нет в списке включенных таблиц или коллекций в настройках эндпоинта-источника, активация трансфера завершится с ошибкой `$table not found in source`. Настройка недоступна для источников {{ KF }} и {{ DS }}.
 
          Укажите полное имя объекта. В зависимости от типа источника используйте соответствующую схему именования:
 
-         * ClickHouse® — `<имя_базы>.<путь_до_таблицы>`;
-         * Greenplum® — `<имя_схемы>.<путь_до_таблицы>`;
-         * MongoDB — `<имя_базы>.<путь_до_коллекции>`;
-         * MySQL® — `<имя_базы>.<путь_до_таблицы>`;
-         * PostgreSQL — `<имя_схемы>.<путь_до_таблицы>`;
-         * YDB — путь до таблицы;
+         * {{ CH }} — `<имя_базы>.<путь_до_таблицы>`;
+         * {{ GP }} — `<имя_схемы>.<путь_до_таблицы>`;
+         * {{ MG }} — `<имя_базы>.<путь_до_коллекции>`;
+         * {{ MY }} — `<имя_базы>.<путь_до_таблицы>`;
+         * {{ PG }} — `<имя_схемы>.<путь_до_таблицы>`;
+         * {{ ydb-short-name }} — путь до таблицы;
          * Oracle — `<имя_схемы>.<путь_до_таблицы>`.
 
-         Если указанный объект находится в списке исключенных таблиц или коллекций в настройках эндпоинта-источника, или имя объекта введено некорректно, трансфер завершится с ошибкой. Работающий трансфер типа **Репликация** или **Копирование и репликация** завершится сразу, незапущенный трансфер — в момент активации.
+         Если указанный объект находится в списке исключенных таблиц или коллекций в настройках эндпоинта-источника, или имя объекта введено некорректно, трансфер завершится с ошибкой. Работающий трансфер типа {{ dt-type-repl }} или {{ dt-type-copy-repl }} завершится сразу, незапущенный трансфер — в момент активации.
 
-     * (Опционально) **Трансформация данных** — правила [преобразований данных](../concepts/data-transformation.md). Эта настройка появляется только если источник и приемник имеют разные типы.
+     * (Опционально) **{{ ui-key.yc-data-transfer.data-transfer.console.form.transfer.console.form.transfer.Transfer.transformation.title }}** — правила [преобразований данных](../concepts/data-transformation.md). Эта настройка появляется только если источник и приемник имеют разные типы.
 
-        * [Переименование таблиц](../concepts/data-transformation.md#rename-tables)
-        * [Фильтр колонок](../concepts/data-transformation.md#columns-filter)
-        * [Маскирование данных](../concepts/data-transformation.md#data-mask)
-        * [Разделение на подтаблицы](../concepts/data-transformation.md#subtable-splitting)
-        * [Замена первичных ключей](../concepts/data-transformation.md#replace-primary-key)
-        * [Преобразование значений колонок в строки](../concepts/data-transformation.md#convert-to-string)
-        * [Шардирование](../concepts/data-transformation.md#shard)
-        * [Фильтр строк для APPEND-ONLY источников](../concepts/data-transformation.md#append-only-sources)
+        * [{#T}](../concepts/data-transformation.md#rename-tables)
+        * [{#T}](../concepts/data-transformation.md#columns-filter)
+        * [{#T}](../concepts/data-transformation.md#data-mask)
+        * [{#T}](../concepts/data-transformation.md#subtable-splitting)
+        * [{#T}](../concepts/data-transformation.md#replace-primary-key)
+        * [{#T}](../concepts/data-transformation.md#convert-to-string)
+        * [{#T}](../concepts/data-transformation.md#shard)
+        * [{#T}](../concepts/data-transformation.md#append-only-sources)
 
 
-    1. Нажмите кнопку **Создать**.
+    1. Нажмите кнопку **{{ ui-key.yacloud.common.create }}**.
 
 - CLI {#cli}
 
-    Если у вас еще нет интерфейса командной строки Yandex Cloud (CLI), [установите и инициализируйте его](../../cli/quickstart.md#install).
+    Если у вас еще нет интерфейса командной строки {{ yandex-cloud }} (CLI), [установите и инициализируйте его](../../cli/quickstart.md#install).
 
     По умолчанию используется каталог, указанный при [создании](../../cli/operations/profile/profile-create.md) профиля CLI. Чтобы изменить каталог по умолчанию, используйте команду `yc config set folder-id <идентификатор_каталога>`. Также для любой команды вы можете указать другой каталог с помощью параметров `--folder-name` или `--folder-id`. Если вы обращаетесь к ресурсу по имени, поиск будет выполнен в каталоге по умолчанию. Если вы обращаетесь к ресурсу по идентификатору, поиск будет выполнен глобально — во всех каталогах с учетом прав доступа.
 
@@ -176,13 +176,13 @@
     1. Посмотрите описание команды CLI для создания трансфера:
 
         ```bash
-        yc datatransfer transfer create --help
+        {{ yc-dt }} transfer create --help
         ```
 
     1. Укажите параметры трансфера в команде создания:
 
         ```bash
-        yc datatransfer transfer create <имя_трансфера> \
+        {{ yc-dt }} transfer create <имя_трансфера> \
            --source-id=<идентификатор_эндпоинта-источника> \
            --target-id=<идентификатор_эндпоинта-приемника> \
            --type=<тип_трансфера>
@@ -203,15 +203,18 @@
 
         {% endnote %}
 
-- Terraform {#tf}
+- {{ TF }} {#tf}
 
-    [Terraform](https://www.terraform.io/) позволяет быстро создать облачную инфраструктуру в Yandex Cloud и управлять ею с помощью файлов конфигураций. В файлах конфигураций хранится описание инфраструктуры на языке HCL (HashiCorp Configuration Language). При изменении файлов конфигураций Terraform автоматически определяет, какая часть вашей конфигурации уже развернута, что следует добавить или удалить.
+    [{{ TF }}](https://www.terraform.io/) позволяет быстро создать облачную инфраструктуру в {{ yandex-cloud }} и управлять ею с помощью файлов конфигураций. В файлах конфигураций хранится описание инфраструктуры на языке HCL (HashiCorp Configuration Language). При изменении файлов конфигураций {{ TF }} автоматически определяет, какая часть вашей конфигурации уже развернута, что следует добавить или удалить.
     
-    Terraform распространяется под лицензией [Business Source License](https://github.com/hashicorp/terraform/blob/main/LICENSE), а [провайдер Yandex Cloud для Terraform](https://github.com/yandex-cloud/terraform-provider-yandex) — под лицензией [MPL-2.0](https://www.mozilla.org/en-US/MPL/2.0/).
+    {{ TF }} распространяется под лицензией [Business Source License](https://github.com/hashicorp/terraform/blob/main/LICENSE), а [провайдер {{ yandex-cloud }} для {{ TF }}](https://github.com/yandex-cloud/terraform-provider-yandex) — под лицензией [MPL-2.0](https://www.mozilla.org/en-US/MPL/2.0/).
     
-    Подробную информацию о ресурсах провайдера смотрите в документации на сайте [Terraform](https://www.terraform.io/docs/providers/yandex/index.html) или в [зеркале](../../terraform/index.md).
+    Подробную информацию о ресурсах провайдера смотрите в документации на сайте [{{ TF }}](https://www.terraform.io/docs/providers/yandex/index.html) или в [зеркале]({{ tf-docs-link }}).
 
-    Если у вас еще нет Terraform, [установите его и настройте провайдер Yandex Cloud](../../tutorials/infrastructure-management/terraform-quickstart.md#install-terraform).
+    Если у вас еще нет {{ TF }}, [установите его и настройте провайдер {{ yandex-cloud }}](../../tutorials/infrastructure-management/terraform-quickstart.md#install-terraform).
+    
+    
+    Чтобы управлять инфраструктурой с помощью {{ TF }} от имени сервисного аккаунта или пользовательских аккаунтов: аккаунта на Яндексе, федеративного аккаунта и локального пользователя, [аутентифицируйтесь](../../terraform/authentication.md) соответствующим способом.
 
     Чтобы создать трансфер:
 
@@ -220,7 +223,7 @@
        Пример структуры конфигурационного файла:
 
        ```hcl
-       resource "yandex_datatransfer_transfer" "<имя_трансфера_в_Terraform>" {
+       resource "yandex_datatransfer_transfer" "<имя_трансфера_в_{{ TF }}>" {
          folder_id   = "<идентификатор_каталога>"
          name        = "<имя_трансфера>"
          description = "<описание_трансфера>"
@@ -242,7 +245,7 @@
        
        * Чтобы активировать трансфер `SNAPSHOT_ONLY` в момент его создания:
 
-         1. Если у вас еще нет интерфейса командной строки Yandex Cloud (CLI), [установите и инициализируйте его](../../cli/quickstart.md#install).
+         1. Если у вас еще нет интерфейса командной строки {{ yandex-cloud }} (CLI), [установите и инициализируйте его](../../cli/quickstart.md#install).
 
              По умолчанию используется каталог, указанный при [создании](../../cli/operations/profile/profile-create.md) профиля CLI. Чтобы изменить каталог по умолчанию, используйте команду `yc config set folder-id <идентификатор_каталога>`. Также для любой команды вы можете указать другой каталог с помощью параметров `--folder-name` или `--folder-id`. Если вы обращаетесь к ресурсу по имени, поиск будет выполнен в каталоге по умолчанию. Если вы обращаетесь к ресурсу по идентификатору, поиск будет выполнен глобально — во всех каталогах с учетом прав доступа.
        
@@ -259,7 +262,7 @@
        * Чтобы задать параметры среды выполнения трансфера `SNAPSHOT_ONLY`, добавьте в описание ресурса блок `runtime`:
 
          ```hcl
-         resource "yandex_datatransfer_transfer" "<имя_трансфера_в_Terraform>" {
+         resource "yandex_datatransfer_transfer" "<имя_трансфера_в_{{ TF }}>" {
            ...
            runtime {
              yc_runtime {
@@ -285,7 +288,7 @@
        * Чтобы задать параметры среды выполнения трансфера `INCREMENT_ONLY`, добавьте в описание ресурса блок `replication_runtime`:
 
          ```hcl
-         resource "yandex_datatransfer_transfer" "<имя_трансфера_в_Terraform>" {
+         resource "yandex_datatransfer_transfer" "<имя_трансфера_в_{{ TF }}>" {
            ...
            replication_runtime {
              yc_runtime {
@@ -303,7 +306,7 @@
        * Чтобы задать параметры среды выполнения трансфера `SNAPSHOT_AND_INCREMENT`, добавьте в описание ресурса блоки `runtime` и `replication_runtime`:
          
          ```hcl
-         resource "yandex_datatransfer_transfer" "<имя_трансфера_в_Terraform>" {
+         resource "yandex_datatransfer_transfer" "<имя_трансфера_в_{{ TF }}>" {
            ...
            runtime {
              yc_runtime {
@@ -335,14 +338,14 @@
 
     1. Проверьте корректность настроек.
 
-        1. В командной строке перейдите в каталог, в котором расположены актуальные конфигурационные файлы Terraform с планом инфраструктуры.
+        1. В командной строке перейдите в каталог, в котором расположены актуальные конфигурационные файлы {{ TF }} с планом инфраструктуры.
         1. Выполните команду:
         
            ```bash
            terraform validate
            ```
         
-           Если в файлах конфигурации есть ошибки, Terraform на них укажет.
+           Если в файлах конфигурации есть ошибки, {{ TF }} на них укажет.
 
     1. Подтвердите изменение ресурсов.
 
@@ -364,7 +367,7 @@
           1. Подтвердите изменение ресурсов.
           1. Дождитесь завершения операции.
 
-    Подробнее см. в [документации провайдера Terraform](../../terraform/resources/datatransfer_transfer.md).
+    Подробнее в [документации провайдера {{ TF }}]({{ tf-provider-dt-transfer }}).
 
 
 - REST API {#api}
@@ -422,43 +425,43 @@
 
 - Консоль управления {#console}
 
-    1. Перейдите на [страницу каталога](https://console.yandex.cloud).
-    1. [Перейдите](../../console/operations/select-service.md#select-service) в сервис **Data Transfer**.
-    1. На панели слева выберите ![image](../../_assets/console-icons/arrow-right-arrow-left.svg) **Трансферы**.
-    1. Выберите трансфер и нажмите кнопку ![pencil](../../_assets/console-icons/pencil.svg) **Редактировать** на панели сверху.
+    1. Перейдите на [страницу каталога]({{ link-console-main }}).
+    1. Перейдите в сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_data-transfer }}**.
+    1. На панели слева выберите ![image](../../_assets/console-icons/arrow-right-arrow-left.svg) **{{ ui-key.yacloud.data-transfer.label_connectors }}**.
+    1. Выберите трансфер и нажмите кнопку ![pencil](../../_assets/console-icons/pencil.svg) **{{ ui-key.yacloud.common.edit }}** на панели сверху.
     1. Измените параметры трансфера:
-        * **Имя**.
-        * **Описание**.
-        * Для трансфера типа **Копирование**:
+        * **{{ ui-key.yacloud.common.name }}**.
+        * **{{ ui-key.yacloud.common.description }}**.
+        * Для трансфера типа {{ dt-type-copy }}:
 
-            * **Периодическое копирование** — включите для создания полной копии данных через определенные интервалы времени.
-              * **Период** — выберите интервал копирования из списка. Трансфер будет регулярно запускаться с указанным интервалом. Первый запуск произойдет сразу после сохранения настроек. Если вы запустите трансфер вручную, то следующий запуск произойдет после указанного интервала.
-              * **Cron выражение** — укажите расписание запусков копирования в [формате cron](../../compute/concepts/snapshot-schedule.md#cron). Время указывается в часовом поясе [UTC±00:00](https://ru.wikipedia.org/wiki/UTC±00:00).
-              * **Время ожидания завершения транзакций в секундах** — укажите [временную задержку](../concepts/regular-incremental-copy.md#increment-delay) для завершения текущих транзакций.
+            * **{{ ui-key.yc-data-transfer.data-transfer.console.form.transfer.console.form.transfer.TransferTypeSnapshot.regular_snapshot.title }}** — включите для создания полной копии данных через определенные интервалы времени.
+              * **{{ ui-key.yc-data-transfer.data-transfer.console.form.transfer.console.form.transfer.RegularSnapshotIntervalType.interval.title }}** — выберите интервал копирования из списка. Трансфер будет регулярно запускаться с указанным интервалом. Первый запуск произойдет сразу после сохранения настроек. Если вы запустите трансфер вручную, то следующий запуск произойдет после указанного интервала.
+              * **{{ ui-key.yc-data-transfer.data-transfer.console.form.transfer.console.form.transfer.RegularSnapshotIntervalType.cron_expression.title }}** — укажите расписание запусков копирования в [формате cron](../../compute/concepts/snapshot-schedule.md#cron). Время указывается в часовом поясе [UTC±00:00](https://{{ lang }}.wikipedia.org/wiki/UTC±00:00).
+              * **{{ ui-key.yc-data-transfer.data-transfer.console.form.transfer.console.form.transfer.RegularSnapshotSettings.increment_delay_seconds.title }}** — укажите [временную задержку](../concepts/regular-incremental-copy.md#increment-delay) для завершения текущих транзакций.
 
-            * **Инкрементальные таблицы** — укажите таблицы, копирование данных которых осуществляется не полностью, а с места, где копирование завершилось в прошлый раз: укажите значения полей **Схема**, **Таблица**, **Ключевая колонка** и (опционально) **Начальное значение**. Подробнее см. в разделе [Периодическое инкрементальное копирование](../concepts/regular-incremental-copy.md).
+            * **{{ ui-key.yc-data-transfer.data-transfer.console.form.transfer.console.form.transfer.TransferTypeSnapshot.incremental_tables.title }}** — укажите таблицы, копирование данных которых осуществляется не полностью, а с места, где копирование завершилось в прошлый раз: укажите значения полей **{{ ui-key.yc-data-transfer.data-transfer.console.form.transfer.console.form.transfer.IncrementalTable.table_namespace.title }}**, **{{ ui-key.yc-data-transfer.data-transfer.console.form.transfer.console.form.transfer.IncrementalTable.table_name.title }}**, **{{ ui-key.yc-data-transfer.data-transfer.console.form.transfer.console.form.transfer.IncrementalTable.key_column.title }}** и (опционально) **{{ ui-key.yc-data-transfer.data-transfer.console.form.transfer.console.form.transfer.IncrementalTable.key_start_value.title }}**. Подробнее читайте в разделе [Периодическое инкрементальное копирование](../concepts/regular-incremental-copy.md).
               
               {% note info %}
               
-              Это эффективнее, чем копировать таблицы целиком, но менее эффективно, чем использовать тип трансфера _**Копирование и репликация**_. Настройка доступна для источников PostgreSQL, ClickHouse® и Airbyte®.
+              Это эффективнее, чем копировать таблицы целиком, но менее эффективно, чем использовать тип трансфера _{{ dt-type-copy-repl }}_. Настройка доступна для источников {{ PG }}, {{ CH }} и {{ AB }}.
               
               {% endnote %}
 
-            * **Настройки копирования** → **Настройки параллельного копирования** — укажите количество [воркеров](../concepts/index.md#worker) и потоков в каждом воркере для организации параллельного копирования.
+            * **{{ ui-key.yc-data-transfer.data-transfer.console.form.transfer.console.form.transfer.TransferTypeRegularSnapshot.snapshot_settings.title }}** → **{{ ui-key.yc-data-transfer.data-transfer.console.form.transfer.console.form.transfer.SnapshotSettings.parallel_settings.title }}** — укажите количество [воркеров](../concepts/index.md#worker) и потоков в каждом воркере для организации параллельного копирования.
               
-              Подробнее о настройке воркеров и потоков см. в [рекомендациях по параллельному копированию](../concepts/sharded.md#recommendations).
+              Подробнее о настройке воркеров и потоков — в [рекомендациях по параллельному копированию](../concepts/sharded.md#recommendations).
 
-        * Для трансфера типа **Копирование и репликация**: {#update-copy-repl}
+        * Для трансфера типа {{ dt-type-copy-repl }}: {#update-copy-repl}
 
-            * **Настройки копирования** → **Настройки параллельного копирования** — укажите количество [воркеров](../concepts/index.md#worker) и потоков в каждом воркере для организации параллельного копирования.
+            * **{{ ui-key.yc-data-transfer.data-transfer.console.form.transfer.console.form.transfer.TransferTypeRegularSnapshot.snapshot_settings.title }}** → **{{ ui-key.yc-data-transfer.data-transfer.console.form.transfer.console.form.transfer.SnapshotSettings.parallel_settings.title }}** — укажите количество [воркеров](../concepts/index.md#worker) и потоков в каждом воркере для организации параллельного копирования.
               
-              Подробнее о настройке воркеров и потоков см. в [рекомендациях по параллельному копированию](../concepts/sharded.md#recommendations).
+              Подробнее о настройке воркеров и потоков — в [рекомендациях по параллельному копированию](../concepts/sharded.md#recommendations).
 
 
         
-        * Для пар источник-приемник, которые [тарифицируются](../pricing.md) и находятся на стадии [GA](../../overview/concepts/launch-stages.md), вы можете изменить объем вычислительных ресурсов для виртуальной машины в блоке настроек **Среда выполнения**.
+        * Для пар источник-приемник, которые [тарифицируются](../pricing.md) и находятся на стадии [GA](../../overview/concepts/launch-stages.md), вы можете изменить объем вычислительных ресурсов для виртуальной машины в блоке настроек **{{ ui-key.yc-data-transfer.data-transfer.console.form.transfer.console.form.transfer.Transfer.runtime.title }}**.
         
-            Для типа трансфера **Копирование и репликация** вычислительные ресурсы среды выполнения для копирования и для репликации выбираются отдельно.
+            Для типа трансфера {{ dt-type-copy-repl }} вычислительные ресурсы среды выполнения для копирования и для репликации выбираются отдельно.
         
             Доступны следующие конфигурации вычислительных ресурсов:
 
@@ -466,42 +469,42 @@
             * 4 vCPU и 8 ГБ RAM.
             * 8 vCPU и 16 ГБ RAM.
 
-            Конфигурация ресурсов ВМ определяет производительность [воркеров](../concepts/index.md#worker), переносящих данные. На каждый воркер выделяется отдельная ВМ. Правила тарификации vCPU и RAM, примеры расчета и рекомендации по оптимизации стоимости см. в разделе [Правила тарификации сервиса](../pricing.md).
+            Конфигурация ресурсов ВМ определяет производительность [воркеров](../concepts/index.md#worker), переносящих данные. На каждый воркер выделяется отдельная ВМ. Правила тарификации vCPU и RAM, примеры расчета и рекомендации по оптимизации стоимости читайте в разделе [Правила тарификации сервиса](../pricing.md).
 
 
-        * **Список объектов для переноса** — укажите полный путь до каждого объекта для переноса. Будут передаваться только объекты из этого списка. Если в настройках эндпоинта-источника указан список включенных таблиц или коллекций, передаваться будут только те объекты, которые есть в обоих списках. Если указать объекты, которых нет в списке включенных таблиц или коллекций в настройках эндпоинта-источника, активация трансфера завершится с ошибкой `$table not found in source`. Настройка недоступна для источников Apache Kafka® и YDS.
+        * **{{ ui-key.yc-data-transfer.data-transfer.console.form.transfer.console.form.transfer.Transfer.data_objects.title }}** — укажите полный путь до каждого объекта для переноса. Будут передаваться только объекты из этого списка. Если в настройках эндпоинта-источника указан список включенных таблиц или коллекций, передаваться будут только те объекты, которые есть в обоих списках. Если указать объекты, которых нет в списке включенных таблиц или коллекций в настройках эндпоинта-источника, активация трансфера завершится с ошибкой `$table not found in source`. Настройка недоступна для источников {{ KF }} и {{ DS }}.
 
-            Добавление новых объектов в трансферах типа **Копирование и репликация** или **Репликация** в статусе **Реплицируется** приведет к загрузке истории данных по этим объектам (таблицам). Для больших таблиц загрузка истории может занять существенное время. Редактирование списка объектов на трансферах в статусе **Копируется** запрещено.
+            Добавление новых объектов в трансферах типа {{ dt-type-copy-repl }} или {{ dt-type-repl }} в статусе {{ dt-status-repl }} приведет к загрузке истории данных по этим объектам (таблицам). Для больших таблиц загрузка истории может занять существенное время. Редактирование списка объектов на трансферах в статусе {{ dt-status-copy }} запрещено.
 
             Укажите полное имя объекта. В зависимости от типа источника используйте соответствующую схему именования:
 
-            * ClickHouse® — `<имя_базы>.<путь_до_таблицы>`;
-            * Greenplum® — `<имя_схемы>.<путь_до_таблицы>`;
-            * MongoDB — `<имя_базы>.<путь_до_коллекции>`;
-            * MySQL® — `<имя_базы>.<путь_до_таблицы>`;
-            * PostgreSQL — `<имя_схемы>.<путь_до_таблицы>`;
-            * YDB — путь до таблицы;
+            * {{ CH }} — `<имя_базы>.<путь_до_таблицы>`;
+            * {{ GP }} — `<имя_схемы>.<путь_до_таблицы>`;
+            * {{ MG }} — `<имя_базы>.<путь_до_коллекции>`;
+            * {{ MY }} — `<имя_базы>.<путь_до_таблицы>`;
+            * {{ PG }} — `<имя_схемы>.<путь_до_таблицы>`;
+            * {{ ydb-short-name }} — путь до таблицы;
             * Oracle — `<имя_схемы>.<путь_до_таблицы>`.
 
-            Если указанный объект находится в списке исключенных таблиц или коллекций в настройках эндпоинта-источника, или имя объекта введено некорректно, трансфер завершится с ошибкой. Работающий трансфер типа **Репликация** или **Копирование и репликация** завершится сразу, незапущенный трансфер — в момент активации.
+            Если указанный объект находится в списке исключенных таблиц или коллекций в настройках эндпоинта-источника, или имя объекта введено некорректно, трансфер завершится с ошибкой. Работающий трансфер типа {{ dt-type-repl }} или {{ dt-type-copy-repl }} завершится сразу, незапущенный трансфер — в момент активации.
 
-        * (Опционально) **Трансформация данных** — правила [преобразований данных](../concepts/data-transformation.md). Эта настройка появляется только если источник и приемник имеют разные типы.
+        * (Опционально) **{{ ui-key.yc-data-transfer.data-transfer.console.form.transfer.console.form.transfer.Transfer.transformation.title }}** — правила [преобразований данных](../concepts/data-transformation.md). Эта настройка появляется только если источник и приемник имеют разные типы.
 
-           * [Переименование таблиц](../concepts/data-transformation.md#rename-tables)
-           * [Фильтр колонок](../concepts/data-transformation.md#columns-filter)
-           * [Маскирование данных](../concepts/data-transformation.md#data-mask)
-           * [Разделение на подтаблицы](../concepts/data-transformation.md#subtable-splitting)
-           * [Замена первичных ключей](../concepts/data-transformation.md#replace-primary-key)
-           * [Преобразование значений колонок в строки](../concepts/data-transformation.md#convert-to-string)
-           * [Шардирование](../concepts/data-transformation.md#shard)
-           * [Фильтр строк для APPEND-ONLY источников](../concepts/data-transformation.md#append-only-sources)
+           * [{#T}](../concepts/data-transformation.md#rename-tables)
+           * [{#T}](../concepts/data-transformation.md#columns-filter)
+           * [{#T}](../concepts/data-transformation.md#data-mask)
+           * [{#T}](../concepts/data-transformation.md#subtable-splitting)
+           * [{#T}](../concepts/data-transformation.md#replace-primary-key)
+           * [{#T}](../concepts/data-transformation.md#convert-to-string)
+           * [{#T}](../concepts/data-transformation.md#shard)
+           * [{#T}](../concepts/data-transformation.md#append-only-sources)
 
 
-    1. Нажмите кнопку **Сохранить**.
+    1. Нажмите кнопку **{{ ui-key.yacloud.common.save }}**.
 
 - CLI {#cli}
 
-    Если у вас еще нет интерфейса командной строки Yandex Cloud (CLI), [установите и инициализируйте его](../../cli/quickstart.md#install).
+    Если у вас еще нет интерфейса командной строки {{ yandex-cloud }} (CLI), [установите и инициализируйте его](../../cli/quickstart.md#install).
 
     По умолчанию используется каталог, указанный при [создании](../../cli/operations/profile/profile-create.md) профиля CLI. Чтобы изменить каталог по умолчанию, используйте команду `yc config set folder-id <идентификатор_каталога>`. Также для любой команды вы можете указать другой каталог с помощью параметров `--folder-name` или `--folder-id`. Если вы обращаетесь к ресурсу по имени, поиск будет выполнен в каталоге по умолчанию. Если вы обращаетесь к ресурсу по идентификатору, поиск будет выполнен глобально — во всех каталогах с учетом прав доступа.
 
@@ -510,24 +513,24 @@
     1. Посмотрите описание команды CLI для изменения трансфера:
 
         ```bash
-        yc datatransfer transfer update --help
+        {{ yc-dt }} transfer update --help
         ```
 
     1. Выполните команду, передав список настроек, которые хотите изменить:
 
         ```bash
-        yc datatransfer transfer update <идентификатор_трансфера> \
+        {{ yc-dt }} transfer update <идентификатор_трансфера> \
            --name=<имя_трансфера> \
            --description=<описание_трансфера>
         ```
 
         Идентификатор трансфера можно получить со [списком трансферов в каталоге](#list).
 
-- Terraform {#tf}
+- {{ TF }} {#tf}
 
-  1. Откройте актуальный конфигурационный файл Terraform с описанием трансфера.
+  1. Откройте актуальный конфигурационный файл {{ TF }} с описанием трансфера.
 
-      О том, как создать такой файл, см. в подразделе [Создать трансфер](#create).
+      О том, как создать такой файл, читайте в подразделе [Создать трансфер](#create).
 
   1. Измените значение полей `name` и `description` (имя и описание трансфера).
   1. Измените параметры среды выполнения:
@@ -546,14 +549,14 @@
 
   1. Проверьте корректность настроек.
 
-      1. В командной строке перейдите в каталог, в котором расположены актуальные конфигурационные файлы Terraform с планом инфраструктуры.
+      1. В командной строке перейдите в каталог, в котором расположены актуальные конфигурационные файлы {{ TF }} с планом инфраструктуры.
       1. Выполните команду:
       
          ```bash
          terraform validate
          ```
       
-         Если в файлах конфигурации есть ошибки, Terraform на них укажет.
+         Если в файлах конфигурации есть ошибки, {{ TF }} на них укажет.
 
   1. Подтвердите изменение ресурсов.
 
@@ -575,7 +578,7 @@
          1. Подтвердите изменение ресурсов.
          1. Дождитесь завершения операции.
 
-  Подробнее см. в [документации провайдера Terraform](../../terraform/resources/datatransfer_transfer.md).
+  Подробнее в [документации провайдера {{ TF }}]({{ tf-provider-dt-transfer }}).
 
 
 - REST API {#api}
@@ -639,7 +642,7 @@
 
 {% endlist %}
 
-При изменении трансфера настройки применяются сразу. Изменение настроек трансфера с типом **Копирование и репликация** или **Репликация** в статусе **Реплицируется** приведет к перезапуску трансфера.
+При изменении трансфера настройки применяются сразу. Изменение настроек трансфера с типом {{ dt-type-copy-repl }} или {{ dt-type-repl }} в статусе {{ dt-status-repl }} приведет к перезапуску трансфера.
 
 ## Активировать трансфер {#activate}
 
@@ -647,21 +650,21 @@
 
 - Консоль управления {#console}
 
-    1. Перейдите на [страницу каталога](https://console.yandex.cloud).
-    1. [Перейдите](../../console/operations/select-service.md#select-service) в сервис **Data Transfer**.
-    1. На панели слева выберите ![image](../../_assets/console-icons/arrow-right-arrow-left.svg) **Трансферы**.
-    1. Нажмите на значок ![ellipsis](../../_assets/console-icons/ellipsis.svg) рядом с именем нужного трансфера и выберите пункт ![ellipsis](../../_assets/console-icons/play.svg) **Активировать**.
+    1. Перейдите на [страницу каталога]({{ link-console-main }}).
+    1. Перейдите в сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_data-transfer }}**.
+    1. На панели слева выберите ![image](../../_assets/console-icons/arrow-right-arrow-left.svg) **{{ ui-key.yacloud.data-transfer.label_connectors }}**.
+    1. Нажмите на значок ![ellipsis](../../_assets/console-icons/ellipsis.svg) рядом с именем нужного трансфера и выберите пункт ![ellipsis](../../_assets/console-icons/play.svg) **{{ ui-key.yacloud.data-transfer.label_connector-operation-ACTIVATE }}**.
 
 - CLI {#cli}
 
-    Если у вас еще нет интерфейса командной строки Yandex Cloud (CLI), [установите и инициализируйте его](../../cli/quickstart.md#install).
+    Если у вас еще нет интерфейса командной строки {{ yandex-cloud }} (CLI), [установите и инициализируйте его](../../cli/quickstart.md#install).
 
     По умолчанию используется каталог, указанный при [создании](../../cli/operations/profile/profile-create.md) профиля CLI. Чтобы изменить каталог по умолчанию, используйте команду `yc config set folder-id <идентификатор_каталога>`. Также для любой команды вы можете указать другой каталог с помощью параметров `--folder-name` или `--folder-id`. Если вы обращаетесь к ресурсу по имени, поиск будет выполнен в каталоге по умолчанию. Если вы обращаетесь к ресурсу по идентификатору, поиск будет выполнен глобально — во всех каталогах с учетом прав доступа.
 
     Чтобы активировать трансфер, выполните команду:
 
     ```bash
-    yc datatransfer transfer activate <идентификатор_трансфера>
+    {{ yc-dt }} transfer activate <идентификатор_трансфера>
     ```
 
     Идентификатор трансфера можно получить со [списком трансферов в каталоге](#list).
@@ -678,7 +681,7 @@
 
 {% note info %}
 
-Операция доступна в [мобильном приложении](https://yandex.cloud/ru/mobile-app) Yandex Cloud. 
+Операция доступна в [мобильном приложении](https://yandex.cloud/ru/mobile-app) {{ yandex-cloud }}. 
 
 {% endnote %}
 
@@ -697,22 +700,22 @@
 - Консоль управления {#console}
 
     1. Переведите источник в режим <q>только чтение</q> (read-only).
-    1. Перейдите на [страницу каталога](https://console.yandex.cloud).
-    1. [Перейдите](../../console/operations/select-service.md#select-service) в сервис **Data Transfer**.
-    1. На панели слева выберите ![image](../../_assets/console-icons/arrow-right-arrow-left.svg) **Трансферы**.
-    1. Нажмите на значок ![ellipsis](../../_assets/console-icons/ellipsis.svg) рядом с именем нужного трансфера и выберите пункт **Деактивировать**.
-    1. Дождитесь перехода трансфера в статус **Остановлен**.
+    1. Перейдите на [страницу каталога]({{ link-console-main }}).
+    1. Перейдите в сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_data-transfer }}**.
+    1. На панели слева выберите ![image](../../_assets/console-icons/arrow-right-arrow-left.svg) **{{ ui-key.yacloud.data-transfer.label_connectors }}**.
+    1. Нажмите на значок ![ellipsis](../../_assets/console-icons/ellipsis.svg) рядом с именем нужного трансфера и выберите пункт **{{ ui-key.yacloud.data-transfer.label_connector-operation-DEACTIVATE }}**.
+    1. Дождитесь перехода трансфера в статус {{ dt-status-stopped }}.
 
 - CLI {#cli}
 
-    Если у вас еще нет интерфейса командной строки Yandex Cloud (CLI), [установите и инициализируйте его](../../cli/quickstart.md#install).
+    Если у вас еще нет интерфейса командной строки {{ yandex-cloud }} (CLI), [установите и инициализируйте его](../../cli/quickstart.md#install).
 
     По умолчанию используется каталог, указанный при [создании](../../cli/operations/profile/profile-create.md) профиля CLI. Чтобы изменить каталог по умолчанию, используйте команду `yc config set folder-id <идентификатор_каталога>`. Также для любой команды вы можете указать другой каталог с помощью параметров `--folder-name` или `--folder-id`. Если вы обращаетесь к ресурсу по имени, поиск будет выполнен в каталоге по умолчанию. Если вы обращаетесь к ресурсу по идентификатору, поиск будет выполнен глобально — во всех каталогах с учетом прав доступа.
 
     Чтобы деактивировать трансфер, выполните команду:
 
     ```bash
-    yc datatransfer transfer deactivate <идентификатор_трансфера>
+    {{ yc-dt }} transfer deactivate <идентификатор_трансфера>
     ```
 
     Идентификатор трансфера можно получить со [списком трансферов в каталоге](#list).
@@ -733,12 +736,12 @@
 
 {% endnote %}
 
-Подробнее см. в разделе [Типы и жизненные циклы трансферов](../concepts/transfer-lifecycle.md).
+Подробнее читайте в разделе [{#T}](../concepts/transfer-lifecycle.md).
 
 
 {% note info %}
 
-Операция доступна в [мобильном приложении](https://yandex.cloud/ru/mobile-app) Yandex Cloud. 
+Операция доступна в [мобильном приложении](https://yandex.cloud/ru/mobile-app) {{ yandex-cloud }}. 
 
 {% endnote %}
 
@@ -749,44 +752,44 @@
 
 - Консоль управления {#console}
 
-    1. Перейдите на [страницу каталога](https://console.yandex.cloud).
-    1. [Перейдите](../../console/operations/select-service.md#select-service) в сервис **Data Transfer**.
-    1. На панели слева выберите ![image](../../_assets/console-icons/arrow-right-arrow-left.svg) **Трансферы**.
+    1. Перейдите на [страницу каталога]({{ link-console-main }}).
+    1. Перейдите в сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_data-transfer }}**.
+    1. На панели слева выберите ![image](../../_assets/console-icons/arrow-right-arrow-left.svg) **{{ ui-key.yacloud.data-transfer.label_connectors }}**.
     1. Если нужный трансфер находится в активном состоянии, [деактивируйте его](#deactivate).
-    1. Нажмите на значок ![ellipsis](../../_assets/console-icons/ellipsis.svg) рядом с именем нужного трансфера и выберите пункт **Удалить**.
-    1. Нажмите кнопку ![ellipsis](../../_assets/console-icons/trash-bin.svg) **Удалить**.
+    1. Нажмите на значок ![ellipsis](../../_assets/console-icons/ellipsis.svg) рядом с именем нужного трансфера и выберите пункт **{{ ui-key.yacloud.common.remove }}**.
+    1. Нажмите кнопку ![ellipsis](../../_assets/console-icons/trash-bin.svg) **{{ ui-key.yacloud.common.remove }}**.
 
 - CLI {#cli}
 
-    Если у вас еще нет интерфейса командной строки Yandex Cloud (CLI), [установите и инициализируйте его](../../cli/quickstart.md#install).
+    Если у вас еще нет интерфейса командной строки {{ yandex-cloud }} (CLI), [установите и инициализируйте его](../../cli/quickstart.md#install).
 
     По умолчанию используется каталог, указанный при [создании](../../cli/operations/profile/profile-create.md) профиля CLI. Чтобы изменить каталог по умолчанию, используйте команду `yc config set folder-id <идентификатор_каталога>`. Также для любой команды вы можете указать другой каталог с помощью параметров `--folder-name` или `--folder-id`. Если вы обращаетесь к ресурсу по имени, поиск будет выполнен в каталоге по умолчанию. Если вы обращаетесь к ресурсу по идентификатору, поиск будет выполнен глобально — во всех каталогах с учетом прав доступа.
 
     Чтобы удалить трансфер, выполните команду:
 
     ```bash
-    yc datatransfer transfer delete <идентификатор_трансфера>
+    {{ yc-dt }} transfer delete <идентификатор_трансфера>
     ```
 
     Идентификатор трансфера можно получить со [списком трансферов в каталоге](#list).
 
-- Terraform {#tf}
+- {{ TF }} {#tf}
 
-    Чтобы удалить трансфер, созданный с помощью Terraform:
-    1. Откройте актуальный конфигурационный файл Terraform с планом инфраструктуры.
+    Чтобы удалить трансфер, созданный с помощью {{ TF }}:
+    1. Откройте актуальный конфигурационный файл {{ TF }} с планом инфраструктуры.
     
-       О том, как создать такой файл, см. в разделе [Создать трансфер](transfer.md#create).
+       О том, как создать такой файл, читайте в разделе [{#T}](transfer.md#create).
     1. Удалите описание трансфера.
     1. Проверьте корректность настроек.
     
-       1. В командной строке перейдите в каталог, в котором расположены актуальные конфигурационные файлы Terraform с планом инфраструктуры.
+       1. В командной строке перейдите в каталог, в котором расположены актуальные конфигурационные файлы {{ TF }} с планом инфраструктуры.
        1. Выполните команду:
        
           ```bash
           terraform validate
           ```
        
-          Если в файлах конфигурации есть ошибки, Terraform на них укажет.
+          Если в файлах конфигурации есть ошибки, {{ TF }} на них укажет.
     
     1. Введите слово `yes` и нажмите **Enter**.
     
@@ -808,7 +811,7 @@
           1. Подтвердите изменение ресурсов.
           1. Дождитесь завершения операции.
     
-    Подробнее см. в [документации провайдера Terraform](../../terraform/resources/datatransfer_transfer.md).
+    Подробнее в [документации провайдера {{ TF }}]({{ tf-provider-dt-transfer }}).
 
 
 - API {#api}
@@ -824,4 +827,4 @@
 
 _Greenplum® и Greenplum Database® являются зарегистрированными товарными знаками или товарными знаками Broadcom Inc в США и/или других странах._
 
-_ClickHouse® является зарегистрированным товарным знаком [ClickHouse, Inc](https://clickhouse.com)._
+_{{ CH }} является зарегистрированным товарным знаком [ClickHouse, Inc](https://clickhouse.com)._

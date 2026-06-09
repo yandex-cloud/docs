@@ -1,9 +1,9 @@
-# Правила тарификации для Key Management Service
+# Правила тарификации для {{ kms-name }}
 
 {% note tip %}
 
 
-Чтобы рассчитать стоимость [симметричного](https://yandex.cloud/ru/prices?state=143214c6d306#calculator), [ассиметричного](https://yandex.cloud/ru/prices?state=f4147c7925d1#calculator) шифрования и [ассиметричной подписи](https://yandex.cloud/ru/prices?state=80d5cab43182#calculator), воспользуйтесь калькулятором на сайте Yandex Cloud или ознакомьтесь с тарифами в этом разделе.
+Чтобы рассчитать стоимость [симметричного](https://yandex.cloud/ru/prices?state=143214c6d306#calculator), [ассиметричного](https://yandex.cloud/ru/prices?state=f4147c7925d1#calculator) шифрования и [ассиметричной подписи](https://yandex.cloud/ru/prices?state=80d5cab43182#calculator), воспользуйтесь калькулятором на сайте {{ yandex-cloud }} или ознакомьтесь с тарифами в этом разделе.
 
 
 
@@ -16,7 +16,7 @@
 
 Все цены в рублях и тенге указаны с НДС, все цены в долларах — без НДС.
 
-Стоимость использования Key Management Service складывается из:
+Стоимость использования {{ kms-name }} складывается из:
 
 * Количества активных версий ключа — версий в статусе `Active` и `Scheduled For Destruction`.
 
@@ -35,23 +35,17 @@
 
 {% note info %}
 
-Цены на ресурсы Yandex Cloud в разных регионах различаются. Подробнее о доступных регионах см. [Регионы](../overview/concepts/region.md).
+Цены на ресурсы {{ yandex-cloud }} в разных регионах различаются. Подробнее о доступных регионах см. [{#T}](../overview/concepts/region.md).
 
-Валюта, которой можно оплачивать ресурсы, зависит от юридического лица, с которым пользователь заключил договор. Подробнее о регистрации аккаунта см. [Регистрация аккаунта в Yandex Cloud](../billing/quickstart/index.md).
+Валюта, которой можно оплачивать ресурсы, зависит от юридического лица, с которым пользователь заключил договор. Подробнее о регистрации аккаунта см. [{#T}](../billing/quickstart/index.md).
 
 {% endnote %}
 
 
 
 
-| Услуга                                                                                                        | Цена      | Ед. тарификации                     | Действует с   | Действует до |
-| ------------------------------------------------------------------------------------------------------------- | --------- | ----------------------------------- | ------------- | ------------ |
-| Key Management Service. Использование одной версии асимметричного ключа                                       | 3,16 ₽    | Версия асимметричного ключа × месяц | 1 мая 2026    | —            |
-| Key Management Service. Использование одной версии симметричного ключа                                        | 0,00439 ₽ | Версия симметричного ключа × час    | 1 мая 2026    | —            |
-| Key Management Service. Использование одной версии симметричного ключа в аппаратном модуле безопасности (HSM) | 0,549 ₽   | Версия симметричного ключа × час    | 1 января 2026 | —            |
-| Key Management Service. Криптографические операции                                                            | 3,16 ₽    | 10 тыс. операций                    | 1 мая 2026    | —            |
-| Key Management Service. Криптографические операции для алгоритмов RSA2048 и ECDSA                             | 6,32 ₽    | 10 тыс. операций                    | 1 мая 2026    | —            |
-| Key Management Service. Криптографические операции для алгоритмов RSA3072 и RSA4096                           | 15,81 ₽   | 10 тыс. операций                    | 1 мая 2026    | —            |
+| Услуга | Цена | Ед. тарификации | Действует с | Действует до |
+| ------ | ---- | --------------- | ----------- | ------------ |
 
 
 
@@ -69,13 +63,13 @@
 
   Например, если c одной версией симметричного ключа выполнено 10&nbsp;000 операций, а с другой — 20&nbsp;000, стоимость за месяц (720 часов) составит:
   
-  > 720 × 0,00439 ₽&nbsp;×&nbsp;2 + (3,16 ₽&nbsp;×&nbsp;10&nbsp;000&nbsp;/&nbsp;10&nbsp;000) + (3,16 ₽&nbsp;×&nbsp;20&nbsp;000&nbsp;/&nbsp;10&nbsp;000) = 15,8016 ₽
+  > 720 × {{ sku|RUB|kms.storage.v1.software|string }}&nbsp;×&nbsp;2 + ({{ sku|RUB|kms.api.v1.encryptdecrypt|string }}&nbsp;×&nbsp;10&nbsp;000&nbsp;/&nbsp;10&nbsp;000) + ({{ sku|RUB|kms.api.v1.encryptdecrypt|string }}&nbsp;×&nbsp;20&nbsp;000&nbsp;/&nbsp;10&nbsp;000) = {% calc [currency=RUB] 720 × {{ sku|RUB|kms.storage.v1.software|number }} × 2 + ({{ sku|RUB|kms.api.v1.encryptdecrypt|number }} × 10000 / 10000) + ({{ sku|RUB|kms.api.v1.encryptdecrypt|number }} × 20000 / 10000) %}
 
 - Расчет в тенге {#prices-kzt}
 
   Например, если c одной версией симметричного ключа выполнено 10&nbsp;000 операций, а с другой — 20&nbsp;000, стоимость за месяц (720 часов) составит:
   
-  > 720 × 0,02195 ₸&nbsp;×&nbsp;2 + (15,8 ₸&nbsp;×&nbsp;10&nbsp;000&nbsp;/&nbsp;10&nbsp;000) + (15,8 ₸&nbsp;×&nbsp;20&nbsp;000&nbsp;/&nbsp;10&nbsp;000) = 79,008 ₸
+  > 720 × {{ sku|KZT|kms.storage.v1.software|string }}&nbsp;×&nbsp;2 + ({{ sku|KZT|kms.api.v1.encryptdecrypt|string }}&nbsp;×&nbsp;10&nbsp;000&nbsp;/&nbsp;10&nbsp;000) + ({{ sku|KZT|kms.api.v1.encryptdecrypt|string }}&nbsp;×&nbsp;20&nbsp;000&nbsp;/&nbsp;10&nbsp;000) = {% calc [currency=KZT] 720 × {{ sku|KZT|kms.storage.v1.software|number }} × 2 + ({{ sku|KZT|kms.api.v1.encryptdecrypt|number }} × 10000 / 10000) + ({{ sku|KZT|kms.api.v1.encryptdecrypt|number }} × 20000 / 10000) %}
 
 {% endlist %}
 
@@ -91,12 +85,12 @@
 
   Например, если c одной версией асимметричного ключа выполнено 40&nbsp;000 операций для алгоритма ECDSA, а с другой — 30&nbsp;000 для алгоритма RSA3072, стоимость за месяц составит:
   
-  > 3,16 ₽&nbsp;×&nbsp;2 + (6,32 ₽&nbsp;×&nbsp;40&nbsp;000&nbsp;/&nbsp;10&nbsp;000) + (15,81 ₽&nbsp;×&nbsp;30&nbsp;000&nbsp;/&nbsp;10&nbsp;000) = 79,03 ₽
+  > {{ sku|RUB|kms.storage.asymmetric.v1|string }}&nbsp;×&nbsp;2 + ({{ sku|RUB|kms.api.asymmetric.v1|string }}&nbsp;×&nbsp;40&nbsp;000&nbsp;/&nbsp;10&nbsp;000) + ({{ sku|RUB|kms.api.asymmetric.heavy.v1|string }}&nbsp;×&nbsp;30&nbsp;000&nbsp;/&nbsp;10&nbsp;000) = {% calc [currency=RUB] {{ sku|RUB|kms.storage.asymmetric.v1|number }} × 2 + ({{ sku|RUB|kms.api.asymmetric.v1|number }} × 40000 / 10000) + ({{ sku|RUB|kms.api.asymmetric.heavy.v1|number }} × 30000 / 10000) %}
 
 - Расчет в тенге {#prices-kzt}
 
   Например, если c одной версией асимметричного ключа выполнено 40&nbsp;000 операций для алгоритма ECDSA, а с другой — 30&nbsp;000 для алгоритма RSA3072, стоимость за месяц составит:
   
-  > 15,8 ₸&nbsp;×&nbsp;2 + (31,6 ₸&nbsp;×&nbsp;40&nbsp;000&nbsp;/&nbsp;10&nbsp;000) + (79,05 ₸&nbsp;×&nbsp;30&nbsp;000&nbsp;/&nbsp;10&nbsp;000) = 395,15 ₸
+  > {{ sku|KZT|kms.storage.asymmetric.v1|string }}&nbsp;×&nbsp;2 + ({{ sku|KZT|kms.api.asymmetric.v1|string }}&nbsp;×&nbsp;40&nbsp;000&nbsp;/&nbsp;10&nbsp;000) + ({{ sku|KZT|kms.api.asymmetric.heavy.v1|string }}&nbsp;×&nbsp;30&nbsp;000&nbsp;/&nbsp;10&nbsp;000) = {% calc [currency=KZT] {{ sku|KZT|kms.storage.asymmetric.v1|number }} × 2 + ({{ sku|KZT|kms.api.asymmetric.v1|number }} × 40000 / 10000) + ({{ sku|KZT|kms.api.asymmetric.heavy.v1|number }} × 30000 / 10000) %}
 
 {% endlist %}

@@ -1,13 +1,12 @@
 # Container Registry API, REST: Scanner.Get
 
 Returns the specified ScanResult resource.
-
 To get the list of ScanResults for specified Image, make a [List](list.md#List) request.
 
 ## HTTP request
 
 ```
-GET https://container-registry.api.cloud.yandex.net/container-registry/v1/scans/{scanResultId}
+GET https://container-registry.{{ api-host }}/container-registry/v1/scans/{scanResultId}
 ```
 
 ## Path parameters

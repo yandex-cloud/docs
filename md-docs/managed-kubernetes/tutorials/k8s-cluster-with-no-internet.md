@@ -1,16 +1,16 @@
-# Создание и настройка кластера Kubernetes без доступа в интернет
+# Создание и настройка кластера {{ k8s }} без доступа в интернет
 
 
-Вы можете создать и настроить кластер Managed Service for Kubernetes, для которого недоступно подключение к интернету. Для этого используется следующая конфигурация:
+Вы можете создать и настроить кластер {{ managed-k8s-name }}, для которого недоступно подключение к интернету. Для этого используется следующая конфигурация:
 
-* У кластера и группы узлов Managed Service for Kubernetes нет публичного адреса. К такому кластеру можно подключиться только с виртуальной машины Yandex Cloud.
+* У кластера и группы узлов {{ managed-k8s-name }} нет публичного адреса. К такому кластеру можно подключиться только с виртуальной машины {{ yandex-cloud }}.
 * Кластер и группа узлов размещены в подсетях без доступа в интернет.
-* У сервисных аккаунтов нет ролей на работу с ресурсами, имеющими доступ в интернет, например [Yandex Network Load Balancer](../../network-load-balancer/index.md).
+* У сервисных аккаунтов нет ролей на работу с ресурсами, имеющими доступ в интернет, например [{{ network-load-balancer-full-name }}](../../network-load-balancer/index.md).
 * Группы безопасности кластера ограничивают входящий и исходящий трафик.
 
-Чтобы создать кластер Managed Service for Kubernetes без доступа в интернет:
+Чтобы создать кластер {{ managed-k8s-name }} без доступа в интернет:
 
-1. [Подготовьте инфраструктуру для Managed Service for Kubernetes](#infra).
+1. [Подготовьте инфраструктуру для {{ managed-k8s-name }}](#infra).
 1. [Подготовьте виртуальную машину](#vm).
 1. [Проверьте доступность кластера](#check).
 1. (Опционально) [Настройте подключение к NTP-серверам](#ntp).
@@ -23,13 +23,13 @@
 
 В стоимость поддержки описываемого решения входят:
 
-* Плата за кластер Managed Service for Kubernetes: использование мастера (см. [тарифы Managed Service for Kubernetes](../pricing.md)).
-* Плата за узлы кластера и ВМ: использование вычислительных ресурсов, операционной системы и хранилища (см. [тарифы Compute Cloud](../../compute/pricing.md)).
-* Плата за публичный IP-адрес для ВМ, которая используется для подключения к кластеру (см. [тарифы Virtual Private Cloud](../../vpc/pricing.md#prices-public-ip)).
-* Плата за сервис Key Management Service: количество активных версий ключа (в статусах `Active` и `Scheduled For Destruction`) и выполненных криптографических операций (см. [тарифы Key Management Service](../../kms/pricing.md)).
+* Плата за кластер {{ managed-k8s-name }}: использование мастера (см. [тарифы {{ managed-k8s-name }}](../pricing.md)).
+* Плата за узлы кластера и ВМ: использование вычислительных ресурсов, операционной системы и хранилища (см. [тарифы {{ compute-name }}](../../compute/pricing.md)).
+* Плата за публичный IP-адрес для ВМ, которая используется для подключения к кластеру (см. [тарифы {{ vpc-name }}](../../vpc/pricing.md#prices-public-ip)).
+* Плата за сервис {{ kms-name }}: количество активных версий ключа (в статусах `Active` и `Scheduled For Destruction`) и выполненных криптографических операций (см. [тарифы {{ kms-name }}](../../kms/pricing.md)).
 
 
-## Подготовьте инфраструктуру для Managed Service for Kubernetes {#infra}
+## Подготовьте инфраструктуру для {{ managed-k8s-name }} {#infra}
 
 {% list tabs group=instructions %}
 
@@ -37,24 +37,24 @@
 
    1. [Создайте сервисные аккаунты](../../iam/operations/sa/create.md):
 
-      * `resource-sa` с [ролями](../../iam/concepts/access-control/roles.md) `k8s.clusters.agent`, `logging.writer` и `kms.keys.encrypterDecrypter` на каталог, в котором создается кластер Kubernetes. От имени этого аккаунта будут создаваться ресурсы, необходимые кластеру Kubernetes.
-      * `node-sa` с ролью `container-registry.images.puller`. От имени этого аккаунта узлы будут скачивать из реестра необходимые Docker-образы.
+      * `resource-sa` с [ролями](../../iam/concepts/access-control/roles.md) `{{ roles.k8s.clusters.agent }}`, `{{ roles-logging-writer }}` и `kms.keys.encrypterDecrypter` на каталог, в котором создается кластер {{ k8s }}. От имени этого аккаунта будут создаваться ресурсы, необходимые кластеру {{ k8s }}.
+      * `node-sa` с ролью `{{ roles-cr-puller }}`. От имени этого аккаунта узлы будут скачивать из реестра необходимые Docker-образы.
 
       {% note tip %}
 
-      Вы можете использовать один и тот же сервисный аккаунт для управления кластером Kubernetes и его группами узлов.
+      Вы можете использовать один и тот же сервисный аккаунт для управления кластером {{ k8s }} и его группами узлов.
 
       {% endnote %}
 
-   1. [Создайте симметричный ключ шифрования](../../kms/operations/key.md#create) Yandex Key Management Service с параметрами:
+   1. [Создайте симметричный ключ шифрования](../../kms/operations/key.md#create) {{ kms-full-name }} с параметрами:
 
-      * **Имя** — `my-kms-key`.
-      * **Алгоритм шифрования** — `AES-256`.
-      * **Период ротации, дни** — 365 дней.
+      * **{{ ui-key.yacloud.common.name }}** — `my-kms-key`.
+      * **{{ ui-key.yacloud.kms.symmetric-key.form.field_algorithm }}** — `AES-256`.
+      * **{{ ui-key.yacloud.kms.symmetric-key.form.field_rotation }}** — 365 дней.
 
    1. [Создайте сеть](../../vpc/operations/network-create.md) `my-net`.
    1. [Создайте подсеть](../../vpc/operations/subnet-create.md) `my-subnet` с доменным именем `internal.`.
-   1. [Создайте группы безопасности](../operations/connect/security-groups.md) для кластера Managed Service for Kubernetes и входящих в него групп узлов.
+   1. [Создайте группы безопасности](../operations/connect/security-groups.md) для кластера {{ managed-k8s-name }} и входящих в него групп узлов.
 
         {% note warning %}
         
@@ -62,31 +62,31 @@
         
         {% endnote %}
 
-   1. [Создайте кластер](../operations/kubernetes-cluster/kubernetes-cluster-create.md#kubernetes-cluster-create) Managed Service for Kubernetes с параметрами:
+   1. [Создайте кластер](../operations/kubernetes-cluster/kubernetes-cluster-create.md#kubernetes-cluster-create) {{ managed-k8s-name }} с параметрами:
 
-      * **Сервисный аккаунт для ресурсов** — `resource-sa`.
-      * **Сервисный аккаунт для узлов** — `node-sa`.
-      * **Ключ шифрования** — `my-kms-key`.
-      * **Публичный адрес** — без адреса.
-      * **Облачная сеть** — `my-net`.
-      * **Подсеть** — `my-subnet`.
-      * **Группы безопасности** — выберите созданные ранее группы безопасности, которые содержат правила для служебного трафика и для доступа к API Kubernetes.
-      * **CIDR кластера** — `172.19.0.0/16`.
-      * **CIDR сервисов** — `172.20.0.0/16`.
-      * **Запись логов** — включена.
-      * **Логи Cluster Autoscaler** — включены.
-      * **Логи событий** — включены.
-      * **Логи API-сервера Kubernetes** — включены.
+      * **{{ ui-key.yacloud.k8s.clusters.create.field_service-account }}** — `resource-sa`.
+      * **{{ ui-key.yacloud.k8s.clusters.create.field_node-service-account }}** — `node-sa`.
+      * **{{ ui-key.yacloud.k8s.clusters.create.field_kms-key }}** — `my-kms-key`.
+      * **{{ ui-key.yacloud.k8s.clusters.create.field_address-type }}** — без адреса.
+      * **{{ ui-key.yacloud.k8s.clusters.create.field_network }}** — `my-net`.
+      * **{{ ui-key.yacloud.k8s.clusters.create.field_subnetwork }}** — `my-subnet`.
+      * **{{ ui-key.yacloud.mdb.forms.field_security-group }}** — выберите созданные ранее группы безопасности, которые содержат правила для служебного трафика и для доступа к API {{ k8s }}.
+      * **{{ ui-key.yacloud.k8s.clusters.create.field_cluster-cidr }}** — `172.19.0.0/16`.
+      * **{{ ui-key.yacloud.k8s.clusters.create.field_service-cidr }}** — `172.20.0.0/16`.
+      * **{{ ui-key.yacloud.k8s.clusters.create.label_logging-enabled }}** — включена.
+      * **{{ ui-key.yacloud.k8s.clusters.create.label_stream-cluster-autoscaler }}** — включены.
+      * **{{ ui-key.yacloud.k8s.clusters.create.label_stream-events }}** — включены.
+      * **{{ ui-key.yacloud.k8s.clusters.create.label_stream-kube-apiserver }}** — включены.
 
-   1. В кластере Managed Service for Kubernetes [создайте группу узлов](../operations/node-group/node-group-create.md) с параметрами:
+   1. В кластере {{ managed-k8s-name }} [создайте группу узлов](../operations/node-group/node-group-create.md) с параметрами:
 
-      * **Публичный адрес** — без адреса.
-      * **Группы безопасности** — выберите созданные ранее группы безопасности, которые содержат правила для служебного трафика, для подключения к сервисам из интернета и для подключения к узлам по SSH.
-      * **Расположение** — подсеть `my-subnet`.
+      * **{{ ui-key.yacloud.k8s.node-groups.create.field_address-type }}** — без адреса.
+      * **{{ ui-key.yacloud.mdb.forms.field_security-group }}** — выберите созданные ранее группы безопасности, которые содержат правила для служебного трафика, для подключения к сервисам из интернета и для подключения к узлам по SSH.
+      * **{{ ui-key.yacloud.k8s.node-groups.create.field_locations }}** — подсеть `my-subnet`.
 
-- Terraform {#tf}
+- {{ TF }} {#tf}
 
-   1. Если у вас еще нет Terraform, [установите его](../../tutorials/infrastructure-management/terraform-quickstart.md#install-terraform).
+   1. Если у вас еще нет {{ TF }}, [установите его](../../tutorials/infrastructure-management/terraform-quickstart.md#install-terraform).
    1. [Получите данные для аутентификации](../../tutorials/infrastructure-management/terraform-quickstart.md#get-credentials). Вы можете добавить их в переменные окружения или указать далее в файле с настройками провайдера.
    1. [Настройте и инициализируйте провайдер](../../tutorials/infrastructure-management/terraform-quickstart.md#configure-provider). Чтобы не создавать конфигурационный файл с настройками провайдера вручную, [скачайте его](https://github.com/yandex-cloud-examples/yc-terraform-provider-settings/blob/main/provider.tf).
    1. Поместите конфигурационный файл в отдельную рабочую директорию и [укажите значения параметров](../../tutorials/infrastructure-management/terraform-quickstart.md#configure-provider). Если данные для аутентификации не были добавлены в переменные окружения, укажите их в конфигурационном файле.
@@ -95,9 +95,9 @@
       * Сеть.
       * Таблица маршрутизации.
       * Подсети.
-      * Кластер Managed Service for Kubernetes.
-      * Группа узлов Managed Service for Kubernetes.
-      * [Группы безопасности](../../vpc/concepts/security-groups.md), которые содержат [необходимые правила](../operations/connect/security-groups.md) для кластера Managed Service for Kubernetes и входящих в него групп узлов.
+      * Кластер {{ managed-k8s-name }}.
+      * Группа узлов {{ managed-k8s-name }}.
+      * [Группы безопасности](../../vpc/concepts/security-groups.md), которые содержат [необходимые правила](../operations/connect/security-groups.md) для кластера {{ managed-k8s-name }} и входящих в него групп узлов.
 
         {% note warning %}
         
@@ -105,18 +105,18 @@
         
         {% endnote %}
 
-      * [Сервисные аккаунты](../../iam/concepts/users/service-accounts.md) для ресурсов и узлов Kubernetes.
-      * [Симметричный ключ шифрования](../../kms/concepts/key.md) Yandex Key Management Service.
+      * [Сервисные аккаунты](../../iam/concepts/users/service-accounts.md) для ресурсов и узлов {{ k8s }}.
+      * [Симметричный ключ шифрования](../../kms/concepts/key.md) {{ kms-full-name }}.
 
       Файл подготовлен с помощью библиотек модулей [terraform-yc-vpc](https://github.com/terraform-yc-modules/terraform-yc-vpc) и [terraform-yc-kubernetes](https://github.com/terraform-yc-modules/terraform-yc-kubernetes). Подробнее о конфигурации ресурсов, которые создаются с помощью этих модулей, см. на страницах библиотек.
 
-   1. Проверьте корректность файлов конфигурации Terraform с помощью команды:
+   1. Проверьте корректность файлов конфигурации {{ TF }} с помощью команды:
 
       ```bash
       terraform validate
       ```
 
-      Если в файлах конфигурации есть ошибки, Terraform на них укажет.
+      Если в файлах конфигурации есть ошибки, {{ TF }} на них укажет.
 
    1. Создайте необходимую инфраструктуру:
 
@@ -138,19 +138,19 @@
          1. Подтвердите изменение ресурсов.
          1. Дождитесь завершения операции.
 
-      В указанном каталоге будут созданы все требуемые ресурсы. Проверить появление ресурсов и их настройки можно в [консоли управления](https://console.yandex.cloud).
+      В указанном каталоге будут созданы все требуемые ресурсы. Проверить появление ресурсов и их настройки можно в [консоли управления]({{ link-console-main }}).
 
 {% endlist %}
 
 {% note warning %}
 
-Не изменяйте и не удаляйте ресурсы Virtual Private Cloud, которые используются кластером Managed Service for Kubernetes. Это может привести к некорректной работе кластера и невозможности его последующего удаления.
+Не изменяйте и не удаляйте ресурсы {{ vpc-name }}, которые используются кластером {{ managed-k8s-name }}. Это может привести к некорректной работе кластера и невозможности его последующего удаления.
 
 {% endnote %}
 
 ## Подготовьте виртуальную машину {#vm}
 
-Так как у кластера Managed Service for Kubernetes нет доступа в интернет, к нему можно подключиться только с ВМ, находящейся в одной сети с кластером. Поэтому, чтобы проверить доступность кластера, подготовьте инфраструктуру:
+Так как у кластера {{ managed-k8s-name }} нет доступа в интернет, к нему можно подключиться только с ВМ, находящейся в одной сети с кластером. Поэтому, чтобы проверить доступность кластера, подготовьте инфраструктуру:
 
 1. Создайте необходимые ресурсы:
 
@@ -158,22 +158,22 @@
 
    - Вручную {#manual}
 
-      1. Создайте сервисный аккаунт `vm-sa` с ролями `k8s.cluster-api.cluster-admin` и `k8s.admin`. От имени этого аккаунта вы подключитесь к кластеру Managed Service for Kubernetes.
+      1. Создайте сервисный аккаунт `vm-sa` с ролями `{{ roles.k8s.cluster-api.cluster-admin }}` и `{{ roles.k8s.admin }}`. От имени этого аккаунта вы подключитесь к кластеру {{ managed-k8s-name }}.
       1. Создайте группу безопасности `vm-security-group` и укажите в ней правило для входящего трафика:
 
-         * **Диапазон портов** — `22`.
-         * **Протокол** — `TCP`.
-         * **Источник** — `CIDR`.
-         * **CIDR блоки** — `0.0.0.0/0`.
+         * **{{ ui-key.yacloud.vpc.network.security-groups.forms.field_sg-rule-port-range }}** — `{{ port-ssh }}`.
+         * **{{ ui-key.yacloud.vpc.network.security-groups.forms.field_sg-rule-protocol }}** — `{{ ui-key.yacloud.common.label_tcp }}`.
+         * **{{ ui-key.yacloud.vpc.network.security-groups.forms.field_sg-rule-source }}** — `{{ ui-key.yacloud.vpc.network.security-groups.forms.value_sg-rule-destination-cidr }}`.
+         * **{{ ui-key.yacloud.vpc.network.security-groups.forms.field_sg-rule-cidr-blocks }}** — `0.0.0.0/0`.
 
       1. [Создайте ВМ Linux](../../compute/operations/vm-create/create-linux-vm.md) с параметрами:
 
-         * **Подсеть** — `my-subnet`.
-         * **Публичный IP-адрес** — `Автоматически`, либо можно [зарезервировать статический публичный IP-адрес](../../vpc/operations/get-static-ip.md) и привязать его к новой ВМ.
-         * **Группы безопасности** — `vm-security-group`.
-         * **Сервисный аккаунт** — `vm-sa`.
+         * **{{ ui-key.yacloud.component.compute.network-select.field_subnetwork }}** — `my-subnet`.
+         * **{{ ui-key.yacloud.component.compute.network-select.field_external }}** — `{{ ui-key.yacloud.component.compute.network-select.switch_auto }}`, либо можно [зарезервировать статический публичный IP-адрес](../../vpc/operations/get-static-ip.md) и привязать его к новой ВМ.
+         * **{{ ui-key.yacloud.component.compute.network-select.field_security-groups }}** — `vm-security-group`.
+         * **{{ ui-key.yacloud.compute.instances.create.field_service-account }}** — `vm-sa`.
 
-   - Terraform {#tf}
+   - {{ TF }} {#tf}
 
       1. В директорию с файлом `k8s-cluster-with-no-internet.tf` скачайте файл конфигурации [virtual-machine-for-k8s.tf](https://github.com/yandex-cloud-examples/yc-mk8s-cluster-without-internet/blob/main/virtual-machine-for-k8s.tf).
 
@@ -186,18 +186,18 @@
       1. Укажите в файле `virtual-machine-for-k8s.tf`:
 
          * Идентификатор каталога.
-         * Идентификатор сети, созданной вместе с кластером Managed Service for Kubernetes.
-         * Идентификатор подсети, созданной вместе с кластером Managed Service for Kubernetes и располагающейся в зоне доступности `ru-central1-a`. Эта зона указана в настройках ВМ.
+         * Идентификатор сети, созданной вместе с кластером {{ managed-k8s-name }}.
+         * Идентификатор подсети, созданной вместе с кластером {{ managed-k8s-name }} и располагающейся в зоне доступности `{{ region-id }}-a`. Эта зона указана в настройках ВМ.
          * Имя пользователя, от лица которого будет выполняться подключение к ВМ по SSH.
          * Абсолютный путь до публичной части SSH-ключа для подключения к ВМ.
 
-      1. Проверьте корректность файлов конфигурации Terraform с помощью команды:
+      1. Проверьте корректность файлов конфигурации {{ TF }} с помощью команды:
 
          ```bash
          terraform validate
          ```
 
-         Если в файлах конфигурации есть ошибки, Terraform на них укажет.
+         Если в файлах конфигурации есть ошибки, {{ TF }} на них укажет.
 
       1. Создайте необходимую инфраструктуру:
 
@@ -219,7 +219,7 @@
             1. Подтвердите изменение ресурсов.
             1. Дождитесь завершения операции.
 
-         В указанном каталоге будут созданы все требуемые ресурсы. Проверить появление ресурсов и их настройки можно в [консоли управления](https://console.yandex.cloud).
+         В указанном каталоге будут созданы все требуемые ресурсы. Проверить появление ресурсов и их настройки можно в [консоли управления]({{ link-console-main }}).
 
    {% endlist %}
 
@@ -231,9 +231,9 @@
 
    Где `<имя_пользователя>` — имя учетной записи пользователя ВМ.
 
-1. [Установите интерфейс командной строки](../../cli/operations/install-cli.md#interactive) Yandex Cloud (YC CLI).
+1. [Установите интерфейс командной строки](../../cli/operations/install-cli.md#interactive) {{ yandex-cloud }} (YC CLI).
 1. [Создайте профиль](../../cli/operations/profile/profile-create.md#create) для YC CLI.
-1. [Установите kubectl](https://kubernetes.io/ru/docs/tasks/tools/#kubectl) и [настройте его на работу с созданным кластером](../operations/connect/index.md#kubectl-connect).
+1. [Установите kubectl]({{ k8s-docs }}/tasks/tools/#kubectl) и [настройте его на работу с созданным кластером](../operations/connect/index.md#kubectl-connect).
 
 ## Проверьте доступность кластера {#check}
 
@@ -243,7 +243,7 @@
 kubectl cluster-info
 ```
 
-Команда вернет информацию о кластере Managed Service for Kubernetes:
+Команда вернет информацию о кластере {{ managed-k8s-name }}:
 
 ```text
 Kubernetes control plane is running at https://<адрес_кластера>
@@ -252,9 +252,9 @@ CoreDNS is running at https://<адрес_кластера>/api/v1/namespaces/ku
 To further debug and diagnose cluster problems, use 'kubectl cluster-info dump'.
 ```
 
-## (Опционально) Настройте синхронизацию времени кластера Managed Service for Kubernetes с собственным NTP-сервером {#ntp}
+## (Опционально) Настройте синхронизацию времени кластера {{ managed-k8s-name }} с собственным NTP-сервером {#ntp}
 
-Чтобы время кластера Managed Service for Kubernetes не расходилось со временем другого ресурса (в данном случае виртуальной машины), разместите в подсети `my-subnet` собственный NTP-сервер и настройте с ним синхронизацию кластера и ВМ.
+Чтобы время кластера {{ managed-k8s-name }} не расходилось со временем другого ресурса (в данном случае виртуальной машины), разместите в подсети `my-subnet` собственный NTP-сервер и настройте с ним синхронизацию кластера и ВМ.
 
 1. Укажите адрес NTP-сервера в [настройках DHCP](../../vpc/concepts/dhcp-options.md) подсети `my-subnet`.
 
@@ -264,9 +264,9 @@ To further debug and diagnose cluster problems, use 'kubectl cluster-info dump'.
 
      [Измените подсеть `my-subnet`](../../vpc/operations/subnet-update.md), добавив IP-адрес NTP-сервера.
 
-   - Terraform {#tf}
+   - {{ TF }} {#tf}
 
-     1. В файле конфигурации Terraform измените описание подсети `my-subnet`. Добавьте блок `dhcp_options` (если он отсутствует) с параметром `ntp_servers` и укажите IP-адрес NTP-сервера:
+     1. В файле конфигурации {{ TF }} измените описание подсети `my-subnet`. Добавьте блок `dhcp_options` (если он отсутствует) с параметром `ntp_servers` и укажите IP-адрес NTP-сервера:
 
         ```hcl
         ...
@@ -284,7 +284,7 @@ To further debug and diagnose cluster problems, use 'kubectl cluster-info dump'.
         ...
         ```
 
-        Подробную информацию о параметрах ресурса `yandex_vpc_subnet` в Terraform см. в [документации провайдера](../../terraform/resources/vpc_subnet.md).
+        Подробную информацию о параметрах ресурса `yandex_vpc_subnet` в {{ TF }} см. в [документации провайдера]({{ tf-provider-resources-link }}/vpc_subnet).
 
      1. Примените изменения:
 
@@ -307,7 +307,7 @@ To further debug and diagnose cluster problems, use 'kubectl cluster-info dump'.
            terraform plan
            ```
         
-           В терминале будет выведен список ресурсов с параметрами. На этом этапе изменения не будут внесены. Если в конфигурации есть ошибки, Terraform на них укажет.
+           В терминале будет выведен список ресурсов с параметрами. На этом этапе изменения не будут внесены. Если в конфигурации есть ошибки, {{ TF }} на них укажет.
         1. Примените изменения конфигурации:
         
            ```bash
@@ -316,7 +316,7 @@ To further debug and diagnose cluster problems, use 'kubectl cluster-info dump'.
         
         1. Подтвердите изменения: введите в терминале слово `yes` и нажмите **Enter**.
         
-        Terraform изменит все требуемые ресурсы. Проверить изменение подсети можно в [консоли управления](https://console.yandex.cloud) или с помощью команды [CLI](../../cli/quickstart.md):
+        {{ TF }} изменит все требуемые ресурсы. Проверить изменение подсети можно в [консоли управления]({{ link-console-main }}) или с помощью команды [CLI](../../cli/quickstart.md):
 
         ```
         yc vpc subnet get <имя_подсети>
@@ -328,14 +328,14 @@ To further debug and diagnose cluster problems, use 'kubectl cluster-info dump'.
    
    [Создайте](../../vpc/operations/security-group-add-rule.md) правила в [группе безопасности кластера и групп узлов](../operations/connect/security-groups.md#rules-internal-cluster) и группе безопасности `vm-security-group`:
 
-   * **Диапазон портов** — `123`. Если вместо порта `123` вы используете на NTP-сервере другой порт, укажите его.
-   * **Протокол** — `UDP`.
-   * **Назначение** — `CIDR`.
-   * **CIDR блоки** — `<IP-адрес_NTP-сервера>/32`.
+   * **{{ ui-key.yacloud.vpc.network.security-groups.forms.field_sg-rule-port-range }}** — `123`. Если вместо порта `123` вы используете на NTP-сервере другой порт, укажите его.
+   * **{{ ui-key.yacloud.vpc.network.security-groups.forms.field_sg-rule-protocol }}** — `{{ ui-key.yacloud.common.label_udp }}`.
+   * **{{ ui-key.yacloud.vpc.network.security-groups.forms.field_sg-rule-destination }}** — `{{ ui-key.yacloud.vpc.network.security-groups.forms.value_sg-rule-destination-cidr }}`.
+   * **{{ ui-key.yacloud.vpc.network.security-groups.forms.field_sg-rule-cidr-blocks }}** — `<IP-адрес_NTP-сервера>/32`.
 
 1. Обновите сетевые параметры в группе узлов кластера и на ВМ одним из следующих способов:
 
-   * Подключитесь к каждому узлу группы и к ВМ [по SSH](../operations/node-connect-ssh.md) или [через OS Login](../operations/node-connect-oslogin.md) и выполните команду `sudo dhclient -v -r && sudo dhclient`.
+   * Подключитесь к каждому узлу группы и к ВМ [по SSH](../operations/node-connect-ssh.md) или [через {{ oslogin }}](../operations/node-connect-oslogin.md) и выполните команду `sudo dhclient -v -r && sudo dhclient`.
    * Перезагрузите узлы группы и ВМ в удобное для вас время.
 
    {% note warning %}
@@ -346,10 +346,10 @@ To further debug and diagnose cluster problems, use 'kubectl cluster-info dump'.
 
 ## (Опционально) Подключите приватный реестр Docker-образов {#cert}
 
-Вы можете подключить [приватный реестр Docker-образов](https://kubernetes.io/docs/tasks/configure-pod-container/pull-image-private-registry/) к кластеру Managed Service for Kubernetes. Для аутентификации в реестре и подключения к нему по протоколу HTTPS кластеру нужны сертификаты, выданные CA (Certificate Authority — доверенный центр сертификации). Чтобы добавить и позднее автоматически обновлять сертификаты на узлах кластера, используйте контроллер [DaemonSet](https://kubernetes.io/docs/concepts/workloads/controllers/daemonset/). Он запускает следующий процесс в подах:
+Вы можете подключить [приватный реестр Docker-образов](https://kubernetes.io/docs/tasks/configure-pod-container/pull-image-private-registry/) к кластеру {{ managed-k8s-name }}. Для аутентификации в реестре и подключения к нему по протоколу HTTPS кластеру нужны сертификаты, выданные CA (Certificate Authority — доверенный центр сертификации). Чтобы добавить и позднее автоматически обновлять сертификаты на узлах кластера, используйте контроллер [DaemonSet](https://kubernetes.io/docs/concepts/workloads/controllers/daemonset/). Он запускает следующий процесс в подах:
 
 1. При помощи Bash-скрипта на узлах кластера постоянно проверяется наличие нужных сертификатов.
-1. Если их нет, они копируются из [секрета](https://kubernetes.io/docs/concepts/configuration/secret/) Kubernetes и обновляются.
+1. Если их нет, они копируются из [секрета](https://kubernetes.io/docs/concepts/configuration/secret/) {{ k8s }} и обновляются.
 1. Перезагружается среда запуска контейнеров containerd.
 
 Чтобы настроить обновление сертификатов с помощью DaemonSet, на ВМ:
@@ -408,7 +408,7 @@ To further debug and diagnose cluster problems, use 'kubectl cluster-info dump'.
          hostIPC: true
          containers:
          - name: certificate-updater
-           image: cr.yandex/yc/mk8s-openssl:stable
+           image: {{ registry }}/yc/mk8s-openssl:stable
            command: 
              - sh
              - -c
@@ -520,21 +520,21 @@ To further debug and diagnose cluster problems, use 'kubectl cluster-info dump'.
    Удалите:
 
    1. [Сервисные аккаунты](../../iam/operations/sa/delete.md).
-   1. [Ключ шифрования](../../kms/operations/key.md#delete) Key Management Service.
+   1. [Ключ шифрования](../../kms/operations/key.md#delete) {{ kms-name }}.
    1. [Группы безопасности](../../vpc/operations/security-group-delete.md).
-   1. [Группу узлов](../operations/node-group/node-group-delete.md) Managed Service for Kubernetes.
-   1. [Кластер](../operations/kubernetes-cluster/kubernetes-cluster-delete.md) Managed Service for Kubernetes.
+   1. [Группу узлов](../operations/node-group/node-group-delete.md) {{ managed-k8s-name }}.
+   1. [Кластер](../operations/kubernetes-cluster/kubernetes-cluster-delete.md) {{ managed-k8s-name }}.
    1. [Виртуальную машину](../../compute/operations/vm-control/vm-delete.md).
    1. [Подсеть](../../vpc/operations/subnet-delete.md).
    1. [Сеть](../../vpc/operations/network-delete.md).
 
-- Terraform {#tf}
+- {{ TF }} {#tf}
 
    1. В терминале перейдите в директорию с планом инфраструктуры.
    
        {% note warning %}
    
-       Убедитесь, что в директории нет Terraform-манифестов с ресурсами, которые вы хотите сохранить. Terraform удаляет все ресурсы, которые были созданы с помощью манифестов в текущей директории.
+       Убедитесь, что в директории нет {{ TF }}-манифестов с ресурсами, которые вы хотите сохранить. {{ TF }} удаляет все ресурсы, которые были созданы с помощью манифестов в текущей директории.
    
        {% endnote %}
    
@@ -548,7 +548,7 @@ To further debug and diagnose cluster problems, use 'kubectl cluster-info dump'.
    
        1. Подтвердите удаление ресурсов и дождитесь завершения операции.
    
-       Все ресурсы, которые были описаны в Terraform-манифестах, будут удалены.
+       Все ресурсы, которые были описаны в {{ TF }}-манифестах, будут удалены.
 
 {% endlist %}
 

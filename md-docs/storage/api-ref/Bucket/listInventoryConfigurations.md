@@ -5,7 +5,7 @@ Listing inventory configurations
 ## HTTP request
 
 ```
-GET https://storage.api.cloud.yandex.net/storage/v1/buckets/{bucket}:listInventoryConfigurations
+GET https://storage.{{ api-host }}/storage/v1/buckets/{bucket}:listInventoryConfigurations
 ```
 
 ## Path parameters

@@ -6,7 +6,7 @@ For details, see [Restoring a VM from a backup](../../../operations/backup-vm/re
 ## HTTP request
 
 ```
-POST https://backup.api.cloud.yandex.net/backup/v1/backups/{backupId}:startRecovery
+POST https://backup.{{ api-host }}/backup/v1/backups/{backupId}:startRecovery
 ```
 
 ## Path parameters

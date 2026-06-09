@@ -5,7 +5,7 @@ Retrieves the list of Configuration resources.
 ## HTTP request
 
 ```
-GET https://baremetal.api.cloud.yandex.net/baremetal/v1alpha/configurations
+GET https://baremetal.{{ api-host }}/baremetal/v1alpha/configurations
 ```
 
 ## Query parameters {#yandex.cloud.baremetal.v1alpha.ListConfigurationsRequest}

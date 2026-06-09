@@ -1,9 +1,9 @@
-# Подпись и проверка Docker-образов Yandex Container Registry в Managed Service for Kubernetes
+# Подпись и проверка Docker-образов {{ container-registry-full-name }} в {{ managed-k8s-name }}
 
-# Подпись и проверка Docker-образов Yandex Container Registry в Yandex Managed Service for Kubernetes
+# Подпись и проверка Docker-образов {{ container-registry-full-name }} в {{ managed-k8s-full-name }}
 
 
-В этом сценарии описано, как подписать [Docker-образы](../../container-registry/concepts/docker-image.md) с помощью [Cosign](https://docs.sigstore.dev/cosign/overview/) в [Yandex Container Registry](../../container-registry/index.md), а затем настроить проверку подписей в [Yandex Managed Service for Kubernetes](../index.md) с помощью ключей Yandex Key Management Service.
+В этом сценарии описано, как подписать [Docker-образы](../../container-registry/concepts/docker-image.md) с помощью [Cosign](https://docs.sigstore.dev/cosign/overview/) в [{{ container-registry-full-name }}](../../container-registry/index.md), а затем настроить проверку подписей в [{{ managed-k8s-full-name }}](../index.md) с помощью ключей {{ kms-full-name }}.
 
 Чтобы подписать и настроить проверку Docker-образов:
 1. [Подпишите Docker-образ с помощью Cosign](#cosign).
@@ -17,10 +17,10 @@
 
 В стоимость поддержки описываемого решения входят:
 
-* Плата за кластер Managed Service for Kubernetes: использование мастера и исходящий трафик (см. [тарифы Managed Service for Kubernetes](../pricing.md)).
-* Плата за узлы кластера (ВМ): использование вычислительных ресурсов, операционной системы и хранилища (см. [тарифы Compute Cloud](../../compute/pricing.md)).
-* Плата за публичные IP-адреса, если они назначены узлам кластера (см. [тарифы Virtual Private Cloud](../../vpc/pricing.md#prices-public-ip)).
-* Плата за [использование хранилища](../../container-registry/pricing.md) Container Registry.
+* Плата за кластер {{ managed-k8s-name }}: использование мастера и исходящий трафик (см. [тарифы {{ managed-k8s-name }}](../pricing.md)).
+* Плата за узлы кластера (ВМ): использование вычислительных ресурсов, операционной системы и хранилища (см. [тарифы {{ compute-name }}](../../compute/pricing.md)).
+* Плата за публичные IP-адреса, если они назначены узлам кластера (см. [тарифы {{ vpc-name }}](../../vpc/pricing.md#prices-public-ip)).
+* Плата за [использование хранилища](../../container-registry/pricing.md) {{ container-registry-name }}.
 
 
 ## Перед началом работы {#before-begin}
@@ -32,12 +32,12 @@
 - Вручную {#manual}
 
   1. [Создайте сервисные аккаунты](../../iam/operations/sa/create.md):
-     * [Сервисный аккаунт](../../iam/concepts/users/service-accounts.md) для ресурсов с [ролями](../../iam/concepts/access-control/roles.md) `k8s.clusters.agent` и `vpc.publicAdmin` на [каталог](../../resource-manager/concepts/resources-hierarchy.md#folder), в котором создается [кластер Managed Service for Kubernetes](../concepts/index.md#kubernetes-cluster). От его имени будут создаваться ресурсы, необходимые кластеру Managed Service for Kubernetes.
-     * Сервисный аккаунт для узлов с ролью [container-registry.images.puller](../../container-registry/security/index.md#required-roles) на каталог с [реестром](../../container-registry/concepts/registry.md) Docker-образов. От его имени узлы будут скачивать из реестра необходимые Docker-образы.
+     * [Сервисный аккаунт](../../iam/concepts/users/service-accounts.md) для ресурсов с [ролями](../../iam/concepts/access-control/roles.md) `k8s.clusters.agent` и `vpc.publicAdmin` на [каталог](../../resource-manager/concepts/resources-hierarchy.md#folder), в котором создается [кластер {{ managed-k8s-name }}](../concepts/index.md#kubernetes-cluster). От его имени будут создаваться ресурсы, необходимые кластеру {{ managed-k8s-name }}.
+     * Сервисный аккаунт для узлов с ролью [{{ roles-cr-puller }}](../../container-registry/security/index.md#required-roles) на каталог с [реестром](../../container-registry/concepts/registry.md) Docker-образов. От его имени узлы будут скачивать из реестра необходимые Docker-образы.
 
      Вы можете использовать один и тот же сервисный аккаунт для обеих операций.
 
-  1. [Создайте группы безопасности](../operations/connect/security-groups.md) для кластера Managed Service for Kubernetes и входящих в него групп узлов.
+  1. [Создайте группы безопасности](../operations/connect/security-groups.md) для кластера {{ managed-k8s-name }} и входящих в него групп узлов.
 
         {% note warning %}
         
@@ -45,12 +45,12 @@
         
         {% endnote %}
 
-  1. [Создайте кластер Managed Service for Kubernetes](../operations/kubernetes-cluster/kubernetes-cluster-create.md#kubernetes-cluster-create) и [группу узлов](../operations/node-group/node-group-create.md). При создании кластера укажите ранее созданные сервисные аккаунты для ресурсов и узлов и группы безопасности.
-  1. [Создайте реестр Container Registry](../../container-registry/operations/registry/registry-create.md).
+  1. [Создайте кластер {{ managed-k8s-name }}](../operations/kubernetes-cluster/kubernetes-cluster-create.md#kubernetes-cluster-create) и [группу узлов](../operations/node-group/node-group-create.md). При создании кластера укажите ранее созданные сервисные аккаунты для ресурсов и узлов и группы безопасности.
+  1. [Создайте реестр {{ container-registry-name }}](../../container-registry/operations/registry/registry-create.md).
 
-- Terraform {#tf}
+- {{ TF }} {#tf}
 
-  1. Если у вас еще нет Terraform, [установите его](../../tutorials/infrastructure-management/terraform-quickstart.md#install-terraform).
+  1. Если у вас еще нет {{ TF }}, [установите его](../../tutorials/infrastructure-management/terraform-quickstart.md#install-terraform).
   1. [Получите данные для аутентификации](../../tutorials/infrastructure-management/terraform-quickstart.md#get-credentials). Вы можете добавить их в переменные окружения или указать далее в файле с настройками провайдера.
   1. [Настройте и инициализируйте провайдер](../../tutorials/infrastructure-management/terraform-quickstart.md#configure-provider). Чтобы не создавать конфигурационный файл с настройками провайдера вручную, [скачайте его](https://github.com/yandex-cloud-examples/yc-terraform-provider-settings/blob/main/provider.tf).
   1. Поместите конфигурационный файл в отдельную рабочую директорию и [укажите значения параметров](../../tutorials/infrastructure-management/terraform-quickstart.md#configure-provider). Если данные для аутентификации не были добавлены в переменные окружения, укажите их в конфигурационном файле.
@@ -59,10 +59,10 @@
      В этом файле описаны:
      * [Сеть](../../vpc/concepts/network.md#network).
      * [Подсеть](../../vpc/concepts/network.md#subnet).
-     * Реестр Container Registry.
-     * Кластер Managed Service for Kubernetes.
-     * Сервисный аккаунт, необходимый для работы кластера и группы узлов Managed Service for Kubernetes.
-     * [Группы безопасности](../../vpc/concepts/security-groups.md), которые содержат [необходимые правила](../operations/connect/security-groups.md) для кластера Managed Service for Kubernetes и входящих в него групп узлов.
+     * Реестр {{ container-registry-name }}.
+     * Кластер {{ managed-k8s-name }}.
+     * Сервисный аккаунт, необходимый для работы кластера и группы узлов {{ managed-k8s-name }}.
+     * [Группы безопасности](../../vpc/concepts/security-groups.md), которые содержат [необходимые правила](../operations/connect/security-groups.md) для кластера {{ managed-k8s-name }} и входящих в него групп узлов.
 
         {% note warning %}
         
@@ -72,17 +72,17 @@
 
   1. Укажите в файле `k8s-validate-cr-image.tf`:
      * [Идентификатор каталога](../../resource-manager/operations/folder/get-id.md).
-     * [Версию Kubernetes](../concepts/release-channels-and-updates.md) для кластера и групп узлов Managed Service for Kubernetes.
-     * CIDR кластера Managed Service for Kubernetes.
+     * [Версию {{ k8s }}](../concepts/release-channels-and-updates.md) для кластера и групп узлов {{ managed-k8s-name }}.
+     * CIDR кластера {{ managed-k8s-name }}.
      * Имя сервисного аккаунта кластера.
-     * Имя реестра Container Registry.
-  1. Проверьте корректность файлов конфигурации Terraform с помощью команды:
+     * Имя реестра {{ container-registry-name }}.
+  1. Проверьте корректность файлов конфигурации {{ TF }} с помощью команды:
 
      ```bash
      terraform validate
      ```
 
-     Если в файлах конфигурации есть ошибки, Terraform на них укажет.
+     Если в файлах конфигурации есть ошибки, {{ TF }} на них укажет.
   1. Создайте необходимую инфраструктуру:
 
      1. Выполните команду для просмотра планируемых изменений:
@@ -103,26 +103,26 @@
         1. Подтвердите изменение ресурсов.
         1. Дождитесь завершения операции.
 
-     В указанном каталоге будут созданы все требуемые ресурсы. Проверить появление ресурсов и их настройки можно в [консоли управления](https://console.yandex.cloud).
+     В указанном каталоге будут созданы все требуемые ресурсы. Проверить появление ресурсов и их настройки можно в [консоли управления]({{ link-console-main }}).
 
 {% endlist %}
 
-### Подготовьтесь к работе с кластером Managed Service for Kubernetes
+### Подготовьтесь к работе с кластером {{ managed-k8s-name }}
 
-1. [Установите kubectl](https://kubernetes.io/ru/docs/tasks/tools/install-kubectl) и [настройте его на работу с созданным кластером](../operations/connect/index.md#kubectl-connect).
-1. [Установите менеджер пакетов Kubernetes Helm](https://helm.sh/ru/docs/intro/install).
+1. [Установите kubectl]({{ k8s-docs }}/tasks/tools/install-kubectl) и [настройте его на работу с созданным кластером](../operations/connect/index.md#kubectl-connect).
+1. [Установите менеджер пакетов {{ k8s }} Helm](https://helm.sh/ru/docs/intro/install).
 
-### Добавьте несколько Docker-образов в реестр Container Registry {#add-docker-images}
+### Добавьте несколько Docker-образов в реестр {{ container-registry-name }} {#add-docker-images}
 
-1. [Настройте](../../container-registry/operations/configure-docker.md) Docker и [аутентифицируйтесь в Container Registry](../../container-registry/operations/authentication.md).
+1. [Настройте](../../container-registry/operations/configure-docker.md) Docker и [аутентифицируйтесь в {{ container-registry-name }}](../../container-registry/operations/authentication.md).
 1. [Создайте несколько Docker-образов](../../container-registry/operations/docker-image/docker-image-create.md). Один из образов в дальнейшем будет подписан с помощью Cosign, остальные образы будут неподписанными.
-1. [Загрузите Docker-образы](../../container-registry/operations/docker-image/docker-image-push.md) в реестр Container Registry.
+1. [Загрузите Docker-образы](../../container-registry/operations/docker-image/docker-image-push.md) в реестр {{ container-registry-name }}.
 
 ## Подпишите Docker-образ с помощью утилиты Cosign {#cosign}
 
 {% list tabs %}
 
-- Подпись образа на асимметричных ключах Key Management Service
+- Подпись образа на асимметричных ключах {{ kms-name }}
 
   1. Установите специальную сборку Cosign для вашей операционной системы:
 
@@ -131,7 +131,7 @@
      * [MacOS Darwin arm64](https://storage.yandexcloud.net/cosign/macOS-arm64/cosign)
      * [Windows](https://storage.yandexcloud.net/cosign/windows/cosign.exe)
 
-  1. Получите [IAM-токен](../../iam/concepts/authorization/iam-token.md) и сохраните его в переменную среды `$YC_IAM_TOKEN`:
+  1. Получите [{{ iam-short-name }}-токен](../../iam/concepts/authorization/iam-token.md) и сохраните его в переменную среды `$YC_IAM_TOKEN`:
      * **Bash:**
 
        ```bash
@@ -144,14 +144,14 @@
        $env:YC_IAM_TOKEN = $(yc iam create-token)
        ```
 
-  1. Авторизуйтесь в Container Registry:
+  1. Авторизуйтесь в {{ container-registry-name }}:
      * **Bash:**
 
        ```bash
        docker login \
          --username iam \
          --password $YC_IAM_TOKEN \
-         cr.yandex
+         {{ registry }}
        ```
 
      * **PowerShell:**
@@ -160,7 +160,7 @@
        docker login `
          --username iam `
          --password $Env:YC_IAM_TOKEN `
-         cr.yandex
+         {{ registry }}
        ```
 
      Результат:
@@ -172,11 +172,11 @@
 
      {% note info %}
 
-     Чтобы не использовать Credential helper при аутентификации, удалите в конфигурационном файле `${HOME}/.docker/config.json` из блока `credHelpers` строку домена `cr.yandex`.
+     Чтобы не использовать Credential helper при аутентификации, удалите в конфигурационном файле `${HOME}/.docker/config.json` из блока `credHelpers` строку домена `{{ registry }}`.
 
      {% endnote %}
 
-  1. Создайте и сохраните в Key Management Service ключевую пару электронной подписи:
+  1. Создайте и сохраните в {{ kms-name }} ключевую пару электронной подписи:
 
      ```bash
      cosign generate-key-pair \
@@ -197,53 +197,53 @@
 
      Утилита вернет идентификатор созданной ключевой пары подписи и сохранит открытый ключ подписи в локальный файл. Сохраните идентификатор ключевой пары, он понадобится вам на следующих шагах.
       
-     Идентификатор ключевой пары подписи всегда можно получить в [консоли управления](https://console.yandex.cloud) или с помощью [команды CLI](../../cli/cli-ref/kms/cli-ref/asymmetric-signature-key/list.md).
-  1. Подпишите образ в Container Registry:
+     Идентификатор ключевой пары подписи всегда можно получить в [консоли управления]({{ link-console-main }}) или с помощью [команды CLI](../../cli/cli-ref/kms/cli-ref/asymmetric-signature-key/list.md).
+  1. Подпишите образ в {{ container-registry-name }}:
 
      ```bash
      cosign sign \
        --key yckms:///<идентификатор_ключевой_пары> \
-       cr.yandex/<идентификатор_реестра>/<имя_Docker-образа>:<тег> \
+       {{ registry }}/<идентификатор_реестра>/<имя_Docker-образа>:<тег> \
        --tlog-upload=false
      ```
 
      Где:
      * `<идентификатор_ключевой_пары>` — идентификатор ключевой пары подписи, полученный на предыдущем шаге.
-     * `<идентификатор_реестра>` — [идентификатор реестра](../../container-registry/operations/registry/registry-list.md#registry-list) Container Registry, в котором находится подписываемый образ.
-     * `<имя_Docker-образа>` — имя подписываемого [Docker-образа](../../container-registry/operations/docker-image/docker-image-list.md#docker-image-list) в реестре Container Registry.
+     * `<идентификатор_реестра>` — [идентификатор реестра](../../container-registry/operations/registry/registry-list.md#registry-list) {{ container-registry-name }}, в котором находится подписываемый образ.
+     * `<имя_Docker-образа>` — имя подписываемого [Docker-образа](../../container-registry/operations/docker-image/docker-image-list.md#docker-image-list) в реестре {{ container-registry-name }}.
      * `<тег>` — тег версии образа, которую требуется подписать.
 
      Результат:
 
      ```bash
-     Pushing signature to: cr.yandex/<идентификатор_реестра>/<имя_Docker-образа>
+     Pushing signature to: {{ registry }}/<идентификатор_реестра>/<имя_Docker-образа>
      ```
 
-     В реестре Container Registry должен появиться второй объект с тегом `sha256-....sig` и хэшем `cr.yandex/<идентификатор_реестра>/<имя_Docker-образа>@sha256:...`.
+     В реестре {{ container-registry-name }} должен появиться второй объект с тегом `sha256-....sig` и хэшем `{{ registry }}/<идентификатор_реестра>/<имя_Docker-образа>@sha256:...`.
   1. Вручную проверьте, что подпись Docker-образа корректна:
 
      ```bash
      cosign verify \
        --key yckms:///<идентификатор_ключевой_пары> \
-       cr.yandex/<идентификатор_реестра>/<имя_Docker-образа>:<тег> \
+       {{ registry }}/<идентификатор_реестра>/<имя_Docker-образа>:<тег> \
        --insecure-ignore-tlog
      ```
 
      Где:
      * `<идентификатор_ключевой_пары>` — полученный ранее идентификатор ключевой пары подписи.
-     * `<идентификатор_реестра>` — [идентификатор реестра](../../container-registry/operations/registry/registry-list.md#registry-list) Container Registry, в котором находится образ.
-     * `<имя_Docker-образа>` — [имя Docker-образа](../../container-registry/operations/docker-image/docker-image-list.md#docker-image-list) в реестре Container Registry.
+     * `<идентификатор_реестра>` — [идентификатор реестра](../../container-registry/operations/registry/registry-list.md#registry-list) {{ container-registry-name }}, в котором находится образ.
+     * `<имя_Docker-образа>` — [имя Docker-образа](../../container-registry/operations/docker-image/docker-image-list.md#docker-image-list) в реестре {{ container-registry-name }}.
      * `<тег>` — тег версии образа, для которой требуется проверить подпись.
 
      Результат:
 
      ```bash
-     Verification for cr.yandex/<идентификатор_реестра>/<имя_Docker-образа>:<тег> --
+     Verification for {{ registry }}/<идентификатор_реестра>/<имя_Docker-образа>:<тег> --
      The following checks were performed on each of these signatures:
      - The cosign claims were validated
      - The signatures were verified against the specified public key
 
-     [{"critical":{"identity":{"docker-reference":"cr.yandex/<идентификатор_реестра>/<имя_Docker-образа>"},"image":{"docker-manifest-digest":"sha256:..."},"type":"cosign container image signature"},"optional":null}]
+     [{"critical":{"identity":{"docker-reference":"{{ registry }}/<идентификатор_реестра>/<имя_Docker-образа>"},"image":{"docker-manifest-digest":"sha256:..."},"type":"cosign container image signature"},"optional":null}]
      ```
 
 - Подпись образа на локальных ключах
@@ -266,12 +266,12 @@
      Public key written to cosign.pub
      ```
 
-  1. Подпишите Docker-образ в реестре Container Registry:
+  1. Подпишите Docker-образ в реестре {{ container-registry-name }}:
 
      ```bash
      cosign sign \
          --key cosign.key \
-         cr.yandex/<идентификатор_реестра>/<имя_Docker-образа>:<тег>
+         {{ registry }}/<идентификатор_реестра>/<имя_Docker-образа>:<тег>
      ```
 
      Подписанный образ будет использоваться при [проверке результата](#check-result).
@@ -280,34 +280,34 @@
 
      ```text
      Enter password for private key:
-     Pushing signature to: cr.yandex/<идентификатор_реестра>/<имя_Docker-образа>
+     Pushing signature to: {{ registry }}/<идентификатор_реестра>/<имя_Docker-образа>
      ```
 
-     В реестре Container Registry должен появиться второй объект с тегом `sha256-....sig` и хэшем `cr.yandex/<идентификатор_реестра>/<имя_Docker-образа>@sha256:...`.
+     В реестре {{ container-registry-name }} должен появиться второй объект с тегом `sha256-....sig` и хэшем `{{ registry }}/<идентификатор_реестра>/<имя_Docker-образа>@sha256:...`.
   1. Вручную проверьте, что подпись Docker-образа корректна:
 
      ```bash
      cosign verify \
        --key cosign.pub \
-       cr.yandex/<идентификатор_реестра>/<имя_Docker-образа>:<тег>
+       {{ registry }}/<идентификатор_реестра>/<имя_Docker-образа>:<тег>
      ```
 
      Результат:
 
      ```text
-     Verification for cr.yandex/<идентификатор_реестра>/<имя_Docker-образа>:<тег> --
+     Verification for {{ registry }}/<идентификатор_реестра>/<имя_Docker-образа>:<тег> --
      The following checks were performed on each of these signatures:
      - The cosign claims were validated
      - The signatures were verified against the specified public key
 
-     [{"critical":{"identity":{"docker-reference":"cr.yandex/<идентификатор_реестра>/<имя_Docker-образа>"},"image":{"docker-manifest-digest":"sha256:..."},"type":"cosign container image signature"},"optional":null}]
+     [{"critical":{"identity":{"docker-reference":"{{ registry }}/<идентификатор_реестра>/<имя_Docker-образа>"},"image":{"docker-manifest-digest":"sha256:..."},"type":"cosign container image signature"},"optional":null}]
      ```
 
 {% endlist %}
 
 ## Создайте политику для проверки подписей {#kyverno}
 
-1. Создайте [авторизованный ключ](../../iam/concepts/authorization/key.md) для сервисного аккаунта с ролью [container-registry.images.puller](../../container-registry/security/index.md#required-roles) и запишите его в файл:
+1. Создайте [авторизованный ключ](../../iam/concepts/authorization/key.md) для сервисного аккаунта с ролью [{{ roles-cr-puller }}](../../container-registry/security/index.md#required-roles) и запишите его в файл:
 
    ```bash
    yc iam key create \
@@ -315,8 +315,8 @@
      --output authorized-key.json
    ```
 
-   Где `--service-account-name` — имя сервисного аккаунта с ролью container-registry.images.puller.
-1. Установите приложение [Kyverno](https://kyverno.io/docs/) в кластер Managed Service for Kubernetes. Оно необходимо для создания политики, которой проверяются подписи Docker-образов.
+   Где `--service-account-name` — имя сервисного аккаунта с ролью {{ roles-cr-puller }}.
+1. Установите приложение [Kyverno](https://kyverno.io/docs/) в кластер {{ managed-k8s-name }}. Оно необходимо для создания политики, которой проверяются подписи Docker-образов.
    1. Добавьте репозиторий `kyverno`:
 
       ```bash
@@ -336,7 +336,7 @@
         --namespace kyverno \
         --create-namespace \
         --set replicaCount=1 \
-        --set imagePullSecrets.regcred.registry=cr.yandex \
+        --set imagePullSecrets.regcred.registry={{ registry }} \
         --set imagePullSecrets.regcred.username=json_key \
         --set-file imagePullSecrets.regcred.password=./authorized-key.json
       ```
@@ -373,7 +373,7 @@
                     - Pod
             verifyImages:
             - imageReferences:
-              - "cr.yandex/<идентификатор_реестра>/*"
+              - "{{ registry }}/<идентификатор_реестра>/*"
               attestors:
               - count: 1
                 entries:
@@ -403,7 +403,7 @@
                     - Pod
             verifyImages:
             - imageReferences:
-              - "cr.yandex/crpd2f2bnrlb********/*"
+              - "{{ registry }}/crpd2f2bnrlb********/*"
               attestors:
               - count: 1
                 entries:
@@ -440,7 +440,7 @@
 * Создайте [под](../concepts/index.md#pod) из подписанного Docker-образа:
 
   ```bash
-  kubectl run pod --image=cr.yandex/<идентификатор_реестра>/<имя_Docker-образа>:<тег>
+  kubectl run pod --image={{ registry }}/<идентификатор_реестра>/<имя_Docker-образа>:<тег>
   ```
 
   Результат:
@@ -452,7 +452,7 @@
 * Создайте под из неподписанного Docker-образа:
 
   ```bash
-  kubectl run pod2 --image=cr.yandex/<идентификатор_реестра>/<имя_неподписанного_Docker-образа>:<тег>
+  kubectl run pod2 --image={{ registry }}/<идентификатор_реестра>/<имя_неподписанного_Docker-образа>:<тег>
   ```
 
   Результат:
@@ -464,7 +464,7 @@
 
   check-image:
     check-image: 
-      failed to verify signature for cr.yandex/crpsere9njsa********/alpine:2.0: .attestors[0].entries[0].keys: no matching signatures:
+      failed to verify signature for {{ registry }}/crpsere9njsa********/alpine:2.0: .attestors[0].entries[0].keys: no matching signatures:
   ```
 
 ## Удалите созданные ресурсы {#clear-out}
@@ -475,19 +475,19 @@
 
 - Вручную {#manual}
 
-  1. [Удалите кластер Managed Service for Kubernetes](../operations/kubernetes-cluster/kubernetes-cluster-delete.md).
+  1. [Удалите кластер {{ managed-k8s-name }}](../operations/kubernetes-cluster/kubernetes-cluster-delete.md).
   1. Если вы зарезервировали для кластера публичный статический IP-адрес, [удалите его](../../vpc/operations/address-delete.md).
   1. [Удалите сервисные аккаунты](../../iam/operations/sa/delete.md).
-  1. [Удалите все Docker-образы](../../container-registry/operations/docker-image/docker-image-delete.md) из реестра Container Registry.
-  1. [Удалите реестр Container Registry](../../container-registry/operations/registry/registry-delete.md).
+  1. [Удалите все Docker-образы](../../container-registry/operations/docker-image/docker-image-delete.md) из реестра {{ container-registry-name }}.
+  1. [Удалите реестр {{ container-registry-name }}](../../container-registry/operations/registry/registry-delete.md).
 
-- Terraform {#tf}
+- {{ TF }} {#tf}
 
   1. В терминале перейдите в директорию с планом инфраструктуры.
   
       {% note warning %}
   
-      Убедитесь, что в директории нет Terraform-манифестов с ресурсами, которые вы хотите сохранить. Terraform удаляет все ресурсы, которые были созданы с помощью манифестов в текущей директории.
+      Убедитесь, что в директории нет {{ TF }}-манифестов с ресурсами, которые вы хотите сохранить. {{ TF }} удаляет все ресурсы, которые были созданы с помощью манифестов в текущей директории.
   
       {% endnote %}
   
@@ -501,6 +501,6 @@
   
       1. Подтвердите удаление ресурсов и дождитесь завершения операции.
   
-      Все ресурсы, которые были описаны в Terraform-манифестах, будут удалены.
+      Все ресурсы, которые были описаны в {{ TF }}-манифестах, будут удалены.
 
 {% endlist %}

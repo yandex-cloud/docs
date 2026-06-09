@@ -103,29 +103,10 @@ Acceptable values are 0 to 100, inclusive. ||
   "created_by": "string",
   "modified_at": "google.protobuf.Timestamp",
   "done": "bool",
-  "metadata": {
-    "playlist_id": "string"
-  },
+  "metadata": "google.protobuf.Any",
   // Includes only one of the fields `error`, `response`
   "error": "google.rpc.Status",
-  "response": {
-    "id": "string",
-    "channel_id": "string",
-    "title": "string",
-    "description": "string",
-    "items": [
-      {
-        // Includes only one of the fields `video_id`, `episode_id`
-        "video_id": "string",
-        "episode_id": "string",
-        // end of the list of possible fields
-        "position": "int64"
-      }
-    ],
-    "style_preset_id": "string",
-    "created_at": "google.protobuf.Timestamp",
-    "updated_at": "google.protobuf.Timestamp"
-  }
+  "response": "google.protobuf.Any"
   // end of the list of possible fields
 }
 ```
@@ -153,7 +134,7 @@ The time when the Operation resource was last modified. ||
 
 If the value is `false`, it means the operation is still in progress.
 If `true`, the operation is completed, and either `error` or `response` is available. ||
-|| metadata | **[CreatePlaylistMetadata](#yandex.cloud.video.v1.CreatePlaylistMetadata)**
+|| metadata | **[google.protobuf.Any](https://developers.google.com/protocol-buffers/docs/proto3#any)**
 
 Service-specific metadata associated with the operation.
 It typically contains the ID of the target resource that the operation is performed on.
@@ -168,7 +149,7 @@ The operation result.
 If `done == false` and there was no failure detected, neither `error` nor `response` is set.
 If `done == false` and there was a failure detected, `error` is set.
 If `done == true`, exactly one of `error` or `response` is set. ||
-|| response | **[Playlist](#yandex.cloud.video.v1.Playlist)**
+|| response | **[google.protobuf.Any](https://developers.google.com/protocol-buffers/docs/proto3#any)**
 
 The normal response of the operation in case of success.
 If the original method returns no data on success, such as Delete,
@@ -183,79 +164,4 @@ The operation result.
 If `done == false` and there was no failure detected, neither `error` nor `response` is set.
 If `done == false` and there was a failure detected, `error` is set.
 If `done == true`, exactly one of `error` or `response` is set. ||
-|#
-
-## CreatePlaylistMetadata {#yandex.cloud.video.v1.CreatePlaylistMetadata}
-
-#|
-||Field | Description ||
-|| playlist_id | **string**
-
-ID of the playlist being created. ||
-|#
-
-## Playlist {#yandex.cloud.video.v1.Playlist}
-
-Entity representing an ordered collection of videos or episodes.
-Playlists allow organizing content into sequences for improved user experience.
-
-#|
-||Field | Description ||
-|| id | **string**
-
-Unique identifier of the playlist. ||
-|| channel_id | **string**
-
-Identifier of the channel where this playlist is created and managed. ||
-|| title | **string**
-
-Title of the playlist displayed in interfaces and players. ||
-|| description | **string**
-
-Detailed description of the playlist's content and purpose. ||
-|| items[] | **[PlaylistItem](#yandex.cloud.video.v1.PlaylistItem2)**
-
-Ordered list of content items included in this playlist. ||
-|| style_preset_id | **string**
-
-Identifier of the style preset used in the player during playlist playback. ||
-|| created_at | **[google.protobuf.Timestamp](https://developers.google.com/protocol-buffers/docs/reference/google.protobuf#timestamp)**
-
-Timestamp when the playlist was initially created in the system. ||
-|| updated_at | **[google.protobuf.Timestamp](https://developers.google.com/protocol-buffers/docs/reference/google.protobuf#timestamp)**
-
-Timestamp of the last modification to the playlist or its metadata. ||
-|#
-
-## PlaylistItem {#yandex.cloud.video.v1.PlaylistItem2}
-
-Represents a single item in a playlist.
-Each item references either a video or an episode and specifies its position in the sequence.
-
-#|
-||Field | Description ||
-|| video_id | **string**
-
-Identifier of a video included in the playlist.
-
-The maximum string length in characters is 50.
-
-Includes only one of the fields `video_id`, `episode_id`.
-
-Specifies the content identifier type for this playlist item. ||
-|| episode_id | **string**
-
-Identifier of an episode included in the playlist.
-
-The maximum string length in characters is 50.
-
-Includes only one of the fields `video_id`, `episode_id`.
-
-Specifies the content identifier type for this playlist item. ||
-|| position | **int64**
-
-Position of this item in the playlist sequence (zero-indexed).
-Determines the playback order of content in the playlist.
-
-Acceptable values are 0 to 100, inclusive. ||
 |#

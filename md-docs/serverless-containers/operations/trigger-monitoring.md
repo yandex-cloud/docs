@@ -1,6 +1,6 @@
-# Посмотреть графики мониторинга триггера в Serverless Containers
+# Посмотреть графики мониторинга триггера в {{ serverless-containers-name }}
 
- Вы можете отслеживать работу триггеров с помощью инструментов мониторинга в консоли управления. Эти инструменты предоставляют диагностическую информацию в виде графиков. Собирает значения метрик и отображает графики сервис [Monitoring](../../monitoring/index.md). 
+ Вы можете отслеживать работу триггеров с помощью инструментов мониторинга в консоли управления. Эти инструменты предоставляют диагностическую информацию в виде графиков. Собирает значения метрик и отображает графики сервис [{{ monitoring-name }}](../../monitoring/index.md). 
 
 Период обновления графиков — 15 секунд.
 
@@ -10,13 +10,13 @@
 
 - Консоль управления {#console}
 
-    1. В [консоли управления](https://console.yandex.cloud) перейдите в каталог, в котором находится триггер.
+    1. В [консоли управления]({{ link-console-main }}) перейдите в каталог, в котором находится триггер.
 
-    1. [Перейдите](../../console/operations/select-service.md#select-service) в сервис **Serverless Containers**.
+    1. Перейдите в сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_serverless-containers }}**.
 
     1. Выберите триггер, графики мониторинга которого хотите посмотреть.
 
-    1. Перейдите на вкладку **Мониторинг**.
+    1. Перейдите на вкладку **{{ ui-key.yacloud.common.monitoring }}**.
 
     1. На странице появятся следующие графики:
 
@@ -33,6 +33,6 @@
 
 ## Пользовательские метрики {#metrics}
 
-Чтобы перейти к работе с [метриками](../../monitoring/concepts/data-model.md#metric), [дашбордами](../../monitoring/concepts/visualization/dashboard.md) и [алертами](../../monitoring/concepts/alerting.md#alert) в сервисе Monitoring, в правом верхнем углу нажмите кнопку **Открыть в Monium**.
+Чтобы перейти к работе с [метриками](../../monitoring/concepts/data-model.md#metric), [дашбордами](../../monitoring/concepts/visualization/dashboard.md) и [алертами](../../monitoring/concepts/alerting.md#alert) в сервисе {{ monitoring-name }}, в правом верхнем углу нажмите кнопку **{{ ui-key.yacloud.monitoring.button_open-in-monitoring }}**.
 
 Описание метрик см. в [справочнике](../metrics.md).

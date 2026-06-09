@@ -1,22 +1,22 @@
-# Управление топиками Apache Kafka®
+# Управление топиками {{ KF }}
 
-Кластер Managed Service for Apache Kafka® позволяет управлять топиками и разделами двумя способами (как отдельно, так и совместно):
+Кластер {{ mkf-name }} позволяет управлять топиками и разделами двумя способами (как отдельно, так и совместно):
 
-* С помощью [стандартных интерфейсов Yandex Cloud](#yandex-cloud) (CLI, [API](../../glossary/rest-api.md), консоль управления). Способ подходит, если вы хотите управлять топиками, используя возможности сервиса Managed Service for Apache Kafka®.
+* С помощью [стандартных интерфейсов {{ yandex-cloud }}](#yandex-cloud) (CLI, [API](../../glossary/rest-api.md), консоль управления). Способ подходит, если вы хотите управлять топиками, используя возможности сервиса {{ mkf-name }}.
 
-    Вы можете выполнить следующие действия над топиками Managed Service for Apache Kafka®:
+    Вы можете выполнить следующие действия над топиками {{ mkf-name }}:
 
     * [cоздать топик](#create-topic);
     * [изменить настройки топика](#update-topic);
     * [получить список топиков в кластере](#list-topics);
     * [получить детальную информацию о топике](#get-topic);
-    * [импортировать топик в Terraform](#import-topic);
-    * [перенести информацию о созданных топиках в файл состояния Terraform](#move-info-topic);
+    * [импортировать топик в {{ TF }}](#import-topic);
+    * [перенести информацию о созданных топиках в файл состояния {{ TF }}](#move-info-topic);
     * [удалить топик](#delete-topic).
 
-* С помощью [Admin API Apache Kafka®](#admin-api). Способ подходит, если вы хотите использовать уже существующее у вас решение для управления топиками и разделами.
+* С помощью [Admin API {{ KF }}](#admin-api). Способ подходит, если вы хотите использовать уже существующее у вас решение для управления топиками и разделами.
 
-## Управление топиками через интерфейсы Yandex Cloud {#yandex-cloud}
+## Управление топиками через интерфейсы {{ yandex-cloud }} {#yandex-cloud}
 
 ### Создать топик {#create-topic}
 
@@ -26,16 +26,16 @@
 
 - Консоль управления {#console}
 
-  1. В [консоли управления](https://console.yandex.cloud) перейдите в нужный каталог.
-  1. [Перейдите](../../console/operations/select-service.md#select-service) в сервис **Managed Service for&nbsp;Kafka**.
-  1. Нажмите на имя нужного кластера и перейдите на вкладку **Топики**.
-  1. Нажмите кнопку **Создать топик**.
-  1. В блоке **Базовые параметры** задайте базовые параметры топика:
-     * Имя топика (должно быть уникально в пределах кластера Apache Kafka®).
+  1. В [консоли управления]({{ link-console-main }}) перейдите в нужный каталог.
+  1. Перейдите в сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-kafka }}**.
+  1. Нажмите на имя нужного кластера и перейдите на вкладку **{{ ui-key.yacloud.kafka.label_topics }}**.
+  1. Нажмите кнопку **{{ ui-key.yacloud.kafka.button_create-topic }}**.
+  1. В блоке **{{ ui-key.yacloud.mdb.forms.section_base }}** задайте базовые параметры топика:
+     * Имя топика (должно быть уникально в пределах кластера {{ KF }}).
 
        {% note info %}
        
-       Если нужно создать топик, начинающийся с символа `_`, используйте [Admin API Apache Kafka®](cluster-topics.md#admin-api). Создать такой топик с помощью интерфейсов Yandex Cloud нельзя.
+       Если нужно создать топик, начинающийся с символа `_`, используйте [Admin API {{ KF }}](cluster-topics.md#admin-api). Создать такой топик с помощью интерфейсов {{ yandex-cloud }} нельзя.
        
        {% endnote %}
 
@@ -43,12 +43,12 @@
      * Фактор репликации. Значение этого параметра не должно превышать количество брокеров в кластере. Минимальное значение: `1`. Максимальное значение: `3`. Значение по умолчанию:
        * для кластера из одного или двух брокеров: `1`;
        * для кластера с тремя и более брокерами: `3`.
-  1. В блоке **Настройки топика** задайте [настройки топика](../concepts/settings-list.md#topic-settings).
-  1. Нажмите кнопку **Создать**.
+  1. В блоке **{{ ui-key.yacloud.kafka.section_topic-config }}** задайте [настройки топика](../concepts/settings-list.md#topic-settings).
+  1. Нажмите кнопку **{{ ui-key.yacloud.common.create }}**.
 
 - CLI {#cli}
 
-  Если у вас еще нет интерфейса командной строки Yandex Cloud (CLI), [установите и инициализируйте его](../../cli/quickstart.md#install).
+  Если у вас еще нет интерфейса командной строки {{ yandex-cloud }} (CLI), [установите и инициализируйте его](../../cli/quickstart.md#install).
 
   По умолчанию используется каталог, указанный при [создании](../../cli/operations/profile/profile-create.md) профиля CLI. Чтобы изменить каталог по умолчанию, используйте команду `yc config set folder-id <идентификатор_каталога>`. Также для любой команды вы можете указать другой каталог с помощью параметров `--folder-name` или `--folder-id`. Если вы обращаетесь к ресурсу по имени, поиск будет выполнен в каталоге по умолчанию. Если вы обращаетесь к ресурсу по идентификатору, поиск будет выполнен глобально — во всех каталогах с учетом прав доступа.
 
@@ -56,13 +56,13 @@
   1. Посмотрите описание команды CLI для создания топиков:
 
      ```bash
-     yc managed-kafka topic create --help
+     {{ yc-mdb-kf }} topic create --help
      ```
 
   1. Создайте топик:
 
      ```bash
-     yc managed-kafka topic create <имя_топика> \
+     {{ yc-mdb-kf }} topic create <имя_топика> \
        --cluster-name <имя_кластера> \
        --partitions <количество_разделов> \
        --replication-factor <фактор_репликации>
@@ -72,15 +72,15 @@
 
      {% note info %}
      
-     Если нужно создать топик, начинающийся с символа `_`, используйте [Admin API Apache Kafka®](cluster-topics.md#admin-api). Создать такой топик с помощью интерфейсов Yandex Cloud нельзя.
+     Если нужно создать топик, начинающийся с символа `_`, используйте [Admin API {{ KF }}](cluster-topics.md#admin-api). Создать такой топик с помощью интерфейсов {{ yandex-cloud }} нельзя.
      
      {% endnote %}
 
-- Terraform {#tf}
+- {{ TF }} {#tf}
 
-  1. Откройте актуальный конфигурационный файл Terraform с планом инфраструктуры.
+  1. Откройте актуальный конфигурационный файл {{ TF }} с планом инфраструктуры.
 
-     Как создать такой файл, описано в разделе [Создание кластера Apache Kafka®](cluster-create.md).
+     Как создать такой файл, описано в разделе [{#T}](cluster-create.md).
   1. Добавьте ресурс `yandex_mdb_kafka_topic` и, при необходимости, задайте [настройки топика](../concepts/settings-list.md#topic-settings) в блоке `topic_config`:
 
      ```hcl
@@ -99,20 +99,20 @@
 
      {% note info %}
      
-     Если нужно создать топик, начинающийся с символа `_`, используйте [Admin API Apache Kafka®](cluster-topics.md#admin-api). Создать такой топик с помощью интерфейсов Yandex Cloud нельзя.
+     Если нужно создать топик, начинающийся с символа `_`, используйте [Admin API {{ KF }}](cluster-topics.md#admin-api). Создать такой топик с помощью интерфейсов {{ yandex-cloud }} нельзя.
      
      {% endnote %}
 
   1. Проверьте корректность настроек.
 
-     1. В командной строке перейдите в каталог, в котором расположены актуальные конфигурационные файлы Terraform с планом инфраструктуры.
+     1. В командной строке перейдите в каталог, в котором расположены актуальные конфигурационные файлы {{ TF }} с планом инфраструктуры.
      1. Выполните команду:
      
         ```bash
         terraform validate
         ```
      
-        Если в файлах конфигурации есть ошибки, Terraform на них укажет.
+        Если в файлах конфигурации есть ошибки, {{ TF }} на них укажет.
 
   1. Подтвердите изменение ресурсов.
 
@@ -134,7 +134,7 @@
         1. Подтвердите изменение ресурсов.
         1. Дождитесь завершения операции.
 
-  Подробнее в [документации провайдера Terraform](../../terraform/resources/mdb_kafka_topic.md).
+  Подробнее в [документации провайдера {{ TF }}]({{ tf-provider-resources-link }}/mdb_kafka_topic).
 
 - REST API {#api}
 
@@ -144,14 +144,14 @@
      export IAM_TOKEN="<IAM-токен>"
      ```
 
-  1. Воспользуйтесь методом [Topic.create](../api-ref/Topic/create.md) и выполните запрос, например, с помощью [cURL](https://curl.se/):
+  1. Воспользуйтесь методом [Topic.create](../api-ref/Topic/create.md) и выполните запрос, например, с помощью {{ api-examples.rest.tool }}:
 
      ```bash
      curl \
        --request POST \
        --header "Authorization: Bearer $IAM_TOKEN" \
        --header "Content-Type: application/json" \
-       --url 'https://mdb.api.cloud.yandex.net/managed-kafka/v1/clusters/<идентификатор_кластера>/topics' \
+       --url 'https://{{ api-host-mdb }}/managed-kafka/v1/clusters/<идентификатор_кластера>/topics' \
        --data '{
                  "topicSpec": {
                   "name": "<имя_топика>",
@@ -168,7 +168,7 @@
         
             {% note info %}
             
-            Если нужно создать топик, начинающийся с символа `_`, используйте [Admin API Apache Kafka®](cluster-topics.md#admin-api). Создать такой топик с помощью интерфейсов Yandex Cloud нельзя.
+            Если нужно создать топик, начинающийся с символа `_`, используйте [Admin API {{ KF }}](cluster-topics.md#admin-api). Создать такой топик с помощью интерфейсов {{ yandex-cloud }} нельзя.
             
             {% endnote %}
         
@@ -194,7 +194,7 @@
      ```
      
      Далее предполагается, что содержимое репозитория находится в директории `~/cloudapi/`.
-  1. Воспользуйтесь вызовом [TopicService/Create](../api-ref/grpc/Topic/create.md) и выполните запрос, например, с помощью [gRPCurl](https://github.com/fullstorydev/grpcurl):
+  1. Воспользуйтесь вызовом [TopicService/Create](../api-ref/grpc/Topic/create.md) и выполните запрос, например, с помощью {{ api-examples.grpc.tool }}:
 
      ```bash
      grpcurl \
@@ -215,7 +215,7 @@
                   }
              }
            }' \
-       mdb.api.cloud.yandex.net:443 \
+       {{ api-host-mdb }}:{{ port-https }} \
        yandex.cloud.mdb.kafka.v1.TopicService.Create
      ```
 
@@ -227,7 +227,7 @@
         
             {% note info %}
             
-            Если нужно создать топик, начинающийся с символа `_`, используйте [Admin API Apache Kafka®](cluster-topics.md#admin-api). Создать такой топик с помощью интерфейсов Yandex Cloud нельзя.
+            Если нужно создать топик, начинающийся с символа `_`, используйте [Admin API {{ KF }}](cluster-topics.md#admin-api). Создать такой топик с помощью интерфейсов {{ yandex-cloud }} нельзя.
             
             {% endnote %}
         
@@ -242,35 +242,35 @@
 
 {% note info %}
 
-В процессе своей работы Managed Service for Apache Kafka® может создавать [служебные топики](../concepts/topics.md#service-topics). Записывать пользовательские данные в такие топики нельзя.
+В процессе своей работы {{ mkf-name }} может создавать [служебные топики](../concepts/topics.md#service-topics). Записывать пользовательские данные в такие топики нельзя.
 
 {% endnote %}
 
 ### Изменить настройки топика {#update-topic}
 
-Количество разделов в топиках Managed Service for Apache Kafka® нельзя уменьшить. Если в хранилище не хватает места, создать новые разделы нельзя.
+Количество разделов в топиках {{ mkf-name }} нельзя уменьшить. Если в хранилище не хватает места, создать новые разделы нельзя.
 
-Подробнее в разделе [Минимальный размер хранилища](../concepts/storage.md#minimal-storage-size).
+Подробнее в разделе [{#T}](../concepts/storage.md#minimal-storage-size).
 
 {% list tabs group=instructions %}
 
 - Консоль управления {#console}
 
-  1. В [консоли управления](https://console.yandex.cloud) перейдите в нужный каталог.
-  1. [Перейдите](../../console/operations/select-service.md#select-service) в сервис **Managed Service for&nbsp;Kafka**.
-  1. Нажмите на имя нужного кластера, затем выберите вкладку **Топики**.
-  1. Нажмите значок ![image](../../_assets/console-icons/ellipsis.svg) для нужного топика и выберите пункт **Редактировать**.
+  1. В [консоли управления]({{ link-console-main }}) перейдите в нужный каталог.
+  1. Перейдите в сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-kafka }}**.
+  1. Нажмите на имя нужного кластера, затем выберите вкладку **{{ ui-key.yacloud.kafka.label_topics }}**.
+  1. Нажмите значок ![image](../../_assets/console-icons/ellipsis.svg) для нужного топика и выберите пункт **{{ ui-key.yacloud.common.edit }}**.
   1. Измените базовые параметры топика:
      * Количество разделов в топике.
      * Фактор репликации. Значение этого параметра не должно превышать количество брокеров в кластере. Минимальное значение: `1`. Максимальное значение: `3`. Значение по умолчанию:
        * Для кластера из одного или двух брокеров: `1`.
        * Для кластера с тремя и более брокерами: `3`.
   1. Измените [дополнительные настройки топика](../concepts/settings-list.md#topic-settings).
-  1. Нажмите кнопку **Сохранить**.
+  1. Нажмите кнопку **{{ ui-key.yacloud.common.save }}**.
 
 - CLI {#cli}
 
-  Если у вас еще нет интерфейса командной строки Yandex Cloud (CLI), [установите и инициализируйте его](../../cli/quickstart.md#install).
+  Если у вас еще нет интерфейса командной строки {{ yandex-cloud }} (CLI), [установите и инициализируйте его](../../cli/quickstart.md#install).
 
   По умолчанию используется каталог, указанный при [создании](../../cli/operations/profile/profile-create.md) профиля CLI. Чтобы изменить каталог по умолчанию, используйте команду `yc config set folder-id <идентификатор_каталога>`. Также для любой команды вы можете указать другой каталог с помощью параметров `--folder-name` или `--folder-id`. Если вы обращаетесь к ресурсу по имени, поиск будет выполнен в каталоге по умолчанию. Если вы обращаетесь к ресурсу по идентификатору, поиск будет выполнен глобально — во всех каталогах с учетом прав доступа.
 
@@ -278,23 +278,23 @@
   1. Посмотрите описание команды CLI для изменения топиков:
 
      ```bash
-     yc managed-kafka topic update --help
+     {{ yc-mdb-kf }} topic update --help
      ```
 
   1. Измените [настройки топика](../concepts/settings-list.md#topic-settings):
 
      ```bash
-     yc managed-kafka topic update <имя_топика> \
+     {{ yc-mdb-kf }} topic update <имя_топика> \
        --cluster-name <имя_кластера> \
        --partitions <количество_разделов> \
        --replication-factor <фактор_репликации>
      ```
 
-- Terraform {#tf}
+- {{ TF }} {#tf}
 
-  1. Откройте актуальный конфигурационный файл Terraform с планом инфраструктуры.
+  1. Откройте актуальный конфигурационный файл {{ TF }} с планом инфраструктуры.
 
-     Как создать такой файл, описано в разделе [Создание кластера Apache Kafka®](cluster-create.md).
+     Как создать такой файл, описано в разделе [{#T}](cluster-create.md).
   1. Измените значение параметров в описании ресурса `yandex_mdb_kafka_topic`:
 
      ```hcl
@@ -313,14 +313,14 @@
 
   1. Проверьте корректность настроек.
 
-     1. В командной строке перейдите в каталог, в котором расположены актуальные конфигурационные файлы Terraform с планом инфраструктуры.
+     1. В командной строке перейдите в каталог, в котором расположены актуальные конфигурационные файлы {{ TF }} с планом инфраструктуры.
      1. Выполните команду:
      
         ```bash
         terraform validate
         ```
      
-        Если в файлах конфигурации есть ошибки, Terraform на них укажет.
+        Если в файлах конфигурации есть ошибки, {{ TF }} на них укажет.
 
   1. Подтвердите изменение ресурсов.
 
@@ -342,7 +342,7 @@
         1. Подтвердите изменение ресурсов.
         1. Дождитесь завершения операции.
 
-  Подробнее в [документации провайдера Terraform](../../terraform/resources/mdb_kafka_topic.md).
+  Подробнее в [документации провайдера {{ TF }}]({{ tf-provider-resources-link }}/mdb_kafka_topic).
 
 - REST API {#api}
 
@@ -352,7 +352,7 @@
      export IAM_TOKEN="<IAM-токен>"
      ```
 
-  1. Воспользуйтесь методом [Topic.update](../api-ref/Topic/update.md) и выполните запрос, например, с помощью [cURL](https://curl.se/):
+  1. Воспользуйтесь методом [Topic.update](../api-ref/Topic/update.md) и выполните запрос, например, с помощью {{ api-examples.rest.tool }}:
 
      {% note warning %}
      
@@ -365,7 +365,7 @@
        --request PATCH \
        --header "Authorization: Bearer $IAM_TOKEN" \
        --header "Content-Type: application/json" \
-       --url 'https://mdb.api.cloud.yandex.net/managed-kafka/v1/clusters/<идентификатор_кластера>/topics/<имя_топика>' \
+       --url 'https://{{ api-host-mdb }}/managed-kafka/v1/clusters/<идентификатор_кластера>/topics/<имя_топика>' \
        --data '{
                  "clusterId": "<идентификатор_кластера>",
                  "updateMask": "topicSpec.partitions,topicSpec.replicationFactor,topicSpec.topicConfig_2_8.<настройка_1>,...,topicSpec.topicConfig_2_8.<настройка_N>,topicSpec.topicConfig_3.<настройка_1>,...,topicSpec.topicConfig_3.<настройка_N>",
@@ -373,10 +373,10 @@
                    "partitions": "<количество_партиций>",
                    "replicationFactor": "<фактор_репликации>",
                    "topicConfig_3": {
-                     "<настройка_1_топика_Apache Kafka®_версии_3.x>": "<значение_1>",
-                     "<настройка_2_топика_Apache Kafka®_версии_3.x>": "<значение_2>",
+                     "<настройка_1_топика_{{ KF }}_версии_3.x>": "<значение_1>",
+                     "<настройка_2_топика_{{ KF }}_версии_3.x>": "<значение_2>",
                      ...
-                     "<настройка_N_топика_Apache Kafka®_версии_3.x>": "<значение_N>"
+                     "<настройка_N_топика_{{ KF }}_версии_3.x>": "<значение_N>"
                    }
                  } 
                }'
@@ -392,9 +392,9 @@
 
         * `partitions` – количество разделов.
         * `replicationFactor` – фактор репликации.
-        * `topicConfig_3` — набор настроек топика, если используется Apache Kafka® версий `3.x`. Укажите каждую настройку на отдельной строке через запятую.
+        * `topicConfig_3` — набор настроек топика, если используется {{ KF }} версий `3.x`. Укажите каждую настройку на отдельной строке через запятую.
         
-           Описание и возможные значения настроек см. в разделе [Настройки отдельных топиков](../concepts/settings-list.md#topic-settings).
+           Описание и возможные значения настроек приведены в разделе [{#T}](../concepts/settings-list.md#topic-settings).
 
      Идентификатор кластера можно запросить со [списком кластеров в каталоге](cluster-list.md#list-clusters).
 
@@ -415,7 +415,7 @@
      ```
      
      Далее предполагается, что содержимое репозитория находится в директории `~/cloudapi/`.
-  1. Воспользуйтесь вызовом [TopicService/Update](../api-ref/grpc/Topic/update.md) и выполните запрос, например, с помощью [gRPCurl](https://github.com/fullstorydev/grpcurl):
+  1. Воспользуйтесь вызовом [TopicService/Update](../api-ref/grpc/Topic/update.md) и выполните запрос, например, с помощью {{ api-examples.grpc.tool }}:
 
      {% note warning %}
      
@@ -468,14 +468,14 @@
                     "value": "<фактор_репликации>"
                   },
                    "topic_сonfig_3": {
-                     "<настройка_1_топика_Apache Kafka®_версии_3.x>": "<значение_1>",
-                     "<настройка_2_топика_Apache Kafka®_версии_3.x>": "<значение_2>",
+                     "<настройка_1_топика_{{ KF }}_версии_3.x>": "<значение_1>",
+                     "<настройка_2_топика_{{ KF }}_версии_3.x>": "<значение_2>",
                      ...
-                     "<настройка_N_топика_Apache Kafka®_версии_3.x>": "<значение_N>"
+                     "<настройка_N_топика_{{ KF }}_версии_3.x>": "<значение_N>"
                    }
              }
            }' \
-       mdb.api.cloud.yandex.net:443 \
+       {{ api-host-mdb }}:{{ port-https }} \
        yandex.cloud.mdb.kafka.v1.TopicService.Update
      ```
 
@@ -489,9 +489,9 @@
 
         * `partitions` – количество разделов. Передается в виде объекта с полем `value`.
         * `replication_factor` – фактор репликации. Передается в виде объекта с полем `value`.
-        * `topic_config_3` — набор настроек топика, если используется Apache Kafka® версий `3.x`. Укажите каждую настройку на отдельной строке через запятую.
+        * `topic_config_3` — набор настроек топика, если используется {{ KF }} версий `3.x`. Укажите каждую настройку на отдельной строке через запятую.
         
-           Описание и возможные значения настроек см. в разделе [Настройки отдельных топиков](../concepts/settings-list.md#topic-settings).
+           Описание и возможные значения настроек приведены в разделе [{#T}](../concepts/settings-list.md#topic-settings).
 
      Идентификатор кластера можно запросить со [списком кластеров в каталоге](cluster-list.md#list-clusters).
 
@@ -505,20 +505,20 @@
 
 - Консоль управления {#console}
 
-  1. В [консоли управления](https://console.yandex.cloud) перейдите в нужный каталог.
-  1. [Перейдите](../../console/operations/select-service.md#select-service) в сервис **Managed Service for&nbsp;Kafka**.
-  1. Нажмите на имя нужного кластера и перейдите на вкладку **Топики**.
+  1. В [консоли управления]({{ link-console-main }}) перейдите в нужный каталог.
+  1. Перейдите в сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-kafka }}**.
+  1. Нажмите на имя нужного кластера и перейдите на вкладку **{{ ui-key.yacloud.kafka.label_topics }}**.
 
 - CLI {#cli}
 
-  Если у вас еще нет интерфейса командной строки Yandex Cloud (CLI), [установите и инициализируйте его](../../cli/quickstart.md#install).
+  Если у вас еще нет интерфейса командной строки {{ yandex-cloud }} (CLI), [установите и инициализируйте его](../../cli/quickstart.md#install).
 
   По умолчанию используется каталог, указанный при [создании](../../cli/operations/profile/profile-create.md) профиля CLI. Чтобы изменить каталог по умолчанию, используйте команду `yc config set folder-id <идентификатор_каталога>`. Также для любой команды вы можете указать другой каталог с помощью параметров `--folder-name` или `--folder-id`. Если вы обращаетесь к ресурсу по имени, поиск будет выполнен в каталоге по умолчанию. Если вы обращаетесь к ресурсу по идентификатору, поиск будет выполнен глобально — во всех каталогах с учетом прав доступа.
 
   Чтобы получить список топиков, выполните следующую команду:
 
   ```bash
-  yc managed-kafka topic list --cluster-name <имя_кластера>
+  {{ yc-mdb-kf }} topic list --cluster-name <имя_кластера>
   ```
 
 - REST API {#api}
@@ -529,13 +529,13 @@
      export IAM_TOKEN="<IAM-токен>"
      ```
 
-  1. Воспользуйтесь методом [Topic.list](../api-ref/Topic/list.md) и выполните запрос, например, с помощью [cURL](https://curl.se/):
+  1. Воспользуйтесь методом [Topic.list](../api-ref/Topic/list.md) и выполните запрос, например, с помощью {{ api-examples.rest.tool }}:
 
      ```bash
      curl \
        --request GET \
        --header "Authorization: Bearer $IAM_TOKEN" \
-       --url 'https://mdb.api.cloud.yandex.net/managed-kafka/v1/clusters/<идентификатор_кластера>/topics'
+       --url 'https://{{ api-host-mdb }}/managed-kafka/v1/clusters/<идентификатор_кластера>/topics'
      ```
 
      Идентификатор кластера можно запросить со [списком кластеров в каталоге](cluster-list.md#list-clusters).
@@ -557,7 +557,7 @@
      ```
      
      Далее предполагается, что содержимое репозитория находится в директории `~/cloudapi/`.
-  1. Воспользуйтесь вызовом [TopicService/List](../api-ref/grpc/Topic/list.md) и выполните запрос, например, с помощью [gRPCurl](https://github.com/fullstorydev/grpcurl):
+  1. Воспользуйтесь вызовом [TopicService/List](../api-ref/grpc/Topic/list.md) и выполните запрос, например, с помощью {{ api-examples.grpc.tool }}:
 
      ```bash
      grpcurl \
@@ -569,7 +569,7 @@
        -d '{
              "cluster_id": "<идентификатор_кластера>"
            }' \
-       mdb.api.cloud.yandex.net:443 \
+       {{ api-host-mdb }}:{{ port-https }} \
        yandex.cloud.mdb.kafka.v1.TopicService.List
      ```
 
@@ -585,21 +585,21 @@
 
 - Консоль управления {#console}
 
-  1. В [консоли управления](https://console.yandex.cloud) перейдите в нужный каталог.
-  1. [Перейдите](../../console/operations/select-service.md#select-service) в сервис **Managed Service for&nbsp;Kafka**.
-  1. Нажмите на имя нужного кластера и перейдите на вкладку **Топики**.
+  1. В [консоли управления]({{ link-console-main }}) перейдите в нужный каталог.
+  1. Перейдите в сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-kafka }}**.
+  1. Нажмите на имя нужного кластера и перейдите на вкладку **{{ ui-key.yacloud.kafka.label_topics }}**.
   1. Нажмите на имя нужного топика.
 
 - CLI {#cli}
 
-  Если у вас еще нет интерфейса командной строки Yandex Cloud (CLI), [установите и инициализируйте его](../../cli/quickstart.md#install).
+  Если у вас еще нет интерфейса командной строки {{ yandex-cloud }} (CLI), [установите и инициализируйте его](../../cli/quickstart.md#install).
 
   По умолчанию используется каталог, указанный при [создании](../../cli/operations/profile/profile-create.md) профиля CLI. Чтобы изменить каталог по умолчанию, используйте команду `yc config set folder-id <идентификатор_каталога>`. Также для любой команды вы можете указать другой каталог с помощью параметров `--folder-name` или `--folder-id`. Если вы обращаетесь к ресурсу по имени, поиск будет выполнен в каталоге по умолчанию. Если вы обращаетесь к ресурсу по идентификатору, поиск будет выполнен глобально — во всех каталогах с учетом прав доступа.
 
   Чтобы получить детальную информацию о топике, выполните следующую команду:
 
   ```bash
-  yc managed-kafka topic get <имя_топика> --cluster-name <имя_кластера>
+  {{ yc-mdb-kf }} topic get <имя_топика> --cluster-name <имя_кластера>
   ```
 
 - REST API {#api}
@@ -610,13 +610,13 @@
      export IAM_TOKEN="<IAM-токен>"
      ```
 
-  1. Воспользуйтесь методом [Topic.list](../api-ref/Topic/get.md) и выполните запрос, например, с помощью [cURL](https://curl.se/):
+  1. Воспользуйтесь методом [Topic.list](../api-ref/Topic/get.md) и выполните запрос, например, с помощью {{ api-examples.rest.tool }}:
 
      ```bash
      curl \
        --request GET \
        --header "Authorization: Bearer $IAM_TOKEN" \
-       --url 'https://mdb.api.cloud.yandex.net/managed-kafka/v1/clusters/<идентификатор_кластера>/topics/<имя_топика>'
+       --url 'https://{{ api-host-mdb }}/managed-kafka/v1/clusters/<идентификатор_кластера>/topics/<имя_топика>'
      ```
 
      Идентификатор кластера можно запросить со [списком кластеров в каталоге](cluster-list.md#list-clusters), а имя топика — со [списком топиков в кластере](#list-topics).
@@ -638,7 +638,7 @@
      ```
      
      Далее предполагается, что содержимое репозитория находится в директории `~/cloudapi/`.
-  1. Воспользуйтесь вызовом [TopicService/Get](../api-ref/grpc/Topic/get.md) и выполните запрос, например, с помощью [gRPCurl](https://github.com/fullstorydev/grpcurl):
+  1. Воспользуйтесь вызовом [TopicService/Get](../api-ref/grpc/Topic/get.md) и выполните запрос, например, с помощью {{ api-examples.grpc.tool }}:
 
      ```bash
      grpcurl \
@@ -651,7 +651,7 @@
              "cluster_id": "<идентификатор_кластера>",
              "topic_name": "<имя_топика>"
            }' \
-       mdb.api.cloud.yandex.net:443 \
+       {{ api-host-mdb }}:{{ port-https }} \
        yandex.cloud.mdb.kafka.v1.TopicService.Get
      ```
 
@@ -661,15 +661,15 @@
 
 {% endlist %}
 
-### Импортировать топик в Terraform {#import-topic}
+### Импортировать топик в {{ TF }} {#import-topic}
 
-С помощью импорта вы можете передать существующие в кластере топики под управление Terraform.
+С помощью импорта вы можете передать существующие в кластере топики под управление {{ TF }}.
 
 {% list tabs group=instructions %}
 
-- Terraform {#tf}
+- {{ TF }} {#tf}
 
-    1. Укажите в конфигурационном файле Terraform топик, который необходимо импортировать:
+    1. Укажите в конфигурационном файле {{ TF }} топик, который необходимо импортировать:
 
         ```hcl
         resource "yandex_mdb_kafka_topic" "<имя_топика>" {}
@@ -681,11 +681,11 @@
         terraform import yandex_mdb_kafka_topic.<имя_топика> <идентификатор_кластера>:<имя_топика>
         ```
 
-        Подробнее об импорте топиков в [документации провайдера Terraform](../../terraform/resources/mdb_kafka_topic.md#import).
+        Подробнее об импорте топиков в [документации провайдера {{ TF }}]({{ tf-provider-resources-link }}/mdb_kafka_topic#import).
 
 {% endlist %}
 
-### Перенести информацию о созданных топиках в файл состояния Terraform {#move-info-topic}
+### Перенести информацию о созданных топиках в файл состояния {{ TF }} {#move-info-topic}
 
 При переходе на новую версию Terraform-провайдера между файлом состояния и конфигурационным файлом могут возникнуть расхождения по созданным топикам: устаревшие атрибуты `topic` и новые ресурсы `yandex_mdb_kafka_topic`. Чтобы убрать расхождения, необходимо удалить атрибуты `topic` и перенести информацию о созданных ресурсах `yandex_mdb_kafka_topic` в файл состояния `.tfstate` одним из двух способов.
 
@@ -693,7 +693,7 @@
 
 {% list tabs %}
 
-- Terraform {#tf}
+- {{ TF }} {#tf}
 
   1. Удалите информацию о кластере из файла состояния `.tfstate`, используя команду:
 
@@ -703,7 +703,7 @@
 
   1. Отредактируйте конфигурационный файл Terraform:
      * удалите атрибуты `topic` из ресурса `yandex_mdb_kafka_cluster`;
-     * [добавьте новые ресурсы](../../terraform/resources/mdb_kafka_topic.md) `yandex_mdb_kafka_topic`.
+     * [добавьте новые ресурсы]({{ tf-provider-resources-link }}/mdb_kafka_topic) `yandex_mdb_kafka_topic`.
 
       {% cut "Пример обновленного конфигурационного файла" %}
         
@@ -776,7 +776,7 @@
 
 {% list tabs %}
 
-- Terraform {#tf}
+- {{ TF }} {#tf}
 
   1. Скачайте файл состояния `.tfstate`, используя команду:
 
@@ -793,7 +793,7 @@
     
   1. Отредактируйте конфигурационный файл Terraform:
      * удалите атрибуты `topic` из ресурса `yandex_mdb_kafka_cluster`;
-     * [добавьте новые ресурсы](../../terraform/resources/mdb_kafka_topic.md) `yandex_mdb_kafka_topic`.
+     * [добавьте новые ресурсы]({{ tf-provider-resources-link }}/mdb_kafka_topic) `yandex_mdb_kafka_topic`.
 
       {% cut "Пример обновленного конфигурационного файла" %}
         
@@ -873,15 +873,15 @@
 
 - Консоль управления {#console}
 
-  1. В [консоли управления](https://console.yandex.cloud) перейдите в нужный каталог.
-  1. [Перейдите](../../console/operations/select-service.md#select-service) в сервис **Managed Service for&nbsp;Kafka**.
-  1. Нажмите на имя нужного кластера и перейдите на вкладку **Топики**.
-  1. Нажмите значок ![image](../../_assets/console-icons/ellipsis.svg) для нужного топика и выберите пункт **Удалить топик**.
-  1. В открывшемся окне нажмите кнопку **Удалить**.
+  1. В [консоли управления]({{ link-console-main }}) перейдите в нужный каталог.
+  1. Перейдите в сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-kafka }}**.
+  1. Нажмите на имя нужного кластера и перейдите на вкладку **{{ ui-key.yacloud.kafka.label_topics }}**.
+  1. Нажмите значок ![image](../../_assets/console-icons/ellipsis.svg) для нужного топика и выберите пункт **{{ ui-key.yacloud.kafka.button_delete-topic }}**.
+  1. В открывшемся окне нажмите кнопку **{{ ui-key.yacloud.common.delete }}**.
 
 - CLI {#cli}
 
-  Если у вас еще нет интерфейса командной строки Yandex Cloud (CLI), [установите и инициализируйте его](../../cli/quickstart.md#install).
+  Если у вас еще нет интерфейса командной строки {{ yandex-cloud }} (CLI), [установите и инициализируйте его](../../cli/quickstart.md#install).
 
   По умолчанию используется каталог, указанный при [создании](../../cli/operations/profile/profile-create.md) профиля CLI. Чтобы изменить каталог по умолчанию, используйте команду `yc config set folder-id <идентификатор_каталога>`. Также для любой команды вы можете указать другой каталог с помощью параметров `--folder-name` или `--folder-id`. Если вы обращаетесь к ресурсу по имени, поиск будет выполнен в каталоге по умолчанию. Если вы обращаетесь к ресурсу по идентификатору, поиск будет выполнен глобально — во всех каталогах с учетом прав доступа.
 
@@ -889,31 +889,31 @@
   1. Посмотрите описание команды CLI для удаления топиков:
 
      ```bash
-     yc managed-kafka topic delete --help
+     {{ yc-mdb-kf }} topic delete --help
      ```
 
   1. Удалите топик:
 
      ```bash
-     yc managed-kafka topic delete <имя_топика> --cluster-name <имя_кластера>
+     {{ yc-mdb-kf }} topic delete <имя_топика> --cluster-name <имя_кластера>
      ```
 
-- Terraform {#tf}
+- {{ TF }} {#tf}
 
-  1. Откройте актуальный конфигурационный файл Terraform с планом инфраструктуры.
+  1. Откройте актуальный конфигурационный файл {{ TF }} с планом инфраструктуры.
 
-     Как создать такой файл, описано в разделе [Создание кластера Apache Kafka®](cluster-create.md).
+     Как создать такой файл, описано в разделе [{#T}](cluster-create.md).
   1. Удалите ресурс `yandex_mdb_kafka_topic` с описанием нужного топика.
   1. Проверьте корректность настроек.
 
-     1. В командной строке перейдите в каталог, в котором расположены актуальные конфигурационные файлы Terraform с планом инфраструктуры.
+     1. В командной строке перейдите в каталог, в котором расположены актуальные конфигурационные файлы {{ TF }} с планом инфраструктуры.
      1. Выполните команду:
      
         ```bash
         terraform validate
         ```
      
-        Если в файлах конфигурации есть ошибки, Terraform на них укажет.
+        Если в файлах конфигурации есть ошибки, {{ TF }} на них укажет.
 
   1. Подтвердите изменение ресурсов.
 
@@ -935,7 +935,7 @@
         1. Подтвердите изменение ресурсов.
         1. Дождитесь завершения операции.
 
-  Подробнее в [документации провайдера Terraform](../../terraform/resources/mdb_kafka_topic.md).
+  Подробнее в [документации провайдера {{ TF }}]({{ tf-provider-resources-link }}/mdb_kafka_topic).
 
 - REST API {#api}
 
@@ -945,13 +945,13 @@
      export IAM_TOKEN="<IAM-токен>"
      ```
 
-  1. Воспользуйтесь методом [Topic.delete](../api-ref/Topic/delete.md) и выполните запрос, например, с помощью [cURL](https://curl.se/):
+  1. Воспользуйтесь методом [Topic.delete](../api-ref/Topic/delete.md) и выполните запрос, например, с помощью {{ api-examples.rest.tool }}:
 
      ```bash
      curl \
        --request DELETE \
        --header "Authorization: Bearer $IAM_TOKEN" \
-       --url 'https://mdb.api.cloud.yandex.net/managed-kafka/v1/clusters/<идентификатор_кластера>/topics/<имя_топика>'
+       --url 'https://{{ api-host-mdb }}/managed-kafka/v1/clusters/<идентификатор_кластера>/topics/<имя_топика>'
      ```
 
      Идентификатор кластера можно запросить со [списком кластеров в каталоге](cluster-list.md#list-clusters), а имя топика — со [списком топиков в кластере](#list-topics).
@@ -973,7 +973,7 @@
      ```
      
      Далее предполагается, что содержимое репозитория находится в директории `~/cloudapi/`.
-  1. Воспользуйтесь вызовом [TopicService/Delete](../api-ref/grpc/Topic/delete.md) и выполните запрос, например, с помощью [gRPCurl](https://github.com/fullstorydev/grpcurl):
+  1. Воспользуйтесь вызовом [TopicService/Delete](../api-ref/grpc/Topic/delete.md) и выполните запрос, например, с помощью {{ api-examples.grpc.tool }}:
 
      ```bash
      grpcurl \
@@ -986,7 +986,7 @@
              "cluster_id": "<идентификатор_кластера>",
              "topic_name": "<имя_топика>"
            }' \
-       mdb.api.cloud.yandex.net:443 \
+       {{ api-host-mdb }}:{{ port-https }} \
        yandex.cloud.mdb.kafka.v1.TopicService.Delete
      ```
 
@@ -996,10 +996,10 @@
 
 {% endlist %}
 
-## Управление топиками через Admin API Apache Kafka® {#admin-api}
+## Управление топиками через Admin API {{ KF }} {#admin-api}
 
-Чтобы управлять топиками через Admin API Apache Kafka®:
+Чтобы управлять топиками через Admin API {{ KF }}:
 1. [Создайте](cluster-accounts.md#create-account) в кластере пользователя-администратора с ролью `ACCESS_ROLE_ADMIN` или `ACCESS_ROLE_TOPIC_ADMIN`. [Подробнее](../concepts/account-roles.md) о правах, которые предоставляет каждая роль.
-1. Управляйте топиками от имени этого пользователя с помощью запросов к Admin API Apache Kafka®. О работе с Admin API читайте в документации выбранного языка программирования.
+1. Управляйте топиками от имени этого пользователя с помощью запросов к Admin API {{ KF }}. О работе с Admin API читайте в документации выбранного языка программирования.
 
-Подробнее о работе с Admin API и о действующих ограничениях читайте в разделе [Управление топиками и разделами](../concepts/topics.md#management) и в [документации Apache Kafka®](https://kafka.apache.org/42/apis/#admin-api).
+Подробнее о работе с Admin API и о действующих ограничениях читайте в разделе [{#T}](../concepts/topics.md#management) и в [документации {{ KF }}](https://kafka.apache.org/42/apis/#admin-api).

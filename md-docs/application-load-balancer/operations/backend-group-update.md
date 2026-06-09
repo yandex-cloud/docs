@@ -8,18 +8,18 @@
 
   {% note info %}
 
-  Изменить [тип группы](../concepts/backend-group.md#group-types) можно только с помощью других инструментов: [CLI](../../cli/index.md), Terraform, API.
+  Изменить [тип группы](../concepts/backend-group.md#group-types) можно только с помощью других инструментов: [CLI](../../cli/index.md), {{ TF }}, API.
 
   {% endnote %}
 
-  1. В [консоли управления](https://console.yandex.cloud) выберите [каталог](../../resource-manager/concepts/resources-hierarchy.md#folder), в котором создана [группа бэкендов](../concepts/backend-group.md).
-  1. [Перейдите](../../console/operations/select-service.md#select-service) в сервис **Application Load Balancer**.
-  1. На панели слева выберите ![image](../../_assets/console-icons/cubes-3-overlap.svg) **Группы бэкендов**.
+  1. В [консоли управления]({{ link-console-main }}) выберите [каталог](../../resource-manager/concepts/resources-hierarchy.md#folder), в котором создана [группа бэкендов](../concepts/backend-group.md).
+  1. Перейдите в сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_application-load-balancer }}**.
+  1. На панели слева выберите ![image](../../_assets/console-icons/cubes-3-overlap.svg) **{{ ui-key.yacloud.alb.label_backend-groups }}**.
   1. Нажмите на имя нужной группы.
-  1. Нажмите ![image](../../_assets/console-icons/pencil.svg) **Редактировать**.
+  1. Нажмите ![image](../../_assets/console-icons/pencil.svg) **{{ ui-key.yacloud.common.edit }}**.
   1. Измените параметры группы:
-     * **Имя** и **Описание** группы бэкендов.
-     * **Привязка сессий** — опция, при которой запросы в рамках одной пользовательской сессии обрабатывает один и тот же эндпоинт.
+     * **{{ ui-key.yacloud.common.name }}** и **{{ ui-key.yc-ui-datasphere.common.description }}** группы бэкендов.
+     * **{{ ui-key.yacloud.alb.label_session-affinity }}** — опция, при которой запросы в рамках одной пользовательской сессии обрабатывает один и тот же эндпоинт.
 
        {% note info %}
        
@@ -27,19 +27,19 @@
        
        {% endnote %}
 
-       Для группы бэкендов типа `HTTP` или `gRPC` доступны режимы:
-       * `По IP-адресу`.
-       * `По HTTP-заголовку`.
-       * `По cookie`.
+       Для группы бэкендов типа `{{ ui-key.yacloud.alb.label_proto-http }}` или `{{ ui-key.yacloud.alb.label_proto-grpc }}` доступны режимы:
+       * `{{ ui-key.yacloud.alb.label_affinity-connection }}`.
+       * `{{ ui-key.yacloud.alb.label_affinity-header }}`.
+       * `{{ ui-key.yacloud.alb.label_affinity-cookie }}`.
 
-       Для типа `Stream` привязка сессий всегда работает по [IP-адресу](../../vpc/concepts/address.md).
+       Для типа `{{ ui-key.yacloud.alb.label_proto-stream }}` привязка сессий всегда работает по [IP-адресу](../../vpc/concepts/address.md).
 
        Подробнее о привязке сессий и ее режимах см. в [разделе](../concepts/backend-group.md#session-affinity).
-  1. Внизу страницы нажмите кнопку **Сохранить**.
+  1. Внизу страницы нажмите кнопку **{{ ui-key.yacloud.common.save }}**.
 
 - CLI {#cli}
 
-  Если у вас еще нет интерфейса командной строки Yandex Cloud (CLI), [установите и инициализируйте его](../../cli/quickstart.md#install).
+  Если у вас еще нет интерфейса командной строки {{ yandex-cloud }} (CLI), [установите и инициализируйте его](../../cli/quickstart.md#install).
 
   По умолчанию используется каталог, указанный при [создании](../../cli/operations/profile/profile-create.md) профиля CLI. Чтобы изменить каталог по умолчанию, используйте команду `yc config set folder-id <идентификатор_каталога>`. Также для любой команды вы можете указать другой каталог с помощью параметров `--folder-name` или `--folder-id`. Если вы обращаетесь к ресурсу по имени, поиск будет выполнен в каталоге по умолчанию. Если вы обращаетесь к ресурсу по идентификатору, поиск будет выполнен глобально — во всех каталогах с учетом прав доступа.
 
@@ -119,17 +119,20 @@
      created_at: "2022-11-30T17:46:05.599491104Z"
      ```
 
-- Terraform {#tf}
+- {{ TF }} {#tf}
 
-  [Terraform](https://www.terraform.io/) позволяет быстро создать облачную инфраструктуру в Yandex Cloud и управлять ею с помощью файлов конфигураций. В файлах конфигураций хранится описание инфраструктуры на языке HCL (HashiCorp Configuration Language). При изменении файлов конфигураций Terraform автоматически определяет, какая часть вашей конфигурации уже развернута, что следует добавить или удалить.
+  [{{ TF }}](https://www.terraform.io/) позволяет быстро создать облачную инфраструктуру в {{ yandex-cloud }} и управлять ею с помощью файлов конфигураций. В файлах конфигураций хранится описание инфраструктуры на языке HCL (HashiCorp Configuration Language). При изменении файлов конфигураций {{ TF }} автоматически определяет, какая часть вашей конфигурации уже развернута, что следует добавить или удалить.
   
-  Terraform распространяется под лицензией [Business Source License](https://github.com/hashicorp/terraform/blob/main/LICENSE), а [провайдер Yandex Cloud для Terraform](https://github.com/yandex-cloud/terraform-provider-yandex) — под лицензией [MPL-2.0](https://www.mozilla.org/en-US/MPL/2.0/).
+  {{ TF }} распространяется под лицензией [Business Source License](https://github.com/hashicorp/terraform/blob/main/LICENSE), а [провайдер {{ yandex-cloud }} для {{ TF }}](https://github.com/yandex-cloud/terraform-provider-yandex) — под лицензией [MPL-2.0](https://www.mozilla.org/en-US/MPL/2.0/).
   
-  Подробную информацию о ресурсах провайдера смотрите в документации на сайте [Terraform](https://www.terraform.io/docs/providers/yandex/index.html) или в [зеркале](../../terraform/index.md).
+  Подробную информацию о ресурсах провайдера смотрите в документации на сайте [{{ TF }}](https://www.terraform.io/docs/providers/yandex/index.html) или в [зеркале]({{ tf-docs-link }}).
 
-  Если у вас еще нет Terraform, [установите его и настройте провайдер Yandex Cloud](../../tutorials/infrastructure-management/terraform-quickstart.md#install-terraform).
+  Если у вас еще нет {{ TF }}, [установите его и настройте провайдер {{ yandex-cloud }}](../../tutorials/infrastructure-management/terraform-quickstart.md#install-terraform).
+  
+  
+  Чтобы управлять инфраструктурой с помощью {{ TF }} от имени сервисного аккаунта или пользовательских аккаунтов: аккаунта на Яндексе, федеративного аккаунта и локального пользователя, [аутентифицируйтесь](../../terraform/authentication.md) соответствующим способом.
 
-  1. Откройте конфигурационный файл Terraform и измените фрагмент с описанием [группы бэкендов](../concepts/backend-group.md):
+  1. Откройте конфигурационный файл {{ TF }} и измените фрагмент с описанием [группы бэкендов](../concepts/backend-group.md):
 
      ```hcl
      resource "yandex_alb_backend_group" "test-backend-group" {
@@ -168,7 +171,7 @@
        
        {% endnote %}
 
-     Подробную информацию о параметрах ресурса `yandex_alb_backend_group` см. в [документации провайдера Terraform](../../terraform/resources/alb_backend_group.md).
+     Подробную информацию о параметрах ресурса `yandex_alb_backend_group` см. в [документации провайдера {{ TF }}]({{ tf-provider-alb-backendgroup }}).
   1. Примените изменения:
 
      1. В терминале перейдите в директорию с конфигурационным файлом.
@@ -190,7 +193,7 @@
         terraform plan
         ```
      
-        В терминале будет выведен список ресурсов с параметрами. На этом этапе изменения не будут внесены. Если в конфигурации есть ошибки, Terraform на них укажет.
+        В терминале будет выведен список ресурсов с параметрами. На этом этапе изменения не будут внесены. Если в конфигурации есть ошибки, {{ TF }} на них укажет.
      1. Примените изменения конфигурации:
      
         ```bash
@@ -199,7 +202,7 @@
      
      1. Подтвердите изменения: введите в терминале слово `yes` и нажмите **Enter**.
 
-     Проверить изменения группы бэкендов можно в [консоли управления](https://console.yandex.cloud) или с помощью команды [CLI](../../cli/quickstart.md):
+     Проверить изменения группы бэкендов можно в [консоли управления]({{ link-console-main }}) или с помощью команды [CLI](../../cli/quickstart.md):
 
      ```bash
      yc alb backend-group get --name <имя_группы_бэкендов>
@@ -207,7 +210,7 @@
 
      {% note warning "Ограничения по времени" %}
      
-     Провайдер Terraform ограничивает время на выполнение операций с группами бэкендов Application Load Balancer 10 минутами.
+     Провайдер {{ TF }} ограничивает время на выполнение операций с группами бэкендов {{ alb-name }} 10 минутами.
      
      Операции, которые длятся дольше указанного времени, прерываются.
      
@@ -242,77 +245,77 @@
 
 - Консоль управления {#console}
 
-  1. В [консоли управления](https://console.yandex.cloud) выберите каталог, в котором создан бэкенд.
-  1. [Перейдите](../../console/operations/select-service.md#select-service) в сервис **Application Load Balancer**.
-  1. На панели слева выберите ![image](../../_assets/console-icons/cubes-3-overlap.svg) **Группы бэкендов**.
+  1. В [консоли управления]({{ link-console-main }}) выберите каталог, в котором создан бэкенд.
+  1. Перейдите в сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_application-load-balancer }}**.
+  1. На панели слева выберите ![image](../../_assets/console-icons/cubes-3-overlap.svg) **{{ ui-key.yacloud.alb.label_backend-groups }}**.
   1. Нажмите на имя нужной группы.
-  1. Нажмите кнопку ![image](../../_assets/console-icons/plus.svg) **Создать бэкенд**.
+  1. Нажмите кнопку ![image](../../_assets/console-icons/plus.svg) **{{ ui-key.yacloud.alb.button_add-backend }}**.
   1. В открывшемся окне задайте настройки бэкенда:
 
-     * **Имя** бэкенда.
-     * **Вес** — относительный вес бэкенда при распределении трафика. Если опция в поле отключена, эндпоинты бэкенда не будут получать трафик (вес будет равен 0).
-     * **Тип** бэкенда (для группы бэкендов типа `HTTP`): `Целевая группа` ([целевые группы](../concepts/target-group.md) Application Load Balancer) или `Бакет` ([бакет](../../storage/concepts/bucket.md) Object Storage). Для группы бэкендов типа `gRPC` или Stream тип любого бэкенда — `Целевая группа`. Подробнее о типах бэкендов см. в разделе [Типы бэкендов](../concepts/backend-group.md#types).
+     * **{{ ui-key.yacloud.common.name }}** бэкенда.
+     * **{{ ui-key.yacloud.alb.label_backend-weight }}** — относительный вес бэкенда при распределении трафика. Если опция в поле отключена, эндпоинты бэкенда не будут получать трафик (вес будет равен 0).
+     * **{{ ui-key.yacloud.common.type }}** бэкенда (для группы бэкендов типа `{{ ui-key.yacloud.alb.label_proto-http-plain }}`): `{{ ui-key.yacloud.alb.label_target-group }}` ([целевые группы](../concepts/target-group.md) {{ alb-name }}) или `{{ ui-key.yacloud.alb.label_bucket }}` ([бакет](../../storage/concepts/bucket.md) {{ objstorage-name }}). Для группы бэкендов типа `{{ ui-key.yacloud.alb.label_proto-grpc }}` или Stream тип любого бэкенда — `{{ ui-key.yacloud.alb.label_target-group }}`. Подробнее о типах бэкендов см. в разделе [{#T}](../concepts/backend-group.md#types).
      
-     * Следующие настройки доступны только для типа бэкенда **Целевая группа**:
+     * Следующие настройки доступны только для типа бэкенда **{{ ui-key.yacloud.alb.label_target-group }}**:
      
-       * В блоке **Настройки балансировки**:
+       * В блоке **{{ ui-key.yacloud.alb.label_lb-settings }}**:
          
-         * **Режим балансировки** — [режим распределения трафика](../concepts/backend-group.md#balancing-mode) между эндпоинтами бэкенда.
-         * **Порог для режима паники** — доля работоспособных эндпоинтов, при которой включится [режим паники](../concepts/backend-group.md#panic-mode): балансировщик будет распределять запросы во все эндпоинты, не учитывая результаты проверок состояния.
-         * **Локализация трафика** — доля входящего трафика, которую узел балансировщика передает бэкендам из своей зоны доступности. Остальной трафик поровну делится между другими зонами. Подробнее см. в разделе [Локализация трафика](../concepts/backend-group.md#locality).
-         * **Строгая локализация** — опция, при которой балансировщик будет отвечать ошибкой (`503 Service Unavailable`), если в зоне доступности, где был принят запрос, нет работающих бэкендов приложения.
+         * **{{ ui-key.yacloud.alb.label_load-balancing-mode }}** — [режим распределения трафика](../concepts/backend-group.md#balancing-mode) между эндпоинтами бэкенда.
+         * **{{ ui-key.yacloud.alb.label_panic-threshold }}** — доля работоспособных эндпоинтов, при которой включится [режим паники](../concepts/backend-group.md#panic-mode): балансировщик будет распределять запросы во все эндпоинты, не учитывая результаты проверок состояния.
+         * **{{ ui-key.yacloud.alb.label_locality-aware-routing }}** — доля входящего трафика, которую узел балансировщика передает бэкендам из своей зоны доступности. Остальной трафик поровну делится между другими зонами. Подробнее см. в разделе [{#T}](../concepts/backend-group.md#locality).
+         * **{{ ui-key.yacloud.alb.label_strict-locality }}** — опция, при которой балансировщик будет отвечать ошибкой (`503 Service Unavailable`), если в зоне доступности, где был принят запрос, нет работающих бэкендов приложения.
       
-       * В блоке **Настройки протокола**:
+       * В блоке **{{ ui-key.yacloud.alb.label_protocol-settings }}**:
          
-         * Для группы бэкендов типа `HTTP`:
+         * Для группы бэкендов типа `{{ ui-key.yacloud.alb.label_proto-http }}`:
            
-           * **HTTP/2** — опция использования протокола HTTP/2 при отправке запросов к бэкенду для группы бэкендов типа `HTTP`. По умолчанию используется протокол версии 1.1. Группы бэкендов типа `gRPC` поддерживают только HTTP/2-соединения.
-           * **Протокол** — протокол соединений с бэкендом: `HTTP` (без шифрования) или `HTTPS` (с TLS-шифрованием). Для протокола `HTTPS` укажите:
+           * **{{ ui-key.yacloud.alb.label_use-http2 }}** — опция использования протокола HTTP/2 при отправке запросов к бэкенду для группы бэкендов типа `{{ ui-key.yacloud.alb.label_proto-http }}`. По умолчанию используется протокол версии 1.1. Группы бэкендов типа `{{ ui-key.yacloud.alb.label_proto-grpc }}` поддерживают только HTTP/2-соединения.
+           * **{{ ui-key.yacloud.alb.label_protocol }}** — протокол соединений с бэкендом: `{{ ui-key.yacloud.alb.label_proto-http-plain }}` (без шифрования) или `{{ ui-key.yacloud.alb.label_proto-http-tls }}` (с TLS-шифрованием). Для протокола `{{ ui-key.yacloud.alb.label_proto-http-tls }}` укажите:
              
-             * **SNI**. Доменное имя хоста для Server Name Indication — расширения TLS.
-             * **Доверенный корневой сертификат**. Укажите [корневой сертификат](https://en.wikipedia.org/wiki/Root_certificate) (Root CA) для цепочки сертификатов, установленной на эндпоинтах бэкендов.
+             * **{{ ui-key.yacloud.alb.label_sni }}**. Доменное имя хоста для Server Name Indication — расширения TLS.
+             * **{{ ui-key.yacloud.alb.label_trusted-ca }}**. Укажите [корневой сертификат](https://en.wikipedia.org/wiki/Root_certificate) (Root CA) для цепочки сертификатов, установленной на эндпоинтах бэкендов.
      
-               L7‑балансировщик поддерживает [X.509‑сертификаты](https://ru.wikipedia.org/wiki/X.509), соответствующие требованиям [IETF](https://www.ietf.org/) (RFC [2459](https://www.ietf.org/rfc/rfc2459.txt)/[3280](https://www.ietf.org/rfc/rfc3280.txt)/[5280](https://www.ietf.org/rfc/rfc5280.txt)). Для сертификатов с алгоритмом [ECDSA](https://ru.wikipedia.org/wiki/ECDSA) поддерживается только кривая P‑256.
+               L7‑балансировщик поддерживает [X.509‑сертификаты](https://{{ lang }}.wikipedia.org/wiki/X.509), соответствующие требованиям [IETF](https://www.ietf.org/) (RFC [2459](https://www.ietf.org/rfc/rfc2459.txt)/[3280](https://www.ietf.org/rfc/rfc3280.txt)/[5280](https://www.ietf.org/rfc/rfc5280.txt)). Для сертификатов с алгоритмом [ECDSA](https://{{ lang }}.wikipedia.org/wiki/ECDSA) поддерживается только кривая P‑256.
          
-         * Для группы бэкендов типа `gRPC`:
+         * Для группы бэкендов типа `{{ ui-key.yacloud.alb.label_proto-grpc }}`:
      
-           * **Протокол** — протокол соединений с бэкендом: `Открытый` или `Зашифрованный`. Для зашифрованного протокола укажите **SNI** и **Доверенный корневой сертификат** (см. выше).
+           * **{{ ui-key.yacloud.alb.label_protocol }}** — протокол соединений с бэкендом: `{{ ui-key.yacloud.alb.label_proto-grpc-plain }}` или `{{ ui-key.yacloud.alb.label_proto-grpc-tls }}`. Для зашифрованного протокола укажите **{{ ui-key.yacloud.alb.label_sni }}** и **{{ ui-key.yacloud.alb.label_trusted-ca }}** (см. выше).
          
-         * Для группы бэкендов типа `Stream`:
+         * Для группы бэкендов типа `{{ ui-key.yacloud.alb.label_proto-stream }}`:
            
-           * **Протокол PROXY** — опция, при которой балансировщик передает бэкенду метаданные своего соединения с клиентом, в том числе его IP-адрес, по [протоколу PROXY от HAProxy](https://www.haproxy.org/download/1.9/doc/proxy-protocol.txt).
+           * **{{ ui-key.yacloud.alb.label_enable-proxy-protocol }}** — опция, при которой балансировщик передает бэкенду метаданные своего соединения с клиентом, в том числе его IP-адрес, по [протоколу PROXY от HAProxy](https://www.haproxy.org/download/1.9/doc/proxy-protocol.txt).
              
-           * **Протокол** — протокол соединений с бэкендом: `Открытый` или `Зашифрованный`. Для зашифрованного протокола укажите **SNI** и **Доверенный корневой сертификат** (см. выше).
+           * **{{ ui-key.yacloud.alb.label_protocol }}** — протокол соединений с бэкендом: `{{ ui-key.yacloud.alb.label_proto-grpc-plain }}` или `{{ ui-key.yacloud.alb.label_proto-grpc-tls }}`. Для зашифрованного протокола укажите **{{ ui-key.yacloud.alb.label_sni }}** и **{{ ui-key.yacloud.alb.label_trusted-ca }}** (см. выше).
      
-     * Следующие настройки доступны только для типа бэкенда **Бакет** для типа группы бэкендов **HTTP**:
+     * Следующие настройки доступны только для типа бэкенда **{{ ui-key.yacloud.alb.label_bucket }}** для типа группы бэкендов **{{ ui-key.yacloud.alb.label_proto-http }}**:
      
-       * **Формат указания бакета** — выберите одну из опций: `Список` или `ID`.
-       * **Бакет** — выберите из списка или укажите идентификатор нужного бакета.
+       * **{{ ui-key.yacloud.mdb.forms.config_field_form-bucket-type }}** — выберите одну из опций: `{{ ui-key.yacloud.forms.label_form-list }}` или `{{ ui-key.yacloud.forms.label_form-id }}`.
+       * **{{ ui-key.yacloud.alb.label_bucket }}** — выберите из списка или укажите идентификатор нужного бакета.
      
      * В блоке **HTTP проверка состояния**, **gRPC проверка состояния** или **Stream проверка состояния**:
        
-       * **Таймаут, с** — время ожидания ответа. Максимальный период, на который может быть установлено соединение.
-       * **Интервал** — интервал отправки проверочных запросов.
-       * **Порог работоспособности** — количество последовательных успешных проверок, после которых эндпоинт считается работоспособным. Игнорируется в начале работы балансировщика: достаточно одной проверки.
-       * **Порог неработоспособности** — количество последовательных неуспешных проверок, после которых эндпоинт считается неработоспособным. Игнорируется, если бэкенд один раз ответил HTTP-кодом состояния `503 Service Unavailable`: он сразу считается неработоспособным.
-       * **Порт**.
-       * **Тип** — протокол, по которому будет осуществляться проверка: `HTTP`, `gRPC` или `Stream`. Тип проверки может не совпадать с типом группы бэкендов. Дополнительно укажите:
+       * **{{ ui-key.yacloud.alb.label_timeout }}** — время ожидания ответа. Максимальный период, на который может быть установлено соединение.
+       * **{{ ui-key.yacloud.alb.label_interval }}** — интервал отправки проверочных запросов.
+       * **{{ ui-key.yacloud.alb.label_healthy }}** — количество последовательных успешных проверок, после которых эндпоинт считается работоспособным. Игнорируется в начале работы балансировщика: достаточно одной проверки.
+       * **{{ ui-key.yacloud.alb.label_unhealthy }}** — количество последовательных неуспешных проверок, после которых эндпоинт считается неработоспособным. Игнорируется, если бэкенд один раз ответил HTTP-кодом состояния `503 Service Unavailable`: он сразу считается неработоспособным.
+       * **{{ ui-key.yacloud.alb.label_port }}**.
+       * **{{ ui-key.yacloud.common.type }}** — протокол, по которому будет осуществляться проверка: `{{ ui-key.yacloud.alb.label_hc-type-http }}`, `{{ ui-key.yacloud.alb.label_hc-type-grpc }}` или `{{ ui-key.yacloud.alb.label_hc-type-stream }}`. Тип проверки может не совпадать с типом группы бэкендов. Дополнительно укажите:
          
-         * Для типа `HTTP`:
+         * Для типа `{{ ui-key.yacloud.alb.label_hc-type-http }}`:
            
-           * **Путь** — путь в URI запроса к эндпоинту.
-           * **Authority** — значение заголовка `Host` для HTTP/1.1 или псевдо-заголовка `:authority` для HTTP/2, которое будет передаваться эндпоинтам бэкенда при проверках состояния.
-           * **HTTP/2** — опция использования протокола HTTP версии 2.
-           * **HTTP-коды** — список HTTP-кодов, которые считаются корректными при проверке состояния бэкенда.
+           * **{{ ui-key.yacloud.alb.label_path }}** — путь в URI запроса к эндпоинту.
+           * **{{ ui-key.yacloud.alb.label_hc_host }}** — значение заголовка `Host` для HTTP/1.1 или псевдо-заголовка `:authority` для HTTP/2, которое будет передаваться эндпоинтам бэкенда при проверках состояния.
+           * **{{ ui-key.yacloud.alb.label_use-http2 }}** — опция использования протокола HTTP версии 2.
+           * **{{ ui-key.yacloud.alb.label_expected-statuses }}** — список HTTP-кодов, которые считаются корректными при проверке состояния бэкенда.
           
-         * Для типа `gRPC`:
+         * Для типа `{{ ui-key.yacloud.alb.label_hc-type-grpc }}`:
            
-           * **Имя сервиса** — имя проверяемого gRPC-сервиса. Если сервис не указан, проверяется общее состояние бэкенда.
+           * **{{ ui-key.yacloud.alb.label_service-name }}** — имя проверяемого gRPC-сервиса. Если сервис не указан, проверяется общее состояние бэкенда.
           
-         * Для типа `Stream`:
+         * Для типа `{{ ui-key.yacloud.alb.label_hc-type-stream }}`:
            
-           * **Отправка** — данные, которые отправляются на эндпоинт для проверки состояния.
-           * **Получение** — данные, которые должны поступить с эндпоинта, чтобы он прошел проверку состояния.
+           * **{{ ui-key.yacloud.alb.label_send }}** — данные, которые отправляются на эндпоинт для проверки состояния.
+           * **{{ ui-key.yacloud.alb.label_receive }}** — данные, которые должны поступить с эндпоинта, чтобы он прошел проверку состояния.
            
        {% note alert %}
        
@@ -322,15 +325,15 @@
        
        {% endnote %}
      
-       Чтобы добавить проверку состояния, внизу блока бэкенда нажмите кнопку **Добавить проверку состояния** и задайте настройки проверки.
+       Чтобы добавить проверку состояния, внизу блока бэкенда нажмите кнопку **{{ ui-key.yacloud.alb.button_add-healthcheck }}** и задайте настройки проверки.
      
-       Чтобы удалить проверку состояния, напротив заголовка **HTTP проверка состояния**, **gRPC проверка состояния** или **Stream проверка состояния** нажмите ![image](../../_assets/console-icons/ellipsis.svg) и выберите **Удалить**.
+       Чтобы удалить проверку состояния, напротив заголовка **HTTP проверка состояния**, **gRPC проверка состояния** или **Stream проверка состояния** нажмите ![image](../../_assets/console-icons/ellipsis.svg) и выберите **{{ ui-key.yacloud.common.delete }}**.
 
-  1. Нажмите кнопку **Добавить**.
+  1. Нажмите кнопку **{{ ui-key.yacloud.common.add }}**.
 
 - CLI {#cli}
 
-  Если у вас еще нет интерфейса командной строки Yandex Cloud (CLI), [установите и инициализируйте его](../../cli/quickstart.md#install).
+  Если у вас еще нет интерфейса командной строки {{ yandex-cloud }} (CLI), [установите и инициализируйте его](../../cli/quickstart.md#install).
 
   По умолчанию используется каталог, указанный при [создании](../../cli/operations/profile/profile-create.md) профиля CLI. Чтобы изменить каталог по умолчанию, используйте команду `yc config set folder-id <идентификатор_каталога>`. Также для любой команды вы можете указать другой каталог с помощью параметров `--folder-name` или `--folder-id`. Если вы обращаетесь к ресурсу по имени, поиск будет выполнен в каталоге по умолчанию. Если вы обращаетесь к ресурсу по идентификатору, поиск будет выполнен глобально — во всех каталогах с учетом прав доступа.
 
@@ -477,17 +480,20 @@
 
   {% endcut %}
 
-- Terraform {#tf}
+- {{ TF }} {#tf}
 
-  [Terraform](https://www.terraform.io/) позволяет быстро создать облачную инфраструктуру в Yandex Cloud и управлять ею с помощью файлов конфигураций. В файлах конфигураций хранится описание инфраструктуры на языке HCL (HashiCorp Configuration Language). При изменении файлов конфигураций Terraform автоматически определяет, какая часть вашей конфигурации уже развернута, что следует добавить или удалить.
+  [{{ TF }}](https://www.terraform.io/) позволяет быстро создать облачную инфраструктуру в {{ yandex-cloud }} и управлять ею с помощью файлов конфигураций. В файлах конфигураций хранится описание инфраструктуры на языке HCL (HashiCorp Configuration Language). При изменении файлов конфигураций {{ TF }} автоматически определяет, какая часть вашей конфигурации уже развернута, что следует добавить или удалить.
   
-  Terraform распространяется под лицензией [Business Source License](https://github.com/hashicorp/terraform/blob/main/LICENSE), а [провайдер Yandex Cloud для Terraform](https://github.com/yandex-cloud/terraform-provider-yandex) — под лицензией [MPL-2.0](https://www.mozilla.org/en-US/MPL/2.0/).
+  {{ TF }} распространяется под лицензией [Business Source License](https://github.com/hashicorp/terraform/blob/main/LICENSE), а [провайдер {{ yandex-cloud }} для {{ TF }}](https://github.com/yandex-cloud/terraform-provider-yandex) — под лицензией [MPL-2.0](https://www.mozilla.org/en-US/MPL/2.0/).
   
-  Подробную информацию о ресурсах провайдера смотрите в документации на сайте [Terraform](https://www.terraform.io/docs/providers/yandex/index.html) или в [зеркале](../../terraform/index.md).
+  Подробную информацию о ресурсах провайдера смотрите в документации на сайте [{{ TF }}](https://www.terraform.io/docs/providers/yandex/index.html) или в [зеркале]({{ tf-docs-link }}).
 
-  Если у вас еще нет Terraform, [установите его и настройте провайдер Yandex Cloud](../../tutorials/infrastructure-management/terraform-quickstart.md#install-terraform).
+  Если у вас еще нет {{ TF }}, [установите его и настройте провайдер {{ yandex-cloud }}](../../tutorials/infrastructure-management/terraform-quickstart.md#install-terraform).
+  
+  
+  Чтобы управлять инфраструктурой с помощью {{ TF }} от имени сервисного аккаунта или пользовательских аккаунтов: аккаунта на Яндексе, федеративного аккаунта и локального пользователя, [аутентифицируйтесь](../../terraform/authentication.md) соответствующим способом.
 
-  1. Откройте конфигурационный файл Terraform и добавьте блок с описанием бэкенда (`http_backend`, `grpc_backend` или `stream_backend`) во фрагмент с описанием группы бэкендов:
+  1. Откройте конфигурационный файл {{ TF }} и добавьте блок с описанием бэкенда (`http_backend`, `grpc_backend` или `stream_backend`) во фрагмент с описанием группы бэкендов:
 
      ```hcl
      resource "yandex_alb_backend_group" "test-backend-group" {
@@ -552,7 +558,7 @@
        
        {% endnote %}
 
-     Подробную информацию о параметрах ресурса `yandex_alb_backend_group` см. в [документации провайдера Terraform](../../terraform/resources/alb_backend_group.md).
+     Подробную информацию о параметрах ресурса `yandex_alb_backend_group` см. в [документации провайдера {{ TF }}]({{ tf-provider-alb-backendgroup }}).
   1. Примените изменения:
 
      1. В терминале перейдите в директорию с конфигурационным файлом.
@@ -574,7 +580,7 @@
         terraform plan
         ```
      
-        В терминале будет выведен список ресурсов с параметрами. На этом этапе изменения не будут внесены. Если в конфигурации есть ошибки, Terraform на них укажет.
+        В терминале будет выведен список ресурсов с параметрами. На этом этапе изменения не будут внесены. Если в конфигурации есть ошибки, {{ TF }} на них укажет.
      1. Примените изменения конфигурации:
      
         ```bash
@@ -583,7 +589,7 @@
      
      1. Подтвердите изменения: введите в терминале слово `yes` и нажмите **Enter**.
 
-     Проверить изменения группы бэкендов можно в [консоли управления](https://console.yandex.cloud) или с помощью команды CLI:
+     Проверить изменения группы бэкендов можно в [консоли управления]({{ link-console-main }}) или с помощью команды CLI:
 
      ```bash
      yc alb backend-group get --name <имя_группы_бэкендов>
@@ -591,7 +597,7 @@
 
      {% note warning "Ограничения по времени" %}
      
-     Провайдер Terraform ограничивает время на выполнение операций с группами бэкендов Application Load Balancer 10 минутами.
+     Провайдер {{ TF }} ограничивает время на выполнение операций с группами бэкендов {{ alb-name }} 10 минутами.
      
      Операции, которые длятся дольше указанного времени, прерываются.
      
@@ -626,17 +632,17 @@
 
 - Консоль управления {#console}
 
-  1. В [консоли управления](https://console.yandex.cloud) выберите каталог, в котором создан бэкенд.
-  1. [Перейдите](../../console/operations/select-service.md#select-service) в сервис **Application Load Balancer**.
-  1. На панели слева выберите ![image](../../_assets/console-icons/cubes-3-overlap.svg) **Группы бэкендов**.
+  1. В [консоли управления]({{ link-console-main }}) выберите каталог, в котором создан бэкенд.
+  1. Перейдите в сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_application-load-balancer }}**.
+  1. На панели слева выберите ![image](../../_assets/console-icons/cubes-3-overlap.svg) **{{ ui-key.yacloud.alb.label_backend-groups }}**.
   1. Нажмите на имя нужной группы.
-  1. Напротив имени бэкенда нажмите ![image](../../_assets/console-icons/ellipsis.svg) и выберите **Редактировать**.
+  1. Напротив имени бэкенда нажмите ![image](../../_assets/console-icons/ellipsis.svg) и выберите **{{ ui-key.yacloud.common.edit }}**.
   1. В открывшемся окне задайте настройки бэкенда. Подробнее о настройках см. [выше](#add-backend).
-  1. Нажмите кнопку **Сохранить**.
+  1. Нажмите кнопку **{{ ui-key.yacloud.common.save }}**.
 
 - CLI {#cli}
 
-  Если у вас еще нет интерфейса командной строки Yandex Cloud (CLI), [установите и инициализируйте его](../../cli/quickstart.md#install).
+  Если у вас еще нет интерфейса командной строки {{ yandex-cloud }} (CLI), [установите и инициализируйте его](../../cli/quickstart.md#install).
 
   По умолчанию используется каталог, указанный при [создании](../../cli/operations/profile/profile-create.md) профиля CLI. Чтобы изменить каталог по умолчанию, используйте команду `yc config set folder-id <идентификатор_каталога>`. Также для любой команды вы можете указать другой каталог с помощью параметров `--folder-name` или `--folder-id`. Если вы обращаетесь к ресурсу по имени, поиск будет выполнен в каталоге по умолчанию. Если вы обращаетесь к ресурсу по идентификатору, поиск будет выполнен глобально — во всех каталогах с учетом прав доступа.
 
@@ -787,17 +793,20 @@
      
      {% endnote %}
 
-- Terraform {#tf}
+- {{ TF }} {#tf}
 
-  [Terraform](https://www.terraform.io/) позволяет быстро создать облачную инфраструктуру в Yandex Cloud и управлять ею с помощью файлов конфигураций. В файлах конфигураций хранится описание инфраструктуры на языке HCL (HashiCorp Configuration Language). При изменении файлов конфигураций Terraform автоматически определяет, какая часть вашей конфигурации уже развернута, что следует добавить или удалить.
+  [{{ TF }}](https://www.terraform.io/) позволяет быстро создать облачную инфраструктуру в {{ yandex-cloud }} и управлять ею с помощью файлов конфигураций. В файлах конфигураций хранится описание инфраструктуры на языке HCL (HashiCorp Configuration Language). При изменении файлов конфигураций {{ TF }} автоматически определяет, какая часть вашей конфигурации уже развернута, что следует добавить или удалить.
   
-  Terraform распространяется под лицензией [Business Source License](https://github.com/hashicorp/terraform/blob/main/LICENSE), а [провайдер Yandex Cloud для Terraform](https://github.com/yandex-cloud/terraform-provider-yandex) — под лицензией [MPL-2.0](https://www.mozilla.org/en-US/MPL/2.0/).
+  {{ TF }} распространяется под лицензией [Business Source License](https://github.com/hashicorp/terraform/blob/main/LICENSE), а [провайдер {{ yandex-cloud }} для {{ TF }}](https://github.com/yandex-cloud/terraform-provider-yandex) — под лицензией [MPL-2.0](https://www.mozilla.org/en-US/MPL/2.0/).
   
-  Подробную информацию о ресурсах провайдера смотрите в документации на сайте [Terraform](https://www.terraform.io/docs/providers/yandex/index.html) или в [зеркале](../../terraform/index.md).
+  Подробную информацию о ресурсах провайдера смотрите в документации на сайте [{{ TF }}](https://www.terraform.io/docs/providers/yandex/index.html) или в [зеркале]({{ tf-docs-link }}).
 
-  Если у вас еще нет Terraform, [установите его и настройте провайдер Yandex Cloud](../../tutorials/infrastructure-management/terraform-quickstart.md#install-terraform).
+  Если у вас еще нет {{ TF }}, [установите его и настройте провайдер {{ yandex-cloud }}](../../tutorials/infrastructure-management/terraform-quickstart.md#install-terraform).
+  
+  
+  Чтобы управлять инфраструктурой с помощью {{ TF }} от имени сервисного аккаунта или пользовательских аккаунтов: аккаунта на Яндексе, федеративного аккаунта и локального пользователя, [аутентифицируйтесь](../../terraform/authentication.md) соответствующим способом.
 
-  1. Откройте конфигурационный файл Terraform и измените параметры блока с описанием бэкенда (`http_backend`, `grpc_backend` или `stream_backend`) во фрагменте с описанием группы бэкендов:
+  1. Откройте конфигурационный файл {{ TF }} и измените параметры блока с описанием бэкенда (`http_backend`, `grpc_backend` или `stream_backend`) во фрагменте с описанием группы бэкендов:
 
      ```hcl
      resource "yandex_alb_backend_group" "test-backend-group" {
@@ -862,7 +871,7 @@
        
        {% endnote %}
 
-     Подробную информацию о параметрах ресурса `yandex_alb_backend_group` см. в [документации провайдера Terraform](../../terraform/resources/alb_backend_group.md).
+     Подробную информацию о параметрах ресурса `yandex_alb_backend_group` см. в [документации провайдера {{ TF }}]({{ tf-provider-alb-backendgroup }}).
   1. Примените изменения:
 
      1. В терминале перейдите в директорию с конфигурационным файлом.
@@ -884,7 +893,7 @@
         terraform plan
         ```
      
-        В терминале будет выведен список ресурсов с параметрами. На этом этапе изменения не будут внесены. Если в конфигурации есть ошибки, Terraform на них укажет.
+        В терминале будет выведен список ресурсов с параметрами. На этом этапе изменения не будут внесены. Если в конфигурации есть ошибки, {{ TF }} на них укажет.
      1. Примените изменения конфигурации:
      
         ```bash
@@ -893,7 +902,7 @@
      
      1. Подтвердите изменения: введите в терминале слово `yes` и нажмите **Enter**.
 
-     Проверить изменения группы бэкендов можно в [консоли управления](https://console.yandex.cloud) или с помощью команды CLI:
+     Проверить изменения группы бэкендов можно в [консоли управления]({{ link-console-main }}) или с помощью команды CLI:
 
      ```bash
      yc alb backend-group get --name <имя_группы_бэкендов>
@@ -901,7 +910,7 @@
 
      {% note warning "Ограничения по времени" %}
      
-     Провайдер Terraform ограничивает время на выполнение операций с группами бэкендов Application Load Balancer 10 минутами.
+     Провайдер {{ TF }} ограничивает время на выполнение операций с группами бэкендов {{ alb-name }} 10 минутами.
      
      Операции, которые длятся дольше указанного времени, прерываются.
      
@@ -938,16 +947,16 @@
 
 - Консоль управления {#console}
 
-  1. В [консоли управления](https://console.yandex.cloud) выберите каталог, в котором создан бэкенд.
-  1. [Перейдите](../../console/operations/select-service.md#select-service) в сервис **Application Load Balancer**.
-  1. На панели слева выберите ![image](../../_assets/console-icons/cubes-3-overlap.svg) **Группы бэкендов**.
+  1. В [консоли управления]({{ link-console-main }}) выберите каталог, в котором создан бэкенд.
+  1. Перейдите в сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_application-load-balancer }}**.
+  1. На панели слева выберите ![image](../../_assets/console-icons/cubes-3-overlap.svg) **{{ ui-key.yacloud.alb.label_backend-groups }}**.
   1. Нажмите на имя нужной группы.
-  1. Напротив имени бэкенда нажмите ![image](../../_assets/console-icons/ellipsis.svg) и выберите **Удалить**.
-  1. В открывшемся окне нажмите кнопку **Удалить**.
+  1. Напротив имени бэкенда нажмите ![image](../../_assets/console-icons/ellipsis.svg) и выберите **{{ ui-key.yacloud.common.delete }}**.
+  1. В открывшемся окне нажмите кнопку **{{ ui-key.yacloud.common.delete }}**.
 
 - CLI {#cli}
 
-  Если у вас еще нет интерфейса командной строки Yandex Cloud (CLI), [установите и инициализируйте его](../../cli/quickstart.md#install).
+  Если у вас еще нет интерфейса командной строки {{ yandex-cloud }} (CLI), [установите и инициализируйте его](../../cli/quickstart.md#install).
 
   По умолчанию используется каталог, указанный при [создании](../../cli/operations/profile/profile-create.md) профиля CLI. Чтобы изменить каталог по умолчанию, используйте команду `yc config set folder-id <идентификатор_каталога>`. Также для любой команды вы можете указать другой каталог с помощью параметров `--folder-name` или `--folder-id`. Если вы обращаетесь к ресурсу по имени, поиск будет выполнен в каталоге по умолчанию. Если вы обращаетесь к ресурсу по идентификатору, поиск будет выполнен глобально — во всех каталогах с учетом прав доступа.
 
@@ -991,19 +1000,22 @@
      created_at: "2021-02-11T20:46:21.688940670Z"
      ```
 
-- Terraform {#tf}
+- {{ TF }} {#tf}
 
-  [Terraform](https://www.terraform.io/) позволяет быстро создать облачную инфраструктуру в Yandex Cloud и управлять ею с помощью файлов конфигураций. В файлах конфигураций хранится описание инфраструктуры на языке HCL (HashiCorp Configuration Language). При изменении файлов конфигураций Terraform автоматически определяет, какая часть вашей конфигурации уже развернута, что следует добавить или удалить.
+  [{{ TF }}](https://www.terraform.io/) позволяет быстро создать облачную инфраструктуру в {{ yandex-cloud }} и управлять ею с помощью файлов конфигураций. В файлах конфигураций хранится описание инфраструктуры на языке HCL (HashiCorp Configuration Language). При изменении файлов конфигураций {{ TF }} автоматически определяет, какая часть вашей конфигурации уже развернута, что следует добавить или удалить.
   
-  Terraform распространяется под лицензией [Business Source License](https://github.com/hashicorp/terraform/blob/main/LICENSE), а [провайдер Yandex Cloud для Terraform](https://github.com/yandex-cloud/terraform-provider-yandex) — под лицензией [MPL-2.0](https://www.mozilla.org/en-US/MPL/2.0/).
+  {{ TF }} распространяется под лицензией [Business Source License](https://github.com/hashicorp/terraform/blob/main/LICENSE), а [провайдер {{ yandex-cloud }} для {{ TF }}](https://github.com/yandex-cloud/terraform-provider-yandex) — под лицензией [MPL-2.0](https://www.mozilla.org/en-US/MPL/2.0/).
   
-  Подробную информацию о ресурсах провайдера смотрите в документации на сайте [Terraform](https://www.terraform.io/docs/providers/yandex/index.html) или в [зеркале](../../terraform/index.md).
+  Подробную информацию о ресурсах провайдера смотрите в документации на сайте [{{ TF }}](https://www.terraform.io/docs/providers/yandex/index.html) или в [зеркале]({{ tf-docs-link }}).
 
-  Если у вас еще нет Terraform, [установите его и настройте провайдер Yandex Cloud](../../tutorials/infrastructure-management/terraform-quickstart.md#install-terraform).
+  Если у вас еще нет {{ TF }}, [установите его и настройте провайдер {{ yandex-cloud }}](../../tutorials/infrastructure-management/terraform-quickstart.md#install-terraform).
+  
+  
+  Чтобы управлять инфраструктурой с помощью {{ TF }} от имени сервисного аккаунта или пользовательских аккаунтов: аккаунта на Яндексе, федеративного аккаунта и локального пользователя, [аутентифицируйтесь](../../terraform/authentication.md) соответствующим способом.
 
-  1. Откройте конфигурационный файл Terraform и удалите блок с описанием бэкенда (`http_backend`, `grpc_backend` или `stream_backend`) во фрагменте с описанием группы бэкендов.
+  1. Откройте конфигурационный файл {{ TF }} и удалите блок с описанием бэкенда (`http_backend`, `grpc_backend` или `stream_backend`) во фрагменте с описанием группы бэкендов.
 
-     Пример описания группы бэкендов в конфигурации Terraform:
+     Пример описания группы бэкендов в конфигурации {{ TF }}:
 
      ```hcl
      resource "yandex_alb_backend_group" "test-backend-group" {
@@ -1030,7 +1042,7 @@
      }
      ```
 
-     Подробную информацию о параметрах ресурса `yandex_alb_backend_group` см. в [документации провайдера Terraform](../../terraform/resources/alb_backend_group.md).
+     Подробную информацию о параметрах ресурса `yandex_alb_backend_group` см. в [документации провайдера {{ TF }}]({{ tf-provider-alb-backendgroup }}).
   1. Примените изменения:
 
      1. В терминале перейдите в директорию с конфигурационным файлом.
@@ -1052,7 +1064,7 @@
         terraform plan
         ```
      
-        В терминале будет выведен список ресурсов с параметрами. На этом этапе изменения не будут внесены. Если в конфигурации есть ошибки, Terraform на них укажет.
+        В терминале будет выведен список ресурсов с параметрами. На этом этапе изменения не будут внесены. Если в конфигурации есть ошибки, {{ TF }} на них укажет.
      1. Примените изменения конфигурации:
      
         ```bash
@@ -1061,7 +1073,7 @@
      
      1. Подтвердите изменения: введите в терминале слово `yes` и нажмите **Enter**.
 
-     Проверить изменения группы бэкендов можно в [консоли управления](https://console.yandex.cloud) или с помощью команды CLI:
+     Проверить изменения группы бэкендов можно в [консоли управления]({{ link-console-main }}) или с помощью команды CLI:
 
      ```bash
      yc alb backend-group get --name <имя_группы_бэкендов>
@@ -1075,4 +1087,4 @@
 
 ### См. также {#see-also}
 
-* [Рекомендации по настройке проверок состояния Yandex Application Load Balancer](../concepts/best-practices.md)
+* [{#T}](../concepts/best-practices.md)

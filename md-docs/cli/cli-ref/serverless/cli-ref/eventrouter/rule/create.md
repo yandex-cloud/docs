@@ -213,9 +213,6 @@ Set the custom configuration file. ||
 Enable gRPC retries. By default, retries are enabled with maximum 5 attempts.
 Pass 0 to disable retries. Pass any negative value for infinite retries.
 Even infinite retries are capped with 2 minutes timeout. ||
-|| `--syntax` | `string`
-
-CLI syntax: 1 (legacy) or 2 (current). Omit to use default-syntax in the profile or the product default. ||
 || `--cloud-id` | `string`
 
 Set the ID of the cloud to use. ||
@@ -243,12 +240,3 @@ Set the output format: text (default), yaml, json, json-rest. ||
 Query to select values from the response using jq syntax ||
 || `-h`, `--help` | Display help for the command. ||
 |#
-#### Examples
-
- * [Создать правило с приемником Yandex API Gateway](../../../../../../serverless-integrations/operations/eventrouter/rule/create-api-gw.md#cli_1)
- * [Создать правило с приемником Yandex Data Streams](../../../../../../serverless-integrations/operations/eventrouter/rule/create-data-streams.md#cli_1)
- * [Создать правило с приемником Yandex Cloud Functions](../../../../../../serverless-integrations/operations/eventrouter/rule/create-functions.md#cli_1)
- * [Создать правило с приемником Yandex Cloud Logging](../../../../../../serverless-integrations/operations/eventrouter/rule/create-logging.md#cli_1)
- * [Создать правило с приемником Yandex Message Queue](../../../../../../serverless-integrations/operations/eventrouter/rule/create-message-queue.md#cli_1)
- * [Создать правило с приемником Yandex Serverless Containers](../../../../../../serverless-integrations/operations/eventrouter/rule/create-serverless-containers.md#cli_1)
- * [Создать правило с приемником Yandex Workflows](../../../../../../serverless-integrations/operations/eventrouter/rule/create-workflows.md#cli_1)

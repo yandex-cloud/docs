@@ -5,7 +5,7 @@ Unbinds the access policy template from the cloud.
 ## HTTP request
 
 ```
-POST https://resource-manager.api.cloud.yandex.net/resource-manager/v1/clouds/{resourceId}:unbindAccessPolicy
+POST https://resource-manager.{{ api-host }}/resource-manager/v1/clouds/{resourceId}:unbindAccessPolicy
 ```
 
 ## Path parameters
@@ -17,7 +17,7 @@ POST https://resource-manager.api.cloud.yandex.net/resource-manager/v1/clouds/{r
 Required field. ID of the resource for which access policy bindings are being removed.
 To get the resource ID, use a corresponding List request.
 
-The maximum string length in characters is 50. ||
+The maximum string length in characters is 64. ||
 |#
 
 ## Body parameters {#yandex.cloud.access.UnbindAccessPolicyRequest}
@@ -47,10 +47,7 @@ Required field. ID of the access policy. ||
   "createdBy": "string",
   "modifiedAt": "string",
   "done": "boolean",
-  "metadata": {
-    "resourceId": "string",
-    "accessPolicyTemplateId": "string"
-  },
+  "metadata": "object",
   // Includes only one of the fields `error`, `response`
   "error": {
     "code": "integer",
@@ -101,7 +98,7 @@ In some languages, built-in datetime utilities do not support nanosecond precisi
 
 If the value is `false`, it means the operation is still in progress.
 If `true`, the operation is completed, and either `error` or `response` is available. ||
-|| metadata | **[UnbindAccessPolicyMetadata](#yandex.cloud.access.UnbindAccessPolicyMetadata)**
+|| metadata | **object**
 
 Service-specific metadata associated with the operation.
 It typically contains the ID of the target resource that the operation is performed on.
@@ -131,18 +128,6 @@ The operation result.
 If `done == false` and there was no failure detected, neither `error` nor `response` is set.
 If `done == false` and there was a failure detected, `error` is set.
 If `done == true`, exactly one of `error` or `response` is set. ||
-|#
-
-## UnbindAccessPolicyMetadata {#yandex.cloud.access.UnbindAccessPolicyMetadata}
-
-#|
-||Field | Description ||
-|| resourceId | **string**
-
-ID of the resource for which access policy bindings are being removed. ||
-|| accessPolicyTemplateId | **string**
-
-ID of the access policy. ||
 |#
 
 ## Status {#google.rpc.Status}

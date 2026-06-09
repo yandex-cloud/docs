@@ -1,4 +1,4 @@
-# Изменить триггер в Yandex API Gateway
+# Изменить триггер в {{ api-gw-full-name }}
 
 Вы можете изменить все параметры, кроме типа триггера и запускаемого ресурса.
 
@@ -12,16 +12,16 @@
 
 - Консоль управления {#console}
 
-  1. В [консоли управления](https://console.yandex.cloud) перейдите в каталог, в котором находится триггер.
-  1. [Перейдите](../../../console/operations/select-service.md#select-service) в сервис **API Gateway**.
-  1. На панели слева выберите ![image](../../../_assets/console-icons/gear-play.svg) **Триггеры**.
+  1. В [консоли управления]({{ link-console-main }}) перейдите в каталог, в котором находится триггер.
+  1. Перейдите в сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_api-gateway }}**.
+  1. На панели слева выберите ![image](../../../_assets/console-icons/gear-play.svg) **{{ ui-key.yacloud.serverless-functions.switch_list-triggers }}**.
   1. Выберите триггер, параметры которого хотите изменить.
-  1. Нажмите ![image](../../../_assets/console-icons/pencil.svg) **Редактировать**.
-  1. Измените параметры триггера и нажмите кнопку **Сохранить**.
+  1. Нажмите ![image](../../../_assets/console-icons/pencil.svg) **{{ ui-key.yacloud.common.edit }}**.
+  1. Измените параметры триггера и нажмите кнопку **{{ ui-key.yacloud.serverless-functions.triggers.form.button_update-trigger }}**.
 
 - CLI {#cli}
 
-  Если у вас еще нет интерфейса командной строки Yandex Cloud (CLI), [установите и инициализируйте его](../../../cli/quickstart.md#install).
+  Если у вас еще нет интерфейса командной строки {{ yandex-cloud }} (CLI), [установите и инициализируйте его](../../../cli/quickstart.md#install).
 
   По умолчанию используется каталог, указанный при [создании](../../../cli/operations/profile/profile-create.md) профиля CLI. Чтобы изменить каталог по умолчанию, используйте команду `yc config set folder-id <идентификатор_каталога>`. Также для любой команды вы можете указать другой каталог с помощью параметров `--folder-name` или `--folder-id`. Если вы обращаетесь к ресурсу по имени, поиск будет выполнен в каталоге по умолчанию. Если вы обращаетесь к ресурсу по идентификатору, поиск будет выполнен глобально — во всех каталогах с учетом прав доступа.
 

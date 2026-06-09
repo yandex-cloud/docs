@@ -5,7 +5,7 @@ Lists existing access bindings for the specified container.
 ## HTTP request
 
 ```
-GET https://serverless-containers.api.cloud.yandex.net/containers/v1/containers/{resourceId}:listAccessBindings
+GET https://serverless-containers.{{ api-host }}/containers/v1/containers/{resourceId}:listAccessBindings
 ```
 
 ## Path parameters

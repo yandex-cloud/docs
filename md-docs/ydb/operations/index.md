@@ -1,9 +1,9 @@
-# Пошаговые инструкции для Managed Service for YDB
+# Пошаговые инструкции для {{ ydb-name }}
 
-* [Подключение к БД с помощью YDB CLI](connection.md)
-* [Управление базами данных YDB](manage-databases.md)
-* [Миграция базы данных YDB в другую зону доступности](migration-to-an-availability-zone.md)
-* [Управление таблицами и директориями](schema.md)
-* [Чтение и запись данных](crud.md)
-* [Мониторинг состояния базы данных](monitoring.md)
-* [Как использовать LLM для работы с Yandex Managed Service for YDB через MCP-сервер: пример на IDE Cursor](ydb-mcp-cursor.md)
+* [{#T}](connection.md)
+* [{#T}](manage-databases.md)
+* [{#T}](migration-to-an-availability-zone.md)
+* [{#T}](schema.md)
+* [{#T}](crud.md)
+* [{#T}](monitoring.md)
+* [{#T}](ydb-mcp-cursor.md)

@@ -5,7 +5,7 @@ Lists operations for the specified key.
 ## HTTP request
 
 ```
-GET https://iam.api.cloud.yandex.net/iam/v1/keys/{keyId}/operations
+GET https://iam.{{ api-host }}/iam/v1/keys/{keyId}/operations
 ```
 
 ## Path parameters

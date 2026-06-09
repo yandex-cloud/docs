@@ -5,7 +5,7 @@ Returns list of available ClickHouse versions.
 ## HTTP request
 
 ```
-GET https://mdb.api.cloud.yandex.net/managed-clickhouse/v1/versions
+GET https://{{ api-host-mdb }}/managed-clickhouse/v1/versions
 ```
 
 ## Query parameters {#yandex.cloud.mdb.clickhouse.v1.ListVersionsRequest}
@@ -17,6 +17,7 @@ GET https://mdb.api.cloud.yandex.net/managed-clickhouse/v1/versions
 The maximum number of results per page that should be returned. If the number of available
 results is larger than `pageSize`, the service returns a [ListVersionsResponse.nextPageToken](#yandex.cloud.mdb.clickhouse.v1.ListVersionsResponse) that can be used
 to get the next page of results in subsequent ListVersions requests.
+
 Default value: 100.
 
 Acceptable values are 0 to 1000, inclusive. ||

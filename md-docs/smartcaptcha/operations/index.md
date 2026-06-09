@@ -1,17 +1,17 @@
-# Пошаговые инструкции для Yandex SmartCaptcha
+# Пошаговые инструкции для {{ captcha-name }}
 
-* [Создать капчу](create-captcha.md)
-* [Удалить капчу](delete-captcha.md)
-* [Получить ключи капчи](get-keys.md)
-* [Добавить виджет SmartCaptcha](advanced-method.md)
-
+* [{#T}](create-captcha.md)
+* [{#T}](delete-captcha.md)
+* [{#T}](get-keys.md)
+* [{#T}](advanced-method.md)
+* [{#T}](validate-captcha.md)
 
 ## Получение информации о капче {#get-info}
 
-* [Получить список капч](get-list.md)
-* [Получить информацию о капче](get-info.md)
-
+* [{#T}](get-list.md)
+* [{#T}](get-info.md)
 
 ## Получение дополнительной информации {#get-additional-info}
 
-* [Посмотреть операции с ресурсами сервиса SmartCaptcha](operation-logs.md)
+* [{#T}](operation-logs.md)
+* [{#T}](api-migration.md)

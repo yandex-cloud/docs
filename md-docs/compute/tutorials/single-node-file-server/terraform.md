@@ -1,6 +1,6 @@
-# Однонодовый файловый сервер с помощью Terraform
+# Однонодовый файловый сервер с помощью {{ TF }}
 
-Чтобы создать инфраструктуру для [однонодового файлового сервера](index.md) с помощью Terraform:
+Чтобы создать инфраструктуру для [однонодового файлового сервера](index.md) с помощью {{ TF }}:
 
 1. [Подготовьте облако к работе](#before-begin).
 1. [Создайте инфраструктуру](#deploy).
@@ -11,31 +11,31 @@
 
 ## Перед началом работы {#before-you-begin}
 
-Зарегистрируйтесь в Yandex Cloud и создайте [платежный аккаунт](../../../billing/concepts/billing-account.md):
-1. Перейдите в [консоль управления](https://console.yandex.cloud), затем войдите в Yandex Cloud или зарегистрируйтесь.
-1. На странице **[Yandex Cloud Billing](https://center.yandex.cloud/billing/accounts)** убедитесь, что у вас подключен платежный аккаунт, и он находится в [статусе](../../../billing/concepts/billing-account-statuses.md) `ACTIVE` или `TRIAL_ACTIVE`. Если платежного аккаунта нет, [создайте его](../../../billing/quickstart/index.md) и [привяжите](../../../billing/operations/pin-cloud.md) к нему облако.
+Зарегистрируйтесь в {{ yandex-cloud }} и создайте [платежный аккаунт](../../../billing/concepts/billing-account.md):
+1. Перейдите в [консоль управления]({{ link-console-main }}), затем войдите в {{ yandex-cloud }} или зарегистрируйтесь.
+1. На странице **[{{ ui-key.yacloud_billing.billing.label_service }}]({{ link-console-billing }})** убедитесь, что у вас подключен платежный аккаунт, и он находится в [статусе](../../../billing/concepts/billing-account-statuses.md) `ACTIVE` или `TRIAL_ACTIVE`. Если платежного аккаунта нет, [создайте его](../../../billing/quickstart/index.md) и [привяжите](../../../billing/operations/pin-cloud.md) к нему облако.
 
-Если у вас есть активный платежный аккаунт, вы можете создать или выбрать [каталог](../../../resource-manager/concepts/resources-hierarchy.md#folder), в котором будет работать ваша инфраструктура, на [странице облака](https://console.yandex.cloud/cloud).
+Если у вас есть активный платежный аккаунт, вы можете создать или выбрать [каталог](../../../resource-manager/concepts/resources-hierarchy.md#folder), в котором будет работать ваша инфраструктура, на [странице облака]({{ link-console-cloud }}).
 
 [Подробнее об облаках и каталогах](../../../resource-manager/concepts/resources-hierarchy.md).
 
 ### Необходимые платные ресурсы {#paid-resources}
 
 В стоимость поддержки однонодового файлового сервера входит:
-* плата за постоянно запущенную [ВМ](../../concepts/vm.md) (см. [тарифы Yandex Compute Cloud](../../pricing.md));
-* плата за использование динамического или статического [публичного IP-адреса](../../../vpc/concepts/address.md#public-adresses) (см. [тарифы Yandex Virtual Private Cloud](../../../vpc/pricing.md));
-* плата за исходящий трафик (см. [тарифы Yandex Virtual Private Cloud](../../../vpc/pricing.md#prices-traffic)).
+* плата за постоянно запущенную [ВМ](../../concepts/vm.md) (см. [тарифы {{ compute-full-name }}](../../pricing.md));
+* плата за использование динамического или статического [публичного IP-адреса](../../../vpc/concepts/address.md#public-adresses) (см. [тарифы {{ vpc-full-name }}](../../../vpc/pricing.md));
+* плата за исходящий трафик (см. [тарифы {{ vpc-full-name }}](../../../vpc/pricing.md#prices-traffic)).
 
 ## Создайте инфраструктуру {#deploy}
 
-[Terraform](https://www.terraform.io/) позволяет быстро создать облачную инфраструктуру в Yandex Cloud и управлять ею с помощью файлов конфигураций. В файлах конфигураций хранится описание инфраструктуры на языке HCL (HashiCorp Configuration Language). При изменении файлов конфигураций Terraform автоматически определяет, какая часть вашей конфигурации уже развернута, что следует добавить или удалить.
+[{{ TF }}](https://www.terraform.io/) позволяет быстро создать облачную инфраструктуру в {{ yandex-cloud }} и управлять ею с помощью файлов конфигураций. В файлах конфигураций хранится описание инфраструктуры на языке HCL (HashiCorp Configuration Language). При изменении файлов конфигураций {{ TF }} автоматически определяет, какая часть вашей конфигурации уже развернута, что следует добавить или удалить.
 
-Terraform распространяется под лицензией [Business Source License](https://github.com/hashicorp/terraform/blob/main/LICENSE), а [провайдер Yandex Cloud для Terraform](https://github.com/yandex-cloud/terraform-provider-yandex) — под лицензией [MPL-2.0](https://www.mozilla.org/en-US/MPL/2.0/).
+{{ TF }} распространяется под лицензией [Business Source License](https://github.com/hashicorp/terraform/blob/main/LICENSE), а [провайдер {{ yandex-cloud }} для {{ TF }}](https://github.com/yandex-cloud/terraform-provider-yandex) — под лицензией [MPL-2.0](https://www.mozilla.org/en-US/MPL/2.0/).
 
-Подробную информацию о ресурсах провайдера смотрите в документации на сайте [Terraform](https://www.terraform.io/docs/providers/yandex/index.html) или в [зеркале](../../../terraform/index.md).
+Подробную информацию о ресурсах провайдера смотрите в документации на сайте [{{ TF }}](https://www.terraform.io/docs/providers/yandex/index.html) или в [зеркале]({{ tf-docs-link }}).
 
-Для создания инфраструктуры с помощью Terraform:
-1. [Установите Terraform](../../../tutorials/infrastructure-management/terraform-quickstart.md#install-terraform), [получите данные для аутентификации](../../../tutorials/infrastructure-management/terraform-quickstart.md#get-credentials) и укажите источник для установки провайдера Yandex Cloud (раздел [Настройте провайдер](../../../tutorials/infrastructure-management/terraform-quickstart.md#configure-provider), шаг 1).
+Для создания инфраструктуры с помощью {{ TF }}:
+1. [Установите {{ TF }}](../../../tutorials/infrastructure-management/terraform-quickstart.md#install-terraform), [получите данные для аутентификации](../../../tutorials/infrastructure-management/terraform-quickstart.md#get-credentials) и укажите источник для установки провайдера {{ yandex-cloud }} (раздел [{#T}](../../../tutorials/infrastructure-management/terraform-quickstart.md#configure-provider), шаг 1).
 1. Подготовьте файлы с описанием инфраструктуры:
 
    {% list tabs group=infrastructure_description %}
@@ -43,7 +43,7 @@ Terraform распространяется под лицензией [Business S
    - Готовый архив {#ready}
 
      1. Создайте папку для файлов.
-     1. Скачайте [архив](https://storage.yandexcloud.net/doc-files/single-node-file-server.zip) (1 КБ).
+     1. Скачайте [архив](https://{{ s3-storage-host }}/doc-files/single-node-file-server.zip) (1 КБ).
      1. Разархивируйте архив в папку. В результате в ней должны появиться конфигурационный файл `single-node-file-server.tf`.
 
    - Вручную {#manual}
@@ -64,7 +64,7 @@ Terraform распространяется под лицензией [Business S
         }
         
         provider "yandex" {
-          zone = "ru-central1-a"
+          zone = "{{ region-id }}-a"
         }
         
         resource "yandex_vpc_network" "network-1" {
@@ -73,7 +73,7 @@ Terraform распространяется под лицензией [Business S
         
         resource "yandex_vpc_subnet" "subnet-1" {
           name           = "subnet1"
-          zone           = "ru-central1-a"
+          zone           = "{{ region-id }}-a"
           network_id     = yandex_vpc_network.network-1.id
           v4_cidr_blocks = ["192.168.1.0/24"]
         }
@@ -131,7 +131,7 @@ Terraform распространяется под лицензией [Business S
         resource "yandex_compute_disk" "boot-disk-ubuntu" {
           name     = "fileserver-tutorial-disk"
           type     = "network-ssd"
-          zone     = "ru-central1-a"
+          zone     = "{{ region-id }}-a"
           size     = "100"
           image_id = yandex_compute_image.ubuntu-1804-lts.id
         }
@@ -139,7 +139,7 @@ Terraform распространяется под лицензией [Business S
         resource "yandex_compute_instance" "fileserver-tutorial" {
           name        = "fileserver-tutorial"
           platform_id = "standard-v3"
-          zone        = "ru-central1-a"
+          zone        = "{{ region-id }}-a"
         
           resources {
             core_fraction = 100
@@ -167,15 +167,15 @@ Terraform распространяется под лицензией [Business S
 
    {% endlist %}
 
-   Более подробную информацию о параметрах используемых ресурсов в Terraform см. в документации провайдера:
-   * [Сеть](../../../vpc/concepts/network.md#network) — [yandex_vpc_network](../../../terraform/resources/vpc_network.md).
-   * [Подсети](../../../vpc/concepts/network.md#subnet) — [yandex_vpc_subnet](../../../terraform/resources/vpc_subnet.md).
-   * [Группы безопасности](../../../vpc/concepts/security-groups.md) — [yandex_vpc_security_group](../../../terraform/resources/vpc_security_group.md).
-   * [Образ ВМ](../../concepts/image.md) — [yandex_compute_image](../../../terraform/resources/compute_image.md).
-   * [Диск](../../concepts/disk.md) — [yandex_compute_disk](../../../terraform/resources/compute_disk.md).
-   * [Виртуальная машина](../../concepts/vm.md) — [yandex_compute_instance](../../../terraform/resources/compute_instance.md).
+   Более подробную информацию о параметрах используемых ресурсов в {{ TF }} см. в документации провайдера:
+   * [Сеть](../../../vpc/concepts/network.md#network) — [yandex_vpc_network]({{ tf-provider-resources-link }}/vpc_network).
+   * [Подсети](../../../vpc/concepts/network.md#subnet) — [yandex_vpc_subnet]({{ tf-provider-resources-link }}/vpc_subnet).
+   * [Группы безопасности](../../../vpc/concepts/security-groups.md) — [yandex_vpc_security_group]({{ tf-provider-resources-link }}/vpc_security_group).
+   * [Образ ВМ](../../concepts/image.md) — [yandex_compute_image]({{ tf-provider-resources-link }}/compute_image).
+   * [Диск](../../concepts/disk.md) — [yandex_compute_disk]({{ tf-provider-resources-link }}/compute_disk).
+   * [Виртуальная машина](../../concepts/vm.md) — [yandex_compute_instance]({{ tf-provider-resources-link }}/compute_instance).
 
-1. В блоке `metadata` укажите имя пользователя и содержимое SSH-ключа. Подробнее см. в разделе [Метаданные виртуальной машины](../../concepts/vm-metadata.md).
+1. В блоке `metadata` укажите имя пользователя и содержимое SSH-ключа. Подробнее см. в разделе [{#T}](../../concepts/vm-metadata.md).
 1. Создайте ресурсы:
 
    1. В терминале перейдите в директорию с конфигурационным файлом.
@@ -197,7 +197,7 @@ Terraform распространяется под лицензией [Business S
       terraform plan
       ```
    
-      В терминале будет выведен список ресурсов с параметрами. На этом этапе изменения не будут внесены. Если в конфигурации есть ошибки, Terraform на них укажет.
+      В терминале будет выведен список ресурсов с параметрами. На этом этапе изменения не будут внесены. Если в конфигурации есть ошибки, {{ TF }} на них укажет.
    1. Примените изменения конфигурации:
    
       ```bash
@@ -212,7 +212,7 @@ Terraform распространяется под лицензией [Business S
 
 После того как виртуальная машина `fileserver-tutorial` перейдет в статус `RUNNING`, выполните:
 
-1. В блоке **Сеть** на странице виртуальной машины в [консоли управления](https://console.yandex.cloud) найдите публичный IP-адрес виртуальной машины.
+1. В блоке **{{ ui-key.yacloud.compute.instance.overview.section_network }}** на странице виртуальной машины в [консоли управления]({{ link-console-main }}) найдите публичный IP-адрес виртуальной машины.
 
 1. [Подключитесь](../../operations/vm-connect/ssh.md) к виртуальной машине по протоколу SSH.
 
@@ -324,25 +324,14 @@ Terraform распространяется под лицензией [Business S
 
 ## Протестируйте работу файлового сервера {#test-file-server}
 
-1. Установите ACL на виртуальной машине `fileserver-tutorial`:
+1. Установите ACL на виртуальной машине `fileserver-tutorial` и создайте директорию `remote` и файл `test.txt`:
 
    {% list tabs group=operating_system %}
 
    - Ubuntu {#ubuntu}
 
      ```bash
-     sudo apt install acl
-     ```
-
-   {% endlist %}
-
-1. Создайте на ВМ `fileserver-tutorial` директорию `remote` и файл `test.txt`:
-
-   {% list tabs group=operating_system %}
-
-   - Ubuntu {#ubuntu}
-
-     ```bash
+     sudo apt-get install acl
      sudo mkdir /my_folder/remote
      sudo setfacl -m u:<имя_вашего_пользователя>:rwx /my_folder/remote
      echo "Hello world!" > /my_folder/remote/test.txt
@@ -421,7 +410,7 @@ Terraform распространяется под лицензией [Business S
        terraform plan
        ```
     
-       В терминале будет выведен список ресурсов с параметрами. На этом этапе изменения не будут внесены. Если в конфигурации есть ошибки, Terraform на них укажет.
+       В терминале будет выведен список ресурсов с параметрами. На этом этапе изменения не будут внесены. Если в конфигурации есть ошибки, {{ TF }} на них укажет.
     1. Примените изменения конфигурации:
     
        ```bash
@@ -432,4 +421,4 @@ Terraform распространяется под лицензией [Business S
 
 #### См. также {#see-also}
 
-* [Однонодовый файловый сервер с помощью консоли управления](console.md).
+* [{#T}](console.md).

@@ -5,7 +5,7 @@ Retrieves the list of Operation resources for the specified cluster.
 ## HTTP request
 
 ```
-GET https://mdb.api.cloud.yandex.net/managed-opensearch/v1/clusters/{clusterId}/operations
+GET https://{{ api-host-mdb }}/managed-opensearch/v1/clusters/{clusterId}/operations
 ```
 
 ## Path parameters
@@ -26,7 +26,6 @@ The maximum string length in characters is 50. ||
 || pageSize | **string** (int64)
 
 The maximum number of results per page to return.
-
 If the number of available results is larger than `pageSize`, the service returns
 a [ListClusterOperationsResponse.nextPageToken](#yandex.cloud.mdb.opensearch.v1.ListClusterOperationsResponse) that can be used to get the next page of results in subsequent list requests.
 
@@ -77,9 +76,7 @@ List of Operation resources for the specified OpenSearch cluster. ||
 || nextPageToken | **string**
 
 This token allows you to get the next page of results for list requests.
-
 If the number of results is larger than [ListClusterOperationsRequest.pageSize](#yandex.cloud.mdb.opensearch.v1.ListClusterOperationsRequest), use the `nextPageToken` as the value for the [ListClusterOperationsRequest.pageToken](#yandex.cloud.mdb.opensearch.v1.ListClusterOperationsRequest) query parameter in the next list request.
-
 Each subsequent list request has its own `nextPageToken` to continue paging through the results. ||
 |#
 

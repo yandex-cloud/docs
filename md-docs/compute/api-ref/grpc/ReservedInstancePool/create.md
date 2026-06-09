@@ -51,40 +51,42 @@ Method starts an asynchronous operation that can be cancelled while it is in pro
 || name | **string**
 
 Name of the reserved instance pool.
-
-Value must match the regular expression ``` |[a-z]([-_a-z0-9]{0,61}[a-z0-9])? ```. ||
+The value must match the regular expression: ```|[a-z]([-_a-z0-9]{0,61}[a-z0-9])?```. ||
 || description | **string**
 
 Description of the reserved instance pool.
-
-The maximum string length in characters is 256. ||
+The length must be less than or equal to 256. ||
 || labels | **object** (map<**string**, **string**>)
 
 Resource labels as `key:value` pairs.
-
-No more than 64 per resource. The maximum string length in characters for each value is 63. Each value must match the regular expression ` [-_./\@0-9a-z]* `. The string length in characters for each key must be 1-63. Each key must match the regular expression ` [a-z][-_./\@0-9a-z]* `. ||
+Each map key must match the regular expression: `[a-z][-_./\\@0-9a-z]*`.
+Each map value must match the regular expression: `[-_./\\@0-9a-z]*`.
+The length of each map key must be between 1 and 63.
+The length of each map value must be less than or equal to 63.
+The number of elements must be less than or equal to 64. ||
 || zone_id | **string**
 
-Required field. ID of the availability zone where the reserved instance pool resides.
+ID of the availability zone where the reserved instance pool resides.
 To get a list of available zones, use the [yandex.cloud.compute.v1.ZoneService.List](../Zone/list.md#List) request
-
-The maximum string length in characters is 50. ||
+The length must be less than or equal to 50.
+This field is required. ||
 || folder_id | **string**
 
-Required field. ID of the folder to create the reserved instance pool in.
+ID of the folder to create the reserved instance pool in.
 To get the folder ID, use a [yandex.cloud.resourcemanager.v1.FolderService.List](../../../../resource-manager/api-ref/grpc/Folder/list.md#List) request.
-
-The maximum string length in characters is 50. ||
+The length must be less than or equal to 50.
+This field is required. ||
 || platform_id | **string**
 
-Required field. ID of the hardware platform configuration for the reserved instance pool.
+ID of the hardware platform configuration for the reserved instance pool.
 This field affects the available values in `resources_spec` field.
-
-For more information, see [Platforms](../../../concepts/vm-platforms.md). ||
+For more information, see [Platforms](../../../concepts/vm-platforms.md).
+This field is required. ||
 || resources_spec | **[ResourcesSpec](#yandex.cloud.compute.v1.ResourcesSpec)**
 
-Required field. Computing resources of the reserved instance pool instances, such as the amount of memory and number of cores.
-To get a list of available values, see [Levels of core performance](../../../concepts/performance-levels.md). ||
+Computing resources of the reserved instance pool instances, such as the amount of memory and number of cores.
+To get a list of available values, see [Levels of core performance](../../../concepts/performance-levels.md).
+This field is required. ||
 || gpu_settings | **[GpuSettings](#yandex.cloud.compute.v1.GpuSettings)**
 
 GPU settings. ||
@@ -97,8 +99,7 @@ Network settings. ||
 || size | **int64**
 
 Desired size of the pool (number of slots for instances in this pool).
-
-Acceptable values are 0 to 1048576, inclusive. ||
+The value must be between 0 and 1048576. ||
 || allow_oversubscription | **bool**
 
 Allows the pool to contain more linked instances than the number of available slots (size without pending or unavailable slots).
@@ -112,22 +113,25 @@ Warning: When this option is enabled, attempting to start more instances than th
 ||Field | Description ||
 || memory | **int64**
 
-Required field. The amount of memory available to the instance, specified in bytes.
-
-The maximum value is 274877906944. ||
+The amount of memory available to the instance, specified in bytes.
+The value must be less than or equal to 274877906944.
+This field is required. ||
 || cores | **int64**
 
-Required field. The number of cores available to the instance. ||
+The number of cores available to the instance.
+The value must satisfy: 2,4,6,8,10,12,14,16,18,20,22,24,26,28,30,32,34,36,40,44,48,52,56,60,64,68,72,76,80.
+This field is required. ||
 || core_fraction | **int64**
 
 Baseline level of CPU performance with the ability to burst performance above that baseline level.
 This field sets baseline performance for each core.
-
 For example, if you need only 5% of the CPU performance, you can set core_fraction=5.
-For more information, see [Levels of core performance](../../../concepts/performance-levels.md). ||
+For more information, see [Levels of core performance](../../../concepts/performance-levels.md).
+The value must satisfy: 0,5,20,50,100. ||
 || gpus | **int64**
 
-The number of GPUs available to the instance. ||
+The number of GPUs available to the instance.
+The value must satisfy: 0,1,2,4. ||
 |#
 
 ## GpuSettings {#yandex.cloud.compute.v1.GpuSettings}
@@ -150,28 +154,30 @@ You can specify product ids explicitly or use disk_id|image_id|snapshot_id to in
 
 Disk ID.
 
-The maximum string length in characters is 50.
+Includes only one of the fields `disk_id`, `image_id`, `snapshot_id`, `product_ids`.
 
-Includes only one of the fields `disk_id`, `image_id`, `snapshot_id`, `product_ids`. ||
+Only one field must by specified. ||
 || image_id | **string**
 
 Image ID.
 
-The maximum string length in characters is 50.
+Includes only one of the fields `disk_id`, `image_id`, `snapshot_id`, `product_ids`.
 
-Includes only one of the fields `disk_id`, `image_id`, `snapshot_id`, `product_ids`. ||
+Only one field must by specified. ||
 || snapshot_id | **string**
 
 Snapshot ID.
 
-The maximum string length in characters is 50.
+Includes only one of the fields `disk_id`, `image_id`, `snapshot_id`, `product_ids`.
 
-Includes only one of the fields `disk_id`, `image_id`, `snapshot_id`, `product_ids`. ||
+Only one field must by specified. ||
 || product_ids | **[ProductIDs](#yandex.cloud.compute.v1.ProductIDs)**
 
 Product IDs.
 
-Includes only one of the fields `disk_id`, `image_id`, `snapshot_id`, `product_ids`. ||
+Includes only one of the fields `disk_id`, `image_id`, `snapshot_id`, `product_ids`.
+
+Only one field must by specified. ||
 |#
 
 ## ProductIDs {#yandex.cloud.compute.v1.ProductIDs}
@@ -181,9 +187,7 @@ Includes only one of the fields `disk_id`, `image_id`, `snapshot_id`, `product_i
 || product_ids[] | **string**
 
 License IDs that indicate which licenses are attached to resource.
-License IDs are used to calculate additional charges for the use of the virtual machine.
-
-The maximum string length in characters for each value is 50. ||
+License IDs are used to calculate additional charges for the use of the virtual machine. ||
 |#
 
 ## NetworkSettings {#yandex.cloud.compute.v1.NetworkSettings}
@@ -209,50 +213,10 @@ Network Type
   "created_by": "string",
   "modified_at": "google.protobuf.Timestamp",
   "done": "bool",
-  "metadata": {
-    "reserved_instance_pool_id": "string"
-  },
+  "metadata": "google.protobuf.Any",
   // Includes only one of the fields `error`, `response`
   "error": "google.rpc.Status",
-  "response": {
-    "id": "string",
-    "zone_id": "string",
-    "cloud_id": "string",
-    "folder_id": "string",
-    "name": "string",
-    "description": "string",
-    "labels": "map<string, string>",
-    "created_at": "google.protobuf.Timestamp",
-    "platform_id": "string",
-    "resources_spec": {
-      "memory": "int64",
-      "cores": "int64",
-      "core_fraction": "int64",
-      "gpus": "int64"
-    },
-    "gpu_settings": {
-      "gpu_cluster_id": "string"
-    },
-    "product_ids": [
-      "string"
-    ],
-    "network_settings": {
-      "type": "Type"
-    },
-    "size": "int64",
-    "committed_size": "int64",
-    "allow_oversubscription": "bool",
-    "slot_stats": {
-      "total": "int64",
-      "used": "int64",
-      "available": "int64",
-      "unavailable": "int64",
-      "pending": "int64"
-    },
-    "instance_stats": {
-      "total": "int64"
-    }
-  }
+  "response": "google.protobuf.Any"
   // end of the list of possible fields
 }
 ```
@@ -280,7 +244,7 @@ The time when the Operation resource was last modified. ||
 
 If the value is `false`, it means the operation is still in progress.
 If `true`, the operation is completed, and either `error` or `response` is available. ||
-|| metadata | **[CreateReservedInstancePoolMetadata](#yandex.cloud.compute.v1.CreateReservedInstancePoolMetadata)**
+|| metadata | **[google.protobuf.Any](https://developers.google.com/protocol-buffers/docs/proto3#any)**
 
 Service-specific metadata associated with the operation.
 It typically contains the ID of the target resource that the operation is performed on.
@@ -295,7 +259,7 @@ The operation result.
 If `done == false` and there was no failure detected, neither `error` nor `response` is set.
 If `done == false` and there was a failure detected, `error` is set.
 If `done == true`, exactly one of `error` or `response` is set. ||
-|| response | **[ReservedInstancePool](#yandex.cloud.compute.v1.ReservedInstancePool)**
+|| response | **[google.protobuf.Any](https://developers.google.com/protocol-buffers/docs/proto3#any)**
 
 The normal response of the operation in case of success.
 If the original method returns no data on success, such as Delete,
@@ -310,152 +274,4 @@ The operation result.
 If `done == false` and there was no failure detected, neither `error` nor `response` is set.
 If `done == false` and there was a failure detected, `error` is set.
 If `done == true`, exactly one of `error` or `response` is set. ||
-|#
-
-## CreateReservedInstancePoolMetadata {#yandex.cloud.compute.v1.CreateReservedInstancePoolMetadata}
-
-#|
-||Field | Description ||
-|| reserved_instance_pool_id | **string**
-
-ID of the reserved instance pool that is being created. ||
-|#
-
-## ReservedInstancePool {#yandex.cloud.compute.v1.ReservedInstancePool}
-
-A Reserved Instance Pool resource.
-
-#|
-||Field | Description ||
-|| id | **string**
-
-ID of the pool. ||
-|| zone_id | **string**
-
-ID of the availability zone where the pool resides. ||
-|| cloud_id | **string**
-
-ID of the cloud that the pool belongs to. ||
-|| folder_id | **string**
-
-ID of the folder that the pool belongs to. ||
-|| name | **string**
-
-Name of the pool. 1-63 characters long. ||
-|| description | **string**
-
-Description of the pool. 0-256 characters long. ||
-|| labels | **object** (map<**string**, **string**>)
-
-Resource labels as `key:value` pairs. Maximum of 64 per resource. ||
-|| created_at | **[google.protobuf.Timestamp](https://developers.google.com/protocol-buffers/docs/reference/google.protobuf#timestamp)** ||
-|| platform_id | **string**
-
-ID of the hardware platform configuration for pool instances. ||
-|| resources_spec | **[ResourcesSpec](#yandex.cloud.compute.v1.ResourcesSpec2)**
-
-Computing resources of pool instances, such as the amount of memory and number of cores. ||
-|| gpu_settings | **[GpuSettings](#yandex.cloud.compute.v1.GpuSettings2)**
-
-GPU settings. ||
-|| product_ids[] | **string**
-
-License IDs that indicate which licenses are attached to resource.
-License IDs are used to calculate additional charges for the use of the virtual machine. ||
-|| network_settings | **[NetworkSettings](#yandex.cloud.compute.v1.NetworkSettings2)**
-
-Network Settings. ||
-|| size | **int64**
-
-Desired size of the pool (number of slots for instances in this pool). ||
-|| committed_size | **int64**
-
-Equals to the size field except when updates occur with allow_pending=true. In those cases, committed_size equals only the number of non-pending slots. ||
-|| allow_oversubscription | **bool**
-
-Allows the pool to contain more linked instances than the number of available slots (size without pending or unavailable slots).
-While running instances are still limited by available slots, stopped instances can exceed this limit.
-Warning: When this option is enabled, attempting to start more instances than the number of available slots will result in a "Not Enough Resources" error. ||
-|| slot_stats | **[SlotStats](#yandex.cloud.compute.v1.ReservedInstancePool.SlotStats)**
-
-Statuses of the pool slots ||
-|| instance_stats | **[InstanceStats](#yandex.cloud.compute.v1.ReservedInstancePool.InstanceStats)**
-
-Stats for instances of the pool ||
-|#
-
-## ResourcesSpec {#yandex.cloud.compute.v1.ResourcesSpec2}
-
-#|
-||Field | Description ||
-|| memory | **int64**
-
-Required field. The amount of memory available to the instance, specified in bytes.
-
-The maximum value is 274877906944. ||
-|| cores | **int64**
-
-Required field. The number of cores available to the instance. ||
-|| core_fraction | **int64**
-
-Baseline level of CPU performance with the ability to burst performance above that baseline level.
-This field sets baseline performance for each core.
-
-For example, if you need only 5% of the CPU performance, you can set core_fraction=5.
-For more information, see [Levels of core performance](../../../concepts/performance-levels.md). ||
-|| gpus | **int64**
-
-The number of GPUs available to the instance. ||
-|#
-
-## GpuSettings {#yandex.cloud.compute.v1.GpuSettings2}
-
-#|
-||Field | Description ||
-|| gpu_cluster_id | **string**
-
-Attach instance to specified GPU cluster. ||
-|#
-
-## NetworkSettings {#yandex.cloud.compute.v1.NetworkSettings2}
-
-#|
-||Field | Description ||
-|| type | enum **Type**
-
-Network Type
-
-- `STANDARD`: Standard network.
-- `SOFTWARE_ACCELERATED`: Software accelerated network.
-- `HARDWARE_ACCELERATED`: Hardware accelerated network (not available yet, reserved for future use). ||
-|#
-
-## SlotStats {#yandex.cloud.compute.v1.ReservedInstancePool.SlotStats}
-
-#|
-||Field | Description ||
-|| total | **int64**
-
-Equals to pool size (and equals to the sum of the following fields) ||
-|| used | **int64**
-
-Number of slots used by running instances ||
-|| available | **int64**
-
-Number of slots available for instances (but not currently used) ||
-|| unavailable | **int64**
-
-Number of slots unavailable for some reason (for example because of underlying host failure) ||
-|| pending | **int64**
-
-Number of slots requested for async update, but still waiting for resources and not yet available for usage ||
-|#
-
-## InstanceStats {#yandex.cloud.compute.v1.ReservedInstancePool.InstanceStats}
-
-#|
-||Field | Description ||
-|| total | **int64**
-
-Total number of instances linked to the pool ||
 |#

@@ -1,20 +1,20 @@
-# Установка Ingress-контроллера NGINX с сертификатом из Yandex Certificate Manager
+# Установка Ingress-контроллера NGINX с сертификатом из {{ certificate-manager-full-name }}
 
 {% note alert %}
 
 Поддержка контроллера Ingress NGINX прекращается в марте 2026 года. Подробнее см. на странице [Ingress NGINX Retirement: What You Need to Know](https://kubernetes.io/blog/2025/11/11/ingress-nginx-retirement/).
 
-Рекомендуется [перейти](../../../managed-kubernetes/alb-ref/nginx-gwin-migration.md) на новый контроллер [Yandex Cloud Gwin](../../../managed-kubernetes/alb-ref/gwin-index.md).
+Рекомендуется [перейти](../../../managed-kubernetes/alb-ref/nginx-gwin-migration.md) на новый контроллер [{{ yandex-cloud }} Gwin](../../../managed-kubernetes/alb-ref/gwin-index.md).
 
 {% endnote %}
 
-Управляйте [TLS-сертификатом](../../../certificate-manager/concepts/index.md) для Ingress-контроллера NGINX через [Yandex Certificate Manager](../../../certificate-manager/index.md).
+Управляйте [TLS-сертификатом](../../../certificate-manager/concepts/index.md) для Ingress-контроллера NGINX через [{{ certificate-manager-full-name }}](../../../certificate-manager/index.md).
 
-[External Secrets Operator](https://external-secrets.io/v0.5.8/provider-yandex-certificate-manager/) синхронизирует сертификат с [секретом Kubernetes](../../../managed-kubernetes/concepts/encryption.md). Это позволяет управлять сертификатом развернутого приложения через Certificate Manager: добавить самоподписанный сертификат и обновлять его самостоятельно или выпустить сертификат от Let's Encrypt®, который будет обновляться автоматически.
+[External Secrets Operator](https://external-secrets.io/v0.5.8/provider-yandex-certificate-manager/) синхронизирует сертификат с [секретом {{ k8s }}](../../../managed-kubernetes/concepts/encryption.md). Это позволяет управлять сертификатом развернутого приложения через {{ certificate-manager-name }}: добавить самоподписанный сертификат и обновлять его самостоятельно или выпустить сертификат от Let's Encrypt®, который будет обновляться автоматически.
 
 ## Перед началом работы {#before-you-begin}
 
-1. Если у вас еще нет интерфейса командной строки Yandex Cloud (CLI), [установите и инициализируйте его](../../../cli/quickstart.md#install).
+1. Если у вас еще нет интерфейса командной строки {{ yandex-cloud }} (CLI), [установите и инициализируйте его](../../../cli/quickstart.md#install).
 
    По умолчанию используется каталог, указанный при [создании](../../../cli/operations/profile/profile-create.md) профиля CLI. Чтобы изменить каталог по умолчанию, используйте команду `yc config set folder-id <идентификатор_каталога>`. Также для любой команды вы можете указать другой каталог с помощью параметров `--folder-name` или `--folder-id`. Если вы обращаетесь к ресурсу по имени, поиск будет выполнен в каталоге по умолчанию. Если вы обращаетесь к ресурсу по идентификатору, поиск будет выполнен глобально — во всех каталогах с учетом прав доступа.
 
@@ -26,8 +26,8 @@
    ```
 
 1. [Создайте сервисные аккаунты](../../../iam/operations/sa/create.md):
-   * `eso-service-account` — для взаимодействия External Secrets Operator с Certificate Manager.
-   * `k8s-sa` с [ролями](../../../iam/concepts/access-control/roles.md) `k8s.clusters.agent`, `vpc.publicAdmin`, `container-registry.images.puller` и `load-balancer.admin` на [каталог](../../../resource-manager/concepts/resources-hierarchy.md#folder) — для создания ресурсов [кластера Managed Service for Kubernetes](../../../managed-kubernetes/concepts/index.md#kubernetes-cluster) и скачивания [Docker-образов](../../../container-registry/concepts/docker-image.md). Роль `load-balancer.admin` нужна для создания [сетевого балансировщика нагрузки](../../../network-load-balancer/concepts/index.md).
+   * `eso-service-account` — для взаимодействия External Secrets Operator с {{ certificate-manager-name }}.
+   * `k8s-sa` с [ролями](../../../iam/concepts/access-control/roles.md) `k8s.clusters.agent`, `vpc.publicAdmin`, `container-registry.images.puller` и `load-balancer.admin` на [каталог](../../../resource-manager/concepts/resources-hierarchy.md#folder) — для создания ресурсов [кластера {{ managed-k8s-name }}](../../../managed-kubernetes/concepts/index.md#kubernetes-cluster) и скачивания [Docker-образов](../../../container-registry/concepts/docker-image.md). Роль `load-balancer.admin` нужна для создания [сетевого балансировщика нагрузки](../../../network-load-balancer/concepts/index.md).
 1. Создайте [авторизованный ключ](../../../iam/concepts/authorization/access-key.md) для [сервисного аккаунта](../../../iam/concepts/users/service-accounts.md) и сохраните его в файл `authorized-key.json`:
 
    ```bash
@@ -36,7 +36,7 @@
      --output authorized-key.json
    ```
 
-1. [Создайте группы безопасности](../../../managed-kubernetes/operations/connect/security-groups.md) для кластера Managed Service for Kubernetes и входящих в него групп узлов.
+1. [Создайте группы безопасности](../../../managed-kubernetes/operations/connect/security-groups.md) для кластера {{ managed-k8s-name }} и входящих в него групп узлов.
 
     {% note warning %}
     
@@ -44,21 +44,21 @@
     
     {% endnote %}
 
-1. [Создайте кластер Managed Service for Kubernetes](../../../managed-kubernetes/operations/kubernetes-cluster/kubernetes-cluster-create.md) и [группу узлов](../../../managed-kubernetes/operations/node-group/node-group-create.md) любой подходящей конфигурации. В настройках кластера Managed Service for Kubernetes укажите сервисный аккаунт `k8s-sa` и группы безопасности, подготовленные ранее.
+1. [Создайте кластер {{ managed-k8s-name }}](../../../managed-kubernetes/operations/kubernetes-cluster/kubernetes-cluster-create.md) и [группу узлов](../../../managed-kubernetes/operations/node-group/node-group-create.md) любой подходящей конфигурации. В настройках кластера {{ managed-k8s-name }} укажите сервисный аккаунт `k8s-sa` и группы безопасности, подготовленные ранее.
 
-1. [Установите kubectl](https://kubernetes.io/ru/docs/tasks/tools/install-kubectl) и [настройте его на работу с созданным кластером](../../../managed-kubernetes/operations/connect/index.md#kubectl-connect).
+1. [Установите kubectl]({{ k8s-docs }}/tasks/tools/install-kubectl) и [настройте его на работу с созданным кластером](../../../managed-kubernetes/operations/connect/index.md#kubectl-connect).
 
 ### Необходимые платные ресурсы {#paid-resources}
 
 В стоимость поддержки инфраструктуры входит:
-* Использование [мастера Managed Service for Kubernetes](../../../managed-kubernetes/concepts/index.md#master) и исходящий трафик (см. [тарифы Managed Service for Kubernetes](../../../managed-kubernetes/pricing.md)).
-* Использование [узлов](../../../managed-kubernetes/concepts/index.md#node-group) кластера Managed Service for Kubernetes (см. [тарифы Yandex Compute Cloud](../../../compute/pricing.md)).
-* Использование [публичных IP-адресов](../../../vpc/concepts/address.md#public-addresses) (см. [тарифы Yandex Virtual Private Cloud](../../../vpc/pricing.md#prices-public-ip)).
-* Входящий трафик, обработанный балансировщиком, и использование [сетевого балансировщика](../../../network-load-balancer/concepts/index.md) (см. [тарифы Yandex Network Load Balancer](../../../network-load-balancer/pricing.md)).
+* Использование [мастера {{ managed-k8s-name }}](../../../managed-kubernetes/concepts/index.md#master) и исходящий трафик (см. [тарифы {{ managed-k8s-name }}](../../../managed-kubernetes/pricing.md)).
+* Использование [узлов](../../../managed-kubernetes/concepts/index.md#node-group) кластера {{ managed-k8s-name }} (см. [тарифы {{ compute-full-name }}](../../../compute/pricing.md)).
+* Использование [публичных IP-адресов](../../../vpc/concepts/address.md#public-addresses) (см. [тарифы {{ vpc-full-name }}](../../../vpc/pricing.md#prices-public-ip)).
+* Входящий трафик, обработанный балансировщиком, и использование [сетевого балансировщика](../../../network-load-balancer/concepts/index.md) (см. [тарифы {{ network-load-balancer-full-name }}](../../../network-load-balancer/pricing.md)).
 
-## Добавьте сертификат в Certificate Manager
+## Добавьте сертификат в {{ certificate-manager-name }}
 
-1. Выпустите и [добавьте](../../../certificate-manager/operations/managed/cert-create.md) в Certificate Manager сертификат Let's Encrypt® или [загрузите](../../../certificate-manager/operations/import/cert-create.md) собственный сертификат.
+1. Выпустите и [добавьте](../../../certificate-manager/operations/managed/cert-create.md) в {{ certificate-manager-name }} сертификат Let's Encrypt® или [загрузите](../../../certificate-manager/operations/import/cert-create.md) собственный сертификат.
 1. Для сертификата Let's Encrypt® пройдите [проверку прав](../../../certificate-manager/operations/managed/cert-validate.md) на домен, который указан в сертификате.
 1. Назначьте [роль](../../../iam/concepts/access-control/roles.md) `certificate-manager.certificates.downloader` [сервисному аккаунту](../../../iam/concepts/users/service-accounts.md) `eso-service-account`, чтобы он мог читать содержимое сертификата:
 
@@ -90,9 +90,9 @@
 {% list tabs group=instructions %}
 
 
-- Yandex Cloud Marketplace {#marketplace}
+- {{ marketplace-full-name }} {#marketplace}
 
-    Установите приложение [External Secrets Operator с поддержкой Yandex Lockbox](https://yandex.cloud/ru/marketplace/products/yc/external-secrets) из Cloud Marketplace [по инструкции](../../../managed-kubernetes/operations/applications/external-secrets-operator.md#marketplace-install) со следующими параметрами:
+    Установите приложение [External Secrets Operator с поддержкой {{ lockbox-name }}](https://yandex.cloud/ru/marketplace/products/yc/external-secrets) из {{ marketplace-name }} [по инструкции](../../../managed-kubernetes/operations/applications/external-secrets-operator.md#marketplace-install) со следующими параметрами:
 
     * **Пространство имен** — создайте новое [пространство имен](../../../managed-kubernetes/concepts/index.md#namespace) `external-secrets`.
     * **Ключ сервисной учетной записи** — вставьте содержимое файла `authorized-key.json`, созданного [ранее](#before-you-begin).
@@ -106,7 +106,7 @@
         helm repo add external-secrets https://charts.external-secrets.io
         ```
 
-    1. Установите External Secrets Operator в кластер Managed Service for Kubernetes:
+    1. Установите External Secrets Operator в кластер {{ managed-k8s-name }}:
 
         ```bash
         helm install external-secrets \
@@ -133,7 +133,7 @@
 
 {% endlist %}
 
-## Настройте кластер Managed Service for Kubernetes {#configure-cluster}
+## Настройте кластер {{ managed-k8s-name }} {#configure-cluster}
 
 1. Создайте пространство имен `ns` для объектов External Secrets Operator:
 
@@ -191,7 +191,7 @@
      -o json | jq -r '.spec.versions[].name'
    ```
 
-1. Создайте объект ExternalSecret с именем `external-secret`, указывающий на сертификат из Certificate Manager, указав поддерживаемую `apiVersion`:
+1. Создайте объект ExternalSecret с именем `external-secret`, указывающий на сертификат из {{ certificate-manager-name }}, указав поддерживаемую `apiVersion`:
 
    ```bash
    kubectl --namespace ns apply -f - <<< '
@@ -226,7 +226,7 @@
    {% endnote %}
 
    Где:
-   * `k8s-secret` — имя секрета, в который External Secret Operator поместит сертификат из Certificate Manager.
+   * `k8s-secret` — имя секрета, в который External Secret Operator поместит сертификат из {{ certificate-manager-name }}.
    * `tls.crt` — параметр секрета `k8s-secret`, который будет содержать сертификат.
    * `tls.key` — параметр секрета `k8s-secret`, который будет содержать закрытый ключ сертификата.
 
@@ -235,7 +235,7 @@
    * `privateKey` — получить закрытый ключ в формате PEM.
    * `chainAndPrivateKey` или пустое значение — получить и цепочку сертификатов, и закрытый ключ.
 
-   External Secrets Operator получит сертификат из Certificate Manager и поместит его в секрет `k8s-secret`.
+   External Secrets Operator получит сертификат из {{ certificate-manager-name }} и поместит его в секрет `k8s-secret`.
 1. Проверьте, что сертификат попал в секрет `k8s-secret`:
 
    ```bash
@@ -300,7 +300,7 @@
      "ingress-nginx" has been added to your repositories
      ```
 
-  1. Обновите набор данных для создания экземпляра приложения в кластере Managed Service for Kubernetes:
+  1. Обновите набор данных для создания экземпляра приложения в кластере {{ managed-k8s-name }}:
 
      ```bash
      helm repo update
@@ -314,7 +314,7 @@
      Update Complete. ⎈Happy Helming!⎈
      ```
 
-  1. Установите контроллер. Он будет установлен вместе с Network Load Balancer:
+  1. Установите контроллер. Он будет установлен вместе с {{ network-load-balancer-name }}:
 
      ```bash
      helm install ingress-nginx ingress-nginx/ingress-nginx
@@ -351,7 +351,7 @@
 
 Чтобы пробросить определенные порты при установке Ingress-контроллера NGINX, следуйте [инструкции](../../../managed-kubernetes/operations/create-load-balancer-with-ingress-nginx.md#port-forwarding).
 
-## Создайте веб-ресурс в вашем кластере Managed Service for Kubernetes {#create-web-app}
+## Создайте веб-ресурс в вашем кластере {{ managed-k8s-name }} {#create-web-app}
 
 Создайте [объект](https://kubernetes.io/docs/concepts/workloads/controllers/deployment/) Deployment с NGINX и [сервис](https://kubernetes.io/docs/concepts/services-networking/service/) для него:
 
@@ -480,18 +480,18 @@ curl https://<ваш_домен> -vv
 
 {% note info %}
 
-Если ресурс недоступен по указанному URL, то [убедитесь](../../../managed-kubernetes/operations/connect/security-groups.md), что группы безопасности для кластера Managed Service for Kubernetes и его групп узлов настроены корректно. Если отсутствует какое-либо из правил — [добавьте его](../../../vpc/operations/security-group-add-rule.md).
+Если ресурс недоступен по указанному URL, то [убедитесь](../../../managed-kubernetes/operations/connect/security-groups.md), что группы безопасности для кластера {{ managed-k8s-name }} и его групп узлов настроены корректно. Если отсутствует какое-либо из правил — [добавьте его](../../../vpc/operations/security-group-add-rule.md).
 
 {% endnote %}
 
-Сертификат от Let's Encrypt® должен обновляться автоматически вслед за [обновлением сертификата](../../../certificate-manager/operations/managed/cert-update.md) в Certificate Manager.
+Сертификат от Let's Encrypt® должен обновляться автоматически вслед за [обновлением сертификата](../../../certificate-manager/operations/managed/cert-update.md) в {{ certificate-manager-name }}.
 
 Вы можете задать таймаут синхронизации в параметре `refreshInterval` объекта [ExternalSecret](#create-externalsecret).
 
 ## Удалите созданные ресурсы {#clear-out}
 
 Некоторые ресурсы платные. Чтобы за них не списывалась плата, удалите ресурсы, которые вы больше не будете использовать:
-1. [Удалите](../../../managed-kubernetes/operations/kubernetes-cluster/kubernetes-cluster-delete.md) кластер Managed Service for Kubernetes.
-1. [Удалите](../../../network-load-balancer/operations/load-balancer-delete.md) Network Load Balancer.
+1. [Удалите](../../../managed-kubernetes/operations/kubernetes-cluster/kubernetes-cluster-delete.md) кластер {{ managed-k8s-name }}.
+1. [Удалите](../../../network-load-balancer/operations/load-balancer-delete.md) {{ network-load-balancer-name }}.
 1. [Удалите](../../../certificate-manager/operations/managed/cert-delete.md) сертификат.
-1. Если для доступа к кластеру Managed Service for Kubernetes или узлам использовались статические публичные IP-адреса, освободите и [удалите](../../../vpc/operations/address-delete.md) их.
+1. Если для доступа к кластеру {{ managed-k8s-name }} или узлам использовались статические публичные IP-адреса, освободите и [удалите](../../../vpc/operations/address-delete.md) их.

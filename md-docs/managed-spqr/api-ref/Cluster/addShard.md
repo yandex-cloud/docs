@@ -5,7 +5,7 @@ Creates a new shard.
 ## HTTP request
 
 ```
-POST https://mdb.api.cloud.yandex.net/managed-spqr/v1/clusters/{clusterId}/shards
+POST https://{{ api-host-mdb }}/managed-spqr/v1/clusters/{clusterId}/shards
 ```
 
 ## Path parameters
@@ -82,10 +82,7 @@ Required field. ||
   "createdBy": "string",
   "modifiedAt": "string",
   "done": "boolean",
-  "metadata": {
-    "clusterId": "string",
-    "shardName": "string"
-  },
+  "metadata": "object",
   // Includes only one of the fields `error`, `response`
   "error": {
     "code": "integer",
@@ -94,10 +91,7 @@ Required field. ||
       "object"
     ]
   },
-  "response": {
-    "name": "string",
-    "clusterId": "string"
-  }
+  "response": "object"
   // end of the list of possible fields
 }
 ```
@@ -139,7 +133,7 @@ In some languages, built-in datetime utilities do not support nanosecond precisi
 
 If the value is `false`, it means the operation is still in progress.
 If `true`, the operation is completed, and either `error` or `response` is available. ||
-|| metadata | **[AddClusterShardMetadata](#yandex.cloud.mdb.spqr.v1.AddClusterShardMetadata)**
+|| metadata | **object**
 
 Service-specific metadata associated with the operation.
 It typically contains the ID of the target resource that the operation is performed on.
@@ -154,7 +148,7 @@ The operation result.
 If `done == false` and there was no failure detected, neither `error` nor `response` is set.
 If `done == false` and there was a failure detected, `error` is set.
 If `done == true`, exactly one of `error` or `response` is set. ||
-|| response | **[Shard](#yandex.cloud.mdb.spqr.v1.Shard)**
+|| response | **object**
 
 The normal response of the operation in case of success.
 If the original method returns no data on success, such as Delete,
@@ -169,18 +163,6 @@ The operation result.
 If `done == false` and there was no failure detected, neither `error` nor `response` is set.
 If `done == false` and there was a failure detected, `error` is set.
 If `done == true`, exactly one of `error` or `response` is set. ||
-|#
-
-## AddClusterShardMetadata {#yandex.cloud.mdb.spqr.v1.AddClusterShardMetadata}
-
-#|
-||Field | Description ||
-|| clusterId | **string**
-
-ID of the SPQR cluster that a shard is being added to. ||
-|| shardName | **string**
-
-Name of the shard being added. ||
 |#
 
 ## Status {#google.rpc.Status}
@@ -198,16 +180,4 @@ An error message. ||
 || details[] | **object**
 
 A list of messages that carry the error details. ||
-|#
-
-## Shard {#yandex.cloud.mdb.spqr.v1.Shard}
-
-#|
-||Field | Description ||
-|| name | **string**
-
-Name of the shard. ||
-|| clusterId | **string**
-
-ID of the cluster that the shard belongs to. ||
 |#

@@ -5,7 +5,7 @@ Updates access bindings for the specified sink.
 ## HTTP request
 
 ```
-PATCH https://logging.api.cloud.yandex.net/logging/v1/sinks/{resourceId}:updateAccessBindings
+PATCH https://logging.{{ api-host }}/logging/v1/sinks/{resourceId}:updateAccessBindings
 ```
 
 ## Path parameters

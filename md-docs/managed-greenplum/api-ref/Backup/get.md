@@ -5,7 +5,7 @@ Returns the specified backup of Greenplum® cluster.
 ## HTTP request
 
 ```
-GET https://mdb.api.cloud.yandex.net/managed-greenplum/v1/backups/{backupId}
+GET https://{{ api-host-mdb }}/managed-greenplum/v1/backups/{backupId}
 ```
 
 ## Path parameters

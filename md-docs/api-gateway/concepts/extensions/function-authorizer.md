@@ -6,18 +6,18 @@
 * [HTTP Bearer](https://swagger.io/docs/specification/authentication/bearer-authentication/);
 * [API Key](https://swagger.io/docs/specification/authentication/api-keys/).
 
-Для авторизации HTTP-запроса API Gateway вызывает указанную в расширении функцию. Подробнее о структуре [запроса](#request) и [ответа](#response).
+Для авторизации HTTP-запроса {{ api-gw-short-name }} вызывает указанную в расширении функцию. Подробнее о структуре [запроса](#request) и [ответа](#response).
 
 ## Поддерживаемые параметры {#parameters}
 
-В таблице ниже перечислены параметры, специфичные для API-шлюза сервиса API Gateway. Описание остальных параметров читайте в [спецификации OpenAPI 3.0](https://github.com/OAI/OpenAPI-Specification).
+В таблице ниже перечислены параметры, специфичные для API-шлюза сервиса {{ api-gw-short-name }}. Описание остальных параметров читайте в [спецификации OpenAPI 3.0](https://github.com/OAI/OpenAPI-Specification).
 
 Параметр | Тип | Описание
 ----|----|----
 `function_id` | `string` | Идентификатор [функции](../../../functions/concepts/function.md).
 `tag` | `string` | Необязательный параметр. [Тег версии](../../../functions/concepts/function.md#tag) функции. Значение по умолчанию — `$latest`.<br>В `tag` осуществляется подстановка параметров.
 `service_account_id` | `string` | Идентификатор сервисного аккаунта. Используется для авторизации при обращении к функции. Если параметр не указан, используется значение [верхнеуровневого параметра](index.md#top-level) `service_account_id`. Если верхнеуровневого параметра нет, функция вызывается без авторизации.
-`authorizer_result_ttl_in_seconds` | `int` | Необязательный параметр. Время, в течение которого ответ функции хранится в локальном кеше API Gateway. Если параметр не указан, ответ не кешируется.
+`authorizer_result_ttl_in_seconds` | `int` | Необязательный параметр. Время, в течение которого ответ функции хранится в локальном кеше {{ api-gw-short-name }}. Если параметр не указан, ответ не кешируется.
 `authorizer_result_caching_mode` | `string` | Необязательный параметр. Режим кеширования результата авторизации. Для использования необходимо также указать параметр `authorizer_result_ttl_in_seconds`. Возможные значения: `path`, `uri`.
 
 ## Спецификация расширения {#spec}
@@ -117,7 +117,7 @@ JSON-структура ответа:
 
 ## Кеширование {#caching}
 
-Ответ функции сохраняется в локальном кеше API Gateway, если в расширении задан параметр `authorizer_result_ttl_in_seconds`.
+Ответ функции сохраняется в локальном кеше {{ api-gw-short-name }}, если в расширении задан параметр `authorizer_result_ttl_in_seconds`.
 
 Состав ключа кеширования зависит от типа авторизации и значения параметра `authorizer_result_caching_mode`.
 
@@ -165,14 +165,19 @@ components:
         authorizer_result_caching_mode: path
 ```
 
-Если в течение времени, указанного в параметре `authorizer_result_ttl_in_seconds`, повторно придет HTTP-запрос с аналогичными составляющими ключа кеширования, API Gateway использует ответ, сохраненный в кеше, и не будет вызывать функцию.
+Если в течение времени, указанного в параметре `authorizer_result_ttl_in_seconds`, повторно придет HTTP-запрос с аналогичными составляющими ключа кеширования, {{ api-gw-short-name }} использует ответ, сохраненный в кеше, и не будет вызывать функцию.
 
 ## Контекст авторизации {#context}
 
-Если авторизация прошла успешно, при вызове другой пользовательской функции контекст авторизации будет передан в [запросе](../../../functions/concepts/function-invoke.md#request) внутри поля `requestContext.authorizer`. Контекст авторизации может содержать данные, идентифицирующие пользователя, от которого пришел HTTP-запрос.
+Если авторизация прошла успешно, контекст авторизации будет передан в [запросе](../../../functions/concepts/function-invoke.md#request):
+
+* при вызове другой пользовательской [функции](../../../functions/concepts/function.md) — в поле `requestContext.authorizer`.
+* при вызове [контейнера](../../../serverless-containers/concepts/container.md) или HTTP-запросе — в заголовке `X-Yc-Apigateway-Authorization-Context`. Данные кодируются в Base64.
+
+Контекст авторизации может содержать данные, идентифицирующие пользователя, от которого пришел HTTP-запрос.
 
 ## Возможные ошибки {#errors}
 
 * `401 Unauthorized` — клиент не передал в HTTP-запросе авторизационные данные, которые определены схемой (например, заголовок `Authorization` для схемы с типом [HTTP Basic](https://swagger.io/docs/specification/authentication/basic-authentication/)).
-* `403 Forbidden` — API Gateway неуспешно вызвал функцию (`"isAuthorized": false`).
-* `500 Internal Server Error` — API Gateway не смог вызвать функцию или получил от нее ответ с некорректной структурой.
+* `403 Forbidden` — {{ api-gw-short-name }} неуспешно вызвал функцию (`"isAuthorized": false`).
+* `500 Internal Server Error` — {{ api-gw-short-name }} не смог вызвать функцию или получил от нее ответ с некорректной структурой.

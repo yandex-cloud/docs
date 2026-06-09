@@ -1,13 +1,12 @@
 # SAML Federation API, REST: Federation.GetDomain
 
 Returns the specified domain in the federation.
-
 To get the list of available domains, make a [ListDomains](listDomains.md#ListDomains) request.
 
 ## HTTP request
 
 ```
-GET https://organization-manager.api.cloud.yandex.net/organization-manager/v1/saml/federations/{federationId}/domains/{domain}
+GET https://organization-manager.{{ api-host }}/organization-manager/v1/saml/federations/{federationId}/domains/{domain}
 ```
 
 ## Path parameters

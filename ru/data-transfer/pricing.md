@@ -7,10 +7,6 @@ editable: false
 # Правила тарификации для {{ data-transfer-name }}
 
 
-{% include [pricing-increase-2026-05](../_includes/pricing-increase-2026-05.md) %}
-
-
-
 
 {% include [without-use-calculator](../_includes/pricing/without-use-calculator.md) %}
 
@@ -42,7 +38,7 @@ editable: false
 
 {% endnote %}
 
-Передача данных для трансферов, находящихся на стадии Preview, не тарифицируется. Перечень доступных трансферов и стадий их готовности см. в разделе [Доступные трансферы](transfer-matrix.md).
+Передача данных для трансферов, находящихся на стадии Preview, не тарифицируется. Перечень доступных трансферов и стадий их готовности читайте в разделе [Доступные трансферы](transfer-matrix.md).
 
 ## Цены для региона Россия {#prices}
 

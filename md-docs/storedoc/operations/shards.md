@@ -1,4 +1,4 @@
-# Управление шардами Yandex StoreDoc
+# Управление шардами {{ SD }}
 
 Кластер можно [создать шардированным](cluster-create.md#creating-a-sharded-cluster) либо [включить шардирование](#enable) позже. Затем можно [добавлять и настраивать шарды](#add-shard).
 
@@ -14,9 +14,9 @@
 
 ## Включить шардирование {#enable}
 
-Через интерфейс Yandex StoreDoc вы можете быстро создать [инфраструктуру шардирования Yandex StoreDoc](../concepts/sharding.md#shard-management).
+Через интерфейс {{ mmg-name }} вы можете быстро создать [инфраструктуру шардирования {{ SD }}](../concepts/sharding.md#shard-management).
 
-О том, как непосредственно шардировать базу и коллекции Yandex StoreDoc, читайте в разделе [Шардирование коллекций](../tutorials/sharding.md).
+О том, как непосредственно шардировать базу и коллекции {{ SD }}, читайте в разделе [Шардирование коллекций](../tutorials/sharding.md).
 
 Для включения шардирования необходимо:
 * Не менее трех хостов `MONGOINFRA` при стандартном шардировании.
@@ -24,7 +24,7 @@
 
 {% note info %}
 
-Шардирование [не поддерживается](../concepts/sharding.md#shard-management) для хостов с классами **b1.medium** и **b2.medium**. Если у вас нет вкладки **Шарды**, [повысьте класс хостов кластера](update.md#change-resource-preset) до поддерживаемого.
+Шардирование [не поддерживается](../concepts/sharding.md#shard-management) для хостов с классами **b1.medium** и **b2.medium**. Если у вас нет вкладки **{{ ui-key.yacloud.mongodb.cluster.switch_shards }}**, [повысьте класс хостов кластера](update.md#change-resource-preset) до поддерживаемого.
 
 {% endnote %}
 
@@ -32,13 +32,13 @@
 
 - Консоль управления {#console}
 
-  1. Перейдите на [страницу каталога](https://console.yandex.cloud).
-  1. [Перейдите](../../console/operations/select-service.md#select-service) в сервис **Yandex StoreDoc**.
-  1. Нажмите на имя нужного кластера и выберите вкладку **Шарды**.
-  1. Нажмите кнопку **Включить**.
+  1. Перейдите на [страницу каталога]({{ link-console-main }}).
+  1. Перейдите в сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-mongodb }}**.
+  1. Нажмите на имя нужного кластера и выберите вкладку **{{ ui-key.yacloud.mongodb.cluster.switch_shards }}**.
+  1. Нажмите кнопку **{{ ui-key.yacloud.mdb.cluster.shards.button_sharding-enable }}**.
   1. Выберите один из типов шардирования:
-     * **Стандартное** — с использованием хостов `MONGOINFRA`.
-     * **Расширенное** — с использованием хостов `MONGOS` и `MONGOCFG`.
+     * **{{ ui-key.yacloud.mongodb.EnableShardingForm.option_sharding-type-standard_ezqnu }}** — с использованием хостов `MONGOINFRA`.
+     * **{{ ui-key.yacloud.mongodb.EnableShardingForm.option_sharding-type-extended_8Vip4 }}** — с использованием хостов `MONGOS` и `MONGOCFG`.
 
        Подробнее см. в разделе [Шардирование](../concepts/sharding.md).
 
@@ -49,20 +49,20 @@
      {% endnote %}
 
   1. Задайте параметры хостов, которые будут обеспечивать доступ к шардированным данным.
-  1. Нажмите кнопку **Включить шардирование**.
+  1. Нажмите кнопку **{{ ui-key.yacloud.mongodb.cluster.shards.button_enable_sharding }}**.
 
   Кластер начнет обновляться, при этом будут созданы запрошенные хосты, а также первый шард кластера.
 
 - CLI {#cli}
 
-  Если у вас еще нет интерфейса командной строки Yandex Cloud (CLI), [установите и инициализируйте его](../../cli/quickstart.md#install).
+  Если у вас еще нет интерфейса командной строки {{ yandex-cloud }} (CLI), [установите и инициализируйте его](../../cli/quickstart.md#install).
 
   По умолчанию используется каталог, указанный при [создании](../../cli/operations/profile/profile-create.md) профиля CLI. Чтобы изменить каталог по умолчанию, используйте команду `yc config set folder-id <идентификатор_каталога>`. Также для любой команды вы можете указать другой каталог с помощью параметров `--folder-name` или `--folder-id`. Если вы обращаетесь к ресурсу по имени, поиск будет выполнен в каталоге по умолчанию. Если вы обращаетесь к ресурсу по идентификатору, поиск будет выполнен глобально — во всех каталогах с учетом прав доступа.
 
   * Чтобы включить стандартное шардирование кластера с использованием хостов `MONGOINFRA`, выполните команду (в примере приведены не все доступные параметры):
 
     ```bash
-    yc managed-mongodb cluster enable-sharding \
+    {{ yc-mdb-mg }} cluster enable-sharding \
       --cluster-name=<имя_кластера> \
       --host type=mongoinfra,`
         `zone-id=<зона_доступности>,`
@@ -92,7 +92,7 @@
   * Чтобы включить расширенное шардирование кластера с использованием хостов `MONGOS` и `MONGOCFG`, выполните команду (в примере приведены не все доступные параметры):
 
     ```bash
-    yc managed-mongodb cluster enable-sharding \
+    {{ yc-mdb-mg }} cluster enable-sharding \
       --cluster-name=<имя_кластера> \
       --host type=mongos,`
         `zone-id=<зона_доступности>,`
@@ -132,9 +132,9 @@
       * `disk-size` — размер хранилища в гигабайтах.
       * `disk-type` — [тип диска](../concepts/storage.md).
 
-- Terraform {#tf}
+- {{ TF }} {#tf}
 
-  1. Убедитесь, что установленная версия провайдера — 0.90 или выше:
+  1. Убедитесь, что установленная версия провайдера — {{ TF-version }} или выше:
      
      ```bash
      terraform version
@@ -168,7 +168,7 @@
      
      {% endcut %}
 
-  1. Откройте актуальный конфигурационный файл Terraform с планом инфраструктуры.
+  1. Откройте актуальный конфигурационный файл {{ TF }} с планом инфраструктуры.
 
      О создании такого файла читайте в разделе [Создание кластера](cluster-create.md).
 
@@ -254,14 +254,14 @@
 
   1. Проверьте корректность настроек.
 
-     1. В командной строке перейдите в каталог, в котором расположены актуальные конфигурационные файлы Terraform с планом инфраструктуры.
+     1. В командной строке перейдите в каталог, в котором расположены актуальные конфигурационные файлы {{ TF }} с планом инфраструктуры.
      1. Выполните команду:
      
         ```bash
         terraform validate
         ```
      
-        Если в файлах конфигурации есть ошибки, Terraform на них укажет.
+        Если в файлах конфигурации есть ошибки, {{ TF }} на них укажет.
 
   1. Подтвердите изменение ресурсов.
 
@@ -283,7 +283,7 @@
         1. Подтвердите изменение ресурсов.
         1. Дождитесь завершения операции.
 
-  Подробнее см. в [документации провайдера Terraform](../../terraform/resources/mdb_mongodb_cluster.md).
+  Подробнее см. в [документации провайдера {{ TF }}]({{ tf-provider-mmg }}).
 
 - REST API {#api}
 
@@ -293,14 +293,14 @@
         export IAM_TOKEN="<IAM-токен>"
         ```
 
-    1. Воспользуйтесь методом [Cluster.EnableSharding](../api-ref/Cluster/enableSharding.md) и выполните запрос, например, с помощью [cURL](https://curl.se/):
+    1. Воспользуйтесь методом [Cluster.EnableSharding](../api-ref/Cluster/enableSharding.md) и выполните запрос, например, с помощью {{ api-examples.rest.tool }}:
 
         ```bash
         curl \
             --request POST \
             --header "Authorization: Bearer $IAM_TOKEN" \
             --header "Content-Type: application/json" \
-            --url 'https://mdb.api.cloud.yandex.net/managed-mongodb/v1/clusters/<идентификатор_кластера>:enableSharding' \
+            --url 'https://{{ api-host-mdb }}/managed-mongodb/v1/clusters/<идентификатор_кластера>:enableSharding' \
             --data '{
                       "<тип_хоста_Yandex_StoreDoc>": {
                         "resources": {
@@ -330,7 +330,7 @@
 
         Где:
 
-        * Тип хоста Yandex StoreDoc — зависит от [типа шардирования](../concepts/sharding.md). Доступные значения: `mongocfg`, `mongos`, `mongoinfra`.
+        * Тип хоста {{ SD }} — зависит от [типа шардирования](../concepts/sharding.md). Доступные значения: `mongocfg`, `mongos`, `mongoinfra`.
         
         * `hostSpecs` — массив новых хостов. Один элемент массива содержит настройки для одного хоста. Количество хостов зависит от [типа шардирования](../concepts/sharding.md#shard-management). 
 
@@ -363,7 +363,7 @@
      ```
      
      Далее предполагается, что содержимое репозитория находится в директории `~/cloudapi/`.
-  1. Воспользуйтесь вызовом [ClusterService.EnableSharding](../api-ref/grpc/Cluster/enableSharding.md) и выполните запрос, например, с помощью [gRPCurl](https://github.com/fullstorydev/grpcurl):
+  1. Воспользуйтесь вызовом [ClusterService.EnableSharding](../api-ref/grpc/Cluster/enableSharding.md) и выполните запрос, например, с помощью {{ api-examples.grpc.tool }}:
 
       ```bash
       grpcurl \
@@ -398,13 +398,13 @@
                   { <аналогичный_набор_настроек_для_хоста_N> }
                 ]
               }' \
-          mdb.api.cloud.yandex.net:443 \
+          {{ api-host-mdb }}:{{ port-https }} \
           yandex.cloud.mdb.mongodb.v1.ClusterService.EnableSharding
       ```
 
       Где:
       
-      * Тип хоста Yandex StoreDoc — зависит от [типа шардирования](../concepts/sharding.md). Доступные значения: `mongocfg`, `mongos`, `mongoinfra`.
+      * Тип хоста {{ SD }} — зависит от [типа шардирования](../concepts/sharding.md). Доступные значения: `mongocfg`, `mongos`, `mongoinfra`.
         
       * `host_specs` — массив новых хостов. Один элемент массива содержит настройки для одного хоста. Количество хостов зависит от [типа шардирования](../concepts/sharding.md#shard-management). 
 
@@ -430,20 +430,20 @@
 
 - Консоль управления {#console}
 
-  1. Перейдите на [страницу каталога](https://console.yandex.cloud).
-  1. [Перейдите](../../console/operations/select-service.md#select-service) в сервис **Yandex StoreDoc**.
-  1. Нажмите на имя нужного кластера и выберите вкладку **Шарды**.
+  1. Перейдите на [страницу каталога]({{ link-console-main }}).
+  1. Перейдите в сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-mongodb }}**.
+  1. Нажмите на имя нужного кластера и выберите вкладку **{{ ui-key.yacloud.mongodb.cluster.switch_shards }}**.
 
 - CLI {#cli}
 
-  Если у вас еще нет интерфейса командной строки Yandex Cloud (CLI), [установите и инициализируйте его](../../cli/quickstart.md#install).
+  Если у вас еще нет интерфейса командной строки {{ yandex-cloud }} (CLI), [установите и инициализируйте его](../../cli/quickstart.md#install).
 
   По умолчанию используется каталог, указанный при [создании](../../cli/operations/profile/profile-create.md) профиля CLI. Чтобы изменить каталог по умолчанию, используйте команду `yc config set folder-id <идентификатор_каталога>`. Также для любой команды вы можете указать другой каталог с помощью параметров `--folder-name` или `--folder-id`. Если вы обращаетесь к ресурсу по имени, поиск будет выполнен в каталоге по умолчанию. Если вы обращаетесь к ресурсу по идентификатору, поиск будет выполнен глобально — во всех каталогах с учетом прав доступа.
 
   Чтобы получить список шардов в кластере, выполните команду:
 
   ```bash
-  yc managed-mongodb shards list --cluster-name <имя_кластера>
+  {{ yc-mdb-mg }} shards list --cluster-name <имя_кластера>
   ```
 
   Результат:
@@ -467,13 +467,13 @@
         export IAM_TOKEN="<IAM-токен>"
         ```
 
-    1. Воспользуйтесь методом [Cluster.ListShards](../api-ref/Cluster/listShards.md) и выполните запрос, например, с помощью [cURL](https://curl.se/):
+    1. Воспользуйтесь методом [Cluster.ListShards](../api-ref/Cluster/listShards.md) и выполните запрос, например, с помощью {{ api-examples.rest.tool }}:
 
         ```bash
         curl \
             --request GET \
             --header "Authorization: Bearer $IAM_TOKEN" \
-            --url 'https://mdb.api.cloud.yandex.net/managed-mongodb/v1/clusters/<идентификатор_кластера>/shards'
+            --url 'https://{{ api-host-mdb }}/managed-mongodb/v1/clusters/<идентификатор_кластера>/shards'
         ```
 
         Идентификатор кластера можно запросить со [списком кластеров в каталоге](cluster-list.md#list-clusters).
@@ -496,7 +496,7 @@
        
        Далее предполагается, что содержимое репозитория находится в директории `~/cloudapi/`.
 
-    1. Воспользуйтесь вызовом [ClusterService.ListShards](../api-ref/grpc/Cluster/listShards.md) и выполните запрос, например, с помощью [gRPCurl](https://github.com/fullstorydev/grpcurl):
+    1. Воспользуйтесь вызовом [ClusterService.ListShards](../api-ref/grpc/Cluster/listShards.md) и выполните запрос, например, с помощью {{ api-examples.grpc.tool }}:
 
         ```bash
         grpcurl \
@@ -508,7 +508,7 @@
             -d '{
                   "cluster_id": "<идентификатор_кластера>"
                 }' \
-            mdb.api.cloud.yandex.net:443 \
+            {{ api-host-mdb }}:{{ port-https }} \
             yandex.cloud.mdb.mongodb.v1.ClusterService.ListShards
         ```
 
@@ -520,29 +520,29 @@
 
 ## Создать шард {#add-shard}
 
-Количество шардов в кластерах Yandex StoreDoc ограничено квотами на количество CPU и объем памяти, которые доступны кластерам БД в вашем облаке. Чтобы проверить используемые ресурсы, откройте страницу [Квоты](https://console.yandex.cloud/cloud?section=quotas) и найдите блок **Yandex StoreDoc**.
+Количество шардов в кластерах {{ mmg-name }} ограничено квотами на количество CPU и объем памяти, которые доступны кластерам БД в вашем облаке. Чтобы проверить используемые ресурсы, откройте страницу [Квоты]({{ link-console-quotas }}) и найдите блок **{{ mmg-full-name }}**.
 
 {% list tabs group=instructions %}
 
 - Консоль управления {#console}
 
-  1. Перейдите на [страницу каталога](https://console.yandex.cloud).
-  1. [Перейдите](../../console/operations/select-service.md#select-service) в сервис **Yandex StoreDoc**.
-  1. Нажмите на имя нужного кластера и выберите вкладку **Шарды**.
-  1. Нажмите кнопку **Создать шард**.
+  1. Перейдите на [страницу каталога]({{ link-console-main }}).
+  1. Перейдите в сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-mongodb }}**.
+  1. Нажмите на имя нужного кластера и выберите вкладку **{{ ui-key.yacloud.mongodb.cluster.switch_shards }}**.
+  1. Нажмите кнопку **{{ ui-key.yacloud.mdb.cluster.shards.action_add-shard }}**.
   1. Укажите имя шарда и добавьте нужное количество хостов.
-  1. Нажмите кнопку **Создать шард**.
+  1. Нажмите кнопку **{{ ui-key.yacloud.mdb.forms.button_create-shard }}**.
 
 - CLI {#cli}
 
-  Если у вас еще нет интерфейса командной строки Yandex Cloud (CLI), [установите и инициализируйте его](../../cli/quickstart.md#install).
+  Если у вас еще нет интерфейса командной строки {{ yandex-cloud }} (CLI), [установите и инициализируйте его](../../cli/quickstart.md#install).
 
   По умолчанию используется каталог, указанный при [создании](../../cli/operations/profile/profile-create.md) профиля CLI. Чтобы изменить каталог по умолчанию, используйте команду `yc config set folder-id <идентификатор_каталога>`. Также для любой команды вы можете указать другой каталог с помощью параметров `--folder-name` или `--folder-id`. Если вы обращаетесь к ресурсу по имени, поиск будет выполнен в каталоге по умолчанию. Если вы обращаетесь к ресурсу по идентификатору, поиск будет выполнен глобально — во всех каталогах с учетом прав доступа.
 
   Чтобы создать шард, выполните команду (в примере приведены не все доступные параметры):
 
   ```bash
-  yc managed-mongodb shards add <имя_нового_шарда> \
+  {{ yc-mdb-mg }} shards add <имя_нового_шарда> \
     --cluster-name=<имя_кластера> \
     --host zone-id=<зона_доступности>,`
       `subnet-name=<имя_подсети>
@@ -554,9 +554,9 @@
     * `zone-id` — [зона доступности](../../overview/concepts/geo-scope.md).
     * `subnet-name` — [имя подсети](../../vpc/concepts/network.md#subnet).
 
-- Terraform {#tf}
+- {{ TF }} {#tf}
 
-  1. Убедитесь, что установленная версия провайдера — 0.90 или выше:
+  1. Убедитесь, что установленная версия провайдера — {{ TF-version }} или выше:
      
      ```bash
      terraform version
@@ -590,11 +590,11 @@
      
      {% endcut %}
 
-  1. Откройте актуальный конфигурационный файл Terraform с планом инфраструктуры.
+  1. Откройте актуальный конфигурационный файл {{ TF }} с планом инфраструктуры.
 
      О создании такого файла читайте в разделе [Создание кластера](cluster-create.md).
 
-  1. Добавьте к описанию кластера Yandex StoreDoc нужное количество блоков `host` с типом `MONGOD` в параметре `type` и именем шарда в параметре `shard_name`:
+  1. Добавьте к описанию кластера {{ mmg-name }} нужное количество блоков `host` с типом `MONGOD` в параметре `type` и именем шарда в параметре `shard_name`:
 
      ```hcl
      resource "yandex_mdb_mongodb_cluster" "<имя_кластера>" {
@@ -610,14 +610,14 @@
 
   1. Проверьте корректность настроек.
 
-     1. В командной строке перейдите в каталог, в котором расположены актуальные конфигурационные файлы Terraform с планом инфраструктуры.
+     1. В командной строке перейдите в каталог, в котором расположены актуальные конфигурационные файлы {{ TF }} с планом инфраструктуры.
      1. Выполните команду:
      
         ```bash
         terraform validate
         ```
      
-        Если в файлах конфигурации есть ошибки, Terraform на них укажет.
+        Если в файлах конфигурации есть ошибки, {{ TF }} на них укажет.
 
   1. Подтвердите изменение ресурсов.
 
@@ -639,7 +639,7 @@
         1. Подтвердите изменение ресурсов.
         1. Дождитесь завершения операции.
 
-  Подробнее см. в [документации провайдера Terraform](../../terraform/resources/mdb_mongodb_cluster.md).
+  Подробнее см. в [документации провайдера {{ TF }}]({{ tf-provider-mmg }}).
 
 - REST API {#api}
 
@@ -649,14 +649,14 @@
         export IAM_TOKEN="<IAM-токен>"
         ```
 
-    1. Воспользуйтесь методом [Cluster.AddShard](../api-ref/Cluster/addShard.md) и выполните запрос, например, с помощью [cURL](https://curl.se/):
+    1. Воспользуйтесь методом [Cluster.AddShard](../api-ref/Cluster/addShard.md) и выполните запрос, например, с помощью {{ api-examples.rest.tool }}:
 
         ```bash
         curl \
             --request POST \
             --header "Authorization: Bearer $IAM_TOKEN" \
             --header "Content-Type: application/json" \
-            --url 'https://mdb.api.cloud.yandex.net/managed-mongodb/v1/clusters/<идентификатор_кластера>/shards' \
+            --url 'https://{{ api-host-mdb }}/managed-mongodb/v1/clusters/<идентификатор_кластера>/shards' \
             --data '{
                       "shardName": "<имя_шарда>",
                       "hostSpecs": [
@@ -714,7 +714,7 @@
        
        Далее предполагается, что содержимое репозитория находится в директории `~/cloudapi/`.
 
-    1. Воспользуйтесь вызовом [ClusterService.AddShard](../api-ref/grpc/Cluster/addShard.md) и выполните запрос, например, с помощью [gRPCurl](https://github.com/fullstorydev/grpcurl):
+    1. Воспользуйтесь вызовом [ClusterService.AddShard](../api-ref/grpc/Cluster/addShard.md) и выполните запрос, например, с помощью {{ api-examples.grpc.tool }}:
 
         ```bash
         grpcurl \
@@ -743,7 +743,7 @@
                     { <аналогичный_набор_настроек_для_хоста_N> }
                   ]
                 }' \
-            mdb.api.cloud.yandex.net:443 \
+            {{ api-host-mdb }}:{{ port-https }} \
             yandex.cloud.mdb.redis.v1.ClusterService.AddShard    
         ```
 
@@ -770,7 +770,7 @@
 
 ## Удалить шард {#delete-shard}
 
-Вы можете удалить шард из кластера Yandex StoreDoc, если это не единственный шард. Чтобы заменить единственный шард, сначала создайте новый шард, а затем удалите старый.
+Вы можете удалить шард из кластера {{ SD }}, если это не единственный шард. Чтобы заменить единственный шард, сначала создайте новый шард, а затем удалите старый.
 
 {% note info %}
 
@@ -782,44 +782,44 @@
 
 - Консоль управления {#console}
 
-  1. Перейдите на [страницу каталога](https://console.yandex.cloud).
-  1. [Перейдите](../../console/operations/select-service.md#select-service) в сервис **Yandex StoreDoc**.
-  1. Нажмите на имя нужного кластера и выберите вкладку **Шарды**.
-  1. Нажмите на значок ![image](../../_assets/console-icons/ellipsis.svg) в строке нужного шарда и выберите пункт **Удалить**.
-  1. В открывшемся окне нажмите кнопку **Удалить**.
+  1. Перейдите на [страницу каталога]({{ link-console-main }}).
+  1. Перейдите в сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-mongodb }}**.
+  1. Нажмите на имя нужного кластера и выберите вкладку **{{ ui-key.yacloud.mongodb.cluster.switch_shards }}**.
+  1. Нажмите на значок ![image](../../_assets/console-icons/ellipsis.svg) в строке нужного шарда и выберите пункт **{{ ui-key.yacloud.mdb.clusters.button_action-delete }}**.
+  1. В открывшемся окне нажмите кнопку **{{ ui-key.yacloud.mdb.cluster.shards.popup-confirm_button_delete }}**.
 
 - CLI {#cli}
 
-  Если у вас еще нет интерфейса командной строки Yandex Cloud (CLI), [установите и инициализируйте его](../../cli/quickstart.md#install).
+  Если у вас еще нет интерфейса командной строки {{ yandex-cloud }} (CLI), [установите и инициализируйте его](../../cli/quickstart.md#install).
 
   По умолчанию используется каталог, указанный при [создании](../../cli/operations/profile/profile-create.md) профиля CLI. Чтобы изменить каталог по умолчанию, используйте команду `yc config set folder-id <идентификатор_каталога>`. Также для любой команды вы можете указать другой каталог с помощью параметров `--folder-name` или `--folder-id`. Если вы обращаетесь к ресурсу по имени, поиск будет выполнен в каталоге по умолчанию. Если вы обращаетесь к ресурсу по идентификатору, поиск будет выполнен глобально — во всех каталогах с учетом прав доступа.
 
   Чтобы удалить шард из кластера, выполните команду:
 
   ```bash
-  yc managed-mongodb shards delete <имя_шарда> \
+  {{ yc-mdb-mg }} shards delete <имя_шарда> \
     --cluster-name=<имя_кластера>
   ```
 
   Имя шарда можно запросить со [списком шардов в кластере](#list-shards), имя кластера — со [списком кластеров в каталоге](cluster-list.md#list-clusters).
 
-- Terraform {#tf}
+- {{ TF }} {#tf}
 
-  1. Откройте актуальный конфигурационный файл Terraform с планом инфраструктуры.
+  1. Откройте актуальный конфигурационный файл {{ TF }} с планом инфраструктуры.
 
      О создании такого файла читайте в разделе [Создание кластера](cluster-create.md).
 
-  1. Удалите из описания кластера Yandex StoreDoc все блоки `host`, которые относятся к шарду.
+  1. Удалите из описания кластера {{ mmg-name }} все блоки `host`, которые относятся к шарду.
   1. Проверьте корректность настроек.
 
-     1. В командной строке перейдите в каталог, в котором расположены актуальные конфигурационные файлы Terraform с планом инфраструктуры.
+     1. В командной строке перейдите в каталог, в котором расположены актуальные конфигурационные файлы {{ TF }} с планом инфраструктуры.
      1. Выполните команду:
      
         ```bash
         terraform validate
         ```
      
-        Если в файлах конфигурации есть ошибки, Terraform на них укажет.
+        Если в файлах конфигурации есть ошибки, {{ TF }} на них укажет.
 
   1. Введите слово `yes` и нажмите **Enter**.
 
@@ -841,7 +841,7 @@
         1. Подтвердите изменение ресурсов.
         1. Дождитесь завершения операции.
 
-  Подробнее см. в [документации провайдера Terraform](../../terraform/resources/mdb_mongodb_cluster.md).
+  Подробнее см. в [документации провайдера {{ TF }}]({{ tf-provider-mmg }}).
 
 - REST API {#api}
 
@@ -851,13 +851,13 @@
         export IAM_TOKEN="<IAM-токен>"
         ```
 
-    1. Воспользуйтесь методом [Cluster.DeleteShard](../api-ref/Cluster/deleteShard.md) и выполните запрос, например, с помощью [cURL](https://curl.se/):
+    1. Воспользуйтесь методом [Cluster.DeleteShard](../api-ref/Cluster/deleteShard.md) и выполните запрос, например, с помощью {{ api-examples.rest.tool }}:
 
         ```bash
         curl \
             --request DELETE \
             --header "Authorization: Bearer $IAM_TOKEN" \
-            --url 'https://mdb.api.cloud.yandex.net/managed-mongodb/v1/clusters/<идентификатор_кластера>/shards/<имя_шарда>'
+            --url 'https://{{ api-host-mdb }}/managed-mongodb/v1/clusters/<идентификатор_кластера>/shards/<имя_шарда>'
         ```
 
         Идентификатор кластера можно запросить со [списком кластеров в каталоге](cluster-list.md#list-clusters), а имя шарда — со [списком шардов в кластере](#list-shards).
@@ -880,7 +880,7 @@
        
        Далее предполагается, что содержимое репозитория находится в директории `~/cloudapi/`.
 
-    1. Воспользуйтесь вызовом [ClusterService.DeleteShard](../api-ref/grpc/Cluster/deleteShard.md) и выполните запрос, например, с помощью [gRPCurl](https://github.com/fullstorydev/grpcurl):
+    1. Воспользуйтесь вызовом [ClusterService.DeleteShard](../api-ref/grpc/Cluster/deleteShard.md) и выполните запрос, например, с помощью {{ api-examples.grpc.tool }}:
 
         ```bash
         grpcurl \
@@ -893,7 +893,7 @@
                   "cluster_id": "<идентификатор_кластера>",
                   "shard_name": "<имя_шарда>" 
                 }' \
-            mdb.api.cloud.yandex.net:443 \
+            {{ api-host-mdb }}:{{ port-https }} \
             yandex.cloud.mdb.mongodb.v1.ClusterService.DeleteShard
         ```
 

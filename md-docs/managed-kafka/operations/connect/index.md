@@ -1,22 +1,22 @@
-# Предварительная настройка для подключения к кластеру Apache Kafka®
+# Предварительная настройка для подключения к кластеру {{ KF }}
 
 
-К хостам кластера Managed Service for Apache Kafka® можно подключиться:
+К хостам кластера {{ mkf-name }} можно подключиться:
 
 * Через интернет, если вы настроили [публичный доступ](../cluster-update.md#change-sg-set) для кластера. К такому кластеру можно подключиться только используя [SSL-соединение](#get-ssl-cert).
-* С виртуальных машин Yandex Cloud, расположенных в той же [облачной сети](../../../vpc/concepts/network.md). Если к кластеру нет публичного доступа, для подключения с таких ВМ SSL-соединение использовать необязательно.
+* С виртуальных машин {{ yandex-cloud }}, расположенных в той же [облачной сети](../../../vpc/concepts/network.md). Если к кластеру нет публичного доступа, для подключения с таких ВМ SSL-соединение использовать необязательно.
 
-К кластеру Apache Kafka® можно подключиться как с использованием шифрования (`SASL_SSL`) — порт 9091, так и без него (`SASL_PLAINTEXT`) — порт 9092.
+К кластеру {{ KF }} можно подключиться как с использованием шифрования (`SASL_SSL`) — порт {{ port-mkf-ssl }}, так и без него (`SASL_PLAINTEXT`) — порт {{ port-mkf-text }}.
 
 
-Чтобы подключиться к кластеру Apache Kafka®:
+Чтобы подключиться к кластеру {{ KF }}:
 
 1. [Создайте пользователей](../cluster-accounts.md#create-account) для клиентов (производителей и потребителей) с доступами в нужные топики.
 1. Подключите клиентов к кластеру:
    * производителей с помощью [Kafka Producer API](https://kafka.apache.org/42/apis/#producer-api);
    * потребителей с помощью [Kafka Consumer API](https://kafka.apache.org/42/apis/#consumer-api).
 
-Для большинства популярных языков программирования существуют готовые реализации API Apache Kafka®. Примеры использования приведены в разделе [Примеры кода](code-examples.md).
+Для большинства популярных языков программирования существуют готовые реализации API {{ KF }}. Примеры использования приведены в разделе [Примеры кода](code-examples.md).
 
 
 ## Настройка групп безопасности {#configuring-security-groups}
@@ -29,53 +29,53 @@
 
 - Через интернет {#internet}
 
-  [Настройте все группы безопасности](../../../vpc/operations/security-group-add-rule.md) кластера так, чтобы они разрешали входящий трафик с любых IP-адресов на порт 9091. Для этого создайте следующее правило для входящего трафика:
+  [Настройте все группы безопасности](../../../vpc/operations/security-group-add-rule.md) кластера так, чтобы они разрешали входящий трафик с любых IP-адресов на порт {{ port-mkf-ssl }}. Для этого создайте следующее правило для входящего трафика:
 
-  * **Диапазон портов** — `9091`.
-  * **Протокол** — `TCP`.
-  * **Источник** — `CIDR`.
-  * **CIDR блоки** — `0.0.0.0/0`.
+  * **{{ ui-key.yacloud.vpc.network.security-groups.forms.field_sg-rule-port-range }}** — `{{ port-mkf-ssl }}`.
+  * **{{ ui-key.yacloud.vpc.network.security-groups.forms.field_sg-rule-protocol }}** — `{{ ui-key.yacloud.common.label_tcp }}`.
+  * **{{ ui-key.yacloud.vpc.network.security-groups.forms.field_sg-rule-source }}** — `{{ ui-key.yacloud.vpc.network.security-groups.forms.value_sg-rule-destination-cidr }}`.
+  * **{{ ui-key.yacloud.vpc.network.security-groups.forms.field_sg-rule-cidr-blocks }}** — `0.0.0.0/0`.
 
-  Чтобы разрешить использование [API Managed Service for Apache Kafka®](../../concepts/available-apis.md) (например, для работы с [Managed Schema Registry](../../concepts/managed-schema-registry.md)), добавьте правило для входящего трафика:
+  Чтобы разрешить использование [API {{ mkf-name }}](../../concepts/available-apis.md) (например, для работы с [{{ mkf-msr }}](../../concepts/managed-schema-registry.md)), добавьте правило для входящего трафика:
 
-  * **Диапазон портов** — `443`.
-  * **Протокол** — `TCP`.
-  * **Источник** — `CIDR`.
-  * **CIDR блоки** — `0.0.0.0/0`.
+  * **{{ ui-key.yacloud.vpc.network.security-groups.forms.field_sg-rule-port-range }}** — `{{ port-https }}`.
+  * **{{ ui-key.yacloud.vpc.network.security-groups.forms.field_sg-rule-protocol }}** — `{{ ui-key.yacloud.common.label_tcp }}`.
+  * **{{ ui-key.yacloud.vpc.network.security-groups.forms.field_sg-rule-source }}** — `{{ ui-key.yacloud.vpc.network.security-groups.forms.value_sg-rule-destination-cidr }}`.
+  * **{{ ui-key.yacloud.vpc.network.security-groups.forms.field_sg-rule-cidr-blocks }}** — `0.0.0.0/0`.
 
-- С ВМ в Yandex Cloud {#cloud}
+- С ВМ в {{ yandex-cloud }} {#cloud}
 
-  1. [Настройте все группы безопасности](../../../vpc/operations/security-group-add-rule.md) кластера так, чтобы они разрешали входящий трафик из группы безопасности, в которой находится ВМ, на порты 9091, 9092. Для этого в этих группах создайте следующее правило для входящего трафика:
+  1. [Настройте все группы безопасности](../../../vpc/operations/security-group-add-rule.md) кластера так, чтобы они разрешали входящий трафик из группы безопасности, в которой находится ВМ, на порты {{ port-mkf-ssl }}, {{ port-mkf-text }}. Для этого в этих группах создайте следующее правило для входящего трафика:
 
-     * **Диапазон портов** — `9091-9092`.
-     * **Протокол** — `TCP`.
-     * **Источник** — `Группа безопасности`.
-     * **Группа безопасности** — если кластер и ВМ находятся в одной и той же группе безопасности, выберите значение `Текущая` (`Self`). В противном случае укажите группу безопасности ВМ.
+     * **{{ ui-key.yacloud.vpc.network.security-groups.forms.field_sg-rule-port-range }}** — `{{ port-mkf-ssl }}-{{ port-mkf-text }}`.
+     * **{{ ui-key.yacloud.vpc.network.security-groups.forms.field_sg-rule-protocol }}** — `{{ ui-key.yacloud.common.label_tcp }}`.
+     * **{{ ui-key.yacloud.vpc.network.security-groups.forms.field_sg-rule-source }}** — `{{ ui-key.yacloud.vpc.network.security-groups.forms.field_sg-rule-sg-type }}`.
+     * **{{ ui-key.yacloud.vpc.network.security-groups.forms.field_sg-rule-sg-type }}** — если кластер и ВМ находятся в одной и той же группе безопасности, выберите значение `{{ ui-key.yacloud.vpc.network.security-groups.forms.value_sg-rule-sg-type-self }}` (`Self`). В противном случае укажите группу безопасности ВМ.
 
-     Чтобы разрешить использование [API Managed Service for Apache Kafka®](../../concepts/available-apis.md) (например, для работы с [Managed Schema Registry](../../concepts/managed-schema-registry.md)), добавьте правило для входящего трафика:
+     Чтобы разрешить использование [API {{ mkf-name }}](../../concepts/available-apis.md) (например, для работы с [{{ mkf-msr }}](../../concepts/managed-schema-registry.md)), добавьте правило для входящего трафика:
 
-       * **Диапазон портов** — `443`.
-       * **Протокол** — `TCP`.
-       * **Источник** — `CIDR`.
-       * **CIDR блоки** — `0.0.0.0/0`.
+       * **{{ ui-key.yacloud.vpc.network.security-groups.forms.field_sg-rule-port-range }}** — `{{ port-https }}`.
+       * **{{ ui-key.yacloud.vpc.network.security-groups.forms.field_sg-rule-protocol }}** — `{{ ui-key.yacloud.common.label_tcp }}`.
+       * **{{ ui-key.yacloud.vpc.network.security-groups.forms.field_sg-rule-source }}** — `{{ ui-key.yacloud.vpc.network.security-groups.forms.value_sg-rule-destination-cidr }}`.
+       * **{{ ui-key.yacloud.vpc.network.security-groups.forms.field_sg-rule-cidr-blocks }}** — `0.0.0.0/0`.
 
   1. [Настройте группу безопасности](../../../vpc/operations/security-group-add-rule.md), в которой находится ВМ так, чтобы можно было подключаться к ВМ и был разрешен трафик между ВМ и хостами кластера.
 
      Пример правил для ВМ:
 
      * Для входящего трафика:
-       * **Диапазон портов** — `22`.
-       * **Протокол** — `TCP`.
-       * **Источник** — `CIDR`.
-       * **CIDR блоки** — `0.0.0.0/0`.
+       * **{{ ui-key.yacloud.vpc.network.security-groups.forms.field_sg-rule-port-range }}** — `{{ port-ssh }}`.
+       * **{{ ui-key.yacloud.vpc.network.security-groups.forms.field_sg-rule-protocol }}** — `{{ ui-key.yacloud.common.label_tcp }}`.
+       * **{{ ui-key.yacloud.vpc.network.security-groups.forms.field_sg-rule-source }}** — `{{ ui-key.yacloud.vpc.network.security-groups.forms.value_sg-rule-destination-cidr }}`.
+       * **{{ ui-key.yacloud.vpc.network.security-groups.forms.field_sg-rule-cidr-blocks }}** — `0.0.0.0/0`.
 
        Это правило позволяет подключаться к ВМ по протоколу [SSH](../../../glossary/ssh-keygen.md).
 
      * Для исходящего трафика:
-        * **Протокол** — `Любой` (`Any`).
-        * **Диапазон портов** — `0-65535`.
-        * **Назначение** — `CIDR`.
-        * **CIDR блоки** — `0.0.0.0/0`.
+        * **{{ ui-key.yacloud.vpc.network.security-groups.forms.field_sg-rule-protocol }}** — `{{ ui-key.yacloud.vpc.network.security-groups.forms.value_any }}` (`Any`).
+        * **{{ ui-key.yacloud.vpc.network.security-groups.forms.field_sg-rule-port-range }}** — `{{ port-any }}`.
+        * **{{ ui-key.yacloud.vpc.network.security-groups.forms.field_sg-rule-destination }}** — `{{ ui-key.yacloud.vpc.network.security-groups.forms.value_sg-rule-destination-cidr }}`.
+        * **{{ ui-key.yacloud.vpc.network.security-groups.forms.field_sg-rule-cidr-blocks }}** — `0.0.0.0/0`.
 
        Это правило разрешает любой исходящий трафик, что позволяет не только подключаться к кластеру, но и устанавливать на ВМ необходимые для этого сертификаты и утилиты.
 
@@ -89,7 +89,7 @@
 
 {% endnote %}
 
-Подробнее о группах безопасности в разделе [Группы безопасности](../../concepts/network.md#security-groups).
+Подробнее о группах безопасности в разделе [{#T}](../../concepts/network.md#security-groups).
 
 
 ## Получение SSL-сертификата {#get-ssl-cert}
@@ -101,34 +101,34 @@
 - Linux (Bash)/macOS (Zsh) {#linux-macos}
 
    ```bash
-   mkdir -p /usr/local/share/ca-certificates/Yandex/ && \
-   wget "https://storage.yandexcloud.net/cloud-certs/CA.pem" \
-        --output-document /usr/local/share/ca-certificates/Yandex/YandexInternalRootCA.crt && \
-   chmod 0655 /usr/local/share/ca-certificates/Yandex/YandexInternalRootCA.crt
+   mkdir -p {{ crt-local-dir }} && \
+   wget "{{ crt-web-path }}" \
+        --output-document {{ crt-local-dir }}{{ crt-local-file }} && \
+   chmod 0655 {{ crt-local-dir }}{{ crt-local-file }}
    ```
 
-   Сертификат будет сохранен в файле `/usr/local/share/ca-certificates/Yandex/YandexInternalRootCA.crt`.
+   Сертификат будет сохранен в файле `{{ crt-local-dir }}{{ crt-local-file }}`.
 
 - Windows (PowerShell) {#windows}
 
    ```powershell
-   mkdir $HOME\.kafka; curl.exe -o $HOME\.kafka\YandexInternalRootCA.crt https://storage.yandexcloud.net/cloud-certs/CA.pem
+   mkdir $HOME\.kafka; curl.exe -o $HOME\.kafka\{{ crt-local-file }} {{ crt-web-path }}
    ```
 
-   Сертификат будет сохранен в файле `$HOME\.kafka\YandexInternalRootCA.crt`.
+   Сертификат будет сохранен в файле `$HOME\.kafka\{{ crt-local-file }}`.
 
-   Корпоративные политики и антивирус могут блокировать скачивание сертификата. Подробнее см. в разделе [Вопросы и ответы](../../qa/index.md#get-ssl-error).
+   Корпоративные политики и антивирус могут блокировать скачивание сертификата. Подробнее в разделе [Вопросы и ответы](../../qa/index.md#get-ssl-error).
 
 {% endlist %}
 
-При работе с [Managed Service for Apache Kafka® REST API](../../concepts/available-apis.md) используется этот же сертификат.
+При работе с [{{ mkf-short-name }} REST API](../../concepts/available-apis.md) используется этот же сертификат.
 
-## Получение FQDN хостов Apache Kafka® {#get-fqdn}
+## Получение FQDN хостов {{ KF }} {#get-fqdn}
 
-Для подключения к хосту потребуется его [FQDN](../../concepts/network.md#hostname) — доменное имя. Пример FQDN хоста Apache Kafka®:
+Для подключения к хосту потребуется его [FQDN](../../concepts/network.md#hostname) — доменное имя. Пример FQDN хоста {{ KF }}:
 
 ```text
-rc1a-goh2a9tr********.mdb.yandexcloud.net
+{{ host-name }}.{{ dns-zone }}
 ```
 
 FQDN можно получить несколькими способами:
@@ -136,14 +136,14 @@ FQDN можно получить несколькими способами:
 * Посмотрите FQDN в консоли управления:
 
     1. Перейдите на страницу кластера.
-    1. Перейдите в раздел **Хосты**.
-    1. Скопируйте значение в столбце **FQDN хоста**.
+    1. Перейдите в раздел **{{ ui-key.yacloud.mdb.cluster.hosts.label_title }}**.
+    1. Скопируйте значение в столбце **{{ ui-key.yacloud.mdb.cluster.hosts.host_column_name }}**.
 
-* Скопируйте команду для подключения к кластеру в [консоли управления](https://console.yandex.cloud). Команда содержит заполненный FQDN хоста-брокера. Чтобы получить команду, перейдите на страницу кластера и нажмите кнопку **Подключиться**.
+* Скопируйте команду для подключения к кластеру в [консоли управления]({{ link-console-main }}). Команда содержит заполненный FQDN хоста-брокера. Чтобы получить команду, перейдите на страницу кластера и нажмите кнопку **{{ ui-key.yacloud.mdb.clusters.button_action-connect }}**.
 
 * [Запросите список хостов в кластере](../cluster-hosts.md#list-hosts) с помощью CLI или API.
 
-При работе с [Managed Service for Apache Kafka® REST API](../../concepts/available-apis.md) можно отсылать запросы к любому хосту-брокеру: API доступно со всех хостов-брокеров кластера.
+При работе с [{{ mkf-short-name }} REST API](../../concepts/available-apis.md) можно отсылать запросы к любому хосту-брокеру: API доступно со всех хостов-брокеров кластера.
 
 ## Что дальше {#whats-next}
 

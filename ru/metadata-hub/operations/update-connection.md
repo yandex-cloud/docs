@@ -120,7 +120,7 @@ description: Пошаговые инструкции по работе с {{ con
 
             {% note warning %}
 
-            Формат записи хостов зависит от типа базы данных. Подробнее см. в [справочнике CLI](../../cli/cli-ref/metadata-hub/cli-ref/connection-manager/connection/update/index.md).
+            Формат записи хостов зависит от типа базы данных. Подробнее — в [справочнике CLI](../../cli/cli-ref/metadata-hub/cli-ref/connection-manager/connection/update/index.md).
 
             {% endnote %}
 
@@ -348,7 +348,7 @@ description: Пошаговые инструкции по работе с {{ con
 
           {% note warning %}
 
-          Параметры хостов зависят от типа базы данных. Подробнее см. в [документации провайдера {{ TF }}](https://terraform-provider.yandexcloud.net/resources/connectionmanager_connection).
+          Параметры хостов зависят от типа базы данных. Подробнее в [документации провайдера {{ TF }}](https://terraform-provider.yandexcloud.net/resources/connectionmanager_connection).
 
           {% endnote %}
 

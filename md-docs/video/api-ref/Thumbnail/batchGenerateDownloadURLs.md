@@ -7,7 +7,7 @@ This is useful for efficiently retrieving multiple thumbnails at once.
 ## HTTP request
 
 ```
-POST https://video.api.cloud.yandex.net/video/v1/thumbnails:batchGenerateDownloadURLs
+POST https://video.{{ api-host }}/video/v1/thumbnails:batchGenerateDownloadURLs
 ```
 
 ## Body parameters {#yandex.cloud.video.v1.BatchGenerateDownloadURLsRequest}
@@ -32,7 +32,7 @@ The maximum string length in characters is 50. ||
 
 List of thumbnail IDs for which to generate download URLs.
 
-The number of elements must be in the range 1-100. The maximum string length in characters for each value is 50. ||
+The maximum string length in characters for each value is 50. The number of elements must be in the range 1-100. ||
 |#
 
 ## Response {#yandex.cloud.video.v1.BatchGenerateDownloadURLsResponse}

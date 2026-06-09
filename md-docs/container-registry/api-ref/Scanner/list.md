@@ -5,7 +5,7 @@ Retrieves the list of ScanResults for specified Image.
 ## HTTP request
 
 ```
-GET https://container-registry.api.cloud.yandex.net/container-registry/v1/scans
+GET https://container-registry.{{ api-host }}/container-registry/v1/scans
 ```
 
 ## Query parameters {#yandex.cloud.containerregistry.v1.ListScanResultsRequest}
@@ -19,7 +19,6 @@ The maximum string length in characters is 50.
 Includes only one of the fields `imageId`, `repositoryId`.
 
 ID of the Image or Repository to list ScanResults for.
-
 To get the image ID use a [yandex.cloud.containerregistry.v1.ImageService.List](../Image/list.md#List) request.
 To get the repository ID use a [yandex.cloud.containerregistry.v1.RepositoryService.List](../Repository/list.md#List) request. ||
 || repositoryId | **string**
@@ -29,7 +28,6 @@ The maximum string length in characters is 50.
 Includes only one of the fields `imageId`, `repositoryId`.
 
 ID of the Image or Repository to list ScanResults for.
-
 To get the image ID use a [yandex.cloud.containerregistry.v1.ImageService.List](../Image/list.md#List) request.
 To get the repository ID use a [yandex.cloud.containerregistry.v1.RepositoryService.List](../Repository/list.md#List) request. ||
 || pageSize | **string** (int64)

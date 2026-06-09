@@ -5,7 +5,7 @@ Retrieves the list of vulnerabilities found in particular scan.
 ## HTTP request
 
 ```
-GET https://container-registry.api.cloud.yandex.net/container-registry/v1/scans/{scanResultId}:listVulnerabilities
+GET https://container-registry.{{ api-host }}/container-registry/v1/scans/{scanResultId}:listVulnerabilities
 ```
 
 ## Path parameters
@@ -65,7 +65,6 @@ The maximum string length in characters is 100. ||
 {
   "vulnerabilities": [
     {
-      "severity": "string",
       // Includes only one of the fields `package`
       "package": {
         "name": "string",
@@ -76,8 +75,9 @@ The maximum string length in characters is 100. ||
         "fixedBy": "string",
         "origin": "string",
         "type": "string"
-      }
+      },
       // end of the list of possible fields
+      "severity": "string"
     }
   ],
   "nextPageToken": "string"
@@ -105,6 +105,11 @@ A Vulnerability resource.
 
 #|
 ||Field | Description ||
+|| package | **[PackageVulnerability](#yandex.cloud.containerregistry.v1.PackageVulnerability)**
+
+Includes only one of the fields `package`.
+
+Details of vulnerability depending on type. Only `package` vulnerability is supported at the moment. ||
 || severity | **enum** (Severity)
 
 Output only. Severity of the Vulnerability.
@@ -124,11 +129,6 @@ has almost no install base, or does no real damage. These tend not to get backpo
 and will likely not be included in security updates unless there is an easy fix and some other issue causes an update.
 - `UNDEFINED`: Unknown severity is either a security problem that has not been assigned to a priority yet or
 a priority that our system did not recognize. ||
-|| package | **[PackageVulnerability](#yandex.cloud.containerregistry.v1.PackageVulnerability)**
-
-Includes only one of the fields `package`.
-
-Details of vulnerability depending on type. Only `package` vulnerability is supported at the moment. ||
 |#
 
 ## PackageVulnerability {#yandex.cloud.containerregistry.v1.PackageVulnerability}

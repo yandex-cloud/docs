@@ -1,6 +1,6 @@
 # Арендовать сервер в готовой конфигурации
 
-Вы можете арендовать [сервер BareMetal](../../concepts/servers.md) в одной из [готовых конфигураций](../../concepts/server-configurations.md#standard).
+Вы можете арендовать [сервер {{ baremetal-name }}](../../concepts/servers.md) в одной из [готовых конфигураций](../../concepts/server-configurations.md#standard).
 
 Если же ваша задача требует от сервера каких-то нетиповых аппаратных характеристик, вы можете сами [сконфигурировать](custom-server-lease.md) ваш сервер.
 
@@ -10,9 +10,9 @@
 
 - Консоль управления {#console}
 
-  1. В [консоли управления](https://console.yandex.cloud) выберите [каталог](../../../resource-manager/concepts/resources-hierarchy.md#folder), в котором вы хотите арендовать сервер.
-  1. [Перейдите](../../../console/operations/select-service.md#select-service) в сервис **BareMetal**.
-  1. Нажмите кнопку **Заказать сервер** и в открывшемся окне выберите вариант `Готовые конфигурации` и подходящую [конфигурацию](../../concepts/server-configurations.md) сервера BareMetal.
+  1. В [консоли управления]({{ link-console-main }}) выберите [каталог](../../../resource-manager/concepts/resources-hierarchy.md#folder), в котором вы хотите арендовать сервер.
+  1. Перейдите в сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_baremetal }}**.
+  1. Нажмите кнопку **{{ ui-key.yacloud.baremetal.label_create-server }}** и в открывшемся окне выберите вариант `{{ ui-key.yacloud_components.baremetal.StockConfigurations }}` и подходящую [конфигурацию](../../concepts/server-configurations.md) сервера {{ baremetal-name }}.
      
      Чтобы выбрать подходящую вам конфигурацию сервера, нажмите на блок с именем этой конфигурации в центральной части экрана.
      
@@ -26,45 +26,45 @@
      
      Вы можете снизить стоимость аренды сервера в некоторых конфигурациях, заказав его [сборку](../../concepts/server-custom-configurations.md#assembly).
      
-     Чтобы воспользоваться скидкой, в блоке с нужной конфигурацией наведите курсор на **Дешевле со сборкой** ![circle-info.svg](../../../_assets/console-icons/circle-info.svg) и во всплывающем окне нажмите ![person-nut-hex.svg](../../../_assets/console-icons/person-nut-hex.svg) **Перейти к сборке**.
+     Чтобы воспользоваться скидкой, в блоке с нужной конфигурацией наведите курсор на **{{ ui-key.yacloud_components.baremetal.assemblyDiscountLabel }}** ![circle-info.svg](../../../_assets/console-icons/circle-info.svg) и во всплывающем окне нажмите ![person-nut-hex.svg](../../../_assets/console-icons/person-nut-hex.svg) **{{ ui-key.yacloud_components.baremetal.goToAssembly }}**.
      
      При заказе сервера со сборкой воспользуйтесь приведенной ниже инструкцией, чтобы задать необходимые параметры сервера. При этом сервер станет доступен вам не сразу, а после завершения сборки (в течение четырех календарных дней) и по более низкой цене.
      
      {% endnote %}
   1. В открывшемся окне с настройками конфигурации сервера:
 
-      1. В блоках **Конфигурация**, **Расположение** и **Условия аренды** убедитесь, что параметры выбранной конфигурации сервера соответствуют вашим потребностям.
+      1. В блоках **{{ ui-key.yacloud.baremetal.title_section-server-config }}**, **{{ ui-key.yacloud.baremetal.title_section-location }}** и **{{ ui-key.yacloud.baremetal.title_section-lease-conditions }}** убедитесь, что параметры выбранной конфигурации сервера соответствуют вашим потребностям.
          
-         Если выбранные параметры вам не подходят, нажмите значок ![arrow-left](../../../_assets/console-icons/arrow-left.svg) в блоке **Конфигурация**, чтобы вернуться к выбору конфигурации.
-      1. В поле **Период аренды** выберите [период](../../concepts/servers.md#server-lease), на который вы хотите арендовать сервер: `1 день`, `1 месяц`, `3 месяца`, `6 месяцев` или `1 год`.
+         Если выбранные параметры вам не подходят, нажмите значок ![arrow-left](../../../_assets/console-icons/arrow-left.svg) в блоке **{{ ui-key.yacloud.baremetal.title_section-server-config }}**, чтобы вернуться к выбору конфигурации.
+      1. В поле **{{ ui-key.yacloud.baremetal.field_server-lease-duration }}** выберите [период](../../concepts/servers.md#server-lease), на который вы хотите арендовать сервер: `1 день`, `1 месяц`, `3 месяца`, `6 месяцев` или `1 год`.
          
          По окончании указанного периода аренда сервера будет автоматически продлена на такой же период. Прервать аренду в течение указанного периода аренды нельзя, но можно [отказаться](server-lease-cancel.md) от дальнейшего продления аренды сервера.
-      1. В поле **Количество серверов** выберите количество серверов данной конфигурации, которое вы хотите арендовать.
-      1. В блоке **Образ** выберите:
+      1. В поле **{{ ui-key.yacloud.baremetal.field_server-count_jPgTg }}** выберите количество серверов данной конфигурации, которое вы хотите арендовать.
+      1. В блоке **{{ ui-key.yacloud.baremetal.title_section-server-product }}** выберите:
          
-         * `Marketplace` — чтобы установить на сервер один из доступных [публичных образов](../../concepts/images.md#marketplace-images) ОС в Yandex Cloud Marketplace.
-         * `Без операционной системы` — чтобы арендовать сервер без операционной системы.
+         * `{{ ui-key.yacloud.baremetal.field_choose-marketplace-os }}` — чтобы установить на сервер один из доступных [публичных образов](../../concepts/images.md#marketplace-images) ОС в {{ marketplace-full-name }}.
+         * `{{ ui-key.yacloud.baremetal.field_choose-no-os }}` — чтобы арендовать сервер без операционной системы.
          
              [Установить](reinstall-os-from-own-image.md) операционную систему из [собственного ISO-образа](../../concepts/images.md#user-images) вы сможете позднее.
-      1. (Опционально) В блоке **Диск** настройте разметку [дисков](../../concepts/disks/disk-types.md):
+      1. (Опционально) В блоке **{{ ui-key.yacloud.baremetal.title_section-disk }}** настройте разметку [дисков](../../concepts/disks/disk-types.md):
          
-         1. Нажмите кнопку **Настроить разделы диска**.
-         1. Укажите параметры разделов. Чтобы создать новый раздел, нажмите кнопку ![icon](../../../_assets/console-icons/plus.svg) **Добавить раздел**.
+         1. Нажмите кнопку **{{ ui-key.yacloud.baremetal.action_disk-layout-settings }}**.
+         1. Укажите параметры разделов. Чтобы создать новый раздел, нажмите кнопку ![icon](../../../_assets/console-icons/plus.svg) **{{ ui-key.yacloud.baremetal.actions_add-partition }}**.
          
-             Чтобы самостоятельно собрать [RAID](../../concepts/disks/raid.md)-массивы и настроить разделы дисков, нажмите кнопку **Разобрать RAID**.
-         1. Нажмите кнопку **Сохранить**.
-      1. В блоке **Приватная сеть** выберите [приватную подсеть](../../concepts/private-network.md#private-subnet) в той [зоне доступности](../../../overview/concepts/geo-scope.md), в которой вы арендуете сервер.
+             Чтобы самостоятельно собрать [RAID](../../concepts/disks/raid.md)-массивы и настроить разделы дисков, нажмите кнопку **{{ ui-key.yacloud.baremetal.action_destroy-raid }}**.
+         1. Нажмите кнопку **{{ ui-key.yacloud.common.save }}**.
+      1. В блоке **{{ ui-key.yacloud.baremetal.title_section-network-interfaces }}** в разделе **Интерфейс 1** выберите [приватную подсеть](../../concepts/private-network.md#private-subnet) в той [зоне доступности](../../../overview/concepts/geo-scope.md), в которой вы арендуете сервер.
          
-         Если в зоне доступности арендуемого сервера еще нет приватной подсети или вы хотите создать новую приватную подсеть, нажмите кнопку **Создать** и в открывшемся окне задайте параметры подсети по инструкции [Создать приватную подсеть](../subnet-create.md).
-      1. В блоке **Публичная сеть**:
+         Если в зоне доступности арендуемого сервера еще нет приватной подсети или вы хотите создать новую приватную подсеть, нажмите кнопку **{{ ui-key.yacloud.common.create }}** и в открывшемся окне задайте параметры подсети по инструкции [{#T}](../subnet-create.md).
+      1. В блоке **{{ ui-key.yacloud.baremetal.title_section-network-interfaces }}** в разделе **Интерфейс 2**:
          
-         * В поле **Публичный адрес** выберите способ назначения публичного адреса:
+         * В поле **{{ ui-key.yacloud.baremetal.field_needed-public-ip }}** выберите способ назначения публичного адреса:
          
-             * `Из эфемерной подсети` — чтобы назначить случайный IP-адрес. Если необходимо получить IP-адрес при создании сервера через запрос к DHCP-серверу, включите опцию **Назначить по DHCP**.
+             * `{{ ui-key.yacloud.baremetal.label_public-ip-ephemeral }}` — чтобы назначить случайный IP-адрес. Если необходимо получить IP-адрес при создании сервера через запрос к DHCP-серверу, включите опцию **{{ ui-key.yacloud.baremetal.label_public-ip-via-dhcp }}**.
          
-             * `Из выделенной подсети` — чтобы назначить IP-адрес из диапазона адресов [выделенной публичной подсети](../../concepts/public-network.md#public-subnet).
+             * `{{ ui-key.yacloud.baremetal.label_public-ip-from-dedicated-subnet }}` — чтобы назначить IP-адрес из диапазона адресов [выделенной публичной подсети](../../concepts/public-network.md#public-subnet).
              
-                 В появившемся поле выберите публичную подсеть или нажмите кнопку **Заказать**, чтобы [заказать](../reserve-public-subnet.md) новую.
+                 В появившемся поле выберите публичную подсеть или нажмите кнопку **{{ ui-key.yacloud.baremetal.action_create-public-subnet-from-server }}**, чтобы [заказать](../reserve-public-subnet.md) новую.
              
                  {% note warning %}
              
@@ -72,12 +72,12 @@
              
                  {% endnote %}
          
-             * `Без адреса` — чтобы не назначать публичный IP-адрес.
+             * `{{ ui-key.yacloud.baremetal.label_public-ip-no }}` — чтобы не назначать публичный IP-адрес.
          
-         * В поле **Объём данных** выберите пакет [потребления трафика сервера](../../concepts/network-restrictions.md#bandwidth-for-pubic-network). Доступные пакеты потребления трафика:
+         * В поле **{{ ui-key.yacloud.baremetal.servers.BandwidthRow.bandwidthTitle_wvZra }}** выберите пакет [потребления трафика сервера](../../concepts/network-restrictions.md#bandwidth-for-pubic-network). Доступные пакеты потребления трафика:
            
-           * `10 ТБ в сутки, ёмкость подключения — 1 Гбит/с`;
-           * `100 ТБ в сутки, ёмкость подключения — 10 Гбит/с`.
+           * `{{ ui-key.yacloud.baremetal.servers.BandwidthRow.plan10Tb_2BFQU }}`;
+           * `{{ ui-key.yacloud.baremetal.servers.BandwidthRow.plan100Tb_4AB2b }}`.
            
            {% note info %}
            
@@ -86,96 +86,157 @@
            Уменьшить емкость подключения до 10 ТБ в сутки можно будет не раньше, чем через 24 часа после начала аренды сервера.
            
            {% endnote %}
-      1. Если вы устанавливаете на сервер операционную систему из публичного образа в Marketplace, в блоке **Доступ** задайте параметры доступа к серверу:
+      1. Если вы устанавливаете на сервер операционную систему из публичного образа в {{ marketplace-short-name }}, в блоке **{{ ui-key.yacloud.baremetal.title_server-access }}** задайте параметры доступа к серверу:
 
-          1. В поле **Пароль** воспользуйтесь одним из вариантов создания пароля для root-пользователя:
+          1. В поле **{{ ui-key.yacloud.baremetal.field_password }}** воспользуйтесь одним из вариантов создания пароля для root-пользователя:
           
-              * Чтобы сгенерировать пароль для root-пользователя, выберите опцию `Новый пароль` и нажмите кнопку **Сгенерировать**.
+              * Чтобы сгенерировать пароль для root-пользователя, выберите опцию `{{ ui-key.yacloud.baremetal.label_password-plain }}` и нажмите кнопку **{{ ui-key.yacloud.component.password-input.label_button-generate }}**.
           
                   {% note warning %}
                   
-                  Этот вариант предусматривает ответственность пользователя за безопасность пароля. Сохраните сгенерированный пароль в надежном месте: он не сохраняется в Yandex Cloud, и после заказа сервера вы не сможете посмотреть его.
+                  Этот вариант предусматривает ответственность пользователя за безопасность пароля. Сохраните сгенерированный пароль в надежном месте: он не сохраняется в {{ yandex-cloud }}, и после заказа сервера вы не сможете посмотреть его.
                   
                   {% endnote %}
           
-              * Чтобы использовать пароль root-пользователя, сохраненный в [секрете](../../../lockbox/concepts/secret.md) Yandex Lockbox, выберите опцию `Секрет Lockbox`:
+              * Чтобы использовать пароль root-пользователя, сохраненный в [секрете](../../../lockbox/concepts/secret.md) {{ lockbox-full-name }}, выберите опцию `{{ ui-key.yacloud.baremetal.label_password-lockbox }}`:
           
-                  В полях **Имя**, **Версия** и **Ключ** выберите соответственно секрет, его версию и ключ, в которых сохранен ваш пароль.
+                  В полях **{{ ui-key.yacloud.baremetal.label_lockbox-name }}**, **{{ ui-key.yacloud.baremetal.label_lockbox-version }}** и **{{ ui-key.yacloud.baremetal.label_lockbox-key }}** выберите соответственно секрет, его версию и ключ, в которых сохранен ваш пароль.
                   
-                  Если у вас еще нет секрета Yandex Lockbox, нажмите кнопку **Создать**, чтобы создать его.
+                  Если у вас еще нет секрета {{ lockbox-name }}, нажмите кнопку **{{ ui-key.yacloud.common.create }}**, чтобы создать его.
           
-                  Этот вариант позволяет вам как задать собственный пароль (тип секрета `Пользовательский`), так и использовать пароль, сгенерированный автоматически (тип секрета `Генерируемый`).
+                  Этот вариант позволяет вам как задать собственный пароль (тип секрета `{{ ui-key.yacloud.lockbox.FormFields.title_secret-type-custom }}`), так и использовать пароль, сгенерированный автоматически (тип секрета `{{ ui-key.yacloud.lockbox.FormFields.title_secret-type-generated }}`).
           
-          1. В поле **Открытый SSH-ключ** выберите SSH-ключ, сохраненный в вашем профиле [пользователя организации](../../../organization/concepts/membership.md).
+          1. В поле **{{ ui-key.yacloud.baremetal.field_ssh-public-key }}** выберите SSH-ключ, сохраненный в вашем профиле [пользователя организации](../../../organization/concepts/membership.md).
           
               Если в вашем профиле нет сохраненных SSH-ключей или вы хотите добавить новый ключ:
               
-              1. Нажмите кнопку **Добавить ключ**.
+              1. Нажмите кнопку **{{ ui-key.yacloud.compute.instances.create.button_add-ssh-key }}**.
               1. Задайте имя SSH-ключа.
               1. Выберите вариант:
               
-                  * `Ввести вручную` — вставьте содержимое открытого [SSH](../../../glossary/ssh-keygen.md)-ключа. Пару SSH-ключей необходимо [создать](../../../compute/operations/vm-connect/ssh.md#creating-ssh-keys) самостоятельно.
-                  * `Загрузить из файла` — загрузите открытую часть SSH-ключа. Пару SSH-ключей необходимо создать самостоятельно.
-                  * `Сгенерировать ключ` — автоматическое создание пары SSH-ключей.
+                  * `{{ ui-key.yacloud_components.ssh-key-add-dialog.value_radio-manual }}` — вставьте содержимое открытого [SSH](../../../glossary/ssh-keygen.md)-ключа. Пару SSH-ключей необходимо [создать](../../../compute/operations/vm-connect/ssh.md#creating-ssh-keys) самостоятельно.
+                  * `{{ ui-key.yacloud_components.ssh-key-add-dialog.value_radio-upload }}` — загрузите открытую часть SSH-ключа. Пару SSH-ключей необходимо создать самостоятельно.
+                  * `{{ ui-key.yacloud_components.ssh-key-add-dialog.value_radio-generate }}` — автоматическое создание пары SSH-ключей.
                   
                     При добавлении сгенерированного SSH-ключа будет создан и загружен архив с парой ключей. В ОС на базе Linux или macOS распакуйте архив в папку `/home/<имя_пользователя>/.ssh`. В ОС Windows распакуйте архив в папку `C:\Users\<имя_пользователя>/.ssh`. Дополнительно вводить открытый ключ в консоли управления не требуется.
               
-              1. Нажмите кнопку **Добавить**.
+              1. Нажмите кнопку **{{ ui-key.yacloud.common.add }}**.
               
               SSH-ключ будет добавлен в ваш профиль пользователя организации. Если в организации [отключена](../../../organization/operations/os-login-access.md) возможность добавления пользователями SSH-ключей в свои профили, добавленный открытый SSH-ключ будет сохранен только в профиле пользователя внутри создаваемого ресурса.
 
-      1. (Опционально) Включите резервное копирование сервера в [Yandex Cloud Backup](../../../backup/index.md):
+      1. (Опционально) Включите резервное копирование сервера в [{{ backup-full-name }}](../../../backup/index.md):
 
-          1. Включите опцию **Резервное копирование**.
+          1. Включите опцию **{{ ui-key.yacloud.baremetal.title_section-server-backups }}**.
           1. Выберите [политику резервного копирования](../../../backup/concepts/policy.md) или [создайте](../../../backup/operations/policy-vm/create.md) новую.
           1. Выберите [сервисный аккаунт](../../../iam/concepts/users/service-accounts.md) с назначенными ролями [`baremetal.editor`](../../security/index.md#baremetal-editor) и [`backup.user`](../../../backup/security/index.md#backup-user) или [создайте](../../../iam/operations/sa/create.md) новый.
 
-          Подробнее см. в инструкции [Арендовать сервер Yandex BareMetal с подключением к Cloud Backup](../../../backup/operations/backup-baremetal/lease-server-with-backup.md).
-      1. В блоке **Информация о сервере**:
+          Подробнее см. в инструкции [{#T}](../../../backup/operations/backup-baremetal/lease-server-with-backup.md).
+      1. В блоке **{{ ui-key.yacloud.baremetal.title_section-server-info }}**:
          
-           1. В поле **Имя** введите имя сервера. Требования к имени:
+           1. В поле **{{ ui-key.yacloud.baremetal.field_name }}** введите имя сервера. Требования к имени:
          
                * длина — от 3 до 63 символов;
                * может содержать строчные буквы латинского алфавита, цифры и дефисы;
                * первый символ — буква, последний — не дефис.
          
-           1. (Опционально) В поле **Описание** добавьте описание сервера.
-           1. (Опционально) В поле **Метки** задайте [метки](../../../resource-manager/concepts/labels.md).
-      1. Нажмите кнопку **Заказать сервер**.
+           1. (Опционально) В поле **{{ ui-key.yacloud.baremetal.field_description }}** добавьте описание сервера.
+           1. (Опционально) В поле **{{ ui-key.yacloud.component.label-set.label_labels }}** задайте [метки](../../../resource-manager/concepts/labels.md).
+      1. Нажмите кнопку **{{ ui-key.yacloud.baremetal.label_create-server }}**.
 
 - CLI {#cli}
 
-   Если у вас еще нет интерфейса командной строки Yandex Cloud (CLI), [установите и инициализируйте его](../../../cli/quickstart.md#install).
+  Если у вас еще нет интерфейса командной строки {{ yandex-cloud }} (CLI), [установите и инициализируйте его](../../../cli/quickstart.md#install).
 
-   По умолчанию используется каталог, указанный при [создании](../../../cli/operations/profile/profile-create.md) профиля CLI. Чтобы изменить каталог по умолчанию, используйте команду `yc config set folder-id <идентификатор_каталога>`. Также для любой команды вы можете указать другой каталог с помощью параметров `--folder-name` или `--folder-id`. Если вы обращаетесь к ресурсу по имени, поиск будет выполнен в каталоге по умолчанию. Если вы обращаетесь к ресурсу по идентификатору, поиск будет выполнен глобально — во всех каталогах с учетом прав доступа.
+  По умолчанию используется каталог, указанный при [создании](../../../cli/operations/profile/profile-create.md) профиля CLI. Чтобы изменить каталог по умолчанию, используйте команду `yc config set folder-id <идентификатор_каталога>`. Также для любой команды вы можете указать другой каталог с помощью параметров `--folder-name` или `--folder-id`. Если вы обращаетесь к ресурсу по имени, поиск будет выполнен в каталоге по умолчанию. Если вы обращаетесь к ресурсу по идентификатору, поиск будет выполнен глобально — во всех каталогах с учетом прав доступа.
 
-   1. Посмотрите описание команды для аренды сервера:
-      
+  1. Посмотрите описание команды для аренды сервера:
+     
+     ```bash
+     yc baremetal server create --help
+     ```
+  1. Получите список конфигураций:
+     
+     ```bash
+     yc baremetal configuration list
+     ```
+     
+     Примерный результат:
+     
+     ```text
+     +----------------------+---------------------+-----------+--------------------------------+--------------------------------+-------------------------+---------+
+     |          ID          |        NAME         | MEMORYGIB |              CPU               |          DISK DRIVES           | NETWORK BМANDWIDTH GBPS | CPU NUM |
+     +----------------------+---------------------+-----------+--------------------------------+--------------------------------+-------------------------+---------+
+     | ly577w5sepew******** | LA-i108-S-1/10G     |        32 | physical cores: 4, mhz: 2400,  | [ type: SSD count: 2 size_gib: |                      10 |       1 |
+     |                      |                     |           | name: Xeon D-1521, vendor:     | 838 ]                          |                         |         |
+     |                      |                     |           | Intel                          |                                |                         |         |
+     | ly5tdlrmwezt******** | LA-i107-S-1/10G     |        16 | physical cores: 4, mhz: 2400,  | [ type: SSD count: 2 size_gib: |                      10 |       1 |
+     |                      |                     |           | name: Xeon D-1521, vendor:     | 838 ]                          |                         |         |
+     |                      |                     |           | Intel                          |                                |                         |         |
+     | ly527jeaz2nb******** | BA-i202-S           |       128 | physical cores: 8, mhz: 2600,  | [ type: SSD count: 2 size_gib: |                       1 |       2 |
+     |                      |                     |           | name: Xeon E5-2650V2, vendor:  | 838 ]                          |                         |         |
+     |                      |                     |           | Intel                          |                                |                         |         |
+     ...
+     ...
+     | ly52arjxxbl3******** | LA-i114-S           |        64 | physical cores: 8, mhz: 2200,  | [ type: SSD count: 2 size_gib: |                       1 |       2 |
+     |                      |                     |           | name: Xeon E5-2660, vendor:    | 838 ]                          |                         |         |
+     |                      |                     |           | Intel                          |                                |                         |         |
+     +----------------------+---------------------+-----------+--------------------------------+--------------------------------+-------------------------+---------+
+     ```
+  1. Получите подробную информацию о конфигурации, указав ее идентификатор или имя:
+
       ```bash
-      yc baremetal server create --help
+      yc baremetal configuration get <идентификатор_или_имя_конфигурации>
       ```
 
-   1. Получите список конфигураций:
+      Результат:
       
-      ```bash
-      yc baremetal configuration list
+      ```yaml
+      id: ly5tdlrmwezt********
+      name: LA-i107-S-1/10G
+      memory_gib: "16"
+      cpu:
+        name: Xeon D-1521
+        vendor: Intel
+        cores: "8"
+        physical_cores: "4"
+        frequency_mhz: "2400"
+      disk_drives:
+        - type: SSD
+          disk_count: "2"
+          disk_size_gib: "838"
+      network_capacity_gbps: "10"
+      cpu_num: "1"
+      network_interfaces:
+      - id: ly5oc5p4u6vg********
+        name: iface0
+        configuration_id: ly5tdlrmwezt********
+        link_speed_gbps: '1'
+        available_modes:
+        - PRIVATE
+      - id: ly5dmh2u3qwe********
+        name: iface1
+        configuration_id: ly5tdlrmwezt********
+        link_speed_gbps: '1'
+        available_modes:
+        - PUBLIC
+        - PRIVATE
       ```
 
-   1. Арендуйте сервер:
-      
-      ```bash
-      yc baremetal server create \
-        --hardware-pool-id <пул> \
-        --configuration-id <идентификатор_конфигурация> \
-        --storage "partition={type=<файловая_система>,size-gib=<размер_раздела>,mount-point=<точка_монтирования>},raid-type=<уровень RAID-массива>,disk={id=<номер_диска>,size-gib=<размер_диска>,type=<тип_диска>}" \
-        --os-settings "image-id=<идентификатор_образа>,image-name=<имя_образа>,ssh-key-public=<содержимое_открытого_SSH-ключа>,ssh-key-user-id=<идентификатор_пользователя_SSH-ключа>,password-plain-text=<пароль_пользователя>,password-lockbox-secret={secret-id=<идентификатор_секрета>,version-id=<версия_секрета>,key=<ключ_секрета>}" \
-        --rental-period-id <период_аренды> \
-        --network-interfaces private-subnet-id=<идентификатор_приватной_подсети> \
-        --network-interfaces public-subnet-id=<идентификатор_публичной_подсети> \
-        --name <имя_сервера> \
-        --description "<описание_сервера>" \
-        --labels <ключ_метки>=<значение_метки>
-      ```
+  1. Арендуйте сервер:
+     
+     ```bash
+     yc baremetal server create \
+       --hardware-pool-id <пул> \
+       --configuration-id <идентификатор_конфигурация> \
+       --storage "partition={type=<файловая_система>,size-gib=<размер_раздела>,mount-point=<точка_монтирования>},raid-type=<уровень RAID-массива>,disk={id=<номер_диска>,size-gib=<размер_диска>,type=<тип_диска>}" \
+       --os-settings "image-id=<идентификатор_образа>,image-name=<имя_образа>,ssh-key-public=<содержимое_открытого_SSH-ключа>,ssh-key-user-id=<идентификатор_пользователя_SSH-ключа>,password-plain-text=<пароль_пользователя>,password-lockbox-secret={secret-id=<идентификатор_секрета>,version-id=<версия_секрета>,key=<ключ_секрета>}" \
+       --rental-period-id <период_аренды> \
+       --network-interfaces private-subnet-id=<идентификатор_приватной_подсети> \
+       --network-interfaces public-subnet-id=<идентификатор_публичной_подсети> \
+       --name <имя_сервера> \
+       --description "<описание_сервера>" \
+       --labels <ключ_метки>=<значение_метки>
+     ```
 
       Где:
       * `--hardware-pool-id` — [пул](../../concepts/servers.md#server-pools), из которого будет арендован сервер.
@@ -196,28 +257,28 @@
         * `raid-type` — [уровень RAID-массива](../../concepts/disks/raid.md#levels).
       * `--os-settings` — настройки операционной системы. Чтобы арендовать сервер без операционной системы, пропустите этот параметр. Возможные настройки:
         
-        * `image-id` — идентификатор одного из доступных [публичных образов](../../concepts/images.md#marketplace-images) ОС в Yandex Cloud Marketplace.
-        * `image-name` — имя одного из доступных публичных образов ОС в Yandex Cloud Marketplace.
+        * `image-id` — идентификатор одного из доступных [публичных образов](../../concepts/images.md#marketplace-images) ОС в {{ marketplace-full-name }}.
+        * `image-name` — имя одного из доступных публичных образов ОС в {{ marketplace-full-name }}.
         * `ssh-key-public` — содержимое открытого SSH-ключа. Пару SSH-ключей для подключения к серверу по [SSH](../../../glossary/ssh-keygen.md) необходимо [создать](../../../compute/operations/vm-connect/ssh.md#creating-ssh-keys) самостоятельно.
         * `ssh-key-user-id` — идентификатор пользователя SSH-ключа.
         * `password-plain-text` — пароль root-пользователя.
         
           {% note warning %}
           
-          Этот вариант предусматривает ответственность пользователя за безопасность пароля. Сохраните сгенерированный пароль в надежном месте: он не сохраняется в Yandex Cloud, и после заказа сервера вы не сможете посмотреть его.
+          Этот вариант предусматривает ответственность пользователя за безопасность пароля. Сохраните сгенерированный пароль в надежном месте: он не сохраняется в {{ yandex-cloud }}, и после заказа сервера вы не сможете посмотреть его.
           
           {% endnote %}
         
-        * `password-lockbox-secret` — [секрет](../../../lockbox/concepts/secret.md) Yandex Lockbox:
+        * `password-lockbox-secret` — [секрет](../../../lockbox/concepts/secret.md) {{ lockbox-full-name }}:
           * `secret-id` — идентификатор секрета.
           * `version-id` — версия секрета.
           * `key` — ключ секрета.
 
-        [Установить](reinstall-os-from-own-image.md) операционную систему из [собственного ISO-образа](../../concepts/images.md#user-images) вы сможете позднее.
+          [Установить](reinstall-os-from-own-image.md) операционную систему из [собственного ISO-образа](../../concepts/images.md#user-images) вы сможете позднее.
 
       * `--rental-period-id` — период аренды сервера. Возможные значения: `1 day`, `1 month`, `3 months`, `6 months` или `1 year`.
 
-        По окончании указанного периода аренда сервера будет автоматически продлена на такой же период. Прервать аренду в течение указанного периода аренды нельзя, но можно [отказаться](server-lease-cancel.md) от дальнейшего продления аренды сервера.
+          По окончании указанного периода аренда сервера будет автоматически продлена на такой же период. Прервать аренду в течение указанного периода аренды нельзя, но можно [отказаться](server-lease-cancel.md) от дальнейшего продления аренды сервера.
 
       * `--network-interfaces` — сетевые настройки:
         
@@ -240,7 +301,7 @@
 
 {% endlist %}
 
-После того как вы арендуете сервер, вы в любой момент сможете установить или переустановить на нем операционную систему из публичного образа в Cloud Marketplace или из собственного ISO-образа. Подробнее см. в инструкциях [Переустановить операционную систему из образа Marketplace](reinstall-os-from-marketplace.md) и [Переустановить операционную систему из своего ISO-образа](reinstall-os-from-own-image.md).
+После того как вы арендуете сервер, вы в любой момент сможете установить или переустановить на нем операционную систему из публичного образа в {{ marketplace-name }} или из собственного ISO-образа. Подробнее см. в инструкциях [{#T}](reinstall-os-from-marketplace.md) и [{#T}](reinstall-os-from-own-image.md).
 
 ## Пример {#example}
 
@@ -433,7 +494,7 @@
 
   * `osSettingsSpec` — настройки операционной системы. Чтобы арендовать сервер без операционной системы, пропустите этот параметр.
   Возможные настройки:
-    * `imageId` — идентификатор одного из доступных [публичных образов](../../concepts/images.md#marketplace-images) ОС в Yandex Cloud Marketplace.
+    * `imageId` — идентификатор одного из доступных [публичных образов](../../concepts/images.md#marketplace-images) ОС в {{ marketplace-full-name }}.
     * `storages[]` — настройки разметки дисков. Необязательный параметр. Возможные настройки:
       * `partitions[]` — раздел диска:
         * `type` — файловая система. Возможные значения: `EXT4`, `EXT3`, `SWAP`, `XFS`.
@@ -452,11 +513,11 @@
   
       {% note warning %}
       
-      Этот вариант предусматривает ответственность пользователя за безопасность пароля. Сохраните сгенерированный пароль в надежном месте: он не сохраняется в Yandex Cloud, и после заказа сервера вы не сможете посмотреть его.
+      Этот вариант предусматривает ответственность пользователя за безопасность пароля. Сохраните сгенерированный пароль в надежном месте: он не сохраняется в {{ yandex-cloud }}, и после заказа сервера вы не сможете посмотреть его.
       
       {% endnote %}
   
-    * `passwordLockboxSecret` — [секрет](../../../lockbox/concepts/secret.md) Yandex Lockbox:
+    * `passwordLockboxSecret` — [секрет](../../../lockbox/concepts/secret.md) {{ lockbox-full-name }}:
       * `secretId` — идентификатор секрета.
       * `versionId` — версия секрета.
       * `key` — ключ секрета.
@@ -586,4 +647,4 @@
 
 #### См. также {#see-also}
 
-* [Арендовать сервер в своей конфигурации](custom-server-lease.md)
+* [{#T}](custom-server-lease.md)

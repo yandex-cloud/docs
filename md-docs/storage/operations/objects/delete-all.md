@@ -8,7 +8,7 @@
 
 {% note info %}
 
-Для автоматического удаления частично загруженных объектов в Object Storage настройте правило [жизненных циклов](../buckets/lifecycles.md).
+Для автоматического удаления частично загруженных объектов в {{ objstorage-name }} настройте правило [жизненных циклов](../buckets/lifecycles.md).
 
 {% endnote %}
 
@@ -16,9 +16,9 @@
 
 {% list tabs group=instructions %}
 
-- Yandex Cloud CLI {#cli}
+- {{ yandex-cloud }} CLI {#cli}
 
-  Если у вас еще нет интерфейса командной строки Yandex Cloud (CLI), [установите и инициализируйте его](../../../cli/quickstart.md#install).
+  Если у вас еще нет интерфейса командной строки {{ yandex-cloud }} (CLI), [установите и инициализируйте его](../../../cli/quickstart.md#install).
 
   По умолчанию используется каталог, указанный при [создании](../../../cli/operations/profile/profile-create.md) профиля CLI. Чтобы изменить каталог по умолчанию, используйте команду `yc config set folder-id <идентификатор_каталога>`. Также для любой команды вы можете указать другой каталог с помощью параметров `--folder-name` или `--folder-id`. Если вы обращаетесь к ресурсу по имени, поиск будет выполнен в каталоге по умолчанию. Если вы обращаетесь к ресурсу по идентификатору, поиск будет выполнен глобально — во всех каталогах с учетом прав доступа.
 
@@ -111,30 +111,40 @@
 
   Если у вас еще нет AWS CLI, [установите и сконфигурируйте его](../../tools/aws-cli.md).
 
+  {% note info %}
+
+  Команды в этом разделе используют синтаксис [Bash](https://ru.wikipedia.org/wiki/Bash). Если вы работаете в Windows, [ознакомьтесь](../../../overview/concepts/console-syntax-guide.md) с особенностями работы с Bash в Microsoft Windows и используйте [Windows Subsystem for Linux (WSL)](https://docs.microsoft.com/ru-ru/windows/wsl/install), [Git Bash](https://git-scm.com/install/windows) или другой bash-совместимый терминал.
+
+  {% endnote %}
+
   1. Создайте переменную с именем бакета:
-  
+
      ```bash
      BUCKET_NAME=<имя_бакета>
      ```
-     
+
   1. Удалите все версии объектов из бакета:
-    
+
      ```bash
      aws s3api delete-objects \
-       --endpoint-url https://storage.yandexcloud.net \
+       --endpoint-url https://{{ s3-storage-host }} \
        --bucket $BUCKET_NAME \
        --delete \
          "$(aws s3api list-object-versions \
-           --endpoint-url https://storage.yandexcloud.net \
+           --endpoint-url https://{{ s3-storage-host }} \
            --bucket $BUCKET_NAME \
            --query '{Objects: Versions[].{Key: Key, VersionId: VersionId}}' \
            --max-items 1000)"
      ```
 
-     Также вместо параметра `--max-items` вы можете использовать `--max-keys`.
+     Параметр `--max-items` задает количество версий объектов, которые команда передает за один запрос. Значение не может превышать `1000`, потому что `delete-objects` принимает не более 1000 ключей за один раз.
+
+     Если параметр `--max-items` вызывает ошибку, можно использовать `--max-keys`. Оба параметра приводят к одинаковому результату, но `--max-items` работает на стороне клиента, а `--max-keys` — на стороне сервера.
+
+     Если нужно удалить больше 1000 версий объектов, повторите команду несколько раз.
 
      Результат:
-         
+
      ```json
      {
          "Deleted": [
@@ -150,27 +160,29 @@
          ]
      }
      ```
-         
-     С помощью этой команды можно удалить до 1000 версий объектов: это связано с ограничением операции `aws s3api delete-objects`. Если в бакете больше версий, повторите команду несколько раз.
-  
+
   1. Если для бакета включено [версионирование](../../concepts/versioning.md), удалите все delete-маркеры:
-       
+
      ```bash
      aws s3api delete-objects \
-       --endpoint-url https://storage.yandexcloud.net \
+       --endpoint-url https://{{ s3-storage-host }} \
        --bucket $BUCKET_NAME \
        --delete \
          "$(aws s3api list-object-versions \
-           --endpoint-url https://storage.yandexcloud.net \
+           --endpoint-url https://{{ s3-storage-host }} \
            --bucket $BUCKET_NAME \
            --query '{Objects: DeleteMarkers[].{Key: Key, VersionId: VersionId}}' \
            --max-items 1000)"
      ```
 
-     Также вместо параметра `--max-items` вы можете использовать `--max-keys`.
+     Параметр `--max-items` задает количество delete-маркеров, которые команда передает за один запрос. Значение не может превышать `1000`, потому что `delete-objects` принимает не более 1000 ключей за один раз.
+
+     Если параметр `--max-items` вызывает ошибку, можно использовать `--max-keys`. Оба параметра приводят к одинаковому результату, но `--max-items` работает на стороне клиента, а `--max-keys` — на стороне сервера.
+
+     Если нужно удалить больше 1000 delete-маркеров, повторите команду несколько раз.
 
      Результат:
-       
+
      ```json
      {
          "Deleted": [
@@ -188,43 +200,41 @@
          ]
      }
      ```
-     
-     С помощью этой команды можно удалить до 1000 delete-маркеров: это связано с ограничением операции `aws s3api delete-objects`. Если в бакете больше delete-маркеров, повторите команду несколько раз.
-   
+
   1. Удалите частично загруженные объекты:
-    
+
      ```bash
      aws s3api list-multipart-uploads \
-       --endpoint-url https://storage.yandexcloud.net \
+       --endpoint-url https://{{ s3-storage-host }} \
        --bucket $BUCKET_NAME \
      | jq -r '.Uploads[] | "--key \"\(.Key)\" --upload-id \(.UploadId)"' \
      | while read -r line; do
        eval 
          "aws s3api abort-multipart-upload \
-           --endpoint-url https://storage.yandexcloud.net \
+           --endpoint-url https://{{ s3-storage-host }} \
            --bucket $BUCKET_NAME \
            $line";
      done
      ```
-       
+
   1. Получите список частей объектов, оставшихся в бакете:
-    
+
      ```bash
      aws s3api list-multipart-uploads \
-       --endpoint-url https://storage.yandexcloud.net \
+       --endpoint-url https://{{ s3-storage-host }} \
        --bucket $BUCKET_NAME \
      | jq -r '.Uploads[] | "--key \"\(.Key)\" --upload-id \(.UploadId)"' \
      | while read -r line; do
        eval 
          "aws s3api list-parts \
-           --endpoint-url https://storage.yandexcloud.net \
+           --endpoint-url https://{{ s3-storage-host }} \
            --bucket $BUCKET_NAME \
            $line";
      done
      ```
-       
+
      В списке могут оказаться части объектов, загрузка которых началась до выполнения предыдущего шага и закончилась после него. Если список не пуст, повторите шаги 4–5.
-     
+
 - Python (boto3) {#boto3}
 
   Выполните следующий код:
@@ -234,7 +244,7 @@
 
   bucket_name = '<имя_бакета>'
   s3 = boto3.resource('s3',
-      endpoint_url='https://storage.yandexcloud.net',
+      endpoint_url='https://{{ s3-storage-host }}',
       aws_access_key_id='<идентификатор_ключа>',
       aws_secret_access_key='<секретный_ключ>')
   bucket = s3.Bucket(bucket_name)

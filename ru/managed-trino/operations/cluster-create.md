@@ -61,8 +61,8 @@ keywords:
         1. Выберите **Тип объекта для перезапроса**:
            * **Задача** — в рамках запроса повторно выполняется промежуточное задание, вызвавшее сбой воркера.
            * **Запрос** — повторно выполняются все [этапы запроса](../concepts/index.md#query-execution), в котором произошел сбой воркера.
-        1. (Опционально) В поле **Параметры перезапросов** задайте дополнительные параметры в формате `ключ: значение`. Подробнее о параметрах см. в [документации {{ TR }}](https://trino.io/docs/current/admin/fault-tolerant-execution.html#advanced-configuration).
-        1. (Опционально) В поле **Параметры хранилища** задайте дополнительные параметры хранилища Exchange Manager в формате `ключ: значение`. Подробнее о параметрах см. в [документации {{ TR }}](https://trino.io/docs/current/admin/fault-tolerant-execution.html#id1).
+        1. (Опционально) В поле **Параметры перезапросов** задайте дополнительные параметры в формате `ключ: значение`. Подробнее о параметрах в [документации {{ TR }}](https://trino.io/docs/current/admin/fault-tolerant-execution.html#advanced-configuration).
+        1. (Опционально) В поле **Параметры хранилища** задайте дополнительные параметры хранилища Exchange Manager в формате `ключ: значение`. Подробнее о параметрах в [документации {{ TR }}](https://trino.io/docs/current/admin/fault-tolerant-execution.html#id1).
 
     1. Задайте конфигурацию [координатора](../concepts/index.md#coordinator) и [воркеров](../concepts/index.md#workers).
     1. (Опционально) В блоке **{{ ui-key.yacloud.trino.title_catalogs }}** добавьте [каталоги Trino](../concepts/index.md#catalog). Вы можете сделать это как при создании кластера, так и позже. Подробнее в разделе [Создание каталога {{ TR }}](catalog-create.md).
@@ -229,9 +229,9 @@ keywords:
             * `task` — в рамках запроса повторно выполняется промежуточное задание, вызвавшее сбой воркера.
             * `query` — повторно выполняются все [этапы запроса](../concepts/index.md#query-execution), в котором произошел сбой воркера.
 
-        * `--retry-policy-additional-properties` — дополнительные параметры повторного выполнения запросов в формате `<ключ>=<значение>`. Подробнее о параметрах см. в [документации {{ TR }}]({{ tr.docs }}/admin/fault-tolerant-execution.html#advanced-configuration).
+        * `--retry-policy-additional-properties` — дополнительные параметры повторного выполнения запросов в формате `<ключ>=<значение>`. Подробнее о параметрах в [документации {{ TR }}]({{ tr.docs }}/admin/fault-tolerant-execution.html#advanced-configuration).
         * `--retry-policy-exchange-manager-service-s3` — использование S3-хранилища для записи данных при перезапросах.
-        * `--retry-policy-exchange-manager-additional-properties` — дополнительные параметры хранилища в формате `<ключ>=<значение>`. Подробнее о параметрах см. в [документации {{ TR }}]({{ tr.docs }}/admin/fault-tolerant-execution.html#id1).
+        * `--retry-policy-exchange-manager-additional-properties` — дополнительные параметры хранилища в формате `<ключ>=<значение>`. Подробнее о параметрах в [документации {{ TR }}]({{ tr.docs }}/admin/fault-tolerant-execution.html#id1).
 
     1. Чтобы добавить настройки выполнения запросов и выделения ресурсов для запросов, задайте параметр:
 
@@ -323,7 +323,7 @@ keywords:
 
         {% include [terraform-apply](../../_includes/mdb/terraform/apply.md) %}
 
-    Более подробную информацию о ресурсах, которые вы можете создать с помощью {{ TF }}, см. в [документации провайдера]({{ tf-provider-mtr }}).
+    Подробная информация о ресурсах, которые вы можете создать с помощью {{ TF }}, в [документации провайдера]({{ tf-provider-mtr }}).
 
 - REST API {#api}
 
@@ -335,7 +335,7 @@ keywords:
 
        {% note info %}
 
-       В примере приведены не все доступные параметры. Список всех параметров см. в [документации по API](../api-ref/Cluster/create.md#yandex.cloud.trino.v1.CreateClusterRequest).
+       В примере приведены не все доступные параметры. Список всех параметров описан в [документации по API](../api-ref/Cluster/create.md#yandex.cloud.trino.v1.CreateClusterRequest).
 
        {% endnote %}
 
@@ -439,9 +439,9 @@ keywords:
                   * `TASK` — в рамках запроса повторно выполняется промежуточное задание, вызвавшее сбой воркера.
                   * `QUERY` – повторно выполняются все [этапы запроса](../concepts/index.md#query-execution), в котором произошел сбой воркера.
 
-               * `exchangeManager.additionalProperties` – дополнительные параметры хранилища Exchange Manager в формате `ключ: значение`. Подробнее о параметрах см. в [документации {{ TR }}](https://trino.io/docs/current/admin/fault-tolerant-execution.html#id1).
+               * `exchangeManager.additionalProperties` – дополнительные параметры хранилища Exchange Manager в формате `ключ: значение`. Подробнее о параметрах в [документации {{ TR }}](https://trino.io/docs/current/admin/fault-tolerant-execution.html#id1).
 
-               * `additionalProperties` – дополнительные параметры в формате `ключ: значение`. Подробнее о параметрах см. в [документации {{ TR }}](https://trino.io/docs/current/admin/fault-tolerant-execution.html#advanced-configuration).
+               * `additionalProperties` — дополнительные параметры в формате `ключ: значение`. Подробнее о параметрах в [документации {{ TR }}](https://trino.io/docs/current/admin/fault-tolerant-execution.html#advanced-configuration).
 
             * `version` — версия {{ TR }}.
 
@@ -507,7 +507,7 @@ keywords:
 
        {% note info %}
 
-       В примере приведены не все доступные параметры. Список всех параметров см. в [документации по API](../api-ref/grpc/Cluster/create.md#yandex.cloud.trino.v1.CreateClusterRequest).
+       В примере приведены не все доступные параметры. Список всех параметров описан в [документации по API](../api-ref/grpc/Cluster/create.md#yandex.cloud.trino.v1.CreateClusterRequest).
 
        {% endnote %}
 
@@ -611,9 +611,9 @@ keywords:
                   * `TASK` — в рамках запроса повторно выполняется промежуточное задание, вызвавшее сбой воркера.
                   * `QUERY` – повторно выполняются все [этапы запроса](../concepts/index.md#query-execution), в котором произошел сбой воркера.
 
-               * `exchange_manager.additional_properties` – дополнительные параметры хранилища Exchange Manager в формате `ключ: значение`. Подробнее о параметрах см. в [документации {{ TR }}](https://trino.io/docs/current/admin/fault-tolerant-execution.html#id1).
+               * `exchange_manager.additional_properties` – дополнительные параметры хранилища Exchange Manager в формате `ключ: значение`. Подробнее о параметрах в [документации {{ TR }}](https://trino.io/docs/current/admin/fault-tolerant-execution.html#id1).
 
-               * `additional_properties` – дополнительные параметры в формате `ключ: значение`. Подробнее о параметрах см. в [документации {{ TR }}](https://trino.io/docs/current/admin/fault-tolerant-execution.html#advanced-configuration).
+               * `additional_properties` – дополнительные параметры в формате `ключ: значение`. Подробнее о параметрах в [документации {{ TR }}](https://trino.io/docs/current/admin/fault-tolerant-execution.html#advanced-configuration).
 
             * `version` — версия {{ TR }}.
 

@@ -5,7 +5,7 @@ Creates a subcluster in the specified cluster.
 ## HTTP request
 
 ```
-POST https://dataproc.api.cloud.yandex.net/dataproc/v1/clusters/{clusterId}/subclusters
+POST https://dataproc.{{ api-host }}/dataproc/v1/clusters/{clusterId}/subclusters
 ```
 
 ## Path parameters

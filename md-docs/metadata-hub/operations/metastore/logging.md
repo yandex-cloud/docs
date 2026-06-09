@@ -1,6 +1,6 @@
-# Передача логов кластера Apache Hive™ Metastore в Yandex Cloud Logging
+# Передача логов кластера {{ metastore-name }} в {{ cloud-logging-full-name }}
 
-Вы можете настроить регулярный сбор логов о работе кластера Apache Hive™ Metastore. Логи поставляются в [лог-группу](../../../logging/concepts/log-group.md) в сервисе Yandex Cloud Logging. Можно выбрать лог-группу одного из двух типов:
+Вы можете настроить регулярный сбор логов о работе кластера {{ metastore-name }}. Логи поставляются в [лог-группу](../../../logging/concepts/log-group.md) в сервисе {{ cloud-logging-full-name }}. Можно выбрать лог-группу одного из двух типов:
 
 * лог-группа, которая используется по умолчанию в каталоге кластера;
 * пользовательская лог-группа.
@@ -8,49 +8,49 @@
 ## Перед началом работы {#before-you-begin}
 
 1. [Создайте сервисный аккаунт](../../../iam/operations/sa/create.md) `metastore-logging-sa`.
-1. [Назначьте сервисному аккаунту роль](../../../iam/operations/sa/assign-role-for-sa.md) `managed-metastore.integrationProvider`.
-1. В подсети, к которой будет подключен кластер, [настройте NAT-шлюз](../../../vpc/operations/create-nat-gateway.md). Это нужно, чтобы кластер мог взаимодействовать с сервисами Yandex Cloud.
+1. [Назначьте сервисному аккаунту роль](../../../iam/operations/sa/assign-role-for-sa.md) `{{ roles.metastore.integrationProvider }}`.
+1. В подсети, к которой будет подключен кластер, [настройте NAT-шлюз](../../../vpc/operations/create-nat-gateway.md). Это нужно, чтобы кластер мог взаимодействовать с сервисами {{ yandex-cloud }}.
 1. [Настройте группу безопасности](configure-security-group.md).
 
 ## Передача данных в лог-группу по умолчанию {#default}
 
-1. Создайте кластер Apache Hive™ Metastore:
+1. Создайте кластер {{ metastore-name }}:
 
    {% list tabs group=instructions %}
 
    - Консоль управления {#console}
 
-      1. В [консоли управления](https://console.yandex.cloud) выберите нужный каталог.
-      1. [Перейдите](../../../console/operations/select-service.md#select-service) в сервис **Yandex MetaData Hub**.
-      1. На панели слева выберите ![image](../../../_assets/console-icons/database.svg) **Metastore-сервер**.
-      1. Нажмите кнопку **Создать кластер**.
+      1. В [консоли управления]({{ link-console-main }}) выберите нужный каталог.
+      1. [Перейдите](../../../console/operations/select-service.md#select-service) в сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_metadata-hub }}**.
+      1. На панели слева выберите ![image](../../../_assets/console-icons/database.svg) **{{ ui-key.yacloud.metastore.label_metastore }}**.
+      1. Нажмите кнопку **{{ ui-key.yacloud.mdb.clusters.button_create }}**.
       1. Укажите имя кластера `metastore-cluster`.
-      1. В поле **Сервисный аккаунт** выберите `metastore-logging-sa`.
-      1. В блоке **Сетевые настройки** выберите сеть и подсеть с настроенным NAT-шлюзом. Укажите настроенную группу безопасности.
-      1. В блоке **Логирование**:
+      1. В поле **{{ ui-key.yacloud.mdb.forms.base_field_service-account }}** выберите `metastore-logging-sa`.
+      1. В блоке **{{ ui-key.yacloud.mdb.forms.section_network-settings }}** выберите сеть и подсеть с настроенным NAT-шлюзом. Укажите настроенную группу безопасности.
+      1. В блоке **{{ ui-key.yacloud.logging.label_title }}**:
 
-         1. Включите опцию **Запись логов**.
-         1. Чтобы логи записывались в лог-группу по умолчанию, выберите значение **Каталог** в поле **Назначение**.
+         1. Включите опцию **{{ ui-key.yacloud.logging.field_logging }}**.
+         1. Чтобы логи записывались в лог-группу по умолчанию, выберите значение **{{ ui-key.yacloud.common.folder }}** в поле **{{ ui-key.yacloud.logging.label_destination }}**.
          1. Укажите каталог, лог-группу которого нужно использовать.
          1. Выберите минимальный уровень логирования.
 
             В журнал выполнения записываются логи указанного уровня и выше. Доступные уровни — `TRACE`, `DEBUG`, `INFO`, `WARN`, `ERROR` и `FATAL`. Уровень по умолчанию — `INFO`.
 
-      1. Нажмите кнопку **Создать**.
+      1. Нажмите кнопку **{{ ui-key.yacloud.common.create }}**.
 
    - CLI {#cli}
 
-      Если у вас еще нет интерфейса командной строки Yandex Cloud (CLI), [установите и инициализируйте его](../../../cli/quickstart.md#install).
+      Если у вас еще нет интерфейса командной строки {{ yandex-cloud }} (CLI), [установите и инициализируйте его](../../../cli/quickstart.md#install).
 
       По умолчанию используется каталог, указанный при [создании](../../../cli/operations/profile/profile-create.md) профиля CLI. Чтобы изменить каталог по умолчанию, используйте команду `yc config set folder-id <идентификатор_каталога>`. Также для любой команды вы можете указать другой каталог с помощью параметров `--folder-name` или `--folder-id`. Если вы обращаетесь к ресурсу по имени, поиск будет выполнен в каталоге по умолчанию. Если вы обращаетесь к ресурсу по идентификатору, поиск будет выполнен глобально — во всех каталогах с учетом прав доступа.
 
       Выполните команду:
 
       ```bash
-      yc managed-metastore cluster create \
+      {{ yc-metastore }} cluster create \
          --name metastore-cluster \
          --service-account-id <идентификатор_сервисного_аккаунта> \
-         --version <версия_Apache Hive™ Metastore> \
+         --version <версия_{{ metastore-name }}> \
          --subnet-ids <идентификаторы_подсетей> \
          --security-group-ids <идентификаторы_групп_безопасности> \
          --resource-preset-id <идентификатор_вычислительных_ресурсов> \
@@ -83,7 +83,7 @@
             {
               "folderId": "<идентификатор_каталога>",
               "name": "metastore-cluster",
-              "version": "<версия_Apache Hive™ Metastore>",
+              "version": "<версия_{{ metastore-name }}>",
               "configSpec": {
                 "resources": {
                 "resourcePresetId": "<идентификатор_конфигурации_ресурсов>"
@@ -112,13 +112,13 @@
 
             [Подробнее о создании кластера](cluster-create.md).
 
-        1. Воспользуйтесь методом [Cluster.Create](../../api-ref/Cluster/create.md) и выполните запрос, например с помощью [cURL](https://curl.se/):
+        1. Воспользуйтесь методом [Cluster.Create](../../api-ref/Cluster/create.md) и выполните запрос, например с помощью {{ api-examples.rest.tool }}:
 
             ```bash
             curl \
                 --request POST \
                 --header "Authorization: Bearer $IAM_TOKEN" \
-                --url 'https://metastore.api.cloud.yandex.net/managed-metastore/v1/clusters' \
+                --url 'https://{{ api-host-metastore }}/managed-metastore/v1/clusters' \
                 --data '@body.json'
             ```
 
@@ -146,7 +146,7 @@
             {
               "folder_id": "<идентификатор_каталога>",
               "name": "metastore-cluster",
-              "version": "<версия_Apache Hive™ Metastore>",
+              "version": "<версия_{{ metastore-name }}>",
               "config_spec": {
                 "resources": {
                   "resource_preset_id": "<идентификатор_конфигурации_ресурсов>"
@@ -175,7 +175,7 @@
 
             [Подробнее о создании кластера](cluster-create.md).
 
-        1. Воспользуйтесь вызовом [ClusterService.Create](../../api-ref/grpc/Cluster/create.md) и выполните запрос, например с помощью [gRPCurl](https://github.com/fullstorydev/grpcurl):
+        1. Воспользуйтесь вызовом [ClusterService.Create](../../api-ref/grpc/Cluster/create.md) и выполните запрос, например с помощью {{ api-examples.grpc.tool }}:
 
             ```bash
             grpcurl \
@@ -185,7 +185,7 @@
                 -proto ~/cloudapi/yandex/cloud/metastore/v1/cluster_service.proto \
                 -rpc-header "Authorization: Bearer $IAM_TOKEN" \
                 -d @ \
-                metastore.api.cloud.yandex.net:443 \
+                {{ api-host-metastore }}:{{ port-https }} \
                 yandex.cloud.metastore.v1.ClusterService.Create \
                 < body.json
             ```
@@ -201,14 +201,14 @@
    - Консоль управления {#console}
 
       1. В консоли управления перейдите в нужный каталог.
-      1. [Перейдите](../../../console/operations/select-service.md#select-service) в сервис **Cloud Logging**.
+      1. [Перейдите](../../../console/operations/select-service.md#select-service) в сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_logging }}**.
       1. Нажмите на строку с лог-группой `default`.
 
       На открывшейся странице отобразятся записи.
 
    - CLI {#cli}
 
-      Если у вас еще нет интерфейса командной строки Yandex Cloud (CLI), [установите и инициализируйте его](../../../cli/quickstart.md#install).
+      Если у вас еще нет интерфейса командной строки {{ yandex-cloud }} (CLI), [установите и инициализируйте его](../../../cli/quickstart.md#install).
 
       По умолчанию используется каталог, указанный при [создании](../../../cli/operations/profile/profile-create.md) профиля CLI. Чтобы изменить каталог по умолчанию, используйте команду `yc config set folder-id <идентификатор_каталога>`. Также для любой команды вы можете указать другой каталог с помощью параметров `--folder-name` или `--folder-id`. Если вы обращаетесь к ресурсу по имени, поиск будет выполнен в каталоге по умолчанию. Если вы обращаетесь к ресурсу по идентификатору, поиск будет выполнен глобально — во всех каталогах с учетом прав доступа.
 
@@ -251,48 +251,48 @@
 
    {% endlist %}
 
-   Подробнее см. в разделе [Чтение записей](../../../logging/operations/read-logs.md).
+   Подробнее читайте в разделе [{#T}](../../../logging/operations/read-logs.md).
 
 ## Передача данных в пользовательскую лог-группу {#custom}
 
 1. [Создайте лог-группу](../../../logging/operations/create-group.md) `metastore-log-group`.
-1. Создайте кластер Apache Hive™ Metastore:
+1. Создайте кластер {{ metastore-name }}:
 
    {% list tabs group=instructions %}
 
    - Консоль управления {#console}
 
-      1. В [консоли управления](https://console.yandex.cloud) выберите нужный каталог.
-      1. [Перейдите](../../../console/operations/select-service.md#select-service) в сервис **Yandex MetaData Hub**.
-      1. На панели слева выберите ![image](../../../_assets/console-icons/database.svg) **Metastore-сервер**.
-      1. Нажмите кнопку **Создать кластер**.
+      1. В [консоли управления]({{ link-console-main }}) выберите нужный каталог.
+      1. [Перейдите](../../../console/operations/select-service.md#select-service) в сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_metadata-hub }}**.
+      1. На панели слева выберите ![image](../../../_assets/console-icons/database.svg) **{{ ui-key.yacloud.metastore.label_metastore }}**.
+      1. Нажмите кнопку **{{ ui-key.yacloud.mdb.clusters.button_create }}**.
       1. Укажите имя кластера `metastore-cluster`.
-      1. В поле **Сервисный аккаунт** выберите `metastore-logging-sa`.
-      1. В блоке **Сетевые настройки** выберите сеть и подсеть с настроенным NAT-шлюзом. Укажите настроенную группу безопасности.
-      1. В блоке **Логирование**:
+      1. В поле **{{ ui-key.yacloud.mdb.forms.base_field_service-account }}** выберите `metastore-logging-sa`.
+      1. В блоке **{{ ui-key.yacloud.mdb.forms.section_network-settings }}** выберите сеть и подсеть с настроенным NAT-шлюзом. Укажите настроенную группу безопасности.
+      1. В блоке **{{ ui-key.yacloud.logging.label_title }}**:
 
-         1. Включите опцию **Запись логов**.
-         1. Чтобы логи записывались в пользовательскую лог-группу, выберите значение **Лог-группа** в поле **Назначение**.
+         1. Включите опцию **{{ ui-key.yacloud.logging.field_logging }}**.
+         1. Чтобы логи записывались в пользовательскую лог-группу, выберите значение **{{ ui-key.yacloud.logging.label_loggroup }}** в поле **{{ ui-key.yacloud.logging.label_destination }}**.
          1. Укажите лог-группу `metastore-log-group`.
          1. Выберите минимальный уровень логирования.
 
             В журнал выполнения записываются логи указанного уровня и выше. Доступные уровни — `TRACE`, `DEBUG`, `INFO`, `WARN`, `ERROR` и `FATAL`. Уровень по умолчанию — `INFO`.
 
-      1. Нажмите кнопку **Создать**.
+      1. Нажмите кнопку **{{ ui-key.yacloud.common.create }}**.
 
    - CLI {#cli}
 
-      Если у вас еще нет интерфейса командной строки Yandex Cloud (CLI), [установите и инициализируйте его](../../../cli/quickstart.md#install).
+      Если у вас еще нет интерфейса командной строки {{ yandex-cloud }} (CLI), [установите и инициализируйте его](../../../cli/quickstart.md#install).
 
       По умолчанию используется каталог, указанный при [создании](../../../cli/operations/profile/profile-create.md) профиля CLI. Чтобы изменить каталог по умолчанию, используйте команду `yc config set folder-id <идентификатор_каталога>`. Также для любой команды вы можете указать другой каталог с помощью параметров `--folder-name` или `--folder-id`. Если вы обращаетесь к ресурсу по имени, поиск будет выполнен в каталоге по умолчанию. Если вы обращаетесь к ресурсу по идентификатору, поиск будет выполнен глобально — во всех каталогах с учетом прав доступа.
 
       Выполните команду:
 
       ```bash
-      yc managed-metastore cluster create \
+      {{ yc-metastore }} cluster create \
          --name metastore-cluster \
          --service-account-id <идентификатор_сервисного_аккаунта> \
-         --version <версия_Apache Hive™ Metastore> \
+         --version <версия_{{ metastore-name }}> \
          --subnet-ids <идентификаторы_подсетей> \
          --security-group-ids <идентификаторы_групп_безопасности> \
          --resource-preset-id <идентификатор_вычислительных_ресурсов> \
@@ -325,7 +325,7 @@
             {
               "folderId": "<идентификатор_каталога>",
               "name": "metastore-cluster",
-              "version": "<версия_Apache Hive™ Metastore>",
+              "version": "<версия_{{ metastore-name }}>",
               "configSpec": {
                 "resources": {
                 "resourcePresetId": "<идентификатор_конфигурации_ресурсов>"
@@ -354,13 +354,13 @@
 
             [Подробнее о создании кластера](cluster-create.md).
 
-        1. Воспользуйтесь методом [Cluster.Create](../../api-ref/Cluster/create.md) и выполните запрос, например с помощью [cURL](https://curl.se/):
+        1. Воспользуйтесь методом [Cluster.Create](../../api-ref/Cluster/create.md) и выполните запрос, например с помощью {{ api-examples.rest.tool }}:
 
             ```bash
             curl \
                 --request POST \
                 --header "Authorization: Bearer $IAM_TOKEN" \
-                --url 'https://metastore.api.cloud.yandex.net/managed-metastore/v1/clusters' \
+                --url 'https://{{ api-host-metastore }}/managed-metastore/v1/clusters' \
                 --data '@body.json'
             ```
 
@@ -388,7 +388,7 @@
             {
               "folder_id": "<идентификатор_каталога>",
               "name": "metastore-cluster",
-              "version": "<версия_Apache Hive™ Metastore>",
+              "version": "<версия_{{ metastore-name }}>",
               "config_spec": {
                 "resources": {
                   "resource_preset_id": "<идентификатор_конфигурации_ресурсов>"
@@ -417,7 +417,7 @@
 
             [Подробнее о создании кластера](cluster-create.md).
 
-        1. Воспользуйтесь вызовом [ClusterService.Create](../../api-ref/grpc/Cluster/create.md) и выполните запрос, например с помощью [gRPCurl](https://github.com/fullstorydev/grpcurl):
+        1. Воспользуйтесь вызовом [ClusterService.Create](../../api-ref/grpc/Cluster/create.md) и выполните запрос, например с помощью {{ api-examples.grpc.tool }}:
 
             ```bash
             grpcurl \
@@ -427,7 +427,7 @@
                 -proto ~/cloudapi/yandex/cloud/metastore/v1/cluster_service.proto \
                 -rpc-header "Authorization: Bearer $IAM_TOKEN" \
                 -d @ \
-                metastore.api.cloud.yandex.net:443 \
+                {{ api-host-metastore }}:{{ port-https }} \
                 yandex.cloud.metastore.v1.ClusterService.Create \
                 < body.json
             ```
@@ -443,14 +443,14 @@
    - Консоль управления {#console}
 
       1. В консоли управления перейдите в нужный каталог.
-      1. [Перейдите](../../../console/operations/select-service.md#select-service) в сервис **Cloud Logging**.
+      1. [Перейдите](../../../console/operations/select-service.md#select-service) в сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_logging }}**.
       1. Нажмите на строку с лог-группой `metastore-log-group`.
 
       На открывшейся странице отобразятся записи.
 
    - CLI {#cli}
 
-      Если у вас еще нет интерфейса командной строки Yandex Cloud (CLI), [установите и инициализируйте его](../../../cli/quickstart.md#install).
+      Если у вас еще нет интерфейса командной строки {{ yandex-cloud }} (CLI), [установите и инициализируйте его](../../../cli/quickstart.md#install).
 
       По умолчанию используется каталог, указанный при [создании](../../../cli/operations/profile/profile-create.md) профиля CLI. Чтобы изменить каталог по умолчанию, используйте команду `yc config set folder-id <идентификатор_каталога>`. Также для любой команды вы можете указать другой каталог с помощью параметров `--folder-name` или `--folder-id`. Если вы обращаетесь к ресурсу по имени, поиск будет выполнен в каталоге по умолчанию. Если вы обращаетесь к ресурсу по идентификатору, поиск будет выполнен глобально — во всех каталогах с учетом прав доступа.
 
@@ -493,6 +493,6 @@
 
    {% endlist %}
 
-   Подробнее см. в разделе [Чтение записей](../../../logging/operations/read-logs.md).
+   Подробнее читайте в разделе [{#T}](../../../logging/operations/read-logs.md).
 
 _Apache® и [Apache Hive™](https://hive.apache.org/) являются зарегистрированными товарными знаками или товарными знаками Apache Software Foundation в США и/или других странах._

@@ -5,7 +5,7 @@ Returns information about specified host type.
 ## HTTP request
 
 ```
-GET https://compute.api.cloud.yandex.net/compute/v1/hostTypes/{hostTypeId}
+GET https://compute.{{ api-host }}/compute/v1/hostTypes/{hostTypeId}
 ```
 
 ## Path parameters
@@ -15,10 +15,9 @@ GET https://compute.api.cloud.yandex.net/compute/v1/hostTypes/{hostTypeId}
 || hostTypeId | **string**
 
 Required field. ID of the host type to return.
-
 To get a host type ID make a [HostTypeService.List](list.md#List) request.
-
-The maximum string length in characters is 50. ||
+The length must be less than or equal to 50.
+This field is required. ||
 |#
 
 ## Response {#yandex.cloud.compute.v1.HostType}

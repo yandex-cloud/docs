@@ -6,7 +6,7 @@
 
 1. [Создайте](../operations/buckets/create.md) бакет.
 1. [Создайте](../../iam/operations/sa/create.md) сервисный аккаунт.
-1. [Назначьте](../../iam/operations/sa/assign-role-for-sa.md) нужную роль сервисному аккаунту, например `storage.editor`. Подробнее о ролях см. в разделе [Управление доступом с помощью Yandex Identity and Access Management](../security/index.md).
+1. [Назначьте](../../iam/operations/sa/assign-role-for-sa.md) нужную роль сервисному аккаунту, например `storage.editor`. Подробнее о ролях см. в разделе [{#T}](../security/index.md).
 
        
    Чтобы работать с объектами в [зашифрованном](../concepts/encryption.md) бакете, у пользователя или [сервисного аккаунта](../../iam/concepts/users/service-accounts.md) вместе с [ролью](../security/index.md#storage-configurer) `storage.configurer` должны быть следующие [роли на ключ шифрования](../../kms/operations/key-access.md):
@@ -15,7 +15,7 @@
    * `kms.keys.decrypter` — для чтения ключа, [расшифровки](../../kms/security/index.md#kms-keys-decrypter) и скачивания объектов;
    * `kms.keys.encrypterDecrypter` — включает [разрешения](../../kms/security/index.md#kms-keys-encrypterDecrypter), предоставляемые ролями `kms.keys.encrypter` и `kms.keys.decrypter`.
    
-   Подробнее см. [Сервисные роли Key Management Service](../../kms/security/index.md#service-roles).
+   Подробнее см. [Сервисные роли {{ kms-name }}](../../kms/security/index.md#service-roles).
 
 
    {% note tip %}
@@ -27,7 +27,7 @@
 1. [Создайте статический ключ доступа](../../iam/operations/authentication/manage-access-keys.md#create-access-key).
 
         
-    В результате вы получите данные статического ключа доступа. Для аутентификации в Object Storage вам понадобятся:
+    В результате вы получите данные статического ключа доступа. Для аутентификации в {{ objstorage-name }} вам понадобятся:
     
     * `key_id` — идентификатор статического ключа доступа;
     * `secret` — секретный ключ.
@@ -56,7 +56,7 @@
   1. Нажмите кнопку **Open Connection**.
   1. Выберите тип подключения — **Amazon S3**.
   1. Укажите параметры подключения:
-      * **Server** — `storage.yandexcloud.net`.
+      * **Server** — `{{ s3-storage-host }}`.
 
         Чтобы подключиться к определенному бакету, откройте вкладку **More options** и в поле **Path** укажите имя вашего бакета.
       * **Port** — `443`.
@@ -70,9 +70,9 @@
   1. Нажмите кнопку **Open Connection**.
   1. Выберите тип подключения — **Amazon S3**.
   1. Укажите параметры подключения:
-      * **Server** — `storage.yandexcloud.net`.
+      * **Server** — `{{ s3-storage-host }}`.
 
-        Чтобы подключиться к определенному бакету, в поле **Server** укажите `<имя_бакета>.storage.yandexcloud.net`. Таким образом можно подключится только к бакету, в имени которого не содержится точка. Для бакетов с точкой в имени воспользуйтесь [альтернативной инструкцией](#alternative-connection).
+        Чтобы подключиться к определенному бакету, в поле **Server** укажите `<имя_бакета>.{{ s3-storage-host }}`. Таким образом можно подключится только к бакету, в имени которого не содержится точка. Для бакетов с точкой в имени воспользуйтесь [альтернативной инструкцией](#alternative-connection).
       * **Port** — `443`.
       * **Access Key ID** — идентификатор статического ключа, [полученный ранее](#before-you-begin).
       * **Secret Access Key** — содержимое статического ключа, [полученное ранее](#before-you-begin).
@@ -95,7 +95,7 @@
 
 {% note info %}
 
-CyberDuck работает с Object Storage как с иерархической файловой системой. Это значит, что ключи объектов, загруженных через CyberDuck, будут иметь вид пути к файлу, например `prefix/subprefix/picture.jpg`.
+CyberDuck работает с {{ objstorage-name }} как с иерархической файловой системой. Это значит, что ключи объектов, загруженных через CyberDuck, будут иметь вид пути к файлу, например `prefix/subprefix/picture.jpg`.
 
 {% endnote %}
 

@@ -22,6 +22,12 @@ The physical distance between geographic points on the map may vary greatly from
 {{ cdn-full-name }} PoPs are deployed based on the network infrastructure specifics and traffic exchange patterns. Optimal placement depends on how close the PoP is to communication links and peering points.
 
 The closest PoP is not necessarily the optimal one for content delivery. Communication links can be congested, resulting in increased latency. Load balancing algorithms in {{ cdn-full-name }} help avoid PoP overload and automatically reroute requests to least loaded servers.
+
+Learn more about traffic balancing algorithms:
+
+* [Cloud load balancers: Enhancing availability and fault tolerance](https://yandex.cloud/ru/blog/posts/2025/04/load-balancers-guide)
+* [Under the hood of {{ cdn-full-name }}](https://runtime.strm.yandex.ru/player/video/vplvchkrwxqmrw76lajj)
+
 PoP server performance also shapes the overall content delivery speed. Stable delivery requires servers that stay within healthy load levels and run on modern hardware, including processors and cache storage disks.
 
 {{ cdn-full-name }} uses state-of-the-art hardware to provide reliable and highly efficient performance for each PoP.
@@ -77,7 +83,7 @@ Yes, {{ cdn-full-name }} resources are available worldwide, even though its PoPs
 
 For the current list of {{ cdn-full-name }} PoP IP addresses, see [{{ cdn-name }}](../../security/ip-list.md#cloud-cdn).
 
-To reduce the number of networks sending requests to the origin, [enable](../operations/resources/enable-shielding.md) origin shielding. With this option enabled, the origin will only get requests from intermediate caching servers. To get the list of the shielding servers' networks, contact [support]({{ link-console-support }}).
+To reduce the number of networks sending requests to the origin, [enable](../operations/resources/enable-shielding.md) origin shielding. With this option on, the origin will be getting requests only from intermediate caching servers. To get the list of the shielding servers' networks, contact [support]({{ link-console-support }}).
 
 {% endcut %}
 

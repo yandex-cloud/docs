@@ -1,13 +1,12 @@
 # Identity and Access Management API, REST: ServiceAccount.Get
 
 Returns the specified ServiceAccount resource.
-
 To get the list of available ServiceAccount resources, make a [List](list.md#List) request.
 
 ## HTTP request
 
 ```
-GET https://iam.api.cloud.yandex.net/iam/v1/serviceAccounts/{serviceAccountId}
+GET https://iam.{{ api-host }}/iam/v1/serviceAccounts/{serviceAccountId}
 ```
 
 ## Path parameters

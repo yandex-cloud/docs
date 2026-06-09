@@ -1,6 +1,6 @@
-# Справочник метрик Yandex Monitoring
+# Справочник метрик {{ monitoring-full-name }}
 
-В этом разделе описаны метрики сервиса Serverless Containers, поставляемые в [Monitoring](../monitoring/index.md).
+В этом разделе описаны метрики сервиса {{ serverless-containers-name }}, поставляемые в [{{ monitoring-name }}](../monitoring/index.md).
 
 Имя метрики пишется в метку `name`.
 
@@ -41,13 +41,13 @@ service | Метка сервиса, значение всегда `serverless-f
 
 Имя метрики<br/>Тип, единицы измерения | Тип сущности | Описание<br/>Метки
 --- | --- | ---
-`serverless.triggers.access_error_per_second`<br/>`DGAUGE`, ошибки/с | <ul><li>`request` — вызовы контейнера.</li><li>`message_queue` — обращения к Yandex Message Queue.</li><li>`dlq` — обращения к Dead Letter Queue.</li></ul> | Частота возникновения ошибок доступа при обработке вызовов контейнера.
-`serverless.triggers.error_per_second`<br/>`DGAUGE`, ошибки/с | <ul><li>`request` — вызовы контейнера.</li><li>`message_queue` — обращения к Yandex Message Queue.</li><li>`dlq` — обращения к Dead Letter Queue.</li></ul> | Частота возникновения ошибок при обработке вызовов контейнера.
+`serverless.triggers.access_error_per_second`<br/>`DGAUGE`, ошибки/с | <ul><li>`request` — вызовы контейнера.</li><li>`message_queue` — обращения к {{ message-queue-full-name }}.</li><li>`dlq` — обращения к Dead Letter Queue.</li></ul> | Частота возникновения ошибок доступа при обработке вызовов контейнера.
+`serverless.triggers.error_per_second`<br/>`DGAUGE`, ошибки/с | <ul><li>`request` — вызовы контейнера.</li><li>`message_queue` — обращения к {{ message-queue-full-name }}.</li><li>`dlq` — обращения к Dead Letter Queue.</li></ul> | Частота возникновения ошибок при обработке вызовов контейнера.
 `serverless.triggers.execution_time_milliseconds`<br/>`IGAUGE`, вызовы/мс | <ul><li>`request` — вызовы контейнера.</li></ul> | Гистограмма распределения частоты вызова контейнера по времени обработки запроса.<br/>Интервалы времени обработки запроса представлены в метке `bin`.
 `serverless.triggers.inflight`<br/>`DGAUGE`, вызовы | <ul><li>`request` — вызовы контейнера.</li></ul> | Количество одновременно выполняющихся вызовов контейнера.
-`serverless.triggers.read_events_per_second`<br/>`DGAUGE`, штуки/с | <ul><li>`incoming` — события, после которых сработал любой триггер, кроме триггера для Yandex Message Queue.</li><li>`message_queue` — события, после которых сработал триггер для Yandex Message Queue.</li></ul> | Частота возникновения событий, после которых срабатывает триггер.
+`serverless.triggers.read_events_per_second`<br/>`DGAUGE`, штуки/с | <ul><li>`incoming` — события, после которых сработал любой триггер, кроме триггера для {{ message-queue-full-name }}.</li><li>`message_queue` — события, после которых сработал триггер для {{ message-queue-full-name }}.</li></ul> | Частота возникновения событий, после которых срабатывает триггер.
 
 #### См. также {#see-also}
 
-* [Посмотреть графики мониторинга контейнера](operations/monitoring.md)
-* [Посмотреть графики мониторинга триггера в Serverless Containers](operations/trigger-monitoring.md)
+* [{#T}](operations/monitoring.md)
+* [{#T}](operations/trigger-monitoring.md)

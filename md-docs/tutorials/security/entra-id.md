@@ -1,11 +1,11 @@
-# Сопоставление групп пользователей в Microsoft Entra ID
+# Сопоставление групп пользователей в {{ microsoft-idp.entra-id-full }}
 
-Вы можете использовать сервис [Microsoft Entra ID](https://www.microsoft.com/ru-ru/security/business/identity-access/microsoft-entra-id) (бывший Azure Active Directory) для аутентификации пользователей в организации.
+Вы можете использовать сервис [{{ microsoft-idp.entra-id-full }}](https://www.microsoft.com/ru-ru/security/business/identity-access/microsoft-entra-id) (бывший {{ microsoft-idp.azure-ad-legacy }}) для аутентификации пользователей в организации.
 
-Чтобы настроить сопоставление (mapping) групп пользователей в Entra ID и групп пользователей в [федерации удостоверений](../../organization/concepts/add-federation.md):
+Чтобы настроить сопоставление (mapping) групп пользователей в {{ microsoft-idp.entra-id-short }} и групп пользователей в [федерации удостоверений](../../organization/concepts/add-federation.md):
 
 1. [Начните настройку приложения в Azure](#azure-settings-begin).
-1. [Создайте федерацию в Yandex Identity Hub](#create-federation).
+1. [Создайте федерацию в {{ org-full-name }}](#create-federation).
 1. [Добавьте SAML-сертификат приложения в федерацию](#add-certificate).
 1. [Завершите настройку приложения](#azure-settings-end).
 1. [Настройте сопоставление групп на стороне приложения](#azure-mapping).
@@ -17,7 +17,7 @@
 Убедитесь, что у вас есть доступ к следующим службам на [портале Azure](https://portal.azure.com/):
 
 * Корпоративные приложения.
-* Microsoft Entra ID.
+* {{ microsoft-idp.entra-id-full }}.
 
 ## Начните настройку приложения в Azure {#azure-settings-begin}
 
@@ -27,7 +27,7 @@
 1. В разделе **Службы Azure** выберите **Корпоративные приложения**.
 1. На панели слева выберите раздел **Корпоративные приложения** → **Все приложения**.
 1. Нажмите кнопку **Новое приложение**.
-1. На странице **Обзор коллекции Microsoft Entra** нажмите кнопку **Создайте собственное приложение**.
+1. На странице **Обзор коллекции {{ microsoft-idp.entra-full }}** нажмите кнопку **Создайте собственное приложение**.
 1. В открывшемся окне:
     1. Введите название приложения, например `yandex-cloud-saml`.
     1. Выберите опцию **Интеграция с любыми другими приложениями, которых нет в коллекции (вне коллекции)**.
@@ -40,7 +40,7 @@
 
     Откроется страница **Вход на основе SAML**.
 
-1. Скачайте SAML-сертификат приложения, который используется для подписи сообщений от Entra ID:
+1. Скачайте SAML-сертификат приложения, который используется для подписи сообщений от {{ microsoft-idp.entra-id-short }}:
 
     1. Найдите блок **Сертификаты SAML** → **Сертификат для подписи маркера**.
     1. Скачайте сертификат по ссылке в поле **Сертификат (Base64)**.
@@ -59,7 +59,7 @@
             https://login.microsoftonline.com/<идентификатор_тенанта>/saml2
             ```
 
-        * **Идентификатор Microsoft Entra** следующего вида:
+        * **Идентификатор {{ microsoft-idp.entra-full }}** следующего вида:
 
             ```text
             https://sts.windows.net/<идентификатор_тенанта>/
@@ -73,75 +73,75 @@
 
 {% endnote %}
 
-## Создайте федерацию Yandex Identity Hub {#create-federation}
+## Создайте федерацию {{ org-full-name }} {#create-federation}
 
 {% list tabs group=instructions %}
 
-- Интерфейс Cloud Center {#cloud-center}
+- Интерфейс {{ cloud-center }} {#cloud-center}
 
-  1. Перейдите в сервис [Yandex Identity Hub](https://center.yandex.cloud/organization).
+  1. Перейдите в сервис [{{ org-full-name }}]({{ link-org-cloud-center }}).
 
-  1. На панели слева выберите ![icon-federation](../../_assets/console-icons/vector-square.svg) **Федерации**.
+  1. На панели слева выберите ![icon-federation](../../_assets/console-icons/vector-square.svg) **{{ ui-key.yacloud_org.pages.federations }}**.
 
-  1. В правом верхнем углу страницы нажмите кнопку ![Circles3Plus](../../_assets/console-icons/circles-3-plus.svg) **Создать федерацию**. В открывшемся окне:
+  1. В правом верхнем углу страницы нажмите кнопку ![Circles3Plus](../../_assets/console-icons/circles-3-plus.svg) **{{ ui-key.yacloud_org.form.federation.action.create }}**. В открывшемся окне:
 
       1. Задайте имя федерации, например `demo-federation`. Имя должно быть уникальным в каталоге.
 
       1. При необходимости добавьте описание.
 
-      1. В поле **Время жизни cookie** укажите время, в течение которого браузер не будет требовать у пользователя повторной аутентификации.
+      1. В поле **{{ ui-key.yacloud_org.entity.federation.field.cookieMaxAge }}** укажите время, в течение которого браузер не будет требовать у пользователя повторной аутентификации.
 
-      1. В поле **IdP Issuer** вставьте идентификатор Microsoft Entra, [полученный в ходе настройки приложения Azure](#azure-settings-begin).
+      1. В поле **{{ ui-key.yacloud_org.entity.federation.field.issuer }}** вставьте идентификатор {{ microsoft-idp.entra-full }}, [полученный в ходе настройки приложения Azure](#azure-settings-begin).
 
-      1. В поле **Ссылка на страницу для входа в IdP** вставьте URL-адрес входа, полученный в ходе настройки приложения Azure.
+      1. В поле **{{ ui-key.yacloud_org.entity.federation.field.ssoUrl }}** вставьте URL-адрес входа, полученный в ходе настройки приложения Azure.
 
-      1. Включите опцию **Автоматически создавать пользователей**, чтобы автоматически добавлять пользователя в организацию после аутентификации. Если опция отключена, федеративных пользователей потребуется [добавить вручную](../../organization/operations/add-account.md#add-user-sso).
+      1. Включите опцию **{{ ui-key.yacloud_org.entity.federation.field.autocreateUsers }}**, чтобы автоматически добавлять пользователя в организацию после аутентификации. Если опция отключена, федеративных пользователей потребуется [добавить вручную](../../organization/operations/add-account.md#add-user-sso).
 
           Автоматически федеративный пользователь создается только при первом входе пользователя в облако. Если вы исключили пользователя из федерации, вернуть его туда можно будет только вручную.
 
-      1. (Опционально) Чтобы все запросы аутентификации от Yandex Cloud содержали цифровую подпись, включите опцию **Подписывать запросы аутентификации**. Потребуется установить SAML-сертификат Yandex Cloud на стороне поставщика удостоверений.
+      1. (Опционально) Чтобы все запросы аутентификации от {{ yandex-cloud }} содержали цифровую подпись, включите опцию **{{ ui-key.yacloud_org.entity.federation.field.encryptedAssertions }}**. Потребуется установить SAML-сертификат {{ yandex-cloud }} на стороне поставщика удостоверений.
 
-          В появившемся блоке **Сертификаты SAML** появится информация о действующем SAML-сертификате Yandex Cloud.
+          В появившемся блоке **Сертификаты SAML** появится информация о действующем SAML-сертификате {{ yandex-cloud }}.
           
           Нажмите ![ArrowDownToLine](../../_assets/console-icons/arrow-down-to-line.svg) **Скачать** и сохраните скачанный файл сертификата. Он потребуется для установки на ваш IdP-сервер.
           
           {% note tip %}
           
-          Следите за сроком действия сертификатов и устанавливайте новые сертификаты до истечения срока действия используемых. Перевыпущенный SAML-сертификат Yandex Cloud необходимо заранее [скачать и установить](../../organization/operations/renew-yc-certificate.md) на стороне IdP-провайдера и в вашей федерации.
+          Следите за сроком действия сертификатов и устанавливайте новые сертификаты до истечения срока действия используемых. Перевыпущенный SAML-сертификат {{ yandex-cloud }} необходимо заранее [скачать и установить](../../organization/operations/renew-yc-certificate.md) на стороне IdP-провайдера и в вашей федерации.
           
           {% endnote %}
 
-          [Скачать и установить сертификат](../../organization/operations/setup-federation.md#add-certificate-idp) Yandex Cloud вы можете и после создания федерации.
+          [Скачать и установить сертификат](../../organization/operations/setup-federation.md#add-certificate-idp) {{ yandex-cloud }} вы можете и после создания федерации.
 
           Сертификат потребуется в дальнейшем при настройке входа на основе SAML для приложения Azure.
 
-      1. Включите опцию **Принудительная повторная аутентификация (ForceAuthn) в IdP**, чтобы задать значение `true` для параметра [ForceAuthn](../../organization/saml/api-ref/Federation/index.md) в запросе аутентификации SAML. При включении этой опции поставщик удостоверений (Identity Provider, IdP) запрашивает у пользователя аутентификацию по истечении сессии в Yandex Cloud. Необязательный параметр.
+      1. Включите опцию **{{ ui-key.yacloud_org.entity.federation.field.forceAuthn }}**, чтобы задать значение `true` для параметра [ForceAuthn](../../organization/saml/api-ref/Federation/index.md) в запросе аутентификации SAML. При включении этой опции поставщик удостоверений (Identity Provider, IdP) запрашивает у пользователя аутентификацию по истечении сессии в {{ yandex-cloud }}. Необязательный параметр.
 
-      1. Нажмите кнопку **Создать федерацию**.
+      1. Нажмите кнопку **{{ ui-key.yacloud_org.form.federation.create.action.create }}**.
 
 {% endlist %}
 
 ## Добавьте SAML-сертификат приложения Azure в федерацию {#add-certificate}
 
-Чтобы при аутентификации сервис Yandex Identity Hub мог проверить SAML-сертификат приложения, добавьте сертификат в федерацию:
+Чтобы при аутентификации сервис {{ org-full-name }} мог проверить SAML-сертификат приложения, добавьте сертификат в федерацию:
 
 {% list tabs group=instructions %}
 
-- Интерфейс Cloud Center {#cloud-center}
+- Интерфейс {{ cloud-center }} {#cloud-center}
 
-  1. Войдите в сервис [Yandex Identity Hub](https://center.yandex.cloud/organization).
+  1. Войдите в сервис [{{ org-full-name }}]({{ link-org-cloud-center }}).
 
-  1. На панели слева выберите ![VectorSquare](../../_assets/console-icons/vector-square.svg) **Федерации**.
+  1. На панели слева выберите ![VectorSquare](../../_assets/console-icons/vector-square.svg) **{{ ui-key.yacloud_org.pages.federations }}**.
 
   1. Нажмите на строку с федерацией, для которой нужно добавить сертификат — `demo-federation`.
 
-  1. Внизу страницы в блоке **Сертификаты** нажмите кнопку **Добавить сертификат**.
+  1. Внизу страницы в блоке **{{ ui-key.yacloud_org.page.federation.section.certificates }}** нажмите кнопку **{{ ui-key.yacloud_org.entity.certificate.action.add }}**.
 
   1. Введите название и описание сертификата.
 
-  1. В поле **Способ** выберите `Текст` и вставьте содержимое [полученного ранее сертификата](#azure-settings-begin).
+  1. В поле **{{ ui-key.yacloud_org.component.form-file-upload.field.method }}** выберите `{{ ui-key.yacloud_org.component.form-file-upload.method.manual }}` и вставьте содержимое [полученного ранее сертификата](#azure-settings-begin).
 
-  1. Нажмите кнопку **Добавить**.
+  1. Нажмите кнопку **{{ ui-key.yacloud_org.actions.add }}**.
 
 {% endlist %}
 
@@ -157,27 +157,27 @@
         URL для перенаправления имеет вид:
 
         ```text
-        https://console.cloud.yandex.ru/federations/<идентификатор_федерации>
+        https://{{ auth-host }}/federations/<идентификатор_федерации>
         ```
 
         {% cut "Как получить идентификатор федерации" %}
 
-        1. Войдите в сервис [Yandex Identity Hub](https://center.yandex.cloud/organization).
-        1. На панели слева выберите ![VectorSquare](../../_assets/console-icons/vector-square.svg) **Федерации**.
-        1. Выберите нужную федерацию и на странице с информацией о ней скопируйте значение поля **Идентификатор**.
+        1. Войдите в сервис [{{ org-full-name }}]({{ link-org-cloud-center }}).
+        1. На панели слева выберите ![VectorSquare](../../_assets/console-icons/vector-square.svg) **{{ ui-key.yacloud_org.pages.federations }}**.
+        1. Выберите нужную федерацию и на странице с информацией о ней скопируйте значение поля **{{ ui-key.yacloud_org.common.columns.column_id }}**.
 
         {% endcut %}
 
     1. Нажмите кнопку **Сохранить** на панели справа.
 
-1. (Опционально) Если при [создании федерации](#create-federation) в Yandex Identity Hub вы включили опцию **Подписывать запросы аутентификации**, то добавьте скачанный ранее SAML-сертификат Yandex Cloud в приложение:
+1. (Опционально) Если при [создании федерации](#create-federation) в {{ org-full-name }} вы включили опцию **{{ ui-key.yacloud_org.entity.federation.field.encryptedAssertions }}**, то добавьте скачанный ранее SAML-сертификат {{ yandex-cloud }} в приложение:
 
     1. Найдите блок **Сертификаты SAML** → **Сертификаты для проверки (необязательно)** и нажмите кнопку **Изменить**.
     1. Включите опцию **Требовать сертификаты для проверки**.
     1. Нажмите кнопку **Отправить сертификат**.
     1. Загрузите нужный сертификат в формате PEM.
     
-        Если вы не скачивали SAML-сертификат при создании федерации, вы можете скачать его на странице сведений о федерации в Yandex Identity Hub, нажав кнопку ![ArrowDownToLine](../../_assets/console-icons/arrow-down-to-line.svg) **Скачать сертификат** в поле **Подписывать запросы аутентификации**.
+        Если вы не скачивали SAML-сертификат при создании федерации, вы можете скачать его на странице сведений о федерации в {{ org-full-name }}, нажав кнопку ![ArrowDownToLine](../../_assets/console-icons/arrow-down-to-line.svg) **{{ ui-key.yacloud_org.page.federation.action.download-cert }}** в поле **{{ ui-key.yacloud_org.entity.federation.field.encryptedAssertions }}**.
     1. Нажмите кнопку **Сохранить** на панели справа.
 
 1. Нажмите кнопку **Сохранить**.
@@ -187,7 +187,7 @@
 ### Создайте пользователя {#create-user}
 
 1. [Перейдите на портал Azure](https://portal.azure.com/).
-1. В разделе **Службы Azure** выберите **Microsoft Entra ID**.
+1. В разделе **Службы Azure** выберите **{{ microsoft-idp.entra-id-full }}**.
 1. На панели слева выберите раздел **Пользователи** → **Все пользователи**.
 1. Нажмите кнопку **Новый пользователь**. Выберите пункт **Создание нового пользователя** из выпадающего меню.
 1. Перейдите на вкладку **Основные сведения**.
@@ -215,7 +215,7 @@
 ### Создайте группу и добавьте в нее пользователя {#create-group}
 
 1. [Перейдите на портал Azure](https://portal.azure.com/).
-1. В разделе **Службы Azure** выберите **Microsoft Entra ID**.
+1. В разделе **Службы Azure** выберите **{{ microsoft-idp.entra-id-full }}**.
 1. Создайте группу:
 
     1. На панели слева выберите раздел **Группы** → **Все группы**.
@@ -271,7 +271,7 @@
 
 {% note info %}
 
-Чтобы настроить сопоставление [групп пользователей](../../organization/concepts/user-pools.md) на стороне Yandex Cloud, [назначьте](../../iam/operations/roles/grant.md#resource) пользователю одну из следующих [ролей](../../iam/concepts/access-control/roles.md):
+Чтобы настроить сопоставление [групп пользователей](../../organization/concepts/user-pools.md) на стороне {{ yandex-cloud }}, [назначьте](../../iam/operations/roles/grant.md#resource) пользователю одну из следующих [ролей](../../iam/concepts/access-control/roles.md):
 
 * [`organization-manager.federations.editor`](../../organization/security/index.md#organization-manager-federations-editor);
 * [`organization-manager.federations.admin`](../../organization/security/index.md#organization-manager-federations-admin);
@@ -284,21 +284,21 @@
 
 {% list tabs group=instructions %}
 
-- Интерфейс Cloud Center {#cloud-center}
+- Интерфейс {{ cloud-center }} {#cloud-center}
 
-  1. Войдите в сервис [Yandex Identity Hub](https://center.yandex.cloud/organization).
+  1. Войдите в сервис [{{ org-full-name }}]({{ link-org-cloud-center }}).
 
-  1. [Создайте группу пользователей](../../organization/operations/create-group.md) `yc-demo-group` в Yandex Identity Hub и [выдайте ей права](../../organization/operations/access-group.md) на просмотр ресурсов в облаке или отдельном каталоге (роль `viewer`).
+  1. [Создайте группу пользователей](../../organization/operations/create-group.md) `yc-demo-group` в {{ org-full-name }} и [выдайте ей права](../../organization/operations/access-group.md) на просмотр ресурсов в облаке или отдельном каталоге (роль `viewer`).
 
-  1. На панели слева выберите ![VectorSquare](../../_assets/console-icons/vector-square.svg) **Федерации**.
+  1. На панели слева выберите ![VectorSquare](../../_assets/console-icons/vector-square.svg) **{{ ui-key.yacloud_org.pages.federations }}**.
 
-  1. Выберите созданную ранее федерацию `demo-federation` и перейдите на вкладку **IdP-группы**.
+  1. Выберите созданную ранее федерацию `demo-federation` и перейдите на вкладку **{{ ui-key.yacloud_org.form.group-mapping.note.tab-idp }}**.
 
-  1. Включите опцию **Маппинг групп в IdP**.
+  1. Включите опцию **{{ ui-key.yacloud_org.form.group-mapping.field.idp }}**.
 
-  1. Нажмите кнопку **Добавить группу**.
+  1. Нажмите кнопку **{{ ui-key.yacloud_org.form.group-mapping.create.add }}**.
 
-  1. В поле **Имя группы** введите идентификатор группы `az_demo_group`, [полученный ранее в Entra ID](#create-group).
+  1. В поле **{{ ui-key.yacloud_org.form.group-mapping.note.group-name }}** введите идентификатор группы `az_demo_group`, [полученный ранее в {{ microsoft-idp.entra-id-short }}](#create-group).
 
      {% note warning %}
 
@@ -308,13 +308,13 @@
 
      {% endnote %}
 
-  1. В поле **IAM-группа** выберите из списка имя группы в Yandex Identity Hub — `yc-demo-group`.
+  1. В поле **{{ ui-key.yacloud_org.form.group-mapping.note.iam-group }}** выберите из списка имя группы в {{ org-full-name }} — `yc-demo-group`.
 
-  1. Нажмите кнопку **Сохранить**.
+  1. Нажмите кнопку **{{ ui-key.yacloud_org.actions.save-changes }}**.
 
-- Terraform {#tf}
+- {{ TF }} {#tf}
 
-  1. Опишите в конфигурационном файле Terraform параметры создаваемых ресурсов:
+  1. Опишите в конфигурационном файле {{ TF }} параметры создаваемых ресурсов:
 
       ```hcl
       # Создание группы пользователей
@@ -348,7 +348,7 @@
 
       Где:
       * `folder_id` — каталог, на который назначается роль.
-      * `external_group_id` — идентификатор группы `az_demo_group`, [полученный ранее в Entra ID](#create-group).
+      * `external_group_id` — идентификатор группы `az_demo_group`, [полученный ранее в {{ microsoft-idp.entra-id-short }}](#create-group).
 
          {% note warning %}
 
@@ -358,7 +358,7 @@
 
          {% endnote %}
 
-      Подробнее см. в описаниях ресурсов [yandex_organizationmanager_group_mapping](../../terraform/resources/organizationmanager_group_mapping.md) и [yandex_organizationmanager_group_mapping_item](../../terraform/resources/organizationmanager_group_mapping_item.md) в документации провайдера Terraform.
+      Подробнее см. в описаниях ресурсов [yandex_organizationmanager_group_mapping]({{ tf-provider-resources-link }}/organizationmanager_group_mapping) и [yandex_organizationmanager_group_mapping_item]({{ tf-provider-resources-link }}/organizationmanager_group_mapping_item) в документации провайдера {{ TF }}.
 
   1. Создайте ресурсы:
 
@@ -381,7 +381,7 @@
         terraform plan
         ```
      
-        В терминале будет выведен список ресурсов с параметрами. На этом этапе изменения не будут внесены. Если в конфигурации есть ошибки, Terraform на них укажет.
+        В терминале будет выведен список ресурсов с параметрами. На этом этапе изменения не будут внесены. Если в конфигурации есть ошибки, {{ TF }} на них укажет.
      1. Примените изменения конфигурации:
      
         ```bash
@@ -399,21 +399,21 @@
 1. Перейдите по URL для входа в консоль:
 
     ```text
-    https://console.cloud.yandex.ru/federations/<идентификатор_федерации>
+    https://{{ console-host }}/federations/<идентификатор_федерации>
     ```
 
     {% cut "Как получить идентификатор федерации" %}
 
-    1. Войдите в сервис [Yandex Identity Hub](https://center.yandex.cloud/organization).
-    1. На панели слева выберите ![VectorSquare](../../_assets/console-icons/vector-square.svg) **Федерации**.
-    1. Выберите нужную федерацию и на странице с информацией о ней скопируйте значение поля **Идентификатор**.
+    1. Войдите в сервис [{{ org-full-name }}]({{ link-org-cloud-center }}).
+    1. На панели слева выберите ![VectorSquare](../../_assets/console-icons/vector-square.svg) **{{ ui-key.yacloud_org.pages.federations }}**.
+    1. Выберите нужную федерацию и на странице с информацией о ней скопируйте значение поля **{{ ui-key.yacloud_org.common.columns.column_id }}**.
 
     {% endcut %}
 
-    Если все настроено правильно, браузер перенаправит вас на страницу аутентификации в Entra ID.
+    Если все настроено правильно, браузер перенаправит вас на страницу аутентификации в {{ microsoft-idp.entra-id-short }}.
 
-1. Введите реквизиты пользователя `az_demo_user@example.com`, [созданного ранее в Entra ID](#create-user), и нажмите кнопку **Sign in**.
+1. Введите реквизиты пользователя `az_demo_user@example.com`, [созданного ранее в {{ microsoft-idp.entra-id-short }}](#create-user), и нажмите кнопку **Sign in**.
 
-    После успешной аутентификации IdP-сервер перенаправит вас по URL `https://console.cloud.yandex.ru/federations/<идентификатор_федерации>`, который вы указали в настройках SAML для приложения Azure, а после — на главную страницу [консоли управления](https://console.yandex.cloud).
+    После успешной аутентификации IdP-сервер перенаправит вас по URL `https://{{ auth-host }}/federations/<идентификатор_федерации>`, который вы указали в настройках SAML для приложения Azure, а после — на главную страницу [консоли управления]({{ link-console-main }}).
 
 1. Убедитесь, что пользователь, от имени которого был выполнен вход, входит в группу `yc-demo-group` и у него есть права на просмотр ресурсов в соответствии с ролью, назначенной для группы.

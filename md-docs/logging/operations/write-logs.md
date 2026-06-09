@@ -2,7 +2,7 @@
 
 {% note info %}
 
-Вы можете создать триггер, который будет запускать [функцию](../../functions/operations/trigger/cloud-logging-trigger-create.md) Cloud Functions или [контейнер](../../serverless-containers/operations/cloud-logging-trigger-create.md) Serverless Containers при добавлении записей в лог-группу.
+Вы можете создать триггер, который будет запускать [функцию](../../functions/operations/trigger/cloud-logging-trigger-create.md) {{ sf-name }} или [контейнер](../../serverless-containers/operations/cloud-logging-trigger-create.md) {{ serverless-containers-name }} при добавлении записей в лог-группу.
 
 {% endnote %}
 
@@ -10,7 +10,7 @@
 
 - CLI {#cli}
 
-    Если у вас еще нет интерфейса командной строки Yandex Cloud (CLI), [установите и инициализируйте его](../../cli/quickstart.md#install).
+    Если у вас еще нет интерфейса командной строки {{ yandex-cloud }} (CLI), [установите и инициализируйте его](../../cli/quickstart.md#install).
 
     По умолчанию используется каталог, указанный при [создании](../../cli/operations/profile/profile-create.md) профиля CLI. Чтобы изменить каталог по умолчанию, используйте команду `yc config set folder-id <идентификатор_каталога>`. Также для любой команды вы можете указать другой каталог с помощью параметров `--folder-name` или `--folder-id`. Если вы обращаетесь к ресурсу по имени, поиск будет выполнен в каталоге по умолчанию. Если вы обращаетесь к ресурсу по идентификатору, поиск будет выполнен глобально — во всех каталогах с учетом прав доступа.
 

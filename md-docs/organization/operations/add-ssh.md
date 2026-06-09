@@ -1,6 +1,6 @@
 # Добавить SSH-ключ
 
-Загрузите SSH-ключи в профиль пользователя организации или [сервисного аккаунта](../../iam/concepts/users/service-accounts.md) в Yandex Identity Hub, чтобы с их помощью пользователь или сервисный аккаунт могли подключаться к [виртуальным машинам](../../compute/concepts/vm.md), [узлам](../../managed-kubernetes/concepts/index.md#node-group) кластеров Kubernetes и [серверам](../../baremetal/concepts/servers.md) Yandex BareMetal.
+Загрузите SSH-ключи в профиль пользователя организации или [сервисного аккаунта](../../iam/concepts/users/service-accounts.md) в {{ org-full-name }}, чтобы с их помощью пользователь или сервисный аккаунт могли подключаться к [виртуальным машинам](../../compute/concepts/vm.md), [узлам](../../managed-kubernetes/concepts/index.md#node-group) кластеров {{ k8s }} и [серверам](../../baremetal/concepts/servers.md) {{ baremetal-full-name }}.
 
 При необходимости перед выполнением инструкции [создайте](../../compute/operations/vm-connect/ssh.md#creating-ssh-keys) новую пару SSH-ключей.
 
@@ -8,19 +8,19 @@
 
 {% list tabs group=instructions %}
 
-- Интерфейс Cloud Center {#cloud-center}
+- Интерфейс {{ cloud-center }} {#cloud-center}
 
-  1. Войдите в сервис [Yandex Identity Hub](https://center.yandex.cloud/organization) с учетной записью администратора или владельца организации.
+  1. Войдите в сервис [{{ org-full-name }}]({{ link-org-cloud-center }}) с учетной записью администратора или владельца организации.
 
       При необходимости [переключитесь](manage-organizations.md#switch-to-another-org) на нужную организацию или федерацию.
 
-  1. На панели слева выберите ![icon-users](../../_assets/console-icons/person.svg) **Пользователи**.
+  1. На панели слева выберите ![icon-users](../../_assets/console-icons/person.svg) **{{ ui-key.yacloud_org.pages.users }}**.
  
   1. В списке выберите пользователя, в профиль которого вы хотите добавить SSH-ключ.
   
       При необходимости воспользуйтесь фильтром или поиском.
 
-  1. Перейдите на вкладку **SSH-ключи** и нажмите кнопку **Добавить ключ**. В открывшемся окне:
+  1. Перейдите на вкладку **{{ ui-key.yacloud_org.user.title_ssh-keys }}** и нажмите кнопку **{{ ui-key.yacloud_org.entity.ssh-keys.action.add-key }}**. В открывшемся окне:
   
       1. Задайте имя для добавляемого SSH-ключа.
 
@@ -28,11 +28,11 @@
 
       1. Задайте срок действия загружаемого ключа.
 
-      1. Нажмите кнопку **Добавить**.
+      1. Нажмите кнопку **{{ ui-key.yacloud.common.add }}**.
 
 - CLI {#cli}
 
-  Если у вас еще нет интерфейса командной строки Yandex Cloud (CLI), [установите и инициализируйте его](../../cli/quickstart.md#install).
+  Если у вас еще нет интерфейса командной строки {{ yandex-cloud }} (CLI), [установите и инициализируйте его](../../cli/quickstart.md#install).
 
   По умолчанию используется каталог, указанный при [создании](../../cli/operations/profile/profile-create.md) профиля CLI. Чтобы изменить каталог по умолчанию, используйте команду `yc config set folder-id <идентификатор_каталога>`. Также для любой команды вы можете указать другой каталог с помощью параметров `--folder-name` или `--folder-id`. Если вы обращаетесь к ресурсу по имени, поиск будет выполнен в каталоге по умолчанию. Если вы обращаетесь к ресурсу по идентификатору, поиск будет выполнен глобально — во всех каталогах с учетом прав доступа.
 
@@ -116,9 +116,12 @@
       expires_at: "2024-03-12T21:12:31.176467230Z"
       ```
 
-- Terraform {#tf}
+- {{ TF }} {#tf}
 
-  Если у вас еще нет Terraform, [установите его и настройте провайдер Yandex Cloud](../../tutorials/infrastructure-management/terraform-quickstart.md#install-terraform).
+  Если у вас еще нет {{ TF }}, [установите его и настройте провайдер {{ yandex-cloud }}](../../tutorials/infrastructure-management/terraform-quickstart.md#install-terraform).
+  
+  
+  Чтобы управлять инфраструктурой с помощью {{ TF }} от имени сервисного аккаунта или пользовательских аккаунтов: аккаунта на Яндексе, федеративного аккаунта и локального пользователя, [аутентифицируйтесь](../../terraform/authentication.md) соответствующим способом.
 
   1. Опишите в конфигурационном файле параметры ресурсов, которые необходимо создать:
 
@@ -140,7 +143,7 @@
       * `name` — имя загружаемого ключа.
       * `expires_at` — срок действия загружаемого ключа. Необязательный параметр. Позволяет установить для загружаемого ключа произвольные время и дату, по истечении которых ключ становится недействительным. Значение задается в формате [ISO 8601](https://ru.wikipedia.org/wiki/ISO_8601), например, `YYYY-MM-DDT00:00:00Z`.
 
-      Более подробную информацию о ресурсах, которые вы можете создать с помощью Terraform, см. в [документации провайдера](../../terraform/resources/organizationmanager_user_ssh_key.md).
+      Более подробную информацию о ресурсах, которые вы можете создать с помощью {{ TF }}, см. в [документации провайдера]({{ tf-provider-resources-link }}/organizationmanager_user_ssh_key).
 
   1. Проверьте корректность конфигурационных файлов.
 
@@ -151,7 +154,7 @@
           terraform plan
           ```
 
-      Если конфигурация описана верно, в терминале отобразится список создаваемых ресурсов и их параметров. Если в конфигурации есть ошибки, Terraform на них укажет.
+      Если конфигурация описана верно, в терминале отобразится список создаваемых ресурсов и их параметров. Если в конфигурации есть ошибки, {{ TF }} на них укажет.
 
   1. Разверните облачные ресурсы.
 
@@ -185,20 +188,20 @@
 
 {% endlist %}
 
-Добавить SSH-ключ в профиль сервисного аккаунта можно только с помощью CLI, Terraform или API.
+Добавить SSH-ключ в профиль сервисного аккаунта можно только с помощью CLI, {{ TF }} или API.
 
-Чтобы пользователи могли самостоятельно загружать SSH-ключи в свои профили, [включите](os-login-access.md) опцию **Разрешить членам организации управлять своими SSH-ключами**.
+Чтобы пользователи могли самостоятельно загружать SSH-ключи в свои профили, [включите](os-login-access.md) опцию **{{ ui-key.yacloud_org.form.oslogin-settings.title_allow-edit-own-keys }}**.
 
 {% note info %}
 
-Загружать SSH-ключи в [профили OS Login](../concepts/os-login.md#os-login-profiles) сервисных аккаунтов могут только пользователи [с аккаунтом на Яндексе](../../iam/concepts/users/accounts.md#passport), [федеративные](../../iam/concepts/users/accounts.md#saml-federation) или [локальные](../../iam/concepts/users/accounts.md#local) пользователи, которым назначена [роль](../security/index.md#organization-manager-osLogins-admin) `organization-manager.osLogins.admin` или выше.
+Загружать SSH-ключи в [профили {{ oslogin }}](../concepts/os-login.md#os-login-profiles) сервисных аккаунтов могут только пользователи [с аккаунтом на Яндексе](../../iam/concepts/users/accounts.md#passport), [федеративные](../../iam/concepts/users/accounts.md#saml-federation) или [локальные](../../iam/concepts/users/accounts.md#local) пользователи, которым назначена [роль](../security/index.md#organization-manager-osLogins-admin) `organization-manager.osLogins.admin` или выше.
 
 {% endnote %}
 
 #### См. также {#see-also}
 
-* [Включить доступ по OS Login](os-login-access.md)
-* [Создать профиль OS Login](os-login-profile-create.md)
-* [Подключиться к виртуальной машине по OS Login](../../compute/operations/vm-connect/os-login.md)
-* [Подключиться к узлу Kubernetes через OS Login](../../managed-kubernetes/operations/node-connect-oslogin.md)
-* [Использовать сервисный аккаунт с профилем OS Login для управления ВМ с помощью Ansible](../tutorials/sa-oslogin-ansible.md)
+* [{#T}](os-login-access.md)
+* [{#T}](os-login-profile-create.md)
+* [{#T}](../../compute/operations/vm-connect/os-login.md)
+* [Подключиться к узлу {{ k8s }} через {{ oslogin }}](../../managed-kubernetes/operations/node-connect-oslogin.md)
+* [Использовать сервисный аккаунт с профилем {{ oslogin }} для управления ВМ с помощью Ansible](../tutorials/sa-oslogin-ansible.md)

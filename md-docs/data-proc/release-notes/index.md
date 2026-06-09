@@ -1,4 +1,4 @@
-# История изменений в Yandex Data Processing
+# История изменений в {{ dataproc-full-name }}
 
 ## IV квартал 2025 {#q4-2025}
 
@@ -8,11 +8,11 @@
 
 ## III квартал 2025 {#q3-2025}
 
-В образе 2.2.9 (бета) Apache Spark™ обновлен до версии 3.5.6.
+В образе 2.2.9 (бета) {{ SPRK }} обновлен до версии 3.5.6.
 
 ## II квартал 2025 {#q2-2025}
 
-* Добавлена опция OS Login при создании кластера. Опция включает доступ через [OS Login](../../organization/concepts/os-login.md) ко всем создаваемым хостам кластера.
+* Добавлена опция {{ oslogin }} при создании кластера. Опция включает доступ через [{{ oslogin }}](../../organization/concepts/os-login.md) ко всем создаваемым хостам кластера.
 
 * Добавлена возможность устанавливать переменные окружения:
 
@@ -32,7 +32,7 @@
 
 ## III квартал 2024 {#q3-2024}
 
-* Кластеры Apache Hive™ Metastore стали частью сервиса Yandex MetaData Hub. Информацию о кластерах Apache Hive™ Metastore читайте в [документации Yandex MetaData Hub](../../metadata-hub/concepts/metastore.md).
+* Кластеры {{ metastore-name }} стали частью сервиса {{ metadata-hub-full-name }}. Информацию о кластерах {{ metastore-name }} читайте в [документации {{ metadata-hub-name }}](../../metadata-hub/concepts/metastore.md).
 * В образах 2.1.X и 2.2.X обновлена Conda, solver по умолчанию заменен на [Mamba](https://www.anaconda.com/blog/a-faster-conda-for-a-growing-community).
 
 ## II квартал 2024 {#q2-2024}
@@ -41,7 +41,7 @@
 
 ## II квартал 2023 {#q2-2023}
 
-Доступно создание кластеров [Apache Hive™ Metastore](../../metadata-hub/concepts/metastore.md). Функциональность находится на стадии [Preview](../../overview/concepts/launch-stages.md).
+Доступно создание кластеров [{{ metastore-name }}](../../metadata-hub/concepts/metastore.md). Функциональность находится на стадии [Preview](../../overview/concepts/launch-stages.md).
 
 ## III квартал 2022 {#q3-2022}
 
@@ -60,5 +60,5 @@
 
 * Доступно создание кластеров на сетевых нереплицируемых дисках размером до 8 ТБ. Устройство нереплицируемых дисков существенно проще стандартных сетевых хранилищ SSD, благодаря чему их производительность выше в несколько раз.
 * Добавлена возможность [отмены заданий](../operations/jobs-spark.md#cancel).
-* Добавлен номер сборки в версии [образов Yandex Data Processing](../concepts/environment.md).
+* Добавлен номер сборки в версии [образов {{ dataproc-name }}](../concepts/environment.md).
 * Добавлена возможность передачи параметров `packages`, `repositories` и `exclude_packages` для заданий Spark и PySpark. Использование этих параметров позволяет скачивать дополнительные зависимости и пакеты из внешних репозиториев.

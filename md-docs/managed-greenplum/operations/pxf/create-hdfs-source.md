@@ -1,6 +1,6 @@
 # Создание внешнего источника данных HDFS
 
-В Yandex MPP Analytics for PostgreSQL в качестве [внешнего источника данных](../../concepts/external-tables.md#pxf-data-sources) с типом подключения HDFS можно использовать систему HDFS в составе сервиса [Yandex Data Processing](../../../data-proc/index.md) или другие сторонние сервисы HDFS.
+В {{ mgp-name }} в качестве [внешнего источника данных](../../concepts/external-tables.md#pxf-data-sources) с типом подключения HDFS можно использовать систему HDFS в составе сервиса [{{ dataproc-full-name }}](../../../data-proc/index.md) или другие сторонние сервисы HDFS.
 
 ## Создайте внешний источник {#create-external-source}
 
@@ -8,15 +8,15 @@
 
 - Консоль управления {#console}
 
-    1. Перейдите на [страницу каталога](https://console.yandex.cloud).
-    1. [Перейдите](../../../console/operations/select-service.md#select-service) в сервис **Yandex MPP Analytics for&nbsp;PostgreSQL**.
-    1. Откройте страницу нужного кластера Greenplum®.
-    1. На панели слева выберите ![image](../../../_assets/console-icons/arrow-right-arrow-left.svg) **PXF**.
-    1. Нажмите кнопку **Создать источник данных**.
-    1. Выберите тип подключения `HDFS`.
+    1. Перейдите на [страницу каталога]({{ link-console-main }}).
+    1. Перейдите в сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-greenplum }}**.
+    1. Откройте страницу нужного кластера {{ mgp-name }}.
+    1. На панели слева выберите ![image](../../../_assets/console-icons/arrow-right-arrow-left.svg) **{{ ui-key.yacloud.greenplum.label_pxf }}**.
+    1. Нажмите кнопку **{{ ui-key.yacloud.greenplum.cluster.pxf.action_create-datasource }}**.
+    1. Выберите тип подключения `{{ ui-key.yacloud.greenplum.cluster.pxf.value_hdfs }}`.
     1. Укажите имя источника.
     1. Задайте хотя бы одну [опциональную настройку](../../concepts/settings-list.md#hdfs-settings).
-    1. Нажмите кнопку **Создать**.
+    1. Нажмите кнопку **{{ ui-key.yacloud.common.create }}**.
 
 - REST API {#api}
 
@@ -26,14 +26,14 @@
         export IAM_TOKEN="<IAM-токен>"
         ```
 
-    1. Воспользуйтесь методом [PXFDatasource.Create](../../api-ref/PXFDatasource/create.md) и выполните запрос, например, с помощью [cURL](https://curl.se/):
+    1. Воспользуйтесь методом [PXFDatasource.Create](../../api-ref/PXFDatasource/create.md) и выполните запрос, например, с помощью {{ api-examples.rest.tool }}:
 
         ```bash
         curl \
             --request POST \
             --header "Authorization: Bearer $IAM_TOKEN" \
             --header "Content-Type: application/json" \
-            --url 'https://mdb.api.cloud.yandex.net/managed-greenplum/v1/clusters/<идентификатор_кластера>/pxf_datasources' \
+            --url 'https://{{ api-host-mdb }}/managed-greenplum/v1/clusters/<идентификатор_кластера>/pxf_datasources' \
             --data '{
                       "datasource": {
                         "name": "<имя_внешнего_источника_данных>",
@@ -72,7 +72,7 @@
        
        Далее предполагается, что содержимое репозитория находится в директории `~/cloudapi/`.
 
-    1. Воспользуйтесь вызовом [PXFDatasourceService.Create](../../api-ref/grpc/PXFDatasource/create.md) и выполните запрос, например, с помощью [gRPCurl](https://github.com/fullstorydev/grpcurl):
+    1. Воспользуйтесь вызовом [PXFDatasourceService.Create](../../api-ref/grpc/PXFDatasource/create.md) и выполните запрос, например, с помощью {{ api-examples.grpc.tool }}:
 
         ```bash
         grpcurl \
@@ -93,7 +93,7 @@
                     }
                   }
                 }' \
-            mdb.api.cloud.yandex.net:443 \
+            {{ api-host-mdb }}:{{ port-https }} \
             yandex.cloud.mdb.greenplum.v1.PXFDatasourceService.Create
         ```
 
@@ -109,5 +109,3 @@
 {% endlist %}
 
 После создания внешнего источника данных [создайте внешнюю таблицу](create-table.md).
-
-_Greenplum® и Greenplum Database® являются зарегистрированными товарными знаками или товарными знаками Broadcom Inc в США и/или других странах._

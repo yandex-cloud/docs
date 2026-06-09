@@ -6,7 +6,7 @@ Results can be filtered and sorted using the provided parameters.
 ## HTTP request
 
 ```
-GET https://video.api.cloud.yandex.net/video/v1/episodes
+GET https://video.{{ api-host }}/video/v1/episodes
 ```
 
 ## Query parameters {#yandex.cloud.video.v1.ListEpisodesRequest}
@@ -165,7 +165,6 @@ In some languages, built-in datetime utilities do not support nanosecond precisi
 
 Controls the Digital Video Recording (DVR) functionality for the episode.
 Determines how many seconds of the stream are available for time-shifted viewing.
-
 Possible values:
 * `0`: Infinite DVR size, the full length of the stream is available for viewing.
 * `>0`: Size of DVR window in seconds, the minimum value is 30s. ||

@@ -8,13 +8,13 @@
 
 - Консоль управления {#console}
 
-    1. В [консоли управления](https://console.yandex.cloud) выберите каталог, в котором находится сертификат.
-    1. [Перейдите](../../../console/operations/select-service.md#select-service) в сервис **Certificate Manager**.
-    1. В строке с нужным сертификатом нажмите кнопку ![image](../../../_assets/console-icons/ellipsis.svg) и выберите ![arrow](../../../_assets/console-icons/arrow-up-from-line.svg) **Экспортировать сертификат**.
+    1. В [консоли управления]({{ link-console-main }}) выберите каталог, в котором находится сертификат.
+    1. Перейдите в сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_certificate-manager }}**.
+    1. В строке с нужным сертификатом нажмите кнопку ![image](../../../_assets/console-icons/ellipsis.svg) и выберите ![arrow](../../../_assets/console-icons/arrow-up-from-line.svg) **{{ ui-key.yacloud.certificate-manager.overview.certificate_content_export }}**.
 
        Экспортировать можно только сертификаты в статусе `Issued`.
     1. Выберите один из вариантов экспорта. В файле `certificate.pem` в текстовом формате в кодировке Base64 будут сохранены:
-       * **Сертификат и цепочка сертификатов** — цепочка сертификатов (конечный и промежуточный сертификат) и приватный ключ со стандартным обрамлением:
+       * **{{ ui-key.yacloud.certificate-manager.overview.certificate_content_select_full }}** — цепочка сертификатов (конечный и промежуточный сертификат) и приватный ключ со стандартным обрамлением:
           ```text
           -----BEGIN CERTIFICATE-----
           MIIE5zCCA8+gAwI...
@@ -27,7 +27,7 @@
           -----END PRIVATE KEY-----
           ```
 
-       * **Сертификат без приватного ключа** — цепочка сертификатов (конечный и промежуточный сертификат):
+       * **{{ ui-key.yacloud.certificate-manager.overview.certificate_content_select_no_private_key }}** — цепочка сертификатов (конечный и промежуточный сертификат):
          ```text
           -----BEGIN CERTIFICATE-----
           MIIE5zCCA8+gAwI...
@@ -37,20 +37,20 @@
           -----END CERTIFICATE-----
           ```
 
-       * **Конечный сертификат без цепочки сертификатов**:
+       * **{{ ui-key.yacloud.certificate-manager.overview.certificate_content_select_leaf_only }}**:
            ```text
           -----BEGIN CERTIFICATE-----
           MIIFFjCCAv6gAwIBAg...
           -----END CERTIFICATE-----`
           ```
-       * **Только приватный ключ**:
+       * **{{ ui-key.yacloud.certificate-manager.overview.certificate_content_select_private_key_only }}**:
           ```text
           -----BEGIN PRIVATE KEY-----
           MIIEvgIBADANBgk...
           -----END PRIVATE KEY-----`
           ```
 
-    1. Нажмите **Скачать сертификат**.
+    1. Нажмите **{{ ui-key.yacloud.certificate-manager.overview.certificate_content_download }}**.
 
 - CLI {#cli}
 
@@ -67,18 +67,21 @@
     --key private_key.pem
   ```
 
-- Terraform {#tf}
+- {{ TF }} {#tf}
 
-  [Terraform](https://www.terraform.io/) позволяет быстро создать облачную инфраструктуру в Yandex Cloud и управлять ею с помощью файлов конфигураций. В файлах конфигураций хранится описание инфраструктуры на языке HCL (HashiCorp Configuration Language). При изменении файлов конфигураций Terraform автоматически определяет, какая часть вашей конфигурации уже развернута, что следует добавить или удалить.
+  [{{ TF }}](https://www.terraform.io/) позволяет быстро создать облачную инфраструктуру в {{ yandex-cloud }} и управлять ею с помощью файлов конфигураций. В файлах конфигураций хранится описание инфраструктуры на языке HCL (HashiCorp Configuration Language). При изменении файлов конфигураций {{ TF }} автоматически определяет, какая часть вашей конфигурации уже развернута, что следует добавить или удалить.
   
-  Terraform распространяется под лицензией [Business Source License](https://github.com/hashicorp/terraform/blob/main/LICENSE), а [провайдер Yandex Cloud для Terraform](https://github.com/yandex-cloud/terraform-provider-yandex) — под лицензией [MPL-2.0](https://www.mozilla.org/en-US/MPL/2.0/).
+  {{ TF }} распространяется под лицензией [Business Source License](https://github.com/hashicorp/terraform/blob/main/LICENSE), а [провайдер {{ yandex-cloud }} для {{ TF }}](https://github.com/yandex-cloud/terraform-provider-yandex) — под лицензией [MPL-2.0](https://www.mozilla.org/en-US/MPL/2.0/).
   
-  Подробную информацию о ресурсах провайдера смотрите в документации на сайте [Terraform](https://www.terraform.io/docs/providers/yandex/index.html) или в [зеркале](../../../terraform/index.md).
+  Подробную информацию о ресурсах провайдера смотрите в документации на сайте [{{ TF }}](https://www.terraform.io/docs/providers/yandex/index.html) или в [зеркале]({{ tf-docs-link }}).
 
-  Если у вас еще нет Terraform, [установите его и настройте провайдер Yandex Cloud](../../../tutorials/infrastructure-management/terraform-quickstart.md#install-terraform).
+  Если у вас еще нет {{ TF }}, [установите его и настройте провайдер {{ yandex-cloud }}](../../../tutorials/infrastructure-management/terraform-quickstart.md#install-terraform).
+  
+  
+  Чтобы управлять инфраструктурой с помощью {{ TF }} от имени сервисного аккаунта или пользовательских аккаунтов: аккаунта на Яндексе, федеративного аккаунта и локального пользователя, [аутентифицируйтесь](../../../terraform/authentication.md) соответствующим способом.
 
-  Чтобы получить содержимое пользовательского сертификата с помощью Terraform:
-  1. Опишите в конфигурационном файле Terraform параметры ресурсов, которые необходимо создать:
+  Чтобы получить содержимое пользовательского сертификата с помощью {{ TF }}:
+  1. Опишите в конфигурационном файле {{ TF }} параметры ресурсов, которые необходимо создать:
 
      ```hcl
      data "yandex_cm_certificate_content" "cert_by_id" {
@@ -102,7 +105,7 @@
        * `value` — возвращаемое значение.
        * `sensitive` — пометить как конфиденциальные данные.
 
-     Более подробную информацию о параметрах источника данных `yandex_cm_certificate_content` см. в [документации провайдера](../../../terraform/data-sources/cm_certificate_content.md).
+     Более подробную информацию о параметрах источника данных `yandex_cm_certificate_content` см. в [документации провайдера]({{ tf-provider-datasources-link }}/cm_certificate_content).
   1. Создайте ресурсы:
 
      1. В терминале перейдите в директорию с конфигурационным файлом.
@@ -124,7 +127,7 @@
         terraform plan
         ```
      
-        В терминале будет выведен список ресурсов с параметрами. На этом этапе изменения не будут внесены. Если в конфигурации есть ошибки, Terraform на них укажет.
+        В терминале будет выведен список ресурсов с параметрами. На этом этапе изменения не будут внесены. Если в конфигурации есть ошибки, {{ TF }} на них укажет.
      1. Примените изменения конфигурации:
      
         ```bash
@@ -133,7 +136,7 @@
      
      1. Подтвердите изменения: введите в терминале слово `yes` и нажмите **Enter**.
 
-     Terraform создаст все требуемые ресурсы. Чтобы проверить результат, выполните команды:
+     {{ TF }} создаст все требуемые ресурсы. Чтобы проверить результат, выполните команды:
      * Получить цепочку сертификата:
 
        ```bash

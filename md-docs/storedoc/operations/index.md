@@ -1,11 +1,11 @@
-# Пошаговые инструкции для Yandex StoreDoc
+# Пошаговые инструкции для {{ mmg-name }}
 
 ## Кластеры {#clusters}
 
 * [Информация об имеющихся кластерах](cluster-list.md)
 * [Создание кластера](cluster-create.md)
 * [Изменение настроек кластера](update.md)
-* [Обновление версии Yandex StoreDoc](cluster-version-update.md)
+* [Обновление версии {{ SD }}](cluster-version-update.md)
 * [Остановка и запуск кластера](cluster-stop.md)
 * [Управление хостами кластера](hosts.md)
 * [Миграция хостов кластера в другую зону доступности](host-migration.md)
@@ -27,11 +27,11 @@
 ## Шардирование и репликация {#shards-and-replication}
 
 * [Управление шардами](shards.md)
-* [Переключение первичной реплики](stepdown.md)
+* [{#T}](stepdown.md)
 
 ## Логи и мониторинг {#monitoring-and-logs}
 
 * [Просмотр логов кластера](cluster-logs.md)
 * [Диагностика производительности](performance-diagnostics.md)
-* [Инструменты для анализа производительности](tools.md)
+* [{#T}](tools.md)
 * [Мониторинг состояния кластера, хостов и шардов](monitoring.md)

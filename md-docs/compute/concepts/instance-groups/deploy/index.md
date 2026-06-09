@@ -17,4 +17,4 @@
 
 ## Примеры использования {#examples}
 
-* [Обновление группы виртуальных машин под нагрузкой](../../../tutorials/updating-under-load.md)
+* [{#T}](../../../tutorials/updating-under-load.md)

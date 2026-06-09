@@ -5,7 +5,7 @@ Lists operations for the specified sink.
 ## HTTP request
 
 ```
-GET https://logging.api.cloud.yandex.net/logging/v1/sinks/{sinkId}/operations
+GET https://logging.{{ api-host }}/logging/v1/sinks/{sinkId}/operations
 ```
 
 ## Path parameters

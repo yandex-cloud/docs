@@ -5,7 +5,7 @@ Updates auth settings for specified cluster.
 ## HTTP request
 
 ```
-PUT https://mdb.api.cloud.yandex.net/managed-opensearch/v1/clusters/{clusterId}/auth
+PUT https://{{ api-host-mdb }}/managed-opensearch/v1/clusters/{clusterId}/auth
 ```
 
 ## Path parameters
@@ -106,9 +106,7 @@ default jwt expiration timeout. ||
   "createdBy": "string",
   "modifiedAt": "string",
   "done": "boolean",
-  "metadata": {
-    "clusterId": "string"
-  },
+  "metadata": "object",
   // Includes only one of the fields `error`, `response`
   "error": {
     "code": "integer",
@@ -117,18 +115,7 @@ default jwt expiration timeout. ||
       "object"
     ]
   },
-  "response": {
-    "saml": {
-      "enabled": "boolean",
-      "idpEntityId": "string",
-      "idpMetadataFile": "string",
-      "spEntityId": "string",
-      "dashboardsUrl": "string",
-      "rolesKey": "string",
-      "subjectKey": "string",
-      "jwtDefaultExpirationTimeout": "string"
-    }
-  }
+  "response": "object"
   // end of the list of possible fields
 }
 ```
@@ -170,7 +157,7 @@ In some languages, built-in datetime utilities do not support nanosecond precisi
 
 If the value is `false`, it means the operation is still in progress.
 If `true`, the operation is completed, and either `error` or `response` is available. ||
-|| metadata | **[UpdateAuthSettingsMetadata](#yandex.cloud.mdb.opensearch.v1.UpdateAuthSettingsMetadata)**
+|| metadata | **object**
 
 Service-specific metadata associated with the operation.
 It typically contains the ID of the target resource that the operation is performed on.
@@ -185,7 +172,7 @@ The operation result.
 If `done == false` and there was no failure detected, neither `error` nor `response` is set.
 If `done == false` and there was a failure detected, `error` is set.
 If `done == true`, exactly one of `error` or `response` is set. ||
-|| response | **[AuthSettings](#yandex.cloud.mdb.opensearch.v1.AuthSettings2)**
+|| response | **object**
 
 The normal response of the operation in case of success.
 If the original method returns no data on success, such as Delete,
@@ -200,15 +187,6 @@ The operation result.
 If `done == false` and there was no failure detected, neither `error` nor `response` is set.
 If `done == false` and there was a failure detected, `error` is set.
 If `done == true`, exactly one of `error` or `response` is set. ||
-|#
-
-## UpdateAuthSettingsMetadata {#yandex.cloud.mdb.opensearch.v1.UpdateAuthSettingsMetadata}
-
-#|
-||Field | Description ||
-|| clusterId | **string**
-
-ID of the OpenSearch cluster. ||
 |#
 
 ## Status {#google.rpc.Status}
@@ -226,53 +204,4 @@ An error message. ||
 || details[] | **object**
 
 A list of messages that carry the error details. ||
-|#
-
-## AuthSettings {#yandex.cloud.mdb.opensearch.v1.AuthSettings2}
-
-#|
-||Field | Description ||
-|| saml | **[SAMLSettings](#yandex.cloud.mdb.opensearch.v1.SAMLSettings2)**
-
-SAML settings ||
-|#
-
-## SAMLSettings {#yandex.cloud.mdb.opensearch.v1.SAMLSettings2}
-
-#|
-||Field | Description ||
-|| enabled | **boolean** ||
-|| idpEntityId | **string**
-
-Required. The entity ID of your IdP.
-
-The maximum string length in characters is 250. ||
-|| idpMetadataFile | **string** (bytes)
-
-Required. The SAML 2.0 metadata file of your IdP.
-
-The maximum string length in characters is 10000. ||
-|| spEntityId | **string**
-
-Required. The entity ID of the service provider.
-
-The maximum string length in characters is 250. ||
-|| dashboardsUrl | **string**
-
-Required. The OpenSearch Dashboards base URL.
-
-The maximum string length in characters is 250. ||
-|| rolesKey | **string**
-
-Optional. The attribute in the SAML response where the roles are stored. If not configured, no roles are used.
-
-The maximum string length in characters is 250. ||
-|| subjectKey | **string**
-
-Optional. The attribute in the SAML response where the subject is stored. If not configured, the NameID attribute is used.
-
-The maximum string length in characters is 250. ||
-|| jwtDefaultExpirationTimeout | **string** (int64)
-
-default jwt expiration timeout. ||
 |#

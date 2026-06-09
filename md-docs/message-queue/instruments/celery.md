@@ -1,6 +1,6 @@
-# Пример использования Yandex Message Queue с Celery
+# Пример использования {{ message-queue-full-name }} с Celery
 
-[Celery](https://docs.celeryproject.org/en/stable/) — это очередь задач для языка программирования Python, которую можно использовать в работе с Message Queue.
+[Celery](https://docs.celeryproject.org/en/stable/) — это очередь задач для языка программирования Python, которую можно использовать в работе с {{ message-queue-name }}.
 
 ## Установка {#install}
 
@@ -18,7 +18,7 @@ pip install pycurl
 ```
 export AWS_ACCESS_KEY_ID="<идентификатор_ключа_доступа>"
 export AWS_SECRET_ACCESS_KEY="<секретный_ключ>"
-export AWS_DEFAULT_REGION="ru-central1"
+export AWS_DEFAULT_REGION="{{ region-id }}"
 ```
 
 ## Подготовка к работе {#prepare}
@@ -43,7 +43,7 @@ export AWS_DEFAULT_REGION="ru-central1"
    import logging
    import boto3
 
-   ENDPOINT = 'message-queue.api.cloud.yandex.net:443'
+   ENDPOINT = 'message-queue.{{ api-host }}:443'
 
    broker='sqs://{}'.format(ENDPOINT)
    broker_transport_options = {
@@ -76,4 +76,4 @@ export AWS_DEFAULT_REGION="ru-central1"
    python mq_example.py
    ```
 
-По умолчанию Celery создаёт очередь Message Queue с названием `celery` в каталоге, которому принадлежит сервисный аккаунт.
+По умолчанию Celery создаёт очередь {{ message-queue-name }} с названием `celery` в каталоге, которому принадлежит сервисный аккаунт.

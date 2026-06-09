@@ -1,7 +1,6 @@
 # Identity Hub API, gRPC: GroupService.Get
 
 Returns the specified Group resource.
-
 To get the list of available Group resources, make a [List](list.md#List) request.
 
 ## gRPC request

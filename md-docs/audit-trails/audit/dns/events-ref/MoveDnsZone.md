@@ -85,7 +85,9 @@
   },
   "details": {
     "dnsZoneId": "string",
+    // Includes only one of the fields `dnsZoneName`
     "dnsZoneName": "string",
+    // end of the list of possible fields
     "labels": "object",
     "zone": "string",
     "privateVisibility": {
@@ -94,10 +96,18 @@
       ]
     },
     "publicVisibility": "object",
+    // Includes only one of the fields `description`
     "description": "string",
+    // end of the list of possible fields
+    // Includes only one of the fields `deletionProtection`
     "deletionProtection": "boolean",
+    // end of the list of possible fields
+    // Includes only one of the fields `sourceFolderId`
     "sourceFolderId": "string",
+    // end of the list of possible fields
+    // Includes only one of the fields `destinationFolderId`
     "destinationFolderId": "string"
+    // end of the list of possible fields
   },
   "requestParameters": "object",
   "response": "object"
@@ -269,15 +279,25 @@ A list of messages that carry the error details. ||
 #|
 ||Field | Description ||
 || dnsZoneId | **string** ||
-|| dnsZoneName | **string** ||
+|| dnsZoneName | **string**
+
+Includes only one of the fields `dnsZoneName`. ||
 || labels | **object** (map<**string**, **string**>) ||
 || zone | **string** ||
 || privateVisibility | **[PrivateVisibility](#yandex.cloud.dns.v1.PrivateVisibility)** ||
 || publicVisibility | **object** ||
-|| description | **string** ||
-|| deletionProtection | **boolean** ||
-|| sourceFolderId | **string** ||
-|| destinationFolderId | **string** ||
+|| description | **string**
+
+Includes only one of the fields `description`. ||
+|| deletionProtection | **boolean**
+
+Includes only one of the fields `deletionProtection`. ||
+|| sourceFolderId | **string**
+
+Includes only one of the fields `sourceFolderId`. ||
+|| destinationFolderId | **string**
+
+Includes only one of the fields `destinationFolderId`. ||
 |#
 
 ## PrivateVisibility {#yandex.cloud.dns.v1.PrivateVisibility}

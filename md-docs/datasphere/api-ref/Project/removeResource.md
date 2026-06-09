@@ -5,7 +5,7 @@ Removes shared resource from project
 ## HTTP request
 
 ```
-POST https://datasphere.api.cloud.yandex.net/datasphere/v2/projects/{resourceId}:removeResource
+POST https://datasphere.{{ api-host }}/datasphere/v2/projects/{resourceId}:removeResource
 ```
 
 ## Path parameters

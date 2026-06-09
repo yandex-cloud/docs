@@ -10,7 +10,7 @@
 
 #|
 || **Тип** | **Виды сопоставления** | **Значения** | **Пример** | **Логический оператор** ||
-|| `IP` |
+|| `{{ ui-key.yacloud.component.condition-column.condition_name-ip-range }}` |
 * Совпадает или принадлежит диапазону
 * Не совпадает и не принадлежит диапазону
 * IP принадлежит региону
@@ -35,7 +35,7 @@
 * `kz`
 * `12345`
 | _или_ ||
-|| `HTTP header` |
+|| `{{ ui-key.yacloud.component.condition-column.condition_name-header }}` |
 * Совпадает с
 * Не совпадает с
 * Начинается с
@@ -50,7 +50,7 @@
 |
 `User-Agent: curl/7.55.1`
 | _и_ ||
-|| `Request URI` |
+|| `{{ ui-key.yacloud.component.condition-column.condition_name-requestUri }}` |
 * Совпадает с
 * Не совпадает с
 * Начинается с
@@ -79,7 +79,7 @@ PIRE
 * `a: 1`
 * `A: 2`
 | _и_ ||
-|| `Host` |
+|| `{{ ui-key.yacloud.component.condition-column.condition_name-authority }}` |
 * Совпадает с
 * Не совпадает с
 * Начинается с
@@ -94,7 +94,7 @@ PIRE
 |
 `example.com`
 | _или_ ||
-|| `HTTP method` |
+|| `{{ ui-key.yacloud.component.condition-column.condition_name-httpMethod }}` |
 * Совпадает с
 * Не совпадает с
 * Начинается с
@@ -111,7 +111,7 @@ PIRE
 * `DELETE`
 | _или_ ||
 
-|| `Cookie` |
+|| `{{ ui-key.yacloud.component.condition-column.condition_name-cookie }}` |
 * Совпадает с
 * Не совпадает с
 * Начинается с
@@ -175,7 +175,7 @@ PIRE
 
 ## Формат регулярных выражений {#regular-expressions}
 
-Регулярные выражения можно использовать в условиях `HTTP header`, `Request URI`, `Query Match`, `Host`, `HTTP method`, `Cookie`. Так как в этих условиях есть типы сопоставления «Соответствует регулярному выражению» и «Не соответствует регулярному выражению».
+Регулярные выражения можно использовать в условиях `{{ ui-key.yacloud.component.condition-column.condition_name-header }}`, `{{ ui-key.yacloud.component.condition-column.condition_name-requestUri }}`, `Query Match`, `{{ ui-key.yacloud.component.condition-column.condition_name-authority }}`, `{{ ui-key.yacloud.component.condition-column.condition_name-httpMethod }}`, `{{ ui-key.yacloud.component.condition-column.condition_name-cookie }}`. Так как в этих условиях есть типы сопоставления «Соответствует регулярному выражению» и «Не соответствует регулярному выражению».
 
 ### Группы операторов для регулярных выражений {#regular-expressions-operators}
 

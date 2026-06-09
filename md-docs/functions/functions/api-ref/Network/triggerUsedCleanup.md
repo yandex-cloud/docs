@@ -7,7 +7,7 @@ Second invocation with the same network does nothing until network is completely
 ## HTTP request
 
 ```
-POST https://serverless-functions.api.cloud.yandex.net/functions/v1/networks/used/{networkId}:triggerCleanup
+POST https://serverless-functions.{{ api-host }}/functions/v1/networks/used/{networkId}:triggerCleanup
 ```
 
 ## Path parameters

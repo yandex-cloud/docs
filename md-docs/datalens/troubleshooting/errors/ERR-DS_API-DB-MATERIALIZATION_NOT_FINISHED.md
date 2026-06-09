@@ -1,4 +1,4 @@
-# [Yandex DataLens] Подготовка данных еще не завершилась
+# [{{ datalens-full-name }}] Подготовка данных еще не завершилась
 
 `ERR.DS_API.DB.MATERIALIZATION_NOT_FINISHED`
 

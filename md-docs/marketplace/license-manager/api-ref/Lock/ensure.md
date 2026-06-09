@@ -6,7 +6,7 @@ If it is not locked, locks the subscription to the resource.
 ## HTTP request
 
 ```
-POST https://marketplace.api.cloud.yandex.net/marketplace/license-manager/v1/locks/{instanceId}:ensure
+POST https://marketplace.{{ api-host }}/marketplace/license-manager/v1/locks/{instanceId}:ensure
 ```
 
 ## Path parameters

@@ -8,9 +8,9 @@
 
  - [Обзор](quickstart/index.md)
 
- - [Начать работать с Cloud Backup на новой ВМ](quickstart/new-vm.md)
+ - [Начать работать с {{ backup-name }} на новой ВМ](quickstart/new-vm.md)
 
- - [Начать работать с Cloud Backup на существующей ВМ](quickstart/existing-vm.md)
+ - [Начать работать с {{ backup-name }} на существующей ВМ](quickstart/existing-vm.md)
 
 ## Пошаговые инструкции
 
@@ -18,41 +18,41 @@
 
  - [Активировать сервис](operations/activate-service.md)
 
-### ВМ в Cloud Backup
+### ВМ в {{ backup-name }}
 
  - [Создать и подключить ВМ на Linux](operations/create-vm.md)
 
  - [Создать и подключить ВМ на Windows](operations/create-vm-windows.md)
 
-#### Подключить существующую ВМ к Cloud Backup
+#### Подключить существующую ВМ к {{ backup-name }}
 
  - [Подключить существующую ВМ на Linux](operations/connect-vm-linux.md)
 
- - [Подключить существующую ВМ на Linux с OS Login](operations/connect-vm-oslogin-linux.md)
+ - [Подключить существующую ВМ на Linux с {{ oslogin }}](operations/connect-vm-oslogin-linux.md)
 
  - [Подключить существующую ВМ на Windows](operations/connect-vm-windows.md)
 
- - [Переподключить ВМ к Cloud Backup](operations/refresh-connection.md)
+ - [Переподключить ВМ к {{ backup-name }}](operations/refresh-connection.md)
 
- - [Переподключить ВМ на Linux с OS Login к Cloud Backup](operations/refresh-connection-oslogin-linux.md)
+ - [Переподключить ВМ на Linux с {{ oslogin }} к {{ backup-name }}](operations/refresh-connection-oslogin-linux.md)
 
- - [Обновить или восстановить агент Cloud Backup](operations/update-backup-agent.md)
+ - [Обновить или восстановить агент {{ backup-name }}](operations/update-backup-agent.md)
 
  - [Посмотреть статус подключения ВМ](operations/get-connection-status.md)
 
  - [Посмотреть журнал резервного копирования](operations/get-journal.md)
 
- - [Удалить ВМ из Cloud Backup](operations/delete-vm.md)
+ - [Удалить ВМ из {{ backup-name }}](operations/delete-vm.md)
 
-### BareMetal в Cloud Backup
+### {{ baremetal-name }} в {{ backup-name }}
 
- - [Арендовать сервер BareMetal с подключением к Cloud Backup](operations/backup-baremetal/lease-server-with-backup.md)
+ - [Арендовать сервер {{ baremetal-name }} с подключением к {{ backup-name }}](operations/backup-baremetal/lease-server-with-backup.md)
 
- - [Подключить существующий сервер BareMetal к Cloud Backup](operations/backup-baremetal/backup-baremetal.md)
+ - [Подключить существующий сервер {{ baremetal-name }} к {{ backup-name }}](operations/backup-baremetal/backup-baremetal.md)
 
- - [Переподключить сервер BareMetal к Cloud Backup](operations/backup-baremetal/refresh-connection.md)
+ - [Переподключить сервер {{ baremetal-name }} к {{ backup-name }}](operations/backup-baremetal/refresh-connection.md)
 
- - [Восстановить работу агента Cloud Backup](operations/backup-baremetal/restore-agent.md)
+ - [Восстановить работу агента {{ backup-name }}](operations/backup-baremetal/restore-agent.md)
 
 ### Политики резервного копирования
 
@@ -60,11 +60,11 @@
 
  - [Изменить политику](operations/policy-vm/update.md)
 
- - [Привязать ВМ или сервер BareMetal к политике](operations/policy-vm/attach-and-detach-vm.md)
+ - [Привязать ВМ или сервер {{ baremetal-name }} к политике](operations/policy-vm/attach-and-detach-vm.md)
 
  - [Получить информацию о политике](operations/policy-vm/get-info.md)
 
- - [Отвязать ВМ или сервер BareMetal от политики](operations/policy-vm/detach-vm.md)
+ - [Отвязать ВМ или сервер {{ baremetal-name }} от политики](operations/policy-vm/detach-vm.md)
 
  - [Удалить политику](operations/policy-vm/delete.md)
 
@@ -72,9 +72,9 @@
 
  - [Создать копию](operations/backup-vm/create.md)
 
- - [Восстановить ВМ или сервер BareMetal из копии](operations/backup-vm/recover.md)
+ - [Восстановить ВМ или сервер {{ baremetal-name }} из копии](operations/backup-vm/recover.md)
 
- - [Восстановить ВМ или сервер BareMetal из копии другой ВМ или сервера BareMetal](operations/backup-vm/non-native-recovery.md)
+ - [Восстановить ВМ или сервер {{ baremetal-name }} из копии другой ВМ или сервера {{ baremetal-name }}](operations/backup-vm/non-native-recovery.md)
 
  - [Восстановить отдельные директории и файлы из резервной копии](operations/backup-vm/recover-file-by-file.md)
 
@@ -82,21 +82,21 @@
 
  - [Удалить копию](operations/backup-vm/delete.md)
 
- - [Удалить все копии ВМ или сервера BareMetal](operations/backup-vm/batch-delete.md)
+ - [Удалить все копии ВМ или сервера {{ baremetal-name }}](operations/backup-vm/batch-delete.md)
 
  - [Посмотреть операции с ресурсами сервиса](operations/operation-logs.md)
 
- - [Ограничить использование оперативной памяти агентом Cloud Backup](operations/limit-agent-memory-usage.md)
+ - [Ограничить использование оперативной памяти агентом {{ backup-name }}](operations/limit-agent-memory-usage.md)
 
  - [Посмотреть статистику резервного копирования](operations/get-stats.md)
 
- - [Настроить алерты Monium](operations/configure-alerts.md)
+ - [Настроить алерты {{ monium-name }}](operations/configure-alerts.md)
 
 ## Практические руководства
 
  - [Все руководства](tutorials/index.md)
 
- - [Подключение сервера BareMetal к Cloud Backup](tutorials/backup-baremetal.md)
+ - [Подключение сервера {{ baremetal-name }} к {{ backup-name }}](tutorials/backup-baremetal.md)
 
 ### Автоматическая привязка политики резервного копирования к ВМ
 
@@ -104,13 +104,13 @@
 
  - [Консоль управления, CLI, API](tutorials/vm-with-backup-policy/console.md)
 
- - [Terraform](tutorials/vm-with-backup-policy/terraform.md)
+ - [{{ TF }}](tutorials/vm-with-backup-policy/terraform.md)
 
 ## Концепции
 
  - [Обзор сервиса](concepts/index.md)
 
- - [Подключение ВМ и серверов BareMetal к сервису](concepts/vm-connection.md)
+ - [Подключение ВМ и серверов {{ baremetal-name }} к сервису](concepts/vm-connection.md)
 
  - [Политики резервного копирования](concepts/policy.md)
 
@@ -118,7 +118,7 @@
 
  - [Взаимодействие с антивирусом](concepts/av-interaction.md)
 
- - [Агент Cloud Backup](concepts/agent.md)
+ - [Агент {{ backup-name }}](concepts/agent.md)
 
  - [Квоты](concepts/limits.md)
 
@@ -274,7 +274,7 @@
 
  - [list-tasks](cli-ref/vm/list-tasks.md)
 
- - [Справочник Terraform](tf-ref.md)
+ - [Справочник {{ TF }}](tf-ref.md)
 
 ## Справочник API
 
@@ -444,9 +444,9 @@
 
  - [GetAgentInstallCommand](backup/api-ref/Setup/getAgentInstallCommand.md)
 
- - [Метрики Monitoring](metrics.md)
+ - [Метрики {{ monitoring-name }}](metrics.md)
 
- - [Аудитные логи Audit Trails](at-ref.md)
+ - [Аудитные логи {{ at-name }}](at-ref.md)
 
  - [История изменений](release-notes.md)
 

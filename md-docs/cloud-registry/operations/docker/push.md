@@ -1,4 +1,4 @@
-# Загрузить Docker-образ в реестр Cloud Registry
+# Загрузить Docker-образ в реестр {{ cloud-registry-name }}
 
 Инструкция описывает, как загрузить локальный [Docker-образ](../../concepts/artifacts/docker.md) в реестр.
 
@@ -24,27 +24,27 @@
 
      ```text
      REPOSITORY                                  TAG     IMAGE ID      CREATED       SIZE
-     registry.yandexcloud.net/crpd50616s9a********/ubuntu       hello   50ff********  23 hours ago  86.7MB
+     {{ cloud-registry }}/crpd50616s9a********/ubuntu       hello   50ff********  23 hours ago  86.7MB
      ubuntu                                      latest  1d9c********  2 weeks ago   86.7MB
      ```
 
-  1. (Опционально) Присвойте Docker-образу URL вида `registry.yandexcloud.net/<идентификатор_реестра>/<имя_Docker-образа>:<тег>`:
+  1. (Опционально) Присвойте Docker-образу URL вида `{{ cloud-registry }}/<идентификатор_реестра>/<имя_Docker-образа>:<тег>`:
 
      ```bash
      docker tag ubuntu \
-     registry.yandexcloud.net/<идентификатор_реестра>/ubuntu:hello
+     {{ cloud-registry }}/<идентификатор_реестра>/ubuntu:hello
      ```
 
      {% note info %}
 
-     Загрузить в Cloud Registry можно только Docker-образы с URL вида `registry.yandexcloud.net/<идентификатор_реестра>/<имя_Docker-образа>:<тег>`.
+     Загрузить в {{ cloud-registry-name }} можно только Docker-образы с URL вида `{{ cloud-registry }}/<идентификатор_реестра>/<имя_Docker-образа>:<тег>`.
 
      {% endnote %}
 
   1. Загрузите необходимый Docker-образ в реестр:
 
      ```bash
-     docker push registry.yandexcloud.net/<идентификатор_реестра>/ubuntu:hello
+     docker push {{ cloud-registry }}/<идентификатор_реестра>/ubuntu:hello
      ```
 
 {% endlist %}

@@ -1,7 +1,5 @@
 # Эскалации
 
-{% include [escalations-preview](../../../_includes/monitoring/escalations-preview.md) %}
-
 
 <iframe width="640" height="360" src="https://runtime.strm.yandex.ru/player/video/vplvwouze3np3m4t5rkb?autoplay=0&mute=0" allow="autoplay; fullscreen; picture-in-picture; encrypted-media" frameborder="0" scrolling="no"></iframe>
 
@@ -82,6 +80,8 @@
 ### Методы уведомления {#notification-methods}
 
 {% include [escalation-channels](../../../_includes/monitoring/escalation-channels.md) %}
+
+Стоимость звонков и СМС рассчитывается по [правилам тарификации](../../pricing.md).
 
 ## Мои эскалации {#my-escalations-popup}
 

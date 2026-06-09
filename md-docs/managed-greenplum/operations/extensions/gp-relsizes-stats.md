@@ -1,6 +1,6 @@
-# Использование gp_relsizes_stats в Yandex MPP Analytics for PostgreSQL
+# Использование gp_relsizes_stats в {{ mgp-name }}
 
-Расширение `gp_relsizes_stats` предназначено для сбора статистики о физических размерах файлов и таблиц на всех сегментах кластера Greenplum®.
+Расширение `gp_relsizes_stats` предназначено для сбора статистики о физических размерах файлов и таблиц на всех сегментах кластера {{ mgp-name }}.
 
 Ключевые возможности:
 
@@ -46,9 +46,9 @@
 | `relsizes_stats.database_naptime` | 0 мс | Определяет время ожидания между сбором статистики для разных баз данных. |
 | `relsizes_stats.file_naptime` | 1 мс | Определяет время ожидания между обработкой разных файлов. Это позволяет лимитировать фоновую нагрузку, которую создает сбор статистики, распределяя ее во времени. |
 
-Чтобы изменить настройки, обратитесь в [службу технической поддержки](https://center.yandex.cloud/support).
+Чтобы изменить настройки, обратитесь в [службу технической поддержки]({{ link-console-support }}).
 
-## Установка расширения gp_relsizes_stats в кластер Greenplum® {#extension-install}
+## Установка расширения gp_relsizes_stats в кластер {{ mgp-name }} {#extension-install}
 
 1. [Подключитесь](../connect/index.md) к базе данных от имени владельца или пользователя, имеющего в базе данных разрешение `CREATE`, и выполните команду:
 
@@ -71,7 +71,7 @@
      gp_relsizes_stats
     ```
 
-1. Обратитесь [службу технической поддержки](https://center.yandex.cloud/support) для применения расширения.
+1. Обратитесь [службу технической поддержки]({{ link-console-support }}) для применения расширения.
 
 1. [Перезапустите](../cluster-stop.md) кластер.
 
@@ -160,5 +160,3 @@ FROM relsizes_stats_schema.table_sizes_history
 WHERE nspname='call_center' AND relname='operators'
 ORDER BY insert_date;
 ```
-
-_Greenplum® и Greenplum Database® являются зарегистрированными товарными знаками или товарными знаками Broadcom Inc в США и/или других странах._

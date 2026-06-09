@@ -1,11 +1,11 @@
-# Справочник аудитных логов Yandex Audit Trails
+# Справочник аудитных логов {{ at-full-name }}
 
-В Audit Trails для Yandex Identity Hub поддерживается отслеживание [событий уровня конфигурации](../audit-trails/concepts/format.md) (Control Plane) и [событий уровня сервисов](../audit-trails/concepts/format-data-plane.md) (Data Plane).
+В {{ at-name }} для {{ org-full-name }} поддерживается отслеживание [событий уровня конфигурации](../audit-trails/concepts/format.md) (Control Plane) и [событий уровня сервисов](../audit-trails/concepts/format-data-plane.md) (Data Plane).
 
 Общий вид значения поля `event_type` (_тип события_):
 
 ```text
-yandex.cloud.audit.organizationmanager.<имя_события>
+{{ at-event-prefix }}.audit.organizationmanager.<имя_события>
 ```
 
 ## Справочник событий уровня конфигурации {#control-plane-events}
@@ -22,7 +22,7 @@ yandex.cloud.audit.organizationmanager.<имя_события>
 `CreateMembership` | Добавление пользователя в организацию
 `CreateMfaEnforcement` | Создание политики MFA
 `CreateOrganization` | Создание организации
-`CreateOsLoginProfile` | Создание профиля OS Login
+`CreateOsLoginProfile` | Создание профиля {{ oslogin }}
 `CreateUserSshKey` | Создание SSH-ключа пользователя
 `DeactivateMfaEnforcement` | Деактивация политики MFA
 `DeleteGroup` | Удаление группы пользователей
@@ -31,7 +31,7 @@ yandex.cloud.audit.organizationmanager.<имя_события>
 `DeleteMembership` | Удаление пользователя из организации
 `DeleteMfaEnforcement` | Удаление политики MFA
 `DeleteOrganization` | Удаление организации
-`DeleteOsLoginProfile` | Удаление профиля OS Login
+`DeleteOsLoginProfile` | Удаление профиля {{ oslogin }}
 `DeleteUserSshKey` | Удаление SSH-ключа пользователя
 `idp.AddUserpoolDomain` | Привязка домена к пулу пользователей
 `idp.branding.CreateAsset` | Загрузка ресурса для [брендирования](concepts/branding.md)
@@ -82,7 +82,7 @@ yandex.cloud.audit.organizationmanager.<имя_события>
 `saml.ReactivateApplication` | Активация SAML-приложения
 `saml.ReactivateFederatedUserAccounts` | Активация федеративного пользователя
 `saml.SetApplicationAccessBindings` | Назначение прав доступа к SAML-приложению
-`saml.SuspendApplication` | Приостановка SAML-приложения
+`saml.SuspendApplication` | Деактивация SAML-приложения
 `saml.SuspendFederatedUserAccounts` | Деактивация федеративного пользователя
 `saml.UpdateApplication` | Изменение SAML-приложения
 `saml.UpdateApplicationAccessBindings` | Изменение прав доступа к SAML-приложению
@@ -101,8 +101,8 @@ yandex.cloud.audit.organizationmanager.<имя_события>
 `UpdateOrganization` | Изменение организации
 `UpdateOrganizationAccessBindings` | Изменение прав доступа к организации
 `UpdateOrganizationAccessPolicyBindingParameters` | Изменение параметров политики авторизации в организации
-`UpdateOsLoginProfile` | Изменение профиля OS Login
-`UpdateOsLoginSettings` | Изменение настроек OS Login
+`UpdateOsLoginProfile` | Изменение профиля {{ oslogin }}
+`UpdateOsLoginSettings` | Изменение настроек {{ oslogin }}
 `UpdateSubscribers` | Изменение списка подписчиков
 `UpdateUserSshKey` | Изменение SSH-ключа пользователя
 

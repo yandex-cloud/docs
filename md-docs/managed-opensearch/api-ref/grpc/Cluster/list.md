@@ -22,14 +22,12 @@ Retrieves the list of OpenSearch clusters that belong to the specified folder.
 || folder_id | **string**
 
 Required field. ID of the folder to list OpenSearch clusters in.
-
 To get the folder ID, use a [yandex.cloud.resourcemanager.v1.FolderService.List](../../../../resource-manager/api-ref/grpc/Folder/list.md#List) request.
 
 The maximum string length in characters is 50. ||
 || page_size | **int64**
 
 The maximum number of results per page to return.
-
 If the number of available results is larger than `page_size`, the service returns
 a [ListClustersResponse.next_page_token](#yandex.cloud.mdb.opensearch.v1.ListClustersResponse) that can be used to get the next page of results in subsequent list requests.
 
@@ -43,13 +41,9 @@ The maximum string length in characters is 100. ||
 || filter | **string**
 
 A filter expression that filters resources listed in the response.
-
 The expression must specify:
-
 1. The field name. Currently you can only use filtering with the [Cluster.name](#yandex.cloud.mdb.opensearch.v1.Cluster) field.
-
 2. An `=` operator.
-
 3. The value in double quotes (`"`). Must be 1-63 characters long and match the regular expression `[a-zA-Z0-9_-]+`.
 
 The maximum string length in characters is 1000. ||
@@ -184,7 +178,17 @@ The maximum string length in characters is 1000. ||
           },
           "snapshot_max_age_days": "google.protobuf.Int64Value"
         },
-        "full_version": "string"
+        "full_version": "string",
+        "audit_log": {
+          "compliance_enabled": "google.protobuf.BoolValue",
+          "log_request_body": "google.protobuf.BoolValue",
+          "log_search_queries": "google.protobuf.BoolValue",
+          "log_data_modifications": "google.protobuf.BoolValue",
+          "log_index_metadata_access": "google.protobuf.BoolValue",
+          "log_monitoring_checks": "google.protobuf.BoolValue",
+          "log_index_maintenance": "google.protobuf.BoolValue",
+          "log_backup_operations": "google.protobuf.BoolValue"
+        }
       },
       "network_id": "string",
       "health": "Health",
@@ -224,10 +228,8 @@ List of OpenSearch clusters. ||
 || next_page_token | **string**
 
 This token allows you to get the next page of results for list requests.
-
 If the number of results is larger than [ListClustersRequest.page_size](#yandex.cloud.mdb.opensearch.v1.ListClustersRequest), use the `next_page_token` as the value
 for the [ListClustersRequest.page_token](#yandex.cloud.mdb.opensearch.v1.ListClustersRequest) parameter in the next list request.
-
 Each subsequent list request has its own `next_page_token` to continue paging through the results. ||
 |#
 
@@ -356,6 +358,9 @@ Snapshot management configuration ||
 || full_version | **string**
 
 Full version ||
+|| audit_log | **[AuditLog](#yandex.cloud.mdb.opensearch.v1.AuditLog)**
+
+Audit log settings. ||
 |#
 
 ## OpenSearch {#yandex.cloud.mdb.opensearch.v1.OpenSearch}
@@ -406,8 +411,11 @@ Determines whether a public IP is assigned to the hosts in the group. ||
 
 Roles of the host group.
 
-- `DATA`
-- `MANAGER` ||
+- `DATA`: Data nodes store indices data.
+- `MANAGER`: Manager nodes perform cluster coordination.
+- `WARM`: Warm nodes provide access to searchable snapshots and manage search cache for these snapshots.
+- `INGEST`: Ingest nodes provides indexed data processing.
+If no node groups have INGEST role explicitly set, then all DATA nodes will implicitly have INGEST role. ||
 || disk_size_autoscaling | **[DiskSizeAutoscaling](#yandex.cloud.mdb.opensearch.v1.DiskSizeAutoscaling)**
 
 Disk size autoscaling settings ||
@@ -421,16 +429,20 @@ A list of computational resources allocated to a host.
 ||Field | Description ||
 || resource_preset_id | **string**
 
-ID of the preset for computational resources allocated to a host. ||
+Required field. ID of the preset for computational resources allocated to a host. ||
 || disk_size | **int64**
 
-Volume of the storage used by the host, in bytes. ||
+Volume of the storage used by the host, in bytes.
+
+Value must be greater than 0. ||
 || disk_type_id | **string**
 
-Type of the storage used by the host: `network-hdd`, `network-ssd` or `local-ssd`. ||
+Required field. Type of the storage used by the host: `network-hdd`, `network-ssd` or `local-ssd`. ||
 |#
 
 ## DiskSizeAutoscaling {#yandex.cloud.mdb.opensearch.v1.DiskSizeAutoscaling}
+
+Disk size autoscaling settings.
 
 #|
 ||Field | Description ||
@@ -478,9 +490,7 @@ Default value: **1024**.
 
 Change of the setting is applied with restart.
 
-For details, see [OpenSearch documentation](https://docs.opensearch.org/latest/install-and-configure/configuring-opensearch/index-settings/#dynamic-cluster-level-index-settings).
-
-Acceptable values are 1 to 2147483647, inclusive. ||
+For details, see [OpenSearch documentation](https://docs.opensearch.org/latest/install-and-configure/configuring-opensearch/index-settings/#dynamic-cluster-level-index-settings). ||
 || fielddata_cache_size | **string**
 
 The maximum size of the field data cache.
@@ -499,9 +509,7 @@ Default value: **65535**.
 
 Change of the setting is applied with restart.
 
-For details, see [OpenSearch documentation](https://docs.opensearch.org/latest/install-and-configure/configuring-opensearch/search-settings).
-
-Acceptable values are 0 to 2147483647, inclusive. ||
+For details, see [OpenSearch documentation](https://docs.opensearch.org/latest/install-and-configure/configuring-opensearch/search-settings). ||
 || reindex_remote_whitelist | **string**
 
 Allowed remote hosts
@@ -669,6 +677,38 @@ Acceptable values are 0 to 23, inclusive. ||
 The minute of the hour at which the backup should be created.
 
 Acceptable values are 0 to 59, inclusive. ||
+|#
+
+## AuditLog {#yandex.cloud.mdb.opensearch.v1.AuditLog}
+
+Audit log settings.
+
+#|
+||Field | Description ||
+|| compliance_enabled | **[google.protobuf.BoolValue](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/bool-value)**
+
+Enable compliance audit logging. ||
+|| log_request_body | **[google.protobuf.BoolValue](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/bool-value)**
+
+Log request body in audit logs. ||
+|| log_search_queries | **[google.protobuf.BoolValue](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/bool-value)**
+
+Log search queries in audit logs. ||
+|| log_data_modifications | **[google.protobuf.BoolValue](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/bool-value)**
+
+Log data modifications in audit logs. ||
+|| log_index_metadata_access | **[google.protobuf.BoolValue](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/bool-value)**
+
+Log index metadata access in audit logs. ||
+|| log_monitoring_checks | **[google.protobuf.BoolValue](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/bool-value)**
+
+Log monitoring checks in audit logs. ||
+|| log_index_maintenance | **[google.protobuf.BoolValue](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/bool-value)**
+
+Log index maintenance operations in audit logs. ||
+|| log_backup_operations | **[google.protobuf.BoolValue](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/bool-value)**
+
+Log backup operations in audit logs. ||
 |#
 
 ## MaintenanceWindow {#yandex.cloud.mdb.opensearch.v1.MaintenanceWindow}

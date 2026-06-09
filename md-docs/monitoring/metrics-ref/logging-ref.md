@@ -1,10 +1,10 @@
-# Метрики Yandex Cloud Logging
+# Метрики {{ cloud-logging-full-name }}
 
-В этом разделе описаны метрики сервиса [Cloud Logging](../../logging/index.md), поставляемые в Monitoring.
+В этом разделе описаны метрики сервиса [{{ cloud-logging-name }}](../../logging/index.md), поставляемые в {{ monitoring-name }}.
 
 Имя метрики пишется в метку `name`.
 
-Общие метки для всех метрик сервиса Cloud Logging:
+Общие метки для всех метрик сервиса {{ cloud-logging-name }}:
 
 Метка | Значение
 ----|----

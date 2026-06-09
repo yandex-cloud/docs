@@ -6,14 +6,14 @@
 
 - Консоль управления {#console}
 
-    1. В [консоли управления](https://console.yandex.cloud) перейдите в каталог, в котором находится функция.
-    1. [Перейдите](../../../console/operations/select-service.md#select-service) в сервис **Cloud Functions**.
+    1. В [консоли управления]({{ link-console-main }}) перейдите в каталог, в котором находится функция.
+    1. Перейдите в сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_serverless-functions }}**.
     1. Выберите функцию, которую хотите сделать публичной.
-    1. На странице **Обзор** включите опцию **Публичная функция**.
+    1. На странице **{{ ui-key.yacloud.serverless-functions.item.overview.label_title }}** включите опцию **{{ ui-key.yacloud.serverless-functions.item.overview.label_all-users-invoke }}**.
     
 - CLI {#cli}
 
-    Если у вас еще нет интерфейса командной строки Yandex Cloud (CLI), [установите и инициализируйте его](../../../cli/quickstart.md#install).
+    Если у вас еще нет интерфейса командной строки {{ yandex-cloud }} (CLI), [установите и инициализируйте его](../../../cli/quickstart.md#install).
 
     По умолчанию используется каталог, указанный при [создании](../../../cli/operations/profile/profile-create.md) профиля CLI. Чтобы изменить каталог по умолчанию, используйте команду `yc config set folder-id <идентификатор_каталога>`. Также для любой команды вы можете указать другой каталог с помощью параметров `--folder-name` или `--folder-id`. Если вы обращаетесь к ресурсу по имени, поиск будет выполнен в каталоге по умолчанию. Если вы обращаетесь к ресурсу по идентификатору, поиск будет выполнен глобально — во всех каталогах с учетом прав доступа.
 
@@ -29,15 +29,18 @@
     done (1s)
     ```
 
-- Terraform {#tf}
+- {{ TF }} {#tf}
 
-  [Terraform](https://www.terraform.io/) позволяет быстро создать облачную инфраструктуру в Yandex Cloud и управлять ею с помощью файлов конфигураций. В файлах конфигураций хранится описание инфраструктуры на языке HCL (HashiCorp Configuration Language). При изменении файлов конфигураций Terraform автоматически определяет, какая часть вашей конфигурации уже развернута, что следует добавить или удалить.
+  [{{ TF }}](https://www.terraform.io/) позволяет быстро создать облачную инфраструктуру в {{ yandex-cloud }} и управлять ею с помощью файлов конфигураций. В файлах конфигураций хранится описание инфраструктуры на языке HCL (HashiCorp Configuration Language). При изменении файлов конфигураций {{ TF }} автоматически определяет, какая часть вашей конфигурации уже развернута, что следует добавить или удалить.
   
-  Terraform распространяется под лицензией [Business Source License](https://github.com/hashicorp/terraform/blob/main/LICENSE), а [провайдер Yandex Cloud для Terraform](https://github.com/yandex-cloud/terraform-provider-yandex) — под лицензией [MPL-2.0](https://www.mozilla.org/en-US/MPL/2.0/).
+  {{ TF }} распространяется под лицензией [Business Source License](https://github.com/hashicorp/terraform/blob/main/LICENSE), а [провайдер {{ yandex-cloud }} для {{ TF }}](https://github.com/yandex-cloud/terraform-provider-yandex) — под лицензией [MPL-2.0](https://www.mozilla.org/en-US/MPL/2.0/).
   
-  Подробную информацию о ресурсах провайдера смотрите в документации на сайте [Terraform](https://www.terraform.io/docs/providers/yandex/index.html) или в [зеркале](../../../terraform/index.md).
+  Подробную информацию о ресурсах провайдера смотрите в документации на сайте [{{ TF }}](https://www.terraform.io/docs/providers/yandex/index.html) или в [зеркале]({{ tf-docs-link }}).
 
-  Если у вас еще нет Terraform, [установите его и настройте провайдер Yandex Cloud](../../../tutorials/infrastructure-management/terraform-quickstart.md#install-terraform).
+  Если у вас еще нет {{ TF }}, [установите его и настройте провайдер {{ yandex-cloud }}](../../../tutorials/infrastructure-management/terraform-quickstart.md#install-terraform).
+  
+  
+  Чтобы управлять инфраструктурой с помощью {{ TF }} от имени сервисного аккаунта или пользовательских аккаунтов: аккаунта на Яндексе, федеративного аккаунта и локального пользователя, [аутентифицируйтесь](../../../terraform/authentication.md) соответствующим способом.
 
   Чтобы сделать функцию публичной:
 
@@ -46,7 +49,7 @@
      ```hcl
      resource "yandex_function_iam_binding" "function-iam" {
        function_id = "<идентификатор_функции>"
-       role        = "functions.functionInvoker"
+       role        = "{{ roles-functions-invoker }}"
        members = [
          "system:allUsers",
        ]
@@ -59,9 +62,9 @@
      * `role` — роль, которую нужно назначить.
      * `members` — список пользователей, которым нужно назначить роль.
 
-        Чтобы функция стала публичной, назначьте роль `functions.functionInvoker` всем неавторизованным пользователям ([публичной группе](../../../iam/concepts/access-control/public-group.md) `All users`).
+        Чтобы функция стала публичной, назначьте роль `{{ roles-functions-invoker }}` всем неавторизованным пользователям ([публичной группе](../../../iam/concepts/access-control/public-group.md) `All users`).
 
-     Более подробную информацию о параметрах ресурса `yandex_function_iam_binding` см. в [документации провайдера](../../../terraform/resources/function_iam_binding.md).
+     Более подробную информацию о параметрах ресурса `yandex_function_iam_binding` см. в [документации провайдера]({{ tf-provider-resources-link }}/function_iam_binding).
 
   1. Проверьте конфигурацию командой:
 
@@ -81,7 +84,7 @@
      terraform plan
      ```
 
-     В терминале будет выведен список ресурсов с параметрами. На этом этапе изменения не будут внесены. Если в конфигурации есть ошибки, Terraform на них укажет. 
+     В терминале будет выведен список ресурсов с параметрами. На этом этапе изменения не будут внесены. Если в конфигурации есть ошибки, {{ TF }} на них укажет. 
 
   1. Примените изменения конфигурации:
 
@@ -91,7 +94,7 @@
 
   1. Подтвердите изменения: введите в терминал слово `yes` и нажмите **Enter**.
 
-     Проверить назначение роли функции можно в [консоли управления](https://console.yandex.cloud) или с помощью команды [CLI](../../../cli/quickstart.md):
+     Проверить назначение роли функции можно в [консоли управления]({{ link-console-main }}) или с помощью команды [CLI](../../../cli/quickstart.md):
 
      ```bash
      yc serverless function list-access-bindings <имя_функции>

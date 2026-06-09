@@ -5,7 +5,7 @@ Lists endpoints in the specified folder.
 ## HTTP request
 
 ```
-GET https://datatransfer.api.cloud.yandex.net/v1/endpoints/list/{folderId}
+GET https://{{ api-host-data-transfer }}/v1/endpoints/list/{folderId}
 ```
 
 ## Path parameters
@@ -141,6 +141,7 @@ with the `next_page_token` from the previous `ListEndpointsResponse`. ||
           ],
           "slotByteLagLimit": "string",
           "serviceSchema": "string",
+          "collapseInheritTable": "boolean",
           "objectTransferSettings": {
             "sequence": "string",
             "sequenceOwnedBy": "string",
@@ -869,6 +870,7 @@ Database connection settings ||
 || database | **string**
 
 Name of the database to transfer
+
 You can leave it empty, then it will be possible to transfer tables from several
 databases at the same time from this source. ||
 || user | **string**
@@ -880,6 +882,7 @@ Password for database access. ||
 || timezone | **string**
 
 Database timezone
+
 Is used for parsing timestamps for saving source timezones. Accepts values from
 IANA timezone database. Default: local timezone. ||
 || objectTransferSettings | **[MysqlObjectTransferSettings](#yandex.cloud.datatransfer.v1.endpoint.MysqlObjectTransferSettings)**
@@ -1010,6 +1013,7 @@ Includes only one of the fields `raw`. ||
 || view | **enum** (ObjectTransferStage)
 
 Views
+
 CREATE VIEW ...
 
 - `BEFORE_DATA`: Before data transfer
@@ -1018,6 +1022,7 @@ CREATE VIEW ...
 || routine | **enum** (ObjectTransferStage)
 
 Routines
+
 CREATE PROCEDURE ... ; CREATE FUNCTION ... ;
 
 - `BEFORE_DATA`: Before data transfer
@@ -1026,6 +1031,7 @@ CREATE PROCEDURE ... ; CREATE FUNCTION ... ;
 || trigger | **enum** (ObjectTransferStage)
 
 Triggers
+
 CREATE TRIGGER ...
 
 - `BEFORE_DATA`: Before data transfer
@@ -1078,6 +1084,9 @@ Default is 50 gigabytes ||
 Name of the database schema in which auxiliary tables needed for the transfer
 will be created (__consumer_keeper, __data_transfer_mole_finder).
 Empty `service_schema` implies schema `public` ||
+|| collapseInheritTable | **boolean**
+
+Will collapse pg_inherit table into one big table in replication process ||
 || objectTransferSettings | **[PostgresObjectTransferSettings](#yandex.cloud.datatransfer.v1.endpoint.PostgresObjectTransferSettings)**
 
 Defines which database schema objects should be transferred, e.g. views,
@@ -1138,6 +1147,7 @@ TLS settings for server connection. Disabled by default. ||
 || sequence | **enum** (ObjectTransferStage)
 
 Sequences
+
 CREATE SEQUENCE ...
 
 - `BEFORE_DATA`: Before data transfer
@@ -1146,6 +1156,7 @@ CREATE SEQUENCE ...
 || sequenceOwnedBy | **enum** (ObjectTransferStage)
 
 Owned sequences
+
 CREATE SEQUENCE ... OWNED BY ...
 
 - `BEFORE_DATA`: Before data transfer
@@ -1154,6 +1165,7 @@ CREATE SEQUENCE ... OWNED BY ...
 || table | **enum** (ObjectTransferStage)
 
 Tables
+
 CREATE TABLE ...
 
 - `BEFORE_DATA`: Before data transfer
@@ -1162,6 +1174,7 @@ CREATE TABLE ...
 || primaryKey | **enum** (ObjectTransferStage)
 
 Primary keys
+
 ALTER TABLE ... ADD PRIMARY KEY ...
 
 - `BEFORE_DATA`: Before data transfer
@@ -1170,6 +1183,7 @@ ALTER TABLE ... ADD PRIMARY KEY ...
 || fkConstraint | **enum** (ObjectTransferStage)
 
 Foreign keys
+
 ALTER TABLE ... ADD FOREIGN KEY ...
 
 - `BEFORE_DATA`: Before data transfer
@@ -1178,6 +1192,7 @@ ALTER TABLE ... ADD FOREIGN KEY ...
 || defaultValues | **enum** (ObjectTransferStage)
 
 Default values
+
 ALTER TABLE ... ALTER COLUMN ... SET DEFAULT ...
 
 - `BEFORE_DATA`: Before data transfer
@@ -1186,6 +1201,7 @@ ALTER TABLE ... ALTER COLUMN ... SET DEFAULT ...
 || constraint | **enum** (ObjectTransferStage)
 
 Constraints
+
 ALTER TABLE ... ADD CONSTRAINT ...
 
 - `BEFORE_DATA`: Before data transfer
@@ -1194,6 +1210,7 @@ ALTER TABLE ... ADD CONSTRAINT ...
 || index | **enum** (ObjectTransferStage)
 
 Indexes
+
 CREATE INDEX ...
 
 - `BEFORE_DATA`: Before data transfer
@@ -1202,6 +1219,7 @@ CREATE INDEX ...
 || view | **enum** (ObjectTransferStage)
 
 Views
+
 CREATE VIEW ...
 
 - `BEFORE_DATA`: Before data transfer
@@ -1210,6 +1228,7 @@ CREATE VIEW ...
 || function | **enum** (ObjectTransferStage)
 
 Functions
+
 CREATE FUNCTION ...
 
 - `BEFORE_DATA`: Before data transfer
@@ -1218,6 +1237,7 @@ CREATE FUNCTION ...
 || trigger | **enum** (ObjectTransferStage)
 
 Triggers
+
 CREATE TRIGGER ...
 
 - `BEFORE_DATA`: Before data transfer
@@ -1226,6 +1246,7 @@ CREATE TRIGGER ...
 || type | **enum** (ObjectTransferStage)
 
 Types
+
 CREATE TYPE ...
 
 - `BEFORE_DATA`: Before data transfer
@@ -1234,6 +1255,7 @@ CREATE TYPE ...
 || rule | **enum** (ObjectTransferStage)
 
 Rules
+
 CREATE RULE ...
 
 - `BEFORE_DATA`: Before data transfer
@@ -1242,6 +1264,7 @@ CREATE RULE ...
 || collation | **enum** (ObjectTransferStage)
 
 Collations
+
 CREATE COLLATION ...
 
 - `BEFORE_DATA`: Before data transfer
@@ -1250,6 +1273,7 @@ CREATE COLLATION ...
 || policy | **enum** (ObjectTransferStage)
 
 Policies
+
 CREATE POLICY ...
 
 - `BEFORE_DATA`: Before data transfer
@@ -1258,6 +1282,7 @@ CREATE POLICY ...
 || cast | **enum** (ObjectTransferStage)
 
 Casts
+
 CREATE CAST ...
 
 - `BEFORE_DATA`: Before data transfer
@@ -1266,6 +1291,7 @@ CREATE CAST ...
 || materializedView | **enum** (ObjectTransferStage)
 
 Materialized views
+
 CREATE MATERIALIZED VIEW ...
 
 - `BEFORE_DATA`: Before data transfer
@@ -1824,6 +1850,7 @@ Database connection settings ||
 || database | **string**
 
 Database name
+
 Allowed to leave it empty, then the tables will be created in databases with the
 same names as on the source. If this field is empty, then you must fill below db
 schema for service table. ||
@@ -1849,6 +1876,7 @@ cascading operations ||
 || timezone | **string**
 
 Database timezone
+
 Is used for parsing timestamps for saving source timezones. Accepts values from
 IANA timezone database. Default: local timezone. ||
 || cleanupPolicy | **enum** (CleanupPolicy)

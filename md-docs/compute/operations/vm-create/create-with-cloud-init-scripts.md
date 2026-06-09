@@ -16,7 +16,7 @@
 
 {% note warning %}
 
-В конфигурации `user-data` обязательно задавайте логин и SSH-ключ пользователя, даже если вы ранее указали эти данные в блоке **Доступ** в консоли управления.
+В конфигурации `user-data` обязательно задавайте логин и SSH-ключ пользователя, даже если вы ранее указали эти данные в блоке **{{ ui-key.yacloud.compute.instances.create.section_access }}** в консоли управления.
 
 {% endnote %}
 
@@ -26,21 +26,21 @@
 
 - Консоль управления {#console}
 
-  1. В [консоли управления](https://console.yandex.cloud) выберите каталог, в котором будет создана ВМ.
-  1. [Перейдите](../../../console/operations/select-service.md#select-service) в сервис **Compute Cloud**.
-  1. На панели слева выберите ![image](../../../_assets/console-icons/server.svg) **Виртуальные машины**.
-  1. Нажмите кнопку **Создать виртуальную машину**.
+  1. В [консоли управления]({{ link-console-main }}) выберите каталог, в котором будет создана ВМ.
+  1. Перейдите в сервис **{{ compute-name }}**.
+  1. На панели слева выберите ![image](../../../_assets/console-icons/server.svg) **{{ ui-key.yacloud.compute.instances_jsoza }}**.
+  1. Нажмите кнопку **{{ ui-key.yacloud.compute.instances.button_create }}**.
   1. [Задайте](create-linux-vm.md) нужные параметры ВМ.
-  1. Раскройте блок **Метаданные** и в появившихся полях укажите:
+  1. Раскройте блок **{{ ui-key.yacloud.common.metadata }}** и в появившихся полях укажите:
 
-      * **Ключ** — `user-data`.
-      * **Значение** — конфигурация `cloud-config` в формате YAML. Примеры конфигурации для `user-data` см. в подразделе [Примеры](#examples).
+      * **{{ ui-key.yacloud_billing.component.key-values-input.label_key }}** — `user-data`.
+      * **{{ ui-key.yacloud_billing.component.key-values-input.label_value }}** — конфигурация `cloud-config` в формате YAML. Примеры конфигурации для `user-data` см. в подразделе [Примеры](#examples).
 
-  1. Нажмите кнопку **Создать ВМ**.
+  1. Нажмите кнопку **{{ ui-key.yacloud.compute.instances.create.button_create }}**.
 
 - CLI {#cli}
 
-  Если у вас еще нет интерфейса командной строки Yandex Cloud (CLI), [установите и инициализируйте его](../../../cli/quickstart.md#install).
+  Если у вас еще нет интерфейса командной строки {{ yandex-cloud }} (CLI), [установите и инициализируйте его](../../../cli/quickstart.md#install).
 
   По умолчанию используется каталог, указанный при [создании](../../../cli/operations/profile/profile-create.md) профиля CLI. Чтобы изменить каталог по умолчанию, используйте команду `yc config set folder-id <идентификатор_каталога>`. Также для любой команды вы можете указать другой каталог с помощью параметров `--folder-name` или `--folder-id`. Если вы обращаетесь к ресурсу по имени, поиск будет выполнен в каталоге по умолчанию. Если вы обращаетесь к ресурсу по идентификатору, поиск будет выполнен глобально — во всех каталогах с учетом прав доступа.
 
@@ -49,7 +49,7 @@
   ```bash
   yc compute instance create \
     --name my-sample-instance \
-    --zone ru-central1-a \
+    --zone {{ region-id }}-a \
     --network-interface subnet-name=<имя_подсети>,nat-ip-version=ipv4,security-group-ids=<идентификатор_группы_безопасности> \
     --create-boot-disk image-folder-id=standard-images,image-family=ubuntu-2204-lts,kms-key-id=<идентификатор_ключа> \
     --metadata-from-file user-data="<путь_к_файлу_конфигурации>"
@@ -78,7 +78,7 @@
   * `--create-boot-disk` — настройки загрузочного диска ВМ:
 
       * `image-family` — [семейство образов](../../concepts/image.md#family), например, `ubuntu-2204-lts`. Эта опция позволит установить последнюю версию ОС из указанного семейства.
-      * `kms-key-id` — идентификатор [симметричного ключа KMS](../../../kms/concepts/key.md) для создания зашифрованного загрузочного диска. Необязательный параметр.
+      * `kms-key-id` — идентификатор [симметричного ключа {{ kms-short-name }}](../../../kms/concepts/key.md) для создания зашифрованного загрузочного диска. Необязательный параметр.
 
         Для создания зашифрованного диска нужна [роль](../../../kms/security/index.md#kms-keys-user) `kms.keys.user` или выше.
         
@@ -102,19 +102,22 @@
 
   {% note info %}
   
-  Команды [`yc compute instance create`](../../../cli/cli-ref/compute/cli-ref/instance/create.md) | [`create-with-container`](../../../cli/cli-ref/compute/cli-ref/instance/create-with-container.md) | [`update`](../../../cli/cli-ref/compute/cli-ref/instance/update.md) | [`add-metadata`](../../../cli/cli-ref/compute/cli-ref/instance/add-metadata.md) поддерживают подстановку в метаданные ВМ значений переменных окружения. Эти значения, заданные в ключе `user-data` в формате `$<имя_переменной>`, в момент выполнения команды Yandex Cloud CLI будут подставлены в метаданные ВМ из переменных окружения среды, в которой выполняется команда. 
+  Команды [`yc compute instance create`](../../../cli/cli-ref/compute/cli-ref/instance/create.md) | [`create-with-container`](../../../cli/cli-ref/compute/cli-ref/instance/create-with-container.md) | [`update`](../../../cli/cli-ref/compute/cli-ref/instance/update.md) | [`add-metadata`](../../../cli/cli-ref/compute/cli-ref/instance/add-metadata.md) поддерживают подстановку в метаданные ВМ значений переменных окружения. Эти значения, заданные в ключе `user-data` в формате `$<имя_переменной>`, в момент выполнения команды {{ yandex-cloud }} CLI будут подставлены в метаданные ВМ из переменных окружения среды, в которой выполняется команда. 
   
   Чтобы изменить такое поведение, не подставлять значение переменной из среды выполнения команды CLI и передать в метаданные ВМ имя переменной в формате `$<имя_переменной>`, используйте синтаксис с двумя символами доллара. Например: `$$<имя_переменной>`.
   
-  Подробнее см. в разделе [Особенности передачи переменных окружения в метаданных через CLI](../../concepts/metadata/sending-metadata.md#environment-variables).
+  Подробнее см. в разделе [{#T}](../../concepts/metadata/sending-metadata.md#environment-variables).
   
   {% endnote %}
 
-- Terraform {#tf}
+- {{ TF }} {#tf}
 
-  Если у вас еще нет Terraform, [установите его и настройте провайдер Yandex Cloud](../../../tutorials/infrastructure-management/terraform-quickstart.md#install-terraform).
+  Если у вас еще нет {{ TF }}, [установите его и настройте провайдер {{ yandex-cloud }}](../../../tutorials/infrastructure-management/terraform-quickstart.md#install-terraform).
+  
+  
+  Чтобы управлять инфраструктурой с помощью {{ TF }} от имени сервисного аккаунта или пользовательских аккаунтов: аккаунта на Яндексе, федеративного аккаунта и локального пользователя, [аутентифицируйтесь](../../../terraform/authentication.md) соответствующим способом.
 
-  Добавьте скрипт конфигурации ВМ в секцию `metadata` ресурса `yandex_compute_instance` конфигурационного файла Terraform:
+  Добавьте скрипт конфигурации ВМ в секцию `metadata` ресурса `yandex_compute_instance` конфигурационного файла {{ TF }}:
 
   ```hcl
   resource "yandex_compute_instance" "vm-1" {
@@ -140,7 +143,7 @@
   {
     "folderId": "b1gvmob95yys********",
     "name": "my-sample-instance",
-    "zoneId": "ru-central1-a",
+    "zoneId": "{{ region-id }}-a",
     "platformId": "standard-v3",
     ...
     "metadata": {
@@ -154,7 +157,7 @@
 
 {% endlist %}
 
-Подробнее о создании ВМ см. в разделе [Создать виртуальную машину из публичного образа Linux](create-linux-vm.md).
+Подробнее о создании ВМ см. в разделе [{#T}](create-linux-vm.md).
 
 Чтобы убедиться в успешном выполнении скриптов конфигурации, [получите вывод последовательного порта](../vm-info/get-serial-port-output.md) ВМ.
 
@@ -246,9 +249,9 @@
   * `<имя_пользователя>` — логин пользователя, который будет использоваться для [подключения](../vm-connect/ssh.md) к ВМ по SSH.
   * `<публичный_SSH-ключ>` — содержимое файла [открытого ключа](../vm-connect/ssh.md#creating-ssh-keys). Пару ключей для подключения по [SSH](../../../glossary/ssh-keygen.md) необходимо [создать](../vm-connect/ssh.md#creating-ssh-keys) самостоятельно.
 
-- Yandex Cloud CLI
+- {{ yandex-cloud }} CLI
 
-  Чтобы установить [Yandex Cloud CLI](../../../cli/quickstart.md) на создаваемой ВМ, укажите для ключа `user-data` следующее значение:
+  Чтобы установить [{{ yandex-cloud }} CLI](../../../cli/quickstart.md) на создаваемой ВМ, укажите для ключа `user-data` следующее значение:
 
   ```yaml
   #cloud-config
@@ -275,7 +278,7 @@
           --silent \
           --show-error \
           --location \
-          https://storage.yandexcloud.net/yandexcloud-yc/install.sh | bash
+          https://{{ s3-storage-host }}/yandexcloud-yc/install.sh | bash
         VM_ID=$(curl --silent http://169.254.169.254/latest/meta-data/instance-id)
 
         # Save YC params
@@ -293,15 +296,15 @@
   * `<имя_пользователя>` — логин пользователя, который будет использоваться для [подключения](../vm-connect/ssh.md) к ВМ по SSH.
   * `<публичный_SSH-ключ>` — содержимое файла [открытого ключа](../vm-connect/ssh.md#creating-ssh-keys). Пару ключей для подключения по [SSH](../../../glossary/ssh-keygen.md) необходимо [создать](../vm-connect/ssh.md#creating-ssh-keys) самостоятельно.
 
-- Yandex Unified Agent
+- {{ unified-agent-full-name }}
 
   {% note info %}
 
-  При создании виртуальной машины с [Yandex Unified Agent](../../../monitoring/concepts/data-collection/unified-agent/index.md) привяжите к ней [сервисный аккаунт](../../../iam/concepts/users/service-accounts.md), которому назначена [роль](../../../monitoring/security/index.md#monitoring-editor) `monitoring.editor` на текущий [каталог](../../../resource-manager/concepts/resources-hierarchy.md#folder).
+  При создании виртуальной машины с [{{ unified-agent-full-name }}](../../../monitoring/concepts/data-collection/unified-agent/index.md) привяжите к ней [сервисный аккаунт](../../../iam/concepts/users/service-accounts.md), которому назначена [роль](../../../monitoring/security/index.md#monitoring-editor) `monitoring.editor` на текущий [каталог](../../../resource-manager/concepts/resources-hierarchy.md#folder).
 
   {% endnote %}
 
-  Чтобы установить Unified Agent на создаваемой ВМ, укажите для ключа `user-data` следующее значение:
+  Чтобы установить {{ unified-agent-short-name }} на создаваемой ВМ, укажите для ключа `user-data` следующее значение:
 
   ```yaml
   #cloud-config
@@ -316,14 +319,14 @@
     ssh_authorized_keys:
     - <публичный_SSH-ключ>
   runcmd:
-    - wget -O - https://monitoring.api.cloud.yandex.net/monitoring/v2/unifiedAgent/config/install.sh | bash
+    - wget -O - https://{{ api-host-monitoring-1 }}/monitoring/v2/unifiedAgent/config/install.sh | bash
   ```
 
   Где:
   * `<имя_пользователя>` — логин пользователя, который будет использоваться для [подключения](../vm-connect/ssh.md) к ВМ по SSH.
   * `<публичный_SSH-ключ>` — содержимое файла [открытого ключа](../vm-connect/ssh.md#creating-ssh-keys). Пару ключей для подключения по [SSH](../../../glossary/ssh-keygen.md) необходимо [создать](../vm-connect/ssh.md#creating-ssh-keys) самостоятельно.
 
-  Чтобы привязать сервисный аккаунт к ВМ при создании ВМ с помощью Terraform, укажите в конфигурации строку:
+  Чтобы привязать сервисный аккаунт к ВМ при создании ВМ с помощью {{ TF }}, укажите в конфигурации строку:
   
   ```hcl
   resource "yandex_compute_instance" "my-vm" {
@@ -332,7 +335,7 @@
   }
   ```
 
-  Чтобы Unified Agent записывал метрики в Yandex Managed Service for Prometheus®, укажите в конфигурации идентификатор воркспейса:
+  Чтобы {{ unified-agent-short-name }} записывал метрики в {{ managed-prometheus-full-name }}, укажите в конфигурации идентификатор воркспейса:
   
   ```hcl
   resource "yandex_compute_instance" "my-vm" {
@@ -343,9 +346,9 @@
   }
   ```
 
-- Terraform
+- {{ TF }}
 
-  Чтобы установить [Terraform](https://www.terraform.io/) на создаваемой ВМ, укажите для ключа `user-data` следующее значение:
+  Чтобы установить [{{ TF }}](https://www.terraform.io/) на создаваемой ВМ, укажите для ключа `user-data` следующее значение:
 
   ```yaml
   #cloud-config
@@ -418,7 +421,7 @@
           --silent \
           --show-error \
           --location \
-          https://dl.k8s.io/release/v1.3.0/bin/linux/amd64/kubectl \
+          https://dl.k8s.io/release/v1.31.0/bin/linux/amd64/kubectl \
           --output /usr/local/etc/kubectl
         sudo install -o root -g root -m 0755 /usr/local/etc/kubectl /usr/local/bin/kubectl
         sudo rm -rf /usr/local/etc/kubectl
@@ -480,8 +483,8 @@
 Другие примеры конфигураций для ключа `user-data`:
 
 * [Создание группы виртуальных машин с подключением к файловому хранилищу](../instance-groups/create-with-filesystem.md)
-* [Создание группы виртуальных машин с подключением к Yandex Object Storage](../instance-groups/create-with-bucket.md)
+* [Создание группы виртуальных машин с подключением к {{ objstorage-full-name }}](../instance-groups/create-with-bucket.md)
 * [Восстановление работоспособности сетевых интерфейсов ВМ](../../qa/troubleshooting.md#unable-to-connect-to-new-multi-interface-vm)
-* [Автоматическая привязка политики резервного копирования Yandex Cloud Backup к ВМ](../../../tutorials/archive/vm-with-backup-policy/index.md)
-* [Установка агента для сбора метрик и логов Unified Agent](../../../monitoring/concepts/data-collection/unified-agent/installation.md#setup)
-* [Установка агента для сбора метрик в формате Prometheus](../../../monitoring/operations/prometheus/ingestion/prometheus-agent.md)
+* [{#T}](../../../tutorials/archive/vm-with-backup-policy/index.md)
+* [Установка агента для сбора метрик и логов {{ unified-agent-short-name }}](../../../monitoring/concepts/data-collection/unified-agent/installation.md#setup)
+* [Установка агента для сбора метрик в формате {{ prometheus-name }}](../../../monitoring/operations/prometheus/ingestion/prometheus-agent.md)

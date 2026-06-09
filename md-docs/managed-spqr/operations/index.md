@@ -1,4 +1,4 @@
-# Пошаговые инструкции для Managed Service for Sharded PostgreSQL
+# Пошаговые инструкции для {{ mspqr-name }}
 
 {% note info %}
 

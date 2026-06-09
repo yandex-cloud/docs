@@ -1,11 +1,11 @@
-# Метрики дашборда ClickHouse®
+# Метрики дашборда {{ CH }}
 
-Дашборд ClickHouse® в Grafana предоставляет комплексный мониторинг кластера СУБД ClickHouse®. Дашборд содержит метрики производительности, состояния репликации, использования ресурсов и других важных параметров работы кластера.
+Дашборд {{ CH }} в {{ grafana-name }} предоставляет комплексный мониторинг кластера СУБД {{ CH }}. Дашборд содержит метрики производительности, состояния репликации, использования ресурсов и других важных параметров работы кластера.
 
 Чтобы открыть дашборд кластера:
 
 1. Если вы еще не открыли проект, выберите проект.
-1. В левом меню выберите **ClickHouse® Clusters**.
+1. В левом меню выберите **{{ CH }} Clusters**.
 1. Выберите кластер.
 1. Нажмите кнопку **Мониторинг кластера**.
 
@@ -13,24 +13,24 @@
 
 ## Общая информация
 
-**Название дашборда**: ClickHouse®
+**Название дашборда**: {{ CH }}
 **UID**: `clickhouse-operator`
 **Интервал обновления**: 10 секунд
-**Источник данных**: Prometheus
+**Источник данных**: {{ prometheus-name }}
 
 ## Переменные дашборда
 
 Дашборд использует следующие переменные для фильтрации данных:
 
-* **Cluster** (`chi`) — выбор кластера ClickHouse®;
+* **Cluster** (`chi`) — выбор кластера {{ CH }};
 * **Server** (`hostname`) — выбор конкретного сервера;
-* **Namespace** (`namespace`) — проект Stackland, где развернут ClickHouse® Operator.
+* **Namespace** (`namespace`) — проект Stackland, где развернут {{ CH }} Operator.
 
 ## Панели и метрики
 
 ### 1. Uptime (logarithmic)
 
-**Описание**: Время работы серверов ClickHouse® с момента последнего запуска. График использует логарифмическую шкалу для удобного отображения больших значений.
+**Описание**: Время работы серверов {{ CH }} с момента последнего запуска. График использует логарифмическую шкалу для удобного отображения больших значений.
 
 **Метрика**: `chi_clickhouse_metric_Uptime`
 
@@ -51,7 +51,7 @@
 
 ### 3. Version
 
-**Описание**: Версия ClickHouse®, установленная на серверах. Версия отображается в числовом формате (например, версия 11.22.33 отображается как 11022033).
+**Описание**: Версия {{ CH }}, установленная на серверах. Версия отображается в числовом формате (например, версия 11.22.33 отображается как 11022033).
 
 **Метрика**: `chi_clickhouse_metric_VersionInteger`
 
@@ -79,7 +79,7 @@
 
 
 
-**Рекомендации**: Проверьте подключение к ZooKeeper, свободное место на диске и сетевое соединение между репликами.
+**Рекомендации**: Проверьте подключение к {{ ZK }}, свободное место на диске и сетевое соединение между репликами.
 
 **Ссылки**:
 * [Восстановление после сбоев](https://clickhouse.com/docs/en/engines/table-engines/mergetree-family/replication/#recovery-after-failures)
@@ -101,22 +101,22 @@
 * [Управление распределенными таблицами](https://clickhouse.com/docs/en/sql-reference/statements/system#managing-distributed-tables)
 * [DNSError на GitHub](https://github.com/clickhouse/clickhouse/search?q=DNSError)
 
-### 7. Replication and ZooKeeper Exceptions
+### 7. Replication and {{ ZK }} Exceptions
 
-**Описание**: Метрики репликации и исключения при работе с ZooKeeper.
+**Описание**: Метрики репликации и исключения при работе с {{ ZK }}.
 
 **Метрики**:
 * `chi_clickhouse_metric_ReadonlyReplica` — реплики только для чтения;
 * `chi_clickhouse_event_ReplicaPartialShutdown` — частичное отключение реплик;
-* `chi_clickhouse_event_ZooKeeperUserExceptions` — пользовательские исключения ZooKeeper;
-* `chi_clickhouse_event_ZooKeeperInit` — инициализация ZooKeeper;
-* `chi_clickhouse_metric_ZooKeeperSession` — сессии ZooKeeper;
-* `chi_clickhouse_event_ZooKeeperHardwareExceptions` — аппаратные исключения ZooKeeper.
+* `chi_clickhouse_event_{{ ZK }}UserExceptions` — пользовательские исключения {{ ZK }};
+* `chi_clickhouse_event_{{ ZK }}Init` — инициализация {{ ZK }};
+* `chi_clickhouse_metric_{{ ZK }}Session` — сессии {{ ZK }};
+* `chi_clickhouse_event_{{ ZK }}HardwareExceptions` — аппаратные исключения {{ ZK }}.
 
 **Единица измерения**: количество событий в минуту
 
 **Ссылки**:
-* [Рекомендуемые настройки ZooKeeper](https://clickhouse.com/docs/en/operations/tips#zookeeper)
+* [Рекомендуемые настройки {{ ZK }}](https://clickhouse.com/docs/en/operations/tips#zookeeper)
 * [system.zookeeper](https://clickhouse.com/docs/en/operations/system-tables/zookeeper)
 
 ### 8. Delayed/Rejected/Pending Inserts
@@ -176,7 +176,7 @@
 
 ### 12. Insert Queries (running)
 
-**Описание**: Количество выполняющихся запросов INSERT. Не включает запросы, которые не прошли парсинг или были отклонены из-за ограничений. Включает внутренние запросы, инициированные ClickHouse®
+**Описание**: Количество выполняющихся запросов INSERT. Не включает запросы, которые не прошли парсинг или были отклонены из-за ограничений. Включает внутренние запросы, инициированные {{ CH }}
 
 **Метрика**: `chi_clickhouse_event_InsertQuery`
 
@@ -239,9 +239,9 @@
 
 ### 17. Zookeeper Transactions
 
-**Описание**: Количество транзакций ZooKeeper в секунду.
+**Описание**: Количество транзакций {{ ZK }} в секунду.
 
-**Метрика**: `chi_clickhouse_event_ZooKeeperTransactions`
+**Метрика**: `chi_clickhouse_event_{{ ZK }}Transactions`
 
 **Единица измерения**: транзакций в секунду
 
@@ -332,7 +332,7 @@
 
 ### 24. clickhouse-server Process Memory
 
-**Описание**: Использование памяти процессом clickhouse-server (доступно с версии ClickHouse® 20.4+).
+**Описание**: Использование памяти процессом clickhouse-server (доступно с версии {{ CH }} 20.4+).
 
 **Метрики**:
 * `chi_clickhouse_metric_MemoryCode` — CODE (исполняемый код);
@@ -383,7 +383,7 @@
 
 ### 27. Disk Space Free
 
-**Описание**: Процент свободного места на дисках. Важно учитывать конфигурацию с несколькими томами, Kubernetes volume claims и Object Storage в качестве бэкенда хранения.
+**Описание**: Процент свободного места на дисках. Важно учитывать конфигурацию с несколькими томами, {{ k8s }} volume claims и {{ objstorage-name }} в качестве бэкенда хранения.
 
 **Метрика**: `chi_clickhouse_metric_DiskFreeBytes / chi_clickhouse_metric_DiskTotalBytes`
 
@@ -507,7 +507,7 @@
 
 ### 35. Load Average 1m
 
-**Описание**: Средняя загрузка системы за одну минуту, стандартный Unix Load Average. Нагрузка считается предельной, если показатель близок количеству доступных CPU или к выделенным для пода ClickHouse® лимитам.
+**Описание**: Средняя загрузка системы за одну минуту, стандартный Unix Load Average. Нагрузка считается предельной, если показатель близок количеству доступных CPU или к выделенным для пода {{ CH }} лимитам.
 
 **Метрика**: `chi_clickhouse_metric_LoadAverage1`
 
@@ -532,15 +532,15 @@
 * `chi_clickhouse_event_OSCPUVirtualTimeMicroseconds` — время на виртуальные процессы операционной системы;
 * `chi_clickhouse_event_ThrottlerSleepMicroseconds` — время ожидания троттлера;
 * `chi_clickhouse_event_DelayedInsertsMilliseconds` — задержанные вставки;
-* `chi_clickhouse_event_ZooKeeperWaitMicroseconds` — ожидание ZooKeeper;
+* `chi_clickhouse_event_{{ ZK }}WaitMicroseconds` — ожидание {{ ZK }};
 * `chi_clickhouse_event_CompileExpressionsMicroseconds` — компиляция выражений;
 * `chi_clickhouse_event_MergesTimeMilliseconds` — время слияний;
 * `chi_clickhouse_event_RWLockReadersWaitMilliseconds` — ожидание блокировки чтения;
 * `chi_clickhouse_event_RWLockWritersWaitMilliseconds` — ожидание блокировки записи;
 * `chi_clickhouse_event_SelectQueryTimeMicroseconds` — время SELECT-запросов;
 * `chi_clickhouse_event_InsertQueryTimeMicroseconds` — время INSERT-запросов;
-* `chi_clickhouse_event_Object StorageReadMicroseconds` — время чтения из Object Storage;
-* `chi_clickhouse_event_Object StorageWriteMicroseconds` — время записи в Object Storage.
+* `chi_clickhouse_event_{{ objstorage-name }}ReadMicroseconds` — время чтения из {{ objstorage-name }};
+* `chi_clickhouse_event_{{ objstorage-name }}WriteMicroseconds` — время записи в {{ objstorage-name }}.
 
 **Единица измерения**: микросекунды
 
@@ -596,7 +596,7 @@
 
 1. **Replication Queue Jobs** — размер очереди репликации;
 2. **Max Replica Delay** — задержка реплик;
-3. **Zookeeper Transactions** — интенсивность работы с ZooKeeper.
+3. **Zookeeper Transactions** — интенсивность работы с {{ ZK }}.
 
 ### Метрики хранения
 
@@ -609,7 +609,7 @@
 
 ## Дополнительные ресурсы
 
-* [Официальная документация ClickHouse®](https://clickhouse.com/docs/);
-* [ClickHouse® Operator на GitHub](https://github.com/Altinity/clickhouse-operator);
+* [Официальная документация {{ CH }}](https://clickhouse.com/docs/);
+* [{{ CH }} Operator на GitHub](https://github.com/Altinity/clickhouse-operator);
 * [System Tables Reference](https://clickhouse.com/docs/en/operations/system-tables/);
 * [Server Configuration Parameters](https://clickhouse.com/docs/en/operations/server-configuration-parameters/settings).

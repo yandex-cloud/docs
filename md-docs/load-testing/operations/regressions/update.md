@@ -2,7 +2,7 @@
 
 {% note warning %}
 
-С 1 июля 2026 года сервис Load Testing прекращает работу. Подробнее на странице [Закрытие сервиса Yandex Load Testing](../../sunset.md).
+С 1 июля 2026 года сервис {{ load-testing-name }} прекращает работу. Подробнее на странице [Закрытие сервиса Yandex Load Testing](../../sunset.md).
 
 {% endnote %}
 
@@ -13,17 +13,17 @@
 
 - Консоль управления {#console}
 
-  1. В [консоли управления](https://console.yandex.cloud) откройте каталог, в котором вы хотите отредактировать дашборд.
-  1. [Перейдите](../../../console/operations/select-service.md#select-service) в сервис **Load Testing**.
-  1. На панели слева выберите ![image](../../../_assets/load-testing/regressions.svg) **Регрессии**.
-  1. Справа от имени нужного дашборда нажмите кнопку ![image](../../../_assets/options.svg) и выберите **Редактировать**.
+  1. В [консоли управления]({{ link-console-main }}) откройте каталог, в котором вы хотите отредактировать дашборд.
+  1. Перейдите в сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_load-testing }}**.
+  1. На панели слева выберите ![image](../../../_assets/load-testing/regressions.svg) **{{ ui-key.yacloud.load-testing.label_regressions-title }}**.
+  1. Справа от имени нужного дашборда нажмите кнопку ![image](../../../_assets/options.svg) и выберите **{{ ui-key.yc-ui-datasphere.common.edit }}**.
 
-  * Отредактировать элемент. Для этого нажмите кнопку ![image](../../../_assets/load-testing/edit-pen.svg), в открывшемся окне внесите изменения и нажмите кнопку **Сохранить**.
-  * Скопировать элемент. Для этого нажмите кнопку ![image](../../../_assets/load-testing/edit-copy.svg) и в открывшемся окне нажмите кнопку **Сохранить**.
+  * Отредактировать элемент. Для этого нажмите кнопку ![image](../../../_assets/load-testing/edit-pen.svg), в открывшемся окне внесите изменения и нажмите кнопку **{{ ui-key.yacloud.common.save }}**.
+  * Скопировать элемент. Для этого нажмите кнопку ![image](../../../_assets/load-testing/edit-copy.svg) и в открывшемся окне нажмите кнопку **{{ ui-key.yacloud.common.save }}**.
   * Удалить элемент. Для этого нажмите кнопку ![image](../../../_assets/load-testing/edit-cross.svg).
 
 {% endlist %}
 
 #### См. также {#see-also}
 
-[Удалить дашборд](delete.md)
+[{#T}](delete.md)

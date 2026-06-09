@@ -1,6 +1,6 @@
-# Загрузка данных из PostgreSQL в Yandex Object Storage
+# Загрузка данных из {{ PG }} в {{ objstorage-full-name }}
 
-Вы можете перенести базу данных из Yandex Managed Service for PostgreSQL в Yandex Object Storage с помощью сервиса Yandex Data Transfer. Для этого:
+Вы можете перенести базу данных из {{ mpg-full-name }} в {{ objstorage-full-name }} с помощью сервиса {{ data-transfer-full-name }}. Для этого:
 
 1. [Подготовьте трансфер](#prepare-transfer).
 1. [Активируйте трансфер](#activate-transfer).
@@ -11,9 +11,9 @@
 
 ## Необходимые платные ресурсы {#paid-resources}
 
-* Кластер Managed Service for PostgreSQL: выделенные хостам вычислительные ресурсы, объем хранилища и резервных копий (см. [тарифы Managed Service for PostgreSQL](../../managed-postgresql/pricing.md)).
-* Публичные IP-адреса, если для хостов кластера включен публичный доступ (см. [тарифы Virtual Private Cloud](../../vpc/pricing.md)).
-* Бакет Object Storage: использование хранилища и выполнение операций с данными (см. [тарифы Object Storage](../../storage/pricing.md)).
+* Кластер {{ mpg-name }}: выделенные хостам вычислительные ресурсы, объем хранилища и резервных копий (см. [тарифы {{ mpg-name }}](../../managed-postgresql/pricing.md)).
+* Публичные IP-адреса, если для хостов кластера включен публичный доступ (см. [тарифы {{ vpc-name }}](../../vpc/pricing.md)).
+* Бакет {{ objstorage-name }}: использование хранилища и выполнение операций с данными (см. [тарифы {{ objstorage-name }}](../../storage/pricing.md)).
 
 
 ## Перед началом работы {#before-you-begin}
@@ -24,14 +24,14 @@
 
 - Вручную {#manual}
 
-    1. Создайте кластер-источник Managed Service for PostgreSQL любой подходящей [конфигурации](../../managed-postgresql/concepts/instance-types.md) с хостами в публичном доступе и следующими настройками:
-        * **Имя БД** — `db1`.
-        * **Имя пользователя** — `pg-user`.
-        * **Пароль** — `<пароль_источника>`.
+    1. Создайте кластер-источник {{ mpg-name }} любой подходящей [конфигурации](../../managed-postgresql/concepts/instance-types.md) с хостами в публичном доступе и следующими настройками:
+        * **{{ ui-key.yacloud.mdb.forms.database_field_name }}** — `db1`.
+        * **{{ ui-key.yacloud.mdb.forms.database_field_user-login }}** — `pg-user`.
+        * **{{ ui-key.yacloud.mdb.forms.database_field_user-password }}** — `<пароль_источника>`.
 
         {% note info %}
         
-        Публичный доступ к хостам кластера нужен, если вы планируете подключаться к кластеру через интернет. Этот вариант подключения более простой, и его рекомендуется использовать для прохождения руководства. К хостам без публичного доступа тоже можно подключиться, но только с виртуальных машин Yandex Cloud, расположенных в той же облачной сети, что и кластер.
+        Публичный доступ к хостам кластера нужен, если вы планируете подключаться к кластеру через интернет. Этот вариант подключения более простой, и его рекомендуется использовать для прохождения руководства. К хостам без публичного доступа тоже можно подключиться, но только с виртуальных машин {{ yandex-cloud }}, расположенных в той же облачной сети, что и кластер.
         
         {% endnote %}
 
@@ -39,15 +39,15 @@
     1. Если вы используете [группы безопасности](../../managed-postgresql/operations/connect/index.md#configuring-security-groups) в кластере, убедитесь, что они настроены правильно и допускают подключение к нему.
 
 
-    1. [Создайте бакет Yandex Object Storage](../../storage/operations/buckets/create.md).
+    1. [Создайте бакет {{ objstorage-full-name }}](../../storage/operations/buckets/create.md).
 
     
     1. [Создайте сервисный аккаунт](../../iam/operations/sa/create.md#create-sa) с именем `storage-sa` и ролью `storage.uploader`. Трансфер будет использовать его для доступа к бакету.
 
 
-- Terraform {#tf}
+- {{ TF }} {#tf}
 
-    1. Если у вас еще нет Terraform, [установите его](../../tutorials/infrastructure-management/terraform-quickstart.md#install-terraform).
+    1. Если у вас еще нет {{ TF }}, [установите его](../../tutorials/infrastructure-management/terraform-quickstart.md#install-terraform).
     1. [Получите данные для аутентификации](../../tutorials/infrastructure-management/terraform-quickstart.md#get-credentials). Вы можете добавить их в переменные окружения или указать далее в файле с настройками провайдера.
     1. [Настройте и инициализируйте провайдер](../../tutorials/infrastructure-management/terraform-quickstart.md#configure-provider). Чтобы не создавать конфигурационный файл с настройками провайдера вручную, [скачайте его](https://github.com/yandex-cloud-examples/yc-terraform-provider-settings/blob/main/provider.tf).
     1. Поместите конфигурационный файл в отдельную рабочую директорию и [укажите значения параметров](../../tutorials/infrastructure-management/terraform-quickstart.md#configure-provider). Если данные для аутентификации не были добавлены в переменные окружения, укажите их в конфигурационном файле.
@@ -59,23 +59,23 @@
         * [сеть](../../vpc/concepts/network.md#network);
         * [подсеть](../../vpc/concepts/network.md#subnet);
         * [группа безопасности](../../vpc/concepts/security-groups.md), необходимая для подключения к кластеру;
-        * кластер-источник Managed Service for PostgreSQL;
+        * кластер-источник {{ mpg-name }};
         * сервисный аккаунт, который будет использоваться для создания бакета и дальнейшего доступа к нему;
-        * бакет-приемник Object Storage;
+        * бакет-приемник {{ objstorage-name }};
         * эндпоинт для источника;
         * трансфер.
 
     1. Укажите в файле `postgresql-to-objstorage.tf`:
-        * пароль пользователя PostgreSQL;
+        * пароль пользователя {{ PG }};
         * имя бакета в соответствии с [правилами именования](../../storage/concepts/bucket.md#naming).
 
-    1. Проверьте корректность файлов конфигурации Terraform с помощью команды:
+    1. Проверьте корректность файлов конфигурации {{ TF }} с помощью команды:
 
         ```bash
         terraform validate
         ```
 
-        Если в файлах конфигурации есть ошибки, Terraform на них укажет.
+        Если в файлах конфигурации есть ошибки, {{ TF }} на них укажет.
 
     1. Создайте необходимую инфраструктуру:
 
@@ -97,13 +97,13 @@
            1. Подтвердите изменение ресурсов.
            1. Дождитесь завершения операции.
 
-        В указанном каталоге будут созданы все требуемые ресурсы. Проверить появление ресурсов и их настройки можно в [консоли управления](https://console.yandex.cloud).
+        В указанном каталоге будут созданы все требуемые ресурсы. Проверить появление ресурсов и их настройки можно в [консоли управления]({{ link-console-main }}).
 
 {% endlist %}
 
 ## Подготовьте трансфер {#prepare-transfer}
 
-1. [Подключитесь к кластеру Managed Service for PostgreSQL](../../managed-postgresql/operations/connect/index.md), создайте в базе данных `db1` таблицу `x_tab` и заполните ее данными:
+1. [Подключитесь к кластеру {{ mpg-name }}](../../managed-postgresql/operations/connect/index.md), создайте в базе данных `db1` таблицу `x_tab` и заполните ее данными:
 
      ```sql
      CREATE TABLE x_tab
@@ -119,17 +119,17 @@
        (44, 'User5');
      ```
 
-1. [Создайте эндпоинт-приемник](../operations/endpoint/target/object-storage.md) типа `Object Storage` со следующими настройками:
+1. [Создайте эндпоинт-приемник](../operations/endpoint/target/object-storage.md) типа `{{ objstorage-name }}` со следующими настройками:
 
-    * **Бакет** — `<имя_созданного_ранее_бакета>`
-
-    
-    * **Сервисный аккаунт** — `storage-sa`.
+    * **{{ ui-key.yc-data-transfer.data-transfer.console.form.object_storage.console.form.object_storage.ConnectionSettings.bucket.title }}** — `<имя_созданного_ранее_бакета>`
 
     
-    * **Выходной формат** — `CSV`.
-    * **Формат сжатия** — `UNCOMPRESSED`.
-    * **Имя папки** — `from_PostgreSQL`.
+    * **{{ ui-key.yc-data-transfer.data-transfer.console.form.object_storage.console.form.object_storage.ObjectStorageConnectionSettings.service_account_id.title }}** — `storage-sa`.
+
+    
+    * **{{ ui-key.yc-data-transfer.data-transfer.console.form.object_storage.console.form.object_storage.ObjectStorageTarget.output_format.title }}** — `{{ ui-key.yc-data-transfer.data-transfer.console.form.object_storage.console.form.object_storage.ObjectStorageSerializationFormatUI.OBJECT_STORAGE_SERIALIZATION_FORMAT_CSV.title }}`.
+    * **{{ ui-key.yc-data-transfer.data-transfer.console.form.object_storage.console.form.object_storage.ObjectStorageTarget.output_encoding.title }}** — `UNCOMPRESSED`.
+    * **{{ ui-key.yc-data-transfer.data-transfer.console.form.object_storage.console.form.object_storage.ObjectStorageAdvancedSettings.bucket_layout.title }}** — `from_PostgreSQL`.
 
 1. Создайте эндпоинт-источник и трансфер:
 
@@ -137,30 +137,30 @@
 
 - Вручную {#manual}
 
-    1. [Создайте эндпоинт-источник](../operations/endpoint/source/postgresql.md) типа `PostgreSQL` и укажите в нем параметры подключения к кластеру:
+    1. [Создайте эндпоинт-источник](../operations/endpoint/source/postgresql.md) типа `{{ PG }}` и укажите в нем параметры подключения к кластеру:
 
-        * **Тип инсталляции** — `Кластер Managed Service for PostgreSQL`.
-        * **Кластер Managed Service for PostgreSQL** — `<имя_кластера-источника_PostgreSQL>` из выпадающего списка.
-        * **База данных** — `db1`.
-        * **Пользователь** — `pg-user`.
-        * **Пароль** — `<пароль_пользователя>`.
+        * **{{ ui-key.yc-data-transfer.data-transfer.console.form.common.console.form.common.Connection.connection_type.title }}** — `{{ ui-key.yc-data-transfer.data-transfer.console.form.postgres.console.form.postgres.PostgresConnectionType.mdb_cluster_id.title }}`.
+        * **{{ ui-key.yc-data-transfer.data-transfer.console.form.postgres.console.form.postgres.PostgresConnectionType.mdb_cluster_id.title }}** — `<имя_кластера-источника_{{ PG }}>` из выпадающего списка.
+        * **{{ ui-key.yc-data-transfer.data-transfer.console.form.common.console.form.common.Connection.database.title }}** — `db1`.
+        * **{{ ui-key.yc-data-transfer.data-transfer.console.form.common.console.form.common.Connection.user.title }}** — `pg-user`.
+        * **{{ ui-key.yc-data-transfer.data-transfer.console.form.common.console.form.common.Connection.password.title }}** — `<пароль_пользователя>`.
 
-    1. [Создайте трансфер](../operations/transfer.md#create) типа **_Копирование_**, использующий созданные эндпоинты.
+    1. [Создайте трансфер](../operations/transfer.md#create) типа **_{{ ui-key.yc-data-transfer.data-transfer.console.form.transfer.console.form.transfer.TransferType.snapshot.title }}_**, использующий созданные эндпоинты.
 
-- Terraform {#tf}
+- {{ TF }} {#tf}
 
     1. Укажите в файле `postgresql-to-objstorage.tf` переменные:
 
         * `objstorage_endpoint_id` — значение идентификатора эндпоинта для приемника;
         * `transfer_enabled` – значение `1` для создания трансфера.
 
-    1. Проверьте корректность файлов конфигурации Terraform с помощью команды:
+    1. Проверьте корректность файлов конфигурации {{ TF }} с помощью команды:
 
         ```bash
         terraform validate
         ```
 
-        Если в файлах конфигурации есть ошибки, Terraform на них укажет.
+        Если в файлах конфигурации есть ошибки, {{ TF }} на них укажет.
 
     1. Создайте необходимую инфраструктуру:
 
@@ -186,27 +186,27 @@
 
 ## Активируйте трансфер {#activate-transfer}
 
-1. [Активируйте трансфер](../operations/transfer.md#activate) и дождитесь его перехода в статус **_Завершен_**.
+1. [Активируйте трансфер](../operations/transfer.md#activate) и дождитесь его перехода в статус **_{{ ui-key.yacloud.data-transfer.label_connector-status-DONE }}_**.
 
-1. Убедитесь, что в бакете Object Storage появилась таблица `public_x_tab.csv` с данными из таблицы `x_tab`.
+1. Убедитесь, что в бакете {{ objstorage-name }} появилась таблица `public_x_tab.csv` с данными из таблицы `x_tab`.
 
 ## Проверьте работу копирования при повторной активации {#example-check-copy}
 
-1. [Подключитесь к кластеру Managed Service for PostgreSQL](../../managed-postgresql/operations/connect/index.md), удалите строку с идентификатором `41` и измените строку с идентификатором `42` в таблице `x_tab`:
+1. [Подключитесь к кластеру {{ mpg-name }}](../../managed-postgresql/operations/connect/index.md), удалите строку с идентификатором `41` и измените строку с идентификатором `42` в таблице `x_tab`:
 
     ```sql
     DELETE FROM x_tab WHERE id = 41;
     UPDATE x_tab SET name = 'Key3' WHERE id = 42;
     ```
 
-1. Повторно [активируйте трансфер](../operations/transfer.md#activate) и дождитесь его перехода в статус **_Завершен_**.
+1. Повторно [активируйте трансфер](../operations/transfer.md#activate) и дождитесь его перехода в статус **_{{ ui-key.yacloud.data-transfer.label_connector-status-DONE }}_**.
 1. Убедитесь, что изменения отобразились в таблице `public_x_tab.csv` на приемнике.
 
 ## Удалите созданные ресурсы {#clear-out}
 
 Чтобы снизить потребление ресурсов, которые вам не нужны, удалите их:
 
-1. Убедитесь, что трансфер находится в статусе **_Завершен_**.
+1. Убедитесь, что трансфер находится в статусе **_{{ ui-key.yacloud.data-transfer.label_connector-status-DONE }}_**.
 1. [Удалите эндпоинт-приемник](../operations/endpoint/index.md#delete).
 1. Остальные ресурсы удалите в зависимости от способа их создания:
 
@@ -216,16 +216,16 @@
 
         1. [Удалите трансфер](../operations/transfer.md#delete).
         1. [Удалите эндпоинт-источник](../operations/endpoint/index.md#delete).
-        1. [Удалите кластер Managed Service for PostgreSQL](../../managed-postgresql/operations/cluster-delete.md).
-        1. [Удалите бакет Object Storage](../../storage/operations/buckets/delete.md).
+        1. [Удалите кластер {{ mpg-name }}](../../managed-postgresql/operations/cluster-delete.md).
+        1. [Удалите бакет {{ objstorage-name }}](../../storage/operations/buckets/delete.md).
 
-    - Terraform {#tf}
+    - {{ TF }} {#tf}
 
         1. В терминале перейдите в директорию с планом инфраструктуры.
         
             {% note warning %}
         
-            Убедитесь, что в директории нет Terraform-манифестов с ресурсами, которые вы хотите сохранить. Terraform удаляет все ресурсы, которые были созданы с помощью манифестов в текущей директории.
+            Убедитесь, что в директории нет {{ TF }}-манифестов с ресурсами, которые вы хотите сохранить. {{ TF }} удаляет все ресурсы, которые были созданы с помощью манифестов в текущей директории.
         
             {% endnote %}
         
@@ -239,6 +239,6 @@
         
             1. Подтвердите удаление ресурсов и дождитесь завершения операции.
         
-            Все ресурсы, которые были описаны в Terraform-манифестах, будут удалены.
+            Все ресурсы, которые были описаны в {{ TF }}-манифестах, будут удалены.
 
     {% endlist %}

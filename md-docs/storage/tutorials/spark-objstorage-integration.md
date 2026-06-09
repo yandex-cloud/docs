@@ -1,15 +1,15 @@
-# Использование Object Storage в сервисе Yandex Managed Service for Apache Spark™
+# Использование {{ objstorage-name }} в сервисе {{ msp-full-name }}
 
-# Использование Yandex Object Storage в сервисе Yandex Managed Service for Apache Spark™
+# Использование {{ objstorage-full-name }} в сервисе {{ msp-full-name }}
 
 
-В бакетах Yandex Object Storage можно хранить как файлы, необходимые для выполнения заданий в кластере Yandex Managed Service for Apache Spark™, так и результаты выполнения заданий.
+В бакетах {{ objstorage-full-name }} можно хранить как файлы, необходимые для выполнения заданий в кластере {{ msp-full-name }}, так и результаты выполнения заданий.
 
-Кластеры Yandex Managed Service for Apache Spark™ уже сконфигурированы для работы с S3-хранилищами. Чтобы использовать бакет Object Storage в PySpark-задании:
-* Предоставьте сервисному аккаунту кластера Yandex Managed Service for Apache Spark™ разрешение на доступ к бакету Object Storage.
-* Укажите путь к каталогу в бакете Object Storage в аргументах задания.
+Кластеры {{ msp-full-name }} уже сконфигурированы для работы с S3-хранилищами. Чтобы использовать бакет {{ objstorage-name }} в PySpark-задании:
+* Предоставьте сервисному аккаунту кластера {{ msp-full-name }} разрешение на доступ к бакету {{ objstorage-name }}.
+* Укажите путь к каталогу в бакете {{ objstorage-name }} в аргументах задания.
 
-В этом руководстве показан пример работы с таблицей в бакете Object Storage из PySpark-задания с использованием встроенного локального каталога Hive.
+В этом руководстве показан пример работы с таблицей в бакете {{ objstorage-name }} из PySpark-задания с использованием встроенного локального каталога Hive.
 
 Чтобы реализовать описанный пример:
 
@@ -21,15 +21,15 @@
 
 {% note info %}
 
-Локальный каталог Hive позволяет обращаться к таблицам по имени без указания пути и использовать базовые возможности Hive, не подключая кластер Apache Hive™ Metastore. Хранящиеся в локальном каталоге метаданные остаются недоступными другим кластерам. Пример использования глобального каталога см. в руководстве [Работа с Yandex Object Storage из PySpark-задания с использованием кластера Apache Hive™ Metastore](../../managed-spark/tutorials/metastore-and-spark.md).
+Локальный каталог Hive позволяет обращаться к таблицам по имени без указания пути и использовать базовые возможности Hive, не подключая кластер {{ metastore-name }}. Хранящиеся в локальном каталоге метаданные остаются недоступными другим кластерам. Пример использования глобального каталога см. в руководстве [{#T}](../../managed-spark/tutorials/metastore-and-spark.md).
 
 {% endnote %}
 
 
 ## Необходимые платные ресурсы {#paid-resources}
 
-* Бакеты Object Storage: использование хранилища и выполнение операций с данными (см. [тарифы Object Storage](../pricing.md)).
-* Сервис Yandex Cloud Logging: объем записываемых данных и время их хранения (см. [тарифы Cloud Logging](../../logging/pricing.md)).
+* Бакеты {{ objstorage-name }}: использование хранилища и выполнение операций с данными (см. [тарифы {{ objstorage-name }}](../pricing.md)).
+* Сервис {{ cloud-logging-full-name }}: объем записываемых данных и время их хранения (см. [тарифы {{ cloud-logging-name }}](../../logging/pricing.md)).
 
 
 ## Подготовьте инфраструктуру {#infra}
@@ -38,7 +38,7 @@
 
 - Консоль управления {#console}
 
-    1. [Создайте сервисный аккаунт](../../iam/operations/sa/create.md) `spark-agent` для кластера Yandex Managed Service for Apache Spark™ с ролью [managed-spark.integrationProvider](../../iam/roles-reference.md#managed-spark-integrationProvider) — чтобы кластер Yandex Managed Service for Apache Spark™ мог взаимодействовать с другими ресурсами.
+    1. [Создайте сервисный аккаунт](../../iam/operations/sa/create.md) `spark-agent` для кластера {{ msp-full-name }} с ролью [managed-spark.integrationProvider](../../iam/roles-reference.md#managed-spark-integrationProvider) — чтобы кластер {{ msp-full-name }} мог взаимодействовать с другими ресурсами.
 
     1. [Создайте бакеты](../operations/buckets/create.md):
 
@@ -54,17 +54,17 @@
 
         Вместе с ней автоматически будут созданы три подсети в разных зонах доступности.
 
-    1. [Создайте кластер Yandex Managed Service for Apache Spark™](../../managed-spark/operations/cluster-create.md) с параметрами:
+    1. [Создайте кластер {{ msp-full-name }}](../../managed-spark/operations/cluster-create.md) с параметрами:
 
         * **Сервисный аккаунт** — `spark-agent`.
         * **Сеть** — `spark-network`.
-        * **Подсеть** — `spark-network-ru-central1-a`.
+        * **Подсеть** — `spark-network-{{ region-id }}-a`.
 
 {% endlist %}
 
 ## Подготовьте PySpark-задание {#prepare-a-job}
 
-Для PySpark-задания используется Python-скрипт, который создает таблицу `table_1` в БД `database_1`. В аргументах PySpark-задания указан путь к каталогу, в котором будет создана БД. Для подключения встроенного каталога Hive в скрипте указывается параметр конфигурации Spark-сессии `spark.sql.catalogImplementation=hive`. Скрипт будет храниться в бакете Object Storage.
+Для PySpark-задания используется Python-скрипт, который создает таблицу `table_1` в БД `database_1`. В аргументах PySpark-задания указан путь к каталогу, в котором будет создана БД. Для подключения встроенного каталога Hive в скрипте указывается параметр конфигурации Spark-сессии `spark.sql.catalogImplementation=hive`. Скрипт будет храниться в бакете {{ objstorage-name }}.
 
 Подготовьте файл скрипта:
 
@@ -145,11 +145,11 @@
 
 - Консоль управления {#console}
 
-    1. В [консоли управления](https://console.yandex.cloud) выберите каталог.
-    1. [Перейдите](../../console/operations/select-service.md#select-service) в сервис **Managed Service for Apache Spark**.
-    1. Нажмите на имя нужного кластера и выберите вкладку **Задания**.
+    1. В [консоли управления]({{ link-console-main }}) выберите каталог.
+    1. Перейдите в сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-spark }}**.
+    1. Нажмите на имя нужного кластера и выберите вкладку **{{ ui-key.yacloud.mdb.cluster.switch_jobs }}**.
     1. Дождитесь, когда созданное PySpark-задание перейдет в статус **Done**.
-    1. Убедитесь, что в бакете `<бакет_для_выходных_данных_PySpark_задания>` в папке `warehouse` появилась БД `database_1`. Теперь данные из созданной БД хранятся в бакете Object Storage в формате JSON.
+    1. Убедитесь, что в бакете `<бакет_для_выходных_данных_PySpark_задания>` в папке `warehouse` появилась БД `database_1`. Теперь данные из созданной БД хранятся в бакете {{ objstorage-name }} в формате JSON.
 
 {% endlist %}
 
@@ -161,7 +161,7 @@
 
 - Консоль управления {#console}
 
-    1. [Бакеты Object Storage](../operations/buckets/delete.md).
-    1. [Кластер Yandex Managed Service for Apache Spark™](../../managed-spark/operations/cluster-delete.md).
+    1. [Бакеты {{ objstorage-name }}](../operations/buckets/delete.md).
+    1. [Кластер {{ msp-full-name }}](../../managed-spark/operations/cluster-delete.md).
 
 {% endlist %}

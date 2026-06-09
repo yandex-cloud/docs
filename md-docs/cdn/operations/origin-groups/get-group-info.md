@@ -10,15 +10,15 @@
 
 - Консоль управления {#console}
 
-  1. В [консоли управления](https://console.yandex.cloud) перейдите в каталог, в котором находится источник.
-  1. [Перейдите](../../../console/operations/select-service.md#select-service) в сервис **Cloud CDN**.
-  1. На панели слева выберите ![image](../../../_assets/console-icons/folder-tree.svg) **Группы источников**.
+  1. В [консоли управления]({{ link-console-main }}) перейдите в каталог, в котором находится источник.
+  1. Перейдите в сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_cdn }}**.
+  1. На панели слева выберите ![image](../../../_assets/console-icons/folder-tree.svg) **{{ ui-key.yacloud.cdn.label_origins-groups-list }}**.
   1. Выберите группу источников, в которой находится источник.
-  1. На странице **Обзор** отобразится подробная информация об источнике.
+  1. На странице **{{ ui-key.yacloud.common.overview }}** отобразится подробная информация об источнике.
 
 - CLI {#cli}
 
-  Если у вас еще нет интерфейса командной строки Yandex Cloud (CLI), [установите и инициализируйте его](../../../cli/quickstart.md#install).
+  Если у вас еще нет интерфейса командной строки {{ yandex-cloud }} (CLI), [установите и инициализируйте его](../../../cli/quickstart.md#install).
 
   По умолчанию используется каталог, указанный при [создании](../../../cli/operations/profile/profile-create.md) профиля CLI. Чтобы изменить каталог по умолчанию, используйте команду `yc config set folder-id <идентификатор_каталога>`. Также для любой команды вы можете указать другой каталог с помощью параметров `--folder-name` или `--folder-id`. Если вы обращаетесь к ресурсу по имени, поиск будет выполнен в каталоге по умолчанию. Если вы обращаетесь к ресурсу по идентификатору, поиск будет выполнен глобально — во всех каталогах с учетом прав доступа.
 
@@ -39,7 +39,7 @@
       ```text
       id: "152152********"
       origin_group_id: "2128********"
-      source: test-cdn-1.storage.yandexcloud.net
+      source: test-cdn-1.{{ s3-storage-host }}
       enabled: true
       meta:
         bucket:
@@ -60,15 +60,15 @@
 
 - Консоль управления {#console}
 
-  1. В [консоли управления](https://console.yandex.cloud) перейдите в каталог, в котором находится группа источников.
-  1. [Перейдите](../../../console/operations/select-service.md#select-service) в сервис **Cloud CDN**.
-  1. На панели слева выберите ![image](../../../_assets/console-icons/folder-tree.svg) **Группы источников**.
+  1. В [консоли управления]({{ link-console-main }}) перейдите в каталог, в котором находится группа источников.
+  1. Перейдите в сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_cdn }}**.
+  1. На панели слева выберите ![image](../../../_assets/console-icons/folder-tree.svg) **{{ ui-key.yacloud.cdn.label_origins-groups-list }}**.
   1. Выберите группу источников.
-  1. На странице **Обзор** отобразится подробная информация о группе источников.
+  1. На странице **{{ ui-key.yacloud.common.overview }}** отобразится подробная информация о группе источников.
 
 - CLI {#cli}
 
-  Если у вас еще нет интерфейса командной строки Yandex Cloud (CLI), [установите и инициализируйте его](../../../cli/quickstart.md#install).
+  Если у вас еще нет интерфейса командной строки {{ yandex-cloud }} (CLI), [установите и инициализируйте его](../../../cli/quickstart.md#install).
 
   По умолчанию используется каталог, указанный при [создании](../../../cli/operations/profile/profile-create.md) профиля CLI. Чтобы изменить каталог по умолчанию, используйте команду `yc config set folder-id <идентификатор_каталога>`. Также для любой команды вы можете указать другой каталог с помощью параметров `--folder-name` или `--folder-id`. Если вы обращаетесь к ресурсу по имени, поиск будет выполнен в каталоге по умолчанию. Если вы обращаетесь к ресурсу по идентификатору, поиск будет выполнен глобально — во всех каталогах с учетом прав доступа.
 
@@ -94,7 +94,7 @@
       origins:
       - id: "2741********"
         origin_group_id: "2149********"
-        source: test-cdn-1-2.storage.yandexcloud.net
+        source: test-cdn-1-2.{{ s3-storage-host }}
         enabled: true
         backup: true
         meta:
@@ -102,24 +102,27 @@
             name: test-cdn-1-2
       - id: "2742********"
         origin_group_id: "2149********"
-        source: test-cdn-1-1.storage.yandexcloud.net
+        source: test-cdn-1-1.{{ s3-storage-host }}
         enabled: true
         meta:
           bucket:
             name: test-cdn-1-1
       ```
 
-- Terraform {#tf}
+- {{ TF }} {#tf}
 
-  [Terraform](https://www.terraform.io/) позволяет быстро создать облачную инфраструктуру в Yandex Cloud и управлять ею с помощью файлов конфигураций. В файлах конфигураций хранится описание инфраструктуры на языке HCL (HashiCorp Configuration Language). При изменении файлов конфигураций Terraform автоматически определяет, какая часть вашей конфигурации уже развернута, что следует добавить или удалить.
+  [{{ TF }}](https://www.terraform.io/) позволяет быстро создать облачную инфраструктуру в {{ yandex-cloud }} и управлять ею с помощью файлов конфигураций. В файлах конфигураций хранится описание инфраструктуры на языке HCL (HashiCorp Configuration Language). При изменении файлов конфигураций {{ TF }} автоматически определяет, какая часть вашей конфигурации уже развернута, что следует добавить или удалить.
   
-  Terraform распространяется под лицензией [Business Source License](https://github.com/hashicorp/terraform/blob/main/LICENSE), а [провайдер Yandex Cloud для Terraform](https://github.com/yandex-cloud/terraform-provider-yandex) — под лицензией [MPL-2.0](https://www.mozilla.org/en-US/MPL/2.0/).
+  {{ TF }} распространяется под лицензией [Business Source License](https://github.com/hashicorp/terraform/blob/main/LICENSE), а [провайдер {{ yandex-cloud }} для {{ TF }}](https://github.com/yandex-cloud/terraform-provider-yandex) — под лицензией [MPL-2.0](https://www.mozilla.org/en-US/MPL/2.0/).
   
-  Подробную информацию о ресурсах провайдера смотрите в документации на сайте [Terraform](https://www.terraform.io/docs/providers/yandex/index.html) или в [зеркале](../../../terraform/index.md).
+  Подробную информацию о ресурсах провайдера смотрите в документации на сайте [{{ TF }}](https://www.terraform.io/docs/providers/yandex/index.html) или в [зеркале]({{ tf-docs-link }}).
 
-  Если у вас еще нет Terraform, [установите его и настройте провайдер Yandex Cloud](../../../tutorials/infrastructure-management/terraform-quickstart.md#install-terraform).
+  Если у вас еще нет {{ TF }}, [установите его и настройте провайдер {{ yandex-cloud }}](../../../tutorials/infrastructure-management/terraform-quickstart.md#install-terraform).
+  
+  
+  Чтобы управлять инфраструктурой с помощью {{ TF }} от имени сервисного аккаунта или пользовательских аккаунтов: аккаунта на Яндексе, федеративного аккаунта и локального пользователя, [аутентифицируйтесь](../../../terraform/authentication.md) соответствующим способом.
 
-  1. Добавьте в конфигурационный файл Terraform блоки `data` и `output`:
+  1. Добавьте в конфигурационный файл {{ TF }} блоки `data` и `output`:
 
       ```hcl
       data "yandex_cdn_origin_group" "my_group" {
@@ -138,7 +141,7 @@
       * `output "my_group_origin"` — выходная переменная, которая содержит информацию о группе источников:
         * `value` — возвращаемое значение.
 
-      Вместо `origin` вы можете выбрать любой другой параметр для получения информации. Более подробную информацию о параметрах источника данных `yandex_cdn_origin_group` см. в [документации провайдера](../../../terraform/data-sources/cdn_origin_group.md).
+      Вместо `origin` вы можете выбрать любой другой параметр для получения информации. Более подробную информацию о параметрах источника данных `yandex_cdn_origin_group` см. в [документации провайдера]({{ tf-provider-datasources-link }}/cdn_origin_group).
 
   1. Создайте ресурсы:
 
@@ -161,7 +164,7 @@
          terraform plan
          ```
       
-         В терминале будет выведен список ресурсов с параметрами. На этом этапе изменения не будут внесены. Если в конфигурации есть ошибки, Terraform на них укажет.
+         В терминале будет выведен список ресурсов с параметрами. На этом этапе изменения не будут внесены. Если в конфигурации есть ошибки, {{ TF }} на них укажет.
       1. Примените изменения конфигурации:
       
          ```bash
@@ -170,7 +173,7 @@
       
       1. Подтвердите изменения: введите в терминале слово `yes` и нажмите **Enter**.
 
-      Terraform создаст все требуемые ресурсы и отобразит значения выходных переменных в терминале. Чтобы проверить результат, выполните команду:
+      {{ TF }} создаст все требуемые ресурсы и отобразит значения выходных переменных в терминале. Чтобы проверить результат, выполните команду:
 
       ```bash
       terraform output

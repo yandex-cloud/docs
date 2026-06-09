@@ -6,7 +6,7 @@ To get the list of available PrivateSubnet resources, make a [List](list.md#List
 ## HTTP request
 
 ```
-GET https://baremetal.api.cloud.yandex.net/baremetal/v1alpha/privateSubnets/{privateSubnetId}
+GET https://baremetal.{{ api-host }}/baremetal/v1alpha/privateSubnets/{privateSubnetId}
 ```
 
 ## Path parameters

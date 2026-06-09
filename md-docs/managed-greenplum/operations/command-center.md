@@ -1,6 +1,6 @@
-# Работа с командным центром Greenplum®
+# Работа с командным центром {{ mgp-name }}
 
-В командном центре Greenplum® вы можете:
+В командном центре {{ mgp-name }} вы можете:
 
 * [Посмотреть информацию о сессиях и запросах](#list).
 * [Просмотреть историю потребления для завершенных запросов](#consumption-history).
@@ -9,11 +9,11 @@
 
 Также ознакомьтесь с [примерами работы](#examples) в командном центре — они помогут понять, как и в каких ситуациях можно использовать командный центр.
 
-Подробнее о статистике, которую можно получить с помощью командного центра, читайте в разделе [Командный центр Greenplum®](../concepts/command-center.md).
+Подробнее о статистике, которую можно получить с помощью командного центра, читайте в разделе [{#T}](../concepts/command-center.md).
 
 {% note info %}
 
-Командный центр Greenplum® позволяет проводить только базовый операционный анализ сессий и запросов. Если ваша задача требует углубленного стратегического исследования и расширенных инструментов анализа, используйте [экспорт логов в Yandex Cloud Logging](mgp-to-cloud-logging.md). Сервис Yandex Cloud Logging позволяет [визуализировать логи в Grafana](../../logging/tutorials/grafana-logs-plugin.md) и выполнять их [обработку с помощью Data Streams и Query](../../logging/tutorials/cloud-logging.md).
+Командный центр {{ mgp-name }} позволяет проводить только базовый операционный анализ сессий и запросов. Если ваша задача требует углубленного стратегического исследования и расширенных инструментов анализа, используйте [экспорт логов в {{ cloud-logging-full-name }}](mgp-to-cloud-logging.md). Сервис {{ cloud-logging-name }} позволяет [визуализировать логи в {{ grafana-name }}](../../logging/tutorials/grafana-logs-plugin.md) и выполнять их [обработку с помощью {{ yds-short-name }} и {{ yq-name }}](../../logging/tutorials/cloud-logging.md).
 
 {% endnote %}
 
@@ -27,28 +27,28 @@
 
 - Консоль управления {#console}
 
-    1. Перейдите на [страницу каталога](https://console.yandex.cloud).
-    1. [Перейдите](../../console/operations/select-service.md#select-service) в сервис **Yandex MPP Analytics for&nbsp;PostgreSQL**.
-    1. Нажмите на имя нужного кластера и перейдите на вкладку ![image](../../_assets/console-icons/pulse.svg) **Командный центр**.
+    1. Перейдите на [страницу каталога]({{ link-console-main }}).
+    1. Перейдите в сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-greenplum }}**.
+    1. Нажмите на имя нужного кластера и перейдите на вкладку ![image](../../_assets/console-icons/pulse.svg) **{{ ui-key.yacloud.greenplum.cluster.perf-diag.section_command-center }}**.
     1. Выберите, что вы хотите посмотреть, и перейдите на нужную вкладку:
 
-        * текущие сессии или запросы — вкладка **Текущее состояние**;
-        * сессии или запросы за прошедший момент времени — вкладка **История состояний**.
+        * текущие сессии или запросы — вкладка **{{ ui-key.yacloud.greenplum.cluster.perf-diag.title_current-state }}**;
+        * сессии или запросы за прошедший момент времени — вкладка **{{ ui-key.yacloud.greenplum.cluster.perf-diag.title_states-history }}**.
 
-    1. Выберите раздел **Сессии** или **Запросы**. Во вкладке **История состояний** эти разделы располагаются под графиком.
-    1. Чтобы отфильтровать список сессий или запросов, нажмите кнопку ![image](../../_assets/console-icons/funnel.svg) **Фильтры** и выберите нужные параметры.
+    1. Выберите раздел **{{ ui-key.yacloud.greenplum.cluster.perf-diag.label_filter-entity-session }}** или **{{ ui-key.yacloud.greenplum.cluster.perf-diag.label_filter-entity-query }}**. Во вкладке **{{ ui-key.yacloud.greenplum.cluster.perf-diag.title_states-history }}** эти разделы располагаются под графиком.
+    1. Чтобы отфильтровать список сессий или запросов, нажмите кнопку ![image](../../_assets/console-icons/funnel.svg) **{{ ui-key.yacloud.common.label_filters }}** и выберите нужные параметры.
     1. Чтобы посмотреть детали:
 
         * сессии — нажмите на имя сессии;
         * запроса — нажмите на ключ выполняемого запроса.
 
-        Параметры сессий и запросов описаны в разделе [Параметры командного центра Greenplum®](../concepts/command-center-parameters.md).
+        Параметры сессий и запросов описаны в разделе [Параметры командного центра {{ mgp-name }}](../concepts/command-center-parameters.md).
 
 {% endlist %}
 
 ## Просмотреть историю потребления для завершенных запросов {#consumption-history}
 
-В истории потребления доступно несколько системных метрик. Они показывают, как кластер Greenplum® потреблял ресурсы для обработки запросов в разные моменты времени. Также вы можете посмотреть список завершенных запросов. С помощью полученной информации вы можете определить, как управлять CPU и памятью хостов кластера для эффективной обработки запросов.
+В истории потребления доступно несколько системных метрик. Они показывают, как кластер {{ mgp-name }} потреблял ресурсы для обработки запросов в разные моменты времени. Также вы можете посмотреть список завершенных запросов. С помощью полученной информации вы можете определить, как управлять CPU и памятью хостов кластера для эффективной обработки запросов.
 
 Чтобы посмотреть историю потребления для завершенных запросов:
 
@@ -56,38 +56,38 @@
 
 - Консоль управления {#console}
 
-    1. Перейдите на [страницу каталога](https://console.yandex.cloud).
-    1. [Перейдите](../../console/operations/select-service.md#select-service) в сервис **Yandex MPP Analytics for&nbsp;PostgreSQL**.
-    1. Нажмите на имя нужного кластера и перейдите на вкладку ![image](../../_assets/console-icons/pulse.svg) **Командный центр** → **История потребления**.
+    1. Перейдите на [страницу каталога]({{ link-console-main }}).
+    1. Перейдите в сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-greenplum }}**.
+    1. Нажмите на имя нужного кластера и перейдите на вкладку ![image](../../_assets/console-icons/pulse.svg) **{{ ui-key.yacloud.greenplum.cluster.perf-diag.section_command-center }}** → **{{ ui-key.yacloud.greenplum.cluster.perf-diag.title_consumption-history }}**.
     1. Выберите нужный показатель потребления:
 
-        * **CPU time** — время в секундах, которое понадобилось ресурсам CPU для обработки запросов.
-        * **Peak memory** — максимальное количество памяти, которое потребовалось для обработки запроса за все время жизни кластера.
-        * **Disk R** — память в байтах, которая понадобилась для чтения данных.
-        * **Disk W** — память в байтах, которая понадобилась для записи данных в БД.
-        * **Spill** — дополнительный объем дисковой памяти, который потребовался для выполнения запросов.
-        * **Total time** — суммарное время, затраченное на обработку запросов.
+        * **{{ ui-key.yacloud.greenplum.cluster.perf-diag.label_query-field-running-time-seconds }}** — время в секундах, которое понадобилось ресурсам CPU для обработки запросов.
+        * **{{ ui-key.yacloud.greenplum.cluster.perf-diag.label_query-field-vm-peak-kb }}** — максимальное количество памяти, которое потребовалось для обработки запроса за все время жизни кластера.
+        * **{{ ui-key.yacloud.greenplum.cluster.perf-diag.label_query-field-read-bytes }}** — память в байтах, которая понадобилась для чтения данных.
+        * **{{ ui-key.yacloud.greenplum.cluster.perf-diag.label_query-field-write-bytes }}** — память в байтах, которая понадобилась для записи данных в БД.
+        * **{{ ui-key.yacloud.greenplum.cluster.perf-diag.label_query-field-spill-total-bytes }}** — дополнительный объем дисковой памяти, который потребовался для выполнения запросов.
+        * **{{ ui-key.yacloud.greenplum.cluster.perf-diag.label_query-field-total-time }}** — суммарное время, затраченное на обработку запросов.
 
         После того как вы выберете показатель потребления, отобразится график с деталями и список запросов. На графике указаны значение показателя, пользователь, который выполнил запрос, и время выполнения запроса.
 
-    1. Чтобы отфильтровать результаты, нажмите кнопку ![image](../../_assets/console-icons/funnel.svg) **Фильтры** и выберите нужные параметры.
+    1. Чтобы отфильтровать результаты, нажмите кнопку ![image](../../_assets/console-icons/funnel.svg) **{{ ui-key.yacloud.common.label_filters }}** и выберите нужные параметры.
 
 {% endlist %}
 
 ## Прервать текущую сессию {#terminate-session}
 
-Чтобы освободить ресурсы для сессий, вы можете прервать простаивающую сессию в статусе `Idle`:
+Чтобы освободить ресурсы для сессий, вы можете прервать простаивающую сессию в статусе `{{ ui-key.yacloud.greenplum.perf-diag.label_session-status-idle }}`:
 
 {% list tabs group=instructions %}
 
 - Консоль управления {#console}
 
-    1. Перейдите на [страницу каталога](https://console.yandex.cloud).
-    1. [Перейдите](../../console/operations/select-service.md#select-service) в сервис **Yandex MPP Analytics for&nbsp;PostgreSQL**.
-    1. Нажмите на имя нужного кластера и перейдите на вкладку ![image](../../_assets/console-icons/pulse.svg) **Командный центр**.
-    1. В разделе **Текущее состояние** → **Сессии** нажмите на значок ![image](../../_assets/console-icons/ellipsis.svg) в нужной строке и выберите пункт **Прервать сессию**.
+    1. Перейдите на [страницу каталога]({{ link-console-main }}).
+    1. Перейдите в сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-greenplum }}**.
+    1. Нажмите на имя нужного кластера и перейдите на вкладку ![image](../../_assets/console-icons/pulse.svg) **{{ ui-key.yacloud.greenplum.cluster.perf-diag.section_command-center }}**.
+    1. В разделе **{{ ui-key.yacloud.greenplum.cluster.perf-diag.title_current-state }}** → **{{ ui-key.yacloud.greenplum.cluster.perf-diag.label_filter-entity-session }}** нажмите на значок ![image](../../_assets/console-icons/ellipsis.svg) в нужной строке и выберите пункт **{{ ui-key.yacloud.greenplum.cluster.perf-diag.label_action-terminate-session }}**.
 
-        Если у вас отображается пункт **Прервать запрос**, выберите его и остановите запрос.
+        Если у вас отображается пункт **{{ ui-key.yacloud.greenplum.cluster.perf-diag.label_action-terminate-query }}**, выберите его и остановите запрос.
 
     1. Подтвердите остановку сессии.
 
@@ -95,23 +95,23 @@
 
 ## Прервать текущий запрос {#terminate-query}
 
-Чтобы освободить ресурсы для выполнения запросов, вы можете прервать запрос в статусе `Idle` в простаивающей сессии. Для этого:
+Чтобы освободить ресурсы для выполнения запросов, вы можете прервать запрос в статусе `{{ ui-key.yacloud.greenplum.perf-diag.label_session-status-idle }}` в простаивающей сессии. Для этого:
 
 {% list tabs group=instructions %}
 
 - Консоль управления {#console}
 
-    1. Перейдите на [страницу каталога](https://console.yandex.cloud).
-    1. [Перейдите](../../console/operations/select-service.md#select-service) в сервис **Yandex MPP Analytics for&nbsp;PostgreSQL**.
-    1. Нажмите на имя нужного кластера и перейдите на вкладку ![image](../../_assets/console-icons/pulse.svg) **Командный центр**.
-    1. В разделе **Текущее состояние** → **Запросы** нажмите на значок ![image](../../_assets/console-icons/ellipsis.svg) в нужной строке и выберите пункт **Прервать запрос**.
+    1. Перейдите на [страницу каталога]({{ link-console-main }}).
+    1. Перейдите в сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-greenplum }}**.
+    1. Нажмите на имя нужного кластера и перейдите на вкладку ![image](../../_assets/console-icons/pulse.svg) **{{ ui-key.yacloud.greenplum.cluster.perf-diag.section_command-center }}**.
+    1. В разделе **{{ ui-key.yacloud.greenplum.cluster.perf-diag.title_current-state }}** → **{{ ui-key.yacloud.greenplum.cluster.perf-diag.label_filter-entity-query }}** нажмите на значок ![image](../../_assets/console-icons/ellipsis.svg) в нужной строке и выберите пункт **{{ ui-key.yacloud.greenplum.cluster.perf-diag.label_action-terminate-query }}**.
     1. Подтвердите остановку запроса.
 
 {% endlist %}
 
 ## Примеры анализа текущего состояния {#current-analysis}
 
-Командный центр Greenplum® поддерживает следующие виды анализа текущего состояния кластера:
+Командный центр {{ mgp-name }} поддерживает следующие виды анализа текущего состояния кластера:
 
 * Анализ метрик, например [поиск тяжелой сессии](#heavy-session) или [анализ структуры выполнения запросов](#nested-query).
 * Анализ событий, например [поиск простаивающей сессии](#current-session) или [поиск блокирующей сессии](#blocker-session).
@@ -122,16 +122,16 @@
 
 - Консоль управления {#console}
 
-    1. Перейдите на [страницу каталога](https://console.yandex.cloud).
-    1. [Перейдите](../../console/operations/select-service.md#select-service) в сервис **Yandex MPP Analytics for&nbsp;PostgreSQL**.
-    1. Нажмите на имя нужного кластера и перейдите на вкладку ![image](../../_assets/console-icons/pulse.svg) **Командный центр** → **Текущее состояние**.
-    1. Отсортируйте сессии по одному из столбцов: **CPU time**, **Peak memory**, **Spill**, **Disk W**, **Disk R**, **Net recv** или **Net sent**. 
+    1. Перейдите на [страницу каталога]({{ link-console-main }}).
+    1. Перейдите в сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-greenplum }}**.
+    1. Нажмите на имя нужного кластера и перейдите на вкладку ![image](../../_assets/console-icons/pulse.svg) **{{ ui-key.yacloud.greenplum.cluster.perf-diag.section_command-center }}** → **{{ ui-key.yacloud.greenplum.cluster.perf-diag.title_current-state }}**.
+    1. Отсортируйте сессии по одному из столбцов: **{{ ui-key.yacloud.greenplum.cluster.perf-diag.label_field-cpu-time }}**, **{{ ui-key.yacloud.greenplum.cluster.perf-diag.label_field-peak-memory }}**, **{{ ui-key.yacloud.greenplum.cluster.perf-diag.label_field-spill-total-bytes }}**, **{{ ui-key.yacloud.greenplum.cluster.perf-diag.label_field-write-bytes }}**, **{{ ui-key.yacloud.greenplum.cluster.perf-diag.label_field-read-bytes }}**, **{{ ui-key.yacloud.greenplum.cluster.perf-diag.label_query-field-net-recv-total-bytes }}** или **{{ ui-key.yacloud.greenplum.cluster.perf-diag.label_query-field-net-sent-total-bytes }}**. 
     1. Найдите сессии, которые потребляют наибольшее количество выбранного ресурса.
     1. Для каждой выбранной сессии:
        1. Нажмите на номер сессии. Откроется страница с информацией об этой сессии.
-       1. Сопоставьте показатели вычислительной нагрузки и нагрузки на ввод-вывод (**CPU time**, **Peak memory**, **Spill**, **Disk W**, **Disk R**, **Net recv**, **Net sent**) с общими графиками нагрузки на кластер или его отдельные хосты.
+       1. Сопоставьте показатели вычислительной нагрузки и нагрузки на ввод-вывод (**{{ ui-key.yacloud.greenplum.cluster.perf-diag.label_field-cpu-time }}**, **{{ ui-key.yacloud.greenplum.cluster.perf-diag.label_field-peak-memory }}**, **{{ ui-key.yacloud.greenplum.cluster.perf-diag.label_field-spill-total-bytes }}**, **{{ ui-key.yacloud.greenplum.cluster.perf-diag.label_field-write-bytes }}**, **{{ ui-key.yacloud.greenplum.cluster.perf-diag.label_field-read-bytes }}**, **{{ ui-key.yacloud.greenplum.cluster.perf-diag.label_query-field-net-recv-total-bytes }}**, **{{ ui-key.yacloud.greenplum.cluster.perf-diag.label_query-field-net-sent-total-bytes }}**) с общими графиками нагрузки на кластер или его отдельные хосты.
     1. Определите, какая из сессий внесла наибольший вклад в потребление ресурсов.
-    1. Чтобы посмотреть детали о состояниях сессии в разные моменты времени и отследить изменение показателей во времени, перейдите на вкладку **История сессии**.
+    1. Чтобы посмотреть детали о состояниях сессии в разные моменты времени и отследить изменение показателей во времени, перейдите на вкладку **{{ ui-key.yacloud.greenplum.cluster.perf-diag.label_tab-session-history }}**.
 
     {% note info %}
 
@@ -149,36 +149,36 @@
 
 - Консоль управления {#console}
 
-    1. Перейдите на [страницу каталога](https://console.yandex.cloud).
-    1. [Перейдите](../../console/operations/select-service.md#select-service) в сервис **Yandex MPP Analytics for&nbsp;PostgreSQL**.
-    1. Нажмите на имя нужного кластера и перейдите на вкладку ![image](../../_assets/console-icons/pulse.svg) **Командный центр** → **Текущее состояние**.
-    1. Перейдите на вкладку **Сессии**.
-    1. Включите отображение только активных сессий. Для этого выключите все кнопки-статусы, кроме **Active**.
-    1. Отсортируйте сессии по столбцу **Время старта**.
-    1. Найдите долгоживущую сессию с высокими значениями в столбцах **CPU time** и **Peak memory**. Нажмите на номер этой сессии. Откроется страница с информацией о ней.
-    1. Проанализируйте значения **CPU time**, **Peak memory**, **Spill**, **Skew**, **Net sent**, **Net recv** и **Interconnect retransmits**.
+    1. Перейдите на [страницу каталога]({{ link-console-main }}).
+    1. Перейдите в сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-greenplum }}**.
+    1. Нажмите на имя нужного кластера и перейдите на вкладку ![image](../../_assets/console-icons/pulse.svg) **{{ ui-key.yacloud.greenplum.cluster.perf-diag.section_command-center }}** → **{{ ui-key.yacloud.greenplum.cluster.perf-diag.title_current-state }}**.
+    1. Перейдите на вкладку **{{ ui-key.yacloud.greenplum.cluster.perf-diag.label_filter-entity-session }}**.
+    1. Включите отображение только активных сессий. Для этого выключите все кнопки-статусы, кроме **{{ ui-key.yacloud.greenplum.perf-diag.label_session-status-active }}**.
+    1. Отсортируйте сессии по столбцу **{{ ui-key.yacloud.greenplum.cluster.perf-diag.label_field-backend-start }}**.
+    1. Найдите долгоживущую сессию с высокими значениями в столбцах **{{ ui-key.yacloud.greenplum.cluster.perf-diag.label_field-cpu-time }}** и **{{ ui-key.yacloud.greenplum.cluster.perf-diag.label_field-peak-memory }}**. Нажмите на номер этой сессии. Откроется страница с информацией о ней.
+    1. Проанализируйте значения **{{ ui-key.yacloud.greenplum.cluster.perf-diag.label_field-cpu-time }}**, **{{ ui-key.yacloud.greenplum.cluster.perf-diag.label_field-peak-memory }}**, **{{ ui-key.yacloud.greenplum.cluster.perf-diag.label_field-spill-total-bytes }}**, **{{ ui-key.yacloud.greenplum.cluster.perf-diag.label_query-field-skew }}**, **{{ ui-key.yacloud.greenplum.cluster.perf-diag.label_query-field-net-sent-total-bytes }}**, **{{ ui-key.yacloud.greenplum.cluster.perf-diag.label_query-field-net-recv-total-bytes }}** и **{{ ui-key.yacloud.greenplum.cluster.perf-diag.label_interconnect-retransmits }}**.
 
-       * Если вы видите высокие значения **Net sent** и **Net recv**, а также ненулевое значение **Interconnect retransmits**:
-         1. Перейдите на вкладку **Запросы**.
-         1. Примените фильтр **SSID:**, указав идентификатор транзакции выбранной сессии.
-         1. Отсортируйте запросы по столбцу **Ключ выполняемого запроса** по убыванию.
+       * Если вы видите высокие значения **{{ ui-key.yacloud.greenplum.cluster.perf-diag.label_query-field-net-sent-total-bytes }}** и **{{ ui-key.yacloud.greenplum.cluster.perf-diag.label_query-field-net-recv-total-bytes }}**, а также ненулевое значение **{{ ui-key.yacloud.greenplum.cluster.perf-diag.label_interconnect-retransmits }}**:
+         1. Перейдите на вкладку **{{ ui-key.yacloud.greenplum.cluster.perf-diag.label_filter-entity-query }}**.
+         1. Примените фильтр **{{ ui-key.yacloud.greenplum.cluster.perf-diag.label_filter-client-ssid }}**, указав идентификатор транзакции выбранной сессии.
+         1. Отсортируйте запросы по столбцу **{{ ui-key.yacloud.greenplum.cluster.perf-diag.label_field-running-query-key }}** по убыванию.
          1. Откройте планы выполнения нескольких запросов.
          1. Если после `Sort`, `Aggregate` или `Distinct` вы видите `Gather` или `Gather Merge`, перенесите `GROUP BY`/`DISTINCT`/`ORDER BY` в подзапросы.
          1. Если вы видите широкие выборки с полным набором столбцов, ограничьте результат с помощью `LIMIT` или постраничного вывода, а также отберите только необходимые столбцы и примените фильтры на ранних этапах запроса.
 
-       * Если вы видите ненулевое значение **Spill**:
-         1. Перейдите на вкладку **Запросы**.
-         1. Примените фильтр **SSID:**, указав идентификатор транзакции выбранной сессии.
-         1. Отсортируйте запросы по столбцу **Ключ выполняемого запроса** по убыванию.
+       * Если вы видите ненулевое значение **{{ ui-key.yacloud.greenplum.cluster.perf-diag.label_field-spill-total-bytes }}**:
+         1. Перейдите на вкладку **{{ ui-key.yacloud.greenplum.cluster.perf-diag.label_filter-entity-query }}**.
+         1. Примените фильтр **{{ ui-key.yacloud.greenplum.cluster.perf-diag.label_filter-client-ssid }}**, указав идентификатор транзакции выбранной сессии.
+         1. Отсортируйте запросы по столбцу **{{ ui-key.yacloud.greenplum.cluster.perf-diag.label_field-running-query-key }}** по убыванию.
          1. Откройте планы выполнения нескольких запросов.
          1. Если вы видите подзапросы с зависимостью от внешней строки (`EXISTS` или `IN` с корреляцией), а в плане выполнения присутствуют узлы `SubPlan` или `InitPlan`, декоррелируйте такие подзапросы.
          1. Если вы видите сортировку или материализацию, а затем `WindowAgg` над большими выборками, примените предагрегацию или фильтрацию, а также исключите лишние столбцы до применения оконных функций.
          1. Если вы видите `Sort` или `Distinct` на разных уровнях вложенности, уменьшите количество таких операций и глубину их вложенности.
 
-       * Если вы видите высокие значения **CPU time** или **Peak memory** при ненулевых значениях **Skew**:
-         1. Перейдите на вкладку **Запросы**.
-         1. Примените фильтр **SSID:**, указав идентификатор транзакции выбранной сессии.
-         1. Отсортируйте запросы по столбцу **Ключ выполняемого запроса** по убыванию.
+       * Если вы видите высокие значения **{{ ui-key.yacloud.greenplum.cluster.perf-diag.label_field-cpu-time }}** или **{{ ui-key.yacloud.greenplum.cluster.perf-diag.label_field-peak-memory }}** при ненулевых значениях **{{ ui-key.yacloud.greenplum.cluster.perf-diag.label_query-field-skew }}**:
+         1. Перейдите на вкладку **{{ ui-key.yacloud.greenplum.cluster.perf-diag.label_filter-entity-query }}**.
+         1. Примените фильтр **{{ ui-key.yacloud.greenplum.cluster.perf-diag.label_filter-client-ssid }}**, указав идентификатор транзакции выбранной сессии.
+         1. Отсортируйте запросы по столбцу **{{ ui-key.yacloud.greenplum.cluster.perf-diag.label_field-running-query-key }}** по убыванию.
          1. Откройте планы выполнения нескольких запросов и проверьте, как выполняются соединения:
             * Если соединения выполняются по столбцам, отличным от фактического ключа распределения таблиц, перепишите запрос.
             * Если соединяются крупные наборы, а фильтры отсутствуют или применяются после `JOIN`, используйте фильтрацию в подзапросах до `JOIN`.
@@ -193,13 +193,13 @@
 
 - Консоль управления {#console}
 
-    1. Перейдите на [страницу каталога](https://console.yandex.cloud).
-    1. [Перейдите](../../console/operations/select-service.md#select-service) в сервис **Yandex MPP Analytics for&nbsp;PostgreSQL**.
-    1. Нажмите на имя нужного кластера и перейдите на вкладку ![image](../../_assets/console-icons/pulse.svg) **Командный центр** → **Текущее состояние**.
-    1. Отсортируйте сессии по столбцу **Время старта**.
-    1. Найдите сессию в статусе `Idle`, которая длится наибольшее количество времени. Нажмите на номер этой сессии. Откроется страница с информацией о ней.
-    1. В разделе **Информация о сессии** в поле **Время начала запроса** посмотрите, когда был отправлен последний запрос.
-    1. Если сессия не выполняет запросы, а удержание соединения не требуется по логике клиентского приложения, такую сессию можно прервать. Для этого в правом верхнем углу нажмите кнопку **Прервать сессию** и подтвердите остановку сессии.
+    1. Перейдите на [страницу каталога]({{ link-console-main }}).
+    1. Перейдите в сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-greenplum }}**.
+    1. Нажмите на имя нужного кластера и перейдите на вкладку ![image](../../_assets/console-icons/pulse.svg) **{{ ui-key.yacloud.greenplum.cluster.perf-diag.section_command-center }}** → **{{ ui-key.yacloud.greenplum.cluster.perf-diag.title_current-state }}**.
+    1. Отсортируйте сессии по столбцу **{{ ui-key.yacloud.greenplum.cluster.perf-diag.label_field-backend-start }}**.
+    1. Найдите сессию в статусе `{{ ui-key.yacloud.greenplum.perf-diag.label_session-status-idle }}`, которая длится наибольшее количество времени. Нажмите на номер этой сессии. Откроется страница с информацией о ней.
+    1. В разделе **{{ ui-key.yacloud.greenplum.cluster.perf-diag.label_section_session-info }}** в поле **{{ ui-key.yacloud.greenplum.cluster.perf-diag.label_field-query-started }}** посмотрите, когда был отправлен последний запрос.
+    1. Если сессия не выполняет запросы, а удержание соединения не требуется по логике клиентского приложения, такую сессию можно прервать. Для этого в правом верхнем углу нажмите кнопку **{{ ui-key.yacloud.greenplum.cluster.perf-diag.label_action-terminate-session }}** и подтвердите остановку сессии.
 
 {% endlist %}
 
@@ -211,22 +211,22 @@
 
 - Консоль управления {#console}
 
-    1. Перейдите на [страницу каталога](https://console.yandex.cloud).
-    1. [Перейдите](../../console/operations/select-service.md#select-service) в сервис **Yandex MPP Analytics for&nbsp;PostgreSQL**.
-    1. Нажмите на имя нужного кластера и перейдите на вкладку ![image](../../_assets/console-icons/pulse.svg) **Командный центр** → **Текущее состояние**.
-    1. Перейдите на вкладку **Сессии**.
+    1. Перейдите на [страницу каталога]({{ link-console-main }}).
+    1. Перейдите в сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-greenplum }}**.
+    1. Нажмите на имя нужного кластера и перейдите на вкладку ![image](../../_assets/console-icons/pulse.svg) **{{ ui-key.yacloud.greenplum.cluster.perf-diag.section_command-center }}** → **{{ ui-key.yacloud.greenplum.cluster.perf-diag.title_current-state }}**.
+    1. Перейдите на вкладку **{{ ui-key.yacloud.greenplum.cluster.perf-diag.label_filter-entity-session }}**.
     1. Для отображения дерева блокировок нажмите кнопку ![image](../../_assets/console-icons/branches-down.svg).
     1. Исследуйте дерево блокировок и определите основные блокирующие сессии. 
     1. По каждой блокирующей сессии проверьте:
-        * Статус — как правило, `Active` или `Idle transaction`.
-        * Значения параметров **Время старта** и **Статус изменён**.
+        * Статус — как правило, `{{ ui-key.yacloud.greenplum.perf-diag.label_session-status-active }}` или `{{ ui-key.yacloud.greenplum.perf-diag.label_session-status-idle-transaction }}`.
+        * Значения параметров **{{ ui-key.yacloud.greenplum.cluster.perf-diag.label_field-backend-start }}** и **{{ ui-key.yacloud.greenplum.cluster.perf-diag.label_field-state-changed }}**.
         * Количество потребляемых ресурсов.
         * Количество заблокированных сессий.
         * Текст запроса.
-    1. Если блокирующая сессия долго находится в состоянии `Active` и потребляет вычислительные ресурсы, причиной может быть тяжелый запрос. В этом случае может помочь оптимизация запросов и бизнес-логики.
-    1. Если сессия блокирует множество других сессий и давно находится в состоянии `Idle transaction`, вы можете ее прервать после дополнительных проверок:
-        1. Убедитесь, что **CPU time** не увеличивается, а поле **Причина ожидания** пустое.
-        1. В правом верхнем углу нажмите кнопку **Прервать сессию**.
+    1. Если блокирующая сессия долго находится в состоянии `{{ ui-key.yacloud.greenplum.perf-diag.label_session-status-active }}` и потребляет вычислительные ресурсы, причиной может быть тяжелый запрос. В этом случае может помочь оптимизация запросов и бизнес-логики.
+    1. Если сессия блокирует множество других сессий и давно находится в состоянии `{{ ui-key.yacloud.greenplum.perf-diag.label_session-status-idle-transaction }}`, вы можете ее прервать после дополнительных проверок:
+        1. Убедитесь, что **{{ ui-key.yacloud.greenplum.cluster.perf-diag.label_field-cpu-time }}** не увеличивается, а поле **{{ ui-key.yacloud.greenplum.cluster.perf-diag.label_field-session-waiting-reason }}** пустое.
+        1. В правом верхнем углу нажмите кнопку **{{ ui-key.yacloud.greenplum.cluster.perf-diag.label_action-terminate-session }}**.
         1. Подтвердите остановку сессии.
 
     {% note tip %}
@@ -242,7 +242,7 @@
 
 ## Примеры анализа истории состояний и истории потребления {#historical-analysis}
 
-Командный центр Greenplum® поддерживает следующие виды анализа истории сессий и запросов:
+Командный центр {{ mgp-name }} поддерживает следующие виды анализа истории сессий и запросов:
 
 * Анализ метрик, например [поиск тяжелых запросов](#past-statements) и [поиск запросов с большой нагрузкой на сеть](#net-load).
 * Анализ событий, например [поиск отмененных запросов и ошибок выполнения](#cancelations).
@@ -257,21 +257,21 @@
 
     1. Узнайте, когда было зафиксировано высокое потребление CPU:
 
-        1. Перейдите на [страницу каталога](https://console.yandex.cloud).
-        1. [Перейдите](../../console/operations/select-service.md#select-service) в сервис **Yandex MPP Analytics for&nbsp;PostgreSQL**.
-        1. Нажмите на имя нужного кластера и перейдите в ![image](../../_assets/console-icons/pulse.svg) **Командный центр** → **История состояний**.
-        1. Задайте фильтр **CPU usage**.
+        1. Перейдите на [страницу каталога]({{ link-console-main }}).
+        1. Перейдите в сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-greenplum }}**.
+        1. Нажмите на имя нужного кластера и перейдите в ![image](../../_assets/console-icons/pulse.svg) **{{ ui-key.yacloud.greenplum.cluster.perf-diag.section_command-center }}** → **{{ ui-key.yacloud.greenplum.cluster.perf-diag.title_states-history }}**.
+        1. Задайте фильтр **{{ ui-key.yacloud.greenplum.cluster.perf-diag.label_filter-monitoring-cpu-usage }}**.
         1. Определите по графику, когда потребление CPU стало аномально высоким.
 
             Для этого наведите курсор на высокий пик. Появится всплывающее окно с информацией о состоянии кластера в выбранный момент. В этом окне указано время, когда произошел всплеск.
 
     1. Определите, какие запросы привели к высокому потреблению CPU:
 
-        1. Перейдите на вкладку **История потребления**.
+        1. Перейдите на вкладку **{{ ui-key.yacloud.greenplum.cluster.perf-diag.title_consumption-history }}**.
         1. Задайте диапазон времени на основе анализа истории состояний.
         1. Сгруппируйте запросы по пользователю, базе данных и идентификатору запроса. Так вы получите группы, которые содержат похожие друг на друга запросы.
-        1. Отсортируйте полученные группы запросов по столбцу **CPU time**.
-        1. Откройте группу с наибольшим значением **CPU time**.
+        1. Отсортируйте полученные группы запросов по столбцу **{{ ui-key.yacloud.greenplum.cluster.perf-diag.label_field-cpu-time }}**.
+        1. Откройте группу с наибольшим значением **{{ ui-key.yacloud.greenplum.cluster.perf-diag.label_field-cpu-time }}**.
         1. Изучите SQL-текст запросов и их планы выполнения, чтобы определить, что привело к высокому потреблению CPU.
 
        {% note tip %}
@@ -299,26 +299,26 @@
 
     1. Определите причину появления ошибок:
 
-        1. Перейдите на [страницу каталога](https://console.yandex.cloud).
-        1. [Перейдите](../../console/operations/select-service.md#select-service) в сервис **Yandex MPP Analytics for&nbsp;PostgreSQL**.
-        1. Нажмите на имя нужного кластера и перейдите в ![image](../../_assets/console-icons/pulse.svg) **Командный центр** → **История состояний**.
+        1. Перейдите на [страницу каталога]({{ link-console-main }}).
+        1. Перейдите в сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-greenplum }}**.
+        1. Нажмите на имя нужного кластера и перейдите в ![image](../../_assets/console-icons/pulse.svg) **{{ ui-key.yacloud.greenplum.cluster.perf-diag.section_command-center }}** → **{{ ui-key.yacloud.greenplum.cluster.perf-diag.title_states-history }}**.
         1. Задайте диапазон времени, в который наблюдались ошибки.
-        1. В выпадающем списке над графиком последовательно выберите **Connections**, а затем **Net usage**. Сравните графики.
-        1. Если наблюдались необычно большие значения **Net usage**, то наиболее вероятная причина — аномальная сетевая активность. 
-        1. Если наблюдались необычно большие значения **Connections**, то наиболее вероятная причина — всплеск соединений. 
+        1. В выпадающем списке над графиком последовательно выберите **{{ ui-key.yacloud.greenplum.cluster.perf-diag.label_filter-monitoring-connections }}**, а затем **{{ ui-key.yacloud.greenplum.cluster.perf-diag.label_filter-monitoring-net-usage }}**. Сравните графики.
+        1. Если наблюдались необычно большие значения **{{ ui-key.yacloud.greenplum.cluster.perf-diag.label_filter-monitoring-net-usage }}**, то наиболее вероятная причина — аномальная сетевая активность. 
+        1. Если наблюдались необычно большие значения **{{ ui-key.yacloud.greenplum.cluster.perf-diag.label_filter-monitoring-connections }}**, то наиболее вероятная причина — всплеск соединений. 
 
     1. Если причина ошибок — аномальная сетевая активность:
 
-        1. Перейдите на вкладку **История потребления**.
+        1. Перейдите на вкладку **{{ ui-key.yacloud.greenplum.cluster.perf-diag.title_consumption-history }}**.
         1. Задайте диапазон времени на основе анализа истории состояний.
-        1. Выберите **Группировать по:** → **пользователю**.
-        1. Отсортируйте группы запросов по столбцам **Net sent** и **Net recv**.
+        1. Выберите **{{ ui-key.yacloud.greenplum.cluster.perf-diag.label_filter-group-by }}** → **{{ ui-key.yacloud.greenplum.cluster.perf-diag.label_filter-group-by-user }}**.
+        1. Отсортируйте группы запросов по столбцам **{{ ui-key.yacloud.greenplum.cluster.perf-diag.label_query-field-net-sent-total-bytes }}** и **{{ ui-key.yacloud.greenplum.cluster.perf-diag.label_query-field-net-recv-total-bytes }}**.
         1. Найдите пользователя с максимальными значениями в этих столбцах. Отфильтруйте группы запросов по этому пользователю.
-        1. Выберите **Группировать по:** → **ID запроса** и отключите группировку по пользователю.
+        1. Выберите **{{ ui-key.yacloud.greenplum.cluster.perf-diag.label_filter-group-by }}** → **{{ ui-key.yacloud.greenplum.cluster.perf-diag.label_filter-group-by-query-id }}** и отключите группировку по пользователю.
         1. Найдите запросы, которые генерировали больше всего трафика. Сохраните текст этих запросов и время их старта.
-        1. Перейдите на вкладку **Сессии**.
+        1. Перейдите на вкладку **{{ ui-key.yacloud.greenplum.cluster.perf-diag.label_filter-entity-session }}**.
         1. Используя поиск по тексту запросов, найдите нужные запросы.
-        1. Определите источник трафика с помощью столбца **Приложение**.
+        1. Определите источник трафика с помощью столбца **{{ ui-key.yacloud.greenplum.cluster.perf-diag.label_field-application }}**.
         1. По результатам анализа на стороне приложений с аномальной сетевой активностью:
             * ограничьте объем выгружаемых данных;
             * используйте материализованные представления или временные таблицы;
@@ -327,10 +327,10 @@
 
     1. Если причина ошибок — всплеск соединений:
 
-        1. Под графиком перейдите на вкладку **Сессии**.
-        1. Отсортируйте сессии по столбцу **Время старта**.
-        1. Выберите на графике момент времени с наибольшими значениями **Connections**. Используйте блок **На момент времени:** и стрелки **<** **>** для точного задания момента времени.
-        1. Используя фильтры **Пользователь** и **Имя приложения:**, сравните количество созданных сессий в секунду для каждого источника.
+        1. Под графиком перейдите на вкладку **{{ ui-key.yacloud.greenplum.cluster.perf-diag.label_filter-entity-session }}**.
+        1. Отсортируйте сессии по столбцу **{{ ui-key.yacloud.greenplum.cluster.perf-diag.label_field-backend-start }}**.
+        1. Выберите на графике момент времени с наибольшими значениями **{{ ui-key.yacloud.greenplum.cluster.perf-diag.label_filter-monitoring-connections }}**. Используйте блок **{{ ui-key.yacloud.greenplum.cluster.perf-diag.label_filter-at-time }}** и стрелки **<** **>** для точного задания момента времени.
+        1. Используя фильтры **{{ ui-key.yacloud.greenplum.cluster.perf-diag.label_field-user }}** и **{{ ui-key.yacloud.greenplum.cluster.perf-diag.label_filter-application }}**, сравните количество созданных сессий в секунду для каждого источника.
         1. Если один источник создает намного больше сессий, чем остальные:
             * Проверьте, что приложение переиспользует соединения.
             * Настройте параметры повторных подключений: интервал между повторами и общее количество попыток.
@@ -348,14 +348,14 @@
 
 - Консоль управления {#console}
 
-    1. Перейдите на [страницу каталога](https://console.yandex.cloud).
-    1. [Перейдите](../../console/operations/select-service.md#select-service) в сервис **Yandex MPP Analytics for&nbsp;PostgreSQL**.
-    1. Нажмите на имя нужного кластера и перейдите в ![image](../../_assets/console-icons/pulse.svg) **Командный центр** → **История состояний**.
-    1. Перейдите на вкладку **Запросы**.
-    1. Выберите момент времени, когда наблюдались проблемы по данным мониторинга. Используйте блок **На момент времени:** и стрелки **<** **>** для точного задания момента времени.
-    1. Отсортируйте запросы по столбцу **Состояние запроса**.
-    1. Найдите запросы со статусом `Canceled` или `Error`.
-    1. Установите источники запросов по значениям в столбцах **Пользователь** и **Приложение**. При необходимости используйте фильтры **Пользователь:** и **Имя приложения:**.
+    1. Перейдите на [страницу каталога]({{ link-console-main }}).
+    1. Перейдите в сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-greenplum }}**.
+    1. Нажмите на имя нужного кластера и перейдите в ![image](../../_assets/console-icons/pulse.svg) **{{ ui-key.yacloud.greenplum.cluster.perf-diag.section_command-center }}** → **{{ ui-key.yacloud.greenplum.cluster.perf-diag.title_states-history }}**.
+    1. Перейдите на вкладку **{{ ui-key.yacloud.greenplum.cluster.perf-diag.label_filter-entity-query }}**.
+    1. Выберите момент времени, когда наблюдались проблемы по данным мониторинга. Используйте блок **{{ ui-key.yacloud.greenplum.cluster.perf-diag.label_filter-at-time }}** и стрелки **<** **>** для точного задания момента времени.
+    1. Отсортируйте запросы по столбцу **{{ ui-key.yacloud.greenplum.cluster.perf-diag.label_field-query-status }}**.
+    1. Найдите запросы со статусом `{{ ui-key.yacloud.greenplum.perf-diag.label_query-status-canceled }}` или `{{ ui-key.yacloud.greenplum.perf-diag.label_query-status-error }}`.
+    1. Установите источники запросов по значениям в столбцах **{{ ui-key.yacloud.greenplum.cluster.perf-diag.label_field-user }}** и **{{ ui-key.yacloud.greenplum.cluster.perf-diag.label_field-application }}**. При необходимости используйте фильтры **{{ ui-key.yacloud.greenplum.cluster.perf-diag.label_filter-user }}** и **{{ ui-key.yacloud.greenplum.cluster.perf-diag.label_filter-application }}**.
     1. Если один источник создает намного больше отмененных и ошибочных запросов, чем остальные:
   
        * Проверьте и, при необходимости, оптимизируйте бизнес-логику и структуру SQL-запросов.
@@ -369,5 +369,3 @@
        Оптимальные параметры зависят от числа сегментов и ресурсов кластера.
 
 {% endlist %}
-
-_Greenplum® и Greenplum Database® являются зарегистрированными товарными знаками или товарными знаками Broadcom Inc в США и/или других странах._

@@ -7,7 +7,7 @@ To get the list of available Kafka users, make a [List](list.md#List) request.
 ## HTTP request
 
 ```
-GET https://mdb.api.cloud.yandex.net/managed-kafka/v1/clusters/{clusterId}/users/{userName}
+GET https://{{ api-host-mdb }}/managed-kafka/v1/clusters/{clusterId}/users/{userName}
 ```
 
 ## Path parameters

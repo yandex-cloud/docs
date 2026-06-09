@@ -7,7 +7,7 @@ To get the list of available ResourcePreset resources, make a [List](list.md#Lis
 ## HTTP request
 
 ```
-GET https://dataproc.api.cloud.yandex.net/dataproc/v1/resourcePresets/{resourcePresetId}
+GET https://dataproc.{{ api-host }}/dataproc/v1/resourcePresets/{resourcePresetId}
 ```
 
 ## Path parameters

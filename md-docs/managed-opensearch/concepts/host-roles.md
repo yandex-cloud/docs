@@ -1,10 +1,10 @@
-# Роли хостов в Managed Service for OpenSearch
+# Роли хостов в {{ mos-name }}
 
-Каждый кластер Managed Service for OpenSearch состоит из одной или нескольких групп хостов `OpenSearch` и `Dashboards` (опционально):
+Каждый кластер {{ mos-name }} состоит из одной или нескольких групп хостов `{{ OS }}` и `Dashboards` (опционально):
 
-* Группа хостов `OpenSearch` может содержать хосты с ролями [DATA](#data) или [MANAGER](#manager).
+* Группа хостов `{{ OS }}` может содержать хосты с ролями [DATA](#data) или [MANAGER](#manager).
   
-  В кластере должны присутствовать хосты с обеими ролями. Если в кластере есть только одна группа `OpenSearch`, ее хосты совмещают обе роли.
+  В кластере должны присутствовать хосты с обеими ролями. Если в кластере есть только одна группа `{{ OS }}`, ее хосты совмещают обе роли.
 
 * Группа хостов `Dashboards` может содержать только хосты с ролью [DASHBOARDS](#dashboards).
 
@@ -23,15 +23,15 @@
 
 ### Примеры использования {#examples-data}
 
-* [Миграция данных из Elasticsearch](../tutorials/migration-to-opensearch.md)
-* [Настройка политики индексов в Managed Service for OpenSearch](../tutorials/opensearch-index-policy.md)
-* [Настройка политики холодного хранилища в Managed Service for OpenSearch](../tutorials/opensearch-cold-storage-policy.md)
-* [Загрузка данных из Yandex Managed Service for OpenSearch в Yandex Object Storage с помощью Yandex Data Transfer](../tutorials/opensearch-to-object-storage.md)
-* [Использование плагина yandex-lemmer в Managed Service for OpenSearch](../tutorials/opensearch-yandex-lemmer.md)
+* [{#T}](../tutorials/migration-to-opensearch.md)
+* [{#T}](../tutorials/opensearch-index-policy.md)
+* [{#T}](../tutorials/opensearch-cold-storage-policy.md)
+* [{#T}](../tutorials/opensearch-to-object-storage.md)
+* [{#T}](../tutorials/opensearch-yandex-lemmer.md)
 
 ## Хосты с ролью MANAGER {#manager}
 
-Хосты с этой ролью отслеживают состояние кластера и управляют его конфигурацией, обеспечивая работоспособность всех компонентов OpenSearch.
+Хосты с этой ролью отслеживают состояние кластера и управляют его конфигурацией, обеспечивая работоспособность всех компонентов {{ OS }}.
 
 При использовании хостов с ролью `MANAGER` в кластер будет добавлена группа с тремя такими хостами.
 
@@ -45,10 +45,10 @@
 
 ## Хосты с ролью DASHBOARDS {#dashboards}
 
-Хосты с этой ролью размещают OpenSearch Dashboards — инструмент визуализации данных, например, для мониторинга приложений в режиме реального времени, обнаружения угроз, управления инцидентами или персонализированного поиска.
+Хосты с этой ролью размещают {{ OS }} Dashboards — инструмент визуализации данных, например, для мониторинга приложений в режиме реального времени, обнаружения угроз, управления инцидентами или персонализированного поиска.
 
 ### Примеры использования {#examples-dashboards}
 
-* [Аутентификация в OpenSearch Dashboards с помощью Keycloak](../tutorials/saml-keycloak.md)
-* [Загрузка логов из Yandex Audit Trails](../tutorials/trails-to-opensearch.md)
-* [Миграция данных из Elasticsearch](../tutorials/migration-to-opensearch.md)
+* [{#T}](../tutorials/saml-keycloak.md)
+* [{#T}](../tutorials/trails-to-opensearch.md)
+* [{#T}](../tutorials/migration-to-opensearch.md)

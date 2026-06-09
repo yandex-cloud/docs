@@ -5,7 +5,7 @@ Stops the specified connector.
 ## HTTP request
 
 ```
-POST https://serverless-eventrouter.api.cloud.yandex.net/eventrouter/v1/connectors/{connectorId}:stop
+POST https://serverless-eventrouter.{{ api-host }}/eventrouter/v1/connectors/{connectorId}:stop
 ```
 
 ## Path parameters

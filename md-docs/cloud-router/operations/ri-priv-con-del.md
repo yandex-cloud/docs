@@ -1,11 +1,5 @@
 # Удалить приватное соединение из Routing Instance
 
-{% note warning %}
-
-Чтобы запросить доступ к данной функции, обратитесь в [техническую поддержку](https://center.yandex.cloud/support).
-
-{% endnote %}
-
 {% note info %}
 
 Для выполнения операции необходима роль [cloud-router.editor](../security/index.md#cloudrouter-editor).
@@ -61,7 +55,7 @@
      name: ri1-preprod
      description: Routing instance 1
      folder_id: b1gqf**********jiz2w
-     region_id: ru-central1
+     region_id: {{ region-id }}
      cic_private_connection_info:
      status: ACTIVE
      created_at: "2025-03-19T13:35:56Z"

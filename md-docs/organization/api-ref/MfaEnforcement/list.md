@@ -5,7 +5,7 @@ returns MFA enforcements for the specified organization
 ## HTTP request
 
 ```
-GET https://organization-manager.api.cloud.yandex.net/organization-manager/v1/mfaEnforcements
+GET https://organization-manager.{{ api-host }}/organization-manager/v1/mfaEnforcements
 ```
 
 ## Query parameters {#yandex.cloud.organizationmanager.v1.ListMfaEnforcementsRequest}

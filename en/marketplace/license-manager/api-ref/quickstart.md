@@ -7,16 +7,16 @@ description: You will learn how to work with the {{ license-manager }} API to in
 
 In this section, you will learn how to integrate your [product](../../concepts/product.md) with the {{ marketplace-full-name }} {{ license-manager }} API.
 
-## API interaction diagram {#visualization}
+## Scheme of interaction with API {#visualization}
 
 
 ![api-interaction-diagram.svg](../../../_assets/marketplace/api-interaction-diagram.svg)
 
-On the diagram:
+Scheme:
 
 1. The application [requests](#get-metadata) VM metadata. The metadata service address accessible from within the VM is used for this purpose.
-1. In [response](#metadata-response), the application gets the `id` and `vendor.folderId` field values. These values ​​are used to get a list of links.
-1. The application [requests](#get-locks) the {{ marketplace-short-name }} {{ license-manager }} API for a list of links, providing the obtained `resourceId` and `folderId` field values ​​as parameters.
+1. In [response](#metadata-response), the application gets the `id` and `vendor.folderId` field values. These values are used to get a list of links.
+1. The application [requests](#get-locks) the {{ marketplace-short-name }} {{ license-manager }} API for a list of links and provides the obtained values as parameters in the `resourceId` and `folderId` fields.
 1. In [response](#lock-list-response), the application gets an array of links, selects the required one, and uses it to activate some functionality.
 1. From time to time, the application [requests](#ensure-lock) a confirmation of the link to the resource.
 1. In [response](#lock-ensured), the application gets the link confirmed and continues to operate.
@@ -25,7 +25,17 @@ On the diagram:
 
 To get started with the {{ marketplace-short-name }} {{ license-manager }} API:
 
-{% include [license-manager-quickstart-before-you-begin](../../../_includes/marketplace/license-manager-quickstart-before-you-begin.md) %}
+1. [Submit an application](../../quickstart.md#send-application) and [register](../../operations/registration.md) a legal entity account.
+
+1. In the {{ yandex-cloud }} UI:
+    1. [Create](../../../iam/operations/sa/create.md) a service account you will use to authenticate in the {{ license-manager }} API.
+    1. [Get an IAM token](../../../iam/concepts/authorization/iam-token.md) for your service account.
+
+1. In the {{ marketplace-short-name }} [partner dashboard]({{ link-cloud-partners }}):
+    1. Create a [Subscription](../../concepts/subscription.md) type [product](../../operations/create-product.md) and [service plan](../../operations/create-tariff.md).
+    1. [Assign](../../security/partners.md#assign-role) to the service account the `license-manager.saasSubscriptionSupervisor` role for the [partner profile](../../concepts/publisher.md) or an individual [product](../../concepts/product.md).
+
+To use the examples, install [cURL](https://curl.haxx.se) and [gRPCurl](https://github.com/fullstorydev/grpcurl) (if using the [gRPC API](../saas/api-ref/grpc/index.md)).
 
 
 ## Set up integration with API {#integrate}
@@ -127,7 +137,7 @@ To get a list of links of subscriptions to resources, use the [List](../api-ref/
   Where:
 
   * `folderId`: ID of the folder the resource is located in. Matches the `vendor.folderId` field value obtained in the previous step.
-  * `resourceId`: Resource ID. Matches the `id` field value obtained in the previous step.
+  * `resourceId`: Resource identifier. Matches the `id` field value obtained in the previous step.
 
 - gRPC API {#grpc-api}
 
@@ -144,7 +154,7 @@ To get a list of links of subscriptions to resources, use the [List](../api-ref/
   Where:
 
   * `folderId`: ID of the folder the resource is located in. Matches the `vendor.folderId` field value obtained in the previous step.
-  * `resourceId`: Resource ID. Matches the `id` field value obtained in the previous step.
+  * `resourceId`: Resource identifier. Matches the `id` field value obtained in the previous step.
 
 {% endlist %}
 

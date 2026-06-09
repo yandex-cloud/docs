@@ -29,4 +29,5 @@
 
 #### Пример {#notification-example}
 
+
 [Пример чарта с уведомлениями](https://datalens.yandex/nvkfwnekf9xy9#Editor.%20setChartsInsights(args))

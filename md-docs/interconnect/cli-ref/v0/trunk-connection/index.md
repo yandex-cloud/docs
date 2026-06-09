@@ -20,6 +20,8 @@ Aliases:
 
 - [yc cic v0 trunk-connection add-labels](add-labels.md) — Add labels to a trunk connection.
 
+- [yc cic v0 trunk-connection batch-get](batch-get.md) — Get information about several trunk connections in one request.
+
 - [yc cic v0 trunk-connection delete](delete.md) — Delete a trunk connection.
 
 - [yc cic v0 trunk-connection get](get.md) — Get information about a trunk connection.
@@ -53,9 +55,6 @@ Set the custom configuration file. ||
 Enable gRPC retries. By default, retries are enabled with maximum 5 attempts.
 Pass 0 to disable retries. Pass any negative value for infinite retries.
 Even infinite retries are capped with 2 minutes timeout. ||
-|| `--syntax` | `string`
-
-CLI syntax: 1 (legacy) or 2 (current). Omit to use default-syntax in the profile or the product default. ||
 || `--cloud-id` | `string`
 
 Set the ID of the cloud to use. ||

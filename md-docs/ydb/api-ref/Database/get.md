@@ -5,7 +5,7 @@ Returns the specified database.
 ## HTTP request
 
 ```
-GET https://ydb.api.cloud.yandex.net/ydb/v1/databases/{databaseId}
+GET https://ydb.{{ api-host }}/ydb/v1/databases/{databaseId}
 ```
 
 ## Path parameters

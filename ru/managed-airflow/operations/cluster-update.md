@@ -25,7 +25,7 @@ keywords:
 
     1. В блоке **{{ ui-key.yacloud.mdb.forms.section_base }}** измените имя и описание кластера, удалите или добавьте новые метки.
 
-    1. В блоке **{{ ui-key.yacloud.airflow.section_accesses }}** выберите сервисный аккаунт или [создайте новый](../../iam/operations/sa/create.md#create-sa) с ролью  `{{ roles.maf.integrationProvider }}`. Это даст кластеру нужные права для работы с пользовательскими ресурсами. Подробнее см. в разделе [Имперсонация](../concepts/impersonation.md).
+    1. В блоке **{{ ui-key.yacloud.airflow.section_accesses }}** выберите сервисный аккаунт или [создайте новый](../../iam/operations/sa/create.md#create-sa) с ролью `{{ roles.maf.integrationProvider }}`. Это даст кластеру нужные права для работы с пользовательскими ресурсами. Подробнее в разделе [Имперсонация](../concepts/impersonation.md).
 
         Для изменения сервисного аккаунта в кластере {{ maf-name }} [назначьте](../../iam/operations/roles/grant.md) вашему аккаунту в {{ yandex-cloud }} роль [iam.serviceAccounts.user](../../iam/security/index.md#iam-serviceAccounts-user) или выше.
 
@@ -135,7 +135,7 @@ keywords:
 
     1. Откройте актуальный конфигурационный файл {{ TF }} с планом инфраструктуры.
 
-        Как создать такой файл, см. в разделе [Создание кластера](cluster-create.md).
+        Инструкция по созданию файла описана в разделе [Создание кластера](cluster-create.md).
 
     1. Чтобы изменить настройки кластера, измените значения нужных полей в конфигурационном файле.
 
@@ -165,7 +165,7 @@ keywords:
 
         {% include [terraform-apply](../../_includes/mdb/terraform/apply.md) %}
 
-    Подробнее см. в [документации провайдера {{ TF }}]({{ tf-provider-maf }}).
+    Подробнее в [документации провайдера {{ TF }}]({{ tf-provider-maf }}).
 
 - REST API {#api}
 
@@ -342,7 +342,7 @@ keywords:
 
             Включенная защита от удаления не помешает подключиться к кластеру вручную и удалить его.
 
-        * `serviceAccountId` — идентификатор сервисного аккаунта с [ролью](../../iam/concepts/access-control/roles.md) `managed-airflow.integrationProvider`. Это даст кластеру нужные права для работы с пользовательскими ресурсами. Подробнее см. в разделе [Имперсонация](../concepts/impersonation.md).
+        * `serviceAccountId` — идентификатор сервисного аккаунта с [ролью](../../iam/concepts/access-control/roles.md) `managed-airflow.integrationProvider`. Это даст кластеру нужные права для работы с пользовательскими ресурсами. Подробнее в разделе [Имперсонация](../concepts/impersonation.md).
 
             Для изменения сервисного аккаунта в кластере {{ maf-name }} [назначьте](../../iam/operations/roles/grant.md) вашему аккаунту в {{ yandex-cloud }} роль [iam.serviceAccounts.user](../../iam/security/index.md#iam-serviceAccounts-user) или выше.
 
@@ -565,7 +565,7 @@ keywords:
 
             Включенная защита от удаления не помешает подключиться к кластеру вручную и удалить его.
 
-        * `service_account_id` — идентификатор сервисного аккаунта с [ролью](../../iam/concepts/access-control/roles.md) `managed-airflow.integrationProvider`. Это даст кластеру нужные права для работы с пользовательскими ресурсами. Подробнее см. в разделе [Имперсонация](../concepts/impersonation.md).
+        * `service_account_id` — идентификатор сервисного аккаунта с [ролью](../../iam/concepts/access-control/roles.md) `managed-airflow.integrationProvider`. Это даст кластеру нужные права для работы с пользовательскими ресурсами. Подробнее в разделе [Имперсонация](../concepts/impersonation.md).
 
             Для изменения сервисного аккаунта в кластере {{ maf-name }} [назначьте](../../iam/operations/roles/grant.md) вашему аккаунту в {{ yandex-cloud }} роль [iam.serviceAccounts.user](../../iam/security/index.md#iam-serviceAccounts-user) или выше.
 

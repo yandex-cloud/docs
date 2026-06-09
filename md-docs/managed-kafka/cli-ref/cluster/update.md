@@ -167,9 +167,6 @@ Set the custom configuration file. ||
 Enable gRPC retries. By default, retries are enabled with maximum 5 attempts.
 Pass 0 to disable retries. Pass any negative value for infinite retries.
 Even infinite retries are capped with 2 minutes timeout. ||
-|| `--syntax` | `string`
-
-CLI syntax: 1 (legacy) or 2 (current). Omit to use default-syntax in the profile or the product default. ||
 || `--cloud-id` | `string`
 
 Set the ID of the cloud to use. ||
@@ -197,11 +194,3 @@ Set the output format: text (default), yaml, json, json-rest. ||
 Query to select values from the response using jq syntax ||
 || `-h`, `--help` | Display help for the command. ||
 |#
-#### Examples
-
- * [Настроить окно обслуживания](../../operations/cluster-maintenance.md#cli_3)
- * [Изменить имя и описание кластера](../../operations/cluster-update.md#cli_1)
- * [Обновить кластер](../../operations/cluster-version-update.md#cli_1)
- * [Миграция кластера с одним хостом с помощью интерфейсов Yandex Cloud](../../operations/host-migration.md#cli_1)
- * [Включить веб-интерфейс](../../operations/kafka-ui-enable.md#cli_1)
- * [Увеличить размер хранилища](../../operations/storage-space.md#cli_1)

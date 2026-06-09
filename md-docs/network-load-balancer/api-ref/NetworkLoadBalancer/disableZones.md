@@ -5,7 +5,7 @@ Disable zones for the specified network load balancer.
 ## HTTP request
 
 ```
-POST https://load-balancer.api.cloud.yandex.net/load-balancer/v1/networkLoadBalancers/{networkLoadBalancerId}:disableZones
+POST https://load-balancer.{{ api-host }}/load-balancer/v1/networkLoadBalancers/{networkLoadBalancerId}:disableZones
 ```
 
 ## Path parameters

@@ -5,7 +5,7 @@ Deletes the specified export.
 ## HTTP request
 
 ```
-DELETE https://logging.api.cloud.yandex.net/logging/v1/exports/{exportId}
+DELETE https://logging.{{ api-host }}/logging/v1/exports/{exportId}
 ```
 
 ## Path parameters

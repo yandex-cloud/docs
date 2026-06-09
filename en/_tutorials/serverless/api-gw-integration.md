@@ -9,7 +9,7 @@ You can configure a function or container in the [OpenAPI 3.0](https://github.co
 
 Develop a {{ ydb-full-name }} integration function for [{{ ydb-short-name }}](../../ydb/concepts/#ydb) operations. The function will communicate with {{ ydb-name }} and handle external HTTP requests via an API gateway using the [Amazon DynamoDB](https://aws.amazon.com/dynamodb/)-compatible [HTTP API](https://docs.aws.amazon.com/amazondynamodb/latest/APIReference/Welcome.html). The function is written in TypeScript and runs on Node.js 16.
 
-We will use this integration to implement a [CRUD API](https://en.wikipedia.org/wiki/Create,_read,_update_and_delete) for accessing the movie database deployed in {{ ydb-name }}.
+We will use this integration to implement a [CRUD API](https://en.wikipedia.org/wiki/Create,_read,_update_and_delete) for accessing the movie database deployed in {{ ydb-full-name }}.
 
 To deploy a project:
 1. [Set up your environment](#setup-environment).
@@ -31,8 +31,8 @@ If you no longer need the resources you created, [delete](#clear-out) them.
 The cost of integration resources includes:
 * Fee for the amount of stored data, number of data operations, and outbound traffic (see [{{ objstorage-full-name }} pricing](../../storage/pricing.md)).
 * Fee for {{ ydb-short-name }} operations and data storage (see [{{ ydb-name }} pricing for serverless mode](../../ydb/pricing/serverless.md)).
-* Fee for the number of function calls, computing resources allocated to a function, and outbound traffic (see [{{ sf-name }} pricing](../../functions/pricing.md)).
-* Fee for the number of requests to the API gateway and outbound traffic (see [{{ api-gw-name }} pricing](../../api-gateway/pricing.md)).
+* Fee for the number of function calls, computing resources allocated to run a function, and outgoing traffic (see [{{ sf-name }} pricing](../../functions/pricing.md)).
+* Fee for the number of requests to the API gateway and outgoing traffic (see [{{ api-gw-name }} pricing](../../api-gateway/pricing.md)).
 
 ## Set up your environment {#setup-environment}
 
@@ -42,7 +42,7 @@ The cost of integration resources includes:
 
   1. [Install WSL](https://docs.microsoft.com/en-us/windows/wsl/install) to run a Linux environment.
   1. Run the Linux subsystem (by default, Ubuntu).
-  1. Configure the environment as described in this tutorial for Linux.
+  1. Set up the environment as described in this guide for Linux.
 
 - Linux {#linux}
 
@@ -52,7 +52,7 @@ The cost of integration resources includes:
 
   {% endnote %}
 
-  1. Install these utilities in the specified order using commands in the terminal:
+  1. Install the following tools in the specified order by running the relevant commands in the terminal:
      * [Curl](https://curl.se/) and [Git](https://git-scm.com/):
 
        ```bash
@@ -109,12 +109,12 @@ The cost of integration resources includes:
 
 
 
-  1. [Create](../../cli/operations/profile/profile-create.md#interactive-create) a {{ yandex-cloud }} CLI profile with a basic configuration.
+  1. [Create](../../cli/operations/profile/profile-create.md#interactive-create) a {{ yandex-cloud }} CLI profile with basic settings.
   1. [Set up](../../ydb/docapi/tools/aws-setup.md) the AWS CLI.
 
 - macOS {#macos}
 
-  1. Install the following utilities in the specified order using commands in the terminal:
+  1. Install the following tools one by one by running the relevant commands in the terminal:
      * [Homebrew](https://brew.sh):
 
        ```bash
@@ -173,7 +173,7 @@ The cost of integration resources includes:
 
 
 
-  1. [Create](../../cli/operations/profile/profile-create.md#interactive-create) a profile with a basic configuration.
+  1. [Create](../../cli/operations/profile/profile-create.md#interactive-create) a profile with basic settings.
   1. [Set up](../../ydb/docapi/tools/aws-setup.md) the AWS CLI.
 
 {% endlist %}
@@ -224,7 +224,7 @@ In case of [container](../../serverless-containers/concepts/container.md)-based 
    ```
 
 1. Package it into a ZIP archive:
-
+  
    ```bash
    npm run package
    ```
@@ -258,9 +258,10 @@ To set up configuration files for {{ TF }}:
    ```
 
    Save these properties:
-   * `token`: [OAuth token](../../iam/concepts/authorization/oauth-token.md).
    * `cloud-id`: [Cloud](../../resource-manager/concepts/resources-hierarchy.md#cloud) ID.
    * `folder-id`: [Folder](../../resource-manager/concepts/resources-hierarchy.md#folder) ID.
+
+1. Get an [IAM token](../../iam/concepts/authorization/iam-token.md) or [authorized key](../../iam/concepts/authorization/key.md).
 1. Create a directory named `crud-api` and open it:
 
    ```bash
@@ -272,14 +273,14 @@ To set up configuration files for {{ TF }}:
 1. Create a file named `main.tf` and paste the {{ TF }} module configuration into it. Set the following properties for the new resources:
    * `cloud_id`: Cloud ID.
    * `folder_id`: Folder ID.
-   * `oauth_token`: OAuth token.
+   * `token`: IAM token or authorized key.
    * `database_connector_bucket`: Name of the integration function bucket.
 
    ```hcl
    locals {
      cloud_id    = "<cloud_ID>"
      folder_id   = "<folder_ID>"
-     oauth_token = "<OAuth_token>"
+     token       = "<IAM_token_or_authorized_key>"
      zone        = "{{ region-id }}-d"
    }
 
@@ -310,7 +311,7 @@ To set up configuration files for {{ TF }}:
    }
 
    provider "yandex" {
-     token     = local.oauth_token
+     token     = local.token
      cloud_id  = local.cloud_id
      folder_id = local.folder_id
      zone      = local.zone
@@ -581,7 +582,7 @@ To test the new CRUD API, send the following HTTP requests:
      }'
    ```
 
-1. Retrieve movie details:
+1. Get movie details:
 
    ```bash
    curl \
@@ -615,7 +616,7 @@ To test the new CRUD API, send the following HTTP requests:
      }'
    ```
 
-1. Retrieve a movie list:
+1. Get a list of movies:
 
    ```bash
    curl \

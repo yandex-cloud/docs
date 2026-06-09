@@ -2,12 +2,12 @@
 
 Чтобы создать инфраструктуру для [привязки доменного имени к ВМ с веб-сервером](index.md):
 
-Чтобы привязать доменное имя к ВМ с веб-сервером в Cloud DNS:
+Чтобы привязать доменное имя к ВМ с веб-сервером в {{ dns-name }}:
 
 1. [Подготовьте облако к работе](#before-you-begin).
 1. [Создайте виртуальную машину с веб-сервером](#create-web-server).
 1. [Создайте публичную зону DNS](#configure-dns).
-1. [Делегируйте домен сервису Cloud DNS](#delegate-domain).
+1. [Делегируйте домен сервису {{ dns-name }}](#delegate-domain).
 1. [Создайте ресурсную запись типа A](#create-record).
 1. [Проверьте работу сайта](#test).
 
@@ -15,11 +15,11 @@
 
 ## Подготовьте облако к работе {#before-you-begin}
 
-Зарегистрируйтесь в Yandex Cloud и создайте [платежный аккаунт](../../../billing/concepts/billing-account.md):
-1. Перейдите в [консоль управления](https://console.yandex.cloud), затем войдите в Yandex Cloud или зарегистрируйтесь.
-1. На странице **[Yandex Cloud Billing](https://center.yandex.cloud/billing/accounts)** убедитесь, что у вас подключен платежный аккаунт, и он находится в [статусе](../../../billing/concepts/billing-account-statuses.md) `ACTIVE` или `TRIAL_ACTIVE`. Если платежного аккаунта нет, [создайте его](../../../billing/quickstart/index.md) и [привяжите](../../../billing/operations/pin-cloud.md) к нему облако.
+Зарегистрируйтесь в {{ yandex-cloud }} и создайте [платежный аккаунт](../../../billing/concepts/billing-account.md):
+1. Перейдите в [консоль управления]({{ link-console-main }}), затем войдите в {{ yandex-cloud }} или зарегистрируйтесь.
+1. На странице **[{{ ui-key.yacloud_billing.billing.label_service }}]({{ link-console-billing }})** убедитесь, что у вас подключен платежный аккаунт, и он находится в [статусе](../../../billing/concepts/billing-account-statuses.md) `ACTIVE` или `TRIAL_ACTIVE`. Если платежного аккаунта нет, [создайте его](../../../billing/quickstart/index.md) и [привяжите](../../../billing/operations/pin-cloud.md) к нему облако.
 
-Если у вас есть активный платежный аккаунт, вы можете создать или выбрать [каталог](../../../resource-manager/concepts/resources-hierarchy.md#folder), в котором будет работать ваша инфраструктура, на [странице облака](https://console.yandex.cloud/cloud).
+Если у вас есть активный платежный аккаунт, вы можете создать или выбрать [каталог](../../../resource-manager/concepts/resources-hierarchy.md#folder), в котором будет работать ваша инфраструктура, на [странице облака]({{ link-console-cloud }}).
 
 [Подробнее об облаках и каталогах](../../../resource-manager/concepts/resources-hierarchy.md).
 
@@ -27,9 +27,9 @@
 
 В стоимость поддержки создаваемого решения входят:
 
-* плата за использование [публичного IP-адреса](../../../vpc/concepts/address.md#public-addresses) (см. [тарифы Yandex Virtual Private Cloud](../../../vpc/pricing.md));
-* плата за вычислительные ресурсы и диски [ВМ](../../../compute/concepts/vm.md) (см. [тарифы Yandex Compute Cloud](../../../compute/pricing.md));
-* плата за использование публичной [DNS-зоны](../../concepts/dns-zone.md) и публичные [DNS-запросы](../../../glossary/dns.md) (см. [тарифы Yandex Cloud DNS](../../pricing.md)).
+* плата за использование [публичного IP-адреса](../../../vpc/concepts/address.md#public-addresses) (см. [тарифы {{ vpc-full-name }}](../../../vpc/pricing.md));
+* плата за вычислительные ресурсы и диски [ВМ](../../../compute/concepts/vm.md) (см. [тарифы {{ compute-full-name }}](../../../compute/pricing.md));
+* плата за использование публичной [DNS-зоны](../../concepts/dns-zone.md) и публичные [DNS-запросы](../../../glossary/dns.md) (см. [тарифы {{ dns-full-name }}](../../pricing.md)).
 
 ### Создайте облачную сеть и подсеть {#create-network}
 
@@ -37,23 +37,23 @@
 
 - Консоль управления {#console}
 
-  1. В [консоли управления](https://console.yandex.cloud) выберите ваш каталог.
-  1. [Перейдите](../../../console/operations/select-service.md#select-service) в сервис **Virtual Private Cloud**.
-  1. Справа сверху нажмите кнопку **Создать сеть**.
-  1. В поле **Имя** укажите `webserver-network`.
-  1. В поле **Дополнительно** отключите опцию **Создать подсети**.
-  1. Нажмите кнопку **Создать сеть**.
-  1. На панели слева выберите ![subnets](../../../_assets/vpc/subnets.svg) **Подсети**.
-  1. Справа сверху нажмите **Создать**.
-  1. В поле **Имя** укажите `webserver-subnet-ru-central1-b`.
-  1. В поле **Зона доступности** выберите [зону доступности](../../../overview/concepts/geo-scope.md) `ru-central1-b`.
-  1. В поле **Сеть** выберите [облачную сеть](../../../vpc/concepts/network.md) `webserver-network`.
-  1. В поле **CIDR** укажите `192.168.1.0/24`.
-  1. Нажмите кнопку **Создать подсеть**.
+  1. В [консоли управления]({{ link-console-main }}) выберите ваш каталог.
+  1. Перейдите в сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_vpc }}**.
+  1. Справа сверху нажмите кнопку **{{ ui-key.yacloud.vpc.networks.button_create }}**.
+  1. В поле **{{ ui-key.yacloud.vpc.networks.create.field_name }}** укажите `webserver-network`.
+  1. В поле **{{ ui-key.yacloud.vpc.networks.create.field_advanced }}** отключите опцию **{{ ui-key.yacloud.vpc.networks.create.field_is-default }}**.
+  1. Нажмите кнопку **{{ ui-key.yacloud.vpc.networks.button_create }}**.
+  1. На панели слева выберите ![subnets](../../../_assets/vpc/subnets.svg) **{{ ui-key.yacloud.vpc.switch_networks }}**.
+  1. Справа сверху нажмите **{{ ui-key.yacloud.common.create }}**.
+  1. В поле **{{ ui-key.yacloud.vpc.subnetworks.create.field_name }}** укажите `webserver-subnet-{{ region-id }}-b`.
+  1. В поле **{{ ui-key.yacloud.vpc.subnetworks.create.field_zone }}** выберите [зону доступности](../../../overview/concepts/geo-scope.md) `{{ region-id }}-b`.
+  1. В поле **{{ ui-key.yacloud.vpc.subnetworks.create.field_network }}** выберите [облачную сеть](../../../vpc/concepts/network.md) `webserver-network`.
+  1. В поле **{{ ui-key.yacloud.vpc.subnetworks.create.field_ip }}** укажите `192.168.1.0/24`.
+  1. Нажмите кнопку **{{ ui-key.yacloud.vpc.subnetworks.create.button_create }}**.
 
 - CLI {#cli}
 
-  Если у вас еще нет интерфейса командной строки Yandex Cloud (CLI), [установите и инициализируйте его](../../../cli/quickstart.md#install).
+  Если у вас еще нет интерфейса командной строки {{ yandex-cloud }} (CLI), [установите и инициализируйте его](../../../cli/quickstart.md#install).
 
   По умолчанию используется каталог, указанный при [создании](../../../cli/operations/profile/profile-create.md) профиля CLI. Чтобы изменить каталог по умолчанию, используйте команду `yc config set folder-id <идентификатор_каталога>`. Также для любой команды вы можете указать другой каталог с помощью параметров `--folder-name` или `--folder-id`. Если вы обращаетесь к ресурсу по имени, поиск будет выполнен в каталоге по умолчанию. Если вы обращаетесь к ресурсу по идентификатору, поиск будет выполнен глобально — во всех каталогах с учетом прав доступа.
 
@@ -75,11 +75,11 @@
 
       Подробнее о команде `yc vpc network create` читайте в [справочнике CLI](../../../cli/cli-ref/vpc/cli-ref/network/create.md).
 
-  1. Создайте подсеть в [зоне доступности](../../../overview/concepts/geo-scope.md) `ru-central1-b`:
+  1. Создайте подсеть в [зоне доступности](../../../overview/concepts/geo-scope.md) `{{ region-id }}-b`:
 
       ```bash
-      yc vpc subnet create webserver-subnet-ru-central1-b \
-        --zone ru-central1-b \
+      yc vpc subnet create webserver-subnet-{{ region-id }}-b \
+        --zone {{ region-id }}-b \
         --network-name webserver-network \
         --range 192.168.1.0/24
       ```
@@ -90,9 +90,9 @@
       id: e2li9tcgi7ii********
       folder_id: b1gt6g8ht345********
       created_at: "2023-12-20T20:11:16Z"
-      name: webserver-subnet-ru-central1-b
+      name: webserver-subnet-{{ region-id }}-b
       network_id: enp1gg8kr3pv********
-      zone_id: ru-central1-b
+      zone_id: {{ region-id }}-b
       v4_cidr_blocks:
         - 192.168.1.0/24
       ```
@@ -116,22 +116,22 @@
 
 - Консоль управления {#console}
 
-  1. В [консоли управления](https://console.yandex.cloud) выберите ваш каталог.
-  1. [Перейдите](../../../console/operations/select-service.md#select-service) в сервис **Virtual Private Cloud**.
-  1. На панели слева выберите ![image](../../../_assets/vpc/security-group.svg) **Группы безопасности**. 
-  1. Нажмите кнопку **Создать группу безопасности**.
-  1. В поле **Имя** укажите имя `webserver-sg`.
-  1. В поле **Сеть** выберите созданную ранее сеть `webserver-network`.
-  1. В блоке **Правила** [создайте](../../../vpc/operations/security-group-add-rule.md) следующие правила для управления трафиком:
+  1. В [консоли управления]({{ link-console-main }}) выберите ваш каталог.
+  1. Перейдите в сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_vpc }}**.
+  1. На панели слева выберите ![image](../../../_assets/vpc/security-group.svg) **{{ ui-key.yacloud.vpc.label_security-groups }}**. 
+  1. Нажмите кнопку **{{ ui-key.yacloud.vpc.network.security-groups.button_create }}**.
+  1. В поле **{{ ui-key.yacloud.vpc.network.security-groups.forms.field_sg-name }}** укажите имя `webserver-sg`.
+  1. В поле **{{ ui-key.yacloud.vpc.network.security-groups.forms.field_sg-network }}** выберите созданную ранее сеть `webserver-network`.
+  1. В блоке **{{ ui-key.yacloud.vpc.network.security-groups.forms.label_section-rules }}** [создайте](../../../vpc/operations/security-group-add-rule.md) следующие правила для управления трафиком:
 
-      | Направление<br/>трафика | Описание | Диапазон портов | Протокол | Источник /<br/>Назначение | CIDR блоки |
+      | Направление<br/>трафика | {{ ui-key.yacloud.vpc.network.security-groups.forms.field_sg-rule-description }} | {{ ui-key.yacloud.vpc.network.security-groups.forms.field_sg-rule-port-range }} | {{ ui-key.yacloud.vpc.network.security-groups.forms.field_sg-rule-protocol }} | {{ ui-key.yacloud.vpc.network.security-groups.forms.field_sg-rule-source }} /<br/>{{ ui-key.yacloud.vpc.network.security-groups.forms.field_sg-rule-destination }} | {{ ui-key.yacloud.vpc.network.security-groups.forms.field_sg-rule-cidr-blocks }} |
       | --- | --- | --- | --- | --- | --- |
-      | Входящий | `http`           | `80` | `TCP` | `CIDR` | `0.0.0.0/0` |
-      | Входящий | `https`            | `443`   | `TCP`  | `CIDR` | `0.0.0.0/0` |
-      | Входящий | `ssh`            | `22`   | `TCP`  | `CIDR` | `0.0.0.0/0` |
-      | Исходящий | `any`           | `Весь` | `Любой` | `CIDR` | `0.0.0.0/0` |
+      | Входящий | `http`           | `80` | `TCP` | `{{ ui-key.yacloud.vpc.network.security-groups.forms.value_sg-rule-destination-cidr }}` | `0.0.0.0/0` |
+      | Входящий | `https`            | `443`   | `TCP`  | `{{ ui-key.yacloud.vpc.network.security-groups.forms.value_sg-rule-destination-cidr }}` | `0.0.0.0/0` |
+      | Входящий | `ssh`            | `22`   | `TCP`  | `{{ ui-key.yacloud.vpc.network.security-groups.forms.value_sg-rule-destination-cidr }}` | `0.0.0.0/0` |
+      | Исходящий | `any`           | `Весь` | `{{ ui-key.yacloud.vpc.network.security-groups.forms.value_any }}` | `{{ ui-key.yacloud.vpc.network.security-groups.forms.value_sg-rule-destination-cidr }}` | `0.0.0.0/0` |
 
-  1. Нажмите кнопку **Сохранить**.
+  1. Нажмите кнопку **{{ ui-key.yacloud.common.save }}**.
 
 - CLI {#cli}
 
@@ -219,29 +219,29 @@
 
 - Консоль управления {#console}
 
-  1. В [консоли управления](https://console.yandex.cloud) выберите ваш каталог.
-  1. [Перейдите](../../../console/operations/select-service.md#select-service) в сервис **Compute Cloud**.
-  1. На панели слева выберите ![image](../../../_assets/console-icons/server.svg) **Виртуальные машины**.
-  1. Нажмите кнопку **Создать виртуальную машину**.
-  1. В блоке **Общая информация**:
+  1. В [консоли управления]({{ link-console-main }}) выберите ваш каталог.
+  1. Перейдите в сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_compute }}**.
+  1. На панели слева выберите ![image](../../../_assets/console-icons/server.svg) **{{ ui-key.yacloud.compute.instances_jsoza }}**.
+  1. Нажмите кнопку **{{ ui-key.yacloud.compute.instances.button_create }}**.
+  1. В блоке **{{ ui-key.yacloud.compute.instances.create.section_base }}**:
 
-      * В поле **Имя** укажите имя `mywebserver`.
-      * В поле **Зона доступности** выберите `ru-central1-b`.
+      * В поле **{{ ui-key.yacloud.common.name }}** укажите имя `mywebserver`.
+      * В поле **{{ ui-key.yacloud.compute.instances.create.field_zone }}** выберите `{{ region-id }}-b`.
 
-  1. В блоке **Образ загрузочного диска** перейдите на вкладку **Marketplace** и нажмите кнопку **Показать все продукты Marketplace**.
+  1. В блоке **{{ ui-key.yacloud.compute.instances.create.section_image }}** перейдите на вкладку **{{ ui-key.yacloud.compute.instances.create.image_value_marketplace }}** и нажмите кнопку **{{ ui-key.yacloud.compute.instances.create.button_show-all-marketplace-products }}**.
   1. В открывшемся окне найдите и выберите продукт [LAMP](https://yandex.cloud/ru/marketplace/products/yc/lamp).
-  1. В блоке **Сетевые настройки**:
+  1. В блоке **{{ ui-key.yacloud.compute.instances.create.section_network }}**:
 
-      * В поле **Подсеть** выберите созданную ранее подсеть `webserver-subnet-ru-central1-b`.
-      * В поле **Публичный IP-адрес** выберите `Автоматически`.
-      * В поле **Группы безопасности** выберите созданную ранее группу безопасности `webserver-sg`.
+      * В поле **{{ ui-key.yacloud.component.compute.network-select.field_subnetwork }}** выберите созданную ранее подсеть `webserver-subnet-{{ region-id }}-b`.
+      * В поле **{{ ui-key.yacloud.component.compute.network-select.field_external }}** выберите `{{ ui-key.yacloud.component.compute.network-select.switch_auto }}`.
+      * В поле **{{ ui-key.yacloud.component.compute.network-select.field_security-groups }}** выберите созданную ранее группу безопасности `webserver-sg`.
 
-  1. В блоке **Доступ** укажите данные для доступа к ВМ:
+  1. В блоке **{{ ui-key.yacloud.compute.instances.create.section_access }}** укажите данные для доступа к ВМ:
 
-      * В поле **Логин** укажите имя пользователя `yc-user`.
-      * В поле **SSH-ключ** вставьте содержимое созданного ранее [публичного ключа](../../../compute/operations/vm-connect/ssh.md#creating-ssh-keys).
+      * В поле **{{ ui-key.yacloud.compute.instances.create.field_user }}** укажите имя пользователя `yc-user`.
+      * В поле **{{ ui-key.yacloud.compute.instances.create.field_key }}** вставьте содержимое созданного ранее [публичного ключа](../../../compute/operations/vm-connect/ssh.md#creating-ssh-keys).
 
-  1. Нажмите кнопку **Создать ВМ**.
+  1. Нажмите кнопку **{{ ui-key.yacloud.compute.instances.create.button_create }}**.
 
 - CLI {#cli}
 
@@ -250,8 +250,8 @@
   ```bash
   yc compute instance create \
     --name mywebserver \
-    --zone ru-central1-b \
-    --network-interface subnet-name=webserver-subnet-ru-central1-b,nat-ip-version=ipv4,security-group-ids=<идентификатор_группы_безопасности> \
+    --zone {{ region-id }}-b \
+    --network-interface subnet-name=webserver-subnet-{{ region-id }}-b,nat-ip-version=ipv4,security-group-ids=<идентификатор_группы_безопасности> \
     --create-boot-disk image-folder-id=standard-images,image-id=fd8jtn9i7e9ha5q25niu \
     --ssh-key <SSH-ключ>
   ```
@@ -266,7 +266,7 @@
   folder_id: b1gt6g8ht345********
   created_at: "2023-12-23T05:36:34Z"
   name: mywebserver
-  zone_id: ru-central1-b
+  zone_id: {{ region-id }}-b
   platform_id: standard-v2
   resources:
     memory: "2147483648"
@@ -319,16 +319,16 @@
 
 - Консоль управления {#console}
 
-  1. В [консоли управления](https://console.yandex.cloud) выберите ваш каталог.
-  1. [Перейдите](../../../console/operations/select-service.md#select-service) в сервис **Cloud DNS**.
-  1. Нажмите кнопку **Создать зону**.
+  1. В [консоли управления]({{ link-console-main }}) выберите ваш каталог.
+  1. Перейдите в сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_dns }}**.
+  1. Нажмите кнопку **{{ ui-key.yacloud.dns.button_zone-create }}**.
   1. Задайте настройки [зоны DNS](../../concepts/dns-zone.md), соответствующие вашему домену:
 
-      1. **Зона** — доменная зона. Название зоны должно заканчиваться точкой. Например, название доменной зоны `example.com.` соответствует домену `example.com`. Публичные зоны верхнего уровня (TLD-зоны) создавать нельзя. Чтобы создать доменную зону с нелатинскими символами, используйте кодировку [Punycode](https://ru.wikipedia.org/wiki/Punycode).
-      1. **Тип** — `Публичная`.
-      1. **Имя** — имя зоны.
+      1. **{{ ui-key.yacloud.dns.label_zone }}** — доменная зона. Название зоны должно заканчиваться точкой. Например, название доменной зоны `example.com.` соответствует домену `example.com`. Публичные зоны верхнего уровня (TLD-зоны) создавать нельзя. Чтобы создать доменную зону с нелатинскими символами, используйте кодировку [Punycode](https://{{ lang }}.wikipedia.org/wiki/Punycode).
+      1. **{{ ui-key.yacloud.common.type }}** — `{{ ui-key.yacloud.dns.label_public }}`.
+      1. **{{ ui-key.yacloud.common.name }}** — имя зоны.
 
-  1. Нажмите кнопку **Создать**.
+  1. Нажмите кнопку **{{ ui-key.yacloud.common.create }}**.
 
 - CLI {#cli}
 
@@ -344,7 +344,7 @@
   Где:
 
   * `--name` — имя [зоны DNS](../../concepts/dns-zone.md).
-  * `--zone` — доменная зона. Название зоны должно заканчиваться точкой. Например, название доменной зоны `example.com.` соответствует домену `example.com`. Публичные зоны верхнего уровня (TLD-зоны) создавать нельзя. Чтобы создать доменную зону с нелатинскими символами, используйте кодировку [Punycode](https://ru.wikipedia.org/wiki/Punycode).
+  * `--zone` — доменная зона. Название зоны должно заканчиваться точкой. Например, название доменной зоны `example.com.` соответствует домену `example.com`. Публичные зоны верхнего уровня (TLD-зоны) создавать нельзя. Чтобы создать доменную зону с нелатинскими символами, используйте кодировку [Punycode](https://{{ lang }}.wikipedia.org/wiki/Punycode).
 
   Результат:
 
@@ -366,12 +366,12 @@
 {% endlist %}
 
 
-## Делегируйте домен сервису Cloud DNS {#delegate-domain}
+## Делегируйте домен сервису {{ dns-name }} {#delegate-domain}
 
-Чтобы делегировать домен сервису Cloud DNS, в личном кабинете вашего регистратора домена укажите в настройках домена адреса DNS-серверов:
+Чтобы делегировать домен сервису {{ dns-name }}, в личном кабинете вашего регистратора домена укажите в настройках домена адреса DNS-серверов:
 
-* `ns1.yandexcloud.net`
-* `ns2.yandexcloud.net`
+* `ns1.{{ dns-ns-host-sld }}`
+* `ns2.{{ dns-ns-host-sld }}`
 
 Делегирование происходит не сразу. Серверы интернет-провайдеров обычно обновляют записи в течение 24 часов (86400 секунд). Это обусловлено значением TTL, в течение которого кешируются записи для доменов.
 
@@ -384,8 +384,8 @@ dig +short NS example.com
 Результат:
 
 ```
-ns2.yandexcloud.net.
-ns1.yandexcloud.net.
+ns2.{{ dns-ns-host-sld }}.
+ns1.{{ dns-ns-host-sld }}.
 ```
 
 ## Создайте ресурсную запись типа A {#create-record}
@@ -396,18 +396,18 @@ ns1.yandexcloud.net.
 
 - Консоль управления {#console}
 
-  1. В [консоли управления](https://console.yandex.cloud) выберите ваш каталог.
-  1. [Перейдите](../../../console/operations/select-service.md#select-service) в сервис **Cloud DNS**.
+  1. В [консоли управления]({{ link-console-main }}) выберите ваш каталог.
+  1. Перейдите в сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_dns }}**.
   1. Выберите созданную ранее DNS-зону.
-  1. Нажмите кнопку **Создать запись**.
+  1. Нажмите кнопку **{{ ui-key.yacloud.dns.button_record-set-create }}**.
   1. Задайте параметры записи:
-      1. В поле **Имя** выберите `Совпадает с именем зоны (@)`.
-      1. В поле **Тип** выберите [тип записи](../../concepts/resource-record.md#rr-types) `A`.
-      1. В поле **Значение** укажите [публичный IP-адрес](../../../vpc/concepts/address.md#public-addresses) веб-сервера.
+      1. В поле **{{ ui-key.yacloud.common.name }}** выберите `{{ ui-key.yacloud.dns.label_fqdn-equal-to-zone }}`.
+      1. В поле **{{ ui-key.yacloud.common.type }}** выберите [тип записи](../../concepts/resource-record.md#rr-types) `A`.
+      1. В поле **{{ ui-key.yacloud.dns.label_records }}** укажите [публичный IP-адрес](../../../vpc/concepts/address.md#public-addresses) веб-сервера.
 
-          Узнать IP-адрес виртуальной машины можно в [консоли управления](https://console.yandex.cloud) на странице ВМ в блоке **Сеть** или с помощью команды CLI `yc compute instance get <имя_ВМ>`.
+          Узнать IP-адрес виртуальной машины можно в [консоли управления]({{ link-console-main }}) на странице ВМ в блоке **{{ ui-key.yacloud.compute.instance.overview.section_network }}** или с помощью команды CLI `yc compute instance get <имя_ВМ>`.
 
-  1. Нажмите кнопку **Создать**.
+  1. Нажмите кнопку **{{ ui-key.yacloud.common.create }}**.
 
 - CLI {#cli}
 
@@ -426,7 +426,7 @@ ns1.yandexcloud.net.
       * `<доменное_имя>` — доменное имя, должно заканчиваться точкой. Например, для домена `example.com` здесь нужно указать `example.com.`
       * `<IP-адрес_ВМ>` — [публичный IP-адрес](../../../vpc/concepts/address.md#public-addresses) веб-сервера.
 
-          Узнать IP-адрес виртуальной машины можно в [консоли управления](https://console.yandex.cloud) на странице ВМ в блоке **Сеть** или с помощью команды CLI `yc compute instance get <имя_ВМ>`.
+          Узнать IP-адрес виртуальной машины можно в [консоли управления]({{ link-console-main }}) на странице ВМ в блоке **{{ ui-key.yacloud.compute.instance.overview.section_network }}** или с помощью команды CLI `yc compute instance get <имя_ВМ>`.
 
   Результат:
 
@@ -465,4 +465,4 @@ ns1.yandexcloud.net.
 
 #### См. также {#see-also}
 
-* [Привязка доменного имени к ВМ с веб-сервером с помощью Terraform](terraform.md).
+* [{#T}](terraform.md).

@@ -1,0 +1,242 @@
+# Cloud Interconnect API, REST: TrunkConnection.BatchGet
+
+## HTTP request
+
+```
+GET https://cic.{{ api-host }}/cic/v1/trunkConnections:batchGet
+```
+
+## Query parameters {#yandex.cloud.cic.v1.BatchGetTrunkConnectionsRequest}
+
+#|
+||Field | Description ||
+|| trunkConnectionIds[] | **string**
+
+IDs of TrunkConnection resources to return.
+To get the trunkConnection ID use a [TrunkConnectionService.List](list.md#List) request.
+
+The maximum string length in characters for each value is 1000. ||
+|#
+
+## Response {#yandex.cloud.cic.v1.BatchGetTrunkConnectionsResponse}
+
+**HTTP Code: 200 - OK**
+
+```json
+{
+  "trunkConnections": [
+    {
+      "id": "string",
+      "name": "string",
+      "description": "string",
+      "folderId": "string",
+      "createdAt": "string",
+      // Includes only one of the fields `singlePortDirectJoint`, `lagDirectJoint`, `partnerJointInfo`
+      "singlePortDirectJoint": {
+        "transceiverType": "string",
+        "portName": "string",
+        "accessDeviceName": "string"
+      },
+      "lagDirectJoint": {
+        "transceiverType": "string",
+        "lagAllocationSettings": {
+          "lagInfo": {
+            "portNames": [
+              "string"
+            ]
+          }
+        },
+        "accessDeviceName": "string"
+      },
+      "partnerJointInfo": {
+        "partnerId": "string",
+        "serviceKey": "string"
+      },
+      // end of the list of possible fields
+      "pointOfPresenceId": "string",
+      "capacity": "string",
+      "labels": "object",
+      "status": "string",
+      "deletionProtection": "boolean"
+    }
+  ]
+}
+```
+
+#|
+||Field | Description ||
+|| trunkConnections[] | **[TrunkConnection](#yandex.cloud.cic.v1.TrunkConnection)**
+
+List of TrunkConnection resources. ||
+|#
+
+## TrunkConnection {#yandex.cloud.cic.v1.TrunkConnection}
+
+A TrunkConnection resource.
+
+#|
+||Field | Description ||
+|| id | **string**
+
+ID of the trunkConnection. ||
+|| name | **string**
+
+Name of the trunkConnection.
+The name must be unique within the folder.
+Value must match the regular expression ``\\|[a-zA-Z]([-_a-zA-Z0-9]{0,61}[a-zA-Z0-9])?``. ||
+|| description | **string**
+
+Optional description of the trunkConnection. 0-256 characters long. ||
+|| folderId | **string**
+
+ID of the folder that the trunkConnection belongs to. ||
+|| createdAt | **string** (date-time)
+
+Creation timestamp in [RFC3339](https://www.ietf.org/rfc/rfc3339.txt) text format.
+
+String in [RFC3339](https://www.ietf.org/rfc/rfc3339.txt) text format. The range of possible values is from
+`0001-01-01T00:00:00Z` to `9999-12-31T23:59:59.999999999Z`, i.e. from 0 to 9 digits for fractions of a second.
+
+To work with values in this field, use the APIs described in the
+[Protocol Buffers reference](https://developers.google.com/protocol-buffers/docs/reference/overview).
+In some languages, built-in datetime utilities do not support nanosecond precision (9 digits). ||
+|| singlePortDirectJoint | **[SinglePortDirectJoint](#yandex.cloud.cic.v1.TrunkConnection.SinglePortDirectJoint)**
+
+Includes only one of the fields `singlePortDirectJoint`, `lagDirectJoint`, `partnerJointInfo`.
+
+Special trunkConnection config ||
+|| lagDirectJoint | **[LagDirectJoint](#yandex.cloud.cic.v1.TrunkConnection.LagDirectJoint)**
+
+Includes only one of the fields `singlePortDirectJoint`, `lagDirectJoint`, `partnerJointInfo`.
+
+Special trunkConnection config ||
+|| partnerJointInfo | **[PartnerJointInfo](#yandex.cloud.cic.v1.TrunkConnection.PartnerJointInfo)**
+
+Includes only one of the fields `singlePortDirectJoint`, `lagDirectJoint`, `partnerJointInfo`.
+
+Special trunkConnection config ||
+|| pointOfPresenceId | **string**
+
+ID of pointOfPresence that the trunkConnection is deployed on. ||
+|| capacity | **enum** (Capacity)
+
+Capacity of the trunkConnection
+
+- `CAPACITY_50_MBPS`
+- `CAPACITY_100_MBPS`
+- `CAPACITY_200_MBPS`
+- `CAPACITY_300_MBPS`
+- `CAPACITY_400_MBPS`
+- `CAPACITY_500_MBPS`
+- `CAPACITY_1_GBPS`
+- `CAPACITY_2_GBPS`
+- `CAPACITY_3_GBPS`
+- `CAPACITY_4_GBPS`
+- `CAPACITY_5_GBPS`
+- `CAPACITY_10_GBPS`
+- `CAPACITY_20_GBPS`
+- `CAPACITY_30_GBPS`
+- `CAPACITY_40_GBPS`
+- `CAPACITY_50_GBPS`
+- `CAPACITY_100_GBPS`
+- `CAPACITY_200_GBPS` ||
+|| labels | **object** (map<**string**, **string**>)
+
+Resource labels, `key:value` pairs.
+No more than 64 per resource.
+The maximum string length in characters for each value is 63.
+Each value must match the regular expression `[-_0-9a-z]*`.
+The string length in characters for each key must be 1-63.
+Each key must match the regular expression `[a-z][-_0-9a-z]*`. ||
+|| status | **enum** (Status)
+
+Status of the trunkConnection.
+
+- `CREATING`
+- `UPDATING`
+- `DELETING`
+- `ACTIVE` ||
+|| deletionProtection | **boolean**
+
+Deletion protection flag. ||
+|#
+
+## SinglePortDirectJoint {#yandex.cloud.cic.v1.TrunkConnection.SinglePortDirectJoint}
+
+Config of trunkConnection that is deployed on single port.
+
+#|
+||Field | Description ||
+|| transceiverType | **enum** (TransceiverType)
+
+Type of transceiver that the trunkConnection is deployed on.
+
+- `TRANSCEIVER_TYPE_1000BASE_LX`
+- `TRANSCEIVER_TYPE_10GBASE_LR`
+- `TRANSCEIVER_TYPE_10GBASE_ER`
+- `TRANSCEIVER_TYPE_100GBASE_LR4`
+- `TRANSCEIVER_TYPE_100GBASE_ER4` ||
+|| portName | **string**
+
+Name of port that the trunkConnection is deployed on. ||
+|| accessDeviceName | **string**
+
+Device name which is set in LLDP message. ||
+|#
+
+## LagDirectJoint {#yandex.cloud.cic.v1.TrunkConnection.LagDirectJoint}
+
+Config of trunkConnection that is deployed on lag.
+
+#|
+||Field | Description ||
+|| transceiverType | **enum** (TransceiverType)
+
+Type of transceiver that the trunkConnection is deployed on.
+
+- `TRANSCEIVER_TYPE_1000BASE_LX`
+- `TRANSCEIVER_TYPE_10GBASE_LR`
+- `TRANSCEIVER_TYPE_10GBASE_ER`
+- `TRANSCEIVER_TYPE_100GBASE_LR4`
+- `TRANSCEIVER_TYPE_100GBASE_ER4` ||
+|| lagAllocationSettings | **[LagAllocationSettings](#yandex.cloud.cic.v1.common.LagAllocationSettings)**
+
+LAG allocation settings that the trunkConnection is deployed on. ||
+|| accessDeviceName | **string**
+
+Device name which is set in LLDP message. ||
+|#
+
+## LagAllocationSettings {#yandex.cloud.cic.v1.common.LagAllocationSettings}
+
+Structure that describes LAG allocation settings
+
+#|
+||Field | Description ||
+|| lagInfo | **[LagInfo](#yandex.cloud.cic.v1.common.LagInfo)**
+
+LagInfo ||
+|#
+
+## LagInfo {#yandex.cloud.cic.v1.common.LagInfo}
+
+#|
+||Field | Description ||
+|| portNames[] | **string**
+
+List of port names that the LAG is deployed on. ||
+|#
+
+## PartnerJointInfo {#yandex.cloud.cic.v1.TrunkConnection.PartnerJointInfo}
+
+Config of trunkConnection that is deployed on partner joint.
+
+#|
+||Field | Description ||
+|| partnerId | **string**
+
+ID of partner that the trunkConnection is deployed on. ||
+|| serviceKey | **string**
+
+Reserved for future using; ||
+|#

@@ -1,10 +1,10 @@
-# Поставка данных из Yandex Managed Service for Apache Kafka® с помощью Yandex Data Transfer
+# Поставка данных из {{ mkf-full-name }} с помощью {{ data-transfer-full-name }}
 
 
-# Поставка данных очереди из Apache Kafka® в MySQL® с помощью Yandex Data Transfer
+# Поставка данных очереди из {{ KF }} в {{ MY }} с помощью {{ data-transfer-full-name }}
 
 
-В кластер Managed Service for MySQL® можно в реальном времени поставлять данные из топиков Apache Kafka®.
+В кластер {{ mmy-name }} можно в реальном времени поставлять данные из топиков {{ KF }}.
 
 Чтобы запустить поставку данных:
 
@@ -17,9 +17,9 @@
 
 ## Необходимые платные ресурсы {#paid-resources}
 
-* Кластер Managed Service for Apache Kafka®: выделенные хостам вычислительные ресурсы, объем хранилища и резервных копий (см. [тарифы Managed Service for Apache Kafka®](../../managed-kafka/pricing.md)).
-* Кластер Managed Service for MySQL®: выделенные хостам вычислительные ресурсы, объем хранилища и резервных копий (см. [тарифы Managed Service for MySQL®](../pricing.md)).
-* Публичные IP-адреса, если для хостов кластеров включен публичный доступ (см. [тарифы Virtual Private Cloud](../../vpc/pricing.md)).
+* Кластер {{ mkf-name }}: выделенные хостам вычислительные ресурсы, объем хранилища и резервных копий (см. [тарифы {{ mkf-name }}](../../managed-kafka/pricing.md)).
+* Кластер {{ mmy-name }}: выделенные хостам вычислительные ресурсы, объем хранилища и резервных копий (см. [тарифы {{ mmy-name }}](../pricing.md)).
+* Публичные IP-адреса, если для хостов кластеров включен публичный доступ (см. [тарифы {{ vpc-name }}](../../vpc/pricing.md)).
 
 
 ## Перед началом работы {#before-you-begin}
@@ -32,33 +32,33 @@
 
         {% note info %}
         
-        Публичный доступ к хостам кластера нужен, если вы планируете подключаться к кластеру через интернет. Этот вариант подключения более простой, и его рекомендуется использовать для прохождения руководства. К хостам без публичного доступа тоже можно подключиться, но только с виртуальных машин Yandex Cloud, расположенных в той же облачной сети, что и кластер.
+        Публичный доступ к хостам кластера нужен, если вы планируете подключаться к кластеру через интернет. Этот вариант подключения более простой, и его рекомендуется использовать для прохождения руководства. К хостам без публичного доступа тоже можно подключиться, но только с виртуальных машин {{ yandex-cloud }}, расположенных в той же облачной сети, что и кластер.
         
         {% endnote %}
 
-        1. [Создайте кластер-источник Managed Service for Apache Kafka®](../../managed-kafka/operations/cluster-create.md) любой подходящей конфигурации. Для подключения к кластеру с локальной машины пользователя, а не из облачной сети Yandex Cloud, включите публичный доступ к кластеру при его создании.
+        1. [Создайте кластер-источник {{ mkf-name }}](../../managed-kafka/operations/cluster-create.md) любой подходящей конфигурации. Для подключения к кластеру с локальной машины пользователя, а не из облачной сети {{ yandex-cloud }}, включите публичный доступ к кластеру при его создании.
 
         1. [Создайте в кластере-источнике топик](../../managed-kafka/operations/cluster-topics.md#create-topic) с именем `sensors`.
 
         1. [Создайте в кластере-источнике пользователя](../../managed-kafka/operations/cluster-accounts.md#create-account) с именем `mkf-user` и правами доступа `ACCESS_ROLE_PRODUCER` и `ACCESS_ROLE_CONSUMER` к созданному топику.
 
-        1. [Создайте кластер-приемник Managed Service for MySQL®](../operations/cluster-create.md) любой подходящей конфигурации со следующими настройками:
+        1. [Создайте кластер-приемник {{ mmy-name }}](../operations/cluster-create.md) любой подходящей конфигурации со следующими настройками:
 
             * Имя базы данных — `db1`.
             * Имя пользователя — `mmy-user`.
             * В той же зоне доступности, что и кластер-источник.
-            * Для подключения к кластеру с локальной машины пользователя, а не из облачной сети Yandex Cloud, включите публичный доступ к хостам кластера.
+            * Для подключения к кластеру с локальной машины пользователя, а не из облачной сети {{ yandex-cloud }}, включите публичный доступ к хостам кластера.
 
         
         1. Для подключения к кластерам с локальной машины пользователя настройте группы безопасности:
 
-            * [Managed Service for Apache Kafka®](../../managed-kafka/operations/connect/index.md#configuring-security-groups).
-            * [Managed Service for MySQL®](../operations/connect/index.md#configure-security-groups).
+            * [{{ mkf-name }}](../../managed-kafka/operations/connect/index.md#configuring-security-groups).
+            * [{{ mmy-name }}](../operations/connect/index.md#configure-security-groups).
 
 
-    - Terraform {#tf}
+    - {{ TF }} {#tf}
 
-        1. Если у вас еще нет Terraform, [установите его](../../tutorials/infrastructure-management/terraform-quickstart.md#install-terraform).
+        1. Если у вас еще нет {{ TF }}, [установите его](../../tutorials/infrastructure-management/terraform-quickstart.md#install-terraform).
         1. [Получите данные для аутентификации](../../tutorials/infrastructure-management/terraform-quickstart.md#get-credentials). Вы можете добавить их в переменные окружения или указать далее в файле с настройками провайдера.
         1. [Настройте и инициализируйте провайдер](../../tutorials/infrastructure-management/terraform-quickstart.md#configure-provider). Чтобы не создавать конфигурационный файл с настройками провайдера вручную, [скачайте его](https://github.com/yandex-cloud-examples/yc-terraform-provider-settings/blob/main/provider.tf).
         1. Поместите конфигурационный файл в отдельную рабочую директорию и [укажите значения параметров](../../tutorials/infrastructure-management/terraform-quickstart.md#configure-provider). Если данные для аутентификации не были добавлены в переменные окружения, укажите их в конфигурационном файле.
@@ -69,29 +69,29 @@
 
             * [сеть](../../vpc/concepts/network.md#network);
             * [подсеть](../../vpc/concepts/network.md#subnet);
-            * [группа безопасности](../../vpc/concepts/security-groups.md) и правила, необходимые для подключения к кластерам Managed Service for Apache Kafka® и Managed Service for MySQL®;
-            * кластер-источник Managed Service for Apache Kafka®;
-            * топик Apache Kafka® с именем `sensors`;
-            * пользователь Apache Kafka® `mkf-user` с правами доступа `ACCESS_ROLE_PRODUCER`, `ACCESS_ROLE_CONSUMER` к топику `sensors`;
-            * кластер-приемник Managed Service for MySQL® с базой данных `db1` и пользователем `mmy-user`;
+            * [группа безопасности](../../vpc/concepts/security-groups.md) и правила, необходимые для подключения к кластерам {{ mkf-name }} и {{ mmy-name }};
+            * кластер-источник {{ mkf-name }};
+            * топик {{ KF }} с именем `sensors`;
+            * пользователь {{ KF }} `mkf-user` с правами доступа `ACCESS_ROLE_PRODUCER`, `ACCESS_ROLE_CONSUMER` к топику `sensors`;
+            * кластер-приемник {{ mmy-name }} с базой данных `db1` и пользователем `mmy-user`;
             * эндпоинт для приемника;
             * трансфер.
 
         1. Укажите в файле `data-transfer-mkf-mmy.tf` переменные:
 
-            * `source_kf_version` — версия Apache Kafka® в кластере-источнике;
+            * `source_kf_version` — версия {{ KF }} в кластере-источнике;
             * `source_user_password` — пароль пользователя `mkf-user` в кластере-источнике;
-            * `target_mysql_version` — версия MySQL® в кластере-приемнике;
+            * `target_mysql_version` — версия {{ MY }} в кластере-приемнике;
             * `target_user_password` — пароль пользователя `mmy-user` в кластере-приемнике;
             * `transfer_enabled` — значение `0`, чтобы не создавать эндпоинт-приемник и трансфер до [создания эндпоинта источника вручную](#prepare-transfer).
 
-        1. Проверьте корректность файлов конфигурации Terraform с помощью команды:
+        1. Проверьте корректность файлов конфигурации {{ TF }} с помощью команды:
 
             ```bash
             terraform validate
             ```
 
-            Если в файлах конфигурации есть ошибки, Terraform на них укажет.
+            Если в файлах конфигурации есть ошибки, {{ TF }} на них укажет.
 
         1. Создайте необходимую инфраструктуру:
 
@@ -113,19 +113,19 @@
                1. Подтвердите изменение ресурсов.
                1. Дождитесь завершения операции.
 
-            В указанном каталоге будут созданы все требуемые ресурсы. Проверить появление ресурсов и их настройки можно в [консоли управления](https://console.yandex.cloud).
+            В указанном каталоге будут созданы все требуемые ресурсы. Проверить появление ресурсов и их настройки можно в [консоли управления]({{ link-console-main }}).
 
     {% endlist %}
 
 1. Установите утилиты:
 
-    - [kafkacat](https://github.com/edenhill/kcat) — для чтения и записи данных в топики Apache Kafka®.
+    - [kafkacat](https://github.com/edenhill/kcat) — для чтения и записи данных в топики {{ KF }}.
 
         ```bash
         sudo apt update && sudo apt install --yes kafkacat
         ```
 
-        Убедитесь, что можете с ее помощью [подключиться к кластеру-источнику Managed Service for Apache Kafka® через SSL](../../managed-kafka/operations/connect/clients.md#bash-zsh).
+        Убедитесь, что можете с ее помощью [подключиться к кластеру-источнику {{ mkf-name }} через SSL](../../managed-kafka/operations/connect/clients.md#bash-zsh).
 
     - [jq](https://stedolan.github.io/jq/) — для потоковой обработки JSON-файлов.
 
@@ -135,7 +135,7 @@
 
 ## Подготовьте тестовые данные {#prepare-data}
 
-Пусть в качестве сообщения в топик Apache Kafka® `sensors` кластера-источника поступают данные от сенсоров автомобиля в формате JSON.
+Пусть в качестве сообщения в топик {{ KF }} `sensors` кластера-источника поступают данные от сенсоров автомобиля в формате JSON.
 
 Создайте локально файл `sample.json` с тестовыми данными:
 
@@ -181,27 +181,27 @@
 
 ## Подготовьте и активируйте трансфер {#prepare-transfer}
 
-1. [Создайте эндпоинт](../../data-transfer/operations/endpoint/index.md#create) для [источника `Apache Kafka®`](../../data-transfer/operations/endpoint/source/kafka.md):
+1. [Создайте эндпоинт](../../data-transfer/operations/endpoint/index.md#create) для [источника `{{ KF }}`](../../data-transfer/operations/endpoint/source/kafka.md):
 
-    **Параметры эндпоинта**:
+    **{{ ui-key.yc-data-transfer.data-transfer.console.form.kafka.console.form.kafka.KafkaSource.title }}**:
 
-    * **Настройки подключения**:
+    * **{{ ui-key.yc-data-transfer.data-transfer.console.form.kafka.console.form.kafka.KafkaSource.connection.title }}**:
 
-        * **Тип подключения** — `Кластер Managed Service for Apache Kafka`.
+        * **{{ ui-key.yc-data-transfer.data-transfer.console.form.kafka.console.form.kafka.KafkaSourceConnection.connection_type.title }}** — `{{ ui-key.yc-data-transfer.data-transfer.console.form.kafka.console.form.kafka.KafkaConnectionType.managed.title }}`.
 
-            * **Кластер Managed Service for Apache Kafka** — выберите кластер-источник из списка.
+            * **{{ ui-key.yc-data-transfer.data-transfer.console.form.kafka.console.form.kafka.ManagedKafka.cluster_id.title }}** — выберите кластер-источник из списка.
 
-            * **Аутентификация** — **SASL**.
+            * **{{ ui-key.yc-data-transfer.data-transfer.console.form.kafka.console.form.kafka.ManagedKafka.auth.title }}** — **{{ ui-key.yc-data-transfer.data-transfer.console.form.kafka.console.form.kafka.ManagedKafkaAuth.sasl.title }}**.
 
-                * **Имя пользователя** — `mkf-user`.
-                * **Пароль** — укажите пароль пользователя.
+                * **{{ ui-key.yc-data-transfer.data-transfer.console.form.kafka.console.form.kafka.ManagedKafkaSASLAuth.user.title }}** — `mkf-user`.
+                * **{{ ui-key.yc-data-transfer.data-transfer.console.form.kafka.console.form.kafka.ManagedKafkaSASLAuth.password.title }}** — укажите пароль пользователя.
 
-        * **Полное имя топика** — `sensors`.
+        * **{{ ui-key.yc-data-transfer.data-transfer.console.form.kafka.console.form.kafka.KafkaTargetTopicSettings.topic.title }}** — `sensors`.
 
-    * **Расширенные настройки** → **Правила конвертации**:
+    * **{{ ui-key.yc-data-transfer.data-transfer.console.form.kafka.console.form.kafka.KafkaSource.advanced_settings.title }}** → **{{ ui-key.yc-data-transfer.data-transfer.console.form.kafka.console.form.kafka.KafkaSourceAdvancedSettings.converter.title }}**:
 
-        * **Правила конвертации** — `json`.
-            * **Схема данных** — `JSON-спецификация`.
+        * **{{ ui-key.yc-data-transfer.data-transfer.console.form.kafka.console.form.kafka.KafkaSourceAdvancedSettings.converter.title }}** — `json`.
+            * **{{ ui-key.yc-data-transfer.data-transfer.console.form.common.console.form.common.ConvertRecordOptions.data_schema.title }}** — `{{ ui-key.yc-data-transfer.data-transfer.console.form.common.console.form.common.DataSchema.json_fields.title }}`.
 
                 Вставьте схему данных в формате JSON:
 
@@ -257,37 +257,37 @@
 
     - Вручную {#manual}
 
-        1. [Создайте эндпоинт](../../data-transfer/operations/endpoint/index.md#create) для [приемника `MySQL®`](../../data-transfer/operations/endpoint/target/mysql.md):
+        1. [Создайте эндпоинт](../../data-transfer/operations/endpoint/index.md#create) для [приемника `{{ MY }}`](../../data-transfer/operations/endpoint/target/mysql.md):
 
-            * **Параметры эндпоинта** → **Настройки подключения**:
+            * **{{ ui-key.yc-data-transfer.data-transfer.console.form.mysql.console.form.mysql.MysqlTarget.title }}** → **{{ ui-key.yc-data-transfer.data-transfer.console.form.mysql.console.form.mysql.MysqlTarget.connection.title }}**:
 
-                * **Тип подключения** — `Кластер Managed Service for MySQL`.
+                * **{{ ui-key.yc-data-transfer.data-transfer.console.form.mysql.console.form.mysql.MysqlConnection.connection_type.title }}** — `{{ ui-key.yc-data-transfer.data-transfer.console.form.mysql.console.form.mysql.MysqlConnectionType.mdb_cluster_id.title }}`.
 
-                    * **Кластер Managed Service for MySQL** — выберите кластер-приемник из списка.
+                    * **{{ ui-key.yc-data-transfer.data-transfer.console.form.mysql.console.form.mysql.MysqlConnectionType.mdb_cluster_id.title }}** — выберите кластер-приемник из списка.
 
-                * **База данных** — `db1`.
+                * **{{ ui-key.yc-data-transfer.data-transfer.console.form.common.console.form.common.Connection.database.title }}** — `db1`.
 
-                * **Пользователь** — `mmy-user`.
+                * **{{ ui-key.yc-data-transfer.data-transfer.console.form.opensearch.console.form.opensearch.OpenSearchConnection.user.title }}** — `mmy-user`.
 
-                * **Пароль** — укажите пароль пользователя.
+                * **{{ ui-key.yc-data-transfer.data-transfer.console.form.opensearch.console.form.opensearch.OpenSearchConnection.password.title }}** — укажите пароль пользователя.
 
-        1. [Создайте трансфер](../../data-transfer/operations/transfer.md#create) типа **_Репликация_**, использующий созданные эндпоинты.
-        1. [Активируйте трансфер](../../data-transfer/operations/transfer.md#activate) и дождитесь его перехода в статус **Реплицируется**.
+        1. [Создайте трансфер](../../data-transfer/operations/transfer.md#create) типа **_{{ ui-key.yc-data-transfer.data-transfer.console.form.transfer.console.form.transfer.TransferType.increment.title }}_**, использующий созданные эндпоинты.
+        1. [Активируйте трансфер](../../data-transfer/operations/transfer.md#activate) и дождитесь его перехода в статус **{{ ui-key.yacloud.data-transfer.label_connector-status-RUNNING }}**.
 
-    - Terraform {#tf}
+    - {{ TF }} {#tf}
 
         1. Укажите в файле `data-transfer-mkf-mmy.tf` переменные:
 
             * `source_endpoint_id` — значение идентификатора эндпоинта для источника;
             * `transfer_enabled` – значение `1` для создания эндпоинта-приемника и трансфера.
 
-        1. Проверьте корректность файлов конфигурации Terraform с помощью команды:
+        1. Проверьте корректность файлов конфигурации {{ TF }} с помощью команды:
 
             ```bash
             terraform validate
             ```
 
-            Если в файлах конфигурации есть ошибки, Terraform на них укажет.
+            Если в файлах конфигурации есть ошибки, {{ TF }} на них укажет.
 
         1. Создайте необходимую инфраструктуру:
 
@@ -309,15 +309,15 @@
                1. Подтвердите изменение ресурсов.
                1. Дождитесь завершения операции.
 
-        1. Трансфер активируется автоматически. Дождитесь его перехода в статус **Реплицируется**.
+        1. Трансфер активируется автоматически. Дождитесь его перехода в статус **{{ ui-key.yacloud.data-transfer.label_connector-status-RUNNING }}**.
 
     {% endlist %}
 
 ## Проверьте работоспособность трансфера {#verify-transfer}
 
-Убедитесь, что в кластер Managed Service for MySQL® переносятся данные из топика кластера-источника Managed Service for Apache Kafka®:
+Убедитесь, что в кластер {{ mmy-name }} переносятся данные из топика кластера-источника {{ mkf-name }}:
 
-1. Отправьте данные из файла `sample.json` в топик `sensors` Managed Service for Apache Kafka® с помощью утилит `jq` и `kafkacat`:
+1. Отправьте данные из файла `sample.json` в топик `sensors` {{ mkf-name }} с помощью утилит `jq` и `kafkacat`:
 
     ```bash
     jq -rc . sample.json | kafkacat -P \
@@ -328,14 +328,14 @@
        -X sasl.mechanisms=SCRAM-SHA-512 \
        -X sasl.username="mkf-user" \
        -X sasl.password="<пароль_пользователя_в_кластере-источнике>" \
-       -X ssl.ca.location=/usr/local/share/ca-certificates/Yandex/YandexInternalRootCA.crt -Z
+       -X ssl.ca.location={{ crt-local-dir }}{{ crt-local-file }} -Z
     ```
 
-    Подробнее о настройке SSL-сертификата и работе с `kafkacat` см. в разделе [Подключение к кластеру Apache Kafka® из приложений](../../managed-kafka/operations/connect/clients.md).
+    Подробнее о настройке SSL-сертификата и работе с `kafkacat` см. в разделе [{#T}](../../managed-kafka/operations/connect/clients.md).
 
-1. Проверьте, что таблица `sensors` кластера Managed Service for MySQL® содержит отправленные данные:
+1. Проверьте, что таблица `sensors` кластера {{ mmy-name }} содержит отправленные данные:
 
-    1. [Подключитесь к кластеру Managed Service for MySQL®](../operations/connect/index.md).
+    1. [Подключитесь к кластеру {{ mmy-name }}](../operations/connect/index.md).
 
     1. Получите содержимое таблицы `sensors` с помощью запроса:
 
@@ -361,16 +361,16 @@
 
    - Вручную {#manual}
 
-       1. [Удалите кластер Managed Service for Apache Kafka®](../../managed-kafka/operations/cluster-delete.md).
-       1. [Удалите кластер Managed Service for MySQL®](../operations/cluster-delete.md).
+       1. [Удалите кластер {{ mkf-name }}](../../managed-kafka/operations/cluster-delete.md).
+       1. [Удалите кластер {{ mmy-name }}](../operations/cluster-delete.md).
 
-   - Terraform {#tf}
+   - {{ TF }} {#tf}
 
        1. В терминале перейдите в директорию с планом инфраструктуры.
        
            {% note warning %}
        
-           Убедитесь, что в директории нет Terraform-манифестов с ресурсами, которые вы хотите сохранить. Terraform удаляет все ресурсы, которые были созданы с помощью манифестов в текущей директории.
+           Убедитесь, что в директории нет {{ TF }}-манифестов с ресурсами, которые вы хотите сохранить. {{ TF }} удаляет все ресурсы, которые были созданы с помощью манифестов в текущей директории.
        
            {% endnote %}
        
@@ -384,6 +384,6 @@
        
            1. Подтвердите удаление ресурсов и дождитесь завершения операции.
        
-           Все ресурсы, которые были описаны в Terraform-манифестах, будут удалены.
+           Все ресурсы, которые были описаны в {{ TF }}-манифестах, будут удалены.
 
    {% endlist %}

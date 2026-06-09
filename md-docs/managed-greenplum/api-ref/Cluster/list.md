@@ -5,7 +5,7 @@ Retrieves a list of Greenplum® clusters that belong to the specified folder.
 ## HTTP request
 
 ```
-GET https://mdb.api.cloud.yandex.net/managed-greenplum/v1/clusters
+GET https://{{ api-host-mdb }}/managed-greenplum/v1/clusters
 ```
 
 ## Query parameters {#yandex.cloud.mdb.greenplum.v1.ListClustersRequest}

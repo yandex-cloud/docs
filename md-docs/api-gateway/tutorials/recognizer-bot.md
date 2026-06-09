@@ -3,12 +3,12 @@
 
 В этом руководстве вы создадите [бота](../../glossary/chat-bot.md) для Telegram, который умеет:
 
-* [синтезировать речь](https://aistudio.yandex.ru/docs/ru//speechkit/tts/index) из текста сообщения и [распознавать речь](https://aistudio.yandex.ru/docs/ru//speechkit/stt/index) в голосовых сообщениях с помощью [Python SDK](https://pypi.org/project/yandex-speechkit/) сервиса Yandex SpeechKit;
-* [распознавать текст](https://aistudio.yandex.ru/docs/ru/vision/concepts/ocr/index) на изображениях с помощью сервиса Yandex Vision OCR.
+* [синтезировать речь]({{ link-docs-ai }}/speechkit/tts/index) из текста сообщения и [распознавать речь]({{ link-docs-ai }}/speechkit/stt/index) в голосовых сообщениях с помощью [Python SDK](https://pypi.org/project/yandex-speechkit/) сервиса {{ speechkit-full-name }};
+* [распознавать текст]({{ link-docs-ai }}vision/concepts/ocr/index) на изображениях с помощью сервиса {{ vision-full-name }}.
 
-Аутентификация в сервисах Yandex Cloud выполняется от имени сервисного аккаунта с помощью [IAM-токена](../../iam/concepts/authorization/iam-token.md). IAM-токен содержится в контексте [обработчика функции](../../functions/operations/function-sa.md), которая программирует диалог пользователя с ботом.
+Аутентификация в сервисах {{ yandex-cloud }} выполняется от имени сервисного аккаунта с помощью [IAM-токена](../../iam/concepts/authorization/iam-token.md). IAM-токен содержится в контексте [обработчика функции](../../functions/operations/function-sa.md), которая программирует диалог пользователя с ботом.
 
-Запросы от бота будет принимать [API-шлюз](../concepts/index.md) Yandex API Gateway и перенаправлять их [функции](../../functions/concepts/function.md) Yandex Cloud Functions для обработки.
+Запросы от бота будет принимать [API-шлюз](../concepts/index.md) {{ api-gw-full-name }} и перенаправлять их [функции](../../functions/concepts/function.md) {{ sf-full-name }} для обработки.
 
 Чтобы создать бота:
 
@@ -24,11 +24,11 @@
 
 ## Перед началом работы {#before-you-begin}
 
-Зарегистрируйтесь в Yandex Cloud и создайте [платежный аккаунт](../../billing/concepts/billing-account.md):
-1. Перейдите в [консоль управления](https://console.yandex.cloud), затем войдите в Yandex Cloud или зарегистрируйтесь.
-1. На странице **[Yandex Cloud Billing](https://center.yandex.cloud/billing/accounts)** убедитесь, что у вас подключен платежный аккаунт, и он находится в [статусе](../../billing/concepts/billing-account-statuses.md) `ACTIVE` или `TRIAL_ACTIVE`. Если платежного аккаунта нет, [создайте его](../../billing/quickstart/index.md) и [привяжите](../../billing/operations/pin-cloud.md) к нему облако.
+Зарегистрируйтесь в {{ yandex-cloud }} и создайте [платежный аккаунт](../../billing/concepts/billing-account.md):
+1. Перейдите в [консоль управления]({{ link-console-main }}), затем войдите в {{ yandex-cloud }} или зарегистрируйтесь.
+1. На странице **[{{ ui-key.yacloud_billing.billing.label_service }}]({{ link-console-billing }})** убедитесь, что у вас подключен платежный аккаунт, и он находится в [статусе](../../billing/concepts/billing-account-statuses.md) `ACTIVE` или `TRIAL_ACTIVE`. Если платежного аккаунта нет, [создайте его](../../billing/quickstart/index.md) и [привяжите](../../billing/operations/pin-cloud.md) к нему облако.
 
-Если у вас есть активный платежный аккаунт, вы можете создать или выбрать [каталог](../../resource-manager/concepts/resources-hierarchy.md#folder), в котором будет работать ваша инфраструктура, на [странице облака](https://console.yandex.cloud/cloud).
+Если у вас есть активный платежный аккаунт, вы можете создать или выбрать [каталог](../../resource-manager/concepts/resources-hierarchy.md#folder), в котором будет работать ваша инфраструктура, на [странице облака]({{ link-console-cloud }}).
 
 [Подробнее об облаках и каталогах](../../resource-manager/concepts/resources-hierarchy.md).
 
@@ -36,15 +36,15 @@
 
 В стоимость поддержки Telegram-бота входят:
 
-* плата за использование SpeechKit (см. [тарифы SpeechKit](https://aistudio.yandex.ru/docs/ru/speechkit/pricing));
-* плата за использование Vision OCR (см. [тарифы для Vision OCR](https://aistudio.yandex.ru/docs/ru/vision/pricing));
-* плата за количество вызовов функции, вычислительные ресурсы, выделенные для выполнения функции, и исходящий трафик (см. [тарифы для Cloud Functions](../../functions/pricing.md));
-* плата за количество запросов к созданному API-шлюзу и исходящий трафик (см. [тарифы API Gateway](../pricing.md)).
+* плата за использование {{ speechkit-name }} (см. [тарифы {{ speechkit-name }}]({{ link-docs-ai }}speechkit/pricing));
+* плата за использование {{ vision-name }} (см. [тарифы для {{ vision-name }}]({{ link-docs-ai }}vision/pricing));
+* плата за количество вызовов функции, вычислительные ресурсы, выделенные для выполнения функции, и исходящий трафик (см. [тарифы для {{ sf-name }}](../../functions/pricing.md));
+* плата за количество запросов к созданному API-шлюзу и исходящий трафик (см. [тарифы {{ api-gw-name }}](../pricing.md)).
 
 ## Подготовьте ресурсы {#prepare}
 
-1. [Создайте сервисный аккаунт](../../iam/operations/sa/create.md) с именем `recognizer-bot-sa` и [назначьте](../../iam/operations/sa/assign-role-for-sa.md) ему роли `ai.editor`, `functions.editor` на ваш каталог.
-1. [Скачайте](https://github.com/BtbN/FFmpeg-Builds/releases/download/autobuild-2024-09-30-15-36/ffmpeg-N-117275-g04182b5549-linux64-gpl.tar.xz) архив с пакетом FFmpeg для корректной работы Python SDK SpeechKit в [среде выполнения функции](../../functions/concepts/runtime/index.md).
+1. [Создайте сервисный аккаунт](../../iam/operations/sa/create.md) с именем `recognizer-bot-sa` и [назначьте](../../iam/operations/sa/assign-role-for-sa.md) ему роли `ai.editor`, `{{ roles-functions-editor }}` на ваш каталог.
+1. [Скачайте](https://github.com/BtbN/FFmpeg-Builds/releases/download/autobuild-2024-09-30-15-36/ffmpeg-N-117275-g04182b5549-linux64-gpl.tar.xz) архив с пакетом FFmpeg для корректной работы Python SDK {{ speechkit-name }} в [среде выполнения функции](../../functions/concepts/runtime/index.md).
 1. Извлеките из архива бинарные файлы `ffmpeg`, `ffprobe` и сделайте их исполняемыми, выполнив команды:
 
     ```bash
@@ -75,7 +75,7 @@
       # Эндпоинт сервиса распознавания изображений и данные для аутентификации
 
       API_TOKEN = os.environ['TELEGRAM_TOKEN']
-      vision_url = 'https://ocr.api.cloud.yandex.net/ocr/v1/recognizeText'
+      vision_url = 'https://ocr.{{ api-host }}/ocr/v1/recognizeText'
 
       # Добавление папки с ffmpeg в системный PATH
 
@@ -90,11 +90,11 @@
 
       def get_folder_id(iam_token, version_id):
           headers = {'Authorization': f'Bearer {iam_token}'}
-          function_id_req = requests.get(f'https://serverless-functions.api.cloud.yandex.net/functions/v1/versions/{version_id}',
+          function_id_req = requests.get(f'https://serverless-functions.{{ api-host }}/functions/v1/versions/{version_id}',
                                          headers=headers)
           function_id_data = function_id_req.json()
           function_id = function_id_data['functionId']
-          folder_id_req = requests.get(f'https://serverless-functions.api.cloud.yandex.net/functions/v1/functions/{function_id}',
+          folder_id_req = requests.get(f'https://serverless-functions.{{ api-host }}/functions/v1/functions/{function_id}',
                                        headers=headers)
           folder_id_data = folder_id_req.json()
           folder_id = folder_id_data['folderId']
@@ -210,7 +210,7 @@
 
    1. Добавьте в ZIP-архив `index.zip` файлы `index.py`, `requirements.txt`, `ffmpeg` и `ffprobe`.
 
-1. [Создайте бакет](../../storage/operations/buckets/create.md) Object Storage и [загрузите в него](../../storage/operations/objects/upload.md) созданный ZIP-архив.
+1. [Создайте бакет](../../storage/operations/buckets/create.md) {{ objstorage-name }} и [загрузите в него](../../storage/operations/objects/upload.md) созданный ZIP-архив.
 
 ## Зарегистрируйте Telegram-бота {#bot-register}
 
@@ -235,33 +235,33 @@
 
 - Консоль управления {#console}
 
-  1. В [консоли управления](https://console.yandex.cloud) перейдите в каталог, в котором хотите создать функцию.
-  1. [Перейдите]( ../../console/operations/select-service.md#select-service) в сервис **Cloud Functions**.
+  1. В [консоли управления]({{ link-console-main }}) перейдите в каталог, в котором хотите создать функцию.
+  1. [Перейдите]( ../../console/operations/select-service.md#select-service) в сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_serverless-functions }}**.
   1. Создайте функцию:
 
-     1. Нажмите **Создать функцию**.
+     1. Нажмите **{{ ui-key.yacloud.serverless-functions.list.button_create }}**.
      1. Введите имя функции — `for-recognizer-bot`.
-     1. Нажмите **Создать**.
+     1. Нажмите **{{ ui-key.yacloud.common.create }}**.
 
   1. Создайте версию функции:
 
-     1. Выберите среду выполнения `Python`, отключите опцию **Добавить файлы с примерами кода** и нажмите **Продолжить**.
-     1. Укажите способ загрузки `Object Storage` и выберите [созданный ранее](#prepare) бакет. В поле **Объект** укажите имя файла `index.zip`.
+     1. Выберите среду выполнения `Python`, отключите опцию **{{ ui-key.yacloud.serverless-functions.item.editor.label_with-template }}** и нажмите **{{ ui-key.yacloud.serverless-functions.item.editor.button_action-continue }}**.
+     1. Укажите способ загрузки `{{ ui-key.yacloud.serverless-functions.item.editor.value_method-storage }}` и выберите [созданный ранее](#prepare) бакет. В поле **{{ ui-key.yacloud.serverless-functions.item.editor.field_object }}** укажите имя файла `index.zip`.
      1. Укажите точку входа `index.handler`.
-     1. В блоке **Параметры** укажите:
+     1. В блоке **{{ ui-key.yacloud.serverless-functions.item.editor.label_title-params }}** укажите:
 
-        * **Таймаут** — `30`.
-        * **Память** — `256 МБ`.
-        * **Сервисный аккаунт** — `recognizer-bot-sa`.
-        * **Переменные окружения**:
+        * **{{ ui-key.yacloud.serverless-functions.item.editor.field_timeout }}** — `30`.
+        * **{{ ui-key.yacloud.serverless-functions.item.editor.field_resources-memory }}** — `256 {{ ui-key.yacloud.common.units.label_megabyte }}`.
+        * **{{ ui-key.yacloud.forms.label_service-account-select }}** — `recognizer-bot-sa`.
+        * **{{ ui-key.yacloud.serverless-functions.item.editor.field_environment-variables }}**:
 
           * `TELEGRAM_TOKEN` — токен вашего бота в Telegram.
 
-     1. Нажмите **Сохранить изменения**.
+     1. Нажмите **{{ ui-key.yacloud.serverless-functions.item.editor.button_deploy-version }}**.
 
 - CLI {#cli}
 
-  Если у вас еще нет интерфейса командной строки Yandex Cloud (CLI), [установите и инициализируйте его](../../cli/quickstart.md#install).
+  Если у вас еще нет интерфейса командной строки {{ yandex-cloud }} (CLI), [установите и инициализируйте его](../../cli/quickstart.md#install).
 
   По умолчанию используется каталог, указанный при [создании](../../cli/operations/profile/profile-create.md) профиля CLI. Чтобы изменить каталог по умолчанию, используйте команду `yc config set folder-id <идентификатор_каталога>`. Также для любой команды вы можете указать другой каталог с помощью параметров `--folder-name` или `--folder-id`. Если вы обращаетесь к ресурсу по имени, поиск будет выполнен в каталоге по умолчанию. Если вы обращаетесь к ресурсу по идентификатору, поиск будет выполнен глобально — во всех каталогах с учетом прав доступа.
 
@@ -279,7 +279,7 @@
      created_at: "2023-03-21T10:03:37.475Z"
      name: for-recognizer-bot
      log_group_id: eolm8aoq9vcp********
-     http_invoke_url: https://functions.yandexcloud.net/b09bhaokchn9********
+     http_invoke_url: https://{{ sf-url }}/b09bhaokchn9********
      status: ACTIVE
      ```
 
@@ -334,16 +334,19 @@
        folder_id: b1g86q4m5vej********
      ```
 
-- Terraform {#tf}
+- {{ TF }} {#tf}
 
   
-  [Terraform](https://www.terraform.io/) позволяет быстро создать облачную инфраструктуру в Yandex Cloud и управлять ею с помощью файлов конфигураций. В файлах конфигураций хранится описание инфраструктуры на языке HCL (HashiCorp Configuration Language). При изменении файлов конфигураций Terraform автоматически определяет, какая часть вашей конфигурации уже развернута, что следует добавить или удалить.
+  [{{ TF }}](https://www.terraform.io/) позволяет быстро создать облачную инфраструктуру в {{ yandex-cloud }} и управлять ею с помощью файлов конфигураций. В файлах конфигураций хранится описание инфраструктуры на языке HCL (HashiCorp Configuration Language). При изменении файлов конфигураций {{ TF }} автоматически определяет, какая часть вашей конфигурации уже развернута, что следует добавить или удалить.
   
-  Terraform распространяется под лицензией [Business Source License](https://github.com/hashicorp/terraform/blob/main/LICENSE), а [провайдер Yandex Cloud для Terraform](https://github.com/yandex-cloud/terraform-provider-yandex) — под лицензией [MPL-2.0](https://www.mozilla.org/en-US/MPL/2.0/).
+  {{ TF }} распространяется под лицензией [Business Source License](https://github.com/hashicorp/terraform/blob/main/LICENSE), а [провайдер {{ yandex-cloud }} для {{ TF }}](https://github.com/yandex-cloud/terraform-provider-yandex) — под лицензией [MPL-2.0](https://www.mozilla.org/en-US/MPL/2.0/).
   
-  Подробную информацию о ресурсах провайдера смотрите в документации на сайте [Terraform](https://www.terraform.io/docs/providers/yandex/index.html) или в [зеркале](../../terraform/index.md).
+  Подробную информацию о ресурсах провайдера смотрите в документации на сайте [{{ TF }}](https://www.terraform.io/docs/providers/yandex/index.html) или в [зеркале]({{ tf-docs-link }}).
 
-  Если у вас еще нет Terraform, [установите его и настройте провайдер Yandex Cloud](../../tutorials/infrastructure-management/terraform-quickstart.md#install-terraform).
+  Если у вас еще нет {{ TF }}, [установите его и настройте провайдер {{ yandex-cloud }}](../../tutorials/infrastructure-management/terraform-quickstart.md#install-terraform).
+  
+  
+  Чтобы управлять инфраструктурой с помощью {{ TF }} от имени сервисного аккаунта или пользовательских аккаунтов: аккаунта на Яндексе, федеративного аккаунта и локального пользователя, [аутентифицируйтесь](../../terraform/authentication.md) соответствующим способом.
 
 
   1. Опишите в конфигурационном файле параметры функции:
@@ -379,7 +382,7 @@
      * `environment` — переменные окружения.
      * `package` — имя бакета, в который загружен ZIP-архив `index.zip` с исходным кодом функции.
 
-     Более подробную информацию о параметрах ресурса `yandex_function` см. в [документации провайдера](../../terraform/resources/function.md).
+     Более подробную информацию о параметрах ресурса `yandex_function` см. в [документации провайдера]({{ tf-provider-resources-link }}/function).
 
   1. Проверьте корректность конфигурационных файлов.
 
@@ -390,7 +393,7 @@
         terraform plan
         ```
 
-     Если конфигурация описана верно, в терминале отобразится список создаваемых ресурсов и их параметров. Если в конфигурации есть ошибки, Terraform на них укажет.
+     Если конфигурация описана верно, в терминале отобразится список создаваемых ресурсов и их параметров. Если в конфигурации есть ошибки, {{ TF }} на них укажет.
 
   1. Разверните облачные ресурсы.
 
@@ -418,11 +421,11 @@
 
 - Консоль управления {#console}
 
-  1. В [консоли управления](https://console.yandex.cloud) выберите каталог, в котором хотите создать API-шлюз.
-  1. [Перейдите](../../console/operations/select-service.md#select-service) в сервис **API Gateway**.
-  1. Нажмите **Создать API-шлюз**.
-  1. В поле **Имя** введите `recognizer-bot-api-gw`.
-  1. В блок **Спецификация** добавьте спецификацию:
+  1. В [консоли управления]({{ link-console-main }}) выберите каталог, в котором хотите создать API-шлюз.
+  1. Перейдите в сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_api-gateway }}**.
+  1. Нажмите **{{ ui-key.yacloud.serverless-functions.gateways.list.button_create }}**.
+  1. В поле **{{ ui-key.yacloud.common.name }}** введите `recognizer-bot-api-gw`.
+  1. В блок **{{ ui-key.yacloud.serverless-functions.gateways.form.field_spec }}** добавьте спецификацию:
 
      ```yaml
      openapi: 3.0.0
@@ -444,8 +447,8 @@
      * `function_id` — идентификатор функции `for-recognizer-bot`;
      * `service_account_id` — идентификатор сервисного аккаунта `recognizer-bot-sa`.
 
-  1. Нажмите **Создать**.
-  1. Выберите созданный API-шлюз. Сохраните значение поля **Служебный домен** — оно потребуется в дальнейшем.
+  1. Нажмите **{{ ui-key.yacloud.serverless-functions.gateways.form.button_create-gateway }}**.
+  1. Выберите созданный API-шлюз. Сохраните значение поля **{{ ui-key.yacloud.serverless-functions.gateways.overview.label_domain }}** — оно потребуется в дальнейшем.
 
 - CLI {#cli}
 
@@ -491,14 +494,14 @@
      created_at: "2023-09-25T16:01:48.926Z"
      name: recognizer-bot-api-gw
      status: ACTIVE
-     domain: d5dm1lba80md********.i9******.apigw.yandexcloud.net
+     domain: {{ api-host-apigw }}
      log_group_id: ckgefpleo5eg********
      connectivity: {}
      log_options:
        folder_id: b1gc1t4cb638********
      ```
 
-- Terraform {#tf}
+- {{ TF }} {#tf}
 
   Чтобы создать API-шлюз:
 
@@ -530,7 +533,7 @@
      * `name` — имя API-шлюза.
      * `spec` — спецификация API-шлюза.
 
-     Более подробную информацию о параметрах ресурсов в Terraform см. в [документации провайдера](../../terraform/resources/api_gateway.md).
+     Более подробную информацию о параметрах ресурсов в {{ TF }} см. в [документации провайдера]({{ tf-provider-resources-link }}/api_gateway).
 
   1. Проверьте корректность конфигурационных файлов.
 
@@ -541,7 +544,7 @@
         terraform plan
         ```
 
-     Если конфигурация описана верно, в терминале отобразится список создаваемых ресурсов и их параметров. Если в конфигурации есть ошибки, Terraform на них укажет.
+     Если конфигурация описана верно, в терминале отобразится список создаваемых ресурсов и их параметров. Если в конфигурации есть ошибки, {{ TF }} на них укажет.
 
   1. Разверните облачные ресурсы.
 
@@ -604,7 +607,7 @@ curl --request POST \
 
    {% note info %}
 
-   Изображение должно соответствовать [требованиям](https://aistudio.yandex.ru/docs/ru/vision/concepts/ocr/index#image-requirements).
+   Изображение должно соответствовать [требованиям]({{ link-docs-ai }}vision/concepts/ocr/index#image-requirements).
 
    {% endnote %}
 
@@ -612,5 +615,5 @@ curl --request POST \
 
 Чтобы не [платить](#paid-resources) за ресурсы, которые вам больше не нужны, удалите их:
 
-* [удалите](../operations/api-gw-delete.md) API-шлюз API Gateway;
-* [удалите](../../functions/operations/function/function-delete.md) функцию Cloud Functions.
+* [удалите](../operations/api-gw-delete.md) API-шлюз {{ api-gw-name }};
+* [удалите](../../functions/operations/function/function-delete.md) функцию {{ sf-name }}.

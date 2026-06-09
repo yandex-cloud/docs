@@ -5,7 +5,7 @@ Retrieves the list of OAuthClient resources views in the specified folder
 ## HTTP request
 
 ```
-GET https://iam.api.cloud.yandex.net/iam/v1/oauthClients
+GET https://iam.{{ api-host }}/iam/v1/oauthClients
 ```
 
 ## Query parameters {#yandex.cloud.iam.v1.ListOAuthClientsRequest}
@@ -28,7 +28,7 @@ Page token. To get the next page of results, set `pageToken` to the
 The maximum string length in characters is 2000. ||
 || folderId | **string**
 
-Required field. ID of the folder to list oauth clients for
+ID of the folder to list oauth clients for
 To get the folder ID, use a [yandex.cloud.resourcemanager.v1.FolderService.List](../../../resource-manager/api-ref/Folder/list.md#List) request.
 
 The maximum string length in characters is 50. ||

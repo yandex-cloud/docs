@@ -41,8 +41,6 @@ The [broker](concepts/index.md#broker) is at the [Preview](../overview/concepts/
 
 ### Cost calculation example {#price-example}
 
-{% include [prices-difference](../_includes/prices-difference.md) %}
-
 {% include [prices-example](../_includes/iot-core/prices-example.md) %}
 
 ## Payable commands {#mqtt-commands}

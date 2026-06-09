@@ -12,7 +12,7 @@
 
 ## Ответ {#response}
 
-Перечень возможных ответов смотрите в разделе [Стандартные ошибки](../common-errors.md).
+Перечень возможных ответов смотрите в разделе [{#T}](../common-errors.md).
 
 ### Поля успешного ответа {#response-parameters}
 
@@ -22,7 +22,7 @@
 
 ### Ошибки ListQueues {#errors}
 
-Метод не возвращает специальных ошибок. Перечень общих для всех методов ошибок смотрите в разделе [Стандартные ошибки](../common-errors.md).
+Метод не возвращает специальных ошибок. Перечень общих для всех методов ошибок смотрите в разделе [{#T}](../common-errors.md).
 
 ## Пример запроса {#request-example}
 
@@ -40,7 +40,7 @@ Action=ListQueues
 <ListQueuesResponse>
     <ListQueuesResult>
         <QueueUrl>
-            https://message-queue.api.cloud.yandex.net/b1g8ad42m6he********/dj6000000000********/sample-queue
+            https://message-queue.{{ api-host }}/b1g8ad42m6he********/dj6000000000********/sample-queue
         </QueueUrl>
         </ListQueuesResult>
     <ResponseMetadata>

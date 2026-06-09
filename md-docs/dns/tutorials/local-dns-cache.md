@@ -1,6 +1,6 @@
 # Настройка локального кеширующего DNS-резолвера
 
-**Не** используйте Yandex Cloud DNS напрямую для запроса внешних доменных имён.
+**Не** используйте {{ dns-full-name }} напрямую для запроса внешних доменных имён.
 
 Вместо этого, установите и настройте локальный кеширующий DNS-резолвер, например, `systemd-resolved`, `dnsmasq` или `unbound`. Это ускорит выполнение публичных DNS-запросов, уменьшит их количество и [ваши расходы](../pricing.md#public-dns-requests).
 
@@ -20,19 +20,19 @@
 
 ## Перед началом работы {#before-you-begin}
 
-Зарегистрируйтесь в Yandex Cloud и создайте [платежный аккаунт](../../billing/concepts/billing-account.md):
-1. Перейдите в [консоль управления](https://console.yandex.cloud), затем войдите в Yandex Cloud или зарегистрируйтесь.
-1. На странице **[Yandex Cloud Billing](https://center.yandex.cloud/billing/accounts)** убедитесь, что у вас подключен платежный аккаунт, и он находится в [статусе](../../billing/concepts/billing-account-statuses.md) `ACTIVE` или `TRIAL_ACTIVE`. Если платежного аккаунта нет, [создайте его](../../billing/quickstart/index.md) и [привяжите](../../billing/operations/pin-cloud.md) к нему облако.
+Зарегистрируйтесь в {{ yandex-cloud }} и создайте [платежный аккаунт](../../billing/concepts/billing-account.md):
+1. Перейдите в [консоль управления]({{ link-console-main }}), затем войдите в {{ yandex-cloud }} или зарегистрируйтесь.
+1. На странице **[{{ ui-key.yacloud_billing.billing.label_service }}]({{ link-console-billing }})** убедитесь, что у вас подключен платежный аккаунт, и он находится в [статусе](../../billing/concepts/billing-account-statuses.md) `ACTIVE` или `TRIAL_ACTIVE`. Если платежного аккаунта нет, [создайте его](../../billing/quickstart/index.md) и [привяжите](../../billing/operations/pin-cloud.md) к нему облако.
 
-Если у вас есть активный платежный аккаунт, вы можете создать или выбрать [каталог](../../resource-manager/concepts/resources-hierarchy.md#folder), в котором будет работать ваша инфраструктура, на [странице облака](https://console.yandex.cloud/cloud).
+Если у вас есть активный платежный аккаунт, вы можете создать или выбрать [каталог](../../resource-manager/concepts/resources-hierarchy.md#folder), в котором будет работать ваша инфраструктура, на [странице облака]({{ link-console-cloud }}).
 
 [Подробнее об облаках и каталогах](../../resource-manager/concepts/resources-hierarchy.md).
 
 ### Необходимые платные ресурсы {#paid-resources}
 
 В стоимость поддержки инфраструктуры входят:
-* плата за постоянно запущенную виртуальную машину (см. [тарифы Yandex Compute Cloud](../../compute/pricing.md));
-* плата за использование динамического или статического внешнего IP-адреса (см. [тарифы Yandex Virtual Private Cloud](../../vpc/pricing.md)).
+* плата за постоянно запущенную виртуальную машину (см. [тарифы {{ compute-full-name }}](../../compute/pricing.md));
+* плата за использование динамического или статического внешнего IP-адреса (см. [тарифы {{ vpc-full-name }}](../../vpc/pricing.md)).
 
 ## Подготовьте инфраструктуру {#prepare-infrastructure}
 
@@ -63,11 +63,11 @@
    <...>
    Current DNS Server: 192.168.6.2         
             DNS Servers: 192.168.6.2         
-            DNS Domain: ru-central1.internal
+            DNS Domain: {{ region-id }}.internal
                         auto.internal 
    ```
 
-   При корректной конфигурации, в выводе команды в строке `Current DNS Server:` будет указан адрес сервера Yandex Cloud DNS — второй адрес в виртуальной сети. Например, `192.168.6.2` для ВМ в подсети `192.168.6.0/24`.
+   При корректной конфигурации, в выводе команды в строке `Current DNS Server:` будет указан адрес сервера {{ dns-full-name }} — второй адрес в виртуальной сети. Например, `192.168.6.2` для ВМ в подсети `192.168.6.0/24`.
 
 1. Убедитесь, что внешние DNS-имена успешно резолвятся DNS-сервером `127.0.0.53#53`. Для этого используйте утилиту `dig`:
 
@@ -146,7 +146,7 @@
       Oct 28 22:39:58 <...> systemd[1]: Started dnsmasq - A lightweight DHCP and caching DNS server.
       ```
 
-      Также обратите внимание на адрес в строке `using nameserver <...>`. Там должен находиться адрес сервера Yandex Cloud DNS — второй адрес в виртуальной сети. Например, `192.168.6.2` для ВМ в подсети `192.168.6.0/24`.
+      Также обратите внимание на адрес в строке `using nameserver <...>`. Там должен находиться адрес сервера {{ dns-full-name }} — второй адрес в виртуальной сети. Например, `192.168.6.2` для ВМ в подсети `192.168.6.0/24`.
       
    1. С помощью утилиты `dig` проверьте, что внешние DNS-имена успешно резолвятся:
 

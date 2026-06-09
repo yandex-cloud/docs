@@ -1,8 +1,8 @@
-# Миграция CDN-ресурсов и групп источников на Yandex Cloud CDN
+# Миграция CDN-ресурсов и групп источников на {{ cdn-full-name }}
 
-С 22 января 2026 года наш технологический партнер по сервису Cloud CDN — компания EdgeЦентр (провайдер EdgeCDN), перестанет предоставлять технологию CDN на нашей платформе.
+С 22 января 2026 года наш технологический партнер по сервису {{ cdn-name }} — компания EdgeЦентр (провайдер EdgeCDN), перестанет предоставлять технологию CDN на нашей платформе.
 
-Yandex Cloud автоматически мигрирует CDN-ресурсы и группы источников от провайдера EdgeCDN к провайдеру Yandex Cloud CDN до 17 января 2026 года. При переключении [стоимость использования](../pricing.md) сервиса останется прежней.
+{{ yandex-cloud }} автоматически мигрирует CDN-ресурсы и группы источников от провайдера EdgeCDN к провайдеру {{ cdn-full-name }} до 17 января 2026 года. При переключении [стоимость использования](../pricing.md) сервиса останется прежней.
 
 Чтобы запустить перенесенные CDN-ресурсы и группы источников:
 1. [Включите доступ к контенту](#content-access).
@@ -17,11 +17,11 @@ Yandex Cloud автоматически мигрирует CDN-ресурсы и
 
 - Консоль управления {#console}
 
-  1. В [консоли управления](https://console.yandex.cloud) выберите [каталог](../../resource-manager/concepts/resources-hierarchy.md#folder), в котором был размещен CDN-ресурс, относящийся к провайдеру EdgeCDN.
-  1. [Перейдите](../../console/operations/select-service.md#select-service) в сервис **Cloud CDN**.
-  1. В списке ресурсов найдите перенесенный CDN-ресурс. У него должен быть указан провайдер `Yandex Cloud CDN`, и должно быть то же самое основное доменное имя, что и в провайдере EdgeCDN. 
+  1. В [консоли управления]({{ link-console-main }}) выберите [каталог](../../resource-manager/concepts/resources-hierarchy.md#folder), в котором был размещен CDN-ресурс, относящийся к провайдеру EdgeCDN.
+  1. Перейдите в сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_cdn }}**.
+  1. В списке ресурсов найдите перенесенный CDN-ресурс. У него должен быть указан провайдер `{{ cdn-full-name }}`, и должно быть то же самое основное доменное имя, что и в провайдере EdgeCDN. 
   1. Если в столбце **Статус** перенесенного CDN-ресурса указано `Not active`, включите доступ к контенту:
-      1. Напротив ресурса нажмите ![image](../../_assets/console-icons/ellipsis.svg) и выберите ![image](../../_assets/console-icons/pencil.svg) **Редактировать**.
+      1. Напротив ресурса нажмите ![image](../../_assets/console-icons/ellipsis.svg) и выберите ![image](../../_assets/console-icons/pencil.svg) **{{ ui-key.yacloud.common.edit }}**.
       1. В блоке **Контент** включите доступ к контенту и нажмите **Сохранить**.
 
   {% note info %}
@@ -38,13 +38,13 @@ Yandex Cloud автоматически мигрирует CDN-ресурсы и
 
 - Консоль управления {#console}
 
-  Если для исходного CDN-ресурса был загружен TLS-сертификат, в [консоли управления](https://console.yandex.cloud) выберите новый CDN-ресурс с провайдером Yandex Cloud CDN и убедитесь, что в блоке **Тип сертификата** указано название вашего сертификата.
+  Если для исходного CDN-ресурса был загружен TLS-сертификат, в [консоли управления]({{ link-console-main }}) выберите новый CDN-ресурс с провайдером {{ cdn-full-name }} и убедитесь, что в блоке **{{ ui-key.yacloud.cdn.label_certificate-type }}** указано название вашего сертификата.
       
   {% note warning %}
 
-  Ранее для CDN-ресурсов поддерживался автоматический выпуск TLS-сертификатов на стороне EdgeCDN. В параметрах CDN-ресурса такой тип сертификатов отображается как **Let's Encrypt^®^**. 
+  Ранее для CDN-ресурсов поддерживался автоматический выпуск TLS-сертификатов на стороне EdgeCDN. В параметрах CDN-ресурса такой тип сертификатов отображается как **{{ ui-key.yacloud.cdn.md_value_certificate-le }}**. 
 
-  Перенести эти сертификаты от провайдера EdgeCDN к провайдеру Yandex Cloud CDN не получится. Вместо этого [выпустите](../../certificate-manager/operations/managed/cert-create.md) новый сертификат Let's Encrypt^®^ или [загрузите](../../certificate-manager/operations/import/cert-create.md) собственный в сервисе Yandex Certificate Manager и укажите его в настройках перенесенного CDN-ресурса.
+  Перенести эти сертификаты от провайдера EdgeCDN к провайдеру {{ cdn-full-name }} не получится. Вместо этого [выпустите](../../certificate-manager/operations/managed/cert-create.md) новый сертификат Let's Encrypt^®^ или [загрузите](../../certificate-manager/operations/import/cert-create.md) собственный в сервисе {{ certificate-manager-full-name }} и укажите его в настройках перенесенного CDN-ресурса.
 
   {% endnote %}
 
@@ -58,30 +58,30 @@ Yandex Cloud автоматически мигрирует CDN-ресурсы и
 
     - Консоль управления {#console}
 
-      1. Выберите созданный CDN-ресурс с провайдером Yandex Cloud CDN.
-      1. В блоке **Настройки DNS** скопируйте значение для CNAME-записи. Пример значения: `e1b83ae3********.topology.gslb.yccdn.ru`.
+      1. Выберите созданный CDN-ресурс с провайдером {{ cdn-full-name }}.
+      1. В блоке **{{ ui-key.yacloud.cdn.label_dns-settings_title }}** скопируйте значение для CNAME-записи. Пример значения: `{{ cname-example-yc }}`.
 
     {% endlist %}
 
-1. В настройках вашего DNS-хостинга измените CNAME-запись со значения, указывающего на адрес с доменным именем EdgeCDN, на значение, указывающее на адрес с доменным именем Yandex Cloud CDN.
+1. В настройках вашего DNS-хостинга измените CNAME-запись со значения, указывающего на адрес с доменным именем EdgeCDN, на значение, указывающее на адрес с доменным именем {{ cdn-full-name }}.
 
     <br>
 
     > Пример исходной записи для провайдера EdgeCDN:
     > 
     > ```text
-    > cdn.example.com. CNAME cl-msa87*****.edgecdn.ru
+    > cdn.example.com. CNAME {{ cname-example-edge }}
     > ```
     > 
-    > Пример измененной записи для провайдера Yandex Cloud CDN:
+    > Пример измененной записи для провайдера {{ cdn-full-name }}:
     > 
     > ```text
-    > cdn.example.com. CNAME e1b83ae3********.topology.gslb.yccdn.ru
+    > cdn.example.com. CNAME {{ cname-example-yc }}
     > ```
 
     {% note tip %}
     
-    Если для DNS-хостинга вы используете Yandex Cloud DNS, см. инструкцию [Изменить ресурсную запись](../../dns/operations/resource-record-update.md).
+    Если для DNS-хостинга вы используете {{ dns-full-name }}, см. инструкцию [{#T}](../../dns/operations/resource-record-update.md).
     
     {% endnote %}
 
@@ -95,7 +95,7 @@ Yandex Cloud автоматически мигрирует CDN-ресурсы и
 
 ## Проверьте защиту источников от информационных атак {#ddos}
 
-Если для источника, который вы подключаете к Yandex Cloud CDN, настроена защита от информационных атак, например файрвол, DDoS Protection и пр., убедитесь, что [адреса Yandex Cloud CDN](https://tech.cdn.yandex.net/prefixes/yc.json) находятся в списке разрешенных.
+Если для источника, который вы подключаете к {{ cdn-full-name }}, настроена защита от информационных атак, например файрвол, DDoS Protection и пр., убедитесь, что [адреса {{ cdn-full-name }}](https://tech.cdn.yandex.net/prefixes/yc.json) находятся в списке разрешенных.
 
 ## Протестируйте работу ресурса {#check}
 
@@ -107,14 +107,14 @@ Yandex Cloud автоматически мигрирует CDN-ресурсы и
 
 - Консоль управления {#console}
 
-  1. В [консоли управления](https://console.yandex.cloud) выберите каталог, в котором создан CDN-ресурс.
-  1. [Перейдите](../../console/operations/select-service.md#select-service) в сервис **Cloud CDN**.
+  1. В [консоли управления]({{ link-console-main }}) выберите каталог, в котором создан CDN-ресурс.
+  1. Перейдите в сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_cdn }}**.
   1. Выберите CDN-ресурс, созданный ранее.
-  1. Перейдите на вкладку **Мониторинг**.
+  1. Перейдите на вкладку **{{ ui-key.yacloud.common.monitoring }}**.
 
 {% endlist %}
 
 ### См. также {#see-also}
 
-* [Копировать конфигурацию одного ресурса в другой](resources/copy-resource.md)
-* [Просмотр статистики CDN-ресурса](resources/get-stats.md)
+* [{#T}](resources/copy-resource.md)
+* [{#T}](resources/get-stats.md)

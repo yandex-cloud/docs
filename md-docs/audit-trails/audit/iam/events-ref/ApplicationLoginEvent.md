@@ -94,7 +94,8 @@
         "method": "string",
         "enteredAt": "string"
       }
-    ]
+    ],
+    "sessionId": "string"
   }
 }
 ```
@@ -274,6 +275,7 @@ A list of messages that carry the error details. ||
 || organizationId | **string** ||
 || applicationId | **string** ||
 || enteredAuthentications[] | **[EnteredAuthentication](#yandex.cloud.audit.iam.credential.ApplicationLoginEvent.EnteredAuthentication)** ||
+|| sessionId | **string** ||
 |#
 
 ## EnteredAuthentication {#yandex.cloud.audit.iam.credential.ApplicationLoginEvent.EnteredAuthentication}

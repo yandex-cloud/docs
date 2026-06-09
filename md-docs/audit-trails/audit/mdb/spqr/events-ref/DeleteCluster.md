@@ -156,7 +156,6 @@
             },
             "coordinator": "object"
           },
-          "logLevel": "string",
           "balancer": {
             "cpuThreshold": "number",
             "spaceThreshold": "number",
@@ -164,7 +163,8 @@
             "maxMoveCount": "string",
             "keysPerMove": "string",
             "timeout": "string"
-          }
+          },
+          "logLevel": "string"
         },
         "backupWindowStart": {
           "hours": "integer",
@@ -457,6 +457,7 @@ In some languages, built-in datetime utilities do not support nanosecond precisi
 || coordinator | **[CoordinatorConfig](#yandex.cloud.mdb.spqr.v1.CoordinatorConfig)** ||
 || postgresql | **[PostgreSQLConfig](#yandex.cloud.mdb.spqr.v1.PostgreSQLConfig)** ||
 || infra | **[InfraConfig](#yandex.cloud.mdb.spqr.v1.InfraConfig)** ||
+|| balancer | **[BalancerSettings](#yandex.cloud.mdb.spqr.v1.BalancerSettings)** ||
 || logLevel | **enum** (LogLevel)
 
 - `DEBUG`
@@ -464,7 +465,6 @@ In some languages, built-in datetime utilities do not support nanosecond precisi
 - `WARNING`
 - `ERROR`
 - `FATAL` ||
-|| balancer | **[BalancerSettings](#yandex.cloud.mdb.spqr.v1.BalancerSettings)** ||
 |#
 
 ## RouterConfig {#yandex.cloud.mdb.spqr.v1.RouterConfig}

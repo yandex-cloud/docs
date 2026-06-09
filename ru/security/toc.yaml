@@ -99,44 +99,70 @@ items:
             href: tutorials/authentication/entra-id.md
           - name: Сопоставление групп пользователей в {{ keycloak }}
             href: tutorials/authentication/keycloak.md
-      - name: Безопасность и стандарты
+      - name: Настройка SSO
         items:
-          - name: Настройка единого входа в Grafana Cloud по стандарту OIDC
-            href: tutorials/single-sign-on/oidc-grafana.md
           - name: Настройка единого входа в 1С:Предприятие по стандарту OIDC
             href: tutorials/single-sign-on/oidc-1c-enterprise.md
-          - name: Настройка единого входа в Cloud.ru по стандарту OIDC
-            href: tutorials/single-sign-on/oidc-cloud-ru.md
-          - name: Настройка единого входа в Jenkins по стандарту OIDC
-            href: tutorials/single-sign-on/oidc-jenkins.md
-          - name: Настройка единого входа в Grafana Cloud по стандарту SAML
-            href: tutorials/single-sign-on/saml-grafana.md
+          - name: Cloud.ru
+            items:
+              - name: Настройка единого входа в Cloud.ru по стандарту SAML
+                href: tutorials/single-sign-on/saml-cloud-ru.md
+              - name: Настройка единого входа в Cloud.ru по стандарту OIDC
+                href: tutorials/single-sign-on/oidc-cloud-ru.md
+          - name: Grafana
+            items:
+              - name: Настройка единого входа в Grafana Cloud по стандарту SAML
+                href: tutorials/single-sign-on/saml-grafana.md
+              - name: Настройка единого входа в Grafana Cloud по стандарту OIDC
+                href: tutorials/single-sign-on/oidc-grafana.md
+              - name: Настройка единого входа в Grafana OSS по стандарту OIDC
+                href: tutorials/single-sign-on/oidc-grafana-oss.md
+          - name: Настройка единого входа в Harbor по стандарту OIDC
+            href: tutorials/single-sign-on/oidc-harbor.md
+          - name: Jenkins
+            items:
+              - name: Настройка единого входа в Jenkins по стандарту SAML
+                href: tutorials/single-sign-on/saml-jenkins.md
+              - name: Настройка единого входа в Jenkins по стандарту OIDC
+                href: tutorials/single-sign-on/oidc-jenkins.md
           - name: Настройка единого входа в {{ mgl-name }} по стандарту SAML
             href: tutorials/single-sign-on/saml-managed-gitlab.md
-          - name: Настройка единого входа в Zabbix по стандарту SAML
-            href: tutorials/single-sign-on/saml-zabbix.md
           - name: Настройка единого входа в {{ mos-name }} по стандарту SAML
             href: tutorials/single-sign-on/saml-opensearch.md
+          - name: Настройка единого входа в MWS по стандарту OIDC
+            href: tutorials/single-sign-on/oidc-mws.md
           - name: Настройка единого входа в {{ OS }} по стандарту SAML
             href: tutorials/single-sign-on/saml-opensearch-self-managed.md
+          - name: OpenVPN
+            items:
+              - name: >-
+                  Настройка единого входа в OpenVPN Access Server по стандарту
+                  SAML
+                href: tutorials/single-sign-on/saml-ovpn.md
+              - name: >-
+                  Настройка единого входа в OpenVPN Community Edition по
+                  стандарту OIDC
+                href: tutorials/single-sign-on/oidc-ovpn.md
+          - name: Настройка единого входа в Selectel по стандарту SAML
+            href: tutorials/single-sign-on/saml-selectel.md
+          - name: Настройка единого входа в Sentry по стандарту SAML
+            href: tutorials/single-sign-on/saml-sentry.md
           - name: Настройка единого входа в SonarQube по стандарту SAML
             href: tutorials/single-sign-on/saml-sonarqube.md
+          - name: VK Cloud
+            items:
+              - name: Настройка единого входа в VK Cloud по стандарту SAML
+                href: tutorials/single-sign-on/saml-vk-cloud.md
+          - name: Настройка единого входа в Zabbix по стандарту SAML
+            href: tutorials/single-sign-on/saml-zabbix.md
+          - name: Настройка единого входа в Пассворк по стандарту SAML
+            href: tutorials/single-sign-on/saml-passwork.md
           - name: Настройка единого входа в {{ yandex-360 }} по стандарту SAML
             href: tutorials/single-sign-on/saml-yandex-360.md
           - name: Яндекс Браузер для организаций
             href: tutorials/single-sign-on/saml-ya-browser-corporate.md
-          - name: Настройка единого входа в OpenVPN Access Server по стандарту SAML
-            href: tutorials/single-sign-on/saml-ovpn.md
-          - name: Настройка единого входа в Cloud.ru по стандарту SAML
-            href: tutorials/single-sign-on/saml-cloud-ru.md
-          - name: Настройка единого входа в VK Cloud по стандарту SAML
-            href: tutorials/single-sign-on/saml-vk-cloud.md
-          - name: Настройка единого входа в Harbor по стандарту OIDC
-            href: tutorials/single-sign-on/oidc-harbor.md
-          - name: Настройка единого входа в Sentry по стандарту SAML
-            href: tutorials/single-sign-on/saml-sentry.md
-          - name: Настройка единого входа в Jenkins по стандарту SAML
-            href: tutorials/single-sign-on/saml-jenkins.md
+          - name: Использование OAuth2 Proxy для приложений, не поддерживающих SSO
+            href: tutorials/single-sign-on/oidc-nginx-oauth2-proxy.md
       - name: Сетевая безопасность
         items:
           - name: Организация виртуального хостинга

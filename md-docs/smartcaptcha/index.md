@@ -28,11 +28,13 @@ Yandex SmartCaptcha позволяет определить, кем являет
 
  - [Посмотреть операции с ресурсами сервиса](operations/operation-logs.md)
 
+ - [Миграция на новый формат условий в API, CLI и Terraform](operations/api-migration.md)
+
 ## Практические руководства
 
  - [Все руководства](tutorials/index.md)
 
- - [Добавление HTML-страницы для работы Yandex SmartCaptcha](tutorials/mobile-app/website.md)
+ - [Добавление HTML-страницы для работы {{ captcha-full-name }}](tutorials/mobile-app/website.md)
 
  - [Капча в приложении Android](tutorials/mobile-app/android/quickstart-android.md)
 
@@ -96,6 +98,24 @@ Yandex SmartCaptcha позволяет определить, кем являет
 
  - [update](cli-ref/captcha/update.md)
 
+### v0
+
+ - [Overview](cli-ref/v0/index.md)
+
+#### captcha
+
+ - [Overview](cli-ref/v0/captcha/index.md)
+
+ - [create](cli-ref/v0/captcha/create.md)
+
+ - [delete](cli-ref/v0/captcha/delete.md)
+
+ - [get](cli-ref/v0/captcha/get.md)
+
+ - [list](cli-ref/v0/captcha/list.md)
+
+ - [update](cli-ref/v0/captcha/update.md)
+
 ### v1
 
  - [Overview](cli-ref/v1/index.md)
@@ -116,7 +136,7 @@ Yandex SmartCaptcha позволяет определить, кем являет
 
  - [update](cli-ref/v1/captcha/update.md)
 
- - [Справочник Terraform](tf-ref.md)
+ - [Справочник {{ TF }}](tf-ref.md)
 
 ## Справочник API
 
@@ -134,13 +154,13 @@ Yandex SmartCaptcha позволяет определить, кем являет
 
  - [GetSecretKey](api-ref/grpc/Captcha/getSecretKey.md)
 
- - [List](api-ref/grpc/Captcha/list.md)
-
  - [Create](api-ref/grpc/Captcha/create.md)
+
+ - [Delete](api-ref/grpc/Captcha/delete.md)
 
  - [Update](api-ref/grpc/Captcha/update.md)
 
- - [Delete](api-ref/grpc/Captcha/delete.md)
+ - [List](api-ref/grpc/Captcha/list.md)
 
 #### Operation
 
@@ -162,13 +182,13 @@ Yandex SmartCaptcha позволяет определить, кем являет
 
  - [GetSecretKey](api-ref/Captcha/getSecretKey.md)
 
- - [List](api-ref/Captcha/list.md)
-
  - [Create](api-ref/Captcha/create.md)
+
+ - [Delete](api-ref/Captcha/delete.md)
 
  - [Update](api-ref/Captcha/update.md)
 
- - [Delete](api-ref/Captcha/delete.md)
+ - [List](api-ref/Captcha/list.md)
 
 #### Operation
 
@@ -178,8 +198,8 @@ Yandex SmartCaptcha позволяет определить, кем являет
 
  - [Cancel](api-ref/Operation/cancel.md)
 
- - [Метрики Monitoring](metrics.md)
+ - [Метрики {{ monitoring-name }}](metrics.md)
 
- - [Аудитные логи Audit Trails](at-ref.md)
+ - [Аудитные логи {{ at-name }}](at-ref.md)
 
  - [История изменений](release-notes.md)

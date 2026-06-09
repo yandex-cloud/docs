@@ -68,7 +68,7 @@
   1. Перейдите в сервис ![image](../../_assets/console-icons/display-pulse.svg) **{{ ui-key.yacloud.iam.folder.dashboard.label_monitoring }}**.
   1. В блоке **{{ ui-key.yacloud_monitoring.homepage.title_service-dashboards }}** выберите **{{ dataproc-name }}**:
   1. На нужном графике с показателями нажмите на значок ![options](../../_assets/console-icons/ellipsis.svg) и выберите пункт **{{ ui-key.yacloud_monitoring.dashboard.dash.create-alert }}**.
-  1. Если показателей на графике больше одного, выберите запрос данных для формирования метрики и нажмите **{{ ui-key.yacloud.common.continue }}**. Подробнее о языке запросов см. в [документации {{ monitoring-full-name }}](../../monitoring/concepts/querying.md).
+  1. Если показателей на графике больше одного, выберите запрос данных для формирования метрики и нажмите **{{ ui-key.yacloud.common.continue }}**. Подробнее о языке запросов в [документации {{ monitoring-full-name }}](../../monitoring/concepts/querying.md).
   1. Задайте значения порогов `{{ ui-key.yacloud_monitoring.alert.status_alarm }}` и `{{ ui-key.yacloud_monitoring.alert.status_warn }}` для оповещения.
   1. Нажмите кнопку **{{ ui-key.yacloud.common.create }}**.
 
@@ -76,7 +76,8 @@
 
 {% include [other-indicators](../../_includes/mdb/other-indicators.md) %}
 
-Полный список поддерживаемых метрик см. в [документации {{ monitoring-name }}](../../monitoring/metrics-ref/data-processing-ref.md).
+Полный список поддерживаемых метрик в [документации {{ monitoring-name }}](../../monitoring/metrics-ref/data-processing-ref.md).
+
 
 
 ## Состояние и статус кластера {#cluster-health-and-status}

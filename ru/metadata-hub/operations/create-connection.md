@@ -180,7 +180,7 @@ description: Пошаговые инструкции по работе с {{ con
   
       {% include [terraform-apply](../../_includes/mdb/terraform/apply.md) %}
   
-  Подробнее см. в [документации провайдера {{ TF }}](https://terraform-provider.yandexcloud.net/resources/connectionmanager_connection).
+  Подробнее в [документации провайдера {{ TF }}](https://terraform-provider.yandexcloud.net/resources/connectionmanager_connection).
 
 
 - API {#api}
@@ -189,7 +189,7 @@ description: Пошаговые инструкции по работе с {{ con
 
   {% include [connman-secret-folder-api](../../_includes/metadata-hub/connman-secret-folder-api.md) %} 
  
-  Подробнее о доступных параметрах запроса см. в справочнике [REST API](../connection-manager/api-ref/Connection/create.md#yandex.cloud.connectionmanager.v1.PostgreSQLConnection) и [gRPC API](../connection-manager/api-ref/grpc/Connection/create.md#yandex.cloud.connectionmanager.v1.PostgreSQLConnection).
+  Подробнее о доступных параметрах запроса — в справочнике [REST API](../connection-manager/api-ref/Connection/create.md#yandex.cloud.connectionmanager.v1.PostgreSQLConnection) и [gRPC API](../connection-manager/api-ref/grpc/Connection/create.md#yandex.cloud.connectionmanager.v1.PostgreSQLConnection).
 
 {% endlist %}
 
@@ -343,7 +343,7 @@ description: Пошаговые инструкции по работе с {{ con
   
       {% include [terraform-apply](../../_includes/mdb/terraform/apply.md) %}
   
-  Подробнее см. в [документации провайдера {{ TF }}](https://terraform-provider.yandexcloud.net/resources/connectionmanager_connection).
+  Подробнее в [документации провайдера {{ TF }}](https://terraform-provider.yandexcloud.net/resources/connectionmanager_connection).
 
 
 - API {#api}
@@ -352,7 +352,7 @@ description: Пошаговые инструкции по работе с {{ con
 
   {% include [connman-secret-folder-api](../../_includes/metadata-hub/connman-secret-folder-api.md) %}  
 
-  Подробнее о доступных параметрах запроса см. в справочнике [REST API](../connection-manager/api-ref/Connection/create.md#yandex.cloud.connectionmanager.v1.ClickHouseConnection) и [gRPC API](../connection-manager/api-ref/grpc/Connection/create.md#yandex.cloud.connectionmanager.v1.ClickHouseConnection).
+  Подробнее о доступных параметрах запроса — в справочнике [REST API](../connection-manager/api-ref/Connection/create.md#yandex.cloud.connectionmanager.v1.ClickHouseConnection) и [gRPC API](../connection-manager/api-ref/grpc/Connection/create.md#yandex.cloud.connectionmanager.v1.ClickHouseConnection).
 
 {% endlist %}
 
@@ -505,7 +505,7 @@ description: Пошаговые инструкции по работе с {{ con
   
       {% include [terraform-apply](../../_includes/mdb/terraform/apply.md) %}
   
-  Подробнее см. в [документации провайдера {{ TF }}](https://terraform-provider.yandexcloud.net/resources/connectionmanager_connection).
+  Подробнее в [документации провайдера {{ TF }}](https://terraform-provider.yandexcloud.net/resources/connectionmanager_connection).
 
 
 - API {#api}
@@ -514,7 +514,7 @@ description: Пошаговые инструкции по работе с {{ con
 
   {% include [connman-secret-folder-api](../../_includes/metadata-hub/connman-secret-folder-api.md) %} 
 
-  Подробнее о доступных параметрах запроса см. в справочнике [REST API](../connection-manager/api-ref/Connection/create.md#yandex.cloud.connectionmanager.v1.MySQLConnection) и [gRPC API](../connection-manager/api-ref/grpc/Connection/create.md#yandex.cloud.connectionmanager.v1.MySQLConnection).
+  Подробнее о доступных параметрах запроса — в справочнике [REST API](../connection-manager/api-ref/Connection/create.md#yandex.cloud.connectionmanager.v1.MySQLConnection) и [gRPC API](../connection-manager/api-ref/grpc/Connection/create.md#yandex.cloud.connectionmanager.v1.MySQLConnection).
 
 {% endlist %}
 
@@ -665,7 +665,7 @@ description: Пошаговые инструкции по работе с {{ con
   
       {% include [terraform-apply](../../_includes/mdb/terraform/apply.md) %}
   
-  Подробнее см. в [документации провайдера {{ TF }}](https://terraform-provider.yandexcloud.net/resources/connectionmanager_connection).
+  Подробнее в [документации провайдера {{ TF }}](https://terraform-provider.yandexcloud.net/resources/connectionmanager_connection).
 
 
 - API {#api}
@@ -674,7 +674,7 @@ description: Пошаговые инструкции по работе с {{ con
 
   {% include [connman-secret-folder-api](../../_includes/metadata-hub/connman-secret-folder-api.md) %} 
 
-  Подробнее о доступных параметрах запроса см. в справочнике [REST API](../connection-manager/api-ref/Connection/create.md#yandex.cloud.connectionmanager.v1.ValkeyConnection) и [gRPC API](../connection-manager/api-ref/grpc/Connection/create.md#yandex.cloud.connectionmanager.v1.ValkeyConnection).
+  Подробнее о доступных параметрах запроса — в справочнике [REST API](../connection-manager/api-ref/Connection/create.md#yandex.cloud.connectionmanager.v1.ValkeyConnection) и [gRPC API](../connection-manager/api-ref/grpc/Connection/create.md#yandex.cloud.connectionmanager.v1.ValkeyConnection).
 
 {% endlist %}
 
@@ -815,7 +815,7 @@ description: Пошаговые инструкции по работе с {{ con
   
       {% include [terraform-apply](../../_includes/mdb/terraform/apply.md) %}
   
-  Подробнее см. в [документации провайдера {{ TF }}](https://terraform-provider.yandexcloud.net/resources/connectionmanager_connection).
+  Подробнее в [документации провайдера {{ TF }}](https://terraform-provider.yandexcloud.net/resources/connectionmanager_connection).
 
 
 - API {#api}
@@ -824,7 +824,7 @@ description: Пошаговые инструкции по работе с {{ con
 
   {% include [connman-secret-folder-api](../../_includes/metadata-hub/connman-secret-folder-api.md) %} 
 
-  Подробнее о доступных параметрах запроса см. в справочнике [REST API](../connection-manager/api-ref/Connection/create.md#yandex.cloud.connectionmanager.v1.OpenSearchConnection) и [gRPC API](../connection-manager/api-ref/grpc/Connection/create.md#yandex.cloud.connectionmanager.v1.OpenSearchConnection).
+  Подробнее о доступных параметрах запроса — в справочнике [REST API](../connection-manager/api-ref/Connection/create.md#yandex.cloud.connectionmanager.v1.OpenSearchConnection) и [gRPC API](../connection-manager/api-ref/grpc/Connection/create.md#yandex.cloud.connectionmanager.v1.OpenSearchConnection).
 
 {% endlist %}
 
@@ -977,7 +977,7 @@ description: Пошаговые инструкции по работе с {{ con
   
       {% include [terraform-apply](../../_includes/mdb/terraform/apply.md) %}
   
-  Подробнее см. в [документации провайдера {{ TF }}](https://terraform-provider.yandexcloud.net/resources/connectionmanager_connection).
+  Подробнее в [документации провайдера {{ TF }}](https://terraform-provider.yandexcloud.net/resources/connectionmanager_connection).
 
 
 - API {#api}
@@ -986,7 +986,7 @@ description: Пошаговые инструкции по работе с {{ con
 
   {% include [connman-secret-folder-api](../../_includes/metadata-hub/connman-secret-folder-api.md) %} 
 
-  Подробнее о доступных параметрах запроса см. в справочнике [REST API](../connection-manager/api-ref/Connection/create.md#yandex.cloud.connectionmanager.v1.MongoDBConnection) и [gRPC API](../connection-manager/api-ref/grpc/Connection/create.md#yandex.cloud.connectionmanager.v1.MongoDBConnection).
+  Подробнее о доступных параметрах запроса — в справочнике [REST API](../connection-manager/api-ref/Connection/create.md#yandex.cloud.connectionmanager.v1.MongoDBConnection) и [gRPC API](../connection-manager/api-ref/grpc/Connection/create.md#yandex.cloud.connectionmanager.v1.MongoDBConnection).
 
 {% endlist %}
 
@@ -1161,7 +1161,7 @@ description: Пошаговые инструкции по работе с {{ con
   
       {% include [terraform-apply](../../_includes/mdb/terraform/apply.md) %}
   
-  Подробнее см. в [документации провайдера {{ TF }}](https://terraform-provider.yandexcloud.net/resources/connectionmanager_connection).
+  Подробнее в [документации провайдера {{ TF }}](https://terraform-provider.yandexcloud.net/resources/connectionmanager_connection).
 
 
 - API {#api}
@@ -1170,7 +1170,7 @@ description: Пошаговые инструкции по работе с {{ con
 
   {% include [connman-secret-folder-api](../../_includes/metadata-hub/connman-secret-folder-api.md) %}  
 
-  Подробнее о доступных параметрах запроса см. в справочнике [REST API](../connection-manager/api-ref/Connection/create.md#yandex.cloud.connectionmanager.v1.KafkaConnection) и [gRPC API](../connection-manager/api-ref/grpc/Connection/create.md#yandex.cloud.connectionmanager.v1.KafkaConnection).
+  Подробнее о доступных параметрах запроса — в справочнике [REST API](../connection-manager/api-ref/Connection/create.md#yandex.cloud.connectionmanager.v1.KafkaConnection) и [gRPC API](../connection-manager/api-ref/grpc/Connection/create.md#yandex.cloud.connectionmanager.v1.KafkaConnection).
 
 {% endlist %}
 
@@ -1324,7 +1324,7 @@ description: Пошаговые инструкции по работе с {{ con
   
       {% include [terraform-apply](../../_includes/mdb/terraform/apply.md) %}
   
-  Подробнее см. в [документации провайдера {{ TF }}](https://terraform-provider.yandexcloud.net/resources/connectionmanager_connection).
+  Подробнее в [документации провайдера {{ TF }}](https://terraform-provider.yandexcloud.net/resources/connectionmanager_connection).
 
 
 - API {#api}
@@ -1333,7 +1333,7 @@ description: Пошаговые инструкции по работе с {{ con
 
   {% include [connman-secret-folder-api](../../_includes/metadata-hub/connman-secret-folder-api.md) %} 
 
-  Подробнее о доступных параметрах запроса см. в справочнике [REST API](../connection-manager/api-ref/Connection/create.md#yandex.cloud.connectionmanager.v1.GreenplumConnection) и [gRPC API](../connection-manager/api-ref/grpc/Connection/create.md#yandex.cloud.connectionmanager.v1.GreenplumConnection).
+  Подробнее о доступных параметрах запроса — в справочнике [REST API](../connection-manager/api-ref/Connection/create.md#yandex.cloud.connectionmanager.v1.GreenplumConnection) и [gRPC API](../connection-manager/api-ref/grpc/Connection/create.md#yandex.cloud.connectionmanager.v1.GreenplumConnection).
 
 {% endlist %}
 
@@ -1508,7 +1508,7 @@ description: Пошаговые инструкции по работе с {{ con
   
       {% include [terraform-apply](../../_includes/mdb/terraform/apply.md) %}
   
-  Подробнее см. в [документации провайдера {{ TF }}](https://terraform-provider.yandexcloud.net/resources/connectionmanager_connection).
+  Подробнее в [документации провайдера {{ TF }}](https://terraform-provider.yandexcloud.net/resources/connectionmanager_connection).
 
 
 - API {#api}
@@ -1517,7 +1517,7 @@ description: Пошаговые инструкции по работе с {{ con
 
   {% include [connman-secret-folder-api](../../_includes/metadata-hub/connman-secret-folder-api.md) %}  
 
-  Подробнее о доступных параметрах запроса см. в справочнике [REST API](../connection-manager/api-ref/Connection/create.md#yandex.cloud.connectionmanager.v1.PostgreSQLCluster) и [gRPC API](../connection-manager/api-ref/grpc/Connection/create.md#yandex.cloud.connectionmanager.v1.PostgreSQLCluster).
+  Подробнее о доступных параметрах запроса — в справочнике [REST API](../connection-manager/api-ref/Connection/create.md#yandex.cloud.connectionmanager.v1.PostgreSQLCluster) и [gRPC API](../connection-manager/api-ref/grpc/Connection/create.md#yandex.cloud.connectionmanager.v1.PostgreSQLCluster).
 
 {% endlist %}
 
@@ -1713,7 +1713,7 @@ description: Пошаговые инструкции по работе с {{ con
   
       {% include [terraform-apply](../../_includes/mdb/terraform/apply.md) %}
   
-  Подробнее см. в [документации провайдера {{ TF }}](https://terraform-provider.yandexcloud.net/resources/connectionmanager_connection).
+  Подробнее в [документации провайдера {{ TF }}](https://terraform-provider.yandexcloud.net/resources/connectionmanager_connection).
 
 
 - API {#api}
@@ -1722,7 +1722,7 @@ description: Пошаговые инструкции по работе с {{ con
 
   {% include [connman-secret-folder-api](../../_includes/metadata-hub/connman-secret-folder-api.md) %} 
 
-  Подробнее о доступных параметрах запроса см. в справочнике [REST API](../connection-manager/api-ref/Connection/create.md#yandex.cloud.connectionmanager.v1.ClickHouseCluster) и [gRPC API](../connection-manager/api-ref/grpc/Connection/create.md#yandex.cloud.connectionmanager.v1.ClickHouseCluster).
+  Подробнее о доступных параметрах запроса — в справочнике [REST API](../connection-manager/api-ref/Connection/create.md#yandex.cloud.connectionmanager.v1.ClickHouseCluster) и [gRPC API](../connection-manager/api-ref/grpc/Connection/create.md#yandex.cloud.connectionmanager.v1.ClickHouseCluster).
 
 {% endlist %}
 
@@ -1895,7 +1895,7 @@ description: Пошаговые инструкции по работе с {{ con
   
       {% include [terraform-apply](../../_includes/mdb/terraform/apply.md) %}
   
-  Подробнее см. в [документации провайдера {{ TF }}](https://terraform-provider.yandexcloud.net/resources/connectionmanager_connection).
+  Подробнее в [документации провайдера {{ TF }}](https://terraform-provider.yandexcloud.net/resources/connectionmanager_connection).
 
 
 - API {#api}
@@ -1904,7 +1904,7 @@ description: Пошаговые инструкции по работе с {{ con
 
   {% include [connman-secret-folder-api](../../_includes/metadata-hub/connman-secret-folder-api.md) %} 
 
-  Подробнее о доступных параметрах запроса см. в справочнике [REST API](../connection-manager/api-ref/Connection/create.md#yandex.cloud.connectionmanager.v1.MySQLCluster) и [gRPC API](../connection-manager/api-ref/grpc/Connection/create.md#yandex.cloud.connectionmanager.v1.MySQLCluster).
+  Подробнее о доступных параметрах запроса — в справочнике [REST API](../connection-manager/api-ref/Connection/create.md#yandex.cloud.connectionmanager.v1.MySQLCluster) и [gRPC API](../connection-manager/api-ref/grpc/Connection/create.md#yandex.cloud.connectionmanager.v1.MySQLCluster).
 
 {% endlist %}
 
@@ -2091,7 +2091,7 @@ description: Пошаговые инструкции по работе с {{ con
   
       {% include [terraform-apply](../../_includes/mdb/terraform/apply.md) %}
   
-  Подробнее см. в [документации провайдера {{ TF }}](https://terraform-provider.yandexcloud.net/resources/connectionmanager_connection).
+  Подробнее в [документации провайдера {{ TF }}](https://terraform-provider.yandexcloud.net/resources/connectionmanager_connection).
 
 
 - API {#api}
@@ -2100,7 +2100,7 @@ description: Пошаговые инструкции по работе с {{ con
 
   {% include [connman-secret-folder-api](../../_includes/metadata-hub/connman-secret-folder-api.md) %} 
 
-  Подробнее о доступных параметрах запроса см. в справочнике [REST API](../connection-manager/api-ref/Connection/create.md#yandex.cloud.connectionmanager.v1.RedisCluster) и [gRPC API](../connection-manager/api-ref/grpc/Connection/create.md#yandex.cloud.connectionmanager.v1.RedisCluster).
+  Подробнее о доступных параметрах запроса — в справочнике [REST API](../connection-manager/api-ref/Connection/create.md#yandex.cloud.connectionmanager.v1.RedisCluster) и [gRPC API](../connection-manager/api-ref/grpc/Connection/create.md#yandex.cloud.connectionmanager.v1.RedisCluster).
 
 {% endlist %}
 
@@ -2269,7 +2269,7 @@ description: Пошаговые инструкции по работе с {{ con
   
       {% include [terraform-apply](../../_includes/mdb/terraform/apply.md) %}
   
-  Подробнее см. в [документации провайдера {{ TF }}](https://terraform-provider.yandexcloud.net/resources/connectionmanager_connection).
+  Подробнее в [документации провайдера {{ TF }}](https://terraform-provider.yandexcloud.net/resources/connectionmanager_connection).
 
 
 - API {#api}
@@ -2278,7 +2278,7 @@ description: Пошаговые инструкции по работе с {{ con
 
   {% include [connman-secret-folder-api](../../_includes/metadata-hub/connman-secret-folder-api.md) %} 
 
-  Подробнее о доступных параметрах запроса см. в справочнике [REST API](../connection-manager/api-ref/Connection/create.md#yandex.cloud.connectionmanager.v1.ValkeyCluster) и [gRPC API](../connection-manager/api-ref/grpc/Connection/create.md#yandex.cloud.connectionmanager.v1.ValkeyCluster).
+  Подробнее о доступных параметрах запроса — в справочнике [REST API](../connection-manager/api-ref/Connection/create.md#yandex.cloud.connectionmanager.v1.ValkeyCluster) и [gRPC API](../connection-manager/api-ref/grpc/Connection/create.md#yandex.cloud.connectionmanager.v1.ValkeyCluster).
 
 {% endlist %}
 
@@ -2438,7 +2438,7 @@ description: Пошаговые инструкции по работе с {{ con
   
       {% include [terraform-apply](../../_includes/mdb/terraform/apply.md) %}
   
-  Подробнее см. в [документации провайдера {{ TF }}](https://terraform-provider.yandexcloud.net/resources/connectionmanager_connection).
+  Подробнее в [документации провайдера {{ TF }}](https://terraform-provider.yandexcloud.net/resources/connectionmanager_connection).
 
 
 - API {#api}
@@ -2447,7 +2447,7 @@ description: Пошаговые инструкции по работе с {{ con
 
   {% include [connman-secret-folder-api](../../_includes/metadata-hub/connman-secret-folder-api.md) %}  
 
-  Подробнее о доступных параметрах запроса см. в справочнике [REST API](../connection-manager/api-ref/Connection/create.md#yandex.cloud.connectionmanager.v1.TrinoCluster) и [gRPC API](../connection-manager/api-ref/grpc/Connection/create.md#yandex.cloud.connectionmanager.v1.TrinoCluster).
+  Подробнее о доступных параметрах запроса — в справочнике [REST API](../connection-manager/api-ref/Connection/create.md#yandex.cloud.connectionmanager.v1.TrinoCluster) и [gRPC API](../connection-manager/api-ref/grpc/Connection/create.md#yandex.cloud.connectionmanager.v1.TrinoCluster).
 
 {% endlist %}
 
@@ -2620,7 +2620,7 @@ description: Пошаговые инструкции по работе с {{ con
   
       {% include [terraform-apply](../../_includes/mdb/terraform/apply.md) %}
   
-  Подробнее см. в [документации провайдера {{ TF }}](https://terraform-provider.yandexcloud.net/resources/connectionmanager_connection).
+  Подробнее в [документации провайдера {{ TF }}](https://terraform-provider.yandexcloud.net/resources/connectionmanager_connection).
 
 
 - API {#api}
@@ -2629,7 +2629,7 @@ description: Пошаговые инструкции по работе с {{ con
 
   {% include [connman-secret-folder-api](../../_includes/metadata-hub/connman-secret-folder-api.md) %} 
 
-  Подробнее о доступных параметрах запроса см. в справочнике [REST API](../connection-manager/api-ref/Connection/create.md#yandex.cloud.connectionmanager.v1.OpenSearchCluster) и [gRPC API](../connection-manager/api-ref/grpc/Connection/create.md#yandex.cloud.connectionmanager.v1.OpenSearchCluster).
+  Подробнее о доступных параметрах запроса — в справочнике [REST API](../connection-manager/api-ref/Connection/create.md#yandex.cloud.connectionmanager.v1.OpenSearchCluster) и [gRPC API](../connection-manager/api-ref/grpc/Connection/create.md#yandex.cloud.connectionmanager.v1.OpenSearchCluster).
 
 {% endlist %}
 
@@ -2798,7 +2798,7 @@ description: Пошаговые инструкции по работе с {{ con
   
       {% include [terraform-apply](../../_includes/mdb/terraform/apply.md) %}
   
-  Подробнее см. в [документации провайдера {{ TF }}](https://terraform-provider.yandexcloud.net/resources/connectionmanager_connection).
+  Подробнее в [документации провайдера {{ TF }}](https://terraform-provider.yandexcloud.net/resources/connectionmanager_connection).
 
 
 - API {#api}
@@ -2807,7 +2807,7 @@ description: Пошаговые инструкции по работе с {{ con
 
   {% include [connman-secret-folder-api](../../_includes/metadata-hub/connman-secret-folder-api.md) %} 
 
-  Подробнее о доступных параметрах запроса см. в справочнике [REST API](../connection-manager/api-ref/Connection/create.md#yandex.cloud.connectionmanager.v1.MongoDBCluster) и [gRPC API](../connection-manager/api-ref/grpc/Connection/create.md#yandex.cloud.connectionmanager.v1.MongoDBCluste).
+  Подробнее о доступных параметрах запроса — в справочнике [REST API](../connection-manager/api-ref/Connection/create.md#yandex.cloud.connectionmanager.v1.MongoDBCluster) и [gRPC API](../connection-manager/api-ref/grpc/Connection/create.md#yandex.cloud.connectionmanager.v1.MongoDBCluste).
 
 {% endlist %}
 
@@ -3017,7 +3017,7 @@ description: Пошаговые инструкции по работе с {{ con
   
       {% include [terraform-apply](../../_includes/mdb/terraform/apply.md) %}
   
-  Подробнее см. в [документации провайдера {{ TF }}](https://terraform-provider.yandexcloud.net/resources/connectionmanager_connection).
+  Подробнее в [документации провайдера {{ TF }}](https://terraform-provider.yandexcloud.net/resources/connectionmanager_connection).
 
 
 - API {#api}
@@ -3026,7 +3026,7 @@ description: Пошаговые инструкции по работе с {{ con
 
   {% include [connman-secret-folder-api](../../_includes/metadata-hub/connman-secret-folder-api.md) %} 
 
-  Подробнее о доступных параметрах запроса см. в справочнике [REST API](../connection-manager/api-ref/Connection/create.md#yandex.cloud.connectionmanager.v1.KafkaCluster) и [gRPC API](../connection-manager/api-ref/grpc/Connection/create.md#yandex.cloud.connectionmanager.v1.KafkaCluster).
+  Подробнее о доступных параметрах запроса — в справочнике [REST API](../connection-manager/api-ref/Connection/create.md#yandex.cloud.connectionmanager.v1.KafkaCluster) и [gRPC API](../connection-manager/api-ref/grpc/Connection/create.md#yandex.cloud.connectionmanager.v1.KafkaCluster).
 
 {% endlist %}
 
@@ -3200,7 +3200,7 @@ description: Пошаговые инструкции по работе с {{ con
   
       {% include [terraform-apply](../../_includes/mdb/terraform/apply.md) %}
   
-  Подробнее см. в [документации провайдера {{ TF }}](https://terraform-provider.yandexcloud.net/resources/connectionmanager_connection).
+  Подробнее в [документации провайдера {{ TF }}](https://terraform-provider.yandexcloud.net/resources/connectionmanager_connection).
 
 
 - API {#api}
@@ -3209,7 +3209,7 @@ description: Пошаговые инструкции по работе с {{ con
 
   {% include [connman-secret-folder-api](../../_includes/metadata-hub/connman-secret-folder-api.md) %} 
 
-  Подробнее о доступных параметрах запроса см. в справочнике [REST API](../connection-manager/api-ref/Connection/create.md#yandex.cloud.connectionmanager.v1.GreenplumCluster) и [gRPC API](../connection-manager/api-ref/grpc/Connection/create.md#yandex.cloud.connectionmanager.v1.GreenplumCluster).
+  Подробнее о доступных параметрах запроса — в справочнике [REST API](../connection-manager/api-ref/Connection/create.md#yandex.cloud.connectionmanager.v1.GreenplumCluster) и [gRPC API](../connection-manager/api-ref/grpc/Connection/create.md#yandex.cloud.connectionmanager.v1.GreenplumCluster).
 
 {% endlist %}
 

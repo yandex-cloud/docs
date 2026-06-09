@@ -5,7 +5,7 @@ Retrieves logs for the specified PostgreSQL cluster.
 ## HTTP request
 
 ```
-GET https://mdb.api.cloud.yandex.net/managed-postgresql/v1/clusters/{clusterId}:logs
+GET https://{{ api-host-mdb }}/managed-postgresql/v1/clusters/{clusterId}:logs
 ```
 
 ## Path parameters

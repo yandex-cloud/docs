@@ -5,7 +5,7 @@ Creates a Dashboards type host group.
 ## HTTP request
 
 ```
-POST https://mdb.api.cloud.yandex.net/managed-opensearch/v1/clusters/{clusterId}/dashboards/node_groups
+POST https://{{ api-host-mdb }}/managed-opensearch/v1/clusters/{clusterId}/dashboards/node_groups
 ```
 
 ## Path parameters
@@ -15,7 +15,6 @@ POST https://mdb.api.cloud.yandex.net/managed-opensearch/v1/clusters/{clusterId}
 || clusterId | **string**
 
 Required field. ID of the OpenSearch cluster to create the Dashboards type host group in.
-
 To get the ID, use a [ClusterService.List](list.md#List) request.
 
 The maximum string length in characters is 50. ||
@@ -80,7 +79,7 @@ IDs of the availability zones the hosts belong to. ||
 
 IDs of the subnets that the hosts belong to.
 
-The maximum number of elements is 10. The maximum string length in characters for each value is 50. ||
+The maximum string length in characters for each value is 50. The maximum number of elements is 10. ||
 || assignPublicIp | **boolean**
 
 Determines whether a public IP is assigned to the hosts in the group. ||
@@ -97,16 +96,20 @@ A list of computational resources allocated to a host.
 ||Field | Description ||
 || resourcePresetId | **string**
 
-ID of the preset for computational resources allocated to a host. ||
+Required field. ID of the preset for computational resources allocated to a host. ||
 || diskSize | **string** (int64)
 
-Volume of the storage used by the host, in bytes. ||
+Volume of the storage used by the host, in bytes.
+
+Value must be greater than 0. ||
 || diskTypeId | **string**
 
-Type of the storage used by the host: `network-hdd`, `network-ssd` or `local-ssd`. ||
+Required field. Type of the storage used by the host: `network-hdd`, `network-ssd` or `local-ssd`. ||
 |#
 
 ## DiskSizeAutoscaling {#yandex.cloud.mdb.opensearch.v1.DiskSizeAutoscaling}
+
+Disk size autoscaling settings.
 
 #|
 ||Field | Description ||
@@ -137,18 +140,16 @@ Limit on how large the storage for database instances can automatically grow, in
   "createdBy": "string",
   "modifiedAt": "string",
   "done": "boolean",
-  "metadata": {
-    "clusterId": "string",
-    "name": "string"
-  },
-  // Includes only one of the fields `error`
+  "metadata": "object",
+  // Includes only one of the fields `error`, `response`
   "error": {
     "code": "integer",
     "message": "string",
     "details": [
       "object"
     ]
-  }
+  },
+  "response": "object"
   // end of the list of possible fields
 }
 ```
@@ -190,7 +191,7 @@ In some languages, built-in datetime utilities do not support nanosecond precisi
 
 If the value is `false`, it means the operation is still in progress.
 If `true`, the operation is completed, and either `error` or `response` is available. ||
-|| metadata | **[AddNodeGroupMetadata](#yandex.cloud.mdb.opensearch.v1.AddNodeGroupMetadata)**
+|| metadata | **object**
 
 Service-specific metadata associated with the operation.
 It typically contains the ID of the target resource that the operation is performed on.
@@ -199,24 +200,27 @@ Any method that returns a long-running operation should document the metadata ty
 
 The error result of the operation in case of failure or cancellation.
 
-Includes only one of the fields `error`.
+Includes only one of the fields `error`, `response`.
 
 The operation result.
 If `done == false` and there was no failure detected, neither `error` nor `response` is set.
 If `done == false` and there was a failure detected, `error` is set.
 If `done == true`, exactly one of `error` or `response` is set. ||
-|#
+|| response | **object**
 
-## AddNodeGroupMetadata {#yandex.cloud.mdb.opensearch.v1.AddNodeGroupMetadata}
+The normal response of the operation in case of success.
+If the original method returns no data on success, such as Delete,
+the response is [google.protobuf.Empty](https://developers.google.com/protocol-buffers/docs/reference/google.protobuf#google.protobuf.Empty).
+If the original method is the standard Create/Update,
+the response should be the target resource of the operation.
+Any method that returns a long-running operation should document the response type, if any.
 
-#|
-||Field | Description ||
-|| clusterId | **string**
+Includes only one of the fields `error`, `response`.
 
-ID of the OpenSearch cluster where the host group is being created. ||
-|| name | **string**
-
-Name of the host group being created. ||
+The operation result.
+If `done == false` and there was no failure detected, neither `error` nor `response` is set.
+If `done == false` and there was a failure detected, `error` is set.
+If `done == true`, exactly one of `error` or `response` is set. ||
 |#
 
 ## Status {#google.rpc.Status}

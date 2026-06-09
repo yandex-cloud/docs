@@ -1,21 +1,21 @@
-# Начало работы с сервисами Yandex MetaData Hub
+# Начало работы с сервисами {{ metadata-hub-full-name }}
 
-Yandex MetaData Hub позволяет управлять данными в Yandex Cloud. Вы можете:
+{{ metadata-hub-full-name }} позволяет управлять данными в {{ yandex-cloud }}. Вы можете:
 
 * создавать подключения к базам данных и управлять параметрами этих подключений;
 * получать и хранить схемы обмена данными, проверять эволюцию этих схем;
 * получать, категоризировать и визуализировать метаинформацию о хранилищах данных и связях между ними.
 
-Начните работу с инструментами Yandex MetaData Hub:
+Начните работу с инструментами {{ metadata-hub-name }}:
 
-* [Yandex Connection Manager](connection-manager.md). С его помощью вы можете управлять подключениями к своим базам данных. Подробнее о возможностях Connection Manager см. в [Концепциях](../concepts/connection-manager.md).
+* [{{ connection-manager-full-name }}](connection-manager.md). С его помощью вы можете управлять подключениями к своим базам данных. Подробнее о возможностях {{ connection-manager-name }} в [Концепциях](../concepts/connection-manager.md).
 
-* [Apache Hive™ Metastore](metastore.md). С его помощью вы можете управлять данными в приложениях, которые поддерживают интеграцию с Apache Hive™ Metastore. Подробнее о кластерах Apache Hive™ Metastore см. в [Концепциях](../concepts/metastore.md).
+* [{{ metastore-full-name }}](metastore.md). С его помощью вы можете управлять данными в приложениях, которые поддерживают интеграцию с {{ metastore-name }}. Подробнее о кластерах {{ metastore-name }} в [Концепциях](../concepts/metastore.md).
 
-* <code><b><small>Preview</small></b></code> [Schema Registry](schema-registry.md). С его помощью вы сможете создавать субъекты и схемы для управления, задавать параметры эволюции схем, добавлять референсы, сравнивать версии схем. Подробнее о реестре схем см. в [Концепциях](../concepts/schema-registry.md).
+* {{ preview-stage }} [{{ schema-registry-name }}](schema-registry.md). С его помощью вы сможете создавать субъекты и схемы для управления, задавать параметры эволюции схем, добавлять референсы, сравнивать версии схем. Подробнее о реестре схем в [Концепциях](../concepts/schema-registry.md).
 
 
-* <code><b><small>Preview</small></b></code> Data Catalog. С его помощью вы можете [размечать](data-steward-quickstart.md) и [анализировать](data-analyst-quickstart.md) метаданные об объектах Yandex Cloud и связях между ними. Подробнее о каталоге данных см. в [Концепциях](../concepts/data-catalog.md).
+* {{ preview-stage }} {{ data-catalog-name }}. С его помощью вы можете [размечать](data-steward-quickstart.md) и [анализировать](data-analyst-quickstart.md) метаданные об объектах {{ yandex-cloud }} и связях между ними. Подробнее о каталоге данных в [Концепциях](../concepts/data-catalog.md).
 
   Вы можете работать с сервисом Data Catalog в следующих ролях:
 

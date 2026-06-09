@@ -1,7 +1,6 @@
 # Managed Service for MySQL API, gRPC: UserService
 
 A set of methods for managing MySQL users.
-
 See [the documentation](../../../operations/cluster-users.md) for details.
 
 ## Methods

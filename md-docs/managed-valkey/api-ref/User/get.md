@@ -1,13 +1,12 @@
 # Managed Service for Redis API, REST: User.Get
 
 Returns the specified Redis User resource.
-
-To get the list of available Redis User resources, make a [List](list.md#List) request.
+To get the list of available Redis User resources, make a [List](../../../managed-redis/api-ref/User/list#List) request.
 
 ## HTTP request
 
 ```
-GET https://mdb.api.cloud.yandex.net/managed-redis/v1/clusters/{clusterId}/users/{userName}
+GET https://{{ api-host-mdb }}/managed-redis/v1/clusters/{clusterId}/users/{userName}
 ```
 
 ## Path parameters
@@ -17,15 +16,15 @@ GET https://mdb.api.cloud.yandex.net/managed-redis/v1/clusters/{clusterId}/users
 || clusterId | **string**
 
 Required field. ID of the Redis cluster the user belongs to.
-To get the cluster ID, use a [ClusterService.List](../Cluster/list.md#List) request.
+To get the cluster ID, use a [ClusterService.List](../../../managed-redis/api-ref/Cluster/list#List) request.
 
 The maximum string length in characters is 50. ||
 || userName | **string**
 
 Required field. Name of the Redis User resource to return.
-To get the name of the user, use a [UserService.List](list.md#List) request.
+To get the name of the user, use a [UserService.List](../../../managed-redis/api-ref/User/list#List) request.
 
-The maximum string length in characters is 32. Value must match the regular expression ` ^[a-zA-Z0-9_][a-zA-Z0-9_-]*$ `. ||
+The maximum string length in characters is 32. Value must match the regular expression ` ^[a-zA-Z0-9_][a-zA-Z0-9_@.-]*$ `. ||
 |#
 
 ## Response {#yandex.cloud.mdb.redis.v1.User}
@@ -41,7 +40,8 @@ The maximum string length in characters is 32. Value must match the regular expr
     "pubSubChannels": "string",
     "categories": "string",
     "commands": "string",
-    "sanitizePayload": "string"
+    "sanitizePayload": "string",
+    "databases": "string"
   },
   "enabled": "boolean",
   "aclOptions": "string"
@@ -49,7 +49,7 @@ The maximum string length in characters is 32. Value must match the regular expr
 ```
 
 A Redis User resource. For more information, see the
-[Developer's Guide](../../concepts/index.md).
+[Developer's Guide](../../../managed-redis/concepts).
 
 #|
 ||Field | Description ||
@@ -89,4 +89,7 @@ Commands user can execute. ||
 || sanitizePayload | **string**
 
 SanitizePayload parameter. ||
+|| databases | **string**
+
+Databases parameter. ||
 |#

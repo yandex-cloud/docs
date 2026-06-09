@@ -5,7 +5,7 @@ Updates access bindings for the specified Metastore cluster.
 ## HTTP request
 
 ```
-PATCH https://metastore.api.cloud.yandex.net/managed-metastore/v1/clusters/{resourceId}:updateAccessBindings
+PATCH https://metastore.{{ api-host }}/managed-metastore/v1/clusters/{resourceId}:updateAccessBindings
 ```
 
 ## Path parameters

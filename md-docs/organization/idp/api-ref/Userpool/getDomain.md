@@ -5,7 +5,7 @@ Returns the specified domain for a userpool.
 ## HTTP request
 
 ```
-GET https://organization-manager.api.cloud.yandex.net/organization-manager/v1/idp/userpools/{userpoolId}/domains/{domain}
+GET https://organization-manager.{{ api-host }}/organization-manager/v1/idp/userpools/{userpoolId}/domains/{domain}
 ```
 
 ## Path parameters
@@ -21,7 +21,9 @@ Required field. ID of the userpool to get a domain for.
 The maximum string length in characters is 50. ||
 || domain | **string**
 
-Required field. Domain name. ||
+Required field. Domain name.
+
+The string length in characters must be 1-253. ||
 |#
 
 ## Response {#yandex.cloud.organizationmanager.v1.idp.Domain}

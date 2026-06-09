@@ -5,7 +5,7 @@
 Визуально его можно представить таблицей, где:
 
 - ![image](../_assets/circle-ededed.svg =18x18) Клиент
-- ![image](../_assets/circle-80bdf9.svg =18x18) Yandex Cloud
+- ![image](../_assets/circle-80bdf9.svg =18x18) {{ yandex-cloud }}
 
 |     | Собственная <br> инфраструктура | IaaS | PaaS | SaaS |
 | --- | :---: | :---: | :---: | :---: |

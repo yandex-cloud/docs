@@ -1,10 +1,10 @@
-# Создать триггер для Data Streams, который вызывает контейнер Serverless Containers
+# Создать триггер для {{ yds-name }}, который вызывает контейнер {{ serverless-containers-name }}
 
- Создайте [триггер для Data Streams](../concepts/trigger/data-streams-trigger.md), который будет вызывать [контейнер](../concepts/container.md) Serverless Containers при отправке данных в [поток](../../data-streams/concepts/glossary.md#stream-concepts). 
+ Создайте [триггер для {{ yds-name }}](../concepts/trigger/data-streams-trigger.md), который будет вызывать [контейнер](../concepts/container.md) {{ serverless-containers-name }} при отправке данных в [поток](../../data-streams/concepts/glossary.md#stream-concepts). 
 
 {% note info %}
 
-Триггер для Data Streams принимает и отправляет сообщения только в формате [JSON](https://ruwikipedia.org/wiki/JSON).
+Триггер для {{ yds-name }} принимает и отправляет сообщения только в формате [JSON](https://{{ lang }}wikipedia.org/wiki/JSON).
 
 {% endnote %}
 
@@ -41,43 +41,43 @@
 
 - Консоль управления {#console}
 
-    1. В [консоли управления](https://console.yandex.cloud) перейдите в каталог, в котором хотите создать триггер.
+    1. В [консоли управления]({{ link-console-main }}) перейдите в каталог, в котором хотите создать триггер.
 
-    1. [Перейдите](../../console/operations/select-service.md#select-service) в сервис **Serverless Containers**.
+    1. Перейдите в сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_serverless-containers }}**.
 
-    1. На панели слева выберите ![image](../../_assets/console-icons/gear-play.svg) **Триггеры**.
+    1. На панели слева выберите ![image](../../_assets/console-icons/gear-play.svg) **{{ ui-key.yacloud.serverless-functions.switch_list-triggers }}**.
 
-    1. Нажмите кнопку **Создать триггер**.
+    1. Нажмите кнопку **{{ ui-key.yacloud.serverless-functions.triggers.list.button_create }}**.
 
-    1. В блоке **Базовые параметры**:
+    1. В блоке **{{ ui-key.yacloud.serverless-functions.triggers.form.section_base }}**:
 
         * Введите имя и описание триггера.
-        * В поле **Тип** выберите `Data Streams`.
-        * В поле **Запускаемый ресурс** выберите `Контейнер`.
+        * В поле **{{ ui-key.yacloud.serverless-functions.triggers.form.field_type }}** выберите `{{ ui-key.yacloud.serverless-functions.triggers.form.label_data-streams }}`.
+        * В поле **{{ ui-key.yacloud.serverless-functions.triggers.form.field_invoke }}** выберите `{{ ui-key.yacloud.serverless-functions.triggers.form.label_container }}`.
 
-    1. В блоке **Настройки Data Streams** выберите поток данных и сервисный аккаунт с правами на чтение из потока данных и запись в него.
+    1. В блоке **{{ ui-key.yacloud.serverless-functions.triggers.form.section_data-streams }}** выберите поток данных и сервисный аккаунт с правами на чтение из потока данных и запись в него.
 
-    1. В блоке **Настройки группирования сообщений** укажите:
+    1. В блоке **{{ ui-key.yacloud.serverless-functions.triggers.form.section_batch-settings }}** укажите:
 
-        * **Время ожидания, с**. Допустимые значения от 1 до 60 секунд, значение по умолчанию — 1 секунда.
-        * **Размер группы, Б**. Допустимые значения от 1 Б до 64 КБ, значение по умолчанию — 1 Б.
+        * **{{ ui-key.yacloud.serverless-functions.triggers.form.field_cutoff }}**. Допустимые значения от 1 до 60 секунд, значение по умолчанию — 1 секунда.
+        * **{{ ui-key.yacloud.serverless-functions.triggers.form.field_stream-size }}**. Допустимые значения от 1 Б до 64 КБ, значение по умолчанию — 1 Б.
 
         Триггер группирует сообщения не дольше указанного времени ожидания и отправляет их в контейнер. Суммарный объем данных, которые передаются в контейнер, может превышать указанный размер группы, если данные передаются в одном сообщении. Во всех остальных случаях объем данных не превышает размер группы.
 
-    1. В блоке **Настройки контейнера** выберите его и [сервисный аккаунт](../../iam/concepts/users/service-accounts.md), от имени которого он будет вызываться.
+    1. В блоке **{{ ui-key.yacloud.serverless-functions.triggers.form.section_container }}** выберите его и [сервисный аккаунт](../../iam/concepts/users/service-accounts.md), от имени которого он будет вызываться.
 
-    1. (Опционально) В блоке **Настройки повторных запросов**:
+    1. (Опционально) В блоке **{{ ui-key.yacloud.serverless-functions.triggers.form.section_function-retry }}**:
 
-        * В поле **Интервал** укажите время, через которое будет сделан повторный вызов контейнера, если текущий завершился неуспешно. Допустимые значения — от 10 до 60 секунд, значение по умолчанию — 10 секунд.
-        * В поле **Количество попыток** укажите количество повторных вызовов контейнера, которые будут сделаны, прежде чем триггер отправит сообщение в Dead Letter Queue. Допустимые значения — от 1 до 5, значение по умолчанию — 1.
+        * В поле **{{ ui-key.yacloud.serverless-functions.triggers.form.field_retry-interval }}** укажите время, через которое будет сделан повторный вызов контейнера, если текущий завершился неуспешно. Допустимые значения — от 10 до 60 секунд, значение по умолчанию — 10 секунд.
+        * В поле **{{ ui-key.yacloud.serverless-functions.triggers.form.field_retry-attempts }}** укажите количество повторных вызовов контейнера, которые будут сделаны, прежде чем триггер отправит сообщение в Dead Letter Queue. Допустимые значения — от 1 до 5, значение по умолчанию — 1.
 
-    1. (Опционально) В блоке **Настройки Dead Letter Queue** выберите очередь Dead Letter Queue и сервисный аккаунт с правами на запись в нее.
+    1. (Опционально) В блоке **{{ ui-key.yacloud.serverless-functions.triggers.form.section_dlq }}** выберите очередь Dead Letter Queue и сервисный аккаунт с правами на запись в нее.
 
-    1. Нажмите кнопку **Создать триггер**.
+    1. Нажмите кнопку **{{ ui-key.yacloud.serverless-functions.triggers.form.button_create-trigger }}**.
 
 - CLI {#cli}
 
-    Если у вас еще нет интерфейса командной строки Yandex Cloud (CLI), [установите и инициализируйте его](../../cli/quickstart.md#install).
+    Если у вас еще нет интерфейса командной строки {{ yandex-cloud }} (CLI), [установите и инициализируйте его](../../cli/quickstart.md#install).
 
     По умолчанию используется каталог, указанный при [создании](../../cli/operations/profile/profile-create.md) профиля CLI. Чтобы изменить каталог по умолчанию, используйте команду `yc config set folder-id <идентификатор_каталога>`. Также для любой команды вы можете указать другой каталог с помощью параметров `--folder-name` или `--folder-id`. Если вы обращаетесь к ресурсу по имени, поиск будет выполнен в каталоге по умолчанию. Если вы обращаетесь к ресурсу по идентификатору, поиск будет выполнен глобально — во всех каталогах с учетом прав доступа.
 
@@ -102,9 +102,9 @@
     Где:
 
     * `--name` — имя триггера.
-    * `--database` — размещение базы данных YDB, к которой привязан поток Data Streams.
+    * `--database` — размещение базы данных {{ ydb-short-name }}, к которой привязан поток {{ yds-name }}.
 
-      Чтобы узнать, где размещена база данных, выполните команду `yc ydb database list`. Размещение базы данных указано в столбце `ENDPOINT`, в параметре `database`, например `/ru-central1/b1gia87mbah2********/etn7hehf6gh3********`.
+      Чтобы узнать, где размещена база данных, выполните команду `yc ydb database list`. Размещение базы данных указано в столбце `ENDPOINT`, в параметре `database`, например `/{{ region-id }}/b1gia87mbah2********/etn7hehf6gh3********`.
 
     * `--stream` — имя потока данных.
     * `--batch-size` — размер группы сообщений. Необязательный параметр. Допустимые значения от 1 Б до 64 КБ, значение по умолчанию — 1 Б.
@@ -127,7 +127,7 @@
     name: data-streams-trigger
     rule:
       data_stream:
-        database: /ru-central1/b1gia87mbah2********/etn7hehh2********
+        database: /{{ region-id }}/b1gia87mbah2********/etn7hehh2********
         stream: streams-name
         service_account_id: ajep8qm0kh2********
         batch_settings:
@@ -140,22 +140,25 @@
             retry_attempts: "1"
             interval: 10s
           dead_letter_queue:
-            queue-id: yrn:yc:ymq:ru-central1:b1gmit33ngh2********:dlq
+            queue-id: yrn:yc:ymq:{{ region-id }}:b1gmit33ngh2********:dlq
             service-account-id: aje3lebfemh2********
     status: ACTIVE
     ```
 
-- Terraform {#tf}
+- {{ TF }} {#tf}
 
-  [Terraform](https://www.terraform.io/) позволяет быстро создать облачную инфраструктуру в Yandex Cloud и управлять ею с помощью файлов конфигураций. В файлах конфигураций хранится описание инфраструктуры на языке HCL (HashiCorp Configuration Language). При изменении файлов конфигураций Terraform автоматически определяет, какая часть вашей конфигурации уже развернута, что следует добавить или удалить.
+  [{{ TF }}](https://www.terraform.io/) позволяет быстро создать облачную инфраструктуру в {{ yandex-cloud }} и управлять ею с помощью файлов конфигураций. В файлах конфигураций хранится описание инфраструктуры на языке HCL (HashiCorp Configuration Language). При изменении файлов конфигураций {{ TF }} автоматически определяет, какая часть вашей конфигурации уже развернута, что следует добавить или удалить.
   
-  Terraform распространяется под лицензией [Business Source License](https://github.com/hashicorp/terraform/blob/main/LICENSE), а [провайдер Yandex Cloud для Terraform](https://github.com/yandex-cloud/terraform-provider-yandex) — под лицензией [MPL-2.0](https://www.mozilla.org/en-US/MPL/2.0/).
+  {{ TF }} распространяется под лицензией [Business Source License](https://github.com/hashicorp/terraform/blob/main/LICENSE), а [провайдер {{ yandex-cloud }} для {{ TF }}](https://github.com/yandex-cloud/terraform-provider-yandex) — под лицензией [MPL-2.0](https://www.mozilla.org/en-US/MPL/2.0/).
   
-  Подробную информацию о ресурсах провайдера смотрите в документации на сайте [Terraform](https://www.terraform.io/docs/providers/yandex/index.html) или в [зеркале](../../terraform/index.md).
+  Подробную информацию о ресурсах провайдера смотрите в документации на сайте [{{ TF }}](https://www.terraform.io/docs/providers/yandex/index.html) или в [зеркале]({{ tf-docs-link }}).
 
-  Если у вас еще нет Terraform, [установите его и настройте провайдер Yandex Cloud](../../tutorials/infrastructure-management/terraform-quickstart.md#install-terraform).
+  Если у вас еще нет {{ TF }}, [установите его и настройте провайдер {{ yandex-cloud }}](../../tutorials/infrastructure-management/terraform-quickstart.md#install-terraform).
+  
+  
+  Чтобы управлять инфраструктурой с помощью {{ TF }} от имени сервисного аккаунта или пользовательских аккаунтов: аккаунта на Яндексе, федеративного аккаунта и локального пользователя, [аутентифицируйтесь](../../terraform/authentication.md) соответствующим способом.
 
-  Чтобы создать триггер для Data Streams:
+  Чтобы создать триггер для {{ yds-name }}:
 
   1. Опишите в конфигурационном файле параметры триггера:
 
@@ -201,7 +204,7 @@
      * `data_streams` — параметры триггера:
 
          * `stream_name` — имя потока данных.
-         * `database` — размещение базы данных YDB, к которой привязан поток Data Streams.
+         * `database` — размещение базы данных {{ ydb-short-name }}, к которой привязан поток {{ yds-name }}.
 
              Чтобы узнать, где размещена база данных, выполните команду `yc ydb database list`. Размещение базы данных указано в столбце `ENDPOINT`, в параметре `database`, например `/ru-central1/b1gia87mba**********/etn7hehf6g*******`.
 
@@ -214,7 +217,7 @@
          * `queue_id` — идентификатор очереди Dead Letter Queue.
          * `service_account_id` — идентификатор сервисного аккаунта с правами на запись в очередь Dead Letter Queue.
 
-     Более подробную информацию о параметрах ресурса `yandex_function_trigger` см. в [документации провайдера](../../terraform/resources/function_trigger.md).
+     Более подробную информацию о параметрах ресурса `yandex_function_trigger` см. в [документации провайдера]({{ tf-provider-resources-link }}/function_trigger).
 
   1. Создайте ресурсы:
 
@@ -237,7 +240,7 @@
         terraform plan
         ```
      
-        В терминале будет выведен список ресурсов с параметрами. На этом этапе изменения не будут внесены. Если в конфигурации есть ошибки, Terraform на них укажет.
+        В терминале будет выведен список ресурсов с параметрами. На этом этапе изменения не будут внесены. Если в конфигурации есть ошибки, {{ TF }} на них укажет.
      1. Примените изменения конфигурации:
      
         ```bash
@@ -246,7 +249,7 @@
      
      1. Подтвердите изменения: введите в терминале слово `yes` и нажмите **Enter**.
 
-     Terraform создаст все требуемые ресурсы. Проверить появление ресурсов можно в [консоли управления](https://console.yandex.cloud) или с помощью команды [CLI](../../cli/quickstart.md):
+     {{ TF }} создаст все требуемые ресурсы. Проверить появление ресурсов можно в [консоли управления]({{ link-console-main }}) или с помощью команды [CLI](../../cli/quickstart.md):
 
      ```bash
      yc serverless trigger list
@@ -254,7 +257,7 @@
 
 - API {#api}
 
-  Чтобы создать триггер для Data Streams, воспользуйтесь методом REST API [create](../triggers/api-ref/Trigger/create.md) для ресурса [Trigger](../triggers/api-ref/Trigger/index.md) или вызовом gRPC API [TriggerService/Create](../triggers/api-ref/grpc/Trigger/create.md).
+  Чтобы создать триггер для {{ yds-name }}, воспользуйтесь методом REST API [create](../triggers/api-ref/Trigger/create.md) для ресурса [Trigger](../triggers/api-ref/Trigger/index.md) или вызовом gRPC API [TriggerService/Create](../triggers/api-ref/grpc/Trigger/create.md).
 
 {% endlist %}
 
@@ -264,5 +267,5 @@
 
 ## См. также {#see-also}
 
-* [Создать триггер для Data Streams, который вызывает функцию Cloud Functions](../../functions/operations/trigger/data-streams-trigger-create.md)
-* [Создать триггер для Data Streams, который отправляет сообщения в WebSocket-соединения](../../api-gateway/operations/trigger/data-streams-trigger-create.md)
+* [{#T}](../../functions/operations/trigger/data-streams-trigger-create.md)
+* [{#T}](../../api-gateway/operations/trigger/data-streams-trigger-create.md)

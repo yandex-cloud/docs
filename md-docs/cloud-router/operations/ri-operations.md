@@ -1,11 +1,5 @@
 # Получить список операций Routing Instance
 
-{% note warning %}
-
-Чтобы запросить доступ к данной функции, обратитесь в [техническую поддержку](https://center.yandex.cloud/support).
-
-{% endnote %}
-
 {% note info %}
 
 Для выполнения операции необходима роль [cloud-router.viewer](../security/index.md#cloudrouter-viewer).

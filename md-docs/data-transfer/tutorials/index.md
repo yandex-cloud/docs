@@ -1,43 +1,43 @@
-# Практические руководства Data Transfer
+# Практические руководства {{ data-transfer-name }}
 
 
-C помощью Data Transfer вы можете реализовать различные сценарии миграции данных, захвата изменений, поставок данных из очередей, загрузки в витрины, зеркалирования и загрузки данных в масштабируемое хранилище.
+C помощью {{ data-transfer-name }} вы можете реализовать различные сценарии миграции данных, захвата изменений, поставок данных из очередей, загрузки в витрины, зеркалирования и загрузки данных в масштабируемое хранилище.
 
 ## Миграция данных {#migration}
 
-Миграция — задача, в рамках которой требуется перенести данные из одного хранилища в другое. В Data Transfer миграция часто означает перенос базы в облако из устаревших локальных баз в управляемые облачные.
+Миграция — задача, в рамках которой требуется перенести данные из одного хранилища в другое. В {{ data-transfer-name }} миграция часто означает перенос базы в облако из устаревших локальных баз в управляемые облачные.
 
 ![migration](../../_assets/data-transfer/tutorials/migration.svg)
 
-* [Миграция кластера PostgreSQL](managed-postgresql.md)
-* [Миграция кластера Managed Service for PostgreSQL на другую версию](postgresql-versions.md)
-* [Миграция кластера MySQL®](managed-mysql-to-mysql.md)
-* [Миграция кластера ClickHouse®](managed-clickhouse.md)
-* [Миграция кластера Greenplum®](managed-greenplum.md)
-* [Миграция кластера MongoDB](storedoc.md)
-* [Миграция кластера Yandex StoreDoc (Managed Service for MongoDB) с версии 4.4 на 6.0](storedoc-versions.md)
-* [Миграция из AWS RDS for PostgreSQL](rds-to-mpg.md)
-* [Миграция кластера OpenSearch](os-to-mos.md)
+* [Миграция кластера {{ PG }}](managed-postgresql.md)
+* [Миграция кластера {{ mpg-name }} на другую версию](postgresql-versions.md)
+* [Миграция кластера {{ MY }}](managed-mysql-to-mysql.md)
+* [Миграция кластера {{ CH }}](managed-clickhouse.md)
+* [Миграция кластера {{ GP }}](managed-greenplum.md)
+* [Миграция кластера {{ MG }}](storedoc.md)
+* [Миграция кластера {{ mmg-name }} (Managed Service for MongoDB) с версии 4.4 на 6.0](storedoc-versions.md)
+* [Миграция из AWS RDS for {{ PG }}](rds-to-mpg.md)
+* [Миграция кластера {{ OS }}](os-to-mos.md)
 
 Отдельной задачей миграции является зеркалирование данных между очередями.
 
-* [Зеркалирование Apache Kafka®](mkf-to-mkf.md)
+* [Зеркалирование {{ KF }}](mkf-to-mkf.md)
 
 Синхронизация данных из стороннего кластера.
 
-* [Синхронизация данных из MySQL®](sync-mysql.md)
+* [Синхронизация данных из {{ MY }}](sync-mysql.md)
 
 Миграция со сменой типа хранения данных.
 
-* [MySQL® в YDB](managed-mysql-to-ydb.md)
-* [PostgreSQL в YDB](mpg-to-ydb.md)
-* [MySQL® в PostgreSQL](mmy-to-mpg.md)
-* [PostgreSQL в MySQL®](mpg-to-mmy.md)
-* [MySQL® в Greenplum®](mmy-to-mgp.md)
-* [OpenSearch в YDB](opensearch-to-ydb.md)
-* [OpenSearch в Greenplum®](opensearch-to-greenplum.md)
-* [PostgreSQL в OpenSearch](postgresql-to-opensearch.md)
-* [Elasticsearch в OpenSearch](mes-to-mos.md)
+* [{{ MY }} в {{ ydb-short-name }}](managed-mysql-to-ydb.md)
+* [{{ PG }} в {{ ydb-short-name }}](mpg-to-ydb.md)
+* [{{ MY }} в {{ PG }}](mmy-to-mpg.md)
+* [{{ PG }} в {{ MY }}](mpg-to-mmy.md)
+* [{{ MY }} в {{ GP }}](mmy-to-mgp.md)
+* [{{ OS }} в {{ ydb-short-name }}](opensearch-to-ydb.md)
+* [{{ OS }} в {{ GP }}](opensearch-to-greenplum.md)
+* [{{ PG }} в {{ OS }}](postgresql-to-opensearch.md)
+* [{{ ES }} в {{ OS }}](mes-to-mos.md)
 
 ## Захват изменений данных {#cdc}
 
@@ -46,15 +46,15 @@ C помощью Data Transfer вы можете реализовать разл
 
 ![cdc](../../_assets/data-transfer/tutorials/cdc.svg)
 
-* Захват изменений MySQL® и поставка в:
-  * [Apache Kafka®](cdc-mmy.md)
-  * [YDS](mmy-to-yds.md)
-* Захват изменений PostgreSQL и поставка в:
-  * [Apache Kafka®](cdc-mpg.md)
-  * [YDS](mpg-to-yds.md)
-* Захват изменений YDB и поставка в:
-  * [Apache Kafka®](cdc-ydb.md)
-  * [YDS](ydb-to-yds.md)
+* Захват изменений {{ MY }} и поставка в:
+  * [{{ KF }}](cdc-mmy.md)
+  * [{{ DS }}](mmy-to-yds.md)
+* Захват изменений {{ PG }} и поставка в:
+  * [{{ KF }}](cdc-mpg.md)
+  * [{{ DS }}](mpg-to-yds.md)
+* Захват изменений {{ ydb-short-name }} и поставка в:
+  * [{{ KF }}](cdc-ydb.md)
+  * [{{ DS }}](ydb-to-yds.md)
 
 ## Поставка данных из очередей {#delivery-to-queue}
 
@@ -62,21 +62,21 @@ C помощью Data Transfer вы можете реализовать разл
 
 ![queue](../../_assets/data-transfer/tutorials/queue.svg)
 
-* [Apache Kafka® в ClickHouse®](mkf-to-mch.md)
-* [Apache Kafka® в PostgreSQL](mkf-to-mpg.md)
-* [Apache Kafka® в Greenplum®](managed-kafka-to-greenplum.md)
-* [Apache Kafka® в Yandex StoreDoc](mkf-to-mmg.md)
-* [Apache Kafka® в MySQL®](mkf-to-mmy.md)
-* [Apache Kafka® в OpenSearch](mkf-to-mos.md)
-* [Apache Kafka® в YDB](mkf-to-ydb.md)
+* [{{ KF }} в {{ CH }}](mkf-to-mch.md)
+* [{{ KF }} в {{ PG }}](mkf-to-mpg.md)
+* [{{ KF }} в {{ GP }}](managed-kafka-to-greenplum.md)
+* [{{ KF }} в {{ SD }}](mkf-to-mmg.md)
+* [{{ KF }} в {{ MY }}](mkf-to-mmy.md)
+* [{{ KF }} в {{ OS }}](mkf-to-mos.md)
+* [{{ KF }} в {{ ydb-short-name }}](mkf-to-ydb.md)
 
-* [Apache Kafka® в YDS](mkf-to-yds.md)
+* [{{ KF }} в {{ DS }}](mkf-to-yds.md)
 
-* [YDS в ClickHouse®](yds-to-clickhouse.md)
-* [YDS в Object Storage](yds-to-objstorage.md)
-* [YDS в Managed Service for YDB](yds-to-ydb.md)
-* [YDS в Apache Kafka®](yds-to-kafka.md)
-* [Ввод данных в системы хранения](data-ingestion.md)
+* [{{ DS }} в {{ CH }}](yds-to-clickhouse.md)
+* [{{ DS }} в {{ objstorage-name }}](yds-to-objstorage.md)
+* [{{ DS }} в {{ ydb-name }}](yds-to-ydb.md)
+* [{{ DS }} в {{ KF }}](yds-to-kafka.md)
+* [{#T}](data-ingestion.md)
 
 ## Загрузка данных в витрины {#upload-to-data-mart}
 
@@ -84,35 +84,36 @@ C помощью Data Transfer вы можете реализовать разл
 
 ![data mart](../../_assets/data-transfer/tutorials/data-mart.svg)
 
-* [Greenplum® в ClickHouse®](greenplum-to-clickhouse.md)
-* [MySQL® в ClickHouse®](mysql-to-clickhouse.md)
-* [Яндекс Метрика в ClickHouse®](metrika-to-clickhouse.md)
-* [PostgreSQL в ClickHouse®](rdbms-to-clickhouse.md)
-* [Greenplum® в PostgreSQL](greenplum-to-postgresql.md)
-* [Яндекс Директ в ClickHouse®](direct-to-mch.md)
-* [Object Storage в PostgreSQL](object-storage-to-postgresql.md)
-* [Object Storage в Greenplum®](object-storage-to-greenplum.md)
-* [Object Storage в MySQL®](objs-mmy-migration.md)
-* [Object Storage в ClickHouse®](object-storage-to-clickhouse.md)
-* [Object Storage в YDB](object-storage-to-ydb.md)
-* [YDB в ClickHouse®](ydb-to-clickhouse.md)
-* [OpenSearch в ClickHouse®](opensearch-to-clickhouse.md)
+* [{{ GP }} в {{ CH }}](greenplum-to-clickhouse.md)
+* [{{ MY }} в {{ CH }}](mysql-to-clickhouse.md)
+* [{{ metrika }} в {{ CH }}](metrika-to-clickhouse.md)
+* [{{ PG }} в {{ CH }}](rdbms-to-clickhouse.md)
+* [{{ GP }} в {{ PG }}](greenplum-to-postgresql.md)
+* [{{ yandex-direct }} в {{ CH }}](direct-to-mch.md)
+* [{{ objstorage-name }} в {{ PG }}](object-storage-to-postgresql.md)
+* [{{ objstorage-name }} в {{ GP }}](object-storage-to-greenplum.md)
+* [{{ objstorage-name }} в {{ MY }}](objs-mmy-migration.md)
+* [{{ objstorage-name }} в {{ CH }}](object-storage-to-clickhouse.md)
+* [{{ objstorage-name }} в {{ ydb-short-name }}](object-storage-to-ydb.md)
+* [{{ ydb-short-name }} в {{ CH }}](ydb-to-clickhouse.md)
+* [{{ydb-short-name}} в {{ PG }}](ydb-to-postgresql.md)
+* [{{ OS }} в {{ CH }}](opensearch-to-clickhouse.md)
 
-## Загрузка данных в Object Storage {#upload-to-storage}
+## Загрузка данных в {{ objstorage-name }} {#upload-to-storage}
 
-Загрузка данных в масштабируемое хранилище Object Storage позволяет удешевить хранение и облегчает обмен данных с контрагентами.
+Загрузка данных в масштабируемое хранилище {{ objstorage-name }} позволяет удешевить хранение и облегчает обмен данных с контрагентами.
 
 ![storage](../../_assets/data-transfer/tutorials/storage.svg)
 
-* [MySQL® в Object Storage](mmy-objs-migration.md)
-* [PostgreSQL в Object Storage](mpg-to-objstorage.md)
-* [OpenSearch в Object Storage](opensearch-to-object-storage.md)
-* [YDB в Object Storage](ydb-to-object-storage.md)
-* [Репликация логов в Object Storage с помощью Data Streams](replicate-logs-to-storage-via-data-streams.md)
-* [Репликация логов в Object Storage с помощью Fluent Bit](replicate-logs-to-storage.md)
+* [{{ MY }} в {{ objstorage-name }}](mmy-objs-migration.md)
+* [{{ PG }} в {{ objstorage-name }}](mpg-to-objstorage.md)
+* [{{ OS }} в {{ objstorage-name }}](opensearch-to-object-storage.md)
+* [{{ ydb-short-name }} в {{ objstorage-name }}](ydb-to-object-storage.md)
+* [Репликация логов в {{ objstorage-name }} с помощью {{ yds-name }}](replicate-logs-to-storage-via-data-streams.md)
+* [Репликация логов в {{ objstorage-name }} с помощью Fluent Bit](replicate-logs-to-storage.md)
 
 _Greenplum® и Greenplum Database® являются зарегистрированными товарными знаками или товарными знаками Broadcom Inc в США и/или других странах._
 
 
 
-_ClickHouse® является зарегистрированным товарным знаком [ClickHouse, Inc](https://clickhouse.com)._
+_{{ CH }} является зарегистрированным товарным знаком [ClickHouse, Inc](https://clickhouse.com)._

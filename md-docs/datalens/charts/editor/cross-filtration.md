@@ -16,6 +16,7 @@
 
 #### Пример {#example}
 
+
 * [Фильтрация для визуализации Таблица](https://datalens.yandex/nvkfwnekf9xy9?tab=Ow#Таблица)
 
 * [Фильтрация для визуализации График (Gravity UI Charts)](https://datalens.yandex/nvkfwnekf9xy9?tab=Ow#График%20Gravity%20Сharts)

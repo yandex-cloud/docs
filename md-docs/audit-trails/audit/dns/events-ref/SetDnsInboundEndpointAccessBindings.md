@@ -84,8 +84,12 @@
     ]
   },
   "details": {
+    // Includes only one of the fields `dnsInboundEndpointId`
     "dnsInboundEndpointId": "string",
+    // end of the list of possible fields
+    // Includes only one of the fields `dnsInboundEndpointName`
     "dnsInboundEndpointName": "string",
+    // end of the list of possible fields
     "accessBindings": [
       {
         "roleId": "string",
@@ -275,8 +279,12 @@ A list of messages that carry the error details. ||
 
 #|
 ||Field | Description ||
-|| dnsInboundEndpointId | **string** ||
-|| dnsInboundEndpointName | **string** ||
+|| dnsInboundEndpointId | **string**
+
+Includes only one of the fields `dnsInboundEndpointId`. ||
+|| dnsInboundEndpointName | **string**
+
+Includes only one of the fields `dnsInboundEndpointName`. ||
 || accessBindings[] | **[AccessBinding](#yandex.cloud.audit.AccessBinding)** ||
 || accessBindingDeltas[] | **[AccessBindingDelta](#yandex.cloud.audit.AccessBindingDelta)** ||
 |#

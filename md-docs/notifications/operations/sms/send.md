@@ -4,12 +4,12 @@
 
 - Консоль управления {#console}
 
-  1. В [консоли управления](https://console.yandex.cloud) выберите каталог, в котором вы хотите создать канал уведомлений.
-  1. [Перейдите](../../../console/operations/select-service.md#select-service) в сервис **Cloud Notification Service**.
+  1. В [консоли управления]({{ link-console-main }}) выберите каталог, в котором вы хотите создать канал уведомлений.
+  1. Перейдите в сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_cns }}**.
   1. Выберите нужный канал SMS-уведомлений.
-  1. Перейдите на вкладку ![image](../../../_assets/console-icons/handset-arrow-in.svg) **Тестовые номера**.
-  1. Напротив нужного тестового номера нажмите ![image](../../../_assets/console-icons/ellipsis.svg) и выберите ![image](../../../_assets/console-icons/comment.svg) **Отправить**.
-  1. В открывшемся окне введите текст сообщения и нажмите **Отправить**.
+  1. Перейдите на вкладку ![image](../../../_assets/console-icons/handset-arrow-in.svg) **{{ ui-key.yacloud.cns.label_phone-numbers }}**.
+  1. Напротив нужного тестового номера нажмите ![image](../../../_assets/console-icons/ellipsis.svg) и выберите ![image](../../../_assets/console-icons/comment.svg) **{{ ui-key.yacloud.cns.action_send-msg }}**.
+  1. В открывшемся окне введите текст сообщения и нажмите **{{ ui-key.yacloud.cns.action_send-msg }}**.
 
 - AWS SDK для PHP {#php}
 

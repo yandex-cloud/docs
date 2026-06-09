@@ -2,26 +2,26 @@
 
 [Apache Spark](https://spark.apache.org/) — это фреймворк для реализации распределенной обработки неструктурированных и слабоструктурированных данных, входящий в экосистему проектов Hadoop.
 
-В этой статье на простом примере показывается, как в Yandex Data Processing использовать [PySpark](https://spark.apache.org/docs/latest/api/python/) — интерфейс Spark для языка Python. При помощи PySpark в приведенном примере подсчитывается число случаев употребления каждого из слов, которые встречаются в коротком образце текста.
+В этой статье на простом примере показывается, как в {{ dataproc-name }} использовать [PySpark](https://spark.apache.org/docs/latest/api/python/) — интерфейс Spark для языка Python. При помощи PySpark в приведенном примере подсчитывается число случаев употребления каждого из слов, которые встречаются в коротком образце текста.
 
 ## Перед началом работы {#before-you-begin}
 
 1. [Создайте сервисный аккаунт](../../iam/operations/sa/create.md) с ролями `dataproc.agent` и `dataproc.provisioner`.
 
-1. В Object Storage [создайте бакеты](../../storage/operations/buckets/create.md) и [настройте доступ](../../storage/operations/buckets/edit-acl.md) к ним:
+1. В {{ objstorage-short-name }} [создайте бакеты](../../storage/operations/buckets/create.md) и [настройте доступ](../../storage/operations/buckets/edit-acl.md) к ним:
    
    1. Создайте бакет для исходных данных и предоставьте сервисному аккаунту кластера разрешение `READ` для этого бакета.
    1. Создайте бакет для результатов обработки и предоставьте сервисному аккаунту кластера разрешение `READ и WRITE` для этого бакета.
 
-1. [Создайте кластер Yandex Data Processing](../operations/cluster-create.md) со следующими настройками:
+1. [Создайте кластер {{ dataproc-name }}](../operations/cluster-create.md) со следующими настройками:
 
-    * **Окружение** — `PRODUCTION`.
-    * **Сервисы**:
+    * **{{ ui-key.yacloud.mdb.forms.base_field_environment }}** — `PRODUCTION`.
+    * **{{ ui-key.yacloud.mdb.forms.config_field_services }}**:
         * `HDFS`
         * `SPARK`
         * `YARN`
-    * **Сервисный аккаунт**: выберите созданный ранее сервисный аккаунт.
-    * **Имя бакета**: выберите бакет для результатов обработки.
+    * **{{ ui-key.yacloud.mdb.forms.base_field_service-account }}**: выберите созданный ранее сервисный аккаунт.
+    * **{{ ui-key.yacloud.mdb.forms.config_field_bucket }}**: выберите бакет для результатов обработки.
 
 ## Создайте задание PySpark {#create-job}
 
@@ -88,8 +88,8 @@
 
 1. [Создайте задание PySpark](../operations/jobs-pyspark.md#create) с параметрами:
 
-    * **Main python файл**: `s3a://<имя_бакета_для_исходных_данных>/word_count.py`
-    * **Аргументы**:
+    * **{{ ui-key.yacloud.dataproc.jobs.field_main-python-file }}**: `s3a://<имя_бакета_для_исходных_данных>/word_count.py`
+    * **{{ ui-key.yacloud.dataproc.jobs.field_args }}**:
 
         * `s3a://<имя_бакета_для_исходных_данных>/text.txt`
         * `s3a://<имя_бакета_для_результатов_обработки>/<папка_для_результатов>`
@@ -128,7 +128,7 @@
 
 {% note info %}
 
-Вы можете просматривать логи выполнения заданий и искать в них информацию с помощью сервиса [Yandex Cloud Logging](../../logging/index.md). Подробнее см. в разделе [Работа с логами](../operations/logging.md).
+Вы можете просматривать логи выполнения заданий и искать в них информацию с помощью сервиса [{{ cloud-logging-full-name }}](../../logging/index.md). Подробнее в разделе [{#T}](../operations/logging.md).
 
 {% endnote %}
 

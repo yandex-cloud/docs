@@ -5,7 +5,7 @@ Retrieves the list of OAuth applications in the specified organization.
 ## HTTP request
 
 ```
-GET https://organization-manager.api.cloud.yandex.net/organization-manager/v1/idp/application/oauth/applications
+GET https://organization-manager.{{ api-host }}/organization-manager/v1/idp/application/oauth/applications
 ```
 
 ## Query parameters {#yandex.cloud.organizationmanager.v1.idp.application.oauth.ListApplicationsRequest}
@@ -176,5 +176,5 @@ The maximum string length in characters is 50. ||
 
 List of authorized client scopes by the application
 
-The number of elements must be in the range 1-1000. The maximum string length in characters for each value is 255. ||
+The maximum string length in characters for each value is 255. Each value must match the regular expression ` [!#-\[\]-~]+ `. The number of elements must be in the range 1-1000. ||
 |#

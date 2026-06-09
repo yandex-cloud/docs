@@ -5,7 +5,7 @@ Creates a Kafka user in the specified cluster.
 ## HTTP request
 
 ```
-POST https://mdb.api.cloud.yandex.net/managed-kafka/v1/clusters/{clusterId}/users
+POST https://{{ api-host-mdb }}/managed-kafka/v1/clusters/{clusterId}/users
 ```
 
 ## Path parameters

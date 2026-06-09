@@ -1,6 +1,6 @@
 # yandex_sws_advanced_rate_limiter_profile (Resource)
 
-Creates an SWS Advanced Rate Limiter (ARL) profile in the specified folder. For more information, see [the official documentation](../../smartwebsecurity/quickstart.md#arl).
+A AdvancedRateLimiterProfile (ARL) resource.
 
 ## Example usage
 
@@ -35,158 +35,570 @@ resource "yandex_sws_advanced_rate_limiter_profile" "demo-profile" {
 
 ## Arguments & Attributes Reference
 
-- `cloud_id` (String). The `Cloud ID` which resource belongs to. If it is not provided, the default provider `cloud-id` is used.
-- `created_at` (*Read-Only*) (String). The creation timestamp of the resource.
-- `description` (String). The resource description.
-- `folder_id` (String). The folder identifier that resource belongs to. If it is not provided, the default provider `folder-id` is used.
-- `id` (String). 
-- `labels` (Map Of String). A set of key/value label pairs which assigned to resource.
-- `name` (String). The resource name.
+- `advanced_rate_limiter_profile_id` (String). ID of the AdvancedRateLimiterProfile resource to return.
+- `cloud_id` (String). ID of the cloud that the ARL profile belongs to.
+- `created_at` (*Read-Only*) (String). Creation timestamp in [RFC3339](https://www.ietf.org/rfc/rfc3339.txt) text format.
+- `description` (String). Optional description of the ARL profile.
+- `folder_id` (String). ID of the folder that the ARL profile belongs to.
+- `id` (String). ID of the AdvancedRateLimiterProfile resource to return.
+- `labels` (Map Of String). Labels as `` key:value `` pairs. Maximum of 64 per resource.
+- `name` (**Required**)(String). Name of the ARL profile. The name is unique within the folder. 1-50 characters long.
 - `advanced_rate_limiter_rule` [Block]. List of rules.
-
-{% note warning %}
-
-Exactly one rule specifier: `static_quota` or `dynamic_quota` should be specified.
-
-{% endnote %}
-
-
-  - `description` (String). Description of the rule. 0-512 characters long.
-  - `dry_run` (Bool). This allows you to evaluate backend capabilities and find the optimum limit values. Requests will not be blocked in this mode.
-  - `name` (String). Name of the rule. The name is unique within the ARL profile. 1-50 characters long.
-  - `priority` (Number). Determines the priority in case there are several matched rules. Enter an integer within the range of 1 and 999999. The rule priority must be unique within the entire ARL profile. A lower numeric value means a higher priority.
+  - `description` (String). Optional description of the rule. 0-512 characters long.
+  - `dry_run` (Bool). This allows you to evaluate backend capabilities and find the optimum limit values.
+ Requests will not be blocked in this mode.
+  - `name` (**Required**)(String). Name of the rule. The name is unique within the ARL profile. 1-50 characters long.
+  - `priority` (Number). Determines the priority in case there are several matched rules.
+ Enter an integer within the range of 1 and 999999.
+ The rule priority must be unique within the entire ARL profile.
+ A lower numeric value means a higher priority.
   - `dynamic_quota` [Block]. Dynamic quota. Grouping requests by a certain attribute and limiting the number of groups.
-    - `action` (String). Action in case of exceeding this quota. Possible values: `DENY`.
+    - `action` (**Required**)(String). Action in case of exceeding this quota.
     - `limit` (Number). Desired maximum number of requests per period.
+ Enter an integer within the range of 1 and 9999999999999.
     - `period` (Number). Period of time in seconds.
     - `characteristic` [Block]. List of characteristics.
+      - `case_insensitive` (Bool). Desired maximum number of requests per period.
+ Enter an integer within the range of 1 and 9999999999999.
+      - `key_characteristic` [Block]. The condition for matching the quota.
+        - `type` (String). package: yandex.cloud.smartwebsecurity.v1.advanced_rate_limiter
+filename: yandex/cloud/smartwebsecurity/v1/advanced_rate_limiter/advanced_rate_limiter_profile.proto
 
-{% note warning %}
+        - `value` (String). package: yandex.cloud.smartwebsecurity.v1.advanced_rate_limiter
+filename: yandex/cloud/smartwebsecurity/v1/advanced_rate_limiter/advanced_rate_limiter_profile.proto
 
-Exactly one characteristic specifier: `simple_characteristic` or `key_characteristic` should be specified.
+      - `simple_characteristic` [Block]. Action in case of exceeding this quota.
+        - `type` (String). package: yandex.cloud.smartwebsecurity.v1.advanced_rate_limiter
+filename: yandex/cloud/smartwebsecurity/v1/advanced_rate_limiter/advanced_rate_limiter_profile.proto
 
-{% endnote %}
-
-
-      - `case_insensitive` (Bool). Determines case-sensitive or case-insensitive keys matching.
-      - `key_characteristic` [Block]. Characteristic based on key match in the Query params, HTTP header, and HTTP cookie attributes. See [Rules](https://yandex.cloud/docs/smartwebsecurity/concepts/arl#requests-counting) for more details.
-        - `type` (String). Type of key characteristic. Possible values: `COOKIE_KEY`, `HEADER_KEY`, `QUERY_KEY`.
-        - `value` (String). String value of the key.
-      - `simple_characteristic` [Block]. Characteristic automatically based on the Request path, HTTP method, IP address, Region, and Host attributes. See [Rules](https://yandex.cloud/docs/smartwebsecurity/concepts/arl#requests-counting) for more details.
-        - `type` (String). Type of simple characteristic. Possible values: `REQUEST_PATH`, `HTTP_METHOD`, `IP`, `GEO`, `HOST`.
-    - `condition` [Block]. The condition for matching the rule. You can find all possibilities of condition in [gRPC specs](https://github.com/yandex-cloud/cloudapi/blob/master/yandex/cloud/smartwebsecurity/v1/security_profile.proto).
-      - `authority` [Block]. 
-        - `authorities` [Block]. 
-          - `exact_match` (String). 
-          - `exact_not_match` (String). 
-          - `pire_regex_match` (String). 
-          - `pire_regex_not_match` (String). 
-          - `prefix_match` (String). 
-          - `prefix_not_match` (String). 
-      - `headers` [Block]. 
-        - `name` (String). 
-        - `value` [Block]. 
-          - `exact_match` (String). 
-          - `exact_not_match` (String). 
-          - `pire_regex_match` (String). 
-          - `pire_regex_not_match` (String). 
-          - `prefix_match` (String). 
-          - `prefix_not_match` (String). 
-      - `http_method` [Block]. 
-        - `http_methods` [Block]. 
-          - `exact_match` (String). 
-          - `exact_not_match` (String). 
-          - `pire_regex_match` (String). 
-          - `pire_regex_not_match` (String). 
-          - `prefix_match` (String). 
-          - `prefix_not_match` (String). 
-      - `request_uri` [Block]. 
-        - `path` [Block]. 
-          - `exact_match` (String). 
-          - `exact_not_match` (String). 
-          - `pire_regex_match` (String). 
-          - `pire_regex_not_match` (String). 
-          - `prefix_match` (String). 
-          - `prefix_not_match` (String). 
-        - `queries` [Block]. 
-          - `key` (**Required**)(String). 
-          - `value` [Block]. 
-            - `exact_match` (String). 
-            - `exact_not_match` (String). 
-            - `pire_regex_match` (String). 
-            - `pire_regex_not_match` (String). 
-            - `prefix_match` (String). 
-            - `prefix_not_match` (String). 
-      - `source_ip` [Block]. 
-        - `geo_ip_match` [Block]. 
-          - `locations` (List Of String). 
-        - `geo_ip_not_match` [Block]. 
-          - `locations` (List Of String). 
-        - `ip_ranges_match` [Block]. 
-          - `ip_ranges` (List Of String). 
-        - `ip_ranges_not_match` [Block]. 
-          - `ip_ranges` (List Of String). 
+    - `condition` [Block]. The condition for matching the quota.
+      - `authority` [Block]. Match authority (Host header).
+        - `authorities` [Block]. List of authorities. OR semantics implied.
+          - `defined` (Bool). Matches if the field is defined.
+          - `exact_match` (String). Exact match condition.
+          - `exact_not_match` (String). Exact not match condition.
+          - `pire_regex_match` (String). PIRE regex match condition.
+          - `pire_regex_not_match` (String). PIRE regex not match condition.
+          - `prefix_match` (String). Prefix match condition.
+          - `prefix_not_match` (String). Prefix not match condition.
+          - `lists_matchers` [Block]. Matches against string and regular expression lists.
+            - `reg_exp_lists_match` [Block]. Regular expression lists to match with.
+              - `list_ids` (List Of String). List of list IDs to match against. OR semantics implied.
+            - `reg_exp_lists_not_match` [Block]. Regular expression lists to not match with.
+              - `list_ids` (List Of String). List of list IDs to match against. OR semantics implied.
+            - `str_lists_match` [Block]. String lists to match with.
+              - `list_ids` (List Of String). List of list IDs to match against. OR semantics implied.
+            - `str_lists_not_match` [Block]. String lists to not match with.
+              - `list_ids` (List Of String). List of list IDs to match against. OR semantics implied.
+        - `authority_matcher` [Block]. Authority matcher.
+          - `defined` (Bool). Matches if the field is defined.
+          - `exact_match` (String). Exact match condition.
+          - `exact_not_match` (String). Exact not match condition.
+          - `pire_regex_match` (String). PIRE regex match condition.
+          - `pire_regex_not_match` (String). PIRE regex not match condition.
+          - `prefix_match` (String). Prefix match condition.
+          - `prefix_not_match` (String). Prefix not match condition.
+          - `lists_matchers` [Block]. Matches against string and regular expression lists.
+            - `reg_exp_lists_match` [Block]. Regular expression lists to match with.
+              - `list_ids` (List Of String). List of list IDs to match against. OR semantics implied.
+            - `reg_exp_lists_not_match` [Block]. Regular expression lists to not match with.
+              - `list_ids` (List Of String). List of list IDs to match against. OR semantics implied.
+            - `str_lists_match` [Block]. String lists to match with.
+              - `list_ids` (List Of String). List of list IDs to match against. OR semantics implied.
+            - `str_lists_not_match` [Block]. String lists to not match with.
+              - `list_ids` (List Of String). List of list IDs to match against. OR semantics implied.
+      - `bot_category` [Block]. Match bot category.
+        - `bot_category_lists_match` [Block]. Bot category lists to match with.
+          - `list_ids` (List Of String). List of list IDs to match against. OR semantics implied.
+        - `bot_category_lists_not_match` [Block]. Bot category lists to not match with.
+          - `list_ids` (List Of String). List of list IDs to match against. OR semantics implied.
+      - `bot_name` [Block]. Match bot name.
+        - `bot_name_lists_match` [Block]. Bot name lists to match with.
+          - `list_ids` (List Of String). List of list IDs to match against. OR semantics implied.
+        - `bot_name_lists_not_match` [Block]. Bot name lists to not match with.
+          - `list_ids` (List Of String). List of list IDs to match against. OR semantics implied.
+      - `bot_score` [Block]. Match bot score.
+        - `value` [Block]. List of integer matchers for bot score. OR semantics implied.
+          - `eq_match` [Block]. Equal condition.
+            - `value` (Number). Value to match against.
+          - `ge_match` [Block]. Greater than or equal condition.
+            - `value` (Number). Lower bound value (inclusive).
+          - `le_match` [Block]. Less than or equal condition.
+            - `value` (Number). Upper bound value (inclusive).
+          - `ne_match` [Block]. Not equal condition.
+            - `value` (Number). Value to not match against.
+      - `cookies` [Block]. Match cookies.
+        - `name` (**Required**)(String). Name of the cookie parametr.
+        - `value` [Block]. Value of the cookie parametr.
+          - `defined` (Bool). Matches if the field is defined.
+          - `exact_match` (String). Exact match condition.
+          - `exact_not_match` (String). Exact not match condition.
+          - `pire_regex_match` (String). PIRE regex match condition.
+          - `pire_regex_not_match` (String). PIRE regex not match condition.
+          - `prefix_match` (String). Prefix match condition.
+          - `prefix_not_match` (String). Prefix not match condition.
+          - `lists_matchers` [Block]. Matches against string and regular expression lists.
+            - `reg_exp_lists_match` [Block]. Regular expression lists to match with.
+              - `list_ids` (List Of String). List of list IDs to match against. OR semantics implied.
+            - `reg_exp_lists_not_match` [Block]. Regular expression lists to not match with.
+              - `list_ids` (List Of String). List of list IDs to match against. OR semantics implied.
+            - `str_lists_match` [Block]. String lists to match with.
+              - `list_ids` (List Of String). List of list IDs to match against. OR semantics implied.
+            - `str_lists_not_match` [Block]. String lists to not match with.
+              - `list_ids` (List Of String). List of list IDs to match against. OR semantics implied.
+      - `finger_print` [Block]. Match fingerprint.
+        - `ja3_matcher` [Block]. JA3 fingerprint matcher.
+          - `defined` (Bool). Matches if the field is defined.
+          - `exact_match` (String). Exact match condition.
+          - `exact_not_match` (String). Exact not match condition.
+          - `pire_regex_match` (String). PIRE regex match condition.
+          - `pire_regex_not_match` (String). PIRE regex not match condition.
+          - `prefix_match` (String). Prefix match condition.
+          - `prefix_not_match` (String). Prefix not match condition.
+          - `lists_matchers` [Block]. Matches against string and regular expression lists.
+            - `reg_exp_lists_match` [Block]. Regular expression lists to match with.
+              - `list_ids` (List Of String). List of list IDs to match against. OR semantics implied.
+            - `reg_exp_lists_not_match` [Block]. Regular expression lists to not match with.
+              - `list_ids` (List Of String). List of list IDs to match against. OR semantics implied.
+            - `str_lists_match` [Block]. String lists to match with.
+              - `list_ids` (List Of String). List of list IDs to match against. OR semantics implied.
+            - `str_lists_not_match` [Block]. String lists to not match with.
+              - `list_ids` (List Of String). List of list IDs to match against. OR semantics implied.
+        - `ja3_ranges` [Block]. List of JA3 fingerprint matchers. OR semantics implied.
+          - `defined` (Bool). Matches if the field is defined.
+          - `exact_match` (String). Exact match condition.
+          - `exact_not_match` (String). Exact not match condition.
+          - `pire_regex_match` (String). PIRE regex match condition.
+          - `pire_regex_not_match` (String). PIRE regex not match condition.
+          - `prefix_match` (String). Prefix match condition.
+          - `prefix_not_match` (String). Prefix not match condition.
+          - `lists_matchers` [Block]. Matches against string and regular expression lists.
+            - `reg_exp_lists_match` [Block]. Regular expression lists to match with.
+              - `list_ids` (List Of String). List of list IDs to match against. OR semantics implied.
+            - `reg_exp_lists_not_match` [Block]. Regular expression lists to not match with.
+              - `list_ids` (List Of String). List of list IDs to match against. OR semantics implied.
+            - `str_lists_match` [Block]. String lists to match with.
+              - `list_ids` (List Of String). List of list IDs to match against. OR semantics implied.
+            - `str_lists_not_match` [Block]. String lists to not match with.
+              - `list_ids` (List Of String). List of list IDs to match against. OR semantics implied.
+        - `ja4_matcher` [Block]. JA4 fingerprint matcher.
+          - `defined` (Bool). Matches if the field is defined.
+          - `exact_match` (String). Exact match condition.
+          - `exact_not_match` (String). Exact not match condition.
+          - `pire_regex_match` (String). PIRE regex match condition.
+          - `pire_regex_not_match` (String). PIRE regex not match condition.
+          - `prefix_match` (String). Prefix match condition.
+          - `prefix_not_match` (String). Prefix not match condition.
+          - `lists_matchers` [Block]. Matches against string and regular expression lists.
+            - `reg_exp_lists_match` [Block]. Regular expression lists to match with.
+              - `list_ids` (List Of String). List of list IDs to match against. OR semantics implied.
+            - `reg_exp_lists_not_match` [Block]. Regular expression lists to not match with.
+              - `list_ids` (List Of String). List of list IDs to match against. OR semantics implied.
+            - `str_lists_match` [Block]. String lists to match with.
+              - `list_ids` (List Of String). List of list IDs to match against. OR semantics implied.
+            - `str_lists_not_match` [Block]. String lists to not match with.
+              - `list_ids` (List Of String). List of list IDs to match against. OR semantics implied.
+        - `ja4_ranges` [Block]. List of JA4 fingerprint matchers. OR semantics implied.
+          - `defined` (Bool). Matches if the field is defined.
+          - `exact_match` (String). Exact match condition.
+          - `exact_not_match` (String). Exact not match condition.
+          - `pire_regex_match` (String). PIRE regex match condition.
+          - `pire_regex_not_match` (String). PIRE regex not match condition.
+          - `prefix_match` (String). Prefix match condition.
+          - `prefix_not_match` (String). Prefix not match condition.
+          - `lists_matchers` [Block]. Matches against string and regular expression lists.
+            - `reg_exp_lists_match` [Block]. Regular expression lists to match with.
+              - `list_ids` (List Of String). List of list IDs to match against. OR semantics implied.
+            - `reg_exp_lists_not_match` [Block]. Regular expression lists to not match with.
+              - `list_ids` (List Of String). List of list IDs to match against. OR semantics implied.
+            - `str_lists_match` [Block]. String lists to match with.
+              - `list_ids` (List Of String). List of list IDs to match against. OR semantics implied.
+            - `str_lists_not_match` [Block]. String lists to not match with.
+              - `list_ids` (List Of String). List of list IDs to match against. OR semantics implied.
+      - `headers` [Block]. Match HTTP headers.
+        - `name` (**Required**)(String). Name of header (case insensitive).
+        - `value` [Block]. Value of the header.
+          - `defined` (Bool). Matches if the field is defined.
+          - `exact_match` (String). Exact match condition.
+          - `exact_not_match` (String). Exact not match condition.
+          - `pire_regex_match` (String). PIRE regex match condition.
+          - `pire_regex_not_match` (String). PIRE regex not match condition.
+          - `prefix_match` (String). Prefix match condition.
+          - `prefix_not_match` (String). Prefix not match condition.
+          - `lists_matchers` [Block]. Matches against string and regular expression lists.
+            - `reg_exp_lists_match` [Block]. Regular expression lists to match with.
+              - `list_ids` (List Of String). List of list IDs to match against. OR semantics implied.
+            - `reg_exp_lists_not_match` [Block]. Regular expression lists to not match with.
+              - `list_ids` (List Of String). List of list IDs to match against. OR semantics implied.
+            - `str_lists_match` [Block]. String lists to match with.
+              - `list_ids` (List Of String). List of list IDs to match against. OR semantics implied.
+            - `str_lists_not_match` [Block]. String lists to not match with.
+              - `list_ids` (List Of String). List of list IDs to match against. OR semantics implied.
+      - `http_method` [Block]. Match HTTP method.
+        - `http_method_matcher` [Block]. HTTP method matcher.
+          - `defined` (Bool). Matches if the field is defined.
+          - `exact_match` (String). Exact match condition.
+          - `exact_not_match` (String). Exact not match condition.
+          - `pire_regex_match` (String). PIRE regex match condition.
+          - `pire_regex_not_match` (String). PIRE regex not match condition.
+          - `prefix_match` (String). Prefix match condition.
+          - `prefix_not_match` (String). Prefix not match condition.
+          - `lists_matchers` [Block]. Matches against string and regular expression lists.
+            - `reg_exp_lists_match` [Block]. Regular expression lists to match with.
+              - `list_ids` (List Of String). List of list IDs to match against. OR semantics implied.
+            - `reg_exp_lists_not_match` [Block]. Regular expression lists to not match with.
+              - `list_ids` (List Of String). List of list IDs to match against. OR semantics implied.
+            - `str_lists_match` [Block]. String lists to match with.
+              - `list_ids` (List Of String). List of list IDs to match against. OR semantics implied.
+            - `str_lists_not_match` [Block]. String lists to not match with.
+              - `list_ids` (List Of String). List of list IDs to match against. OR semantics implied.
+        - `http_methods` [Block]. List of HTTP methods. OR semantics implied.
+          - `defined` (Bool). Matches if the field is defined.
+          - `exact_match` (String). Exact match condition.
+          - `exact_not_match` (String). Exact not match condition.
+          - `pire_regex_match` (String). PIRE regex match condition.
+          - `pire_regex_not_match` (String). PIRE regex not match condition.
+          - `prefix_match` (String). Prefix match condition.
+          - `prefix_not_match` (String). Prefix not match condition.
+          - `lists_matchers` [Block]. Matches against string and regular expression lists.
+            - `reg_exp_lists_match` [Block]. Regular expression lists to match with.
+              - `list_ids` (List Of String). List of list IDs to match against. OR semantics implied.
+            - `reg_exp_lists_not_match` [Block]. Regular expression lists to not match with.
+              - `list_ids` (List Of String). List of list IDs to match against. OR semantics implied.
+            - `str_lists_match` [Block]. String lists to match with.
+              - `list_ids` (List Of String). List of list IDs to match against. OR semantics implied.
+            - `str_lists_not_match` [Block]. String lists to not match with.
+              - `list_ids` (List Of String). List of list IDs to match against. OR semantics implied.
+      - `request_uri` [Block]. Match Request URI.
+        - `path` [Block]. Path of the URI [RFC3986](https://datatracker.ietf.org/doc/html/rfc3986#section-3.3).
+          - `defined` (Bool). Matches if the field is defined.
+          - `exact_match` (String). Exact match condition.
+          - `exact_not_match` (String). Exact not match condition.
+          - `pire_regex_match` (String). PIRE regex match condition.
+          - `pire_regex_not_match` (String). PIRE regex not match condition.
+          - `prefix_match` (String). Prefix match condition.
+          - `prefix_not_match` (String). Prefix not match condition.
+          - `lists_matchers` [Block]. Matches against string and regular expression lists.
+            - `reg_exp_lists_match` [Block]. Regular expression lists to match with.
+              - `list_ids` (List Of String). List of list IDs to match against. OR semantics implied.
+            - `reg_exp_lists_not_match` [Block]. Regular expression lists to not match with.
+              - `list_ids` (List Of String). List of list IDs to match against. OR semantics implied.
+            - `str_lists_match` [Block]. String lists to match with.
+              - `list_ids` (List Of String). List of list IDs to match against. OR semantics implied.
+            - `str_lists_not_match` [Block]. String lists to not match with.
+              - `list_ids` (List Of String). List of list IDs to match against. OR semantics implied.
+        - `queries` [Block]. List of query matchers. AND semantics implied.
+          - `key` (**Required**)(String). Key of the query parameter.
+          - `value` [Block]. Value of the query parameter.
+            - `defined` (Bool). Matches if the field is defined.
+            - `exact_match` (String). Exact match condition.
+            - `exact_not_match` (String). Exact not match condition.
+            - `pire_regex_match` (String). PIRE regex match condition.
+            - `pire_regex_not_match` (String). PIRE regex not match condition.
+            - `prefix_match` (String). Prefix match condition.
+            - `prefix_not_match` (String). Prefix not match condition.
+            - `lists_matchers` [Block]. Matches against string and regular expression lists.
+              - `reg_exp_lists_match` [Block]. Regular expression lists to match with.
+                - `list_ids` (List Of String). List of list IDs to match against. OR semantics implied.
+              - `reg_exp_lists_not_match` [Block]. Regular expression lists to not match with.
+                - `list_ids` (List Of String). List of list IDs to match against. OR semantics implied.
+              - `str_lists_match` [Block]. String lists to match with.
+                - `list_ids` (List Of String). List of list IDs to match against. OR semantics implied.
+              - `str_lists_not_match` [Block]. String lists to not match with.
+                - `list_ids` (List Of String). List of list IDs to match against. OR semantics implied.
+      - `source_ip` [Block]. Match IP.
+        - `asn_lists_match` [Block]. ASN lists to match with.
+          - `list_ids` (List Of String). List of list IDs to match against. OR semantics implied.
+        - `asn_lists_not_match` [Block]. ASN lists to not match with.
+          - `list_ids` (List Of String). List of list IDs to match against. OR semantics implied.
+        - `asn_ranges_match` [Block]. ASN ranges to match with.
+          - `asn_ranges` (List Of Number). List of ASN values to match against. OR semantics implied.
+        - `asn_ranges_not_match` [Block]. ASN ranges to not match with.
+          - `asn_ranges` (List Of Number). List of ASN values to match against. OR semantics implied.
+        - `geo_ip_match` [Block]. Geo locations to match with.
+          - `locations` (List Of String). ISO 3166-1 alpha 2. OR semantics implied.
+        - `geo_ip_not_match` [Block]. Geo locations to not match with.
+          - `locations` (List Of String). ISO 3166-1 alpha 2. OR semantics implied.
+        - `ip_lists_match` [Block]. IP lists to match with.
+          - `list_ids` (List Of String). List of list IDs to match against. OR semantics implied.
+        - `ip_lists_not_match` [Block]. IP lists to not match with.
+          - `list_ids` (List Of String). List of list IDs to match against. OR semantics implied.
+        - `ip_ranges_match` [Block]. IP ranges to match with.
+          - `ip_ranges` (List Of String). List of IP ranges. OR semantics implied.
+        - `ip_ranges_not_match` [Block]. IP ranges to not match with.
+          - `ip_ranges` (List Of String). List of IP ranges. OR semantics implied.
+      - `verified_bot` [Block]. Match verified bot.
+        - `verified` [Block]. Matches if the bot is verified or not.
+          - `match` (Bool). Boolean value to match against.
   - `static_quota` [Block]. Static quota. Counting each request individually.
-    - `action` (String). Action in case of exceeding this quota. Possible values: `DENY`.
+    - `action` (**Required**)(String). Action in case of exceeding this quota.
     - `limit` (Number). Desired maximum number of requests per period.
+ Enter an integer within the range of 1 and 9999999999999.
     - `period` (Number). Period of time in seconds.
-    - `condition` [Block]. The condition for matching the rule. You can find all possibilities of condition in [gRPC specs](https://github.com/yandex-cloud/cloudapi/blob/master/yandex/cloud/smartwebsecurity/v1/security_profile.proto).
-      - `authority` [Block]. 
-        - `authorities` [Block]. 
-          - `exact_match` (String). 
-          - `exact_not_match` (String). 
-          - `pire_regex_match` (String). 
-          - `pire_regex_not_match` (String). 
-          - `prefix_match` (String). 
-          - `prefix_not_match` (String). 
-      - `headers` [Block]. 
-        - `name` (String). 
-        - `value` [Block]. 
-          - `exact_match` (String). 
-          - `exact_not_match` (String). 
-          - `pire_regex_match` (String). 
-          - `pire_regex_not_match` (String). 
-          - `prefix_match` (String). 
-          - `prefix_not_match` (String). 
-      - `http_method` [Block]. 
-        - `http_methods` [Block]. 
-          - `exact_match` (String). 
-          - `exact_not_match` (String). 
-          - `pire_regex_match` (String). 
-          - `pire_regex_not_match` (String). 
-          - `prefix_match` (String). 
-          - `prefix_not_match` (String). 
-      - `request_uri` [Block]. 
-        - `path` [Block]. 
-          - `exact_match` (String). 
-          - `exact_not_match` (String). 
-          - `pire_regex_match` (String). 
-          - `pire_regex_not_match` (String). 
-          - `prefix_match` (String). 
-          - `prefix_not_match` (String). 
-        - `queries` [Block]. 
-          - `key` (**Required**)(String). 
-          - `value` [Block]. 
-            - `exact_match` (String). 
-            - `exact_not_match` (String). 
-            - `pire_regex_match` (String). 
-            - `pire_regex_not_match` (String). 
-            - `prefix_match` (String). 
-            - `prefix_not_match` (String). 
-      - `source_ip` [Block]. 
-        - `geo_ip_match` [Block]. 
-          - `locations` (List Of String). 
-        - `geo_ip_not_match` [Block]. 
-          - `locations` (List Of String). 
-        - `ip_ranges_match` [Block]. 
-          - `ip_ranges` (List Of String). 
-        - `ip_ranges_not_match` [Block]. 
-          - `ip_ranges` (List Of String). 
+    - `condition` [Block]. The condition for matching the quota.
+      - `authority` [Block]. Match authority (Host header).
+        - `authorities` [Block]. List of authorities. OR semantics implied.
+          - `defined` (Bool). Matches if the field is defined.
+          - `exact_match` (String). Exact match condition.
+          - `exact_not_match` (String). Exact not match condition.
+          - `pire_regex_match` (String). PIRE regex match condition.
+          - `pire_regex_not_match` (String). PIRE regex not match condition.
+          - `prefix_match` (String). Prefix match condition.
+          - `prefix_not_match` (String). Prefix not match condition.
+          - `lists_matchers` [Block]. Matches against string and regular expression lists.
+            - `reg_exp_lists_match` [Block]. Regular expression lists to match with.
+              - `list_ids` (List Of String). List of list IDs to match against. OR semantics implied.
+            - `reg_exp_lists_not_match` [Block]. Regular expression lists to not match with.
+              - `list_ids` (List Of String). List of list IDs to match against. OR semantics implied.
+            - `str_lists_match` [Block]. String lists to match with.
+              - `list_ids` (List Of String). List of list IDs to match against. OR semantics implied.
+            - `str_lists_not_match` [Block]. String lists to not match with.
+              - `list_ids` (List Of String). List of list IDs to match against. OR semantics implied.
+        - `authority_matcher` [Block]. Authority matcher.
+          - `defined` (Bool). Matches if the field is defined.
+          - `exact_match` (String). Exact match condition.
+          - `exact_not_match` (String). Exact not match condition.
+          - `pire_regex_match` (String). PIRE regex match condition.
+          - `pire_regex_not_match` (String). PIRE regex not match condition.
+          - `prefix_match` (String). Prefix match condition.
+          - `prefix_not_match` (String). Prefix not match condition.
+          - `lists_matchers` [Block]. Matches against string and regular expression lists.
+            - `reg_exp_lists_match` [Block]. Regular expression lists to match with.
+              - `list_ids` (List Of String). List of list IDs to match against. OR semantics implied.
+            - `reg_exp_lists_not_match` [Block]. Regular expression lists to not match with.
+              - `list_ids` (List Of String). List of list IDs to match against. OR semantics implied.
+            - `str_lists_match` [Block]. String lists to match with.
+              - `list_ids` (List Of String). List of list IDs to match against. OR semantics implied.
+            - `str_lists_not_match` [Block]. String lists to not match with.
+              - `list_ids` (List Of String). List of list IDs to match against. OR semantics implied.
+      - `bot_category` [Block]. Match bot category.
+        - `bot_category_lists_match` [Block]. Bot category lists to match with.
+          - `list_ids` (List Of String). List of list IDs to match against. OR semantics implied.
+        - `bot_category_lists_not_match` [Block]. Bot category lists to not match with.
+          - `list_ids` (List Of String). List of list IDs to match against. OR semantics implied.
+      - `bot_name` [Block]. Match bot name.
+        - `bot_name_lists_match` [Block]. Bot name lists to match with.
+          - `list_ids` (List Of String). List of list IDs to match against. OR semantics implied.
+        - `bot_name_lists_not_match` [Block]. Bot name lists to not match with.
+          - `list_ids` (List Of String). List of list IDs to match against. OR semantics implied.
+      - `bot_score` [Block]. Match bot score.
+        - `value` [Block]. List of integer matchers for bot score. OR semantics implied.
+          - `eq_match` [Block]. Equal condition.
+            - `value` (Number). Value to match against.
+          - `ge_match` [Block]. Greater than or equal condition.
+            - `value` (Number). Lower bound value (inclusive).
+          - `le_match` [Block]. Less than or equal condition.
+            - `value` (Number). Upper bound value (inclusive).
+          - `ne_match` [Block]. Not equal condition.
+            - `value` (Number). Value to not match against.
+      - `cookies` [Block]. Match cookies.
+        - `name` (**Required**)(String). Name of the cookie parametr.
+        - `value` [Block]. Value of the cookie parametr.
+          - `defined` (Bool). Matches if the field is defined.
+          - `exact_match` (String). Exact match condition.
+          - `exact_not_match` (String). Exact not match condition.
+          - `pire_regex_match` (String). PIRE regex match condition.
+          - `pire_regex_not_match` (String). PIRE regex not match condition.
+          - `prefix_match` (String). Prefix match condition.
+          - `prefix_not_match` (String). Prefix not match condition.
+          - `lists_matchers` [Block]. Matches against string and regular expression lists.
+            - `reg_exp_lists_match` [Block]. Regular expression lists to match with.
+              - `list_ids` (List Of String). List of list IDs to match against. OR semantics implied.
+            - `reg_exp_lists_not_match` [Block]. Regular expression lists to not match with.
+              - `list_ids` (List Of String). List of list IDs to match against. OR semantics implied.
+            - `str_lists_match` [Block]. String lists to match with.
+              - `list_ids` (List Of String). List of list IDs to match against. OR semantics implied.
+            - `str_lists_not_match` [Block]. String lists to not match with.
+              - `list_ids` (List Of String). List of list IDs to match against. OR semantics implied.
+      - `finger_print` [Block]. Match fingerprint.
+        - `ja3_matcher` [Block]. JA3 fingerprint matcher.
+          - `defined` (Bool). Matches if the field is defined.
+          - `exact_match` (String). Exact match condition.
+          - `exact_not_match` (String). Exact not match condition.
+          - `pire_regex_match` (String). PIRE regex match condition.
+          - `pire_regex_not_match` (String). PIRE regex not match condition.
+          - `prefix_match` (String). Prefix match condition.
+          - `prefix_not_match` (String). Prefix not match condition.
+          - `lists_matchers` [Block]. Matches against string and regular expression lists.
+            - `reg_exp_lists_match` [Block]. Regular expression lists to match with.
+              - `list_ids` (List Of String). List of list IDs to match against. OR semantics implied.
+            - `reg_exp_lists_not_match` [Block]. Regular expression lists to not match with.
+              - `list_ids` (List Of String). List of list IDs to match against. OR semantics implied.
+            - `str_lists_match` [Block]. String lists to match with.
+              - `list_ids` (List Of String). List of list IDs to match against. OR semantics implied.
+            - `str_lists_not_match` [Block]. String lists to not match with.
+              - `list_ids` (List Of String). List of list IDs to match against. OR semantics implied.
+        - `ja3_ranges` [Block]. List of JA3 fingerprint matchers. OR semantics implied.
+          - `defined` (Bool). Matches if the field is defined.
+          - `exact_match` (String). Exact match condition.
+          - `exact_not_match` (String). Exact not match condition.
+          - `pire_regex_match` (String). PIRE regex match condition.
+          - `pire_regex_not_match` (String). PIRE regex not match condition.
+          - `prefix_match` (String). Prefix match condition.
+          - `prefix_not_match` (String). Prefix not match condition.
+          - `lists_matchers` [Block]. Matches against string and regular expression lists.
+            - `reg_exp_lists_match` [Block]. Regular expression lists to match with.
+              - `list_ids` (List Of String). List of list IDs to match against. OR semantics implied.
+            - `reg_exp_lists_not_match` [Block]. Regular expression lists to not match with.
+              - `list_ids` (List Of String). List of list IDs to match against. OR semantics implied.
+            - `str_lists_match` [Block]. String lists to match with.
+              - `list_ids` (List Of String). List of list IDs to match against. OR semantics implied.
+            - `str_lists_not_match` [Block]. String lists to not match with.
+              - `list_ids` (List Of String). List of list IDs to match against. OR semantics implied.
+        - `ja4_matcher` [Block]. JA4 fingerprint matcher.
+          - `defined` (Bool). Matches if the field is defined.
+          - `exact_match` (String). Exact match condition.
+          - `exact_not_match` (String). Exact not match condition.
+          - `pire_regex_match` (String). PIRE regex match condition.
+          - `pire_regex_not_match` (String). PIRE regex not match condition.
+          - `prefix_match` (String). Prefix match condition.
+          - `prefix_not_match` (String). Prefix not match condition.
+          - `lists_matchers` [Block]. Matches against string and regular expression lists.
+            - `reg_exp_lists_match` [Block]. Regular expression lists to match with.
+              - `list_ids` (List Of String). List of list IDs to match against. OR semantics implied.
+            - `reg_exp_lists_not_match` [Block]. Regular expression lists to not match with.
+              - `list_ids` (List Of String). List of list IDs to match against. OR semantics implied.
+            - `str_lists_match` [Block]. String lists to match with.
+              - `list_ids` (List Of String). List of list IDs to match against. OR semantics implied.
+            - `str_lists_not_match` [Block]. String lists to not match with.
+              - `list_ids` (List Of String). List of list IDs to match against. OR semantics implied.
+        - `ja4_ranges` [Block]. List of JA4 fingerprint matchers. OR semantics implied.
+          - `defined` (Bool). Matches if the field is defined.
+          - `exact_match` (String). Exact match condition.
+          - `exact_not_match` (String). Exact not match condition.
+          - `pire_regex_match` (String). PIRE regex match condition.
+          - `pire_regex_not_match` (String). PIRE regex not match condition.
+          - `prefix_match` (String). Prefix match condition.
+          - `prefix_not_match` (String). Prefix not match condition.
+          - `lists_matchers` [Block]. Matches against string and regular expression lists.
+            - `reg_exp_lists_match` [Block]. Regular expression lists to match with.
+              - `list_ids` (List Of String). List of list IDs to match against. OR semantics implied.
+            - `reg_exp_lists_not_match` [Block]. Regular expression lists to not match with.
+              - `list_ids` (List Of String). List of list IDs to match against. OR semantics implied.
+            - `str_lists_match` [Block]. String lists to match with.
+              - `list_ids` (List Of String). List of list IDs to match against. OR semantics implied.
+            - `str_lists_not_match` [Block]. String lists to not match with.
+              - `list_ids` (List Of String). List of list IDs to match against. OR semantics implied.
+      - `headers` [Block]. Match HTTP headers.
+        - `name` (**Required**)(String). Name of header (case insensitive).
+        - `value` [Block]. Value of the header.
+          - `defined` (Bool). Matches if the field is defined.
+          - `exact_match` (String). Exact match condition.
+          - `exact_not_match` (String). Exact not match condition.
+          - `pire_regex_match` (String). PIRE regex match condition.
+          - `pire_regex_not_match` (String). PIRE regex not match condition.
+          - `prefix_match` (String). Prefix match condition.
+          - `prefix_not_match` (String). Prefix not match condition.
+          - `lists_matchers` [Block]. Matches against string and regular expression lists.
+            - `reg_exp_lists_match` [Block]. Regular expression lists to match with.
+              - `list_ids` (List Of String). List of list IDs to match against. OR semantics implied.
+            - `reg_exp_lists_not_match` [Block]. Regular expression lists to not match with.
+              - `list_ids` (List Of String). List of list IDs to match against. OR semantics implied.
+            - `str_lists_match` [Block]. String lists to match with.
+              - `list_ids` (List Of String). List of list IDs to match against. OR semantics implied.
+            - `str_lists_not_match` [Block]. String lists to not match with.
+              - `list_ids` (List Of String). List of list IDs to match against. OR semantics implied.
+      - `http_method` [Block]. Match HTTP method.
+        - `http_method_matcher` [Block]. HTTP method matcher.
+          - `defined` (Bool). Matches if the field is defined.
+          - `exact_match` (String). Exact match condition.
+          - `exact_not_match` (String). Exact not match condition.
+          - `pire_regex_match` (String). PIRE regex match condition.
+          - `pire_regex_not_match` (String). PIRE regex not match condition.
+          - `prefix_match` (String). Prefix match condition.
+          - `prefix_not_match` (String). Prefix not match condition.
+          - `lists_matchers` [Block]. Matches against string and regular expression lists.
+            - `reg_exp_lists_match` [Block]. Regular expression lists to match with.
+              - `list_ids` (List Of String). List of list IDs to match against. OR semantics implied.
+            - `reg_exp_lists_not_match` [Block]. Regular expression lists to not match with.
+              - `list_ids` (List Of String). List of list IDs to match against. OR semantics implied.
+            - `str_lists_match` [Block]. String lists to match with.
+              - `list_ids` (List Of String). List of list IDs to match against. OR semantics implied.
+            - `str_lists_not_match` [Block]. String lists to not match with.
+              - `list_ids` (List Of String). List of list IDs to match against. OR semantics implied.
+        - `http_methods` [Block]. List of HTTP methods. OR semantics implied.
+          - `defined` (Bool). Matches if the field is defined.
+          - `exact_match` (String). Exact match condition.
+          - `exact_not_match` (String). Exact not match condition.
+          - `pire_regex_match` (String). PIRE regex match condition.
+          - `pire_regex_not_match` (String). PIRE regex not match condition.
+          - `prefix_match` (String). Prefix match condition.
+          - `prefix_not_match` (String). Prefix not match condition.
+          - `lists_matchers` [Block]. Matches against string and regular expression lists.
+            - `reg_exp_lists_match` [Block]. Regular expression lists to match with.
+              - `list_ids` (List Of String). List of list IDs to match against. OR semantics implied.
+            - `reg_exp_lists_not_match` [Block]. Regular expression lists to not match with.
+              - `list_ids` (List Of String). List of list IDs to match against. OR semantics implied.
+            - `str_lists_match` [Block]. String lists to match with.
+              - `list_ids` (List Of String). List of list IDs to match against. OR semantics implied.
+            - `str_lists_not_match` [Block]. String lists to not match with.
+              - `list_ids` (List Of String). List of list IDs to match against. OR semantics implied.
+      - `request_uri` [Block]. Match Request URI.
+        - `path` [Block]. Path of the URI [RFC3986](https://datatracker.ietf.org/doc/html/rfc3986#section-3.3).
+          - `defined` (Bool). Matches if the field is defined.
+          - `exact_match` (String). Exact match condition.
+          - `exact_not_match` (String). Exact not match condition.
+          - `pire_regex_match` (String). PIRE regex match condition.
+          - `pire_regex_not_match` (String). PIRE regex not match condition.
+          - `prefix_match` (String). Prefix match condition.
+          - `prefix_not_match` (String). Prefix not match condition.
+          - `lists_matchers` [Block]. Matches against string and regular expression lists.
+            - `reg_exp_lists_match` [Block]. Regular expression lists to match with.
+              - `list_ids` (List Of String). List of list IDs to match against. OR semantics implied.
+            - `reg_exp_lists_not_match` [Block]. Regular expression lists to not match with.
+              - `list_ids` (List Of String). List of list IDs to match against. OR semantics implied.
+            - `str_lists_match` [Block]. String lists to match with.
+              - `list_ids` (List Of String). List of list IDs to match against. OR semantics implied.
+            - `str_lists_not_match` [Block]. String lists to not match with.
+              - `list_ids` (List Of String). List of list IDs to match against. OR semantics implied.
+        - `queries` [Block]. List of query matchers. AND semantics implied.
+          - `key` (**Required**)(String). Key of the query parameter.
+          - `value` [Block]. Value of the query parameter.
+            - `defined` (Bool). Matches if the field is defined.
+            - `exact_match` (String). Exact match condition.
+            - `exact_not_match` (String). Exact not match condition.
+            - `pire_regex_match` (String). PIRE regex match condition.
+            - `pire_regex_not_match` (String). PIRE regex not match condition.
+            - `prefix_match` (String). Prefix match condition.
+            - `prefix_not_match` (String). Prefix not match condition.
+            - `lists_matchers` [Block]. Matches against string and regular expression lists.
+              - `reg_exp_lists_match` [Block]. Regular expression lists to match with.
+                - `list_ids` (List Of String). List of list IDs to match against. OR semantics implied.
+              - `reg_exp_lists_not_match` [Block]. Regular expression lists to not match with.
+                - `list_ids` (List Of String). List of list IDs to match against. OR semantics implied.
+              - `str_lists_match` [Block]. String lists to match with.
+                - `list_ids` (List Of String). List of list IDs to match against. OR semantics implied.
+              - `str_lists_not_match` [Block]. String lists to not match with.
+                - `list_ids` (List Of String). List of list IDs to match against. OR semantics implied.
+      - `source_ip` [Block]. Match IP.
+        - `asn_lists_match` [Block]. ASN lists to match with.
+          - `list_ids` (List Of String). List of list IDs to match against. OR semantics implied.
+        - `asn_lists_not_match` [Block]. ASN lists to not match with.
+          - `list_ids` (List Of String). List of list IDs to match against. OR semantics implied.
+        - `asn_ranges_match` [Block]. ASN ranges to match with.
+          - `asn_ranges` (List Of Number). List of ASN values to match against. OR semantics implied.
+        - `asn_ranges_not_match` [Block]. ASN ranges to not match with.
+          - `asn_ranges` (List Of Number). List of ASN values to match against. OR semantics implied.
+        - `geo_ip_match` [Block]. Geo locations to match with.
+          - `locations` (List Of String). ISO 3166-1 alpha 2. OR semantics implied.
+        - `geo_ip_not_match` [Block]. Geo locations to not match with.
+          - `locations` (List Of String). ISO 3166-1 alpha 2. OR semantics implied.
+        - `ip_lists_match` [Block]. IP lists to match with.
+          - `list_ids` (List Of String). List of list IDs to match against. OR semantics implied.
+        - `ip_lists_not_match` [Block]. IP lists to not match with.
+          - `list_ids` (List Of String). List of list IDs to match against. OR semantics implied.
+        - `ip_ranges_match` [Block]. IP ranges to match with.
+          - `ip_ranges` (List Of String). List of IP ranges. OR semantics implied.
+        - `ip_ranges_not_match` [Block]. IP ranges to not match with.
+          - `ip_ranges` (List Of String). List of IP ranges. OR semantics implied.
+      - `verified_bot` [Block]. Match verified bot.
+        - `verified` [Block]. Matches if the bot is verified or not.
+          - `match` (Bool). Boolean value to match against.
 - `timeouts` [Block]. 
-  - `create` (String). 
-  - `delete` (String). 
-  - `read` (String). 
-  - `update` (String).
+  - `create` (String). A string that can be [parsed as a duration](https://pkg.go.dev/time#ParseDuration) consisting of numbers and unit suffixes, such as "30s" or "2h45m". Valid time units are "s" (seconds), "m" (minutes), "h" (hours).
+  - `delete` (String). A string that can be [parsed as a duration](https://pkg.go.dev/time#ParseDuration) consisting of numbers and unit suffixes, such as "30s" or "2h45m". Valid time units are "s" (seconds), "m" (minutes), "h" (hours). Setting a timeout for a Delete operation is only applicable if changes are saved into state before the destroy operation occurs.
+  - `read` (String). A string that can be [parsed as a duration](https://pkg.go.dev/time#ParseDuration) consisting of numbers and unit suffixes, such as "30s" or "2h45m". Valid time units are "s" (seconds), "m" (minutes), "h" (hours). Read operations occur during any refresh or planning operation when refresh is enabled.
+  - `update` (String). A string that can be [parsed as a duration](https://pkg.go.dev/time#ParseDuration) consisting of numbers and unit suffixes, such as "30s" or "2h45m". Valid time units are "s" (seconds), "m" (minutes), "h" (hours).
 
 ## Import
 

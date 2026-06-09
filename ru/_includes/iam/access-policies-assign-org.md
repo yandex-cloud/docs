@@ -1,4 +1,4 @@
-Чтобы создать для [организации](../../organization/concepts/organization.md) политику авторизации на основе [шаблона без дополнительных параметров](../../iam/concepts/access-control/access-policies.md#fixed):
+Чтобы создать для [организации](../../organization/concepts/organization.md) политику авторизации на основе [шаблона без параметров](../../iam/concepts/access-control/access-policies.md#fixed):
 
 {% list tabs group=instructions %}
 

@@ -2,7 +2,7 @@
 
 {% note info %}
 
-Время жизни [IAM-токена](../../concepts/authorization/iam-token.md) — не больше 12 часов и ограничено временем жизни cookie у [пула пользователей](../../../organization/concepts/user-pools.md).
+Время жизни [IAM-токена](../../concepts/authorization/iam-token.md) — не больше {{ iam-token-lifetime }} и ограничено временем жизни cookie у [пула пользователей](../../../organization/concepts/user-pools.md).
 
 {% endnote %}
 
@@ -10,7 +10,7 @@
 
 - CLI {#cli}
 
-  Если у вас еще нет интерфейса командной строки Yandex Cloud (CLI), [установите и инициализируйте его](../../../cli/quickstart.md#install).
+  Если у вас еще нет интерфейса командной строки {{ yandex-cloud }} (CLI), [установите и инициализируйте его](../../../cli/quickstart.md#install).
 
   1. [Аутентифицируйтесь в CLI от имени локального пользователя](../../../cli/operations/authentication/local-user.md).
 
@@ -34,7 +34,7 @@
 
 {% endlist %}
 
-Полученный IAM-токен указывайте при обращении к ресурсам Yandex Cloud через API. Передайте IAM-токен в заголовке `Authorization` в следующем формате:
+Полученный IAM-токен указывайте при обращении к ресурсам {{ yandex-cloud }} через API. Передайте IAM-токен в заголовке `Authorization` в следующем формате:
 
 ```yaml
 Authorization: Bearer <IAM-токен>
@@ -68,7 +68,7 @@ Authorization: Bearer ${IAM_TOKEN}
      curl \
        --request GET \
        --header "Authorization: Bearer ${IAM_TOKEN}" \
-       https://resource-manager.api.cloud.yandex.net/resource-manager/v1/clouds
+       https://resource-manager.{{ api-host }}/resource-manager/v1/clouds
      ```
 
   1. Результат:
@@ -106,7 +106,7 @@ Authorization: Bearer ${IAM_TOKEN}
      curl.exe ` 
        --request GET ` 
        --header "Authorization: Bearer $IAM_TOKEN" ` 
-       https://resource-manager.api.cloud.yandex.net/resource-manager/v1/clouds 
+       https://resource-manager.{{ api-host }}/resource-manager/v1/clouds 
      ```
 
   1. Результат:
@@ -134,4 +134,4 @@ Authorization: Bearer ${IAM_TOKEN}
 
 #### См. также {#see-also}
 
-* [Отзыв IAM-токена](revoke-iam-token.md)
+* [{#T}](revoke-iam-token.md)

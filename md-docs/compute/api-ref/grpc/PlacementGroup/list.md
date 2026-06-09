@@ -22,45 +22,39 @@ Retrieves the list of placement groups in the specified folder.
 ||Field | Description ||
 || folder_id | **string**
 
-Required field. ID of the folder to list placement groups in.
-
+ID of the folder to list placement groups in.
 To get the folder ID make a [yandex.cloud.resourcemanager.v1.FolderService.List](../../../../resource-manager/api-ref/grpc/Folder/list.md#List) request.
-
-The maximum string length in characters is 50. ||
+The length must be less than or equal to 50.
+This field is required. ||
 || page_size | **int64**
 
 The maximum number of results per page to return. If the number of available
 results is larger than `page_size`,
 the service returns a [ListPlacementGroupsResponse.next_page_token](#yandex.cloud.compute.v1.ListPlacementGroupsResponse)
 that can be used to get the next page of results in subsequent list requests.
-
-The maximum value is 1000. ||
+The value must be less than or equal to 1000. ||
 || page_token | **string**
 
 Page token. To get the next page of results,
 set `page_token` to the [ListPlacementGroupsResponse.next_page_token](#yandex.cloud.compute.v1.ListPlacementGroupsResponse)
 returned by a previous list request.
-
-The maximum string length in characters is 100. ||
+The length must be less than or equal to 100. ||
 || filter | **string**
 
 A filter expression that filters resources listed in the response.
 The expression consists of one or more conditions united by `AND` operator: `<condition1> [AND <condition2> [<...> AND <conditionN>]]`.
-
 Each condition has the form `<field> <operator> <value>`, where:
 1. `<field>` is the field name. Currently you can use filtering only on the limited number of fields.
 2. `<operator>` is a logical operator, one of `=`, `!=`, `IN`, `NOT IN`.
 3. `<value>` represents a value.
 String values should be written in double (`"`) or single (`'`) quotes. C-style escape sequences are supported (`\"` turns to `"`, `\'` to `'`, `\\` to backslash).
-
-The maximum string length in characters is 1000. ||
+The length must be less than or equal to 1000. ||
 || order_by | **string**
 
 By which column the listing should be ordered and in which direction,
 format is "createdAt desc". "id asc" if omitted.
 The default sorting order is ascending
-
-The maximum string length in characters is 100. ||
+The length must be less than or equal to 100. ||
 |#
 
 ## ListPlacementGroupsResponse {#yandex.cloud.compute.v1.ListPlacementGroupsResponse}
@@ -97,7 +91,6 @@ Lists placement groups in the specified folder. ||
 Token for getting the next page of the list. If the number of results is greater than
 the specified [ListPlacementGroupsRequest.page_size](#yandex.cloud.compute.v1.ListPlacementGroupsRequest), use `next_page_token` as the value
 for the [ListPlacementGroupsRequest.page_token](#yandex.cloud.compute.v1.ListPlacementGroupsRequest) parameter in the next list request.
-
 Each subsequent page will have its own `next_page_token` to continue paging through the results. ||
 |#
 
@@ -113,7 +106,7 @@ ID of the placement group. Generated at creation time. ||
 ID of the folder that the placement group belongs to. ||
 || created_at | **[google.protobuf.Timestamp](https://developers.google.com/protocol-buffers/docs/reference/google.protobuf#timestamp)**
 
-Creation timestamp. ||
+Creation timestamp in [RFC3339](https://www.ietf.org/rfc/rfc3339.txt) text format. ||
 || name | **string**
 
 Name of the placement group.
@@ -132,13 +125,15 @@ over distinct failure domains.
 Includes only one of the fields `spread_placement_strategy`, `partition_placement_strategy`.
 
 Placement strategy. To specify a placement strategy, send the corresponding
-field containing approriate structure. ||
+field containing approriate structure.
+Only one field must by specified. ||
 || partition_placement_strategy | **[PartitionPlacementStrategy](#yandex.cloud.compute.v1.PartitionPlacementStrategy)**
 
 Includes only one of the fields `spread_placement_strategy`, `partition_placement_strategy`.
 
 Placement strategy. To specify a placement strategy, send the corresponding
-field containing approriate structure. ||
+field containing approriate structure.
+Only one field must by specified. ||
 |#
 
 ## SpreadPlacementStrategy {#yandex.cloud.compute.v1.SpreadPlacementStrategy}
@@ -157,5 +152,5 @@ specify the required placement strategy.
 ||Field | Description ||
 || partitions | **int64**
 
-Acceptable values are 2 to 5, inclusive. ||
+The value must be between 2 and 5. ||
 |#

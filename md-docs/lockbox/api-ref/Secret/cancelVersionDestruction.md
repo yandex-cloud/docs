@@ -5,7 +5,7 @@ Cancels previously scheduled version destruction, if the version hasn't been des
 ## HTTP request
 
 ```
-POST https://lockbox.api.cloud.yandex.net/lockbox/v1/secrets/{secretId}:cancelVersionDestruction
+POST https://{{ api-host-lockbox }}/lockbox/v1/secrets/{secretId}:cancelVersionDestruction
 ```
 
 ## Path parameters

@@ -7,6 +7,12 @@ description: На данной странице приведен список с
 
 С помощью сервисных ролей [{{ sw-name }}](../concepts/index.md#workflows) вы можете управлять доступом пользователей к [рабочим процессам](../concepts/workflows/workflow.md) {{ sw-name }}.
 
+{% note info %}
+
+Возможность запускать рабочие процессы и управлять ими из определенных [облачных сетей](../../vpc/concepts/network.md#network) или с определенных IP-адресов, а также привязывать к рабочим процессам определенные облачные сети может быть ограничена [политиками авторизации](../../iam/concepts/access-control/access-policies.md) на уровне [каталога](../../resource-manager/concepts/resources-hierarchy.md#folder), [облака](../../resource-manager/concepts/resources-hierarchy.md#cloud) или [организации](../../organization/concepts/organization.md). 
+
+{% endnote %}
+
 {% include [serverless-integrations-workflows](../../_mermaid/roles/serverless-integrations-workflows.md) %}
 
 #### serverless.workflows.auditor {#serverless-workflows-auditor}

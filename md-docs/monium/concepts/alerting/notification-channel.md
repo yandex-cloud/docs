@@ -6,34 +6,34 @@
 
 ## Параметры канала уведомлений {#channel-parameters}
 
-* **Получатели**. Список пользователей, которые должны получить уведомление в случае выполнения функции алерта.
+* **{{ ui-key.yacloud_monitoring.channel.field_recipients }}**. Список пользователей, которые должны получить уведомление в случае выполнения функции алерта.
 
   {% note info %}
 
-  В качестве получателя почтовых уведомлений нужно указать аккаунт в Yandex Cloud. Это может быть аккаунт владельца или специально добавленный для этих целей [дополнительный аккаунт](../../../iam/concepts/index.md#accounts), например федеративный аккаунт или Яндекс ID.
+  В качестве получателя почтовых уведомлений нужно указать аккаунт в {{ yandex-cloud }}. Это может быть аккаунт владельца или специально добавленный для этих целей [дополнительный аккаунт](../../../iam/concepts/index.md#accounts), например федеративный аккаунт или Яндекс ID.
 
   Чтобы получать уведомления, пользователь должен:
   
   * иметь роль `monitoring.viewer` на каталог, в котором настроен алерт.
-  * в [настройках](https://console.yandex.cloud/settings) консоли управления:
-      * включить опцию **Мониторинг**;
+  * в [настройках]({{ link-console-main }}/settings) консоли управления:
+      * включить опцию **{{ ui-key.yacloud_components.settings.label_monitoring-name }}**;
       * указать адрес электронной почты, номер телефона и Telegram-аккаунт или группу.
 
   {% endnote %}
 
-* **Метод**. Метод, с помощью которого пользователи получат уведомление. Поддерживаются следующие методы уведомлений:
+* **{{ ui-key.yacloud_monitoring.channel.field_method }}**. Метод, с помощью которого пользователи получат уведомление. Поддерживаются следующие методы уведомлений:
 
-  * `Email`.
-  * `SMS`.
-  * `Push-уведомления` (в [мобильном приложении](../../../overview/mobile-app/index.md) Yandex Cloud).
-  * `Яндекс Мессенджер`.
-  * `Telegram`.
-  * `Cloud Function`.
+  * `{{ ui-key.yacloud_monitoring.channel.title_method-email }}`.
+  * `{{ ui-key.yacloud_monitoring.channel.title_method-sms }}`.
+  * `{{ ui-key.yacloud_monitoring.channel.title_method-push }}` (в [мобильном приложении](../../../overview/mobile-app/index.md) {{ yandex-cloud }}).
+  * `{{ ui-key.yacloud_monitoring.monitoring-alerts-channels.method.ya-chats }}`.
+  * `{{ ui-key.yacloud_monitoring.channel.type_telegram }}`.
+  * `{{ ui-key.yacloud_monitoring.channel.type_cloud-function }}`.
 
 После создания канала доступны дополнительные параметры:
 
-* **Отправляемые статусы**. Выберите статусы алерта, при которых будет отправляться уведомление.
-* **Повторная отправка**. Выберите время, через которое Monium будет отправлять повторные уведомления о статусе алерта. Не действует для статуса `OK`.
+* **{{ ui-key.yacloud_monitoring.monitoring-alerts.label.sent-notify-statuses }}**. Выберите статусы алерта, при которых будет отправляться уведомление.
+* **{{ ui-key.yacloud_monitoring.monitoring-alerts.channel-table.repeat }}**. Выберите время, через которое {{ monium-name }} будет отправлять повторные уведомления о статусе алерта. Не действует для статуса `OK`.
 
 ## Статусы отправки {#dispatch-statuses}
 
@@ -41,9 +41,9 @@
 
 Статус | Описание
 ----- | -----
-`Успешно отправлено` | Уведомление успешно отправлено.
-`Не удалось отправить` | Не удалось отправить уведомление из-за ошибки.
-`Ресурс исчерпан` | Не удалось отправить уведомление из-за ограничения метода отправки.
+`{{ ui-key.yacloud_monitoring.channel.status-description_success }}` | Уведомление успешно отправлено.
+`{{ ui-key.yacloud_monitoring.channel.status-description_error }}` | Не удалось отправить уведомление из-за ошибки.
+`{{ ui-key.yacloud_monitoring.channel.status-description_resource_exhausted }}` | Не удалось отправить уведомление из-за ограничения метода отправки.
 
 ## См. также
 

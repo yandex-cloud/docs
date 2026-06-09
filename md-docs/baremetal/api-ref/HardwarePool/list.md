@@ -5,7 +5,7 @@ Retrieves the list of HardwarePool resources.
 ## HTTP request
 
 ```
-GET https://baremetal.api.cloud.yandex.net/baremetal/v1alpha/hardwarePools
+GET https://baremetal.{{ api-host }}/baremetal/v1alpha/hardwarePools
 ```
 
 ## Query parameters {#yandex.cloud.baremetal.v1alpha.ListHardwarePoolsRequest}

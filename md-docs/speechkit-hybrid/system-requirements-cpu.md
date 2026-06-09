@@ -1,6 +1,6 @@
 # Системные требования к серверам на базе CPU
 
-Для установки SpeechKit Hybrid вам необходим сервер с ОС Linux, который поддерживает Docker Engine. Список поддерживаемых ОС см. в [официальной документации Docker](https://docs.docker.com/engine/install/#server).
+Для установки {{ sk-hybrid-name }} вам необходим сервер с ОС Linux, который поддерживает Docker Engine. Список поддерживаемых ОС см. в [официальной документации Docker](https://docs.docker.com/engine/install/#server).
 
 {% note warning %}
 
@@ -16,7 +16,7 @@ grep -q avx2 /proc/cpuinfo && echo AVX2 || echo No AVX2
 
 ## Аппаратные требования {#hardware}
 
-Рекомендуемые аппаратные конфигурации для запуска контейнеров SpeechKit Hybrid:
+Рекомендуемые аппаратные конфигурации для запуска контейнеров {{ sk-hybrid-name }}:
 
 {% list tabs %}
 
@@ -33,10 +33,10 @@ grep -q avx2 /proc/cpuinfo && echo AVX2 || echo No AVX2
 
 ## Программные требования {#software}
 
-Для установки и настройки сервисов SpeechKit Hybrid понадобятся интерфейс командной строки Yandex Cloud и реестр в Yandex Container Registry.
+Для установки и настройки сервисов {{ sk-hybrid-name }} понадобятся интерфейс командной строки {{ yandex-cloud }} и реестр в {{ container-registry-full-name }}.
 
-1. Если у вас еще нет интерфейса командной строки Yandex Cloud (CLI), [установите и инициализируйте его](../cli/quickstart.md#install).
-1. [Создайте реестр](../container-registry/operations/registry/registry-create.md) в Yandex Container Registry.
+1. Если у вас еще нет интерфейса командной строки {{ yandex-cloud }} (CLI), [установите и инициализируйте его](../cli/quickstart.md#install).
+1. [Создайте реестр]({{ link-docs }}/container-registry/operations/registry/registry-create) в {{ container-registry-full-name }}.
 
    По умолчанию используется каталог, указанный при [создании](../cli/operations/profile/profile-create.md) профиля CLI. Чтобы изменить каталог по умолчанию, используйте команду `yc config set folder-id <идентификатор_каталога>`. Также для любой команды вы можете указать другой каталог с помощью параметров `--folder-name` или `--folder-id`. Если вы обращаетесь к ресурсу по имени, поиск будет выполнен в каталоге по умолчанию. Если вы обращаетесь к ресурсу по идентификатору, поиск будет выполнен глобально — во всех каталогах с учетом прав доступа.
 
@@ -54,6 +54,6 @@ grep -q avx2 /proc/cpuinfo && echo AVX2 || echo No AVX2
    created_at: "<дата_и_время_создания>"
    ```
 
-1. [Создайте сервисный аккаунт](../iam/operations/sa/create.md) с ролью `editor` на выбранный каталог.
-1. [Создайте API-ключ](../iam/operations/authentication/manage-api-keys.md#create-api-key) для сервисного аккаунта.
-1. Сообщите идентификатор созданного реестра команде SpeechKit. В вашем реестре появятся все необходимые контейнеры, и вам предоставят файл `docker-compose.yaml` с настройками развертывания.
+1. [Создайте сервисный аккаунт]({{ link-docs }}/iam/operations/sa/create) с ролью `{{ roles-editor }}` на выбранный каталог.
+1. [Создайте API-ключ]({{ link-docs }}/iam/operations/authentication/manage-api-keys#create-api-key) для сервисного аккаунта.
+1. Сообщите идентификатор созданного реестра команде {{ speechkit-name }}. В вашем реестре появятся все необходимые контейнеры, и вам предоставят файл `docker-compose.yaml` с настройками развертывания.

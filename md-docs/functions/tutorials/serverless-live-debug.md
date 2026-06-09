@@ -1,9 +1,9 @@
-# Интерактивная отладка функций Cloud Functions
+# Интерактивная отладка функций {{ sf-name }}
 
-# Интерактивная отладка функций Yandex Cloud Functions
+# Интерактивная отладка функций {{ sf-full-name }}
 
 
-В этом руководстве вы настроите систему интерактивной отладки [функций](../concepts/function.md) Yandex Cloud Functions с помощью перенаправления запросов на локальный сервер. Подробнее о схеме решения читайте в [репозитории yc-serverless-live-debug](https://github.com/yandex-cloud/yc-serverless-live-debug).
+В этом руководстве вы настроите систему интерактивной отладки [функций](../concepts/function.md) {{ sf-full-name }} с помощью перенаправления запросов на локальный сервер. Подробнее о схеме решения читайте в [репозитории yc-serverless-live-debug](https://github.com/yandex-cloud/yc-serverless-live-debug).
 
 Чтобы настроить систему интерактивной отладки функций:
 
@@ -17,11 +17,11 @@
  
 ## Подготовьте облако к работе {#prepare-cloud}
 
-Зарегистрируйтесь в Yandex Cloud и создайте [платежный аккаунт](../../billing/concepts/billing-account.md):
-1. Перейдите в [консоль управления](https://console.yandex.cloud), затем войдите в Yandex Cloud или зарегистрируйтесь.
-1. На странице **[Yandex Cloud Billing](https://center.yandex.cloud/billing/accounts)** убедитесь, что у вас подключен платежный аккаунт, и он находится в [статусе](../../billing/concepts/billing-account-statuses.md) `ACTIVE` или `TRIAL_ACTIVE`. Если платежного аккаунта нет, [создайте его](../../billing/quickstart/index.md) и [привяжите](../../billing/operations/pin-cloud.md) к нему облако.
+Зарегистрируйтесь в {{ yandex-cloud }} и создайте [платежный аккаунт](../../billing/concepts/billing-account.md):
+1. Перейдите в [консоль управления]({{ link-console-main }}), затем войдите в {{ yandex-cloud }} или зарегистрируйтесь.
+1. На странице **[{{ ui-key.yacloud_billing.billing.label_service }}]({{ link-console-billing }})** убедитесь, что у вас подключен платежный аккаунт, и он находится в [статусе](../../billing/concepts/billing-account-statuses.md) `ACTIVE` или `TRIAL_ACTIVE`. Если платежного аккаунта нет, [создайте его](../../billing/quickstart/index.md) и [привяжите](../../billing/operations/pin-cloud.md) к нему облако.
 
-Если у вас есть активный платежный аккаунт, вы можете создать или выбрать [каталог](../../resource-manager/concepts/resources-hierarchy.md#folder), в котором будет работать ваша инфраструктура, на [странице облака](https://console.yandex.cloud/cloud).
+Если у вас есть активный платежный аккаунт, вы можете создать или выбрать [каталог](../../resource-manager/concepts/resources-hierarchy.md#folder), в котором будет работать ваша инфраструктура, на [странице облака]({{ link-console-cloud }}).
 
 [Подробнее об облаках и каталогах](../../resource-manager/concepts/resources-hierarchy.md).
 
@@ -29,14 +29,14 @@
 
 В стоимость поддержки инфраструктуры входят:
 
-* плата за вызовы функций и вычислительные ресурсы, выделенные для выполнения функций (см. [тарифы Yandex Cloud Functions](../pricing.md));
-* плата за количество запросов к API-шлюзу (см. [тарифы Yandex API Gateway](../../api-gateway/pricing.md));
-* плата за операции с YDB и хранение данных (см. [тарифы Yandex Managed Service for YDB](../../ydb/pricing/serverless.md));
-* плата за запись и хранение логов (см. [тарифы Yandex Cloud Logging](../../logging/pricing.md));
+* плата за вызовы функций и вычислительные ресурсы, выделенные для выполнения функций (см. [тарифы {{ sf-full-name }}](../pricing.md));
+* плата за количество запросов к API-шлюзу (см. [тарифы {{ api-gw-full-name }}](../../api-gateway/pricing.md));
+* плата за операции с {{ ydb-short-name }} и хранение данных (см. [тарифы {{ ydb-full-name }}](../../ydb/pricing/serverless.md));
+* плата за запись и хранение логов (см. [тарифы {{ cloud-logging-full-name }}](../../logging/pricing.md));
 
 ## Установите необходимые утилиты {#install-utilities}
 
-1. [Установите Terraform](../../tutorials/infrastructure-management/terraform-quickstart.md#install-terraform).
+1. [Установите {{ TF }}](../../tutorials/infrastructure-management/terraform-quickstart.md#install-terraform).
 1. Создайте папку `live-debug-test` и перейдите в нее:
 
     ```
@@ -58,9 +58,9 @@
 
     - Консоль управления {#console}
 
-      1. В [консоли управления](https://console.yandex.cloud) выберите каталог, в котором хотите создать сервисный аккаунт.
-      1. [Перейдите](../../console/operations/select-service.md#select-service) в сервис **Identity and Access Management**.
-      1. Нажмите кнопку **Создать сервисный аккаунт**.
+      1. В [консоли управления]({{ link-console-main }}) выберите каталог, в котором хотите создать сервисный аккаунт.
+      1. Перейдите в сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_iam }}**.
+      1. Нажмите кнопку **{{ ui-key.yacloud.iam.folder.service-accounts.button_add }}**.
       1. Введите имя сервисного аккаунта, например `sa-live-debug`.
 
           Требования к формату имени:
@@ -69,11 +69,11 @@
           * может содержать строчные буквы латинского алфавита, цифры и дефисы;
           * первый символ — буква, последний — не дефис.
 
-      1. Нажмите кнопку **Создать**.
+      1. Нажмите кнопку **{{ ui-key.yacloud.iam.folder.service-account.popup-robot_button_add }}**.
 
     - CLI {#cli}
 
-      Если у вас еще нет интерфейса командной строки Yandex Cloud (CLI), [установите и инициализируйте его](../../cli/quickstart.md#install).
+      Если у вас еще нет интерфейса командной строки {{ yandex-cloud }} (CLI), [установите и инициализируйте его](../../cli/quickstart.md#install).
 
       По умолчанию используется каталог, указанный при [создании](../../cli/operations/profile/profile-create.md) профиля CLI. Чтобы изменить каталог по умолчанию, используйте команду `yc config set folder-id <идентификатор_каталога>`. Также для любой команды вы можете указать другой каталог с помощью параметров `--folder-name` или `--folder-id`. Если вы обращаетесь к ресурсу по имени, поиск будет выполнен в каталоге по умолчанию. Если вы обращаетесь к ресурсу по идентификатору, поиск будет выполнен глобально — во всех каталогах с учетом прав доступа.
 
@@ -98,9 +98,12 @@
       name: sa-live-debug
       ```
 
-    - Terraform {#tf}
+    - {{ TF }} {#tf}
 
-      Если у вас еще нет Terraform, [установите его и настройте провайдер Yandex Cloud](../../tutorials/infrastructure-management/terraform-quickstart.md#install-terraform).
+      Если у вас еще нет {{ TF }}, [установите его и настройте провайдер {{ yandex-cloud }}](../../tutorials/infrastructure-management/terraform-quickstart.md#install-terraform).
+      
+      
+      Чтобы управлять инфраструктурой с помощью {{ TF }} от имени сервисного аккаунта или пользовательских аккаунтов: аккаунта на Яндексе, федеративного аккаунта и локального пользователя, [аутентифицируйтесь](../../terraform/authentication.md) соответствующим способом.
 
       1. Опишите в конфигурационном файле параметры ресурсов, которые необходимо создать:
     
@@ -118,7 +121,7 @@
           * `description` — описание сервисного аккаунта. Необязательный параметр.
           * `folder_id` — [идентификатор каталога](../../resource-manager/operations/folder/get-id.md). Необязательный параметр. По умолчанию будет использовано значение, указанное в настройках провайдера.
 
-          Более подробную информацию о параметрах ресурса `yandex_iam_service_account` в Terraform, см. в [документации провайдера](../../terraform/resources/iam_service_account.md).
+          Более подробную информацию о параметрах ресурса `yandex_iam_service_account` в {{ TF }}, см. в [документации провайдера]({{ tf-provider-resources-link }}/iam_service_account).
     
       1. Проверьте корректность конфигурационных файлов.
 
@@ -129,7 +132,7 @@
               terraform plan
               ```
 
-          Если конфигурация описана верно, в терминале отобразится информация о сервисном аккаунте. Если в конфигурации есть ошибки, Terraform на них укажет. 
+          Если конфигурация описана верно, в терминале отобразится информация о сервисном аккаунте. Если в конфигурации есть ошибки, {{ TF }} на них укажет. 
 
       1. Разверните облачные ресурсы.
 
@@ -145,18 +148,18 @@
 
     {% endlist %}
 
-1. Назначьте сервисному аккаунту [роль](../../iam/concepts/access-control/roles.md) `admin` на облако: 
+1. Назначьте сервисному аккаунту [роль](../../iam/concepts/access-control/roles.md) `{{ roles-admin }}` на облако: 
 
     {% list tabs group=instructions %}
 
     - Консоль управления {#console}
 
-      1. На [стартовой странице](https://console.yandex.cloud) консоли управления выберите облако.
-      1. Перейдите на вкладку ![image](../../_assets/console-icons/persons.svg) **Права доступа**.
+      1. На [стартовой странице]({{ link-console-main }}) консоли управления выберите облако.
+      1. Перейдите на вкладку ![image](../../_assets/console-icons/persons.svg) **{{ ui-key.yacloud.common.resource-acl.label_access-bindings }}**.
       1. Найдите аккаунт `sa-live-debug` в списке и нажмите значок ![image](../../_assets/console-icons/ellipsis.svg).
-      1. Выберите ![image](../../_assets/console-icons/pencil.svg) **Изменить роли**.
-      1. В открывшемся окне нажмите кнопку ![image](../../_assets/console-icons/plus.svg) **Добавить роль** и выберите роль `admin`.
-      1. Нажмите кнопку **Сохранить**.
+      1. Выберите ![image](../../_assets/console-icons/pencil.svg) **{{ ui-key.yacloud_components.acl.action.edit-roles }}**.
+      1. В открывшемся окне нажмите кнопку ![image](../../_assets/console-icons/plus.svg) **{{ ui-key.yacloud_components.acl.action.add-role }}** и выберите роль `{{ roles-admin }}`.
+      1. Нажмите кнопку **{{ ui-key.yacloud.common.save }}**.
 
     - CLI {#cli}
 
@@ -164,7 +167,7 @@
 
       ```
       yc resource-manager cloud add-access-binding <идентификатор_облака> \
-         --role admin \
+         --role {{ roles-admin }} \
          --subject serviceAccount:<идентификатор_сервисного_аккаунта>
       ```
 
@@ -173,14 +176,14 @@
       done (1s)
       ```
 
-    - Terraform {#tf}
+    - {{ TF }} {#tf}
 
       1. Опишите в конфигурационном файле параметры ресурсов, которые необходимо создать:
 
           ```
-          resource "yandex_resourcemanager_cloud_iam_member" "admin" {
+          resource "yandex_resourcemanager_cloud_iam_member" "{{ roles-admin }}" {
             cloud_id = "<идентификатор_облака>"
-            role     = "admin"
+            role     = "{{ roles-admin }}"
             member   = "serviceAccount:<идентификатор_сервисного_аккаунта>"
           }
           ```
@@ -191,7 +194,7 @@
           * `role` — назначаемая роль. Обязательный параметр.
           * `member` — пользователь или сервисный аккаунт, которому назначается роль. Указывается в виде `userAccount:<идентификатор_пользователя>` или `serviceAccount:<идентификатор_сервисного_аккаунта>`. Обязательный параметр.
 
-          Более подробную информацию о параметрах ресурса `yandex_resourcemanager_folder_iam_member` см. в [документации провайдера](../../terraform/resources/iam_service_account_iam_member.md).
+          Более подробную информацию о параметрах ресурса `yandex_resourcemanager_folder_iam_member` см. в [документации провайдера]({{ tf-provider-resources-link }}/iam_service_account_iam_member).
 
       1. Проверьте корректность конфигурационных файлов.
 
@@ -202,7 +205,7 @@
                terraform plan
               ```
 
-              Если конфигурация описана верно, в терминале отобразится список создаваемых ресурсов и их параметров. Если в конфигурации есть ошибки, Terraform на них укажет.
+              Если конфигурация описана верно, в терминале отобразится список создаваемых ресурсов и их параметров. Если в конфигурации есть ошибки, {{ TF }} на них укажет.
 
       1. Разверните облачные ресурсы.
 
@@ -330,16 +333,16 @@
     Watching changes in: live-debug.config.ts
     WS connection opened
     Local client ready.
-    Check url: https://d5dm1lba80md********.i9******.apigw.yandexcloud.net
+    Check url: https://{{ api-host-apigw }}
     Waiting requests...
     ```
 
-    Где `Check url` — публичный адрес [API-шлюза](../../api-gateway/concepts/index.md) API Gateway.
+    Где `Check url` — публичный адрес [API-шлюза](../../api-gateway/concepts/index.md) {{ api-gw-name }}.
 
 1. Проверьте, что отладочный код работает. Для этого откройте еще один терминал и выполните команду:
 
     ```
-    curl https://d5dm1lba80md********.i9******.apigw.yandexcloud.net
+    curl https://{{ api-host-apigw }}
     ```
 
     Результат:
@@ -352,16 +355,16 @@
 
 ## Как удалить созданные ресурсы {#clear-out}
 
-Удалите каталог, в котором находятся ресурсы, необходимые для интерактивной отладки функций Cloud Functions:
+Удалите каталог, в котором находятся ресурсы, необходимые для интерактивной отладки функций {{ sf-name }}:
 
 {% list tabs group=instructions %}
 
 - Консоль управления {#console}
 
-  1. В [консоли управления](https://console.yandex.cloud/cloud) выберите каталог `live-debug`. 
-  1. Нажмите значок ![image](../../_assets/console-icons/ellipsis.svg) напротив каталога и выберите **Удалить**.
-  1. В поле **Срок удаления каталога** выберите `Удалить сейчас`.
-  1. Нажмите **Удалить**.
+  1. В [консоли управления]({{ link-console-cloud }}) выберите каталог `live-debug`. 
+  1. Нажмите значок ![image](../../_assets/console-icons/ellipsis.svg) напротив каталога и выберите **{{ ui-key.yacloud.common.delete }}**.
+  1. В поле **{{ ui-key.yacloud.component.iam-delete-folder-or-cloud-dialog.field_folder-delete-after }}** выберите `{{ ui-key.yacloud_billing.component.iam-delete-folder-or-cloud-dialog.label_delete-now }}`.
+  1. Нажмите **{{ ui-key.yacloud.common.delete }}**.
 
 - API {#api}
 

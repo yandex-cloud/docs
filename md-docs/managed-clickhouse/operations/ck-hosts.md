@@ -1,15 +1,15 @@
-# Управление хостами ClickHouse® Keeper
+# Управление хостами {{ CK }}
 
-После создания кластера с отдельными хостами ClickHouse® Keeper вы можете:
+После создания кластера с отдельными хостами {{ CK }} вы можете:
 
 * [получить список хостов](#list-hosts);
 * [создать хост](#add-ck);
-* [изменить настройки ClickHouse® Keeper](#update-keeper-settings);
+* [изменить настройки {{ CK }}](#update-keeper-settings);
 * [перезагрузить хост](#restart-host);
 * [преобразовать нереплицируемые таблицы в реплицируемые](#replicated-tables);
-* [удалить хост ClickHouse® Keeper](#delete-host).
+* [удалить хост {{ CK }}](#delete-host).
 
-Подробнее о работе хостов ClickHouse® Keeper читайте в разделе [ClickHouse® Keeper](../concepts/coordination-system.md#ck).
+Подробнее о работе хостов {{ CK }} читайте в разделе [{#T}](../concepts/coordination-system.md#ck).
 
 ## Получить список хостов в кластере {#list-hosts}
 
@@ -19,20 +19,20 @@
 
 - Консоль управления {#console}
 
-  1. В [консоли управления](https://console.yandex.cloud) выберите каталог, в котором находится кластер.
-  1. [Перейдите](../../console/operations/select-service.md#select-service) в сервис **Managed Service for&nbsp;ClickHouse**.
-  1. Нажмите на имя нужного кластера, затем выберите вкладку **Хосты**.
+  1. В [консоли управления]({{ link-console-main }}) выберите каталог, в котором находится кластер.
+  1. Перейдите в сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-clickhouse }}**.
+  1. Нажмите на имя нужного кластера, затем выберите вкладку **{{ ui-key.yacloud.mdb.cluster.hosts.label_title }}**.
 
 - CLI {#cli}
 
-  Если у вас еще нет интерфейса командной строки Yandex Cloud (CLI), [установите и инициализируйте его](../../cli/quickstart.md#install).
+  Если у вас еще нет интерфейса командной строки {{ yandex-cloud }} (CLI), [установите и инициализируйте его](../../cli/quickstart.md#install).
 
   По умолчанию используется каталог, указанный при [создании](../../cli/operations/profile/profile-create.md) профиля CLI. Чтобы изменить каталог по умолчанию, используйте команду `yc config set folder-id <идентификатор_каталога>`. Также для любой команды вы можете указать другой каталог с помощью параметров `--folder-name` или `--folder-id`. Если вы обращаетесь к ресурсу по имени, поиск будет выполнен в каталоге по умолчанию. Если вы обращаетесь к ресурсу по идентификатору, поиск будет выполнен глобально — во всех каталогах с учетом прав доступа.
 
   Чтобы получить список хостов в кластере, выполните команду:
 
   ```bash
-  yc managed-clickhouse host list \
+  {{ yc-mdb-ch }} host list \
      --cluster-name=<имя_кластера>
   ```
 
@@ -40,8 +40,8 @@
   +----------------------------+--------------+---------+--------+---------------+
   |            NAME            |  CLUSTER ID  |  ROLE   | HEALTH |    ZONE ID    |
   +----------------------------+--------------+---------+--------+---------------+
-  | rc1b...mdb.yandexcloud.net | c9qp71dk1... | MASTER  | ALIVE  | ru-central1-b |
-  | rc1a...mdb.yandexcloud.net | c9qp71dk1... | REPLICA | ALIVE  | ru-central1-a |
+  | rc1b...{{ dns-zone }} | c9qp71dk1... | MASTER  | ALIVE  | {{ region-id }}-b |
+  | rc1a...{{ dns-zone }} | c9qp71dk1... | REPLICA | ALIVE  | {{ region-id }}-a |
   +----------------------------+--------------+---------+--------+---------------+
   ```
 
@@ -55,13 +55,13 @@
         export IAM_TOKEN="<IAM-токен>"
         ```
 
-    1. Воспользуйтесь методом [Cluster.ListHosts](../api-ref/Cluster/listHosts.md) и выполните запрос, например, с помощью [cURL](https://curl.se/):
+    1. Воспользуйтесь методом [Cluster.ListHosts](../api-ref/Cluster/listHosts.md) и выполните запрос, например, с помощью {{ api-examples.rest.tool }}:
 
         ```bash
         curl \
             --request GET \
             --header "Authorization: Bearer $IAM_TOKEN" \
-            --url 'https://mdb.api.cloud.yandex.net/managed-clickhouse/v1/clusters/<идентификатор_кластера>/hosts'
+            --url 'https://{{ api-host-mdb }}/managed-clickhouse/v1/clusters/<идентификатор_кластера>/hosts'
         ```
 
         Идентификатор кластера можно запросить со [списком кластеров в каталоге](cluster-list.md#list-clusters).
@@ -84,7 +84,7 @@
        
        Далее предполагается, что содержимое репозитория находится в директории `~/cloudapi/`.
 
-    1. Воспользуйтесь вызовом [ClusterService.ListHosts](../api-ref/grpc/Cluster/listHosts.md) и выполните запрос, например, с помощью [gRPCurl](https://github.com/fullstorydev/grpcurl):
+    1. Воспользуйтесь вызовом [ClusterService.ListHosts](../api-ref/grpc/Cluster/listHosts.md) и выполните запрос, например, с помощью {{ api-examples.grpc.tool }}:
 
         ```bash
         grpcurl \
@@ -96,7 +96,7 @@
             -d '{
                     "cluster_id": "<идентификатор_кластера>"
                 }' \
-            mdb.api.cloud.yandex.net:443 \
+            {{ api-host-mdb }}:{{ port-https }} \
             yandex.cloud.mdb.clickhouse.v1.ClusterService.ListHosts
         ```
 
@@ -107,37 +107,31 @@
 {% endlist %}
 
 
-## Создать хост ClickHouse® Keeper {#add-ck}
+## Создать хост {{ CK }} {#add-ck}
 
 {% list tabs group=instructions %}
 
 - Консоль управления {#console}
 
-  1. В [консоли управления](https://console.yandex.cloud) перейдите на страницу каталога и выберите сервис **Managed Service for&nbsp;ClickHouse**.
-  1. Нажмите на имя нужного кластера и перейдите на вкладку **Хосты**.
-  1. В правом верхнем углу страницы нажмите кнопку **Создать хост ClickHouse Keeper**.
+  1. В [консоли управления]({{ link-console-main }}) перейдите на страницу каталога и выберите сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-clickhouse }}**.
+  1. Нажмите на имя нужного кластера и перейдите на вкладку **{{ ui-key.yacloud.mdb.cluster.hosts.label_title }}**.
+  1. В правом верхнем углу страницы нажмите кнопку **{{ ui-key.yacloud.mdb.cluster.hosts.button_add-clickhouse-keeper }}**.
   1. Выберите [зону доступности](../../overview/concepts/geo-scope.md) и подсеть в указанной зоне доступности.
-  1. Нажмите кнопку **Сохранить**.
+  1. Нажмите кнопку **{{ ui-key.yacloud.mdb.hosts.dialog.button_choose }}**.
 
-{% endlist %}  
+{% endlist %}
 
-## Изменить настройки ClickHouse® Keeper {#update-keeper-settings}
-
-{% note warning %}
-
-При изменении типа диска хосты кластера пересоздаются. Данные реплицированных таблиц сохраняются автоматически. Данные нереплицированных таблиц будут потеряны. Перед изменением типа диска [преобразуйте](zk-hosts.md#replicated-tables) нереплицированные таблицы в реплицированные или [создайте резервную копию данных](cluster-backups.md).
-
-{% endnote %}
+## Изменить настройки {{ CK }} {#update-keeper-settings}
 
 {% list tabs group=instructions %}
 
 - Консоль управления {#console}
 
-  1. В [консоли управления](https://console.yandex.cloud) перейдите на страницу каталога и выберите сервис **Managed Service for&nbsp;ClickHouse**.
-  1. Выберите кластер и  на панели сверху нажмите кнопку **Редактировать**.
-  1. В блоке **Ресурсы ClickHouse Keeper** выберите платформу, тип виртуальной машины и нужный класс хоста ClickHouse® Keeper.
-  1. В блоке **Размер хранилища ClickHouse Keeper** задайте тип диска, размер хранилища и настройте [автоматическое увеличение размера хранилища](../concepts/storage.md#autoscaling).
-  1. Нажмите кнопку **Сохранить изменения**.
+  1. В [консоли управления]({{ link-console-main }}) перейдите на страницу каталога и выберите сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-clickhouse }}**.
+  1. Выберите кластер и на панели сверху нажмите кнопку **{{ ui-key.yacloud.mdb.clusters.button_action-edit }}**.
+  1. В блоке **{{ ui-key.yacloud.clickhouse.cluster.section_clickhouse-keeper-resource }}** выберите платформу, тип виртуальной машины и нужный класс хоста {{ CK }}.
+  1. В блоке **{{ ui-key.yacloud.clickhouse.cluster.section_clickhouse-keeper-disk }}** задайте тип диска, размер хранилища и настройте [автоматическое увеличение размера хранилища](../concepts/storage.md#autoscaling).
+  1. Нажмите кнопку **{{ ui-key.yacloud.mdb.forms.button_edit }}**.
 
 {% endlist %}
 
@@ -150,7 +144,7 @@
 * перерасход ресурсов;
 * утечка памяти;
 * взаимоблокировка (deadlock) между запросами;
-* зависание операций и внутренних процессов ClickHouse®.
+* зависание операций и внутренних процессов {{ CH }}.
 
 {% list tabs group=instructions %}
 
@@ -158,23 +152,23 @@
 
   Чтобы перезагрузить один хост:
 
-    1. В [консоли управления](https://console.yandex.cloud) выберите каталог, в котором находится кластер.
-    1. [Перейдите](../../console/operations/select-service.md#select-service) в сервис **Managed Service for&nbsp;ClickHouse**.
-    1. Нажмите на имя нужного кластера и перейдите на вкладку **Хосты**.
-    1. В строке нужного хоста нажмите на значок ![icon](../../_assets/console-icons/ellipsis.svg) и выберите пункт **Перезагрузить**.
-    1. В открывшемся окне включите опцию **Я перезагружаю хост** и нажмите кнопку **Подтвердить**.
+    1. В [консоли управления]({{ link-console-main }}) выберите каталог, в котором находится кластер.
+    1. Перейдите в сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-clickhouse }}**.
+    1. Нажмите на имя нужного кластера и перейдите на вкладку **{{ ui-key.yacloud.mdb.cluster.hosts.label_title }}**.
+    1. В строке нужного хоста нажмите на значок ![icon](../../_assets/console-icons/ellipsis.svg) и выберите пункт **{{ ui-key.yacloud.mdb.cluster.hosts.action_restart-host }}**.
+    1. В открывшемся окне включите опцию **Я перезагружаю хост** и нажмите кнопку **{{ ui-key.yacloud.mdb.cluster.hosts.popup-confirm_button }}**.
 
   Чтобы перезагрузить несколько хостов сразу:
 
-    1. В [консоли управления](https://console.yandex.cloud) выберите каталог, в котором находится кластер.
-    1. [Перейдите](../../console/operations/select-service.md#select-service) в сервис **Managed Service for&nbsp;ClickHouse**.
-    1. Нажмите на имя нужного кластера и перейдите на вкладку **Хосты**.
-    1. Выберите хосты, которые хотите перезагрузить, и нажмите **Перезагрузить** в нижней части экрана.
-    1. В открывшемся окне нажмите кнопку **Подтвердить**.
+    1. В [консоли управления]({{ link-console-main }}) выберите каталог, в котором находится кластер.
+    1. Перейдите в сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-clickhouse }}**.
+    1. Нажмите на имя нужного кластера и перейдите на вкладку **{{ ui-key.yacloud.mdb.cluster.hosts.label_title }}**.
+    1. Выберите хосты, которые хотите перезагрузить, и нажмите **{{ ui-key.yacloud.mdb.cluster.hosts.action_restart-host }}** в нижней части экрана.
+    1. В открывшемся окне нажмите кнопку **{{ ui-key.yacloud.mdb.cluster.hosts.popup-confirm_button }}**.
 
 - CLI {#cli}
 
-  Если у вас еще нет интерфейса командной строки Yandex Cloud (CLI), [установите и инициализируйте его](../../cli/quickstart.md#install).
+  Если у вас еще нет интерфейса командной строки {{ yandex-cloud }} (CLI), [установите и инициализируйте его](../../cli/quickstart.md#install).
 
   По умолчанию используется каталог, указанный при [создании](../../cli/operations/profile/profile-create.md) профиля CLI. Чтобы изменить каталог по умолчанию, используйте команду `yc config set folder-id <идентификатор_каталога>`. Также для любой команды вы можете указать другой каталог с помощью параметров `--folder-name` или `--folder-id`. Если вы обращаетесь к ресурсу по имени, поиск будет выполнен в каталоге по умолчанию. Если вы обращаетесь к ресурсу по идентификатору, поиск будет выполнен глобально — во всех каталогах с учетом прав доступа.
 
@@ -183,7 +177,7 @@
   Команда для перезагрузки одного хоста выглядит так:
 
   ```bash
-  yc managed-clickhouse host restart <имя_хоста> \
+  {{ yc-mdb-ch }} host restart <имя_хоста> \
      --cluster-name=<имя_кластера>
   ```
 
@@ -197,14 +191,14 @@
         export IAM_TOKEN="<IAM-токен>"
         ```
 
-    1. Воспользуйтесь методом [Cluster.RestartHosts](../api-ref/Cluster/restartHosts.md) и выполните запрос, например, с помощью [cURL](https://curl.se/):
+    1. Воспользуйтесь методом [Cluster.RestartHosts](../api-ref/Cluster/restartHosts.md) и выполните запрос, например, с помощью {{ api-examples.rest.tool }}:
 
         ```bash
         curl \
             --request POST \
             --header "Authorization: Bearer $IAM_TOKEN" \
             --header "Content-Type: application/json" \
-            --url 'https://mdb.api.cloud.yandex.net/managed-clickhouse/v1/clusters/<идентификатор_кластера>/hosts:restartHosts' \
+            --url 'https://{{ api-host-mdb }}/managed-clickhouse/v1/clusters/<идентификатор_кластера>/hosts:restartHosts' \
             --data '{
                       "hostNames": [
                         <перечень_имен_хостов>
@@ -234,7 +228,7 @@
        
        Далее предполагается, что содержимое репозитория находится в директории `~/cloudapi/`.
 
-    1. Воспользуйтесь вызовом [ClusterService.RestartHosts](../api-ref/grpc/Cluster/restartHosts.md) и выполните запрос, например, с помощью [gRPCurl](https://github.com/fullstorydev/grpcurl):
+    1. Воспользуйтесь вызовом [ClusterService.RestartHosts](../api-ref/grpc/Cluster/restartHosts.md) и выполните запрос, например, с помощью {{ api-examples.grpc.tool }}:
 
         ```bash
         grpcurl \
@@ -249,7 +243,7 @@
                       <перечень_имен_хостов>
                     ]
                 }' \
-            mdb.api.cloud.yandex.net:443 \
+            {{ api-host-mdb }}:{{ port-https }} \
             yandex.cloud.mdb.clickhouse.v1.ClusterService.RestartHosts
         ```
 
@@ -263,13 +257,13 @@
 
 ## Преобразовать нереплицируемые таблицы в реплицируемые {#replicated-tables}
 
-Чтобы автоматически преобразовать нереплицируемые таблицы на движке семейства [MergeTree](https://clickhouse.com/docs/ru/engines/table-engines/mergetree-family/mergetree/) в [реплицируемые](../concepts/replication.md#replicated-tables) на движке [ReplicatedMergeTree](https://clickhouse.com/docs/ru/engines/table-engines/mergetree-family/replication/), при [включении сервиса координации](update.md#enable-coordination) включите настройку **Преобразовать нереплицируемые таблицы**.
+Чтобы автоматически преобразовать нереплицируемые таблицы на движке семейства [MergeTree]({{ ch.docs }}{{ lang }}/engines/table-engines/mergetree-family/mergetree) в [реплицируемые](../concepts/replication.md#replicated-tables) на движке [ReplicatedMergeTree]({{ ch.docs }}{{ lang }}/engines/table-engines/mergetree-family/replication), при [включении сервиса координации](update.md#enable-coordination) включите настройку **{{ ui-key.yacloud.clickhouse.field_convert_tables_to_replicated }}**.
 
-## Удалить хост ClickHouse® Keeper {#delete-host}
+## Удалить хост {{ CK }} {#delete-host}
 
 {% note warning %}
 
-Хосты ClickHouse® Keeper можно удалять только по одному за раз. При этом в кластере всегда должны оставаться минимум три хоста ClickHouse® Keeper.
+Хосты {{ CK }} можно удалять только по одному за раз. При этом в кластере всегда должны оставаться минимум три хоста {{ CK }}.
 
 {% endnote %}
 
@@ -277,29 +271,29 @@
 
 - Консоль управления {#console}
 
-  1. Перейдите на [страницу каталога](https://console.yandex.cloud) и выберите сервис **Managed Service for&nbsp;ClickHouse**.
-  1. Нажмите на имя нужного кластера и перейдите на вкладку **Хосты**.
-  1. В строке нужного хоста нажмите на значок ![image](../../_assets/console-icons/ellipsis.svg) и выберите пункт **Удалить**.
+  1. Перейдите на [страницу каталога]({{ link-console-main }}) и выберите сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-clickhouse }}**.
+  1. Нажмите на имя нужного кластера и перейдите на вкладку **{{ ui-key.yacloud.mdb.cluster.hosts.label_title }}**.
+  1. В строке нужного хоста нажмите на значок ![image](../../_assets/console-icons/ellipsis.svg) и выберите пункт **{{ ui-key.yacloud.mdb.clusters.button_action-delete }}**.
   1. Подтвердите удаление.
 
 - CLI {#cli}
 
-  Если у вас еще нет интерфейса командной строки Yandex Cloud (CLI), [установите и инициализируйте его](../../cli/quickstart.md#install).
+  Если у вас еще нет интерфейса командной строки {{ yandex-cloud }} (CLI), [установите и инициализируйте его](../../cli/quickstart.md#install).
 
   По умолчанию используется каталог, указанный при [создании](../../cli/operations/profile/profile-create.md) профиля CLI. Чтобы изменить каталог по умолчанию, используйте команду `yc config set folder-id <идентификатор_каталога>`. Также для любой команды вы можете указать другой каталог с помощью параметров `--folder-name` или `--folder-id`. Если вы обращаетесь к ресурсу по имени, поиск будет выполнен в каталоге по умолчанию. Если вы обращаетесь к ресурсу по идентификатору, поиск будет выполнен глобально — во всех каталогах с учетом прав доступа.
 
-  Чтобы удалить хост ClickHouse® Keeper:
+  Чтобы удалить хост {{ CK }}:
 
   1. Посмотрите описание команды CLI для удаления хоста:
     
       ```bash
-      yc managed-clickhouse hosts delete --help
+      {{ yc-mdb-ch }} hosts delete --help
       ```
       
   1. Удалите хост, выполнив команду:
 
       ```bash
-      yc managed-clickhouse hosts delete <имя_хоста> \ 
+      {{ yc-mdb-ch }} hosts delete <имя_хоста> \ 
         --cluster-id=<идентификатор_кластера>
       ```
 
@@ -315,14 +309,14 @@
       export IAM_TOKEN="<IAM-токен>"
       ```
   
-  1. Воспользуйтесь методом [Cluster.DeleteHosts](../api-ref/Cluster/deleteHosts.md) и выполните запрос, например с помощью [cURL](https://curl.se/):
+  1. Воспользуйтесь методом [Cluster.DeleteHosts](../api-ref/Cluster/deleteHosts.md) и выполните запрос, например с помощью {{ api-examples.rest.tool }}:
   
       ```bash
       curl \
         --request POST \
         --header "Authorization: Bearer $IAM_TOKEN" \
         --header "Content-Type: application/json" \
-        --url 'https://mdb.api.cloud.yandex.net/managed-clickhouse/v1/clusters/<идентификатор_кластера>/hosts:batchDelete' \
+        --url 'https://{{ api-host-mdb }}/managed-clickhouse/v1/clusters/<идентификатор_кластера>/hosts:batchDelete' \
         --data '{
           "hostNames": [
             <имя_хоста>
@@ -352,7 +346,7 @@
      
      Далее предполагается, что содержимое репозитория находится в директории `~/cloudapi/`.
   
-  1. Воспользуйтесь вызовом [ClusterService.DeleteHosts](../api-ref/grpc/Cluster/deleteHosts.md) и выполните запрос, например с помощью [gRPCurl](https://github.com/fullstorydev/grpcurl):
+  1. Воспользуйтесь вызовом [ClusterService.DeleteHosts](../api-ref/grpc/Cluster/deleteHosts.md) и выполните запрос, например с помощью {{ api-examples.grpc.tool }}:
   
       ```bash
       grpcurl \
@@ -367,7 +361,7 @@
             <имя_хоста>
           ]
         }' \
-        mdb.api.cloud.yandex.net:443 \
+        {{ api-host-mdb }}:{{ port-https }} \
         yandex.cloud.mdb.clickhouse.v1.ClusterService.DeleteHosts
       ```
   
@@ -379,4 +373,4 @@
 
 {% endlist %}
 
-_ClickHouse® является зарегистрированным товарным знаком [ClickHouse, Inc](https://clickhouse.com)._
+_{{ CH }} является зарегистрированным товарным знаком [ClickHouse, Inc](https://clickhouse.com)._

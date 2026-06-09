@@ -3,7 +3,7 @@
 ## HTTP request
 
 ```
-POST https://vpc.api.cloud.yandex.net/vpc/v1/subnets/{subnetId}:relocate
+POST https://vpc.{{ api-host }}/vpc/v1/subnets/{subnetId}:relocate
 ```
 
 ## Path parameters

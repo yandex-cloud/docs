@@ -1,10 +1,10 @@
-# Метрики Yandex Object Storage
+# Метрики {{ objstorage-full-name }}
 
-В этом разделе описаны метрики сервиса [Object Storage](../../storage/index.md), поставляемые в Monitoring.
+В этом разделе описаны метрики сервиса [{{ objstorage-name }}](../../storage/index.md), поставляемые в {{ monitoring-name }}.
 
 Имя метрики пишется в метку `name`.
 
-Общие метки для всех метрик сервиса Object Storage:
+Общие метки для всех метрик сервиса {{ objstorage-short-name }}:
 
 Метка | Значение
 ----|----

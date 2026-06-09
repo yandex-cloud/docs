@@ -1,4 +1,4 @@
-# [Yandex DataLens] Subquery source is disallowed in the connection settings
+# [{{ datalens-full-name }}] Subquery source is disallowed in the connection settings
 
 `ERR.DS_API.CONNECTION_CONFIG.SUBSELECT_NOT_ALLOWED`
 

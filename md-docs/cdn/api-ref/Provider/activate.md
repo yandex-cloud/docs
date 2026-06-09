@@ -5,7 +5,7 @@ Deprecated: This functionality is no longer supported - provider activation happ
 ## HTTP request
 
 ```
-POST https://cdn.api.cloud.yandex.net/cdn/v1/providers:activate
+POST https://cdn.{{ api-host }}/cdn/v1/providers:activate
 ```
 
 ## Body parameters {#yandex.cloud.cdn.v1.ActivateProviderRequest}

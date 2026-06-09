@@ -1,15 +1,15 @@
-# Создать образ на основе ВМ Linux Compute Cloud
+# Создать образ на основе ВМ Linux {{ compute-name }}
 
-В Cloud Desktop вы можете создавать рабочие столы из предустановленных [системных образов](../../concepts/images.md) или собственных [пользовательских образов](../../concepts/images.md#custom-images).
+В {{ cloud-desktop-name }} вы можете создавать рабочие столы из предустановленных [системных образов](../../concepts/images.md) или собственных [пользовательских образов](../../concepts/images.md#custom-images).
 
 Пользовательские образы могут быть с [ОС Windows](create-from-windows.md) или Linux.
 
-Образ Linux создается на базе [виртуальной машины](../../../compute/concepts/vm.md) Compute Cloud.
+Образ Linux создается на базе [виртуальной машины](../../../compute/concepts/vm.md) {{ compute-name }}.
 
-Чтобы добавить в Cloud Desktop пользовательский образ Linux:
+Чтобы добавить в {{ cloud-desktop-name }} пользовательский образ Linux:
 
 1. [Создайте](../../../compute/operations/vm-create/create-linux-vm.md) или выберите уже созданную ВМ со следующими параметрами:
-   * Доступ — по **SSH-ключу**. Доступ по OS Login в Cloud Desktop не поддерживается.
+   * Доступ — по **SSH-ключу**. Доступ по {{ oslogin }} в {{ cloud-desktop-name }} не поддерживается.
    * Подключение к интернету для установки дополнительного ПО.
 
 1. Настройте виртуальную машину для создания нужного образа.
@@ -18,7 +18,7 @@
    
         {% note info %}
         
-        Сервис Cloud Desktop подключается к удаленному рабочему столу по протоколу IPv6 через порт `3389`. Убедитесь, что в утилите `xrdp` включена поддержка IPv6. Для этого после установки `xrdp` проверьте, что IPv6-адреса прослушиваются. Например, с помощью команды `netstat -tulpn | grep xrdp`. В выводе команды должны присутствовать адреса в формате IPv6. Например, `::1` или `:::3389`. Если таких адресов нет, настройте протокол IPv6 в файле конфигурации `/etc/xrdp/xrdp.ini`.
+        Сервис {{ cloud-desktop-name }} подключается к удаленному рабочему столу по протоколу IPv6 через порт `3389`. Убедитесь, что в утилите `xrdp` включена поддержка IPv6. Для этого после установки `xrdp` проверьте, что IPv6-адреса прослушиваются. Например, с помощью команды `netstat -tulpn | grep xrdp`. В выводе команды должны присутствовать адреса в формате IPv6. Например, `::1` или `:::3389`. Если таких адресов нет, настройте протокол IPv6 в файле конфигурации `/etc/xrdp/xrdp.ini`.
 
         {% endnote %}
 
@@ -35,16 +35,16 @@
 
 1. Настройте входящие соединения на всех сетевых интерфейсах для работы:
    * RDP — на порт TCP `3389`.
-   * Для Yandex Cloud Desktop Agent — на порт TCP `5050`.
+   * Для {{ yandex-cloud }} Desktop Agent — на порт TCP `5050`.
 
 1. Проверьте доступность ВМ по протоколу RDP.
 
-1. Установите агент сервиса Yandex Cloud Desktop для Linux с помощью последовательности команд:
+1. Установите агент сервиса {{ cloud-desktop-full-name }} для Linux с помощью последовательности команд:
   
     ```bash
     WORKDIR=$(mktemp -d -p $HOME)
     cd ${WORKDIR}
-    curl -sSL https://storage.yandexcloud.net/yandexcloud-vdi-agent/install.sh > desktop-agent-install.sh
+    curl -sSL https://{{ s3-storage-host }}/yandexcloud-vdi-agent/install.sh > desktop-agent-install.sh
     chmod +x desktop-agent-install.sh
     ./desktop-agent-install.sh -i ${WORKDIR}
     sudo mkdir -p /opt/yandex-cloud/cloud-desktops
@@ -94,30 +94,30 @@
 
     - Консоль управления {#console}
 
-      1. В [консоли управления](https://console.yandex.cloud) перейдите в каталог, в котором находится ВМ.
-      1. [Перейдите](../../../console/operations/select-service.md#select-service) в сервис **Compute Cloud**.
-      1. Напротив вашей ВМ нажмите значок ![image](../../../_assets/console-icons/ellipsis.svg) → **Остановить**.
-      1. На панели слева выберите ![image](../../../_assets/console-icons/hard-drive.svg) **Диски**.
-      1. В строке с загрузочным диском ВМ нажмите значок ![image](../../../_assets/console-icons/ellipsis.svg) → **Создать образ**.
+      1. В [консоли управления]({{ link-console-main }}) перейдите в каталог, в котором находится ВМ.
+      1. Перейдите в сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_compute }}**.
+      1. Напротив вашей ВМ нажмите значок ![image](../../../_assets/console-icons/ellipsis.svg) → **{{ ui-key.yacloud.common.stop }}**.
+      1. На панели слева выберите ![image](../../../_assets/console-icons/hard-drive.svg) **{{ ui-key.yacloud.compute.disks_ddfdb }}**.
+      1. В строке с загрузочным диском ВМ нажмите значок ![image](../../../_assets/console-icons/ellipsis.svg) → **{{ ui-key.yacloud.compute.disks.button_action-image }}**.
       1. Введите имя образа и при необходимости произвольное описание.
-      1. Нажмите **Создать**.
+      1. Нажмите **{{ ui-key.yacloud.common.create }}**.
 
     {% endlist %}
 
-1. Добавьте образ в Cloud Desktop:
+1. Добавьте образ в {{ cloud-desktop-name }}:
 
     {% list tabs group=instructions %}
 
     - Консоль управления {#console}
 
-      1. В [консоли управления](https://console.yandex.cloud) выберите каталог, в котором находится ВМ и будет создан рабочий стол. 
-      1. [Перейдите](../../../console/operations/select-service.md#select-service) в сервис **Cloud Desktop**.
-      1. На панели слева выберите ![image](../../../_assets/console-icons/layers.svg) **Образы**.
-      1. Нажмите кнопку **Добавить образ**.
-      1. В поле **Источник образа** выберите `Compute Cloud`.
-      1. В поле **Образ в Compute Cloud** выберите образ, созданный ранее.
+      1. В [консоли управления]({{ link-console-main }}) выберите каталог, в котором находится ВМ и будет создан рабочий стол. 
+      1. Перейдите в сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_cloud-desktop }}**.
+      1. На панели слева выберите ![image](../../../_assets/console-icons/layers.svg) **{{ ui-key.yacloud.vdi.label_desktop-images }}**.
+      1. Нажмите кнопку **{{ ui-key.yacloud.vdi.button_add-image }}**.
+      1. В поле **{{ ui-key.yacloud.vdi.label_image-source }}** выберите `{{ ui-key.yacloud.iam.folder.dashboard.label_compute }}`.
+      1. В поле **{{ ui-key.yacloud.vdi.label_image }}** выберите образ, созданный ранее.
       1. Введите имя образа.
-      1. Нажмите кнопку **Добавить**.
+      1. Нажмите кнопку **{{ ui-key.yacloud.common.add }}**.
 
     {% endlist %}
 
@@ -125,5 +125,5 @@
 
 Если образ и ВМ больше не нужны, удалите их, чтобы не платить за их использование:
 
-* [Удалить виртуальную машину](../../../compute/operations/vm-control/vm-delete.md)
-* [Удалить образ диска](../../../compute/operations/image-control/delete.md)
+* [{#T}](../../../compute/operations/vm-control/vm-delete.md)
+* [{#T}](../../../compute/operations/image-control/delete.md)

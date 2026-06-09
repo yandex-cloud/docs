@@ -3,16 +3,16 @@
 
 [HashiCorp Vault](https://www.vaultproject.io/) — инструмент с открытым исходным кодом, который обеспечивает безопасное хранение и доступ к различным секретам (паролям, сертификатам, токенам).
 
-Настройте хранение и доступ к секретам внутри кластера Yandex Managed Service for Kubernetes с помощью продукта Yandex Cloud Marketplace [HashiCorp Vault с поддержкой Key Management Service](https://yandex.cloud/ru/marketplace/products/yc/vault-yckms-k8s).
+Настройте хранение и доступ к секретам внутри кластера {{ managed-k8s-full-name }} с помощью продукта {{ marketplace-full-name }} [HashiCorp Vault с поддержкой {{ kms-name }}](https://yandex.cloud/ru/marketplace/products/yc/vault-yckms-k8s).
 
 В этом руководстве описан пример монтирования секрета из хранилища HashiCorp Vault через том [Container Storage Interface](https://kubernetes.io/docs/concepts/storage/volumes/#csi) (CSI).
 
-Чтобы организовать доступ к секрету в кластере Managed Service for Kubernetes с помощью HashiCorp Vault:
+Чтобы организовать доступ к секрету в кластере {{ managed-k8s-name }} с помощью HashiCorp Vault:
 1. [Подготовьте облако к работе](#before-you-begin).
 1. [Установите HashiCorp Vault](#install-vault).
 1. [Войдите в HashiCorp Vault](#login-vault).
 1. [Создайте секрет](#create-secret).
-1. [Настройте метод аутентификации Kubernetes](#kubernetes-authentication).
+1. [Настройте метод аутентификации {{ k8s }}](#kubernetes-authentication).
 1. [Установите драйвер SCI для хранилища секретов](#install-sci).
 1. [Создайте ресурс SecretProviderClass](#create-resource).
 1. [Создайте под со смонтированным секретом](#create-pod).
@@ -24,34 +24,34 @@
 
 В стоимость поддержки описываемого решения входят:
 
-* Плата за кластер Managed Service for Kubernetes: использование мастера и исходящий трафик (см. [тарифы Managed Service for Kubernetes](../../pricing.md)).
-* Плата за узлы кластера (ВМ): использование вычислительных ресурсов, операционной системы и хранилища (см. [тарифы Compute Cloud](../../../compute/pricing.md)).
-* Плата за публичный IP-адрес, если он назначен узлам кластера (см. [тарифы Virtual Private Cloud](../../../vpc/pricing.md#prices-public-ip)).
-* Плата за сервис Key Management Service: количество активных версий ключа (в статусах `Active` и `Scheduled For Destruction`) и выполненных криптографических операций (см. [тарифы Key Management Service](../../../kms/pricing.md)).
+* Плата за кластер {{ managed-k8s-name }}: использование мастера и исходящий трафик (см. [тарифы {{ managed-k8s-name }}](../../pricing.md)).
+* Плата за узлы кластера (ВМ): использование вычислительных ресурсов, операционной системы и хранилища (см. [тарифы {{ compute-name }}](../../../compute/pricing.md)).
+* Плата за публичный IP-адрес, если он назначен узлам кластера (см. [тарифы {{ vpc-name }}](../../../vpc/pricing.md#prices-public-ip)).
+* Плата за сервис {{ kms-name }}: количество активных версий ключа (в статусах `Active` и `Scheduled For Destruction`) и выполненных криптографических операций (см. [тарифы {{ kms-name }}](../../../kms/pricing.md)).
 
 
 ## Подготовьте облако к работе {#before-you-begin}
 
-1. Создайте [кластер](../../concepts/index.md#kubernetes-cluster) и [группу узлов](../../concepts/index.md#node-group) Kubernetes.
+1. Создайте [кластер](../../concepts/index.md#kubernetes-cluster) и [группу узлов](../../concepts/index.md#node-group) {{ k8s }}.
 
     {% list tabs group=instructions %}
 
     * Вручную {#manual}
 
         1. Если у вас еще нет [сети](../../../vpc/concepts/network.md#network), [создайте ее](../../../vpc/operations/network-create.md).
-        1. Если у вас еще нет [подсетей](../../../vpc/concepts/network.md#subnet), [создайте их](../../../vpc/operations/subnet-create.md) в [зонах доступности](../../../overview/concepts/geo-scope.md), где будут созданы кластер Kubernetes и группа узлов.
+        1. Если у вас еще нет [подсетей](../../../vpc/concepts/network.md#subnet), [создайте их](../../../vpc/operations/subnet-create.md) в [зонах доступности](../../../overview/concepts/geo-scope.md), где будут созданы кластер {{ k8s }} и группа узлов.
         1. [Создайте сервисные аккаунты](../../../iam/operations/sa/create.md):
 
-            * Сервисный аккаунт с [ролями](../../security/index.md#yc-api) `k8s.clusters.agent` и `vpc.publicAdmin` на [каталог](../../../resource-manager/concepts/resources-hierarchy.md#folder), в котором создается кластер Kubernetes. От его имени будут создаваться ресурсы, необходимые кластеру Kubernetes.
-            * Сервисный аккаунт с [ролью](../../../iam/concepts/access-control/roles.md) [container-registry.images.puller](../../../container-registry/security/index.md#container-registry-images-puller). От его имени узлы будут скачивать из [реестра](../../../container-registry/concepts/registry.md) необходимые [Docker-образы](../../../container-registry/concepts/docker-image.md).
+            * Сервисный аккаунт с [ролями](../../security/index.md#yc-api) `k8s.clusters.agent` и `vpc.publicAdmin` на [каталог](../../../resource-manager/concepts/resources-hierarchy.md#folder), в котором создается кластер {{ k8s }}. От его имени будут создаваться ресурсы, необходимые кластеру {{ k8s }}.
+            * Сервисный аккаунт с [ролью](../../../iam/concepts/access-control/roles.md) [{{ roles-cr-puller }}](../../../container-registry/security/index.md#container-registry-images-puller). От его имени узлы будут скачивать из [реестра](../../../container-registry/concepts/registry.md) необходимые [Docker-образы](../../../container-registry/concepts/docker-image.md).
 
             {% note tip %}
 
-            Вы можете использовать один и тот же [сервисный аккаунт](../../../iam/concepts/users/service-accounts.md) для управления кластером Kubernetes и его группами узлов.
+            Вы можете использовать один и тот же [сервисный аккаунт](../../../iam/concepts/users/service-accounts.md) для управления кластером {{ k8s }} и его группами узлов.
 
             {% endnote %}
 
-        1. [Создайте группы безопасности](../../operations/connect/security-groups.md) для кластера Managed Service for Kubernetes и входящих в него групп узлов.
+        1. [Создайте группы безопасности](../../operations/connect/security-groups.md) для кластера {{ managed-k8s-name }} и входящих в него групп узлов.
 
             {% note warning %}
             
@@ -59,11 +59,11 @@
             
             {% endnote %}
 
-        1. [Создайте кластер Kubernetes](../../operations/kubernetes-cluster/kubernetes-cluster-create.md) и [группу узлов](../../operations/node-group/node-group-create.md) любой подходящей конфигурации. При создании укажите группы безопасности, подготовленные ранее.
+        1. [Создайте кластер {{ k8s }}](../../operations/kubernetes-cluster/kubernetes-cluster-create.md) и [группу узлов](../../operations/node-group/node-group-create.md) любой подходящей конфигурации. При создании укажите группы безопасности, подготовленные ранее.
 
-    * С помощью Terraform {#tf}
+    * С помощью {{ TF }} {#tf}
 
-        1. Если у вас еще нет Terraform, [установите его](../../../tutorials/infrastructure-management/terraform-quickstart.md#install-terraform).
+        1. Если у вас еще нет {{ TF }}, [установите его](../../../tutorials/infrastructure-management/terraform-quickstart.md#install-terraform).
         1. [Получите данные для аутентификации](../../../tutorials/infrastructure-management/terraform-quickstart.md#get-credentials). Вы можете добавить их в переменные окружения или указать далее в файле с настройками провайдера.
         1. [Настройте и инициализируйте провайдер](../../../tutorials/infrastructure-management/terraform-quickstart.md#configure-provider). Чтобы не создавать конфигурационный файл с настройками провайдера вручную, [скачайте его](https://github.com/yandex-cloud-examples/yc-terraform-provider-settings/blob/main/provider.tf).
         1. Поместите конфигурационный файл в отдельную рабочую директорию и [укажите значения параметров](../../../tutorials/infrastructure-management/terraform-quickstart.md#configure-provider). Если данные для аутентификации не были добавлены в переменные окружения, укажите их в конфигурационном файле.
@@ -72,9 +72,9 @@
 
             * [Сеть](../../../vpc/concepts/network.md#network).
             * [Подсеть](../../../vpc/concepts/network.md#subnet).
-            * Кластер Kubernetes.
-            * [Сервисный аккаунт](../../../iam/concepts/users/service-accounts.md), необходимый для работы кластера и группы узлов Managed Service for Kubernetes.
-            * [Группы безопасности](../../../vpc/concepts/security-groups.md), которые содержат [необходимые правила](../../operations/connect/security-groups.md) для кластера Managed Service for Kubernetes и входящих в него групп узлов.
+            * Кластер {{ k8s }}.
+            * [Сервисный аккаунт](../../../iam/concepts/users/service-accounts.md), необходимый для работы кластера и группы узлов {{ managed-k8s-name }}.
+            * [Группы безопасности](../../../vpc/concepts/security-groups.md), которые содержат [необходимые правила](../../operations/connect/security-groups.md) для кластера {{ managed-k8s-name }} и входящих в него групп узлов.
 
                 {% note warning %}
                 
@@ -85,17 +85,17 @@
         1. Укажите в файле `k8s-cluster.tf`:
 
             * [Идентификатор каталога](../../../resource-manager/operations/folder/get-id.md).
-            * Версию Kubernetes для кластера и групп узлов Kubernetes.
-            * CIDR кластера Kubernetes.
-            * Имя сервисного аккаунта кластера Managed Service for Kubernetes.
+            * Версию {{ k8s }} для кластера и групп узлов {{ k8s }}.
+            * CIDR кластера {{ k8s }}.
+            * Имя сервисного аккаунта кластера {{ managed-k8s-name }}.
 
-        1. Проверьте корректность файлов конфигурации Terraform с помощью команды:
+        1. Проверьте корректность файлов конфигурации {{ TF }} с помощью команды:
 
             ```bash
             terraform validate
             ```
 
-            Если в файлах конфигурации есть ошибки, Terraform на них укажет.
+            Если в файлах конфигурации есть ошибки, {{ TF }} на них укажет.
 
         1. Создайте необходимую инфраструктуру:
 
@@ -117,17 +117,17 @@
                1. Подтвердите изменение ресурсов.
                1. Дождитесь завершения операции.
 
-            В указанном каталоге будут созданы все требуемые ресурсы. Проверить появление ресурсов и их настройки можно в [консоли управления](https://console.yandex.cloud).
+            В указанном каталоге будут созданы все требуемые ресурсы. Проверить появление ресурсов и их настройки можно в [консоли управления]({{ link-console-main }}).
 
     {% endlist %}
 
     {% note warning %}
     
-    Не изменяйте и не удаляйте ресурсы Virtual Private Cloud, которые используются кластером Managed Service for Kubernetes. Это может привести к некорректной работе кластера и невозможности его последующего удаления.
+    Не изменяйте и не удаляйте ресурсы {{ vpc-name }}, которые используются кластером {{ managed-k8s-name }}. Это может привести к некорректной работе кластера и невозможности его последующего удаления.
     
     {% endnote %}
 
-1. [Установите kubectl](https://kubernetes.io/ru/docs/tasks/tools/install-kubectl) и [настройте его на работу с созданным кластером](../../operations/connect/index.md#kubectl-connect).
+1. [Установите kubectl]({{ k8s-docs }}/tasks/tools/install-kubectl) и [настройте его на работу с созданным кластером](../../operations/connect/index.md#kubectl-connect).
 
 ## Установите HashiCorp Vault {#install-vault}
 
@@ -194,26 +194,26 @@
     password    12345678
     ```
 
-## Настройте метод аутентификации Kubernetes {#kubernetes-authentication}
+## Настройте метод аутентификации {{ k8s }} {#kubernetes-authentication}
 
-Этот метод позволяет аутентифицироваться с помощью токена сервисного аккаунта Kubernetes.
+Этот метод позволяет аутентифицироваться с помощью токена сервисного аккаунта {{ k8s }}.
 
-1. Включите метод аутентификации Kubernetes:
+1. Включите метод аутентификации {{ k8s }}:
 
     ```bash
     vault auth enable kubernetes
     ```
 
-1. Настройте аутентификацию через API-адрес Kubernetes:
+1. Настройте аутентификацию через API-адрес {{ k8s }}:
 
     ```bash
     vault write auth/kubernetes/config \
        kubernetes_host="https://$KUBERNETES_PORT_443_TCP_ADDR:443"
     ```
 
-    Переменная окружения `KUBERNETES_PORT_443_TCP_ADDR` ссылается на внутренний сетевой адрес узла Kubernetes.
+    Переменная окружения `KUBERNETES_PORT_443_TCP_ADDR` ссылается на внутренний сетевой адрес узла {{ k8s }}.
 
-1. Создайте политику `internal-app`, которая позволит сервисному аккаунту Kubernetes читать созданный ранее секрет:
+1. Создайте политику `internal-app`, которая позволит сервисному аккаунту {{ k8s }} читать созданный ранее секрет:
 
     ```bash
     vault policy write internal-app - <<EOF
@@ -223,7 +223,7 @@
     EOF
     ```
 
-1. Создайте роль `database`, которая свяжет политику `internal-app` с сервисным аккаунтом Kubernetes `webapp-sa` (будет создан позднее):
+1. Создайте роль `database`, которая свяжет политику `internal-app` с сервисным аккаунтом {{ k8s }} `webapp-sa` (будет создан позднее):
 
     ```bash
     vault write auth/kubernetes/role/database \
@@ -302,7 +302,7 @@
 
 ## Создайте под со смонтированным секретом {#create-pod}
 
-1. Создайте сервисный аккаунт `webapp-sa` в кластере Kubernetes:
+1. Создайте сервисный аккаунт `webapp-sa` в кластере {{ k8s }}:
 
     ```bash
     kubectl create serviceaccount webapp-sa \
@@ -377,19 +377,19 @@
 
 * Вручную {#manual}
 
-    1. [Удалите кластер Kubernetes](../../operations/kubernetes-cluster/kubernetes-cluster-delete.md).
+    1. [Удалите кластер {{ k8s }}](../../operations/kubernetes-cluster/kubernetes-cluster-delete.md).
     1. [Удалите группы безопасности](../../../vpc/operations/security-group-delete.md).
     1. [Удалите подсеть](../../../vpc/operations/subnet-delete.md) и [сеть](../../../vpc/operations/network-delete.md).
     1. [Удалите сервисные аккаунты](../../../iam/operations/sa/delete.md).
     1. [Удалите симметричный ключ шифрования](../../../kms/operations/key.md#delete).
 
-* С помощью Terraform {#tf}
+* С помощью {{ TF }} {#tf}
 
     1. В терминале перейдите в директорию с планом инфраструктуры.
     
         {% note warning %}
     
-        Убедитесь, что в директории нет Terraform-манифестов с ресурсами, которые вы хотите сохранить. Terraform удаляет все ресурсы, которые были созданы с помощью манифестов в текущей директории.
+        Убедитесь, что в директории нет {{ TF }}-манифестов с ресурсами, которые вы хотите сохранить. {{ TF }} удаляет все ресурсы, которые были созданы с помощью манифестов в текущей директории.
     
         {% endnote %}
     
@@ -403,13 +403,13 @@
     
         1. Подтвердите удаление ресурсов и дождитесь завершения операции.
     
-        Все ресурсы, которые были описаны в Terraform-манифестах, будут удалены.
+        Все ресурсы, которые были описаны в {{ TF }}-манифестах, будут удалены.
 
 {% endlist %}
 
 ## См. также {#see-also}
 
 * [Документация HashiCorp Vault](https://developer.hashicorp.com/vault/docs?product_intent=vault)
-* [Установка HashiCorp Vault с поддержкой Key Management Service](../../operations/applications/hashicorp-vault.md)
-* [Установка External Secrets Operator с поддержкой Yandex Lockbox](../../operations/applications/external-secrets-operator.md)
-* [Синхронизация с секретами Yandex Lockbox](../kubernetes-lockbox-secrets.md)
+* [{#T}](../../operations/applications/hashicorp-vault.md)
+* [{#T}](../../operations/applications/external-secrets-operator.md)
+* [{#T}](../kubernetes-lockbox-secrets.md)

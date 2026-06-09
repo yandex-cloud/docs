@@ -21,14 +21,12 @@ Lists operations for the specified GPU cluster.
 || gpu_cluster_id | **string**
 
 ID of the GPU cluster to list operations for.
-
 To get a GPU cluster ID, make a [GpuClusterService.List](list.md#List) request. ||
 || page_size | **int64**
 
 The maximum number of results per page to return. If the number of available
 results is larger than `page_size`, the service returns a [ListGpuClusterOperationsResponse.next_page_token](#yandex.cloud.compute.v1.ListGpuClusterOperationsResponse)
 that can be used to get the next page of results in subsequent list requests.
-
 Default value: 100. ||
 || page_token | **string**
 
@@ -69,7 +67,6 @@ List of operations for the specified GPU cluster. ||
 Token for getting the next page of the list. If the number of results is greater than
 the specified [ListGpuClusterOperationsRequest.page_size](#yandex.cloud.compute.v1.ListGpuClusterOperationsRequest), use `next_page_token` as the value
 for the [ListGpuClusterOperationsRequest.page_token](#yandex.cloud.compute.v1.ListGpuClusterOperationsRequest) parameter in the next list request.
-
 Each subsequent page will have its own `next_page_token` to continue paging through the results. ||
 |#
 

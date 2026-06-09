@@ -1,18 +1,18 @@
-# Метрики Yandex Message Queue
+# Метрики {{ message-queue-full-name }}
 
-В этом разделе описаны метрики сервиса [Message Queue](../../message-queue/index.md), поставляемые в Monitoring.
+В этом разделе описаны метрики сервиса [{{ message-queue-name }}](../../message-queue/index.md), поставляемые в {{ monitoring-name }}.
 
 Имя метрики пишется в метку `name`.
 
-Все метрики сервиса Message Queue имеют общую метку `service=message-queue`.
+Все метрики сервиса {{ message-queue-name }} имеют общую метку `service=message-queue`.
 
 ## Метрики HTTP API {#mq-http-metrics}
 
 | Имя метрики<br>Тип, единицы измерения | Описание<br>Метки |
 | --- | --- |
-| `api.http.errors_count_per_second`<br>`DGAUGE`, ошибки/с | Количество ошибок выполнения запросов в секунду.<br>Метка — `method`, метод Yandex Message Queue API, к которому выполняются запросы. |
-| `api.http.request_duration_milliseconds`<br>`DGAUGE`, миллисекунды | Продолжительность выполнения запросов.<br>Метка — `method`, метод Yandex Message Queue API, к которому выполняются запросы. |
-| `api.http.requests_count_per_second`<br>`DGAUGE`, запросы/с | Количество обработанных запросов в секунду.<br>Метка — `method`, метод Yandex Message Queue API, к которому выполняются запросы. |
+| `api.http.errors_count_per_second`<br>`DGAUGE`, ошибки/с | Количество ошибок выполнения запросов в секунду.<br>Метка — `method`, метод {{ message-queue-full-name }} API, к которому выполняются запросы. |
+| `api.http.request_duration_milliseconds`<br>`DGAUGE`, миллисекунды | Продолжительность выполнения запросов.<br>Метка — `method`, метод {{ message-queue-full-name }} API, к которому выполняются запросы. |
+| `api.http.requests_count_per_second`<br>`DGAUGE`, запросы/с | Количество обработанных запросов в секунду.<br>Метка — `method`, метод {{ message-queue-full-name }} API, к которому выполняются запросы. |
 
 ## Метрики сервиса {#mq-metrics}
 

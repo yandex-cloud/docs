@@ -1,12 +1,12 @@
 # Сборка образа ВМ с набором инфраструктурных инструментов с помощью Packer
 
 
-Yandex Compute Cloud можно использовать для создания [образа дисков виртуальных машин](../concepts/image.md) с набором дополнительных инфраструктурных инструментов с помощью утилиты [Packer](https://www.packer.io/).
+{{ compute-full-name }} можно использовать для создания [образа дисков виртуальных машин](../concepts/image.md) с набором дополнительных инфраструктурных инструментов с помощью утилиты [Packer](https://www.packer.io/).
 
-Соберите с помощью утилиты Packer образ ВМ на основе [Ubuntu Linux 20.04 LTS](https://yandex.cloud/ru/marketplace/products/yc/ubuntu-20-04-lts) с заданными в конфигурационном файле параметрами. Добавьте в образ часто используемые при работе с Yandex Cloud инструменты:
-* [Yandex Cloud CLI](../../cli/quickstart.md) версии 0.91.0 или выше.
-* [Terraform](https://www.terraform.io/) версии 1.1.9.
-* [kubectl](https://kubernetes.io/ru/docs/reference/kubectl/) версии 1.23.
+Соберите с помощью утилиты Packer образ ВМ на основе [Ubuntu Linux 20.04 LTS](https://yandex.cloud/ru/marketplace/products/yc/ubuntu-20-04-lts) с заданными в конфигурационном файле параметрами. Добавьте в образ часто используемые при работе с {{ yandex-cloud }} инструменты:
+* [{{ yandex-cloud }} CLI](../../cli/quickstart.md) версии 0.91.0 или выше.
+* [{{ TF }}](https://www.terraform.io/) версии 1.1.9.
+* [kubectl]({{ k8s-docs }}/reference/kubectl/) версии 1.23.
 * [Docker](https://docs.docker.com/get-started/overview/) версии 20.10.16 или выше.
 * [Git](https://git-scm.com/about) версии 2.25.1 или выше.
 * [Helm](https://helm.sh/ru/docs/) версии 3.9.0.
@@ -31,26 +31,26 @@ Yandex Compute Cloud можно использовать для создания
 
 ## Подготовьте облако к работе {#before-begin}
 
-Зарегистрируйтесь в Yandex Cloud и создайте [платежный аккаунт](../../billing/concepts/billing-account.md):
-1. Перейдите в [консоль управления](https://console.yandex.cloud), затем войдите в Yandex Cloud или зарегистрируйтесь.
-1. На странице **[Yandex Cloud Billing](https://center.yandex.cloud/billing/accounts)** убедитесь, что у вас подключен платежный аккаунт, и он находится в [статусе](../../billing/concepts/billing-account-statuses.md) `ACTIVE` или `TRIAL_ACTIVE`. Если платежного аккаунта нет, [создайте его](../../billing/quickstart/index.md) и [привяжите](../../billing/operations/pin-cloud.md) к нему облако.
+Зарегистрируйтесь в {{ yandex-cloud }} и создайте [платежный аккаунт](../../billing/concepts/billing-account.md):
+1. Перейдите в [консоль управления]({{ link-console-main }}), затем войдите в {{ yandex-cloud }} или зарегистрируйтесь.
+1. На странице **[{{ ui-key.yacloud_billing.billing.label_service }}]({{ link-console-billing }})** убедитесь, что у вас подключен платежный аккаунт, и он находится в [статусе](../../billing/concepts/billing-account-statuses.md) `ACTIVE` или `TRIAL_ACTIVE`. Если платежного аккаунта нет, [создайте его](../../billing/quickstart/index.md) и [привяжите](../../billing/operations/pin-cloud.md) к нему облако.
 
-Если у вас есть активный платежный аккаунт, вы можете создать или выбрать [каталог](../../resource-manager/concepts/resources-hierarchy.md#folder), в котором будет работать ваша инфраструктура, на [странице облака](https://console.yandex.cloud/cloud).
+Если у вас есть активный платежный аккаунт, вы можете создать или выбрать [каталог](../../resource-manager/concepts/resources-hierarchy.md#folder), в котором будет работать ваша инфраструктура, на [странице облака]({{ link-console-cloud }}).
 
 [Подробнее об облаках и каталогах](../../resource-manager/concepts/resources-hierarchy.md).
 
 ### Необходимые платные ресурсы {#paid-resources}
 
 В стоимость сборки образа ВМ с последующим созданием ВМ входит: 
-* плата за хранение собранных образов (см. [тарифы Yandex Compute Cloud](../pricing.md#prices-storage));
-* плата за вычислительные ресурсы ВМ (см. [тарифы Yandex Compute Cloud](../pricing.md#prices-instance-resources)).
+* плата за хранение собранных образов (см. [тарифы {{ compute-full-name }}](../pricing.md#prices-storage));
+* плата за вычислительные ресурсы ВМ (см. [тарифы {{ compute-full-name }}](../pricing.md#prices-instance-resources)).
 
 ## Подготовьте рабочее окружение {#environment-prepare}
 
 1. Установите Packer:
     1. Скачайте дистрибутив Packer и установите его по [инструкции на официальном сайте](https://www.packer.io/intro/getting-started/install.html#precompiled-binaries).
 
-        Также вы можете скачать дистрибутив Packer для вашей платформы из [зеркала Yandex Cloud](https://hashicorp-releases.yandexcloud.net/packer/).
+        Также вы можете скачать дистрибутив Packer для вашей платформы из [зеркала {{ yandex-cloud }}](https://hashicorp-releases.yandexcloud.net/packer/).
 
     1. После загрузки добавьте путь к папке, в которой находится исполняемый файл, в переменную `PATH`. Для этого выполните команду: 
 
@@ -60,7 +60,7 @@ Yandex Compute Cloud можно использовать для создания
 
         {% note info %}
 
-        Для работы с Yandex Cloud требуется Packer версии не ниже 1.5.
+        Для работы с {{ yandex-cloud }} требуется Packer версии не ниже 1.5.
 
         {% endnote %}
 
@@ -73,7 +73,7 @@ Yandex Compute Cloud можно использовать для создания
           required_plugins {
             yandex = {
               version = ">= 1.1.2"
-              source  = "github.com/hashicorp/yandex"
+              source  = "{{ packer-source-link }}"
             }
           }
         }
@@ -91,7 +91,7 @@ Yandex Compute Cloud можно использовать для создания
         Installed plugin github.com/hashicorp/yandex v1.1.2 in ...
         ```
 
-1. [Установите](../../cli/quickstart.md#install) Yandex Cloud CLI и [создайте](../../cli/quickstart.md#initialize) профиль.
+1. [Установите](../../cli/quickstart.md#install) {{ yandex-cloud }} CLI и [создайте](../../cli/quickstart.md#initialize) профиль.
 1. Получите информацию о доступных подсетях и зонах доступности. Если у вас нет подсетей — [создайте](../../vpc/operations/subnet-create.md) новую.
 
     {% list tabs group=instructions %}
@@ -110,9 +110,9 @@ Yandex Compute Cloud можно использовать для создания
         +----------------------+----------------------+----------------------+----------------+---------------+-----------------+
         |          ID          |         NAME         |      NETWORK ID      | ROUTE TABLE ID |     ZONE      |      RANGE      |
         +----------------------+----------------------+----------------------+----------------+---------------+-----------------+
-        | b0c29k6anelk******** | intro2-ru-central1-d | enp45glgitd6******** |                | ru-central1-d | [10.130.0.0/24] |
-        | e2ltcj4urgpb******** | intro2-ru-central1-b | enp45glgitd6******** |                | ru-central1-b | [10.129.0.0/24] |
-        | e9bn57jvjnbu******** | intro2-ru-central1-a | enp45glgitd6******** |                | ru-central1-a | [10.128.0.0/24] |
+        | b0c29k6anelk******** | intro2-{{ region-id }}-d | enp45glgitd6******** |                | {{ region-id }}-d | [10.130.0.0/24] |
+        | e2ltcj4urgpb******** | intro2-{{ region-id }}-b | enp45glgitd6******** |                | {{ region-id }}-b | [10.129.0.0/24] |
+        | e9bn57jvjnbu******** | intro2-{{ region-id }}-a | enp45glgitd6******** |                | {{ region-id }}-a | [10.128.0.0/24] |
         +----------------------+----------------------+----------------------+----------------+---------------+-----------------+
         ```
 
@@ -148,7 +148,7 @@ Yandex Compute Cloud можно использовать для создания
 
     
     ```hcl
-    # Yandex Cloud Toolbox VM Image based on Ubuntu 20.04 LTS
+    # {{ yandex-cloud }} Toolbox VM Image based on Ubuntu 20.04 LTS
     #
     # Provisioner docs:
     # https://www.packer.io/docs/builders/yandex
@@ -204,7 +204,7 @@ Yandex Compute Cloud можно использовать для создания
       source_image_family = "ubuntu-2004-lts"
       ssh_username        = "ubuntu"
       use_ipv4_nat        = "true"
-      image_description   = "Yandex Cloud Ubuntu Toolbox image"
+      image_description   = "{{ yandex-cloud }} Ubuntu Toolbox image"
       image_family        = "my-images"
       image_name          = "yc-toolbox"
       subnet_id           = "${var.YC_SUBNET_ID}"
@@ -222,8 +222,8 @@ Yandex Compute Cloud можно использовать для создания
           "echo 'debconf debconf/frontend select Noninteractive' | sudo debconf-set-selections",
           "sudo apt-get install -y unzip python3-pip python3.8-venv",
 
-          # Yandex Cloud CLI tool
-          "curl --silent --remote-name https://storage.yandexcloud.net/yandexcloud-yc/install.sh",
+          # {{ yandex-cloud }} CLI tool
+          "curl --silent --remote-name https://{{ s3-storage-host-cli }}{{ yc-install-path }}",
           "chmod u+x install.sh",
           "sudo ./install.sh -a -i /usr/local/ 2>/dev/null",
           "rm -rf install.sh",
@@ -250,7 +250,7 @@ Yandex Compute Cloud можно использовать для создания
           #"sudo apt-get install -y terraform",
           #
           # Alternative Option
-          "curl --silent --location https://hashicorp-releases.yandexcloud.net/terraform/${var.TF_VER}/terraform_${var.TF_VER}_linux_amd64.zip --output terraform.zip",
+          "curl --silent --location {{ terraform-mirror }}${var.TF_VER}/terraform_${var.TF_VER}_linux_amd64.zip --output terraform.zip",
           "unzip terraform.zip",
           "sudo install -o root -g root -m 0755 terraform /usr/local/bin/terraform",
           "rm -rf terraform terraform.zip",
@@ -357,7 +357,7 @@ Yandex Compute Cloud можно использовать для создания
 
     Запишите идентификатор собранного образа — параметр `id`. Используйте этот идентификатор в дальнейшем, чтобы создать ВМ.
 
-1. Проверьте наличие собранного образа в Yandex Cloud.
+1. Проверьте наличие собранного образа в {{ yandex-cloud }}.
 
     {% list tabs group=instructions %}
 

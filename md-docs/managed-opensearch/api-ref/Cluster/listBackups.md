@@ -5,7 +5,7 @@ Returns a list of available backups for the specified OpenSearch cluster.
 ## HTTP request
 
 ```
-GET https://mdb.api.cloud.yandex.net/managed-opensearch/v1/clusters/{clusterId}/backups
+GET https://{{ api-host-mdb }}/managed-opensearch/v1/clusters/{clusterId}/backups
 ```
 
 ## Path parameters
@@ -15,7 +15,6 @@ GET https://mdb.api.cloud.yandex.net/managed-opensearch/v1/clusters/{clusterId}/
 || clusterId | **string**
 
 Required field. ID of the OpenSearch cluster.
-
 To get the ID, use a [ClusterService.List](list.md#List) request.
 
 The maximum string length in characters is 50. ||
@@ -76,10 +75,8 @@ List of the OpenSearch cluster backups. ||
 || nextPageToken | **string**
 
 This token allows you to get the next page of results for list requests.
-
 If the number of results is larger than [ListClustersRequest.pageSize](list.md#yandex.cloud.mdb.opensearch.v1.ListClustersRequest), use the `nextPageToken` as the value
 for the [ListClustersRequest.pageToken](list.md#yandex.cloud.mdb.opensearch.v1.ListClustersRequest) parameter in the next list request.
-
 Each subsequent list request has its own `nextPageToken` to continue paging through the results. ||
 |#
 

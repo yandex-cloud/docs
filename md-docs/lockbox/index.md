@@ -28,9 +28,9 @@ Yandex Lockbox — сервис для хранения секретов.
 
 ### Serverless
 
- - [Передать секрет в Yandex Serverless Containers](operations/serverless/containers.md)
+ - [Передать секрет в {{ serverless-containers-full-name }}](operations/serverless/containers.md)
 
- - [Передать секрет в Yandex Cloud Functions](operations/serverless/functions.md)
+ - [Передать секрет в {{ sf-full-name }}](operations/serverless/functions.md)
 
  - [Посмотреть операции с секретом](operations/operation-logs.md)
 
@@ -40,7 +40,7 @@ Yandex Lockbox — сервис для хранения секретов.
 
  - [Секрет](concepts/secret.md)
 
- - [Интеграция с сервисами Yandex Cloud](concepts/services.md)
+ - [Интеграция с сервисами {{ yandex-cloud }}](concepts/services.md)
 
 ## Практические руководства
 
@@ -48,27 +48,27 @@ Yandex Lockbox — сервис для хранения секретов.
 
  - [Синхронизация с секретами Managed Service for Kubernetes](tutorials/kubernetes-lockbox-secrets.md)
 
- - [Хранение подключений и переменных Apache Airflow™ в Yandex Lockbox](tutorials/lockbox-and-airflow.md)
+ - [Хранение подключений и переменных {{ AF }} в {{ lockbox-full-name }}](tutorials/lockbox-and-airflow.md)
 
- - [Построение пайплайна CI/CD в GitLab с использованием serverless-продуктов](tutorials/ci-cd-serverless.md)
+ - [Построение пайплайна CI/CD в {{ GL }} с использованием serverless-продуктов](tutorials/ci-cd-serverless.md)
 
- - [Безопасное хранение паролей для GitLab CI в виде секретов Yandex Lockbox](tutorials/gitlab-lockbox-integration.md)
+ - [Безопасное хранение паролей для {{ GL }} CI в виде секретов {{ lockbox-name }}](tutorials/gitlab-lockbox-integration.md)
 
-### Хранение статического ключа доступа в секрете Yandex Lockbox
+### Хранение статического ключа доступа в секрете {{ lockbox-name }}
 
  - [Обзор](tutorials/static-key-in-lockbox/index.md)
 
  - [CLI](tutorials/static-key-in-lockbox/console.md)
 
- - [Terraform](tutorials/static-key-in-lockbox/terraform.md)
+ - [{{ TF }}](tutorials/static-key-in-lockbox/terraform.md)
 
- - [Загрузка данных из Яндекс Директ в витрину Yandex Managed Service for ClickHouse® с использованием Yandex Cloud Functions, Yandex Object Storage и Yandex Data Transfer](tutorials/data-transfer-direct-to-mch.md)
+ - [Загрузка данных из {{ yandex-direct }} в витрину {{ mch-full-name }} с использованием {{ sf-full-name }}, {{ objstorage-full-name }} и {{ data-transfer-full-name }}](tutorials/data-transfer-direct-to-mch.md)
 
  - [Развертывание отказоустойчивой архитектуры с прерываемыми ВМ](tutorials/nodejs-cron-restart-vm.md)
 
  - [Создание интерактивного serverless-приложения с использованием WebSocket](tutorials/websocket-app.md)
 
- - [Автоматическое копирование объектов из одного бакета Object Storage в другой](tutorials/bucket-to-bucket-copying.md)
+ - [Автоматическое копирование объектов из одного бакета {{ objstorage-name }} в другой](tutorials/bucket-to-bucket-copying.md)
 
 ### Безопасная передача пароля в скрипт инициализации
 
@@ -76,9 +76,9 @@ Yandex Lockbox — сервис для хранения секретов.
 
  - [Консоль управления, CLI, API](tutorials/secure-password-script/console.md)
 
- - [Terraform](tutorials/secure-password-script/terraform.md)
+ - [{{ TF }}](tutorials/secure-password-script/terraform.md)
 
- - [Использование секрета в PySpark-задании для подключения к Yandex Managed Service for PostgreSQL](tutorials/job-pyspark-secret-access.md)
+ - [Использование секрета в PySpark-задании для подключения к {{ mpg-full-name }}](tutorials/job-pyspark-secret-access.md)
 
  - [Квоты и лимиты](concepts/limits.md)
 
@@ -178,7 +178,7 @@ Yandex Lockbox — сервис для хранения секретов.
 
  - [update](cli-ref/v0/secret/update.md)
 
- - [Справочник Terraform](tf-ref.md)
+ - [Справочник {{ TF }}](tf-ref.md)
 
 ## Справочник API
 
@@ -292,9 +292,9 @@ Yandex Lockbox — сервис для хранения секретов.
 
  - [UpdateAccessBindings](api-ref/Secret/updateAccessBindings.md)
 
- - [Метрики Monitoring](metrics.md)
+ - [Метрики {{ monitoring-name }}](metrics.md)
 
- - [Аудитные логи Audit Trails](at-ref.md)
+ - [Аудитные логи {{ at-name }}](at-ref.md)
 
  - [История изменений](release-notes.md)
 

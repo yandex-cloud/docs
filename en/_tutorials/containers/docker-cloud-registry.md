@@ -3,7 +3,7 @@ In this tutorial, you will deploy a [Docker image](../../cloud-registry/concepts
 To run a Docker image on a VM:
 
 1. [Get your cloud ready](#before-you-begin).
-1. [Create a {{ cloud-registry-name }}](#create-registry).
+1. [Create a registry in {{ cloud-registry-name }}](#create-registry).
 1. [Create a service account](#create-sa).
 1. [Create an authorized key for the service account](#create-authorized-key).
 1. [Create a cloud network with a subnet](#create-network).
@@ -47,7 +47,7 @@ Create a registry for storing Docker images.
 - Management console {#console}
 
   1. In the [management console]({{ link-console-main }}), select the [folder](../../resource-manager/concepts/resources-hierarchy.md#folder) you want to create a registry in.
-  1. [Go](../../console/operations/select-service.md#select-service) to **{{ ui-key.yacloud.iam.folder.dashboard.label_cloud-registry }}**.
+  1. [Navigate](../../console/operations/select-service.md#select-service) to **{{ ui-key.yacloud.iam.folder.dashboard.label_cloud-registry }}**.
   1. Click **{{ ui-key.yacloud.cloud-registry.action_registry-create }}**.
   1. Select ![image](../../_assets/console-icons/logo-docker.svg) **{{ ui-key.yacloud.cloud-registry.registries.registry-kind_docker }}** for the format.
   1. Set the registry type to **Local**.
@@ -108,12 +108,12 @@ Create a [service account](../../iam/concepts/users/service-accounts.md) you wil
 
 - Management console {#console}
 
-  1. [Go](../../console/operations/select-service.md#select-service) to **{{ ui-key.yacloud.iam.folder.dashboard.label_iam }}**.
-  1. At the top of the screen, navigate to the **Service accounts** tab.
+  1. In the [management console]({{ link-console-main }}), select the folder.
+  1. [Navigate](../../console/operations/select-service.md#select-service) to **{{ ui-key.yacloud.iam.folder.dashboard.label_iam }}**.
   1. Click **{{ ui-key.yacloud.iam.folder.service-accounts.button_add }}**.
-  1. Enter a name for the service account: `docker-puller`.
+  1. Name the [service account](../../iam/concepts/users/service-accounts.md): `docker-puller`.
   1. Click **{{ ui-key.yacloud.iam.folder.service-account.popup-robot_button_add }}**.
-  1. [Go](../../console/operations/select-service.md#select-service) to **{{ ui-key.yacloud.iam.folder.dashboard.label_cloud-registry }}**.
+  1. [Navigate](../../console/operations/select-service.md#select-service) to **{{ ui-key.yacloud.iam.folder.dashboard.label_cloud-registry }}**.
   1. Select the previously created registry.
   1. Navigate to the ![image](../../_assets/console-icons/persons.svg) **{{ ui-key.yacloud.common.resource-acl.label_access-bindings }}** tab.
   1. Click **{{ ui-key.yacloud_components.acl.action.assign-roles }}**.
@@ -169,7 +169,7 @@ Create an [authorized key](../../iam/concepts/authorization/key.md) for the `doc
 
 - Management console {#console}
 
-  1. [Go](../../console/operations/select-service.md#select-service) to **{{ ui-key.yacloud.iam.folder.dashboard.label_iam }}**.
+  1. [Navigate](../../console/operations/select-service.md#select-service) to **{{ ui-key.yacloud.iam.folder.dashboard.label_iam }}**.
   1. In the list that opens, select `docker-puller`.
   1. In the top panel, click ![plus](../../_assets/console-icons/plus.svg) **{{ ui-key.yacloud.iam.folder.service-account.overview.button_create-key-popup }}** and select `{{ ui-key.yacloud.iam.folder.service-account.overview.button_create_key }}`.
   1. Click **{{ ui-key.yacloud.iam.folder.service-account.overview.popup-key_button_create }}**.
@@ -213,7 +213,7 @@ Create a [cloud network](../../vpc/concepts/network.md) with a [subnet](../../vp
 
 - Management console {#console}
 
-  1. [Go](../../console/operations/select-service.md#select-service) to **{{ ui-key.yacloud.iam.folder.dashboard.label_vpc }}**.
+  1. [Navigate](../../console/operations/select-service.md#select-service) to **{{ ui-key.yacloud.iam.folder.dashboard.label_vpc }}**.
   1. Click **{{ ui-key.yacloud.vpc.networks.button_create }}**.
   1. In the **{{ ui-key.yacloud.vpc.networks.create.field_name }}** field, specify `docker-ycr-network`.
   1. In the **{{ ui-key.yacloud.vpc.networks.create.field_advanced }}** field, disable **{{ ui-key.yacloud.vpc.networks.create.field_is-default }}**.
@@ -285,10 +285,10 @@ Create a VM with a public IP address and associate it with the service account y
 
 - Management console {#console}
 
-  1. [Go](../../console/operations/select-service.md#select-service) to **{{ ui-key.yacloud.iam.folder.dashboard.label_compute }}**.
+  1. [Navigate](../../console/operations/select-service.md#select-service) to **{{ ui-key.yacloud.iam.folder.dashboard.label_compute }}**.
   1. Click **{{ ui-key.yacloud.compute.instances.button_create }}**.
   1. Under **{{ ui-key.yacloud.compute.instances.create.section_image }}**, select an image and a Linux-based OS version.
-  1. Under **{{ ui-key.yacloud.k8s.node-groups.create.section_allocation-policy }}**, select an [availability zone](../../overview/concepts/geo-scope.md) for your VM.
+  1. Under **{{ ui-key.yacloud.k8s.node-groups.create.section_allocation-policy }}**, select an [availability zone](../../overview/concepts/geo-scope.md) where your VM will reside.
   1. Under **{{ ui-key.yacloud.compute.instances.create.section_network }}**:
       * In the **{{ ui-key.yacloud.component.compute.network-select.field_subnetwork }}** field, select the previously created network and subnet.
       * In the **{{ ui-key.yacloud.component.compute.network-select.field_external }}** field, leave the **{{ ui-key.yacloud.component.compute.network-select.switch_auto }}** value to assign a random external IP address from the {{ yandex-cloud }} pool.

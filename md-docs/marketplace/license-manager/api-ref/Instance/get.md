@@ -7,7 +7,7 @@ To get the list of all available subscription instances, make a [List](list.md#L
 ## HTTP request
 
 ```
-GET https://marketplace.api.cloud.yandex.net/marketplace/license-manager/v1/instances/{instanceId}
+GET https://marketplace.{{ api-host }}/marketplace/license-manager/v1/instances/{instanceId}
 ```
 
 ## Path parameters

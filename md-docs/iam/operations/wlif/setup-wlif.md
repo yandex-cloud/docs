@@ -1,8 +1,8 @@
 # Настройка федерации сервисных аккаунтов
 
-[Федерации сервисных аккаунтов](../../concepts/workload-identity.md) (Workload Identity Federation) позволяют настроить связь между внешними системами и Yandex Cloud по протоколу [OpenID Connect](https://openid.net/developers/how-connect-works/) (OIDC). За счет этого внешние системы могут выполнять действия с ресурсами Yandex Cloud от имени [сервисных аккаунтов](../../concepts/users/service-accounts.md) IAM без использования [авторизованных ключей](../../concepts/authorization/key.md). Это более безопасный способ, минимизирующий риск утечки учетных данных и возможность несанкционированного доступа.
+[Федерации сервисных аккаунтов](../../concepts/workload-identity.md) (Workload Identity Federation) позволяют настроить связь между внешними системами и {{ yandex-cloud }} по протоколу [OpenID Connect](https://openid.net/developers/how-connect-works/) (OIDC). За счет этого внешние системы могут выполнять действия с ресурсами {{ yandex-cloud }} от имени [сервисных аккаунтов](../../concepts/users/service-accounts.md) {{ iam-short-name }} без использования [авторизованных ключей](../../concepts/authorization/key.md). Это более безопасный способ, минимизирующий риск утечки учетных данных и возможность несанкционированного доступа.
 
-Чтобы настроить аутентификацию в API Yandex Cloud через федерацию сервисных аккаунтов:
+Чтобы настроить аутентификацию в API {{ yandex-cloud }} через федерацию сервисных аккаунтов:
 
 1. [Подготовьте облако к работе](#prepare-cloud).
 1. [Создайте федерацию сервисных аккаунтов](#create-wlif).
@@ -12,18 +12,18 @@
 Примеры настройки аутентификации для отдельных OIDC-провайдеров приведены в практических руководствах:
 
 * [GitHub](../../tutorials/wlif-github-integration.md).
-* [GitLab](../../tutorials/wlif-gitlab-integration.md).
-* [Пользовательская инсталляция Kubernetes](../../tutorials/wlif-k8s-integration.md).
-* [Managed Service for Kubernetes](../../tutorials/wlif-managed-k8s-integration.md).
-* [Настройка CI/CD между Cloud Functions и GitHub](../../tutorials/ci-cd-github-functions.md).
+* [{{ GL }}](../../tutorials/wlif-gitlab-integration.md).
+* [Пользовательская инсталляция {{ k8s }}](../../tutorials/wlif-k8s-integration.md).
+* [{{ managed-k8s-name }}](../../tutorials/wlif-managed-k8s-integration.md).
+* [Настройка CI/CD между {{ sf-name }} и GitHub](../../tutorials/ci-cd-github-functions.md).
 
 ## Подготовьте облако к работе {#prepare-cloud}
 
-Зарегистрируйтесь в Yandex Cloud и создайте [платежный аккаунт](../../../billing/concepts/billing-account.md):
-1. Перейдите в [консоль управления](https://console.yandex.cloud), затем войдите в Yandex Cloud или зарегистрируйтесь.
-1. На странице **[Yandex Cloud Billing](https://center.yandex.cloud/billing/accounts)** убедитесь, что у вас подключен платежный аккаунт, и он находится в [статусе](../../../billing/concepts/billing-account-statuses.md) `ACTIVE` или `TRIAL_ACTIVE`. Если платежного аккаунта нет, [создайте его](../../../billing/quickstart/index.md) и [привяжите](../../../billing/operations/pin-cloud.md) к нему облако.
+Зарегистрируйтесь в {{ yandex-cloud }} и создайте [платежный аккаунт](../../../billing/concepts/billing-account.md):
+1. Перейдите в [консоль управления]({{ link-console-main }}), затем войдите в {{ yandex-cloud }} или зарегистрируйтесь.
+1. На странице **[{{ ui-key.yacloud_billing.billing.label_service }}]({{ link-console-billing }})** убедитесь, что у вас подключен платежный аккаунт, и он находится в [статусе](../../../billing/concepts/billing-account-statuses.md) `ACTIVE` или `TRIAL_ACTIVE`. Если платежного аккаунта нет, [создайте его](../../../billing/quickstart/index.md) и [привяжите](../../../billing/operations/pin-cloud.md) к нему облако.
 
-Если у вас есть активный платежный аккаунт, вы можете создать или выбрать [каталог](../../../resource-manager/concepts/resources-hierarchy.md#folder), в котором будет работать ваша инфраструктура, на [странице облака](https://console.yandex.cloud/cloud).
+Если у вас есть активный платежный аккаунт, вы можете создать или выбрать [каталог](../../../resource-manager/concepts/resources-hierarchy.md#folder), в котором будет работать ваша инфраструктура, на [странице облака]({{ link-console-cloud }}).
 
 [Подробнее об облаках и каталогах](../../../resource-manager/concepts/resources-hierarchy.md).
 
@@ -41,27 +41,27 @@
 
 - Консоль управления {#console}
 
-  1. В [консоли управления](https://console.yandex.cloud) на панели сверху нажмите ![image](../../../_assets/console-icons/layout-side-content-left.svg) или ![image](../../../_assets/console-icons/chevron-down.svg) и выберите каталог, в котором вы хотите создать федерацию сервисных аккаунтов.
-  1. В списке сервисов выберите **Identity and Access Management**.
-  1. На панели слева выберите ![cpus](../../../_assets/console-icons/cpus.svg) **Федерации сервисных аккаунтов**.
-  1. Нажмите **Создать федерацию** и в открывшейся форме:
-      1. В поле **Значение Issuer (iss)** введите URL OIDC-провайдера.
+  1. В [консоли управления]({{ link-console-main }}) на панели сверху нажмите ![image](../../../_assets/console-icons/layout-side-content-left.svg) или ![image](../../../_assets/console-icons/chevron-down.svg) и выберите каталог, в котором вы хотите создать федерацию сервисных аккаунтов.
+  1. В списке сервисов выберите **{{ ui-key.yacloud.iam.folder.dashboard.label_iam }}**.
+  1. На панели слева выберите ![cpus](../../../_assets/console-icons/cpus.svg) **{{ ui-key.yacloud.iam.label_federations }}**.
+  1. Нажмите **{{ ui-key.yacloud.iam.label_create-wli-federation }}** и в открывшейся форме:
+      1. В поле **{{ ui-key.yacloud.iam.federations.field_issuer }}** введите URL OIDC-провайдера.
 
           Чтобы узнать это значение, обратитесь к документации или в службу технической поддержки используемого OIDC-провайдера.
-      1. В поле **Допустимые значения Audience (aud)** введите ресурс, для которого будет предназначен получаемый токен.
+      1. В поле **{{ ui-key.yacloud.iam.federations.field_audiences }}** введите ресурс, для которого будет предназначен получаемый токен.
 
           Чтобы узнать это значение, обратитесь к документации или в службу технической поддержки используемого OIDC-провайдера.
 
           Вы можете задать одновременно несколько ресурсов-получателей IAM-токена.
-      1. В поле **Адрес JWKS** введите URL, по которому можно получить актуальный открытый ключ, выпущенный OIDC-провайдером и используемый для проверки подписи [JWT](https://ru.wikipedia.org/wiki/JSON_Web_Token).
+      1. В поле **{{ ui-key.yacloud.iam.federations.field_jwks }}** введите URL, по которому можно получить актуальный открытый ключ, выпущенный OIDC-провайдером и используемый для проверки подписи [JWT](https://ru.wikipedia.org/wiki/JSON_Web_Token).
 
           Чтобы узнать это значение, обратитесь к документации или в службу технической поддержки используемого OIDC-провайдера.
-      1. В поле **Имя** введите имя создаваемой федерации, например `sample-iam-federation`.
-      1. Нажмите кнопку **Создать**.
+      1. В поле **{{ ui-key.yacloud.iam.federations.field_name }}** введите имя создаваемой федерации, например `sample-iam-federation`.
+      1. Нажмите кнопку **{{ ui-key.yacloud_billing.iam.cloud.create.popup-create-cloud_button_add }}**.
 
 - CLI {#cli}
 
-  Если у вас еще нет интерфейса командной строки Yandex Cloud (CLI), [установите и инициализируйте его](../../../cli/quickstart.md#install).
+  Если у вас еще нет интерфейса командной строки {{ yandex-cloud }} (CLI), [установите и инициализируйте его](../../../cli/quickstart.md#install).
 
   По умолчанию используется каталог, указанный при [создании](../../../cli/operations/profile/profile-create.md) профиля CLI. Чтобы изменить каталог по умолчанию, используйте команду `yc config set folder-id <идентификатор_каталога>`. Также для любой команды вы можете указать другой каталог с помощью параметров `--folder-name` или `--folder-id`. Если вы обращаетесь к ресурсу по имени, поиск будет выполнен в каталоге по умолчанию. Если вы обращаетесь к ресурсу по идентификатору, поиск будет выполнен глобально — во всех каталогах с учетом прав доступа.
 
@@ -117,17 +117,20 @@
 
       Подробнее о команде `yc iam workload-identity oidc federation create` см. в [справочнике CLI](../../../cli/cli-ref/iam/cli-ref/workload-identity/oidc/federation/create.md).
 
-- Terraform {#tf}
+- {{ TF }} {#tf}
 
-  [Terraform](https://www.terraform.io/) позволяет быстро создать облачную инфраструктуру в Yandex Cloud и управлять ею с помощью файлов конфигураций. В файлах конфигураций хранится описание инфраструктуры на языке HCL (HashiCorp Configuration Language). При изменении файлов конфигураций Terraform автоматически определяет, какая часть вашей конфигурации уже развернута, что следует добавить или удалить.
+  [{{ TF }}](https://www.terraform.io/) позволяет быстро создать облачную инфраструктуру в {{ yandex-cloud }} и управлять ею с помощью файлов конфигураций. В файлах конфигураций хранится описание инфраструктуры на языке HCL (HashiCorp Configuration Language). При изменении файлов конфигураций {{ TF }} автоматически определяет, какая часть вашей конфигурации уже развернута, что следует добавить или удалить.
   
-  Terraform распространяется под лицензией [Business Source License](https://github.com/hashicorp/terraform/blob/main/LICENSE), а [провайдер Yandex Cloud для Terraform](https://github.com/yandex-cloud/terraform-provider-yandex) — под лицензией [MPL-2.0](https://www.mozilla.org/en-US/MPL/2.0/).
+  {{ TF }} распространяется под лицензией [Business Source License](https://github.com/hashicorp/terraform/blob/main/LICENSE), а [провайдер {{ yandex-cloud }} для {{ TF }}](https://github.com/yandex-cloud/terraform-provider-yandex) — под лицензией [MPL-2.0](https://www.mozilla.org/en-US/MPL/2.0/).
   
-  Подробную информацию о ресурсах провайдера смотрите в документации на сайте [Terraform](https://www.terraform.io/docs/providers/yandex/index.html) или в [зеркале](../../../terraform/index.md).
+  Подробную информацию о ресурсах провайдера смотрите в документации на сайте [{{ TF }}](https://www.terraform.io/docs/providers/yandex/index.html) или в [зеркале]({{ tf-docs-link }}).
 
-  Если у вас еще нет Terraform, [установите его и настройте провайдер Yandex Cloud](../../../tutorials/infrastructure-management/terraform-quickstart.md#install-terraform).
+  Если у вас еще нет {{ TF }}, [установите его и настройте провайдер {{ yandex-cloud }}](../../../tutorials/infrastructure-management/terraform-quickstart.md#install-terraform).
+  
+  
+  Чтобы управлять инфраструктурой с помощью {{ TF }} от имени сервисного аккаунта или пользовательских аккаунтов: аккаунта на Яндексе, федеративного аккаунта и локального пользователя, [аутентифицируйтесь](../../../terraform/authentication.md) соответствующим способом.
 
-  1. Опишите в конфигурационном файле Terraform параметры федерации, которую необходимо создать:
+  1. Опишите в конфигурационном файле {{ TF }} параметры федерации, которую необходимо создать:
 
       ```hcl
       resource "yandex_iam_workload_identity_oidc_federation" "wlif" {
@@ -157,7 +160,7 @@
 
           Чтобы узнать это значение, обратитесь к документации или в службу технической поддержки используемого OIDC-провайдера.
 
-      Более подробную информацию о параметрах ресурса `yandex_iam_workload_identity_oidc_federation` в Terraform, см. в [документации провайдера](../../../terraform/resources/iam_workload_identity_oidc_federation.md).
+      Более подробную информацию о параметрах ресурса `yandex_iam_workload_identity_oidc_federation` в {{ TF }}, см. в [документации провайдера]({{ tf-provider-resources-link }}/iam_workload_identity_oidc_federation).
 
   1. Создайте ресурсы:
 
@@ -180,7 +183,7 @@
         terraform plan
         ```
      
-        В терминале будет выведен список ресурсов с параметрами. На этом этапе изменения не будут внесены. Если в конфигурации есть ошибки, Terraform на них укажет.
+        В терминале будет выведен список ресурсов с параметрами. На этом этапе изменения не будут внесены. Если в конфигурации есть ошибки, {{ TF }} на них укажет.
      1. Примените изменения конфигурации:
      
         ```bash
@@ -189,7 +192,7 @@
      
      1. Подтвердите изменения: введите в терминале слово `yes` и нажмите **Enter**.
 
-     Terraform создаст федерацию сервисных аккаунтов. Убедиться в создании федерации можно в [консоли управления](https://console.yandex.cloud) или с помощью команды CLI:
+     {{ TF }} создаст федерацию сервисных аккаунтов. Убедиться в создании федерации можно в [консоли управления]({{ link-console-main }}) или с помощью команды CLI:
 
      ```bash
      yc iam workload-identity oidc federation list
@@ -209,7 +212,7 @@
 
 {% endnote %}
 
-Привязка — это связь, настроенная между федерацией сервисных аккаунтов, одним сервисным аккаунтом Yandex Cloud и одним внешним субъектом. Привязки необходимы для идентификации внешних субъектов в Yandex Identity and Access Management.
+Привязка — это связь, настроенная между федерацией сервисных аккаунтов, одним сервисным аккаунтом {{ yandex-cloud }} и одним внешним субъектом. Привязки необходимы для идентификации внешних субъектов в {{ iam-full-name }}.
 
 {% note info %}
 
@@ -223,18 +226,17 @@
 
 - Консоль управления {#console}
 
-  1. В [консоли управления](https://console.yandex.cloud) на панели сверху нажмите ![image](../../../_assets/console-icons/layout-side-content-left.svg) или ![image](../../../_assets/console-icons/chevron-down.svg) и выберите каталог, в котором находится сервисный аккаунт.
+  1. В [консоли управления]({{ link-console-main }}) на панели сверху нажмите ![image](../../../_assets/console-icons/layout-side-content-left.svg) или ![image](../../../_assets/console-icons/chevron-down.svg) и выберите каталог, в котором находится сервисный аккаунт.
   
       При необходимости [создайте](../sa/create.md) новый сервисный аккаунт.
-  1. В списке сервисов выберите **Identity and Access Management**.
+  1. В списке сервисов выберите **{{ ui-key.yacloud.iam.folder.dashboard.label_iam }}**.
   1. В списке выберите нужный сервисный аккаунт.
-  1. Перейдите на вкладку **Федерации сервисных аккаунтов**.
-  1. Нажмите кнопку **Привязать к федерации**.
-  1. В поле **Федерация сервисных аккаунтов** выберите ранее созданную федерацию.
-  1. В поле **Значение Subject (sub)** укажите идентификатор внешнего субъекта.
+  1. На верхней панели нажмите ![image](../../../_assets/console-icons/cpus.svg) **{{ ui-key.yacloud.iam.folder.service-account.overview.action_connect-federation }}**.
+  1. В поле **{{ ui-key.yacloud.iam.connected-federation.field_federation }}** выберите ранее созданную федерацию.
+  1. В поле **{{ ui-key.yacloud.iam.connected-federation.field_subject }}** укажите идентификатор внешнего субъекта.
 
       Чтобы узнать это значение, обратитесь к документации или в службу технической поддержки используемого OIDC-провайдера.
-  1. Нажмите кнопку **Привязать**.
+  1. Нажмите кнопку **{{ ui-key.yacloud.iam.connected-federation.action_connect }}**.
 
 - CLI {#cli}
 
@@ -255,7 +257,7 @@
 
       Где:
 
-      * `--service-account-id` — [идентификатор](../sa/get-id.md) сервисного аккаунта Yandex Cloud.
+      * `--service-account-id` — [идентификатор](../sa/get-id.md) сервисного аккаунта {{ yandex-cloud }}.
 
           Сервисный аккаунт может быть расположен в каталоге, отличном от каталога федерации сервисных аккаунтов.
       * `--federation-id` — идентификатор федерации сервисных аккаунтов, полученный на предыдущем шаге.
@@ -275,9 +277,9 @@
             
       Подробнее о команде `yc iam workload-identity federated-credential create` см. в [справочнике CLI](../../../cli/cli-ref/iam/cli-ref/workload-identity/federated-credential/create.md).
 
-- Terraform {#tf}
+- {{ TF }} {#tf}
 
-  1. Опишите в конфигурационном файле Terraform параметры привязки, которую необходимо создать:
+  1. Опишите в конфигурационном файле {{ TF }} параметры привязки, которую необходимо создать:
 
       ```hcl
       resource "yandex_iam_workload_identity_federated_credential" "fc" {
@@ -289,7 +291,7 @@
 
       Где:
 
-      * `service_account_id` — [идентификатор](../sa/get-id.md) сервисного аккаунта Yandex Cloud.
+      * `service_account_id` — [идентификатор](../sa/get-id.md) сервисного аккаунта {{ yandex-cloud }}.
 
           Сервисный аккаунт может быть расположен в каталоге, отличном от каталога федерации сервисных аккаунтов.
       * `federation_id` — идентификатор федерации сервисных аккаунтов.
@@ -297,7 +299,7 @@
 
           Чтобы узнать это значение, обратитесь к документации или в службу технической поддержки используемого OIDC-провайдера.
 
-      Более подробную информацию о параметрах ресурса `yandex_iam_workload_identity_federated_credential` в Terraform, см. в [документации провайдера](../../../terraform/resources/iam_workload_identity_federated_credential.md).
+      Более подробную информацию о параметрах ресурса `yandex_iam_workload_identity_federated_credential` в {{ TF }}, см. в [документации провайдера]({{ tf-provider-resources-link }}/iam_workload_identity_federated_credential).
 
   1. Создайте ресурсы:
 
@@ -320,7 +322,7 @@
         terraform plan
         ```
      
-        В терминале будет выведен список ресурсов с параметрами. На этом этапе изменения не будут внесены. Если в конфигурации есть ошибки, Terraform на них укажет.
+        В терминале будет выведен список ресурсов с параметрами. На этом этапе изменения не будут внесены. Если в конфигурации есть ошибки, {{ TF }} на них укажет.
      1. Примените изменения конфигурации:
      
         ```bash
@@ -329,7 +331,7 @@
      
      1. Подтвердите изменения: введите в терминале слово `yes` и нажмите **Enter**.
 
-     Terraform создаст указанную привязку. Убедиться в создании привязки для сервисного аккаунта можно в [консоли управления](https://console.yandex.cloud) или с помощью команды CLI:
+     {{ TF }} создаст указанную привязку. Убедиться в создании привязки для сервисного аккаунта можно в [консоли управления]({{ link-console-main }}) или с помощью команды CLI:
 
      ```bash
      yc iam workload-identity federated-credential list \
@@ -344,10 +346,10 @@
 
 ## Обменяйте JWT-токен на IAM-токен сервисного аккаунта {#exchange-jwt-for-iam}
 
-Отправьте запрос к сервису обмена токенов Yandex Cloud:
+Отправьте запрос к сервису обмена токенов {{ yandex-cloud }}:
 
 ```text
-POST https://auth.yandex.cloud/oauth/token HTTP/1.1
+POST https://{{ auth-main-host }}/oauth/token HTTP/1.1
      Content-Type: application/x-www-form-urlencoded
 
      grant_type=urn:ietf:params:oauth:grant-type:token-exchange&
@@ -361,7 +363,7 @@ POST https://auth.yandex.cloud/oauth/token HTTP/1.1
 
 * `grant_type` — тип запроса, имеет фиксированное значение `urn:ietf:params:oauth:grant-type:token-exchange`.
 * `requested_token_type` — тип запрашиваемого токена, имеет фиксированное значение `urn:ietf:params:oauth:token-type:access_token`.
-* `audience` — [идентификатор](../sa/get-id.md) сервисного аккаунта Yandex Cloud.
+* `audience` — [идентификатор](../sa/get-id.md) сервисного аккаунта {{ yandex-cloud }}.
 * `subject_token` — JWT-токен внешнего субъекта.
 * `subject_token_type` — тип токена внешнего субъекта, имеет фиксированное значение `urn:ietf:params:oauth:token-type:id_token`.
 
@@ -378,10 +380,10 @@ Content-Type: application/json
 }
 ```
 
-Где значение поля `access_token` — запрашиваемый IAM-токен сервисного аккаунта, который вы можете использовать для аутентификации при выполнении действий в [API Yandex Cloud](../../../api-design-guide/index.md).
+Где значение поля `access_token` — запрашиваемый IAM-токен сервисного аккаунта, который вы можете использовать для аутентификации при выполнении действий в [API {{ yandex-cloud }}](../../../api-design-guide/index.md).
 
 ## См. также {#see-also}
 
-* [Федерации сервисных аккаунтов](../../concepts/workload-identity.md).
-* [Получение значения секрета Yandex Lockbox на стороне GitHub](../../tutorials/wlif-github-integration.md).
-* [Получение значения секрета Yandex Lockbox на стороне GitLab](../../tutorials/wlif-gitlab-integration.md).
+* [{#T}](../../concepts/workload-identity.md).
+* [{#T}](../../tutorials/wlif-github-integration.md).
+* [{#T}](../../tutorials/wlif-gitlab-integration.md).

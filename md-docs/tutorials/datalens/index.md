@@ -2,25 +2,25 @@
 
 ## Аналитика {#analysis}
 
-* [Визуализация логов в Grafana с помощью плагина Yandex Cloud Logging](../serverless/grafana-logs-plugin.md)
-* [Поиск событий Yandex Cloud в Yandex Query](../analysis/search-events-query.md)
-* [Поиск событий Yandex Cloud в Object Storage](../analysis/search-events-bucket.md)
-* [Поиск событий Yandex Cloud в Cloud Logging](../analysis/search-events-logging.md)
+* [{#T}](../serverless/grafana-logs-plugin.md)
+* [{#T}](../analysis/search-events-query.md)
+* [{#T}](../analysis/search-events-bucket.md)
+* [{#T}](../analysis/search-events-logging.md)
 
-## Yandex DataLens {#datalens}
+## {{ datalens-full-name }} {#datalens}
 
 
-* Знакомство с DataLens
+* Знакомство с {{ datalens-short-name }}
 
   * [Простой дашборд из CSV-файла](data-from-csv-visualization.md)
   * [Публичный чарт с картой Москвы из CSV-файла](data-from-csv-to-public-visualization.md)
-  * [Дашборд сети магазинов из БД ClickHouse®](data-from-ch-visualization.md)
+  * [Дашборд сети магазинов из БД {{ CH }}](data-from-ch-visualization.md)
   
 * Работа с геоданными
 
   * [Анализ открытых данных ДТП на дорогах России](data-from-csv-geo-visualization.md)
-  * [Анализ продаж и локаций пиццерий на данных из БД ClickHouse® и Marketplace](data-from-ch-to-geolayers-visualization.md)
-  * [Геокодинг с помощью API Яндекс Карт для визуализации в DataLens](data-from-ch-geocoder.md)
+  * [Анализ продаж и локаций пиццерий на данных из БД {{ CH }} и Marketplace](data-from-ch-to-geolayers-visualization.md)
+  * [{#T}](data-from-ch-geocoder.md)
 
 * Аналитика сервисов
 
@@ -29,12 +29,12 @@
   * [AppMetrica: прямое подключение](data-from-appmetrica-visualization.md)
   * [AppMetrica: экспорт, постобработка и визуализация данных](data-from-appmetrica-yc-visualization.md)
   * [Битрикс24: прямое подключение](data-from-bitrix24-visualization.md)
-  * [Яндекс Трекер: экспорт и визуализация данных](data-from-tracker.md)
-  * [Анализ логов Object Storage](storage-logs-analysis.md)
+  * [{{ tracker-full-name }}: экспорт и визуализация данных](data-from-tracker.md)
+  * [Анализ логов {{ objstorage-name }}](storage-logs-analysis.md)
   * [Подкасты Яндекс Музыки: статистика](data-from-podcasts.md)
-  * [Визуализация данных Yandex Query](data-from-yandex-query-visualization.md)
-  * [Визуализация данных Yandex Monitoring](data-from-monitoring-visualization.md)
-  * [Визуализация данных из YTsaurus CHYT](data-from-ch-over-yt.md)
+  * [Визуализация данных {{ yq-full-name }}](data-from-yandex-query-visualization.md)
+  * [Визуализация данных {{ monitoring-full-name }}](data-from-monitoring-visualization.md)
+  * [Визуализация данных из {{ ytsaurus-name }} CHYT](data-from-ch-over-yt.md)
 
 * Функциональные
 
@@ -44,4 +44,4 @@
 
 
 
-_ClickHouse® является зарегистрированным товарным знаком [ClickHouse, Inc](https://clickhouse.com)._
+_{{ CH }} является зарегистрированным товарным знаком [ClickHouse, Inc](https://clickhouse.com)._

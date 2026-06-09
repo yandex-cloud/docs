@@ -2,4 +2,4 @@
 
 {% include [kraft-modes](kraft-modes.md) %}
 
-Подробнее о создании кластера {{ mkf-name }} с протоколом {{ kraft-short-name }} см. в [инструкции](../../../managed-kafka/operations/cluster-create.md#create-cluster-kraft).
+Подробнее о создании кластера {{ mkf-name }} с протоколом {{ kraft-short-name }} читайте в [инструкции](../../../managed-kafka/operations/cluster-create.md#create-cluster-kraft).

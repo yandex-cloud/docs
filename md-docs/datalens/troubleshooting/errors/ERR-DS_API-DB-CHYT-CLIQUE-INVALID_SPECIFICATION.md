@@ -1,4 +1,4 @@
-# [Yandex DataLens] Invalid clique specification. Probably, clique does not exists
+# [{{ datalens-full-name }}] Invalid clique specification. Probably, clique does not exists
 
 `ERR.DS_API.DB.CHYT.CLIQUE.INVALID_SPECIFICATION`
 

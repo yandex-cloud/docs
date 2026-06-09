@@ -1,6 +1,10 @@
 # Документация Yandex Cloud
 
- - [API Yandex Cloud](api-design-guide/index.md)
+# Документация {{ yandex-cloud }}
+
+ - Все разделы
+
+ - [API {{ yandex-cloud }}](api-design-guide/index.md)
 
  - [API Gateway](api-gateway/index.md)
 
@@ -18,7 +22,7 @@
 
  - [Certificate Manager](certificate-manager/index.md)
 
- - [CLI Yandex Cloud](cli/index.md)
+ - [CLI {{ yandex-cloud }}](cli/index.md)
 
  - [Cloud Apps](cloud-apps/index.md)
 
@@ -68,7 +72,7 @@
 
  - [Cloud Functions](functions/index.md)
 
- - [GOST Gateway](gost-gateway/index.md)
+ - [{{ gost-gateway-name }}](gost-gateway/index.md)
 
  - [Identity and Access Management](iam/index.md)
 
@@ -104,7 +108,7 @@
 
  - [Managed Service for Sharded PostgreSQL](managed-spqr/index.md)
 
- - [Yandex Managed Service for Valkey™](managed-valkey/index.md)
+ - [{{ mrd-full-name }}](managed-valkey/index.md)
 
  - [Managed Service for Trino](managed-trino/index.md)
 
@@ -130,15 +134,15 @@
 
  - [Cloud Postbox](postbox/index.md)
 
- - [Обзор платформы Yandex Cloud](overview/index.md)
+ - [Обзор платформы {{ yandex-cloud }}](overview/index.md)
 
- - [Партнерская программа Yandex Cloud](partner/index.md)
+ - [Партнерская программа {{ yandex-cloud }}](partner/index.md)
 
  - [Resource Manager](resource-manager/index.md)
 
- - [Практические руководства платформы Yandex Cloud](tutorials/index.md)
+ - [Практические руководства платформы {{ yandex-cloud }}](tutorials/index.md)
 
- - [Безопасность в Yandex Cloud](security/index.md)
+ - [Безопасность в {{ yandex-cloud }}](security/index.md)
 
  - [Security Deck](security-deck/index.md)
 
@@ -146,11 +150,9 @@
 
  - [Smart Web Security](smartwebsecurity/index.md)
 
- - [SpeechSense](speechsense/index.md)
-
  - [Object Storage](storage/index.md)
 
- - [Техническая поддержка Yandex Cloud](support/index.md)
+ - [Техническая поддержка {{ yandex-cloud }}](support/index.md)
 
  - [Serverless Integrations](serverless-integrations/index.md)
 

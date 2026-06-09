@@ -6,17 +6,17 @@
 
 - Консоль управления {#console}
 
-  1. В [консоли управления](https://console.yandex.cloud) выберите каталог, в котором создан балансировщик.
-  1. [Перейдите](../../console/operations/select-service.md#select-service) в сервис **Application Load Balancer**.
+  1. В [консоли управления]({{ link-console-main }}) выберите каталог, в котором создан балансировщик.
+  1. Перейдите в сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_application-load-balancer }}**.
   1. Нажмите на имя нужного балансировщика.
-  1. Нажмите ![image](../../_assets/console-icons/ellipsis.svg) и выберите **Редактировать**.
+  1. Нажмите ![image](../../_assets/console-icons/ellipsis.svg) и выберите **{{ ui-key.yacloud.common.edit }}**.
   1. Измените необходимые параметры балансировщика:
 
-      1. В блоке **Сетевые настройки** измените [группы безопасности](../concepts/application-load-balancer.md#security-groups):
+      1. В блоке **{{ ui-key.yacloud.mdb.forms.section_network-settings }}** измените [группы безопасности](../concepts/application-load-balancer.md#security-groups):
 
-          * `Без групп` — для балансировщика будет разрешен любой входящий и исходящий трафик. Это наименее безопасный вариант.
-          * `Автоматически` — при создании балансировщика будет автоматически создана группа безопасности, разрешающая любой входящий трафик на порте `80` и TCP-трафик для проверки состояния узлов балансировщика на порте `30080`. При этом для балансировщика будет разрешен любой исходящий трафик.
-          * `Из списка` — для более гибкого управления трафиком [создайте](../../vpc/operations/security-group-create.md) свои группы безопасности. Вы можете выбрать и привязать к балансировщику одновременно до пяти групп безопасности.
+          * `{{ ui-key.yacloud.component.security-group-field.label_sg-none }}` — для балансировщика будет разрешен любой входящий и исходящий трафик. Это наименее безопасный вариант.
+          * `{{ ui-key.yacloud.component.security-group-field.label_sg-auto }}` — при создании балансировщика будет автоматически создана группа безопасности, разрешающая любой входящий трафик на порте `80` и TCP-трафик для проверки состояния узлов балансировщика на порте `30080`. При этом для балансировщика будет разрешен любой исходящий трафик.
+          * `{{ ui-key.yacloud.component.security-group-field.label_sg-from-list }}` — для более гибкого управления трафиком [создайте](../../vpc/operations/security-group-create.md) свои группы безопасности. Вы можете выбрать и привязать к балансировщику одновременно до пяти групп безопасности.
 
           {% note info %}
           
@@ -24,29 +24,29 @@
           
             {% endnote %}
 
-      1. В блоке **Размещение** включите или отключите входящий трафик для каждой зоны в отдельности с помощью опции **Прием трафика**.
+      1. В блоке **{{ ui-key.yacloud.alb.section_allocation-settings }}** включите или отключите входящий трафик для каждой [зоны доступности](../../overview/concepts/geo-scope.md) в отдельности с помощью опции **{{ ui-key.yacloud.alb.label_disable-traffic }}**.
 
-      1. В блоке **Настройки автомасштабирования** укажите ограничения на количество [ресурсных единиц](../concepts/application-load-balancer.md#lcu-scaling).
+      1. В блоке **{{ ui-key.yacloud.alb.section_autoscale-settings }}** укажите ограничения на количество [ресурсных единиц](../concepts/application-load-balancer.md#lcu-scaling).
 
-      1. В блоке **Настройки логов**:
+      1. В блоке **{{ ui-key.yacloud.alb.section_logs-settings }}**:
 
-          1. Измените [лог-группу](../../logging/concepts/log-group.md) Cloud Logging, в которую будут записываться логи балансировщика.
+          1. Измените [лог-группу](../../logging/concepts/log-group.md) {{ cloud-logging-name }}, в которую будут записываться логи балансировщика.
           1. Измените [правила отбрасывания логов](../concepts/application-load-balancer.md#discard-logs-rules):
     
-              * **HTTP-коды** — измените HTTP-коды.
-              * **Классы HTTP-кодов** — измените классы HTTP-кодов.
-              * **gRPC-коды** — измените gRPC-коды.
-              * **Доля отбрасываемых логов** — измените процент отбрасываемых логов.
+              * **{{ ui-key.yacloud.alb.label_discard-http-codes }}** — измените HTTP-коды.
+              * **{{ ui-key.yacloud.alb.label_discard-http-code-intervals }}** — измените классы HTTP-кодов.
+              * **{{ ui-key.yacloud.alb.label_discard-grpc-codes }}** — измените gRPC-коды.
+              * **{{ ui-key.yacloud.alb.label_discard-percent }}** — измените процент отбрасываемых логов.
     
-              Чтобы добавить еще одно правило, нажмите кнопку **Добавить правило отбрасывания логов**.
+              Чтобы добавить еще одно правило, нажмите кнопку **{{ ui-key.yacloud.alb.button_add-discard-rule }}**.
     
-      1. В блоке **Обработчики** измените параметры нужных обработчиков.
+      1. В блоке **{{ ui-key.yacloud.alb.label_listeners }}** измените параметры нужных обработчиков.
 
-  1. Внизу страницы нажмите кнопку **Сохранить**.
+  1. Внизу страницы нажмите кнопку **{{ ui-key.yacloud.common.save }}**.
 
 - CLI {#cli}
 
-  Если у вас еще нет интерфейса командной строки Yandex Cloud (CLI), [установите и инициализируйте его](../../cli/quickstart.md#install).
+  Если у вас еще нет интерфейса командной строки {{ yandex-cloud }} (CLI), [установите и инициализируйте его](../../cli/quickstart.md#install).
 
   По умолчанию используется каталог, указанный при [создании](../../cli/operations/profile/profile-create.md) профиля CLI. Чтобы изменить каталог по умолчанию, используйте команду `yc config set folder-id <идентификатор_каталога>`. Также для любой команды вы можете указать другой каталог с помощью параметров `--folder-name` или `--folder-id`. Если вы обращаетесь к ресурсу по имени, поиск будет выполнен в каталоге по умолчанию. Если вы обращаетесь к ресурсу по идентификатору, поиск будет выполнен глобально — во всех каталогах с учетом прав доступа.
 
@@ -72,7 +72,7 @@
      name: test-balancer2-updated
      folder_id: aoe197919j8e********
      status: ACTIVE
-     region_id: ru-central1
+     region_id: {{ region-id }}
      network_id: c64l1c06d151********
      listeners:
      - name: test-listener
@@ -87,7 +87,7 @@
            http_router_id: a5dv7tjdo9gt********
      allocation_policy:
        locations:
-       - zone_id: ru-central1-a
+       - zone_id: {{ region-id }}-a
          subnet_id: buc4gsmpj8hv********
      log_group_id: eolul9ap0bv0********
      security_group_ids:
@@ -96,7 +96,7 @@
      created_at: "2021-04-26T12:12:13.624832586Z"
      ```
 
-  1. (Опционально) Измените параметры записи [логов](../logs-ref.md) в [Yandex Cloud Logging](../../logging/index.md):
+  1. (Опционально) Измените параметры записи [логов](../logs-ref.md) в [{{ cloud-logging-full-name }}](../../logging/index.md):
 
       1. Посмотрите описание команды CLI для управления логированием в балансировщике:
 
@@ -208,7 +208,7 @@
            backend_group_id: ds77tero4f5h********
      allocation_policy:
        locations:
-       - zone_id: ru-central1-a
+       - zone_id: {{ region-id }}-a
          subnet_id: e9bs1hp7lgdl********
      log_group_id: ckgs4u5km3u8********
      security_group_ids:
@@ -264,11 +264,11 @@
         name: test-balancer2
         folder_id: aoe197919j8e********
         status: ACTIVE
-        region_id: ru-central1
+        region_id: {{ region-id }}
         network_id: c64l1c06d151********
         allocation_policy:
           locations:
-            - zone_id: ru-central1-a
+            - zone_id: {{ region-id }}-a
               subnet_id: buc4gsmpj8hv********
         created_at: "2022-06-02T12:12:13.624832586Z"
         auto_scale_policy:
@@ -276,11 +276,14 @@
           max_size: 10
         ```
 
-- Terraform {#tf}
+- {{ TF }} {#tf}
 
-  Если у вас еще нет Terraform, [установите его и настройте провайдер Yandex Cloud](../../tutorials/infrastructure-management/terraform-quickstart.md#install-terraform).
+  Если у вас еще нет {{ TF }}, [установите его и настройте провайдер {{ yandex-cloud }}](../../tutorials/infrastructure-management/terraform-quickstart.md#install-terraform).
+  
+  
+  Чтобы управлять инфраструктурой с помощью {{ TF }} от имени сервисного аккаунта или пользовательских аккаунтов: аккаунта на Яндексе, федеративного аккаунта и локального пользователя, [аутентифицируйтесь](../../terraform/authentication.md) соответствующим способом.
 
-  1. Откройте файл конфигурации Terraform и измените фрагмент с описанием L7-балансировщика:
+  1. Откройте файл конфигурации {{ TF }} и измените фрагмент с описанием L7-балансировщика:
 
      ```hcl
      ...
@@ -290,7 +293,7 @@
 
        allocation_policy {
          location {
-           zone_id   = "ru-central1-a"
+           zone_id   = "{{ region-id }}-a"
            subnet_id = yandex_vpc_subnet.test-subnet.id
            security_group_ids = ["<список_идентификаторов_групп_безопасности>"]
          }
@@ -325,7 +328,7 @@
      ...
      ```
 
-     Более подробную информацию о параметрах ресурса `yandex_alb_load_balancer` в Terraform см. в [документации провайдера](../../terraform/resources/alb_load_balancer.md).
+     Более подробную информацию о параметрах ресурса `yandex_alb_load_balancer` в {{ TF }} см. в [документации провайдера]({{ tf-provider-resources-link }}/alb_load_balancer).
 
   1. Проверьте конфигурацию командой:
 
@@ -345,7 +348,7 @@
      terraform plan
      ```
 
-     В терминале будет выведен список ресурсов с параметрами. На этом этапе изменения не будут внесены. Если в конфигурации есть ошибки, Terraform на них укажет.
+     В терминале будет выведен список ресурсов с параметрами. На этом этапе изменения не будут внесены. Если в конфигурации есть ошибки, {{ TF }} на них укажет.
 
   1. Примените изменения конфигурации:
 
@@ -355,7 +358,7 @@
 
   1. Подтвердите изменения: введите в терминал слово `yes` и нажмите **Enter**.
 
-     Проверить изменение L7-балансировщика можно в [консоли управления](https://console.yandex.cloud) или с помощью команды [CLI](../../cli/quickstart.md):
+     Проверить изменение L7-балансировщика можно в [консоли управления]({{ link-console-main }}) или с помощью команды [CLI](../../cli/quickstart.md):
 
      ```bash
      yc alb load-balancer get <имя_балансировщика>
@@ -363,7 +366,7 @@
 
      {% note warning "Ограничения по времени" %}
      
-     Провайдер Terraform ограничивает время на выполнение операций с балансировщиками Application Load Balancer 10 минутами.
+     Провайдер {{ TF }} ограничивает время на выполнение операций с балансировщиками {{ alb-name }} 10 минутами.
      
      Операции, которые длятся дольше указанного времени, прерываются.
      
@@ -400,15 +403,15 @@
 
 - Консоль управления {#console}
 
-  1. В [консоли управления](https://console.yandex.cloud) выберите каталог, в котором создан балансировщик.
-  1. [Перейдите](../../console/operations/select-service.md#select-service) в сервис **Application Load Balancer**.
-  1. Напротив имени нужного балансировщика нажмите значок ![image](../../_assets/console-icons/ellipsis.svg) и выберите **Редактировать**.
-  1. В блоке **Обработчики** напротив имени нужного обработчика нажмите значок ![image](../../_assets/console-icons/ellipsis.svg) и выберите **Удалить**.
-  1. Нажмите **Сохранить**.
+  1. В [консоли управления]({{ link-console-main }}) выберите каталог, в котором создан балансировщик.
+  1. Перейдите в сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_application-load-balancer }}**.
+  1. Напротив имени нужного балансировщика нажмите значок ![image](../../_assets/console-icons/ellipsis.svg) и выберите **{{ ui-key.yacloud.common.edit }}**.
+  1. В блоке **{{ ui-key.yacloud.alb.label_listeners }}** напротив имени нужного обработчика нажмите значок ![image](../../_assets/console-icons/ellipsis.svg) и выберите **{{ ui-key.yacloud.common.delete }}**.
+  1. Нажмите **{{ ui-key.yacloud.common.save }}**.
 
 - CLI {#cli}
 
-  Если у вас еще нет интерфейса командной строки Yandex Cloud (CLI), [установите и инициализируйте его](../../cli/quickstart.md#install).
+  Если у вас еще нет интерфейса командной строки {{ yandex-cloud }} (CLI), [установите и инициализируйте его](../../cli/quickstart.md#install).
 
   По умолчанию используется каталог, указанный при [создании](../../cli/operations/profile/profile-create.md) профиля CLI. Чтобы изменить каталог по умолчанию, используйте команду `yc config set folder-id <идентификатор_каталога>`. Также для любой команды вы можете указать другой каталог с помощью параметров `--folder-name` или `--folder-id`. Если вы обращаетесь к ресурсу по имени, поиск будет выполнен в каталоге по умолчанию. Если вы обращаетесь к ресурсу по идентификатору, поиск будет выполнен глобально — во всех каталогах с учетом прав доступа.
 
@@ -431,11 +434,14 @@
      done (50s)
      ```
 
-- Terraform {#tf}
+- {{ TF }} {#tf}
 
-  Если у вас еще нет Terraform, [установите его и настройте провайдер Yandex Cloud](../../tutorials/infrastructure-management/terraform-quickstart.md#install-terraform).
+  Если у вас еще нет {{ TF }}, [установите его и настройте провайдер {{ yandex-cloud }}](../../tutorials/infrastructure-management/terraform-quickstart.md#install-terraform).
+  
+  
+  Чтобы управлять инфраструктурой с помощью {{ TF }} от имени сервисного аккаунта или пользовательских аккаунтов: аккаунта на Яндексе, федеративного аккаунта и локального пользователя, [аутентифицируйтесь](../../terraform/authentication.md) соответствующим способом.
 
-  1. Откройте файл конфигурации Terraform и удалите блок `listener` в описании L7-балансировщика:
+  1. Откройте файл конфигурации {{ TF }} и удалите блок `listener` в описании L7-балансировщика:
 
      ```hcl
      ...
@@ -445,7 +451,7 @@
 
        allocation_policy {
          location {
-           zone_id   = "ru-central1-a"
+           zone_id   = "{{ region-id }}-a"
            subnet_id = yandex_vpc_subnet.test-subnet.id
          }
        }
@@ -469,7 +475,7 @@
      ...
      ```
 
-     Более подробную информацию о параметрах ресурса `yandex_alb_load_balancer` в Terraform, см. в [документации провайдера](../../terraform/resources/alb_load_balancer.md).
+     Более подробную информацию о параметрах ресурса `yandex_alb_load_balancer` в {{ TF }}, см. в [документации провайдера]({{ tf-provider-resources-link }}/alb_load_balancer).
 
   1. Проверьте конфигурацию командой:
 
@@ -489,7 +495,7 @@
      terraform plan
      ```
 
-     В терминале будет выведен список ресурсов с параметрами. На этом этапе изменения не будут внесены. Если в конфигурации есть ошибки, Terraform на них укажет.
+     В терминале будет выведен список ресурсов с параметрами. На этом этапе изменения не будут внесены. Если в конфигурации есть ошибки, {{ TF }} на них укажет.
 
   1. Примените изменения конфигурации:
 
@@ -499,7 +505,7 @@
 
   1. Подтвердите изменения: введите в терминал слово `yes` и нажмите **Enter**.
 
-     Проверить изменение L7-балансировщика можно в [консоли управления](https://console.yandex.cloud) или с помощью команды [CLI](../../cli/quickstart.md):
+     Проверить изменение L7-балансировщика можно в [консоли управления]({{ link-console-main }}) или с помощью команды [CLI](../../cli/quickstart.md):
 
      ```bash
      yc alb load-balancer get <имя_L7-балансировщика>
@@ -507,7 +513,7 @@
 
      {% note warning "Ограничения по времени" %}
      
-     Провайдер Terraform ограничивает время на выполнение операций с балансировщиками Application Load Balancer 10 минутами.
+     Провайдер {{ TF }} ограничивает время на выполнение операций с балансировщиками {{ alb-name }} 10 минутами.
      
      Операции, которые длятся дольше указанного времени, прерываются.
      

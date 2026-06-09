@@ -1,8 +1,8 @@
 # Как автоматизировать настройку проектов с помощью API
 
-[Сообщества DataSphere](../concepts/community.md) позволяют организовать групповую работу и совместный доступ к материалам и ресурсам. Например, [Docker-образы](../concepts/docker.md) с предустановленными библиотеками, подключения к бакетам [Yandex Object Storage](../../storage/index.md) и подготовленные файловые хранилища, созданные в одном проекте, можно [опубликовать](../operations/index.md#share), чтобы открыть к ним доступ для всех проектов сообщества. Это может быть полезно при подготовке учебных заданий или работе нескольких разработчиков над одним исследованием.
+[Сообщества {{ ml-platform-name }}](../concepts/community.md) позволяют организовать групповую работу и совместный доступ к материалам и ресурсам. Например, [Docker-образы](../concepts/docker.md) с предустановленными библиотеками, подключения к бакетам [{{ objstorage-full-name }}](../../storage/index.md) и подготовленные файловые хранилища, созданные в одном проекте, можно [опубликовать](../operations/index.md#share), чтобы открыть к ним доступ для всех проектов сообщества. Это может быть полезно при подготовке учебных заданий или работе нескольких разработчиков над одним исследованием.
 
-Создать и настроить проекты DataSphere можно с помощью интерфейса [DataSphere](https://datasphere.yandex.cloud). Однако если вам нужно настроить несколько одинаковых проектов, вы можете автоматизировать действия с помощью [API DataSphere.](../api-ref/overview.md) и [API Yandex Identity Hub](../../organization/api-ref/authentication.md). Для этого вам понадобится свое настроенное сообщество с проектом, из которого вы будете вызывать методы API DataSphere.
+Создать и настроить проекты {{ ml-platform-name }} можно с помощью интерфейса [{{ ml-platform-name }}]({{ link-datasphere-main }}). Однако если вам нужно настроить несколько одинаковых проектов, вы можете автоматизировать действия с помощью [API {{ ml-platform-name }}.](../api-ref/overview.md) и [API {{ org-full-name }}](../../organization/api-ref/authentication.md). Для этого вам понадобится свое настроенное сообщество с проектом, из которого вы будете вызывать методы API {{ ml-platform-name }}.
 
 Чтобы создать и настроить сообщество и несколько проектов:
 
@@ -13,25 +13,25 @@
 
 ## Перед началом работы {#before-you-begin}
 
-Перед началом работы нужно зарегистрироваться в Yandex Cloud, настроить [сообщество](../concepts/community.md) и привязать к нему [платежный аккаунт](../../billing/concepts/billing-account.md):
-1. [На главной странице DataSphere](https://datasphere.yandex.cloud) нажмите **Попробовать бесплатно** и выберите аккаунт для входа — Яндекс ID или рабочий аккаунт в федерации (SSO).
-1. Выберите [организацию Yandex Identity Hub](../../organization/index.md), в которой вы будете работать в Yandex Cloud.
+Перед началом работы нужно зарегистрироваться в {{ yandex-cloud }}, настроить [сообщество](../concepts/community.md) и привязать к нему [платежный аккаунт](../../billing/concepts/billing-account.md):
+1. [На главной странице {{ ml-platform-name }}]({{ link-datasphere-main }}) нажмите **Попробовать бесплатно** и выберите аккаунт для входа — Яндекс ID или рабочий аккаунт в федерации (SSO).
+1. Выберите [организацию {{ org-full-name }}](../../organization/index.md), в которой вы будете работать в {{ yandex-cloud }}.
 1. [Создайте сообщество](../operations/community/create.md).
-1. [Привяжите платежный аккаунт](../operations/community/link-ba.md) к сообществу DataSphere, в котором вы будете работать. Убедитесь, что у вас подключен платежный аккаунт, и он находится в [статусе](../../billing/concepts/billing-account-statuses.md) `ACTIVE` или `TRIAL_ACTIVE`. Если платежного аккаунта нет, создайте его в интерфейсе DataSphere.
+1. [Привяжите платежный аккаунт](../operations/community/link-ba.md) к сообществу {{ ml-platform-name }}, в котором вы будете работать. Убедитесь, что у вас подключен платежный аккаунт, и он находится в [статусе](../../billing/concepts/billing-account-statuses.md) `ACTIVE` или `TRIAL_ACTIVE`. Если платежного аккаунта нет, создайте его в интерфейсе {{ ml-platform-name }}.
 
 ### Необходимые платные ресурсы {#paid-resources}
 
-В стоимость автоматизации входит плата за использование [вычислительных ресурсов DataSphere](../pricing.md).
+В стоимость автоматизации входит плата за использование [вычислительных ресурсов {{ ml-platform-name }}](../pricing.md).
 
 ## Получите IAM-токен {#get-iam}
 
-Чтобы получить доступ к вашей организации из DataSphere, вам понадобится [IAM-токен](../../iam/concepts/authorization/iam-token.md).
+Чтобы получить доступ к вашей организации из {{ ml-platform-name }}, вам понадобится [IAM-токен](../../iam/concepts/authorization/iam-token.md).
 
 {% list tabs group=instructions %}
 
 - CLI {#cli}
 
-  Если у вас еще нет интерфейса командной строки Yandex Cloud (CLI), [установите и инициализируйте его](../../cli/quickstart.md#install).
+  Если у вас еще нет интерфейса командной строки {{ yandex-cloud }} (CLI), [установите и инициализируйте его](../../cli/quickstart.md#install).
 
   Получите IAM-токен:
 
@@ -39,51 +39,16 @@
   yc iam create-token
   ```
 
-- API {#api}
-
-  {% note alert %}
-  
-  Если вы владелец облака и работаете через API со своего аккаунта, помните — владелец облака может выполнять любые операции с ресурсами в облаке.
-  
-  Рекомендуем выполнять операции от имени сервисного аккаунта, которому вы можете назначить только необходимые для работы роли.
-  
-  {% endnote %}
-
-  1. [Войдите](https://passport.yandex.ru/auth) в ваш аккаунт на Яндексе.
-  1. Получите [OAuth-токен](../../iam/concepts/authorization/oauth-token.md) в сервисе Яндекс.OAuth. Для этого перейдите по [ссылке](https://oauth.yandex.ru/authorize?response_type=token&client_id=1a6990aa636648e9b2ef855fa7bec2fb), нажмите **Разрешить** и скопируйте полученный OAuth-токен.
-  1. Обменяйте OAuth-токен на [IAM-токен](../../iam/concepts/authorization/iam-token.md):
-  
-     {% list tabs group=programming_language %}
-     
-      - Bash {#bash}
-  
-        ```bash
-        curl \
-          --request POST \
-          --data '{"yandexPassportOauthToken":"<OAuth-токен>"}' \
-          https://iam.api.cloud.yandex.net/iam/v1/tokens
-        ```
-  
-      - PowerShell {#powershell}
-  
-        ```powershell
-        $yandexPassportOauthToken = "<OAuth-токен>"
-        $Body = @{ yandexPassportOauthToken = "$yandexPassportOauthToken" } | ConvertTo-Json -Compress
-        Invoke-RestMethod -Method 'POST' -Uri 'https://iam.api.cloud.yandex.net/iam/v1/tokens' -Body $Body -ContentType 'Application/json' | Select-Object -ExpandProperty iamToken
-        ```
-  
-     {% endlist %}
-
 {% endlist %}
 
 ## Создайте проекты {#create-projects}
 
 Чтобы создать проекты, скопируйте код в ячейки ноутбука и запустите их.
 
-1. Откройте проект DataSphere:
+1. Откройте проект {{ ml-platform-name }}:
    
-   1. Выберите нужный проект в своем сообществе или на [главной странице](https://datasphere.yandex.cloud) DataSphere во вкладке **Недавние проекты**.
-   1. Нажмите кнопку **Открыть проект в JupyterLab** и дождитесь окончания загрузки.
+   1. Выберите нужный проект в своем сообществе или на [главной странице]({{ link-datasphere-main }}) {{ ml-platform-name }} во вкладке **{{ ui-key.yc-ui-datasphere.main-page.recent-projects }}**.
+   1. Нажмите кнопку **{{ ui-key.yc-ui-datasphere.project-page.project-card.go-to-jupyter }}** и дождитесь окончания загрузки.
    1. Откройте вкладку с ноутбуком.
 
 1. Укажите полученный IAM-токен:
@@ -101,7 +66,7 @@
 1. Выведите на экран список всех доступных организаций и их идентификаторы:
 
     ```python
-    res = requests.get('https://resource-manager.api.cloud.yandex.net/resource-manager/v1/clouds', 
+    res = requests.get('https://resource-manager.{{ api-host }}/resource-manager/v1/clouds', 
                         headers={"Authorization" : "Bearer {}".format(iam_token)})
 
     res.json()
@@ -116,7 +81,7 @@
 1. Получите список доступных платежных аккаунтов:
 
     ```python
-    res = requests.get('https://billing.api.cloud.yandex.net/billing/v1/billingAccounts', 
+    res = requests.get('https://billing.{{ api-host }}/billing/v1/billingAccounts', 
                         headers={"Authorization" : "Bearer {}".format(iam_token)})
     res.json()
     ```
@@ -130,17 +95,17 @@
     data['organizationId'] = ORGANIZATION_ID
     data['billingAccountId'] = "<идентификатор_платежного_аккаунта>"
 
-    res = requests.post('https://datasphere.api.cloud.yandex.net/datasphere/v2/communities', 
+    res = requests.post('https://datasphere.{{ api-host }}/datasphere/v2/communities', 
                         json=data,
                         headers={"Authorization" : "Bearer {}".format(iam_token)})
     community_res = res.json()
     community_res
     ```
 
-1. Получите список идентификаторов ролей в DataSphere:
+1. Получите список идентификаторов ролей в {{ ml-platform-name }}:
 
     ```python
-    res = requests.get('https://iam.api.cloud.yandex.net/iam/v1/roles', 
+    res = requests.get('https://iam.{{ api-host }}/iam/v1/roles', 
                         headers={"Authorization" : "Bearer {}".format(iam_token)})
     roles = res.json()['roles']
     datasphere_roles = [role for role in roles if 'datasphere' in role['id']]
@@ -150,7 +115,7 @@
 1. [Получите](../../organization/api-ref/User/listMembers.md) список участников организации:
 
     ```python
-    res = requests.get("https://organization-manager.api.cloud.yandex.net/organization-manager/v1/organizations/{}/users".format(ORGANIZATION_ID), 
+    res = requests.get("https://organization-manager.{{ api-host }}/organization-manager/v1/organizations/{}/users".format(ORGANIZATION_ID), 
                         headers={"Authorization" : "Bearer {}".format(iam_token)})
     res.json()
     ```
@@ -176,7 +141,7 @@
          # Задайте ограничение на максимальное количество юнитов на один запуск ячейки для проекта
          "maxUnitsPerExecution": 5000
        }
-       res = requests.post('https://datasphere.api.cloud.yandex.net/datasphere/v2/projects', 
+       res = requests.post('https://datasphere.{{ api-host }}/datasphere/v2/projects', 
                            json=data,
                            headers={"Authorization" : "Bearer {}".format(iam_token)})
        print("Project for {} is created with response: {}".format(user_id, res))
@@ -184,14 +149,14 @@
        data={}
        data['communityId'] = community_res['metadata']['communityId']
        data['projectNamePattern'] = "Student {}".format(user_id)
-       res = requests.get('https://datasphere.api.cloud.yandex.net/datasphere/v2/projects', 
+       res = requests.get('https://datasphere.{{ api-host }}/datasphere/v2/projects', 
                            json=data,
                            headers={"Authorization" : "Bearer {}".format(iam_token)})
        projects[user_id] = res.json()['projects'][0]
        project_id = res.json()['projects'][0]['id']
       
-       # Добавьте в проект себя с ролью datasphere.community-projects.admin 
-       # и пользователя с ролью datasphere.community-projects.developer
+       # Добавьте в проект себя с ролью {{ roles-datasphere-project-admin }} 
+       # и пользователя с ролью {{ roles-datasphere-project-developer }}
        data={}
        data['accessBindings'] = [{
          "roleId": 'datasphere.community-projects.admin',
@@ -206,7 +171,7 @@
                "type": "userAccount"
          }}
        ]
-       res = requests.post('https://datasphere.api.cloud.yandex.net/datasphere/v2/projects/{}:setAccessBindings'.\
+       res = requests.post('https://datasphere.{{ api-host }}/datasphere/v2/projects/{}:setAccessBindings'.\
                            format(project_id), 
                            json=data,
                            headers={"Authorization" : "Bearer {}".format(iam_token)})

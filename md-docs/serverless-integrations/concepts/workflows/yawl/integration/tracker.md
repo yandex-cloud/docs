@@ -1,12 +1,12 @@
 # Tracker
 
-Обращение к Яндекс Трекер API. Поля `getIssue`, `createIssue`, `updateIissue`, `listIssues`, `linkIssues`, `updateIssueStatus`, `createComment`, `updateComment` и `listComments` — взаимоисключающие.
+Обращение к {{ tracker-full-name }} API. Поля `getIssue`, `createIssue`, `updateIissue`, `listIssues`, `linkIssues`, `updateIssueStatus`, `createComment`, `updateComment` и `listComments` — взаимоисключающие.
 
 Имя поля | Тип | Обязательное | Значение по умолчанию | Поддерживается [шаблонизация](../../templating.md) | Описание
 --- | --- | --- | --- | --- | ---
-`endpoint` | `string` | Нет | `api.tracker.yandex.net` | Да | Хост для вызова Яндекс Трекер API.
-`oauthToken` | `string` | Да | Нет | Да | [OAuth-токен](../../../../../iam/concepts/authorization/oauth-token.md), который будет использоваться для аутентификации при обращении к Tracker API.
-`organization` | [Organization](#tracker-organization) | Да | Нет | Нет | Идентификатор организации. Подробнее см. в [документации Tracker](https://yandex.ru/support/tracker/ru/).
+`endpoint` | `string` | Нет | `api.tracker.yandex.net` | Да | Хост для вызова {{ tracker-full-name }} API.
+`oauthToken` | `string` | Да | Нет | Да | [OAuth-токен]({{ link-tracker-cloudless }}concepts/access#about_OAuth), который будет использоваться для аутентификации при обращении к {{ tracker-short-name }} API.
+`organization` | [Organization](#tracker-organization) | Да | Нет | Нет | Идентификатор организации. Подробнее см. в [документации {{ tracker-short-name }}]({{ link-tracker-cloudless }}).
 `getIssue` | [TrackerGetIssue](#trackergetissue) | Нет | Нет | Нет | Описание действия получения задачи.
 `createIssue` | [TrackerCreateIssue](#trackercreateissue) | Нет | Нет | Нет | Описание действия создания задачи.
 `updateIissue` | [TrackerUpdateIssue](#trackerupdateissue) | Нет | Нет | Нет | Описание действия редактирования задачи.
@@ -23,8 +23,8 @@
 
 Имя поля | Тип | Обязательное | Значение по умолчанию | Поддерживается [шаблонизация](../../templating.md) | Описание
 --- | --- | --- | --- | --- | ---
-`yandexOrganizationId` | `string` | Нет | Нет | Да | Идентификатор организации Яндекс 360 для бизнеса.
-`cloudOrganizationId` | `string` | Нет | Нет | Да | Идентификатор [организации](../../../../../organization/quickstart.md) Yandex Identity Hub.
+`yandexOrganizationId` | `string` | Нет | Нет | Да | Идентификатор организации {{ ya-360 }}.
+`cloudOrganizationId` | `string` | Нет | Нет | Да | Идентификатор [организации](../../../../../organization/quickstart.md) {{ org-full-name }}.
 
 ## TrackerGetIssue {#trackergetissue}
 
@@ -101,18 +101,18 @@
 Имя поля | Тип | Обязательное | Значение по умолчанию | Поддерживается [шаблонизация](../../templating.md) | Описание
 --- | --- | --- | --- | --- | ---
 `pageSize` | `string` | Нет | Нет | Да | Максимальное количество задач, которые будут содержаться в ответе.
-`pageNumber` | `string` | Нет | Нет | Да | Номер страницы в выдаче списка задач. Подробнее см. в разделе [Общий формат запросов](https://yandex.ru/support/tracker/ru/common-format).
+`pageNumber` | `string` | Нет | Нет | Да | Номер страницы в выдаче списка задач. Подробнее см. в разделе [Общий формат запросов]({{ link-tracker-cloudless }}common-format).
 `queue` | `string` | Нет | Нет | Да | Очередь, в которой требуется найти задачи.
 `keys` | `string` | Нет | Нет | Да | Ключи задач, которые требуется найти. Значение может быть задано в виде строки или JSON-массива.
 `filter` | [TrackerLinkIssues.SearchOptionsFilter](#trackerlistissues-searchoptionsfilter) | Нет | Нет | Да | Фильтр для поиска задач по значениям полей.
-`query` | `string` | Нет | Нет | Да | Фильтр на [языке запросов](https://yandex.ru/support/tracker/ru/user/query-filter).
+`query` | `string` | Нет | Нет | Да | Фильтр на [языке запросов]({{ link-tracker-cloudless }}user/query-filter).
 
 ## TrackerLinkIssues.SearchOptionsFilter {#trackerlistissues-searchoptionsfilter}
 
 Имя поля | Тип | Обязательное | Значение по умолчанию | Поддерживается [шаблонизация](../../templating.md) | Описание
 --- | --- | --- | --- | --- | ---
 `issueProperties` | `map[string]string` | Да | Нет | Да | Поля, по которым необходимо выполнить поиск, и требуемые значения.
-`order` | `string` | Нет | Нет | Да | Направление и поле сортировки задач. Подробнее см. в разделе [Найти задачи](https://yandex.ru/support/tracker/ru/concepts/issues/search-issues).
+`order` | `string` | Нет | Нет | Да | Направление и поле сортировки задач. Подробнее см. в разделе [Найти задачи]({{ link-tracker-cloudless }}concepts/issues/search-issues).
 
 ## TrackerLinkIssues {#trackerlinkissues}
 
@@ -151,5 +151,5 @@
 Имя поля | Тип | Обязательное | Значение по умолчанию | Поддерживается [шаблонизация](../../templating.md) | Описание
 --- | --- | --- | --- | --- | ---
 `key` | `string` | Да | Нет | Да | Ключ задачи.
-`lastCommentId` | `string` | Нет | Нет | Да | Значение параметра `id` у комментария, после которого начнется запрашиваемая страница. Подробнее см. в разделе [Получить комментарии к задаче](https://yandex.ru/support/tracker/ru/concepts/issues/get-comments).
+`lastCommentId` | `string` | Нет | Нет | Да | Значение параметра `id` у комментария, после которого начнется запрашиваемая страница. Подробнее см. в разделе [Получить комментарии к задаче]({{ link-tracker-cloudless }}concepts/issues/get-comments).
 `pageSize` | `string` | Нет | Нет | Да | Максимальное количество комментариев в ответе.

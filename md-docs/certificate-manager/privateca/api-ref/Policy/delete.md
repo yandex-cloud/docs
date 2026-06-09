@@ -5,7 +5,7 @@ Deletes the specified policy.
 ## HTTP request
 
 ```
-DELETE https://private-ca.certificate-manager.api.cloud.yandex.net/privateca/v1/policies/{id}
+DELETE https://private-ca.certificate-manager.{{ api-host }}/privateca/v1/policies/{id}
 ```
 
 ## Path parameters

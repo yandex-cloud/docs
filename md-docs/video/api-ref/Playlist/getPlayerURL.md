@@ -6,7 +6,7 @@ The URL can include player parameters such as autoplay, mute, and visibility of 
 ## HTTP request
 
 ```
-GET https://video.api.cloud.yandex.net/video/v1/playlists/{playlistId}:getPlayerURL
+GET https://video.{{ api-host }}/video/v1/playlists/{playlistId}:getPlayerURL
 ```
 
 ## Path parameters

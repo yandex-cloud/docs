@@ -12,18 +12,18 @@
 
 - Консоль управления {#console}
 
-  1. В [консоли управления](https://console.yandex.cloud) выберите [каталог](../../../resource-manager/concepts/resources-hierarchy.md#folder), в котором создан [реестр](../../concepts/registry.md).
-  1. [Перейдите](../../../console/operations/select-service.md#select-service) в сервис **Container Registry**.
+  1. В [консоли управления]({{ link-console-main }}) выберите [каталог](../../../resource-manager/concepts/resources-hierarchy.md#folder), в котором создан [реестр](../../concepts/registry.md).
+  1. Перейдите в сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_container-registry }}**.
   1. Выберите реестр и нажмите на строку с его именем.
   1. Выберите репозиторий и нажмите на строку с его именем.
-  1. На панели слева нажмите ![lifecycle](../../../_assets/console-icons/arrows-rotate-right.svg) **Жизненный цикл**.
+  1. На панели слева нажмите ![lifecycle](../../../_assets/console-icons/arrows-rotate-right.svg) **{{ ui-key.yacloud.cr.registry.label_lifecycle }}**.
   1. Нажмите на имя нужной политики удаления.
-  1. В правом верхнем углу нажмите кнопку ![image](../../../_assets/console-icons/play-fill.svg) **Проверить**. После завершения проверки в разделе **Проверки жизненного цикла** появится строка с результатами тестового запуска политики.
+  1. В правом верхнем углу нажмите кнопку ![image](../../../_assets/console-icons/play-fill.svg) **{{ ui-key.yacloud.cr.registry.button_lifecycle-dry-run }}**. После завершения проверки в разделе **{{ ui-key.yacloud.cr.registry.label_lifecycle-dry-runs }}** появится строка с результатами тестового запуска политики.
   1. Чтобы получить список Docker-образов, которые будут удалены в соответствии с правилами политики, нажмите на строку с результатами тестового запуска политики.
 
 - CLI {#cli}
 
-  Если у вас еще нет интерфейса командной строки Yandex Cloud (CLI), [установите и инициализируйте его](../../../cli/quickstart.md#install).
+  Если у вас еще нет интерфейса командной строки {{ yandex-cloud }} (CLI), [установите и инициализируйте его](../../../cli/quickstart.md#install).
 
   Чтобы протестировать политику удаления:
   1. Сделайте тестовый запуск политики:

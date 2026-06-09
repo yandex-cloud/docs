@@ -1,10 +1,10 @@
-# Метрики Yandex Managed Service for YTsaurus
+# Метрики {{ myt-full-name }}
 
-В этом разделе описаны метрики сервиса [Managed Service for YTsaurus](../../managed-ytsaurus/index.md), поставляемые в Monitoring.
+В этом разделе описаны метрики сервиса [{{ myt-name }}](../../managed-ytsaurus/index.md), поставляемые в {{ monitoring-name }}.
 
 Имя метрики пишется в метку `name`.
 
-Общие метки для всех метрик сервиса Managed Service for YTsaurus: 
+Общие метки для всех метрик сервиса {{ myt-name }}: 
 
 #|
 || **Метка** | **Значение** ||
@@ -158,7 +158,7 @@
 || `yt_node_tracker_offline_node_count`<br/>`DGAUGE`, штуки | Количество нод в статусе `offline`. ||
 || `yt_node_tracker_banned_node_count`<br/>`DGAUGE`, штуки | Количество нод в статусе `banned`. ||
 || `yt_node_tracker_decommissioned_node_count`<br/>`DGAUGE`, штуки | Количество нод в состоянии `decommissioned`. ||
-|| `yt_cluster_node_alerts`<br/>`DGAUGE`, штуки | Количество активных предупреждений о проблемах на нодах кластера YTsaurus. Дополнительная метка `error_code` может принимать следующие значения:
+|| `yt_cluster_node_alerts`<br/>`DGAUGE`, штуки | Количество активных предупреждений о проблемах на нодах кластера {{ ytsaurus-name }}. Дополнительная метка `error_code` может принимать следующие значения:
 * `*`
 * `-`
 * `NYT::NBus::EErrorCode::SslError`

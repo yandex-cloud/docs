@@ -5,7 +5,7 @@ Sends data to the specified connection.
 ## HTTP request
 
 ```
-POST https://apigateway-connections.api.cloud.yandex.net/apigateways/websocket/v1/connections/{connectionId}:send
+POST https://apigateway-connections.{{ api-host }}/apigateways/websocket/v1/connections/{connectionId}:send
 ```
 
 ## Path parameters

@@ -1,36 +1,36 @@
-# Загрузка данных из Яндекс Директ в витрину Yandex Managed Service for ClickHouse® с использованием Yandex Cloud Functions, Yandex Object Storage и Yandex Data Transfer
+# Загрузка данных из {{ yandex-direct }} в витрину {{ mch-full-name }} с использованием {{ sf-full-name }}, {{ objstorage-full-name }} и {{ data-transfer-full-name }}
 
-# Загрузка данных из Яндекс Директ в витрину Yandex Managed Service for ClickHouse® с использованием Yandex Cloud Functions, Yandex Object Storage и Yandex Data Transfer
+# Загрузка данных из {{ yandex-direct }} в витрину {{ mch-full-name }} с использованием {{ sf-full-name }}, {{ objstorage-full-name }} и {{ data-transfer-full-name }}
 
 
-Вы можете перенести данные из Яндекс Директ в Managed Service for ClickHouse® с использованием сервисов Cloud Functions, Object Storage и Data Transfer. Для этого:
+Вы можете перенести данные из {{ yandex-direct }} в {{ mch-name }} с использованием сервисов {{ sf-name }}, {{ objstorage-name }} и {{ data-transfer-name }}. Для этого:
 
-1. [Перенесите данные из Яндекс Директ в Object Storage с использованием Cloud Functions](#direct-objstorage).
-1. [Перенесите данные из Object Storage в Managed Service for ClickHouse® с использованием Data Transfer](#objstorage-mch).
+1. [Перенесите данные из {{ yandex-direct }} в {{ objstorage-name }} с использованием {{ sf-name }}](#direct-objstorage).
+1. [Перенесите данные из {{ objstorage-name }} в {{ mch-name }} с использованием {{ data-transfer-name }}](#objstorage-mch).
 
 Если созданные ресурсы вам больше не нужны, [удалите их](#clear-out).
 
 
 ## Необходимые платные ресурсы {#paid-resources}
 
-* Бакет Object Storage: использование хранилища и выполнение операций с данными (см. [тарифы Object Storage](../../storage/pricing.md)).
-* Сервис Cloud Functions: количество вызовов функции, время простоя подготовленных экземпляров и выделенные для выполнения функции вычислительные ресурсы (см. [тарифы Yandex Cloud Functions](../pricing.md)).
-* Сервис Yandex Lockbox: количество хранимых версий секрета и запросы к ним (см. [тарифы Yandex Lockbox](../../lockbox/pricing.md)).
-* Кластер Managed Service for ClickHouse®: выделенные хостам вычислительные ресурсы, объем хранилища и резервных копий (см. [тарифы Managed Service for ClickHouse®](../../managed-clickhouse/pricing.md)).
-* Публичные IP-адреса, если для хостов кластера включен публичный доступ (см. [тарифы Virtual Private Cloud](../../vpc/pricing.md)).
+* Бакет {{ objstorage-name }}: использование хранилища и выполнение операций с данными (см. [тарифы {{ objstorage-name }}](../../storage/pricing.md)).
+* Сервис {{ sf-name }}: количество вызовов функции, время простоя подготовленных экземпляров и выделенные для выполнения функции вычислительные ресурсы (см. [тарифы {{ sf-full-name }}](../pricing.md)).
+* Сервис {{ lockbox-name }}: количество хранимых версий секрета и запросы к ним (см. [тарифы {{ lockbox-name }}](../../lockbox/pricing.md)).
+* Кластер {{ mch-name }}: выделенные хостам вычислительные ресурсы, объем хранилища и резервных копий (см. [тарифы {{ mch-name }}](../../managed-clickhouse/pricing.md)).
+* Публичные IP-адреса, если для хостов кластера включен публичный доступ (см. [тарифы {{ vpc-name }}](../../vpc/pricing.md)).
 
 
 ## Перед началом работы {#before-you-begin}
 
-1. Подготовьте тестовые данные для выгрузки из Яндекс Директ:
+1. Подготовьте тестовые данные для выгрузки из {{ yandex-direct }}:
 
-    1. [Зарегистрируйте тестовое приложение в сервисе Яндекс.OAuth](https://yandex.ru/dev/direct/doc/dg/concepts/register.html#oauth).
+    1. [Зарегистрируйте тестовое приложение в сервисе {{ yandex-oauth }}](https://yandex.ru/dev/direct/doc/dg/concepts/register.html#oauth).
 
         В качестве платформы выберите **Веб-сервисы**, а в поле **Redirect URI** вставьте URL для отладки: `https://oauth.yandex.ru/verification_code`.
 
     1. [Получите отладочный токен](https://yandex.ru/dev/id/doc/ru/tokens/debug-token) для приложения.
-    1. [Создайте заявку](https://yandex.ru/dev/direct/doc/dg/concepts/register.html#request) на тестовый доступ приложения к Яндекс Директ и дождитесь ее одобрения.
-    1. [Включите песочницу](https://yandex.ru/dev/direct/doc/dg/concepts/sandbox-init.html) в Яндекс Директ с ролью **Клиент**.
+    1. [Создайте заявку](https://yandex.ru/dev/direct/doc/dg/concepts/register.html#request) на тестовый доступ приложения к {{ yandex-direct }} и дождитесь ее одобрения.
+    1. [Включите песочницу](https://yandex.ru/dev/direct/doc/dg/concepts/sandbox-init.html) в {{ yandex-direct }} с ролью **Клиент**.
     1. (Опционально) Убедитесь, что все настроено верно, отправив запрос к API песочницы от имени приложения:
 
         {% cut "Пример запроса" %}
@@ -80,7 +80,7 @@
 
         {% endcut %}
 
-1. Подготовьте инфраструктуру Yandex Cloud:
+1. Подготовьте инфраструктуру {{ yandex-cloud }}:
 
     {% list tabs group=resources %}
 
@@ -88,26 +88,26 @@
 
         1. [Создайте сервисный аккаунт](../../iam/operations/sa/create.md) с именем `storage-lockbox-sa` и назначьте ему роли `storage.uploader` и `lockbox.payloadViewer`.
         1. [Создайте статический ключ доступа](../../iam/operations/authentication/manage-access-keys.md#create-access-key) для сервисного аккаунта `storage-lockbox-sa`.
-        1. [Создайте секрет в Yandex Lockbox](../../lockbox/operations/secret-create.md) с тремя парами `ключ:значение`:
+        1. [Создайте секрет в {{ lockbox-full-name }}](../../lockbox/operations/secret-create.md) с тремя парами `ключ:значение`:
 
             * `access_key:<открытый_ключ>`;
             * `secret_key:<закрытый_ключ>`;
             * `app_token:<отладочный_токен_приложения>`.
 
-        1. В Object Storage [создайте бакет](../../storage/operations/buckets/create.md).
-        1. [Создайте кластер Managed Service for ClickHouse®](../../managed-clickhouse/operations/cluster-create.md) любой подходящей конфигурации с хостами в публичном доступе.
+        1. В {{ objstorage-short-name }} [создайте бакет](../../storage/operations/buckets/create.md).
+        1. [Создайте кластер {{ mch-name }}](../../managed-clickhouse/operations/cluster-create.md) любой подходящей конфигурации с хостами в публичном доступе.
 
             {% note info %}
             
-            Публичный доступ к хостам кластера нужен, если вы планируете подключаться к кластеру через интернет. Этот вариант подключения более простой, и его рекомендуется использовать для прохождения руководства. К хостам без публичного доступа тоже можно подключиться, но только с виртуальных машин Yandex Cloud, расположенных в той же облачной сети, что и кластер.
+            Публичный доступ к хостам кластера нужен, если вы планируете подключаться к кластеру через интернет. Этот вариант подключения более простой, и его рекомендуется использовать для прохождения руководства. К хостам без публичного доступа тоже можно подключиться, но только с виртуальных машин {{ yandex-cloud }}, расположенных в той же облачной сети, что и кластер.
             
             {% endnote %}
 
-        1. Если вы используете группы безопасности в кластере Managed Service for ClickHouse®, убедитесь, что они [настроены правильно](../../managed-clickhouse/operations/connect/index.md#configuring-security-groups) и допускают подключение к нему.
+        1. Если вы используете группы безопасности в кластере {{ mch-name }}, убедитесь, что они [настроены правильно](../../managed-clickhouse/operations/connect/index.md#configuring-security-groups) и допускают подключение к нему.
 
-    - Terraform {#tf}
+    - {{ TF }} {#tf}
 
-        1. Если у вас еще нет Terraform, [установите его](../../tutorials/infrastructure-management/terraform-quickstart.md#install-terraform).
+        1. Если у вас еще нет {{ TF }}, [установите его](../../tutorials/infrastructure-management/terraform-quickstart.md#install-terraform).
         1. [Получите данные для аутентификации](../../tutorials/infrastructure-management/terraform-quickstart.md#get-credentials). Вы можете добавить их в переменные окружения или указать далее в файле с настройками провайдера.
         1. [Настройте и инициализируйте провайдер](../../tutorials/infrastructure-management/terraform-quickstart.md#configure-provider). Чтобы не создавать конфигурационный файл с настройками провайдера вручную, [скачайте его](https://github.com/yandex-cloud-examples/yc-terraform-provider-settings/blob/main/provider.tf).
         1. Поместите конфигурационный файл в отдельную рабочую директорию и [укажите значения параметров](../../tutorials/infrastructure-management/terraform-quickstart.md#configure-provider). Если данные для аутентификации не были добавлены в переменные окружения, укажите их в конфигурационном файле.
@@ -118,30 +118,30 @@
 
             * [сеть](../../vpc/concepts/network.md#network);
             * [подсеть](../../vpc/concepts/network.md#subnet);
-            * [группа безопасности](../../vpc/concepts/security-groups.md) и правила, необходимые для подключения к кластеру Managed Service for ClickHouse®;
+            * [группа безопасности](../../vpc/concepts/security-groups.md) и правила, необходимые для подключения к кластеру {{ mch-name }};
             * сервисный аккаунт с ролями `storage.uploader` и `lockbox.payloadViewer`.
             * статический ключ для сервисного аккаунта;
-            * секрет Yandex Lockbox;
-            * бакет Object Storage;
-            * бессерверная функция Cloud Functions;
-            * кластер-приемник Managed Service for ClickHouse®;
-            * эндпоинт для приемника Managed Service for ClickHouse®;
+            * секрет {{ lockbox-name }};
+            * бакет {{ objstorage-short-name }};
+            * бессерверная функция {{ sf-name }};
+            * кластер-приемник {{ mch-name }};
+            * эндпоинт для приемника {{ mch-name }};
             * трансфер.
 
         1. Укажите в файле `ya-direct-to-mch.tf` переменные:
 
             * `folder_id` — идентификатор облачного каталога, такой же как в настройках провайдера.
             * `app_token` — отладочный токен приложения.
-            * `bucket_name` — имя бакета Object Storage. Имя должно быть уникальным в сервисе.
-            * `ch_password` — пароль пользователя-администратора кластера Managed Service for ClickHouse®.
+            * `bucket_name` — имя бакета {{ objstorage-short-name }}. Имя должно быть уникальным в сервисе.
+            * `ch_password` — пароль пользователя-администратора кластера {{ mch-name }}.
 
-        1. Проверьте корректность файлов конфигурации Terraform с помощью команды:
+        1. Проверьте корректность файлов конфигурации {{ TF }} с помощью команды:
 
             ```bash
             terraform validate
             ```
 
-            Если в файлах конфигурации есть ошибки, Terraform на них укажет.
+            Если в файлах конфигурации есть ошибки, {{ TF }} на них укажет.
 
         1. Создайте необходимую инфраструктуру:
 
@@ -163,15 +163,15 @@
                1. Подтвердите изменение ресурсов.
                1. Дождитесь завершения операции.
 
-            В указанном каталоге будут созданы все требуемые ресурсы. Проверить появление ресурсов и их настройки можно в [консоли управления](https://console.yandex.cloud).
+            В указанном каталоге будут созданы все требуемые ресурсы. Проверить появление ресурсов и их настройки можно в [консоли управления]({{ link-console-main }}).
 
     {% endlist %}
 
-## Перенесите данные из Яндекс Директ в Object Storage с использованием Cloud Functions {#direct-objstorage}
+## Перенесите данные из {{ yandex-direct }} в {{ objstorage-name }} с использованием {{ sf-name }} {#direct-objstorage}
 
 1. [Скачайте архив](https://github.com/yandex-cloud-examples/yc-data-transfer-direct-to-clickhouse/blob/main/example-py.zip) `example-py.zip` с кодом функции на Python.
 
-    Функция запрашивает идентификаторы и имена рекламных кампаний из песочницы, используя токен приложения, затем конвертирует эти данные в формат Parquet и помещает в бакет Object Storage.
+    Функция запрашивает идентификаторы и имена рекламных кампаний из песочницы, используя токен приложения, затем конвертирует эти данные в формат Parquet и помещает в бакет {{ objstorage-name }}.
 
     Функция принимает на вход:
 
@@ -185,26 +185,26 @@
 
     {% endnote %}
 
-1. Создайте и настройте [функцию в сервисе Cloud Functions](../concepts/function.md):
+1. Создайте и настройте [функцию в сервисе {{ sf-name }}](../concepts/function.md):
 
     {% list tabs group=resources %}
 
     - Вручную {#manual}
 
         1. [Создайте функцию](../operations/function/function-create.md).
-        1. В открывшемся редакторе выберите среду выполнения **Python** и нажмите **Продолжить**.
+        1. В открывшемся редакторе выберите среду выполнения **Python** и нажмите **{{ ui-key.yacloud.serverless-functions.item.editor.button_action-continue }}**.
         1. Укажите необходимые настройки:
 
-            * **ZIP-архив** — `ZIP-архив`.
-            * **Файл** — выберите скачанный ранее архив `example-py.zip`.
-            * **Точка входа** — `example.foo`.
-            * **Сервисный аккаунт** — выберите из списка `storage-lockbox-sa`.
-            * **Переменные окружения** — передайте имя бакета в формате `ключ=значение`:
+            * **{{ ui-key.yacloud.serverless-functions.item.editor.value_method-zip-file }}** — `ZIP-архив`.
+            * **{{ ui-key.yacloud.serverless-functions.item.editor.field_file }}** — выберите скачанный ранее архив `example-py.zip`.
+            * **{{ ui-key.yacloud.serverless-functions.item.editor.field_entry }}** — `example.foo`.
+            * **{{ ui-key.yacloud.forms.label_service-account-select }}** — выберите из списка `storage-lockbox-sa`.
+            * **{{ ui-key.yacloud.serverless-functions.item.editor.field_environment-variables }}** — передайте имя бакета в формате `ключ=значение`:
 
                 * Ключ — `BUCKET`.
                 * Значение — имя созданного ранее бакета (без префикса `s3://`).
 
-            * **Секреты Lockbox** — укажите путь к трем ранее созданным секретам Yandex Lockbox в переменных окружения:
+            * **{{ ui-key.yacloud.serverless-functions.item.editor.label_lockbox-secret }}** — укажите путь к трем ранее созданным секретам {{ lockbox-name }} в переменных окружения:
 
                 * `AWS_ACCESS_KEY_ID` — `access_key`;
                 * `AWS_SECRET_ACCESS_KEY` — `secret_key`;
@@ -212,22 +212,22 @@
 
             Остальные настройки можно оставить по умолчанию.
 
-        1. Нажмите **Сохранить изменения** и дождитесь завершения сборки.
+        1. Нажмите **{{ ui-key.yacloud.serverless-functions.item.editor.button_deploy-version }}** и дождитесь завершения сборки.
 
-    - Terraform {#tf}
+    - {{ TF }} {#tf}
 
         1. Укажите в файле `ya-direct-to-mch.tf` переменные:
 
             * `path_to_zip_cf` — путь к скачанному ZIP-архиву с кодом функции;
             * `create_function` — значение `1` для создания функции.
 
-        1. Проверьте корректность файлов конфигурации Terraform с помощью команды:
+        1. Проверьте корректность файлов конфигурации {{ TF }} с помощью команды:
 
             ```bash
             terraform validate
             ```
 
-            Если в файлах конфигурации есть ошибки, Terraform на них укажет.
+            Если в файлах конфигурации есть ошибки, {{ TF }} на них укажет.
 
         1. Создайте необходимую инфраструктуру:
 
@@ -251,24 +251,24 @@
 
     {% endlist %}
 
-1. Откройте созданную функцию в консоли управления и выберите **Тестирование** на панели слева.
-1. Нажмите **Запустить тест** и дождитесь выполнения функции.
+1. Откройте созданную функцию в консоли управления и выберите **{{ ui-key.yacloud.serverless-functions.item.switch_testing }}** на панели слева.
+1. Нажмите **{{ ui-key.yacloud.serverless-functions.item.testing.button_run-test }}** и дождитесь выполнения функции.
 
 В бакете появится файл в формате Parquet.
 
-## Перенесите данные из Object Storage в Managed Service for ClickHouse® с использованием Data Transfer {#objstorage-mch}
+## Перенесите данные из {{ objstorage-name }} в {{ mch-name }} с использованием {{ data-transfer-name }} {#objstorage-mch}
 
 1. [Создайте эндпоинт для источника](../../data-transfer/operations/endpoint/index.md#create) со следующими параметрами:
 
-    * **Тип базы данных** — `Yandex Object Storage`.
-    * **Бакет** — имя бакета в Object Storage.
-    * **Сервисный аккаунт** – выберите из списка [созданный ранее](#before-you-begin) сервисный аккаунт.
-    * **Эндпоинт** — `https://storage.yandexcloud.net`.
-    * **Регион** — `ru-central1`.
-    * **Формат данных** — `Parquet`.
-    * **Схема** — `{"Id": "int64", "Name": "string"}`.
-    * **Таблица** — имя Parquet-файла в бакете, например: `ac05e4fe818e463f88a8a299d290734d.snappy.parquet`.
-    * **Схема результирующей таблицы** — выберите `Вручную` и укажите имена полей и тип данных:
+    * **{{ ui-key.yacloud.data-transfer.forms.label-database_type }}** — `Yandex Object Storage`.
+    * **{{ ui-key.yc-data-transfer.data-transfer.endpoint.airbyte.s3_source.endpoint.airbyte.s3_source.S3Source.Provider.bucket.title }}** — имя бакета в {{ objstorage-name }}.
+    * **{{ ui-key.yc-data-transfer.data-transfer.console.form.object_storage.console.form.object_storage.ConnectionSettings.service_account_id.title }}** – выберите из списка [созданный ранее](#before-you-begin) сервисный аккаунт.
+    * **{{ ui-key.yc-data-transfer.data-transfer.endpoint.airbyte.s3_source.endpoint.airbyte.s3_source.S3Source.Provider.endpoint.title }}** — `https://{{ s3-storage-host }}`.
+    * **{{ ui-key.yc-data-transfer.data-transfer.console.form.object_storage.console.form.object_storage.ObjectStorageSource.ObjectStorageEventSource.SQS.region.title }}** — `{{ region-id }}`.
+    * **{{ ui-key.yc-data-transfer.data-transfer.console.form.object_storage.console.form.object_storage.ObjectStorageTarget.format.title }}** — `{{ ui-key.yc-data-transfer.data-transfer.console.form.object_storage.console.form.object_storage.ObjectStorageSource.ObjectStorageReaderFormat.parquet.title }}`.
+    * **{{ ui-key.yc-data-transfer.data-transfer.endpoint.airbyte.s3_source.endpoint.airbyte.s3_source.S3Source.schema.title }}** — `{"Id": "int64", "Name": "string"}`.
+    * **{{ ui-key.yc-data-transfer.data-transfer.transfer.transfer.RenameTablesTransformer.rename_tables.array_item_label }}** — имя Parquet-файла в бакете, например: `ac05e4fe818e463f88a8a299d290734d.snappy.parquet`.
+    * **{{ ui-key.yc-data-transfer.data-transfer.console.form.object_storage.console.form.object_storage.ObjectStorageSource.result_schema.title }}** — выберите `{{ ui-key.yc-data-transfer.data-transfer.console.form.object_storage.console.form.object_storage.ObjectStorageDataSchema.data_schema.title }}` и укажите имена полей и тип данных:
 
         * `Id`: `Int64`;
         * `Name` : `String`.
@@ -281,24 +281,24 @@
 
     - Вручную {#manual}
 
-        1. [Создайте эндпоинт для приемника](../../data-transfer/operations/endpoint/index.md#create) Managed Service for ClickHouse®, указав параметры созданного ранее кластера.
+        1. [Создайте эндпоинт для приемника](../../data-transfer/operations/endpoint/index.md#create) {{ mch-name }}, указав параметры созданного ранее кластера.
 
         1. [Создайте трансфер](../../data-transfer/operations/transfer.md#create), использующий созданные эндпоинты.
 
-    - Terraform {#tf}
+    - {{ TF }} {#tf}
 
         1. Укажите в файле `ya-direct-to-mch.tf` переменные:
 
             * `source_endpoint_id` — идентификатор эндпоинта-источника;
             * `transfer_enabled` — значение `1` для создания трансфера.
 
-        1. Проверьте корректность файлов конфигурации Terraform с помощью команды:
+        1. Проверьте корректность файлов конфигурации {{ TF }} с помощью команды:
 
             ```bash
             terraform validate
             ```
 
-            Если в файлах конфигурации есть ошибки, Terraform на них укажет.
+            Если в файлах конфигурации есть ошибки, {{ TF }} на них укажет.
 
         1. Создайте необходимую инфраструктуру:
 
@@ -322,9 +322,9 @@
 
     {% endlist %}
 
-1. Активируйте трансфер и дождитесь его перехода в статус **Завершен**.
+1. Активируйте трансфер и дождитесь его перехода в статус **{{ ui-key.yacloud.data-transfer.label_connector-status-DONE }}**.
 
-1. Убедитесь, что в базу данных Managed Service for ClickHouse® перенесены данные из источника Object Storage:
+1. Убедитесь, что в базу данных {{ mch-name }} перенесены данные из источника {{ objstorage-name }}:
 
     1. [Подключитесь к кластеру](../../managed-clickhouse/operations/connect/clients.md#clickhouse-client) с помощью `clickhouse-client`.
 
@@ -362,19 +362,19 @@
    - Вручную {#manual}
 
        1. [Удалите эндпоинт](../../data-transfer/operations/endpoint/index.md#delete) для приемника.
-       1. [Удалите кластер Managed Service for ClickHouse®](../../managed-clickhouse/operations/cluster-delete.md).
-       1. [Удалите бакет Object Storage](../../storage/operations/buckets/delete.md).
+       1. [Удалите кластер {{ mch-name }}](../../managed-clickhouse/operations/cluster-delete.md).
+       1. [Удалите бакет {{ objstorage-name }}](../../storage/operations/buckets/delete.md).
        1. [Удалите функцию](../operations/function/function-delete.md).
-       1. [Удалите секрет в Yandex Lockbox](../../lockbox/operations/secret-delete.md).
+       1. [Удалите секрет в {{ lockbox-name }}](../../lockbox/operations/secret-delete.md).
        1. [Удалите сервисный аккаунт](../../iam/operations/sa/delete.md).
 
-   - Terraform {#tf}
+   - {{ TF }} {#tf}
 
        1. В терминале перейдите в директорию с планом инфраструктуры.
        
            {% note warning %}
        
-           Убедитесь, что в директории нет Terraform-манифестов с ресурсами, которые вы хотите сохранить. Terraform удаляет все ресурсы, которые были созданы с помощью манифестов в текущей директории.
+           Убедитесь, что в директории нет {{ TF }}-манифестов с ресурсами, которые вы хотите сохранить. {{ TF }} удаляет все ресурсы, которые были созданы с помощью манифестов в текущей директории.
        
            {% endnote %}
        
@@ -388,8 +388,8 @@
        
            1. Подтвердите удаление ресурсов и дождитесь завершения операции.
        
-           Все ресурсы, которые были описаны в Terraform-манифестах, будут удалены.
+           Все ресурсы, которые были описаны в {{ TF }}-манифестах, будут удалены.
 
    {% endlist %}
 
-_ClickHouse® является зарегистрированным товарным знаком [ClickHouse, Inc](https://clickhouse.com)._
+_{{ CH }} является зарегистрированным товарным знаком [ClickHouse, Inc](https://clickhouse.com)._

@@ -1,7 +1,6 @@
 # SAML Federation API, gRPC: FederationService.Get
 
 Returns the specified federation.
-
 To get the list of available federations, make a [List](list.md#List) request.
 
 ## gRPC request
@@ -20,7 +19,7 @@ To get the list of available federations, make a [List](list.md#List) request.
 ||Field | Description ||
 || federation_id | **string**
 
-ID of the federation to return.
+Required field. ID of the federation to return.
 To get the federation ID, make a [FederationService.List](list.md#List) request.
 
 The maximum string length in characters is 50. ||
@@ -85,7 +84,6 @@ authenticates the user immediately and redirects them to the home page. ||
 Add new users automatically on successful authentication.
 The user becomes member of the organization automatically,
 but you need to grant other roles to them.
-
 If the value is `false`, users who aren't added to the organization
 can't log in, even if they have authenticated on your server. ||
 || issuer | **string**
@@ -97,7 +95,6 @@ The maximum string length in characters is 8000. ||
 || sso_binding | enum **BindingType**
 
 Single sign-on endpoint binding type. Most Identity Providers support the `POST` binding type.
-
 SAML Binding is a mapping of a SAML protocol message onto standard messaging
 formats and/or communications protocols.
 

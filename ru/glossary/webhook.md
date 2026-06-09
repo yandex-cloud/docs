@@ -127,11 +127,11 @@ keywords:
 
 В {{ yandex-cloud }} есть следующие сервисы, которые работают с вебхуками:
 
-* [{{ mgl-full-name }}](/services/managed-gitlab/) — сервис для управления платформой разработки GitLab в инфраструктуре {{ yandex-cloud }}. Подробнее см. в [документации](../managed-gitlab/).
-* [{{ src-full-name }}]({{ link-src-main }}) — платформа от Яндекса для разработки IT-продуктов в режиме непрерывной интеграции. Подробнее см. в [документации]({{ link-src-docs }}).
-* [{{ sf-full-name }}](/services/functions/) — сервис для создания и управления функциями, которые можно использовать в качестве вебхуков. Подробнее см. в [документации](../functions).
-* [{{ postbox-full-name }}](/services/postbox/) — сервис для отправки почтовых сообщений, которые можно отслеживать с помощью вебхуков. Подробнее см. в [документации](../tutorials/serverless/postbox-webhook.md).
-* [{{ monitoring-full-name }}](/services/monitoring/) — сервис для сбора метрик и отслеживания работы приложений, события из которого можно получать с помощью вебхуков. Подробнее см. в [документации](../monitoring/operations/alert/alert-call-function.md).
-* [{{ api-gw-full-name }}](/services/api-gateway/) — сервис для создания и управления API-шлюзами, которые можно использовать в качестве вебхуков. Подробнее см. в [документации](../serverless-integrations/tutorials/telegram-ai-bot-workflows.md).
+* [{{ mgl-full-name }}](/services/managed-gitlab/) — сервис для управления платформой разработки GitLab в инфраструктуре {{ yandex-cloud }}. Подробнее в [документации](../managed-gitlab/).
+* [{{ src-full-name }}]({{ link-src-main }}) — платформа от Яндекса для разработки IT-продуктов в режиме непрерывной интеграции. Подробнее в [документации]({{ link-src-docs }}).
+* [{{ sf-full-name }}](/services/functions/) — сервис для создания и управления функциями, которые можно использовать в качестве вебхуков. Подробнее в [документации](../functions).
+* [{{ postbox-full-name }}](/services/postbox/) — сервис для отправки почтовых сообщений, которые можно отслеживать с помощью вебхуков. Подробнее в [документации](../tutorials/serverless/postbox-webhook.md).
+* [{{ monitoring-full-name }}](/services/monitoring/) — сервис для сбора метрик и отслеживания работы приложений, события из которого можно получать с помощью вебхуков. Подробнее в [документации](../monitoring/operations/alert/alert-call-function.md).
+* [{{ api-gw-full-name }}](/services/api-gateway/) — сервис для создания и управления API-шлюзами, которые можно использовать в качестве вебхуков. Подробнее в [документации](../serverless-integrations/tutorials/telegram-ai-bot-workflows.md).
 
-Вы также можете настроить отслеживание событий в облачных ресурсах в {{ yandex-cloud }} с помощью вебхуков. Подробнее см. в [документации](../support/notify.md#webhook).
+Вы также можете настроить отслеживание событий в облачных ресурсах в {{ yandex-cloud }} с помощью вебхуков. Подробнее в [документации](../support/notify.md#webhook).

@@ -5,7 +5,7 @@ Removes targets from the specified target group.
 ## HTTP request
 
 ```
-POST https://alb.api.cloud.yandex.net/apploadbalancer/v1/targetGroups/{targetGroupId}:removeTargets
+POST https://alb.{{ api-host }}/apploadbalancer/v1/targetGroups/{targetGroupId}:removeTargets
 ```
 
 ## Path parameters
@@ -29,7 +29,8 @@ To get the target group ID, make a [TargetGroupService.List](list.md#List) reque
       "ipAddress": "string",
       // end of the list of possible fields
       "subnetId": "string",
-      "privateIpv4Address": "boolean"
+      "privateIpv4Address": "boolean",
+      "externalAddress": "boolean"
     }
   ]
 }
@@ -67,6 +68,10 @@ If set, will not require `subnet_id` to validate the target.
 Instead, the address should belong to one of the following ranges:
 10.0.0.0/8, 172.16.0.0/12, 192.168.0.0/16
 Only one of `subnet_id` or `private_ipv4_address` should be set. ||
+|| externalAddress | **boolean**
+
+If set, will not require `subnet_id` to validate the target.
+Only one of `subnet_id` or `external_address` should be set. ||
 |#
 
 ## Response {#yandex.cloud.operation.Operation}
@@ -104,7 +109,8 @@ Only one of `subnet_id` or `private_ipv4_address` should be set. ||
         "ipAddress": "string",
         // end of the list of possible fields
         "subnetId": "string",
-        "privateIpv4Address": "boolean"
+        "privateIpv4Address": "boolean",
+        "externalAddress": "boolean"
       }
     ],
     "createdAt": "string"
@@ -269,4 +275,8 @@ If set, will not require `subnet_id` to validate the target.
 Instead, the address should belong to one of the following ranges:
 10.0.0.0/8, 172.16.0.0/12, 192.168.0.0/16
 Only one of `subnet_id` or `private_ipv4_address` should be set. ||
+|| externalAddress | **boolean**
+
+If set, will not require `subnet_id` to validate the target.
+Only one of `subnet_id` or `external_address` should be set. ||
 |#

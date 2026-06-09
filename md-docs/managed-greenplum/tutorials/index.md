@@ -1,18 +1,18 @@
-# Практические руководства Yandex MPP Analytics for PostgreSQL
+# Практические руководства {{ mgp-name }}
 
-* [Миграция базы данных в Yandex MPP Analytics for PostgreSQL](data-migration.md)
-* [Создание внешней таблицы на базе таблицы из бакета Yandex Object Storage с помощью конфигурационного файла](config-server-for-s3.md)
-* [Получение данных из внешних источников с помощью именованных запросов](pxf-named-queries.md)
-* [Миграция базы данных из Greenplum® в PostgreSQL](greenplum-to-postgresql.md)
-* [Миграция базы данных из Greenplum® в ClickHouse®](greenplum-to-clickhouse.md)
-* [Миграция данных из Yandex Managed Service for MySQL® в Yandex MPP Analytics for PostgreSQL с помощью Yandex Data Transfer](mmy-to-mgp.md)
-* [Выгрузка данных кластера в холодное хранилище Yandex Object Storage](yezzey.md)
-* [Загрузка данных из Yandex Object Storage в Yandex MPP Analytics for PostgreSQL с помощью Yandex Data Transfer](object-storage-to-greenplum.md)
-* [Копирование данных из Managed Service for OpenSearch в Yandex MPP Analytics for PostgreSQL с помощью Yandex Data Transfer](opensearch-to-greenplum.md)
-* [Поставка данных из Yandex Managed Service for Apache Kafka® с помощью Yandex Data Transfer](managed-kafka-to-greenplum.md)
+* [{#T}](data-migration.md)
+* [{#T}](config-server-for-s3.md)
+* [{#T}](pxf-named-queries.md)
+* [{#T}](greenplum-to-postgresql.md)
+* [{#T}](greenplum-to-clickhouse.md)
+* [{#T}](mmy-to-mgp.md)
+* [Выгрузка данных кластера в холодное хранилище {{ objstorage-full-name }}](yezzey.md)
+* [{#T}](object-storage-to-greenplum.md)
+* [{#T}](opensearch-to-greenplum.md)
+* [{#T}](managed-kafka-to-greenplum.md)
 
-## Поставка данных c помощью Data Transfer {#data-transfer}
+## Поставка данных c помощью {{ data-transfer-name }} {#data-transfer}
 
-* [Из Apache Kafka® в Greenplum®](managed-kafka-to-greenplum.md)
+* [Из {{ KF }} в {{ GP }}](managed-kafka-to-greenplum.md)
 
 Если вы хотите провести миграцию хостов кластера в другую зону доступности, [восстановите кластер из резервной копии](../operations/cluster-backups.md#restore). Во время восстановления укажите нужную зону.

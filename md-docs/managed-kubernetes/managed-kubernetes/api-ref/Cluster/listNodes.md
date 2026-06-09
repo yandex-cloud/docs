@@ -5,7 +5,7 @@ Lists cluster's nodes.
 ## HTTP request
 
 ```
-GET https://mks.api.cloud.yandex.net/managed-kubernetes/v1/clusters/{clusterId}/nodes
+GET https://mks.{{ api-host }}/managed-kubernetes/v1/clusters/{clusterId}/nodes
 ```
 
 ## Path parameters

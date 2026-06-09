@@ -18,13 +18,13 @@
 
 - Консоль управления {#console}
 
-  1. В [консоли управления](https://console.yandex.cloud) перейдите в [каталог](../../../resource-manager/concepts/resources-hierarchy.md#folder), в котором находится [функция](../../concepts/function.md).
-  1. [Перейдите](../../../console/operations/select-service.md#select-service) в сервис **Cloud Functions**.
+  1. В [консоли управления]({{ link-console-main }}) перейдите в [каталог](../../../resource-manager/concepts/resources-hierarchy.md#folder), в котором находится [функция](../../concepts/function.md).
+  1. Перейдите в сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_serverless-functions }}**.
   1. Выберите функцию.
-  1. Перейдите на вкладку **Редактор**.
-  1. Разверните блок **Дополнительные настройки**.
-  1. В блоке **Параметры сервиса метаданных** настройте параметры сервиса метаданных функции — `Доступ к метаданным с использованием формата Google Compute Engine` и `Доступ к метаданным с использованием формата AWS (IMDSv1)`.
-  1. Нажмите кнопку **Сохранить изменения**.
+  1. Перейдите на вкладку **{{ ui-key.yacloud.serverless-functions.item.switch_editor }}**.
+  1. Разверните блок **{{ ui-key.yacloud.serverless-functions.item.editor.label_title-additional-parameters }}**.
+  1. В блоке **Параметры сервиса метаданных** настройте параметры сервиса метаданных функции — `{{ ui-key.yacloud.serverless-functions.item.editor.label_gce_http_endpoint }}` и `{{ ui-key.yacloud.serverless-functions.item.editor.label_aws_v1_http_endpoint }}`.
+  1. Нажмите кнопку **{{ ui-key.yacloud.serverless-functions.item.editor.button_deploy-version }}**.
 
 - CLI {#cli}
 
@@ -47,15 +47,18 @@
   * `--source-version-id` — идентификатор версии функции, код которой вы хотите скопировать. Чтобы узнать идентификатор, [получите список версий функции](version-list.md).
   * `--metadata-options` — настройки параметров сервиса метаданных, например `aws-v1-http-endpoint=disabled`.
 
-- Terraform {#tf}
+- {{ TF }} {#tf}
 
-    [Terraform](https://www.terraform.io/) позволяет быстро создать облачную инфраструктуру в Yandex Cloud и управлять ею с помощью файлов конфигураций. В файлах конфигураций хранится описание инфраструктуры на языке HCL (HashiCorp Configuration Language). При изменении файлов конфигураций Terraform автоматически определяет, какая часть вашей конфигурации уже развернута, что следует добавить или удалить.
+    [{{ TF }}](https://www.terraform.io/) позволяет быстро создать облачную инфраструктуру в {{ yandex-cloud }} и управлять ею с помощью файлов конфигураций. В файлах конфигураций хранится описание инфраструктуры на языке HCL (HashiCorp Configuration Language). При изменении файлов конфигураций {{ TF }} автоматически определяет, какая часть вашей конфигурации уже развернута, что следует добавить или удалить.
     
-    Terraform распространяется под лицензией [Business Source License](https://github.com/hashicorp/terraform/blob/main/LICENSE), а [провайдер Yandex Cloud для Terraform](https://github.com/yandex-cloud/terraform-provider-yandex) — под лицензией [MPL-2.0](https://www.mozilla.org/en-US/MPL/2.0/).
+    {{ TF }} распространяется под лицензией [Business Source License](https://github.com/hashicorp/terraform/blob/main/LICENSE), а [провайдер {{ yandex-cloud }} для {{ TF }}](https://github.com/yandex-cloud/terraform-provider-yandex) — под лицензией [MPL-2.0](https://www.mozilla.org/en-US/MPL/2.0/).
     
-    Подробную информацию о ресурсах провайдера смотрите в документации на сайте [Terraform](https://www.terraform.io/docs/providers/yandex/index.html) или в [зеркале](../../../terraform/index.md).
+    Подробную информацию о ресурсах провайдера смотрите в документации на сайте [{{ TF }}](https://www.terraform.io/docs/providers/yandex/index.html) или в [зеркале]({{ tf-docs-link }}).
 
-    Если у вас еще нет Terraform, [установите его и настройте провайдер Yandex Cloud](../../../tutorials/infrastructure-management/terraform-quickstart.md#install-terraform).
+    Если у вас еще нет {{ TF }}, [установите его и настройте провайдер {{ yandex-cloud }}](../../../tutorials/infrastructure-management/terraform-quickstart.md#install-terraform).
+    
+    
+    Чтобы управлять инфраструктурой с помощью {{ TF }} от имени сервисного аккаунта или пользовательских аккаунтов: аккаунта на Яндексе, федеративного аккаунта и локального пользователя, [аутентифицируйтесь](../../../terraform/authentication.md) соответствующим способом.
 
     Чтобы настроить параметры сервиса метаданных функции:
 
@@ -88,7 +91,7 @@
             * `1` — чтобы включить параметр.
             * `2` — чтобы выключить параметр.
 
-        Более подробную информацию о параметрах ресурса `yandex_function` см. в [документации провайдера](../../../terraform/resources/function.md).
+        Более подробную информацию о параметрах ресурса `yandex_function` см. в [документации провайдера]({{ tf-provider-resources-link }}/function).
 
    1. Примените изменения:
 
@@ -111,7 +114,7 @@
          terraform plan
          ```
       
-         В терминале будет выведен список ресурсов с параметрами. На этом этапе изменения не будут внесены. Если в конфигурации есть ошибки, Terraform на них укажет.
+         В терминале будет выведен список ресурсов с параметрами. На этом этапе изменения не будут внесены. Если в конфигурации есть ошибки, {{ TF }} на них укажет.
       1. Примените изменения конфигурации:
       
          ```bash
@@ -120,7 +123,7 @@
       
       1. Подтвердите изменения: введите в терминале слово `yes` и нажмите **Enter**.
 
-   Проверить, что функция и ее настройки изменились, можно в [консоли управления](https://console.yandex.cloud) или с помощью команды [CLI](../../../cli/quickstart.md):
+   Проверить, что функция и ее настройки изменились, можно в [консоли управления]({{ link-console-main }}) или с помощью команды [CLI](../../../cli/quickstart.md):
 
    ```bash
    yc serverless function version get <идентификатор_версии_функции>

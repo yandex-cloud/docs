@@ -2,6 +2,14 @@
 
 # Тестирование доставки сообщения
 
+{% note warning %}
+
+Сервис {{ iot-full-name }} больше не доступен для новых пользователей. 
+
+Текущие пользователи могут создавать ресурсы до 1 ноября 2026 года. После сервис перейдет в режим read-only, а 1 декабря 2026 года — прекратит работу. Подробнее о сроках и порядке закрытия читайте на странице [Закрытие сервиса](../../iot-core/sunset.md).
+
+{% endnote %}
+
 При отправке сообщения полезно убедиться, что оно было доставлено. Сообщение может не достигнуть MQTT-сервера, например, если [отправлять сообщение](../../iot-core/operations/publish.md):
 
 * В несуществующий [топик устройства](../../iot-core/concepts/topic/devices-topic.md).
@@ -12,13 +20,13 @@
 
 Чтобы убедиться, что отправленное сообщение дошло до MQTT-сервера, в команде отправки сообщения укажите [дополнительные отладочные параметры](#debugging-parameters). В результате вы получите подробный вывод команды.
 
-Чтобы протестировать работу сервиса Yandex IoT Core, одновременно используйте [отправку сообщений и подписку на устройство](#several-clients). Если подписать [реестр](../../iot-core/concepts/index.md#registry) на топик устройства и отправить сообщение в этот топик, реестр получит сообщение.
+Чтобы протестировать работу сервиса {{ iot-full-name }}, одновременно используйте [отправку сообщений и подписку на устройство](#several-clients). Если подписать [реестр](../../iot-core/concepts/index.md#registry) на топик устройства и отправить сообщение в этот топик, реестр получит сообщение.
 
 Ниже рассмотрен пример, в котором устройство с датчиком интенсивности света отправляет значение освещенности `150` в [перманентный топик устройства](../../iot-core/concepts/topic/devices-topic.md). Аутентификация клиентов проходит по X.509-сертификатам. В качестве инструментов для отправки сообщений и подписки на устройство используются CLI и [Mosquitto](https://mosquitto.org) — MQTT-брокер сообщений с открытым исходным кодом.
 
 ## Перед началом работы {#before-you-begin}
 
-1. Если у вас еще нет интерфейса командной строки Yandex Cloud (CLI), [установите и инициализируйте его](../../cli/quickstart.md#install).
+1. Если у вас еще нет интерфейса командной строки {{ yandex-cloud }} (CLI), [установите и инициализируйте его](../../cli/quickstart.md#install).
 
    По умолчанию используется каталог, указанный при [создании](../../cli/operations/profile/profile-create.md) профиля CLI. Чтобы изменить каталог по умолчанию, используйте команду `yc config set folder-id <идентификатор_каталога>`. Также для любой команды вы можете указать другой каталог с помощью параметров `--folder-name` или `--folder-id`. Если вы обращаетесь к ресурсу по имени, поиск будет выполнен в каталоге по умолчанию. Если вы обращаетесь к ресурсу по идентификатору, поиск будет выполнен глобально — во всех каталогах с учетом прав доступа.
 
@@ -31,9 +39,9 @@
 
    Для подключения к MQTT-серверу через Mosquitto используйте параметры:
 
-   * [Сертификат удостоверяющего центра](https://storage.yandexcloud.net/mqtt/rootCA.crt).
-   * **Адрес сервера**: `mqtt.cloud.yandex.net`.
-   * **Порт сервера**: `8883`.
+   * [Сертификат удостоверяющего центра]({{ ca-address }}).
+   * **Адрес сервера**: `{{ mqtt-server-address }}`.
+   * **Порт сервера**: `{{ mqtt-server-port }}`.
    * **Протокол**: `TLSv1.2`.
 
 ## Отправьте сообщение с отладочными параметрами {#debugging-parameters}
@@ -56,7 +64,7 @@
    yc iot mqtt publish \
       --cert sensor-cert.pem \
       --key sensor-key.pem \
-      --topic '$devices/b91qprkvbks9********/state' \
+      --topic '$devices/{{ device-id }}/state' \
       --message '150' \
       --qos 1 \
       --debug
@@ -79,7 +87,7 @@
       --cafile rootCA.crt \
       --cert sensor-cert.pem \
       --key sensor-key.pem \
-      -t '$devices/b91qprkvbks9********/state' \
+      -t '$devices/{{ device-id }}/state' \
       -m '150' \
       -q 1 \
       --debug
@@ -108,7 +116,7 @@
    ```text
    ...
    15:02:27.030752   [client]  enter Publish
-   15:02:27.030797   [client]  sending publish message, topic:$devices/b91qprkvbks9********/state
+   15:02:27.030797   [client]  sending publish message, topic:$devices/{{ device-id }}/state
    15:02:27.030923   [net]     obound wrote msg, id:1
    15:02:27.030947   [net]     outgoing waiting for an outbound message
    15:02:27.261271   [net]     Received Message
@@ -125,7 +133,7 @@
    ```text
    Client null sending CONNECT
    Client null received CONNACK (0)
-   Client null sending PUBLISH (d0, q1, r0, m1, '$devices/b91qprkvbks9********/state', ... (6 bytes))
+   Client null sending PUBLISH (d0, q1, r0, m1, '$devices/{{ device-id }}/state', ... (6 bytes))
    Client null received PUBACK (Mid: 1, RC:0)
    Client null sending DISCONNECT
    ```
@@ -156,7 +164,7 @@
    yc iot mqtt subscribe \
       --cert registry-cert.pem \
       --key registry-key.pem \
-      --topic '$devices/b91qprkvbks9********/state' \
+      --topic '$devices/{{ device-id }}/state' \
       --qos 1 \
       --debug
    ```
@@ -177,7 +185,7 @@
       --cafile rootCA.crt \
       --cert registry-cert.pem \
       --key registry-key.pem \
-      -t '$devices/b91qprkvbks9********/state' \
+      -t '$devices/{{ device-id }}/state' \
       -q 1 \
       --debug
    ```
@@ -204,7 +212,7 @@
    ```text
    ...
    15:46:20.619042   [client]  enter Subscribe
-   15:46:20.619133   [client]  SUBSCRIBE: dup: false qos: 1 retain: false rLength: 0 MessageID: 0 topics: [$devices/b91qprkvbks9********/state]
+   15:46:20.619133   [client]  SUBSCRIBE: dup: false qos: 1 retain: false rLength: 0 MessageID: 0 topics: [$devices/{{ device-id }}/state]
    15:46:20.619170   [client]  exit Subscribe
    15:46:20.619214   [net]     obound priority msg to write, type*packets.SubscribePacket
    15:46:20.619385   [net]     outgoing waiting for an outbound message
@@ -221,7 +229,7 @@
    ```text
    Client null sending CONNECT
    Client null received CONNACK (0)
-   Client null sending SUBSCRIBE (Mid: 1, Topic: $devices/b91qprkvbks9********/state, QoS: 1, Options: 0x00)
+   Client null sending SUBSCRIBE (Mid: 1, Topic: $devices/{{ device-id }}/state, QoS: 1, Options: 0x00)
    Client null received SUBACK
    Subscribed (mid: 1): 1
    ```
@@ -263,7 +271,7 @@
    yc iot mqtt publish \
       --cert sensor-cert.pem \
       --key sensor-key.pem \
-      --topic '$devices/b91qprkvbks9********/state' \
+      --topic '$devices/{{ device-id }}/state' \
       --message '150' \
       --qos 1 \
       --debug
@@ -286,7 +294,7 @@
       --cafile rootCA.crt \
       --cert sensor-cert.pem \
       --key sensor-key.pem \
-      -t '$devices/b91qprkvbks9********/state' \
+      -t '$devices/{{ device-id }}/state' \
       -m '150' \
       -q 1 \
       --debug
@@ -315,7 +323,7 @@
    ```text
    ...
    15:02:27.030752   [client]  enter Publish
-   15:02:27.030797   [client]  sending publish message, topic:$devices/b91qprkvbks9********/state
+   15:02:27.030797   [client]  sending publish message, topic:$devices/{{ device-id }}/state
    15:02:27.030923   [net]     obound wrote msg, id:1
    15:02:27.030947   [net]     outgoing waiting for an outbound message
    15:02:27.261271   [net]     Received Message
@@ -332,7 +340,7 @@
    ```text
    Client null sending CONNECT
    Client null received CONNACK (0)
-   Client null sending PUBLISH (d0, q1, r0, m1, '$devices/b91qprkvbks9********/state', ... (3 bytes))
+   Client null sending PUBLISH (d0, q1, r0, m1, '$devices/{{ device-id }}/state', ... (3 bytes))
    Client null received PUBACK (Mid: 1, RC:0)
    Client null sending DISCONNECT
    ```
@@ -365,7 +373,7 @@
 - Mosquitto {#mosquitto}
 
    ```text
-   Client null received PUBLISH (d0, q1, r0, m3, '$devices/b91qprkvbks9********/state', ... (3 bytes))
+   Client null received PUBLISH (d0, q1, r0, m3, '$devices/{{ device-id }}/state', ... (3 bytes))
    Client null sending PUBACK (m3, rc0)
    150
    ```

@@ -9,10 +9,6 @@ editable: false
 {% include [iot-sunset-warning](../_includes/iot-core/sunset-warning.md) %}
 
 
-{% include [pricing-increase-2026-05](../_includes/pricing-increase-2026-05.md) %}
-
-
-
 
 {% include [without-use-calculator](../_includes/pricing/without-use-calculator.md) %}
 

@@ -1,18 +1,18 @@
-# Создать или изменить ресурсы Application Load Balancer по конфигурации для Managed Service for Kubernetes
+# Создать или изменить ресурсы {{ alb-name }} по конфигурации для {{ managed-k8s-name }}
 
 {% note tip %}
 
-Вместо ALB Ingress-контроллера и Gateway API рекомендуется использовать новый контроллер [Yandex Cloud Gwin](../tools/gwin/index.md).
+Вместо ALB Ingress-контроллера и Gateway API рекомендуется использовать новый контроллер [{{ yandex-cloud }} Gwin]({{ gwin-tip-local-link }}).
 
 {% endnote %}
 
-Чтобы управлять ресурсами Application Load Balancer с помощью [Ingress-контроллера](../tools/k8s-ingress-controller/index.md) и [Gateway API](../tools/k8s-gateway-api/index.md) для Yandex Managed Service for Kubernetes, нужно создать конфигурации — файлы в формате YAML с описаниями ресурсов Kubernetes: `Ingress`, `HttpBackendGroup`, `Gateway`, `HTTPRoute` и т. д.
+Чтобы управлять ресурсами {{ alb-name }} с помощью [Ingress-контроллера]({{ ingress-local-link }}/index.md) и [Gateway API]({{ gateway-local-link }}/index.md) для {{ managed-k8s-full-name }}, нужно создать конфигурации — файлы в формате YAML с описаниями ресурсов {{ k8s }}: `Ingress`, `HttpBackendGroup`, `Gateway`, `HTTPRoute` и т. д.
 
 ## Перед началом работы {#prerequisites}
 
-1. [Установите kubectl](https://kubernetes.io/ru/docs/tasks/tools/install-kubectl) и [настройте его на работу с созданным кластером](../../managed-kubernetes/operations/connect/index.md#kubectl-connect).
-1. [Установите Ingress-контроллер](k8s-ingress-controller-install.md) или [Gateway API](k8s-gateway-api-install.md).
-1. Создайте ресурс. Конфигурации доступных ресурсов см. в разделе [Ingress-контроллер для Managed Service for Kubernetes](../tools/k8s-ingress-controller/index.md).
+1. [Установите kubectl]({{ k8s-docs }}/tasks/tools/install-kubectl) и [настройте его на работу с созданным кластером](../../managed-kubernetes/operations/connect/index.md#kubectl-connect).
+1. [Установите Ingress-контроллер]({{ ingress-install-local-link }}) или [Gateway API]({{ gateway-install-local-link }}).
+1. Создайте ресурс. Конфигурации доступных ресурсов см. в разделе [{#T}]({{ alb-local-link }}/index.md).
 
 ## Применить конфигурацию {#apply}
 

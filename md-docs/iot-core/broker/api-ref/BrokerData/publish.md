@@ -5,7 +5,7 @@ Publishes message on behalf of specified broker
 ## HTTP request
 
 ```
-POST https://iot-data.api.cloud.yandex.net/iot-broker/v1/brokers/{brokerId}/publish
+POST https://iot-data.{{ api-host }}/iot-broker/v1/brokers/{brokerId}/publish
 ```
 
 ## Path parameters

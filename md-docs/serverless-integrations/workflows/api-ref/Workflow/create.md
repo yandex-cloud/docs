@@ -5,7 +5,7 @@ Creates Workflow in specified folder.
 ## HTTP request
 
 ```
-POST https://serverless-workflows.api.cloud.yandex.net/workflows/v1/workflow
+POST https://serverless-workflows.{{ api-host }}/workflows/v1/workflow
 ```
 
 ## Body parameters {#yandex.cloud.serverless.workflows.v1.CreateWorkflowRequest}

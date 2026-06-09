@@ -1,6 +1,6 @@
-# Получение информации об имеющихся кластерах PostgreSQL
+# Получение информации об имеющихся кластерах {{ PG }}
 
-Вы можете запросить детальную информацию о каждом созданном вами кластере Managed Service for PostgreSQL.
+Вы можете запросить детальную информацию о каждом созданном вами кластере {{ mpg-short-name }}.
 
 ## Получить список кластеров БД в каталоге {#list-clusters}
 
@@ -8,18 +8,18 @@
 
 - Консоль управления {#console}
 
-  [Перейдите](../../console/operations/select-service.md#select-service) в сервис **Managed Service for&nbsp;PostgreSQL**.
+  Перейдите в сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-postgresql }}**.
 
 - CLI {#cli}
 
-  Если у вас еще нет интерфейса командной строки Yandex Cloud (CLI), [установите и инициализируйте его](../../cli/quickstart.md#install).
+  Если у вас еще нет интерфейса командной строки {{ yandex-cloud }} (CLI), [установите и инициализируйте его](../../cli/quickstart.md#install).
 
   По умолчанию используется каталог, указанный при [создании](../../cli/operations/profile/profile-create.md) профиля CLI. Чтобы изменить каталог по умолчанию, используйте команду `yc config set folder-id <идентификатор_каталога>`. Также для любой команды вы можете указать другой каталог с помощью параметров `--folder-name` или `--folder-id`. Если вы обращаетесь к ресурсу по имени, поиск будет выполнен в каталоге по умолчанию. Если вы обращаетесь к ресурсу по идентификатору, поиск будет выполнен глобально — во всех каталогах с учетом прав доступа.
 
-  Чтобы запросить список кластеров PostgreSQL в каталоге по умолчанию, выполните команду:
+  Чтобы запросить список кластеров {{ PG }} в каталоге по умолчанию, выполните команду:
 
   ```bash
-  yc managed-postgresql cluster list
+  {{ yc-mdb-pg }} cluster list
   ```
 
   ```text
@@ -39,13 +39,13 @@
      export IAM_TOKEN="<IAM-токен>"
      ```
 
-  1. Воспользуйтесь методом [Cluster.List](../api-ref/Cluster/list.md) и выполните запрос, например, с помощью [cURL](https://curl.se/):
+  1. Воспользуйтесь методом [Cluster.List](../api-ref/Cluster/list.md) и выполните запрос, например, с помощью {{ api-examples.rest.tool }}:
 
      ```bash
      curl \
        --request GET \
        --header "Authorization: Bearer $IAM_TOKEN" \
-       --url 'https://mdb.api.cloud.yandex.net/managed-postgresql/v1/clusters' \
+       --url 'https://{{ api-host-mdb }}/managed-postgresql/v1/clusters' \
        --url-query folderId=<идентификатор_каталога>
      ```
 
@@ -70,7 +70,7 @@
      ```
      
      Далее предполагается, что содержимое репозитория находится в директории `~/cloudapi/`.
-  1. Воспользуйтесь вызовом [ClusterService.List](../api-ref/grpc/Cluster/list.md) и выполните запрос, например, с помощью [gRPCurl](https://github.com/fullstorydev/grpcurl):
+  1. Воспользуйтесь вызовом [ClusterService.List](../api-ref/grpc/Cluster/list.md) и выполните запрос, например, с помощью {{ api-examples.grpc.tool }}:
 
      ```bash
      grpcurl \
@@ -82,7 +82,7 @@
        -d '{
              "folder_id": "<идентификатор_каталога>"
            }' \
-       mdb.api.cloud.yandex.net:443 \
+       {{ api-host-mdb }}:{{ port-https }} \
        yandex.cloud.mdb.postgresql.v1.ClusterService.List
      ```
 
@@ -100,19 +100,19 @@
 
 - Консоль управления {#console}
 
-  1. [Перейдите](../../console/operations/select-service.md#select-service) в сервис **Managed Service for&nbsp;PostgreSQL**.
+  1. Перейдите в сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-postgresql }}**.
   1. Нажмите на имя нужного кластера.
 
 - CLI {#cli}
 
-  Если у вас еще нет интерфейса командной строки Yandex Cloud (CLI), [установите и инициализируйте его](../../cli/quickstart.md#install).
+  Если у вас еще нет интерфейса командной строки {{ yandex-cloud }} (CLI), [установите и инициализируйте его](../../cli/quickstart.md#install).
 
   По умолчанию используется каталог, указанный при [создании](../../cli/operations/profile/profile-create.md) профиля CLI. Чтобы изменить каталог по умолчанию, используйте команду `yc config set folder-id <идентификатор_каталога>`. Также для любой команды вы можете указать другой каталог с помощью параметров `--folder-name` или `--folder-id`. Если вы обращаетесь к ресурсу по имени, поиск будет выполнен в каталоге по умолчанию. Если вы обращаетесь к ресурсу по идентификатору, поиск будет выполнен глобально — во всех каталогах с учетом прав доступа.
 
-  Чтобы получить информацию о кластере PostgreSQL, выполните команду:
+  Чтобы получить информацию о кластере {{ PG }}, выполните команду:
 
   ```bash
-  yc managed-postgresql cluster get <имя_или_идентификатор_кластера>
+  {{ yc-mdb-pg }} cluster get <имя_или_идентификатор_кластера>
   ```
 
   Идентификатор и имя кластера можно запросить со [списком кластеров в каталоге](#list-clusters).
@@ -125,13 +125,13 @@
       export IAM_TOKEN="<IAM-токен>"
       ```
 
-  1. Воспользуйтесь методом [Cluster.Get](../api-ref/Cluster/get.md) и выполните запрос, например, с помощью [cURL](https://curl.se/):
+  1. Воспользуйтесь методом [Cluster.Get](../api-ref/Cluster/get.md) и выполните запрос, например, с помощью {{ api-examples.rest.tool }}:
 
      ```bash
      curl \
        --request GET \
        --header "Authorization: Bearer $IAM_TOKEN" \
-       --url 'https://mdb.api.cloud.yandex.net/managed-postgresql/v1/clusters/<идентификатор_кластера>'
+       --url 'https://{{ api-host-mdb }}/managed-postgresql/v1/clusters/<идентификатор_кластера>'
      ```
 
      Идентификатор кластера можно запросить со [списком кластеров в каталоге](#list-clusters).
@@ -153,7 +153,7 @@
      ```
      
      Далее предполагается, что содержимое репозитория находится в директории `~/cloudapi/`.
-  1. Воспользуйтесь вызовом [ClusterService.Get](../api-ref/grpc/Cluster/get.md) и выполните запрос, например, с помощью [gRPCurl](https://github.com/fullstorydev/grpcurl):
+  1. Воспользуйтесь вызовом [ClusterService.Get](../api-ref/grpc/Cluster/get.md) и выполните запрос, например, с помощью {{ api-examples.grpc.tool }}:
 
      ```bash
      grpcurl \
@@ -165,7 +165,7 @@
        -d '{
              "cluster_id": "<идентификатор_кластера>"
            }' \
-       mdb.api.cloud.yandex.net:443 \
+       {{ api-host-mdb }}:{{ port-https }} \
        yandex.cloud.mdb.postgresql.v1.ClusterService.Get
      ```
 
@@ -177,7 +177,7 @@
 
 ## Посмотреть операции с кластерами {#list-operations}
 
-Все действия с кластерами Managed Service for PostgreSQL сохраняются в виде списка операций. Каждой операции присваивается уникальный идентификатор.
+Все действия с кластерами {{ mpg-name }} сохраняются в виде списка операций. Каждой операции присваивается уникальный идентификатор.
 
 ### Получить список операций {#get-operations}
 
@@ -185,24 +185,24 @@
 
 - Консоль управления {#console}
 
-  Чтобы посмотреть операции со всеми кластерами Managed Service for PostgreSQL, на панели слева выберите ![image](../../_assets/console-icons/list-check.svg) **Операции**. В открывшемся списке также отображаются операции для ресурсов, которые были удалены.
+  Чтобы посмотреть операции со всеми кластерами {{ mpg-name }}, на панели слева выберите ![image](../../_assets/console-icons/list-check.svg) **{{ ui-key.yacloud.postgresql.switch_operations_9JzwJ }}**. В открывшемся списке также отображаются операции для ресурсов, которые были удалены.
 
   Можно получить список операций для кластера:
 
-  1. В [консоли управления](https://console.yandex.cloud) откройте каталог, в котором находится кластер.
-  1. [Перейдите](../../console/operations/select-service.md#select-service) в сервис **Managed Service for&nbsp;PostgreSQL**.
-  1. На панели слева выберите ![image](../../_assets/console-icons/cubes-3.svg) **Кластеры**.
-  1. Выберите нужный кластер и перейдите на вкладку ![image](../../_assets/console-icons/list-check.svg) **Операции**.
+  1. В [консоли управления]({{ link-console-main }}) откройте каталог, в котором находится кластер.
+  1. Перейдите в сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-postgresql }}**.
+  1. На панели слева выберите ![image](../../_assets/console-icons/cubes-3.svg) **{{ ui-key.yacloud.postgresql.switch_list_9AfbP }}**.
+  1. Выберите нужный кластер и перейдите на вкладку ![image](../../_assets/console-icons/list-check.svg) **{{ ui-key.yacloud.postgresql.switch_operations_9JzwJ }}**.
 
      В открывшемся списке отображаются операции с выбранным кластером.
 
 - CLI {#cli}
 
-  Если у вас еще нет интерфейса командной строки Yandex Cloud (CLI), [установите и инициализируйте его](../../cli/quickstart.md#install).
+  Если у вас еще нет интерфейса командной строки {{ yandex-cloud }} (CLI), [установите и инициализируйте его](../../cli/quickstart.md#install).
 
   По умолчанию используется каталог, указанный при [создании](../../cli/operations/profile/profile-create.md) профиля CLI. Чтобы изменить каталог по умолчанию, используйте команду `yc config set folder-id <идентификатор_каталога>`. Также для любой команды вы можете указать другой каталог с помощью параметров `--folder-name` или `--folder-id`. Если вы обращаетесь к ресурсу по имени, поиск будет выполнен в каталоге по умолчанию. Если вы обращаетесь к ресурсу по идентификатору, поиск будет выполнен глобально — во всех каталогах с учетом прав доступа.
 
-  Чтобы получить список операций для кластера Managed Service for PostgreSQL, воспользуйтесь командой:
+  Чтобы получить список операций для кластера {{ mpg-name }}, воспользуйтесь командой:
 
   ```bash
   yc managed-postgresql cluster list-operations <имя_или_идентификатор_кластера>
@@ -251,13 +251,13 @@
      export IAM_TOKEN="<IAM-токен>"
      ```
 
-  1. Воспользуйтесь методом [Cluster.ListOperations](../api-ref/Cluster/listOperations.md) и выполните запрос, например, с помощью [cURL](https://curl.se/):
+  1. Воспользуйтесь методом [Cluster.ListOperations](../api-ref/Cluster/listOperations.md) и выполните запрос, например, с помощью {{ api-examples.rest.tool }}:
 
      ```bash
      curl \
        --request GET \
        --header "Authorization: Bearer $IAM_TOKEN" \
-       --url 'https://mdb.api.cloud.yandex.net/managed-postgresql/v1/clusters/<идентификатор_кластера>/operations'
+       --url 'https://{{ api-host-mdb }}/managed-postgresql/v1/clusters/<идентификатор_кластера>/operations'
      ```
 
      Идентификатор кластера можно запросить со [списком кластеров в каталоге](#list-clusters).
@@ -279,7 +279,7 @@
      ```
      
      Далее предполагается, что содержимое репозитория находится в директории `~/cloudapi/`.
-  1. Воспользуйтесь вызовом [ClusterService.ListOperations](../api-ref/grpc/Cluster/listOperations.md) и выполните запрос, например, с помощью [gRPCurl](https://github.com/fullstorydev/grpcurl):
+  1. Воспользуйтесь вызовом [ClusterService.ListOperations](../api-ref/grpc/Cluster/listOperations.md) и выполните запрос, например, с помощью {{ api-examples.grpc.tool }}:
 
      ```bash
      grpcurl \
@@ -291,7 +291,7 @@
        -d '{
                "cluster_id": "<идентификатор_кластера>"
            }' \
-       mdb.api.cloud.yandex.net:443 \
+       {{ api-host-mdb }}:{{ port-https }} \
        yandex.cloud.mdb.postgresql.v1.ClusterService.ListOperations
      ```
 
@@ -327,7 +327,7 @@
     * **Creating cluster** — создание кластера.
     * **Installing software** — установка программного обеспечения (например, создается база данных, устанавливаются вспомогательные пакеты-плагины).
     * **Initializing database** — инициализация базы данных.
-    * **Infrastructure integration** — создание связей новых объектов с инфраструктурой Yandex Cloud (например, распространяется DNS, выпускаются сертификаты, хосты включаются в систему мониторинга).
+    * **Infrastructure integration** — создание связей новых объектов с инфраструктурой {{ yandex-cloud }} (например, распространяется DNS, выпускаются сертификаты, хосты включаются в систему мониторинга).
     * **Updating host groups** — обновление группы хостов.
     * **Updating hosts** — обновление хостов.
     * **Completing** — завершение операции.
@@ -345,7 +345,7 @@
 
 - CLI {#cli}
 
-    Если у вас еще нет интерфейса командной строки Yandex Cloud (CLI), [установите и инициализируйте его](../../cli/quickstart.md#install).
+    Если у вас еще нет интерфейса командной строки {{ yandex-cloud }} (CLI), [установите и инициализируйте его](../../cli/quickstart.md#install).
 
     По умолчанию используется каталог, указанный при [создании](../../cli/operations/profile/profile-create.md) профиля CLI. Чтобы изменить каталог по умолчанию, используйте команду `yc config set folder-id <идентификатор_каталога>`. Также для любой команды вы можете указать другой каталог с помощью параметров `--folder-name` или `--folder-id`. Если вы обращаетесь к ресурсу по имени, поиск будет выполнен в каталоге по умолчанию. Если вы обращаетесь к ресурсу по идентификатору, поиск будет выполнен глобально — во всех каталогах с учетом прав доступа.
 
@@ -443,13 +443,13 @@
         export IAM_TOKEN="<IAM-токен>"
         ```
 
-    1. Воспользуйтесь методом [Operation.Get](../api-ref/Operation/get.md) и выполните запрос, например с помощью [cURL](https://curl.se/):
+    1. Воспользуйтесь методом [Operation.Get](../api-ref/Operation/get.md) и выполните запрос, например с помощью {{ api-examples.rest.tool }}:
 
         ```bash
         curl \
             --request GET \
             --header "Authorization: Bearer $IAM_TOKEN" \
-            --url 'https://operation.api.cloud.yandex.net/operations/<идентификатор_операции>'
+            --url 'https://{{ api-host-operation }}/operations/<идентификатор_операции>'
         ```
 
         Идентификатор операции можно получить со [списком операций](#get-operations) для кластера.
@@ -471,7 +471,7 @@
        ```
        
        Далее предполагается, что содержимое репозитория находится в директории `~/cloudapi/`.
-    1. Воспользуйтесь вызовом [OperationService.Get](../api-ref/grpc/Operation/get.md) и выполните запрос, например с помощью [gRPCurl](https://github.com/fullstorydev/grpcurl):
+    1. Воспользуйтесь вызовом [OperationService.Get](../api-ref/grpc/Operation/get.md) и выполните запрос, например с помощью {{ api-examples.grpc.tool }}:
 
         ```bash
         grpcurl \
@@ -483,7 +483,7 @@
             -d '{
                   "operation_id": "<идентификатор_операции>"
                 }' \
-            operation.api.cloud.yandex.net:443 \
+            {{ api-host-operation }}:{{ port-https }} \
             yandex.cloud.operation.OperationService.Get
         ```
 
@@ -495,4 +495,4 @@
 
 ### См. также {#see-also}
 
-* [Работа с операциями](../../api-design-guide/concepts/about-async.md)
+* [{#T}](../../api-design-guide/concepts/about-async.md)

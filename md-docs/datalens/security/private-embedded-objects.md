@@ -2,7 +2,7 @@
 
 Вы можете безопасно встроить непубличные [чарты](../concepts/chart/index.md) и [дашборды](../concepts/dashboard.md) на сайт или в приложение с помощью специальных ссылок с [JWT-токеном](https://ru.wikipedia.org/wiki/JSON_Web_Token).
 
-Встраивание непубличных объектов работает только в новой объектной модели DataLens на уровне [воркбуков](../workbooks-collections/index.md) и доступно только [администратору](roles.md#datalens-workbooks-admin) воркбука.
+Встраивание непубличных объектов работает только в новой объектной модели {{ datalens-short-name }} на уровне [воркбуков](../workbooks-collections/index.md) и доступно только [администратору](roles.md#datalens-workbooks-admin) воркбука.
 
 Встраивание не поддерживается для непубличных объектов, которые построены на основе следующих подключений: {#unsupported-connections}
 
@@ -10,9 +10,9 @@
 * [Snowflake](../operations/connection/create-snowflake.md)
 * [Metrica](../operations/connection/create-metrica-api.md)
 * [AppMetrica](../operations/connection/create-appmetrica.md)
-* [Yandex Cloud Billing](../operations/connection/create-cloud-billing.md)
-* [DataLens Usage Analytics](../operations/connection/create-usage-tracking.md)
-* [SpeechSense](../operations/connection/create-speechsense.md) (чтобы встраивать объекты, создайте подключение от имени сервисного аккаунта)
+* [{{ yandex-cloud }} Billing](../operations/connection/create-cloud-billing.md)
+* [{{ datalens-short-name }} Usage Analytics](../operations/connection/create-usage-tracking.md)
+* [{{ speechsense-name }}](../operations/connection/create-speechsense.md) (чтобы встраивать объекты, создайте подключение от имени сервисного аккаунта)
 
 {% note info %}
 
@@ -35,6 +35,9 @@
   * `dark` — для отображения в темной теме.
 
 * `_lang` — у чартов определяет значение языка для меню, которое открывается при нажатии на значок ![image](../../_assets/console-icons/ellipsis.svg). Возможные значения: `ru` или `en`.
+* `_no_tabs ` — скрывает вкладки у дашборда. Значение для включения параметра — `1`.
+* `_no_table_of_content` — скрывает содержание у дашборда. Значение для включения параметра — `1`.
+* `_no_title` — скрывает заголовок у дашборда. Значение для включения параметра — `1`.
 
 Параметры передаются в формате `<имя_параметра>=<значение>`. Например, чтобы задать время автообновления 50 секунд, укажите: `_autoupdate=50`.
 
@@ -50,7 +53,7 @@
 
    {% endnote %}
 
-   1. Перейдите на [главную страницу](https://datalens.ru/?skipPromo=true) DataLens.
+   1. Перейдите на [главную страницу]({{ link-datalens-main-skip-promo }}) {{ datalens-short-name }}.
    1. На панели слева выберите ![collections](../../_assets/console-icons/rectangles-4.svg) **Коллекции и воркбуки**.
    1. Откройте воркбук, в котором расположен объект для встраивания.
    1. В верхней части интерфейса нажмите значок ![ellipsis](../../_assets/console-icons/ellipsis.svg) и выберите ![key](../../_assets/console-icons/key.svg) **Ключи для встраивания**.
@@ -135,7 +138,7 @@
 
         {% endnote %}
 
-      * `dlEmbedService` — строковая константа идентификатора сервиса: `YC_DATALENS_EMBEDDING_SERVICE_MARK`.
+      * `dlEmbedService` — строковая константа идентификатора сервиса: `{{ dlEmbedService }}`.
       * (опционально) `params` — подписанные параметры чарта, которые передаются в составе токена. Их нельзя изменить без повторной генерации токена.
 
         {% note warning %}
@@ -152,7 +155,7 @@
           "embedId": "ieez7********",
           "iat": 1516239022,
           "exp": 1516240822,
-          "dlEmbedService": "YC_DATALENS_EMBEDDING_SERVICE_MARK",
+          "dlEmbedService": "{{ dlEmbedService }}",
           "params": {
             "param1": "value1",
             "param2": "value2"
@@ -199,7 +202,7 @@
         now = int(time.time())
         payload = {
            'embedId': "<идентификатор_объекта_встраивания>",
-           'dlEmbedService': "YC_DATALENS_EMBEDDING_SERVICE_MARK",
+           'dlEmbedService': "{{ dlEmbedService }}",
            'iat': now,
            'exp': now + 360,
            "params": {  }}
@@ -230,7 +233,7 @@
         const now = Math.floor(Date.now() / 1000);
         const payload = {
         embedId: '<идентификатор_объекта_встраивания>',
-        dlEmbedService: 'YC_DATALENS_EMBEDDING_SERVICE_MARK',
+        dlEmbedService: '{{ dlEmbedService }}',
         iat: now,
         exp: now + 360,
         params: {},
@@ -272,7 +275,7 @@
           now := time.Now().Unix()
           payload := jwt.MapClaims{
               "embedId":        "<идентификатор_объекта_встраивания>",
-              "dlEmbedService": "YC_DATALENS_EMBEDDING_SERVICE_MARK",
+              "dlEmbedService": "{{ dlEmbedService }}",
               "iat":            now,
               "exp":            now + 360,
               "params":         map[string]interface{}{},
@@ -299,7 +302,7 @@
 
                 
         ```bash
-        https://datalens.ru/embeds/chart#dl_embed_token=<токен>
+        {{ link-datalens-main }}/embeds/chart#dl_embed_token=<токен>
         ```
 
 
@@ -311,7 +314,7 @@
 
                 
         ```bash
-        https://datalens.ru/embeds/dash#dl_embed_token=<токен>
+        {{ link-datalens-main }}/embeds/dash#dl_embed_token=<токен>
         ```
 
 
@@ -329,7 +332,7 @@
 
                 
         ```html
-        <iframe src="https://datalens.ru/embeds/chart#dl_embed_token=<токен>" width="600" height="400" frameborder="0"></iframe>
+        <iframe src="{{ link-datalens-main }}/embeds/chart#dl_embed_token=<токен>" width="600" height="400" frameborder="0"></iframe>
         ```
 
 
@@ -345,7 +348,7 @@
 
                 
         ```html
-        <iframe src="https://datalens.ru/embeds/dash#dl_embed_token=<токен>" width="600" height="400" frameborder="0"></iframe>
+        <iframe src="{{ link-datalens-main }}/embeds/dash#dl_embed_token=<токен>" width="600" height="400" frameborder="0"></iframe>
         ```
 
 
@@ -361,7 +364,7 @@
 
       {% note info %}
 
-      Если на сайте и в приложении, куда будет встроен чарт или дашборд, реализована политика доступа по белым спискам, добавьте домен `https://datalens.ru` в список разрешенных.
+      Если на сайте и в приложении, куда будет встроен чарт или дашборд, реализована политика доступа по белым спискам, добавьте домен `{{ link-datalens-main }}` в список разрешенных.
 
       {% endnote %}
 
@@ -393,7 +396,7 @@ const iframe = document.getElementById('ID_IFRAME');
 iframe.contentWindow.postMessage({
     type: 'SECURE_EMBEDDING_TOKEN_UPDATE',
     token: 'NEW_TOKEN'
-}, 'https://datalens.ru/');
+}, '{{ link-datalens-main }}/');
 ```
 
 
@@ -411,7 +414,7 @@ iframe.contentWindow.postMessage({
 
     
   ```html
-  <iframe src="https://datalens.ru/embeds/chart?from=2022-01-01&to=2023-02-05#dl_embed_token=<токен>" width="600" height="400" frameborder="0"></iframe>
+  <iframe src="{{ link-datalens-main }}/embeds/chart?from=2022-01-01&to=2023-02-05#dl_embed_token=<токен>" width="600" height="400" frameborder="0"></iframe>
   ```
 
 
@@ -425,7 +428,7 @@ iframe.contentWindow.postMessage({
 
     
   ```html
-  <iframe src="https://datalens.ru/embeds/dash?from=2022-01-01&to=2023-02-05#dl_embed_token=<токен>" width="600" height="400" frameborder="0"></iframe>
+  <iframe src="{{ link-datalens-main }}/embeds/dash?from=2022-01-01&to=2023-02-05#dl_embed_token=<токен>" width="600" height="400" frameborder="0"></iframe>
   ```
 
 

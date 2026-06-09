@@ -1,12 +1,20 @@
-# Работа с Yandex IoT Core на языке C#
+# Работа с {{ iot-full-name }} на языке C#
 
-# Работа с Yandex IoT Core на языке C#
+# Работа с {{ iot-full-name }} на языке C#
 
-В этом руководстве вы узнаете, как подключиться к Yandex IoT Core с помощью библиотеки [Paho](https://www.eclipse.org/paho/clients/dotnet/) на языке программирования С\#. Данное руководство предполагает, что вы имеете навыки разработки с использованием платформы .NET на языке C\#.
+{% note warning %}
+
+Сервис {{ iot-full-name }} больше не доступен для новых пользователей. 
+
+Текущие пользователи могут создавать ресурсы до 1 ноября 2026 года. После сервис перейдет в режим read-only, а 1 декабря 2026 года — прекратит работу. Подробнее о сроках и порядке закрытия читайте на странице [Закрытие сервиса](../../iot-core/sunset.md).
+
+{% endnote %}
+
+В этом руководстве вы узнаете, как подключиться к {{ iot-full-name }} с помощью библиотеки [Paho](https://www.eclipse.org/paho/clients/dotnet/) на языке программирования С\#. Данное руководство предполагает, что вы имеете навыки разработки с использованием платформы .NET на языке C\#.
 
 {% note info %}
 
-Исходный код руководства доступен на [GitHub](https://github.com/yandex-cloud-examples/yc-mqtt-server-iot). Взаимодействие с Yandex IoT Core инкапсулировано в классе [YaClient](https://github.com/yandex-cloud-examples/yc-mqtt-server-iot/blob/main/YaClient.cs), который вы можете использовать в своих проектах.
+Исходный код руководства доступен на [GitHub](https://github.com/yandex-cloud-examples/yc-mqtt-server-iot). Взаимодействие с {{ iot-full-name }} инкапсулировано в классе [YaClient](https://github.com/yandex-cloud-examples/yc-mqtt-server-iot/blob/main/YaClient.cs), который вы можете использовать в своих проектах.
 
 {% endnote %}
 
@@ -15,13 +23,13 @@
 * [Отправлять сообщения](../../iot-core/operations/publish.md).
 * [Подписывать устройство или реестр на получение сообщений](../../iot-core/operations/subscribe.md).
 
-Чтобы подключиться к Yandex IoT Core и начать обмен сообщениями:
+Чтобы подключиться к {{ iot-full-name }} и начать обмен сообщениями:
 
-* [Создайте необходимые ресурсы Yandex IoT Core](#resources):
+* [Создайте необходимые ресурсы {{ iot-full-name }}](#resources):
   * [Создайте реестр и добавьте ему сертификат](#registry).
   * [Создайте устройство и добавьте ему сертификат](#device).
-* [Подключитесь к Yandex IoT Core](#connect).
-* [Аутентифицируйтесь в Yandex IoT Core](#auth):
+* [Подключитесь к {{ iot-full-name }}](#connect).
+* [Аутентифицируйтесь в {{ iot-full-name }}](#auth):
   * [Аутентификация с помощью сертификатов](#certs).
   * [Аутентификация по логину и паролю](#log-pass).
 * [Установите соединение](#establish-connection).
@@ -31,10 +39,10 @@
 
 ## Перед началом работы {#before-you-begin}
 
-1. Если у вас еще нет интерфейса командной строки Yandex Cloud, [установите и инициализируйте его](../../cli/quickstart.md#install).
+1. Если у вас еще нет интерфейса командной строки {{ yandex-cloud }}, [установите и инициализируйте его](../../cli/quickstart.md#install).
 1. Скачайте и установите среду разработки для платформы .Net. Например, [Microsoft Visual Studio](https://visualstudio.microsoft.com/ru/vs/).
 
-## Создайте необходимые ресурсы Yandex IoT Core {#resources}
+## Создайте необходимые ресурсы {{ iot-full-name }} {#resources}
 
 ### Создайте реестр и добавьте ему сертификат {#registry}
 
@@ -97,7 +105,7 @@
      --certificate-file device-cert.pem # Путь к публичной части сертификата.
    ```
 
-## Подключитесь к Yandex IoT Core {#connect}
+## Подключитесь к {{ iot-full-name }} {#connect}
 
 Перед подключением настройте параметры соединения с помощью следующего кода:
 
@@ -129,23 +137,23 @@ IMqttClient mqttClient = factory.CreateMqttClient();
 // Подключение обработчика события о получении данных
 mqttClient.UseApplicationMessageReceivedHandler(DataHandler);
 
-// Подключение обработчика события о соединении с Yandex IoT Core
+// Подключение обработчика события о соединении с {{ iot-full-name }}
 mqttClient.UseConnectedHandler(ConnectedHandler);
 
-// Подключение обработчика события о потери связи с Yandex IoT Core
+// Подключение обработчика события о потери связи с {{ iot-full-name }}
 mqttClient.UseDisconnectedHandler(DisconnectedHandler);
 ```
 
 Где:
 
-* `MqttClientOptionsBuilderTlsParameters` — класс, в котором указываются параметры использования TLS при подключении к Yandex IoT Core.
+* `MqttClientOptionsBuilderTlsParameters` — класс, в котором указываются параметры использования TLS при подключении к {{ iot-full-name }}.
 * `MqttClientOptionsBuilder` — класс-конструктор для установки параметров соединения. Вы можете оставить настройки по умолчанию, но рекомендуется задать параметры `WithKeepAlivePeriod` и `WithKeepAliveSendInterval`. От значения этих параметров зависит:
     * Частота отправки команд `PINGREQ`.
     * Время реакции клиента на обрыв соединения.
 
         Чем меньше значения указанных параметров, тем быстрее клиент понимает, что соединение было разорвано нештатным путем. Но для этого чаще отправляются тарифицируемые команды `PINGREQ`.
 
-## Аутентифицируйтесь в Yandex IoT Core {#auth}
+## Аутентифицируйтесь в {{ iot-full-name }} {#auth}
 
 Есть два способа [аутентификации](../../iot-core/concepts/authorization.md):
 * [С помощью X.509-сертификатов](#certs).
@@ -215,7 +223,7 @@ private static bool CertificateValidationCallback(X509Certificate cert, X509Chai
 
 ### Аутентификация по логину и паролю {#log-pass}
 
-При аутентификации по логину и паролю в Yandex IoT Core требуется TLS-протокол. Для этого используйте класс `MqttClientOptionsBuilderTlsParameters`:
+При аутентификации по логину и паролю в {{ iot-full-name }} требуется TLS-протокол. Для этого используйте класс `MqttClientOptionsBuilderTlsParameters`:
 
 ```C#
 // Настройка TLS-соединения
@@ -246,7 +254,7 @@ var options = new MqttClientOptionsBuilder()
 
 ## Установите соединение {#establish-connection}
 
-Установите соединение с Yandex IoT Core с помощью следующего кода:
+Установите соединение с {{ iot-full-name }} с помощью следующего кода:
 
 ```C#
 mqttClient.ConnectAsync(options, CancellationToken.None);
@@ -302,7 +310,7 @@ private static Task DisconnectedHandler(MqttClientDisconnectedEventArgs arg)
 
 ## Завершите соединение {#disconnect}
 
-Завершите соединение с Yandex IoT Core с помощью следующего кода:
+Завершите соединение с {{ iot-full-name }} с помощью следующего кода:
 
 ```C#
 mqttClient.DisconnectAsync();

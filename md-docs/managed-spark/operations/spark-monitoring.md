@@ -1,6 +1,6 @@
 # Мониторинг состояния Spark-приложений
 
-Чтобы оценить работу Spark-приложений в кластере Yandex Managed Service for Apache Spark™, вы можете проверить:
+Чтобы оценить работу Spark-приложений в кластере {{ msp-full-name }}, вы можете проверить:
 
 * [подробную информацию о приложении](#info);
 * [подробную информацию о стадиях](#stages);
@@ -10,10 +10,10 @@
 
 ## Проверить подробную информацию о приложении {#info}
 
-1. Перейдите на [страницу каталога](https://console.yandex.cloud).
-1. [Перейдите](../../console/operations/select-service.md#select-service) в сервис **Managed Service for Apache Spark**.
+1. Перейдите на [страницу каталога]({{ link-console-main }}).
+1. Перейдите в сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-spark }}**.
 1. Нажмите на имя нужного кластера.
-1. В блоке **Дополнительные настройки** выберите **Spark History Server** и перейдите по ссылке.
+1. В блоке **{{ ui-key.yacloud.mdb.cluster.overview.section_additional }}** выберите **Spark History Server** и перейдите по ссылке.
 
    Откроется список завершенных приложений. Чтобы перейти к списку запущенных приложений, внизу таблицы нажмите **Show incomplete applications**.
 
@@ -34,10 +34,10 @@
 
 ## Проверить подробную информацию о стадиях {#stages}
 
-1. Перейдите на [страницу каталога](https://console.yandex.cloud).
-1. [Перейдите](../../console/operations/select-service.md#select-service) в сервис **Managed Service for Apache Spark**.
+1. Перейдите на [страницу каталога]({{ link-console-main }}).
+1. Перейдите в сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-spark }}**.
 1. Нажмите на имя нужного кластера.
-1. В блоке **Дополнительные настройки** выберите **Spark History Server** и перейдите по ссылке. Откроется окно интерфейса **Spark History Server**.
+1. В блоке **{{ ui-key.yacloud.mdb.cluster.overview.section_additional }}** выберите **Spark History Server** и перейдите по ссылке. Откроется окно интерфейса **Spark History Server**.
 1. В верхнем меню перейдите в раздел **Stages**.
 
    В интерфейсе представлена таблица **Completed Stages** со списком всех стадий задания. Для каждой стадии указаны:
@@ -59,10 +59,10 @@
 
 ## Проверить выделенные для приложения ресурсы {#resources}
 
-1. Перейдите на [страницу каталога](https://console.yandex.cloud).
-1. [Перейдите](../../console/operations/select-service.md#select-service) в сервис **Managed Service for Apache Spark**.
+1. Перейдите на [страницу каталога]({{ link-console-main }}).
+1. Перейдите в сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-spark }}**.
 1. Нажмите на имя нужного кластера.
-1. В блоке **Дополнительные настройки** выберите **Spark History Server** и перейдите по ссылке. Откроется окно интерфейса **Spark History Server**.
+1. В блоке **{{ ui-key.yacloud.mdb.cluster.overview.section_additional }}** выберите **Spark History Server** и перейдите по ссылке. Откроется окно интерфейса **Spark History Server**.
 1. В верхнем меню перейдите в раздел **Executors**.
 
    В интерфейсе представлены две таблицы:
@@ -81,16 +81,16 @@
    Если сборка мусора занимает много времени:
 
    * Убедитесь, что исполнителю выделяется достаточно оперативной памяти.
-   * Настройте сборщик мусора вручную. Как это сделать см. в [документации Apache Spark](https://spark.apache.org/docs/latest/tuning.html#garbage-collection-tuning).
+   * Настройте сборщик мусора вручную. Ознакомьтесь с инструкцией в [документации Apache Spark](https://spark.apache.org/docs/latest/tuning.html#garbage-collection-tuning).
 
    {% endnote %}
 
 ## Проверить кешируемые таблицы {#tables}
 
-1. Перейдите на [страницу каталога](https://console.yandex.cloud).
-1. [Перейдите](../../console/operations/select-service.md#select-service) в сервис **Managed Service for Apache Spark**.
+1. Перейдите на [страницу каталога]({{ link-console-main }}).
+1. Перейдите в сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-spark }}**.
 1. Нажмите на имя нужного кластера.
-1. В блоке **Дополнительные настройки** выберите **Spark History Server** и перейдите по ссылке. Откроется окно интерфейса **Spark History Server**.
+1. В блоке **{{ ui-key.yacloud.mdb.cluster.overview.section_additional }}** выберите **Spark History Server** и перейдите по ссылке. Откроется окно интерфейса **Spark History Server**.
 1. В верхнем меню перейдите в раздел **Storage**.
 
    В интерфейсе представлен список кешируемых таблиц ([RDDs](https://spark.apache.org/docs/latest/rdd-programming-guide.html#resilient-distributed-datasets-rdds)). Для каждой таблицы приведена информация об используемой оперативной памяти и занимаемом дисковом пространстве, а также прогресс кеширования.
@@ -99,10 +99,10 @@
 
 ## Проверить список и планы SQL-запросов {#sql}
 
-1. Перейдите на [страницу каталога](https://console.yandex.cloud).
-1. [Перейдите](../../console/operations/select-service.md#select-service) в сервис **Managed Service for Apache Spark**.
+1. Перейдите на [страницу каталога]({{ link-console-main }}).
+1. Перейдите в сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-spark }}**.
 1. Нажмите на имя нужного кластера.
-1. В блоке **Дополнительные настройки** выберите **Spark History Server** и перейдите по ссылке. Откроется окно интерфейса **Spark History Server**.
+1. В блоке **{{ ui-key.yacloud.mdb.cluster.overview.section_additional }}** выберите **Spark History Server** и перейдите по ссылке. Откроется окно интерфейса **Spark History Server**.
 1. В верхнем меню перейдите в раздел **SQL/DataFrame**.
 
    В таблице представлен список выполненных SQL-запросов с информацией о времени запуска и продолжительности их выполнения.

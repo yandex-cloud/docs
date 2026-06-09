@@ -50,6 +50,10 @@ Yandex Cloud DNS служит для управления зонами DNS и д
 
  - [Создать фильтр](operations/filter-create.md)
 
+### DNS-подключения
+
+ - [Создать входящее DNS-подключение](operations/connection-inbound-create.md)
+
 ## Концепции
 
  - [Обзор](concepts/index.md)
@@ -62,7 +66,9 @@ Yandex Cloud DNS служит для управления зонами DNS и д
 
  - [DNS-резолвер](concepts/dns-resolver.md)
 
- - [Интеграция с Compute Cloud](concepts/compute-integration.md)
+ - [DNS-подключения](concepts/dns-connection.md)
+
+ - [Интеграция с {{ compute-name }}](concepts/compute-integration.md)
 
  - [Квоты и лимиты](concepts/limits.md)
 
@@ -76,9 +82,9 @@ Yandex Cloud DNS служит для управления зонами DNS и д
 
  - [Интеграция с корпоративным сервисом DNS](tutorials/dns-integration.md)
 
- - [Интеграция Managed Service for Kubernetes с корпоративной зоной DNS](tutorials/custom-dns.md)
+ - [Интеграция {{ managed-k8s-name }} с корпоративной зоной DNS](tutorials/custom-dns.md)
 
- - [Настройка Cloud DNS для доступа к кластерам управляемых баз данных из других облачных сетей](tutorials/mdb-dns-peering.md)
+ - [Настройка {{ dns-name }} для доступа к кластерам управляемых баз данных из других облачных сетей](tutorials/mdb-dns-peering.md)
 
  - [Создание веб-хука резолвера ACME для ответов на DNS01-проверки](tutorials/cert-manager-webhook.md)
 
@@ -88,7 +94,7 @@ Yandex Cloud DNS служит для управления зонами DNS и д
 
  - [Консоль управления, CLI и API](tutorials/bind-domain-vm/console.md)
 
- - [Terraform](tutorials/bind-domain-vm/terraform.md)
+ - [{{ TF }}](tutorials/bind-domain-vm/terraform.md)
 
  - [Публикация обновлений для игр](tutorials/prefetch.md)
 
@@ -98,13 +104,13 @@ Yandex Cloud DNS служит для управления зонами DNS и д
 
  - [Консоль управления](tutorials/tls-termination/console.md)
 
- - [Terraform](tutorials/tls-termination/terraform.md)
+ - [{{ TF }}](tutorials/tls-termination/terraform.md)
 
- - [Подключение к Object Storage из Virtual Private Cloud](tutorials/storage-vpc-access.md)
+ - [Подключение к {{ objstorage-name }} из {{ vpc-name }}](tutorials/storage-vpc-access.md)
 
- - [Подключение к Container Registry из Virtual Private Cloud](tutorials/vpc-cr-access.md)
+ - [Подключение к {{ container-registry-name }} из {{ vpc-name }}](tutorials/vpc-cr-access.md)
 
- - [Переключение сетевого соединения при пересоздании кластера Yandex Data Processing](tutorials/reconnect-network.md)
+ - [Переключение сетевого соединения при пересоздании кластера {{ dataproc-name }}](tutorials/reconnect-network.md)
 
  - [Управление доступом](security/index.md)
 
@@ -150,6 +156,34 @@ Yandex Cloud DNS служит для управления зонами DNS и д
 
  - [update](cli-ref/firewall/update.md)
 
+### inbound-endpoint
+
+ - [Overview](cli-ref/inbound-endpoint/index.md)
+
+ - [add-access-binding](cli-ref/inbound-endpoint/add-access-binding.md)
+
+ - [add-labels](cli-ref/inbound-endpoint/add-labels.md)
+
+ - [create](cli-ref/inbound-endpoint/create.md)
+
+ - [delete](cli-ref/inbound-endpoint/delete.md)
+
+ - [get](cli-ref/inbound-endpoint/get.md)
+
+ - [list](cli-ref/inbound-endpoint/list.md)
+
+ - [list-access-bindings](cli-ref/inbound-endpoint/list-access-bindings.md)
+
+ - [list-operations](cli-ref/inbound-endpoint/list-operations.md)
+
+ - [remove-access-binding](cli-ref/inbound-endpoint/remove-access-binding.md)
+
+ - [remove-labels](cli-ref/inbound-endpoint/remove-labels.md)
+
+ - [set-access-bindings](cli-ref/inbound-endpoint/set-access-bindings.md)
+
+ - [update](cli-ref/inbound-endpoint/update.md)
+
 ### v0
 
  - [Overview](cli-ref/v0/index.md)
@@ -189,6 +223,34 @@ Yandex Cloud DNS служит для управления зонами DNS и д
  - [set-access-bindings](cli-ref/v0/firewall/set-access-bindings.md)
 
  - [update](cli-ref/v0/firewall/update.md)
+
+#### inbound-endpoint
+
+ - [Overview](cli-ref/v0/inbound-endpoint/index.md)
+
+ - [add-access-binding](cli-ref/v0/inbound-endpoint/add-access-binding.md)
+
+ - [add-labels](cli-ref/v0/inbound-endpoint/add-labels.md)
+
+ - [create](cli-ref/v0/inbound-endpoint/create.md)
+
+ - [delete](cli-ref/v0/inbound-endpoint/delete.md)
+
+ - [get](cli-ref/v0/inbound-endpoint/get.md)
+
+ - [list](cli-ref/v0/inbound-endpoint/list.md)
+
+ - [list-access-bindings](cli-ref/v0/inbound-endpoint/list-access-bindings.md)
+
+ - [list-operations](cli-ref/v0/inbound-endpoint/list-operations.md)
+
+ - [remove-access-binding](cli-ref/v0/inbound-endpoint/remove-access-binding.md)
+
+ - [remove-labels](cli-ref/v0/inbound-endpoint/remove-labels.md)
+
+ - [set-access-bindings](cli-ref/v0/inbound-endpoint/set-access-bindings.md)
+
+ - [update](cli-ref/v0/inbound-endpoint/update.md)
 
 #### zone
 
@@ -270,7 +332,7 @@ Yandex Cloud DNS служит для управления зонами DNS и д
 
  - [update-private-networks](cli-ref/zone/update-private-networks.md)
 
- - [Справочник Terraform](tf-ref.md)
+ - [Справочник {{ TF }}](tf-ref.md)
 
 ## Справочник API
 
@@ -368,9 +430,9 @@ Yandex Cloud DNS служит для управления зонами DNS и д
 
  - [Cancel](api-ref/Operation/cancel.md)
 
- - [Метрики Monitoring](metrics.md)
+ - [Метрики {{ monitoring-name }}](metrics.md)
 
- - [Аудитные логи Audit Trails](at-ref.md)
+ - [Аудитные логи {{ at-name }}](at-ref.md)
 
  - [История изменений](release-notes.md)
 

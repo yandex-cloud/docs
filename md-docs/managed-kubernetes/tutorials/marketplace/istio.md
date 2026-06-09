@@ -1,7 +1,7 @@
 # Использование Istio
 
 
-[Istio](https://istio.io/latest/about/service-mesh/) предназначен для организации _service mesh_ — инфраструктурного уровня с низкой задержкой, который нужен для обработки большого объема сетевых коммуникаций между сервисами в кластере Managed Service for Kubernetes.
+[Istio](https://istio.io/latest/about/service-mesh/) предназначен для организации _service mesh_ — инфраструктурного уровня с низкой задержкой, который нужен для обработки большого объема сетевых коммуникаций между сервисами в кластере {{ managed-k8s-name }}.
 
 Чтобы посмотреть варианты использования Istio:
 
@@ -12,8 +12,8 @@
 1. [Внедрите сбой в работу сервиса](#injection-failures).
 1. [Перераспределите трафик](#traffic-redistribution).
 1. [Установите режим аутентификации с помощью mutual TLS](#mutual-tls).
-1. [Посмотрите метрики Istio на дашборде Prometheus](#viewing-metrics-prometheus).
-1. [Посмотрите метрики Istio на дашборде Grafana](#viewing-metrics-grafana).
+1. [Посмотрите метрики Istio на дашборде {{ prometheus-name }}](#viewing-metrics-prometheus).
+1. [Посмотрите метрики Istio на дашборде {{ grafana-name }}](#viewing-metrics-grafana).
 
 Если созданные ресурсы вам больше не нужны, [удалите их](#clear-out).
 
@@ -22,33 +22,33 @@
 
 В стоимость поддержки описываемого решения входят:
 
-* Плата за кластер Managed Service for Kubernetes: использование мастера и исходящий трафик (см. [тарифы Managed Service for Kubernetes](../../pricing.md)).
-* Плата за узлы кластера (ВМ): использование вычислительных ресурсов, операционной системы и хранилища (см. [тарифы Compute Cloud](../../../compute/pricing.md)).
-* Плата за публичный IP-адрес, если он назначен узлам кластера (см. [тарифы Virtual Private Cloud](../../../vpc/pricing.md#prices-public-ip)).
+* Плата за кластер {{ managed-k8s-name }}: использование мастера и исходящий трафик (см. [тарифы {{ managed-k8s-name }}](../../pricing.md)).
+* Плата за узлы кластера (ВМ): использование вычислительных ресурсов, операционной системы и хранилища (см. [тарифы {{ compute-name }}](../../../compute/pricing.md)).
+* Плата за публичный IP-адрес, если он назначен узлам кластера (см. [тарифы {{ vpc-name }}](../../../vpc/pricing.md#prices-public-ip)).
 
 
 ## Перед началом работы {#before-you-begin}
 
-1. Создайте кластер и [группу узлов](../../concepts/index.md#node-group) Kubernetes.
+1. Создайте кластер и [группу узлов](../../concepts/index.md#node-group) {{ k8s }}.
 
     {% list tabs group=instructions %}
 
     - Вручную {#manual}
 
         1. Если у вас еще нет [сети](../../../vpc/concepts/network.md#network), [создайте ее](../../../vpc/operations/network-create.md).
-        1. Если у вас еще нет [подсетей](../../../vpc/concepts/network.md#subnet), [создайте их](../../../vpc/operations/subnet-create.md) в [зонах доступности](../../../overview/concepts/geo-scope.md), где будут созданы кластер Kubernetes и группа узлов.
+        1. Если у вас еще нет [подсетей](../../../vpc/concepts/network.md#subnet), [создайте их](../../../vpc/operations/subnet-create.md) в [зонах доступности](../../../overview/concepts/geo-scope.md), где будут созданы кластер {{ k8s }} и группа узлов.
         1. [Создайте сервисные аккаунты](../../../iam/operations/sa/create.md):
 
-            * Сервисный аккаунт с [ролями](../../security/index.md#yc-api) `k8s.clusters.agent` и `vpc.publicAdmin` на [каталог](../../../resource-manager/concepts/resources-hierarchy.md#folder), в котором создается кластер Kubernetes. От его имени будут создаваться ресурсы, необходимые кластеру Kubernetes.
-            * Сервисный аккаунт с [ролью](../../../iam/concepts/access-control/roles.md) [container-registry.images.puller](../../../container-registry/security/index.md#container-registry-images-puller). От его имени узлы будут скачивать из [реестра](../../../container-registry/concepts/registry.md) необходимые [Docker-образы](../../../container-registry/concepts/docker-image.md).
+            * Сервисный аккаунт с [ролями](../../security/index.md#yc-api) `k8s.clusters.agent` и `vpc.publicAdmin` на [каталог](../../../resource-manager/concepts/resources-hierarchy.md#folder), в котором создается кластер {{ k8s }}. От его имени будут создаваться ресурсы, необходимые кластеру {{ k8s }}.
+            * Сервисный аккаунт с [ролью](../../../iam/concepts/access-control/roles.md) [{{ roles-cr-puller }}](../../../container-registry/security/index.md#container-registry-images-puller). От его имени узлы будут скачивать из [реестра](../../../container-registry/concepts/registry.md) необходимые [Docker-образы](../../../container-registry/concepts/docker-image.md).
 
             {% note tip %}
 
-            Вы можете использовать один и тот же [сервисный аккаунт](../../../iam/concepts/users/service-accounts.md) для управления кластером Kubernetes и его группами узлов.
+            Вы можете использовать один и тот же [сервисный аккаунт](../../../iam/concepts/users/service-accounts.md) для управления кластером {{ k8s }} и его группами узлов.
 
             {% endnote %}
 
-        1. [Создайте группы безопасности](../../operations/connect/security-groups.md) для кластера Managed Service for Kubernetes и входящих в него групп узлов.
+        1. [Создайте группы безопасности](../../operations/connect/security-groups.md) для кластера {{ managed-k8s-name }} и входящих в него групп узлов.
 
             {% note warning %}
             
@@ -56,11 +56,11 @@
             
             {% endnote %}
 
-        1. [Создайте кластер Kubernetes](../../operations/kubernetes-cluster/kubernetes-cluster-create.md) и [группу узлов](../../operations/node-group/node-group-create.md) с оперативной памятью не менее 6 ГБ и с группами безопасности, созданными ранее.
+        1. [Создайте кластер {{ k8s }}](../../operations/kubernetes-cluster/kubernetes-cluster-create.md) и [группу узлов](../../operations/node-group/node-group-create.md) с оперативной памятью не менее 6 ГБ и с группами безопасности, созданными ранее.
 
-    - Terraform {#tf}
+    - {{ TF }} {#tf}
 
-        1. Если у вас еще нет Terraform, [установите его](../../../tutorials/infrastructure-management/terraform-quickstart.md#install-terraform).
+        1. Если у вас еще нет {{ TF }}, [установите его](../../../tutorials/infrastructure-management/terraform-quickstart.md#install-terraform).
         1. [Получите данные для аутентификации](../../../tutorials/infrastructure-management/terraform-quickstart.md#get-credentials). Вы можете добавить их в переменные окружения или указать далее в файле с настройками провайдера.
         1. [Настройте и инициализируйте провайдер](../../../tutorials/infrastructure-management/terraform-quickstart.md#configure-provider). Чтобы не создавать конфигурационный файл с настройками провайдера вручную, [скачайте его](https://github.com/yandex-cloud-examples/yc-terraform-provider-settings/blob/main/provider.tf).
         1. Поместите конфигурационный файл в отдельную рабочую директорию и [укажите значения параметров](../../../tutorials/infrastructure-management/terraform-quickstart.md#configure-provider). Если данные для аутентификации не были добавлены в переменные окружения, укажите их в конфигурационном файле.
@@ -69,9 +69,9 @@
 
             * [Сеть](../../../vpc/concepts/network.md#network).
             * [Подсеть](../../../vpc/concepts/network.md#subnet).
-            * Кластер Kubernetes.
-            * [Сервисный аккаунт](../../../iam/concepts/users/service-accounts.md), необходимый для работы кластера и группы узлов Managed Service for Kubernetes.
-            * [Группы безопасности](../../../vpc/concepts/security-groups.md), которые содержат [необходимые правила](../../operations/connect/security-groups.md) для кластера Managed Service for Kubernetes и входящих в него групп узлов.
+            * Кластер {{ k8s }}.
+            * [Сервисный аккаунт](../../../iam/concepts/users/service-accounts.md), необходимый для работы кластера и группы узлов {{ managed-k8s-name }}.
+            * [Группы безопасности](../../../vpc/concepts/security-groups.md), которые содержат [необходимые правила](../../operations/connect/security-groups.md) для кластера {{ managed-k8s-name }} и входящих в него групп узлов.
 
                 {% note warning %}
                 
@@ -82,18 +82,18 @@
         1. Укажите в файле `k8s-cluster.tf`:
 
             * [Идентификатор каталога](../../../resource-manager/operations/folder/get-id.md).
-            * Версию Kubernetes для кластера и групп узлов Kubernetes.
+            * Версию {{ k8s }} для кластера и групп узлов {{ k8s }}.
             * Оперативную память для группы узлов не менее 6 ГБ. Значение должно быть кратно количеству vCPU.
-            * CIDR кластера Kubernetes.
-            * Имя сервисного аккаунта кластера Managed Service for Kubernetes.
+            * CIDR кластера {{ k8s }}.
+            * Имя сервисного аккаунта кластера {{ managed-k8s-name }}.
 
-        1. Проверьте корректность файлов конфигурации Terraform с помощью команды:
+        1. Проверьте корректность файлов конфигурации {{ TF }} с помощью команды:
 
             ```bash
             terraform validate
             ```
 
-            Если в файлах конфигурации есть ошибки, Terraform на них укажет.
+            Если в файлах конфигурации есть ошибки, {{ TF }} на них укажет.
 
         1. Создайте необходимую инфраструктуру:
 
@@ -115,24 +115,24 @@
                1. Подтвердите изменение ресурсов.
                1. Дождитесь завершения операции.
 
-            В указанном каталоге будут созданы все требуемые ресурсы. Проверить появление ресурсов и их настройки можно в [консоли управления](https://console.yandex.cloud).
+            В указанном каталоге будут созданы все требуемые ресурсы. Проверить появление ресурсов и их настройки можно в [консоли управления]({{ link-console-main }}).
 
     {% endlist %}
 
     {% note warning %}
     
-    Не изменяйте и не удаляйте ресурсы Virtual Private Cloud, которые используются кластером Managed Service for Kubernetes. Это может привести к некорректной работе кластера и невозможности его последующего удаления.
+    Не изменяйте и не удаляйте ресурсы {{ vpc-name }}, которые используются кластером {{ managed-k8s-name }}. Это может привести к некорректной работе кластера и невозможности его последующего удаления.
     
     {% endnote %}
 
-1. [Установите kubectl](https://kubernetes.io/ru/docs/tasks/tools/install-kubectl) и [настройте его на работу с созданным кластером](../../operations/connect/index.md#kubectl-connect).
+1. [Установите kubectl]({{ k8s-docs }}/tasks/tools/install-kubectl) и [настройте его на работу с созданным кластером](../../operations/connect/index.md#kubectl-connect).
 
 ## Установите Istio {#istio-install}
 
-1. [Установите](../../operations/applications/istio.md#marketplace-install) продукт [Istio](https://yandex.cloud/ru/marketplace/products/yc/istio) из каталога приложений Yandex Cloud Marketplace. При установке приложения:
+1. [Установите](../../operations/applications/istio.md#marketplace-install) продукт [Istio](https://yandex.cloud/ru/marketplace/products/yc/istio) из каталога приложений {{ marketplace-full-name }}. При установке приложения:
 
     1. Создайте новое [пространство имен](../../concepts/index.md#namespace) `istio-system`.
-    1. Установите дополнения для Istio (Kiali, Prometheus, Grafana, Loki, Jaeger).
+    1. Установите дополнения для Istio (Kiali, {{ prometheus-name }}, {{ grafana-name }}, Loki, Jaeger).
 
 1. Убедитесь, что все [поды](../../concepts/index.md#pod) Istio и его дополнений перешли в статус `Running`:
 
@@ -257,7 +257,7 @@
 
     {% note info %}
     
-    Если ресурс недоступен по указанному URL, то [убедитесь](../../operations/connect/security-groups.md), что группы безопасности для кластера Managed Service for Kubernetes и его групп узлов настроены корректно. Если отсутствует какое-либо из правил — [добавьте его](../../../vpc/operations/security-group-add-rule.md).
+    Если ресурс недоступен по указанному URL, то [убедитесь](../../operations/connect/security-groups.md), что группы безопасности для кластера {{ managed-k8s-name }} и его групп узлов настроены корректно. Если отсутствует какое-либо из правил — [добавьте его](../../../vpc/operations/security-group-add-rule.md).
     
     {% endnote %}
 
@@ -268,7 +268,7 @@
 
 ## Посмотрите схему сервисной сети на дашборде Kiali {#visualization-service-network}
 
-1. Убедитесь, что сервис `kiali` установлен и доступен в кластере Managed Service for Kubernetes:
+1. Убедитесь, что сервис `kiali` установлен и доступен в кластере {{ managed-k8s-name }}:
 
     ```bash
     kubectl get service kiali -n istio-system
@@ -511,9 +511,9 @@ virtualservice.networking.istio.io "recommender-vs" deleted
     ...
     ```
 
-## Посмотрите метрики Istio на дашборде Prometheus {#viewing-metrics-prometheus}
+## Посмотрите метрики Istio на дашборде {{ prometheus-name }} {#viewing-metrics-prometheus}
 
-1. Убедитесь, что сервис `prometheus` установлен и доступен в кластере Managed Service for Kubernetes:
+1. Убедитесь, что сервис `prometheus` установлен и доступен в кластере {{ managed-k8s-name }}:
 
     ```bash
     kubectl get service prometheus -n istio-system
@@ -532,7 +532,7 @@ virtualservice.networking.istio.io "recommender-vs" deleted
     kubectl port-forward service/prometheus 9090:9090 -n istio-system
     ```
 
-1. Чтобы открыть дашборд Prometheus, вставьте в адресную строку браузера `http://localhost:9090`.
+1. Чтобы открыть дашборд {{ prometheus-name }}, вставьте в адресную строку браузера `http://localhost:9090`.
 
 1. Введите в поле **Expression** запрос:
 
@@ -542,9 +542,9 @@ virtualservice.networking.istio.io "recommender-vs" deleted
 
 1. Перейдите на вкладку **Graph**. Она показывает метрики Istio.
 
-## Посмотрите метрики Istio на дашборде Grafana {#viewing-metrics-grafana}
+## Посмотрите метрики Istio на дашборде {{ grafana-name }} {#viewing-metrics-grafana}
 
-1. Убедитесь, что сервис `grafana` установлен и доступен в кластере Managed Service for Kubernetes:
+1. Убедитесь, что сервис `grafana` установлен и доступен в кластере {{ managed-k8s-name }}:
 
     ```bash
     kubectl get service grafana -n istio-system
@@ -563,7 +563,7 @@ virtualservice.networking.istio.io "recommender-vs" deleted
     kubectl port-forward service/grafana 3000:3000 -n istio-system
     ```
 
-1. Чтобы открыть дашборд Grafana, вставьте в адресную строку браузера `http://localhost:3000`.
+1. Чтобы открыть дашборд {{ grafana-name }}, вставьте в адресную строку браузера `http://localhost:3000`.
 
 1. В списке дашбордов найдите и откройте **Istio Mesh Dashboard**. Он показывает метрики запросов к сервисам тестового приложения.
 
@@ -575,17 +575,17 @@ virtualservice.networking.istio.io "recommender-vs" deleted
 
 - Вручную {#manual}
 
-    1. [Удалите кластер Kubernetes](../../operations/kubernetes-cluster/kubernetes-cluster-delete.md).
+    1. [Удалите кластер {{ k8s }}](../../operations/kubernetes-cluster/kubernetes-cluster-delete.md).
     1. [Удалите созданные подсети](../../../vpc/operations/subnet-delete.md) и [сети](../../../vpc/operations/network-delete.md).
     1. [Удалите созданные сервисные аккаунты](../../../iam/operations/sa/delete.md).
 
-- Terraform {#tf}
+- {{ TF }} {#tf}
 
     1. В терминале перейдите в директорию с планом инфраструктуры.
     
         {% note warning %}
     
-        Убедитесь, что в директории нет Terraform-манифестов с ресурсами, которые вы хотите сохранить. Terraform удаляет все ресурсы, которые были созданы с помощью манифестов в текущей директории.
+        Убедитесь, что в директории нет {{ TF }}-манифестов с ресурсами, которые вы хотите сохранить. {{ TF }} удаляет все ресурсы, которые были созданы с помощью манифестов в текущей директории.
     
         {% endnote %}
     
@@ -599,6 +599,6 @@ virtualservice.networking.istio.io "recommender-vs" deleted
     
         1. Подтвердите удаление ресурсов и дождитесь завершения операции.
     
-        Все ресурсы, которые были описаны в Terraform-манифестах, будут удалены.
+        Все ресурсы, которые были описаны в {{ TF }}-манифестах, будут удалены.
 
 {% endlist %}

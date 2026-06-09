@@ -1,5 +1,5 @@
-# Решения для Managed Service for ClickHouse®
+# Решения для {{ mch-name }}
 
-## Примеры конфигураций и сценариев Managed Service for ClickHouse® {#configuration-examples}
+## Примеры конфигураций и сценариев {{ mch-name }} {#configuration-examples}
 
-## Решения для известных проблем Managed Service for ClickHouse® {#known-issues-resolving}
+## Решения для известных проблем {{ mch-name }} {#known-issues-resolving}

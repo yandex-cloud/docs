@@ -5,7 +5,7 @@ Creates PXF datasource
 ## HTTP request
 
 ```
-POST https://mdb.api.cloud.yandex.net/managed-greenplum/v1/clusters/{clusterId}/pxf_datasources
+POST https://{{ api-host-mdb }}/managed-greenplum/v1/clusters/{clusterId}/pxf_datasources
 ```
 
 ## Path parameters

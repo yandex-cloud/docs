@@ -1,25 +1,25 @@
 # Группы узлов с GPU
 
 
-Вы можете создавать [группы узлов](../index.md#node-group) [кластера Managed Service for Kubernetes](../index.md#kubernetes-cluster) с [графическими ускорителями](../../../compute/concepts/gpus.md) ([GPU](../../../glossary/gpu.md)). Узел создается из [образа](../../../compute/concepts/image.md) [виртуальной машины](../../../compute/concepts/vm.md), совместимой с GPU, — на ней установлены драйверы NVIDIA и [библиотеки CUDA](https://developer.nvidia.com/gpu-accelerated-libraries) для GPU-ускорения.
+Вы можете создавать [группы узлов](../index.md#node-group) [кластера {{ managed-k8s-name }}](../index.md#kubernetes-cluster) с [графическими ускорителями](../../../compute/concepts/gpus.md) ([GPU](../../../glossary/gpu.md)). Узел создается из [образа](../../../compute/concepts/image.md) [виртуальной машины](../../../compute/concepts/vm.md), совместимой с GPU, — на ней установлены драйверы NVIDIA и [библиотеки CUDA](https://developer.nvidia.com/gpu-accelerated-libraries) для GPU-ускорения.
 
 ## Требования {#requirements}
 
 * В облаке должна быть ненулевая квота GPU.
 
-  По умолчанию в облаке установлена нулевая [квота](../../../compute/concepts/limits.md#compute-quotas) на создание виртуальных машин с GPU. Вы можете запросить увеличение квоты в [консоли управления](https://console.yandex.cloud/cloud?section=quotas). Для этого нужна [роль](../../../iam/roles-reference.md#quota-manager-requestoperator) `quota-manager.requestOperator` или выше.
+  По умолчанию в облаке установлена нулевая [квота](../../../compute/concepts/limits.md#compute-quotas) на создание виртуальных машин с GPU. Вы можете запросить увеличение квоты в [консоли управления]({{ link-console-quotas }}). Для этого нужна [роль](../../../iam/roles-reference.md#quota-manager-requestoperator) `quota-manager.requestOperator` или выше.
 
-* Виртуальные машины на платформах Intel Broadwell with NVIDIA® Tesla® V100, Intel Cascade Lake with NVIDIA® Tesla® V100 и AMD EPYC™ with NVIDIA® Ampere® A100 можно создать в зонах доступности `ru-central1-a` и `ru-central1-b`.
+* Виртуальные машины на платформах {{ v100-broadwell }}, {{ v100-cascade-lake }} и {{ a100-epyc }} можно создать в зонах доступности `{{ region-id }}-a` и `{{ region-id }}-b`.
 
   При выборе этих платформ группа узлов должна находиться в одной из указанных зон доступности или в обеих зонах.
 
 ## Тарификация {#pricing}
 
-Чтобы запустить группы узлов с GPU, необходимы кластер Managed Service for Kubernetes, ВМ с GPU и трафик. Поэтому тарификация состоит из следующих частей:
-* Использование [мастера Managed Service for Kubernetes](../index.md#master) оплачивается по [правилам Managed Service for Kubernetes](../../pricing.md).
-* ВМ с GPU — по [правилам Yandex Compute Cloud](../../../compute/pricing.md#prices-instance-resources).
-* Исходящий трафик — по [правилам Yandex Virtual Private Cloud](../../../vpc/pricing.md).
+Чтобы запустить группы узлов с GPU, необходимы кластер {{ managed-k8s-name }}, ВМ с GPU и трафик. Поэтому тарификация состоит из следующих частей:
+* Использование [мастера {{ managed-k8s-name }}](../index.md#master) оплачивается по [правилам {{ managed-k8s-name }}](../../pricing.md).
+* ВМ с GPU — по [правилам {{ compute-full-name }}](../../../compute/pricing.md#prices-instance-resources).
+* Исходящий трафик — по [правилам {{ vpc-full-name }}](../../../vpc/pricing.md).
 
 ## Примеры использования {#examples}
 
-* [Использование групп узлов с GPU без предустановленных драйверов](../../tutorials/driverless-gpu.md)
+* [{#T}](../../tutorials/driverless-gpu.md)

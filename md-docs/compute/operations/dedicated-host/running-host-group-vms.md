@@ -9,9 +9,29 @@
 
 {% list tabs group=instructions %}
 
+- Консоль управления {#console}
+
+  1. В [консоли управления]({{ link-console-main }}) выберите каталог, в котором будет создана ВМ.
+  1. Перейдите в сервис **{{ compute-name }}**.
+  1. На панели слева выберите ![image](../../../_assets/console-icons/server.svg) **{{ ui-key.yacloud.compute.instances_jsoza }}**.
+  1. Нажмите кнопку **{{ ui-key.yacloud.compute.instances.button_create }}**.
+  1. [Задайте](../vm-create/create-linux-vm.md) нужные параметры ВМ.
+  1. Раскройте блок **{{ ui-key.yacloud.compute.instances.create.section_additional }}**.
+  1. Напротив параметра **{{ ui-key.yacloud.compute.instances.create.field_host-affinity-rules }}** нажмите **{{ ui-key.yacloud.common.add }}**.
+  1. В поле **{{ ui-key.yacloud.compute.instances.create.field_affinity-key-type }}** выберите **{{ ui-key.yacloud.compute.instances.create.value_affinity-key-host-group }}**.
+  1. В поле **{{ ui-key.yacloud.compute.instances.create.field_affinity-host-groups }}** выберите группы, на выделенных хостах которых будет запускаться ВМ.
+
+      {% note tip %}
+      
+      Вы можете задать несколько [правил привязки к хостам](../../concepts/dedicated-host.md#bind-vm), например правило с привязкой к группе и правило с привязкой к конкретному хосту.
+      
+      {% endnote %}
+
+  1. Нажмите кнопку **{{ ui-key.yacloud.compute.instances.create.button_create }}**.
+
 - CLI {#cli}
 
-  Если у вас еще нет интерфейса командной строки Yandex Cloud (CLI), [установите и инициализируйте его](../../../cli/quickstart.md#install).
+  Если у вас еще нет интерфейса командной строки {{ yandex-cloud }} (CLI), [установите и инициализируйте его](../../../cli/quickstart.md#install).
 
   По умолчанию используется каталог, указанный при [создании](../../../cli/operations/profile/profile-create.md) профиля CLI. Чтобы изменить каталог по умолчанию, используйте команду `yc config set folder-id <идентификатор_каталога>`. Также для любой команды вы можете указать другой каталог с помощью параметров `--folder-name` или `--folder-id`. Если вы обращаетесь к ресурсу по имени, поиск будет выполнен в каталоге по умолчанию. Если вы обращаетесь к ресурсу по идентификатору, поиск будет выполнен глобально — во всех каталогах с учетом прав доступа.
 
@@ -44,9 +64,9 @@
       +----------------------+-----------------------+----------------------+----------------+---------------+-----------------+
       |          ID          |         NAME          |      NETWORK ID      | ROUTE TABLE ID |     ZONE      |      RANGE      |
       +----------------------+-----------------------+----------------------+----------------+---------------+-----------------+
-      | b0c6n43f9lgh******** | default-ru-central1-d | enpe3m3fa00u******** |                | ru-central1-d | [10.130.0.0/24] |
-      | e2l2da8a20b3******** | default-ru-central1-b | enpe3m3fa00u******** |                | ru-central1-b | [10.129.0.0/24] |
-      | e9bnlm18l70a******** | default-ru-central1-a | enpe3m3fa00u******** |                | ru-central1-a | [10.128.0.0/24] |
+      | b0c6n43f9lgh******** | default-{{ region-id }}-d | enpe3m3fa00u******** |                | {{ region-id }}-d | [10.130.0.0/24] |
+      | e2l2da8a20b3******** | default-{{ region-id }}-b | enpe3m3fa00u******** |                | {{ region-id }}-b | [10.129.0.0/24] |
+      | e9bnlm18l70a******** | default-{{ region-id }}-a | enpe3m3fa00u******** |                | {{ region-id }}-a | [10.128.0.0/24] |
       +----------------------+-----------------------+----------------------+----------------+---------------+-----------------+
       ```
 
@@ -77,9 +97,9 @@
         
         * `size` — размер диска в байтах. Допустимые значения указаны в [списке типов выделенных хостов](../../concepts/dedicated-host.md#host-types-list) и в выводе команды `yc compute host-type list`. Например, для хоста типа `intel-6338-c108-m704-n3200x6` нужно указать значение `3198924357632` (~ 2,91 ТБ). Указывать размер, отличный от размера диска на хосте, нельзя.
         
-        Параметр `--attach-local-disk` — необязательный. Чтобы подключить несколько локальных дисков, укажите параметр нужное количество раз. Подробнее см. в разделе [Локальные и сетевые диски](../../concepts/dedicated-host.md#resource-disks).
+        Параметр `--attach-local-disk` — необязательный. Чтобы подключить несколько локальных дисков, укажите параметр нужное количество раз. Подробнее см. в разделе [{#T}](../../concepts/dedicated-host.md#resource-disks).
 
-      Чтобы указать остальные характеристики ВМ, используйте параметры команды `yc compute instance create`, описанные в [справочнике CLI](../../../cli/cli-ref/compute/cli-ref/instance/create.md). Подробнее см. в разделах [Виртуальные машины в Compute Cloud](../../concepts/vm.md) и [Создание виртуальной машины](../index.md#vm-create).
+      Чтобы указать остальные характеристики ВМ, используйте параметры команды `yc compute instance create`, описанные в [справочнике CLI](../../../cli/cli-ref/compute/cli-ref/instance/create.md). Подробнее см. в разделах [{#T}](../../concepts/vm.md) и [{#T}](../index.md#vm-create).
 
       Результат:
 
@@ -88,7 +108,7 @@
       id: fhmbdt1jj2k3********
       folder_id: m4n56op78mev********
       created_at: "2020-10-13T07:41:19Z"
-      zone_id: ru-central1-a
+      zone_id: {{ region-id }}-a
       ...
       placement_policy:
         host_affinity_rules:
@@ -130,7 +150,7 @@
 
 - CLI {#cli}
 
-  Если у вас еще нет интерфейса командной строки Yandex Cloud (CLI), [установите и инициализируйте его](../../../cli/quickstart.md#install).
+  Если у вас еще нет интерфейса командной строки {{ yandex-cloud }} (CLI), [установите и инициализируйте его](../../../cli/quickstart.md#install).
 
   По умолчанию используется каталог, указанный при [создании](../../../cli/operations/profile/profile-create.md) профиля CLI. Чтобы изменить каталог по умолчанию, используйте команду `yc config set folder-id <идентификатор_каталога>`. Также для любой команды вы можете указать другой каталог с помощью параметров `--folder-name` или `--folder-id`. Если вы обращаетесь к ресурсу по имени, поиск будет выполнен в каталоге по умолчанию. Если вы обращаетесь к ресурсу по идентификатору, поиск будет выполнен глобально — во всех каталогах с учетом прав доступа.
 
@@ -177,7 +197,7 @@
   id: fhmbdt1jj2k3********
   folder_id: m4n56op78mev********
   created_at: "2023-01-16T12:46:50Z"
-  zone_id: ru-central1-a
+  zone_id: {{ region-id }}-a
   ...
   placement_policy:
     host_affinity_rules:

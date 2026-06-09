@@ -1,13 +1,12 @@
 # Managed Service for MySQL API, REST: Cluster.StreamLogs
 
 Retrieves a log stream for a cluster.
-
 This method is similar to [ListLogs](listLogs.md#ListLogs), but uses server-side streaming, which allows for the `tail -f` command semantics.
 
 ## HTTP request
 
 ```
-GET https://mdb.api.cloud.yandex.net/managed-mysql/v1/clusters/{clusterId}:stream_logs
+GET https://{{ api-host-mdb }}/managed-mysql/v1/clusters/{clusterId}:stream_logs
 ```
 
 ## Path parameters
@@ -17,7 +16,6 @@ GET https://mdb.api.cloud.yandex.net/managed-mysql/v1/clusters/{clusterId}:strea
 || clusterId | **string**
 
 Required field. ID of the cluster to stream logs for.
-
 To get this ID, make a [ClusterService.List](list.md#List) request.
 
 The maximum string length in characters is 50. ||
@@ -53,7 +51,6 @@ In some languages, built-in datetime utilities do not support nanosecond precisi
 
 End timestamp for the logs request.
 If this field is not set, all existing log records beginning from `fromTime` will be returned first, and then the new records will be returned as they appear.
-
 In essence it has `tail -f` command semantics.
 
 String in [RFC3339](https://www.ietf.org/rfc/rfc3339.txt) text format. The range of possible values is from
@@ -65,14 +62,12 @@ In some languages, built-in datetime utilities do not support nanosecond precisi
 || recordToken | **string**
 
 Record token that can be used to control logs streaming.
-
 Set `recordToken` to the [StreamLogRecord.nextRecordToken](#yandex.cloud.mdb.mysql.v1.StreamLogRecord), returned by the previous [ClusterService.StreamLogs](#StreamLogs) request to start streaming from the next log record.
 
 The maximum string length in characters is 100. ||
 || filter | **string**
 
 A filter expression that selects clusters logs listed in the response.
-
 The expression must specify:
 1. The field name. Currently filtering can be applied to the [LogRecord.logs.hostname] field.
 2. An `=` operator.
@@ -107,7 +102,6 @@ One of the requested log records. ||
 
 The token that can be used to continue streaming logs starting from the exact same record.
 To continue streaming, specify value of `nextRecordToken` as the [StreamClusterLogsRequest.recordToken](#yandex.cloud.mdb.mysql.v1.StreamClusterLogsRequest) value in the next [ClusterService.StreamLogs](#StreamLogs) request.
-
 This value is interchangeable with [ListClusterLogsResponse.nextPageToken](listLogs.md#yandex.cloud.mdb.mysql.v1.ListClusterLogsResponse) from [ClusterService.ListLogs](listLogs.md#ListLogs) method. ||
 |#
 

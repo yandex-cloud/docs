@@ -1,6 +1,6 @@
-# Логи Cloud Logging
+# Логи {{ cloud-logging-name }}
 
-Вы можете [настроить сохранение логов](../operations/configure-logging.md) создания эндпоинтов и отправки уведомлений в сервис [Cloud Logging](../../logging/index.md).
+Вы можете [настроить сохранение логов](../operations/configure-logging.md) создания эндпоинтов и отправки уведомлений в сервис [{{ cloud-logging-name }}](../../logging/index.md).
 
 Описание возможного содержимого логов (`json_payload`) приведено в таблице ниже.
 

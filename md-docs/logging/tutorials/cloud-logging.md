@@ -1,42 +1,42 @@
-# Обработка логов Yandex Cloud Logging
+# Обработка логов {{ cloud-logging-full-name }}
 
-[Yandex Cloud Logging](../index.md) — это сервис, который позволяет читать и записывать логи сервисов Yandex Cloud и пользовательских приложений.
+[{{ cloud-logging-full-name }}](../index.md) — это сервис, который позволяет читать и записывать логи сервисов {{ yandex-cloud }} и пользовательских приложений.
 
-Логи можно отправить в [поток](../../data-streams/concepts/glossary.md#stream-concepts) Yandex Data Streams и далее обработать в реальном времени с помощью Yandex Query. Обработанные данные можно:
+Логи можно отправить в [поток](../../data-streams/concepts/glossary.md#stream-concepts) {{ yds-full-name }} и далее обработать в реальном времени с помощью {{ yq-full-name }}. Обработанные данные можно:
 
-* отправить в Yandex Monitoring для построения графиков и алертинга;
-* записать в поток Data Streams и далее отправить на обработку в Yandex Cloud Functions;
-* записать в поток Data Streams и далее передать в Yandex Data Transfer [для отправки в различные системы хранения](../../data-streams/tutorials/data-ingestion.md).
+* отправить в {{ monitoring-full-name }} для построения графиков и алертинга;
+* записать в поток {{ yds-short-name }} и далее отправить на обработку в {{ sf-full-name }};
+* записать в поток {{ yds-short-name }} и далее передать в {{ data-transfer-full-name }} [для отправки в различные системы хранения](../../data-streams/tutorials/data-ingestion.md).
 
 ![cloud-logging-to-yq](../../_assets/query/cloud-logging.png)
 
-В этом сценарии вы отправите логи Cloud Logging в поток Data Streams, а затем выполните к ним запрос с помощью Query. В результате выполнения запроса вы получите количество сообщений по каждому хосту, сгруппированное по интервалам продолжительностью 10 секунд.
+В этом сценарии вы отправите логи {{ cloud-logging-short-name }} в поток {{ yds-short-name }}, а затем выполните к ним запрос с помощью {{ yq-name }}. В результате выполнения запроса вы получите количество сообщений по каждому хосту, сгруппированное по интервалам продолжительностью 10 секунд.
 
 Для выполнения сценария:
 
-1. [Создайте поток данных Data Streams](#create-yds-stream).
-1. [Создайте лог-группу Cloud Logging](#create-log-group).
+1. [Создайте поток данных {{ yds-name }}](#create-yds-stream).
+1. [Создайте лог-группу {{ cloud-logging-name }}](#create-log-group).
 1. [Запустите отправку данных в лог-группу](#send-to-loggroup).
-1. [Подключите Query к потоку данных](#connect-query).
+1. [Подключите {{ yq-name }} к потоку данных](#connect-query).
 1. [Выполните запрос к данным](#query).
 
 ## Перед началом работы {#before-you-begin}
 
-Зарегистрируйтесь в Yandex Cloud и создайте [платежный аккаунт](../../billing/concepts/billing-account.md):
-1. Перейдите в [консоль управления](https://console.yandex.cloud), затем войдите в Yandex Cloud или зарегистрируйтесь.
-1. На странице **[Yandex Cloud Billing](https://center.yandex.cloud/billing/accounts)** убедитесь, что у вас подключен платежный аккаунт, и он находится в [статусе](../../billing/concepts/billing-account-statuses.md) `ACTIVE` или `TRIAL_ACTIVE`. Если платежного аккаунта нет, [создайте его](../../billing/quickstart/index.md) и [привяжите](../../billing/operations/pin-cloud.md) к нему облако.
+Зарегистрируйтесь в {{ yandex-cloud }} и создайте [платежный аккаунт](../../billing/concepts/billing-account.md):
+1. Перейдите в [консоль управления]({{ link-console-main }}), затем войдите в {{ yandex-cloud }} или зарегистрируйтесь.
+1. На странице **[{{ ui-key.yacloud_billing.billing.label_service }}]({{ link-console-billing }})** убедитесь, что у вас подключен платежный аккаунт, и он находится в [статусе](../../billing/concepts/billing-account-statuses.md) `ACTIVE` или `TRIAL_ACTIVE`. Если платежного аккаунта нет, [создайте его](../../billing/quickstart/index.md) и [привяжите](../../billing/operations/pin-cloud.md) к нему облако.
 
-Если у вас есть активный платежный аккаунт, вы можете создать или выбрать [каталог](../../resource-manager/concepts/resources-hierarchy.md#folder), в котором будет работать ваша инфраструктура, на [странице облака](https://console.yandex.cloud/cloud).
+Если у вас есть активный платежный аккаунт, вы можете создать или выбрать [каталог](../../resource-manager/concepts/resources-hierarchy.md#folder), в котором будет работать ваша инфраструктура, на [странице облака]({{ link-console-cloud }}).
 
 [Подробнее об облаках и каталогах](../../resource-manager/concepts/resources-hierarchy.md).
 
-Установите [интерфейс командной строки](../../cli/quickstart.md#install) Yandex Cloud.
+Установите [интерфейс командной строки](../../cli/quickstart.md#install) {{ yandex-cloud }}.
 
-## Создайте поток данных Data Streams {#create-yds-stream}
+## Создайте поток данных {{ yds-name }} {#create-yds-stream}
 
 [Создайте поток данных](../../data-streams/operations/manage-streams.md#create-data-stream) c именем `cloud-logging-stream`.
 
-## Создайте лог-группу Cloud Logging {#create-log-group}
+## Создайте лог-группу {{ cloud-logging-name }} {#create-log-group}
 
 [Создайте лог-группу](../operations/create-group.md) c именем `cloud-logging-group`. При задании параметров лог-группы укажите созданный на предыдущем шаге поток данных `cloud-logging-stream`.
 
@@ -67,19 +67,19 @@ done
 
    {% endnote %}
 
-## Подключите Query к потоку данных {#connect-query}
+## Подключите {{ yq-name }} к потоку данных {#connect-query}
 
-1. [Создайте соединение](../../query/operations/connection.md#create) с именем `cloud-logging-connection` и типом `Data Streams`.
+1. [Создайте соединение](../../query/operations/connection.md#create) с именем `cloud-logging-connection` и типом `{{ ui-key.yql.yq-connection.action_datastreams }}`.
 1. На странице создания привязки:
-    * Выберите **Автоматически заполнить настройки для Cloud Logging**.
+    * Выберите **{{ ui-key.yql.yq-binding-form.binding-fields-templates.button.label }} {{ cloud-logging-short-name }}**.
     * Введите имя привязки `cloud-logging-binding`.
     * Укажите поток данных `cloud-logging-stream`.
     * Задайте формат `json-list`.
-1. Нажмите кнопку **Создать**.
+1. Нажмите кнопку **{{ ui-key.yql.yq-binding-form.binding-create.button-text }}**.
 
 ## Выполните запрос к данным {#query}
 
-В редакторе запросов в интерфейсе Query выполните следующий запрос:
+В редакторе запросов в интерфейсе {{ yq-name }} выполните следующий запрос:
 
 ```sql
 $cloud_logging_data = 
@@ -114,4 +114,4 @@ LIMIT 2;
 
 ## См. также {#see-also}
 
-* [Чтение данных из Data Streams с помощью соединений в Query](../../query/sources-and-sinks/data-streams.md).
+* [{#T}](../../query/sources-and-sinks/data-streams.md).

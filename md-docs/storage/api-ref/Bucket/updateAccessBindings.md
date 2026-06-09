@@ -7,7 +7,7 @@ for compatibility with old format --)
 ## HTTP request
 
 ```
-PATCH https://storage.api.cloud.yandex.net/storage/v1/buckets/{resourceId}:updateAccessBindings
+PATCH https://storage.{{ api-host }}/storage/v1/buckets/{resourceId}:updateAccessBindings
 ```
 
 ## Path parameters

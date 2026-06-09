@@ -1,7 +1,6 @@
 # Container Registry API, gRPC: RepositoryService.Get
 
 Returns the specified Repository resource.
-
 To get the list of available Repository resources, make a [List](list.md#List) request.
 
 ## gRPC request
@@ -21,7 +20,6 @@ To get the list of available Repository resources, make a [List](list.md#List) r
 || repository_id | **string**
 
 Required field. ID of the Repository resource to return.
-
 To get the repository ID use a [RepositoryService.List](list.md#List) request.
 
 The maximum string length in characters is 50. ||

@@ -5,7 +5,7 @@ Executes code of the specified notebook using configuration defined in the proje
 ## HTTP request
 
 ```
-POST https://datasphere.api.cloud.yandex.net/datasphere/v2/projects/{projectId}:execute
+POST https://datasphere.{{ api-host }}/datasphere/v2/projects/{projectId}:execute
 ```
 
 ## Path parameters

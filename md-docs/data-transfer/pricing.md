@@ -1,12 +1,4 @@
-# Правила тарификации для Data Transfer
-
-
-{% note warning %}
-
-С 1 мая 2026 года изменится стоимость ряда сервисов Yandex Cloud. Подробнее в [блоге](https://yandex.cloud/ru/blog/pricing-update-2026).
-
-{% endnote %}
-
+# Правила тарификации для {{ data-transfer-name }}
 
 
 
@@ -17,59 +9,49 @@
 
 Все цены в рублях и тенге указаны с НДС, все цены в долларах — без НДС.
 
-Стоимость использования Data Transfer зависит от объема использованных вычислительных ресурсов и количества переданных строк данных трансферами, которые находятся на стадии [GA](../overview/concepts/launch-stages.md): 
+Стоимость использования {{ data-transfer-name }} зависит от объема использованных вычислительных ресурсов и количества переданных строк данных трансферами, которые находятся на стадии [GA](../overview/concepts/launch-stages.md): 
 
-* [PostgreSQL](operations/endpoint/source/postgresql.md) ![arrow_right](../_assets/console-icons/arrow-right.svg) [PostgreSQL](operations/endpoint/target/postgresql.md);
-* [PostgreSQL](operations/endpoint/source/postgresql.md) ![arrow_right](../_assets/console-icons/arrow-right.svg) [ClickHouse®](operations/endpoint/target/clickhouse.md);
-* [PostgreSQL](operations/endpoint/source/postgresql.md) ![arrow_right](../_assets/console-icons/arrow-right.svg) [Apache Kafka®](operations/endpoint/target/kafka.md);
-* [MySQL®](operations/endpoint/source/mysql.md) ![arrow_right](../_assets/console-icons/arrow-right.svg) [MySQL®](operations/endpoint/target/mysql.md);
-* [MySQL®](operations/endpoint/source/mysql.md) ![arrow_right](../_assets/console-icons/arrow-right.svg) [ClickHouse®](operations/endpoint/target/clickhouse.md);
-* [MySQL®](operations/endpoint/source/mysql.md) ![arrow_right](../_assets/console-icons/arrow-right.svg) [Apache Kafka®](operations/endpoint/target/kafka.md);
-* [MongoDB](operations/endpoint/source/mongodb.md) ![arrow_right](../_assets/console-icons/arrow-right.svg) [MongoDB](operations/endpoint/target/mongodb.md);
-* [ClickHouse®](operations/endpoint/source/clickhouse.md) ![arrow_right](../_assets/console-icons/arrow-right.svg) [ClickHouse®](operations/endpoint/target/clickhouse.md);
-* [Greenplum®](operations/endpoint/source/greenplum.md) ![arrow_right](../_assets/console-icons/arrow-right.svg) [ClickHouse®](operations/endpoint/target/clickhouse.md);
-* [Data Streams](operations/endpoint/source/data-streams.md) ![arrow_right](../_assets/console-icons/arrow-right.svg) [ClickHouse®](operations/endpoint/target/clickhouse.md);
-* [Data Streams](operations/endpoint/source/data-streams.md) ![arrow_right](../_assets/console-icons/arrow-right.svg) [Managed Service for YDB](operations/endpoint/target/yandex-database.md);
-* [Data Streams](operations/endpoint/source/data-streams.md) ![arrow_right](../_assets/console-icons/arrow-right.svg) [Apache Kafka®](operations/endpoint/target/kafka.md);
-* [Apache Kafka®](operations/endpoint/source/kafka.md) ![arrow_right](../_assets/console-icons/arrow-right.svg) [Managed Service for YDB](operations/endpoint/target/yandex-database.md);
-* [Apache Kafka®](operations/endpoint/source/kafka.md) ![arrow_right](../_assets/console-icons/arrow-right.svg) [Apache Kafka®](operations/endpoint/target/kafka.md).
+* [{{ PG }}](operations/endpoint/source/postgresql.md) ![arrow_right](../_assets/console-icons/arrow-right.svg) [{{ PG }}](operations/endpoint/target/postgresql.md);
+* [{{ PG }}](operations/endpoint/source/postgresql.md) ![arrow_right](../_assets/console-icons/arrow-right.svg) [{{ CH }}](operations/endpoint/target/clickhouse.md);
+* [{{ PG }}](operations/endpoint/source/postgresql.md) ![arrow_right](../_assets/console-icons/arrow-right.svg) [{{ KF }}](operations/endpoint/target/kafka.md);
+* [{{ MY }}](operations/endpoint/source/mysql.md) ![arrow_right](../_assets/console-icons/arrow-right.svg) [{{ MY }}](operations/endpoint/target/mysql.md);
+* [{{ MY }}](operations/endpoint/source/mysql.md) ![arrow_right](../_assets/console-icons/arrow-right.svg) [{{ CH }}](operations/endpoint/target/clickhouse.md);
+* [{{ MY }}](operations/endpoint/source/mysql.md) ![arrow_right](../_assets/console-icons/arrow-right.svg) [{{ KF }}](operations/endpoint/target/kafka.md);
+* [{{ MG }}](operations/endpoint/source/mongodb.md) ![arrow_right](../_assets/console-icons/arrow-right.svg) [{{ MG }}](operations/endpoint/target/mongodb.md);
+* [{{ CH }}](operations/endpoint/source/clickhouse.md) ![arrow_right](../_assets/console-icons/arrow-right.svg) [{{ CH }}](operations/endpoint/target/clickhouse.md);
+* [{{ GP }}](operations/endpoint/source/greenplum.md) ![arrow_right](../_assets/console-icons/arrow-right.svg) [{{ CH }}](operations/endpoint/target/clickhouse.md);
+* [{{ yds-name }}](operations/endpoint/source/data-streams.md) ![arrow_right](../_assets/console-icons/arrow-right.svg) [{{ CH }}](operations/endpoint/target/clickhouse.md);
+* [{{ yds-name }}](operations/endpoint/source/data-streams.md) ![arrow_right](../_assets/console-icons/arrow-right.svg) [{{ ydb-name }}](operations/endpoint/target/yandex-database.md);
+* [{{ yds-name }}](operations/endpoint/source/data-streams.md) ![arrow_right](../_assets/console-icons/arrow-right.svg) [{{ KF }}](operations/endpoint/target/kafka.md);
+* [{{ KF }}](operations/endpoint/source/kafka.md) ![arrow_right](../_assets/console-icons/arrow-right.svg) [{{ ydb-name }}](operations/endpoint/target/yandex-database.md);
+* [{{ KF }}](operations/endpoint/source/kafka.md) ![arrow_right](../_assets/console-icons/arrow-right.svg) [{{ KF }}](operations/endpoint/target/kafka.md).
 
 {% note info %}
 
-Оплата за потребление ресурсов списывается для трансферов в [статусах](concepts/transfer-lifecycle.md#statuses) **Реплицируется**(`RUNNING`), **Копируется** (`SNAPSHOTTING`) или **Останавливается** (`STOPPING`). Статус трансфера можно [посмотреть в списке трансферов](operations/transfer.md#list).
+Оплата за потребление ресурсов списывается для трансферов в [статусах](concepts/transfer-lifecycle.md#statuses) {{ dt-status-repl }}(`RUNNING`), {{ dt-status-copy }} (`SNAPSHOTTING`) или {{ dt-status-stopping }} (`STOPPING`). Статус трансфера можно [посмотреть в списке трансферов](operations/transfer.md#list).
 
 {% endnote %}
 
-Передача данных для трансферов, находящихся на стадии Preview, не тарифицируется. Перечень доступных трансферов и стадий их готовности см. в разделе [Доступные трансферы](transfer-matrix.md).
+Передача данных для трансферов, находящихся на стадии Preview, не тарифицируется. Перечень доступных трансферов и стадий их готовности читайте в разделе [Доступные трансферы](transfer-matrix.md).
 
 ## Цены для региона Россия {#prices}
 
 {% note info %}
 
-Цены на ресурсы Yandex Cloud в разных регионах различаются. Подробнее о доступных регионах см. [Регионы](../overview/concepts/region.md).
+Цены на ресурсы {{ yandex-cloud }} в разных регионах различаются. Подробнее о доступных регионах см. [{#T}](../overview/concepts/region.md).
 
-Валюта, которой можно оплачивать ресурсы, зависит от юридического лица, с которым пользователь заключил договор. Подробнее о регистрации аккаунта см. [Регистрация аккаунта в Yandex Cloud](../billing/quickstart/index.md).
+Валюта, которой можно оплачивать ресурсы, зависит от юридического лица, с которым пользователь заключил договор. Подробнее о регистрации аккаунта см. [{#T}](../billing/quickstart/index.md).
 
 {% endnote %}
 
 
-| Услуга                                                                                | Цена              | Ед. тарификации | Действует с | Действует до |
-| ------------------------------------------------------------------------------------- | ----------------- | --------------- | ----------- | ------------ |
-| Data Transfer. Oбъём памяти (RAM)                                                     | 0,4035 ₽          | ГБ × час        | 1 мая 2026  | —            |
-| Data Transfer. Количество перенесённых строк, от 0 до 100 единицы тарификации в месяц | Не тарифицируется | 1 млн строк     | 1 мая 2026  | —            |
-| Data Transfer. Количество перенесённых строк, от 100 единицы тарификации в месяц      | 3,11 ₽            | 1 млн строк     | 1 мая 2026  | —            |
-| Data Transfer. Количество ядер                                                        | 1,51 ₽            | vCPU × час      | 1 мая 2026  | —            |
+| Услуга | Цена | Ед. тарификации | Действует с | Действует до |
+| ------ | ---- | --------------- | ----------- | ------------ |
 
 
 
 
 ## Примеры расчета стоимости {#price-example}
-
-{% note info %}
-
-Цены в примерах расчета могут отличаться от действующих.
-
-{% endnote %}
 
 При расчете стоимости учитывайте, что один [воркер](concepts/index.md#worker) может использовать следующие вычислительные ресурсы:
 
@@ -77,9 +59,9 @@
 * 4 vCPU и 8 ГБ RAM.
 * 8 vCPU и 16 ГБ RAM.
 
-### Однократное копирование данных из PostgreSQL в ClickHouse® {#copy}
+### Однократное копирование данных из {{ PG }} в {{ CH }} {#copy}
 
-За отчетный месяц было перенесено 500 000 000 строк данных из PostgreSQL в ClickHouse®. Копирование осуществлялось с помощью одного воркера (2 vCPU и 4 ГБ RAM) и длилось 24 часа.
+За отчетный месяц было перенесено 500 000 000 строк данных из {{ PG }} в {{ CH }}. Копирование осуществлялось с помощью одного воркера (2 vCPU и 4 ГБ RAM) и длилось 24 часа.
 
 
 {% list tabs group=pricing %}
@@ -88,45 +70,45 @@
 
   Стоимость CPU:
   
-  > 24 * 2 * 1,51 ₽ = 72,48 ₽
+  > 24 * 2 * {{ sku|RUB|datatransfer.compute.cpu.v1|string }} = {% calc [currency=RUB] 24 * 2 * {{ sku|RUB|datatransfer.compute.cpu.v1|number }} %}
   
   Стоимость RAM:
   
-  > 24 * 4 * 0,4035 ₽ = 38,736 ₽
+  > 24 * 4 * {{ sku|RUB|datatransfer.compute.ram.v1|string }} = {% calc [currency=RUB] 24 * 4 * {{ sku|RUB|datatransfer.compute.ram.v1|number }} %}
   
   Стоимость передачи данных:
   
-  > (500 - 100) * 3,11 ₽ = 1 244 ₽
+  > (500 - 100) * {{ sku|RUB|datatransfer.rows.v1|pricingRate.100|string }} = {% calc [currency=RUB] (500 - 100) * {{ sku|RUB|datatransfer.rows.v1|pricingRate.100|number }} %}
   
   **Общая стоимость**:
   
-  > 72,48 ₽ + 38,736 ₽ + 1 244 ₽ = 1 355,216 ₽
+  > {% calc [currency=RUB] 24 * 2 * {{ sku|RUB|datatransfer.compute.cpu.v1|number }} %} + {% calc [currency=RUB] 24 * 4 * {{ sku|RUB|datatransfer.compute.ram.v1|number }} %} + {% calc [currency=RUB] (500 - 100) * {{ sku|RUB|datatransfer.rows.v1|pricingRate.100|number }} %} = {% calc [currency=RUB] (24 * 2 * {{ sku|RUB|datatransfer.compute.cpu.v1|number }}) + (24 * 4 * {{ sku|RUB|datatransfer.compute.ram.v1|number }}) + ((500 - 100) * {{ sku|RUB|datatransfer.rows.v1|pricingRate.100|number }}) %}
 
 - Расчет в тенге {#prices-kzt}
 
   Стоимость CPU:
   
-  > 24 * 2 * 7,55 ₸ = 362,4 ₸
+  > 24 * 2 * {{ sku|KZT|datatransfer.compute.cpu.v1|string }} = {% calc [currency=KZT] 24 * 2 * {{ sku|KZT|datatransfer.compute.cpu.v1|number }} %}
   
   Стоимость RAM:
   
-  > 24 * 4 * 2,0175 ₸ = 193,68 ₸
+  > 24 * 4 * {{ sku|KZT|datatransfer.compute.ram.v1|string }} = {% calc [currency=KZT] 24 * 4 * {{ sku|KZT|datatransfer.compute.ram.v1|number }} %}
   
   Стоимость передачи данных:
   
-  > (500 - 100) * 15,55 ₸ = 6 220 ₸
+  > (500 - 100) * {{ sku|KZT|datatransfer.rows.v1|pricingRate.100|string }} = {% calc [currency=KZT] (500 - 100) * {{ sku|KZT|datatransfer.rows.v1|pricingRate.100|number }} %}
   
   **Общая стоимость**:
   
-  > 362,4 ₸ + 193,68 ₸ + 6 220 ₸ = 6 776,08 ₸
+  > {% calc [currency=KZT] 24 * 2 * {{ sku|KZT|datatransfer.compute.cpu.v1|number }} %} + {% calc [currency=KZT] 24 * 4 * {{ sku|KZT|datatransfer.compute.ram.v1|number }} %} + {% calc [currency=KZT] (500 - 100) * {{ sku|KZT|datatransfer.rows.v1|pricingRate.100|number }} %} = {% calc [currency=KZT] (24 * 2 * {{ sku|KZT|datatransfer.compute.cpu.v1|number }}) + (24 * 4 * {{ sku|KZT|datatransfer.compute.ram.v1|number }}) + ((500 - 100) * {{ sku|KZT|datatransfer.rows.v1|pricingRate.100|number }}) %}
 
 {% endlist %}
 
 
 
-### Репликация данных из PostgreSQL в PostgreSQL {#replication}
+### Репликация данных из {{ PG }} в {{ PG }} {#replication}
 
-За отчетный месяц было перенесено 50 000 000 строк данных из PostgreSQL в PostgreSQL. Репликация была активна в течение всего месяца и осуществлялась с помощью 6 воркеров (12 vCPU и 24 ГБ RAM).
+За отчетный месяц было перенесено 50 000 000 строк данных из {{ PG }} в {{ PG }}. Репликация была активна в течение всего месяца и осуществлялась с помощью 6 воркеров (12 vCPU и 24 ГБ RAM).
 
 
 {% list tabs group=pricing %}
@@ -135,11 +117,11 @@
 
   Стоимость CPU:
   
-  > 30 * 24 * 12 * 1,51 ₽ = 13 046,4 ₽
+  > 30 * 24 * 12 * {{ sku|RUB|datatransfer.compute.cpu.v1|string }} = {% calc [currency=RUB] 30 * 24 * 12 * {{ sku|RUB|datatransfer.compute.cpu.v1|number }} %}
   
   Стоимость RAM:
   
-  > 30 * 24 * 24 * 0,4035 ₽ = 6 972,48 ₽
+  > 30 * 24 * 24 * {{ sku|RUB|datatransfer.compute.ram.v1|string }} = {% calc [currency=RUB] 30 * 24 * 24 * {{ sku|RUB|datatransfer.compute.ram.v1|number }} %}
   
   Стоимость передачи данных:
   
@@ -147,17 +129,17 @@
   
   **Общая стоимость**:
   
-  > 13 046,4 ₽ + 6 972,48 ₽ = 20 018,88 ₽
+  > {% calc [currency=RUB] 30 * 24 * 12 * {{ sku|RUB|datatransfer.compute.cpu.v1|number }} %} + {% calc [currency=RUB] 30 * 24 * 24 * {{ sku|RUB|datatransfer.compute.ram.v1|number }} %} = {% calc [currency=RUB] (30 * 24 * 12 * {{ sku|RUB|datatransfer.compute.cpu.v1|number }}) + (30 * 24 * 24 * {{ sku|RUB|datatransfer.compute.ram.v1|number }}) %}
 
 - Расчет в тенге {#prices-kzt}
 
   Стоимость CPU:
   
-  > 30 * 24 * 12 * 7,55 ₸ = 65 232 ₸
+  > 30 * 24 * 12 * {{ sku|KZT|datatransfer.compute.cpu.v1|string }} = {% calc [currency=KZT] 30 * 24 * 12 * {{ sku|KZT|datatransfer.compute.cpu.v1|number }} %}
   
   Стоимость RAM:
   
-  > 30 * 24 * 24 * 2,0175 ₸ = 34 862,4 ₸
+  > 30 * 24 * 24 * {{ sku|KZT|datatransfer.compute.ram.v1|string }} = {% calc [currency=KZT] 30 * 24 * 24 * {{ sku|KZT|datatransfer.compute.ram.v1|number }} %}
   
   Стоимость передачи данных:
   
@@ -165,7 +147,7 @@
   
   **Общая стоимость**:
   
-  > 65 232 ₸ + 34 862,4 ₸ = 100 094,4 ₸
+  > {% calc [currency=KZT] 30 * 24 * 12 * {{ sku|KZT|datatransfer.compute.cpu.v1|number }} %} + {% calc [currency=KZT] 30 * 24 * 24 * {{ sku|KZT|datatransfer.compute.ram.v1|number }} %} = {% calc [currency=KZT] (30 * 24 * 12 * {{ sku|KZT|datatransfer.compute.cpu.v1|number }}) + (30 * 24 * 24 * {{ sku|KZT|datatransfer.compute.ram.v1|number }}) %}
 
 {% endlist %}
 
@@ -173,6 +155,6 @@
 
 ## См. также {#see-also}
 
-* [Как оптимизировать поставку данных в Data Transfer](https://www.youtube.com/watch?v=1BJ9YEASOeU).
+* [Как оптимизировать поставку данных в {{ data-transfer-name }}](https://www.youtube.com/watch?v=1BJ9YEASOeU).
 
-_ClickHouse® является зарегистрированным товарным знаком [ClickHouse, Inc](https://clickhouse.com)._
+_{{ CH }} является зарегистрированным товарным знаком [ClickHouse, Inc](https://clickhouse.com)._

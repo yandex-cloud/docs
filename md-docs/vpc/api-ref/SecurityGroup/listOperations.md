@@ -5,7 +5,7 @@ Lists operations for the specified security groups.
 ## HTTP request
 
 ```
-GET https://vpc.api.cloud.yandex.net/vpc/v1/securityGroups/{securityGroupId}/operations
+GET https://vpc.{{ api-host }}/vpc/v1/securityGroups/{securityGroupId}/operations
 ```
 
 ## Path parameters

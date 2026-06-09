@@ -5,7 +5,7 @@ Retrieves the list of connectors in the specified folder.
 ## HTTP request
 
 ```
-GET https://serverless-eventrouter.api.cloud.yandex.net/eventrouter/v1/connectors
+GET https://serverless-eventrouter.{{ api-host }}/eventrouter/v1/connectors
 ```
 
 ## Query parameters {#yandex.cloud.serverless.eventrouter.v1.ListConnectorsRequest}

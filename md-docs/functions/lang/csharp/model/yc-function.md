@@ -37,7 +37,7 @@ public class Handler : YcFunction {
 }
 ```
 
-Подробнее о требованиях к обработчику см. в разделе [Модель программирования на языке C#](index.md).
+Подробнее о требованиях к обработчику см. в разделе [{#T}](index.md).
 
 Вы можете использовать любые классы в качестве входного и возвращаемого типов.
 
@@ -58,7 +58,7 @@ public class Handler : YcFunction {
 
 {% note warning %}
 
-Функцию необходимо вызывать с помощью [Yandex Cloud CLI](../../../concepts/function-invoke.md) или с помощью HTTP-запроса с параметром `?integration=raw`.
+Функцию необходимо вызывать с помощью [{{ yandex-cloud }} CLI](../../../concepts/function-invoke.md) или с помощью HTTP-запроса с параметром `?integration=raw`.
 
 {% endnote %}
 

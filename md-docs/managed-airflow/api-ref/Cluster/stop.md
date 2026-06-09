@@ -5,7 +5,7 @@ Stops the specified Apache Airflow cluster.
 ## HTTP request
 
 ```
-POST https://airflow.api.cloud.yandex.net/managed-airflow/v1/clusters/{clusterId}:stop
+POST https://airflow.{{ api-host }}/managed-airflow/v1/clusters/{clusterId}:stop
 ```
 
 ## Path parameters

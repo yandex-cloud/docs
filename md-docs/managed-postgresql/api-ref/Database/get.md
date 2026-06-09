@@ -7,7 +7,7 @@ To get the list of available PostgreSQL Database resources, make a [List](list.m
 ## HTTP request
 
 ```
-GET https://mdb.api.cloud.yandex.net/managed-postgresql/v1/clusters/{clusterId}/databases/{databaseName}
+GET https://{{ api-host-mdb }}/managed-postgresql/v1/clusters/{clusterId}/databases/{databaseName}
 ```
 
 ## Path parameters

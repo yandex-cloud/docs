@@ -5,7 +5,7 @@ Returns the specified subscription lock.
 ## HTTP request
 
 ```
-GET https://marketplace.api.cloud.yandex.net/marketplace/license-manager/saas/v1/locks/{lockId}
+GET https://marketplace.{{ api-host }}/marketplace/license-manager/saas/v1/locks/{lockId}
 ```
 
 ## Path parameters

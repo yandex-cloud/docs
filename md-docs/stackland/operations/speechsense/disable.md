@@ -1,6 +1,6 @@
-# Отключить SpeechSense
+# Отключить {{ speechsense-name }}
 
-Вы можете отключить компонент SpeechSense в кластере Stackland. При отключении контроллер автоматически удалит все ресурсы компонента.
+Вы можете отключить компонент {{ speechsense-name }} в кластере {{ stackland-name }}. При отключении контроллер автоматически удалит все ресурсы компонента.
 
 ## Отключить компонент {#disable}
 
@@ -47,5 +47,5 @@ kubectl delete pvc --all -n stackland-speechsense
 
 ## Что дальше {#whats-next}
 
-* [Настроить и активировать SpeechSense](configure.md) — повторная активация SpeechSense.
-* [SpeechSense](../../concepts/components/speechsense.md) — описание компонента.
+* [{#T}](configure.md) — повторная активация {{ speechsense-name }}.
+* [{{ speechsense-name }}](../../concepts/components/speechsense.md) — описание компонента.

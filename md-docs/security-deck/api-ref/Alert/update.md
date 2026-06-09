@@ -5,7 +5,7 @@ Update alert.
 ## HTTP request
 
 ```
-PATCH https://alert-sink.api.cloud.yandex.net/securitydeck/alerts/v1/alerts/{alertId}
+PATCH https://alert-sink.{{ api-host }}/securitydeck/alerts/v1/alerts/{alertId}
 ```
 
 ## Path parameters

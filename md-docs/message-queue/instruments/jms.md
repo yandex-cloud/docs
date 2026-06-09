@@ -1,6 +1,6 @@
-# Пример использования Yandex Message Queue на JMS
+# Пример использования {{ message-queue-full-name }} на JMS
 
-[JMS](https://www.oracle.com/technetwork/java/jms/index.html) — это API для передачи сообщений между компонентами приложений. С помощью AWS SQS Java Messaging Library можно использовать Message Queue для отправки и получения сообщений через JMS. 
+[JMS](https://www.oracle.com/technetwork/java/jms/index.html) — это API для передачи сообщений между компонентами приложений. С помощью AWS SQS Java Messaging Library можно использовать {{ message-queue-name }} для отправки и получения сообщений через JMS. 
 
 ## Установка {#install}
 
@@ -9,7 +9,7 @@
 ## Подготовка к работе {#prepare}
 
 1. [Создайте сервисный аккаунт](../../iam/operations/sa/create.md).
-1. [Назначьте роль editor сервисному аккаунту](../../iam/operations/sa/assign-role-for-sa.md).
+1. [Назначьте роль {{ roles-editor }} сервисному аккаунту](../../iam/operations/sa/assign-role-for-sa.md).
 1. [Создайте статический ключ доступа](../../iam/operations/authentication/manage-access-keys.md#create-access-key).
 
 Задайте переменные окружения:
@@ -19,7 +19,7 @@ export AWS_ACCESS_KEY_ID="<идентификатор_ключа_доступа>
 export AWS_SECRET_ACCESS_KEY="<секретный_ключ>"
 ```
 
-Создайте очередь в сервисе Message Queue и подготовьте ее URL.
+Создайте очередь в сервисе {{ message-queue-name }} и подготовьте ее URL.
 
 ## Пример {#sample}
 Для работы примера необходимо добавить следующие зависимости:
@@ -40,7 +40,7 @@ export AWS_SECRET_ACCESS_KEY="<секретный_ключ>"
 
 В этом примере: 
 
-1. Устанавливается соединение с Message Queue. 
+1. Устанавливается соединение с {{ message-queue-name }}. 
 1. Создается очередь сообщений.
 1. В очередь передается сообщение с текстом `test message`.
 1. Сообщение считывается из очереди и отображается в терминале.
@@ -70,10 +70,10 @@ public class App
         SQSConnectionFactory connectionFactory = new SQSConnectionFactory(
                 new ProviderConfiguration(),
                 AmazonSQSClientBuilder.standard()
-                        .withRegion("ru-central1")
+                        .withRegion("{{ region-id }}")
                         .withEndpointConfiguration(new EndpointConfiguration(
-                            "https://message-queue.api.cloud.yandex.net",
-                            "ru-central1"
+                            "https://message-queue.{{ api-host }}",
+                            "{{ region-id }}"
                         ))
         );
 

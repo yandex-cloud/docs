@@ -5,7 +5,7 @@ Removes shared resource from community
 ## HTTP request
 
 ```
-POST https://datasphere.api.cloud.yandex.net/datasphere/v2/communities/{resourceId}:removeResource
+POST https://datasphere.{{ api-host }}/datasphere/v2/communities/{resourceId}:removeResource
 ```
 
 ## Path parameters

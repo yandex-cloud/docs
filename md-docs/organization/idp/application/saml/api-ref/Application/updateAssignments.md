@@ -5,7 +5,7 @@ Updates assignments for the specified SAML application.
 ## HTTP request
 
 ```
-PATCH https://organization-manager.api.cloud.yandex.net/organization-manager/v1/idp/application/saml/applications/{applicationId}:updateAssignments
+PATCH https://organization-manager.{{ api-host }}/organization-manager/v1/idp/application/saml/applications/{applicationId}:updateAssignments
 ```
 
 ## Path parameters
@@ -89,9 +89,7 @@ The maximum string length in characters is 100. ||
   "createdBy": "string",
   "modifiedAt": "string",
   "done": "boolean",
-  "metadata": {
-    "applicationId": "string"
-  },
+  "metadata": "object",
   // Includes only one of the fields `error`, `response`
   "error": {
     "code": "integer",
@@ -100,16 +98,7 @@ The maximum string length in characters is 100. ||
       "object"
     ]
   },
-  "response": {
-    "assignmentDeltas": [
-      {
-        "action": "string",
-        "assignment": {
-          "subjectId": "string"
-        }
-      }
-    ]
-  }
+  "response": "object"
   // end of the list of possible fields
 }
 ```
@@ -151,7 +140,7 @@ In some languages, built-in datetime utilities do not support nanosecond precisi
 
 If the value is `false`, it means the operation is still in progress.
 If `true`, the operation is completed, and either `error` or `response` is available. ||
-|| metadata | **[UpdateAssignmentsMetadata](#yandex.cloud.organizationmanager.v1.idp.application.saml.UpdateAssignmentsMetadata)**
+|| metadata | **object**
 
 Service-specific metadata associated with the operation.
 It typically contains the ID of the target resource that the operation is performed on.
@@ -166,7 +155,7 @@ The operation result.
 If `done == false` and there was no failure detected, neither `error` nor `response` is set.
 If `done == false` and there was a failure detected, `error` is set.
 If `done == true`, exactly one of `error` or `response` is set. ||
-|| response | **[UpdateAssignmentsResponse](#yandex.cloud.organizationmanager.v1.idp.application.saml.UpdateAssignmentsResponse)**
+|| response | **object**
 
 The normal response of the operation in case of success.
 If the original method returns no data on success, such as Delete,
@@ -181,17 +170,6 @@ The operation result.
 If `done == false` and there was no failure detected, neither `error` nor `response` is set.
 If `done == false` and there was a failure detected, `error` is set.
 If `done == true`, exactly one of `error` or `response` is set. ||
-|#
-
-## UpdateAssignmentsMetadata {#yandex.cloud.organizationmanager.v1.idp.application.saml.UpdateAssignmentsMetadata}
-
-Metadata for the [ApplicationService.UpdateAssignments](#UpdateAssignments) operation.
-
-#|
-||Field | Description ||
-|| applicationId | **string**
-
-ID of the SAML application whose assignments are being updated. ||
 |#
 
 ## Status {#google.rpc.Status}
@@ -209,45 +187,4 @@ An error message. ||
 || details[] | **object**
 
 A list of messages that carry the error details. ||
-|#
-
-## UpdateAssignmentsResponse {#yandex.cloud.organizationmanager.v1.idp.application.saml.UpdateAssignmentsResponse}
-
-Response message for [ApplicationService.UpdateAssignments](#UpdateAssignments).
-
-#|
-||Field | Description ||
-|| assignmentDeltas[] | **[AssignmentDelta](#yandex.cloud.organizationmanager.v1.idp.application.saml.AssignmentDelta2)**
-
-List of assignment deltas that were applied. ||
-|#
-
-## AssignmentDelta {#yandex.cloud.organizationmanager.v1.idp.application.saml.AssignmentDelta2}
-
-A delta operation on assignments.
-
-#|
-||Field | Description ||
-|| action | **enum** (AssignmentAction)
-
-Required field. Action to perform on the assignment.
-
-- `ADD`: Add an assignment.
-- `REMOVE`: Remove an assignment. ||
-|| assignment | **[Assignment](#yandex.cloud.organizationmanager.v1.idp.application.saml.Assignment2)**
-
-Required field. Assignment to perform the action on. ||
-|#
-
-## Assignment {#yandex.cloud.organizationmanager.v1.idp.application.saml.Assignment2}
-
-An assignment for a SAML application.
-
-#|
-||Field | Description ||
-|| subjectId | **string**
-
-Required field. ID of the subject being assigned.
-
-The maximum string length in characters is 100. ||
 |#

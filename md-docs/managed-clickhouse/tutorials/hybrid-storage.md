@@ -1,7 +1,7 @@
-# Использование гибридного хранилища в Managed Service for ClickHouse®
+# Использование гибридного хранилища в {{ mch-name }}
 
 
-Гибридное хранилище позволяет хранить часто используемые данные на сетевых дисках кластера Managed Service for ClickHouse®, а редко используемые данные — в Yandex Object Storage. Гибридное хранилище самостоятельно создаст бакет и подключит его к ClickHouse®. Автоматическое перемещение данных между этими уровнями хранения поддерживается только для таблиц семейства [MergeTree](https://clickhouse.com/docs/ru/engines/table-engines/mergetree-family/mergetree/). Подробнее см. в разделе [Хранилище в Managed Service for ClickHouse®](../concepts/storage.md).
+Гибридное хранилище позволяет хранить часто используемые данные на сетевых дисках кластера {{ mch-name }}, а редко используемые данные — в {{ objstorage-full-name }}. Гибридное хранилище самостоятельно создаст бакет и подключит его к {{ CH }}. Автоматическое перемещение данных между этими уровнями хранения поддерживается только для таблиц семейства [MergeTree]({{ ch.docs }}{{ lang }}/engines/table-engines/mergetree-family/mergetree). Подробнее см. в разделе [{#T}](../concepts/storage.md).
 
 Чтобы воспользоваться гибридным хранилищем:
 
@@ -17,8 +17,8 @@
 
 В стоимость поддержки описываемого решения входят:
 
-* Плата за кластер Managed Service for ClickHouse®: использование вычислительных ресурсов, выделенных хостам (в том числе хостам ZooKeeper), и дискового пространства (см. [тарифы Managed Service for ClickHouse®](../pricing.md)).
-* Плата за использование публичных IP-адресов, если для хостов кластера включен публичный доступ (см. [тарифы Virtual Private Cloud](../../vpc/pricing.md)).
+* Плата за кластер {{ mch-name }}: использование вычислительных ресурсов, выделенных хостам (в том числе хостам {{ ZK }}), и дискового пространства (см. [тарифы {{ mch-name }}](../pricing.md)).
+* Плата за использование публичных IP-адресов, если для хостов кластера включен публичный доступ (см. [тарифы {{ vpc-name }}](../../vpc/pricing.md)).
 
 
 ## Перед началом работы {#before-you-begin}
@@ -29,22 +29,22 @@
 
 - Вручную {#manual}
 
-    1. [Создайте кластер](../operations/cluster-create.md) Managed Service for ClickHouse®:
+    1. [Создайте кластер](../operations/cluster-create.md) {{ mch-name }}:
 
         
-        * **Тип диска** — стандартные (`network-hdd`), быстрые (`network-ssd`) или нереплицируемые (`network-ssd-nonreplicated`) сетевые диски.
+        * **{{ ui-key.yacloud.mdb.forms.label_diskTypeId }}** — стандартные (`network-hdd`), быстрые (`network-ssd`) или нереплицируемые (`network-ssd-nonreplicated`) сетевые диски.
 
 
-        * **Размер** — не менее 15 ГБ.
-        * **Управление пользователями через SQL** — выключено.
-        * **Имя БД** — `tutorial`.
-        * **Гибридное хранилище** — включено.
+        * **{{ ui-key.yacloud.mdb.forms.label_disk-size }}** — не менее 15 ГБ.
+        * **{{ ui-key.yacloud.mdb.forms.database_field_sql-user-management }}** — выключено.
+        * **{{ ui-key.yacloud.mdb.forms.database_field_name }}** — `tutorial`.
+        * **{{ ui-key.yacloud.mdb.forms.additional-field-cloud-storage }}** — включено.
 
     1. [Настройте права доступа](../operations/cluster-users.md#update-settings) так, чтобы вы могли выполнять в этой базе запросы на чтение и запись.
 
-- С помощью Terraform {#tf}
+- С помощью {{ TF }} {#tf}
 
-    1. Если у вас еще нет Terraform, [установите его](../../tutorials/infrastructure-management/terraform-quickstart.md#install-terraform).
+    1. Если у вас еще нет {{ TF }}, [установите его](../../tutorials/infrastructure-management/terraform-quickstart.md#install-terraform).
     1. [Получите данные для аутентификации](../../tutorials/infrastructure-management/terraform-quickstart.md#get-credentials). Вы можете добавить их в переменные окружения или указать далее в файле с настройками провайдера.
     1. [Настройте и инициализируйте провайдер](../../tutorials/infrastructure-management/terraform-quickstart.md#configure-provider). Чтобы не создавать конфигурационный файл с настройками провайдера вручную, [скачайте его](https://github.com/yandex-cloud-examples/yc-terraform-provider-settings/blob/main/provider.tf).
     1. Поместите конфигурационный файл в отдельную рабочую директорию и [укажите значения параметров](../../tutorials/infrastructure-management/terraform-quickstart.md#configure-provider). Если данные для аутентификации не были добавлены в переменные окружения, укажите их в конфигурационном файле.
@@ -56,17 +56,17 @@
         * [сеть](../../vpc/concepts/network.md#network);
         * [подсеть](../../vpc/concepts/network.md#subnet);
         * [группа безопасности](../../vpc/concepts/security-groups.md) по умолчанию и правила, необходимые для подключения к кластеру из интернета;
-        * кластер Managed Service for ClickHouse® с включенным гибридным хранилищем.
+        * кластер {{ mch-name }} с включенным гибридным хранилищем.
 
-    1. Укажите в файле `clickhouse-hybrid-storage.tf` имя пользователя и пароль, которые будут использоваться для доступа к кластеру Managed Service for ClickHouse®.
+    1. Укажите в файле `clickhouse-hybrid-storage.tf` имя пользователя и пароль, которые будут использоваться для доступа к кластеру {{ mch-name }}.
 
-    1. Проверьте корректность файлов конфигурации Terraform с помощью команды:
+    1. Проверьте корректность файлов конфигурации {{ TF }} с помощью команды:
 
         ```bash
         terraform validate
         ```
 
-        Если в файлах конфигурации есть ошибки, Terraform на них укажет.
+        Если в файлах конфигурации есть ошибки, {{ TF }} на них укажет.
 
     1. Создайте необходимую инфраструктуру:
 
@@ -88,7 +88,7 @@
           1. Подтвердите изменение ресурсов.
           1. Дождитесь завершения операции.
 
-       В указанном каталоге будут созданы все требуемые ресурсы. Проверить появление ресурсов и их настройки можно в [консоли управления](https://console.yandex.cloud).
+       В указанном каталоге будут созданы все требуемые ресурсы. Проверить появление ресурсов и их настройки можно в [консоли управления]({{ link-console-main }}).
 
 {% endlist %}
 
@@ -104,13 +104,13 @@
 
 ### Познакомьтесь с тестовым набором данных (необязательный шаг) {#explore-dataset}
 
-Для демонстрации работы гибридного хранилища используются анонимизированные данные о хитах (`hits_v1`) Яндекс Метрики. Этот [датасет](https://clickhouse.com/docs/ru/getting-started/example-datasets/metrica/) содержит данные о почти девяти миллионах хитов за неделю с 17 марта 2014 года по 23 марта 2014 года.
+Для демонстрации работы гибридного хранилища используются анонимизированные данные о хитах (`hits_v1`) Яндекс Метрики. Этот [датасет]({{ ch.docs }}{{ lang }}/getting-started/example-datasets/metrica) содержит данные о почти девяти миллионах хитов за неделю с 17 марта 2014 года по 23 марта 2014 года.
 
 Таблица `tutorial.hits_v1` будет [настроена при создании](#create-table) таким образом, чтобы все <q>свежие</q> данные в таблице с 21 марта 2014 года и позже попали в хранилище на сетевых дисках, а более старые данные (с 17 марта по 20 марта 2014 года) — в объектное хранилище.
 
 ## Создайте таблицу {#create-table}
 
-Создайте таблицу `tutorial.hits_v1`, которая использует гибридное хранилище. Для этого выполните SQL-запрос, подставив вместо `<схема>` схему таблицы из [документации ClickHouse®](https://clickhouse.com/docs/ru/getting-started/tutorial/#create-tables):
+Создайте таблицу `tutorial.hits_v1`, которая использует гибридное хранилище. Для этого выполните SQL-запрос, подставив вместо `<схема>` схему таблицы из [документации {{ CH }}]({{ ch.docs }}{{ lang }}/getting-started/example-datasets/star-schema#create-tables):
 
 ```sql
 CREATE TABLE tutorial.hits_v1
@@ -289,7 +289,7 @@ SETTINGS index_granularity = 8192
    * если количество дней от текущей даты до `EventDate` меньше значения TTL (то есть время жизни еще не истекло), то эти данные остаются в хранилище на сетевых дисках;
    * если количество дней от текущей даты до `EventDate` больше или равно значению TTL (то есть время жизни уже истекло), то эти данные помещаются в объектное хранилище согласно политике `TO DISK 'object_storage'`;
 
-Указывать TTL для использования гибридного хранилища необязательно, однако это позволяет явно контролировать, какие данные будут находиться в Object Storage. Если не указывать TTL, то данные будут помещаться в объектное хранилище, только когда в хранилище на сетевых дисках закончится место. Подробнее см. в разделе [Хранилище в Managed Service for ClickHouse®](../concepts/storage.md).
+Указывать TTL для использования гибридного хранилища необязательно, однако это позволяет явно контролировать, какие данные будут находиться в {{ objstorage-name }}. Если не указывать TTL, то данные будут помещаться в объектное хранилище, только когда в хранилище на сетевых дисках закончится место. Подробнее см. в разделе [{#T}](../concepts/storage.md).
 
 {% note info %}
 
@@ -297,9 +297,9 @@ SETTINGS index_granularity = 8192
 
 {% endnote %}
 
-Данные между хранилищем на сетевых дисках и объектным хранилищем перемещаются не построчно, а [кусками](https://clickhouse.com/docs/ru/engines/table-engines/mergetree-family/mergetree/#table_engine-mergetree-multiple-volumes). Старайтесь выбирать выражение TTL и [ключ партиционирования](https://clickhouse.com/docs/ru/engines/table-engines/mergetree-family/custom-partitioning-key/) так, чтобы для всех строк куска данных TTL совпадал. Если этого не сделать, то могут возникнуть проблемы с перемещением данных в объектное хранилище по истечении TTL, если один кусок будет содержать данные, предназначенные для разных уровней хранения. В самом простом случае выражение для TTL должно использовать те же столбцы, что и в ключе партиционирования, как в примере выше, где используется столбец `EventDate`.
+Данные между хранилищем на сетевых дисках и объектным хранилищем перемещаются не построчно, а [кусками]({{ ch.docs }}{{ lang }}/engines/table-engines/mergetree-family/mergetree#table_engine-mergetree-multiple-volumes). Старайтесь выбирать выражение TTL и [ключ партиционирования]({{ ch.docs }}{{ lang }}/engines/table-engines/mergetree-family/custom-partitioning-key) так, чтобы для всех строк куска данных TTL совпадал. Если этого не сделать, то могут возникнуть проблемы с перемещением данных в объектное хранилище по истечении TTL, если один кусок будет содержать данные, предназначенные для разных уровней хранения. В самом простом случае выражение для TTL должно использовать те же столбцы, что и в ключе партиционирования, как в примере выше, где используется столбец `EventDate`.
 
-Подробнее о настройке TTL см. [в документации ClickHouse®](https://clickhouse.com/docs/ru/engines/table-engines/mergetree-family/mergetree/#table_engine-mergetree-ttl).
+Подробнее о настройке TTL см. [в документации {{ CH }}]({{ ch.docs }}{{ lang }}/engines/table-engines/mergetree-family/mergetree#table_engine-mergetree-ttl).
 
 ## Наполните таблицу данными {#fill-table-with-data}
 
@@ -308,17 +308,17 @@ SETTINGS index_granularity = 8192
 
    
    ```bash
-   curl https://storage.yandexcloud.net/doc-files/managed-clickhouse/hits_v1.tsv.xz | unxz --threads=`nproc` > hits_v1.tsv
+   curl https://{{ s3-storage-host }}/doc-files/managed-clickhouse/hits_v1.tsv.xz | unxz --threads=`nproc` > hits_v1.tsv
    ```
 
 
    Объем загруженного датасета — около 10 ГБ.
 
-1. Вставьте данные из этого датасета в ClickHouse® с помощью `clickhouse-client`:
+1. Вставьте данные из этого датасета в {{ CH }} с помощью `clickhouse-client`:
 
    ```bash
    clickhouse-client \
-       --host <FQDN_хоста_ClickHouse®> \
+       --host <FQDN_хоста_{{ CH }}> \
        --secure \
        --user <имя_пользователя> \
        --database tutorial \
@@ -332,7 +332,7 @@ SETTINGS index_granularity = 8192
 
 1. Дождитесь завершения операции, вставка данных может занять некоторое время.
 
-Подробнее см. [в документации ClickHouse®](https://clickhouse.com/docs/ru/getting-started/tutorial/#import-data).
+Подробнее см. [в документации {{ CH }}]({{ ch.docs }}{{ lang }}/getting-started/example-datasets/star-schema#import-data).
 
 ## Проверьте размещение данных в кластере {#check-table-tiering}
 
@@ -421,14 +421,14 @@ LIMIT 10
 └─────────────────────────────────────┴────────────────────┘
 ```
 
-Как видно из результата выполнения SQL-запроса, с точки зрения пользователя таблица выступает единой сущностью: ClickHouse® успешно выполняет запросы к такой таблице вне зависимости от фактического места расположения данных в ней.
+Как видно из результата выполнения SQL-запроса, с точки зрения пользователя таблица выступает единой сущностью: {{ CH }} успешно выполняет запросы к такой таблице вне зависимости от фактического места расположения данных в ней.
 
-## Отслеживайте объем, занимаемый данными в Object Storage (необязательный шаг) {#metrics}
+## Отслеживайте объем, занимаемый данными в {{ objstorage-name }} (необязательный шаг) {#metrics}
 
-Чтобы узнать, какой объем занимают куски таблиц [MergeTree](https://clickhouse.com/docs/ru/engines/table-engines/mergetree-family/mergetree/) в Object Storage, воспользуйтесь метрикой `ch_s3_disk_parts_size` в сервисе Yandex Monitoring:
+Чтобы узнать, какой объем занимают куски таблиц [MergeTree]({{ ch.docs }}{{ lang }}/engines/table-engines/mergetree-family/mergetree) в {{ objstorage-name }}, воспользуйтесь метрикой `ch_s3_disk_parts_size` в сервисе {{ monitoring-full-name }}:
 
-1. Откройте [консоль управления](https://console.yandex.cloud).
-1. [Перейдите](../../console/operations/select-service.md#select-service) в сервис **Monitoring**.
+1. Откройте [консоль управления]({{ link-console-main }}).
+1. Перейдите в сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_monitoring }}**.
 1. Перейдите в раздел **Обзор метрик**.
 1. Выполните запрос:
 
@@ -444,15 +444,15 @@ LIMIT 10
 
 - Вручную {#manual}
 
-    [Удалите кластер Managed Service for ClickHouse®](../operations/cluster-delete.md).
+    [Удалите кластер {{ mch-name }}](../operations/cluster-delete.md).
 
-- Terraform {#tf}
+- {{ TF }} {#tf}
 
     1. В терминале перейдите в директорию с планом инфраструктуры.
     
         {% note warning %}
     
-        Убедитесь, что в директории нет Terraform-манифестов с ресурсами, которые вы хотите сохранить. Terraform удаляет все ресурсы, которые были созданы с помощью манифестов в текущей директории.
+        Убедитесь, что в директории нет {{ TF }}-манифестов с ресурсами, которые вы хотите сохранить. {{ TF }} удаляет все ресурсы, которые были созданы с помощью манифестов в текущей директории.
     
         {% endnote %}
     
@@ -466,8 +466,8 @@ LIMIT 10
     
         1. Подтвердите удаление ресурсов и дождитесь завершения операции.
     
-        Все ресурсы, которые были описаны в Terraform-манифестах, будут удалены.
+        Все ресурсы, которые были описаны в {{ TF }}-манифестах, будут удалены.
 
 {% endlist %}
 
-_ClickHouse® является зарегистрированным товарным знаком [ClickHouse, Inc](https://clickhouse.com)._
+_{{ CH }} является зарегистрированным товарным знаком [ClickHouse, Inc](https://clickhouse.com)._

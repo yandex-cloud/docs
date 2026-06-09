@@ -1,10 +1,10 @@
-# Поставка данных в Yandex Managed Service for Apache Kafka® с помощью Yandex Data Transfer
+# Поставка данных в {{ mkf-full-name }} с помощью {{ data-transfer-full-name }}
 
-# Поставка данных из Yandex Managed Service for MySQL® в Yandex Managed Service for Apache Kafka® с помощью Yandex Data Transfer
+# Поставка данных из {{ mmy-full-name }} в {{ mkf-full-name }} с помощью {{ data-transfer-full-name }}
 
-Вы можете отслеживать изменения данных в _кластере-источнике_ Managed Service for MySQL® и отправлять их в _кластер-приемник_ Managed Service for Apache Kafka® с помощью технологии [Change Data Capture](../../data-transfer/concepts/cdc.md) (CDC).
+Вы можете отслеживать изменения данных в _кластере-источнике_ {{ mmy-name }} и отправлять их в _кластер-приемник_ {{ mkf-name }} с помощью технологии [Change Data Capture](../../data-transfer/concepts/cdc.md) (CDC).
 
-Чтобы настроить CDC с использованием сервиса Data Transfer:
+Чтобы настроить CDC с использованием сервиса {{ data-transfer-name }}:
 
 1. [Подготовьте кластер-источник](#prepare-source).
 1. [Подготовьте кластер-приемник](#prepare-target).
@@ -16,33 +16,33 @@
 
 ## Необходимые платные ресурсы {#paid-resources}
 
-* Кластер Managed Service for MySQL®: выделенные хостам вычислительные ресурсы, объем хранилища и резервных копий (см. [тарифы Managed Service for MySQL®](../pricing.md)).
-* Кластер Managed Service for Apache Kafka®: выделенные хостам вычислительные ресурсы, объем хранилища и резервных копий (см. [тарифы Managed Service for Apache Kafka®](../../managed-kafka/pricing.md)).
-* Публичные IP-адреса, если для хостов кластеров включен публичный доступ (см. [тарифы Virtual Private Cloud](../../vpc/pricing.md)).
-* Каждый трансфер: использование вычислительных ресурсов и количество переданных строк данных (см. [тарифы Data Transfer](../../data-transfer/pricing.md)).
+* Кластер {{ mmy-name }}: выделенные хостам вычислительные ресурсы, объем хранилища и резервных копий (см. [тарифы {{ mmy-name }}](../pricing.md)).
+* Кластер {{ mkf-name }}: выделенные хостам вычислительные ресурсы, объем хранилища и резервных копий (см. [тарифы {{ mkf-name }}](../../managed-kafka/pricing.md)).
+* Публичные IP-адреса, если для хостов кластеров включен публичный доступ (см. [тарифы {{ vpc-name }}](../../vpc/pricing.md)).
+* Каждый трансфер: использование вычислительных ресурсов и количество переданных строк данных (см. [тарифы {{ data-transfer-name }}](../../data-transfer/pricing.md)).
 
 
 ## Перед началом работы {#before-you-begin}
 
 {% note info %}
 
-Публичный доступ к хостам кластера нужен, если вы планируете подключаться к кластеру через интернет. Этот вариант подключения более простой, и его рекомендуется использовать для прохождения руководства. К хостам без публичного доступа тоже можно подключиться, но только с виртуальных машин Yandex Cloud, расположенных в той же облачной сети, что и кластер.
+Публичный доступ к хостам кластера нужен, если вы планируете подключаться к кластеру через интернет. Этот вариант подключения более простой, и его рекомендуется использовать для прохождения руководства. К хостам без публичного доступа тоже можно подключиться, но только с виртуальных машин {{ yandex-cloud }}, расположенных в той же облачной сети, что и кластер.
 
 {% endnote %}
 
-1. [Создайте кластер-источник Managed Service for MySQL®](../operations/cluster-create.md) любой подходящей конфигурации со следующими настройками:
+1. [Создайте кластер-источник {{ mmy-name }}](../operations/cluster-create.md) любой подходящей конфигурации со следующими настройками:
 
     * с базой данных `db1`;
     * с пользователем `my-user`;
     * с хостами в публичном доступе.
 
-1. [Создайте кластер-приемник Managed Service for Apache Kafka®](../../managed-kafka/operations/cluster-create.md) любой подходящей конфигурации с хостами в публичном доступе.
+1. [Создайте кластер-приемник {{ mkf-name }}](../../managed-kafka/operations/cluster-create.md) любой подходящей конфигурации с хостами в публичном доступе.
 
 
 1. Если вы используете группы безопасности, настройте их так, чтобы к кластерам можно было подключаться из интернета:
 
-    * [Инструкция для Managed Service for MySQL®](../operations/connect/index.md#configuring-security-groups).
-    * [Инструкция для Managed Service for Apache Kafka®](../../managed-kafka/operations/connect/index.md#configuring-security-groups).
+    * [Инструкция для {{ mmy-name }}](../operations/connect/index.md#configuring-security-groups).
+    * [Инструкция для {{ mkf-name }}](../../managed-kafka/operations/connect/index.md#configuring-security-groups).
 
 
 1. Установите на локальный компьютер [утилиту](https://github.com/edenhill/kcat) `kcat` (`kafkacat`) и [утилиту командной строки MySQL](https://www.mysql.com/downloads/). Например, в Ubuntu 20.04 выполните команду:
@@ -51,11 +51,11 @@
     sudo apt update && sudo apt install kafkacat mysql-client --yes
     ```
 
-    Убедитесь, что можете с ее помощью [подключиться к кластеру-источнику Managed Service for Apache Kafka® через SSL](../../managed-kafka/operations/connect/clients.md#bash-zsh).
+    Убедитесь, что можете с ее помощью [подключиться к кластеру-источнику {{ mkf-name }} через SSL](../../managed-kafka/operations/connect/clients.md#bash-zsh).
 
 ## Подготовьте кластер-источник {#prepare-source}
 
-1. Чтобы сервис Data Transfer мог получать от кластера Managed Service for MySQL® уведомления об изменениях в данных, в кластере-источнике необходимо настроить внешнюю репликацию. Чтобы пользователь `my-user` мог выполнять репликацию, [назначьте ему роль](../operations/grant.md) `ALL_PRIVILEGES` для базы данных `db1` и [выдайте глобальные привилегии](../operations/cluster-users.md#update-settings) `REPLICATION CLIENT` и `REPLICATION SLAVE`.
+1. Чтобы сервис {{ data-transfer-name }} мог получать от кластера {{ mmy-name }} уведомления об изменениях в данных, в кластере-источнике необходимо настроить внешнюю репликацию. Чтобы пользователь `my-user` мог выполнять репликацию, [назначьте ему роль](../operations/grant.md) `ALL_PRIVILEGES` для базы данных `db1` и [выдайте глобальные привилегии](../operations/cluster-users.md#update-settings) `REPLICATION CLIENT` и `REPLICATION SLAVE`.
 
 1. [Подключитесь к базе данных](../operations/connect/index.md) `db1` от имени пользователя `my-user`.
 
@@ -92,9 +92,9 @@
 
 {% list tabs group=topic_management %}
 
-- Интерфейсы Yandex Cloud {#yc}
+- Интерфейсы {{ yandex-cloud }} {#yc}
 
-    Если управление топиками осуществляется с помощью стандартных интерфейсов Yandex Cloud (Консоль управления, CLI, Terraform, API):
+    Если управление топиками осуществляется с помощью стандартных интерфейсов {{ yandex-cloud }} (Консоль управления, CLI, {{ TF }}, API):
 
     1. [Создайте топик](../../managed-kafka/operations/cluster-topics.md#create-topic) с именем `cdc.db1.measurements`.
 
@@ -110,41 +110,41 @@
 
     1. Помимо роли `ACCESS_ROLE_ADMIN` назначьте пользователю-администратору роли `ACCESS_ROLE_CONSUMER` и `ACCESS_ROLE_PRODUCER` для топиков, имена которых начинаются с префикса `cdc`.
 
-        Необходимые топики будут созданы автоматически при первом событии изменения в отслеживаемых таблицах кластера-источника. Такое решение может быть удобным для отслеживания изменений во множестве таблиц, однако, требует запас свободного места в хранилище кластера. Подробнее см. в разделе [Хранилище в Managed Service for Apache Kafka®](../../managed-kafka/concepts/storage.md).
+        Необходимые топики будут созданы автоматически при первом событии изменения в отслеживаемых таблицах кластера-источника. Такое решение может быть удобным для отслеживания изменений во множестве таблиц, однако, требует запас свободного места в хранилище кластера. Подробнее см. в разделе [{#T}](../../managed-kafka/concepts/storage.md).
 
 {% endlist %}
 
 ## Подготовьте и активируйте трансфер {#prepare-transfer}
 
-1. [Создайте эндпоинт](../../data-transfer/operations/endpoint/index.md#create) для источника MySQL® с [настройками](../../data-transfer/operations/endpoint/source/mysql.md):
+1. [Создайте эндпоинт](../../data-transfer/operations/endpoint/index.md#create) для источника {{ MY }} с [настройками](../../data-transfer/operations/endpoint/source/mysql.md):
 
-    * **Тип базы данных** — `MySQL`.
-    * **Параметры эндпоинта**:
-        * **Настройки подключения** — `Кластер Managed Service for MySQL`.
-        * **Кластер Managed Service for MySQL** — выберите [созданный ранее](#before-you-begin) кластер Managed Service for MySQL®.
-        * **База данных** — `db1`.
-        * **Пользователь** — `my-user`.
-        * **Пароль** — укажите пароль пользователя `my-user`.
-        * **Список включённых таблиц** — `db1.measurements`.
+    * **{{ ui-key.yacloud.data-transfer.forms.label-database_type }}** — `MySQL`.
+    * **{{ ui-key.yc-data-transfer.data-transfer.console.form.mysql.console.form.mysql.MysqlSource.title }}**:
+        * **{{ ui-key.yc-data-transfer.data-transfer.console.form.mysql.console.form.mysql.MysqlSource.connection.title }}** — `{{ ui-key.yc-data-transfer.data-transfer.console.form.mysql.console.form.mysql.MysqlConnectionType.mdb_cluster_id.title }}`.
+        * **{{ ui-key.yc-data-transfer.data-transfer.console.form.mysql.console.form.mysql.MysqlConnectionType.mdb_cluster_id.title }}** — выберите [созданный ранее](#before-you-begin) кластер {{ mmy-name }}.
+        * **{{ ui-key.yc-data-transfer.data-transfer.console.form.common.console.form.common.Connection.database.title }}** — `db1`.
+        * **{{ ui-key.yc-data-transfer.data-transfer.console.form.mysql.console.form.mysql.MysqlConnection.user.title }}** — `my-user`.
+        * **{{ ui-key.yc-data-transfer.data-transfer.console.form.mysql.console.form.mysql.MysqlConnection.password.title }}** — укажите пароль пользователя `my-user`.
+        * **{{ ui-key.yc-data-transfer.data-transfer.console.form.mysql.console.form.mysql.MysqlTableFilter.include_tables.title }}** — `db1.measurements`.
 
-1. [Создайте эндпоинт](../../data-transfer/operations/endpoint/index.md#create) для приемника Apache Kafka® с [настройками](../../data-transfer/operations/endpoint/source/kafka.md):
+1. [Создайте эндпоинт](../../data-transfer/operations/endpoint/index.md#create) для приемника {{ KF }} с [настройками](../../data-transfer/operations/endpoint/source/kafka.md):
 
-    * **Тип базы данных** — `Kafka`.
-    * **Параметры эндпоинта**:
-        * **Тип подключения** — `Кластер Managed Service for Apache Kafka`.
-            * **Кластер Managed Service for Apache Kafka** — выберите [созданный ранее](#before-you-begin) кластер Managed Service for Apache Kafka®.
-            * **Аутентификация** — укажите данные созданного ранее пользователя `kafka-user`.
+    * **{{ ui-key.yacloud.data-transfer.forms.label-database_type }}** — `Kafka`.
+    * **{{ ui-key.yc-data-transfer.data-transfer.console.form.kafka.console.form.kafka.KafkaTarget.title }}**:
+        * **{{ ui-key.yc-data-transfer.data-transfer.console.form.kafka.console.form.kafka.KafkaTargetConnection.connection_type.title }}** — `{{ ui-key.yc-data-transfer.data-transfer.console.form.kafka.console.form.kafka.KafkaConnectionType.managed.title }}`.
+            * **{{ ui-key.yc-data-transfer.data-transfer.console.form.kafka.console.form.kafka.ManagedKafka.cluster_id.title }}** — выберите [созданный ранее](#before-you-begin) кластер {{ mkf-name }}.
+            * **{{ ui-key.yc-data-transfer.data-transfer.console.form.kafka.console.form.kafka.ManagedKafka.auth.title }}** — укажите данные созданного ранее пользователя `kafka-user`.
 
-        * **Топик** — `Полное имя топика`.
-        * **Полное имя топика** — `cdc.db1.measurements`.
+        * **{{ ui-key.yc-data-transfer.data-transfer.console.form.kafka.console.form.kafka.KafkaTargetConnection.topic_settings.title }}** — `{{ ui-key.yc-data-transfer.data-transfer.console.form.kafka.console.form.kafka.KafkaTargetTopicSettings.topic.title }}`.
+        * **{{ ui-key.yc-data-transfer.data-transfer.console.form.kafka.console.form.kafka.KafkaTargetTopic.topic_name.title }}** — `cdc.db1.measurements`.
 
         Если необходимо отслеживать изменения в нескольких таблицах, заполните поля следующим образом:
 
-        * **Топик** — `Префикс топика`.
-        * **Префикс топика** — укажите префикс `cdc`, использованный при формировании имен топиков.
+        * **{{ ui-key.yc-data-transfer.data-transfer.console.form.kafka.console.form.kafka.KafkaTargetConnection.topic_settings.title }}** — `{{ ui-key.yc-data-transfer.data-transfer.console.form.kafka.console.form.kafka.KafkaTargetTopicSettings.topic_prefix.title }}`.
+        * **{{ ui-key.yc-data-transfer.data-transfer.console.form.kafka.console.form.kafka.KafkaTargetTopicSettings.topic_prefix.title }}** — укажите префикс `cdc`, использованный при формировании имен топиков.
 
-1. [Создайте трансфер](../../data-transfer/operations/transfer.md#create) типа **_Репликация_** с созданными эндпоинтами для источника и приемника.
-1. [Активируйте трансфер](../../data-transfer/operations/transfer.md#activate) и дождитесь его перехода в статус **Реплицируется**.
+1. [Создайте трансфер](../../data-transfer/operations/transfer.md#create) типа **_{{ ui-key.yc-data-transfer.data-transfer.console.form.transfer.console.form.transfer.TransferType.increment.title }}_** с созданными эндпоинтами для источника и приемника.
+1. [Активируйте трансфер](../../data-transfer/operations/transfer.md#activate) и дождитесь его перехода в статус **{{ ui-key.yacloud.data-transfer.label_connector-status-RUNNING }}**.
 
 ## Проверьте работоспособность трансфера {#verify-transfer}
 
@@ -159,12 +159,12 @@
         -X sasl.mechanisms=SCRAM-SHA-512 \
         -X sasl.username=kafka-user \
         -X sasl.password=<пароль> \
-        -X ssl.ca.location=/usr/local/share/ca-certificates/Yandex/YandexInternalRootCA.crt \
+        -X ssl.ca.location={{ crt-local-dir }}{{ crt-local-file }} \
         -Z \
         -K:
     ```
 
-    FQDN хостов-брокеров можно получить со [списком хостов в кластере Managed Service for Apache Kafka®](../../managed-kafka/operations/cluster-hosts.md).
+    FQDN хостов-брокеров можно получить со [списком хостов в кластере {{ mkf-name }}](../../managed-kafka/operations/cluster-hosts.md).
 
 1. Подключитесь к кластеру-источнику и добавьте данные в таблицу `measurements`:
 
@@ -284,9 +284,9 @@
 
     {% endcut %}
 
-### Особенности поставки данных с помощью Data Transfer {#features}
+### Особенности поставки данных с помощью {{ data-transfer-name }} {#features}
 
-* При переносе данных из MySQL® в Apache Kafka® некоторые типы данных переносятся с изменениями:
+* При переносе данных из {{ MY }} в {{ KF }} некоторые типы данных переносятся с изменениями:
 
   * тип `tinyint(1)` переносится как `boolean`;
   * тип `real` переносится как `double`;
@@ -304,7 +304,7 @@
 
 1. Удалите кластеры:
 
-    * [Managed Service for Apache Kafka®](../../managed-kafka/operations/cluster-delete.md);
-    * [Managed Service for MySQL®](../operations/cluster-delete.md).
+    * [{{ mkf-name }}](../../managed-kafka/operations/cluster-delete.md);
+    * [{{ mmy-name }}](../operations/cluster-delete.md).
 
 1. Если для доступа к хостам кластеров использовались статические публичные IP-адреса, освободите и [удалите](../../vpc/operations/address-delete.md) их.

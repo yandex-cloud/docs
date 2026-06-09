@@ -5,7 +5,7 @@ Retrieves the list of customers associated with the specified reseller.
 ## HTTP request
 
 ```
-GET https://billing.api.cloud.yandex.net/billing/v1/customers
+GET https://billing.{{ api-host }}/billing/v1/customers
 ```
 
 ## Query parameters {#yandex.cloud.billing.v1.ListCustomersRequest}

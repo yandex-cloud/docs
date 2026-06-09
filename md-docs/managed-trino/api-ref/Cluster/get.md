@@ -5,7 +5,7 @@ Returns the specified Trino Cluster resource.
 ## HTTP request
 
 ```
-GET https://trino.api.cloud.yandex.net/managed-trino/v1/clusters/{clusterId}
+GET https://trino.{{ api-host }}/managed-trino/v1/clusters/{clusterId}
 ```
 
 ## Path parameters

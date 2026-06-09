@@ -1,30 +1,30 @@
 # Сбор метрик кластера «1С:Предприятие» на базе Linux
 
-В этом руководстве вы настроите сбор метрик кластера «1С:Предприятие» на базе Linux в формате Prometheus и их визуализацию в сервисе [Monium Metrics](../../monitoring/concepts/visualization/metric-explorer.md). Помимо визуализации, Monium Metrics позволяет настраивать алерты, гибридные дашборды с метриками различных сервисов Yandex Cloud и обладает большими возможностями по масштабированию.
+В этом руководстве вы настроите сбор метрик кластера «1С:Предприятие» на базе Linux в формате {{ prometheus-name }} и их визуализацию в сервисе [{{ monitoring-full-name }}](../../monitoring/concepts/visualization/metric-explorer.md). Помимо визуализации, {{ monitoring-name }} позволяет настраивать алерты, гибридные дашборды с метриками различных сервисов {{ yandex-cloud }} и обладает большими возможностями по масштабированию.
 
-Метрики кластера будут собираться с помощью свободно распространяемой утилиты [Prometheus 1C Exporter](https://github.com/LazarenkoA/prometheus_1C_exporter), передаваться в [Unified Agent](../../monitoring/concepts/data-collection/unified-agent/index.md) и затем в Monium Metrics.
+Метрики кластера будут собираться с помощью свободно распространяемой утилиты [{{ prometheus-name }} 1C Exporter](https://github.com/LazarenkoA/prometheus_1C_exporter), передаваться в [{{ unified-agent-full-name }}](../../monitoring/concepts/data-collection/unified-agent/index.md) и затем в {{ monitoring-name }}.
 
 ![metrics-1c](../../_assets/monitoring/best-practices/metrics-1c.svg)
 
-Руководство предполагает, что у вас уже развернут кластер «1С:Предприятие» на виртуальной машине в сервисе [Yandex Compute Cloud](../../compute/quickstart/index.md). Пример развертывания см. в руководстве [Создание кластера Linux-серверов «1С:Предприятия» с кластером Managed Service for PostgreSQL](../../tutorials/infrastructure-management/1c-postgresql-linux.md).
+Руководство предполагает, что у вас уже развернут кластер «1С:Предприятие» на виртуальной машине в сервисе [{{ compute-full-name }}](../../compute/quickstart/index.md). Пример развертывания см. в руководстве [{#T}](../../tutorials/infrastructure-management/1c-postgresql-linux.md).
 
-Чтобы начать работать с метриками в Monium Metrics:
+Чтобы начать работать с метриками в {{ monitoring-full-name }}:
 
-1. [Установите и настройте Prometheus 1C Exporter](#configure-exporter)
-1. [Установите и настройте Unified Agent](#configure-ua)
+1. [Установите и настройте {{ prometheus-name }} 1C Exporter](#configure-exporter)
+1. [Установите и настройте {{ unified-agent-short-name }}](#configure-ua)
 1. [Создайте сервисный аккаунт и привяжите его к ВМ](#sa-create)
-1. [Проверьте, что метрики передаются в Monium Metrics](#check-metrics)
+1. [Проверьте, что метрики передаются в {{ monitoring-name }}](#check-metrics)
 1. [Создайте дашборд для наблюдения за метриками](#dashboard-create)
 
 Если созданные ресурсы больше не нужны, [удалите их](#clear-out).
 
 ## Необходимые платные ресурсы {#paid-resources}
 
-Плата за передачу метрик в Monium Metrics (см. [тарифы Monium Metrics](../../monitoring/pricing.md)).
+Плата за передачу метрик в {{ monitoring-name }} (см. [тарифы {{ monitoring-name }}](../../monitoring/pricing.md)).
 
-## Установите и настройте Prometheus 1C Exporter {#configure-exporter}
+## Установите и настройте {{ prometheus-name }} 1C Exporter {#configure-exporter}
 
-1. На виртуальной машине с «1С:Предприятие» скачайте Prometheus 1C Exporter:
+1. На виртуальной машине с «1С:Предприятие» скачайте {{ prometheus-name }} 1C Exporter:
 
    ```bash
    wget https://github.com/LazarenkoA/prometheus_1C_exporter/releases/download/v1.5.0/prometheus_1C_exporter-linux-amd64
@@ -161,17 +161,17 @@
    sudo systemctl status exporter_1C.service
    ```
 
-После запуска экспортера метрики доступны по адресу `curl http://localhost:9095/metrics`. Чтобы работать с метриками в Monium Metrics, надо установить Unified Agent и настроить его на прием метрик по этому адресу и передачу метрик в Monium Metrics.
+После запуска экспортера метрики доступны по адресу `curl http://localhost:9095/metrics`. Чтобы работать с метриками в {{ monitoring-full-name }}, надо установить {{ unified-agent-short-name }} и настроить его на прием метрик по этому адресу и передачу метрик в {{ monitoring-name }}.
 
 ## Создайте сервисный аккаунт и привяжите его к ВМ {#sa-create}
 
-Сервисный аккаунт нужен для передачи метрик из ВМ в Monium Metrics.
+Сервисный аккаунт нужен для передачи метрик из ВМ в {{ monitoring-name }}.
 
 1. [Создайте](../../iam/operations/sa/create.md) сервисный аккаунт `sa-1c-monitoring` в каталоге, куда будут записываться метрики.
 1. [Назначьте](../../iam/operations/roles/grant.md) сервисному аккаунту [роль](../../monitoring/security/index.md#monitoring.editor) `monitoring.editor`.
 1. [Подключите](../../compute/operations/vm-control/vm-connect-sa.md) сервисный аккаунт к ВМ, на которой установлено «1С:Предприятие».
 
-## Установите и настройте Unified Agent {#configure-ua}
+## Установите и настройте {{ unified-agent-short-name }} {#configure-ua}
 
 1. Скачайте последнюю версию deb-пакета:
 
@@ -181,21 +181,21 @@
 
 1. Посмотрите версию deb-пакета с помощью команды `ls`.
    
-1. Установите Unified Agent из deb-пакета, указав его версию:
+1. Установите {{ unified-agent-short-name }} из deb-пакета, указав его версию:
 
    ```bash
    sudo dpkg -i yandex-unified-agent_<версия_агента>_amd64.deb
    ```
    
-   Другие способы установки описаны в разделе [Установка и обновление Yandex Unified Agent](../../monitoring/concepts/data-collection/unified-agent/installation.md). 
+   Другие способы установки описаны в разделе [{#T}](../../monitoring/concepts/data-collection/unified-agent/installation.md). 
 
-1. Проверьте, что Unified Agent запущен:
+1. Проверьте, что {{ unified-agent-short-name }} запущен:
 
    ```bash
    sudo systemctl status unified-agent.service
    ```
 
-1. Откройте конфигурационный файл Unified Agent:
+1. Откройте конфигурационный файл {{ unified-agent-short-name }}:
    
    ```bash
    sudo vi /etc/yandex/unified_agent/config.yml
@@ -203,7 +203,7 @@
 
 1. Замените содержимое файла на конфигурацию ниже. Добавьте идентификатор каталога, в который будут передаваться метрики.
 
-   {% cut "Конфигурация Unified Agent config.yml" %}
+   {% cut "Конфигурация {{ unified-agent-short-name }} config.yml" %}
    ```yaml
    monitoring:
      port: 16300
@@ -281,17 +281,17 @@
   
    В конфигурации для меток с эндпоинта `/metrics` задан префикс `app1c_`. Префикс может быть произвольным.
 
-   В Monium Metrics есть ограничения на метки и их значения:
+   В {{ monitoring-full-name }} есть ограничения на метки и их значения:
 
     * имя метки не может быть пустым;
     * имя метки и значение метрики могут содержать только латинские буквы;
     * нельзя использовать метку `cluster`.
 
-   Для этих ограничений в файле конфигурации Unified Agent настроено:
+   Для этих ограничений в файле конфигурации {{ unified-agent-short-name }} настроено:
     * переименование метки `cluster` на `cluster_1c`;
     * фильтрация (удаление) меток, которые содержат нелатинские символы: `servicename`, `user`, `base`, `licSRV`.
 
-   Подробнее о настройке Unified Agent см. в разделе [Конфигурирование](../../monitoring/concepts/data-collection/unified-agent/configuration.md).
+   Подробнее о настройке {{ unified-agent-short-name }} см. в разделе [{#T}](../../monitoring/concepts/data-collection/unified-agent/configuration.md).
 
    {% endcut %}
 
@@ -301,25 +301,25 @@
    unified_agent check-config -c /etc/yandex/unified_agent/config.yml
    ```
 
-1. Перезапустите Unified Agent, чтобы применить обновленную конфигурацию:
+1. Перезапустите {{ unified-agent-short-name }}, чтобы применить обновленную конфигурацию:
 
    ```bash
    sudo systemctl restart unified-agent.service
    ```
 
-1. Посмотрите статус службы Unified Agent:
+1. Посмотрите статус службы {{ unified-agent-short-name }}:
 
    ```bash
    sudo systemctl status unified-agent.service
    ```
 
-## Проверьте, что метрики передаются в Monium Metrics {#check-metrics}
+## Проверьте, что метрики передаются в {{ monitoring-name }} {#check-metrics}
 
 {% list tabs group=instructions %}
 
 - Консоль управления {#console}
 
-    1. На [главной странице](https://monium.yandex.cloud) сервиса Monium Metrics на панели слева выберите **Метрики**.
+    1. На [главной странице]({{ link-monitoring }}) сервиса {{ monitoring-name }} на панели слева выберите **{{ ui-key.yacloud_monitoring.aside-navigation.menu-item.explorer.title }}**.
     1. В строке запроса выберите:
        * Каталог, в который собираются метрики.
        * Значение метки `service` — `custom`.
@@ -338,15 +338,15 @@
 
 - Консоль управления {#console}
 
-    1. На [главной странице](https://monium.yandex.cloud) сервиса Monium Metrics нажмите **Создать дашборд**.
-    1. Справа вверху нажмите ![image](../../_assets/console-icons/plus.svg) и выберите ![image](../../_assets/console-icons/chart-column.svg) **График**.
+    1. На [главной странице]({{ link-monitoring }}) сервиса {{ monitoring-name }} нажмите **{{ ui-key.yacloud_monitoring.homepage.button_dashboards-action }}**.
+    1. Справа вверху нажмите ![image](../../_assets/console-icons/plus.svg) и выберите ![image](../../_assets/console-icons/chart-column.svg) **{{ ui-key.yacloud_monitoring.dashboard.widget-placeholder.add-graph }}**.
     1. Переключите строку запроса в [текстовый режим](../../monitoring/concepts/visualization/query-string.md#query-text). Для этого справа от строки нажмите ![raw](../../_assets/console-icons/code.svg). В текстовом режиме удобно добавлять уже готовые запросы.
     1. Укажите запрос для доступной производительности хоста:
 
          ```
          "app1c.available_performance"{folderId = "<идентификатор_каталога>", service = "custom", quantile = "0.99", type = "available", host = "<имя_ВМ_1C>"}
          ```
-    1. Справа вверху нажмите ![image](../../_assets/console-icons/floppy-disk.svg) **Сохранить**.
+    1. Справа вверху нажмите ![image](../../_assets/console-icons/floppy-disk.svg) **{{ ui-key.yacloud_monitoring.actions.common.save }}**.
     1. Таким же образом добавьте на дашборд графики:
     
        * Использование клиентских лицензий:
@@ -361,12 +361,12 @@
 
 {% endlist %}
 
-Дополнительные настройки дашборда см. в разделе [Добавление виджета на дашборд](../../monitoring/operations/dashboard/add-widget.md).
+Дополнительные настройки дашборда см. в разделе [{#T}](../../monitoring/operations/dashboard/add-widget.md).
 
 ## Удалите созданные ресурсы {#delete-resources}
 
 Остановите чтение и запись метрик одним из способов:
 
-* [Остановите Unified Agent](../../monitoring/concepts/data-collection/unified-agent/run-and-stop.md#stop).
-* В [файле конфигурации](../../monitoring/concepts/data-collection/unified-agent/configuration.md) Unified Agent удалите настройки сбора и передачи метрик.
-* [Удалите Unified Agent](../../monitoring/concepts/data-collection/unified-agent/delete.md).
+* [Остановите {{ unified-agent-short-name }}](../../monitoring/concepts/data-collection/unified-agent/run-and-stop.md#stop).
+* В [файле конфигурации](../../monitoring/concepts/data-collection/unified-agent/configuration.md) {{ unified-agent-short-name }} удалите настройки сбора и передачи метрик.
+* [Удалите {{ unified-agent-short-name }}](../../monitoring/concepts/data-collection/unified-agent/delete.md).

@@ -23,27 +23,6 @@ Create the following environment variables depending on the authentication metho
 
   {% endnote %}
 
-- OAuth token {#oauth-token}
-
-  1. [Get]({{ link-cloud-oauth }}) an OAuth token for the [Yandex account](../../iam/concepts/users/accounts.md#passport) you are going to use for authentication.
-  1. Create the `REGISTRY_USERNAME` and `REGISTRY_PASSWORD` environment variables:
-
-      ```bash
-      export REGISTRY_USERNAME="oauth"
-      export REGISTRY_PASSWORD="<OAuth_token>"
-      ```
-
-      Where:
-
-      * `REGISTRY_USERNAME`: Authentication method.
-      * `REGISTRY_PASSWORD`: Body of the previously obtained [OAuth token](../../iam/concepts/authorization/oauth-token.md).
-
-  {% note info %}
-
-  The OAuth token is [valid](../../iam/concepts/authorization/oauth-token.md#lifetime) for one year.
-
-  {% endnote %}
-
 - API key {#api-key}
 
   1. [Create](../../iam/operations/authentication/manage-api-keys.md#create-api-key) an API key for the [service account](../../iam/concepts/users/service-accounts.md) you are going to use for authentication.

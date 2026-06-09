@@ -5,7 +5,7 @@ Retrieves the list of access keys for the specified service account.
 ## HTTP request
 
 ```
-GET https://iam.api.cloud.yandex.net/iam/aws-compatibility/v1/accessKeys
+GET https://iam.{{ api-host }}/iam/aws-compatibility/v1/accessKeys
 ```
 
 ## Query parameters {#yandex.cloud.iam.v1.awscompatibility.ListAccessKeysRequest}
@@ -27,7 +27,7 @@ the service returns a [ListAccessKeysResponse.nextPageToken](#yandex.cloud.iam.v
 that can be used to get the next page of results in subsequent list requests.
 Default value: 100.
 
-The maximum value is 1000. ||
+Acceptable values are 0 to 1000, inclusive. ||
 || pageToken | **string**
 
 Page token. To get the next page of results, set `pageToken`

@@ -16,7 +16,7 @@
 
 Обе части используются в запросах к AWS-совместимому API. Идентификатор ключа указывается в открытом виде. Секретным ключом подписывают параметры запроса. Сам секретный ключ в запросе не указывается.
 
-Секретный ключ пользователь хранит самостоятельно. Yandex Cloud дает доступ к ключу только в процессе [создания статического ключа](../../operations/authentication/manage-access-keys.md#create-access-key).
+Секретный ключ пользователь хранит самостоятельно. {{ yandex-cloud }} дает доступ к ключу только в процессе [создания статического ключа](../../operations/authentication/manage-access-keys.md#create-access-key).
 
 Срок действия статического ключа не ограничен.
 
@@ -26,9 +26,9 @@
 
 {% endnote %}
 
-Чтобы обеспечивать безопасность и контроль над доступом к ресурсам, отслеживать случаи несанкционированного использования ключей, а также удалять неиспользуемые ключи без риска нарушить работу сервисов Yandex Cloud, вы можете отслеживать даты последнего использования ключей доступа сервисных аккаунтов. Информация доступна на странице сервисного аккаунта в [консоли управления](https://console.yandex.cloud), а также в поле `last_used_at` при вызове методов управления ключами доступа через API.
+Чтобы обеспечивать безопасность и контроль над доступом к ресурсам, отслеживать случаи несанкционированного использования ключей, а также удалять неиспользуемые ключи без риска нарушить работу сервисов {{ yandex-cloud }}, вы можете отслеживать даты последнего использования ключей доступа сервисных аккаунтов. Информация доступна на странице сервисного аккаунта в [консоли управления]({{ link-console-main }}), а также в поле `last_used_at` при вызове методов управления ключами доступа через API.
 
-Помимо статических ключей доступа, для работы с Yandex Object Storage вы можете использовать временные ключи [Security Token Service](sts.md) также совместимые с AWS API.
+Помимо статических ключей доступа, для работы с {{ objstorage-full-name }} вы можете использовать временные ключи [{{ sts-name }}](sts.md) также совместимые с AWS API.
 
 ## Формат статического ключа {#access-key-format}
 
@@ -58,19 +58,19 @@
 
 Статические ключи доступа в качестве способа аутентификации поддерживают несколько сервисов:
 
-* [Object Storage](../../../storage/s3/index.md)
-* [Message Queue](../../../message-queue/api-ref/index.md)
-* [Managed Service for YDB](../../../ydb/docapi/tools/aws-setup.md)
-* [Yandex Data Streams](../../../data-streams/index.md)
-* [Yandex Cloud Postbox](../../../postbox/aws-compatible-api/index.md)
+* [{{ objstorage-name }}](../../../storage/s3/index.md)
+* [{{ message-queue-name }}](../../../message-queue/api-ref/index.md)
+* [{{ ydb-name }}](../../../ydb/docapi/tools/aws-setup.md)
+* [{{ yds-full-name }}](../../../data-streams/index.md)
+* [{{ postbox-full-name }}](../../../postbox/aws-compatible-api/index.md)
 
 ## Примеры использования {#examples}
 
-* [Использование секрета Yandex Lockbox для хранения статического ключа доступа](../../tutorials/static-key-in-lockbox/index.md)
+* [Использование секрета {{ lockbox-full-name }} для хранения статического ключа доступа](../../tutorials/static-key-in-lockbox/index.md)
 
 #### См. также {#see-also}
 
-* [Создать статический ключ доступа](../../operations/authentication/manage-access-keys.md#create-access-key)
-* [Как выбрать подходящий способ аутентификации в Yandex Cloud](index.md)
-* [Security Token Service](sts.md)
-* [Использование секрета Yandex Lockbox для хранения статического ключа доступа](../../tutorials/static-key-in-lockbox/index.md)
+* [{#T}](../../operations/authentication/manage-access-keys.md#create-access-key)
+* [{#T}](index.md)
+* [{#T}](sts.md)
+* [{#T}](../../tutorials/static-key-in-lockbox/index.md)

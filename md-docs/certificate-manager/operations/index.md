@@ -1,35 +1,35 @@
-# Пошаговые инструкции для Certificate Manager
+# Пошаговые инструкции для {{ certificate-manager-name }}
 
 
 ## Сертификат от Let's Encrypt {#managed-certificate}
 
-- [Добавить сертификат от Let's Encrypt®](managed/cert-create.md)
-- [Получить содержимое сертификата от Let's Encrypt](managed/cert-get-content.md)
-- [Проверить права на домены](managed/cert-validate.md)
-- [Обновить сертификат](managed/cert-update.md)
-- [Изменить сертификат от Let's Encrypt](managed/cert-modify.md)
-- [Удалить сертификат от Let's Encrypt](managed/cert-delete.md)
+- [{#T}](managed/cert-create.md)
+- [{#T}](managed/cert-get-content.md)
+- [{#T}](managed/cert-validate.md)
+- [{#T}](managed/cert-update.md)
+- [{#T}](managed/cert-modify.md)
+- [{#T}](managed/cert-delete.md)
 
 ## Пользовательский сертификат {#imported-certificate}
 
-- [Добавить пользовательский сертификат](import/cert-create.md)
-- [Получить содержимое пользовательского сертификата](import/cert-get-content.md)
-- [Обновить пользовательский сертификат](import/cert-update.md)
-- [Изменить пользовательский сертификат](import/cert-modify.md)
-- [Удалить пользовательский сертификат](import/cert-delete.md)
+- [{#T}](import/cert-create.md)
+- [{#T}](import/cert-get-content.md)
+- [{#T}](import/cert-update.md)
+- [{#T}](import/cert-modify.md)
+- [{#T}](import/cert-delete.md)
 
 ## Резервное копирование {#backup}
 
-- [Резервное копирование сертификатов](cert-backup.md)
+- [{#T}](cert-backup.md)
 
 ## Отслеживание статуса сертификата {#alerts}
 
-- [Добавить алерт для сертификата](alert.md)
+- [{#T}](alert.md)
 
 ## Доступ {#access}
 
-- [Настроить права доступа к сертификату](cert-access.md)
+- [{#T}](cert-access.md)
 
 ## Получение дополнительной информации {#get-additional-info}
 
-- [Посмотреть операции с сертификатом](operation-logs.md)
+- [{#T}](operation-logs.md)

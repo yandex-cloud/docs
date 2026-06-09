@@ -5,7 +5,7 @@ Issues a new certificate using a CSR (Certificate Signing Request).
 ## HTTP request
 
 ```
-POST https://private-ca.certificate-manager.api.cloud.yandex.net/privateca/v1/privateCertificates:issueByCsr
+POST https://private-ca.certificate-manager.{{ api-host }}/privateca/v1/privateCertificates:issueByCsr
 ```
 
 ## Body parameters {#yandex.cloud.certificatemanager.v1.privateca.IssueCertificateByCsrRequest}

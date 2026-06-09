@@ -5,7 +5,7 @@ Decrypts the given ciphertext with the specified key.
 ## HTTP request
 
 ```
-POST https://kms.api.cloud.yandex.net/kms/v1/asymmetricEncryptionKeys/{keyId}:decrypt
+POST https://{{ api-host-kms }}/kms/v1/asymmetricEncryptionKeys/{keyId}:decrypt
 ```
 
 ## Path parameters

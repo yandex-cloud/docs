@@ -2,7 +2,7 @@
 
 Вы можете облегчить процесс разработки в [Visual Studio Code](https://code.visualstudio.com/) с помощью моделей `Qwen3-235B-A22B`, `GPT-OSS-120b` и других. Модели способны генерировать код, конвертировать его в другие языки программирования, помогать с отладкой и поиском ошибок в коде, анализировать данные, писать документацию и другое.
 
-В этом руководстве вы настроите интеграцию моделей в Visual Studio Code с помощью сервиса Yandex AI Studio и расширения [SourceCraft Code Assistant](https://sourcecraft.dev/portal/code-assistant/) или [Roo Code](https://roocode.com/).
+В этом руководстве вы настроите интеграцию моделей в Visual Studio Code с помощью сервиса {{ ai-studio-full-name }} и расширения [{{ ca-full-name }}](https://sourcecraft.dev/portal/code-assistant/) или [Roo Code](https://roocode.com/).
 
 {% note info %}
 
@@ -17,7 +17,7 @@
 1. [Подключитесь к модели](#connection).
 1. [Протестируйте модель](#test).
 
-В стоимость поддержки инфраструктуры для подключения к модели из редактора кода входит плата за генерацию текста (см. [тарифы Yandex AI Studio](https://aistudio.yandex.ru/docs/ru/ai-studio/pricing)).
+В стоимость поддержки инфраструктуры для подключения к модели из редактора кода входит плата за генерацию текста (см. [тарифы {{ ai-studio-full-name }}]({{ link-docs-ai }}ai-studio/pricing)).
 
 ## Подготовьте инфраструктуру {#infra}
 
@@ -27,9 +27,9 @@
 
 - Консоль управления {#console}
 
-   1. В [консоли управления](https://console.yandex.cloud) выберите облако и нажмите кнопку ![create](../../_assets/console-icons/plus.svg)**Создать каталог**.
+   1. В [консоли управления]({{ link-console-main }}) выберите облако и нажмите кнопку ![create](../../_assets/console-icons/plus.svg)**{{ ui-key.yacloud.component.console-dashboard.button_action-create-folder }}**.
    1. Введите имя каталога, например `aistudio`.
-   1. Нажмите кнопку **Создать**.
+   1. Нажмите кнопку **{{ ui-key.yacloud.iam.cloud.folders-create.button_create }}**.
 
 {% endlist %}
 
@@ -42,11 +42,11 @@
 - Консоль управления {#console}
 
   1. Перейдите в каталог `aistudio`.
-  1. [Перейдите](../../console/operations/select-service.md#select-service) в сервис **Identity and Access Management**.
-  1. Нажмите кнопку **Создать сервисный аккаунт**.
+  1. Перейдите в сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_iam }}**.
+  1. Нажмите кнопку **{{ ui-key.yacloud.iam.folder.service-accounts.button_add }}**.
   1. Введите имя сервисного аккаунта, например `ai-model-user`.
-  1. Нажмите **Добавить роль** и назначьте сервисному аккаунту [роль](https://aistudio.yandex.ru/docs/ru/ai-studio/security/index#languageModels-user) `ai.languageModels.user`.
-  1. Нажмите кнопку **Создать**.
+  1. Нажмите **{{ ui-key.yacloud.iam.folder.service-account.label_add-role }}** и назначьте сервисному аккаунту [роль]({{ link-docs-ai }}ai-studio/security/index#languageModels-user) `{{ roles-yagpt-user }}`.
+  1. Нажмите кнопку **{{ ui-key.yacloud.iam.folder.service-account.popup-robot_button_add }}**.
 
 {% endlist %}
 
@@ -58,13 +58,13 @@
 
 - Консоль управления {#console}
 
-  1. В [консоли управления](https://console.yandex.cloud) перейдите в каталог `aistudio`.
-  1. [Перейдите](../../console/operations/select-service.md#select-service) в сервис **Identity and Access Management**.
-  1. На панели слева выберите ![FaceRobot](../../_assets/console-icons/face-robot.svg) **Сервисные аккаунты**.
+  1. В [консоли управления]({{ link-console-main }}) перейдите в каталог `aistudio`.
+  1. Перейдите в сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_iam }}**.
+  1. На панели слева выберите ![FaceRobot](../../_assets/console-icons/face-robot.svg) **{{ ui-key.yacloud.iam.label_service-accounts }}**.
   1. В открывшемся списке выберите сервисный аккаунт `ai-model-user`.
-  1. На панели сверху нажмите кнопку ![image](../../_assets/console-icons/plus.svg) **Создать новый ключ** и выберите **Создать API-ключ**.
-  1. В поле **Область действия** выберите `yc.ai.languageModels.execute`.
-  1. Нажмите кнопку **Создать**.
+  1. На панели сверху нажмите кнопку ![image](../../_assets/console-icons/plus.svg) **{{ ui-key.yacloud.iam.folder.service-account.overview.button_create-key-popup }}** и выберите **{{ ui-key.yacloud.iam.folder.service-account.overview.button_create_api_key }}**.
+  1. В поле **{{ ui-key.yacloud.iam.folder.service-account.overview.field_key-scope }}** выберите `yc.ai.languageModels.execute`.
+  1. Нажмите кнопку **{{ ui-key.yacloud.iam.folder.service-account.overview.popup-key_button_create }}**.
   1. Сохраните идентификатор и секретный ключ.
 
 {% endlist %}
@@ -75,27 +75,27 @@
 
 - Visual Studio Code {#vscode}
 
-  1. Установите расширение [SourceCraft Code Assistant](https://sourcecraft.dev/portal/code-assistant/) или [Roo Code](https://roocode.com/).
+  1. Установите расширение [{{ ca-full-name }}](https://sourcecraft.dev/portal/code-assistant/) или [Roo Code](https://roocode.com/).
   1. Настройте расширение:
 
-     {% cut "SourceCraft Code Assistant" %}
+     {% cut "{{ ca-full-name }}" %}
 
      1. В окне программы на панели слева нажмите **SourceCraft Code Assistant**.
-     1. В нижней части окна чата нажмите ![chevron-up](../../_assets/console-icons/chevron-up.svg) **Выберите конфигурацию API** и нажмите **Yandex Cloud AI Studio**.
-     1. Убедитесь, что в открывшемся окне настроек в поле **Провайдер API** выбрана опция `OpenAI Compatible`, а в поле **Базовый URL** указано значение `https://ai.api.cloud.yandex.net/v1`, затем закройте окно настроек.
+     1. В нижней части окна чата нажмите ![chevron-up](../../_assets/console-icons/chevron-up.svg) **Выберите конфигурацию API** и нажмите **{{ yandex-cloud }} {{ ai-studio-name }}**.
+     1. Убедитесь, что в открывшемся окне настроек в поле **Провайдер API** выбрана опция `OpenAI Compatible`, а в поле **Базовый URL** указано значение `https://{{ api-host-llm }}/v1`, затем закройте окно настроек.
      1. В нижней части окна чата нажмите ![chevron-up](../../_assets/console-icons/chevron-up.svg) **Выберите конфигурацию API** и нажмите кнопку **Добавить модель**.
      1. В открывшемся окне введите имя профиля и нажмите **Создать профиль**.
      1. В открывшемся окне настроек в поле **Провайдер API** выберите `OpenAI Compatible`.
-     1. В поле **Базовый URL** укажите `https://ai.api.cloud.yandex.net/v1`.
+     1. В поле **Базовый URL** укажите `https://{{ api-host-llm }}/v1`.
      1. В поле **OpenAI API-ключ** вставьте секретное значение ключа, полученное на предыдущем [шаге](#create-key).
      1. В поле **Модель** укажите URI модели в формате `gpt://<идентификатор_каталога>/<идентификатор_модели>/latest`, где:
 
          * `<идентификатор_каталога>` — [идентификатор каталога](../../resource-manager/operations/folder/get-id.md) `aistudio`;
-         * `<идентификатор_модели>` — [идентификатор модели](https://aistudio.yandex.ru/docs/ru/ai-studio/concepts/generation/models). Например: `qwen3-235b-a22b-fp8` или `gpt-oss-120b`.
+         * `<идентификатор_модели>` — [идентификатор модели]({{ link-docs-ai }}ai-studio/concepts/generation/models). Например: `qwen3-235b-a22b-fp8` или `gpt-oss-120b`.
 
          {% note info %}
 
-         Выбранная модель будет использоваться только для работы ассистента. Функциональность автодополнения SourceCraft Code Assistant продолжит использовать модель по умолчанию.
+         Выбранная модель будет использоваться только для работы ассистента. Функциональность автодополнения {{ ca-full-name }} продолжит использовать модель по умолчанию.
 
          {% endnote %}
 
@@ -105,12 +105,12 @@
 
      1. В окне программы на панели слева нажмите **Roo Code**.
      1. В открывшемся окне в поле **API Provider** выберите **OpenAI Compatible**.
-     1. В поле **Base URL** укажите `https://ai.api.cloud.yandex.net/v1`.
+     1. В поле **Base URL** укажите `https://{{ api-host-llm }}/v1`.
      1. В поле **API-key** вставьте секретное значение ключа, полученное на предыдущем [шаге](#create-key).
      1. В поле **Model** укажите URI модели в формате `gpt://<идентификатор_каталога>/<идентификатор_модели>/latest`, где:
 
          * `<идентификатор_каталога>` — [идентификатор каталога](../../resource-manager/operations/folder/get-id.md) `aistudio`;
-         * `<идентификатор_модели>` — [идентификатор модели](https://aistudio.yandex.ru/docs/ru/ai-studio/concepts/generation/models). Например: `qwen3-235b-a22b-fp8` или `gpt-oss-120b`.
+         * `<идентификатор_модели>` — [идентификатор модели]({{ link-docs-ai }}ai-studio/concepts/generation/models). Например: `qwen3-235b-a22b-fp8` или `gpt-oss-120b`.
      1. Нажмите **Go!**.
 
      {% endcut %}
@@ -119,19 +119,19 @@
 
 ## Протестируйте модель {#test}
 
-В качестве примера попросим модель сгенерировать скрипт обращения к модели через OpenAI SDK.
+В качестве примера попросим модель сгенерировать скрипт обращения к модели через {{ openai }} SDK.
 
 {% list tabs group=instructions %}
 
 - Visual Studio Code {#vscode}
 
-    {% cut "SourceCraft Code Assistant" %}
+    {% cut "{{ ca-full-name }}" %}
 
-    1. На панели слева нажмите **SourceCraft Code Assistant**.
+    1. На панели слева нажмите **{{ ca-full-name }}**.
     1. В окне чата с ассистентом в нижней части экрана напишите промпт и нажмите ![arrow-up](../../_assets/console-icons/arrow-up.svg) **Отправить сообщение**:
 
         ```text
-        Напиши скрипт test.py, который через Python OpenAI SDK делает потоковый вызов генерации стихотворения про Yandex Cloud. В качестве параметров принимается токен и идентификатор модели. В качестве эндпоинта — https://ai.api.cloud.yandex.net/v1
+        Напиши скрипт test.py, который через Python {{ openai }} SDK делает потоковый вызов генерации стихотворения про Yandex Cloud. В качестве параметров принимается токен и идентификатор модели. В качестве эндпоинта — https://{{ api-host-llm }}/v1
         ```
 
         Результат:
@@ -149,7 +149,7 @@
             model_id = sys.argv[2]
         
             client = OpenAI(
-                base_url="https://ai.api.cloud.yandex.net/v1",
+                base_url="https://{{ api-host-llm }}/v1",
                 api_key=token
             )
         
@@ -178,7 +178,7 @@
     1. В открывшемся окне в поле ввода снизу напишите промпт и нажмите **Send message**:
 
         ```text
-        Напиши скрипт test.py, который через Python OpenAI SDK делает потоковый вызов генерации стихотворения про Yandex Cloud. В качестве параметров принимается токен и идентификатор модели. В качестве эндпоинта — https://ai.api.cloud.yandex.net/v1
+        Напиши скрипт test.py, который через Python {{ openai }} SDK делает потоковый вызов генерации стихотворения про Yandex Cloud. В качестве параметров принимается токен и идентификатор модели. В качестве эндпоинта — https://{{ api-host-llm }}/v1
         ```
 
         Результат:
@@ -196,7 +196,7 @@
             model_id = sys.argv[2]
         
             client = OpenAI(
-                base_url="https://ai.api.cloud.yandex.net/v1",
+                base_url="https://{{ api-host-llm }}/v1",
                 api_key=token
             )
         

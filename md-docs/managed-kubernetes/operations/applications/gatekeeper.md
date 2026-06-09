@@ -1,10 +1,10 @@
 # Установка Gatekeeper
 
-[Gatekeeper](https://open-policy-agent.github.io/gatekeeper/website/) — настраиваемый контроллер и аудитор [политик](../../concepts/network-policy.md) для Kubernetes. Gatekeeper принимает поступающие в кластер запросы и в реальном времени проверяет их на соответствие предварительно настроенным политикам.
+[Gatekeeper](https://open-policy-agent.github.io/gatekeeper/website/) — настраиваемый контроллер и аудитор [политик](../../concepts/network-policy.md) для {{ k8s }}. Gatekeeper принимает поступающие в кластер запросы и в реальном времени проверяет их на соответствие предварительно настроенным политикам.
 
 ## Перед началом работы {#before-you-begin}
 
-[Убедитесь](../connect/security-groups.md), что группы безопасности для кластера Managed Service for Kubernetes и его групп узлов настроены корректно. Если отсутствует какое-либо из правил — [добавьте его](../../../vpc/operations/security-group-add-rule.md).
+[Убедитесь](../connect/security-groups.md), что группы безопасности для кластера {{ managed-k8s-name }} и его групп узлов настроены корректно. Если отсутствует какое-либо из правил — [добавьте](../../../vpc/operations/security-group-add-rule.md) его.
 
 {% note warning %}
 
@@ -12,22 +12,22 @@
 
 {% endnote %}
 
-## Установка с помощью Yandex Cloud Marketplace {#marketplace-install}
+## Установка с помощью {{ marketplace-full-name }} {#marketplace-install}
 
-1. В [консоли управления](https://console.yandex.cloud) выберите каталог.
+1. В [консоли управления]({{ link-console-main }}) выберите каталог.
 
-1. [Перейдите](../../../console/operations/select-service.md#select-service) в сервис **Managed Service for&nbsp;Kubernetes**.
+1. Перейдите в сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-kubernetes }}**.
 
-1. Нажмите на имя нужного кластера и выберите вкладку ![image](../../../_assets/console-icons/shopping-cart.svg) **Marketplace**.
+1. Нажмите на имя нужного кластера и выберите вкладку ![image](../../../_assets/console-icons/shopping-cart.svg) **{{ ui-key.yacloud.k8s.cluster.switch_marketplace }}**.
 
-1. В разделе **Доступные для установки приложения** выберите [Gatekeeper](https://yandex.cloud/ru/marketplace/products/yc/gatekeeper) и нажмите кнопку **Перейти к установке**.
+1. В разделе **{{ ui-key.yacloud.marketplace-v2.label_available-products }}** выберите [Gatekeeper](https://yandex.cloud/ru/marketplace/products/yc/gatekeeper) и нажмите кнопку **{{ ui-key.yacloud.marketplace-v2.button_k8s-product-use }}**.
 
 1. Задайте настройки приложения:
     * **Пространство имен** — создайте новое [пространство имен](../../concepts/index.md#namespace) (например, `gatekeeper-space`). Если вы оставите пространство имен по умолчанию, Gatekeeper может работать некорректно.
     * **Название приложения** — укажите название приложения.
     * **Интервал между аудитами** — задайте время в секундах между запусками аудитов. Значение `0` отключает выполнение аудитов.
     * **Лимит нарушений ограничения** — укажите максимальное количество нарушений, которое будет фиксироваться для каждого ограничения.
-    * **Только совпадающие типы ресурсов** — выберите эту опцию, если для каждого ограничения нужно проверять только те типы ресурсов Kubernetes, которые указаны в ограничении в явном виде. Если типы ресурсов не указаны или опция выключена, будут проверяться все ресурсы.
+    * **Только совпадающие типы ресурсов** — выберите эту опцию, если для каждого ограничения нужно проверять только те типы ресурсов {{ k8s }}, которые указаны в ограничении в явном виде. Если типы ресурсов не указаны или опция выключена, будут проверяться все ресурсы.
     * **Создавать события при аудите** — выберите эту опцию, если для каждого выявленного при аудите нарушения ограничения нужно создавать событие (Kubernetes event) с подробной информацией о нарушении.
     * **События в затронутом пространстве имен** — выберите эту опцию, если события с подробной информацией о нарушении нужно создавать в том пространстве имен, где было зафиксировано нарушение ограничения. Применимо только при включенной опции **Создавать события при аудите**.
     
@@ -35,21 +35,21 @@
 
     * **Разрешить внешние данные** — выберите эту опцию, если нужно включить экспериментальную поддержку внешних источников данных.
 
-1. Нажмите кнопку **Установить**.
+1. Нажмите кнопку **{{ ui-key.yacloud.k8s.cluster.marketplace.button_install }}**.
 
 1. Дождитесь перехода приложения в статус `Deployed`.
 
 ## Установка с помощью Helm-чарта {#helm-install}
 
-1. [Установите kubectl](https://kubernetes.io/ru/docs/tasks/tools/install-kubectl) и [настройте его на работу с созданным кластером](../connect/index.md#kubectl-connect).
+1. [Установите kubectl]({{ k8s-docs }}/tasks/tools/install-kubectl) и [настройте его на работу с созданным кластером](../connect/index.md#kubectl-connect).
 
 1. [Установите менеджер пакетов Helm](https://helm.sh/ru/docs/intro/install/) версии не ниже 3.8.0.
 
 1. Для установки [Helm-чарта](https://helm.sh/docs/topics/charts/) с Gatekeeper выполните команду:
   
     ```bash
-    helm pull oci://cr.yandex/yc-marketplace/yandex-cloud/gatekeeper/gatekeeper \
-      --version 3.20.1 \
+    helm pull oci://{{ mkt-k8s-key.yc_gatekeeper.helmChart.name }} \
+      --version {{ mkt-k8s-key.yc_gatekeeper.helmChart.tag }} \
       --untar && \
     helm install \
       --namespace <пространство_имен> \

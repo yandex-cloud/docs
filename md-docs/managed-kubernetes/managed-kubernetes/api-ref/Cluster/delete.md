@@ -5,7 +5,7 @@ Deletes the specified Kubernetes cluster.
 ## HTTP request
 
 ```
-DELETE https://mks.api.cloud.yandex.net/managed-kubernetes/v1/clusters/{clusterId}
+DELETE https://mks.{{ api-host }}/managed-kubernetes/v1/clusters/{clusterId}
 ```
 
 ## Path parameters

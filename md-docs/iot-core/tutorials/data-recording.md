@@ -1,12 +1,20 @@
 # Запись данных с устройства в базу данных
 
-В данном руководстве вы организуете запись данных с устройства в базу данных. В качестве примера будет использоваться [кластер Yandex Managed Service for PostgreSQL](../../managed-postgresql/concepts/index.md). Чтобы подключить устройство к Yandex IoT Core, вам понадобится MQTT-брокер. Все шаги выполняются в [консоли управления](https://console.yandex.cloud).
+{% note warning %}
+
+Сервис {{ iot-full-name }} больше не доступен для новых пользователей. 
+
+Текущие пользователи могут создавать ресурсы до 1 ноября 2026 года. После сервис перейдет в режим read-only, а 1 декабря 2026 года — прекратит работу. Подробнее о сроках и порядке закрытия читайте на странице [Закрытие сервиса](../sunset.md).
+
+{% endnote %}
+
+В данном руководстве вы организуете запись данных с устройства в базу данных. В качестве примера будет использоваться [кластер {{ mpg-full-name }}](../../managed-postgresql/concepts/index.md). Чтобы подключить устройство к {{ iot-name }}, вам понадобится MQTT-брокер. Все шаги выполняются в [консоли управления]({{ link-console-main }}).
 
 Чтобы начать записывать информацию с устройства в базу данных:
 
 1. [Подготовьте облако к работе](#before-you-begin).
 1. [Создайте сервисный аккаунт](#create-sa).
-1. [Создайте необходимые ресурсы Yandex IoT Core](#resources).
+1. [Создайте необходимые ресурсы {{ iot-full-name }}](#resources).
     1. [Создайте реестр](#registry).
     1. [Создайте устройство](#device).
 1. [Подключите устройство к MQTT-брокеру](#connect).
@@ -15,26 +23,26 @@
     1. [Подключитесь к кластеру](#connect-to-cluster).
     1. [Создайте таблицу](#table).
 1. [Создайте функцию для обработки данных](#func).
-1. [Создайте триггер для Yandex IoT Core](#trigger).
+1. [Создайте триггер для {{ iot-full-name }}](#trigger).
 
 Если созданные ресурсы вам больше не нужны, [удалите их](#clear-out).
 
 ## Подготовьте облако к работе {#before-you-begin}
 
-Зарегистрируйтесь в Yandex Cloud и создайте [платежный аккаунт](../../billing/concepts/billing-account.md):
-1. Перейдите в [консоль управления](https://console.yandex.cloud), затем войдите в Yandex Cloud или зарегистрируйтесь.
-1. На странице **[Yandex Cloud Billing](https://center.yandex.cloud/billing/accounts)** убедитесь, что у вас подключен платежный аккаунт, и он находится в [статусе](../../billing/concepts/billing-account-statuses.md) `ACTIVE` или `TRIAL_ACTIVE`. Если платежного аккаунта нет, [создайте его](../../billing/quickstart/index.md) и [привяжите](../../billing/operations/pin-cloud.md) к нему облако.
+Зарегистрируйтесь в {{ yandex-cloud }} и создайте [платежный аккаунт](../../billing/concepts/billing-account.md):
+1. Перейдите в [консоль управления]({{ link-console-main }}), затем войдите в {{ yandex-cloud }} или зарегистрируйтесь.
+1. На странице **[{{ ui-key.yacloud_billing.billing.label_service }}]({{ link-console-billing }})** убедитесь, что у вас подключен платежный аккаунт, и он находится в [статусе](../../billing/concepts/billing-account-statuses.md) `ACTIVE` или `TRIAL_ACTIVE`. Если платежного аккаунта нет, [создайте его](../../billing/quickstart/index.md) и [привяжите](../../billing/operations/pin-cloud.md) к нему облако.
 
-Если у вас есть активный платежный аккаунт, вы можете создать или выбрать [каталог](../../resource-manager/concepts/resources-hierarchy.md#folder), в котором будет работать ваша инфраструктура, на [странице облака](https://console.yandex.cloud/cloud).
+Если у вас есть активный платежный аккаунт, вы можете создать или выбрать [каталог](../../resource-manager/concepts/resources-hierarchy.md#folder), в котором будет работать ваша инфраструктура, на [странице облака]({{ link-console-cloud }}).
 
 [Подробнее об облаках и каталогах](../../resource-manager/concepts/resources-hierarchy.md).
 
 
 ### Необходимые платные ресурсы {#paid-resources}
 
-* Кластер Managed Service for PostgreSQL: выделенные хостам вычислительные ресурсы, объем хранилища и резервных копий (см. [тарифы Managed Service for PostgreSQL](../../managed-postgresql/pricing.md)).
-* Реестр Yandex IoT Core: количество отправленных сообщений (см. [тарифы Yandex IoT Core](../pricing.md)).
-* Функции Yandex Cloud Functions: количество вызовов функции, время простоя подготовленных экземпляров и выделенные для выполнения функции вычислительные ресурсы (см. [тарифы Yandex Cloud Functions](../../functions/pricing.md)).
+* Кластер {{ mpg-name }}: выделенные хостам вычислительные ресурсы, объем хранилища и резервных копий (см. [тарифы {{ mpg-name }}](../../managed-postgresql/pricing.md)).
+* Реестр {{ iot-name }}: количество отправленных сообщений (см. [тарифы {{ iot-name }}](../pricing.md)).
+* Функции {{ sf-full-name }}: количество вызовов функции, время простоя подготовленных экземпляров и выделенные для выполнения функции вычислительные ресурсы (см. [тарифы {{ sf-full-name }}](../../functions/pricing.md)).
 
 
 ## Создайте сервисный аккаунт {#create-sa}
@@ -43,16 +51,16 @@
 
 - Консоль управления {#console}
 
-    1. В [консоли управления](https://console.yandex.cloud) выберите каталог, в котором хотите создать сервисный аккаунт.
-    1. [Перейдите](../../console/operations/select-service.md#select-service) в сервис **Identity and Access Management**.
-    1. Нажмите кнопку **Создать сервисный аккаунт**.
+    1. В [консоли управления]({{ link-console-main }}) выберите каталог, в котором хотите создать сервисный аккаунт.
+    1. Перейдите в сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_iam }}**.
+    1. Нажмите кнопку **{{ ui-key.yacloud.iam.folder.service-accounts.button_add }}**.
     1. Введите имя сервисного аккаунта: `my-db-function-service-account`.
-    1. Нажмите кнопку ![](../../_assets/console-icons/plus.svg) **Добавить роль** и выберите [роли](../../iam/concepts/access-control/roles.md) `functions.functionInvoker` и `editor`.
-    1. Нажмите кнопку **Создать**.
+    1. Нажмите кнопку ![](../../_assets/console-icons/plus.svg) **{{ ui-key.yacloud.iam.folder.service-account.label_add-role }}** и выберите [роли](../../iam/concepts/access-control/roles.md) `{{ roles-functions-invoker }}` и `{{ roles-editor }}`.
+    1. Нажмите кнопку **{{ ui-key.yacloud.iam.folder.service-account.popup-robot_button_add }}**.
 
 {% endlist %}
 
-## Создайте необходимые ресурсы Yandex IoT Core {#resources}
+## Создайте необходимые ресурсы {{ iot-full-name }} {#resources}
 
 {% note info %}
 
@@ -66,10 +74,10 @@
 
 - Консоль управления {#console}
 
-    1. В [консоли управления](https://console.yandex.cloud) выберите каталог, в котором нужно создать реестр.
-    1. [Перейдите](../../console/operations/select-service.md#select-service) в сервис **IoT Core**.
-    1. Нажмите кнопку **Создать реестр**.
-    1. В поле **Имя** введите `my-registry`.
+    1. В [консоли управления]({{ link-console-main }}) выберите каталог, в котором нужно создать реестр.
+    1. Перейдите в сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_iot-core }}**.
+    1. Нажмите кнопку **{{ ui-key.yacloud.iot.button_create-registry }}**.
+    1. В поле **{{ ui-key.yacloud.common.name }}** введите `my-registry`.
     1. Введите пароль.
 
         * Длина — не менее 14 символов.
@@ -77,11 +85,11 @@
 
         {% note warning %}
 
-        Сохраните пароль, так как прочитать его из Yandex IoT Core будет невозможно.
+        Сохраните пароль, так как прочитать его из {{ iot-full-name }} будет невозможно.
 
         {% endnote %}
 
-    1. Нажмите кнопку **Создать**.
+    1. Нажмите кнопку **{{ ui-key.yacloud.common.create }}**.
 
 {% endlist %}
 
@@ -93,9 +101,9 @@
 
     После создания реестра вы попадете в его настройки.
 
-    1. Перейдите на вкладку **Устройства**.
-    1. Нажмите кнопку **Добавить устройство**.
-    1. В поле **Имя** введите `my-device`.
+    1. Перейдите на вкладку **{{ ui-key.yacloud.iot.label_devices }}**.
+    1. Нажмите кнопку **{{ ui-key.yacloud.iot.button_add-device }}**.
+    1. В поле **{{ ui-key.yacloud.common.name }}** введите `my-device`.
     1. Введите пароль.
 
         * Длина — не менее 14 символов.
@@ -103,20 +111,20 @@
 
         {% note warning %}
 
-        Сохраните пароль, так как прочитать его из Yandex IoT Core будет невозможно.
+        Сохраните пароль, так как прочитать его из {{ iot-full-name }} будет невозможно.
 
         {% endnote %}
 
-    1. Нажмите кнопку **Создать**.
+    1. Нажмите кнопку **{{ ui-key.yacloud.common.create }}**.
 
 {% endlist %}
 
 ## Подключите устройство к MQTT-брокеру {#connect}
 
 Для подключения к [MQTT-серверу](../../glossary/mqtt-server.md) используйте следующие параметры:
-- [Сертификат удостоверяющего центра](https://storage.yandexcloud.net/mqtt/rootCA.crt).
-- **Адрес сервера:** `mqtt.cloud.yandex.net`.
-- **Порт сервера:** `8883`.
+- [Сертификат удостоверяющего центра]({{ ca-address }}).
+- **Адрес сервера:** `{{ mqtt-server-address }}`.
+- **Порт сервера:** `{{ mqtt-server-port }}`.
 - **Протокол:** `TLSv1.2`.
 
 ## Подготовьте базу данных {#db}
@@ -127,13 +135,13 @@
 
 - Консоль управления {#console}
 
-    1. В [консоли управления](https://console.yandex.cloud) выберите каталог, в котором нужно создать кластер БД.
-    1. [Перейдите](../../console/operations/select-service.md#select-service) в сервис **Managed Service for&nbsp;PostgreSQL**.
-    1. Нажмите кнопку **Создать кластер**.
-    1. В поле **Имя кластера** введите `my-pg-database`.
-    1. В поле **Окружение** выберите `PRODUCTION`.
-    1. В поле **Версия** выберите `12`.
-    1. В блоке **Класс хоста**:
+    1. В [консоли управления]({{ link-console-main }}) выберите каталог, в котором нужно создать кластер БД.
+    1. Перейдите в сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-postgresql }}**.
+    1. Нажмите кнопку **{{ ui-key.yacloud.mdb.clusters.button_create }}**.
+    1. В поле **{{ ui-key.yacloud.mdb.forms.base_field_name }}** введите `my-pg-database`.
+    1. В поле **{{ ui-key.yacloud.mdb.forms.base_field_environment }}** выберите `PRODUCTION`.
+    1. В поле **{{ ui-key.yacloud.mdb.forms.base_field_version }}** выберите `17`.
+    1. В блоке **{{ ui-key.yacloud.mdb.forms.section_resource }}**:
         * Укажите платформу `Intel Cascade Lake`.
         * Выберите тип `burstable`.
         * Укажите класс `b2.medium`.
@@ -144,7 +152,7 @@
 
         {% endnote %}
 
-    1. В блоке **Размер хранилища**:
+    1. В блоке **{{ ui-key.yacloud.mdb.forms.section_disk }}**:
 
         * Выберите `network-ssd`.
         * Укажите размер равным 10 ГБ.
@@ -155,7 +163,7 @@
 
         {% endnote %}
 
-    1. В блоке **База данных** укажите атрибуты БД:
+    1. В блоке **{{ ui-key.yacloud.mdb.forms.section_database }}** укажите атрибуты БД:
 
         * Имя базы данных. Имя БД должно быть уникальным в рамках каталога и содержать только латинские буквы, цифры и подчеркивания.
         * Имя пользователя — владельца БД. Имя пользователя должно содержать только латинские буквы, цифры и подчеркивания.
@@ -163,9 +171,9 @@
 
         Для базы данных, которая создается вместе с кластером, устанавливаются настройки набора символов (кодировки) `LC_CTYPE=C` и `LC_COLLATE=C`. После создания эти настройки изменить нельзя, но вы можете [создать новую базу](../../managed-postgresql/operations/databases.md#add-db) с нужными настройками.
 
-    1. В блоке **Хосты** нажмите ![image](../../_assets/console-icons/pencil.svg) и включите опцию **Публичный доступ**.
-    1. В блоке **Дополнительные настройки** включите опцию **Доступ из консоли управления**.
-    1. Нажмите кнопку **Создать кластер**.
+    1. В блоке **{{ ui-key.yacloud.mdb.forms.section_host }}** нажмите ![image](../../_assets/console-icons/pencil.svg) и включите опцию **{{ ui-key.yacloud.mdb.hosts.dialog.field_public_ip }}**.
+    1. В блоке **{{ ui-key.yacloud.mdb.forms.section_additional }}** включите опцию **Доступ из консоли управления**.
+    1. Нажмите кнопку **{{ ui-key.yacloud.mdb.forms.button_create }}**.
 
 {% endlist %}
 
@@ -175,7 +183,7 @@
 
 ### Подключитесь к кластеру {#connect-to-cluster}
 
-После создания кластера вы автоматически будете перенаправлены на страницу **Кластеры**.
+После создания кластера вы автоматически будете перенаправлены на страницу **{{ ui-key.yacloud.mdb.clusters.label_title }}**.
 
 Дождитесь, пока статус кластера изменится на `Alive`.
 
@@ -257,26 +265,26 @@
 
 - Консоль управления {#console}
 
-    1. В [консоли управления](https://console.yandex.cloud) выберите каталог, в котором нужно создать функцию.
-    1. [Перейдите](../../console/operations/select-service.md#select-service) в сервис **Cloud Functions**.
-    1. Нажмите кнопку **Создать функцию**.
+    1. В [консоли управления]({{ link-console-main }}) выберите каталог, в котором нужно создать функцию.
+    1. Перейдите в сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_serverless-functions }}**.
+    1. Нажмите кнопку **{{ ui-key.yacloud.serverless-functions.list.button_create }}**.
     1. Введите имя функции.
-    1. Нажмите кнопку **Создать**.
+    1. Нажмите кнопку **{{ ui-key.yacloud.common.create }}**.
 
 {% endlist %}
 
 ### Создайте версию функции {#func-version}
 
-После создания функции вы автоматически будете перенаправлены на страницу **Редактор**.
+После создания функции вы автоматически будете перенаправлены на страницу **{{ ui-key.yacloud.serverless-functions.item.editor.label_title }}**.
 
 {% list tabs group=instructions %}
 
 - Консоль управления {#console}
 
-    1. В блоке **Код функции**:
+    1. В блоке **{{ ui-key.yacloud.serverless-functions.item.editor.label_title-source }}**:
 
-        * В поле **Среда выполнения** выберите `python37`.
-        * В поле **Источник кода** оставьте значение по умолчанию: **Редактор кода**.
+        * В поле **{{ ui-key.yacloud.serverless-functions.item.editor.field_runtime }}** выберите `python37`.
+        * В поле **{{ ui-key.yacloud.serverless-functions.item.editor.field_code-source }}** оставьте значение по умолчанию: **{{ ui-key.yacloud.serverless-functions.item.editor.value_method-editor }}**.
 
     1. Создайте файл `myfunction.py`.
     1. В области редактирования файла вставьте код функции, размещенный на [Github](https://github.com/yandex-cloud-examples/yc-iot-postgresql/blob/main/myfunction.py).
@@ -287,18 +295,18 @@
 
         {% endnote %}
 
-    1. В поле **Точка входа** укажите `myfunction.msgHandler`.
+    1. В поле **{{ ui-key.yacloud.serverless-functions.item.editor.field_entry }}** укажите `myfunction.msgHandler`.
     1. Задайте следующие параметры версии:
 
-        * **Таймаут** — `10`.
-        * **Память** — `128 МБ`.
+        * **{{ ui-key.yacloud.serverless-functions.item.editor.field_timeout }}** — `10`.
+        * **{{ ui-key.yacloud.serverless-functions.item.editor.field_resources-memory }}** — `128 {{ ui-key.yacloud_portal.common.units.label_megabyte }}`.
 
-    1. В поле **Сервисный аккаунт** выберите `my-db-function-service-account`.
+    1. В поле **{{ ui-key.yacloud.forms.label_service-account-select }}** выберите `my-db-function-service-account`.
 
     1. Добавьте переменные окружения:
 
         * `VERBOSE_LOG` — параметр, отвечающий за вывод подробной информации о выполнении функции. Введите значение `True`.
-        * `DB_HOSTNAME` — имя хоста БД PostgreSQL для подключения.
+        * `DB_HOSTNAME` — имя хоста БД {{ PG }} для подключения.
         * `DB_PORT` — порт для подключения.
         * `DB_NAME` — имя базы данных для подключения.
         * `DB_USER` — имя пользователя для подключения.
@@ -306,18 +314,18 @@
 
         Чтобы определить значения параметров для подключения:
 
-        1. В [консоли управления](https://console.yandex.cloud) выберите каталог, в котором вы создали кластер.
-        1. [Перейдите](../../console/operations/select-service.md#select-service) в сервис **Managed Service for&nbsp;PostgreSQL**.
+        1. В [консоли управления]({{ link-console-main }}) выберите каталог, в котором вы создали кластер.
+        1. Перейдите в сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-postgresql }}**.
         1. Выберите кластер `my-pg-database`.
-        1. В строке с нужной БД нажмите значок ![image](../../_assets/console-icons/ellipsis.svg) и выберите **Подключиться**.
+        1. В строке с нужной БД нажмите значок ![image](../../_assets/console-icons/ellipsis.svg) и выберите **{{ ui-key.yacloud.mdb.clusters.button_action-connect }}**.
         1. На вкладке **PowerShell** найдите пример строки подключения.
-        1. Перенесите значения переменных `host`, `port`, `dbname` и `user` в соответствующее поле **Значение** переменных окружения функции.
+        1. Перенесите значения переменных `host`, `port`, `dbname` и `user` в соответствующее поле **{{ ui-key.yacloud.common.value }}** переменных окружения функции.
 
-    1. Нажмите кнопку **Сохранить изменения**.
+    1. Нажмите кнопку **{{ ui-key.yacloud.serverless-functions.item.editor.button_deploy-version }}**.
 
 {% endlist %}
 
-## Создайте триггер для Yandex IoT Core {#trigger}
+## Создайте триггер для {{ iot-full-name }} {#trigger}
 
 Триггер будет принимать копии сообщений из топика устройства и передавать их в функцию для обработки.
 
@@ -325,21 +333,21 @@
 
 - Консоль управления {#console}
 
-    1. В [консоли управления](https://console.yandex.cloud) выберите каталог, в котором нужно создать триггер.
-    1. [Перейдите](../../console/operations/select-service.md#select-service) в сервис **Cloud Functions**.
-    1. На панели слева выберите ![image](../../_assets/console-icons/gear-play.svg) **Триггеры**.
-    1. Нажмите кнопку **Создать триггер**.
-    1. В блоке **Базовые параметры**:
+    1. В [консоли управления]({{ link-console-main }}) выберите каталог, в котором нужно создать триггер.
+    1. Перейдите в сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_serverless-functions }}**.
+    1. На панели слева выберите ![image](../../_assets/console-icons/gear-play.svg) **{{ ui-key.yacloud.serverless-functions.switch_list-triggers }}**.
+    1. Нажмите кнопку **{{ ui-key.yacloud.serverless-functions.triggers.list.button_create }}**.
+    1. В блоке **{{ ui-key.yacloud.serverless-functions.triggers.form.section_base }}**:
 
-        * В поле **Имя** введите имя триггера.
-        * В поле **Описание** введите описание триггера.
-        * В поле **Тип** выберите **IoT Core (устройство)**.
+        * В поле **{{ ui-key.yacloud.serverless-functions.triggers.form.field_name }}** введите имя триггера.
+        * В поле **{{ ui-key.yacloud.serverless-functions.triggers.form.field_description }}** введите описание триггера.
+        * В поле **{{ ui-key.yacloud.serverless-functions.triggers.form.field_type }}** выберите **{{ ui-key.yacloud.serverless-functions.triggers.form.label_iot }}**.
 
-    1. В блоке **Настройки сообщений IoT Core**:
+    1. В блоке **{{ ui-key.yacloud.serverless-functions.triggers.form.section_iot }}**:
 
-        * В поле **Реестр** введите `my-registry`.
-        * В поле **Устройство** введите `my-device`.
-        * В поле **MQTT-топик** укажите топик, в который устройство отправляет данные:
+        * В поле **{{ ui-key.yacloud.serverless-functions.triggers.form.field_registry }}** введите `my-registry`.
+        * В поле **{{ ui-key.yacloud.serverless-functions.triggers.form.field_device }}** введите `my-device`.
+        * В поле **{{ ui-key.yacloud.serverless-functions.triggers.form.field_mqtt-topic }}** укажите топик, в который устройство отправляет данные:
 
             ```text
             $devices/<идентификатор_устройства>/events
@@ -349,14 +357,14 @@
 
             Триггер будет срабатывать при появлении новых данных в указанном топике.
 
-    1. В блоке **Настройки функции**:
+    1. В блоке **{{ ui-key.yacloud.serverless-functions.triggers.form.section_function }}**:
 
         * Выберите функцию для обработки данных, созданную ранее.
-        * В поле **Тег версии функции** укажите `$latest`.
-        * В поле **Сервисный аккаунт** укажите `my-db-function-service-account`.
+        * В поле **{{ ui-key.yacloud.serverless-functions.triggers.form.field_function-tag }}** укажите `$latest`.
+        * В поле **{{ ui-key.yacloud.serverless-functions.triggers.form.field_function_service-account }}** укажите `my-db-function-service-account`.
 
     1. Остальные поля оставьте пустыми или заполните по своему усмотрению.
-    1. Нажмите кнопку **Создать триггер**.
+    1. Нажмите кнопку **{{ ui-key.yacloud.serverless-functions.triggers.form.button_create-trigger }}**.
 
 {% endlist %}
 
@@ -366,6 +374,6 @@
 
 1. [Удалите](../operations/device/device-delete.md) устройство.
 1. [Удалите](../operations/registry/registry-delete.md) реестр.
-1. [Удалите](../../managed-postgresql/operations/cluster-delete.md) кластер PostgreSQL.
+1. [Удалите](../../managed-postgresql/operations/cluster-delete.md) кластер {{ PG }}.
 1. [Удалите](../../functions/operations/trigger/trigger-delete.md) триггер.
 1. [Удалите](../../functions/operations/function/function-delete.md) функцию.

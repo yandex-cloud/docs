@@ -60,7 +60,7 @@ description: С помощью направленного ациклическо
       }
       ```
 
-Подробнее о том, как узнать FQDN хоста кластера {{ CH }}, см. в разделе [{#T}](../../managed-clickhouse/operations/connect/fqdn.md).
+Подробнее о том, как узнать FQDN хоста кластера {{ CH }}, читайте в разделе [{#T}](../../managed-clickhouse/operations/connect/fqdn.md).
 
 В секрете будут сохранены данные для подключения к БД в кластере {{ mch-name }}.
 

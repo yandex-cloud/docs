@@ -3,7 +3,7 @@ title: How to disable subscription auto-renewal in {{ marketplace-full-name }}
 description: In this tutorial, you will learn how to disable subscription auto-renewal in {{ marketplace-full-name }}.
 ---
 
-# Disabling subscription auto-renewal
+# Disabling subscription auto-renewal in {{ marketplace-name }}
 
 {% list tabs group=instructions %}
 

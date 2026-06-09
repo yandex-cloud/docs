@@ -5,7 +5,7 @@ Retrieves a list of access bindings for the specified Trino cluster.
 ## HTTP request
 
 ```
-GET https://trino.api.cloud.yandex.net/managed-trino/v1/clusters/{resourceId}:listAccessBindings
+GET https://trino.{{ api-host }}/managed-trino/v1/clusters/{resourceId}:listAccessBindings
 ```
 
 ## Path parameters

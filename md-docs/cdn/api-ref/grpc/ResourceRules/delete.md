@@ -15,6 +15,8 @@ Delete specified by id resource rule.
 }
 ```
 
+A request to delete a resource rule.
+
 #|
 ||Field | Description ||
 || resource_id | **string**

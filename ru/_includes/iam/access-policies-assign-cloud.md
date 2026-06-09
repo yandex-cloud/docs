@@ -1,4 +1,4 @@
-Чтобы создать для [облака](../../resource-manager/concepts/resources-hierarchy.md#cloud) политику авторизации на основе [шаблона без дополнительных параметров](../../iam/concepts/access-control/access-policies.md#fixed):
+Чтобы создать для [облака](../../resource-manager/concepts/resources-hierarchy.md#cloud) политику авторизации на основе [шаблона без параметров](../../iam/concepts/access-control/access-policies.md#fixed):
 
 {% list tabs group=instructions %}
 

@@ -5,7 +5,7 @@ Delete an inventory configuration with the corresponding ID
 ## HTTP request
 
 ```
-POST https://storage.api.cloud.yandex.net/storage/v1/buckets/{bucket}/{id}:deleteInventoryConfiguration
+POST https://storage.{{ api-host }}/storage/v1/buckets/{bucket}/{id}:deleteInventoryConfiguration
 ```
 
 ## Path parameters

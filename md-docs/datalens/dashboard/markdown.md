@@ -1,6 +1,6 @@
-# Markdown в Yandex DataLens
+# Markdown в {{ datalens-full-name }}
 
-DataLens позволяет использовать язык разметки Markdown в виджете [Текст](widget.md#text) на дашборде.
+{{ datalens-short-name }} позволяет использовать язык разметки Markdown в виджете [{#T}](widget.md#text) на дашборде.
 Вы можете разместить поясняющий текст, ссылки, таблицу, изображение или выделить значимые моменты с помощью форматирования.
 
 В текстовых виджетах вы можете использовать следующие элементы:
@@ -427,18 +427,18 @@ val a: Int = 1
 
 
 
-В виджет можно добавлять изображения, размещенные в хранилище [Yandex Object Storage](../../storage/quickstart.md). С тарифами сервиса можно ознакомиться в разделе [Правила тарификации для Object Storage](../../storage/pricing.md). Изображения из внешних источников не поддерживаются.
+В виджет можно добавлять изображения, размещенные в хранилище [{{ objstorage-full-name }}](../../storage/quickstart.md). С тарифами сервиса можно ознакомиться в разделе [{#T}](../../storage/pricing.md). Изображения из внешних источников не поддерживаются.
 
 
 
 
-Поддерживается добавление изображений любого формата по [ссылкам на объекты](../../storage/concepts/object.md#object-url) вида `https://storage.yandexcloud.net/<bucket>/<key>`.
+Поддерживается добавление изображений любого формата по [ссылкам на объекты](../../storage/concepts/object.md#object-url) вида `https://{{ s3-storage-host }}/<bucket>/<key>`.
 
 
-Для загрузки изображения из **Object Storage** в виджет:
+Для загрузки изображения из **{{ objstorage-short-name }}** в виджет:
 
-1. Откройте [консоль управления](https://console.yandex.cloud).
-1. В левом верхнем углу нажмите значок ![image](../../_assets/console-icons/dots-9.svg) и выберите сервис **Object Storage**.
+1. Откройте [консоль управления]({{ link-console-main }}).
+1. В левом верхнем углу нажмите значок ![image](../../_assets/console-icons/dots-9.svg) и выберите сервис **{{ objstorage-short-name }}**.
 1. [Создайте бакет](../../storage/operations/buckets/create.md).
 1. [Загрузите изображение](../../storage/operations/objects/upload.md) в бакет.
 1. Перейдите в полученный объект и нажмите кнопку **Получить ссылку**.
@@ -450,7 +450,7 @@ val a: Int = 1
 
    {% endnote %}
 
-1. Откройте дашборд в сервисе DataLens и [создайте](../operations/dashboard/add-text.md) виджет **Текст**.
+1. Откройте дашборд в сервисе {{ datalens-name }} и [создайте](../operations/dashboard/add-text.md) виджет **Текст**.
 1. Вставьте в виджет следующий код:
 
    ```markdown
@@ -463,25 +463,25 @@ val a: Int = 1
 
 {% note warning %}
 
-Публичный доступ к файлу предоставляется неограниченному кругу анонимных пользователей. Подробнее о способах управления доступом в Object Storage читайте в [документации сервиса](../../storage/security/overview.md).
+Публичный доступ к файлу предоставляется неограниченному кругу анонимных пользователей. Подробнее о способах управления доступом в {{ objstorage-name }} читайте в [документации сервиса](../../storage/security/overview.md).
 
 {% endnote %}
 
-1. Откройте [консоль управления](https://console.yandex.cloud).
-1. В левом верхнем углу нажмите значок ![image](../../_assets/console-icons/dots-9.svg) и выберите сервис **Object Storage**.
+1. Откройте [консоль управления]({{ link-console-main }}).
+1. В левом верхнем углу нажмите значок ![image](../../_assets/console-icons/dots-9.svg) и выберите сервис **{{ objstorage-short-name }}**.
 1. [Создайте бакет](../../storage/operations/buckets/create.md). При выборе имени бакета придерживайтесь [рекомендаций](../../storage/concepts/bucket.md#naming).
 1. [Загрузите изображение](../../storage/operations/objects/upload.md) в бакет.
 1. Настройте ACL созданного объекта:
 
-   1. Нажмите значок ![image](../../_assets/console-icons/ellipsis.svg) справа от имени объекта и выберите **ACL объекта**.
+   1. Нажмите значок ![image](../../_assets/console-icons/ellipsis.svg) справа от имени объекта и выберите **{{ ui-key.yacloud.storage.bucket.button_action-permissions }}**.
    1. Для группы `allUsers` выдайте разрешение `READ`.
 
-1. Составьте ссылку на объект в бакете вида `https://storage.yandexcloud.net/<бакет>/<ключ>`, где:
+1. Составьте ссылку на объект в бакете вида `https://{{ s3-storage-host }}/<бакет>/<ключ>`, где:
 
    * `<бакет>` — имя бакета.
    * `<ключ>` — [ключ](../../storage/concepts/object.md#key) объекта (путь к файлу).
 
-1. Откройте дашборд в сервисе DataLens и [создайте](../operations/dashboard/add-text.md) виджет **Текст**.
+1. Откройте дашборд в сервисе {{ datalens-name }} и [создайте](../operations/dashboard/add-text.md) виджет **Текст**.
 1. Вставьте в виджет следующий код:
 
    ```markdown

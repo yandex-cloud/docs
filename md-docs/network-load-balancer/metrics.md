@@ -1,10 +1,10 @@
-# Справочник метрик Yandex Monitoring
+# Справочник метрик {{ monitoring-full-name }}
 
-В этом разделе описаны метрики сервиса Network Load Balancer, поставляемые в [Monitoring](../monitoring/index.md).
+В этом разделе описаны метрики сервиса {{ network-load-balancer-name }}, поставляемые в [{{ monitoring-name }}](../monitoring/index.md).
 
 Имя метрики пишется в метку `name`.
 
-Все метрики сервиса Network Load Balancer имеют общую метку `service=network-load-balancer`.
+Все метрики сервиса {{ network-load-balancer-name }} имеют общую метку `service=network-load-balancer`.
 
 ## Метрики сети {#nlb-net-metrics}
 

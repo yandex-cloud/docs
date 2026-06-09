@@ -12,17 +12,17 @@
 
 - Консоль управления {#console}
 
-  1. В [консоли управления](https://console.yandex.cloud) перейдите в [каталог](../../../../resource-manager/concepts/resources-hierarchy.md#folder), в котором находится нужная шина.
-  1. [Перейдите](../../../../console/operations/select-service.md#select-service) в сервис **Serverless Integrations**.
-  1. На панели слева выберите ![object-align-center-vertical](../../../../_assets/console-icons/object-align-center-vertical.svg) **EventRouter**.
+  1. В [консоли управления]({{ link-console-main }}) перейдите в [каталог](../../../../resource-manager/concepts/resources-hierarchy.md#folder), в котором находится нужная шина.
+  1. Перейдите в сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_serverless-integrations }}**.
+  1. На панели слева выберите ![object-align-center-vertical](../../../../_assets/console-icons/object-align-center-vertical.svg) **{{ ui-key.yacloud.serverless-event-router.label_service }}**.
   1. Выберите нужную [шину](../../../concepts/eventrouter/bus.md).
-  1. На панели сверху нажмите кнопку ![comment-plus](../../../../_assets/console-icons/comment-plus.svg) **Отправить событие**.
+  1. На панели сверху нажмите кнопку ![comment-plus](../../../../_assets/console-icons/comment-plus.svg) **{{ ui-key.yacloud.serverless-event-router.button_send-event }}**.
   1. В открывшемся окне введите отправляемое в шину событие в формате [JSON](https://ru.wikipedia.org/wiki/JSON). Например: `{"name": "value"}`.
-  1. Нажмите кнопку **Отправить**.
+  1. Нажмите кнопку **{{ ui-key.yacloud.serverless-event-router.button_submit }}**.
 
 - CLI {#cli}
 
-  Если у вас еще нет интерфейса командной строки Yandex Cloud (CLI), [установите и инициализируйте его](../../../../cli/quickstart.md#install).
+  Если у вас еще нет интерфейса командной строки {{ yandex-cloud }} (CLI), [установите и инициализируйте его](../../../../cli/quickstart.md#install).
 
   По умолчанию используется каталог, указанный при [создании](../../../../cli/operations/profile/profile-create.md) профиля CLI. Чтобы изменить каталог по умолчанию, используйте команду `yc config set folder-id <идентификатор_каталога>`. Также для любой команды вы можете указать другой каталог с помощью параметров `--folder-name` или `--folder-id`. Если вы обращаетесь к ресурсу по имени, поиск будет выполнен в каталоге по умолчанию. Если вы обращаетесь к ресурсу по идентификатору, поиск будет выполнен глобально — во всех каталогах с учетом прав доступа.
 
@@ -72,7 +72,7 @@
   Чтобы отправить событие в шину напрямую, воспользуйтесь вызовом gRPC API [EventService/Put](../../../eventrouter/api-ref/grpc/Event/put.md):
 
   1. Если у вас не установлена утилита gRPCurl, [установите](https://github.com/fullstorydev/grpcurl) ее.
-  1. Если у вас еще нет интерфейса командной строки Yandex Cloud (CLI), [установите и инициализируйте его](../../../../cli/quickstart.md#install).
+  1. Если у вас еще нет интерфейса командной строки {{ yandex-cloud }} (CLI), [установите и инициализируйте его](../../../../cli/quickstart.md#install).
   1. Получите [IAM-токен](../../../../iam/concepts/authorization/iam-token.md) для [аутентификации](../../../api-ref/eventrouter/authentication.md) в API.
 
       ```bash

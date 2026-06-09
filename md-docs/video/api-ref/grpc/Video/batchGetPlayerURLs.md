@@ -35,7 +35,7 @@ The maximum string length in characters is 50. ||
 
 List of video IDs for which to generate player URLs.
 
-The number of elements must be in the range 1-100. The maximum string length in characters for each value is 50. ||
+The maximum string length in characters for each value is 50. The number of elements must be in the range 1-100. ||
 || params | **[VideoPlayerParams](#yandex.cloud.video.v1.VideoPlayerParams)**
 
 Optional player parameters to customize the playback experience.

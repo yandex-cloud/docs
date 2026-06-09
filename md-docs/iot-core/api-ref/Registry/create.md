@@ -5,7 +5,7 @@ Creates a registry in the specified folder.
 ## HTTP request
 
 ```
-POST https://iot-devices.api.cloud.yandex.net/iot-devices/v1/registries
+POST https://iot-devices.{{ api-host }}/iot-devices/v1/registries
 ```
 
 ## Body parameters {#yandex.cloud.iot.devices.v1.CreateRegistryRequest}

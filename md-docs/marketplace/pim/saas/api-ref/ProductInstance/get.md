@@ -5,7 +5,7 @@ Returns the specified product instance.
 ## HTTP request
 
 ```
-GET https://marketplace.api.cloud.yandex.net/marketplace/pim/saas/v1/instances/{productInstanceId}
+GET https://marketplace.{{ api-host }}/marketplace/pim/saas/v1/instances/{productInstanceId}
 ```
 
 ## Path parameters

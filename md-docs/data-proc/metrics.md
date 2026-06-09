@@ -1,10 +1,10 @@
-# Справочник метрик Yandex Monitoring
+# Справочник метрик {{ monitoring-full-name }}
 
-В этом разделе описаны метрики сервиса Yandex Data Processing, поставляемые в [Monitoring](../monitoring/index.md).
+В этом разделе описаны метрики сервиса {{ dataproc-name }}, поставляемые в [{{ monitoring-name }}](../monitoring/index.md).
 
 Имя метрики пишется в метку `name`.
 
-Общие метки для всех метрик сервиса Yandex Data Processing:
+Общие метки для всех метрик сервиса {{ dataproc-name }}:
 
 Метка | Значение
 ----|----
@@ -80,8 +80,8 @@ host | FQDN хоста
 | Имя<br/>Тип, единицы измерения | Описание |
 | ----- | ----- |
 | `dataproc.cluster.health_status`<br/>`IGAUGE` | Уровень работоспособности и техническое состояние кластера. В мониторинг поставляется только одна метрика, соответствующая статусу кластера, со значением `1`. Когда кластер находится в переходном состоянии, например создается или останавливается, метрика может не поступать. В этом случае ее значение отображается как `-`. После перехода кластера в новое состояние старую метрику заменяет новая — тоже со значением `1`. |
-| `dataproc.cluster.neededAutoscalingNodesNumber`<br/>`DGAUGE`, штуки | Метрика сервиса Yandex Data Processing для масштабирования по умолчанию. |
+| `dataproc.cluster.neededAutoscalingNodesNumber`<br/>`DGAUGE`, штуки | Метрика сервиса {{ dataproc-full-name }} для масштабирования по умолчанию. |
 
 #### См. также {#see-also}
 
-* [Мониторинг состояния кластера и хостов Yandex Data Processing](operations/monitoring.md)
+* [{#T}](operations/monitoring.md)

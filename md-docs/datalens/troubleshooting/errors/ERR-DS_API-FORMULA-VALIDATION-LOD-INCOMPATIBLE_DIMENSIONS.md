@@ -1,4 +1,4 @@
-# [Yandex DataLens] Incompatible dimensions
+# [{{ datalens-full-name }}] Incompatible dimensions
 
 `ERR.DS_API.FORMULA.VALIDATION.LOD.INCOMPATIBLE_DIMENSIONS`
 
@@ -24,4 +24,4 @@ ARG_MAX(
 )
 ```
 
-Подробнее об использовании LOD-выражений читайте в разделе [LOD-выражения и управление фильтрацией в агрегатных функциях в Yandex DataLens](../../concepts/lod-aggregation.md).
+Подробнее об использовании LOD-выражений читайте в разделе [{#T}](../../concepts/lod-aggregation.md).

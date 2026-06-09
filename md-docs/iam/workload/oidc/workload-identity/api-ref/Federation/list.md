@@ -5,7 +5,7 @@ Retrieves the list of OIDC workload identity federations in the specified folder
 ## HTTP request
 
 ```
-GET https://iam.api.cloud.yandex.net/iam/v1/workload/oidc/federations
+GET https://iam.{{ api-host }}/iam/v1/workload/oidc/federations
 ```
 
 ## Query parameters {#yandex.cloud.iam.v1.workload.oidc.ListFederationsRequest}

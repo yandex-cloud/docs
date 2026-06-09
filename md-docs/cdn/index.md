@@ -69,7 +69,7 @@ Yandex Cloud CDN позволяет организовать доставку к
 
  - [Настроить имя сервера для SNI](operations/resources/configure-server-name.md)
 
- - [Отключить ресурс](operations/resources/disable-resource.md)
+ - [Приостановить и возобновить работу ресурса](operations/resources/disable-resource.md)
 
  - [Управление метками ресурса](operations/resources/labeling.md)
 
@@ -103,13 +103,13 @@ Yandex Cloud CDN позволяет организовать доставку к
 
  - [Редактирование изображений для сайтов с помощью Thumbor](tutorials/thumbor.md)
 
-### Интеграция L7-балансировщика с CDN и Object Storage
+### Интеграция L7-балансировщика с CDN и {{ objstorage-name }}
 
  - [Обзор](tutorials/cdn-storage-integration/index.md)
 
  - [Консоль управления, CLI и API](tutorials/cdn-storage-integration/console.md)
 
- - [Terraform](tutorials/cdn-storage-integration/terraform.md)
+ - [{{ TF }}](tutorials/cdn-storage-integration/terraform.md)
 
  - [Сине-зеленое и канареечное развертывание версий сервиса](tutorials/blue-green-canary-deployment.md)
 
@@ -119,17 +119,17 @@ Yandex Cloud CDN позволяет организовать доставку к
 
  - [Консоль управления, CLI, API](tutorials/protected-access-to-content/console.md)
 
- - [Terraform](tutorials/protected-access-to-content/terraform.md)
+ - [{{ TF }}](tutorials/protected-access-to-content/terraform.md)
 
- - [Миграция в Yandex Cloud CDN из стороннего CDN-провайдера](tutorials/migrate-to-yc-cdn.md)
+ - [Миграция в {{ cdn-full-name }} из стороннего CDN-провайдера](tutorials/migrate-to-yc-cdn.md)
 
-### Настройка хостинга статического сайта в бакете Yandex Object Storage с доступом через Yandex Cloud CDN
+### Настройка хостинга статического сайта в бакете {{ objstorage-full-name }} с доступом через {{ cdn-full-name }}
 
  - [Обзор](tutorials/cdn-hosting/index.md)
 
  - [Консоль управления, CLI, API](tutorials/cdn-hosting/console.md)
 
- - [Terraform](tutorials/cdn-hosting/terraform.md)
+ - [{{ TF }}](tutorials/cdn-hosting/terraform.md)
 
 ## Концепции
 
@@ -315,7 +315,7 @@ Yandex Cloud CDN позволяет организовать доставку к
 
  - [update](cli-ref/v0/resource/update.md)
 
- - [Справочник Terraform](tf-ref.md)
+ - [Справочник {{ TF }}](tf-ref.md)
 
 ## Справочник API
 
@@ -535,23 +535,11 @@ Yandex Cloud CDN позволяет организовать доставку к
 
  - [GetProviderCName](api-ref/Resource/getProviderCName.md)
 
- - [Метрики Monitoring](metrics-yc.md)
+ - [Метрики {{ monitoring-name }}](metrics-yc.md)
 
  - [Логи запросов](logs-ref.md)
 
- - [Аудитные логи Audit Trails](at-ref.md)
-
-## Справочник аудитных логов
-
- - [Overview](events-ref/index.md)
-
-### Operation
-
- - [Overview](events-ref/Operation/index.md)
-
- - [Get](events-ref/Operation/get.md)
-
- - [Cancel](events-ref/Operation/cancel.md)
+ - [Аудитные логи {{ at-name }}](at-ref.md)
 
  - [История изменений](release-notes.md)
 

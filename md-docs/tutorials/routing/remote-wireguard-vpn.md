@@ -2,7 +2,7 @@
 
 Для организации защищенного удаленного доступа пользователей через [VPN](https://ru.wikipedia.org/wiki/VPN) к вашим облачным ресурсам по протоколу [WireGuard VPN](https://www.wireguard.com/) воспользуйтесь решением [Firezone](https://www.firezone.dev/) на основе открытого кода. Для реализации сценариев [единого входа](../../glossary/sso.md) пользователей, решение поддерживает несколько сервисов аутентификации ([Identity Providers](https://www.firezone.dev/docs/authenticate)). В примере ниже используется решение по аутентификации [Keycloak](https://www.keycloak.org/).
 
-В данном сценарии вы развернете в Yandex Cloud облачную инфраструктуру для организации Remote access VPN на основе WireGuard VPN по следующей схеме:
+В данном сценарии вы развернете в {{ yandex-cloud }} облачную инфраструктуру для организации Remote access VPN на основе WireGuard VPN по следующей схеме:
 
 ![image](../../_assets/tutorials/remote-access-vpn.svg)
 
@@ -31,11 +31,11 @@
 
 ## Подготовьте облако к работе {#prepare-cloud}
 
-Зарегистрируйтесь в Yandex Cloud и создайте [платежный аккаунт](../../billing/concepts/billing-account.md):
-1. Перейдите в [консоль управления](https://console.yandex.cloud), затем войдите в Yandex Cloud или зарегистрируйтесь.
-1. На странице **[Yandex Cloud Billing](https://center.yandex.cloud/billing/accounts)** убедитесь, что у вас подключен платежный аккаунт, и он находится в [статусе](../../billing/concepts/billing-account-statuses.md) `ACTIVE` или `TRIAL_ACTIVE`. Если платежного аккаунта нет, [создайте его](../../billing/quickstart/index.md) и [привяжите](../../billing/operations/pin-cloud.md) к нему облако.
+Зарегистрируйтесь в {{ yandex-cloud }} и создайте [платежный аккаунт](../../billing/concepts/billing-account.md):
+1. Перейдите в [консоль управления]({{ link-console-main }}), затем войдите в {{ yandex-cloud }} или зарегистрируйтесь.
+1. На странице **[{{ ui-key.yacloud_billing.billing.label_service }}]({{ link-console-billing }})** убедитесь, что у вас подключен платежный аккаунт, и он находится в [статусе](../../billing/concepts/billing-account-statuses.md) `ACTIVE` или `TRIAL_ACTIVE`. Если платежного аккаунта нет, [создайте его](../../billing/quickstart/index.md) и [привяжите](../../billing/operations/pin-cloud.md) к нему облако.
 
-Если у вас есть активный платежный аккаунт, вы можете создать или выбрать [каталог](../../resource-manager/concepts/resources-hierarchy.md#folder), в котором будет работать ваша инфраструктура, на [странице облака](https://console.yandex.cloud/cloud).
+Если у вас есть активный платежный аккаунт, вы можете создать или выбрать [каталог](../../resource-manager/concepts/resources-hierarchy.md#folder), в котором будет работать ваша инфраструктура, на [странице облака]({{ link-console-cloud }}).
 
 [Подробнее об облаках и каталогах](../../resource-manager/concepts/resources-hierarchy.md).
 
@@ -43,26 +43,26 @@
 
 В стоимость поддержки инфраструктуры входят:
 
-* плата за постоянно работающие ВМ (см. [тарифы Yandex Compute Cloud](../../compute/pricing.md));
-* плата за использование публичных IP-адресов и исходящий трафик (см. [тарифы Yandex Virtual Private Cloud](../../vpc/pricing.md));
-* плата за использование сервиса Managed Service for PostgreSQL (см. [тарифы Yandex Managed Service for PostgreSQL](../../managed-postgresql/pricing.md));
-* плата за публичные [DNS-запросы](../../glossary/dns.md) и [зоны DNS](../../dns/concepts/dns-zone.md) (см. [тарифы Cloud DNS](../../dns/pricing.md)).
+* плата за постоянно работающие ВМ (см. [тарифы {{ compute-full-name }}](../../compute/pricing.md));
+* плата за использование публичных IP-адресов и исходящий трафик (см. [тарифы {{ vpc-full-name }}](../../vpc/pricing.md));
+* плата за использование сервиса {{ mpg-name }} (см. [тарифы {{ mpg-full-name }}](../../managed-postgresql/pricing.md));
+* плата за публичные [DNS-запросы](../../glossary/dns.md) и [зоны DNS](../../dns/concepts/dns-zone.md) (см. [тарифы {{ dns-name }}](../../dns/pricing.md)).
 
 ## Подготовьте среду для развертывания ресурсов {#setup-environment}
 
-1. [Установите Terraform](../infrastructure-management/terraform-quickstart.md#install-terraform).
-1. Если у вас еще нет интерфейса командной строки Yandex Cloud, [установите](../../cli/quickstart.md) его и авторизуйтесь от имени пользователя.
+1. [Установите {{ TF }}](../infrastructure-management/terraform-quickstart.md#install-terraform).
+1. Если у вас еще нет интерфейса командной строки {{ yandex-cloud }}, [установите](../../cli/quickstart.md) его и авторизуйтесь от имени пользователя.
 1. Создайте сервисный аккаунт:
 
    {% list tabs group=instructions %}
 
    - Консоль управления {#console}
 
-     1. В [консоли управления](https://console.yandex.cloud) выберите каталог, в котором хотите создать сервисный аккаунт.
-     1. [Перейдите](../../console/operations/select-service.md#select-service) в сервис **Identity and Access Management**.
-     1. Нажмите кнопку **Создать сервисный аккаунт**.
+     1. В [консоли управления]({{ link-console-main }}) выберите каталог, в котором хотите создать сервисный аккаунт.
+     1. Перейдите в сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_iam }}**.
+     1. Нажмите кнопку **{{ ui-key.yacloud.iam.folder.service-accounts.button_add }}**.
      1. Введите имя сервисного аккаунта, например, `sa-firezone`.
-     1. Нажмите кнопку **Создать**.
+     1. Нажмите кнопку **{{ ui-key.yacloud.iam.folder.service-account.popup-robot_button_add }}**.
 
    - CLI {#cli}
 
@@ -93,10 +93,10 @@
 
    - Консоль управления {#console}
 
-     1. На [стартовой странице](https://console.yandex.cloud) консоли управления выберите каталог.
-     1. Перейдите на вкладку ![image](../../_assets/console-icons/persons-lock.svg) **Права доступа**.
-     1. Найдите аккаунт `sa-firezone` в списке и нажмите значок ![image](../../_assets/console-icons/ellipsis.svg) → ![image](../../_assets/console-icons/pencil.svg) **Изменить роли**.
-     1. В открывшемся диалоге нажмите кнопку ![image](../../_assets/console-icons/plus.svg) **Добавить роль** и выберите роль `admin`.
+     1. На [стартовой странице]({{ link-console-main }}) консоли управления выберите каталог.
+     1. Перейдите на вкладку ![image](../../_assets/console-icons/persons-lock.svg) **{{ ui-key.yacloud.common.resource-acl.label_access-bindings }}**.
+     1. Найдите аккаунт `sa-firezone` в списке и нажмите значок ![image](../../_assets/console-icons/ellipsis.svg) → ![image](../../_assets/console-icons/pencil.svg) **{{ ui-key.yacloud_components.acl.action.edit-roles }}**.
+     1. В открывшемся диалоге нажмите кнопку ![image](../../_assets/console-icons/plus.svg) **{{ ui-key.yacloud.component.acl.update-dialog.button_add-role }}** и выберите роль `admin`.
 
    - CLI {#cli}
 
@@ -170,11 +170,11 @@
 
 ## Подготовьте домен {#prepare-domain}
 
-Вам понадобится домен, который будет использоваться для виртуальных машин Firezone и Keycloak. Этот домен должен быть предварительно делегирован в Yandex Cloud со стороны регистратора домена. Для этого укажите адреса серверов `ns1.yandexcloud.net` и `ns2.yandexcloud.net` в личном кабинете вашего регистратора.
+Вам понадобится домен, который будет использоваться для виртуальных машин Firezone и Keycloak. Этот домен должен быть предварительно делегирован в Yandex Cloud со стороны регистратора домена. Для этого укажите адреса серверов `ns1.{{ dns-ns-host-sld }}` и `ns2.{{ dns-ns-host-sld }}` в личном кабинете вашего регистратора.
 
 ## Разверните Firezone и Keycloak {#deploy-firezone}
 
-1. На вашей рабочей станции склонируйте [репозиторий](https://github.com/yandex-cloud-examples/yc-remote-acess-vpn-with-wireguard-firezone) `yandex-cloud-examples/yc-remote-acess-vpn-with-wireguard-firezone` из [Yandex Cloud Security Solution Library](https://github.com/yandex-cloud-examples/yc-security-solutions-library) и перейдите в папку сценария `yc-remote-acess-vpn-with-wireguard-firezone`:
+1. На вашей рабочей станции склонируйте [репозиторий](https://github.com/yandex-cloud-examples/yc-remote-acess-vpn-with-wireguard-firezone) `yandex-cloud-examples/yc-remote-acess-vpn-with-wireguard-firezone` из [{{ yandex-cloud }} Security Solution Library](https://github.com/yandex-cloud-examples/yc-security-solutions-library) и перейдите в папку сценария `yc-remote-acess-vpn-with-wireguard-firezone`:
 
    ```bash
    git clone https://github.com/yandex-cloud-examples/yc-remote-acess-vpn-with-wireguard-firezone.git
@@ -222,7 +222,7 @@
 
    {% list tabs group=instructions %}
 
-   - Terraform {#tf}
+   - {{ TF }} {#tf}
 
      1. Перейдите в папку `main`
 
@@ -280,7 +280,7 @@
 
 {% list tabs group=instructions %}
 
-- Terraform {#tf}
+- {{ TF }} {#tf}
 
   1. По завершении развертывания виртуальных машин для Firezone и Keycloak перейдите в папку `keycloak-config`, чтобы выполнить настройку Keycloak для сценария интеграции Keycloak с Firezone и Single Sign-On.
 
@@ -378,7 +378,7 @@
 
 {% list tabs group=instructions %}
 
-- Terraform {#tf}
+- {{ TF }} {#tf}
 
   1. Перейдите на вашей рабочей станции в папку `keycloak-config` и выполните команду `terraform destroy`.
   1. После этого перейдите в папку `main` и выполните команду `terraform destroy`.

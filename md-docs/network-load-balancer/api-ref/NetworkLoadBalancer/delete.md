@@ -5,7 +5,7 @@ Deletes the specified network load balancer.
 ## HTTP request
 
 ```
-DELETE https://load-balancer.api.cloud.yandex.net/load-balancer/v1/networkLoadBalancers/{networkLoadBalancerId}
+DELETE https://load-balancer.{{ api-host }}/load-balancer/v1/networkLoadBalancers/{networkLoadBalancerId}
 ```
 
 ## Path parameters

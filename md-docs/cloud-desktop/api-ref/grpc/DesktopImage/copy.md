@@ -12,6 +12,8 @@ Copies the specified image to desktop image.
 {
   "folder_id": "string",
   "name": "string",
+  "labels": "map<string, string>",
+  "description": "string",
   "image_id": "string"
 }
 ```
@@ -28,6 +30,16 @@ The maximum string length in characters is 50. ||
 Required field. Name of the image.
 
 The maximum string length in characters is 50. ||
+|| labels | **object** (map<**string**, **string**>)
+
+Desktop image labels.
+
+The maximum string length in characters for each value is 63. The string length in characters for each key must be 1-63. Each key must match the regular expression ` [a-z][-_0-9a-z]* `. Each value must match the regular expression ` [-_0-9a-z]* `. No more than 64 per resource. ||
+|| description | **string**
+
+Desktop image description.
+
+The maximum string length in characters is 1024. ||
 || image_id | **string**
 
 Required field. ID of the compute image to copy the image from.
@@ -57,6 +69,7 @@ The maximum string length in characters is 50. ||
     "status": "Status",
     "name": "string",
     "labels": "map<string, string>",
+    "description": "string",
     "storage_size": "int64",
     "min_disk_size": "int64"
   }
@@ -154,6 +167,9 @@ Status of the image.
 
 Name of the image. ||
 || labels | **object** (map<**string**, **string**>)
+
+Description of the image. ||
+|| description | **string**
 
 Description of the image. ||
 || storage_size | **int64**

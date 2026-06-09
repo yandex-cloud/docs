@@ -72,3 +72,9 @@ description: Из статьи вы узнаете, как определить 
 * [{#T}](../../tutorials/web/application-load-balancer-website/index.md)
 * [{#T}](../../tutorials/web/virtual-hosting.md)
 * [Защита сервиса с помощью {{ sws-name }}](../../smartwebsecurity/tutorials/sws-basic-protection.md)
+
+{% note tip %}
+
+Если у вас уже есть IP-адрес [{{ vpc-full-name }}](../../vpc/) из белого списка, вы можете подключить его к прокси-серверу {{ sws-name }}. Для этого обратитесь в [техническую поддержку]({{ link-console-support }}).
+
+{% endnote %}

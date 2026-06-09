@@ -1,7 +1,6 @@
 # Identity and Access Management API, gRPC: OAuthClientSecretService.Get
 
 Returns the sepcified OAuthClientSecret resource.
-
 To get the list of available OAuthClientSecret resources, make a [List](list.md#List) request.
 
 ## gRPC request

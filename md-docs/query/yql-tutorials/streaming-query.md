@@ -1,6 +1,6 @@
 # Выполнить запрос к данным реального времени
 
-Данные можно обрабатывать не только из систем хранения типа Yandex Object Storage, но и из шин потоков данных типа Yandex Data Streams.
+Данные можно обрабатывать не только из систем хранения типа {{ objstorage-full-name }}, но и из шин потоков данных типа {{ yds-full-name }}.
 
 В примере ниже показано, как нарезать входные данные на одноминутные интервалы, внутри каждого интервала посчитать количество событий и сумму:
 
@@ -23,7 +23,7 @@ GROUP BY
 
 #### См. также {#see-also}
 
-* Оператор [SELECT](https://ydb.tech/docs/ru//yql/reference/syntax/select)
-* Оператор [GROUP BY](https://ydb.tech/docs/ru//yql/reference/syntax/group_by)
+* Оператор [SELECT]({{ ydb.docs }}/yql/reference/syntax/select)
+* Оператор [GROUP BY]({{ ydb.docs }}/yql/reference/syntax/group_by)
 * Оператор [HOP](../concepts/stream-processing-windows.md)
-* [Функции агрегации данных](https://ydb.tech/docs/ru//yql/reference/builtins/aggregation)
+* [Функции агрегации данных]({{ ydb.docs }}/yql/reference/builtins/aggregation)

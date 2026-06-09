@@ -1,10 +1,10 @@
-# Yandex Cloud Functions
+# {{ sf-full-name }}
 
-Сервис Cloud Functions позволяет запускать приложения в безопасном, отказоустойчивом и масштабируемом окружении без создания и обслуживания виртуальных машин.
+Сервис {{ sf-name }} позволяет запускать приложения в безопасном, отказоустойчивом и масштабируемом окружении без создания и обслуживания виртуальных машин.
 
-# Yandex Cloud Functions
+# {{ sf-full-name }}
 
- - [Сопоставление с другими сервисами Yandex Cloud](service-comparison.md)
+ - [Сопоставление с другими сервисами {{ yandex-cloud }}](service-comparison.md)
 
 ## Начало работы
 
@@ -102,7 +102,7 @@
 
  - [Указать облачную сеть](operations/function/network-add.md)
 
- - [Передать секреты Yandex Lockbox](operations/function/lockbox-secret-transmit.md)
+ - [Передать секреты {{ lockbox-full-name }}](operations/function/lockbox-secret-transmit.md)
 
  - [Выделить память для директории /tmp](operations/function/allocate-memory-tmp.md)
 
@@ -136,7 +136,7 @@
 
  - [Записать логи](operations/function/logs-write.md)
 
- - [Миграция в зону ru-central1-d](operations/function/migration.md)
+ - [Миграция в зону {{ region-id }}-d](operations/function/migration.md)
 
  - [Удалить версию функции](operations/function/version-delete.md)
 
@@ -152,15 +152,15 @@
 
  - [Создать таймер](operations/trigger/timer-create.md)
 
- - [Создать триггер для Message Queue](operations/trigger/ymq-trigger-create.md)
+ - [Создать триггер для {{ message-queue-name }}](operations/trigger/ymq-trigger-create.md)
 
- - [Создать триггер для Object Storage](operations/trigger/os-trigger-create.md)
+ - [Создать триггер для {{ objstorage-name }}](operations/trigger/os-trigger-create.md)
 
- - [Создать триггер для Container Registry](operations/trigger/cr-trigger-create.md)
+ - [Создать триггер для {{ container-registry-name }}](operations/trigger/cr-trigger-create.md)
 
- - [Создать триггер для Cloud Logging](operations/trigger/cloud-logging-trigger-create.md)
+ - [Создать триггер для {{ cloud-logging-name }}](operations/trigger/cloud-logging-trigger-create.md)
 
-#### Создать триггер для Yandex IoT Core
+#### Создать триггер для {{ iot-name }}
 
  - [Устройство](operations/trigger/iot-core-trigger-create.md)
 
@@ -168,7 +168,7 @@
 
  - [Создать триггер для бюджетов](operations/trigger/budget-trigger-create.md)
 
- - [Создать триггер для Data Streams](operations/trigger/data-streams-trigger-create.md)
+ - [Создать триггер для {{ yds-name }}](operations/trigger/data-streams-trigger-create.md)
 
  - [Создать триггер для почты](operations/trigger/mail-trigger-create.md)
 
@@ -432,7 +432,7 @@
 
  - [Консоль управления](tutorials/video-converting-queue/console.md)
 
- - [Terraform](tutorials/video-converting-queue/terraform.md)
+ - [{{ TF }}](tutorials/video-converting-queue/terraform.md)
 
  - [Разработка пользовательской интеграции](tutorials/api-gw-integration.md)
 
@@ -442,7 +442,7 @@
 
  - [Консоль управления](tutorials/serverless-url-shortener/console.md)
 
- - [Terraform](tutorials/serverless-url-shortener/terraform.md)
+ - [{{ TF }}](tutorials/serverless-url-shortener/terraform.md)
 
  - [Создание интерактивного serverless-приложения с использованием WebSocket](tutorials/websocket-app.md)
 
@@ -452,7 +452,7 @@
 
  - [Подключение к базе данных YDB из функции на Node.js](tutorials/connect-to-ydb-nodejs.md)
 
- - [Канареечный релиз функции Cloud Functions](tutorials/canary-release.md)
+ - [Канареечный релиз функции {{ sf-name }}](tutorials/canary-release.md)
 
  - [Интерактивная отладка функций](tutorials/serverless-live-debug.md)
 
@@ -460,7 +460,13 @@
 
  - [Разработка Slack-бота](tutorials/slack-bot-serverless.md)
 
- - [Разработка Telegram-бота](tutorials/telegram-bot-serverless.md)
+#### Разработка Telegram-бота
+
+ - [Обзор](tutorials/telegram-bot-serverless/index.md)
+
+ - [Консоль управления](tutorials/telegram-bot-serverless/console.md)
+
+ - [{{ TF }}](tutorials/telegram-bot-serverless/terraform.md)
 
  - [Разработка Telegram-бота для распознавания текста и аудио](tutorials/recognizer-bot.md)
 
@@ -468,15 +474,15 @@
 
  - [Запись данных с устройства в базу данных](tutorials/data-recording.md)
 
- - [Запись логов балансировщика в PostgreSQL](tutorials/logging.md)
+ - [Запись логов балансировщика в {{ PG }}](tutorials/logging.md)
 
- - [Загрузка данных из Яндекс Директ в витрину Yandex Managed Service for ClickHouse® с использованием Yandex Cloud Functions, Yandex Object Storage и Yandex Data Transfer](tutorials/data-transfer-direct-to-mch.md)
+ - [Загрузка данных из {{ yandex-direct }} в витрину {{ mch-full-name }} с использованием {{ sf-full-name }}, {{ objstorage-full-name }} и {{ data-transfer-full-name }}](tutorials/data-transfer-direct-to-mch.md)
 
- - [Передача событий Yandex Cloud Postbox в Yandex Data Streams и их анализ с помощью Yandex DataLens](tutorials/events-from-postbox-to-yds.md)
+ - [Передача событий {{ postbox-full-name }} в {{ yds-full-name }} и их анализ с помощью {{ datalens-full-name }}](tutorials/events-from-postbox-to-yds.md)
 
- - [Яндекс Трекер: экспорт и визуализация данных](tutorials/data-from-tracker.md)
+ - [{{ tracker-full-name }}: экспорт и визуализация данных](tutorials/data-from-tracker.md)
 
-#### Поставка данных из Яндекс Формы в Yandex DataLens с использованием Yandex Cloud Functions и Yandex Query
+#### Поставка данных из {{ forms-full-name }} в {{ datalens-full-name }} с использованием {{ sf-full-name }} и {{ yq-full-name }}
 
  - [Обзор](tutorials/forms-and-datalens-integration/index.md)
 
@@ -484,17 +490,17 @@
 
  - [Terraform](tutorials/forms-and-datalens-integration/terraform.md)
 
- - [Интеграция Yandex Cloud Postbox с внешними системами через вебхуки](tutorials/postbox-webhook.md)
+ - [Интеграция {{ postbox-full-name }} с внешними системами через вебхуки](tutorials/postbox-webhook.md)
 
 ### Рабочие процессы и автоматизация на Serverless
 
  - [Создание триггера для бюджетов, который вызывает функцию для остановки ВМ](tutorials/serverless-trigger-budget-vm.md)
 
- - [Автоматическое копирование объектов из одного бакета Object Storage в другой](tutorials/bucket-to-bucket.md)
+ - [Автоматическое копирование объектов из одного бакета {{ objstorage-name }} в другой](tutorials/bucket-to-bucket.md)
 
- - [Запуск вычислений по расписанию в DataSphere](tutorials/regular-launch-datasphere.md)
+ - [Запуск вычислений по расписанию в {{ ml-platform-name }}](tutorials/regular-launch-datasphere.md)
 
- - [Регулярное асинхронное распознавание аудиофайлов из Object Storage](tutorials/batch-recognition-stt.md)
+ - [Регулярное асинхронное распознавание аудиофайлов из {{ objstorage-name }}](tutorials/batch-recognition-stt.md)
 
  - [Развертывание отказоустойчивой архитектуры с прерываемыми ВМ](tutorials/nodejs-cron-restart-vm.md)
 
@@ -506,17 +512,17 @@
 
  - [Консоль управления, CLI и API](tutorials/vm-scale-scheduled/console.md)
 
- - [Terraform](tutorials/vm-scale-scheduled/terraform.md)
+ - [{{ TF }}](tutorials/vm-scale-scheduled/terraform.md)
 
- - [Запуск вычислений в DataSphere с помощью API](tutorials/batch-code-execution.md)
+ - [Запуск вычислений в {{ ml-platform-name }} с помощью API](tutorials/batch-code-execution.md)
 
- - [Настройка CI/CD с SourceCraft](tutorials/ci-cd-sourcecraft-functions.md)
+ - [Настройка CI/CD с {{ src-name }}](tutorials/ci-cd-sourcecraft-functions.md)
 
  - [Настройка CI/CD с GitHub](tutorials/ci-cd-github-functions.md)
 
- - [Настройка реагирования в Yandex Cloud Logging и Cloud Functions](tutorials/logging-functions.md)
+ - [Настройка реагирования в {{ cloud-logging-full-name }} и {{ sf-name }}](tutorials/logging-functions.md)
 
- - [Разработка функций в Functions Framework и их развертывание в Yandex Serverless Containers](tutorials/functions-framework-to-container.md)
+ - [Разработка функций в Functions Framework и их развертывание в {{ serverless-containers-full-name }}](tutorials/functions-framework-to-container.md)
 
 ### Интернет вещей
 
@@ -534,7 +540,7 @@
 
 ### Искусственный интеллект
 
- - [Создание AI-агента с помощью Cloud Functions](tutorials/create-ai-agent-function.md)
+ - [Создание AI-агента с помощью {{ sf-name }}](tutorials/create-ai-agent-function.md)
 
  - [Создание AI-агента со стримингом ответа через веб-сокеты](tutorials/streaming-openai-agent.md)
 
@@ -554,7 +560,7 @@
 
  - [Network](../cli/cli-ref/serverless/cli-ref/network/index.md)
 
- - [Справочник Terraform](tf-ref.md)
+ - [Справочник {{ TF }}](tf-ref.md)
 
 ## Справочник API Functions
 
@@ -778,9 +784,9 @@
 
  - [ListOperations](triggers/api-ref/Trigger/listOperations.md)
 
- - [Метрики Monitoring](metrics.md)
+ - [Метрики {{ monitoring-name }}](metrics.md)
 
- - [Аудитные логи Audit Trails](at-ref.md)
+ - [Аудитные логи {{ at-name }}](at-ref.md)
 
  - [Публичные материалы](public-talks.md)
 

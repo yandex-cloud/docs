@@ -5,7 +5,7 @@ Sets the password for another user.
 ## HTTP request
 
 ```
-POST https://organization-manager.api.cloud.yandex.net/organization-manager/v1/idp/users/{userId}:setOthersPassword
+POST https://organization-manager.{{ api-host }}/organization-manager/v1/idp/users/{userId}:setOthersPassword
 ```
 
 ## Path parameters
@@ -71,9 +71,7 @@ The maximum string length in characters is 128. ||
   "createdBy": "string",
   "modifiedAt": "string",
   "done": "boolean",
-  "metadata": {
-    "userId": "string"
-  },
+  "metadata": "object",
   // Includes only one of the fields `error`, `response`
   "error": {
     "code": "integer",
@@ -124,7 +122,7 @@ In some languages, built-in datetime utilities do not support nanosecond precisi
 
 If the value is `false`, it means the operation is still in progress.
 If `true`, the operation is completed, and either `error` or `response` is available. ||
-|| metadata | **[SetOthersPasswordMetadata](#yandex.cloud.organizationmanager.v1.idp.SetOthersPasswordMetadata)**
+|| metadata | **object**
 
 Service-specific metadata associated with the operation.
 It typically contains the ID of the target resource that the operation is performed on.
@@ -154,17 +152,6 @@ The operation result.
 If `done == false` and there was no failure detected, neither `error` nor `response` is set.
 If `done == false` and there was a failure detected, `error` is set.
 If `done == true`, exactly one of `error` or `response` is set. ||
-|#
-
-## SetOthersPasswordMetadata {#yandex.cloud.organizationmanager.v1.idp.SetOthersPasswordMetadata}
-
-Metadata for the [UserService.SetOthersPassword](#SetOthersPassword) operation.
-
-#|
-||Field | Description ||
-|| userId | **string**
-
-ID of the user whose password is being set. ||
 |#
 
 ## Status {#google.rpc.Status}

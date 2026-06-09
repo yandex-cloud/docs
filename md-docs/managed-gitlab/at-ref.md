@@ -1,11 +1,11 @@
-# Справочник аудитных логов Yandex Audit Trails
+# Справочник аудитных логов {{ at-full-name }}
 
-В Audit Trails поддерживается отслеживание событий уровня конфигурации (Control Plane) для Yandex Managed Service for GitLab. Подробнее см. [Аудитный лог событий уровня конфигурации](../audit-trails/concepts/format.md).
+В {{ at-name }} поддерживается отслеживание событий уровня конфигурации (Control Plane) для {{ mgl-full-name }}. Подробнее см. [{#T}](../audit-trails/concepts/format.md).
 
 Общий вид значения поля `event_type` (_тип события_):
 
 ```text
-yandex.cloud.audit.gitlab.<имя_события>
+{{ at-event-prefix }}.audit.gitlab.<имя_события>
 ```
 
 Имя события | Описание
@@ -14,22 +14,22 @@ yandex.cloud.audit.gitlab.<имя_события>
 `CleanupRegistryInstance` | Очистка Docker Registry
 `CreateInstance` | Создание инстанса
 `CreateInstanceBackup` | Создание резервной копии инстанса
-`CreateRunner` | Создание GitLab Runner
+`CreateRunner` | Создание {{ GLR }}
 `DeleteInstance` | Удаление инстанса
-`DeleteRunner` | Удаление GitLab Runner
+`DeleteRunner` | Удаление {{ GLR }}
 `FinishMigration` | Завершение процесса миграции инстанса в другую зону доступности
 `PrepareBackupUpload` | Подготовка к восстановлению из резервной копии
-`ReconfigureGitlab` | Изменение конфигурации GitLab
+`ReconfigureGitlab` | Изменение конфигурации {{ GL }}
 `RescheduleMaintenance` | Перенос запланированного технического обслуживания
 `ResizeInstance` | Изменение размера инстанса
 `RollbackMigration` | Отмена процесса миграции инстанса в другую зону доступности
 `ScheduleUpgrade` | Назначение времени обновления инстанса
 `StartInstance` | Запуск инстанса
 `StartMigration` | Запуск процесса миграции инстанса в другую зону доступности
-`StartRunner` | Запуск GitLab Runner
+`StartRunner` | Запуск {{ GLR }}
 `StopInstance` | Остановка инстанса
-`StopRunner` | Остановка GitLab Runner
+`StopRunner` | Остановка {{ GLR }}
 `UpdateInstance` | Изменение инстанса
 `UpdateOmniauthInstance` | Изменение настроек OmniAuth
-`UpdateRunner` | Изменение GitLab Runner
+`UpdateRunner` | Изменение {{ GLR }}
 `UpgradeInstance` | Обновление версии GitLab

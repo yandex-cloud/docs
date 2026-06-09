@@ -1,19 +1,19 @@
 # Расширение x-yc-apigateway-integration:object_storage
 
-Расширение `x-yc-apigateway-integration:object_storage` передает управление обработки запроса в Object Storage с целью раздачи статических файлов.
+Расширение `x-yc-apigateway-integration:object_storage` передает управление обработки запроса в {{ objstorage-short-name }} с целью раздачи статических файлов.
 
 Добавить расширение в спецификацию можно с помощью [конструктора спецификаций](../../operations/spec-constructor/index.md).
 
 ## Поддерживаемые параметры {#parameters}
 
-В таблице ниже перечислены параметры, специфичные для API-шлюза сервиса API Gateway. Описание остальных параметров читайте в [спецификации OpenAPI 3.0](https://github.com/OAI/OpenAPI-Specification).
+В таблице ниже перечислены параметры, специфичные для API-шлюза сервиса {{ api-gw-short-name }}. Описание остальных параметров читайте в [спецификации OpenAPI 3.0](https://github.com/OAI/OpenAPI-Specification).
 
 Параметр | Тип | Описание 
 ----|----|----
 `bucket` | `string` | Имя [бакета](../../../storage/concepts/bucket.md).
 `object` | `string` | Имя [объекта](../../../storage/concepts/object.md). Поддерживается шаблонизация параметрами из пути исходного запроса. <br>В `object` осуществляется подстановка параметров.
 `error_object` | `string \| ErrorObjectSettings` | Необязательный параметр. Имя [объекта](../../../storage/concepts/object.md) и опциональный код ответа, которые возвращаются, если `object` не существует в указанном `bucket`. В `error_object` осуществляется подстановка параметров.
-`service_account_id` | `string` | Идентификатор сервисного аккаунта для авторизации при обращении к Object Storage. Если параметр не указан, используется значение [верхнеуровневого](index.md#top-level) параметра `service_account_id`. Если верхнеуровневого параметра тоже нет, объект доступен без авторизации.
+`service_account_id` | `string` | Идентификатор сервисного аккаунта для авторизации при обращении к {{ objstorage-short-name }}. Если параметр не указан, используется значение [верхнеуровневого](index.md#top-level) параметра `service_account_id`. Если верхнеуровневого параметра тоже нет, объект доступен без авторизации.
 
 Объект `ErrorObjectSettings` может содержать следующие параметры:
 
@@ -47,6 +47,6 @@
 
 ## Примеры использования {#examples}
 
-* [Развертывание веб-приложения с использованием Java Servlet API](../../tutorials/java-servlet-todo-list.md)
-* [Сокращатель ссылок](../../tutorials/serverless-url-shortener/index.md)
-* [Как создать бота в Telegram](../../tutorials/telegram-bot-serverless.md)
+* [{#T}](../../tutorials/java-servlet-todo-list.md)
+* [{#T}](../../tutorials/serverless-url-shortener/index.md)
+* [{#T}](../../tutorials/telegram-bot-serverless/index.md)

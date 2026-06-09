@@ -38,9 +38,6 @@ Set the custom configuration file. ||
 Enable gRPC retries. By default, retries are enabled with maximum 5 attempts.
 Pass 0 to disable retries. Pass any negative value for infinite retries.
 Even infinite retries are capped with 2 minutes timeout. ||
-|| `--syntax` | `string`
-
-CLI syntax: 1 (legacy) or 2 (current). Omit to use default-syntax in the profile or the product default. ||
 || `--cloud-id` | `string`
 
 Set the ID of the cloud to use. ||
@@ -68,17 +65,3 @@ Set the output format: text (default), yaml, json, json-rest. ||
 Query to select values from the response using jq syntax ||
 || `-h`, `--help` | Display help for the command. ||
 |#
-#### Examples
-
- * [Добавьте локальных пользователей](../../../../../../organization/operations/add-account.md#cli_2)
- * [Удалить локального пользователя](../../../../../../organization/operations/edit-account.md#cli_1)
- * [Активировать локального пользователя](../../../../../../organization/operations/user-pools/activate-user.md#cli_2)
- * [Создать пул пользователей](../../../../../../organization/operations/user-pools/create-userpool.md#tf_1)
- * [Деактивировать локального пользователя](../../../../../../organization/operations/user-pools/deactivate-user.md#cli_2)
- * [Удалить пул пользователей](../../../../../../organization/operations/user-pools/delete-userpool.md#tf_1)
- * [Изменить данные пользователя](../../../../../../organization/operations/user-pools/edit-user.md#cli_1)
- * [Получить список пулов пользователей](../../../../../../organization/operations/user-pools/get-list-userpools.md#cli_1)
- * [Сбросить пароль](../../../../../../organization/operations/user-pools/reset-user-password.md#cli_1)
- * [Настроить доступ пользователям пула](../../../../../../organization/operations/user-pools/set-access-bindings-userpool.md#cli_1)
- * [Настроить парольную политику](../../../../../../organization/operations/user-pools/set-password-policy.md#cli_1)
- * [Локальные пользователи](../../../../../../organization/operations/users-get.md#cli_2)

@@ -5,7 +5,7 @@ Creates a Trino Cluster resource.
 ## HTTP request
 
 ```
-POST https://trino.api.cloud.yandex.net/managed-trino/v1/clusters
+POST https://trino.{{ api-host }}/managed-trino/v1/clusters
 ```
 
 ## Body parameters {#yandex.cloud.trino.v1.CreateClusterRequest}

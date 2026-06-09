@@ -2484,9 +2484,7 @@ Includes only one of the fields `leMatch`, `geMatch`, `eqMatch`, `neMatch`. ||
 - `ALLOW`
 - `DENY`
 - `CAPTCHA` ||
-|| discardAllowPercentage | **string** (int64)
-
-Acceptable values are 0 to 100, inclusive. ||
+|| discardAllowPercentage | **string** (int64) ||
 || outputs[] | **enum** (Output)
 
 - `CLOUD_LOGGING`

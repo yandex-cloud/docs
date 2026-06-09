@@ -56,7 +56,7 @@ Yandex Cloud Billing позволяет получать информацию о
 
  - [Принять коммерческие предложения](operations/get-offers.md)
 
-### Анализ использования сервисов Yandex Cloud
+### Анализ использования сервисов {{ yandex-cloud }}
 
  - [Посмотреть историю платежей](operations/check-bill-history.md)
 
@@ -66,13 +66,13 @@ Yandex Cloud Billing позволяет получать информацию о
 
  - [Посмотреть детализацию в консоли](operations/check-charges.md)
 
- - [Посмотреть детализацию в Yandex DataLens](operations/dashboard.md)
+ - [Посмотреть детализацию в {{ datalens-full-name }}](operations/dashboard.md)
 
  - [Экспортировать расширенную детализацию](operations/get-folder-report.md)
 
  - [Получить детализацию через API](operations/get-charges-via-api.md)
 
- - [Поиск в детализации с помощью Yandex Query](operations/query-integration.md)
+ - [Поиск в детализации с помощью {{ yq-full-name }}](operations/query-integration.md)
 
 ## Концепции
 
@@ -158,7 +158,7 @@ Yandex Cloud Billing позволяет получать информацию о
 
  - [Создание триггеров, которые вызывают функции для остановки ВМ и отправки уведомлений в Telegram](tutorials/serverless-trigger-budget-queue-vm-tg.md)
 
- - [Анализ поресурсной детализации расходов с помощью Object Storage](tutorials/billing-resource-detailing.md)
+ - [Анализ поресурсной детализации расходов с помощью {{ objstorage-name }}](tutorials/billing-resource-detailing.md)
 
  - [Управление доступом](security/index.md)
 
@@ -182,7 +182,7 @@ Yandex Cloud Billing позволяет получать информацию о
 
  - [Вопросы по работе с нерезидентами](qa/non-resident.md)
 
- - [Справочник Terraform](tf-ref.md)
+ - [Справочник {{ TF }}](tf-ref.md)
 
 ## Справочник API
 
@@ -366,4 +366,6 @@ Yandex Cloud Billing позволяет получать информацию о
 
  - [List](api-ref/Sku/list.md)
 
- - [Аудитные логи Audit Trails](at-ref.md)
+ - [Аудитные логи {{ at-name }}](at-ref.md)
+
+ - [История изменений](release-notes.md)

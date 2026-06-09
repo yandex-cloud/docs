@@ -117,16 +117,16 @@ WAF могут быть аппаратными, программными и об
 
 * улучшение точности анализа, направленное на снижение количества ложных срабатываний.
 
-## Продукты WAF от Yandex Cloud {#waf-yc}
+## Продукты WAF от {{ yandex-cloud }} {#waf-yc}
 
-Yandex Cloud предлагает пять продуктов для защиты ваших веб-приложений:
+{{ yandex-cloud }} предлагает пять продуктов для защиты ваших веб-приложений:
 
-1. [WAF в Yandex Smart Web Security](https://yandex.cloud/ru/services/smartwebsecurity/) — межсетевой экран, предоставляющий набор базовых правил [OWASP Core Rule Set](https://coreruleset.org/) для защиты веб-приложений. Подробнее см. в [документации](../smartwebsecurity/concepts/waf.md).
+1. [WAF в {{ sws-full-name }}](https://yandex.cloud/ru/services/smartwebsecurity/) — межсетевой экран, предоставляющий набор базовых правил [OWASP Core Rule Set](https://coreruleset.org/) для защиты веб-приложений. Подробнее в [документации](../smartwebsecurity/concepts/waf.md).
 1. [Вебмониторэкс API Security](https://yandex.cloud/ru/marketplace/products/webmonitorx/node) — решение для защиты веб‑приложений и API от хакерских атак и автоматического поиска уязвимостей.
-1. [SolidWall WAF](https://yandex.cloud/ru/marketplace/products/solidsoft/solidwall-waf) — самый мощный файрвол от Yandex Cloud, который контролирует процесс работы приложений и выявляет уязвимости бизнес-логики.
+1. [SolidWall WAF](https://yandex.cloud/ru/marketplace/products/solidsoft/solidwall-waf) — самый мощный файрвол от {{ yandex-cloud }}, который контролирует процесс работы приложений и выявляет уязвимости бизнес-логики.
 1. [Nemesida AI MLC](../smartwebsecurity/concepts/index.md) — ВМ для построения поведенческих моделей и выявления прочих аномалий.
 1. [Nemesida WAF WEB](../smartwebsecurity/concepts/waf.md) — ВМ для настройки взаимодействия компонентов между собой, визуализации информации об атаках и управления обучением модуля Nemesida AI.
 
-Образы виртуальных машин можно использовать самостоятельно либо воспользоваться услугой [Managed WAF](../security/standard/app-security.md#use-waf) от Yandex Cloud.
+Образы виртуальных машин можно использовать самостоятельно либо воспользоваться услугой [Managed WAF](../security/standard/app-security.md#use-waf) от {{ yandex-cloud }}.
 
-Подробнее о том, какой продукт выбрать для защиты, читайте в статье [Защита от DDoS-атак и WAF в Yandex Cloud](https://yandex.cloud/ru/solutions/anti-ddos).
+Подробнее о том, какой продукт выбрать для защиты, читайте в статье [Защита от DDoS-атак и WAF в {{ yandex-cloud }}](https://yandex.cloud/ru/solutions/anti-ddos).

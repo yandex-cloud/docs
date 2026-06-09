@@ -1,15 +1,15 @@
-# Как отслеживать процесс чтения топиков в Managed Service for Apache Kafka®
+# Как отслеживать процесс чтения топиков в {{ mkf-name }}
 
 
 ## Описание сценария {#case-description}
 
-Необходимо отследить процесс чтения топиков в Managed Service for Apache Kafka®
+Необходимо отследить процесс чтения топиков в {{ mkf-name }}
 
 ## Решение {#case-resolution}
 
 Чтобы отслеживать процесс чтения топиков, используйте один из следующих способов:
 
-- Просмотрите график [метрики](../../../managed-kafka/metrics.md) `kafka_group_topic_partition_lag` в Yandex Monitoring.
+- Просмотрите график [метрики](../../../managed-kafka/metrics.md) `kafka_group_topic_partition_lag` в {{ monitoring-full-name }}.
 - Используйте инструмент командной строки `kafka-consumer-groups` — он поставляется вместе с дистрибутивом Kafka. 
   Пример команды:
   ```

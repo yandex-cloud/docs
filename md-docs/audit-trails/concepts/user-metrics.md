@@ -1,10 +1,10 @@
-# Справочник метрик Yandex Monitoring
+# Справочник метрик {{ monitoring-full-name }}
 
-В этом разделе описаны метрики сервиса Audit Trails, поставляемые в [Monitoring](../../monitoring/index.md).
+В этом разделе описаны метрики сервиса {{ at-name }}, поставляемые в [{{ monitoring-name }}](../../monitoring/index.md).
 
 Имя метрики пишется в метку `name`.
 
-Общие метки для всех метрик Audit Trails:
+Общие метки для всех метрик {{ at-name }}:
 
 | Метка | Значение |
 | --- | --- |
@@ -28,4 +28,4 @@ destination_type | [Объект назначения](trail.md#target) |
 
 ## Что дальше {#whats-next}
 
-* Ознакомьтесь со сценариями [настройки алертов](../tutorials/alerts-monitoring.md) Audit Trails в Monitoring.
+* Ознакомьтесь со сценариями [настройки алертов](../tutorials/alerts-monitoring.md) {{ at-name }} в {{ monitoring-name }}.

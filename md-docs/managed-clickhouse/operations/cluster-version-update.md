@@ -1,6 +1,6 @@
-# Обновление версии ClickHouse®
+# Обновление версии {{ CH }}
 
-Вы можете изменить версию ClickHouse®, которую использует кластер, на любую из [поддерживаемых Managed Service for ClickHouse® версий](../concepts/update-policy.md#versioning-policy).
+Вы можете изменить версию {{ CH }}, которую использует кластер, на любую из [поддерживаемых {{ mch-name }} версий](../concepts/update-policy.md#versioning-policy).
 
 Об обновлениях в рамках одной версии и обслуживании хостов см. в разделе [Техническое обслуживание](../concepts/maintenance.md).
 
@@ -10,11 +10,11 @@
 
 - Консоль управления {#console}
 
-    В [консоли управления](https://console.yandex.cloud) откройте страницу [создания](cluster-create.md) или [изменения кластера](update.md) Managed Service for ClickHouse®. Список доступен в поле **Версия**.
+    В [консоли управления]({{ link-console-main }}) откройте страницу [создания](cluster-create.md) или [изменения кластера](update.md) {{ mch-name }}. Список доступен в поле **{{ ui-key.yacloud.mdb.forms.base_field_version }}**.
 
 - CLI {#cli}
 
-    Если у вас еще нет интерфейса командной строки Yandex Cloud (CLI), [установите и инициализируйте его](../../cli/quickstart.md#install).
+    Если у вас еще нет интерфейса командной строки {{ yandex-cloud }} (CLI), [установите и инициализируйте его](../../cli/quickstart.md#install).
 
     По умолчанию используется каталог, указанный при [создании](../../cli/operations/profile/profile-create.md) профиля CLI. Чтобы изменить каталог по умолчанию, используйте команду `yc config set folder-id <идентификатор_каталога>`. Также для любой команды вы можете указать другой каталог с помощью параметров `--folder-name` или `--folder-id`. Если вы обращаетесь к ресурсу по имени, поиск будет выполнен в каталоге по умолчанию. Если вы обращаетесь к ресурсу по идентификатору, поиск будет выполнен глобально — во всех каталогах с учетом прав доступа.
 
@@ -32,13 +32,13 @@
         export IAM_TOKEN="<IAM-токен>"
         ```
 
-    1. Воспользуйтесь методом [Versions.List](../api-ref/Versions/list.md) и выполните запрос, например, с помощью [cURL](https://curl.se/):
+    1. Воспользуйтесь методом [Versions.List](../api-ref/Versions/list.md) и выполните запрос, например, с помощью {{ api-examples.rest.tool }}:
 
         ```bash
         curl \
             --request GET \
             --header "Authorization: Bearer $IAM_TOKEN" \
-            --url 'https://mdb.api.cloud.yandex.net/managed-clickhouse/v1/versions'
+            --url 'https://{{ api-host-mdb }}/managed-clickhouse/v1/versions'
         ```
 
     1. Убедитесь, что запрос был выполнен успешно, изучив [ответ сервера](../api-ref/Versions/list.md#responses).
@@ -59,7 +59,7 @@
        
        Далее предполагается, что содержимое репозитория находится в директории `~/cloudapi/`.
 
-    1. Воспользуйтесь вызовом [VersionsService.List](../api-ref/grpc/Versions/list.md) и выполните запрос, например, с помощью [gRPCurl](https://github.com/fullstorydev/grpcurl):
+    1. Воспользуйтесь вызовом [VersionsService.List](../api-ref/grpc/Versions/list.md) и выполните запрос, например, с помощью {{ api-examples.grpc.tool }}:
 
         ```bash
         grpcurl \
@@ -68,7 +68,7 @@
             -import-path ~/cloudapi/third_party/googleapis/ \
             -proto ~/cloudapi/yandex/cloud/mdb/clickhouse/v1/versions_service.proto \
             -rpc-header "Authorization: Bearer $IAM_TOKEN" \
-            mdb.api.cloud.yandex.net:443 \
+            {{ api-host-mdb }}:{{ port-https }} \
             yandex.cloud.mdb.clickhouse.v1.VersionsService.List
         ```
 
@@ -80,7 +80,7 @@
 
 Убедитесь, что это не нарушит работу ваших приложений:
 
-1. Посмотрите в [истории изменений](https://clickhouse.com/docs/category/changelog) ClickHouse®, как обновления могут повлиять на работу ваших приложений.
+1. Посмотрите в [истории изменений]({{ ch.docs }}{{ lang }}/category/changelog) {{ CH }}, как обновления могут повлиять на работу ваших приложений.
 1. Попробуйте обновить версию на тестовом кластере. Его можно развернуть из резервной копии основного кластера. В этом случае восстановятся только таблицы на движке MergeTree.
 1. [Создайте резервную копию](cluster-backups.md) основного кластера непосредственно перед обновлением версии.
 
@@ -90,25 +90,25 @@
 
 - Консоль управления {#console}
 
-    1. В [консоли управления](https://console.yandex.cloud) выберите каталог, где нужно обновить версию ClickHouse®.
-    1. [Перейдите](../../console/operations/select-service.md#select-service) в сервис **Managed Service for&nbsp;ClickHouse** 
+    1. В [консоли управления]({{ link-console-main }}) выберите каталог, где нужно обновить версию {{ CH }}.
+    1. Перейдите в сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-clickhouse }}** 
     1. В списке кластеров выберите тот, который нужно изменить.
-    1. Нажмите кнопку **Редактировать**.
-    1. В блоке **Базовые параметры** в поле **Версия** выберите нужную версию.
-    1. Нажмите кнопку **Сохранить изменения**.
+    1. Нажмите кнопку **{{ ui-key.yacloud.mdb.clusters.button_action-edit }}**.
+    1. В блоке **{{ ui-key.yacloud.mdb.forms.section_base }}** в поле **{{ ui-key.yacloud.mdb.forms.base_field_version }}** выберите нужную версию.
+    1. Нажмите кнопку **{{ ui-key.yacloud.mdb.forms.button_edit }}**.
 
     После того как изменение версии запущено, кластер переходит в статус **UPDATING**. Дождитесь окончания операции и проверьте версию кластера.
 
 - CLI {#cli}
 
-    Если у вас еще нет интерфейса командной строки Yandex Cloud (CLI), [установите и инициализируйте его](../../cli/quickstart.md#install).
+    Если у вас еще нет интерфейса командной строки {{ yandex-cloud }} (CLI), [установите и инициализируйте его](../../cli/quickstart.md#install).
 
     По умолчанию используется каталог, указанный при [создании](../../cli/operations/profile/profile-create.md) профиля CLI. Чтобы изменить каталог по умолчанию, используйте команду `yc config set folder-id <идентификатор_каталога>`. Также для любой команды вы можете указать другой каталог с помощью параметров `--folder-name` или `--folder-id`. Если вы обращаетесь к ресурсу по имени, поиск будет выполнен в каталоге по умолчанию. Если вы обращаетесь к ресурсу по идентификатору, поиск будет выполнен глобально — во всех каталогах с учетом прав доступа.
 
-    1. Получите список ваших кластеров ClickHouse® и посмотрите их версии:
+    1. Получите список ваших кластеров {{ CH }} и посмотрите их версии:
 
         ```bash
-        yc managed-clickhouse cluster list
+        {{ yc-mdb-ch }} cluster list
 
         +----------------------+------+-------------+---------+---------------------+--------+---------+
         |          ID          | NAME | ENVIRONMENT | VERSION |     CREATED AT      | HEALTH | STATUS  |
@@ -117,44 +117,44 @@
         +----------------------+------+-------------+---------+---------------------+--------+---------+
         ```
 
-    1. Обновите версию ClickHouse® для нужного кластера:
+    1. Обновите версию {{ CH }} для нужного кластера:
 
         ```bash
-        yc managed-clickhouse cluster update --id <идентификатор_кластера> --version <версия_ClickHouse®>
+        {{ yc-mdb-ch }} cluster update --id <идентификатор_кластера> --version <версия_{{ CH }}>
         ```
 
-        Укажите версию ClickHouse®: 24.8, 25.3, 25.8, 25.9 или 25.10.
+        Укажите версию {{ CH }}: {{ versions.cli.str }}.
 
     После того как обновление запущено, кластер переходит в статус **UPDATING**. Дождитесь окончания операции и затем проверьте версию кластера.
 
 
-- Terraform {#tf}
+- {{ TF }} {#tf}
 
-    1. Откройте актуальный конфигурационный файл Terraform с планом инфраструктуры.
+    1. Откройте актуальный конфигурационный файл {{ TF }} с планом инфраструктуры.
 
         О том, как создать такой файл, см. в разделе [Создание кластера](cluster-create.md).
 
-    1. Добавьте к описанию кластера Managed Service for ClickHouse® поле `version` или измените его значение, если оно уже существует:
+    1. Добавьте к описанию кластера {{ mch-name }} поле `version` или измените его значение, если оно уже существует:
 
         ```hcl
         resource "yandex_mdb_clickhouse_cluster_v2" "<имя_кластера>" {
           ...
-          version = "<версия_ClickHouse®>"
+          version = "<версия_{{ CH }}>"
         }
         ```
 
-        Укажите версию ClickHouse®: 24.8, 25.3, 25.8, 25.9 или 25.10.
+        Укажите версию {{ CH }}: {{ versions.tf.str }}.
 
     1. Проверьте корректность настроек.
 
-        1. В командной строке перейдите в каталог, в котором расположены актуальные конфигурационные файлы Terraform с планом инфраструктуры.
+        1. В командной строке перейдите в каталог, в котором расположены актуальные конфигурационные файлы {{ TF }} с планом инфраструктуры.
         1. Выполните команду:
         
            ```bash
            terraform validate
            ```
         
-           Если в файлах конфигурации есть ошибки, Terraform на них укажет.
+           Если в файлах конфигурации есть ошибки, {{ TF }} на них укажет.
 
     1. Подтвердите изменение ресурсов.
 
@@ -176,11 +176,11 @@
            1. Подтвердите изменение ресурсов.
            1. Дождитесь завершения операции.
 
-    Подробнее см. в [документации провайдера Terraform](../../terraform/resources/mdb_clickhouse_cluster.md).
+    Подробнее см. в [документации провайдера {{ TF }}]({{ tf-provider-resources-link }}/mdb_clickhouse_cluster).
 
     {% note warning "Ограничения по времени" %}
     
-    Провайдер Terraform ограничивает время на выполнение операций с кластером Managed Service for ClickHouse®:
+    Провайдер {{ TF }} ограничивает время на выполнение операций с кластером {{ mch-name }}:
     
     * создание, в т. ч. путем восстановления из резервной копии, — 60 минут;
     * изменение — 90 минут;
@@ -216,7 +216,7 @@
         export IAM_TOKEN="<IAM-токен>"
         ```
 
-    1. Воспользуйтесь методом [Cluster.Update](../api-ref/Cluster/update.md) и выполните запрос, например, с помощью [cURL](https://curl.se/):
+    1. Воспользуйтесь методом [Cluster.Update](../api-ref/Cluster/update.md) и выполните запрос, например, с помощью {{ api-examples.rest.tool }}:
 
         {% note warning %}
         
@@ -229,11 +229,11 @@
             --request PATCH \
             --header "Authorization: Bearer $IAM_TOKEN" \
             --header "Content-Type: application/json" \
-            --url 'https://mdb.api.cloud.yandex.net/managed-clickhouse/v1/clusters/<идентификатор_кластера>' \
+            --url 'https://{{ api-host-mdb }}/managed-clickhouse/v1/clusters/<идентификатор_кластера>' \
             --data '{
                       "updateMask": "configSpec.version",
                       "configSpec": {
-                        "version": "<версия_ClickHouse®>"
+                        "version": "<версия_{{ CH }}>"
                       }
                     }'
         ```
@@ -244,7 +244,7 @@
 
             В данном случае указан только один параметр: `configSpec.version`.
 
-        * `configSpec.version` — версия ClickHouse®, до которой нужно обновиться: 24.8, 25.3, 25.8, 25.9 или 25.10.
+        * `configSpec.version` — версия {{ CH }}, до которой нужно обновиться: {{ versions.api.str }}.
 
         Идентификатор кластера можно запросить со [списком кластеров в каталоге](cluster-list.md#list-clusters).
 
@@ -266,7 +266,7 @@
        
        Далее предполагается, что содержимое репозитория находится в директории `~/cloudapi/`.
 
-    1. Воспользуйтесь вызовом [ClusterService.Update](../api-ref/grpc/Cluster/update.md) и выполните запрос, например, с помощью [gRPCurl](https://github.com/fullstorydev/grpcurl):
+    1. Воспользуйтесь вызовом [ClusterService.Update](../api-ref/grpc/Cluster/update.md) и выполните запрос, например, с помощью {{ api-examples.grpc.tool }}:
 
         {% note warning %}
         
@@ -304,10 +304,10 @@
                     ]
                   },
                   "config_spec": {
-                    "version": "<версия_ClickHouse®>"
+                    "version": "<версия_{{ CH }}>"
                   }
                 }' \
-            mdb.api.cloud.yandex.net:443 \
+            {{ api-host-mdb }}:{{ port-https }} \
             yandex.cloud.mdb.clickhouse.v1.ClusterService.Update
         ```
 
@@ -317,7 +317,7 @@
 
             В данном случае указан только один параметр: `config_spec.version`.
 
-        * `config_spec.version` — версия ClickHouse®, до которой нужно обновиться: 24.8, 25.3, 25.8, 25.9 или 25.10.
+        * `config_spec.version` — версия {{ CH }}, до которой нужно обновиться: {{ versions.api.str }}.
 
         Идентификатор кластера можно запросить со [списком кластеров в каталоге](cluster-list.md#list-clusters).
 
@@ -325,4 +325,4 @@
 
 {% endlist %}
 
-_ClickHouse® является зарегистрированным товарным знаком [ClickHouse, Inc](https://clickhouse.com)._
+_{{ CH }} является зарегистрированным товарным знаком [ClickHouse, Inc](https://clickhouse.com)._

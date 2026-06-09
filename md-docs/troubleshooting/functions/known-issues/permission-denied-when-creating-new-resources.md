@@ -2,7 +2,7 @@
 
 ## Описание проблемы {#description}
 
-При попытке создания или изменения ресурсов Cloud Functions, Serverless Containers или API Gateway в консоли управления отображается ошибка `403 Permission denied` или `Authentication problem: permission denied`.
+При попытке создания или изменения ресурсов {{ sf-name }}, {{ serverless-containers-name }} или {{ api-gw-name }} в консоли управления отображается ошибка `403 Permission denied` или `Authentication problem: permission denied`.
 
 {% cut "Примеры ошибок" %}
 ```
@@ -33,7 +33,7 @@ Request ID: cd51f2c8-27f3-4286-8103-b0da7d94a44f; Trace ID: 8a71598e50cd73e3;
 
 Чтобы исправить это, назначьте сервисному аккаунту недостающие роли, например:
 * Для вызова функции — роль `functions.functionInvoker`.
-* Для записи в бакет Object Storage — роль `storage.uploader`.
+* Для записи в бакет {{ objstorage-short-name }} — роль `storage.uploader`.
 
 Полный список необходимых ролей зависит от настроек ресурса.
 

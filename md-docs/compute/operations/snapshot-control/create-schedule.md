@@ -9,43 +9,48 @@
 
 - Консоль управления {#console}
 
-  1. В [консоли управления](https://console.yandex.cloud) выберите [каталог](../../../resource-manager/concepts/resources-hierarchy.md#folder), в котором находится [диск](../../concepts/disk.md).
-  1. [Перейдите](../../../console/operations/select-service.md#select-service) в сервис **Compute Cloud**.
-  1. На панели слева выберите ![image](../../../_assets/console-icons/picture.svg) **Снимки дисков**.
-  1. На вкладке **Расписания снимков** нажмите кнопку **Создать**.
-  1. Задайте параметры расписания снимков:
+  1. В [консоли управления]({{ link-console-main }}) выберите [каталог](../../../resource-manager/concepts/resources-hierarchy.md#folder), в котором находится [диск](../../concepts/disk.md).
+  1. Перейдите в сервис **{{ compute-name }}**.
+  1. На панели слева выберите ![image](../../../_assets/console-icons/picture.svg) **{{ ui-key.yacloud.compute.snapshots_81jHX }}**.
+  1. На вкладке **{{ ui-key.yacloud.compute.snapshots-schedules.label_title }}** нажмите **{{ ui-key.yacloud.compute.snapshots-schedules.button_create-snapshot-schedule }}**.
+  1. В блоке **{{ ui-key.yacloud.compute.components.ScheduleSection.section_schedule_ro4p7 }}**:
+     * Задайте параметры расписания:
+     
+         * `{{ ui-key.yacloud.compute.components.ScheduleSection.label_daily_o3t6f }}` — укажите частоту и время запуска.
+         * `{{ ui-key.yacloud.compute.components.ScheduleSection.label_weekly_pB4YE }}` — укажите дни и время запуска.
+         * `{{ ui-key.yacloud.compute.components.ScheduleSection.label_monthly_dJYSn }}` — укажите частоту или месяцы и время запуска.
+         * `{{ ui-key.yacloud.compute.components.ScheduleSection.label_cron_kZwc5 }}` — укажите [cron-выражение](../../concepts/snapshot-schedule.md#cron).
+     
+     * В поле **{{ ui-key.yacloud.compute.components.ScheduleSection.label_start-date_pbnDp }}** укажите дату, начиная с которой будет работать расписание.
+  1. В блоке **{{ ui-key.yacloud.compute.components.SnapshotScheduleFormContent.section_storage-settings_wG5uP }}** выберите политику хранения снимков:
+     * **{{ ui-key.yacloud.compute.components.SnapshotScheduleFormContent.label_empty-retention-policy_voaWW }}** — будут храниться все снимки, созданные по этому расписанию.
+     * **{{ ui-key.yacloud.compute.snapshot-schedule-form-next.active-retention-policy-field.message_store-last-begin_few }}** — укажите количество последних снимков, которые нужно хранить, или количество дней, за которые нужно хранить снимки. Остальные снимки, созданные по этому расписанию, будут удаляться автоматически.
+     
+     {% note info %}
+     
+     На количество и суммарный объем снимков в облаке действуют [квоты](../../concepts/limits.md#compute-quotas).
+     
+     {% endnote %}
+  1. (Опционально) В блоке **{{ ui-key.yacloud.compute.components.SnapshotScheduleFormContent.section_general-info_bN9QE }}**:
      * Введите имя расписания в формате:
+     
+         * длина — от 3 до 63 символов;
+         * может содержать строчные буквы латинского алфавита, цифры и дефисы;
+         * первый символ — буква, последний — не дефис.
+     
+     * Укажите описание расписания.
+     * Добавьте [метки](../../../overview/concepts/services.md#labels) расписания.
+  1. (Опционально) В блоке **{{ ui-key.yacloud.compute.components.SnapshotScheduleFormContent.section_snapshot-settings }}** для снимков, которые будут созданы по этому расписанию:
+     * Укажите описание.
+     * Добавьте метки.
+  1. Нажмите **{{ ui-key.yacloud.common.create }}**.
+      Дождитесь создания расписания.
 
-       * длина — от 3 до 63 символов;
-       * может содержать строчные буквы латинского алфавита, цифры и дефисы;
-       * первый символ — буква, последний — не дефис.
-
-     * Если требуется, укажите произвольное текстовое описание расписания.
-     * Выберите диски, снимки которых нужно создавать по расписанию. В одно расписание можно добавить несколько дисков, а один диск можно добавить в несколько расписаний в пределах [лимитов](../../concepts/limits.md#compute-limits-snapshot-schedule).
-
-       Создавать можно снимки сетевых [дисков](../../concepts/disk.md#disks_types) HDD, SSD и нереплицируемых SSD, а также сверхбыстрых сетевых хранилищ с тремя репликами (SSD).
-       
-       Для нереплицируемых SSD и сверхбыстрых сетевых хранилищ с тремя репликами (SSD) момент времени, когда фиксируется содержимое диска, не детерминирован.
-       
-       Для снимков с локальных дисков на [выделенных хостах](../../concepts/dedicated-host.md) используйте сервис [Yandex Cloud Backup](../../../backup/index.md) (поддерживает ОС Ubuntu, CentOS, CentOS Stream и Windows Server).
-
-     * В поле **Создавать снимки** выберите периодичность создания снимков: `По часам`, `По дням`, `По неделям` [или `По cron-выражению`](../../concepts/snapshot-schedule.md#cron). Время создания снимка указывается в часовом поясе [UTC±00:00](https://ru.wikipedia.org/wiki/UTC±00:00).
-     * В поле **Начиная с** укажите дату, начиная с которой будет работать расписание.
-     * Выберите политику хранения снимков:
-       * **Хранить все снимки** — будут храниться все снимки, созданные по этому расписанию.
-       * **Только последние** — укажите количество последних снимков, которые нужно хранить, или количество дней, снимки за которые нужно хранить. Остальные снимки, созданные по этому расписанию, будут удаляться автоматически.
-
-       {% note info %}
-
-       На количество и суммарный объем снимков в облаке действуют [квоты](../../concepts/limits.md#compute-quotas).
-
-       {% endnote %}
-
-  1. Нажмите кнопку **Создать**.
+  1. На открывшейся странице в блоке **{{ ui-key.yacloud.compute.snapshots-schedules.title_snapshot-schedule-disks }}** нажмите **{{ ui-key.yacloud.compute.snapshots-schedules.action_attach-disk }}**. В открывшемся окне выберите диск, который нужно добавить к расписанию, и нажмите **{{ ui-key.yacloud.common.save }}**.
 
 - CLI {#cli}
 
-  Если у вас еще нет интерфейса командной строки Yandex Cloud (CLI), [установите и инициализируйте его](../../../cli/quickstart.md#install).
+  Если у вас еще нет интерфейса командной строки {{ yandex-cloud }} (CLI), [установите и инициализируйте его](../../../cli/quickstart.md#install).
 
   По умолчанию используется каталог, указанный при [создании](../../../cli/operations/profile/profile-create.md) профиля CLI. Чтобы изменить каталог по умолчанию, используйте команду `yc config set folder-id <идентификатор_каталога>`. Также для любой команды вы можете указать другой каталог с помощью параметров `--folder-name` или `--folder-id`. Если вы обращаетесь к ресурсу по имени, поиск будет выполнен в каталоге по умолчанию. Если вы обращаетесь к ресурсу по идентификатору, поиск будет выполнен глобально — во всех каталогах с учетом прав доступа.
 
@@ -56,28 +61,53 @@
      yc compute snapshot-schedule create --help
      ```
 
-  1. Создайте расписание с помощью [cron-выражения](../../concepts/snapshot-schedule.md#cron):
+  1. Создайте расписание:
 
      ```bash
      yc compute snapshot-schedule create <имя_расписания> \
-       --expression <cron-выражение>
+       --expression "<cron-выражение>" \
+       --start-at "<дата_и_время_начала>" \
+       --retention-period "<срок_хранения_снимков>" \
+       --description "<описание_расписания>" \
+       --labels "<метки_расписания>" \
+       --snapshot-description "<описание_снимка>" \
+       --snapshot-labels "<метки_снимка>"
+     ```
+
+     Где:
+     * `--expression` — [cron-выражение](../../concepts/snapshot-schedule.md#cron). Обязательный параметр.
+     * `--start-at` — дата и время начала расписания в формате [RFC3339](https://www.ietf.org/rfc/rfc3339.txt).
+     * `--retention-period` — срок хранения снимков. Указывается в формате длительности, например: `300ms`, `1.5h` или `2h45m`. Используйте либо `--retention-period`, либо `--snapshot-count`.
+     * `--snapshot-count` — максимальное количество снимков для каждого [диска](../../concepts/disk.md). Используйте либо `--snapshot-count`, либо `--retention-period`.
+     * `--description` — описание расписания.
+     * `--labels` — [метки](../../../overview/concepts/services.md#labels) расписания в формате `ключ=значение`.
+     * `--snapshot-description` — описание снимка.
+     * `--snapshot-labels` — метки снимка в формате `ключ=значение`.
+
+     Результат:
+
+     ```text
+     id: fd8uhc5qcinv********
+     folder_id: b1g681qpemb4********
+     created_at: "2026-05-25T21:03:22Z"
+     name: my-schedule
+     description: for my disks
+     status: ACTIVE
+     schedule_policy:
+       start_at: "2027-01-02T15:04:05Z"
+       expression: 30 0 * * *
+     retention_period: 3600s
+     snapshot_spec:
+       description: my snapshot
      ```
 
      {% note info %}
 
-     Время создания снимка указывается в часовом поясе [UTC±00:00](https://ru.wikipedia.org/wiki/UTC±00:00).
+     Время создания снимка указывается в часовом поясе [UTC±00:00](https://{{ lang }}.wikipedia.org/wiki/UTC±00:00).
 
      {% endnote %}
 
-     Если необходимо задать политику [хранения снимков](../../concepts/snapshot-schedule.md#retention), добавьте параметр `--snapshot-count` или `--retention-period`. Например:
-     * `--snapshot-count 5` — хранение последних 5 снимков.
-     * `--retention-period 72h` — хранение снимков за последние 3 дня.
-
-     Чтобы установить дату начала для расписания, используйте параметр `--start-at`. Например:
-     * `--start-at "2022-12-31T16:39:00+05:00"` — начало 31 декабря 2022 г. в 16:39 UTC+5.
-     * `--start-at "2h"` — начало два часа назад от текущего момента.
-
-     Подробнее о команде `yc compute snapshot-schedule create` см. в [справочнике CLI](../../../cli/cli-ref/compute/cli-ref/snapshot-schedule/create.md).
+     Подробнее о команде `yc compute snapshot-schedule create` в [справочнике CLI](../../../cli/cli-ref/compute/cli-ref/snapshot-schedule/create.md).
   1. Получите идентификаторы [дисков](../../concepts/disk.md), чтобы добавить их в расписание:
 
      ```bash
@@ -95,6 +125,12 @@
          - fhm1c7u23aiq********
        disk_placement_policy: {}
      ```
+
+     Создавать можно снимки сетевых [дисков](../../concepts/disk.md#disks_types) HDD, SSD и нереплицируемых SSD, а также сверхбыстрых сетевых хранилищ с тремя репликами (SSD).
+     
+     Для нереплицируемых SSD и сверхбыстрых сетевых хранилищ с тремя репликами (SSD) момент времени, когда фиксируется содержимое диска, не детерминирован.
+     
+     Для снимков с локальных дисков на [выделенных хостах](../../concepts/dedicated-host.md) используйте сервис [{{ backup-full-name }}](../../../backup/index.md) (поддерживает ОС Ubuntu, CentOS, CentOS Stream и Windows Server).
 
   1. Добавьте диски в расписание:
 
@@ -115,25 +151,32 @@
      snapshot_spec: {}
      ```
 
-- Terraform {#tf}
+- {{ TF }} {#tf}
 
-  Если у вас еще нет Terraform, [установите его и настройте провайдер Yandex Cloud](../../../tutorials/infrastructure-management/terraform-quickstart.md#install-terraform).
+  Если у вас еще нет {{ TF }}, [установите его и настройте провайдер {{ yandex-cloud }}](../../../tutorials/infrastructure-management/terraform-quickstart.md#install-terraform).
+  
+  
+  Чтобы управлять инфраструктурой с помощью {{ TF }} от имени сервисного аккаунта или пользовательских аккаунтов: аккаунта на Яндексе, федеративного аккаунта и локального пользователя, [аутентифицируйтесь](../../../terraform/authentication.md) соответствующим способом.
 
-  1. Опишите в конфигурационном файле Terraform параметры ресурса, который необходимо создать:
+  1. Опишите в конфигурационном файле {{ TF }} параметры ресурса, который необходимо создать:
 
      ```hcl
      resource "yandex_compute_snapshot_schedule" "default" {
-       name = "<название_расписания>"
-
        schedule_policy {
          expression = "<cron-выражение>"
+         start_at   = "<дата_и_время_начала>"
        }
 
-       snapshot_count = <количество_снимков_для_каждого_диска>
+       retention_period = "<срок_хранения_снимков>"
+       name             = "<название_расписания>"
+       description      = "<описание_расписания>"
+       labels           = {
+         <ключ_метки_расписания> = "<значение_метки_расписания>"
+       }
 
        snapshot_spec {
          description = "<описание_снимка>"
-         labels = {
+         labels      = {
            <ключ_метки_снимка> = "<значение_метки_снимка>"
          }
        }
@@ -143,15 +186,40 @@
      ```
 
      Где:
-     * `name` — название расписания. Обязательный параметр.
-     * `schedule_policy` — блок с параметрами расписания. Содержит поле `expression` с [cron-выражением](../../concepts/snapshot-schedule.md#cron). Обязательный параметр.
-     * `snapshot_count` — максимальное количество снимков для каждого [диска](../../concepts/disk.md). Необязательный параметр.
-     * `snapshot_spec` — блок с дополнительными параметрами снимка. Необязательный параметр. Может содержать поля:
-       * `description` — описание снимка.
-       * `labels` — [метка](../../../overview/concepts/services.md#labels) снимка в формате `<ключ> = "<значение>"`.
-     * `disk_ids`— идентификаторы дисков, для которых будут создаваться снимки. Обязательный параметр.
+     * `schedule_policy` — параметры расписания:
+       * `expression` — [cron-выражение](../../concepts/snapshot-schedule.md#cron). Обязательный параметр.
+       * `start_at` — дата и время в формате [RFC3339](https://www.ietf.org/rfc/rfc3339.txt), с которого будет работать расписание.
+     * `retention_period` — срок хранения снимков. Указывается в формате длительности, например: `"300ms"`, `"1.5h"` или `"2h45m"`. Остальные снимки, созданные по этому расписанию, будут удаляться автоматически. Используйте либо `retention_period`, либо `snapshot_count`.
+     * `snapshot_count` — максимальное количество снимков для каждого [диска](../../concepts/disk.md). Используйте либо `snapshot_count`, либо `retention_period`.
 
-     Более подробную информацию о параметрах ресурса `yandex_compute_snapshot_schedule` в Terraform, см. в [документации провайдера](../../../terraform/resources/compute_snapshot_schedule.md).
+        {% note info %}
+
+        На количество и суммарный объем снимков в облаке действуют [квоты](../../concepts/limits.md#compute-quotas).
+
+        {% endnote %}
+
+     * `name` — имя расписания в формате:
+
+        * длина — от 3 до 63 символов;
+        * может содержать строчные буквы латинского алфавита, цифры и дефисы;
+        * первый символ — буква, последний — не дефис.
+
+     * `description` — описание расписания.
+     * `labels` — [метки](../../../overview/concepts/services.md#labels) расписания в формате `<ключ> = "<значение>"`.
+     * `snapshot_spec` — параметры снимков, которые будут созданы по этому расписанию:
+        * `description` — описание снимка.
+        * `labels` — метки снимка в формате `<ключ> = "<значение>"`.
+
+     * `disk_ids` — идентификаторы дисков, для которых будут создаваться снимки.
+
+     Создавать можно снимки сетевых [дисков](../../concepts/disk.md#disks_types) HDD, SSD и нереплицируемых SSD, а также сверхбыстрых сетевых хранилищ с тремя репликами (SSD).
+     
+     Для нереплицируемых SSD и сверхбыстрых сетевых хранилищ с тремя репликами (SSD) момент времени, когда фиксируется содержимое диска, не детерминирован.
+     
+     Для снимков с локальных дисков на [выделенных хостах](../../concepts/dedicated-host.md) используйте сервис [{{ backup-full-name }}](../../../backup/index.md) (поддерживает ОС Ubuntu, CentOS, CentOS Stream и Windows Server).
+
+     Подробнее о параметрах ресурса `yandex_compute_snapshot_schedule` в [документации провайдера {{ TF }}]({{ tf-provider-resources-link }}/compute_snapshot_schedule).
+
   1. Создайте ресурсы:
 
      1. В терминале перейдите в директорию с конфигурационным файлом.
@@ -173,7 +241,7 @@
         terraform plan
         ```
      
-        В терминале будет выведен список ресурсов с параметрами. На этом этапе изменения не будут внесены. Если в конфигурации есть ошибки, Terraform на них укажет.
+        В терминале будет выведен список ресурсов с параметрами. На этом этапе изменения не будут внесены. Если в конфигурации есть ошибки, {{ TF }} на них укажет.
      1. Примените изменения конфигурации:
      
         ```bash
@@ -182,7 +250,7 @@
      
      1. Подтвердите изменения: введите в терминале слово `yes` и нажмите **Enter**.
 
-  После этого в указанном каталоге будет создано расписание. Проверить появление расписания и его настройки можно в [консоли управления](https://console.yandex.cloud) или с помощью команды [CLI](../../../cli/quickstart.md):
+  После этого в указанном каталоге будет создано расписание. Проверить появление расписания и его настройки можно в [консоли управления]({{ link-console-main }}) или с помощью команды [CLI](../../../cli/quickstart.md):
 
   ```bash
   yc compute snapshot-schedule get <имя_расписания>
@@ -196,7 +264,7 @@
      
      Для нереплицируемых SSD и сверхбыстрых сетевых хранилищ с тремя репликами (SSD) момент времени, когда фиксируется содержимое диска, не детерминирован.
      
-     Для снимков с локальных дисков на [выделенных хостах](../../concepts/dedicated-host.md) используйте сервис [Yandex Cloud Backup](../../../backup/index.md) (поддерживает ОС Ubuntu, CentOS, CentOS Stream и Windows Server).
+     Для снимков с локальных дисков на [выделенных хостах](../../concepts/dedicated-host.md) используйте сервис [{{ backup-full-name }}](../../../backup/index.md) (поддерживает ОС Ubuntu, CentOS, CentOS Stream и Windows Server).
 
   1. Создайте расписание снимков с помощью метода REST API [create](../../api-ref/SnapshotSchedule/create.md) для ресурса [SnapshotSchedule](../../api-ref/SnapshotSchedule/index.md) или вызова gRPC API [SnapshotScheduleService/Create](../../api-ref/grpc/SnapshotSchedule/create.md).
 
@@ -244,7 +312,7 @@
        created_at: "2022-10-13T14:37:44Z"
        name: disk-2
        type_id: network-hdd
-       zone_id: ru-central1-a
+       zone_id: {{ region-id }}-a
        size: "21474836480"
        block_size: "4096"
        product_ids:
@@ -259,7 +327,7 @@
        created_at: "2022-10-10T05:00:04Z"
        name: disk-1
        type_id: network-hdd
-       zone_id: ru-central1-a
+       zone_id: {{ region-id }}-a
        size: "21474836480"
        block_size: "4096"
        product_ids:
@@ -299,9 +367,9 @@
 
 {% endlist %}
 
-#### См. также {#see-also}
+#### Смотрите также {#see-also}
 
-* [Остановить и запустить расписание, по которому создаются снимки дисков](stop-and-start-schedule.md).
-* [Изменить расписание, по которому создаются снимки дисков](update-schedule.md).
-* [Удалить расписание, по которому создаются снимки дисков](delete-schedule.md).
+* [{#T}](stop-and-start-schedule.md).
+* [{#T}](update-schedule.md).
+* [{#T}](delete-schedule.md).
 * [Создать снимок диска вручную](../disk-control/create-snapshot.md).

@@ -1,3 +1,45 @@
+## 0.206.0 (May 28, 2026)
+##### FEATURES:
+* opensearch: add `disk_size_gb` for `resources`
+* dns: add new resource and data-source `yandex_dns_inbound_endpoint` and new resource `yandex_dns_inbound_endpoint_iam_binding`
+* opensearch: add `disk_size_gb_limit` for `disk_size_autoscaling`
+
+## 0.205.0 (May 25, 2026)
+##### FEATURES:
+* opensearch: add `WARM` and `INGEST` nodegroups roles support
+##### BUG FIXES:
+* mdb_clickhouse: fix connection_manager known after apply in terraform plan
+* mdb_clickhouse: allow passing variables to shard and hosts properties
+
+## 0.204.0 (May 18, 2026)
+##### FEATURES:
+* compute: add `aws_v2_http_endpoint` and `aws_v2_http_token` options to yandex_compute_instance
+##### BUG FIXES:
+* clickhouse: fix deprecated version in `yandex_mdb_clickhouse_cluster_*` tests
+##### ENHANCEMENTS:
+* postgresql: remove 13 and 13-1c postgresql versions support
+
+## 0.203.0 (May 14, 2026)
+##### FEATURES:
+* alb: add `external_address` support in `Target`
+* smartwebsecurity: Request condition (param/header/cookie/body matchers) in ycp_smartwebsecurity_waf_waf_profile exclusion rules
+##### BUG FIXES:
+* mdb_clickhouse: fix creation of resource `mdb_clickhouse_cluster_v2` with cloud_storage enabled with default params
+##### ENHANCEMENTS:
+* dns: fix documentation for `yandex_dns_firewall`
+
+## 0.202.0 (May 7, 2026)
+##### FEATURES:
+* mdb_clickhouse: add performance diagnostics settings enabled and processes_refresh_interval
+* alb: add `preserve_http1_header_casing` support in `HTTPHandler`
+* organizationmanager: support `labels` for `yandex_organizationmanager_group` resource
+##### BUG FIXES:
+* Valkey: Fixed issue with empty labels in Redis provider
+* redis: fix pending changes after apply by reading user-set values (UserConfig) instead of EffectiveConfig
+* mdb_clickhouse: fix creation of resource `mdb_clickhouse_user` with empty permissions
+##### ENHANCEMENTS:
+* SmartWebSecurity: migration from TF 1.0 to TF 2.0
+
 ## 0.201.0 (April 23, 2026)
 ##### FEATURES:
 * dns: add new resource and data-source `yandex_dns_firewall` and new resource `yandex_dns_firewall_iam_binding`

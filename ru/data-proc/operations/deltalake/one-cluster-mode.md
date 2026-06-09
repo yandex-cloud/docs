@@ -2,7 +2,7 @@
 
 {{ dataproc-name }} версии 2.0 и выше поддерживает использование Delta Lake в однокластерном режиме.
 
-Подробную информацию о Delta Lake см. в разделе [Delta Lake в {{ dataproc-name }}](../../concepts/deltalake.md) и в [документации Delta Lake](https://docs.delta.io/latest/index.html).
+Подробную информацию о Delta Lake читайте в разделе [Delta Lake в {{ dataproc-name }}](../../concepts/deltalake.md) и в [документации Delta Lake](https://docs.delta.io/latest/index.html).
 
 
 {% include [deltalake-disclaimer](../../../_includes/data-processing/deltalake-disclaimer.md) %}

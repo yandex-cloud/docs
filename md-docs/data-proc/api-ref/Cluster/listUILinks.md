@@ -5,7 +5,7 @@ Retrieves a list of links to web interfaces being proxied by Yandex Data Process
 ## HTTP request
 
 ```
-GET https://dataproc.api.cloud.yandex.net/dataproc/v1/clusters/{clusterId}/ui_links
+GET https://dataproc.{{ api-host }}/dataproc/v1/clusters/{clusterId}/ui_links
 ```
 
 ## Path parameters

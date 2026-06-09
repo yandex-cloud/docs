@@ -5,7 +5,7 @@ Lists existing access bindings for the specified policy.
 ## HTTP request
 
 ```
-GET https://private-ca.certificate-manager.api.cloud.yandex.net/privateca/v1/policies/{resourceId}:listAccessBindings
+GET https://private-ca.certificate-manager.{{ api-host }}/privateca/v1/policies/{resourceId}:listAccessBindings
 ```
 
 ## Path parameters

@@ -16,7 +16,7 @@ description: Из статьи вы узнаете, как задать наст
 
 ## Сценарии передачи данных в {{ IBRG }} {#scenarios}
 
-Подробное описание возможных сценариев передачи данных в {{ data-transfer-full-name }} см. в разделе [Практические руководства](../../../tutorials/index.md).
+Подробное описание возможных сценариев передачи данных в {{ data-transfer-full-name }} читайте в разделе [Практические руководства](../../../tutorials/index.md).
 
 ## Настройка источника данных {#supported-sources}
 
@@ -33,7 +33,7 @@ description: Из статьи вы узнаете, как задать наст
 * [{{ ydb-name }}](../source/ydb.md);
 * [{{ ytsaurus-name }}](../source/yt.md).
 
-Полный список поддерживаемых источников и приемников в {{ data-transfer-full-name }} см. в разделе [Доступные трансферы](../../../transfer-matrix.md).
+Полный список поддерживаемых источников и приемников в {{ data-transfer-full-name }} читайте в разделе [Доступные трансферы](../../../transfer-matrix.md).
 
 ## Настройка эндпоинта-приемника {{ IBRG }} {#endpoint-settings}
 
@@ -62,7 +62,7 @@ description: Из статьи вы узнаете, как задать наст
     * **{{ ui-key.yc-data-transfer.data-transfer.console.form.iceberg.console.form.iceberg.IcebergTarget.mdb_cluster_id.title }}** — идентификатор кластера, каталог которого используется для таблиц {{ IBRG }}.
 
     
-    * **{{ ui-key.yc-data-transfer.data-transfer.console.form.iceberg.console.form.iceberg.IcebergTarget.security_group_ids.title }}** — выберите облачную сеть для размещения эндпоинта и группы безопасности для сетевого трафика. Это позволит применить указанные правила групп безопасности к ВМ и кластерам в выбранной сети без изменения их настроек. Подробнее см. в разделе [{#T}](../../../concepts/network.md).
+    * **{{ ui-key.yc-data-transfer.data-transfer.console.form.iceberg.console.form.iceberg.IcebergTarget.security_group_ids.title }}** — выберите облачную сеть для размещения эндпоинта и группы безопасности для сетевого трафика. Это позволит применить указанные правила групп безопасности к ВМ и кластерам в выбранной сети без изменения их настроек. Подробнее читайте в разделе [{#T}](../../../concepts/network.md).
 
       Убедитесь, что выбранные группы безопасности [настроены](../../../../metadata-hub/operations/metastore/configure-security-group.md).
 

@@ -16,17 +16,17 @@
 
 - Консоль управления {#console}
 
-  1. В [консоли управления](https://console.yandex.cloud) выберите каталог, в котором расположен [ресурс](../../concepts/resource.md).
-  1. [Перейдите](../../../console/operations/select-service.md#select-service) в сервис **Cloud CDN**.
+  1. В [консоли управления]({{ link-console-main }}) выберите каталог, в котором расположен [ресурс](../../concepts/resource.md).
+  1. Перейдите в сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_cdn }}**.
   1. Нажмите на имя необходимого ресурса.
-  1. Перейдите на вкладку **Контент**.
-  1. В правом верхнем углу экрана нажмите кнопку ![image](../../../_assets/console-icons/ellipsis.svg) и выберите **Предзагрузить контент**.
-  1. В поле **Пути к файлам** укажите имена нужных файлов.
-  1. Нажмите кнопку **Предзагрузить контент**.
+  1. Перейдите на вкладку **{{ ui-key.yacloud.cdn.label_resource-content }}**.
+  1. В правом верхнем углу экрана нажмите кнопку ![image](../../../_assets/console-icons/ellipsis.svg) и выберите **{{ ui-key.yacloud.cdn.button_resource-content-prefetch-cache }}**.
+  1. В поле **{{ ui-key.yacloud.cdn.label_resource-content-prefetch-cache-paths }}** укажите имена нужных файлов.
+  1. Нажмите кнопку **{{ ui-key.yacloud.cdn.button_resource-content-prefetch-cache }}**.
 
 - CLI {#cli}
 
-  Если у вас еще нет интерфейса командной строки Yandex Cloud (CLI), [установите и инициализируйте его](../../../cli/quickstart.md#install).
+  Если у вас еще нет интерфейса командной строки {{ yandex-cloud }} (CLI), [установите и инициализируйте его](../../../cli/quickstart.md#install).
 
   По умолчанию используется каталог, указанный при [создании](../../../cli/operations/profile/profile-create.md) профиля CLI. Чтобы изменить каталог по умолчанию, используйте команду `yc config set folder-id <идентификатор_каталога>`. Также для любой команды вы можете указать другой каталог с помощью параметров `--folder-name` или `--folder-id`. Если вы обращаетесь к ресурсу по имени, поиск будет выполнен в каталоге по умолчанию. Если вы обращаетесь к ресурсу по идентификатору, поиск будет выполнен глобально — во всех каталогах с учетом прав доступа.
 

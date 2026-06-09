@@ -6,13 +6,13 @@
 
 {% list tabs group=instructions %}
 
-- Интерфейс Cloud Video {#console}
+- Интерфейс {{ video-name }} {#console}
 
-  1. Откройте [главную страницу](https://video.yandex.cloud/) Cloud Video.
+  1. Откройте [главную страницу]({{ link-video-main }}) {{ video-name }}.
   1. Выберите канал.
-  1. На вкладке ![image](../../../_assets/console-icons/circle-play.svg) **Видео** в строке с нужным видео нажмите ![image](../../../_assets/console-icons/ellipsis.svg) и выберите **Редактировать**.
-  1. В списке **Шаблон плеера** выберите нужный шаблон из доступных в канале.
-  1. Нажмите **Сохранить**.
+  1. На вкладке ![image](../../../_assets/console-icons/circle-play.svg) **{{ ui-key.yacloud_video.videos.title_videos }}** в строке с нужным видео нажмите ![image](../../../_assets/console-icons/ellipsis.svg) и выберите **{{ ui-key.yacloud_video.common.action_edit }}**.
+  1. В списке **{{ ui-key.yacloud_video.presets.label_style-preset }}** выберите нужный шаблон из доступных в канале.
+  1. Нажмите **{{ ui-key.yacloud_video.common.action_accept }}**.
 
 - API {#api}
 
@@ -26,13 +26,13 @@
 
 {% list tabs group=instructions %}
 
-- Интерфейс Cloud Video {#console}
+- Интерфейс {{ video-name }} {#console}
 
-  1. Откройте [главную страницу](https://video.yandex.cloud/) Cloud Video.
+  1. Откройте [главную страницу]({{ link-video-main }}) {{ video-name }}.
   1. Выберите канал.
-  1. На вкладке ![image](../../../_assets/console-icons/bars-play.svg) **Плейлисты** в строке с нужным плейлистом нажмите ![image](../../../_assets/console-icons/ellipsis.svg) и выберите **Редактировать**.
-  1. В списке **Шаблон плеера** выберите нужный шаблон из доступных в канале.
-  1. Нажмите **Сохранить**.
+  1. На вкладке ![image](../../../_assets/console-icons/bars-play.svg) **{{ ui-key.yacloud_video.playlists.title_playlists }}** в строке с нужным плейлистом нажмите ![image](../../../_assets/console-icons/ellipsis.svg) и выберите **{{ ui-key.yacloud_video.common.action_edit }}**.
+  1. В списке **{{ ui-key.yacloud_video.presets.label_style-preset }}** выберите нужный шаблон из доступных в канале.
+  1. Нажмите **{{ ui-key.yacloud_video.common.action_accept }}**.
 
 - API {#api}
 
@@ -44,7 +44,7 @@
 
 #### См. также {#see-also}
 
-* [Изменить видео](../video/update.md)
-* [Создать шаблон плеера](create.md)
-* [Изменить или дублировать шаблон плеера](update.md)
-* [Назначить шаблон плеера по умолчанию](set-default.md)
+* [{#T}](../video/update.md)
+* [{#T}](create.md)
+* [{#T}](update.md)
+* [{#T}](set-default.md)

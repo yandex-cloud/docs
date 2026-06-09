@@ -1,16 +1,16 @@
-# Метрики Yandex AI Studio
+# Метрики {{ ai-studio-full-name }}
 
 
-В этом разделе описаны метрики сервиса [AI Studio](https://aistudio.yandex.ru/docs/ru/), поставляемые в Monium Metrics.
+В этом разделе описаны метрики сервиса [{{ ai-studio-name }}]({{ link-docs-ai }}), поставляемые в {{ monitoring-name }}.
 
 Имя метрики записывается в метку `name`.
 
-Общие метки для всех метрик функциональности [MCP Hub](https://aistudio.yandex.ru/docs/ru//ai-studio/concepts/mcp-hub/index) сервиса AI Studio:
+Общие метки для всех метрик функциональности [{{ mcp-hub-name }}]({{ link-docs-ai }}/ai-studio/concepts/mcp-hub/index) сервиса {{ ai-studio-name }}:
 
 Метка | Значение
 ----|----
 service | Идентификатор сервиса: `serverless-mcp-gateway`
-mcp_gateway_id | Идентификатор [MCP-сервера](https://aistudio.yandex.ru/docs/ru//ai-studio/concepts/mcp-hub/index#servers)
+mcp_gateway_id | Идентификатор [MCP-сервера]({{ link-docs-ai }}/ai-studio/concepts/mcp-hub/index#servers)
 
 
 Метрики сервиса:

@@ -8,17 +8,17 @@
 
 - Консоль управления {#console}
 
-  1. В [консоли управления](https://console.yandex.cloud) выберите каталог, в котором расположен ресурс.
+  1. В [консоли управления]({{ link-console-main }}) выберите каталог, в котором расположен ресурс.
 
-  1. [Перейдите](../../../console/operations/select-service.md#select-service) в сервис **Cloud CDN**.
+  1. Перейдите в сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_cdn }}**.
 
   1. Нажмите на имя нужного CDN-ресурса.
 
-  1. В правом верхнем углу нажмите кнопку ![image](../../../_assets/console-icons/pencil.svg) **Редактировать**.
+  1. В правом верхнем углу нажмите кнопку ![image](../../../_assets/console-icons/pencil.svg) **{{ ui-key.yacloud.common.edit }}**.
 
-  1. Включите опцию **Перенаправление запросов**.
+  1. Включите опцию **{{ ui-key.yacloud.cdn.field_rewrite-rule-redirect }}**.
 
-  1. В поле **Правило Rewrite** задайте правило. Например: `/(.*) /new-folder/$1`.
+  1. В поле **{{ ui-key.yacloud.cdn.field_rewrite-rule-body }}** задайте правило. Например: `/(.*) /new-folder/$1`.
 
       Правило Rewrite должно содержать две разделенные пробелом директивы: исходный путь, который требуется заменить, и измененный путь — то, на что меняется исходный путь.
       
@@ -26,18 +26,18 @@
       
       Подробнее см. в разделе [Правило Rewrite](../../concepts/http-rewrite.md#rewrite-rule).
 
-  1. В поле **Флаг** задайте нужный [флаг](../../concepts/http-rewrite.md#flag):
+  1. В поле **{{ ui-key.yacloud.cdn.field_rewrite-rule-flag }}** задайте нужный [флаг](../../concepts/http-rewrite.md#flag):
 
       * `break` — завершает обработку текущего набора директив.
       * `last` — завершает обработку текущего набора директив и начинает поиск нового CDN-сервера, соответствующего новому URI.
       * `redirect` — возвращает пользователю временный `redirect` с кодом `302`. Флаг используется, если заменяющая строка не начинается с `http://`, `https://` или `$scheme`.
       * `permanent` — возвращает пользователю постоянный `redirect` с кодом `301`.
 
-  1. Нажмите кнопку **Сохранить**.
+  1. Нажмите кнопку **{{ ui-key.yacloud.common.save }}**.
 
 - CLI {#cli}
 
-  Если у вас еще нет интерфейса командной строки Yandex Cloud (CLI), [установите и инициализируйте его](../../../cli/quickstart.md#install).
+  Если у вас еще нет интерфейса командной строки {{ yandex-cloud }} (CLI), [установите и инициализируйте его](../../../cli/quickstart.md#install).
 
   По умолчанию используется каталог, указанный при [создании](../../../cli/operations/profile/profile-create.md) профиля CLI. Чтобы изменить каталог по умолчанию, используйте команду `yc config set folder-id <идентификатор_каталога>`. Также для любой команды вы можете указать другой каталог с помощью параметров `--folder-name` или `--folder-id`. Если вы обращаетесь к ресурсу по имени, поиск будет выполнен в каталоге по умолчанию. Если вы обращаетесь к ресурсу по идентификатору, поиск будет выполнен глобально — во всех каталогах с учетом прав доступа.
 
@@ -76,7 +76,7 @@
           host_options:
             host:
               enabled: true
-              value: cdn-source-sample-bucket.storage.yandexcloud.net
+              value: cdn-source-sample-bucket.{{ s3-storage-host }}
           stale:
             enabled: true
             value:
@@ -144,7 +144,7 @@
         host_options:
           host:
             enabled: true
-            value: cdn-source-sample-bucket.storage.yandexcloud.net
+            value: cdn-source-sample-bucket.{{ s3-storage-host }}
         stale:
           enabled: true
           value:
@@ -188,4 +188,4 @@
 
 #### См. также {#see-also}
 
-* [Перенаправление запросов](../../concepts/http-rewrite.md)
+* [{#T}](../../concepts/http-rewrite.md)

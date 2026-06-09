@@ -1,7 +1,7 @@
-# Отказоустойчивый сайт с балансировкой нагрузки через Yandex Network Load Balancer с помощью консоли управления
+# Отказоустойчивый сайт с балансировкой нагрузки через {{ network-load-balancer-full-name }} с помощью консоли управления
 
 
-Чтобы создать [отказоустойчивый сайт с балансировкой нагрузки через Yandex Network Load Balancer](index.md) с помощью консоли управления Yandex Cloud:
+Чтобы создать [отказоустойчивый сайт с балансировкой нагрузки через {{ network-load-balancer-full-name }}](index.md) с помощью консоли управления {{ yandex-cloud }}:
 
 1. [Подготовьте облако к работе](#before-you-begin).
 1. [Создайте группу ВМ](#create-vms).
@@ -12,14 +12,13 @@
 Если созданные ресурсы вам больше не нужны, [удалите их](#clear-out).
 
 
-
 ## Подготовьте облако к работе {#before-you-begin}
 
-Зарегистрируйтесь в Yandex Cloud и создайте [платежный аккаунт](../../../billing/concepts/billing-account.md):
-1. Перейдите в [консоль управления](https://console.yandex.cloud), затем войдите в Yandex Cloud или зарегистрируйтесь.
-1. На странице **[Yandex Cloud Billing](https://center.yandex.cloud/billing/accounts)** убедитесь, что у вас подключен платежный аккаунт, и он находится в [статусе](../../../billing/concepts/billing-account-statuses.md) `ACTIVE` или `TRIAL_ACTIVE`. Если платежного аккаунта нет, [создайте его](../../../billing/quickstart/index.md) и [привяжите](../../../billing/operations/pin-cloud.md) к нему облако.
+Зарегистрируйтесь в {{ yandex-cloud }} и создайте [платежный аккаунт](../../../billing/concepts/billing-account.md):
+1. Перейдите в [консоль управления]({{ link-console-main }}), затем войдите в {{ yandex-cloud }} или зарегистрируйтесь.
+1. На странице **[{{ ui-key.yacloud_billing.billing.label_service }}]({{ link-console-billing }})** убедитесь, что у вас подключен платежный аккаунт, и он находится в [статусе](../../../billing/concepts/billing-account-statuses.md) `ACTIVE` или `TRIAL_ACTIVE`. Если платежного аккаунта нет, [создайте его](../../../billing/quickstart/index.md) и [привяжите](../../../billing/operations/pin-cloud.md) к нему облако.
 
-Если у вас есть активный платежный аккаунт, вы можете создать или выбрать [каталог](../../../resource-manager/concepts/resources-hierarchy.md#folder), в котором будет работать ваша инфраструктура, на [странице облака](https://console.yandex.cloud/cloud).
+Если у вас есть активный платежный аккаунт, вы можете создать или выбрать [каталог](../../../resource-manager/concepts/resources-hierarchy.md#folder), в котором будет работать ваша инфраструктура, на [странице облака]({{ link-console-cloud }}).
 
 [Подробнее об облаках и каталогах](../../../resource-manager/concepts/resources-hierarchy.md).
 
@@ -28,15 +27,15 @@
 
 В стоимость поддержки сайта входит:
 
-* плата за [диски](../../../compute/concepts/disk.md) и постоянно запущенные [ВМ](../../../compute/concepts/vm.md) (см. [тарифы Yandex Compute Cloud](../../../compute/pricing.md));
-* плата за использование динамических или статических [внешних IP-адресов](../../../vpc/concepts/address.md#public-addresses) (см. [тарифы Yandex Virtual Private Cloud](../../../vpc/pricing.md));
-* плата за [сетевой балансировщик](../../concepts/index.md) и балансировку трафика (см. [тарифы Network Load Balancer](../../pricing.md)).
+* плата за [диски](../../../compute/concepts/disk.md) и постоянно запущенные [ВМ](../../../compute/concepts/vm.md) (см. [тарифы {{ compute-full-name }}](../../../compute/pricing.md));
+* плата за использование динамических или статических [внешних IP-адресов](../../../vpc/concepts/address.md#public-addresses) (см. [тарифы {{ vpc-full-name }}](../../../vpc/pricing.md));
+* плата за [сетевой балансировщик](../../concepts/index.md) и балансировку трафика (см. [тарифы {{ network-load-balancer-name }}](../../pricing.md)).
 
 
 ### Подготовьте окружение {#configure-env}
 
 * [Создайте](../../../vpc/operations/network-create.md) облачную сеть с именем `nlb-network` и [подсети](../../../vpc/operations/subnet-create.md).
-* [Создайте](../../../iam/operations/sa/create.md) сервисный аккаунт с именем `nlb-sa` и [назначьте](../../../iam/operations/sa/assign-role-for-sa.md) ему роль `editor`.
+* [Создайте](../../../iam/operations/sa/create.md) сервисный аккаунт с именем `nlb-sa` и [назначьте](../../../iam/operations/sa/assign-role-for-sa.md) ему роль `{{ roles-editor }}`.
 * [Создайте](../../../compute/operations/vm-connect/ssh.md#creating-ssh-keys) пару ключей SSH.
 
 
@@ -46,52 +45,52 @@
 
 - Консоль управления {#console}
 
-  1. Откройте [консоль управления](https://console.yandex.cloud).
-  1. [Перейдите](../../../console/operations/select-service.md#select-service) в сервис **Compute Cloud**.
-  1. На панели слева выберите ![image](../../../_assets/console-icons/layers-3-diagonal.svg) **Группы виртуальных машин** и нажмите кнопку **Создать группу виртуальных машин**.
-  1. В блоке **Базовые параметры**:
+  1. Откройте [консоль управления]({{ link-console-main }}).
+  1. Перейдите в сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_compute }}**.
+  1. На панели слева выберите ![image](../../../_assets/console-icons/layers-3-diagonal.svg) **{{ ui-key.yacloud.compute.instance-groups_hx3kX }}** и нажмите кнопку **{{ ui-key.yacloud.compute.groups.button_create }}**.
+  1. В блоке **{{ ui-key.yacloud.compute.groups.create.section_base }}**:
 
       * Укажите имя группы ВМ, например `nlb-vm-group`.
       * Выберите [сервисный аккаунт](../../../iam/concepts/users/service-accounts.md) `nlb-sa`.
 
-  1. В блоке **Распределение** выберите зоны доступности `ru-central1-a` и `ru-central1-b`, чтобы обеспечить отказоустойчивость хостинга.
-  1. В блоке **Шаблон виртуальной машины** нажмите кнопку **Задать** и укажите конфигурацию базовой ВМ:
+  1. В блоке **{{ ui-key.yacloud.compute.groups.create.section_allocation }}** выберите зоны доступности `{{ region-id }}-a` и `{{ region-id }}-b`, чтобы обеспечить отказоустойчивость хостинга.
+  1. В блоке **{{ ui-key.yacloud.compute.groups.create.section_instance }}** нажмите кнопку **{{ ui-key.yacloud.compute.groups.create.button_instance_empty-create }}** и укажите конфигурацию базовой ВМ:
 
-      1. В блоке **Образ загрузочного диска** откройте вкладку **Marketplace** и нажмите кнопку **Показать все продукты Marketplace**. Выберите продукт:
+      1. В блоке **{{ ui-key.yacloud.compute.instances.create.section_image }}** откройте вкладку **{{ ui-key.yacloud.compute.instances.create.image_value_marketplace }}** и нажмите кнопку **{{ ui-key.yacloud.compute.instances.create.button_show-all-marketplace-products }}**. Выберите продукт:
 
-          * [LEMP](https://yandex.cloud/ru/marketplace/products/yc/lemp) для Linux, Nginx, MySQL®, PHP.
-          * [LAMP](https://yandex.cloud/ru/marketplace/products/yc/lamp) для Linux, Apache, MySQL®, PHP.
+          * [LEMP](https://yandex.cloud/ru/marketplace/products/yc/lemp) для Linux, Nginx, {{ MY }}, PHP.
+          * [LAMP](https://yandex.cloud/ru/marketplace/products/yc/lamp) для Linux, Apache, {{ MY }}, PHP.
 
-          Нажмите кнопку **Использовать**.
+          Нажмите кнопку **{{ ui-key.yacloud.marketplace-v2.button_use }}**.
 
-      1. В блоке **Диски и файловые хранилища** укажите:
+      1. В блоке **{{ ui-key.yacloud.compute.instances.create.section_storages }}** укажите:
 
-          * **Тип** — `HDD`.
-          * **Размер** — `3 ГБ`.
+          * **{{ ui-key.yacloud.compute.disk-form.field_type }}** — `{{ ui-key.yacloud.compute.value_disk-type-network-hdd_cw9XD }}`.
+          * **{{ ui-key.yacloud.compute.disk-form.field_size }}** — `3 {{ ui-key.yacloud.common.units.label_gigabyte }}`.
 
-      1. В блоке **Вычислительные ресурсы** откройте вкладку **Своя конфигурация** и укажите: 
+      1. В блоке **{{ ui-key.yacloud.compute.instances.create.section_platform }}** откройте вкладку **{{ ui-key.yacloud.component.compute.resources.label_tab-custom }}** и укажите: 
 
-          * **Платформа** — `Intel Ice Lake`.
-          * **vCPU** — `2`.
-          * **Гарантированная доля vCPU** — `20%`.
-          * **RAM** — `1 ГБ`.
+          * **{{ ui-key.yacloud.component.compute.resources.field_platform }}** — `Intel Ice Lake`.
+          * **{{ ui-key.yacloud.component.compute.resources.field_cores }}** — `2`.
+          * **{{ ui-key.yacloud.component.compute.resources.field_core-fraction }}** — `20%`.
+          * **{{ ui-key.yacloud.component.compute.resources.field_memory }}** — `1 {{ ui-key.yacloud.common.units.label_gigabyte }}`.
 
-      1. В блоке **Сетевые настройки**:
+      1. В блоке **{{ ui-key.yacloud.compute.instances.create.section_network }}**:
 
           * Выберите облачную сеть `nlb-network` и ее подсети.
-          * В поле **Публичный адрес** выберите `Автоматически`.
+          * В поле **{{ ui-key.yacloud.compute.instances.create.field_instance-group-address }}** выберите `{{ ui-key.yacloud.compute.instances.create.value_address-auto }}`.
 
-      1. В блоке **Доступ** укажите данные для доступа на ВМ:
+      1. В блоке **{{ ui-key.yacloud.compute.instances.create.section_access }}** укажите данные для доступа на ВМ:
 
-          * В поле **Сервисный аккаунт** выберите сервисный аккаунт для привязки к ВМ.
-          * В поле **Логин** укажите имя пользователя.
-          * В поле **SSH-ключ** вставьте содержимое файла открытого ключа.
+          * В поле **{{ ui-key.yacloud.compute.instances.create.field_service-account }}** выберите сервисный аккаунт для привязки к ВМ.
+          * В поле **{{ ui-key.yacloud.compute.instances.create.field_user }}** укажите имя пользователя.
+          * В поле **{{ ui-key.yacloud.compute.instances.create.field_key }}** вставьте содержимое файла открытого ключа.
 
-      1. Нажмите кнопку **Сохранить**.
+      1. Нажмите кнопку **{{ ui-key.yacloud.compute.groups.create.button_edit }}**.
 
-  1. В блоке **Масштабирование** укажите размер группы ВМ — `2`.
-  1. В блоке **Интеграция с Network Load Balancer** выберите опцию **Создать целевую группу** и укажите имя группы: `nlb-tg`.
-  1. Нажмите кнопку **Создать**.
+  1. В блоке **{{ ui-key.yacloud.compute.groups.create.section_scale }}** укажите размер группы ВМ — `2`.
+  1. В блоке **{{ ui-key.yacloud.compute.groups.create.section_ylb }}** выберите опцию **{{ ui-key.yacloud.compute.groups.create.field_target-group-attached }}** и укажите имя группы: `nlb-tg`.
+  1. Нажмите кнопку **{{ ui-key.yacloud.common.create }}**.
 
   Создание группы ВМ может занять несколько минут. Когда все ВМ перейдут в [статус](../../../compute/concepts/vm-statuses.md) `RUNNING`, вы можете [загрузить на них файлы сайта](#upload-files).
 
@@ -100,7 +99,7 @@
 
 ## Загрузите файлы сайта {#upload-files}
 
-Чтобы проверить работу веб-сервера, необходимо загрузить файлы сайта на каждую ВМ. Для примера вы можете использовать файл `index.html` из [архива](https://storage.yandexcloud.net/doc-files/index.html.zip).
+Чтобы проверить работу веб-сервера, необходимо загрузить файлы сайта на каждую ВМ. Для примера вы можете использовать файл `index.html` из [архива](https://{{ s3-storage-host }}/doc-files/index.html.zip).
 
 Для каждой ВМ в созданной группе выполните следующее:
 
@@ -139,31 +138,31 @@
 
 - Консоль управления {#console}
 
-  1. В [консоли управления](https://console.yandex.cloud) выберите каталог, где требуется создать балансировщик.
-  1. [Перейдите](../../../console/operations/select-service.md#select-service) в сервис **Network Load Balancer** и нажмите кнопку **Создать сетевой балансировщик**.
+  1. В [консоли управления]({{ link-console-main }}) выберите каталог, где требуется создать балансировщик.
+  1. Перейдите в сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_load-balancer }}** и нажмите кнопку **{{ ui-key.yacloud.load-balancer.network-load-balancer.button_create }}**.
   1. Укажите имя балансировщика, например `nlb-1`.
-  1. В блоке **Обработчики**:
+  1. В блоке **{{ ui-key.yacloud.load-balancer.network-load-balancer.form.section_listeners }}**:
   
-      1. Нажмите кнопку **Добавить обработчик** и укажите параметры:
+      1. Нажмите кнопку **{{ ui-key.yacloud.load-balancer.network-load-balancer.form.label_add-listener }}** и укажите параметры:
 
-          * **Имя** — `nlb-listener`.
-          * **Порт** — `80`.
-          * **Целевой порт** — `80`.
+          * **{{ ui-key.yacloud.load-balancer.network-load-balancer.form.field_listener-name }}** — `nlb-listener`.
+          * **{{ ui-key.yacloud.load-balancer.network-load-balancer.form.field_listener-port }}** — `80`.
+          * **{{ ui-key.yacloud.load-balancer.network-load-balancer.form.field_listener-target-port }}** — `80`.
 
-      1. Нажмите кнопку **Добавить**.
+      1. Нажмите кнопку **{{ ui-key.yacloud.common.add }}**.
 
-  1. В блоке **Целевые группы**:
+  1. В блоке **{{ ui-key.yacloud.load-balancer.network-load-balancer.form.section_target-groups }}**:
 
-      1. Нажмите кнопку **Добавить целевую группу** и выберите [созданную ранее](#create-vms) целевую группу `nlb-tg`. Если группа одна, она будет выбрана автоматически.
-      1. В блоке **Проверка состояния** нажмите кнопку **Настроить** и укажите:
+      1. Нажмите кнопку **{{ ui-key.yacloud.load-balancer.network-load-balancer.form.label_add-target-group }}** и выберите [созданную ранее](#create-vms) целевую группу `nlb-tg`. Если группа одна, она будет выбрана автоматически.
+      1. В блоке **{{ ui-key.yacloud.load-balancer.network-load-balancer.label_health-check }}** нажмите кнопку **{{ ui-key.yacloud.load-balancer.network-load-balancer.form.label_edit-health-check }}** и укажите:
 
-          * **Имя** — `health-check-1`.
-          * **Порог работоспособности** — количество успешных проверок, после которого ВМ будет считаться готовой к приему трафика: `5`.
-          * **Порог неработоспособности** — количество проваленных проверок, после которого на ВМ перестанет подаваться трафик: `5`.
+          * **{{ ui-key.yacloud.load-balancer.network-load-balancer.label_health-check-name }}** — `health-check-1`.
+          * **{{ ui-key.yacloud.load-balancer.network-load-balancer.label_health-check-healthy-threshold }}** — количество успешных проверок, после которого ВМ будет считаться готовой к приему трафика: `5`.
+          * **{{ ui-key.yacloud.load-balancer.network-load-balancer.label_health-check-unhealthy-threshold }}** — количество проваленных проверок, после которого на ВМ перестанет подаваться трафик: `5`.
 
-      1. Нажмите кнопку **Применить**.
+      1. Нажмите кнопку **{{ ui-key.yacloud.common.apply }}**.
 
-  1. Нажмите кнопку **Создать**.
+  1. Нажмите кнопку **{{ ui-key.yacloud.common.create }}**.
 
 {% endlist %}
 
@@ -224,4 +223,4 @@
 
 #### См. также {#see-also}
 
-* [Отказоустойчивый сайт с балансировкой нагрузки через Yandex Network Load Balancer с помощью Terraform](terraform.md)
+* [{#T}](terraform.md)

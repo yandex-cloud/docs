@@ -1,6 +1,6 @@
 # Работа с исключениями
 
-В этом разделе описаны операции с исключениями в Yandex SIEM.
+В этом разделе описаны операции с исключениями в {{ yandex-siem-full-name }}.
 
-* [Управление исключениями](manage-exceptions.md).
-* [Работа со списком исключений](exceptions-list.md).
+* [{#T}](manage-exceptions.md).
+* [{#T}](exceptions-list.md).

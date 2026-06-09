@@ -5,7 +5,7 @@ Get an inventory configuration with the corresponding ID
 ## HTTP request
 
 ```
-GET https://storage.api.cloud.yandex.net/storage/v1/buckets/{bucket}/{id}:getInventoryConfiguration
+GET https://storage.{{ api-host }}/storage/v1/buckets/{bucket}/{id}:getInventoryConfiguration
 ```
 
 ## Path parameters

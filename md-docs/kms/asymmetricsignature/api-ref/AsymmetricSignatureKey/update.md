@@ -5,7 +5,7 @@ Updates the specified asymmetric KMS key.
 ## HTTP request
 
 ```
-PATCH https://kms.api.cloud.yandex.net/kms/v1/asymmetricSignatureKeys/{keyId}
+PATCH https://{{ api-host-kms }}/kms/v1/asymmetricSignatureKeys/{keyId}
 ```
 
 ## Path parameters

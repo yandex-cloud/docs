@@ -32,7 +32,7 @@ Creates new hosts for a cluster.
 || cluster_id | **string**
 
 Required field. ID of the MongoDB cluster to add hosts to.
-To get the MongoDB cluster ID use a [ClusterService.List](list.md#List) request.
+To get the MongoDB cluster ID use a [ClusterService.List](../../../../managed-mongodb/api-ref/grpc/Cluster/list#List) request.
 
 The maximum string length in characters is 50. ||
 || host_specs[] | **[HostSpec](#yandex.cloud.mdb.mongodb.v1.HostSpec)**
@@ -56,16 +56,14 @@ The maximum string length in characters is 50. ||
 
 ID of the subnet that the host should belong to. This subnet should be a part
 of the network that the cluster belongs to.
-The network ID is set in the [Cluster.network_id](get.md#yandex.cloud.mdb.mongodb.v1.Cluster) field.
+The network ID is set in the [Cluster.network_id](../../../../managed-mongodb/api-ref/grpc/Cluster/get#yandex.cloud.mdb.mongodb.v1.Cluster) field.
 
 The maximum string length in characters is 50. ||
 || assign_public_ip | **bool**
 
 Whether the host should get a public IP address on creation.
-
 After a host has been created, this setting cannot be changed. To remove an assigned public IP, or to assign
 a public IP to a host without one, recreate the host with `assign_public_ip` set as needed.
-
 Possible values:
 * false - don't assign a public IP to the host.
 * true - the host should have a public IP address. ||
@@ -106,15 +104,10 @@ Host tags ||
   "created_by": "string",
   "modified_at": "google.protobuf.Timestamp",
   "done": "bool",
-  "metadata": {
-    "cluster_id": "string",
-    "host_names": [
-      "string"
-    ]
-  },
+  "metadata": "google.protobuf.Any",
   // Includes only one of the fields `error`, `response`
   "error": "google.rpc.Status",
-  "response": "google.protobuf.Empty"
+  "response": "google.protobuf.Any"
   // end of the list of possible fields
 }
 ```
@@ -142,7 +135,7 @@ The time when the Operation resource was last modified. ||
 
 If the value is `false`, it means the operation is still in progress.
 If `true`, the operation is completed, and either `error` or `response` is available. ||
-|| metadata | **[AddClusterHostsMetadata](#yandex.cloud.mdb.mongodb.v1.AddClusterHostsMetadata)**
+|| metadata | **[google.protobuf.Any](https://developers.google.com/protocol-buffers/docs/proto3#any)**
 
 Service-specific metadata associated with the operation.
 It typically contains the ID of the target resource that the operation is performed on.
@@ -157,7 +150,7 @@ The operation result.
 If `done == false` and there was no failure detected, neither `error` nor `response` is set.
 If `done == false` and there was a failure detected, `error` is set.
 If `done == true`, exactly one of `error` or `response` is set. ||
-|| response | **[google.protobuf.Empty](https://developers.google.com/protocol-buffers/docs/reference/google.protobuf#google.protobuf.Empty)**
+|| response | **[google.protobuf.Any](https://developers.google.com/protocol-buffers/docs/proto3#any)**
 
 The normal response of the operation in case of success.
 If the original method returns no data on success, such as Delete,
@@ -172,16 +165,4 @@ The operation result.
 If `done == false` and there was no failure detected, neither `error` nor `response` is set.
 If `done == false` and there was a failure detected, `error` is set.
 If `done == true`, exactly one of `error` or `response` is set. ||
-|#
-
-## AddClusterHostsMetadata {#yandex.cloud.mdb.mongodb.v1.AddClusterHostsMetadata}
-
-#|
-||Field | Description ||
-|| cluster_id | **string**
-
-ID of the MongoDB cluster to which the hosts are being added. ||
-|| host_names[] | **string**
-
-Names of hosts that are being added to the cluster. ||
 |#

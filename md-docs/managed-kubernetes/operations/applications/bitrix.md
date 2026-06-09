@@ -1,6 +1,6 @@
 # Установка Битрикс
 
-**Битрикс** — приложение, которое выполняет подготовку и развертывание окружений для стандартной установки продуктов компании «1С-Битрикс» в кластере Yandex Managed Service for Kubernetes.
+**Битрикс** — приложение, которое выполняет подготовку и развертывание окружений для стандартной установки продуктов компании «1С-Битрикс» в кластере {{ managed-k8s-full-name }}.
 
 Доступно два типа окружения:
 
@@ -18,7 +18,7 @@
    * морфологический поиск Sphinx;
    * инструменты для сбора метрик PHP и Nginx.
 
-   Окружение можно установить как из Yandex Cloud Marketplace, так и с помощью Helm-чарта.
+   Окружение можно установить как из {{ marketplace-full-name }}, так и с помощью Helm-чарта.
 
    Вы можете использовать административное окружение для установки стабильных версий приложений Битрикс.
 
@@ -34,19 +34,19 @@
 
 Административное и продуктовое окружения совместно используют:
 
-* базу данных MySQL®;
-* бакет Object Storage.
+* базу данных {{ MY }};
+* бакет {{ objstorage-name }}.
 
 {% endnote %}
 
 ## Перед началом работы {#before-you-begin}
 
-1. Если у вас еще нет интерфейса командной строки Yandex Cloud (CLI), [установите и инициализируйте его](../../../cli/quickstart.md#install).
+1. Если у вас еще нет интерфейса командной строки {{ yandex-cloud }} (CLI), [установите и инициализируйте его](../../../cli/quickstart.md#install).
 
    По умолчанию используется каталог, указанный при [создании](../../../cli/operations/profile/profile-create.md) профиля CLI. Чтобы изменить каталог по умолчанию, используйте команду `yc config set folder-id <идентификатор_каталога>`. Также для любой команды вы можете указать другой каталог с помощью параметров `--folder-name` или `--folder-id`. Если вы обращаетесь к ресурсу по имени, поиск будет выполнен в каталоге по умолчанию. Если вы обращаетесь к ресурсу по идентификатору, поиск будет выполнен глобально — во всех каталогах с учетом прав доступа.
 
-1. Создайте в кластере Managed Service for Kubernetes новые [пространства имен](../../concepts/index.md#namespace) для административного и продуктового окружения, например `bitrix-admin` и `bitrix-prod`.
-1. Если вы хотите выпустить сертификат Let's Encrypt для сайта Битрикс с помощью [cert-manager](https://cert-manager.io/), установите приложение cert-manager c плагином Yandex Cloud DNS ACME webhook [по инструкции](cert-manager-cloud-dns.md).
+1. Создайте в кластере {{ managed-k8s-name }} новые [пространства имен](../../concepts/index.md#namespace) для административного и продуктового окружения, например `bitrix-admin` и `bitrix-prod`.
+1. Если вы хотите выпустить сертификат Let's Encrypt для сайта Битрикс с помощью [cert-manager](https://cert-manager.io/), установите приложение cert-manager c плагином {{ dns-full-name }} ACME webhook [по инструкции](cert-manager-cloud-dns.md).
 1. Если вы хотите использовать собственный сертификат для сайта Битрикс, создайте в пространствах имен для обоих окружений ресурс `Secret` вида:
 
     ```yaml
@@ -61,15 +61,15 @@
       tls.key: <Base64_encoded_приватный_ключ_сертификата>
     ```
 
-1. [Установите приложение csi-s3](csi-s3.md). Это необходимо, так как Object Storage используется для хранения общих данных.
+1. [Установите приложение csi-s3](csi-s3.md). Это необходимо, так как {{ objstorage-name }} используется для хранения общих данных.
 1. [Создайте бакет](../../../storage/operations/buckets/create.md), в котором будут размещаться общие папки проекта `upload` и `backup`.
 1. [Создайте сервисный аккаунт](../../../iam/operations/sa/create.md) с [ролью](../../../iam/concepts/access-control/roles.md) `storage.editor` на каталог, в котором располагается бакет.
 1. [Создайте статический ключ доступа](../../../iam/operations/authentication/manage-access-keys.md) для сервисного аккаунта и сохраните его идентификатор и секретный ключ.
-1. [Создайте кластер Managed Service for MySQL®](../../../managed-mysql/operations/cluster-create.md) с параметрами:
+1. [Создайте кластер {{ mmy-name }}](../../../managed-mysql/operations/cluster-create.md) с параметрами:
 
-   * **Сеть** — выберите сеть, в которой располагается кластер Managed Service for Kubernetes.
+   * **Сеть** — выберите сеть, в которой располагается кластер {{ managed-k8s-name }}.
    * В блоке **Хосты** проверьте, что опция **Публичный доступ** выключена для всех хостов.
-   * **Настройки СУБД**:
+   * **{{ ui-key.yacloud.mdb.forms.section_settings }}**:
      * **Innodb Flush Log At Trx Commit** — `2`;
      * **Innodb Strict Mode** — `Выключено`;
      * **Join Buffer Size** — `2621440`;
@@ -87,7 +87,7 @@
 
     Сохраните результат выполнения команды.
 
-1. Если вы планируете использовать продуктовое окружение, подготовьте ресурсы Container Registry для загрузки необходимых Docker-образов:
+1. Если вы планируете использовать продуктовое окружение, подготовьте ресурсы {{ container-registry-name }} для загрузки необходимых Docker-образов:
 
    1. Создайте реестр контейнеров:
 
@@ -95,7 +95,7 @@
       yc container registry create --name yc-auto-cr
       ```
 
-   1. Сконфигурируйте [Docker Credential helper](../../../container-registry/operations/authentication.md#cred-helper). Он позволяет работать с приватными реестрами Yandex Cloud, не выполняя команду `docker login`.
+   1. Сконфигурируйте [Docker Credential helper](../../../container-registry/operations/authentication.md#cred-helper). Он позволяет работать с приватными реестрами {{ yandex-cloud }}, не выполняя команду `docker login`.
 
       Для настройки Credential helper выполните команду:
 
@@ -103,7 +103,7 @@
       yc container registry configure-docker
       ```
 
-1. [Убедитесь](../connect/security-groups.md), что группы безопасности для кластера Managed Service for Kubernetes и его групп узлов настроены корректно. Если отсутствует какое-либо из правил — [добавьте его](../../../vpc/operations/security-group-add-rule.md).
+1. [Убедитесь](../connect/security-groups.md), что группы безопасности для кластера {{ managed-k8s-name }} и его групп узлов настроены корректно. Если отсутствует какое-либо из правил — [добавьте](../../../vpc/operations/security-group-add-rule.md) его.
 
     {% note warning %}
     
@@ -111,12 +111,12 @@
     
     {% endnote %}
 
-## Установка с помощью Cloud Marketplace {#marketplace-install}
+## Установка с помощью {{ marketplace-name }} {#marketplace-install}
 
-1. В [консоли управления](https://console.yandex.cloud) выберите каталог.
-1. [Перейдите](../../../console/operations/select-service.md#select-service) в сервис **Managed Service for&nbsp;Kubernetes**.
-1. Нажмите на имя нужного [кластера Managed Service for Kubernetes](../../concepts/index.md#kubernetes-cluster) и выберите вкладку ![image](../../../_assets/console-icons/shopping-cart.svg) **Marketplace**.
-1. В разделе **Доступные для установки приложения** выберите [Битрикс](https://yandex.cloud/ru/marketplace/products/yc/bitrix-env) и нажмите кнопку **Перейти к установке**.
+1. В [консоли управления]({{ link-console-main }}) выберите каталог.
+1. Перейдите в сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-kubernetes }}**.
+1. Нажмите на имя нужного [кластера {{ managed-k8s-name }}](../../concepts/index.md#kubernetes-cluster) и выберите вкладку ![image](../../../_assets/console-icons/shopping-cart.svg) **{{ ui-key.yacloud.k8s.cluster.switch_marketplace }}**.
+1. В разделе **{{ ui-key.yacloud.marketplace-v2.label_available-products }}** выберите [Битрикс](https://yandex.cloud/ru/marketplace/products/yc/bitrix-env) и нажмите кнопку **{{ ui-key.yacloud.marketplace-v2.button_k8s-product-use }}**.
 1. Задайте настройки приложения:
    * **Пространство имен** — выберите пространство имен для административного окружения, созданное ранее.
    * **Название приложения** — укажите название приложения.
@@ -124,7 +124,7 @@
    * **Класс хранилища** — выберите класс хранилища для тома.
    * **Доменное имя проекта** — укажите полное доменное имя проекта.
    * **IP-адрес балансировщика** — укажите IP-адрес балансировщика, если вы уже его зарезервировали.
-   * **Политика управления трафиком** — выберите [политику маршрутизации внешнего трафика](https://kubernetes.io/docs/reference/generated/kubernetes-api/v1.25/#servicespec-v1-core).
+   * **Политика управления трафиком** — выберите [политику маршрутизации внешнего трафика]({{ k8s-api-link }}#servicespec-v1-core).
    * **Использовать certmanager** — выберите опцию, чтобы автоматически получить сертификат от издателя Let's Encrypt.
 
      Для успешного получения сертификата [зарегистрируйте публичную доменную зону](../../../dns/operations/zone-create-public.md) и делегируйте домен. Для домена в этой зоне будет выдан сертификат с прохождением проверки DNS-01.
@@ -151,14 +151,14 @@
    * **Экспортировать метрики NGINX** — выберите опцию, чтобы включить метрики NGINX.
    * **Класс хранилища для S3** — по умолчанию `csi-s3`.
    * **Идентификатор ключа S3**, **Секретный ключ S3** — укажите [полученные ранее](#before-you-begin) идентификатор и секретный ключ статического ключа.
-   * **S3-бакет** — укажите имя [созданного ранее](#before-you-begin) бакета Object Storage.
+   * **S3-бакет** — укажите имя [созданного ранее](#before-you-begin) бакета {{ objstorage-name }}.
    * **SMTP-сервер**, **SMTP-порт**, **Пользователь почтового ящика**, **Пароль от почтового ящика** — укажите параметры подключения к почтовому серверу.
-   * **MySQL-хост**, **Пользователь БД**, **Пароль пользователя БД**, **База данных** — укажите параметры подключения к базе данных MySQL® в [созданном ранее](#before-you-begin) кластере Managed Service for MySQL®.
+   * **MySQL-хост**, **Пользователь БД**, **Пароль пользователя БД**, **База данных** — укажите параметры подключения к базе данных {{ MY }} в [созданном ранее](#before-you-begin) кластере {{ mmy-name }}.
    * **Версия PHP** — укажите версию PHP для Битрикс. Доступные версии: `8.2.30`, `8.3.30`, `8.4.19`.
    * **Использовать bitrixsetup.php** — выберите опцию для установки Битрикс с нуля.
    * **Использовать restore.php** — выберите опцию для восстановления Битрикс из резервной копии.
 
-1. Нажмите кнопку **Установить**.
+1. Нажмите кнопку **{{ ui-key.yacloud.k8s.cluster.marketplace.button_install }}**.
 1. Дождитесь перехода приложения в статус `Deployed`.
 1. Откройте в браузере проект по указанному в настройках доменному имени и установите продукт Битрикс с помощью мастера установки.
 1. Проверьте [средства работы с Git-репозиторием](#working-with-git).
@@ -166,12 +166,12 @@
 ## Установка с помощью Helm-чарта {#helm-install}
 
 1. [Установите менеджер пакетов Helm](https://helm.sh/ru/docs/intro/install/) версии не ниже 3.8.0.
-1. [Установите kubectl](https://kubernetes.io/ru/docs/tasks/tools/install-kubectl) и [настройте его на работу с созданным кластером](../connect/index.md#kubectl-connect).
+1. [Установите kubectl]({{ k8s-docs }}/tasks/tools/install-kubectl) и [настройте его на работу с созданным кластером](../connect/index.md#kubectl-connect).
 1. Для установки [Helm-чарта](https://helm.sh/docs/topics/charts/) с административным окружением Битрикс выполните команду:
 
    ```bash
-   helm pull oci://cr.yandex/yc-marketplace/yandex-cloud/bitrix-env/chart/bitrix-env \
-     --version 1.0.6 \
+   helm pull oci://{{ mkt-k8s-key.yc_bitrix-env.helmChart.name }} \
+     --version {{ mkt-k8s-key.yc_bitrix-env.helmChart.tag }} \
      --untar && \
    helm install \
      --namespace <пространство_имен_административного_окружения> \
@@ -226,7 +226,7 @@
       1. Скачайте образ `bitrix-admin-php`:
 
          ```shell
-         docker pull cr.yandex/yc-marketplace/yandex-cloud/bitrix-env/bitrix/bitrix-admin-php1775660129087745327177484940704164668665505295409:<версия_PHP>
+         docker pull {{ mkt-k8s-key.yc_bitrix-env.dockerImages.php.repository.name }}:<версия_PHP>
          ```
 
          Возможные значения для версии PHP: `8.2.30`, `8.3.30`, `8.4.19`.
@@ -234,13 +234,13 @@
       1. Установите тег в реестре, [созданном ранее](#before-you-begin):
 
          ```shell
-         docker tag cr.yandex/yc-marketplace/yandex-cloud/bitrix-env/bitrix/bitrix-admin-php1775660129087745327177484940704164668665505295409:<версия_PHP> cr.yandex/<идентификатор_реестра>/bitrix-env/bitrix/bitrix-admin-php
+         docker tag {{ mkt-k8s-key.yc_bitrix-env.dockerImages.php.repository.name }}:<версия_PHP> {{ registry }}/<идентификатор_реестра>/bitrix-env/bitrix/bitrix-admin-php
          ```
 
       1. Создайте в директории с папкой `bitrix` файл `Dockerfile-php` со следующим содержимым:
 
           ```text
-          FROM cr.yandex/<идентификатор_реестра>/bitrix-env/bitrix/bitrix-admin-php
+          FROM {{ registry }}/<идентификатор_реестра>/bitrix-env/bitrix/bitrix-admin-php
           COPY --chown=bitrix:bitrix bitrix/ /home/bitrix/www
           WORKDIR /home/bitrix/www
           ```
@@ -250,23 +250,23 @@
          ```shell
          docker build --platform linux/amd64 \
              -f Dockerfile-php \
-             -t cr.yandex/<идентификатор_реестра>/bitrix-prod-php \
+             -t {{ registry }}/<идентификатор_реестра>/bitrix-prod-php \
              --no-cache .
          ```
 
       1. Отправьте полученный образ в реестр с помощью команды:
 
          ```shell
-         docker push cr.yandex/<идентификатор_реестра>/bitrix-prod-php
+         docker push {{ registry }}/<идентификатор_реестра>/bitrix-prod-php
          ```
 
-   1. Аналогично выполненным шагам из п. 2, подготовьте образ Битрикс с NGINX `bitrix-prod-nginx` на основе базового образа `cr.yandex/yc-marketplace/yandex-cloud/bitrix-env/bitrix/bitrix-admin-nginx1775660129087745327177484940704164668665505295409:1.28.3-v1`.
+   1. Аналогично выполненным шагам из п. 2, подготовьте образ Битрикс с NGINX `bitrix-prod-nginx` на основе базового образа `{{ mkt-k8s-key.yc_bitrix-env.dockerImages.nginx.repository.name }}:{{ mkt-k8s-key.yc_bitrix-env.dockerImages.nginx.repository.tag }}`.
 
    1. Выполните установку Helm-чарта:
 
        ```bash
-       helm pull oci://cr.yandex/yc-marketplace/yandex-cloud/bitrix-env/chart/bitrix-env \
-         --version 1.0.6 \
+       helm pull oci://{{ mkt-k8s-key.yc_bitrix-env.helmChart.name }} \
+         --version {{ mkt-k8s-key.yc_bitrix-env.helmChart.tag }} \
          --untar && \
        helm install \
          --namespace <пространство_имен_продуктового_окружения> \
@@ -291,8 +291,8 @@
          --set mysql.login="<имя_пользователя_MySQL>" \
          --set mysql.password="<пароль_пользователя_MySQL>" \
          --set mysql.database="<имя_базы_данных_MySQL>" \
-         --set php.image="cr.yandex/<идентификатор_реестра>/bitrix-prod-php" \
-         --set nginx.image="cr.yandex/<идентификатор_реестра>/bitrix-prod-nginx" \
+         --set php.image="{{ registry }}/<идентификатор_реестра>/bitrix-prod-php" \
+         --set nginx.image="{{ registry }}/<идентификатор_реестра>/bitrix-prod-nginx" \
          --set certmanager.enabled=false \
          --set tls.existingSecret="<имя_секрета_с_сертификатом>" \
          bitrix ./bitrix/

@@ -1,25 +1,25 @@
 # Группы пользователей
 
-Для [организаций](organization.md), в которых много [участников](membership.md), одинаковые права доступа к ресурсам Yandex Cloud могут потребоваться сразу нескольким пользователям. В этом случае роли и доступы удобнее выдавать не персонально, а для группы. Вы можете [настроить доступ](../operations/access-group.md) участников группы к организациям, облакам, каталогам и сервисным аккаунтам Yandex Cloud.
+Для [организаций](organization.md), в которых много [участников](membership.md), одинаковые права доступа к ресурсам {{ yandex-cloud }} могут потребоваться сразу нескольким пользователям. В этом случае роли и доступы удобнее выдавать не персонально, а для группы. Вы можете [настроить доступ](../operations/access-group.md) участников группы к организациям, облакам, каталогам и сервисным аккаунтам {{ yandex-cloud }}.
 
 Другие пользователи смогут [управлять группой](../operations/access-manage-group.md), если вы назначите им соответствующие [роли](../security/index.md#service-roles). Например, `organization-manager.groups.memberAdmin` для просмотра информации и добавления участников.
 
-Кроме групп, создаваемых администратором, в Yandex Cloud существуют [системные группы](../../iam/concepts/access-control/system-group.md) `All users in organization X` и `All users in federation N`, а также [публичные группы](../../iam/concepts/access-control/public-group.md) `All authenticated users` и `All users`.
+Кроме групп, создаваемых администратором, в {{ yandex-cloud }} существуют [системные группы](../../iam/concepts/access-control/system-group.md) `All users in organization X` и `All users in federation N`, а также [публичные группы](../../iam/concepts/access-control/public-group.md) `All authenticated users` и `All users`.
 
 Группы поддерживают только одноуровневую структуру. Нельзя создать группу внутри группы, а членство в группе дает равные права всем участникам.
 
-Если вы используете группы пользователей в вашем поставщике удостоверений при работе с [федерациями](add-federation.md), вы можете [сопоставить группы](add-federation.md#group-mapping) в поставщике удостоверений и в Yandex Identity Hub.
+Если вы используете группы пользователей в вашем поставщике удостоверений при работе с [федерациями](add-federation.md), вы можете [сопоставить группы](add-federation.md#group-mapping) в поставщике удостоверений и в {{ org-full-name }}.
 
 ## Примеры использования {#examples}
 
-* [Разграничение прав доступа для групп пользователей с различными ролями в Yandex Identity Hub](../tutorials/user-group-access-control.md)
-* [Сопоставление групп пользователей в Microsoft Active Directory Federation Services](../tutorials/federations/group-mapping/adfs.md)
-* [Сопоставление групп пользователей в Microsoft Entra ID](../tutorials/federations/group-mapping/entra-id.md)
-* [Сопоставление групп пользователей в Keycloak](../tutorials/federations/group-mapping/keycloak.md)
-* [Аутентификация с помощью Microsoft Entra ID](../../tutorials/security/integration-azure.md)
+* [{#T}](../tutorials/user-group-access-control.md)
+* [{#T}](../tutorials/federations/group-mapping/adfs.md)
+* [{#T}](../tutorials/federations/group-mapping/entra-id.md)
+* [{#T}](../tutorials/federations/group-mapping/keycloak.md)
+* [{#T}](../../tutorials/security/integration-azure.md)
 
 #### Что дальше {#what-is-next}
 
 * [Управление группами пользователей](../operations/manage-groups.md).
 * [Квоты и лимиты](limits.md).
-* [Чеклист безопасности аутентификации и авторизации](../../security/domains/iam-checklist.md).
+* [{#T}](../../security/domains/iam-checklist.md).

@@ -21,7 +21,7 @@ Retrieves the list of available backups for the specified Redis cluster.
 || cluster_id | **string**
 
 Required field. ID of the Redis cluster.
-To get the Redis cluster ID use a [ClusterService.List](list.md#List) request.
+To get the Redis cluster ID use a [ClusterService.List](../../../../managed-redis/api-ref/grpc/Cluster/list#List) request.
 
 The maximum string length in characters is 50. ||
 || page_size | **int64**
@@ -76,26 +76,26 @@ Each subsequent list request will have its own `next_page_token` to continue pag
 ## Backup {#yandex.cloud.mdb.redis.v1.Backup}
 
 Description of a Redis backup. For more information, see
-the Managed Service for Redis [documentation](../../../concepts/backup.md).
+the Managed Service for Redis [documentation](../../../../managed-redis/concepts/backup).
 
 #|
 ||Field | Description ||
 || id | **string**
 
-ID of the backup. ||
+Required field. ID of the backup. ||
 || folder_id | **string**
 
-ID of the folder that the backup belongs to. ||
+Required field. ID of the folder that the backup belongs to. ||
 || created_at | **[google.protobuf.Timestamp](https://developers.google.com/protocol-buffers/docs/reference/google.protobuf#timestamp)**
 
-Creation timestamp in [RFC3339](https://www.ietf.org/rfc/rfc3339.txt) text format
+Required field. Creation timestamp in [RFC3339](https://www.ietf.org/rfc/rfc3339.txt) text format
 (i.e. when the backup operation was completed). ||
 || source_cluster_id | **string**
 
-ID of the Redis cluster that the backup was created for. ||
+Required field. ID of the Redis cluster that the backup was created for. ||
 || started_at | **[google.protobuf.Timestamp](https://developers.google.com/protocol-buffers/docs/reference/google.protobuf#timestamp)**
 
-Start timestamp in [RFC3339](https://www.ietf.org/rfc/rfc3339.txt) text format
+Required field. Start timestamp in [RFC3339](https://www.ietf.org/rfc/rfc3339.txt) text format
 (i.e. when the backup operation was started). ||
 || source_shard_names[] | **string**
 

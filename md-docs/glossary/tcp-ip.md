@@ -84,35 +84,35 @@ TCP/IP используется в мировом интернете и корп
 * WAN (Wide Area Network) — глобальная сеть, соединяющая географически разнесенные точки.
 * Интернет — крупнейшая в мире публичная сеть типа WAN, объединяющая миллиарды устройств по всему миру.
 
-## Работа с TCP/IP в Yandex Cloud {#tcp-ip-yc}
+## Работа с TCP/IP в {{ yandex-cloud }} {#tcp-ip-yc}
 
-В инфраструктуре Yandex Cloud есть ряд сервисов для управления вашей сетевой инфраструктурой:
+В инфраструктуре {{ yandex-cloud }} есть ряд сервисов для управления вашей сетевой инфраструктурой:
 
-  * [Yandex Application Load Balancer](https://yandex.cloud/ru/services/application-load-balancer) — сервис для распределения входящего трафика между разными компонентами ваших веб‑приложений.
+  * [{{ alb-full-name }}](https://yandex.cloud/ru/services/application-load-balancer) — сервис для распределения входящего трафика между разными компонентами ваших веб‑приложений.
 
-    Подробнее см. в [документации Application Load Balancer](../application-load-balancer/index.md)
+    Подробнее в [документации {{ alb-name }}](../application-load-balancer/index.md)
 
-  * [Yandex Cloud CDN](https://yandex.cloud/ru/services/cdn) — сервис доставки контента до конечных потребителей с помощью сети распространения контента.
+  * [{{ cdn-full-name }}](https://yandex.cloud/ru/services/cdn) — сервис доставки контента до конечных потребителей с помощью сети распространения контента.
 
-    Подробнее см. в [документации Cloud CDN](../cdn/index.md)
+    Подробнее в [документации {{ cdn-name }}](../cdn/index.md)
 
-  * [Yandex Cloud DNS](https://yandex.cloud/ru/services/dns) — сервис администрирования ресурсных записей DNS и обслуживания DNS‑запросов.
+  * [{{ dns-full-name }}](https://yandex.cloud/ru/services/dns) — сервис администрирования ресурсных записей DNS и обслуживания DNS‑запросов.
 
-    Подробнее см. в [документации Cloud DNS](../dns/index.md)
+    Подробнее в [документации {{ dns-name }}](../dns/index.md)
 
-  * [Yandex Cloud Interconnect](https://yandex.cloud/ru/services/interconnect) — сервис для создания приватных выделенных сетевых соединений между локальной инфраструктурой и Yandex Cloud.
+  * [{{ interconnect-full-name }}](https://yandex.cloud/ru/services/interconnect) — сервис для создания приватных выделенных сетевых соединений между локальной инфраструктурой и {{ yandex-cloud }}.
     
-    Подробнее см. в [документации Cloud Interconnect](../interconnect/index.md)
+    Подробнее в [документации {{ interconnect-name }}](../interconnect/index.md)
   
-  * [Yandex Load Testing](https://yandex.cloud/ru/services/load-testing) — сервис для проведения нагрузочного тестирования и анализа производительности.
+  * [{{ load-testing-full-name }}](https://yandex.cloud/ru/services/load-testing) — сервис для проведения нагрузочного тестирования и анализа производительности.
 
-    Подробнее см. в [документации Load Testing](../load-testing/index.md)
+    Подробнее в [документации {{ load-testing-name }}](../load-testing/index.md)
 
-  * [Yandex Network Load Balancer](https://yandex.cloud/ru/services/network-load-balancer) — сервис, который распределяет сетевую нагрузку по облачным ресурсам, обеспечивая отказоустойчивость сайтов и приложений.
+  * [{{ network-load-balancer-full-name }}](https://yandex.cloud/ru/services/network-load-balancer) — сервис, который распределяет сетевую нагрузку по облачным ресурсам, обеспечивая отказоустойчивость сайтов и приложений.
 
-    Подробнее см. в [документации Network Load Balancer](../network-load-balancer/index.md)
+    Подробнее в [документации {{ network-load-balancer-short-name }}](../network-load-balancer/index.md)
 
 #### См. также {#see-also}
 
-[Обзор IPsec: принципы и применение в сетевой безопасности](ipsec.md)
-[Виртуальные частные сети (VPN)](vpn.md)
+[{#T}](ipsec.md)
+[{#T}](vpn.md)

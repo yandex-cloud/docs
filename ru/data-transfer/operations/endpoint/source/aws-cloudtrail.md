@@ -18,7 +18,7 @@ description: Следуя данной инструкции, вы сможете
 
 Вы можете выгружать логи в различные базы данных для дальнейшего хранения в облаке, обработки и загрузки в витрины данных с целью последующей визуализации.
 
-Подробное описание возможных сценариев передачи данных в {{ data-transfer-full-name }} см. в разделе [Практические руководства](../../../tutorials/index.md).
+Подробное описание возможных сценариев передачи данных в {{ data-transfer-full-name }} читайте в разделе [Практические руководства](../../../tutorials/index.md).
 
 ## Подготовка базы данных AWS CloudTrail {#prepare}
 
@@ -26,7 +26,7 @@ description: Следуя данной инструкции, вы сможете
 
 ## Настройка эндпоинта-источника AWS CloudTrail {#endpoint-settings}
 
-При [создании](../index.md#create) или [изменении](../index.md#update) эндпоинта задайте настройки доступа к AWS. Подробное описание см. в [документации {{ AB }}](https://docs.airbyte.com/integrations/sources/aws-cloudtrail).
+При [создании](../index.md#create) или [изменении](../index.md#update) эндпоинта задайте настройки доступа к AWS. Подробное описание в [документации {{ AB }}](https://docs.airbyte.com/integrations/sources/aws-cloudtrail).
 
 {% list tabs group=instructions %}
 
@@ -51,7 +51,7 @@ description: Следуя данной инструкции, вы сможете
 * [{{ DS }}](../target/data-streams.md);
 * [{{ PG }}](../target/postgresql.md).
 
-Полный список поддерживаемых источников и приемников в {{ data-transfer-full-name }} см. в разделе [Доступные трансферы](../../../transfer-matrix.md).
+Полный список поддерживаемых источников и приемников в {{ data-transfer-full-name }} читайте в разделе [Доступные трансферы](../../../transfer-matrix.md).
 
 {% include [Internet access](../../../../_includes/data-transfer/notes/internet-access.md) %}
 

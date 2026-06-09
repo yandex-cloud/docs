@@ -5,7 +5,7 @@ Creates a public subnet in the specified folder.
 ## HTTP request
 
 ```
-POST https://baremetal.api.cloud.yandex.net/baremetal/v1alpha/publicSubnets
+POST https://baremetal.{{ api-host }}/baremetal/v1alpha/publicSubnets
 ```
 
 ## Body parameters {#yandex.cloud.baremetal.v1alpha.CreatePublicSubnetRequest}

@@ -1,15 +1,15 @@
-# Пошаговые инструкции для Managed Service for Apache Kafka®
+# Пошаговые инструкции для {{ mkf-name }}
 
 ## Кластеры {#clusters}
 
 * [Информация об имеющихся кластерах](cluster-list.md)
 * [Создание кластера](cluster-create.md)
 * [Изменение настроек кластера](cluster-update.md)
-* [Обновление версии Apache Kafka®](cluster-version-update.md)
-* [Управление дисковым пространством в кластере Managed Service for Apache Kafka®](storage-space.md)
+* [{#T}](cluster-version-update.md)
+* [{#T}](storage-space.md)
 * [Остановка и запуск кластера](cluster-stop.md)
 * [Получение списка хостов кластера](cluster-hosts.md)
-* [Получение патч-версии Apache Kafka®](cluster-patch-version.md)
+* [Получение патч-версии {{ KF }}](cluster-patch-version.md)
 * [Миграция хостов кластера в другую зону доступности](host-migration.md)
 * [Управление доступом к кластеру](cluster-access.md)
 * [Техническое обслуживание](cluster-maintenance.md)
@@ -25,18 +25,18 @@
 
 * [Управление топиками](cluster-topics.md)
 
-## Пользователи Apache Kafka® {#accounts}
+## Пользователи {{ KF }} {#accounts}
 
 * [Управление пользователями](cluster-accounts.md)
 
-## Коннекторы Apache Kafka® {#connectors}
+## Коннекторы {{ KF }} {#connectors}
 
 * [Управление коннекторами](cluster-connector.md)
 
 
 ## Интерфейсы
 
-* [Веб-интерфейс Kafka UI](kafka-ui-enable.md)
+* [Веб-интерфейс {{ kafka-ui }}](kafka-ui-enable.md)
 
 
 ## Логи и мониторинг {#monitoring-and-logs}

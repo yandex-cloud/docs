@@ -1,15 +1,15 @@
 # Экспортировать SSH-сертификат
 
-Чтобы пользователь или (с помощью [сервисного аккаунта](../../../iam/concepts/users/service-accounts.md)) сторонний инструмент, такой как [Terraform](https://www.terraform.io/) или [Ansible](https://www.ansible.com/), мог подключиться по протоколу SSH к [виртуальным машинам Compute Cloud](../../concepts/vm.md#project), [хостам кластера Yandex Data Processing](../../../data-proc/operations/connect-oslogin.md) или [отдельным узлам в группе узлов Kubernetes](../../../managed-kubernetes/concepts/index.md#node-group) с включенным доступом по OS Login, можно использовать SSH-сертификат [пользователя организации](../../../organization/concepts/membership.md) или сервисного аккаунта. Для этого необходимо локально экспортировать SSH-сертификат и использовать его для доступа к ВМ или узлу Kubernetes с помощью стандартного SSH-клиента. Экспортированный сертификат действителен один час.
+Чтобы пользователь или (с помощью [сервисного аккаунта](../../../iam/concepts/users/service-accounts.md)) сторонний инструмент, такой как [Terraform](https://www.terraform.io/) или [Ansible](https://www.ansible.com/), мог подключиться по протоколу SSH к [виртуальным машинам {{ compute-name }}](../../concepts/vm.md#project), [хостам кластера {{ dataproc-name }}](../../../data-proc/operations/connect-oslogin.md) или [отдельным узлам в группе узлов {{ k8s }}](../../../managed-kubernetes/concepts/index.md#node-group) с включенным доступом по {{ oslogin }}, можно использовать SSH-сертификат [пользователя организации](../../../organization/concepts/membership.md) или сервисного аккаунта. Для этого необходимо локально экспортировать SSH-сертификат и использовать его для доступа к ВМ или узлу {{ k8s }} с помощью стандартного SSH-клиента. Экспортированный сертификат действителен один час.
 
-Чтобы экспортировать SSH-сертификат пользователя организации Yandex Identity Hub или [сервисного аккаунта](../../../iam/concepts/users/service-accounts.md) на локальный компьютер:
+Чтобы экспортировать SSH-сертификат пользователя организации {{ org-full-name }} или [сервисного аккаунта](../../../iam/concepts/users/service-accounts.md) на локальный компьютер:
 
 {% list tabs group=instructions %}
 
 
 - CLI {#cli}
 
-  Если у вас еще нет интерфейса командной строки Yandex Cloud (CLI), [установите и инициализируйте его](../../../cli/quickstart.md#install).
+  Если у вас еще нет интерфейса командной строки {{ yandex-cloud }} (CLI), [установите и инициализируйте его](../../../cli/quickstart.md#install).
 
   По умолчанию используется каталог, указанный при [создании](../../../cli/operations/profile/profile-create.md) профиля CLI. Чтобы изменить каталог по умолчанию, используйте команду `yc config set folder-id <идентификатор_каталога>`. Также для любой команды вы можете указать другой каталог с помощью параметров `--folder-name` или `--folder-id`. Если вы обращаетесь к ресурсу по имени, поиск будет выполнен в каталоге по умолчанию. Если вы обращаетесь к ресурсу по идентификатору, поиск будет выполнен глобально — во всех каталогах с учетом прав доступа.
 
@@ -18,7 +18,7 @@
       ```bash
       yc compute ssh certificate export --help
       ```
-  1. Получите идентификатор организации, в которой находится нужный [профиль OS Login](../../../organization/concepts/os-login.md#os-login-profiles) пользователя или [сервисного аккаунта](../../../iam/concepts/users/service-accounts.md):
+  1. Получите идентификатор организации, в которой находится нужный [профиль {{ oslogin }}](../../../organization/concepts/os-login.md#os-login-profiles) пользователя или [сервисного аккаунта](../../../iam/concepts/users/service-accounts.md):
      
      ```bash
      yc organization-manager organization list
@@ -35,7 +35,7 @@
      | bpf6dne49ue8******** | sample-organization3    | Organization 3          |
      +----------------------+-------------------------+-------------------------+
      ```
-  1. Получите список логинов в [профилях OS Login](../../../organization/concepts/os-login.md#os-login-profiles) пользователей и сервисных аккаунтов нужной организации, указав ее идентификатор:
+  1. Получите список логинов в [профилях {{ oslogin }}](../../../organization/concepts/os-login.md#os-login-profiles) пользователей и сервисных аккаунтов нужной организации, указав ее идентификатор:
      
      ```bash
      yc organization-manager os-login profile list \
@@ -58,7 +58,7 @@
      
      {% note info %}
      
-     Минимально необходимая роль, позволяющая просматривать список профилей OS Login пользователей — [роль](../../../organization/security/index.md#organization-manager-osLogins-viewer) `organization-manager.osLogins.viewer`, назначенная на организацию. Информацию о других ролях, позволяющих просматривать список профилей OS Login, см. в разделе [Управление доступом в Yandex Identity Hub](../../../organization/security/index.md#service-roles).
+     Минимально необходимая роль, позволяющая просматривать список профилей {{ oslogin }} пользователей — [роль](../../../organization/security/index.md#organization-manager-osLogins-viewer) `organization-manager.osLogins.viewer`, назначенная на организацию. Информацию о других ролях, позволяющих просматривать список профилей {{ oslogin }}, см. в разделе [Управление доступом в {{ org-full-name }}](../../../organization/security/index.md#service-roles).
      
      {% endnote %}
   1. Экспортируйте сертификат:
@@ -71,7 +71,7 @@
       ```
 
       Где:
-      * `--login` — полученный ранее логин пользователя или сервисного аккаунта, заданный в профиле OS Login. Необязательный параметр. Если параметр не задан, SSH-сертификат будет выгружен для пользователя или сервисного аккаунта, авторизованного в текущий момент в профиле Yandex Cloud CLI.
+      * `--login` — полученный ранее логин пользователя или сервисного аккаунта, заданный в профиле {{ oslogin }}. Необязательный параметр. Если параметр не задан, SSH-сертификат будет выгружен для пользователя или сервисного аккаунта, авторизованного в текущий момент в профиле {{ yandex-cloud }} CLI.
       * `--organization-id` — полученный ранее [идентификатор](../../../organization/operations/organization-get-id.md) организации, из которой нужно экспортировать SSH-сертификат. Необязательный параметр. Если параметр не задан, сертификат будет выгружен из организации, к которой относится каталог по умолчанию.
       * `--directory` — путь к локальной директории, в которой будет сохранен экспортированный SSH-сертификат. Необязательный параметр. Если параметр не задан, сертификат будет по умолчанию сохранен в директории `.ssh` в домашней директории текущего пользователя компьютера (`~/.ssh/`).
 
@@ -86,13 +86,13 @@
 
 {% endlist %}
 
-С помощью экспортированного SSH-сертификата вы можете [подключиться](os-login.md#connect-with-ssh-client) к виртуальной машине Compute Cloud, кластеру Yandex Data Processing или узлу Kubernetes, для которых [настроен](../vm-control/vm-update.md#enable-oslogin-access) доступ по OS Login.
+С помощью экспортированного SSH-сертификата вы можете [подключиться](os-login.md#connect-with-ssh-client) к виртуальной машине {{ compute-name }}, кластеру {{ dataproc-name }} или узлу {{ k8s }}, для которых [настроен](../vm-control/vm-update.md#enable-oslogin-access) доступ по {{ oslogin }}.
 
 #### См. также {#see-also}
 
-* [Включить доступ по OS Login](../../../organization/operations/os-login-access.md)
-* [Добавить SSH-ключ](../../../organization/operations/add-ssh.md)
-* [Подключиться к виртуальной машине по OS Login](os-login.md)
-* [Подключиться к узлу Kubernetes через OS Login](../../../managed-kubernetes/operations/node-connect-oslogin.md)
-* [Подключиться к кластеру Yandex Data Processing через OS Login](../../../data-proc/operations/connect-oslogin.md)
-* [Использовать сервисный аккаунт с профилем OS Login для управления ВМ с помощью Ansible](../../../tutorials/security/sa-oslogin-ansible.md)
+* [{#T}](../../../organization/operations/os-login-access.md)
+* [{#T}](../../../organization/operations/add-ssh.md)
+* [{#T}](os-login.md)
+* [Подключиться к узлу {{ k8s }} через {{ oslogin }}](../../../managed-kubernetes/operations/node-connect-oslogin.md)
+* [Подключиться к кластеру {{ dataproc-name }} через {{ oslogin }}](../../../data-proc/operations/connect-oslogin.md)
+* [Использовать сервисный аккаунт с профилем {{ oslogin }} для управления ВМ с помощью Ansible](../../../tutorials/security/sa-oslogin-ansible.md)

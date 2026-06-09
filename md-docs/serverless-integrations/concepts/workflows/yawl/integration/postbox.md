@@ -1,10 +1,10 @@
 # Postbox
 
-Рассылка писем с помощью Yandex Cloud Postbox. Поля `simple` и `raw` — взаимоисключающие.
+Рассылка писем с помощью {{ postbox-full-name }}. Поля `simple` и `raw` — взаимоисключающие.
 
 Имя поля | Тип | Обязательное | Значение по умолчанию | Поддерживается [шаблонизация](../../templating.md) | Описание
 --- | --- | --- | --- | --- | ---
-`fromAddress` | `string` | Да | Нет | Нет | [Адрес](../../../../../postbox/concepts/glossary.md#adress) Yandex Cloud Postbox, с которого будет осуществляться отправка писем.<br/><br/>[Сервисный аккаунт](../../../../../iam/concepts/users/service-accounts.md), указанный в настройках [рабочего процесса](../../workflow.md), и адрес, заданный в этом поле, должны находиться в одном [каталоге](../../../../../resource-manager/concepts/resources-hierarchy.md#folder).
+`fromAddress` | `string` | Да | Нет | Нет | [Адрес](../../../../../postbox/concepts/glossary.md#adress) {{ postbox-name }}, с которого будет осуществляться отправка писем.<br/><br/>[Сервисный аккаунт](../../../../../iam/concepts/users/service-accounts.md), указанный в настройках [рабочего процесса](../../workflow.md), и адрес, заданный в этом поле, должны находиться в одном [каталоге](../../../../../resource-manager/concepts/resources-hierarchy.md#folder).
 `destination` | [Destination](#postbox-destination) | Да | Нет | Нет | Объект описывающий адреса получателей.
 `simple` | [SimpleMessage](#postbox-simplemessage) | Нет | Нет | Нет | Письмо, которое будет отправлено.
 `raw` | [RawMessage](#postbox-rawmessage) | Нет | Нет | Нет | Письмо, которое будет отправлено.
@@ -22,7 +22,7 @@
 
 Имя поля | Тип | Обязательное | Значение по умолчанию | Поддерживается [шаблонизация](../../templating.md) | Описание
 --- | --- | --- | --- | --- | ---
-`data` | `string` | Да | Нет | Да | Необработанный тип письма. Подробнее см. в [документации сервиса Yandex Cloud Postbox](../../../../../postbox/aws-compatible-api/api-ref/send-email.md).
+`data` | `string` | Да | Нет | Да | Необработанный тип письма. Подробнее см. в [документации сервиса {{ postbox-name }}](../../../../../postbox/aws-compatible-api/api-ref/send-email.md).
 
 ## SimpleMessage {#postbox-simplemessage}
 

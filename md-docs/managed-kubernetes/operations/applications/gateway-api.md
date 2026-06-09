@@ -4,23 +4,23 @@
 
 {% note tip %}
 
-Вместо ALB Ingress-контроллера и Gateway API рекомендуется использовать новый контроллер [Yandex Cloud Gwin](../../alb-ref/gwin-index.md).
+Вместо ALB Ingress-контроллера и Gateway API рекомендуется использовать новый контроллер [{{ yandex-cloud }} Gwin]({{ gwin-tip-local-link }}).
 
 {% endnote %}
 
-[Gateway API](https://github.com/kubernetes-sigs/gateway-api) — набор ресурсов [API](../../../glossary/rest-api.md), моделирующих сетевое взаимодействие в [кластере Managed Service for Kubernetes](../../concepts/index.md#kubernetes-cluster). Среди них `GatewayClass`, `Gateway`, `HTTPRoute` и другие.
+[Gateway API](https://github.com/kubernetes-sigs/gateway-api) — набор ресурсов [API](../../../glossary/rest-api.md), моделирующих сетевое взаимодействие в [кластере {{ managed-k8s-name }}](../../concepts/index.md#kubernetes-cluster). Среди них `GatewayClass`, `Gateway`, `HTTPRoute` и другие.
 
-В сервисе Managed Service for Kubernetes Gateway API запускает [Yandex Application Load Balancer](../../../application-load-balancer/index.md) и необходимые вспомогательные ресурсы, когда пользователь Kubernetes объявляет ресурс `Gateway` в кластере Managed Service for Kubernetes.
+В сервисе {{ managed-k8s-name }} Gateway API запускает [{{ alb-full-name }}](../../../application-load-balancer/index.md) и необходимые вспомогательные ресурсы, когда пользователь {{ k8s }} объявляет ресурс `Gateway` в кластере {{ managed-k8s-name }}.
 
 {% note warning %}
 
-Не изменяйте и не удаляйте балансировщик нагрузки и его дочерние ресурсы, созданные с помощью Managed Service for Kubernetes, через интерфейсы Yandex Cloud (консоль управления, Terraform, CLI и API). Это может привести к некорректной работе кластера.
+Не изменяйте и не удаляйте балансировщик нагрузки и его дочерние ресурсы, созданные с помощью {{ managed-k8s-name }}, через интерфейсы {{ yandex-cloud }} (консоль управления, {{ TF }}, CLI и API). Это может привести к некорректной работе кластера.
 
 {% endnote %}
 
 ## Перед началом работы {#before-you-begin}
 
-1. Если у вас еще нет интерфейса командной строки Yandex Cloud (CLI), [установите и инициализируйте его](../../../cli/quickstart.md#install).
+1. Если у вас еще нет интерфейса командной строки {{ yandex-cloud }} (CLI), [установите и инициализируйте его](../../../cli/quickstart.md#install).
 
    По умолчанию используется каталог, указанный при [создании](../../../cli/operations/profile/profile-create.md) профиля CLI. Чтобы изменить каталог по умолчанию, используйте команду `yc config set folder-id <идентификатор_каталога>`. Также для любой команды вы можете указать другой каталог с помощью параметров `--folder-name` или `--folder-id`. Если вы обращаетесь к ресурсу по имени, поиск будет выполнен в каталоге по умолчанию. Если вы обращаетесь к ресурсу по идентификатору, поиск будет выполнен глобально — во всех каталогах с учетом прав доступа.
 
@@ -28,8 +28,8 @@
 1. [Назначьте сервисному аккаунту роли](../../../iam/operations/sa/assign-role-for-sa.md):
    * `alb.editor` — для создания необходимых ресурсов.
    * `vpc.publicAdmin` — для управления [внешней связностью](../../../vpc/security/index.md#roles-list).
-   * `certificate-manager.admin` — для работы с [сертификатами](../../../certificate-manager/concepts/index.md#types), зарегистрированными в сервисе [Yandex Certificate Manager](../../../certificate-manager/index.md).
-   * `compute.viewer` — для использования [узлов](../../concepts/index.md#node-group) кластера Managed Service for Kubernetes в [целевых группах](../../../application-load-balancer/concepts/target-group.md) балансировщика.
+   * `certificate-manager.admin` — для работы с [сертификатами](../../../certificate-manager/concepts/index.md#types), зарегистрированными в сервисе [{{ certificate-manager-full-name }}](../../../certificate-manager/index.md).
+   * `compute.viewer` — для использования [узлов](../../concepts/index.md#node-group) кластера {{ managed-k8s-name }} в [целевых группах](../../../application-load-balancer/concepts/target-group.md) балансировщика.
 1. Создайте для сервисного аккаунта [авторизованный ключ](../../../iam/operations/authentication/manage-authorized-keys.md#create-authorized-key) и сохраните ключ в файл `sa-key.json`:
 
    ```bash
@@ -38,7 +38,7 @@
      --output sa-key.json
    ```
 
-1. [Убедитесь](../connect/security-groups.md), что группы безопасности для кластера Managed Service for Kubernetes и его групп узлов настроены корректно. Если отсутствует какое-либо из правил — [добавьте его](../../../vpc/operations/security-group-add-rule.md).
+1. [Убедитесь](../connect/security-groups.md), что группы безопасности для кластера {{ managed-k8s-name }} и его групп узлов настроены корректно. Если отсутствует какое-либо из правил — [добавьте](../../../vpc/operations/security-group-add-rule.md) его.
 
     {% note warning %}
     
@@ -46,16 +46,16 @@
     
     {% endnote %}
 
-## Установка с помощью Yandex Cloud Marketplace {#marketplace-install}
+## Установка с помощью {{ marketplace-full-name }} {#marketplace-install}
 
 {% list tabs group=instructions %}
 
 - Консоль управления {#console}
 
   1. Перейдите на страницу [каталога](../../../resource-manager/concepts/resources-hierarchy.md#folder).
-  1. [Перейдите](../../../console/operations/select-service.md#select-service) в сервис **Managed Service for&nbsp;Kubernetes**.
-  1. Нажмите на имя нужного кластера Managed Service for Kubernetes и выберите вкладку ![Marketplace](../../../_assets/console-icons/shopping-cart.svg) **Marketplace**.
-  1. В разделе **Доступные для установки приложения** выберите [Gateway API](https://yandex.cloud/ru/marketplace/products/yc/gateway-api) и нажмите кнопку **Перейти к установке**.
+  1. Перейдите в сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-kubernetes }}**.
+  1. Нажмите на имя нужного кластера {{ managed-k8s-name }} и выберите вкладку ![Marketplace](../../../_assets/console-icons/shopping-cart.svg) **{{ ui-key.yacloud.k8s.cluster.switch_marketplace }}**.
+  1. В разделе **{{ ui-key.yacloud.marketplace-v2.label_available-products }}** выберите [Gateway API](https://yandex.cloud/ru/marketplace/products/yc/gateway-api) и нажмите кнопку **{{ ui-key.yacloud.marketplace-v2.button_k8s-product-use }}**.
   1. Задайте настройки приложения:
      * **Пространство имен** — создайте новое [пространство имен](../../concepts/index.md#namespace) (например, `gateway-api-space`). Если вы оставите пространство имен по умолчанию, Gateway API может работать некорректно.
      * **Название приложения** — укажите название приложения.
@@ -63,7 +63,7 @@
      * **Идентификатор сети** — выберите [облачную сеть](../../../vpc/concepts/network.md#network), в которой нужно [располагать балансировщики](../../../application-load-balancer/concepts/application-load-balancer.md#lb-location).
      * **Идентификатор подсети 1**, **Идентификатор подсети 2**, **Идентификатор подсети 3** — выберите [подсети](../../../vpc/concepts/network.md#subnet), в которых нужно [располагать балансировщики](../../../application-load-balancer/concepts/application-load-balancer.md#lb-location).
      * **Ключ сервисного аккаунта** — вставьте содержимое файла `sa-key.json` или создайте новый [ключ](../../../iam/concepts/authorization/key.md) [сервисного аккаунта](../../../iam/concepts/users/service-accounts.md).
-  1. Нажмите кнопку **Установить**.
+  1. Нажмите кнопку **{{ ui-key.yacloud.k8s.cluster.marketplace.button_install }}**.
   1. Дождитесь перехода приложения в статус `Deployed`.
 
 {% endlist %}
@@ -71,12 +71,12 @@
 ## Установка с помощью Helm-чарта {#helm-install}
 
 1. [Установите менеджер пакетов Helm](https://helm.sh/ru/docs/intro/install/) версии не ниже 3.8.0.
-1. [Установите kubectl](https://kubernetes.io/ru/docs/tasks/tools/install-kubectl) и [настройте его на работу с созданным кластером](../connect/index.md#kubectl-connect).
+1. [Установите kubectl]({{ k8s-docs }}/tasks/tools/install-kubectl) и [настройте его на работу с созданным кластером](../connect/index.md#kubectl-connect).
 1. Для установки [Helm-чарта](https://helm.sh/docs/topics/charts/) с Gateway API выполните команду:
 
    ```bash
-   helm pull oci://cr.yandex/yc-marketplace/yandex-cloud/gateway-api/gateway-api-helm/gateway-api \
-     --version v0.7.3 \
+   helm pull oci://{{ mkt-k8s-key.yc_gateway-api.helmChart.name }} \
+     --version {{ mkt-k8s-key.yc_gateway-api.helmChart.tag }} \
      --untar && \
    helm install \
      --namespace <пространство_имен> \
@@ -102,7 +102,7 @@
 
 ## Автоматическое обновление приложения {#auto-update}
 
-Версия приложения Gateway API 0.6.0 содержит обновление версии CRD Gateway API с [0.6.2](https://github.com/kubernetes-sigs/gateway-api/releases/tag/v0.6.2) до [1.2.1](https://github.com/kubernetes-sigs/gateway-api/releases/tag/v1.2.1). Если вы обновляете Gateway API с версии 0.5.0 и ниже до версии 0.6.0, то при установке из Helm-чарта будет выполнено автоматическое обновление CRD Gateway API и всех зависимых ресурсов в кластере Managed Service for Kubernetes. Обновление безопасно, то есть ресурсы Application Load Balancer не будут удалены или пересозданы.
+Версия приложения Gateway API 0.6.0 содержит обновление версии CRD Gateway API с [0.6.2](https://github.com/kubernetes-sigs/gateway-api/releases/tag/v0.6.2) до [1.2.1](https://github.com/kubernetes-sigs/gateway-api/releases/tag/v1.2.1). Если вы обновляете Gateway API с версии 0.5.0 и ниже до версии 0.6.0, то при установке из Helm-чарта будет выполнено автоматическое обновление CRD Gateway API и всех зависимых ресурсов в кластере {{ managed-k8s-name }}. Обновление безопасно, то есть ресурсы {{ alb-name }} не будут удалены или пересозданы.
 
 Автоматическое обновление с версии 0.5.0 и ниже происходит следующим образом:
 
@@ -127,9 +127,9 @@
 
 ## Примеры использования {#examples}
 
-* [Настройка Gateway API](../../tutorials/marketplace/gateway-api.md).
+* [{#T}](../../tutorials/marketplace/gateway-api.md).
 
 ## См. также {#see-also}
 
 * [Описание проекта Gateway API](https://gateway-api.sigs.k8s.io/).
-* [Описание и конфигурация Gateway API](../../../application-load-balancer/tools/k8s-gateway-api/index.md) в документации Application Load Balancer.
+* [Описание и конфигурация Gateway API](../../../application-load-balancer/tools/k8s-gateway-api/index.md) в документации {{ alb-name }}.

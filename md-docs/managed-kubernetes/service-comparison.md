@@ -1,4 +1,4 @@
-# Сопоставление Managed Service for Kubernetes с другими сервисами Yandex Cloud
+# Сопоставление {{ managed-k8s-name }} с другими сервисами {{ yandex-cloud }}
 
 **Критерий \ Сервис** | **Container<br/>Solution** | **Managed<br/>Service for<br/>Kubernetes** | **Cloud<br/>Functions** | **Serverless<br/>Containers**
 --- | --- | --- | --- | ---

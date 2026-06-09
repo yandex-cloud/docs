@@ -31,7 +31,7 @@ Creates a MongoDB user in the specified cluster.
 || cluster_id | **string**
 
 Required field. ID of the MongoDB cluster to create a user in.
-To get the cluster ID, use a [ClusterService.List](../Cluster/list.md#List) request.
+To get the cluster ID, use a [ClusterService.List](../../../../managed-mongodb/api-ref/grpc/Cluster/list#List) request.
 
 The maximum string length in characters is 50. ||
 || user_spec | **[UserSpec](#yandex.cloud.mdb.mongodb.v1.UserSpec)**
@@ -47,12 +47,12 @@ Properties of the user to be created. ||
 
 Required field. Name of the MongoDB user.
 
-The maximum string length in characters is 63. Value must match the regular expression ` [a-zA-Z0-9_]* `. ||
+The maximum string length in characters is 63. Value must match the regular expression ` ^[a-zA-Z0-9_][a-zA-Z0-9_@.-]*$ `. ||
 || password | **string**
 
-Required field. Password of the MongoDB user.
+Password of the MongoDB user.
 
-The string length in characters must be 8-128. ||
+The maximum string length in characters is 128. ||
 || permissions[] | **[Permission](#yandex.cloud.mdb.mongodb.v1.Permission)**
 
 Set of permissions to grant to the user. ||
@@ -80,24 +80,10 @@ MongoDB roles for the `database_name` database that the permission grants. ||
   "created_by": "string",
   "modified_at": "google.protobuf.Timestamp",
   "done": "bool",
-  "metadata": {
-    "cluster_id": "string",
-    "user_name": "string"
-  },
+  "metadata": "google.protobuf.Any",
   // Includes only one of the fields `error`, `response`
   "error": "google.rpc.Status",
-  "response": {
-    "name": "string",
-    "cluster_id": "string",
-    "permissions": [
-      {
-        "database_name": "string",
-        "roles": [
-          "string"
-        ]
-      }
-    ]
-  }
+  "response": "google.protobuf.Any"
   // end of the list of possible fields
 }
 ```
@@ -125,7 +111,7 @@ The time when the Operation resource was last modified. ||
 
 If the value is `false`, it means the operation is still in progress.
 If `true`, the operation is completed, and either `error` or `response` is available. ||
-|| metadata | **[CreateUserMetadata](#yandex.cloud.mdb.mongodb.v1.CreateUserMetadata)**
+|| metadata | **[google.protobuf.Any](https://developers.google.com/protocol-buffers/docs/proto3#any)**
 
 Service-specific metadata associated with the operation.
 It typically contains the ID of the target resource that the operation is performed on.
@@ -140,7 +126,7 @@ The operation result.
 If `done == false` and there was no failure detected, neither `error` nor `response` is set.
 If `done == false` and there was a failure detected, `error` is set.
 If `done == true`, exactly one of `error` or `response` is set. ||
-|| response | **[User](#yandex.cloud.mdb.mongodb.v1.User)**
+|| response | **[google.protobuf.Any](https://developers.google.com/protocol-buffers/docs/proto3#any)**
 
 The normal response of the operation in case of success.
 If the original method returns no data on success, such as Delete,
@@ -155,46 +141,4 @@ The operation result.
 If `done == false` and there was no failure detected, neither `error` nor `response` is set.
 If `done == false` and there was a failure detected, `error` is set.
 If `done == true`, exactly one of `error` or `response` is set. ||
-|#
-
-## CreateUserMetadata {#yandex.cloud.mdb.mongodb.v1.CreateUserMetadata}
-
-#|
-||Field | Description ||
-|| cluster_id | **string**
-
-ID of the MongoDB cluster the user is being created in. ||
-|| user_name | **string**
-
-Name of the user that is being created. ||
-|#
-
-## User {#yandex.cloud.mdb.mongodb.v1.User}
-
-A MongoDB User resource. For more information, see the
-[Developer's Guide](../../../concepts/index.md).
-
-#|
-||Field | Description ||
-|| name | **string**
-
-Name of the MongoDB user. ||
-|| cluster_id | **string**
-
-ID of the MongoDB cluster the user belongs to. ||
-|| permissions[] | **[Permission](#yandex.cloud.mdb.mongodb.v1.Permission2)**
-
-Set of permissions granted to the user. ||
-|#
-
-## Permission {#yandex.cloud.mdb.mongodb.v1.Permission2}
-
-#|
-||Field | Description ||
-|| database_name | **string**
-
-Name of the database that the permission grants access to. ||
-|| roles[] | **string**
-
-MongoDB roles for the `database_name` database that the permission grants. ||
 |#

@@ -5,7 +5,7 @@ Deletes the specified private endpoint.
 ## HTTP request
 
 ```
-DELETE https://vpc.api.cloud.yandex.net/vpc/v1/endpoints/{privateEndpointId}
+DELETE https://vpc.{{ api-host }}/vpc/v1/endpoints/{privateEndpointId}
 ```
 
 ## Path parameters

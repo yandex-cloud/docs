@@ -1,12 +1,12 @@
 # Все методы
 
-HTTP API Yandex Query доступен по адресу [https://api.yandex-query.cloud.yandex.net/api/fq/v1](https://api.yandex-query.cloud.yandex.net/api/fq/v1).
+HTTP API {{ yq-full-name }} доступен по адресу [https://api.yandex-query.cloud.yandex.net/api/fq/v1](https://api.yandex-query.cloud.yandex.net/api/fq/v1).
 
 Спецификация Open API 3.0 доступна по адресу [https://api.yandex-query.cloud.yandex.net/resources/v1/openapi.yaml](https://api.yandex-query.cloud.yandex.net/resources/v1/openapi.yaml).
 
 При использовании HTTP API необходимо [аутентифицироваться](../auth.md), указав для этого [обязательные заголовки](../index.md#mandatory-headers). Кроме того, можно задать [необязательные заголовки](../index.md#optional-headers) для настройки исполнения запросов. При работе с HTTP API могут возвращаться [ошибки](../index.md#errors).
 
-Методы HTTP API Yandex Query:
+Методы HTTP API {{ yq-full-name }}:
 
 | Название | Описание |
 | --- | --- |

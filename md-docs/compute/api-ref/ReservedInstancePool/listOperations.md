@@ -5,7 +5,7 @@ Lists operations for the specified reserved instance pool.
 ## HTTP request
 
 ```
-GET https://compute.api.cloud.yandex.net/compute/v1/reservedInstancePools/{reservedInstancePoolId}/operations
+GET https://compute.{{ api-host }}/compute/v1/reservedInstancePools/{reservedInstancePoolId}/operations
 ```
 
 ## Path parameters
@@ -15,8 +15,8 @@ GET https://compute.api.cloud.yandex.net/compute/v1/reservedInstancePools/{reser
 || reservedInstancePoolId | **string**
 
 Required field. ID of the reserved instance pool to list operations for.
-
-The maximum string length in characters is 50. ||
+The length must be less than or equal to 50.
+This field is required. ||
 |#
 
 ## Query parameters {#yandex.cloud.compute.v1.ListReservedInstancePoolOperationsRequest}
@@ -28,14 +28,12 @@ The maximum string length in characters is 50. ||
 The maximum number of results per page to return. If the number of available
 results is larger than `pageSize`, the service returns a [ListReservedInstancePoolOperationsResponse.nextPageToken](#yandex.cloud.compute.v1.ListReservedInstancePoolOperationsResponse)
 that can be used to get the next page of results in subsequent list requests.
-
-The maximum value is 1000. ||
+The value must be less than or equal to 1000. ||
 || pageToken | **string**
 
 Page token. To get the next page of results, set `pageToken` to the
 [ListReservedInstancePoolOperationsResponse.nextPageToken](#yandex.cloud.compute.v1.ListReservedInstancePoolOperationsResponse) returned by a previous list request.
-
-The maximum string length in characters is 100. ||
+The length must be less than or equal to 100. ||
 |#
 
 ## Response {#yandex.cloud.compute.v1.ListReservedInstancePoolOperationsResponse}

@@ -24,8 +24,8 @@ description: Из статьи вы узнаете, что такое Delta Lake
 
 {% include [deltalake-disclaimer](../../_includes/data-processing/deltalake-disclaimer.md) %}
 
+Подробная информация о Delta Lake в [документации Delta Lake](https://docs.delta.io/latest/index.html).
 
-Подробную информацию о Delta Lake см. в [документации Delta Lake](https://docs.delta.io/latest/index.html).
 
 ## Совместимость версий Delta Lake и {{ dataproc-name }} {#compatibility}
 

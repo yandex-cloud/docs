@@ -1,10 +1,10 @@
-# Справочник метрик Yandex Monitoring
+# Справочник метрик {{ monitoring-full-name }}
 
-В этом разделе описаны метрики сервиса Object Storage, поставляемые в [Monitoring](../monitoring/concepts/index.md).
+В этом разделе описаны метрики сервиса {{ objstorage-name }}, поставляемые в [{{ monitoring-name }}]({{ monitoring-doc-links }}).
 
 Имя метрики пишется в метку `name`.
 
-Общие метки для всех метрик сервиса Object Storage:
+Общие метки для всех метрик сервиса {{ objstorage-short-name }}:
 
 Метка | Значение
 ----|----
@@ -24,4 +24,4 @@ resource_type | Тип ресурса: `bucket`
 
 #### См. также {#see-also}
 
-[Просмотр метрик бакета](operations/buckets/get-stats.md)
+[{#T}](operations/buckets/get-stats.md)

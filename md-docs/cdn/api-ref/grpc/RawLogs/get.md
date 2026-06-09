@@ -1,5 +1,7 @@
 # Cloud CDN API, gRPC: RawLogsService.Get
 
+Get configuration of raw log export.
+
 ## gRPC request
 
 **rpc Get ([GetRawLogsRequest](#yandex.cloud.cdn.v1.GetRawLogsRequest)) returns ([GetRawLogsResponse](#yandex.cloud.cdn.v1.GetRawLogsResponse))**

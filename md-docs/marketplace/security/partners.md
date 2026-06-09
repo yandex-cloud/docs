@@ -1,4 +1,4 @@
-# Управление доступом партнера в Marketplace
+# Управление доступом партнера в {{ marketplace-short-name }}
 
 В этом разделе вы узнаете:
 * [на какие ресурсы можно назначить роль](#resources);
@@ -8,7 +8,7 @@
 
 ## На какие ресурсы можно назначить роль {#resources}
 
- В [кабинете партнера Marketplace](https://partners.yandex.cloud/) можно [назначить роль](#assign-role) на [продукты Marketplace](../concepts/product.md) и на [профиль партнера](../concepts/publisher.md).
+ В [кабинете партнера {{ marketplace-short-name }}]({{ link-cloud-partners }}) можно [назначить роль](#assign-role) на [продукты Marketplace](../concepts/product.md) и на [профиль партнера](../concepts/publisher.md).
 
 ## Какие роли действуют в сервисе {#roles-list}
 
@@ -29,6 +29,10 @@
 Роль `license-manager.saasSubscriptionSupervisor` позволяет просматривать информацию о [подписках](../concepts/users/subscription.md) и их привязках к ресурсам, приложениям или сервисам, а также создавать такие привязки.
 
 Роль предназначена для продуктов SaaS и может быть назначена на [сервисный аккаунт](../../iam/concepts/users/service-accounts.md), от имени которого будут создаваться привязки к ресурсам, приложениям или сервисам.
+
+#### marketplace.productInstances.saasSupervisor {#marketplace-productInstances-saasSupervisor}
+
+Роль `marketplace.productInstances.saasSupervisor` позволяет просматривать информацию об установленных SaaS-[продуктах](../concepts/product.md) Marketplace и активировать такие продукты.
 
 #### marketplace.product.creator {#marketplace-product-creator}
 
@@ -126,9 +130,9 @@
 
 Роль `marketplace.publishers.member` предоставляет права участника [профиля партнера](../quickstart.md#registration), но не дает доступа к ресурсам профиля. Чтобы предоставить пользователю доступ к [продуктам](../concepts/product.md) или отчетам в профиле партнера, дополнительно назначьте ему роль `marketplace.publishers.viewer`, `marketplace.publishers.editor`, `marketplace.publishers.admin` или `marketplace.publishers.owner`.
 
-## Добавление пользователя в профиль партнера Marketplace {#add-user}
+## Добавление пользователя в профиль партнера {{ marketplace-short-name }} {#add-user}
 
-Чтобы добавить нового пользователя в профиль партнера Marketplace, необходима роль `marketplace.publishers.admin` или выше.
+Чтобы добавить нового пользователя в профиль партнера {{ marketplace-short-name }}, необходима роль `marketplace.publishers.admin` или выше.
 
 Добавить можно только [пользователя с аккаунтом на Яндексе](../../iam/concepts/users/accounts.md#passport) или [федеративного пользователя](../../iam/concepts/users/accounts.md#saml-federation). Чтобы добавить нового пользователя:
 
@@ -136,18 +140,18 @@
 
 - Аккаунт на Яндексе {#yandex-account}
 
-  1. Откройте [кабинет партнера Marketplace](https://partners.yandex.cloud/).
-  1. На панели слева выберите ![persons](../../_assets/console-icons/persons.svg) **Управление доступом**.
-  1. В верхней части экрана нажмите кнопку **Добавить пользователя** и в открывшемся окне:
+  1. Откройте [кабинет партнера {{ marketplace-short-name }}]({{ link-cloud-partners }}).
+  1. На панели слева выберите ![persons](../../_assets/console-icons/persons.svg) **{{ ui-key.yacloud_portal.portal.publisher-users }}**.
+  1. В верхней части экрана нажмите кнопку **{{ ui-key.yacloud_portal.acl.common.action_via-email }}** и в открывшемся окне:
 
       1. Укажите электронный адрес аккаунта на Яндексе, принадлежащего пользователю, которого вы хотите добавить в кабинет партнера.
-      1. Нажмите кнопку **Добавить**.
+      1. Нажмите кнопку **{{ ui-key.yacloud_portal.common.action_add }}**.
 
 - Федеративный аккаунт {#federated-account}
 
-  1. Откройте [кабинет партнера Marketplace](https://partners.yandex.cloud/).
-  1. На панели слева выберите ![persons](../../_assets/console-icons/persons.svg) **Управление доступом**.
-  1. В верхней части экрана нажмите кнопку **Добавить федеративного пользователя** и в открывшемся окне:
+  1. Откройте [кабинет партнера {{ marketplace-short-name }}]({{ link-cloud-partners }}).
+  1. На панели слева выберите ![persons](../../_assets/console-icons/persons.svg) **{{ ui-key.yacloud_portal.portal.publisher-users }}**.
+  1. В верхней части экрана нажмите кнопку **{{ ui-key.yacloud_portal.acl.common.action_via-federation }}** и в открывшемся окне:
 
       1. Укажите Name ID федеративного пользователя, которого вы хотите добавить в кабинет партнера.
 
@@ -155,41 +159,41 @@
 
           Вы можете добавить сразу несколько пользователей, разделив их Name ID переносом строки.
 
-      1. Нажмите кнопку **Добавить**.
+      1. Нажмите кнопку **{{ ui-key.yacloud_portal.common.action_add }}**.
 
 {% endlist %}
 
-В результате новый пользователь появится в списке пользователей на странице **Управление доступом**. Добавленным пользователям по умолчанию назначаются роли [`marketplace.publishers.member`](#marketplace-publishers-member) и [`marketplace.publishers.viewer`](#marketplace-publishers-viewer).
+В результате новый пользователь появится в списке пользователей на странице **{{ ui-key.yacloud_portal.marketplace_v2.common.page_title_roles }}**. Добавленным пользователям по умолчанию назначаются роли [`marketplace.publishers.member`](#marketplace-publishers-member) и [`marketplace.publishers.viewer`](#marketplace-publishers-viewer).
 
 ## Назначение и отзыв роли {#assign-role}
 
-В кабинете партнера Marketplace можно назначать роли на определенные продукты или на профиль партнера. Чтобы назначить пользователю роль или отозвать ее:
+В кабинете партнера {{ marketplace-short-name }} можно назначать роли на определенные продукты или на профиль партнера. Чтобы назначить пользователю роль или отозвать ее:
 
 {% list tabs %}
 
 - На продукт
 
-  1. Откройте [кабинет партнера Marketplace](https://partners.yandex.cloud/).
-  1. На панели слева выберите ![shopping-cart](../../_assets/console-icons/shopping-cart.svg) **Продукты**.
+  1. Откройте [кабинет партнера {{ marketplace-short-name }}]({{ link-cloud-partners }}).
+  1. На панели слева выберите ![shopping-cart](../../_assets/console-icons/shopping-cart.svg) **{{ ui-key.yacloud_portal.portal.products }}**.
   1. Нажмите на строку с продуктом, на который хотите назначить или отозвать роль. В открывшемся окне:
 
-      1. В меню слева выберите **Управление доступом**.
-      1. В строке с пользователем, для которого вы хотите назначить или отозвать роль, нажмите ![ellipsis](../../_assets/console-icons/ellipsis.svg) и выберите **Изменить**. В открывшемся окне:
+      1. В меню слева выберите **{{ ui-key.yacloud_portal.marketplace_v2.common.page_title_roles }}**.
+      1. В строке с пользователем, для которого вы хотите назначить или отозвать роль, нажмите ![ellipsis](../../_assets/console-icons/ellipsis.svg) и выберите **{{ ui-key.yacloud_portal.common.action_change }}**. В открывшемся окне:
 
-          1. Чтобы добавить новую роль, нажмите ![plus](../../_assets/console-icons/plus.svg) **Добавить роль** и выберите нужную роль.
+          1. Чтобы добавить новую роль, нажмите ![plus](../../_assets/console-icons/plus.svg) **{{ ui-key.yacloud_components.acl.action.add-role }}** и выберите нужную роль.
           
               Чтобы отозвать роль, нажмите значок ![xmark](../../_assets/console-icons/xmark.svg) справа от этой роли.
-          1. Нажмите кнопку **Сохранить**.
+          1. Нажмите кнопку **{{ ui-key.yacloud_components.cloud.button_save }}**.
 
 - На профиль партнера
 
-  1. Откройте [кабинет партнера Marketplace](https://partners.yandex.cloud/).
-  1. На панели слева выберите ![persons](../../_assets/console-icons/persons.svg) **Управление доступом**.
-  1. В строке с пользователем, для которого вы хотите назначить или отозвать роль, нажмите ![ellipsis](../../_assets/console-icons/ellipsis.svg) и выберите **Изменить**. В открывшемся окне:
+  1. Откройте [кабинет партнера {{ marketplace-short-name }}]({{ link-cloud-partners }}).
+  1. На панели слева выберите ![persons](../../_assets/console-icons/persons.svg) **{{ ui-key.yacloud_portal.portal.publisher-users }}**.
+  1. В строке с пользователем, для которого вы хотите назначить или отозвать роль, нажмите ![ellipsis](../../_assets/console-icons/ellipsis.svg) и выберите **{{ ui-key.yacloud_portal.common.action_change }}**. В открывшемся окне:
 
-      1. Чтобы добавить новую роль, нажмите ![plus](../../_assets/console-icons/plus.svg) **Добавить роль** и выберите нужную роль.
+      1. Чтобы добавить новую роль, нажмите ![plus](../../_assets/console-icons/plus.svg) **{{ ui-key.yacloud_components.acl.action.add-role }}** и выберите нужную роль.
       
           Чтобы отозвать роль, нажмите значок ![xmark](../../_assets/console-icons/xmark.svg) справа от этой роли.
-      1. Нажмите кнопку **Сохранить**.
+      1. Нажмите кнопку **{{ ui-key.yacloud_components.cloud.button_save }}**.
 
 {% endlist %}

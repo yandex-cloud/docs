@@ -5,7 +5,7 @@ Update PXF datasource
 ## HTTP request
 
 ```
-PATCH https://mdb.api.cloud.yandex.net/managed-greenplum/v1/clusters/{clusterId}/pxf_datasources
+PATCH https://{{ api-host-mdb }}/managed-greenplum/v1/clusters/{clusterId}/pxf_datasources
 ```
 
 ## Path parameters

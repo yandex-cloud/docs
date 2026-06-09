@@ -24,7 +24,7 @@
 
 ### Ошибки ChangeMessageVisibilityBatch {#errors}
 
-Перечень общих для всех методов ошибок смотрите в разделе [Стандартные ошибки](../common-errors.md).
+Перечень общих для всех методов ошибок смотрите в разделе [{#T}](../common-errors.md).
 
 Код HTTP | Идентификатор ошибки | Описание
 ----- | ----- | -----
@@ -38,7 +38,7 @@
 ```text
 Action=ChangeMessageVisibilityBatch
 &Version=2012-11-05
-&QueueUrl=https://message-queue.api.cloud.yandex.net/b1g8ad42m6he********/dj6000000000********/sample-queue
+&QueueUrl=https://message-queue.{{ api-host }}/b1g8ad42m6he********/dj6000000000********/sample-queue
 &ChangeMessageVisibilityBatchRequestEntry.1.Id=8b6f1be7-effe631a-7b3cb***-*****
 &ChangeMessageVisibilityBatchRequestEntry.1.ReceiptHandle=EAUg9bz********
 &ChangeMessageVisibilityBatchRequestEntry.1.VisibilityTimeout=30

@@ -1,16 +1,16 @@
-# Изменение настроек кластера OpenSearch
+# Изменение настроек кластера {{ OS }}
 
 После создания кластера вы можете изменить:
 
 * [сервисный аккаунт](#change-service-account);
 * [пароль пользователя](#change-admin-password) `admin`;
-* [настройки OpenSearch](#change-opensearch-config);
+* [настройки {{ OS }}](#change-opensearch-config);
 * [дополнительные настройки кластера](#change-additional-settings);
 * [группы безопасности](#change-sg-set).
 
 Помимо этого вы можете:
 
-* [обновить версию OpenSearch](cluster-version-update.md);
+* [обновить версию {{ OS }}](cluster-version-update.md);
 * [изменить конфигурацию групп хостов](host-groups.md#update-host-group);
 * [переместить группы хостов в другую зону доступности](host-migration.md).
 
@@ -18,53 +18,53 @@
 ## Изменить сервисный аккаунт {#change-service-account}
 
 
-Для привязки сервисного аккаунта к кластеру Managed Service for OpenSearch [назначьте](../../iam/operations/roles/grant.md) вашему аккаунту в Yandex Cloud роль [iam.serviceAccounts.user](../../iam/security/index.md#iam-serviceAccounts-user) или выше.
+Для привязки сервисного аккаунта к кластеру {{ mos-name }} [назначьте](../../iam/operations/roles/grant.md) вашему аккаунту в {{ yandex-cloud }} роль [iam.serviceAccounts.user](../../iam/security/index.md#iam-serviceAccounts-user) или выше.
 
 
 {% note warning %}
 
-Если для доступа к объектам из Object Storage в кластере уже используется сервисный аккаунт, то его смена может привести к недоступности этих объектов и нарушению работы кластера. Перед изменением настроек сервисного аккаунта убедитесь, что кластер не использует соответствующие объекты.
+Если для доступа к объектам из {{ objstorage-name }} в кластере уже используется сервисный аккаунт, то его смена может привести к недоступности этих объектов и нарушению работы кластера. Перед изменением настроек сервисного аккаунта убедитесь, что кластер не использует соответствующие объекты.
 
 {% endnote %}
 
-О настройке сервисного аккаунта читайте в разделе [Настройка доступа к Object Storage](s3-access.md).
+О настройке сервисного аккаунта читайте в разделе [Настройка доступа к {{ objstorage-name }}](s3-access.md).
 
 {% list tabs group=instructions %}
 
 - Консоль управления {#console}
 
-    Чтобы изменить сервисный аккаунт, привязанный к кластеру Managed Service for OpenSearch:
+    Чтобы изменить сервисный аккаунт, привязанный к кластеру {{ mos-name }}:
 
-    1. В [консоли управления](https://console.yandex.cloud) перейдите на страницу каталога.
-    1. [Перейдите](../../console/operations/select-service.md#select-service) в сервис **Managed Service for&nbsp;OpenSearch**.
-    1. Выберите кластер и нажмите кнопку ![image](../../_assets/console-icons/pencil.svg) **Редактировать** на панели сверху.
-    1. В поле **Сервисный аккаунт** выберите аккаунт из списка или [создайте новый](../../iam/operations/sa/create.md). Подробнее о настройке сервисного аккаунта см. в разделе [Настройка доступа к Object Storage](s3-access.md).
-    1. Нажмите кнопку **Сохранить**.
+    1. В [консоли управления]({{ link-console-main }}) перейдите на страницу каталога.
+    1. Перейдите в сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-opensearch }}**.
+    1. Выберите кластер и нажмите кнопку ![image](../../_assets/console-icons/pencil.svg) **{{ ui-key.yacloud.mdb.clusters.button_action-edit }}** на панели сверху.
+    1. В поле **{{ ui-key.yacloud.mdb.forms.base_field_service-account }}** выберите аккаунт из списка или [создайте новый](../../iam/operations/sa/create.md). Подробнее о настройке сервисного аккаунта см. в разделе [Настройка доступа к {{ objstorage-name }}](s3-access.md).
+    1. Нажмите кнопку **{{ ui-key.yacloud.common.save }}**.
 
 - CLI {#cli}
 
-    Если у вас еще нет интерфейса командной строки Yandex Cloud (CLI), [установите и инициализируйте его](../../cli/quickstart.md#install).
+    Если у вас еще нет интерфейса командной строки {{ yandex-cloud }} (CLI), [установите и инициализируйте его](../../cli/quickstart.md#install).
 
     По умолчанию используется каталог, указанный при [создании](../../cli/operations/profile/profile-create.md) профиля CLI. Чтобы изменить каталог по умолчанию, используйте команду `yc config set folder-id <идентификатор_каталога>`. Также для любой команды вы можете указать другой каталог с помощью параметров `--folder-name` или `--folder-id`. Если вы обращаетесь к ресурсу по имени, поиск будет выполнен в каталоге по умолчанию. Если вы обращаетесь к ресурсу по идентификатору, поиск будет выполнен глобально — во всех каталогах с учетом прав доступа.
 
-    Чтобы изменить сервисный аккаунт, привязанный к кластеру Managed Service for OpenSearch, выполните команду:
+    Чтобы изменить сервисный аккаунт, привязанный к кластеру {{ mos-name }}, выполните команду:
 
     ```bash
-    yc managed-opensearch cluster update <имя_или_идентификатор_кластера> \
+    {{ yc-mdb-os }} cluster update <имя_или_идентификатор_кластера> \
        --service-account-name <имя_сервисного_аккаунта>
     ```
 
     Имя и идентификатор кластера можно запросить со [списком кластеров в каталоге](cluster-list.md#list-clusters).
 
-    Подробнее о настройке сервисного аккаунта см. в разделе [Настройка доступа к Object Storage](s3-access.md).
+    Подробнее о настройке сервисного аккаунта см. в разделе [Настройка доступа к {{ objstorage-name }}](s3-access.md).
 
-- Terraform {#tf}
+- {{ TF }} {#tf}
 
-    Чтобы изменить сервисный аккаунт, привязанный к кластеру Managed Service for OpenSearch:
+    Чтобы изменить сервисный аккаунт, привязанный к кластеру {{ mos-name }}:
 
-    1. Откройте актуальный конфигурационный файл Terraform с планом инфраструктуры.
+    1. Откройте актуальный конфигурационный файл {{ TF }} с планом инфраструктуры.
 
-        Полный список доступных для изменения полей конфигурации кластера Managed Service for OpenSearch см. в [документации провайдера Terraform](../../terraform/resources/mdb_opensearch_cluster.md).
+        Полный список доступных для изменения полей конфигурации кластера {{ mos-name }} см. в [документации провайдера {{ TF }}]({{ tf-provider-mos }}).
 
     1. Укажите в поле `service_account_id` идентификатор сервисного аккаунта:
 
@@ -75,18 +75,18 @@
         }
         ```
 
-        Подробнее о настройке сервисного аккаунта см. в разделе [Настройка доступа к Object Storage](s3-access.md).
+        Подробнее о настройке сервисного аккаунта см. в разделе [Настройка доступа к {{ objstorage-name }}](s3-access.md).
 
     1. Проверьте корректность настроек.
 
-        1. В командной строке перейдите в каталог, в котором расположены актуальные конфигурационные файлы Terraform с планом инфраструктуры.
+        1. В командной строке перейдите в каталог, в котором расположены актуальные конфигурационные файлы {{ TF }} с планом инфраструктуры.
         1. Выполните команду:
         
            ```bash
            terraform validate
            ```
         
-           Если в файлах конфигурации есть ошибки, Terraform на них укажет.
+           Если в файлах конфигурации есть ошибки, {{ TF }} на них укажет.
 
     1. Подтвердите изменение ресурсов.
 
@@ -116,7 +116,7 @@
         export IAM_TOKEN="<IAM-токен>"
         ```
 
-    1. Воспользуйтесь методом [Cluster.Update](../api-ref/Cluster/update.md) и выполните запрос, например, с помощью [cURL](https://curl.se/):
+    1. Воспользуйтесь методом [Cluster.Update](../api-ref/Cluster/update.md) и выполните запрос, например, с помощью {{ api-examples.rest.tool }}:
 
         {% note warning %}
         
@@ -129,7 +129,7 @@
             --request PATCH \
             --header "Authorization: Bearer $IAM_TOKEN" \
             --header "Content-Type: application/json" \
-            --url 'https://mdb.api.cloud.yandex.net/managed-opensearch/v1/clusters/<идентификатор_кластера>' \
+            --url 'https://{{ api-host-mdb }}/managed-opensearch/v1/clusters/<идентификатор_кластера>' \
             --data '{
                         "updateMask": "serviceAccountId",
                         "serviceAccountId": "<идентификатор_сервисного_аккаунта>"
@@ -163,7 +163,7 @@
        ```
        
        Далее предполагается, что содержимое репозитория находится в директории `~/cloudapi/`.
-    1. Воспользуйтесь вызовом [ClusterService.Update](../api-ref/grpc/Cluster/update.md) и выполните запрос, например, с помощью [gRPCurl](https://github.com/fullstorydev/grpcurl):
+    1. Воспользуйтесь вызовом [ClusterService.Update](../api-ref/grpc/Cluster/update.md) и выполните запрос, например, с помощью {{ api-examples.grpc.tool }}:
 
         {% note warning %}
         
@@ -202,7 +202,7 @@
                     },
                     "service_account_id": "<идентификатор_сервисного_аккаунта>"
                 }' \
-        mdb.api.cloud.yandex.net:443 \
+        {{ api-host-mdb }}:{{ port-https }} \
         yandex.cloud.mdb.opensearch.v1.ClusterService.Update
         ```
 
@@ -227,10 +227,10 @@
 
 - Консоль управления {#console}
 
-    1. В [консоли управления](https://console.yandex.cloud) перейдите на страницу каталога.
-    1. [Перейдите](../../console/operations/select-service.md#select-service) в сервис **Managed Service for&nbsp;OpenSearch**.
-    1. Выберите кластер и нажмите кнопку ![image](../../_assets/console-icons/pencil.svg) **Редактировать** на панели сверху.
-    1. В поле **Пароль пользователя admin** укажите новый пароль.
+    1. В [консоли управления]({{ link-console-main }}) перейдите на страницу каталога.
+    1. Перейдите в сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-opensearch }}**.
+    1. Выберите кластер и нажмите кнопку ![image](../../_assets/console-icons/pencil.svg) **{{ ui-key.yacloud.mdb.clusters.button_action-edit }}** на панели сверху.
+    1. В поле **{{ ui-key.yacloud.mdb.forms.database_field_admin-password }}** укажите новый пароль.
 
         Пароль должен содержать 3 из 4 групп символов:
         
@@ -241,11 +241,11 @@
         
         Длина пароля — от 10 до 72 символов.
 
-    1. Нажмите кнопку **Сохранить**.
+    1. Нажмите кнопку **{{ ui-key.yacloud.common.save }}**.
 
 - CLI {#cli}
 
-    Если у вас еще нет интерфейса командной строки Yandex Cloud (CLI), [установите и инициализируйте его](../../cli/quickstart.md#install).
+    Если у вас еще нет интерфейса командной строки {{ yandex-cloud }} (CLI), [установите и инициализируйте его](../../cli/quickstart.md#install).
 
     По умолчанию используется каталог, указанный при [создании](../../cli/operations/profile/profile-create.md) профиля CLI. Чтобы изменить каталог по умолчанию, используйте команду `yc config set folder-id <идентификатор_каталога>`. Также для любой команды вы можете указать другой каталог с помощью параметров `--folder-name` или `--folder-id`. Если вы обращаетесь к ресурсу по имени, поиск будет выполнен в каталоге по умолчанию. Если вы обращаетесь к ресурсу по идентификатору, поиск будет выполнен глобально — во всех каталогах с учетом прав доступа.
 
@@ -254,7 +254,7 @@
     * Ввод пароля открытым текстом (менее безопасный способ).
 
         ```bash
-        yc managed-opensearch cluster update <имя_или_идентификатор_кластера> \
+        {{ yc-mdb-os }} cluster update <имя_или_идентификатор_кластера> \
            --admin-password <новый_пароль>
         ```
 
@@ -270,17 +270,17 @@
     * Автоматическая генерация пароля. Сгенерированный пароль будет выведен в консоль.
 
         ```bash
-        yc managed-opensearch cluster update <имя_или_идентификатор_кластера> \
+        {{ yc-mdb-os }} cluster update <имя_или_идентификатор_кластера> \
            --generate-admin-password
         ```
 
     Имя и идентификатор кластера можно запросить со [списком кластеров в каталоге](cluster-list.md#list-clusters).
 
-- Terraform {#tf}
+- {{ TF }} {#tf}
 
-    1. Откройте актуальный конфигурационный файл Terraform с планом инфраструктуры.
+    1. Откройте актуальный конфигурационный файл {{ TF }} с планом инфраструктуры.
 
-        Полный список доступных для изменения полей конфигурации кластера Managed Service for OpenSearch см. в [документации провайдера Terraform](../../terraform/resources/mdb_opensearch_cluster.md).
+        Полный список доступных для изменения полей конфигурации кластера {{ mos-name }} см. в [документации провайдера {{ TF }}]({{ tf-provider-mos }}).
 
     1. Измените в описании кластера значение поля `admin_password` в блоке `config`:
 
@@ -304,14 +304,14 @@
 
     1. Проверьте корректность настроек.
 
-        1. В командной строке перейдите в каталог, в котором расположены актуальные конфигурационные файлы Terraform с планом инфраструктуры.
+        1. В командной строке перейдите в каталог, в котором расположены актуальные конфигурационные файлы {{ TF }} с планом инфраструктуры.
         1. Выполните команду:
         
            ```bash
            terraform validate
            ```
         
-           Если в файлах конфигурации есть ошибки, Terraform на них укажет.
+           Если в файлах конфигурации есть ошибки, {{ TF }} на них укажет.
 
     1. Подтвердите изменение ресурсов.
 
@@ -341,7 +341,7 @@
         export IAM_TOKEN="<IAM-токен>"
         ```
 
-    1. Воспользуйтесь методом [Cluster.Update](../api-ref/Cluster/update.md) и выполните запрос, например, с помощью [cURL](https://curl.se/):
+    1. Воспользуйтесь методом [Cluster.Update](../api-ref/Cluster/update.md) и выполните запрос, например, с помощью {{ api-examples.rest.tool }}:
 
         {% note warning %}
         
@@ -354,7 +354,7 @@
             --request PATCH \
             --header "Authorization: Bearer $IAM_TOKEN" \
             --header "Content-Type: application/json" \
-            --url 'https://mdb.api.cloud.yandex.net/managed-opensearch/v1/clusters/<идентификатор_кластера>' \
+            --url 'https://{{ api-host-mdb }}/managed-opensearch/v1/clusters/<идентификатор_кластера>' \
             --data '{
                         "updateMask": "configSpec.adminPassword",
                         "configSpec": {
@@ -399,7 +399,7 @@
        ```
        
        Далее предполагается, что содержимое репозитория находится в директории `~/cloudapi/`.
-    1. Воспользуйтесь вызовом [ClusterService.Update](../api-ref/grpc/Cluster/update.md) и выполните запрос, например, с помощью [gRPCurl](https://github.com/fullstorydev/grpcurl):
+    1. Воспользуйтесь вызовом [ClusterService.Update](../api-ref/grpc/Cluster/update.md) и выполните запрос, например, с помощью {{ api-examples.grpc.tool }}:
 
         {% note warning %}
         
@@ -440,7 +440,7 @@
                         "admin_password": "<новый_пароль>"
                     }
                 }' \
-        mdb.api.cloud.yandex.net:443 \
+        {{ api-host-mdb }}:{{ port-https }} \
         yandex.cloud.mdb.opensearch.v1.ClusterService.Update
         ```
 
@@ -467,20 +467,20 @@
 
 {% endlist %}
 
-## Изменить настройки OpenSearch {#change-opensearch-config}
+## Изменить настройки {{ OS }} {#change-opensearch-config}
 
 {% list tabs group=instructions %}
 
 - CLI {#cli}
 
-    Если у вас еще нет интерфейса командной строки Yandex Cloud (CLI), [установите и инициализируйте его](../../cli/quickstart.md#install).
+    Если у вас еще нет интерфейса командной строки {{ yandex-cloud }} (CLI), [установите и инициализируйте его](../../cli/quickstart.md#install).
 
     По умолчанию используется каталог, указанный при [создании](../../cli/operations/profile/profile-create.md) профиля CLI. Чтобы изменить каталог по умолчанию, используйте команду `yc config set folder-id <идентификатор_каталога>`. Также для любой команды вы можете указать другой каталог с помощью параметров `--folder-name` или `--folder-id`. Если вы обращаетесь к ресурсу по имени, поиск будет выполнен в каталоге по умолчанию. Если вы обращаетесь к ресурсу по идентификатору, поиск будет выполнен глобально — во всех каталогах с учетом прав доступа.
 
     Выполните команду и передайте в ней список настроек, которые хотите изменить:
 
     ```bash
-    yc managed-opensearch cluster update <имя_или_идентификатор_кластера> \
+    {{ yc-mdb-os }} cluster update <имя_или_идентификатор_кластера> \
        --max-clause-count <количество_булевых_выражений> \
        --fielddata-cache-size <объем_кучи_JVM> \
        --reindex-remote-whitelist <адрес_хоста>:<порт>
@@ -490,9 +490,9 @@
 
     Настройки в команде:
 
-    * `--max-clause-count` — максимально допустимое количество булевых выражений (boolean clauses) в запросе. Подробнее см. в [документации OpenSearch](https://opensearch.org/docs/latest/query-dsl/compound/bool/).
-    * `--fielddata-cache-size` — объем кучи JVM, который выделен для структуры данных fielddata. Можно указать абсолютное значение или проценты, например, `512mb` или `50%`. Подробнее см. в [документации OpenSearch](https://opensearch.org/docs/latest/install-and-configure/configuring-opensearch/index-settings/#cluster-level-index-settings).
-    * `--reindex-remote-whitelist` — список удаленных хостов, из индекса которых нужно скопировать документы для переиндексации. Укажите значение параметра в формате `<адрес_хоста>:<порт>`. Если нужно указать несколько хостов, перечислите значения через запятую. Подробнее см. в [документации OpenSearch](https://opensearch.org/docs/latest/im-plugin/reindex-data/#reindex-from-a-remote-cluster).
+    * `--max-clause-count` — максимально допустимое количество булевых выражений (boolean clauses) в запросе. Подробнее см. в [документации {{ OS }}]({{ os.docs }}/query-dsl/compound/bool/).
+    * `--fielddata-cache-size` — объем кучи JVM, который выделен для структуры данных fielddata. Можно указать абсолютное значение или проценты, например, `512mb` или `50%`. Подробнее см. в [документации {{ OS }}]({{ os.docs }}/install-and-configure/configuring-opensearch/index-settings/#cluster-level-index-settings).
+    * `--reindex-remote-whitelist` — список удаленных хостов, из индекса которых нужно скопировать документы для переиндексации. Укажите значение параметра в формате `<адрес_хоста>:<порт>`. Если нужно указать несколько хостов, перечислите значения через запятую. Подробнее см. в [документации {{ OS }}]({{ os.docs }}/im-plugin/reindex-data/#reindex-from-a-remote-cluster).
 
 - REST API {#api}
 
@@ -502,7 +502,7 @@
         export IAM_TOKEN="<IAM-токен>"
         ```
 
-    1. Воспользуйтесь методом [Cluster.Update](../api-ref/Cluster/update.md) и выполните запрос, например, с помощью [cURL](https://curl.se/):
+    1. Воспользуйтесь методом [Cluster.Update](../api-ref/Cluster/update.md) и выполните запрос, например, с помощью {{ api-examples.rest.tool }}:
 
         {% note warning %}
         
@@ -515,7 +515,7 @@
             --request PATCH \
             --header "Authorization: Bearer $IAM_TOKEN" \
             --header "Content-Type: application/json" \
-            --url 'https://mdb.api.cloud.yandex.net/managed-opensearch/v1/clusters/<идентификатор_кластера>' \
+            --url 'https://{{ api-host-mdb }}/managed-opensearch/v1/clusters/<идентификатор_кластера>' \
             --data '{
                         "updateMask": "configSpec.opensearchSpec.opensearchConfig_2.maxClauseCount,configSpec.opensearchSpec.opensearchConfig_2.fielddataCacheSize,configSpec.opensearchSpec.opensearchConfig_2.reindexRemoteWhitelist",
                         "configSpec": {
@@ -533,13 +533,13 @@
         Где:
 
         * `updateMask` — перечень изменяемых параметров в одну строку через запятую.
-        * `configSpec.opensearchSpec.opensearchConfig_2` — настройки OpenSearch:
+        * `configSpec.opensearchSpec.opensearchConfig_2` — настройки {{ OS }}:
 
-            * `maxClauseCount` — новое максимально допустимое количество булевых выражений. Подробнее см. в [документации OpenSearch](https://opensearch.org/docs/latest/query-dsl/compound/bool/).
+            * `maxClauseCount` — новое максимально допустимое количество булевых выражений. Подробнее см. в [документации {{ OS }}]({{ os.docs }}/query-dsl/compound/bool/).
 
-            * `fielddataCacheSize` — новый объем кучи JVM, выделенный для структуры данных fielddata. Можно указать абсолютное значение или проценты, например, `512mb` или `50%`. Подробнее см. в [документации OpenSearch](https://opensearch.org/docs/latest/install-and-configure/configuring-opensearch/).
+            * `fielddataCacheSize` — новый объем кучи JVM, выделенный для структуры данных fielddata. Можно указать абсолютное значение или проценты, например, `512mb` или `50%`. Подробнее см. в [документации {{ OS }}]({{ os.docs }}/install-and-configure/configuring-opensearch/).
 
-            * `reindexRemoteWhitelist` — новый список удаленных хостов, из индекса которых нужно скопировать документы для переиндексации. Укажите [FQDN хоста](connect/fqdn.md) и через двоеточие порт 9200. Чтобы указать несколько хостов, перечислите их через запятую, указанную после порта. Подробнее см. в [документации OpenSearch](https://opensearch.org/docs/latest/im-plugin/reindex-data/#reindex-from-a-remote-cluster).
+            * `reindexRemoteWhitelist` — новый список удаленных хостов, из индекса которых нужно скопировать документы для переиндексации. Укажите [FQDN хоста](connect/fqdn.md) и через двоеточие порт 9200. Чтобы указать несколько хостов, перечислите их через запятую, указанную после порта. Подробнее см. в [документации {{ OS }}]({{ os.docs }}/im-plugin/reindex-data/#reindex-from-a-remote-cluster).
 
         Идентификатор кластера можно запросить со [списком кластеров в каталоге](cluster-list.md#list-clusters).
 
@@ -560,7 +560,7 @@
        ```
        
        Далее предполагается, что содержимое репозитория находится в директории `~/cloudapi/`.
-    1. Воспользуйтесь вызовом [ClusterService.Update](../api-ref/grpc/Cluster/update.md) и выполните запрос, например, с помощью [gRPCurl](https://github.com/fullstorydev/grpcurl):
+    1. Воспользуйтесь вызовом [ClusterService.Update](../api-ref/grpc/Cluster/update.md) и выполните запрос, например, с помощью {{ api-examples.grpc.tool }}:
 
         {% note warning %}
         
@@ -609,7 +609,7 @@
                         }
                     }
                 }' \
-        mdb.api.cloud.yandex.net:443 \
+        {{ api-host-mdb }}:{{ port-https }} \
         yandex.cloud.mdb.opensearch.v1.ClusterService.Update
         ```
 
@@ -619,13 +619,13 @@
 
             В данном случае передается только один параметр.
 
-        * `config_spec.opensearch_spec.opensearch_config_2` — настройки OpenSearch:
+        * `config_spec.opensearch_spec.opensearch_config_2` — настройки {{ OS }}:
 
-            * `max_clause_count` — новое максимально допустимое количество булевых выражений. Подробнее см. в [документации OpenSearch](https://opensearch.org/docs/latest/query-dsl/compound/bool/).
+            * `max_clause_count` — новое максимально допустимое количество булевых выражений. Подробнее см. в [документации {{ OS }}]({{ os.docs }}/query-dsl/compound/bool/).
 
-            * `fielddata_cache_size` — новый объем кучи JVM, выделенный для структуры данных fielddata. Можно указать абсолютное значение или проценты, например, `512mb` или `50%`. Подробнее см. в [документации OpenSearch](https://opensearch.org/docs/latest/install-and-configure/configuring-opensearch/).
+            * `fielddata_cache_size` — новый объем кучи JVM, выделенный для структуры данных fielddata. Можно указать абсолютное значение или проценты, например, `512mb` или `50%`. Подробнее см. в [документации {{ OS }}]({{ os.docs }}/install-and-configure/configuring-opensearch/).
 
-            * `reindex_remote_whitelist` — новый список удаленных хостов, из индекса которых нужно скопировать документы для переиндексации. Укажите [FQDN хоста](connect/fqdn.md) и через двоеточие порт 9200. Чтобы указать несколько хостов, перечислите их через запятую, указанную после порта. Подробнее см. в [документации OpenSearch](https://opensearch.org/docs/latest/im-plugin/reindex-data/#reindex-from-a-remote-cluster).
+            * `reindex_remote_whitelist` — новый список удаленных хостов, из индекса которых нужно скопировать документы для переиндексации. Укажите [FQDN хоста](connect/fqdn.md) и через двоеточие порт 9200. Чтобы указать несколько хостов, перечислите их через запятую, указанную после порта. Подробнее см. в [документации {{ OS }}]({{ os.docs }}/im-plugin/reindex-data/#reindex-from-a-remote-cluster).
 
         Идентификатор кластера можно запросить со [списком кластеров в каталоге](cluster-list.md#list-clusters).
 
@@ -639,35 +639,35 @@
 
 - Консоль управления {#console}
 
-    1. В [консоли управления](https://console.yandex.cloud) перейдите на страницу каталога.
-    1. [Перейдите](../../console/operations/select-service.md#select-service) в сервис **Managed Service for&nbsp;OpenSearch**.
-    1. Выберите кластер и нажмите кнопку ![image](../../_assets/console-icons/pencil.svg) **Редактировать** на панели сверху.
+    1. В [консоли управления]({{ link-console-main }}) перейдите на страницу каталога.
+    1. Перейдите в сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-opensearch }}**.
+    1. Выберите кластер и нажмите кнопку ![image](../../_assets/console-icons/pencil.svg) **{{ ui-key.yacloud.mdb.clusters.button_action-edit }}** на панели сверху.
     1. Измените дополнительные настройки кластера:
 
-        * **Окно обслуживания** — настройки времени [технического обслуживания](../concepts/maintenance.md):
+        * **{{ ui-key.yacloud.mdb.forms.maintenance-window-type }}** — настройки времени [технического обслуживания](../concepts/maintenance.md):
 
-            * Чтобы разрешить проведение технического обслуживания в любое время, выберите пункт **произвольное** (по умолчанию).
-            * Чтобы указать предпочтительное время начала обслуживания, выберите пункт **по расписанию** и укажите нужные день недели и час дня по UTC. Например, можно выбрать время, когда кластер наименее загружен.
+            * Чтобы разрешить проведение технического обслуживания в любое время, выберите пункт **{{ ui-key.yacloud.mdb.forms.value_maintenance-type-anytime }}** (по умолчанию).
+            * Чтобы указать предпочтительное время начала обслуживания, выберите пункт **{{ ui-key.yacloud.mdb.forms.value_maintenance-type-weekly }}** и укажите день недели и интервал времени по UTC. Например, можно выбрать время, когда кластер наименее загружен.
             
             Операции по техническому обслуживанию проводятся для включенных и выключенных кластеров. Они могут включать в себя: обновление СУБД, применение патчей и так далее.
 
 
-        * **Защита от удаления** — управляет защитой кластера от непреднамеренного удаления.
+        * **{{ ui-key.yacloud.mdb.forms.label_deletion-protection }}** — управляет защитой кластера от непреднамеренного удаления.
 
             Включенная защита кластера от удаления не помешает удалить пользователя или подключиться к кластеру вручную и удалить данные.
 
-    1. Нажмите кнопку **Сохранить**.
+    1. Нажмите кнопку **{{ ui-key.yacloud.common.save }}**.
 
 - CLI {#cli}
 
-    Если у вас еще нет интерфейса командной строки Yandex Cloud (CLI), [установите и инициализируйте его](../../cli/quickstart.md#install).
+    Если у вас еще нет интерфейса командной строки {{ yandex-cloud }} (CLI), [установите и инициализируйте его](../../cli/quickstart.md#install).
 
     По умолчанию используется каталог, указанный при [создании](../../cli/operations/profile/profile-create.md) профиля CLI. Чтобы изменить каталог по умолчанию, используйте команду `yc config set folder-id <идентификатор_каталога>`. Также для любой команды вы можете указать другой каталог с помощью параметров `--folder-name` или `--folder-id`. Если вы обращаетесь к ресурсу по имени, поиск будет выполнен в каталоге по умолчанию. Если вы обращаетесь к ресурсу по идентификатору, поиск будет выполнен глобально — во всех каталогах с учетом прав доступа.
 
     Выполните команду и передайте в ней список настроек, которые хотите изменить:
 
     ```bash
-    yc managed-opensearch cluster update <имя_или_идентификатор_кластера> \
+    {{ yc-mdb-os }} cluster update <имя_или_идентификатор_кластера> \
        --maintenance schedule=<тип_технического_обслуживания>,`
                     `weekday=<день_недели>,`
                     `hour=<час_дня> \
@@ -692,13 +692,13 @@
         Включенная защита кластера от удаления не помешает удалить пользователя или подключиться к кластеру вручную и удалить данные.
 
 
-    * `--serverless-access` — доступ из [Yandex Serverless Containers](../../serverless-containers/index.md): `true` или `false`.
+    * `--serverless-access` — доступ из [{{ serverless-containers-full-name }}](../../serverless-containers/index.md): `true` или `false`.
 
-- Terraform {#tf}
+- {{ TF }} {#tf}
 
-    1. Откройте актуальный конфигурационный файл Terraform с планом инфраструктуры.
+    1. Откройте актуальный конфигурационный файл {{ TF }} с планом инфраструктуры.
 
-        Полный список доступных для изменения полей конфигурации кластера Managed Service for OpenSearch см. в [документации провайдера Terraform](../../terraform/resources/mdb_opensearch_cluster.md).
+        Полный список доступных для изменения полей конфигурации кластера {{ mos-name }} см. в [документации провайдера {{ TF }}]({{ tf-provider-mos }}).
 
     1. Чтобы изменить время [технического обслуживания](../concepts/maintenance.md) (в т. ч. для выключенных кластеров), укажите настройки в параметре `maintenance_window`:
 
@@ -734,14 +734,14 @@
 
     1. Проверьте корректность настроек.
 
-        1. В командной строке перейдите в каталог, в котором расположены актуальные конфигурационные файлы Terraform с планом инфраструктуры.
+        1. В командной строке перейдите в каталог, в котором расположены актуальные конфигурационные файлы {{ TF }} с планом инфраструктуры.
         1. Выполните команду:
         
            ```bash
            terraform validate
            ```
         
-           Если в файлах конфигурации есть ошибки, Terraform на них укажет.
+           Если в файлах конфигурации есть ошибки, {{ TF }} на них укажет.
 
     1. Подтвердите изменение ресурсов.
 
@@ -771,7 +771,7 @@
         export IAM_TOKEN="<IAM-токен>"
         ```
 
-    1. Воспользуйтесь методом [Cluster.Update](../api-ref/Cluster/update.md) и выполните запрос, например, с помощью [cURL](https://curl.se/):
+    1. Воспользуйтесь методом [Cluster.Update](../api-ref/Cluster/update.md) и выполните запрос, например, с помощью {{ api-examples.rest.tool }}:
 
         {% note warning %}
         
@@ -785,7 +785,7 @@
             --request PATCH \
             --header "Authorization: Bearer $IAM_TOKEN" \
             --header "Content-Type: application/json" \
-            --url 'https://mdb.api.cloud.yandex.net/managed-opensearch/v1/clusters/<идентификатор_кластера>' \
+            --url 'https://{{ api-host-mdb }}/managed-opensearch/v1/clusters/<идентификатор_кластера>' \
             --data '{
                         "updateMask": "configSpec.access,deletionProtection,maintenanceWindow",
                         "configSpec": {
@@ -810,10 +810,10 @@
         * `updateMask` — перечень изменяемых параметров в одну строку через запятую.
 
         
-        * `access` — настройки доступа кластера к следующим сервисам Yandex Cloud:
+        * `access` — настройки доступа кластера к следующим сервисам {{ yandex-cloud }}:
 
-            * `dataTransfer` — [Yandex Data Transfer](../../data-transfer/index.md);
-            * `serverless` — [Yandex Serverless Containers](../../serverless-containers/index.md).
+            * `dataTransfer` — [{{ data-transfer-full-name }}](../../data-transfer/index.md);
+            * `serverless` — [{{ serverless-containers-full-name }}](../../serverless-containers/index.md).
 
             Возможные значения настроек: `true` или `false`.
 
@@ -846,7 +846,7 @@
        ```
        
        Далее предполагается, что содержимое репозитория находится в директории `~/cloudapi/`.
-    1. Воспользуйтесь вызовом [ClusterService.Update](../api-ref/grpc/Cluster/update.md) и выполните запрос, например, с помощью [gRPCurl](https://github.com/fullstorydev/grpcurl):
+    1. Воспользуйтесь вызовом [ClusterService.Update](../api-ref/grpc/Cluster/update.md) и выполните запрос, например, с помощью {{ api-examples.grpc.tool }}:
 
         {% note warning %}
         
@@ -900,7 +900,7 @@
                         }
                     }
                 }' \
-        mdb.api.cloud.yandex.net:443 \
+        {{ api-host-mdb }}:{{ port-https }} \
         yandex.cloud.mdb.opensearch.v1.ClusterService.Update
         ```
 
@@ -912,10 +912,10 @@
             В данном случае передается только один параметр.
 
         
-        * `access` — настройки доступа кластера к следующим сервисам Yandex Cloud:
+        * `access` — настройки доступа кластера к следующим сервисам {{ yandex-cloud }}:
 
-            * `data_transfer` — [Yandex Data Transfer](../../data-transfer/index.md);
-            * `serverless` — [Yandex Serverless Containers](../../serverless-containers/index.md).
+            * `data_transfer` — [{{ data-transfer-full-name }}](../../data-transfer/index.md);
+            * `serverless` — [{{ serverless-containers-full-name }}](../../serverless-containers/index.md).
 
             Возможные значения настроек: `true` или `false`.
 
@@ -944,22 +944,22 @@
 
 - Консоль управления {#console}
 
-    1. В [консоли управления](https://console.yandex.cloud) перейдите на страницу каталога.
-    1. [Перейдите](../../console/operations/select-service.md#select-service) в сервис **Managed Service for&nbsp;OpenSearch**.
-    1. Выберите кластер и нажмите кнопку ![image](../../_assets/console-icons/pencil.svg) **Редактировать** на панели сверху.
-    1. В блоке **Сетевые настройки** выберите группы безопасности для сетевого трафика кластера.
-    1. Нажмите кнопку **Сохранить**.
+    1. В [консоли управления]({{ link-console-main }}) перейдите на страницу каталога.
+    1. Перейдите в сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-opensearch }}**.
+    1. Выберите кластер и нажмите кнопку ![image](../../_assets/console-icons/pencil.svg) **{{ ui-key.yacloud.mdb.clusters.button_action-edit }}** на панели сверху.
+    1. В блоке **{{ ui-key.yacloud.mdb.forms.section_network-settings }}** выберите группы безопасности для сетевого трафика кластера.
+    1. Нажмите кнопку **{{ ui-key.yacloud.common.save }}**.
 
 - CLI {#cli}
 
-    Если у вас еще нет интерфейса командной строки Yandex Cloud (CLI), [установите и инициализируйте его](../../cli/quickstart.md#install).
+    Если у вас еще нет интерфейса командной строки {{ yandex-cloud }} (CLI), [установите и инициализируйте его](../../cli/quickstart.md#install).
 
     По умолчанию используется каталог, указанный при [создании](../../cli/operations/profile/profile-create.md) профиля CLI. Чтобы изменить каталог по умолчанию, используйте команду `yc config set folder-id <идентификатор_каталога>`. Также для любой команды вы можете указать другой каталог с помощью параметров `--folder-name` или `--folder-id`. Если вы обращаетесь к ресурсу по имени, поиск будет выполнен в каталоге по умолчанию. Если вы обращаетесь к ресурсу по идентификатору, поиск будет выполнен глобально — во всех каталогах с учетом прав доступа.
 
     Чтобы изменить список групп безопасности для кластера, укажите нужные группы безопасности в команде:
 
     ```bash
-    yc managed-opensearch cluster update <имя_или_идентификатор_кластера> \
+    {{ yc-mdb-os }} cluster update <имя_или_идентификатор_кластера> \
        --security-group-ids <список_идентификаторов_групп_безопасности>
     ```
 
@@ -967,11 +967,11 @@
 
     Имя и идентификатор кластера можно запросить со [списком кластеров в каталоге](cluster-list.md#list-clusters).
 
-- Terraform {#tf}
+- {{ TF }} {#tf}
 
-    1. Откройте актуальный конфигурационный файл Terraform с планом инфраструктуры.
+    1. Откройте актуальный конфигурационный файл {{ TF }} с планом инфраструктуры.
 
-        Полный список доступных для изменения полей конфигурации кластера Managed Service for OpenSearch см. в [документации провайдера Terraform](../../terraform/resources/mdb_opensearch_cluster.md).
+        Полный список доступных для изменения полей конфигурации кластера {{ mos-name }} см. в [документации провайдера {{ TF }}]({{ tf-provider-mos }}).
 
     1. В поле `security_group_ids` перечислите через запятую идентификаторы групп безопасности:
 
@@ -984,14 +984,14 @@
 
     1. Проверьте корректность настроек.
 
-        1. В командной строке перейдите в каталог, в котором расположены актуальные конфигурационные файлы Terraform с планом инфраструктуры.
+        1. В командной строке перейдите в каталог, в котором расположены актуальные конфигурационные файлы {{ TF }} с планом инфраструктуры.
         1. Выполните команду:
         
            ```bash
            terraform validate
            ```
         
-           Если в файлах конфигурации есть ошибки, Terraform на них укажет.
+           Если в файлах конфигурации есть ошибки, {{ TF }} на них укажет.
 
     1. Подтвердите изменение ресурсов.
 
@@ -1021,7 +1021,7 @@
         export IAM_TOKEN="<IAM-токен>"
         ```
 
-    1. Воспользуйтесь методом [Cluster.Update](../api-ref/Cluster/update.md) и выполните запрос, например, с помощью [cURL](https://curl.se/):
+    1. Воспользуйтесь методом [Cluster.Update](../api-ref/Cluster/update.md) и выполните запрос, например, с помощью {{ api-examples.rest.tool }}:
 
         {% note warning %}
         
@@ -1034,7 +1034,7 @@
             --request PATCH \
             --header "Authorization: Bearer $IAM_TOKEN" \
             --header "Content-Type: application/json" \
-            --url 'https://mdb.api.cloud.yandex.net/managed-opensearch/v1/clusters/<идентификатор_кластера>' \
+            --url 'https://{{ api-host-mdb }}/managed-opensearch/v1/clusters/<идентификатор_кластера>' \
             --data '{
                         "updateMask": "securityGroupIds",
                         "securityGroupIds": [
@@ -1073,7 +1073,7 @@
        ```
        
        Далее предполагается, что содержимое репозитория находится в директории `~/cloudapi/`.
-    1. Воспользуйтесь вызовом [ClusterService.Update](../api-ref/grpc/Cluster/update.md) и выполните запрос, например, с помощью [gRPCurl](https://github.com/fullstorydev/grpcurl):
+    1. Воспользуйтесь вызовом [ClusterService.Update](../api-ref/grpc/Cluster/update.md) и выполните запрос, например, с помощью {{ api-examples.grpc.tool }}:
 
         {% note warning %}
         
@@ -1117,7 +1117,7 @@
                         "<идентификатор_группы_безопасности_N>"
                     ]
                 }' \
-        mdb.api.cloud.yandex.net:443 \
+        {{ api-host-mdb }}:{{ port-https }} \
         yandex.cloud.mdb.opensearch.v1.ClusterService.Update
         ```
 

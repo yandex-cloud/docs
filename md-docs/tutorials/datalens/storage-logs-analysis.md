@@ -1,9 +1,9 @@
-# Анализ логов Object Storage при помощи DataLens
+# Анализ логов {{ objstorage-short-name }} при помощи {{ datalens-short-name }}
 
 
-Для бакета Yandex Object Storage можно включить [логирование действий](../../storage/concepts/server-logs.md). В логах хранится информация по операциям с [бакетом](../../storage/concepts/bucket.md) и [объектами](../../storage/concepts/object.md), которые в нем находятся. Анализ логов бакета может быть полезен, например, если вам нужно выявить причины резкого повышения нагрузки или понять общую картину распределения трафика.
+Для бакета {{ objstorage-full-name }} можно включить [логирование действий](../../storage/concepts/server-logs.md). В логах хранится информация по операциям с [бакетом](../../storage/concepts/bucket.md) и [объектами](../../storage/concepts/object.md), которые в нем находятся. Анализ логов бакета может быть полезен, например, если вам нужно выявить причины резкого повышения нагрузки или понять общую картину распределения трафика.
 
-Построить визуализации, необходимые для анализа, можно с помощью сервиса бизнес-аналитики [Yandex DataLens](../../datalens/index.md). Предварительно сохраненные логи необходимо перенести в БД ClickHouse®, которая будет использоваться в качестве источника для DataLens.
+Построить визуализации, необходимые для анализа, можно с помощью сервиса бизнес-аналитики [{{ datalens-full-name }}](../../datalens/index.md). Предварительно сохраненные логи необходимо перенести в БД {{ CH }}, которая будет использоваться в качестве источника для {{ datalens-short-name }}.
 
 Чтобы проанализировать логи и представить результаты в виде интерактивных графиков:
 
@@ -11,20 +11,20 @@
 1. [Создайте бакет для хранения логов](#create-bucket).
 1. [Включите экспорт логов](#logs-export).
 1. [Подготовьте источник данных](#prepare-origin).
-1. [Создайте подключение в DataLens](#create-connection).
-1. [Создайте датасет в DataLens](#create-dataset).
-1. [Создайте чарты в DataLens](#create-charts).
-1. [Создайте дашборд в DataLens](#create-dashboard).
+1. [Создайте подключение в {{ datalens-short-name }}](#create-connection).
+1. [Создайте датасет в {{ datalens-short-name }}](#create-dataset).
+1. [Создайте чарты в {{ datalens-short-name }}](#create-charts).
+1. [Создайте дашборд в {{ datalens-short-name }}](#create-dashboard).
 
 Если созданные ресурсы вам больше не нужны, [удалите их](#clear-out).
 
 ## Подготовьте облако к работе {#before-you-begin}
 
-Зарегистрируйтесь в Yandex Cloud и создайте [платежный аккаунт](../../billing/concepts/billing-account.md):
-1. Перейдите в [консоль управления](https://console.yandex.cloud), затем войдите в Yandex Cloud или зарегистрируйтесь.
-1. На странице **[Yandex Cloud Billing](https://center.yandex.cloud/billing/accounts)** убедитесь, что у вас подключен платежный аккаунт, и он находится в [статусе](../../billing/concepts/billing-account-statuses.md) `ACTIVE` или `TRIAL_ACTIVE`. Если платежного аккаунта нет, [создайте его](../../billing/quickstart/index.md) и [привяжите](../../billing/operations/pin-cloud.md) к нему облако.
+Зарегистрируйтесь в {{ yandex-cloud }} и создайте [платежный аккаунт](../../billing/concepts/billing-account.md):
+1. Перейдите в [консоль управления]({{ link-console-main }}), затем войдите в {{ yandex-cloud }} или зарегистрируйтесь.
+1. На странице **[{{ ui-key.yacloud_billing.billing.label_service }}]({{ link-console-billing }})** убедитесь, что у вас подключен платежный аккаунт, и он находится в [статусе](../../billing/concepts/billing-account-statuses.md) `ACTIVE` или `TRIAL_ACTIVE`. Если платежного аккаунта нет, [создайте его](../../billing/quickstart/index.md) и [привяжите](../../billing/operations/pin-cloud.md) к нему облако.
 
-Если у вас есть активный платежный аккаунт, вы можете создать или выбрать [каталог](../../resource-manager/concepts/resources-hierarchy.md#folder), в котором будет работать ваша инфраструктура, на [странице облака](https://console.yandex.cloud/cloud).
+Если у вас есть активный платежный аккаунт, вы можете создать или выбрать [каталог](../../resource-manager/concepts/resources-hierarchy.md#folder), в котором будет работать ваша инфраструктура, на [странице облака]({{ link-console-cloud }}).
 
 [Подробнее об облаках и каталогах](../../resource-manager/concepts/resources-hierarchy.md).
 
@@ -33,8 +33,8 @@
 
 В стоимость входят:
 
-* плата за хранение данных в Object Storage, операции с ними и исходящий трафик (см. [тарифы Object Storage](../../storage/pricing.md));
-* плата за постоянно запущенный кластер Managed Service for ClickHouse® (см. [тарифы Managed Service for ClickHouse®](../../managed-clickhouse/pricing.md)).
+* плата за хранение данных в {{ objstorage-short-name }}, операции с ними и исходящий трафик (см. [тарифы {{ objstorage-short-name }}](../../storage/pricing.md));
+* плата за постоянно запущенный кластер {{ mch-name }} (см. [тарифы {{ mch-name }}](../../managed-clickhouse/pricing.md)).
 
 
 ## Создайте бакет для хранения логов {#create-bucket}
@@ -43,12 +43,12 @@
 
 - Консоль управления {#console}
 
-  1. В [консоли управления](https://console.yandex.cloud) выберите каталог, в котором хотите создать бакет.
-  1. [Перейдите](../../console/operations/select-service.md#select-service) в сервис **Object Storage**.
-  1. Нажмите кнопку **Создать бакет**.
-  1. В поле **Имя** укажите имя бакета.
-  1. В полях **Чтение объектов** и **Чтение списка объектов** выберите **С авторизацией**.
-  1. Нажмите кнопку **Создать бакет**.
+  1. В [консоли управления]({{ link-console-main }}) выберите каталог, в котором хотите создать бакет.
+  1. Перейдите в сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_storage }}**.
+  1. Нажмите кнопку **{{ ui-key.yacloud.storage.buckets.button_create }}**.
+  1. В поле **{{ ui-key.yacloud.storage.bucket.settings.field_name }}** укажите имя бакета.
+  1. В полях **{{ ui-key.yacloud.storage.bucket.settings.field_access-read }}** и **{{ ui-key.yacloud.storage.bucket.settings.field_access-list }}** выберите **{{ ui-key.yacloud.storage.bucket.settings.access_value_private }}**.
+  1. Нажмите кнопку **{{ ui-key.yacloud.storage.buckets.create.button_create }}**.
 
 - AWS CLI {#cli}
   
@@ -56,7 +56,7 @@
   1. Создайте бакет:
   
      ```bash
-     aws --endpoint-url https://storage.yandexcloud.net \
+     aws --endpoint-url https://{{ s3-storage-host }} \
        s3 mb s3://<имя_бакета>
      ```
 
@@ -67,21 +67,24 @@
      ```
 
 
-- Terraform {#tf}
+- {{ TF }} {#tf}
 
   {% note info %}
   
-  Если вы работаете с Object Storage через Terraform от имени [сервисного аккаунта](../../iam/concepts/users/service-accounts.md), [назначьте](../../iam/operations/sa/assign-role-for-sa.md) сервисному аккаунту нужную [роль](../../storage/security/index.md#roles-list), например `storage.admin`, на каталог, в котором будут создаваться ресурсы.
+  Если вы работаете с {{ objstorage-name }} через {{ TF }} от имени [сервисного аккаунта](../../iam/concepts/users/service-accounts.md), [назначьте](../../iam/operations/sa/assign-role-for-sa.md) сервисному аккаунту нужную [роль](../../storage/security/index.md#roles-list), например `storage.admin`, на каталог, в котором будут создаваться ресурсы.
   
   {% endnote %}
 
-  [Terraform](https://www.terraform.io/) позволяет быстро создать облачную инфраструктуру в Yandex Cloud и управлять ею с помощью файлов конфигураций. В файлах конфигураций хранится описание инфраструктуры на языке HCL (HashiCorp Configuration Language). При изменении файлов конфигураций Terraform автоматически определяет, какая часть вашей конфигурации уже развернута, что следует добавить или удалить.
+  [{{ TF }}](https://www.terraform.io/) позволяет быстро создать облачную инфраструктуру в {{ yandex-cloud }} и управлять ею с помощью файлов конфигураций. В файлах конфигураций хранится описание инфраструктуры на языке HCL (HashiCorp Configuration Language). При изменении файлов конфигураций {{ TF }} автоматически определяет, какая часть вашей конфигурации уже развернута, что следует добавить или удалить.
   
-  Terraform распространяется под лицензией [Business Source License](https://github.com/hashicorp/terraform/blob/main/LICENSE), а [провайдер Yandex Cloud для Terraform](https://github.com/yandex-cloud/terraform-provider-yandex) — под лицензией [MPL-2.0](https://www.mozilla.org/en-US/MPL/2.0/).
+  {{ TF }} распространяется под лицензией [Business Source License](https://github.com/hashicorp/terraform/blob/main/LICENSE), а [провайдер {{ yandex-cloud }} для {{ TF }}](https://github.com/yandex-cloud/terraform-provider-yandex) — под лицензией [MPL-2.0](https://www.mozilla.org/en-US/MPL/2.0/).
   
-  Подробную информацию о ресурсах провайдера смотрите в документации на сайте [Terraform](https://www.terraform.io/docs/providers/yandex/index.html) или в [зеркале](../../terraform/index.md).
+  Подробную информацию о ресурсах провайдера смотрите в документации на сайте [{{ TF }}](https://www.terraform.io/docs/providers/yandex/index.html) или в [зеркале]({{ tf-docs-link }}).
 
-  Если у вас еще нет Terraform, [установите его и настройте провайдер Yandex Cloud](../infrastructure-management/terraform-quickstart.md#install-terraform).
+  Если у вас еще нет {{ TF }}, [установите его и настройте провайдер {{ yandex-cloud }}](../infrastructure-management/terraform-quickstart.md#install-terraform).
+  
+  
+  Чтобы управлять инфраструктурой с помощью {{ TF }} от имени сервисного аккаунта или пользовательских аккаунтов: аккаунта на Яндексе, федеративного аккаунта и локального пользователя, [аутентифицируйтесь](../../terraform/authentication.md) соответствующим способом.
 
   1. Опишите в конфигурационном файле параметры для создания сервисного аккаунта и ключа доступа:
 
@@ -116,18 +119,18 @@
      }
      ```
 
-     Подробнее о ресурсе `yandex_storage_bucket` см. в [документации](../../terraform/resources/storage_bucket.md) провайдера Terraform.
+     Подробнее о ресурсе `yandex_storage_bucket` см. в [документации]({{ tf-provider-resources-link }}/storage_bucket) провайдера {{ TF }}.
      
   1. Проверьте корректность настроек.
 
-     1. В командной строке перейдите в каталог, в котором расположены актуальные конфигурационные файлы Terraform с планом инфраструктуры.
+     1. В командной строке перейдите в каталог, в котором расположены актуальные конфигурационные файлы {{ TF }} с планом инфраструктуры.
      1. Выполните команду:
      
         ```bash
         terraform validate
         ```
      
-        Если в файлах конфигурации есть ошибки, Terraform на них укажет.
+        Если в файлах конфигурации есть ошибки, {{ TF }} на них укажет.
 
   1. Создайте бакет.
 
@@ -162,13 +165,13 @@
 
 - Консоль управления {#console}
 
-  1. В [консоли управления](https://console.yandex.cloud) выберите бакет, логи которого хотите записывать.
-  1. На панели слева выберите **Настройки**.
-  1. Откройте вкладку **Логирование**.  
-  1. Включите опцию **Запись логов**.
-  1. Выберите **Бакет для хранения логов**.
-  1. В поле **Префикс** укажите префикс `s3-logs/`.
-  1. Нажмите кнопку **Сохранить**.
+  1. В [консоли управления]({{ link-console-main }}) выберите бакет, логи которого хотите записывать.
+  1. На панели слева выберите **{{ ui-key.yacloud.storage.bucket.switch_settings }}**.
+  1. Откройте вкладку **{{ ui-key.yacloud.storage.bucket.switch_server-logs }}**.  
+  1. Включите опцию **{{ ui-key.yacloud.storage.form.BucketServerLogsFormContent.label_server-logs_mfGpj }}**.
+  1. Выберите **{{ ui-key.yacloud.storage.form.BucketServerLogsFormContent.label_target-bucket_jEJ5E }}**.
+  1. В поле **{{ ui-key.yacloud.storage.form.BucketServerLogsFormContent.label_prefix_4JTZG }}** укажите префикс `s3-logs/`.
+  1. Нажмите кнопку **{{ ui-key.yacloud.common.save }}**.
 
 - AWS CLI {#cli}
 
@@ -187,7 +190,7 @@
      
      ```bash
      aws s3api put-bucket-logging \
-       --endpoint-url https://storage.yandexcloud.net \
+       --endpoint-url https://{{ s3-storage-host }} \
        --bucket <имя_бакета> \
        --bucket-logging-status file://log-config.json
      ```
@@ -195,11 +198,11 @@
      Где `--bucket` — имя бакета, для которого надо включить логирование действий.
 
 
-- Terraform {#tf}
+- {{ TF }} {#tf}
   
   Чтобы включить механизм логирования в бакете, который вы хотите отслеживать:
 
-     1. Откройте файл конфигурации Terraform и добавьте блок `logging` во фрагмент с описанием бакета.
+     1. Откройте файл конфигурации {{ TF }} и добавьте блок `logging` во фрагмент с описанием бакета.
 
         ```hcl
         resource "yandex_storage_bucket" "bucket-logs" {
@@ -227,7 +230,7 @@
         * `target_bucket` — указание на бакет для хранения логов.
         * `target_prefix` — [префикс ключа](../../storage/concepts/server-logs.md#key-prefix) для объектов с логами.
 
-        Более подробную информацию о параметрах ресурса `yandex_storage_bucket` в Terraform см. в [документации провайдера](../../terraform/resources/storage_bucket.md#enable-logging).
+        Более подробную информацию о параметрах ресурса `yandex_storage_bucket` в {{ TF }} см. в [документации провайдера]({{ tf-provider-resources-link }}/storage_bucket#enable-logging).
 
         1. В терминале перейдите в директорию с конфигурационным файлом.
         1. Проверьте корректность конфигурации с помощью команды:
@@ -248,7 +251,7 @@
            terraform plan
            ```
         
-           В терминале будет выведен список ресурсов с параметрами. На этом этапе изменения не будут внесены. Если в конфигурации есть ошибки, Terraform на них укажет.
+           В терминале будет выведен список ресурсов с параметрами. На этом этапе изменения не будут внесены. Если в конфигурации есть ошибки, {{ TF }} на них укажет.
         1. Примените изменения конфигурации:
         
            ```bash
@@ -257,7 +260,7 @@
         
         1. Подтвердите изменения: введите в терминале слово `yes` и нажмите **Enter**.
 
-        После этого в указанном каталоге будут созданы все требуемые ресурсы. Проверить появление ресурсов и их настройки можно в [консоли управления](https://console.yandex.cloud).
+        После этого в указанном каталоге будут созданы все требуемые ресурсы. Проверить появление ресурсов и их настройки можно в [консоли управления]({{ link-console-main }}).
 
 
 - API {#api}
@@ -268,54 +271,54 @@
 
 ## Подготовьте источник данных {#prepare-origin}
 
-### Создайте кластер ClickHouse® {#create-ch-cluster}
+### Создайте кластер {{ CH }} {#create-ch-cluster}
 
 
-Для создания кластера Managed Service for ClickHouse® нужна роль [vpc.user](../../vpc/security/index.md#vpc-user) и роль [managed-clickhouse.editor или выше](../../managed-clickhouse/security.md#roles-list). О том, как назначить роль, см. [документацию Identity and Access Management](../../iam/operations/roles/grant.md).
+Для создания кластера {{ mch-name }} нужна роль [{{ roles-vpc-user }}](../../vpc/security/index.md#vpc-user) и роль [{{ roles.mch.editor }} или выше](../../managed-clickhouse/security.md#roles-list). О том, как назначить роль, см. [документацию {{ iam-name }}](../../iam/operations/roles/grant.md).
 
 
 {% list tabs group=instructions %}
 
 - Консоль управления {#console}
 
-  1. В [консоли управления](https://console.yandex.cloud) выберите каталог, в котором хотите создать кластер.
-  1. [Перейдите](../../console/operations/select-service.md#select-service) в сервис **Managed Service for&nbsp;ClickHouse**.
-  1. В открывшемся окне нажмите **Создать кластер**.
-  1. Укажите настройки кластера ClickHouse®:
+  1. В [консоли управления]({{ link-console-main }}) выберите каталог, в котором хотите создать кластер.
+  1. Перейдите в сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-clickhouse }}**.
+  1. В открывшемся окне нажмите **{{ ui-key.yacloud.mdb.clusters.button_create }}**.
+  1. Укажите настройки кластера {{ CH }}:
 
-     1. В блоке **Базовые параметры** в поле **Имя кластера** укажите `s3-logs`.
+     1. В блоке **{{ ui-key.yacloud.mdb.forms.section_base }}** в поле **{{ ui-key.yacloud.mdb.forms.base_field_name }}** укажите `s3-logs`.
 
-     1. В блоке **Ресурсы** в поле **Тип** выберите `burstable`.
+     1. В блоке **{{ ui-key.yacloud.mdb.forms.new_section_resource }}** в поле **{{ ui-key.yacloud.mdb.forms.resource_presets_field-type }}** выберите `burstable`.
 
      
-     1. В блоке **Хосты** нажмите ![image](../../_assets/console-icons/pencil.svg) и включите опцию **Публичный доступ**. Нажмите кнопку **Сохранить**.
+     1. В блоке **{{ ui-key.yacloud.mdb.forms.section_host }}** нажмите ![image](../../_assets/console-icons/pencil.svg) и включите опцию **{{ ui-key.yacloud.mdb.hosts.dialog.field_public_ip }}**. Нажмите кнопку **{{ ui-key.yacloud.mdb.hosts.dialog.button_choose }}**.
 
         {% note info %}
         
-        Публичный доступ к хостам кластера нужен, если вы планируете подключаться к кластеру через интернет. Этот вариант подключения более простой, и его рекомендуется использовать для прохождения руководства. К хостам без публичного доступа тоже можно подключиться, но только с виртуальных машин Yandex Cloud, расположенных в той же облачной сети, что и кластер.
+        Публичный доступ к хостам кластера нужен, если вы планируете подключаться к кластеру через интернет. Этот вариант подключения более простой, и его рекомендуется использовать для прохождения руководства. К хостам без публичного доступа тоже можно подключиться, но только с виртуальных машин {{ yandex-cloud }}, расположенных в той же облачной сети, что и кластер.
         
         {% endnote %}
 
 
-     1. В блоке **Настройки СУБД**:
+     1. В блоке **{{ ui-key.yacloud.mdb.forms.section_settings }}**:
 
-        * В поле **Управление пользователями через SQL** выберите `Выключено`.
-        * В поле **Имя пользователя** укажите `user`.
-        * В поле **Пароль** укажите пароль.
-        * В поле **Имя БД** укажите `s3_data`.
+        * В поле **{{ ui-key.yacloud.mdb.forms.database_field_sql-user-management }}** выберите `{{ ui-key.yacloud.common.disabled }}`.
+        * В поле **{{ ui-key.yacloud.mdb.forms.database_field_user-login }}** укажите `user`.
+        * В поле **{{ ui-key.yacloud.mdb.forms.database_field_user-password }}** укажите пароль.
+        * В поле **{{ ui-key.yacloud.mdb.forms.database_field_name }}** укажите `s3_data`.
 
         Запомните имя БД.
 
-     1. В блоке **Сервисные настройки** включите опции:
+     1. В блоке **{{ ui-key.yacloud.mdb.forms.section_service-settings }}** включите опции:
 
-        * **Доступ из DataLens**.
+        * **{{ ui-key.yacloud.mdb.forms.additional-field-datalens }}**.
         * **Доступ из консоли управления**.
 
-  1. Нажмите кнопку **Создать кластер**.
+  1. Нажмите кнопку **{{ ui-key.yacloud.mdb.forms.button_create }}**.
 
-- Yandex Cloud CLI {#cli}
+- {{ yandex-cloud }} CLI {#cli}
 
-  Если у вас еще нет интерфейса командной строки Yandex Cloud (CLI), [установите и инициализируйте его](../../cli/quickstart.md#install).
+  Если у вас еще нет интерфейса командной строки {{ yandex-cloud }} (CLI), [установите и инициализируйте его](../../cli/quickstart.md#install).
 
   По умолчанию используется каталог, указанный при [создании](../../cli/operations/profile/profile-create.md) профиля CLI. Чтобы изменить каталог по умолчанию, используйте команду `yc config set folder-id <идентификатор_каталога>`. Также для любой команды вы можете указать другой каталог с помощью параметров `--folder-name` или `--folder-id`. Если вы обращаетесь к ресурсу по имени, поиск будет выполнен в каталоге по умолчанию. Если вы обращаетесь к ресурсу по идентификатору, поиск будет выполнен глобально — во всех каталогах с учетом прав доступа.
 
@@ -328,18 +331,18 @@
      yc vpc subnet list
      ```
 
-     Если ни одной подсети в каталоге нет, [создайте нужные подсети](../../vpc/operations/subnet-create.md) в сервисе VPC.
+     Если ни одной подсети в каталоге нет, [создайте нужные подсети](../../vpc/operations/subnet-create.md) в сервисе {{ vpc-short-name }}.
 
   1. Укажите параметры кластера в команде создания:
 
      ```bash
-     yc managed-clickhouse cluster create \
+     {{ yc-mdb-ch }} cluster create \
         --name s3-logs \
         --environment production \
         --network-name <имя_сети> \
         --host type=clickhouse,zone-id=<зона_доступности>,subnet-id=<идентификатор_подсети> \
         --clickhouse-resource-preset b2.medium \
-        --clickhouse-disk-type network-ssd \
+        --clickhouse-disk-type {{ disk-type-example }} \
         --clickhouse-disk-size 10 \
         --user name=user,password=<пароль_пользователя> \
         --database name=s3_data \
@@ -349,47 +352,54 @@
 
 
 
-- Terraform {#tf}
+- {{ TF }} {#tf}
 
   1. Добавьте в конфигурационный файл описание кластера, базы данных и пользователя:
 
      ```hcl
-     resource "yandex_mdb_clickhouse_cluster" "s3-logs" {
+     resource "yandex_mdb_clickhouse_cluster_v2" "s3-logs" {
        name                = "s3-logs"
        environment         = "PRODUCTION"
-       network_id          = yandex_vpc_network.<имя_сети_в_Terraform>.id
+       network_id          = yandex_vpc_network.<имя_сети_в_{{ TF }}>.id
 
-       clickhouse {
-         resources {
+       clickhouse = {
+         resources = {
            resource_preset_id = "b2.medium"
-           disk_type_id       = "network-ssd"
+           disk_type_id       = "{{ disk-type-example }}"
            disk_size          = 10
          }
        }
 
-       host {
-         type      = "CLICKHOUSE"
-         zone      = "<зона_доступности>"
-         subnet_id = yandex_vpc_subnet.<имя_подсети_в_Terraform>.id
+       hosts = {
+         "ch-host1" = {
+           type       = "CLICKHOUSE"
+           zone       = "<зона_доступности>"
+           subnet_id  = yandex_vpc_subnet.<имя_подсети_в_{{ TF }}>.id
+           shard_name = "shard1"
+         }
        }
 
-       access {
-         datalens  = true
-         web_sql   = true
+       shards = {
+         "shard1" = {}
        }
 
-       lifecycle {
-         ignore_changes = [database, user]
+       access = {
+         data_lens  = true
+         web_sql    = true
+       }
+
+       maintenance_window {
+         type = "ANYTIME"
        }
      }
 
      resource "yandex_mdb_clickhouse_database" "s3-data" {
-       cluster_id = yandex_mdb_clickhouse_cluster.s3-logs.id
+       cluster_id = yandex_mdb_clickhouse_cluster_v2.s3-logs.id
        name       = "s3_data"
      }
 
      resource "yandex_mdb_clickhouse_user" "user1" {
-       cluster_id = yandex_mdb_clickhouse_cluster.s3-logs.id
+       cluster_id = yandex_mdb_clickhouse_cluster_v2.s3-logs.id
        name       = "user"
        password   = "<пароль>"
        permission {
@@ -398,18 +408,18 @@
      }
      ```
 
-     Более подробную информацию о ресурсах, которые вы можете создать с помощью Terraform, см. в [документации провайдера](../../terraform/resources/mdb_clickhouse_cluster.md).
+     Более подробную информацию о ресурсах, которые вы можете создать с помощью {{ TF }}, см. в [документации провайдера]({{ tf-provider-mch }}).
 
   1. Проверьте корректность настроек.
 
-     1. В командной строке перейдите в каталог, в котором расположены актуальные конфигурационные файлы Terraform с планом инфраструктуры.
+     1. В командной строке перейдите в каталог, в котором расположены актуальные конфигурационные файлы {{ TF }} с планом инфраструктуры.
      1. Выполните команду:
      
         ```bash
         terraform validate
         ```
      
-        Если в файлах конфигурации есть ошибки, Terraform на них укажет.
+        Если в файлах конфигурации есть ошибки, {{ TF }} на них укажет.
 
   1. Создайте кластер:
 
@@ -438,7 +448,7 @@
 
 {% endlist %}
 
-После создания кластера вы автоматически будете перенаправлены на страницу **Кластеры**.
+После создания кластера вы автоматически будете перенаправлены на страницу **{{ ui-key.yacloud.clickhouse.switch_list }}**.
 
 Дождитесь пока статус кластера изменится на `Alive`.
 
@@ -449,18 +459,18 @@
 - Консоль управления {#console}
 
   1. Выберите кластер `s3-logs`.
-  1. Перейдите на вкладку **Пользователи**.
-  1. Нажмите значок ![image](../../_assets/console-icons/ellipsis.svg) и выберите **Настроить**.
-  1. Нажмите кнопку **Дополнительные настройки** → **Settings**.
+  1. Перейдите на вкладку **{{ ui-key.yacloud.clickhouse.cluster.switch_users }}**.
+  1. Нажмите значок ![image](../../_assets/console-icons/ellipsis.svg) и выберите **{{ ui-key.yacloud.mdb.cluster.users.button_action-update }}**.
+  1. Нажмите кнопку **{{ ui-key.yacloud.mdb.cluster.users.button_advanced-settings }}** → **Settings**.
   1. В поле **Date time input format** выберите `best_effort`.
-  1. Нажмите кнопку **Сохранить**.
+  1. Нажмите кнопку **{{ ui-key.yacloud.mdb.cluster.users.popup-button_save }}**.
 
 {% endlist %}
 
 
 ### Создайте статический ключ {#create-static-key}
 
-Для создания таблицы с доступом к Object Storage вам понадобится статический ключ. [Создайте его](../../iam/operations/authentication/manage-access-keys.md#create-access-key) и сохраните идентификатор и секретную часть ключа.
+Для создания таблицы с доступом к {{ objstorage-name }} вам понадобится статический ключ. [Создайте его](../../iam/operations/authentication/manage-access-keys.md#create-access-key) и сохраните идентификатор и секретную часть ключа.
 
 
 ### Создайте таблицу в БД {#create-table}
@@ -505,13 +515,13 @@
         version_id String,          -- Версия объекта.
         vhost String                -- Виртуальный хост запроса.
                                     -- Возможные значения:
-                                    -- * storage.yandexcloud.net.
-                                    -- * <имя_бакета>.storage.yandexcloud.net.
-                                    -- * website.yandexcloud.net.
-                                    -- * <имя_бакета>.website.yandexcloud.net.
+                                    -- * {{ s3-storage-host }}.
+                                    -- * <имя_бакета>.{{ s3-storage-host }}.
+                                    -- * {{ s3-web-host }}.
+                                    -- * <имя_бакета>.{{ s3-web-host }}.
      )
      ENGINE = S3(
-           'https://storage.yandexcloud.net/<имя_бакета>/s3-logs/*',
+           'https://{{ s3-storage-host }}/<имя_бакета>/s3-logs/*',
            '<идентификатор_ключа>',
            '<секретный_ключ>',
            'JSONEachRow'
@@ -523,20 +533,20 @@
 
 {% endlist %}
 
-## Создайте подключение в DataLens {#create-connection}
+## Создайте подключение в {{ datalens-short-name }} {#create-connection}
 
 {% list tabs group=instructions %}
 
 - Консоль управления {#console}
 
   1. Выберите кластер `s3-logs`.
-  1. Перейдите на вкладку **DataLens**.
-  1. В открывшемся окне нажмите **Создать подключение**.
+  1. Перейдите на вкладку **{{ ui-key.yacloud.clickhouse.cluster.switch_datalens }}**.
+  1. В открывшемся окне нажмите **{{ ui-key.yacloud.mdb.datalens.button-action_new-connection }}**.
   1. Заполните настройки подключения:
 
      1. Добавьте название подключения: `s3-logs-con`.
      1. В поле **Кластер** выберите `s3-logs`.
-     1. В поле **Имя хоста** выберите хост ClickHouse® из выпадающего списка. 
+     1. В поле **Имя хоста** выберите хост {{ CH }} из выпадающего списка. 
      1. Введите имя пользователя БД и пароль.
 
   1. Нажмите кнопку **Подтвердить подключение**.
@@ -545,7 +555,7 @@
 
 {% endlist %}
 
-## Создайте датасет в DataLens {#create-dataset}
+## Создайте датасет в {{ datalens-short-name }} {#create-dataset}
 
 1. Нажмите кнопку **Создать датасет**.
 1. В созданном датасете перенесите таблицу `s3_data.s3logs` на рабочую область.
@@ -561,7 +571,7 @@
 1. Введите имя датасета `s3-dataset` и нажмите **Создать**.
 1. После сохранения датасета в правом верхнем углу нажмите **Создать чарт**.
 
-## Создайте чарты в DataLens {#create-charts}
+## Создайте чарты в {{ datalens-short-name }} {#create-charts}
 
 ### Создайте первый чарт {#create-pie-chart}
 
@@ -603,7 +613,7 @@
 1. Удалите поле `request_id` из секции **Y** и перетащите туда поле `bytes_send`.
 1. В правом верхнем углу нажмите **Сохранить**.
 
-## Создайте дашборд в DataLens и добавьте на него чарты {#create-dashboard}
+## Создайте дашборд в {{ datalens-short-name }} и добавьте на него чарты {#create-dashboard}
 
 1. На панели слева нажмите ![image](../../_assets/console-icons/layout-cells-large.svg) **Дашборды**.
 1. Нажмите кнопку **Создать дашборд**.
@@ -620,4 +630,4 @@
 * [Удалите бакет](../../storage/operations/buckets/delete.md).
 * [Удалите кластер](../../managed-clickhouse/operations/cluster-delete.md) `s3-logs`.
 
-_ClickHouse® является зарегистрированным товарным знаком [ClickHouse, Inc](https://clickhouse.com)._
+_{{ CH }} является зарегистрированным товарным знаком [ClickHouse, Inc](https://clickhouse.com)._

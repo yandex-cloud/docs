@@ -5,7 +5,7 @@ returns specified MFA enforcement's audience
 ## HTTP request
 
 ```
-GET https://organization-manager.api.cloud.yandex.net/organization-manager/v1/mfaEnforcements/{mfaEnforcementId}:listAudience
+GET https://organization-manager.{{ api-host }}/organization-manager/v1/mfaEnforcements/{mfaEnforcementId}:listAudience
 ```
 
 ## Path parameters

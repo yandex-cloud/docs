@@ -1,11 +1,11 @@
-# Настройка дашбордов и алертов в Yandex Monitoring
+# Настройка дашбордов и алертов в {{ monitoring-full-name }}
 
-Из руководства вы узнаете, как отслеживать состояние [трейлов](../concepts/trail.md) с помощью [дашбордов](../../monitoring/concepts/visualization/dashboard.md) и [алертов](../../monitoring/concepts/alerting.md#alert) [Yandex Monitoring](../../monitoring/index.md).
+Из руководства вы узнаете, как отслеживать состояние [трейлов](../concepts/trail.md) с помощью [дашбордов](../../monitoring/concepts/visualization/dashboard.md) и [алертов](../../monitoring/concepts/alerting.md#alert) [{{ monitoring-full-name }}](../../monitoring/index.md).
 
 Руководство предполагает, что у вас уже развернута инфраструктура: 
 
-* Есть ресурсы Yandex Cloud, для которых вы собираете события безопасности.
-* Создан [трейл](../concepts/trail.md) Audit Trails для сбора событий.
+* Есть ресурсы {{ yandex-cloud }}, для которых вы собираете события безопасности.
+* Создан [трейл](../concepts/trail.md) {{ at-name }} для сбора событий.
 * Настроен [приемник](../concepts/trail.md#target) для хранения и управления событиями: [бакет](../../storage/concepts/bucket.md), [поток данных](../../data-streams/concepts/glossary.md#stream-concepts) или [лог-группа](../../logging/concepts/log-group.md)
 
 Чтобы начать отслеживать статус трейлов:
@@ -21,15 +21,15 @@
 
 Чтобы получать уведомления о срабатывании алерта:
 
-1. В [консоли управления](https://console.yandex.cloud) перейдите в каталог, в котором хотите создать канал уведомлений.
-1. [Перейдите](../../console/operations/select-service.md#select-service) в сервис **Monitoring**.
-1. На панели слева выберите **Каналы уведомлений**.
-1. В правом верхнем углу нажмите кнопку **Создать канал**.
+1. В [консоли управления]({{ link-console-main }}) перейдите в каталог, в котором хотите создать канал уведомлений.
+1. Перейдите в сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_monitoring }}**.
+1. На панели слева выберите **{{ ui-key.yacloud_monitoring.aside-navigation.menu-item.channels.title }}**.
+1. В правом верхнем углу нажмите кнопку **{{ ui-key.yacloud_monitoring.channel.button_new-channel }}**.
 1. Укажите параметры канала:
-    * В поле **Имя** укажите `alerts-channel`.
-    * В поле **Метод** укажите метод уведомлений.
-    * В поле **Получатели** перечислите получателей уведомлений.
-1. Нажмите кнопку **Создать**. 
+    * В поле **{{ ui-key.yacloud_monitoring.channel.field_name }}** укажите `alerts-channel`.
+    * В поле **{{ ui-key.yacloud_monitoring.channel.field_method }}** укажите метод уведомлений.
+    * В поле **{{ ui-key.yacloud_monitoring.channel.field_recipients }}** перечислите получателей уведомлений.
+1. Нажмите кнопку **{{ ui-key.yacloud_monitoring.channel.button_create }}**. 
 
 Канал появится в списке.
 
@@ -37,27 +37,27 @@
 
 Вы можете настроить один или несколько алертов.
 
-Более подробная информация о порядке [создания алерта](../../monitoring/operations/alert/create-alert.md) и о [параметрах алерта](../../monitoring/concepts/alerting.md#alert-parameters) приведена в документации Yandex Monitoring.
+Более подробная информация о порядке [создания алерта](../../monitoring/operations/alert/create-alert.md) и о [параметрах алерта](../../monitoring/concepts/alerting.md#alert-parameters) приведена в документации {{ monitoring-full-name }}.
 
 #### Переход трейла в неактивное состояние {#deactivating-trail}
 
 Алерт отправит уведомление о том, что трейл переходит в неактивный статус.
 
-1. В [консоли управления](https://console.yandex.cloud) перейдите в каталог, в котором хотите создать алерт.
-1. [Перейдите](../../console/operations/select-service.md#select-service) в сервис **Monitoring**.
-1. На панели слева выберите **Алерты**.
-1. В правом верхнем углу нажмите кнопку **Создать алерт**.
-1. В поле **Название** укажите `deactivating-trail-alert`. 
-1. В блоке **Метрики** справа от имени каталога нажмите ![image](../../_assets/console-icons/plus.svg) и укажите:
+1. В [консоли управления]({{ link-console-main }}) перейдите в каталог, в котором хотите создать алерт.
+1. Перейдите в сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_monitoring }}**.
+1. На панели слева выберите **{{ ui-key.yacloud_monitoring.aside-navigation.menu-item.alerts.title }}**.
+1. В правом верхнем углу нажмите кнопку **{{ ui-key.yacloud_monitoring.alert.button_create-alert }}**.
+1. В поле **{{ ui-key.yacloud_monitoring.alert.title_name }}** укажите `deactivating-trail-alert`. 
+1. В блоке **{{ ui-key.yacloud_monitoring.alert.section_metrics }}** справа от имени каталога нажмите ![image](../../_assets/console-icons/plus.svg) и укажите:
     1. `service = Audit Trails`. 
     1. `name = trail.status`.
     1. `status != ACTIVE`.
     1. `trail = <имя_трейла>`.
-1. В блоке **Настройки алерта** укажите:
-    1. **Условие срабатывания** — `Не равно`.
-    1. **Alarm** — `0`.
-1. В блоке **Каналы уведомлений** нажмите кнопку **Добавить канал** и выберите канал уведомления, [созданный ранее](#create-channel).
-1. Нажмите кнопку **Создать алерт**. 
+1. В блоке **{{ ui-key.yacloud_monitoring.alert.section_alert-conditions }}** укажите:
+    1. **{{ ui-key.yacloud_monitoring.alert.label_trigger-condition }}** — `{{ ui-key.yacloud_monitoring.alert.title_comparison-ne }}`.
+    1. **{{ ui-key.yacloud_monitoring.alert.label_alarm }}** — `0`.
+1. В блоке **{{ ui-key.yacloud_monitoring.alert.section_notifications }}** нажмите кнопку **{{ ui-key.yacloud_monitoring.alert.button_add-channel }}** и выберите канал уведомления, [созданный ранее](#create-channel).
+1. Нажмите кнопку **{{ ui-key.yacloud_monitoring.alert.button_create-alert }}**. 
 
 Алерт создан.
 
@@ -65,23 +65,23 @@
 
 Алерт отправит уведомление о том, что трейл прекратил загружать аудитные логи в объект назначения, например, по причине нехватки свободного места в бакете.
 
-Параметр **Окно вычисления** зависит от конкретного трейла. В зависимости от типа и количества ресурсов в блоке сбора аудитных логов трейла, частота загрузки аудитных логов в объект назначения будет варьироваться. 
+Параметр **{{ ui-key.yacloud_monitoring.alert.label_evaluation-window }}** зависит от конкретного трейла. В зависимости от типа и количества ресурсов в блоке сбора аудитных логов трейла, частота загрузки аудитных логов в объект назначения будет варьироваться. 
 
-1. В [консоли управления](https://console.yandex.cloud) перейдите в каталог, в котором хотите создать алерт.
-1. [Перейдите](../../console/operations/select-service.md#select-service) в сервис **Monitoring**.
-1. На панели слева выберите **Алерты**.
-1. В правом верхнем углу нажмите кнопку **Создать алерт**.
-1. В поле **Название** укажите `stopping-logs-alert`. 
-1. В блоке **Метрики** справа от имени каталога нажмите ![image](../../_assets/console-icons/plus.svg) и укажите:
+1. В [консоли управления]({{ link-console-main }}) перейдите в каталог, в котором хотите создать алерт.
+1. Перейдите в сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_monitoring }}**.
+1. На панели слева выберите **{{ ui-key.yacloud_monitoring.aside-navigation.menu-item.alerts.title }}**.
+1. В правом верхнем углу нажмите кнопку **{{ ui-key.yacloud_monitoring.alert.button_create-alert }}**.
+1. В поле **{{ ui-key.yacloud_monitoring.alert.title_name }}** укажите `stopping-logs-alert`. 
+1. В блоке **{{ ui-key.yacloud_monitoring.alert.section_metrics }}** справа от имени каталога нажмите ![image](../../_assets/console-icons/plus.svg) и укажите:
     1. `service = Audit Trails`. 
     1. `name = trail.delivered_events_count`.
     1. `trail = <имя_трейла>`.
-1. В блоке **Настройки алерта** укажите:
-    1. **Условие срабатывания** — `Равно`.
-    1. **Alarm** — `0`.
-    1. **Окно вычисления** — `<значение_для_трейла>`.
-1. В блоке **Каналы уведомлений** нажмите кнопку **Добавить канал** и выберите канал уведомления, [созданный ранее](#create-channel).
-1. Нажмите кнопку **Создать алерт**. 
+1. В блоке **{{ ui-key.yacloud_monitoring.alert.section_alert-conditions }}** укажите:
+    1. **{{ ui-key.yacloud_monitoring.alert.label_trigger-condition }}** — `{{ ui-key.yacloud_monitoring.alert.title_comparison-eq }}`.
+    1. **{{ ui-key.yacloud_monitoring.alert.label_alarm }}** — `0`.
+    1. **{{ ui-key.yacloud_monitoring.alert.label_evaluation-window }}** — `<значение_для_трейла>`.
+1. В блоке **{{ ui-key.yacloud_monitoring.alert.section_notifications }}** нажмите кнопку **{{ ui-key.yacloud_monitoring.alert.button_add-channel }}** и выберите канал уведомления, [созданный ранее](#create-channel).
+1. Нажмите кнопку **{{ ui-key.yacloud_monitoring.alert.button_create-alert }}**. 
 
 Алерт создан.
 
@@ -89,100 +89,100 @@
 
 Алерт отправит уведомление о том, что число трейлов в облаке изменилось.
 
-1. В [консоли управления](https://console.yandex.cloud) перейдите в каталог, в котором хотите создать алерт.
-1. [Перейдите](../../console/operations/select-service.md#select-service) в сервис **Monitoring**.
-1. На панели слева выберите **Алерты**.
-1. В правом верхнем углу нажмите кнопку **Создать алерт**.
-1. В поле **Название** укажите `number-trails-alert`. 
-1. В блоке **Метрики** справа от имени каталога нажмите ![image](../../_assets/console-icons/plus.svg) и укажите:
+1. В [консоли управления]({{ link-console-main }}) перейдите в каталог, в котором хотите создать алерт.
+1. Перейдите в сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_monitoring }}**.
+1. На панели слева выберите **{{ ui-key.yacloud_monitoring.aside-navigation.menu-item.alerts.title }}**.
+1. В правом верхнем углу нажмите кнопку **{{ ui-key.yacloud_monitoring.alert.button_create-alert }}**.
+1. В поле **{{ ui-key.yacloud_monitoring.alert.title_name }}** укажите `number-trails-alert`. 
+1. В блоке **{{ ui-key.yacloud_monitoring.alert.section_metrics }}** справа от имени каталога нажмите ![image](../../_assets/console-icons/plus.svg) и укажите:
     1. `service = Audit Trails`. 
     1. `name = quota.trails_count.usage`.
-1. В блоке **Настройки алерта** укажите:
-    1. **Условие срабатывания** — `Не равно`.
-    1. **Alarm** — `<количество_трейлов>`.
-1. В блоке **Каналы уведомлений** нажмите кнопку **Добавить канал** и выберите канал уведомления, [созданный ранее](#create-channel).
-1. Нажмите кнопку **Создать алерт**.
+1. В блоке **{{ ui-key.yacloud_monitoring.alert.section_alert-conditions }}** укажите:
+    1. **{{ ui-key.yacloud_monitoring.alert.label_trigger-condition }}** — `{{ ui-key.yacloud_monitoring.alert.title_comparison-ne }}`.
+    1. **{{ ui-key.yacloud_monitoring.alert.label_alarm }}** — `<количество_трейлов>`.
+1. В блоке **{{ ui-key.yacloud_monitoring.alert.section_notifications }}** нажмите кнопку **{{ ui-key.yacloud_monitoring.alert.button_add-channel }}** и выберите канал уведомления, [созданный ранее](#create-channel).
+1. Нажмите кнопку **{{ ui-key.yacloud_monitoring.alert.button_create-alert }}**.
 
 #### Израсходование квоты трейлов на облако {#trail-quota}
 
 Алерт отправит уведомление о том, что квота на количество трейлов в облаке израсходована более чем на 80%.
    
-1. В [консоли управления](https://console.yandex.cloud) перейдите в каталог, в котором хотите создать алерт.
-1. [Перейдите](../../console/operations/select-service.md#select-service) в сервис **Monitoring**.
-1. На панели слева выберите **Алерты**.
-1. В правом верхнем углу нажмите кнопку **Создать алерт**.
-1. В поле **Название** укажите `trail-quota-alert`. 
-1. В блоке **Метрики** справа от имени каталога нажмите ![image](../../_assets/console-icons/plus.svg) и укажите:
+1. В [консоли управления]({{ link-console-main }}) перейдите в каталог, в котором хотите создать алерт.
+1. Перейдите в сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_monitoring }}**.
+1. На панели слева выберите **{{ ui-key.yacloud_monitoring.aside-navigation.menu-item.alerts.title }}**.
+1. В правом верхнем углу нажмите кнопку **{{ ui-key.yacloud_monitoring.alert.button_create-alert }}**.
+1. В поле **{{ ui-key.yacloud_monitoring.alert.title_name }}** укажите `trail-quota-alert`. 
+1. В блоке **{{ ui-key.yacloud_monitoring.alert.section_metrics }}** справа от имени каталога нажмите ![image](../../_assets/console-icons/plus.svg) и укажите:
     1. `service = Audit Trails`. 
     1. `name = quota.trails_count.usage`.
-1. В блоке **Настройки алерта** укажите:
-    1. **Условие срабатывания** — `Больше`.
-    1. **Alarm** — `<число_равное_80%_от_квоты>`.
-1. В блоке **Каналы уведомлений** нажмите кнопку **Добавить канал** и выберите канал уведомления, [созданный ранее](#create-channel).
-1. Нажмите кнопку **Создать алерт**.
+1. В блоке **{{ ui-key.yacloud_monitoring.alert.section_alert-conditions }}** укажите:
+    1. **{{ ui-key.yacloud_monitoring.alert.label_trigger-condition }}** — `{{ ui-key.yacloud_monitoring.alert.title_comparison-gt }}`.
+    1. **{{ ui-key.yacloud_monitoring.alert.label_alarm }}** — `<число_равное_80%_от_квоты>`.
+1. В блоке **{{ ui-key.yacloud_monitoring.alert.section_notifications }}** нажмите кнопку **{{ ui-key.yacloud_monitoring.alert.button_add-channel }}** и выберите канал уведомления, [созданный ранее](#create-channel).
+1. Нажмите кнопку **{{ ui-key.yacloud_monitoring.alert.button_create-alert }}**.
 
 #### Попытки неавторизованного доступа {#unauthorized-access}
 
 Алерт отправит уведомление о том, что к одному из ресурсов трейла был отправлен неавторизованный запрос.
 
-1. В [консоли управления](https://console.yandex.cloud) перейдите в каталог, в котором хотите создать алерт.
-1. [Перейдите](../../console/operations/select-service.md#select-service) в сервис **Monitoring**.
-1. На панели слева выберите **Алерты**.
-1. В правом верхнем углу нажмите кнопку **Создать алерт**.
-1. В поле **Название** укажите `unauthorized-access-alert`. 
-1. В блоке **Метрики** справа от имени каталога нажмите ![image](../../_assets/console-icons/plus.svg) и укажите:
+1. В [консоли управления]({{ link-console-main }}) перейдите в каталог, в котором хотите создать алерт.
+1. Перейдите в сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_monitoring }}**.
+1. На панели слева выберите **{{ ui-key.yacloud_monitoring.aside-navigation.menu-item.alerts.title }}**.
+1. В правом верхнем углу нажмите кнопку **{{ ui-key.yacloud_monitoring.alert.button_create-alert }}**.
+1. В поле **{{ ui-key.yacloud_monitoring.alert.title_name }}** укажите `unauthorized-access-alert`. 
+1. В блоке **{{ ui-key.yacloud_monitoring.alert.section_metrics }}** справа от имени каталога нажмите ![image](../../_assets/console-icons/plus.svg) и укажите:
     1. `service = Audit Trails`. 
     1. `name = trail.unauthorized_events_count`.
-1. В блоке **Настройки алерта** укажите:
-    1. **Условие срабатывания** — `Больше`.
-    1. **Alarm** — `0`.
-1. В блоке **Каналы уведомлений** нажмите кнопку **Добавить канал** и выберите канал уведомления, [созданный ранее](#create-channel).
-1. Нажмите кнопку **Создать алерт**.
+1. В блоке **{{ ui-key.yacloud_monitoring.alert.section_alert-conditions }}** укажите:
+    1. **{{ ui-key.yacloud_monitoring.alert.label_trigger-condition }}** — `{{ ui-key.yacloud_monitoring.alert.title_comparison-gt }}`.
+    1. **{{ ui-key.yacloud_monitoring.alert.label_alarm }}** — `0`.
+1. В блоке **{{ ui-key.yacloud_monitoring.alert.section_notifications }}** нажмите кнопку **{{ ui-key.yacloud_monitoring.alert.button_add-channel }}** и выберите канал уведомления, [созданный ранее](#create-channel).
+1. Нажмите кнопку **{{ ui-key.yacloud_monitoring.alert.button_create-alert }}**.
 
 ## Настройте дашборд {#setup-dashboard}
 
-Готовые графики для наблюдения за состоянием трейлов находятся в [консоли управления](https://console.yandex.cloud) → сервис **Audit Trails** → раздел ![image](../../_assets/console-icons/display-pulse.svg) **Мониторинг**.
+Готовые графики для наблюдения за состоянием трейлов находятся в [консоли управления]({{ link-console-main }}) → сервис **{{ at-name }}** → раздел ![image](../../_assets/console-icons/display-pulse.svg) **{{ ui-key.yacloud.common.monitoring }}**.
 
-Чтобы отслеживать не только состояние трейлов, но и состояние хранилища трейлов, создайте комплексный дашборд в сервисе Monitoring.
+Чтобы отслеживать не только состояние трейлов, но и состояние хранилища трейлов, создайте комплексный дашборд в сервисе {{ monitoring-name }}.
 
 ### Создайте дашборд {#create-dashboard}
 
 {% list tabs group=instructions %}
 
-- Интерфейс Monitoring {#console}
+- Интерфейс {{ monitoring-short-name }} {#console}
 
-  1. В [консоли управления](https://console.yandex.cloud) выберите каталог, в котором находятся нужные трейлы.
-  1. [Перейдите](../../console/operations/select-service.md#select-service) в сервис **Monitoring**.
-  1. Перейдите на вкладку **Дашборды**.
-  1. Нажмите **Создать**.
-  1. Справа вверху нажмите **Сохранить**.
-  1. В открывшемся окне введите название дашборда, например `missing-events`, и нажмите **Сохранить**.
+  1. В [консоли управления]({{ link-console-main }}) выберите каталог, в котором находятся нужные трейлы.
+  1. Перейдите в сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_monitoring }}**.
+  1. Перейдите на вкладку **{{ ui-key.yacloud_monitoring.aside-navigation.menu-item.dashboards.title }}**.
+  1. Нажмите **{{ ui-key.yacloud_monitoring.actions.common.create }}**.
+  1. Справа вверху нажмите **{{ ui-key.yacloud_monitoring.actions.common.save }}**.
+  1. В открывшемся окне введите название дашборда, например `missing-events`, и нажмите **{{ ui-key.yacloud_monitoring.actions.common.save }}**.
 
 {% endlist %}
 
 ### Создайте график для отслеживания пропущенных событий {#create-missing-events-chart}
 
-Вы можете отслеживать пропущенные события по [метрикам Audit Trails](../concepts/user-metrics.md):
+Вы можете отслеживать пропущенные события по [метрикам {{ at-name }}](../concepts/user-metrics.md):
 
 * `trail.processed_events_count` — частота, с которой события принимаются в обработку.
 * `trail.delivered_events_count` — частота, с которой события доставляются в объект назначения.
 
 Скопируйте готовый график для отслеживания пропущенных событий на ваш дашборд:
 
-1. Откройте дашборд трейла в Monitoring:
+1. Откройте дашборд трейла в {{ monitoring-name }}:
 
     {% list tabs group=instructions %}
 
     - Консоль управления {#console}
 
-      1. Откройте [консоль управления](https://console.yandex.cloud).
-      1. [Перейдите](../../console/operations/select-service.md#select-service) в сервис **Audit Trails**.
-      1. На панели слева выберите ![image](../../_assets/console-icons/route.svg) **Трейлы**.
+      1. Откройте [консоль управления]({{ link-console-main }}).
+      1. Перейдите в сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_audit-trails }}**.
+      1. На панели слева выберите ![image](../../_assets/console-icons/route.svg) **{{ ui-key.yacloud.audit-trails.label_trails }}**.
       1. Выберите нужный трейл.
-      1. Перейдите на панель ![image](../../_assets/console-icons/display-pulse.svg) **Мониторинг** для выбранного трейла.
-      1. Справа вверху нажмите **Открыть в Monium**.
+      1. Перейдите на панель ![image](../../_assets/console-icons/display-pulse.svg) **{{ ui-key.yacloud.common.monitoring }}** для выбранного трейла.
+      1. Справа вверху нажмите **{{ ui-key.yacloud.monitoring.button_open-in-monitoring }}**.
 
-          Откроется интерфейс Monitoring.
+          Откроется интерфейс {{ monitoring-short-name }}.
 
     {% endlist %}
 
@@ -190,13 +190,13 @@
 
     {% list tabs group=instructions %}
 
-    - Интерфейс Monitoring {#console}
+    - Интерфейс {{ monitoring-short-name }} {#console}
 
       1. Найдите график **Processed versus delivered events**.
-      1. Справа от названия графика нажмите ![horizontal-ellipsis](../../_assets/horizontal-ellipsis.svg) → **Копировать на другой дашборд**.
+      1. Справа от названия графика нажмите ![horizontal-ellipsis](../../_assets/horizontal-ellipsis.svg) → **{{ ui-key.yacloud_monitoring.dashboard.widget.copy }}**.
       1. Укажите название, например `Processed versus delivered events — <имя_трейла>`.
       1. Выберите облако, каталог и укажите дашборд, который вы [создали ранее](#create-dashboard).
-      1. Нажмите **Копировать и перейти к дашборду**.
+      1. Нажмите **{{ ui-key.yacloud_monitoring.component.add-to-dashboard-form.action.copy-and-go }}**.
 
           Откроется ваш дашборд с новым графиком на нем.
 
@@ -214,18 +214,18 @@
 
 - Консоль управления {#console}
 
-  1. Откройте [консоль управления](https://console.yandex.cloud).
-  1. [Перейдите](../../console/operations/select-service.md#select-service) в сервис **Audit Trails**.
-  1. На панели слева выберите ![image](../../_assets/console-icons/route.svg) **Трейлы**.
-  1. Выберите трейл. На странице **Трейл** отобразится подробная информация о трейле.
+  1. Откройте [консоль управления]({{ link-console-main }}).
+  1. Перейдите в сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_audit-trails }}**.
+  1. На панели слева выберите ![image](../../_assets/console-icons/route.svg) **{{ ui-key.yacloud.audit-trails.label_trails }}**.
+  1. Выберите трейл. На странице **{{ ui-key.yacloud.audit-trails.label_trail }}** отобразится подробная информация о трейле.
 
 {% endlist %}
 
 Статус `Active` при устойчивом отставании **Delivered events** от **Processed events** означает, что трейл работает нормально, но по каким-то причинам данные поступают в объект назначения с задержкой. В этом случае проверьте статус и логи объекта назначения:
 
-* [Получение информации о бакете и статистики бакета](../../storage/operations/buckets/get-info.md)
+* [{#T}](../../storage/operations/buckets/get-info.md)
 * [Получение информации о лог-группе](../../logging/operations/index.md#log-group-info)
-* [Пошаговые инструкции для Data Streams](../../data-streams/operations/index.md)
+* [{#T}](../../data-streams/operations/index.md)
 
 Статус `Error` сообщает об ошибке в работе трейла. В этом случае изучите лог диагностики трейла.
 
@@ -235,11 +235,11 @@
 
 - Консоль управления {#console}
 
-  1. Откройте [консоль управления](https://console.yandex.cloud).
-  1. [Перейдите](../../console/operations/select-service.md#select-service) в сервис **Audit Trails**.
-  1. На панели слева выберите ![image](../../_assets/console-icons/route.svg) **Трейлы**.
+  1. Откройте [консоль управления]({{ link-console-main }}).
+  1. Перейдите в сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_audit-trails }}**.
+  1. На панели слева выберите ![image](../../_assets/console-icons/route.svg) **{{ ui-key.yacloud.audit-trails.label_trails }}**.
   1. Выберите трейл.
-  1. Перейдите на панель ![image](../../_assets/console-icons/receipt.svg) **Лог диагностики** и изучите лог.
+  1. Перейдите на панель ![image](../../_assets/console-icons/receipt.svg) **{{ ui-key.yacloud.audit-trails.logs }}** и изучите лог.
   1. [Ознакомьтесь](../operations/error.md) с рекомендациями по обработке ошибок.
 
 {% endlist %}
@@ -248,30 +248,30 @@
 
 Дополнительно к графику для отслеживания пропущенных событий можно добавить график для объекта назначения:
 
-* **Object Storage**
+* **{{ objstorage-name }}**
 
     Пропуск событий может быть связан с исчерпанием места, доступного для хранения логов. Это может произойти, если трейл отправляет логи в бакет с ограниченным размером. Чтобы отслеживать доступное место в бакете, создайте график по [метрике](../../monitoring/metrics-ref/storage-ref.md) `space_usage` и добавьте метрику `max-size` в качестве порогового значения.
 
     Метрика `max-size` недоступна, если у бакета не задан максимальный размер. В таком случае необходимо самостоятельно контролировать исчерпание [квоты](../../storage/concepts/limits.md#storage-quotas) на объем хранилища в одном облаке.
 
-* **Cloud Logging**
+* **{{ cloud-logging-name }}**
 
     [Добавьте на дашборд](../../logging/tutorials/log-group-record-monitoring.md) график по [метрике](../../monitoring/metrics-ref/logging-ref.md) `group.service.ingested_records_per_second` — она отображает реальную скорость записи логов в лог-группу. Сравнение этой величины с установленной [квотой](../../logging/concepts/limits.md#logging-quotas) `Максимальная скорость записи` помогает определить, не достигает ли поток логов максимально разрешенной скорости. Дополнительный график по метрике `group.service.ingest_requests_per_second` со статусом `ERROR` позволит вовремя обнаружить ошибки при записи.
 
 
-* **Data Streams** — см. документацию [Yandex Managed Service for YDB](../../ydb/index.md):
-  * [Справочник метрик Yandex Monitoring](../../ydb/metrics.md)
-  * [Квоты и лимиты в Managed Service for YDB](../../ydb/concepts/limits.md)
+* **{{ yds-name }}** — см. документацию [{{ ydb-full-name }}](../../ydb/index.md):
+  * [{#T}](../../ydb/metrics.md)
+  * [{#T}](../../ydb/concepts/limits.md)
 
-  Подробнее о решении проблем с записью данных см. в разделе [Диагностика медленной записи в Yandex Data Streams](../../data-streams/tutorials/slow-writes-debug.md).
+  Подробнее о решении проблем с записью данных см. в разделе [{#T}](../../data-streams/tutorials/slow-writes-debug.md).
 
   {% note tip %}
 
-  Если скорость записи потока событий в Data Streams более 1 МБ/с, включите сжатие. Это сократит объем передаваемых данных, снизит риск перегрузки ([троттлинга](https://ru.wikipedia.org/wiki/Троттлинг)) отдельных сегментов YDS и повысит эффективность использования пропускной способности потока.
+  Если скорость записи потока событий в {{ yds-name }} более 1 МБ/с, включите сжатие. Это сократит объем передаваемых данных, снизит риск перегрузки ([троттлинга](https://ru.wikipedia.org/wiki/Троттлинг)) отдельных сегментов {{ DS }} и повысит эффективность использования пропускной способности потока.
   
-  Настройка сжатия доступна при [создании](../operations/create-trail.md) или [изменении](../operations/manage-trail.md) трейла через интерфейсы CLI, API или Terraform. Можно указать метод сжатия `GZIP` ([GNU Zip](https://wikipedia.org/wiki/Gzip)) или `ZSTD` ([Zstandard](https://wikipedia.org/wiki/Zstandard)). По умолчанию сжатия нет (`RAW`).
+  Настройка сжатия доступна при [создании](../operations/create-trail.md) или [изменении](../operations/manage-trail.md) трейла через интерфейсы CLI, API или {{ TF }}. Можно указать метод сжатия `GZIP` ([GNU Zip](https://wikipedia.org/wiki/Gzip)) или `ZSTD` ([Zstandard](https://wikipedia.org/wiki/Zstandard)). По умолчанию сжатия нет (`RAW`).
   
-  Чтобы читать данные через собственный протокол YDS, дополнительно включите сжатие на читателе YDS. Протоколы HTTP Kinesis и Apache Kafka® пока не поддерживаются.
+  Чтобы читать данные через собственный протокол {{ DS }}, дополнительно включите сжатие на читателе {{ DS }}. Протоколы HTTP Kinesis и {{ KF }} пока не поддерживаются.
 
   {% endnote %}
   

@@ -5,7 +5,7 @@ Updates the specified connection.
 ## HTTP request
 
 ```
-PATCH https://connman.api.cloud.yandex.net/v1/connection/{connectionId}
+PATCH https://connman.{{ api-host }}/v1/connection/{connectionId}
 ```
 
 ## Path parameters

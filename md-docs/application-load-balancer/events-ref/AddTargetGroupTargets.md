@@ -92,7 +92,8 @@
         "ipAddress": "string",
         // end of the list of possible fields
         "subnetId": "string",
-        "privateIpv4Address": "boolean"
+        "privateIpv4Address": "boolean",
+        "externalAddress": "boolean"
       }
     ]
   },
@@ -279,4 +280,5 @@ A list of messages that carry the error details. ||
 Includes only one of the fields `ipAddress`. ||
 || subnetId | **string** ||
 || privateIpv4Address | **boolean** ||
+|| externalAddress | **boolean** ||
 |#

@@ -61,8 +61,8 @@ Attribute.N.Value (значение атрибута)
 
 Атрибут | Тип | Описание
 ----- | ----- | -----
-`KmsMasterKeyId` | **string** | Атрибут не поддерживается в Yandex Message Queue.
-`KmsDataKeyReusePeriodSeconds` | **string** | Атрибут не поддерживается в Yandex Message Queue.
+`KmsMasterKeyId` | **string** | Атрибут не поддерживается в {{ message-queue-full-name }}.
+`KmsDataKeyReusePeriodSeconds` | **string** | Атрибут не поддерживается в {{ message-queue-full-name }}.
 
 #### Метки {#tags}
 
@@ -78,7 +78,7 @@ Attribute.N.Value (значение атрибута)
 
 ### Ошибки CreateQueue {#errors}
 
-Перечень общих для всех методов ошибок смотрите в разделе [Стандартные ошибки](../common-errors.md).
+Перечень общих для всех методов ошибок смотрите в разделе [{#T}](../common-errors.md).
 
 HTTP | Код ошибки| Описание
 ----- | ----- | -----
@@ -105,7 +105,7 @@ Action=CreateQueue
 <CreateQueueResponse>
     <CreateQueueResult>
         <QueueUrl>
-            https://message-queue.api.cloud.yandex.net/b1g8ad42m6he********/dj6000000000********/sample-queue
+            https://message-queue.{{ api-host }}/b1g8ad42m6he********/dj6000000000********/sample-queue
         </QueueUrl>
     </CreateQueueResult>
     <ResponseMetadata>

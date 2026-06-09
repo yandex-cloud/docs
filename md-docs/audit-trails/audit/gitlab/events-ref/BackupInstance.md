@@ -93,7 +93,9 @@
     "adminLogin": "string",
     "domain": "string",
     "subnetId": "string",
+    // Includes only one of the fields `description`
     "description": "string",
+    // end of the list of possible fields
     "labels": "object"
   },
   "requestParameters": "object",
@@ -276,6 +278,8 @@ Value must be greater than 0. ||
 || adminLogin | **string** ||
 || domain | **string** ||
 || subnetId | **string** ||
-|| description | **string** ||
+|| description | **string**
+
+Includes only one of the fields `description`. ||
 || labels | **object** (map<**string**, **string**>) ||
 |#

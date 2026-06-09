@@ -5,7 +5,7 @@ Retrieves the list of Redis User resources in the specified cluster.
 ## HTTP request
 
 ```
-GET https://mdb.api.cloud.yandex.net/managed-redis/v1/clusters/{clusterId}/users
+GET https://{{ api-host-mdb }}/managed-redis/v1/clusters/{clusterId}/users
 ```
 
 ## Path parameters
@@ -15,7 +15,7 @@ GET https://mdb.api.cloud.yandex.net/managed-redis/v1/clusters/{clusterId}/users
 || clusterId | **string**
 
 Required field. ID of the cluster to list Redis users in.
-To get the cluster ID, use a [ClusterService.List](../Cluster/list.md#List) request.
+To get the cluster ID, use a [ClusterService.List](../../../managed-redis/api-ref/Cluster/list#List) request.
 
 The maximum string length in characters is 50. ||
 |#
@@ -54,7 +54,8 @@ The maximum string length in characters is 400. ||
         "pubSubChannels": "string",
         "categories": "string",
         "commands": "string",
-        "sanitizePayload": "string"
+        "sanitizePayload": "string",
+        "databases": "string"
       },
       "enabled": "boolean",
       "aclOptions": "string"
@@ -80,7 +81,7 @@ list request will have its own `nextPageToken` to continue paging through the re
 ## User {#yandex.cloud.mdb.redis.v1.User}
 
 A Redis User resource. For more information, see the
-[Developer's Guide](../../concepts/index.md).
+[Developer's Guide](../../../managed-redis/concepts).
 
 #|
 ||Field | Description ||
@@ -120,4 +121,7 @@ Commands user can execute. ||
 || sanitizePayload | **string**
 
 SanitizePayload parameter. ||
+|| databases | **string**
+
+Databases parameter. ||
 |#

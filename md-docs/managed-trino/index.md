@@ -1,12 +1,6 @@
-# Yandex Managed Service for Trino
 
-Сервис Managed Service for Trino позволяет управлять распределенным аналитическим SQL-движком Trino в инфраструктуре Yandex Cloud.
 
-Инфраструктура Yandex Cloud <a href="../security/conform.md">защищена</a> в соответствии со следующими стандартами: <ul> <li>Федеральный закон Российской Федерации «О персональных данных» № 152-ФЗ.</li> <li>Стандарт безопасности индустрии платежных карт (PCI DSS).</li> <li>Стандарт ISO 27001.</li> <li>Стандарт ISO 27017.</li> <li>Стандарт ISO 27018.</li> <li>ГОСТ 57580.1-2017.</li> </ul>
-
-Для сервиса действует <a href="https://yandex.ru/legal/cloud_sla/ru/">соглашение об уровне обслуживания</a>. Уровень обслуживания сервиса определен в документе <a href="https://yandex.ru/legal/cloud_sla_trino/ru/">Уровень обслуживания Yandex Managed Service for Trino</a>.
-
-# Yandex Managed Service for Trino
+# {{ mtr-full-name }}
 
  - [Начало работы](quickstart.md)
 
@@ -22,7 +16,7 @@
 
  - [Изменение кластера](operations/cluster-update.md)
 
- - [Обновление версии Trino](operations/cluster-version-update.md)
+ - [Обновление версии {{ TR }}](operations/cluster-version-update.md)
 
  - [Остановка и запуск кластера](operations/cluster-stop.md)
 
@@ -31,6 +25,8 @@
  - [Управление доступом к кластеру](operations/cluster-access.md)
 
  - [Техническое обслуживание](operations/cluster-maintenance.md)
+
+ - [Управление ресурсными группами](operations/manage-resource-groups.md)
 
  - [Удаление кластера](operations/cluster-delete.md)
 
@@ -78,7 +74,7 @@
 
  - [Взаимосвязь ресурсов сервиса](concepts/index.md)
 
- - [Сеть в Managed Service for Trino](concepts/network.md)
+ - [Сеть в {{ mtr-name }}](concepts/network.md)
 
  - [Имперсонация](concepts/impersonation.md)
 
@@ -88,7 +84,11 @@
 
  - [Управление доступом](concepts/access-control.md)
 
+ - [Ресурсные группы](concepts/resource-groups.md)
+
  - [Техническое обслуживание](concepts/maintenance.md)
+
+ - [Коннектор {{ GP }}](concepts/greenplum-connector.md)
 
 ## Справочник CLI (англ.)
 
@@ -310,7 +310,7 @@
 
  - [update](cli-ref/v0/cluster/update.md)
 
- - [Справочник Terraform](tf-ref.md)
+ - [Справочник {{ TF }}](tf-ref.md)
 
 ## Справочник API
 
@@ -426,8 +426,8 @@
 
  - [Правила тарификации](pricing.md)
 
- - [Метрики Yandex Monitoring](metrics.md)
+ - [Метрики {{ monitoring-full-name }}](metrics.md)
 
- - [Аудитные логи Audit Trails](at-ref.md)
+ - [Аудитные логи {{ at-name }}](at-ref.md)
 
  - [История изменений](release-notes.md)

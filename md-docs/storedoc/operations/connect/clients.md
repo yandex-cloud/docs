@@ -1,6 +1,6 @@
-# Подключение к кластеру Yandex StoreDoc из приложений
+# Подключение к кластеру {{ SD }} из приложений
 
-К кластеру Yandex StoreDoc можно подключиться с помощью [инструментов командной строки](#command-line-tools), из [графических IDE](#connection-ide) и [Docker-контейнера](#connection-docker). О подключении из кода вашего приложения см. [Примеры кода](code-examples.md).
+К кластеру {{ SD }} можно подключиться с помощью [инструментов командной строки](#command-line-tools), из [графических IDE](#connection-ide) и [Docker-контейнера](#connection-docker). О подключении из кода вашего приложения см. [Примеры кода](code-examples.md).
 
 В примерах ниже предполагается, что [SSL-сертификат](index.md#get-ssl-cert) `root.crt` расположен в директории:
 
@@ -17,7 +17,7 @@
 
 ## Инструменты командной строки {#command-line-tools}
 
-Примеры кода с заполненным FQDN хоста доступны в [консоли управления](https://console.yandex.cloud) по нажатию кнопки **Подключиться** на странице кластера.
+Примеры кода с заполненным FQDN хоста доступны в [консоли управления]({{ link-console-main }}) по нажатию кнопки **{{ ui-key.yacloud.mdb.clusters.button_action-connect }}** на странице кластера.
 
 Способ настройки зависит от того, включено ли в кластере [шардирование](../../concepts/sharding.md).
 
@@ -36,7 +36,7 @@
     mongosh --norc \
             --tls \
             --tlsCAFile ~/.mongodb/root.crt \
-            --host '<FQDN_хоста_1_Yandex_StoreDoc>:27018,...,<FQDN_хоста_N_Yandex_StoreDoc>:27018' \
+            --host '<FQDN_хоста_1_Yandex_StoreDoc>:{{ port-mmg }},...,<FQDN_хоста_N_Yandex_StoreDoc>:{{ port-mmg }}' \
             --username <имя_пользователя_БД> \
             --password <пароль_пользователя_БД> \
             <имя_БД>
@@ -64,7 +64,7 @@
 
     ```bash
     mongosh --norc \
-            --host '<FQDN_хоста_1_Yandex_StoreDoc>:27018,...,<FQDN_хоста_N_Yandex_StoreDoc>:27018' \
+            --host '<FQDN_хоста_1_Yandex_StoreDoc>:{{ port-mmg }},...,<FQDN_хоста_N_Yandex_StoreDoc>:{{ port-mmg }}' \
             --username <имя_пользователя_БД> \
             --password <пароль_пользователя_БД> \
             <имя_БД>
@@ -88,7 +88,7 @@
 
     ```bash
     mongosh "mongodb+srv://<имя_пользователя_БД>:<пароль_пользователя_БД>\
-    @<идентификатор_кластера>.mdb.yandexcloud.net/<имя_БД>"
+    @<идентификатор_кластера>.{{ dns-zone }}/<имя_БД>"
     ```
 
   Идентификатор кластера можно запросить со [списком кластеров в каталоге](../cluster-list.md#list-clusters).
@@ -114,7 +114,7 @@
   Пример команды с параметрами подключения:
 
     ```bash
-    mongosh "mongodb+srv://user********:qwe********@c9qng7jhsgtg********.mdb.yandexcloud.net\
+    mongosh "mongodb+srv://user********:qwe********@c9qng7jhsgtg********.{{ dns-zone }}\
     /db********?authSource=admin&appName=debug"
     ```
 
@@ -132,7 +132,7 @@
 
     ```powershell
     mongosh.exe --norc `
-                --host '<FQDN_хоста_1_Yandex_StoreDoc>:27018,...,<FQDN_хоста_N_Yandex_StoreDoc>:27018' `
+                --host '<FQDN_хоста_1_Yandex_StoreDoc>:{{ port-mmg }},...,<FQDN_хоста_N_Yandex_StoreDoc>:{{ port-mmg }}' `
                 --tls `
                 --tlsCAFile $HOME\.mongodb\root.crt `
                 --username <имя_пользователя_БД> `
@@ -144,7 +144,7 @@
 
     ```powershell
     mongosh.exe --norc `
-                --host '<FQDN_хоста_1_MONGOINFRA_или_MONGOS>:27017,...,<FQDN_хоста_N_MONGOINFRA_или_MONGOS>:27017' `
+                --host '<FQDN_хоста_1_MONGOINFRA_или_MONGOS>:{{ port-mmg-sharded }},...,<FQDN_хоста_N_MONGOINFRA_или_MONGOS>:{{ port-mmg-sharded }}' `
                 --tls `
                 --tlsCAFile $HOME\.mongodb\root.crt `
                 --username <имя_пользователя_БД> `
@@ -162,7 +162,7 @@
 
     ```powershell
     mongosh.exe --norc `
-                --host '<FQDN_хоста_1_Yandex_StoreDoc>:27018,...,<FQDN_хоста_N_Yandex_StoreDoc>:27018' `
+                --host '<FQDN_хоста_1_Yandex_StoreDoc>:{{ port-mmg }},...,<FQDN_хоста_N_Yandex_StoreDoc>:{{ port-mmg }}' `
                 --username <имя_пользователя_БД> `
                 --password <пароль_пользователя_БД> `
                 <имя_БД>
@@ -172,7 +172,7 @@
 
     ```powershell
     mongosh.exe --norc `
-                --host '<FQDN_хоста_1_MONGOINFRA_или_MONGOS>:27017,...,<FQDN_хоста_N_MONGOINFRA_или_MONGOS>:27017' `
+                --host '<FQDN_хоста_1_MONGOINFRA_или_MONGOS>:{{ port-mmg-sharded }},...,<FQDN_хоста_N_MONGOINFRA_или_MONGOS>:{{ port-mmg-sharded }}' `
                 --username <имя_пользователя_БД> `
                 --password <пароль_пользователя_БД> `
                 <имя_БД>
@@ -186,7 +186,7 @@
 
     ```powershell
     mongosh.exe "mongodb+srv://<имя_пользователя_БД>:<пароль_пользователя_БД>`
-    @<идентификатор_кластера>.mdb.yandexcloud.net/<имя_БД>"
+    @<идентификатор_кластера>.{{ dns-zone }}/<имя_БД>"
     ```
 
   Идентификатор кластера можно запросить со [списком кластеров в каталоге](../cluster-list.md#list-clusters).
@@ -212,7 +212,7 @@
   Пример команды с параметрами подключения:
 
     ```powershell
-    mongosh.exe "mongodb+srv://user********:qwe********@c9qng7jhsgtg********.mdb.yandexcloud.net`
+    mongosh.exe "mongodb+srv://user********:qwe********@c9qng7jhsgtg********.{{ dns-zone }}`
     /db********?authSource=admin&appName=debug"
     ```
 
@@ -230,12 +230,12 @@
 Подключаться из графических IDE можно только к хостам кластера в публичном доступе с использованием [SSL-сертификата](index.md#get-ssl-cert).
 
 
-Чтобы избежать ошибок при подключении, [сохраните сертификат](https://storage.yandexcloud.net/cloud-certs/RootCA.pem) в локальную папку, для доступа к которой не требуются права администратора.
+Чтобы избежать ошибок при подключении, [сохраните сертификат]({{ crt-web-path-root }}) в локальную папку, для доступа к которой не требуются права администратора.
 
 ### DataGrip {#datagrip}
 
 1. Создайте источник данных:
-   1. Выберите в меню **File** → **New** → **Data Source** → **MongoDB**.
+   1. Выберите в меню **File** → **New** → **Data Source** → **{{ MG }}**.
    1. На вкладке **General**:
       1. Укажите параметры подключения:
          * **User**, **Password** — имя и пароль пользователя БД;
@@ -244,13 +244,13 @@
               Для нешардированного кластера:
 
               ```http
-              mongodb://<FQDN_хоста_1_Yandex_StoreDoc>:27018,..,<FQDN_хоста_N_Yandex_StoreDoc>:27018/<имя_БД>
+              mongodb://<FQDN_хоста_1_Yandex_StoreDoc>:{{ port-mmg }},..,<FQDN_хоста_N_Yandex_StoreDoc>:{{ port-mmg }}/<имя_БД>
               ```
 
               Для [шардированного](../../concepts/sharding.md) кластера:
 
               ```http
-              mongodb://<FQDN_хоста_1_MONGOINFRA_или_MONGOS>:27017,...<FQDN_хоста_N_MONGOINFRA_или_MONGOS>:27017/<имя_БД>
+              mongodb://<FQDN_хоста_1_MONGOINFRA_или_MONGOS>:{{ port-mmg-sharded }},...<FQDN_хоста_N_MONGOINFRA_или_MONGOS>:{{ port-mmg-sharded }}/<имя_БД>
               ```
 
               О том, как получить FQDN хоста, см. [инструкцию](index.md#get-fqdn).
@@ -264,13 +264,13 @@
 
 ### DBeaver {#dbeaver}
 
-Поддержка подключения к кластеру Yandex StoreDoc доступна только в [коммерческих редакциях DBeaver](https://dbeaver.com/buy/).
+Поддержка подключения к кластеру {{ SD }} доступна только в [коммерческих редакциях DBeaver](https://dbeaver.com/buy/).
 
 Чтобы подключиться к кластеру:
 
 1. Создайте новое соединение с БД:
    1. Выберите в меню **База данных** пункт **Новое соединение**.
-   1. Выберите из списка БД **MongoDB**.
+   1. Выберите из списка БД **{{ MG }}**.
    1. Нажмите кнопку **Далее**.
    1. Настройте параметры подключения на вкладке **Главное**:
       1. В блоке **Адрес** переключите **Type** на `URL` и укажите строку подключения.
@@ -278,13 +278,13 @@
            Для нешардированного кластера:
 
            ```http
-           mongodb://<FQDN_хоста_1_Yandex_StoreDoc>:27018,..,<FQDN_хоста_N_Yandex_StoreDoc>:27018/<имя_БД>
+           mongodb://<FQDN_хоста_1_Yandex_StoreDoc>:{{ port-mmg }},..,<FQDN_хоста_N_Yandex_StoreDoc>:{{ port-mmg }}/<имя_БД>
            ```
 
            Для [шардированного](../../concepts/sharding.md) кластера:
 
            ```http
-           mongodb://<FQDN_хоста_1_MONGOINFRA_или_MONGOS>:27017,...<FQDN_хоста_N_MONGOINFRA_или_MONGOS>:27017/<имя_БД>
+           mongodb://<FQDN_хоста_1_MONGOINFRA_или_MONGOS>:{{ port-mmg-sharded }},...<FQDN_хоста_N_MONGOINFRA_или_MONGOS>:{{ port-mmg-sharded }}/<имя_БД>
            ```
 
            О том, как получить FQDN хоста, см. [инструкцию](index.md#get-fqdn).
@@ -300,13 +300,13 @@
 
 ## Подготовка к подключению из Docker-контейнера {#connection-docker}
 
-Чтобы подключаться к кластеру Yandex StoreDoc из Docker-контейнера с SSL, добавьте в Dockerfile строки:
+Чтобы подключаться к кластеру {{ mmg-name }} из Docker-контейнера с SSL, добавьте в Dockerfile строки:
 
 ```bash
 RUN apt-get update && \
     apt-get install wget --yes && \
     mkdir --parents ~/.mongodb && \
-    wget "https://storage.yandexcloud.net/cloud-certs/CA.pem" \
+    wget "{{ crt-web-path }}" \
          --output-document ~/.mongodb/root.crt && \
     chmod 0644 ~/.mongodb/root.crt
 ```

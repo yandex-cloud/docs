@@ -58,7 +58,7 @@ output "fqdn" {
     - `disk_size` (**Required**)(Number). Volume of the storage available to a PostgreSQL host, in gigabytes.
     - `disk_type_id` (String). Type of the storage of PostgreSQL hosts.
     - `resource_preset_id` (**Required**)(String). The ID of the preset for computational resources available to a PostgreSQL host (CPU, memory etc.). For more information, see [the official documentation](../../managed-postgresql/concepts/instance-types.md).
-  - `version` (**Required**)(String). Version of the PostgreSQL cluster. (allowed versions are: 13, 13-1c, 14, 14-1c, 15, 15-1c, 16, 17).
+  - `version` (**Required**)(String). Version of the PostgreSQL cluster. (allowed versions are: 14, 14-1c, 15, 15-1c, 16, 16-1c, 17, 17-1c, 18, 18-1c).
 - `created_at` (*Read-Only*) (String). The creation timestamp of the resource.
 - `database` [Block]. 
 

@@ -4,23 +4,23 @@
 
 - Консоль управления
 
-    1. В [консоли управления](https://console.yandex.cloud) выберите [каталог](../../../resource-manager/concepts/resources-hierarchy.md#folder), в котором создали или хотите создать [API-шлюз](../../concepts/index.md).
-    1. [Перейдите](../../../console/operations/select-service.md#select-service) в сервис **API Gateway**.
-    1. Выберите API-шлюз или нажмите кнопку **Создать API-шлюз**, чтобы создать новый.
-    1. В поле **Спецификация** нажмите значок ![image](../../../_assets/api-gateway/spec-constructor/dummy.svg).
+    1. В [консоли управления]({{ link-console-main }}) выберите [каталог](../../../resource-manager/concepts/resources-hierarchy.md#folder), в котором создали или хотите создать [API-шлюз](../../concepts/index.md).
+    1. Перейдите в сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_api-gateway }}**.
+    1. Выберите API-шлюз или нажмите кнопку **{{ ui-key.yacloud.serverless-functions.gateways.list.button_create }}**, чтобы создать новый.
+    1. В поле **{{ ui-key.yacloud.serverless-functions.gateways.form.field_spec }}** нажмите значок ![image](../../../_assets/api-gateway/spec-constructor/dummy.svg).
     1. Укажите в поле:
 
-        * **Путь** — относительный путь к интеграции, который будет добавлен к URL-адресу API Gateway. Переменные указывайте в фигурных скобках, например `/static/{function_id}`. Подробнее см. спецификацию [OpenAPI 3.0](https://github.com/OAI/OpenAPI-Specification).
-        * **HTTP-метод** — метод, который будет использоваться для взаимодействия с интеграцией.
+        * **{{ ui-key.yc-serverless-apigw.dynamic-forms.path_name }}** — относительный путь к интеграции, который будет добавлен к URL-адресу {{ api-gw-name }}. Переменные указывайте в фигурных скобках, например `/static/{function_id}`. Подробнее см. спецификацию [OpenAPI 3.0](https://github.com/OAI/OpenAPI-Specification).
+        * **{{ ui-key.yc-serverless-apigw.dynamic-forms.http_method_name }}** — метод, который будет использоваться для взаимодействия с интеграцией.
 
-        * **Код HTTP-ответа** — код HTTP-ответа.
-        * (Опционально) **HTTP-заголовки** — список заголовков, которые будут отправлены в ответ.
-        * **Данные** — данные, которые будут отправлены в ответ.
-    1. Нажмите кнопку **Добавить**.
+        * **{{ ui-key.yc-serverless-apigw.dynamic-forms.dummy_http_code_name }}** — код HTTP-ответа.
+        * (Опционально) **{{ ui-key.yc-serverless-apigw.dynamic-forms.dummy_headers_name }}** — список заголовков, которые будут отправлены в ответ.
+        * **{{ ui-key.yc-serverless-apigw.dynamic-forms.dummy_content_name }}** — данные, которые будут отправлены в ответ.
+    1. Нажмите кнопку **{{ ui-key.yacloud.common.add }}**.
 
 {% endlist %}
 
-В поле **Спецификация** отобразится OpenAPI-спецификация с указанными значениями параметров.
+В поле **{{ ui-key.yacloud.serverless-functions.gateways.form.field_spec }}** отобразится OpenAPI-спецификация с указанными значениями параметров.
 
 ## См. также {#see-also}
 

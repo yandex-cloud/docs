@@ -26,4 +26,4 @@
 
 * **Запрос** — повторно выполняются все [этапы запроса](index.md#query-execution), в котором произошел сбой воркера.
 
-Подробнее об отказоустойчивом выполнении запросов см. в [официальной документации](https://trino.io/docs/current/admin/fault-tolerant-execution.html).
+Подробнее об отказоустойчивом выполнении запросов в [официальной документации](https://trino.io/docs/current/admin/fault-tolerant-execution.html).

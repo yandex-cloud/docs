@@ -2,11 +2,11 @@
 
 {% list tabs group=instructions %}
 
-- Интерфейс Cloud Video {#console}
+- Интерфейс {{ video-name }} {#console}
 
-  1. Откройте [главную страницу](https://video.yandex.cloud/) Cloud Video.
-  1. В строке нужного канала нажмите значок ![image](../../../_assets/console-icons/ellipsis.svg) и выберите **Удалить**.
-  1. Нажмите кнопку **Удалить**.
+  1. Откройте [главную страницу]({{ link-video-main }}) {{ video-name }}.
+  1. В строке нужного канала нажмите значок ![image](../../../_assets/console-icons/ellipsis.svg) и выберите **{{ ui-key.yacloud_video.common.action_delete }}**.
+  1. Нажмите кнопку **{{ ui-key.yacloud_video.common.action_delete }}**.
 
 - API {#api}
 

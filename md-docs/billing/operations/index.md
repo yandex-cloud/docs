@@ -1,42 +1,42 @@
-# Все инструкции для сервиса Yandex Cloud Billing
+# Все инструкции для сервиса {{ billing-name }}
 
 ## Работа с документами {#docs}
 
-* [Расшифровать счет](spell-out-bill.md)
-* [Посмотреть историю расходов и скачать отчетные документы в сервисе Yandex Cloud Billing](download-reporting-docs.md)
-* [Подключиться к электронному документообороту](edo.md)
+* [{#T}](spell-out-bill.md)
+* [{#T}](download-reporting-docs.md)
+* [{#T}](edo.md)
 
 
 ## Управление платежным аккаунтом {#account}
 
-* [Создать новый платежный аккаунт](create-new-account.md)
-* [Изменить данные платежного аккаунта](change-data.md)
-* [Скачать персональные данные, связанные с платежным аккаунтом](get-data.md)
-* [Привязать облако к платежному аккаунту](pin-cloud.md)
-* [Удалить платежный аккаунт и расторгнуть договор с Yandex Cloud](delete-account.md)
-* [Активировать платную версию](activate-commercial.md)
+* [{#T}](create-new-account.md)
+* [{#T}](change-data.md)
+* [{#T}](get-data.md)
+* [{#T}](pin-cloud.md)
+* [{#T}](delete-account.md)
+* [{#T}](activate-commercial.md)
 
 
 ## Управление способами оплаты {#payment-methods}
 
-* [Удалить или привязать другую карту к платежному аккаунту](pin-card.md)
-* [Изменить способ оплаты](change-payment-method.md)
+* [{#T}](pin-card.md)
+* [{#T}](change-payment-method.md)
 
 
 ## Оптимизация расходов {#cost-optimization}
 
-* [Установить уведомления](budgets.md)
-* [Зарезервировать потребление (CVoS)](purchase-cvos.md)
+* [{#T}](budgets.md)
+* [{#T}](purchase-cvos.md)
 
 
 ## Оплата услуг {#payment}
 
-* [Активировать промокод](activate-promocode.md)
-* [Пополнить лицевой счет](pay-the-bill.md)
-* [Принять предложения](get-offers.md)
+* [{#T}](activate-promocode.md)
+* [{#T}](pay-the-bill.md)
+* [{#T}](get-offers.md)
 
 
-## Анализ использования сервисов Yandex Cloud {#details}
+## Анализ использования сервисов {{ yandex-cloud }} {#details}
 
-* [Посмотреть историю платежей](check-bill-history.md)
-* [Посмотреть детализацию расходов](charges-index.md)
+* [{#T}](check-bill-history.md)
+* [{#T}](charges-index.md)

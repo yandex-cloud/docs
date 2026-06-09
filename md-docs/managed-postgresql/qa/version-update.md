@@ -1,21 +1,21 @@
-# Обновление мажорной версии PostgreSQL в Yandex Managed Service for PostgreSQL
+# Обновление мажорной версии {{ PG }} в {{ mpg-full-name }}
 
-* [Нужно ли выполнять `ANALYZE`, `REINDEX` и обновлять статистические данные (`pg_stat_user_tables`, `pg_statistic`) вручную после обновления мажорной версии PostgreSQL?](#version-update-manual)
-* [Проверяет ли Managed Service for PostgreSQL, что версия collation изменилась после обновления мажорной версии PostgreSQL?](#version-update-collation)
-* [Как получить доступ к логам и сгенерированным скриптам после обновления мажорной версии PostgreSQL?](#version-update-get-logs)
+* [Нужно ли выполнять `ANALYZE`, `REINDEX` и обновлять статистические данные (`pg_stat_user_tables`, `pg_statistic`) вручную после обновления мажорной версии {{ PG }}?](#version-update-manual)
+* [Проверяет ли {{ mpg-name }}, что версия collation изменилась после обновления мажорной версии {{ PG }}?](#version-update-collation)
+* [Как получить доступ к логам и сгенерированным скриптам после обновления мажорной версии {{ PG }}?](#version-update-get-logs)
 * [Может ли обновление мажорной версии завершиться ошибкой?](#version-update-error)
 
-#### Нужно ли выполнять ANALYZE, REINDEX и обновлять статистические данные (pg_stat_user_tables, pg_statistic) вручную после обновления мажорной версии PostgreSQL? {#version-update-manual}
+#### Нужно ли выполнять ANALYZE, REINDEX и обновлять статистические данные (pg_stat_user_tables, pg_statistic) вручную после обновления мажорной версии {{ PG }}? {#version-update-manual}
 
 Выполнять `ANALYZE`, `REINDEX` и обновлять статистические данные вручную не нужно. Это выполняется автоматически после обновления.
 
-[Подробнее об обновлении мажорной версии PostgreSQL в Managed Service for PostgreSQL](../concepts/upgrade.md).
+[Подробнее об обновлении мажорной версии {{ PG }} в {{ mpg-name }}](../concepts/upgrade.md).
 
-#### Проверяет ли Managed Service for PostgreSQL, что версия collation изменилась после обновления мажорной версии PostgreSQL? {#version-update-collation}
+#### Проверяет ли {{ mpg-name }}, что версия collation изменилась после обновления мажорной версии {{ PG }}? {#version-update-collation}
 
 Версии `collation` при обновлении мажорной версии не изменяются, поэтому проверка изменений не выполняется.
 
-#### Как получить доступ к логам и сгенерированным скриптам после обновления мажорной версии PostgreSQL? {#version-update-get-logs}
+#### Как получить доступ к логам и сгенерированным скриптам после обновления мажорной версии {{ PG }}? {#version-update-get-logs}
 
 Логи процесса не доступны пользователям. Если предварительная проверка (`--check`) или обновление завершаются ошибкой, необходимая информация отображается в сообщении об ошибке.
 

@@ -1,9 +1,9 @@
-# Миграция базы данных из Google BigQuery в Yandex Managed Service for ClickHouse®
+# Миграция базы данных из Google BigQuery в {{ mch-full-name }}
 
 
-Вы можете перенести базу данных из Google BigQuery в Yandex Managed Service for ClickHouse® и затем проанализировать ее с помощью Yandex DataLens.
+Вы можете перенести базу данных из Google BigQuery в {{ mch-full-name }} и затем проанализировать ее с помощью {{ datalens-full-name }}.
 
-Таблица переносится в сжатом виде в бакет Google Storage, а из него в бакет Yandex Object Storage. Затем данные импортируются в кластер Managed Service for ClickHouse®, где их можно проанализировать с помощью Yandex DataLens.
+Таблица переносится в сжатом виде в бакет Google Storage, а из него в бакет {{ objstorage-full-name }}. Затем данные импортируются в кластер {{ mch-name }}, где их можно проанализировать с помощью {{ datalens-full-name }}.
 
 Такой способ миграции обладает следующими преимуществами:
 
@@ -12,11 +12,11 @@
 
 Однако при таком способе данные переносятся «как есть», без трансформации или копирования обновившихся инкрементов.
 
-Чтобы перенести базу данных из Google BigQuery в Managed Service for ClickHouse®:
+Чтобы перенести базу данных из Google BigQuery в {{ mch-name }}:
 
-1. [Перенесите данные из Google BigQuery в Yandex Object Storage](#migrate-data).
-1. [Настройте отображение данных из Yandex Object Storage в кластере Managed Service for ClickHouse®](#create-view).
-1. [Проанализируйте данные с помощью Yandex DataLens](#datalens).
+1. [Перенесите данные из Google BigQuery в {{ objstorage-full-name }}](#migrate-data).
+1. [Настройте отображение данных из {{ objstorage-full-name }} в кластере {{ mch-name }}](#create-view).
+1. [Проанализируйте данные с помощью {{ datalens-full-name }}](#datalens).
 
 Если созданные ресурсы вам больше не нужны, [удалите их](#clear-out).
 
@@ -25,15 +25,15 @@
 
 В стоимость поддержки описываемого решения входят:
 
-* Плата за кластер Managed Service for ClickHouse®: использование вычислительных ресурсов, выделенных хостам (в том числе хостам ZooKeeper), и дискового пространства (см. [тарифы Managed Service for ClickHouse®](../../managed-clickhouse/pricing.md)).
-* Плата за использование публичных IP-адресов, если для хостов кластера включен публичный доступ (см. [тарифы Virtual Private Cloud](../../vpc/pricing.md)).
-* Плата за бакет Object Storage: хранение данных и выполнение операций с ними (см. [тарифы Object Storage](../../storage/pricing.md)).
-* Плата за использование сервиса Yandex DataLens (см. [тарифы DataLens](../pricing.md)).
+* Плата за кластер {{ mch-name }}: использование вычислительных ресурсов, выделенных хостам (в том числе хостам {{ ZK }}), и дискового пространства (см. [тарифы {{ mch-name }}](../../managed-clickhouse/pricing.md)).
+* Плата за использование публичных IP-адресов, если для хостов кластера включен публичный доступ (см. [тарифы {{ vpc-name }}](../../vpc/pricing.md)).
+* Плата за бакет {{ objstorage-name }}: хранение данных и выполнение операций с ними (см. [тарифы {{ objstorage-name }}](../../storage/pricing.md)).
+* Плата за использование сервиса {{ datalens-full-name }} (см. [тарифы {{ datalens-name }}](../pricing.md)).
 
 
 ## Перед началом работы {#before-you-begin}
 
-Для миграции базы данных необходимо создать ресурсы Google Cloud и ресурсы Yandex Cloud.
+Для миграции базы данных необходимо создать ресурсы Google Cloud и ресурсы {{ yandex-cloud }}.
 
 ### Создайте ресурсы Google Cloud {#create-google-res}
 
@@ -57,28 +57,28 @@
     * `term`
     * `refresh_date`
 
-### Создайте ресурсы Yandex Cloud {#create-yandex-res}
+### Создайте ресурсы {{ yandex-cloud }} {#create-yandex-res}
 
 
-1. [Создайте сервисный аккаунт](../../iam/operations/sa/create.md) с ролью `storage.uploader` для доступа к бакету Object Storage.
+1. [Создайте сервисный аккаунт](../../iam/operations/sa/create.md) с ролью `storage.uploader` для доступа к бакету {{ objstorage-name }}.
 
 1. [Создайте статический ключ доступа](../../iam/operations/authentication/manage-access-keys.md#create-access-key) для сервисного аккаунта. Сохраните идентификатор ключа и секретный ключ, они понадобятся далее.
 
 
-1. [Создайте кластер Managed Service for ClickHouse®](../../managed-clickhouse/operations/cluster-create.md) любой подходящей конфигурации. При создании кластера:
+1. [Создайте кластер {{ mch-name }}](../../managed-clickhouse/operations/cluster-create.md) любой подходящей конфигурации. При создании кластера:
 
     
     * Укажите созданный ранее сервисный аккаунт.
 
     
-    * Включите опцию **Доступ из DataLens**.
-    * [Добавьте хосты ZooKeeper](../../managed-clickhouse/operations/zk-hosts.md), чтобы обеспечить высокую доступность кластера.
+    * Включите опцию **{{ ui-key.yacloud.mdb.cluster.overview.label_access-datalens }}**.
+    * [Добавьте хосты {{ ZK }}](../../managed-clickhouse/operations/zk-hosts.md), чтобы обеспечить высокую доступность кластера.
 
-1. [Создайте бакет Object Storage](../../storage/operations/buckets/create.md). При создании [включите публичный доступ](../../storage/operations/buckets/bucket-availability.md) на чтение объектов и к списку объектов в бакете.
+1. [Создайте бакет {{ objstorage-name }}](../../storage/operations/buckets/create.md). При создании [включите публичный доступ](../../storage/operations/buckets/bucket-availability.md) на чтение объектов и к списку объектов в бакете.
 
-## Перенесите данные из Google BigQuery в Yandex Object Storage {#migrate-data}
+## Перенесите данные из Google BigQuery в {{ objstorage-full-name }} {#migrate-data}
 
-1. Создайте файл `credentials.boto` с параметрами доступа к ресурсам Google Cloud и Yandex Cloud:
+1. Создайте файл `credentials.boto` с параметрами доступа к ресурсам Google Cloud и {{ yandex-cloud }}:
 
     
     ```boto
@@ -93,7 +93,7 @@
 
     [s3]
       calling_format=boto.s3.connection.OrdinaryCallingFormat
-      host=storage.yandexcloud.net
+      host={{ s3-storage-host }}
     ```
 
 
@@ -103,8 +103,8 @@
     * `gs_service_key_file` — абсолютный путь к JSON-файлу ключа доступа сервисного аккаунта Google Cloud.
 
     
-    * `aws_access_key_id` — идентификатор ключа сервисного аккаунта Yandex Cloud.
-    * `aws_secret_access_key` — секретный ключ сервисного аккаунта Yandex Cloud.
+    * `aws_access_key_id` — идентификатор ключа сервисного аккаунта {{ yandex-cloud }}.
+    * `aws_secret_access_key` — секретный ключ сервисного аккаунта {{ yandex-cloud }}.
 
 
     * `default_project_id` — [идентификатор проекта Google Cloud](https://cloud.google.com/resource-manager/docs/creating-managing-projects#identifying_projects).
@@ -198,7 +198,7 @@
 
     {% endcut %}
 
-1. Выполните скрипт `main.py`, чтобы запустить миграцию данных из Google BigQuery в бакет Google Storage, а затем в бакет Yandex Object Storage:
+1. Выполните скрипт `main.py`, чтобы запустить миграцию данных из Google BigQuery в бакет Google Storage, а затем в бакет {{ objstorage-full-name }}:
 
     ```bash
     python main.py \
@@ -210,9 +210,9 @@
 
     Дождитесь окончания миграции данных.
 
-## Настройте отображение данных из Yandex Object Storage в кластере Managed Service for ClickHouse® {#create-view}
+## Настройте отображение данных из {{ objstorage-full-name }} в кластере {{ mch-name }} {#create-view}
 
-1. Чтобы создать представление импортированных данных, [подключитесь к базе данных кластера Managed Service for ClickHouse®](../../managed-clickhouse/operations/connect/clients.md) и выполните SQL-запрос:
+1. Чтобы создать представление импортированных данных, [подключитесь к базе данных кластера {{ mch-name }}](../../managed-clickhouse/operations/connect/clients.md) и выполните SQL-запрос:
 
     ```sql
     CREATE view db1.v$google_top_rising_terms on cluster on cluster '{cluster}' AS
@@ -228,7 +228,7 @@
     refresh_date
     FROM s3Cluster(
       '<идентификатор_кластера>',
-      'https://storage.yandexcloud.net/<имя_бакета_Object_Storage>/top_terms-*',
+      'https://{{ s3-storage-host }}/<имя_бакета_Object_Storage>/top_terms-*',
       'Parquet',
       'rank Int32,
       country_name String,
@@ -244,10 +244,10 @@
 
     Где:
 
-    * `db1` — название базы данных в кластере Managed Service for ClickHouse®, в которой требуется создать представление.
+    * `db1` — название базы данных в кластере {{ mch-name }}, в которой требуется создать представление.
     * `v$google_top_rising_terms` — название представления для отображения импортированных данных.
-    * `<идентификатор_кластера>` — идентификатор кластера Managed Service for ClickHouse®. Его можно получить вместе со [списком кластеров в каталоге](../../managed-clickhouse/operations/cluster-list.md).
-    * `top_terms-*` — ключевая часть имени объектов бакета Object Storage. Например, если из Google Cloud вы перенесли таблицу, в которой есть строки с именем `top_terms`, то в бакете Object Storage они будут выглядеть как набор объектов с именами `top_terms-000000000001`, `top_terms-000000000002` и т. д. Тогда в SQL-запросе нужно указать `top_terms-*`, чтобы в представление попали все записи с таким именем из этой таблицы.
+    * `<идентификатор_кластера>` — идентификатор кластера {{ mch-name }}. Его можно получить вместе со [списком кластеров в каталоге](../../managed-clickhouse/operations/cluster-list.md).
+    * `top_terms-*` — ключевая часть имени объектов бакета {{ objstorage-name }}. Например, если из Google Cloud вы перенесли таблицу, в которой есть строки с именем `top_terms`, то в бакете {{ objstorage-name }} они будут выглядеть как набор объектов с именами `top_terms-000000000001`, `top_terms-000000000002` и т. д. Тогда в SQL-запросе нужно указать `top_terms-*`, чтобы в представление попали все записи с таким именем из этой таблицы.
 
 1. Чтобы вывести первые 100 записей из созданного представления, выполните SQL-запрос (для примера используется представление `v$google_top_rising_terms` и базе данных `db1`):
 
@@ -255,9 +255,9 @@
     SELECT * FROM db1.v$google_top_rising_terms limit 100
     ```
 
-## Проанализируйте данные с помощью Yandex DataLens {#datalens}
+## Проанализируйте данные с помощью {{ datalens-full-name }} {#datalens}
 
-1. [Подключите кластер Managed Service for ClickHouse® к DataLens](../operations/connection/create-clickhouse.md).
+1. [Подключите кластер {{ mch-name }} к {{ datalens-name }}](../operations/connection/create-clickhouse.md).
 1. [Создайте датасет](../dataset/create-dataset.md#create) из таблицы `db1.v$google_top_rising_terms`. Для поля `score` выберите агрегацию по среднему значению.
 1. [Создайте столбчатую диаграмму](../visualization-ref/column-chart.md#create-diagram):
 
@@ -274,8 +274,8 @@
 
 Удалите ресурсы, которые вы больше не будете использовать, чтобы за них не списывалась плата:
 
-1. [Удалите кластер Managed Service for ClickHouse®](../../managed-clickhouse/operations/cluster-delete.md).
-1. [Удалите все объекты бакета Object Storage](../../storage/operations/objects/delete-all.md) и затем [удалите сам бакет](../../storage/operations/buckets/delete.md).
+1. [Удалите кластер {{ mch-name }}](../../managed-clickhouse/operations/cluster-delete.md).
+1. [Удалите все объекты бакета {{ objstorage-name }}](../../storage/operations/objects/delete-all.md) и затем [удалите сам бакет](../../storage/operations/buckets/delete.md).
 1. [Удалите бакет Google Storage](https://cloud.google.com/storage/docs/deleting-buckets).
 
-_ClickHouse® является зарегистрированным товарным знаком [ClickHouse, Inc](https://clickhouse.com)._
+_{{ CH }} является зарегистрированным товарным знаком [ClickHouse, Inc](https://clickhouse.com)._

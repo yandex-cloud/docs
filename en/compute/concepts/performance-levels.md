@@ -8,27 +8,31 @@ description: In this article, you will learn about vCPU performance levels and a
 
 When creating a virtual machine, you need to select a vCPU performance level. This level defines the physical core computing time a vCPU can guarantee.
 
-* Virtual machines with performance level below 100% have access to the computing power of physical cores for at least the specified percentage of a unit of time.
+* Virtual machines with performance level **below 100%** have access to the computing power of physical cores for at least the specified percentage of a unit of time.
 
     > At 20% performance, a VM will have access to the physical cores at least 20% of the time, i.e., 200 milliseconds out of every second. During that time, the processor clock speed is not limited and depends on the selected platform, e.g., 2 GHz for Intel Ice Lake (`standard-v3`).
 
+    <br>
+
     VMs with performance level below 100% are designed to run applications that do not require high performance and are not sensitive to delays. These VMs cost less.
 
-* Virtual machines with 100% performance level have continuous access (100% of the time) to the computing power or physical cores. Such VMs are designed to run applications that require high performance all the time.
+* Virtual machines with **100%** performance level have continuous access (100% of the time) to the computing power of physical cores. Such VMs are designed to run applications that require high performance all the time.
 
-Actual performance may exceed the guaranteed level. Available configurations of computing resources may change for different levels, depending on the selected [platform](vm-platforms.md).
+## Specifics and limitations {#features-and-restrictions}
 
-The available disk space does not depend on the VM performance level. For limitations, see [{#T}](limits.md).
+* Actual performance may exceed the guaranteed level. 
 
-{% note warning %}
+* Available configurations of computing resources may change for different levels, depending on the selected [platform](vm-platforms.md).
 
-VMs with vCPU performance level below 100% may operate at lower [speed](storage-read-write.md) with network drives.
+* Available disk space does not depend on the VM performance level.
 
-{% include [vcpu-perfomance-disks](../../_includes/compute/vcpu-perfomance-disks.md) %}
+* VMs with vCPU performance level below 100% may operate at lower [speed](storage-read-write.md) with network drives.
+
+* {% include [vcpu-perfomance-disks](../../_includes/compute/vcpu-perfomance-disks.md) %}
 
 {% include [vcpu-note](../../_includes/compute/vcpu-note.md) %}
 
-{% endnote %}
+For other limitations, see [{#T}](limits.md).
 
 ## Minimum and maximum configurations {#minmax-configurations}
 
@@ -96,7 +100,7 @@ The option with simultaneous maximum configuration of all computing resources is
 
 * Intel Broadwell (`standard-v1`):
 
-    Performance<br>level | vCPU | RAM, GB<br>per core
+    Level<br>level | vCPU | RAM, GB<br>per core
     --- | --- | ---
     5% | 2, 4 | 0.5, 1, 1.5, 2
     20% | 2, 4 | 0.5, 1, 1.5, 2, 2.5, 3, 3.5, 4
@@ -104,7 +108,7 @@ The option with simultaneous maximum configuration of all computing resources is
 
 * Intel Cascade Lake (`standard-v2`):
 
-    Performance<br>level | vCPU | RAM, GB<br>per core
+    Level<br>level | vCPU | RAM, GB<br>per core
     --- | --- | ---
     5% | 2, 4 | 0.25, 0.5, 1, 1.5, 2
     20% | 2, 4 | 0.5, 1, 1.5, 2, 2.5, 3, 3.5, 4
@@ -113,7 +117,7 @@ The option with simultaneous maximum configuration of all computing resources is
 
 * Intel Ice Lake (`standard-v3`):
 
-    Performance<br> level | vCPU | RAM per core, GB
+    Level<br> level | vCPU | RAM per core, GB
     --- | --- | ---
     20% | 2, 4 | 0.5, 1, 1.5, 2, 2.5, 3, 3.5, 4
     50% | 2, 4 | 0.5, 1, 1.5, 2, 2.5, 3, 3.5, 4
@@ -140,7 +144,7 @@ The option with simultaneous maximum configuration of all computing resources is
 
 * AMD Zen 3 (`amd-v1`)^1^:
 
-    Performance<br>level | vCPU | RAM, GB<br>per core
+    Level<br>level | vCPU | RAM, GB<br>per core
     --- | --- | ---
     20% | 2, 4 | 0.5, 1, 1.5
     50% | 2, 4 | 0.5, 1, 1.5, 2, 2.5, 3, 3.5, 4
@@ -148,7 +152,7 @@ The option with simultaneous maximum configuration of all computing resources is
 
 * AMD Zen 4 (`standard-v4a`):
 
-    Performance<br>level | vCPU | RAM, GB<br>per core
+    Level<br>level | vCPU | RAM, GB<br>per core
     --- | --- | ---
     20% | 2, 4 | 0.5, 1, 1.5, 2
     50% | 2, 4 | 0.5, 1, 1.5, 2, 2.5, 3, 3.5, 4
@@ -156,7 +160,7 @@ The option with simultaneous maximum configuration of all computing resources is
 
 * AMD Zen 4 Compute-Optimized (`highfreq-v4a`):
 
-    Performance<br>level | vCPU | RAM, GB<br>per core
+    Level<br>level | vCPU | RAM, GB<br>per core
     --- | --- | ---
     20% | 2, 4 | 0.5, 1, 1.5, 2
     50% | 2, 4 | 0.5, 1, 1.5, 2, 2.5, 3, 3.5, 4

@@ -3,7 +3,7 @@
 ## HTTP request
 
 ```
-PATCH https://organization-manager.api.cloud.yandex.net/organization-manager/v1/organizations/{organizationId}/osLoginSettings
+PATCH https://organization-manager.{{ api-host }}/organization-manager/v1/organizations/{organizationId}/osLoginSettings
 ```
 
 ## Path parameters
@@ -75,9 +75,7 @@ The rest of the fields will be reset to the default. ||
   "createdBy": "string",
   "modifiedAt": "string",
   "done": "boolean",
-  "metadata": {
-    "organizationId": "string"
-  },
+  "metadata": "object",
   // Includes only one of the fields `error`, `response`
   "error": {
     "code": "integer",
@@ -86,15 +84,7 @@ The rest of the fields will be reset to the default. ||
       "object"
     ]
   },
-  "response": {
-    "userSshKeySettings": {
-      "enabled": "boolean",
-      "allowManageOwnKeys": "boolean"
-    },
-    "sshCertificateSettings": {
-      "enabled": "boolean"
-    }
-  }
+  "response": "object"
   // end of the list of possible fields
 }
 ```
@@ -136,7 +126,7 @@ In some languages, built-in datetime utilities do not support nanosecond precisi
 
 If the value is `false`, it means the operation is still in progress.
 If `true`, the operation is completed, and either `error` or `response` is available. ||
-|| metadata | **[UpdateOsLoginSettingsMetadata](#yandex.cloud.organizationmanager.v1.UpdateOsLoginSettingsMetadata)**
+|| metadata | **object**
 
 Service-specific metadata associated with the operation.
 It typically contains the ID of the target resource that the operation is performed on.
@@ -151,7 +141,7 @@ The operation result.
 If `done == false` and there was no failure detected, neither `error` nor `response` is set.
 If `done == false` and there was a failure detected, `error` is set.
 If `done == true`, exactly one of `error` or `response` is set. ||
-|| response | **[OsLoginSettings](#yandex.cloud.organizationmanager.v1.OsLoginSettings)**
+|| response | **object**
 
 The normal response of the operation in case of success.
 If the original method returns no data on success, such as Delete,
@@ -166,13 +156,6 @@ The operation result.
 If `done == false` and there was no failure detected, neither `error` nor `response` is set.
 If `done == false` and there was a failure detected, `error` is set.
 If `done == true`, exactly one of `error` or `response` is set. ||
-|#
-
-## UpdateOsLoginSettingsMetadata {#yandex.cloud.organizationmanager.v1.UpdateOsLoginSettingsMetadata}
-
-#|
-||Field | Description ||
-|| organizationId | **string** ||
 |#
 
 ## Status {#google.rpc.Status}
@@ -190,27 +173,4 @@ An error message. ||
 || details[] | **object**
 
 A list of messages that carry the error details. ||
-|#
-
-## OsLoginSettings {#yandex.cloud.organizationmanager.v1.OsLoginSettings}
-
-#|
-||Field | Description ||
-|| userSshKeySettings | **[UserSshKeySettings](#yandex.cloud.organizationmanager.v1.UserSshKeySettings)** ||
-|| sshCertificateSettings | **[SshCertificateSettings](#yandex.cloud.organizationmanager.v1.SshCertificateSettings)** ||
-|#
-
-## UserSshKeySettings {#yandex.cloud.organizationmanager.v1.UserSshKeySettings}
-
-#|
-||Field | Description ||
-|| enabled | **boolean** ||
-|| allowManageOwnKeys | **boolean** ||
-|#
-
-## SshCertificateSettings {#yandex.cloud.organizationmanager.v1.SshCertificateSettings}
-
-#|
-||Field | Description ||
-|| enabled | **boolean** ||
 |#

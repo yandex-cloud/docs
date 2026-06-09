@@ -1,4 +1,4 @@
-# Docker-образ в Container Registry
+# Docker-образ в {{ container-registry-name }}
 
 _Docker-образ_ — шаблон для создания Docker-контейнеров. Представляет собой исполняемый пакет, содержащий все необходимое для запуска приложения: код, среду выполнения, библиотеки, переменные окружения и файлы конфигурации.
 
@@ -34,11 +34,11 @@ Docker-образ и все его версии хранятся в репози
 
 ## Примеры использования {#examples}
 
-* [Запуск Docker-образа на виртуальной машине](../tutorials/run-docker-on-vm/index.md)
-* [Настройка подключения к Yandex Managed Service for PostgreSQL из контейнера Serverless Containers](../tutorials/container-pg-connect.md)
-* [Сканирование уязвимостей при непрерывном развертывании приложений Managed Service for Kubernetes с помощью GitLab](../tutorials/cr-scanner-with-k8s-and-gitlab.md)
-* [Запуск контейнерного приложения в Yandex Serverless Containers](../tutorials/deploy-app-container.md)
-* [Настройка отказоустойчивой архитектуры в Yandex Cloud](../tutorials/fault-tolerance.md)
+* [{#T}](../tutorials/run-docker-on-vm/index.md)
+* [{#T}](../tutorials/container-pg-connect.md)
+* [{#T}](../tutorials/cr-scanner-with-k8s-and-gitlab.md)
+* [{#T}](../tutorials/deploy-app-container.md)
+* [{#T}](../tutorials/fault-tolerance.md)
 
 #### См. также {#see-also}
 

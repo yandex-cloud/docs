@@ -5,7 +5,7 @@ Returns metadata about the authenticated user's password.
 ## HTTP request
 
 ```
-GET https://organization-manager.api.cloud.yandex.net/organization-manager/v1/idp/users:getSelfPasswordMetadata
+GET https://organization-manager.{{ api-host }}/organization-manager/v1/idp/users:getSelfPasswordMetadata
 ```
 
 ## Response {#yandex.cloud.organizationmanager.v1.idp.PasswordMetadata}

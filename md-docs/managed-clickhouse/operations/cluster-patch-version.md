@@ -1,25 +1,25 @@
-# Получение патч-версии ClickHouse®
+# Получение патч-версии {{ CH }}
 
-Чтобы узнать патч-версию ClickHouse®, установленную в кластере Managed Service for ClickHouse®, выполните следующие действия:
+Чтобы узнать патч-версию {{ CH }}, установленную в кластере {{ mch-name }}, выполните следующие действия:
 
 {% list tabs group=instructions %}
 
 - Консоль управления {#console}
 
-  1. В [консоли управления](https://console.yandex.cloud) перейдите в нужный каталог.
-  1. [Перейдите](../../console/operations/select-service.md#select-service) в сервис **Managed Service for&nbsp;ClickHouse**.
-  1. Найдите поле **Версия** с информацией о версии и патч-версии ClickHouse®.
+  1. В [консоли управления]({{ link-console-main }}) перейдите в нужный каталог.
+  1. Перейдите в сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-clickhouse }}**.
+  1. Найдите поле **{{ ui-key.yacloud.mdb.cluster.overview.label_version }}** с информацией о версии и патч-версии {{ CH }}.
 
 - CLI {#cli}
 
-  Если у вас еще нет интерфейса командной строки Yandex Cloud (CLI), [установите и инициализируйте его](../../cli/quickstart.md#install).
+  Если у вас еще нет интерфейса командной строки {{ yandex-cloud }} (CLI), [установите и инициализируйте его](../../cli/quickstart.md#install).
 
   По умолчанию используется каталог, указанный при [создании](../../cli/operations/profile/profile-create.md) профиля CLI. Чтобы изменить каталог по умолчанию, используйте команду `yc config set folder-id <идентификатор_каталога>`. Также для любой команды вы можете указать другой каталог с помощью параметров `--folder-name` или `--folder-id`. Если вы обращаетесь к ресурсу по имени, поиск будет выполнен в каталоге по умолчанию. Если вы обращаетесь к ресурсу по идентификатору, поиск будет выполнен глобально — во всех каталогах с учетом прав доступа.
 
-  Чтобы получить информацию о кластере ClickHouse®, выполните команду:
+  Чтобы получить информацию о кластере {{ CH }}, выполните команду:
   
     ```
-    yc managed-clickhouse cluster get <имя_или_идентификатор_кластера>
+    {{ yc-mdb-ch }} cluster get <имя_или_идентификатор_кластера>
     ```
 
     Результат:
@@ -51,7 +51,7 @@
       ...
     ```
 
-    Где `full_version` — полная версия ClickHouse® с указанием патч-версии.
+    Где `full_version` — полная версия {{ CH }} с указанием патч-версии.
 
     Идентификатор и имя кластера можно запросить со [списком кластеров в каталоге](cluster-list.md#list-clusters).
 
@@ -63,13 +63,13 @@
       export IAM_TOKEN="<IAM-токен>"
       ```
 
-  1. Воспользуйтесь методом [Cluster.get](../api-ref/Cluster/get.md) и выполните запрос, например, с помощью [cURL](https://curl.se/):
+  1. Воспользуйтесь методом [Cluster.get](../api-ref/Cluster/get.md) и выполните запрос, например, с помощью {{ api-examples.rest.tool }}:
 
       ```bash
       curl \
           --request GET \
           --header "Authorization: Bearer $IAM_TOKEN" \
-          --url 'https://mdb.api.cloud.yandex.net/managed-clickhouse/v1/clusters/<идентификатор_кластера>'
+          --url 'https://{{ api-host-mdb }}/managed-clickhouse/v1/clusters/<идентификатор_кластера>'
       ```
 
       Идентификатор кластера можно запросить со [списком кластеров в каталоге](cluster-list.md#list-clusters).
@@ -94,7 +94,7 @@
      
      Далее предполагается, что содержимое репозитория находится в директории `~/cloudapi/`.
 
-  1. Воспользуйтесь вызовом [ClusterService/Get](../api-ref/grpc/Cluster/get.md) и выполните запрос, например, с помощью [gRPCurl](https://github.com/fullstorydev/grpcurl):
+  1. Воспользуйтесь вызовом [ClusterService/Get](../api-ref/grpc/Cluster/get.md) и выполните запрос, например, с помощью {{ api-examples.grpc.tool }}:
 
       ```bash
       grpcurl \
@@ -106,7 +106,7 @@
           -d '{
                 "cluster_id": "<идентификатор_кластера>"
               }' \
-          mdb.api.cloud.yandex.net:443 \
+          {{ api-host-mdb }}:{{ port-https }} \
           yandex.cloud.mdb.clickhouse.v1.ClusterService.Get
       ```
 

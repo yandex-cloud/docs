@@ -1,13 +1,12 @@
 # Managed Service for OpenSearch API, REST: Cluster.Get
 
 Returns the specified OpenSearch cluster.
-
 To get the list of all available OpenSearch clusters, make a [List](list.md#List) request.
 
 ## HTTP request
 
 ```
-GET https://mdb.api.cloud.yandex.net/managed-opensearch/v1/clusters/{clusterId}
+GET https://{{ api-host-mdb }}/managed-opensearch/v1/clusters/{clusterId}
 ```
 
 ## Path parameters
@@ -17,7 +16,6 @@ GET https://mdb.api.cloud.yandex.net/managed-opensearch/v1/clusters/{clusterId}
 || clusterId | **string**
 
 Required field. ID of the OpenSearch cluster to return.
-
 To get the cluster ID, use a [ClusterService.List](list.md#List) request.
 
 The maximum string length in characters is 50. ||
@@ -152,7 +150,17 @@ The maximum string length in characters is 50. ||
       },
       "snapshotMaxAgeDays": "string"
     },
-    "fullVersion": "string"
+    "fullVersion": "string",
+    "auditLog": {
+      "complianceEnabled": "boolean",
+      "logRequestBody": "boolean",
+      "logSearchQueries": "boolean",
+      "logDataModifications": "boolean",
+      "logIndexMetadataAccess": "boolean",
+      "logMonitoringChecks": "boolean",
+      "logIndexMaintenance": "boolean",
+      "logBackupOperations": "boolean"
+    }
   },
   "networkId": "string",
   "health": "string",
@@ -311,6 +319,9 @@ Snapshot management configuration ||
 || fullVersion | **string**
 
 Full version ||
+|| auditLog | **[AuditLog](#yandex.cloud.mdb.opensearch.v1.AuditLog)**
+
+Audit log settings. ||
 |#
 
 ## OpenSearch {#yandex.cloud.mdb.opensearch.v1.OpenSearch}
@@ -361,8 +372,11 @@ Determines whether a public IP is assigned to the hosts in the group. ||
 
 Roles of the host group.
 
-- `DATA`
-- `MANAGER` ||
+- `DATA`: Data nodes store indices data.
+- `MANAGER`: Manager nodes perform cluster coordination.
+- `WARM`: Warm nodes provide access to searchable snapshots and manage search cache for these snapshots.
+- `INGEST`: Ingest nodes provides indexed data processing.
+If no node groups have INGEST role explicitly set, then all DATA nodes will implicitly have INGEST role. ||
 || diskSizeAutoscaling | **[DiskSizeAutoscaling](#yandex.cloud.mdb.opensearch.v1.DiskSizeAutoscaling)**
 
 Disk size autoscaling settings ||
@@ -376,16 +390,20 @@ A list of computational resources allocated to a host.
 ||Field | Description ||
 || resourcePresetId | **string**
 
-ID of the preset for computational resources allocated to a host. ||
+Required field. ID of the preset for computational resources allocated to a host. ||
 || diskSize | **string** (int64)
 
-Volume of the storage used by the host, in bytes. ||
+Volume of the storage used by the host, in bytes.
+
+Value must be greater than 0. ||
 || diskTypeId | **string**
 
-Type of the storage used by the host: `network-hdd`, `network-ssd` or `local-ssd`. ||
+Required field. Type of the storage used by the host: `network-hdd`, `network-ssd` or `local-ssd`. ||
 |#
 
 ## DiskSizeAutoscaling {#yandex.cloud.mdb.opensearch.v1.DiskSizeAutoscaling}
+
+Disk size autoscaling settings.
 
 #|
 ||Field | Description ||
@@ -433,9 +451,7 @@ Default value: **1024**.
 
 Change of the setting is applied with restart.
 
-For details, see [OpenSearch documentation](https://docs.opensearch.org/latest/install-and-configure/configuring-opensearch/index-settings/#dynamic-cluster-level-index-settings).
-
-Acceptable values are 1 to 2147483647, inclusive. ||
+For details, see [OpenSearch documentation](https://docs.opensearch.org/latest/install-and-configure/configuring-opensearch/index-settings/#dynamic-cluster-level-index-settings). ||
 || fielddataCacheSize | **string**
 
 The maximum size of the field data cache.
@@ -454,9 +470,7 @@ Default value: **65535**.
 
 Change of the setting is applied with restart.
 
-For details, see [OpenSearch documentation](https://docs.opensearch.org/latest/install-and-configure/configuring-opensearch/search-settings).
-
-Acceptable values are 0 to 2147483647, inclusive. ||
+For details, see [OpenSearch documentation](https://docs.opensearch.org/latest/install-and-configure/configuring-opensearch/search-settings). ||
 || reindexRemoteWhitelist | **string**
 
 Allowed remote hosts
@@ -624,6 +638,38 @@ Acceptable values are 0 to 23, inclusive. ||
 The minute of the hour at which the backup should be created.
 
 Acceptable values are 0 to 59, inclusive. ||
+|#
+
+## AuditLog {#yandex.cloud.mdb.opensearch.v1.AuditLog}
+
+Audit log settings.
+
+#|
+||Field | Description ||
+|| complianceEnabled | **boolean**
+
+Enable compliance audit logging. ||
+|| logRequestBody | **boolean**
+
+Log request body in audit logs. ||
+|| logSearchQueries | **boolean**
+
+Log search queries in audit logs. ||
+|| logDataModifications | **boolean**
+
+Log data modifications in audit logs. ||
+|| logIndexMetadataAccess | **boolean**
+
+Log index metadata access in audit logs. ||
+|| logMonitoringChecks | **boolean**
+
+Log monitoring checks in audit logs. ||
+|| logIndexMaintenance | **boolean**
+
+Log index maintenance operations in audit logs. ||
+|| logBackupOperations | **boolean**
+
+Log backup operations in audit logs. ||
 |#
 
 ## MaintenanceWindow {#yandex.cloud.mdb.opensearch.v1.MaintenanceWindow}

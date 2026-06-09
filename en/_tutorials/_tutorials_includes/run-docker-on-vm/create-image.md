@@ -19,6 +19,8 @@
 
     - OAuth token {#oauth-token}
 
+      {% include [oauth-token-deprecated-soon](../../../_includes/oauth-token-deprecated-soon.md) %}
+
       1. If you do not have an OAuth token yet, get one by following [this link]({{ link-cloud-oauth }}).
       1. Run this command:
 

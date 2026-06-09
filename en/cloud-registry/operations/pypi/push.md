@@ -42,7 +42,7 @@ To push a Python package to a registry, you need the `cloud-registry.artifacts.p
 
       Where:
       * `<registry_ID>`: Your local registry ID.
-      * `username`: Token type, `iam`, `oauth`, or `api_key`.
+      * `username`: Token type, `iam` or `api_key`.
       * `password`: Token value.
 
       ```bash
@@ -77,7 +77,7 @@ To push a Python package to a registry, you need the `cloud-registry.artifacts.p
 
       Where:
 
-        * `iam`: Token type. Instead of `iam` you can use `oauth` or `api_key`.
+        * `iam`: Token type. Instead of `iam`, you can use `api_key`.
         * `<registry_ID>`: Your local registry ID.
 
   1. Upload the package into the registry:
@@ -122,7 +122,7 @@ To push a Python package to a registry, you need the `cloud-registry.artifacts.p
 
       Where:
       * `<registry_ID>`: Your local registry ID.
-      * `username`: Token type, `iam`, `oauth`, or `api_key`.
+      * `username`: Token type, `iam` or `api_key`.
       * `password`: Token value.
 
       ```bash

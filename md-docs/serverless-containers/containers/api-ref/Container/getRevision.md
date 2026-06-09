@@ -7,7 +7,7 @@ To get the list of available revisions, make a [ListRevisions](listRevisions.md#
 ## HTTP request
 
 ```
-GET https://serverless-containers.api.cloud.yandex.net/containers/v1/revisions/{containerRevisionId}
+GET https://serverless-containers.{{ api-host }}/containers/v1/revisions/{containerRevisionId}
 ```
 
 ## Path parameters
@@ -317,7 +317,7 @@ Revision connectivity specification.
 Network the revision will have access to. ||
 || subnetIds[] | **string**
 
-The list of subnets (from the same network) the revision can be attached to.
+Complete list of subnets (from the same network) the revision can be attached to.
 
 Deprecated, it is sufficient to specify only network_id, without the list of subnet_ids.
 
@@ -430,8 +430,8 @@ The string length in characters must be 1-300. Value must match the regular expr
 
 Mount's mode
 
-- `READ_ONLY`
-- `READ_WRITE` ||
+- `READ_ONLY`: Mount is available for read access only.
+- `READ_WRITE`: Mount is available for both read and write access. ||
 || objectStorage | **[ObjectStorage](#yandex.cloud.serverless.containers.v1.Mount.ObjectStorage)**
 
 Object storage mounts

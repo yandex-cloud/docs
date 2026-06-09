@@ -1,16 +1,16 @@
-# Импорт данных из Yandex Managed Service for MySQL® в Yandex Data Processing с помощью Sqoop
+# Импорт данных из {{ mmy-full-name }} в {{ dataproc-full-name }} с помощью Sqoop
 
-# Импорт данных из Yandex Managed Service for MySQL® в Yandex Data Processing с помощью Sqoop
+# Импорт данных из {{ mmy-full-name }} в {{ dataproc-full-name }} с помощью Sqoop
 
 
-Утилита [Sqoop](../../data-proc/operations/sqoop-usage.md) позволяет импортировать базы данных в кластер Yandex Data Processing. В зависимости от конфигурации кластера Yandex Data Processing вы можете выполнить импорт в:
+Утилита [Sqoop](../../data-proc/operations/sqoop-usage.md) позволяет импортировать базы данных в кластер {{ dataproc-name }}. В зависимости от конфигурации кластера {{ dataproc-name }} вы можете выполнить импорт в:
 
-* бакет Yandex Object Storage;
+* бакет {{ objstorage-full-name }};
 * директорию HDFS;
 * Apache Hive;
 * Apache HBase.
 
-Чтобы импортировать базы данных кластера-источника с помощью Sqoop в кластер-приемник Yandex Data Processing:
+Чтобы импортировать базы данных кластера-источника с помощью Sqoop в кластер-приемник {{ dataproc-name }}:
 
 1. [Подготовьте кластер-источник](#prepare).
 1. [Выполните импорт](#import).
@@ -20,19 +20,19 @@
 
 {% note info %}
 
-Утилита Sqoop не поддерживается для кластеров Yandex Data Processing версии 2.0 и выше. В качестве альтернативы используйте [функциональные возможности Apache Spark™](https://spark.apache.org/docs/latest/sql-data-sources-jdbc.html).
+Утилита Sqoop не поддерживается для кластеров {{ dataproc-name }} версии 2.0 и выше. В качестве альтернативы используйте [функциональные возможности {{ SPRK }}](https://spark.apache.org/docs/latest/sql-data-sources-jdbc.html).
 
 {% endnote %}
 
 
 ## Необходимые платные ресурсы {#paid-resources}
 
-* Кластер Yandex Data Processing: использование вычислительных ресурсов с наценкой за сервис Yandex Data Processing, использование сетевых дисков, получение и хранение логов, объем исходящего трафика (см. [тарифы Yandex Data Processing](../../data-proc/pricing.md)).
-* Кластер Managed Service for MySQL®: выделенные хостам вычислительные ресурсы, объем хранилища и резервных копий (см. [тарифы Managed Service for MySQL®](../../managed-mysql/pricing.md)).
-* Публичные IP-адреса, если для хостов кластера включен публичный доступ (см. [тарифы Virtual Private Cloud](../../vpc/pricing.md)).
-* NAT-шлюз: почасовое использование шлюза и исходящий через него трафик (см. [тарифы Virtual Private Cloud](../../vpc/pricing.md)).
-* Бакет Object Storage: использование хранилища и выполнение операций с данными (см. [тарифы Object Storage](../pricing.md)).
-* Виртуальная машина: использование вычислительных ресурсов, хранилища, публичного IP-адреса и операционной системы (см. [тарифы Compute Cloud](../../compute/pricing.md)).
+* Кластер {{ dataproc-name }}: использование вычислительных ресурсов с наценкой за сервис {{ dataproc-name }}, использование сетевых дисков, получение и хранение логов, объем исходящего трафика (см. [тарифы {{ dataproc-name }}](../../data-proc/pricing.md)).
+* Кластер {{ mmy-name }}: выделенные хостам вычислительные ресурсы, объем хранилища и резервных копий (см. [тарифы {{ mmy-name }}](../../managed-mysql/pricing.md)).
+* Публичные IP-адреса, если для хостов кластера включен публичный доступ (см. [тарифы {{ vpc-name }}](../../vpc/pricing.md)).
+* NAT-шлюз: почасовое использование шлюза и исходящий через него трафик (см. [тарифы {{ vpc-name }}](../../vpc/pricing.md)).
+* Бакет {{ objstorage-name }}: использование хранилища и выполнение операций с данными (см. [тарифы {{ objstorage-name }}](../pricing.md)).
+* Виртуальная машина: использование вычислительных ресурсов, хранилища, публичного IP-адреса и операционной системы (см. [тарифы {{ compute-name }}](../../compute/pricing.md)).
 
 
 ## Перед началом работы {#before-you-begin}
@@ -44,42 +44,42 @@
 {% endnote %}
 
 1. [Создайте облачную сеть](../../vpc/operations/network-create.md).
-1. [Создайте подсеть](../../vpc/operations/subnet-create.md) в зоне доступности `ru-central1-d`.
-1. [Настройте NAT-шлюз](../../vpc/operations/create-nat-gateway.md) для созданной подсети — это обязательное условие для работы кластера Yandex Data Processing.
+1. [Создайте подсеть](../../vpc/operations/subnet-create.md) в зоне доступности `{{ zone-id }}`.
+1. [Настройте NAT-шлюз](../../vpc/operations/create-nat-gateway.md) для созданной подсети — это обязательное условие для работы кластера {{ dataproc-name }}.
 
-Остальные ресурсы вы можете создать вручную или с помощью Terraform.
+Остальные ресурсы вы можете создать вручную или с помощью {{ TF }}.
 
 ### Вручную {#create-manual}
 
-1. [Создайте кластер Managed Service for MySQL®](../../managed-mysql/operations/cluster-create.md) любой подходящей вам [конфигурации](../../managed-mysql/concepts/instance-types.md) со следующими настройками:
+1. [Создайте кластер {{ mmy-name }}](../../managed-mysql/operations/cluster-create.md) любой подходящей вам [конфигурации](../../managed-mysql/concepts/instance-types.md) со следующими настройками:
 
-    * **Имя БД** — `db1`;
-    * **Имя пользователя** — `user1`.
+    * **{{ ui-key.yacloud.mdb.forms.database_field_name }}** — `db1`;
+    * **{{ ui-key.yacloud.mdb.forms.database_field_user-login }}** — `user1`.
 
-1. Чтобы импортировать данные в бакет Object Storage:
+1. Чтобы импортировать данные в бакет {{ objstorage-name }}:
 
     1. [Создайте бакет](../operations/buckets/create.md) с ограниченным доступом.
     1. [Создайте сервисный аккаунт](../../iam/operations/sa/create.md) с ролями:
 
         * [dataproc.agent](../../data-proc/security/index.md#dataproc-agent);
         * [dataproc.provisioner](../../data-proc/security/index.md#dataproc-provisioner);
-        * [monitoring.viewer](../../monitoring/security/index.md#monitoring-viewer);
+        * [{{ roles-monitoring-viewer }}](../../monitoring/security/index.md#monitoring-viewer);
         * [storage.viewer](../security/index.md#storage-viewer);
         * [storage.uploader](../security/index.md#storage-uploader).
 
     1. [Выдайте этому сервисному аккаунту](../operations/buckets/edit-acl.md) разрешения на чтение и запись в бакет.
 
-1. [Создайте кластер Yandex Data Processing](../../data-proc/operations/cluster-create.md) любой подходящей вам [конфигурации](../../data-proc/concepts/instance-types.md).
+1. [Создайте кластер {{ dataproc-name }}](../../data-proc/operations/cluster-create.md) любой подходящей вам [конфигурации](../../data-proc/concepts/instance-types.md).
 
     Укажите настройки, соответствующие хранилищу, в которое будут импортированы данные:
     
     {% list tabs group=storage_system %}
     
-    - Object Storage {#storage}
+    - {{ objstorage-name }} {#storage}
     
-        * **Сервисный аккаунт** — имя созданного ранее сервисного аккаунта.
-        * **Имя бакета** — имя созданного ранее бакета.
-        * **Сервисы** — `Sqoop`.
+        * **{{ ui-key.yacloud.mdb.cluster.overview.label_service-account }}** — имя созданного ранее сервисного аккаунта.
+        * **{{ ui-key.yacloud.mdb.cluster.overview.label_bucket }}** — имя созданного ранее бакета.
+        * **{{ ui-key.yacloud.mdb.cluster.overview.label_services }}** — `Sqoop`.
     
     - Директория HDFS {#hdfs}
     
@@ -115,16 +115,16 @@
     
     {% endlist %}
 
-1. [Создайте виртуальную машину](../../compute/operations/vm-create/create-linux-vm.md) для подключения к кластерам Managed Service for MySQL® и Yandex Data Processing.
+1. [Создайте виртуальную машину](../../compute/operations/vm-create/create-linux-vm.md) для подключения к кластерам {{ mmy-name }} и {{ dataproc-name }}.
 
 1. Если вы используете группы безопасности для кластеров и виртуальной машины, настройте их так, чтобы разрешить подключение:
 
-    * [к виртуальной машине и кластеру Yandex Data Processing](../../data-proc/operations/security-groups.md);
-    * [к кластеру Managed Service for MySQL®](../../managed-mysql/operations/connect/index.md#configure-security-groups).
+    * [к виртуальной машине и кластеру {{ dataproc-name }}](../../data-proc/operations/security-groups.md);
+    * [к кластеру {{ mmy-name }}](../../managed-mysql/operations/connect/index.md#configure-security-groups).
 
-### С помощью Terraform {#create-terraform}
+### С помощью {{ TF }} {#create-terraform}
 
-1. Если у вас еще нет Terraform, [установите его](../../tutorials/infrastructure-management/terraform-quickstart.md#install-terraform).
+1. Если у вас еще нет {{ TF }}, [установите его](../../tutorials/infrastructure-management/terraform-quickstart.md#install-terraform).
 1. [Получите данные для аутентификации](../../tutorials/infrastructure-management/terraform-quickstart.md#get-credentials). Вы можете добавить их в переменные окружения или указать далее в файле с настройками провайдера.
 1. [Настройте и инициализируйте провайдер](../../tutorials/infrastructure-management/terraform-quickstart.md#configure-provider). Чтобы не создавать конфигурационный файл с настройками провайдера вручную, [скачайте его](https://github.com/yandex-cloud-examples/yc-terraform-provider-settings/blob/main/provider.tf).
 1. Поместите конфигурационный файл в отдельную рабочую директорию и [укажите значения параметров](../../tutorials/infrastructure-management/terraform-quickstart.md#configure-provider). Если данные для аутентификации не были добавлены в переменные окружения, укажите их в конфигурационном файле.
@@ -134,10 +134,10 @@
     В этом файле описаны:
 
     * [группы безопасности](../../vpc/concepts/security-groups.md) для кластеров и виртуальной машины;
-    * [сервисный аккаунт](../../iam/concepts/users/service-accounts.md) для кластера Yandex Data Processing;
-    * [бакет Object Storage](../concepts/bucket.md);
-    * кластер Managed Service for MySQL®;
-    * кластер Yandex Data Processing;
+    * [сервисный аккаунт](../../iam/concepts/users/service-accounts.md) для кластера {{ dataproc-name }};
+    * [бакет {{ objstorage-name }}](../concepts/bucket.md);
+    * кластер {{ mmy-name }};
+    * кластер {{ dataproc-name }};
     * виртуальная машина с публичным доступом из интернета.
 
 1. Укажите параметры инфраструктуры в файле конфигурации `clusters-mysql-data-proc-and-vm.tf` в блоке `locals`:
@@ -145,24 +145,24 @@
     * `folder_id` — [идентификатор каталога](../../resource-manager/operations/folder/get-id.md), в котором будут созданы ресурсы.
     * `network_id` — идентификатор созданной ранее облачной сети.
     * `subnet_id` — идентификатор созданной ранее подсети.
-    * `storage_sa_id` — идентификатор сервисного аккаунта, с помощью которого будет создан бакет в Object Storage.
-    * `data_proc_sa` — имя сервисного аккаунта для кластера Yandex Data Processing. Оно должны быть уникальным в каталоге.
-    * `my_cluster_version` — версия MySQL® кластера Managed Service for MySQL®.
-    * `my_cluster_password` — пароль для пользователя `user1` базы данных `db1` Managed Service for MySQL®.
+    * `storage_sa_id` — идентификатор сервисного аккаунта, с помощью которого будет создан бакет в {{ objstorage-name }}.
+    * `data_proc_sa` — имя сервисного аккаунта для кластера {{ dataproc-name }}. Оно должны быть уникальным в каталоге.
+    * `my_cluster_version` — версия {{ MY }} кластера {{ mmy-name }}.
+    * `my_cluster_password` — пароль для пользователя `user1` базы данных `db1` {{ mmy-name }}.
     * `vm_image_id` — идентификатор публичного [образа](../../compute/operations/images-with-pre-installed-software/get-list.md) с Ubuntu без [GPU](../../glossary/gpu.md). Например, для [Ubuntu 20.04 LTS](https://yandex.cloud/ru/marketplace/products/yc/ubuntu-20-04-lts).
     * `vm_username` и `vm_public_key` — логин и абсолютный путь к [публичному SSH-ключу](../../compute/operations/vm-connect/ssh.md#creating-ssh-keys), которые будут использоваться для доступа к виртуальной машине. По умолчанию в образе [Ubuntu 20.04 LTS](https://yandex.cloud/ru/marketplace/products/yc/ubuntu-20-04-lts) указанный логин игнорируется, вместо него создается пользователь с логином `ubuntu`. Используйте его для подключения к виртуальной машине.
-    * `bucket_name` — имя бакета в Object Storage. Оно должны быть уникальным для всего Object Storage.
-    * `dp_public_key` — абсолютный путь к [публичному SSH-ключу](../../data-proc/operations/connect-ssh.md) для кластера Yandex Data Processing.
+    * `bucket_name` — имя бакета в {{ objstorage-name }}. Оно должны быть уникальным для всего {{ objstorage-name }}.
+    * `dp_public_key` — абсолютный путь к [публичному SSH-ключу](../../data-proc/operations/connect-ssh.md) для кластера {{ dataproc-name }}.
 
-        Для [SSH-подключения](../../glossary/ssh-keygen.md) к хостам кластера Yandex Data Processing версии 1.х используйте имя пользователя `root`.
+        Для [SSH-подключения](../../glossary/ssh-keygen.md) к хостам кластера {{ dataproc-name }} версии 1.х используйте имя пользователя `root`.
 
-1. Проверьте корректность файлов конфигурации Terraform с помощью команды:
+1. Проверьте корректность файлов конфигурации {{ TF }} с помощью команды:
 
     ```bash
     terraform validate
     ```
 
-    Если в файлах конфигурации есть ошибки, Terraform на них укажет.
+    Если в файлах конфигурации есть ошибки, {{ TF }} на них укажет.
 
 1. Создайте необходимую инфраструктуру:
 
@@ -184,13 +184,13 @@
        1. Подтвердите изменение ресурсов.
        1. Дождитесь завершения операции.
 
-    В указанном каталоге будут созданы все требуемые ресурсы. Проверить появление ресурсов и их настройки можно в [консоли управления](https://console.yandex.cloud).
+    В указанном каталоге будут созданы все требуемые ресурсы. Проверить появление ресурсов и их настройки можно в [консоли управления]({{ link-console-main }}).
 
 {% endlist %}
 
 ## Подготовка кластера-источника {#prepare}
 
-1. [Подключитесь к базе данных](../../managed-mysql/operations/connect/index.md) `db1` кластера Yandex Managed Service for MySQL® от имени пользователя `user1`.
+1. [Подключитесь к базе данных](../../managed-mysql/operations/connect/index.md) `db1` кластера {{ mmy-full-name }} от имени пользователя `user1`.
 1. Наполните базу тестовыми данными. В качестве примера используется простая таблица с именами и возрастом людей:
 
     1. Создайте таблицу:
@@ -225,24 +225,24 @@
 
 Пусть:
 
-* FQDN хоста подкластера Yandex Data Processing для хранения данных: `rc1c-dataproc-d-vfw6fa8x********.mdb.yandexcloud.net`.
-* Имя бакета в Object Storage.
-* Имена директорий в Object Storage и HDFS: `import-directory`.
+* FQDN хоста подкластера {{ dataproc-name }} для хранения данных: `rc1c-dataproc-d-vfw6fa8x********.{{ dns-zone }}`.
+* Имя бакета в {{ objstorage-name }}.
+* Имена директорий в {{ objstorage-name }} и HDFS: `import-directory`.
 * Имя базы данных Apache Hive: `db-hive`.
 * Имя семейства столбцов Apache HBase: `family1`.
 * Имена таблиц HBase и Hive: `import-table`.
-* Идентификатор кластера Managed Service for MySQL®: `c9qgcd6lplrs********`.
+* Идентификатор кластера {{ mmy-name }}: `c9qgcd6lplrs********`.
 
 {% list tabs group=storage_system %}
 
-- Object Storage {#storage}
+- {{ objstorage-name }} {#storage}
 
     1. [Выполните все необходимые подготовительные шаги](../../data-proc/operations/sqoop-usage.md#object-storage).
     1. Выполните команду:
 
         ```bash
         sqoop import "-Dorg.apache.sqoop.splitter.allow_text_splitter=true" \
-            --connect "jdbc:mysql://c-c9qgcd6lplrs********.rw.mdb.yandexcloud.net:3306/db1" \
+            --connect "jdbc:mysql://c-c9qgcd6lplrs********.rw.{{ dns-zone }}:{{ port-mmy }}/db1" \
             --username "user1" \
             --P \
             --table "persons" \
@@ -257,7 +257,7 @@
 
         ```bash
         sqoop import "-Dorg.apache.sqoop.splitter.allow_text_splitter=true" \
-            --connect "jdbc:mysql://c-c9qgcd6lplrs********.rw.mdb.yandexcloud.net:3306/db1" \
+            --connect "jdbc:mysql://c-c9qgcd6lplrs********.rw.{{ dns-zone }}:{{ port-mmy }}/db1" \
             --username "user1" \
             --table "persons" \
             --target-dir "import-directory" \
@@ -272,7 +272,7 @@
 
         ```bash
         sqoop import "-Dorg.apache.sqoop.splitter.allow_text_splitter=true" \
-            --connect "jdbc:mysql://c-c9qgcd6lplrs********.rw.mdb.yandexcloud.net:3306/db1" \
+            --connect "jdbc:mysql://c-c9qgcd6lplrs********.rw.{{ dns-zone }}:{{ port-mmy }}/db1" \
             --username "user1" \
             --P \
             --table "persons" \
@@ -290,7 +290,7 @@
 
         ```bash
         sqoop import "-Dorg.apache.sqoop.splitter.allow_text_splitter=true" \
-            --connect "jdbc:mysql://c-c9qgcd6lplrs********.rw.mdb.yandexcloud.net:3306/db1" \
+            --connect "jdbc:mysql://c-c9qgcd6lplrs********.rw.{{ dns-zone }}:{{ port-mmy }}/db1" \
             --username "user1" \
             --P \
             --table "persons" \
@@ -308,13 +308,13 @@
 
 {% list tabs group=storage_system %}
 
-- Object Storage {#storage}
+- {{ objstorage-name }} {#storage}
 
     [Скачайте из бакета](../operations/objects/download.md) файлы с результатами импорта.
 
 - Директория HDFS {#hdfs}
 
-    1. [Подключитесь](../../data-proc/operations/connect-ssh.md) по SSH к хосту подкластера Yandex Data Processing для хранения данных.
+    1. [Подключитесь](../../data-proc/operations/connect-ssh.md) по SSH к хосту подкластера {{ dataproc-name }} для хранения данных.
     1. Выполните команду:
 
         ```bash
@@ -323,7 +323,7 @@
 
 - Apache Hive {#hive}
 
-    1. [Подключитесь](../../data-proc/operations/connect-ssh.md) по SSH к хосту подкластера Yandex Data Processing для хранения данных.
+    1. [Подключитесь](../../data-proc/operations/connect-ssh.md) по SSH к хосту подкластера {{ dataproc-name }} для хранения данных.
     1. Выполните команду:
 
         ```bash
@@ -332,7 +332,7 @@
 
 - Apache HBase {#hbase}
 
-    1. [Подключитесь](../../data-proc/operations/connect-ssh.md) по SSH к хосту подкластера Yandex Data Processing для хранения данных.
+    1. [Подключитесь](../../data-proc/operations/connect-ssh.md) по SSH к хосту подкластера {{ dataproc-name }} для хранения данных.
     1. Выполните команду:
 
         ```bash
@@ -353,25 +353,25 @@
     1. Если вы зарезервировали для виртуальной машины публичный статический IP-адрес, освободите и [удалите его](../../vpc/operations/address-delete.md).
     1. Удалите кластеры:
 
-        * [Managed Service for MySQL®](../../managed-mysql/operations/cluster-delete.md);
-        * [Yandex Data Processing](../../data-proc/operations/cluster-delete.md).
+        * [{{ mmy-name }}](../../managed-mysql/operations/cluster-delete.md);
+        * [{{ dataproc-name }}](../../data-proc/operations/cluster-delete.md).
 
-    1. Если вы создавали бакет Yandex Object Storage, [удалите его](../operations/buckets/delete.md).
+    1. Если вы создавали бакет {{ objstorage-full-name }}, [удалите его](../operations/buckets/delete.md).
     1. [Удалите подсеть](../../vpc/operations/subnet-delete.md).
     1. [Удалите таблицу маршрутизации](../../vpc/operations/delete-route-table.md).
     1. [Удалите NAT-шлюз](../../vpc/operations/delete-nat-gateway.md).
     1. [Удалите облачную сеть](../../vpc/operations/network-delete.md).
     1. [Удалите сервисный аккаунт](../../iam/operations/sa/delete.md).
 
-* Terraform {#tf}
+* {{ TF }} {#tf}
 
-    Чтобы удалить инфраструктуру, созданную с помощью Terraform:
+    Чтобы удалить инфраструктуру, созданную с помощью {{ TF }}:
 
     1. В терминале перейдите в директорию с планом инфраструктуры.
     
         {% note warning %}
     
-        Убедитесь, что в директории нет Terraform-манифестов с ресурсами, которые вы хотите сохранить. Terraform удаляет все ресурсы, которые были созданы с помощью манифестов в текущей директории.
+        Убедитесь, что в директории нет {{ TF }}-манифестов с ресурсами, которые вы хотите сохранить. {{ TF }} удаляет все ресурсы, которые были созданы с помощью манифестов в текущей директории.
     
         {% endnote %}
     
@@ -385,7 +385,7 @@
     
         1. Подтвердите удаление ресурсов и дождитесь завершения операции.
     
-        Все ресурсы, которые были описаны в Terraform-манифестах, будут удалены.
+        Все ресурсы, которые были описаны в {{ TF }}-манифестах, будут удалены.
 
     Удалите созданные вручную:
 

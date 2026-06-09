@@ -1,41 +1,41 @@
-# Пошаговые инструкции для Cloud Notification Service
+# Пошаговые инструкции для {{ cns-name }}
 
 ## Push-уведомления {#push}
 
-* [Создать канал push-уведомлений](push/channel-create.md)
-* [Изменить канал push-уведомлений](push/channel-update.md)
-* [Удалить канал push-уведомлений](push/channel-delete.md)
-* [Создать эндпоинт](push/endpoint-create.md)
-* [Изменить эндпоинт](push/endpoint-update.md)
-* [Удалить эндпоинт](push/endpoint-delete.md)
-* [Отправить push-уведомление](push/send.md)
+* [{#T}](push/channel-create.md)
+* [{#T}](push/channel-update.md)
+* [{#T}](push/channel-delete.md)
+* [{#T}](push/endpoint-create.md)
+* [{#T}](push/endpoint-update.md)
+* [{#T}](push/endpoint-delete.md)
+* [{#T}](push/send.md)
 
 ## Push-уведомления в браузере {#browser}
 
-* [Создать канал push-уведомлений в браузере](browser/channel-create.md)
-* [Управлять каналом push-уведомлений в браузере](browser/channel-manage.md)
-* [Создать эндпоинт](browser/endpoint-create.md)
-* [Управлять эндпоинтом](browser/endpoint-manage.md)
-* [Отправить push-уведомление](browser/send.md)
+* [{#T}](browser/channel-create.md)
+* [{#T}](browser/channel-manage.md)
+* [{#T}](browser/endpoint-create.md)
+* [{#T}](browser/endpoint-manage.md)
+* [{#T}](browser/send.md)
 
 ## SMS-уведомления {#sms}
 
-* [Создать канал SMS-уведомлений](sms/channel-create.md)
-* [Удалить канал SMS-уведомлений](sms/channel-delete.md)
-* [Добавить тестовый номер](sms/test-number-create.md)
-* [Удалить тестовый номер](sms/test-number-delete.md)
-* [Отправить тестовое SMS-уведомление](sms/send.md)
-* [Управлять шаблонами SMS](sms/manage-templates.md)
-* [Выйти из песочницы](sms/exit-sandbox.md)
+* [{#T}](sms/channel-create.md)
+* [{#T}](sms/channel-delete.md)
+* [{#T}](sms/test-number-create.md)
+* [{#T}](sms/test-number-delete.md)
+* [{#T}](sms/send.md)
+* [{#T}](sms/manage-templates.md)
+* [{#T}](sms/exit-sandbox.md)
 
 ## Топики {#topics}
 
-* [Создать топик](topics/topic-create.md)
-* [Создать подписку](topics/subscription-create.md)
-* [Отправить уведомление в топик](topics/send.md)
-* [Управлять топиком](topics/topic-manage.md)
-* [Управлять подпиской](topics/subscription-manage.md)
+* [{#T}](topics/topic-create.md)
+* [{#T}](topics/subscription-create.md)
+* [{#T}](topics/send.md)
+* [{#T}](topics/topic-manage.md)
+* [{#T}](topics/subscription-manage.md)
 
 ## Прочее {#other}
 
-* [Настроить логирование](configure-logging.md)
+* [{#T}](configure-logging.md)

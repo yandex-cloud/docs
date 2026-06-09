@@ -1,10 +1,26 @@
-# История изменений в Yandex API Gateway
+# История изменений в {{ api-gw-full-name }}
+
+## Апрель 2026 {#april-2026}
+
+### Исправления и улучшения {#fixes-improvements}
+
+* Исправлена обработка URL со специальными символами в расширении `x-yc-apigateway-integration:http`: объекты в query-параметрах теперь корректно проксируются в целевой бэкенд без искажений.
+* Параметр `batch_cutoff` для триггеров в {{ TF }} теперь опциональный, а `terraform plan` больше не предлагает задать нулевые значения для настроек группирования.
+
+## Март 2026 {#march-2026}
+
+### Исправления и улучшения {#fixes-improvements}
+
+* Исправлена проверка наличия прав на сервисный аккаунт в расширениях спецификации: теперь корректно учитывается роль `iam.serviceAccounts.tokenCreator`, а не только `iam.serviceAccounts.user`.
+* Исправлены аудитные логи {{ at-name }} для операции изменения API-шлюза (`UpdateApiGateway`): поля `details` и `request_parameters` теперь содержат значения, актуальные на момент завершения операции.
+* Исправлена работа триггера для {{ container-registry-name }}, который срабатывает при изменении тегов Docker-образов: теперь в сообщении от триггера передается имя добавленного или удаленного тега.
+* Исправлены аудитные логи {{ at-name }} триггеров для {{ objstorage-name }} и {{ yds-name }}: устранены ошибки proto-валидации в полях `request_parameters.rule` и `details.trigger_rule`.
 
 ## Февраль 2026 {#february-2026}
 
 ### Обновления {#updates}
 
-* Добавлена поддержка сервиса API Gateway в [калькуляторе цен](https://yandex.cloud/ru/prices).
+* Добавлена поддержка сервиса {{ api-gw-name }} в [калькуляторе цен](https://yandex.cloud/ru/prices).
 
 ## Январь 2026 {#january-2026}
 
@@ -36,13 +52,13 @@
 
 ### Исправления и улучшения {#fixes-improvements}
 
-* Улучшена стабильность работы протокола WebSocket в Yandex API Gateway: исправлена некорректная обработка ping-событий, устранено зависание долгоживущих соединений, оптимизирована обработка событий.
+* Улучшена стабильность работы протокола WebSocket в {{ api-gw-full-name }}: исправлена некорректная обработка ping-событий, устранено зависание долгоживущих соединений, оптимизирована обработка событий.
 
 ## Май 2025 {#may-2025}
 
 ### Обновления {#updates}
 
-* Добавлена поддержка [интеграции с Yandex Workflows](operations/spec-constructor/workflows.md).
+* Добавлена поддержка [интеграции с {{ sw-full-name }}](operations/spec-constructor/workflows.md).
 
 ## Март 2025 {#march-2025}
 
@@ -54,14 +70,14 @@
 
 ### Исправления и улучшения {#fixes-improvements}
 
-* Добавлен вывод ошибок в логи работы API-шлюза при использовании [интеграции с Yandex Data Streams](concepts/extensions/datastreams.md).
+* Добавлен вывод ошибок в логи работы API-шлюза при использовании [интеграции с {{ yds-full-name }}](concepts/extensions/datastreams.md).
 
 ## Январь 2025 {#january-2025}
 
 ### Обновления {#updates}
 
 * Обновлен механизм распределения нагрузки:
-    * Формат служебного домена API-шлюза изменился с `https://d5ds7sk1ahjl********.apigw.yandexcloud.net` на `d5dm1lba80md********.i9******.apigw.yandexcloud.net` — новый формат содержит на один уровень больше.
+    * Формат служебного домена API-шлюза изменился с `https://d5ds7sk1ahjl********.apigw.yandexcloud.net` на `{{ api-host-apigw }}` — новый формат содержит на один уровень больше.
     * Увеличилось количество внешних IP-адресов, которые обрабатывают запросы пользователей, — теперь у одного API-шлюза может быть несколько IP-адресов.
 
     Новый механизм позволяет сохранить стабильность сервиса при растущей нагрузке.
@@ -80,15 +96,15 @@
 
 ### Исправления и улучшения {#fixes-improvements}
 
-* Улучшена форма для [интеграции с Yandex AI Studio](operations/spec-constructor/yagpt.md) в конструкторе спецификаций.
-* Обновлена [интеграция с Yandex Object Storage](operations/spec-constructor/object-storage.md): изменена логика управления кодом ответа, который возвращается, если в указанном бакете отсутствует запрашиваемый объект.
+* Улучшена форма для [интеграции с {{ ai-studio-full-name }}](operations/spec-constructor/yagpt.md) в конструкторе спецификаций.
+* Обновлена [интеграция с {{ objstorage-full-name }}](operations/spec-constructor/object-storage.md): изменена логика управления кодом ответа, который возвращается, если в указанном бакете отсутствует запрашиваемый объект.
 
 ## Август 2024 {#august-2024}
 
 ### Обновления {#updates}
 
-* Добавлена поддержка [интеграции с YandexGPT](operations/spec-constructor/yagpt.md).
-* Добавлена поддержка [интеграции с Yandex Smart Web Security](concepts/extensions/sws.md).
+* Добавлена поддержка [интеграции с {{ yagpt-name }}](operations/spec-constructor/yagpt.md).
+* Добавлена поддержка [интеграции с {{ sws-full-name }}](concepts/extensions/sws.md).
 * Добавлена поддержка расширений:
     * `x-yc-status-mapping` — [замена кода ответа](concepts/extensions/status-mapping.md);
     * `x-yc-schema-mapping` — [преобразование тела ответа и запроса](concepts/extensions/schema-mapping.md).
@@ -126,8 +142,8 @@
 
 ### Обновления {#updates}
 
-* Добавлен параметр `default_object` в расширение спецификации OpenAPI для [интеграции с Yandex Object Storage](concepts/extensions/object-storage.md).
-* Добавлена поддержка подстановки параметров в `error_object` и `default_object` в расширении спецификации OpenAPI для интеграции с Yandex Object Storage.
+* Добавлен параметр `default_object` в расширение спецификации OpenAPI для [интеграции с {{ objstorage-full-name }}](concepts/extensions/object-storage.md).
+* Добавлена поддержка подстановки параметров в `error_object` и `default_object` в расширении спецификации OpenAPI для интеграции с {{ objstorage-full-name }}.
 * Добавлена поддержка передачи заголовков `Via` и `Www-Authenticate` из ответа интеграций.
 * Добавлена поддержка автоматической отправки в веб-сокет ответа интеграции в [операции](concepts/extensions/websocket.md#connect) `x-yc-apigateway-websocket-connect`.
 
@@ -135,9 +151,9 @@
 
 ### Обновления {#updates}
 
-* Добавлена поддержка настроек логирования для API-шлюза в Terraform.
+* Добавлена поддержка настроек логирования для API-шлюза в {{ TF }}.
 * Добавлена передача контекста авторизации в интеграции [Обращение по HTTP](concepts/extensions/http.md).
-* Добавлено дополнительное сообщение в ответ от API-шлюза при ошибке валидации ответа от [функции Cloud Functions, которая используется для авторизации HTTP-запроса](concepts/extensions/function-authorizer.md).
+* Добавлено дополнительное сообщение в ответ от API-шлюза при ошибке валидации ответа от [функции {{ sf-name }}, которая используется для авторизации HTTP-запроса](concepts/extensions/function-authorizer.md).
 
 ### Исправления и улучшения {#fixes-improvements}
 

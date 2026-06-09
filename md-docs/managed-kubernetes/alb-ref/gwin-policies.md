@@ -1,10 +1,10 @@
 # Политики Gwin
 
-Gwin — инструмент для создания балансировщиков нагрузки Yandex Application Load Balancer и управления ими в [кластерах Yandex Managed Service for Kubernetes](../concepts/index.md#kubernetes-cluster).
+Gwin — инструмент для создания балансировщиков нагрузки {{ alb-full-name }} и управления ими в [кластерах {{ managed-k8s-full-name }}](../concepts/index.md#kubernetes-cluster).
 
-Контроллер поддерживает спецификации [Ingress](https://kubernetes.io/docs/concepts/services-networking/ingress/) и [Gateway API](https://gateway-api.sigs.k8s.io/). Для настройки дополнительных возможностей Application Load Balancer, выходящих за рамки стандартной спецификации Kubernetes, реализован механизм политик, которые управляются с помощью [CustomResourceDefinitions](https://kubernetes.io/docs/tasks/extend-kubernetes/custom-resources/custom-resource-definitions/) или аннотаций.
+Контроллер поддерживает спецификации [Ingress](https://kubernetes.io/docs/concepts/services-networking/ingress/) и [Gateway API](https://gateway-api.sigs.k8s.io/). Для настройки дополнительных возможностей {{ alb-name }}, выходящих за рамки стандартной спецификации {{ k8s }}, реализован механизм политик, которые управляются с помощью [CustomResourceDefinitions](https://kubernetes.io/docs/tasks/extend-kubernetes/custom-resources/custom-resource-definitions/) или аннотаций.
 
-Дополнительные возможности, которые предоставляет Application Load Balancer:
+Дополнительные возможности, которые предоставляет {{ alb-name }}:
 
 * [Логирование](../../application-load-balancer/concepts/monitoring.md#logging) и настройка правил отбрасывания логов.
 * [Автомасштабирование](../../application-load-balancer/concepts/application-load-balancer.md#lcu-scaling) с контролем ресурсных единиц.
@@ -13,7 +13,7 @@ Gwin — инструмент для создания балансировщик
 * Ограничение скорости обработки запросов на уровне виртуальных хостов.
 * [Профили безопасности](../../smartwebsecurity/concepts/profiles.md) и [WAF-защита](../../smartwebsecurity/concepts/waf.md).
 * Использование [групп безопасности](../../vpc/concepts/security-groups.md).
-* Интеграция с сервисами Yandex Cloud — [Yandex Certificate Manager](../../certificate-manager/index.md), [Yandex Cloud Logging](../../logging/index.md).
+* Интеграция с сервисами {{ yandex-cloud }} — [{{ certificate-manager-full-name }}](../../certificate-manager/index.md), [{{ cloud-logging-full-name }}](../../logging/index.md).
 
 Механизм политик открывает доступ к этим возможностям. Он также позволяет:
 
@@ -100,7 +100,7 @@ spec:
 
 {% note info %}
 
-Политики действуют только в пределах одного пространства имен Kubernetes.
+Политики действуют только в пределах одного пространства имен {{ k8s }}.
 
 {% endnote %}
 
@@ -184,7 +184,7 @@ spec:
 
 При возникновении проблем с политиками:
 
-  1. Проверьте статус ресурсов. Ошибки валидации можно увидеть в поле `.status.conditions` описания объекта или в событиях Kubernetes.
+  1. Проверьте статус ресурсов. Ошибки валидации можно увидеть в поле `.status.conditions` описания объекта или в событиях {{ k8s }}.
   1. Убедитесь, что указано нужное пространство имен.
   1. Убедитесь, что `targetRefs` или `selector` указывают на нужные ресурсы.
   1. Если источников конфигурации несколько, убедитесь, что одинаковые поля в разных источниках имеют одинаковые значения.

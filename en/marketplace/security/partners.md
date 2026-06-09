@@ -1,21 +1,21 @@
 ---
 title: Managing partner access in {{ marketplace-full-name }}
-description: Managing partner access in {{ marketplace-short-name }}. This section describes the resources for which you can assign a role, the roles existing in the service, and the roles required to perform a particular action.
+description: Managing partner access in {{ marketplace-short-name }}. This section describes the resources for which you can assign a role, the roles existing in this service, and the roles required for specific actions.
 ---
 
 # Managing partner access in {{ marketplace-short-name }}
 
-In this section, you will learn:
-* [Which resources you can assign a role for](#resources).
+In this section, you will learn about:
+* [Resources supporting role assignment](#resources).
 * [Which roles exist in a partner profile](#roles-list).
 * [How to add a new user to a partner profile](#add-user).
 * [How to assign a role in a partner profile](#assign-role).
 
-## Which resources you can assign a role for {#resources}
+## Resources supporting role assignment {#resources}
 
  In the [{{ marketplace-short-name }} partner dashboard]({{ link-cloud-partners }}), you can [assign a role](#assign-role) to [Marketplace products](../concepts/product.md) and to a [partner profile](../concepts/publisher.md).
 
-## Which roles exist in the service {#roles-list}
+## Roles this service has {#roles-list}
 
 ### Service roles {#service-roles}
 
@@ -26,6 +26,10 @@ In this section, you will learn:
 #### license-manager.saasSubscriptionSupervisor {#license-manager-saasSubscriptionSupervisor}
 
 {% include [license-manager.saasSubscriptionSupervisor](../../_roles/license-manager/saasSubscriptionSupervisor.md) %}
+
+#### marketplace.productInstances.saasSupervisor {#marketplace-productInstances-saasSupervisor}
+
+{% include [marketplace.productInstances.saasSupervisor](../../_roles/marketplace/productInstances/saasSupervisor.md) %}
 
 #### marketplace.product.creator {#marketplace-product-creator}
 

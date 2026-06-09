@@ -5,7 +5,7 @@ Lists projects for the specified community.
 ## HTTP request
 
 ```
-GET https://datasphere.api.cloud.yandex.net/datasphere/v2/projects
+GET https://datasphere.{{ api-host }}/datasphere/v2/projects
 ```
 
 ## Query parameters {#yandex.cloud.datasphere.v2.ListProjectsRequest}

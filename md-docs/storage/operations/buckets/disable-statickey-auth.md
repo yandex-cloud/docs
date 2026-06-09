@@ -1,6 +1,6 @@
 # Запретить доступ в бакет с помощью статических ключей
 
-В Object Storage реализовано несколько механизмов для управления доступом к ресурсам. Алгоритм взаимодействия этих механизмов см. в [Обзор способов управления доступом в Object Storage](../../security/overview.md).
+В {{ objstorage-name }} реализовано несколько механизмов для управления доступом к ресурсам. Алгоритм взаимодействия этих механизмов см. в [{#T}](../../security/overview.md).
 
 По умолчанию доступ к [бакету](../../concepts/bucket.md) можно получить с помощью [статических ключей доступа](../../../iam/concepts/authorization/access-key.md). Вы можете отключить такой способ доступа и оставить только доступ с помощью [IAM-токена](../../../iam/concepts/authorization/iam-token.md) или анонимно (если опция включена в настройках бакета).
 
@@ -16,9 +16,9 @@
 
 {% list tabs group=instructions %}
 
-- Yandex Cloud CLI {#cli}
+- {{ yandex-cloud }} CLI {#cli}
 
-  Если у вас еще нет интерфейса командной строки Yandex Cloud (CLI), [установите и инициализируйте его](../../../cli/quickstart.md#install).
+  Если у вас еще нет интерфейса командной строки {{ yandex-cloud }} (CLI), [установите и инициализируйте его](../../../cli/quickstart.md#install).
 
   По умолчанию используется каталог, указанный при [создании](../../../cli/operations/profile/profile-create.md) профиля CLI. Чтобы изменить каталог по умолчанию, используйте команду `yc config set folder-id <идентификатор_каталога>`. Также для любой команды вы можете указать другой каталог с помощью параметров `--folder-name` или `--folder-id`. Если вы обращаетесь к ресурсу по имени, поиск будет выполнен в каталоге по умолчанию. Если вы обращаетесь к ресурсу по идентификатору, поиск будет выполнен глобально — во всех каталогах с учетом прав доступа.
 
@@ -85,7 +85,7 @@
          "updateMask":"disabledStatickeyAuth",
          "disabledStatickeyAuth":true
         }' \
-  "https://storage.api.cloud.yandex.net/storage/v1/buckets/<имя_бакета>"
+  "https://storage.{{ api-host }}/storage/v1/buckets/<имя_бакета>"
   ```
 
   Где:
@@ -140,7 +140,7 @@
       },
       "disabled_statickey_auth": true
     }' \
-    storage.api.cloud.yandex.net:443 \
+    {{ api-host-storage-grpc }} \
     yandex.cloud.storage.v1.BucketService/Update
   ```
 

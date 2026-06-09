@@ -1,9 +1,9 @@
 # Масштабирование группы виртуальных машин по расписанию
 
 
-В этом руководстве вы создадите [группу ВМ](../../../compute/concepts/instance-groups/index.md) с помощью сервиса [Yandex Compute Cloud](../../../compute/index.md) и настроите для нее [масштабирование](../../../compute/concepts/instance-groups/scale.md) по расписанию. Размером группы ВМ будет управлять [функция](../../../functions/concepts/function.md) [Yandex Cloud Functions](../../../functions/index.md), запускаемая по [таймеру](../../../functions/concepts/trigger/timer.md).
+В этом руководстве вы создадите [группу ВМ](../../../compute/concepts/instance-groups/index.md) с помощью сервиса [{{ compute-full-name }}](../../../compute/index.md) и настроите для нее [масштабирование](../../../compute/concepts/instance-groups/scale.md) по расписанию. Размером группы ВМ будет управлять [функция](../../../functions/concepts/function.md) [{{ sf-full-name }}](../../../functions/index.md), запускаемая по [таймеру](../../../functions/concepts/trigger/timer.md).
 
 Вы можете настроить масштабирование группы ВМ с помощью одного из инструментов:
 
-* [Консоль управления, CLI и API](console.md) — используйте консоль управления Yandex Cloud, CLI или API, чтобы создать инфраструктуру в пошаговом режиме.
-* [Terraform](terraform.md) — используйте этот способ, чтобы упростить создание ресурсов и управление ими, используя подход «инфраструктура как код» (IaC). Скачайте пример конфигурации Terraform с репозитория GitHub, а затем разверните инфраструктуру с помощью [Terraform-провайдера Yandex Cloud](../../../terraform/index.md).
+* [Консоль управления, CLI и API](console.md) — используйте консоль управления {{ yandex-cloud }}, CLI или API, чтобы создать инфраструктуру в пошаговом режиме.
+* [{{ TF }}](terraform.md) — используйте этот способ, чтобы упростить создание ресурсов и управление ими, используя подход «инфраструктура как код» (IaC). Скачайте пример конфигурации {{ TF }} с репозитория GitHub, а затем разверните инфраструктуру с помощью [{{ TF }}-провайдера {{ yandex-cloud }}]({{ tf-docs-link }}).

@@ -5,7 +5,7 @@ Returns a log for specified job.
 ## HTTP request
 
 ```
-GET https://dataproc.api.cloud.yandex.net/dataproc/v1/clusters/{clusterId}/jobs/{jobId}:logs
+GET https://dataproc.{{ api-host }}/dataproc/v1/clusters/{clusterId}/jobs/{jobId}:logs
 ```
 
 ## Path parameters

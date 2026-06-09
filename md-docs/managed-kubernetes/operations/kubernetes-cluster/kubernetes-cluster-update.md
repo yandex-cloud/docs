@@ -1,6 +1,6 @@
-# Изменение кластера Managed Service for Kubernetes
+# Изменение кластера {{ managed-k8s-name }}
 
-Для обращения к кластеру Kubernetes используйте его имя или уникальный идентификатор, которые можно узнать с помощью команды:
+Для обращения к кластеру {{ k8s }} используйте его имя или уникальный идентификатор, которые можно узнать с помощью команды:
 
 ```bash
 yc managed-kubernetes cluster list
@@ -16,90 +16,90 @@ yc managed-kubernetes cluster list
 +----------------------+----------+---------------------+---------+---------+-------------------------+-----------------------+
 ```
 
-## Изменить кластер Managed Service for Kubernetes {#update-cluster}
+## Изменить кластер {{ managed-k8s-name }} {#update-cluster}
 
 {% note warning %}
 
-[Публичный IP-адрес](../../../vpc/concepts/address.md#public-addresses) можно назначить только при [создании](kubernetes-cluster-create.md) кластера Managed Service for Kubernetes. После этого назначить публичный IP-адрес существующему кластеру невозможно.
+[Публичный IP-адрес](../../../vpc/concepts/address.md#public-addresses) можно назначить только при [создании](kubernetes-cluster-create.md) кластера {{ managed-k8s-name }}. После этого назначить публичный IP-адрес существующему кластеру невозможно.
 
 {% endnote %}
 
-Вы можете изменить следующие параметры [кластера Managed Service for Kubernetes](../../concepts/index.md#kubernetes-cluster):
+Вы можете изменить следующие параметры [кластера {{ managed-k8s-name }}](../../concepts/index.md#kubernetes-cluster):
 * Имя.
 * Описание.
 * [Сервисные аккаунты](../../../iam/operations/sa/create.md).
 * [Конфигурацию ресурсов](../../concepts/index.md#master-resources) для мастера.
-* [Версию Kubernetes](../../concepts/release-channels-and-updates.md).
+* [Версию {{ k8s }}](../../concepts/release-channels-and-updates.md).
 * Политику [обновлений](../../concepts/release-channels-and-updates.md#updates).
 * Список [групп безопасности](../connect/security-groups.md).
-* Настройки отправки логов в [Yandex Cloud Logging](../../../logging/index.md).
+* Настройки отправки логов в [{{ cloud-logging-full-name }}](../../../logging/index.md).
 
   {% note alert %}
 
-  Не удаляйте группы безопасности, привязанные к работающему кластеру Managed Service for Kubernetes: это может привести к нарушению его работы и потере данных.
+  Не удаляйте группы безопасности, привязанные к работающему кластеру {{ managed-k8s-name }}: это может привести к нарушению его работы и потере данных.
 
   {% endnote %}
 
-* Маску [подсети](../../../vpc/concepts/network.md#subnet) [узлов Managed Service for Kubernetes](../../concepts/index.md#node-group).
+* Маску [подсети](../../../vpc/concepts/network.md#subnet) [узлов {{ managed-k8s-name }}](../../concepts/index.md#node-group).
 
   {% note warning %}
 
-  * Если изменить маску подсети для работающего кластера Managed Service for Kubernetes, его блоки CIDR могут быть израсходованы, тогда развертывание [подов](../../concepts/index.md#pod) на новых группах узлов станет невозможным.
+  * Если изменить маску подсети для работающего кластера {{ managed-k8s-name }}, его блоки CIDR могут быть израсходованы, тогда развертывание [подов](../../concepts/index.md#pod) на новых группах узлов станет невозможным.
   * После изменения маски подсети необходимо пересоздать группы узлов кластера.
 
   {% endnote %}
 
-Инструкция по изменению [зоны доступности](../../../overview/concepts/geo-scope.md) кластера приведена в разделе [Миграция ресурсов Kubernetes в другую зону доступности](../../tutorials/migration-to-an-availability-zone.md).
+Инструкция по изменению [зоны доступности](../../../overview/concepts/geo-scope.md) кластера приведена в разделе [{#T}](../../tutorials/migration-to-an-availability-zone.md).
 
 {% list tabs group=instructions %}
 
 - Консоль управления {#console}
 
-  Чтобы изменить кластер Managed Service for Kubernetes:
-  1. Откройте раздел **Managed Service for&nbsp;Kubernetes** в [каталоге](../../../resource-manager/concepts/resources-hierarchy.md#folder), где требуется изменить кластер Managed Service for Kubernetes.
-  1. Нажмите на имя нужного кластера Managed Service for Kubernetes.
-  1. Нажмите кнопку **Редактировать** в правом верхнем углу.
+  Чтобы изменить кластер {{ managed-k8s-name }}:
+  1. Откройте раздел **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-kubernetes }}** в [каталоге](../../../resource-manager/concepts/resources-hierarchy.md#folder), где требуется изменить кластер {{ managed-k8s-name }}.
+  1. Нажмите на имя нужного кластера {{ managed-k8s-name }}.
+  1. Нажмите кнопку **{{ ui-key.yacloud.common.edit }}** в правом верхнем углу.
   1. В открывшемся окне измените необходимые параметры.
-  1. Нажмите кнопку **Сохранить**.
+  1. Нажмите кнопку **{{ ui-key.yacloud.common.save }}**.
 
 - CLI {#cli}
 
-  Если у вас еще нет интерфейса командной строки Yandex Cloud (CLI), [установите и инициализируйте его](../../../cli/quickstart.md#install).
+  Если у вас еще нет интерфейса командной строки {{ yandex-cloud }} (CLI), [установите и инициализируйте его](../../../cli/quickstart.md#install).
 
   По умолчанию используется каталог, указанный при [создании](../../../cli/operations/profile/profile-create.md) профиля CLI. Чтобы изменить каталог по умолчанию, используйте команду `yc config set folder-id <идентификатор_каталога>`. Также для любой команды вы можете указать другой каталог с помощью параметров `--folder-name` или `--folder-id`. Если вы обращаетесь к ресурсу по имени, поиск будет выполнен в каталоге по умолчанию. Если вы обращаетесь к ресурсу по идентификатору, поиск будет выполнен глобально — во всех каталогах с учетом прав доступа.
 
-  Чтобы изменить кластер Managed Service for Kubernetes:
-  1. Посмотрите описание команды CLI для изменения кластера Managed Service for Kubernetes:
+  Чтобы изменить кластер {{ managed-k8s-name }}:
+  1. Посмотрите описание команды CLI для изменения кластера {{ managed-k8s-name }}:
 
      ```bash
-     yc managed-kubernetes cluster update --help
+     {{ yc-k8s }} cluster update --help
      ```
 
   1. Выполните команду, передав список изменяемых настроек (в примере приведены не все настройки):
 
      ```bash
-     yc managed-kubernetes cluster update <имя_кластера_Managed_Service_for_Kubernetes> \
+     {{ yc-k8s }} cluster update <имя_кластера_Managed_Service_for_Kubernetes> \
        --new-name <новое_имя_кластера_Managed_Service_for_Kubernetes> \
        --description <описание_кластера_Managed_Service_for_Kubernetes> \
        --service-account-id <идентификатор_сервисного_аккаунта_для_ресурсов> \
        --service-account-name <имя_сервисного_аккаунта_для_ресурсов> \
-       --node-service-account-id <идентификатор_сервисного_аккаунта_для_узлов_Kubernetes> \
+       --node-service-account-id <идентификатор_сервисного_аккаунта_для_узлов_{{ k8s }}> \
        --security-group-ids <список_идентификаторов_групп_безопасности> \
        --master-logging enabled=<отправка_логов>,`
            `log-group-id=<идентификатор_лог-группы>,`
            `folder-id=<идентификатор_каталога>,`
            `kube-apiserver-enabled=<отправка_логов_kube-apiserver>,`
            `cluster-autoscaler-enabled=<отправка_логов_cluster-autoscaler>,`
-           `events-enabled=<отправка_событий_Kubernetes>`
+           `events-enabled=<отправка_событий_{{ k8s }}>`
            `audit-enabled=<отправка_событий_аудита>
      ```
 
      Где:
-     * `--new-name` — имя кластера Managed Service for Kubernetes.
-     * `--description` — описание кластера Managed Service for Kubernetes.
-     * `--service-account-id`, `--service-account-name` — сервисный аккаунт для управления кластером Managed Service for Kubernetes.
-     * `--node-service-account-id`, `--node-service-account-name` — сервисный аккаунт для управления узлами Managed Service for Kubernetes.
-     * `--security-group-ids` — группы безопасности кластера Managed Service for Kubernetes.
+     * `--new-name` — имя кластера {{ managed-k8s-name }}.
+     * `--description` — описание кластера {{ managed-k8s-name }}.
+     * `--service-account-id`, `--service-account-name` — сервисный аккаунт для управления кластером {{ managed-k8s-name }}.
+     * `--node-service-account-id`, `--node-service-account-name` — сервисный аккаунт для управления узлами {{ managed-k8s-name }}.
+     * `--security-group-ids` — группы безопасности кластера {{ managed-k8s-name }}.
 
        {% note warning %}
        
@@ -107,23 +107,23 @@ yc managed-kubernetes cluster list
        
        {% endnote %}
 
-     * `--master-logging` — отправка логов в [Yandex Cloud Logging](../../../logging/index.md):
+     * `--master-logging` — отправка логов в [{{ cloud-logging-full-name }}](../../../logging/index.md):
 
        * `enabled` — флаг отправки логов: `true` или `false`.
        * `log-group-id` — идентификатор [лог-группы](../../../logging/concepts/log-group.md), в которую нужно отправлять логи.
        * `folder-id` — идентификатор [каталога](../../../resource-manager/concepts/resources-hierarchy.md#folder), в который нужно отправлять логи. Логи будут отправляться в лог-группу каталога по умолчанию.
        * `kube-apiserver-enabled` — флаг отправки логов [kube-apiserver](https://kubernetes.io/docs/reference/command-line-tools-reference/kube-apiserver/): `true` или `false`.
        * `cluster-autoscaler-enabled` — флаг отправки логов `cluster-autoscaler`: `true` или `false`.
-       * `events-enabled` — флаг отправки событий Kubernetes: `true` или `false`.
+       * `events-enabled` — флаг отправки событий {{ k8s }}: `true` или `false`.
        * `audit-enabled` — флаг отправки событий аудита: `true` или `false`.
 
-       Для отправки логов в Yandex Cloud Logging [назначьте](../../../iam/operations/sa/assign-role-for-sa.md) сервисному аккаунту для ресурсов роль [logging.writer](../../../logging/security/index.md#loggingwriter).
+       Для отправки логов в {{ cloud-logging-full-name }} [назначьте](../../../iam/operations/sa/assign-role-for-sa.md) сервисному аккаунту для ресурсов роль [{{ roles-logging-writer }}](../../../logging/security/index.md#loggingwriter).
 
-       Если отправка логов включена, но не указаны ни `log-group-id`, ни `folder-id`, логи будут отправляться в каталог, где находится [кластер Managed Service for Kubernetes](../../concepts/index.md#kubernetes-cluster), в лог-группу по умолчанию. Указывать одновременно `log-group-id` и `folder-id` нельзя.
+       Если отправка логов включена, но не указаны ни `log-group-id`, ни `folder-id`, логи будут отправляться в каталог, где находится [кластер {{ managed-k8s-name }}](../../concepts/index.md#kubernetes-cluster), в лог-группу по умолчанию. Указывать одновременно `log-group-id` и `folder-id` нельзя.
 
-     * `--version` — версию Kubernetes.
-     * `--latest-revision` — получить все доступные обновления для текущей версии [мастера Managed Service for Kubernetes](../../concepts/index.md#master).
-     * `--auto-upgrade` — управлять автоматическими обновлениями кластера Managed Service for Kubernetes.
+     * `--version` — версию {{ k8s }}.
+     * `--latest-revision` — получить все доступные обновления для текущей версии [мастера {{ managed-k8s-name }}](../../concepts/index.md#master).
+     * `--auto-upgrade` — управлять автоматическими обновлениями кластера {{ managed-k8s-name }}.
      * Управление окном обновлений:
        * `--anytime-maintenance-window` — обновлять в любое время.
        * `--daily-maintenance-window` — обновлять ежедневно в выбранное время.
@@ -135,15 +135,15 @@ yc managed-kubernetes cluster list
          
          {% endnote %}
 
-- Terraform {#tf}
+- {{ TF }} {#tf}
 
-  Чтобы изменить кластер Managed Service for Kubernetes:
-  1. Откройте актуальный конфигурационный файл с описанием кластера Managed Service for Kubernetes.
+  Чтобы изменить кластер {{ managed-k8s-name }}:
+  1. Откройте актуальный конфигурационный файл с описанием кластера {{ managed-k8s-name }}.
 
-     О том, как создать такой файл, см. в разделе [Создание кластера Managed Service for Kubernetes](kubernetes-cluster-create.md).
-  1. Измените нужные параметры в описании кластера Managed Service for Kubernetes.
+     О том, как создать такой файл, см. в разделе [{#T}](kubernetes-cluster-create.md).
+  1. Измените нужные параметры в описании кластера {{ managed-k8s-name }}.
 
-     Чтобы изменить настройки отправки логов в [Yandex Cloud Logging](../../../logging/index.md), измените значения параметров в блоке `master_logging`. Если такого блока нет — создайте его.
+     Чтобы изменить настройки отправки логов в [{{ cloud-logging-full-name }}](../../../logging/index.md), измените значения параметров в блоке `master_logging`. Если такого блока нет — создайте его.
 
      >```hcl
      >resource "yandex_kubernetes_cluster" "<имя_кластера>" {
@@ -156,7 +156,7 @@ yc managed-kubernetes cluster list
      >      folder_id                  = "<идентификатор_каталога>"
      >      kube_apiserver_enabled     = <отправка_логов_kube-apiserver>
      >      cluster_autoscaler_enabled = <отправка_логов_cluster-autoscaler>
-     >      events_enabled             = <отправка_событий_Kubernetes>
+     >      events_enabled             = <отправка_событий_{{ k8s }}>
      >      audit_enabled              = <отправка_событий_аудита>
      >    }
      >  }
@@ -170,23 +170,23 @@ yc managed-kubernetes cluster list
      * `folder_id` — идентификатор [каталога](../../../resource-manager/concepts/resources-hierarchy.md#folder), в который нужно отправлять логи. Логи будут отправляться в лог-группу каталога по умолчанию.
      * `kube_apiserver_enabled` — флаг отправки логов [kube-apiserver](https://kubernetes.io/docs/reference/command-line-tools-reference/kube-apiserver/): `true` или `false`.
      * `cluster_autoscaler_enabled` — флаг отправки логов `cluster-autoscaler`: `true` или `false`.
-     * `events_enabled` — флаг отправки событий Kubernetes: `true` или `false`.
+     * `events_enabled` — флаг отправки событий {{ k8s }}: `true` или `false`.
      * `audit_enabled` — флаг отправки событий аудита: `true` или `false`.
 
-       Для отправки логов в Yandex Cloud Logging [назначьте](../../../iam/operations/sa/assign-role-for-sa.md) сервисному аккаунту для ресурсов роль [logging.writer](../../../logging/security/index.md#loggingwriter).
+       Для отправки логов в {{ cloud-logging-full-name }} [назначьте](../../../iam/operations/sa/assign-role-for-sa.md) сервисному аккаунту для ресурсов роль [{{ roles-logging-writer }}](../../../logging/security/index.md#loggingwriter).
 
-       Если отправка логов включена, но не указаны ни `log-group-id`, ни `folder-id`, логи будут отправляться в каталог, где находится [кластер Managed Service for Kubernetes](../../concepts/index.md#kubernetes-cluster), в лог-группу по умолчанию. Указывать одновременно `log-group-id` и `folder-id` нельзя.
+       Если отправка логов включена, но не указаны ни `log-group-id`, ни `folder-id`, логи будут отправляться в каталог, где находится [кластер {{ managed-k8s-name }}](../../concepts/index.md#kubernetes-cluster), в лог-группу по умолчанию. Указывать одновременно `log-group-id` и `folder-id` нельзя.
 
   1. Проверьте корректность конфигурационных файлов.
 
-     1. В командной строке перейдите в каталог, в котором расположены актуальные конфигурационные файлы Terraform с планом инфраструктуры.
+     1. В командной строке перейдите в каталог, в котором расположены актуальные конфигурационные файлы {{ TF }} с планом инфраструктуры.
      1. Выполните команду:
      
         ```bash
         terraform validate
         ```
      
-        Если в файлах конфигурации есть ошибки, Terraform на них укажет.
+        Если в файлах конфигурации есть ошибки, {{ TF }} на них укажет.
 
   1. Подтвердите изменение ресурсов.
 
@@ -210,7 +210,7 @@ yc managed-kubernetes cluster list
 
      {% note warning "Ограничения по времени" %}
      
-     Провайдер Terraform ограничивает время на создание и изменение кластера Managed Service for Kubernetes 30 минутами.
+     Провайдер {{ TF }} ограничивает время на создание и изменение кластера {{ managed-k8s-name }} 30 минутами.
      
      Операции, которые длятся дольше указанного времени, прерываются.
      
@@ -232,21 +232,21 @@ yc managed-kubernetes cluster list
      
      {% endnote %}
 
-     Подробнее см. в [документации провайдера Terraform](../../../terraform/resources/kubernetes_cluster.md).
+     Подробнее см. в [документации провайдера {{ TF }}]({{ tf-provider-k8s-cluster }}).
 
 - API {#api}
 
-  Чтобы изменить параметры кластера Managed Service for Kubernetes, воспользуйтесь методом REST API [update](../../managed-kubernetes/api-ref/Cluster/update.md) для ресурса [Cluster](../../managed-kubernetes/api-ref/Cluster/index.md) или вызовом gRPC API [ClusterService/Update](../../managed-kubernetes/api-ref/grpc/Cluster/update.md).
+  Чтобы изменить параметры кластера {{ managed-k8s-name }}, воспользуйтесь методом REST API [update](../../managed-kubernetes/api-ref/Cluster/update.md) для ресурса [Cluster](../../managed-kubernetes/api-ref/Cluster/index.md) или вызовом gRPC API [ClusterService/Update](../../managed-kubernetes/api-ref/grpc/Cluster/update.md).
 
-  Чтобы изменить настройки отправки логов в Cloud Logging, измените их значения в параметре `masterSpec.masterLogging` для REST API или `master_spec.master_logging` для gRPC API.
+  Чтобы изменить настройки отправки логов в {{ cloud-logging-name }}, измените их значения в параметре `masterSpec.masterLogging` для REST API или `master_spec.master_logging` для gRPC API.
 
-  Для отправки логов в Yandex Cloud Logging [назначьте](../../../iam/operations/sa/assign-role-for-sa.md) сервисному аккаунту для ресурсов роль [logging.writer](../../../logging/security/index.md#loggingwriter).
+  Для отправки логов в {{ cloud-logging-full-name }} [назначьте](../../../iam/operations/sa/assign-role-for-sa.md) сервисному аккаунту для ресурсов роль [{{ roles-logging-writer }}](../../../logging/security/index.md#loggingwriter).
 
 {% endlist %}
 
-## Управлять облачными метками кластера Managed Service for Kubernetes {#manage-label}
+## Управлять облачными метками кластера {{ managed-k8s-name }} {#manage-label}
 
-Вы можете выполнять следующие действия с [облачными метками кластера](../../concepts/index.md#cluster-labels) Managed Service for Kubernetes:
+Вы можете выполнять следующие действия с [облачными метками кластера](../../concepts/index.md#cluster-labels) {{ managed-k8s-name }}:
 
 * [Добавить](#add-label).
 * [Изменить](#update-label).
@@ -258,12 +258,12 @@ yc managed-kubernetes cluster list
 
 - Консоль управления {#console}
 
-    1. Откройте раздел **Managed Service for&nbsp;Kubernetes** в [каталоге](../../../resource-manager/concepts/resources-hierarchy.md#folder), где расположен кластер Managed Service for Kubernetes.
-    1. Нажмите на имя нужного кластера Managed Service for Kubernetes.
-    1. Нажмите кнопку **Редактировать** в правом верхнем углу.
-    1. В поле **Метки** нажмите **Добавить метку**.
+    1. Откройте раздел **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-kubernetes }}** в [каталоге](../../../resource-manager/concepts/resources-hierarchy.md#folder), где расположен кластер {{ managed-k8s-name }}.
+    1. Нажмите на имя нужного кластера {{ managed-k8s-name }}.
+    1. Нажмите кнопку **{{ ui-key.yacloud.common.edit }}** в правом верхнем углу.
+    1. В поле **{{ ui-key.yacloud.component.label-set.label_labels }}** нажмите **{{ ui-key.yacloud.component.label-set.button_add-label }}**.
     1. Введите ключ и значение и нажмите **Enter**.
-    1. Нажмите кнопку **Сохранить**.
+    1. Нажмите кнопку **{{ ui-key.yacloud.common.save }}**.
 
 - CLI {#cli}
 
@@ -280,7 +280,7 @@ yc managed-kubernetes cluster list
   id: abcd123ef4gh********
   folder_id: l1m01nopqr1s********
   ...
-  description: My test Kubernetes cluster
+  description: My test {{ k8s }} cluster
   labels:
     new_label: test_label
   ...
@@ -296,12 +296,12 @@ yc managed-kubernetes cluster list
 
   Чтобы изменить облачную метку, потребуется удалить ее и создать заново:
 
-    1. Откройте раздел **Managed Service for&nbsp;Kubernetes** в [каталоге](../../../resource-manager/concepts/resources-hierarchy.md#folder), где расположен кластер Managed Service for Kubernetes.
-    1. Нажмите на имя нужного кластера Managed Service for Kubernetes.
-    1. Нажмите кнопку **Редактировать** в правом верхнем углу.
-    1. В поле **Метки** нажмите на крестик рядом с нужной меткой, чтобы удалить ее.
-    1. Нажмите **Добавить метку** и введите ключ и/или значение новой метки.
-    1. Нажмите **Enter**, а затем — **Сохранить**.
+    1. Откройте раздел **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-kubernetes }}** в [каталоге](../../../resource-manager/concepts/resources-hierarchy.md#folder), где расположен кластер {{ managed-k8s-name }}.
+    1. Нажмите на имя нужного кластера {{ managed-k8s-name }}.
+    1. Нажмите кнопку **{{ ui-key.yacloud.common.edit }}** в правом верхнем углу.
+    1. В поле **{{ ui-key.yacloud.component.label-set.label_labels }}** нажмите на крестик рядом с нужной меткой, чтобы удалить ее.
+    1. Нажмите **{{ ui-key.yacloud.component.label-set.button_add-label }}** и введите ключ и/или значение новой метки.
+    1. Нажмите **Enter**, а затем — **{{ ui-key.yacloud.common.save }}**.
 
 - CLI {#cli}
 
@@ -324,7 +324,7 @@ yc managed-kubernetes cluster list
   id: abcd123ef4gh********
   folder_id: l1m01nopqr1s********
   ...
-  description: My test Kubernetes cluster
+  description: My test {{ k8s }} cluster
   labels:
     test_label: my_k8s_label
   ...
@@ -338,11 +338,11 @@ yc managed-kubernetes cluster list
 
 - Консоль управления {#console}
 
-    1. Откройте раздел **Managed Service for&nbsp;Kubernetes** в [каталоге](../../../resource-manager/concepts/resources-hierarchy.md#folder), где расположен кластер Managed Service for Kubernetes.
-    1. Нажмите на имя нужного кластера Managed Service for Kubernetes.
-    1. Нажмите кнопку **Редактировать** в правом верхнем углу.
-    1. В поле **Метки** нажмите на крестик рядом с нужной меткой.
-    1. Нажмите кнопку **Сохранить**.
+    1. Откройте раздел **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-kubernetes }}** в [каталоге](../../../resource-manager/concepts/resources-hierarchy.md#folder), где расположен кластер {{ managed-k8s-name }}.
+    1. Нажмите на имя нужного кластера {{ managed-k8s-name }}.
+    1. Нажмите кнопку **{{ ui-key.yacloud.common.edit }}** в правом верхнем углу.
+    1. В поле **{{ ui-key.yacloud.component.label-set.label_labels }}** нажмите на крестик рядом с нужной меткой.
+    1. Нажмите кнопку **{{ ui-key.yacloud.common.save }}**.
 
 - CLI {#cli}
 
@@ -373,14 +373,20 @@ yc managed-kubernetes cluster list
 
 {% endnote %}
 
+{% note warning %}
+
+С 18 июня 2026 года тарификация мастеров изменится — плата будет взиматься за количество vCPU и объем RAM. Чтобы рассчитать необходимое количество ресурсов мастера для своего кластера, воспользуйтесь таблицей [{#T}](../../concepts/master-configuration.md).
+
+{% endnote %}
+
 {% list tabs group=instructions %}
 
 - Консоль управления {#console}
 
-  1. Откройте раздел **Managed Service for&nbsp;Kubernetes** в [каталоге](../../../resource-manager/concepts/resources-hierarchy.md#folder), где требуется изменить кластер Managed Service for Kubernetes.
-  1. Нажмите на имя нужного кластера Managed Service for Kubernetes.
-  1. Нажмите кнопку **Редактировать** в правом верхнем углу.
-  1. В блоке **Конфигурация мастера** раскройте секцию **Вычислительные ресурсы** и выберите [конфигурацию ресурсов](../../concepts/index.md#master-resources) для мастера.
+  1. Откройте раздел **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-kubernetes }}** в [каталоге](../../../resource-manager/concepts/resources-hierarchy.md#folder), где требуется изменить кластер {{ managed-k8s-name }}.
+  1. Нажмите на имя нужного кластера {{ managed-k8s-name }}.
+  1. Нажмите кнопку **{{ ui-key.yacloud.common.edit }}** в правом верхнем углу.
+  1. В блоке **{{ ui-key.yacloud.k8s.clusters.create.section_main-cluster }}** раскройте секцию **Вычислительные ресурсы** и выберите [конфигурацию ресурсов](../../concepts/index.md#master-resources) для мастера.
 
       Выбранная конфигурация задает минимальные значения ресурсов для мастера. В зависимости от нагрузки объем RAM и количество vCPU мастера будут автоматически увеличиваться.
 
@@ -390,18 +396,18 @@ yc managed-kubernetes cluster list
       * количество vCPU — 2;
       * объем RAM — 8 ГБ.
 
-  1. Нажмите кнопку **Сохранить**.
+  1. Нажмите кнопку **{{ ui-key.yacloud.common.save }}**.
 
 - CLI {#cli}
 
-  Если у вас еще нет интерфейса командной строки Yandex Cloud (CLI), [установите и инициализируйте его](../../../cli/quickstart.md#install).
+  Если у вас еще нет интерфейса командной строки {{ yandex-cloud }} (CLI), [установите и инициализируйте его](../../../cli/quickstart.md#install).
 
   По умолчанию используется каталог, указанный при [создании](../../../cli/operations/profile/profile-create.md) профиля CLI. Чтобы изменить каталог по умолчанию, используйте команду `yc config set folder-id <идентификатор_каталога>`. Также для любой команды вы можете указать другой каталог с помощью параметров `--folder-name` или `--folder-id`. Если вы обращаетесь к ресурсу по имени, поиск будет выполнен в каталоге по умолчанию. Если вы обращаетесь к ресурсу по идентификатору, поиск будет выполнен глобально — во всех каталогах с учетом прав доступа.
 
   Укажите нужную конфигурацию ресурсов мастера в команде изменения кластера:
 
   ```bash
-  yc managed-kubernetes cluster update <имя_кластера_Managed_Service_for_Kubernetes> \
+  {{ yc-k8s }} cluster update <имя_кластера_Managed_Service_for_Kubernetes> \
     --master-scale-policy policy=auto,min-resource-preset-id=<класс_хостов_мастера>
   ```
 
@@ -414,7 +420,7 @@ yc managed-kubernetes cluster list
   id: abcd123ef4gh********
   folder_id: l1m01nopqr1s********
   ...
-  description: My test Kubernetes cluster
+  description: My test {{ k8s }} cluster
   master:
     scale_policy:
       auto_scale:
@@ -422,13 +428,13 @@ yc managed-kubernetes cluster list
   ...
   ```
 
-- Terraform {#tf}
+- {{ TF }} {#tf}
 
-  1. Откройте актуальный конфигурационный файл с описанием кластера Managed Service for Kubernetes.
+  1. Откройте актуальный конфигурационный файл с описанием кластера {{ managed-k8s-name }}.
 
-     О том, как создать такой файл, см. в разделе [Создание кластера Managed Service for Kubernetes](kubernetes-cluster-create.md).
+     О том, как создать такой файл, см. в разделе [{#T}](kubernetes-cluster-create.md).
 
-  1. Добавьте или измените в описании кластера Managed Service for Kubernetes конфигурацию [вычислительных ресурсов мастера](../../concepts/index.md#master-resources) в блоке `scale_policy`:
+  1. Добавьте или измените в описании кластера {{ managed-k8s-name }} конфигурацию [вычислительных ресурсов мастера](../../concepts/index.md#master-resources) в блоке `scale_policy`:
 
      >```hcl
      >resource "yandex_kubernetes_cluster" "<имя_кластера>" {
@@ -448,14 +454,14 @@ yc managed-kubernetes cluster list
 
   1. Проверьте корректность конфигурационных файлов.
 
-     1. В командной строке перейдите в каталог, в котором расположены актуальные конфигурационные файлы Terraform с планом инфраструктуры.
+     1. В командной строке перейдите в каталог, в котором расположены актуальные конфигурационные файлы {{ TF }} с планом инфраструктуры.
      1. Выполните команду:
      
         ```bash
         terraform validate
         ```
      
-        Если в файлах конфигурации есть ошибки, Terraform на них укажет.
+        Если в файлах конфигурации есть ошибки, {{ TF }} на них укажет.
 
   1. Подтвердите изменение ресурсов.
 
@@ -479,7 +485,7 @@ yc managed-kubernetes cluster list
 
      {% note warning "Ограничения по времени" %}
      
-     Провайдер Terraform ограничивает время на создание и изменение кластера Managed Service for Kubernetes 30 минутами.
+     Провайдер {{ TF }} ограничивает время на создание и изменение кластера {{ managed-k8s-name }} 30 минутами.
      
      Операции, которые длятся дольше указанного времени, прерываются.
      
@@ -501,7 +507,7 @@ yc managed-kubernetes cluster list
      
      {% endnote %}
 
-     Подробнее см. в [документации провайдера Terraform](../../../terraform/resources/kubernetes_cluster.md).
+     Подробнее см. в [документации провайдера {{ TF }}]({{ tf-provider-k8s-cluster }}).
 
 - API {#api}
 

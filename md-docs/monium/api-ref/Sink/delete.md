@@ -5,7 +5,7 @@ Deletes the specified sink.
 ## HTTP request
 
 ```
-DELETE https://logging.api.cloud.yandex.net/logging/v1/sinks/{sinkId}
+DELETE https://logging.{{ api-host }}/logging/v1/sinks/{sinkId}
 ```
 
 ## Path parameters

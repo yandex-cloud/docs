@@ -6,9 +6,9 @@
 
 - Консоль управления {#console}
 
-  1. В [консоли управления](https://console.yandex.cloud) выберите [каталог](../../../resource-manager/concepts/resources-hierarchy.md#folder), в котором нужно создать ресурс.
-  1. [Перейдите](../../../console/operations/select-service.md#select-service) в сервис **Cloud CDN**.
-  1. Нажмите кнопку **Создать ресурс**.
+  1. В [консоли управления]({{ link-console-main }}) выберите [каталог](../../../resource-manager/concepts/resources-hierarchy.md#folder), в котором нужно создать ресурс.
+  1. Перейдите в сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_cdn }}**.
+  1. Нажмите кнопку **{{ ui-key.yacloud.cdn.button_resource-create }}**.
   1. Задайте основные настройки CDN-ресурса:
 
       {% note tip %}
@@ -16,30 +16,30 @@
       Чтобы настроить параметры CDN-ресурса, вы можете использовать конфигурацию другого CDN-ресурса. Для этого в поле **Копирование конфигурации** выберите существующий CDN-ресурс. Учтите следующие особенности:
       * Доменное имя уникально в рамках одного ресурса, создать еще один ресурс с этим же доменным именем не получится. Копирование конфигурации происходит без наследования доменного имени.
       * Если копирование параметров осуществляется между ресурсами разных провайдеров, то в процессе будет создана копия [группы источников](../../concepts/origins.md) в провайдере создаваемого ресурса.
-      * Если в существующем ресурсе блок **Разрешенные методы** содержит метод `POST`, он будет недоступен для пользователей нового ресурса. Чтобы включить использование метода, обратитесь в [техническую поддержку](https://center.yandex.cloud/support). При запросе опишите сценарий использования.
+      * Если в существующем ресурсе блок **{{ ui-key.yacloud.cdn.label_resource-http-headers-allowed-methods }}** содержит метод `POST`, он будет недоступен для пользователей нового ресурса. Чтобы включить использование метода, обратитесь в [техническую поддержку]({{ link-console-support }}). При запросе опишите сценарий использования.
       * Если для исходного ресурса был загружен TLS-сертификат, он будет переиспользован в новом ресурсе. Повторная загрузка не требуется.
 
       {% endnote %}
 
-      * В блоке **Контент**:
-        * Включите или отключите **Доступ к контенту**.
-        * В поле **Запрос контента** выберите `Из одного источника` или `Из группы источников`:
-          * При запросе контента `Из одного источника` выберите **Тип источника**: `Сервер`, `Бакет` или `L7-балансировщик` и укажите [источник](../../concepts/origins.md).
-          * При запросе контента `Из группы источников` выберите [группу источников](../../concepts/origins.md#groups) или создайте новую:
-            1. Нажмите кнопку **Создать**.
-            1. Введите **Название группы**.
-            1. Настройте **Источники**:
-                * Укажите **Тип источника**: `Сервер`, `Бакет` или `L7-балансировщик`.
+      * В блоке **{{ ui-key.yacloud.cdn.label_section-content }}**:
+        * Включите или отключите **{{ ui-key.yacloud.cdn.label_access }}**.
+        * В поле **{{ ui-key.yacloud.cdn.label_content-query-type }}** выберите `{{ ui-key.yacloud.cdn.value_query-type-one-origin }}` или `{{ ui-key.yacloud.cdn.value_query-type-group-origin }}`:
+          * При запросе контента `{{ ui-key.yacloud.cdn.value_query-type-one-origin }}` выберите **{{ ui-key.yacloud.cdn.label_source-type }}**: `{{ ui-key.yacloud.cdn.value_source-type-url }}`, `{{ ui-key.yacloud.cdn.value_source-type-bucket }}` или `{{ ui-key.yacloud.cdn.value_source-type-balancer }}` и укажите [источник](../../concepts/origins.md).
+          * При запросе контента `{{ ui-key.yacloud.cdn.value_query-type-group-origin }}` выберите [группу источников](../../concepts/origins.md#groups) или создайте новую:
+            1. Нажмите кнопку **{{ ui-key.yacloud.common.create }}**.
+            1. Введите **{{ ui-key.yacloud.cdn.field_group-name }}**.
+            1. Настройте **{{ ui-key.yacloud.cdn.label_section-origins-list }}**:
+                * Укажите **{{ ui-key.yacloud.cdn.label_source-type }}**: `{{ ui-key.yacloud.cdn.value_source-type-url }}`, `{{ ui-key.yacloud.cdn.value_source-type-bucket }}` или `{{ ui-key.yacloud.cdn.value_source-type-balancer }}`.
                 * Укажите источник.
-                * Выберите **Приоритет**: `Основной` или `Резервный`.
+                * Выберите **{{ ui-key.yacloud.cdn.field_origin-state }}**: `{{ ui-key.yacloud.cdn.label_status-active }}` или `{{ ui-key.yacloud.cdn.label_status-backup }}`.
             1. Добавьте другие источники, если необходимо.
-            1. Нажмите кнопку **Создать**. В поле **Группа источников** вы увидите название созданной группы источников.
+            1. Нажмите кнопку **{{ ui-key.yacloud.common.create }}**. В поле **{{ ui-key.yacloud.cdn.label_origins-group }}** вы увидите название созданной группы источников.
 
-          Подробнее см. в разделе [Источники и их группы](../../concepts/origins.md).
-        * В поле **Протокол для источников** выберите протокол для источников.
-        * В поле **Доменное имя** укажите основное доменное имя, которое будете использовать в ссылках с сайта на контент, размещенный в CDN. Например: `cdn.example.com`.
+          Подробнее см. в разделе [{#T}](../../concepts/origins.md).
+        * В поле **{{ ui-key.yacloud.cdn.label_protocol }}** выберите протокол для источников.
+        * В поле **{{ ui-key.yacloud.cdn.label_personal-domain }}** укажите основное доменное имя, которое будете использовать в ссылках с сайта на контент, размещенный в CDN. Например: `cdn.example.com`.
 
-          Вы можете добавить более одного **Доменного имени**. Поддерживаются имена с символами не из [ASCII](https://ru.wikipedia.org/wiki/ASCII), например, кириллическими, и [Punycode](https://ru.wikipedia.org/wiki/Punycode). Первое имя считается основным.
+          Вы можете добавить более одного **Доменного имени**. Поддерживаются имена с символами не из [ASCII](https://{{ lang }}.wikipedia.org/wiki/ASCII), например, кириллическими, и [Punycode](https://{{ lang }}.wikipedia.org/wiki/Punycode). Первое имя считается основным.
 
           {% note alert %}
 
@@ -48,29 +48,29 @@
           {% endnote %}
 
         * (опционально) Добавьте [метки](../../concepts/labels.md):
-          1. Нажмите кнопку **Добавить метку**.
+          1. Нажмите кнопку **{{ ui-key.yacloud.component.label-set.button_add-label }}**.
           1. Введите метку в формате `ключ: значение`.
           1. Нажмите **Enter**.
 
-      * В блоке **Дополнительно**:
-        * В поле **Переадресация клиентов** выберите `Не использовать` или `С HTTPS на HTTP`.
+      * В блоке **{{ ui-key.yacloud.cdn.label_section-additional }}**:
+        * В поле **{{ ui-key.yacloud.cdn.label_redirect }}** выберите `{{ ui-key.yacloud.cdn.value_do-not-use }}` или `{{ ui-key.yacloud.cdn.value_redirect-https-to-http }}`.
 
-          Чтобы включить переадресацию клиентов с HTTP на HTTPS, создайте CDN-ресурс без переадресации и получите [TLS-сертификат](../../concepts/clients-to-servers-tls.md) для доменного имени. Затем в настройках CDN-ресурса [выберите](configure-basics.md) переадресацию клиентов `С HTTP на HTTPS`.
-        * В поле **Тип сертификата** выберите одну из опций:
-          * `Не использовать` — ресурс будет доступен только по протоколу HTTP.
-          * `Сертификат из Certificate Manager` — выберите сертификат. Ресурс будет доступен по протоколам HTTP и HTTPS.
+          Чтобы включить переадресацию клиентов с HTTP на HTTPS, создайте CDN-ресурс без переадресации и получите [TLS-сертификат](../../concepts/clients-to-servers-tls.md) для доменного имени. Затем в настройках CDN-ресурса [выберите](configure-basics.md) переадресацию клиентов `{{ ui-key.yacloud.cdn.value_redirect-http-to-https }}`.
+        * В поле **{{ ui-key.yacloud.cdn.label_certificate-type }}** выберите одну из опций:
+          * `{{ ui-key.yacloud.cdn.value_certificate-no }}` — ресурс будет доступен только по протоколу HTTP.
+          * `{{ ui-key.yacloud.cdn.value_certificate-custom }}` — выберите сертификат. Ресурс будет доступен по протоколам HTTP и HTTPS.
 
-          Поддерживаются сертификаты из [Yandex Certificate Manager](../../../certificate-manager/index.md). Вы можете [выпустить новый сертификат Let's Encrypt®](../../../certificate-manager/operations/managed/cert-create.md) или [загрузить собственный](../../../certificate-manager/operations/import/cert-create.md).
+          Поддерживаются сертификаты из [{{ certificate-manager-full-name }}](../../../certificate-manager/index.md). Вы можете [выпустить новый сертификат Let's Encrypt®](../../../certificate-manager/operations/managed/cert-create.md) или [загрузить собственный](../../../certificate-manager/operations/import/cert-create.md).
           
           Сертификат должен находиться в том же [каталоге](../../../resource-manager/concepts/resources-hierarchy.md#folder), в котором расположен ваш CDN-ресурс.
 
           [Подробнее о настройке TLS-сертификатов для HTTPS-соединений](../../concepts/clients-to-servers-tls.md)
-        * В поле **Заголовок Host** выберите значение: `Основное доменное имя`, `Как у клиента` или выберите `Свое значение` и введите **Значение заголовка**. 
+        * В поле **{{ ui-key.yacloud.cdn.label_host-header }}** выберите значение: `{{ ui-key.yacloud.cdn.value_host-header-default }}`, `{{ ui-key.yacloud.cdn.value_host-header-resend }}` или выберите `{{ ui-key.yacloud.cdn.value_host-header-custom }}` и введите **{{ ui-key.yacloud.cdn.label_custom-host-header }}**. 
       
           [Подробнее о заголовке Host в запросах CDN-серверов к источникам](../../concepts/servers-to-origins-host.md)
         * (опционально) Чтобы включить [перенаправление запросов](../../concepts/http-rewrite.md) на CDN-ресурсе:
-          1. Включите опцию **Перенаправление запросов**.
-          1. В поле **Правило Rewrite** задайте правило. Например: `/(.*) /new-folder/$1`.
+          1. Включите опцию **{{ ui-key.yacloud.cdn.field_rewrite-rule-redirect }}**.
+          1. В поле **{{ ui-key.yacloud.cdn.field_rewrite-rule-body }}** задайте правило. Например: `/(.*) /new-folder/$1`.
 
               Правило Rewrite должно содержать две разделенные пробелом директивы: исходный путь, который требуется заменить, и измененный путь — то, на что меняется исходный путь.
               
@@ -78,38 +78,38 @@
               
               Подробнее см. в разделе [Правило Rewrite](../../concepts/http-rewrite.md#rewrite-rule).
 
-          1. В поле **Флаг** задайте нужный [флаг](../../concepts/http-rewrite.md#flag):
+          1. В поле **{{ ui-key.yacloud.cdn.field_rewrite-rule-flag }}** задайте нужный [флаг](../../concepts/http-rewrite.md#flag):
 
               * `break` — завершает обработку текущего набора директив.
               * `last` — завершает обработку текущего набора директив и начинает поиск нового CDN-сервера, соответствующего новому URI.
               * `redirect` — возвращает пользователю временный `redirect` с кодом `302`. Флаг используется, если заменяющая строка не начинается с `http://`, `https://` или `$scheme`.
               * `permanent` — возвращает пользователю постоянный `redirect` с кодом `301`.
 
-        * (опционально) Чтобы ограничить доступ к контенту ресурса с помощью [защищенных токенов](../../concepts/secure-tokens.md), включите опцию **Доступ по защищённому токену**:
+        * (опционально) Чтобы ограничить доступ к контенту ресурса с помощью [защищенных токенов](../../concepts/secure-tokens.md), включите опцию **{{ ui-key.yacloud.cdn.field_secure-key-enabled }}**:
 
-          * Укажите **Секретный ключ** — произвольную строку длиной от 6 до 32 символов. Секретный ключ потребуется для генерации [подписанных ссылок](../../concepts/secure-tokens.md#protected-link).
+          * Укажите **{{ ui-key.yacloud.cdn.field_secure-key }}** — произвольную строку длиной от 6 до 32 символов. Секретный ключ потребуется для генерации [подписанных ссылок](../../concepts/secure-tokens.md#protected-link).
           
               Сохраненный секретный ключ вы всегда сможете посмотреть в консоли управления или с помощью команды [CLI](../../../cli/index.md) `yc cdn resource list`.
-          * В поле **Ограничение доступа по IP-адресу** задайте ограничение на доступ к контенту по IP-адресу:
+          * В поле **{{ ui-key.yacloud.cdn.field_secure-key-type }}** задайте ограничение на доступ к контенту по IP-адресу:
           
-             * `Только доверенные IP-адреса` — доступ к файлам будет разрешен только с определенного IP-адреса получателя контента. IP-адрес задается вне CDN-ресурса и указывается в качестве параметра при формировании [MD5](https://ru.wikipedia.org/wiki/MD5)-хэша для подписанной ссылки.
-             * `Без ограничений` — доступ к файлам будет разрешен с любых IP-адресов.
+             * `{{ ui-key.yacloud.cdn.value_secure-key-type-enable }}` — доступ к файлам будет разрешен только с определенного IP-адреса получателя контента. IP-адрес задается вне CDN-ресурса и указывается в качестве параметра при формировании [MD5](https://ru.wikipedia.org/wiki/MD5)-хэша для подписанной ссылки.
+             * `{{ ui-key.yacloud.cdn.value_secure-key-type-disable }}` — доступ к файлам будет разрешен с любых IP-адресов.
 
           [Подробнее о доступе по защищенному токену](enable-secure-token.md)
 
-        * (Опционально) Чтобы ограничить доступ к контенту ресурса с помощью [политики доступа по IP-адресам](../../concepts/ip-address-acl.md), включите опцию **Доступ по IP-адресам**:
+        * (Опционально) Чтобы ограничить доступ к контенту ресурса с помощью [политики доступа по IP-адресам](../../concepts/ip-address-acl.md), включите опцию **{{ ui-key.yacloud.cdn.field_address-acl }}**:
           
           * Выберите тип политики доступа:
           
-              * `Запретить для всех, кроме` — разрешающая политика. Доступ к контенту ресурса будет разрешен для любых IP-адресов, кроме адресов, заданных ниже.
-              * `Разрешить для всех, кроме` — блокирующая политика. Доступ к контенту ресурса будет запрещен для любых IP-адресов, кроме адресов, заданных ниже.
+              * `{{ ui-key.yacloud.cdn.field_address-acl_policy-type_deny }}` — разрешающая политика. Доступ к контенту ресурса будет разрешен для любых IP-адресов, кроме адресов, заданных ниже.
+              * `{{ ui-key.yacloud.cdn.field_address-acl_policy-type_allow }}` — блокирующая политика. Доступ к контенту ресурса будет запрещен для любых IP-адресов, кроме адресов, заданных ниже.
           
-          * В поле **Список IP-адресов** укажите список IP-адресов, [исключенных](../../concepts/ip-address-acl.md#ip-list) из заданной выше политики доступа.
+          * В поле **{{ ui-key.yacloud.cdn.field_address-acl_excepted-values }}** укажите список IP-адресов, [исключенных](../../concepts/ip-address-acl.md#ip-list) из заданной выше политики доступа.
           
               IP-адреса должны быть указаны с префиксом подсети в [нотации CIDR](https://ru.wikipedia.org/wiki/Бесклассовая_адресация) через запятую. Например: `192.168.3.2/32, 192.168.17.0/24`.
 
-  1. Нажмите **Продолжить**.
-  1. (опционально) В разделе **Кеширование**:
+  1. Нажмите **{{ ui-key.yacloud.common.continue }}**.
+  1. (опционально) В разделе **{{ ui-key.yacloud.cdn.label_resource-cache }}**:
 
       {% note tip %}
       
@@ -117,24 +117,24 @@
       
       {% endnote %}
 
-      * В блоке **CDN**:
-        * Включите опцию **Кеширование в CDN**.
-        * Выберите тип настроек: `Как у источника` или `Свои настройки`.
+      * В блоке **{{ ui-key.yacloud.cdn.label_resource-cache-cdn-cache }}**:
+        * Включите опцию **{{ ui-key.yacloud.cdn.label_resource-cache-cdn-cache-enabled }}**.
+        * Выберите тип настроек: `{{ ui-key.yacloud.cdn.label_resource-cache-cdn-cache-settings-type-source-settings }}` или `{{ ui-key.yacloud.cdn.label_resource-cache-cdn-cache-settings-type-custom-settings }}`.
         * Выберите время жизни кеша из списка.
-        * (Опционально) Для типа настроек `Свои настройки` задайте время жизни кеша для нужных HTTP-кодов ответа.
-      * В блоке **Браузер**:
-        * Включите опцию **Кеширование в браузере**.
+        * (Опционально) Для типа настроек `{{ ui-key.yacloud.cdn.label_resource-cache-cdn-cache-settings-type-custom-settings }}` задайте время жизни кеша для нужных HTTP-кодов ответа.
+      * В блоке **{{ ui-key.yacloud.cdn.label_resource-cache-browser-cache }}**:
+        * Включите опцию **{{ ui-key.yacloud.cdn.label_resource-cache-browser-cache-enabled }}**.
         * Выберите время жизни кеша из списка.
-      * В блоке **Дополнительно**:
+      * В блоке **{{ ui-key.yacloud.cdn.label_additional }}**:
         * Выберите опцию игнорирования Cookie.
         * Выберите опцию игнорирования Query-параметров.
-      * Чтобы контент отправлялся клиентам с CDN-серверов в сжатом виде, выберите опцию **gzip-сжатие**.
+      * Чтобы контент отправлялся клиентам с CDN-серверов в сжатом виде, выберите опцию **{{ ui-key.yacloud.cdn.label_resource-content-gzip-on }}**.
 
         Контент будет отправляться в формате gzip и с HTTP-заголовком `Content-Encoding`. Из источников будет запрашиваться только несжатый контент.
 
         [Подробнее о сжатии файлов](enable-compression.md)
 
-      * Чтобы файлы объемом больше 10 МБ запрашивались и кешировались по частям, каждая размером не больше 10 МБ, выберите опцию **Сегментация больших файлов**.
+      * Чтобы файлы объемом больше 10 МБ запрашивались и кешировались по частям, каждая размером не больше 10 МБ, выберите опцию **{{ ui-key.yacloud.cdn.label_resource-content-slice }}**.
 
         Чтобы сегментация работала, источники контента должны поддерживать частичные GET-запросы с заголовком `Range`.
 
@@ -142,8 +142,8 @@
 
       [Подробнее о кешировании](configure-caching.md)
 
-  1. Нажмите **Продолжить**.
-  1. В разделе **HTTP-заголовки и методы**:
+  1. Нажмите **{{ ui-key.yacloud.common.continue }}**.
+  1. В разделе **{{ ui-key.yacloud.cdn.label_resource-http-headers }}**:
 
       {% note tip %}
       
@@ -151,31 +151,31 @@
       
       {% endnote %}
 
-      * В блоке **Заголовки запроса к источнику**:
-        * В поле **Заголовок** нажмите **Добавить**.
+      * В блоке **{{ ui-key.yacloud.cdn.label_resource-http-headers-request-headers }}**:
+        * В поле **{{ ui-key.yacloud.cdn.label_headers }}** нажмите **{{ ui-key.yacloud.common.add }}**.
         * Введите имена и значения нужных заголовков.
-      * В блоке **Заголовки ответа клиенту**:
-        * В поле **Заголовок** нажмите **Добавить**.
+      * В блоке **{{ ui-key.yacloud.cdn.label_resource-http-headers-response-headers }}**:
+        * В поле **{{ ui-key.yacloud.cdn.label_headers }}** нажмите **{{ ui-key.yacloud.common.add }}**.
         * Введите имена и значения нужных заголовков.
 
         [Подробнее о настройке HTTP-заголовков запросов и ответов](configure-headers.md)
-      * В блоке **CORS при ответе клиенту**:
-        * В поле **Заголовок Access-Control-Allow-Origin** укажите, нужно ли добавлять этот заголовок к ответам.
-        * При добавлении заголовка выберите, при каких значениях заголовка `Origin` разрешен доступ к контенту. Чтобы разрешить доступ только определенным источникам, выберите `Как в Origin, если входит в список`, укажите доменные имена источников и нажмите кнопку **Добавить доменное имя**.
+      * В блоке **{{ ui-key.yacloud.cdn.label_resource-http-headers-cors }}**:
+        * В поле **{{ ui-key.yacloud.cdn.label_resource-http-headers-cors-access }}** укажите, нужно ли добавлять этот заголовок к ответам.
+        * При добавлении заголовка выберите, при каких значениях заголовка `Origin` разрешен доступ к контенту. Чтобы разрешить доступ только определенным источникам, выберите `{{ ui-key.yacloud.cdn.label_resource-http-headers-cors-settings-http-origin-for-source-domains }}`, укажите доменные имена источников и нажмите кнопку **{{ ui-key.yacloud.cdn.button_add-domain }}**.
 
         [Подробнее о настройке CORS при ответах клиентам](configure-cors.md)
 
-      * В блоке **Методы запросов от клиентов** выберите **Разрешенные методы** из выпадающего списка.
+      * В блоке **{{ ui-key.yacloud.cdn.label_resource-http-headers-http-methods }}** выберите **{{ ui-key.yacloud.cdn.label_resource-http-headers-allowed-methods }}** из выпадающего списка.
 
         {% note info %}
-        
-        По умолчанию метод `POST` недоступен в запросах клиентов. Чтобы включить использование метода, обратитесь в [техническую поддержку](https://center.yandex.cloud/support). При запросе опишите сценарий использования.
-        
+
+        По умолчанию методы `POST`, `PUT`, `PATCH`, `DELETE` недоступны в запросах клиентов. Чтобы узнать о возможности использования этих методов, обратитесь в [техническую поддержку]({{ link-console-support }}). При запросе опишите сценарий использования.
+
         {% endnote %}
 
         [Подробнее о настройке HTTP-методов](configure-http.md)
 
-      * В блоке **Настройки ответа** настройте HTTP-ответ, если необходимо.
+      * В блоке **{{ ui-key.yacloud.cdn.CdnResourceFormWizard.section_wizard-static-response_6DKzY }}** настройте HTTP-ответ, если необходимо.
 
           [Подробнее о настройке HTTP-ответа](configure-response.md).
 
@@ -191,14 +191,14 @@
       * В блоке **Настройки выгрузки логов** включите выгрузку.
 
         [Подробнее о выгрузке логов](configure-logs.md)
-      * В блоке **Настройки экранирования источников** включите экранирование и в поле **Локация** выберите необходимую локацию.
+      * В блоке **Настройки экранирования источников** включите экранирование и в поле **{{ ui-key.yacloud.cdn.label_shielding-location }}** выберите необходимую локацию.
 
         [Подробнее об экранировании](enable-shielding.md)
-  1. Нажмите **Продолжить**.
+  1. Нажмите **{{ ui-key.yacloud.common.continue }}**.
 
 - CLI {#cli}
 
-  Если у вас еще нет интерфейса командной строки Yandex Cloud (CLI), [установите и инициализируйте его](../../../cli/quickstart.md#install).
+  Если у вас еще нет интерфейса командной строки {{ yandex-cloud }} (CLI), [установите и инициализируйте его](../../../cli/quickstart.md#install).
 
   По умолчанию используется каталог, указанный при [создании](../../../cli/operations/profile/profile-create.md) профиля CLI. Чтобы изменить каталог по умолчанию, используйте команду `yc config set folder-id <идентификатор_каталога>`. Также для любой команды вы можете указать другой каталог с помощью параметров `--folder-name` или `--folder-id`. Если вы обращаетесь к ресурсу по имени, поиск будет выполнен в каталоге по умолчанию. Если вы обращаетесь к ресурсу по идентификатору, поиск будет выполнен глобально — во всех каталогах с учетом прав доступа.
 
@@ -263,7 +263,7 @@
      * `--dont-use-ssl-cert` — не использовать сертификат. Ресурс будет доступен только по протоколу HTTP.
      * `--cert-manager-ssl-cert-id` — идентификатор сертификата. Ресурс будет доступен по протоколам HTTP и HTTPS.
      
-       Поддерживаются сертификаты из [Yandex Certificate Manager](../../../certificate-manager/index.md). Вы можете [выпустить новый сертификат Let's Encrypt®](../../../certificate-manager/operations/managed/cert-create.md) или [загрузить собственный](../../../certificate-manager/operations/import/cert-create.md).
+       Поддерживаются сертификаты из [{{ certificate-manager-full-name }}](../../../certificate-manager/index.md). Вы можете [выпустить новый сертификат Let's Encrypt®](../../../certificate-manager/operations/managed/cert-create.md) или [загрузить собственный](../../../certificate-manager/operations/import/cert-create.md).
        
        Сертификат должен находиться в том же [каталоге](../../../resource-manager/concepts/resources-hierarchy.md#folder), в котором расположен ваш CDN-ресурс.
 
@@ -291,7 +291,7 @@
      * `--secure-key` — секретный ключ — произвольная строка длиной от 6 до 32 символов.
      * `--enable-ip-url-signing` — (опционально) параметр, который включает ограничение доступа к CDN-ресурсу по IP-адресу. Сам доверенный IP-адрес задается вне CDN-ресурса и указывается в качестве параметра при формировании [MD5](https://ru.wikipedia.org/wiki/MD5)-хэша для [подписанной ссылки](../../concepts/secure-tokens.md#protected-link). Если параметр не задан, доступ к файлам будет разрешен с любых IP-адресов.
      
-     См. также [Настройка доступа по защищенному токену](enable-secure-token.md).
+     См. также [{#T}](enable-secure-token.md).
      
      Если вы хотите ограничить доступ к контенту ресурса с помощью [политики доступа по IP-адресам](../../concepts/ip-address-acl.md), используйте параметры:
      
@@ -306,15 +306,18 @@
 
      Подробнее о команде `yc cdn resource create` см. в [справочнике CLI](../../../cli/cli-ref/cdn/cli-ref/resource/create.md).
 
-- Terraform {#tf}
+- {{ TF }} {#tf}
 
-  [Terraform](https://www.terraform.io/) позволяет быстро создать облачную инфраструктуру в Yandex Cloud и управлять ею с помощью файлов конфигураций. В файлах конфигураций хранится описание инфраструктуры на языке HCL (HashiCorp Configuration Language). При изменении файлов конфигураций Terraform автоматически определяет, какая часть вашей конфигурации уже развернута, что следует добавить или удалить.
+  [{{ TF }}](https://www.terraform.io/) позволяет быстро создать облачную инфраструктуру в {{ yandex-cloud }} и управлять ею с помощью файлов конфигураций. В файлах конфигураций хранится описание инфраструктуры на языке HCL (HashiCorp Configuration Language). При изменении файлов конфигураций {{ TF }} автоматически определяет, какая часть вашей конфигурации уже развернута, что следует добавить или удалить.
   
-  Terraform распространяется под лицензией [Business Source License](https://github.com/hashicorp/terraform/blob/main/LICENSE), а [провайдер Yandex Cloud для Terraform](https://github.com/yandex-cloud/terraform-provider-yandex) — под лицензией [MPL-2.0](https://www.mozilla.org/en-US/MPL/2.0/).
+  {{ TF }} распространяется под лицензией [Business Source License](https://github.com/hashicorp/terraform/blob/main/LICENSE), а [провайдер {{ yandex-cloud }} для {{ TF }}](https://github.com/yandex-cloud/terraform-provider-yandex) — под лицензией [MPL-2.0](https://www.mozilla.org/en-US/MPL/2.0/).
   
-  Подробную информацию о ресурсах провайдера смотрите в документации на сайте [Terraform](https://www.terraform.io/docs/providers/yandex/index.html) или в [зеркале](../../../terraform/index.md).
+  Подробную информацию о ресурсах провайдера смотрите в документации на сайте [{{ TF }}](https://www.terraform.io/docs/providers/yandex/index.html) или в [зеркале]({{ tf-docs-link }}).
 
-  Если у вас еще нет Terraform, [установите его и настройте провайдер Yandex Cloud](../../../tutorials/infrastructure-management/terraform-quickstart.md#install-terraform).
+  Если у вас еще нет {{ TF }}, [установите его и настройте провайдер {{ yandex-cloud }}](../../../tutorials/infrastructure-management/terraform-quickstart.md#install-terraform).
+  
+  
+  Чтобы управлять инфраструктурой с помощью {{ TF }} от имени сервисного аккаунта или пользовательских аккаунтов: аккаунта на Яндексе, федеративного аккаунта и локального пользователя, [аутентифицируйтесь](../../../terraform/authentication.md) соответствующим способом.
 
   1. Опишите в конфигурационном файле параметры создаваемого CDN-ресурса:
 
@@ -348,7 +351,7 @@
      * `origin_protocol` — протокол для источников. Значение по умолчанию: `http`. Необязательный параметр.
      * `origin_group_id` — идентификатор [группы источников](../../concepts/origins.md). Обязательный параметр. Используйте идентификатор из описания группы источников в ресурсе `yandex_cdn_origin_group`.
      * `secondary_hostnames` — дополнительные доменные имена. Необязательный параметр.
-     * `provider_type` — провайдер CDN. Необязательный параметр. Единственное возможное значение: `ourcdn` — провайдер Yandex Cloud CDN.
+     * `provider_type` — провайдер CDN. Необязательный параметр. Единственное возможное значение: `ourcdn` — провайдер {{ cdn-full-name }}.
      * `ssl_certificate` — параметры SSL-сертификата. Необязательный параметр. Возможные значения:
      
          * `type` — тип сертификата:
@@ -356,11 +359,11 @@
              * `not_used` — без сертификата. Значение по умолчанию.
              * `certificate_manager` — пользовательский сертификат. Укажите идентификатор сертификата в параметре `certificate_manager_id`.
      
-               Поддерживаются сертификаты из [Yandex Certificate Manager](../../../certificate-manager/index.md). Вы можете [выпустить новый сертификат Let's Encrypt®](../../../certificate-manager/operations/managed/cert-create.md) или [загрузить собственный](../../../certificate-manager/operations/import/cert-create.md).
+               Поддерживаются сертификаты из [{{ certificate-manager-full-name }}](../../../certificate-manager/index.md). Вы можете [выпустить новый сертификат Let's Encrypt®](../../../certificate-manager/operations/managed/cert-create.md) или [загрузить собственный](../../../certificate-manager/operations/import/cert-create.md).
                
                Сертификат должен находиться в том же [каталоге](../../../resource-manager/concepts/resources-hierarchy.md#folder), в котором расположен ваш CDN-ресурс.
      
-         * `certificate_manager_id` — идентификатор пользовательского сертификата в Certificate Manager.
+         * `certificate_manager_id` — идентификатор пользовательского сертификата в {{ certificate-manager-name }}.
      
      * `options` — дополнительные параметры CDN-ресурса. Необязательный параметр. Возможные значения:
      
@@ -382,7 +385,7 @@
      
          {% endnote %}
      
-     Более подробную информацию о параметрах `yandex_cdn_resource` в Terraform см. в [документации провайдера](../../../terraform/resources/cdn_resource.md).
+     Более подробную информацию о параметрах `yandex_cdn_resource` в {{ TF }} см. в [документации провайдера]({{ tf-provider-resources-link }}/cdn_resource).
 
   1. Создайте ресурсы:
 
@@ -405,7 +408,7 @@
         terraform plan
         ```
      
-        В терминале будет выведен список ресурсов с параметрами. На этом этапе изменения не будут внесены. Если в конфигурации есть ошибки, Terraform на них укажет.
+        В терминале будет выведен список ресурсов с параметрами. На этом этапе изменения не будут внесены. Если в конфигурации есть ошибки, {{ TF }} на них укажет.
      1. Примените изменения конфигурации:
      
         ```bash
@@ -414,7 +417,7 @@
      
      1. Подтвердите изменения: введите в терминале слово `yes` и нажмите **Enter**.
 
-     Terraform создаст все требуемые ресурсы. Проверить создание CDN-ресурса можно в [консоли управления](https://console.yandex.cloud) или с помощью команды CLI:
+     {{ TF }} создаст все требуемые ресурсы. Проверить создание CDN-ресурса можно в [консоли управления]({{ link-console-main }}) или с помощью команды CLI:
 
      ```bash
      yc cdn resource list
@@ -430,12 +433,12 @@
 
 Дождитесь создания ресурса. На это может потребоваться до 15 минут.
 
-После того как CDN-ресурс был создан, [узнайте](get-resources-info.md#get-cname) доменное имя CDN-провайдера и создайте для указанного имени [ресурсную запись CNAME](../../../dns/concepts/resource-record.md#cname) в настройках вашего DNS-хостинга, например в [Yandex Cloud DNS](../../../dns/operations/resource-record-create.md). Подробнее см. в разделе [Доменные имена для раздачи контента](../../concepts/resource.md#hostnames).
+После того как CDN-ресурс был создан, [узнайте](get-resources-info.md#get-cname) доменное имя CDN-провайдера и создайте для указанного имени [ресурсную запись CNAME](../../../dns/concepts/resource-record.md#cname) в настройках вашего DNS-хостинга, например в [{{ dns-full-name }}](../../../dns/operations/resource-record-create.md). Подробнее см. в разделе [{#T}](../../concepts/resource.md#hostnames).
 
 Пример ресурсной записи:
 
 ```text
-cdn.example.com. CNAME e1b83ae3********.topology.gslb.yccdn.ru
+cdn.example.com. CNAME {{ cname-example-yc }}
 ```
 
 Новый ресурс начнет корректно работать после того, как запись CNAME, которую вы создали в своем DNS-хостинге (см. [раздел о доменных именах для раздачи контента](../../concepts/resource.md#hostnames)), распространится по серверам DNS. На это может потребоваться несколько часов.

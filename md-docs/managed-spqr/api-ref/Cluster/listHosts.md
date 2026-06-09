@@ -5,7 +5,7 @@ Retrieves a list of hosts for the specified cluster.
 ## HTTP request
 
 ```
-GET https://mdb.api.cloud.yandex.net/managed-spqr/v1/clusters/{clusterId}/hosts
+GET https://{{ api-host-mdb }}/managed-spqr/v1/clusters/{clusterId}/hosts
 ```
 
 ## Path parameters
@@ -113,7 +113,6 @@ Each subsequent list request will have its own `nextPageToken` to continue pagin
 
 Name of the SPQR host. The host name is assigned by MDB at creation time, and cannot be changed.
 1-63 characters long.
-
 The name is unique across all MDB hosts that exist on the platform, as it defines the FQDN of the host. ||
 || clusterId | **string**
 

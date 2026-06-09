@@ -5,7 +5,7 @@ Retrieves logs for the specified Greenplum® cluster.
 ## HTTP request
 
 ```
-GET https://mdb.api.cloud.yandex.net/managed-greenplum/v1/clusters/{clusterId}:logs
+GET https://{{ api-host-mdb }}/managed-greenplum/v1/clusters/{clusterId}:logs
 ```
 
 ## Path parameters

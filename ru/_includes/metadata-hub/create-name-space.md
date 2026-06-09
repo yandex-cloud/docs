@@ -13,7 +13,7 @@
         * `FULL`: новая схема совместима вперед и назад с последней зарегистрированной схемой;
         * `FULL_TRANSITIVE`: новая схема совместима вперед и назад со всеми ранее зарегистрированными схемами;
         * `NONE`: проверки совместимости схемы отключены.
-          Подробнее о типах совместимости схем см. в [документации Confluent](https://docs.confluent.io/platform/current/schema-registry/fundamentals/schema-evolution.html#compatibility-types).
+          Подробнее о типах совместимости схем в [документации Confluent](https://docs.confluent.io/platform/current/schema-registry/fundamentals/schema-evolution.html#compatibility-types).
     1. Выберите [политику проверки совместимости](../../metadata-hub/concepts/compatibility-check-policy.md) для JSON-схем:
         * `optional-friendly` — основывается на [решении](#optional-parameters-compatibility-solution) с использованием разных контентных моделей для производителя и потребителя. Поддерживает добавление и удаление опциональных параметров с сохранением полной транзитивной совместимости.
         * `Confluent` — основывается на стандартах [Confluent Schema Registry](https://docs.confluent.io/platform/current/schema-registry/fundamentals/schema-evolution.html#compatibility-types) и не обеспечивает полную совместимость при добавлении и удалении опциональных параметров.

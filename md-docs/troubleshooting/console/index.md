@@ -1,9 +1,9 @@
-# Решения для Cloud Console
+# Решения для {{ console-name }}
 
-## Примеры сценариев использования Cloud Console {#configuration-examples}
+## Примеры сценариев использования {{ console-name }} {#configuration-examples}
 
 * [Как увеличить квоты](how-to/increase-quota.md)
 
-## Решения для известных проблем Cloud Console {#known-issues-resolving}
+## Решения для известных проблем {{ console-name }} {#known-issues-resolving}
 
-* [Устранение ошибки подключения к Cloud Console](known-issues/console-connection-timeout.md)
+* [Устранение ошибки подключения к {{ console-name }}](known-issues/console-connection-timeout.md)

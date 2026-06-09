@@ -6,7 +6,7 @@ The updated configuration could take up to 30 minutes to apply to the bucket.
 ## HTTP request
 
 ```
-POST https://storage.api.cloud.yandex.net/storage/v1/buckets/{name}:setHttpsConfig
+POST https://storage.{{ api-host }}/storage/v1/buckets/{name}:setHttpsConfig
 ```
 
 ## Path parameters

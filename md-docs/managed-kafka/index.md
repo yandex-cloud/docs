@@ -1,16 +1,4 @@
-# Yandex Managed Service for Apache Kafka®
 
-Сервис Managed Service for Apache Kafka<sup>®</sup> помогает разворачивать и поддерживать кластеры серверов Apache Kafka<sup>®</sup> версий 3.6, 3.7, 3.8, 3.9 или 4.0 в инфраструктуре Yandex Cloud.
-
-Инфраструктура Yandex Cloud <a href="../security/conform.md">защищена</a> в соответствии со следующими стандартами:
-
-<ul> <li>Федеральный закон Российской Федерации «О персональных данных» № 152-ФЗ.</li> <li>Стандарт безопасности индустрии платежных карт (PCI DSS).</li> <li>Стандарт ISO 27001.</li> <li>Стандарт ISO 27017.</li> <li>Стандарт ISO 27018.</li> <li>ГОСТ 57580.1-2017.</li> </ul>
-
-Для сервиса действует <a href="https://yandex.ru/legal/cloud_sla">соглашение об уровне обслуживания</a>.
-
-Уровень обслуживания сервиса определен в документе <a href="https://yandex.ru/legal/cloud_sla_mdb">Уровень обслуживания Yandex Managed Databases</a>.
-
-<em>Apache<sup>®</sup> и Apache Kafka<sup>®</sup> являются зарегистрированными товарными знаками или товарными знаками Apache Software Foundation в США и/или других странах.</em>
 
 # Yandex Managed Service for Apache Kafka®
 
@@ -28,7 +16,7 @@
 
  - [Изменение настроек кластера](operations/cluster-update.md)
 
- - [Обновление версии Apache Kafka®](operations/cluster-version-update.md)
+ - [Обновление версии {{ KF }}](operations/cluster-version-update.md)
 
  - [Управление дисковым пространством](operations/storage-space.md)
 
@@ -36,7 +24,7 @@
 
  - [Получение списка хостов кластера](operations/cluster-hosts.md)
 
- - [Получение патч-версии Apache Kafka®](operations/cluster-patch-version.md)
+ - [Получение патч-версии {{ KF }}](operations/cluster-patch-version.md)
 
  - [Миграция хостов в другую зону доступности](operations/host-migration.md)
 
@@ -60,7 +48,7 @@
 
  - [Управление коннекторами](operations/cluster-connector.md)
 
- - [Веб-интерфейс Kafka UI для Apache Kafka®](operations/kafka-ui-enable.md)
+ - [Веб-интерфейс {{ kafka-ui }} для {{ KF }}](operations/kafka-ui-enable.md)
 
 ### Логи и мониторинг
 
@@ -72,69 +60,69 @@
 
  - [Все руководства](tutorials/index.md)
 
- - [Самостоятельное развертывание веб-интерфейса Apache Kafka®](tutorials/deploy-kafka-ui.md)
+ - [Самостоятельное развертывание веб-интерфейса {{ KF }}](tutorials/deploy-kafka-ui.md)
 
- - [Обновление кластера Managed Service for Apache Kafka® с ZooKeeper на KRaft](tutorials/zk-kraft-kafka-migration.md)
+ - [Обновление кластера {{ mkf-name }} с {{ ZK }} на {{ kraft-short-name }}](tutorials/zk-kraft-kafka-migration.md)
 
-### Перемещение данных из Apache Kafka®
+### Перемещение данных из {{ KF }}
 
- - [Настройка Kafka Connect для работы с Managed Service for Apache Kafka®](tutorials/kafka-connect.md)
+ - [Настройка {{ KFC }} для работы с {{ mkf-name }}](tutorials/kafka-connect.md)
 
- - [Миграция базы данных из стороннего кластера Apache Kafka®](tutorials/kafka-connectors.md)
+ - [Миграция базы данных из стороннего кластера {{ KF }}](tutorials/kafka-connectors.md)
 
- - [Перенос данных между кластерами Managed Service for Apache Kafka® с помощью Yandex Data Transfer](tutorials/mkf-to-mkf-transfer.md)
+ - [Перенос данных между кластерами {{ mkf-name }} с помощью {{ data-transfer-full-name }}](tutorials/mkf-to-mkf-transfer.md)
 
-### Использование схем формата данных с Managed Service for Apache Kafka®
+### Использование схем формата данных с {{ mkf-name }}
 
- - [Управление схемами данных в Managed Service for Apache Kafka®](tutorials/schema-registry-overview.md)
+ - [Управление схемами данных в {{ mkf-name }}](tutorials/schema-registry-overview.md)
 
  - [Работа с управляемым реестром схем формата данных](tutorials/managed-schema-registry.md)
 
  - [Работа с управляемым реестром схем формата данных с помощью REST API](tutorials/managed-schema-registry-rest.md)
 
- - [Использование Confluent Schema Registry с Managed Service for Apache Kafka®](tutorials/confluent-schema-registry.md)
+ - [Использование Confluent Schema Registry с {{ mkf-short-name }}](tutorials/confluent-schema-registry.md)
 
-### Поставка данных с помощью Data Transfer
+### Поставка данных с помощью {{ data-transfer-name }}
 
- - [Поставка из PostgreSQL в Apache Kafka®](tutorials/cdc/data-transfer-mpg.md)
+ - [Поставка из {{ PG }} в {{ KF }}](tutorials/cdc/data-transfer-mpg.md)
 
- - [Поставка из Apache Kafka® в PostgreSQL](tutorials/mkf-to-mpg.md)
+ - [Поставка из {{ KF }} в {{ PG }}](tutorials/mkf-to-mpg.md)
 
- - [Поставка из YDB в Apache Kafka®](tutorials/cdc/data-transfer-ydb.md)
+ - [Поставка из {{ ydb-short-name }} в {{ KF }}](tutorials/cdc/data-transfer-ydb.md)
 
- - [Поставка из Apache Kafka® в YDB](tutorials/mkf-ydb-stream.md)
+ - [Поставка из {{ KF }} в {{ ydb-short-name }}](tutorials/mkf-ydb-stream.md)
 
- - [Поставка из Apache Kafka® в ClickHouse®](tutorials/mkf-to-mch-migration.md)
+ - [Поставка из {{ KF }} в {{ CH }}](tutorials/mkf-to-mch-migration.md)
 
- - [Поставка из Apache Kafka® в Data Streams](tutorials/mkf-yds-stream.md)
+ - [Поставка из {{ KF }} в {{ yds-name }}](tutorials/mkf-yds-stream.md)
 
- - [Поставка из Data Streams в Apache Kafka®](tutorials/yds-to-kafka.md)
+ - [Поставка из {{ yds-name }} в {{ KF }}](tutorials/yds-to-kafka.md)
 
- - [Поставка из Apache Kafka® в Greenplum®](tutorials/managed-kafka-to-greenplum.md)
+ - [Поставка из {{ KF }} в {{ GP }}](tutorials/managed-kafka-to-greenplum.md)
 
- - [Поставка из Apache Kafka® в Yandex StoreDoc](tutorials/mkf-to-mmg-migration.md)
+ - [Поставка из {{ KF }} в {{ SD }}](tutorials/mkf-to-mmg-migration.md)
 
- - [Поставка из MySQL® в Apache Kafka®](tutorials/cdc/cdc-mmy.md)
+ - [Поставка из {{ MY }} в {{ KF }}](tutorials/cdc/cdc-mmy.md)
 
- - [Поставка из Apache Kafka® в MySQL®](tutorials/mkf-to-mmy-migration.md)
+ - [Поставка из {{ KF }} в {{ MY }}](tutorials/mkf-to-mmy-migration.md)
 
- - [Поставка из Apache Kafka® в OpenSearch](tutorials/mkf-to-mos-migration.md)
+ - [Поставка из {{ KF }} в {{ OS }}](tutorials/mkf-to-mos-migration.md)
 
 ### Поставка данных другими способами
 
- - [Поставка из PostgreSQL с помощью Debezium](tutorials/cdc/debezium-mpg.md)
+ - [Поставка из {{ PG }} с помощью Debezium](tutorials/cdc/debezium-mpg.md)
 
- - [Поставка из MySQL® с помощью Debezium](tutorials/cdc/debezium-mmy.md)
+ - [Поставка из {{ MY }} с помощью Debezium](tutorials/cdc/debezium-mmy.md)
 
- - [Поставка в ClickHouse®](tutorials/send-data-to-mch.md)
+ - [Поставка в {{ CH }}](tutorials/send-data-to-mch.md)
 
  - [Поставка в ksqlDB](tutorials/use-ksqldb-with-mkf.md)
 
- - [Синхронизация топиков Apache Kafka® в Object Storage без использования интернета](tutorials/kafka-topic-s3-sync-private.md)
+ - [Синхронизация топиков {{ KF }} в {{ objstorage-name }} без использования интернета](tutorials/kafka-topic-s3-sync-private.md)
 
- - [Работа с топиками Apache Kafka® с помощью Yandex Data Processing](tutorials/data-processing.md)
+ - [Работа с топиками {{ KF }} с помощью {{ dataproc-name }}](tutorials/data-processing.md)
 
- - [Отслеживание потери сообщений в топике Apache Kafka®](tutorials/retention-policy.md)
+ - [Отслеживание потери сообщений в топике {{ KF }}](tutorials/retention-policy.md)
 
 ## Концепции
 
@@ -144,7 +132,7 @@
 
  - [Брокеры](concepts/brokers.md)
 
- - [Протокол KRaft](concepts/kraft.md)
+ - [Протокол {{ kraft-short-name }}](concepts/kraft.md)
 
  - [Производители и потребители](concepts/producers-consumers.md)
 
@@ -152,27 +140,27 @@
 
  - [Управление схемами данных](concepts/managed-schema-registry.md)
 
- - [Веб-интерфейс для Apache Kafka®](concepts/kafka-ui.md)
+ - [Веб-интерфейс для {{ KF }}](concepts/kafka-ui.md)
 
- - [API в Managed Service for Apache Kafka®](concepts/available-apis.md)
+ - [API в {{ mkf-name }}](concepts/available-apis.md)
 
  - [Классы хостов](concepts/instance-types.md)
 
  - [Высокая доступность кластера](concepts/ha-cluster.md)
 
- - [Сеть в Managed Service for Apache Kafka®](concepts/network.md)
+ - [Сеть в {{ mkf-name }}](concepts/network.md)
 
  - [Квоты и лимиты](concepts/limits.md)
 
- - [Хранилище в Managed Service for Apache Kafka®](concepts/storage.md)
+ - [Хранилище в {{ mkf-name }}](concepts/storage.md)
 
  - [Коннекторы](concepts/connectors.md)
 
  - [Техническое обслуживание](concepts/maintenance.md)
 
- - [Настройки Apache Kafka®](concepts/settings-list.md)
+ - [Настройки {{ KF }}](concepts/settings-list.md)
 
- - [Политика работы с версиями Apache Kafka®](concepts/update-policy.md)
+ - [Политика работы с версиями {{ KF }}](concepts/update-policy.md)
 
  - [Управление доступом](security/index.md)
 
@@ -398,7 +386,7 @@
 
  - [update](cli-ref/v0/user/update.md)
 
- - [Справочник Terraform](tf-ref.md)
+ - [Справочник {{ TF }}](tf-ref.md)
 
 ## Справочник API
 
@@ -616,9 +604,9 @@
 
  - [RevokePermission](api-ref/User/revokePermission.md)
 
- - [Метрики Yandex Monitoring](metrics.md)
+ - [Метрики {{ monitoring-full-name }}](metrics.md)
 
- - [Аудитные логи Audit Trails](at-ref.md)
+ - [Аудитные логи {{ at-name }}](at-ref.md)
 
  - [Публичные материалы](public-talks.md)
 

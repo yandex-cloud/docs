@@ -1,6 +1,7 @@
 # Загрузка аудитных логов в SIEM KUMA с помощью консоли управления, CLI или API
 
-# Загрузка аудитных логов Yandex Audit Trails в SIEM KUMA с помощью консоли управления, CLI или API
+# Загрузка аудитных логов {{ at-full-name }} в SIEM KUMA с помощью консоли управления, CLI или API
+
 
 Чтобы настроить доставку файлов [аудитных логов](../../concepts/format.md) в [KUMA](https://www.kaspersky.ru/enterprise-security/unified-monitoring-and-analysis-platform):
 
@@ -17,25 +18,25 @@
 
 ## Подготовьте облако к работе {#before-you-begin}
 
-Зарегистрируйтесь в Yandex Cloud и создайте [платежный аккаунт](../../../billing/concepts/billing-account.md):
-1. Перейдите в [консоль управления](https://console.yandex.cloud), затем войдите в Yandex Cloud или зарегистрируйтесь.
-1. На странице **[Yandex Cloud Billing](https://center.yandex.cloud/billing/accounts)** убедитесь, что у вас подключен платежный аккаунт, и он находится в [статусе](../../../billing/concepts/billing-account-statuses.md) `ACTIVE` или `TRIAL_ACTIVE`. Если платежного аккаунта нет, [создайте его](../../../billing/quickstart/index.md) и [привяжите](../../../billing/operations/pin-cloud.md) к нему облако.
+Зарегистрируйтесь в {{ yandex-cloud }} и создайте [платежный аккаунт](../../../billing/concepts/billing-account.md):
+1. Перейдите в [консоль управления]({{ link-console-main }}), затем войдите в {{ yandex-cloud }} или зарегистрируйтесь.
+1. На странице **[{{ ui-key.yacloud_billing.billing.label_service }}]({{ link-console-billing }})** убедитесь, что у вас подключен платежный аккаунт, и он находится в [статусе](../../../billing/concepts/billing-account-statuses.md) `ACTIVE` или `TRIAL_ACTIVE`. Если платежного аккаунта нет, [создайте его](../../../billing/quickstart/index.md) и [привяжите](../../../billing/operations/pin-cloud.md) к нему облако.
 
-Если у вас есть активный платежный аккаунт, вы можете создать или выбрать [каталог](../../../resource-manager/concepts/resources-hierarchy.md#folder), в котором будет работать ваша инфраструктура, на [странице облака](https://console.yandex.cloud/cloud).
+Если у вас есть активный платежный аккаунт, вы можете создать или выбрать [каталог](../../../resource-manager/concepts/resources-hierarchy.md#folder), в котором будет работать ваша инфраструктура, на [странице облака]({{ link-console-cloud }}).
 
 [Подробнее об облаках и каталогах](../../../resource-manager/concepts/resources-hierarchy.md).
 
 
 ### Необходимые платные ресурсы {#paid-resources}
 
-В стоимость поддержки создаваемой инфраструктуры Yandex Cloud входят:
+В стоимость поддержки создаваемой инфраструктуры {{ yandex-cloud }} входят:
 
-* плата за хранение данных, операции с данными, а также исходящий трафик (см. [тарифы Yandex Object Storage](../../../storage/pricing.md));
-* плата за использование симметричного ключа шифрования и выполнение криптографических операций (см. [тарифы Yandex Key Management Service](../../../kms/pricing.md));
-* (опционально) плата за постоянно запущенную виртуальную машину (см. [тарифы Yandex Compute Cloud](../../../compute/pricing.md));
-* (опционально) плата за использование динамического или статического внешнего IP-адреса (см. [тарифы Yandex Virtual Private Cloud](../../../vpc/pricing.md)).
+* плата за хранение данных, операции с данными, а также исходящий трафик (см. [тарифы {{ objstorage-full-name }}](../../../storage/pricing.md));
+* плата за использование симметричного ключа шифрования и выполнение криптографических операций (см. [тарифы {{ kms-full-name }}](../../../kms/pricing.md));
+* (опционально) плата за постоянно запущенную виртуальную машину (см. [тарифы {{ compute-full-name }}](../../../compute/pricing.md));
+* (опционально) плата за использование динамического или статического внешнего IP-адреса (см. [тарифы {{ vpc-full-name }}](../../../vpc/pricing.md)).
 
-Кроме этого, для прохождения руководства вы должны иметь [лицензию](https://kb.kuma-community.ru/books/kuma-how-to/page/model-licenzirovaniia-kuma) на использование KUMA (не поставляется Yandex Cloud).
+Кроме этого, для прохождения руководства вы должны иметь [лицензию](https://kb.kuma-community.ru/books/kuma-how-to/page/model-licenzirovaniia-kuma) на использование KUMA (не поставляется {{ yandex-cloud }}).
 
 
 ## Подготовьте окружение {#setup-environment}
@@ -44,23 +45,23 @@
 
 Для работы создаваемой инфраструктуры создайте два [сервисных аккаунта](../../../iam/concepts/users/service-accounts.md):
 
-* `kuma-bucket-sa` — для бакета Object Storage.
-* `kuma-trail-sa` — для трейла Audit Trails.
+* `kuma-bucket-sa` — для бакета {{ objstorage-name }}.
+* `kuma-trail-sa` — для трейла {{ at-short-name }}.
 
 {% list tabs group=instructions %}
 
 - Консоль управления {#console}
 
-  1. В [консоли управления](https://console.yandex.cloud) перейдите в каталог, в котором вы создаете инфраструктуру.
-  1. [Перейдите](../../../console/operations/select-service.md#select-service) в сервис **Identity and Access Management**.
-  1. Нажмите **Создать сервисный аккаунт**.
+  1. В [консоли управления]({{ link-console-main }}) перейдите в каталог, в котором вы создаете инфраструктуру.
+  1. Перейдите в сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_iam }}**.
+  1. Нажмите **{{ ui-key.yacloud.iam.folder.service-accounts.button_add }}**.
   1. Введите имя сервисного аккаунта для бакета: `kuma-bucket-sa`.
-  1. Нажмите **Создать**.
+  1. Нажмите **{{ ui-key.yacloud.iam.folder.service-account.popup-robot_button_add }}**.
   1. Повторите шаги 3-5, чтобы создать сервисный аккаунт `kuma-trail-sa` для трейла.
 
 - CLI {#cli}
 
-  Если у вас еще нет интерфейса командной строки Yandex Cloud (CLI), [установите и инициализируйте его](../../../cli/quickstart.md#install).
+  Если у вас еще нет интерфейса командной строки {{ yandex-cloud }} (CLI), [установите и инициализируйте его](../../../cli/quickstart.md#install).
 
   По умолчанию используется каталог, указанный при [создании](../../../cli/operations/profile/profile-create.md) профиля CLI. Чтобы изменить каталог по умолчанию, используйте команду `yc config set folder-id <идентификатор_каталога>`. Также для любой команды вы можете указать другой каталог с помощью параметров `--folder-name` или `--folder-id`. Если вы обращаетесь к ресурсу по имени, поиск будет выполнен в каталоге по умолчанию. Если вы обращаетесь к ресурсу по идентификатору, поиск будет выполнен глобально — во всех каталогах с учетом прав доступа.
 
@@ -106,12 +107,12 @@
 
 - Консоль управления {#console}
 
-  1. В [консоли управления](https://console.yandex.cloud) перейдите в каталог, в котором вы создаете инфраструктуру.
-  1. [Перейдите](../../../console/operations/select-service.md#select-service) в сервис **Identity and Access Management**.
-  1. На панели слева выберите ![FaceRobot](../../../_assets/console-icons/face-robot.svg) **Сервисные аккаунты**.
+  1. В [консоли управления]({{ link-console-main }}) перейдите в каталог, в котором вы создаете инфраструктуру.
+  1. Перейдите в сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_iam }}**.
+  1. На панели слева выберите ![FaceRobot](../../../_assets/console-icons/face-robot.svg) **{{ ui-key.yacloud.iam.label_service-accounts }}**.
   1. Выберите сервисный аккаунт `kuma-bucket-sa`.
-  1. На панели сверху нажмите ![image](../../../_assets/console-icons/plus.svg) **Создать новый ключ** и выберите **Создать статический ключ доступа**.
-  1. Задайте описание ключа и нажмите **Создать**.
+  1. На панели сверху нажмите ![image](../../../_assets/console-icons/plus.svg) **{{ ui-key.yacloud.iam.folder.service-account.overview.button_create-key-popup }}** и выберите **{{ ui-key.yacloud.iam.folder.service-account.overview.button_create_service-account-key }}**.
+  1. Задайте описание ключа и нажмите **{{ ui-key.yacloud.iam.folder.service-account.overview.popup-key_button_create }}**.
   1. Сохраните полученные идентификатор и секретный ключ — они понадобятся позднее при монтировании бакета на сервере.
 
       {% note alert %}
@@ -160,15 +161,15 @@
 
 - Консоль управления {#console}
 
-  1. В [консоли управления](https://console.yandex.cloud) перейдите в каталог, в котором вы создаете инфраструктуру.
-  1. [Перейдите](../../../console/operations/select-service.md#select-service) в сервис **Key Management Service**.
-  1. На панели слева выберите ![image](../../../_assets/console-icons/key.svg) **Симметричные ключи**.
-  1. Нажмите **Создать ключ** и задайте атрибуты ключа:
+  1. В [консоли управления]({{ link-console-main }}) перейдите в каталог, в котором вы создаете инфраструктуру.
+  1. Перейдите в сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_kms }}**.
+  1. На панели слева выберите ![image](../../../_assets/console-icons/key.svg) **{{ ui-key.yacloud.kms.switch_symmetric-keys }}**.
+  1. Нажмите **{{ ui-key.yacloud.kms.symmetric-keys.button_empty-create }}** и задайте атрибуты ключа:
 
-      * **Имя** — `kuma-key`.
-      * **Алгоритм шифрования** — `AES-256`.
+      * **{{ ui-key.yacloud.common.name }}** — `kuma-key`.
+      * **{{ ui-key.yacloud.kms.symmetric-key.form.field_algorithm }}** — `AES-256`.
 
-  1. Нажмите **Создать**.
+  1. Нажмите **{{ ui-key.yacloud.common.create }}**.
 
 - CLI {#cli}
 
@@ -235,27 +236,27 @@
 
   1. Назначьте роли на каталог:
 
-      1. В [консоли управления](https://console.yandex.cloud) перейдите в каталог, в котором вы создаете инфраструктуру.
-      1. Перейдите на вкладку **Права доступа**.
-      1. Нажмите **Настроить доступ**.
-      1. В открывшемся окне выберите раздел **Сервисные аккаунты**.
+      1. В [консоли управления]({{ link-console-main }}) перейдите в каталог, в котором вы создаете инфраструктуру.
+      1. Перейдите на вкладку **{{ ui-key.yacloud.common.resource-acl.label_access-bindings }}**.
+      1. Нажмите **{{ ui-key.yacloud.common.resource-acl.button_configure-access }}**.
+      1. В открывшемся окне выберите раздел **{{ ui-key.yacloud_components.acl.label.service-accounts }}**.
       1. В списке выберите сервисный аккаунт `kuma-trail-sa`, при необходимости воспользуйтесь поиском.
-      1. Нажмите ![image](../../../_assets/console-icons/plus.svg) **Добавить роль** и в появившемся окне выберите [роль](../../security/index.md#at-viewer) `audit-trails.viewer`.
+      1. Нажмите ![image](../../../_assets/console-icons/plus.svg) **{{ ui-key.yacloud_components.acl.button.add-role }}** и в появившемся окне выберите [роль](../../security/index.md#at-viewer) `audit-trails.viewer`.
 
           Повторите этот шаг и добавьте [роль](../../../storage/security/index.md#storage-uploader) `storage.uploader`.
 
-      1. Нажмите **Сохранить**.
+      1. Нажмите **{{ ui-key.yacloud_components.acl.action.apply }}**.
 
       Таким же образом назначьте сервисному аккаунту `kuma-bucket-sa` [роль](../../../storage/security/index.md#storage-viewer) `storage.viewer` на каталог.
 
   1. Назначьте роли на ключ шифрования:
 
-      1. [Перейдите](../../../console/operations/select-service.md#select-service) в сервис **Key Management Service**.
-      1. На панели слева выберите ![image](../../../_assets/console-icons/key.svg) **Симметричные ключи** и нажмите на строку с ключом `kuma-key`.
-      1. Перейдите в раздел ![image](../../../_assets/console-icons/persons.svg) **Права доступа** и нажмите **Назначить роли**.
+      1. Перейдите в сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_kms }}**.
+      1. На панели слева выберите ![image](../../../_assets/console-icons/key.svg) **{{ ui-key.yacloud.kms.switch_symmetric-keys }}** и нажмите на строку с ключом `kuma-key`.
+      1. Перейдите в раздел ![image](../../../_assets/console-icons/persons.svg) **{{ ui-key.yacloud.common.resource-acl.label_access-bindings }}** и нажмите **{{ ui-key.yacloud_components.acl.action.assign-roles }}**.
       1. Выберите сервисный аккаунт `kuma-trail-sa`.
-      1. Нажмите ![image](../../../_assets/console-icons/plus.svg) **Добавить роль** и выберите [роль](../../../kms/security/index.md#kms-keys-encrypterDecrypter) `kms.keys.encrypterDecrypter`.
-      1. Нажмите **Сохранить**.
+      1. Нажмите ![image](../../../_assets/console-icons/plus.svg) **{{ ui-key.yacloud_components.acl.button.add-role }}** и выберите [роль](../../../kms/security/index.md#kms-keys-encrypterDecrypter) `kms.keys.encrypterDecrypter`.
+      1. Нажмите **{{ ui-key.yacloud_components.acl.action.apply }}**.
 
       Таким же образом назначьте сервисному аккаунту `kuma-bucket-sa` роль `kms.keys.encrypterDecrypter` на ключ шифрования.
 
@@ -329,23 +330,23 @@
 
 - Консоль управления {#console}
 
-  1. В [консоли управления](https://console.yandex.cloud) перейдите в каталог, в котором вы создаете инфраструктуру.
-  1. [Перейдите](../../../console/operations/select-service.md#select-service) в сервис **Object Storage**.
-  1. Справа сверху нажмите **Создать бакет**.
-  1. В поле **Имя** укажите имя бакета, например `my-audit-logs-for-kuma`.
+  1. В [консоли управления]({{ link-console-main }}) перейдите в каталог, в котором вы создаете инфраструктуру.
+  1. Перейдите в сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_storage }}**.
+  1. Справа сверху нажмите **{{ ui-key.yacloud.storage.buckets.button_create }}**.
+  1. В поле **{{ ui-key.yacloud.storage.bucket.settings.field_name }}** укажите имя бакета, например `my-audit-logs-for-kuma`.
 
       {% note info %}
       
-      Имя бакета должно быть уникальным для всего Object Storage. Нельзя создать два бакета с одинаковыми именами даже в разных каталогах разных облаков.
+      Имя бакета должно быть уникальным для всего {{ objstorage-short-name }}. Нельзя создать два бакета с одинаковыми именами даже в разных каталогах разных облаков.
       
       {% endnote %}
 
-  1. В поле **Макс. размер** задайте размер создаваемого бакета или включите опцию **Без ограничения**.
-  1. Значения остальных параметров оставьте без изменения и нажмите **Создать бакет**.
+  1. В поле **{{ ui-key.yacloud.storage.bucket.settings.field_size-limit }}** задайте размер создаваемого бакета или включите опцию **{{ ui-key.yacloud.storage.bucket.settings.label_size-limit-disabled }}**.
+  1. Значения остальных параметров оставьте без изменения и нажмите **{{ ui-key.yacloud.storage.buckets.create.button_create }}**.
   1. На открывшейся странице со списком бакетов выберите созданный бакет.
-  1. В меню слева выберите ![image](../../../_assets/console-icons/persons-lock.svg) **Безопасность** и перейдите на вкладку **Шифрование**.
-  1. В поле **Ключ KMS** выберите созданный ранее ключ `kuma-key`.
-  1. Нажмите **Сохранить**.
+  1. В меню слева выберите ![image](../../../_assets/console-icons/persons-lock.svg) **{{ ui-key.yacloud.storage.bucket.switch_security }}** и перейдите на вкладку **{{ ui-key.yacloud.storage.bucket.switch_encryption }}**.
+  1. В поле **{{ ui-key.yacloud.storage.bucket.encryption.field_key }}** выберите созданный ранее ключ `kuma-key`.
+  1. Нажмите **{{ ui-key.yacloud.storage.bucket.encryption.button_save }}**.
 
 - CLI {#cli}
 
@@ -359,7 +360,7 @@
 
       {% note info %}
       
-      Имя бакета должно быть уникальным для всего Object Storage. Нельзя создать два бакета с одинаковыми именами даже в разных каталогах разных облаков.
+      Имя бакета должно быть уникальным для всего {{ objstorage-short-name }}. Нельзя создать два бакета с одинаковыми именами даже в разных каталогах разных облаков.
       
       {% endnote %}
 
@@ -420,16 +421,16 @@
 
 - Консоль управления {#console}
 
-  1. В [консоли управления](https://console.yandex.cloud) перейдите в каталог, в котором вы создаете инфраструктуру.
-  1. [Перейдите](../../../console/operations/select-service.md#select-service) в сервис **Audit Trails**.
-  1. Нажмите **Создать трейл** и в открывшемся окне:
+  1. В [консоли управления]({{ link-console-main }}) перейдите в каталог, в котором вы создаете инфраструктуру.
+  1. Перейдите в сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_audit-trails }}**.
+  1. Нажмите **{{ ui-key.yacloud.audit-trails.button_create-trail }}** и в открывшемся окне:
 
-      1. В поле **Имя** задайте имя трейла `kuma-trail`.
-      1. В блоке **Назначение** задайте параметры объекта назначения:
+      1. В поле **{{ ui-key.yacloud.common.name }}** задайте имя трейла `kuma-trail`.
+      1. В блоке **{{ ui-key.yacloud.audit-trails.label_destination }}** задайте параметры объекта назначения:
 
-          * **Назначение** — `Object Storage`.
-          * **Бакет** — созданный ранее бакет, например `my-audit-logs-for-kuma`.
-          * **Префикс объекта** — необязательный параметр, участвует в [полном имени](../../concepts/format.md#log-file-name) файла аудитного лога.
+          * **{{ ui-key.yacloud.audit-trails.label_destination }}** — `{{ ui-key.yacloud.audit-trails.label_objectStorage }}`.
+          * **{{ ui-key.yacloud.audit-trails.label_bucket }}** — созданный ранее бакет, например `my-audit-logs-for-kuma`.
+          * **{{ ui-key.yacloud.audit-trails.label_object-prefix }}** — необязательный параметр, участвует в [полном имени](../../concepts/format.md#log-file-name) файла аудитного лога.
 
           {% note info %}
           
@@ -437,17 +438,17 @@
           
           {% endnote %}
 
-      1. Убедитесь, что в поле **Ключ шифрования** указан ключ шифрования `kuma-key`. Если ключ шифрования не задан, нажмите **Добавить** и выберите этот ключ.
+      1. Убедитесь, что в поле **{{ ui-key.yacloud.audit-trails.title_kms-key }}** указан ключ шифрования `kuma-key`. Если ключ шифрования не задан, нажмите **{{ ui-key.yacloud.audit-trails.action_add-bucket-key }}** и выберите этот ключ.
 
-      1. В блоке **Сбор событий c уровня конфигурации** задайте параметры сбора аудитных логов уровня конфигурации:
+      1. В блоке **{{ ui-key.yacloud.audit-trails.label_path-filter-section }}** задайте параметры сбора аудитных логов уровня конфигурации:
 
-          * **Сбор событий** — выберите `Включено`.
-          * **Ресурс** — выберите `Каталог`.
-          * **Каталог** — не требует заполнения, содержит имя текущего каталога.
+          * **{{ ui-key.yacloud.audit-trails.label_collecting-logs }}** — выберите `{{ ui-key.yacloud.common.enabled }}`.
+          * **{{ ui-key.yacloud.audit-trails.label_resource-type }}** — выберите `{{ ui-key.yacloud.audit-trails.label_resource-manager.folder }}`.
+          * **{{ ui-key.yacloud.audit-trails.label_resource-manager.folder }}** — не требует заполнения, содержит имя текущего каталога.
 
-      1. В блоке **Сервисный аккаунт** выше выберите сервисный аккаунт `kuma-trail-sa`.
-      1. В блоке **Сбор событий с уровня сервисов** оставьте значение `Выключено`.
-      1. Нажмите **Создать**.
+      1. В блоке **{{ ui-key.yacloud.audit-trails.label_service-account }}** выше выберите сервисный аккаунт `kuma-trail-sa`.
+      1. В блоке **{{ ui-key.yacloud.audit-trails.label_event-filter-section }}** оставьте значение `{{ ui-key.yacloud.common.disabled }}`.
+      1. Нажмите **{{ ui-key.yacloud.common.create }}**.
 
 - CLI {#cli}
 
@@ -505,7 +506,7 @@
 
 ## Создайте сервер {#create-server}
 
-В качестве сервера для установки коллектора KUMA вы можете использовать [виртуальную машину](../../../compute/concepts/vm.md) Compute Cloud или свое оборудование. В данном руководстве используется ВМ Compute Cloud в [облачной сети](../../../vpc/concepts/network.md#network) Yandex Virtual Private Cloud.
+В качестве сервера для установки коллектора KUMA вы можете использовать [виртуальную машину](../../../compute/concepts/vm.md) {{ compute-name }} или свое оборудование. В данном руководстве используется ВМ {{ compute-short-name }} в [облачной сети](../../../vpc/concepts/network.md#network) {{ vpc-full-name }}.
 
 
 ### Создайте сеть и подсеть {#create-network}
@@ -514,12 +515,12 @@
 
 - Консоль управления {#console}
 
-  1. В [консоли управления](https://console.yandex.cloud) перейдите в каталог, в котором вы создаете инфраструктуру.
-  1. [Перейдите](../../../console/operations/select-service.md#select-service) в сервис **Virtual Private Cloud**.
-  1. Нажмите **Создать сеть**.
+  1. В [консоли управления]({{ link-console-main }}) перейдите в каталог, в котором вы создаете инфраструктуру.
+  1. Перейдите в сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_vpc }}**.
+  1. Нажмите **{{ ui-key.yacloud.vpc.networks.button_create }}**.
   1. Задайте имя сети, например `kuma-network`.
-  1. Убедитесь, что опция **Создать подсети** включена.
-  1. Нажмите **Создать сеть**.
+  1. Убедитесь, что опция **{{ ui-key.yacloud.vpc.networks.create.field_is-default }}** включена.
+  1. Нажмите **{{ ui-key.yacloud.vpc.networks.create.button_create }}**.
 
 - CLI {#cli}
 
@@ -547,9 +548,9 @@
 
       ```bash
       yc vpc subnet create \
-        --name kuma-network-ru-central1-b \
+        --name kuma-network-{{ region-id }}-b \
         --network-name kuma-network \
-        --zone ru-central1-b \
+        --zone {{ region-id }}-b \
         --range 10.1.0.0/24
       ```
 
@@ -590,20 +591,20 @@
 
 - Консоль управления {#console}
 
-  1. В [консоли управления](https://console.yandex.cloud) выберите каталог, в котором вы создаете инфраструктуру.
-  1. [Перейдите](../../../console/operations/select-service.md#select-service) в сервис **Compute Cloud**.
-  1. На панели слева выберите ![image](../../../_assets/console-icons/server.svg) **Виртуальные машины**.
-  1. Нажмите **Создать виртуальную машину**.
-  1. В блоке **Образ загрузочного диска** выберите образ [Ubuntu 22.04 LTS](https://yandex.cloud/ru/marketplace/products/yc/ubuntu-22-04-lts).
-  1. В блоке **Расположение** выберите [зону доступности](../../../overview/concepts/geo-scope.md) `ru-central1-b`.
-  1. В блоке **Сетевые настройки**:
+  1. В [консоли управления]({{ link-console-main }}) выберите каталог, в котором вы создаете инфраструктуру.
+  1. Перейдите в сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_compute }}**.
+  1. На панели слева выберите ![image](../../../_assets/console-icons/server.svg) **{{ ui-key.yacloud.compute.instances_jsoza }}**.
+  1. Нажмите **{{ ui-key.yacloud.compute.instances.button_create }}**.
+  1. В блоке **{{ ui-key.yacloud.compute.instances.create.section_image }}** выберите образ [Ubuntu 22.04 LTS](https://yandex.cloud/ru/marketplace/products/yc/ubuntu-22-04-lts).
+  1. В блоке **{{ ui-key.yacloud.k8s.node-groups.create.section_allocation-policy }}** выберите [зону доступности](../../../overview/concepts/geo-scope.md) `{{ region-id }}-b`.
+  1. В блоке **{{ ui-key.yacloud.compute.instances.create.section_network }}**:
 
-      * В поле **Подсеть** выберите подсеть `kuma-network-ru-central1-b`.
-      * В поле **Публичный IP-адрес** выберите `Автоматически`, чтобы назначить ВМ случайный внешний IP-адрес из пула Yandex Cloud, или выберите статический адрес из списка, если вы зарезервировали его заранее.
+      * В поле **{{ ui-key.yacloud.component.compute.network-select.field_subnetwork }}** выберите подсеть `kuma-network-{{ region-id }}-b`.
+      * В поле **{{ ui-key.yacloud.component.compute.network-select.field_external }}** выберите `{{ ui-key.yacloud.component.compute.network-select.switch_auto }}`, чтобы назначить ВМ случайный внешний IP-адрес из пула {{ yandex-cloud }}, или выберите статический адрес из списка, если вы зарезервировали его заранее.
 
-  1. В блоке **Доступ** выберите вариант **SSH-ключ** и укажите данные для доступа к ВМ:
+  1. В блоке **{{ ui-key.yacloud.compute.instances.create.section_access }}** выберите вариант **{{ ui-key.yacloud.compute.instance.access-method.label_oslogin-control-ssh-option-title }}** и укажите данные для доступа к ВМ:
 
-      * В поле **Логин** введите имя пользователя, который будет создан на ВМ, например `yc-user`.
+      * В поле **{{ ui-key.yacloud.compute.instances.create.field_user }}** введите имя пользователя, который будет создан на ВМ, например `yc-user`.
 
           * Длина — от 3 до 63 символов.
           * Может содержать строчные и заглавные буквы латинского и русского алфавита, цифры, дефисы, подчеркивания и пробелы.
@@ -615,26 +616,26 @@
           
           {% endnote %}
 
-      * В поле **SSH-ключ** выберите SSH-ключ, сохраненный в вашем профиле [пользователя организации](../../../organization/concepts/membership.md).
+      * В поле **{{ ui-key.yacloud.compute.instances.create.field_key }}** выберите SSH-ключ, сохраненный в вашем профиле [пользователя организации](../../../organization/concepts/membership.md).
         
         Если в вашем профиле нет сохраненных SSH-ключей или вы хотите добавить новый ключ:
         
-        1. Нажмите кнопку **Добавить ключ**.
+        1. Нажмите кнопку **{{ ui-key.yacloud.compute.instances.create.button_add-ssh-key }}**.
         1. Задайте имя SSH-ключа.
         1. Выберите вариант:
         
-            * `Ввести вручную` — вставьте содержимое открытого [SSH](../../../glossary/ssh-keygen.md)-ключа. Пару SSH-ключей необходимо [создать](../../../compute/operations/vm-connect/ssh.md#creating-ssh-keys) самостоятельно.
-            * `Загрузить из файла` — загрузите открытую часть SSH-ключа. Пару SSH-ключей необходимо создать самостоятельно.
-            * `Сгенерировать ключ` — автоматическое создание пары SSH-ключей.
+            * `{{ ui-key.yacloud_components.ssh-key-add-dialog.value_radio-manual }}` — вставьте содержимое открытого [SSH](../../../glossary/ssh-keygen.md)-ключа. Пару SSH-ключей необходимо [создать](../../../compute/operations/vm-connect/ssh.md#creating-ssh-keys) самостоятельно.
+            * `{{ ui-key.yacloud_components.ssh-key-add-dialog.value_radio-upload }}` — загрузите открытую часть SSH-ключа. Пару SSH-ключей необходимо создать самостоятельно.
+            * `{{ ui-key.yacloud_components.ssh-key-add-dialog.value_radio-generate }}` — автоматическое создание пары SSH-ключей.
             
               При добавлении сгенерированного SSH-ключа будет создан и загружен архив с парой ключей. В ОС на базе Linux или macOS распакуйте архив в папку `/home/<имя_пользователя>/.ssh`. В ОС Windows распакуйте архив в папку `C:\Users\<имя_пользователя>/.ssh`. Дополнительно вводить открытый ключ в консоли управления не требуется.
         
-        1. Нажмите кнопку **Добавить**.
+        1. Нажмите кнопку **{{ ui-key.yacloud.common.add }}**.
         
         SSH-ключ будет добавлен в ваш профиль пользователя организации. Если в организации [отключена](../../../organization/operations/os-login-access.md) возможность добавления пользователями SSH-ключей в свои профили, добавленный открытый SSH-ключ будет сохранен только в профиле пользователя внутри создаваемого ресурса.
 
-  1. В блоке **Общая информация** задайте имя ВМ: `kuma-server`.
-  1. Нажмите **Создать ВМ**.
+  1. В блоке **{{ ui-key.yacloud.compute.instances.create.section_base }}** задайте имя ВМ: `kuma-server`.
+  1. Нажмите **{{ ui-key.yacloud.compute.instances.create.button_create }}**.
 
 - CLI {#cli}
 
@@ -643,8 +644,8 @@
   ```bash
   yc compute instance create \
     --name kuma-server \
-    --zone ru-central1-b \
-    --network-interface subnet-name=kuma-network-ru-central1-b,nat-ip-version=ipv4 \
+    --zone {{ region-id }}-b \
+    --network-interface subnet-name=kuma-network-{{ region-id }}-b,nat-ip-version=ipv4 \
     --create-boot-disk image-folder-id=standard-images,image-id=fd8ulbhv5dpakf3io1mf \
     --ssh-key <SSH-ключ>
   ```
@@ -652,7 +653,7 @@
   Где:
 
   * `--name` — имя ВМ.
-  * `--zone` — [зона доступности](../../../overview/concepts/geo-scope.md), которая соответствует подсети `kuma-network-ru-central1-b`.
+  * `--zone` — [зона доступности](../../../overview/concepts/geo-scope.md), которая соответствует подсети `kuma-network-{{ region-id }}-b`.
   * `--network-interface` — сетевые настройки:
 
       * `subnet-name` — имя подсети.
@@ -762,7 +763,7 @@
     ```bash
     sudo s3fs <имя_бакета> /var/log/yandex-cloud \
       -o passwd_file=/home/kuma/.passwd-s3fs \
-      -o url=https://storage.yandexcloud.net \
+      -o url=https://{{ s3-storage-host }} \
       -o use_path_request_style \
       -o uid=$(id -u kuma) \
       -o gid=$(id -g kuma)
@@ -771,7 +772,7 @@
     Вы можете настроить автоматическое монтирование бакета при запуске операционной системы, для этого откройте файл `/etc/fstab` (команда `sudo nano /etc/fstab`) и добавьте в него строку:
 
     ```text
-    s3fs#<имя_бакета> /var/log/yandex-cloud fuse _netdev,uid=<kuma_uid>,gid=<kuma_gid>,use_path_request_style,url=https://storage.yandexcloud.net,passwd_file=/home/kuma/.passwd-s3fs 0 0
+    s3fs#<имя_бакета> /var/log/yandex-cloud fuse _netdev,uid=<kuma_uid>,gid=<kuma_gid>,use_path_request_style,url=https://{{ s3-storage-host }},passwd_file=/home/kuma/.passwd-s3fs 0 0
     ```
 
     Где:
@@ -790,7 +791,7 @@
 
     Если все настроено верно, команда вернет текущее содержимое бакета с аудитными событиями.
 
-Настройка передачи событий Yandex Cloud завершена. События будут располагаться в следующих директориях в [JSON](https://ru.wikipedia.org/wiki/JSON)-файлах:
+Настройка передачи событий {{ yandex-cloud }} завершена. События будут располагаться в следующих директориях в [JSON](https://{{ lang }}.wikipedia.org/wiki/JSON)-файлах:
 
 ```text
 /var/log/yandex-cloud/{audit_trail_id}/{year}/{month}/{day}/*.json
@@ -814,8 +815,8 @@
 1. [Удалите](../../../vpc/operations/network-delete.md) сеть.
 1. Удалите [трейл](../../concepts/trail.md).
 1. [Удалите](../../../storage/operations/objects/delete-all.md) все объекты в бакете, затем [удалите](../../../storage/operations/buckets/delete.md) сам бакет.
-1. [Удалите](../../../kms/operations/key.md#delete) ключ шифрования KMS.
+1. [Удалите](../../../kms/operations/key.md#delete) ключ шифрования {{ kms-short-name }}.
 
 #### См. также {#see-also}
 
-* [Загрузка аудитных логов в SIEM KUMA с помощью Terraform](terraform.md)
+* [{#T}](terraform.md)

@@ -5,7 +5,7 @@ Creates an image in the specified folder.
 ## HTTP request
 
 ```
-POST https://baremetal.api.cloud.yandex.net/baremetal/v1alpha/images
+POST https://baremetal.{{ api-host }}/baremetal/v1alpha/images
 ```
 
 ## Body parameters {#yandex.cloud.baremetal.v1alpha.CreateImageRequest}

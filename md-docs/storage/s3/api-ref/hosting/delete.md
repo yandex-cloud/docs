@@ -35,17 +35,17 @@ DELETE /{bucket}?website HTTP/2
 
 ### Коды ответов {#response-codes}
 
-Перечень возможных ответов смотрите в разделе [Ответы](../response-codes.md).
+Перечень возможных ответов смотрите в разделе [{#T}](../response-codes.md).
 
-Если конфигурация хостинга не существует, то Object Storage ответит кодом 200.
+Если конфигурация хостинга не существует, то {{ objstorage-name }} ответит кодом 200.
 
 #### Связанные статьи {#related-articles}
 
-* [Настройка хостинга](../../../operations/hosting/setup.md)
+* [{#T}](../../../operations/hosting/setup.md)
 
 #### См. также {#see-also}
 
-* [Начало работы с AWS S3 API в Yandex Object Storage](../../s3-api-quickstart.md)
+* [{#T}](../../s3-api-quickstart.md)
 
 * [Отладка запросов с помощью утилиты AWS CLI](../../signing-requests.md#debugging)
 

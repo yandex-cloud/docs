@@ -370,9 +370,7 @@ Applicable only for **CACHE** and **COMPLEX_KEY_CACHE** layout types.
 
 Default value: **1000000000**.
 
-For details, see [ClickHouse documentation](https://clickhouse.com/docs/sql-reference/dictionaries#cache).
-
-The minimum value is 0. ||
+For details, see [ClickHouse documentation](https://clickhouse.com/docs/sql-reference/dictionaries#cache). ||
 || allow_read_expired_keys | **[google.protobuf.BoolValue](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/bool-value)**
 
 Allows to read expired keys.
@@ -388,9 +386,7 @@ Applicable only for **CACHE** and **COMPLEX_KEY_CACHE** layout types.
 
 Default value: **100000**.
 
-For details, see [ClickHouse documentation](https://clickhouse.com/docs/sql-reference/dictionaries#cache).
-
-The minimum value is 0. ||
+For details, see [ClickHouse documentation](https://clickhouse.com/docs/sql-reference/dictionaries#cache). ||
 || update_queue_push_timeout_milliseconds | **int64**
 
 Max timeout in milliseconds for push update task into queue.
@@ -398,9 +394,7 @@ Applicable only for **CACHE** and **COMPLEX_KEY_CACHE** layout types.
 
 Default value: **10**.
 
-For details, see [ClickHouse documentation](https://clickhouse.com/docs/sql-reference/dictionaries#cache).
-
-The minimum value is 0. ||
+For details, see [ClickHouse documentation](https://clickhouse.com/docs/sql-reference/dictionaries#cache). ||
 || query_wait_timeout_milliseconds | **int64**
 
 Max wait timeout in milliseconds for update task to complete.
@@ -408,9 +402,7 @@ Applicable only for **CACHE** and **COMPLEX_KEY_CACHE** layout types.
 
 Default value: **60000** (1 minute).
 
-For details, see [ClickHouse documentation](https://clickhouse.com/docs/sql-reference/dictionaries#cache).
-
-The minimum value is 0. ||
+For details, see [ClickHouse documentation](https://clickhouse.com/docs/sql-reference/dictionaries#cache). ||
 || max_threads_for_updates | **int64**
 
 Max threads for cache dictionary update.
@@ -418,9 +410,7 @@ Applicable only for **CACHE** and **COMPLEX_KEY_CACHE** layout types.
 
 Default value: **4**.
 
-For details, see [ClickHouse documentation](https://clickhouse.com/docs/sql-reference/dictionaries#cache).
-
-The minimum value is 0. ||
+For details, see [ClickHouse documentation](https://clickhouse.com/docs/sql-reference/dictionaries#cache). ||
 || initial_array_size | **int64**
 
 Initial dictionary key size.
@@ -428,9 +418,7 @@ Applicable only for **FLAT** layout type.
 
 Default value: **1024**.
 
-For details, see [ClickHouse documentation](https://clickhouse.com/docs/sql-reference/dictionaries#flat).
-
-The minimum value is 0. ||
+For details, see [ClickHouse documentation](https://clickhouse.com/docs/sql-reference/dictionaries#flat). ||
 || max_array_size | **int64**
 
 Maximum dictionary key size.
@@ -438,9 +426,7 @@ Applicable only for **FLAT** layout type.
 
 Default value: **500000**.
 
-For details, see [ClickHouse documentation](https://clickhouse.com/docs/sql-reference/dictionaries#flat).
-
-The minimum value is 0. ||
+For details, see [ClickHouse documentation](https://clickhouse.com/docs/sql-reference/dictionaries#flat). ||
 || access_to_key_from_attributes | **[google.protobuf.BoolValue](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/bool-value)**
 
 Allows to retrieve key attribute using **dictGetString** function.
@@ -501,9 +487,7 @@ Required field. Database name. ||
 Required field. Table name. ||
 || port | **int64**
 
-Port to use when connecting to a replica of the dictionary source.
-
-Acceptable values are 0 to 65535, inclusive. ||
+Port to use when connecting to a replica of the dictionary source. ||
 || user | **string**
 
 Required field. Name of the user for replicas of the dictionary source. ||
@@ -539,15 +523,11 @@ The maximum string length in characters is 253. ||
 || priority | **int64**
 
 The priority of the replica that ClickHouse takes into account when connecting.
-Replica with the highest priority should have this field set to the lowest number.
-
-The minimum value is 0. ||
+Replica with the highest priority should have this field set to the lowest number. ||
 || port | **int64**
 
 Port to use when connecting to the replica.
-If a port is not specified for a replica, ClickHouse uses the port specified for the source.
-
-Acceptable values are 0 to 65535, inclusive. ||
+If a port is not specified for a replica, ClickHouse uses the port specified for the source. ||
 || user | **string**
 
 Name of the MySQL database user.
@@ -575,9 +555,7 @@ ClickHouse host.
 The maximum string length in characters is 253. ||
 || port | **int64**
 
-Port to use when connecting to the host.
-
-Acceptable values are 0 to 65535, inclusive. ||
+Port to use when connecting to the host. ||
 || user | **string**
 
 Required field. Name of the ClickHouse database user. ||
@@ -609,9 +587,7 @@ Required field. MongoDB host.
 The maximum string length in characters is 253. ||
 || port | **int64**
 
-Port to use when connecting to the host.
-
-Acceptable values are 0 to 65535, inclusive. ||
+Port to use when connecting to the host. ||
 || user | **string**
 
 Required field. Name of the MongoDB database user. ||
@@ -638,9 +614,7 @@ Required field. Table name. ||
 PostgreSQL hosts. ||
 || port | **int64**
 
-Port to use when connecting to the PostgreSQL hosts.
-
-Acceptable values are 0 to 65535, inclusive. ||
+Port to use when connecting to the PostgreSQL hosts. ||
 || user | **string**
 
 Required field. Name of the PostrgreSQL database user. ||

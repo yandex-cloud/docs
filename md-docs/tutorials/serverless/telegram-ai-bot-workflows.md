@@ -1,9 +1,9 @@
-# Как создать бота в Telegram с поддержкой AI-агента с помощью Yandex Workflows
+# Как создать бота в Telegram с поддержкой AI-агента с помощью {{ sw-full-name }}
 
 
-С помощью serverless-технологий можно создать [бота](../../glossary/chat-bot.md) для Telegram с поддержкой [модели генерации текста](https://aistudio.yandex.ru/docs/ru/ai-studio/concepts/generation/models) на базе сервиса [Yandex AI Studio](https://aistudio.yandex.ru/docs/ru/ai-studio/concepts/index).
+С помощью serverless-технологий можно создать [бота](../../glossary/chat-bot.md) для Telegram с поддержкой [модели генерации текста]({{ link-docs-ai }}ai-studio/concepts/generation/models) на базе сервиса [{{ ai-studio-full-name }}]({{ link-docs-ai }}ai-studio/concepts/index).
 
-В этом руководстве вы создадите бота для подбора фильмов на основании предпочтений пользователя. Для этого вы создадите AI-агента, организуете хранение данных в [Yandex Object Storage](../../storage/index.md) и [Yandex Lockbox](../../lockbox/index.md), настроите логику бота в [Yandex Workflows](../../serverless-integrations/index.md) и вебхук для запуска по ссылке.
+В этом руководстве вы создадите бота для подбора фильмов на основании предпочтений пользователя. Для этого вы создадите AI-агента, организуете хранение данных в [{{ objstorage-full-name }}](../../storage/index.md) и [{{ lockbox-full-name }}](../../lockbox/index.md), настроите логику бота в [{{ sw-full-name }}](../../serverless-integrations/index.md) и вебхук для запуска по ссылке.
 
 Чтобы создать бота:
 
@@ -23,11 +23,11 @@
 
 ## Перед началом работы {#before-you-begin}
 
-Зарегистрируйтесь в Yandex Cloud и создайте [платежный аккаунт](../../billing/concepts/billing-account.md):
-1. Перейдите в [консоль управления](https://console.yandex.cloud), затем войдите в Yandex Cloud или зарегистрируйтесь.
-1. На странице **[Yandex Cloud Billing](https://center.yandex.cloud/billing/accounts)** убедитесь, что у вас подключен платежный аккаунт, и он находится в [статусе](../../billing/concepts/billing-account-statuses.md) `ACTIVE` или `TRIAL_ACTIVE`. Если платежного аккаунта нет, [создайте его](../../billing/quickstart/index.md) и [привяжите](../../billing/operations/pin-cloud.md) к нему облако.
+Зарегистрируйтесь в {{ yandex-cloud }} и создайте [платежный аккаунт](../../billing/concepts/billing-account.md):
+1. Перейдите в [консоль управления]({{ link-console-main }}), затем войдите в {{ yandex-cloud }} или зарегистрируйтесь.
+1. На странице **[{{ ui-key.yacloud_billing.billing.label_service }}]({{ link-console-billing }})** убедитесь, что у вас подключен платежный аккаунт, и он находится в [статусе](../../billing/concepts/billing-account-statuses.md) `ACTIVE` или `TRIAL_ACTIVE`. Если платежного аккаунта нет, [создайте его](../../billing/quickstart/index.md) и [привяжите](../../billing/operations/pin-cloud.md) к нему облако.
 
-Если у вас есть активный платежный аккаунт, вы можете создать или выбрать [каталог](../../resource-manager/concepts/resources-hierarchy.md#folder), в котором будет работать ваша инфраструктура, на [странице облака](https://console.yandex.cloud/cloud).
+Если у вас есть активный платежный аккаунт, вы можете создать или выбрать [каталог](../../resource-manager/concepts/resources-hierarchy.md#folder), в котором будет работать ваша инфраструктура, на [странице облака]({{ link-console-cloud }}).
 
 [Подробнее об облаках и каталогах](../../resource-manager/concepts/resources-hierarchy.md).
 
@@ -36,10 +36,10 @@
 
 В стоимость поддержки Telegram-бота входят:
 
-* плата за генерацию текста (см. [тарифы Yandex AI Studio](https://aistudio.yandex.ru/docs/ru/ai-studio/pricing));
-* плата за хранение секрета и запросы к нему (см. [тарифы Yandex Lockbox](../../lockbox/pricing.md));
-* плата за объем хранилища, занятый данными, количество операций с данными и исходящий трафик (см. [тарифы Yandex Object Storage](../../storage/pricing.md));
-* плата за получение и хранение логов (см. [тарифы Yandex Cloud Logging](../../logging/pricing.md)).
+* плата за генерацию текста (см. [тарифы {{ ai-studio-full-name }}]({{ link-docs-ai }}ai-studio/pricing));
+* плата за хранение секрета и запросы к нему (см. [тарифы {{ lockbox-full-name }}](../../lockbox/pricing.md));
+* плата за объем хранилища, занятый данными, количество операций с данными и исходящий трафик (см. [тарифы {{ objstorage-full-name }}](../../storage/pricing.md));
+* плата за получение и хранение логов (см. [тарифы {{ cloud-logging-full-name }}](../../logging/pricing.md)).
 
 
 ## Зарегистрируйте Telegram-бота {#create-bot}
@@ -66,18 +66,18 @@
 
 - Консоль управления {#console}
 
-  1. В [консоли управления](https://console.yandex.cloud) выберите [каталог](../../resource-manager/concepts/resources-hierarchy.md#folder), в котором вы будете создавать инфраструктуру.
-  1. [Перейдите](../../console/operations/select-service.md#select-service) в сервис **Lockbox**.
-  1. Нажмите **Создать секрет**.
-  1. В поле **Имя** введите имя секрета.
-  1. Выберите тип секрета `Пользовательский`.
-  1. В поле **Ключ** введите `token`.
-  1. В поле **Значение** укажите токен бота, полученный при его [создании](#create-bot).
-  1. Нажмите **Создать**.
+  1. В [консоли управления]({{ link-console-main }}) выберите [каталог](../../resource-manager/concepts/resources-hierarchy.md#folder), в котором вы будете создавать инфраструктуру.
+  1. Перейдите в сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_lockbox }}**.
+  1. Нажмите **{{ ui-key.yacloud.lockbox.SecretsPage.button_create-secret }}**.
+  1. В поле **{{ ui-key.yacloud.common.name }}** введите имя секрета.
+  1. Выберите тип секрета `{{ ui-key.yacloud.lockbox.FormFields.title_secret-type-custom }}`.
+  1. В поле **{{ ui-key.yacloud.lockbox.SecretVersionsList.label_key }}** введите `token`.
+  1. В поле **{{ ui-key.yacloud.lockbox.SecretVersionsList.label_value }}** укажите токен бота, полученный при его [создании](#create-bot).
+  1. Нажмите **{{ ui-key.yacloud.common.create }}**.
 
-- Yandex Cloud CLI {#cli}
+- {{ yandex-cloud }} CLI {#cli}
 
-  Если у вас еще нет интерфейса командной строки Yandex Cloud (CLI), [установите и инициализируйте его](../../cli/quickstart.md#install).
+  Если у вас еще нет интерфейса командной строки {{ yandex-cloud }} (CLI), [установите и инициализируйте его](../../cli/quickstart.md#install).
 
   По умолчанию используется каталог, указанный при [создании](../../cli/operations/profile/profile-create.md) профиля CLI. Чтобы изменить каталог по умолчанию, используйте команду `yc config set folder-id <идентификатор_каталога>`. Также для любой команды вы можете указать другой каталог с помощью параметров `--folder-name` или `--folder-id`. Если вы обращаетесь к ресурсу по имени, поиск будет выполнен в каталоге по умолчанию. Если вы обращаетесь к ресурсу по идентификатору, поиск будет выполнен глобально — во всех каталогах с учетом прав доступа.
 
@@ -135,14 +135,14 @@
 
 - Консоль управления {#console}
 
-  1. Откройте [консоль управления](https://console.yandex.cloud).
-  1. [Перейдите](../../console/operations/select-service.md#select-service) в сервис **Object Storage**.
-  1. На панели сверху нажмите **Создать бакет**.
+  1. Откройте [консоль управления]({{ link-console-main }}).
+  1. Перейдите в сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_storage }}**.
+  1. На панели сверху нажмите **{{ ui-key.yacloud.storage.buckets.button_create }}**.
   1. Введите имя бакета в соответствии с [правилами именования](../../storage/concepts/bucket.md#naming).
-  1. Укажите максимальный размер бакета `5 ГБ`.
-  1. Нажмите **Создать бакет**.
+  1. Укажите максимальный размер бакета `5 {{ ui-key.yacloud.common.units.label_gigabyte }}`.
+  1. Нажмите **{{ ui-key.yacloud.storage.buckets.create.button_create }}**.
 
-- Yandex Cloud CLI {#cli}
+- {{ yandex-cloud }} CLI {#cli}
 
   1. Посмотрите описание команды CLI для создания бакета:
 
@@ -188,13 +188,13 @@
 
   ```bash
   aws s3api create-bucket \
-    --endpoint-url=https://storage.yandexcloud.net \
+    --endpoint-url=https://{{ s3-storage-host }} \
     --bucket <имя_бакета>
   ```
 
   Где:
 
-  * `--endpoint-url` — эндпоинт Object Storage.
+  * `--endpoint-url` — эндпоинт {{ objstorage-name }}.
   * `--bucket` — имя бакета в соответствии с [правилами именования](../../storage/concepts/bucket.md#naming).
 
 - API {#api}
@@ -212,21 +212,21 @@
 
 - Консоль управления {#console}
 
-  1. Откройте [консоль управления](https://console.yandex.cloud).
-  1. [Перейдите](../../console/operations/select-service.md#select-service) в сервис **Identity and Access Management**.
-  1. Нажмите **Создать сервисный аккаунт**.
+  1. Откройте [консоль управления]({{ link-console-main }}).
+  1. Перейдите в сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_iam }}**.
+  1. Нажмите **{{ ui-key.yacloud.iam.folder.service-accounts.button_add }}**.
   1. Введите имя сервисного аккаунта `sa-workflows`.
-  1. Нажмите ![image](../../_assets/console-icons/plus.svg) **Добавить роль** и назначьте [роли](../../iam/roles-reference.md):
+  1. Нажмите ![image](../../_assets/console-icons/plus.svg) **{{ ui-key.yacloud.iam.folder.service-account.label_add-role }}** и назначьте [роли](../../iam/roles-reference.md):
 
       * `storage.uploader`
       * `storage.viewer`
-      * `lockbox.payloadViewer`
-      * `ai.languageModels.user`
+      * `{{ roles-lockbox-payloadviewer }}`
+      * `{{ roles-yagpt-user }}`
       * `ai.assistants.editor`
 
-  1. Нажмите **Создать**.
+  1. Нажмите **{{ ui-key.yacloud.iam.folder.service-account.popup-robot_button_add }}**.
 
-- Yandex Cloud CLI {#cli}
+- {{ yandex-cloud }} CLI {#cli}
 
   1. Если у вас еще нет [jq](https://stedolan.github.io/jq/download/), установите его.
 
@@ -281,12 +281,12 @@
 
       yc resource-manager folder add-access-binding \
         --id $FOLDER_ID \
-        --role lockbox.payloadViewer \
+        --role {{ roles-lockbox-payloadviewer }} \
         --subject serviceAccount:$WF_SA
 
       yc resource-manager folder add-access-binding \
         --id $FOLDER_ID \
-        --role ai.languageModels.user \
+        --role {{ roles-yagpt-user }} \
         --subject serviceAccount:$WF_SA
 
       yc resource-manager folder add-access-binding \
@@ -307,7 +307,7 @@
       effective_deltas:
         - action: ADD
           access_binding:
-            role_id: ai.languageModels.user
+            role_id: {{ roles-yagpt-user }}
             subject:
               id: ajersnus6rb2********
               type: serviceAccount
@@ -319,8 +319,8 @@
 
   * `storage.uploader`
   * `storage.viewer`
-  * `lockbox.payloadViewer`
-  * `ai.languageModels.user`
+  * `{{ roles-lockbox-payloadviewer }}`
+  * `{{ roles-yagpt-user }}`
   * `ai.assistants.editor`
 
   Чтобы создать сервисный аккаунт, воспользуйтесь методом REST API [Create](../../iam/api-ref/ServiceAccount/create.md) для ресурса [ServiceAccount](../../iam/api-ref/ServiceAccount/index.md) или вызовом gRPC API [ServiceAccountService/Create](../../iam/api-ref/grpc/ServiceAccount/create.md).
@@ -332,15 +332,15 @@
 
 ## Создайте AI-агента {#create-ai-agent}
 
-Создайте [текстового агента](https://aistudio.yandex.ru/docs/ru/ai-studio/concepts/agents/text-agents) в AI Studio для обработки запросов пользователей.
+Создайте [текстового агента]({{ link-docs-ai }}ai-studio/concepts/agents/text-agents) в {{ ai-studio-name }} для обработки запросов пользователей.
 
 {% list tabs group=instructions %}
 
 - Консоль управления {#console}
 
-  1. Откройте [интерфейс AI Studio](https://aistudio.yandex.ru/platform).
+  1. Откройте [интерфейс {{ ai-studio-name }}]({{ link-console-ai }}).
   1. Нажмите **Создать AI-агента** → **Создать агента**.
-  1. В поле **Имя** введите имя агента, например `Агент-киноман`.
+  1. В поле **{{ ui-key.yacloud.common.name }}** введите имя агента, например `Агент-киноман`.
   1. В поле **Инструкция** введите инструкцию агента:
 
       ```
@@ -359,7 +359,7 @@
 
       {% endnote %}
 
-  1. Нажмите **Создать**.
+  1. Нажмите **{{ ui-key.yacloud.common.create }}**.
   1. Скопируйте идентификатор созданного агента — слева вверху нажмите **ID** ![image](../../_assets/console-icons/copy.svg). Сохраните его. Идентификатор потребуется при настройке рабочего процесса.
 
 {% endlist %}
@@ -476,13 +476,13 @@ steps:
 
 - Консоль управления {#console}
 
-  1. Откройте [консоль управления](https://console.yandex.cloud).
-  1. [Перейдите](../../console/operations/select-service.md#select-service) в сервис **Serverless Integrations**.
-  1. На панели слева нажмите ![image](../../_assets/console-icons/graph-node.svg) **Workflows**.
-  1. В правом верхнем углу нажмите **Создать рабочий процесс**.
-  1. Выберите способ `YaML-спецификация`.
+  1. Откройте [консоль управления]({{ link-console-main }}).
+  1. Перейдите в сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_serverless-integrations }}**.
+  1. На панели слева нажмите ![image](../../_assets/console-icons/graph-node.svg) **{{ ui-key.yacloud.serverless-workflows.label_service }}**.
+  1. В правом верхнем углу нажмите **{{ ui-key.yacloud.serverless-workflows.button_create-workflow }}**.
+  1. Выберите способ `{{ ui-key.yacloud.serverless-workflows.spec-editor-type_label_text-editor }}`.
   1. В редакторе кода вставьте текст подготовленной ранее YaWL-спецификации рабочего процесса.
-  1. Раскройте блок **Дополнительные параметры**:
+  1. Раскройте блок **{{ ui-key.yacloud.serverless-workflows.label_additional-parameters }}**:
 
       1. Введите имя рабочего процесса. Требования к имени:
 
@@ -491,11 +491,11 @@ steps:
           * первый символ — буква, последний — не дефис.
 
       1. Выберите сервисный аккаунт `sa-workflows`.
-      1. В блоке **Логирование** отключите опцию **Запись логов**, если не хотите платить за хранение логов.
+      1. В блоке **{{ ui-key.yacloud.logging.label_title }}** отключите опцию **{{ ui-key.yacloud.logging.field_logging }}**, если не хотите платить за хранение логов.
 
-  1. Нажмите **Создать**.
+  1. Нажмите **{{ ui-key.yacloud.common.create }}**.
 
-- Yandex Cloud CLI {#cli}
+- {{ yandex-cloud }} CLI {#cli}
 
   1. Посмотрите описание команды CLI для создания рабочего процесса:
 
@@ -535,7 +535,7 @@ steps:
       status: ACTIVE
       log_options: {}
       service_account_id: aje4tpd9coa********
-      execution_url: https://serverless-workflows.api.cloud.yandex.net/workflows/v1/execution/dfq0eod50iol********/start
+      execution_url: https://serverless-workflows.{{ api-host }}/workflows/v1/execution/dfq0eod50iol********/start
       ```
 
 - API {#api}
@@ -553,14 +553,14 @@ steps:
 
 - Консоль управления {#console}
 
-  1. В [консоли управления](https://console.yandex.cloud) перейдите в каталог, в котором находится [рабочий процесс](../../serverless-integrations/concepts/workflows/workflow.md).
-  1. [Перейдите](../../console/operations/select-service.md#select-service) в сервис **Serverless Integrations**.
-  1. На панели слева нажмите ![image](../../_assets/console-icons/graph-node.svg) **Workflows**.
+  1. В [консоли управления]({{ link-console-main }}) перейдите в каталог, в котором находится [рабочий процесс](../../serverless-integrations/concepts/workflows/workflow.md).
+  1. Перейдите в сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_serverless-integrations }}**.
+  1. На панели слева нажмите ![image](../../_assets/console-icons/graph-node.svg) **{{ ui-key.yacloud.serverless-workflows.label_service }}**.
   1. Выберите нужный рабочий процесс.
-  1. Включите опцию **Публичный рабочий процесс**.
-  1. Нажмите **Сохранить**.
+  1. Включите опцию **{{ ui-key.yacloud.serverless-workflows.label_public-access }}**.
+  1. Нажмите **{{ ui-key.yacloud.common.save }}**.
 
-- Yandex Cloud CLI {#cli}
+- {{ yandex-cloud }} CLI {#cli}
 
   1. Посмотрите описание команды CLI для изменения [рабочего процесса](../../serverless-integrations/concepts/workflows/workflow.md):
 
@@ -582,7 +582,7 @@ steps:
       id: dfqjl5hh5p90********
       ...
       is_public: true
-      execution_url: https://serverless-workflows.api.cloud.yandex.net/workflows/v1/execution/dfq0eod50iol********/start
+      execution_url: https://serverless-workflows.{{ api-host }}/workflows/v1/execution/dfq0eod50iol********/start
       ```
 
 - API {#api}
@@ -609,12 +609,12 @@ steps:
 
 - Консоль управления {#console}
 
-  1. В [консоли управления](https://console.yandex.cloud) перейдите в каталог, в котором находится рабочий процесс.
-  1. [Перейдите](../../console/operations/select-service.md#select-service) в сервис **Serverless Integrations**.
-  1. На панели слева нажмите ![image](../../_assets/console-icons/graph-node.svg) **Workflows**.
-  1. Выберите рабочий процесс. Ссылка для запуска будет в поле **Ссылка для запуска**.
+  1. В [консоли управления]({{ link-console-main }}) перейдите в каталог, в котором находится рабочий процесс.
+  1. Перейдите в сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_serverless-integrations }}**.
+  1. На панели слева нажмите ![image](../../_assets/console-icons/graph-node.svg) **{{ ui-key.yacloud.serverless-workflows.label_service }}**.
+  1. Выберите рабочий процесс. Ссылка для запуска будет в поле **{{ ui-key.yacloud.serverless-workflows.label_execution-url }}**.
 
-- Yandex Cloud CLI {#cli}
+- {{ yandex-cloud }} CLI {#cli}
 
   Чтобы получить ссылку для запуска, выполните команду:
 
@@ -628,7 +628,7 @@ steps:
   id: dfqjl5hh5p90********
   ...
   is_public: true
-  execution_url: https://serverless-workflows.api.cloud.yandex.net/workflows/v1/execution/dfq0eod50iol********/start
+  execution_url: https://serverless-workflows.{{ api-host }}/workflows/v1/execution/dfq0eod50iol********/start
   ```
 
   Сохраните значение поля `execution_url`.
@@ -644,7 +644,7 @@ steps:
 
 Если у вас еще нет [cURL](https://curl.haxx.se), установите его.
 
-Пример ниже разработан для выполнения в операционных системах MacOS и Linux. Чтобы выполнить его в системе Windows, [ознакомьтесь](../../overview/concepts/console-syntax-guide.md) с особенностями работы с Bash в Microsoft Windows.
+Пример ниже разработан для выполнения в операционных системах MacOS и Linux. Чтобы выполнить его в системе Windows, [ознакомьтесь]({{ link-docs }}/overview/concepts/console-syntax-guide) с особенностями работы с Bash в Microsoft Windows.
 
 Настройте вебхук для бота:
 
@@ -668,7 +668,7 @@ steps:
 
   ```bash
   curl -s "https://api.telegram.org/bot1357246809:AAFhSteLniAw71g8jx6K5kTErO3********/setWebhook" \
-    -d "url=https://serverless-workflows.api.cloud.yandex.net/workflows/v1/execution/fd2g4pu20roc********/start"
+    -d "url=https://serverless-workflows.{{ api-host }}/workflows/v1/execution/fd2g4pu20roc********/start"
   ```
 
   Результат:
@@ -705,7 +705,7 @@ steps:
 
 #### Что дальше {#what-is-next}
 
-Попробуйте изменить инструкцию агента в AI Studio под вашу задачу. Например, измените инструкцию агента для подбора музыкальных исполнителей:
+Попробуйте изменить инструкцию агента в {{ ai-studio-name }} под вашу задачу. Например, измените инструкцию агента для подбора музыкальных исполнителей:
 
 ```
 Ты — консультант по подбору музыкальных исполнителей
@@ -719,8 +719,8 @@ steps:
 ```
 
 Также вы можете:
-* Добавить текст или файлы в качестве источников информации для агента. Подробнее см. [Текстовые агенты в AI Studio](https://aistudio.yandex.ru/docs/ru/ai-studio/concepts/agents/text-agents).
-* Настроить управление контекстом диалога. Подробнее см. [Управление контекстом диалога](https://aistudio.yandex.ru/docs/ru/ai-studio/operations/agents/manage-context).
+* Добавить текст или файлы в качестве источников информации для агента. Подробнее см. [Текстовые агенты в {{ ai-studio-name }}]({{ link-docs-ai }}ai-studio/concepts/agents/text-agents).
+* Настроить управление контекстом диалога. Подробнее см. [Управление контекстом диалога]({{ link-docs-ai }}ai-studio/operations/agents/manage-context).
 * Использовать другие инструменты агента, такие как поиск по файлам или веб-поиск.
 
 
@@ -731,5 +731,5 @@ steps:
 1. [Удалите](../../serverless-integrations/operations/workflows/workflow/delete.md) рабочий процесс.
 1. [Удалите](../../storage/operations/buckets/delete.md) бакет.
 1. [Удалите](../../lockbox/operations/secret-delete.md) секрет.
-1. Удалите AI-агента в AI Studio.
+1. Удалите AI-агента в {{ ai-studio-name }}.
 1. Если вы оставляли включенной опцию записи логов рабочего процесса, [удалите](../../logging/operations/delete-group.md) лог-группу.

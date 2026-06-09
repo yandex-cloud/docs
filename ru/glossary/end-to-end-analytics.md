@@ -68,4 +68,4 @@ description: '{{ datalens-full-name }} — быстрая и наглядная 
 
 Кстати, именно {{ datalens-name }} используется для мониторинга работы облачных сервисов и инфраструктуры {{ yandex-cloud }}. [Зарегистрируйтесь]({{ link-console-main }}/) на платформе {{ yandex-cloud }}, чтобы начать пользоваться {{ datalens-name }} уже сегодня.
 
-Подробнее о {{ datalens-name }} см. в [документации](../datalens/).
+Подробнее о {{ datalens-name }} в [документации](../datalens/).

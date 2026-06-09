@@ -1,10 +1,10 @@
-# Справочник метрик Yandex Monitoring
+# Справочник метрик {{ monitoring-full-name }}
 
-В этом разделе описаны метрики сервиса Yandex StoreDoc, поставляемые в [Monitoring](../monitoring/concepts/index.md).
+В этом разделе описаны метрики сервиса {{ mmg-name }}, поставляемые в [{{ monitoring-name }}]({{ monitoring-doc-links }}).
 
 Имя метрики пишется в метку `name`.
 
-Общие метки для всех метрик сервиса Yandex StoreDoc: 
+Общие метки для всех метрик сервиса {{ mmg-name }}: 
 
 Метка | Значение
 ----|----
@@ -447,4 +447,4 @@ dc | [Зона доступности](../overview/concepts/geo-scope.md)
 
 #### См. также {#see-also}
 
-[Мониторинг состояния кластера, хостов и шардов в Yandex StoreDoc](operations/monitoring.md)
+[{#T}](operations/monitoring.md)

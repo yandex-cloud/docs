@@ -33,21 +33,21 @@ HEAD /{bucket} HTTP/2
 
 ### Коды ответов {#response-codes}
 
-Перечень возможных ответов смотрите в разделе [Ответы](../response-codes.md).
+Перечень возможных ответов смотрите в разделе [{#T}](../response-codes.md).
 
 Успешный ответ не содержит дополнительных данных и означает, что бакет существует и у пользователя достаточно прав для доступа к нему.
 
 #### Связанные статьи {#related-articles}
 
-* [Бакет в Object Storage](../../../concepts/bucket.md)
+* [{#T}](../../../concepts/bucket.md)
 
 
-* [Получение информации о бакете и статистики бакета](../../../operations/buckets/get-info.md)
+* [{#T}](../../../operations/buckets/get-info.md)
 
 
 #### См. также {#see-also}
 
-* [Начало работы с AWS S3 API в Yandex Object Storage](../../s3-api-quickstart.md)
+* [{#T}](../../s3-api-quickstart.md)
 
 * [Отладка запросов с помощью утилиты AWS CLI](../../signing-requests.md#debugging)
 

@@ -28,45 +28,48 @@ Creates a placement group in the specified folder.
 ||Field | Description ||
 || folder_id | **string**
 
-Required field. ID of the folder to create a placement group in.
+ID of the folder to create a placement group in.
 To get the folder ID, use a [yandex.cloud.resourcemanager.v1.FolderService.List](../../../../resource-manager/api-ref/grpc/Folder/list.md#List) request.
-
-The maximum string length in characters is 50. ||
+The length must be less than or equal to 50.
+This field is required. ||
 || name | **string**
 
 Name of the placement group.
-
-Value must match the regular expression ``` |[a-z]([-_a-z0-9]{0,61}[a-z0-9])? ```. ||
+The value must match the regular expression: ```|[a-z]([-_a-z0-9]{0,61}[a-z0-9])?```. ||
 || description | **string**
 
 Description of the placement group.
-
-The maximum string length in characters is 256. ||
+The length must be less than or equal to 256. ||
 || labels | **object** (map<**string**, **string**>)
 
 Resource labels as `key:value` pairs.
-
-No more than 64 per resource. The maximum string length in characters for each value is 63. Each value must match the regular expression ` [-_./\@0-9a-z]* `. The string length in characters for each key must be 1-63. Each key must match the regular expression ` [a-z][-_./\@0-9a-z]* `. ||
+Each map key must match the regular expression: `[a-z][-_./\\@0-9a-z]*`.
+Each map value must match the regular expression: `[-_./\\@0-9a-z]*`.
+The length of each map key must be between 1 and 63.
+The length of each map value must be less than or equal to 63.
+The number of elements must be less than or equal to 64. ||
 || zone_id | **string**
 
-Required field. ID of the availability zone where the placement group resides.
+ID of the availability zone where the placement group resides.
 To get a list of available zones use the [yandex.cloud.compute.v1.ZoneService.List](../Zone/list.md#List) request.
-
-The maximum string length in characters is 50. ||
+The length must be less than or equal to 50.
+This field is required. ||
 || spread_placement_strategy | **[DiskSpreadPlacementStrategy](#yandex.cloud.compute.v1.DiskSpreadPlacementStrategy)**
 
 Distribute disks over distinct failure domains.
 
 Includes only one of the fields `spread_placement_strategy`, `partition_placement_strategy`.
 
-Placement strategy. ||
+Placement strategy.
+Only one field must by specified. ||
 || partition_placement_strategy | **[DiskPartitionPlacementStrategy](#yandex.cloud.compute.v1.DiskPartitionPlacementStrategy)**
 
 Distribute disks over partitions.
 
 Includes only one of the fields `spread_placement_strategy`, `partition_placement_strategy`.
 
-Placement strategy. ||
+Placement strategy.
+Only one field must by specified. ||
 |#
 
 ## DiskSpreadPlacementStrategy {#yandex.cloud.compute.v1.DiskSpreadPlacementStrategy}
@@ -93,27 +96,10 @@ Placement strategy. ||
   "created_by": "string",
   "modified_at": "google.protobuf.Timestamp",
   "done": "bool",
-  "metadata": {
-    "disk_placement_group_id": "string"
-  },
+  "metadata": "google.protobuf.Any",
   // Includes only one of the fields `error`, `response`
   "error": "google.rpc.Status",
-  "response": {
-    "id": "string",
-    "folder_id": "string",
-    "created_at": "google.protobuf.Timestamp",
-    "name": "string",
-    "description": "string",
-    "labels": "map<string, string>",
-    "zone_id": "string",
-    "status": "Status",
-    // Includes only one of the fields `spread_placement_strategy`, `partition_placement_strategy`
-    "spread_placement_strategy": "DiskSpreadPlacementStrategy",
-    "partition_placement_strategy": {
-      "partitions": "int64"
-    }
-    // end of the list of possible fields
-  }
+  "response": "google.protobuf.Any"
   // end of the list of possible fields
 }
 ```
@@ -141,7 +127,7 @@ The time when the Operation resource was last modified. ||
 
 If the value is `false`, it means the operation is still in progress.
 If `true`, the operation is completed, and either `error` or `response` is available. ||
-|| metadata | **[CreateDiskPlacementGroupMetadata](#yandex.cloud.compute.v1.CreateDiskPlacementGroupMetadata)**
+|| metadata | **[google.protobuf.Any](https://developers.google.com/protocol-buffers/docs/proto3#any)**
 
 Service-specific metadata associated with the operation.
 It typically contains the ID of the target resource that the operation is performed on.
@@ -156,7 +142,7 @@ The operation result.
 If `done == false` and there was no failure detected, neither `error` nor `response` is set.
 If `done == false` and there was a failure detected, `error` is set.
 If `done == true`, exactly one of `error` or `response` is set. ||
-|| response | **[DiskPlacementGroup](#yandex.cloud.compute.v1.DiskPlacementGroup)**
+|| response | **[google.protobuf.Any](https://developers.google.com/protocol-buffers/docs/proto3#any)**
 
 The normal response of the operation in case of success.
 If the original method returns no data on success, such as Delete,
@@ -171,76 +157,4 @@ The operation result.
 If `done == false` and there was no failure detected, neither `error` nor `response` is set.
 If `done == false` and there was a failure detected, `error` is set.
 If `done == true`, exactly one of `error` or `response` is set. ||
-|#
-
-## CreateDiskPlacementGroupMetadata {#yandex.cloud.compute.v1.CreateDiskPlacementGroupMetadata}
-
-#|
-||Field | Description ||
-|| disk_placement_group_id | **string**
-
-ID of the placement group that is being created. ||
-|#
-
-## DiskPlacementGroup {#yandex.cloud.compute.v1.DiskPlacementGroup}
-
-#|
-||Field | Description ||
-|| id | **string**
-
-ID of the placement group. ||
-|| folder_id | **string**
-
-ID of the folder that the placement group belongs to. ||
-|| created_at | **[google.protobuf.Timestamp](https://developers.google.com/protocol-buffers/docs/reference/google.protobuf#timestamp)**
-
-Creation timestamp in [RFC3339](https://www.ietf.org/rfc/rfc3339.txt) text format. ||
-|| name | **string**
-
-Name of the placement group.
-The name is unique within the folder. ||
-|| description | **string**
-
-Description of the placement group. ||
-|| labels | **object** (map<**string**, **string**>)
-
-Resource labels as `key:value` pairs. ||
-|| zone_id | **string**
-
-ID of the availability zone where the placement group resides. ||
-|| status | enum **Status**
-
-Current status of the placement group
-
-- `CREATING`
-- `READY`
-- `DELETING` ||
-|| spread_placement_strategy | **[DiskSpreadPlacementStrategy](#yandex.cloud.compute.v1.DiskSpreadPlacementStrategy2)**
-
-Distribute disks over distinct failure domains.
-
-Includes only one of the fields `spread_placement_strategy`, `partition_placement_strategy`.
-
-Placement strategy. ||
-|| partition_placement_strategy | **[DiskPartitionPlacementStrategy](#yandex.cloud.compute.v1.DiskPartitionPlacementStrategy2)**
-
-Distribute disks over partitions.
-
-Includes only one of the fields `spread_placement_strategy`, `partition_placement_strategy`.
-
-Placement strategy. ||
-|#
-
-## DiskSpreadPlacementStrategy {#yandex.cloud.compute.v1.DiskSpreadPlacementStrategy2}
-
-#|
-||Field | Description ||
-|| Empty | > ||
-|#
-
-## DiskPartitionPlacementStrategy {#yandex.cloud.compute.v1.DiskPartitionPlacementStrategy2}
-
-#|
-||Field | Description ||
-|| partitions | **int64** ||
 |#

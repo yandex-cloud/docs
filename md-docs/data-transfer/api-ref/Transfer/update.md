@@ -5,7 +5,7 @@ Updates the specified transfer.
 ## HTTP request
 
 ```
-PATCH https://datatransfer.api.cloud.yandex.net/v1/transfer/{transferId}
+PATCH https://{{ api-host-data-transfer }}/v1/transfer/{transferId}
 ```
 
 ## Path parameters
@@ -242,6 +242,7 @@ The rest of the fields will be reset to the default. ||
 || labels | **object** (map<**string**, **string**>)
 
 Transfer labels as `key:value` pairs.
+
 For details about the concept, see [documentation]({{ api-url-prefix
 }}/resource-manager/concepts/labels). ||
 || regularSnapshot | **[RegularSnapshot](#yandex.cloud.datatransfer.v1.RegularSnapshot)** ||

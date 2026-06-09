@@ -5,7 +5,7 @@ Updates the specified sink.
 ## HTTP request
 
 ```
-PATCH https://logging.api.cloud.yandex.net/logging/v1/sinks/{sinkId}
+PATCH https://logging.{{ api-host }}/logging/v1/sinks/{sinkId}
 ```
 
 ## Path parameters

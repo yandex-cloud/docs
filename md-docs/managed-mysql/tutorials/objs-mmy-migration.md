@@ -1,9 +1,9 @@
-# Миграция данных из Yandex Object Storage в Managed Service for MySQL® с помощью Yandex Data Transfer
+# Миграция данных из {{ objstorage-full-name }} в {{ mmy-name }} с помощью {{ data-transfer-full-name }}
 
-# Миграция данных из Object Storage в кластер Yandex Managed Service for MySQL® с помощью Yandex Data Transfer
+# Миграция данных из {{ objstorage-name }} в кластер {{ mmy-full-name }} с помощью {{ data-transfer-full-name }}
 
 
-С помощью сервиса Data Transfer вы можете перенести данные из объектного хранилища Object Storage в кластер-приемник Managed Service for MySQL®.
+С помощью сервиса {{ data-transfer-name }} вы можете перенести данные из объектного хранилища {{ objstorage-name }} в кластер-приемник {{ mmy-name }}.
 
 Чтобы перенести данные:
 
@@ -16,9 +16,9 @@
 
 ## Необходимые платные ресурсы {#paid-resources}
 
-* Бакет Object Storage: использование хранилища и выполнение операций с данными (см. [тарифы Object Storage](../../storage/pricing.md)).
-* Кластер Managed Service for MySQL®: выделенные хостам вычислительные ресурсы, объем хранилища и резервных копий (см. [тарифы Managed Service for MySQL®](../pricing.md)).
-* Публичные IP-адреса, если для хостов кластера включен публичный доступ (см. [тарифы Virtual Private Cloud](../../vpc/pricing.md)).
+* Бакет {{ objstorage-name }}: использование хранилища и выполнение операций с данными (см. [тарифы {{ objstorage-name }}](../../storage/pricing.md)).
+* Кластер {{ mmy-name }}: выделенные хостам вычислительные ресурсы, объем хранилища и резервных копий (см. [тарифы {{ mmy-name }}](../pricing.md)).
+* Публичные IP-адреса, если для хостов кластера включен публичный доступ (см. [тарифы {{ vpc-name }}](../../vpc/pricing.md)).
 
 
 ## Перед началом работы {#before-you-begin}
@@ -29,24 +29,24 @@
 
 - Вручную {#manual}
 
-    1. [Создайте бакет Yandex Object Storage](../../storage/operations/buckets/create.md).
+    1. [Создайте бакет {{ objstorage-full-name }}](../../storage/operations/buckets/create.md).
 
     
     1. [Создайте сервисный аккаунт](../../iam/operations/sa/create.md#create-sa) с именем `storage-viewer` и ролью `storage.viewer`. Трансфер будет использовать его для доступа к бакету.
     1. [Создайте статический ключ доступа](../../iam/operations/authentication/manage-access-keys.md#create-access-key) для сервисного аккаунта `storage-viewer`.
 
 
-    1. [Создайте кластер-приемник Managed Service for MySQL®](../operations/cluster-create.md) любой подходящей конфигурации со следующими настройками:
+    1. [Создайте кластер-приемник {{ mmy-name }}](../operations/cluster-create.md) любой подходящей конфигурации со следующими настройками:
 
-        * **Имя БД** — `db1`.
-        * **Имя пользователя** — `mmy-user`.
-        * **Пароль** — `<пароль_пользователя>`.
+        * **{{ ui-key.yacloud.mdb.forms.database_field_name }}** — `db1`.
+        * **{{ ui-key.yacloud.mdb.forms.database_field_user-login }}** — `mmy-user`.
+        * **{{ ui-key.yacloud.mdb.forms.database_field_user-password }}** — `<пароль_пользователя>`.
 
-    1. [Назначьте пользователю MySQL® роль](../operations/grant.md#grant-role) `ALL_PRIVILEGES` для базы-приемника.
+    1. [Назначьте пользователю {{ MY }} роль](../operations/grant.md#grant-role) `ALL_PRIVILEGES` для базы-приемника.
 
-- Terraform {#tf}
+- {{ TF }} {#tf}
 
-    1. Если у вас еще нет Terraform, [установите его](../../tutorials/infrastructure-management/terraform-quickstart.md#install-terraform).
+    1. Если у вас еще нет {{ TF }}, [установите его](../../tutorials/infrastructure-management/terraform-quickstart.md#install-terraform).
     1. [Получите данные для аутентификации](../../tutorials/infrastructure-management/terraform-quickstart.md#get-credentials). Вы можете добавить их в переменные окружения или указать далее в файле с настройками провайдера.
     1. [Настройте и инициализируйте провайдер](../../tutorials/infrastructure-management/terraform-quickstart.md#configure-provider). Чтобы не создавать конфигурационный файл с настройками провайдера вручную, [скачайте его](https://github.com/yandex-cloud-examples/yc-terraform-provider-settings/blob/main/provider.tf).
     1. Поместите конфигурационный файл в отдельную рабочую директорию и [укажите значения параметров](../../tutorials/infrastructure-management/terraform-quickstart.md#configure-provider). Если данные для аутентификации не были добавлены в переменные окружения, укажите их в конфигурационном файле.
@@ -57,11 +57,11 @@
 
         * [сеть](../../vpc/concepts/network.md#network);
         * [подсеть](../../vpc/concepts/network.md#subnet);
-        * [группа безопасности](../../vpc/concepts/security-groups.md) и правило, необходимое для подключения к кластеру Managed Service for MySQL®;
+        * [группа безопасности](../../vpc/concepts/security-groups.md) и правило, необходимое для подключения к кластеру {{ mmy-name }};
         * сервисный аккаунт, который будет использоваться для создания бакета и дальнейшего доступа к нему;
-        * секрет Yandex Lockbox, в котором будет храниться статический ключ сервисного аккаунта для настройки эндпоинта-источника;
-        * бакет-источник Object Storage;
-        * кластер-приемник Managed Service for MySQL®;
+        * секрет {{ lockbox-name }}, в котором будет храниться статический ключ сервисного аккаунта для настройки эндпоинта-источника;
+        * бакет-источник {{ objstorage-name }};
+        * кластер-приемник {{ mmy-name }};
         * эндпоинт для приемника;
         * трансфер.
 
@@ -69,15 +69,15 @@
 
         * `folder_id` — [идентификатор каталога](../../resource-manager/operations/folder/get-id.md), в котором будут созданы ресурсы.
         * `bucket_name` — имя бакета в соответствии с [правилами именования](../../storage/concepts/bucket.md#naming).
-        * `mmy_password` — пароль пользователя MySQL®.
+        * `mmy_password` — пароль пользователя {{ MY }}.
 
-    1. Проверьте корректность файлов конфигурации Terraform с помощью команды:
+    1. Проверьте корректность файлов конфигурации {{ TF }} с помощью команды:
 
         ```bash
         terraform validate
         ```
 
-        Если в файлах конфигурации есть ошибки, Terraform на них укажет.
+        Если в файлах конфигурации есть ошибки, {{ TF }} на них укажет.
 
     1. Создайте необходимую инфраструктуру:
 
@@ -99,7 +99,7 @@
            1. Подтвердите изменение ресурсов.
            1. Дождитесь завершения операции.
 
-        В указанном каталоге будут созданы все требуемые ресурсы. Проверить появление ресурсов и их настройки можно в [консоли управления](https://console.yandex.cloud).
+        В указанном каталоге будут созданы все требуемые ресурсы. Проверить появление ресурсов и их настройки можно в [консоли управления]({{ link-console-main }}).
 
 {% endlist %}
 
@@ -114,27 +114,27 @@
     4;99101;2022-06-07 08:15:32;55.29194467;37.66542005;429.13;59.1;21.;18.;20.
     ```
 
-1. [Загрузите](../../storage/operations/objects/upload.md#simple) файл в созданный ранее бакет Object Storage.
+1. [Загрузите](../../storage/operations/objects/upload.md#simple) файл в созданный ранее бакет {{ objstorage-name }}.
 
 ## Подготовьте и активируйте трансфер {#prepare-transfer}
 
 1. [Создайте эндпоинт для источника](../../data-transfer/operations/endpoint/index.md#create) со следующими настройками:
 
-    * **Тип базы данных** — `Object Storage`.
-    * **Бакет** — имя бакета в Object Storage.
+    * **{{ ui-key.yacloud.data-transfer.forms.label-database_type }}** — `Object Storage`.
+    * **{{ ui-key.yc-data-transfer.data-transfer.endpoint.airbyte.s3_source.endpoint.airbyte.s3_source.S3Source.Provider.bucket.title }}** — имя бакета в {{ objstorage-name }}.
 
     
-    * **Идентификатор ключа доступа AWS** — открытая часть статического ключа сервисного аккаунта. Если вы создали инфраструктуру с помощью Terraform, [скопируйте значение ключа из секрета Yandex Lockbox](../../lockbox/operations/secret-get-info.md#secret-contents).
-    * **Секретный ключ доступа AWS** — закрытая часть статического ключа сервисного аккаунта. Если вы создали инфраструктуру с помощью Terraform, [скопируйте значение ключа из секрета Yandex Lockbox](../../lockbox/operations/secret-get-info.md#secret-contents).
+    * **{{ ui-key.yc-data-transfer.data-transfer.endpoint.airbyte.s3_source.endpoint.airbyte.s3_source.S3Source.Provider.aws_access_key_id.title }}** — открытая часть статического ключа сервисного аккаунта. Если вы создали инфраструктуру с помощью {{ TF }}, [скопируйте значение ключа из секрета {{ lockbox-name }}](../../lockbox/operations/secret-get-info.md#secret-contents).
+    * **{{ ui-key.yc-data-transfer.data-transfer.endpoint.airbyte.s3_source.endpoint.airbyte.s3_source.S3Source.Provider.aws_secret_access_key.title }}** — закрытая часть статического ключа сервисного аккаунта. Если вы создали инфраструктуру с помощью {{ TF }}, [скопируйте значение ключа из секрета {{ lockbox-name }}](../../lockbox/operations/secret-get-info.md#secret-contents).
 
 
-    * **Эндпоинт** — `https://storage.yandexcloud.net`.
-    * **Регион** — `ru-central1`.
-    * **Формат данных** — `CSV`.
-    * **Разделитель** — знак точки с запятой `;`.
-    * **Таблица** — `measurements`.
-    * **Добавить системные колонки** — выключите опцию.
-    * **Схема результирующей таблицы** — выберите `Вручную` и укажите имена полей и тип данных:
+    * **{{ ui-key.yc-data-transfer.data-transfer.endpoint.airbyte.s3_source.endpoint.airbyte.s3_source.S3Source.Provider.endpoint.title }}** — `https://{{ s3-storage-host }}`.
+    * **{{ ui-key.yc-data-transfer.data-transfer.console.form.object_storage.console.form.object_storage.ObjectStorageSource.ObjectStorageEventSource.SQS.region.title }}** — `ru-central1`.
+    * **{{ ui-key.yc-data-transfer.data-transfer.console.form.object_storage.console.form.object_storage.ObjectStorageTarget.format.title }}** — `{{ ui-key.yc-data-transfer.data-transfer.console.form.object_storage.console.form.object_storage.ObjectStorageSource.ObjectStorageReaderFormat.csv.title }}`.
+    * **{{ ui-key.yc-data-transfer.data-transfer.console.form.object_storage.console.form.object_storage.ObjectStorageSource.ObjectStorageReaderFormat.Csv.delimiter.title }}** — знак точки с запятой `;`.
+    * **{{ ui-key.yc-data-transfer.data-transfer.transfer.transfer.RenameTablesTransformer.rename_tables.array_item_label }}** — `measurements`.
+    * **{{ ui-key.yc-data-transfer.data-transfer.console.form.object_storage.console.form.object_storage.ObjectStorageResultTable.add_system_cols.title }}** — выключите опцию.
+    * **{{ ui-key.yc-data-transfer.data-transfer.console.form.object_storage.console.form.object_storage.ObjectStorageSource.result_schema.title }}** — выберите `{{ ui-key.yc-data-transfer.data-transfer.console.form.object_storage.console.form.object_storage.ObjectStorageDataSchema.data_schema.title }}` и укажите имена полей и тип данных:
 
         * `id`: `INT64`, признак **Ключ**;
         * `device_id`: `INT32`;
@@ -164,31 +164,31 @@
 
         1. [Создайте эндпоинт для приемника](../../data-transfer/operations/endpoint/target/postgresql.md):
 
-            * **Тип базы данных** — `MySQL`.
-            * **Параметры эндпоинта**:
+            * **{{ ui-key.yacloud.data-transfer.forms.label-database_type }}** — `MySQL`.
+            * **{{ ui-key.yc-data-transfer.data-transfer.console.form.mysql.console.form.mysql.MysqlTarget.title }}**:
 
-              * **Настройки подключения**:
-                * **Тип подключения** — `Кластер Managed Service for MySQL`.
+              * **{{ ui-key.yc-data-transfer.data-transfer.console.form.mysql.console.form.mysql.MysqlTarget.connection.title }}**:
+                * **{{ ui-key.yc-data-transfer.data-transfer.console.form.mysql.console.form.mysql.MysqlConnection.connection_type.title }}** — `{{ ui-key.yc-data-transfer.data-transfer.console.form.mysql.console.form.mysql.MysqlConnectionType.mdb_cluster_id.title }}`.
 
                    Выберите кластер-источник из списка и укажите настройки подключения к нему.
 
-        1. [Создайте трансфер](../../data-transfer/operations/transfer.md#create) типа **_Копирование и репликация_**, использующий созданные эндпоинты.
+        1. [Создайте трансфер](../../data-transfer/operations/transfer.md#create) типа **_{{ ui-key.yc-data-transfer.data-transfer.console.form.transfer.console.form.transfer.TransferType.snapshot_and_increment.title }}_**, использующий созданные эндпоинты.
         1. [Активируйте](../../data-transfer/operations/transfer.md#activate) его.
 
-    - Terraform {#tf}
+    - {{ TF }} {#tf}
 
         1. Укажите в файле `data-transfer-objs-mmy.tf` переменные:
 
             * `source_endpoint_id` — значение идентификатора эндпоинта для источника;
             * `transfer_enabled` – значение `1` для создания трансфера.
 
-        1. Проверьте корректность файлов конфигурации Terraform с помощью команды:
+        1. Проверьте корректность файлов конфигурации {{ TF }} с помощью команды:
 
             ```bash
             terraform validate
             ```
 
-            Если в файлах конфигурации есть ошибки, Terraform на них укажет.
+            Если в файлах конфигурации есть ошибки, {{ TF }} на них укажет.
 
         1. Создайте необходимую инфраструктуру для трансфера:
 
@@ -216,8 +216,8 @@
 
 ## Проверьте работоспособность трансфера {#verify-transfer}
 
-1. Дождитесь перехода трансфера в статус **Реплицируется**.
-1. [Подключитесь к базе данных в кластере-приемнике Managed Service for MySQL®](../operations/connect/index.md).
+1. Дождитесь перехода трансфера в статус **{{ ui-key.yacloud.data-transfer.label_connector-status-RUNNING }}**.
+1. [Подключитесь к базе данных в кластере-приемнике {{ mmy-name }}](../operations/connect/index.md).
 1. Чтобы убедиться, что данные успешно перенесены, выполните запрос:
 
     ```sql
@@ -246,8 +246,8 @@
     11;99101;2022-06-07 15:22:27;59.71294467;37.66542005;429.13;35.5;19.;18.;12.
     ```
 
-1. Загрузите файл в бакет Object Storage для трансфера.
-1. Убедитесь, что в таблицу `db1.measurements` базы-приемника MySQL® добавились новые данные.
+1. Загрузите файл в бакет {{ objstorage-name }} для трансфера.
+1. Убедитесь, что в таблицу `db1.measurements` базы-приемника {{ MY }} добавились новые данные.
 
 ## Удалите созданные ресурсы {#clear-out}
 
@@ -268,20 +268,20 @@
    - Вручную {#manual}
 
        1. [Удалите эндпоинт](../../data-transfer/operations/endpoint/index.md#delete) для источника.
-       1. [Удалите бакет Object Storage](../../storage/operations/buckets/delete.md).
-       1. [Удалите кластер Managed Service for MySQL®](../operations/cluster-delete.md).
+       1. [Удалите бакет {{ objstorage-name }}](../../storage/operations/buckets/delete.md).
+       1. [Удалите кластер {{ mmy-name }}](../operations/cluster-delete.md).
 
        
        1. Если при создании эндпоинта для приемника вы создавали сервисный аккаунт, [удалите его](../../iam/operations/sa/delete.md).
 
 
-   - Terraform {#tf}
+   - {{ TF }} {#tf}
 
        1. В терминале перейдите в директорию с планом инфраструктуры.
        
            {% note warning %}
        
-           Убедитесь, что в директории нет Terraform-манифестов с ресурсами, которые вы хотите сохранить. Terraform удаляет все ресурсы, которые были созданы с помощью манифестов в текущей директории.
+           Убедитесь, что в директории нет {{ TF }}-манифестов с ресурсами, которые вы хотите сохранить. {{ TF }} удаляет все ресурсы, которые были созданы с помощью манифестов в текущей директории.
        
            {% endnote %}
        
@@ -295,6 +295,6 @@
        
            1. Подтвердите удаление ресурсов и дождитесь завершения операции.
        
-           Все ресурсы, которые были описаны в Terraform-манифестах, будут удалены.
+           Все ресурсы, которые были описаны в {{ TF }}-манифестах, будут удалены.
 
    {% endlist %}

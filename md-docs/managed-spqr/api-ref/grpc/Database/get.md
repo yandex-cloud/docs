@@ -1,7 +1,6 @@
 # Managed Service for SPQR API, gRPC: DatabaseService.Get
 
 Returns the specified SPQR Database resource.
-
 To get the list of available SPQR Database resources, make a [List](list.md#List) request.
 
 ## gRPC request

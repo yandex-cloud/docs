@@ -5,7 +5,7 @@ Lists users for the specified federation.
 ## HTTP request
 
 ```
-GET https://organization-manager.api.cloud.yandex.net/organization-manager/v1/saml/federations/{federationId}:listUserAccounts
+GET https://organization-manager.{{ api-host }}/organization-manager/v1/saml/federations/{federationId}:listUserAccounts
 ```
 
 ## Path parameters
@@ -47,7 +47,7 @@ The expression must specify:
 3. The value in double quotes (`"`). Must be 1-1000 characters long and match the regular expression
 `[a-z0-9A-Z/@_.\-=+*\\]+`.
 
-The maximum string length in characters is 1010. ||
+The string length in characters must be less than 1000. ||
 |#
 
 ## Response {#yandex.cloud.organizationmanager.v1.saml.ListFederatedUserAccountsResponse}

@@ -1,10 +1,10 @@
 # Kotlin function error handling
 
-If a [handler](handler.md) reports a function runtime or loading error, the [runtime environment](../../concepts/runtime/index.md) automatically captures the error and returns a JSON document with the error type in the response. For more information about the JSON document format, see [Calling a function](../../concepts/function-invoke.md#error). Error info is written to the [execution log](logging.md).
+If the [handler](handler.md) reports a Kotlin function execution or loading error, the [runtime](../../concepts/runtime/index.md) automatically catches the error and returns a JSON document with information about the error type. For more information about the JSON document format, see [Calling a function](../../concepts/function-invoke.md#error). Error details are written to the [execution log](logging.md).
 
 ## Examples of error handling {#examples}
 
-Let's assume a handler returns a sum of numbers. An empty request will cause the handler to throw `IllegalArgumentException`.
+Let's assume the handler returns the sum of numbers. An empty request will cause the handler to throw `IllegalArgumentException`.
 
 Function code:
 
@@ -35,7 +35,7 @@ curl \
      "https://functions.yandexcloud.net/<function_ID>?integration=raw"
 ```
 
-The runtime environment captures the exception and generates a JSON document that contains an error message (`errorMessage` field), error type (`errorType` field), and [stack trace](https://ru.qwe.wiki/wiki/Stack_trace) (`stackTrace` field).
+The runtime catches the exception and generates a JSON document containing the error message (the `errorMessage` field), error type (the `errorType` field), and [stack trace](https://ru.qwe.wiki/wiki/Stack_trace) (the `stackTrace` field).
 
 JSON document returned:
 

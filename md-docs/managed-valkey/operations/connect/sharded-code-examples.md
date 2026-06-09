@@ -1,4 +1,4 @@
-# Примеры кода для подключения к шардированному кластеру Valkey™
+# Примеры кода для подключения к шардированному кластеру {{ VLK }}
 
 ## C# {#csharp}
 
@@ -64,9 +64,9 @@
                     var masterOptions = new ConfigurationOptions
                     {
                         EndPoints = {
-                            "<FQDN_хоста-мастера_в_шарде_1>:6379",
+                            "<FQDN_хоста-мастера_в_шарде_1>:{{ port-mrd }}",
                             ...
-                            "<FQDN_хоста-мастера_в_шарде_N>:6379"
+                            "<FQDN_хоста-мастера_в_шарде_N>:{{ port-mrd }}"
                         },
                         User = USERNAME,
                         Password = PASSWORD
@@ -134,7 +134,7 @@
             private const string TEST_VALUE = "test-value";
             private const string USERNAME = "default";
             private const string PASSWORD = "<пароль>";
-            private const string CERT = "/home/<домашняя_директория>/.redis/YandexInternalRootCA.crt"            
+            private const string CERT = "/home/<домашняя_директория>/.redis/{{ crt-local-file }}"            
 
             static async Task<int> Main(string[] args)
             {
@@ -143,9 +143,9 @@
                     var masterOptions = new ConfigurationOptions
                     {
                         EndPoints = {
-                            "<FQDN_хоста-мастера_в_шарде_1>:6380",
+                            "<FQDN_хоста-мастера_в_шарде_1>:{{ port-mrd-tls }}",
                             ...
-                            "<FQDN_хоста-мастера_в_шарде_N>:6380"
+                            "<FQDN_хоста-мастера_в_шарде_N>:{{ port-mrd-tls  }}"
                         },
                         User = USERNAME,
                         Password = PASSWORD,
@@ -255,9 +255,9 @@ go get github.com/redis/go-redis/v9
 
     func main() {
     	hostports := []string{
-    		"<FQDN_хоста-мастера_в_шарде_1>:6379",
+    		"<FQDN_хоста-мастера_в_шарде_1>:{{ port-mrd }}",
     		...
-    		"<FQDN_хоста-мастера_в_шарде_N>:6379",
+    		"<FQDN_хоста-мастера_в_шарде_N>:{{ port-mrd }}",
     	}
     	options := redis.UniversalOptions{
     		Addrs:       hostports,
@@ -325,7 +325,7 @@ go get github.com/redis/go-redis/v9
             DialTimeout:  5 * time.Second,
             TLSConfig: &tls.Config{
                 RootCAs:            caCertPool,
-                ServerName: "c-<идентификатор_кластера>.rw.mdb.yandexcloud.net",
+                ServerName: "c-<идентификатор_кластера>.rw.{{ dns-zone }}",
                 VerifyPeerCertificate: func(rawCerts [][]byte, verifiedChains [][]*x509.Certificate) error {
                     certs := make([]*x509.Certificate, len(rawCerts))
                     for i := 0; i < len(rawCerts); i++ {
@@ -508,7 +508,7 @@ go run connect.go
         ```bash
         keytool -importcert \
                 -alias YARootCrt \
-                -file ~/.redis/YandexInternalRootCA.crt \
+                -file ~/.redis/{{ crt-local-file }} \
                 -keystore ~/.redis/YATrustStore \
                 -storepass <пароль_защищенного_хранилища> \
                 --noprompt && chmod 0655 ~/.redis/YATrustStore
@@ -533,9 +533,9 @@ go run connect.go
         JedisPoolConfig jedisPoolConfig = new JedisPoolConfig();
 
         HashSet<HostAndPort> jedisClusterNodes = new HashSet<HostAndPort>();
-        jedisClusterNodes.add(new HostAndPort("<FQDN_хоста-мастера_в_шарде_1>", 6379));
+        jedisClusterNodes.add(new HostAndPort("<FQDN_хоста-мастера_в_шарде_1>", {{ port-mrd }}));
         ...
-        jedisClusterNodes.add(new HostAndPort("<FQDN_хоста-мастера_в_шарде_N>", 6379));
+        jedisClusterNodes.add(new HostAndPort("<FQDN_хоста-мастера_в_шарде_N>", {{ port-mrd }}));
 
         DefaultJedisClientConfig jedisClientConfig = DefaultJedisClientConfig.builder().
                 password("<пароль>").
@@ -578,9 +578,9 @@ go run connect.go
         JedisPoolConfig jedisPoolConfig = new JedisPoolConfig();
         Set<HostAndPort> jedisClusterNodes = new HashSet<HostAndPort>();
         SSLParameters sslParameters = new SSLParameters();
-        jedisClusterNodes.add(new HostAndPort("<FQDN_хоста-мастера_в_шарде_1>", 6380));
+        jedisClusterNodes.add(new HostAndPort("<FQDN_хоста-мастера_в_шарде_1>", {{ port-mrd-tls }}));
         ...
-        jedisClusterNodes.add(new HostAndPort("<FQDN_хоста-мастера_в_шарде_N>", 6380));
+        jedisClusterNodes.add(new HostAndPort("<FQDN_хоста-мастера_в_шарде_N>", {{ port-mrd-tls }}));
 
         DefaultJedisClientConfig jedisClientConfig = DefaultJedisClientConfig.builder().
                 password("<пароль_кластера>").
@@ -638,12 +638,12 @@ npm install ioredis
         [
             {
                 host: "<FQDN_хоста-мастера_в_шарде_1>",
-                port: 6379
+                port: {{ port-mrd }}
             },
             ...
             {
                 host: "<FQDN_хоста-мастера_в_шарде_N>",
-                port: 6379
+                port: {{ port-mrd }}
             }
         ],
         {
@@ -684,19 +684,19 @@ npm install ioredis
         [
             {
                 host: "<FQDN_хоста-мастера_в_шарде_1>",
-                port: 6380
+                port: {{ port-mrd-tls }}
             },
             ...
             {
                 host: "<FQDN_хоста-мастера_в_шарде_N>",
-                port: 6380
+                port: {{ port-mrd-tls }}
             },
         ],
         {
             redisOptions: {
                 password: "<пароль>",
                 tls: {
-                    ca: [fs.readFileSync("/home/<домашняя_директория>/.redis/YandexInternalRootCA.crt")],
+                    ca: [fs.readFileSync("/home/<домашняя_директория>/.redis/{{ crt-local-file }}")],
                     checkServerIdentity: () => {
                         return null;
                     }
@@ -757,9 +757,9 @@ sudo pear install nrk/Predis
     Predis\Autoloader::register();
 
     $hosts = [
-        "tcp://<FQDN_хоста-мастера_в_шарде_1>:6379",
+        "tcp://<FQDN_хоста-мастера_в_шарде_1>:{{ port-mrd }}",
         ...
-        "tcp://<FQDN_хоста-мастера_в_шарде_N>:6379",
+        "tcp://<FQDN_хоста-мастера_в_шарде_N>:{{ port-mrd }}",
     ];
 
     $options = [
@@ -789,9 +789,9 @@ sudo pear install nrk/Predis
    Predis\Autoloader::register();
 
    $hosts = [
-       'tls://<FQDN_хоста-мастера_в_шарде_1>:6380?ssl[cafile]=/home/<домашняя_директория>/.redis/YandexInternalRootCA.crt',
+       'tls://<FQDN_хоста-мастера_в_шарде_1>:{{ port-mrd-tls }}?ssl[cafile]=/home/<домашняя_директория>/.redis/{{ crt-local-file }}',
        ...
-       'tls://<FQDN_хоста-мастера_в_шарде_N>:6380?ssl[cafile]=/home/<домашняя_директория>/.redis/YandexInternalRootCA.crt',
+       'tls://<FQDN_хоста-мастера_в_шарде_N>:{{ port-mrd-tls }}?ssl[cafile]=/home/<домашняя_директория>/.redis/{{ crt-local-file }}',
    ];
 
    $options = [
@@ -844,9 +844,9 @@ pip install pyopenssl redis-py-cluster setuptools_rust
     from rediscluster import RedisCluster
 
     startup_nodes = [
-        {"host": "<FQDN_хоста-мастера_в_шарде_1>", "port": 6379},
+        {"host": "<FQDN_хоста-мастера_в_шарде_1>", "port": {{ port-mrd }}},
         ...
-        {"host": "<FQDN_хоста-мастера_в_шарде_N>", "port": 6379},
+        {"host": "<FQDN_хоста-мастера_в_шарде_N>", "port": {{ port-mrd }}},
     ]
 
     rc = RedisCluster(
@@ -870,9 +870,9 @@ pip install pyopenssl redis-py-cluster setuptools_rust
     from rediscluster import RedisCluster
 
     startup_nodes = [
-        {"host": "<FQDN_хоста-мастера_в_шарде_1>", "port": 6380},
+        {"host": "<FQDN_хоста-мастера_в_шарде_1>", "port": {{ port-mrd-tls }}},
         ...
-        {"host": "<FQDN_хоста-мастера_в_шарде_N>", "port": 6380},
+        {"host": "<FQDN_хоста-мастера_в_шарде_N>", "port": {{ port-mrd-tls }}},
     ]
 
     rc = RedisCluster(
@@ -881,7 +881,7 @@ pip install pyopenssl redis-py-cluster setuptools_rust
         skip_full_coverage_check=True,
         password="<пароль>",
         ssl=True,
-        ssl_ca_certs="/home/<домашняя_директория>/.redis/YandexInternalRootCA.crt",
+        ssl_ca_certs="/home/<домашняя_директория>/.redis/{{ crt-local-file }}",
     )
 
     rc.set("foo", "bar")
@@ -922,9 +922,9 @@ sudo gem install redis
     require 'redis'
 
     nodes = [
-      { host: '<FQDN_хоста-мастера_в_шарде_1>', port: 6379 },
+      { host: '<FQDN_хоста-мастера_в_шарде_1>', port: {{ port-mrd }} },
       ...
-      { host: '<FQDN_хоста-мастера_в_шарде_N>', port: 6379 }
+      { host: '<FQDN_хоста-мастера_в_шарде_N>', port: {{ port-mrd }} }
     ]
 
     conn = Redis.new(
@@ -948,9 +948,9 @@ sudo gem install redis
     require 'redis'
 
     nodes = [
-      { host: '<FQDN_хоста-мастера_в_шарде_1>', port: 6380 },
+      { host: '<FQDN_хоста-мастера_в_шарде_1>', port: {{ port-mrd-tls }} },
       ...
-      { host: '<FQDN_хоста-мастера_в_шарде_N>', port: 6380 }
+      { host: '<FQDN_хоста-мастера_в_шарде_N>', port: {{ port-mrd-tls }} }
     ]
 
     conn = Redis.new(
@@ -958,7 +958,7 @@ sudo gem install redis
       password: '<пароль>',
       ssl: true,
       ssl_params: {
-        ca_file: '/home/<домашняя_директория>/.redis/YandexInternalRootCA.crt',
+        ca_file: '/home/<домашняя_директория>/.redis/{{ crt-local-file }}',
         verify_hostname: false
       }
     )

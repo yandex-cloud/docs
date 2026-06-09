@@ -5,7 +5,7 @@ List all retention policies.
 ## HTTP request
 
 ```
-GET https://mdb.api.cloud.yandex.net/managed-postgresql/v1/clusters/{clusterId}/retention_policies
+GET https://{{ api-host-mdb }}/managed-postgresql/v1/clusters/{clusterId}/retention_policies
 ```
 
 ## Path parameters

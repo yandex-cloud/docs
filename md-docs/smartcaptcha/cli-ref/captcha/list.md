@@ -33,6 +33,7 @@ Set the region. ||
 || `--pager` | `string`
 
 Set the custom pager. ||
+|| `--no-pager` | Do not pipe help output through a pager. ||
 || `--format` | `string`
 
 Set the output format: text, yaml, json, table, summary \|\| summary[name, instance.id, instance.disks[0].size]. ||
@@ -54,14 +55,13 @@ Set the ID of the service account to impersonate. ||
 || `--query` | `string`
 
 Query to select values from the response using jq syntax ||
+|| `--print-metadata` | Print operation metadata along with result. ||
 || `--syntax` | `string`
 
 CLI syntax: this standalone binary only supports 2 (current). Use main yc for syntax 1. ||
+|| `--cli-auto-prompt` | `string[="on"]`
+
+Enable interactive auto-prompt mode. Values: on, partial, off. Bare --cli-auto-prompt is equivalent to --cli-auto-prompt=on. ||
+|| `--no-cli-auto-prompt` | Disable interactive auto-prompt mode (overrides --cli-auto-prompt, env and profile). ||
 || `-h`, `--help` | Display help for the command. ||
 |#
-#### Examples
-
- * [Создать капчу](../../operations/create-captcha.md#tf_1)
- * [Удалить капчу](../../operations/delete-captcha.md#cli_1)
- * [Получить информацию о капче](../../operations/get-info.md#cli_1)
- * [Получить список капч](../../operations/get-list.md#cli_1)

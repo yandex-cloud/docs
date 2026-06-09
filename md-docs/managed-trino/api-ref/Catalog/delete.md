@@ -5,7 +5,7 @@ Deletes the specified Trino Catalog.
 ## HTTP request
 
 ```
-DELETE https://trino.api.cloud.yandex.net/managed-trino/v1/clusters/{clusterId}/catalogs/{catalogId}
+DELETE https://trino.{{ api-host }}/managed-trino/v1/clusters/{clusterId}/catalogs/{catalogId}
 ```
 
 ## Path parameters

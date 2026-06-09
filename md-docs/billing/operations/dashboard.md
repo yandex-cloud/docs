@@ -1,21 +1,21 @@
-# Посмотреть детализацию использования сервисов в Yandex DataLens
+# Посмотреть детализацию использования сервисов в {{ datalens-full-name }}
 
 
-Вы можете посмотреть сведения по использованию сервисов Yandex Cloud, собрав дашборд в Yandex DataLens.
+Вы можете посмотреть сведения по использованию сервисов {{ yandex-cloud }}, собрав дашборд в {{ datalens-full-name }}.
 
 ## Создайте подключение {#create-connection}
 
 {% list tabs group=instructions %}
 
-- Интерфейс Yandex Cloud Billing {#billing}
+- {{ billing-interface }} {#billing}
 
-  1. Перейдите в сервис [**Yandex Cloud Billing**](https://center.yandex.cloud/billing/accounts).
+  1. Перейдите в сервис [**{{ billing-name }}**]({{ link-console-billing }}).
   1. Выберите аккаунт, для которого хотите получить детализацию.
-  1. На панели слева выберите ![image](../../_assets/console-icons/square-chart-column.svg) **Детализация**.
-  1. Справа вверху нажмите ![image](../../_assets/console-icons/arrow-up-right-from-square.svg) **Детализация в DataLens**.
+  1. На панели слева выберите ![image](../../_assets/console-icons/square-chart-column.svg) **{{ ui-key.yacloud_billing.billing.account.switch_detail }}**.
+  1. Справа вверху нажмите ![image](../../_assets/console-icons/arrow-up-right-from-square.svg) **{{ ui-key.yacloud_org.billing.account.detail.button_move-to-datalens-header }}**.
   1. Нажмите **Создать подключение**.
   1. В открывшемся окне укажите название подключения и нажмите **Создать**.
-  1. В списке выберите **Yandex Cloud Billing Dashboard**.
+  1. В списке выберите **{{ yandex-cloud }} Billing Dashboard**.
   1. Перейдите на вкладку **Resources**.
   1. В поле **Usage date** выберите нужный период времени. Дата определяется как диапазон с 0:00 до 23:59 по московскому времени (UTC +3).
   1. Справа от чарта **Resource total cost** нажмите ![options-grey](../../_assets/console-icons/ellipsis.svg) и выберите **Редактировать**.
@@ -32,6 +32,6 @@
 
 ## Откройте дашборд {#open-dashboard}
 
-Перейдите на вкладку **Все объекты** и откройте дашборд **Yandex Cloud Billing Dashboard**. Если необходимо, вы можете изменить настройки дашборда. Подробнее о [работе с дашбордами](../../datalens/concepts/dashboard.md).
+Перейдите на вкладку **Все объекты** и откройте дашборд **{{ yandex-cloud }} Billing Dashboard**. Если необходимо, вы можете изменить настройки дашборда. Подробнее о [работе с дашбордами](../../datalens/concepts/dashboard.md).
 
 Дашборд регулярно обновляется новыми данными. Информация за любой день может быть изменена в течение месяца.

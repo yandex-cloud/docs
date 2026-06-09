@@ -1,14 +1,14 @@
-# Пользователи и роли в Managed Service for PostgreSQL
+# Пользователи и роли в {{ mpg-name }}
 
 
-#### Можно ли перенести пользователей из кластера-источника PostgreSQL в кластер-приемник Managed Service for PostgreSQL? {#user-migration}
+#### Можно ли перенести пользователей из кластера-источника {{ PG }} в кластер-приемник {{ mpg-name }}? {#user-migration}
 
-Нет, пользователей нельзя автоматически перенести из стороннего кластера PostgreSQL или кластера Managed Service for PostgreSQL в кластер Managed Service for PostgreSQL. В кластере-приемнике нужно [создать пользователей](../operations/cluster-users.md#adduser) заново.
+Нет, пользователей нельзя автоматически перенести из стороннего кластера {{ PG }} или кластера {{ mpg-name }} в кластер {{ mpg-name }}. В кластере-приемнике нужно [создать пользователей](../operations/cluster-users.md#adduser) заново.
 
 #### Как создать роль с помощью SQL-запросов? {#create-role}
 
 С помощью SQL-запросов создать роль нельзя.
 
-В PostgreSQL роль — это пользователь или группа пользователей БД. [Создать пользователя](../operations/cluster-users.md#adduser) в Managed Service for PostgreSQL можно только с помощью консоли управления, Yandex Cloud CLI, Terraform или API. Подробнее о создании пользователей см. в [документации PostgreSQL](https://www.postgresql.org/docs/current/sql-createuser.html).
+В {{ PG }} роль — это пользователь или группа пользователей БД. [Создать пользователя](../operations/cluster-users.md#adduser) в {{ mpg-name }} можно только с помощью консоли управления, {{ yandex-cloud }} CLI, {{ TF }} или API. Подробнее о создании пользователей см. в [документации {{ PG }}](https://www.postgresql.org/docs/current/sql-createuser.html).
 
 Вы можете [назначить пользователю привилегии](../operations/grant.md), которые определяют доступные для него действия с объектами БД.

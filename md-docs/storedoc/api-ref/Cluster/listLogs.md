@@ -6,7 +6,7 @@ See the [Logs](https://yandex.cloud/ru/yandex-mdb-guide/concepts/logs.html) sect
 ## HTTP request
 
 ```
-GET https://mdb.api.cloud.yandex.net/managed-mongodb/v1/clusters/{clusterId}:logs
+GET https://{{ api-host-mdb }}/managed-mongodb/v1/clusters/{clusterId}:logs
 ```
 
 ## Path parameters
@@ -16,7 +16,7 @@ GET https://mdb.api.cloud.yandex.net/managed-mongodb/v1/clusters/{clusterId}:log
 || clusterId | **string**
 
 Required field. ID of the MongoDB cluster to request logs for.
-To get the MongoDB cluster ID use a [ClusterService.List](list.md#List) request.
+To get the MongoDB cluster ID use a [ClusterService.List](../../../managed-mongodb/api-ref/Cluster/list#List) request.
 
 The maximum string length in characters is 50. ||
 |#
@@ -33,9 +33,9 @@ If no columns are specified, entire log records are returned. ||
 
 Type of the service to request logs about.
 
-- `MONGOD`: Logs of MongoDB activity.
-- `MONGOS`
-- `MONGOCFG`
+- `MONGOD`: Logs of mongod activity.
+- `MONGOS`: Logs of mongos activity.
+- `MONGOCFG`: Logs of mongocfg activity.
 - `AUDIT`: MongoDB Enterprise audit logs ||
 || fromTime | **string** (date-time)
 

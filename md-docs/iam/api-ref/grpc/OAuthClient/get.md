@@ -1,7 +1,6 @@
 # Identity and Access Management API, gRPC: OAuthClientService.Get
 
 Returns the sepcified OAuthClient resource.
-
 To get the list of available OAuthClient resources, make a [List](list.md#List) request.
 
 ## gRPC request

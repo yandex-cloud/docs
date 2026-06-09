@@ -21,21 +21,18 @@ Retrieves a list of operations for a cluster.
 || cluster_id | **string**
 
 Required field. ID of the cluster to list operations for.
-
 To get this ID, make a [ClusterService.List](list.md#List) request.
 
 The maximum string length in characters is 50. ||
 || page_size | **int64**
 
 The maximum number of results per page to return.
-
 If the number of available results is larger than `page_size`, the API returns a [ListClusterOperationsResponse.next_page_token](#yandex.cloud.mdb.mysql.v1.ListClusterOperationsResponse) that can be used to get the next page of results in the subsequent [ClusterService.ListOperations](#ListOperations) requests.
 
 Acceptable values are 0 to 1000, inclusive. ||
 || page_token | **string**
 
 Page token that can be used to iterate through multiple pages of results.
-
 To get the next page of results, set `page_token` to the [ListClusterOperationsResponse.next_page_token](#yandex.cloud.mdb.mysql.v1.ListClusterOperationsResponse) returned by the previous [ClusterService.ListOperations](#ListOperations) request.
 
 The maximum string length in characters is 100. ||
@@ -72,9 +69,7 @@ List of operations in the cluster. ||
 || next_page_token | **string**
 
 The token that can be used to get the next page of results.
-
 If the number of results is larger than [ListClusterOperationsRequest.page_size](#yandex.cloud.mdb.mysql.v1.ListClusterOperationsRequest), use the `next_page_token` as the value for the [ListClusterOperationsRequest.page_token](#yandex.cloud.mdb.mysql.v1.ListClusterOperationsRequest) in the subsequent [ClusterService.ListOperations](#ListOperations) request to iterate through multiple pages of results.
-
 Each of the subsequent [ClusterService.ListOperations](#ListOperations) requests should use the `next_page_token` value returned by the previous request to continue paging through the results. ||
 |#
 

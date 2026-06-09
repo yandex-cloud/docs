@@ -5,7 +5,7 @@ Deletes the specified broker certificate.
 ## HTTP request
 
 ```
-DELETE https://iot-broker.api.cloud.yandex.net/iot-broker/v1/brokers/{brokerId}/certificates/{fingerprint}
+DELETE https://{{ api-host-iot-broker }}/iot-broker/v1/brokers/{brokerId}/certificates/{fingerprint}
 ```
 
 ## Path parameters

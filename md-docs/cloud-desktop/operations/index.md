@@ -1,29 +1,29 @@
-# Пошаговые инструкции для Cloud Desktop
+# Пошаговые инструкции для {{ cloud-desktop-name }}
 
 ## Группы рабочих столов {#desktop-groups}
 
-* [Создать группу рабочих столов](desktop-groups/create.md)
-* [Изменить группу рабочих столов](desktop-groups/update.md)
-* [Изменить права доступа к группе рабочих столов](desktop-groups/update-acl.md)
-* [Удалить группу рабочих столов](desktop-groups/delete.md)
+* [{#T}](desktop-groups/create.md)
+* [{#T}](desktop-groups/update.md)
+* [{#T}](desktop-groups/update-acl.md)
+* [{#T}](desktop-groups/delete.md)
 
 ## Рабочие столы {#desktops}
 
-* [Создать рабочий стол](desktops/create.md)
-* [Подключиться к рабочему столу](desktops/connect.md)
-* [Сбросить пароль пользователя для рабочего стола](desktops/password-reset.md)
-* [Запустить, перезапустить и остановить рабочий стол](desktops/start-stop.md)
-* [Обновить рабочий стол](desktops/update.md)
-* [Изменить рабочий стол](desktops/update-properties.md)
-* [Удалить рабочий стол](desktops/delete.md)
+* [{#T}](desktops/create.md)
+* [{#T}](desktops/connect.md)
+* [{#T}](desktops/password-reset.md)
+* [{#T}](desktops/start-stop.md)
+* [{#T}](desktops/update.md)
+* [{#T}](desktops/update-properties.md)
+* [{#T}](desktops/delete.md)
 
 ## Образы {#desktops}
 
-* [Создать образ на основе рабочего стола](images/create-from-desktop.md)
-* [Создать образ на основе ВМ Linux Compute Cloud](images/create-from-compute-linux.md)
-* [Изменить образ](images/update.md)
-* [Удалить пользовательский образ](images/delete.md)
+* [{#T}](images/create-from-desktop.md)
+* [{#T}](images/create-from-compute-linux.md)
+* [{#T}](images/update.md)
+* [{#T}](images/delete.md)
 
 ## Дополнительные возможности {#add-features}
 
-* [Посмотреть логи](logging.md)
+* [{#T}](logging.md)

@@ -21,28 +21,7 @@
    
      {% note info %}
    
-     [Время жизни](../../../iam/concepts/authorization/iam-token.md#lifetime) IAM-токена — не больше 12 часов.
-   
-     {% endnote %}
-   
-   - OAuth-токен {#oauth-token}
-   
-     1. [Получите](https://oauth.yandex.ru/authorize?response_type=token&client_id=1a6990aa636648e9b2ef855fa7bec2fb) OAuth-токен для [аккаунта на Яндексе](../../../iam/concepts/users/accounts.md#passport), от имени которого вы будете выполнять аутентификацию.
-     1. Создайте переменные окружения `REGISTRY_USERNAME` и `REGISTRY_PASSWORD`:
-   
-         ```bash
-         export REGISTRY_USERNAME="oauth"
-         export REGISTRY_PASSWORD="<OAuth-токен>"
-         ```
-   
-         Где:
-   
-         * `REGISTRY_USERNAME` — способ аутентификации.
-         * `REGISTRY_PASSWORD` — тело полученного ранее [OAuth-токена](../../../iam/concepts/authorization/oauth-token.md).
-   
-     {% note info %}
-   
-     [Время жизни](../../../iam/concepts/authorization/oauth-token.md#lifetime) OAuth-токена — 1 год.
+     [Время жизни](../../../iam/concepts/authorization/iam-token.md#lifetime) IAM-токена — не больше {{ iam-token-lifetime }}.
    
      {% endnote %}
    
@@ -77,7 +56,7 @@
       Чтобы внести изменения в файл конфигурации NuGet с помощью [dotnet CLI](https://learn.microsoft.com/ru-ru/nuget/reference/dotnet-commands), выполните команду:
 
       ```bash
-      dotnet nuget add source "https://registry.yandexcloud.net/nuget/v3/<идентификатор_реестра>/index.json" \
+      dotnet nuget add source "https://{{ cloud-registry }}/nuget/v3/<идентификатор_реестра>/index.json" \
         -n "cloud-registry" \
         -u %REGISTRY_USERNAME% \
         -p %REGISTRY_PASSWORD% \
@@ -90,7 +69,7 @@
 
       ```
       nuget sources add -Name "cloud-registry" \
-        -Source "https://registry.yandexcloud.net/nuget/v3/<идентификатор_реестра>/index.json" \
+        -Source "https://{{ cloud-registry }}/nuget/v3/<идентификатор_реестра>/index.json" \
         -Username "%REGISTRY_USERNAME%" \
         -Password "%REGISTRY_PASSWORD%" \
         -StorePasswordInClearText -ProtocolVersion 3
@@ -112,7 +91,7 @@
           <?xml version="1.0" encoding="utf-8"?>
           <configuration>
             <packageSources>
-              <add key="cloud-registry" value="https://registry.yandexcloud.net/nuget/v3/<идентификатор_реестра>/index.json" protocolVersion="3" />
+              <add key="cloud-registry" value="https://{{ cloud-registry }}/nuget/v3/<идентификатор_реестра>/index.json" protocolVersion="3" />
             </packageSources>
 
             <packageSourceCredentials>

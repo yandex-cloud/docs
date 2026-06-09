@@ -5,7 +5,7 @@ Creates a transfer in the specified folder.
 ## HTTP request
 
 ```
-POST https://datatransfer.api.cloud.yandex.net/v1/transfer
+POST https://{{ api-host-data-transfer }}/v1/transfer
 ```
 
 ## Body parameters {#yandex.cloud.datatransfer.v1.CreateTransferRequest}
@@ -228,6 +228,7 @@ Description of the transfer. ||
 || folderId | **string**
 
 ID of the folder to create the transfer in.
+
 To get the folder ID, make a
 [yandex.cloud.resourcemanager.v1.FolderService.List](../../../resource-manager/api-ref/Folder/list.md#List) request. ||
 || runtime | **[Runtime](#yandex.cloud.datatransfer.v1.Runtime)** ||
@@ -242,6 +243,7 @@ The transfer name. Must be unique within the folder. ||
 || labels | **object** (map<**string**, **string**>)
 
 Transfer labels as `key:value` pairs.
+
 For details about the concept, see [documentation]({{ api-url-prefix
 }}/resource-manager/concepts/labels). ||
 || regularSnapshot | **[RegularSnapshot](#yandex.cloud.datatransfer.v1.RegularSnapshot)** ||

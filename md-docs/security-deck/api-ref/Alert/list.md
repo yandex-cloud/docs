@@ -5,7 +5,7 @@ List alerts.
 ## HTTP request
 
 ```
-GET https://alert-sink.api.cloud.yandex.net/securitydeck/alerts/v1/sinks/{sinkId}/alerts
+GET https://alert-sink.{{ api-host }}/securitydeck/alerts/v1/sinks/{sinkId}/alerts
 ```
 
 ## Path parameters

@@ -5,7 +5,7 @@ Retrieves the list of hosts in the specified cluster.
 ## HTTP request
 
 ```
-GET https://dataproc.api.cloud.yandex.net/dataproc/v1/clusters/{clusterId}/hosts
+GET https://dataproc.{{ api-host }}/dataproc/v1/clusters/{clusterId}/hosts
 ```
 
 ## Path parameters

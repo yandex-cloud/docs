@@ -16,4 +16,4 @@
 
 {% include [kraft-modes](kraft-modes.md) %}
 
-Подробнее о различиях в конфигурации кластеров с {{ ZK }} и {{ kraft-short-name }} см. в разделе [Взаимосвязь ресурсов в {{ mkf-name }}](../../../managed-kafka/concepts/index.md).
+Подробнее о различиях в конфигурации кластеров с {{ ZK }} и {{ kraft-short-name }} читайте в разделе [Взаимосвязь ресурсов в {{ mkf-name }}](../../../managed-kafka/concepts/index.md).

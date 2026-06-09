@@ -32,9 +32,6 @@ Set the custom configuration file. ||
 Enable gRPC retries. By default, retries are enabled with maximum 5 attempts.
 Pass 0 to disable retries. Pass any negative value for infinite retries.
 Even infinite retries are capped with 2 minutes timeout. ||
-|| `--syntax` | `string`
-
-CLI syntax: 1 (legacy) or 2 (current). Omit to use default-syntax in the profile or the product default. ||
 || `--cloud-id` | `string`
 
 Set the ID of the cloud to use. ||
@@ -62,10 +59,3 @@ Set the output format: text (default), yaml, json, json-rest. ||
 Query to select values from the response using jq syntax ||
 || `-h`, `--help` | Display help for the command. ||
 |#
-#### Examples
-
- * [Добавить расписание к диску](../../operations/disk-control/configure-schedule.md#cli_1)
- * [Удалить расписание, по которому создаются снимки дисков](../../operations/snapshot-control/delete-schedule.md#tf_1)
- * [Назначить роль](../../operations/snapshot-control/snapshot-schedule-access.md#cli_1)
- * [Остановить расписание](../../operations/snapshot-control/stop-and-start-schedule.md#cli_1)
- * [Изменить основные параметры](../../operations/snapshot-control/update-schedule.md#cli_1)

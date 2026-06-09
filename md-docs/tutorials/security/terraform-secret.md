@@ -1,8 +1,8 @@
-# Шифрование секретов в HashiCorp Terraform
+# Шифрование секретов в {{ TF-full }}
 
 Чтобы зашифровать данные:
 
-1. Опишите в конфигурационном файле параметры ресурса `yandex_kms_secret_ciphertext` с указанием на [ключ KMS](../../kms/concepts/key.md) в поле `key_id`:
+1. Опишите в конфигурационном файле параметры ресурса `yandex_kms_secret_ciphertext` с указанием на [ключ {{ kms-short-name }}](../../kms/concepts/key.md) в поле `key_id`:
 
    ```hcl
    resource "yandex_kms_secret_ciphertext" "password" {
@@ -14,17 +14,17 @@
 
    Где:
 
-   * `key_id` — идентификатор ключа KMS.
+   * `key_id` — идентификатор ключа {{ kms-short-name }}.
    * `aad_context` — ([AAD-контекст](../../kms/concepts/symmetric-encryption.md#add-context)).
    * `plaintext` — строка, которую нужно зашифровать.
 
    {% note warning %}
 
-   Использование `yandex_kms_secret_ciphertext` позволяет скрыть секреты при разворачивании инфраструктуры, но в общем случае указание `plaintext` и `aad_context` в конфигурационном файле в открытом виде небезопасно. Секреты могут быть прочитаны из файла конфигурации, могут попасть в Terraform-state или могут быть прочитаны из логов выполнения.
+   Использование `yandex_kms_secret_ciphertext` позволяет скрыть секреты при разворачивании инфраструктуры, но в общем случае указание `plaintext` и `aad_context` в конфигурационном файле в открытом виде небезопасно. Секреты могут быть прочитаны из файла конфигурации, могут попасть в {{ TF }}-state или могут быть прочитаны из логов выполнения.
 
    {% endnote %}
 
-   Более подробную информацию о параметрах ресурсов в Terraform см. в [документации провайдера](../../terraform/resources/kms_secret_ciphertext.md).
+   Более подробную информацию о параметрах ресурсов в {{ TF }} см. в [документации провайдера]({{ tf-provider-resources-link }}/kms_secret_ciphertext).
 
 1. Проверьте конфигурацию командой:
 
@@ -44,7 +44,7 @@
    terraform plan
    ```
 
-   В терминале будет выведен список ресурсов с параметрами. На этом этапе изменения не будут внесены. Если в конфигурации есть ошибки, Terraform на них укажет.
+   В терминале будет выведен список ресурсов с параметрами. На этом этапе изменения не будут внесены. Если в конфигурации есть ошибки, {{ TF }} на них укажет.
 
 1. Примените изменения конфигурации:
 
@@ -89,12 +89,12 @@
 ## Рекомендации для безопасного хранения секретных данных {#save-secret}
 
 * Не указывайте значения секретов в конфигурационном файле явно. Читайте их из хранилища, доступ к которому ограничен (например, вы можете использовать хранилища секретов).
-* Рассмотрите возможность [удаленного хранения Terraform-state](https://www.terraform.io/docs/state/sensitive-data.html).
+* Рассмотрите возможность [удаленного хранения {{ TF }}-state](https://www.terraform.io/docs/state/sensitive-data.html).
 
 ## См. также {#see-also}
 
-* [Начало работы с Terraform в Yandex Cloud](../infrastructure-management/terraform-quickstart.md).
-* [Документация провайдера Yandex Cloud](../../terraform/index.md).
+* [Начало работы с {{ TF }} в {{ yandex-cloud }}](../infrastructure-management/terraform-quickstart.md).
+* [Документация провайдера {{ yandex-cloud }}]({{ tf-provider-link }}).
 * [Sensitive Data in State](https://www.terraform.io/docs/state/sensitive-data.html).
-* [Шифрование данных с помощью CLI и API Yandex Cloud](../../kms/operations/symmetric-encryption.md).
-* [Auto Unseal в HashiCorp Vault](../../kms/tutorials/vault-secret.md)
+* [Шифрование данных с помощью CLI и API {{ yandex-cloud }}](../../kms/operations/symmetric-encryption.md).
+* [{#T}](../../kms/tutorials/vault-secret.md)

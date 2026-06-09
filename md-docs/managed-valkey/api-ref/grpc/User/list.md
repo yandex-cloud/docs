@@ -21,7 +21,7 @@ Retrieves the list of Redis User resources in the specified cluster.
 || cluster_id | **string**
 
 Required field. ID of the cluster to list Redis users in.
-To get the cluster ID, use a [ClusterService.List](../Cluster/list.md#List) request.
+To get the cluster ID, use a [ClusterService.List](../../../../managed-redis/api-ref/grpc/Cluster/list#List) request.
 
 The maximum string length in characters is 50. ||
 || page_size | **int64**
@@ -52,7 +52,8 @@ The maximum string length in characters is 400. ||
         "pub_sub_channels": "google.protobuf.StringValue",
         "categories": "google.protobuf.StringValue",
         "commands": "google.protobuf.StringValue",
-        "sanitize_payload": "google.protobuf.StringValue"
+        "sanitize_payload": "google.protobuf.StringValue",
+        "databases": "google.protobuf.StringValue"
       },
       "enabled": "bool",
       "acl_options": "string"
@@ -78,7 +79,7 @@ list request will have its own `next_page_token` to continue paging through the 
 ## User {#yandex.cloud.mdb.redis.v1.User}
 
 A Redis User resource. For more information, see the
-[Developer's Guide](../../../concepts/index.md).
+[Developer's Guide](../../../../managed-redis/concepts).
 
 #|
 ||Field | Description ||
@@ -118,4 +119,7 @@ Commands user can execute. ||
 || sanitize_payload | **[google.protobuf.StringValue](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/string-value)**
 
 SanitizePayload parameter. ||
+|| databases | **[google.protobuf.StringValue](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/string-value)**
+
+Databases parameter. ||
 |#

@@ -1,26 +1,26 @@
-# Техническое обслуживание кластера PostgreSQL
+# Техническое обслуживание кластера {{ PG }}
 
-Вы можете управлять [техническим обслуживанием](../concepts/maintenance.md) кластера Yandex Managed Service for PostgreSQL.
+Вы можете управлять [техническим обслуживанием](../concepts/maintenance.md) кластера {{ mpg-full-name }}.
 
 ## Получить список обслуживаний {#list-maintenance}
 
-  1. [Перейдите](../../console/operations/select-service.md#select-service) в сервис **Managed Service for&nbsp;PostgreSQL**.
-  1. Нажмите на имя нужного кластера и выберите вкладку **Обслуживание**.
+  1. Перейдите в сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-postgresql }}**.
+  1. Нажмите на имя нужного кластера и выберите вкладку **{{ ui-key.yacloud.mdb.maintenance.title_maintenance }}**.
 
-Чтобы просмотреть обслуживания с определенным статусом, нажмите кнопку **Статус** над списком обслуживаний и в выпадающем меню выберите нужный статус. Вы также можете найти обслуживание по его идентификатору или имени задания – используйте поле над списком обслуживаний.
+Чтобы просмотреть обслуживания с определенным статусом, нажмите кнопку **{{ ui-key.yacloud.mdb.maintenance.label_task-status }}** над списком обслуживаний и в выпадающем меню выберите нужный статус. Вы также можете найти обслуживание по его идентификатору или имени задания – используйте поле над списком обслуживаний.
 
-Чтобы получить информацию о влиянии обслуживания на доступность кластера, нажмите на идентификатор нужного обслуживания. В блоке **Подробнее о задании** отображается информация о влиянии обслуживания на пользователей.
+Чтобы получить информацию о [влиянии обслуживания на доступность кластера](../concepts/maintenance.md#impact-on-cluster), нажмите на идентификатор нужного обслуживания. В блоке **{{ ui-key.yacloud.mdb.maintenance.title_task-details }}** отображается информация о влиянии обслуживания на пользователей.
 
 ## Получить логи кластера, относящиеся к техническому обслуживанию {#maintenance-logs}
 
-  1. [Перейдите](../../console/operations/select-service.md#select-service) в сервис **Managed Service for&nbsp;PostgreSQL**.
-  1. Нажмите на имя нужного кластера и выберите вкладку **Обслуживание**.
+  1. Перейдите в сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-postgresql }}**.
+  1. Нажмите на имя нужного кластера и выберите вкладку **{{ ui-key.yacloud.mdb.maintenance.title_maintenance }}**.
   1. Нажмите на идентификатор нужного обслуживания.
-  1. Нажмите ссылку **Логи задания**.
+  1. Нажмите ссылку **{{ ui-key.yacloud.mdb.maintenance.label_task-logs }}**.
 
 ## Перенести запланированное обслуживание {#postpone-planned-maintenance}
 
-Обслуживания, имеющие статус **Запланировано**, назначены на определенную дату и время, которые указаны в столбце **Дата начала**. При необходимости их можно перенести на новую дату и время.
+Обслуживания, имеющие статус **{{ ui-key.yacloud.mdb.maintenance.label_task-status-planned }}**, назначены на определенную дату и время, которые указаны в столбце **{{ ui-key.yacloud.mdb.maintenance.label_task-start-time }}**. При необходимости их можно перенести на новую дату и время.
 
 {% list tabs group=instructions %}
 
@@ -28,17 +28,17 @@
 
   Чтобы перенести обслуживание на новую дату и время:
 
-  1. [Перейдите](../../console/operations/select-service.md#select-service) в сервис **Managed Service for&nbsp;PostgreSQL**.
-  1. Нажмите на имя нужного кластера и выберите вкладку **Обслуживание**.
-  1. Нажмите на значок ![image](../../_assets/console-icons/ellipsis.svg) справа в строке обслуживания со статусом **Запланировано**.
-  1. В выпадающем меню выберите ![image](../../_assets/console-icons/arrow-uturn-cw-right.svg) **Перенести**.
+  1. Перейдите в сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-postgresql }}**.
+  1. Нажмите на имя нужного кластера и выберите вкладку **{{ ui-key.yacloud.mdb.maintenance.title_maintenance }}**.
+  1. Нажмите на значок ![image](../../_assets/console-icons/ellipsis.svg) справа в строке обслуживания со статусом **{{ ui-key.yacloud.mdb.maintenance.label_task-status-planned }}**.
+  1. В выпадающем меню выберите ![image](../../_assets/console-icons/arrow-uturn-cw-right.svg) **{{ ui-key.yacloud.mdb.maintenance.action_change-task-time }}**.
   1. В открывшемся окне:
-      * Чтобы перенести обслуживание вперед на следующее окно обслуживания, нажмите **На следующее окно** и затем **Перенести**.
-      * Чтобы перенести обслуживание вперед или назад на определенную дату и время по UTC, нажмите **Выбрать дату (UTC)**, затем выберите новую дату и интервал времени и нажмите **Перенести**.
+      * Чтобы перенести обслуживание вперед на следующее окно обслуживания, нажмите **{{ ui-key.yacloud.component.maintenance-alert.value_next-available-window }}** и затем **{{ ui-key.yacloud.component.maintenance-alert.button_reschedule }}**.
+      * Чтобы перенести обслуживание вперед или назад на определенную дату и время по UTC, нажмите **{{ ui-key.yacloud.component.maintenance-alert.value_specific-time }}**, затем выберите новую дату и интервал времени и нажмите **{{ ui-key.yacloud.component.maintenance-alert.button_reschedule }}**.
 
 - CLI {#cli}
 
-  Если у вас еще нет интерфейса командной строки Yandex Cloud (CLI), [установите и инициализируйте его](../../cli/quickstart.md#install).
+  Если у вас еще нет интерфейса командной строки {{ yandex-cloud }} (CLI), [установите и инициализируйте его](../../cli/quickstart.md#install).
 
   По умолчанию используется каталог, указанный при [создании](../../cli/operations/profile/profile-create.md) профиля CLI. Чтобы изменить каталог по умолчанию, используйте команду `yc config set folder-id <идентификатор_каталога>`. Также для любой команды вы можете указать другой каталог с помощью параметров `--folder-name` или `--folder-id`. Если вы обращаетесь к ресурсу по имени, поиск будет выполнен в каталоге по умолчанию. Если вы обращаетесь к ресурсу по идентификатору, поиск будет выполнен глобально — во всех каталогах с учетом прав доступа.
 
@@ -47,13 +47,13 @@
   1. Посмотрите описание команды CLI для переноса обслуживания:
 
       ```bash
-      yc managed-postgresql cluster reschedule-maintenance --help
+      {{ yc-mdb-pg }} cluster reschedule-maintenance --help
       ```
 
   1. Чтобы перенести обслуживание на ближайшее окно, выполните команду, указав тип переноса `next-available-window`. Чтобы перенести на определенную дату и время, укажите тип переноса `specific-time`:
 
       ```bash
-      yc managed-postgresql cluster reschedule-maintenance <имя_или_идентификатор_кластера> \
+      {{ yc-mdb-pg }} cluster reschedule-maintenance <имя_или_идентификатор_кластера> \
          --reschedule-type <тип_переноса> \
          --delayed-until <временная_метка>
       ```
@@ -77,14 +77,14 @@
         export IAM_TOKEN="<IAM-токен>"
         ```
 
-    1. Воспользуйтесь методом [Cluster.rescheduleMaintenance](../api-ref/Cluster/rescheduleMaintenance.md) и выполните запрос, например, с помощью [cURL](https://curl.se/):
+    1. Воспользуйтесь методом [Cluster.rescheduleMaintenance](../api-ref/Cluster/rescheduleMaintenance.md) и выполните запрос, например, с помощью {{ api-examples.rest.tool }}:
 
         ```bash
         curl \
         --request POST \
         --header "Authorization: Bearer $IAM_TOKEN" \
         --header "Content-Type: application/json" \
-        --url 'https://mdb.api.cloud.yandex.net/managed-postgresql/v1/clusters/<идентификатор_кластера>:rescheduleMaintenance' \
+        --url 'https://{{ api-host-mdb }}/managed-postgresql/v1/clusters/<идентификатор_кластера>:rescheduleMaintenance' \
         --data '{
                     "rescheduleType": <тип_переноса>,
                     "delayedUntil": <временная_метка>
@@ -117,7 +117,7 @@
      ```
      
      Далее предполагается, что содержимое репозитория находится в директории `~/cloudapi/`.
-  1. Воспользуйтесь вызовом [ClusterService.RescheduleMaintenance](../api-ref/grpc/Cluster/rescheduleMaintenance.md) и выполните запрос, например, с помощью [gRPCurl](https://github.com/fullstorydev/grpcurl):
+  1. Воспользуйтесь вызовом [ClusterService.RescheduleMaintenance](../api-ref/grpc/Cluster/rescheduleMaintenance.md) и выполните запрос, например, с помощью {{ api-examples.grpc.tool }}:
 
      ```bash
      grpcurl \
@@ -131,7 +131,7 @@
              "reschedule_type": <тип_переноса>,
              "delayed_until": <временная_метка>
            }' \
-       mdb.api.cloud.yandex.net:443 \
+       {{ api-host-mdb }}:{{ port-https }} \
        yandex.cloud.mdb.postgresql.v1.ClusterService.RescheduleMaintenance
      ```
 
@@ -150,7 +150,7 @@
 
 ## Провести запланированное обслуживание немедленно {#exec-planned-maintenance}
 
-Обслуживания со статусом **Запланировано** при необходимости можно провести немедленно, не дожидаясь момента, указанного в столбце **Дата начала**.
+Обслуживания со статусом **{{ ui-key.yacloud.mdb.maintenance.label_task-status-planned }}** при необходимости можно провести немедленно, не дожидаясь момента, указанного в столбце **{{ ui-key.yacloud.mdb.maintenance.label_task-start-time }}**.
 
 {% list tabs group=instructions %}
 
@@ -158,14 +158,14 @@
 
   Чтобы провести запланированное обслуживание кластера немедленно:
 
-  1. [Перейдите](../../console/operations/select-service.md#select-service) в сервис **Managed Service for&nbsp;PostgreSQL**.
-  1. Нажмите на имя нужного кластера и выберите вкладку **Обслуживание**.
+  1. Перейдите в сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-postgresql }}**.
+  1. Нажмите на имя нужного кластера и выберите вкладку **{{ ui-key.yacloud.mdb.maintenance.title_maintenance }}**.
   1. Нажмите на значок ![image](../../_assets/console-icons/ellipsis.svg) справа в строке обслуживания.
-  1. В выпадающем меню выберите ![image](../../_assets/console-icons/triangle-right.svg) **Провести сейчас**.
+  1. В выпадающем меню выберите ![image](../../_assets/console-icons/triangle-right.svg) **{{ ui-key.yacloud.mdb.maintenance.action_exec-task-now }}**.
 
 - CLI {#cli}
 
-  Если у вас еще нет интерфейса командной строки Yandex Cloud (CLI), [установите и инициализируйте его](../../cli/quickstart.md#install).
+  Если у вас еще нет интерфейса командной строки {{ yandex-cloud }} (CLI), [установите и инициализируйте его](../../cli/quickstart.md#install).
 
   По умолчанию используется каталог, указанный при [создании](../../cli/operations/profile/profile-create.md) профиля CLI. Чтобы изменить каталог по умолчанию, используйте команду `yc config set folder-id <идентификатор_каталога>`. Также для любой команды вы можете указать другой каталог с помощью параметров `--folder-name` или `--folder-id`. Если вы обращаетесь к ресурсу по имени, поиск будет выполнен в каталоге по умолчанию. Если вы обращаетесь к ресурсу по идентификатору, поиск будет выполнен глобально — во всех каталогах с учетом прав доступа.
 
@@ -174,13 +174,13 @@
   1. Посмотрите описание команды CLI для переноса обслуживания:
 
       ```bash
-      yc managed-postgresql cluster reschedule-maintenance --help
+      {{ yc-mdb-pg }} cluster reschedule-maintenance --help
       ```
 
   1. Выполните команду, указав тип переноса `immediate`:
 
       ```bash
-      yc managed-postgresql cluster reschedule-maintenance <имя_или_идентификатор_кластера> \
+      {{ yc-mdb-pg }} cluster reschedule-maintenance <имя_или_идентификатор_кластера> \
          --reschedule-type immediate
       ```
 
@@ -196,14 +196,14 @@
         export IAM_TOKEN="<IAM-токен>"
         ```
 
-    1. Воспользуйтесь методом [Cluster.rescheduleMaintenance](../api-ref/Cluster/rescheduleMaintenance.md) и выполните запрос, например, с помощью [cURL](https://curl.se/):
+    1. Воспользуйтесь методом [Cluster.rescheduleMaintenance](../api-ref/Cluster/rescheduleMaintenance.md) и выполните запрос, например, с помощью {{ api-examples.rest.tool }}:
 
         ```bash
         curl \
         --request POST \
         --header "Authorization: Bearer $IAM_TOKEN" \
         --header "Content-Type: application/json" \
-        --url 'https://mdb.api.cloud.yandex.net/managed-postgresql/v1/clusters/<идентификатор_кластера>:rescheduleMaintenance' \
+        --url 'https://{{ api-host-mdb }}/managed-postgresql/v1/clusters/<идентификатор_кластера>:rescheduleMaintenance' \
         --data '{
                     "rescheduleType": "IMMEDIATE"
                 }'
@@ -228,7 +228,7 @@
      ```
      
      Далее предполагается, что содержимое репозитория находится в директории `~/cloudapi/`.
-  1. Воспользуйтесь вызовом [ClusterService.RescheduleMaintenance](../api-ref/grpc/Cluster/rescheduleMaintenance.md) и выполните запрос, например, с помощью [gRPCurl](https://github.com/fullstorydev/grpcurl):
+  1. Воспользуйтесь вызовом [ClusterService.RescheduleMaintenance](../api-ref/grpc/Cluster/rescheduleMaintenance.md) и выполните запрос, например, с помощью {{ api-examples.grpc.tool }}:
 
      ```bash
      grpcurl \
@@ -241,7 +241,7 @@
              "cluster_id": "<идентификатор_кластера>",
              "reschedule_type": "IMMEDIATE"
            }' \
-       mdb.api.cloud.yandex.net:443 \
+       {{ api-host-mdb }}:{{ port-https }} \
        yandex.cloud.mdb.postgresql.v1.ClusterService.RescheduleMaintenance
      ```
 
@@ -265,32 +265,32 @@
 
 - Консоль управления {#console}
 
-  1. [Перейдите](../../console/operations/select-service.md#select-service) в сервис **Managed Service for&nbsp;PostgreSQL**.
-  1. Нажмите на имя нужного кластера и выберите вкладку **Обслуживание**.
-  1. Нажмите кнопку ![image](../../_assets/console-icons/calendar.svg) **Настроить окно обслуживания**.
+  1. Перейдите в сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-postgresql }}**.
+  1. Нажмите на имя нужного кластера и выберите вкладку **{{ ui-key.yacloud.mdb.maintenance.title_maintenance }}**.
+  1. Нажмите кнопку ![image](../../_assets/console-icons/calendar.svg) **{{ ui-key.yacloud.mdb.maintenance.action_maintenance-window-setup }}**.
   1. В открывшемся окне:
-     * Чтобы разрешить проведение технического обслуживания в любое время, выберите пункт **произвольное** (по умолчанию).
-     * Чтобы разрешить проведение технического обслуживания раз в неделю в определенное время суток, выберите пункт **по расписанию** и укажите день недели и час по UTC.
+     * Чтобы разрешить проведение технического обслуживания в любое время, выберите пункт **{{ ui-key.yacloud.mdb.forms.value_maintenance-type-anytime }}** (по умолчанию).
+     * Чтобы разрешить проведение технического обслуживания раз в неделю в определенное время суток, выберите пункт **{{ ui-key.yacloud.mdb.forms.value_maintenance-type-weekly }}** и укажите день недели и час по UTC.
 
 - CLI {#cli}
 
-  Если у вас еще нет интерфейса командной строки Yandex Cloud (CLI), [установите и инициализируйте его](../../cli/quickstart.md#install).
+  Если у вас еще нет интерфейса командной строки {{ yandex-cloud }} (CLI), [установите и инициализируйте его](../../cli/quickstart.md#install).
 
   По умолчанию используется каталог, указанный при [создании](../../cli/operations/profile/profile-create.md) профиля CLI. Чтобы изменить каталог по умолчанию, используйте команду `yc config set folder-id <идентификатор_каталога>`. Также для любой команды вы можете указать другой каталог с помощью параметров `--folder-name` или `--folder-id`. Если вы обращаетесь к ресурсу по имени, поиск будет выполнен в каталоге по умолчанию. Если вы обращаетесь к ресурсу по идентификатору, поиск будет выполнен глобально — во всех каталогах с учетом прав доступа.
 
   1. Посмотрите описание команды CLI для изменения окна обслуживания:
 
       ```bash
-      yc managed-postgresql cluster update --help
+      {{ yc-mdb-pg }} cluster update --help
       ```
 
   1. Выполните команду:
 
       ```bash
-      yc managed-postgresql cluster update <имя_или_идентификатор_кластера> \
+      {{ yc-mdb-pg }} cluster update <имя_или_идентификатор_кластера> \
          --maintenance-window type=<тип_технического_обслуживания>,`
                              `day=<день_недели>,`
-                             `hour=<час_дня>
+                             `hour=<час>
       ```
 
       Где `type` — тип технического обслуживания:
@@ -298,17 +298,19 @@
       * `anytime` (по умолчанию) — в любое время.
       * `weekly` — по расписанию. Для этого значения дополнительно укажите:
           * `day` — день недели: `MON`, `TUE`, `WED`, `THU`, `FRI`, `SAT` или `SUN`.
-          * `hour` — час дня по UTC: от `1` до `24`.
+          * `hour` — порядковый номер часового интервала по UTC: от `1` до `24`.
+      
+            > Например, `1` соответствует интервалу с `00:00` до `01:00`, `5` — с `04:00` до `05:00`.
 
   Имя кластера можно [получить со списком кластеров в каталоге](cluster-list.md#list-clusters).
 
-- Terraform {#tf}
+- {{ TF }} {#tf}
 
-  1. Откройте актуальный конфигурационный файл Terraform с планом инфраструктуры.
+  1. Откройте актуальный конфигурационный файл {{ TF }} с планом инфраструктуры.
 
       О том, как создать такой файл, см. в разделе [Создание кластера](cluster-create.md).
 
-      Полный список доступных для изменения полей конфигурации кластера Managed Service for PostgreSQL см. в [документации провайдера Terraform](../../terraform/resources/mdb_postgresql_cluster.md).
+      Полный список доступных для изменения полей конфигурации кластера {{ mpg-name }} см. в [документации провайдера {{ TF }}]({{ tf-provider-mpg }}).
 
   1. Чтобы настроить время [технического обслуживания](../concepts/maintenance.md) (в т. ч. для выключенных кластеров), добавьте к описанию кластера блок `maintenance_window`:
      
@@ -318,7 +320,7 @@
        maintenance_window {
          type = "<тип_технического_обслуживания>"
          day  = "<день_недели>"
-         hour = <час_дня>
+         hour = <порядковый_номер_часового_интервала>
        }
        ...
      }
@@ -330,18 +332,20 @@
          * `ANYTIME` — в любое время.
          * `WEEKLY` — по расписанию.
      * `day` — день недели для типа `WEEKLY`: `MON`, `TUE`, `WED`, `THU`, `FRI`, `SAT` или `SUN`.
-     * `hour` — час дня по UTC для типа `WEEKLY`: от `1` до `24`.
+     * `hour` — порядковый номер часового интервала по UTC для типа `WEEKLY`: от `1` до `24`.
+     
+       > Например, `1` соответствует интервалу с `00:00` до `01:00`, `5` — с `04:00` до `05:00`.
 
   1. Проверьте корректность настроек.
 
-      1. В командной строке перейдите в каталог, в котором расположены актуальные конфигурационные файлы Terraform с планом инфраструктуры.
+      1. В командной строке перейдите в каталог, в котором расположены актуальные конфигурационные файлы {{ TF }} с планом инфраструктуры.
       1. Выполните команду:
       
          ```bash
          terraform validate
          ```
       
-         Если в файлах конфигурации есть ошибки, Terraform на них укажет.
+         Если в файлах конфигурации есть ошибки, {{ TF }} на них укажет.
 
   1. Подтвердите изменение ресурсов.
 
@@ -365,7 +369,7 @@
 
       {% note warning "Ограничения по времени" %}
       
-      Провайдер Terraform ограничивает время на выполнение операций с кластером Managed Service for PostgreSQL:
+      Провайдер {{ TF }} ограничивает время на выполнение операций с кластером {{ mpg-name }}:
       
       * создание, в том числе путем восстановления из резервной копии, — 30 минут;
       * изменение — 60 минут;
@@ -400,7 +404,7 @@
       export IAM_TOKEN="<IAM-токен>"
       ```
 
-  1. Воспользуйтесь методом [Cluster.Update](../api-ref/Cluster/update.md) и выполните запрос, например, с помощью [cURL](https://curl.se/):
+  1. Воспользуйтесь методом [Cluster.Update](../api-ref/Cluster/update.md) и выполните запрос, например, с помощью {{ api-examples.rest.tool }}:
 
      {% note warning %}
      
@@ -413,7 +417,7 @@
        --request PATCH \
        --header "Authorization: Bearer $IAM_TOKEN" \
        --header "Content-Type: application/json" \
-       --url 'https://mdb.api.cloud.yandex.net/managed-postgresql/v1/clusters/<идентификатор_кластера>' \
+       --url 'https://{{ api-host-mdb }}/managed-postgresql/v1/clusters/<идентификатор_кластера>' \
        --data '{
                  "updateMask": "maintenanceWindow",
                  "maintenanceWindow": {
@@ -431,13 +435,13 @@
 
        В данном случае передается только один параметр.
 
-     * `maintenanceWindow` — настройки времени [технического обслуживания](../concepts/maintenance.md) (в т. ч. для выключенных кластеров). В `maintenanceWindow` передайте один из двух параметров:
+     * `maintenanceWindow` — настройки времени [технического обслуживания](../concepts/maintenance.md) (в том числе для выключенных кластеров). В `maintenanceWindow` передайте один из двух параметров:
 
        * `anytime` — техническое обслуживание может быть запланировано на любое время.
        * `weeklyMaintenanceWindow` — техническое обслуживание может быть запланировано только на выбранный день недели и час:
 
          * `day` — день недели в формате `DDD`: `MON`, `TUE`, `WED`, `THU`, `FRI`, `SAT` или `SUN`;
-         * `hour` — час дня по UTC в формате `HH`: от `1` до `24`.
+         * `hour` — час по UTC в формате `HH`: от `1` до `24`.
 
      Идентификатор кластера можно запросить со [списком кластеров в каталоге](cluster-list.md#list-clusters).
 
@@ -458,7 +462,7 @@
      ```
      
      Далее предполагается, что содержимое репозитория находится в директории `~/cloudapi/`.
-  1. Воспользуйтесь вызовом [ClusterService.Update](../api-ref/grpc/Cluster/update.md) и выполните запрос, например, с помощью [gRPCurl](https://github.com/fullstorydev/grpcurl):
+  1. Воспользуйтесь вызовом [ClusterService.Update](../api-ref/grpc/Cluster/update.md) и выполните запрос, например, с помощью {{ api-examples.grpc.tool }}:
 
      {% note warning %}
      
@@ -500,7 +504,7 @@
                }
              }
            }' \
-       mdb.api.cloud.yandex.net:443 \
+       {{ api-host-mdb }}:{{ port-https }} \
        yandex.cloud.mdb.postgresql.v1.ClusterService.Update
      ```
 
@@ -510,7 +514,7 @@
 
        В данном случае передается только один параметр.
 
-     * `maintenance_window` — настройки времени [технического обслуживания](../concepts/maintenance.md) (в т. ч. для выключенных кластеров). В `maintenance_window` передайте один из двух параметров:
+     * `maintenance_window` — настройки времени [технического обслуживания](../concepts/maintenance.md) (в том числе для выключенных кластеров). В `maintenance_window` передайте один из двух параметров:
 
        * `anytime` — техническое обслуживание может быть запланировано на любое время.
        * `weekly_maintenance_window` — техническое обслуживание может быть запланировано только на выбранный день недели и час:

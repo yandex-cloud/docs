@@ -1,8 +1,8 @@
 # Редактирование ACL объекта
 
-В Object Storage реализовано несколько механизмов для управления доступом к ресурсам. Алгоритм взаимодействия этих механизмов см. в [Обзор способов управления доступом в Object Storage](../../security/overview.md).
+В {{ objstorage-name }} реализовано несколько механизмов для управления доступом к ресурсам. Алгоритм взаимодействия этих механизмов см. в [{#T}](../../security/overview.md).
 
-Для управления доступом к объекту в бакете Object Storage можно воспользоваться [ACL](../../concepts/acl.md).
+Для управления доступом к объекту в бакете {{ objstorage-name }} можно воспользоваться [ACL](../../concepts/acl.md).
 
 {% note info %}
 
@@ -14,43 +14,43 @@
 
 - Консоль управления {#console}
 
-    1. В [консоли управления](https://console.yandex.cloud) выберите каталог.
-    1. [Перейдите](../../../console/operations/select-service.md#select-service) в сервис **Object Storage**.
+    1. В [консоли управления]({{ link-console-main }}) выберите каталог.
+    1. Перейдите в сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_storage }}**.
     1. Выберите нужный бакет из списка.
-    1. На панели слева выберите ![image](../../../_assets/console-icons/folder-tree.svg) **Объекты** и найдите в списке нужный объект.
-    1. Чтобы отредактировать ACL, нажмите значок ![image](../../../_assets/console-icons/ellipsis.svg) в строке с нужным объектом и выберите **ACL объекта**.
+    1. На панели слева выберите ![image](../../../_assets/console-icons/folder-tree.svg) **{{ ui-key.yacloud.storage.bucket.switch_files }}** и найдите в списке нужный объект.
+    1. Чтобы отредактировать ACL, нажмите значок ![image](../../../_assets/console-icons/ellipsis.svg) в строке с нужным объектом и выберите **{{ ui-key.yacloud.storage.bucket.button_action-permissions }}**.
 
-        Также можно нажать на имя объекта, на открывшейся странице справа сверху нажать ![image](../../../_assets/console-icons/ellipsis.svg) и выбрать **ACL объекта**.
+        Также можно нажать на имя объекта, на открывшейся странице справа сверху нажать ![image](../../../_assets/console-icons/ellipsis.svg) и выбрать **{{ ui-key.yacloud.storage.bucket.button_action-permissions }}**.
 
-        В открывшемся окне **Редактирование ACL** выдайте или отзовите необходимые разрешения:
+        В открывшемся окне **{{ ui-key.yacloud.component.acl-dialog.label_title }}** выдайте или отзовите необходимые разрешения:
         
         1. Выберите нужных [субъектов](../../../iam/concepts/access-control/index.md#subject) из списка. Для этого поместите курсор в поле для ввода данных субъекта и в появившейся форме выберите нужного [пользователя](../../../overview/roles-and-resources.md#users), [сервисный аккаунт](../../../iam/concepts/users/service-accounts.md), [группу пользователей](../../../organization/concepts/groups.md), [системную группу](../../../iam/concepts/access-control/system-group.md) или [публичную группу](../../../iam/concepts/access-control/public-group.md). При необходимости воспользуйтесь соответствующими вкладками формы или строкой поиска по имени или электронному адресу субъекта.
         
             Задать разрешение вы можете одновременно для нескольких субъектов, для этого выбирайте их поочередно.
         
-        1. Задайте для выбранных субъектов необходимый [вид разрешений](../../concepts/acl.md#permissions-types) и нажмите **Добавить**.
+        1. Задайте для выбранных субъектов необходимый [вид разрешений](../../concepts/acl.md#permissions-types) и нажмите **{{ ui-key.yacloud.common.add }}**.
         
         1. Если требуется задать субъектам другие виды разрешений, повторите два предыдущих шага.
         
-        1. Чтобы отозвать выданное субъекту разрешение, нажмите **Отменить** в строке с этим разрешением.
+        1. Чтобы отозвать выданное субъекту разрешение, нажмите **{{ ui-key.yacloud.component.acl-dialog.button_remove-new }}** в строке с этим разрешением.
         
-        1. Нажмите кнопку **Сохранить**.
+        1. Нажмите кнопку **{{ ui-key.yacloud.common.save }}**.
 
         {% note info %}
   
-        В консоли управления разрешения можно выдать только тем сервисным аккаунтам, которые созданы в том же каталоге, что и сам бакет. Выдать разрешения для сервисных аккаунтов, относящихся к другим каталогам, можно с помощью Yandex Cloud CLI (только для ACL бакета), AWS CLI, Terraform или API.
+        В консоли управления разрешения можно выдать только тем сервисным аккаунтам, которые созданы в том же каталоге, что и сам бакет. Выдать разрешения для сервисных аккаунтов, относящихся к другим каталогам, можно с помощью {{ yandex-cloud }} CLI (только для ACL бакета), AWS CLI, {{ TF }} или API.
   
         {% endnote %}
 
-- Yandex Cloud CLI {#cli}
+- {{ yandex-cloud }} CLI {#cli}
 
-  Если у вас еще нет интерфейса командной строки Yandex Cloud (CLI), [установите и инициализируйте его](../../../cli/quickstart.md#install).
+  Если у вас еще нет интерфейса командной строки {{ yandex-cloud }} (CLI), [установите и инициализируйте его](../../../cli/quickstart.md#install).
 
   По умолчанию используется каталог, указанный при [создании](../../../cli/operations/profile/profile-create.md) профиля CLI. Чтобы изменить каталог по умолчанию, используйте команду `yc config set folder-id <идентификатор_каталога>`. Также для любой команды вы можете указать другой каталог с помощью параметров `--folder-name` или `--folder-id`. Если вы обращаетесь к ресурсу по имени, поиск будет выполнен в каталоге по умолчанию. Если вы обращаетесь к ресурсу по идентификатору, поиск будет выполнен глобально — во всех каталогах с учетом прав доступа.
 
   {% note info %}
 
-  Чтобы управлять ACL объекта, назначьте аккаунту, от имени которого работает Yandex Cloud CLI, [роль](../../security/index.md#storage-admin) `storage.admin`.
+  Чтобы управлять ACL объекта, назначьте аккаунту, от имени которого работает {{ yandex-cloud }} CLI, [роль](../../security/index.md#storage-admin) `storage.admin`.
 
   {% endnote %}
 
@@ -68,7 +68,7 @@
   * `--bucket` — имя бакета.
   * `--key` — ключ объекта.
 
-  Вы можете применить к объекту [предопределенный ACL](../../concepts/acl.md#predefined-acls) или настроить разрешения для отдельных пользователей, [сервисных аккаунтов](../../../iam/concepts/users/service-accounts.md), [групп пользователей](../../../organization/concepts/groups.md) и [публичных групп](../../concepts/acl.md#public-groups) (группа всех пользователей интернета, группа всех аутентифицированных пользователей Yandex Cloud). Эти настройки несовместимы: у объекта должен быть либо предопределенный ACL, либо набор отдельных разрешений.
+  Вы можете применить к объекту [предопределенный ACL](../../concepts/acl.md#predefined-acls) или настроить разрешения для отдельных пользователей, [сервисных аккаунтов](../../../iam/concepts/users/service-accounts.md), [групп пользователей](../../../organization/concepts/groups.md) и [публичных групп](../../concepts/acl.md#public-groups) (группа всех пользователей интернета, группа всех аутентифицированных пользователей {{ yandex-cloud }}). Эти настройки несовместимы: у объекта должен быть либо предопределенный ACL, либо набор отдельных разрешений.
 
   _Предопределенный ACL_
 
@@ -85,15 +85,15 @@
 
   * `--bucket` — имя бакета.
   * `--key` — ключ объекта.
-  * `--acl` — предопределенный ACL. Список значений см. в разделе [Предопределенные ACL](../../concepts/acl.md#predefined-acls).
+  * `--acl` — предопределенный ACL. Список значений см. в разделе [{#T}](../../concepts/acl.md#predefined-acls).
 
   _Настройка отдельных разрешений_
 
-  1. Чтобы выдать разрешения ACL для пользователя Yandex Cloud, сервисного аккаунта или группы пользователей, получите их идентификатор:
+  1. Чтобы выдать разрешения ACL для пользователя {{ yandex-cloud }}, сервисного аккаунта или группы пользователей, получите их идентификатор:
 
       * [Пользователь](../../../organization/operations/users-get.md).
       * [Сервисный аккаунт](../../../iam/operations/sa/get-id.md).
-      * Группа пользователей — перейдите на вкладку [**Группы**](https://center.yandex.cloud/organization/groups) в интерфейсе Cloud Center.
+      * Группа пользователей — перейдите на вкладку [**{{ ui-key.yacloud_org.pages.groups }}**]({{ link-org-cloud-center }}/groups) в интерфейсе {{ cloud-center }}.
 
   1. Выполните команду:
 
@@ -120,7 +120,7 @@
       * Возможные получатели разрешений:
 
           * `id=<идентификатор_получателя>` — идентификатор пользователя, сервисного аккаунта или группы пользователей, которым нужно дать разрешение.
-          * `uri=http://acs.amazonaws.com/groups/global/AuthenticatedUsers` — [публичная группа](../../concepts/acl.md#public-groups) всех аутентифицированных пользователей Yandex Cloud.
+          * `uri=http://acs.amazonaws.com/groups/global/AuthenticatedUsers` — [публичная группа](../../concepts/acl.md#public-groups) всех аутентифицированных пользователей {{ yandex-cloud }}.
           * `uri=http://acs.amazonaws.com/groups/global/AllUsers` — публичная группа всех пользователей интернета.
 
 - AWS CLI {#aws-cli}
@@ -138,17 +138,17 @@
 
   ```bash
   aws s3api get-object-acl \
-    --endpoint https://storage.yandexcloud.net \
+    --endpoint https://{{ s3-storage-host }} \
     --bucket <имя_бакета> \
     --key <ключ_объекта>
   ```
 
   Где:
-  * `--endpoint` — эндпоинт Object Storage.
+  * `--endpoint` — эндпоинт {{ objstorage-name }}.
   * `--bucket` — имя бакета.
   * `--key` — ключ объекта.
 
-  Вы можете применить к объекту [предопределенный ACL](../../concepts/acl.md#predefined-acls) или настроить разрешения для отдельных пользователей, [сервисных аккаунтов](../../../iam/concepts/users/service-accounts.md), [групп пользователей](../../../organization/concepts/groups.md) и [публичных групп](../../concepts/acl.md#public-groups) (группа всех пользователей интернета, группа всех аутентифицированных пользователей Yandex Cloud). Эти настройки несовместимы: у объекта должен быть либо предопределенный ACL, либо набор отдельных разрешений.
+  Вы можете применить к объекту [предопределенный ACL](../../concepts/acl.md#predefined-acls) или настроить разрешения для отдельных пользователей, [сервисных аккаунтов](../../../iam/concepts/users/service-accounts.md), [групп пользователей](../../../organization/concepts/groups.md) и [публичных групп](../../concepts/acl.md#public-groups) (группа всех пользователей интернета, группа всех аутентифицированных пользователей {{ yandex-cloud }}). Эти настройки несовместимы: у объекта должен быть либо предопределенный ACL, либо набор отдельных разрешений.
 
   _Предопределенный ACL_
 
@@ -156,7 +156,7 @@
 
   ```bash
   aws s3api put-object-acl \
-    --endpoint https://storage.yandexcloud.net \
+    --endpoint https://{{ s3-storage-host }} \
     --bucket <имя_бакета> \
     --key <ключ_объекта> \
     --acl <предопределенный_ACL>
@@ -164,31 +164,31 @@
 
   Где:
 
-  * `--endpoint` — эндпоинт Object Storage.
+  * `--endpoint` — эндпоинт {{ objstorage-name }}.
   * `--bucket` — имя бакета.
   * `--key` — ключ объекта.
-  * `--acl` — предопределенный ACL. Список значений см. в разделе [Предопределенные ACL](../../concepts/acl.md#predefined-acls).
+  * `--acl` — предопределенный ACL. Список значений см. в разделе [{#T}](../../concepts/acl.md#predefined-acls).
 
   _Настройка отдельных разрешений_
 
-  1. Чтобы выдать разрешения ACL для пользователя Yandex Cloud, сервисного аккаунта или группы пользователей, получите их идентификатор:
+  1. Чтобы выдать разрешения ACL для пользователя {{ yandex-cloud }}, сервисного аккаунта или группы пользователей, получите их идентификатор:
 
       * [Пользователь](../../../organization/operations/users-get.md).
       * [Сервисный аккаунт](../../../iam/operations/sa/get-id.md).
-      * Группа пользователей — перейдите на вкладку [**Группы**](https://center.yandex.cloud/organization/groups) в интерфейсе Cloud Center.
+      * Группа пользователей — перейдите на вкладку [**{{ ui-key.yacloud_org.pages.groups }}**]({{ link-org-cloud-center }}/groups) в интерфейсе {{ cloud-center }}.
 
   1. Выполните команду:
 
       ```bash
       aws s3api put-object-acl \
-        --endpoint https://storage.yandexcloud.net \
+        --endpoint https://{{ s3-storage-host }} \
         --bucket <имя_бакета> \
         --key <ключ_объекта> \
         <тип_разрешения> <получатель_разрешения>
       ```
 
         Где:
-        * `--endpoint` — эндпоинт Object Storage.
+        * `--endpoint` — эндпоинт {{ objstorage-name }}.
         * `--bucket` — имя бакета.
         * `--key` — ключ объекта.
         * Возможные типы разрешений ACL:
@@ -200,32 +200,35 @@
           Вы можете задать несколько разрешений в одной команде.
         * Возможные получатели разрешений:
           * `id=<идентификатор_получателя>` — идентификатор пользователя, сервисного аккаунта или группы пользователей, которым нужно дать разрешение.
-          * `uri=http://acs.amazonaws.com/groups/global/AuthenticatedUsers` — [публичная группа](../../concepts/acl.md#public-groups) всех аутентифицированных пользователей Yandex Cloud.
+          * `uri=http://acs.amazonaws.com/groups/global/AuthenticatedUsers` — [публичная группа](../../concepts/acl.md#public-groups) всех аутентифицированных пользователей {{ yandex-cloud }}.
           * `uri=http://acs.amazonaws.com/groups/global/AllUsers` — публичная группа всех пользователей интернета.
 
-- Terraform {#tf}
+- {{ TF }} {#tf}
 
   {% note info %}
   
-  Если вы работаете с Object Storage через Terraform от имени [сервисного аккаунта](../../../iam/concepts/users/service-accounts.md), [назначьте](../../../iam/operations/sa/assign-role-for-sa.md) сервисному аккаунту нужную [роль](../../security/index.md#roles-list), например `storage.admin`, на каталог, в котором будут создаваться ресурсы.
+  Если вы работаете с {{ objstorage-name }} через {{ TF }} от имени [сервисного аккаунта](../../../iam/concepts/users/service-accounts.md), [назначьте](../../../iam/operations/sa/assign-role-for-sa.md) сервисному аккаунту нужную [роль](../../security/index.md#roles-list), например `storage.admin`, на каталог, в котором будут создаваться ресурсы.
   
   {% endnote %}
 
 
-  [Terraform](https://www.terraform.io/) позволяет быстро создать облачную инфраструктуру в Yandex Cloud и управлять ею с помощью файлов конфигураций. В файлах конфигураций хранится описание инфраструктуры на языке HCL (HashiCorp Configuration Language). При изменении файлов конфигураций Terraform автоматически определяет, какая часть вашей конфигурации уже развернута, что следует добавить или удалить.
+  [{{ TF }}](https://www.terraform.io/) позволяет быстро создать облачную инфраструктуру в {{ yandex-cloud }} и управлять ею с помощью файлов конфигураций. В файлах конфигураций хранится описание инфраструктуры на языке HCL (HashiCorp Configuration Language). При изменении файлов конфигураций {{ TF }} автоматически определяет, какая часть вашей конфигурации уже развернута, что следует добавить или удалить.
   
-  Terraform распространяется под лицензией [Business Source License](https://github.com/hashicorp/terraform/blob/main/LICENSE), а [провайдер Yandex Cloud для Terraform](https://github.com/yandex-cloud/terraform-provider-yandex) — под лицензией [MPL-2.0](https://www.mozilla.org/en-US/MPL/2.0/).
+  {{ TF }} распространяется под лицензией [Business Source License](https://github.com/hashicorp/terraform/blob/main/LICENSE), а [провайдер {{ yandex-cloud }} для {{ TF }}](https://github.com/yandex-cloud/terraform-provider-yandex) — под лицензией [MPL-2.0](https://www.mozilla.org/en-US/MPL/2.0/).
   
-  Подробную информацию о ресурсах провайдера смотрите в документации на сайте [Terraform](https://www.terraform.io/docs/providers/yandex/index.html) или в [зеркале](../../../terraform/index.md).
+  Подробную информацию о ресурсах провайдера смотрите в документации на сайте [{{ TF }}](https://www.terraform.io/docs/providers/yandex/index.html) или в [зеркале]({{ tf-docs-link }}).
 
   
-  Если у вас еще нет Terraform, [установите его и настройте провайдер Yandex Cloud](../../../tutorials/infrastructure-management/terraform-quickstart.md#install-terraform).
+  Если у вас еще нет {{ TF }}, [установите его и настройте провайдер {{ yandex-cloud }}](../../../tutorials/infrastructure-management/terraform-quickstart.md#install-terraform).
+  
+  
+  Чтобы управлять инфраструктурой с помощью {{ TF }} от имени сервисного аккаунта или пользовательских аккаунтов: аккаунта на Яндексе, федеративного аккаунта и локального пользователя, [аутентифицируйтесь](../../../terraform/authentication.md) соответствующим способом.
 
 
 
   Чтобы отредактировать ACL объекта:
 
-  1. Откройте файл конфигурации Terraform и добавьте параметр `acl` в описание объекта.
+  1. Откройте файл конфигурации {{ TF }} и добавьте параметр `acl` в описание объекта.
 
      ```hcl
      ...
@@ -245,14 +248,14 @@
 
         {% note info %}
         
-        Кроме статических ключей доступа для аутентификации в Object Storage можно использовать IAM-токен. Подробнее смотрите в разделе [Создание бакета](../buckets/create.md) и в [документации провайдера](../../../terraform/resources/storage_object.md). 
+        Кроме статических ключей доступа для аутентификации в {{ objstorage-name }} можно использовать IAM-токен. Подробнее смотрите в разделе [{#T}](../buckets/create.md) и в [документации провайдера]({{ tf-provider-resources-link }}/storage_object). 
         
         {% endnote %}
 
      * `secret_key` — значение секретного ключа доступа.
-     * `acl` — [предопределенный ACL](../../concepts/acl.md#predefined-acls) объекта. Значение по умолчанию — `private`: пользователи Yandex Cloud получают разрешения в соответствии со своими ролями в IAM.
+     * `acl` — [предопределенный ACL](../../concepts/acl.md#predefined-acls) объекта. Значение по умолчанию — `private`: пользователи {{ yandex-cloud }} получают разрешения в соответствии со своими ролями в {{ iam-short-name }}.
 
-     Более подробную информацию о параметрах ресурса `yandex_storage_object` в Terraform см. в [документации провайдера](../../../terraform/resources/storage_object.md).
+     Более подробную информацию о параметрах ресурса `yandex_storage_object` в {{ TF }} см. в [документации провайдера]({{ tf-provider-resources-link }}/storage_object).
 
   1. Примените изменения:
 
@@ -275,7 +278,7 @@
          terraform plan
          ```
       
-         В терминале будет выведен список ресурсов с параметрами. На этом этапе изменения не будут внесены. Если в конфигурации есть ошибки, Terraform на них укажет.
+         В терминале будет выведен список ресурсов с параметрами. На этом этапе изменения не будут внесены. Если в конфигурации есть ошибки, {{ TF }} на них укажет.
       1. Примените изменения конфигурации:
       
          ```bash
@@ -284,7 +287,7 @@
       
       1. Подтвердите изменения: введите в терминале слово `yes` и нажмите **Enter**.
 
-     Проверить изменения можно в [консоли управления](https://console.yandex.cloud).
+     Проверить изменения можно в [консоли управления]({{ link-console-main }}).
 
 - API {#api}
 

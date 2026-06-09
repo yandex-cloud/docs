@@ -2,10 +2,10 @@
 
 К [платежному аккаунту](../concepts/billing-account.md) можно привязать одно или несколько облаков. Привязывать можно как новые облака, так и уже существующие. Отвязать облако от платежного аккаунта нельзя, но вместо этого можно перепривязать его к другому платежному аккаунту.
 
-Если платежный аккаунт добавлен в [организацию](../concepts/organization.md), то в сервисе Yandex Cloud Billing можно привязать к нему облака из своей организации и облака из других организаций, к которым был [выдан доступ](../../resource-manager/security/index.md).
+Если платежный аккаунт добавлен в [организацию](../concepts/organization.md), то в сервисе {{ billing-name }} можно привязать к нему облака из своей организации и облака из других организаций, к которым был [выдан доступ](../../resource-manager/security/index.md).
 
 
-Каждое облако в Yandex Cloud должно быть привязано только к одному платежному аккаунту. Перепривязывая существующее облако, вы переносите его с одного платежного аккаунта на другой. Для юридических лиц нельзя перепривязать облако и сервисы [DataSphere](../../datasphere/index.md), [Tracker](https://yandex.ru/support/tracker/ru) и [DataLens](../../datalens/index.md) с платного аккаунта на аккаунт в пробном периоде.
+Каждое облако в {{ yandex-cloud }} должно быть привязано только к одному платежному аккаунту. Перепривязывая существующее облако, вы переносите его с одного платежного аккаунта на другой. Для юридических лиц нельзя перепривязать облако и сервисы [DataSphere](../../datasphere/index.md), [Tracker]({{ link-yandex }}/support/tracker/{{ lang }}) и [DataLens](../../datalens/index.md) с платного аккаунта на аккаунт в пробном периоде.
 
 ![image](../../_assets/billing/clouds-and-accounts.svg)
 
@@ -23,24 +23,27 @@
 
 {% list tabs group=instructions %}
 
-- Интерфейс Yandex Cloud Billing {#billing}
+- {{ billing-interface }} {#billing}
 
-  1. Перейдите в сервис [**Yandex Cloud Billing**](https://center.yandex.cloud/billing/accounts).
+  1. Перейдите в сервис [**{{ billing-name }}**]({{ link-console-billing }}).
   1. Выберите платежный аккаунт, к которому хотите привязать облако.
-  1. На панели слева выберите ![image](../../_assets/console-icons/cloud.svg) **Облака и сервисы**.
-  1. Нажмите ![image](../../_assets/console-icons/link.svg) **Привязать** в верхнем правом углу страницы.
+  1. На панели слева выберите ![image](../../_assets/console-icons/cloud.svg) **{{ ui-key.yacloud_org.billing.account.entities.label_title }}**.
+  1. Нажмите ![image](../../_assets/console-icons/link.svg) **{{ ui-key.yacloud_billing.billing.account.bind-cloud.button_bind }}** в верхнем правом углу страницы.
 
      ![image](../../_assets/billing/billing-pin-cloud-1-4.png)
   
-  1. В поле **Тип** выберите нужный тип сущности из списка, а затем — ресурс, который хотите привязать к платежному аккаунту.
-  1. Нажмите кнопку **Привязать** — добавленное облако или сервис появится в списке.
+  1. В поле **{{ ui-key.yacloud_org.billing.account.entities.label_type }}** выберите нужный тип сущности из списка, а затем — ресурс, который хотите привязать к платежному аккаунту.
+  1. Нажмите кнопку **{{ ui-key.yacloud_billing.billing.account.bind-cloud.button_bind }}** — добавленное облако или сервис появится в списке.
   1. Погасите задолженность на старом платежном аккаунте, если перепривязали облако.
 
      ![image](../../_assets/billing/billing-pin-cloud-5-6.png) 
 
-- Terraform {#tf}
+- {{ TF }} {#tf}
 
-  Если у вас еще нет Terraform, [установите его и настройте провайдер Yandex Cloud](../../tutorials/infrastructure-management/terraform-quickstart.md#install-terraform).
+  Если у вас еще нет {{ TF }}, [установите его и настройте провайдер {{ yandex-cloud }}](../../tutorials/infrastructure-management/terraform-quickstart.md#install-terraform).
+  
+  
+  Чтобы управлять инфраструктурой с помощью {{ TF }} от имени сервисного аккаунта или пользовательских аккаунтов: аккаунта на Яндексе, федеративного аккаунта и локального пользователя, [аутентифицируйтесь](../../terraform/authentication.md) соответствующим способом.
 
   Для привязки облака у [сервисного аккаунта](../../iam/concepts/users/service-accounts.md) должна быть [назначена роль](../security/index.md#set-role) не ниже `billing.accounts.editor` на платежный аккаунт, к которому будет привязано облако.
 
@@ -59,7 +62,7 @@
      * `billing_account_id` — идентификатор платежного аккаунта, к которому вы хотите привязать облако.
      * `cloud_id` — идентификатор облака, которое вы хотите привязать к платежному аккаунту.
 
-     Более подробную информацию о параметрах ресурса `yandex_billing_cloud_binding` в Terraform, см. в [документации провайдера](../../terraform/resources/billing_cloud_binding.md).
+     Более подробную информацию о параметрах ресурса `yandex_billing_cloud_binding` в {{ TF }}, см. в [документации провайдера]({{ tf-provider-resources-link }}/billing_cloud_binding).
   1. Создайте ресурсы:
 
      1. В терминале перейдите в директорию с конфигурационным файлом.
@@ -81,7 +84,7 @@
         terraform plan
         ```
      
-        В терминале будет выведен список ресурсов с параметрами. На этом этапе изменения не будут внесены. Если в конфигурации есть ошибки, Terraform на них укажет.
+        В терминале будет выведен список ресурсов с параметрами. На этом этапе изменения не будут внесены. Если в конфигурации есть ошибки, {{ TF }} на них укажет.
      1. Примените изменения конфигурации:
      
         ```bash
@@ -110,11 +113,11 @@
 
 {% list tabs group=instructions %}
 
-- Интерфейс Yandex Cloud Billing {#billing}
+- {{ billing-interface }} {#billing}
   
-  1. Перейдите в сервис [**Yandex Cloud Billing**](https://center.yandex.cloud/billing/accounts).
+  1. Перейдите в сервис [**{{ billing-name }}**]({{ link-console-billing }}).
   1. Выберите платежный аккаунт, к которому привязали новое облако или сервис.
-  1. На панели слева выберите ![image](../../_assets/console-icons/cloud.svg) **Облака и сервисы**.
+  1. На панели слева выберите ![image](../../_assets/console-icons/cloud.svg) **{{ ui-key.yacloud_org.billing.account.entities.label_title }}**.
 
   В списке должна появиться новая строка с идентификатором привязанного облака или сервиса.
 
@@ -122,11 +125,11 @@
 
 ## Особенности управления ресурсами в организациях {#bind-cloud-organization}
 
-1. После добавления вашего платежного аккаунта в [организацию](../concepts/organization.md) для привязки в сервисе [**Yandex Cloud Billing**](https://center.yandex.cloud/billing/accounts) будут доступны:
-     * облака и экземпляры сервисов [DataSphere](https://yandex.cloud/ru/services#ml-ai), [Yandex DataLens](../../datalens/index.md) или [Яндекс Трекер](https://yandex.ru/support/tracker/ru), которые созданы в вашей организации;
+1. После добавления вашего платежного аккаунта в [организацию](../concepts/organization.md) для привязки в сервисе [**{{ billing-name }}**]({{ link-console-billing }}) будут доступны:
+     * облака и экземпляры сервисов [{{ ml-platform-name }}](https://yandex.cloud/ru/services#ml-ai), [{{ datalens-full-name }}](../../datalens/index.md) или [{{ tracker-full-name }}]({{ link-yandex }}/support/tracker/{{ lang }}), которые созданы в вашей организации;
      * облака и сущности из других организаций, к которым был [выдан доступ](../../resource-manager/security/index.md).
      
-   Чтобы получить доступ к [тарифицируемым](../../organization/pricing.md#pricing-management) возможностям сервиса [Yandex Identity Hub](../../organization/index.md), [привяжите](../../organization/operations/manage-billing.md#add-billing-account) платежный аккаунт к инстансу Yandex Identity Hub.
+   Чтобы получить доступ к [тарифицируемым](../../organization/pricing.md#pricing-management) возможностям сервиса [{{ org-full-name }}](../../organization/index.md), [привяжите](../../organization/operations/manage-billing.md#add-billing-account) платежный аккаунт к инстансу {{ org-full-name }}.
 1. [Тарифный план технической поддержки](../../support/pricing.md) действует на уровне организации и может быть изменен только владельцем организации. С помощью одного платежного аккаунта можно оплачивать фиксированную часть тарифа поддержки для разных организаций, в которых могут быть подключены разные тарифы поддержки.
 
 Если вы хотите перестать использовать старый платежный аккаунт, проверьте, что в нем подключен бесплатный тарифный план «Базовый», чтобы предотвратить списания. В противном случае, даже если у аккаунта не останется привязанных облаков, начисления за платный тарифный план продолжат списываться.

@@ -6,7 +6,7 @@ Deleting a private subnet removes its data permanently and is irreversible.
 ## HTTP request
 
 ```
-DELETE https://baremetal.api.cloud.yandex.net/baremetal/v1alpha/privateSubnets/{privateSubnetId}
+DELETE https://baremetal.{{ api-host }}/baremetal/v1alpha/privateSubnets/{privateSubnetId}
 ```
 
 ## Path parameters

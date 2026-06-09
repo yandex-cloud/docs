@@ -7,7 +7,7 @@ Also deletes a corresponding compute instance.
 ## HTTP request
 
 ```
-DELETE https://loadtesting.api.cloud.yandex.net/loadtesting/api/v1/agent/{agentId}
+DELETE https://loadtesting.{{ api-host }}/loadtesting/api/v1/agent/{agentId}
 ```
 
 ## Path parameters

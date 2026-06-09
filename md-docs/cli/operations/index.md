@@ -1,20 +1,20 @@
 # Все инструкции CLI
 
-- [Установка CLI](install-cli.md) 
-- [Обновление CLI](update-cli.md)
-- [Удаление CLI](remove-cli.md)
+- [{#T}](install-cli.md) 
+- [{#T}](update-cli.md)
+- [{#T}](remove-cli.md)
 
 ## Управление профилем {#profile}
 
-- [Создание профиля](profile/profile-create.md)
-- [Управление параметрами профиля](profile/manage-properties.md)
-- [Получение информации о профиле](profile/profile-list.md)
-- [Активация профиля](profile/profile-activate.md)
-- [Удаление профиля](profile/profile-delete.md)
+- [{#T}](profile/profile-create.md)
+- [{#T}](profile/manage-properties.md)
+- [{#T}](profile/profile-list.md)
+- [{#T}](profile/profile-activate.md)
+- [{#T}](profile/profile-delete.md)
 
 ## Аутентификация {#auth}
 
-- [Аутентификация с аккаунтом на Яндексе](authentication/user.md)
-- [Аутентификация от имени сервисного аккаунта](authentication/service-account.md)
-- [Аутентификация от имени федеративного пользователя](authentication/federated-user.md)
-- [Аутентификация от имени локального пользователя](authentication/local-user.md)
+- [{#T}](authentication/user.md)
+- [{#T}](authentication/service-account.md)
+- [{#T}](authentication/federated-user.md)
+- [{#T}](authentication/local-user.md)

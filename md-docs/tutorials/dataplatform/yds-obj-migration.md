@@ -1,8 +1,8 @@
-# Миграция данных в Yandex Object Storage с помощью Yandex Data Transfer
+# Миграция данных в {{ objstorage-full-name }} с помощью {{ data-transfer-full-name }}
 
-С помощью сервиса Data Transfer вы можете перенести данные из [потока Data Streams](../../data-streams/concepts/glossary.md#stream-concepts) в бакет Yandex Object Storage:
+С помощью сервиса {{ data-transfer-name }} вы можете перенести данные из [потока {{ yds-name }}](../../data-streams/concepts/glossary.md#stream-concepts) в бакет {{ objstorage-full-name }}:
 
-1. [Подготовьте поток данных Data Streams](#prepare-source).
+1. [Подготовьте поток данных {{ yds-name }}](#prepare-source).
 1. [Подготовьте и активируйте трансфер](#prepare-transfer).
 1. [Проверьте работоспособность трансфера](#verify-transfer).
 
@@ -11,17 +11,17 @@
 
 ## Необходимые платные ресурсы {#paid-resources}
 
-* База данных Managed Service for YDB (см. [тарифы Managed Service for YDB](../../ydb/pricing/index.md)). Стоимость зависит от режима использования:
+* База данных {{ ydb-name }} (см. [тарифы {{ ydb-name }}](../../ydb/pricing/index.md)). Стоимость зависит от режима использования:
 
 	* Для бессерверного режима — оплачиваются операции с данными, объем хранимых данных и резервных копий.
   	* Для режима с выделенными инстансами — оплачивается использование выделенных БД вычислительных ресурсов, объем хранилища и резервные копии.
 
-* Сервис Data Streams (см. [тарифы Data Streams](../../data-streams/pricing.md)). Стоимость зависит от режима тарификации:
+* Сервис {{ yds-name }} (см. [тарифы {{ yds-name }}](../../data-streams/pricing.md)). Стоимость зависит от режима тарификации:
 
     * [По выделенным ресурсам](../../data-streams/pricing.md#rules) — оплачивается фиксированная почасовая ставка за установленный лимит пропускной способности и срок хранения сообщений, а также дополнительно количество единиц фактически записанных данных.
     * [По фактическому использованию](../../data-streams/pricing.md#on-demand) (On-demand) — оплачиваются выполненные операции записи и чтения данных, объем считанных/записанных данных, а также объем фактически используемого хранилища для сообщений, по которым не истек срок хранения.
 
-* Бакет Object Storage: использование хранилища и выполнение операций с данными (см. [тарифы Object Storage](../../storage/pricing.md)).
+* Бакет {{ objstorage-name }}: использование хранилища и выполнение операций с данными (см. [тарифы {{ objstorage-name }}](../../storage/pricing.md)).
 
 
 ## Перед началом работы {#before-you-begin}
@@ -32,13 +32,13 @@
 
 - Вручную {#manual}
 
-    1. [Создайте базу данных Managed Service for YDB](../../ydb/operations/manage-databases.md) любой подходящей конфигурации.
+    1. [Создайте базу данных {{ ydb-name }}](../../ydb/operations/manage-databases.md) любой подходящей конфигурации.
 
-    1. [Создайте бакет в Yandex Object Storage](../../storage/operations/buckets/create.md).
+    1. [Создайте бакет в {{ objstorage-full-name }}](../../storage/operations/buckets/create.md).
 
-- Terraform {#tf}
+- {{ TF }} {#tf}
 
-    1. Если у вас еще нет Terraform, [установите его](../infrastructure-management/terraform-quickstart.md#install-terraform).
+    1. Если у вас еще нет {{ TF }}, [установите его](../infrastructure-management/terraform-quickstart.md#install-terraform).
     1. [Получите данные для аутентификации](../infrastructure-management/terraform-quickstart.md#get-credentials). Вы можете добавить их в переменные окружения или указать далее в файле с настройками провайдера.
     1. [Настройте и инициализируйте провайдер](../infrastructure-management/terraform-quickstart.md#configure-provider). Чтобы не создавать конфигурационный файл с настройками провайдера вручную, [скачайте его](https://github.com/yandex-cloud-examples/yc-terraform-provider-settings/blob/main/provider.tf).
     1. Поместите конфигурационный файл в отдельную рабочую директорию и [укажите значения параметров](../infrastructure-management/terraform-quickstart.md#configure-provider). Если данные для аутентификации не были добавлены в переменные окружения, укажите их в конфигурационном файле.
@@ -47,25 +47,25 @@
 
         В этом файле описаны:
 
-        * база данных Managed Service for YDB;
+        * база данных {{ ydb-name }};
         * сервисный аккаунт с ролями `yds.editor`, `storage.editor` и `storage.uploader`;
-        * бакет в Object Storage;
+        * бакет в {{ objstorage-name }};
         * трансфер.
 
     1. Укажите в файле `data-transfer-yds-obj.tf`:
 
         * `folder_id` — [идентификатор каталога](../../resource-manager/operations/folder/get-id.md), в котором будут созданы ресурсы.
         * `sa_name` — имя сервисного аккаунта для создания бакета и использования в эндпоинтах.
-        * `source_db_name` — имя базы данных Managed Service for YDB.
-        * `bucket_name` — имя бакета в Object Storage.
+        * `source_db_name` — имя базы данных {{ ydb-name }}.
+        * `bucket_name` — имя бакета в {{ objstorage-name }}.
 
-    1. Проверьте корректность файлов конфигурации Terraform с помощью команды:
+    1. Проверьте корректность файлов конфигурации {{ TF }} с помощью команды:
 
         ```bash
         terraform validate
         ```
 
-        Если в файлах конфигурации есть ошибки, Terraform на них укажет.
+        Если в файлах конфигурации есть ошибки, {{ TF }} на них укажет.
 
     1. Создайте необходимую инфраструктуру:
 
@@ -87,13 +87,13 @@
            1. Подтвердите изменение ресурсов.
            1. Дождитесь завершения операции.
 
-        В указанном каталоге будут созданы все требуемые ресурсы. Проверить появление ресурсов и их настройки можно в [консоли управления](https://console.yandex.cloud).
+        В указанном каталоге будут созданы все требуемые ресурсы. Проверить появление ресурсов и их настройки можно в [консоли управления]({{ link-console-main }}).
 
 {% endlist %}
 
-## Подготовьте поток данных Data Streams {#prepare-source}
+## Подготовьте поток данных {{ yds-name }} {#prepare-source}
 
-1. [Создайте поток данных Data Streams](../../data-streams/operations/aws-cli/create.md).
+1. [Создайте поток данных {{ yds-name }}](../../data-streams/operations/aws-cli/create.md).
 
 1. [Отправьте в поток](../../data-streams/operations/aws-cli/send.md) тестовые данные. В качестве сообщения используйте данные от сенсоров автомобиля в формате JSON:
 
@@ -115,19 +115,19 @@
 
 1. [Создайте эндпоинт для источника](../../data-transfer/operations/endpoint/index.md#create):
 
-    * **Тип базы данных** — `Yandex Data Streams`.
+    * **{{ ui-key.yacloud.data-transfer.forms.label-database_type }}** — `{{ yds-full-name }}`.
     * **Параметры эндпоинта**:
 
-        * **Настройки подключения**:
+        * **{{ ui-key.yc-data-transfer.data-transfer.console.form.yds.console.form.yds.YDSSource.connection.title }}**:
 
-            * **База данных** — выберите базу данных Managed Service for YDB из списка.
-            * **Поток** — укажите имя потока Data Streams.
-            * **Сервисный аккаунт** — выберите или создайте сервисный аккаунт с ролью `yds.editor`.
+            * **{{ ui-key.yc-data-transfer.data-transfer.console.form.yds.console.form.yds.YDSConnection.database.title }}** — выберите базу данных {{ ydb-name }} из списка.
+            * **{{ ui-key.yc-data-transfer.data-transfer.console.form.yds.console.form.yds.YDSConnection.stream.title }}** — укажите имя потока {{ yds-name }}.
+            * **{{ ui-key.yc-data-transfer.data-transfer.console.form.yds.console.form.yds.YDSConnection.service_account_id.title }}** — выберите или создайте сервисный аккаунт с ролью `yds.editor`.
 
-        * **Расширенные настройки**:
+        * **{{ ui-key.yc-data-transfer.data-transfer.console.form.yds.console.form.yds.YDSSource.advanced_settings.title }}**:
 
-            * **Правила конвертации** — `JSON`.
-            * **Схема данных** — `JSON-спецификация`:
+            * **{{ ui-key.yc-data-transfer.data-transfer.console.form.yds.console.form.yds.YDSSourceAdvancedSettings.converter.title }}** — `JSON`.
+            * **{{ ui-key.yc-data-transfer.data-transfer.console.form.common.console.form.common.ConvertRecordOptions.data_schema.title }}** — `{{ ui-key.yc-data-transfer.data-transfer.console.form.common.console.form.common.DataSchema.json_fields.title }}`:
 
                 Создайте и загрузите файл схемы данных в формате JSON `json_schema.json`:
 
@@ -178,15 +178,15 @@
 
 1. [Создайте эндпоинт для приемника](../../data-transfer/operations/endpoint/index.md#create):
 
-    * **Тип базы данных** — `Object Storage`.
-    * **Параметры эндпоинта**:
+    * **{{ ui-key.yacloud.data-transfer.forms.label-database_type }}** — `{{ objstorage-name }}`.
+    * **{{ ui-key.yc-data-transfer.data-transfer.console.form.object_storage.console.form.object_storage.ObjectStorageEndpoint.title }}**:
 
-        * **Настройки подключения**:
+        * **{{ ui-key.yc-data-transfer.data-transfer.console.form.object_storage.console.form.object_storage.ConnectionSettings.title }}**:
 
-            * **Бакет** — укажите имя бакета в Object Storage.
-            * **Сервисный аккаунт** — выберите или создайте сервисный аккаунт с ролью `storage.uploader`.
+            * **{{ ui-key.yc-data-transfer.data-transfer.console.form.object_storage.console.form.object_storage.ConnectionSettings.bucket.title }}** — укажите имя бакета в {{ objstorage-name }}.
+            * **{{ ui-key.yc-data-transfer.data-transfer.console.form.object_storage.console.form.object_storage.ObjectStorageConnectionSettings.service_account_id.title }}** — выберите или создайте сервисный аккаунт с ролью `storage.uploader`.
 
-        * **Выходной формат** — выберите `JSON` или `CSV`, если в расширенных настройках эндпоинта источника включили опцию **Правила конвертации**.
+        * **{{ ui-key.yc-data-transfer.data-transfer.console.form.object_storage.console.form.object_storage.ObjectStorageTarget.output_format.title }}** — выберите `JSON` или `CSV`, если в расширенных настройках эндпоинта источника включили опцию **{{ ui-key.yc-data-transfer.data-transfer.console.form.yds.console.form.yds.YDSSourceAdvancedSettings.converter.title }}**.
 
 1. Создайте трансфер:
 
@@ -194,10 +194,10 @@
 
     - Вручную {#manual}
 
-        1. [Создайте трансфер](../../data-transfer/operations/transfer.md#create) типа **Репликация**, использующий созданные эндпоинты.
+        1. [Создайте трансфер](../../data-transfer/operations/transfer.md#create) типа **{{ ui-key.yc-data-transfer.data-transfer.console.form.transfer.console.form.transfer.TransferType.increment.title }}**, использующий созданные эндпоинты.
         1. [Активируйте](../../data-transfer/operations/transfer.md#activate) его.
 
-    - Terraform {#tf}
+    - {{ TF }} {#tf}
 
         1. Раскомментируйте в файле `data-transfer-yds-obj.tf`:
 
@@ -208,13 +208,13 @@
 
             * ресурс `yandex_datatransfer_transfer`.
 
-        1. Проверьте корректность файлов конфигурации Terraform с помощью команды:
+        1. Проверьте корректность файлов конфигурации {{ TF }} с помощью команды:
 
             ```bash
             terraform validate
             ```
 
-            Если в файлах конфигурации есть ошибки, Terraform на них укажет.
+            Если в файлах конфигурации есть ошибки, {{ TF }} на них укажет.
 
         1. Создайте необходимую инфраструктуру:
 
@@ -242,16 +242,16 @@
 
 ## Проверьте работоспособность трансфера {#verify-transfer}
 
-1. Дождитесь перехода трансфера в статус **Реплицируется**.
+1. Дождитесь перехода трансфера в статус **{{ ui-key.yacloud.data-transfer.label_connector-status-RUNNING }}**.
 
-1. Убедитесь, что данные из потока Data Streams перенеслись в бакет Object Storage:
+1. Убедитесь, что данные из потока {{ yds-name }} перенеслись в бакет {{ objstorage-name }}:
 
-    1. В [консоли управления](https://console.yandex.cloud) выберите каталог, в котором находится бакет.
-    1. [Перейдите](../../console/operations/select-service.md#select-service) в сервис **Object Storage**.
+    1. В [консоли управления]({{ link-console-main }}) выберите каталог, в котором находится бакет.
+    1. Перейдите в сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_storage }}**.
     1. Выберите бакет из списка.
     1. Проверьте, что бакет содержит файл `<имя_потока>_0.raw` (`.json` или `.csv`, в зависимости от выбранного выходного формата) с тестовыми данными.
 
-1. [Отправьте в поток Data Streams](../../data-streams/operations/aws-cli/send.md) новое сообщение:
+1. [Отправьте в поток {{ yds-name }}](../../data-streams/operations/aws-cli/send.md) новое сообщение:
 
     ```json
     {
@@ -267,10 +267,10 @@
     }
     ```
 
-1. Убедитесь, что в бакете Object Storage появились добавленные данные:
+1. Убедитесь, что в бакете {{ objstorage-name }} появились добавленные данные:
 
-    1. В [консоли управления](https://console.yandex.cloud) выберите каталог, в котором находится бакет.
-    1. [Перейдите](../../console/operations/select-service.md#select-service) в сервис **Object Storage**.
+    1. В [консоли управления]({{ link-console-main }}) выберите каталог, в котором находится бакет.
+    1. Перейдите в сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_storage }}**.
     1. Выберите бакет из списка.
     1. Проверьте, что в бакет добавился файл `<имя_потока>_0-1_1.raw` (`.json` или `.csv`, в зависимости от выбранного выходного формата) с новыми данными.
 
@@ -286,24 +286,24 @@
 
 1. [Удалите трансфер](../../data-transfer/operations/transfer.md#delete).
 1. [Удалите эндпоинты](../../data-transfer/operations/endpoint/index.md#delete) для источника и приемника.
-1. [Удалите объекты](../../storage/operations/objects/delete.md) из бакета Object Storage.
+1. [Удалите объекты](../../storage/operations/objects/delete.md) из бакета {{ objstorage-name }}.
 1. Остальные ресурсы удалите в зависимости от способа их создания:
 
    {% list tabs group=instructions %}
 
    - Вручную {#manual}
 
-       1. [Удалите базу данных Managed Service for YDB](../../ydb/operations/manage-databases.md#delete-db).
-       1. [Удалите бакет в Object Storage](../../storage/operations/buckets/delete.md).
+       1. [Удалите базу данных {{ ydb-name }}](../../ydb/operations/manage-databases.md#delete-db).
+       1. [Удалите бакет в {{ objstorage-name }}](../../storage/operations/buckets/delete.md).
        1. Если при создании эндпоинтов вы создавали сервисные аккаунты, [удалите их](../../iam/operations/sa/delete.md).
 
-   - Terraform {#tf}
+   - {{ TF }} {#tf}
 
        1. В терминале перейдите в директорию с планом инфраструктуры.
        
            {% note warning %}
        
-           Убедитесь, что в директории нет Terraform-манифестов с ресурсами, которые вы хотите сохранить. Terraform удаляет все ресурсы, которые были созданы с помощью манифестов в текущей директории.
+           Убедитесь, что в директории нет {{ TF }}-манифестов с ресурсами, которые вы хотите сохранить. {{ TF }} удаляет все ресурсы, которые были созданы с помощью манифестов в текущей директории.
        
            {% endnote %}
        
@@ -317,6 +317,6 @@
        
            1. Подтвердите удаление ресурсов и дождитесь завершения операции.
        
-           Все ресурсы, которые были описаны в Terraform-манифестах, будут удалены.
+           Все ресурсы, которые были описаны в {{ TF }}-манифестах, будут удалены.
 
    {% endlist %}

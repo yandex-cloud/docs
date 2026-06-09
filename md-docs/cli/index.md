@@ -1148,6 +1148,8 @@ CLI Yandex Cloud — скачиваемое программное обеспе�
 
  - [add-labels](cli-ref/cic/cli-ref/private-connection/add-labels.md)
 
+ - [batch-get](cli-ref/cic/cli-ref/private-connection/batch-get.md)
+
  - [create](cli-ref/cic/cli-ref/private-connection/create.md)
 
  - [delete](cli-ref/cic/cli-ref/private-connection/delete.md)
@@ -1176,6 +1178,8 @@ CLI Yandex Cloud — скачиваемое программное обеспе�
 
  - [list](cli-ref/cic/cli-ref/public-connection/list.md)
 
+ - [list-operations](cli-ref/cic/cli-ref/public-connection/list-operations.md)
+
  - [move](cli-ref/cic/cli-ref/public-connection/move.md)
 
 #### trunk-connection
@@ -1183,6 +1187,8 @@ CLI Yandex Cloud — скачиваемое программное обеспе�
  - [Overview](cli-ref/cic/cli-ref/trunk-connection/index.md)
 
  - [add-labels](cli-ref/cic/cli-ref/trunk-connection/add-labels.md)
+
+ - [batch-get](cli-ref/cic/cli-ref/trunk-connection/batch-get.md)
 
  - [delete](cli-ref/cic/cli-ref/trunk-connection/delete.md)
 
@@ -1228,6 +1234,8 @@ CLI Yandex Cloud — скачиваемое программное обеспе�
 
  - [add-labels](cli-ref/cic/cli-ref/v0/private-connection/add-labels.md)
 
+ - [batch-get](cli-ref/cic/cli-ref/v0/private-connection/batch-get.md)
+
  - [create](cli-ref/cic/cli-ref/v0/private-connection/create.md)
 
  - [delete](cli-ref/cic/cli-ref/v0/private-connection/delete.md)
@@ -1256,6 +1264,8 @@ CLI Yandex Cloud — скачиваемое программное обеспе�
 
  - [list](cli-ref/cic/cli-ref/v0/public-connection/list.md)
 
+ - [list-operations](cli-ref/cic/cli-ref/v0/public-connection/list-operations.md)
+
  - [move](cli-ref/cic/cli-ref/v0/public-connection/move.md)
 
 ##### trunk-connection
@@ -1263,6 +1273,8 @@ CLI Yandex Cloud — скачиваемое программное обеспе�
  - [Overview](cli-ref/cic/cli-ref/v0/trunk-connection/index.md)
 
  - [add-labels](cli-ref/cic/cli-ref/v0/trunk-connection/add-labels.md)
+
+ - [batch-get](cli-ref/cic/cli-ref/v0/trunk-connection/batch-get.md)
 
  - [delete](cli-ref/cic/cli-ref/v0/trunk-connection/delete.md)
 
@@ -1281,6 +1293,92 @@ CLI Yandex Cloud — скачиваемое программное обеспе�
  - [remove-labels](cli-ref/cic/cli-ref/v0/trunk-connection/remove-labels.md)
 
  - [update](cli-ref/cic/cli-ref/v0/trunk-connection/update.md)
+
+#### v1
+
+ - [Overview](cli-ref/cic/cli-ref/v1/index.md)
+
+##### partner
+
+ - [Overview](cli-ref/cic/cli-ref/v1/partner/index.md)
+
+ - [get](cli-ref/cic/cli-ref/v1/partner/get.md)
+
+ - [list](cli-ref/cic/cli-ref/v1/partner/list.md)
+
+##### point-of-presence
+
+ - [Overview](cli-ref/cic/cli-ref/v1/point-of-presence/index.md)
+
+ - [get](cli-ref/cic/cli-ref/v1/point-of-presence/get.md)
+
+ - [list](cli-ref/cic/cli-ref/v1/point-of-presence/list.md)
+
+##### private-connection
+
+ - [Overview](cli-ref/cic/cli-ref/v1/private-connection/index.md)
+
+ - [add-labels](cli-ref/cic/cli-ref/v1/private-connection/add-labels.md)
+
+ - [batch-get](cli-ref/cic/cli-ref/v1/private-connection/batch-get.md)
+
+ - [create](cli-ref/cic/cli-ref/v1/private-connection/create.md)
+
+ - [delete](cli-ref/cic/cli-ref/v1/private-connection/delete.md)
+
+ - [get](cli-ref/cic/cli-ref/v1/private-connection/get.md)
+
+ - [list](cli-ref/cic/cli-ref/v1/private-connection/list.md)
+
+ - [list-operations](cli-ref/cic/cli-ref/v1/private-connection/list-operations.md)
+
+ - [move](cli-ref/cic/cli-ref/v1/private-connection/move.md)
+
+ - [remove-labels](cli-ref/cic/cli-ref/v1/private-connection/remove-labels.md)
+
+ - [remove-static-routes](cli-ref/cic/cli-ref/v1/private-connection/remove-static-routes.md)
+
+ - [update](cli-ref/cic/cli-ref/v1/private-connection/update.md)
+
+ - [upsert-static-routes](cli-ref/cic/cli-ref/v1/private-connection/upsert-static-routes.md)
+
+##### public-connection
+
+ - [Overview](cli-ref/cic/cli-ref/v1/public-connection/index.md)
+
+ - [get](cli-ref/cic/cli-ref/v1/public-connection/get.md)
+
+ - [list](cli-ref/cic/cli-ref/v1/public-connection/list.md)
+
+ - [list-operations](cli-ref/cic/cli-ref/v1/public-connection/list-operations.md)
+
+ - [move](cli-ref/cic/cli-ref/v1/public-connection/move.md)
+
+##### trunk-connection
+
+ - [Overview](cli-ref/cic/cli-ref/v1/trunk-connection/index.md)
+
+ - [add-labels](cli-ref/cic/cli-ref/v1/trunk-connection/add-labels.md)
+
+ - [batch-get](cli-ref/cic/cli-ref/v1/trunk-connection/batch-get.md)
+
+ - [delete](cli-ref/cic/cli-ref/v1/trunk-connection/delete.md)
+
+ - [get](cli-ref/cic/cli-ref/v1/trunk-connection/get.md)
+
+ - [list](cli-ref/cic/cli-ref/v1/trunk-connection/list.md)
+
+ - [list-operations](cli-ref/cic/cli-ref/v1/trunk-connection/list-operations.md)
+
+ - [list-private-connections](cli-ref/cic/cli-ref/v1/trunk-connection/list-private-connections.md)
+
+ - [list-public-connections](cli-ref/cic/cli-ref/v1/trunk-connection/list-public-connections.md)
+
+ - [move](cli-ref/cic/cli-ref/v1/trunk-connection/move.md)
+
+ - [remove-labels](cli-ref/cic/cli-ref/v1/trunk-connection/remove-labels.md)
+
+ - [update](cli-ref/cic/cli-ref/v1/trunk-connection/update.md)
 
 ### cloud-registry
 
@@ -1521,6 +1619,50 @@ CLI Yandex Cloud — скачиваемое программное обеспе�
  - [update-prefix-mask](cli-ref/cloudrouter/cli-ref/v0/routing-instance/update-prefix-mask.md)
 
  - [upsert-prefixes](cli-ref/cloudrouter/cli-ref/v0/routing-instance/upsert-prefixes.md)
+
+#### v1
+
+ - [Overview](cli-ref/cloudrouter/cli-ref/v1/index.md)
+
+##### routing-instance
+
+ - [Overview](cli-ref/cloudrouter/cli-ref/v1/routing-instance/index.md)
+
+ - [add-labels](cli-ref/cloudrouter/cli-ref/v1/routing-instance/add-labels.md)
+
+ - [add-private-connection](cli-ref/cloudrouter/cli-ref/v1/routing-instance/add-private-connection.md)
+
+ - [create](cli-ref/cloudrouter/cli-ref/v1/routing-instance/create.md)
+
+ - [delete](cli-ref/cloudrouter/cli-ref/v1/routing-instance/delete.md)
+
+ - [get](cli-ref/cloudrouter/cli-ref/v1/routing-instance/get.md)
+
+ - [get-by-cic-private-connection-id](cli-ref/cloudrouter/cli-ref/v1/routing-instance/get-by-cic-private-connection-id.md)
+
+ - [get-by-vpc-network-id](cli-ref/cloudrouter/cli-ref/v1/routing-instance/get-by-vpc-network-id.md)
+
+ - [list](cli-ref/cloudrouter/cli-ref/v1/routing-instance/list.md)
+
+ - [list-operations](cli-ref/cloudrouter/cli-ref/v1/routing-instance/list-operations.md)
+
+ - [move](cli-ref/cloudrouter/cli-ref/v1/routing-instance/move.md)
+
+ - [move-prefix](cli-ref/cloudrouter/cli-ref/v1/routing-instance/move-prefix.md)
+
+ - [remove-labels](cli-ref/cloudrouter/cli-ref/v1/routing-instance/remove-labels.md)
+
+ - [remove-prefixes](cli-ref/cloudrouter/cli-ref/v1/routing-instance/remove-prefixes.md)
+
+ - [remove-private-connection](cli-ref/cloudrouter/cli-ref/v1/routing-instance/remove-private-connection.md)
+
+ - [update](cli-ref/cloudrouter/cli-ref/v1/routing-instance/update.md)
+
+ - [update-networks](cli-ref/cloudrouter/cli-ref/v1/routing-instance/update-networks.md)
+
+ - [update-prefix-mask](cli-ref/cloudrouter/cli-ref/v1/routing-instance/update-prefix-mask.md)
+
+ - [upsert-prefixes](cli-ref/cloudrouter/cli-ref/v1/routing-instance/upsert-prefixes.md)
 
 ### components
 
@@ -3390,6 +3532,34 @@ CLI Yandex Cloud — скачиваемое программное обеспе�
 
  - [update](cli-ref/dns/cli-ref/firewall/update.md)
 
+#### inbound-endpoint
+
+ - [Overview](cli-ref/dns/cli-ref/inbound-endpoint/index.md)
+
+ - [add-access-binding](cli-ref/dns/cli-ref/inbound-endpoint/add-access-binding.md)
+
+ - [add-labels](cli-ref/dns/cli-ref/inbound-endpoint/add-labels.md)
+
+ - [create](cli-ref/dns/cli-ref/inbound-endpoint/create.md)
+
+ - [delete](cli-ref/dns/cli-ref/inbound-endpoint/delete.md)
+
+ - [get](cli-ref/dns/cli-ref/inbound-endpoint/get.md)
+
+ - [list](cli-ref/dns/cli-ref/inbound-endpoint/list.md)
+
+ - [list-access-bindings](cli-ref/dns/cli-ref/inbound-endpoint/list-access-bindings.md)
+
+ - [list-operations](cli-ref/dns/cli-ref/inbound-endpoint/list-operations.md)
+
+ - [remove-access-binding](cli-ref/dns/cli-ref/inbound-endpoint/remove-access-binding.md)
+
+ - [remove-labels](cli-ref/dns/cli-ref/inbound-endpoint/remove-labels.md)
+
+ - [set-access-bindings](cli-ref/dns/cli-ref/inbound-endpoint/set-access-bindings.md)
+
+ - [update](cli-ref/dns/cli-ref/inbound-endpoint/update.md)
+
 #### v0
 
  - [Overview](cli-ref/dns/cli-ref/v0/index.md)
@@ -3429,6 +3599,34 @@ CLI Yandex Cloud — скачиваемое программное обеспе�
  - [set-access-bindings](cli-ref/dns/cli-ref/v0/firewall/set-access-bindings.md)
 
  - [update](cli-ref/dns/cli-ref/v0/firewall/update.md)
+
+##### inbound-endpoint
+
+ - [Overview](cli-ref/dns/cli-ref/v0/inbound-endpoint/index.md)
+
+ - [add-access-binding](cli-ref/dns/cli-ref/v0/inbound-endpoint/add-access-binding.md)
+
+ - [add-labels](cli-ref/dns/cli-ref/v0/inbound-endpoint/add-labels.md)
+
+ - [create](cli-ref/dns/cli-ref/v0/inbound-endpoint/create.md)
+
+ - [delete](cli-ref/dns/cli-ref/v0/inbound-endpoint/delete.md)
+
+ - [get](cli-ref/dns/cli-ref/v0/inbound-endpoint/get.md)
+
+ - [list](cli-ref/dns/cli-ref/v0/inbound-endpoint/list.md)
+
+ - [list-access-bindings](cli-ref/dns/cli-ref/v0/inbound-endpoint/list-access-bindings.md)
+
+ - [list-operations](cli-ref/dns/cli-ref/v0/inbound-endpoint/list-operations.md)
+
+ - [remove-access-binding](cli-ref/dns/cli-ref/v0/inbound-endpoint/remove-access-binding.md)
+
+ - [remove-labels](cli-ref/dns/cli-ref/v0/inbound-endpoint/remove-labels.md)
+
+ - [set-access-bindings](cli-ref/dns/cli-ref/v0/inbound-endpoint/set-access-bindings.md)
+
+ - [update](cli-ref/dns/cli-ref/v0/inbound-endpoint/update.md)
 
 ##### zone
 
@@ -10002,6 +10200,24 @@ CLI Yandex Cloud — скачиваемое программное обеспе�
 
  - [update](cli-ref/smartcaptcha/cli-ref/captcha/update.md)
 
+#### v0
+
+ - [Overview](cli-ref/smartcaptcha/cli-ref/v0/index.md)
+
+##### captcha
+
+ - [Overview](cli-ref/smartcaptcha/cli-ref/v0/captcha/index.md)
+
+ - [create](cli-ref/smartcaptcha/cli-ref/v0/captcha/create.md)
+
+ - [delete](cli-ref/smartcaptcha/cli-ref/v0/captcha/delete.md)
+
+ - [get](cli-ref/smartcaptcha/cli-ref/v0/captcha/get.md)
+
+ - [list](cli-ref/smartcaptcha/cli-ref/v0/captcha/list.md)
+
+ - [update](cli-ref/smartcaptcha/cli-ref/v0/captcha/update.md)
+
 #### v1
 
  - [Overview](cli-ref/smartcaptcha/cli-ref/v1/index.md)
@@ -10040,6 +10256,24 @@ CLI Yandex Cloud — скачиваемое программное обеспе�
 
  - [update](cli-ref/smartwebsecurity/cli-ref/security-profile/update.md)
 
+#### v0
+
+ - [Overview](cli-ref/smartwebsecurity/cli-ref/v0/index.md)
+
+##### security-profile
+
+ - [Overview](cli-ref/smartwebsecurity/cli-ref/v0/security-profile/index.md)
+
+ - [create](cli-ref/smartwebsecurity/cli-ref/v0/security-profile/create.md)
+
+ - [delete](cli-ref/smartwebsecurity/cli-ref/v0/security-profile/delete.md)
+
+ - [get](cli-ref/smartwebsecurity/cli-ref/v0/security-profile/get.md)
+
+ - [list](cli-ref/smartwebsecurity/cli-ref/v0/security-profile/list.md)
+
+ - [update](cli-ref/smartwebsecurity/cli-ref/v0/security-profile/update.md)
+
 #### v1
 
  - [Overview](cli-ref/smartwebsecurity/cli-ref/v1/index.md)
@@ -10057,6 +10291,42 @@ CLI Yandex Cloud — скачиваемое программное обеспе�
  - [list](cli-ref/smartwebsecurity/cli-ref/v1/security-profile/list.md)
 
  - [update](cli-ref/smartwebsecurity/cli-ref/v1/security-profile/update.md)
+
+##### waf
+
+ - [Overview](cli-ref/smartwebsecurity/cli-ref/v1/waf/index.md)
+
+###### waf-profile
+
+ - [Overview](cli-ref/smartwebsecurity/cli-ref/v1/waf/waf-profile/index.md)
+
+ - [create](cli-ref/smartwebsecurity/cli-ref/v1/waf/waf-profile/create.md)
+
+ - [delete](cli-ref/smartwebsecurity/cli-ref/v1/waf/waf-profile/delete.md)
+
+ - [get](cli-ref/smartwebsecurity/cli-ref/v1/waf/waf-profile/get.md)
+
+ - [list](cli-ref/smartwebsecurity/cli-ref/v1/waf/waf-profile/list.md)
+
+ - [update](cli-ref/smartwebsecurity/cli-ref/v1/waf/waf-profile/update.md)
+
+#### waf
+
+ - [Overview](cli-ref/smartwebsecurity/cli-ref/waf/index.md)
+
+##### waf-profile
+
+ - [Overview](cli-ref/smartwebsecurity/cli-ref/waf/waf-profile/index.md)
+
+ - [create](cli-ref/smartwebsecurity/cli-ref/waf/waf-profile/create.md)
+
+ - [delete](cli-ref/smartwebsecurity/cli-ref/waf/waf-profile/delete.md)
+
+ - [get](cli-ref/smartwebsecurity/cli-ref/waf/waf-profile/get.md)
+
+ - [list](cli-ref/smartwebsecurity/cli-ref/waf/waf-profile/list.md)
+
+ - [update](cli-ref/smartwebsecurity/cli-ref/waf/waf-profile/update.md)
 
 ### storage
 

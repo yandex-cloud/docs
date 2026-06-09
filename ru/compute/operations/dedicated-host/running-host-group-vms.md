@@ -14,6 +14,22 @@ description: Следуя данной инструкции, вы сможете
 
 {% list tabs group=instructions %}
 
+- Консоль управления {#console}
+
+  1. В [консоли управления]({{ link-console-main }}) выберите каталог, в котором будет создана ВМ.
+  1. Перейдите в сервис **{{ compute-name }}**.
+  1. На панели слева выберите ![image](../../../_assets/console-icons/server.svg) **{{ ui-key.yacloud.compute.instances_jsoza }}**.
+  1. Нажмите кнопку **{{ ui-key.yacloud.compute.instances.button_create }}**.
+  1. [Задайте](../vm-create/create-linux-vm.md) нужные параметры ВМ.
+  1. Раскройте блок **{{ ui-key.yacloud.compute.instances.create.section_additional }}**.
+  1. Напротив параметра **{{ ui-key.yacloud.compute.instances.create.field_host-affinity-rules }}** нажмите **{{ ui-key.yacloud.common.add }}**.
+  1. В поле **{{ ui-key.yacloud.compute.instances.create.field_affinity-key-type }}** выберите **{{ ui-key.yacloud.compute.instances.create.value_affinity-key-host-group }}**.
+  1. В поле **{{ ui-key.yacloud.compute.instances.create.field_affinity-host-groups }}** выберите группы, на выделенных хостах которых будет запускаться ВМ.
+
+      {% include [affinity-host-tip](../../../_includes/compute/affinity-host-tip.md) %}
+
+  1. Нажмите кнопку **{{ ui-key.yacloud.compute.instances.create.button_create }}**.
+
 - CLI {#cli}
 
   {% include [cli-install](../../../_includes/cli-install.md) %}

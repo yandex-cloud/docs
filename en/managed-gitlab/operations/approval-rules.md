@@ -3,9 +3,9 @@ title: How to set up approval rules
 description: Follow this guide to set up approval rules.
 ---
 
-# Setting up approval rules
+# Setting up approval rules in {{ mgl-full-name }}
 
-With {{ mgl-name }}, you can flexibly set up mandatory approval rules before merging code into the target branch of the project. For more information on how approval rules work, see [Approval rules](../concepts/approval-rules.md).
+With {{ mgl-name }}, you can flexibly set up mandatory approval rules before merging code into the target branch of the project. For more information on how approval rules work, see [Approval rules](../concepts/approval-rules.md). For configuration examples for common use cases, see [{#T}](../concepts/approval-rules-scenarios.md).
 
 Before getting started, [create a service account](create-user.md#create) with administrator privileges and [add it to your {{ GL }} project](create-user.md#add-to-project). Assign the `Maintainer` or `Owner` [role]({{ gl.docs }}/ee/user/permissions.html) to the account, as other roles do not enough permissions to set up approval rules. Next, log in to your {{ GL }} instance and set up approval rules using the service account.
 

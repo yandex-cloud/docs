@@ -44,7 +44,7 @@
 
 Пример REST запроса на получение статуса операции:
 ```http
-GET https://operation.api.cloud.yandex.net/operations/fcmq0j5033e516c56ctq
+GET https://operation.{{ api-host }}/operations/fcmq0j5033e516c56ctq
 ```
 
 ## Отмена операции {#cancel}
@@ -66,7 +66,7 @@ GET https://operation.api.cloud.yandex.net/operations/fcmq0j5033e516c56ctq
 
 Пример отмены операции в REST:
 ```http
-POST https://operation.api.cloud.yandex.net/operations/a3s17h9sbq5asdgss12:cancel
+POST https://operation.{{ api-host }}/operations/a3s17h9sbq5asdgss12:cancel
 ```
 В ответ сервер вернет объект `Operation`, который будет содержать текущий статус отменяемой операции.
 
@@ -114,7 +114,7 @@ POST https://operation.api.cloud.yandex.net/operations/a3s17h9sbq5asdgss12:cance
 
 Пример запроса списка операций в REST:
 ```http
-GET https://compute.api.cloud.yandex.net/compute/v1/disks/e0m97h0gbq0foeuis03/operations
+GET https://compute.{{ api-host }}/compute/v1/disks/e0m97h0gbq0foeuis03/operations
 ```
 Ответ сервера:
 ```json
@@ -135,7 +135,7 @@ GET https://compute.api.cloud.yandex.net/compute/v1/disks/e0m97h0gbq0foeuis03/op
         "folderId": "a3s17h9sbq5asdgss12",
         "name": "disk-1",
         "description": "Test disk",
-        "zoneId" : "ru-central1-a",
+        "zoneId" : "{{ region-id }}-a",
         "typeId" : "network-nvme",
         "size" : 10737418240
       }

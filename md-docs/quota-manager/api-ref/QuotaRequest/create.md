@@ -5,7 +5,7 @@ Creates a quota request in the specified resource.
 ## HTTP request
 
 ```
-POST https://quota-manager.api.cloud.yandex.net/quota-manager/v1/quotaRequests
+POST https://quota-manager.{{ api-host }}/quota-manager/v1/quotaRequests
 ```
 
 ## Body parameters {#yandex.cloud.quotamanager.v1.CreateQuotaRequestRequest}

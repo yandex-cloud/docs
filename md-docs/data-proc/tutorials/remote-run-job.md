@@ -1,30 +1,30 @@
-# Запуск заданий с удаленных хостов, не входящих в кластер Yandex Data Processing
+# Запуск заданий с удаленных хостов, не входящих в кластер {{ dataproc-name }}
 
-В этом руководстве показывается, как с помощью [утилиты spark-submit](https://spark.apache.org/docs/latest/submitting-applications.html#submitting-applications) запускать Spark-задания в кластере Yandex Data Processing с хостов, не входящих в кластер Yandex Data Processing.
+В этом руководстве показывается, как с помощью [утилиты spark-submit](https://spark.apache.org/docs/latest/submitting-applications.html#submitting-applications) запускать Spark-задания в кластере {{ dataproc-name }} с хостов, не входящих в кластер {{ dataproc-name }}.
 
 {% note info %}
 
-Задания в кластере Yandex Data Processing также можно запускать из Yandex DataSphere. Подробнее см. в [концепции](../../datasphere/concepts/data-processing.md#existing-clusters).
+Задания в кластере {{ dataproc-name }} также можно запускать из {{ ml-platform-full-name }}. Подробнее см. в [концепции](../../datasphere/concepts/data-processing.md#existing-clusters).
 
 {% endnote %}
 
 ## Перед началом работы {#before-you-begin}
 
-Создайте и настройте хост для удаленного запуска заданий на кластере Yandex Data Processing:
+Создайте и настройте хост для удаленного запуска заданий на кластере {{ dataproc-name }}:
 
 {% list tabs %}
 
 - Версия образа 1.4
 
   1. [Создайте виртуальную машину](../../compute/operations/vm-create/create-linux-vm.md) с операционной системой Ubuntu 16.04 LTS.
-  1. Чтобы обеспечить сетевой доступ к кластеру Yandex Data Processing с созданной ВМ, [настройте группы безопасности](../operations/security-groups.md) кластера.
+  1. Чтобы обеспечить сетевой доступ к кластеру {{ dataproc-name }} с созданной ВМ, [настройте группы безопасности](../operations/security-groups.md) кластера.
   1. [Подключитесь](../../compute/operations/vm-connect/ssh.md#vm-connect) к ВМ по [SSH](../../glossary/ssh-keygen.md):
 
       ```bash
       ssh -A <имя_пользователя>@<FQDN_ВМ>
       ```
 
-  1. Скопируйте настройки репозитория с любого из хостов кластера Yandex Data Processing. Для этого выполните последовательность команд на созданной виртуальной машине.
+  1. Скопируйте настройки репозитория с любого из хостов кластера {{ dataproc-name }}. Для этого выполните последовательность команд на созданной виртуальной машине.
      1. Скопируйте адрес репозитория:
 
         ```bash
@@ -83,14 +83,14 @@
 - Версия образа 2.0
 
   1. [Создайте виртуальную машину](../../compute/operations/vm-create/create-linux-vm.md) с операционной системой Ubuntu 20.04 LTS.
-  1. Чтобы обеспечить сетевой доступ к кластеру Yandex Data Processing с созданной ВМ, [настройте группы безопасности](../operations/security-groups.md) кластера.
+  1. Чтобы обеспечить сетевой доступ к кластеру {{ dataproc-name }} с созданной ВМ, [настройте группы безопасности](../operations/security-groups.md) кластера.
   1. [Подключитесь](../../compute/operations/vm-connect/ssh.md#vm-connect) к ВМ по [SSH](../../glossary/ssh-keygen.md):
 
      ```bash
      ssh -A <имя_пользователя>@<FQDN_ВМ>
      ```
 
-  1. Скопируйте настройки репозитория с любого из хостов кластера Yandex Data Processing. Для этого выполните последовательность команд на созданной виртуальной машине.
+  1. Скопируйте настройки репозитория с любого из хостов кластера {{ dataproc-name }}. Для этого выполните последовательность команд на созданной виртуальной машине.
      1. Скопируйте адрес репозитория:
 
         ```bash
@@ -167,14 +167,14 @@
      Результат:
 
      ```text
-     20/04/19 16:43:58 INFO client.RMProxy: Connecting to ResourceManager at rc1b-dataproc-m-ds7lj5gnnnqggbqd.mdb.yandexcloud.net/  10.13.13.18:8032
-     20/04/19 16:43:58 INFO client.AHSProxy: Connecting to Application History server at rc1b-dataproc-m-ds7lj5gnnnqggbqd.mdb.yandexcloud.net/10.13.13.18:10200
+     20/04/19 16:43:58 INFO client.RMProxy: Connecting to ResourceManager at rc1b-dataproc-m-ds7lj5gnnnqggbqd.{{ dns-zone }}/  10.13.13.18:8032
+     20/04/19 16:43:58 INFO client.AHSProxy: Connecting to Application History server at rc1b-dataproc-m-ds7lj5gnnnqggbqd.{{ dns-zone }}/10.13.13.18:10200
      20/04/19 16:43:58 INFO yarn.Client: Requesting a new application from cluster with 4 NodeManagers
      ...
      20/04/19 16:43:58 INFO yarn.Client: Preparing resources for our AM container
-     20/04/19 16:43:58 INFO yarn.Client: Uploading resource file:/usr/lib/spark/examples/jars/spark-examples.jar -> hdfs://  rc1b-dataproc-m-ds7lj5gnnnqggbqd.mdb.yandexcloud.net/user/sparkuser/.sparkStaging/application_1586176069782_0003/  spark-examples.jar
-     20/04/19 16:43:58 INFO yarn.Client: Uploading resource file:/etc/spark/conf/hive-site.xml -> hdfs://  rc1b-dataproc-m-ds7lj5gnnnqggbqd.mdb.yandexcloud.net/user/sparkuser/.sparkStaging/application_1586176069782_0003/hive-site.  xml
-     20/04/19 16:43:58 INFO yarn.Client: Uploading resource file:/tmp/spark-6dff3163-089b-4634-8f74-c8301d424567/  __spark_conf__8717606866210190000.zip -> hdfs://rc1b-dataproc-m-ds7lj5gnnnqggbqd.mdb.yandexcloud.net/user/sparkuser/.  sparkStaging/application_1586176069782_0003/__spark_conf__.zip
+     20/04/19 16:43:58 INFO yarn.Client: Uploading resource file:/usr/lib/spark/examples/jars/spark-examples.jar -> hdfs://  rc1b-dataproc-m-ds7lj5gnnnqggbqd.{{ dns-zone }}/user/sparkuser/.sparkStaging/application_1586176069782_0003/  spark-examples.jar
+     20/04/19 16:43:58 INFO yarn.Client: Uploading resource file:/etc/spark/conf/hive-site.xml -> hdfs://  rc1b-dataproc-m-ds7lj5gnnnqggbqd.{{ dns-zone }}/user/sparkuser/.sparkStaging/application_1586176069782_0003/hive-site.  xml
+     20/04/19 16:43:58 INFO yarn.Client: Uploading resource file:/tmp/spark-6dff3163-089b-4634-8f74-c8301d424567/  __spark_conf__8717606866210190000.zip -> hdfs://rc1b-dataproc-m-ds7lj5gnnnqggbqd.{{ dns-zone }}/user/sparkuser/.  sparkStaging/application_1586176069782_0003/__spark_conf__.zip
      20/04/19 16:44:00 INFO yarn.Client: Submitting application application_1586176069782_0003 to ResourceManager
      20/04/19 16:44:00 INFO impl.YarnClientImpl: Submitted application application_1586176069782_0003
      20/04/19 16:44:01 INFO yarn.Client: Application report for application_1586176069782_0003 (state: ACCEPTED)
@@ -186,18 +186,18 @@
         queue: default
         start time: 1587314639386
         final status: UNDEFINED
-        tracking URL: http://rc1b-dataproc-m-ds7lj5gnnnqggbqd.mdb.yandexcloud.net:8088/proxy/application_1586176069782_0003/
+        tracking URL: http://rc1b-dataproc-m-ds7lj5gnnnqggbqd.{{ dns-zone }}:8088/proxy/application_1586176069782_0003/
         user: sparkuser
      20/04/19 16:44:05 INFO yarn.Client: Application report for application_1586176069782_0003 (state: RUNNING)
      20/04/19 16:44:05 INFO yarn.Client:
         client token: N/A
         diagnostics: N/A
-        ApplicationMaster host: rc1b-dataproc-d-9cd9yoenm4npsznt.mdb.yandexcloud.net
+        ApplicationMaster host: rc1b-dataproc-d-9cd9yoenm4npsznt.{{ dns-zone }}
         ApplicationMaster RPC port: 41648
         queue: default
         start time: 1587314639386
         final status: UNDEFINED
-        tracking URL: http://rc1b-dataproc-m-ds7lj5gnnnqggbqd.mdb.yandexcloud.net:8088/proxy/application_1586176069782_0003/
+        tracking URL: http://rc1b-dataproc-m-ds7lj5gnnnqggbqd.{{ dns-zone }}:8088/proxy/application_1586176069782_0003/
         user: sparkuser
      20/04/19 16:44:06 INFO yarn.Client: Application report for application_1586176069782_0003 (state: RUNNING)
      20/04/19 16:44:07 INFO yarn.Client: Application report for application_1586176069782_0003 (state: RUNNING)
@@ -206,12 +206,12 @@
      20/04/19 16:44:09 INFO yarn.Client:
         client token: N/A
         diagnostics: N/A
-        ApplicationMaster host: rc1b-dataproc-d-9cd9yoenm4npsznt.mdb.yandexcloud.net
+        ApplicationMaster host: rc1b-dataproc-d-9cd9yoenm4npsznt.{{ dns-zone }}
         ApplicationMaster RPC port: 41648
         queue: default
         start time: 1587314639386
         final status: SUCCEEDED
-        tracking URL: http://rc1b-dataproc-m-ds7lj5gnnnqggbqd.mdb.yandexcloud.net:8088/proxy/application_1586176069782_0003/
+        tracking URL: http://rc1b-dataproc-m-ds7lj5gnnnqggbqd.{{ dns-zone }}:8088/proxy/application_1586176069782_0003/
         user: sparkuser
      20/04/19 16:44:09 INFO util.ShutdownHookManager: Shutdown hook called
      20/04/19 16:44:09 INFO util.ShutdownHookManager: Deleting directory /tmp/spark-6dff3163-089b-4634-8f74-c8301d424567
@@ -227,8 +227,8 @@
      Результат:
 
      ```text
-     20/04/19 16:47:03 INFO client.RMProxy: Connecting to ResourceManager at rc1b-dataproc-m-ds7lj5gn********.mdb.yandexcloud.net/10.13.13.18:8032
-     20/04/19 16:47:03 INFO client.AHSProxy: Connecting to Application History server at rc1b-dataproc-m-ds7lj5gn********.mdb.yandexcloud.net/10.13.13.18:10200
+     20/04/19 16:47:03 INFO client.RMProxy: Connecting to ResourceManager at rc1b-dataproc-m-ds7lj5gn********.{{ dns-zone }}/10.13.13.18:8032
+     20/04/19 16:47:03 INFO client.AHSProxy: Connecting to Application History server at rc1b-dataproc-m-ds7lj5gn********.{{ dns-zone }}/10.13.13.18:10200
      Application Report :
          Application-Id : application_1586176069782_0003
          Application-Name : org.apache.spark.examples.SparkPi
@@ -241,9 +241,9 @@
          Progress : 100%
          State : FINISHED
          Final-State : SUCCEEDED
-         Tracking-URL : rc1b-dataproc-m-ds7lj5gn********.mdb.yandexcloud.net:18080/history/application_1586176069782_0003/1
+         Tracking-URL : rc1b-dataproc-m-ds7lj5gn********.{{ dns-zone }}:18080/history/application_1586176069782_0003/1
          RPC Port : 41648
-         AM Host : rc1b-dataproc-d-9cd9yoen********.mdb.yandexcloud.net
+         AM Host : rc1b-dataproc-d-9cd9yoen********.{{ dns-zone }}
          Aggregate Resource Allocation : 141510 MB-seconds, 11 vcore-seconds
          Aggregate Resource Preempted : 0 MB-seconds, 0 vcore-seconds
          Log Aggregation Status : SUCCEEDED
@@ -321,6 +321,6 @@
 
 {% note info %}
 
-Вы можете просматривать логи выполнения заданий и искать в них информацию с помощью сервиса [Yandex Cloud Logging](../../logging/index.md). Подробнее см. в разделе [Работа с логами](../operations/logging.md).
+Вы можете просматривать логи выполнения заданий и искать в них информацию с помощью сервиса [{{ cloud-logging-full-name }}](../../logging/index.md). Подробнее в разделе [{#T}](../operations/logging.md).
 
 {% endnote %}

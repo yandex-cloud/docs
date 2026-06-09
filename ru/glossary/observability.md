@@ -129,9 +129,9 @@ _Observability (наблюдаемость)_ — возможность поня
 
 {{ yandex-cloud }} предлагает следующие сервисы для внедрения наблюдаемости в ваши проекты:
 
-* [{{ monitoring-full-name }}](/services/monitoring/) — сервис для сбора, хранения и визуализации метрик, а также настройки алертов. Подробнее см. в документации [{{ monitoring-name }}](../monitoring/).
-* [{{ cloud-logging-full-name }}](/services/logging/) — сервис для сбора и анализа логов. Подробнее см. в документации [{{ cloud-logging-name }}](../logging/).
-* [{{ managed-prometheus-full-name }}](/services/managed-prometheus/) — система мониторинга, совместимая с [Prometheus](https://prometheus.io/docs/introduction/overview/). Подробнее см. в документации [{{ managed-prometheus-name }}](../monitoring/operations/prometheus/index.md).
+* [{{ monitoring-full-name }}](/services/monitoring/) — сервис для сбора, хранения и визуализации метрик, а также настройки алертов. Подробнее в документации [{{ monitoring-name }}](../monitoring/).
+* [{{ cloud-logging-full-name }}](/services/logging/) — сервис для сбора и анализа логов. Подробнее в документации [{{ cloud-logging-name }}](../logging/).
+* [{{ managed-prometheus-full-name }}](/services/managed-prometheus/) — система мониторинга, совместимая с [Prometheus](https://prometheus.io/docs/introduction/overview/). Подробнее в документации [{{ managed-prometheus-name }}](../monitoring/operations/prometheus/index.md).
 
 #### Полезные материалы {#see-also}
 

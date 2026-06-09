@@ -1,6 +1,6 @@
 # Получение статистики запросов к объекту с использованием S3 Select
 
-Получите статистику запросов к объектам Object Storage с помощью языка запросов [S3 Select](../concepts/s3-select-language.md).
+Получите статистику запросов к объектам {{ objstorage-name }} с помощью языка запросов [S3 Select](../concepts/s3-select-language.md).
 
 {% note info %}
 
@@ -19,7 +19,7 @@
 
 - Bash {#bash}
 
-  1. Выполните запрос в Object Storage и сохраните результат выполнения в файл:
+  1. Выполните запрос в {{ objstorage-name }} и сохраните результат выполнения в файл:
 
      1. Для удобства работы сохраните:
 
@@ -68,7 +68,7 @@
      1. Выполните команду:
 
         ```bash
-        aws --endpoint https://storage.yandexcloud.net s3api select-object-content \
+        aws --endpoint https://{{ s3-storage-host }} s3api select-object-content \
           --bucket $bucket \
           --key $key \
           --expression "$query" \

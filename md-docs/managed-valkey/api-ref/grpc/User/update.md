@@ -21,7 +21,8 @@ Updates the specified Redis user.
     "pub_sub_channels": "google.protobuf.StringValue",
     "categories": "google.protobuf.StringValue",
     "commands": "google.protobuf.StringValue",
-    "sanitize_payload": "google.protobuf.StringValue"
+    "sanitize_payload": "google.protobuf.StringValue",
+    "databases": "google.protobuf.StringValue"
   },
   "enabled": "bool"
 }
@@ -32,14 +33,14 @@ Updates the specified Redis user.
 || cluster_id | **string**
 
 Required field. ID of the Redis cluster the user belongs to.
-To get the cluster ID, use a [ClusterService.List](../Cluster/list.md#List) request.
+To get the cluster ID, use a [ClusterService.List](../../../../managed-redis/api-ref/grpc/Cluster/list#List) request.
 
 The maximum string length in characters is 50. ||
 || user_name | **string**
 
 Required field. Name of the Redis user to be updated.
 
-The maximum string length in characters is 32. Value must match the regular expression ` ^[a-zA-Z0-9_][a-zA-Z0-9_-]*$ `. ||
+The maximum string length in characters is 32. Value must match the regular expression ` ^[a-zA-Z0-9_][a-zA-Z0-9_@.-]*$ `. ||
 || update_mask | **[google.protobuf.FieldMask](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/field-mask)**
 
 Field mask that specifies which fields of the Redis User resource should be updated. ||
@@ -47,7 +48,7 @@ Field mask that specifies which fields of the Redis User resource should be upda
 
 New passwords the Redis user.
 
-Must contain exactly 1 element. ||
+The maximum number of elements is 1. ||
 || permissions | **[Permissions](#yandex.cloud.mdb.redis.v1.Permissions)**
 
 New set of permissions to grant to the user. ||
@@ -75,6 +76,9 @@ Commands user can execute. ||
 || sanitize_payload | **[google.protobuf.StringValue](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/string-value)**
 
 SanitizePayload parameter. ||
+|| databases | **[google.protobuf.StringValue](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/string-value)**
+
+Databases parameter. ||
 |#
 
 ## operation.Operation {#yandex.cloud.operation.Operation}
@@ -87,25 +91,10 @@ SanitizePayload parameter. ||
   "created_by": "string",
   "modified_at": "google.protobuf.Timestamp",
   "done": "bool",
-  "metadata": {
-    "cluster_id": "string",
-    "user_name": "string"
-  },
+  "metadata": "google.protobuf.Any",
   // Includes only one of the fields `error`, `response`
   "error": "google.rpc.Status",
-  "response": {
-    "name": "string",
-    "cluster_id": "string",
-    "permissions": {
-      "patterns": "google.protobuf.StringValue",
-      "pub_sub_channels": "google.protobuf.StringValue",
-      "categories": "google.protobuf.StringValue",
-      "commands": "google.protobuf.StringValue",
-      "sanitize_payload": "google.protobuf.StringValue"
-    },
-    "enabled": "bool",
-    "acl_options": "string"
-  }
+  "response": "google.protobuf.Any"
   // end of the list of possible fields
 }
 ```
@@ -133,7 +122,7 @@ The time when the Operation resource was last modified. ||
 
 If the value is `false`, it means the operation is still in progress.
 If `true`, the operation is completed, and either `error` or `response` is available. ||
-|| metadata | **[UpdateUserMetadata](#yandex.cloud.mdb.redis.v1.UpdateUserMetadata)**
+|| metadata | **[google.protobuf.Any](https://developers.google.com/protocol-buffers/docs/proto3#any)**
 
 Service-specific metadata associated with the operation.
 It typically contains the ID of the target resource that the operation is performed on.
@@ -148,7 +137,7 @@ The operation result.
 If `done == false` and there was no failure detected, neither `error` nor `response` is set.
 If `done == false` and there was a failure detected, `error` is set.
 If `done == true`, exactly one of `error` or `response` is set. ||
-|| response | **[User](#yandex.cloud.mdb.redis.v1.User)**
+|| response | **[google.protobuf.Any](https://developers.google.com/protocol-buffers/docs/proto3#any)**
 
 The normal response of the operation in case of success.
 If the original method returns no data on success, such as Delete,
@@ -163,61 +152,4 @@ The operation result.
 If `done == false` and there was no failure detected, neither `error` nor `response` is set.
 If `done == false` and there was a failure detected, `error` is set.
 If `done == true`, exactly one of `error` or `response` is set. ||
-|#
-
-## UpdateUserMetadata {#yandex.cloud.mdb.redis.v1.UpdateUserMetadata}
-
-#|
-||Field | Description ||
-|| cluster_id | **string**
-
-ID of the Redis cluster the user belongs to. ||
-|| user_name | **string**
-
-Name of the user that is being updated. ||
-|#
-
-## User {#yandex.cloud.mdb.redis.v1.User}
-
-A Redis User resource. For more information, see the
-[Developer's Guide](../../../concepts/index.md).
-
-#|
-||Field | Description ||
-|| name | **string**
-
-Name of the Redis user. ||
-|| cluster_id | **string**
-
-ID of the Redis cluster the user belongs to. ||
-|| permissions | **[Permissions](#yandex.cloud.mdb.redis.v1.Permissions2)**
-
-Set of permissions to grant to the user. ||
-|| enabled | **bool**
-
-Is redis user enabled ||
-|| acl_options | **string**
-
-Raw ACL string inside of Redis ||
-|#
-
-## Permissions {#yandex.cloud.mdb.redis.v1.Permissions2}
-
-#|
-||Field | Description ||
-|| patterns | **[google.protobuf.StringValue](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/string-value)**
-
-Keys patterns user has permission to. ||
-|| pub_sub_channels | **[google.protobuf.StringValue](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/string-value)**
-
-Channel patterns user has permissions to. ||
-|| categories | **[google.protobuf.StringValue](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/string-value)**
-
-Command categories user has permissions to. ||
-|| commands | **[google.protobuf.StringValue](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/string-value)**
-
-Commands user can execute. ||
-|| sanitize_payload | **[google.protobuf.StringValue](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/string-value)**
-
-SanitizePayload parameter. ||
 |#

@@ -5,7 +5,7 @@ Retrieves the list of Helm releases in the specified Kubernetes Cluster.
 ## HTTP request
 
 ```
-GET https://mks.api.cloud.yandex.net/managed-kubernetes/marketplace/v1/helm-releases
+GET https://mks.{{ api-host }}/managed-kubernetes/marketplace/v1/helm-releases
 ```
 
 ## Query parameters {#yandex.cloud.k8s.marketplace.v1.ListHelmReleasesRequest}

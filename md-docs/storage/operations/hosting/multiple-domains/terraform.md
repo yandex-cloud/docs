@@ -1,6 +1,6 @@
-# Поддержка нескольких доменных имен с помощью Terraform
+# Поддержка нескольких доменных имен с помощью {{ TF }}
 
-Чтобы создать инфраструктуру для поддержки [нескольких доменных имен](index.md) сайта с помощью Terraform:
+Чтобы создать инфраструктуру для поддержки [нескольких доменных имен](index.md) сайта с помощью {{ TF }}:
 1. [Делегируйте доменное имя](#delegate-domain).
 1. [Создайте инфраструктуру](#deploy).
 1. [Проверьте работу нескольких доменов](#test).
@@ -8,12 +8,12 @@
 
 ## Делегируйте доменное имя {#delegate-domain}
 
-Вы можете воспользоваться сервисом [Yandex Cloud DNS](../../../../dns/index.md) для управления доменом.
+Вы можете воспользоваться сервисом [{{ dns-full-name }}](../../../../dns/index.md) для управления доменом.
 
-Чтобы делегировать домен сервису Cloud DNS, в личном кабинете вашего регистратора домена укажите в настройках домена адреса DNS-серверов:
+Чтобы делегировать домен сервису {{ dns-name }}, в личном кабинете вашего регистратора домена укажите в настройках домена адреса DNS-серверов:
 
-* `ns1.yandexcloud.net`
-* `ns2.yandexcloud.net`
+* `ns1.{{ dns-ns-host-sld }}`
+* `ns2.{{ dns-ns-host-sld }}`
 
 Делегирование происходит не сразу. Серверы интернет-провайдеров обычно обновляют записи в течение 24 часов (86400 секунд). Это обусловлено значением TTL, в течение которого кешируются записи для доменов.
 
@@ -26,23 +26,23 @@ dig +short NS example.com
 Результат:
 
 ```
-ns2.yandexcloud.net.
-ns1.yandexcloud.net.
+ns2.{{ dns-ns-host-sld }}.
+ns1.{{ dns-ns-host-sld }}.
 ```
 
 
 ## Создайте инфраструктуру {#deploy}
 
 
-[Terraform](https://www.terraform.io/) позволяет быстро создать облачную инфраструктуру в Yandex Cloud и управлять ею с помощью файлов конфигураций. В файлах конфигураций хранится описание инфраструктуры на языке HCL (HashiCorp Configuration Language). При изменении файлов конфигураций Terraform автоматически определяет, какая часть вашей конфигурации уже развернута, что следует добавить или удалить.
+[{{ TF }}](https://www.terraform.io/) позволяет быстро создать облачную инфраструктуру в {{ yandex-cloud }} и управлять ею с помощью файлов конфигураций. В файлах конфигураций хранится описание инфраструктуры на языке HCL (HashiCorp Configuration Language). При изменении файлов конфигураций {{ TF }} автоматически определяет, какая часть вашей конфигурации уже развернута, что следует добавить или удалить.
 
-Terraform распространяется под лицензией [Business Source License](https://github.com/hashicorp/terraform/blob/main/LICENSE), а [провайдер Yandex Cloud для Terraform](https://github.com/yandex-cloud/terraform-provider-yandex) — под лицензией [MPL-2.0](https://www.mozilla.org/en-US/MPL/2.0/).
+{{ TF }} распространяется под лицензией [Business Source License](https://github.com/hashicorp/terraform/blob/main/LICENSE), а [провайдер {{ yandex-cloud }} для {{ TF }}](https://github.com/yandex-cloud/terraform-provider-yandex) — под лицензией [MPL-2.0](https://www.mozilla.org/en-US/MPL/2.0/).
 
-Подробную информацию о ресурсах провайдера смотрите в документации на сайте [Terraform](https://www.terraform.io/docs/providers/yandex/index.html) или в [зеркале](../../../../terraform/index.md).
+Подробную информацию о ресурсах провайдера смотрите в документации на сайте [{{ TF }}](https://www.terraform.io/docs/providers/yandex/index.html) или в [зеркале]({{ tf-docs-link }}).
 
-Для создания инфраструктуры с помощью Terraform:
+Для создания инфраструктуры с помощью {{ TF }}:
 
-1. [Установите Terraform](../../../../tutorials/infrastructure-management/terraform-quickstart.md#install-terraform), [получите данные для аутентификации](../../../../tutorials/infrastructure-management/terraform-quickstart.md#get-credentials) и укажите источник для установки провайдера Yandex Cloud (раздел [Настройте провайдер](../../../../tutorials/infrastructure-management/terraform-quickstart.md#configure-provider), шаг 1).
+1. [Установите {{ TF }}](../../../../tutorials/infrastructure-management/terraform-quickstart.md#install-terraform), [получите данные для аутентификации](../../../../tutorials/infrastructure-management/terraform-quickstart.md#get-credentials) и укажите источник для установки провайдера {{ yandex-cloud }} (раздел [{#T}](../../../../tutorials/infrastructure-management/terraform-quickstart.md#configure-provider), шаг 1).
 
 
 1. Подготовьте файлы с описанием инфраструктуры:
@@ -164,7 +164,7 @@ Terraform распространяется под лицензией [Business S
              name    = "@"
              type    = "CNAME"
              ttl     = 600
-             data    = ["${var.main_domain}.website.yandexcloud.net"]
+             data    = ["${var.main_domain}.{{ s3-web-host }}"]
            }
            
            resource "yandex_dns_zone" "zone2" {
@@ -178,7 +178,7 @@ Terraform распространяется под лицензией [Business S
              name    = "@"
              type    = "CNAME"
              ttl     = 600
-             data    = ["${var.extra_domain}.website.yandexcloud.net"]
+             data    = ["${var.extra_domain}.{{ s3-web-host }}"]
            }
            
            
@@ -243,12 +243,12 @@ Terraform распространяется под лицензией [Business S
 
    {% endlist %}
 
-   Более подробную информацию о параметрах используемых ресурсов в Terraform см. в документации провайдера:
-   * [Бакет](../../../concepts/bucket.md) — [yandex_storage_bucket](../../../../terraform/resources/storage_bucket.md).
-   * [Объект](../../../concepts/object.md) — [yandex_storage_object](../../../../terraform/resources/storage_object.md).
-   * [DNS-зона](../../../../dns/concepts/dns-zone.md) — [yandex_dns_zone](../../../../terraform/resources/dns_zone.md).
-   * [Ресурсная запись DNS](../../../../dns/concepts/resource-record.md) — [yandex_dns_recordset](../../../../terraform/resources/dns_recordset.md).
-   * [TLS-сертификат](../../../../certificate-manager/concepts/managed-certificate.md) — [yandex_cm_certificate](../../../../terraform/resources/cm_certificate.md).
+   Более подробную информацию о параметрах используемых ресурсов в {{ TF }} см. в документации провайдера:
+   * [Бакет](../../../concepts/bucket.md) — [yandex_storage_bucket]({{ tf-provider-resources-link }}/storage_bucket).
+   * [Объект](../../../concepts/object.md) — [yandex_storage_object]({{ tf-provider-resources-link }}/storage_object).
+   * [DNS-зона](../../../../dns/concepts/dns-zone.md) — [yandex_dns_zone]({{ tf-provider-resources-link }}/dns_zone).
+   * [Ресурсная запись DNS](../../../../dns/concepts/resource-record.md) — [yandex_dns_recordset]({{ tf-provider-resources-link }}/dns_recordset).
+   * [TLS-сертификат](../../../../certificate-manager/concepts/managed-certificate.md) — [yandex_cm_certificate]({{ tf-provider-resources-link }}/cm_certificate).
 
 1. В файле `website-multiple-domain.auto.tfvars` задайте пользовательские параметры:
    * `folder_id` — [идентификатор каталога](../../../../resource-manager/operations/folder/get-id.md).
@@ -276,7 +276,7 @@ Terraform распространяется под лицензией [Business S
       terraform plan
       ```
    
-      В терминале будет выведен список ресурсов с параметрами. На этом этапе изменения не будут внесены. Если в конфигурации есть ошибки, Terraform на них укажет.
+      В терминале будет выведен список ресурсов с параметрами. На этом этапе изменения не будут внесены. Если в конфигурации есть ошибки, {{ TF }} на них укажет.
    1. Примените изменения конфигурации:
    
       ```bash

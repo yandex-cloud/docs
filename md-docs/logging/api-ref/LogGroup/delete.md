@@ -5,7 +5,7 @@ Deletes the specified log group.
 ## HTTP request
 
 ```
-DELETE https://logging.api.cloud.yandex.net/logging/v1/logGroups/{logGroupId}
+DELETE https://logging.{{ api-host }}/logging/v1/logGroups/{logGroupId}
 ```
 
 ## Path parameters

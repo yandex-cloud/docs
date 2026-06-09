@@ -1,16 +1,16 @@
-# Интеграция Cloud DNS и корпоративного сервиса DNS
+# Интеграция {{ dns-name }} и корпоративного сервиса DNS
 
-Если у вас есть собственные корпоративные сети, связанные с внутренними [сетями](../../vpc/concepts/network.md#network) в вашем [облаке](../../resource-manager/concepts/resources-hierarchy.md#cloud) Yandex Cloud с помощью сервиса [Yandex Cloud Interconnect](../../interconnect/index.md), то можно интегрировать корпоративный DNS с [Cloud DNS](../../dns/index.md). Это позволит обращаться к ресурсам и сервисам по имени независимо от их расположения: в корпоративной или облачной сетях.
+Если у вас есть собственные корпоративные сети, связанные с внутренними [сетями](../../vpc/concepts/network.md#network) в вашем [облаке](../../resource-manager/concepts/resources-hierarchy.md#cloud) {{ yandex-cloud }} с помощью сервиса [{{ interconnect-full-name }}](../../interconnect/index.md), то можно интегрировать корпоративный DNS с [{{ dns-name }}](../../dns/index.md). Это позволит обращаться к ресурсам и сервисам по имени независимо от их расположения: в корпоративной или облачной сетях.
 
-Делегировать управление DNS-записями во [внутренних зонах](../../dns/concepts/dns-zone.md#private-zones) Yandex Cloud вашим DNS-серверам в корпоративной сети не получится, так как NS-записи для внутренней DNS-зоны игнорируются. Чтобы распознавание имен сервисов и ресурсов в облачных сетях выполнялось при использовании внутренних зон, настройте отдельные DNS-форвардеры в облачных подсетях. _DNS-форвардеры_ — серверы DNS, которые по-разному перенаправляют запросы в зависимости от имени, указанного в запросе. Рекомендуем использовать [CoreDNS](https://coredns.io/) или [Unbound](https://www.nlnetlabs.nl/projects/unbound/).
+Делегировать управление DNS-записями во [внутренних зонах](../../dns/concepts/dns-zone.md#private-zones) {{ yandex-cloud }} вашим DNS-серверам в корпоративной сети не получится, так как NS-записи для внутренней DNS-зоны игнорируются. Чтобы распознавание имен сервисов и ресурсов в облачных сетях выполнялось при использовании внутренних зон, настройте отдельные DNS-форвардеры в облачных подсетях. _DNS-форвардеры_ — серверы DNS, которые по-разному перенаправляют запросы в зависимости от имени, указанного в запросе. Рекомендуем использовать [CoreDNS](https://coredns.io/) или [Unbound](https://www.nlnetlabs.nl/projects/unbound/).
 
 {% note warning %}
 
-Некоторые DNS-форвардеры сверяют расположение зон в Cloud DNS со своими настройками при валидации ответа. В этом случае необходимо указать в настройках только зоны, существующие в Cloud DNS. Например, если записи размещены в общей зоне `.`, настройте переадресацию для нее.
+Некоторые DNS-форвардеры сверяют расположение зон в {{ dns-name }} со своими настройками при валидации ответа. В этом случае необходимо указать в настройках только зоны, существующие в {{ dns-name }}. Например, если записи размещены в общей зоне `.`, настройте переадресацию для нее.
 
 {% endnote %}
 
-Чтобы настроить распознавание имен корпоративных сервисов и ресурсов в облачных сетях Yandex Cloud:
+Чтобы настроить распознавание имен корпоративных сервисов и ресурсов в облачных сетях {{ yandex-cloud }}:
 
 1. [Ознакомьтесь с описанием примера интеграции](#network-desc).
 1. [Настройте DNS в облаке](#setup-cloud-dns).
@@ -32,12 +32,12 @@
    
     Эти серверы обслуживают DNS-зону `corp.example.net`.
 
-1. Облачная сеть Yandex Cloud также состоит из двух подсетей:
+1. Облачная сеть {{ yandex-cloud }} также состоит из двух подсетей:
 
-   * `172.16.3.0/24`: subnet3, [зона доступности](../../overview/concepts/geo-scope.md) `ru-central1-d`.
-   * `172.16.4.0/24`: subnet4, зона доступности `ru-central1-b`.
+   * `172.16.3.0/24`: subnet3, [зона доступности](../../overview/concepts/geo-scope.md) `{{ region-id }}-d`.
+   * `172.16.4.0/24`: subnet4, зона доступности `{{ region-id }}-b`.
 
-    В этих подсетях размещены DNS-серверы Yandex Cloud: `172.16.3.2` и `172.16.4.2`.
+    В этих подсетях размещены DNS-серверы {{ yandex-cloud }}: `172.16.3.2` и `172.16.4.2`.
 
     Эти серверы обслуживают [внутренние DNS-зоны](../../dns/concepts/dns-zone.md#private-zones) в облачной сети.
 
@@ -51,38 +51,38 @@
 Они будут перенаправлять DNS-запросы следующим образом:
 
 * Запросы к зоне `corp.example.net` — через корпоративные DNS-серверы `172.16.1.5` и `172.16.2.5`.
-* Все прочие запросы (к зоне `.`) — через внутренние DNS-серверы Yandex Cloud, соответствующим подсетям: `172.16.3.2` и `172.16.4.2`.
+* Все прочие запросы (к зоне `.`) — через внутренние DNS-серверы {{ yandex-cloud }}, соответствующим подсетям: `172.16.3.2` и `172.16.4.2`.
 
-Для обеспечения отказоустойчивости работы DNS-форвардеров, они будут размещены за [внутренним сетевым балансировщиком](../../network-load-balancer/concepts/nlb-types.md) Yandex Network Load Balancer. Все запросы к DNS-форвардерам (как из облачной сети, так и из корпоративной сети) будут выполняться через этот балансировщик.
+Для обеспечения отказоустойчивости работы DNS-форвардеров, они будут размещены за [внутренним сетевым балансировщиком](../../network-load-balancer/concepts/nlb-types.md) {{ network-load-balancer-full-name }}. Все запросы к DNS-форвардерам (как из облачной сети, так и из корпоративной сети) будут выполняться через этот балансировщик.
 
 ## Перед началом работы {#before-you-begin}
 
 1. Для установки DNS-форвардеров в каждой из облачных подсетей `subnet3` и `subnet4` [создайте виртуальную машину](../../compute/operations/vm-create/create-linux-vm.md) из публичного образа [Ubuntu 20.04](https://yandex.cloud/ru/marketplace/products/yc/ubuntu-20-04-lts) с параметрами:
 
-    * **Имя**:
+    * **{{ ui-key.yacloud.common.name }}**:
         * `forwarder1` — для ВМ в подсети `subnet3`;
         * `forwarder2` — для ВМ в подсети `subnet4`.
-    * В блоке **Сетевые настройки**:
-      * **Публичный IP-адрес**: `Без адреса`.
-      * **Внутренний IPv4-адрес**: выберите `Вручную` и укажите:
+    * В блоке **{{ ui-key.yacloud.compute.instances.create.section_network }}**:
+      * **{{ ui-key.yacloud.component.compute.network-select.field_external }}**: `{{ ui-key.yacloud.component.compute.network-select.switch_none }}`.
+      * **{{ ui-key.yacloud.component.compute.network-select.field_internal-ipv4 }}**: выберите `{{ ui-key.yacloud.component.compute.network-select.switch_manual }}` и укажите:
         * 172.16.3.5 — для ВМ `forwarder1`;
         * 172.16.4.5 — для ВМ `forwarder2`.
 
 1. Для подключения из интернета и проверки сервиса в подсети `subnet4` создайте еще одну ВМ из публичного образа [Ubuntu 20.04](https://yandex.cloud/ru/marketplace/products/yc/ubuntu-20-04-lts) с параметрами:
 
-    * **Имя**: `test1`.
-    * В блоке **Сетевые настройки**:
-      * **Публичный IP-адрес**: `Автоматически`.
-      * **Внутренний IPv4-адрес**: `Автоматически`.
+    * **{{ ui-key.yacloud.common.name }}**: `test1`.
+    * В блоке **{{ ui-key.yacloud.compute.instances.create.section_network }}**:
+      * **{{ ui-key.yacloud.component.compute.network-select.field_external }}**: `{{ ui-key.yacloud.component.compute.network-select.switch_auto }}`.
+      * **{{ ui-key.yacloud.component.compute.network-select.field_internal-ipv4 }}**: `{{ ui-key.yacloud.component.compute.network-select.switch_auto }}`.
   
 1. Для установки ПО из интернета в подсетях `subnet3` и `subnet4` [настройте NAT-шлюз](../../vpc/operations/create-nat-gateway.md).
 
 ### Необходимые платные ресурсы {#paid-resources}
 
 В стоимость поддержки инфраструктуры входят:
-* плата за постоянно запущенную виртуальную машину (см. [тарифы Yandex Compute Cloud](../../compute/pricing.md));
-* плата за использование динамического или статического внешнего IP-адреса (см. [тарифы Yandex Virtual Private Cloud](../../vpc/pricing.md));
-* плата за использование сетевого балансировщика (см. [тарифы Yandex Network Load Balancer](../../network-load-balancer/pricing.md)).
+* плата за постоянно запущенную виртуальную машину (см. [тарифы {{ compute-full-name }}](../../compute/pricing.md));
+* плата за использование динамического или статического внешнего IP-адреса (см. [тарифы {{ vpc-full-name }}](../../vpc/pricing.md));
+* плата за использование сетевого балансировщика (см. [тарифы {{ network-load-balancer-full-name }}](../../network-load-balancer/pricing.md)).
 
 ## Настройте DNS в облаке {#setup-cloud-dns}
 
@@ -238,7 +238,7 @@
 
 {% endlist %}
 
-### Настройте сетевой балансировщик Network Load Balancer {#setup-cloud-balancer}
+### Настройте сетевой балансировщик {{ network-load-balancer-name }} {#setup-cloud-balancer}
 
 Создайте [внутренний сетевой балансировщик](../../network-load-balancer/operations/internal-lb-create.md) с параметрами:
 
@@ -248,28 +248,28 @@
 
 {% endnote %}
 
-* **Тип**: `Внутренний`.
+* **{{ ui-key.yacloud.load-balancer.network-load-balancer.form.field_network-load-balancer-type }}**: `{{ ui-key.yacloud.load-balancer.network-load-balancer.form.label_internal }}`.
 
-* В блоке **Обработчики**:
-  * **Подсеть**: выберите `subnet3` из списка.
-  * **Протокол**: `UDP`.
-  * **Порт**: `53`.
-  * **Целевой порт**: `53`.
+* В блоке **{{ ui-key.yacloud.load-balancer.network-load-balancer.form.section_listeners }}**:
+  * **{{ ui-key.yacloud.load-balancer.network-load-balancer.form.field_listener-subnet-id }}**: выберите `subnet3` из списка.
+  * **{{ ui-key.yacloud.load-balancer.network-load-balancer.form.field_listener-protocol }}**: `{{ ui-key.yacloud.common.label_udp }}`.
+  * **{{ ui-key.yacloud.load-balancer.network-load-balancer.form.field_listener-port }}**: `53`.
+  * **{{ ui-key.yacloud.load-balancer.network-load-balancer.form.field_listener-target-port }}**: `53`.
 
-* В блоке **Целевые группы**:
+* В блоке **{{ ui-key.yacloud.load-balancer.network-load-balancer.form.section_target-groups }}**:
   * Создайте группу, состоящую из хостов `forwarder1` и `forwarder2`.
-  * В блоке **Проверка состояния** укажите параметры:
+  * В блоке **{{ ui-key.yacloud.load-balancer.network-load-balancer.label_health-check }}** укажите параметры:
 
     {% list tabs %}
 
     * CoreDNS
-      * **Тип**: `HTTP`.
-      * **Путь**: `/health`.
-      * **Порт**: `8080`.
+      * **{{ ui-key.yacloud.load-balancer.network-load-balancer.label_health-check-protocol }}**: `{{ ui-key.yacloud.common.label_http }}`.
+      * **{{ ui-key.yacloud.load-balancer.network-load-balancer.label_health-check-path }}**: `/health`.
+      * **{{ ui-key.yacloud.load-balancer.network-load-balancer.label_health-check-port }}**: `8080`.
 
     * Unbound
-      * **Тип**: `TCP`.
-      * **Порт**: `53`.
+      * **{{ ui-key.yacloud.load-balancer.network-load-balancer.label_health-check-protocol }}**: `{{ ui-key.yacloud.common.label_tcp }}`.
+      * **{{ ui-key.yacloud.load-balancer.network-load-balancer.label_health-check-port }}**: `53`.
 
     {% endlist %}
 
@@ -277,7 +277,7 @@
 
 {% note info %}
 
-Внутренний сетевой балансировщик не будет отвечать на DNS-запросы от форвардеров, из которых состоит его целевая группа: `forwarder1` и `forwarder2`. Это связано с особенностями реализации, подробнее см. в разделе [Типы сетевых балансировщиков](../../network-load-balancer/concepts/nlb-types.md).
+Внутренний сетевой балансировщик не будет отвечать на DNS-запросы от форвардеров, из которых состоит его целевая группа: `forwarder1` и `forwarder2`. Это связано с особенностями реализации, подробнее см. в разделе [{#T}](../../network-load-balancer/concepts/nlb-types.md).
 
 {% endnote %}
 
@@ -285,8 +285,8 @@
 
 Чтобы хосты в облачной сети автоматически использовали корпоративный сервис DNS, в [настройках DHCP](../../vpc/concepts/dhcp-options.md) для подсетей `subnet3` и `subnet4` укажите:
 
-1. **Серверы доменных имен**: IP-адрес, который был [назначен балансировщику](#setup-cloud-balancer).
-1. (Опционально) **Доменное имя**: `corp.example.net`.
+1. **{{ ui-key.yacloud.vpc.subnetworks.create.field_domain-name-servers }}**: IP-адрес, который был [назначен балансировщику](#setup-cloud-balancer).
+1. (Опционально) **{{ ui-key.yacloud.vpc.subnetworks.create.field_domain-name }}**: `corp.example.net`.
 
 Чтобы обновить сетевые настройки на хостах `forwarder1`, `forwarder2` и `test1`, выполните команду:
 
@@ -294,11 +294,11 @@
 sudo netplan apply
 ```
 
-После обновления сетевых настроек хосты в облачной сети будут использовать балансировщик вместо сервера DNS Yandex Cloud.
+После обновления сетевых настроек хосты в облачной сети будут использовать балансировщик вместо сервера DNS {{ yandex-cloud }}.
 
 ## Настройте корпоративные серверы DNS {#setup-on-prem-dns}
 
-Настройте корпоративные серверы так, чтобы DNS-запросы к [внутренним зонам Yandex Cloud](../../dns/concepts/dns-zone.md#private-zones) направлялись на IP-адрес, который был [назначен балансировщику](#setup-cloud-balancer).
+Настройте корпоративные серверы так, чтобы DNS-запросы к [внутренним зонам {{ yandex-cloud }}](../../dns/concepts/dns-zone.md#private-zones) направлялись на IP-адрес, который был [назначен балансировщику](#setup-cloud-balancer).
 
 ## Проверьте работу сервиса {#check-dns-service}
 
@@ -316,7 +316,7 @@ sudo netplan apply
     cisco.com has address 72.163.4.185
     ...
     ```
-1. Проверьте, что на корпоративных DNS-серверах `ns1` и `ns2` выполняется распознавание внутренних имен Yandex Cloud, например:
+1. Проверьте, что на корпоративных DNS-серверах `ns1` и `ns2` выполняется распознавание внутренних имен {{ yandex-cloud }}, например:
 
     ```bash
     host ns.internal

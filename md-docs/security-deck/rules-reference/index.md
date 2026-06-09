@@ -1,11 +1,11 @@
 # Справочник правил
 
-Security Deck использует набор правил для проверки конфигурации облачных ресурсов и обнаружения угроз безопасности.
+{{ sd-name }} использует набор правил для проверки конфигурации облачных ресурсов и обнаружения угроз безопасности.
 
 ## Правила по категориям {#by-category}
 
-* [CSPM — Cloud Security Posture Management](cspm.md)
-* [KSPM — Kubernetes® Security Posture Management](kspm.md)
+* [{{ cspm-name }} — {{ cspm-full-name }}](cspm.md)
+* [{{ kspm-name }} — {{ kspm-full-name }}](kspm.md)
 
 ## Все правила {#all-rules}
 

@@ -4,10 +4,10 @@
 
 - Консоль управления {#console}
 
-  1. В [консоли управления](https://console.yandex.cloud) выберите каталог, в котором будет создан [рабочий стол](../../concepts/desktops-and-groups.md).
-  1. [Перейдите](../../../console/operations/select-service.md#select-service) в сервис **Cloud Desktop**.
-  1. На панели слева выберите ![image](../../../_assets/console-icons/display.svg) **Рабочие столы**.
-  1. Нажмите кнопку **Создать рабочий стол**.
+  1. В [консоли управления]({{ link-console-main }}) выберите каталог, в котором будет создан [рабочий стол](../../concepts/desktops-and-groups.md).
+  1. Перейдите в сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_cloud-desktop }}**.
+  1. На панели слева выберите ![image](../../../_assets/console-icons/display.svg) **{{ ui-key.yacloud.vdi.label_desktops }}**.
+  1. Нажмите кнопку **{{ ui-key.yacloud.vdi.button_desktop-create }}**.
   1. Выберите группу рабочих столов, в которой будет создан рабочий стол.
   1. Укажите подсеть, в которой будет размещен рабочий стол.
 
@@ -18,11 +18,11 @@
       {% endnote %}
 
   1. Укажите пользователя, для которого создается рабочий стол.
-  1. Нажмите кнопку **Создать**.
+  1. Нажмите кнопку **{{ ui-key.yacloud.common.create }}**.
 
-- Yandex Cloud CLI {#cli}
+- {{ yandex-cloud }} CLI {#cli}
 
-  Если у вас еще нет интерфейса командной строки Yandex Cloud (CLI), [установите и инициализируйте его](../../../cli/quickstart.md#install).
+  Если у вас еще нет интерфейса командной строки {{ yandex-cloud }} (CLI), [установите и инициализируйте его](../../../cli/quickstart.md#install).
 
   1. Посмотрите описание команды [CLI](../../../cli/index.md) для создания [рабочего стола](../../concepts/desktops-and-groups.md):
 

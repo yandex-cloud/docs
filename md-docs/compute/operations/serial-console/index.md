@@ -1,368 +1,254 @@
-# Начало работы с серийной консолью
+# Управлять доступом к серийной консоли
 
+[Серийная консоль](../../concepts/serial-console.md) позволяет получить доступ к [виртуальной машине](../../concepts/vm.md) вне зависимости от состояния [сети](../../../vpc/concepts/network.md#network) или операционной системы.
 
-Серийная консоль — это способ получить доступ к [виртуальной машине](../../concepts/vm.md) вне зависимости от состояния [сети](../../../vpc/concepts/network.md#network) или операционной системы. Таким образом, вы можете использовать консоль, например, для устранения неисправностей ВМ или при возникновении проблем с доступом через [SSH](../../../glossary/ssh-keygen.md).
+Чтобы [управлять](index.md) доступом к серийной консоли, необходима [роль](../../security/index.md) `compute.admin` или `{{ roles-editor }}`.
 
-Для работы с серийной консолью необходима [роль](../../security/index.md) `сompute.admin` или `editor`.
-
-По умолчанию доступ к серийной консоли отключен.
+По умолчанию доступ к серийной консоли виртуальных машин {{ compute-name }} запрещен.
 
 {% note warning %}
 
-Оцените риск включения доступа через серийную консоль, учитывая следующие факторы:
+Оцените риск разрешения доступа к ВМ через серийную консоль, учитывая следующие факторы:
 
-* ВМ будет доступна для управления из интернета даже в случае отсутствия внешнего IP-адреса. 
-  Получить доступ к серийной консоли ВМ из консоли управления Yandex Cloud сможет пользователь, успешно аутентифицированный в консоли управления Yandex Cloud при наличии должных прав на ВМ. Доступ к серийной консоли ВМ из клиентского приложения [SSH](../vm-connect/ssh.md) (например, Putty) или [CLI](../../../cli/index.md) также возможен путем аутентификации через SSH-ключ. В связи с этим необходимо тщательно контролировать SSH-ключ и завершать веб-сессию для снижения рисков ее перехвата.
+* ВМ будет доступна для управления из интернета даже при отсутствии у нее внешнего IP-адреса.
 
-* Сессия будет доступна одновременно всем пользователям, имеющим право доступа к серийной консоли.
-  Действия одного пользователя будут видны другим пользователям, если в это время они смотрят вывод серийной консоли.
+    При наличии необходимых [прав](../../security/index.md) доступа к ВМ подключиться к серийной консоли сможет пользователь, успешно аутентифицированный в [консоли управления]({{ link-console-main }}) {{ yandex-cloud }}.
+    
+    Доступ к серийной консоли ВМ из клиентского приложения [SSH](../vm-connect/ssh.md) (например, Putty) или [CLI](../../../cli/index.md) также возможен путем аутентификации с помощью SSH-ключа. Поэтому необходимо защитить SSH-ключ от несанкционированного доступа, а также всегда завершать веб-сессию для снижения рисков ее перехвата.
 
-* Незавершенная сессия может быть использована другим пользователем.
+* Сессия работы с серийной консолью будет доступна одновременно всем пользователям, имеющим право доступа к серийной консоли. Действия одного пользователя будут видны другим пользователям, если в это время они просматривают вывод серийной консоли.
+* Незавершенная сессия работы с серийной консолью может быть использована другим пользователем.
 
-Мы рекомендуем включать серийную консоль только в случае крайней необходимости, выдавать такой доступ узкому кругу лиц и использовать стойкие пароли для доступа к ВМ.
+Мы рекомендуем разрешать доступ к серийной консоли только в случае крайней необходимости, выдавать такой доступ узкому кругу доверенных лиц и использовать стойкие пароли для доступа к ВМ.
 
-Не забывайте [отключать доступ](disable.md) после работы с серийной консолью.
-
-{% endnote %}
-
-## Перед началом работы {#before-you-begin}
-
-Перед тем, как включить доступ к серийной консоли на ВМ:
-1. Подготовьте пару ключей (открытый и закрытый) для SSH-доступа на ВМ. Серийная консоль аутентифицирует пользователей с помощью SSH-ключей.
-1. Создайте текстовый файл (например, `sshkeys.txt`) и укажите следующие данные:
-
-   ```txt
-   <имя_пользователя>:<открытый_SSH-ключ_пользователя>
-   ```
-
-   Пример текстового файла для пользователя `yc-user`:
-
-   ```txt
-   yc-user:ssh-ed25519 AAAAB3Nza......OjbSMRX yc-user@example.com
-   ```
-
-   По умолчанию пользовательские SSH-ключи хранятся в каталоге `~/.ssh` этого пользователя. Получить открытый ключ можно с помощью команды `cat ~/.ssh/<имя_открытого_ключа>.pub`.
-
-## Включение консоли при создании ВМ из публичного образа {#turn-on-for-new-instance}
-
-Чтобы включить доступ к серийной консоли при создании ВМ, установите в [метаданных](../../concepts/vm-metadata.md) параметр `serial-port-enable` в значение `1`.
-
-Если у вас еще нет интерфейса командной строки Yandex Cloud (CLI), [установите и инициализируйте его](../../../cli/quickstart.md#install).
-
-По умолчанию используется каталог, указанный при [создании](../../../cli/operations/profile/profile-create.md) профиля CLI. Чтобы изменить каталог по умолчанию, используйте команду `yc config set folder-id <идентификатор_каталога>`. Также для любой команды вы можете указать другой каталог с помощью параметров `--folder-name` или `--folder-id`. Если вы обращаетесь к ресурсу по имени, поиск будет выполнен в каталоге по умолчанию. Если вы обращаетесь к ресурсу по идентификатору, поиск будет выполнен глобально — во всех каталогах с учетом прав доступа.
-
-{% list tabs group=operating_system %}
-
-- Linux {#linux}
-
-  1. Посмотрите описание команды CLI для создания ВМ:
-
-     ```bash
-     yc compute instance create --help
-     ```
-
-  1. Выберите один из публичных [образов](../../concepts/image.md) на базе ОС Linux (например, Ubuntu).
-
-     Чтобы получить список доступных образов с помощью CLI, выполните команду:
-     
-     ```bash
-     yc compute image list --folder-id standard-images
-     ```
-     
-     Результат:
-     
-     ```text
-     +----------------------+-------------------------------------+--------------------------+----------------------+--------+
-     |          ID          |                NAME                 |          FAMILY          |     PRODUCT IDS      | STATUS |
-     +----------------------+-------------------------------------+--------------------------+----------------------+--------+
-     ...
-     | fdvk34al8k5n******** | centos-7-1549279494                 | centos-7                 | dqni65lfhvv2******** | READY  |
-     | fdv7ooobjfl3******** | windows-2016-gvlk-1548913814        | windows-2016-gvlk        | dqnnc72gj2is******** | READY  |
-     | fdv4f5kv5cvf******** | ubuntu-1604-lts-1549457823          | ubuntu-1604-lts          | dqnnb6dc7640******** | READY  |
-     ...
-     +----------------------+-------------------------------------+--------------------------+----------------------+--------+
-     ```
-     
-     Где:
-     
-     * `ID` — идентификатор образа.
-     * `NAME` — имя образа.
-     * `FAMILY` — идентификатор [семейства образов](../../concepts/image.md#family), к которому относится образ.
-     * `PRODUCT IDS` — идентификаторы [продуктов](../../../marketplace/concepts/product.md) Yandex Cloud Marketplace, связанных с образом.
-     * `STATUS` — текущий статус образа. Может принимать одно из значений:
-     
-         * `STATUS_UNSPECIFIED` — статус образа не определен.
-         * `CREATING` — образ в процессе создания.
-         * `READY` — образ готов к использованию.
-         * `ERROR` — образ нельзя использовать из-за возникшей с ним проблемы.
-         * `DELETING` — образ в процессе удаления.
-
-  1. Создайте ВМ в [каталоге](../../../resource-manager/concepts/resources-hierarchy.md#folder) по умолчанию:
-
-     ```bash
-     yc compute instance create \
-       --name first-instance \
-       --zone ru-central1-a \
-       --network-interface subnet-name=default-a,nat-ip-version=ipv4 \
-       --create-boot-disk image-folder-id=standard-images,image-family=ubuntu-1604-lts \
-       --metadata-from-file ssh-keys=sshkeys.txt \
-       --metadata serial-port-enable=1
-     ```
-
-     Команда создаст ВМ:
-     * С OC [Ubuntu](https://yandex.cloud/ru/marketplace?tab=software&search=Ubuntu&categories=os).
-     * С именем `first-instance`.
-     * В [зоне доступности](../../../overview/concepts/geo-scope.md) `ru-central1-a`.
-     * С активной серийной консолью.
-
-     В ОС ВМ будет автоматически создан пользователь `yc-user` с указанным открытым ключом.
-
-{% endlist %}
-
-## Включение консоли при изменении ВМ {#turn-on-for-current-instance}
-
-Чтобы включить доступ к серийной консоли при изменении ВМ, установите в метаданных параметр `serial-port-enable` в значение `1`.
-1. Получите список ВМ в каталоге по умолчанию:
-
-   ```bash
-   yc compute instance list
-   ```
-   
-   Результат:
-   ```text
-   +----------------------+-----------------+---------------+---------+----------------------+
-   |          ID          |       NAME      |    ZONE ID    | STATUS  |     DESCRIPTION      |
-   +----------------------+-----------------+---------------+---------+----------------------+
-   | fhm0b28lgfp4******** | first-instance  | ru-central1-a | RUNNING | my first vm via CLI  |
-   | fhm9gk85nj7g******** | second-instance | ru-central1-a | RUNNING | my second vm via CLI |
-   +----------------------+-----------------+---------------+---------+----------------------+
-   ```
-
-1. Выберите идентификатор (`ID`) или имя (`NAME`) нужной ВМ, например `first-instance`.
-
-1. Установите в метаданных ВМ параметр `serial-port-enable=1`:
-
-   ```bash
-   yc compute instance add-metadata \
-     --name first-instance \
-     --metadata-from-file ssh-keys=sshkeys.txt \
-     --metadata serial-port-enable=1
-   ```
-
-   Команда запустит операцию активации серийной консоли на ВМ с именем `first-instance`.
-
-## Настройка ВМ для доступа через серийный порт {#configuration}
-
-Для настройки доступа через серийную консоль у ВМ должен быть [публичный IP-адрес](../../../vpc/concepts/address.md#public-addresses). Вы можете посмотреть адрес в [консоли управления](https://console.yandex.cloud) в разделе **Compute Cloud** на странице **Виртуальные машины**. Если вы создали ВМ без публичного IP-адреса, вы можете [привязать его](../vm-control/vm-attach-public-ip.md). После настройки адрес можно отвязать, для подключения через серийную консоль он не нужен.
-
-Чтобы серийная консоль была доступна со стороны ОС, ОС должна быть настроена соответствующим образом.
-
-### Linux {#linux-configuration}
-
-Чтобы подключаться к серийной консоли Linux, убедитесь, что [отключена парольная аутентификация для SSH](#ssh-pass-off), и при необходимости [задайте пароль](#create-pass) для нужного пользователя ОС.
-
-#### Отключите SSH-аутентификацию по паролю {#ssh-pass-off}
-
-{% note info %}
-
-В публичных образах Linux, предоставляемых Yandex Cloud, возможность подключения по протоколу SSH с использованием логина и пароля по умолчанию отключена.
+После завершения использования серийной консоли не забудьте [запретить](index.md#disable) доступ к ней.
 
 {% endnote %}
 
-Если вы используете собственный образ, убедитесь, что доступ по SSH с использованием логина и пароля отключен.
+## Разрешить доступ к серийной консоли {#enable}
 
-Чтобы отключить парольную аутентификацию по SSH:
-1. Откройте файл конфигурации SSH-сервера, по умолчанию `/etc/ssh/sshd_config`. Файл доступен для чтения и редактирования только суперпользователю.
-1. Задайте для опции `PasswordAuthentication` значение `no`.
-1. Перезапустите SSH-сервер:
+Вы можете разрешить доступ к серийной консоли как при создании новой виртуальной машины, так и изменив существующую ВМ.
 
-   ```bash
-   sudo systemctl restart ssh*
-   ```
+### Создать новую ВМ с разрешенным доступом к серийной консоли {#turn-on-for-new-instance}
 
-#### Создайте пароль для пользователя Linux {#create-pass}
+Чтобы разрешить доступ к серийной консоли при создании новой виртуальной машины на основе публичного [образа](../images-with-pre-installed-software/get-list.md) из [{{ marketplace-full-name }}](../../../marketplace/index.md):
 
-Некоторые ОС могут запрашивать данные пользователя для доступа на ВМ. Поэтому перед подключением к таким ВМ необходимо создать локальный пароль для пользователя по умолчанию.
+{% list tabs group=instructions %}
 
-Чтобы создать локальный пароль, используйте CLI.
-1. Получите список ВМ в каталоге по умолчанию:
+- Консоль управления {#console}
 
-   ```bash
-   yc compute instance list
-   ```
-   
-   Результат:
-   ```text
-   +----------------------+-----------------+---------------+---------+----------------------+
-   |          ID          |       NAME      |    ZONE ID    | STATUS  |     DESCRIPTION      |
-   +----------------------+-----------------+---------------+---------+----------------------+
-   | fhm0b28lgfp4******** | first-instance  | ru-central1-a | RUNNING | my first vm via CLI  |
-   | fhm9gk85nj7g******** | second-instance | ru-central1-a | RUNNING | my second vm via CLI |
-   +----------------------+-----------------+---------------+---------+----------------------+
-   ```
+  1. В [консоли управления]({{ link-console-main }}) выберите [каталог](../../../resource-manager/concepts/resources-hierarchy.md#folder), в котором будет создана ВМ.
+  1. Перейдите в сервис **{{ compute-name }}**.
+  1. На панели слева выберите ![server](../../../_assets/console-icons/server.svg) **{{ ui-key.yacloud.compute.instances_jsoza }}**.
+  1. Нажмите кнопку **{{ ui-key.yacloud.compute.instances.button_create }}**.
+  1. В блоке **{{ ui-key.yacloud.compute.instances.create.section_image }}** выберите один из [образов](../../concepts/image.md) {{ marketplace-full-name }}.
+  1. В блоке **{{ ui-key.yacloud.k8s.node-groups.create.section_allocation-policy }}** выберите [зону доступности](../../../overview/concepts/geo-scope.md), в которой будет находиться ВМ.
+  1. В блоке **{{ ui-key.yacloud.compute.instances.create.section_platform }}** выберите одну из готовых конфигураций или создайте свою.
+  1. В блоке **{{ ui-key.yacloud.compute.instances.create.section_network }}**:
 
-1. Выберите идентификатор (`ID`) или имя (`NAME`) нужной ВМ, например `first-instance`.
-1. Получите публичный IP-адрес ВМ.
+      * В поле **{{ ui-key.yacloud.component.compute.network-select.field_subnetwork }}** укажите идентификатор подсети в зоне доступности создаваемой ВМ или выберите [облачную сеть](../../../vpc/concepts/network.md#network) из списка.
 
-   ```bash
-   yc compute instance get first-instance
-   ```
+          * У каждой сети должна быть как минимум одна [подсеть](../../../vpc/concepts/network.md#subnet). Если подсети нет, создайте ее, выбрав **{{ ui-key.yacloud.component.vpc.network-select.button_create-subnetwork }}**.
+          * Если сети нет, нажмите **{{ ui-key.yacloud.component.vpc.network-select.button_create-network }}** и создайте ее.
+      * В поле **{{ ui-key.yacloud.component.compute.network-select.field_external }}** выберите способ назначения адреса `{{ ui-key.yacloud.component.compute.network-select.switch_auto }}`, чтобы назначить случайный IP-адрес из пула адресов {{ yandex-cloud }}.
+      * Выберите [подходящие группы безопасности](../../../vpc/concepts/security-groups.md). Если оставить поле пустым, то виртуальной машине будет автоматически назначена группа безопасности по умолчанию.
+  1. В блоке **{{ ui-key.yacloud.compute.instances.create.section_access }}**:
+     
+     * Выберите **{{ ui-key.yacloud.compute.instance.access-method.field_os-login-access-method }}**, чтобы [подключаться](../vm-connect/os-login.md) к создаваемой ВМ и управлять доступом к ней с помощью [{{ oslogin }}](../../../organization/concepts/os-login.md) в {{ org-full-name }}.
+     
+         Используя {{ oslogin }}, вы сможете подключаться к ВМ по SSH-ключам и SSH-сертификатам с помощью стандартного SSH-клиента или [интерфейса командной строки {{ yandex-cloud }}](../../../cli/quickstart.md). {{ oslogin }} позволяет ротировать SSH-ключи, используемые для доступа к ВМ, и является наиболее [безопасным](../../../security/domains/iaas-checklist.md#vm-security) вариантом доступа.
+     
+     * Если доступ по {{ oslogin }} вам не подходит, выберите вариант **{{ ui-key.yacloud.compute.instance.access-method.label_oslogin-control-ssh-option-title }}** и укажите данные для доступа к ВМ:
+     
+         * В поле **{{ ui-key.yacloud.compute.instances.create.field_user }}** введите имя пользователя.
+     
+             {% note alert %}
+     
+             Не используйте логин `root` или другие [имена, зарезервированные ОС](https://github.com/canonical/subiquity/blob/main/reserved-usernames). Для выполнения операций, требующих прав суперпользователя, используйте команду `sudo`.
+     
+             {% endnote %}
+     
+         * В поле **{{ ui-key.yacloud.compute.instances.create.field_key }}** выберите SSH-ключ, сохраненный в вашем профиле [пользователя организации](../../../organization/concepts/membership.md).
+           
+           Если в вашем профиле нет сохраненных SSH-ключей или вы хотите добавить новый ключ:
+           
+           1. Нажмите кнопку **{{ ui-key.yacloud.compute.instances.create.button_add-ssh-key }}**.
+           1. Задайте имя SSH-ключа.
+           1. Выберите вариант:
+           
+               * `{{ ui-key.yacloud_components.ssh-key-add-dialog.value_radio-manual }}` — вставьте содержимое открытого [SSH](../../../glossary/ssh-keygen.md)-ключа. Пару SSH-ключей необходимо [создать](../vm-connect/ssh.md#creating-ssh-keys) самостоятельно.
+               * `{{ ui-key.yacloud_components.ssh-key-add-dialog.value_radio-upload }}` — загрузите открытую часть SSH-ключа. Пару SSH-ключей необходимо создать самостоятельно.
+               * `{{ ui-key.yacloud_components.ssh-key-add-dialog.value_radio-generate }}` — автоматическое создание пары SSH-ключей.
+               
+                 При добавлении сгенерированного SSH-ключа будет создан и загружен архив с парой ключей. В ОС на базе Linux или macOS распакуйте архив в папку `/home/<имя_пользователя>/.ssh`. В ОС Windows распакуйте архив в папку `C:\Users\<имя_пользователя>/.ssh`. Дополнительно вводить открытый ключ в консоли управления не требуется.
+           
+           1. Нажмите кнопку **{{ ui-key.yacloud.common.add }}**.
+           
+           SSH-ключ будет добавлен в ваш профиль пользователя организации. Если в организации [отключена](../../../organization/operations/os-login-access.md) возможность добавления пользователями SSH-ключей в свои профили, добавленный открытый SSH-ключ будет сохранен только в профиле пользователя внутри создаваемого ресурса.
+     
+     Если вы хотите добавить на ВМ одновременно нескольких пользователей с SSH-ключами, [задайте](../../concepts/metadata/sending-metadata.md) данные этих пользователей в блоке **{{ ui-key.yacloud.common.metadata }}**. С помощью метаданных вы также можете [установить дополнительное ПО](../vm-create/create-with-cloud-init-scripts.md) на ВМ при ее создании.
+     
+     В публичных образах Linux, предоставляемых {{ yandex-cloud }}, возможность подключения по протоколу SSH с использованием логина и пароля по умолчанию отключена.
+  1. В блоке **{{ ui-key.yacloud.compute.instances.create.section_base }}** задайте имя ВМ:
 
-   В выводе команды найдите адрес ВМ в блоке `one_to_one_nat`:
+      * длина — от 3 до 63 символов;
+      * может содержать строчные буквы латинского алфавита, цифры и дефисы;
+      * первый символ — буква, последний — не дефис.
 
-   ```bash
-   ...
-   one_to_one_nat:
-     address: <публичный_IP-адрес>
-     ip_version: IPV4
-   ...
-   ```
+      {% note info %}
+      
+      Имя виртуальной машины используется для генерации [внутреннего FQDN](../../concepts/network.md#hostname) единожды — при создании ВМ. Если для вас важен внутренний FQDN, учитывайте это и задавайте нужное имя ВМ при создании.
+      
+      {% endnote %}
 
-1. Подключитесь к ВМ. Подробнее читайте в разделе [Подключение к ВМ](../vm-connect/ssh.md#vm-connect).
-1. Создайте локальный пароль. В OC Linux задать пароль можно с помощью команды `passwd`:
+  1. Разверните блок **{{ ui-key.yacloud.compute.instances.create.section_additional }}** и в поле **{{ ui-key.yacloud.compute.instance.overview.field_serial-port-enable }}** включите опцию **{{ ui-key.yacloud.compute.instances.create.value_serial-port-enable }}**.
+  1. Нажмите кнопку **{{ ui-key.yacloud.compute.instances.create.button_create }}**.
 
-   ```bash
-   sudo passwd <имя_пользователя>
-   ```
+  ВМ появится в списке. При создании ВМ назначаются [IP-адрес](../../../vpc/concepts/address.md) и [имя хоста](../../../vpc/concepts/address.md#fqdn) (FQDN).
 
-   Пример для пользователя `yc-user`:
+- CLI {#cli}
 
-   ```bash
-   sudo passwd yc-user
-   ```
+  Если у вас еще нет интерфейса командной строки {{ yandex-cloud }} (CLI), [установите и инициализируйте его](../../../cli/quickstart.md#install).
 
-1. Завершите SSH-сессию с помощью команды `exit`.
+  По умолчанию используется каталог, указанный при [создании](../../../cli/operations/profile/profile-create.md) профиля CLI. Чтобы изменить каталог по умолчанию, используйте команду `yc config set folder-id <идентификатор_каталога>`. Также для любой команды вы можете указать другой каталог с помощью параметров `--folder-name` или `--folder-id`. Если вы обращаетесь к ресурсу по имени, поиск будет выполнен в каталоге по умолчанию. Если вы обращаетесь к ресурсу по идентификатору, поиск будет выполнен глобально — во всех каталогах с учетом прав доступа.
 
-#### Включите нужный способ авторизации {#ssh-authorization}
+  1. [Подготовьте](../vm-connect/ssh.md#creating-ssh-keys) пару ключей (открытый и закрытый) для [SSH-доступа](../../../glossary/ssh-keygen.md) на ВМ.
+  2. Создайте ВМ в [каталоге](../../../resource-manager/concepts/resources-hierarchy.md#folder) по умолчанию. В приведенном примере будет создана ВМ на основе публичного [образа](../images-with-pre-installed-software/get-list.md) из [{{ marketplace-full-name }}](../../../marketplace/index.md) на базе операционной системы [Ubuntu 24.04 LTS](https://yandex.cloud/ru/marketplace/products/yc/ubuntu-2404-lts-oslogin):
 
-{% list tabs %}
+      ```bash
+      yc compute instance create \
+        --name sample-instance \
+        --zone {{ region-id }}-a \
+        --network-interface subnet-id=<идентификатор_подсети>,nat-ip-version=ipv4 \
+        --create-boot-disk image-folder-id=standard-images,image-family=ubuntu-2404-lts-oslogin,auto-delete=true \
+        --metadata enable-oslogin=false,serial-port-enable=1,ssh-keys='<имя_пользователя>:<публичный_SSH-ключ>'
+      ```
 
-- SSH-ключ
+      Где:
 
-  Укажите имя ВМ и включите авторизацию по метаданным при подключении к серийной консоли:
-  
-  ```bash
-  yc compute instance update \
-    --name <имя_ВМ> \
-    --serial-port-settings ssh-authorization=INSTANCE_METADATA
-  ```
-  
-  Результат:
-  
-  ```yaml
-  done (6s)
-  id: fhm0b28lgfp4********
-  folder_id: b1g9d2k0itu4********
-  created_at: "2024-03-28T19:53:23Z"
-  name: first-instance
-  zone_id: ru-central1-a
-  platform_id: standard-v3
-  resources:
-    memory: "1073741824"
-    cores: "2"
-    core_fraction: "20"
-  status: RUNNING
-  metadata_options:
-    gce_http_endpoint: ENABLED
-    aws_v1_http_endpoint: ENABLED
-    gce_http_token: ENABLED
-    aws_v1_http_token: DISABLED
-  boot_disk:
-    mode: READ_WRITE
-    device_name: epdu3ce920e7********
-    auto_delete: true
-    disk_id: epdu3ce920e7********
-  network_interfaces:
-    - index: "0"
-      mac_address: d0:0d:5c:**:**:**
-      subnet_id: e2luhnr3rhf8********
-      primary_v4_address:
-        address: 192.168.1.21
-        one_to_one_nat:
-          address: 51.250.***.***
-          ip_version: IPV4
-      security_group_ids:
-        - enpjauvetqfb********
-  serial_port_settings:
-    ssh_authorization: INSTANCE_METADATA
-  gpu_settings: {}
-  fqdn: sample-vm.ru-central1.internal
-  scheduling_policy:
-    preemptible: true
-  network_settings:
-    type: STANDARD
-  placement_policy: {}
-  hardware_generation:
-    legacy_features:
-      pci_topology: PCI_TOPOLOGY_V1
-  ```
-  
-  Если на уровне организации [включен](../../../organization/operations/os-login-access.md) доступ по OS Login, то для новых ВМ, создаваемых в этой организации, полю `serial_port_settings.ssh_authorization` по умолчанию будет присваиваться значение `OS_LOGIN`. Если доступ по OS Login выключен, этому полю по умолчанию будет присваиваться значение `INSTANCE_METADATA`.
+      * `--name` — имя ВМ. Требования к имени:
 
-- OS Login
+          * длина — от 3 до 63 символов;
+          * может содержать строчные буквы латинского алфавита, цифры и дефисы;
+          * первый символ — буква, последний — не дефис.
 
-  Включите для ВМ авторизацию по OS Login при подключении к серийной консоли, указав имя ВМ:
-  
-  ```bash
-  yc compute instance update \
-    --name <имя_ВМ> \
-    --serial-port-settings ssh-authorization=OS_LOGIN
-  ```
-  
-  Результат:
-  
-  ```yaml
-  done (6s)
-  id: fhm0b28lgfp4********
-  folder_id: b1g9d2k0itu4********
-  created_at: "2024-03-28T19:53:23Z"
-  name: first-instance
-  zone_id: ru-central1-a
-  platform_id: standard-v3
-  resources:
-    memory: "1073741824"
-    cores: "2"
-    core_fraction: "20"
-  status: RUNNING
-  metadata_options:
-    gce_http_endpoint: ENABLED
-    aws_v1_http_endpoint: ENABLED
-    gce_http_token: ENABLED
-    aws_v1_http_token: DISABLED
-  boot_disk:
-    mode: READ_WRITE
-    device_name: epdu3ce920e7********
-    auto_delete: true
-    disk_id: epdu3ce920e7********
-  network_interfaces:
-    - index: "0"
-      mac_address: d0:0d:5c:**:**:**
-      subnet_id: e2luhnr3rhf8********
-      primary_v4_address:
-        address: 192.168.1.21
-        one_to_one_nat:
-          address: 51.250.***.***
-          ip_version: IPV4
-      security_group_ids:
-        - enpjauvetqfb********
-  serial_port_settings:
-    ssh_authorization: OS_LOGIN
-  gpu_settings: {}
-  fqdn: sample-vm.ru-central1.internal
-  scheduling_policy:
-    preemptible: true
-  network_settings:
-    type: STANDARD
-  placement_policy: {}
-  hardware_generation:
-    legacy_features:
-      pci_topology: PCI_TOPOLOGY_V1
-  ```
-  
-  {% note info %}
-  
-  Если на уровне организации [включен](../../../organization/operations/os-login-access.md) доступ по OS Login, то для новых ВМ, создаваемых в этой организации, полю `serial_port_settings.ssh_authorization` по умолчанию будет присваиваться значение `OS_LOGIN`. Если доступ по OS Login выключен, этому полю по умолчанию будет присваиваться значение `INSTANCE_METADATA`.
-  
-  {% endnote %}
+          {% note info %}
+          
+          Имя виртуальной машины используется для генерации [внутреннего FQDN](../../concepts/network.md#hostname) единожды — при создании ВМ. Если для вас важен внутренний FQDN, учитывайте это и задавайте нужное имя ВМ при создании.
+          
+          {% endnote %}
+
+      * `--zone` — [зона доступности](../../../overview/concepts/geo-scope.md), в которой будет создана виртуальная машина.
+      * `--network-interface` — сетевые настройки создаваемой ВМ:
+
+          * `subnet-id` — [идентификатор подсети](../../../vpc/operations/subnet-get-info.md) в зоне доступности, в которой создается виртуальная машина.
+      * `--metadata` — [метаданные](../../concepts/vm-metadata.md) виртуальной машины:
+
+          * `enable-oslogin` — параметр, отвечающий за доступ к ВМ по [{{ oslogin }}](../../../organization/concepts/os-login.md). Возможные значения:
+
+              * `true` — чтобы включить доступ к ВМ по {{ oslogin }}. В этом случае доступ по SSH-ключу, заданному через метаданные, будет невозможен.
+              * `false` — чтобы отключить доступ к ВМ по {{ oslogin }}. Доступ к ВМ будет возможен только по SSH-ключу, заданному через метаданные.
+          * `serial-port-enable=1` — параметр, разрешающий доступ к ВМ через серийную консоль.
+          * `ssh-keys` — имя локального пользователя ВМ и содержимое [публичного SSH-ключа](../vm-connect/ssh.md#creating-ssh-keys), с которым этот пользователь сможет подключаться к ВМ по SSH.
+
+      Подробнее о команде `yc compute instance create` читайте в [справочнике CLI](../../../cli/cli-ref/compute/cli-ref/instance/create.md).
 
 {% endlist %}
+
+### Разрешить доступ к серийной консоли для существующей ВМ {#turn-on-for-current-instance}
+
+Чтобы разрешить доступ к серийной консоли для существующей виртуальной машины:
+
+{% list tabs group=instructions %}
+
+- Консоль управления {#console}
+
+  1. В [консоли управления]({{ link-console-main }}) выберите [каталог](../../../resource-manager/concepts/resources-hierarchy.md#folder), в котором находится нужная виртуальная машина.
+
+  2. Перейдите в сервис **{{ compute-name }}**.
+
+  3. На панели слева выберите ![server](../../../_assets/console-icons/server.svg) **{{ ui-key.yacloud.compute.instances_jsoza }}**.
+
+  4. В списке виртуальных машин в строке с нужной ВМ нажмите значок ![ellipsis](../../../_assets/console-icons/ellipsis.svg) и выберите ![pencil](../../../_assets/console-icons/pencil.svg) **{{ ui-key.yacloud.common.edit }}**. В открывшемся окне:
+
+     1. Разверните блок **{{ ui-key.yacloud.compute.instances.create.section_additional }}** и в поле **{{ ui-key.yacloud.compute.instance.overview.field_serial-port-enable }}** включите опцию **{{ ui-key.yacloud.compute.instances.create.value_serial-port-enable }}**.
+     2. Нажмите кнопку **{{ ui-key.yacloud.compute.instance.edit.button_update }}**.
+
+- CLI {#cli}
+
+  Если у вас еще нет интерфейса командной строки {{ yandex-cloud }} (CLI), [установите и инициализируйте его](../../../cli/quickstart.md#install).
+
+  По умолчанию используется каталог, указанный при [создании](../../../cli/operations/profile/profile-create.md) профиля CLI. Чтобы изменить каталог по умолчанию, используйте команду `yc config set folder-id <идентификатор_каталога>`. Также для любой команды вы можете указать другой каталог с помощью параметров `--folder-name` или `--folder-id`. Если вы обращаетесь к ресурсу по имени, поиск будет выполнен в каталоге по умолчанию. Если вы обращаетесь к ресурсу по идентификатору, поиск будет выполнен глобально — во всех каталогах с учетом прав доступа.
+
+  1. Измените ВМ, указав в команде ее [имя или идентификатор](../vm-info/get-info.md#outside-instance):
+
+      ```bash
+      yc compute instance update <имя_или_идентификатор_ВМ> \
+        --metadata enable-oslogin=<true|false>,serial-port-enable=1,ssh-keys='<имя_пользователя>:<публичный_SSH-ключ>'
+      ```
+
+      Где `--metadata` — [метаданные](../../concepts/vm-metadata.md) виртуальной машины:
+
+      * `enable-oslogin` — параметр, отвечающий за доступ к ВМ по [{{ oslogin }}](../../../organization/concepts/os-login.md). Возможные значения:
+
+          * `true` — чтобы включить доступ к ВМ по {{ oslogin }}. В этом случае доступ по SSH-ключу, заданному через метаданные, будет невозможен.
+          * `false` — чтобы отключить доступ к ВМ по {{ oslogin }}. Доступ к ВМ будет возможен только по SSH-ключу, заданному через метаданные.
+      * `serial-port-enable=1` — параметр, разрешающий доступ к ВМ через серийную консоль.
+      * `ssh-keys` — имя локального пользователя ВМ и содержимое [публичного SSH-ключа](../vm-connect/ssh.md#creating-ssh-keys), с которым этот пользователь сможет подключаться к ВМ по SSH.
+
+     Подробнее о команде `yc compute instance update` читайте в [справочнике CLI](../../../cli/cli-ref/compute/cli-ref/instance/update.md).
+
+{% endlist %}
+
+## Запретить доступ к серийной консоли {#disable}
+
+По умолчанию доступ к серийной консоли для всех вновь создаваемых виртуальных машин {{ compute-name }} запрещен.
+
+Чтобы запретить доступ к серийной консоли для существующей виртуальной машины:
+
+{% list tabs group=instructions %}
+
+- Консоль управления {#console}
+
+  1. В [консоли управления]({{ link-console-main }}) выберите [каталог](../../../resource-manager/concepts/resources-hierarchy.md#folder), в котором находится нужная виртуальная машина.
+
+  2. Перейдите в сервис **{{ compute-name }}**.
+
+  3. На панели слева выберите ![server](../../../_assets/console-icons/server.svg) **{{ ui-key.yacloud.compute.instances_jsoza }}**.
+
+  4. В списке виртуальных машин в строке с нужной ВМ нажмите значок ![ellipsis](../../../_assets/console-icons/ellipsis.svg) и выберите ![pencil](../../../_assets/console-icons/pencil.svg) **{{ ui-key.yacloud.common.edit }}**. В открывшемся окне:
+
+     1. Разверните блок **{{ ui-key.yacloud.compute.instances.create.section_additional }}** и в поле **{{ ui-key.yacloud.compute.instance.overview.field_serial-port-enable }}** отключите опцию **{{ ui-key.yacloud.compute.instances.create.value_serial-port-enable }}**.
+     2. Нажмите кнопку **{{ ui-key.yacloud.compute.instance.edit.button_update }}**.
+
+- CLI {#cli}
+
+  Если у вас еще нет интерфейса командной строки {{ yandex-cloud }} (CLI), [установите и инициализируйте его](../../../cli/quickstart.md#install).
+
+  По умолчанию используется каталог, указанный при [создании](../../../cli/operations/profile/profile-create.md) профиля CLI. Чтобы изменить каталог по умолчанию, используйте команду `yc config set folder-id <идентификатор_каталога>`. Также для любой команды вы можете указать другой каталог с помощью параметров `--folder-name` или `--folder-id`. Если вы обращаетесь к ресурсу по имени, поиск будет выполнен в каталоге по умолчанию. Если вы обращаетесь к ресурсу по идентификатору, поиск будет выполнен глобально — во всех каталогах с учетом прав доступа.
+
+  1. Измените ВМ, указав в команде ее [имя или идентификатор](../vm-info/get-info.md#outside-instance):
+
+      ```bash
+      yc compute instance update <имя_или_идентификатор_ВМ> \
+        --metadata enable-oslogin=<true|false>,serial-port-enable=0,ssh-keys='<имя_пользователя>:<публичный_SSH-ключ>'
+      ```
+
+      Где `--metadata` — [метаданные](../../concepts/vm-metadata.md) виртуальной машины:
+
+      * `enable-oslogin` — параметр, отвечающий за доступ к ВМ по [{{ oslogin }}](../../../organization/concepts/os-login.md). Возможные значения:
+
+          * `true` — чтобы включить доступ к ВМ по {{ oslogin }}. В этом случае доступ по SSH-ключу, заданному через метаданные, будет невозможен.
+          * `false` — чтобы отключить доступ к ВМ по {{ oslogin }}. Доступ к ВМ будет возможен только по SSH-ключу, заданному через метаданные.
+      * `serial-port-enable=0` — параметр, запрещающий доступ к ВМ через серийную консоль.
+      * `ssh-keys` — имя локального пользователя ВМ и содержимое [публичного SSH-ключа](../vm-connect/ssh.md#creating-ssh-keys), с которым этот пользователь сможет подключаться к ВМ по SSH.
+
+      Подробнее о команде `yc compute instance update` читайте в [справочнике CLI](../../../cli/cli-ref/compute/cli-ref/instance/update.md).
+
+{% endlist %}
+
+#### См. также {#see-also}
+
+* [{#T}](../../concepts/serial-console.md)
+* [{#T}](connect-ssh.md)
+* [{#T}](windows-sac.md)

@@ -21,28 +21,7 @@
    
      {% note info %}
    
-     [Время жизни](../../../iam/concepts/authorization/iam-token.md#lifetime) IAM-токена — не больше 12 часов.
-   
-     {% endnote %}
-   
-   - OAuth-токен {#oauth-token}
-   
-     1. [Получите](https://oauth.yandex.ru/authorize?response_type=token&client_id=1a6990aa636648e9b2ef855fa7bec2fb) OAuth-токен для [аккаунта на Яндексе](../../../iam/concepts/users/accounts.md#passport), от имени которого вы будете выполнять аутентификацию.
-     1. Создайте переменные окружения `REGISTRY_USERNAME` и `REGISTRY_PASSWORD`:
-   
-         ```bash
-         export REGISTRY_USERNAME="oauth"
-         export REGISTRY_PASSWORD="<OAuth-токен>"
-         ```
-   
-         Где:
-   
-         * `REGISTRY_USERNAME` — способ аутентификации.
-         * `REGISTRY_PASSWORD` — тело полученного ранее [OAuth-токена](../../../iam/concepts/authorization/oauth-token.md).
-   
-     {% note info %}
-   
-     [Время жизни](../../../iam/concepts/authorization/oauth-token.md#lifetime) OAuth-токена — 1 год.
+     [Время жизни](../../../iam/concepts/authorization/iam-token.md#lifetime) IAM-токена — не больше {{ iam-token-lifetime }}.
    
      {% endnote %}
    
@@ -80,22 +59,9 @@
           cloud-registry
 
       [cloud-registry]
-      repository = https://registry.yandexcloud.net/pypi/<идентификатор_реестра>/legacy/
+      repository = https://{{ cloud-registry }}/pypi/<идентификатор_реестра>/legacy/
       username = iam
       password = <IAM-токен>
-      ```
-
-    - OAuth-токен {#oauth-token}
-
-      ```text
-      [distutils]
-      index-servers =
-          cloud-registry
-
-      [cloud-registry]
-      repository = https://registry.yandexcloud.net/pypi/<идентификатор_реестра>/legacy/
-      username = oauth
-      password = <OAuth-токен>
       ```
 
     - API-ключ {#api-key}
@@ -106,7 +72,7 @@
           cloud-registry
 
       [cloud-registry]
-      repository = https://registry.yandexcloud.net/pypi/<идентификатор_реестра>/legacy/
+      repository = https://{{ cloud-registry }}/pypi/<идентификатор_реестра>/legacy/
       username = api_key
       password = <API-ключ>
       ```

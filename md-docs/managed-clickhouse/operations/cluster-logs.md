@@ -1,6 +1,6 @@
-# Просмотр логов кластера ClickHouse®
+# Просмотр логов кластера {{ CH }}
 
-Managed Service for ClickHouse® позволяет [получить фрагмент логов кластера](#get-log) за выбранный период и [просматривать логи в реальном времени](#get-log-stream).
+{{ mch-name }} позволяет [получить фрагмент логов кластера](#get-log) за выбранный период и [просматривать логи в реальном времени](#get-log-stream).
 
 {% note info %}
 
@@ -14,32 +14,32 @@ Managed Service for ClickHouse® позволяет [получить фрагм
 
 - Консоль управления {#console}
 
-    1. В [консоли управления](https://console.yandex.cloud) выберите каталог, в котором находится кластер.
-    1. [Перейдите](../../console/operations/select-service.md#select-service) в сервис **Managed Service for&nbsp;ClickHouse**.
-    1. Нажмите на имя нужного кластера и выберите вкладку ![image](../../_assets/console-icons/receipt.svg) **Логи**.
+    1. В [консоли управления]({{ link-console-main }}) выберите каталог, в котором находится кластер.
+    1. Перейдите в сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-clickhouse }}**.
+    1. Нажмите на имя нужного кластера и выберите вкладку ![image](../../_assets/console-icons/receipt.svg) **{{ ui-key.yacloud.clickhouse.cluster.switch_logs }}**.
     1. Укажите период времени, за который нужно отобразить логи: введите его вручную или выберите в календаре, нажав на поле ввода дат.
     1. При необходимости укажите хосты и уровень логирования в строке с полем ввода дат.
 
     Будет отображен список записей в логе за выбранный период времени. Чтобы посмотреть подробную информацию о событии, нажмите на интересующую запись в списке.
 
-    Если записей слишком много и отображается только часть из них, нажмите на кнопку **Загрузить еще** в конце списка.
+    Если записей слишком много и отображается только часть из них, нажмите на кнопку **{{ ui-key.yacloud.common.label_load-more }}** в конце списка.
 
 - CLI {#cli}
 
-    Если у вас еще нет интерфейса командной строки Yandex Cloud (CLI), [установите и инициализируйте его](../../cli/quickstart.md#install).
+    Если у вас еще нет интерфейса командной строки {{ yandex-cloud }} (CLI), [установите и инициализируйте его](../../cli/quickstart.md#install).
 
     По умолчанию используется каталог, указанный при [создании](../../cli/operations/profile/profile-create.md) профиля CLI. Чтобы изменить каталог по умолчанию, используйте команду `yc config set folder-id <идентификатор_каталога>`. Также для любой команды вы можете указать другой каталог с помощью параметров `--folder-name` или `--folder-id`. Если вы обращаетесь к ресурсу по имени, поиск будет выполнен в каталоге по умолчанию. Если вы обращаетесь к ресурсу по идентификатору, поиск будет выполнен глобально — во всех каталогах с учетом прав доступа.
 
     1. Просмотрите описание команды CLI для просмотра логов кластера:
 
         ```bash
-        yc managed-clickhouse cluster list-logs --help
+        {{ yc-mdb-ch }} cluster list-logs --help
         ```
 
     1. Запустите команду получения логов кластера:
 
         ```bash
-        yc managed-clickhouse cluster list-logs <имя_или_идентификатор_кластера> \
+        {{ yc-mdb-ch }} cluster list-logs <имя_или_идентификатор_кластера> \
            --limit <ограничение_количества_записей> \
            --columns <список_колонок_для_вывода_информации> \
            --filter <настройки_фильтрации_записей> \
@@ -57,7 +57,7 @@ Managed Service for ClickHouse® позволяет [получить фрагм
             * `query_id` — идентификатор запроса.
             * `severity` — уровень логирования, например, `Debug`.
             * `thread` — идентификатор потока, участвующего в обработке запросов.
-        * `--filter` — настройки фильтрации записей, например `message.hostname='node1.mdb.yandexcloud.net'`.
+        * `--filter` — настройки фильтрации записей, например `message.hostname='node1.{{ dns-zone }}'`.
         * `--since` — левая граница временного диапазона в формате [RFC-3339](https://www.ietf.org/rfc/rfc3339.html), `HH:MM:SS` или временного промежутка относительно текущего времени. Примеры: `2006-01-02T15:04:05Z`, `15:04:05`, `2h`, `3h30m ago`.
         * `--until` — правая граница временного диапазона, формат аналогичен `--since`.
 
@@ -71,13 +71,13 @@ Managed Service for ClickHouse® позволяет [получить фрагм
         export IAM_TOKEN="<IAM-токен>"
         ```
 
-    1. Воспользуйтесь методом [Cluster.ListLogs](../api-ref/Cluster/listLogs.md) и выполните запрос, например, с помощью [cURL](https://curl.se/):
+    1. Воспользуйтесь методом [Cluster.ListLogs](../api-ref/Cluster/listLogs.md) и выполните запрос, например, с помощью {{ api-examples.rest.tool }}:
 
         ```bash
         curl \
             --request GET \
             --header "Authorization: Bearer $IAM_TOKEN" \
-            --url 'https://mdb.api.cloud.yandex.net/managed-clickhouse/v1/clusters/<идентификатор_кластера>:logs' \
+            --url 'https://{{ api-host-mdb }}/managed-clickhouse/v1/clusters/<идентификатор_кластера>:logs' \
             --url-query serviceType=CLICKHOUSE \
             --url-query columnFilter=<список_колонок_для_вывода_информации> \
             --url-query fromTime=<левая_граница_временного_диапазона> \
@@ -98,7 +98,7 @@ Managed Service for ClickHouse® позволяет [получить фрагм
 
             В одном параметре `columnFilter` можно указать только одну колонку. Если необходимо отфильтровать логи по нескольким колонкам, передайте перечень нужных колонок в нескольких параметрах.
 
-        * `fromTime` — левая граница временного диапазона в формате [RFC-3339](https://www.ietf.org/rfc/rfc3339.html). Пример: `2006-01-02T15:04:05Z`.
+        * `fromTime` — левая граница временного диапазона в формате [RFC-3339](https://www.ietf.org/rfc/rfc3339.html). Пример: `{{ sample-rfc3339-timestamp }}`.
 
         * `toTime` — правая граница временного диапазона, формат аналогичен `fromTime`.
 
@@ -124,7 +124,7 @@ Managed Service for ClickHouse® позволяет [получить фрагм
        
        Далее предполагается, что содержимое репозитория находится в директории `~/cloudapi/`.
 
-    1. Воспользуйтесь вызовом [ClusterService.ListLogs](../api-ref/grpc/Cluster/listLogs.md) и выполните запрос, например, с помощью [gRPCurl](https://github.com/fullstorydev/grpcurl):
+    1. Воспользуйтесь вызовом [ClusterService.ListLogs](../api-ref/grpc/Cluster/listLogs.md) и выполните запрос, например, с помощью {{ api-examples.grpc.tool }}:
 
         ```bash
         grpcurl \
@@ -140,7 +140,7 @@ Managed Service for ClickHouse® позволяет [получить фрагм
                     "from_time": "<левая_граница_временного_диапазона>" \
                     "to_time": "<правая_граница_временного_диапазона>"
                 }' \
-            mdb.api.cloud.yandex.net:443 \
+            {{ api-host-mdb }}:{{ port-https }} \
             yandex.cloud.mdb.clickhouse.v1.ClusterService.ListLogs
         ```
 
@@ -158,7 +158,7 @@ Managed Service for ClickHouse® позволяет [получить фрагм
 
             В параметре `column_filter` можно указать несколько колонок, если нужно отфильтровать логи по нескольким колонкам.
 
-        * `from_time` — левая граница временного диапазона в формате [RFC-3339](https://www.ietf.org/rfc/rfc3339.html). Пример: `2006-01-02T15:04:05Z`.
+        * `from_time` — левая граница временного диапазона в формате [RFC-3339](https://www.ietf.org/rfc/rfc3339.html). Пример: `{{ sample-rfc3339-timestamp }}`.
 
         * `to_time` — правая граница временного диапазона, формат аналогичен `from_time`.
 
@@ -178,14 +178,14 @@ Managed Service for ClickHouse® позволяет [получить фрагм
 
 - CLI {#cli}
 
-    Если у вас еще нет интерфейса командной строки Yandex Cloud (CLI), [установите и инициализируйте его](../../cli/quickstart.md#install).
+    Если у вас еще нет интерфейса командной строки {{ yandex-cloud }} (CLI), [установите и инициализируйте его](../../cli/quickstart.md#install).
 
     По умолчанию используется каталог, указанный при [создании](../../cli/operations/profile/profile-create.md) профиля CLI. Чтобы изменить каталог по умолчанию, используйте команду `yc config set folder-id <идентификатор_каталога>`. Также для любой команды вы можете указать другой каталог с помощью параметров `--folder-name` или `--folder-id`. Если вы обращаетесь к ресурсу по имени, поиск будет выполнен в каталоге по умолчанию. Если вы обращаетесь к ресурсу по идентификатору, поиск будет выполнен глобально — во всех каталогах с учетом прав доступа.
 
     Для просмотра логов кластера по мере их поступления выполните команду:
 
     ```bash
-    yc managed-clickhouse cluster list-logs <имя_или_идентификатор_кластера> --follow
+    {{ yc-mdb-ch }} cluster list-logs <имя_или_идентификатор_кластера> --follow
     ```
 
     Имя и идентификатор кластера можно запросить со [списком кластеров в каталоге](cluster-list.md#list-clusters).
@@ -198,13 +198,13 @@ Managed Service for ClickHouse® позволяет [получить фрагм
         export IAM_TOKEN="<IAM-токен>"
         ```
 
-    1. Воспользуйтесь методом [Cluster.StreamLogs](../api-ref/Cluster/streamLogs.md) и выполните запрос, например, с помощью [cURL](https://curl.se/):
+    1. Воспользуйтесь методом [Cluster.StreamLogs](../api-ref/Cluster/streamLogs.md) и выполните запрос, например, с помощью {{ api-examples.rest.tool }}:
 
         ```bash
         curl \
             --request GET \
             --header "Authorization: Bearer $IAM_TOKEN" \
-            --url 'https://mdb.api.cloud.yandex.net/managed-clickhouse/v1/clusters/<идентификатор_кластера>:stream_logs' \
+            --url 'https://{{ api-host-mdb }}/managed-clickhouse/v1/clusters/<идентификатор_кластера>:stream_logs' \
             --url-query serviceType=CLICKHOUSE \
             --url-query columnFilter=<список_колонок_для_вывода_информации> \
             --url-query fromTime=<левая_граница_временного_диапазона> \
@@ -226,7 +226,7 @@ Managed Service for ClickHouse® позволяет [получить фрагм
 
             В одном параметре `columnFilter` можно указать только одну колонку. Если необходимо отфильтровать логи по нескольким колонкам, передайте перечень нужных колонок в нескольких параметрах.
 
-        * `fromTime` — левая граница временного диапазона в формате [RFC-3339](https://www.ietf.org/rfc/rfc3339.html). Пример: `2006-01-02T15:04:05Z`.
+        * `fromTime` — левая граница временного диапазона в формате [RFC-3339](https://www.ietf.org/rfc/rfc3339.html). Пример: `{{ sample-rfc3339-timestamp }}`.
 
         * `toTime` — правая граница временного диапазона, формат аналогичен `fromTime`.
 
@@ -269,7 +269,7 @@ Managed Service for ClickHouse® позволяет [получить фрагм
        
        Далее предполагается, что содержимое репозитория находится в директории `~/cloudapi/`.
 
-    1. Воспользуйтесь вызовом [ClusterService.StreamLogs](../api-ref/grpc/Cluster/streamLogs.md) и выполните запрос, например, с помощью [gRPCurl](https://github.com/fullstorydev/grpcurl):
+    1. Воспользуйтесь вызовом [ClusterService.StreamLogs](../api-ref/grpc/Cluster/streamLogs.md) и выполните запрос, например, с помощью {{ api-examples.grpc.tool }}:
 
         ```bash
         grpcurl \
@@ -286,7 +286,7 @@ Managed Service for ClickHouse® позволяет [получить фрагм
                     "to_time": "<правая_граница_временного_диапазона>",
                     "filter": "<фильтр_логов>"
                 }' \
-            mdb.api.cloud.yandex.net:443 \
+            {{ api-host-mdb }}:{{ port-https }} \
             yandex.cloud.mdb.clickhouse.v1.ClusterService.StreamLogs
         ```
 
@@ -304,7 +304,7 @@ Managed Service for ClickHouse® позволяет [получить фрагм
 
             В параметре `column_filter` можно указать несколько колонок, если нужно отфильтровать логи по нескольким колонкам.
 
-        * `from_time` — левая граница временного диапазона в формате [RFC-3339](https://www.ietf.org/rfc/rfc3339.html). Пример: `2006-01-02T15:04:05Z`.
+        * `from_time` — левая граница временного диапазона в формате [RFC-3339](https://www.ietf.org/rfc/rfc3339.html). Пример: `{{ sample-rfc3339-timestamp }}`.
 
         * `to_time` — правая граница временного диапазона, формат аналогичен `from_time`.
 
@@ -333,4 +333,4 @@ Managed Service for ClickHouse® позволяет [получить фрагм
 
 {% endlist %}
 
-_ClickHouse® является зарегистрированным товарным знаком [ClickHouse, Inc](https://clickhouse.com)._
+_{{ CH }} является зарегистрированным товарным знаком [ClickHouse, Inc](https://clickhouse.com)._

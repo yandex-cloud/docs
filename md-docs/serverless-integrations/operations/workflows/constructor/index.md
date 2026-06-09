@@ -1,27 +1,26 @@
-# Обзор конструктора шагов рабочего процесса Workflows
+# Обзор конструктора шагов рабочего процесса {{ sw-name }}
 
-Для настройки интеграционных и управляющих шагов [рабочего процесса](../../../concepts/workflows/workflow.md) вы можете использовать конструктор. Конструктор доступен в [консоли управления](https://console.yandex.cloud) при [создании](../workflow/create-constructor.md) и [изменении](../workflow/update.md) рабочего процесса.
+Для настройки интеграционных и управляющих шагов [рабочего процесса](../../../concepts/workflows/workflow.md) вы можете использовать конструктор. Конструктор доступен в [консоли управления]({{ link-console-main }}) при [создании](../workflow/create-constructor.md) и [изменении](../workflow/update.md) рабочего процесса.
 
 В конструкторе вы можете настроить следующие шаги рабочих процессов:
 
 ## Интеграционные шаги {#integration-steps}
 
-* [Модели AI Studio](foundationmodelscall.md)
-* [Агент AI Studio](aistudioagent.md)
+* [Модели {{ ai-studio-name }}](foundationmodelscall.md)
+* [Агент {{ ai-studio-name }}](aistudioagent.md)
 * [Vector Store](vectorstore.md)
-* [Cloud Functions](functioncall.md)
-* [Serverless Containers](containercall.md)
-* [Yandex Cloud Postbox](postbox.md)
-* [Трекер](tracker.md)
+* [{{ sf-short-name }}](functioncall.md)
+* [{{ serverless-containers-name }}](containercall.md)
+* [{{ postbox-short-name }}](postbox.md)
+* [{{ tracker-name }}](tracker.md)
 * [HTTP](httpcall.md)
 * [gRPC](grpccall.md)
-* [Object Storage](objectstorage.md)
-* [Managed Service for YDB](ydbdocument.md)
-* [Data Streams](yds.md)
-* [Message Queue](ymq.md)
+* [{{ objstorage-name }}](objectstorage.md)
+* [{{ ydb-name }}](ydbdocument.md)
+* [{{ yds-name }}](yds.md)
+* [{{ message-queue-name }}](ymq.md)
 * [Яндекс Диск](yadisk.md)
-* [Workflows](workflow.md)
-* [AI-агент](aiagent.md)
+* [{{ sw-name }}](workflow.md)
 * [Telegram-бот](telegrambot.md)
 * [Database Query](databasequery.md)
 
@@ -38,5 +37,5 @@
 
 ## Общие настройки {#general-settings}
 
-* [Настроить политику повторных попыток для рабочего процесса](setup-restart-policy.md)
-* [Настроить правило перехода по ошибкам](setup-catch-rule.md)
+* [{#T}](setup-restart-policy.md)
+* [{#T}](setup-catch-rule.md)

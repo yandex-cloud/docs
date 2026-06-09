@@ -5,7 +5,7 @@ Create an IAM token for the specified identity.
 ## HTTP request
 
 ```
-POST https://iam.api.cloud.yandex.net/iam/v1/tokens
+POST https://iam.{{ api-host }}/iam/v1/tokens
 ```
 
 ## Body parameters {#yandex.cloud.iam.v1.CreateIamTokenRequest}
@@ -26,11 +26,15 @@ POST https://iam.api.cloud.yandex.net/iam/v1/tokens
 OAuth token for a Yandex account.
 For more information, see [OAuth token](../../concepts/authorization/oauth-token.md).
 
+The maximum string length in characters is 4000.
+
 Includes only one of the fields `yandexPassportOauthToken`, `jwt`. ||
 || jwt | **string**
 
 JSON Web Token (JWT) for a service account.
 For more information, see [Get IAM token for a service account](../../operations/iam-token/create-for-sa.md).
+
+The maximum string length in characters is 8000.
 
 Includes only one of the fields `yandexPassportOauthToken`, `jwt`. ||
 |#
@@ -51,7 +55,6 @@ Includes only one of the fields `yandexPassportOauthToken`, `jwt`. ||
 || iamToken | **string**
 
 IAM token for the specified identity.
-
 You should pass the token in the `Authorization` header for any further API requests.
 For example, `Authorization: Bearer `iamToken``. ||
 || expiresAt | **string** (date-time)

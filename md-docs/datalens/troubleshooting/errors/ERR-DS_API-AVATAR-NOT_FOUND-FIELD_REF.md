@@ -1,4 +1,4 @@
-# [Yandex DataLens] Field references an unknown source avatar
+# [{{ datalens-full-name }}] Field references an unknown source avatar
 
 `ERR.DS_API.AVATAR.NOT_FOUND.FIELD_REF`
 

@@ -1,4 +1,4 @@
-# Пошаговые инструкции для Cloud Registry
+# Пошаговые инструкции для {{ cloud-registry-name }}
 
 * [Создание реестра](registry/create.md)
 * [Создание политики жизненного цикла](lifecycle-policy/create.md)
@@ -8,7 +8,7 @@
 ### Docker {#docker}
 
 * [Установить и настроить Docker](docker/installation.md)
-* [Аутентифицировать в Cloud Registry](docker/authentication.md)
+* [{#T}](docker/authentication.md)
 * [Создать Docker-образ](docker/create.md)
 * [Загрузить Docker-образ в реестр](docker/push.md)
 * [Скачать Docker-образ из реестра](docker/pull.md)
@@ -35,6 +35,11 @@
 ### Python {#python}
 
 * [Настроить PyPI](pypi/installation.md)
+* [Создать Python-пакет](pypi/create.md)
+* [Загрузить Python-пакет в реестр](pypi/push.md)
+* [Скачать Python-пакет из реестра](pypi/pull.md)
+* [Удалить Python-пакет из реестра](pypi/delete.md)
+* [Примеры работы с PyPI-реестрами](pypi/examples.md)
 
 ### Binary {#binary}
 

@@ -1,14 +1,14 @@
 # Поля и аннотации ресурса Service для Ingress-контроллера
 
-Ресурс `Service` соответствует [сервису Kubernetes](../concepts/index.md#service). Для [Ingress-контроллера](ingress-controller/index.md) Application Load Balancer сервисы представляют собой бэкенды, между которыми распределяется входящий трафик в кластере Managed Service for Kubernetes. Сервисы, выступающие в роли бэкендов Application Load Balancer, могут быть указаны в ресурсе [Ingress](ingress.md) напрямую или в составе групп бэкендов [HttpBackendGroup](http-backend-group.md).
+Ресурс `Service` соответствует [сервису {{ k8s }}](../concepts/index.md#service). Для [Ingress-контроллера]({{ ingress-local-link }}/index.md) {{ alb-name }} сервисы представляют собой бэкенды, между которыми распределяется входящий трафик в кластере {{ managed-k8s-name }}. Сервисы, выступающие в роли бэкендов {{ alb-name }}, могут быть указаны в ресурсе [Ingress]({{ configuration-local-link }}/ingress.md) напрямую или в составе групп бэкендов [HttpBackendGroup]({{ configuration-local-link }}/http-backend-group.md).
 
 {% note tip %}
 
-Вместо ALB Ingress-контроллера и Gateway API рекомендуется использовать новый контроллер [Yandex Cloud Gwin](gwin-index.md).
+Вместо ALB Ingress-контроллера и Gateway API рекомендуется использовать новый контроллер [{{ yandex-cloud }} Gwin]({{ gwin-tip-local-link }}).
 
 {% endnote %}
 
-`Service` — стандартный ресурс Kubernetes. Ниже описаны поля и аннотации ресурса, с которыми работают инструменты Application Load Balancer для Managed Service for Kubernetes. Полное описание конфигурации ресурса см. в [документации Kubernetes](https://kubernetes.io/docs/reference/kubernetes-api/service-resources/service-v1/).
+`Service` — стандартный ресурс {{ k8s }}. Ниже описаны поля и аннотации ресурса, с которыми работают инструменты {{ alb-name }} для {{ managed-k8s-name }}. Полное описание конфигурации ресурса см. в [документации {{ k8s }}](https://kubernetes.io/docs/reference/kubernetes-api/service-resources/service-v1/).
 
 ## Service {#service}
 
@@ -73,7 +73,7 @@ annotations:
 
 [Имя ресурса](https://kubernetes.io/docs/concepts/overview/working-with-objects/names/#names).
 
-Не является именем балансировщика в Application Load Balancer. ||
+Не является именем балансировщика в {{ alb-name }}. ||
 || `annotations` | `map[string]string`  | **Обязательное**.
 
 Аннотации ресурса. ||
@@ -83,9 +83,9 @@ annotations:
 
 # Аннотации
 
-Аннотации — это коллекция пар `ключ:значение`, которые используются для присвоения метаданных объекту. Значения аннотаций всегда имеют тип данных `string`. Подробнее об аннотациях см. в [документации Kubernetes](https://kubernetes.io/docs/concepts/overview/working-with-objects/annotations/).
+Аннотации — это коллекция пар `ключ:значение`, которые используются для присвоения метаданных объекту. Значения аннотаций всегда имеют тип данных `string`. Подробнее об аннотациях см. в [документации {{ k8s }}](https://kubernetes.io/docs/concepts/overview/working-with-objects/annotations/).
 
-В Application Load Balancer аннотации используются в ресурсах `Service` только для настройки Ingress-контроллеров.
+В {{ alb-name }} аннотации используются в ресурсах `Service` только для настройки Ingress-контроллеров.
 
 Для объекта `ObjectMeta` можно передать следующие аннотации:
 
@@ -105,7 +105,7 @@ annotations:
 
    Если аннотация не указана, балансировщик соединяется с бэкендами без шифрования.
 
-   Для бэкендов, входящих в состав групп, значение аннотации игнорируется. Шифрование соединений балансировщика с бэкендами из групп настраивается с помощью поля `spec.backend.tls` ресурса `HttpBackendGroup` (см. [конфигурацию ресурса](http-backend-group.md)).
+   Для бэкендов, входящих в состав групп, значение аннотации игнорируется. Шифрование соединений балансировщика с бэкендами из групп настраивается с помощью поля `spec.backend.tls` ресурса `HttpBackendGroup` (см. [конфигурацию ресурса]({{ configuration-local-link }}/http-backend-group.md)).
 
 * **ingress.alb.yc.io/health-checks** {#annot-health-checks}
 
@@ -155,7 +155,7 @@ ports:
 
 {% note warning %}
 
-Сервисы Kubernetes, используемые в качестве бэкендов (указанные в правилах `Ingress` напрямую или в `HttpBackendGroup`/`GrpcBackendGroup`), должны иметь тип `NodePort`. Подробнее об этом типе см. в [документации Kubernetes](https://kubernetes.io/docs/concepts/services-networking/service/#type-nodeport).
+Сервисы {{ k8s }}, используемые в качестве бэкендов (указанные в правилах `Ingress` напрямую или в `HttpBackendGroup`/`GrpcBackendGroup`), должны иметь тип `NodePort`. Подробнее об этом типе см. в [документации {{ k8s }}](https://kubernetes.io/docs/concepts/services-networking/service/#type-nodeport).
 
 {% endnote %} ||
 || `ports`    | `[]ServicePort`      | **Обязательное**.
@@ -181,19 +181,19 @@ nodePort: <int32>
 
 Номер используется при указании сервиса в качестве бэкенда:
 
-* в `Ingress` — в поле `spec.rules.http.paths.backend.service.port.number` (см. [конфигурацию](ingress.md#backend));
-* в группе бэкендов `HttpBackendGroup` — в поле `spec.backends.service.port.number` (см. [конфигурацию](http-backend-group.md)).
+* в `Ingress` — в поле `spec.rules.http.paths.backend.service.port.number` (см. [конфигурацию]({{ configuration-local-link }}/ingress.md#backend));
+* в группе бэкендов `HttpBackendGroup` — в поле `spec.backends.service.port.number` (см. [конфигурацию]({{ configuration-local-link }}/http-backend-group.md)).
 ||
 || `name` | `string` | Имя порта внутри сервиса.
 
 Имя используется при указании сервиса в качестве бэкенда:
 
-* в `Ingress` — в поле `spec.rules.http.paths.backend.service.port.name` (см. [конфигурацию](ingress.md#backend));
-* в группе бэкендов `HttpBackendGroup` — в поле `spec.backends.service.port.name` (см. [конфигурацию](http-backend-group.md)).
+* в `Ingress` — в поле `spec.rules.http.paths.backend.service.port.name` (см. [конфигурацию]({{ configuration-local-link }}/ingress.md#backend));
+* в группе бэкендов `HttpBackendGroup` — в поле `spec.backends.service.port.name` (см. [конфигурацию]({{ configuration-local-link }}/http-backend-group.md)).
 ||
 || `protocol` | `TCP` | Сетевой протокол для порта. Только `TCP`. ||
-|| `nodePort` | `int32` | Номер порта, открытого на узлах кластера, на которых развернут сервис. Балансировщик отправляет трафик на этот порт, а Kubernetes перенаправляет трафик сервису на его порт в параметре `port`.
+|| `nodePort` | `int32` | Номер порта, открытого на узлах кластера, на которых развернут сервис. Балансировщик отправляет трафик на этот порт, а {{ k8s }} перенаправляет трафик сервису на его порт в параметре `port`.
 
-Соответствует порту бэкенда в [группе бэкендов](../../application-load-balancer/concepts/backend-group.md) Application Load Balancer.
+Соответствует порту бэкенда в [группе бэкендов](../../application-load-balancer/concepts/backend-group.md) {{ alb-name }}.
 ||
 |#

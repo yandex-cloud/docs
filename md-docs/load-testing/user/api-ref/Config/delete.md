@@ -5,7 +5,7 @@ Deletes the specified config.
 ## HTTP request
 
 ```
-DELETE https://loadtesting.api.cloud.yandex.net/loadtesting/api/v1/configs/{configId}
+DELETE https://loadtesting.{{ api-host }}/loadtesting/api/v1/configs/{configId}
 ```
 
 ## Path parameters

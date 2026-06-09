@@ -23,19 +23,6 @@ description: Follow this guide to set up PyPI.
       password = <IAM_token>
       ```
 
-    - OAuth token {#oauth-token}
-
-      ```text
-      [distutils]
-      index-servers =
-          cloud-registry
-
-      [cloud-registry]
-      repository = https://{{ cloud-registry }}/pypi/<registry_ID>/legacy/
-      username = oauth
-      password = <OAuth_token>
-      ```
-
     - API key {#api-key}
 
       ```text

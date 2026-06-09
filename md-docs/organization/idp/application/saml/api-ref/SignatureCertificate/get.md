@@ -1,13 +1,12 @@
 # SAML Application API, REST: SignatureCertificate.Get
 
 Returns the specified signature certificate.
-
 To get the list of available certificates, make a [List](../../mapi-ref/SignatureCertificate/list#List) request.
 
 ## HTTP request
 
 ```
-GET https://organization-manager.api.cloud.yandex.net/organization-manager/v1/idp/application/saml/signature-certificates/{signatureCertificateId}
+GET https://organization-manager.{{ api-host }}/organization-manager/v1/idp/application/saml/signature-certificates/{signatureCertificateId}
 ```
 
 ## Path parameters

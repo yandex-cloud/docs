@@ -1,4 +1,4 @@
-# Отправить запрос HTTP API к Yandex Cloud Notification Service
+# Отправить запрос HTTP API к {{ cns-full-name }}
 
 HTTP API сервиса совместим с [Amazon SNS API](https://docs.aws.amazon.com/sns/latest/api/welcome.html).
 
@@ -14,11 +14,11 @@ HTTP API сервиса совместим с [Amazon SNS API](https://docs.aws.
 
 ## Подготовьте облако к работе {#before-you-begin}
 
-Зарегистрируйтесь в Yandex Cloud и создайте [платежный аккаунт](../../billing/concepts/billing-account.md):
-1. Перейдите в [консоль управления](https://console.yandex.cloud), затем войдите в Yandex Cloud или зарегистрируйтесь.
-1. На странице **[Yandex Cloud Billing](https://center.yandex.cloud/billing/accounts)** убедитесь, что у вас подключен платежный аккаунт, и он находится в [статусе](../../billing/concepts/billing-account-statuses.md) `ACTIVE` или `TRIAL_ACTIVE`. Если платежного аккаунта нет, [создайте его](../../billing/quickstart/index.md) и [привяжите](../../billing/operations/pin-cloud.md) к нему облако.
+Зарегистрируйтесь в {{ yandex-cloud }} и создайте [платежный аккаунт](../../billing/concepts/billing-account.md):
+1. Перейдите в [консоль управления]({{ link-console-main }}), затем войдите в {{ yandex-cloud }} или зарегистрируйтесь.
+1. На странице **[{{ ui-key.yacloud_billing.billing.label_service }}]({{ link-console-billing }})** убедитесь, что у вас подключен платежный аккаунт, и он находится в [статусе](../../billing/concepts/billing-account-statuses.md) `ACTIVE` или `TRIAL_ACTIVE`. Если платежного аккаунта нет, [создайте его](../../billing/quickstart/index.md) и [привяжите](../../billing/operations/pin-cloud.md) к нему облако.
 
-Если у вас есть активный платежный аккаунт, вы можете создать или выбрать [каталог](../../resource-manager/concepts/resources-hierarchy.md#folder), в котором будет работать ваша инфраструктура, на [странице облака](https://console.yandex.cloud/cloud).
+Если у вас есть активный платежный аккаунт, вы можете создать или выбрать [каталог](../../resource-manager/concepts/resources-hierarchy.md#folder), в котором будет работать ваша инфраструктура, на [странице облака]({{ link-console-cloud }}).
 
 [Подробнее об облаках и каталогах](../../resource-manager/concepts/resources-hierarchy.md).
 
@@ -28,22 +28,22 @@ HTTP API сервиса совместим с [Amazon SNS API](https://docs.aws.
 
 {% note info %}
 
-Запросы API к Cloud Notification Service со статическим ключом должны быть подписаны по алгоритму [AWS Signature V4](https://docs.aws.amazon.com/IAM/latest/UserGuide/reference_aws-signing.html). Чтобы не подписывать запросы, используйте IAM-токен.
+Запросы API к {{ cns-name }} со статическим ключом должны быть подписаны по алгоритму [AWS Signature V4](https://docs.aws.amazon.com/IAM/latest/UserGuide/reference_aws-signing.html). Чтобы не подписывать запросы, используйте IAM-токен.
 
 {% endnote %}
 
 Как получить IAM-токен, см. в инструкциях:
-* [Получение IAM-токена для аккаунта на Яндексе](../../iam/operations/iam-token/create.md)
-* [Получение IAM-токена для федеративного аккаунта](../../iam/operations/iam-token/create-for-federation.md)
-* [Получение IAM-токена для сервисного аккаунта](../../iam/operations/iam-token/create-for-sa.md)
+* [{#T}](../../iam/operations/iam-token/create.md)
+* [{#T}](../../iam/operations/iam-token/create-for-federation.md)
+* [{#T}](../../iam/operations/iam-token/create-for-sa.md)
 
 {% cut "Как получить статический ключ доступа" %}
 
-Для аутентификации в Cloud Notification Service используется [статический ключ доступа](../../iam/concepts/authorization/access-key.md). Этот ключ выпускается на [сервисный аккаунт](../../iam/concepts/users/service-accounts.md), и все действия выполняются от имени этого сервисного аккаунта.
+Для аутентификации в {{ cns-name }} используется [статический ключ доступа](../../iam/concepts/authorization/access-key.md). Этот ключ выпускается на [сервисный аккаунт](../../iam/concepts/users/service-accounts.md), и все действия выполняются от имени этого сервисного аккаунта.
 
 Чтобы получить статический ключ доступа:
 1. [Создайте](../../iam/operations/sa/create.md) сервисный аккаунт.
-1. [Назначьте](../../iam/operations/sa/assign-role-for-sa.md) сервисному аккаунту [роль](../../iam/roles-reference.md#editor) `editor` на каталог.
+1. [Назначьте](../../iam/operations/sa/assign-role-for-sa.md) сервисному аккаунту [роль](../../iam/roles-reference.md#editor) `{{ roles-editor }}` на каталог.
 1. Для сервисного аккаунта [создайте](../../iam/operations/authentication/manage-access-keys.md#create-access-key) статический ключ доступа.
 
     Сохраните идентификатор и секретный ключ.
@@ -66,7 +66,7 @@ curl \
   --data-urlencode "Platform=GCM" \
   --data-urlencode "Attributes.entry.1.key=PlatformCredential" \
   --data-urlencode "Attributes.entry.1.value=<API-ключ_FCM>"
-  "https://notifications.yandexcloud.net/"
+  "https://{{ cns-host }}/"
 ```
 
 Где:
@@ -76,7 +76,7 @@ curl \
 * `FolderId` — [идентификатор каталога](../../resource-manager/operations/folder/get-id.md).
 * `Name` — имя канала уведомлений, задается пользователем.
 
-  Имя должно быть уникальным для всего CNS. После создания канала изменить имя нельзя. Имя может содержать строчные и заглавные буквы латинского алфавита, цифры, подчеркивания, дефисы и точки. Длина — от 1 до 256 символов. Рекомендуется для каналов APNs указывать в имени идентификатор приложения (Bundle ID), для FCM и HMS — полное название пакета приложения (Package name), для RuStore — значение `packageName`.
+  Имя должно быть уникальным для всего {{ cns-short-name }}. После создания канала изменить имя нельзя. Имя может содержать строчные и заглавные буквы латинского алфавита, цифры, подчеркивания, дефисы и точки. Длина — от 1 до 256 символов. Рекомендуется для каналов APNs указывать в имени идентификатор приложения (Bundle ID), для FCM и HMS — полное название пакета приложения (Package name), для RuStore — значение `packageName`.
 
 * `Platform` — тип мобильной платформы:
   
@@ -110,7 +110,7 @@ curl \
 
 В результате вы получите идентификатор (ARN) канала уведомлений.
 
-Подробнее см. на странице [Действие CreatePlatformApplication](create-platform-application.md).
+Подробнее см. на странице [{#T}](create-platform-application.md).
 
 ## Получите список каналов {#list-channel}
 
@@ -122,7 +122,7 @@ curl \
   --data-urlencode "Action=ListPlatformApplications" \
   --data-urlencode "ResponseFormat=JSON" \
   --data-urlencode "FolderId=<идентификатор_каталога>" \
-  "https://notifications.yandexcloud.net/"
+  "https://{{ cns-host }}/"
 ```
 
 Где:
@@ -131,7 +131,7 @@ curl \
 * `ResponseFormat` — формат ответа: JSON или XML.
 * `FolderId` — [идентификатор каталога](../../resource-manager/operations/folder/get-id.md).
 
-Подробнее см. на странице [Действие ListPlatformApplications](list-platform-applications.md).
+Подробнее см. на странице [{#T}](list-platform-applications.md).
 
 ## Создайте эндпоинт {#create-endpoint}
 
@@ -144,7 +144,7 @@ curl \
   --data-urlencode "ResponseFormat=JSON" \
   --data-urlencode "PlatformApplicationArn=<ARN_канала_уведомлений>" \
   --data-urlencode "Token=<Push-токен>" \
-  "https://notifications.yandexcloud.net/"
+  "https://{{ cns-host }}/"
 ```
 
 Где:
@@ -156,7 +156,7 @@ curl \
 
 В результате вы получите идентификатор (ARN) мобильного эндпоинта.
 
-Подробнее см. на странице [Действие CreatePlatformEndpoint](create-platform-endpoint.md).
+Подробнее см. на странице [{#T}](create-platform-endpoint.md).
 
 ## Отправьте уведомление {#publish}
 
@@ -172,7 +172,7 @@ curl \
   --data-urlencode "TargetArn=<идентификатор_эндпоинта>" \
   --data-urlencode "Message={"default": "<текст_уведомления>", "GCM": "{ \"notification\": { \"body\": \"<текст_уведомления>\"} }" }" \
   --data-urlencode "MessageStructure=json" \
-  "https://notifications.yandexcloud.net/"
+  "https://{{ cns-host }}/"
 ```
 
 Где:
@@ -195,7 +195,7 @@ curl \
   --data-urlencode "TargetArn=<идентификатор_эндпоинта>" \
   --data-urlencode "Message={\"data\": { \"key\": \"value\" } }" \
   --data-urlencode "MessageStructure=json" \
-  "https://notifications.yandexcloud.net/"
+  "https://{{ cns-host }}/"
 ```
 
 Где:
@@ -206,4 +206,4 @@ curl \
 * `Message` — сообщение.
 * `MessageStructure` — формат сообщения.
 
-Подробнее см. на странице [Действие Publish](publish.md).
+Подробнее см. на странице [{#T}](publish.md).

@@ -61,15 +61,6 @@ All prices are per month.
 
 The cost may depend on the [rent period](../baremetal/concepts/servers.md#server-lease).
 
-{% note info %}
-
-On June 18, 2026, the rental cost will change for a number of dedicated server configurations:
-
-* Rental cost will decrease for the following configurations: `BA-i207-H`, `BA-i208-S-10G`, `BA-i311-S`.
-* Rental cost will increase for the 1-day rent period for the following configurations: `LA-i107-S-1/10G`, `LA-i108-S-1/10G`, `LA-i109-S-1/10G`, `LA-i110-S-1/10G`, `LA-i113-S`, `LA-i114-S`.
-
-{% endnote %}
-
 The debiting procedure depends on the payment method:
 
 * If there is a credit/debit card linked to the billing account, money is debited **daily** regardless of the rent period. The month's total equals the cost of the selected rent period.

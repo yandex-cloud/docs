@@ -5,7 +5,7 @@ Updates the specified API key.
 ## HTTP request
 
 ```
-PATCH https://iam.api.cloud.yandex.net/iam/v1/apiKeys/{apiKeyId}
+PATCH https://iam.{{ api-host }}/iam/v1/apiKeys/{apiKeyId}
 ```
 
 ## Path parameters
@@ -54,7 +54,7 @@ The maximum string length in characters is 256. ||
 
 Scopes of the API key.
 
-The number of elements must be in the range 1-100. The maximum string length in characters for each value is 256. ||
+The maximum string length in characters for each value is 256. The number of elements must be in the range 1-100. ||
 || expiresAt | **string** (date-time)
 
 API key expiration timestamp, if not specified, then the API key doesn't expire
@@ -79,9 +79,7 @@ In some languages, built-in datetime utilities do not support nanosecond precisi
   "createdBy": "string",
   "modifiedAt": "string",
   "done": "boolean",
-  "metadata": {
-    "apiKeyId": "string"
-  },
+  "metadata": "object",
   // Includes only one of the fields `error`, `response`
   "error": {
     "code": "integer",
@@ -90,19 +88,7 @@ In some languages, built-in datetime utilities do not support nanosecond precisi
       "object"
     ]
   },
-  "response": {
-    "id": "string",
-    "serviceAccountId": "string",
-    "createdAt": "string",
-    "description": "string",
-    "lastUsedAt": "string",
-    "scope": "string",
-    "scopes": [
-      "string"
-    ],
-    "expiresAt": "string",
-    "maskedSecret": "string"
-  }
+  "response": "object"
   // end of the list of possible fields
 }
 ```
@@ -144,7 +130,7 @@ In some languages, built-in datetime utilities do not support nanosecond precisi
 
 If the value is `false`, it means the operation is still in progress.
 If `true`, the operation is completed, and either `error` or `response` is available. ||
-|| metadata | **[UpdateApiKeyMetadata](#yandex.cloud.iam.v1.UpdateApiKeyMetadata)**
+|| metadata | **object**
 
 Service-specific metadata associated with the operation.
 It typically contains the ID of the target resource that the operation is performed on.
@@ -159,7 +145,7 @@ The operation result.
 If `done == false` and there was no failure detected, neither `error` nor `response` is set.
 If `done == false` and there was a failure detected, `error` is set.
 If `done == true`, exactly one of `error` or `response` is set. ||
-|| response | **[ApiKey](#yandex.cloud.iam.v1.ApiKey)**
+|| response | **object**
 
 The normal response of the operation in case of success.
 If the original method returns no data on success, such as Delete,
@@ -174,15 +160,6 @@ The operation result.
 If `done == false` and there was no failure detected, neither `error` nor `response` is set.
 If `done == false` and there was a failure detected, `error` is set.
 If `done == true`, exactly one of `error` or `response` is set. ||
-|#
-
-## UpdateApiKeyMetadata {#yandex.cloud.iam.v1.UpdateApiKeyMetadata}
-
-#|
-||Field | Description ||
-|| apiKeyId | **string**
-
-ID of the ApiKey resource that is being updated. ||
 |#
 
 ## Status {#google.rpc.Status}
@@ -200,57 +177,4 @@ An error message. ||
 || details[] | **object**
 
 A list of messages that carry the error details. ||
-|#
-
-## ApiKey {#yandex.cloud.iam.v1.ApiKey}
-
-An ApiKey resource. For more information, see [Api-Key](../../concepts/authorization/api-key.md).
-
-#|
-||Field | Description ||
-|| id | **string**
-
-ID of the API Key. ||
-|| serviceAccountId | **string**
-
-ID of the service account that the API key belongs to. ||
-|| createdAt | **string** (date-time)
-
-Creation timestamp.
-
-String in [RFC3339](https://www.ietf.org/rfc/rfc3339.txt) text format. The range of possible values is from
-`0001-01-01T00:00:00Z` to `9999-12-31T23:59:59.999999999Z`, i.e. from 0 to 9 digits for fractions of a second.
-
-To work with values in this field, use the APIs described in the
-[Protocol Buffers reference](https://developers.google.com/protocol-buffers/docs/reference/overview).
-In some languages, built-in datetime utilities do not support nanosecond precision (9 digits). ||
-|| description | **string**
-
-Description of the API key. 0-256 characters long. ||
-|| lastUsedAt | **string** (date-time)
-
-Timestamp for the last authentication using this API key.
-
-String in [RFC3339](https://www.ietf.org/rfc/rfc3339.txt) text format. The range of possible values is from
-`0001-01-01T00:00:00Z` to `9999-12-31T23:59:59.999999999Z`, i.e. from 0 to 9 digits for fractions of a second.
-
-To work with values in this field, use the APIs described in the
-[Protocol Buffers reference](https://developers.google.com/protocol-buffers/docs/reference/overview).
-In some languages, built-in datetime utilities do not support nanosecond precision (9 digits). ||
-|| scopes[] | **string**
-
-Scopes of the API key. 0-256 characters long. ||
-|| expiresAt | **string** (date-time)
-
-API key expiration timestamp.
-
-String in [RFC3339](https://www.ietf.org/rfc/rfc3339.txt) text format. The range of possible values is from
-`0001-01-01T00:00:00Z` to `9999-12-31T23:59:59.999999999Z`, i.e. from 0 to 9 digits for fractions of a second.
-
-To work with values in this field, use the APIs described in the
-[Protocol Buffers reference](https://developers.google.com/protocol-buffers/docs/reference/overview).
-In some languages, built-in datetime utilities do not support nanosecond precision (9 digits). ||
-|| maskedSecret | **string**
-
-Masked value of the API key's secret part: `\*{4}[a-zA-Z0-9_]{6}` ||
 |#

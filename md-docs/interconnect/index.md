@@ -10,9 +10,9 @@ Yandex Cloud Interconnect позволяет организовать выдел
 
  - [Все инструкции](operations/index.md)
 
- - [Получить информацию о партнерах Cloud Interconnect](operations/partner-get-info.md)
+ - [Получить информацию о партнерах {{ interconnect-name }}](operations/partner-get-info.md)
 
- - [Получить информацию о точках присутствия Cloud Interconnect](operations/pop-get-info.md)
+ - [Получить информацию о точках присутствия {{ interconnect-name }}](operations/pop-get-info.md)
 
  - [Получить информацию о транковых подключениях](operations/trunk-get-info.md)
 
@@ -21,6 +21,8 @@ Yandex Cloud Interconnect позволяет организовать выдел
  - [Изменить параметры транкового подключения](operations/trunk-update.md)
 
  - [Получить список операций транкового подключения](operations/trunk-operations.md)
+
+ - [Переместить транковое подключение в другой каталог](operations/trunk-move.md)
 
  - [Удалить транковое подключение](operations/trunk-delete.md)
 
@@ -32,9 +34,7 @@ Yandex Cloud Interconnect позволяет организовать выдел
 
  - [Получить список операций приватного соединения](operations/priv-con-operations.md)
 
- - [Изменить список статических маршрутов для приватного соединения](operations/priv-con-static-upsert.md)
-
- - [Удалить статические маршруты для приватного соединения](operations/priv-con-static-remove.md)
+ - [Переместить приватное соединение в другой каталог](operations/priv-con-move.md)
 
  - [Удалить приватное соединение](operations/priv-con-delete.md)
 
@@ -70,11 +70,11 @@ Yandex Cloud Interconnect позволяет организовать выдел
 
  - [Интеграция с корпоративным сервисом DNS](tutorials/dns-integration.md)
 
- - [Организация доступа через Cloud Interconnect к облачным сетям, размещенным за NGFW](tutorials/cic-with-ngfw.md)
+ - [Организация доступа через {{ interconnect-name }} к облачным сетям, размещенным за NGFW](tutorials/cic-with-ngfw.md)
 
- - [Настройка сетевой связности между подсетями BareMetal и Virtual Private Cloud](tutorials/bm-vrf-and-vpc-interconnect.md)
+ - [Настройка сетевой связности между подсетями {{ baremetal-name }} и {{ vpc-name }}](tutorials/bm-vrf-and-vpc-interconnect.md)
 
- - [Организация сетевой связности между приватной подсетью BareMetal и on-premise-ресурсами](tutorials/bms-cic-onprem.md)
+ - [Организация сетевой связности между приватной подсетью {{ baremetal-name }} и on-premise-ресурсами](tutorials/bms-cic-onprem.md)
 
 ## Концепции
 
@@ -132,6 +132,8 @@ Yandex Cloud Interconnect позволяет организовать выдел
 
  - [add-labels](cli-ref/private-connection/add-labels.md)
 
+ - [batch-get](cli-ref/private-connection/batch-get.md)
+
  - [create](cli-ref/private-connection/create.md)
 
  - [delete](cli-ref/private-connection/delete.md)
@@ -160,6 +162,8 @@ Yandex Cloud Interconnect позволяет организовать выдел
 
  - [list](cli-ref/public-connection/list.md)
 
+ - [list-operations](cli-ref/public-connection/list-operations.md)
+
  - [move](cli-ref/public-connection/move.md)
 
 ### trunk-connection
@@ -167,6 +171,8 @@ Yandex Cloud Interconnect позволяет организовать выдел
  - [Overview](cli-ref/trunk-connection/index.md)
 
  - [add-labels](cli-ref/trunk-connection/add-labels.md)
+
+ - [batch-get](cli-ref/trunk-connection/batch-get.md)
 
  - [delete](cli-ref/trunk-connection/delete.md)
 
@@ -212,6 +218,8 @@ Yandex Cloud Interconnect позволяет организовать выдел
 
  - [add-labels](cli-ref/v0/private-connection/add-labels.md)
 
+ - [batch-get](cli-ref/v0/private-connection/batch-get.md)
+
  - [create](cli-ref/v0/private-connection/create.md)
 
  - [delete](cli-ref/v0/private-connection/delete.md)
@@ -240,6 +248,8 @@ Yandex Cloud Interconnect позволяет организовать выдел
 
  - [list](cli-ref/v0/public-connection/list.md)
 
+ - [list-operations](cli-ref/v0/public-connection/list-operations.md)
+
  - [move](cli-ref/v0/public-connection/move.md)
 
 #### trunk-connection
@@ -247,6 +257,8 @@ Yandex Cloud Interconnect позволяет организовать выдел
  - [Overview](cli-ref/v0/trunk-connection/index.md)
 
  - [add-labels](cli-ref/v0/trunk-connection/add-labels.md)
+
+ - [batch-get](cli-ref/v0/trunk-connection/batch-get.md)
 
  - [delete](cli-ref/v0/trunk-connection/delete.md)
 
@@ -265,6 +277,92 @@ Yandex Cloud Interconnect позволяет организовать выдел
  - [remove-labels](cli-ref/v0/trunk-connection/remove-labels.md)
 
  - [update](cli-ref/v0/trunk-connection/update.md)
+
+### v1
+
+ - [Overview](cli-ref/v1/index.md)
+
+#### partner
+
+ - [Overview](cli-ref/v1/partner/index.md)
+
+ - [get](cli-ref/v1/partner/get.md)
+
+ - [list](cli-ref/v1/partner/list.md)
+
+#### point-of-presence
+
+ - [Overview](cli-ref/v1/point-of-presence/index.md)
+
+ - [get](cli-ref/v1/point-of-presence/get.md)
+
+ - [list](cli-ref/v1/point-of-presence/list.md)
+
+#### private-connection
+
+ - [Overview](cli-ref/v1/private-connection/index.md)
+
+ - [add-labels](cli-ref/v1/private-connection/add-labels.md)
+
+ - [batch-get](cli-ref/v1/private-connection/batch-get.md)
+
+ - [create](cli-ref/v1/private-connection/create.md)
+
+ - [delete](cli-ref/v1/private-connection/delete.md)
+
+ - [get](cli-ref/v1/private-connection/get.md)
+
+ - [list](cli-ref/v1/private-connection/list.md)
+
+ - [list-operations](cli-ref/v1/private-connection/list-operations.md)
+
+ - [move](cli-ref/v1/private-connection/move.md)
+
+ - [remove-labels](cli-ref/v1/private-connection/remove-labels.md)
+
+ - [remove-static-routes](cli-ref/v1/private-connection/remove-static-routes.md)
+
+ - [update](cli-ref/v1/private-connection/update.md)
+
+ - [upsert-static-routes](cli-ref/v1/private-connection/upsert-static-routes.md)
+
+#### public-connection
+
+ - [Overview](cli-ref/v1/public-connection/index.md)
+
+ - [get](cli-ref/v1/public-connection/get.md)
+
+ - [list](cli-ref/v1/public-connection/list.md)
+
+ - [list-operations](cli-ref/v1/public-connection/list-operations.md)
+
+ - [move](cli-ref/v1/public-connection/move.md)
+
+#### trunk-connection
+
+ - [Overview](cli-ref/v1/trunk-connection/index.md)
+
+ - [add-labels](cli-ref/v1/trunk-connection/add-labels.md)
+
+ - [batch-get](cli-ref/v1/trunk-connection/batch-get.md)
+
+ - [delete](cli-ref/v1/trunk-connection/delete.md)
+
+ - [get](cli-ref/v1/trunk-connection/get.md)
+
+ - [list](cli-ref/v1/trunk-connection/list.md)
+
+ - [list-operations](cli-ref/v1/trunk-connection/list-operations.md)
+
+ - [list-private-connections](cli-ref/v1/trunk-connection/list-private-connections.md)
+
+ - [list-public-connections](cli-ref/v1/trunk-connection/list-public-connections.md)
+
+ - [move](cli-ref/v1/trunk-connection/move.md)
+
+ - [remove-labels](cli-ref/v1/trunk-connection/remove-labels.md)
+
+ - [update](cli-ref/v1/trunk-connection/update.md)
 
 ## Справочник API
 
@@ -312,11 +410,15 @@ Yandex Cloud Interconnect позволяет организовать выдел
 
  - [Delete](api-ref/grpc/PrivateConnection/delete.md)
 
+ - [Move](api-ref/grpc/PrivateConnection/move.md)
+
+ - [ListOperations](api-ref/grpc/PrivateConnection/listOperations.md)
+
  - [UpsertStaticRoute](api-ref/grpc/PrivateConnection/upsertStaticRoute.md)
 
  - [RemoveStaticRoute](api-ref/grpc/PrivateConnection/removeStaticRoute.md)
 
- - [ListOperations](api-ref/grpc/PrivateConnection/listOperations.md)
+ - [BatchGet](api-ref/grpc/PrivateConnection/batchGet.md)
 
 #### PublicConnection
 
@@ -326,19 +428,29 @@ Yandex Cloud Interconnect позволяет организовать выдел
 
  - [List](api-ref/grpc/PublicConnection/list.md)
 
+ - [Move](api-ref/grpc/PublicConnection/move.md)
+
+ - [ListOperations](api-ref/grpc/PublicConnection/listOperations.md)
+
 #### TrunkConnection
 
  - [Overview](api-ref/grpc/TrunkConnection/index.md)
 
  - [Get](api-ref/grpc/TrunkConnection/get.md)
 
- - [List](api-ref/grpc/TrunkConnection/list.md)
+ - [BatchGet](api-ref/grpc/TrunkConnection/batchGet.md)
 
- - [Create](api-ref/grpc/TrunkConnection/create.md)
+ - [List](api-ref/grpc/TrunkConnection/list.md)
 
  - [Update](api-ref/grpc/TrunkConnection/update.md)
 
  - [Delete](api-ref/grpc/TrunkConnection/delete.md)
+
+ - [ListPrivateConnections](api-ref/grpc/TrunkConnection/listPrivateConnections.md)
+
+ - [ListPublicConnections](api-ref/grpc/TrunkConnection/listPublicConnections.md)
+
+ - [Move](api-ref/grpc/TrunkConnection/move.md)
 
  - [ListOperations](api-ref/grpc/TrunkConnection/listOperations.md)
 
@@ -384,11 +496,13 @@ Yandex Cloud Interconnect позволяет организовать выдел
 
  - [Delete](api-ref/PrivateConnection/delete.md)
 
+ - [Move](api-ref/PrivateConnection/move.md)
+
+ - [ListOperations](api-ref/PrivateConnection/listOperations.md)
+
  - [UpsertStaticRoute](api-ref/PrivateConnection/upsertStaticRoute.md)
 
  - [RemoveStaticRoute](api-ref/PrivateConnection/removeStaticRoute.md)
-
- - [ListOperations](api-ref/PrivateConnection/listOperations.md)
 
 #### PublicConnection
 
@@ -398,19 +512,29 @@ Yandex Cloud Interconnect позволяет организовать выдел
 
  - [List](api-ref/PublicConnection/list.md)
 
+ - [Move](api-ref/PublicConnection/move.md)
+
+ - [ListOperations](api-ref/PublicConnection/listOperations.md)
+
 #### TrunkConnection
 
  - [Overview](api-ref/TrunkConnection/index.md)
 
  - [Get](api-ref/TrunkConnection/get.md)
 
- - [List](api-ref/TrunkConnection/list.md)
+ - [BatchGet](api-ref/TrunkConnection/batchGet.md)
 
- - [Create](api-ref/TrunkConnection/create.md)
+ - [List](api-ref/TrunkConnection/list.md)
 
  - [Update](api-ref/TrunkConnection/update.md)
 
  - [Delete](api-ref/TrunkConnection/delete.md)
+
+ - [ListPrivateConnections](api-ref/TrunkConnection/listPrivateConnections.md)
+
+ - [ListPublicConnections](api-ref/TrunkConnection/listPublicConnections.md)
+
+ - [Move](api-ref/TrunkConnection/move.md)
 
  - [ListOperations](api-ref/TrunkConnection/listOperations.md)
 

@@ -5,7 +5,7 @@ Updates desktop image properties.
 ## HTTP request
 
 ```
-PATCH https://clouddesktops.api.cloud.yandex.net/cloud-desktop/v1/images/{imageId}
+PATCH https://clouddesktops.{{ api-host }}/cloud-desktop/v1/images/{imageId}
 ```
 
 ## Path parameters
@@ -23,7 +23,8 @@ Required field. Id of image to update. ||
 {
   "updateMask": "string",
   "name": "string",
-  "labels": "object"
+  "labels": "object",
+  "description": "string"
 }
 ```
 
@@ -48,7 +49,12 @@ The maximum string length in characters is 50. ||
 
 New desktop image labels.
 
-No more than 64 per resource. The maximum string length in characters for each value is 63. Each value must match the regular expression ` [-_0-9a-z]* `. The string length in characters for each key must be 1-63. Each key must match the regular expression ` [a-z][-_0-9a-z]* `. ||
+The maximum string length in characters for each value is 63. The string length in characters for each key must be 1-63. Each key must match the regular expression ` [a-z][-_0-9a-z]* `. Each value must match the regular expression ` [-_0-9a-z]* `. No more than 64 per resource. ||
+|| description | **string**
+
+New desktop image description.
+
+The maximum string length in characters is 1024. ||
 |#
 
 ## Response {#yandex.cloud.operation.Operation}
@@ -81,6 +87,7 @@ No more than 64 per resource. The maximum string length in characters for each v
     "status": "string",
     "name": "string",
     "labels": "object",
+    "description": "string",
     "storageSize": "string",
     "minDiskSize": "string"
   }
@@ -163,7 +170,7 @@ If `done == true`, exactly one of `error` or `response` is set. ||
 ||Field | Description ||
 || imageId | **string**
 
-Required field. ||
+Required field. ID of the image to update. ||
 |#
 
 ## Status {#google.rpc.Status}
@@ -216,6 +223,9 @@ Status of the image.
 
 Name of the image. ||
 || labels | **object** (map<**string**, **string**>)
+
+Description of the image. ||
+|| description | **string**
 
 Description of the image. ||
 || storageSize | **string** (int64)

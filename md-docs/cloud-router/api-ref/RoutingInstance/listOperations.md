@@ -5,7 +5,7 @@ Lists operations for the specified RoutingInstance.
 ## HTTP request
 
 ```
-GET https://cloudrouter.api.cloud.yandex.net/cloudrouter/v1/routingInstances/{routingInstanceId}/operations
+GET https://cloudrouter.{{ api-host }}/cloudrouter/v1/routingInstances/{routingInstanceId}/operations
 ```
 
 ## Path parameters
@@ -14,7 +14,9 @@ GET https://cloudrouter.api.cloud.yandex.net/cloudrouter/v1/routingInstances/{ro
 ||Field | Description ||
 || routingInstanceId | **string**
 
-Required field. ID of the RoutingInstance resource. ||
+Required field. ID of the RoutingInstance resource.
+
+The maximum string length in characters is 50. ||
 |#
 
 ## Query parameters {#yandex.cloud.cloudrouter.v1.ListRoutingInstanceOperationsRequest}
@@ -26,11 +28,15 @@ Required field. ID of the RoutingInstance resource. ||
 The maximum number of results per page to return. If the number of available
 results is larger than `pageSize`,
 the service returns a [ListRoutingInstanceOperationsResponse.nextPageToken](#yandex.cloud.cloudrouter.v1.ListRoutingInstanceOperationsResponse)
-that can be used to get the next page of results in subsequent list requests. Default value: 100. ||
+that can be used to get the next page of results in subsequent list requests. Default value: 100.
+
+The maximum value is 1000. ||
 || pageToken | **string**
 
 Page token. To get the next page of results, set `pageToken` to the
-[ListRoutingInstanceOperationsResponse.nextPageToken](#yandex.cloud.cloudrouter.v1.ListRoutingInstanceOperationsResponse) returned by a previous list request. ||
+[ListRoutingInstanceOperationsResponse.nextPageToken](#yandex.cloud.cloudrouter.v1.ListRoutingInstanceOperationsResponse) returned by a previous list request.
+
+The maximum string length in characters is 100. ||
 |#
 
 ## Response {#yandex.cloud.cloudrouter.v1.ListRoutingInstanceOperationsResponse}

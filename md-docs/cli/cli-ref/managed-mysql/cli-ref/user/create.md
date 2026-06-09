@@ -52,6 +52,9 @@ The maximum permitted number of simultaneous client connections per hour. ||
 || `--max-user-connections` | `int`
 
 The maximum number of simultaneous connections permitted to any given MySQL user account. ||
+|| `--deletion-protection` | `string`
+
+Protection from accidental deletion. Values: disabled, enabled, inherit, true, false ||
 |#
 
 #### Global Flags
@@ -69,9 +72,6 @@ Set the custom configuration file. ||
 Enable gRPC retries. By default, retries are enabled with maximum 5 attempts.
 Pass 0 to disable retries. Pass any negative value for infinite retries.
 Even infinite retries are capped with 2 minutes timeout. ||
-|| `--syntax` | `string`
-
-CLI syntax: 1 (legacy) or 2 (current). Omit to use default-syntax in the profile or the product default. ||
 || `--cloud-id` | `string`
 
 Set the ID of the cloud to use. ||
@@ -99,7 +99,3 @@ Set the output format: text (default), yaml, json, json-rest. ||
 Query to select values from the response using jq syntax ||
 || `-h`, `--help` | Display help for the command. ||
 |#
-#### Examples
-
- * [Создать пользователя с правами только на чтение](../../../../../managed-mysql/operations/cluster-users.md#cli_6)
- * [Создать пользователя с правами только на чтение](../../../../../managed-mysql/operations/grant.md#cli_2)

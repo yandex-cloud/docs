@@ -1,6 +1,6 @@
-# Добавить виджет SmartCaptcha
+# Добавить виджет {{ captcha-name }}
 
-## Добавить виджет SmartCaptcha расширенным методом {#advanced}
+## Добавить виджет {{ captcha-name }} расширенным методом {#advanced}
 
 Вы управляете загрузкой виджета через [объект](../concepts/widget-methods.md#methods) `window.smartCaptcha`. В инструкции для этого используется callback-функция `onloadFunction`:
 
@@ -8,7 +8,7 @@
 
     ```html
     <script
-        src="https://smartcaptcha.cloud.yandex.ru/captcha.js?render=onload&onload=onloadFunction"
+        src="https://{{ captcha-domain }}/captcha.js?render=onload&onload=onloadFunction"
         defer
     ></script>
     ```
@@ -56,7 +56,7 @@
     
     {% endnote %}
 
-## Добавить виджет SmartCaptcha с загрузкой при необходимости {#dynamic}
+## Добавить виджет {{ captcha-name }} с загрузкой при необходимости {#dynamic}
 
 Чтобы добавить виджет и загружать капчу при необходимости, используйте следующий подход:
 
@@ -72,7 +72,7 @@ function handleScriptLoadingError() {
 }
 
 const scriptElement = document.createElement('script');
-scriptElement.src = 'https://smartcaptcha.cloud.yandex.ru/captcha.js?render=onload&onload=onloadFunction';
+scriptElement.src = 'https://{{ captcha-domain }}/captcha.js?render=onload&onload=onloadFunction';
 scriptElement.onerror = handleScriptLoadingError;
 document.body.appendChild(scriptElement);
 ```

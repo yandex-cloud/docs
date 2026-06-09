@@ -1,13 +1,13 @@
-# API Yandex Cloud для Managed Service for YDB
+# API {{ yandex-cloud }} для {{ ydb-name }}
 
-Вы можете управлять ресурсами Managed Service for YDB с помощью [API Yandex Cloud](../../api-design-guide/index.md).
+Вы можете управлять ресурсами {{ ydb-name }} с помощью [API {{ yandex-cloud }}](../../api-design-guide/index.md).
 
-API Yandex Cloud позволяет:
+API {{ yandex-cloud }} позволяет:
 
 * управлять базами данных;
 * управлять резервными копиями БД;
 * получать информацию о зонах доступности, вычислительных ресурсах и типах дисков групп хранения для Dedicated БД;
 * просматривать статус и отменять асинхронные операции [API](../../glossary/rest-api.md).
 
-С помощью API Yandex Cloud и [Terraform](https://www.terraform.io/) можно автоматизировать управление ресурсами Managed Service for YDB.
-Подробную информацию о ресурсах провайдера смотрите в документации на сайте [Terraform](https://www.terraform.io/docs/providers/yandex/index.html) или в [зеркале](https://registry.tfpla.net/providers/yandex-cloud/yandex/latest/docs).
+С помощью API {{ yandex-cloud }} и [{{ TF }}](https://www.terraform.io/) можно автоматизировать управление ресурсами {{ ydb-name }}.
+Подробную информацию о ресурсах провайдера смотрите в документации на сайте [{{ TF }}](https://www.terraform.io/docs/providers/yandex/index.html) или в [зеркале](https://registry.tfpla.net/providers/yandex-cloud/yandex/latest/docs).

@@ -5,7 +5,7 @@ Deletes the specified shard.
 ## HTTP request
 
 ```
-DELETE https://mdb.api.cloud.yandex.net/managed-redis/v1/clusters/{clusterId}/shards/{shardName}
+DELETE https://{{ api-host-mdb }}/managed-redis/v1/clusters/{clusterId}/shards/{shardName}
 ```
 
 ## Path parameters
@@ -15,13 +15,13 @@ DELETE https://mdb.api.cloud.yandex.net/managed-redis/v1/clusters/{clusterId}/sh
 || clusterId | **string**
 
 Required field. ID of the Redis cluster the shard belongs to.
-To get the cluster ID use a [ClusterService.List](list.md#List) request.
+To get the cluster ID use a [ClusterService.List](../../../managed-redis/api-ref/Cluster/list#List) request.
 
 The maximum string length in characters is 50. ||
 || shardName | **string**
 
 Required field. Name of the Redis shard to delete.
-To get the shard name use a [ClusterService.ListShards](listShards.md#ListShards) request.
+To get the shard name use a [ClusterService.ListShards](../../../managed-redis/api-ref/Cluster/listShards#ListShards) request.
 
 The maximum string length in characters is 63. Value must match the regular expression ` [a-zA-Z0-9_-]* `. ||
 |#
@@ -38,18 +38,16 @@ The maximum string length in characters is 63. Value must match the regular expr
   "createdBy": "string",
   "modifiedAt": "string",
   "done": "boolean",
-  "metadata": {
-    "clusterId": "string",
-    "shardName": "string"
-  },
-  // Includes only one of the fields `error`
+  "metadata": "object",
+  // Includes only one of the fields `error`, `response`
   "error": {
     "code": "integer",
     "message": "string",
     "details": [
       "object"
     ]
-  }
+  },
+  "response": "object"
   // end of the list of possible fields
 }
 ```
@@ -91,7 +89,7 @@ In some languages, built-in datetime utilities do not support nanosecond precisi
 
 If the value is `false`, it means the operation is still in progress.
 If `true`, the operation is completed, and either `error` or `response` is available. ||
-|| metadata | **[DeleteClusterShardMetadata](#yandex.cloud.mdb.redis.v1.DeleteClusterShardMetadata)**
+|| metadata | **object**
 
 Service-specific metadata associated with the operation.
 It typically contains the ID of the target resource that the operation is performed on.
@@ -100,24 +98,27 @@ Any method that returns a long-running operation should document the metadata ty
 
 The error result of the operation in case of failure or cancellation.
 
-Includes only one of the fields `error`.
+Includes only one of the fields `error`, `response`.
 
 The operation result.
 If `done == false` and there was no failure detected, neither `error` nor `response` is set.
 If `done == false` and there was a failure detected, `error` is set.
 If `done == true`, exactly one of `error` or `response` is set. ||
-|#
+|| response | **object**
 
-## DeleteClusterShardMetadata {#yandex.cloud.mdb.redis.v1.DeleteClusterShardMetadata}
+The normal response of the operation in case of success.
+If the original method returns no data on success, such as Delete,
+the response is [google.protobuf.Empty](https://developers.google.com/protocol-buffers/docs/reference/google.protobuf#google.protobuf.Empty).
+If the original method is the standard Create/Update,
+the response should be the target resource of the operation.
+Any method that returns a long-running operation should document the response type, if any.
 
-#|
-||Field | Description ||
-|| clusterId | **string**
+Includes only one of the fields `error`, `response`.
 
-ID of the Redis cluster the shard belongs to. ||
-|| shardName | **string**
-
-Name of the Redis shard that is being deleted. ||
+The operation result.
+If `done == false` and there was no failure detected, neither `error` nor `response` is set.
+If `done == false` and there was a failure detected, `error` is set.
+If `done == true`, exactly one of `error` or `response` is set. ||
 |#
 
 ## Status {#google.rpc.Status}

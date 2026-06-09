@@ -1,9 +1,9 @@
-# Как начать работать с Yandex Application Load Balancer
+# Как начать работать с {{ alb-full-name }}
 
 
-Yandex Application Load Balancer служит для распределения запросов по бэкендам ваших сетевых приложений и терминирования TLS-шифрования. Application Load Balancer работает на 7-м уровне [модели OSI](https://ru.wikipedia.org/wiki/OSI_model) с протоколами HTTP и HTTPS.
+{{ alb-full-name }} служит для распределения запросов по бэкендам ваших сетевых приложений и терминирования TLS-шифрования. {{ alb-name }} работает на 7-м уровне [модели OSI](https://ru.wikipedia.org/wiki/OSI_model) с протоколами HTTP и HTTPS.
 
-С помощью этой инструкции вы развернете инфраструктуру сервиса Application Load Balancer и настроите передачу трафика на бэкенд тестового приложения.
+С помощью этой инструкции вы развернете инфраструктуру сервиса {{ alb-name }} и настроите передачу трафика на бэкенд тестового приложения.
 
 В инфраструктуру сервиса входят компоненты:
 
@@ -16,18 +16,17 @@ Yandex Application Load Balancer служит для распределения 
 
 ## Перед началом работы {#before-begin}
 
-1. Войдите в [консоль управления](https://console.yandex.cloud) или зарегистрируйтесь. Если вы еще не зарегистрированы, перейдите в консоль управления и следуйте инструкциям.
-1. На странице [**Yandex Cloud Billing**](https://center.yandex.cloud/billing/accounts) убедитесь, что у вас подключен [платежный аккаунт](../billing/concepts/billing-account.md) и он находится в статусе `ACTIVE` или `TRIAL_ACTIVE`. Если платежного аккаунта нет, [создайте его](../billing/quickstart/index.md#create_billing_account).
+1. Войдите в [консоль управления]({{ link-console-main }}) или зарегистрируйтесь. Если вы еще не зарегистрированы, перейдите в консоль управления и следуйте инструкциям.
+1. На странице [**{{ ui-key.yacloud.component.navigation-menu.label_billing }}**]({{ link-console-billing }}) убедитесь, что у вас подключен [платежный аккаунт](../billing/concepts/billing-account.md) и он находится в статусе `ACTIVE` или `TRIAL_ACTIVE`. Если платежного аккаунта нет, [создайте его](../billing/quickstart/index.md#create_billing_account).
 1. Если у вас еще нет каталога, [создайте его](../resource-manager/operations/folder/create.md). Во время создания каталога вы можете создать виртуальную сеть по умолчанию с подсетями во всех зонах доступности.
-
 
 ## Создайте ВМ и запустите на ней тестовый веб-сервер {#create-vm}
 
-1. [Создайте](../compute/operations/vm-create/create-linux-vm.md) виртуальную машину `test-vm1` из публичного образа [Ubuntu 24.04](https://yandex.cloud/ru/marketplace/products/yc/ubuntu-2404-lts-oslogin) в зоне доступности `ru-central1-a`.
+1. [Создайте](../compute/operations/vm-create/create-linux-vm.md) виртуальную машину `test-vm1` из публичного образа [Ubuntu 24.04](https://yandex.cloud/ru/marketplace/products/yc/ubuntu-2404-lts-oslogin) в зоне доступности `{{ region-id }}-a`.
    
 1. [Подключитесь к ВМ по SSH](../compute/operations/vm-connect/ssh.md).
    
-    Если у вас установлен [интерфейс командной строки Yandex Cloud](../cli/quickstart.md), вы можете подключиться к ВМ по [OS Login](../compute/operations/vm-connect/os-login.md):
+    Если у вас установлен [интерфейс командной строки {{ yandex-cloud }}](../cli/quickstart.md), вы можете подключиться к ВМ по [{{ oslogin }}](../compute/operations/vm-connect/os-login.md):
 
     ```bash
     yc compute ssh --name test-vm1
@@ -56,17 +55,17 @@ Yandex Application Load Balancer служит для распределения 
 
 - Консоль управления {#console}
 
-  1. В [консоли управления](https://console.yandex.cloud) выберите каталог, в котором будет создаваться целевая группа.
-  1. [Перейдите](../console/operations/select-service.md#select-service) в сервис **Application Load Balancer**.
-  1. В меню слева выберите **Целевые группы**.
-  1. Нажмите кнопку **Создать целевую группу**.
+  1. В [консоли управления]({{ link-console-main }}) выберите каталог, в котором будет создаваться целевая группа.
+  1. Перейдите в сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_application-load-balancer }}**.
+  1. В меню слева выберите **{{ ui-key.yacloud.alb.label_target-groups }}**.
+  1. Нажмите кнопку **{{ ui-key.yacloud.alb.button_target-group-create }}**.
   1. Введите имя целевой группы: `test-target-group`.
   1. Выберите ВМ `test-vm1`.
-  1. Нажмите кнопку **Создать**.
+  1. Нажмите кнопку **{{ ui-key.yacloud.common.create }}**.
 
 - CLI {#cli}
 
-  Если у вас еще нет интерфейса командной строки Yandex Cloud (CLI), [установите и инициализируйте его](../cli/quickstart.md#install).
+  Если у вас еще нет интерфейса командной строки {{ yandex-cloud }} (CLI), [установите и инициализируйте его](../cli/quickstart.md#install).
 
   Выполните команду:
 
@@ -85,24 +84,24 @@ Yandex Application Load Balancer служит для распределения 
 
 - Консоль управления {#console}
 
-  1. В меню слева выберите **Группы бэкендов**.
-  1. Нажмите кнопку **Создать группу бэкендов**.
+  1. В меню слева выберите **{{ ui-key.yacloud.alb.label_backend-groups }}**.
+  1. Нажмите кнопку **{{ ui-key.yacloud.alb.button_backend-group-create }}**.
   1. Введите имя группы бэкендов: `test-backend-group`.
-  1. В блоке **Бэкенды** нажмите кнопку **Добавить**. Задайте настройки бэкенда:
+  1. В блоке **{{ ui-key.yacloud.alb.label_backends }}** нажмите кнопку **{{ ui-key.yacloud.common.add }}**. Задайте настройки бэкенда:
       1. Введите имя бэкенда: `backend-1`.
-      1. В списке **Целевая группа** выберите `test-target-group`.
+      1. В списке **{{ ui-key.yacloud.alb.label_target-group }}** выберите `test-target-group`.
       1. Укажите порт: `8080`.
-  1. Разверните поле **Настройки протокола** и задайте их параметры:
-      1. Выберите тип `HTTP`.
-  1. Нажмите кнопку **Добавить проверку состояния** и задайте настройки проверки:
-      1. **Таймаут, с**: `1`.
-      1. **Интервал**: `3`.
-      1. **Порог работоспособности**: `2`.
-      1. **Порог неработоспособности**: `2`.
-      1. **Порт**: `8080`.
-      1. **Тип**: `HTTP`.
-      1. **Путь**: `/`.
-  1. Нажмите кнопку **Создать**.
+  1. Разверните поле **{{ ui-key.yacloud.alb.label_protocol-settings }}** и задайте их параметры:
+      1. Выберите тип `{{ ui-key.yacloud.alb.label_proto-http-plain }}`.
+  1. Нажмите кнопку **{{ ui-key.yacloud.alb.button_add-healthcheck }}** и задайте настройки проверки:
+      1. **{{ ui-key.yacloud.alb.label_timeout }}**: `1`.
+      1. **{{ ui-key.yacloud.alb.label_interval }}**: `3`.
+      1. **{{ ui-key.yacloud.alb.label_healthy }}**: `2`.
+      1. **{{ ui-key.yacloud.alb.label_unhealthy }}**: `2`.
+      1. **{{ ui-key.yacloud.alb.label_port }}**: `8080`.
+      1. **{{ ui-key.yacloud.common.type }}**: `{{ ui-key.yacloud.alb.label_hc-type-http }}`.
+      1. **{{ ui-key.yacloud.alb.label_path }}**: `/`.
+  1. Нажмите кнопку **{{ ui-key.yacloud.common.create }}**.
 
 - CLI {#cli}
 
@@ -134,17 +133,17 @@ Yandex Application Load Balancer служит для распределения 
 
 - Консоль управления {#console}
 
-  1. В меню слева выберите **HTTP-роутеры**.
-  1. Нажмите кнопку **Создать HTTP-роутер**.
+  1. В меню слева выберите **{{ ui-key.yacloud.alb.label_http-routers }}**.
+  1. Нажмите кнопку **{{ ui-key.yacloud.alb.button_http-router-create }}**.
   1. Введите имя роутера: `test-http-router`.
-  1. В блоке **Виртуальные хосты** нажмите кнопку **Добавить виртуальный хост**.
+  1. В блоке **{{ ui-key.yacloud.alb.label_virtual-hosts }}** нажмите кнопку **{{ ui-key.yacloud.alb.button_virtual-host-add }}**.
   1. Введите имя хоста: `test-virtual-host`.
-  1. Нажмите кнопку **Добавить маршрут**.
-  1. Введите **Имя**: `test-route`.
-  1. В поле **Путь** выберите `Начинается с` и укажите путь `/`.
-  1. В поле **Действие** оставьте `Маршрутизация`.
-  1. В списке **Группа бэкендов** выберите `test-backend-group`.
-  1. Остальные настройки оставьте без изменений и нажмите кнопку **Создать**.
+  1. Нажмите кнопку **{{ ui-key.yacloud.alb.button_add-route }}**.
+  1. Введите **{{ ui-key.yacloud.common.name }}**: `test-route`.
+  1. В поле **{{ ui-key.yacloud.alb.label_path }}** выберите `{{ ui-key.yacloud.alb.label_match-prefix }}` и укажите путь `/`.
+  1. В поле **{{ ui-key.yacloud.alb.label_route-action }}** оставьте `{{ ui-key.yacloud.alb.label_route-action-route }}`.
+  1. В списке **{{ ui-key.yacloud.alb.label_backend-group }}** выберите `test-backend-group`.
+  1. Остальные настройки оставьте без изменений и нажмите кнопку **{{ ui-key.yacloud.common.create }}**.
 
 - CLI {#cli}
 
@@ -182,22 +181,21 @@ Yandex Application Load Balancer служит для распределения 
 
 - Консоль управления {#console}
 
-  1. В меню слева выберите **Балансировщики**.
-  1. Нажмите кнопку **Создать L7-балансировщик**.
+  1. В меню слева выберите **{{ ui-key.yacloud.alb.label_load-balancers }}**.
+  1. Нажмите кнопку **{{ ui-key.yacloud.alb.button_load-balancer-create }}**.
   1. Введите имя балансировщика: `test-load-balancer`.
-  1. В блоке **Сетевые настройки** выберите сеть, в подсети которой будет размещаться узел балансировщика.
-  1. В блоке **Размещение** выберите подсеть в одной [зоне доступности](../overview/concepts/geo-scope.md) и включите прием трафика в этой подсети.
+  1. В блоке **{{ ui-key.yacloud.mdb.forms.section_network-settings }}** выберите сеть, в подсети которой будет размещаться узел балансировщика.
+  1. В блоке **{{ ui-key.yacloud.alb.section_allocation-settings }}** выберите подсеть в одной [зоне доступности](../overview/concepts/geo-scope.md) и включите прием трафика в этой подсети.
 
       Остальные зоны доступности удалите, нажав ![xmark](../_assets/console-icons/xmark.svg) в соответствующей строке.
 
-
-  1. В блоке **Обработчики** нажмите кнопку **Добавить обработчик**. Задайте настройки обработчика:
+  1. В блоке **{{ ui-key.yacloud.alb.label_listeners }}** нажмите кнопку **{{ ui-key.yacloud.alb.button_add-listener }}**. Задайте настройки обработчика:
       1. Введите имя обработчика: `test-listener`.
-      1. В блоке **Публичный IP-адрес** включите передачу трафика.
+      1. В блоке **{{ ui-key.yacloud.alb.section_external-address-specs }}** включите передачу трафика.
       1. Укажите порт `80`.
-      1. Выберите тип **Автоматически**.
-  1. В поле **HTTP-роутер** выберите `test-http-router`.
-  1. Нажмите кнопку **Создать**.
+      1. Выберите тип **{{ ui-key.yacloud.alb.label_address-auto }}**.
+  1. В поле **{{ ui-key.yacloud.alb.label_http-router }}** выберите `test-http-router`.
+  1. Нажмите кнопку **{{ ui-key.yacloud.common.create }}**.
 
 - CLI {#cli}
 
@@ -206,7 +204,7 @@ Yandex Application Load Balancer служит для распределения 
       ```bash
       yc alb load-balancer create test-load-balancer \
         --network-name <имя_сети> \
-        --location subnet-name=<имя_подсети_в_зоне_ru-central1-a>,zone=ru-central1-a
+        --location subnet-name=<имя_подсети_в_зоне_{{ region-id }}-a>,zone={{ region-id }}-a
       ```
 
   1. Добавьте обработчик:

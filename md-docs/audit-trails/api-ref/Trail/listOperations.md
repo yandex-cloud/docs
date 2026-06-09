@@ -5,7 +5,7 @@ Lists operations for the specified trail.
 ## HTTP request
 
 ```
-GET https://audittrails.api.cloud.yandex.net/audit-trails/v1/trails/{trailId}/operations
+GET https://audittrails.{{ api-host }}/audit-trails/v1/trails/{trailId}/operations
 ```
 
 ## Path parameters

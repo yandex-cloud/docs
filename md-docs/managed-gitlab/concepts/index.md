@@ -1,18 +1,18 @@
-# Взаимосвязь ресурсов в Managed Service for GitLab
+# Взаимосвязь ресурсов в {{ mgl-name }}
 
-[GitLab](https://about.gitlab.com/) — это веб-инструмент жизненного цикла [DevOps](https://yandex.cloud/ru/blog/posts/2022/03/what-is-devops) с открытым исходным кодом. Он представляет собой систему управления репозиториями кода для [Git](https://git-scm.com/) с системой отслеживания ошибок, [CI/CD](https://yandex.cloud/ru/blog/posts/2022/10/ci-cd) пайплайном, собственной Wiki и другими функциями.
+[{{ GL }}](https://about.gitlab.com/) — это веб-инструмент жизненного цикла [DevOps](https://yandex.cloud/ru/blog/posts/2022/03/what-is-devops) с открытым исходным кодом. Он представляет собой систему управления репозиториями кода для [Git](https://git-scm.com/) с системой отслеживания ошибок, [CI/CD](https://yandex.cloud/ru/blog/posts/2022/10/ci-cd) пайплайном, собственной Wiki и другими функциями.
 
-Managed Service for GitLab позволяет настроить развертывание приложений на [виртуальных машинах](../../compute/concepts/vm.md) [Yandex Compute Cloud](../../compute/index.md), а также поддерживает интеграцию с [Yandex Container Registry](../../container-registry/index.md) и [Yandex Managed Service for Kubernetes](../../managed-kubernetes/index.md).
+{{ mgl-name }} позволяет настроить развертывание приложений на [виртуальных машинах](../../compute/concepts/vm.md) [{{ compute-full-name }}](../../compute/index.md), а также поддерживает интеграцию с [{{ container-registry-full-name }}](../../container-registry/index.md) и [{{ managed-k8s-full-name }}](../../managed-kubernetes/index.md).
 
-Схема работы Managed Service for GitLab:
+Схема работы {{ mgl-name }}:
 
 ![image](../../_assets/managed-gitlab/gitlab_schema_ru.svg)
 
-## Инстанс GitLab {#instance}
+## Инстанс {{ GL }} {#instance}
 
-_Инстанс_ GitLab — основная сущность, которой оперирует сервис. Это ВМ, размещенная в Yandex Cloud. Managed Service for GitLab берет на себя рутинные операции по техническому обслуживанию этой ВМ, например, обеспечение отказоустойчивости хранилища, установку обновлений безопасности, автоматизированное обновление до новых версий GitLab и т. д.
+_Инстанс_ {{ GL }} — основная сущность, которой оперирует сервис. Это ВМ, размещенная в {{ yandex-cloud }}. {{ mgl-name }} берет на себя рутинные операции по техническому обслуживанию этой ВМ, например, обеспечение отказоустойчивости хранилища, установку обновлений безопасности, автоматизированное обновление до новых версий {{ GL }} и т. д.
 
-Пользователь может управлять инстансами с помощью [консоли управления Yandex Cloud](https://console.yandex.cloud), [CLI](../cli-ref/index.md) и [API](../api-ref/authentication.md).
+Пользователь может управлять инстансами с помощью [консоли управления {{ yandex-cloud }}]({{ link-console-main }}), [CLI](../cli-ref/index.md) и [API](../api-ref/authentication.md).
 
 ## Конфигурация инстанса {#config}
 
@@ -31,56 +31,56 @@ _Инстанс_ GitLab — основная сущность, которой о
 
   {% note warning %}
   
-  Технические ограничения Yandex Cloud временно не позволяют выбрать подсеть с диапазоном адресов `192.168.0.0/24`.
+  Технические ограничения {{ yandex-cloud }} временно не позволяют выбрать подсеть с диапазоном адресов `192.168.0.0/24`.
   
   {% endnote %}
 
 * Размер диска. После создания инстанса размер его диска [можно увеличить](../operations/instance/instance-update.md).
-* Имя в домене `.gitlab.yandexcloud.net` — адрес вашего экземпляра GitLab в интернете.
+* Имя в домене `.gitlab.yandexcloud.net` — адрес вашего экземпляра {{ GL }} в интернете.
 * Данные администратора:
   * Электронная почта.
   * Логин.
 
 {% note info %}
 
-В Managed Service for GitLab при создании инстанса автоматически генерируется SSL-сертификат. Дополнительная настройка для работы по протоколу HTTPS не требуется.
+В {{ mgl-name }} при создании инстанса автоматически генерируется SSL-сертификат. Дополнительная настройка для работы по протоколу HTTPS не требуется.
 
 {% endnote %}
 
-## GitLab Runner {#runners}
+## {{ GLR }} {#runners}
 
-[GitLab Runner](https://docs.gitlab.com/runner/) — приложение с открытым исходным кодом, которое выполняет задания конвейерной обработки GitLab [CI/CD](https://yandex.cloud/ru/blog/posts/2022/10/ci-cd) по инструкциям из специального файла `.gitlab-ci.yml`. Оно позволяет запускать автоматизированные сборки внутри [кластеров Managed Service for Kubernetes](../../managed-kubernetes/concepts/index.md#kubernetes-cluster) и на [виртуальных машинах Compute Cloud](../../compute/concepts/vm.md).
+[{{ GLR }}](https://docs.gitlab.com/runner/) — приложение с открытым исходным кодом, которое выполняет задания конвейерной обработки {{ GL }} [CI/CD](https://yandex.cloud/ru/blog/posts/2022/10/ci-cd) по инструкциям из специального файла `.gitlab-ci.yml`. Оно позволяет запускать автоматизированные сборки внутри [кластеров {{ managed-k8s-name }}](../../managed-kubernetes/concepts/index.md#kubernetes-cluster) и на [виртуальных машинах {{ compute-name }}](../../compute/concepts/vm.md).
 
-Начать работу с GitLab Runner можно следующими способами:
+Начать работу с {{ GLR }} можно следующими способами:
 
-* [Установить GitLab Runner в кластер Managed Service for Kubernetes](../../managed-kubernetes/operations/applications/gitlab-runner.md).
-* Создать виртуальную машину Compute Cloud и [вручную установить на нее GitLab Runner](../tutorials/install-gitlab-runner.md#install).
-* [Создать раннер, управляемый Yandex Cloud](#managed-runners).
+* [Установить {{ GLR }} в кластер {{ managed-k8s-name }}](../../managed-kubernetes/operations/applications/gitlab-runner.md).
+* Создать виртуальную машину {{ compute-name }} и [вручную установить на нее {{ GLR }}](../tutorials/install-gitlab-runner.md#install).
+* [Создать раннер, управляемый {{ yandex-cloud }}](#managed-runners).
 
 ### Управляемые раннеры {#managed-runners}
 
 {% note info %}
 
-Функциональность создания и управления раннерами с помощью консоли управления находится на стадии [Preview](../../overview/concepts/launch-stages.md). Чтобы запросить доступ, обратитесь в [техническую поддержку](https://center.yandex.cloud/support) или к вашему аккаунт-менеджеру.
+Функциональность создания и управления раннерами с помощью консоли управления находится на стадии [Preview](../../overview/concepts/launch-stages.md). Чтобы запросить доступ, обратитесь в [техническую поддержку]({{ link-console-support }}) или к вашему аккаунт-менеджеру.
 
 {% endnote %}
 
-В сервисе Managed Service for GitLab вы можете создать управляемый раннер, который автоматически разворачивает указанное число [виртуальных машин](../../compute/concepts/vm.md) Compute Cloud с установленными воркерами GitLab. Также управляемый раннер обеспечивает горизонтальное масштабирование ВМ с воркерами в зависимости от нагрузки.
+В сервисе {{ mgl-name }} вы можете создать управляемый раннер, который автоматически разворачивает указанное число [виртуальных машин](../../compute/concepts/vm.md) {{ compute-name }} с установленными воркерами {{ GL }}. Также управляемый раннер обеспечивает горизонтальное масштабирование ВМ с воркерами в зависимости от нагрузки.
 
 {% note warning %}
 
-За использование виртуальных машин (воркеров) взимается плата (см. [тарифы Compute Cloud](../../compute/pricing.md)).
+За использование виртуальных машин (воркеров) взимается плата (см. [тарифы {{ compute-name }}](../../compute/pricing.md)).
 
 {% endnote %}
 
 Вы можете задать следующие параметры управляемого раннера:
 * Настройки масштабирования:
 
-    * **Минимум воркеров** — число воркеров, которые всегда запущены и готовы выполнять задачи. Значение по умолчанию — `1`, минимальное — `0`, максимальное — `10`.
-    * **Максимум воркеров** — максимальное число воркеров, которые могут быть созданы для выполнения задач. Значение по умолчанию — `3`, минимальное — `1`, максимальное — `30`. Максимальное количество воркеров не может быть меньше минимального.
-    * **Лимит простоя воркера, в минутах** — максимальное время простоя, по истечении которого дополнительно созданный воркер будет удален. Значение по умолчанию — `10`, минимальное — `0`.
-    * **Максимум задач на воркер** — максимальное количество задач, после выполнения которых воркер будет удален. Значение по умолчанию — `100`, минимальное — `0`.
-    * **Количество параллельных задач на воркер** — количество задач, которые выполняются на одном воркере одновременно. Значение по умолчанию — `1`, минимальное — `0`.
+    * **{{ ui-key.yacloud.gitlab.field_task-minInstances }}** — число воркеров, которые всегда запущены и готовы выполнять задачи. Значение по умолчанию — `1`, минимальное — `0`, максимальное — `10`.
+    * **{{ ui-key.yacloud.gitlab.field_max-workers }}** — максимальное число воркеров, которые могут быть созданы для выполнения задач. Значение по умолчанию — `3`, минимальное — `1`, максимальное — `30`. Максимальное количество воркеров не может быть меньше минимального.
+    * **{{ ui-key.yacloud.gitlab.field_idle-time-minutes }}** — максимальное время простоя, по истечении которого дополнительно созданный воркер будет удален. Значение по умолчанию — `10`, минимальное — `0`.
+    * **{{ ui-key.yacloud.gitlab.field_max-use-count }}** — максимальное количество задач, после выполнения которых воркер будет удален. Значение по умолчанию — `100`, минимальное — `0`.
+    * **{{ ui-key.yacloud.gitlab.field_capacity-per-instance }}** — количество задач, которые выполняются на одном воркере одновременно. Значение по умолчанию — `1`, минимальное — `0`.
 
 * Параметры ВМ с воркером:
   * Конфигурация вычислительных ресурсов воркера:
@@ -89,12 +89,12 @@ _Инстанс_ GitLab — основная сущность, которой о
     * 4 vCPU, 16 ГБ RAM.
     * 8 vCPU, 64 ГБ RAM.
     * 16 vCPU, 128 ГБ RAM.
-  * Тип (HDD или SSD) и объем диска. Подробнее см. в разделе [Типы дисков](../../compute/concepts/disk.md#disks-types).
+  * Тип (HDD или SSD) и объем диска. Подробнее см. в разделе [{#T}](../../compute/concepts/disk.md#disks-types).
   * [Сервисный аккаунт](../../iam/concepts/users/service-accounts.md).
 
     {% note info %}
     
-    Этот сервисный аккаунт будет привязан к ВМ с воркером. С помощью него воркер сможет аутентифицироваться в API Yandex Cloud и взаимодействовать с облачными ресурсами.
+    Этот сервисный аккаунт будет привязан к ВМ с воркером. С помощью него воркер сможет аутентифицироваться в API {{ yandex-cloud }} и взаимодействовать с облачными ресурсами.
     
     [Назначьте](../../iam/operations/sa/assign-role-for-sa.md) сервисному аккаунту роль на ресурс, с которым вы хотите работать.
     
@@ -103,14 +103,14 @@ _Инстанс_ GitLab — основная сущность, которой о
   * [Группа безопасности](../../vpc/concepts/security-groups.md).
 
 Подробнее о работе с управляемыми раннерами см. на страницах:
-* [Работа с управляемым раннером](../operations/runner.md)
-* [Развертывание GitLab Runner на виртуальной машине Yandex Compute Cloud](../tutorials/install-gitlab-runner.md)
+* [{#T}](../operations/runner.md)
+* [{#T}](../tutorials/install-gitlab-runner.md)
 
-### Сетевое взаимодействие между GitLab и управляемыми раннерами {#networking-gl-mr}
+### Сетевое взаимодействие между {{ GL }} и управляемыми раннерами {#networking-gl-mr}
 
 Подсеть инстанса, к которому подключен управляемый раннер, должна иметь доступ в интернет (через [NAT-шлюз](../../vpc/concepts/gateways.md) или [NAT-инстанс](../../vpc/tutorials/nat-instance/index.md)).
 
-Настройка сетевого взаимодействия между GitLab и управляемыми раннерами включает обязательные, рекомендуемые и опциональные настройки групп безопасности.
+Настройка сетевого взаимодействия между {{ GL }} и управляемыми раннерами включает обязательные, рекомендуемые и опциональные настройки групп безопасности.
 
 ![image](../../_assets/managed-gitlab/networking.svg)
 
@@ -118,12 +118,12 @@ _Инстанс_ GitLab — основная сущность, которой о
 
 #|
 || **Зачем нужно правило** | **Настройки правила** ||
-|| Для управления раннером с инстанса GitLab по протоколу SSH.
+|| Для управления раннером с инстанса {{ GL }} по протоколу SSH.
 Обязательное правило. |
-* Диапазон портов — `22`.
-* Протокол — `TCP`.
-* Источник — `CIDR`.
-* CIDR блоки — CIDR всех подсетей, где могут запускаться раннеры.
+* {{ ui-key.yacloud.vpc.network.security-groups.forms.field_sg-rule-port-range }} — `22`.
+* {{ ui-key.yacloud.vpc.network.security-groups.forms.field_sg-rule-protocol }} — `{{ ui-key.yacloud.common.label_tcp }}`.
+* {{ ui-key.yacloud.vpc.network.security-groups.forms.field_sg-rule-source }} — `{{ ui-key.yacloud.vpc.network.security-groups.forms.value_sg-rule-destination-cidr }}`.
+* {{ ui-key.yacloud.vpc.network.security-groups.forms.field_sg-rule-cidr-blocks }} — CIDR всех подсетей, где могут запускаться раннеры.
 Вместо CIDR вы можете указать группу безопасности, созданную для раннеров.
 ||
 |#
@@ -132,54 +132,54 @@ _Инстанс_ GitLab — основная сущность, которой о
 
 #|
 || **Зачем нужно правило** | **Настройки правила** ||
-|| Для взаимодействия с публичным адресом инстанса GitLab по протоколу HTTPS (например, для клонирования репозиториев, загрузки артефактов).
+|| Для взаимодействия с публичным адресом инстанса {{ GL }} по протоколу HTTPS (например, для клонирования репозиториев, загрузки артефактов).
 Обязательное правило. |
-* Диапазон портов — `443`.
-* Протокол — `TCP`.
-* Источник — `CIDR`.
-* CIDR блоки — публичный адрес GitLab.
+* {{ ui-key.yacloud.vpc.network.security-groups.forms.field_sg-rule-port-range }} — `443`.
+* {{ ui-key.yacloud.vpc.network.security-groups.forms.field_sg-rule-protocol }} — `{{ ui-key.yacloud.common.label_tcp }}`.
+* {{ ui-key.yacloud.vpc.network.security-groups.forms.field_sg-rule-source }} — `{{ ui-key.yacloud.vpc.network.security-groups.forms.value_sg-rule-destination-cidr }}`.
+* {{ ui-key.yacloud.vpc.network.security-groups.forms.field_sg-rule-cidr-blocks }} — публичный адрес {{ GL }}.
 ||
 || Для доступа к реестру артефактов (например, Cloud Registry, dockerhub.io).
 Рекомендуемое правило. |
-* Диапазон портов — `443`, `5000` или другой.
-* Протокол — `TCP`.
-* Источник — `CIDR`.
-* CIDR блоки — CIDR реестров, к которым предоставляется доступ. Чтобы разрешить трафик на любые IP-адреса, укажите `0.0.0.0/0`.
+* {{ ui-key.yacloud.vpc.network.security-groups.forms.field_sg-rule-port-range }} — `443`, `5000` или другой.
+* {{ ui-key.yacloud.vpc.network.security-groups.forms.field_sg-rule-protocol }} — `{{ ui-key.yacloud.common.label_tcp }}`.
+* {{ ui-key.yacloud.vpc.network.security-groups.forms.field_sg-rule-source }} — `{{ ui-key.yacloud.vpc.network.security-groups.forms.value_sg-rule-destination-cidr }}`.
+* {{ ui-key.yacloud.vpc.network.security-groups.forms.field_sg-rule-cidr-blocks }} — CIDR реестров, к которым предоставляется доступ. Чтобы разрешить трафик на любые IP-адреса, укажите `0.0.0.0/0`.
 ||
 || Для доступа к объектным хранилищам (например, LFS, Container Registry).
 Рекомендуемое правило. |
-* Диапазон портов — `443`.
-* Протокол — `TCP`.
-* Источник — `CIDR`.
-* CIDR блоки — CIDR объектных хранилищ, к которым предоставляется доступ. Чтобы разрешить трафик на любые IP-адреса, укажите `0.0.0.0/0`.
+* {{ ui-key.yacloud.vpc.network.security-groups.forms.field_sg-rule-port-range }} — `443`.
+* {{ ui-key.yacloud.vpc.network.security-groups.forms.field_sg-rule-protocol }} — `{{ ui-key.yacloud.common.label_tcp }}`.
+* {{ ui-key.yacloud.vpc.network.security-groups.forms.field_sg-rule-source }} — `{{ ui-key.yacloud.vpc.network.security-groups.forms.value_sg-rule-destination-cidr }}`.
+* {{ ui-key.yacloud.vpc.network.security-groups.forms.field_sg-rule-cidr-blocks }} — CIDR объектных хранилищ, к которым предоставляется доступ. Чтобы разрешить трафик на любые IP-адреса, укажите `0.0.0.0/0`.
 ||
 || Для доступа к внешним ресурсам.
 Опциональное правило. |
-* Диапазон портов — `443`, `80` или другой.
-* Протокол — `TCP`.
-* Источник — `CIDR`.
-* CIDR блоки — CIDR внешних ресурсов.
-Если список ресурсов не определен, можно разрешить исходящий трафик к любым адресам (CIDR — `0.0.0.0/0`) через все порты. В этом случае можно пропустить настройку рекомендуемых правил и настройку доступа из управляемого раннера к публичному адресу инстанса GitLab.
+* {{ ui-key.yacloud.vpc.network.security-groups.forms.field_sg-rule-port-range }} — `443`, `80` или другой.
+* {{ ui-key.yacloud.vpc.network.security-groups.forms.field_sg-rule-protocol }} — `{{ ui-key.yacloud.common.label_tcp }}`.
+* {{ ui-key.yacloud.vpc.network.security-groups.forms.field_sg-rule-source }} — `{{ ui-key.yacloud.vpc.network.security-groups.forms.value_sg-rule-destination-cidr }}`.
+* {{ ui-key.yacloud.vpc.network.security-groups.forms.field_sg-rule-cidr-blocks }} — CIDR внешних ресурсов.
+Если список ресурсов не определен, можно разрешить исходящий трафик к любым адресам (CIDR — `0.0.0.0/0`) через все порты. В этом случае можно пропустить настройку рекомендуемых правил и настройку доступа из управляемого раннера к публичному адресу инстанса {{ GL }}.
 ||
 |#
 
-## GitLab Pages {#pages}
+## {{ GL }} Pages {#pages}
 
-GitLab Pages — инструмент для публикации статических сайтов на основе файлов, расположенных в репозитории GitLab. Сайты разворачиваются по заданиям GitLab CI/CD. GitLab Pages работает с генераторами статических сайтов и обычными файлами HTML, CSS и JavaScript.
+{{ GL }} Pages — инструмент для публикации статических сайтов на основе файлов, расположенных в репозитории {{ GL }}. Сайты разворачиваются по заданиям {{ GL }} CI/CD. {{ GL }} Pages работает с генераторами статических сайтов и обычными файлами HTML, CSS и JavaScript.
 
-GitLab Pages позволяет использовать собственные домены и сертификаты SSL/TLS, а также настраивать доступ к сайтам.
+{{ GL }} Pages позволяет использовать собственные домены и сертификаты SSL/TLS, а также настраивать доступ к сайтам.
 
-[Подробнее в официальной документации GitLab](https://docs.gitlab.com/user/project/pages/).
+[Подробнее в официальной документации {{ GL }}](https://docs.gitlab.com/user/project/pages/).
 
 {% note info %}
 
-Функциональность находится на стадии [Preview](../../overview/concepts/launch-stages.md). Чтобы получить доступ, обратитесь в [техническую поддержку](https://center.yandex.cloud/support) или к вашему аккаунт-менеджеру.
+Функциональность находится на стадии [Preview](../../overview/concepts/launch-stages.md). Чтобы получить доступ, обратитесь в [техническую поддержку]({{ link-console-support }}) или к вашему аккаунт-менеджеру.
 
 {% endnote %}
 
 ## Примеры использования {#examples}
 
-* [Безопасное хранение паролей для GitLab CI в виде секретов Yandex Lockbox](../tutorials/gitlab-lockbox-integration.md)
-* [Построение пайплайна CI/CD с использованием serverless-продуктов](../tutorials/ci-cd-serverless.md)
-* [Развертывание GitLab Runner на виртуальной машине Yandex Compute Cloud](../tutorials/install-gitlab-runner.md)
-* [Непрерывное развертывание контейнеризованных приложений Managed Service for Kubernetes](../tutorials/gitlab-containers.md)
+* [{#T}](../tutorials/gitlab-lockbox-integration.md)
+* [{#T}](../tutorials/ci-cd-serverless.md)
+* [{#T}](../tutorials/install-gitlab-runner.md)
+* [{#T}](../tutorials/gitlab-containers.md)

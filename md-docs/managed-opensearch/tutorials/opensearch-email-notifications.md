@@ -1,14 +1,14 @@
-# Отправка оповещений по электронной почте в Yandex Managed Service for OpenSearch
+# Отправка оповещений по электронной почте в {{ mos-full-name }}
 
-# Отправка оповещений по электронной почте в Yandex Managed Service for OpenSearch
+# Отправка оповещений по электронной почте в {{ mos-full-name }}
 
-Вы можете настроить отправку оповещений по почте с помощью [плагина](../concepts/plugins.md) Notifications в [Managed Service for OpenSearch](../index.md). Для этого в веб-интерфейсе OpenSearch Dashboards необходимо создать канал уведомлений, настроить SMTP отправителя и указать получателей. Пароль отправителя необходимо добавить в хранилище ключей OpenSearch.
+Вы можете настроить отправку оповещений по почте с помощью [плагина](../concepts/plugins.md) Notifications в [{{ mos-name }}](../index.md). Для этого в веб-интерфейсе {{ OS }} Dashboards необходимо создать канал уведомлений, настроить SMTP отправителя и указать получателей. Пароль отправителя необходимо добавить в хранилище ключей {{ OS }}.
 
 Чтобы настроить отправку оповещений по почте, выполните следующие действия:
 
 1. [Подготовьте инфраструктуру](#infra).
 1. [Создайте отправителя](#create-sender).
-1. [Добавьте данные аутентификации в хранилище ключей OpenSearch](#set-keystore-settings).
+1. [Добавьте данные аутентификации в хранилище ключей {{ OS }}](#set-keystore-settings).
 1. [Обновите настройки кластера](#reload_secure_settings).
 1. [Создайте группу получателей](#create-recipient-group).
 1. [Создайте канал уведомлений](#create-channel).
@@ -16,38 +16,38 @@
 
 Если созданные ресурсы вам больше не нужны, [удалите их](#clear-out).
 
+
 ## Перед началом работы {#before-you-begin}
 
-Зарегистрируйтесь в Yandex Cloud и создайте [платежный аккаунт](../../billing/concepts/billing-account.md):
-1. Перейдите в [консоль управления](https://console.yandex.cloud), затем войдите в Yandex Cloud или зарегистрируйтесь.
-1. На странице **[Yandex Cloud Billing](https://center.yandex.cloud/billing/accounts)** убедитесь, что у вас подключен платежный аккаунт, и он находится в [статусе](../../billing/concepts/billing-account-statuses.md) `ACTIVE` или `TRIAL_ACTIVE`. Если платежного аккаунта нет, [создайте его](../../billing/quickstart/index.md) и [привяжите](../../billing/operations/pin-cloud.md) к нему облако.
+Зарегистрируйтесь в {{ yandex-cloud }} и создайте [платежный аккаунт](../../billing/concepts/billing-account.md):
+1. Перейдите в [консоль управления]({{ link-console-main }}), затем войдите в {{ yandex-cloud }} или зарегистрируйтесь.
+1. На странице **[{{ ui-key.yacloud_billing.billing.label_service }}]({{ link-console-billing }})** убедитесь, что у вас подключен платежный аккаунт, и он находится в [статусе](../../billing/concepts/billing-account-statuses.md) `ACTIVE` или `TRIAL_ACTIVE`. Если платежного аккаунта нет, [создайте его](../../billing/quickstart/index.md) и [привяжите](../../billing/operations/pin-cloud.md) к нему облако.
 
-Если у вас есть активный платежный аккаунт, вы можете создать или выбрать [каталог](../../resource-manager/concepts/resources-hierarchy.md#folder), в котором будет работать ваша инфраструктура, на [странице облака](https://console.yandex.cloud/cloud).
+Если у вас есть активный платежный аккаунт, вы можете создать или выбрать [каталог](../../resource-manager/concepts/resources-hierarchy.md#folder), в котором будет работать ваша инфраструктура, на [странице облака]({{ link-console-cloud }}).
 
 [Подробнее об облаках и каталогах](../../resource-manager/concepts/resources-hierarchy.md).
 
-
 ### Необходимые платные ресурсы {#paid-resources}
 
-* Кластер Managed Service for OpenSearch: использование вычислительных ресурсов и объем хранилища (см. [тарифы Managed Service for OpenSearch](../pricing.md)).
-* Публичные IP-адреса, если для хостов кластера включен публичный доступ (см. [тарифы Virtual Private Cloud](../../vpc/pricing.md)).
+* Кластер {{ mos-name }}: использование вычислительных ресурсов, объем хранилища и резервных копий (см. [тарифы {{ mos-name }}](../pricing.md)).
+* Публичные IP-адреса, если для хостов кластера включен публичный доступ (см. [тарифы {{ vpc-full-name }}](../../vpc/pricing.md)).
 
 
 ## Подготовьте инфраструктуру {#infra}
 
 
-1. [Создайте кластер Managed Service for OpenSearch](../operations/cluster-create.md) с публичным доступом к группам хостов Dashboards и OpenSearch.
+1. [Создайте кластер {{ mos-name }}](../operations/cluster-create.md) с публичным доступом к группам хостов Dashboards и {{ OS }}.
 
-1. Настройте группы безопасности кластера Managed Service for OpenSearch следующим образом:
+1. Настройте группы безопасности кластера {{ mos-name }} следующим образом:
 
-    1. [Создайте правила](../operations/connect/index.md#security-groups) для доступа к группам хостов Dashboards и OpenSearch через интернет.
+    1. [Создайте правила](../operations/connect/index.md#security-groups) для доступа к группам хостов Dashboards и {{ OS }} через интернет.
     1. Создайте правило для исходящего трафика, разрешающее TCP-подключения на порт `465` или другой порт, который будет использоваться для отправки оповещений по почте.
 
 
 ## Создайте отправителя {#create-sender}
 
-1. [Подключитесь к OpenSearch Dashboards](../operations/connect/clients.md#dashboards).
-1. В левом верхнем углу OpenSearch Dashboards нажмите на значок ![image](../../_assets/console-icons/bars.svg) и в блоке **Management** выберите **Notifications**.
+1. [Подключитесь к {{ OS }} Dashboards](../operations/connect/clients.md#dashboards).
+1. В левом верхнем углу {{ OS }} Dashboards нажмите на значок ![image](../../_assets/console-icons/bars.svg) и в блоке **Management** выберите **Notifications**.
 1. На панели слева выберите пункт **Email senders**.
 1. Нажмите кнопку **Create SMTP sender**.
 1. В поле **Sender name** введите `my_sender`.
@@ -59,20 +59,20 @@
 1. В поле **Encryption method** выберите метод шифрования, который поддерживается SMTP-сервером отправителя.
 1. Нажмите кнопку **Create**.
 
-## Добавьте данные аутентификации в хранилище ключей OpenSearch {#set-keystore-settings}
+## Добавьте данные аутентификации в хранилище ключей {{ OS }} {#set-keystore-settings}
 
 {% list tabs group=instructions %}
 
 - CLI {#cli}
 
-  Если у вас еще нет интерфейса командной строки Yandex Cloud (CLI), [установите и инициализируйте его](../../cli/quickstart.md#install).
+  Если у вас еще нет интерфейса командной строки {{ yandex-cloud }} (CLI), [установите и инициализируйте его](../../cli/quickstart.md#install).
 
   По умолчанию используется каталог, указанный при [создании](../../cli/operations/profile/profile-create.md) профиля CLI. Чтобы изменить каталог по умолчанию, используйте команду `yc config set folder-id <идентификатор_каталога>`. Также для любой команды вы можете указать другой каталог с помощью параметров `--folder-name` или `--folder-id`. Если вы обращаетесь к ресурсу по имени, поиск будет выполнен в каталоге по умолчанию. Если вы обращаетесь к ресурсу по идентификатору, поиск будет выполнен глобально — во всех каталогах с учетом прав доступа.
 
-  Чтобы добавить данные аутентификации в хранилище ключей OpenSearch, выполните команду:
+  Чтобы добавить данные аутентификации в хранилище ключей {{ OS }}, выполните команду:
 
   ```bash
-  yc managed-opensearch cluster update <имя_или_идентификатор_кластера> \
+  {{ yc-mdb-os }} cluster update <имя_или_идентификатор_кластера> \
     --set-keystore-settings opensearch.notifications.core.email.my_sender.username=<почта_отправителя> \
     --set-keystore-settings opensearch.notifications.core.email.my_sender.password=<пароль>
   ```
@@ -87,14 +87,14 @@
       export IAM_TOKEN="<IAM-токен>"
       ```
   
-  1. Воспользуйтесь методом [Cluster.Update](../api-ref/Cluster/update.md) и выполните запрос, например с помощью [cURL](https://curl.se/):
+  1. Воспользуйтесь методом [Cluster.Update](../api-ref/Cluster/update.md) и выполните запрос, например с помощью {{ api-examples.rest.tool }}:
 
       ```bash
       curl \
         --request PATCH \
         --header "Authorization: Bearer $IAM_TOKEN" \
         --header "Content-Type: application/json" \
-        --url 'https://mdb.api.cloud.yandex.net/managed-opensearch/v1/clusters/<идентификатор_кластера>' \
+        --url 'https://{{ api-host-mdb }}/managed-opensearch/v1/clusters/<идентификатор_кластера>' \
         --data '{
                  "updateMask": "configSpec.opensearchSpec.setKeystoreSettings",
                  "configSpec": {
@@ -140,7 +140,7 @@
      
      Далее предполагается, что содержимое репозитория находится в директории `~/cloudapi/`.
 
-  1. Воспользуйтесь вызовом [ClusterService.Update](../api-ref/grpc/Cluster/update.md) и выполните запрос, например с помощью [gRPCurl](https://github.com/fullstorydev/grpcurl):
+  1. Воспользуйтесь вызовом [ClusterService.Update](../api-ref/grpc/Cluster/update.md) и выполните запрос, например с помощью {{ api-examples.grpc.tool }}:
 
       ```bash
       grpcurl \
@@ -171,7 +171,7 @@
                }
              }
            }' \
-        mdb.api.cloud.yandex.net:443 \
+        {{ api-host-mdb }}:{{ port-https }} \
         yandex.cloud.mdb.opensearch.v1.ClusterService.Update
         ```
 
@@ -199,7 +199,7 @@
     
       ```bash
       mkdir -p ~/.opensearch && \
-      wget "https://storage.yandexcloud.net/cloud-certs/CA.pem" \
+      wget "{{ crt-web-path }}" \
            --output-document ~/.opensearch/root.crt && \
       chmod 0600 ~/.opensearch/root.crt
       ```
@@ -209,7 +209,7 @@
     - Windows (PowerShell) {#windows}
 
       ```powershell
-      mkdir $HOME\.opensearch; curl.exe -o $HOME\.opensearch\root.crt https://storage.yandexcloud.net/cloud-certs/CA.pem
+      mkdir $HOME\.opensearch; curl.exe -o $HOME\.opensearch\root.crt {{ crt-web-path }}
       ```
 
       Сертификат будет сохранен в файле `$HOME\.opensearch\root.crt`.
@@ -232,7 +232,7 @@
       curl \
         --user admin:<пароль>
         --cacert ~/.opensearch/root.crt \
-        -X POST 'https://<FQDN_хоста_с_ролью_DATA>:9200/_nodes/reload_secure_settings'
+        -X POST 'https://<FQDN_хоста_с_ролью_DATA>:{{ port-mos }}/_nodes/reload_secure_settings'
       ```
 
     - Windows (PowerShell) {#windows}
@@ -240,18 +240,18 @@
       ```powershell
       curl `
         -Certificate $HOME\.opensearch\root.crt `
-        -Uri https://<FQDN_хоста_с_ролью_DATA>:9200/_nodes/reload_secure_settings `
+        -Uri https://<FQDN_хоста_с_ролью_DATA>:{{ port-mos }}/_nodes/reload_secure_settings `
         -Method Post `
         -Credential admin
       ```
 
     {% endlist %}
 
-    Подробнее о получении FQDN хоста читайте в разделе [FQDN хостов OpenSearch](../operations/connect/fqdn.md).
+    Подробнее о получении FQDN хоста читайте в разделе [{#T}](../operations/connect/fqdn.md).
 
 ## Создайте группу получателей {#create-recipient-group}
 
-1. В левом верхнем углу OpenSearch Dashboards нажмите на значок ![image](../../_assets/console-icons/bars.svg) и в блоке **Management** выберите **Notifications**.
+1. В левом верхнем углу {{ OS }} Dashboards нажмите на значок ![image](../../_assets/console-icons/bars.svg) и в блоке **Management** выберите **Notifications**.
 1. На панели слева выберите пункт **Email recipient groups**.
 1. Нажмите кнопку **Create recipient group**.
 1. В поле **Name** введите `my_recipient_group`.
@@ -260,7 +260,7 @@
 
 ## Создайте канал уведомлений {#create-channel}
 
-1. В левом верхнем углу OpenSearch Dashboards нажмите на значок ![image](../../_assets/console-icons/bars.svg) и в блоке **Management** выберите **Notifications**.
+1. В левом верхнем углу {{ OS }} Dashboards нажмите на значок ![image](../../_assets/console-icons/bars.svg) и в блоке **Management** выберите **Notifications**.
 1. Нажмите кнопку **Create channel**.
 1. В поле **Name** введите `my_channel`.
 1. В поле **Channel type** выберите `Email`.
@@ -271,7 +271,7 @@
 
 ## Отправьте тестовое письмо {#send-email}
 
-1. В левом верхнем углу OpenSearch Dashboards нажмите на значок ![image](../../_assets/console-icons/bars.svg) и в блоке **Management** выберите **Notifications**.
+1. В левом верхнем углу {{ OS }} Dashboards нажмите на значок ![image](../../_assets/console-icons/bars.svg) и в блоке **Management** выберите **Notifications**.
 1. В списке каналов нажмите на имя `my_channel`. 
 1. В меню **Actions** выберите пункт **Send test message**.
 
@@ -285,4 +285,4 @@
 
 Некоторые ресурсы платные. Чтобы за них не списывалась плата, удалите ресурсы, которые вы больше не будете использовать:
 
-[Удалите кластер Managed Service for OpenSearch](../operations/cluster-delete.md).
+[Удалите кластер {{ mos-name }}](../operations/cluster-delete.md).

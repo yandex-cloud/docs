@@ -1,10 +1,10 @@
-# Метрики Yandex Cloud Postbox
+# Метрики {{ postbox-full-name }}
 
-В этом разделе описаны метрики сервиса [Yandex Cloud Postbox](../../postbox/index.md), поставляемые в Monium Metrics.
+В этом разделе описаны метрики сервиса [{{ postbox-name }}](../../postbox/index.md), поставляемые в {{ monitoring-name }}.
 
 Имя метрики пишется в метку `name`.
 
-Общие метки для всех метрик Yandex Cloud Postbox:
+Общие метки для всех метрик {{ postbox-name }}:
 
 Метка | Значение
 ----|----

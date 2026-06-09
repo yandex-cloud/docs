@@ -1,6 +1,6 @@
 # Информация об имеющихся кластерах
 
-Вы можете запросить детальную информацию о каждом созданном вами кластере YTsaurus.
+Вы можете запросить детальную информацию о каждом созданном вами кластере {{ ytsaurus-name }}.
 
 ## Получить список кластеров в каталоге {#list-clusters}
 
@@ -8,19 +8,19 @@
 
 - Консоль управления {#console}
 
-    1. В [консоли управления](https://console.yandex.cloud) перейдите в нужный каталог.
-    1. [Перейдите](../../console/operations/select-service.md#select-service) в сервис **Managed Service for YTsaurus**.
+    1. В [консоли управления]({{ link-console-main }}) перейдите в нужный каталог.
+    1. Перейдите в сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-ytsaurus }}**.
 
 - CLI {#cli}
 
-    Если у вас еще нет интерфейса командной строки Yandex Cloud (CLI), [установите и инициализируйте его](../../cli/quickstart.md#install).
+    Если у вас еще нет интерфейса командной строки {{ yandex-cloud }} (CLI), [установите и инициализируйте его](../../cli/quickstart.md#install).
 
     По умолчанию используется каталог, указанный при [создании](../../cli/operations/profile/profile-create.md) профиля CLI. Чтобы изменить каталог по умолчанию, используйте команду `yc config set folder-id <идентификатор_каталога>`. Также для любой команды вы можете указать другой каталог с помощью параметров `--folder-name` или `--folder-id`. Если вы обращаетесь к ресурсу по имени, поиск будет выполнен в каталоге по умолчанию. Если вы обращаетесь к ресурсу по идентификатору, поиск будет выполнен глобально — во всех каталогах с учетом прав доступа.
 
-    Чтобы запросить список кластеров YTsaurus в каталоге по умолчанию, выполните команду:
+    Чтобы запросить список кластеров {{ ytsaurus-name }} в каталоге по умолчанию, выполните команду:
 
     ```bash
-    yc managed-ytsaurus cluster list
+    {{ yc-ytsaurus }} cluster list
     ```
 
     Результат:
@@ -41,13 +41,13 @@
         export IAM_TOKEN="<IAM-токен>"
         ```
 
-    1. Воспользуйтесь методом [Cluster.List](../api-ref/Cluster/list.md) и выполните запрос, например с помощью [cURL](https://curl.se/):
+    1. Воспользуйтесь методом [Cluster.List](../api-ref/Cluster/list.md) и выполните запрос, например с помощью {{ api-examples.rest.tool }}:
 
         ```bash
         curl \
             --request GET \
             --header "Authorization: Bearer $IAM_TOKEN" \
-            --url 'https://ytsaurus.api.cloud.yandex.net/ytsaurus/v1/clusters' \
+            --url 'https://{{ api-host-ytsaurus }}/ytsaurus/v1/clusters' \
             --url-query folderId=<идентификатор_каталога>
         ```
 
@@ -71,7 +71,7 @@
        
        Далее предполагается, что содержимое репозитория находится в директории `~/cloudapi/`.
 
-    1. Воспользуйтесь вызовом [ClusterService.List](../api-ref/grpc/Cluster/list.md) и выполните запрос, например с помощью [gRPCurl](https://github.com/fullstorydev/grpcurl):
+    1. Воспользуйтесь вызовом [ClusterService.List](../api-ref/grpc/Cluster/list.md) и выполните запрос, например с помощью {{ api-examples.grpc.tool }}:
 
         ```bash
         grpcurl \
@@ -83,7 +83,7 @@
             -d '{
                     "folder_id": "<идентификатор_каталога>"
                 }' \
-            ytsaurus.api.cloud.yandex.net:443 \
+            {{ api-host-ytsaurus }}:{{ port-https }} \
             yandex.cloud.ytsaurus.v1.ClusterService.List
         ```
 
@@ -99,20 +99,20 @@
 
 - Консоль управления {#console}
 
-    1. В [консоли управления](https://console.yandex.cloud) перейдите в нужный каталог.
-    1. [Перейдите](../../console/operations/select-service.md#select-service) в сервис **Managed Service for YTsaurus**.
+    1. В [консоли управления]({{ link-console-main }}) перейдите в нужный каталог.
+    1. Перейдите в сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-ytsaurus }}**.
     1. Нажмите на имя нужного кластера.
 
 - CLI {#cli}
 
-    Если у вас еще нет интерфейса командной строки Yandex Cloud (CLI), [установите и инициализируйте его](../../cli/quickstart.md#install).
+    Если у вас еще нет интерфейса командной строки {{ yandex-cloud }} (CLI), [установите и инициализируйте его](../../cli/quickstart.md#install).
 
     По умолчанию используется каталог, указанный при [создании](../../cli/operations/profile/profile-create.md) профиля CLI. Чтобы изменить каталог по умолчанию, используйте команду `yc config set folder-id <идентификатор_каталога>`. Также для любой команды вы можете указать другой каталог с помощью параметров `--folder-name` или `--folder-id`. Если вы обращаетесь к ресурсу по имени, поиск будет выполнен в каталоге по умолчанию. Если вы обращаетесь к ресурсу по идентификатору, поиск будет выполнен глобально — во всех каталогах с учетом прав доступа.
 
-    Чтобы получить информацию о кластере YTsaurus, выполните команду:
+    Чтобы получить информацию о кластере {{ ytsaurus-name }}, выполните команду:
 
     ```bash
-    yc managed-ytsaurus cluster get <имя_или_идентификатор_кластера>
+    {{ yc-ytsaurus }} cluster get <имя_или_идентификатор_кластера>
     ```
 
     Идентификатор и имя кластера можно запросить со [списком кластеров в каталоге](cluster-list.md#list-clusters).
@@ -125,13 +125,13 @@
         export IAM_TOKEN="<IAM-токен>"
         ```
 
-    1. Воспользуйтесь методом [Cluster.Get](../api-ref/Cluster/get.md) и выполните запрос, например с помощью [cURL](https://curl.se/):
+    1. Воспользуйтесь методом [Cluster.Get](../api-ref/Cluster/get.md) и выполните запрос, например с помощью {{ api-examples.rest.tool }}:
 
         ```bash
         curl \
             --request GET \
             --header "Authorization: Bearer $IAM_TOKEN" \
-            --url 'https://ytsaurus.api.cloud.yandex.net/ytsaurus/v1/clusters/<идентификатор_кластера>'
+            --url 'https://{{ api-host-ytsaurus }}/ytsaurus/v1/clusters/<идентификатор_кластера>'
         ```
 
         Идентификатор кластера можно запросить со [списком кластеров в каталоге](#list-clusters).
@@ -154,7 +154,7 @@
        
        Далее предполагается, что содержимое репозитория находится в директории `~/cloudapi/`.
 
-    1. Воспользуйтесь вызовом [ClusterService.Get](../api-ref/grpc/Cluster/get.md) и выполните запрос, например с помощью [gRPCurl](https://github.com/fullstorydev/grpcurl):
+    1. Воспользуйтесь вызовом [ClusterService.Get](../api-ref/grpc/Cluster/get.md) и выполните запрос, например с помощью {{ api-examples.grpc.tool }}:
 
         ```bash
         grpcurl \
@@ -166,7 +166,7 @@
             -d '{
                     "cluster_id": "<идентификатор_кластера>"
                 }' \
-            ytsaurus.api.cloud.yandex.net:443 \
+            {{ api-host-ytsaurus }}:{{ port-https }} \
             yandex.cloud.ytsaurus.v1.ClusterService.Get
         ```
 
@@ -178,7 +178,7 @@
 
 ## Посмотреть операции с кластерами {#list-operations}
 
-Все действия с кластерами YTsaurus сохраняются в виде списка операций. Каждой операции присваивается уникальный идентификатор.
+Все действия с кластерами {{ ytsaurus-name }} сохраняются в виде списка операций. Каждой операции присваивается уникальный идентификатор.
 
 ### Получить список операций {#get-operations}
 
@@ -186,13 +186,13 @@
 
 - Консоль управления {#console}
 
-    Чтобы получить список операций для кластера YTsaurus:
+    Чтобы получить список операций для кластера {{ ytsaurus-name }}:
 
-    1. В [консоли управления](https://console.yandex.cloud) откройте каталог, в котором находится кластер.
-    1. [Перейдите](../../console/operations/select-service.md#select-service) в сервис **Managed Service for YTsaurus**.
-    1. На панели слева выберите ![image](../../_assets/console-icons/cubes-3.svg) **Кластеры**.
+    1. В [консоли управления]({{ link-console-main }}) откройте каталог, в котором находится кластер.
+    1. Перейдите в сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-ytsaurus }}**.
+    1. На панели слева выберите ![image](../../_assets/console-icons/cubes-3.svg) **{{ ui-key.yacloud.mdb.clusters.label_title }}**.
     1. Выберите нужный кластер.
-    1. Перейдите на панель ![image](../../_assets/console-icons/list-check.svg) **Операции** для выбранного кластера.
+    1. Перейдите на панель ![image](../../_assets/console-icons/list-check.svg) **{{ ui-key.yacloud.common.operations-key-value }}** для выбранного кластера.
 
        В открывшемся списке отображаются операции с выбранным кластером.
 
@@ -209,7 +209,7 @@
 
     - CLI {#cli}
 
-        Если у вас еще нет интерфейса командной строки Yandex Cloud (CLI), [установите и инициализируйте его](../../cli/quickstart.md#install).
+        Если у вас еще нет интерфейса командной строки {{ yandex-cloud }} (CLI), [установите и инициализируйте его](../../cli/quickstart.md#install).
 
         По умолчанию используется каталог, указанный при [создании](../../cli/operations/profile/profile-create.md) профиля CLI. Чтобы изменить каталог по умолчанию, используйте команду `yc config set folder-id <идентификатор_каталога>`. Также для любой команды вы можете указать другой каталог с помощью параметров `--folder-name` или `--folder-id`. Если вы обращаетесь к ресурсу по имени, поиск будет выполнен в каталоге по умолчанию. Если вы обращаетесь к ресурсу по идентификатору, поиск будет выполнен глобально — во всех каталогах с учетом прав доступа.
 
@@ -244,13 +244,13 @@
             export IAM_TOKEN="<IAM-токен>"
             ```
 
-        1. Воспользуйтесь методом [Operation.Get](../api-ref/Operation/get.md) и выполните запрос, например с помощью [cURL](https://curl.se/):
+        1. Воспользуйтесь методом [Operation.Get](../api-ref/Operation/get.md) и выполните запрос, например с помощью {{ api-examples.rest.tool }}:
 
             ```bash
             curl \
                 --request GET \
                 --header "Authorization: Bearer $IAM_TOKEN" \
-                --url 'https://operation.api.cloud.yandex.net/operations/<идентификатор_операции>'
+                --url 'https://{{ api-host-operation }}/operations/<идентификатор_операции>'
             ```
 
         1. Убедитесь, что запрос был выполнен успешно, изучив [ответ сервера](../api-ref/Operation/get.md#yandex.cloud.operation.Operation).
@@ -271,7 +271,7 @@
            
            Далее предполагается, что содержимое репозитория находится в директории `~/cloudapi/`.
 
-        1. Воспользуйтесь вызовом [OperationService.Get](../api-ref/grpc/Operation/get.md) и выполните запрос, например с помощью [gRPCurl](https://github.com/fullstorydev/grpcurl):
+        1. Воспользуйтесь вызовом [OperationService.Get](../api-ref/grpc/Operation/get.md) и выполните запрос, например с помощью {{ api-examples.grpc.tool }}:
 
             ```bash
             grpcurl \
@@ -283,7 +283,7 @@
                 -d '{
                         "operation_id": "<идентификатор_операции>"
                     }' \
-                operation.api.cloud.yandex.net:443 \
+                {{ api-host-operation }}:{{ port-https }} \
                 yandex.cloud.operation.OperationService.Get
             ```
 

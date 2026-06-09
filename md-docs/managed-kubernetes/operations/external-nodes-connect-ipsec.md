@@ -1,6 +1,6 @@
 # Настройка IPSec-шлюзов для подключения внешних узлов к кластеру
 
-Сервис Yandex Managed Service for Kubernetes позволяет подключать в качестве узлов [кластера Kubernetes](../concepts/index.md#kubernetes-cluster) серверы, расположенные вне Yandex Cloud. Для подключения необходимо организовать сетевую связность между удаленной сетью, в которой расположен внешний сервер, и [облачной сетью](../../vpc/concepts/network.md#network), в которой находится кластер Managed Service for Kubernetes. Это можно сделать с помощью [VPN](../../glossary/vpn.md).
+Сервис {{ managed-k8s-full-name }} позволяет подключать в качестве узлов [кластера {{ k8s }}](../concepts/index.md#kubernetes-cluster) серверы, расположенные вне {{ yandex-cloud }}. Для подключения необходимо организовать сетевую связность между удаленной сетью, в которой расположен внешний сервер, и [облачной сетью](../../vpc/concepts/network.md#network), в которой находится кластер {{ managed-k8s-name }}. Это можно сделать с помощью [VPN](../../glossary/vpn.md).
 
 Ниже рассматривается пример организации сетевой связности с помощью протокола [IPSec](../../glossary/ipsec.md).
 
@@ -8,9 +8,9 @@
 
 ![external-nodes-connect](../../_assets/tutorials/external-nodes-connect/external-nodes-connect.svg)
 
-На схеме внешний узел кластера Kubernetes и VPN клиент расположены в удаленной сети вне Yandex Cloud.
+На схеме внешний узел кластера {{ k8s }} и VPN клиент расположены в удаленной сети вне {{ yandex-cloud }}.
 
-Для простоты тестирования в приведенном ниже решении в качестве удаленной площадки выступает отдельная [облачная сеть](../../vpc/concepts/network.md#network) Yandex Virtual Private Cloud, а в качестве VPN клиента — [виртуальная машина](../../compute/concepts/vm.md) Yandex Compute Cloud, расположенная в этой облачной сети.
+Для простоты тестирования в приведенном ниже решении в качестве удаленной площадки выступает отдельная [облачная сеть](../../vpc/concepts/network.md#network) {{ vpc-full-name }}, а в качестве VPN клиента — [виртуальная машина](../../compute/concepts/vm.md) {{ compute-full-name }}, расположенная в этой облачной сети.
 
 ## Перед началом работы {#before-you-begin}
 
@@ -18,21 +18,21 @@
 
     {% note warning %}
     
-    Не изменяйте и не удаляйте ресурсы Virtual Private Cloud, которые используются кластером Managed Service for Kubernetes. Это может привести к некорректной работе кластера и невозможности его последующего удаления.
+    Не изменяйте и не удаляйте ресурсы {{ vpc-name }}, которые используются кластером {{ managed-k8s-name }}. Это может привести к некорректной работе кластера и невозможности его последующего удаления.
     
     {% endnote %}
 
-1. В основной сети [создайте](kubernetes-cluster/kubernetes-cluster-create.md) кластер Managed Service for Kubernetes с [высокодоступным](../concepts/index.md#master) типом мастера.
+1. В основной сети [создайте](kubernetes-cluster/kubernetes-cluster-create.md) кластер {{ managed-k8s-name }} с [высокодоступным](../concepts/index.md#master) типом мастера.
 
-    Для создания внешней группы узлов кластер Managed Service for Kubernetes должен работать в [туннельном режиме](../concepts/network-policy.md#cilium). Он включается только при создании кластера.
+    Для создания внешней группы узлов кластер {{ managed-k8s-name }} должен работать в [туннельном режиме](../concepts/network-policy.md#cilium). Он включается только при создании кластера.
 
-1. [Установите kubectl](https://kubernetes.io/ru/docs/tasks/tools/install-kubectl) и [настройте его на работу с созданным кластером](connect/index.md#kubectl-connect).
+1. [Установите kubectl]({{ k8s-docs }}/tasks/tools/install-kubectl) и [настройте его на работу с созданным кластером](connect/index.md#kubectl-connect).
 
-1. В основной сети [создайте](../../compute/operations/vm-create/create-linux-vm.md) виртуальную машину Compute Cloud с [публичным IP-адресом](../../vpc/concepts/address.md#public-addresses) и назовите ее `VM-1`. На этой ВМ будет настроен основной IPSec-шлюз.
+1. В основной сети [создайте](../../compute/operations/vm-create/create-linux-vm.md) виртуальную машину {{ compute-name }} с [публичным IP-адресом](../../vpc/concepts/address.md#public-addresses) и назовите ее `VM-1`. На этой ВМ будет настроен основной IPSec-шлюз.
 
 1. [Создайте](../../vpc/operations/network-create.md) дополнительную облачную сеть с одной подсетью.
 
-1. В дополнительной сети [создайте](../../compute/operations/vm-create/create-linux-vm.md) виртуальную машину Compute Cloud с публичным IP-адресом и назовите ее `VM-2`. На этой ВМ будет настроен дополнительный IPSec-шлюз.
+1. В дополнительной сети [создайте](../../compute/operations/vm-create/create-linux-vm.md) виртуальную машину {{ compute-name }} с публичным IP-адресом и назовите ее `VM-2`. На этой ВМ будет настроен дополнительный IPSec-шлюз.
 
 ## Настройка групп безопасности {#sg}
 
@@ -42,19 +42,19 @@
 
     - Исходящий трафик {#outgoing}
 
-      Описание | Диапазон портов | Протокол | Назначение | CIDR блоки
+      {{ ui-key.yacloud.vpc.network.security-groups.forms.field_sg-rule-description }} | {{ ui-key.yacloud.vpc.network.security-groups.forms.field_sg-rule-port-range }} | {{ ui-key.yacloud.vpc.network.security-groups.forms.field_sg-rule-protocol }} | {{ ui-key.yacloud.vpc.network.security-groups.forms.field_sg-rule-destination }} | {{ ui-key.yacloud.vpc.network.security-groups.forms.field_sg-rule-cidr-blocks }}
       --- | --- | --- | --- | ---
-      `any` | `0-65535` | `Любой` | `CIDR` | `0.0.0.0/0`
+      `any` | `{{ port-any }}` | `{{ ui-key.yacloud.vpc.network.security-groups.forms.value_any }}` | `{{ ui-key.yacloud.vpc.network.security-groups.forms.value_sg-rule-destination-cidr }}` | `0.0.0.0/0`
 
     - Входящий трафик {#incoming}
       
-      Описание | Диапазон портов | Протокол | Источник | CIDR блоки
+      {{ ui-key.yacloud.vpc.network.security-groups.forms.field_sg-rule-description }} | {{ ui-key.yacloud.vpc.network.security-groups.forms.field_sg-rule-port-range }} | {{ ui-key.yacloud.vpc.network.security-groups.forms.field_sg-rule-protocol }} | {{ ui-key.yacloud.vpc.network.security-groups.forms.field_sg-rule-source }} | {{ ui-key.yacloud.vpc.network.security-groups.forms.field_sg-rule-cidr-blocks }}
       --- | --- | --- | --- | ---
-      `icmp` | `0-65535` | `ICMP` | `CIDR` | `0.0.0.0/0`
-      `ssh` | `22` | `TCP`  | `CIDR` | `0.0.0.0/0`
-      `ipsec-udp-500` | `500` | `UDP` | `CIDR` | `<публичный_адрес_VM-2>/32`
-      `ipsec-udp-4500` | `4500` | `UDP` | `CIDR` | `<публичный_адрес_VM-2>/32`
-      `VM-2-subnet` | `0-65535` | `Любой` | `CIDR` | `<CIDR_подсети_VM-2>`
+      `icmp` | `{{ port-any }}` | `ICMP` | `{{ ui-key.yacloud.vpc.network.security-groups.forms.value_sg-rule-destination-cidr }}` | `0.0.0.0/0`
+      `ssh` | `22` | `TCP`  | `{{ ui-key.yacloud.vpc.network.security-groups.forms.value_sg-rule-destination-cidr }}` | `0.0.0.0/0`
+      `ipsec-udp-500` | `500` | `UDP` | `{{ ui-key.yacloud.vpc.network.security-groups.forms.value_sg-rule-destination-cidr }}` | `<публичный_адрес_VM-2>/32`
+      `ipsec-udp-4500` | `4500` | `UDP` | `{{ ui-key.yacloud.vpc.network.security-groups.forms.value_sg-rule-destination-cidr }}` | `<публичный_адрес_VM-2>/32`
+      `VM-2-subnet` | `{{ port-any }}` | `{{ ui-key.yacloud.vpc.network.security-groups.forms.value_any }}` | `{{ ui-key.yacloud.vpc.network.security-groups.forms.value_sg-rule-destination-cidr }}` | `<CIDR_подсети_VM-2>`
 
     {% endlist %}
 
@@ -64,32 +64,32 @@
 
     - Исходящий трафик {#outgoing}
 
-      Описание | Диапазон портов | Протокол | Назначение | CIDR блоки
+      {{ ui-key.yacloud.vpc.network.security-groups.forms.field_sg-rule-description }} | {{ ui-key.yacloud.vpc.network.security-groups.forms.field_sg-rule-port-range }} | {{ ui-key.yacloud.vpc.network.security-groups.forms.field_sg-rule-protocol }} | {{ ui-key.yacloud.vpc.network.security-groups.forms.field_sg-rule-destination }} | {{ ui-key.yacloud.vpc.network.security-groups.forms.field_sg-rule-cidr-blocks }}
       --- | --- | --- | --- | ---
-      `any` | `0-65535` | `Любой` | `CIDR` | `0.0.0.0/0`
+      `any` | `{{ port-any }}` | `{{ ui-key.yacloud.vpc.network.security-groups.forms.value_any }}` | `{{ ui-key.yacloud.vpc.network.security-groups.forms.value_sg-rule-destination-cidr }}` | `0.0.0.0/0`
 
     - Входящий трафик {#incoming}
 
-      Описание | Диапазон портов | Протокол | Источник | CIDR блоки
+      {{ ui-key.yacloud.vpc.network.security-groups.forms.field_sg-rule-description }} | {{ ui-key.yacloud.vpc.network.security-groups.forms.field_sg-rule-port-range }} | {{ ui-key.yacloud.vpc.network.security-groups.forms.field_sg-rule-protocol }} | {{ ui-key.yacloud.vpc.network.security-groups.forms.field_sg-rule-source }} | {{ ui-key.yacloud.vpc.network.security-groups.forms.field_sg-rule-cidr-blocks }}
       --- | --- | --- | --- | --- 
-      `icmp` | `0-65535` | `ICMP` | `CIDR` | `0.0.0.0/0`
-      `ssh` | `22`   | `TCP` | `CIDR` | `0.0.0.0/0`
-      `ipsec-udp-500` | `500` | `UDP` | `CIDR` | `<публичный_адрес_VM-1>/32`
-      `ipsec-udp-4500` | `4500` | `UDP` | `CIDR` | `<публичный_адрес_VM-1>/32`
-      `k8s-VM-1-subnets` | `0-65535` | `Любой` | `CIDR` | `<CIDR_основной_подсети1>`, `<CIDR_основной_подсети2>`, `<CIDR_основной_подсети3>`
-      `cluster&services` | `0-65535` | `Любой` | `CIDR` | `<CIDR_кластера>`, `<CIDR_сервисов>`
+      `icmp` | `{{ port-any }}` | `ICMP` | `{{ ui-key.yacloud.vpc.network.security-groups.forms.value_sg-rule-destination-cidr }}` | `0.0.0.0/0`
+      `ssh` | `22`   | `TCP` | `{{ ui-key.yacloud.vpc.network.security-groups.forms.value_sg-rule-destination-cidr }}` | `0.0.0.0/0`
+      `ipsec-udp-500` | `500` | `UDP` | `{{ ui-key.yacloud.vpc.network.security-groups.forms.value_sg-rule-destination-cidr }}` | `<публичный_адрес_VM-1>/32`
+      `ipsec-udp-4500` | `4500` | `UDP` | `{{ ui-key.yacloud.vpc.network.security-groups.forms.value_sg-rule-destination-cidr }}` | `<публичный_адрес_VM-1>/32`
+      `k8s-VM-1-subnets` | `{{ port-any }}` | `{{ ui-key.yacloud.vpc.network.security-groups.forms.value_any }}` | `{{ ui-key.yacloud.vpc.network.security-groups.forms.value_sg-rule-destination-cidr }}` | `<CIDR_основной_подсети1>`, `<CIDR_основной_подсети2>`, `<CIDR_основной_подсети3>`
+      `cluster&services` | `{{ port-any }}` | `{{ ui-key.yacloud.vpc.network.security-groups.forms.value_any }}` | `{{ ui-key.yacloud.vpc.network.security-groups.forms.value_sg-rule-destination-cidr }}` | `<CIDR_кластера>`, `<CIDR_сервисов>`
 
     {% endlist %}
 
-1. В группу безопасности кластера и групп узлов Managed Service for Kubernetes [добавьте](../../vpc/operations/security-group-add-rule.md) правило:
+1. В группу безопасности кластера и групп узлов {{ managed-k8s-name }} [добавьте](../../vpc/operations/security-group-add-rule.md) правило:
 
     {% list tabs group=traffic %}
 
     - Входящий трафик {#incoming}
 
-      Описание | Диапазон портов | Протокол | Источник | CIDR блоки
+      {{ ui-key.yacloud.vpc.network.security-groups.forms.field_sg-rule-description }} | {{ ui-key.yacloud.vpc.network.security-groups.forms.field_sg-rule-port-range }} | {{ ui-key.yacloud.vpc.network.security-groups.forms.field_sg-rule-protocol }} | {{ ui-key.yacloud.vpc.network.security-groups.forms.field_sg-rule-source }} | {{ ui-key.yacloud.vpc.network.security-groups.forms.field_sg-rule-cidr-blocks }}
       --- | --- | --- | --- | ---
-      `VM-2-subnet` | `0-65535` | `Любой` | `CIDR` | `<CIDR_подсети_VM-2>` 
+      `VM-2-subnet` | `{{ port-any }}` | `{{ ui-key.yacloud.vpc.network.security-groups.forms.value_any }}` | `{{ ui-key.yacloud.vpc.network.security-groups.forms.value_sg-rule-destination-cidr }}` | `<CIDR_подсети_VM-2>` 
 
     {% endlist %}
 
@@ -99,8 +99,8 @@
 
    1. В основной сети [создайте таблицу маршрутизации и добавьте в нее статический маршрут](../../vpc/operations/static-route-create.md):
 
-      * **Префикс назначения** — укажите CIDR подсети, где расположена `VM-2`.
-      * **IP-адрес** — укажите внутренний IP-адрес `VM-1`.
+      * **{{ ui-key.yacloud.vpc.add-static-route.field_destination-prefix }}** — укажите CIDR подсети, где расположена `VM-2`.
+      * **{{ ui-key.yacloud.vpc.add-static-route.value_ip-address }}** — укажите внутренний IP-адрес `VM-1`.
 
    1. Привяжите таблицу маршрутизации ко всем подсетям основной сети.
 
@@ -110,8 +110,8 @@
 
    1. Добавьте для таблицы маршрутизации статический маршрут:
 
-      * **Префикс назначения** — укажите CIDR подсети, где расположена `VM-1`.
-      * **IP-адрес** — укажите внутренний IP-адрес `VM-2`.
+      * **{{ ui-key.yacloud.vpc.add-static-route.field_destination-prefix }}** — укажите CIDR подсети, где расположена `VM-1`.
+      * **{{ ui-key.yacloud.vpc.add-static-route.value_ip-address }}** — укажите внутренний IP-адрес `VM-2`.
 
       Повторите этот шаг для каждой подсети основной сети.
 
@@ -286,7 +286,7 @@
    
      {% endnote %}
 
-1. [Подключите](external-nodes-connect.md) `VM-2` к кластеру Managed Service for Kubernetes в качестве внешнего узла.
+1. [Подключите](external-nodes-connect.md) `VM-2` к кластеру {{ managed-k8s-name }} в качестве внешнего узла.
 
 ## Решение проблем {#troubleshooting}
 

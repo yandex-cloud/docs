@@ -5,7 +5,7 @@ Retrieves information about the specified user.
 ## HTTP request
 
 ```
-GET https://mdb.api.cloud.yandex.net/managed-mysql/v1/clusters/{clusterId}/users/{userName}
+GET https://{{ api-host-mdb }}/managed-mysql/v1/clusters/{clusterId}/users/{userName}
 ```
 
 ## Path parameters
@@ -15,17 +15,15 @@ GET https://mdb.api.cloud.yandex.net/managed-mysql/v1/clusters/{clusterId}/users
 || clusterId | **string**
 
 Required field. ID of the cluster the user belongs to.
-
 To get this ID, make a [ClusterService.List](../Cluster/list.md#List) request.
 
 The maximum string length in characters is 50. ||
 || userName | **string**
 
 Required field. Name of the user to return information about.
-
 To get this name, make a [UserService.List](list.md#List) request.
 
-The maximum string length in characters is 63. Value must match the regular expression ` [a-zA-Z0-9_-]* `. ||
+The maximum string length in characters is 63. Value must match the regular expression ` [a-zA-Z0-9_@.-]* `. ||
 |#
 
 ## Response {#yandex.cloud.mdb.mysql.v1.User}
@@ -62,7 +60,6 @@ The maximum string length in characters is 63. Value must match the regular expr
 ```
 
 An object that represents MySQL user.
-
 See [the documentation](../../operations/cluster-users.md) for details.
 
 #|
@@ -84,8 +81,7 @@ Set of global permissions to grant to the user.
 - `REPLICATION_SLAVE`: Enables the account to request updates that have been made to databases on the master server,
 using the `SHOW SLAVE HOSTS`, `SHOW RELAYLOG EVENTS` and `SHOW BINLOG EVENTS` statements.
 - `PROCESS`: Enables display of information about the the statements currently being performed by sessions (the set of threads executing within the server).
-
-  The privilege enables use of `SHOW PROCESSLIST` or `mysqladmin` processlist to see threads belonging to other users.
+The privilege enables use of `SHOW PROCESSLIST` or `mysqladmin` processlist to see threads belonging to other users.
 You can always see your own threads. The `PROCESS` privilege also enables use of `SHOW ENGINE`.
 - `FLUSH_OPTIMIZER_COSTS`: Enables use of the `FLUSH OPTIMIZER_COSTS` statement.
 - `SHOW_ROUTINE`: Enables a user to access definitions and properties of all stored routines (stored procedures and functions), even those for which the user is not named as the routine DEFINER.
@@ -113,7 +109,6 @@ Connection Manager Connection and settings associated with user. Read only field
 || deletionProtectionMode | **enum** (DeletionProtectionMode)
 
 Deletion Protection inhibits deletion of the user
-
 Default value: `DELETION_PROTECTION_MODE_DISABLED` (protection is disabled)
 
 - `DELETION_PROTECTION_MODE_DISABLED`: Deletion protection is disabled
@@ -131,7 +126,6 @@ Name of the database that the permission grants access to. ||
 || roles[] | **enum** (Privilege)
 
 Roles granted to the user within the database.
-
 See [the documentation](../../operations/grant.md) for details.
 
 The minimum number of elements is 1.
@@ -151,10 +145,8 @@ The minimum number of elements is 1.
 - `INSERT`: Inserting rows into the database.
 - `LOCK_TABLES`: Using `LOCK TABLES` statement for tables available with `SELECT` privilege.
 - `SELECT`: Selecting rows from tables.
-
-  Some `SELECT` statements can be allowed without the `SELECT` privilege. All statements that read column values require the `SELECT` privilege.
-
-  See [MySQL documentation](https://dev.mysql.com/doc/refman/8.0/en/privileges-provided.html#priv_select) for details.
+Some `SELECT` statements can be allowed without the `SELECT` privilege. All statements that read column values require the `SELECT` privilege.
+See [MySQL documentation](https://dev.mysql.com/doc/refman/8.0/en/privileges-provided.html#priv_select) for details.
 - `SHOW_VIEW`: Using the `SHOW CREATE VIEW` statement. Also needed for views used with `EXPLAIN`.
 - `TRIGGER`: Creating, removing, executing, or displaying triggers for a table.
 - `UPDATE`: Updating rows in the database.

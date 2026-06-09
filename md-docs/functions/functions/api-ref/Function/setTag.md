@@ -5,7 +5,7 @@ Set a tag for the specified version of a function.
 ## HTTP request
 
 ```
-POST https://serverless-functions.api.cloud.yandex.net/functions/v1/versions/{functionVersionId}:setTag
+POST https://serverless-functions.{{ api-host }}/functions/v1/versions/{functionVersionId}:setTag
 ```
 
 ## Path parameters
@@ -379,7 +379,8 @@ It's essential to specify network with subnets in all availability zones. ||
 || subnetId[] | **string**
 
 Complete list of subnets (from the same network) the version can be attached to.
-It's essential to specify at least one subnet for each availability zones.
+
+Deprecated, it is sufficient to specify only network_id, without the list of subnet_ids.
 
 The string length in characters for each value must be greater than 0. ||
 |#
@@ -540,8 +541,8 @@ The string length in characters must be 1-100. Value must match the regular expr
 
 Mount's mode
 
-- `READ_ONLY`
-- `READ_WRITE` ||
+- `READ_ONLY`: Mount is available for read access only.
+- `READ_WRITE`: Mount is available for both read and write access. ||
 || objectStorage | **[ObjectStorage](#yandex.cloud.serverless.functions.v1.Mount.ObjectStorage)**
 
 Object storage mounts

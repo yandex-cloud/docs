@@ -5,7 +5,7 @@ Create a comment for a specified alert.
 ## HTTP request
 
 ```
-POST https://alert-sink.api.cloud.yandex.net/securitydeck/alerts/v1/alerts/{alertId}/comments
+POST https://alert-sink.{{ api-host }}/securitydeck/alerts/v1/alerts/{alertId}/comments
 ```
 
 ## Path parameters

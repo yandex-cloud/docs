@@ -24,7 +24,7 @@
 
 ### Ошибки DeleteMessageBatch {#errors}
 
-Перечень общих для всех методов ошибок смотрите в разделе [Стандартные ошибки](../common-errors.md).
+Перечень общих для всех методов ошибок смотрите в разделе [{#T}](../common-errors.md).
 
 Код HTTP | Идентификатор ошибки | Описание
 ----- | ----- | -----
@@ -38,7 +38,7 @@
 ```text
 Action=DeleteMessageBatch
 &Version=2012-11-05
-&QueueUrl=https://message-queue.api.cloud.yandex.net/b1g8ad42m6he********/dj6000000000********/sample-queue
+&QueueUrl=https://message-queue.{{ api-host }}/b1g8ad42m6he********/dj6000000000********/sample-queue
 &DeleteMessageBatchRequestEntry.1.Id=dd2dd32b-eb1e7a37-f6b7a725***-*****
 &DeleteMessageBatchRequestEntry.1.ReceiptHandle=EAEg89f********
 &DeleteMessageBatchRequestEntry.2.Id=7e0e07f6-5c9a0a72-d304102f***-*****

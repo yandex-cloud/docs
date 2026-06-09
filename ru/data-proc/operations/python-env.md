@@ -83,7 +83,7 @@ description: Следуя данной инструкции, вы сможете
 
 * `spark.submit.deployMode=cluster` — режим размещения драйвера.
 
-    Запуск заданий должен выполняться в режиме `cluster`, чтобы виртуальное окружение было правильно подготовлено. Подробнее о режиме размещения драйвера см. в разделе [{#T}](../concepts/spark-sql.md#resource-management).
+    Запуск заданий должен выполняться в режиме `cluster`, чтобы виртуальное окружение было правильно подготовлено. Подробнее о режиме размещения драйвера в разделе [{#T}](../concepts/spark-sql.md#resource-management).
 
 * `spark.yarn.dist.archives='s3a://<имя_бакета>/<имя_архива>.tar.gz#<псевдоним>'` — путь к архиву с подготовленным окружением.
 
@@ -96,13 +96,13 @@ description: Следуя данной инструкции, вы сможете
 
 ### Использование виртуального окружения в интеграции кластера {{ dataproc-name }} с {{ ml-platform-full-name }} {#launch-datasphere}
 
-Интеграция {{ ml-platform-full-name }} и {{ dataproc-name }} основана на использовании компонента [Apache Livy](https://livy.apache.org/) в составе {{ dataproc-name }}. Подробнее о настройке интеграции с {{ ml-platform-full-name }} см. в разделе [Интеграция с сервисом {{ ml-platform-full-name }}](../tutorials/datasphere-integration.md).
+Интеграция {{ ml-platform-full-name }} и {{ dataproc-name }} основана на использовании компонента [Apache Livy](https://livy.apache.org/) в составе {{ dataproc-name }}. Подробнее о настройке интеграции с {{ ml-platform-full-name }} в разделе [Интеграция с сервисом {{ ml-platform-full-name }}](../tutorials/datasphere-integration.md).
 
 Чтобы использовать виртуальные окружения Python в интеграции с {{ ml-platform-full-name }}, выполните дополнительные настройки:
 
 1. На стороне кластера {{ dataproc-name }} установите режим размещения драйвера `cluster`. Для этого при [изменении кластера](./cluster-update.md) передайте значение [свойства компонента](../concepts/settings-list.md) `livy:livy.spark.deploy-mode=cluster`.
 
-    Подробнее о режиме размещения драйвера см. в разделе [{#T}](../concepts/spark-sql.md#resource-management).
+    Подробнее о режиме размещения драйвера в разделе [{#T}](../concepts/spark-sql.md#resource-management).
 
 1. На стороне сервиса {{ ml-platform-full-name }} [создайте сессию Livy](../../datasphere/concepts/data-processing.md#session) со следующими настройками:
 
@@ -144,7 +144,7 @@ description: Следуя данной инструкции, вы сможете
 
     * `spark.submit.deployMode cluster` — режим размещения драйвера.
 
-        Запуск заданий должен выполняться в режиме `cluster`, чтобы виртуальное окружение было правильно подготовлено. Подробнее о режиме размещения драйвера см. в разделе [{#T}](../concepts/spark-sql.md#resource-management).
+        Запуск заданий должен выполняться в режиме `cluster`, чтобы виртуальное окружение было правильно подготовлено. Подробнее о режиме размещения драйвера в разделе [{#T}](../concepts/spark-sql.md#resource-management).
 
     * `spark.yarn.dist.archives 's3a://<имя_бакета>/<имя_архива>.tar.gz#<псевдоним>'` — путь к архиву с подготовленным окружением.
 

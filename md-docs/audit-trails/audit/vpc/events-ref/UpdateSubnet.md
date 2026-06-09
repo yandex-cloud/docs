@@ -85,9 +85,13 @@
   },
   "details": {
     "subnetId": "string",
+    // Includes only one of the fields `subnetName`
     "subnetName": "string",
+    // end of the list of possible fields
     "networkId": "string",
+    // Includes only one of the fields `networkName`
     "networkName": "string",
+    // end of the list of possible fields
     "zoneId": "string",
     "v4CidrBlocks": [
       "string"
@@ -95,8 +99,12 @@
     "v6CidrBlocks": [
       "string"
     ],
+    // Includes only one of the fields `routeTableId`
     "routeTableId": "string",
+    // end of the list of possible fields
+    // Includes only one of the fields `routeTableName`
     "routeTableName": "string",
+    // end of the list of possible fields
     "dhcpOptions": {
       "domainNameServers": [
         "string"
@@ -106,7 +114,9 @@
         "string"
       ]
     },
+    // Includes only one of the fields `description`
     "description": "string",
+    // end of the list of possible fields
     "labels": "object"
   },
   "requestParameters": "object",
@@ -279,16 +289,26 @@ A list of messages that carry the error details. ||
 #|
 ||Field | Description ||
 || subnetId | **string** ||
-|| subnetName | **string** ||
+|| subnetName | **string**
+
+Includes only one of the fields `subnetName`. ||
 || networkId | **string** ||
-|| networkName | **string** ||
+|| networkName | **string**
+
+Includes only one of the fields `networkName`. ||
 || zoneId | **string** ||
 || v4CidrBlocks[] | **string** ||
 || v6CidrBlocks[] | **string** ||
-|| routeTableId | **string** ||
-|| routeTableName | **string** ||
+|| routeTableId | **string**
+
+Includes only one of the fields `routeTableId`. ||
+|| routeTableName | **string**
+
+Includes only one of the fields `routeTableName`. ||
 || dhcpOptions | **[DhcpOptions](#yandex.cloud.vpc.v1.DhcpOptions)** ||
-|| description | **string** ||
+|| description | **string**
+
+Includes only one of the fields `description`. ||
 || labels | **object** (map<**string**, **string**>) ||
 |#
 

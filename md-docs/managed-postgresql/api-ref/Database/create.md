@@ -5,7 +5,7 @@ Creates a new PostgreSQL database in the specified cluster.
 ## HTTP request
 
 ```
-POST https://mdb.api.cloud.yandex.net/managed-postgresql/v1/clusters/{clusterId}/databases
+POST https://{{ api-host-mdb }}/managed-postgresql/v1/clusters/{clusterId}/databases
 ```
 
 ## Path parameters

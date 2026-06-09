@@ -6,7 +6,7 @@ Updates access bindings for the specified Trino cluster.
 ## HTTP request
 
 ```
-PATCH https://trino.api.cloud.yandex.net/managed-trino/v1/clusters/{resourceId}:updateAccessBindings
+PATCH https://trino.{{ api-host }}/managed-trino/v1/clusters/{resourceId}:updateAccessBindings
 ```
 
 ## Path parameters

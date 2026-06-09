@@ -1,13 +1,13 @@
 # Изменение настроек подключения
 
-В разделе ![image](../../_assets/console-icons/folder-tree.svg) [**Подключения**](https://websql.yandex.cloud) вы можете изменить настройки [подключения](../concepts/index.md#connection):
+В разделе ![image](../../_assets/console-icons/folder-tree.svg) [**Подключения**]({{ websql-link }}) вы можете изменить настройки [подключения](../concepts/index.md#connection):
 
    * [к БД в кластере управляемых БД](#change-cluster-connection-settings);
    * [к публично доступной БД](#change-public-db-connection-settings).
 
 ## Изменить настройки подключения к кластеру управляемых БД {#change-cluster-connection-settings}
 
-1. В разделе ![image](../../_assets/console-icons/folder-tree.svg) [**Подключения**](https://websql.yandex.cloud) выберите подключение.
+1. В разделе ![image](../../_assets/console-icons/folder-tree.svg) [**Подключения**]({{ websql-link }}) выберите подключение.
 1. Нажмите ![image](../../_assets/console-icons/ellipsis.svg) справа от названия подключения и выберите **Изменить подключение**.
 1. Укажите новое имя подключения.
 1. В поле **Кластер** выберите кластер управляемых БД, к которому вы хотите подключиться.
@@ -18,19 +18,19 @@
 
 ## Изменить настройки подключения к публично доступной БД {#change-public-db-connection-settings}
 
-1. В разделе ![image](../../_assets/console-icons/folder-tree.svg) [**Подключения**](https://websql.yandex.cloud) выберите подключение.
+1. В разделе ![image](../../_assets/console-icons/folder-tree.svg) [**Подключения**]({{ websql-link }}) выберите подключение.
 1. Нажмите ![image](../../_assets/console-icons/ellipsis.svg) справа от названия подключения и выберите **Изменить подключение**.
 1. Укажите новое имя подключения.
 1. В разделе **Хосты** задайте конфигурацию хостов:
     * укажите FQDN хоста c БД и номер порта для подключения к БД.
 
-        Если вы подключаетесь к БД в кластере, созданном в Yandex Cloud, используйте следующие порты:
+        Если вы подключаетесь к БД в кластере, созданном в {{ yandex-cloud }}, используйте следующие порты:
 
-        * 6432 для PostgreSQL;
-        * 8443 для ClickHouse®;
-        * 3306 для MySQL®.
+        * 6432 для {{ PG }};
+        * 8443 для {{ CH }};
+        * 3306 для {{ MY }}.
 
-    * для ClickHouse® также укажите порт Native Protocol и имя [шарда](../../managed-clickhouse/operations/shards.md#list-shards).
+    * для {{ CH }} также укажите порт Native Protocol и имя [шарда](../../managed-clickhouse/operations/shards.md#list-shards).
     * (Опционально) Включите использование [TLS](../../glossary/tls.md).
 
         Если в вашей компании есть [центр авторизации (CA)](../../glossary/tls.md#authentication), по умолчанию будет использоваться выпущенный им сертификат. Если в компании нет СА, загрузите TLS-сертификат сервера.
@@ -40,4 +40,4 @@
 1. Перечислите **Базы данных**, к которым вы хотите подключиться. Вы можете подключиться только к существующим БД. У пользователя, которого вы указали, должен быть настроен доступ к ним.
 1. Нажмите кнопку **Применить**.
 
-_ClickHouse® является зарегистрированным товарным знаком [ClickHouse, Inc](https://clickhouse.com)._
+_{{ CH }} является зарегистрированным товарным знаком [ClickHouse, Inc](https://clickhouse.com)._

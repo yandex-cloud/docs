@@ -79,9 +79,6 @@ Set the custom configuration file. ||
 Enable gRPC retries. By default, retries are enabled with maximum 5 attempts.
 Pass 0 to disable retries. Pass any negative value for infinite retries.
 Even infinite retries are capped with 2 minutes timeout. ||
-|| `--syntax` | `string`
-
-CLI syntax: 1 (legacy) or 2 (current). Omit to use default-syntax in the profile or the product default. ||
 || `--cloud-id` | `string`
 
 Set the ID of the cloud to use. ||
@@ -109,14 +106,3 @@ Set the output format: text (default), yaml, json, json-rest. ||
 Query to select values from the response using jq syntax ||
 || `-h`, `--help` | Display help for the command. ||
 |#
-#### Examples
-
- * [Задать расписание](../../../../../serverless-integrations/operations/workflows/execution/start-by-timer.md#cli_1)
- * [Добавить метку рабочему процессу](../../../../../serverless-integrations/operations/workflows/workflow/label-add.md#cli_1)
- * [Удалить метку рабочего процесса](../../../../../serverless-integrations/operations/workflows/workflow/label-delete.md#cli_1)
- * [Изменить метку рабочего процесса](../../../../../serverless-integrations/operations/workflows/workflow/label-update.md#cli_1)
- * [Пример команды](../../../../../serverless-integrations/operations/workflows/workflow/logs-write.md#cli_1)
- * [Сделать рабочий процесс приватным](../../../../../serverless-integrations/operations/workflows/workflow/make-private.md#cli_1)
- * [Сделать рабочий процесс публичным](../../../../../serverless-integrations/operations/workflows/workflow/make-public.md#cli_1)
- * [Указать облачную сеть, в которой будет выполняться рабочий процесс](../../../../../serverless-integrations/operations/workflows/workflow/network-add.md#cli_1)
- * [Изменить рабочий процесс](../../../../../serverless-integrations/operations/workflows/workflow/update.md#cli_1)

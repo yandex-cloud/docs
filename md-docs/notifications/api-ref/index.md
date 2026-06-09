@@ -1,6 +1,6 @@
-# Обзор HTTP API Yandex Cloud Notification Service
+# Обзор HTTP API {{ cns-full-name }}
 
-HTTP API сервиса Cloud Notification Service совместим с [Amazon SNS API](https://docs.aws.amazon.com/sns/latest/api/welcome.html). 
+HTTP API сервиса {{ cns-name }} совместим с [Amazon SNS API](https://docs.aws.amazon.com/sns/latest/api/welcome.html). 
 
 Для более удобного взаимодействия с сервисом поддержана работа с [AWS CLI](../tools/aws-cli.md), [AWS SDK для Python (boto3)](../tools/sdk-python.md) и другими [AWS-совместимыми SDK](../tools/index.md).
 
@@ -8,13 +8,13 @@ HTTP API сервиса Cloud Notification Service совместим с [Amazon
 
 {% note info %}
 
-Запросы API к Cloud Notification Service со статическим ключом должны быть подписаны по алгоритму [AWS Signature V4](https://docs.aws.amazon.com/IAM/latest/UserGuide/reference_aws-signing.html).
+Запросы API к {{ cns-name }} со статическим ключом должны быть подписаны по алгоритму [AWS Signature V4](https://docs.aws.amazon.com/IAM/latest/UserGuide/reference_aws-signing.html).
 
 {% endnote %}
 
-Чтобы не подписывать запросы API к Cloud Notification Service, вместо статического ключа вы можете использовать [IAM-токен](../../iam/concepts/authorization/iam-token.md). Подробнее см. [Отправить запрос HTTP API к Yandex Cloud Notification Service](send-request.md).
+Чтобы не подписывать запросы API к {{ cns-name }}, вместо статического ключа вы можете использовать [IAM-токен](../../iam/concepts/authorization/iam-token.md). Подробнее см. [{#T}](send-request.md).
 
-Перечень общих кодов ошибок для всех действий см. в разделе [Ошибки](common-errors.md).
+Перечень общих кодов ошибок для всех действий см. в разделе [{#T}](common-errors.md).
 
 ## Поддерживаемые действия {#actions}
 

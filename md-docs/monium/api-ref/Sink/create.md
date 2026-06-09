@@ -5,7 +5,7 @@ Creates a sink in the specified folder.
 ## HTTP request
 
 ```
-POST https://logging.api.cloud.yandex.net/logging/v1/sinks
+POST https://logging.{{ api-host }}/logging/v1/sinks
 ```
 
 ## Body parameters {#yandex.cloud.logging.v1.CreateSinkRequest}

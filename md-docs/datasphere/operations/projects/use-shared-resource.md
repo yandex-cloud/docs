@@ -2,11 +2,11 @@
 
 В своем проекте вы можете использовать ресурс, который доступен для всего сообщества.
 
-Чтобы поделиться ресурсом в сообществе, понадобятся роли `Editor` в проекте и `Developer` в сообществе. Подробнее о ролях, действующих в DataSphere, см. в разделе [Управление доступом в DataSphere](../../security/index.md).
+Чтобы поделиться ресурсом в сообществе, понадобятся роли `Editor` в проекте и `Developer` в сообществе. Подробнее о ролях, действующих в {{ ml-platform-name }}, см. в разделе [{#T}](../../security/index.md).
 
 Чтобы использовать ресурс с совместным доступом:
 
-1. Выберите нужный проект в своем сообществе или на [главной странице](https://datasphere.yandex.cloud) DataSphere во вкладке **Недавние проекты**.
-1. В блоке **Ресурсы проекта** выберите нужный ресурс.
-1. Перейдите на вкладку **Доступные**.
-1. Рядом с нужным ресурсом нажмите ![options](../../../_assets/console-icons/ellipsis.svg) и выберите **Добавить в проект**.
+1. Выберите нужный проект в своем сообществе или на [главной странице]({{ link-datasphere-main }}) {{ ml-platform-name }} во вкладке **{{ ui-key.yc-ui-datasphere.main-page.recent-projects }}**.
+1. В блоке **{{ ui-key.yc-ui-datasphere.project-page.project-resources }}** выберите нужный ресурс.
+1. Перейдите на вкладку **{{ ui-key.yc-ui-datasphere.common.shared-with-project-resources }}**.
+1. Рядом с нужным ресурсом нажмите ![options](../../../_assets/console-icons/ellipsis.svg) и выберите **{{ ui-key.yc-ui-datasphere.common.add-to-project }}**.

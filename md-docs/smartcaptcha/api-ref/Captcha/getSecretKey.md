@@ -5,7 +5,7 @@ Returns the secret data of specified Captcha resource.
 ## HTTP request
 
 ```
-GET https://smartcaptcha.api.cloud.yandex.net/smartcaptcha/v1/captchas/{captchaId}:getSecretKey
+GET https://smartcaptcha.{{ api-host }}/smartcaptcha/v1/captchas/{captchaId}:getSecretKey
 ```
 
 ## Path parameters
